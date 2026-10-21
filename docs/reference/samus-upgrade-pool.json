@@ -1,0 +1,43 @@
+{
+  "source_swf_sha256": "6374c72426556bfc3cc16f7594ce4443a5867fe2d367514136c99cc8458b70af",
+  "samus_source_sha256": "1f2e577a62b339def01f1e7c8fea0b773184a6039a2e78ad48eca6e6a651986b",
+  "source_modified": false,
+  "runtime_changed": false,
+  "chr_bytes_changed": 0,
+  "obtainable": [
+    "SAMUS_MORPH_BALL",
+    "SAMUS_MISSILE",
+    "SAMUS_ICE_BEAM",
+    "SAMUS_WAVE_BEAM",
+    "SAMUS_VARIA_SUIT",
+    "SAMUS_SCREW_ATTACK"
+  ],
+  "mushroom_grants": [
+    "SAMUS_LONG_BEAM"
+  ],
+  "normal_jump_source_units": 500,
+  "dormant_high_jump": {
+    "source_units": 580,
+    "icon_declared": true,
+    "obtainable": false,
+    "debug_all_upgrades_grants": false,
+    "automatic_or_replacement_grants": false
+  },
+  "current_local_ids": {
+    "MORPH": 1,
+    "MISSILE": 2,
+    "ICE": 3,
+    "WAVE": 4,
+    "VARIA": 5,
+    "SCREW": 6,
+    "LONG": 7
+  },
+  "conclusion": "Default 2.02 never supplies High Jump; retain the six separate pickups and mushroom Long Beam.",
+  "source_references": [
+    "Samus.as:73..83 (upgrade arrays)",
+    "Samus.as:155..157 and490..499 (dormant jump branch)",
+    "Character.as:671..698 (normal pool)",
+    "Character.as:727..766 (debug all-upgrades pool)",
+    "StatManager.as:412..419 (debug grant caller)"
+  ]
+}

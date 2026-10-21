@@ -1,0 +1,17 @@
+{
+    "editor.tabSize": 2,
+    "terminal.integrated.showExitAlert": false,
+    "runOnSave.statusMessageTimeout": 3000,
+    "runOnSave.commands": [
+        {
+            "match": ".*\\.([sS]|inc|h|c|ini)$",
+            "command": "workbench.action.tasks.build",
+            "runIn": "vscode"
+        }
+    ],
+    "clangd.fallbackFlags": [
+        "-I${workspaceFolder}/tools/Windows/cc65/include",
+        "-I${workspaceFolder}/inc",
+        "-I${workspaceFolder}",
+    ]
+}

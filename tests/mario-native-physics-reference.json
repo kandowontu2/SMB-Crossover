@@ -1,0 +1,20 @@
+{
+  "source": "Independent native Mario control on immutable pre-Luigi-rewrite v18, with integrator fractions and platform phase explicitly initialized",
+  "checkpoint": "roster-audit-v18",
+  "rom_sha256": "9c62290a9c1218bddeb789c3a83c02db56ad1f04e70c5697e9f73fe8cf15dfd4",
+  "controller_fixture_sha256": "2cfc9e1a8d3ac03ed02071f455f5dc0af5beef4ade7db382f3a1ecac4984ee66",
+  "trace_sha256": "30a71ece3726d3b62104d3ee1ecb5499fd1dd54cdb3c6f64e534ca6251a59d6a",
+  "trace_gzip_sha256": "52722908db422e6754482846c45906007aaf11c2de64b2409020b7d0d853ebcc",
+  "cases": 39,
+  "ticks_per_case": 128,
+  "emulated_writes": "Explicit arena initialization and enemy suppression only; no avatar writes during a trial",
+  "initialization_audit": {
+    "separate_native_displacement_fraction": "SprObject_X_MoveForce=0; Player_X_MoveForce is velocity fraction only",
+    "native_platform": "FrameCounter=0 and Enemy_Y_Speed primarycounter=0",
+    "both_current_v20_mappers_match_every_original_control_row": true,
+    "old_incomplete_fixtures_retained": [
+      "mario-native-physics-v18-uninitialized-platform-reference.csv.gz",
+      "mario-native-physics-v19-platform-phase-reference.csv.gz"
+    ]
+  }
+}

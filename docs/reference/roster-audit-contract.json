@@ -1,0 +1,1565 @@
+{
+  "purpose": "Source-derived audit expectations. Mismatches remain findings; this is not a port-snapshot approval file.",
+  "names": [
+    "Mario",
+    "Mega Man",
+    "Samus",
+    "Bill",
+    "Link",
+    "Simon",
+    "Pit",
+    "Rygar",
+    "Luigi",
+    "Bass",
+    "Ryu",
+    "Sophia"
+  ],
+  "units": "NES pixels per 60 Hz update; Flash speeds /120, accelerations /7200. t=2 is the first applied input update.",
+  "rules": [
+    {
+      "character": 1,
+      "name": "Mega Man",
+      "property": "first dry jump velocity",
+      "measurement": {
+        "kind": "motion",
+        "phase": 2,
+        "t": 2,
+        "column": "vy"
+      },
+      "expected": -4.680555555555555,
+      "expression": "-580/120+1100/7200",
+      "tolerance": 0.004,
+      "operator": "near",
+      "source": {
+        "path": "reference/crossover/decompiled/scripts/com/smbc/characters/MegaMan.as",
+        "line": 380,
+        "anchor": "function jump"
+      }
+    },
+    {
+      "character": 1,
+      "name": "Mega Man",
+      "property": "fall after 70 updates",
+      "measurement": {
+        "kind": "motion",
+        "phase": 4,
+        "t": 70,
+        "column": "vy"
+      },
+      "expected": 5.833333333333333,
+      "expression": "700/120",
+      "tolerance": 0.005,
+      "operator": "near",
+      "source": {
+        "path": "reference/crossover/decompiled/scripts/com/smbc/characters/MegaMan.as",
+        "line": 837,
+        "anchor": "function setStats"
+      }
+    },
+    {
+      "character": 1,
+      "name": "Mega Man",
+      "property": "submerged ground walking",
+      "measurement": {
+        "kind": "motion",
+        "phase": 7,
+        "t": 30,
+        "column": "vx"
+      },
+      "expected": 0.75,
+      "expression": "90/120",
+      "tolerance": 0.004,
+      "operator": "near",
+      "source": {
+        "path": "reference/crossover/decompiled/scripts/com/smbc/characters/Character.as",
+        "line": 309,
+        "anchor": "vxMaxGroundWater"
+      }
+    },
+    {
+      "character": 1,
+      "name": "Mega Man",
+      "property": "first submerged jump velocity",
+      "measurement": {
+        "kind": "motion",
+        "phase": 6,
+        "t": 2,
+        "column": "vy"
+      },
+      "expected": -4.513888888888888,
+      "expression": "-550/120+500/7200",
+      "tolerance": 0.004,
+      "operator": "near",
+      "source": {
+        "path": "reference/crossover/decompiled/scripts/com/smbc/characters/MegaMan.as",
+        "line": 837,
+        "anchor": "function setStats"
+      }
+    },
+    {
+      "character": 2,
+      "name": "Samus",
+      "property": "first dry jump velocity",
+      "measurement": {
+        "kind": "motion",
+        "phase": 2,
+        "t": 2,
+        "column": "vy"
+      },
+      "expected": -4.069444444444445,
+      "expression": "-500/120+700/7200",
+      "tolerance": 0.004,
+      "operator": "near",
+      "source": {
+        "path": "reference/crossover/decompiled/scripts/com/smbc/characters/Samus.as",
+        "line": 246,
+        "anchor": "function jump"
+      }
+    },
+    {
+      "character": 2,
+      "name": "Samus",
+      "property": "fall after 70 updates",
+      "measurement": {
+        "kind": "motion",
+        "phase": 4,
+        "t": 70,
+        "column": "vy"
+      },
+      "expected": 3.75,
+      "expression": "450/120",
+      "tolerance": 0.005,
+      "operator": "near",
+      "source": {
+        "path": "reference/crossover/decompiled/scripts/com/smbc/characters/Samus.as",
+        "line": 602,
+        "anchor": "function setStats"
+      }
+    },
+    {
+      "character": 2,
+      "name": "Samus",
+      "property": "submerged ground walking",
+      "measurement": {
+        "kind": "motion",
+        "phase": 7,
+        "t": 30,
+        "column": "vx"
+      },
+      "expected": 0.75,
+      "expression": "90/120",
+      "tolerance": 0.004,
+      "operator": "near",
+      "source": {
+        "path": "reference/crossover/decompiled/scripts/com/smbc/characters/Character.as",
+        "line": 309,
+        "anchor": "vxMaxGroundWater"
+      }
+    },
+    {
+      "character": 2,
+      "name": "Samus",
+      "property": "first submerged jump velocity",
+      "measurement": {
+        "kind": "motion",
+        "phase": 6,
+        "t": 2,
+        "column": "vy"
+      },
+      "expected": -4.111111111111112,
+      "expression": "-500/120+400/7200",
+      "tolerance": 0.004,
+      "operator": "near",
+      "source": {
+        "path": "reference/crossover/decompiled/scripts/com/smbc/characters/Samus.as",
+        "line": 602,
+        "anchor": "function setStats"
+      }
+    },
+    {
+      "character": 3,
+      "name": "Bill",
+      "property": "first dry jump velocity",
+      "measurement": {
+        "kind": "motion",
+        "phase": 2,
+        "t": 2,
+        "column": "vy"
+      },
+      "expected": -4.444444444444444,
+      "expression": "-550/120+1000/7200",
+      "tolerance": 0.004,
+      "operator": "near",
+      "source": {
+        "path": "reference/crossover/decompiled/scripts/com/smbc/characters/Bill.as",
+        "line": 681,
+        "anchor": "function pressJmpBtn"
+      }
+    },
+    {
+      "character": 3,
+      "name": "Bill",
+      "property": "fall after 70 updates",
+      "measurement": {
+        "kind": "motion",
+        "phase": 4,
+        "t": 70,
+        "column": "vy"
+      },
+      "expected": 5.0,
+      "expression": "600/120",
+      "tolerance": 0.005,
+      "operator": "near",
+      "source": {
+        "path": "reference/crossover/decompiled/scripts/com/smbc/characters/Bill.as",
+        "line": 412,
+        "anchor": "function setStats"
+      }
+    },
+    {
+      "character": 3,
+      "name": "Bill",
+      "property": "submerged ground walking",
+      "measurement": {
+        "kind": "motion",
+        "phase": 7,
+        "t": 30,
+        "column": "vx"
+      },
+      "expected": 0.75,
+      "expression": "90/120",
+      "tolerance": 0.004,
+      "operator": "near",
+      "source": {
+        "path": "reference/crossover/decompiled/scripts/com/smbc/characters/Character.as",
+        "line": 309,
+        "anchor": "vxMaxGroundWater"
+      }
+    },
+    {
+      "character": 3,
+      "name": "Bill",
+      "property": "first submerged jump velocity",
+      "measurement": {
+        "kind": "motion",
+        "phase": 6,
+        "t": 2,
+        "column": "vy"
+      },
+      "expected": -4.513888888888888,
+      "expression": "-550/120+500/7200",
+      "tolerance": 0.004,
+      "operator": "near",
+      "source": {
+        "path": "reference/crossover/decompiled/scripts/com/smbc/characters/Bill.as",
+        "line": 412,
+        "anchor": "function setStats"
+      }
+    },
+    {
+      "character": 4,
+      "name": "Link",
+      "property": "first dry jump velocity",
+      "measurement": {
+        "kind": "motion",
+        "phase": 2,
+        "t": 2,
+        "column": "vy"
+      },
+      "expected": -4.277777777777778,
+      "expression": "-530/120+1000/7200",
+      "tolerance": 0.004,
+      "operator": "near",
+      "source": {
+        "path": "reference/crossover/decompiled/scripts/com/smbc/characters/Link.as",
+        "line": 284,
+        "anchor": "function jump"
+      }
+    },
+    {
+      "character": 4,
+      "name": "Link",
+      "property": "fall after 70 updates",
+      "measurement": {
+        "kind": "motion",
+        "phase": 4,
+        "t": 70,
+        "column": "vy"
+      },
+      "expected": 5.0,
+      "expression": "600/120",
+      "tolerance": 0.005,
+      "operator": "near",
+      "source": {
+        "path": "reference/crossover/decompiled/scripts/com/smbc/characters/Link.as",
+        "line": 460,
+        "anchor": "function setStats"
+      }
+    },
+    {
+      "character": 4,
+      "name": "Link",
+      "property": "submerged ground walking",
+      "measurement": {
+        "kind": "motion",
+        "phase": 7,
+        "t": 30,
+        "column": "vx"
+      },
+      "expected": 0.75,
+      "expression": "90/120",
+      "tolerance": 0.004,
+      "operator": "near",
+      "source": {
+        "path": "reference/crossover/decompiled/scripts/com/smbc/characters/Character.as",
+        "line": 309,
+        "anchor": "vxMaxGroundWater"
+      }
+    },
+    {
+      "character": 4,
+      "name": "Link",
+      "property": "first submerged jump velocity",
+      "measurement": {
+        "kind": "motion",
+        "phase": 6,
+        "t": 2,
+        "column": "vy"
+      },
+      "expected": -4.347222222222222,
+      "expression": "-530/120+500/7200",
+      "tolerance": 0.004,
+      "operator": "near",
+      "source": {
+        "path": "reference/crossover/decompiled/scripts/com/smbc/characters/Link.as",
+        "line": 460,
+        "anchor": "function setStats"
+      }
+    },
+    {
+      "character": 5,
+      "name": "Simon",
+      "property": "first dry jump velocity",
+      "measurement": {
+        "kind": "motion",
+        "phase": 2,
+        "t": 2,
+        "column": "vy"
+      },
+      "expected": -4.375,
+      "expression": "-550/120+1500/7200",
+      "tolerance": 0.004,
+      "operator": "near",
+      "source": {
+        "path": "reference/crossover/decompiled/scripts/com/smbc/characters/Simon.as",
+        "line": 665,
+        "anchor": "function pressJmpBtn"
+      }
+    },
+    {
+      "character": 5,
+      "name": "Simon",
+      "property": "fall after 70 updates",
+      "measurement": {
+        "kind": "motion",
+        "phase": 4,
+        "t": 70,
+        "column": "vy"
+      },
+      "expected": 14.583333333333334,
+      "expression": "no character fall cap; 70*1500/7200",
+      "tolerance": 0.005,
+      "operator": "near",
+      "source": {
+        "path": "reference/crossover/decompiled/scripts/com/smbc/characters/Simon.as",
+        "line": 566,
+        "anchor": "function setStats"
+      }
+    },
+    {
+      "character": 5,
+      "name": "Simon",
+      "property": "submerged ground walking",
+      "measurement": {
+        "kind": "motion",
+        "phase": 7,
+        "t": 30,
+        "column": "vx"
+      },
+      "expected": 0.75,
+      "expression": "90/120",
+      "tolerance": 0.004,
+      "operator": "near",
+      "source": {
+        "path": "reference/crossover/decompiled/scripts/com/smbc/characters/Character.as",
+        "line": 309,
+        "anchor": "vxMaxGroundWater"
+      }
+    },
+    {
+      "character": 5,
+      "name": "Simon",
+      "property": "first submerged jump velocity",
+      "measurement": {
+        "kind": "motion",
+        "phase": 6,
+        "t": 2,
+        "column": "vy"
+      },
+      "expected": -4.479166666666666,
+      "expression": "-550/120+750/7200",
+      "tolerance": 0.004,
+      "operator": "near",
+      "source": {
+        "path": "reference/crossover/decompiled/scripts/com/smbc/characters/Simon.as",
+        "line": 566,
+        "anchor": "function setStats"
+      }
+    },
+    {
+      "character": 6,
+      "name": "Pit",
+      "property": "first dry jump velocity",
+      "measurement": {
+        "kind": "motion",
+        "phase": 2,
+        "t": 2,
+        "column": "vy"
+      },
+      "expected": -4.069444444444445,
+      "expression": "-500/120+700/7200",
+      "tolerance": 0.004,
+      "operator": "near",
+      "source": {
+        "path": ".upstream/smbc-v3/src/com/smbc/characters/Pit.as",
+        "line": 251,
+        "anchor": "function jump"
+      }
+    },
+    {
+      "character": 6,
+      "name": "Pit",
+      "property": "fall after 70 updates",
+      "measurement": {
+        "kind": "motion",
+        "phase": 4,
+        "t": 70,
+        "column": "vy"
+      },
+      "expected": 3.75,
+      "expression": "450/120",
+      "tolerance": 0.005,
+      "operator": "near",
+      "source": {
+        "path": ".upstream/smbc-v3/src/com/smbc/characters/Pit.as",
+        "line": 193,
+        "anchor": "function setStats"
+      }
+    },
+    {
+      "character": 6,
+      "name": "Pit",
+      "property": "submerged ground walking",
+      "measurement": {
+        "kind": "motion",
+        "phase": 7,
+        "t": 30,
+        "column": "vx"
+      },
+      "expected": 0.75,
+      "expression": "90/120",
+      "tolerance": 0.004,
+      "operator": "near",
+      "source": {
+        "path": ".upstream/smbc-v3/src/com/smbc/characters/Character.as",
+        "line": 226,
+        "anchor": "vxMaxGroundWater"
+      }
+    },
+    {
+      "character": 6,
+      "name": "Pit",
+      "property": "first submerged jump velocity",
+      "measurement": {
+        "kind": "motion",
+        "phase": 6,
+        "t": 2,
+        "column": "vy"
+      },
+      "expected": -4.111111111111112,
+      "expression": "-500/120+400/7200",
+      "tolerance": 0.004,
+      "operator": "near",
+      "source": {
+        "path": ".upstream/smbc-v3/src/com/smbc/characters/Pit.as",
+        "line": 193,
+        "anchor": "function setStats"
+      }
+    },
+    {
+      "character": 8,
+      "name": "Luigi",
+      "property": "first dry jump velocity",
+      "measurement": {
+        "kind": "motion",
+        "phase": 2,
+        "t": 2,
+        "column": "vy"
+      },
+      "expected": -3.0833333333333335,
+      "expression": "-370/120 (height-controlled rise, gravity disabled)",
+      "tolerance": 0.004,
+      "operator": "near",
+      "source": {
+        "path": "reference/crossover2/extracted/scripts/com/smbc/characters/base/MarioBase.as",
+        "line": 850,
+        "anchor": "function jump"
+      }
+    },
+    {
+      "character": 8,
+      "name": "Luigi",
+      "property": "fall after 70 updates",
+      "measurement": {
+        "kind": "motion",
+        "phase": 4,
+        "t": 70,
+        "column": "vy"
+      },
+      "expected": 4.0,
+      "expression": "480/120",
+      "tolerance": 0.005,
+      "operator": "near",
+      "source": {
+        "path": "reference/crossover2/extracted/scripts/com/smbc/characters/base/MarioBase.as",
+        "line": 317,
+        "anchor": "function setStats"
+      }
+    },
+    {
+      "character": 8,
+      "name": "Luigi",
+      "property": "submerged ground walking",
+      "measurement": {
+        "kind": "motion",
+        "phase": 7,
+        "t": 30,
+        "column": "vx"
+      },
+      "expected": 0.75,
+      "expression": "90/120",
+      "tolerance": 0.004,
+      "operator": "near",
+      "source": {
+        "path": "reference/crossover2/extracted/scripts/com/smbc/characters/Character.as",
+        "line": 328,
+        "anchor": "vxMaxGroundWater"
+      }
+    },
+    {
+      "character": 8,
+      "name": "Luigi",
+      "property": "first submerged jump velocity",
+      "measurement": {
+        "kind": "motion",
+        "phase": 6,
+        "t": 2,
+        "column": "vy"
+      },
+      "expected": -1.6180555555555556,
+      "expression": "-200/120+350/7200",
+      "tolerance": 0.004,
+      "operator": "near",
+      "source": {
+        "path": "reference/crossover2/extracted/scripts/com/smbc/characters/base/MarioBase.as",
+        "line": 317,
+        "anchor": "function setStats"
+      }
+    },
+    {
+      "character": 9,
+      "name": "Bass",
+      "property": "first dry jump velocity",
+      "measurement": {
+        "kind": "motion",
+        "phase": 2,
+        "t": 2,
+        "column": "vy"
+      },
+      "expected": -4.5,
+      "expression": "-565/120+1500/7200",
+      "tolerance": 0.004,
+      "operator": "near",
+      "source": {
+        "path": "reference/crossover2/extracted/scripts/com/smbc/characters/base/MegaManBase.as",
+        "line": 896,
+        "anchor": "function jump"
+      }
+    },
+    {
+      "character": 9,
+      "name": "Bass",
+      "property": "fall after 70 updates",
+      "measurement": {
+        "kind": "motion",
+        "phase": 4,
+        "t": 70,
+        "column": "vy"
+      },
+      "expected": 5.833333333333333,
+      "expression": "700/120",
+      "tolerance": 0.005,
+      "operator": "near",
+      "source": {
+        "path": "reference/crossover2/extracted/scripts/com/smbc/characters/base/MegaManBase.as",
+        "line": 548,
+        "anchor": "function setStats"
+      }
+    },
+    {
+      "character": 9,
+      "name": "Bass",
+      "property": "submerged ground walking",
+      "measurement": {
+        "kind": "motion",
+        "phase": 7,
+        "t": 30,
+        "column": "vx"
+      },
+      "expected": 0.75,
+      "expression": "90/120",
+      "tolerance": 0.004,
+      "operator": "near",
+      "source": {
+        "path": "reference/crossover2/extracted/scripts/com/smbc/characters/Character.as",
+        "line": 328,
+        "anchor": "vxMaxGroundWater"
+      }
+    },
+    {
+      "character": 9,
+      "name": "Bass",
+      "property": "first submerged jump velocity",
+      "measurement": {
+        "kind": "motion",
+        "phase": 6,
+        "t": 2,
+        "column": "vy"
+      },
+      "expected": -4.097222222222222,
+      "expression": "-500/120+500/7200",
+      "tolerance": 0.004,
+      "operator": "near",
+      "source": {
+        "path": "reference/crossover2/extracted/scripts/com/smbc/characters/base/MegaManBase.as",
+        "line": 548,
+        "anchor": "function setStats"
+      }
+    },
+    {
+      "character": 10,
+      "name": "Ryu",
+      "property": "first dry jump velocity",
+      "measurement": {
+        "kind": "motion",
+        "phase": 2,
+        "t": 2,
+        "column": "vy"
+      },
+      "expected": -4.305555555555555,
+      "expression": "-540/120+1400/7200",
+      "tolerance": 0.004,
+      "operator": "near",
+      "source": {
+        "path": "reference/crossover2/extracted/scripts/com/smbc/characters/Ryu.as",
+        "line": 942,
+        "anchor": "function pressJmpBtn"
+      }
+    },
+    {
+      "character": 10,
+      "name": "Ryu",
+      "property": "fall after 70 updates",
+      "measurement": {
+        "kind": "motion",
+        "phase": 4,
+        "t": 70,
+        "column": "vy"
+      },
+      "expected": 5.833333333333333,
+      "expression": "700/120",
+      "tolerance": 0.005,
+      "operator": "near",
+      "source": {
+        "path": "reference/crossover2/extracted/scripts/com/smbc/characters/Ryu.as",
+        "line": 474,
+        "anchor": "function setStats"
+      }
+    },
+    {
+      "character": 10,
+      "name": "Ryu",
+      "property": "submerged ground walking",
+      "measurement": {
+        "kind": "motion",
+        "phase": 7,
+        "t": 30,
+        "column": "vx"
+      },
+      "expected": 0.75,
+      "expression": "90/120",
+      "tolerance": 0.004,
+      "operator": "near",
+      "source": {
+        "path": "reference/crossover2/extracted/scripts/com/smbc/characters/Character.as",
+        "line": 328,
+        "anchor": "vxMaxGroundWater"
+      }
+    },
+    {
+      "character": 10,
+      "name": "Ryu",
+      "property": "first submerged jump velocity",
+      "measurement": {
+        "kind": "motion",
+        "phase": 6,
+        "t": 2,
+        "column": "vy"
+      },
+      "expected": -3.263888888888889,
+      "expression": "-400/120+500/7200",
+      "tolerance": 0.004,
+      "operator": "near",
+      "source": {
+        "path": "reference/crossover2/extracted/scripts/com/smbc/characters/Ryu.as",
+        "line": 474,
+        "anchor": "function setStats"
+      }
+    },
+    {
+      "character": 11,
+      "name": "Sophia",
+      "property": "first dry jump velocity",
+      "measurement": {
+        "kind": "motion",
+        "phase": 2,
+        "t": 2,
+        "column": "vy"
+      },
+      "expected": -3.3333333333333335,
+      "expression": "-400/120 (height-controlled rise, gravity disabled)",
+      "tolerance": 0.004,
+      "operator": "near",
+      "source": {
+        "path": "reference/crossover2/extracted/scripts/com/smbc/characters/Sophia.as",
+        "line": 923,
+        "anchor": "function jump"
+      }
+    },
+    {
+      "character": 11,
+      "name": "Sophia",
+      "property": "fall after 70 updates",
+      "measurement": {
+        "kind": "motion",
+        "phase": 4,
+        "t": 70,
+        "column": "vy"
+      },
+      "expected": 4.166666666666667,
+      "expression": "500/120",
+      "tolerance": 0.005,
+      "operator": "near",
+      "source": {
+        "path": "reference/crossover2/extracted/scripts/com/smbc/characters/Sophia.as",
+        "line": 588,
+        "anchor": "function setStats"
+      }
+    },
+    {
+      "character": 11,
+      "name": "Sophia",
+      "property": "submerged ground walking",
+      "measurement": {
+        "kind": "motion",
+        "phase": 7,
+        "t": 30,
+        "column": "vx"
+      },
+      "expected": 0.75,
+      "expression": "90/120",
+      "tolerance": 0.004,
+      "operator": "near",
+      "source": {
+        "path": "reference/crossover2/extracted/scripts/com/smbc/characters/Character.as",
+        "line": 328,
+        "anchor": "vxMaxGroundWater"
+      }
+    },
+    {
+      "character": 11,
+      "name": "Sophia",
+      "property": "first submerged jump velocity",
+      "measurement": {
+        "kind": "motion",
+        "phase": 6,
+        "t": 2,
+        "column": "vy"
+      },
+      "expected": -3.3333333333333335,
+      "expression": "-400/120 (height-controlled rise)",
+      "tolerance": 0.004,
+      "operator": "near",
+      "source": {
+        "path": "reference/crossover2/extracted/scripts/com/smbc/characters/Sophia.as",
+        "line": 588,
+        "anchor": "function setStats"
+      }
+    },
+    {
+      "character": 1,
+      "name": "Mega Man",
+      "property": "dry walking after input settles",
+      "measurement": {
+        "kind": "motion",
+        "phase": 0,
+        "t": 25,
+        "column": "vx"
+      },
+      "expected": 1.25,
+      "expression": "150/120",
+      "tolerance": 0.004,
+      "operator": "near",
+      "source": {
+        "path": "reference/crossover/decompiled/scripts/com/smbc/characters/MegaMan.as",
+        "line": 257,
+        "anchor": "function movePlayer"
+      }
+    },
+    {
+      "character": 2,
+      "name": "Samus",
+      "property": "dry walking after input settles",
+      "measurement": {
+        "kind": "motion",
+        "phase": 0,
+        "t": 25,
+        "column": "vx"
+      },
+      "expected": 1.25,
+      "expression": "150/120",
+      "tolerance": 0.004,
+      "operator": "near",
+      "source": {
+        "path": "reference/crossover/decompiled/scripts/com/smbc/characters/Samus.as",
+        "line": 192,
+        "anchor": "function movePlayer"
+      }
+    },
+    {
+      "character": 3,
+      "name": "Bill",
+      "property": "dry walking after input settles",
+      "measurement": {
+        "kind": "motion",
+        "phase": 0,
+        "t": 25,
+        "column": "vx"
+      },
+      "expected": 1.25,
+      "expression": "150/120",
+      "tolerance": 0.004,
+      "operator": "near",
+      "source": {
+        "path": "reference/crossover/decompiled/scripts/com/smbc/characters/Bill.as",
+        "line": 166,
+        "anchor": "function movePlayer"
+      }
+    },
+    {
+      "character": 4,
+      "name": "Link",
+      "property": "dry walking after input settles",
+      "measurement": {
+        "kind": "motion",
+        "phase": 0,
+        "t": 25,
+        "column": "vx"
+      },
+      "expected": 1.4583333333333333,
+      "expression": "175/120",
+      "tolerance": 0.004,
+      "operator": "near",
+      "source": {
+        "path": "reference/crossover/decompiled/scripts/com/smbc/characters/Link.as",
+        "line": 161,
+        "anchor": "function movePlayer"
+      }
+    },
+    {
+      "character": 5,
+      "name": "Simon",
+      "property": "dry walking after input settles",
+      "measurement": {
+        "kind": "motion",
+        "phase": 0,
+        "t": 25,
+        "column": "vx"
+      },
+      "expected": 1.25,
+      "expression": "150/120",
+      "tolerance": 0.004,
+      "operator": "near",
+      "source": {
+        "path": "reference/crossover/decompiled/scripts/com/smbc/characters/Simon.as",
+        "line": 181,
+        "anchor": "function movePlayer"
+      }
+    },
+    {
+      "character": 6,
+      "name": "Pit",
+      "property": "dry walking after input settles",
+      "measurement": {
+        "kind": "motion",
+        "phase": 0,
+        "t": 25,
+        "column": "vx"
+      },
+      "expected": 1.5,
+      "expression": "180/120",
+      "tolerance": 0.004,
+      "operator": "near",
+      "source": {
+        "path": ".upstream/smbc-v3/src/com/smbc/characters/Pit.as",
+        "line": 306,
+        "anchor": "function movePlayer"
+      }
+    },
+    {
+      "character": 9,
+      "name": "Bass",
+      "property": "dry walking after input settles",
+      "measurement": {
+        "kind": "motion",
+        "phase": 0,
+        "t": 25,
+        "column": "vx"
+      },
+      "expected": 1.375,
+      "expression": "165/120",
+      "tolerance": 0.004,
+      "operator": "near",
+      "source": {
+        "path": "reference/crossover2/extracted/scripts/com/smbc/characters/base/MegaManBase.as",
+        "line": 799,
+        "anchor": "function movePlayer"
+      }
+    },
+    {
+      "character": 10,
+      "name": "Ryu",
+      "property": "dry walking after input settles",
+      "measurement": {
+        "kind": "motion",
+        "phase": 0,
+        "t": 25,
+        "column": "vx"
+      },
+      "expected": 1.5416666666666667,
+      "expression": "185/120",
+      "tolerance": 0.004,
+      "operator": "near",
+      "source": {
+        "path": "reference/crossover2/extracted/scripts/com/smbc/characters/Ryu.as",
+        "line": 627,
+        "anchor": "function movePlayer"
+      }
+    },
+    {
+      "character": 11,
+      "name": "Sophia",
+      "property": "dry walking after input settles",
+      "measurement": {
+        "kind": "motion",
+        "phase": 0,
+        "t": 25,
+        "column": "vx"
+      },
+      "expected": 1.5416666666666667,
+      "expression": "185/120",
+      "tolerance": 0.004,
+      "operator": "near",
+      "source": {
+        "path": "reference/crossover2/extracted/scripts/com/smbc/characters/Sophia.as",
+        "line": 790,
+        "anchor": "function movePlayer"
+      }
+    },
+    {
+      "character": 1,
+      "name": "Mega Man",
+      "property": "short-jump release at update 10",
+      "measurement": {
+        "kind": "motion",
+        "phase": 3,
+        "t": 10,
+        "column": "vy"
+      },
+      "expected": -1.1729750004309092,
+      "expression": "jump=580; gravity=1100; upward *= 1e-06^(1/60) after release",
+      "tolerance": 0.005,
+      "operator": "near",
+      "source": {
+        "path": "reference/crossover/decompiled/scripts/com/smbc/characters/MegaMan.as",
+        "line": 959,
+        "anchor": "function relJmpBtn"
+      }
+    },
+    {
+      "character": 2,
+      "name": "Samus",
+      "property": "short-jump release at update 10",
+      "measurement": {
+        "kind": "motion",
+        "phase": 3,
+        "t": 10,
+        "column": "vy"
+      },
+      "expected": -1.6783313340569133,
+      "expression": "jump=500; gravity=700; upward *= 0.0001^(1/60) after release",
+      "tolerance": 0.005,
+      "operator": "near",
+      "source": {
+        "path": "reference/crossover/decompiled/scripts/com/smbc/characters/Samus.as",
+        "line": 638,
+        "anchor": "function relJmpBtn"
+      }
+    },
+    {
+      "character": 4,
+      "name": "Link",
+      "property": "short-jump release at update 10",
+      "measurement": {
+        "kind": "motion",
+        "phase": 3,
+        "t": 10,
+        "column": "vy"
+      },
+      "expected": -1.5665344185992358,
+      "expression": "jump=530; gravity=1000; upward *= 0.0001^(1/60) after release",
+      "tolerance": 0.005,
+      "operator": "near",
+      "source": {
+        "path": "reference/crossover/decompiled/scripts/com/smbc/characters/Link.as",
+        "line": 617,
+        "anchor": "function relJmpBtn"
+      }
+    },
+    {
+      "character": 6,
+      "name": "Pit",
+      "property": "short-jump release at update 10",
+      "measurement": {
+        "kind": "motion",
+        "phase": 3,
+        "t": 10,
+        "column": "vy"
+      },
+      "expected": -1.6783313340569133,
+      "expression": "jump=500; gravity=700; upward *= 0.0001^(1/60) after release",
+      "tolerance": 0.005,
+      "operator": "near",
+      "source": {
+        "path": ".upstream/smbc-v3/src/com/smbc/characters/Pit.as",
+        "line": 469,
+        "anchor": "function relJmpBtn"
+      }
+    },
+    {
+      "character": 9,
+      "name": "Bass",
+      "property": "short-jump release at update 10",
+      "measurement": {
+        "kind": "motion",
+        "phase": 3,
+        "t": 10,
+        "column": "vy"
+      },
+      "expected": -0.850044456022876,
+      "expression": "jump=565; gravity=1500; upward *= 1e-06^(1/60) after release",
+      "tolerance": 0.005,
+      "operator": "near",
+      "source": {
+        "path": "reference/crossover2/extracted/scripts/com/smbc/characters/base/MegaManBase.as",
+        "line": 1305,
+        "anchor": "function relJmpBtn"
+      }
+    },
+    {
+      "character": 4,
+      "name": "Link",
+      "property": "air movement retains speed after releasing direction",
+      "measurement": {
+        "kind": "motion",
+        "phase": 5,
+        "t": 20,
+        "column": "vx"
+      },
+      "expected": 0.8333333333333334,
+      "expression": "10*600/7200; friction only if onGround",
+      "tolerance": 0.004,
+      "operator": "near",
+      "source": {
+        "path": "reference/crossover/decompiled/scripts/com/smbc/characters/Link.as",
+        "line": 161,
+        "anchor": "function movePlayer"
+      }
+    },
+    {
+      "character": 4,
+      "name": "Link",
+      "property": "ground sword attack coasts rather than instantly stopping",
+      "measurement": {
+        "kind": "motion",
+        "phase": 18,
+        "t": 15,
+        "column": "vx"
+      },
+      "expected": 0.05,
+      "expression": "positive pre-attack momentum decays by friction",
+      "tolerance": 0.004,
+      "operator": "above",
+      "source": {
+        "path": "reference/crossover/decompiled/scripts/com/smbc/characters/Link.as",
+        "line": 161,
+        "anchor": "function movePlayer"
+      }
+    },
+    {
+      "character": 6,
+      "name": "Pit",
+      "property": "Up locks ground movement",
+      "measurement": {
+        "kind": "motion",
+        "phase": 17,
+        "t": 20,
+        "column": "vx"
+      },
+      "expected": 0,
+      "expression": null,
+      "tolerance": 0.004,
+      "operator": "near",
+      "source": {
+        "path": ".upstream/smbc-v3/src/com/smbc/characters/Pit.as",
+        "line": 315,
+        "anchor": "( upBtn && onGround )"
+      }
+    },
+    {
+      "character": 8,
+      "name": "Luigi",
+      "property": "ordinary walk acceleration after 19 updates",
+      "measurement": {
+        "kind": "motion",
+        "phase": 0,
+        "t": 20,
+        "column": "vx"
+      },
+      "expected": 0.5277777777777778,
+      "expression": "19*200/7200",
+      "tolerance": 0.004,
+      "operator": "near",
+      "source": {
+        "path": "reference/crossover2/extracted/scripts/com/smbc/characters/Luigi.as",
+        "line": 55,
+        "anchor": "AX_DEFAULT:int = 200"
+      }
+    },
+    {
+      "character": 8,
+      "name": "Luigi",
+      "property": "running acceleration after 19 updates",
+      "measurement": {
+        "kind": "motion",
+        "phase": 1,
+        "t": 20,
+        "column": "vx"
+      },
+      "expected": 0.7520833333333333,
+      "expression": "19*285/7200",
+      "tolerance": 0.004,
+      "operator": "near",
+      "source": {
+        "path": "reference/crossover2/extracted/scripts/com/smbc/characters/Luigi.as",
+        "line": 57,
+        "anchor": "AX_RUN:int = 285"
+      }
+    },
+    {
+      "character": 8,
+      "name": "Luigi",
+      "property": "air momentum retained without ground friction",
+      "measurement": {
+        "kind": "motion",
+        "phase": 5,
+        "t": 20,
+        "column": "vx"
+      },
+      "expected": 0.2777777777777778,
+      "expression": "10*200/7200; release friction requires onGround",
+      "tolerance": 0.004,
+      "operator": "near",
+      "source": {
+        "path": "reference/crossover2/extracted/scripts/com/smbc/characters/base/MarioBase.as",
+        "line": 468,
+        "anchor": "function movePlayer"
+      }
+    },
+    {
+      "character": 10,
+      "name": "Ryu",
+      "property": "ground attack prevents walking",
+      "measurement": {
+        "kind": "motion",
+        "phase": 18,
+        "t": 15,
+        "column": "vx"
+      },
+      "expected": 0,
+      "expression": null,
+      "tolerance": 0.004,
+      "operator": "near",
+      "source": {
+        "path": "reference/crossover2/extracted/scripts/com/smbc/characters/Ryu.as",
+        "line": 635,
+        "anchor": "if(dwnBtn || cState == ST_ATTACK)"
+      }
+    },
+    {
+      "character": 3,
+      "name": "Bill",
+      "property": "bullet speed power 0",
+      "measurement": {
+        "kind": "first_projectile",
+        "phase": 8,
+        "column": "vx"
+      },
+      "expected": 2.8333333333333335,
+      "expression": "340/120",
+      "tolerance": 0.004,
+      "operator": "near",
+      "source": {
+        "path": "reference/crossover/decompiled/scripts/com/smbc/projectiles/BillBullet.as",
+        "line": 19,
+        "anchor": "NORMAL_BULLET_SPEED"
+      }
+    },
+    {
+      "character": 3,
+      "name": "Bill",
+      "property": "bullet speed power 1",
+      "measurement": {
+        "kind": "first_projectile",
+        "phase": 9,
+        "column": "vx"
+      },
+      "expected": 3.1666666666666665,
+      "expression": "380/120",
+      "tolerance": 0.004,
+      "operator": "near",
+      "source": {
+        "path": "reference/crossover/decompiled/scripts/com/smbc/projectiles/BillBullet.as",
+        "line": 17,
+        "anchor": "MACHINE_GUN_BULLET_SPEED"
+      }
+    },
+    {
+      "character": 3,
+      "name": "Bill",
+      "property": "bullet speed power 2",
+      "measurement": {
+        "kind": "first_projectile",
+        "phase": 10,
+        "column": "vx"
+      },
+      "expected": 3.3333333333333335,
+      "expression": "400/120",
+      "tolerance": 0.004,
+      "operator": "near",
+      "source": {
+        "path": "reference/crossover/decompiled/scripts/com/smbc/projectiles/BillBullet.as",
+        "line": 55,
+        "anchor": "SPREAD_BULLET_SPEED"
+      }
+    },
+    {
+      "character": 3,
+      "name": "Bill",
+      "property": "straight-down shot during a jump: horizontal velocity",
+      "measurement": {
+        "kind": "first_projectile",
+        "phase": 20,
+        "column": "vx"
+      },
+      "expected": 0,
+      "expression": null,
+      "tolerance": 0.004,
+      "operator": "near",
+      "source": {
+        "path": "reference/crossover/decompiled/scripts/com/smbc/projectiles/BillBullet.as",
+        "line": 336,
+        "anchor": "else if(player.dwnBtn && !player.lftBtn && !player.rhtBtn)"
+      }
+    },
+    {
+      "character": 3,
+      "name": "Bill",
+      "property": "straight-down shot during a jump: vertical velocity",
+      "measurement": {
+        "kind": "first_projectile",
+        "phase": 20,
+        "column": "vy"
+      },
+      "expected": 2.8333333333333335,
+      "expression": "340/120",
+      "tolerance": 0.004,
+      "operator": "near",
+      "source": {
+        "path": "reference/crossover/decompiled/scripts/com/smbc/projectiles/BillBullet.as",
+        "line": 358,
+        "anchor": "vy = xSpeed;"
+      }
+    },
+    {
+      "character": 4,
+      "name": "Link",
+      "property": "yellow boomerang initial speed",
+      "measurement": {
+        "kind": "first_projectile",
+        "phase": 13,
+        "column": "vx"
+      },
+      "expected": 2.5,
+      "expression": "300/120",
+      "tolerance": 0.004,
+      "operator": "near",
+      "source": {
+        "path": "reference/crossover/decompiled/scripts/com/smbc/projectiles/LinkBoomerang.as",
+        "line": 378,
+        "anchor": "speed = 300;"
+      }
+    },
+    {
+      "character": 4,
+      "name": "Link",
+      "property": "sword beam speed",
+      "measurement": {
+        "kind": "first_projectile",
+        "phase": 10,
+        "column": "vx"
+      },
+      "expected": 4.166666666666667,
+      "expression": "500/120",
+      "tolerance": 0.004,
+      "operator": "near",
+      "source": {
+        "path": "reference/crossover/decompiled/scripts/com/smbc/projectiles/LinkSwordProjectile.as",
+        "line": 26,
+        "anchor": "xSpeed = 500;"
+      }
+    },
+    {
+      "character": 6,
+      "name": "Pit",
+      "property": "ordinary arrow speed",
+      "measurement": {
+        "kind": "first_projectile",
+        "phase": 8,
+        "column": "vx"
+      },
+      "expected": 4.166666666666667,
+      "expression": "500/120",
+      "tolerance": 0.004,
+      "operator": "near",
+      "source": {
+        "path": ".upstream/smbc-v3/src/com/smbc/projectiles/PitProjectile.as",
+        "line": 53,
+        "anchor": "ARROW_SPEED:int = 500"
+      }
+    },
+    {
+      "character": 8,
+      "name": "Luigi",
+      "property": "fireball horizontal speed",
+      "measurement": {
+        "kind": "first_projectile",
+        "phase": 10,
+        "column": "vx"
+      },
+      "expected": 3.9583333333333335,
+      "expression": "475/120",
+      "tolerance": 0.004,
+      "operator": "near",
+      "source": {
+        "path": "reference/crossover2/extracted/scripts/com/smbc/projectiles/MarioFireBall.as",
+        "line": 33,
+        "anchor": "X_SPEED:int = 475"
+      }
+    },
+    {
+      "character": 9,
+      "name": "Bass",
+      "property": "default buster speed",
+      "measurement": {
+        "kind": "first_projectile",
+        "phase": 8,
+        "column": "vx"
+      },
+      "expected": 4.833333333333333,
+      "expression": "580/120",
+      "tolerance": 0.004,
+      "operator": "near",
+      "source": {
+        "path": "reference/crossover2/extracted/scripts/com/smbc/projectiles/MegaManProjectile.as",
+        "line": 132,
+        "anchor": "BASS_BUSTER_SPEED:int = 580"
+      }
+    },
+    {
+      "character": 10,
+      "name": "Ryu",
+      "property": "ordinary shuriken speed",
+      "measurement": {
+        "kind": "first_projectile",
+        "phase": 13,
+        "column": "vx"
+      },
+      "expected": 5.0,
+      "expression": "600/120",
+      "tolerance": 0.004,
+      "operator": "near",
+      "source": {
+        "path": "reference/crossover2/extracted/scripts/com/smbc/projectiles/RyuProjectile.as",
+        "line": 72,
+        "anchor": "STAR_SMALL_THROW_SPEED:int = 600"
+      }
+    },
+    {
+      "character": 11,
+      "name": "Sophia",
+      "property": "ordinary cannon effective speed",
+      "measurement": {
+        "kind": "first_projectile",
+        "phase": 8,
+        "column": "vx"
+      },
+      "expected": 3.5416666666666665,
+      "expression": "nominal 450, clamped by updateLoc to 425; /120",
+      "tolerance": 0.004,
+      "operator": "near",
+      "source": {
+        "path": "reference/crossover2/extracted/scripts/com/smbc/projectiles/SophiaBullet.as",
+        "line": 145,
+        "anchor": "vxMax = MISSILE_MAX_SPEED;"
+      }
+    },
+    {
+      "character": 11,
+      "name": "Sophia",
+      "property": "holding B creates a single cannon shot",
+      "measurement": {
+        "kind": "motion",
+        "phase": 8,
+        "t": 26,
+        "column": "shots"
+      },
+      "expected": 1,
+      "expression": "fresh attack edge only, no automatic-fire handler",
+      "tolerance": 0.004,
+      "operator": "near",
+      "source": {
+        "path": "reference/crossover2/extracted/scripts/com/smbc/characters/Sophia.as",
+        "line": 2348,
+        "anchor": "function pressAtkBtn"
+      }
+    },
+    {
+      "character": 11,
+      "name": "Sophia",
+      "property": "cannon limit under repeated presses",
+      "measurement": {
+        "kind": "motion",
+        "phase": 16,
+        "t": 30,
+        "column": "shots"
+      },
+      "expected": 3,
+      "expression": "maximum 3 while rapidly pressing B",
+      "tolerance": 0.004,
+      "operator": "at_most",
+      "source": {
+        "path": "reference/crossover2/extracted/scripts/com/smbc/characters/Sophia.as",
+        "line": 382,
+        "anchor": "MAX_BULLETS_ON_SCREEN:int = 3"
+      }
+    },
+    {
+      "character": 11,
+      "name": "Sophia",
+      "property": "initial horizontal acceleration",
+      "measurement": {
+        "kind": "motion",
+        "phase": 0,
+        "t": 2,
+        "column": "vx"
+      },
+      "expected": 0.1111111111111111,
+      "expression": "800/7200 from movePlayer acceleration",
+      "tolerance": 0.004,
+      "operator": "near",
+      "source": {
+        "path": "reference/crossover2/extracted/scripts/com/smbc/characters/Sophia.as",
+        "line": 812,
+        "anchor": "vx += ax * dt;"
+      }
+    },
+    {
+      "character": 8,
+      "name": "Luigi",
+      "property": "fireball first vertical velocity",
+      "measurement": {
+        "kind": "first_projectile",
+        "phase": 10,
+        "column": "vy"
+      },
+      "expected": 2.5,
+      "expression": "downward VY_MAX_PSV=300; gravity then updateLoc cap",
+      "tolerance": 0.004,
+      "operator": "near",
+      "source": {
+        "path": "reference/crossover2/extracted/scripts/com/smbc/projectiles/MarioFireBall.as",
+        "line": 74,
+        "anchor": "vy = vyMaxPsv;"
+      }
+    },
+    {
+      "character": 6,
+      "name": "Pit",
+      "property": "short-arrow lifetime bound",
+      "measurement": {
+        "kind": "projectile_max_age",
+        "phase": 8
+      },
+      "expected": 12,
+      "expression": "100 Flash pixels / (500/60) per update; expires at 12",
+      "tolerance": 0,
+      "operator": "at_most",
+      "source": {
+        "path": ".upstream/smbc-v3/src/com/smbc/projectiles/PitProjectile.as",
+        "line": 164,
+        "anchor": "if (shotDist >= SHORT_ARROW_DISTANCE)"
+      }
+    }
+  ]
+}

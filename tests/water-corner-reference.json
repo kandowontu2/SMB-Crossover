@@ -1,0 +1,79 @@
+{
+  "source": "Canonical retained generic CollisionCandidate with ProbeRadius[SS_WATER-9] = 4; optimized candidate and empty-envelope shortcut bypassed in explicitly labeled diagnostic control ROMs. Explicit arenas cover six horizontal page/seam centers, six vertical heights, seven tile kinds and eight orbital angles. Fixture setup and outcome capture exclude NMI/IRQ execution.",
+  "reference_kind": "independent generic collision control, not self-derived optimized output",
+  "cases": 2016,
+  "output_sha256": "75f5c8118d2e3c7b2bd4eaad7bc75028aec9fcdb8340c7c2db2d7b880d82d17a",
+  "diagnostic_controls": {
+    "mmc3": {
+      "sha256": "75f5c8118d2e3c7b2bd4eaad7bc75028aec9fcdb8340c7c2db2d7b880d82d17a",
+      "manifest": {
+        "diagnostic_control_only": true,
+        "not_playthrough_evidence": true,
+        "source_rom_sha256": "78b168a4c8a99723dd77e4cefb1e6ff78600369d4b45598ef7f67c8ce28de171",
+        "control_rom_sha256": "2e7deee36253a5352ec6d01deb1e5f0d2099d8b69a6b9402593a7acad5064c68",
+        "patches": [
+          {
+            "bank": 60,
+            "cpu": "0xa29e",
+            "before": "20f9af",
+            "after": "20abb0",
+            "reason": "Use retained canonical generic radius-4 corner filter"
+          },
+          {
+            "bank": 60,
+            "cpu": "0xa2ca",
+            "before": "20f9af",
+            "after": "20abb0",
+            "reason": "Use retained canonical generic radius-4 corner filter"
+          },
+          {
+            "bank": 60,
+            "cpu": "0xa2c2",
+            "before": "adef7d",
+            "after": "a900ea",
+            "reason": "Force exact per-ball generic corners; do not trust the optimized envelope"
+          }
+        ],
+        "canonical_radius": 4,
+        "excludes": "Only isolated collision arenas are run on this modified diagnostic ROM."
+      }
+    },
+    "mmc5": {
+      "sha256": "75f5c8118d2e3c7b2bd4eaad7bc75028aec9fcdb8340c7c2db2d7b880d82d17a",
+      "manifest": {
+        "diagnostic_control_only": true,
+        "not_playthrough_evidence": true,
+        "source_rom_sha256": "8e891602be8d76b2e9513feda4f9db2d584471a262bd3b32c72f88d522b15f99",
+        "control_rom_sha256": "b4b17cc3a034ee685c1d8b6521eb8393f38b936182ba421c15130cd01c7810a1",
+        "patches": [
+          {
+            "bank": 60,
+            "cpu": "0xa29e",
+            "before": "20f9af",
+            "after": "20abb0",
+            "reason": "Use retained canonical generic radius-4 corner filter"
+          },
+          {
+            "bank": 60,
+            "cpu": "0xa2ca",
+            "before": "20f9af",
+            "after": "20abb0",
+            "reason": "Use retained canonical generic radius-4 corner filter"
+          },
+          {
+            "bank": 60,
+            "cpu": "0xa2c2",
+            "before": "adef7d",
+            "after": "a900ea",
+            "reason": "Force exact per-ball generic corners; do not trust the optimized envelope"
+          }
+        ],
+        "canonical_radius": 4,
+        "excludes": "Only isolated collision arenas are run on this modified diagnostic ROM."
+      }
+    }
+  },
+  "corrected_behavior": "Earlier optimized Water filter used radius 3. Canonical radius 4 and center envelope 26 preserve edge hits at cell and world-page seams. Legacy v2/v3 radius-3 fingerprint is retained only as historical evidence in build/verification.",
+  "legacy_radius3_output_sha256": "7015bab9af1725ecf2e5b9e0e264d50842ce18bc5e6cfd9f1dfebe4b5942dfbf",
+  "excludes": "These are isolated collision arenas on diagnostic ROMs, never playthrough clears. Timing, audio, source motion, left-facing rotation and OAM are checked separately."
+}

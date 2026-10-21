@@ -1,0 +1,794 @@
+; Generated from the pinned hosted SWF.
+.pushseg
+.segment "LINK_GFX"
+RgLINK0_STANDLeft:
+  .byte 8
+  .byte MetaspriteVramOffset{$34}, {SPRITE_BANK_0}, $c0, 16, 8
+  .byte MetaspriteVramOffset{$36}, {SPRITE_BANK_0}, $80, 16, 0
+RgLINK0_STANDRight:
+  .byte 8
+  .byte MetaspriteVramOffset{$34}, {SPRITE_BANK_0}, $80, 16, 0
+  .byte MetaspriteVramOffset{$36}, {SPRITE_BANK_0}, $c0, 16, 8
+RgLINK0_WALK1Left:
+  .byte 8
+  .byte MetaspriteVramOffset{$2e}, {SPRITE_BANK_0}, $c0, 17, 7
+  .byte MetaspriteVramOffset{$30}, {SPRITE_BANK_0}, $80, 17, -1
+RgLINK0_WALK1Right:
+  .byte 8
+  .byte MetaspriteVramOffset{$2e}, {SPRITE_BANK_0}, $80, 17, 1
+  .byte MetaspriteVramOffset{$30}, {SPRITE_BANK_0}, $c0, 17, 9
+RgLINK0_WALK2Left = RgLINK0_STANDLeft
+RgLINK0_WALK2Right = RgLINK0_STANDRight
+RgLINK0_WALK3Left = RgLINK0_STANDLeft
+RgLINK0_WALK3Right = RgLINK0_STANDRight
+RgLINK0_JUMP1Left = RgLINK0_WALK1Left
+RgLINK0_JUMP1Right = RgLINK0_WALK1Right
+RgLINK0_JUMP2Left = RgLINK0_WALK1Left
+RgLINK0_JUMP2Right = RgLINK0_WALK1Right
+RgLINK0_JUMP3Left = RgLINK0_WALK1Left
+RgLINK0_JUMP3Right = RgLINK0_WALK1Right
+RgLINK0_JUMP4Left = RgLINK0_WALK1Left
+RgLINK0_JUMP4Right = RgLINK0_WALK1Right
+RgLINK0_CROUCHLeft = RgLINK0_STANDLeft
+RgLINK0_CROUCHRight = RgLINK0_STANDRight
+RgLINK0_ATTACK1Left:
+  .byte 16
+  .byte MetaspriteVramOffset{$2e}, {SPRITE_BANK_0}, $c0, 17, 8
+  .byte MetaspriteVramOffset{$34}, {SPRITE_BANK_0}, $80, 17, 0
+  .byte MetaspriteVramOffset{$36}, {SPRITE_BANK_0}, $40, 17, -8
+  .byte MetaspriteVramOffset{$38}, {SPRITE_BANK_0}, $00, 17, -16
+RgLINK0_ATTACK1Right:
+  .byte 16
+  .byte MetaspriteVramOffset{$2e}, {SPRITE_BANK_0}, $80, 17, 0
+  .byte MetaspriteVramOffset{$34}, {SPRITE_BANK_0}, $c0, 17, 8
+  .byte MetaspriteVramOffset{$36}, {SPRITE_BANK_0}, $00, 17, 16
+  .byte MetaspriteVramOffset{$38}, {SPRITE_BANK_0}, $40, 17, 24
+RgLINK0_ATTACK2Left:
+  .byte 12
+  .byte MetaspriteVramOffset{$2e}, {SPRITE_BANK_0}, $c0, 17, 7
+  .byte MetaspriteVramOffset{$30}, {SPRITE_BANK_0}, $80, 17, -1
+  .byte MetaspriteVramOffset{$32}, {SPRITE_BANK_0}, $00, 17, -9
+RgLINK0_ATTACK2Right:
+  .byte 12
+  .byte MetaspriteVramOffset{$2e}, {SPRITE_BANK_0}, $80, 17, 1
+  .byte MetaspriteVramOffset{$30}, {SPRITE_BANK_0}, $c0, 17, 9
+  .byte MetaspriteVramOffset{$32}, {SPRITE_BANK_0}, $40, 17, 17
+RgLINK0_ATTACK3Left:
+  .byte 12
+  .byte MetaspriteVramOffset{$34}, {SPRITE_BANK_0}, $c0, 16, 8
+  .byte MetaspriteVramOffset{$36}, {SPRITE_BANK_0}, $80, 16, 0
+  .byte MetaspriteVramOffset{$38}, {SPRITE_BANK_0}, $00, 16, -8
+RgLINK0_ATTACK3Right:
+  .byte 12
+  .byte MetaspriteVramOffset{$34}, {SPRITE_BANK_0}, $80, 16, 0
+  .byte MetaspriteVramOffset{$36}, {SPRITE_BANK_0}, $c0, 16, 8
+  .byte MetaspriteVramOffset{$38}, {SPRITE_BANK_0}, $40, 16, 16
+RgLINK0_THROW1Left:
+  .byte 8
+  .byte MetaspriteVramOffset{$38}, {SPRITE_BANK_0}, $c0, 17, 8
+  .byte MetaspriteVramOffset{$3a}, {SPRITE_BANK_0}, $80, 17, 0
+RgLINK0_THROW1Right:
+  .byte 8
+  .byte MetaspriteVramOffset{$38}, {SPRITE_BANK_0}, $80, 17, 0
+  .byte MetaspriteVramOffset{$3a}, {SPRITE_BANK_0}, $c0, 17, 8
+RgLINK0_THROW2Left = RgLINK0_WALK1Left
+RgLINK0_THROW2Right = RgLINK0_WALK1Right
+RgLINK0_THROW3Left = RgLINK0_STANDLeft
+RgLINK0_THROW3Right = RgLINK0_STANDRight
+RgLINK0_CLIMB1Left:
+  .byte 8
+  .byte MetaspriteVramOffset{$3c}, {SPRITE_BANK_0}, $c0, 16, 6
+  .byte MetaspriteVramOffset{$3e}, {SPRITE_BANK_0}, $80, 16, -2
+RgLINK0_CLIMB1Right:
+  .byte 8
+  .byte MetaspriteVramOffset{$3c}, {SPRITE_BANK_0}, $80, 16, 2
+  .byte MetaspriteVramOffset{$3e}, {SPRITE_BANK_0}, $c0, 16, 10
+RgLINK0_CLIMB2Left = RgLINK0_CLIMB1Left
+RgLINK0_CLIMB2Right = RgLINK0_CLIMB1Right
+RgLINK0_UPSTANDLeft = RgLINK0_STANDLeft
+RgLINK0_UPSTANDRight = RgLINK0_STANDRight
+RgLINK0_DIAGUPLeft = RgLINK0_STANDLeft
+RgLINK0_DIAGUPRight = RgLINK0_STANDRight
+RgLINK0_DIAGDOWNLeft = RgLINK0_STANDLeft
+RgLINK0_DIAGDOWNRight = RgLINK0_STANDRight
+RgLINK0_UPWALK1Left = RgLINK0_STANDLeft
+RgLINK0_UPWALK1Right = RgLINK0_STANDRight
+RgLINK0_UPWALK2Left = RgLINK0_STANDLeft
+RgLINK0_UPWALK2Right = RgLINK0_STANDRight
+RgLINK0_UPWALK3Left = RgLINK0_STANDLeft
+RgLINK0_UPWALK3Right = RgLINK0_STANDRight
+RgLINK0_DIAGUPWALK1Left = RgLINK0_STANDLeft
+RgLINK0_DIAGUPWALK1Right = RgLINK0_STANDRight
+RgLINK0_DIAGUPWALK2Left = RgLINK0_STANDLeft
+RgLINK0_DIAGUPWALK2Right = RgLINK0_STANDRight
+RgLINK0_DIAGUPWALK3Left = RgLINK0_STANDLeft
+RgLINK0_DIAGUPWALK3Right = RgLINK0_STANDRight
+RgLINK0_DIAGDOWNWALK1Left = RgLINK0_STANDLeft
+RgLINK0_DIAGDOWNWALK1Right = RgLINK0_STANDRight
+RgLINK0_DIAGDOWNWALK2Left = RgLINK0_STANDLeft
+RgLINK0_DIAGDOWNWALK2Right = RgLINK0_STANDRight
+RgLINK0_DIAGDOWNWALK3Left = RgLINK0_STANDLeft
+RgLINK0_DIAGDOWNWALK3Right = RgLINK0_STANDRight
+RgLINK0_DOWNTHRUSTLeft:
+  .byte 8
+  .byte MetaspriteVramOffset{$2e}, {SPRITE_BANK_0}, $80, 16, 8
+  .byte MetaspriteVramOffset{$30}, {SPRITE_BANK_0}, $80, 16, 0
+RgLINK0_DOWNTHRUSTRight:
+  .byte 8
+  .byte MetaspriteVramOffset{$2e}, {SPRITE_BANK_0}, $c0, 16, 0
+  .byte MetaspriteVramOffset{$30}, {SPRITE_BANK_0}, $c0, 16, 8
+RgLINK0_UPTHRUSTLeft = RgLINK0_CLIMB1Left
+RgLINK0_UPTHRUSTRight = RgLINK0_CLIMB1Right
+RgLINK0_HURTLeft = RgLINK0_STANDLeft
+RgLINK0_HURTRight = RgLINK0_STANDRight
+RgLINK0_DIE1Left:
+  .byte 8
+  .byte MetaspriteVramOffset{$00}, {SPRITE_BANK_0}, $80, 16, 8
+  .byte MetaspriteVramOffset{$02}, {SPRITE_BANK_0}, $80, 16, 0
+RgLINK0_DIE1Right:
+  .byte 8
+  .byte MetaspriteVramOffset{$00}, {SPRITE_BANK_0}, $c0, 16, 0
+  .byte MetaspriteVramOffset{$02}, {SPRITE_BANK_0}, $c0, 16, 8
+RgLINK0_DIE2Left:
+  .byte 8
+  .byte MetaspriteVramOffset{$04}, {SPRITE_BANK_0}, $c0, 17, 7
+  .byte MetaspriteVramOffset{$06}, {SPRITE_BANK_0}, $80, 17, -1
+RgLINK0_DIE2Right:
+  .byte 8
+  .byte MetaspriteVramOffset{$04}, {SPRITE_BANK_0}, $80, 17, 1
+  .byte MetaspriteVramOffset{$06}, {SPRITE_BANK_0}, $c0, 17, 9
+RgLINK0_DIE3Left:
+  .byte 8
+  .byte MetaspriteVramOffset{$08}, {SPRITE_BANK_0}, $c0, 16, 6
+  .byte MetaspriteVramOffset{$0a}, {SPRITE_BANK_0}, $80, 16, -2
+RgLINK0_DIE3Right:
+  .byte 8
+  .byte MetaspriteVramOffset{$08}, {SPRITE_BANK_0}, $80, 16, 2
+  .byte MetaspriteVramOffset{$0a}, {SPRITE_BANK_0}, $c0, 16, 10
+RgLINK0_DIE4Left:
+  .byte 8
+  .byte MetaspriteVramOffset{$0c}, {SPRITE_BANK_0}, $c0, 17, 7
+  .byte MetaspriteVramOffset{$0e}, {SPRITE_BANK_0}, $80, 17, -1
+RgLINK0_DIE4Right:
+  .byte 8
+  .byte MetaspriteVramOffset{$0c}, {SPRITE_BANK_0}, $80, 17, 1
+  .byte MetaspriteVramOffset{$0e}, {SPRITE_BANK_0}, $c0, 17, 9
+RgLINK0_SLIDELeft = RgLINK0_STANDLeft
+RgLINK0_SLIDERight = RgLINK0_STANDRight
+RgLINK0_CROUCHATTACK1Left = RgLINK0_STANDLeft
+RgLINK0_CROUCHATTACK1Right = RgLINK0_STANDRight
+RgLINK0_CROUCHATTACK2Left = RgLINK0_STANDLeft
+RgLINK0_CROUCHATTACK2Right = RgLINK0_STANDRight
+RgLINK0_CROUCHATTACK3Left = RgLINK0_STANDLeft
+RgLINK0_CROUCHATTACK3Right = RgLINK0_STANDRight
+RgLINK0_CROUCHTHROW1Left = RgLINK0_STANDLeft
+RgLINK0_CROUCHTHROW1Right = RgLINK0_STANDRight
+RgLINK0_CROUCHTHROW2Left = RgLINK0_STANDLeft
+RgLINK0_CROUCHTHROW2Right = RgLINK0_STANDRight
+RgLINK0_CROUCHTHROW3Left = RgLINK0_STANDLeft
+RgLINK0_CROUCHTHROW3Right = RgLINK0_STANDRight
+RgLINK0_DIEFLASH1Left:
+  .byte 16
+  .byte MetaspriteVramOffset{$20}, {SPRITE_BANK_0}, $00, 16, 7
+  .byte MetaspriteVramOffset{$22}, {SPRITE_BANK_0}, $c0, 16, -1
+  .byte MetaspriteVramOffset{$04}, {SPRITE_BANK_0}, $c2, 18, 8
+  .byte MetaspriteVramOffset{$06}, {SPRITE_BANK_0}, $82, 18, 0
+RgLINK0_DIEFLASH1Right:
+  .byte 16
+  .byte MetaspriteVramOffset{$20}, {SPRITE_BANK_0}, $40, 16, 1
+  .byte MetaspriteVramOffset{$22}, {SPRITE_BANK_0}, $80, 16, 9
+  .byte MetaspriteVramOffset{$04}, {SPRITE_BANK_0}, $82, 18, 0
+  .byte MetaspriteVramOffset{$06}, {SPRITE_BANK_0}, $c2, 18, 8
+RgLINK0_DIEFLASH2Left:
+  .byte 16
+  .byte MetaspriteVramOffset{$24}, {SPRITE_BANK_0}, $c2, 18, 8
+  .byte MetaspriteVramOffset{$26}, {SPRITE_BANK_0}, $82, 18, 0
+  .byte MetaspriteVramOffset{$08}, {SPRITE_BANK_0}, $c7, 16, 5
+  .byte MetaspriteVramOffset{$0a}, {SPRITE_BANK_0}, $87, 16, -3
+RgLINK0_DIEFLASH2Right:
+  .byte 16
+  .byte MetaspriteVramOffset{$24}, {SPRITE_BANK_0}, $82, 18, 0
+  .byte MetaspriteVramOffset{$26}, {SPRITE_BANK_0}, $c2, 18, 8
+  .byte MetaspriteVramOffset{$08}, {SPRITE_BANK_0}, $87, 16, 3
+  .byte MetaspriteVramOffset{$0a}, {SPRITE_BANK_0}, $c7, 16, 11
+RgLINK0_DIEGRAYLeft:
+  .byte 16
+  .byte MetaspriteVramOffset{$28}, {SPRITE_BANK_0}, $c0, 16, 8
+  .byte MetaspriteVramOffset{$2a}, {SPRITE_BANK_0}, $80, 16, 0
+  .byte MetaspriteVramOffset{$2c}, {SPRITE_BANK_0}, $82, 18, 7
+  .byte MetaspriteVramOffset{$2e}, {SPRITE_BANK_0}, $c2, 18, -1
+RgLINK0_DIEGRAYRight:
+  .byte 16
+  .byte MetaspriteVramOffset{$28}, {SPRITE_BANK_0}, $80, 16, 0
+  .byte MetaspriteVramOffset{$2a}, {SPRITE_BANK_0}, $c0, 16, 8
+  .byte MetaspriteVramOffset{$2c}, {SPRITE_BANK_0}, $c2, 18, 1
+  .byte MetaspriteVramOffset{$2e}, {SPRITE_BANK_0}, $82, 18, 9
+RgLINK0_DIECROSS1Left:
+  .byte 8
+  .byte MetaspriteVramOffset{$3e}, {SPRITE_BANK_0}, $82, 19, 5
+  .byte MetaspriteVramOffset{$3c}, {SPRITE_BANK_0}, $82, 19, -3
+RgLINK0_DIECROSS1Right:
+  .byte 8
+  .byte MetaspriteVramOffset{$3e}, {SPRITE_BANK_0}, $c2, 19, 3
+  .byte MetaspriteVramOffset{$3c}, {SPRITE_BANK_0}, $c2, 19, 11
+RgLINK0_DIECROSS2Left:
+  .byte 20
+  .byte MetaspriteVramOffset{$18}, {SPRITE_BANK_0}, $02, 1, 2
+  .byte MetaspriteVramOffset{$1a}, {SPRITE_BANK_0}, $82, 17, 10
+  .byte MetaspriteVramOffset{$1c}, {SPRITE_BANK_0}, $82, 17, 2
+  .byte MetaspriteVramOffset{$1e}, {SPRITE_BANK_0}, $82, 17, -6
+  .byte MetaspriteVramOffset{$16}, {SPRITE_BANK_0}, $82, 33, 2
+RgLINK0_DIECROSS2Right:
+  .byte 20
+  .byte MetaspriteVramOffset{$18}, {SPRITE_BANK_0}, $42, 1, 6
+  .byte MetaspriteVramOffset{$1a}, {SPRITE_BANK_0}, $c2, 17, -2
+  .byte MetaspriteVramOffset{$1c}, {SPRITE_BANK_0}, $c2, 17, 6
+  .byte MetaspriteVramOffset{$1e}, {SPRITE_BANK_0}, $c2, 17, 14
+  .byte MetaspriteVramOffset{$16}, {SPRITE_BANK_0}, $c2, 33, 6
+RgLINK1_STANDLeft:
+  .byte 8
+  .byte MetaspriteVramOffset{$34}, {SPRITE_BANK_0}, $c0, 16, 8
+  .byte MetaspriteVramOffset{$3a}, {SPRITE_BANK_0}, $80, 16, 0
+RgLINK1_STANDRight:
+  .byte 8
+  .byte MetaspriteVramOffset{$34}, {SPRITE_BANK_0}, $80, 16, 0
+  .byte MetaspriteVramOffset{$3a}, {SPRITE_BANK_0}, $c0, 16, 8
+RgLINK1_WALK1Left:
+  .byte 8
+  .byte MetaspriteVramOffset{$3a}, {SPRITE_BANK_0}, $c0, 17, 7
+  .byte MetaspriteVramOffset{$3c}, {SPRITE_BANK_0}, $80, 17, -1
+RgLINK1_WALK1Right:
+  .byte 8
+  .byte MetaspriteVramOffset{$3a}, {SPRITE_BANK_0}, $80, 17, 1
+  .byte MetaspriteVramOffset{$3c}, {SPRITE_BANK_0}, $c0, 17, 9
+RgLINK1_WALK2Left = RgLINK1_STANDLeft
+RgLINK1_WALK2Right = RgLINK1_STANDRight
+RgLINK1_WALK3Left = RgLINK1_STANDLeft
+RgLINK1_WALK3Right = RgLINK1_STANDRight
+RgLINK1_JUMP1Left = RgLINK1_WALK1Left
+RgLINK1_JUMP1Right = RgLINK1_WALK1Right
+RgLINK1_JUMP2Left = RgLINK1_WALK1Left
+RgLINK1_JUMP2Right = RgLINK1_WALK1Right
+RgLINK1_JUMP3Left = RgLINK1_WALK1Left
+RgLINK1_JUMP3Right = RgLINK1_WALK1Right
+RgLINK1_JUMP4Left = RgLINK1_WALK1Left
+RgLINK1_JUMP4Right = RgLINK1_WALK1Right
+RgLINK1_CROUCHLeft = RgLINK1_STANDLeft
+RgLINK1_CROUCHRight = RgLINK1_STANDRight
+RgLINK1_ATTACK1Left:
+  .byte 20
+  .byte MetaspriteVramOffset{$2e}, {SPRITE_BANK_0}, $c0, 17, 8
+  .byte MetaspriteVramOffset{$30}, {SPRITE_BANK_0}, $80, 17, 0
+  .byte MetaspriteVramOffset{$18}, {SPRITE_BANK_0}, $c2, 24, -8
+  .byte MetaspriteVramOffset{$1a}, {SPRITE_BANK_0}, $82, 24, -16
+  .byte MetaspriteVramOffset{$32}, {SPRITE_BANK_0}, $87, 22, -5
+RgLINK1_ATTACK1Right:
+  .byte 20
+  .byte MetaspriteVramOffset{$2e}, {SPRITE_BANK_0}, $80, 17, 0
+  .byte MetaspriteVramOffset{$30}, {SPRITE_BANK_0}, $c0, 17, 8
+  .byte MetaspriteVramOffset{$18}, {SPRITE_BANK_0}, $82, 24, 16
+  .byte MetaspriteVramOffset{$1a}, {SPRITE_BANK_0}, $c2, 24, 24
+  .byte MetaspriteVramOffset{$32}, {SPRITE_BANK_0}, $c7, 22, 13
+RgLINK1_ATTACK2Left:
+  .byte 16
+  .byte MetaspriteVramOffset{$3a}, {SPRITE_BANK_0}, $c0, 17, 7
+  .byte MetaspriteVramOffset{$3c}, {SPRITE_BANK_0}, $80, 17, -1
+  .byte MetaspriteVramOffset{$3e}, {SPRITE_BANK_0}, $c2, 24, -5
+  .byte MetaspriteVramOffset{$1a}, {SPRITE_BANK_0}, $82, 24, -13
+RgLINK1_ATTACK2Right:
+  .byte 16
+  .byte MetaspriteVramOffset{$3a}, {SPRITE_BANK_0}, $80, 17, 1
+  .byte MetaspriteVramOffset{$3c}, {SPRITE_BANK_0}, $c0, 17, 9
+  .byte MetaspriteVramOffset{$3e}, {SPRITE_BANK_0}, $82, 24, 13
+  .byte MetaspriteVramOffset{$1a}, {SPRITE_BANK_0}, $c2, 24, 21
+RgLINK1_ATTACK3Left:
+  .byte 12
+  .byte MetaspriteVramOffset{$34}, {SPRITE_BANK_0}, $c0, 16, 8
+  .byte MetaspriteVramOffset{$3a}, {SPRITE_BANK_0}, $80, 16, 0
+  .byte MetaspriteVramOffset{$3c}, {SPRITE_BANK_0}, $82, 24, -5
+RgLINK1_ATTACK3Right:
+  .byte 12
+  .byte MetaspriteVramOffset{$34}, {SPRITE_BANK_0}, $80, 16, 0
+  .byte MetaspriteVramOffset{$3a}, {SPRITE_BANK_0}, $c0, 16, 8
+  .byte MetaspriteVramOffset{$3c}, {SPRITE_BANK_0}, $c2, 24, 13
+RgLINK1_THROW1Left = RgLINK0_THROW1Left
+RgLINK1_THROW1Right = RgLINK0_THROW1Right
+RgLINK1_THROW2Left = RgLINK1_WALK1Left
+RgLINK1_THROW2Right = RgLINK1_WALK1Right
+RgLINK1_THROW3Left = RgLINK1_STANDLeft
+RgLINK1_THROW3Right = RgLINK1_STANDRight
+RgLINK1_CLIMB1Left = RgLINK0_CLIMB1Left
+RgLINK1_CLIMB1Right = RgLINK0_CLIMB1Right
+RgLINK1_CLIMB2Left = RgLINK0_CLIMB1Left
+RgLINK1_CLIMB2Right = RgLINK0_CLIMB1Right
+RgLINK1_UPSTANDLeft = RgLINK1_STANDLeft
+RgLINK1_UPSTANDRight = RgLINK1_STANDRight
+RgLINK1_DIAGUPLeft = RgLINK1_STANDLeft
+RgLINK1_DIAGUPRight = RgLINK1_STANDRight
+RgLINK1_DIAGDOWNLeft = RgLINK1_STANDLeft
+RgLINK1_DIAGDOWNRight = RgLINK1_STANDRight
+RgLINK1_UPWALK1Left = RgLINK1_STANDLeft
+RgLINK1_UPWALK1Right = RgLINK1_STANDRight
+RgLINK1_UPWALK2Left = RgLINK1_STANDLeft
+RgLINK1_UPWALK2Right = RgLINK1_STANDRight
+RgLINK1_UPWALK3Left = RgLINK1_STANDLeft
+RgLINK1_UPWALK3Right = RgLINK1_STANDRight
+RgLINK1_DIAGUPWALK1Left = RgLINK1_STANDLeft
+RgLINK1_DIAGUPWALK1Right = RgLINK1_STANDRight
+RgLINK1_DIAGUPWALK2Left = RgLINK1_STANDLeft
+RgLINK1_DIAGUPWALK2Right = RgLINK1_STANDRight
+RgLINK1_DIAGUPWALK3Left = RgLINK1_STANDLeft
+RgLINK1_DIAGUPWALK3Right = RgLINK1_STANDRight
+RgLINK1_DIAGDOWNWALK1Left = RgLINK1_STANDLeft
+RgLINK1_DIAGDOWNWALK1Right = RgLINK1_STANDRight
+RgLINK1_DIAGDOWNWALK2Left = RgLINK1_STANDLeft
+RgLINK1_DIAGDOWNWALK2Right = RgLINK1_STANDRight
+RgLINK1_DIAGDOWNWALK3Left = RgLINK1_STANDLeft
+RgLINK1_DIAGDOWNWALK3Right = RgLINK1_STANDRight
+RgLINK1_DOWNTHRUSTLeft:
+  .byte 8
+  .byte MetaspriteVramOffset{$32}, {SPRITE_BANK_0}, $c0, 16, 8
+  .byte MetaspriteVramOffset{$30}, {SPRITE_BANK_0}, $80, 16, 0
+RgLINK1_DOWNTHRUSTRight:
+  .byte 8
+  .byte MetaspriteVramOffset{$32}, {SPRITE_BANK_0}, $80, 16, 0
+  .byte MetaspriteVramOffset{$30}, {SPRITE_BANK_0}, $c0, 16, 8
+RgLINK1_UPTHRUSTLeft = RgLINK0_CLIMB1Left
+RgLINK1_UPTHRUSTRight = RgLINK0_CLIMB1Right
+RgLINK1_HURTLeft = RgLINK1_STANDLeft
+RgLINK1_HURTRight = RgLINK1_STANDRight
+RgLINK1_DIE1Left:
+  .byte 8
+  .byte MetaspriteVramOffset{$10}, {SPRITE_BANK_0}, $00, 16, 8
+  .byte MetaspriteVramOffset{$12}, {SPRITE_BANK_0}, $c0, 16, 0
+RgLINK1_DIE1Right:
+  .byte 8
+  .byte MetaspriteVramOffset{$10}, {SPRITE_BANK_0}, $40, 16, 0
+  .byte MetaspriteVramOffset{$12}, {SPRITE_BANK_0}, $80, 16, 8
+RgLINK1_DIE2Left:
+  .byte 8
+  .byte MetaspriteVramOffset{$14}, {SPRITE_BANK_0}, $c0, 17, 7
+  .byte MetaspriteVramOffset{$16}, {SPRITE_BANK_0}, $80, 17, -1
+RgLINK1_DIE2Right:
+  .byte 8
+  .byte MetaspriteVramOffset{$14}, {SPRITE_BANK_0}, $80, 17, 1
+  .byte MetaspriteVramOffset{$16}, {SPRITE_BANK_0}, $c0, 17, 9
+RgLINK1_DIE3Left:
+  .byte 8
+  .byte MetaspriteVramOffset{$18}, {SPRITE_BANK_0}, $80, 16, 6
+  .byte MetaspriteVramOffset{$1a}, {SPRITE_BANK_0}, $80, 16, -2
+RgLINK1_DIE3Right:
+  .byte 8
+  .byte MetaspriteVramOffset{$18}, {SPRITE_BANK_0}, $c0, 16, 2
+  .byte MetaspriteVramOffset{$1a}, {SPRITE_BANK_0}, $c0, 16, 10
+RgLINK1_DIE4Left:
+  .byte 8
+  .byte MetaspriteVramOffset{$1c}, {SPRITE_BANK_0}, $c0, 17, 7
+  .byte MetaspriteVramOffset{$1e}, {SPRITE_BANK_0}, $80, 17, -1
+RgLINK1_DIE4Right:
+  .byte 8
+  .byte MetaspriteVramOffset{$1c}, {SPRITE_BANK_0}, $80, 17, 1
+  .byte MetaspriteVramOffset{$1e}, {SPRITE_BANK_0}, $c0, 17, 9
+RgLINK1_SLIDELeft = RgLINK1_STANDLeft
+RgLINK1_SLIDERight = RgLINK1_STANDRight
+RgLINK1_CROUCHATTACK1Left = RgLINK1_STANDLeft
+RgLINK1_CROUCHATTACK1Right = RgLINK1_STANDRight
+RgLINK1_CROUCHATTACK2Left = RgLINK1_STANDLeft
+RgLINK1_CROUCHATTACK2Right = RgLINK1_STANDRight
+RgLINK1_CROUCHATTACK3Left = RgLINK1_STANDLeft
+RgLINK1_CROUCHATTACK3Right = RgLINK1_STANDRight
+RgLINK1_CROUCHTHROW1Left = RgLINK1_STANDLeft
+RgLINK1_CROUCHTHROW1Right = RgLINK1_STANDRight
+RgLINK1_CROUCHTHROW2Left = RgLINK1_STANDLeft
+RgLINK1_CROUCHTHROW2Right = RgLINK1_STANDRight
+RgLINK1_CROUCHTHROW3Left = RgLINK1_STANDLeft
+RgLINK1_CROUCHTHROW3Right = RgLINK1_STANDRight
+RgLINK1_DIEFLASH1Left = RgLINK0_DIEFLASH1Left
+RgLINK1_DIEFLASH1Right = RgLINK0_DIEFLASH1Right
+RgLINK1_DIEFLASH2Left:
+  .byte 24
+  .byte MetaspriteVramOffset{$00}, {SPRITE_BANK_0}, $80, 18, 7
+  .byte MetaspriteVramOffset{$02}, {SPRITE_BANK_0}, $c0, 18, -1
+  .byte MetaspriteVramOffset{$04}, {SPRITE_BANK_0}, $c2, 18, 8
+  .byte MetaspriteVramOffset{$06}, {SPRITE_BANK_0}, $82, 18, 0
+  .byte MetaspriteVramOffset{$08}, {SPRITE_BANK_0}, $c7, 16, 5
+  .byte MetaspriteVramOffset{$0a}, {SPRITE_BANK_0}, $87, 16, -3
+RgLINK1_DIEFLASH2Right:
+  .byte 24
+  .byte MetaspriteVramOffset{$00}, {SPRITE_BANK_0}, $c0, 18, 1
+  .byte MetaspriteVramOffset{$02}, {SPRITE_BANK_0}, $80, 18, 9
+  .byte MetaspriteVramOffset{$04}, {SPRITE_BANK_0}, $82, 18, 0
+  .byte MetaspriteVramOffset{$06}, {SPRITE_BANK_0}, $c2, 18, 8
+  .byte MetaspriteVramOffset{$08}, {SPRITE_BANK_0}, $87, 16, 3
+  .byte MetaspriteVramOffset{$0a}, {SPRITE_BANK_0}, $c7, 16, 11
+RgLINK1_DIEGRAYLeft:
+  .byte 16
+  .byte MetaspriteVramOffset{$30}, {SPRITE_BANK_0}, $c0, 16, 8
+  .byte MetaspriteVramOffset{$32}, {SPRITE_BANK_0}, $80, 16, 0
+  .byte MetaspriteVramOffset{$2c}, {SPRITE_BANK_0}, $82, 18, 7
+  .byte MetaspriteVramOffset{$2e}, {SPRITE_BANK_0}, $c2, 18, -1
+RgLINK1_DIEGRAYRight:
+  .byte 16
+  .byte MetaspriteVramOffset{$30}, {SPRITE_BANK_0}, $80, 16, 0
+  .byte MetaspriteVramOffset{$32}, {SPRITE_BANK_0}, $c0, 16, 8
+  .byte MetaspriteVramOffset{$2c}, {SPRITE_BANK_0}, $c2, 18, 1
+  .byte MetaspriteVramOffset{$2e}, {SPRITE_BANK_0}, $82, 18, 9
+RgLINK1_DIECROSS1Left:
+  .byte 12
+  .byte MetaspriteVramOffset{$38}, {SPRITE_BANK_0}, $80, 21, 3
+  .byte MetaspriteVramOffset{$3a}, {SPRITE_BANK_0}, $82, 19, 5
+  .byte MetaspriteVramOffset{$3c}, {SPRITE_BANK_0}, $82, 19, -3
+RgLINK1_DIECROSS1Right:
+  .byte 12
+  .byte MetaspriteVramOffset{$38}, {SPRITE_BANK_0}, $c0, 21, 5
+  .byte MetaspriteVramOffset{$3a}, {SPRITE_BANK_0}, $c2, 19, 3
+  .byte MetaspriteVramOffset{$3c}, {SPRITE_BANK_0}, $c2, 19, 11
+RgLINK1_DIECROSS2Left:
+  .byte 28
+  .byte MetaspriteVramOffset{$0c}, {SPRITE_BANK_0}, $40, 16, 8
+  .byte MetaspriteVramOffset{$0c}, {SPRITE_BANK_0}, $00, 16, 0
+  .byte MetaspriteVramOffset{$0e}, {SPRITE_BANK_0}, $02, 1, 2
+  .byte MetaspriteVramOffset{$10}, {SPRITE_BANK_0}, $82, 17, 10
+  .byte MetaspriteVramOffset{$12}, {SPRITE_BANK_0}, $82, 17, 2
+  .byte MetaspriteVramOffset{$14}, {SPRITE_BANK_0}, $82, 17, -6
+  .byte MetaspriteVramOffset{$16}, {SPRITE_BANK_0}, $82, 33, 2
+RgLINK1_DIECROSS2Right:
+  .byte 28
+  .byte MetaspriteVramOffset{$0c}, {SPRITE_BANK_0}, $00, 16, 0
+  .byte MetaspriteVramOffset{$0c}, {SPRITE_BANK_0}, $40, 16, 8
+  .byte MetaspriteVramOffset{$0e}, {SPRITE_BANK_0}, $42, 1, 6
+  .byte MetaspriteVramOffset{$10}, {SPRITE_BANK_0}, $c2, 17, -2
+  .byte MetaspriteVramOffset{$12}, {SPRITE_BANK_0}, $c2, 17, 6
+  .byte MetaspriteVramOffset{$14}, {SPRITE_BANK_0}, $c2, 17, 14
+  .byte MetaspriteVramOffset{$16}, {SPRITE_BANK_0}, $c2, 33, 6
+RgLINK2_STANDLeft = RgLINK1_STANDLeft
+RgLINK2_STANDRight = RgLINK1_STANDRight
+RgLINK2_WALK1Left = RgLINK1_WALK1Left
+RgLINK2_WALK1Right = RgLINK1_WALK1Right
+RgLINK2_WALK2Left = RgLINK1_STANDLeft
+RgLINK2_WALK2Right = RgLINK1_STANDRight
+RgLINK2_WALK3Left = RgLINK1_STANDLeft
+RgLINK2_WALK3Right = RgLINK1_STANDRight
+RgLINK2_JUMP1Left = RgLINK1_WALK1Left
+RgLINK2_JUMP1Right = RgLINK1_WALK1Right
+RgLINK2_JUMP2Left = RgLINK1_WALK1Left
+RgLINK2_JUMP2Right = RgLINK1_WALK1Right
+RgLINK2_JUMP3Left = RgLINK1_WALK1Left
+RgLINK2_JUMP3Right = RgLINK1_WALK1Right
+RgLINK2_JUMP4Left = RgLINK1_WALK1Left
+RgLINK2_JUMP4Right = RgLINK1_WALK1Right
+RgLINK2_CROUCHLeft = RgLINK1_STANDLeft
+RgLINK2_CROUCHRight = RgLINK1_STANDRight
+RgLINK2_ATTACK1Left:
+  .byte 16
+  .byte MetaspriteVramOffset{$2e}, {SPRITE_BANK_0}, $c0, 17, 8
+  .byte MetaspriteVramOffset{$30}, {SPRITE_BANK_0}, $80, 17, 0
+  .byte MetaspriteVramOffset{$32}, {SPRITE_BANK_0}, $c2, 24, -6
+  .byte MetaspriteVramOffset{$34}, {SPRITE_BANK_0}, $82, 24, -14
+RgLINK2_ATTACK1Right:
+  .byte 16
+  .byte MetaspriteVramOffset{$2e}, {SPRITE_BANK_0}, $80, 17, 0
+  .byte MetaspriteVramOffset{$30}, {SPRITE_BANK_0}, $c0, 17, 8
+  .byte MetaspriteVramOffset{$32}, {SPRITE_BANK_0}, $82, 24, 14
+  .byte MetaspriteVramOffset{$34}, {SPRITE_BANK_0}, $c2, 24, 22
+RgLINK2_ATTACK2Left = RgLINK1_ATTACK2Left
+RgLINK2_ATTACK2Right = RgLINK1_ATTACK2Right
+RgLINK2_ATTACK3Left = RgLINK1_ATTACK3Left
+RgLINK2_ATTACK3Right = RgLINK1_ATTACK3Right
+RgLINK2_THROW1Left = RgLINK0_THROW1Left
+RgLINK2_THROW1Right = RgLINK0_THROW1Right
+RgLINK2_THROW2Left = RgLINK1_WALK1Left
+RgLINK2_THROW2Right = RgLINK1_WALK1Right
+RgLINK2_THROW3Left = RgLINK1_STANDLeft
+RgLINK2_THROW3Right = RgLINK1_STANDRight
+RgLINK2_CLIMB1Left = RgLINK0_CLIMB1Left
+RgLINK2_CLIMB1Right = RgLINK0_CLIMB1Right
+RgLINK2_CLIMB2Left = RgLINK0_CLIMB1Left
+RgLINK2_CLIMB2Right = RgLINK0_CLIMB1Right
+RgLINK2_UPSTANDLeft = RgLINK1_STANDLeft
+RgLINK2_UPSTANDRight = RgLINK1_STANDRight
+RgLINK2_DIAGUPLeft = RgLINK1_STANDLeft
+RgLINK2_DIAGUPRight = RgLINK1_STANDRight
+RgLINK2_DIAGDOWNLeft = RgLINK1_STANDLeft
+RgLINK2_DIAGDOWNRight = RgLINK1_STANDRight
+RgLINK2_UPWALK1Left = RgLINK1_STANDLeft
+RgLINK2_UPWALK1Right = RgLINK1_STANDRight
+RgLINK2_UPWALK2Left = RgLINK1_STANDLeft
+RgLINK2_UPWALK2Right = RgLINK1_STANDRight
+RgLINK2_UPWALK3Left = RgLINK1_STANDLeft
+RgLINK2_UPWALK3Right = RgLINK1_STANDRight
+RgLINK2_DIAGUPWALK1Left = RgLINK1_STANDLeft
+RgLINK2_DIAGUPWALK1Right = RgLINK1_STANDRight
+RgLINK2_DIAGUPWALK2Left = RgLINK1_STANDLeft
+RgLINK2_DIAGUPWALK2Right = RgLINK1_STANDRight
+RgLINK2_DIAGUPWALK3Left = RgLINK1_STANDLeft
+RgLINK2_DIAGUPWALK3Right = RgLINK1_STANDRight
+RgLINK2_DIAGDOWNWALK1Left = RgLINK1_STANDLeft
+RgLINK2_DIAGDOWNWALK1Right = RgLINK1_STANDRight
+RgLINK2_DIAGDOWNWALK2Left = RgLINK1_STANDLeft
+RgLINK2_DIAGDOWNWALK2Right = RgLINK1_STANDRight
+RgLINK2_DIAGDOWNWALK3Left = RgLINK1_STANDLeft
+RgLINK2_DIAGDOWNWALK3Right = RgLINK1_STANDRight
+RgLINK2_DOWNTHRUSTLeft = RgLINK1_DOWNTHRUSTLeft
+RgLINK2_DOWNTHRUSTRight = RgLINK1_DOWNTHRUSTRight
+RgLINK2_UPTHRUSTLeft = RgLINK0_CLIMB1Left
+RgLINK2_UPTHRUSTRight = RgLINK0_CLIMB1Right
+RgLINK2_HURTLeft = RgLINK1_STANDLeft
+RgLINK2_HURTRight = RgLINK1_STANDRight
+RgLINK2_DIE1Left = RgLINK1_DIE1Left
+RgLINK2_DIE1Right = RgLINK1_DIE1Right
+RgLINK2_DIE2Left = RgLINK1_DIE2Left
+RgLINK2_DIE2Right = RgLINK1_DIE2Right
+RgLINK2_DIE3Left = RgLINK1_DIE3Left
+RgLINK2_DIE3Right = RgLINK1_DIE3Right
+RgLINK2_DIE4Left = RgLINK1_DIE4Left
+RgLINK2_DIE4Right = RgLINK1_DIE4Right
+RgLINK2_SLIDELeft = RgLINK1_STANDLeft
+RgLINK2_SLIDERight = RgLINK1_STANDRight
+RgLINK2_CROUCHATTACK1Left = RgLINK1_STANDLeft
+RgLINK2_CROUCHATTACK1Right = RgLINK1_STANDRight
+RgLINK2_CROUCHATTACK2Left = RgLINK1_STANDLeft
+RgLINK2_CROUCHATTACK2Right = RgLINK1_STANDRight
+RgLINK2_CROUCHATTACK3Left = RgLINK1_STANDLeft
+RgLINK2_CROUCHATTACK3Right = RgLINK1_STANDRight
+RgLINK2_CROUCHTHROW1Left = RgLINK1_STANDLeft
+RgLINK2_CROUCHTHROW1Right = RgLINK1_STANDRight
+RgLINK2_CROUCHTHROW2Left = RgLINK1_STANDLeft
+RgLINK2_CROUCHTHROW2Right = RgLINK1_STANDRight
+RgLINK2_CROUCHTHROW3Left = RgLINK1_STANDLeft
+RgLINK2_CROUCHTHROW3Right = RgLINK1_STANDRight
+RgLINK2_DIEFLASH1Left:
+  .byte 16
+  .byte MetaspriteVramOffset{$34}, {SPRITE_BANK_0}, $80, 16, 7
+  .byte MetaspriteVramOffset{$36}, {SPRITE_BANK_0}, $80, 16, -1
+  .byte MetaspriteVramOffset{$04}, {SPRITE_BANK_0}, $c2, 18, 8
+  .byte MetaspriteVramOffset{$06}, {SPRITE_BANK_0}, $82, 18, 0
+RgLINK2_DIEFLASH1Right:
+  .byte 16
+  .byte MetaspriteVramOffset{$34}, {SPRITE_BANK_0}, $c0, 16, 1
+  .byte MetaspriteVramOffset{$36}, {SPRITE_BANK_0}, $c0, 16, 9
+  .byte MetaspriteVramOffset{$04}, {SPRITE_BANK_0}, $82, 18, 0
+  .byte MetaspriteVramOffset{$06}, {SPRITE_BANK_0}, $c2, 18, 8
+RgLINK2_DIEFLASH2Left = RgLINK0_DIEFLASH2Left
+RgLINK2_DIEFLASH2Right = RgLINK0_DIEFLASH2Right
+RgLINK2_DIEGRAYLeft = RgLINK0_DIEGRAYLeft
+RgLINK2_DIEGRAYRight = RgLINK0_DIEGRAYRight
+RgLINK2_DIECROSS1Left = RgLINK0_DIECROSS1Left
+RgLINK2_DIECROSS1Right = RgLINK0_DIECROSS1Right
+RgLINK2_DIECROSS2Left = RgLINK0_DIECROSS2Left
+RgLINK2_DIECROSS2Right = RgLINK0_DIECROSS2Right
+RgLINKEASY0_AIR_ENDLeft:
+  .byte 12
+  .byte MetaspriteVramOffset{$2e}, {SPRITE_BANK_0}, $c0, 17, 7
+  .byte MetaspriteVramOffset{$30}, {SPRITE_BANK_0}, $80, 17, -1
+  .byte MetaspriteVramOffset{$3e}, {SPRITE_BANK_0}, $00, 17, -9
+RgLINKEASY0_AIR_ENDRight:
+  .byte 12
+  .byte MetaspriteVramOffset{$2e}, {SPRITE_BANK_0}, $80, 17, 1
+  .byte MetaspriteVramOffset{$30}, {SPRITE_BANK_0}, $c0, 17, 9
+  .byte MetaspriteVramOffset{$3e}, {SPRITE_BANK_0}, $40, 17, 17
+RgLINKEASY0_DOWN_ENDLeft:
+  .byte 16
+  .byte MetaspriteVramOffset{$36}, {SPRITE_BANK_0}, $40, 16, 8
+  .byte MetaspriteVramOffset{$38}, {SPRITE_BANK_0}, $00, 16, 0
+  .byte MetaspriteVramOffset{$3a}, {SPRITE_BANK_0}, $c0, 32, 8
+  .byte MetaspriteVramOffset{$3c}, {SPRITE_BANK_0}, $80, 32, 0
+RgLINKEASY0_DOWN_ENDRight:
+  .byte 16
+  .byte MetaspriteVramOffset{$36}, {SPRITE_BANK_0}, $00, 16, 0
+  .byte MetaspriteVramOffset{$38}, {SPRITE_BANK_0}, $40, 16, 8
+  .byte MetaspriteVramOffset{$3a}, {SPRITE_BANK_0}, $80, 32, 0
+  .byte MetaspriteVramOffset{$3c}, {SPRITE_BANK_0}, $c0, 32, 8
+RgLINKEASY0_UP_ENDLeft:
+  .byte 16
+  .byte MetaspriteVramOffset{$2e}, {SPRITE_BANK_0}, $40, 4, 8
+  .byte MetaspriteVramOffset{$30}, {SPRITE_BANK_0}, $00, 4, 0
+  .byte MetaspriteVramOffset{$32}, {SPRITE_BANK_0}, $c0, 20, 8
+  .byte MetaspriteVramOffset{$34}, {SPRITE_BANK_0}, $80, 20, 0
+RgLINKEASY0_UP_ENDRight:
+  .byte 16
+  .byte MetaspriteVramOffset{$2e}, {SPRITE_BANK_0}, $00, 4, 0
+  .byte MetaspriteVramOffset{$30}, {SPRITE_BANK_0}, $40, 4, 8
+  .byte MetaspriteVramOffset{$32}, {SPRITE_BANK_0}, $80, 20, 0
+  .byte MetaspriteVramOffset{$34}, {SPRITE_BANK_0}, $c0, 20, 8
+RgLINKEASY1_AIR_ENDLeft:
+  .byte 12
+  .byte MetaspriteVramOffset{$2e}, {SPRITE_BANK_0}, $c0, 17, 7
+  .byte MetaspriteVramOffset{$30}, {SPRITE_BANK_0}, $80, 17, -1
+  .byte MetaspriteVramOffset{$32}, {SPRITE_BANK_0}, $82, 24, -5
+RgLINKEASY1_AIR_ENDRight:
+  .byte 12
+  .byte MetaspriteVramOffset{$2e}, {SPRITE_BANK_0}, $80, 17, 1
+  .byte MetaspriteVramOffset{$30}, {SPRITE_BANK_0}, $c0, 17, 9
+  .byte MetaspriteVramOffset{$32}, {SPRITE_BANK_0}, $c2, 24, 13
+RgLINKEASY1_DOWN_ENDLeft:
+  .byte 16
+  .byte MetaspriteVramOffset{$36}, {SPRITE_BANK_0}, $c0, 16, 8
+  .byte MetaspriteVramOffset{$38}, {SPRITE_BANK_0}, $80, 16, 0
+  .byte MetaspriteVramOffset{$3a}, {SPRITE_BANK_0}, $82, 32, 1
+  .byte MetaspriteVramOffset{$3c}, {SPRITE_BANK_0}, $87, 30, 3
+RgLINKEASY1_DOWN_ENDRight:
+  .byte 16
+  .byte MetaspriteVramOffset{$36}, {SPRITE_BANK_0}, $80, 16, 0
+  .byte MetaspriteVramOffset{$38}, {SPRITE_BANK_0}, $c0, 16, 8
+  .byte MetaspriteVramOffset{$3a}, {SPRITE_BANK_0}, $c2, 32, 7
+  .byte MetaspriteVramOffset{$3c}, {SPRITE_BANK_0}, $c7, 30, 5
+RgLINKEASY1_UP_ENDLeft:
+  .byte 16
+  .byte MetaspriteVramOffset{$2e}, {SPRITE_BANK_0}, $c0, 16, 8
+  .byte MetaspriteVramOffset{$30}, {SPRITE_BANK_0}, $80, 16, 0
+  .byte MetaspriteVramOffset{$32}, {SPRITE_BANK_0}, $82, 4, 3
+  .byte MetaspriteVramOffset{$34}, {SPRITE_BANK_0}, $c7, 15, 5
+RgLINKEASY1_UP_ENDRight:
+  .byte 16
+  .byte MetaspriteVramOffset{$2e}, {SPRITE_BANK_0}, $80, 16, 0
+  .byte MetaspriteVramOffset{$30}, {SPRITE_BANK_0}, $c0, 16, 8
+  .byte MetaspriteVramOffset{$32}, {SPRITE_BANK_0}, $c2, 4, 5
+  .byte MetaspriteVramOffset{$34}, {SPRITE_BANK_0}, $87, 15, 3
+RgLINKEASY2_AIR_ENDLeft = RgLINKEASY1_AIR_ENDLeft
+RgLINKEASY2_AIR_ENDRight = RgLINKEASY1_AIR_ENDRight
+RgLINKEASY2_DOWN_ENDLeft:
+  .byte 12
+  .byte MetaspriteVramOffset{$36}, {SPRITE_BANK_0}, $40, 16, 8
+  .byte MetaspriteVramOffset{$38}, {SPRITE_BANK_0}, $00, 16, 0
+  .byte MetaspriteVramOffset{$3e}, {SPRITE_BANK_0}, $82, 32, 1
+RgLINKEASY2_DOWN_ENDRight:
+  .byte 12
+  .byte MetaspriteVramOffset{$36}, {SPRITE_BANK_0}, $00, 16, 0
+  .byte MetaspriteVramOffset{$38}, {SPRITE_BANK_0}, $40, 16, 8
+  .byte MetaspriteVramOffset{$3e}, {SPRITE_BANK_0}, $c2, 32, 7
+RgLINKEASY2_UP_ENDLeft:
+  .byte 16
+  .byte MetaspriteVramOffset{$36}, {SPRITE_BANK_0}, $c0, 15, 8
+  .byte MetaspriteVramOffset{$38}, {SPRITE_BANK_0}, $80, 15, 0
+  .byte MetaspriteVramOffset{$3a}, {SPRITE_BANK_0}, $c0, 31, 0
+  .byte MetaspriteVramOffset{$32}, {SPRITE_BANK_0}, $82, 4, 3
+RgLINKEASY2_UP_ENDRight:
+  .byte 16
+  .byte MetaspriteVramOffset{$36}, {SPRITE_BANK_0}, $80, 15, 0
+  .byte MetaspriteVramOffset{$38}, {SPRITE_BANK_0}, $c0, 15, 8
+  .byte MetaspriteVramOffset{$3a}, {SPRITE_BANK_0}, $80, 31, 8
+  .byte MetaspriteVramOffset{$32}, {SPRITE_BANK_0}, $c2, 4, 5
+RgLINKLeftLo:
+  .byte <RgLINK0_STANDLeft,<RgLINK0_WALK1Left,<RgLINK0_WALK2Left,<RgLINK0_WALK3Left,<RgLINK0_JUMP1Left,<RgLINK0_JUMP2Left,<RgLINK0_JUMP3Left,<RgLINK0_JUMP4Left,<RgLINK0_CROUCHLeft,<RgLINK0_ATTACK1Left,<RgLINK0_ATTACK2Left,<RgLINK0_ATTACK3Left,<RgLINK0_THROW1Left,<RgLINK0_THROW2Left,<RgLINK0_THROW3Left,<RgLINK0_CLIMB1Left,<RgLINK0_CLIMB2Left,<RgLINKEASY0_AIR_ENDLeft,<RgLINKEASY0_UP_ENDLeft,<RgLINKEASY0_DOWN_ENDLeft,<RgLINK0_UPWALK1Left,<RgLINK0_UPWALK2Left,<RgLINK0_UPWALK3Left,<RgLINK0_DIAGUPWALK1Left,<RgLINK0_DIAGUPWALK2Left,<RgLINK0_DIAGUPWALK3Left,<RgLINK0_DIAGDOWNWALK1Left,<RgLINK0_DIAGDOWNWALK2Left,<RgLINK0_DIAGDOWNWALK3Left,<RgLINK0_DOWNTHRUSTLeft,<RgLINK0_UPTHRUSTLeft,<RgLINK0_HURTLeft,<RgLINK0_DIE1Left,<RgLINK0_DIE2Left,<RgLINK0_DIE3Left,<RgLINK0_DIE4Left,<RgLINK0_SLIDELeft,<RgLINK0_CROUCHATTACK1Left,<RgLINK0_CROUCHATTACK2Left,<RgLINK0_CROUCHATTACK3Left,<RgLINK0_CROUCHTHROW1Left,<RgLINK0_CROUCHTHROW2Left,<RgLINK0_CROUCHTHROW3Left,<RgLINK0_DIEFLASH1Left,<RgLINK0_DIEFLASH2Left,<RgLINK0_DIEGRAYLeft,<RgLINK0_DIECROSS1Left,<RgLINK0_DIECROSS2Left,<RgLINK1_STANDLeft,<RgLINK1_WALK1Left,<RgLINK1_WALK2Left,<RgLINK1_WALK3Left,<RgLINK1_JUMP1Left,<RgLINK1_JUMP2Left,<RgLINK1_JUMP3Left,<RgLINK1_JUMP4Left,<RgLINK1_CROUCHLeft,<RgLINK1_ATTACK1Left,<RgLINK1_ATTACK2Left,<RgLINK1_ATTACK3Left,<RgLINK1_THROW1Left,<RgLINK1_THROW2Left,<RgLINK1_THROW3Left,<RgLINK1_CLIMB1Left,<RgLINK1_CLIMB2Left,<RgLINKEASY1_AIR_ENDLeft,<RgLINKEASY1_UP_ENDLeft,<RgLINKEASY1_DOWN_ENDLeft,<RgLINK1_UPWALK1Left,<RgLINK1_UPWALK2Left,<RgLINK1_UPWALK3Left,<RgLINK1_DIAGUPWALK1Left,<RgLINK1_DIAGUPWALK2Left,<RgLINK1_DIAGUPWALK3Left,<RgLINK1_DIAGDOWNWALK1Left,<RgLINK1_DIAGDOWNWALK2Left,<RgLINK1_DIAGDOWNWALK3Left,<RgLINK1_DOWNTHRUSTLeft,<RgLINK1_UPTHRUSTLeft,<RgLINK1_HURTLeft,<RgLINK1_DIE1Left,<RgLINK1_DIE2Left,<RgLINK1_DIE3Left,<RgLINK1_DIE4Left,<RgLINK1_SLIDELeft,<RgLINK1_CROUCHATTACK1Left,<RgLINK1_CROUCHATTACK2Left,<RgLINK1_CROUCHATTACK3Left,<RgLINK1_CROUCHTHROW1Left,<RgLINK1_CROUCHTHROW2Left,<RgLINK1_CROUCHTHROW3Left,<RgLINK1_DIEFLASH1Left,<RgLINK1_DIEFLASH2Left,<RgLINK1_DIEGRAYLeft,<RgLINK1_DIECROSS1Left,<RgLINK1_DIECROSS2Left,<RgLINK2_STANDLeft,<RgLINK2_WALK1Left,<RgLINK2_WALK2Left,<RgLINK2_WALK3Left,<RgLINK2_JUMP1Left,<RgLINK2_JUMP2Left,<RgLINK2_JUMP3Left,<RgLINK2_JUMP4Left,<RgLINK2_CROUCHLeft,<RgLINK2_ATTACK1Left,<RgLINK2_ATTACK2Left,<RgLINK2_ATTACK3Left,<RgLINK2_THROW1Left,<RgLINK2_THROW2Left,<RgLINK2_THROW3Left,<RgLINK2_CLIMB1Left,<RgLINK2_CLIMB2Left,<RgLINKEASY2_AIR_ENDLeft,<RgLINKEASY2_UP_ENDLeft,<RgLINKEASY2_DOWN_ENDLeft,<RgLINK2_UPWALK1Left,<RgLINK2_UPWALK2Left,<RgLINK2_UPWALK3Left,<RgLINK2_DIAGUPWALK1Left,<RgLINK2_DIAGUPWALK2Left,<RgLINK2_DIAGUPWALK3Left,<RgLINK2_DIAGDOWNWALK1Left,<RgLINK2_DIAGDOWNWALK2Left,<RgLINK2_DIAGDOWNWALK3Left,<RgLINK2_DOWNTHRUSTLeft,<RgLINK2_UPTHRUSTLeft,<RgLINK2_HURTLeft,<RgLINK2_DIE1Left,<RgLINK2_DIE2Left,<RgLINK2_DIE3Left,<RgLINK2_DIE4Left,<RgLINK2_SLIDELeft,<RgLINK2_CROUCHATTACK1Left,<RgLINK2_CROUCHATTACK2Left,<RgLINK2_CROUCHATTACK3Left,<RgLINK2_CROUCHTHROW1Left,<RgLINK2_CROUCHTHROW2Left,<RgLINK2_CROUCHTHROW3Left,<RgLINK2_DIEFLASH1Left,<RgLINK2_DIEFLASH2Left,<RgLINK2_DIEGRAYLeft,<RgLINK2_DIECROSS1Left,<RgLINK2_DIECROSS2Left
+RgLINKLeftHi:
+  .byte >RgLINK0_STANDLeft,>RgLINK0_WALK1Left,>RgLINK0_WALK2Left,>RgLINK0_WALK3Left,>RgLINK0_JUMP1Left,>RgLINK0_JUMP2Left,>RgLINK0_JUMP3Left,>RgLINK0_JUMP4Left,>RgLINK0_CROUCHLeft,>RgLINK0_ATTACK1Left,>RgLINK0_ATTACK2Left,>RgLINK0_ATTACK3Left,>RgLINK0_THROW1Left,>RgLINK0_THROW2Left,>RgLINK0_THROW3Left,>RgLINK0_CLIMB1Left,>RgLINK0_CLIMB2Left,>RgLINKEASY0_AIR_ENDLeft,>RgLINKEASY0_UP_ENDLeft,>RgLINKEASY0_DOWN_ENDLeft,>RgLINK0_UPWALK1Left,>RgLINK0_UPWALK2Left,>RgLINK0_UPWALK3Left,>RgLINK0_DIAGUPWALK1Left,>RgLINK0_DIAGUPWALK2Left,>RgLINK0_DIAGUPWALK3Left,>RgLINK0_DIAGDOWNWALK1Left,>RgLINK0_DIAGDOWNWALK2Left,>RgLINK0_DIAGDOWNWALK3Left,>RgLINK0_DOWNTHRUSTLeft,>RgLINK0_UPTHRUSTLeft,>RgLINK0_HURTLeft,>RgLINK0_DIE1Left,>RgLINK0_DIE2Left,>RgLINK0_DIE3Left,>RgLINK0_DIE4Left,>RgLINK0_SLIDELeft,>RgLINK0_CROUCHATTACK1Left,>RgLINK0_CROUCHATTACK2Left,>RgLINK0_CROUCHATTACK3Left,>RgLINK0_CROUCHTHROW1Left,>RgLINK0_CROUCHTHROW2Left,>RgLINK0_CROUCHTHROW3Left,>RgLINK0_DIEFLASH1Left,>RgLINK0_DIEFLASH2Left,>RgLINK0_DIEGRAYLeft,>RgLINK0_DIECROSS1Left,>RgLINK0_DIECROSS2Left,>RgLINK1_STANDLeft,>RgLINK1_WALK1Left,>RgLINK1_WALK2Left,>RgLINK1_WALK3Left,>RgLINK1_JUMP1Left,>RgLINK1_JUMP2Left,>RgLINK1_JUMP3Left,>RgLINK1_JUMP4Left,>RgLINK1_CROUCHLeft,>RgLINK1_ATTACK1Left,>RgLINK1_ATTACK2Left,>RgLINK1_ATTACK3Left,>RgLINK1_THROW1Left,>RgLINK1_THROW2Left,>RgLINK1_THROW3Left,>RgLINK1_CLIMB1Left,>RgLINK1_CLIMB2Left,>RgLINKEASY1_AIR_ENDLeft,>RgLINKEASY1_UP_ENDLeft,>RgLINKEASY1_DOWN_ENDLeft,>RgLINK1_UPWALK1Left,>RgLINK1_UPWALK2Left,>RgLINK1_UPWALK3Left,>RgLINK1_DIAGUPWALK1Left,>RgLINK1_DIAGUPWALK2Left,>RgLINK1_DIAGUPWALK3Left,>RgLINK1_DIAGDOWNWALK1Left,>RgLINK1_DIAGDOWNWALK2Left,>RgLINK1_DIAGDOWNWALK3Left,>RgLINK1_DOWNTHRUSTLeft,>RgLINK1_UPTHRUSTLeft,>RgLINK1_HURTLeft,>RgLINK1_DIE1Left,>RgLINK1_DIE2Left,>RgLINK1_DIE3Left,>RgLINK1_DIE4Left,>RgLINK1_SLIDELeft,>RgLINK1_CROUCHATTACK1Left,>RgLINK1_CROUCHATTACK2Left,>RgLINK1_CROUCHATTACK3Left,>RgLINK1_CROUCHTHROW1Left,>RgLINK1_CROUCHTHROW2Left,>RgLINK1_CROUCHTHROW3Left,>RgLINK1_DIEFLASH1Left,>RgLINK1_DIEFLASH2Left,>RgLINK1_DIEGRAYLeft,>RgLINK1_DIECROSS1Left,>RgLINK1_DIECROSS2Left,>RgLINK2_STANDLeft,>RgLINK2_WALK1Left,>RgLINK2_WALK2Left,>RgLINK2_WALK3Left,>RgLINK2_JUMP1Left,>RgLINK2_JUMP2Left,>RgLINK2_JUMP3Left,>RgLINK2_JUMP4Left,>RgLINK2_CROUCHLeft,>RgLINK2_ATTACK1Left,>RgLINK2_ATTACK2Left,>RgLINK2_ATTACK3Left,>RgLINK2_THROW1Left,>RgLINK2_THROW2Left,>RgLINK2_THROW3Left,>RgLINK2_CLIMB1Left,>RgLINK2_CLIMB2Left,>RgLINKEASY2_AIR_ENDLeft,>RgLINKEASY2_UP_ENDLeft,>RgLINKEASY2_DOWN_ENDLeft,>RgLINK2_UPWALK1Left,>RgLINK2_UPWALK2Left,>RgLINK2_UPWALK3Left,>RgLINK2_DIAGUPWALK1Left,>RgLINK2_DIAGUPWALK2Left,>RgLINK2_DIAGUPWALK3Left,>RgLINK2_DIAGDOWNWALK1Left,>RgLINK2_DIAGDOWNWALK2Left,>RgLINK2_DIAGDOWNWALK3Left,>RgLINK2_DOWNTHRUSTLeft,>RgLINK2_UPTHRUSTLeft,>RgLINK2_HURTLeft,>RgLINK2_DIE1Left,>RgLINK2_DIE2Left,>RgLINK2_DIE3Left,>RgLINK2_DIE4Left,>RgLINK2_SLIDELeft,>RgLINK2_CROUCHATTACK1Left,>RgLINK2_CROUCHATTACK2Left,>RgLINK2_CROUCHATTACK3Left,>RgLINK2_CROUCHTHROW1Left,>RgLINK2_CROUCHTHROW2Left,>RgLINK2_CROUCHTHROW3Left,>RgLINK2_DIEFLASH1Left,>RgLINK2_DIEFLASH2Left,>RgLINK2_DIEGRAYLeft,>RgLINK2_DIECROSS1Left,>RgLINK2_DIECROSS2Left
+RgLINKRightLo:
+  .byte <RgLINK0_STANDRight,<RgLINK0_WALK1Right,<RgLINK0_WALK2Right,<RgLINK0_WALK3Right,<RgLINK0_JUMP1Right,<RgLINK0_JUMP2Right,<RgLINK0_JUMP3Right,<RgLINK0_JUMP4Right,<RgLINK0_CROUCHRight,<RgLINK0_ATTACK1Right,<RgLINK0_ATTACK2Right,<RgLINK0_ATTACK3Right,<RgLINK0_THROW1Right,<RgLINK0_THROW2Right,<RgLINK0_THROW3Right,<RgLINK0_CLIMB1Right,<RgLINK0_CLIMB2Right,<RgLINKEASY0_AIR_ENDRight,<RgLINKEASY0_UP_ENDRight,<RgLINKEASY0_DOWN_ENDRight,<RgLINK0_UPWALK1Right,<RgLINK0_UPWALK2Right,<RgLINK0_UPWALK3Right,<RgLINK0_DIAGUPWALK1Right,<RgLINK0_DIAGUPWALK2Right,<RgLINK0_DIAGUPWALK3Right,<RgLINK0_DIAGDOWNWALK1Right,<RgLINK0_DIAGDOWNWALK2Right,<RgLINK0_DIAGDOWNWALK3Right,<RgLINK0_DOWNTHRUSTRight,<RgLINK0_UPTHRUSTRight,<RgLINK0_HURTRight,<RgLINK0_DIE1Right,<RgLINK0_DIE2Right,<RgLINK0_DIE3Right,<RgLINK0_DIE4Right,<RgLINK0_SLIDERight,<RgLINK0_CROUCHATTACK1Right,<RgLINK0_CROUCHATTACK2Right,<RgLINK0_CROUCHATTACK3Right,<RgLINK0_CROUCHTHROW1Right,<RgLINK0_CROUCHTHROW2Right,<RgLINK0_CROUCHTHROW3Right,<RgLINK0_DIEFLASH1Right,<RgLINK0_DIEFLASH2Right,<RgLINK0_DIEGRAYRight,<RgLINK0_DIECROSS1Right,<RgLINK0_DIECROSS2Right,<RgLINK1_STANDRight,<RgLINK1_WALK1Right,<RgLINK1_WALK2Right,<RgLINK1_WALK3Right,<RgLINK1_JUMP1Right,<RgLINK1_JUMP2Right,<RgLINK1_JUMP3Right,<RgLINK1_JUMP4Right,<RgLINK1_CROUCHRight,<RgLINK1_ATTACK1Right,<RgLINK1_ATTACK2Right,<RgLINK1_ATTACK3Right,<RgLINK1_THROW1Right,<RgLINK1_THROW2Right,<RgLINK1_THROW3Right,<RgLINK1_CLIMB1Right,<RgLINK1_CLIMB2Right,<RgLINKEASY1_AIR_ENDRight,<RgLINKEASY1_UP_ENDRight,<RgLINKEASY1_DOWN_ENDRight,<RgLINK1_UPWALK1Right,<RgLINK1_UPWALK2Right,<RgLINK1_UPWALK3Right,<RgLINK1_DIAGUPWALK1Right,<RgLINK1_DIAGUPWALK2Right,<RgLINK1_DIAGUPWALK3Right,<RgLINK1_DIAGDOWNWALK1Right,<RgLINK1_DIAGDOWNWALK2Right,<RgLINK1_DIAGDOWNWALK3Right,<RgLINK1_DOWNTHRUSTRight,<RgLINK1_UPTHRUSTRight,<RgLINK1_HURTRight,<RgLINK1_DIE1Right,<RgLINK1_DIE2Right,<RgLINK1_DIE3Right,<RgLINK1_DIE4Right,<RgLINK1_SLIDERight,<RgLINK1_CROUCHATTACK1Right,<RgLINK1_CROUCHATTACK2Right,<RgLINK1_CROUCHATTACK3Right,<RgLINK1_CROUCHTHROW1Right,<RgLINK1_CROUCHTHROW2Right,<RgLINK1_CROUCHTHROW3Right,<RgLINK1_DIEFLASH1Right,<RgLINK1_DIEFLASH2Right,<RgLINK1_DIEGRAYRight,<RgLINK1_DIECROSS1Right,<RgLINK1_DIECROSS2Right,<RgLINK2_STANDRight,<RgLINK2_WALK1Right,<RgLINK2_WALK2Right,<RgLINK2_WALK3Right,<RgLINK2_JUMP1Right,<RgLINK2_JUMP2Right,<RgLINK2_JUMP3Right,<RgLINK2_JUMP4Right,<RgLINK2_CROUCHRight,<RgLINK2_ATTACK1Right,<RgLINK2_ATTACK2Right,<RgLINK2_ATTACK3Right,<RgLINK2_THROW1Right,<RgLINK2_THROW2Right,<RgLINK2_THROW3Right,<RgLINK2_CLIMB1Right,<RgLINK2_CLIMB2Right,<RgLINKEASY2_AIR_ENDRight,<RgLINKEASY2_UP_ENDRight,<RgLINKEASY2_DOWN_ENDRight,<RgLINK2_UPWALK1Right,<RgLINK2_UPWALK2Right,<RgLINK2_UPWALK3Right,<RgLINK2_DIAGUPWALK1Right,<RgLINK2_DIAGUPWALK2Right,<RgLINK2_DIAGUPWALK3Right,<RgLINK2_DIAGDOWNWALK1Right,<RgLINK2_DIAGDOWNWALK2Right,<RgLINK2_DIAGDOWNWALK3Right,<RgLINK2_DOWNTHRUSTRight,<RgLINK2_UPTHRUSTRight,<RgLINK2_HURTRight,<RgLINK2_DIE1Right,<RgLINK2_DIE2Right,<RgLINK2_DIE3Right,<RgLINK2_DIE4Right,<RgLINK2_SLIDERight,<RgLINK2_CROUCHATTACK1Right,<RgLINK2_CROUCHATTACK2Right,<RgLINK2_CROUCHATTACK3Right,<RgLINK2_CROUCHTHROW1Right,<RgLINK2_CROUCHTHROW2Right,<RgLINK2_CROUCHTHROW3Right,<RgLINK2_DIEFLASH1Right,<RgLINK2_DIEFLASH2Right,<RgLINK2_DIEGRAYRight,<RgLINK2_DIECROSS1Right,<RgLINK2_DIECROSS2Right
+RgLINKRightHi:
+  .byte >RgLINK0_STANDRight,>RgLINK0_WALK1Right,>RgLINK0_WALK2Right,>RgLINK0_WALK3Right,>RgLINK0_JUMP1Right,>RgLINK0_JUMP2Right,>RgLINK0_JUMP3Right,>RgLINK0_JUMP4Right,>RgLINK0_CROUCHRight,>RgLINK0_ATTACK1Right,>RgLINK0_ATTACK2Right,>RgLINK0_ATTACK3Right,>RgLINK0_THROW1Right,>RgLINK0_THROW2Right,>RgLINK0_THROW3Right,>RgLINK0_CLIMB1Right,>RgLINK0_CLIMB2Right,>RgLINKEASY0_AIR_ENDRight,>RgLINKEASY0_UP_ENDRight,>RgLINKEASY0_DOWN_ENDRight,>RgLINK0_UPWALK1Right,>RgLINK0_UPWALK2Right,>RgLINK0_UPWALK3Right,>RgLINK0_DIAGUPWALK1Right,>RgLINK0_DIAGUPWALK2Right,>RgLINK0_DIAGUPWALK3Right,>RgLINK0_DIAGDOWNWALK1Right,>RgLINK0_DIAGDOWNWALK2Right,>RgLINK0_DIAGDOWNWALK3Right,>RgLINK0_DOWNTHRUSTRight,>RgLINK0_UPTHRUSTRight,>RgLINK0_HURTRight,>RgLINK0_DIE1Right,>RgLINK0_DIE2Right,>RgLINK0_DIE3Right,>RgLINK0_DIE4Right,>RgLINK0_SLIDERight,>RgLINK0_CROUCHATTACK1Right,>RgLINK0_CROUCHATTACK2Right,>RgLINK0_CROUCHATTACK3Right,>RgLINK0_CROUCHTHROW1Right,>RgLINK0_CROUCHTHROW2Right,>RgLINK0_CROUCHTHROW3Right,>RgLINK0_DIEFLASH1Right,>RgLINK0_DIEFLASH2Right,>RgLINK0_DIEGRAYRight,>RgLINK0_DIECROSS1Right,>RgLINK0_DIECROSS2Right,>RgLINK1_STANDRight,>RgLINK1_WALK1Right,>RgLINK1_WALK2Right,>RgLINK1_WALK3Right,>RgLINK1_JUMP1Right,>RgLINK1_JUMP2Right,>RgLINK1_JUMP3Right,>RgLINK1_JUMP4Right,>RgLINK1_CROUCHRight,>RgLINK1_ATTACK1Right,>RgLINK1_ATTACK2Right,>RgLINK1_ATTACK3Right,>RgLINK1_THROW1Right,>RgLINK1_THROW2Right,>RgLINK1_THROW3Right,>RgLINK1_CLIMB1Right,>RgLINK1_CLIMB2Right,>RgLINKEASY1_AIR_ENDRight,>RgLINKEASY1_UP_ENDRight,>RgLINKEASY1_DOWN_ENDRight,>RgLINK1_UPWALK1Right,>RgLINK1_UPWALK2Right,>RgLINK1_UPWALK3Right,>RgLINK1_DIAGUPWALK1Right,>RgLINK1_DIAGUPWALK2Right,>RgLINK1_DIAGUPWALK3Right,>RgLINK1_DIAGDOWNWALK1Right,>RgLINK1_DIAGDOWNWALK2Right,>RgLINK1_DIAGDOWNWALK3Right,>RgLINK1_DOWNTHRUSTRight,>RgLINK1_UPTHRUSTRight,>RgLINK1_HURTRight,>RgLINK1_DIE1Right,>RgLINK1_DIE2Right,>RgLINK1_DIE3Right,>RgLINK1_DIE4Right,>RgLINK1_SLIDERight,>RgLINK1_CROUCHATTACK1Right,>RgLINK1_CROUCHATTACK2Right,>RgLINK1_CROUCHATTACK3Right,>RgLINK1_CROUCHTHROW1Right,>RgLINK1_CROUCHTHROW2Right,>RgLINK1_CROUCHTHROW3Right,>RgLINK1_DIEFLASH1Right,>RgLINK1_DIEFLASH2Right,>RgLINK1_DIEGRAYRight,>RgLINK1_DIECROSS1Right,>RgLINK1_DIECROSS2Right,>RgLINK2_STANDRight,>RgLINK2_WALK1Right,>RgLINK2_WALK2Right,>RgLINK2_WALK3Right,>RgLINK2_JUMP1Right,>RgLINK2_JUMP2Right,>RgLINK2_JUMP3Right,>RgLINK2_JUMP4Right,>RgLINK2_CROUCHRight,>RgLINK2_ATTACK1Right,>RgLINK2_ATTACK2Right,>RgLINK2_ATTACK3Right,>RgLINK2_THROW1Right,>RgLINK2_THROW2Right,>RgLINK2_THROW3Right,>RgLINK2_CLIMB1Right,>RgLINK2_CLIMB2Right,>RgLINKEASY2_AIR_ENDRight,>RgLINKEASY2_UP_ENDRight,>RgLINKEASY2_DOWN_ENDRight,>RgLINK2_UPWALK1Right,>RgLINK2_UPWALK2Right,>RgLINK2_UPWALK3Right,>RgLINK2_DIAGUPWALK1Right,>RgLINK2_DIAGUPWALK2Right,>RgLINK2_DIAGUPWALK3Right,>RgLINK2_DIAGDOWNWALK1Right,>RgLINK2_DIAGDOWNWALK2Right,>RgLINK2_DIAGDOWNWALK3Right,>RgLINK2_DOWNTHRUSTRight,>RgLINK2_UPTHRUSTRight,>RgLINK2_HURTRight,>RgLINK2_DIE1Right,>RgLINK2_DIE2Right,>RgLINK2_DIE3Right,>RgLINK2_DIE4Right,>RgLINK2_SLIDERight,>RgLINK2_CROUCHATTACK1Right,>RgLINK2_CROUCHATTACK2Right,>RgLINK2_CROUCHATTACK3Right,>RgLINK2_CROUCHTHROW1Right,>RgLINK2_CROUCHTHROW2Right,>RgLINK2_CROUCHTHROW3Right,>RgLINK2_DIEFLASH1Right,>RgLINK2_DIEFLASH2Right,>RgLINK2_DIEGRAYRight,>RgLINK2_DIECROSS1Right,>RgLINK2_DIECROSS2Right
+RgLINKBanks:
+  .byte $30,$30,$30,$30,$30,$30,$30,$30,$30,$2b,$2f,$2f,$30,$30,$30,$2e,$30,$2f,$2d,$2c,$30,$30,$30,$30,$30,$30,$30,$30,$30,$31,$2e,$30,$32,$32,$32,$32,$30,$30,$30,$30,$30,$30,$30,$2a,$2a,$2a,$2a,$2a,$2f,$2b,$2f,$2f,$2b,$2b,$2b,$2b,$2f,$2b,$2b,$2f,$30,$2b,$2f,$2e,$30,$30,$2e,$2d,$2f,$2f,$2f,$2f,$2f,$2f,$2f,$2f,$2f,$31,$2e,$2f,$32,$32,$32,$32,$2f,$2f,$2f,$2f,$2f,$2f,$2f,$2a,$2a,$2a,$2a,$2a,$2f,$2b,$2f,$2f,$2b,$2b,$2b,$2b,$2f,$2c,$2b,$2f,$30,$2b,$2f,$2e,$30,$30,$2e,$2c,$2f,$2f,$2f,$2f,$2f,$2f,$2f,$2f,$2f,$31,$2e,$2f,$32,$32,$32,$32,$2f,$2f,$2f,$2f,$2f,$2f,$2f,$2a,$2a,$2a,$2a,$2a
+RgLINKBOOM1Left:
+  .byte 8
+  .byte MetaspriteVramOffset{$00}, {SPRITE_BANK_0}, $80, -4, -6
+  .byte MetaspriteVramOffset{$02}, {SPRITE_BANK_0}, $82, -4, -5
+RgLINKBOOM1Right:
+  .byte 8
+  .byte MetaspriteVramOffset{$00}, {SPRITE_BANK_0}, $c0, -4, -2
+  .byte MetaspriteVramOffset{$02}, {SPRITE_BANK_0}, $c2, -4, -3
+RgLINKBOOM2Left:
+  .byte 8
+  .byte MetaspriteVramOffset{$04}, {SPRITE_BANK_0}, $c0, -2, -4
+  .byte MetaspriteVramOffset{$06}, {SPRITE_BANK_0}, $82, -3, -4
+RgLINKBOOM2Right:
+  .byte 8
+  .byte MetaspriteVramOffset{$04}, {SPRITE_BANK_0}, $80, -2, -4
+  .byte MetaspriteVramOffset{$06}, {SPRITE_BANK_0}, $c2, -3, -4
+RgLINKBOOM3Left:
+  .byte 8
+  .byte MetaspriteVramOffset{$08}, {SPRITE_BANK_0}, $80, -4, -5
+  .byte MetaspriteVramOffset{$0a}, {SPRITE_BANK_0}, $82, -4, -6
+RgLINKBOOM3Right:
+  .byte 8
+  .byte MetaspriteVramOffset{$08}, {SPRITE_BANK_0}, $c0, -4, -3
+  .byte MetaspriteVramOffset{$0a}, {SPRITE_BANK_0}, $c2, -4, -2
+RgLINKBOOM4Left:
+  .byte 8
+  .byte MetaspriteVramOffset{$0c}, {SPRITE_BANK_0}, $80, -3, -4
+  .byte MetaspriteVramOffset{$0e}, {SPRITE_BANK_0}, $c2, -2, -4
+RgLINKBOOM4Right:
+  .byte 8
+  .byte MetaspriteVramOffset{$0c}, {SPRITE_BANK_0}, $c0, -3, -4
+  .byte MetaspriteVramOffset{$0e}, {SPRITE_BANK_0}, $82, -2, -4
+RgLINKBEAM1Left:
+  .byte 12
+  .byte MetaspriteVramOffset{$10}, {SPRITE_BANK_0}, $c0, -4, 0
+  .byte MetaspriteVramOffset{$12}, {SPRITE_BANK_0}, $80, -4, -8
+  .byte MetaspriteVramOffset{$14}, {SPRITE_BANK_0}, $83, -2, -1
+RgLINKBEAM1Right:
+  .byte 12
+  .byte MetaspriteVramOffset{$10}, {SPRITE_BANK_0}, $80, -4, -8
+  .byte MetaspriteVramOffset{$12}, {SPRITE_BANK_0}, $c0, -4, 0
+  .byte MetaspriteVramOffset{$14}, {SPRITE_BANK_0}, $c3, -2, -7
+RgLINKBEAM2Left:
+  .byte 12
+  .byte MetaspriteVramOffset{$16}, {SPRITE_BANK_0}, $80, -4, 0
+  .byte MetaspriteVramOffset{$18}, {SPRITE_BANK_0}, $c2, -2, -5
+  .byte MetaspriteVramOffset{$1a}, {SPRITE_BANK_0}, $82, -2, -13
+RgLINKBEAM2Right:
+  .byte 12
+  .byte MetaspriteVramOffset{$16}, {SPRITE_BANK_0}, $c0, -4, -8
+  .byte MetaspriteVramOffset{$18}, {SPRITE_BANK_0}, $82, -2, -3
+  .byte MetaspriteVramOffset{$1a}, {SPRITE_BANK_0}, $c2, -2, 5
+RgLINKBEAM3Left = RgLINKBEAM1Left
+RgLINKBEAM3Right = RgLINKBEAM1Right
+RgLINKBEAM4Left:
+  .byte 12
+  .byte MetaspriteVramOffset{$1c}, {SPRITE_BANK_0}, $c2, -2, -1
+  .byte MetaspriteVramOffset{$1e}, {SPRITE_BANK_0}, $82, -2, -9
+  .byte MetaspriteVramOffset{$20}, {SPRITE_BANK_0}, $c3, -4, 0
+RgLINKBEAM4Right:
+  .byte 12
+  .byte MetaspriteVramOffset{$1c}, {SPRITE_BANK_0}, $82, -2, -7
+  .byte MetaspriteVramOffset{$1e}, {SPRITE_BANK_0}, $c2, -2, 1
+  .byte MetaspriteVramOffset{$20}, {SPRITE_BANK_0}, $83, -4, -8
+RgLINKBURST1Left:
+  .byte 8
+  .byte MetaspriteVramOffset{$22}, {SPRITE_BANK_0}, $80, -2, -6
+  .byte MetaspriteVramOffset{$24}, {SPRITE_BANK_0}, $c2, -5, -4
+RgLINKBURST1Right:
+  .byte 8
+  .byte MetaspriteVramOffset{$22}, {SPRITE_BANK_0}, $c0, -2, -2
+  .byte MetaspriteVramOffset{$24}, {SPRITE_BANK_0}, $82, -5, -4
+RgLINKBURST2Left:
+  .byte 8
+  .byte MetaspriteVramOffset{$24}, {SPRITE_BANK_0}, $c0, -5, -4
+  .byte MetaspriteVramOffset{$26}, {SPRITE_BANK_0}, $83, -2, -6
+RgLINKBURST2Right:
+  .byte 8
+  .byte MetaspriteVramOffset{$24}, {SPRITE_BANK_0}, $80, -5, -4
+  .byte MetaspriteVramOffset{$26}, {SPRITE_BANK_0}, $c3, -2, -2
+RgLINKBURST3Left:
+  .byte 8
+  .byte MetaspriteVramOffset{$28}, {SPRITE_BANK_0}, $c2, -5, -4
+  .byte MetaspriteVramOffset{$2a}, {SPRITE_BANK_0}, $83, 0, -7
+RgLINKBURST3Right:
+  .byte 8
+  .byte MetaspriteVramOffset{$28}, {SPRITE_BANK_0}, $82, -5, -4
+  .byte MetaspriteVramOffset{$2a}, {SPRITE_BANK_0}, $c3, 0, -1
+RgLINKBURST4Left:
+  .byte 4
+  .byte MetaspriteVramOffset{$2c}, {SPRITE_BANK_0}, $c0, -5, -4
+RgLINKBURST4Right:
+  .byte 4
+  .byte MetaspriteVramOffset{$2c}, {SPRITE_BANK_0}, $80, -5, -4
+RgLINKBURSTDOWN1Left:
+  .byte 8
+  .byte MetaspriteVramOffset{$22}, {SPRITE_BANK_0}, $00, -14, -6
+  .byte MetaspriteVramOffset{$24}, {SPRITE_BANK_0}, $42, -11, -4
+RgLINKBURSTDOWN1Right:
+  .byte 8
+  .byte MetaspriteVramOffset{$22}, {SPRITE_BANK_0}, $40, -14, -2
+  .byte MetaspriteVramOffset{$24}, {SPRITE_BANK_0}, $02, -11, -4
+RgLINKBURSTDOWN2Left:
+  .byte 8
+  .byte MetaspriteVramOffset{$24}, {SPRITE_BANK_0}, $40, -11, -4
+  .byte MetaspriteVramOffset{$26}, {SPRITE_BANK_0}, $03, -14, -6
+RgLINKBURSTDOWN2Right:
+  .byte 8
+  .byte MetaspriteVramOffset{$24}, {SPRITE_BANK_0}, $00, -11, -4
+  .byte MetaspriteVramOffset{$26}, {SPRITE_BANK_0}, $43, -14, -2
+RgLINKBURSTDOWN3Left:
+  .byte 8
+  .byte MetaspriteVramOffset{$28}, {SPRITE_BANK_0}, $42, -11, -4
+  .byte MetaspriteVramOffset{$2a}, {SPRITE_BANK_0}, $03, -16, -7
+RgLINKBURSTDOWN3Right:
+  .byte 8
+  .byte MetaspriteVramOffset{$28}, {SPRITE_BANK_0}, $02, -11, -4
+  .byte MetaspriteVramOffset{$2a}, {SPRITE_BANK_0}, $43, -16, -1
+RgLINKBURSTDOWN4Left:
+  .byte 4
+  .byte MetaspriteVramOffset{$2c}, {SPRITE_BANK_0}, $40, -11, -4
+RgLINKBURSTDOWN4Right:
+  .byte 4
+  .byte MetaspriteVramOffset{$2c}, {SPRITE_BANK_0}, $00, -11, -4
+RgLINKWeaponsLeftLo:
+  .byte <RgLINKBOOM1Left,<RgLINKBOOM2Left,<RgLINKBOOM3Left,<RgLINKBOOM4Left,<RgLINKBEAM1Left,<RgLINKBEAM2Left,<RgLINKBEAM3Left,<RgLINKBEAM4Left,<RgLINKBURST1Left,<RgLINKBURST2Left,<RgLINKBURST3Left,<RgLINKBURST4Left,<RgLINKBURSTDOWN1Left,<RgLINKBURSTDOWN2Left,<RgLINKBURSTDOWN3Left,<RgLINKBURSTDOWN4Left
+RgLINKWeaponsLeftHi:
+  .byte >RgLINKBOOM1Left,>RgLINKBOOM2Left,>RgLINKBOOM3Left,>RgLINKBOOM4Left,>RgLINKBEAM1Left,>RgLINKBEAM2Left,>RgLINKBEAM3Left,>RgLINKBEAM4Left,>RgLINKBURST1Left,>RgLINKBURST2Left,>RgLINKBURST3Left,>RgLINKBURST4Left,>RgLINKBURSTDOWN1Left,>RgLINKBURSTDOWN2Left,>RgLINKBURSTDOWN3Left,>RgLINKBURSTDOWN4Left
+RgLINKWeaponsRightLo:
+  .byte <RgLINKBOOM1Right,<RgLINKBOOM2Right,<RgLINKBOOM3Right,<RgLINKBOOM4Right,<RgLINKBEAM1Right,<RgLINKBEAM2Right,<RgLINKBEAM3Right,<RgLINKBEAM4Right,<RgLINKBURST1Right,<RgLINKBURST2Right,<RgLINKBURST3Right,<RgLINKBURST4Right,<RgLINKBURSTDOWN1Right,<RgLINKBURSTDOWN2Right,<RgLINKBURSTDOWN3Right,<RgLINKBURSTDOWN4Right
+RgLINKWeaponsRightHi:
+  .byte >RgLINKBOOM1Right,>RgLINKBOOM2Right,>RgLINKBOOM3Right,>RgLINKBOOM4Right,>RgLINKBEAM1Right,>RgLINKBEAM2Right,>RgLINKBEAM3Right,>RgLINKBEAM4Right,>RgLINKBURST1Right,>RgLINKBURST2Right,>RgLINKBURST3Right,>RgLINKBURST4Right,>RgLINKBURSTDOWN1Right,>RgLINKBURSTDOWN2Right,>RgLINKBURSTDOWN3Right,>RgLINKBURSTDOWN4Right
+.popseg

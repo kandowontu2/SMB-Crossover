@@ -1,0 +1,55 @@
+"""Use the actual large-platform owner slot for a genuine supported H lift jump."""
+from pathlib import Path
+import csv,hashlib,json,subprocess,sys
+R=Path(__file__).resolve().parents[2];V=R/'build/verification';J=V/'root49-samus-h-platform-dt'
+sha=lambda p:hashlib.sha256(Path(p).read_bytes()).hexdigest()
+BODY=r'''local base=dofile(BASE)
+local phase,age,release,airSeen='release',0,0,false
+local f=assert(io.open(ROSTER_CONFIG.out..'platform-dt.csv','w'))
+f:write('frame,poll,x,y,state,previousAB,phase,platform,px,py,flag,mask\n')
+return function(c)
+ if phase=='done'then return base(c)end
+ age=age+1;assert(age<500,'Bounded first actual H lift crossing')
+ assert(c.world==0 and c.level==1 and c.areaType==2,'Actual H underground lift')
+ local slot,px,py,flag=-1,-1,-1,-1
+ for i=0,5 do
+  if c.r('Enemy_Flag',i)>0 and c.r('Enemy_ID',i)==39 then
+   local x=c.r('Enemy_X_Position',i)+256*c.r('Enemy_PageLoc',i);local y=c.r('Enemy_Y_Position',i)
+   if c.x+13>=x and c.x+2<=x+32 and math.abs(c.y+32-y)<=2 then slot,px,py,flag=i,x,y,c.r('PlatformCollisionFlag',i)end
+  end
+ end
+ local b={b=c.poll%8<4}
+ if phase=='release'then
+  assert(c.grounded and slot>=0 and flag==slot,'Actual live lift support before fresh A')
+  release=release+1
+  if release>=3 and c.r('PreviousA_B_Buttons')&128==0 then phase='cross';b.a=true;b.right=true end
+ elseif phase=='cross'then
+  b.a=true;b.right=true
+  if not c.grounded then airSeen=true end
+  if airSeen and c.grounded then
+   assert(c.x>2300,'Actual far-bank terrain, not the departure lift')
+   phase='done';return base(c)
+  end
+ end
+ local mask=(b.a and 128 or 0)+(b.b and 64 or 0)+(b.right and 1 or 0)
+ f:write(table.concat({c.frame,c.poll,c.x,c.y,c.state,c.r('PreviousA_B_Buttons'),phase,slot,px,py,flag,mask},',')..'\n');f:flush()
+ return b
+end
+'''
+def main():
+ assert not J.exists();J.mkdir()
+ cp=R/'build/checkpoints/roster-audit-v49-samus-audio-scan-h/manifest.json';assert sha(cp)=='8de2e8a7799087b1889433123f50352684de3f164148e8d9f8ad0dcb655f387c'
+ parent=R/'build/roster-through-2-2/root49-h-samus-stairs-dp-2-v0-mmc3';rr=lambda p:list(csv.DictReader(p.open(newline='')));tr=rr(parent/'trace.csv');n=13402;at=tr[n]
+ assert at['frame']==str(n+1)and at['state']=='0'and at['engine']=='8'and at['world']=='0'and at['level']=='1'
+ prefix=J/'prefix.csv'
+ with prefix.open('w',newline='')as f:w=csv.DictWriter(f,fieldnames=['poll','frame','mask']);w.writeheader();w.writerows(rr(parent/'inputs.csv')[:n])
+ base=V/'root49-samus-h-pose-dn/policy.lua';policy=J/'policy.lua';policy.write_text(BODY.replace('BASE',json.dumps(base.as_posix())))
+ sys.path.insert(0,str(R/'tools/playthroughs'));from roster_run import workspace_bytes
+ used=workspace_bytes(R);assert used+200000000<80000000000
+ (J/'preparation.json').write_text(json.dumps(dict(script_sha256=sha(__file__),checkpoint_H_sha256=sha(cp),parent_manifest_sha256=sha(parent/'manifest.json'),prefix_sha256=sha(prefix),prefix_rows=n,next_parent_trace_row=at,policy_sha256=sha(policy),base_sha256=sha(base),phase_cap=200000000,reserve=100000000,global_cap=80000000000,workspace_before=used,scope='Unchanged H ordinary prefix; release A on actual ID39 contactFlag=slot lift, then hold a genuine fresh A across the gap. Addresses/real support observed at runtime; no fabricated state or airjump. Discovery, not fullclear or source-perfect proof.'),indent=2)+'\n')
+ args=[sys.executable,str(R/'tools/playthroughs/roster_run.py'),'--character','2','--mapper','mmc3','--rom',str(cp.parent/'smb-crossover-mmc3.nes'),'--tag','root49-h-samus-platform-dt','--policy',str(policy),'--prefix',str(prefix),'--frames','45000','--timeout','900','--workspace-cap-gb','80']
+ (J/'command.json').write_text(json.dumps(args,indent=2)+'\n')
+ with(J/'native.log').open('wb')as f:q=subprocess.run(args,cwd=R,stdout=f,stderr=subprocess.STDOUT)
+ out=R/'build/roster-through-2-2/root49-h-samus-platform-dt-2-v0-mmc3';m=json.loads((out/'manifest.json').read_text());z=dict(exit=q.returncode,manifest_sha256=sha(out/'manifest.json'),result=m.get('result'),analysis_pending=True,goal_complete=False)
+ (J/'result.json').write_text(json.dumps(z,indent=2)+'\n');print(json.dumps(z),flush=True)
+if __name__=='__main__':main()

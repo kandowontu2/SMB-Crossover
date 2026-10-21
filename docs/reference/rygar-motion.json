@@ -1,0 +1,46 @@
+{
+  "game": "Rygar (USA), original NES",
+  "rom_sha256": "965330fed9f5b8492452f3b53084752e83b7f899a1f88f3c475ece2fde6f9231",
+  "capture_script": "tools/reference/capture_rygar_motion.lua",
+  "capture_script_sha256": "d5d4b68a9b599bf307ebc2b322f17d198bdb64923f65c041b58e8375868d868d",
+  "reference_capture_controller_only": true,
+  "reference_memory_or_register_writes": false,
+  "evidence": "build/rygar-audit/native/motion.csv",
+  "disk_center_offsets_right": [
+    24,
+    28,
+    32,
+    36,
+    40,
+    36,
+    32,
+    28,
+    24,
+    20
+  ],
+  "disk_center_offsets_left": [
+    -22,
+    -26,
+    -30,
+    -34,
+    -38,
+    -34,
+    -30,
+    -26,
+    -22,
+    -18
+  ],
+  "pixels_per_return_update": 4,
+  "single_chain_sprite": true,
+  "chain_center_distance_behind_disk": 12,
+  "disk_center_above_feet": {
+    "standing": 24,
+    "crouched": 17
+  },
+  "upgraded_maxima_in_port": [
+    64,
+    88
+  ],
+  "upgraded_maxima_are_adaptations": true,
+  "note": "Original OAM observations; rendered screenshots trail end-frame OAM telemetry. Air and moving samples are diagnostic, not assertions of exact reference trajectory or spin phase."
+}

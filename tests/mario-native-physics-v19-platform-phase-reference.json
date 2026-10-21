@@ -1,0 +1,23 @@
+{
+  "source": "Independent Mario native control, with platform phase/counter explicitly initialized",
+  "checkpoint": "roster-audit-v19",
+  "rom_sha256": "1f36f4c2d7d1c82d73b737623c953735cf45455480933a822f4e90946c3bd71b",
+  "controller_fixture_sha256": "293b10620fbd10ea4c60a93a13d0f4d2d129c753798f39c375d9319d16518359",
+  "trace_sha256": "c4e8634b4b3e2d49878d13a603a2a0d5b51971cb819603cba0c3bcf02d3c5dee",
+  "trace_gzip_sha256": "184efb05751c4785c78d1c5157635b35db63ebbbe3fa28c2a2a1d735ef0b9ae0",
+  "cases": 39,
+  "ticks_per_case": 128,
+  "emulated_writes": "Explicit arena initialization and enemy suppression only; no avatar writes during a trial",
+  "fixture_revision": {
+    "prior_checkpoint": "roster-audit-v18",
+    "prior_trace_sha256": "a7842e7a7474c22f7706e9f2ee0e9ad9640b4861558cb32582461b408bf089c4",
+    "reason": "Native platform uses FrameCounter%4 and Enemy_Y_Speed primary counter; initialize both at setup instead of borrowing prior menu/history.",
+    "unchanged_nonplatform_physics_rows": 4608,
+    "platform_changed_rows_by_form": {
+      "0": 47,
+      "1": 128,
+      "2": 47
+    },
+    "independent_mappers_identical": true
+  }
+}

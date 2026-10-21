@@ -1,0 +1,1815 @@
+{
+  "objective": "Audit all twelve characters against the mapped original sources again. Findings pass, not a claim to have corrected all parity gaps.",
+  "date": "2026-10-16",
+  "roms": {
+    "mmc3": "df0e850b2bd3903990bb061eb02b1dcac00537ae54aa403b2c86cee7eed4391a",
+    "mmc5": "281499572c1f764610a645a67ef0b8e4d90b376202c86a98a4a9ecaae179d14f"
+  },
+  "actors": [
+    {
+      "character": 0,
+      "name": "Mario",
+      "source_files": [
+        {
+          "path": "reference/crossover/decompiled/scripts/com/smbc/characters/Mario.as",
+          "sha256": "9e31dc6029555990dc698402639a826e4197225b3b54a89a2bb5a1cc008da1a7"
+        },
+        {
+          "path": "reference/crossover/decompiled/scripts/com/smbc/characters/Character.as",
+          "sha256": "16ed6e51f8994e09fc22f2f58b5ee8a84dc1f7efa96fc152162c066b0031a112"
+        },
+        {
+          "path": ".upstream/smb1base/src/player.s",
+          "sha256": "9be0db27b0ab41f2ea796ed5f8261498b4c91612e8f37672fdf90b247033c5b2"
+        }
+      ],
+      "numeric_rule_count": 0,
+      "numeric_rule_mismatches": 0,
+      "current_regression_cases": [
+        "baseline",
+        "mario-lives-screen",
+        "mario-trace",
+        "mario-water"
+      ],
+      "domains": {
+        "movement": {
+          "assessment": "intentional native SMB engine",
+          "implementation": [
+            "src/player.s",
+            "src/megaman_physics.s"
+          ],
+          "evidence": [
+            "build/roster-audit/comparisons.json",
+            "build/roster-audit/mmc3/character-0/motion.csv",
+            "build/roster-audit/mmc5/character-0/motion.csv"
+          ]
+        },
+        "jump_and_water": {
+          "assessment": "reference numerical sampling plus explicit air/release/re-jump scenes; special-source differences documented",
+          "implementation": [
+            "src/player.s",
+            "src/water.s"
+          ],
+          "evidence": [
+            "build/roster-audit/comparisons.json",
+            "docs/reference/water.md"
+          ]
+        },
+        "weapons_and_upgrades": {
+          "assessment": "source input/type/inventory and projectile paths reviewed; generic or missing behavior documented",
+          "implementation": [
+            "src/player.s",
+            "src/guest_powerups.s"
+          ],
+          "evidence": [
+            "build/roster-audit/mmc3/character-0/weapons.csv",
+            "docs/qa/roster-source-audit.md"
+          ]
+        },
+        "damage_and_blocks": {
+          "assessment": "compiled damage table verified; native collision/health differences distinguished from source rules",
+          "implementation": [
+            "src/player.s",
+            "src/megaman_weapons.s",
+            "src/collision.s"
+          ],
+          "evidence": [
+            "build/roster-audit/static-findings.json",
+            "build/verification/summary.json"
+          ]
+        },
+        "animation_palette_oam": {
+          "assessment": "source/generator pose selection and actor contacts reviewed; blank data/overloads/crop errors documented; injected palette states not treated as real pickup proof",
+          "implementation": [
+            "src/metasprite_engine.s",
+            "src/screen_render.s",
+            "src/player.s"
+          ],
+          "evidence": [
+            "build/roster-audit/sprite-budgets.json",
+            "build/roster-audit/character-0-review.png",
+            "build/roster-audit/palette-review.json"
+          ]
+        },
+        "music_and_sfx": {
+          "assessment": "source event handlers compared with driver routing; generic/substituted/missing cues and area loops documented; waveform identity not certified",
+          "implementation": [
+            "src/music_drivers/audio.s",
+            "src/music_drivers/vanilla_music.s",
+            "src/music_drivers/vanilla_sfx.s"
+          ],
+          "evidence": [
+            "docs/qa/roster-source-audit.md",
+            "docs/reference/expanded-audio.json",
+            "build/verification/summary.json"
+          ]
+        },
+        "injury_death_respawn": {
+          "assessment": "source states/timers compared with native or guest death modules; simplified sequences documented",
+          "implementation": [
+            "src/player.s",
+            "src/characters.s"
+          ],
+          "evidence": [
+            "docs/qa/roster-source-audit.md",
+            "build/verification/summary.json"
+          ]
+        },
+        "springs_vines_wall_movement": {
+          "assessment": "source handlers/launch constants compared; later spring fallback and wall-transition simplifications documented",
+          "implementation": [
+            "src/megaman_environment.s",
+            "src/player.s"
+          ],
+          "evidence": [
+            "docs/qa/roster-source-audit.md",
+            "build/verification/summary.json"
+          ]
+        },
+        "pipes_and_scripted_transitions": {
+          "assessment": "native substrate recognized as approximation, not source-equivalence proof; current pipe fixtures identified",
+          "implementation": [
+            "src/player.s",
+            "src/player.s"
+          ],
+          "evidence": [
+            "docs/qa/roster-source-audit.md",
+            "build/verification/summary.json"
+          ]
+        },
+        "title_select_and_lives": {
+          "assessment": "user-authorized static title/custom roster UI preserved; current portrait/menu regression evidence identified",
+          "implementation": [
+            "src/character_select.s",
+            "src/characters.s",
+            "src/player.s"
+          ],
+          "evidence": [
+            "README.md",
+            "build/verification/summary.json"
+          ]
+        }
+      },
+      "full_source_parity": false
+    },
+    {
+      "character": 1,
+      "name": "Mega Man",
+      "source_files": [
+        {
+          "path": "reference/crossover/decompiled/scripts/com/smbc/characters/MegaMan.as",
+          "sha256": "ab034abec0286e82f6764a649e3a331fa4ceed4edf8c6ed38277aa642c023e8f"
+        },
+        {
+          "path": "reference/crossover/decompiled/scripts/com/smbc/characters/Character.as",
+          "sha256": "16ed6e51f8994e09fc22f2f58b5ee8a84dc1f7efa96fc152162c066b0031a112"
+        }
+      ],
+      "numeric_rule_count": 6,
+      "numeric_rule_mismatches": 0,
+      "current_regression_cases": [
+        "megaman-audio-effects",
+        "megaman-block-alignment",
+        "megaman-buster",
+        "megaman-charged-scrolling",
+        "megaman-controls",
+        "megaman-death",
+        "megaman-environment",
+        "megaman-interactions",
+        "megaman-lag-stress",
+        "megaman-lives-screen",
+        "megaman-music",
+        "megaman-oam",
+        "megaman-physics",
+        "megaman-powerup-animation",
+        "megaman-powerups",
+        "megaman-projectiles-overload",
+        "megaman-scrolling",
+        "megaman-water",
+        "megaman-world-sfx"
+      ],
+      "domains": {
+        "movement": {
+          "assessment": "source rules compared; see all matches and mismatches",
+          "implementation": [
+            "src/megaman_physics.s",
+            "src/megaman_physics.s"
+          ],
+          "evidence": [
+            "build/roster-audit/comparisons.json",
+            "build/roster-audit/mmc3/character-1/motion.csv",
+            "build/roster-audit/mmc5/character-1/motion.csv"
+          ]
+        },
+        "jump_and_water": {
+          "assessment": "reference numerical sampling plus explicit air/release/re-jump scenes; special-source differences documented",
+          "implementation": [
+            "src/megaman_physics.s",
+            "src/water.s"
+          ],
+          "evidence": [
+            "build/roster-audit/comparisons.json",
+            "docs/reference/water.md"
+          ]
+        },
+        "weapons_and_upgrades": {
+          "assessment": "source input/type/inventory and projectile paths reviewed; generic or missing behavior documented",
+          "implementation": [
+            "src/megaman_weapons.s",
+            "src/guest_powerups.s"
+          ],
+          "evidence": [
+            "build/roster-audit/mmc3/character-1/weapons.csv",
+            "docs/qa/roster-source-audit.md"
+          ]
+        },
+        "damage_and_blocks": {
+          "assessment": "compiled damage table verified; native collision/health differences distinguished from source rules",
+          "implementation": [
+            "src/megaman_weapons.s",
+            "src/megaman_weapons.s",
+            "src/collision.s"
+          ],
+          "evidence": [
+            "build/roster-audit/static-findings.json",
+            "build/verification/summary.json"
+          ]
+        },
+        "animation_palette_oam": {
+          "assessment": "source/generator pose selection and actor contacts reviewed; blank data/overloads/crop errors documented; injected palette states not treated as real pickup proof",
+          "implementation": [
+            "src/metasprite_engine.s",
+            "src/screen_render.s",
+            "src/megaman_physics.s"
+          ],
+          "evidence": [
+            "build/roster-audit/sprite-budgets.json",
+            "build/roster-audit/character-1-review.png",
+            "build/roster-audit/palette-review.json"
+          ]
+        },
+        "music_and_sfx": {
+          "assessment": "source event handlers compared with driver routing; generic/substituted/missing cues and area loops documented; waveform identity not certified",
+          "implementation": [
+            "src/megaman_audio.s",
+            "src/guest_audio.s"
+          ],
+          "evidence": [
+            "docs/qa/roster-source-audit.md",
+            "docs/reference/expanded-audio.json",
+            "build/verification/summary.json"
+          ]
+        },
+        "injury_death_respawn": {
+          "assessment": "source states/timers compared with native or guest death modules; simplified sequences documented",
+          "implementation": [
+            "src/megaman_physics.s",
+            "src/characters.s"
+          ],
+          "evidence": [
+            "docs/qa/roster-source-audit.md",
+            "build/verification/summary.json"
+          ]
+        },
+        "springs_vines_wall_movement": {
+          "assessment": "source handlers/launch constants compared; later spring fallback and wall-transition simplifications documented",
+          "implementation": [
+            "src/megaman_environment.s",
+            "src/megaman_physics.s"
+          ],
+          "evidence": [
+            "docs/qa/roster-source-audit.md",
+            "build/verification/summary.json"
+          ]
+        },
+        "pipes_and_scripted_transitions": {
+          "assessment": "native substrate recognized as approximation, not source-equivalence proof; current pipe fixtures identified",
+          "implementation": [
+            "src/player.s",
+            "src/megaman_physics.s"
+          ],
+          "evidence": [
+            "docs/qa/roster-source-audit.md",
+            "build/verification/summary.json"
+          ]
+        },
+        "title_select_and_lives": {
+          "assessment": "user-authorized static title/custom roster UI preserved; current portrait/menu regression evidence identified",
+          "implementation": [
+            "src/character_select.s",
+            "src/characters.s",
+            "src/megaman_physics.s"
+          ],
+          "evidence": [
+            "README.md",
+            "build/verification/summary.json"
+          ]
+        }
+      },
+      "full_source_parity": false
+    },
+    {
+      "character": 2,
+      "name": "Samus",
+      "source_files": [
+        {
+          "path": "reference/crossover/decompiled/scripts/com/smbc/characters/Samus.as",
+          "sha256": "8473d340a5dfd2724d3e02261f083d91f1ab54785206f8e9b170a21dd2ff1b29"
+        },
+        {
+          "path": "reference/crossover/decompiled/scripts/com/smbc/characters/Character.as",
+          "sha256": "16ed6e51f8994e09fc22f2f58b5ee8a84dc1f7efa96fc152162c066b0031a112"
+        }
+      ],
+      "numeric_rule_count": 6,
+      "numeric_rule_mismatches": 0,
+      "current_regression_cases": [
+        "samus-audio-effects",
+        "samus-combat",
+        "samus-controls",
+        "samus-head-bricks",
+        "samus-lives-screen",
+        "samus-oam",
+        "samus-pickup-sfx",
+        "samus-pipes",
+        "samus-powerups",
+        "samus-scrolling",
+        "samus-solid-blocks",
+        "samus-water",
+        "samus-world-sfx"
+      ],
+      "domains": {
+        "movement": {
+          "assessment": "source rules compared; see all matches and mismatches",
+          "implementation": [
+            "src/samus.s",
+            "src/megaman_physics.s"
+          ],
+          "evidence": [
+            "build/roster-audit/comparisons.json",
+            "build/roster-audit/mmc3/character-2/motion.csv",
+            "build/roster-audit/mmc5/character-2/motion.csv"
+          ]
+        },
+        "jump_and_water": {
+          "assessment": "reference numerical sampling plus explicit air/release/re-jump scenes; special-source differences documented",
+          "implementation": [
+            "src/samus.s",
+            "src/water.s"
+          ],
+          "evidence": [
+            "build/roster-audit/comparisons.json",
+            "docs/reference/water.md"
+          ]
+        },
+        "weapons_and_upgrades": {
+          "assessment": "source input/type/inventory and projectile paths reviewed; generic or missing behavior documented",
+          "implementation": [
+            "src/samus_weapons.s",
+            "src/guest_powerups.s"
+          ],
+          "evidence": [
+            "build/roster-audit/mmc3/character-2/weapons.csv",
+            "docs/qa/roster-source-audit.md"
+          ]
+        },
+        "damage_and_blocks": {
+          "assessment": "compiled damage table verified; native collision/health differences distinguished from source rules",
+          "implementation": [
+            "src/samus_weapons.s",
+            "src/megaman_weapons.s",
+            "src/collision.s"
+          ],
+          "evidence": [
+            "build/roster-audit/static-findings.json",
+            "build/verification/summary.json"
+          ]
+        },
+        "animation_palette_oam": {
+          "assessment": "source/generator pose selection and actor contacts reviewed; blank data/overloads/crop errors documented; injected palette states not treated as real pickup proof",
+          "implementation": [
+            "src/metasprite_engine.s",
+            "src/screen_render.s",
+            "src/samus.s"
+          ],
+          "evidence": [
+            "build/roster-audit/sprite-budgets.json",
+            "build/roster-audit/character-2-review.png",
+            "build/roster-audit/palette-review.json"
+          ]
+        },
+        "music_and_sfx": {
+          "assessment": "source event handlers compared with driver routing; generic/substituted/missing cues and area loops documented; waveform identity not certified",
+          "implementation": [
+            "src/samus_audio.s",
+            "src/guest_audio.s"
+          ],
+          "evidence": [
+            "docs/qa/roster-source-audit.md",
+            "docs/reference/expanded-audio.json",
+            "build/verification/summary.json"
+          ]
+        },
+        "injury_death_respawn": {
+          "assessment": "source states/timers compared with native or guest death modules; simplified sequences documented",
+          "implementation": [
+            "src/samus.s",
+            "src/characters.s"
+          ],
+          "evidence": [
+            "docs/qa/roster-source-audit.md",
+            "build/verification/summary.json"
+          ]
+        },
+        "springs_vines_wall_movement": {
+          "assessment": "source handlers/launch constants compared; later spring fallback and wall-transition simplifications documented",
+          "implementation": [
+            "src/megaman_environment.s",
+            "src/samus.s"
+          ],
+          "evidence": [
+            "docs/qa/roster-source-audit.md",
+            "build/verification/summary.json"
+          ]
+        },
+        "pipes_and_scripted_transitions": {
+          "assessment": "native substrate recognized as approximation, not source-equivalence proof; current pipe fixtures identified",
+          "implementation": [
+            "src/player.s",
+            "src/samus.s"
+          ],
+          "evidence": [
+            "docs/qa/roster-source-audit.md",
+            "build/verification/summary.json"
+          ]
+        },
+        "title_select_and_lives": {
+          "assessment": "user-authorized static title/custom roster UI preserved; current portrait/menu regression evidence identified",
+          "implementation": [
+            "src/character_select.s",
+            "src/characters.s",
+            "src/samus.s"
+          ],
+          "evidence": [
+            "README.md",
+            "build/verification/summary.json"
+          ]
+        }
+      },
+      "full_source_parity": false
+    },
+    {
+      "character": 3,
+      "name": "Bill",
+      "source_files": [
+        {
+          "path": "reference/crossover/decompiled/scripts/com/smbc/characters/Bill.as",
+          "sha256": "f42ffca518e415d9859d07a5bc305ac9c86f46ff8987984a8042c050e3c33216"
+        },
+        {
+          "path": "reference/crossover/decompiled/scripts/com/smbc/characters/Character.as",
+          "sha256": "16ed6e51f8994e09fc22f2f58b5ee8a84dc1f7efa96fc152162c066b0031a112"
+        }
+      ],
+      "numeric_rule_count": 10,
+      "numeric_rule_mismatches": 2,
+      "current_regression_cases": [
+        "bill-audio-isolation",
+        "bill-collision-equivalence",
+        "bill-combat",
+        "bill-controls",
+        "bill-lag-stress",
+        "bill-lives-screen",
+        "bill-music",
+        "bill-powerup-animation",
+        "bill-projectiles-oam",
+        "bill-scrolling",
+        "bill-sprite-overload",
+        "bill-stomp",
+        "bill-water",
+        "bill-world-sfx"
+      ],
+      "domains": {
+        "movement": {
+          "assessment": "source rules compared; see all matches and mismatches",
+          "implementation": [
+            "src/roster.s",
+            "src/megaman_physics.s"
+          ],
+          "evidence": [
+            "build/roster-audit/comparisons.json",
+            "build/roster-audit/mmc3/character-3/motion.csv",
+            "build/roster-audit/mmc5/character-3/motion.csv"
+          ]
+        },
+        "jump_and_water": {
+          "assessment": "reference numerical sampling plus explicit air/release/re-jump scenes; special-source differences documented",
+          "implementation": [
+            "src/roster.s",
+            "src/water.s"
+          ],
+          "evidence": [
+            "build/roster-audit/comparisons.json",
+            "docs/reference/water.md"
+          ]
+        },
+        "weapons_and_upgrades": {
+          "assessment": "source input/type/inventory and projectile paths reviewed; generic or missing behavior documented",
+          "implementation": [
+            "src/roster_weapons.s",
+            "src/guest_powerups.s"
+          ],
+          "evidence": [
+            "build/roster-audit/mmc3/character-3/weapons.csv",
+            "docs/qa/roster-source-audit.md"
+          ]
+        },
+        "damage_and_blocks": {
+          "assessment": "compiled damage table verified; native collision/health differences distinguished from source rules",
+          "implementation": [
+            "src/roster_weapons.s",
+            "src/megaman_weapons.s",
+            "src/collision.s"
+          ],
+          "evidence": [
+            "build/roster-audit/static-findings.json",
+            "build/verification/summary.json"
+          ]
+        },
+        "animation_palette_oam": {
+          "assessment": "source/generator pose selection and actor contacts reviewed; blank data/overloads/crop errors documented; injected palette states not treated as real pickup proof",
+          "implementation": [
+            "src/metasprite_engine.s",
+            "src/screen_render.s",
+            "src/roster.s"
+          ],
+          "evidence": [
+            "build/roster-audit/sprite-budgets.json",
+            "build/roster-audit/character-3-review.png",
+            "build/roster-audit/palette-review.json"
+          ]
+        },
+        "music_and_sfx": {
+          "assessment": "source event handlers compared with driver routing; generic/substituted/missing cues and area loops documented; waveform identity not certified",
+          "implementation": [
+            "src/roster_audio.s",
+            "src/guest_audio.s"
+          ],
+          "evidence": [
+            "docs/qa/roster-source-audit.md",
+            "docs/reference/expanded-audio.json",
+            "build/verification/summary.json"
+          ]
+        },
+        "injury_death_respawn": {
+          "assessment": "source states/timers compared with native or guest death modules; simplified sequences documented",
+          "implementation": [
+            "src/roster.s",
+            "src/characters.s"
+          ],
+          "evidence": [
+            "docs/qa/roster-source-audit.md",
+            "build/verification/summary.json"
+          ]
+        },
+        "springs_vines_wall_movement": {
+          "assessment": "source handlers/launch constants compared; later spring fallback and wall-transition simplifications documented",
+          "implementation": [
+            "src/megaman_environment.s",
+            "src/roster.s"
+          ],
+          "evidence": [
+            "docs/qa/roster-source-audit.md",
+            "build/verification/summary.json"
+          ]
+        },
+        "pipes_and_scripted_transitions": {
+          "assessment": "native substrate recognized as approximation, not source-equivalence proof; current pipe fixtures identified",
+          "implementation": [
+            "src/player.s",
+            "src/roster.s"
+          ],
+          "evidence": [
+            "docs/qa/roster-source-audit.md",
+            "build/verification/summary.json"
+          ]
+        },
+        "title_select_and_lives": {
+          "assessment": "user-authorized static title/custom roster UI preserved; current portrait/menu regression evidence identified",
+          "implementation": [
+            "src/character_select.s",
+            "src/characters.s",
+            "src/roster.s"
+          ],
+          "evidence": [
+            "README.md",
+            "build/verification/summary.json"
+          ]
+        }
+      },
+      "full_source_parity": false
+    },
+    {
+      "character": 4,
+      "name": "Link",
+      "source_files": [
+        {
+          "path": "reference/crossover/decompiled/scripts/com/smbc/characters/Link.as",
+          "sha256": "97c2b2bf5b910a98623dc9c50d8466f52f2fc7f67f21d834ad5a05850598575c"
+        },
+        {
+          "path": "reference/crossover/decompiled/scripts/com/smbc/characters/Character.as",
+          "sha256": "16ed6e51f8994e09fc22f2f58b5ee8a84dc1f7efa96fc152162c066b0031a112"
+        }
+      ],
+      "numeric_rule_count": 10,
+      "numeric_rule_mismatches": 4,
+      "current_regression_cases": [
+        "link-audio-isolation",
+        "link-block-alignment",
+        "link-block-rendering",
+        "link-combat",
+        "link-controls",
+        "link-lives-screen",
+        "link-music",
+        "link-powerup-animation",
+        "link-projectiles-oam",
+        "link-scrolling",
+        "link-water",
+        "link-world-sfx"
+      ],
+      "domains": {
+        "movement": {
+          "assessment": "source rules compared; see all matches and mismatches",
+          "implementation": [
+            "src/roster.s",
+            "src/megaman_physics.s"
+          ],
+          "evidence": [
+            "build/roster-audit/comparisons.json",
+            "build/roster-audit/mmc3/character-4/motion.csv",
+            "build/roster-audit/mmc5/character-4/motion.csv"
+          ]
+        },
+        "jump_and_water": {
+          "assessment": "reference numerical sampling plus explicit air/release/re-jump scenes; special-source differences documented",
+          "implementation": [
+            "src/roster.s",
+            "src/water.s"
+          ],
+          "evidence": [
+            "build/roster-audit/comparisons.json",
+            "docs/reference/water.md"
+          ]
+        },
+        "weapons_and_upgrades": {
+          "assessment": "source input/type/inventory and projectile paths reviewed; generic or missing behavior documented",
+          "implementation": [
+            "src/roster_weapons.s",
+            "src/guest_powerups.s"
+          ],
+          "evidence": [
+            "build/roster-audit/mmc3/character-4/weapons.csv",
+            "docs/qa/roster-source-audit.md"
+          ]
+        },
+        "damage_and_blocks": {
+          "assessment": "compiled damage table verified; native collision/health differences distinguished from source rules",
+          "implementation": [
+            "src/roster_weapons.s",
+            "src/megaman_weapons.s",
+            "src/collision.s"
+          ],
+          "evidence": [
+            "build/roster-audit/static-findings.json",
+            "build/verification/summary.json"
+          ]
+        },
+        "animation_palette_oam": {
+          "assessment": "source/generator pose selection and actor contacts reviewed; blank data/overloads/crop errors documented; injected palette states not treated as real pickup proof",
+          "implementation": [
+            "src/metasprite_engine.s",
+            "src/screen_render.s",
+            "src/roster.s"
+          ],
+          "evidence": [
+            "build/roster-audit/sprite-budgets.json",
+            "build/roster-audit/character-4-review.png",
+            "build/roster-audit/palette-review.json"
+          ]
+        },
+        "music_and_sfx": {
+          "assessment": "source event handlers compared with driver routing; generic/substituted/missing cues and area loops documented; waveform identity not certified",
+          "implementation": [
+            "src/roster_audio.s",
+            "src/guest_audio.s"
+          ],
+          "evidence": [
+            "docs/qa/roster-source-audit.md",
+            "docs/reference/expanded-audio.json",
+            "build/verification/summary.json"
+          ]
+        },
+        "injury_death_respawn": {
+          "assessment": "source states/timers compared with native or guest death modules; simplified sequences documented",
+          "implementation": [
+            "src/roster.s",
+            "src/characters.s"
+          ],
+          "evidence": [
+            "docs/qa/roster-source-audit.md",
+            "build/verification/summary.json"
+          ]
+        },
+        "springs_vines_wall_movement": {
+          "assessment": "source handlers/launch constants compared; later spring fallback and wall-transition simplifications documented",
+          "implementation": [
+            "src/megaman_environment.s",
+            "src/roster.s"
+          ],
+          "evidence": [
+            "docs/qa/roster-source-audit.md",
+            "build/verification/summary.json"
+          ]
+        },
+        "pipes_and_scripted_transitions": {
+          "assessment": "native substrate recognized as approximation, not source-equivalence proof; current pipe fixtures identified",
+          "implementation": [
+            "src/player.s",
+            "src/roster.s"
+          ],
+          "evidence": [
+            "docs/qa/roster-source-audit.md",
+            "build/verification/summary.json"
+          ]
+        },
+        "title_select_and_lives": {
+          "assessment": "user-authorized static title/custom roster UI preserved; current portrait/menu regression evidence identified",
+          "implementation": [
+            "src/character_select.s",
+            "src/characters.s",
+            "src/roster.s"
+          ],
+          "evidence": [
+            "README.md",
+            "build/verification/summary.json"
+          ]
+        }
+      },
+      "full_source_parity": false
+    },
+    {
+      "character": 5,
+      "name": "Simon",
+      "source_files": [
+        {
+          "path": "reference/crossover/decompiled/scripts/com/smbc/characters/Simon.as",
+          "sha256": "191f70bf216b2e44f9b7eebd4f2510e0fa128112149b86aa776d086faf538f8d"
+        },
+        {
+          "path": "reference/crossover/decompiled/scripts/com/smbc/characters/Character.as",
+          "sha256": "16ed6e51f8994e09fc22f2f58b5ee8a84dc1f7efa96fc152162c066b0031a112"
+        }
+      ],
+      "numeric_rule_count": 5,
+      "numeric_rule_mismatches": 1,
+      "current_regression_cases": [
+        "simon-adjacent-blocks",
+        "simon-audio-isolation",
+        "simon-block-rendering",
+        "simon-combat",
+        "simon-controls",
+        "simon-lives-screen",
+        "simon-music",
+        "simon-pipes",
+        "simon-powerup-animation",
+        "simon-projectiles-oam",
+        "simon-scrolling",
+        "simon-water",
+        "simon-world-sfx"
+      ],
+      "domains": {
+        "movement": {
+          "assessment": "source rules compared; see all matches and mismatches",
+          "implementation": [
+            "src/roster.s",
+            "src/megaman_physics.s"
+          ],
+          "evidence": [
+            "build/roster-audit/comparisons.json",
+            "build/roster-audit/mmc3/character-5/motion.csv",
+            "build/roster-audit/mmc5/character-5/motion.csv"
+          ]
+        },
+        "jump_and_water": {
+          "assessment": "reference numerical sampling plus explicit air/release/re-jump scenes; special-source differences documented",
+          "implementation": [
+            "src/roster.s",
+            "src/water.s"
+          ],
+          "evidence": [
+            "build/roster-audit/comparisons.json",
+            "docs/reference/water.md"
+          ]
+        },
+        "weapons_and_upgrades": {
+          "assessment": "source input/type/inventory and projectile paths reviewed; generic or missing behavior documented",
+          "implementation": [
+            "src/roster_weapons.s",
+            "src/guest_powerups.s"
+          ],
+          "evidence": [
+            "build/roster-audit/mmc3/character-5/weapons.csv",
+            "docs/qa/roster-source-audit.md"
+          ]
+        },
+        "damage_and_blocks": {
+          "assessment": "compiled damage table verified; native collision/health differences distinguished from source rules",
+          "implementation": [
+            "src/roster_weapons.s",
+            "src/megaman_weapons.s",
+            "src/collision.s"
+          ],
+          "evidence": [
+            "build/roster-audit/static-findings.json",
+            "build/verification/summary.json"
+          ]
+        },
+        "animation_palette_oam": {
+          "assessment": "source/generator pose selection and actor contacts reviewed; blank data/overloads/crop errors documented; injected palette states not treated as real pickup proof",
+          "implementation": [
+            "src/metasprite_engine.s",
+            "src/screen_render.s",
+            "src/roster.s"
+          ],
+          "evidence": [
+            "build/roster-audit/sprite-budgets.json",
+            "build/roster-audit/character-5-review.png",
+            "build/roster-audit/palette-review.json"
+          ]
+        },
+        "music_and_sfx": {
+          "assessment": "source event handlers compared with driver routing; generic/substituted/missing cues and area loops documented; waveform identity not certified",
+          "implementation": [
+            "src/roster_audio.s",
+            "src/guest_audio.s"
+          ],
+          "evidence": [
+            "docs/qa/roster-source-audit.md",
+            "docs/reference/expanded-audio.json",
+            "build/verification/summary.json"
+          ]
+        },
+        "injury_death_respawn": {
+          "assessment": "source states/timers compared with native or guest death modules; simplified sequences documented",
+          "implementation": [
+            "src/roster.s",
+            "src/characters.s"
+          ],
+          "evidence": [
+            "docs/qa/roster-source-audit.md",
+            "build/verification/summary.json"
+          ]
+        },
+        "springs_vines_wall_movement": {
+          "assessment": "source handlers/launch constants compared; later spring fallback and wall-transition simplifications documented",
+          "implementation": [
+            "src/megaman_environment.s",
+            "src/roster.s"
+          ],
+          "evidence": [
+            "docs/qa/roster-source-audit.md",
+            "build/verification/summary.json"
+          ]
+        },
+        "pipes_and_scripted_transitions": {
+          "assessment": "native substrate recognized as approximation, not source-equivalence proof; current pipe fixtures identified",
+          "implementation": [
+            "src/player.s",
+            "src/roster.s"
+          ],
+          "evidence": [
+            "docs/qa/roster-source-audit.md",
+            "build/verification/summary.json"
+          ]
+        },
+        "title_select_and_lives": {
+          "assessment": "user-authorized static title/custom roster UI preserved; current portrait/menu regression evidence identified",
+          "implementation": [
+            "src/character_select.s",
+            "src/characters.s",
+            "src/roster.s"
+          ],
+          "evidence": [
+            "README.md",
+            "build/verification/summary.json"
+          ]
+        }
+      },
+      "full_source_parity": false
+    },
+    {
+      "character": 6,
+      "name": "Pit",
+      "source_files": [
+        {
+          "path": ".upstream/smbc-v3/src/com/smbc/characters/Pit.as",
+          "sha256": "3467aca8d93f5a4abb14398670363edbc173825e5a992c588ccd14e5631254bd"
+        },
+        {
+          "path": ".upstream/smbc-v3/src/com/smbc/characters/Character.as",
+          "sha256": "dc749e41c0276a30f9f85d8553d375de68100c06b72f5e3540897a2448baa37f"
+        }
+      ],
+      "numeric_rule_count": 9,
+      "numeric_rule_mismatches": 5,
+      "current_regression_cases": [
+        "pit-attacks",
+        "pit-controls",
+        "pit-environment",
+        "pit-lives-screen",
+        "pit-powerup-animation",
+        "pit-systems",
+        "pit-world-sfx"
+      ],
+      "domains": {
+        "movement": {
+          "assessment": "source rules compared; see all matches and mismatches",
+          "implementation": [
+            "src/expanded.s",
+            "src/megaman_physics.s"
+          ],
+          "evidence": [
+            "build/roster-audit/comparisons.json",
+            "build/roster-audit/mmc3/character-6/motion.csv",
+            "build/roster-audit/mmc5/character-6/motion.csv"
+          ]
+        },
+        "jump_and_water": {
+          "assessment": "reference numerical sampling plus explicit air/release/re-jump scenes; special-source differences documented",
+          "implementation": [
+            "src/expanded.s",
+            "src/water.s"
+          ],
+          "evidence": [
+            "build/roster-audit/comparisons.json",
+            "docs/reference/water.md"
+          ]
+        },
+        "weapons_and_upgrades": {
+          "assessment": "source input/type/inventory and projectile paths reviewed; generic or missing behavior documented",
+          "implementation": [
+            "src/expanded_weapons.s",
+            "src/guest_powerups.s"
+          ],
+          "evidence": [
+            "build/roster-audit/mmc3/character-6/weapons.csv",
+            "docs/qa/roster-source-audit.md"
+          ]
+        },
+        "damage_and_blocks": {
+          "assessment": "compiled damage table verified; native collision/health differences distinguished from source rules",
+          "implementation": [
+            "src/expanded_weapons.s",
+            "src/megaman_weapons.s",
+            "src/collision.s"
+          ],
+          "evidence": [
+            "build/roster-audit/static-findings.json",
+            "build/verification/summary.json"
+          ]
+        },
+        "animation_palette_oam": {
+          "assessment": "source/generator pose selection and actor contacts reviewed; blank data/overloads/crop errors documented; injected palette states not treated as real pickup proof",
+          "implementation": [
+            "src/metasprite_engine.s",
+            "src/screen_render.s",
+            "src/expanded.s"
+          ],
+          "evidence": [
+            "build/roster-audit/sprite-budgets.json",
+            "build/roster-audit/character-6-review.png",
+            "build/roster-audit/palette-review.json"
+          ]
+        },
+        "music_and_sfx": {
+          "assessment": "source event handlers compared with driver routing; generic/substituted/missing cues and area loops documented; waveform identity not certified",
+          "implementation": [
+            "src/expanded_audio.s",
+            "src/guest_audio.s"
+          ],
+          "evidence": [
+            "docs/qa/roster-source-audit.md",
+            "docs/reference/expanded-audio.json",
+            "build/verification/summary.json"
+          ]
+        },
+        "injury_death_respawn": {
+          "assessment": "source states/timers compared with native or guest death modules; simplified sequences documented",
+          "implementation": [
+            "src/expanded.s",
+            "src/characters.s"
+          ],
+          "evidence": [
+            "docs/qa/roster-source-audit.md",
+            "build/verification/summary.json"
+          ]
+        },
+        "springs_vines_wall_movement": {
+          "assessment": "source handlers/launch constants compared; later spring fallback and wall-transition simplifications documented",
+          "implementation": [
+            "src/megaman_environment.s",
+            "src/expanded.s"
+          ],
+          "evidence": [
+            "docs/qa/roster-source-audit.md",
+            "build/verification/summary.json"
+          ]
+        },
+        "pipes_and_scripted_transitions": {
+          "assessment": "native substrate recognized as approximation, not source-equivalence proof; current pipe fixtures identified",
+          "implementation": [
+            "src/player.s",
+            "src/expanded.s"
+          ],
+          "evidence": [
+            "docs/qa/roster-source-audit.md",
+            "build/verification/summary.json"
+          ]
+        },
+        "title_select_and_lives": {
+          "assessment": "user-authorized static title/custom roster UI preserved; current portrait/menu regression evidence identified",
+          "implementation": [
+            "src/character_select.s",
+            "src/characters.s",
+            "src/expanded.s"
+          ],
+          "evidence": [
+            "README.md",
+            "build/verification/summary.json"
+          ]
+        }
+      },
+      "full_source_parity": false
+    },
+    {
+      "character": 7,
+      "name": "Rygar",
+      "source_files": [
+        {
+          "path": "docs/reference/rygar-motion.json",
+          "sha256": "3f08aa0eb8914603ee4a98e1208ae7e3fd73b1aa98372ad5be1fb92f9245d458"
+        },
+        {
+          "path": "build/roster-audit/rygar-native/measurements.json",
+          "sha256": "53b276e7efa86bc27d306bfaf3bf270780eb18ac943dba6eba939115db45cedb"
+        },
+        {
+          "path": "tools/reference/capture_rygar_basics.lua",
+          "sha256": "90eb98687467016fd89a9c2a37ebb2d6aafc64d77e2f645b854cb1c8768838c1"
+        }
+      ],
+      "numeric_rule_count": 0,
+      "numeric_rule_mismatches": 0,
+      "current_regression_cases": [
+        "rygar-attacks",
+        "rygar-controls",
+        "rygar-environment",
+        "rygar-lives-screen",
+        "rygar-native-return",
+        "rygar-powerup-animation",
+        "rygar-systems",
+        "rygar-world-sfx"
+      ],
+      "domains": {
+        "movement": {
+          "assessment": "native-ROM jump differs; walk sample not a certified velocity",
+          "implementation": [
+            "src/expanded.s",
+            "src/megaman_physics.s"
+          ],
+          "evidence": [
+            "build/roster-audit/comparisons.json",
+            "build/roster-audit/mmc3/character-7/motion.csv",
+            "build/roster-audit/mmc5/character-7/motion.csv"
+          ]
+        },
+        "jump_and_water": {
+          "assessment": "reference numerical sampling plus explicit air/release/re-jump scenes; special-source differences documented",
+          "implementation": [
+            "src/expanded.s",
+            "src/water.s"
+          ],
+          "evidence": [
+            "build/roster-audit/comparisons.json",
+            "docs/reference/water.md"
+          ]
+        },
+        "weapons_and_upgrades": {
+          "assessment": "source input/type/inventory and projectile paths reviewed; generic or missing behavior documented",
+          "implementation": [
+            "src/expanded_weapons.s",
+            "src/guest_powerups.s"
+          ],
+          "evidence": [
+            "build/roster-audit/mmc3/character-7/weapons.csv",
+            "docs/qa/roster-source-audit.md"
+          ]
+        },
+        "damage_and_blocks": {
+          "assessment": "compiled damage table verified; native collision/health differences distinguished from source rules",
+          "implementation": [
+            "src/expanded_weapons.s",
+            "src/megaman_weapons.s",
+            "src/collision.s"
+          ],
+          "evidence": [
+            "build/roster-audit/static-findings.json",
+            "build/verification/summary.json"
+          ]
+        },
+        "animation_palette_oam": {
+          "assessment": "source/generator pose selection and actor contacts reviewed; blank data/overloads/crop errors documented; injected palette states not treated as real pickup proof",
+          "implementation": [
+            "src/metasprite_engine.s",
+            "src/screen_render.s",
+            "src/expanded.s"
+          ],
+          "evidence": [
+            "build/roster-audit/sprite-budgets.json",
+            "build/roster-audit/character-7-review.png",
+            "build/roster-audit/palette-review.json"
+          ]
+        },
+        "music_and_sfx": {
+          "assessment": "source event handlers compared with driver routing; generic/substituted/missing cues and area loops documented; waveform identity not certified",
+          "implementation": [
+            "src/expanded_audio.s",
+            "src/guest_audio.s"
+          ],
+          "evidence": [
+            "docs/qa/roster-source-audit.md",
+            "docs/reference/expanded-audio.json",
+            "build/verification/summary.json"
+          ]
+        },
+        "injury_death_respawn": {
+          "assessment": "source states/timers compared with native or guest death modules; simplified sequences documented",
+          "implementation": [
+            "src/expanded.s",
+            "src/characters.s"
+          ],
+          "evidence": [
+            "docs/qa/roster-source-audit.md",
+            "build/verification/summary.json"
+          ]
+        },
+        "springs_vines_wall_movement": {
+          "assessment": "source handlers/launch constants compared; later spring fallback and wall-transition simplifications documented",
+          "implementation": [
+            "src/megaman_environment.s",
+            "src/expanded.s"
+          ],
+          "evidence": [
+            "docs/qa/roster-source-audit.md",
+            "build/verification/summary.json"
+          ]
+        },
+        "pipes_and_scripted_transitions": {
+          "assessment": "native substrate recognized as approximation, not source-equivalence proof; current pipe fixtures identified",
+          "implementation": [
+            "src/player.s",
+            "src/expanded.s"
+          ],
+          "evidence": [
+            "docs/qa/roster-source-audit.md",
+            "build/verification/summary.json"
+          ]
+        },
+        "title_select_and_lives": {
+          "assessment": "user-authorized static title/custom roster UI preserved; current portrait/menu regression evidence identified",
+          "implementation": [
+            "src/character_select.s",
+            "src/characters.s",
+            "src/expanded.s"
+          ],
+          "evidence": [
+            "README.md",
+            "build/verification/summary.json"
+          ]
+        }
+      },
+      "full_source_parity": false
+    },
+    {
+      "character": 8,
+      "name": "Luigi",
+      "source_files": [
+        {
+          "path": "reference/crossover2/extracted/scripts/com/smbc/characters/Luigi.as",
+          "sha256": "eef1d1986afe637398d69d21670e88c806c33ed03f0b7a0628a48bdb07d5e94d"
+        },
+        {
+          "path": "reference/crossover2/extracted/scripts/com/smbc/characters/base/MarioBase.as",
+          "sha256": "6d0a135d4a7abaa1833ad32154313c474fee6ecb19adb9851288c27831a11c0c"
+        },
+        {
+          "path": "reference/crossover2/extracted/scripts/com/smbc/characters/Character.as",
+          "sha256": "248c72c742a181a4ac73374343e44dda7837a80773552162b0262a07ae8f0029"
+        }
+      ],
+      "numeric_rule_count": 9,
+      "numeric_rule_mismatches": 5,
+      "current_regression_cases": [
+        "luigi-controls",
+        "luigi-environment",
+        "luigi-lives-screen",
+        "luigi-powerup-animation",
+        "luigi-systems"
+      ],
+      "domains": {
+        "movement": {
+          "assessment": "source rules compared; see all matches and mismatches",
+          "implementation": [
+            "src/expanded.s",
+            "src/megaman_physics.s"
+          ],
+          "evidence": [
+            "build/roster-audit/comparisons.json",
+            "build/roster-audit/mmc3/character-8/motion.csv",
+            "build/roster-audit/mmc5/character-8/motion.csv"
+          ]
+        },
+        "jump_and_water": {
+          "assessment": "reference numerical sampling plus explicit air/release/re-jump scenes; special-source differences documented",
+          "implementation": [
+            "src/expanded.s",
+            "src/water.s"
+          ],
+          "evidence": [
+            "build/roster-audit/comparisons.json",
+            "docs/reference/water.md"
+          ]
+        },
+        "weapons_and_upgrades": {
+          "assessment": "source input/type/inventory and projectile paths reviewed; generic or missing behavior documented",
+          "implementation": [
+            "src/expanded_weapons.s",
+            "src/guest_powerups.s"
+          ],
+          "evidence": [
+            "build/roster-audit/mmc3/character-8/weapons.csv",
+            "docs/qa/roster-source-audit.md"
+          ]
+        },
+        "damage_and_blocks": {
+          "assessment": "compiled damage table verified; native collision/health differences distinguished from source rules",
+          "implementation": [
+            "src/expanded_weapons.s",
+            "src/megaman_weapons.s",
+            "src/collision.s"
+          ],
+          "evidence": [
+            "build/roster-audit/static-findings.json",
+            "build/verification/summary.json"
+          ]
+        },
+        "animation_palette_oam": {
+          "assessment": "source/generator pose selection and actor contacts reviewed; blank data/overloads/crop errors documented; injected palette states not treated as real pickup proof",
+          "implementation": [
+            "src/metasprite_engine.s",
+            "src/screen_render.s",
+            "src/expanded.s"
+          ],
+          "evidence": [
+            "build/roster-audit/sprite-budgets.json",
+            "build/roster-audit/character-8-review.png",
+            "build/roster-audit/palette-review.json"
+          ]
+        },
+        "music_and_sfx": {
+          "assessment": "source event handlers compared with driver routing; generic/substituted/missing cues and area loops documented; waveform identity not certified",
+          "implementation": [
+            "src/expanded_audio.s",
+            "src/guest_audio.s"
+          ],
+          "evidence": [
+            "docs/qa/roster-source-audit.md",
+            "docs/reference/expanded-audio.json",
+            "build/verification/summary.json"
+          ]
+        },
+        "injury_death_respawn": {
+          "assessment": "source states/timers compared with native or guest death modules; simplified sequences documented",
+          "implementation": [
+            "src/expanded.s",
+            "src/characters.s"
+          ],
+          "evidence": [
+            "docs/qa/roster-source-audit.md",
+            "build/verification/summary.json"
+          ]
+        },
+        "springs_vines_wall_movement": {
+          "assessment": "source handlers/launch constants compared; later spring fallback and wall-transition simplifications documented",
+          "implementation": [
+            "src/megaman_environment.s",
+            "src/expanded.s"
+          ],
+          "evidence": [
+            "docs/qa/roster-source-audit.md",
+            "build/verification/summary.json"
+          ]
+        },
+        "pipes_and_scripted_transitions": {
+          "assessment": "native substrate recognized as approximation, not source-equivalence proof; current pipe fixtures identified",
+          "implementation": [
+            "src/player.s",
+            "src/expanded.s"
+          ],
+          "evidence": [
+            "docs/qa/roster-source-audit.md",
+            "build/verification/summary.json"
+          ]
+        },
+        "title_select_and_lives": {
+          "assessment": "user-authorized static title/custom roster UI preserved; current portrait/menu regression evidence identified",
+          "implementation": [
+            "src/character_select.s",
+            "src/characters.s",
+            "src/expanded.s"
+          ],
+          "evidence": [
+            "README.md",
+            "build/verification/summary.json"
+          ]
+        }
+      },
+      "full_source_parity": false
+    },
+    {
+      "character": 9,
+      "name": "Bass",
+      "source_files": [
+        {
+          "path": "reference/crossover2/extracted/scripts/com/smbc/characters/Bass.as",
+          "sha256": "aee0a8d9606b59c52fbff88c82023a206360f2ab93b6ce5164f15b519b7e8ffa"
+        },
+        {
+          "path": "reference/crossover2/extracted/scripts/com/smbc/characters/base/MegaManBase.as",
+          "sha256": "3aca147b666fe10c4f35f74307f3e8a690c29bb3bbc443f2cae4db063a1b7fdb"
+        },
+        {
+          "path": "reference/crossover2/extracted/scripts/com/smbc/characters/Character.as",
+          "sha256": "248c72c742a181a4ac73374343e44dda7837a80773552162b0262a07ae8f0029"
+        }
+      ],
+      "numeric_rule_count": 7,
+      "numeric_rule_mismatches": 0,
+      "current_regression_cases": [
+        "bass-controls",
+        "bass-environment",
+        "bass-lives-screen",
+        "bass-powerup-animation",
+        "bass-reference",
+        "bass-systems",
+        "bass-weapons",
+        "bass-world-sfx"
+      ],
+      "domains": {
+        "movement": {
+          "assessment": "source rules compared; see all matches and mismatches",
+          "implementation": [
+            "src/expanded.s",
+            "src/megaman_physics.s"
+          ],
+          "evidence": [
+            "build/roster-audit/comparisons.json",
+            "build/roster-audit/mmc3/character-9/motion.csv",
+            "build/roster-audit/mmc5/character-9/motion.csv"
+          ]
+        },
+        "jump_and_water": {
+          "assessment": "reference numerical sampling plus explicit air/release/re-jump scenes; special-source differences documented",
+          "implementation": [
+            "src/expanded.s",
+            "src/water.s"
+          ],
+          "evidence": [
+            "build/roster-audit/comparisons.json",
+            "docs/reference/water.md"
+          ]
+        },
+        "weapons_and_upgrades": {
+          "assessment": "source input/type/inventory and projectile paths reviewed; generic or missing behavior documented",
+          "implementation": [
+            "src/expanded_weapons.s",
+            "src/guest_powerups.s"
+          ],
+          "evidence": [
+            "build/roster-audit/mmc3/character-9/weapons.csv",
+            "docs/qa/roster-source-audit.md"
+          ]
+        },
+        "damage_and_blocks": {
+          "assessment": "compiled damage table verified; native collision/health differences distinguished from source rules",
+          "implementation": [
+            "src/expanded_weapons.s",
+            "src/megaman_weapons.s",
+            "src/collision.s"
+          ],
+          "evidence": [
+            "build/roster-audit/static-findings.json",
+            "build/verification/summary.json"
+          ]
+        },
+        "animation_palette_oam": {
+          "assessment": "source/generator pose selection and actor contacts reviewed; blank data/overloads/crop errors documented; injected palette states not treated as real pickup proof",
+          "implementation": [
+            "src/metasprite_engine.s",
+            "src/screen_render.s",
+            "src/expanded.s"
+          ],
+          "evidence": [
+            "build/roster-audit/sprite-budgets.json",
+            "build/roster-audit/character-9-review.png",
+            "build/roster-audit/palette-review.json"
+          ]
+        },
+        "music_and_sfx": {
+          "assessment": "source event handlers compared with driver routing; generic/substituted/missing cues and area loops documented; waveform identity not certified",
+          "implementation": [
+            "src/expanded_audio.s",
+            "src/guest_audio.s"
+          ],
+          "evidence": [
+            "docs/qa/roster-source-audit.md",
+            "docs/reference/expanded-audio.json",
+            "build/verification/summary.json"
+          ]
+        },
+        "injury_death_respawn": {
+          "assessment": "source states/timers compared with native or guest death modules; simplified sequences documented",
+          "implementation": [
+            "src/expanded.s",
+            "src/characters.s"
+          ],
+          "evidence": [
+            "docs/qa/roster-source-audit.md",
+            "build/verification/summary.json"
+          ]
+        },
+        "springs_vines_wall_movement": {
+          "assessment": "source handlers/launch constants compared; later spring fallback and wall-transition simplifications documented",
+          "implementation": [
+            "src/megaman_environment.s",
+            "src/expanded.s"
+          ],
+          "evidence": [
+            "docs/qa/roster-source-audit.md",
+            "build/verification/summary.json"
+          ]
+        },
+        "pipes_and_scripted_transitions": {
+          "assessment": "native substrate recognized as approximation, not source-equivalence proof; current pipe fixtures identified",
+          "implementation": [
+            "src/player.s",
+            "src/expanded.s"
+          ],
+          "evidence": [
+            "docs/qa/roster-source-audit.md",
+            "build/verification/summary.json"
+          ]
+        },
+        "title_select_and_lives": {
+          "assessment": "user-authorized static title/custom roster UI preserved; current portrait/menu regression evidence identified",
+          "implementation": [
+            "src/character_select.s",
+            "src/characters.s",
+            "src/expanded.s"
+          ],
+          "evidence": [
+            "README.md",
+            "build/verification/summary.json"
+          ]
+        }
+      },
+      "full_source_parity": false
+    },
+    {
+      "character": 10,
+      "name": "Ryu",
+      "source_files": [
+        {
+          "path": "reference/crossover2/extracted/scripts/com/smbc/characters/Ryu.as",
+          "sha256": "df487c804d685cf11f79c10f31b77a8bb98753a7b8010e0c0693341eb58b48d1"
+        },
+        {
+          "path": "reference/crossover2/extracted/scripts/com/smbc/characters/Character.as",
+          "sha256": "248c72c742a181a4ac73374343e44dda7837a80773552162b0262a07ae8f0029"
+        }
+      ],
+      "numeric_rule_count": 7,
+      "numeric_rule_mismatches": 3,
+      "current_regression_cases": [
+        "ryu-controls",
+        "ryu-environment",
+        "ryu-lives-screen",
+        "ryu-powerup-animation",
+        "ryu-systems",
+        "ryu-weapons",
+        "ryu-world-sfx"
+      ],
+      "domains": {
+        "movement": {
+          "assessment": "source rules compared; see all matches and mismatches",
+          "implementation": [
+            "src/expanded.s",
+            "src/megaman_physics.s"
+          ],
+          "evidence": [
+            "build/roster-audit/comparisons.json",
+            "build/roster-audit/mmc3/character-10/motion.csv",
+            "build/roster-audit/mmc5/character-10/motion.csv"
+          ]
+        },
+        "jump_and_water": {
+          "assessment": "reference numerical sampling plus explicit air/release/re-jump scenes; special-source differences documented",
+          "implementation": [
+            "src/expanded.s",
+            "src/water.s"
+          ],
+          "evidence": [
+            "build/roster-audit/comparisons.json",
+            "docs/reference/water.md"
+          ]
+        },
+        "weapons_and_upgrades": {
+          "assessment": "source input/type/inventory and projectile paths reviewed; generic or missing behavior documented",
+          "implementation": [
+            "src/expanded_weapons.s",
+            "src/guest_powerups.s"
+          ],
+          "evidence": [
+            "build/roster-audit/mmc3/character-10/weapons.csv",
+            "docs/qa/roster-source-audit.md"
+          ]
+        },
+        "damage_and_blocks": {
+          "assessment": "compiled damage table verified; native collision/health differences distinguished from source rules",
+          "implementation": [
+            "src/expanded_weapons.s",
+            "src/megaman_weapons.s",
+            "src/collision.s"
+          ],
+          "evidence": [
+            "build/roster-audit/static-findings.json",
+            "build/verification/summary.json"
+          ]
+        },
+        "animation_palette_oam": {
+          "assessment": "source/generator pose selection and actor contacts reviewed; blank data/overloads/crop errors documented; injected palette states not treated as real pickup proof",
+          "implementation": [
+            "src/metasprite_engine.s",
+            "src/screen_render.s",
+            "src/expanded.s"
+          ],
+          "evidence": [
+            "build/roster-audit/sprite-budgets.json",
+            "build/roster-audit/character-10-review.png",
+            "build/roster-audit/palette-review.json"
+          ]
+        },
+        "music_and_sfx": {
+          "assessment": "source event handlers compared with driver routing; generic/substituted/missing cues and area loops documented; waveform identity not certified",
+          "implementation": [
+            "src/expanded_audio.s",
+            "src/guest_audio.s"
+          ],
+          "evidence": [
+            "docs/qa/roster-source-audit.md",
+            "docs/reference/expanded-audio.json",
+            "build/verification/summary.json"
+          ]
+        },
+        "injury_death_respawn": {
+          "assessment": "source states/timers compared with native or guest death modules; simplified sequences documented",
+          "implementation": [
+            "src/expanded.s",
+            "src/characters.s"
+          ],
+          "evidence": [
+            "docs/qa/roster-source-audit.md",
+            "build/verification/summary.json"
+          ]
+        },
+        "springs_vines_wall_movement": {
+          "assessment": "source handlers/launch constants compared; later spring fallback and wall-transition simplifications documented",
+          "implementation": [
+            "src/megaman_environment.s",
+            "src/expanded.s"
+          ],
+          "evidence": [
+            "docs/qa/roster-source-audit.md",
+            "build/verification/summary.json"
+          ]
+        },
+        "pipes_and_scripted_transitions": {
+          "assessment": "native substrate recognized as approximation, not source-equivalence proof; current pipe fixtures identified",
+          "implementation": [
+            "src/player.s",
+            "src/expanded.s"
+          ],
+          "evidence": [
+            "docs/qa/roster-source-audit.md",
+            "build/verification/summary.json"
+          ]
+        },
+        "title_select_and_lives": {
+          "assessment": "user-authorized static title/custom roster UI preserved; current portrait/menu regression evidence identified",
+          "implementation": [
+            "src/character_select.s",
+            "src/characters.s",
+            "src/expanded.s"
+          ],
+          "evidence": [
+            "README.md",
+            "build/verification/summary.json"
+          ]
+        }
+      },
+      "full_source_parity": false
+    },
+    {
+      "character": 11,
+      "name": "Sophia",
+      "source_files": [
+        {
+          "path": "reference/crossover2/extracted/scripts/com/smbc/characters/Sophia.as",
+          "sha256": "4e0b0b8072e43cee114dd2493cce93602b8a104fa1a8c2bc3307378527f5e9b8"
+        },
+        {
+          "path": "reference/crossover2/extracted/scripts/com/smbc/characters/Character.as",
+          "sha256": "248c72c742a181a4ac73374343e44dda7837a80773552162b0262a07ae8f0029"
+        }
+      ],
+      "numeric_rule_count": 9,
+      "numeric_rule_mismatches": 7,
+      "current_regression_cases": [
+        "sophia-controls",
+        "sophia-environment",
+        "sophia-lives-screen",
+        "sophia-powerup-animation",
+        "sophia-systems",
+        "sophia-world-sfx"
+      ],
+      "domains": {
+        "movement": {
+          "assessment": "source rules compared; see all matches and mismatches",
+          "implementation": [
+            "src/expanded.s",
+            "src/megaman_physics.s"
+          ],
+          "evidence": [
+            "build/roster-audit/comparisons.json",
+            "build/roster-audit/mmc3/character-11/motion.csv",
+            "build/roster-audit/mmc5/character-11/motion.csv"
+          ]
+        },
+        "jump_and_water": {
+          "assessment": "reference numerical sampling plus explicit air/release/re-jump scenes; special-source differences documented",
+          "implementation": [
+            "src/expanded.s",
+            "src/water.s"
+          ],
+          "evidence": [
+            "build/roster-audit/comparisons.json",
+            "docs/reference/water.md"
+          ]
+        },
+        "weapons_and_upgrades": {
+          "assessment": "source input/type/inventory and projectile paths reviewed; generic or missing behavior documented",
+          "implementation": [
+            "src/expanded_weapons.s",
+            "src/guest_powerups.s"
+          ],
+          "evidence": [
+            "build/roster-audit/mmc3/character-11/weapons.csv",
+            "docs/qa/roster-source-audit.md"
+          ]
+        },
+        "damage_and_blocks": {
+          "assessment": "compiled damage table verified; native collision/health differences distinguished from source rules",
+          "implementation": [
+            "src/expanded_weapons.s",
+            "src/megaman_weapons.s",
+            "src/collision.s"
+          ],
+          "evidence": [
+            "build/roster-audit/static-findings.json",
+            "build/verification/summary.json"
+          ]
+        },
+        "animation_palette_oam": {
+          "assessment": "source/generator pose selection and actor contacts reviewed; blank data/overloads/crop errors documented; injected palette states not treated as real pickup proof",
+          "implementation": [
+            "src/metasprite_engine.s",
+            "src/screen_render.s",
+            "src/expanded.s"
+          ],
+          "evidence": [
+            "build/roster-audit/sprite-budgets.json",
+            "build/roster-audit/character-11-review.png",
+            "build/roster-audit/palette-review.json"
+          ]
+        },
+        "music_and_sfx": {
+          "assessment": "source event handlers compared with driver routing; generic/substituted/missing cues and area loops documented; waveform identity not certified",
+          "implementation": [
+            "src/expanded_audio.s",
+            "src/guest_audio.s"
+          ],
+          "evidence": [
+            "docs/qa/roster-source-audit.md",
+            "docs/reference/expanded-audio.json",
+            "build/verification/summary.json"
+          ]
+        },
+        "injury_death_respawn": {
+          "assessment": "source states/timers compared with native or guest death modules; simplified sequences documented",
+          "implementation": [
+            "src/expanded.s",
+            "src/characters.s"
+          ],
+          "evidence": [
+            "docs/qa/roster-source-audit.md",
+            "build/verification/summary.json"
+          ]
+        },
+        "springs_vines_wall_movement": {
+          "assessment": "source handlers/launch constants compared; later spring fallback and wall-transition simplifications documented",
+          "implementation": [
+            "src/megaman_environment.s",
+            "src/expanded.s"
+          ],
+          "evidence": [
+            "docs/qa/roster-source-audit.md",
+            "build/verification/summary.json"
+          ]
+        },
+        "pipes_and_scripted_transitions": {
+          "assessment": "native substrate recognized as approximation, not source-equivalence proof; current pipe fixtures identified",
+          "implementation": [
+            "src/player.s",
+            "src/expanded.s"
+          ],
+          "evidence": [
+            "docs/qa/roster-source-audit.md",
+            "build/verification/summary.json"
+          ]
+        },
+        "title_select_and_lives": {
+          "assessment": "user-authorized static title/custom roster UI preserved; current portrait/menu regression evidence identified",
+          "implementation": [
+            "src/character_select.s",
+            "src/characters.s",
+            "src/expanded.s"
+          ],
+          "evidence": [
+            "README.md",
+            "build/verification/summary.json"
+          ]
+        }
+      },
+      "full_source_parity": false
+    }
+  ],
+  "reviewed_domains": [
+    "movement",
+    "jump_and_water",
+    "weapons_and_upgrades",
+    "damage_and_blocks",
+    "animation_palette_oam",
+    "music_and_sfx",
+    "injury_death_respawn",
+    "springs_vines_wall_movement",
+    "pipes_and_scripted_transitions",
+    "title_select_and_lives"
+  ],
+  "coverage_cells": 120,
+  "captured_frames": 50400,
+  "rules": 78,
+  "matching_rules": 51,
+  "mismatching_rules": 27,
+  "implementation_corrections_complete": false,
+  "prior_goal_turn_classification": "progress",
+  "report": "docs/qa/roster-source-audit.md",
+  "evidence": {
+    "build/roster-audit/runtime-manifest.json": "bbee341921f81a6341ec5efb5c139cbe5b0f84218b867ebfdd739b61971a45cd",
+    "build/roster-audit/comparisons.json": "b2d4cbf559f0460d58d9e192df3146153af803b0cce38881edc205005dba6df9",
+    "build/roster-audit/sources.json": "88c4b359206aa8bf458374fc0beafaed8450e127a01feaba1b3de0bf164c849f",
+    "build/roster-audit/sprite-budgets.json": "7469b4d85fcbd5d2afa51b2b64960054c46b35921ab5717c55b591c1b77b11aa",
+    "build/roster-audit/static-findings.json": "d1b965490d2115be8db378a1f2987456c0c5daee186a43cf2ece85a24406ffb8"
+  },
+  "findings_pass_complete": true
+}

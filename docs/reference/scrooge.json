@@ -1,0 +1,34 @@
+{
+  "source_file": "DuckTales (USA).nes",
+  "source_sha256": "23f395b26644e9fce38b02973f16d8de2a69c358fd7934ec63404acafa1cfeb3",
+  "source_modified": false,
+  "graphics_capture": "tools/reference/capture_scrooge.lua",
+  "graphics_builder": "tools/reference/build_scrooge_assets.py",
+  "music": "Native Amazon APU capture, starts at native frame 300",
+  "music_loop_updates": 2304,
+  "music_capture_updates": 10000,
+  "notes": [
+    "NES 2.02 did not include Scrooge",
+    "Native cane/pogo artwork; SMB worlds and common action effects",
+    "Shared Mario event music adaptation"
+  ],
+  "crouch_capture": {
+    "script": "tools/reference/scrooge-movement-probe.lua",
+    "frame": 1300,
+    "controls": "Down+Right held on stationary ground, no emulated writes",
+    "opaque_bounds_native": [
+      113,
+      141,
+      136,
+      160
+    ],
+    "source_sha256": "23f395b26644e9fce38b02973f16d8de2a69c358fd7934ec63404acafa1cfeb3",
+    "captures_sha256": {
+      ".chr": "7b2d0c8d87a2ce1abce05ee4c9af592fa19abfe58dbb78eeaa4cdb6ceb96fa18",
+      ".oam": "5581ecae9fa10899d722bf1bc80117f4cc0aa41975a6ed686c19cb6eb79e8754",
+      ".pal": "a79ade3a8f6f28b7a1f841cd8cba4bf891e0974bed73ab4876355d3d60c944f3",
+      ".png": "7062981fbd35a33c3104b300d0deb0088f1808f4e1ef5777988e1532dba19542"
+    },
+    "reference_lua_sha256": "2c4940cfed64169784633230bf7d2f2d50caa0128d242d6a133dcc30098868b0"
+  }
+}

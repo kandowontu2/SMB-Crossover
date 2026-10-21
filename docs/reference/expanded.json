@@ -1,0 +1,45 @@
+{
+  "roster_order": [
+    "MARIO",
+    "MEGAMAN",
+    "SAMUS",
+    "BILL",
+    "LINK",
+    "SIMON",
+    "PIT",
+    "RYGAR",
+    "LUIGI",
+    "BASS",
+    "RYU",
+    "SOPHIA"
+  ],
+  "crossover_2_swf_sha256": "6374c72426556bfc3cc16f7594ce4443a5867fe2d367514136c99cc8458b70af",
+  "published_source_commit": "83974eb7b3d554b9c8c5da07f64bfd608f3f65fc",
+  "sources": {
+    "pit": {
+      "file": "Kid Icarus (USA, Europe).nes",
+      "sha256": "931786d6920dea7f9e183d907d3c4cff123197fcd14ae4066f1e817df32fd02f"
+    },
+    "rygar": {
+      "file": "Rygar (USA).nes",
+      "sha256": "965330fed9f5b8492452f3b53084752e83b7f899a1f88f3c475ece2fde6f9231"
+    },
+    "bass": {
+      "embedded_nsf": "231_com.explodingRabbit.cross.games.GameMegaMan10_Nsf.bin",
+      "sha256": "8e1edb618e601806bcb26ca5b9daff9a04ecb5a9955ca1b8808fb44602443e6a",
+      "track": 13
+    },
+    "ryu": {
+      "embedded_nsf": "239_com.explodingRabbit.cross.games.GameNinjaGaiden_Nsf.bin",
+      "sha256": "dbff6199418a16712d6b427995bc1b8b9076c5914b7a40d632959fbd12e70188",
+      "track": 4
+    },
+    "sophia": {
+      "embedded_nsf": "537_com.explodingRabbit.cross.games.GameBlasterMaster_Nsf.bin",
+      "sha256": "a84f1ee23143697f3c70ac26a6cf2b64a8dd33de5e20b7d00c7cd7d854a83dcd",
+      "track": 3
+    }
+  },
+  "rygar_audio_extraction": "After normal title/start input and 300 frames, an emulated NMI stub invokes the original bank-3 selector at $c0ec and audio driver at $e000. World logic is frozen. Original file unchanged; reference extraction fixture, not controller-clear evidence.",
+  "powerup_model": "Mega Man/Bass now use separately acquired 2.02 upgrades, persistent per-weapon energy, selection and stored-inventory recovery. Bass's seven specials have focused native-fixture coverage. Mega Man-specific art/Rush and remaining characters' inventory migrations are incomplete; other characters retain the three-state model."
+}
