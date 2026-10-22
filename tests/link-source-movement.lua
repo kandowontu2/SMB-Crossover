@@ -120,7 +120,7 @@ emu.addEventCallback(function()
   left=(mask&2)~=0,a=(mask&128)~=0,down=(mask&4)~=0},0)
 end,emu.eventType.inputPolled)
 emu.addMemoryCallback(function()
- if frame<560 or depth~=0 or r('CurrentBank')%128~=22 then return end
+ if frame<560 or depth~=0 or r('CurrentBank')%128~=assert(B.RosterMovement) then return end
  assert(emu.read(L.RosterMovement,emu.memType.nesDebug)==0xad and
   emu.read(L.RosterMovement+1,emu.memType.nesDebug)==L.SelectedCharacter%256 and
   emu.read(L.RosterMovement+2,emu.memType.nesDebug)==math.floor(L.SelectedCharacter/256),'Actual ROSTER movement entry opcode')

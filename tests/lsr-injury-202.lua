@@ -71,7 +71,7 @@ local function setup()
  worldStart=r('Enemy_X_Position',1)
 end
 emu.addMemoryCallback(function()
- if not c or not bank(10)then return end
+ if not c or not bank(B.GuestInjuryStart)then return end
  assert(not started,'One actual injury per arena')
  w('SwimmingFlag',c.water and 1 or 0)
  local f=c.fraction or 0;w('MmXFraction',f%256);w('MmXFraction',f//256,1)

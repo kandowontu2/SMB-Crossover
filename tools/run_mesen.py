@@ -37,9 +37,24 @@ def run(script: Path, rom: Path, emulator: str | None = None, timeout: int = 30,
     # debug file so visual regression checks follow the assembled definitions.
     debug = rom.with_suffix('.dbg')
     debug_archive = rom.with_suffix('.dbg.gz')
+    banks = {}
     if debug.exists() or debug_archive.exists():
         debug_text = (debug.read_text() if debug.exists() else
                       gzip.decompress(debug_archive.read_bytes()).decode('utf-8'))
+        # Physical 8 KiB PRG bank of each ROM label, so bank-qualified hooks
+        # follow relocations instead of pinning literal bank numbers.
+        segments = {}
+        for line in debug_text.splitlines():
+            if line.startswith('seg\t') and 'ooffs=' in line:
+                fields = dict(item.split('=', 1) for item in line[4:].split(','))
+                segments[fields['id']] = (int(fields['start'], 16), int(fields['ooffs']))
+        for line in debug_text.splitlines():
+            if line.startswith('sym\t') and 'type=lab' in line:
+                fields = dict(item.split('=', 1) for item in line[4:].split(',') if '=' in item)
+                segment = segments.get(fields.get('seg'))
+                if segment and 'val' in fields:
+                    offset = segment[1] + int(fields['val'], 16) - segment[0] - 16
+                    banks.setdefault(fields['name'].strip('"'), offset // 8192)
         for line in debug_text.splitlines():
             if line.startswith('sym\t'):
                 interrupt = re.search(r'name="(IrqScrollSplit|NonMaskableInterrupt|OAMandReadJoypad)"', line)
@@ -71,6 +86,8 @@ def run(script: Path, rom: Path, emulator: str | None = None, timeout: int = 30,
         'L={}',
     ]
     wrapper.extend(f'L["{key}"]={value}' for key, value in sorted(symbols.items()))
+    wrapper.append('B={}')
+    wrapper.extend(f'B["{key}"]={value}' for key, value in sorted(banks.items()))
     # Source gameplay fixtures use explicit2.02 setup. These front-end tests
     # must observe the real power-on1.0 default and ordinary Options inputs.
     frontend_tests = {'character-select', 'player-outlines', 'player-outlines-render'}

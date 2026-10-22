@@ -20,7 +20,7 @@ emu.addEventCallback(function()
  emu.setInput({right=frame>=80 and frame<160 and(frame-80)%20==0,start=frame==200,up=(mask&8)~=0,down=(mask&4)~=0,b=(mask&64)~=0},0)
 end,emu.eventType.inputPolled)
 emu.addMemoryCallback(function()
- if frame<560 or pending or depth~=0 or r('CurrentBank')%128~=22 then return end
+ if frame<560 or pending or depth~=0 or r('CurrentBank')%128~=B.RosterMovement then return end
  local c=cases[index];if not c or (r('SavedJoypadBits')&76)~=c.mask or
   (r('A_B_Buttons')&64)~=(c.mask&64)then return end
  for i=0,415 do w('Block_Buffer_1',0,i);w('MmSolidTerrain',0,i)end

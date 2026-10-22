@@ -27,7 +27,7 @@ emu.addMemoryCallback(function(_,value)
  end
 end,emu.callbackType.write,assert(L.MmEnemyHealthLo))
 if boomerang then emu.addMemoryCallback(function()
- if frame>=560 and depth==0 and r('CurrentBank')%128==61 then
+ if frame>=560 and depth==0 and r('CurrentBank')%128==B.LsrEffectsBoomerang then
   assert(r('MmEnemySlot')==0,'Actual controller-launched boomerang collides with its designated enemy')
   hit=true
  end

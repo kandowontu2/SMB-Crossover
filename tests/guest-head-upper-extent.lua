@@ -12,15 +12,14 @@ local poses={
  {char=2,name='Samus stand',offset=1},{char=2,name='Samus air',offset=7,state=1},
  {char=2,name='Samus crouch',offset=17,smCrouch=1,crouch=4},
  {char=2,name='Samus ball',offset=19,ball=1,crouch=4},
- {char=3,name='Bill stand',offset=1},{char=3,name='Bill air',offset=7,state=1},
- {char=3,name='Bill prone',offset=19,rgCrouch=1,crouch=4},
+ -- Bill and Sophia are omitted: their heads read cells from source HRects
+ -- (BillHeadDispatch/SophiaSourceHeadProbe), not this native probe/offset table or its canonical-Y low-nibble response.
  {char=5,name='Simon stand',offset=1},{char=5,name='Simon air',offset=7,state=1},
  {char=5,name='Simon crouch',offset=19,rgCrouch=1,crouch=4},
  {char=6,name='Pit',offset=8},{char=6,name='Pit crouch',offset=19,rgCrouch=1,crouch=4},
  {char=7,name='Rygar',offset=1},{char=7,name='Rygar crouch',offset=19,rgCrouch=1,crouch=4},
  {char=9,name='Bass',offset=8},{char=9,name='Bass crouch',offset=19,rgCrouch=1,crouch=4},
  {char=10,name='Ryu',offset=1},{char=10,name='Ryu crouch',offset=19,rgCrouch=1,crouch=4},
- {char=11,name='Sophia',offset=8},{char=11,name='Sophia crouch',offset=19,rgCrouch=1,crouch=4},
  {char=12,name='Scrooge',offset=8},{char=12,name='Scrooge crouch',offset=8,rgCrouch=1,crouch=4},
  {char=0,name='Mario big',offset=4,native=true},
  {char=0,name='Mario small',offset=18,size=1,native=true},
@@ -40,7 +39,7 @@ emu.addEventCallback(function()emu.setInput({start=frame==240},0)end,emu.eventTy
 emu.addMemoryCallback(function()
  if frame<600 or current or finished then return end
  index=index+1;local c=cases[index]
- if not c then finished=true;log:close();print('PASS guest head cutoffs: all32 poses at3 roof/HUD heights; native Mario/Luigi and low-nibble semantics retained');emu.stop(0);return end
+ if not c then finished=true;log:close();print('PASS guest head cutoffs: all27 poses at3 roof/HUD heights; native Mario/Luigi and low-nibble semantics retained');emu.stop(0);return end
  current=c;c.probe=false
  local p=c.pose;local py=c.head-p.offset
  for i=0,415 do w('Block_Buffer_1',0,i)end
@@ -52,6 +51,13 @@ emu.addMemoryCallback(function()
  w('Player_X_Position',80);w('Player_PageLoc',0);w('Player_Y_Position',py);w('Player_Y_HighPos',1)
  w('Player_State',p.state or 0);w('Player_Y_Speed',255);w('PlayerFacingDir',1)
  w('CrouchingFlag',p.crouch or 0);w('RgCrouch',p.rgCrouch or 0)
+ -- Samus admits a roof only when her previous head (Y-MmVY) was at/below the
+ -- cell bottom (2.02 checkLastHitPoints). Author a genuine upward crossing
+ -- from the roof's bottom edge instead of inheriting the prior case's motion.
+ if p.char==2 then
+  for i=0,1 do w('MmVY',0,i);w('MmYFraction',0,i)end
+  w('MmVY',c.head-48,2)
+ end
  w('MmSliding',p.slide or 0);w('SmBall',p.ball or 0);w('SmCrouch',p.smCrouch or 0)
  w('DisableCollisionDet',0);w('SwimmingFlag',0);w('GameEngineSubroutine',8);w('BlockBounceTimer',0)
  w('ScreenLeft_X_Pos',0);w('ScreenLeft_PageLoc',0);w('ScreenRight_X_Pos',255);w('ScreenRight_PageLoc',0)

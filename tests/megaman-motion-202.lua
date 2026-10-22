@@ -114,7 +114,7 @@ emu.addEventCallback(function()
  else emu.setInput({right=frame==80,start=frame==120},0) end
 end,emu.eventType.inputPolled)
 emu.addMemoryCallback(function()
- if frame<540 or r('CurrentBank')%128~=1 or not c or pending then return end
+ if frame<540 or r('CurrentBank')%128~=B.MegaManMovement or not c or pending then return end
  assert(r('SelectedCharacter')==1,'MM selected through ordinary menu');t=t+1
  if c.edge==t then m.ground=false end
  terrain();setpos('Player_X_Position','MmXFraction',m.x);w('Player_PageLoc',math.floor(m.x/256))
@@ -130,7 +130,7 @@ emu.addMemoryCallback(function()
  expected=model((r('A_B_Buttons')&128)~=0,r('SavedJoypadBits')&3,m.prevA)
 end,emu.callbackType.exec,assert(L.MegaManMovement))
 emu.addMemoryCallback(function()
- if frame<540 or r('CurrentBank')%128~=1 or not expected then return end
+ if frame<540 or r('CurrentBank')%128~=B.MegaMan202Integrated or not expected then return end
  near(q('MmVX'),expected.vx,.002,'vx');near(q('MmVY'),expected.vy,.002,'vy')
  near(x(),expected.x,.03,'integrated x');near(y(),expected.y,.05,'integrated y')
  assert(r('Player_X_Scroll')==expected.scroll,c.name..' includes startup displacement in scroll')

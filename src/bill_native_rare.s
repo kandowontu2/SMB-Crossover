@@ -1004,12 +1004,14 @@ BillRareCallCommon:
 .pushseg
 .segment "BILL_BODY_COLD"
 .proc SophiaHeadBlockOrigin
+  ; Other characters tail-call the native initializer: the caller reloads A
+  ; and flags, and this keeps their common bump timing close to the original.
+  lda SelectedCharacter
+  cmp #CHARACTER_SOPHIA
+  jne InitBlock_XY_Pos
   jsr InitBlock_XY_Pos
   php
   pha
-  lda SelectedCharacter
-  cmp #CHARACTER_SOPHIA
-  bne Done
   lda MmBlockAttack
   bne Done
   bit SmCeilingHit

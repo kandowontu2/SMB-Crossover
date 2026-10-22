@@ -86,7 +86,7 @@ emu.addMemoryCallback(function()
  stopChecked=true
 end,emu.callbackType.exec,assert(L.LsrEffectsApplyStopFinish))
 emu.addMemoryCallback(function()
- if attempted and bank(61)then accepted=true end
+ if attempted and bank(B.LsrEffectsAcceptedHitFinish)then accepted=true end
 end,emu.callbackType.exec,assert(L.LsrEffectsAcceptedHitFinish))
 local finish=character==10 and L.ExpandedWeaponsFinish or L.RosterWeaponsFinish
 emu.addMemoryCallback(function()

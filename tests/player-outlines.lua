@@ -11,6 +11,7 @@ end
 local function shot(tag)
  local f=assert(io.open(OUTPUT..ROM_NAME..'-outlines-'..tag..'.png','wb'));f:write(emu.takeScreenshot());f:close()
 end
+-- 'PLAYER OUTLINES  ' (17 tiles from $2165) puts the ON/OFF value at $2176.
 local function text(address,expected)
  for i=1,#expected do
   local c=expected:byte(i)
@@ -33,12 +34,12 @@ emu.addEventCallback(function()
   assert(emu.read(0x2163,emu.memType.nesPpuDebug)==0x3f,'Options page has its own shadow-row arrow')
   for a=0x3f09,0x3f0b do assert(emu.read(a,emu.memType.nesPpuDebug)==0x28,'Options glyphs retain the bright gold palette')end
   for a=0x23c0,0x23ff do assert(emu.read(a,emu.memType.nesPpuDebug)==0xaa,'Dedicated Options attributes select gold')end
-  text(0x2175,'OFF')
+  text(0x2176,'OFF')
  end
- if frame==130 then assert(r('PlayerOutlinesOff')==0,'A enables shadows');text(0x2175,'ON')end
+ if frame==130 then assert(r('PlayerOutlinesOff')==0,'A enables shadows');text(0x2176,'ON')end
  if frame==160 then
   assert(r('PlayerOutlinesOff')==1 and r('CrossoverMenuState')==4,'Held A toggles once and keeps Options open')
-  text(0x2175,'OFF')
+  text(0x2176,'OFF')
  end
  if frame==200 then assert(r('PlayerOutlinesOff')==0,'Select enables shadows without launching gameplay')end
  if frame==300 then assert(r('CrossoverMenuState')==0 and r('PlayerOutlinesOff')==0,'B returns to title preserving the preference')end
@@ -48,7 +49,7 @@ emu.addEventCallback(function()
   for x=0,31 do assert(emu.read(0x2340+x,emu.memType.nesPpuDebug)==0x24,'Character select has no shadow option row')end
   shot('on')
  end
- if frame==590 then assert(r('CrossoverMenuState')==4 and r('PlayerOutlinesOff')==1,'Reopened Options can disable shadows');text(0x2175,'OFF')end
+ if frame==590 then assert(r('CrossoverMenuState')==4 and r('PlayerOutlinesOff')==1,'Reopened Options can disable shadows');text(0x2176,'OFF')end
  if frame==730 then
   assert(r('SelectedCharacter')==2 and r('CrossoverMenuState')==2 and r('PlayerOutlinesOff')==1,'Returning to the roster preserves Samus and shadows OFF')
   assert(count()==5,'Outline-free Samus preview retains her five colored body sprites: '..count())

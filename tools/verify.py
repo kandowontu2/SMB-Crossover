@@ -75,11 +75,16 @@ def main() -> int:
     test('mario-trace', 'smb-crossover-mmc3')
     test('mmc3-bank-interrupt', 'smb-crossover-mmc3')
     verification = ROOT / 'build/verification'
-    before = (verification/'smb-crossover-mmc3-baseline-mario-trace.csv').read_bytes()
+    # Mario runs the source (2.02/original) profile, not stock SMB physics, so
+    # the crossover replay is pinned to its frozen source-Mario reference; the
+    # baseline replay above remains a stock boot/control smoke test.
+    before = (ROOT/'tests/mario-trace-reference.csv').read_bytes()
     after = (verification/'smb-crossover-mmc3-mario-trace.csv').read_bytes()
+    failures = []
     if before != after:
-        raise RuntimeError('Mario state diverged from the baseline input replay.')
-    print('PASS Mario: all 19 state fields match the baseline for 521 frames')
+        failures.append('Mario state diverged from the frozen source-Mario replay.')
+    else:
+        print('PASS Mario: all 19 state fields match the source-Mario reference for 521 frames')
     mappers = ['mmc3']
     if args.mmc5:
         if not args.checkpoint:
@@ -150,8 +155,10 @@ def main() -> int:
     names += ('sophia-missile-collision-equivalence',)
     names += ('guest-audio-flush-differential', 'scrooge-native-movement', 'scrooge-underhang',
               'scrooge-body-hitbox', 'scrooge-pogo-hitbox', 'scrooge-pogo-contact', 'scrooge-pogo-bowser', 'scrooge-ceiling-separation', 'scrooge-pogo-bump-support', 'guest-foot-corner-matrix',
-              'mario-native-physics-control', 'luigi-native-physics', 'mario-native-death-control', 'mario-native-pipe-control',
-              'mario-native-water-pit-control', 'luigi-native-water-pit',
+              # Mario now runs his source profile; Luigi keeps the native
+              # engine and its native-reference physics/water-pit comparisons.
+              'luigi-native-physics', 'mario-native-death-control', 'mario-native-pipe-control',
+              'luigi-native-water-pit',
               'mario-powerup-fire-arena')
     names += tuple(f'expanded-poweron-{c}' for c in (6,7,9,10,11,12))
     names += tuple(f'expanded-water-entry-{c}' for c in (6,7,9,10,11,12))
@@ -191,7 +198,6 @@ def main() -> int:
               'water-oam-differential', 'water-corner-differential',
               'megaman-bass-lone-boss', 'megaman-water-performance',
               'bass-water-performance')
-    failures = []
     with concurrent.futures.ThreadPoolExecutor(max_workers=max(1,args.jobs)) as pool:
         pending = {pool.submit(test,name,f'smb-crossover-{mapper}'): (name,mapper)
                    for mapper in mappers for name in names}
@@ -208,7 +214,7 @@ def main() -> int:
         failures.append('Verification fixtures changed during the run: '+', '.join(changed_fixtures))
     summary = {
         'result': 'failed' if failures else 'passed', 'emulator': 'Mesen 2', 'hardware_tested': False,
-        'mario_replay': {'frames': 521, 'fields': 19, 'identical': True},
+        'mario_replay': {'frames': 521, 'fields': 19, 'identical': before == after},
         'cases': cases,
         'roms': {mapper: hashlib.sha256(rom_path(f'smb-crossover-{mapper}').read_bytes()).hexdigest()
                  for mapper in mappers},

@@ -58,7 +58,7 @@ emu.addMemoryCallback(function()
  c.postAny=any()
 end,emu.callbackType.exec,assert(L.GuestPostEnemyCollision))
 emu.addMemoryCallback(function()
- if not current or not current.deferred or not bank(8)then return end
+ if not current or not current.deferred or not bank(B.LinkDeferredThrustFinish)then return end
  assert(r('MmEnemyHealthLo')+256*r('MmEnemyHealthHi')==425,'Actual deferred sword alone hits for source75 damage')
  assert(r('RgEnemyStun')==24 and r('MmEnemyFlash')==24,'Actual deferred rectangle creates its source STOP/FLASH')
  current.postAny=true;current.deferredHit=true

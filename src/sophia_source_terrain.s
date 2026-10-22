@@ -318,6 +318,7 @@ Native:
 .proc SophiaSourceSideProbe
   jsr SophiaTerrainValid
   jcc Native
+::SophiaSideProbeValid:
   sty SmTemp
   ; Interior top/bottom rows cover this <16px body without mistaking a
   ; floor or ceiling touch for a horizontal penetration.
@@ -362,12 +363,13 @@ Empty:
   lda #0
   rts
 Native:
-  jmp BlockBufferColli_Side
+  jmp SophiaSideProbeAttached        ; same3 bytes as jmp BlockBufferColli_Side.
 .endproc
 
 .proc SophiaSourceWall
   jsr SophiaTerrainValid
   jcc Native
+::SophiaWallValid:
   lda R0
   sta XgWallContact
   cmp #1
@@ -410,8 +412,9 @@ KeepVelocity:
   sec
   rts
 Native:
-  lda SelectedCharacter
-  farcall SamusStopAtWallBanked, jmp
+  jmp SophiaWallAttached
+  .res 21-3, $ea                     ; keep every later byte in place.
+NativeEnd:
 .endproc
 ; Exact flat Sophia foot span, current visible ordinary16px ground only.
 ; Same INY/two-result ABI as BlockBufferColli_Feet. Ambiguous previous
@@ -899,4 +902,59 @@ QueryRestored:
 Native:
   jmp SophiaTerrainQuery
 .endproc
+.popseg
+
+; Side consumers keep the source body while wall-attached: attachment is
+; renewed from side contact each update, and the narrower native probe cannot
+; see the wall from the source contact position, alternating attach/detach.
+; Reached only from the rejected (Native) path; ordinary updates are unchanged.
+.pushseg
+.segment "SOPHIA_TERRAIN_COLD"
+.proc SophiaTerrainValidSide
+  lda XgWall
+  beq No
+  lda XgCeiling
+  bne No
+  lda SelectedCharacter
+  cmp #CHARACTER_SOPHIA
+  bne No
+  lda OperMode
+  cmp #1
+  bne No
+  lda GameEngineSubroutine
+  cmp #8
+  bne No
+  lda Player_State
+  cmp #3
+  bcs No
+  lda MmDeathFlag
+  ora GuestHurtTicks
+  ora GuestPowerupActive
+  bne No
+  lda Player_Y_HighPos
+  cmp #1
+  bne No
+  lda Player_Y_Position
+  cmp #224
+  bcs No
+  sec
+  rts
+No:
+  clc
+  rts
+.endproc
+.proc SophiaSideProbeAttached
+  jsr SophiaTerrainValidSide
+  jcs SophiaSideProbeValid
+  jmp BlockBufferColli_Side
+.endproc
+.proc SophiaWallAttached
+  jsr SophiaTerrainValidSide
+  jcs SophiaWallValid
+Original:
+  lda SelectedCharacter
+  farcall SamusStopAtWallBanked, jmp
+OriginalEnd:
+.endproc
+.assert SophiaSourceWall::NativeEnd-SophiaSourceWall::Native = SophiaWallAttached::OriginalEnd-SophiaWallAttached::Original, error, "Sophia wall stub size"
 .popseg

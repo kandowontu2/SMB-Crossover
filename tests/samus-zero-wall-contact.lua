@@ -1,3 +1,6 @@
+-- Brick debris origins need suit0/1 head breaking, the original-source EASY
+-- rule; pinned2.02 HARD bumps in every suit. Wall/ceiling controls are shared.
+SelectEasyRules()
 -- Explicit collision arenas, not a controller-only clear. Inputs after the
 -- first contact are ordinary controls. Expectations come from pinned 2.02
 -- Character.groundAbove/groundOnSide and the authored 16px terrain cells.
@@ -13,6 +16,12 @@ local function wx(n,p,i)return r(n,i)+256*r(p,i)end
 local function px()return wx('Player_X_Position','Player_PageLoc')end
 local function cell(x,y)return (x//256)%2*208+((y-32)//16)*16+(x%256)//16 end
 local function bank(n)return depth==0 and r('CurrentBank')%128==n end
+-- Foreground code at a label's actual physical PRG bank (fixed banks included).
+local function actual(n)
+ if depth~=0 then return false end
+ local p=emu.convertAddress(assert(L[n],n))
+ return p and p.memType==emu.memType.nesPrgRom and p.address//8192==assert(B[n],n)
+end
 for _,pc in ipairs({assert(L.NonMaskableInterrupt),assert(L.IrqScrollSplit)})do
  emu.addMemoryCallback(function()depth=depth+1 end,emu.callbackType.exec,pc)
 end
@@ -127,7 +136,7 @@ local function finish(c)
 end
 
 emu.addMemoryCallback(function()
- if frame<550 or not bank(1)then return end
+ if frame<550 or not actual('PlayerBGCollision')then return end
  if not current then
   index=index+1;current=cases[index];age=0
   if not current then
@@ -147,7 +156,7 @@ emu.addMemoryCallback(function()
 end,emu.callbackType.exec,L.PlayerBGCollision)
 
 emu.addMemoryCallback(function()
- if not current or not bank(1)or current.kind~='head' then return end
+ if not current or not actual('PlayerHeadCollision')or current.kind~='head' then return end
  local c=current;c.heads=c.heads+1
  local x=px();local expected
  for _,offset in ipairs({8,2,13})do
@@ -159,7 +168,7 @@ emu.addMemoryCallback(function()
 end,emu.callbackType.exec,L.PlayerHeadCollision)
 
 emu.addMemoryCallback(function()
- if current and bank(1)then current.walls=current.walls+1 end
+ if current and actual('SamusStopAtWall')then current.walls=current.walls+1 end
 end,emu.callbackType.exec,L.SamusStopAtWall)
 
 emu.addMemoryCallback(function(address,value)
@@ -184,13 +193,13 @@ emu.addMemoryCallback(function(address,value)
 end,emu.callbackType.write,L.Block_Y_Position,L.Block_Y_Position+3)
 emu.addMemoryCallback(function()
  local c=current;local o=c and c.origin
- if not o or not bank(1)then return end
+ if not o or not actual('SpawnBrickChunks')then return end
  assert(wx('Block_X_Position','Block_PageLoc',o.slot)==o.x and r('Block_Y_Position',o.slot)==o.y,'Brick debris uses original authored effect origin')
  o.awaitChunk=true;c.debris=c.debris+1;totals.brick=totals.brick+1
 end,emu.callbackType.exec,L.SpawnBrickChunks)
 emu.addMemoryCallback(function()
  local c=current;local o=c and c.origin
- if not o or not bank(1)then return end
+ if not o or not actual('SetupPowerUp')then return end
  local slot=emu.getState()['cpu.x']
  assert(wx('Block_X_Position','Block_PageLoc',o.slot)==o.x and r('Block_Y_Position',o.slot)==o.y,'Question reward uses actual struck cell before emergence')
  c.pickup={slot=slot,x=o.x,y=o.y-8,steps=0,initial=false,mature=false}
@@ -206,7 +215,7 @@ emu.addMemoryCallback(function(address,value)
 end,emu.callbackType.write,L.Enemy_Y_Position,L.Enemy_Y_Position+5)
 
 emu.addMemoryCallback(function()
- if not current or not bank(1)then return end
+ if not current or not actual('MegaMan202AfterBG')then return end
  local c=current;age=age+1
  if c.kind=='wall' then
   assert(px()==c.expectedX,'Source separates a real '..c.form..' wall contact even with '..c.motion..' motion, case '..index..': '..px()..' vs '..c.expectedX)

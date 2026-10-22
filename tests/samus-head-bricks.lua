@@ -1,3 +1,6 @@
+-- The hosted suit rule (suits0/1 break, wave suit bumps) is the original
+-- linked source, now EASY; pinned2.02 HARD bumps in every suit.
+SelectEasyRules()
 local frame=0
 local checked=0
 local function r(n,i) return emu.read(assert(L[n],n)+(i or 0),emu.memType.nesDebug) end

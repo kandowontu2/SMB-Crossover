@@ -75,7 +75,7 @@ emu.addMemoryCallback(function()
  model={x=x(),y=y(),vx=-c.side*150/120,vy=c.ground and -250/120 or q('MmVY')}
 end,emu.callbackType.exec,assert(L.SamusHurtStart))
 emu.addMemoryCallback(function()
- if not c or not started or r('CurrentBank')%128~=10 or injuryBank~=10 or injuryDepth~=0 then return end
+ if not c or not started or r('CurrentBank')%128~=B.GuestInjuryStarted or injuryBank~=10 or injuryDepth~=0 then return end
  near(q('MmVX'),model.vx,.00002,'attacker-relative capped recoil')
  near(q('MmVY'),model.vy,.00002,'ground boost or preserved airborne VY')
  assert(r('GuestHurtKind')==2 and r('GuestHurtTicks')==15,'Source250ms recoil starts without native freeze')

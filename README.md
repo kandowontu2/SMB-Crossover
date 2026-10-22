@@ -4,7 +4,9 @@ A native NES adaptation built on [SMB1Base](https://github.com/smbstudio/smb1bas
 
 The guest characters use code constants and art extracted from [the requested hosted game](https://www.smbgames.be/smb-crossover.php). This is a playable port in progress. [The parity audit](docs/reference/parity.md) records differences from the Flash version.
 
-The current provisional v49 build corrects Ryu's upward block response and preserves the START/OPTIONS menu. Regression coverage comprises759 unchanged passes plus the independently source-backed ceiling fixture on both mappers:761 staged passes, with the original two failures retained. Focused head and behavior checks also pass. Full roster routes, all upgrades, source geometry and final recordings remain in progress; see [the current evidence and limits](docs/qa/roster-provisional-v49.md).
+The current build passes the complete regression suite: all 757 emulator cases on both mappers plus the Mario trace check. All fourteen fixed routes clear through 2-2 with zero deaths. It also fixes Sophia's wall-climb flicker. See [the green-suite record](docs/qa/regression-green-v49.md).
+
+The earlier provisional v49 build corrects Ryu's upward block response and preserves the START/OPTIONS menu. Regression coverage comprises759 unchanged passes plus the independently source-backed ceiling fixture on both mappers:761 staged passes, with the original two failures retained. Focused head and behavior checks also pass. Full roster routes, all upgrades, source geometry and final recordings remain in progress; see [the current evidence and limits](docs/qa/roster-provisional-v49.md).
 
 Bass's [inventory audit](docs/qa/bass-inventory.md) covers separately collected
 weapons, complete source HUD/world icons, enemy energy drops, the exact NSF

@@ -82,7 +82,10 @@ emu.addMemoryCallback(function()
   local prefix=c.role=='bass'and'XgBASS'or(c.role=='bill'and'RgBILL'or'RgLANCE')
   local stride=c.role=='bass'and 84 or 48;local i=c.power*stride+c.pose
   wanted=emu.read(L[prefix..side()..'Lo']+i,emu.memType.nesDebug)+256*emu.read(L[prefix..side()..'Hi']+i,emu.memType.nesDebug)
-  assert(r('PlayerChrBank')==ref[c.role][c.power][c.pose][side()].bank,'Exact original fallback CHR bank')
+  -- Art packing may relocate banks; the immutable30 DMA composite below is the
+  -- art oracle, so the bank must be the compiled table entry for this pose.
+  local bank=emu.read(L[prefix..'Banks']+i,emu.memType.nesDebug)
+  assert(r('PlayerChrBank')==bank,'Exact compiled fallback CHR bank '..r('PlayerChrBank')..' / '..bank)
   assert(c.role=='lance'and helperCall==nil or c.role~='lance'and helperResult==false,'Lance excluded before helper; normal fallback returns carry clear')
   fallbackChecks=fallbackChecks+1
  end

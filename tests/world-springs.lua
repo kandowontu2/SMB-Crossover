@@ -13,7 +13,8 @@ local function boosted()return phase%4>=2 end
 -- the independent megaman-physics/environment fixtures cover its source model.
 -- Luigi now shares Mario's native spring, verified independently against the
 -- pre-rewrite Mario trace; its velocity is native rather than guest Q8.16.
-local expected={{7,12},{475/120,1000/120},{300/120,700/120},{400/120,800/120},
+-- Mario uses his source profile (MarioSourceSpring, 400/950) in Q8.16 MmVY.
+local expected={{400/120,950/120},{475/120,1000/120},{300/120,700/120},{400/120,800/120},
  {450/120,950/120},{500/120,1000/120},{500/120,1000/120},{660/120,1320/120},
  {7,12},{475/120,1000/120},{500/120,1000/120},{400/120,930/120},{6,12}}
 local function setup()
@@ -53,7 +54,7 @@ emu.addMemoryCallback(function()
  local force=boosted()and 0xf4 or 0xf9
  assert(r('JumpspringForce')==force,'Native fresh A during compression selects the boosted force')
  local velocity=r('Player_Y_Speed');if velocity>=128 then velocity=velocity-256 end
- if character()~=0 and character()~=8 then
+ if character()~=8 then
   local value=r('MmVY')+256*r('MmVY',1)+65536*r('MmVY',2)
   velocity=(value>=0x800000 and value-0x1000000 or value)/65536
  end

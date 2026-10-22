@@ -1,4 +1,6 @@
 -- Explicit flat ground/inventory fixture; seven real trigger presses.
+-- Source2.02 Flare owns an invisible center object, so each live Flare uses
+-- two of Bill's six pool units: three coexist and later triggers are rejected.
 local frame=0
 local peak=0
 local function r(n,i)return emu.read(assert(L[n],n)+(i or 0),emu.memType.nesDebug)end
@@ -20,9 +22,9 @@ emu.addEventCallback(function()
  end
  if frame>550 and frame<650 then
   local n=0;for i=0,9 do if r('RgShotType',i)==43 then n=n+1 end end
-  peak=math.max(peak,n);assert(n<=6,'Source Flare limit never exceeds six')
+  peak=math.max(peak,n);assert(n<=3,'Source Flare limit never exceeds three')
  end
- if frame==650 then assert(peak==6,'Six Flare projectiles can coexist, rather than the old four-shot cap: '..peak)
-  print('PASS Bill Flare six-projectile source limit and seventh trigger rejection');emu.stop(0)
+ if frame==650 then assert(peak==3,'Three Flares (six pool units with centers) can coexist: '..peak)
+  print('PASS Bill Flare three-projectile source limit (six pool units) and later trigger rejection');emu.stop(0)
  end
 end,emu.eventType.endFrame)

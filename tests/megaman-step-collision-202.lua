@@ -21,7 +21,7 @@ emu.addEventCallback(function()
  emu.setInput(c and {right=c.dir==1,left=c.dir==2} or {},0)
 end,emu.eventType.inputPolled)
 emu.addMemoryCallback(function()
- if frame<540 or not c or pending or r('CurrentBank')%128~=1 then return end
+ if frame<540 or not c or pending or r('CurrentBank')%128~=B.MegaManMovement then return end
  t=t+1
  for i=0,5 do w('Enemy_Flag',0,i) end
  for i=0,415 do w('Block_Buffer_1',0,i) end
@@ -54,7 +54,7 @@ emu.addMemoryCallback(function()
  lastX=px()
 end,emu.callbackType.exec,assert(L.MegaManMovement))
 emu.addMemoryCallback(function()
- if frame>=540 and c and not pending and r('CurrentBank')%128==1 then integrated=px() end
+ if frame>=540 and c and not pending and r('CurrentBank')%128==B.MegaMan202Integrated then integrated=px() end
 end,emu.callbackType.exec,assert(L.MegaMan202Integrated))
 emu.addMemoryCallback(function()
  if frame<540 or not c or pending or not integrated or r('CurrentBank')%128~=1 then return end

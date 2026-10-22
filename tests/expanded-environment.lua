@@ -107,7 +107,9 @@ emu.addEventCallback(function()
  if frame>=1000 and frame<=1080 then
   -- The independent original-Mario control holds at434. Native contact may
   -- stop Luigi a pixel farther out; neither coordinate can move into the pipe.
-  assert(x()>=433 and x()<=(c==8 and 434 or 433),'Character '..c..' cannot creep through the first pipe: '..x());stopped=true
+  -- Sophia's source HRect is 19px wide, so it stops at pipe-18 (430).
+  local stop=c==11 and 430 or 433
+  assert(x()>=stop and x()<=(c==8 and 434 or stop),'Character '..c..' cannot creep through the first pipe: '..x());stopped=true
  end
  if frame>=1080 and frame<2000 then high=math.min(high,r('Player_Y_Position')) end
  if frame==2000 then

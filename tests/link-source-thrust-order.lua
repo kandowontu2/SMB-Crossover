@@ -46,7 +46,7 @@ emu.addMemoryCallback(function()
  pending.body=true
 end,emu.callbackType.exec,assert(L.LinkBodyContactProtected))
 emu.addMemoryCallback(function()
- if not pending or depth~=0 or r('CurrentBank')%128~=8 then return end
+ if not pending or depth~=0 or r('CurrentBank')%128~=B.LinkDeferredThrustFinish then return end
  local c=pending.c;local damage=({50,75,100})[c.power+1]
  assert(pending.body,'Actual native body contact precedes the independent sword pass')
  assert(r('MmEnemyHealthLo')+256*r('MmEnemyHealthHi')==500-2*damage,'Source C_HIT permits body plus overlapping sword, not an invented one-hit lock: power'..c.power..' dir'..c.direction..' hp'..(r('MmEnemyHealthLo')+256*r('MmEnemyHealthHi')))

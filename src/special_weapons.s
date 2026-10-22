@@ -1373,9 +1373,13 @@ OrbitFixedRadius:
   sta RgShotYHigh,x
   jmp OrbitAdvance
 WaterPosition:
+  ; Keep arbitrary-angle fallback; a matching vector cache needs no subroutine.
   lda SsAngleHi,x
   and #31
+  cmp SsWaterScaleKey
+  beq WaterScaleReady
   jsr EnsureWaterScale
+WaterScaleReady:
   ldx RgSlot
   lda SsAngleHi,x
   lsr
@@ -1450,8 +1454,6 @@ EnsureWaterScale:
   ; units. Four products cover the positive half-circle; their two's-complement
   ; opposites cover the other half. Cosine is two vector slots after sine.
   ; A nonuniform angle fixture rebuilds instead of reusing an unrelated phase.
-  cmp SsWaterScaleKey
-  beq ScaleReady
   sta SsWaterScaleKey
   lda #3
   sta SsWaterScaleBuild

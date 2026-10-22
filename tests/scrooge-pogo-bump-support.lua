@@ -62,11 +62,17 @@ local function setup(c)
  for i=0,9 do w('RgShotType',0,i)end
  resetMotion(113-c.speed,c.speed,true)
 end
+-- The shared bump/shatter routines live in a fixed bank; count only real
+-- execution at their physical PRG location, whatever the caller mapped.
+local function actual(n)
+ local p=emu.convertAddress(assert(L[n],n))
+ return p and p.memType==emu.memType.nesPrgRom and p.address//8192==assert(B[n],n)
+end
 emu.addMemoryCallback(function()
- if current and current.phase=='pogo'and r('CurrentBank')%128==8 then current.bump=current.bump+1 end
+ if current and current.phase=='pogo'and actual('BumpBlock') then current.bump=current.bump+1 end
 end,emu.callbackType.exec,L.BumpBlock)
 emu.addMemoryCallback(function()
- if current and current.phase=='pogo'and r('CurrentBank')%128==8 then current.shatter=current.shatter+1 end
+ if current and current.phase=='pogo'and actual('BrickShatter') then current.shatter=current.shatter+1 end
 end,emu.callbackType.exec,L.BrickShatter)
 emu.addEventCallback(function()
  if frame<620 then

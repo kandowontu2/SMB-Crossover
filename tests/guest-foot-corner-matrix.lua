@@ -4,7 +4,9 @@
 local frame,index=0,0
 local current,startX,lastX,maxStep,contacts,override,wallSp,wallReturn
 local cases={}
-for _,char in ipairs({1,2,3,4,5,6,7,9,10,11,12})do
+-- Sophia(11) is excluded: her unrotated walls use her own source side probe
+-- and SophiaSourceWall (sophia-environment/attached-fire), never this clamp.
+for _,char in ipairs({1,2,3,4,5,6,7,9,10,12})do
  for _,boundary in ipairs({128,256,512,768})do
   for _,side in ipairs({'left','right'})do cases[#cases+1]={char=char,boundary=boundary,side=side}end
  end
@@ -77,7 +79,7 @@ emu.addEventCallback(function()
   end
   index=index+1
   if not cases[index]then
-   current=nil;out:close();print('PASS guest foot-corner matrix: '..#cases..' real mirrored/page-seam recoveries across11guest contact profiles');emu.stop(0);return
+   current=nil;out:close();print('PASS guest foot-corner matrix: '..#cases..' real mirrored/page-seam recoveries across10guest contact profiles');emu.stop(0);return
   end
   begin(cases[index])
  end

@@ -19,7 +19,7 @@ emu.addEventCallback(function()
  emu.setInput({right=frame>=80 and frame<160 and(frame-80)%20==0,start=frame==200,down=c and c.direction==1,up=c and c.direction==2},0)
 end,emu.eventType.inputPolled)
 emu.addMemoryCallback(function()
- if frame<560 or pending or depth~=0 or r('CurrentBank')%128~=22 then return end
+ if frame<560 or pending or depth~=0 or r('CurrentBank')%128~=B.RosterMovement then return end
  local c=cases[index];local mask=c.direction==1 and 4 or 8
  if (r('SavedJoypadBits')&12)~=mask then return end
  for i=0,415 do w('Block_Buffer_1',0,i);w('MmSolidTerrain',0,i)end

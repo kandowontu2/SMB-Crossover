@@ -5,7 +5,9 @@ local frame=0
 local gravity=({350,500,400,500,500,750})[character+1]/7200
 local dryGravity=({700,1500,700,1000,1300,1500})[character+1]/7200
 local jump=({200,560,500,550,500,550})[character+1]/120
-local surface=({15.75,27.5,25,16.25,15,25})[character+1]
+-- Bill's fixtures are placed airborne without a jump, so the source keeps his
+-- upright main HRect (31.5); only an actual jump publishes the16.25 form.
+local surface=({15.75,27.5,25,31.5,15,25})[character+1]
 local beforeRelease
 local function r(n,i) return emu.read(assert(L[n],n)+(i or 0),emu.memType.nesDebug) end
 local function w(n,v,i) emu.write(assert(L[n],n)+(i or 0),v,emu.memType.nesDebug) end
@@ -39,7 +41,8 @@ emu.addEventCallback(function()
  if frame==560 then fixture(176,0,0) end
  if frame>=561 and frame<=580 then
   local n=frame-560
-  local acceleration=character==0 and 400/7200 or 600/7200
+  -- HARD (2.02) Mario: unpulled source acceleration350; EASY keeps400.
+  local acceleration=character==0 and 350/7200 or 600/7200
   local expected=character==0 and math.min(.75,n*acceleration) or .75
   if character==1 then expected=n<=6 and 0 or .75 end
   assert(math.abs(velocity('MmVX')-expected)<.002,'Water ground speed/acceleration at '..frame..': '..velocity('MmVX')..' / '..expected)
@@ -60,17 +63,21 @@ emu.addEventCallback(function()
  if frame==660 then beforeRelease=velocity('MmVY') end
  if frame==661 then
   local friction=1
-  if character==1 then friction=(.000001)^(1/60)
-  elseif character==0 or character==2 or character==4 then friction=(.0001)^(1/60) end
+  -- HARD (2.02) Mario releases with FY=.000001; EASY Mario keeps .0001.
+  if character==0 or character==1 then friction=(.000001)^(1/60)
+  elseif character==2 or character==4 then friction=(.0001)^(1/60) end
   local expected=beforeRelease<0 and beforeRelease*friction+gravity or beforeRelease+gravity
-  assert(math.abs(velocity('MmVY')-expected)<.002,'Source jump-release friction underwater')
+  assert(math.abs(velocity('MmVY')-expected)<.002,'Source jump-release friction underwater: '..velocity('MmVY')..' / '..expected..' from '..beforeRelease)
  end
  if frame==671 then
   if character==0 or character==5 then assert(math.abs(velocity('MmVY')+jump-gravity)<.002,'Mario re-paddles; Simon uses his single second jump')
   else assert(math.abs(velocity('MmVY')+jump-gravity)>.2,'Guest cannot re-jump while suspended in water') end
  end
  if frame==700 then fixture(100,1,3) end
- if frame==701 then assert(math.abs(velocity('MmVY')-(250/120+gravity))<.002,'Shared water fall cap precedes gravity') end
+ -- Mario's source updateLoc instead caps400 after gravity.
+ if frame==701 then
+  local fall=character==0 and math.min(3+gravity,400/120) or 250/120+gravity
+  assert(math.abs(velocity('MmVY')-fall)<.002,'Shared water fall cap precedes gravity: '..velocity('MmVY')) end
  if frame==730 then fixture(surface,1,0) end
  if frame==731 then
   assert(r('MmUnderwater')==0,'Exact hitbox surface equality is above water')
@@ -132,11 +139,12 @@ emu.addEventCallback(function()
  end
  if frame==1040 then fixture(100,1,0) end
  if frame==1070 then
-  local expected=({1.25,165/120,1.25,1.25,175/120,150/120})[character+1]
-  assert(math.abs(velocity('MmVX')-expected)<.002,'Air speed and B/run eligibility underwater')
+  -- HARD (2.02) Mario walks at175/120; EASY keeps150/120.
+  local expected=({175/120,165/120,1.25,1.25,175/120,150/120})[character+1]
+  assert(math.abs(velocity('MmVX')-expected)<.002,'Air speed and B/run eligibility underwater: '..velocity('MmVX')..' / '..expected)
  end
  if frame==1071 then
-   local expected=({1.25,0,0,1.25,0,0})[character+1]
+   local expected=({175/120,0,0,1.25,0,0})[character+1]
   assert(math.abs(velocity('MmVX')-expected)<.003,'Character-specific underwater air momentum on release')
   print('PASS water '..character..' all power forms, short/attack hitboxes, air steering and momentum');emu.stop(0)
  end
