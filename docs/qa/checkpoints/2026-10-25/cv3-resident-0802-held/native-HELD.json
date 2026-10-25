@@ -1,0 +1,256 @@
+{
+  "passed": true,
+  "accepted": false,
+  "status": "HELD_NATIVE_DRAW_DEFICITS",
+  "ROM_sha256": "0802527d8a2e0cf8f9584e854d6dd263b72e330c3c89d30921abddc1b10c5790",
+  "baseline_ROM_sha256": "50b51c3c69f45ef137720c47f521574097f421056e3b73296d06ba70080d2363",
+  "native_grant_released": true,
+  "original_source_readiness_preserved_sha256": "78099fd25537b52088ed2afa62724b5731f73181406e78f65dd2289d7e1b4d13",
+  "native_runs": 40,
+  "main_pilot_control_pairs": 16,
+  "additional_exact_deadline_pairs": 4,
+  "function_and_original_raw400F_source_oracles_pass": true,
+  "strict_completed_full_OAM_DMA": 5232,
+  "min_sampled_SP": 175,
+  "original_raw_voice_updates": 1508,
+  "original_raw_register_writes": 2316,
+  "draw_deficits": [
+    {
+      "candidate": "native-v1/candidate-easy-lightning",
+      "draw_delta": -1,
+      "update_delta": 0,
+      "physical_frame_delta": 0,
+      "max_no_draw_delta": 0,
+      "max_no_update_delta": 0,
+      "prefix_deficit_rows": 122
+    },
+    {
+      "candidate": "native-v1/candidate-easy-priority",
+      "draw_delta": -2,
+      "update_delta": 0,
+      "physical_frame_delta": 0,
+      "max_no_draw_delta": 0,
+      "max_no_update_delta": 0,
+      "prefix_deficit_rows": 106
+    },
+    {
+      "candidate": "native-v1/candidate-hard-ice",
+      "draw_delta": -1,
+      "update_delta": 0,
+      "physical_frame_delta": 0,
+      "max_no_draw_delta": 0,
+      "max_no_update_delta": 0,
+      "prefix_deficit_rows": 107
+    },
+    {
+      "candidate": "native-v1/candidate-hard-priority",
+      "draw_delta": -1,
+      "update_delta": 0,
+      "physical_frame_delta": 0,
+      "max_no_draw_delta": 0,
+      "max_no_update_delta": 0,
+      "prefix_deficit_rows": 94
+    }
+  ],
+  "all_per_case_totals_longest_stalls_and_prefixes_retained": true,
+  "Hard_legacy1F_pressure_one_prefix_deferral_disclosed": true,
+  "remaining_full_matrix_not_run": true,
+  "deadline_correction": "First Easy lightning extra lag NMI wall346 precedes its first cue audio epoch18. Three real type5 projectile wrapper calls add519 source CPU cycles: new helper192+183+183 plus three real3-cycle entry JMPs =567; original assembled16\u00d73=48. Prior audio-admission cost observation was temporal proximity, not the cause of this first missed deadline. Actual native NMI entry/stack/publication and resumed instruction counts are authoritative.",
+  "main_remaining_cycles_at_extra_NMI": {
+    "candidate-easy-lightning": [
+      446
+    ],
+    "candidate-easy-priority": [
+      45,
+      338
+    ],
+    "candidate-hard-ice": [
+      29
+    ],
+    "candidate-hard-priority": [
+      192
+    ]
+  },
+  "receipts": {
+    "readiness-v1/readiness.json": "78099fd25537b52088ed2afa62724b5731f73181406e78f65dd2289d7e1b4d13",
+    "native-pilot-held-v1/proof.json": "5b55868b5567f32adb89a859890565cb24aac2ace3a6cde9aeebb9f6e5fce354",
+    "native-timing-oracle-v2/proof.json": "79087512bd1fd748d27e623a42370184d707042c78eb06605b6682243c30a678",
+    "deadline-attribution-v1/proof.json": "d0ca59d06332506bca7b411ccd81ed6e342127ec9a478c1b62c5d457d4f57239",
+    "native-batch-pilots-v1/proof.json": "d4698a513ed0a98bfb10f8632c5d80d490ff2a6c94127478a657d26167930c41",
+    "native-batch-controls-v1/proof.json": "59a39b7c7b5c5cd810cce888a1bb693cce20acfcae24e8900a574996d1725f37",
+    "deadline-batch-v1/proof.json": "fd58acede9673acdacaf48053d43f9026f6d0d5e96f01ea0ff74bbab1b5c97c6"
+  },
+  "native_proof_manifest": [
+    {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-resident-v4\\native-v1\\baseline-easy-death",
+      "sha256": "44889c26c820989820ef1b1b1eec37bc8311bf2cf924d66ebcda8fd93c257faa"
+    },
+    {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-resident-v4\\native-v1\\baseline-easy-fireball",
+      "sha256": "bb29e44efbfe7581e91e064f5664285297000a20b09ca940e23cd532e9cc0ea4"
+    },
+    {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-resident-v4\\native-v1\\baseline-easy-fireball-pressure",
+      "sha256": "3a682e4da29a57225cf7a66ecdb245148accc19861da5393a6f9567ed48e8657"
+    },
+    {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-resident-v4\\native-v1\\baseline-easy-ice",
+      "sha256": "a8423000e74dcbe78c70af3a4722d852b32e6b9c26afec1ecce0a381891858b0"
+    },
+    {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-resident-v4\\native-v1\\baseline-easy-idle-pressure",
+      "sha256": "68eca3a7e9365251bac9cad0a0ef496f4a688d4dc4916b1107ce0df4c3d7ac41"
+    },
+    {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-resident-v4\\native-v1\\baseline-easy-lightning",
+      "sha256": "cbe34ca3af1143b9c12f5997b4ff589e064a641e86a9db68e54be2582ea3dd90"
+    },
+    {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-resident-v4\\native-v1\\baseline-easy-priority",
+      "sha256": "3b6fa3b7078a1992f5566a15633cfade3d5682d8e8fb8d99cb7611cae52890c4"
+    },
+    {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-resident-v4\\native-v1\\baseline-easy-scene",
+      "sha256": "6b67fb36712b041cb116f2c131196e59e6ff40190d04d400992a6c5402968c56"
+    },
+    {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-resident-v4\\native-v1\\baseline-hard-death",
+      "sha256": "3518d3f0a3bd45384f929fe498ee54273c177627068703b64c7b8c3a613bcbab"
+    },
+    {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-resident-v4\\native-v1\\baseline-hard-fireball",
+      "sha256": "11ff9d3bc5ee520334ed81efa47b9a79ad1dd34f6f113dd04ff3a0d24d2251ae"
+    },
+    {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-resident-v4\\native-v1\\baseline-hard-fireball-pressure",
+      "sha256": "c7a35147a16667833bd3ba54db3d08e80edafcc5bd2727ff29b9d68db36cdc74"
+    },
+    {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-resident-v4\\native-v1\\baseline-hard-ice",
+      "sha256": "9839e094e1fffcb0ca6c5a62e1830a77a776067a67dc235752f5473ef588d0b0"
+    },
+    {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-resident-v4\\native-v1\\baseline-hard-idle-pressure",
+      "sha256": "045dacd6637f57caf742d53a89c724293a99f38ab14ec4169c2096743cc6dcea"
+    },
+    {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-resident-v4\\native-v1\\baseline-hard-lightning",
+      "sha256": "32cbfd075cf0df9a437527febf762da467d361a814b0f5bf1e3a01c27a33a5f0"
+    },
+    {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-resident-v4\\native-v1\\baseline-hard-priority",
+      "sha256": "cbefff547e75446d00ae8bdb2a8cb62d35d9475b2988d8405d0091cbf16ba500"
+    },
+    {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-resident-v4\\native-v1\\baseline-hard-scene",
+      "sha256": "b2458b4964382f3b0889f08a8434f93e5c4c58ab8a7055c1e6da11e96612d3f4"
+    },
+    {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-resident-v4\\native-v1\\candidate-easy-death",
+      "sha256": "7b4e8a02aacfcae03cab122d8ed4ed3854fb24123bbb82b7d8219b0cb25aa01b"
+    },
+    {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-resident-v4\\native-v1\\candidate-easy-fireball",
+      "sha256": "f094b964ba83058f1a36580b7e7b2f01513362361f51ed89986d41fd2456b243"
+    },
+    {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-resident-v4\\native-v1\\candidate-easy-fireball-pressure",
+      "sha256": "c8b44fadf0ce679ad78be489b1ce2d3253f07cb3e67173a762646ae4390edb02"
+    },
+    {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-resident-v4\\native-v1\\candidate-easy-ice",
+      "sha256": "c9b76803c45dfaeabaae8938c31cd53622b1b905ecbd6086ac2d63642719c283"
+    },
+    {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-resident-v4\\native-v1\\candidate-easy-idle-pressure",
+      "sha256": "48b2b944a9a2455fefe4278dea509a05e061759540f05b7f3a1885d49700d163"
+    },
+    {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-resident-v4\\native-v1\\candidate-easy-lightning",
+      "sha256": "a2f8e388665d3193b8d3bb4c257049b46516cbef4144cdd7732d26ce73bb940a"
+    },
+    {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-resident-v4\\native-v1\\candidate-easy-priority",
+      "sha256": "7d14e035b7cbeb08e48798a46c7e8b4632da837b16283824b21520a443895caa"
+    },
+    {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-resident-v4\\native-v1\\candidate-easy-scene",
+      "sha256": "73c2e40b1d5b7d6838fdc09f18c6d8ef385e3c4481fced3cd4144d685c08ab13"
+    },
+    {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-resident-v4\\native-v1\\candidate-hard-death",
+      "sha256": "3a80a3936c2cc605a8723f76f54fb3348cd61a065e98f8bb11fa6a996d2b7715"
+    },
+    {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-resident-v4\\native-v1\\candidate-hard-fireball",
+      "sha256": "b46a4b20d50547265e5e573573028d95b787d4e0c630a37010bcb20b8e27b4d7"
+    },
+    {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-resident-v4\\native-v1\\candidate-hard-fireball-pressure",
+      "sha256": "bc63b6d8d33f13a983339c878666dafd02bda414c51d87bfa1c1b6bae276c1c3"
+    },
+    {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-resident-v4\\native-v1\\candidate-hard-ice",
+      "sha256": "76a01af78dd7012d438a60fd928e37be369b291e621c4fc4f223dfaccf52a5c0"
+    },
+    {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-resident-v4\\native-v1\\candidate-hard-idle-pressure",
+      "sha256": "d1c1f5fede756a3d41a9e0baafeab314c77733eb6855ffb1cfd3b3bdeaf7a9cf"
+    },
+    {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-resident-v4\\native-v1\\candidate-hard-lightning",
+      "sha256": "6051c27845f150831a52efcc742621652d9095a50f4966138bba1ab44d93034a"
+    },
+    {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-resident-v4\\native-v1\\candidate-hard-priority",
+      "sha256": "b334f6403687a7bcbd9c440148b9c9a2f6a925b89a2ae239f2e9397dcb2b6ea5"
+    },
+    {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-resident-v4\\native-v1\\candidate-hard-scene",
+      "sha256": "5fa72ce859fded9a9cda64337e7d9392358857e176f477b459b5df4fbefd44e9"
+    },
+    {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-resident-v4\\native-timing-v2\\baseline-easy-lightning",
+      "sha256": "7d219fe6764949e743c9adbff92a18fa455d3e184dda573f87696421c6d65879"
+    },
+    {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-resident-v4\\native-timing-v2\\baseline-easy-priority",
+      "sha256": "62726e5692b1f78c539ce1ca625f5cdbdbcabc3f5653990071a5c57d8923ed76"
+    },
+    {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-resident-v4\\native-timing-v2\\baseline-hard-ice",
+      "sha256": "c0283a5d0dcc10c4390b175a265887d820290dba4b49f2f469f128dbadc77ef5"
+    },
+    {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-resident-v4\\native-timing-v2\\baseline-hard-priority",
+      "sha256": "013e0eabf8c2b2264090b6aade3245fc7983f64fd4ebf3d4feaedb75a7683e6f"
+    },
+    {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-resident-v4\\native-timing-v2\\candidate-easy-lightning",
+      "sha256": "28ab0c26bf340ea9f0bb5baee51c92d08ad650fc36bfdb217f0c7c23435f6192"
+    },
+    {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-resident-v4\\native-timing-v2\\candidate-easy-priority",
+      "sha256": "6030391d57603f5f1dc3212594ce8b8457c42bf25612b1c877fdea68de9cd4fb"
+    },
+    {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-resident-v4\\native-timing-v2\\candidate-hard-ice",
+      "sha256": "bb16fe42ba65f020ecb2c84e88ed6d9e557e6a131d254a9e25f6ba99472a539a"
+    },
+    {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-resident-v4\\native-timing-v2\\candidate-hard-priority",
+      "sha256": "992a9097e79faf4ebe7b471323ca829c4f15f7773d2b7a52bd3fa8b2275d8aa6"
+    }
+  ],
+  "frozen_tools": {
+    "tools/audit/cv3_remaining_sfx_resident_native_v1.py": "cd7b86960f745cef195acb78dc49cda3466d110e605edab1c1926d60d49327a4",
+    "tools/audit/cv3_remaining_sfx_resident_native_v2.py": "8ba3c98faae21f89f38e14b191f19c4c63a5b73accb2fbcd321e0bbc6a02ccc3",
+    "tools/audit/cv3_remaining_sfx_resident_batch_v1.py": "7f85d148d7b4c4142c4bc78bc490fc14a47a0799379ba93c5d611c534a7d98c8",
+    "tools/audit/cv3_remaining_sfx_resident_deadline_batch_v1.py": "ad55d9e525f8b15d7d7bec36cadf6389a9bb95f4c96c6f427100597cb6f37603",
+    "tools/audit/cv3_remaining_sfx_resident_deadline_v1.py": "909408d95f9d17d52b9fd47a277914836fc41cf7af95e645f2c9cb4f28aea2c8",
+    "tools/audit/cv3_remaining_sfx_resident_native_freeze_v1.py": "239f3bf706dc15453d3272c350a8a39882bd8506d7c585171df61520cc16d00a",
+    "tools/audit/cv3_remaining_sfx_native_compare_v6.py": "f23d473c6a233620e4ed4a01a535685afb1c8481821a26fb1ec5bef49206bbbd"
+  },
+  "tool_sha256": "239f3bf706dc15453d3272c350a8a39882bd8506d7c585171df61520cc16d00a",
+  "scope": "Exact0802 private source candidate remains HELD. Native staged legal arenas/controller owners, not complete campaign or audible waveform certification. No production/Git/Downloads source mutation or native source effect/channel/tick cuts; old2e and all previous failures remain frozen."
+}

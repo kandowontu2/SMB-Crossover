@@ -1,0 +1,99 @@
+CV3 resident0802 native qualification: HELD, 2026-10-25
+
+Candidate0802527d8a2e0cf8f9584e854d6dd263b72e330c3c89d30921abddc1b10c5790
+Accepted baseline50b51c3c69f45ef137720c47f521574097f421056e3b73296d06ba70080d2363
+D=C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py
+Frozen packet D/cv3-remaining-resident-v4/native-final-held-v1/receipt.json
+Source readiness remains78099fd25537b52088ed2afa62724b5731f73181406e78f65dd2289d7e1b4d13.
+No production/Git/Downloads edits. Native worker explicitly RELEASED.
+
+Outcome
+Easy ice is repaired relative to held2e:138draws/140updates/140frames, same
+as baseline. Easy lightning still137vs138; Easy priority135vs137; Hard
+ice137vs138; Hard priority135vs136. Hard lightning137vs137. Each actual
+numeric mode was selected cold through Options and read back from gameplay.
+All per-case frames/updates/draws, skipped draws, longest stalls and every
+cumulative prefix deficit remain in native-pilot-held-v1/proof.json.
+Longest stalls are unchanged; that does not excuse the four draw losses.
+
+The explicitly bounded ordinary/legacy1F/pressure/scene/death controls
+retain total frames, updates, draws and longest stalls. Hard legacy1F
+pressure has one brief prefix deferral, disclosed rather than hidden by
+equal totals. No remaining/full matrix was run after rejection.
+
+Verification scope
+32fresh native pilot/control runs form16paired cases. Eight additional
+diagnostic runs repeat the four HELD pairs with NMI/IRQ return timing;
+their draw counts reproduce the first runs exactly. All40 native guards
+pass: actual source requests/ability releases, original raw400F values,
+priority/lifecycle, fiveSMC, stack, physical banks/fixed-E mirror, visible
+IRQ, CHR/viewport and complete hardware OAM. There are5232strict completed
+DMA checks,1508original raw per-voice updates and2316original register
+writes. Minimum sampledSP175. These are staged legal arenas with real
+controller releases, not a full campaign or audible waveform qualification.
+No late DMA was seen here; this does not clear the separate natural
+Parodius/display-timing failure.
+
+The source readiness tools and all0802 source/binary bytes stayed frozen.
+Timingv1 observes NMI entry before the first PHA, actual hardware-stacked
+returnPC/P, CPUcycle/PPUscanline-dot, NmiDisable/NmiSkipped, GameLoop,
+actual publication write and actual draw/skip branches. Additive timingv2
+also observes NMI/IRQ RTI entries and the interrupted physical bank.
+It changes no game state or controller/mode semantics. Originalv1 runs
+and all older held candidate packets remain untouched.
+
+Exact observed remaining-work boundaries
+Case                 wall  interrupted bank:PC  pub-after-entry  NMI+RTI  main-left  baseline margin
+Easy lightning        346          4:A63D                4529      4083        446               73
+Easy priority         363        126:8499                3957      3912         45              161
+Easy priority         376          4:A640                4484      4146        338              178
+Hard ice              471        126:84A6                3941      3912         29              178
+Hard priority         484        126:8438                4338      4146        192              318
+
+All quantities are actual native CPU cycles. Publication is its observed
+NmiDisable=0 store. NMI+RTI is the measured entry-to-RTI interval plus its
+six cycles; selected Sypha cases have no DMC bus fetches/stalls. No
+additional IRQ occurs in these resumed-work spans; the processor verifies
+and would subtract its actual service if present. Main-left is actual
+instruction work from interrupt return until publication. Baseline margin
+is its last publication to its own NMI-entry callback. Hardware entry and
+instruction-sampling phase remain explicit; these observations are not an
+invented exact globally sufficient saving or a reason to pad timing.
+
+Causal correction: first lightning loss is the release wrapper
+The first extra Easy lightning lag NMI is wall346. Its interrupted PC is
+bank4$A63D, inside real MetaspriteRenderLoop. The last GameLoop began at
+wall345/audioEpoch17; the first cue audio tick is epoch18, serviced INSIDE
+that already-late NMI. Therefore the earlier nearby796-cycle admission
+observation cannot cause this first missed deadline. Source-only/old2e
+reports gave temporal proximity; this additive native evidence corrects
+the causal interpretation without revising their raw traces.
+
+Actual three type5 actors release at wall345. The real new Cv3FxSpawn
+helper intervals cost192+183+183=558cycles, plus three genuine3-cycle JMPs
+at the original public Cv3SpawnAudioType entries. Total567cycles. The
+assembled baseline entry is16cycles/call (verified with its real type5
+path), total48. The wrapper adds519 CPU cycles in the MAIN thread before
+the first sound tick. The baseline has only73cycles of observed margin.
+The reported446main-left plus73margin is also519, but do not interpret
+that equality as a phase-independent counterfactual: actual NMI hardware
+entry/RTI sampling and the preceding audio differ by a few cycles. The
+wrapper component and actual deadline ordering are independently measured.
+
+The other boundaries occur after real audio epochs34/47; continuing
+source audio and repeated lower-priority release work remain measurable
+leads. Current0802 stays HELD. Any slimmer/coalesced request proposal must
+retain all original source priorities, phases, simultaneous voice requests,
+raw registers, public ABI and owner/bank/IRQ behavior; no cue/channel/tick
+may be omitted just to pass a cadence gate.
+
+Receipts
+native-pilot-held-v1/proof.json
+SHA5b55868b5567f32adb89a859890565cb24aac2ace3a6cde9aeebb9f6e5fce354
+native-timing-oracle-v2/proof.json
+SHA79087512bd1fd748d27e623a42370184d707042c78eb06605b6682243c30a678
+deadline-attribution-v1/proof.json
+SHAd0ca59d06332506bca7b411ccd81ed6e342127ec9a478c1b62c5d457d4f57239
+All individual native proof/configuration/script/dependency hashes, actual
+timing CSVs, per-case raw source oracles and retained prior negatives are
+bound by the final held receipt. No adoption or lag-fixed claim.

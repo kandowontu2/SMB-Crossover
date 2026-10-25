@@ -1,0 +1,92 @@
+TMNT native audio: current50b5 private storage/source experiment
+2026-10-25. Not installed; no native emulator run or release acceptance.
+
+Parent MMC5: 50b51c3c69f45ef137720c47f521574097f421056e3b73296d06ba70080d2363
+Private B99 candidate: 8e2fa5de95edc5be33bbb20fa9262c2f58e3ebfcb793d82a740275a16409b790
+Matched B124 control: 6d234b99f5494e1973c075cf39f2a74853bc6707c677b5afa9b6a5a0e8394d5c
+Ready packet: C:\Users\kando\Videos\SMB Crossover Archive\2026-10-24-native-rest-py\tmnt-native-storage-current50b5-v1\ready-v1
+
+RESULT
+The authentic TMNT driver and all sixteen original songs now assemble privately
+on current50b5. Original A code keeps its PCs in bank63. Complete connected source
+9F29..A099 (369 bytes, including its crossing loop) moves to A429..A599 without
+changing low bytes. Bank99 preserves its real 138-byte UI prefix and stores the
+remaining original B data at C08A..DFFF. All 369 connected pointer words are
+rewritten. No song, channel, sample, music update, reachable data or SFX is cut.
+Bank124 stays byte-identical to parent; this is an enabling storage result, not
+approval to consume it. Mac123/Mike115/LOW126, CHR and header are byte-exact.
+Changed bank bytes: {38: 2, 63: 7493, 99: 7862, 125: 1721, 127: 710}.
+
+REPRODUCTION AND SOURCE
+All 650 frozen production inputs still match. The ready packet independently
+enumerates all fourteen deployable changed/new files (changed-source.json),
+preserves original line endings in source.zip, includes a review patch, and was
+freshly rebuilt from that source to the exact candidate hash. Ordinary flag-off
+MMC3 d444cac8... and MMC5 f4ffd248... rebuild byte-exact without overflow.
+Original NSF SHA256 f220e8d069e321f392526d41e46f5d0f72966d5a22e56d2b269607c678bd58d9.
+The original executable, goldens, standalone source and real current linked
+writers are bound by the referenced proof hashes in receipt.json.
+
+CPU EVIDENCE
+* 192,016 authentic init/play calls and 549,602 ordered original APU requests,
+  all sixteen songs at 12,000 updates each. Full original 174-byte RAM and 14-byte
+  ZP, public A/X/Y/P/SP exact. B99 pointer-high state translation applies only to
+  actual proven ROM-word origins at 742A/7436/7442; no broad RAM masking.
+* 24,428 distinct linear/indexed access spans commute with relocation; all369
+  actual indirect roots are known complete pointer words, including 9014.
+* Actual linked B124 and B99 builds repeat all calls with 1,099,204 source-STA
+  writer A/X/Y/P/SP return checks; foreground/ZP/SMC, final banks, PPU/CHR writes
+  are guarded. B99 adds exactly zero cycles versus the same linked B124 control.
+* Current duration lookup retains original final ADC/DEC flags and all original
+  writes. Historical source timing is not native proof: normal601 peak6031 to
+  5827; some songs have higher totals. Current linked source-core/writer peak
+  reaches7122. No claim that enabling authentic music adds no gameplay lag.
+* Fresh existing shared test: 6,264 cases; full outer audio: 6,480 calls across
+  all33 unchanged identities, Easy/Hard numeric0/1 and ten caller flag states.
+  Whole A/X/Y/P/SP, ordinary RAM/SMC, final banks and ordered APU outcomes exact.
+  Discarded CPU stack01A0..01FF is excluded from outer comparisons. Linked
+  source allows stack only01D0..01FF, guarding lower SMC. Cold-context cost is
+  higher: Mario+29; Samus+83..124; expanded+95..135; foreign direct expanded+26.
+* 6,040 DMC ownership/tail/preemption CPU cases preserve existing owners0..3,
+  CV3 owner3/sample priority/mirror, assign TMNT4, and guard newer owner claims
+  against delayed tail clears. Actual compiled CV3Start uses the common owner
+  admission without erasing its freshly set priority. Hardware status/DAC are
+  arranged inputs here, not real DMA observations.
+* 405 injections execute the real IRQ vector8000, handler and RTI at new gate,
+  bank bridge and writer instruction boundaries. Interrupted/final CPU/RAM/SMC,
+  PRG banks and source APU exact; isolated maximum total stack depth23 bytes.
+  No physical scanline, DMA-stall, nested-NMI or vblank/OAM claim.
+
+FIXED E / SHARED125 CONTRACT
+Public SamusAudioUpdate E874 remains fixed and reaches real Cold D700. Its
+current body is text-identical except for a fixed-E return bridge. Ten genuinely
+private SamusAudioUpdate local labels move to genuine SamusAudioCold locals by
+-1174; none remain as false callable aliases. All other60684 qualified symbols
+retain addresses; exact exceptions are listed in receipt.json. Existing calls,
+all eight512 Samus streams, owner cases, full outer flags and IRQ are checked.
+Original TMNT129-byte sample is exact at fixed E8C0..E940 and cloned125. Existing
+CV3 primary1140..1580/Sypha15C0..1680 samples are exact. Current mirror producer
+declares cold1700..1AF6 and manager1AF7..1B89; manager changes only one real3-byte
+STA to JSR TnDmcOwnerAdmission. Other copied fixed bytes retain mirror semantics.
+Software decode of authentic sample from every even DAC0..126 ends at44; original
+source4011 writes are only0. This binds the softwarehold44 value; physical sample
+completion/tail timing remains unproved.
+
+NEGATIVE RESULTS RETAINED
+standalone-pilot-v1 first provenance checker incorrectly used a scalar command
+as a pointer origin. Corrected to actual complete ROM words; no relaxed source
+assertions. current-linked-pilot-v1 then caught a real converter bug: original
+JMP($00E2) at A94E had not moved with owned ZP E0..ED to DE..EB, causing BRK and a
+bad bank write. Failed gamev1 ROMs/proofs remain intact. Generatorv2 fixes the
+three-byte indirect operand and adds a static guard. Standalone v1 and v2 raw
+binaries are exact because their standalone ZP remains E0; full original proof
+is not relabeled as a current-game proof. Existing historical held-v7 native
+combat draw deficit is not erased or closed by these CPU results.
+
+OPEN BEFORE ADOPTION
+Optimize added dispatcher/global/owner overhead; qualify real native original
+track schedule and merged hardware4015, physical DMC completion/tail/preemption,
+pause/events, actual NMI/IRQ/bank/stack/SMC/OAM/CHR, and matched completed updates
+and draws on the eventual exact current composition. Root has granted no native
+worker for this experiment. Parodius source checkpoint remains frozen and its
+music remains unfinished. No ROOT production/Git/Downloads changes were made.
