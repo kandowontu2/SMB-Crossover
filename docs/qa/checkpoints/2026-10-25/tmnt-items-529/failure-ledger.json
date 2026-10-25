@@ -1,0 +1,476 @@
+{
+  "audit_passed": true,
+  "goal_complete": false,
+  "ROM_sha256": "52918588bab0eec3f3a1f857bf084d2d799e88a5c781c75233c098ccc5f54f3f",
+  "game_defects_proved": [],
+  "native_fixture_failures": [
+    {
+      "version": 1,
+      "folder": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-tmnt-items-v1\\leonardo-hard-native-v1",
+      "classification": "fixture_error_not_game_defect",
+      "explanation": "Lower block initially overlaps native standing head; side resolution moves X112 to127 before real jump, so jump misses. Later ordinary timer death is downstream of missed-block waiting. Fixture geometry/timer policy corrected; no game patch.",
+      "failure": {
+        "pc": 33497,
+        "bank": 126,
+        "wall": 10835,
+        "updates": 10465,
+        "age": 10434,
+        "current": {
+          "q": {
+            "action": "block",
+            "type": 0,
+            "food": 1,
+            "hp": 128,
+            "name": "mushroom-full-health-cap"
+          },
+          "kills": 0,
+          "grants": 0,
+          "refunds": {},
+          "riseCalls": 0,
+          "started": 31,
+          "injuries": 0,
+          "foodBefore": 0,
+          "before": [
+            {
+              "hp": 128,
+              "gear": 0,
+              "ammo": 0
+            },
+            {
+              "hp": 128,
+              "gear": 0,
+              "ammo": 0
+            },
+            {
+              "hp": 128,
+              "gear": 0,
+              "ammo": 0
+            },
+            {
+              "hp": 128,
+              "gear": 0,
+              "ammo": 0
+            }
+          ],
+          "heals": 0,
+          "throws": 0
+        },
+        "sp": 250,
+        "phase": "block",
+        "message": "Physical lifecycle remains playable",
+        "index": 1
+      },
+      "files": {
+        "proof.json": "2152b8298630093c0aa0370ef5087131c7f629eed7888fc794353491acc379c5",
+        "first-failure.json": "296fa933ca94e636bc1daa9a8f7188944d33708f04edbffd31055edd92b15e12",
+        "first-failure.argb": "e84feb1a8121e3c5b2805d1a0a38af8bb1f453bc8ace0fc1f708c57b55171492",
+        "events.jsonl": "f48f76efbb934ec1ecee20a0be2f73d4c76862f6e0ae3cfd0af2044f01b8300b",
+        "updates.csv": "1bb77aaa89506c48ca34bb52373254f7ec8af535572bc974c8962d65cc9446d5",
+        "run.lua": "4a9236c82c1fac1dced7130cc7d11c08065ecf4f6d0a8053cd29135a6787a410",
+        "config.json": "8b494f707f97bf2a4372bb750f06341286695fd33cce677f3a21a57aac192eeb"
+      }
+    },
+    {
+      "version": 2,
+      "folder": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-tmnt-items-v1\\leonardo-hard-native-v2",
+      "classification": "fixture_error_not_game_defect",
+      "explanation": "Capitalized boolean identifiers serialize to nil: actual mode isEasy, injury-after-rise flag disabled. Kiai correctly grants at128HP; expected112 is invalid fixture expectation. Local literals/numeric readback corrected.",
+      "failure": {
+        "bank": 126,
+        "age": 150,
+        "current": {
+          "revealed": 258,
+          "started": 242,
+          "refunds": {},
+          "q": {
+            "hp": 112,
+            "type": 1,
+            "food": 1,
+            "action": "block",
+            "name": "full-health-flower-kiai-frozen-after-real-injury",
+            "gear": 4
+          },
+          "heals": 0,
+          "kills": 0,
+          "stamp": 4,
+          "collected": 392,
+          "contactPlaced": 392,
+          "headBlock": true,
+          "throws": 0,
+          "grants": 1,
+          "injuries": 0,
+          "mature": 305,
+          "riseCalls": 48,
+          "foodBefore": 1,
+          "before": [
+            {
+              "hp": 128,
+              "ammo": 0,
+              "gear": 0
+            },
+            {
+              "hp": 128,
+              "ammo": 0,
+              "gear": 0
+            },
+            {
+              "hp": 128,
+              "ammo": 0,
+              "gear": 0
+            },
+            {
+              "hp": 128,
+              "ammo": 0,
+              "gear": 0
+            }
+          ],
+          "healthAtReveal": 128,
+          "revealY": 136
+        },
+        "sp": 250,
+        "index": 2,
+        "wall": 762,
+        "pc": 33621,
+        "updates": 392,
+        "message": "Source food restoration/cap/parity and frozen Kiai outcome",
+        "phase": "block"
+      },
+      "files": {
+        "proof.json": "ffa945d077064bff48757de5d78cecd90f791a77f1eaa18aaeb130392fe365d9",
+        "first-failure.json": "5ad1e2effeed04ca807e6c88f1e0a966c3c4bc9170d5acd089f87439c3d2e7ad",
+        "first-failure.argb": "a076da514571dfeb454ce34b13dd242a124b53ca827dfeefb79f749e32ae5d6d",
+        "events.jsonl": "66a3745922a5c26104c3a6118c48da9203ecb1604c7b205fbcd2ddf31ff031a7",
+        "updates.csv": "c962cef3ba639a569e48cb48b7c313409a96601d31b1f4e2943d0d70f671ec4e",
+        "run.lua": "082dc53e5dff1d3febff487d4f5a21a0f658820b4f356868d3b89df279467608",
+        "config.json": "5cec481377d507a20f8f1cece86a845bbc9138b66f4472100c311ada73674fa3"
+      }
+    },
+    {
+      "version": 3,
+      "folder": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-tmnt-items-v1\\leonardo-hard-native-v3",
+      "classification": "fixture_error_not_game_defect",
+      "explanation": "New contact introduced when native TnHurt expires but InjuryTimer still2. Source contact latches enemy collision bit then correctly skips injury; continuous overlap retains latch after timer0. Wait both actual protection timers before a new staged enemy.",
+      "failure": {
+        "wall": 3017,
+        "message": "Bounded source-only staged step damage",
+        "index": 5,
+        "sp": 250,
+        "current": {
+          "heals": 0,
+          "injuries": 1,
+          "contactPending": true,
+          "grants": 0,
+          "emptySince": 1062,
+          "foodBefore": 0,
+          "before": [
+            {
+              "hp": 128,
+              "ammo": 19,
+              "gear": 4
+            },
+            {
+              "hp": 128,
+              "ammo": 0,
+              "gear": 0
+            },
+            {
+              "hp": 128,
+              "ammo": 0,
+              "gear": 0
+            },
+            {
+              "hp": 128,
+              "ammo": 0,
+              "gear": 0
+            }
+          ],
+          "q": {
+            "hp": 80,
+            "name": "three-actual-contacts-to80",
+            "contacts": 3,
+            "action": "damage"
+          },
+          "refunds": {},
+          "riseCalls": 0,
+          "started": 1060,
+          "kills": 0,
+          "throws": 0
+        },
+        "phase": "damage",
+        "bank": 126,
+        "age": 1500,
+        "pc": 33621,
+        "updates": 2560
+      },
+      "files": {
+        "proof.json": "5cdfd11fbe14d4b4fa311fce22e55ca700896357f7b6fddbfb70fb7d4d5ebcf6",
+        "first-failure.json": "f0525a21d47f15f4e54f537b2395748ea48a699c30143d87e4cdb93a49f2bd6a",
+        "first-failure.argb": "3898917e9b58db82313220e15bc5764cdbd8e25c78441192c18c8106420b3935",
+        "events.jsonl": "3c61c3ac3d1b20073f13bb90d107b368222af9de383703091193438fa418b323",
+        "updates.csv": "15065d45c7f882e36ecb27d0e7d174a99d0cf9eca9cc7b8baf5564190276514a",
+        "run.lua": "298e8d4e2cc2f60c404d890d9e9d65a857288110841bebed7572147ceb6a537b",
+        "config.json": "8acf37fe9970873c8674b10e4cc310231fb540f60ad619fcd949ffafecbb07f6"
+      }
+    },
+    {
+      "version": 4,
+      "folder": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-tmnt-items-v1\\leonardo-hard-native-v4",
+      "classification": "fixture_error_not_game_defect",
+      "explanation": "Diagnostic repetition of v3; same inputs/assertions plus exact live body/branch snapshots. Confirms source protection/latch behavior; not a game defect.",
+      "failure": {
+        "body": {
+          "Enemy_X_Position": 116,
+          "Enemy_State": 0,
+          "ObjectOffset": 0,
+          "Enemy_Y_Speed": 0,
+          "Player_State": 0,
+          "TnHurt": 0,
+          "Player_X_Position": 112,
+          "Enemy_CollisionBits": 1,
+          "Enemy_Y_Position": 184,
+          "enemyBox": [
+            119,
+            198,
+            129,
+            204
+          ],
+          "TnFood": 0,
+          "Player_Y_Position": 176,
+          "Enemy_ID": 6,
+          "CrossoverBehaviorVersion": 1,
+          "InjuryTimer": 0,
+          "Enemy_X_Speed": 0,
+          "TnAttack": 0,
+          "Enemy_Flag": 1,
+          "Enemy_Y_HighPos": 1,
+          "TnHealth": 112,
+          "CheatInvincible": 0,
+          "Player_Y_Speed": 0,
+          "TnSeq": 128,
+          "GuestBodyNoStomp": 1,
+          "StarInvincibleTimer": 0,
+          "TnThrow": 0,
+          "Player_CollisionBits": 255,
+          "playerBox": [
+            115,
+            168,
+            125,
+            200
+          ],
+          "EnemyOffscrBitsMasked": 0,
+          "TnHurtMove": 0
+        },
+        "sp": 250,
+        "message": "Bounded source-only staged step damage",
+        "index": 5,
+        "current": {
+          "q": {
+            "contacts": 3,
+            "action": "damage",
+            "name": "three-actual-contacts-to80",
+            "hp": 80
+          },
+          "before": [
+            {
+              "ammo": 19,
+              "hp": 128,
+              "gear": 4
+            },
+            {
+              "ammo": 0,
+              "hp": 128,
+              "gear": 0
+            },
+            {
+              "ammo": 0,
+              "hp": 128,
+              "gear": 0
+            },
+            {
+              "ammo": 0,
+              "hp": 128,
+              "gear": 0
+            }
+          ],
+          "contactPending": true,
+          "heals": 0,
+          "started": 1060,
+          "grants": 0,
+          "refunds": {},
+          "emptySince": 1062,
+          "throws": 0,
+          "riseCalls": 0,
+          "injuries": 1,
+          "kills": 0,
+          "foodBefore": 0
+        },
+        "wall": 3017,
+        "pc": 33621,
+        "phase": "damage",
+        "updates": 2560,
+        "bank": 126,
+        "age": 1500
+      },
+      "files": {
+        "proof.json": "6babf64f603b462662455a40b12b539f6e1314d63205a6de5bd624e62d911861",
+        "first-failure.json": "795ee8e4c28c8751562bccc657e38a13e3379aaff2ff5df83164eb502237075e",
+        "first-failure.argb": "3898917e9b58db82313220e15bc5764cdbd8e25c78441192c18c8106420b3935",
+        "events.jsonl": "3194a64fc358a1661528f106601e5d1ef33d61fb883d251ccccd9457c58c2121",
+        "updates.csv": "15065d45c7f882e36ecb27d0e7d174a99d0cf9eca9cc7b8baf5564190276514a",
+        "run.lua": "a44f8559934c20faf35ce3e37a8c3f7eaa2f99674a56fa25c04bd269109193aa",
+        "config.json": "cb8b037295d16e7ed144bd8f881adf86658a3cfa45b89f453a3a6e9e7211f253"
+      }
+    }
+  ],
+  "head_control": {
+    "cpu_return": 248,
+    "signed_top_offset": -8,
+    "player_y": 176,
+    "actual_top": 168,
+    "failed_block": {
+      "top": 160,
+      "bottom_exclusive": 176,
+      "overlaps_standing_head": true
+    },
+    "corrected_block": {
+      "top": 144,
+      "bottom_exclusive": 160,
+      "overlaps_standing_head": false
+    }
+  },
+  "repeated_contact": {
+    "first_body_contact": {
+      "step": 5,
+      "update": 1182,
+      "sp": 243,
+      "kind": "repeated-contact-diagnostic",
+      "bank": 126,
+      "data": {
+        "Enemy_X_Position": 116,
+        "Enemy_State": 0,
+        "TnHurt": 0,
+        "Player_X_Position": 112,
+        "Enemy_CollisionBits": 0,
+        "Enemy_Y_Position": 184,
+        "Enemy_ID": 6,
+        "Player_Y_Position": 176,
+        "TnAttack": 0,
+        "Enemy_Y_HighPos": 1,
+        "TnHealth": 112,
+        "CheatInvincible": 0,
+        "p": 2,
+        "TnSeq": 128,
+        "TnThrow": 0,
+        "CrossoverBehaviorVersion": 1,
+        "ObjectOffset": 0,
+        "Enemy_Y_Speed": 0,
+        "Player_State": 0,
+        "y": 24,
+        "hook": "PlayerEnemyCollision",
+        "x": 0,
+        "TnHurtMove": 0,
+        "Enemy_Flag": 1,
+        "InjuryTimer": 2,
+        "EnemyOffscrBitsMasked": 0,
+        "Enemy_X_Speed": 0,
+        "Player_Y_Speed": 0,
+        "GuestBodyNoStomp": 1,
+        "StarInvincibleTimer": 0,
+        "TnFood": 0,
+        "Player_CollisionBits": 255,
+        "playerBox": [
+          115,
+          168,
+          125,
+          200
+        ],
+        "enemyBox": [
+          119,
+          198,
+          129,
+          204
+        ],
+        "a": 0
+      },
+      "wall": 1639,
+      "pc": 38489,
+      "phase": "damage"
+    },
+    "protected_injury_entry": {
+      "step": 5,
+      "update": 1182,
+      "sp": 243,
+      "kind": "repeated-contact-diagnostic",
+      "bank": 126,
+      "data": {
+        "Enemy_X_Position": 116,
+        "Enemy_State": 0,
+        "TnHurt": 0,
+        "Player_X_Position": 112,
+        "Enemy_CollisionBits": 1,
+        "Enemy_Y_Position": 184,
+        "Enemy_ID": 6,
+        "Player_Y_Position": 176,
+        "TnAttack": 0,
+        "Enemy_Y_HighPos": 1,
+        "TnHealth": 112,
+        "CheatInvincible": 0,
+        "p": 0,
+        "TnSeq": 128,
+        "TnThrow": 0,
+        "CrossoverBehaviorVersion": 1,
+        "ObjectOffset": 0,
+        "Enemy_Y_Speed": 0,
+        "Player_State": 0,
+        "y": 6,
+        "hook": "InjurePlayer",
+        "x": 0,
+        "TnHurtMove": 0,
+        "Enemy_Flag": 1,
+        "InjuryTimer": 2,
+        "EnemyOffscrBitsMasked": 0,
+        "Enemy_X_Speed": 0,
+        "Player_Y_Speed": 0,
+        "GuestBodyNoStomp": 1,
+        "StarInvincibleTimer": 0,
+        "TnFood": 0,
+        "Player_CollisionBits": 255,
+        "playerBox": [
+          115,
+          168,
+          125,
+          200
+        ],
+        "enemyBox": [
+          119,
+          198,
+          129,
+          204
+        ],
+        "a": 1
+      },
+      "wall": 1639,
+      "pc": 38764,
+      "phase": "damage"
+    },
+    "hook_counts": {
+      "EColl": 278,
+      "GuestBodyContactBridge": 278,
+      "HandlePECollisions": 278,
+      "InjurePlayer": 1,
+      "PlayerEnemyCollision": 278
+    },
+    "correct_native_collision_latch_store": {
+      "pc": 38606,
+      "bank": 126,
+      "bytes": [
+        157,
+        61,
+        6
+      ]
+    },
+    "explanation": "Actual overlapping boxes; native InjuryTimer2 at new contact. Correct latch/skip, no first wrong gameplay write. New fixture waits TnHurt0 AND InjuryTimer0 and does not clear timers/latches by injection."
+  },
+  "script_sha256": "307da491a5f1633d475586f30566642895bbd200dac1cc9fa76048a112dadeb1",
+  "scope": "Read-only failure ledger plus one actual-ROM direct CPU head-offset control. Old failures unchanged; no game fix or passing new native case inferred."
+}

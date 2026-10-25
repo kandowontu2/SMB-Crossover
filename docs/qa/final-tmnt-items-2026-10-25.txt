@@ -1,0 +1,192 @@
+Four-turtle physical items -- bounded native qualification, 2026-10-25
+
+PASS: all four cold-selected turtles x Easy/Hard, eight separate native runs
+on exact build 529. Each completed 37 steps, 30 physical pickups and 475 actual counted
+eligible defeats. Aggregate: 240 pickups, 3800 defeats, 152 source-generated drop
+actors and 64 real injuries. No game defect or production patch established.
+The every-item/roster goal remains OPEN. Later build 8ff is a separate, untested target.
+The one sequential worker was explicitly RELEASED after the eighth launcher
+exited 0. All following work was offline. User Mesen PID165672 was untouched.
+
+ROM/source binding and immutable receipts
+-----------------------------------------
+Tested SHA256:
+52918588bab0eec3f3a1f857bf084d2d799e88a5c781c75233c098ccc5f54f3f
+ROOT adopted this source as faf8911. Authoritative input:external
+cv3-dmc-root529-v1/adoption-v1/candidate.nes, not stale public build outputs.
+All following external paths share this prefix:
+C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/final-tmnt-items-v1/
+
+Frozen final fixture:preparation529-v5/preparation.json
+SHA256 e15d3152a7b678ec78e86632423ad0f3dfd0fd2bd3ae4f26200c23603726f8c0
+Source-ledger SHA256:
+c4ad9431de9805d8c3aa1af584d2e2c0b8805ee332782ac2ef9b0fcaf7cea593
+This equals the initial529 readiness source ledger. ROM/debug/map/source,
+module, scripts and configs are separately frozen. No live shared serializer:
+local bool-before-int Lua serialization; explicit numeric0/1 and actual Lua
+boolean/type assertions; independent numeric actual CrossoverBehaviorVersion
+readback at cold selection and completion. All Hard readbacks 1; all Easy 0.
+
+aggregate-v1/proof.json SHA256:
+720cad82798cecead1c64360938cdb73042d86b15c59cb1a5ca63fd1cc72edc4
+aggregate-v1/summary.json SHA256:
+593176764c268caeda018c6283de3fb4742929e8dfb139addbae6eb8262e9543
+aggregate-v1/visual-review.json SHA256:
+60ce8c95538bb3504e1e19cc8fab44bf8572abf9d29cdd37d420017572cd59c9
+Eight receipts:<identity>-<easy|hard>-native-v5/proof.json. Each retains
+native-result.json, events.jsonl, updates.csv, apu.csv, frozen launch files
+and lossless real256x240 ARGB event frames. Aggregate hashes all 1360 raw event
+frames and all run artifacts. No old receipt was overwritten or relabeled.
+
+All eight passed/emulator_exit 0; 475 actual eligible defeats per profile:
+Identity      Mode  Actual mode  Game updates  NMI/IRQ stores  Complete DMA
+Leonardo      Easy      0          25495          25494          25491
+Leonardo      Hard      1          25601          25600          25597
+Raphael       Easy      0          25751          25750          25746
+Raphael       Hard      1          25661          25660          25656
+Michelangelo  Easy      0          25671          25670          25667
+Michelangelo  Hard      1          25483          25482          25478
+Donatello     Easy      0          25785          25784          25781
+Donatello     Hard      1          25823          25822          25819
+
+Actual native lifecycle per 37-step profile
+------------------------------------------
+Real menu/options/Select cold-selects the variant and mode. Native defaults
+establish four 128HP/empty gear/ammo records and TnFood/drop-counter 0.
+Eleven genuine head/block deliveries reveal real rewards, follow full native
+rise and reject premature effects. Five food pickups exercise full mushroom
+cap 128; hurt flower 64 cap 128; mushroom 32 from 80->112; hurt flower 64 from 48->112;
+mushroom 32 cap 112->128. Eight real body injuries earn the hurt states. Neither
+health nor protection timer is injected. Actual TnFood selects the source rule.
+
+Six full-health flower deliveries acquire Kiai 4. The first freezes Kiai at 128HP,
+then real injury lowers HP to 112 before collection without changing the reward.
+Each Kiai has 48 actual rise-handler calls. Real B use produces a source shot,
+defeat, one-ammo cost and native cleanup; five duplicates exercise additions
+and99 cap. Single-shuriken 1, triple-shuriken 2 and boomerang 3 each receive six
+actual earned drop pickups:replacement 20/autoselect; real acquired-gear B use,
+hit and cleanup; then five same-kind additions/cap 99/selection retention.
+Triple allocates three actors for one ammo; native boomerang catch refunds 1.
+The four acquired-gear defeats count in the actual 25-defeat drop intervals.
+
+A nineteenth earned boomerang refill actor waits uncollected. Three real throws
+spend 99->96 with all three projectiles alive. Actual movement collects that
+physical actor to 99, then native catches produce 100/101/102; completed PPU HUD
+shows 102. Each profile finishes 128HP/gear 3/ammo 102. Inactive turtle health,
+equipment and ammo records remain unchanged at each step. No actor clones.
+Totals/profile: 5 food + 25 gear = 30 collections, 11 from blocks + 19 source drops.
+Actual drop generations occur at defeats 25,50,...475 with actual native RNG
+readback, source dispatch and timer 128; no seeded counter/RNG/drop actor.
+
+Staging disclosure
+-------------------
+Flat dry world, visible/logical question blocks, camera/player motion,
+stationary default-health Goombas and per-step world clock 399 are staged.
+Targets use canonical high-page 1/Y184 on the floor; enemy health is not written.
+Native source attacks/damage defeat each target; its actor is removed only after
+verified defeat. At the 25th count, eligible target introduction waits for the
+desired actual native PRNG roll at a real active TnWeaponPosition return. This
+controls timing; it is not an unarranged campaign spawn/RNG route. Every defeat
+and counter increment remains source-owned. No CPU call/jump or outcome injection.
+
+Only after full native rise and at least 150 phase updates is the block actor
+explicitly aligned for actual contact, at a real GameLoop boundary. This is
+post-rise contact placement, not controller-only pickup navigation. Reveal,
+rise, collision and grant are not skipped. Runtime w() rejects health/Food,
+equipment/ammo/selection/counter/drop/RNG/type/stamp/character/status/result
+writes. Explicit setup writes and actual production writes are distinguished.
+
+Source and original-ROM fidelity control
+-----------------------------------------
+Exact source ledger/configs bind instruction bytes, PCs and physical banks.
+Production source owners, unchanged by this work:
+src/tmnt_core.s:TnEnsure/Movement, actual four records and input;
+src/union_rare.s:UnionPwrUpCore ordinary mushroom/flower rule;
+src/tmnt_equipment.s:TnTrySecondary4, TnGiveEquipment116,
+TnPreparePickupDispatch137, TnRisePickupDispatch199, TnEnemyDropDispatch290;
+src/tmnt_combat.s:TnWeaponPosition5, source injury and TnHeal306;
+src/tmnt_projectiles.s:shot update/contact and TnRestoreBoomerang452;
+src/tmnt_dispatch.s and src/mac_tmnt_lifecycle.s:production integration.
+
+cpu529-v1/proof.json SHA256:
+3236ffbb2834bbec64b18f674a4cc0a9aebbfd554b4c3433d29e8e974b33210c
+3,028 direct actual-ROM CPU controls: 960 gear + 2064 food + 4 original refund
+comparisons. These explicitly control CPU RAM; they alone do not establish
+native acquisition/reachability. Original TMNT:
+C:/NES/Teenage Mutant Ninja Turtles (USA).nes
+SHA256 15e112c3790add361157dfa42854c3159c956f72e6acd8fabc518615f1ce8525
+Original pickup 6:$96e3 caps 98->99; three original return 7:$fdc8 leaves produce
+100/101/102 for each turtle. Port matches. Native coupled acquisition/use/catch
+now reproduces it. A stronger 99 return clamp would change authentic behavior.
+
+Runtime, graphics and audio evidence
+-------------------------------------
+205270 game updates;205262 NMI and205262 actual line31 IRQ stores;
+2463144 twelve-window MMC5 hardware CHR checks;205235 complete committed source
+OAM publication-to-hardware DMA comparisons;1292986 captured$4000-$4017 writes.
+Exact physical bank/instruction hooks, NMI actual/shadow A/C restore with bounded
+publication windows, all five SMC operand restores, A/SP restoration and$017F
+lower-stack guard pass. Minimum sampled hook-entry SP 207, not every-instruction
+depth. Hardware OAM binds committed publication, not later gameplay RAM.
+Actual food/equipment pickup owners assert the source sound queue. Register
+traces are retained, without acoustic or original-waveform equality claims.
+
+Agent visually inspected all 24 original-resolution overview sheets:464 selected
+event frames, consisting of 37 completions, 6 mature food/Kiai, 4 first-kind drops,
+4 acquired-gear uses and 7 boomerang throw/refill/catch frames per profile. Native
+poses, food/gear icons, terrain and health/ammo HUD are readable; no new obvious
+CHR/nametable/sprite corruption in that sample. Event frames can show preceding
+publication:catch 1/2/3 display 99/100/101, then every37-complete displays 102.
+Actual committed PPU 102 digits are also asserted before completion. Remaining
+896 saved frames were not individually visually reviewed. This is not an
+original-pixel oracle or review of every emulated PPU frame.
+
+Retained failures; fixture corrections only
+--------------------------------------------
+failure-ledger-v1/proof.json SHA256:
+2f5242f49b0248019771cb785bc4bbbb7c33a6f28120b6a84e8ed1f3a65ba4d8
+Leonardo Hard v1..v4 receipts/captures/scripts are immutable, passed=false:
+- v1 lower block overlaps native head(topY-8); normal side resolution X 112->127
+  makes the real jump miss, then ordinary world timer death. Corrected fixture
+  geometry and disclosed per-step clock. No game patch.
+- v2 capitalized Python booleans become undefined Lua nil:actual Easy, injury
+  disabled. Source correctly grants Kiai at 128; expected 112 invalid. Local
+  serializer/numeric guards replace this fixture fault.
+- v3/v4 second target arrives at TnHurt 0 but InjuryTimer 2. Native overlap sets
+  EnemyCollisionBits 0->1, then correctly rejects protected injury. Continuous
+  contact retains latch after timer expires. Exact v4 player(112,176), box
+  [115,168,125,200]; Goomba(116,184),box[119,198,129,204]; mode 1, HP 112,
+  CheatInvincible 0. No first wrong gameplay write. V5 waits BOTH timers 0 before
+  new target introduction; no timer or contact latch is cleared by injection.
+All four are documented fixture errors, not softened game assertions. Final
+v5 fixtures were unchanged throughout the pilot and seven subsequent profiles.
+
+History and unclosed claims
+----------------------------
+Initial prepared-not-run report/tools remain in readiness529-v1/. Historical
+NY45a2 tmnt-equipment-2026-10-24.md/tests already covered four gear families with
+seeded health/Food/counter/RNG and mature-food actors. Later build 220 actual Kiai block
+and indexed-clone controls remain their own scope. Neither is relabeled529 or
+added to identity totals. Separate Pit/Rygar/Scrooge mode withdrawal/correction
+remains in final-item-mode-correction/native reports and item-mode-529 checkpoint.
+
+Still open:current build 8ff native turtle binding; natural campaign drop/RNG routes;
+star/1up and death/area reset lifecycle on build 529; empty/last ammo, pool-full,
+in-flight replacement, other stances/facings, durable-target details; broad
+terrain/water/scenes/performance; exhaustive original visual/audio fidelity.
+Eight mode cells cover four identities, not eight identities. No all 37 completion.
+
+Stable reproduction: fresh output, one sequential native worker per launch
+-------------------------------------------------------------------------
+From C:/Users/kando/Documents/ChatGPT/SMB Crossover:
+python tools/audit/final_tmnt_items_run.py --packet "C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/final-tmnt-items-v1/preparation529-v5" --variant 0 --mode hard --output "C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/final-tmnt-items-v1/NEW-leonardo-hard" --emulator "C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/mmc3-flag-fix-v23/script-budget-probe-v2/emulator/Mesen.exe"
+Variants0/1/2/3=Leonardo/Raphael/Michelangelo/Donatello; mode easy/hard.
+Runner validates frozen ROM/module/script hashes and correct literals before
+launch; native asserts actual cold/final RAM. Default timeout 900 seconds.
+Mesen SHA256 8b92daa209ee5052845e02a663aeb1afd6194eca55d86e6628c51114c61da0a9
+AllZeros, nonrandom CPU/PPU+mapper, doNotSaveSettings, isolated worker only.
+
+Offline aggregate also requires fresh output:
+python tools/audit/final_tmnt_items_report.py --root "C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/final-tmnt-items-v1" --output "C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/final-tmnt-items-v1/NEW-aggregate"
+Owned tools:final_tmnt_items_{prepare.py,native.lua,run.py,cpu.py,
+failure_report.py,report.py}. No production source/config/Git/Downloads edits.

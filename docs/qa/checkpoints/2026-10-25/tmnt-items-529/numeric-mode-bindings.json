@@ -1,0 +1,206 @@
+{
+  "ROM_sha256": "52918588bab0eec3f3a1f857bf084d2d799e88a5c781c75233c098ccc5f54f3f",
+  "configuration": "Local bool-before-int serializer emits true/false, independent numeric mode0/1. Frozen runner verifies literals; native requires boolean type and numeric consistency, cold actual selected identity/variant/mode, final actual mode.",
+  "guard_fragments": [
+    "assert(type(C.hard)=='boolean'and(C.mode_value==0 or C.mode_value==1)and C.hard==(C.mode_value==1),'Explicit Lua boolean and numeric mode configuration')",
+    "assert(r('SelectedCharacter')==19 and r('TnVariant')==C.variant and r('CrossoverBehaviorVersion')==C.mode_value,'Actual cold identity/numeric mode readback')"
+  ],
+  "fixture_sha256": "93779c682a651813134f8728557a7fdc1321bb9cfdde1987a6505f04e401449c",
+  "preparation_sha256": "e15d3152a7b678ec78e86632423ad0f3dfd0fd2bd3ae4f26200c23603726f8c0",
+  "source_ledger_sha256": "c4ad9431de9805d8c3aa1af584d2e2c0b8805ee332782ac2ef9b0fcaf7cea593",
+  "profiles": [
+    {
+      "identity": "leonardo",
+      "variant": 0,
+      "mode": "easy",
+      "cold": {
+        "pc": 33497,
+        "phase": "menu",
+        "wall": 371,
+        "sp": 250,
+        "data": {
+          "variant": 0,
+          "requested_mode": 0,
+          "character": 19,
+          "mode": 0
+        },
+        "step": 0,
+        "bank": 126,
+        "kind": "actual-cold-selection",
+        "update": 0
+      },
+      "completion_readback": 0,
+      "script_sha256": "0a602e2fa6170e2c7667c42e94873a50175d87946629300d7964b96d3ce6f4cf",
+      "proof_sha256": "207878d483d4197a44fd9d4087276a360e81e77b85de19f4674efcfd28144704"
+    },
+    {
+      "identity": "leonardo",
+      "variant": 0,
+      "mode": "hard",
+      "cold": {
+        "kind": "actual-cold-selection",
+        "wall": 458,
+        "bank": 126,
+        "sp": 250,
+        "data": {
+          "variant": 0,
+          "mode": 1,
+          "character": 19,
+          "requested_mode": 1
+        },
+        "pc": 33497,
+        "update": 0,
+        "phase": "menu",
+        "step": 0
+      },
+      "completion_readback": 1,
+      "script_sha256": "f4b0934e7537cc90afa8345a9df91bfefcc9df0cacc0339c4a8698f7048381e3",
+      "proof_sha256": "da7c3dfdec1575f9baecb20d8908f7b5d5a6b9b8855ee942f40f44534d2e992e"
+    },
+    {
+      "identity": "raphael",
+      "variant": 1,
+      "mode": "easy",
+      "cold": {
+        "bank": 126,
+        "data": {
+          "mode": 0,
+          "character": 19,
+          "variant": 1,
+          "requested_mode": 0
+        },
+        "kind": "actual-cold-selection",
+        "step": 0,
+        "sp": 250,
+        "pc": 33497,
+        "update": 0,
+        "wall": 392,
+        "phase": "menu"
+      },
+      "completion_readback": 0,
+      "script_sha256": "5bdc5c2efbdc402799d6bdd7760e360ac8614452c2cb22a5cae8291672bd3184",
+      "proof_sha256": "1270e47110f2ce9702a28b7a4e09be38aaf915fe9897b3070b88ec3e5faa60ab"
+    },
+    {
+      "identity": "raphael",
+      "variant": 1,
+      "mode": "hard",
+      "cold": {
+        "pc": 33497,
+        "phase": "menu",
+        "wall": 458,
+        "sp": 250,
+        "bank": 126,
+        "data": {
+          "mode": 1,
+          "requested_mode": 1,
+          "character": 19,
+          "variant": 1
+        },
+        "kind": "actual-cold-selection",
+        "update": 0,
+        "step": 0
+      },
+      "completion_readback": 1,
+      "script_sha256": "bdbdfe5393ecb44b79d6b4df6cb1ae7a7ce06de34fb64994682d7f5e20ed6005",
+      "proof_sha256": "0abba477484c45fe401ae4385b73858fbe497a46f0622334190c70930b87d6b7"
+    },
+    {
+      "identity": "michelangelo",
+      "variant": 2,
+      "mode": "easy",
+      "cold": {
+        "wall": 392,
+        "phase": "menu",
+        "kind": "actual-cold-selection",
+        "update": 0,
+        "data": {
+          "mode": 0,
+          "variant": 2,
+          "character": 19,
+          "requested_mode": 0
+        },
+        "sp": 250,
+        "bank": 126,
+        "pc": 33497,
+        "step": 0
+      },
+      "completion_readback": 0,
+      "script_sha256": "db6268a90b38cedccca791e87d059e7cd23c0de47a90978f3257aeaab58b0f20",
+      "proof_sha256": "ec93c67d81251448a6c84a3ec189f224a07a9e40a2709b5dd21586ed00f01149"
+    },
+    {
+      "identity": "michelangelo",
+      "variant": 2,
+      "mode": "hard",
+      "cold": {
+        "step": 0,
+        "phase": "menu",
+        "bank": 126,
+        "kind": "actual-cold-selection",
+        "wall": 479,
+        "sp": 250,
+        "pc": 33497,
+        "update": 0,
+        "data": {
+          "requested_mode": 1,
+          "mode": 1,
+          "character": 19,
+          "variant": 2
+        }
+      },
+      "completion_readback": 1,
+      "script_sha256": "7cbc34d2aa70725c4d30faf7b6eda0e471f69d0ad2b7b5a8ab8a34964fa51af4",
+      "proof_sha256": "d37d65bdd7c244de5f8c8d4f9453e83a7b734f728113c75ad429095679a8c5ad"
+    },
+    {
+      "identity": "donatello",
+      "variant": 3,
+      "mode": "easy",
+      "cold": {
+        "data": {
+          "mode": 0,
+          "character": 19,
+          "requested_mode": 0,
+          "variant": 3
+        },
+        "wall": 413,
+        "pc": 33497,
+        "bank": 126,
+        "sp": 250,
+        "step": 0,
+        "phase": "menu",
+        "kind": "actual-cold-selection",
+        "update": 0
+      },
+      "completion_readback": 0,
+      "script_sha256": "317563f12806a065c99f35b6063b3581e9a3a96260b6374e486e3283efda59dc",
+      "proof_sha256": "7304a6dc4ada2a179f3168fc544628dde063f6514e7fd10d19793d5a00a9022a"
+    },
+    {
+      "identity": "donatello",
+      "variant": 3,
+      "mode": "hard",
+      "cold": {
+        "pc": 33497,
+        "data": {
+          "requested_mode": 1,
+          "variant": 3,
+          "character": 19,
+          "mode": 1
+        },
+        "wall": 500,
+        "sp": 250,
+        "phase": "menu",
+        "bank": 126,
+        "kind": "actual-cold-selection",
+        "step": 0,
+        "update": 0
+      },
+      "completion_readback": 1,
+      "script_sha256": "31c0b7a0ceb4b3a194d4071db80d88479dbf5c5926a33c727cd98dc855711bdb",
+      "proof_sha256": "c127189e1ff6683af7cfb344a1b4fe2e5df4e37e54702460765c5de09bb6899a"
+    }
+  ],
+  "historical_scope": "v2 failed nil-mode turtle fixture preserved separately. Earlier progression/ability mode withdrawal remains separate item-mode-529 checkpoint; no old receipt edits or relabeling."
+}
