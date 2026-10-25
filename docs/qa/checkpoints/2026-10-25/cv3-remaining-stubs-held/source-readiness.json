@@ -1,0 +1,123 @@
+{
+  "passed": true,
+  "accepted": false,
+  "status": "SOURCE_CPU_READY_NATIVE_UNQUALIFIED",
+  "ROM_sha256": "2e005c8e2acde44bc184459d92b2966ee488b92819dd91151577fdf444b751df",
+  "baseline_ROM_sha256": "50b51c3c69f45ef137720c47f521574097f421056e3b73296d06ba70080d2363",
+  "held_parent_ROM_sha256": "5ad6abfe3dc2fb279b7ab5e29954f2f1bd32f56fe4517d8513a34ef3282e54c1",
+  "source_files": [
+    {
+      "path": "src/cv3_abilities.s",
+      "sha256": "dae20bc574a72a9f764b7262d262c407f03d8aee547ff5ac41b7dcab4fd7b771",
+      "bytes": 5676,
+      "baseline_sha256": "0c1d6d3c04a78bdf33d40b4ec23ab188e7d5a73041300123012590b7b41148ae",
+      "EOL": "CRLF",
+      "original_git_sha256": "0c1d6d3c04a78bdf33d40b4ec23ab188e7d5a73041300123012590b7b41148ae",
+      "original_git_EOL": "CRLF"
+    },
+    {
+      "path": "src/cv3_dmc_complete.s",
+      "sha256": "106f1fdc4a17c17b3cb56ec763ae4984207cc5b9a2a80122466ca5db32ec7739",
+      "bytes": 4883,
+      "baseline_sha256": "aee614d8ceb4f8f9a0135ab39119a50511908192c758d04a11a26a662853825d",
+      "EOL": "LF",
+      "original_git_sha256": "aee614d8ceb4f8f9a0135ab39119a50511908192c758d04a11a26a662853825d",
+      "original_git_EOL": "LF"
+    },
+    {
+      "path": "src/cv3_remaining_source_fx.s",
+      "sha256": "168cb05c2b9525b28a0eacad06a5cf7df9c65b7b06219423e77b53c468b2aea4",
+      "bytes": 28293,
+      "baseline_sha256": null,
+      "EOL": "LF"
+    },
+    {
+      "path": "src/cv3_source_audio.s",
+      "sha256": "acc8c57da0693d135e6dd3a58822dabdf0566547a52e520a961b0f4f0397f6c2",
+      "bytes": 4814,
+      "baseline_sha256": "d9ac53865adb9a834acf448995b30503cbb3829eb0c0751084df45b4e98bc98c",
+      "EOL": "LF",
+      "original_git_sha256": "d9ac53865adb9a834acf448995b30503cbb3829eb0c0751084df45b4e98bc98c",
+      "original_git_EOL": "LF"
+    },
+    {
+      "path": "src/entrypoint.s",
+      "sha256": "3283c771ce6517c52cef3800b0836ad4036bda5e6bfc08fcc3327affd3d70c33",
+      "bytes": 11562,
+      "baseline_sha256": "d5276b02584213dbc1afa192f79f3e27e383587faea533c78e66a33b0b433137",
+      "EOL": "CRLF",
+      "original_git_sha256": "d5276b02584213dbc1afa192f79f3e27e383587faea533c78e66a33b0b433137",
+      "original_git_EOL": "CRLF"
+    },
+    {
+      "path": "src/megaman_death.s",
+      "sha256": "f19a8acc3db5a77bf5dca76d6eee4a1e94744d1e5a0ffac18240a768f3de289c",
+      "bytes": 5130,
+      "baseline_sha256": "7c66cd759f438eaa2206e85113446790dc6253b500b72ca2e5d0004b1d995e88",
+      "EOL": "CRLF",
+      "original_git_sha256": "7c66cd759f438eaa2206e85113446790dc6253b500b72ca2e5d0004b1d995e88",
+      "original_git_EOL": "CRLF"
+    },
+    {
+      "path": "src/roster_audio.s",
+      "sha256": "aa2959e8359f532eb589bf6227b145f739d87c045ad5f20a398bcaf4f967da9f",
+      "bytes": 5319,
+      "baseline_sha256": "5458ff7072b16fed35133ef4febd5e4cf380decf2718add910ab8fb8080c6fcc",
+      "EOL": "LF",
+      "original_git_sha256": "5458ff7072b16fed35133ef4febd5e4cf380decf2718add910ab8fb8080c6fcc",
+      "original_git_EOL": "LF"
+    }
+  ],
+  "all_deployable_files": 636,
+  "frame_stub_bytes": 1458,
+  "A82_end": 47887,
+  "A82_free": 1265,
+  "new_RAM_CHR_bytes": 0,
+  "old_adopted50b_ABI_retained": true,
+  "genuine_pointer_frame_end_translations": 294,
+  "source_frame_tests": 4560,
+  "whole_differential_updates": 8024,
+  "whole_cycle_delta_vs5ad": [
+    -260,
+    0
+  ],
+  "actual_IRQ_RTI_boundaries": 41774,
+  "fresh_all37_ordinary_updates": 9472,
+  "source_receipts": {
+    "composition.json": "9e0e63b6c34686524f81515e93001cf067ea444ab4e8fd84018b8fe97671fd04",
+    "qualified-v1/qualification.json": "c8ab113b7f576e41ec88c2b9d033a8d098c7dbc04bd7578554720f9bc74a4cba",
+    "qualified-v1/implementation.patch": "85fa46f9ffdce90a4d8f2240f82eb0305da2045df826dd2a47c2de6e63fc3767",
+    "qualified-v1/all-deployable-files.json": "dc283e4ab1ed9e298ba3b82c5992ad3051f93b4e058009e4f53c69b945d0a186",
+    "producer/inputs.json": "0134c634fbb3f424ce57b298443b4608f955b58eec91430571f091b5f2d12822",
+    "pointer-translation.json": "0051986ec5cfd511f19ac325db40b78061ff16b3d6fb6e8aeb7604c1ee6b0ff9",
+    "source-frame-plan.json": "18b1d296791fe650492e7704f7f1bd085092dee2d2215316f1f974379e0dfec4",
+    "frames-v1/proof.json": "0ed99b9156f236e21fe3d4012f547d0f73d148f36c2da9b9cca6ef6f00a05b43",
+    "whole-held-v1/proof.json": "165bf157d0134bc7a8664072845da622a9995f36a8d5d30617476d2020236f8b",
+    "cpu-v1/proof.json": "57a84a8b90d5e65851d205ff50f7c542a1792f1b657e007849ec8181e846cab2",
+    "controls-v1/proof.json": "03c4f2c1b6316648b7714a10806739c89fc5f1a6a2402062526e8637a9fac28c",
+    "compat-v1/proof.json": "2b8cc011ae2b4eb1ed90bd1090f01e1f567f0c1a4087286a4b2d1c173c9e93f9",
+    "irq-v1/proof.json": "a2c8c15965100a55c9f85760f01dc0a99501e7eb5d59977e62a87d9b30c9a59f",
+    "dmc-v1/proof.json": "830ce631a938607933b48c8da4eff085c544ee8c60e2f0be594552371f336a56"
+  },
+  "frozen_tools": {
+    "tools\\audit\\cv3_remaining_sfx_stub_prepare_v1.py": "25c464b44b74f4caabff2dbf1da531f4dbfd16291e480771c569e6bdeaffff90",
+    "tools\\audit\\cv3_remaining_sfx_stub_prepare_v2.py": "6d4927f5976ed93ce0e3bd343c4cffd549bcbb3ace5c04ba2c2d9dba3f523507",
+    "tools\\audit\\cv3_remaining_sfx_stub_cpu_v1.py": "132da390e3c908dc902bf9fdf9094dfd4b4b1ef004080f5f2067e58314757c99",
+    "tools\\audit\\cv3_remaining_sfx_stub_frames_cpu_v1.py": "a7855250626bddf4a3f0c7b45eb307592b20365fa2336dffc773a61f2f5c0a4e",
+    "tools\\audit\\cv3_remaining_sfx_stub_frames_cpu_v2.py": "eb4f827450dc085e457918d1ae2187ce13b7e87fb6424bfdf718f889ca5eaf90",
+    "tools\\audit\\cv3_remaining_sfx_complete_qualify_v3.py": "e28939f41480232bfec4d0b552484316382361868d329f4c1bd6e95a4bb765c1",
+    "tools\\audit\\cv3_remaining_sfx_complete_qualify_v4.py": "be9c0322d2e8d8eba8f9fb88801d342e672d3803b2f12d378ad410e99f2b725a",
+    "tools\\audit\\cv3_remaining_sfx_complete_cpu_v1.py": "978a7cd7b6a00a5bc7b2bcd128d6b7e766fc63925ebc90579629cab10e5c9e35",
+    "tools\\audit\\cv3_remaining_sfx_complete_controls_v1.py": "eb352fa7e82e234239b9e8b5c02dd177fae0cdb6b130fed1b97ed8fefa61c929",
+    "tools\\audit\\cv3_remaining_sfx_complete_compat_v1.py": "d9ebeaf592392a907acf1f00c5e6a259cbf9d812038a6c7e7bb0819fea78409c",
+    "tools\\audit\\cv3_remaining_sfx_complete_irq_v1.py": "4a1bb02d9c8691be7fa55779a0fed5e96057f4acbeb77ddf6860129c1d57cb42",
+    "tools\\audit\\cv3_remaining_sfx_complete_dmc_cpu_v1.py": "1feb5005afe3e6ad415f475cfb3c7ec5b604637d1d50141d067810d3d8e89518",
+    "tools\\audit\\cv3_remaining_sfx_native_v7.py": "44ea78a317c6f5da2d2c3601a7938c94a90923822124967c069c6d321f2bddd3",
+    "tools\\audit\\cv3_remaining_sfx_native_compare_v6.py": "f23d473c6a233620e4ed4a01a535685afb1c8481821a26fb1ec5bef49206bbbd",
+    "tools\\audit\\cv3_remaining_sfx_native_attribution_v1.py": "29b7605ecccc06c1421127a6ba0b57a98a7699995d1c122153cbcaa0db8f87eb"
+  },
+  "old63_quiet_dispatch_cost_case_preserved": true,
+  "quiet_fallthrough_is_genuine_entry_into_shared_pointer_commit": true,
+  "native_v7_not_yet_executed_on_this_hash": true,
+  "scope": "Private source-only exact50b composition. All original raw values/ticks/store order/private sourceHigh/priority/lifecycle and public bank/AXYP/IRQ/ordinary/DMC controls pass. Source pointers alone translate through exact294 genuine code-frame/end mapping. No native cadence/adoption/lag-fixed claim;50b stays installed. All708/9e0e/aaa4/5ad/63 historical negatives stay frozen."
+}

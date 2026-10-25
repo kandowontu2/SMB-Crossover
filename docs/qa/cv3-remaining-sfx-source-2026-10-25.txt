@@ -1,0 +1,175 @@
+CV3 remaining source effects — private source/CPU proposal, 2026-10-25
+
+STATUS: SOURCE/CPU READY; NOT NATIVE QUALIFIED, ADOPTED OR INSTALLED.
+
+Frozen parent4c70fe485f73fb8d437fae2e79ae8ddad83908dc26d4008f21e0a2abeccee2da.
+Private candidate70808ed6f48a3d543eb409a48cc2026b898cb1a969ae0ca12a6f133c8098597f.
+ROOT has subsequently adopted Roll/M3 fixes in banks119/86; this packet does not
+transfer its CPU evidence to that different current ROM. Compose/rebuild/retest
+explicitly before native qualification. No Mesen worker was used for this task.
+
+D = C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py.
+Evidence E = D/cv3-remaining-sfx-v1.
+Final source/ROM/debug/patch/catalog: E/full-qualified-v3.
+Initial preparation: E/full-proposal-v7. Both compile to exact70808ed6.
+
+Original source and real request owners
+-------------------------------------
+Original USA CV3 ROM SHA256:
+085ec6395681c7ebfda19c2986069c21a3d27738cc61ada76249de70a07ed7d3.
+Disassembly revision3272648f2bbf95f6cb11d947feca73b852a99f10.
+Byte-authenticated original player1C/1D source and fresh executable APU goldens
+are frozen at E/source-v2. Audio engine/sound data reference is the previously
+pinned D/cv3-primary-sfx-v1/original-source. Original requests execute actual
+E25F; updates execute E24E through the genuine bank-aware original ROM.
+
+Hex source ID | Current owner                  | Original voices | Result
+13 dagger    | Grant/Alucard sub1 release      | noise13updates  | implemented privately
+15 axe       | Grant/Alucard sub2 release      | noise17updates  | implemented privately
+24 flame     | Sypha sub1 actual actor3       | pulse25/noise6  | implemented privately
+21 ice       | Sypha sub2 three actual4actors | pulse1/noise43  | implemented privately
+1E lightning | Sypha sub3 three actual5actors | pulse1/noise43  | implemented privately
+2F bat       | Alucard actual Down+A enter    | pulse88/noise64 | implemented privately
+14 cross     | no CV3 companion cross owner  | noise9updates   | NOT substituted into CV1
+1F fireball  | Alucard primary actor6         | noise28updates  | retained; lifecycle repaired
+
+These durations include the original final-silence update. Base Simon already
+uses its existing authentic CV1 SimonCross typed5 cue and actor38; both modes
+and all40-update schedules remain exact. Original CV3 bat ENTER atA6BB requests
+2F; actual exit atA726 requests nothing. Manual/exhausted exits here preserve
+the already-running effect and do not invent an exit cue. This packet repairs
+existing ability audio; it does not certify all CV3 weapon availability/motion
+or replace CV1 music with a CV3 music driver.
+
+Real Up+B arm/payment and age14 release are executed for all18 variant/sub/mode
+cases. The age14 fixture is explicitly the adapter's legal delayed release
+stage. Original projectile dispatch delays differ and were authenticated, not
+blindly added a second time. Multi-ice/lightning spawns coalesce one real cue.
+
+Per-voice source implementation
+-------------------------------
+Source priority is independent for secondary pulse and noise: incoming source
+ID>=active ID admits; equal retriggers; an unrequested voice continues. Distinct
+21/1E priorities share exactly identical source bytes. Final-silence update
+clears that voice's source priority; native music image restores next update.
+Independent pending noise/pulse IDs also retain same-update mixed requests.
+
+The private decoder holds exactly1,072 source-stream bytes plus71 table bytes
+in proven existing A82 slack; no new bank or sample is allocated. Original
+sparse source writes alone mark dirty registers, avoiding artificial repeated
+4003 envelope retriggers. CV1 music continues and its separate per-voice image
+is restored on release. Existing common world/typed effect precedence remains.
+
+Raw400F source state is retained, not masked. Original shared frequency high
+($ED) can come from a still-playing pulse effect: flame->dagger after12 updates
+writes13, whereas fresh dagger writes8. The final adapter processes pulse before
+noise and retains shared source frequency-high in private byte55, including the
+real old1F fast path. All441 pair cases and512 continued mixed updates compare
+every source register byte, count and update, including400F. A prior proposed
+ignored-bit comparator was rejected and is retained only as a diagnostic.
+
+Original ordered source traces remain frozen. The target's pre-existing common
+hardware mixer flushes ascending registers (noise C/E/F instead of source C/F/E).
+That existing timing/order adaptation remains disclosed; neither waveform nor
+identical bus-cycle ordering is claimed by these CPU comparisons.
+
+The original old1F body and all following labels remain real executable code.
+The new entry selects it for ordinary Alucard fireballs; new/mixed voices use
+the private A82 service through a C28 bracket that restores actual A mapping
+and CurrentBank. It uses no shared farcall SMC during active audio service.
+
+Lifecycle and storage ownership
+-------------------------------
+Existing4c70 old1F resumes after death mute when delayed death music starts;
+E/per-voice-plan-v2 retains this actual KillPlayer/source comparison. Prototype
+ece2b4 added13/15 but inherited that gap, so it was not adoption-ready.
+
+The full proposal cancels owned/pending effects through the actual universal
+death chain (enemy/pit/time), actual scene reset and cold new-song initializer.
+Pause retains both phases/pending requests. Menu AudioUpdate takes vanilla
+audio and leaves private phase dormant; actual Cv3ResetGate followed by its
+new-music owner cancels before guest audio resumes. Tests label that seeded
+menu/reset chain explicitly; they do not claim a controller menu playthrough.
+
+Death retarget is THREE existing immediate operands inside bank2's real
+UnionDeathStartCore, entered by resident MegaManDeathStart. The new A82 bridge
+preserves registers/flags and tail-farcalls existing RlDeathStartDispatch.
+The original prediction of a resident127 change was incorrect and its failed
+layout expectation is retained. Entire125 mirror AND127 resident stay exact.
+
+Existing160-byte selected-family slab:0..23 CV1,24..31 old noise,32..35 DMC;
+new36..55 hold independent voice IDs, owned mask, frame, image/music cache,
+stream pointers, private saved A, pending IDs and shared source frequency-high.
+No SRAM/zero-page allocation or preexisting address changes. The actual cold
+owner initializer occupies the remaining38 bytes of X5 mixer A29. It relies
+on the existing enclosing status save and immediate subsequent A reload.
+Inactive pending scratch is invalidated by ownership/reset and initialized at
+admission; it never supplies an unowned active voice.
+
+Complete changed physical banks:2(3 bytes),28(152),29(41),82(1997),84(223).
+All other PRG bytes, header, allCHR, Mac123/gate, LOWCODE126, Samus reservations,
+all retained DMC samples/addresses and both125/127 banks remain exact.
+CV_AUDIO spans physical27/28; remaining580 bytes begin in C28, not A27.
+CV3_GRIP A82 has1811 bytes left. X5 A29 has0 bytes left; its zero-length free
+span ends at physical bank30 and authorizes no bank30 bytes.
+
+Independent catalog enumerates634 deployable files and exactly7 changes:
+src/cv3_abilities.s, cv3_dmc_complete.s, cv3_remaining_source_fx.s(new),
+cv3_source_audio.s, entrypoint.s, megaman_death.s, roster_audio.s.
+Raw original Git EOL conventions are preserved. All54,507 existing qualified
+labels/equates retain values except two legitimate exceptions: removed private
+Cv3SpawnAudioType::Done (no external references, no fake alias), and scalar
+_FARCALL_COUNT1154->1155 for one real new cold bridge tail call. All public PCs,
+data/RAM addresses and five shared SMC addresses remain fixed.
+
+Passing exact708 CPU/build evidence
+----------------------------------
+E/full-cpu-v5:14 fresh original schedules,441 original priority/mixed raw cases,
+18 actual armed/payment/release owners,84 active lifecycle controls,80 retained
+old1F whole-AudioUpdate differentials. Every raw400F bit remains compared.
+E/full-controls-v1:70 pending lifecycle,8 real bat exit/reject controls,60 pool
+and ordinary typed-priority controls,512 continued raw source-mixed updates.
+E/full-compat-v2: all37 identities,9472 whole ordinary AudioUpdate comparisons;
+both baseSimon cross releases and80 updates;18 unrelated actual KillPlayer
+chains preserve old RAM/APU/registers/mapping (except declared new private state).
+E/full-dmc-cpu-v1:6048 source-DMC priority cases,72 actual primary/injury owners,
+15 pending priorities,70 lifecycle,96 scene/unrelated-owner controls,4 unrelated
+death,7 old AllOnes initialization controls,1152 held-DAC completion tails,
+256 ordinary DmcStatus and5024 whole ordinary AudioUpdates. The immutable old
+suite is wrapped only to declare private36..55 in its RAM diff helper; every
+behavior/payload/flag assertion and original case remains. Wrapper hashes pin it.
+E/full-irq-v1:42 whole-roster/source cases and44,472 real IRQ/RTI boundaries;
+actual AXYP/SP/PC/R0/R1/A/C/E mappings and shadows survive. Both125/127 are code
+alias controls; no actual DMC bus/native interrupt scheduling is claimed.
+E/full-qualified-v3: independent original producer, exact fresh708 compile,
+mirror idempotence,7-file raw catalog/patch/ABI/physical byte layout and ordinary
+flag-off builds. OrdinaryMMC3 d444cac88e13fa02b29ad16100b8f08fa565ba90f8cedde192de43fb2dc8f3eb;
+ordinaryMMC5 f4ffd2483c51daa4d60bb575da2da8c4d817692cda407611c243031f67520833.
+
+Performance is a remaining native gate
+------------------------------------
+Fresh ordinary idle Simon/CV3 whole AudioUpdate is2 cycles faster than4c70;
+unrelated identities remain exact idle. Cold song init/reset has disclosed extra
+work. Legacy1F remains raw-state exact but costs+15 held, +35 on source pitch
+writes and+49 on admission; quiet/restored frames are-2. This is material near
+the frame budget. New multi-voice whole-update samples range3182..6789 cycles;
+these inclusive CPU component costs do not prove native speed or constant60Hz.
+The immutable old DMC harness's26-cycle 'source_active_delta' compares ordinary
+owner2 with source owner3 (existing28 minus this proposal's2 idle saving); it
+is not a new26-cycle overlay regression or a matched source-active comparison.
+
+Before adoption: compose7 files on actual current5ec8, exact new hash/producer/
+ordinary/CPU/layout qualification, then genuine native releases/contacts/audio,
+IRQ/SMC/stack/OAM/CHR/viewport guards and strict matched no-source/old1F/new-cue
+pressure cadence. Keep per-case draw/update stalls and actual costs visible.
+No native proof, audible waveform, ROM installation or campaign completion is
+claimed here. Source-specific CV3 music remains separate missing work.
+
+Retained failures
+-----------------
+E/retained-failures-v1 re-executes the actual wrong AvAudioRequest=128 from
+7d2bdde6 (owned mask incorrectly replaced typed26), and raw400F8-vs13 from
+32256881. Both are fixed in708. It binds the rejected masked comparator, old
+ece2 lifecycle hold, source-path/selector fixture failures, compiler branch
+range failures and corrected physical-bank metadata. No failed tree/receipt was
+silently rewritten or represented as an installed game defect.
