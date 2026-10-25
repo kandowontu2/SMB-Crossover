@@ -1,0 +1,113 @@
+{
+  "passed": false,
+  "native_guards_passed": true,
+  "adopted": false,
+  "goal_complete": false,
+  "ROM_sha256": "e6baf465a4fb3981dc1d9f1bea64a129f1dbb8d2a8276f934a38eb9c00c0728c",
+  "baseline_ROM_sha256": "8ff245ae662059abbc77c5de517260032775b7ba881a5201b8b54686ccf08277",
+  "comparisons": [
+    {
+      "profile": "basic",
+      "cases": [
+        {
+          "name": "actual-contact-mode0",
+          "mode": 0,
+          "baseline_draws": 99,
+          "candidate_draws": 99,
+          "draw_delta": 0,
+          "baseline_physical_frames": 100,
+          "candidate_physical_frames": 100,
+          "baseline_updates": 100,
+          "candidate_updates": 100
+        },
+        {
+          "name": "actual-contact-mode1",
+          "mode": 1,
+          "baseline_draws": 99,
+          "candidate_draws": 99,
+          "draw_delta": 0,
+          "baseline_physical_frames": 100,
+          "candidate_physical_frames": 100,
+          "baseline_updates": 100,
+          "candidate_updates": 100
+        },
+        {
+          "name": "actual-attack-mode0",
+          "mode": 0,
+          "baseline_draws": 99,
+          "candidate_draws": 99,
+          "draw_delta": 0,
+          "baseline_physical_frames": 100,
+          "candidate_physical_frames": 100,
+          "baseline_updates": 100,
+          "candidate_updates": 100
+        },
+        {
+          "name": "actual-attack-mode1",
+          "mode": 1,
+          "baseline_draws": 98,
+          "candidate_draws": 97,
+          "draw_delta": -1,
+          "baseline_physical_frames": 100,
+          "candidate_physical_frames": 100,
+          "baseline_updates": 100,
+          "candidate_updates": 100
+        }
+      ],
+      "per_frame_rows": 400,
+      "differing_frame_rows": 1,
+      "cadence_rows_exact": false,
+      "no_draw_loss": false,
+      "physical_frames_and_updates_exact": true
+    },
+    {
+      "profile": "pressure",
+      "cases": [
+        {
+          "name": "no-source-six-goomba-mode0",
+          "mode": 0,
+          "baseline_draws": 120,
+          "candidate_draws": 120,
+          "draw_delta": 0,
+          "baseline_physical_frames": 360,
+          "candidate_physical_frames": 360,
+          "baseline_updates": 240,
+          "candidate_updates": 240
+        },
+        {
+          "name": "no-source-six-goomba-mode1",
+          "mode": 1,
+          "baseline_draws": 120,
+          "candidate_draws": 120,
+          "draw_delta": 0,
+          "baseline_physical_frames": 360,
+          "candidate_physical_frames": 360,
+          "baseline_updates": 240,
+          "candidate_updates": 240
+        }
+      ],
+      "per_frame_rows": 720,
+      "differing_frame_rows": 2,
+      "cadence_rows_exact": false,
+      "no_draw_loss": true,
+      "physical_frames_and_updates_exact": true
+    }
+  ],
+  "receipts": {
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-dmc-complete-v1\\root-cadence-v1\\basic-baseline\\native-proof.json": "9803ce64685976b8d927f9ec2d548be3eb3a43ea593b05d3278a634e9e326f83",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-dmc-complete-v1\\root-cadence-v1\\basic-candidate\\native-proof.json": "fd7ed9f85e48b60764a60726ebd97296ab1b442fc3e7efed4ca9cbd9b7253219",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-dmc-complete-v1\\root-cadence-v1\\pressure-baseline\\native-proof.json": "1424e95722bdaf6a2fc6206981b17d1150f28f597006199e099e37f0edcd8b7c",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-dmc-complete-v1\\root-cadence-v1\\pressure-candidate\\native-proof.json": "7d8e59b8420a376ba3d1eb36e83798ee80012ee460d026653c75c75b8c3a66a2"
+  },
+  "tools": {
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\cv3_dmc_complete_native_v1.py": "0e5303ed758e383f37e9f78dc4ff800266c5a523cb2a25df4ba9c503ff1e7870",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\cv3_dmc_complete_native_v1.lua": "1644b53102c4b0f423f456f9102c89f7ef8be1a79c3dc1bb9b3f21a121b34302",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\z2_platform_native_qa.lua": "3afea42151155616e587917d5612415c3970f66634a9e4af4761e96a1239a4dd",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\observe_chip_committed_write.py": "0922efc482e8a72b72d243ada7629f157c51afd779cee09e0f7bf35fa6235de2",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\run_mesen_isolated.py": "976f197a3712511e821f545e655eaa3f9bcfe95e42a3c6c76b2adca288d2aad3",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\check_tmnt_render_oa.py": "32033893e48055adc9a23c661238e9331dd1db856be51b753ba9b6781eb528e4",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\audit_lua_config_literals.py": "41bc043faca93e19bc029d5d601719723301e97b7d89f0420ea6f9b101a89429"
+  },
+  "qualifier_sha256": "a714166d0fd1155086eeb099a695f9c02267aa03114205c54b80b0ff3b8b1fa9",
+  "scope": "Four fresh independent native Alucard runs, each actual numeric Easy/Hard mode. Controller primary/contact owners and explicitly staged six-Goomba cue-free pressure. Exact actual sample/DAC, bank/NMI/IRQ/SMC/SP/OAM/CHR guards are separate from draw/cadence acceptance. Any lost draw or changed frame row prevents qualification. No campaign, audible waveform, full-roster or universal lag claim."
+}
