@@ -1,0 +1,173 @@
+Kirby / Chip / Dale native vertical-contact investigation, 2026-10-25
+
+External evidence root (D):
+C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/kirby-chip-native-v1
+
+Baseline55:
+55bcfb8209b628062ce1f833a2ed386bd6f08426d34fed9fa8b5ba1f90694be7
+Downloads input was frozen. Complete ROOT source/assets were frozen and
+rebuilt byte-exact to baseline.nes; frozen-inputs.json binds every input.
+No ROOT src, Git, Downloads ROM or user emulator mutation by this worker.
+
+Qualified PRIVATE Chip/Dale candidate:
+D/candidate-v2/candidate.nes
+bc67153ebf740182276cd60a5485ffb59d616d080c719f02d49b51ada4214d98
+D/candidate-v2/implementation.patch
+d54aa06efe998abb14efc76fb2866ceb21e6c40cfc778f697c803d2b2a9b3658
+D/qualification-proof.json is the combined bounded receipt.
+D/packet contains contextual patch, three changed source files, receipt and
+review sheets. Do not copy the full private entrypoint over newer shared work.
+
+Actual native life/order, and why the earlier hypothetical case is insufficient
+
+Weapons run before the ordinary enemy loop. In a legal staged pit, a page1
+Goomba starts at its native ground originY184, flag1/state0, ordinary horizontal
+speed, zero vertical force. Missing ground sets falling state1 and the native
+gravity kernel moves it. At age29 the native high-page write changes1->2,
+lowY1. The next weapons entry sees high2/Y1/state1 at age30. The subsequent
+EnemyGraphicsEngine -> SprObjectOffscrChk -> EraseEnemyObject removes it.
+No fixture write ever sets an enemy high page other than initial1.
+
+This proves a one-update off-page active window, not the old CPU fixture's
+high0/2,lowY184 state. Those arbitrary high/low combinations were not reproduced
+through this native life sequence. Defeated enemies also have state20 set and
+are rejected before the ordinary contact path. Grounded inhale explicitly
+requires page1 and moves lowY toward KirbyY+8; it clears vertical force and
+does not manufacture a borrowed high page. This investigation did not exhaust
+every flying enemy, room or knockback path.
+
+Kirby result: no Kirby guard adopted
+
+The tested copied shots remain in native allowed Y32..231. They do not
+intersect the observed Goomba high2/low1 pre-erase window. Both baseline and
+candidate run four native controls successfully: falling Goomba/watch with
+real copied shots; grounded green-shell copy2; grounded red-Cheep wave copy8;
+actual Select copy discard followed by held-B inhale with both a nearby star
+and eligible Goomba. Actual shot and discard origins are KirbyY+20. Grounded
+suction runs14 times, produces13 exact targetY/playerY+8 pull results with
+zero enemy vertical speed/force, restores ObjectOffset, then captures the
+Goomba before the copy star while preserving six HP. The star remains live.
+
+Final paths:
+D/kirby-baseline-final3/native-proof.json (55, four PASS controls)
+D/kirby-candidate-final3/native-proof.json (bc67, same four PASS controls)
+No Kirby source or family guard is changed. These controls do not certify all
+14 authored copies, every projectile expiry, original atlas parity or routes.
+
+Reachable Chip/Dale defect differs from the original page-only proposal
+
+A legal upper brick platform supports Chip/Dale atY32 above the pit. A real
+Up+B input releases a carried native crate atY24. Native crate physics moves
+it toY12. Simultaneously, the same initially page1 Goomba has naturally fallen
+toY244, still high1/state1. CdBoxEnemies compares only low bytes and accepts
+the 240-pixel separation as a small wrapped difference. Thus a high-page==1
+guard alone would not fix the observed defect.
+
+First preserved native wrong write:
+D/chip-first-wrap5/violations.json and events.jsonl
+wall410, case2, age26, callback PC$A5F8, actual bank79, SP218:
+ObjectOffset is selected for a hit with Goomba high1/Y244, centerY252,
+crateY12, actual gap240. CdDefeatEnemy is then entered at$A608 that same frame.
+Native defeat changes state1 to34 and consumes the crate. The defeated enemy
+crosses to page2 much later, at age52, before normal cleanup. A no-attack
+control instead crosses at age29 and is erased at age30. Both chronologies
+are retained; no off-page state was injected to obtain the contact.
+
+Same final-fixture baseline negatives:
+D/chip-negative-final1/native-proof.json: eleven cases collected, passed=false,
+two first wrong contacts (both facings).
+D/dale-negative-final1/native-proof.json: same eleven cases, passed=false,
+the same two wrong contacts. All valid control behavior remains exercised.
+
+Owner-local repair
+
+Only three private files change:
+ src/chip_dale_boxes.s
+ src/cd_contact_y_window.s (new)
+ src/entrypoint.s (include)
+The existing16-byte vertical comparison span becomes a same-size helper call,
+admission branch and original accepted-result flag reconstruction. The helper
+checks page1 and the actual, nonwrapped enemy-center minus crateY interval
+[-16,15]. It rejects large positive/negative separations and overflow; valid
+accepted A/X/Y/P and application state remain exact. No physics, trajectory,
+damage, source knockback, rendering or lifetime kernel changes.
+
+Only49 PRG bytes differ, exclusively bank79. All old exported labels and RAM
+addresses and every CHR byte are exact; zero new RAM. Both replacements and
+the appended helper include are restricted to ENABLE_MMC5_EXPANDED. Ordinary
+MMC3 and MMC5 compile successfully, hashes respectively:
+d444cac88e13fa02b29ad16100b8f08fa565ba90f8cedde192de43fb2dc8f3eb
+f4ffd2483c51daa4d60bb575da2da8c4d817692cda407611c243031f67520833
+Their build receipts are retained under candidate-v2.
+
+CPU qualification on exactbc67
+
+D/cpu-v2/proof.json passes122,880 calls covering every enemy lowY0..255
+against every visible crateY0..239 at slots0/3;18,432 page0/2/255 negatives;
+82 complete CdBoxEnemies contact-boundary controls for both alternates,
+including -17/-16/15/16 edges and near-top positions. Fifty-four valid contacts
+are exact against55 in all application RAM, A/X/Y/P and stack depth. Only
+hardware stack contents are excluded, because of the added nested helper.
+The actual CdDefeatEnemy entry is intercepted solely to observe CPU admission;
+native effects below execute unmodified in the Mesen cases.
+
+Native exactbc67 qualification
+
+D/chip-positive-final2/native-proof.json:11 PASS
+D/dale-positive-final2/native-proof.json:11 PASS
+Each alternate exercises: falling-enemy no-attack life/order; both-facing
+rejection of the actual distant wrap contact; both-facing valid near-top
+Up-throw overlap with actual native defeat; both-facing grounded pickup and
+horizontal, Up and Down+B throw controls. Horizontal grounded throws defeat
+their front targets. Grounded vertical Up throws and Down-input releases
+exercise their original paths/trajectories and are not claimed to hit those
+horizontally separated targets. Down+B uses the existing hide/horizontal
+release behavior; no separate new downward weapon has been invented.
+
+Together with Kirby's four controls:26 native cases,1,440 completed updates,
+1,440 NMIs,minSP201,1,128,514 upper-stack writes,133 exact DMA/hardware-OAM
+observations and lossless rawARGB/PNG frames. NMI checks preserve physical
+A/C banks, their shadows, five shared SMC operands, accumulator and stack.
+No mapper publication-window exceptions occurred in these final runs.
+Lower-stack guards pass. Actual $4014 bytes equal hardware OAM at each checked
+frame; sky palette remains native22. Kirby's complete final contact sheet and
+selected Chip/Dale contact sheets were visually reviewed. Basic visibility
+and alignment were inspected, not a complete source-pixel parity oracle.
+
+Fixtures use explicit legal block-buffer geometry (ordinary ground, pit and
+upper brick support). Original1-1 nametable scenery remains behind it: the
+test pit/platform geometry is not newly drawn into that background. Therefore
+these images do not establish a naturally discovered original-level route.
+The actual contact and high-page writes are generated by production actor,
+input, gravity and cleanup code. This is stronger than arbitrary high-page
+injection, while remaining a bounded component reachability result.
+
+Preserved unsuccessful probes
+
+chip-probe1 referenced the prior fixture file by mistake; chip-probe2 treated
+raw character ID as a third-row menu index. Both failed before arenas.
+chip-probe3 usedY200/state0 instead of legal native groundY184; native terrain's
+early range return prevented a fall, so the lifetime assertion rejected it.
+The final starting actor is page1/Y184 and falls through native terrain.
+kirby-probe1's write watcher also counted the routine's ordinary STA ownership
+restore as admission. The actual opcode is now required to be the admission
+STX ObjectOffset. No actual Kirby defeat occurred in that failed watcher run.
+candidate-v1/cpu-v1 retained an accepted-path flag difference exposed by the
+admission trap. candidate-v2 reconstructs the original accepted comparison
+result; the full valid-contact ABI differential now passes. Earlier candidates
+and failed evidence remain external and are superseded by the exact final runs.
+
+Reproduction and integration
+
+From the workspace, use tools/audit/kirby_chip_native_run.py with --rom an
+explicit candidate, --output a new external directory, --character14 and
+--variant0, then1. Kirby controls use --character13 --variant0. Pass preferred
+Mesen at the archive's mmc3-flag-fix-v23/script-budget-probe-v2/emulator/Mesen.exe.
+CPU runner: tools/audit/kirby_chip_native_cpu.py --baseline D/baseline.nes
+--rom <new-composition.nes> --output <new external directory>.
+
+One sequential Mesen grant was used and is released. This packet does not
+adopt or push the ROM. ROOT must freshly build any combined composition and
+bind its new hash before adoption. All-items/full-roster/campaign completion,
+untouched-level natural reachability, audio parity, constant60Hz and physical
+console behavior remain open; no such completion claim follows from this work.

@@ -1,0 +1,593 @@
+{
+  "scope": "Cold real menu and controller input; explicit legal native actor/terrain/life component staging at PauseSkip. Actual native coin/Floatey/1Up awards, LmEnsure, injury/death/life loss, Kiai emergence/collision/grant. Exact hardware DMA, real PPU frames, fiveSMC/NMI/banks/SP. No campaign, audio fidelity or performance claim.",
+  "passed": true,
+  "staged": true,
+  "violations": {},
+  "wall_frames": 1119,
+  "ensure_calls": 442,
+  "nmis": 790,
+  "life_awards": [
+    {
+      "bank": 3,
+      "case": 1,
+      "new": 3,
+      "pc": 47115,
+      "old": 2
+    },
+    {
+      "bank": 3,
+      "case": 2,
+      "new": 128,
+      "pc": 47115,
+      "old": 127
+    },
+    {
+      "bank": 3,
+      "case": 3,
+      "new": 0,
+      "pc": 47115,
+      "old": 255
+    },
+    {
+      "bank": 126,
+      "case": 4,
+      "new": 3,
+      "pc": 35210,
+      "old": 2
+    },
+    {
+      "bank": 126,
+      "case": 5,
+      "new": 128,
+      "pc": 35210,
+      "old": 127
+    },
+    {
+      "bank": 126,
+      "case": 6,
+      "new": 0,
+      "pc": 35210,
+      "old": 255
+    },
+    {
+      "bank": 126,
+      "case": 7,
+      "new": 3,
+      "pc": 35210,
+      "old": 2
+    },
+    {
+      "bank": 126,
+      "case": 8,
+      "new": 128,
+      "pc": 35210,
+      "old": 127
+    },
+    {
+      "bank": 126,
+      "case": 9,
+      "new": 0,
+      "pc": 35210,
+      "old": 255
+    },
+    {
+      "bank": 3,
+      "case": 11,
+      "new": 3,
+      "pc": 47115,
+      "old": 2
+    }
+  ],
+  "cases": [
+    {
+      "contacts": 0,
+      "frames": 3,
+      "awards": 1,
+      "dma": 2,
+      "award_wall": 329,
+      "GiveOneCoin": 1,
+      "name": "coin-life2",
+      "new_lives": 3,
+      "before": {
+        "LmStars": 3,
+        "LmPrevious": 0,
+        "NumberofLives": 3,
+        "LmHearts": 9,
+        "LmHealth": 37,
+        "LmAttack": 23,
+        "LmWalk": 17,
+        "LmSuper": 1,
+        "LmLife": 2
+      },
+      "kind": "coin",
+      "award_bank": 3,
+      "rises": 0,
+      "observe_age": 0,
+      "award_pc": 47115,
+      "checks": 1,
+      "old_lives": 2,
+      "after": {
+        "LmStars": 3,
+        "LmPrevious": 0,
+        "NumberofLives": 3,
+        "LmHearts": 9,
+        "LmHealth": 37,
+        "LmAttack": 23,
+        "LmWalk": 17,
+        "LmSuper": 1,
+        "LmLife": 3
+      },
+      "FloateyNumbersCore": 18
+    },
+    {
+      "contacts": 0,
+      "frames": 3,
+      "awards": 1,
+      "dma": 2,
+      "award_wall": 332,
+      "GiveOneCoin": 1,
+      "name": "coin-life127",
+      "new_lives": 128,
+      "before": {
+        "LmStars": 3,
+        "LmPrevious": 0,
+        "NumberofLives": 128,
+        "LmHearts": 9,
+        "LmHealth": 37,
+        "LmAttack": 23,
+        "LmWalk": 17,
+        "LmSuper": 1,
+        "LmLife": 127
+      },
+      "kind": "coin",
+      "award_bank": 3,
+      "rises": 0,
+      "observe_age": 0,
+      "award_pc": 47115,
+      "checks": 1,
+      "old_lives": 127,
+      "after": {
+        "LmStars": 3,
+        "LmPrevious": 0,
+        "NumberofLives": 128,
+        "LmHearts": 9,
+        "LmHealth": 37,
+        "LmAttack": 23,
+        "LmWalk": 17,
+        "LmSuper": 1,
+        "LmLife": 128
+      },
+      "FloateyNumbersCore": 18
+    },
+    {
+      "contacts": 0,
+      "frames": 3,
+      "awards": 1,
+      "dma": 2,
+      "award_wall": 335,
+      "GiveOneCoin": 1,
+      "name": "coin-life255",
+      "new_lives": 0,
+      "before": {
+        "LmStars": 3,
+        "LmPrevious": 0,
+        "NumberofLives": 0,
+        "LmHearts": 9,
+        "LmHealth": 37,
+        "LmAttack": 23,
+        "LmWalk": 17,
+        "LmSuper": 1,
+        "LmLife": 255
+      },
+      "kind": "coin",
+      "award_bank": 3,
+      "rises": 0,
+      "observe_age": 0,
+      "award_pc": 47115,
+      "checks": 1,
+      "old_lives": 255,
+      "after": {
+        "LmStars": 3,
+        "LmPrevious": 0,
+        "NumberofLives": 0,
+        "LmHearts": 9,
+        "LmHealth": 37,
+        "LmAttack": 23,
+        "LmWalk": 17,
+        "LmSuper": 1,
+        "LmLife": 0
+      },
+      "FloateyNumbersCore": 18
+    },
+    {
+      "contacts": 0,
+      "frames": 3,
+      "awards": 1,
+      "dma": 2,
+      "award_wall": 338,
+      "name": "score-life2",
+      "FloateyNumbersCore": 18,
+      "before": {
+        "LmStars": 3,
+        "LmPrevious": 0,
+        "NumberofLives": 3,
+        "LmHearts": 9,
+        "LmHealth": 37,
+        "LmAttack": 23,
+        "LmWalk": 17,
+        "LmSuper": 1,
+        "LmLife": 2
+      },
+      "kind": "score",
+      "award_bank": 126,
+      "rises": 0,
+      "observe_age": 0,
+      "award_pc": 35210,
+      "checks": 1,
+      "old_lives": 2,
+      "after": {
+        "LmStars": 3,
+        "LmPrevious": 0,
+        "NumberofLives": 3,
+        "LmHearts": 9,
+        "LmHealth": 37,
+        "LmAttack": 23,
+        "LmWalk": 17,
+        "LmSuper": 1,
+        "LmLife": 3
+      },
+      "new_lives": 3
+    },
+    {
+      "contacts": 0,
+      "frames": 3,
+      "awards": 1,
+      "dma": 2,
+      "award_wall": 341,
+      "name": "score-life127",
+      "FloateyNumbersCore": 18,
+      "before": {
+        "LmStars": 3,
+        "LmPrevious": 0,
+        "NumberofLives": 128,
+        "LmHearts": 9,
+        "LmHealth": 37,
+        "LmAttack": 23,
+        "LmWalk": 17,
+        "LmSuper": 1,
+        "LmLife": 127
+      },
+      "kind": "score",
+      "award_bank": 126,
+      "rises": 0,
+      "observe_age": 0,
+      "award_pc": 35210,
+      "checks": 1,
+      "old_lives": 127,
+      "after": {
+        "LmStars": 3,
+        "LmPrevious": 0,
+        "NumberofLives": 128,
+        "LmHearts": 9,
+        "LmHealth": 37,
+        "LmAttack": 23,
+        "LmWalk": 17,
+        "LmSuper": 1,
+        "LmLife": 128
+      },
+      "new_lives": 128
+    },
+    {
+      "contacts": 0,
+      "frames": 3,
+      "awards": 1,
+      "dma": 2,
+      "award_wall": 344,
+      "name": "score-life255",
+      "FloateyNumbersCore": 18,
+      "before": {
+        "LmStars": 3,
+        "LmPrevious": 0,
+        "NumberofLives": 0,
+        "LmHearts": 9,
+        "LmHealth": 37,
+        "LmAttack": 23,
+        "LmWalk": 17,
+        "LmSuper": 1,
+        "LmLife": 255
+      },
+      "kind": "score",
+      "award_bank": 126,
+      "rises": 0,
+      "observe_age": 0,
+      "award_pc": 35210,
+      "checks": 1,
+      "old_lives": 255,
+      "after": {
+        "LmStars": 3,
+        "LmPrevious": 0,
+        "NumberofLives": 0,
+        "LmHearts": 9,
+        "LmHealth": 37,
+        "LmAttack": 23,
+        "LmWalk": 17,
+        "LmSuper": 1,
+        "LmLife": 0
+      },
+      "new_lives": 0
+    },
+    {
+      "contacts": 0,
+      "frames": 8,
+      "awards": 1,
+      "dma": 7,
+      "award_wall": 352,
+      "HandlePowerUpCollision": 1,
+      "name": "oneup-life2",
+      "FloateyNumbersCore": 48,
+      "before": {
+        "LmStars": 3,
+        "LmPrevious": 0,
+        "NumberofLives": 3,
+        "LmHearts": 9,
+        "LmHealth": 37,
+        "LmAttack": 18,
+        "LmWalk": 17,
+        "LmSuper": 1,
+        "LmLife": 2
+      },
+      "kind": "oneup",
+      "award_bank": 126,
+      "rises": 0,
+      "observe_age": 5,
+      "award_pc": 35210,
+      "after": {
+        "LmStars": 3,
+        "LmPrevious": 0,
+        "NumberofLives": 3,
+        "LmHearts": 9,
+        "LmHealth": 37,
+        "LmAttack": 18,
+        "LmWalk": 17,
+        "LmSuper": 1,
+        "LmLife": 3
+      },
+      "old_lives": 2,
+      "checks": 1,
+      "new_lives": 3
+    },
+    {
+      "contacts": 0,
+      "frames": 8,
+      "awards": 1,
+      "dma": 7,
+      "award_wall": 360,
+      "HandlePowerUpCollision": 1,
+      "name": "oneup-life127",
+      "FloateyNumbersCore": 48,
+      "before": {
+        "LmStars": 3,
+        "LmPrevious": 0,
+        "NumberofLives": 128,
+        "LmHearts": 9,
+        "LmHealth": 37,
+        "LmAttack": 18,
+        "LmWalk": 17,
+        "LmSuper": 1,
+        "LmLife": 127
+      },
+      "kind": "oneup",
+      "award_bank": 126,
+      "rises": 0,
+      "observe_age": 5,
+      "award_pc": 35210,
+      "after": {
+        "LmStars": 3,
+        "LmPrevious": 0,
+        "NumberofLives": 128,
+        "LmHearts": 9,
+        "LmHealth": 37,
+        "LmAttack": 18,
+        "LmWalk": 17,
+        "LmSuper": 1,
+        "LmLife": 128
+      },
+      "old_lives": 127,
+      "checks": 1,
+      "new_lives": 128
+    },
+    {
+      "contacts": 0,
+      "frames": 8,
+      "awards": 1,
+      "dma": 7,
+      "award_wall": 368,
+      "HandlePowerUpCollision": 1,
+      "name": "oneup-life255",
+      "FloateyNumbersCore": 48,
+      "before": {
+        "LmStars": 3,
+        "LmPrevious": 0,
+        "NumberofLives": 0,
+        "LmHearts": 9,
+        "LmHealth": 37,
+        "LmAttack": 18,
+        "LmWalk": 17,
+        "LmSuper": 1,
+        "LmLife": 255
+      },
+      "kind": "oneup",
+      "award_bank": 126,
+      "rises": 0,
+      "observe_age": 5,
+      "award_pc": 35210,
+      "after": {
+        "LmStars": 3,
+        "LmPrevious": 0,
+        "NumberofLives": 0,
+        "LmHearts": 9,
+        "LmHealth": 37,
+        "LmAttack": 18,
+        "LmWalk": 17,
+        "LmSuper": 1,
+        "LmLife": 0
+      },
+      "old_lives": 255,
+      "checks": 1,
+      "new_lives": 0
+    },
+    {
+      "staged_area_marker_only": true,
+      "FloateyNumbersCore": 18,
+      "contacts": 0,
+      "frames": 3,
+      "dma": 2,
+      "rises": 0,
+      "observe_age": 0,
+      "area_before": 194,
+      "kind": "area",
+      "checks": 1,
+      "name": "staged-area-marker-control"
+    },
+    {
+      "contacts": 0,
+      "frames": 333,
+      "awards": 1,
+      "dma": 1,
+      "award_wall": 374,
+      "GiveOneCoin": 1,
+      "PlayerLoseLife": 1,
+      "name": "coin-gain-then-actual-death",
+      "KillPlayer": 1,
+      "new_lives": 3,
+      "before": {
+        "LmStars": 3,
+        "LmPrevious": 0,
+        "NumberofLives": 3,
+        "LmHearts": 9,
+        "LmHealth": 37,
+        "LmAttack": 23,
+        "LmWalk": 17,
+        "LmSuper": 1,
+        "LmLife": 2
+      },
+      "kind": "death",
+      "LmResetGate": 1,
+      "death_return": {
+        "mode": 1,
+        "lives": 2,
+        "health": 0,
+        "marker": 3
+      },
+      "award_bank": 3,
+      "rises": 0,
+      "after_death_lives": 2,
+      "decrements": 1,
+      "award_pc": 47115,
+      "LmDeathStartGate": 1,
+      "checks": 1,
+      "old_lives": 2,
+      "after": {
+        "LmStars": 3,
+        "LmPrevious": 0,
+        "NumberofLives": 3,
+        "LmHearts": 9,
+        "LmHealth": 37,
+        "LmAttack": 23,
+        "LmWalk": 17,
+        "LmSuper": 1,
+        "LmLife": 3
+      },
+      "FloateyNumbersCore": 1032
+    },
+    {
+      "FloateyNumbersCore": 1020,
+      "contacts": 0,
+      "kind": "gameover",
+      "death_return": {
+        "mode": 3,
+        "lives": 255,
+        "health": 0,
+        "marker": 0
+      },
+      "dma": 1,
+      "rises": 0,
+      "after_death_lives": 255,
+      "decrements": 1,
+      "PlayerLoseLife": 1,
+      "name": "last-life-game-over",
+      "KillPlayer": 1,
+      "LmDeathStartGate": 1,
+      "checks": 0,
+      "frames": 171
+    },
+    {
+      "FloateyNumbersCore": 12,
+      "contacts": 0,
+      "frames": 228,
+      "X5InventoryInit": 1,
+      "X5ProfilesNewGame": 1,
+      "rises": 0,
+      "name": "real-game-over-to-new-game",
+      "newgame_cleared": true,
+      "kind": "newgame",
+      "checks": 0,
+      "LmResetGate": 2
+    }
+  ],
+  "native_rise_calls": 0,
+  "nmi_mapper_store_windows": {},
+  "real_block_reveals": 0,
+  "native_collections": 0,
+  "min_sp_sampled_at_native_entries": 187,
+  "emulator_exit": 0,
+  "ROM_sha256": "220be8247baf877785c91244876038354442e68502b3f837920f39a674a1fa3e",
+  "ROM_path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\pickup-contact-fixes-combined-v1\\candidate.nes",
+  "fixture_sha256": "ed016da571641331f573e242fd0ac0123157205083c6ad0de78520847d905efa",
+  "runner_sha256": "b02d156060b8467cb4b52680b0947aa092bd4624102ef1eef8288574b3d0119c",
+  "script_sha256": "d6f0d04203c1296cf8d06f1b69012232c264e7b84106e2799e320cb78fbe92cf",
+  "emulator_sha256": "8b92daa209ee5052845e02a663aeb1afd6194eca55d86e6628c51114c61da0a9",
+  "physical_frames": [
+    {
+      "file": "case-1-result.argb",
+      "sha256": "403731f1e31c6ef763536f036719b849e7106b6b590e24d16daf2dd84dd35bfe"
+    },
+    {
+      "file": "case-10-result.argb",
+      "sha256": "350b2d14010e779bb0063033e7c4d15ef398ea90d5c94ab8f4c029caa14fb4d4"
+    },
+    {
+      "file": "case-2-result.argb",
+      "sha256": "b2a22448cd6ab611af36a16ecdf4fb027696d7376ed353e2d3cbe19fe0e19339"
+    },
+    {
+      "file": "case-3-result.argb",
+      "sha256": "d7d44d806a38cfcced657bdf2e9f238406996eaff4f579e34d3557b5948ed594"
+    },
+    {
+      "file": "case-4-result.argb",
+      "sha256": "9d1ac7196575aca2cc7136558427a34188ae639c93dee6a959f92cb1cf512bec"
+    },
+    {
+      "file": "case-5-result.argb",
+      "sha256": "9d1ac7196575aca2cc7136558427a34188ae639c93dee6a959f92cb1cf512bec"
+    },
+    {
+      "file": "case-6-result.argb",
+      "sha256": "9d1ac7196575aca2cc7136558427a34188ae639c93dee6a959f92cb1cf512bec"
+    },
+    {
+      "file": "case-7-result.argb",
+      "sha256": "077221b6e6e1e5d341a436f579e986925f3fecf901da9917403294bc7b49e921"
+    },
+    {
+      "file": "case-8-result.argb",
+      "sha256": "0d67e2a9a8d2ba39ccb44c4c183dcd63ccd1062af580e904c8318d84c6ffa369"
+    },
+    {
+      "file": "case-9-result.argb",
+      "sha256": "ec2db65a19f672af7d81acf5ad5a58da2e3feb4ba788aa8f0cd1bfa7be9707a7"
+    }
+  ],
+  "goal_complete": false
+}

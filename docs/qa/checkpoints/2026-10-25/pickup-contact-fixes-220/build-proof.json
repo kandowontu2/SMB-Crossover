@@ -1,0 +1,53 @@
+{
+  "passed": true,
+  "adopted": false,
+  "goal_complete": false,
+  "ROM_sha256": "220be8247baf877785c91244876038354442e68502b3f837920f39a674a1fa3e",
+  "parent_ROM_sha256": "55bcfb8209b628062ce1f833a2ed386bd6f08426d34fed9fa8b5ba1f90694be7",
+  "changed_PRG_banks": [
+    79,
+    87,
+    93
+  ],
+  "changed_bytes": 124,
+  "all_preexisting_qualified_addresses_exact": true,
+  "qualified_symbols": 54150,
+  "header_and_CHR_exact": true,
+  "new_RAM_bytes": 0,
+  "exact_complete_bank_donors": {
+    "79": "bc67153ebf740182276cd60a5485ffb59d616d080c719f02d49b51ada4214d98",
+    "87,93": "db72553449649a911c025b2bf5816d49c49c16810e714fad9f61e297b4248949"
+  },
+  "ordinary_target_hashes": {
+    "mmc3": "d444cac88e13fa02b29ad16100b8f08fa565ba90f8cedde192de43fb2dc8f3eb",
+    "mmc5": "f4ffd2483c51daa4d60bb575da2da8c4d817692cda407611c243031f67520833"
+  },
+  "source_files": {
+    "src/tmnt_equipment.s": {
+      "before_sha256": "5651009ba33902aabbbd8b988a8d484c36106c621dbca4da2115144f7e9c6410",
+      "after_sha256": "3d1b14592de5662b2beee058b739de6db29283f899c7f39af8ba5d9757160a34"
+    },
+    "src/little_mac_core.s": {
+      "before_sha256": "5de04ebf3fff49ebc7701773b6d0aca1ba07011a30bec229a14a55e1448eff3a",
+      "after_sha256": "3a5ca46bc8928bf8f9d321c71d17c9583be40cf1e85b75f20ca0b68fe4b8bfaa"
+    },
+    "src/mac_tmnt_lifecycle.s": {
+      "before_sha256": null,
+      "after_sha256": "2ab360925946194cfa68270991f0aa32854b077dd0f87c339ebf2462bf8fdb86"
+    },
+    "src/chip_dale_boxes.s": {
+      "before_sha256": "3cfb0c681a216010cdec393e1b026d50235d88195e041ca061228ba25b2c587a",
+      "after_sha256": "021184e737a4029583d344fbac75a2c3b46a45b29574b9333291835daf71c711"
+    },
+    "src/cd_contact_y_window.s": {
+      "before_sha256": null,
+      "after_sha256": "aef12722ceb56757b1f2a5b973c23cfede089be467c2af5ecd794716ae2255f2"
+    },
+    "src/entrypoint.s": {
+      "before_sha256": "b4b3da546e462b22d388c8e65a69b96003afacf70635b928ac8ebc86540b01f8",
+      "after_sha256": "1fd17365e6fde05d6948d82873b13dddc0b973c98b503091053de2f93ddba18f"
+    }
+  },
+  "implementation_patch_sha256": "1eaa5537415a6a4cadbe44c58e9b1e6ffc1b9cb1ab5f58fdbd97762184045e9b",
+  "scope": "Fresh composition of three disjoint repaired banks. All other bytes equal current55. Native combined-build rerun remains required before adoption."
+}

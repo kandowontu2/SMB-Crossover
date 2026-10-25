@@ -39,9 +39,9 @@ Active:pla
  lda LmReady
  cmp #$4d
  jne NewLife
- lda LmLife
- cmp NumberofLives
- jne NewLife
+ jsr LmLifeAdvanced
+ jcc NewLife
+ .res 3,$ea ; retain the original life-test span
  lda AreaPointer
  cmp LmArea
  jne Area

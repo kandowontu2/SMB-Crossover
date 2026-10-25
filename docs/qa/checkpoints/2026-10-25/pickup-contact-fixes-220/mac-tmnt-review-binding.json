@@ -1,0 +1,109 @@
+{
+  "passed": true,
+  "adopted": false,
+  "parent_ROM_sha256": "55bcfb8209b628062ce1f833a2ed386bd6f08426d34fed9fa8b5ba1f90694be7",
+  "ROM_sha256": "db72553449649a911c025b2bf5816d49c49c16810e714fad9f61e297b4248949",
+  "implementation": {
+    "passed": true,
+    "adopted": false,
+    "baseline_sha256": "55bcfb8209b628062ce1f833a2ed386bd6f08426d34fed9fa8b5ba1f90694be7",
+    "ROM_sha256": "db72553449649a911c025b2bf5816d49c49c16810e714fad9f61e297b4248949",
+    "changed_ROM_bytes": 75,
+    "changed_PRG_banks": [
+      87,
+      93
+    ],
+    "qualified_old_symbols_exact": 54150,
+    "all_CHR_exact": true,
+    "new_RAM_bytes": 0,
+    "ordinary_target_hashes": {
+      "mmc3": "d444cac88e13fa02b29ad16100b8f08fa565ba90f8cedde192de43fb2dc8f3eb",
+      "mmc5": "f4ffd2483c51daa4d60bb575da2da8c4d817692cda407611c243031f67520833"
+    },
+    "ordinary_flagoff_byte_exact": true,
+    "source_files": {
+      "src/tmnt_equipment.s": "3d1b14592de5662b2beee058b739de6db29283f899c7f39af8ba5d9757160a34",
+      "src/little_mac_core.s": "3a5ca46bc8928bf8f9d321c71d17c9583be40cf1e85b75f20ca0b68fe4b8bfaa",
+      "src/mac_tmnt_lifecycle.s": "2ab360925946194cfa68270991f0aa32854b077dd0f87c339ebf2462bf8fdb86",
+      "src/entrypoint.s": "bf6e857d7061ff02d94d04ab732ccf265e793a62cf4d90caa2c574d8dd1389cd"
+    },
+    "patch_sha256": "a2413e7b31ec757cefaf765bd42045c25026e0d10ced5bf1240401dd8eb06ef6",
+    "scope": "Private current55 composition plus exact ordinary mapper controls. Native qualification pending."
+  },
+  "source_zip_files": 636,
+  "evidence": {
+    "mac-baseline-v1/native-proof.json": "d61c10813d9e05ed646de2a4abf94456dfa6e4d44ceb4016253a90b25585b156",
+    "mac-candidate-v1/native-proof.json": "e098a9606a9cc453373d7027bd44d21a3a1bf2980ab4cbead21639c5ff155c06",
+    "tmnt-baseline-v1/native-proof.json": "c635354b032633a2bc9d62161fede931896acab6f081811d97f92ef7b81e0cf9",
+    "tmnt-candidate-v1/native-proof.json": "cf0e082d2a1bd8cbf80f197fafb5c1c71f6e767b56058e80624c84f6a477796f",
+    "build-proof.json": "810634ab7fa7fbefc54ecffb673814a165e7717e03d1868a9890c3fc2238028b",
+    "cpu-v1/proof.json": "f77870f8fd0b4c31186a7d994413e84cfa4e13816eb160c2316f433e483d7338",
+    "cpu-v1/prior-regression/preserved-failures.json": "abba21258ada7e861d27a23a1772f566f409dcc60155c45cc8bf2c018d4f73ca",
+    "implementation.patch": "a2413e7b31ec757cefaf765bd42045c25026e0d10ced5bf1240401dd8eb06ef6",
+    "baseline.nes": "55bcfb8209b628062ce1f833a2ed386bd6f08426d34fed9fa8b5ba1f90694be7",
+    "candidate.nes": "db72553449649a911c025b2bf5816d49c49c16810e714fad9f61e297b4248949",
+    "source.zip": "295797ae8a0d683621c147c82be698772ff95c1aa6b3fd7c34a411ea3655e942"
+  },
+  "native": {
+    "mac": {
+      "candidate_cases": 13,
+      "preserved_baseline_failures": 10,
+      "candidate_frames": 1119,
+      "candidate_NMIs": 790,
+      "sampled_min_SP": 187,
+      "hardware_frame_count": 10
+    },
+    "tmnt": {
+      "candidate_cases": 37,
+      "preserved_baseline_failures": 26,
+      "candidate_frames": 2607,
+      "candidate_NMIs": 1952,
+      "sampled_min_SP": 207,
+      "hardware_frame_count": 74,
+      "real_question_block_reveals": 1,
+      "native_rise_calls": 1776,
+      "native_collections": 25
+    }
+  },
+  "primary_source_bindings": {
+    "src/tmnt_equipment.s": "5651009ba33902aabbbd8b988a8d484c36106c621dbca4da2115144f7e9c6410",
+    "src/tmnt_equipment_draw.s": "2a8a7d424332011ed3d9b451d23657fc84272316aebbade577e9d1ee44c0ea38",
+    "src/union_rare.s": "bed9ed8d5da8273af514eeb9b79e53119ee9fedb394ec251ecda6228641ffc4a",
+    "src/collision.s": "2b37a28152254dc4cf80cee3d98cc4436e5dde61c954559effc509af687d0f6b",
+    "src/game.s": "328bae039dbce7ae75e78bb552ef653fb0333dbb02146dee72888b70651a0f94",
+    "src/screen_render.s": "f878d4dbc01ac01bc427624f31f66d2233b576d3677ce61d974164eef873299e",
+    "src/little_mac_core.s": "5de04ebf3fff49ebc7701773b6d0aca1ba07011a30bec229a14a55e1448eff3a",
+    "src/little_mac_state.inc": "0b690fbc2b4b7c7b0c9740db87ef2570e6e4b95996062c7215cb599b191b6587",
+    "src/tmnt_state.inc": "59f8da52ed66bb628736c1cbcf313746f21e92701c6c3f24279b4389bb71956e",
+    "src/x5_profiles.s": "fcf4c20242e35cdaef1cb3950312306eeba63b11600e6389fe9634d7d20cd0fa",
+    "src/player.s": "51d01453537a2bcc3f209f45948c203e6b0cec298c5b967aa5b0bd773f1e618b"
+  },
+  "owned_tools": {
+    "tools/audit/mac_tmnt_native_helpers.candidate.s": "2ab360925946194cfa68270991f0aa32854b077dd0f87c339ebf2462bf8fdb86",
+    "tools/audit/mac_tmnt_native_prepare.py": "95b65653e02464ddcd0ee010d59f00f25a7080aaa3073d23d64a05c8a5ea4ede",
+    "tools/audit/mac_tmnt_native_fixture.lua": "ed016da571641331f573e242fd0ac0123157205083c6ad0de78520847d905efa",
+    "tools/audit/mac_tmnt_native_run.py": "b02d156060b8467cb4b52680b0947aa092bd4624102ef1eef8288574b3d0119c",
+    "tools/audit/mac_tmnt_native_cpu.py": "e6aa9645e9c24c8bb0e45a5413dd2fdb22889b748e7cf0cb6aed6c04e5000fdd",
+    "tools/audit/mac_tmnt_native_finalize.py": "9fec46d996f697fd6c64319c1716596c3cb5a003f54303acffca4350577274e4"
+  },
+  "dependencies": {
+    "tools/build_mmc5_expanded.py": "bcb213c2dfc975d2fba4a2c401d46e63977a6796958a4691e94482920fd36b00",
+    "tools/run_mesen.py": "84070d3017992819cc02c7cb8502d43e4e25f24e42133491926b101cf8cdd305",
+    "tools/audit/run_mesen_isolated.py": "976f197a3712511e821f545e655eaa3f9bcfe95e42a3c6c76b2adca288d2aad3",
+    "tools/audit/vehicles_mike_mac_audit_cpu_v1.py": "06caec85324999c0ddc4610ac40b4c8f18203606c7ce27359ef45df83a5728e4",
+    "tools/audit/check_tmnt_render_oa.py": "32033893e48055adc9a23c661238e9331dd1db856be51b753ba9b6781eb528e4",
+    "tools/audit/link_pit_rygar_sophia_audit_cpu.py": "15ef348bc124a97d8ef2c8a56777180276271b44fb77c8ace7e62c2a50310113",
+    "tools/audit/verify_native_relocation.py": "1bab7154bc2e5468e827087d14030a7e30c4d3676db5e775ef15de4d0c34ce11",
+    "tools/audit/check_tmnt_audio_fallback_oc.py": "ea61148dbd4c4804b89e7fd02388558bb1bce573ae451fc6eb89d82ccccc5232",
+    "tools/audit/observe_chip_committed_write.py": "1b0533e4d789847324789d45cb9e77ac8fa6f05154b3334b11184469b3774bf4"
+  },
+  "Mesen_worker_released": true,
+  "open_limits": [
+    "Area control explicitly stages a legal marker change; no natural pipe traversal claimed.",
+    "TMNT variant matrix tests indexed health/equipment ownership, not cold-menu art/palette fidelity for all four turtles.",
+    "No audio change. Previously qualified native TMNT music proposal remains held for performance regression.",
+    "No full route/campaign/hardware, frame-rate improvement or all-weapon fidelity claim.",
+    "Mac modular gain/loss distinction assumes bounded native events; 127+ simultaneous counter changes are not qualified."
+  ],
+  "scope": "Two source-backed repairs, byte-exact ordinary controls, preserved identical-fixture baseline failures and exact-candidate native/CPU regression. ROOT must compose and rerun its exact resulting build before adoption."
+}

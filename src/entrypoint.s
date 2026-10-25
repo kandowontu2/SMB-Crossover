@@ -463,3 +463,11 @@ Done:
 .if ::ENABLE_MMC5_EXPANDED
 .include "smb3_projectile_damage.s"
 .endif
+
+.if ::ENABLE_MMC5_EXPANDED
+.include "mac_tmnt_lifecycle.s"
+.endif
+
+.if ::ENABLE_MMC5_EXPANDED
+.include "cd_contact_y_window.s"
+.endif

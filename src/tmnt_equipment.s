@@ -253,14 +253,8 @@ Own:
  asl
  asl
  tay
- lda Enemy_X_Position,x
- clc
- adc #4
- sta EnemyBoundingBoxCoord,y
- lda Enemy_X_Position,x
- clc
- adc #12
- sta EnemyBoundingBoxCoord+2,y
+ jsr TnPickupScreenBox
+ .res 13,$ea ; retain the original sixteen-byte span
  lda Enemy_Y_Position,x
  clc
  adc #4

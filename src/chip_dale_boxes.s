@@ -354,6 +354,14 @@ Loop:
  lda R0
  cmp #32
  bcs Next
+ .if ::ENABLE_MMC5_EXPANDED
+ jsr CdContactYWindow
+ bcc Next
+ clc
+ adc #16
+ cmp #32
+ .res 6,$ea
+ .else
  lda Enemy_Y_Position,x
  clc
  adc #8
@@ -363,6 +371,7 @@ Loop:
  adc #16
  cmp #32
  bcs Next
+ .endif
  stx ObjectOffset
  jsr CdDefeatEnemy
  ldx CdSlot

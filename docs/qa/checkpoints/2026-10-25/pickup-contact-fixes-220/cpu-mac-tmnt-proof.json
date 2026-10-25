@@ -1,0 +1,25 @@
+{
+  "passed": true,
+  "baseline_sha256": "55bcfb8209b628062ce1f833a2ed386bd6f08426d34fed9fa8b5ba1f90694be7",
+  "ROM_sha256": "220be8247baf877785c91244876038354442e68502b3f837920f39a674a1fa3e",
+  "full_byte_life_cases": 1024,
+  "gain_then_actual_assembled_ensure_loss_cases": 512,
+  "canonical_native_DEC_BPL_decisions": 256,
+  "prior_regression": {
+    "base_ROM_sha256": "55bcfb8209b628062ce1f833a2ed386bd6f08426d34fed9fa8b5ba1f90694be7",
+    "candidate_ROM_sha256": "220be8247baf877785c91244876038354442e68502b3f837920f39a674a1fa3e",
+    "qualified_existing_symbols_checked": 54150,
+    "tool_sha256": "06caec85324999c0ddc4610ac40b4c8f18203606c7ce27359ef45df83a5728e4",
+    "passed": true,
+    "cases": {
+      "TMNT_scrolled_pickup_boxes_and_real_collision_core": 3696,
+      "TMNT_native_edge_clipping": 180,
+      "TMNT_48_update_physical_emergence_and_collection": 24,
+      "Mac_unchanged_gain_loss_then_gain_to_death": 3528,
+      "Mac_area_and_new_game_controls": 2
+    },
+    "scope": "Actual assembled CPU routines in legal isolated RAM states. No interrupts, PPU, natural controller pickup, music or campaign verification."
+  },
+  "tool_sha256": "e6aa9645e9c24c8bb0e45a5413dd2fdb22889b748e7cf0cb6aed6c04e5000fdd",
+  "scope": "Actual assembled CPU component routines. All byte values cover counter behavior, not claims all counts are naturally reached. Delta classification is valid for bounded native 0/+1/+2/-1 events; 127+ simultaneous gains unproved. Canonical high-count signed game-over rule unchanged. Prior component area/new-game and TMNT box/edge/rise/core coverage retained. Interrupt and visible actor qualification is separate."
+}

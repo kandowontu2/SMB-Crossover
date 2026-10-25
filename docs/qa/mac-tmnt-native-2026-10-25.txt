@@ -1,0 +1,140 @@
+Mac life gains / TMNT scrolled Kiai: finite native follow-up, 2026-10-25
+
+Private source proposal, ready for ROOT composition and exact-result rerun.
+No ROOT src/config/Git/Downloads or music was changed. The sequential Mesen
+worker grant has been released; no task emulator process remains.
+
+Exact parent: 55bcfb8209b628062ce1f833a2ed386bd6f08426d34fed9fa8b5ba1f90694be7
+Private ROM: db72553449649a911c025b2bf5816d49c49c16810e714fad9f61e297b4248949
+Parent frozen source rebuilt byte exact before editing. Candidate changes
+75 ROM bytes in PRG banks87/93. All 54,150 old qualified named symbols,
+all CHR, and existing RAM addresses remain exact; zero new RAM allocated.
+Ordinary flag-off MMC3 and MMC5 builds are byte identical to their parent.
+
+External packet D:
+C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/mac-tmnt-native-v1
+Review-binding SHA256:
+f1958c7c87fc21acd7959dab7c54fcf8335f251a97d85fdc00aa0d131b5fb594
+Complete private source ZIP SHA256:
+295797ae8a0d683621c147c82be698772ff95c1aa6b3fd7c34a411ea3655e942
+Implementation patch SHA256:
+a2413e7b31ec757cefaf765bd42045c25026e0d10ced5bf1240401dd8eb06ef6
+
+Repair and primary source bindings
+---------------------------------
+Family | Existing behavior | Confirmed defect | Repair / adaptation / limit
+Mac | Punch-Out timing/run art; adapted SMB motion, stars/stamina/HP |
+  LmEnsure treats native extra life as death, erasing resources and move |
+  Append same-bank modular life helper; preserve gains, record new marker,
+  reset after subsequent death. Boxing/1-Up coexistence is an SMB adapter.
+TMNT | Native equipment item/state, per-turtle gear/ammo, 48-call emergence |
+  Pickup uses world-low X while sprite and native bbox use relative X |
+  Append same-bank screen-box helper and native edge clipping. No altered
+  reward, emergence duration, graphics or RAM. SMB collision is an adapter.
+
+Primary evidence is the frozen project's actual source and assembled code:
+src/little_mac_core.s LmEnsure/LmClear/LmInjuryGate/LmDeathStartGate;
+src/player.s PlayerLoseLife; src/screen_render.s GiveOneCoin;
+src/game.s FloateyNumbersCore; src/collision.s HandlePowerUpCollision;
+src/x5_profiles.s X5InventoryInit/X5ProfilesNewGame;
+src/tmnt_equipment.s TnPreparePickupDispatch/TnRisePickupDispatch/
+TnPickupCollisionDispatch/TnCollectEquipment;
+src/tmnt_equipment_draw.s item anchor; src/union_rare.s UnionPwrUpCore.
+Their exact frozen digests are in review-binding.json. These are native
+project integration oracles, not claims that Punch-Out supplied an SMB life
+system or that the original TMNT supplied SMB mushroom-block mechanics.
+
+First wrong writes reproduced on exact55 assembled CPU:
+TMNT bank87 PC$A920 -> $0670 =204; visible X120 requires124. World X968,
+camera848: old box [204,124,212,134], corrected [124,124,132,134].
+Mac bank93 PC$A03D -> $5F20 =96 on a native 2->3 gain. HP37/stars3/
+stamina9/attack24 became96/0/20/0. Native write logs additionally preserve
+the actual counter INC and reset writes; Mesen write callbacks report the
+post-instruction PC, while CPU component traces report the instruction PC.
+
+Counter semantics inspected rather than assumed
+----------------------------------------------
+Native coin and delayed score/1-Up awards use INC NumberofLives, including
+255->0. A short positive modular delta must retain boxing state at that
+wrap. Death uses DEC, including0->255, then the original signed BPL rule.
+The patch leaves that rule unchanged: death128->127 continues, whereas
+death129->128 reaches Game Over. New-game initialization clears LmReady
+through X5ProfilesNewGame before defaults are re-established. Recording
+each gain matters: gain2->3 followed by death3->2 must reset correctly.
+The modular helper assumes bounded native counter changes; 127+ concurrent
+gains are outside qualification. No native path produces such an event.
+
+Matched native qualification
+----------------------------
+Mesen SHA256:
+8b92daa209ee5052845e02a663aeb1afd6194eca55d86e6628c51114c61da0a9
+AllZeros, randomized CPU/PPU/mapper alignment off, doNotSaveSettings.
+Each family starts cold and reaches the real character selection by input.
+No synthetic CPU calls, return rewriting, bank forcing or emulator stepping
+past failed instructions. Legal component states are explicitly staged at
+PauseSkip; assertions and cases are identical for parent and candidate.
+
+Mac:13 cases,1,119 physical frames,790 guarded NMIs, sampled minimum SP187.
+Real coin collection/native score award/actual 1-Up actor collision each
+produce source INC at2->3,127->128,255->0. Entry/return snapshots around
+actual LmEnsure preserve HP, stars, stamina and the live attack state;
+normal attack countdown is not falsely reported as loss. Actual Goomba
+contact kills after a gain; canonical decrement and respawn restore boxing
+defaults. Last-life death reaches Game Over, then real input returns to
+title/selection/new game; the actual initializer clears the persistent
+record and the next session initializes defaults. The separate area case
+explicitly stages a legal area-marker change and checks persistent-resource
+retention/transient reset; it is NOT a natural shortcut-pipe route proof.
+Parent runs all13 cases and preserves10 life-gain reset failures.
+
+TMNT:37 cases,2,607 physical frames,1,952 guarded NMIs, sampled minimum SP207.
+First mushroom block at world336,Y144 is genuinely reached and bumped by
+jump input after real navigation. Actual UnionPwrUpCore/private prepare
+emits full-HP flower Kiai at336,136, owner19, type1, stamp4, state1. It rises
+for48 actual handler calls toY120/state128, then actual collision grants
+gear4/ammo20. Legal clones of that observed actor cover four indexed turtle
+records, slots0/5, camera lows0/80/240, eight distant old-coordinate misses,
+and four opposite-edge guards. Total1,776 real rise calls and25 collections.
+Parent runs all37 cases and preserves26 visible-miss/ghost/edge failures.
+The variant matrix proves indexed mechanical ownership, not separate cold
+palette/art fidelity for every turtle. Staged cameras retain the already
+loaded terrain artwork; those images are not route or terrain-cache tests.
+
+Every candidate run checks actual NMI A/C bank restoration, mirror-store
+interrupt windows, five SMC operand bytes, A/SP preservation and a stack
+sentinel just above copied SMC. Active-game DMA is compared byte-for-byte
+with hardware OAM;84 raw PPU frames plus PNGs are retained and inspected.
+Title initialization uses different OAM operations and is not labeled an
+active-game DMA comparison. Sampled SP is not an every-instruction minimum.
+
+Assembled CPU regression
+------------------------
+Prior7,430 cases pass on this exact composition:3,696 scrolled boxes with
+real rectangle-core contacts,180 native clips,24 full rises/collections,
+3,528 Mac life/state cases and2 area/new-game controls. An additional1,024
+full-byte life tests cover0/+1/+2/-1;512 positive cases then execute loss
+through the actual ensure routine. All256 canonical DEC/BPL outcomes pass.
+High counter cases characterize code behavior, not natural-game reachability.
+
+Reproduce / integrate
+---------------------
+Owned tools: mac_tmnt_native_prepare.py, mac_tmnt_native_helpers.candidate.s,
+mac_tmnt_native_run.py, mac_tmnt_native_fixture.lua, mac_tmnt_native_cpu.py,
+mac_tmnt_native_finalize.py under tools/audit. Their exact digests and all
+test dependencies are recorded in review-binding.json. Production proposal
+changes only source/src/{tmnt_equipment.s,little_mac_core.s,entrypoint.s}
+and adds source/src/mac_tmnt_lifecycle.s in the private packet.
+
+Native command (new external output for each run):
+python tools/audit/mac_tmnt_native_run.py --rom <exact ROM with dbg/lbl/map>
+  --output <external output> --emulator <Mesen.exe> --character 15
+Repeat with --character19. Parent preservation additionally uses --diagnostic.
+Candidate outputs: mac-candidate-v1 and tmnt-candidate-v1.
+Parent outputs: mac-baseline-v1 and tmnt-baseline-v1.
+CPU output: cpu-v1; build controls: build-proof.json.
+
+ROOT must compare donor-bank equality and rerun the native fixture against
+the composed exact hash before adoption. No full campaign, natural pipe
+route, physical hardware, lag improvement or audio-fidelity claim is made.
+The separate TMNT native-music proposal remains HELD because its matched
+primary/triple scenes added skipped draws. This packet does not include it.

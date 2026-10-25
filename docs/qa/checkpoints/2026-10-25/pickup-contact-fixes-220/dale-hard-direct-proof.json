@@ -1,0 +1,44 @@
+{
+  "passed": true,
+  "goal_complete": false,
+  "ROM_sha256": "220be8247baf877785c91244876038354442e68502b3f837920f39a674a1fa3e",
+  "identity": "dale",
+  "mode": "hard",
+  "source_discovery_manifest_sha256": "23d1241802de9ce54fee3bbfa9af64a4fb0285f60fd83b0f7f775a332daf6ff2",
+  "source_inputs_sha256": "17e3228608e554d95865a4db4dbd6ab45217faeb818f1dcd3d7d2b99a6da3f1e",
+  "fixed_inputs_and_trace_exact": true,
+  "result": {
+    "cleared": true,
+    "world_1_1_seen": true,
+    "frames": 4414,
+    "polls": 4413,
+    "deaths": 0,
+    "failure": null,
+    "stage_entries": {
+      "0-0": 500,
+      "0-1": 4390
+    }
+  },
+  "direct_frames": 4214,
+  "actual_PPU_frame_ids_complete": true,
+  "every_saved_PNG_RGB_exact": true,
+  "frame_index_sha256": "dfa83015bcadad4e98a438f718361c105da6c36a425dd778a924de9926590db9",
+  "raw_stream_bytes": 1035733776,
+  "raw_stream_sha256": "a5d075ce9494a6144700d07b0444cdbaa53a51f611d6356415481e1117d705b0",
+  "raw_lossless_archive": {
+    "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\pickup-contact-fixes-combined-v1\\routes-affected\\dale-hard-direct\\direct.argb.gz",
+    "sha256": "3075f2e603ce04c85e20be17c60bb507fd91ed429c379d8699c587fa707b502a"
+  },
+  "raw_gzip_roundtrip_exact": true,
+  "temporary_raw_removed_after_exact_lossless_roundtrip": true,
+  "observer_sha256": "eacd570da0769e472fcb7fec9fb0c8dc8971477cd09470874d444e76899de7b2",
+  "driver_sha256": "a23bbb8244cd0352ae4a7818e9028acc0572f75e65feef477710f07fc03f9c96",
+  "body_chr": {
+    "passed": true,
+    "frames": 2678,
+    "mismatched_frames": 0,
+    "body_constructions": 2355,
+    "scope": "Read-only actual hardware CHR pages versus last DMA player image. Bounded natural controller movement, no full-level or pixel-comparison claim."
+  },
+  "scope": "Read-only public direct console screen buffer at each actual PPU endFrame, not asynchronous decoder PNG output. Complete200..endpoint-1PPU IDs, RGB-verified PNGs and full lossless raw record archive. Independent original inputs/trace and zero-death movable1-2result are exact. This repairs evidence capture only; lag, source fidelity, other graphic/ability defects, every-item and final mapper work remain open."
+}
