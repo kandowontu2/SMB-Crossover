@@ -77,7 +77,7 @@ Loop:
   sta $5c00,x
   inx
   jne Loop
-  lda Cv3Variant
+  jsr Cv3NoiseSceneReset
   sta Cv3ActiveVariant
   lda NumberofLives
   sta Cv3LastLife

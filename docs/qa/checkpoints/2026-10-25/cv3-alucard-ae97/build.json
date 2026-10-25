@@ -1,0 +1,76 @@
+{
+  "passed": true,
+  "adopted": false,
+  "goal_complete": false,
+  "ROM_sha256": "ae97d45e5a33b20a399c0b55f241ea933a72eaea6f88e7fc69eae93af85c96e4",
+  "parent_ROM_sha256": "84e55b6d60da4be5550d823f88ee40a9b220dbef5a1e8dd21de3d69aa28cb328",
+  "donor_ROM_sha256": "3868907c79cb1db9c6443052c79ba220706b61641946dce030f5bd65da47d4ce",
+  "changed_PRG_banks": [
+    27,
+    28,
+    82,
+    84
+  ],
+  "changed_bytes": 643,
+  "retained_qualified_addresses_exact": true,
+  "qualified_symbols": 54159,
+  "intentionally_removed_private_labels": [
+    {
+      "scope": "LOCAL-MACRO_SYMBOL-14BD",
+      "name": "Load",
+      "old_address": 56553
+    }
+  ],
+  "all_other_ROM_bytes_parent_exact": true,
+  "CHR_exact": true,
+  "new_RAM_bytes": 0,
+  "source_files": {
+    "src/entrypoint.s": {
+      "before_sha256": "1fd17365e6fde05d6948d82873b13dddc0b973c98b503091053de2f93ddba18f",
+      "after_sha256": "13190a89d6cfc5832e4c21702af0c5251e06291c11dff7e5c1020c7aacdcc5fe"
+    },
+    "src/cv3_combat.s": {
+      "before_sha256": "ad1a4602c10a26732ec8247c629ebecec59f505cbf338eef044027f1153ce519",
+      "after_sha256": "797897bd497de3db182dc60712d0ef85da9764e59a4f505bfae83e451eae74a3"
+    },
+    "src/cv3_core.s": {
+      "before_sha256": "a6249418db28380926a18ff2de1fad9c5abc366753fa85c5e0afcaf842089247",
+      "after_sha256": "0599de73b5f0600d5e0c3509f678ebb3ef1ecd48a28ad7a96fdb697f8baeb821"
+    },
+    "src/roster_audio.s": {
+      "before_sha256": "4284673083e1f64da0bfe66bf2ee65019590ca2b16b3b05e67484430c58360d2",
+      "after_sha256": "95774de53752af9431653b201f6f2ef5c685cdf97a153e0cfac009f07c294bf8"
+    },
+    "src/cv3_source_audio.s": {
+      "before_sha256": null,
+      "after_sha256": "bb973387c916d25c4b8137c69dd1849ab191f07561a0e3e993179b365d98c528"
+    },
+    "build/generated/guest-audio/castlevania.inc": {
+      "before_sha256": "23761785a064b3c20619f406ab71b5aa4e47daec05a1d3f0e9e528e6c5a60178",
+      "after_sha256": "d5a4a3da058600380911eb1732f69291f6043baba9b238fba79507304776ac75"
+    },
+    "tools/prepare_guest_audio.py": {
+      "before_sha256": "71a942a530d7e7ed37e8c06e17b5395358832a64ded3fdfc15424809723179ae",
+      "after_sha256": "6b8c1f993d00cb01f6d9d9806a2a32cec562b03de3a2f3d31ee5f8a4e61353f1"
+    }
+  },
+  "producer_all_generated_outputs_exact": true,
+  "generated_outputs": {
+    "castlevania.inc": "d5a4a3da058600380911eb1732f69291f6043baba9b238fba79507304776ac75",
+    "contra.inc": "286d13aba95d09648ad633cede45ba74df415572b4e50f6a3bf1c9b244e6e23d",
+    "megaman3.inc": "22930aec669b7850d1a464e51bb879d5c3fc6ffbc1c774819775a8098855984f",
+    "metroid0.inc": "67e8676be101a79a40359ff9ca43b3db6350ab37612766381fbdb560c983a085",
+    "metroid1.inc": "35c4b3f897c4c0482b379253ee3048baee7040f74d55a70c8c3301d2f5aeb798",
+    "metroid2.inc": "57d057034ff1b71e2044db64157bb0681c2790b8e20443faa38faa22bdd6e92b",
+    "metroid4.inc": "1e27e1643afb7e75bb4d50b1bb7ae049723ccc64e0c4001cfeff9a12e6923d3b",
+    "metroid5.inc": "022505d6d5dac4b1ffcea62eb9c2a242e1d04063b3e90e98a0737d0f1b44af0d",
+    "shared-sfx.inc": "6701ddfa622c826541354809d45342cc32cc02517c913cc72b32a84bda675bf4",
+    "writers.inc": "b7b75764b3eec643c287043ebe3267fa8fa41050536d4887c1460866f0d09b74",
+    "zelda.inc": "e78c08623d8373ba2c524fa2183be85148b44d0768d2062cb5f3e29862ff1f89"
+  },
+  "ordinary_target_hashes": {
+    "mmc3": "d444cac88e13fa02b29ad16100b8f08fa565ba90f8cedde192de43fb2dc8f3eb",
+    "mmc5": "f4ffd2483c51daa4d60bb575da2da8c4d817692cda407611c243031f67520833"
+  },
+  "scope": "Complete-bank composition and fresh durable producer/build controls. Current-hash native and CPU tests required before adoption."
+}

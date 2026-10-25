@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "accepted": false,
+  "ROM_sha256": "ae97d45e5a33b20a399c0b55f241ea933a72eaea6f88e7fc69eae93af85c96e4",
+  "baseline_ROM_sha256": "84e55b6d60da4be5550d823f88ee40a9b220dbef5a1e8dd21de3d69aa28cb328",
+  "tool_sha256": "c595c1f8b6fbe62e46b20515496023656b9769322ad62a2b54fb797cc8fcbad0",
+  "restore_cases": 256,
+  "restore_exact": "A/X/Y/NV-DIZC/SP, all256 CPUZP bytes and full32privatebytes; only helper call stack excluded",
+  "ordinary_full_AudioUpdate_cases": 4160,
+  "ordinary_cues": 26,
+  "ordinary_cycle_delta": [
+    -316,
+    0
+  ],
+  "ordinary_exact": "All application RAM below8000 excluding stack; ordered hardware APU writes, mapper and final registers",
+  "scope": "Actual assembled CPU paths; native interrupt/APU/visible checks are separate."
+}

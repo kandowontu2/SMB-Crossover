@@ -201,13 +201,22 @@ Tick:
 .elseif Kind=1
   jsr ZeldaNative::process_audio
 .else
+.if ::ENABLE_MMC5_EXPANDED
+  jsr Cv3MusicAndNoiseTick
+.else
   jsr CvAudioPlay
+.endif
 .endif
   jmp Restore
 Mute:
   lda #0
   jsr GuestNativeStatusSTA
 Restore:
+.if Kind=2 .and ::ENABLE_MMC5_EXPANDED
+  jsr Cv3RestoreAudioZp
+  jmp AudioRestored
+  .res 14,$ea ; old20-byte loop footprint: no original following PC moves
+.else
   ldy #ZpCount-1
 Load:
   ldx ZpAddresses,y
@@ -218,6 +227,8 @@ Load:
   dey
   cpy #$ff
   bne Load
+.endif
+AudioRestored:
   lda #0
   sta RgSfx
   sta Square1SoundQueue

@@ -323,7 +323,7 @@ Find:lda Cv3ShotType,x
  clc
  rts
 Found:pla
- sta Cv3ShotType,x
+ jsr Cv3SpawnAudioType
  lda #0
  sta Cv3ShotAge,x
  sta Cv3ShotFx,x

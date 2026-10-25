@@ -471,3 +471,7 @@ Done:
 .if ::ENABLE_MMC5_EXPANDED
 .include "cd_contact_y_window.s"
 .endif
+
+.if ::ENABLE_MMC5_EXPANDED
+.include "cv3_source_audio.s"
+.endif

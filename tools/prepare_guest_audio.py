@@ -136,7 +136,14 @@ def metroid(bank):
 def main():
     OUT.mkdir(parents=True,exist_ok=True)
     for name in ('contra','zelda','castlevania'):
-        (OUT/f'{name}.inc').write_text(transform((ROOT/f'src/audio/roster/{name}.inc').read_text()))
+        content=transform((ROOT/f'src/audio/roster/{name}.inc').read_text())
+        if name=='castlevania':
+            # The original driver's sole unmarked noise-volume store must
+            # participate in the private CV3 source-noise music cache.
+            store='  STA ::GuestNativeApu+$0c\n'
+            assert content.count(store)==1
+            content=content.replace(store,'.if ::ENABLE_MMC5_EXPANDED\n  JSR ::Cv3NoiseVolumeStore\n.else\n'+store+'.endif\n')
+        (OUT/f'{name}.inc').write_text(content)
     (OUT/'megaman3.inc').write_text(megaman3())
     counts={}
     for bank in (0,1,2,4,5):
