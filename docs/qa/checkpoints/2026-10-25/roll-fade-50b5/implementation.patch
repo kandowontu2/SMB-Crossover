@@ -1,0 +1,94 @@
+--- a/src/roll_render.s
++++ b/src/roll_render.s
+@@ -220,7 +220,7 @@
+  bpl Loop
+  ldx #3
+ Drops:stx RlSlot
+- lda InvDropKind,x
++ jsr RlDropVisibleKind
+  beq DropNext
+  ldy #5                       ; Existing small/large energy-capsule art.
+  lda AvDropItem,x
+--- a/src/roll.s
++++ b/src/roll.s
+@@ -1,25 +1,26 @@
+-; Mobile-sheet Roll alternate. Platform physics are the installed Crossover
+-; MegaMan integrator; buster/auto-charge/energy and health are independent.
+-.pushseg
+-.segment "SRAM"
+-RlOutlineBypass:.res 1            ; The final free byte of the existing8KiB.
+-.export RlOutlineBypass
+-.popseg
+-.include "roll_state.inc"
+-.include "roll_core.s"
+-.include "roll_motion.inc"
+-.include "roll_dispatch.s"
+-.include "roll_shot_bank.inc"
+-.include "roll_render.s"
+-.include "roll_fast_render.s"
+-.include "roll_empty_space.s"
+-.include "roll_weapons.s"
+-.include "roll_art.inc"
+-.pushseg
+-.segment "ROLL_CHR_MAIN"
+-.incbin "chr/characters/roll.chr",0,16384
+-.segment "ROLL_CHR_DW"
+-.incbin "chr/characters/roll.chr",16384,4096
+-.segment "ROLL_CHR_Z2"
+-.incbin "chr/characters/roll.chr",20480,4096
+-.popseg
++; Mobile-sheet Roll alternate. Platform physics are the installed Crossover
++; MegaMan integrator; buster/auto-charge/energy and health are independent.
++.pushseg
++.segment "SRAM"
++RlOutlineBypass:.res 1            ; The final free byte of the existing8KiB.
++.export RlOutlineBypass
++.popseg
++.include "roll_state.inc"
++.include "roll_core.s"
++.include "roll_motion.inc"
++.include "roll_dispatch.s"
++.include "roll_shot_bank.inc"
++.include "roll_render.s"
++.include "roll_fast_render.s"
++.include "roll_empty_space.s"
++.include "roll_weapons.s"
++.include "roll_drop_fade.s"
++.include "roll_art.inc"
++.pushseg
++.segment "ROLL_CHR_MAIN"
++.incbin "chr/characters/roll.chr",0,16384
++.segment "ROLL_CHR_DW"
++.incbin "chr/characters/roll.chr",16384,4096
++.segment "ROLL_CHR_Z2"
++.incbin "chr/characters/roll.chr",20480,4096
++.popseg
+--- /dev/null
++++ b/src/roll_drop_fade.s
+@@ -0,0 +1,26 @@
++; Match InventoryDrawPickups::Drops age/parity admission; supplied art is unchanged.
++; Appended after existing ROLL_CORE owners to retain all existing code PCs.
++.pushseg
++.segment "ROLL_CORE"
++.proc RlDropVisibleKind
++ lda InvDropKind,x
++ beq Done
++ php
++ lda InvDropAgeHi,x
++ bne Fade
++ lda InvDropAge,x
++ cmp #240
++ bcc Visible
++Fade:
++ lda FrameCounter
++ and #1
++ beq Visible
++ plp
++ lda #0
++ rts
++Visible:
++ plp
++ lda InvDropKind,x
++Done:rts
++.endproc
++.popseg

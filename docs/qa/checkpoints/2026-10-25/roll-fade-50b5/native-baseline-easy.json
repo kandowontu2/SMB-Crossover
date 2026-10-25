@@ -1,0 +1,1828 @@
+{
+  "passed": false,
+  "goal_complete": false,
+  "emulator_exit": 0,
+  "dependencies_unchanged": true,
+  "emulator_sha256": "8b92daa209ee5052845e02a663aeb1afd6194eca55d86e6628c51114c61da0a9",
+  "runner_sha256": "e1b2596bb2c4ff68fa6bf23147e8a8050c1785039eb6b7e890ff26ac7e9e3a33",
+  "preparation_sha256": "566dbb1df63776a7b55dd6b5402c6e5c78fa0f45d6fa3bcdec0ee110110c3a5c",
+  "profile": {
+    "role": "baseline",
+    "mode_value": 0,
+    "script": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-preparation\\baseline-easy\\run.lua",
+    "script_sha256": "f6d8e005682582d6af03cb870f12ce0d4e2a138a978a41779ea1eda031488241",
+    "config_sha256": "c752a5a405d28249c3c92ffd8a337e55014c1a065f34505e392f57dd34a1b449",
+    "ROM_sha256": "9e0e5ed5d4957aac9baa040ea76616ee4a88233312700b78a8c55250c19f42d3",
+    "source_ledger_sha256": "45782618f39241430242275d7e6360d57ecf970b269698580af214dbc3153f16"
+  },
+  "native": {
+    "fade_policy_passed": false,
+    "first_wrong_native_admission": {
+      "age": 241,
+      "render": 831,
+      "frame": 237,
+      "update": 850,
+      "expected": 0,
+      "actual": 2,
+      "slot": 3
+    },
+    "passed": false,
+    "goal_complete": false,
+    "component": "calm-actual-small-health-orb",
+    "kills": 12,
+    "calm_max_scanline_sprites": 4,
+    "global_owner_calls": 1950,
+    "committed_fade_coverage": {
+      "236:1": true,
+      "241:0": true,
+      "239:0": true,
+      "245:0": true,
+      "242:0": true,
+      "236:0": true,
+      "243:1": true,
+      "239:1": true,
+      "246:0": true,
+      "240:1": true,
+      "244:1": true,
+      "246:1": true,
+      "243:0": true,
+      "238:1": true,
+      "237:0": true,
+      "247:0": true,
+      "242:1": true,
+      "240:0": true,
+      "238:0": true,
+      "241:1": true,
+      "237:1": true,
+      "247:1": true,
+      "244:0": true,
+      "245:1": true
+    },
+    "attempts": 12,
+    "mechanics_passed": true,
+    "hardware_chr_checks": 23388,
+    "mode": 0,
+    "nmis": 1949,
+    "role": "baseline",
+    "calm_complete": true,
+    "updates": 1950,
+    "births": [
+      {
+        "rng": [
+          176,
+          199,
+          166
+        ],
+        "born": 609,
+        "serial": 1,
+        "kind": 2,
+        "frame": 252,
+        "x": 200,
+        "y": 192,
+        "phase": "calm-birth",
+        "expired": 1029,
+        "meter": 0,
+        "slot": 3
+      },
+      {
+        "rng": [
+          44,
+          158,
+          199
+        ],
+        "born": 1208,
+        "serial": 2,
+        "kind": 1,
+        "frame": 83,
+        "x": 200,
+        "y": 192,
+        "phase": "calm-birth",
+        "expired": 1628,
+        "meter": 128,
+        "slot": 3
+      },
+      {
+        "rng": [
+          156,
+          93,
+          101
+        ],
+        "born": 1737,
+        "serial": 3,
+        "kind": 1,
+        "slot": 3,
+        "x": 200,
+        "y": 192,
+        "phase": "pickup-birth",
+        "frame": 100,
+        "meter": 128,
+        "collected": 1830
+      }
+    ],
+    "calm_admitted": 8,
+    "render_calls": 1915,
+    "calm_hidden": 4,
+    "calm_serial": 2,
+    "committed_renders": 1913,
+    "ROM_sha256": "9e0e5ed5d4957aac9baa040ea76616ee4a88233312700b78a8c55250c19f42d3",
+    "hard": false,
+    "minSP": 219,
+    "empty_committed_renders": 983,
+    "initial_empty_control_finished": 150,
+    "scope": "Cold numeric mode; staged flat arena/player/default-health Goombas, actual native free buster defeats and RNG drops. Real four-slot births, one age/update, exact420 expiry, genuine controller pickup at full caps, source art/OAM and committed DMA epochs. No resource/RNG/counter/drop/projectile/outcome writes. Native timings are SMB adaptation, not executable mobile fidelity. Random full-pool contents are scenario matched; empty-before control is identical input/state.",
+    "complete_dma_checks": 1913,
+    "known_baseline_fade_violations": [
+      {
+        "age": 241,
+        "render": 831,
+        "frame": 237,
+        "update": 850,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 243,
+        "render": 833,
+        "frame": 239,
+        "update": 852,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 245,
+        "render": 835,
+        "frame": 241,
+        "update": 854,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 247,
+        "render": 837,
+        "frame": 243,
+        "update": 856,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 249,
+        "render": 839,
+        "frame": 245,
+        "update": 858,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 251,
+        "render": 841,
+        "frame": 247,
+        "update": 860,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 253,
+        "render": 843,
+        "frame": 249,
+        "update": 862,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 255,
+        "render": 845,
+        "frame": 251,
+        "update": 864,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 257,
+        "render": 847,
+        "frame": 253,
+        "update": 866,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 259,
+        "render": 849,
+        "frame": 255,
+        "update": 868,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 261,
+        "render": 851,
+        "frame": 1,
+        "update": 870,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 263,
+        "render": 853,
+        "frame": 3,
+        "update": 872,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 265,
+        "render": 855,
+        "frame": 5,
+        "update": 874,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 267,
+        "render": 857,
+        "frame": 7,
+        "update": 876,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 269,
+        "render": 859,
+        "frame": 9,
+        "update": 878,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 271,
+        "render": 861,
+        "frame": 11,
+        "update": 880,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 273,
+        "render": 863,
+        "frame": 13,
+        "update": 882,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 275,
+        "render": 865,
+        "frame": 15,
+        "update": 884,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 277,
+        "render": 867,
+        "frame": 17,
+        "update": 886,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 279,
+        "render": 869,
+        "frame": 19,
+        "update": 888,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 281,
+        "render": 871,
+        "frame": 21,
+        "update": 890,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 283,
+        "render": 873,
+        "frame": 23,
+        "update": 892,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 285,
+        "render": 875,
+        "frame": 25,
+        "update": 894,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 287,
+        "render": 877,
+        "frame": 27,
+        "update": 896,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 289,
+        "render": 879,
+        "frame": 29,
+        "update": 898,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 291,
+        "render": 881,
+        "frame": 31,
+        "update": 900,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 293,
+        "render": 883,
+        "frame": 33,
+        "update": 902,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 295,
+        "render": 885,
+        "frame": 35,
+        "update": 904,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 297,
+        "render": 887,
+        "frame": 37,
+        "update": 906,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 299,
+        "render": 889,
+        "frame": 39,
+        "update": 908,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 301,
+        "render": 891,
+        "frame": 41,
+        "update": 910,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 303,
+        "render": 893,
+        "frame": 43,
+        "update": 912,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 305,
+        "render": 895,
+        "frame": 45,
+        "update": 914,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 307,
+        "render": 897,
+        "frame": 47,
+        "update": 916,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 309,
+        "render": 899,
+        "frame": 49,
+        "update": 918,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 311,
+        "render": 901,
+        "frame": 51,
+        "update": 920,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 313,
+        "render": 903,
+        "frame": 53,
+        "update": 922,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 315,
+        "render": 905,
+        "frame": 55,
+        "update": 924,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 317,
+        "render": 907,
+        "frame": 57,
+        "update": 926,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 319,
+        "render": 909,
+        "frame": 59,
+        "update": 928,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 321,
+        "render": 911,
+        "frame": 61,
+        "update": 930,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 323,
+        "render": 913,
+        "frame": 63,
+        "update": 932,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 325,
+        "render": 915,
+        "frame": 65,
+        "update": 934,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 327,
+        "render": 917,
+        "frame": 67,
+        "update": 936,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 329,
+        "render": 919,
+        "frame": 69,
+        "update": 938,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 331,
+        "render": 921,
+        "frame": 71,
+        "update": 940,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 333,
+        "render": 923,
+        "frame": 73,
+        "update": 942,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 335,
+        "render": 925,
+        "frame": 75,
+        "update": 944,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 337,
+        "render": 927,
+        "frame": 77,
+        "update": 946,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 339,
+        "render": 929,
+        "frame": 79,
+        "update": 948,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 341,
+        "render": 931,
+        "frame": 81,
+        "update": 950,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 343,
+        "render": 933,
+        "frame": 83,
+        "update": 952,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 345,
+        "render": 935,
+        "frame": 85,
+        "update": 954,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 347,
+        "render": 937,
+        "frame": 87,
+        "update": 956,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 349,
+        "render": 939,
+        "frame": 89,
+        "update": 958,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 351,
+        "render": 941,
+        "frame": 91,
+        "update": 960,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 353,
+        "render": 943,
+        "frame": 93,
+        "update": 962,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 355,
+        "render": 945,
+        "frame": 95,
+        "update": 964,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 357,
+        "render": 947,
+        "frame": 97,
+        "update": 966,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 359,
+        "render": 949,
+        "frame": 99,
+        "update": 968,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 361,
+        "render": 951,
+        "frame": 101,
+        "update": 970,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 363,
+        "render": 953,
+        "frame": 103,
+        "update": 972,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 365,
+        "render": 955,
+        "frame": 105,
+        "update": 974,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 367,
+        "render": 957,
+        "frame": 107,
+        "update": 976,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 369,
+        "render": 959,
+        "frame": 109,
+        "update": 978,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 371,
+        "render": 961,
+        "frame": 111,
+        "update": 980,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 373,
+        "render": 963,
+        "frame": 113,
+        "update": 982,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 375,
+        "render": 965,
+        "frame": 115,
+        "update": 984,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 377,
+        "render": 967,
+        "frame": 117,
+        "update": 986,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 379,
+        "render": 969,
+        "frame": 119,
+        "update": 988,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 381,
+        "render": 971,
+        "frame": 121,
+        "update": 990,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 383,
+        "render": 973,
+        "frame": 123,
+        "update": 992,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 385,
+        "render": 975,
+        "frame": 125,
+        "update": 994,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 387,
+        "render": 977,
+        "frame": 127,
+        "update": 996,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 389,
+        "render": 979,
+        "frame": 129,
+        "update": 998,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 391,
+        "render": 981,
+        "frame": 131,
+        "update": 1000,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 393,
+        "render": 983,
+        "frame": 133,
+        "update": 1002,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 395,
+        "render": 985,
+        "frame": 135,
+        "update": 1004,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 397,
+        "render": 987,
+        "frame": 137,
+        "update": 1006,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 399,
+        "render": 989,
+        "frame": 139,
+        "update": 1008,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 401,
+        "render": 991,
+        "frame": 141,
+        "update": 1010,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 403,
+        "render": 993,
+        "frame": 143,
+        "update": 1012,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 405,
+        "render": 995,
+        "frame": 145,
+        "update": 1014,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 407,
+        "render": 997,
+        "frame": 147,
+        "update": 1016,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 409,
+        "render": 999,
+        "frame": 149,
+        "update": 1018,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 411,
+        "render": 1001,
+        "frame": 151,
+        "update": 1020,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 413,
+        "render": 1003,
+        "frame": 153,
+        "update": 1022,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 415,
+        "render": 1005,
+        "frame": 155,
+        "update": 1024,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 417,
+        "render": 1007,
+        "frame": 157,
+        "update": 1026,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 419,
+        "render": 1009,
+        "frame": 159,
+        "update": 1028,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      {
+        "age": 240,
+        "render": 1418,
+        "frame": 67,
+        "update": 1448,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 242,
+        "render": 1420,
+        "frame": 69,
+        "update": 1450,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 244,
+        "render": 1422,
+        "frame": 71,
+        "update": 1452,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 246,
+        "render": 1424,
+        "frame": 73,
+        "update": 1454,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 248,
+        "render": 1426,
+        "frame": 75,
+        "update": 1456,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 250,
+        "render": 1428,
+        "frame": 77,
+        "update": 1458,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 252,
+        "render": 1430,
+        "frame": 79,
+        "update": 1460,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 254,
+        "render": 1432,
+        "frame": 81,
+        "update": 1462,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 256,
+        "render": 1434,
+        "frame": 83,
+        "update": 1464,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 258,
+        "render": 1436,
+        "frame": 85,
+        "update": 1466,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 260,
+        "render": 1438,
+        "frame": 87,
+        "update": 1468,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 262,
+        "render": 1440,
+        "frame": 89,
+        "update": 1470,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 264,
+        "render": 1442,
+        "frame": 91,
+        "update": 1472,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 266,
+        "render": 1444,
+        "frame": 93,
+        "update": 1474,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 268,
+        "render": 1446,
+        "frame": 95,
+        "update": 1476,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 270,
+        "render": 1448,
+        "frame": 97,
+        "update": 1478,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 272,
+        "render": 1450,
+        "frame": 99,
+        "update": 1480,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 274,
+        "render": 1452,
+        "frame": 101,
+        "update": 1482,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 276,
+        "render": 1454,
+        "frame": 103,
+        "update": 1484,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 278,
+        "render": 1456,
+        "frame": 105,
+        "update": 1486,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 280,
+        "render": 1458,
+        "frame": 107,
+        "update": 1488,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 282,
+        "render": 1460,
+        "frame": 109,
+        "update": 1490,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 284,
+        "render": 1462,
+        "frame": 111,
+        "update": 1492,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 286,
+        "render": 1464,
+        "frame": 113,
+        "update": 1494,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 288,
+        "render": 1466,
+        "frame": 115,
+        "update": 1496,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 290,
+        "render": 1468,
+        "frame": 117,
+        "update": 1498,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 292,
+        "render": 1470,
+        "frame": 119,
+        "update": 1500,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 294,
+        "render": 1472,
+        "frame": 121,
+        "update": 1502,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 296,
+        "render": 1474,
+        "frame": 123,
+        "update": 1504,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 298,
+        "render": 1476,
+        "frame": 125,
+        "update": 1506,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 300,
+        "render": 1478,
+        "frame": 127,
+        "update": 1508,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 302,
+        "render": 1480,
+        "frame": 129,
+        "update": 1510,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 304,
+        "render": 1482,
+        "frame": 131,
+        "update": 1512,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 306,
+        "render": 1484,
+        "frame": 133,
+        "update": 1514,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 308,
+        "render": 1486,
+        "frame": 135,
+        "update": 1516,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 310,
+        "render": 1488,
+        "frame": 137,
+        "update": 1518,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 312,
+        "render": 1490,
+        "frame": 139,
+        "update": 1520,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 314,
+        "render": 1492,
+        "frame": 141,
+        "update": 1522,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 316,
+        "render": 1494,
+        "frame": 143,
+        "update": 1524,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 318,
+        "render": 1496,
+        "frame": 145,
+        "update": 1526,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 320,
+        "render": 1498,
+        "frame": 147,
+        "update": 1528,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 322,
+        "render": 1500,
+        "frame": 149,
+        "update": 1530,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 324,
+        "render": 1502,
+        "frame": 151,
+        "update": 1532,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 326,
+        "render": 1504,
+        "frame": 153,
+        "update": 1534,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 328,
+        "render": 1506,
+        "frame": 155,
+        "update": 1536,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 330,
+        "render": 1508,
+        "frame": 157,
+        "update": 1538,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 332,
+        "render": 1510,
+        "frame": 159,
+        "update": 1540,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 334,
+        "render": 1512,
+        "frame": 161,
+        "update": 1542,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 336,
+        "render": 1514,
+        "frame": 163,
+        "update": 1544,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 338,
+        "render": 1516,
+        "frame": 165,
+        "update": 1546,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 340,
+        "render": 1518,
+        "frame": 167,
+        "update": 1548,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 342,
+        "render": 1520,
+        "frame": 169,
+        "update": 1550,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 344,
+        "render": 1522,
+        "frame": 171,
+        "update": 1552,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 346,
+        "render": 1524,
+        "frame": 173,
+        "update": 1554,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 348,
+        "render": 1526,
+        "frame": 175,
+        "update": 1556,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 350,
+        "render": 1528,
+        "frame": 177,
+        "update": 1558,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 352,
+        "render": 1530,
+        "frame": 179,
+        "update": 1560,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 354,
+        "render": 1532,
+        "frame": 181,
+        "update": 1562,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 356,
+        "render": 1534,
+        "frame": 183,
+        "update": 1564,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 358,
+        "render": 1536,
+        "frame": 185,
+        "update": 1566,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 360,
+        "render": 1538,
+        "frame": 187,
+        "update": 1568,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 362,
+        "render": 1540,
+        "frame": 189,
+        "update": 1570,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 364,
+        "render": 1542,
+        "frame": 191,
+        "update": 1572,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 366,
+        "render": 1544,
+        "frame": 193,
+        "update": 1574,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 368,
+        "render": 1546,
+        "frame": 195,
+        "update": 1576,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 370,
+        "render": 1548,
+        "frame": 197,
+        "update": 1578,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 372,
+        "render": 1550,
+        "frame": 199,
+        "update": 1580,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 374,
+        "render": 1552,
+        "frame": 201,
+        "update": 1582,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 376,
+        "render": 1554,
+        "frame": 203,
+        "update": 1584,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 378,
+        "render": 1556,
+        "frame": 205,
+        "update": 1586,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 380,
+        "render": 1558,
+        "frame": 207,
+        "update": 1588,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 382,
+        "render": 1560,
+        "frame": 209,
+        "update": 1590,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 384,
+        "render": 1562,
+        "frame": 211,
+        "update": 1592,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 386,
+        "render": 1564,
+        "frame": 213,
+        "update": 1594,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 388,
+        "render": 1566,
+        "frame": 215,
+        "update": 1596,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 390,
+        "render": 1568,
+        "frame": 217,
+        "update": 1598,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 392,
+        "render": 1570,
+        "frame": 219,
+        "update": 1600,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 394,
+        "render": 1572,
+        "frame": 221,
+        "update": 1602,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 396,
+        "render": 1574,
+        "frame": 223,
+        "update": 1604,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 398,
+        "render": 1576,
+        "frame": 225,
+        "update": 1606,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 400,
+        "render": 1578,
+        "frame": 227,
+        "update": 1608,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 402,
+        "render": 1580,
+        "frame": 229,
+        "update": 1610,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 404,
+        "render": 1582,
+        "frame": 231,
+        "update": 1612,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 406,
+        "render": 1584,
+        "frame": 233,
+        "update": 1614,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 408,
+        "render": 1586,
+        "frame": 235,
+        "update": 1616,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 410,
+        "render": 1588,
+        "frame": 237,
+        "update": 1618,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 412,
+        "render": 1590,
+        "frame": 239,
+        "update": 1620,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 414,
+        "render": 1592,
+        "frame": 241,
+        "update": 1622,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 416,
+        "render": 1594,
+        "frame": 243,
+        "update": 1624,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      },
+      {
+        "age": 418,
+        "render": 1596,
+        "frame": 245,
+        "update": 1626,
+        "expected": 0,
+        "actual": 1,
+        "slot": 3
+      }
+    ],
+    "first_wrong_native_oam_write": {
+      "render": 831,
+      "frame": 237,
+      "slot": 3,
+      "value": 200,
+      "bank": 119,
+      "age": 241,
+      "instruction_bytes": [
+        157,
+        3,
+        2
+      ],
+      "pc": 42939,
+      "update": 850,
+      "instruction_pc": 42936,
+      "address": 743,
+      "previous": 201
+    },
+    "source_art_seen": {
+      "6": true,
+      "1": true
+    },
+    "drop_oam_writes": 14880,
+    "irq_scroll_stores": 1949,
+    "four_actor_committed_renders": 0,
+    "real_pickups": 1,
+    "calm_committed_ages": {
+      "240": true,
+      "241": true,
+      "242": true,
+      "243": true,
+      "244": true,
+      "245": true,
+      "246": true,
+      "247": true,
+      "236": true,
+      "237": true,
+      "238": true,
+      "239": true
+    },
+    "actual_mode_readback": 0,
+    "natural_expiries": 2,
+    "wall": 2279
+  },
+  "first_failure": null,
+  "captures": {
+    "00-actual-pickup-cleanup.argb": "11ff74eaa05662519530a95422011162aa6b4563080356615df6390371d1bc84",
+    "fade-render-00826-wall-01175.argb": "9e40fcac7e60ca0a933b451ea1c1ea94696b9c66df9c7297b529a76db0e5782d",
+    "fade-render-00827-wall-01176.argb": "e31b9fa5b6528c7b138fb7a0925eb0ff2a7a261a413725dba9bb653e657b8ea9",
+    "fade-render-00828-wall-01177.argb": "6269b3d93ed53f4fe812d568ee8508b84c66b9064b7c1c81f5e97f39420eee22",
+    "fade-render-00829-wall-01178.argb": "cd0e2316655a4eb246633a4f9f2b2bd187a19c841d632c4c0540b1f48281ee25",
+    "fade-render-00830-wall-01179.argb": "91314a32102b9680fad37fbb05c4f1e98405bffe2b96001fe626a25429803d88",
+    "fade-render-00831-wall-01180.argb": "a6931787796e592b15802566f6b64ae2a2ce972abc12cf92c431e9095a6bd2f5",
+    "fade-render-00832-wall-01181.argb": "91314a32102b9680fad37fbb05c4f1e98405bffe2b96001fe626a25429803d88",
+    "fade-render-00833-wall-01182.argb": "a981bf336c3cee6d4a22b82c343abfd1d89154a2921131165f523e75b3da04a0",
+    "fade-render-00834-wall-01183.argb": "457ab61d8fce7eecba25796b9af93a85f1c538b55748f780037aa59f13c57947",
+    "fade-render-00835-wall-01184.argb": "4406d0c2b01180c326ace8de594be1e54645697191ad38a94e57fc63fb7df655",
+    "fade-render-00836-wall-01185.argb": "28e02645dfbe135e0a37b2bf31acf50b9520801ba8de491d7adc30bc5b65ac26",
+    "fade-render-00837-wall-01186.argb": "24adc86ea0db2230adb421ec323e29bf96f6849d25584d5a15fdcd0e4eaac52d",
+    "fade-render-01414-wall-01774.argb": "4fe8bce451567ef381a7fefe3483c25a5211467441d2e2099fb8cdd593474dad",
+    "fade-render-01415-wall-01775.argb": "61b28e98bdb92e67eb3e6a4242b50c90cc82c7af6c92b46c979f7c1e393582d8",
+    "fade-render-01416-wall-01776.argb": "3bbaf94a54cc9b68ed8c0e7b8cb54826764fdc330dbac73ea75f0553c0ec5c4c",
+    "fade-render-01417-wall-01777.argb": "5b9e4d4d36cf1bb74343d1d5f2b30756e6a03f29af8125b5ce6866be3726a691",
+    "fade-render-01418-wall-01778.argb": "85eacf0e1bb919ff68e4a91f80bcce429a7cd5c919123054a607ba882ff012fa",
+    "fade-render-01419-wall-01779.argb": "170dde550228421dfc39620dcf761b27ef63bb097e3fda1c5885a3836d825349",
+    "fade-render-01420-wall-01780.argb": "d8180a6f8d1a826038da2b907de70de4d29485389a8ad7f8eb4b6c4873208fcd",
+    "fade-render-01421-wall-01781.argb": "61633ad41691b1d1faa7dbfa130f93f2445b4a6085050b51cee1bb32f454d20a",
+    "fade-render-01422-wall-01782.argb": "1fcef7c51af4c87bf6b999fa38c42027be17817e69d3346760f5492618bfb9fb",
+    "fade-render-01423-wall-01783.argb": "58f5d4029b7c7d7506837e7ae2bfa9df21647cd373da3c272fddbc89ce08175f",
+    "fade-render-01424-wall-01784.argb": "0e1d4709fbef3517c5ac54a6161414b2d05ec38079ae2135639880034f2bffdc",
+    "fade-render-01425-wall-01785.argb": "cb75af76cf718510e89860170f560f3c83029724043af5f44e5ed7734d1bdfe9"
+  }
+}

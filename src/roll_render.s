@@ -220,7 +220,7 @@ Next:ldx RlSlot
  bpl Loop
  ldx #3
 Drops:stx RlSlot
- lda InvDropKind,x
+ jsr RlDropVisibleKind
  beq DropNext
  ldy #5                       ; Existing small/large energy-capsule art.
  lda AvDropItem,x

@@ -14,6 +14,7 @@ RlOutlineBypass:.res 1            ; The final free byte of the existing8KiB.
 .include "roll_fast_render.s"
 .include "roll_empty_space.s"
 .include "roll_weapons.s"
+.include "roll_drop_fade.s"
 .include "roll_art.inc"
 .pushseg
 .segment "ROLL_CHR_MAIN"

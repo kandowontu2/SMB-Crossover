@@ -1,0 +1,2858 @@
+{
+  "passed": true,
+  "goal_complete": false,
+  "actual_PPU_RGB_controls_passed": true,
+  "preparation_sha256": "566dbb1df63776a7b55dd6b5402c6e5c78fa0f45d6fa3bcdec0ee110110c3a5c",
+  "reporter_sha256": "597b615737463378e16c79882f41733820401e2d48f64f6b8ea6e9e47548dc94",
+  "profiles": [
+    {
+      "profile": "baseline-easy",
+      "ROM_sha256": "9e0e5ed5d4957aac9baa040ea76616ee4a88233312700b78a8c55250c19f42d3",
+      "actual_mode": 0,
+      "updates": 1950,
+      "wall": 2279,
+      "births": 3,
+      "kills": 12,
+      "calm_serial": 2,
+      "calm_max_scanline_sprites": 4,
+      "calm_admitted": 8,
+      "calm_hidden": 4,
+      "natural_expiries": 2,
+      "real_pickups": 1,
+      "nmis": 1949,
+      "irq_scroll_stores": 1949,
+      "hardware_chr_checks": 23388,
+      "complete_dma_checks": 1913,
+      "min_sampled_SP": 219,
+      "first_wrong_admission": {
+        "age": 241,
+        "render": 831,
+        "frame": 237,
+        "update": 850,
+        "expected": 0,
+        "actual": 2,
+        "slot": 3
+      },
+      "first_wrong_oam_write": {
+        "render": 831,
+        "frame": 237,
+        "slot": 3,
+        "value": 200,
+        "bank": 119,
+        "age": 241,
+        "instruction_bytes": [
+          157,
+          3,
+          2
+        ],
+        "pc": 42939,
+        "update": 850,
+        "instruction_pc": 42936,
+        "address": 743,
+        "previous": 201
+      }
+    },
+    {
+      "profile": "baseline-hard",
+      "ROM_sha256": "9e0e5ed5d4957aac9baa040ea76616ee4a88233312700b78a8c55250c19f42d3",
+      "actual_mode": 1,
+      "updates": 991,
+      "wall": 1407,
+      "births": 2,
+      "kills": 4,
+      "calm_serial": 1,
+      "calm_max_scanline_sprites": 4,
+      "calm_admitted": 8,
+      "calm_hidden": 4,
+      "natural_expiries": 1,
+      "real_pickups": 1,
+      "nmis": 990,
+      "irq_scroll_stores": 990,
+      "hardware_chr_checks": 11880,
+      "complete_dma_checks": 975,
+      "min_sampled_SP": 219,
+      "first_wrong_admission": {
+        "update": 429,
+        "actual": 1,
+        "age": 240,
+        "expected": 0,
+        "frame": 75,
+        "slot": 3,
+        "render": 426
+      },
+      "first_wrong_oam_write": {
+        "update": 429,
+        "age": 240,
+        "address": 711,
+        "previous": 200,
+        "instruction_bytes": [
+          157,
+          3,
+          2
+        ],
+        "pc": 42939,
+        "slot": 3,
+        "frame": 75,
+        "bank": 119,
+        "instruction_pc": 42936,
+        "value": 200,
+        "render": 426
+      }
+    },
+    {
+      "profile": "candidate-easy",
+      "ROM_sha256": "50b51c3c69f45ef137720c47f521574097f421056e3b73296d06ba70080d2363",
+      "actual_mode": 0,
+      "updates": 1950,
+      "wall": 2279,
+      "births": 3,
+      "kills": 12,
+      "calm_serial": 2,
+      "calm_max_scanline_sprites": 4,
+      "calm_admitted": 8,
+      "calm_hidden": 4,
+      "natural_expiries": 2,
+      "real_pickups": 1,
+      "nmis": 1949,
+      "irq_scroll_stores": 1949,
+      "hardware_chr_checks": 23388,
+      "complete_dma_checks": 1911,
+      "min_sampled_SP": 219,
+      "first_wrong_admission": null,
+      "first_wrong_oam_write": null
+    },
+    {
+      "profile": "candidate-hard",
+      "ROM_sha256": "50b51c3c69f45ef137720c47f521574097f421056e3b73296d06ba70080d2363",
+      "actual_mode": 1,
+      "updates": 991,
+      "wall": 1407,
+      "births": 2,
+      "kills": 4,
+      "calm_serial": 1,
+      "calm_max_scanline_sprites": 4,
+      "calm_admitted": 8,
+      "calm_hidden": 4,
+      "natural_expiries": 1,
+      "real_pickups": 1,
+      "nmis": 990,
+      "irq_scroll_stores": 990,
+      "hardware_chr_checks": 11880,
+      "complete_dma_checks": 974,
+      "min_sampled_SP": 219,
+      "first_wrong_admission": null,
+      "first_wrong_oam_write": null
+    }
+  ],
+  "selected_distinct_raw_frames": 48,
+  "selections": [
+    {
+      "profile": "baseline-easy",
+      "age": 236,
+      "parity": 1,
+      "expected_visible": true,
+      "actual_changed_pixels_against_adjacent_stage": 80,
+      "crop_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "reference_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "raw": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-baseline-easy-v1\\fade-render-01414-wall-01774.argb",
+      "raw_sha256": "4fe8bce451567ef381a7fefe3483c25a5211467441d2e2099fb8cdd593474dad",
+      "RGB_sha256": "c9c35bf138f437f91b0a37e6376f17adb9a5cf6c7477aef469d3ae435cabe3b2",
+      "rect": [
+        192,
+        200,
+        208,
+        218
+      ],
+      "background_rect": [
+        224,
+        200,
+        240,
+        218
+      ],
+      "render_id": 1414,
+      "visible_start": {
+        "frame_count": 1774,
+        "cycle": 0,
+        "scanline": -1
+      },
+      "visible_end": {
+        "frame_count": 1774,
+        "cycle": 0,
+        "scanline": 240
+      },
+      "DMA": {
+        "id": 1414,
+        "ppu": {
+          "frame_count": 1774,
+          "cycle": 313,
+          "scanline": 246
+        },
+        "render_id": 1414,
+        "publication": {
+          "id": 1414,
+          "ppu": {
+            "frame_count": 1773,
+            "cycle": 226,
+            "scanline": 185
+          },
+          "render_id": 1414
+        }
+      },
+      "player_y": 132
+    },
+    {
+      "profile": "baseline-easy",
+      "age": 237,
+      "parity": 0,
+      "expected_visible": true,
+      "actual_changed_pixels_against_adjacent_stage": 80,
+      "crop_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "reference_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "raw": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-baseline-easy-v1\\fade-render-01415-wall-01775.argb",
+      "raw_sha256": "61b28e98bdb92e67eb3e6a4242b50c90cc82c7af6c92b46c979f7c1e393582d8",
+      "RGB_sha256": "bf003528fa804cd2b02c46db7df7099669ee445104dd606871b93856644f4f34",
+      "rect": [
+        192,
+        200,
+        208,
+        218
+      ],
+      "background_rect": [
+        224,
+        200,
+        240,
+        218
+      ],
+      "render_id": 1415,
+      "visible_start": {
+        "frame_count": 1775,
+        "cycle": 0,
+        "scanline": -1
+      },
+      "visible_end": {
+        "frame_count": 1775,
+        "cycle": 0,
+        "scanline": 240
+      },
+      "DMA": {
+        "id": 1415,
+        "ppu": {
+          "frame_count": 1775,
+          "cycle": 112,
+          "scanline": 248
+        },
+        "render_id": 1415,
+        "publication": {
+          "id": 1415,
+          "ppu": {
+            "frame_count": 1774,
+            "cycle": 267,
+            "scanline": 186
+          },
+          "render_id": 1415
+        }
+      },
+      "player_y": 129
+    },
+    {
+      "profile": "baseline-easy",
+      "age": 238,
+      "parity": 1,
+      "expected_visible": true,
+      "actual_changed_pixels_against_adjacent_stage": 80,
+      "crop_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "reference_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "raw": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-baseline-easy-v1\\fade-render-01416-wall-01776.argb",
+      "raw_sha256": "3bbaf94a54cc9b68ed8c0e7b8cb54826764fdc330dbac73ea75f0553c0ec5c4c",
+      "RGB_sha256": "f654021ff8525950b884a481ede0ed13bb141e36c885e207d49b1316f8dbaa32",
+      "rect": [
+        192,
+        200,
+        208,
+        218
+      ],
+      "background_rect": [
+        224,
+        200,
+        240,
+        218
+      ],
+      "render_id": 1416,
+      "visible_start": {
+        "frame_count": 1776,
+        "cycle": 0,
+        "scanline": -1
+      },
+      "visible_end": {
+        "frame_count": 1776,
+        "cycle": 0,
+        "scanline": 240
+      },
+      "DMA": {
+        "id": 1416,
+        "ppu": {
+          "frame_count": 1776,
+          "cycle": 313,
+          "scanline": 246
+        },
+        "render_id": 1416,
+        "publication": {
+          "id": 1416,
+          "ppu": {
+            "frame_count": 1775,
+            "cycle": 77,
+            "scanline": 183
+          },
+          "render_id": 1416
+        }
+      },
+      "player_y": 127
+    },
+    {
+      "profile": "baseline-easy",
+      "age": 239,
+      "parity": 0,
+      "expected_visible": true,
+      "actual_changed_pixels_against_adjacent_stage": 80,
+      "crop_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "reference_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "raw": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-baseline-easy-v1\\fade-render-01417-wall-01777.argb",
+      "raw_sha256": "5b9e4d4d36cf1bb74343d1d5f2b30756e6a03f29af8125b5ce6866be3726a691",
+      "RGB_sha256": "42093563614217e8affad3aa5a93a0e0654222bb3416e3414915aaac3a1f4798",
+      "rect": [
+        192,
+        200,
+        208,
+        218
+      ],
+      "background_rect": [
+        224,
+        200,
+        240,
+        218
+      ],
+      "render_id": 1417,
+      "visible_start": {
+        "frame_count": 1777,
+        "cycle": 0,
+        "scanline": -1
+      },
+      "visible_end": {
+        "frame_count": 1777,
+        "cycle": 0,
+        "scanline": 240
+      },
+      "DMA": {
+        "id": 1417,
+        "ppu": {
+          "frame_count": 1777,
+          "cycle": 314,
+          "scanline": 246
+        },
+        "render_id": 1417,
+        "publication": {
+          "id": 1417,
+          "ppu": {
+            "frame_count": 1776,
+            "cycle": 41,
+            "scanline": 182
+          },
+          "render_id": 1417
+        }
+      },
+      "player_y": 124
+    },
+    {
+      "profile": "baseline-easy",
+      "age": 240,
+      "parity": 1,
+      "expected_visible": true,
+      "actual_changed_pixels_against_adjacent_stage": 80,
+      "crop_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "reference_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "raw": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-baseline-easy-v1\\fade-render-01418-wall-01778.argb",
+      "raw_sha256": "85eacf0e1bb919ff68e4a91f80bcce429a7cd5c919123054a607ba882ff012fa",
+      "RGB_sha256": "d36be60919a83f09b8345f3490ca640c3105fbef0afd8b4dde64fe83af703d14",
+      "rect": [
+        192,
+        200,
+        208,
+        218
+      ],
+      "background_rect": [
+        224,
+        200,
+        240,
+        218
+      ],
+      "render_id": 1418,
+      "visible_start": {
+        "frame_count": 1778,
+        "cycle": 0,
+        "scanline": -1
+      },
+      "visible_end": {
+        "frame_count": 1778,
+        "cycle": 0,
+        "scanline": 240
+      },
+      "DMA": {
+        "id": 1418,
+        "ppu": {
+          "frame_count": 1778,
+          "cycle": 307,
+          "scanline": 246
+        },
+        "render_id": 1418,
+        "publication": {
+          "id": 1418,
+          "ppu": {
+            "frame_count": 1777,
+            "cycle": 88,
+            "scanline": 182
+          },
+          "render_id": 1418
+        }
+      },
+      "player_y": 121
+    },
+    {
+      "profile": "baseline-easy",
+      "age": 241,
+      "parity": 0,
+      "expected_visible": true,
+      "actual_changed_pixels_against_adjacent_stage": 80,
+      "crop_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "reference_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "raw": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-baseline-easy-v1\\fade-render-01419-wall-01779.argb",
+      "raw_sha256": "170dde550228421dfc39620dcf761b27ef63bb097e3fda1c5885a3836d825349",
+      "RGB_sha256": "dc1d034ce3d3dd3d8effc82036b44be52b6829800014486a7da87568a192af7a",
+      "rect": [
+        192,
+        200,
+        208,
+        218
+      ],
+      "background_rect": [
+        224,
+        200,
+        240,
+        218
+      ],
+      "render_id": 1419,
+      "visible_start": {
+        "frame_count": 1779,
+        "cycle": 0,
+        "scanline": -1
+      },
+      "visible_end": {
+        "frame_count": 1779,
+        "cycle": 0,
+        "scanline": 240
+      },
+      "DMA": {
+        "id": 1419,
+        "ppu": {
+          "frame_count": 1779,
+          "cycle": 308,
+          "scanline": 246
+        },
+        "render_id": 1419,
+        "publication": {
+          "id": 1419,
+          "ppu": {
+            "frame_count": 1778,
+            "cycle": 243,
+            "scanline": 174
+          },
+          "render_id": 1419
+        }
+      },
+      "player_y": 119
+    },
+    {
+      "profile": "baseline-easy",
+      "age": 242,
+      "parity": 1,
+      "expected_visible": true,
+      "actual_changed_pixels_against_adjacent_stage": 80,
+      "crop_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "reference_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "raw": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-baseline-easy-v1\\fade-render-01420-wall-01780.argb",
+      "raw_sha256": "d8180a6f8d1a826038da2b907de70de4d29485389a8ad7f8eb4b6c4873208fcd",
+      "RGB_sha256": "a9b716ffdff9ec0c1b711a559270b0d290c34a5c548c12ccbcfe6d63f9b1b5eb",
+      "rect": [
+        192,
+        200,
+        208,
+        218
+      ],
+      "background_rect": [
+        224,
+        200,
+        240,
+        218
+      ],
+      "render_id": 1420,
+      "visible_start": {
+        "frame_count": 1780,
+        "cycle": 0,
+        "scanline": -1
+      },
+      "visible_end": {
+        "frame_count": 1780,
+        "cycle": 0,
+        "scanline": 240
+      },
+      "DMA": {
+        "id": 1420,
+        "ppu": {
+          "frame_count": 1780,
+          "cycle": 310,
+          "scanline": 246
+        },
+        "render_id": 1420,
+        "publication": {
+          "id": 1420,
+          "ppu": {
+            "frame_count": 1779,
+            "cycle": 36,
+            "scanline": 199
+          },
+          "render_id": 1420
+        }
+      },
+      "player_y": 117
+    },
+    {
+      "profile": "baseline-easy",
+      "age": 243,
+      "parity": 0,
+      "expected_visible": true,
+      "actual_changed_pixels_against_adjacent_stage": 80,
+      "crop_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "reference_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "raw": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-baseline-easy-v1\\fade-render-01421-wall-01781.argb",
+      "raw_sha256": "61633ad41691b1d1faa7dbfa130f93f2445b4a6085050b51cee1bb32f454d20a",
+      "RGB_sha256": "c43b7bb6bc0e91ca89e41aa263468fb4c31ef007ed2d3994f4a87bff95f49819",
+      "rect": [
+        192,
+        200,
+        208,
+        218
+      ],
+      "background_rect": [
+        224,
+        200,
+        240,
+        218
+      ],
+      "render_id": 1421,
+      "visible_start": {
+        "frame_count": 1781,
+        "cycle": 0,
+        "scanline": -1
+      },
+      "visible_end": {
+        "frame_count": 1781,
+        "cycle": 0,
+        "scanline": 240
+      },
+      "DMA": {
+        "id": 1421,
+        "ppu": {
+          "frame_count": 1781,
+          "cycle": 311,
+          "scanline": 246
+        },
+        "render_id": 1421,
+        "publication": {
+          "id": 1421,
+          "ppu": {
+            "frame_count": 1780,
+            "cycle": 157,
+            "scanline": 196
+          },
+          "render_id": 1421
+        }
+      },
+      "player_y": 115
+    },
+    {
+      "profile": "baseline-easy",
+      "age": 244,
+      "parity": 1,
+      "expected_visible": true,
+      "actual_changed_pixels_against_adjacent_stage": 80,
+      "crop_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "reference_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "raw": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-baseline-easy-v1\\fade-render-01422-wall-01782.argb",
+      "raw_sha256": "1fcef7c51af4c87bf6b999fa38c42027be17817e69d3346760f5492618bfb9fb",
+      "RGB_sha256": "a80393b37b592baae79b5afa7ac8b95ffddb24137e76722c1f6c70cb00e97894",
+      "rect": [
+        192,
+        200,
+        208,
+        218
+      ],
+      "background_rect": [
+        224,
+        200,
+        240,
+        218
+      ],
+      "render_id": 1422,
+      "visible_start": {
+        "frame_count": 1782,
+        "cycle": 0,
+        "scanline": -1
+      },
+      "visible_end": {
+        "frame_count": 1782,
+        "cycle": 0,
+        "scanline": 240
+      },
+      "DMA": {
+        "id": 1422,
+        "ppu": {
+          "frame_count": 1782,
+          "cycle": 313,
+          "scanline": 246
+        },
+        "render_id": 1422,
+        "publication": {
+          "id": 1422,
+          "ppu": {
+            "frame_count": 1781,
+            "cycle": 106,
+            "scanline": 188
+          },
+          "render_id": 1422
+        }
+      },
+      "player_y": 113
+    },
+    {
+      "profile": "baseline-easy",
+      "age": 245,
+      "parity": 0,
+      "expected_visible": true,
+      "actual_changed_pixels_against_adjacent_stage": 80,
+      "crop_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "reference_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "raw": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-baseline-easy-v1\\fade-render-01423-wall-01783.argb",
+      "raw_sha256": "58f5d4029b7c7d7506837e7ae2bfa9df21647cd373da3c272fddbc89ce08175f",
+      "RGB_sha256": "6f5c5591f2d26eeaaaa6faac542b4a58298c9725cc654ce07ec1355b8a44a1b6",
+      "rect": [
+        192,
+        200,
+        208,
+        218
+      ],
+      "background_rect": [
+        224,
+        200,
+        240,
+        218
+      ],
+      "render_id": 1423,
+      "visible_start": {
+        "frame_count": 1783,
+        "cycle": 0,
+        "scanline": -1
+      },
+      "visible_end": {
+        "frame_count": 1783,
+        "cycle": 0,
+        "scanline": 240
+      },
+      "DMA": {
+        "id": 1423,
+        "ppu": {
+          "frame_count": 1783,
+          "cycle": 118,
+          "scanline": 248
+        },
+        "render_id": 1423,
+        "publication": {
+          "id": 1423,
+          "ppu": {
+            "frame_count": 1782,
+            "cycle": 142,
+            "scanline": 193
+          },
+          "render_id": 1423
+        }
+      },
+      "player_y": 111
+    },
+    {
+      "profile": "baseline-easy",
+      "age": 246,
+      "parity": 1,
+      "expected_visible": true,
+      "actual_changed_pixels_against_adjacent_stage": 80,
+      "crop_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "reference_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "raw": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-baseline-easy-v1\\fade-render-01424-wall-01784.argb",
+      "raw_sha256": "0e1d4709fbef3517c5ac54a6161414b2d05ec38079ae2135639880034f2bffdc",
+      "RGB_sha256": "b0a73d3ac1a4e1363954198d4b2e3420ffea892318f92c7d876d902e90fa9968",
+      "rect": [
+        192,
+        200,
+        208,
+        218
+      ],
+      "background_rect": [
+        224,
+        200,
+        240,
+        218
+      ],
+      "render_id": 1424,
+      "visible_start": {
+        "frame_count": 1784,
+        "cycle": 0,
+        "scanline": -1
+      },
+      "visible_end": {
+        "frame_count": 1784,
+        "cycle": 0,
+        "scanline": 240
+      },
+      "DMA": {
+        "id": 1424,
+        "ppu": {
+          "frame_count": 1784,
+          "cycle": 307,
+          "scanline": 246
+        },
+        "render_id": 1424,
+        "publication": {
+          "id": 1424,
+          "ppu": {
+            "frame_count": 1783,
+            "cycle": 163,
+            "scanline": 188
+          },
+          "render_id": 1424
+        }
+      },
+      "player_y": 109
+    },
+    {
+      "profile": "baseline-easy",
+      "age": 247,
+      "parity": 0,
+      "expected_visible": true,
+      "actual_changed_pixels_against_adjacent_stage": 80,
+      "crop_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "reference_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "raw": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-baseline-easy-v1\\fade-render-01425-wall-01785.argb",
+      "raw_sha256": "cb75af76cf718510e89860170f560f3c83029724043af5f44e5ed7734d1bdfe9",
+      "RGB_sha256": "185d1a5489cb9d19ea5901a16bf02338913c57a0b3680c03d1f43798f16fb7d2",
+      "rect": [
+        192,
+        200,
+        208,
+        218
+      ],
+      "background_rect": [
+        224,
+        200,
+        240,
+        218
+      ],
+      "render_id": 1425,
+      "visible_start": {
+        "frame_count": 1785,
+        "cycle": 0,
+        "scanline": -1
+      },
+      "visible_end": {
+        "frame_count": 1785,
+        "cycle": 0,
+        "scanline": 240
+      },
+      "DMA": {
+        "id": 1425,
+        "ppu": {
+          "frame_count": 1785,
+          "cycle": 305,
+          "scanline": 246
+        },
+        "render_id": 1425,
+        "publication": {
+          "id": 1425,
+          "ppu": {
+            "frame_count": 1784,
+            "cycle": 261,
+            "scanline": 189
+          },
+          "render_id": 1425
+        }
+      },
+      "player_y": 108
+    },
+    {
+      "profile": "baseline-hard",
+      "age": 236,
+      "parity": 1,
+      "expected_visible": true,
+      "actual_changed_pixels_against_adjacent_stage": 80,
+      "crop_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "reference_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "raw": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-baseline-hard-v1\\fade-render-00422-wall-00842.argb",
+      "raw_sha256": "6705f86b671b8dd5c67891162fe2816330b752b55cd79e88e0903f7e747db7d7",
+      "RGB_sha256": "f059ff8321a5ae4b41fc2391a2e6e1f13788564df7ab7a5452a5da0e38216bce",
+      "rect": [
+        192,
+        200,
+        208,
+        218
+      ],
+      "background_rect": [
+        224,
+        200,
+        240,
+        218
+      ],
+      "render_id": 422,
+      "visible_start": {
+        "frame_count": 842,
+        "scanline": -1,
+        "cycle": 0
+      },
+      "visible_end": {
+        "frame_count": 842,
+        "scanline": 240,
+        "cycle": 0
+      },
+      "DMA": {
+        "render_id": 422,
+        "ppu": {
+          "frame_count": 842,
+          "scanline": 246,
+          "cycle": 316
+        },
+        "publication": {
+          "ppu": {
+            "frame_count": 841,
+            "scanline": 190,
+            "cycle": 213
+          },
+          "render_id": 422,
+          "id": 422
+        },
+        "id": 422
+      },
+      "player_y": 130
+    },
+    {
+      "profile": "baseline-hard",
+      "age": 237,
+      "parity": 0,
+      "expected_visible": true,
+      "actual_changed_pixels_against_adjacent_stage": 80,
+      "crop_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "reference_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "raw": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-baseline-hard-v1\\fade-render-00423-wall-00843.argb",
+      "raw_sha256": "abbfea646d6f6e1bfd6c4e20ac17afd0347f11c01e7bb416606e25ea0b2e0f8e",
+      "RGB_sha256": "4fe49bcf5dd9987775f869ebc2f01a641b6fa1b24f6485a5103d5d686b424698",
+      "rect": [
+        192,
+        200,
+        208,
+        218
+      ],
+      "background_rect": [
+        224,
+        200,
+        240,
+        218
+      ],
+      "render_id": 423,
+      "visible_start": {
+        "frame_count": 843,
+        "scanline": -1,
+        "cycle": 0
+      },
+      "visible_end": {
+        "frame_count": 843,
+        "scanline": 240,
+        "cycle": 0
+      },
+      "DMA": {
+        "render_id": 423,
+        "ppu": {
+          "frame_count": 843,
+          "scanline": 248,
+          "cycle": 112
+        },
+        "publication": {
+          "ppu": {
+            "frame_count": 842,
+            "scanline": 187,
+            "cycle": 58
+          },
+          "render_id": 423,
+          "id": 423
+        },
+        "id": 423
+      },
+      "player_y": 127
+    },
+    {
+      "profile": "baseline-hard",
+      "age": 238,
+      "parity": 1,
+      "expected_visible": true,
+      "actual_changed_pixels_against_adjacent_stage": 80,
+      "crop_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "reference_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "raw": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-baseline-hard-v1\\fade-render-00424-wall-00844.argb",
+      "raw_sha256": "2a18f9ffa6b6e6ae38d321dc57c2c6730a6c80c6c35ffa27a0c9b8be6c8b01e6",
+      "RGB_sha256": "f16c3eb02bbab7159100cf8b3ce723b6ec3a6deb75e9163a7d96950fc10ca1d9",
+      "rect": [
+        192,
+        200,
+        208,
+        218
+      ],
+      "background_rect": [
+        224,
+        200,
+        240,
+        218
+      ],
+      "render_id": 424,
+      "visible_start": {
+        "frame_count": 844,
+        "scanline": -1,
+        "cycle": 0
+      },
+      "visible_end": {
+        "frame_count": 844,
+        "scanline": 240,
+        "cycle": 0
+      },
+      "DMA": {
+        "render_id": 424,
+        "ppu": {
+          "frame_count": 844,
+          "scanline": 246,
+          "cycle": 313
+        },
+        "publication": {
+          "ppu": {
+            "frame_count": 843,
+            "scanline": 185,
+            "cycle": 16
+          },
+          "render_id": 424,
+          "id": 424
+        },
+        "id": 424
+      },
+      "player_y": 124
+    },
+    {
+      "profile": "baseline-hard",
+      "age": 239,
+      "parity": 0,
+      "expected_visible": true,
+      "actual_changed_pixels_against_adjacent_stage": 80,
+      "crop_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "reference_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "raw": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-baseline-hard-v1\\fade-render-00425-wall-00845.argb",
+      "raw_sha256": "fae971e215baadd9e3c6b576458e630ebf8f5cd1ad077e222b1b8e05576fa761",
+      "RGB_sha256": "79407ac36af17c70b5c9e99e9e6d637956b6dd490932d940003de50b0e369f53",
+      "rect": [
+        192,
+        200,
+        208,
+        218
+      ],
+      "background_rect": [
+        224,
+        200,
+        240,
+        218
+      ],
+      "render_id": 425,
+      "visible_start": {
+        "frame_count": 845,
+        "scanline": -1,
+        "cycle": 0
+      },
+      "visible_end": {
+        "frame_count": 845,
+        "scanline": 240,
+        "cycle": 0
+      },
+      "DMA": {
+        "render_id": 425,
+        "ppu": {
+          "frame_count": 845,
+          "scanline": 246,
+          "cycle": 305
+        },
+        "publication": {
+          "ppu": {
+            "frame_count": 844,
+            "scanline": 186,
+            "cycle": 150
+          },
+          "render_id": 425,
+          "id": 425
+        },
+        "id": 425
+      },
+      "player_y": 122
+    },
+    {
+      "profile": "baseline-hard",
+      "age": 240,
+      "parity": 1,
+      "expected_visible": true,
+      "actual_changed_pixels_against_adjacent_stage": 80,
+      "crop_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "reference_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "raw": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-baseline-hard-v1\\fade-render-00426-wall-00846.argb",
+      "raw_sha256": "1748993b79f154d07a2d75948b4f30d26bfd17f0530c6af21999177adecb2f11",
+      "RGB_sha256": "e20ecd2bf328d42dc89152b42ffe28c4b0ce3f566305e4a329d3c960497eb3ee",
+      "rect": [
+        192,
+        200,
+        208,
+        218
+      ],
+      "background_rect": [
+        224,
+        200,
+        240,
+        218
+      ],
+      "render_id": 426,
+      "visible_start": {
+        "frame_count": 846,
+        "scanline": -1,
+        "cycle": 0
+      },
+      "visible_end": {
+        "frame_count": 846,
+        "scanline": 240,
+        "cycle": 0
+      },
+      "DMA": {
+        "render_id": 426,
+        "ppu": {
+          "frame_count": 846,
+          "scanline": 246,
+          "cycle": 310
+        },
+        "publication": {
+          "ppu": {
+            "frame_count": 845,
+            "scanline": 180,
+            "cycle": 332
+          },
+          "render_id": 426,
+          "id": 426
+        },
+        "id": 426
+      },
+      "player_y": 119
+    },
+    {
+      "profile": "baseline-hard",
+      "age": 241,
+      "parity": 0,
+      "expected_visible": true,
+      "actual_changed_pixels_against_adjacent_stage": 80,
+      "crop_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "reference_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "raw": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-baseline-hard-v1\\fade-render-00427-wall-00847.argb",
+      "raw_sha256": "8a37501263b941fcb65a79f56a60a3e17331b63c425dd4a2b5bcdc8c293eac19",
+      "RGB_sha256": "80eaeef583dba72627542d3cf026dcac564e41f70bcd3e6ebe7d2bd7d6bd9088",
+      "rect": [
+        192,
+        200,
+        208,
+        218
+      ],
+      "background_rect": [
+        224,
+        200,
+        240,
+        218
+      ],
+      "render_id": 427,
+      "visible_start": {
+        "frame_count": 847,
+        "scanline": -1,
+        "cycle": 0
+      },
+      "visible_end": {
+        "frame_count": 847,
+        "scanline": 240,
+        "cycle": 0
+      },
+      "DMA": {
+        "render_id": 427,
+        "ppu": {
+          "frame_count": 847,
+          "scanline": 246,
+          "cycle": 314
+        },
+        "publication": {
+          "ppu": {
+            "frame_count": 846,
+            "scanline": 193,
+            "cycle": 28
+          },
+          "render_id": 427,
+          "id": 427
+        },
+        "id": 427
+      },
+      "player_y": 117
+    },
+    {
+      "profile": "baseline-hard",
+      "age": 242,
+      "parity": 1,
+      "expected_visible": true,
+      "actual_changed_pixels_against_adjacent_stage": 80,
+      "crop_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "reference_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "raw": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-baseline-hard-v1\\fade-render-00428-wall-00848.argb",
+      "raw_sha256": "e0178f354dd54d15bdd894ca9fc683b839f442c3486472272fa03b88310d6b91",
+      "RGB_sha256": "ff04697a4438649e0efb4c97bd26dc6b57a197f67f19be0e15cb4fe1d0433921",
+      "rect": [
+        192,
+        200,
+        208,
+        218
+      ],
+      "background_rect": [
+        224,
+        200,
+        240,
+        218
+      ],
+      "render_id": 428,
+      "visible_start": {
+        "frame_count": 848,
+        "scanline": -1,
+        "cycle": 0
+      },
+      "visible_end": {
+        "frame_count": 848,
+        "scanline": 240,
+        "cycle": 0
+      },
+      "DMA": {
+        "render_id": 428,
+        "ppu": {
+          "frame_count": 848,
+          "scanline": 246,
+          "cycle": 310
+        },
+        "publication": {
+          "ppu": {
+            "frame_count": 847,
+            "scanline": 187,
+            "cycle": 33
+          },
+          "render_id": 428,
+          "id": 428
+        },
+        "id": 428
+      },
+      "player_y": 115
+    },
+    {
+      "profile": "baseline-hard",
+      "age": 243,
+      "parity": 0,
+      "expected_visible": true,
+      "actual_changed_pixels_against_adjacent_stage": 80,
+      "crop_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "reference_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "raw": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-baseline-hard-v1\\fade-render-00429-wall-00849.argb",
+      "raw_sha256": "c603b6d9cd610c295a868d9da5f2e358b1bbf9e11cf428323fcc178b2a403c25",
+      "RGB_sha256": "792c1955be647007c15cd38f35ac05ea4c73a11ff3ebc9140c9c588c80e77168",
+      "rect": [
+        192,
+        200,
+        208,
+        218
+      ],
+      "background_rect": [
+        224,
+        200,
+        240,
+        218
+      ],
+      "render_id": 429,
+      "visible_start": {
+        "frame_count": 849,
+        "scanline": -1,
+        "cycle": 0
+      },
+      "visible_end": {
+        "frame_count": 849,
+        "scanline": 240,
+        "cycle": 0
+      },
+      "DMA": {
+        "render_id": 429,
+        "ppu": {
+          "frame_count": 849,
+          "scanline": 248,
+          "cycle": 58
+        },
+        "publication": {
+          "ppu": {
+            "frame_count": 848,
+            "scanline": 194,
+            "cycle": 77
+          },
+          "render_id": 429,
+          "id": 429
+        },
+        "id": 429
+      },
+      "player_y": 114
+    },
+    {
+      "profile": "baseline-hard",
+      "age": 244,
+      "parity": 1,
+      "expected_visible": true,
+      "actual_changed_pixels_against_adjacent_stage": 80,
+      "crop_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "reference_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "raw": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-baseline-hard-v1\\fade-render-00430-wall-00850.argb",
+      "raw_sha256": "50654b570941998d40679e943d9c193d96393296b4d437e0cbd04d71b58f99a3",
+      "RGB_sha256": "193787697f063c577734d8e515b7bd55be6b9c90d77a004a27fb5ba06dea6a3a",
+      "rect": [
+        192,
+        200,
+        208,
+        218
+      ],
+      "background_rect": [
+        224,
+        200,
+        240,
+        218
+      ],
+      "render_id": 430,
+      "visible_start": {
+        "frame_count": 850,
+        "scanline": -1,
+        "cycle": 0
+      },
+      "visible_end": {
+        "frame_count": 850,
+        "scanline": 240,
+        "cycle": 0
+      },
+      "DMA": {
+        "render_id": 430,
+        "ppu": {
+          "frame_count": 850,
+          "scanline": 246,
+          "cycle": 316
+        },
+        "publication": {
+          "ppu": {
+            "frame_count": 849,
+            "scanline": 191,
+            "cycle": 187
+          },
+          "render_id": 430,
+          "id": 430
+        },
+        "id": 430
+      },
+      "player_y": 112
+    },
+    {
+      "profile": "baseline-hard",
+      "age": 245,
+      "parity": 0,
+      "expected_visible": true,
+      "actual_changed_pixels_against_adjacent_stage": 80,
+      "crop_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "reference_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "raw": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-baseline-hard-v1\\fade-render-00431-wall-00851.argb",
+      "raw_sha256": "e1a58ec66bc18eabc852467e503ce2bc246339fa955b210312f6dbcd3fc32026",
+      "RGB_sha256": "9b89e635d1180ea9a8ccab28bcaecc8cc1c1205261fa123b946a49d9a439d1e9",
+      "rect": [
+        192,
+        200,
+        208,
+        218
+      ],
+      "background_rect": [
+        224,
+        200,
+        240,
+        218
+      ],
+      "render_id": 431,
+      "visible_start": {
+        "frame_count": 851,
+        "scanline": -1,
+        "cycle": 0
+      },
+      "visible_end": {
+        "frame_count": 851,
+        "scanline": 240,
+        "cycle": 0
+      },
+      "DMA": {
+        "render_id": 431,
+        "ppu": {
+          "frame_count": 851,
+          "scanline": 248,
+          "cycle": 115
+        },
+        "publication": {
+          "ppu": {
+            "frame_count": 850,
+            "scanline": 185,
+            "cycle": 137
+          },
+          "render_id": 431,
+          "id": 431
+        },
+        "id": 431
+      },
+      "player_y": 111
+    },
+    {
+      "profile": "baseline-hard",
+      "age": 246,
+      "parity": 1,
+      "expected_visible": true,
+      "actual_changed_pixels_against_adjacent_stage": 80,
+      "crop_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "reference_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "raw": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-baseline-hard-v1\\fade-render-00432-wall-00852.argb",
+      "raw_sha256": "ac2ff112e1f1bfe8ee589982921aa90a41f4e1a752e5c09b42bd455b469693c0",
+      "RGB_sha256": "4c1dcea327df8a56c355f3408a0a36dc701d76a4d4392cf996993aa549cc9abb",
+      "rect": [
+        192,
+        200,
+        208,
+        218
+      ],
+      "background_rect": [
+        224,
+        200,
+        240,
+        218
+      ],
+      "render_id": 432,
+      "visible_start": {
+        "frame_count": 852,
+        "scanline": -1,
+        "cycle": 0
+      },
+      "visible_end": {
+        "frame_count": 852,
+        "scanline": 240,
+        "cycle": 0
+      },
+      "DMA": {
+        "render_id": 432,
+        "ppu": {
+          "frame_count": 852,
+          "scanline": 246,
+          "cycle": 307
+        },
+        "publication": {
+          "ppu": {
+            "frame_count": 851,
+            "scanline": 190,
+            "cycle": 321
+          },
+          "render_id": 432,
+          "id": 432
+        },
+        "id": 432
+      },
+      "player_y": 110
+    },
+    {
+      "profile": "baseline-hard",
+      "age": 247,
+      "parity": 0,
+      "expected_visible": true,
+      "actual_changed_pixels_against_adjacent_stage": 80,
+      "crop_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "reference_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "raw": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-baseline-hard-v1\\fade-render-00433-wall-00853.argb",
+      "raw_sha256": "f4edbe9e4398e7fc9139c4d92a74dd72629677096c889c8180b7d354d886e8e8",
+      "RGB_sha256": "3b13fcb721f66f5d06712ffac5e36e67d65d4bce93af21f90dfc021cf684d3d3",
+      "rect": [
+        192,
+        200,
+        208,
+        218
+      ],
+      "background_rect": [
+        224,
+        200,
+        240,
+        218
+      ],
+      "render_id": 433,
+      "visible_start": {
+        "frame_count": 853,
+        "scanline": -1,
+        "cycle": 0
+      },
+      "visible_end": {
+        "frame_count": 853,
+        "scanline": 240,
+        "cycle": 0
+      },
+      "DMA": {
+        "render_id": 433,
+        "ppu": {
+          "frame_count": 853,
+          "scanline": 246,
+          "cycle": 314
+        },
+        "publication": {
+          "ppu": {
+            "frame_count": 852,
+            "scanline": 184,
+            "cycle": 157
+          },
+          "render_id": 433,
+          "id": 433
+        },
+        "id": 433
+      },
+      "player_y": 109
+    },
+    {
+      "profile": "candidate-easy",
+      "age": 236,
+      "parity": 1,
+      "expected_visible": true,
+      "actual_changed_pixels_against_adjacent_stage": 80,
+      "crop_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "reference_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "raw": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-candidate-easy-v1\\fade-render-01412-wall-01774.argb",
+      "raw_sha256": "2d7a424ef18e9cc5d8eee525e9c61114bccf0ca722b68d9a08feeeddcfcd8782",
+      "RGB_sha256": "d6b3cba2d044354234da90ad7fb6e7aa5d80ed9ba65902c69490875b119411eb",
+      "rect": [
+        192,
+        200,
+        208,
+        218
+      ],
+      "background_rect": [
+        224,
+        200,
+        240,
+        218
+      ],
+      "render_id": 1412,
+      "visible_start": {
+        "scanline": -1,
+        "frame_count": 1774,
+        "cycle": 0
+      },
+      "visible_end": {
+        "scanline": 240,
+        "frame_count": 1774,
+        "cycle": 0
+      },
+      "DMA": {
+        "publication": {
+          "render_id": 1412,
+          "ppu": {
+            "scanline": 186,
+            "frame_count": 1773,
+            "cycle": 140
+          },
+          "id": 1412
+        },
+        "render_id": 1412,
+        "ppu": {
+          "scanline": 246,
+          "frame_count": 1774,
+          "cycle": 307
+        },
+        "id": 1412
+      },
+      "player_y": 132
+    },
+    {
+      "profile": "candidate-easy",
+      "age": 237,
+      "parity": 0,
+      "expected_visible": true,
+      "actual_changed_pixels_against_adjacent_stage": 80,
+      "crop_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "reference_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "raw": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-candidate-easy-v1\\fade-render-01413-wall-01775.argb",
+      "raw_sha256": "04aeb488cbf08c3be4dc52aa3b744c8e045bfd10d64b4bbd8ec659d2142fa1c5",
+      "RGB_sha256": "4201e80454dc6c3eb7e541e83954d0a817098e4ee00267a2e9a71c7c9cd8430e",
+      "rect": [
+        192,
+        200,
+        208,
+        218
+      ],
+      "background_rect": [
+        224,
+        200,
+        240,
+        218
+      ],
+      "render_id": 1413,
+      "visible_start": {
+        "scanline": -1,
+        "frame_count": 1775,
+        "cycle": 0
+      },
+      "visible_end": {
+        "scanline": 240,
+        "frame_count": 1775,
+        "cycle": 0
+      },
+      "DMA": {
+        "publication": {
+          "render_id": 1413,
+          "ppu": {
+            "scanline": 187,
+            "frame_count": 1774,
+            "cycle": 211
+          },
+          "id": 1413
+        },
+        "render_id": 1413,
+        "ppu": {
+          "scanline": 248,
+          "frame_count": 1775,
+          "cycle": 115
+        },
+        "id": 1413
+      },
+      "player_y": 129
+    },
+    {
+      "profile": "candidate-easy",
+      "age": 238,
+      "parity": 1,
+      "expected_visible": true,
+      "actual_changed_pixels_against_adjacent_stage": 80,
+      "crop_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "reference_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "raw": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-candidate-easy-v1\\fade-render-01414-wall-01776.argb",
+      "raw_sha256": "ae368bad98df19fbd680672a3c56271aefc2e93bce4092f3a2181ea7ff6a0b98",
+      "RGB_sha256": "10154b7d49ab65e49debc6edce97ee590a130dcad82892b5c13661176d245f55",
+      "rect": [
+        192,
+        200,
+        208,
+        218
+      ],
+      "background_rect": [
+        224,
+        200,
+        240,
+        218
+      ],
+      "render_id": 1414,
+      "visible_start": {
+        "scanline": -1,
+        "frame_count": 1776,
+        "cycle": 0
+      },
+      "visible_end": {
+        "scanline": 240,
+        "frame_count": 1776,
+        "cycle": 0
+      },
+      "DMA": {
+        "publication": {
+          "render_id": 1414,
+          "ppu": {
+            "scanline": 183,
+            "frame_count": 1775,
+            "cycle": 323
+          },
+          "id": 1414
+        },
+        "render_id": 1414,
+        "ppu": {
+          "scanline": 246,
+          "frame_count": 1776,
+          "cycle": 307
+        },
+        "id": 1414
+      },
+      "player_y": 127
+    },
+    {
+      "profile": "candidate-easy",
+      "age": 239,
+      "parity": 0,
+      "expected_visible": true,
+      "actual_changed_pixels_against_adjacent_stage": 80,
+      "crop_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "reference_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "raw": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-candidate-easy-v1\\fade-render-01415-wall-01777.argb",
+      "raw_sha256": "118dfca8d8a3665785c226aa0cf096006d14b93135048b8a299bd44588f840f8",
+      "RGB_sha256": "667610398ef74cc2abcb9165a078c01bcd21af56240f8edd73aa421918c0b622",
+      "rect": [
+        192,
+        200,
+        208,
+        218
+      ],
+      "background_rect": [
+        224,
+        200,
+        240,
+        218
+      ],
+      "render_id": 1415,
+      "visible_start": {
+        "scanline": -1,
+        "frame_count": 1777,
+        "cycle": 0
+      },
+      "visible_end": {
+        "scanline": 240,
+        "frame_count": 1777,
+        "cycle": 0
+      },
+      "DMA": {
+        "publication": {
+          "render_id": 1415,
+          "ppu": {
+            "scanline": 182,
+            "frame_count": 1776,
+            "cycle": 287
+          },
+          "id": 1415
+        },
+        "render_id": 1415,
+        "ppu": {
+          "scanline": 246,
+          "frame_count": 1777,
+          "cycle": 308
+        },
+        "id": 1415
+      },
+      "player_y": 124
+    },
+    {
+      "profile": "candidate-easy",
+      "age": 240,
+      "parity": 1,
+      "expected_visible": false,
+      "actual_changed_pixels_against_adjacent_stage": 0,
+      "crop_RGB_sha256": "4f57ef772ffcb2533cafd1c286486302ea32dece7e1adc4db636b89a6f3b880c",
+      "reference_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "raw": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-candidate-easy-v1\\fade-render-01416-wall-01778.argb",
+      "raw_sha256": "f4a0c0d4c401acbc3db4eff3eb9a6a8829d83598f6c573e1be542fe19bc2b9e4",
+      "RGB_sha256": "504b9bdb852e014d9a249ea4b8f098a522e00ea6036c2dd2877e1b5c7bbc45e6",
+      "rect": [
+        192,
+        200,
+        208,
+        218
+      ],
+      "background_rect": [
+        224,
+        200,
+        240,
+        218
+      ],
+      "render_id": 1416,
+      "visible_start": {
+        "scanline": -1,
+        "frame_count": 1778,
+        "cycle": 0
+      },
+      "visible_end": {
+        "scanline": 240,
+        "frame_count": 1778,
+        "cycle": 0
+      },
+      "DMA": {
+        "publication": {
+          "render_id": 1416,
+          "ppu": {
+            "scanline": 174,
+            "frame_count": 1777,
+            "cycle": 200
+          },
+          "id": 1416
+        },
+        "render_id": 1416,
+        "ppu": {
+          "scanline": 246,
+          "frame_count": 1778,
+          "cycle": 307
+        },
+        "id": 1416
+      },
+      "player_y": 121
+    },
+    {
+      "profile": "candidate-easy",
+      "age": 241,
+      "parity": 0,
+      "expected_visible": true,
+      "actual_changed_pixels_against_adjacent_stage": 80,
+      "crop_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "reference_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "raw": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-candidate-easy-v1\\fade-render-01417-wall-01779.argb",
+      "raw_sha256": "e9f12e907a2135a2e78a6bb9154cff9e13e52f3cb6646b26765910c71cb608b5",
+      "RGB_sha256": "c23f929192cf3cfef2a368513dbc43540e8629036dfd5196bccfd449da3d90c1",
+      "rect": [
+        192,
+        200,
+        208,
+        218
+      ],
+      "background_rect": [
+        224,
+        200,
+        240,
+        218
+      ],
+      "render_id": 1417,
+      "visible_start": {
+        "scanline": -1,
+        "frame_count": 1779,
+        "cycle": 0
+      },
+      "visible_end": {
+        "scanline": 240,
+        "frame_count": 1779,
+        "cycle": 0
+      },
+      "DMA": {
+        "publication": {
+          "render_id": 1417,
+          "ppu": {
+            "scanline": 175,
+            "frame_count": 1778,
+            "cycle": 166
+          },
+          "id": 1417
+        },
+        "render_id": 1417,
+        "ppu": {
+          "scanline": 246,
+          "frame_count": 1779,
+          "cycle": 308
+        },
+        "id": 1417
+      },
+      "player_y": 119
+    },
+    {
+      "profile": "candidate-easy",
+      "age": 242,
+      "parity": 1,
+      "expected_visible": false,
+      "actual_changed_pixels_against_adjacent_stage": 0,
+      "crop_RGB_sha256": "4f57ef772ffcb2533cafd1c286486302ea32dece7e1adc4db636b89a6f3b880c",
+      "reference_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "raw": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-candidate-easy-v1\\fade-render-01418-wall-01780.argb",
+      "raw_sha256": "6fa2fec677a0f6ab897b71728950c389d4ae21b407cab430d7b83564c1069123",
+      "RGB_sha256": "38a8164284941712c59f06f451e6f1e2d72328181d5bef817a09af01cb8e9fa5",
+      "rect": [
+        192,
+        200,
+        208,
+        218
+      ],
+      "background_rect": [
+        224,
+        200,
+        240,
+        218
+      ],
+      "render_id": 1418,
+      "visible_start": {
+        "scanline": -1,
+        "frame_count": 1780,
+        "cycle": 0
+      },
+      "visible_end": {
+        "scanline": 240,
+        "frame_count": 1780,
+        "cycle": 0
+      },
+      "DMA": {
+        "publication": {
+          "render_id": 1418,
+          "ppu": {
+            "scanline": 191,
+            "frame_count": 1779,
+            "cycle": 136
+          },
+          "id": 1418
+        },
+        "render_id": 1418,
+        "ppu": {
+          "scanline": 246,
+          "frame_count": 1780,
+          "cycle": 307
+        },
+        "id": 1418
+      },
+      "player_y": 117
+    },
+    {
+      "profile": "candidate-easy",
+      "age": 243,
+      "parity": 0,
+      "expected_visible": true,
+      "actual_changed_pixels_against_adjacent_stage": 80,
+      "crop_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "reference_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "raw": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-candidate-easy-v1\\fade-render-01419-wall-01781.argb",
+      "raw_sha256": "54b6b513fed0cef62fdf023e6bfd753268f7db4dda1befd8d056c3f5816010f1",
+      "RGB_sha256": "a0228770756dc32c18f74a72e6ae4de3b143f56b414476010596f11653fd6cab",
+      "rect": [
+        192,
+        200,
+        208,
+        218
+      ],
+      "background_rect": [
+        224,
+        200,
+        240,
+        218
+      ],
+      "render_id": 1419,
+      "visible_start": {
+        "scanline": -1,
+        "frame_count": 1781,
+        "cycle": 0
+      },
+      "visible_end": {
+        "scanline": 240,
+        "frame_count": 1781,
+        "cycle": 0
+      },
+      "DMA": {
+        "publication": {
+          "render_id": 1419,
+          "ppu": {
+            "scanline": 197,
+            "frame_count": 1780,
+            "cycle": 59
+          },
+          "id": 1419
+        },
+        "render_id": 1419,
+        "ppu": {
+          "scanline": 246,
+          "frame_count": 1781,
+          "cycle": 311
+        },
+        "id": 1419
+      },
+      "player_y": 115
+    },
+    {
+      "profile": "candidate-easy",
+      "age": 244,
+      "parity": 1,
+      "expected_visible": false,
+      "actual_changed_pixels_against_adjacent_stage": 0,
+      "crop_RGB_sha256": "4f57ef772ffcb2533cafd1c286486302ea32dece7e1adc4db636b89a6f3b880c",
+      "reference_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "raw": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-candidate-easy-v1\\fade-render-01420-wall-01782.argb",
+      "raw_sha256": "e30f97a42158770ec2dabbd2b1204b2460035c0a26110a0e416cb375ea317ddc",
+      "RGB_sha256": "76e70bfabbdbfe60db3868633a090c68e3667f767eb23390d5483cadce7a3d1f",
+      "rect": [
+        192,
+        200,
+        208,
+        218
+      ],
+      "background_rect": [
+        224,
+        200,
+        240,
+        218
+      ],
+      "render_id": 1420,
+      "visible_start": {
+        "scanline": -1,
+        "frame_count": 1782,
+        "cycle": 0
+      },
+      "visible_end": {
+        "scanline": 240,
+        "frame_count": 1782,
+        "cycle": 0
+      },
+      "DMA": {
+        "publication": {
+          "render_id": 1420,
+          "ppu": {
+            "scanline": 180,
+            "frame_count": 1781,
+            "cycle": 191
+          },
+          "id": 1420
+        },
+        "render_id": 1420,
+        "ppu": {
+          "scanline": 246,
+          "frame_count": 1782,
+          "cycle": 307
+        },
+        "id": 1420
+      },
+      "player_y": 113
+    },
+    {
+      "profile": "candidate-easy",
+      "age": 245,
+      "parity": 0,
+      "expected_visible": true,
+      "actual_changed_pixels_against_adjacent_stage": 80,
+      "crop_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "reference_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "raw": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-candidate-easy-v1\\fade-render-01421-wall-01783.argb",
+      "raw_sha256": "58f5d4029b7c7d7506837e7ae2bfa9df21647cd373da3c272fddbc89ce08175f",
+      "RGB_sha256": "6f5c5591f2d26eeaaaa6faac542b4a58298c9725cc654ce07ec1355b8a44a1b6",
+      "rect": [
+        192,
+        200,
+        208,
+        218
+      ],
+      "background_rect": [
+        224,
+        200,
+        240,
+        218
+      ],
+      "render_id": 1421,
+      "visible_start": {
+        "scanline": -1,
+        "frame_count": 1783,
+        "cycle": 0
+      },
+      "visible_end": {
+        "scanline": 240,
+        "frame_count": 1783,
+        "cycle": 0
+      },
+      "DMA": {
+        "publication": {
+          "render_id": 1421,
+          "ppu": {
+            "scanline": 194,
+            "frame_count": 1782,
+            "cycle": 104
+          },
+          "id": 1421
+        },
+        "render_id": 1421,
+        "ppu": {
+          "scanline": 248,
+          "frame_count": 1783,
+          "cycle": 115
+        },
+        "id": 1421
+      },
+      "player_y": 111
+    },
+    {
+      "profile": "candidate-easy",
+      "age": 246,
+      "parity": 1,
+      "expected_visible": false,
+      "actual_changed_pixels_against_adjacent_stage": 0,
+      "crop_RGB_sha256": "4f57ef772ffcb2533cafd1c286486302ea32dece7e1adc4db636b89a6f3b880c",
+      "reference_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "raw": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-candidate-easy-v1\\fade-render-01422-wall-01784.argb",
+      "raw_sha256": "53de8a9d6ad37afc02dd6c6716d85b5407d353c0e2af849efd266d3ef9faa4ec",
+      "RGB_sha256": "034a6980d1c870493caa5813ef0f567e633a97ea0d9aaaf60f9f5a9985d6c791",
+      "rect": [
+        192,
+        200,
+        208,
+        218
+      ],
+      "background_rect": [
+        224,
+        200,
+        240,
+        218
+      ],
+      "render_id": 1422,
+      "visible_start": {
+        "scanline": -1,
+        "frame_count": 1784,
+        "cycle": 0
+      },
+      "visible_end": {
+        "scanline": 240,
+        "frame_count": 1784,
+        "cycle": 0
+      },
+      "DMA": {
+        "publication": {
+          "render_id": 1422,
+          "ppu": {
+            "scanline": 180,
+            "frame_count": 1783,
+            "cycle": 227
+          },
+          "id": 1422
+        },
+        "render_id": 1422,
+        "ppu": {
+          "scanline": 246,
+          "frame_count": 1784,
+          "cycle": 310
+        },
+        "id": 1422
+      },
+      "player_y": 109
+    },
+    {
+      "profile": "candidate-easy",
+      "age": 247,
+      "parity": 0,
+      "expected_visible": true,
+      "actual_changed_pixels_against_adjacent_stage": 80,
+      "crop_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "reference_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "raw": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-candidate-easy-v1\\fade-render-01423-wall-01785.argb",
+      "raw_sha256": "903c4bccf0cd5165028d3027020d4d518f2a839606fa9ac2176717f4f9fce874",
+      "RGB_sha256": "da188b65facd57bc6edf383a7d91bf762d006ea8017b38e0c8549ed25d6438cf",
+      "rect": [
+        192,
+        200,
+        208,
+        218
+      ],
+      "background_rect": [
+        224,
+        200,
+        240,
+        218
+      ],
+      "render_id": 1423,
+      "visible_start": {
+        "scanline": -1,
+        "frame_count": 1785,
+        "cycle": 0
+      },
+      "visible_end": {
+        "scanline": 240,
+        "frame_count": 1785,
+        "cycle": 0
+      },
+      "DMA": {
+        "publication": {
+          "render_id": 1423,
+          "ppu": {
+            "scanline": 190,
+            "frame_count": 1784,
+            "cycle": 226
+          },
+          "id": 1423
+        },
+        "render_id": 1423,
+        "ppu": {
+          "scanline": 246,
+          "frame_count": 1785,
+          "cycle": 308
+        },
+        "id": 1423
+      },
+      "player_y": 108
+    },
+    {
+      "profile": "candidate-hard",
+      "age": 236,
+      "parity": 1,
+      "expected_visible": true,
+      "actual_changed_pixels_against_adjacent_stage": 80,
+      "crop_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "reference_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "raw": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-candidate-hard-v1\\fade-render-00422-wall-00842.argb",
+      "raw_sha256": "6705f86b671b8dd5c67891162fe2816330b752b55cd79e88e0903f7e747db7d7",
+      "RGB_sha256": "f059ff8321a5ae4b41fc2391a2e6e1f13788564df7ab7a5452a5da0e38216bce",
+      "rect": [
+        192,
+        200,
+        208,
+        218
+      ],
+      "background_rect": [
+        224,
+        200,
+        240,
+        218
+      ],
+      "render_id": 422,
+      "visible_start": {
+        "scanline": -1,
+        "cycle": 0,
+        "frame_count": 842
+      },
+      "visible_end": {
+        "scanline": 240,
+        "cycle": 0,
+        "frame_count": 842
+      },
+      "DMA": {
+        "render_id": 422,
+        "ppu": {
+          "scanline": 246,
+          "cycle": 307,
+          "frame_count": 842
+        },
+        "publication": {
+          "render_id": 422,
+          "ppu": {
+            "scanline": 191,
+            "cycle": 127,
+            "frame_count": 841
+          },
+          "id": 422
+        },
+        "id": 422
+      },
+      "player_y": 130
+    },
+    {
+      "profile": "candidate-hard",
+      "age": 237,
+      "parity": 0,
+      "expected_visible": true,
+      "actual_changed_pixels_against_adjacent_stage": 80,
+      "crop_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "reference_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "raw": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-candidate-hard-v1\\fade-render-00423-wall-00843.argb",
+      "raw_sha256": "abbfea646d6f6e1bfd6c4e20ac17afd0347f11c01e7bb416606e25ea0b2e0f8e",
+      "RGB_sha256": "4fe49bcf5dd9987775f869ebc2f01a641b6fa1b24f6485a5103d5d686b424698",
+      "rect": [
+        192,
+        200,
+        208,
+        218
+      ],
+      "background_rect": [
+        224,
+        200,
+        240,
+        218
+      ],
+      "render_id": 423,
+      "visible_start": {
+        "scanline": -1,
+        "cycle": 0,
+        "frame_count": 843
+      },
+      "visible_end": {
+        "scanline": 240,
+        "cycle": 0,
+        "frame_count": 843
+      },
+      "DMA": {
+        "render_id": 423,
+        "ppu": {
+          "scanline": 248,
+          "cycle": 115,
+          "frame_count": 843
+        },
+        "publication": {
+          "render_id": 423,
+          "ppu": {
+            "scanline": 187,
+            "cycle": 292,
+            "frame_count": 842
+          },
+          "id": 423
+        },
+        "id": 423
+      },
+      "player_y": 127
+    },
+    {
+      "profile": "candidate-hard",
+      "age": 238,
+      "parity": 1,
+      "expected_visible": true,
+      "actual_changed_pixels_against_adjacent_stage": 80,
+      "crop_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "reference_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "raw": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-candidate-hard-v1\\fade-render-00424-wall-00844.argb",
+      "raw_sha256": "2a18f9ffa6b6e6ae38d321dc57c2c6730a6c80c6c35ffa27a0c9b8be6c8b01e6",
+      "RGB_sha256": "f16c3eb02bbab7159100cf8b3ce723b6ec3a6deb75e9163a7d96950fc10ca1d9",
+      "rect": [
+        192,
+        200,
+        208,
+        218
+      ],
+      "background_rect": [
+        224,
+        200,
+        240,
+        218
+      ],
+      "render_id": 424,
+      "visible_start": {
+        "scanline": -1,
+        "cycle": 0,
+        "frame_count": 844
+      },
+      "visible_end": {
+        "scanline": 240,
+        "cycle": 0,
+        "frame_count": 844
+      },
+      "DMA": {
+        "render_id": 424,
+        "ppu": {
+          "scanline": 246,
+          "cycle": 307,
+          "frame_count": 844
+        },
+        "publication": {
+          "render_id": 424,
+          "ppu": {
+            "scanline": 185,
+            "cycle": 271,
+            "frame_count": 843
+          },
+          "id": 424
+        },
+        "id": 424
+      },
+      "player_y": 124
+    },
+    {
+      "profile": "candidate-hard",
+      "age": 239,
+      "parity": 0,
+      "expected_visible": true,
+      "actual_changed_pixels_against_adjacent_stage": 80,
+      "crop_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "reference_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "raw": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-candidate-hard-v1\\fade-render-00425-wall-00845.argb",
+      "raw_sha256": "fae971e215baadd9e3c6b576458e630ebf8f5cd1ad077e222b1b8e05576fa761",
+      "RGB_sha256": "79407ac36af17c70b5c9e99e9e6d637956b6dd490932d940003de50b0e369f53",
+      "rect": [
+        192,
+        200,
+        208,
+        218
+      ],
+      "background_rect": [
+        224,
+        200,
+        240,
+        218
+      ],
+      "render_id": 425,
+      "visible_start": {
+        "scanline": -1,
+        "cycle": 0,
+        "frame_count": 845
+      },
+      "visible_end": {
+        "scanline": 240,
+        "cycle": 0,
+        "frame_count": 845
+      },
+      "DMA": {
+        "render_id": 425,
+        "ppu": {
+          "scanline": 246,
+          "cycle": 311,
+          "frame_count": 845
+        },
+        "publication": {
+          "render_id": 425,
+          "ppu": {
+            "scanline": 187,
+            "cycle": 67,
+            "frame_count": 844
+          },
+          "id": 425
+        },
+        "id": 425
+      },
+      "player_y": 122
+    },
+    {
+      "profile": "candidate-hard",
+      "age": 240,
+      "parity": 1,
+      "expected_visible": false,
+      "actual_changed_pixels_against_adjacent_stage": 0,
+      "crop_RGB_sha256": "4f57ef772ffcb2533cafd1c286486302ea32dece7e1adc4db636b89a6f3b880c",
+      "reference_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "raw": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-candidate-hard-v1\\fade-render-00426-wall-00846.argb",
+      "raw_sha256": "0005dc10bfd35e72fab45ec2ddaa026dc5ab58a4973a4c4611e271983954c697",
+      "RGB_sha256": "b41be095ca8bf64e99ccb0dc872d3b3f2133c3946c58def2a6f7a447fd17cd00",
+      "rect": [
+        192,
+        200,
+        208,
+        218
+      ],
+      "background_rect": [
+        224,
+        200,
+        240,
+        218
+      ],
+      "render_id": 426,
+      "visible_start": {
+        "scanline": -1,
+        "cycle": 0,
+        "frame_count": 846
+      },
+      "visible_end": {
+        "scanline": 240,
+        "cycle": 0,
+        "frame_count": 846
+      },
+      "DMA": {
+        "render_id": 426,
+        "ppu": {
+          "scanline": 246,
+          "cycle": 313,
+          "frame_count": 846
+        },
+        "publication": {
+          "render_id": 426,
+          "ppu": {
+            "scanline": 173,
+            "cycle": 106,
+            "frame_count": 845
+          },
+          "id": 426
+        },
+        "id": 426
+      },
+      "player_y": 119
+    },
+    {
+      "profile": "candidate-hard",
+      "age": 241,
+      "parity": 0,
+      "expected_visible": true,
+      "actual_changed_pixels_against_adjacent_stage": 80,
+      "crop_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "reference_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "raw": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-candidate-hard-v1\\fade-render-00427-wall-00847.argb",
+      "raw_sha256": "48130141fd44eebb024f434acaf4c276ffd0741b392fb1a66b24effef78dd38d",
+      "RGB_sha256": "425db897022ac7a2d69eaacb3d0bde5d7ade145fb03db504c0fd2930e1315020",
+      "rect": [
+        192,
+        200,
+        208,
+        218
+      ],
+      "background_rect": [
+        224,
+        200,
+        240,
+        218
+      ],
+      "render_id": 427,
+      "visible_start": {
+        "scanline": -1,
+        "cycle": 0,
+        "frame_count": 847
+      },
+      "visible_end": {
+        "scanline": 240,
+        "cycle": 0,
+        "frame_count": 847
+      },
+      "DMA": {
+        "render_id": 427,
+        "ppu": {
+          "scanline": 246,
+          "cycle": 311,
+          "frame_count": 847
+        },
+        "publication": {
+          "render_id": 427,
+          "ppu": {
+            "scanline": 193,
+            "cycle": 289,
+            "frame_count": 846
+          },
+          "id": 427
+        },
+        "id": 427
+      },
+      "player_y": 117
+    },
+    {
+      "profile": "candidate-hard",
+      "age": 242,
+      "parity": 1,
+      "expected_visible": false,
+      "actual_changed_pixels_against_adjacent_stage": 0,
+      "crop_RGB_sha256": "4f57ef772ffcb2533cafd1c286486302ea32dece7e1adc4db636b89a6f3b880c",
+      "reference_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "raw": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-candidate-hard-v1\\fade-render-00428-wall-00848.argb",
+      "raw_sha256": "2c8fe7d82b3cce8d5c67cf3eb05901621920513c913eb25f9ca72d8af133ef72",
+      "RGB_sha256": "d087079563f918b2bbf11e375ba6f4a868a4a5b87cfb53c3e81a3fc2e1f64ce5",
+      "rect": [
+        192,
+        200,
+        208,
+        218
+      ],
+      "background_rect": [
+        224,
+        200,
+        240,
+        218
+      ],
+      "render_id": 428,
+      "visible_start": {
+        "scanline": -1,
+        "cycle": 0,
+        "frame_count": 848
+      },
+      "visible_end": {
+        "scanline": 240,
+        "cycle": 0,
+        "frame_count": 848
+      },
+      "DMA": {
+        "render_id": 428,
+        "ppu": {
+          "scanline": 246,
+          "cycle": 307,
+          "frame_count": 848
+        },
+        "publication": {
+          "render_id": 428,
+          "ppu": {
+            "scanline": 179,
+            "cycle": 112,
+            "frame_count": 847
+          },
+          "id": 428
+        },
+        "id": 428
+      },
+      "player_y": 115
+    },
+    {
+      "profile": "candidate-hard",
+      "age": 243,
+      "parity": 0,
+      "expected_visible": true,
+      "actual_changed_pixels_against_adjacent_stage": 80,
+      "crop_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "reference_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "raw": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-candidate-hard-v1\\fade-render-00429-wall-00849.argb",
+      "raw_sha256": "c603b6d9cd610c295a868d9da5f2e358b1bbf9e11cf428323fcc178b2a403c25",
+      "RGB_sha256": "792c1955be647007c15cd38f35ac05ea4c73a11ff3ebc9140c9c588c80e77168",
+      "rect": [
+        192,
+        200,
+        208,
+        218
+      ],
+      "background_rect": [
+        224,
+        200,
+        240,
+        218
+      ],
+      "render_id": 429,
+      "visible_start": {
+        "scanline": -1,
+        "cycle": 0,
+        "frame_count": 849
+      },
+      "visible_end": {
+        "scanline": 240,
+        "cycle": 0,
+        "frame_count": 849
+      },
+      "DMA": {
+        "render_id": 429,
+        "ppu": {
+          "scanline": 248,
+          "cycle": 61,
+          "frame_count": 849
+        },
+        "publication": {
+          "render_id": 429,
+          "ppu": {
+            "scanline": 195,
+            "cycle": 12,
+            "frame_count": 848
+          },
+          "id": 429
+        },
+        "id": 429
+      },
+      "player_y": 114
+    },
+    {
+      "profile": "candidate-hard",
+      "age": 244,
+      "parity": 1,
+      "expected_visible": false,
+      "actual_changed_pixels_against_adjacent_stage": 0,
+      "crop_RGB_sha256": "4f57ef772ffcb2533cafd1c286486302ea32dece7e1adc4db636b89a6f3b880c",
+      "reference_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "raw": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-candidate-hard-v1\\fade-render-00430-wall-00850.argb",
+      "raw_sha256": "b6fa9c3b1d4b37c999b89505a68d8a73ea7bf13c83be91f1f2abfb4a4f7fe518",
+      "RGB_sha256": "6b4de76d132924e394295078bf012abdda9fcfacaee3612ddfdb6fff12aa86e5",
+      "rect": [
+        192,
+        200,
+        208,
+        218
+      ],
+      "background_rect": [
+        224,
+        200,
+        240,
+        218
+      ],
+      "render_id": 430,
+      "visible_start": {
+        "scanline": -1,
+        "cycle": 0,
+        "frame_count": 850
+      },
+      "visible_end": {
+        "scanline": 240,
+        "cycle": 0,
+        "frame_count": 850
+      },
+      "DMA": {
+        "render_id": 430,
+        "ppu": {
+          "scanline": 246,
+          "cycle": 313,
+          "frame_count": 850
+        },
+        "publication": {
+          "render_id": 430,
+          "ppu": {
+            "scanline": 183,
+            "cycle": 287,
+            "frame_count": 849
+          },
+          "id": 430
+        },
+        "id": 430
+      },
+      "player_y": 112
+    },
+    {
+      "profile": "candidate-hard",
+      "age": 245,
+      "parity": 0,
+      "expected_visible": true,
+      "actual_changed_pixels_against_adjacent_stage": 80,
+      "crop_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "reference_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "raw": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-candidate-hard-v1\\fade-render-00431-wall-00851.argb",
+      "raw_sha256": "4e77b83e72615940ec0562ee800a741fbf5adfa9d719b31f812ff358393fa010",
+      "RGB_sha256": "fb1153d11b59abfe0bbe36de7c11ada99e8e8f1d37314bded79eb6c3cd29d7cd",
+      "rect": [
+        192,
+        200,
+        208,
+        218
+      ],
+      "background_rect": [
+        224,
+        200,
+        240,
+        218
+      ],
+      "render_id": 431,
+      "visible_start": {
+        "scanline": -1,
+        "cycle": 0,
+        "frame_count": 851
+      },
+      "visible_end": {
+        "scanline": 240,
+        "cycle": 0,
+        "frame_count": 851
+      },
+      "DMA": {
+        "render_id": 431,
+        "ppu": {
+          "scanline": 248,
+          "cycle": 115,
+          "frame_count": 851
+        },
+        "publication": {
+          "render_id": 431,
+          "ppu": {
+            "scanline": 186,
+            "cycle": 90,
+            "frame_count": 850
+          },
+          "id": 431
+        },
+        "id": 431
+      },
+      "player_y": 111
+    },
+    {
+      "profile": "candidate-hard",
+      "age": 246,
+      "parity": 1,
+      "expected_visible": false,
+      "actual_changed_pixels_against_adjacent_stage": 0,
+      "crop_RGB_sha256": "4f57ef772ffcb2533cafd1c286486302ea32dece7e1adc4db636b89a6f3b880c",
+      "reference_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "raw": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-candidate-hard-v1\\fade-render-00432-wall-00852.argb",
+      "raw_sha256": "870053720de286cb4e5cd047ccf2362c2e9f05b05975e3675a184c1ae407d314",
+      "RGB_sha256": "0a0d5d923c4bfaef8ccc88a386342b4a1d26a45cded649a6d0b18fcca75a11fa",
+      "rect": [
+        192,
+        200,
+        208,
+        218
+      ],
+      "background_rect": [
+        224,
+        200,
+        240,
+        218
+      ],
+      "render_id": 432,
+      "visible_start": {
+        "scanline": -1,
+        "cycle": 0,
+        "frame_count": 852
+      },
+      "visible_end": {
+        "scanline": 240,
+        "cycle": 0,
+        "frame_count": 852
+      },
+      "DMA": {
+        "render_id": 432,
+        "ppu": {
+          "scanline": 246,
+          "cycle": 307,
+          "frame_count": 852
+        },
+        "publication": {
+          "render_id": 432,
+          "ppu": {
+            "scanline": 183,
+            "cycle": 50,
+            "frame_count": 851
+          },
+          "id": 432
+        },
+        "id": 432
+      },
+      "player_y": 110
+    },
+    {
+      "profile": "candidate-hard",
+      "age": 247,
+      "parity": 0,
+      "expected_visible": true,
+      "actual_changed_pixels_against_adjacent_stage": 80,
+      "crop_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "reference_RGB_sha256": "1b045592959d7997800bcb62cd58128e892fd423cc9d332ea53157c140492d80",
+      "raw": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-candidate-hard-v1\\fade-render-00433-wall-00853.argb",
+      "raw_sha256": "04e138f98bf930ef3608b34424456aa8800ee28c7042834c6e55a535f2cf5a2a",
+      "RGB_sha256": "0ab69c597addf4bf17b1815d6d63efe23fa65d0fb6ffa8cdf7dde48d6079fca6",
+      "rect": [
+        192,
+        200,
+        208,
+        218
+      ],
+      "background_rect": [
+        224,
+        200,
+        240,
+        218
+      ],
+      "render_id": 433,
+      "visible_start": {
+        "scanline": -1,
+        "cycle": 0,
+        "frame_count": 853
+      },
+      "visible_end": {
+        "scanline": 240,
+        "cycle": 0,
+        "frame_count": 853
+      },
+      "DMA": {
+        "render_id": 433,
+        "ppu": {
+          "scanline": 246,
+          "cycle": 305,
+          "frame_count": 853
+        },
+        "publication": {
+          "render_id": 433,
+          "ppu": {
+            "scanline": 185,
+            "cycle": 101,
+            "frame_count": 852
+          },
+          "id": 433
+        },
+        "id": 433
+      },
+      "player_y": 109
+    }
+  ],
+  "bindings": {
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\root-calm-rgb-v1\\baseline-easy-calm-ages236-247.png": "a5c6c89ab3ad47a3ea50fef65dffdeba9ce9307e8ebe9afb0124103c071d4bc3",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-baseline-easy-v1\\proof.json": "52ff78c93317dcf0844d16af96cce377960a4f16c41d5c40df7c99c8b0201b75",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-baseline-easy-v1\\native-result.json": "b970624f0673841d0b1a03995761c10fbbfd516d1deeea2f51ad9fbfd7776f41",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-baseline-easy-v1\\run.lua": "f6d8e005682582d6af03cb870f12ce0d4e2a138a978a41779ea1eda031488241",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-baseline-easy-v1\\config.json": "c752a5a405d28249c3c92ffd8a337e55014c1a065f34505e392f57dd34a1b449",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-baseline-easy-v1\\events.jsonl": "bf924c02543e106b9aaa64e92dcf6417c491e6ff27ba6655bfc33b16b7d4e76e",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-baseline-easy-v1\\cadence.csv": "88ff8ca1fcb98b29f5318c090fac372e3ba5604c5712c13fb0cf6a1f34eed75e",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-baseline-easy-v1\\renders.jsonl": "b62193221bc523168f3ca7bd0113cd67b4b84264b0e5c90327f7a6a4f04ee34f",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-baseline-easy-v1\\apu.csv": "9666e15706f063f10770547ca69d64f858676b26ac6999ab68e2236a9a9723c1",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-baseline-easy-v1\\00-actual-pickup-cleanup.argb": "11ff74eaa05662519530a95422011162aa6b4563080356615df6390371d1bc84",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-baseline-easy-v1\\fade-render-00826-wall-01175.argb": "9e40fcac7e60ca0a933b451ea1c1ea94696b9c66df9c7297b529a76db0e5782d",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-baseline-easy-v1\\fade-render-00827-wall-01176.argb": "e31b9fa5b6528c7b138fb7a0925eb0ff2a7a261a413725dba9bb653e657b8ea9",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-baseline-easy-v1\\fade-render-00828-wall-01177.argb": "6269b3d93ed53f4fe812d568ee8508b84c66b9064b7c1c81f5e97f39420eee22",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-baseline-easy-v1\\fade-render-00829-wall-01178.argb": "cd0e2316655a4eb246633a4f9f2b2bd187a19c841d632c4c0540b1f48281ee25",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-baseline-easy-v1\\fade-render-00830-wall-01179.argb": "91314a32102b9680fad37fbb05c4f1e98405bffe2b96001fe626a25429803d88",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-baseline-easy-v1\\fade-render-00831-wall-01180.argb": "a6931787796e592b15802566f6b64ae2a2ce972abc12cf92c431e9095a6bd2f5",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-baseline-easy-v1\\fade-render-00832-wall-01181.argb": "91314a32102b9680fad37fbb05c4f1e98405bffe2b96001fe626a25429803d88",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-baseline-easy-v1\\fade-render-00833-wall-01182.argb": "a981bf336c3cee6d4a22b82c343abfd1d89154a2921131165f523e75b3da04a0",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-baseline-easy-v1\\fade-render-00834-wall-01183.argb": "457ab61d8fce7eecba25796b9af93a85f1c538b55748f780037aa59f13c57947",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-baseline-easy-v1\\fade-render-00835-wall-01184.argb": "4406d0c2b01180c326ace8de594be1e54645697191ad38a94e57fc63fb7df655",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-baseline-easy-v1\\fade-render-00836-wall-01185.argb": "28e02645dfbe135e0a37b2bf31acf50b9520801ba8de491d7adc30bc5b65ac26",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-baseline-easy-v1\\fade-render-00837-wall-01186.argb": "24adc86ea0db2230adb421ec323e29bf96f6849d25584d5a15fdcd0e4eaac52d",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-baseline-easy-v1\\fade-render-01414-wall-01774.argb": "4fe8bce451567ef381a7fefe3483c25a5211467441d2e2099fb8cdd593474dad",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-baseline-easy-v1\\fade-render-01415-wall-01775.argb": "61b28e98bdb92e67eb3e6a4242b50c90cc82c7af6c92b46c979f7c1e393582d8",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-baseline-easy-v1\\fade-render-01416-wall-01776.argb": "3bbaf94a54cc9b68ed8c0e7b8cb54826764fdc330dbac73ea75f0553c0ec5c4c",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-baseline-easy-v1\\fade-render-01417-wall-01777.argb": "5b9e4d4d36cf1bb74343d1d5f2b30756e6a03f29af8125b5ce6866be3726a691",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-baseline-easy-v1\\fade-render-01418-wall-01778.argb": "85eacf0e1bb919ff68e4a91f80bcce429a7cd5c919123054a607ba882ff012fa",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-baseline-easy-v1\\fade-render-01419-wall-01779.argb": "170dde550228421dfc39620dcf761b27ef63bb097e3fda1c5885a3836d825349",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-baseline-easy-v1\\fade-render-01420-wall-01780.argb": "d8180a6f8d1a826038da2b907de70de4d29485389a8ad7f8eb4b6c4873208fcd",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-baseline-easy-v1\\fade-render-01421-wall-01781.argb": "61633ad41691b1d1faa7dbfa130f93f2445b4a6085050b51cee1bb32f454d20a",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-baseline-easy-v1\\fade-render-01422-wall-01782.argb": "1fcef7c51af4c87bf6b999fa38c42027be17817e69d3346760f5492618bfb9fb",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-baseline-easy-v1\\fade-render-01423-wall-01783.argb": "58f5d4029b7c7d7506837e7ae2bfa9df21647cd373da3c272fddbc89ce08175f",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-baseline-easy-v1\\fade-render-01424-wall-01784.argb": "0e1d4709fbef3517c5ac54a6161414b2d05ec38079ae2135639880034f2bffdc",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-baseline-easy-v1\\fade-render-01425-wall-01785.argb": "cb75af76cf718510e89860170f560f3c83029724043af5f44e5ed7734d1bdfe9",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\root-calm-rgb-v1\\baseline-hard-calm-ages236-247.png": "a8ccaa1118bcd3b7c6b3bad4e7c48fbcd169faf8c6450645328b6eb5d20937de",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-baseline-hard-v1\\proof.json": "6aa50d11ab133212d2671a13855bb5feac00401cf9087b76a8104e4c33d49394",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-baseline-hard-v1\\native-result.json": "8befaf4671a01bf00827818ead8c255f8c79c6b0e36dd1d08485caaf366b8429",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-baseline-hard-v1\\run.lua": "b9e44785dea3583c6d405c000a3c043baff6dfad01770e5d7010f2fab9ed83b1",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-baseline-hard-v1\\config.json": "eb328cffd7fd37df4cbeae84b67732f7c52982d15c37e4bd27bd33051b2e6c95",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-baseline-hard-v1\\events.jsonl": "e86d6b08b97054656cbeeafeaa73c96688df1b544efa6eef0dd07f72438f3778",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-baseline-hard-v1\\cadence.csv": "076d889219fd489d2468b5e9f0119741df21f4ab2943d640cc85a38e2d7281e7",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-baseline-hard-v1\\renders.jsonl": "1c4b696ed01db7a0ffd22336ac4596a402728e6847e2668a6d5044e304a68ceb",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-baseline-hard-v1\\apu.csv": "e0be1c32b56565f5d71e58830c84fb9242e887bf0f29ad7509a909f4f90ea0c9",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-baseline-hard-v1\\00-actual-pickup-cleanup.argb": "961bdac224522731907b52a89a79404373c81096da0bb1e687bb04c453419187",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-baseline-hard-v1\\fade-render-00422-wall-00842.argb": "6705f86b671b8dd5c67891162fe2816330b752b55cd79e88e0903f7e747db7d7",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-baseline-hard-v1\\fade-render-00423-wall-00843.argb": "abbfea646d6f6e1bfd6c4e20ac17afd0347f11c01e7bb416606e25ea0b2e0f8e",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-baseline-hard-v1\\fade-render-00424-wall-00844.argb": "2a18f9ffa6b6e6ae38d321dc57c2c6730a6c80c6c35ffa27a0c9b8be6c8b01e6",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-baseline-hard-v1\\fade-render-00425-wall-00845.argb": "fae971e215baadd9e3c6b576458e630ebf8f5cd1ad077e222b1b8e05576fa761",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-baseline-hard-v1\\fade-render-00426-wall-00846.argb": "1748993b79f154d07a2d75948b4f30d26bfd17f0530c6af21999177adecb2f11",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-baseline-hard-v1\\fade-render-00427-wall-00847.argb": "8a37501263b941fcb65a79f56a60a3e17331b63c425dd4a2b5bcdc8c293eac19",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-baseline-hard-v1\\fade-render-00428-wall-00848.argb": "e0178f354dd54d15bdd894ca9fc683b839f442c3486472272fa03b88310d6b91",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-baseline-hard-v1\\fade-render-00429-wall-00849.argb": "c603b6d9cd610c295a868d9da5f2e358b1bbf9e11cf428323fcc178b2a403c25",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-baseline-hard-v1\\fade-render-00430-wall-00850.argb": "50654b570941998d40679e943d9c193d96393296b4d437e0cbd04d71b58f99a3",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-baseline-hard-v1\\fade-render-00431-wall-00851.argb": "e1a58ec66bc18eabc852467e503ce2bc246339fa955b210312f6dbcd3fc32026",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-baseline-hard-v1\\fade-render-00432-wall-00852.argb": "ac2ff112e1f1bfe8ee589982921aa90a41f4e1a752e5c09b42bd455b469693c0",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-baseline-hard-v1\\fade-render-00433-wall-00853.argb": "f4edbe9e4398e7fc9139c4d92a74dd72629677096c889c8180b7d354d886e8e8",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\root-calm-rgb-v1\\candidate-easy-calm-ages236-247.png": "d718dc24ae242c64bca025cc13d5fee7944af11f0f6ef977f39019100541067a",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-candidate-easy-v1\\proof.json": "3f7140b2a4e762b81456ee0105ded706effd64c041b8b24e0d050bff1eeba10a",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-candidate-easy-v1\\native-result.json": "d0178614d557476dd875c9a055cf50a1679fb84e36885312ea32f2060c623185",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-candidate-easy-v1\\run.lua": "099d4678290eb6c6860318b40920bf0b6ae8416df6c8651a5b44f01eecda5516",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-candidate-easy-v1\\config.json": "81ed2272324a0aefe07700c89cbec13ce46dd506147ac417476d477e6593674a",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-candidate-easy-v1\\events.jsonl": "b34d9e834a2aa6f942579f835c70c1613f2c1e44253099e424293b6698f40120",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-candidate-easy-v1\\cadence.csv": "210b7e75fd9eca59757c5cb069c807968db007d026d584b52ca519a8836706a5",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-candidate-easy-v1\\renders.jsonl": "91044a5066d9fbe622cefcef14836c4cd974577c00dce7b796d69fd2333a18d5",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-candidate-easy-v1\\apu.csv": "8fcd73afce41822b29b67a32fea1a9e1f14b30bd1a8b2dbfa018fc71b64454f8",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-candidate-easy-v1\\00-actual-pickup-cleanup.argb": "11ff74eaa05662519530a95422011162aa6b4563080356615df6390371d1bc84",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-candidate-easy-v1\\fade-render-00824-wall-01175.argb": "91314a32102b9680fad37fbb05c4f1e98405bffe2b96001fe626a25429803d88",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-candidate-easy-v1\\fade-render-00825-wall-01176.argb": "ca289621bd3b14291c05dbb9d8362a0455a38239376ee3d41b5a5135b4dc1c77",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-candidate-easy-v1\\fade-render-00826-wall-01177.argb": "3624c20f65269f55679076f279bcc35a8aab629aa4d1e5548c98a118c564b4c8",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-candidate-easy-v1\\fade-render-00827-wall-01178.argb": "f2de8c96ce439fd103c45edd595839c9e7adaa4056eeb870f47a6a422bddb1e8",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-candidate-easy-v1\\fade-render-00828-wall-01179.argb": "cd0e2316655a4eb246633a4f9f2b2bd187a19c841d632c4c0540b1f48281ee25",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-candidate-easy-v1\\fade-render-00829-wall-01180.argb": "0c748d8c0aaa046840b6c9b0213c4e54c833f1fa939715db85fbed013ffbc330",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-candidate-easy-v1\\fade-render-00830-wall-01181.argb": "a6931787796e592b15802566f6b64ae2a2ce972abc12cf92c431e9095a6bd2f5",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-candidate-easy-v1\\fade-render-00831-wall-01182.argb": "0c748d8c0aaa046840b6c9b0213c4e54c833f1fa939715db85fbed013ffbc330",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-candidate-easy-v1\\fade-render-00832-wall-01183.argb": "609334acb359881ae22fac8613cc916a7e4c4a4a5c83b9adaf52428c12494c1b",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-candidate-easy-v1\\fade-render-00833-wall-01184.argb": "ce0cd934614d2a12d5aea74556bb2a8873ecff5ca37b8f4cc9e0cfa6d58e8df3",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-candidate-easy-v1\\fade-render-00834-wall-01185.argb": "609334acb359881ae22fac8613cc916a7e4c4a4a5c83b9adaf52428c12494c1b",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-candidate-easy-v1\\fade-render-00835-wall-01186.argb": "ce0cd934614d2a12d5aea74556bb2a8873ecff5ca37b8f4cc9e0cfa6d58e8df3",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-candidate-easy-v1\\fade-render-01412-wall-01774.argb": "2d7a424ef18e9cc5d8eee525e9c61114bccf0ca722b68d9a08feeeddcfcd8782",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-candidate-easy-v1\\fade-render-01413-wall-01775.argb": "04aeb488cbf08c3be4dc52aa3b744c8e045bfd10d64b4bbd8ec659d2142fa1c5",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-candidate-easy-v1\\fade-render-01414-wall-01776.argb": "ae368bad98df19fbd680672a3c56271aefc2e93bce4092f3a2181ea7ff6a0b98",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-candidate-easy-v1\\fade-render-01415-wall-01777.argb": "118dfca8d8a3665785c226aa0cf096006d14b93135048b8a299bd44588f840f8",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-candidate-easy-v1\\fade-render-01416-wall-01778.argb": "f4a0c0d4c401acbc3db4eff3eb9a6a8829d83598f6c573e1be542fe19bc2b9e4",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-candidate-easy-v1\\fade-render-01417-wall-01779.argb": "e9f12e907a2135a2e78a6bb9154cff9e13e52f3cb6646b26765910c71cb608b5",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-candidate-easy-v1\\fade-render-01418-wall-01780.argb": "6fa2fec677a0f6ab897b71728950c389d4ae21b407cab430d7b83564c1069123",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-candidate-easy-v1\\fade-render-01419-wall-01781.argb": "54b6b513fed0cef62fdf023e6bfd753268f7db4dda1befd8d056c3f5816010f1",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-candidate-easy-v1\\fade-render-01420-wall-01782.argb": "e30f97a42158770ec2dabbd2b1204b2460035c0a26110a0e416cb375ea317ddc",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-candidate-easy-v1\\fade-render-01421-wall-01783.argb": "58f5d4029b7c7d7506837e7ae2bfa9df21647cd373da3c272fddbc89ce08175f",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-candidate-easy-v1\\fade-render-01422-wall-01784.argb": "53de8a9d6ad37afc02dd6c6716d85b5407d353c0e2af849efd266d3ef9faa4ec",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-candidate-easy-v1\\fade-render-01423-wall-01785.argb": "903c4bccf0cd5165028d3027020d4d518f2a839606fa9ac2176717f4f9fce874",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\root-calm-rgb-v1\\candidate-hard-calm-ages236-247.png": "15e289d49796e1fb7fd34bd5d83ca07c69391b1a07b8f24c91f7b8d5e6737f10",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-candidate-hard-v1\\proof.json": "77a7fa4d2165f8d76d98a2e8e8e68c731713fef52b25116a76bb3a7e8f3b8e4d",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-candidate-hard-v1\\native-result.json": "3ef398b605d7221acda93060a4be66f638e16163c6acc8791f5e6c0e29741a49",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-candidate-hard-v1\\run.lua": "6331fce03fb219e5858664d08448503468a59fdf1ae55c0df9d97f154d8e5bdd",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-candidate-hard-v1\\config.json": "efdba692d9c257f0195c4a4e26741aad9857e37f9bf81cac67e314f8493f7376",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-candidate-hard-v1\\events.jsonl": "47483e1e12112d554037dbead5301288ab7b60d44896c28ebf1cb0620abc1407",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-candidate-hard-v1\\cadence.csv": "d65c3266d8ab483b443fbb641fc83ea4c5fd060d34482ec9010e47e92a57fcfb",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-candidate-hard-v1\\renders.jsonl": "e66b9f89476805add68b1a2e6fcbfd5c2f0ffeffd95cc419171d8374a441597d",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-candidate-hard-v1\\apu.csv": "e77dde724ccd10e74de37d7cc794a810323fd62d2d9aec0f095fa255e23af2dc",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-candidate-hard-v1\\00-actual-pickup-cleanup.argb": "d951204e5d528ddab3bff24cfa702d7c59f2249359deafb28358a230ceef6386",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-candidate-hard-v1\\fade-render-00422-wall-00842.argb": "6705f86b671b8dd5c67891162fe2816330b752b55cd79e88e0903f7e747db7d7",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-candidate-hard-v1\\fade-render-00423-wall-00843.argb": "abbfea646d6f6e1bfd6c4e20ac17afd0347f11c01e7bb416606e25ea0b2e0f8e",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-candidate-hard-v1\\fade-render-00424-wall-00844.argb": "2a18f9ffa6b6e6ae38d321dc57c2c6730a6c80c6c35ffa27a0c9b8be6c8b01e6",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-candidate-hard-v1\\fade-render-00425-wall-00845.argb": "fae971e215baadd9e3c6b576458e630ebf8f5cd1ad077e222b1b8e05576fa761",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-candidate-hard-v1\\fade-render-00426-wall-00846.argb": "0005dc10bfd35e72fab45ec2ddaa026dc5ab58a4973a4c4611e271983954c697",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-candidate-hard-v1\\fade-render-00427-wall-00847.argb": "48130141fd44eebb024f434acaf4c276ffd0741b392fb1a66b24effef78dd38d",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-candidate-hard-v1\\fade-render-00428-wall-00848.argb": "2c8fe7d82b3cce8d5c67cf3eb05901621920513c913eb25f9ca72d8af133ef72",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-candidate-hard-v1\\fade-render-00429-wall-00849.argb": "c603b6d9cd610c295a868d9da5f2e358b1bbf9e11cf428323fcc178b2a403c25",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-candidate-hard-v1\\fade-render-00430-wall-00850.argb": "b6fa9c3b1d4b37c999b89505a68d8a73ea7bf13c83be91f1f2abfb4a4f7fe518",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-candidate-hard-v1\\fade-render-00431-wall-00851.argb": "4e77b83e72615940ec0562ee800a741fbf5adfa9d719b31f812ff358393fa010",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-candidate-hard-v1\\fade-render-00432-wall-00852.argb": "870053720de286cb4e5cd047ccf2362c2e9f05b05975e3675a184c1ae407d314",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\roll-fade-current9e0e-v1\\native-candidate-hard-v1\\fade-render-00433-wall-00853.argb": "04e138f98bf930ef3608b34424456aa8800ee28c7042834c6e55a535f2cf5a2a"
+  },
+  "visual_review_complete": false,
+  "scope": "Separate calm real-earned small health orb component. Exact full16x18 RGB art crop is constant across all12 baseline source ages; every admitted candidate crop equals it pixel-for-pixel. Every odd fading candidate crop equals the unobstructed stage32px to its right, exploiting the disclosed uniform16px repeated staged floor. No mobile executable art/timing oracle. Actual native jump moves body clear; no shots/enemies and maximum4 orb-row sprites measured. Pool stress and its partial visibility remain separate."
+}

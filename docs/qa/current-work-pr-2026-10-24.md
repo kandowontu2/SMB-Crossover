@@ -851,3 +851,36 @@ the unchanged-art repacking trial found zero reduction across131 body poses.
 Earlier8ff38route/37identity clears remain explicitly earlier-hash evidence.
 Every-current-character/every-powerup acceptance is still incomplete. No new
 characters/menu row, video completion, expandedMMC3 or real-hardware claim.
+
+
+2026-10-25 Roll pickup fade adopted on current Mike parent
+Current MMC5:50b51c3c69f45ef137720c47f521574097f421056e3b73296d06ba70080d2363.
+Downloads/default/debug metadata match the fresh canonical ROOT build.
+Only36 PRG bytes119 change versus9e0e:3-byte LDA->JSR and33-byte helper in
+genuine FF tail. Three source files:roll.s,roll_render.s,new roll_drop_fade.s.
+All72217 old scoped symbol addresses, RAM/CHR/art and other ROM bytes exact.
+Roll now follows actual shared pickup fade admission: nonempty, age>=240
+(or nonzero high age) and odd native FrameCounter is hidden. Native pickups
+still update once, remain collectible and expire at their real420-update end.
+Fresh current-parent181028 CPU cases, including ROOT independent164748 cases;
+four native calm profiles: both candidate modes pass, both parent mechanics
+pass while expected missing-fade negatives remain unchanged. ROOT independently
+recomputed all48 captured PPU/RGB checks and viewed36 selected actual images.
+Current four-profile totals5882 updates/7372wallframes,10 genuine births,
+32 real defeats,6 natural expiries,4 pickups;5878NMI/IRQ,70536CHR,5773DMA checks.
+No resource/RNG/drop-age/outcome injection; staged terrain and test arena are
+explicit. Idle both modes each120 updates/120wallframes/120renders; mean extra
+inclusive60 CPUcycles. Easy all+60, Hard range-60..180; no causal guess, universal
+60Hz or campaign performance claim. Four empty source admissions cost+60.
+Historical9bac/c32b full-pool/live-fire/fade coverage remains historical;
+no current full-pool or original mobile executable fidelity claim is implied.
+Checkpoint:docs/qa/checkpoints/2026-10-25/roll-fade-50b5.
+Rollback:external roll-fade-current9e0e-v1/adoption-v1. Do not rerun
+adopt_roll_drop_fade_once_v1.py. The agent's first offline reporter expected
+every Hard inclusive delta+60; retained failure, corrected mean/range reporting,
+and all raw native/CPU receipts remain unchanged.
+CV3 remaining source SFX are rebasing privately onto50b5 before native tests.
+Parodius native music/source-safe duration optimization and actual crowded-body
+visibility remain active private tasks. Body record ordering has an offline
+source-preserving lead, not an installed visibility fix. Current37 identities
+and every-powerup verification remain the priority; new characters come later.

@@ -1,0 +1,107 @@
+Roll dropped-item fade -- source/CPU proposal only, 2026-10-25
+
+PROPOSAL ONLY. No native fade candidate was launched. The native worker remains
+released. Existing owner-fix9bac both-mode lifecycle receipts remain their exact
+hash/scope; no current/default/Downloads/source/Git mutation by this agent.
+Every-item/full-roster/original-fidelity goal remains OPEN.
+
+External prefix D:
+C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/final-roll-items-v1/
+
+Actual reference owner and native defect
+----------------------------------------
+The actual shared owner is InventoryDrawPickups::Drops, not a symbol named
+InventoryDrawDrops. src/inventory_drops.s375 starts the procedure; Drops459,
+fade463..471 checks nonzero ageHi or age>=240, then skips odd FrameCounter.
+The old conceptual prose name is corrected additively in
+visual-review-single-owner4c70-v1/shared-owner-label-correction.json. No prior
+native result is changed by this human/debug-symbol naming correction.
+
+Native9bac Hardage240/frame43 and Easyage241/frame125 each admitted the actual
+health-orb record and advanced OAMcursor0to16. Both actual source age windows
+236..247 emitted16bytes at every age/parity. Reviewed all24 corresponding PPU
+frames show a white orb throughout. Actual committed-publication/DMA guards
+remain separate from foreground age labels. This is a missing admission gate
+relative to the shared host, not a new mobile-original timing claim or art fault.
+The successful native lifecycle packet and Hard419rawboundary limitation remain
+unchanged. See docs/qa/final-roll-items-2026-10-25.txt and external visual proof.
+
+Minimal private source/ROM change on exact9bac
+---------------------------------------------
+Base SHA256:
+9bac46e934d3301e378139783febf2d54c4fd5753a62e082f2d7e6580946d58c
+Candidate D/fade-private9bac-v2/candidate.nes SHA256:
+c32b70ed95f3a4031e9e8ff5696c9bd8f310bf11443748aa6377482d40b41f47
+Patch D/fade-private9bac-v2/sourcepatch.patch SHA256:
+29fe6c1f465bde8b6badb3be071f7b76dcb4e09360d3907bdb2b2257872238cb
+
+Changed source files only:
+ - src/roll_render.s: bank119:$A68F replaces3-byte LDA InvDropKind,X with same-
+   span JSR RlDropVisibleKind. Existing zero-result branch handles hidden actors.
+ - src/roll.s: includes new helper after existing Roll weapons, before art.
+ - src/roll_drop_fade.s:33-byte helper at bank119:$AAC0, previously unused FF.
+No new RAM. All prior symbols/public PCs, supplied orb/capsule/body art, CHR and
+all other ROM bytes remain exact9bac. Roll source is already included only under
+the expanded MMC5 condition at entrypoint.s353; no standard-target owner is added.
+
+Helper returns original kind for empty/visible cases and zero for shared-host
+hidden cases. It preserves X/Y and restores C/V/D/I through PHP/PLP before the
+final LDA, so the original branch has the corresponding N/Z result. No globals
+or actor/resource state are written; own call/flags stack only. Four existing
+native private slots and native physics/lifetime/collection owners are retained.
+The original supplied art and custom clipping/capacity renderer remain intact.
+
+CPU controls and exact limits
+------------------------------
+fade-cpu-v2/proof.json PASS, native_passed=false:
+162816 helper controls execute the actual assembled shared admission branch,
+then compare actual helper output to the actual original LDA opcode for admitted
+kind/hidden zero. All421 source ages0..420 plus511/512/65535 CPU high-age controls,
+kinds0/1/2, both parities, all4 slots and16 C/I/D/V inputs. Exact A/X/Y and
+NV-DIZC match; helper only writes own stack and returns SP$FD. High ages beyond
+420 are explicit CPU states, not claimed native reachability.
+
+1520 whole RlDraw comparisons cover both modes, supplied small/large health and
+energy art, slots0/3, age/parity boundaries, OAM capacity0/144/159/160 and camera/
+Y clipping edges. Visible output equals unchanged baseline art; hidden output
+equals the old empty-actor renderer. Exact ordered nonstack application/SMC/
+mapper/OAM writes and final registers match these actual assembled oracles.
+Baseline CPU first wrong OAM store for native-observed age240/frame43 is
+bank119:$A7B8 -> $0203=$A8. This per-byte PC is a CPU trace; native recorded the
+real record admission/cursor, not an invented native per-byte write PC.
+
+Privatev1/v2 ROMs are byte-identical c32b; v2 only corrects source comments/prose
+to actual shared owner name. The original CPU receipt retains its privatev1
+build-proof binding. fade-private9bac-v2/CPU-source-equivalence.json explicitly
+binds both same-ROM builds; no receipt is silently rewritten or relabeled.
+The initial fade-cpu-v1 label lookup error and script are retained, not called
+a game failure. Reproduction against v2 emits a new equivalent CPU receipt.
+
+Fresh c32b also passes8,140 existing resource/HUD/charge/injury/reset CPU controls
+and412 full object/drop owner/order/pause/death/admission controls versus4c70.
+No native5SMC/NMI/IRQ/frame/audio/PPU timing or performance claim follows from
+these CPU comparisons. No native fade smoke/lifecycle rerun has been granted.
+
+Actual helper cost plus6-cycle caller JSR minus replaced4-cycle LDA:
+empty+15cycles per slot; pre-fade visible+40; fading-even visible+47;
+fading-odd hidden admission+44 before saving the skipped render work.
+Four empty slots add60CPUcycles per active Roll draw; four visible fading-even
+slots add188 admission cycles. Native performance remains a separate gate.
+
+Native follow-up needed only when coordinated
+---------------------------------------------
+Bind any future actual composed/adopted ROM afresh. At minimum obtain actual
+both-mode earned actors, source-age/parity admission and committed OAM/PPU fade,
+unchanged supplied-art nonfade frames/caps/clipping, real expiry/contact and
+NMI/fiveSMC/bank/SP/CHR/IRQ/DMA guards. The already-qualified9bac lifecycle can
+remain historical evidence; it is not relabeled as c32b native proof. Do not
+launch another Mesen worker without ROOT coordination. User emulator untouched.
+
+Source-only stable reproduction, use fresh output directories
+--------------------------------------------------------------
+python tools/audit/final_roll_items_fade_private.py --frozen "C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/final-roll-items-v1/drop-single-owner-input4c70-v1" --output "C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/final-roll-items-v1/NEW-fade-private"
+python tools/audit/final_roll_items_fade_cpu.py --private "C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/final-roll-items-v1/fade-private9bac-v2" --output "C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/final-roll-items-v1/NEW-fade-cpu"
+
+Production behavior is an explicit SMB adaptation. Original mobile executable,
+waveform/timing parity, full campaign/full-roster and every original item/form
+coverage remain open. No native result or source-only assertion closes them.

@@ -1,0 +1,65 @@
+Roll earned-drop fade: bounded native qualification, 2026-10-25
+
+The private c32b candidate passes the bounded Easy/Hard fade qualification. ROOT alone may compose/adopt it; the every-character/every-item goal remains open.
+No production source, Git, Downloads, user emulator or prior receipt was modified by this qualification. One sequential native worker was used and explicitly released after the 8 final profiles. No native worker from this task remains running.
+
+Exact inputs
+Baseline 9bac: 9bac46e934d3301e378139783febf2d54c4fd5753a62e082f2d7e6580946d58c
+Candidate c32b: c32b70ed95f3a4031e9e8ff5696c9bd8f310bf11443748aa6377482d40b41f47
+These are frozen 9bac/c32b builds, not the later installed 5ec or pending 9e0e composition. No historical result is relabeled current.
+Private build/source proof: C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/final-roll-items-v1/fade-private9bac-v2/proof.json SHA 88a84d2c49428b2ab2d34b800563b8235d5b3454b650560189fb865447a0332e
+Changed production proposal only: src/roll_render.s replaces the 3-byte LDA at bank 119:$A68F with JSR; src/roll.s includes src/roll_drop_fade.s; the new 33-byte helper begins bank 119:$AAC0 in previously FF space.
+All old public PCs, RAM, CHR, supplied art and all other ROM bytes are unchanged from 9bac. No new RAM. The source CPU packet remains separate and unchanged.
+Actual source predicate: hide a nonempty actor when (InvDropAgeHi!=0 OR InvDropAge>=240) AND (FrameCounter&1)!=0. This is odd native FrameCounter, not odd drop age. The Hard calm ages 240/242/244/246 happen to coincide with odd FrameCounter.
+
+Frozen source/CPU context
+162,816 assembled helper/shared-policy comparisons; 1,520 full RlDraw ordered application/SMC/mapper/OAM write and register comparisons; 8,140 resource/asset/HUD controls; 412 single-owner/order controls. CPU fixtures use declared state and do not replace native acquisition.
+Cycle controls: empty slot adds 15 cycles; prefade 40; fading even FrameCounter 47; fading odd FrameCounter 44 admission cycles. Four empty slots add 60. Full rendering cost differs because hidden actors skip supplied-art drawing.
+Pinned mobile sprites/assets are available; executable mobile gameplay is not. HP/energy/drop lifetimes, source host fade and movement remain explicit SMB adaptations; no original mobile timing/audio/campaign claim.
+
+Native scopes and actual outcomes
+Four full-pool profiles: exact 9bac/c32b x numeric Easy 0 / Hard 1, actual cold menu selection/readback, flat staged logical/PPU arena/player/camera and valid default-health Goombas. Three real free-buster hits defeat each target; native unmodified RNG creates the real drops. No resource, tier, RNG, counter, drop actor, projectile, enemy-health or result writes. Defeated NPC flags are removed only after the real defeat callback.
+Each profile genuinely reaches all 4 simultaneous occupied slots, preserves birth age 0 / one sole global update per GameLoop, observes real 420-update expiry, source art/OAM admission on every render and an actual controller pickup at full caps with source feedback/cleanup. Four-slot random contents/timing can differ between ROMs; pool performance is matched scenario, not an identical-state movie.
+Both c32b modes pass. Both 9bac modes deliberately retain passed mechanics but passed=false/fade_policy_passed=false, proving the missing fade. Baseline failures were never turned green.
+Four separate calm profiles use the same cold selection/real defeats/untouched RNG. Wrong kinds expire naturally until a genuine small health orb is born. Only an actual A jump at ages 225..254 moves Roll above orb rows; no actor/resource/age placement. All 12 source ages 236..247 have no live shots/enemies and at most 4 hardware sprites on orb scanlines.
+All 12 baseline calm art crops are identical and contain 80 pixels changed from the repeated stage. Every admitted c32b 16x18 RGB crop exactly equals that supplied-art baseline; each odd FrameCounter fading crop has 0 changed pixels and exactly equals unobstructed stage 32px to its right. This RGB oracle depends on the disclosed uniform 16px repeated staged floor.
+Final 8-profile totals: 19,415 completed gameplay updates; 22,395 wall frames; 42 real native births; 224 real defeats; 34 native expiries; 8 real full-cap pickups.
+Guards: 19,407 observed NMIs; 19,407 line 31 IRQ scroll stores; 232,884 exact write-time hardware CHR-bank checks; 18,264 complete source-publication/hardware-OAM checks. Min sampled SP 219; lower-stack guard intact. NMI actual/shadow banks, A/SP and 5 SMC operands restore checks pass. This is bounded sampling/guard evidence, not maximum-stack or constant 60 Hz certification.
+
+Exact PPU phase binding and cadence
+Every committed render records source entry/exit PPU frameCount/scanline/cycle, publication ID/counters, actual DMA ID/counters, startFrame hardware OAM/counters and completed endFrame counters. Reaggregation checks identical visible start/end actual PPU frameCount, start scanline -1/cycle 0, end 240/cycle 0, VBlank DMA 241..260, and matching render/publication/DMA IDs. No assumed FrameCounter offset.
+Example: render 1 source PPU 417 scan 152..158, publication 417 scan 182, DMA 1 PPU 418 scan 252, visible start 418 scan -1/cycle 0, end 418 scan 240/cycle 0.
+Both modes have identical 120-update cold empty controls: 120 actual wall frames and 120 renders per ROM; every c32b inclusive update is 60 CPU cycles longer. Full-pool actor/RNG trajectories are separately disclosed; no broad FPS claim.
+144 actual selected PPU frames were viewed in 8 sheets: 96 pool age/parity cells plus 48 calm source-age frames. This is a selected-frame review. Full-pool/live-fire partial visibility remains open, even though source admission/art/OAM policy passes. No enemies/weapons were disabled to make pool stress green; calm isolation uses native completion and a real jump.
+
+Receipts
+Full-pool aggregate: C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/final-roll-items-v1/fade-native-aggregate-v2/proof.json SHA d89f35dc3c8d1b9caf7f26fbeada209e47c12046aefeae325691bd22a2b70dd2
+Calm RGB aggregate: C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/final-roll-items-v1/fade-calm-aggregate-v1/proof.json SHA 3a3f27d66b19ec79cf7f55e94ee54b0553f7c92397c81f923d624a0d290ca983
+Full-pool preparation: C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/final-roll-items-v1/fade-native-preparation-v5/preparation.json SHA 4bb4b5d53edc7eb1a07c959e6004bb14b47dd52bc639c0fc2d4ab5aac519d157
+Calm preparation: C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/final-roll-items-v1/fade-calm-preparation-v1/preparation.json SHA c279d368a1a758e04867e6ad4d61187cdfb69acff79b43141bc47c1b8c7af066
+Final source/build/CPU packet remains fade-final-packet-v1/proof.json SHA 306ec16c967784680c0b5440d4c3623aca70a520d09b93f385e6d6b3b80efda4. Native qualification is additive.
+
+Final profile rows:
+pool candidate-easy: updates 3588, wall 3917, births 7, kills 48, expiries 6, pickup 1; four-slot committed frames 204
+pool candidate-hard: updates 3109, wall 3525, births 9, kills 47, expiries 8, pickup 1; four-slot committed frames 173
+pool baseline-easy: updates 3588, wall 3917, births 7, kills 48, expiries 6, pickup 1; four-slot committed frames 202
+pool baseline-hard: updates 3248, wall 3664, births 9, kills 49, expiries 8, pickup 1; four-slot committed frames 167
+calm baseline-easy: updates 1950, wall 2279, births 3, kills 12, expiries 2, pickup 1; calm RGB component
+calm baseline-hard: updates 991, wall 1407, births 2, kills 4, expiries 1, pickup 1; calm RGB component
+calm candidate-easy: updates 1950, wall 2279, births 3, kills 12, expiries 2, pickup 1; calm RGB component
+calm candidate-hard: updates 991, wall 1407, births 2, kills 4, expiries 1, pickup 1; calm RGB component
+
+First wrong baseline Hard admission: update 429, drop age 240, native FrameCounter 75; actual A 1, expected hidden A 0.
+First wrong actual OAM store: bank 119, instruction $A7B8, bytes 9d0302, address $02EF, value $C8; callback PC $A7BB. Exact write and source event receipts are bound by the aggregate.
+
+Stable rerun command (one profile per explicitly granted sequential worker; OUTPUT must be a new directory):
+python "C:/Users/kando/Documents/ChatGPT/SMB Crossover/tools/audit/final_roll_items_fade_native_run.py" --packet "C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/final-roll-items-v1/fade-native-preparation-v5" --role candidate --mode 1 --output "REPLACE_WITH_NEW_EXTERNAL_DIRECTORY" --emulator "C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/mmc3-flag-fix-v23/script-budget-probe-v2/emulator/Mesen.exe" --timeout 900
+Change role baseline/candidate and numeric mode 0/1 for the finite 4 profiles; use fade-calm-preparation-v1 for the separate 4 calm profiles. Full absolute commands for all 8 profiles are stored in commands.txt in the final packet. Run profiles sequentially.
+The frozen runner validates exact ROM/script/config and dependency hashes before/after launch. Later source composition needs fresh binding and coordinated native qualification.
+
+Retained failures and additive clarifications
+fade-native-preparation-v1: source-only generated-Lua parse failure (missing separator before end); no emulator launched. Original generated script was not saved by that early parser failure; the tool-call diagnostic is summarized additively rather than called a native failure.
+fade-native-candidate-hard-v1: actual newborn/art were valid, but an already-installed same-PC DropNext callback checked before the dynamically installed return observer. Failed receipt/capture/script remain unchanged; verification moved to the explicit DropNext boundary.
+Pre-v5 runs retain their own mechanics/fade receipts. The initially suspected image/epoch mismatch was not proved; enlarged crops show partial orb pixels under crowding. Stronger explicit counters were added without weakening source assertions. No old receipt was edited or relabeled.
+fade-native-aggregate-v1: offline reporter wrongly expected 119 empty-control rows; all 4 native CSVs contain 120. Failed reporter/failure note retained; corrected aggregate-v2 recomputes from immutable receipts.
+Earlier owner/lifecycle failures, raw captures and the Hard 419 overwrite limitation remain in the separate owner packet. No global every-item/identity coverage claim follows from these Roll-only controls.
