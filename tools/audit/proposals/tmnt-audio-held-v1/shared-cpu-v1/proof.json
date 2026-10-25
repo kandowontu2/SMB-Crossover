@@ -1,0 +1,61 @@
+{
+  "passed": true,
+  "ROM_sha256": "5af948178620e7abcbb7c15c538815841afc6a42a3b86d1cffe6f2861e24fbb7",
+  "baseline_ROM_sha256": "859b51acb503dde2b9f57ef45a6a6d2bc22a98aa726a331897ef0af6cc4ff587",
+  "checker_sha256": "fd92e338dd4f555fa61069a5be75389f8d3100115b40f626171d757735ea0961",
+  "qualified_existing_symbols_checked": 54072,
+  "intentionally_relocated_Samus_private_labels": {
+    "('SamusAudioUpdate', 'FireFlag')": [
+      59909,
+      null
+    ],
+    "('SamusAudioUpdate', 'Effects')": [
+      59882,
+      null
+    ],
+    "('SamusAudioUpdate', 'Init')": [
+      59846,
+      null
+    ],
+    "('SamusAudioUpdate', 'Unpaused')": [
+      59684,
+      null
+    ],
+    "('SamusAudioUpdate', 'Death')": [
+      59653,
+      null
+    ],
+    "('SamusAudioUpdate', 'Pause')": [
+      59661,
+      null
+    ],
+    "('SamusAudioUpdate', 'Event')": [
+      59619,
+      null
+    ],
+    "('SamusAudioUpdate', 'Mute')": [
+      59676,
+      null
+    ],
+    "('SamusAudioUpdate', 'Exit')": [
+      60195,
+      null
+    ],
+    "('SamusAudioUpdate', 'Running')": [
+      59526,
+      null
+    ]
+  },
+  "cases": {
+    "non_TMNT_dispatch_exact_register_RAM_bank_hardware": 1152,
+    "non_owner_global_entry_ABI": 1008,
+    "Metroid_eight_streams_exact_all_registers_RAM_banks_ordered_APU": 4104
+  },
+  "Samus_cycle_deltas": {
+    "0": 8,
+    "14": 3495,
+    "15": 587,
+    "16": 14
+  },
+  "scope": "Actual linked CPU components. Only discarded stack1A0..1FF excluded from RAM equivalence; all five SMC fields, mapper shadows, banks and ordered hardware writes compared. No interrupts/physical sample clock/gameplay performance claim."
+}

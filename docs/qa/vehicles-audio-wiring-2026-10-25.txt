@@ -1,0 +1,176 @@
+Native TMNT music restoration: assignment 10 implementation follow-up
+2026-10-25. PRIVATE candidate; ROOT source and Downloads are untouched.
+
+Baseline and candidate
+----------------------
+Accepted input: 859b51acb503dde2b9f57ef45a6a6d2bc22a98aa726a331897ef0af6cc4ff587.
+Frozen source rebuilt to that exact hash before editing.
+Private candidate: 5af948178620e7abcbb7c15c538815841afc6a42a3b86d1cffe6f2861e24fbb7.
+
+External evidence:
+C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/vehicles-audio-wiring-v1
+
+What is restored
+----------------
+TMNT now selects its authentic original NES music engine instead of the Rygar
+compressed playlist. Its 16 source songs, exact drum and previously verified
+area/event map are reused from the historical OC packet, not newly guessed.
+Area songs are 2,5,3,10,8,1,11. Event songs are15,13,12,12,13,12,6. Mapping NES
+songs onto SMB area/event categories remains an explicit cross-game adaptation.
+
+Source NSF:
+reference/new-roster-audio/tmnt/Teenage Mutant Ninja Turtles [Gekikame Ninja Den] (1989-05-12)(Konami).nsf
+SHA256 f220e8d069e321f392526d41e46f5d0f72966d5a22e56d2b269607c678bd58d9.
+Historical held candidate: dde53bc1bdb02489230dcd561b96496d1551cdc2b0b684c98cede6d3ca5c3fff.
+Held manifest SHA256:48746450debfde411aeceb07facd70ea0488a78e1f761330c3c35cd4d3a7ea81.
+Original driver/song traces and independent original-NSF Mesen evidence are
+retained under the 2026-10-24-tmnt-native-audio-ob archive. The old OC candidate
+was intentionally not adopted because its ordinary-combat performance regressed.
+This task retains that failure and measures the current source separately.
+
+Integration and ownership
+-------------------------
+Only PRG banks38/123/124/125/127 change. All CHR remains byte-identical.
+Banks7B/7C were empty in this current source and receive the authenticated
+driver/data. Bank7D receives the relocated Metroid adapter plus TMNT adapter.
+The current Metroid procedure was compared to the held cold procedure and
+must match exactly apart from its fixed return, before it can be imported.
+Fixed Samus entry and all following global addresses stay put. The original
+129-byte rate15 drum uses aligned fixed E8C0..E940; its SHA256 is
+225add377a86b0499c2c902cf9ba410c2edcdfec7e0d530f2dc719b58f886dfe.
+
+54,072 existing qualified named symbols are checked. Only SamusAudioUpdate's
+explicitly relocated private labels move. No RAM is allocated. TMNT owns the
+inactive existing 2KiB decoder-history slab and its14-byte zero-page slab.
+The delayed DMC-drain flag uses the existing unused BassAudioSavedApu+6 byte.
+The current mixer/noise optimization, foreground hot gates, robot inventory
+repair and all newer gameplay source remain in place. Historical foreground
+TMNT graphics replacements are deliberately omitted from this music packet.
+
+The native drum keeps its authentic completed DAC44 level. Pause/silence cut
+active samples; resume restores the appropriate state. Leaving for Mario,
+Samus or title releases the native owner, drains the final sample bits, and
+allows the destination engine to own its DAC. Shared effects remain mixed on
+their existing MMC5 pulse/noise channels. Music is not muted to hide problems.
+
+Completed exact-candidate verification
+--------------------------------------
+linked-cpu-v1/proof.json: all16 songs,192,016 original/linked calls and549,602
+ordered original APU requests plus549,602 writer ABI returns match. Native
+state writes, source register images, DMC parameters, exact sample, bank
+ownership and writer A/X/Y/meaningful flags are checked. Peak linked call6823
+cycles is a CPU component measurement, not a whole-frame performance claim.
+
+shared-cpu-v1/proof.json:1,152 non-TMNT audio-dispatch comparisons retain exact
+registers, RAM, physical banks and ordered hardware writes;1,008 non-owner
+global-entry cases retain the displaced entry ABI. Eight Metroid streams
+cover4,104 actual linked calls with exact registers, RAM, banks and ordered
+APU writes. Relocating its adapter adds14..16 cycles per update; initialization
+is unchanged. Only the discarded CPU stack1A0..1FF is excluded from memory
+equivalence. SMC operands and mapper shadows remain included.
+
+music-native-v4/native-result.json: real cold menu then explicit audio arenas;
+11,165 physical frames,14 area/event cases and3 active-drum transitions.
+173,232 original source-register comparisons,150,505 hardware-register
+comparisons,10,827 interrupted-state checks,259 nested IRQs,1,172 active-DMC
+frames and8,973 correct held-DAC44 frames pass. Pause/resume, silence/restart
+and shared effects execute. Total adapter cost15,793,205 inclusive cycles over
+the fixture, peak6740; these are adapter spans, not total gameplay performance.
+
+The same native run checks10,833 NMIs for real bank/shadow restoration and all
+five SMC operands. The stack sentinel above the copied-code slab and lower-page
+guard prohibit crossing into copied code. Reported minimum sampled SP is an
+NMI/sentinel sample, not a claim of the lowest SP at every instruction. There
+are0 visible-world PPU address/scroll writes and0 committed hardware CHR
+mismatches across10,825 observed frames/10,798 body constructions. Four actual
+PPU screenshots are retained. The1800-frame scene was human-viewed; it shows
+no obvious new graphical corruption. This is sampled visual inspection.
+
+Retained observer failures
+--------------------------
+music-native-v1 hit a host timeout around1673 physical frames without an
+assertion failure. Its overly broad stack callback read full emulator state
+on ordinary high-frequency self-modifying stores. v2 retained that expensive
+instrumentation below the high stack page and was explicitly stopped. v3 used
+the precise copied-code sentinel/lower-page invariant, progressed normally,
+and was stopped after observed throughput established the120-second host
+allowance was insufficient. v4 keeps the same12,500-frame emulated bound and
+all gameplay/music assertions, with330 seconds of host allowance. Earlier
+scripts/logs/partial captures remain; their failure results were not changed.
+
+Still unsupported by this first bounded wiring packet
+-----------------------------------------------------
+Mac and Mike source NSFs and authentic capture plans exist, but neither has an
+integrated relocated native driver. Their complete captured families require
+79,685 and46,211 bytes respectively in the existing mask/LZ codec. Those are
+source captures, not music already installed and merely awaiting an index.
+Mac's source is a32KiB non-banked NSF with75 songs, load/play8000, init9F80.
+Mike's35-song NSF loads8400, initFE13/playF6A4, with4KiB bank remapping. Both
+need actual source-driver/RAM/mapper work or a separately qualified storage
+plan. No songs or frames were shortened or substituted here.
+
+Parodius has the original ROM and source weapon/graphics programs, but no
+integrated music driver or prepared Parodius NSF family. It still uses the
+existing fallback. Its native music must be extracted/qualified separately;
+Gradius music is not silently substituted for it.
+
+The current appended generic music tables contain Kirby/Meta entries only.
+Simply returning Mac/Mike/new character IDs from KbAudioFamily would index
+beyond those installed entries. This packet does not make that unsafe edit.
+
+Current matched performance: HOLD, do not adopt
+----------------------------------------------
+performance-leo-proof.json is measurement-valid but fails the no-added-lag gate.
+One real-menu Leonardo Easy component executes600 updates,120 per phase.
+Both versions finish at928 physical frames, and every recorded gameplay field
+matches except two explicitly retained input samples. The actual draw/lag
+counts expose the remaining regression despite the equal total frame counts:
+
+Phase                    Baseline lag NMIs   Native-music lag NMIs
+Idle                     0                   0
+Walking                  0                   0
+Two live enemies         0                   0
+Primary attacks          0                   1
+Triple secondary shots   25                  32
+
+This is eight additional skipped draws. The last phase has120 source-update
+samples but119 completed endFrame rows: the unchanged fixture finishes at the
+last GameLoop return, before that last video frame completes, in both versions.
+All matching update/work/frame counts and full traces are retained. Cycles in
+this performance report exclude ISR bodies and include actual DMA stalls;
+they are separate from the inclusive native adapter costs above.
+
+Both performance runs pass actual NMI/five-SMC/bank/stack-sentinel/visible-PPU
+and committed hardware CHR guards. This does not override the failed lag gate.
+The old historical hold was therefore justified and remains necessary even
+with the newer current gameplay optimizations. No adoption is recommended
+until the missing rendering budget is recovered without changing native music
+cadence or weakening this regression test.
+
+Bounded CPU-only cost follow-up
+-------------------------------
+cpu-cost-profile.json executes one real initialization and600 source play
+updates through ExpandedAudioUpdate, including its graphics-bank publication.
+It excludes the shared mixer, interrupts, PPU and real DMC DMA stalls. The
+baseline uses its existing Rygar fallback; the candidate uses native TMNT song2.
+Mean component work actually falls1776.52 to1710.68 cycles, but individual
+native updates add as much as4400 cycles. Candidate peak is6031 cycles at
+profile tick505, with16 source-writer calls. The corresponding original NSF
+source call already costs5183 cycles; most of that burst is original engine
+work rather than the new wrapper. This is component attribution, not exact
+time alignment to a particular skipped draw in the native performance arena.
+
+One small unimplemented lead is removing PHP/PLP in specialized writer call
+sites whose immediately following load makes N/Z dead. Only433 such calls
+occur across this whole bounded initialization/play sequence, so its7-cycle
+per-call saving alone is small. The generic writer ABI must retain its flags;
+a specialized change would require call-site and all-song equivalence proofs.
+No source-equivalent small optimization has been established by this follow-up,
+and the candidate remains held. No tick rate, tempo or voice was changed.
+
+ROOT subsequently adopted its separate Zelda II platform candidate49d980e5.
+This music packet still targets its frozen859b baseline; it makes no claim on
+49d980e5. Any later composition needs a fresh build/hash and native qualification.
+MMC3 native audio, the other families, full character/ability routes, exhaustive
+visual review and waveform/listening equivalence are not certified here.
+The one sequential Mesen worker grant is released on completion of this packet.

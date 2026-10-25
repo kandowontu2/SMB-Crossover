@@ -1,0 +1,135 @@
+{
+  "passed": false,
+  "measurement_valid": true,
+  "performance_gate_passed": false,
+  "ROM_sha256": "5af948178620e7abcbb7c15c538815841afc6a42a3b86d1cffe6f2861e24fbb7",
+  "baseline_ROM_sha256": "859b51acb503dde2b9f57ef45a6a6d2bc22a98aa726a331897ef0af6cc4ff587",
+  "variant": 0,
+  "hard": false,
+  "phases": {
+    "idle": {
+      "old": {
+        "lag_NMIs": 0,
+        "physical_frames": 120,
+        "draws": 120,
+        "GameLoop_mean_foreground_cycles": 16790.166666666668,
+        "DrawAllMetasprites_mean_foreground_cycles": 4390.866666666667,
+        "TnDrawEquipment_mean_foreground_cycles": 178
+      },
+      "new": {
+        "lag_NMIs": 0,
+        "physical_frames": 120,
+        "draws": 120,
+        "GameLoop_mean_foreground_cycles": 16805.591666666667,
+        "DrawAllMetasprites_mean_foreground_cycles": 4394.883333333333,
+        "TnDrawEquipment_mean_foreground_cycles": 178.19166666666666
+      },
+      "added_lag_NMIs": 0
+    },
+    "walk": {
+      "old": {
+        "lag_NMIs": 0,
+        "physical_frames": 120,
+        "draws": 120,
+        "GameLoop_mean_foreground_cycles": 16868.591666666667,
+        "DrawAllMetasprites_mean_foreground_cycles": 4437.808333333333,
+        "TnDrawEquipment_mean_foreground_cycles": 178
+      },
+      "new": {
+        "lag_NMIs": 0,
+        "physical_frames": 120,
+        "draws": 120,
+        "GameLoop_mean_foreground_cycles": 16881.616666666665,
+        "DrawAllMetasprites_mean_foreground_cycles": 4441.133333333333,
+        "TnDrawEquipment_mean_foreground_cycles": 178.16666666666666
+      },
+      "added_lag_NMIs": 0
+    },
+    "enemies": {
+      "old": {
+        "lag_NMIs": 0,
+        "physical_frames": 120,
+        "draws": 120,
+        "GameLoop_mean_foreground_cycles": 20527.45,
+        "DrawAllMetasprites_mean_foreground_cycles": 5355.541666666667,
+        "TnDrawEquipment_mean_foreground_cycles": 178
+      },
+      "new": {
+        "lag_NMIs": 0,
+        "physical_frames": 120,
+        "draws": 120,
+        "GameLoop_mean_foreground_cycles": 20546.15,
+        "DrawAllMetasprites_mean_foreground_cycles": 5360.475,
+        "TnDrawEquipment_mean_foreground_cycles": 178.13333333333333
+      },
+      "added_lag_NMIs": 0
+    },
+    "primary": {
+      "old": {
+        "lag_NMIs": 0,
+        "physical_frames": 120,
+        "draws": 120,
+        "GameLoop_mean_foreground_cycles": 21057.625,
+        "DrawAllMetasprites_mean_foreground_cycles": 5635.358333333334,
+        "TnDrawEquipment_mean_foreground_cycles": 178
+      },
+      "new": {
+        "lag_NMIs": 1,
+        "physical_frames": 120,
+        "draws": 119,
+        "GameLoop_mean_foreground_cycles": 21024.216666666667,
+        "DrawAllMetasprites_mean_foreground_cycles": 5637.823529411765,
+        "TnDrawEquipment_mean_foreground_cycles": 178.10084033613447
+      },
+      "added_lag_NMIs": 1
+    },
+    "secondary": {
+      "old": {
+        "lag_NMIs": 25,
+        "physical_frames": 119,
+        "draws": 95,
+        "GameLoop_mean_foreground_cycles": 21461.495798319327,
+        "DrawAllMetasprites_mean_foreground_cycles": 7199.557894736842,
+        "TnDrawEquipment_mean_foreground_cycles": 1901.6526315789474
+      },
+      "new": {
+        "lag_NMIs": 32,
+        "physical_frames": 119,
+        "draws": 88,
+        "GameLoop_mean_foreground_cycles": 21043.67226890756,
+        "DrawAllMetasprites_mean_foreground_cycles": 7197.522727272727,
+        "TnDrawEquipment_mean_foreground_cycles": 1912.3181818181818
+      },
+      "added_lag_NMIs": 7
+    }
+  },
+  "all_recorded_state_differences": [
+    {
+      "update": 532,
+      "fields": {
+        "input": [
+          "2",
+          "66"
+        ]
+      }
+    },
+    {
+      "update": 560,
+      "fields": {
+        "input": [
+          "65",
+          "1"
+        ]
+      }
+    }
+  ],
+  "trace_hashes": [
+    "2e094744c5b64ace0eeb2b2dc71ac697f7a4697b4147a693b3cdc917a1d6e098",
+    "a11e1870837b0d19916ca072d96ed24e7c43a3a5e789eff6120daff406cdf5aa"
+  ],
+  "native_result_hashes": [
+    "d9bbdefe7be914cb54ade134c3c5fc19edddb6c5ecbd80e11121123f928f51c7",
+    "8283c8f390b88ab8f769eb1521d2427578ce55810f0648d06bf37d7b2e1f7866"
+  ],
+  "scope": "One representative arranged 600-update component, 120 updates per phase. Every non-input gameplay difference invalidates the comparison; all controller samples retained. Foreground cycles exclude ISR bodies and include real DMA stalls. No campaign or universal60Hz claim."
+}

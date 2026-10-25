@@ -1,0 +1,7 @@
+PRIVATE / HOLD: Native TMNT music restoration passes CPU/native ownership/music checks, but adds8 skipped draws to the matched600-update Leonardo arena. Do not adopt.
+Candidate 5af948178620e7abcbb7c15c538815841afc6a42a3b86d1cffe6f2861e24fbb7; base859b51acb503dde2b9f57ef45a6a6d2bc22a98aa726a331897ef0af6cc4ff587.
+Review review-tools/vehicles-audio-wiring-2026-10-25.txt, implementation.patch, prepare.json, and review-binding.json. All original failures, source traces and PPU screenshots are retained. Source ZIP round-trip rebuild matches the candidate exactly. ROOT/Downloads49d980e5 was not changed.
+Build source.zip with the repository tools/build_mmc5_expanded.py using --workspace source and explicit compiler/output paths. The prepare tool expects an unedited frozen baseline source, so do not rerun it against this already-edited source.
+Native checker uses one sequential emulator only. Music retains its12500-frame bound; host allowance330s is based on observed guarded throughput. Performance checker compares the same600-update fixture and must retain the failed no-added-lag result.
+Mac/Mike/Parodius still need separate source-backed native driver work. MMC3 and a fresh49d980e5 composition are not qualified by this packet.
+CPU-only follow-up: see cpu-cost-profile.json. Average wrapper cost falls65.84cycles, but native source bursts addup to4400cycles. A small specialized-writer lead is unimplemented/unqualified and does not establish a lag fix. Candidate remains held. No further emulator use after releasing the worker.

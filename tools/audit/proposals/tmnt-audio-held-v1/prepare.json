@@ -1,0 +1,82 @@
+{
+  "prepared": true,
+  "accepted": false,
+  "base_ROM_sha256": "859b51acb503dde2b9f57ef45a6a6d2bc22a98aa726a331897ef0af6cc4ff587",
+  "ROM_sha256": "5af948178620e7abcbb7c15c538815841afc6a42a3b86d1cffe6f2861e24fbb7",
+  "changed_PRG_banks": [
+    38,
+    123,
+    124,
+    125,
+    127
+  ],
+  "CHR_unchanged": true,
+  "new_RAM_allocations": 0,
+  "existing_named_symbols_checked": 54072,
+  "only_moved_symbols": {
+    "('SamusAudioUpdate', 'FireFlag')": [
+      59909,
+      null
+    ],
+    "('SamusAudioUpdate', 'Effects')": [
+      59882,
+      null
+    ],
+    "('SamusAudioUpdate', 'Init')": [
+      59846,
+      null
+    ],
+    "('SamusAudioUpdate', 'Unpaused')": [
+      59684,
+      null
+    ],
+    "('SamusAudioUpdate', 'Death')": [
+      59653,
+      null
+    ],
+    "('SamusAudioUpdate', 'Pause')": [
+      59661,
+      null
+    ],
+    "('SamusAudioUpdate', 'Event')": [
+      59619,
+      null
+    ],
+    "('SamusAudioUpdate', 'Mute')": [
+      59676,
+      null
+    ],
+    "('SamusAudioUpdate', 'Exit')": [
+      60195,
+      null
+    ],
+    "('SamusAudioUpdate', 'Running')": [
+      59526,
+      null
+    ]
+  },
+  "held_dependencies": {
+    "src/tmnt_audio.s": "461931731caf7dea28d50ff44a2b1453ca1fa0f7e73f6bcba8a9067c9231aaa3",
+    "src/tmnt_audio_writers.s": "ff52179b86a84818f69005ba50fd19e7c3f75a820e23f5dc320f713d884d1498",
+    "src/tmnt-native.inc": "f112acce1de1f15a4dca8330baa897d3195f4cf0570c2dbc12d6c896c7ef0448",
+    "src/tmnt_audio_samus_cold.s": "90499d9c542fc3a9862679886eda5597ea6dc687ac60caf3e3e5ae7d65d0a997",
+    "src/tmnt_audio_resident.s": "f9a3b628c0f2b9bed8662e35870587667922483b81545ecdfccf5f8101ee79b6",
+    "audio/tmnt/native-drum.dmc": "225add377a86b0499c2c902cf9ba410c2edcdfec7e0d530f2dc719b58f886dfe"
+  },
+  "held_manifest_sha256": "48746450debfde411aeceb07facd70ea0488a78e1f761330c3c35cd4d3a7ea81",
+  "changes": {
+    "src/tmnt_audio.s": "461931731caf7dea28d50ff44a2b1453ca1fa0f7e73f6bcba8a9067c9231aaa3",
+    "src/tmnt_audio_writers.s": "ff52179b86a84818f69005ba50fd19e7c3f75a820e23f5dc320f713d884d1498",
+    "src/tmnt-native.inc": "f112acce1de1f15a4dca8330baa897d3195f4cf0570c2dbc12d6c896c7ef0448",
+    "src/tmnt_audio_samus_cold.s": "90499d9c542fc3a9862679886eda5597ea6dc687ac60caf3e3e5ae7d65d0a997",
+    "src/tmnt_audio_resident.s": "a86a48cf747f700063a03c6b9b0ff6d2afa61cee927c94a59b6d17e727d9a982",
+    "src/samus_audio.s": "7b657c6957097c8439791153105025c87886e175575176125effed5dae57e157",
+    "src/gradius_audio.s": "cadc8a40c0a77d584b0d9dc3a3595ca36cbbda7c8b7e59f572e51917b16e7d6d",
+    "src/guest_audio.s": "171272b61a091eb82dfd8ad55b0c7e71edf3afb0fb13a5352f9f4fe518861eb3",
+    "src/music_drivers/audio.s": "3b8faf591ba1be1ab1bee5fd6860d36e97ea6e6d8c78e66bae621bbaac8cf6b0",
+    "src/entrypoint.s": "c47bc6cabf23e6f34f3d84789cf544c9bcf9cea7ab19cf799647e95618490a68",
+    "smb1base-mmc5-expanded.cfg": "7e5212eb41a6c243510ca930866a643d4aa238e49829e903a93530a044ffcb2d",
+    "audio/tmnt/native-drum.dmc": "225add377a86b0499c2c902cf9ba410c2edcdfec7e0d530f2dc719b58f886dfe"
+  },
+  "scope": "Private restoration of the previously held verified native TMNT driver; current shared mixer and foreground gates preserved. Current-hash CPU/native/performance qualification pending."
+}
