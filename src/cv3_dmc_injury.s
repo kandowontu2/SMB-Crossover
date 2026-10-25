@@ -1,12 +1,17 @@
-; Source-original Grant74/Alucard76 injury reuses exact existing Simon
-;193-byte payload, with source rates14/13. Sypha remains unchanged pending
-;its distinct payload. No primary72 sample/priority implementation is claimed.
+; Original Grant74/Alucard76 injury sample/rate binding. Expanded MMC5
+;dispatches through the complete source DMC lane; other targets retain the
+;previous shared193-byte payload route without an E-window mirror.
 .pushseg
 .segment "CV3_GRIP"
 .proc Cv3DmcInjuryQueue
+.if ::MAPPER_MMC5
+ jmp Cv3DmcFullInjuryQueue
+ .res 4,$ea ; exact original seven-byte entry span
+.else
  lda Cv3Variant
  cmp #2
  beq Generic
+.endif
  lda #AV_SFX_SIMONTAKEDAMAGE
  sta AvAudioRequest
  lda #0

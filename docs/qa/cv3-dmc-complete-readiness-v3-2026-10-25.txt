@@ -1,0 +1,38 @@
+CV3 optimized source catalog correction v3 — 2026-10-25
+
+The optimized v2 source tree, fresh ROM4c70, patch, CPU and build receipts were
+complete, but its readiness file reused the19-file e6b catalog and omitted the
+new roster_audio.s Save edit. Root caught this before native/adoption. The v2
+readiness hashes and report are retained as an incomplete-catalog failure.
+This is an additive correction, with no source/ROM/CPU-fixture change.
+
+Corrected receipt:
+  tools/audit/cv3_dmc_complete_optimized_readiness_v3.json
+  SHA2ec358affaf73db398fda301f3f00afc921b8ce39b27b03c36f74a5b874feb57
+  Source manifest42a20b4c7385de71bd505d06f3c9abd6cc9446afd87b9dbb7bba3125cf7f60ff
+
+Independent enumeration inspects633 deployable files in the frozen candidate
+against the accepted8ff worktree, excluding build/test/docs/audit-only files.
+Exactly20 deployable paths differ. Each existing changed file also binds its
+original Git blob SHA/EOL, requiring content equality with accepted worktree
+apart from Git checkout EOL conversion. All candidate changed files retain the
+original raw Git EOL convention. The two new authentic DMC payloads are separately
+bound byte-for-byte. This does not infer a complete catalog from an older list.
+
+Added missing path src/roster_audio.s:
+  Original GitLF SHA cf404c245beb6b2eab94ad973f6758908dc7d7bbf69861f284b0470588170584
+  CandidateLF SHA5458ff7072b16fed35133ef4febd5e4cf380decf2718add910ab8fb8080c6fcc
+
+External D=C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py
+Evidence: D/cv3-dmc-complete-v1/source-readiness-optimized-current8ff-v3-r2/
+  readiness.json, all-deployable-files.json, implementation-vs-current8ff.patch.
+The frozen v3 tool independently regenerates this catalog. It preserves the
+old19-file catalog as the explicit failure and requires the enumerated difference
+set to equal those19 plus roster_audio.s; source readiness now has all20 paths.
+
+The first v3 catalog invocation stopped on audio/remaining-source-sfx.inc because
+the accepted working checkout is CRLF while its Git blob is LF. The final tool
+records both hashes and requires exact content equality after CRLF-to-LF
+normalization; candidate EOL preservation is checked against the raw Git blob.
+That failed directory remains intact. No game source was rewritten to satisfy
+the check. Native4c70 qualification remains pending a separate worker grant.

@@ -145,8 +145,13 @@ Primary:
  lda #24
 : sta Cv3AttackAge
 Sound:
+.if ::MAPPER_MMC5
+ jsr Cv3DmcPrimaryQueue
+ .res 2,$ea
+.else
  lda #4
  sta RgSfx
+.endif
 Move:
  ldx #3
 Loop:

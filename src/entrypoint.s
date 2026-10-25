@@ -480,3 +480,7 @@ Done:
 .if ::ENABLE_MMC5_EXPANDED
 .include "cv3_dmc_injury.s"
 .endif
+
+.if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
+.include "cv3_dmc_complete.s"
+.endif

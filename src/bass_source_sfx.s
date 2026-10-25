@@ -11,6 +11,9 @@ BassWaterDpcmEnd:
 ; lengths and original payload bytes stay fixed.
 Cv3DmcInjuryRates: .byte 15,14,15,13
 .assert Cv3DmcInjuryRates=$fe11,lderror,"Pinned unused sample alignment gap"
+.if ::MAPPER_MMC5
+.include "cv3_dmc_gate.inc"
+.endif
 .endif
 .segment "XG_BASS_GFX"
 .proc BassSourceAudioTick
@@ -196,7 +199,11 @@ StartDmc:
   lda #((BassWaterDpcmEnd-BassWaterDpcm-1)/16)
   sta $4013
   lda #1
+.if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
+  jsr Cv3DmcOwnerWrite
+.else
   sta BassDmcActive
+.endif
   lda GuestCombinedEnable
   ora #$10
   sta GuestCombinedEnable
@@ -204,7 +211,11 @@ StartDmc:
   rts
 StopDmc:
   lda #0
+.if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
+  jsr Cv3DmcOwnerWrite
+.else
   sta BassDmcActive
+.endif
   sta $4011
   lda GuestCombinedEnable
   and #15

@@ -229,7 +229,11 @@ Bits: .byte 1,2,4,8
   lda Lengths,x
   sta $4013
   lda #2                        ; Shared DMC owner, retained by nonBass begin.
+.if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
+  jsr Cv3DmcOwnerWrite
+.else
   sta BassDmcActive
+.endif
   lda GuestCombinedEnable
   ora #$10
   sta GuestCombinedEnable

@@ -1,0 +1,73 @@
+CV3 source DMC hot-path optimization, private readiness v2 — 2026-10-25
+
+Status: SOURCE/CPU READY; NATIVE UNQUALIFIED; NOT ADOPTED.
+This is additive to the frozen held e6b packet. That packet's Alucard Hard
+97-versus98 draw failure remains a rejected native result and is not rewritten.
+
+Accepted baseline8ff245ae662059abbc77c5de517260032775b7ba881a5201b8b54686ccf08277.
+Held audio e6baf465a4fb3981dc1d9f1bea64a129f1dbb8d2a8276f934a38eb9c00c0728c.
+New private4c70fe485f73fb8d437fae2e79ae8ddad83908dc26d4008f21e0a2abeccee2da.
+
+External D=C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py
+All v2 evidence: D/cv3-dmc-complete-v1.
+Frozen source/build: final-optimized-current8ff-v2/source-final and candidate.nes.
+Small readiness: source-readiness-optimized-current8ff-v2/readiness.json.
+Incremental source patch relative to held e6b: final-optimized-current8ff-v2/
+incremental-held-e6b.patch. Full source still includes all19 e6b implementation
+files; only roster_audio.s and cv3_dmc_complete.s differ from held source.
+
+The old wrapper copied24 zero-page/private-image cells through an indexed loop
+every CV1-family tick. Its accepted Restore is already unrolled. New Save is
+also unrolled, in the genuine unused247 bytes D837..D92D after the source CV1
+driver endsD836. It reads and writes the exact same cells in the same descending
+order and retains final A/X/Y/P, SP and every mapper/SMC state. No RAM is added.
+Only old18-byte Save body DC2A..DC3B changes to JSR/JMP plus unused padding.
+The original Save label remains the actual executed entry atDC2A; no fake alias
+is introduced. All54507 qualified held symbols retain their values exactly.
+
+This is a copy-loop optimization, not a sound shortcut: original sample72/75,
+priority/admission rules, natural DAC held-tail semantics, source clock/rates,
+all existing127/Bass bytes, mirror125 overlays, Mac123/gate and completion gate
+remain exact relative to e6b. All ROM changes from e6b are confined to bank28,
+the declared Save body and its247-byte previously unused helper span.
+
+Assembled results on exact4c70:
+  2048 valid Save seed/flag cases: ordered application writes, all application
+    RAM excluding transient stack, AXYP/SP, mapper states exact;314 cycles saved.
+  1224 actual IRQ/RTI boundaries within the helper: interrupted registers,
+    status/SP, application writes and bank/shadows exact. IRQ PPU2005/2006,
+    CHR5128 and acknowledgment5204 ports remain explicit hardware exceptions.
+  Complete original suite6048 source priority /72 actual assembled owners /
+    15 pending-priority /70 lifecycle /96 scene /4 unrelated death controls /
+    7 AllOnes initialization /1152 authentic held-DAC-tail /256 ordinary status /
+    5024 full ordinary AudioUpdate cases all pass.
+  Additional4056 actual IRQ/RTI boundaries across64 source start/completion/
+    preemption cases pass. CHR/header/old samples/Mac ownership layout passes.
+  Whole idle AudioUpdate for Simon/CV3 is301 cycles faster than accepted8ff
+    (e6b was13 slower). Held-source active is273 faster (e6b was41 slower).
+    Other family idle controls remain0. These are CPU cycles, excluding DMA
+    steals; native cadence is not implied. Some ordinary completion cases
+    still add up to72 cycles; their hardware/state behavior remains exact.
+  Fresh source regeneration and fresh compile reproduce4c70. Mirror producer
+    is idempotent. Original raw source EOLs remain LF for the two changed files.
+  Ordinary flag-off builds remain exactly MMC3 d444cac88e13fa02b29ad16100b8f08fa565ba90f8cedde192de43fb2dc8f3eb
+    and MMC5 f4ffd2483c51daa4d60bb575da2da8c4d817692cda407611c243031f67520833.
+
+Receipts: cpu-optimized-current8ff-v2/proof.json,
+irq-optimized-current8ff-v2/proof.json, layout-optimized-current8ff-v2/proof.json,
+save-cpu-optimized-current8ff-v2-r4/proof.json,
+final-optimized-current8ff-v2/qualification.json.
+
+Transparent v2 fixture failures are separately retained. Generic Save name
+lookup first chose an unrelated bank and stopped before CPU instructions; the
+fixture now binds CV_WRAP-scoped Save. The first IRQ comparison omitted actual
+PPU2006 hardware writes from its explicit exception list and rejected those
+writes despite identical final registers. Corrected r4 reexecutes all2048 Save
+cases and1224 IRQ boundaries. No ROM/source behavior changed between failures.
+Receipt: save-cpu-harness-failures-v2.json.
+
+Next gate is exact4c70 native real primary/injury, natural source payload/tail,
+lifecycle/preemption and ordinary controls, then strict per-case matched8ff
+Alucard basic/pressure and other family pressure. New helper timing must pass
+actual NMI/IRQ/five-SMC/bank/stack/OAM/CHR/viewport guards. No Mesen worker has
+been used on4c70 and no native grant is currently held by this agent.

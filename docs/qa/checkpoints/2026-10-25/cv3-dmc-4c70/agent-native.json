@@ -1,0 +1,2157 @@
+{
+  "behavior_checks_passed": true,
+  "per_case_performance_nonregression_pass": true,
+  "all_prefixes_nonnegative": false,
+  "adoption_ready": false,
+  "ROOT_independent_review_required": true,
+  "candidate_sha256": "4c70fe485f73fb8d437fae2e79ae8ddad83908dc26d4008f21e0a2abeccee2da",
+  "baseline_sha256": "8ff245ae662059abbc77c5de517260032775b7ba881a5201b8b54686ccf08277",
+  "candidate_cases": 32,
+  "baseline_cases": 24,
+  "matched_cases": 24,
+  "temporary_prefix_deficit_cases": [
+    {
+      "name": "no-source-six-goomba-mode1",
+      "run": "native-alucard-pressure-candidate-v1",
+      "count": 1,
+      "first": [
+        {
+          "physical_frame_offset": 88,
+          "delta": {
+            "updates": 0,
+            "draws": -1
+          },
+          "baseline": {
+            "updates": 59,
+            "draws": 30
+          },
+          "candidate": {
+            "updates": 59,
+            "draws": 29
+          }
+        }
+      ]
+    }
+  ],
+  "performance_summary": [
+    {
+      "name": "actual-primary-mode0",
+      "mode": 0,
+      "actual_updates": 100,
+      "candidate_actual_draws": 100,
+      "baseline_actual_draws": 100,
+      "candidate": {
+        "physical_frames": 100,
+        "total_updates": 99,
+        "zero_updates_frames": 1,
+        "maximum_consecutive_no_updates_frames": 1,
+        "total_draws": 99,
+        "zero_draws_frames": 1,
+        "maximum_consecutive_no_draws_frames": 1
+      },
+      "baseline": {
+        "physical_frames": 100,
+        "total_updates": 99,
+        "zero_updates_frames": 1,
+        "maximum_consecutive_no_updates_frames": 1,
+        "total_draws": 99,
+        "zero_draws_frames": 1,
+        "maximum_consecutive_no_draws_frames": 1
+      },
+      "prefix_delta_minimum": {
+        "updates": 0,
+        "draws": 0
+      },
+      "prefix_delta_maximum": {
+        "updates": 0,
+        "draws": 0
+      },
+      "gates": {
+        "same_actual_updates": true,
+        "no_more_physical_frames": true,
+        "no_fewer_actual_draws": true,
+        "no_more_zero_draw_frames": true,
+        "no_more_zero_update_frames": true,
+        "no_worse_longest_draw_stall": true,
+        "no_worse_longest_update_stall": true,
+        "prefix_deficits_recovered_by_end": true
+      },
+      "metrics_nonregression_pass": true,
+      "candidate_run": "native-grant-basic-v1",
+      "baseline_run": "native-grant-basic-baseline-v1"
+    },
+    {
+      "name": "actual-primary-mode1",
+      "mode": 1,
+      "actual_updates": 100,
+      "candidate_actual_draws": 100,
+      "baseline_actual_draws": 100,
+      "candidate": {
+        "physical_frames": 100,
+        "total_updates": 100,
+        "zero_updates_frames": 0,
+        "maximum_consecutive_no_updates_frames": 0,
+        "total_draws": 100,
+        "zero_draws_frames": 0,
+        "maximum_consecutive_no_draws_frames": 0
+      },
+      "baseline": {
+        "physical_frames": 100,
+        "total_updates": 100,
+        "zero_updates_frames": 0,
+        "maximum_consecutive_no_updates_frames": 0,
+        "total_draws": 100,
+        "zero_draws_frames": 0,
+        "maximum_consecutive_no_draws_frames": 0
+      },
+      "prefix_delta_minimum": {
+        "updates": 0,
+        "draws": 0
+      },
+      "prefix_delta_maximum": {
+        "updates": 0,
+        "draws": 0
+      },
+      "gates": {
+        "same_actual_updates": true,
+        "no_more_physical_frames": true,
+        "no_fewer_actual_draws": true,
+        "no_more_zero_draw_frames": true,
+        "no_more_zero_update_frames": true,
+        "no_worse_longest_draw_stall": true,
+        "no_worse_longest_update_stall": true,
+        "prefix_deficits_recovered_by_end": true
+      },
+      "metrics_nonregression_pass": true,
+      "candidate_run": "native-grant-basic-v1",
+      "baseline_run": "native-grant-basic-baseline-v1"
+    },
+    {
+      "name": "actual-contact-mode0",
+      "mode": 0,
+      "actual_updates": 100,
+      "candidate_actual_draws": 99,
+      "baseline_actual_draws": 99,
+      "candidate": {
+        "physical_frames": 100,
+        "total_updates": 100,
+        "zero_updates_frames": 1,
+        "maximum_consecutive_no_updates_frames": 1,
+        "total_draws": 99,
+        "zero_draws_frames": 1,
+        "maximum_consecutive_no_draws_frames": 1
+      },
+      "baseline": {
+        "physical_frames": 100,
+        "total_updates": 100,
+        "zero_updates_frames": 1,
+        "maximum_consecutive_no_updates_frames": 1,
+        "total_draws": 99,
+        "zero_draws_frames": 1,
+        "maximum_consecutive_no_draws_frames": 1
+      },
+      "prefix_delta_minimum": {
+        "updates": 0,
+        "draws": 0
+      },
+      "prefix_delta_maximum": {
+        "updates": 0,
+        "draws": 0
+      },
+      "gates": {
+        "same_actual_updates": true,
+        "no_more_physical_frames": true,
+        "no_fewer_actual_draws": true,
+        "no_more_zero_draw_frames": true,
+        "no_more_zero_update_frames": true,
+        "no_worse_longest_draw_stall": true,
+        "no_worse_longest_update_stall": true,
+        "prefix_deficits_recovered_by_end": true
+      },
+      "metrics_nonregression_pass": true,
+      "candidate_run": "native-grant-basic-v1",
+      "baseline_run": "native-grant-basic-baseline-v1"
+    },
+    {
+      "name": "actual-contact-mode1",
+      "mode": 1,
+      "actual_updates": 100,
+      "candidate_actual_draws": 100,
+      "baseline_actual_draws": 100,
+      "candidate": {
+        "physical_frames": 100,
+        "total_updates": 100,
+        "zero_updates_frames": 0,
+        "maximum_consecutive_no_updates_frames": 0,
+        "total_draws": 100,
+        "zero_draws_frames": 0,
+        "maximum_consecutive_no_draws_frames": 0
+      },
+      "baseline": {
+        "physical_frames": 100,
+        "total_updates": 100,
+        "zero_updates_frames": 1,
+        "maximum_consecutive_no_updates_frames": 1,
+        "total_draws": 100,
+        "zero_draws_frames": 0,
+        "maximum_consecutive_no_draws_frames": 0
+      },
+      "prefix_delta_minimum": {
+        "updates": 0,
+        "draws": 0
+      },
+      "prefix_delta_maximum": {
+        "updates": 1,
+        "draws": 0
+      },
+      "gates": {
+        "same_actual_updates": true,
+        "no_more_physical_frames": true,
+        "no_fewer_actual_draws": true,
+        "no_more_zero_draw_frames": true,
+        "no_more_zero_update_frames": true,
+        "no_worse_longest_draw_stall": true,
+        "no_worse_longest_update_stall": true,
+        "prefix_deficits_recovered_by_end": true
+      },
+      "metrics_nonregression_pass": true,
+      "candidate_run": "native-grant-basic-v1",
+      "baseline_run": "native-grant-basic-baseline-v1"
+    },
+    {
+      "name": "actual-primary-mode0",
+      "mode": 0,
+      "actual_updates": 100,
+      "candidate_actual_draws": 100,
+      "baseline_actual_draws": 100,
+      "candidate": {
+        "physical_frames": 100,
+        "total_updates": 99,
+        "zero_updates_frames": 1,
+        "maximum_consecutive_no_updates_frames": 1,
+        "total_draws": 99,
+        "zero_draws_frames": 1,
+        "maximum_consecutive_no_draws_frames": 1
+      },
+      "baseline": {
+        "physical_frames": 100,
+        "total_updates": 99,
+        "zero_updates_frames": 1,
+        "maximum_consecutive_no_updates_frames": 1,
+        "total_draws": 99,
+        "zero_draws_frames": 1,
+        "maximum_consecutive_no_draws_frames": 1
+      },
+      "prefix_delta_minimum": {
+        "updates": 0,
+        "draws": 0
+      },
+      "prefix_delta_maximum": {
+        "updates": 0,
+        "draws": 0
+      },
+      "gates": {
+        "same_actual_updates": true,
+        "no_more_physical_frames": true,
+        "no_fewer_actual_draws": true,
+        "no_more_zero_draw_frames": true,
+        "no_more_zero_update_frames": true,
+        "no_worse_longest_draw_stall": true,
+        "no_worse_longest_update_stall": true,
+        "prefix_deficits_recovered_by_end": true
+      },
+      "metrics_nonregression_pass": true,
+      "candidate_run": "native-sypha-basic-v1",
+      "baseline_run": "native-sypha-basic-baseline-v1"
+    },
+    {
+      "name": "actual-primary-mode1",
+      "mode": 1,
+      "actual_updates": 100,
+      "candidate_actual_draws": 100,
+      "baseline_actual_draws": 100,
+      "candidate": {
+        "physical_frames": 100,
+        "total_updates": 100,
+        "zero_updates_frames": 0,
+        "maximum_consecutive_no_updates_frames": 0,
+        "total_draws": 100,
+        "zero_draws_frames": 0,
+        "maximum_consecutive_no_draws_frames": 0
+      },
+      "baseline": {
+        "physical_frames": 100,
+        "total_updates": 100,
+        "zero_updates_frames": 0,
+        "maximum_consecutive_no_updates_frames": 0,
+        "total_draws": 100,
+        "zero_draws_frames": 0,
+        "maximum_consecutive_no_draws_frames": 0
+      },
+      "prefix_delta_minimum": {
+        "updates": 0,
+        "draws": 0
+      },
+      "prefix_delta_maximum": {
+        "updates": 0,
+        "draws": 0
+      },
+      "gates": {
+        "same_actual_updates": true,
+        "no_more_physical_frames": true,
+        "no_fewer_actual_draws": true,
+        "no_more_zero_draw_frames": true,
+        "no_more_zero_update_frames": true,
+        "no_worse_longest_draw_stall": true,
+        "no_worse_longest_update_stall": true,
+        "prefix_deficits_recovered_by_end": true
+      },
+      "metrics_nonregression_pass": true,
+      "candidate_run": "native-sypha-basic-v1",
+      "baseline_run": "native-sypha-basic-baseline-v1"
+    },
+    {
+      "name": "actual-contact-mode0",
+      "mode": 0,
+      "actual_updates": 100,
+      "candidate_actual_draws": 100,
+      "baseline_actual_draws": 100,
+      "candidate": {
+        "physical_frames": 100,
+        "total_updates": 100,
+        "zero_updates_frames": 0,
+        "maximum_consecutive_no_updates_frames": 0,
+        "total_draws": 100,
+        "zero_draws_frames": 0,
+        "maximum_consecutive_no_draws_frames": 0
+      },
+      "baseline": {
+        "physical_frames": 100,
+        "total_updates": 100,
+        "zero_updates_frames": 0,
+        "maximum_consecutive_no_updates_frames": 0,
+        "total_draws": 100,
+        "zero_draws_frames": 0,
+        "maximum_consecutive_no_draws_frames": 0
+      },
+      "prefix_delta_minimum": {
+        "updates": 0,
+        "draws": 0
+      },
+      "prefix_delta_maximum": {
+        "updates": 0,
+        "draws": 0
+      },
+      "gates": {
+        "same_actual_updates": true,
+        "no_more_physical_frames": true,
+        "no_fewer_actual_draws": true,
+        "no_more_zero_draw_frames": true,
+        "no_more_zero_update_frames": true,
+        "no_worse_longest_draw_stall": true,
+        "no_worse_longest_update_stall": true,
+        "prefix_deficits_recovered_by_end": true
+      },
+      "metrics_nonregression_pass": true,
+      "candidate_run": "native-sypha-basic-v1",
+      "baseline_run": "native-sypha-basic-baseline-v1"
+    },
+    {
+      "name": "actual-contact-mode1",
+      "mode": 1,
+      "actual_updates": 100,
+      "candidate_actual_draws": 100,
+      "baseline_actual_draws": 100,
+      "candidate": {
+        "physical_frames": 100,
+        "total_updates": 100,
+        "zero_updates_frames": 0,
+        "maximum_consecutive_no_updates_frames": 0,
+        "total_draws": 100,
+        "zero_draws_frames": 0,
+        "maximum_consecutive_no_draws_frames": 0
+      },
+      "baseline": {
+        "physical_frames": 100,
+        "total_updates": 100,
+        "zero_updates_frames": 1,
+        "maximum_consecutive_no_updates_frames": 1,
+        "total_draws": 100,
+        "zero_draws_frames": 0,
+        "maximum_consecutive_no_draws_frames": 0
+      },
+      "prefix_delta_minimum": {
+        "updates": 0,
+        "draws": 0
+      },
+      "prefix_delta_maximum": {
+        "updates": 1,
+        "draws": 0
+      },
+      "gates": {
+        "same_actual_updates": true,
+        "no_more_physical_frames": true,
+        "no_fewer_actual_draws": true,
+        "no_more_zero_draw_frames": true,
+        "no_more_zero_update_frames": true,
+        "no_worse_longest_draw_stall": true,
+        "no_worse_longest_update_stall": true,
+        "prefix_deficits_recovered_by_end": true
+      },
+      "metrics_nonregression_pass": true,
+      "candidate_run": "native-sypha-basic-v1",
+      "baseline_run": "native-sypha-basic-baseline-v1"
+    },
+    {
+      "name": "actual-contact-mode0",
+      "mode": 0,
+      "actual_updates": 100,
+      "candidate_actual_draws": 99,
+      "baseline_actual_draws": 99,
+      "candidate": {
+        "physical_frames": 100,
+        "total_updates": 99,
+        "zero_updates_frames": 2,
+        "maximum_consecutive_no_updates_frames": 1,
+        "total_draws": 98,
+        "zero_draws_frames": 2,
+        "maximum_consecutive_no_draws_frames": 1
+      },
+      "baseline": {
+        "physical_frames": 100,
+        "total_updates": 99,
+        "zero_updates_frames": 2,
+        "maximum_consecutive_no_updates_frames": 1,
+        "total_draws": 98,
+        "zero_draws_frames": 2,
+        "maximum_consecutive_no_draws_frames": 1
+      },
+      "prefix_delta_minimum": {
+        "updates": 0,
+        "draws": 0
+      },
+      "prefix_delta_maximum": {
+        "updates": 0,
+        "draws": 0
+      },
+      "gates": {
+        "same_actual_updates": true,
+        "no_more_physical_frames": true,
+        "no_fewer_actual_draws": true,
+        "no_more_zero_draw_frames": true,
+        "no_more_zero_update_frames": true,
+        "no_worse_longest_draw_stall": true,
+        "no_worse_longest_update_stall": true,
+        "prefix_deficits_recovered_by_end": true
+      },
+      "metrics_nonregression_pass": true,
+      "candidate_run": "native-alucard-basic-v1",
+      "baseline_run": "native-alucard-basic-baseline-v1"
+    },
+    {
+      "name": "actual-contact-mode1",
+      "mode": 1,
+      "actual_updates": 100,
+      "candidate_actual_draws": 99,
+      "baseline_actual_draws": 99,
+      "candidate": {
+        "physical_frames": 100,
+        "total_updates": 100,
+        "zero_updates_frames": 1,
+        "maximum_consecutive_no_updates_frames": 1,
+        "total_draws": 99,
+        "zero_draws_frames": 1,
+        "maximum_consecutive_no_draws_frames": 1
+      },
+      "baseline": {
+        "physical_frames": 100,
+        "total_updates": 100,
+        "zero_updates_frames": 1,
+        "maximum_consecutive_no_updates_frames": 1,
+        "total_draws": 99,
+        "zero_draws_frames": 1,
+        "maximum_consecutive_no_draws_frames": 1
+      },
+      "prefix_delta_minimum": {
+        "updates": 0,
+        "draws": 0
+      },
+      "prefix_delta_maximum": {
+        "updates": 0,
+        "draws": 0
+      },
+      "gates": {
+        "same_actual_updates": true,
+        "no_more_physical_frames": true,
+        "no_fewer_actual_draws": true,
+        "no_more_zero_draw_frames": true,
+        "no_more_zero_update_frames": true,
+        "no_worse_longest_draw_stall": true,
+        "no_worse_longest_update_stall": true,
+        "prefix_deficits_recovered_by_end": true
+      },
+      "metrics_nonregression_pass": true,
+      "candidate_run": "native-alucard-basic-v1",
+      "baseline_run": "native-alucard-basic-baseline-v1"
+    },
+    {
+      "name": "actual-attack-mode0",
+      "mode": 0,
+      "actual_updates": 100,
+      "candidate_actual_draws": 99,
+      "baseline_actual_draws": 99,
+      "candidate": {
+        "physical_frames": 100,
+        "total_updates": 100,
+        "zero_updates_frames": 1,
+        "maximum_consecutive_no_updates_frames": 1,
+        "total_draws": 99,
+        "zero_draws_frames": 1,
+        "maximum_consecutive_no_draws_frames": 1
+      },
+      "baseline": {
+        "physical_frames": 100,
+        "total_updates": 100,
+        "zero_updates_frames": 1,
+        "maximum_consecutive_no_updates_frames": 1,
+        "total_draws": 99,
+        "zero_draws_frames": 1,
+        "maximum_consecutive_no_draws_frames": 1
+      },
+      "prefix_delta_minimum": {
+        "updates": 0,
+        "draws": 0
+      },
+      "prefix_delta_maximum": {
+        "updates": 0,
+        "draws": 0
+      },
+      "gates": {
+        "same_actual_updates": true,
+        "no_more_physical_frames": true,
+        "no_fewer_actual_draws": true,
+        "no_more_zero_draw_frames": true,
+        "no_more_zero_update_frames": true,
+        "no_worse_longest_draw_stall": true,
+        "no_worse_longest_update_stall": true,
+        "prefix_deficits_recovered_by_end": true
+      },
+      "metrics_nonregression_pass": true,
+      "candidate_run": "native-alucard-basic-v1",
+      "baseline_run": "native-alucard-basic-baseline-v1"
+    },
+    {
+      "name": "actual-attack-mode1",
+      "mode": 1,
+      "actual_updates": 100,
+      "candidate_actual_draws": 98,
+      "baseline_actual_draws": 98,
+      "candidate": {
+        "physical_frames": 100,
+        "total_updates": 100,
+        "zero_updates_frames": 2,
+        "maximum_consecutive_no_updates_frames": 1,
+        "total_draws": 98,
+        "zero_draws_frames": 2,
+        "maximum_consecutive_no_draws_frames": 1
+      },
+      "baseline": {
+        "physical_frames": 100,
+        "total_updates": 100,
+        "zero_updates_frames": 3,
+        "maximum_consecutive_no_updates_frames": 1,
+        "total_draws": 98,
+        "zero_draws_frames": 2,
+        "maximum_consecutive_no_draws_frames": 1
+      },
+      "prefix_delta_minimum": {
+        "updates": 0,
+        "draws": 0
+      },
+      "prefix_delta_maximum": {
+        "updates": 1,
+        "draws": 0
+      },
+      "gates": {
+        "same_actual_updates": true,
+        "no_more_physical_frames": true,
+        "no_fewer_actual_draws": true,
+        "no_more_zero_draw_frames": true,
+        "no_more_zero_update_frames": true,
+        "no_worse_longest_draw_stall": true,
+        "no_worse_longest_update_stall": true,
+        "prefix_deficits_recovered_by_end": true
+      },
+      "metrics_nonregression_pass": true,
+      "candidate_run": "native-alucard-basic-v1",
+      "baseline_run": "native-alucard-basic-baseline-v1"
+    },
+    {
+      "name": "no-source-six-goomba-mode0",
+      "mode": 0,
+      "actual_updates": 240,
+      "candidate_actual_draws": 120,
+      "baseline_actual_draws": 120,
+      "candidate": {
+        "physical_frames": 360,
+        "total_updates": 239,
+        "zero_updates_frames": 121,
+        "maximum_consecutive_no_updates_frames": 2,
+        "total_draws": 120,
+        "zero_draws_frames": 240,
+        "maximum_consecutive_no_draws_frames": 2
+      },
+      "baseline": {
+        "physical_frames": 360,
+        "total_updates": 239,
+        "zero_updates_frames": 121,
+        "maximum_consecutive_no_updates_frames": 2,
+        "total_draws": 120,
+        "zero_draws_frames": 240,
+        "maximum_consecutive_no_draws_frames": 2
+      },
+      "prefix_delta_minimum": {
+        "updates": 0,
+        "draws": 0
+      },
+      "prefix_delta_maximum": {
+        "updates": 0,
+        "draws": 0
+      },
+      "gates": {
+        "same_actual_updates": true,
+        "no_more_physical_frames": true,
+        "no_fewer_actual_draws": true,
+        "no_more_zero_draw_frames": true,
+        "no_more_zero_update_frames": true,
+        "no_worse_longest_draw_stall": true,
+        "no_worse_longest_update_stall": true,
+        "prefix_deficits_recovered_by_end": true
+      },
+      "metrics_nonregression_pass": true,
+      "candidate_run": "native-grant-pressure-candidate-v1",
+      "baseline_run": "native-grant-pressure-baseline-v1"
+    },
+    {
+      "name": "no-source-six-goomba-mode1",
+      "mode": 1,
+      "actual_updates": 240,
+      "candidate_actual_draws": 120,
+      "baseline_actual_draws": 120,
+      "candidate": {
+        "physical_frames": 360,
+        "total_updates": 240,
+        "zero_updates_frames": 120,
+        "maximum_consecutive_no_updates_frames": 1,
+        "total_draws": 120,
+        "zero_draws_frames": 240,
+        "maximum_consecutive_no_draws_frames": 2
+      },
+      "baseline": {
+        "physical_frames": 360,
+        "total_updates": 240,
+        "zero_updates_frames": 120,
+        "maximum_consecutive_no_updates_frames": 1,
+        "total_draws": 120,
+        "zero_draws_frames": 240,
+        "maximum_consecutive_no_draws_frames": 2
+      },
+      "prefix_delta_minimum": {
+        "updates": 0,
+        "draws": 0
+      },
+      "prefix_delta_maximum": {
+        "updates": 0,
+        "draws": 0
+      },
+      "gates": {
+        "same_actual_updates": true,
+        "no_more_physical_frames": true,
+        "no_fewer_actual_draws": true,
+        "no_more_zero_draw_frames": true,
+        "no_more_zero_update_frames": true,
+        "no_worse_longest_draw_stall": true,
+        "no_worse_longest_update_stall": true,
+        "prefix_deficits_recovered_by_end": true
+      },
+      "metrics_nonregression_pass": true,
+      "candidate_run": "native-grant-pressure-candidate-v1",
+      "baseline_run": "native-grant-pressure-baseline-v1"
+    },
+    {
+      "name": "no-source-six-goomba-mode0",
+      "mode": 0,
+      "actual_updates": 240,
+      "candidate_actual_draws": 120,
+      "baseline_actual_draws": 120,
+      "candidate": {
+        "physical_frames": 360,
+        "total_updates": 239,
+        "zero_updates_frames": 121,
+        "maximum_consecutive_no_updates_frames": 2,
+        "total_draws": 120,
+        "zero_draws_frames": 240,
+        "maximum_consecutive_no_draws_frames": 2
+      },
+      "baseline": {
+        "physical_frames": 360,
+        "total_updates": 239,
+        "zero_updates_frames": 121,
+        "maximum_consecutive_no_updates_frames": 2,
+        "total_draws": 120,
+        "zero_draws_frames": 240,
+        "maximum_consecutive_no_draws_frames": 2
+      },
+      "prefix_delta_minimum": {
+        "updates": 0,
+        "draws": 0
+      },
+      "prefix_delta_maximum": {
+        "updates": 0,
+        "draws": 0
+      },
+      "gates": {
+        "same_actual_updates": true,
+        "no_more_physical_frames": true,
+        "no_fewer_actual_draws": true,
+        "no_more_zero_draw_frames": true,
+        "no_more_zero_update_frames": true,
+        "no_worse_longest_draw_stall": true,
+        "no_worse_longest_update_stall": true,
+        "prefix_deficits_recovered_by_end": true
+      },
+      "metrics_nonregression_pass": true,
+      "candidate_run": "native-sypha-pressure-candidate-v1",
+      "baseline_run": "native-sypha-pressure-baseline-v1"
+    },
+    {
+      "name": "no-source-six-goomba-mode1",
+      "mode": 1,
+      "actual_updates": 240,
+      "candidate_actual_draws": 120,
+      "baseline_actual_draws": 120,
+      "candidate": {
+        "physical_frames": 360,
+        "total_updates": 240,
+        "zero_updates_frames": 120,
+        "maximum_consecutive_no_updates_frames": 1,
+        "total_draws": 120,
+        "zero_draws_frames": 240,
+        "maximum_consecutive_no_draws_frames": 2
+      },
+      "baseline": {
+        "physical_frames": 360,
+        "total_updates": 240,
+        "zero_updates_frames": 120,
+        "maximum_consecutive_no_updates_frames": 1,
+        "total_draws": 120,
+        "zero_draws_frames": 240,
+        "maximum_consecutive_no_draws_frames": 2
+      },
+      "prefix_delta_minimum": {
+        "updates": 0,
+        "draws": 0
+      },
+      "prefix_delta_maximum": {
+        "updates": 0,
+        "draws": 0
+      },
+      "gates": {
+        "same_actual_updates": true,
+        "no_more_physical_frames": true,
+        "no_fewer_actual_draws": true,
+        "no_more_zero_draw_frames": true,
+        "no_more_zero_update_frames": true,
+        "no_worse_longest_draw_stall": true,
+        "no_worse_longest_update_stall": true,
+        "prefix_deficits_recovered_by_end": true
+      },
+      "metrics_nonregression_pass": true,
+      "candidate_run": "native-sypha-pressure-candidate-v1",
+      "baseline_run": "native-sypha-pressure-baseline-v1"
+    },
+    {
+      "name": "no-source-six-goomba-mode0",
+      "mode": 0,
+      "actual_updates": 240,
+      "candidate_actual_draws": 120,
+      "baseline_actual_draws": 120,
+      "candidate": {
+        "physical_frames": 359,
+        "total_updates": 239,
+        "zero_updates_frames": 120,
+        "maximum_consecutive_no_updates_frames": 2,
+        "total_draws": 120,
+        "zero_draws_frames": 239,
+        "maximum_consecutive_no_draws_frames": 3
+      },
+      "baseline": {
+        "physical_frames": 360,
+        "total_updates": 239,
+        "zero_updates_frames": 121,
+        "maximum_consecutive_no_updates_frames": 2,
+        "total_draws": 120,
+        "zero_draws_frames": 240,
+        "maximum_consecutive_no_draws_frames": 3
+      },
+      "prefix_delta_minimum": {
+        "updates": 0,
+        "draws": 0
+      },
+      "prefix_delta_maximum": {
+        "updates": 1,
+        "draws": 1
+      },
+      "gates": {
+        "same_actual_updates": true,
+        "no_more_physical_frames": true,
+        "no_fewer_actual_draws": true,
+        "no_more_zero_draw_frames": true,
+        "no_more_zero_update_frames": true,
+        "no_worse_longest_draw_stall": true,
+        "no_worse_longest_update_stall": true,
+        "prefix_deficits_recovered_by_end": true
+      },
+      "metrics_nonregression_pass": true,
+      "candidate_run": "native-alucard-pressure-candidate-v1",
+      "baseline_run": "native-alucard-pressure-baseline-v1"
+    },
+    {
+      "name": "no-source-six-goomba-mode1",
+      "mode": 1,
+      "actual_updates": 240,
+      "candidate_actual_draws": 120,
+      "baseline_actual_draws": 120,
+      "candidate": {
+        "physical_frames": 358,
+        "total_updates": 240,
+        "zero_updates_frames": 118,
+        "maximum_consecutive_no_updates_frames": 1,
+        "total_draws": 120,
+        "zero_draws_frames": 238,
+        "maximum_consecutive_no_draws_frames": 3
+      },
+      "baseline": {
+        "physical_frames": 360,
+        "total_updates": 240,
+        "zero_updates_frames": 120,
+        "maximum_consecutive_no_updates_frames": 1,
+        "total_draws": 120,
+        "zero_draws_frames": 240,
+        "maximum_consecutive_no_draws_frames": 3
+      },
+      "prefix_delta_minimum": {
+        "updates": 0,
+        "draws": -1
+      },
+      "prefix_delta_maximum": {
+        "updates": 2,
+        "draws": 1
+      },
+      "gates": {
+        "same_actual_updates": true,
+        "no_more_physical_frames": true,
+        "no_fewer_actual_draws": true,
+        "no_more_zero_draw_frames": true,
+        "no_more_zero_update_frames": true,
+        "no_worse_longest_draw_stall": true,
+        "no_worse_longest_update_stall": true,
+        "prefix_deficits_recovered_by_end": true
+      },
+      "metrics_nonregression_pass": true,
+      "candidate_run": "native-alucard-pressure-candidate-v1",
+      "baseline_run": "native-alucard-pressure-baseline-v1"
+    },
+    {
+      "name": "no-source-six-goomba-mode0",
+      "mode": 0,
+      "actual_updates": 240,
+      "candidate_actual_draws": 120,
+      "baseline_actual_draws": 120,
+      "candidate": {
+        "physical_frames": 360,
+        "total_updates": 239,
+        "zero_updates_frames": 121,
+        "maximum_consecutive_no_updates_frames": 2,
+        "total_draws": 120,
+        "zero_draws_frames": 240,
+        "maximum_consecutive_no_draws_frames": 3
+      },
+      "baseline": {
+        "physical_frames": 360,
+        "total_updates": 239,
+        "zero_updates_frames": 121,
+        "maximum_consecutive_no_updates_frames": 2,
+        "total_draws": 120,
+        "zero_draws_frames": 240,
+        "maximum_consecutive_no_draws_frames": 3
+      },
+      "prefix_delta_minimum": {
+        "updates": 0,
+        "draws": 0
+      },
+      "prefix_delta_maximum": {
+        "updates": 0,
+        "draws": 1
+      },
+      "gates": {
+        "same_actual_updates": true,
+        "no_more_physical_frames": true,
+        "no_fewer_actual_draws": true,
+        "no_more_zero_draw_frames": true,
+        "no_more_zero_update_frames": true,
+        "no_worse_longest_draw_stall": true,
+        "no_worse_longest_update_stall": true,
+        "prefix_deficits_recovered_by_end": true
+      },
+      "metrics_nonregression_pass": true,
+      "candidate_run": "native-simon-pressure-candidate-v1",
+      "baseline_run": "native-simon-pressure-baseline-v1"
+    },
+    {
+      "name": "no-source-six-goomba-mode1",
+      "mode": 1,
+      "actual_updates": 240,
+      "candidate_actual_draws": 120,
+      "baseline_actual_draws": 120,
+      "candidate": {
+        "physical_frames": 360,
+        "total_updates": 240,
+        "zero_updates_frames": 120,
+        "maximum_consecutive_no_updates_frames": 1,
+        "total_draws": 120,
+        "zero_draws_frames": 240,
+        "maximum_consecutive_no_draws_frames": 3
+      },
+      "baseline": {
+        "physical_frames": 360,
+        "total_updates": 240,
+        "zero_updates_frames": 120,
+        "maximum_consecutive_no_updates_frames": 1,
+        "total_draws": 120,
+        "zero_draws_frames": 240,
+        "maximum_consecutive_no_draws_frames": 3
+      },
+      "prefix_delta_minimum": {
+        "updates": 0,
+        "draws": 0
+      },
+      "prefix_delta_maximum": {
+        "updates": 0,
+        "draws": 1
+      },
+      "gates": {
+        "same_actual_updates": true,
+        "no_more_physical_frames": true,
+        "no_fewer_actual_draws": true,
+        "no_more_zero_draw_frames": true,
+        "no_more_zero_update_frames": true,
+        "no_worse_longest_draw_stall": true,
+        "no_worse_longest_update_stall": true,
+        "prefix_deficits_recovered_by_end": true
+      },
+      "metrics_nonregression_pass": true,
+      "candidate_run": "native-simon-pressure-candidate-v1",
+      "baseline_run": "native-simon-pressure-baseline-v1"
+    },
+    {
+      "name": "no-source-six-goomba-mode0",
+      "mode": 0,
+      "actual_updates": 240,
+      "candidate_actual_draws": 120,
+      "baseline_actual_draws": 120,
+      "candidate": {
+        "physical_frames": 360,
+        "total_updates": 239,
+        "zero_updates_frames": 121,
+        "maximum_consecutive_no_updates_frames": 2,
+        "total_draws": 120,
+        "zero_draws_frames": 240,
+        "maximum_consecutive_no_draws_frames": 2
+      },
+      "baseline": {
+        "physical_frames": 360,
+        "total_updates": 239,
+        "zero_updates_frames": 121,
+        "maximum_consecutive_no_updates_frames": 2,
+        "total_draws": 120,
+        "zero_draws_frames": 240,
+        "maximum_consecutive_no_draws_frames": 2
+      },
+      "prefix_delta_minimum": {
+        "updates": 0,
+        "draws": 0
+      },
+      "prefix_delta_maximum": {
+        "updates": 0,
+        "draws": 0
+      },
+      "gates": {
+        "same_actual_updates": true,
+        "no_more_physical_frames": true,
+        "no_fewer_actual_draws": true,
+        "no_more_zero_draw_frames": true,
+        "no_more_zero_update_frames": true,
+        "no_worse_longest_draw_stall": true,
+        "no_worse_longest_update_stall": true,
+        "prefix_deficits_recovered_by_end": true
+      },
+      "metrics_nonregression_pass": true,
+      "candidate_run": "native-bill-pressure-candidate-v1",
+      "baseline_run": "native-bill-pressure-baseline-v1"
+    },
+    {
+      "name": "no-source-six-goomba-mode1",
+      "mode": 1,
+      "actual_updates": 240,
+      "candidate_actual_draws": 120,
+      "baseline_actual_draws": 120,
+      "candidate": {
+        "physical_frames": 360,
+        "total_updates": 240,
+        "zero_updates_frames": 120,
+        "maximum_consecutive_no_updates_frames": 1,
+        "total_draws": 120,
+        "zero_draws_frames": 240,
+        "maximum_consecutive_no_draws_frames": 2
+      },
+      "baseline": {
+        "physical_frames": 360,
+        "total_updates": 240,
+        "zero_updates_frames": 120,
+        "maximum_consecutive_no_updates_frames": 1,
+        "total_draws": 120,
+        "zero_draws_frames": 240,
+        "maximum_consecutive_no_draws_frames": 2
+      },
+      "prefix_delta_minimum": {
+        "updates": 0,
+        "draws": 0
+      },
+      "prefix_delta_maximum": {
+        "updates": 0,
+        "draws": 0
+      },
+      "gates": {
+        "same_actual_updates": true,
+        "no_more_physical_frames": true,
+        "no_fewer_actual_draws": true,
+        "no_more_zero_draw_frames": true,
+        "no_more_zero_update_frames": true,
+        "no_worse_longest_draw_stall": true,
+        "no_worse_longest_update_stall": true,
+        "prefix_deficits_recovered_by_end": true
+      },
+      "metrics_nonregression_pass": true,
+      "candidate_run": "native-bill-pressure-candidate-v1",
+      "baseline_run": "native-bill-pressure-baseline-v1"
+    },
+    {
+      "name": "ordinary-source-injury-Hard",
+      "mode": 1,
+      "actual_updates": 120,
+      "candidate_actual_draws": 105,
+      "baseline_actual_draws": 105,
+      "candidate": {
+        "physical_frames": 120,
+        "total_updates": 118,
+        "zero_updates_frames": 16,
+        "maximum_consecutive_no_updates_frames": 1,
+        "total_draws": 105,
+        "zero_draws_frames": 15,
+        "maximum_consecutive_no_draws_frames": 1
+      },
+      "baseline": {
+        "physical_frames": 120,
+        "total_updates": 118,
+        "zero_updates_frames": 16,
+        "maximum_consecutive_no_updates_frames": 1,
+        "total_draws": 105,
+        "zero_draws_frames": 15,
+        "maximum_consecutive_no_draws_frames": 1
+      },
+      "prefix_delta_minimum": {
+        "updates": 0,
+        "draws": 0
+      },
+      "prefix_delta_maximum": {
+        "updates": 0,
+        "draws": 0
+      },
+      "gates": {
+        "same_actual_updates": true,
+        "no_more_physical_frames": true,
+        "no_fewer_actual_draws": true,
+        "no_more_zero_draw_frames": true,
+        "no_more_zero_update_frames": true,
+        "no_worse_longest_draw_stall": true,
+        "no_worse_longest_update_stall": true,
+        "prefix_deficits_recovered_by_end": true
+      },
+      "metrics_nonregression_pass": true,
+      "candidate_run": "native-link-legacy-v2",
+      "baseline_run": "native-link-legacy-baseline-v1"
+    },
+    {
+      "name": "ordinary-source-injury-Hard",
+      "mode": 1,
+      "actual_updates": 120,
+      "candidate_actual_draws": 116,
+      "baseline_actual_draws": 115,
+      "candidate": {
+        "physical_frames": 120,
+        "total_updates": 119,
+        "zero_updates_frames": 6,
+        "maximum_consecutive_no_updates_frames": 1,
+        "total_draws": 115,
+        "zero_draws_frames": 5,
+        "maximum_consecutive_no_draws_frames": 1
+      },
+      "baseline": {
+        "physical_frames": 120,
+        "total_updates": 119,
+        "zero_updates_frames": 6,
+        "maximum_consecutive_no_updates_frames": 1,
+        "total_draws": 114,
+        "zero_draws_frames": 6,
+        "maximum_consecutive_no_draws_frames": 1
+      },
+      "prefix_delta_minimum": {
+        "updates": 0,
+        "draws": 0
+      },
+      "prefix_delta_maximum": {
+        "updates": 0,
+        "draws": 1
+      },
+      "gates": {
+        "same_actual_updates": true,
+        "no_more_physical_frames": true,
+        "no_fewer_actual_draws": true,
+        "no_more_zero_draw_frames": true,
+        "no_more_zero_update_frames": true,
+        "no_worse_longest_draw_stall": true,
+        "no_worse_longest_update_stall": true,
+        "prefix_deficits_recovered_by_end": true
+      },
+      "metrics_nonregression_pass": true,
+      "candidate_run": "native-simon-legacy-v1",
+      "baseline_run": "native-simon-legacy-baseline-v1"
+    }
+  ],
+  "cases": [
+    {
+      "run": "native-grant-basic-v1",
+      "name": "actual-primary-mode0",
+      "mode": 0,
+      "actual_attacks": 1,
+      "actual_injuries": 0,
+      "actual_updates": 100,
+      "frames": 100,
+      "draws": 100,
+      "streams": [
+        {
+          "sound": 114,
+          "bank": 125,
+          "address": 61760,
+          "rate": 15,
+          "length": 1089,
+          "actual_reads": 1089,
+          "payload_sha256": "c1b646c36508ad4d134078c8184fea7bd632f50127c5f2af6550e89097cbda01",
+          "actual_final_DAC": 24
+        }
+      ]
+    },
+    {
+      "run": "native-grant-basic-v1",
+      "name": "actual-primary-mode1",
+      "mode": 1,
+      "actual_attacks": 1,
+      "actual_injuries": 0,
+      "actual_updates": 100,
+      "frames": 100,
+      "draws": 100,
+      "streams": [
+        {
+          "sound": 114,
+          "bank": 125,
+          "address": 61760,
+          "rate": 15,
+          "length": 1089,
+          "actual_reads": 1089,
+          "payload_sha256": "c1b646c36508ad4d134078c8184fea7bd632f50127c5f2af6550e89097cbda01",
+          "actual_final_DAC": 24
+        }
+      ]
+    },
+    {
+      "run": "native-grant-basic-v1",
+      "name": "actual-contact-mode0",
+      "mode": 0,
+      "actual_attacks": 0,
+      "actual_injuries": 1,
+      "actual_updates": 100,
+      "frames": 100,
+      "draws": 99,
+      "streams": [
+        {
+          "sound": 116,
+          "bank": 125,
+          "address": 65280,
+          "rate": 14,
+          "length": 193,
+          "actual_reads": 193,
+          "payload_sha256": "4d6a9738d5ed47be13ffc70e7ee6841ff53756fc182356e4494563b28e630e8d",
+          "actual_final_DAC": 4
+        }
+      ]
+    },
+    {
+      "run": "native-grant-basic-v1",
+      "name": "actual-contact-mode1",
+      "mode": 1,
+      "actual_attacks": 0,
+      "actual_injuries": 1,
+      "actual_updates": 100,
+      "frames": 100,
+      "draws": 100,
+      "streams": [
+        {
+          "sound": 116,
+          "bank": 125,
+          "address": 65280,
+          "rate": 14,
+          "length": 193,
+          "actual_reads": 193,
+          "payload_sha256": "4d6a9738d5ed47be13ffc70e7ee6841ff53756fc182356e4494563b28e630e8d",
+          "actual_final_DAC": 4
+        }
+      ]
+    },
+    {
+      "run": "native-grant-basic-baseline-v1",
+      "name": "actual-primary-mode0",
+      "mode": 0,
+      "actual_attacks": 1,
+      "actual_injuries": 0,
+      "actual_updates": 100,
+      "frames": 100,
+      "draws": 100,
+      "streams": []
+    },
+    {
+      "run": "native-grant-basic-baseline-v1",
+      "name": "actual-primary-mode1",
+      "mode": 1,
+      "actual_attacks": 1,
+      "actual_injuries": 0,
+      "actual_updates": 100,
+      "frames": 100,
+      "draws": 100,
+      "streams": []
+    },
+    {
+      "run": "native-grant-basic-baseline-v1",
+      "name": "actual-contact-mode0",
+      "mode": 0,
+      "actual_attacks": 0,
+      "actual_injuries": 1,
+      "actual_updates": 100,
+      "frames": 100,
+      "draws": 99,
+      "streams": [
+        {
+          "sound": 116,
+          "bank": 127,
+          "address": 65280,
+          "rate": 14,
+          "length": 193,
+          "actual_reads": 193,
+          "payload_sha256": "4d6a9738d5ed47be13ffc70e7ee6841ff53756fc182356e4494563b28e630e8d",
+          "actual_final_DAC": 0
+        }
+      ]
+    },
+    {
+      "run": "native-grant-basic-baseline-v1",
+      "name": "actual-contact-mode1",
+      "mode": 1,
+      "actual_attacks": 0,
+      "actual_injuries": 1,
+      "actual_updates": 100,
+      "frames": 100,
+      "draws": 100,
+      "streams": [
+        {
+          "sound": 116,
+          "bank": 127,
+          "address": 65280,
+          "rate": 14,
+          "length": 193,
+          "actual_reads": 193,
+          "payload_sha256": "4d6a9738d5ed47be13ffc70e7ee6841ff53756fc182356e4494563b28e630e8d",
+          "actual_final_DAC": 0
+        }
+      ]
+    },
+    {
+      "run": "native-sypha-basic-v1",
+      "name": "actual-primary-mode0",
+      "mode": 0,
+      "actual_attacks": 1,
+      "actual_injuries": 0,
+      "actual_updates": 100,
+      "frames": 100,
+      "draws": 100,
+      "streams": [
+        {
+          "sound": 114,
+          "bank": 125,
+          "address": 61760,
+          "rate": 15,
+          "length": 1089,
+          "actual_reads": 1089,
+          "payload_sha256": "c1b646c36508ad4d134078c8184fea7bd632f50127c5f2af6550e89097cbda01",
+          "actual_final_DAC": 24
+        }
+      ]
+    },
+    {
+      "run": "native-sypha-basic-v1",
+      "name": "actual-primary-mode1",
+      "mode": 1,
+      "actual_attacks": 1,
+      "actual_injuries": 0,
+      "actual_updates": 100,
+      "frames": 100,
+      "draws": 100,
+      "streams": [
+        {
+          "sound": 114,
+          "bank": 125,
+          "address": 61760,
+          "rate": 15,
+          "length": 1089,
+          "actual_reads": 1089,
+          "payload_sha256": "c1b646c36508ad4d134078c8184fea7bd632f50127c5f2af6550e89097cbda01",
+          "actual_final_DAC": 24
+        }
+      ]
+    },
+    {
+      "run": "native-sypha-basic-v1",
+      "name": "actual-contact-mode0",
+      "mode": 0,
+      "actual_attacks": 0,
+      "actual_injuries": 1,
+      "actual_updates": 100,
+      "frames": 100,
+      "draws": 100,
+      "streams": [
+        {
+          "sound": 117,
+          "bank": 125,
+          "address": 62912,
+          "rate": 15,
+          "length": 193,
+          "actual_reads": 193,
+          "payload_sha256": "137fc604fe0c0cbf8c28733411e2397cc00e72188db755a00eb8ad27da037331",
+          "actual_final_DAC": 34
+        }
+      ]
+    },
+    {
+      "run": "native-sypha-basic-v1",
+      "name": "actual-contact-mode1",
+      "mode": 1,
+      "actual_attacks": 0,
+      "actual_injuries": 1,
+      "actual_updates": 100,
+      "frames": 100,
+      "draws": 100,
+      "streams": [
+        {
+          "sound": 117,
+          "bank": 125,
+          "address": 62912,
+          "rate": 15,
+          "length": 193,
+          "actual_reads": 193,
+          "payload_sha256": "137fc604fe0c0cbf8c28733411e2397cc00e72188db755a00eb8ad27da037331",
+          "actual_final_DAC": 34
+        }
+      ]
+    },
+    {
+      "run": "native-sypha-basic-baseline-v1",
+      "name": "actual-primary-mode0",
+      "mode": 0,
+      "actual_attacks": 1,
+      "actual_injuries": 0,
+      "actual_updates": 100,
+      "frames": 100,
+      "draws": 100,
+      "streams": []
+    },
+    {
+      "run": "native-sypha-basic-baseline-v1",
+      "name": "actual-primary-mode1",
+      "mode": 1,
+      "actual_attacks": 1,
+      "actual_injuries": 0,
+      "actual_updates": 100,
+      "frames": 100,
+      "draws": 100,
+      "streams": []
+    },
+    {
+      "run": "native-sypha-basic-baseline-v1",
+      "name": "actual-contact-mode0",
+      "mode": 0,
+      "actual_attacks": 0,
+      "actual_injuries": 1,
+      "actual_updates": 100,
+      "frames": 100,
+      "draws": 100,
+      "streams": []
+    },
+    {
+      "run": "native-sypha-basic-baseline-v1",
+      "name": "actual-contact-mode1",
+      "mode": 1,
+      "actual_attacks": 0,
+      "actual_injuries": 1,
+      "actual_updates": 100,
+      "frames": 100,
+      "draws": 100,
+      "streams": []
+    },
+    {
+      "run": "native-alucard-basic-v1",
+      "name": "actual-contact-mode0",
+      "mode": 0,
+      "actual_attacks": 0,
+      "actual_injuries": 1,
+      "actual_updates": 100,
+      "frames": 100,
+      "draws": 99,
+      "streams": [
+        {
+          "sound": 118,
+          "bank": 125,
+          "address": 65280,
+          "rate": 13,
+          "length": 193,
+          "actual_reads": 193,
+          "payload_sha256": "4d6a9738d5ed47be13ffc70e7ee6841ff53756fc182356e4494563b28e630e8d",
+          "actual_final_DAC": 4
+        }
+      ]
+    },
+    {
+      "run": "native-alucard-basic-v1",
+      "name": "actual-contact-mode1",
+      "mode": 1,
+      "actual_attacks": 0,
+      "actual_injuries": 1,
+      "actual_updates": 100,
+      "frames": 100,
+      "draws": 99,
+      "streams": [
+        {
+          "sound": 118,
+          "bank": 125,
+          "address": 65280,
+          "rate": 13,
+          "length": 193,
+          "actual_reads": 193,
+          "payload_sha256": "4d6a9738d5ed47be13ffc70e7ee6841ff53756fc182356e4494563b28e630e8d",
+          "actual_final_DAC": 4
+        }
+      ]
+    },
+    {
+      "run": "native-alucard-basic-v1",
+      "name": "actual-attack-mode0",
+      "mode": 0,
+      "actual_attacks": 1,
+      "actual_injuries": 1,
+      "actual_updates": 100,
+      "frames": 100,
+      "draws": 99,
+      "streams": [
+        {
+          "sound": 118,
+          "bank": 125,
+          "address": 65280,
+          "rate": 13,
+          "length": 193,
+          "actual_reads": 193,
+          "payload_sha256": "4d6a9738d5ed47be13ffc70e7ee6841ff53756fc182356e4494563b28e630e8d",
+          "actual_final_DAC": 4
+        }
+      ]
+    },
+    {
+      "run": "native-alucard-basic-v1",
+      "name": "actual-attack-mode1",
+      "mode": 1,
+      "actual_attacks": 1,
+      "actual_injuries": 1,
+      "actual_updates": 100,
+      "frames": 100,
+      "draws": 98,
+      "streams": [
+        {
+          "sound": 118,
+          "bank": 125,
+          "address": 65280,
+          "rate": 13,
+          "length": 193,
+          "actual_reads": 193,
+          "payload_sha256": "4d6a9738d5ed47be13ffc70e7ee6841ff53756fc182356e4494563b28e630e8d",
+          "actual_final_DAC": 4
+        }
+      ]
+    },
+    {
+      "run": "native-alucard-basic-baseline-v1",
+      "name": "actual-contact-mode0",
+      "mode": 0,
+      "actual_attacks": 0,
+      "actual_injuries": 1,
+      "actual_updates": 100,
+      "frames": 100,
+      "draws": 99,
+      "streams": [
+        {
+          "sound": 118,
+          "bank": 127,
+          "address": 65280,
+          "rate": 13,
+          "length": 193,
+          "actual_reads": 193,
+          "payload_sha256": "4d6a9738d5ed47be13ffc70e7ee6841ff53756fc182356e4494563b28e630e8d",
+          "actual_final_DAC": 0
+        }
+      ]
+    },
+    {
+      "run": "native-alucard-basic-baseline-v1",
+      "name": "actual-contact-mode1",
+      "mode": 1,
+      "actual_attacks": 0,
+      "actual_injuries": 1,
+      "actual_updates": 100,
+      "frames": 100,
+      "draws": 99,
+      "streams": [
+        {
+          "sound": 118,
+          "bank": 127,
+          "address": 65280,
+          "rate": 13,
+          "length": 193,
+          "actual_reads": 193,
+          "payload_sha256": "4d6a9738d5ed47be13ffc70e7ee6841ff53756fc182356e4494563b28e630e8d",
+          "actual_final_DAC": 0
+        }
+      ]
+    },
+    {
+      "run": "native-alucard-basic-baseline-v1",
+      "name": "actual-attack-mode0",
+      "mode": 0,
+      "actual_attacks": 1,
+      "actual_injuries": 1,
+      "actual_updates": 100,
+      "frames": 100,
+      "draws": 99,
+      "streams": [
+        {
+          "sound": 118,
+          "bank": 127,
+          "address": 65280,
+          "rate": 13,
+          "length": 193,
+          "actual_reads": 193,
+          "payload_sha256": "4d6a9738d5ed47be13ffc70e7ee6841ff53756fc182356e4494563b28e630e8d",
+          "actual_final_DAC": 0
+        }
+      ]
+    },
+    {
+      "run": "native-alucard-basic-baseline-v1",
+      "name": "actual-attack-mode1",
+      "mode": 1,
+      "actual_attacks": 1,
+      "actual_injuries": 1,
+      "actual_updates": 100,
+      "frames": 100,
+      "draws": 98,
+      "streams": [
+        {
+          "sound": 118,
+          "bank": 127,
+          "address": 65280,
+          "rate": 13,
+          "length": 193,
+          "actual_reads": 193,
+          "payload_sha256": "4d6a9738d5ed47be13ffc70e7ee6841ff53756fc182356e4494563b28e630e8d",
+          "actual_final_DAC": 0
+        }
+      ]
+    },
+    {
+      "run": "native-grant-controls-v2",
+      "name": "primary-pause-mode1",
+      "mode": 1,
+      "actual_attacks": 1,
+      "actual_injuries": 0,
+      "actual_updates": 110,
+      "frames": 110,
+      "draws": 61,
+      "streams": [
+        {
+          "sound": 114,
+          "bank": 125,
+          "address": 61760,
+          "rate": 15,
+          "length": 1089,
+          "actual_reads": 138,
+          "payload_sha256": "c1b646c36508ad4d134078c8184fea7bd632f50127c5f2af6550e89097cbda01",
+          "actual_final_DAC": 0
+        }
+      ]
+    },
+    {
+      "run": "native-grant-controls-v2",
+      "name": "scene-mode1",
+      "mode": 1,
+      "actual_attacks": 1,
+      "actual_injuries": 0,
+      "actual_updates": 110,
+      "frames": 110,
+      "draws": 110,
+      "streams": [
+        {
+          "sound": 114,
+          "bank": 125,
+          "address": 61760,
+          "rate": 15,
+          "length": 1089,
+          "actual_reads": 160,
+          "payload_sha256": "c1b646c36508ad4d134078c8184fea7bd632f50127c5f2af6550e89097cbda01",
+          "actual_final_DAC": 6
+        }
+      ]
+    },
+    {
+      "run": "native-grant-controls-v2",
+      "name": "preempt-mode1",
+      "mode": 1,
+      "actual_attacks": 1,
+      "actual_injuries": 0,
+      "actual_updates": 110,
+      "frames": 110,
+      "draws": 110,
+      "streams": [
+        {
+          "sound": 114,
+          "bank": 125,
+          "address": 61760,
+          "rate": 15,
+          "length": 1089,
+          "actual_reads": 143,
+          "payload_sha256": "c1b646c36508ad4d134078c8184fea7bd632f50127c5f2af6550e89097cbda01",
+          "actual_final_DAC": 0
+        },
+        {
+          "sound": 21,
+          "bank": 127,
+          "address": 65088,
+          "rate": 15,
+          "length": 161,
+          "actual_reads": 161,
+          "payload_sha256": "059cb4471feec9aba8352343f30ae658cab7e40b1357343127d6cf752debcb2a",
+          "actual_final_DAC": 0
+        }
+      ]
+    },
+    {
+      "run": "native-grant-controls-v2",
+      "name": "priority-mode1",
+      "mode": 1,
+      "actual_attacks": 1,
+      "actual_injuries": 0,
+      "actual_updates": 110,
+      "frames": 110,
+      "draws": 110,
+      "streams": [
+        {
+          "sound": 114,
+          "bank": 125,
+          "address": 61760,
+          "rate": 15,
+          "length": 1089,
+          "actual_reads": 139,
+          "payload_sha256": "c1b646c36508ad4d134078c8184fea7bd632f50127c5f2af6550e89097cbda01",
+          "actual_final_DAC": 4
+        },
+        {
+          "sound": 116,
+          "bank": 125,
+          "address": 65280,
+          "rate": 14,
+          "length": 193,
+          "actual_reads": 193,
+          "payload_sha256": "4d6a9738d5ed47be13ffc70e7ee6841ff53756fc182356e4494563b28e630e8d",
+          "actual_final_DAC": 4
+        }
+      ]
+    },
+    {
+      "run": "native-link-legacy-v2",
+      "name": "ordinary-source-injury-Hard",
+      "mode": 1,
+      "actual_attacks": 0,
+      "actual_injuries": 1,
+      "actual_updates": 120,
+      "frames": 120,
+      "draws": 105,
+      "streams": [
+        {
+          "sound": 21,
+          "bank": 127,
+          "address": 65088,
+          "rate": 15,
+          "length": 161,
+          "actual_reads": 161,
+          "payload_sha256": "059cb4471feec9aba8352343f30ae658cab7e40b1357343127d6cf752debcb2a",
+          "actual_final_DAC": 0
+        }
+      ]
+    },
+    {
+      "run": "native-simon-legacy-v1",
+      "name": "ordinary-source-injury-Hard",
+      "mode": 1,
+      "actual_attacks": 0,
+      "actual_injuries": 1,
+      "actual_updates": 120,
+      "frames": 120,
+      "draws": 116,
+      "streams": [
+        {
+          "sound": 115,
+          "bank": 127,
+          "address": 65280,
+          "rate": 15,
+          "length": 193,
+          "actual_reads": 193,
+          "payload_sha256": "4d6a9738d5ed47be13ffc70e7ee6841ff53756fc182356e4494563b28e630e8d",
+          "actual_final_DAC": 0
+        }
+      ]
+    },
+    {
+      "run": "native-link-legacy-baseline-v1",
+      "name": "ordinary-source-injury-Hard",
+      "mode": 1,
+      "actual_attacks": 0,
+      "actual_injuries": 1,
+      "actual_updates": 120,
+      "frames": 120,
+      "draws": 105,
+      "streams": [
+        {
+          "sound": 21,
+          "bank": 127,
+          "address": 65088,
+          "rate": 15,
+          "length": 161,
+          "actual_reads": 161,
+          "payload_sha256": "059cb4471feec9aba8352343f30ae658cab7e40b1357343127d6cf752debcb2a",
+          "actual_final_DAC": 0
+        }
+      ]
+    },
+    {
+      "run": "native-simon-legacy-baseline-v1",
+      "name": "ordinary-source-injury-Hard",
+      "mode": 1,
+      "actual_attacks": 0,
+      "actual_injuries": 1,
+      "actual_updates": 120,
+      "frames": 120,
+      "draws": 115,
+      "streams": [
+        {
+          "sound": 115,
+          "bank": 127,
+          "address": 65280,
+          "rate": 15,
+          "length": 193,
+          "actual_reads": 193,
+          "payload_sha256": "4d6a9738d5ed47be13ffc70e7ee6841ff53756fc182356e4494563b28e630e8d",
+          "actual_final_DAC": 0
+        }
+      ]
+    },
+    {
+      "run": "native-grant-death-v1",
+      "name": "actual-fatal-contact",
+      "mode": 1,
+      "actual_attacks": 1,
+      "actual_injuries": 1,
+      "actual_updates": 64,
+      "frames": 110,
+      "draws": 108,
+      "streams": [
+        {
+          "sound": 114,
+          "bank": 125,
+          "address": 61760,
+          "rate": 15,
+          "length": 1089,
+          "actual_reads": 1089,
+          "payload_sha256": "c1b646c36508ad4d134078c8184fea7bd632f50127c5f2af6550e89097cbda01",
+          "actual_final_DAC": 24
+        }
+      ]
+    },
+    {
+      "run": "native-grant-character-v1",
+      "name": "staged-character-reset-owner",
+      "mode": 1,
+      "actual_attacks": 1,
+      "actual_injuries": 0,
+      "actual_updates": 180,
+      "frames": 180,
+      "draws": 179,
+      "streams": [
+        {
+          "sound": 114,
+          "bank": 125,
+          "address": 61760,
+          "rate": 15,
+          "length": 1089,
+          "actual_reads": 136,
+          "payload_sha256": "c1b646c36508ad4d134078c8184fea7bd632f50127c5f2af6550e89097cbda01",
+          "actual_final_DAC": 0
+        }
+      ]
+    },
+    {
+      "run": "native-grant-AllOnes-v1",
+      "name": "actual-primary-mode1",
+      "mode": 1,
+      "actual_attacks": 1,
+      "actual_injuries": 0,
+      "actual_updates": 100,
+      "frames": 100,
+      "draws": 100,
+      "streams": [
+        {
+          "sound": 114,
+          "bank": 125,
+          "address": 61760,
+          "rate": 15,
+          "length": 1089,
+          "actual_reads": 1089,
+          "payload_sha256": "c1b646c36508ad4d134078c8184fea7bd632f50127c5f2af6550e89097cbda01",
+          "actual_final_DAC": 24
+        }
+      ]
+    },
+    {
+      "run": "native-grant-AllOnes-v1",
+      "name": "actual-contact-mode1",
+      "mode": 1,
+      "actual_attacks": 0,
+      "actual_injuries": 1,
+      "actual_updates": 100,
+      "frames": 100,
+      "draws": 100,
+      "streams": [
+        {
+          "sound": 116,
+          "bank": 125,
+          "address": 65280,
+          "rate": 14,
+          "length": 193,
+          "actual_reads": 193,
+          "payload_sha256": "4d6a9738d5ed47be13ffc70e7ee6841ff53756fc182356e4494563b28e630e8d",
+          "actual_final_DAC": 4
+        }
+      ]
+    },
+    {
+      "run": "native-grant-pressure-candidate-v1",
+      "name": "no-source-six-goomba-mode0",
+      "mode": 0,
+      "actual_attacks": 0,
+      "actual_injuries": 0,
+      "actual_updates": 240,
+      "frames": 360,
+      "draws": 120,
+      "streams": []
+    },
+    {
+      "run": "native-grant-pressure-candidate-v1",
+      "name": "no-source-six-goomba-mode1",
+      "mode": 1,
+      "actual_attacks": 0,
+      "actual_injuries": 0,
+      "actual_updates": 240,
+      "frames": 360,
+      "draws": 120,
+      "streams": []
+    },
+    {
+      "run": "native-grant-pressure-baseline-v1",
+      "name": "no-source-six-goomba-mode0",
+      "mode": 0,
+      "actual_attacks": 0,
+      "actual_injuries": 0,
+      "actual_updates": 240,
+      "frames": 360,
+      "draws": 120,
+      "streams": []
+    },
+    {
+      "run": "native-grant-pressure-baseline-v1",
+      "name": "no-source-six-goomba-mode1",
+      "mode": 1,
+      "actual_attacks": 0,
+      "actual_injuries": 0,
+      "actual_updates": 240,
+      "frames": 360,
+      "draws": 120,
+      "streams": []
+    },
+    {
+      "run": "native-sypha-pressure-candidate-v1",
+      "name": "no-source-six-goomba-mode0",
+      "mode": 0,
+      "actual_attacks": 0,
+      "actual_injuries": 0,
+      "actual_updates": 240,
+      "frames": 360,
+      "draws": 120,
+      "streams": []
+    },
+    {
+      "run": "native-sypha-pressure-candidate-v1",
+      "name": "no-source-six-goomba-mode1",
+      "mode": 1,
+      "actual_attacks": 0,
+      "actual_injuries": 0,
+      "actual_updates": 240,
+      "frames": 360,
+      "draws": 120,
+      "streams": []
+    },
+    {
+      "run": "native-sypha-pressure-baseline-v1",
+      "name": "no-source-six-goomba-mode0",
+      "mode": 0,
+      "actual_attacks": 0,
+      "actual_injuries": 0,
+      "actual_updates": 240,
+      "frames": 360,
+      "draws": 120,
+      "streams": []
+    },
+    {
+      "run": "native-sypha-pressure-baseline-v1",
+      "name": "no-source-six-goomba-mode1",
+      "mode": 1,
+      "actual_attacks": 0,
+      "actual_injuries": 0,
+      "actual_updates": 240,
+      "frames": 360,
+      "draws": 120,
+      "streams": []
+    },
+    {
+      "run": "native-alucard-pressure-candidate-v1",
+      "name": "no-source-six-goomba-mode0",
+      "mode": 0,
+      "actual_attacks": 0,
+      "actual_injuries": 0,
+      "actual_updates": 240,
+      "frames": 359,
+      "draws": 120,
+      "streams": []
+    },
+    {
+      "run": "native-alucard-pressure-candidate-v1",
+      "name": "no-source-six-goomba-mode1",
+      "mode": 1,
+      "actual_attacks": 0,
+      "actual_injuries": 0,
+      "actual_updates": 240,
+      "frames": 358,
+      "draws": 120,
+      "streams": []
+    },
+    {
+      "run": "native-alucard-pressure-baseline-v1",
+      "name": "no-source-six-goomba-mode0",
+      "mode": 0,
+      "actual_attacks": 0,
+      "actual_injuries": 0,
+      "actual_updates": 240,
+      "frames": 360,
+      "draws": 120,
+      "streams": []
+    },
+    {
+      "run": "native-alucard-pressure-baseline-v1",
+      "name": "no-source-six-goomba-mode1",
+      "mode": 1,
+      "actual_attacks": 0,
+      "actual_injuries": 0,
+      "actual_updates": 240,
+      "frames": 360,
+      "draws": 120,
+      "streams": []
+    },
+    {
+      "run": "native-simon-pressure-candidate-v1",
+      "name": "no-source-six-goomba-mode0",
+      "mode": 0,
+      "actual_attacks": 0,
+      "actual_injuries": 0,
+      "actual_updates": 240,
+      "frames": 360,
+      "draws": 120,
+      "streams": []
+    },
+    {
+      "run": "native-simon-pressure-candidate-v1",
+      "name": "no-source-six-goomba-mode1",
+      "mode": 1,
+      "actual_attacks": 0,
+      "actual_injuries": 0,
+      "actual_updates": 240,
+      "frames": 360,
+      "draws": 120,
+      "streams": []
+    },
+    {
+      "run": "native-simon-pressure-baseline-v1",
+      "name": "no-source-six-goomba-mode0",
+      "mode": 0,
+      "actual_attacks": 0,
+      "actual_injuries": 0,
+      "actual_updates": 240,
+      "frames": 360,
+      "draws": 120,
+      "streams": []
+    },
+    {
+      "run": "native-simon-pressure-baseline-v1",
+      "name": "no-source-six-goomba-mode1",
+      "mode": 1,
+      "actual_attacks": 0,
+      "actual_injuries": 0,
+      "actual_updates": 240,
+      "frames": 360,
+      "draws": 120,
+      "streams": []
+    },
+    {
+      "run": "native-bill-pressure-candidate-v1",
+      "name": "no-source-six-goomba-mode0",
+      "mode": 0,
+      "actual_attacks": 0,
+      "actual_injuries": 0,
+      "actual_updates": 240,
+      "frames": 360,
+      "draws": 120,
+      "streams": []
+    },
+    {
+      "run": "native-bill-pressure-candidate-v1",
+      "name": "no-source-six-goomba-mode1",
+      "mode": 1,
+      "actual_attacks": 0,
+      "actual_injuries": 0,
+      "actual_updates": 240,
+      "frames": 360,
+      "draws": 120,
+      "streams": []
+    },
+    {
+      "run": "native-bill-pressure-baseline-v1",
+      "name": "no-source-six-goomba-mode0",
+      "mode": 0,
+      "actual_attacks": 0,
+      "actual_injuries": 0,
+      "actual_updates": 240,
+      "frames": 360,
+      "draws": 120,
+      "streams": []
+    },
+    {
+      "run": "native-bill-pressure-baseline-v1",
+      "name": "no-source-six-goomba-mode1",
+      "mode": 1,
+      "actual_attacks": 0,
+      "actual_injuries": 0,
+      "actual_updates": 240,
+      "frames": 360,
+      "draws": 120,
+      "streams": []
+    }
+  ],
+  "ordinary": [
+    {
+      "run": "native-link-legacy-v2",
+      "actual_APU_register_value_physical_frame_sequence_exact": true,
+      "APU_logical_update_age_sequence_exact": true
+    },
+    {
+      "run": "native-simon-legacy-v1",
+      "actual_APU_register_value_physical_frame_sequence_exact": true,
+      "APU_logical_update_age_sequence_exact": false
+    }
+  ],
+  "guards": {
+    "updates": 8564,
+    "draws": 6107,
+    "nmis": 11006,
+    "irq_scroll_writes": 22004,
+    "hardware_chr_checks": 132084,
+    "complete_dma_checks": 6121,
+    "stack_writes": 7301152
+  },
+  "min_stack_pointer": 178,
+  "dependency_versions": {
+    "cv3_dmc_complete_native_v1.py": [
+      "0e5303ed758e383f37e9f78dc4ff800266c5a523cb2a25df4ba9c503ff1e7870"
+    ],
+    "cv3_dmc_complete_native_v1.lua": [
+      "1644b53102c4b0f423f456f9102c89f7ef8be1a79c3dc1bb9b3f21a121b34302"
+    ],
+    "z2_platform_native_qa.lua": [
+      "3afea42151155616e587917d5612415c3970f66634a9e4af4761e96a1239a4dd"
+    ],
+    "observe_chip_committed_write.py": [
+      "0922efc482e8a72b72d243ada7629f157c51afd779cee09e0f7bf35fa6235de2"
+    ],
+    "run_mesen_isolated.py": [
+      "976f197a3712511e821f545e655eaa3f9bcfe95e42a3c6c76b2adca288d2aad3"
+    ],
+    "check_tmnt_render_oa.py": [
+      "32033893e48055adc9a23c661238e9331dd1db856be51b753ba9b6781eb528e4"
+    ]
+  },
+  "evidence_manifest_sha256": "cfc50209d7aa5e0b99ebe35205910405d23ecabfe08cf30226bcec1b2461b010",
+  "performance_receipt_sha256": "b4ac86c4caead573a12858c7874877ec12370a16a11b96b1cfc1820733ec463a",
+  "source_readiness_v3_sha256": "2ec358affaf73db398fda301f3f00afc921b8ce39b27b03c36f74a5b874feb57",
+  "held_e6b_failure_receipt_sha256": "a899399d200b816ba7d7ea3735e7800405d628cb34f6925d693adbac235d639f",
+  "scope": "Fresh exact4c70 real controller primary/contact owners and staged lifecycle/driver controls. Every paired case compares draw/update totals, actual physical frames, zero-draw/update frames, longest stalls and every cumulative prefix. Improvements may change phase; all temporary prefix deficits remain explicit for ROOT review. No full campaign, console hardware, waveform or universal lag claim."
+}

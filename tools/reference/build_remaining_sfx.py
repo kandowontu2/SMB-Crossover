@@ -47,7 +47,8 @@ def main():
  lines+=['.segment "BASS_DPCM"']
  for name,sample in samples.items():
   lines +=['.align $40',f'AvDmc{name}:',' .byte '+','.join(str(v)for v in bytes.fromhex(sample['hex'])),f'AvDmc{name}End:']
- lines+=['.popseg'];(ROOT/'audio/remaining-source-sfx.inc').write_text('\n'.join(lines)+'\n')
+  if name=='LinkTakeDamage': lines +=['.if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5',' .include "cv3_dmc_owner.inc"','.endif']
+ lines+=['.popseg'];(ROOT/'audio/remaining-source-sfx.inc').write_bytes(('\n'.join(lines)+'\n').encode())
  (ROOT/'tests/fixtures/remaining-source-sfx.json').write_text(json.dumps(fixtures,separators=(',',':'))+'\n')
  lua=['return {']
  for k,v in fixtures.items():

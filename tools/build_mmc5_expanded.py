@@ -51,6 +51,9 @@ def main():
  result=subprocess.run(command,cwd=root,capture_output=True,text=True)
  out.with_suffix('.build.log').write_text(result.stdout+result.stderr)
  if result.returncode:print(result.stdout+result.stderr);return result.returncode
+ if flag:
+  from prepare_cv3_dmc_mirror import prepare
+  prepare(root,out)
  rom=out.read_bytes();actual_mapper=(rom[6]>>4)|(rom[7]&240)|((rom[8]&15)<<8)
  assert actual_mapper==(5 if mapper=='mmc5' else 4)
  assert len(rom)==16+rom[4]*16384+rom[5]*8192

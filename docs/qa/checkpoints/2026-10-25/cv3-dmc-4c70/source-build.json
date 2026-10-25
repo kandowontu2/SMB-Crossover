@@ -1,0 +1,34 @@
+{
+  "passed": true,
+  "accepted": false,
+  "ROM_sha256": "4c70fe485f73fb8d437fae2e79ae8ddad83908dc26d4008f21e0a2abeccee2da",
+  "held_ROM_sha256": "e6baf465a4fb3981dc1d9f1bea64a129f1dbb8d2a8276f934a38eb9c00c0728c",
+  "source_existing_EOL_preserved": true,
+  "producer_byte_exact": true,
+  "mirror_idempotent": true,
+  "all_held_qualified_symbols_exact": 54507,
+  "source_changes_from_held": [
+    {
+      "path": "src/roster_audio.s",
+      "sha256": "5458ff7072b16fed35133ef4febd5e4cf380decf2718add910ab8fb8080c6fcc",
+      "EOL": "LF"
+    },
+    {
+      "path": "src/cv3_dmc_complete.s",
+      "sha256": "aee614d8ceb4f8f9a0135ab39119a50511908192c758d04a11a26a662853825d",
+      "EOL": "LF"
+    }
+  ],
+  "incremental_patch_sha256": "4729986574d14ab60ac023f0fb6fcb1705b2fff8b5673c9a63f1dc7b3e3ae162",
+  "ordinary_flagoff": [
+    {
+      "mapper": "mmc3",
+      "sha256": "d444cac88e13fa02b29ad16100b8f08fa565ba90f8cedde192de43fb2dc8f3eb"
+    },
+    {
+      "mapper": "mmc5",
+      "sha256": "f4ffd2483c51daa4d60bb575da2da8c4d817692cda407611c243031f67520833"
+    }
+  ],
+  "scope": "Private source/CPU optimization readiness only. Exact4c70 native validation has not run. Held e6b native draw regression remains rejected; no transfer of its behavior proof to optimized hash."
+}

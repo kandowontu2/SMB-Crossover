@@ -1,0 +1,965 @@
+--- a/audio/remaining-source-sfx.inc
++++ b/audio/remaining-source-sfx.inc
+@@ -1,91 +1,94 @@
+-; Exact NSF references from 2.02 MusicInfo; frame-quantized NES APU writes.
+-.pushseg
+-.segment "REMAINING_AUDIO"
+-AvSfxLinkShootArrow:
+- .byte 0,153,1,127,2,142,3,8,254,2,113,3,8,254,2,95,3,8,254,2,80,3,8,254,255
+-AV_SFX_LINKSHOOTARROW=1
+-AvSfxLinkSetBomb:
+- .byte 0,159,1,127,2,160,3,8,254,2,254,3,8,254,2,160,3,8,254,2,190,3,8,254,2,64,3,9,254,255
+-AV_SFX_LINKSETBOMB=2
+-AvSfxLinkBombExplode:
+- .byte 12,31,13,0,14,14,15,8,254,14,15,15,8,254,15,8,254,14,14,15,8,254,14,13,15,8,254,14,14,15,8,254,12,30,14,15,15,8,254,12,29,14,14,15,8,254,12,28,14,15,15,8,254,12,27,14,14,15,8,254,12,26,14,15,15,8,254,12,25,14,14,15,8,254,12,24,14,15,15,8,254,12,23,14,14,15,8,254,12,22,14,15,15,8,254,15,8,254,12,21,15,8,254,12,20,14,14,15,8,254,14,12,15,8,254,12,19,14,15,15,8,254,15,8,254,12,18,14,14,15,8,254,14,15,15,8,254,255
+-AV_SFX_LINKBOMBEXPLODE=3
+-AvSfxSimonThrowDagger:
+- .byte 12,20,13,48,14,0,15,8,254,12,21,14,1,254,12,24,14,2,254,12,26,14,3,254,12,31,14,7,254,12,25,14,11,254,12,21,14,12,254,12,20,254,255
+-AV_SFX_SIMONTHROWDAGGER=4
+-AvSfxSimonCross:
+- .byte 12,52,13,48,14,15,15,8,254,254,12,56,14,10,254,254,12,61,14,1,254,254,12,58,14,15,254,254,255
+-AV_SFX_SIMONCROSS=5
+-AvSfxSimonHolyWaterExplode:
+- .byte 0,191,1,136,2,21,3,8,12,63,13,48,14,4,15,8,254,254,254,2,16,3,8,254,254,254,2,42,3,8,254,254,254,2,32,3,8,12,48,14,0,254,254,254,0,176,2,0,3,8,12,63,14,4,254,254,0,190,2,16,3,8,254,12,62,14,13,254,254,2,10,3,8,254,14,15,254,254,2,37,3,8,254,14,14,254,254,2,26,3,8,254,14,15,254,254,0,176,2,0,3,8,254,14,13,254,254,0,187,2,21,3,8,254,12,59,14,15,254,254,2,16,3,8,254,14,14,254,254,0,48,254,14,15,254,254,254,12,63,14,14,254,254,254,254,254,254,14,15,254,254,254,14,14,254,254,254,14,15,254,254,254,14,13,254,254,254,14,15,254,254,254,14,14,254,254,254,14,13,254,254,254,255
+-AV_SFX_SIMONHOLYWATEREXPLODE=6
+-AvSfxSimonStopWatch:
+- .byte 0,184,1,48,2,127,3,8,254,0,115,254,0,182,254,0,176,2,0,254,0,48,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,0,176,3,8,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,0,184,2,127,254,0,115,254,0,182,254,0,176,2,0,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,0,184,2,127,254,0,115,254,0,182,254,255
+-AV_SFX_SIMONSTOPWATCH=7
+-AvSfxRyuArtOfFireWheel:
+- .byte 12,62,13,8,14,0,15,152,254,14,1,15,152,254,14,2,15,152,254,14,3,15,152,254,14,4,15,152,254,14,5,15,152,254,14,4,15,152,254,14,5,15,152,254,14,6,15,152,254,14,5,15,152,254,14,6,15,152,254,14,7,15,152,254,14,6,15,152,254,14,7,15,152,254,14,8,15,152,254,14,7,15,152,254,14,8,15,152,254,14,9,15,152,254,14,8,15,152,254,14,9,15,152,254,14,10,15,152,254,14,9,15,152,254,14,10,15,152,254,14,11,15,152,254,14,10,15,152,254,14,11,15,152,254,14,12,15,152,254,14,11,15,152,254,14,12,15,152,254,14,13,15,152,254,14,12,15,152,254,14,13,15,152,254,14,14,15,152,254,14,13,15,152,254,14,14,15,152,254,14,15,15,152,254,15,152,254,12,61,15,152,254,15,152,254,12,60,15,152,254,15,152,254,12,59,15,152,254,15,152,254,12,58,15,152,254,15,152,254,12,57,15,152,254,15,152,254,12,56,15,152,254,15,152,254,12,55,15,152,254,15,152,254,12,54,15,152,254,15,152,254,12,53,15,152,254,15,152,254,12,52,15,152,254,15,152,254,12,51,15,152,254,15,152,254,12,50,15,152,254,15,152,254,12,49,15,152,254,15,152,254,255
+-AV_SFX_RYUARTOFFIREWHEEL=8
+-AvSfxRyuFireDrgonBall:
+- .byte 12,63,13,8,14,8,15,152,254,14,9,15,152,254,14,10,15,152,254,14,9,15,152,254,14,8,15,152,254,14,10,15,152,254,14,11,15,152,254,14,12,15,152,254,14,13,15,152,254,14,14,15,152,254,14,13,15,152,254,15,152,254,12,62,15,152,254,15,152,254,12,61,15,152,254,15,152,254,12,60,15,152,254,15,152,254,12,59,15,152,254,15,152,254,12,58,15,152,254,15,152,254,12,57,15,152,254,15,152,254,12,56,15,152,254,15,152,254,12,55,15,152,254,15,152,254,12,54,15,152,254,15,152,254,12,53,15,152,254,15,152,254,12,52,15,152,254,15,152,254,12,51,15,152,254,15,152,254,12,50,15,152,254,15,152,254,12,49,15,152,254,15,152,254,255
+-AV_SFX_RYUFIREDRGONBALL=9
+-AvSfxRyuJumpSlash:
+- .byte 12,62,13,8,14,8,15,152,254,14,9,15,152,254,14,10,15,152,254,14,11,15,152,254,14,15,15,152,254,14,14,15,152,254,14,13,15,152,254,14,12,15,152,254,14,11,15,152,254,14,10,15,152,254,14,9,15,152,254,14,8,15,152,254,14,7,15,152,254,14,6,15,152,254,14,5,15,152,254,14,4,15,152,254,14,3,15,152,254,14,4,15,152,254,14,3,15,152,254,14,2,15,152,254,14,3,15,152,254,14,2,15,152,254,14,1,15,152,254,14,2,15,152,254,14,1,15,152,254,14,0,15,152,254,15,152,254,12,61,15,152,254,15,152,254,12,60,15,152,254,15,152,254,12,59,15,152,254,15,152,254,12,58,15,152,254,15,152,254,12,57,15,152,254,15,152,254,12,56,15,152,254,15,152,254,12,55,15,152,254,15,152,254,12,54,15,152,254,15,152,254,12,53,15,152,254,15,152,254,12,52,15,152,254,15,152,254,12,51,15,152,254,15,152,254,12,50,15,152,254,15,152,254,12,49,15,152,254,15,152,254,255
+-AV_SFX_RYUJUMPSLASH=10
+-AvSfxRyuThrowSmallStar:
+- .byte 12,62,13,8,14,4,15,152,254,14,12,15,152,254,14,10,15,152,254,255
+-AV_SFX_RYUTHROWSMALLSTAR=11
+-AvSfxRyuThrowBigStar:
+- .byte 12,60,13,8,14,2,15,152,254,14,4,15,152,254,14,6,15,152,254,14,8,15,152,254,14,1,15,152,254,14,3,15,152,254,14,5,15,152,254,14,7,15,152,254,12,48,15,152,254,15,152,254,12,60,14,2,15,152,254,14,4,15,152,254,14,6,15,152,254,14,8,15,152,254,14,1,15,152,254,14,3,15,152,254,14,5,15,152,254,14,7,15,152,254,12,48,15,152,254,15,152,254,12,60,14,2,15,152,254,14,4,15,152,254,14,6,15,152,254,14,8,15,152,254,14,1,15,152,254,14,3,15,152,254,14,5,15,152,254,14,7,15,152,254,12,48,15,152,254,15,152,254,12,60,14,2,15,152,254,14,4,15,152,254,14,6,15,152,254,14,8,15,152,254,14,1,15,152,254,14,3,15,152,254,14,5,15,152,254,14,7,15,152,254,255
+-AV_SFX_RYUTHROWBIGSTAR=12
+-AvSfxSamusShootMissile:
+- .byte 12,25,13,127,14,14,15,160,254,14,11,254,14,12,254,14,13,254,14,14,254,14,15,254,14,16,254,14,17,254,14,18,254,14,19,254,14,20,254,14,21,254,14,22,254,14,23,254,14,24,254,14,25,254,14,26,254,14,27,254,14,28,254,14,29,254,14,30,254,14,31,254,14,32,254,14,33,254,255
+-AV_SFX_SAMUSSHOOTMISSILE=13
+-AvSfxSamusScrewAttack:
+- .byte 12,53,13,127,14,0,15,176,254,254,254,254,254,254,254,254,254,254,254,14,1,254,14,2,254,14,3,254,14,4,254,254,14,2,254,14,3,254,14,4,254,14,5,254,254,14,3,254,14,4,254,14,5,254,14,6,254,254,14,4,254,14,5,254,14,6,254,14,7,254,254,14,5,254,14,6,254,14,7,254,14,8,254,254,14,6,254,14,7,254,14,8,254,14,9,254,254,14,7,254,14,8,254,14,9,254,14,10,254,254,14,8,254,14,9,254,14,10,254,14,11,254,254,14,9,254,14,10,254,14,11,254,14,12,254,254,14,10,254,14,11,254,14,12,254,14,13,254,254,14,11,254,14,12,254,14,13,254,14,14,254,254,14,12,254,14,13,254,14,14,254,14,15,254,254,14,13,254,14,14,254,14,15,254,14,16,254,254,14,14,254,14,15,254,14,16,254,14,17,254,254,14,15,254,14,16,254,14,17,254,14,18,254,255
+-AV_SFX_SAMUSSCREWATTACK=14
+-AvSfxSophiaMissile:
+- .byte 4,132,5,129,6,83,7,9,12,134,13,8,14,15,15,8,254,14,14,15,8,254,6,128,7,10,14,12,15,8,254,14,10,15,8,254,14,8,15,8,254,14,5,15,8,254,6,26,7,10,14,3,15,8,254,14,2,15,8,254,254,6,252,7,9,254,254,14,1,15,8,254,254,4,145,5,136,7,9,254,254,4,176,6,174,7,14,14,3,15,8,254,4,16,5,0,6,0,254,254,14,5,15,8,254,254,254,14,10,15,8,254,254,254,14,11,15,8,254,254,254,14,13,15,8,254,254,14,14,15,8,254,254,14,13,15,8,254,254,14,14,15,8,254,254,14,13,15,8,254,254,14,14,15,8,254,254,14,13,15,8,254,254,14,14,15,8,254,254,14,13,15,8,254,254,14,14,15,8,254,254,14,13,15,8,254,254,14,14,15,8,254,254,14,13,15,8,254,254,14,14,15,8,254,254,255
+-AV_SFX_SOPHIAMISSILE=15
+-AvSfxBillLaser:
+- .byte 0,19,1,131,2,57,3,8,12,51,13,0,14,11,15,8,254,12,52,14,10,15,8,254,0,20,2,64,3,8,12,53,14,9,15,8,254,12,54,14,8,15,8,254,0,21,2,71,3,8,12,55,14,7,15,8,254,14,6,15,8,254,0,22,2,80,3,8,12,56,15,8,254,15,8,254,0,23,2,90,3,8,15,8,254,15,8,254,0,24,2,101,3,8,15,8,254,15,8,254,0,25,2,113,3,8,14,7,15,8,254,14,6,15,8,254,0,26,2,126,3,8,14,7,15,8,254,15,8,254,2,143,3,8,14,8,15,8,254,14,7,15,8,254,0,25,2,160,3,8,14,8,15,8,254,15,8,254,2,180,3,8,14,9,15,8,254,14,8,15,8,254,0,24,2,202,3,8,14,9,15,8,254,15,8,254,2,242,3,8,14,10,15,8,254,12,55,14,9,15,8,254,2,254,3,8,14,10,15,8,254,15,8,254,2,29,3,9,14,11,15,9,254,14,10,15,9,254,0,23,2,64,3,9,14,11,15,9,254,15,9,254,2,104,3,9,14,12,15,9,254,14,11,15,9,254,0,22,2,148,3,9,14,12,15,9,254,15,9,254,2,197,3,9,12,54,14,13,15,9,254,14,12,15,9,254,2,252,3,9,14,13,15,9,254,15,9,254,2,54,3,10,12,53,14,14,15,10,254,14,13,15,10,254,2,129,3,10,14,14,15,10,254,15,10,254,0,21,2,207,3,10,15,10,254,15,10,254,2,39,3,11,12,52,15,11,254,15,11,254,2,138,3,11,12,48,254,254,255
+-AV_SFX_BILLLASER=16
+-AvSfxBillFlare:
+- .byte 0,251,1,130,2,53,3,8,12,52,13,127,14,6,15,8,254,254,254,0,249,2,80,3,8,12,53,14,8,15,8,254,254,254,0,247,2,120,3,8,12,54,14,10,15,8,254,254,254,0,251,2,53,3,8,12,52,14,6,15,8,254,254,254,0,249,2,80,3,8,12,53,14,8,15,8,254,254,254,0,247,2,120,3,8,12,54,14,10,15,8,254,254,254,0,251,2,53,3,8,12,52,14,6,15,8,254,254,254,0,249,2,80,3,8,12,53,14,8,15,8,254,254,254,0,247,2,120,3,8,12,54,14,10,15,8,254,254,254,0,243,2,180,3,8,12,51,14,12,15,8,254,254,254,0,242,2,13,3,9,12,49,14,13,15,8,254,254,254,255
+-AV_SFX_BILLFLARE=17
+-AvSfxSophiaBulletExplode:
+- .byte 4,159,5,130,6,166,7,10,254,254,254,6,224,7,9,254,254,254,6,171,7,9,254,254,254,6,64,7,9,254,6,213,7,8,254,4,145,5,136,7,8,254,254,255
+-AV_SFX_SOPHIABULLETEXPLODE=18
+-AvSfxSophiaHitEnemy:
+- .byte 4,159,5,131,6,213,7,8,254,254,254,254,254,6,240,7,8,254,254,254,254,6,103,7,9,254,254,254,6,252,7,9,254,254,255
+-AV_SFX_SOPHIAHITENEMY=19
+-AvSfxSophiaKillEnemy:
+- .byte 4,159,5,131,6,83,7,9,254,254,6,64,7,9,254,254,6,29,7,9,254,254,6,169,7,8,254,254,6,160,7,8,254,254,6,142,7,8,254,254,4,153,7,8,254,254,254,6,169,7,8,254,254,254,6,160,7,8,254,254,254,6,142,7,8,254,254,254,4,148,6,169,7,8,254,254,254,6,160,7,8,254,254,254,6,142,7,8,254,254,254,4,145,5,136,7,8,254,254,255
+-AV_SFX_SOPHIAKILLENEMY=20
+-AvSfxLinkTakeDamage:
+- .byte 255
+-AV_SFX_LINKTAKEDAMAGE=21
+-AvSfxSimonTakeDamage:
+- .byte 255
+-AV_SFX_SIMONTAKEDAMAGE=22
+-AvSfxRyuTakeDamage:
+- .byte 4,185,5,8,6,128,7,154,12,59,13,8,14,12,15,152,254,6,207,14,11,15,152,254,6,166,12,61,15,152,254,6,249,14,10,15,152,254,6,207,12,60,15,152,254,6,39,7,155,14,9,15,152,254,6,249,7,154,12,59,15,152,254,6,87,7,155,14,8,15,152,254,6,39,12,58,15,152,254,6,137,14,7,15,152,254,6,87,12,57,15,152,254,6,191,14,6,15,152,254,6,137,12,56,15,152,254,6,248,14,5,15,152,254,6,191,12,55,15,152,254,6,53,7,156,14,4,15,152,254,6,248,7,155,12,54,15,152,254,6,117,7,156,14,3,15,152,254,6,53,12,53,15,152,254,6,185,14,2,15,152,254,6,117,12,52,15,152,254,6,1,7,157,14,1,15,152,254,6,185,7,156,12,51,15,152,254,6,77,7,157,14,0,15,152,254,6,1,12,48,254,6,158,254,6,77,254,6,243,254,6,158,254,6,78,7,158,254,255
+-AV_SFX_RYUTAKEDAMAGE=23
+-AvSfxRyuJump:
+- .byte 12,62,13,8,14,3,15,152,254,14,9,15,152,254,14,2,15,152,254,255
+-AV_SFX_RYUJUMP=24
+-AvSfxMasks:
+- .byte 1,1,8,8,8,9,1,8,8,8,8,8,8,8,10,9,9,2,2,2,0,0,10,8
+-AvSfxLo:
+- .byte <AvSfxLinkShootArrow,<AvSfxLinkSetBomb,<AvSfxLinkBombExplode,<AvSfxSimonThrowDagger,<AvSfxSimonCross,<AvSfxSimonHolyWaterExplode,<AvSfxSimonStopWatch,<AvSfxRyuArtOfFireWheel,<AvSfxRyuFireDrgonBall,<AvSfxRyuJumpSlash,<AvSfxRyuThrowSmallStar,<AvSfxRyuThrowBigStar,<AvSfxSamusShootMissile,<AvSfxSamusScrewAttack,<AvSfxSophiaMissile,<AvSfxBillLaser,<AvSfxBillFlare,<AvSfxSophiaBulletExplode,<AvSfxSophiaHitEnemy,<AvSfxSophiaKillEnemy,<AvSfxLinkTakeDamage,<AvSfxSimonTakeDamage,<AvSfxRyuTakeDamage,<AvSfxRyuJump
+-AvSfxHi:
+- .byte >AvSfxLinkShootArrow,>AvSfxLinkSetBomb,>AvSfxLinkBombExplode,>AvSfxSimonThrowDagger,>AvSfxSimonCross,>AvSfxSimonHolyWaterExplode,>AvSfxSimonStopWatch,>AvSfxRyuArtOfFireWheel,>AvSfxRyuFireDrgonBall,>AvSfxRyuJumpSlash,>AvSfxRyuThrowSmallStar,>AvSfxRyuThrowBigStar,>AvSfxSamusShootMissile,>AvSfxSamusScrewAttack,>AvSfxSophiaMissile,>AvSfxBillLaser,>AvSfxBillFlare,>AvSfxSophiaBulletExplode,>AvSfxSophiaHitEnemy,>AvSfxSophiaKillEnemy,>AvSfxLinkTakeDamage,>AvSfxSimonTakeDamage,>AvSfxRyuTakeDamage,>AvSfxRyuJump
+-.segment "BASS_DPCM"
+-.align $40
+-AvDmcLinkTakeDamage:
+- .byte 162,202,47,208,218,138,74,63,208,218,73,74,255,146,74,42,255,0,0,0,60,243,15,224,255,255,63,0,0,0,252,255,255,60,63,128,240,255,255,0,0,0,0,255,255,207,255,15,0,240,255,3,0,0,192,192,255,255,240,255,3,0,254,255,0,0,0,252,192,255,255,195,207,12,0,240,255,63,0,0,0,12,255,255,63,252,255,0,0,255,255,3,0,0,192,195,255,255,243,255,3,0,240,255,15,0,0,0,12,240,255,255,204,255,15,0,240,255,63,0,0,0,240,3,255,255,15,255,63,0,0,255,255,3,0,0,0,240,240,255,255,195,255,255,0,0,252,255,63,0,0,0,0,128,255,255,255,240,51,3,32
+-AvDmcLinkTakeDamageEnd:
+-.align $40
+-AvDmcSimonTakeDamage:
+- .byte 85,171,213,170,90,75,149,74,85,169,84,213,214,170,164,53,75,137,82,85,217,91,95,87,117,42,73,66,146,34,77,213,118,219,215,42,165,36,146,40,82,169,127,223,219,109,79,137,32,36,130,136,210,123,119,173,170,84,138,65,72,255,127,87,123,95,18,2,146,34,2,106,123,87,170,106,165,72,16,255,255,119,115,127,69,32,64,137,8,42,181,83,149,170,170,36,106,255,255,191,214,87,130,0,40,73,136,168,214,172,164,210,140,218,255,255,191,214,181,8,8,32,41,130,144,214,86,37,169,166,221,255,255,175,218,53,34,128,160,162,128,160,90,167,148,74,91,253,255,255,205,122,139,2,1,138,4,34,136,118,85,82,74,219,255,255,215,118,63,42,32,72,73,32,8,117,85,82,74,219,255,255,215,118,63,42,32,72,73,32,8,117,1
+-AvDmcSimonTakeDamageEnd:
+-.popseg
++; Exact NSF references from 2.02 MusicInfo; frame-quantized NES APU writes.
++.pushseg
++.segment "REMAINING_AUDIO"
++AvSfxLinkShootArrow:
++ .byte 0,153,1,127,2,142,3,8,254,2,113,3,8,254,2,95,3,8,254,2,80,3,8,254,255
++AV_SFX_LINKSHOOTARROW=1
++AvSfxLinkSetBomb:
++ .byte 0,159,1,127,2,160,3,8,254,2,254,3,8,254,2,160,3,8,254,2,190,3,8,254,2,64,3,9,254,255
++AV_SFX_LINKSETBOMB=2
++AvSfxLinkBombExplode:
++ .byte 12,31,13,0,14,14,15,8,254,14,15,15,8,254,15,8,254,14,14,15,8,254,14,13,15,8,254,14,14,15,8,254,12,30,14,15,15,8,254,12,29,14,14,15,8,254,12,28,14,15,15,8,254,12,27,14,14,15,8,254,12,26,14,15,15,8,254,12,25,14,14,15,8,254,12,24,14,15,15,8,254,12,23,14,14,15,8,254,12,22,14,15,15,8,254,15,8,254,12,21,15,8,254,12,20,14,14,15,8,254,14,12,15,8,254,12,19,14,15,15,8,254,15,8,254,12,18,14,14,15,8,254,14,15,15,8,254,255
++AV_SFX_LINKBOMBEXPLODE=3
++AvSfxSimonThrowDagger:
++ .byte 12,20,13,48,14,0,15,8,254,12,21,14,1,254,12,24,14,2,254,12,26,14,3,254,12,31,14,7,254,12,25,14,11,254,12,21,14,12,254,12,20,254,255
++AV_SFX_SIMONTHROWDAGGER=4
++AvSfxSimonCross:
++ .byte 12,52,13,48,14,15,15,8,254,254,12,56,14,10,254,254,12,61,14,1,254,254,12,58,14,15,254,254,255
++AV_SFX_SIMONCROSS=5
++AvSfxSimonHolyWaterExplode:
++ .byte 0,191,1,136,2,21,3,8,12,63,13,48,14,4,15,8,254,254,254,2,16,3,8,254,254,254,2,42,3,8,254,254,254,2,32,3,8,12,48,14,0,254,254,254,0,176,2,0,3,8,12,63,14,4,254,254,0,190,2,16,3,8,254,12,62,14,13,254,254,2,10,3,8,254,14,15,254,254,2,37,3,8,254,14,14,254,254,2,26,3,8,254,14,15,254,254,0,176,2,0,3,8,254,14,13,254,254,0,187,2,21,3,8,254,12,59,14,15,254,254,2,16,3,8,254,14,14,254,254,0,48,254,14,15,254,254,254,12,63,14,14,254,254,254,254,254,254,14,15,254,254,254,14,14,254,254,254,14,15,254,254,254,14,13,254,254,254,14,15,254,254,254,14,14,254,254,254,14,13,254,254,254,255
++AV_SFX_SIMONHOLYWATEREXPLODE=6
++AvSfxSimonStopWatch:
++ .byte 0,184,1,48,2,127,3,8,254,0,115,254,0,182,254,0,176,2,0,254,0,48,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,0,176,3,8,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,0,184,2,127,254,0,115,254,0,182,254,0,176,2,0,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,0,184,2,127,254,0,115,254,0,182,254,255
++AV_SFX_SIMONSTOPWATCH=7
++AvSfxRyuArtOfFireWheel:
++ .byte 12,62,13,8,14,0,15,152,254,14,1,15,152,254,14,2,15,152,254,14,3,15,152,254,14,4,15,152,254,14,5,15,152,254,14,4,15,152,254,14,5,15,152,254,14,6,15,152,254,14,5,15,152,254,14,6,15,152,254,14,7,15,152,254,14,6,15,152,254,14,7,15,152,254,14,8,15,152,254,14,7,15,152,254,14,8,15,152,254,14,9,15,152,254,14,8,15,152,254,14,9,15,152,254,14,10,15,152,254,14,9,15,152,254,14,10,15,152,254,14,11,15,152,254,14,10,15,152,254,14,11,15,152,254,14,12,15,152,254,14,11,15,152,254,14,12,15,152,254,14,13,15,152,254,14,12,15,152,254,14,13,15,152,254,14,14,15,152,254,14,13,15,152,254,14,14,15,152,254,14,15,15,152,254,15,152,254,12,61,15,152,254,15,152,254,12,60,15,152,254,15,152,254,12,59,15,152,254,15,152,254,12,58,15,152,254,15,152,254,12,57,15,152,254,15,152,254,12,56,15,152,254,15,152,254,12,55,15,152,254,15,152,254,12,54,15,152,254,15,152,254,12,53,15,152,254,15,152,254,12,52,15,152,254,15,152,254,12,51,15,152,254,15,152,254,12,50,15,152,254,15,152,254,12,49,15,152,254,15,152,254,255
++AV_SFX_RYUARTOFFIREWHEEL=8
++AvSfxRyuFireDrgonBall:
++ .byte 12,63,13,8,14,8,15,152,254,14,9,15,152,254,14,10,15,152,254,14,9,15,152,254,14,8,15,152,254,14,10,15,152,254,14,11,15,152,254,14,12,15,152,254,14,13,15,152,254,14,14,15,152,254,14,13,15,152,254,15,152,254,12,62,15,152,254,15,152,254,12,61,15,152,254,15,152,254,12,60,15,152,254,15,152,254,12,59,15,152,254,15,152,254,12,58,15,152,254,15,152,254,12,57,15,152,254,15,152,254,12,56,15,152,254,15,152,254,12,55,15,152,254,15,152,254,12,54,15,152,254,15,152,254,12,53,15,152,254,15,152,254,12,52,15,152,254,15,152,254,12,51,15,152,254,15,152,254,12,50,15,152,254,15,152,254,12,49,15,152,254,15,152,254,255
++AV_SFX_RYUFIREDRGONBALL=9
++AvSfxRyuJumpSlash:
++ .byte 12,62,13,8,14,8,15,152,254,14,9,15,152,254,14,10,15,152,254,14,11,15,152,254,14,15,15,152,254,14,14,15,152,254,14,13,15,152,254,14,12,15,152,254,14,11,15,152,254,14,10,15,152,254,14,9,15,152,254,14,8,15,152,254,14,7,15,152,254,14,6,15,152,254,14,5,15,152,254,14,4,15,152,254,14,3,15,152,254,14,4,15,152,254,14,3,15,152,254,14,2,15,152,254,14,3,15,152,254,14,2,15,152,254,14,1,15,152,254,14,2,15,152,254,14,1,15,152,254,14,0,15,152,254,15,152,254,12,61,15,152,254,15,152,254,12,60,15,152,254,15,152,254,12,59,15,152,254,15,152,254,12,58,15,152,254,15,152,254,12,57,15,152,254,15,152,254,12,56,15,152,254,15,152,254,12,55,15,152,254,15,152,254,12,54,15,152,254,15,152,254,12,53,15,152,254,15,152,254,12,52,15,152,254,15,152,254,12,51,15,152,254,15,152,254,12,50,15,152,254,15,152,254,12,49,15,152,254,15,152,254,255
++AV_SFX_RYUJUMPSLASH=10
++AvSfxRyuThrowSmallStar:
++ .byte 12,62,13,8,14,4,15,152,254,14,12,15,152,254,14,10,15,152,254,255
++AV_SFX_RYUTHROWSMALLSTAR=11
++AvSfxRyuThrowBigStar:
++ .byte 12,60,13,8,14,2,15,152,254,14,4,15,152,254,14,6,15,152,254,14,8,15,152,254,14,1,15,152,254,14,3,15,152,254,14,5,15,152,254,14,7,15,152,254,12,48,15,152,254,15,152,254,12,60,14,2,15,152,254,14,4,15,152,254,14,6,15,152,254,14,8,15,152,254,14,1,15,152,254,14,3,15,152,254,14,5,15,152,254,14,7,15,152,254,12,48,15,152,254,15,152,254,12,60,14,2,15,152,254,14,4,15,152,254,14,6,15,152,254,14,8,15,152,254,14,1,15,152,254,14,3,15,152,254,14,5,15,152,254,14,7,15,152,254,12,48,15,152,254,15,152,254,12,60,14,2,15,152,254,14,4,15,152,254,14,6,15,152,254,14,8,15,152,254,14,1,15,152,254,14,3,15,152,254,14,5,15,152,254,14,7,15,152,254,255
++AV_SFX_RYUTHROWBIGSTAR=12
++AvSfxSamusShootMissile:
++ .byte 12,25,13,127,14,14,15,160,254,14,11,254,14,12,254,14,13,254,14,14,254,14,15,254,14,16,254,14,17,254,14,18,254,14,19,254,14,20,254,14,21,254,14,22,254,14,23,254,14,24,254,14,25,254,14,26,254,14,27,254,14,28,254,14,29,254,14,30,254,14,31,254,14,32,254,14,33,254,255
++AV_SFX_SAMUSSHOOTMISSILE=13
++AvSfxSamusScrewAttack:
++ .byte 12,53,13,127,14,0,15,176,254,254,254,254,254,254,254,254,254,254,254,14,1,254,14,2,254,14,3,254,14,4,254,254,14,2,254,14,3,254,14,4,254,14,5,254,254,14,3,254,14,4,254,14,5,254,14,6,254,254,14,4,254,14,5,254,14,6,254,14,7,254,254,14,5,254,14,6,254,14,7,254,14,8,254,254,14,6,254,14,7,254,14,8,254,14,9,254,254,14,7,254,14,8,254,14,9,254,14,10,254,254,14,8,254,14,9,254,14,10,254,14,11,254,254,14,9,254,14,10,254,14,11,254,14,12,254,254,14,10,254,14,11,254,14,12,254,14,13,254,254,14,11,254,14,12,254,14,13,254,14,14,254,254,14,12,254,14,13,254,14,14,254,14,15,254,254,14,13,254,14,14,254,14,15,254,14,16,254,254,14,14,254,14,15,254,14,16,254,14,17,254,254,14,15,254,14,16,254,14,17,254,14,18,254,255
++AV_SFX_SAMUSSCREWATTACK=14
++AvSfxSophiaMissile:
++ .byte 4,132,5,129,6,83,7,9,12,134,13,8,14,15,15,8,254,14,14,15,8,254,6,128,7,10,14,12,15,8,254,14,10,15,8,254,14,8,15,8,254,14,5,15,8,254,6,26,7,10,14,3,15,8,254,14,2,15,8,254,254,6,252,7,9,254,254,14,1,15,8,254,254,4,145,5,136,7,9,254,254,4,176,6,174,7,14,14,3,15,8,254,4,16,5,0,6,0,254,254,14,5,15,8,254,254,254,14,10,15,8,254,254,254,14,11,15,8,254,254,254,14,13,15,8,254,254,14,14,15,8,254,254,14,13,15,8,254,254,14,14,15,8,254,254,14,13,15,8,254,254,14,14,15,8,254,254,14,13,15,8,254,254,14,14,15,8,254,254,14,13,15,8,254,254,14,14,15,8,254,254,14,13,15,8,254,254,14,14,15,8,254,254,14,13,15,8,254,254,14,14,15,8,254,254,255
++AV_SFX_SOPHIAMISSILE=15
++AvSfxBillLaser:
++ .byte 0,19,1,131,2,57,3,8,12,51,13,0,14,11,15,8,254,12,52,14,10,15,8,254,0,20,2,64,3,8,12,53,14,9,15,8,254,12,54,14,8,15,8,254,0,21,2,71,3,8,12,55,14,7,15,8,254,14,6,15,8,254,0,22,2,80,3,8,12,56,15,8,254,15,8,254,0,23,2,90,3,8,15,8,254,15,8,254,0,24,2,101,3,8,15,8,254,15,8,254,0,25,2,113,3,8,14,7,15,8,254,14,6,15,8,254,0,26,2,126,3,8,14,7,15,8,254,15,8,254,2,143,3,8,14,8,15,8,254,14,7,15,8,254,0,25,2,160,3,8,14,8,15,8,254,15,8,254,2,180,3,8,14,9,15,8,254,14,8,15,8,254,0,24,2,202,3,8,14,9,15,8,254,15,8,254,2,242,3,8,14,10,15,8,254,12,55,14,9,15,8,254,2,254,3,8,14,10,15,8,254,15,8,254,2,29,3,9,14,11,15,9,254,14,10,15,9,254,0,23,2,64,3,9,14,11,15,9,254,15,9,254,2,104,3,9,14,12,15,9,254,14,11,15,9,254,0,22,2,148,3,9,14,12,15,9,254,15,9,254,2,197,3,9,12,54,14,13,15,9,254,14,12,15,9,254,2,252,3,9,14,13,15,9,254,15,9,254,2,54,3,10,12,53,14,14,15,10,254,14,13,15,10,254,2,129,3,10,14,14,15,10,254,15,10,254,0,21,2,207,3,10,15,10,254,15,10,254,2,39,3,11,12,52,15,11,254,15,11,254,2,138,3,11,12,48,254,254,255
++AV_SFX_BILLLASER=16
++AvSfxBillFlare:
++ .byte 0,251,1,130,2,53,3,8,12,52,13,127,14,6,15,8,254,254,254,0,249,2,80,3,8,12,53,14,8,15,8,254,254,254,0,247,2,120,3,8,12,54,14,10,15,8,254,254,254,0,251,2,53,3,8,12,52,14,6,15,8,254,254,254,0,249,2,80,3,8,12,53,14,8,15,8,254,254,254,0,247,2,120,3,8,12,54,14,10,15,8,254,254,254,0,251,2,53,3,8,12,52,14,6,15,8,254,254,254,0,249,2,80,3,8,12,53,14,8,15,8,254,254,254,0,247,2,120,3,8,12,54,14,10,15,8,254,254,254,0,243,2,180,3,8,12,51,14,12,15,8,254,254,254,0,242,2,13,3,9,12,49,14,13,15,8,254,254,254,255
++AV_SFX_BILLFLARE=17
++AvSfxSophiaBulletExplode:
++ .byte 4,159,5,130,6,166,7,10,254,254,254,6,224,7,9,254,254,254,6,171,7,9,254,254,254,6,64,7,9,254,6,213,7,8,254,4,145,5,136,7,8,254,254,255
++AV_SFX_SOPHIABULLETEXPLODE=18
++AvSfxSophiaHitEnemy:
++ .byte 4,159,5,131,6,213,7,8,254,254,254,254,254,6,240,7,8,254,254,254,254,6,103,7,9,254,254,254,6,252,7,9,254,254,255
++AV_SFX_SOPHIAHITENEMY=19
++AvSfxSophiaKillEnemy:
++ .byte 4,159,5,131,6,83,7,9,254,254,6,64,7,9,254,254,6,29,7,9,254,254,6,169,7,8,254,254,6,160,7,8,254,254,6,142,7,8,254,254,4,153,7,8,254,254,254,6,169,7,8,254,254,254,6,160,7,8,254,254,254,6,142,7,8,254,254,254,4,148,6,169,7,8,254,254,254,6,160,7,8,254,254,254,6,142,7,8,254,254,254,4,145,5,136,7,8,254,254,255
++AV_SFX_SOPHIAKILLENEMY=20
++AvSfxLinkTakeDamage:
++ .byte 255
++AV_SFX_LINKTAKEDAMAGE=21
++AvSfxSimonTakeDamage:
++ .byte 255
++AV_SFX_SIMONTAKEDAMAGE=22
++AvSfxRyuTakeDamage:
++ .byte 4,185,5,8,6,128,7,154,12,59,13,8,14,12,15,152,254,6,207,14,11,15,152,254,6,166,12,61,15,152,254,6,249,14,10,15,152,254,6,207,12,60,15,152,254,6,39,7,155,14,9,15,152,254,6,249,7,154,12,59,15,152,254,6,87,7,155,14,8,15,152,254,6,39,12,58,15,152,254,6,137,14,7,15,152,254,6,87,12,57,15,152,254,6,191,14,6,15,152,254,6,137,12,56,15,152,254,6,248,14,5,15,152,254,6,191,12,55,15,152,254,6,53,7,156,14,4,15,152,254,6,248,7,155,12,54,15,152,254,6,117,7,156,14,3,15,152,254,6,53,12,53,15,152,254,6,185,14,2,15,152,254,6,117,12,52,15,152,254,6,1,7,157,14,1,15,152,254,6,185,7,156,12,51,15,152,254,6,77,7,157,14,0,15,152,254,6,1,12,48,254,6,158,254,6,77,254,6,243,254,6,158,254,6,78,7,158,254,255
++AV_SFX_RYUTAKEDAMAGE=23
++AvSfxRyuJump:
++ .byte 12,62,13,8,14,3,15,152,254,14,9,15,152,254,14,2,15,152,254,255
++AV_SFX_RYUJUMP=24
++AvSfxMasks:
++ .byte 1,1,8,8,8,9,1,8,8,8,8,8,8,8,10,9,9,2,2,2,0,0,10,8
++AvSfxLo:
++ .byte <AvSfxLinkShootArrow,<AvSfxLinkSetBomb,<AvSfxLinkBombExplode,<AvSfxSimonThrowDagger,<AvSfxSimonCross,<AvSfxSimonHolyWaterExplode,<AvSfxSimonStopWatch,<AvSfxRyuArtOfFireWheel,<AvSfxRyuFireDrgonBall,<AvSfxRyuJumpSlash,<AvSfxRyuThrowSmallStar,<AvSfxRyuThrowBigStar,<AvSfxSamusShootMissile,<AvSfxSamusScrewAttack,<AvSfxSophiaMissile,<AvSfxBillLaser,<AvSfxBillFlare,<AvSfxSophiaBulletExplode,<AvSfxSophiaHitEnemy,<AvSfxSophiaKillEnemy,<AvSfxLinkTakeDamage,<AvSfxSimonTakeDamage,<AvSfxRyuTakeDamage,<AvSfxRyuJump
++AvSfxHi:
++ .byte >AvSfxLinkShootArrow,>AvSfxLinkSetBomb,>AvSfxLinkBombExplode,>AvSfxSimonThrowDagger,>AvSfxSimonCross,>AvSfxSimonHolyWaterExplode,>AvSfxSimonStopWatch,>AvSfxRyuArtOfFireWheel,>AvSfxRyuFireDrgonBall,>AvSfxRyuJumpSlash,>AvSfxRyuThrowSmallStar,>AvSfxRyuThrowBigStar,>AvSfxSamusShootMissile,>AvSfxSamusScrewAttack,>AvSfxSophiaMissile,>AvSfxBillLaser,>AvSfxBillFlare,>AvSfxSophiaBulletExplode,>AvSfxSophiaHitEnemy,>AvSfxSophiaKillEnemy,>AvSfxLinkTakeDamage,>AvSfxSimonTakeDamage,>AvSfxRyuTakeDamage,>AvSfxRyuJump
++.segment "BASS_DPCM"
++.align $40
++AvDmcLinkTakeDamage:
++ .byte 162,202,47,208,218,138,74,63,208,218,73,74,255,146,74,42,255,0,0,0,60,243,15,224,255,255,63,0,0,0,252,255,255,60,63,128,240,255,255,0,0,0,0,255,255,207,255,15,0,240,255,3,0,0,192,192,255,255,240,255,3,0,254,255,0,0,0,252,192,255,255,195,207,12,0,240,255,63,0,0,0,12,255,255,63,252,255,0,0,255,255,3,0,0,192,195,255,255,243,255,3,0,240,255,15,0,0,0,12,240,255,255,204,255,15,0,240,255,63,0,0,0,240,3,255,255,15,255,63,0,0,255,255,3,0,0,0,240,240,255,255,195,255,255,0,0,252,255,63,0,0,0,0,128,255,255,255,240,51,3,32
++AvDmcLinkTakeDamageEnd:
++.if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
++ .include "cv3_dmc_owner.inc"
++.endif
++.align $40
++AvDmcSimonTakeDamage:
++ .byte 85,171,213,170,90,75,149,74,85,169,84,213,214,170,164,53,75,137,82,85,217,91,95,87,117,42,73,66,146,34,77,213,118,219,215,42,165,36,146,40,82,169,127,223,219,109,79,137,32,36,130,136,210,123,119,173,170,84,138,65,72,255,127,87,123,95,18,2,146,34,2,106,123,87,170,106,165,72,16,255,255,119,115,127,69,32,64,137,8,42,181,83,149,170,170,36,106,255,255,191,214,87,130,0,40,73,136,168,214,172,164,210,140,218,255,255,191,214,181,8,8,32,41,130,144,214,86,37,169,166,221,255,255,175,218,53,34,128,160,162,128,160,90,167,148,74,91,253,255,255,205,122,139,2,1,138,4,34,136,118,85,82,74,219,255,255,215,118,63,42,32,72,73,32,8,117,85,82,74,219,255,255,215,118,63,42,32,72,73,32,8,117,1
++AvDmcSimonTakeDamageEnd:
++.popseg
+--- a/smb1base-mmc5-expanded.cfg
++++ b/smb1base-mmc5-expanded.cfg
+@@ -141,7 +141,9 @@
+     X5_NEW_7A: start=$a000, size=$2000, type=ro, file=%O, fill=yes, fillval=$ff, bank=$7a;
+     X5_NEW_7B: start=$a000, size=$2000, type=ro, file=%O, fill=yes, fillval=$ff, bank=$7b;
+     X5_NEW_7C: start=$a000, size=$2000, type=ro, file=%O, fill=yes, fillval=$ff, bank=$7c;
+-    X5_NEW_7D: start=$a000, size=$2000, type=ro, file=%O, fill=yes, fillval=$ff, bank=$7d;
++    X5_NEW_7D: start=$c000, size=$1af7, type=ro, file=%O, fill=yes, fillval=$ff, bank=$7d;
++    CV3_DMC_C: start=$daf7,size=$031a,type=ro,file=%O,fill=yes,fillval=$ff,bank=$7d;
++    CV3_DMC_TAIL: start=$de11,size=$01ef,type=ro,file=%O,fill=yes,fillval=$ff,bank=$7d;
+ 
+     PRGLow: start = $8000,  size = $2000, type = ro, file = %O, fill = yes, fillval = $ff, bank = $7e;
+     
+@@ -168,6 +170,7 @@
+ }
+ 
+ SEGMENTS {
++    CV3_DMC_MANAGER:load=CV3_DMC_C,type=ro;
+     VIC_NATIVE_AUDIO:load=X5_NEW_7A,type=ro;
+     MAC_NATIVE_AUDIO:load=X5_NEW_7B,type=ro;
+     X5_FULL_MUSIC_0F:load=X5_NEW_73,type=ro;
+--- a/src/bass_source_sfx.s
++++ b/src/bass_source_sfx.s
+@@ -11,6 +11,9 @@
+ ; lengths and original payload bytes stay fixed.
+ Cv3DmcInjuryRates: .byte 15,14,15,13
+ .assert Cv3DmcInjuryRates=$fe11,lderror,"Pinned unused sample alignment gap"
++.if ::MAPPER_MMC5
++.include "cv3_dmc_gate.inc"
++.endif
+ .endif
+ .segment "XG_BASS_GFX"
+ .proc BassSourceAudioTick
+@@ -196,7 +199,11 @@
+   lda #((BassWaterDpcmEnd-BassWaterDpcm-1)/16)
+   sta $4013
+   lda #1
++.if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
++  jsr Cv3DmcOwnerWrite
++.else
+   sta BassDmcActive
++.endif
+   lda GuestCombinedEnable
+   ora #$10
+   sta GuestCombinedEnable
+@@ -204,7 +211,11 @@
+   rts
+ StopDmc:
+   lda #0
++.if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
++  jsr Cv3DmcOwnerWrite
++.else
+   sta BassDmcActive
++.endif
+   sta $4011
+   lda GuestCombinedEnable
+   and #15
+--- a/src/collision.s
++++ b/src/collision.s
+@@ -852,7 +852,12 @@
+   jmp LmNativeMusicUpdate
+ LmNativeMusicLegacy:
+   jmp ExpandedAudioTick
++.if ::MAPPER_MMC5
++.include "cv3_dmc_completion.inc"
++  .res 1,$ea
++.else
+   .res 26,$ea
++.endif
+   .assert *-SmallPlatformCollision=63,lderror,"Native small-platform collision span"
+ .else
+       lda TimerControl             ;if master timer control set,
+--- a/src/cv3_combat.s
++++ b/src/cv3_combat.s
+@@ -145,8 +145,13 @@
+  lda #24
+ : sta Cv3AttackAge
+ Sound:
++.if ::MAPPER_MMC5
++ jsr Cv3DmcPrimaryQueue
++ .res 2,$ea
++.else
+  lda #4
+  sta RgSfx
++.endif
+ Move:
+  ldx #3
+ Loop:
+--- /dev/null
++++ b/src/cv3_dmc_complete.s
+@@ -0,0 +1,287 @@
++; MMC5 expanded only. Original CV3 request priority occupies four previously
++; unused bytes after the existing CV1 private image and noise lane.
++Cv3DmcPriority=RgAudioZp+32
++Cv3DmcPending=RgAudioZp+33
++Cv3DmcSavedC=RgAudioZp+34
++Cv3DmcEntryA=RgAudioZp+35
++.pushseg
++.segment "CV3_COMBAT"
++.proc Cv3DmcPrimaryQueue
++ php
++ lda Cv3AttackKind
++ cmp #1
++ bne Done
++ lda Cv3Variant
++ cmp #3
++ bcs Done
++ lda Cv3DmcPending
++ cmp #$74
++ bcs Done
++ lda #$72
++ sta Cv3DmcPending
++Done:plp
++ lda #4
++ sta RgSfx
++ rts
++.endproc
++.segment "CV3_GRIP"
++.proc Cv3DmcFullInjuryQueue
++ php
++ lda Cv3Variant
++ clc
++ adc #$73
++ sta Cv3DmcPending
++ lda #0
++ sta Square1SoundQueue
++ plp
++ lda Cv3Variant
++ cmp #2
++ lda #Sfx_PipeDown_Injury
++ rts
++.endproc
++.proc Cv3DmcSceneRequest
++ php
++ lda #0
++ sta Cv3DmcPending
++ lda BassDmcActive
++ cmp #3
++ beq Owned
++ lda #0
++ sta Cv3DmcPriority
++ jmp Done
++Owned:lda #0
++ jsr Cv3DmcOwnerWrite
++Done:
++ plp
++ lda AvAudioRequest
++ rts
++.endproc
++.segment "CV_WRAP"
++.proc Cv3DmcBeforeCv1
++ ; CvAudioPlay begins with authenticated LDA $e2, overwriting A/N/Z.
++ ; Idle only uses LDA/ORA/branch/JMP, preserving every other input flag.
++ lda Cv3DmcPending
++ ora Cv3DmcPriority
++ bne Work
++ jmp CvAudioPlay
++Work:php
++ lda MmDeathFlag
++ bne Cancel
++ lda GameEngineSubroutine
++ cmp #$0b
++ beq Cancel
++ lda Cv3DmcPending
++ beq Play
++ jsr Cv3DmcStartGate
++ jmp Play
++Cancel:lda #0
++ sta Cv3DmcPending
++ lda BassDmcActive
++ cmp #3
++ bne Unowned
++ lda #0
++ jsr Cv3DmcOwnerWrite
++ jmp Play
++Unowned:lda #0
++ sta Cv3DmcPriority
++Play:plp
++ jmp CvAudioPlay
++.endproc
++.segment "X5_AUDIO_MIX"
++.proc Cv3DmcResetOwner
++ php
++ sta Cv3DmcPending ; original two call sites both supply A=0
++ lda BassDmcActive
++ cmp #3
++ beq Owned
++ lda #0
++ sta Cv3DmcPriority
++Owned:lda #0
++ jsr Cv3DmcOwnerWrite
++ plp
++ rts
++.endproc
++.segment "CV3_DMC_MANAGER"
++Cv3DmcManagerStart:
++.proc Cv3DmcStart
++ php
++ pha
++ txa
++ pha
++ tya
++ pha
++ lda #0
++ sta Cv3DmcPending
++ lda Cv3DmcEntryA
++ cmp #$72
++ beq Valid
++ cmp #$74
++ bcc Done
++ cmp #$77
++ bcs Done
++Valid:lda Cv3DmcPriority
++ beq Incoming
++ lda $4015
++ and #$10
++ bne Incoming
++ lda #0
++ jsr Cv3DmcOwnerWrite ; exact original completion resets source priority
++Incoming:lda Cv3DmcEntryA
++ sec
++ sbc #$6d
++ tax
++ lda Cv3DmcPriority
++ cmp #5
++ bcc Start
++ txa
++ cmp Cv3DmcPriority
++ bcc Done
++Start:lda GuestCombinedEnable
++ and #15
++ sta $4015
++ lda #0
++ sta $4011
++ stx Cv3DmcPriority
++ lda Cv3DmcEntryA
++ sec
++ sbc #$72
++ tay
++ lda Rates,y
++ sta $4010
++ lda Addresses,y
++ sta $4012
++ lda Lengths,y
++ sta $4013
++ lda #$fd
++ sta $5117 ; E mirror: identical resident code/vectors, source-only samples
++ lda #3
++ sta BassDmcActive
++ lda GuestCombinedEnable
++ ora #$10
++ sta GuestCombinedEnable
++ sta $4015
++Done:pla
++ tay
++ pla
++ tax
++ pla
++ plp
++ rts
++Rates:.byte 15,15,14,15,13
++Addresses:.byte ($f140-$c000)/64,0,($ff00-$c000)/64,($f5c0-$c000)/64,($ff00-$c000)/64
++Lengths:.byte $44,0,$0c,$0c,$0c
++.endproc
++Cv3DmcManagerEnd:
++.assert Cv3DmcManagerStart=$daf7,lderror,"Share bank125 after future TMNT cold adapter"
++.assert Cv3DmcManagerEnd<=$de11,lderror,"Do not overwrite copied resident helpers or samples"
++.popseg
++
++; The source CV1 image ends atD836. This is recorded unused same-C28 slack,
++; before the fixedDC00 wrapper; all original driver bytes/entrypoints stay exact.
++.pushseg
++.segment "CV_AUDIO"
++.proc Cv3SaveAudioZp
++ lda $60
++ sta RgAudioCpuZp+23
++ lda RgAudioZp+23
++ sta $60
++ lda $22
++ sta RgAudioCpuZp+22
++ lda RgAudioZp+22
++ sta $22
++ lda $ef
++ sta RgAudioCpuZp+21
++ lda RgAudioZp+21
++ sta $ef
++ lda $ee
++ sta RgAudioCpuZp+20
++ lda RgAudioZp+20
++ sta $ee
++ lda $ed
++ sta RgAudioCpuZp+19
++ lda RgAudioZp+19
++ sta $ed
++ lda $ec
++ sta RgAudioCpuZp+18
++ lda RgAudioZp+18
++ sta $ec
++ lda $eb
++ sta RgAudioCpuZp+17
++ lda RgAudioZp+17
++ sta $eb
++ lda $ea
++ sta RgAudioCpuZp+16
++ lda RgAudioZp+16
++ sta $ea
++ lda $e9
++ sta RgAudioCpuZp+15
++ lda RgAudioZp+15
++ sta $e9
++ lda $e8
++ sta RgAudioCpuZp+14
++ lda RgAudioZp+14
++ sta $e8
++ lda $e7
++ sta RgAudioCpuZp+13
++ lda RgAudioZp+13
++ sta $e7
++ lda $e6
++ sta RgAudioCpuZp+12
++ lda RgAudioZp+12
++ sta $e6
++ lda $e5
++ sta RgAudioCpuZp+11
++ lda RgAudioZp+11
++ sta $e5
++ lda $e4
++ sta RgAudioCpuZp+10
++ lda RgAudioZp+10
++ sta $e4
++ lda $e3
++ sta RgAudioCpuZp+9
++ lda RgAudioZp+9
++ sta $e3
++ lda $e2
++ sta RgAudioCpuZp+8
++ lda RgAudioZp+8
++ sta $e2
++ lda $e1
++ sta RgAudioCpuZp+7
++ lda RgAudioZp+7
++ sta $e1
++ lda $e0
++ sta RgAudioCpuZp+6
++ lda RgAudioZp+6
++ sta $e0
++ lda $bf
++ sta RgAudioCpuZp+5
++ lda RgAudioZp+5
++ sta $bf
++ lda $be
++ sta RgAudioCpuZp+4
++ lda RgAudioZp+4
++ sta $be
++ lda $bd
++ sta RgAudioCpuZp+3
++ lda RgAudioZp+3
++ sta $bd
++ lda $bc
++ sta RgAudioCpuZp+2
++ lda RgAudioZp+2
++ sta $bc
++ lda $bb
++ sta RgAudioCpuZp+1
++ lda RgAudioZp+1
++ sta $bb
++ lda $ba
++ sta RgAudioCpuZp+0
++ lda RgAudioZp+0
++ sta $ba
++ ldx #$ba
++ ldy #$ff
++ cpy #$ff ; exact final indexed-loop register/status contract
++ rts
++.endproc
++.assert Cv3SaveAudioZp=$d837,lderror,"Recorded unused source-CV1 slack start"
++.assert *<=$dc00,lderror,"Preserve fixed wrapper and every existing source byte"
++.popseg
+--- /dev/null
++++ b/src/cv3_dmc_completion.inc
+@@ -0,0 +1,19 @@
++; Original CV3 clears request priority after DMA fetch completion without
++; clearing4011: the last buffered byte must drain and its actual DAC is held.
++.proc Cv3DmcEndedGate
++ php
++ lda BassDmcActive
++ cmp #3
++ beq SourceCompletion
++ lda #0
++ jsr Cv3DmcOwnerWrite
++ sta $4011 ; exact existing ordinary completion behavior
++ plp
++ rts
++SourceCompletion:lda #0
++ jsr Cv3DmcOwnerWrite
++ plp
++ rts
++.endproc
++.assert Cv3DmcEndedGate=$9a10,lderror,"After the exact18-byte Mac gate"
++.assert *=$9a29,lderror,"Leave the final original tail byte unused"
+--- /dev/null
++++ b/src/cv3_dmc_gate.inc
+@@ -0,0 +1,21 @@
++; Executes identically in E127 and its E125 mirror. No shared SMC farcall.
++.proc Cv3DmcStartGate
++ sta Cv3DmcEntryA
++ lda CurrentBankC
++ sta Cv3DmcSavedC
++ lda #$fd
++ sta CurrentBankC
++ sta $5116
++ lda Cv3DmcEntryA
++ jsr Cv3DmcStart
++ pha
++ php
++ lda Cv3DmcSavedC
++ sta CurrentBankC
++ sta $5116
++ plp
++ pla
++ rts
++.endproc
++.assert Cv3DmcStartGate=$fe15,lderror,"Existing Bass sample alignment gap"
++.assert *<=$fe40,lderror,"Preserve original Link sample start"
+--- a/src/cv3_dmc_injury.s
++++ b/src/cv3_dmc_injury.s
+@@ -1,12 +1,17 @@
+-; Source-original Grant74/Alucard76 injury reuses exact existing Simon
+-;193-byte payload, with source rates14/13. Sypha remains unchanged pending
+-;its distinct payload. No primary72 sample/priority implementation is claimed.
++; Original Grant74/Alucard76 injury sample/rate binding. Expanded MMC5
++;dispatches through the complete source DMC lane; other targets retain the
++;previous shared193-byte payload route without an E-window mirror.
+ .pushseg
+ .segment "CV3_GRIP"
+ .proc Cv3DmcInjuryQueue
++.if ::MAPPER_MMC5
++ jmp Cv3DmcFullInjuryQueue
++ .res 4,$ea ; exact original seven-byte entry span
++.else
+  lda Cv3Variant
+  cmp #2
+  beq Generic
++.endif
+  lda #AV_SFX_SIMONTAKEDAMAGE
+  sta AvAudioRequest
+  lda #0
+--- /dev/null
++++ b/src/cv3_dmc_owner.inc
+@@ -0,0 +1,21 @@
++; Ordinary ownership stores retain A/X/Y/P. Only an active CV3 source
++; lane adds stop/restore writes; all existing samples stay in original E127.
++.proc Cv3DmcOwnerWrite
++ sta BassDmcActive
++ php
++ pha
++ lda Cv3DmcPriority
++ beq Done
++ lda GuestCombinedEnable
++ and #15
++ sta $4015
++ lda #$ff
++ sta $5117
++ lda #0
++ sta Cv3DmcPriority
++Done:pla
++ plp
++ rts
++.endproc
++.assert Cv3DmcOwnerWrite=$fee1,lderror,"Existing Link sample alignment gap"
++.assert *=$ff00,lderror,"Preserve original Simon sample start"
+--- a/src/cv3_source_audio.s
++++ b/src/cv3_source_audio.s
+@@ -22,7 +22,11 @@
+ .segment "CV3_GRIP"
+ .proc Cv3NoiseSceneReset
+  php
++.if ::MAPPER_MMC5
++ jsr Cv3DmcSceneRequest
++.else
+  lda AvAudioRequest
++.endif
+  cmp #26
+  bne Owner
+  lda #0
+@@ -37,7 +41,11 @@
+ .endproc
+ .segment "CV_WRAP"
+ .proc Cv3MusicAndNoiseTick
++.if ::MAPPER_MMC5
++ jsr Cv3DmcBeforeCv1
++.else
+  jsr CvAudioPlay
++.endif
+  lda Cv3NoiseActive
+  beq Request
+  lda GuestNativeDirty+12
+--- a/src/entrypoint.s
++++ b/src/entrypoint.s
+@@ -480,3 +480,7 @@
+ .if ::ENABLE_MMC5_EXPANDED
+ .include "cv3_dmc_injury.s"
+ .endif
++
++.if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
++.include "cv3_dmc_complete.s"
++.endif
+--- a/src/guest_audio.s
++++ b/src/guest_audio.s
+@@ -83,9 +83,14 @@
+   ora #$10
+   rts
+ DmcEnded:
++.if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
++  jsr Cv3DmcEndedGate
++  .res 5,$ea ; original eight-byte completion span
++.else
+   lda #0
+   sta BassDmcActive
+   sta $4011
++.endif
+ DmcOff:
+   pla
+   and #15
+@@ -108,7 +113,11 @@
+   sta BassAudioPreviousMask
+   sta BassAudioLastDeath
+   sta BassAudioLastGround
++.if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
++  jsr Cv3DmcResetOwner
++.else
+   sta BassDmcActive
++.endif
+   sta $4011
+   sta GuestMixMask
+   sta GuestMixPreviousMask
+@@ -194,7 +203,11 @@
+   beq Tick
+ Silent:
+   lda #0
++.if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
++  jsr Cv3DmcResetOwner
++.else
+   sta BassDmcActive
++.endif
+   sta $4011
+   sta $4015
+   sta GuestMixMask
+--- a/src/remaining_audio.s
++++ b/src/remaining_audio.s
+@@ -229,7 +229,11 @@
+   lda Lengths,x
+   sta $4013
+   lda #2                        ; Shared DMC owner, retained by nonBass begin.
++.if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
++  jsr Cv3DmcOwnerWrite
++.else
+   sta BassDmcActive
++.endif
+   lda GuestCombinedEnable
+   ora #$10
+   sta GuestCombinedEnable
+--- a/src/roster_audio.s
++++ b/src/roster_audio.s
+@@ -74,6 +74,14 @@
+ AlreadyInit:
+   ldy #ZpCount-1
+ Save:
++.if Kind=2 .and ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
++  ; Keep the real original Save entry and all following PCs. Same descending
++  ; memory operations and final A/X/Y/P; no shared mapper/SMC work is added.
++  jsr Cv3SaveAudioZp
++  jmp SavedPrivate
++  .res 12,$ea ; exact original18-byte Save body
++SavedPrivate:
++.else
+   ldx ZpAddresses,y
+   lda $00,x
+   sta RgAudioCpuZp,y
+@@ -82,6 +90,7 @@
+   dey
+   cpy #$ff
+   bne Save
++.endif
+   lda #0
+   sta RgAudioRequest
+ .if Kind=2
+--- a/tools/build_mmc5_expanded.py
++++ b/tools/build_mmc5_expanded.py
+@@ -51,6 +51,9 @@
+  result=subprocess.run(command,cwd=root,capture_output=True,text=True)
+  out.with_suffix('.build.log').write_text(result.stdout+result.stderr)
+  if result.returncode:print(result.stdout+result.stderr);return result.returncode
++ if flag:
++  from prepare_cv3_dmc_mirror import prepare
++  prepare(root,out)
+  rom=out.read_bytes();actual_mapper=(rom[6]>>4)|(rom[7]&240)|((rom[8]&15)<<8)
+  assert actual_mapper==(5 if mapper=='mmc5' else 4)
+  assert len(rom)==16+rom[4]*16384+rom[5]*8192
+--- /dev/null
++++ b/tools/prepare_cv3_dmc_mirror.py
+@@ -0,0 +1,31 @@
++"""Build the deterministic MMC5 CV3 fixed-E clone after every final link."""
++from pathlib import Path
++import hashlib,json,re
++PAYLOADS={"primary72.dmc":(0x1140,1089,"c1b646c36508ad4d134078c8184fea7bd632f50127c5f2af6550e89097cbda01"),"sypha75.dmc":(0x15c0,193,"137fc604fe0c0cbf8c28733411e2397cc00e72188db755a00eb8ad27da037331")}
++def prepare(root,out):
++ raw=bytearray(out.read_bytes());assert len(raw)==2097168
++ labels={v[2].lstrip('.'):int(v[1],16)for l in out.with_suffix('.lbl').read_text().splitlines()if len(v:=l.split())==3}
++ for line in out.with_suffix('.dbg').read_text().splitlines():
++  if line.startswith('sym\t'):
++   z=dict(part.split('=',1)for part in line[4:].split(',')if'='in part)
++   if'val'in z and z.get('name')=='"CvAudioPlay"':labels['CvAudioPlay']=int(z['val'],0)
++ assert labels['Cv3DmcManagerStart']==0xdaf7
++ assert labels['CvAudioPlay']==0xa443 and raw[16+27*8192+0x443:16+27*8192+0x445]==bytes((0xa5,0xe2)),"Source CV1 input-A/NZ overwrite contract changed"
++ end=labels['Cv3DmcManagerEnd'];assert end<=0xde11
++ base=16+125*8192;fixed=16+127*8192;linked=bytes(raw[base:base+8192]);mirror=bytearray(raw[fixed:fixed+8192])
++ declared=[]
++ for name,(offset,n,digest)in PAYLOADS.items():
++  b=(root/'audio/cv3'/name).read_bytes();assert len(b)==n and hashlib.sha256(b).hexdigest()==digest
++  mirror[offset:offset+n]=b;declared.append([offset,offset+n])
++ lo=0x1af7;hi=end-0xc000;mirror[lo:hi]=linked[lo:hi];declared.append([lo,hi])
++ # Future TMNT integration must explicitly advertise its relocated cold block.
++ if 'SamusAudioCold'in labels:
++  assert labels['SamusAudioCold']==0xd700
++  assert 'TnAudioAdapterReturn'in labels
++  mirror[0x1700:0x1af7]=linked[0x1700:0x1af7];declared.append([0x1700,0x1af7])
++ for i,(x,y)in enumerate(zip(mirror,raw[fixed:fixed+8192])):
++  assert x==y or any(a<=i<b for a,b in declared)
++ raw[base:base+8192]=mirror;out.write_bytes(raw)
++ receipt=dict(ROM_sha256=hashlib.sha256(raw).hexdigest(),original_fixed_bank_sha256=hashlib.sha256(raw[fixed:fixed+8192]).hexdigest(),mirror_sha256=hashlib.sha256(mirror).hexdigest(),declared_overlay_offsets=declared,manager_bytes=hi-lo,all_other_fixed_bytes_exact=True)
++ out.with_suffix('.cv3-mirror.json').write_text(json.dumps(receipt,indent=2)+'\n')
++ return receipt
+--- a/tools/reference/build_remaining_sfx.py
++++ b/tools/reference/build_remaining_sfx.py
+@@ -1,70 +1,71 @@
+-"""Freeze 2.02 NSF attack effects as channel-owned APU register streams."""
+-from pathlib import Path
+-import csv,json,hashlib
+-ROOT=Path(__file__).resolve().parents[2];OUT=ROOT/'build/reference-remaining-sfx'
+-NAMES=['LinkShootArrow','LinkSetBomb','LinkBombExplode','SimonThrowDagger','SimonCross','SimonHolyWaterExplode','SimonStopWatch','RyuArtOfFireWheel','RyuFireDrgonBall','RyuJumpSlash','RyuThrowSmallStar','RyuThrowBigStar','SamusShootMissile','SamusScrewAttack','SophiaMissile','BillLaser','BillFlare','SophiaBulletExplode','SophiaHitEnemy','SophiaKillEnemy','LinkTakeDamage','SimonTakeDamage','RyuTakeDamage','RyuJump']
+-def main():
+- lines=['; Exact NSF references from 2.02 MusicInfo; frame-quantized NES APU writes.','.pushseg','.segment "REMAINING_AUDIO"'];sizes={};fixtures={};samples={}
+- for id,name in enumerate(NAMES,1):
+-  writes=[[]for _ in range(180)]
+-  for row in csv.DictReader((OUT/(name+'.csv')).open()):
+-   f,a,v=map(int,row.values())
+-   if f<180 and(a<16 or a==21):writes[f].append((a,v))
+-  image=[0]*16;enable=15;mask=0;active=[];images=[]
+-  for f,ws in enumerate(writes):
+-   for a,v in ws:
+-    if a==21:enable=v&15
+-    else:image[a]=v
+-   audible=0
+-   for c in range(4):
+-    period=image[c*4+2]+(image[c*4+3]&7)*256
+-    if enable&(1<<c) and image[c*4]&(127 if c==2 else 15) and(c==3 or period>=(2 if c==2 else 8)):audible|=1<<c
+-   if audible:active.append(f);mask|=audible
+-   images.append((image[:],enable))
+-  if name in ('LinkTakeDamage','SimonTakeDamage'):
+-   records=list(csv.DictReader((OUT/(name+'-dpcm.csv')).open()))
+-   assert len(records)==1 and not active,(name,'Source injury cue must be one pure DMC sample')
+-   sample=records[0];payload=bytes.fromhex(sample['hex'])
+-   assert int(sample['rate'])==15 and int(sample['dac'])==0 and len(payload)==int(sample['length']) and(len(payload)-1)%16==0
+-   samples[name]={'rate':15,'dac':0,'frame':int(sample['frame']),'source_address':int(sample['start']),'length':len(payload),'hex':payload.hex(),'sha256':hashlib.sha256(payload).hexdigest()}
+-   lines +=[f'AvSfx{name}:',' .byte 255',f'AV_SFX_{name.upper()}={id}'];sizes[name]=1
+-   fixtures[str(id)]={'name':name,'mask':0,'frames':[],'dpcm':samples[name]}
+-   continue
+-  assert active,name
+-  first,last=active[0],active[-1];raw=[];prev={};fs=[]
+-  for f in range(first,last+1):
+-   im,en=images[f];written={a for a,v in writes[f]};frame=[]
+-   for a,v in enumerate(im):
+-    if not mask&(1<<(a//4)):continue
+-    if a%4==0 and not en&(1<<(a//4)):v=0 if a//4==2 else v&240
+-    if f==first or prev.get(a)!=v or(a%4==3 and a in written):raw +=[a,v];frame.append([a,v])
+-    prev[a]=v
+-   raw.append(254);fs.append(frame)
+-  raw.append(255);lines +=[f'AvSfx{name}:',' .byte '+','.join(map(str,raw))];sizes[name]=len(raw);fixtures[str(id)]={'name':name,'mask':mask,'frames':fs}
+-  lines +=[f'AV_SFX_{name.upper()}={id}']
+- lines+=['AvSfxMasks:',' .byte '+','.join(str(fixtures[str(i)]['mask'])for i in range(1,len(NAMES)+1))]
+- for suffix,op in [('Lo','<'),('Hi','>')]:lines +=['AvSfx'+suffix+':',' .byte '+','.join(op+'AvSfx'+n for n in NAMES)]
+- lines+=['.segment "BASS_DPCM"']
+- for name,sample in samples.items():
+-  lines +=['.align $40',f'AvDmc{name}:',' .byte '+','.join(str(v)for v in bytes.fromhex(sample['hex'])),f'AvDmc{name}End:']
+- lines+=['.popseg'];(ROOT/'audio/remaining-source-sfx.inc').write_text('\n'.join(lines)+'\n')
+- (ROOT/'tests/fixtures/remaining-source-sfx.json').write_text(json.dumps(fixtures,separators=(',',':'))+'\n')
+- lua=['return {']
+- for k,v in fixtures.items():
+-  lua+=[' ['+k+']={mask='+str(v['mask'])+',frames={'];image=[0]*16
+-  for fs in v['frames']:
+-   for a,val in fs:image[a]=val
+-   lua+=['  {'+','.join(map(str,image))+'},']
+-  lua+=[' }},']
+- lua+=['}'];(ROOT/'tests/fixtures/remaining-source-sfx.lua').write_text('\n'.join(lua)+'\n')
+- dmc=['-- Read-only mapped source NSF bytes/initial registers, independent of NES sample addresses.','return {']
+- for name,sample in samples.items():
+-  dmc +=[f' [{NAMES.index(name)+1}]={{rate={sample["rate"]},dac={sample["dac"]},length={sample["length"]},hex="{sample["hex"]}"}},']
+- dmc+=['}'];(ROOT/'tests/fixtures/remaining-source-dpcm.lua').write_text('\n'.join(dmc)+'\n')
+-
+- (ROOT/'docs/reference/remaining-sfx.json').write_text(json.dumps({'effects':json.loads((OUT/'source.json').read_text()),'bytes':sizes,'dpcm':samples,'limitations':['frame-quantized APU writes','looping effects capped at captured 180 updates; source MP3-only beams retain native NES adaptations','DMC payload/rate/initialDAC exact; common mixer resets DAC0 when hardware playback finishes']},indent=2)+'\n');print(sum(sizes.values()),'stream bytes +',sum(s['length']for s in samples.values()),'fixed DMC bytes (plus64-byte alignment)')
+-if __name__=='__main__':
+- main()
+- import runpy
+- runpy.run_path(str(ROOT/'tools/reference/build_sophia_land_sfx.py'),run_name='__main__')
+-
++"""Freeze 2.02 NSF attack effects as channel-owned APU register streams."""
++from pathlib import Path
++import csv,json,hashlib
++ROOT=Path(__file__).resolve().parents[2];OUT=ROOT/'build/reference-remaining-sfx'
++NAMES=['LinkShootArrow','LinkSetBomb','LinkBombExplode','SimonThrowDagger','SimonCross','SimonHolyWaterExplode','SimonStopWatch','RyuArtOfFireWheel','RyuFireDrgonBall','RyuJumpSlash','RyuThrowSmallStar','RyuThrowBigStar','SamusShootMissile','SamusScrewAttack','SophiaMissile','BillLaser','BillFlare','SophiaBulletExplode','SophiaHitEnemy','SophiaKillEnemy','LinkTakeDamage','SimonTakeDamage','RyuTakeDamage','RyuJump']
++def main():
++ lines=['; Exact NSF references from 2.02 MusicInfo; frame-quantized NES APU writes.','.pushseg','.segment "REMAINING_AUDIO"'];sizes={};fixtures={};samples={}
++ for id,name in enumerate(NAMES,1):
++  writes=[[]for _ in range(180)]
++  for row in csv.DictReader((OUT/(name+'.csv')).open()):
++   f,a,v=map(int,row.values())
++   if f<180 and(a<16 or a==21):writes[f].append((a,v))
++  image=[0]*16;enable=15;mask=0;active=[];images=[]
++  for f,ws in enumerate(writes):
++   for a,v in ws:
++    if a==21:enable=v&15
++    else:image[a]=v
++   audible=0
++   for c in range(4):
++    period=image[c*4+2]+(image[c*4+3]&7)*256
++    if enable&(1<<c) and image[c*4]&(127 if c==2 else 15) and(c==3 or period>=(2 if c==2 else 8)):audible|=1<<c
++   if audible:active.append(f);mask|=audible
++   images.append((image[:],enable))
++  if name in ('LinkTakeDamage','SimonTakeDamage'):
++   records=list(csv.DictReader((OUT/(name+'-dpcm.csv')).open()))
++   assert len(records)==1 and not active,(name,'Source injury cue must be one pure DMC sample')
++   sample=records[0];payload=bytes.fromhex(sample['hex'])
++   assert int(sample['rate'])==15 and int(sample['dac'])==0 and len(payload)==int(sample['length']) and(len(payload)-1)%16==0
++   samples[name]={'rate':15,'dac':0,'frame':int(sample['frame']),'source_address':int(sample['start']),'length':len(payload),'hex':payload.hex(),'sha256':hashlib.sha256(payload).hexdigest()}
++   lines +=[f'AvSfx{name}:',' .byte 255',f'AV_SFX_{name.upper()}={id}'];sizes[name]=1
++   fixtures[str(id)]={'name':name,'mask':0,'frames':[],'dpcm':samples[name]}
++   continue
++  assert active,name
++  first,last=active[0],active[-1];raw=[];prev={};fs=[]
++  for f in range(first,last+1):
++   im,en=images[f];written={a for a,v in writes[f]};frame=[]
++   for a,v in enumerate(im):
++    if not mask&(1<<(a//4)):continue
++    if a%4==0 and not en&(1<<(a//4)):v=0 if a//4==2 else v&240
++    if f==first or prev.get(a)!=v or(a%4==3 and a in written):raw +=[a,v];frame.append([a,v])
++    prev[a]=v
++   raw.append(254);fs.append(frame)
++  raw.append(255);lines +=[f'AvSfx{name}:',' .byte '+','.join(map(str,raw))];sizes[name]=len(raw);fixtures[str(id)]={'name':name,'mask':mask,'frames':fs}
++  lines +=[f'AV_SFX_{name.upper()}={id}']
++ lines+=['AvSfxMasks:',' .byte '+','.join(str(fixtures[str(i)]['mask'])for i in range(1,len(NAMES)+1))]
++ for suffix,op in [('Lo','<'),('Hi','>')]:lines +=['AvSfx'+suffix+':',' .byte '+','.join(op+'AvSfx'+n for n in NAMES)]
++ lines+=['.segment "BASS_DPCM"']
++ for name,sample in samples.items():
++  lines +=['.align $40',f'AvDmc{name}:',' .byte '+','.join(str(v)for v in bytes.fromhex(sample['hex'])),f'AvDmc{name}End:']
++  if name=='LinkTakeDamage': lines +=['.if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5',' .include "cv3_dmc_owner.inc"','.endif']
++ lines+=['.popseg'];(ROOT/'audio/remaining-source-sfx.inc').write_bytes(('\n'.join(lines)+'\n').encode())
++ (ROOT/'tests/fixtures/remaining-source-sfx.json').write_text(json.dumps(fixtures,separators=(',',':'))+'\n')
++ lua=['return {']
++ for k,v in fixtures.items():
++  lua+=[' ['+k+']={mask='+str(v['mask'])+',frames={'];image=[0]*16
++  for fs in v['frames']:
++   for a,val in fs:image[a]=val
++   lua+=['  {'+','.join(map(str,image))+'},']
++  lua+=[' }},']
++ lua+=['}'];(ROOT/'tests/fixtures/remaining-source-sfx.lua').write_text('\n'.join(lua)+'\n')
++ dmc=['-- Read-only mapped source NSF bytes/initial registers, independent of NES sample addresses.','return {']
++ for name,sample in samples.items():
++  dmc +=[f' [{NAMES.index(name)+1}]={{rate={sample["rate"]},dac={sample["dac"]},length={sample["length"]},hex="{sample["hex"]}"}},']
++ dmc+=['}'];(ROOT/'tests/fixtures/remaining-source-dpcm.lua').write_text('\n'.join(dmc)+'\n')
++
++ (ROOT/'docs/reference/remaining-sfx.json').write_text(json.dumps({'effects':json.loads((OUT/'source.json').read_text()),'bytes':sizes,'dpcm':samples,'limitations':['frame-quantized APU writes','looping effects capped at captured 180 updates; source MP3-only beams retain native NES adaptations','DMC payload/rate/initialDAC exact; common mixer resets DAC0 when hardware playback finishes']},indent=2)+'\n');print(sum(sizes.values()),'stream bytes +',sum(s['length']for s in samples.values()),'fixed DMC bytes (plus64-byte alignment)')
++if __name__=='__main__':
++ main()
++ import runpy
++ runpy.run_path(str(ROOT/'tools/reference/build_sophia_land_sfx.py'),run_name='__main__')
++

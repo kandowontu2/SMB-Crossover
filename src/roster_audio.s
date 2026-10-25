@@ -74,6 +74,14 @@ ClearZp:
 AlreadyInit:
   ldy #ZpCount-1
 Save:
+.if Kind=2 .and ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
+  ; Keep the real original Save entry and all following PCs. Same descending
+  ; memory operations and final A/X/Y/P; no shared mapper/SMC work is added.
+  jsr Cv3SaveAudioZp
+  jmp SavedPrivate
+  .res 12,$ea ; exact original18-byte Save body
+SavedPrivate:
+.else
   ldx ZpAddresses,y
   lda $00,x
   sta RgAudioCpuZp,y
@@ -82,6 +90,7 @@ Save:
   dey
   cpy #$ff
   bne Save
+.endif
   lda #0
   sta RgAudioRequest
 .if Kind=2

@@ -1,0 +1,69 @@
+{
+  "passed": true,
+  "baseline_ROM_sha256": "8ff245ae662059abbc77c5de517260032775b7ba881a5201b8b54686ccf08277",
+  "ROM_sha256": "4c70fe485f73fb8d437fae2e79ae8ddad83908dc26d4008f21e0a2abeccee2da",
+  "Mac_bank123_sha256": "e8c3714178b89fc5b933da096a71f4798cce42f7aae966e1eab2c48b4062cb51",
+  "Mac_bank123_all8192_bytes_exact": true,
+  "Mac_gate18_bytes_exact": true,
+  "LOWCODE_only_changes_25_approved_tail_bytes": [
+    39440,
+    39465
+  ],
+  "final_tail_NOP_preserved": 39465,
+  "original127_only_changes_declared_hook_and_padding": [
+    [
+      3355,
+      3363
+    ],
+    [
+      7701,
+      7744
+    ],
+    [
+      7905,
+      7936
+    ]
+  ],
+  "original_samples_exact": {
+    "BassWaterDpcm": {
+      "address": 61760,
+      "length": 3281,
+      "sha256": "cbf0342504483d0bd6129095a506aa3ba58326952b37faf95f083d75ebc1fd75"
+    },
+    "AvDmcLinkTakeDamage": {
+      "address": 65088,
+      "length": 161,
+      "sha256": "059cb4471feec9aba8352343f30ae658cab7e40b1357343127d6cf752debcb2a"
+    },
+    "AvDmcSimonTakeDamage": {
+      "address": 65280,
+      "length": 193,
+      "sha256": "4d6a9738d5ed47be13ffc70e7ee6841ff53756fc182356e4494563b28e630e8d"
+    }
+  },
+  "mirror_overlays": [
+    [
+      4416,
+      5505
+    ],
+    [
+      5568,
+      5761
+    ],
+    [
+      6903,
+      7050
+    ]
+  ],
+  "mirror_every_other_byte_including_code_vectors_exact": true,
+  "remaining_wholly_blank_banks": [
+    63,
+    124
+  ],
+  "future_shared_TMNT_cold_C": [
+    55040,
+    56055
+  ],
+  "new_RAM_allocation_bytes": 0,
+  "scope": "Exact linked ROM byte layout, no native hardware execution or waveform claim."
+}

@@ -1,0 +1,21 @@
+{
+  "records": [
+    {
+      "directory": "save-cpu-optimized-current8ff-v2",
+      "stage": "before CPU execution",
+      "reason": "Generic last-by-name debug Save selected an unrelated bank23 wrapper; physical-bank assertion rejected it. Fixed fixture selects real CV_WRAP scopedSave."
+    },
+    {
+      "directory": "save-cpu-optimized-current8ff-v2-r2",
+      "stage": "after2048 successful old/new Save cases; first IRQ case",
+      "reason": "IRQ hardware writes toPPU2006 were not excluded from application ordered-write equality; all final registers were equal. No ROM/source change."
+    },
+    {
+      "directory": "save-cpu-optimized-current8ff-v2-r3",
+      "stage": "same IRQ fixture, expanded assertion",
+      "reason": "Diagnostic prints confirm identical AXYP/SP and extra source IRQPPU2006 high04/low8A. Hardware port2006 was then explicitly included with2005/5128/5204 in the allowed IRQ ports; per-boundary exact register/bank assertions retained."
+    }
+  ],
+  "source_and_ROM_changed": false,
+  "scope": "Transparent fixture failures; directories and outputs are not promoted to successful proofs. Final passing r4 independently reexecutes all2048cases and1224IRQ boundaries."
+}

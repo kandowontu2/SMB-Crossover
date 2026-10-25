@@ -852,7 +852,12 @@ SmallPlatformCollision:
   jmp LmNativeMusicUpdate
 LmNativeMusicLegacy:
   jmp ExpandedAudioTick
+.if ::MAPPER_MMC5
+.include "cv3_dmc_completion.inc"
+  .res 1,$ea
+.else
   .res 26,$ea
+.endif
   .assert *-SmallPlatformCollision=63,lderror,"Native small-platform collision span"
 .else
       lda TimerControl             ;if master timer control set,

@@ -22,7 +22,11 @@ Done:rts
 .segment "CV3_GRIP"
 .proc Cv3NoiseSceneReset
  php
+.if ::MAPPER_MMC5
+ jsr Cv3DmcSceneRequest
+.else
  lda AvAudioRequest
+.endif
  cmp #26
  bne Owner
  lda #0
@@ -37,7 +41,11 @@ Variant:plp
 .endproc
 .segment "CV_WRAP"
 .proc Cv3MusicAndNoiseTick
+.if ::MAPPER_MMC5
+ jsr Cv3DmcBeforeCv1
+.else
  jsr CvAudioPlay
+.endif
  lda Cv3NoiseActive
  beq Request
  lda GuestNativeDirty+12

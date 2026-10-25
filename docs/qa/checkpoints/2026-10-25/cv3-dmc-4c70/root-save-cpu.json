@@ -1,0 +1,24 @@
+{
+  "passed": true,
+  "candidate_sha256": "4c70fe485f73fb8d437fae2e79ae8ddad83908dc26d4008f21e0a2abeccee2da",
+  "held_sha256": "e6baf465a4fb3981dc1d9f1bea64a129f1dbb8d2a8276f934a38eb9c00c0728c",
+  "valid_Save_cases": 2048,
+  "same_ordered_memory_writes_and_all_RAM_except_transient_stack": true,
+  "AXYP_SP_mapper_exact": true,
+  "Save_cycle_delta_values": [
+    -314
+  ],
+  "actual_IRQ_RTI_boundaries": 1224,
+  "only_held_ROM_changes": {
+    "bank": 28,
+    "unreachable_slack": [
+      55351,
+      55598
+    ],
+    "original_Save_body": [
+      56362,
+      56380
+    ]
+  },
+  "scope": "Assembled exact valid24-byte Save loop contract, full old/new AudioUpdate checked separately. No native cadence claim."
+}

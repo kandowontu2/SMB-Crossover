@@ -83,9 +83,14 @@ GuestDmcStatus:
   ora #$10
   rts
 DmcEnded:
+.if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
+  jsr Cv3DmcEndedGate
+  .res 5,$ea ; original eight-byte completion span
+.else
   lda #0
   sta BassDmcActive
   sta $4011
+.endif
 DmcOff:
   pla
   and #15
@@ -108,7 +113,11 @@ DmcOff:
   sta BassAudioPreviousMask
   sta BassAudioLastDeath
   sta BassAudioLastGround
+.if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
+  jsr Cv3DmcResetOwner
+.else
   sta BassDmcActive
+.endif
   sta $4011
   sta GuestMixMask
   sta GuestMixPreviousMask
@@ -194,7 +203,11 @@ FilterSquare2:
   beq Tick
 Silent:
   lda #0
+.if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
+  jsr Cv3DmcResetOwner
+.else
   sta BassDmcActive
+.endif
   sta $4011
   sta $4015
   sta GuestMixMask
