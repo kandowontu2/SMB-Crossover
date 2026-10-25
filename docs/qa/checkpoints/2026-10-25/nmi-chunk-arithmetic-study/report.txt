@@ -1,0 +1,21 @@
+Private NMI chunk arithmetic, 25 October 2026
+
+CPU-only result; no production change, native acceptance or goal completion.
+Replace eight per-byte DEX instructions with one eight-byte subtraction.
+Keep the298-byte source segment and following real entry PCs with3 tail bytes.
+Only83 ROM bytes in bank116 differ from each matched private parent.
+Four genuine internal helper labels move by3 bytes; no fake callable aliases.
+
+The old partial-stop catalog remains immutable. Internal A/V change before
+OutputToVRAM+11; exact linked continuation SEC/TYA/ADC replaces them before
+use. Full returned AXYP/SP, all nonstack RAM, ordered writes/reads and banks
+have no added exclusions. All20,284 full-continuation shapes pass, including
+76 actual IRQ/RTI controls. The parameterized checker additionally confines
+every binary difference to the actual99-byte helper window. Both its control
+and the later HUD v10/v11 pair reproduce the exact same case costs/results.
+
+Each eight-byte literal chunk saves8 CPU cycles. Short/repeated transfers and
+palette reads do not regress. Bounded packet savings are0..56 cycles; longer
+synthetic transfer savings reach248. A first full HUD's28+8 literals save32.
+These are instruction costs, not a claim of fewer native lag frames or a safe
+whole-NMI deadline. Final HUD queue/PPU/DMA/cadence qualification is separate.

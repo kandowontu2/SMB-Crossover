@@ -1,0 +1,31 @@
+--- a/src/nmi_vram_fast.s
++++ b/src/nmi_vram_fast.s
+@@ -1,5 +1,6 @@
+ ; NMI-only: bank116 is already owned by SamusFreezeUpdateScreen.
+-; Retain the native packet/data order, pointer/Y wrap, registers and flags.
++; Retain full native UpdateScreen results and ordered data/pointer wrap.
++; Internal A/V are dead at the unchanged SEC/TYA/ADC continuation.
+ ; No new RAM, foreground scratch, SMC, JSR or stack frame.
+ .pushseg
+ .segment "NMI_VRAM_FAST"
+@@ -13,8 +14,11 @@
+   iny
+   lda (NmiR0),y
+   sta PPUDATA
+-  dex
+  .endrepeat
++ txa
++ sec
++ sbc #8
++ tax
+  cpx #8
+  bcs Chunk
+  cpx #0
+@@ -39,6 +43,7 @@
+  sec
+  jmp OutputToVRAM+11
+ .endproc
++ .res 3,$ea ; retain following genuine entry PCs
+ .proc FastNmiPaletteCapture
+  .repeat 32,I
+   lda PPUDATA

@@ -1,0 +1,54 @@
+{
+  "passed": true,
+  "native_run": false,
+  "adoption_qualified": false,
+  "parent_ROM_sha256": "4b61ad59b980b30a57e7abcdcd18d05ec979ca8c84cda2293ab01d39ed18baef",
+  "candidate_ROM_sha256": "76ed2a9eab267dfa1313729158d7c85005cc97c713235094f0bccdd13ea919c0",
+  "cases": 20284,
+  "groups": {
+    "transfer": {
+      "cases": 12048,
+      "cycle_delta_min": -248,
+      "cycle_delta_max": 0
+    },
+    "palette": {
+      "cases": 4096,
+      "cycle_delta_min": 0,
+      "cycle_delta_max": 0
+    },
+    "packet": {
+      "cases": 4064,
+      "cycle_delta_min": -56,
+      "cycle_delta_max": 0
+    },
+    "irq-transfer": {
+      "cases": 76,
+      "cycle_delta_min": -248,
+      "cycle_delta_max": 0
+    }
+  },
+  "raw_cases_sha256": "9bed610238ffb7ed800ba277c41627e18132d00d851b52ff220047227b4ec6e3",
+  "original_shape_catalog_sha256": "88f303ff2e1a3cf249294866186cf84eb7c637a53e69431658bd66fd229717ad",
+  "tool_sha256": "441d4f51192111159cfb660ef3cc2e6919ab78a1a91648b5ef155ee350f227f9",
+  "genuine_private_label_moves": {
+    "('FastNmiVramCopy', 'RepeatLoop')": [
+      51698,
+      51695
+    ],
+    "('FastNmiVramCopy', 'LiteralDone')": [
+      51692,
+      51689
+    ],
+    "('FastNmiVramCopy', 'LiteralTail')": [
+      51683,
+      51680
+    ],
+    "('FastNmiVramCopy', 'Repeat')": [
+      51696,
+      51693
+    ]
+  },
+  "equality": "Full returned AXYP/SP, all final nonstack application RAM, ordered nonstack writes and palette reads, mapper banks.",
+  "liveness": "Both linked continuations are exactly SEC/TYA/ADC R0/STA R0/LDA#0/ADC R1/STA R1. A is replaced before read; V is replaced before any branch or read. No internal A/V mask is applied to returned state.",
+  "limits": "Check full native continuation after the private chunk counter trial.\n\nThe old partial-stop catalog is immutable. Here its transfer shapes continue\nthrough real SEC/TYA/ADC and UpdateScreen RTS, using a synthetic terminator.\nNo register/flag/RAM exclusion is added to the full returned-state comparison.\n CPU-only component trial; parent HUD protocol remains unqualified."
+}
