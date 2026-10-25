@@ -1,0 +1,50 @@
+Parodius crowded-body visibility: read-only study, 2026-10-25
+
+The visibility issue remains open. No production graphics, palette, renderer,
+sprite limit or actor behavior changed in this study. A private native trial
+is assigned separately. Do not describe these models as a shipped fix.
+
+Exact current art
+The unchanged-art repacking probe covers all131 generated body poses across
+Octopus, TwinBee and Pentarou. The installed CHR equals the packed manifest.
+Reusing the existing palette-plane optimizer reduces neither part count nor
+peak sprites per scanline in any pose. Repeating the same packing is not a fix.
+
+Body part order is a separate lead
+Every generated body pose has disjoint opaque palette planes. Consequently,
+reordering those parts can preserve every unlimited-composition pixel, palette,
+CHR byte, tile/part count, pose length and renderer cost. The renderer emits
+the source records in reverse order, ordinarily admitting small white/black
+planes before large colored core parts when the eight-sprite limit is reached.
+
+The read-only model tests two deterministic actual-OAM orders: primary palette
+first, then descending opaque pixel count; or descending opaque count alone.
+All131 unlimited body compositions remain exact. In isolated eight-sprite
+models, either policy improves nine large Octopus poses and regresses none
+by total admitted pixel count. This says nothing about native scheduling.
+
+Six actual earlier8ff DMA-buffer snapshots at row IDs583,584,585,587,588,589
+match the complete seven-part Octopus body0:71, including wrapped OAM slots.
+These row IDs are NOT asserted visible PPU frame IDs. The actual8ff images
+586/587 were previously reviewed as sparse body visibility; the source/image
+epoch must still be bound by a fresh observer before attributing exact pixels.
+
+In those snapshots, primary-first modeling changes admitted body pixels:
+226->226,159->184,21->61,200->218,134->202,222->222.
+For row585, primary-palette pixels12->56; other visible actor pixels stay90.
+All six models retain the same other-actor pixels and unlimited physical
+composition. This is a useful lead, not proof of fairness for every actor,
+source alias, rotation, palette, pose, screen edge or actual NES evaluation.
+
+The next private trial must preserve nonbody/weapon records and generator
+reproducibility, check record aliases and unchanged public addresses/RAM/CHR,
+then bind actual source body publication, DMA, startFrame hardware OAM/CHR and
+completed PPU counters. Crowded weapon/enemy visibility, body readability and
+completed-update/draw cadence require native qualification. No colors may be
+discarded and no actors hidden to make the result appear better.
+
+Evidence
+C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/parodius-visibility-current5ec-v1/repacking-trial-v1/proof.json
+C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/parodius-visibility-current5ec-v1/priority-model-v1/proof.json
+Small immutable copies and tool/source/ROM bindings are in
+docs/qa/checkpoints/2026-10-25/parodius-priority-study.
