@@ -1,0 +1,42 @@
+{
+  "passed": true,
+  "component_only": true,
+  "native_run": false,
+  "adoption_qualified": false,
+  "baseline_ROM_sha256": "50b51c3c69f45ef137720c47f521574097f421056e3b73296d06ba70080d2363",
+  "candidate_ROM_sha256": "cf0f53f012a7830c38d4a2212ceed8bc875040b5698345a83d0b7c98213eeed5",
+  "tool_sha256": "ad54f9ac45cc02bf99b5ae60ae8ca7afda8b426723328e51110e6adbc17e744d",
+  "catalog_path": "C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/parodius-visibility-current50b5-v1/root-fast-cpu-v1/cases.json",
+  "catalog_sha256": "88f303ff2e1a3cf249294866186cf84eb7c637a53e69431658bd66fd229717ad",
+  "cases": 20284,
+  "groups": {
+    "transfer": {
+      "cases": 12048,
+      "cycle_delta_min": -2287,
+      "cycle_delta_max": 21
+    },
+    "palette": {
+      "cases": 4096,
+      "cycle_delta_min": -245,
+      "cycle_delta_max": -245
+    },
+    "packet": {
+      "cases": 4064,
+      "cycle_delta_min": -488,
+      "cycle_delta_max": 21
+    },
+    "irq-transfer": {
+      "cases": 76,
+      "cycle_delta_min": -2287,
+      "cycle_delta_max": 21
+    }
+  },
+  "dependencies": {
+    "check_nmi_vram_fast_cpu_v1.py": "31e5e26335eded510b3846fa34f7d27547e15c00ccc6211e1fd5dacb937ada35",
+    "check_tmnt_render_oa.py": "32033893e48055adc9a23c661238e9331dd1db856be51b753ba9b6781eb528e4",
+    "link_pit_rygar_sophia_audit_cpu.py": "15ef348bc124a97d8ef2c8a56777180276271b44fb77c8ace7e62c2a50310113",
+    "verify_native_relocation.py": "1bab7154bc2e5468e827087d14030a7e30c4d3676db5e775ef15de4d0c34ce11"
+  },
+  "equality": "AXYP/SP, all final nonstack application RAM, every ordered nonstack write/palette read and final mapper banks. Every reconstructed baseline cycle count matches the immutable first catalog.",
+  "limits": "Replay the frozen independent20,284-case NMI helper catalog on a new ROM.\n\nOnly transfer/palette/UpdateScreen/IRQ component equivalence is asserted.\nHUD publication, full NMI budgets, source integration and native timing need\nseparate qualification. No whole-ROM adoption verdict is produced here.\n"
+}
