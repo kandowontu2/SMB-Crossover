@@ -25,7 +25,7 @@ IsMac:
  jmp Mac
 .endproc
 .endmacro
-TnProbeGate TnFastSideGate,TnSideDispatch,TnMacSideProbe,M3SideDispatch
+TnProbeGate TnFastSideGate,TnSideDispatch,TnMacSideProbe,Z2SideAdmission
 .proc TnFastHeadGate
  php
  pha
@@ -41,7 +41,7 @@ CheckMac:
  ; Transfer the existing saved A/P to the CV3 selector. The turtle and
  ; Mac branches are byte/cycle exact; other guests add only this JMP and
  ; a comparison before their original bank call.
- jmp TnCv3HeadGate
+ jmp Z2HeadAdmission
  .res 17,$ea
 IsMac:
  pla

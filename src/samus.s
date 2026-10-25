@@ -122,11 +122,21 @@ Guest:
   ; Called only by PlayerCtrlRoutine with PLAYER mapped at A000. The rare
   ; farcall restores that bank before its original position/box subroutines.
   lda SelectedCharacter
+.if ::ENABLE_MMC5_EXPANDED
+  cmp #CHARACTER_SAMUS
+  beq Handle
+  cmp #CHARACTER_LINK
+  bne Done
+Handle:
+  farcall Z2AfterBGDispatch
+  nop ; Caller already tests SmCeilingHit; original bridge size is retained.
+.else
   cmp #CHARACTER_SAMUS
   bne Done
   lda SmCeilingHit               ; Ordinary walking never enters another bank.
   beq Done
   farcall SamusAfterBGCollision
+.endif
   jsr RelativePlayerPosition     ; Source setHitPoints follows the separation.
   ldx #0
   jsr BoundingBoxCore

@@ -1,0 +1,36 @@
+{
+  "passed": true,
+  "complete": true,
+  "goal_complete": false,
+  "ROM_sha256": "f00c2a7ad0459a3cd0b369bb4fbc9f374dc27d9335b2cc1fe1867f3f98d73d23",
+  "runs": [
+    {
+      "identity": "samus",
+      "mode": "easy",
+      "folder": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\zelda2-terrain-candidate-v4\\native-controls-v2\\samus-easy",
+      "exit": 0,
+      "result": {
+        "cleared": true,
+        "world_1_1_seen": true,
+        "frames": 5782,
+        "polls": 5781,
+        "deaths": 0,
+        "failure": null,
+        "stage_entries": {
+          "0-0": 392,
+          "0-1": 5758
+        }
+      },
+      "motion": {
+        "passed": true,
+        "checks": 3589,
+        "max_world_step": 2,
+        "max_camera_step": 3,
+        "game_state_writes": false
+      },
+      "source_policy_sha256": "f4e84baefbafa94986a3a56ff1209fd135549d24eb2ef58ba8749ccdfd4f61cc",
+      "passed": true
+    }
+  ],
+  "scope": "Fresh controller-only1-1 routes with existing policies. No geometry, inventory or physics writes. Native body-CHR and completed-loop world<=8/camera0..4 guards. Failed original policies are retained; successful discovery still requires an independent physical PPU replay. Not every powerup, moving-platform or source enemy-hitbox qualification."
+}

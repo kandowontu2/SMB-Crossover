@@ -44,6 +44,23 @@ Native:
 ::SophiaSourceHeadTail:
   farcall SophiaSourceHeadProbe, jmp
 ::CrossoverSourceFootProbe:
+.if ::ENABLE_MMC5_EXPANDED
+  lda SelectedCharacter
+  cmp #CHARACTER_LINK
+  beq FootCold
+  cmp #CHARACTER_SOPHIA
+  bne FootNative
+  cpy #31
+  bne FootCold
+  bit SmClearance
+  bmi FootNative
+FootCold:
+  farcall Z2SourceFeetDispatch, jmp
+FootNative:
+  jmp BlockBufferColli_Feet
+  .assert *-CrossoverHeadProbe=62,error,"Expanded head/feet dispatch span"
+.else
+::CrossoverSourceFootProbe:
   lda SelectedCharacter
   cmp #CHARACTER_SOPHIA
   bne FootNative
@@ -57,6 +74,7 @@ FootNative:
   jmp BlockBufferColli_Feet
   .res 2,$ea                 ; Original60-byte head region remains exact size.
   .assert *-CrossoverHeadProbe=60,error,"Old resident head-dispatch span"
+.endif
 .endproc
 
 .proc CrossoverSourceSideProbe
@@ -72,7 +90,14 @@ FootNative:
   jmp BlockBufferColli_Head
 OrdinaryHeadDispatch:
   jmp BillHeadDispatch
-  .res 12,$ea
+::Z2NativeSideSelector:
+  cmp #CHARACTER_LINK
+  beq OwnZ2Side
+  cmp #CHARACTER_SOPHIA
+  rts
+OwnZ2Side:sec
+  rts
+  .res 3,$ea
  .else
   farcall TnFastSideGate,jmp
   .res 10,$ea
@@ -88,6 +113,11 @@ Native:
   .assert *-CrossoverSourceSideProbe=28,error,"Original side leaf footprint"
 .endproc
 
+ .if ::ENABLE_MMC5_EXPANDED
+.proc CrossoverHeadWithinTerrain
+  farcall Z2HeadWithinTerrain, jmp
+  .res 1,$ea ; Reuse two bytes for the expanded feet selector above.
+.else
 .proc CrossoverHeadWithinTerrain
   lda SelectedCharacter
   cmp #CHARACTER_SOPHIA
@@ -100,6 +130,7 @@ Sophia:
   adc #16
   cmp #32
   rts
+.endif
 .endproc
 
 .proc GuestFootContactSide

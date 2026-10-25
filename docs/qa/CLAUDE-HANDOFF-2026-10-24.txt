@@ -27,9 +27,10 @@ test outputs as evidence, not previous agent claims or the old README alone.
 
 MMC5 current ROM:
 C:/Users/kando/Downloads/SMB-Crossover-Current-MMC5.nes
-SHA256 ee0b6bc5e253e6de7476ef9b781e748c1fced896a28cadd13d74561119172a44
+SHA256 f00c2a7ad0459a3cd0b369bb4fbc9f374dc27d9335b2cc1fe1867f3f98d73d23
 User already opened this in their own Mesen. Do not stop their emulator.
-Latest source receipt: build/verification/parodius-graphical-hud/proof.json
+Latest source receipt: build/verification/zelda2-terrain/proof.json
+Previous child: build/verification/parodius-graphical-hud/proof.json (ee0b6bc5...).
 Previous child: build/verification/chip-ceiling-feedback/proof.json (274fff...).
 Parent receipt/checkpoint: build/verification/native-probes-qa/proof.json and
 build/checkpoints/native-probes-qa/checkpoint.json (054d9e33... parent).
@@ -379,3 +380,25 @@ To provide Git object storage headroom while keeping the workspace under30GB,
 109 old generated compiler objects (153,708,058bytes) were moved, hash-verified,
 to D/git-checkpoint-20261024/compiler-cache-preserved-v1 with receipt.json.
 Source, ROMs, debug files, lossless footage and user files were not removed.
+
+25 OCTOBER UPDATE: ZELDA II TERRAIN FIX ADOPTED
+The user renewed the allowance and said to continue. Do not pause.
+Current ROM/source f00c2a7a... includes dedicated Zelda II normal/crouched
+and Fairy block/pipe probes, real upward ceiling separation, native block-cell
+origins, exact wall page carries and Fairy floor-depth correction. Standing
+and crouched source geometry is full-height. Fairy lower sides deliberately
+use centered SMB probes rather than the original asymmetric index quirk.
+Evidence: D/zelda2-terrain-candidate-v4; receipt named above.35,260 assembled
+component cases;11 native staged real-terrain scenes;88 direct PPU frames;
+176 guarded NMIs; Easy/Hard independent zero-death1-1 replays,9,326 physical
+frames. Source/CHR/RAM parity and fresh root compile exact. Existing Link,
+Samus, Sophia and Mac controls pass in their recorded modes. Preserve failed
+controller attempts and mismatched Hard/Easy Samus fixture as documented.
+Do not rerun tools/audit/adopt_zelda2_terrain_once.py.
+NEXT: inspect moving-platform geometry and Fairy attachment. Normal Link's
+shared short enemy/platform box is still separate from these terrain probes;
+do not claim original enemy-hitbox fidelity or Fairy moving-platform support.
+Native vertical platform positioning subtracts32 unconditionally in object.s;
+Fairy feet are26. Review native bounding boxes, carry/landing, head/side platform
+contacts and source rectangles before changing them. Continue the full roster,
+all-items/audio/graphics/performance work afterwards. Push coherent changes.

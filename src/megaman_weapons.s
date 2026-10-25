@@ -395,7 +395,7 @@ Loop:
   php
   pha
   lda SelectedCharacter
-  cmp #CHARACTER_SOPHIA
+  jsr Z2NativeSideSelector
   bcs OtherSide
   pla
   plp
@@ -404,7 +404,7 @@ OtherSide:
   pla
   plp
   farcall TnFastSideGate,jmp
-  .res 3,$ea
+  .res 2,$ea
   .assert *-MegaManFullShotBank=55,error,"Original full-shot resident span"
  .else
   .res 37,$ea

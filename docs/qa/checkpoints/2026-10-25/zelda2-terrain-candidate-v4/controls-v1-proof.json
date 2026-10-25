@@ -1,0 +1,116 @@
+{
+  "passed": false,
+  "complete": true,
+  "goal_complete": false,
+  "ROM_sha256": "f00c2a7ad0459a3cd0b369bb4fbc9f374dc27d9335b2cc1fe1867f3f98d73d23",
+  "runs": [
+    {
+      "identity": "link",
+      "mode": "easy",
+      "folder": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\zelda2-terrain-candidate-v4\\native-controls-v1\\link-easy",
+      "exit": 0,
+      "result": {
+        "cleared": true,
+        "world_1_1_seen": true,
+        "frames": 9814,
+        "polls": 9813,
+        "deaths": 0,
+        "failure": null,
+        "stage_entries": {
+          "0-0": 413,
+          "0-1": 9782
+        }
+      },
+      "motion": {
+        "passed": true,
+        "checks": 6663,
+        "max_world_step": 6,
+        "max_camera_step": 2,
+        "game_state_writes": false
+      },
+      "source_policy_sha256": "b52f88982cc8764514e7fbeca040ce7446a80033403e13ebb9997d49a615e6d4",
+      "passed": true
+    },
+    {
+      "identity": "samus",
+      "mode": "hard",
+      "folder": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\zelda2-terrain-candidate-v4\\native-controls-v1\\samus-hard",
+      "exit": 1,
+      "result": {
+        "cleared": false,
+        "world_1_1_seen": true,
+        "frames": 2284,
+        "polls": 2283,
+        "deaths": 0,
+        "failure": "death",
+        "stage_entries": {
+          "0-0": 479
+        }
+      },
+      "motion": {
+        "passed": false,
+        "checks": 1642,
+        "max_world_step": 2,
+        "max_camera_step": 3,
+        "game_state_writes": false
+      },
+      "source_policy_sha256": "f4e84baefbafa94986a3a56ff1209fd135549d24eb2ef58ba8749ccdfd4f61cc",
+      "passed": false
+    },
+    {
+      "identity": "sophia",
+      "mode": "hard",
+      "folder": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\zelda2-terrain-candidate-v4\\native-controls-v1\\sophia-hard",
+      "exit": 0,
+      "result": {
+        "cleared": true,
+        "world_1_1_seen": true,
+        "frames": 5305,
+        "polls": 5304,
+        "deaths": 0,
+        "failure": null,
+        "stage_entries": {
+          "0-0": 521,
+          "0-1": 5281
+        }
+      },
+      "motion": {
+        "passed": true,
+        "checks": 2222,
+        "max_world_step": 2,
+        "max_camera_step": 3,
+        "game_state_writes": false
+      },
+      "source_policy_sha256": "f4e84baefbafa94986a3a56ff1209fd135549d24eb2ef58ba8749ccdfd4f61cc",
+      "passed": true
+    },
+    {
+      "identity": "mac",
+      "mode": "easy",
+      "folder": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\zelda2-terrain-candidate-v4\\native-controls-v1\\mac-easy",
+      "exit": 0,
+      "result": {
+        "cleared": true,
+        "world_1_1_seen": true,
+        "frames": 4449,
+        "polls": 4448,
+        "deaths": 0,
+        "failure": null,
+        "stage_entries": {
+          "0-0": 413,
+          "0-1": 4425
+        }
+      },
+      "motion": {
+        "passed": true,
+        "checks": 2726,
+        "max_world_step": 3,
+        "max_camera_step": 3,
+        "game_state_writes": false
+      },
+      "source_policy_sha256": "010ed8dae921d160a98f4228fc496b92e21b0bff0f15e73cd93ee404e711838d",
+      "passed": true
+    }
+  ],
+  "scope": "Fresh controller-only1-1 routes with existing policies. No geometry, inventory or physics writes. Native body-CHR and completed-loop world<=8/camera0..4 guards. Failed original policies are retained; successful discovery still requires an independent physical PPU replay. Not every powerup, moving-platform or source enemy-hitbox qualification."
+}

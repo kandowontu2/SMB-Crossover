@@ -412,6 +412,7 @@ TitleScreenData:
 .include "x5_bounce.s"
 .include "x5_menu_ui.s"
 .include "roll.s"
+.include "zelda2_link_terrain.s"
 .pushseg
 .segment "M3_CHR"
 .incbin "chr/characters/smb3-mario.chr"

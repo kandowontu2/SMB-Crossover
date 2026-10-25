@@ -305,7 +305,7 @@ Restore:
 Xoffs:.byte 0,6,$fa
 Yoffs:.byte $ee,$fa
 .endproc
-.proc LmWallGate
+.proc Z2WallLegacy
  LmGate CrossoverSourceWallDispatch
  lda GameEngineSubroutine
  cmp #8

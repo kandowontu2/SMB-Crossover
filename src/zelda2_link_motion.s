@@ -48,14 +48,8 @@ Live:
  bne Ordinary
  farcall MegaManClimbing,jmp
 Ordinary:
- lda Player_X_Position
- sta MmOldX
- lda Player_State
- bne Air
- lda #4
- bne Contacts
-Air:lda #0
-Contacts:sta Z2NativeContacts
+ jsr Z2MovementTerrainBegin
+ .res 17,$ea ; Preserve every existing movement/native routine address.
  lda SavedJoypadBits
  eor Z2PreviousButtons
  and SavedJoypadBits

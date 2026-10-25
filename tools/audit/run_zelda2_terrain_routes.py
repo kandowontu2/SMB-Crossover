@@ -16,6 +16,7 @@ def main():
     p=argparse.ArgumentParser(description=__doc__)
     for name in ['rom','archive','output']:p.add_argument('--'+name,type=Path,required=True)
     p.add_argument('--controls',action='store_true')
+    p.add_argument('--identities',nargs='+',help='Run only named profiles in the selected group')
     p.add_argument('--stair-policy',action='store_true',help='Controller-only top-step landing before the last small gap')
     a=p.parse_args();out=a.output.resolve();assert not out.is_relative_to(ROOT)
     out.mkdir(exist_ok=False);d=a.archive.resolve();b=load(a.rom)
@@ -30,7 +31,9 @@ def main():
     guard=out/'native-guard.lua'
     guard.write_text('OUTPUT=ROSTER_CONFIG.out\nMOTION_RAM='+lua({n:address(b,n)for n in names})
                      +'\nMOTION_HOOK='+lua(hook)+'\n'+original[original.index('local checks,maxWorld,maxCamera='):])
-    profiles=[('link','easy'),('samus','hard'),('sophia','hard'),('mac','easy')]if a.controls else[('zelda2','easy'),('zelda2','hard')]
+    profiles=[('link','easy'),('samus','easy'),('sophia','hard'),('mac','easy')]if a.controls else[('zelda2','easy'),('zelda2','hard')]
+    if a.identities:profiles=[r for r in profiles if r[0]in a.identities]
+    assert profiles
     def run(profile):
         name,mode=profile;row=next(r for r in source['runs']if r['identity']==name)
         origin=Path(row['discovery']).parent/'policy.lua';text=origin.read_text()
