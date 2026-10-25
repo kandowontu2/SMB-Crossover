@@ -1,0 +1,36 @@
+{
+  "passed": true,
+  "baseline_ROM_sha256": "50b51c3c69f45ef137720c47f521574097f421056e3b73296d06ba70080d2363",
+  "candidate_ROM_sha256": "cf0f53f012a7830c38d4a2212ceed8bc875040b5698345a83d0b7c98213eeed5",
+  "tool_sha256": "31e5e26335eded510b3846fa34f7d27547e15c00ccc6211e1fd5dacb937ada35",
+  "all_existing_scoped_symbol_addresses_exact": true,
+  "differing_bytes": 304,
+  "new_tail_was_FF": true,
+  "cases": 20284,
+  "groups": {
+    "irq-transfer": {
+      "cases": 76,
+      "cycle_delta_min": -2287,
+      "cycle_delta_max": 21
+    },
+    "packet": {
+      "cases": 4064,
+      "cycle_delta_min": -488,
+      "cycle_delta_max": 21
+    },
+    "palette": {
+      "cases": 4096,
+      "cycle_delta_min": -245,
+      "cycle_delta_max": -245
+    },
+    "transfer": {
+      "cases": 12048,
+      "cycle_delta_min": -2287,
+      "cycle_delta_max": 21
+    }
+  },
+  "equality": "A/X/Y/NV-DIZC/SP, all nonstack application RAM, final mapper banks, ordered nonstack writes including every2007 byte, ordered palette reads.",
+  "IRQ_scope": "Compiled IrqScrollSplit injected between complete instructions at bounded write boundaries; no PPU cycle or native scheduling model.",
+  "limits": "Only exact linked transfer/palette helpers and complete UpdateScreen packets. Native DMA/IRQ scanline/CHR/roster/palette-burst budget still required; short literal transfers may cost extra cycles.",
+  "cases_sha256": "88f303ff2e1a3cf249294866186cf84eb7c637a53e69431658bd66fd229717ad"
+}

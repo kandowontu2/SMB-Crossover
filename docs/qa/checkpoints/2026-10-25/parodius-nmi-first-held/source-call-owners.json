@@ -1,0 +1,17 @@
+{
+  "source_contract": "Expanded NMI invokes SamusFreezeUpdateScreen which mapsC116 and tail-jumps PnPaletteScreenUpdate; its UpdateScreen JSR and SamusFreezeFlushPalette tailJMP retainC116. All other direct source JSRsites are compile-time flagoff branches. No foreground calls identified. IRQ contains noPRGbankwrites.",
+  "source_bindings": {
+    "src/reset.s": "446d50b4fe968b32e9b61d272423109af26c3b186bafbe67c0b0f1ddf9e9183c",
+    "src/parodius_bells.s": "c74f67a72e2a7140d805ce06bc62e007692195d42ba320d1f08e6e0c968e76fb",
+    "src/samus_freeze_render.s": "f0a8c75863a889a91155e30adf854267ba3c428bfce5a687c91492d8b4d86cb9"
+  },
+  "actual_cold_boot_checks": {
+    "pentarou_easy": 1095,
+    "octopus_hard": 1254
+  },
+  "actualNMIdepth": 1,
+  "actualCbank": 116,
+  "actual_JSR_return_word": "C002",
+  "independent_full_gateway_CPU_cases": 2304,
+  "native_limits": "Only these nativecontrollers and repeatedentrylabels. Source/CPUproof covers additional legal gatewaystates; not all playable native identities."
+}

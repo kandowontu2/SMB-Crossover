@@ -1,0 +1,104 @@
+--- a/src/reset.s
++++ b/src/reset.s
+@@ -231,8 +231,12 @@
+   lsr                       ;note that d1 will now be in carry
+   tax
+ OutputToVRAM:
++.if ::ENABLE_MMC5_EXPANDED && ::MAPPER_MMC5
++  jmp FastNmiVramCopy
++.else
+   bcs RepeatByte            ;if carry set, repeat loading the same byte
+     iny                       ;otherwise increment Y to load next byte
++.endif
+ RepeatByte:
+   lda (NmiR0), y               ;load more data from buffer and write to vram
+   sta PPUDATA
+--- a/src/parodius_bells.s
++++ b/src/parodius_bells.s
+@@ -30,7 +30,11 @@
+  sta PPUADDR
+  tax
+ Copy:
++.if ::ENABLE_MMC5_EXPANDED && ::MAPPER_MMC5
++ jmp FastNmiPaletteCapture
++.else
+  lda PPUDATA
++.endif
+  sta PnBombPaletteShadow,x
+  inx
+  cpx #32
+--- a/src/entrypoint.s
++++ b/src/entrypoint.s
+@@ -485,3 +485,7 @@
+ .if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
+ .include "cv3_dmc_complete.s"
+ .endif
++
++.if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
++.include "nmi_vram_fast.s"
++.endif
+--- a/src/nmi_vram_fast.s
++++ b/src/nmi_vram_fast.s
+@@ -0,0 +1,52 @@
++; NMI-only: bank116 is already owned by SamusFreezeUpdateScreen.
++; Retain the native packet/data order, pointer/Y wrap, registers and flags.
++; No new RAM, foreground scratch, SMC, JSR or stack frame.
++.pushseg
++.segment "NMI_VRAM_FAST"
++.proc FastNmiVramCopy
++ bcs Repeat
++ ; X=0 has the native meaning256, not an empty packet.
++ cpx #0
++ beq Chunk
++ cpx #8
++ bcc Tail
++Chunk:
++ .repeat 8
++  iny
++  lda (NmiR0),y
++  sta PPUDATA
++  dex
++ .endrepeat
++ cpx #8
++ bcs Chunk
++Tail:
++ cpx #0
++ beq LiteralDone
++LiteralTail:
++ iny
++ lda (NmiR0),y
++ sta PPUDATA
++ dex
++ bne LiteralTail
++LiteralDone:
++ clc
++ jmp OutputToVRAM+11 ; native SEC and pointer/next-command continuation
++Repeat:
++ lda (NmiR0),y
++RepeatLoop:
++ sta PPUDATA
++ dex
++ bne RepeatLoop
++ sec
++ jmp OutputToVRAM+11
++.endproc
++.proc FastNmiPaletteCapture
++ .repeat 32,I
++  lda PPUDATA
++  sta PnBombPaletteShadow+I
++ .endrepeat
++ ldx #32
++ cpx #32
++ jmp PnPaletteScreenUpdate::Copy+11 ; after the unchanged old BNE
++.endproc
++.popseg
+--- a/smb1base-mmc5-expanded.cfg
++++ b/smb1base-mmc5-expanded.cfg
+@@ -222,6 +222,7 @@
+     PARODIUS_ART:load=X5_NEW_75,type=ro;
+     PARODIUS_NMI:load=X5_NEW_74,type=ro;
+     PARODIUS_EXTRA_ART:load=X5_NEW_74,type=ro;
++    NMI_VRAM_FAST:load=X5_NEW_74,type=ro;
+     PARODIUS_BELLS:load=X5_NEW_76,type=ro;
+     ROLL_CORE:load=X5_NEW_77,type=ro;
+     ROLL_WORLD:load=X5_NEW_78,type=ro;

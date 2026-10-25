@@ -1,0 +1,75 @@
+Independent NMI-copy review and rejected first candidate - 2026-10-25
+
+Status: OPEN. Current50b5 remains installed. Privatecf0f is not admissible.
+The first targeted route passes, but two of six broader legal mode/variant
+controls still corrupt hardware OAM. These failures remain preserved and
+prevent adoption. No production code, ROM, character art or gameplay changed.
+
+Installed parent:
+50b51c3c69f45ef137720c47f521574097f421056e3b73296d06ba70080d2363
+Rejected private first candidate:
+cf0f53f012a7830c38d4a2212ceed8bc875040b5698345a83d0b7c98213eeed5
+
+Confirmed defect
+Render-enabled OAM DMA runs across the pre-render boundary. NES sprite
+evaluation then changes OAMADDR while DMA is still copying; every source
+value can be correct while the hardware destination is wrong. The observed
+current-ROM failures are real completed-transfer corruption, not only an
+observer reading a still-running DMA. Independent actual PPU images show it.
+
+Exact CPU layer
+The first candidate changes304 ROM bytes: two real three-byte JMP hooks plus
+298 bytes in verified FF tail bank116. Every existing scoped address and all
+RAM/CHR allocations/bytes remain exact. Its helper unrolls literal transfers
+and32 palette read/store pairs, retaining source transfer order and flags.
+
+ROOT independently executes20,284 actual linked comparisons:
+ 12,048 transfer cases: all X counts including zero=256, both carry modes,
+        Y/page crossings and meaningful flag combinations;
+ 4,096 functional32-read palette cases;
+ 4,064 complete native-format packets, including repeated/vertical commands;
+ 76 actual compiled IRQ injections between full instruction boundaries.
+Registers A/X/Y/status/SP, all final nonstack application RAM, mapper banks,
+every ordered nonstack write and palette read match. Palette capture saves
+245 CPU cycles. Short literal transfers can add21 cycles; CPU equality is
+not a claim that every packet becomes cheaper or fits vblank.
+
+A separate2,304-case oracle executes the real SamusFreezeUpdateScreen
+gateway from three incoming C banks. It proves actualC116 ownership,
+conditional palette capture, optional Samus palette flush and exact final
+state/ordered I/O. The field called mode in this synthetic oracle sets
+OperMode0/1 (menu/game), NOT CrossoverBehaviorVersion Easy/Hard. It supplies
+no native difficulty coverage. Some gateway combinations add38 cycles.
+
+The earlier numeric03/01/41 pointer sketch was an incorrect old-engine
+assumption. Actual linked VRAM_Buffer1=$04AF, Buffer2=$0504; further guards
+must use linked symbols and real producer bounds. No code used that sketch.
+
+Native outcomes and actual image review
+The original Octopus Easy640-frame controller reproduces three parent bad
+DMAs; the private first candidate completes128 exact transfers and retains
+physical IRQ line31. Only two of51 matched actual frames change:613/614,
+88 pixels each inside changed OAM footprints. Other49 frames and the common
+published OAM images remain exact. ROOT independently viewed old/new613 and
+the still-crowded586. The separate body-overload visibility issue stays open.
+
+Six actual difficulty/variant controls then pass four and fail two:
+ Pentarou Easy479:40 data writes plus palette capture, DMA ends visible0:89.
+ Octopus Hard612:52 data writes/seven commands, DMA ends visible3:63.
+Fresh diagnostic continuations confirm70 and234 wrong DMA destinations.
+ROOT also viewed actual Hard612. These are retained failures; no partial
+route, CPU result or lower threshold converts them into acceptance.
+
+Further work must preserve complete visible updates, physical fonts/CHR,
+source audio, native eight-sprite limit and the physical line31 HUD split.
+No blind mask reorder, lost packets or actor hiding is approved as a fix.
+Whole-roster/routes/every-powerup and crowded-body qualification remain open.
+
+Evidence
+D = C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py
+D/parodius-visibility-current50b5-v1/root-fast-cpu-v1/proof.json
+D/parodius-visibility-current50b5-v1/root-gateway-cpu-v1/proof.json
+D/parodius-visibility-current50b5-v1/nmi-fast-packet-v1/proof.json
+Compact exact receipts/tool/report/image bindings are in
+docs/qa/checkpoints/2026-10-25/parodius-nmi-first-held/manifest.json.
+The frozen3,619-file native manifest and raw/lossless evidence stay external.

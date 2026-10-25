@@ -1,0 +1,59 @@
+{
+  "prepared": true,
+  "goal_complete": false,
+  "native_passed": false,
+  "ROM_before_sha256": "50b51c3c69f45ef137720c47f521574097f421056e3b73296d06ba70080d2363",
+  "ROM_after_sha256": "cf0f53f012a7830c38d4a2212ceed8bc875040b5698345a83d0b7c98213eeed5",
+  "script_sha256": "08e95b8668f478d634e62fbe25c1d58a4b2edaa2b48a5c3a999df8e0da912060",
+  "compiler_sha256": "ff2e9c628ef209f034200168872c74b6c7ceddbdb9717b92e03bc6e9b13a5641",
+  "sourcepatch_sha256": "ef12e559d546797fa4700f562341062b185df579bf413988cb208b5b76e91501",
+  "changed_source": {
+    "src/reset.s": "446d50b4fe968b32e9b61d272423109af26c3b186bafbe67c0b0f1ddf9e9183c",
+    "src/parodius_bells.s": "c74f67a72e2a7140d805ce06bc62e007692195d42ba320d1f08e6e0c968e76fb",
+    "src/entrypoint.s": "4edeaa48a972aca0b52b4bea2822f836d0c84f58a4dbcad3f6acfb352245aeea",
+    "src/nmi_vram_fast.s": "db071b11762a6356554efa7e5751d2e35f215631ef1c0fb9d298c5e5777779e1",
+    "smb1base-mmc5-expanded.cfg": "f4a145aa2777de1fd4ddab1eb2362ad391288a6dc38852e09b1d673117ed0f06"
+  },
+  "all_old_symbol_addresses_exact": true,
+  "old_symbol_count": 72221,
+  "RAM_CHR_addresses_exact": true,
+  "CHR_bytes_exact": true,
+  "hooks": [
+    {
+      "offset": 1032315,
+      "before": "b001c8",
+      "after": "4c99c9"
+    },
+    {
+      "offset": 950337,
+      "before": "ad0720",
+      "after": "4cfcc9"
+    }
+  ],
+  "new_tail": {
+    "bank": 116,
+    "offset": 952745,
+    "length": 298,
+    "address": 51609,
+    "before_all_FF": true
+  },
+  "differing_bytes": 304,
+  "differing_banks": [
+    116,
+    126
+  ],
+  "build_command": [
+    "C:\\Users\\kando\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+    "-B",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\parodius-visibility-current50b5-v1\\nmi-fast-candidate-v1\\source\\tools\\build_mmc5_expanded.py",
+    "--workspace",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\parodius-visibility-current50b5-v1\\nmi-fast-candidate-v1\\source",
+    "--source-overlay",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\parodius-visibility-current50b5-v1\\nmi-fast-candidate-v1\\source",
+    "--compiler",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\Windows\\cc65\\bin\\cl65.exe",
+    "--output",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\parodius-visibility-current50b5-v1\\nmi-fast-candidate-v1\\candidate.nes"
+  ],
+  "scope": "Only two3-byte JMP hooks plus appended bank116 NMI helpers; all old labels/RAM/CHR and remaining bytes exact. Ordinaryflagoff not yet compiled. Source optimization only; native timing and exact CPU continuation tests required before acceptance."
+}

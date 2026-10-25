@@ -1,0 +1,138 @@
+Parodius visibility and late OAM DMA diagnostic - 2026-10-25
+
+Status: confirmed current-ROM owner/timing defect; NO fix candidate yet.
+All diagnostic native receipts remain passed=false. Body-order mitigation is
+deferred while the real DMA corruption is investigated. No production source,
+ROOT build, Downloads, Git, art, gameplay state or controller stream was edited.
+
+Frozen ROM / source / emulator / legal controller
+  Current MMC5 ROM SHA256:
+  50b51c3c69f45ef137720c47f521574097f421056e3b73296d06ba70080d2363
+  D = C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py
+  Base: D/parodius-visibility-current50b5-v1
+  frozen-ledger.json binds original copied source, art, ROM and link outputs.
+  baseline-rebuild-v1 failed because generated guest-audio include files were
+  omitted from the initial freeze; that build log is retained unchanged.
+  baseline-source-v2 adds the actual generated include inputs, retaining the
+  original source bytes and original frozen ledger. Its separate ledger is
+  baseline-source-v2-proof.json:
+  a3eb6ce0c457db866ffe88dc685ca5d87a42f02dadbf74cea18b0575104179a4
+  baseline-rebuild-v2/candidate.nes compiles to the exact current50b5 hash.
+  Emulator: D/mmc3-flag-fix-v23/script-budget-probe-v2/emulator/Mesen.exe
+  SHA256 8b92daa209ee5052845e02a663aeb1afd6194eca55d86e6628c51114c61da0a9
+  doNotSaveSettings, AllZeros, no random CPU/PPU or mapper alignment, hardware
+  eight-sprite limit enabled. One sequential worker; user PID165672 untouched.
+
+  controller/ freezes the original Octopus Easy route harness, policy, input
+  stream and completed-game-loop guard. Cold menu selection is real: character
+  18, variant1, numeric mode0, stage1-1 at actual PPU455. No emulated writes.
+  Exact inputs.csv SHA256:
+  37772ac114fa774070700eab192c33bc8680cfee29a86706c6b47944bc2e6297
+  This diagnostic stops at actual PPU640; it does not establish a stage clear.
+
+Preserved observer failures / corrected instrumentation
+  baseline-early-v1 and observer-v2 stop on source/hardware mismatch at visible
+  start. Their original receipts remain unchanged. A startFrame comparison alone
+  cannot establish completed-DMA corruption because transfer can be in flight.
+  observer-v3 mistakenly used the execution callback at $E005 as DMA completion.
+  It fires before DMA halts the CPU; this fixture error is preserved unchanged.
+  observer-v4 uses $E007, after the following LDX#1 completes, and proves 256 DMA
+  writes completed while the resulting hardware still differs from the source.
+  observer-v5/v6 retain all failures nonfatally, finish the settled-gameplay
+  diagnostic and remain passed=false. No failed row was dropped or relabeled.
+
+  v4 native proof SHA256:
+  a50c7498a27d6c908e1952fc8ce716755c224538221a8391578f32a4507b5e3b
+  v5 native proof SHA256:
+  7e6bb978e1d4a9d03cc32c1b4271a3ff938b2d155be04cb2bd22aaa2aa98c632
+  v6 native proof SHA256:
+  0abe5a194f513791fc5916189949501380fa0d742e843c376d8ca33177236654
+  v6 preparation SHA256:
+  a03941540622b14f17f0fb9439ddde8fd018a187d7251263d7c1dbfe0b3f49e7
+  v6 generated script SHA256:
+  e93095d9f5dd1817fee04481dba9f730f989ede25bd771459228e92e708ea23e
+
+Actual first incorrect destination and later body corruption
+  Native bank127:$E002 STA$4014, callback PC$E005, starts from OAMADDR0.
+  PPUMASK=$1E (background and sprites enabled), NMI depth1.
+  First bad transfer: DMA2, actual PPU458.
+    4014 callback: 259:74, CPU13609382.
+    First wrong write: byte102, source offset101/value0, expected destination101,
+      actual hardware OAMADDR104, pre-render -1:10, CPU13609588.
+    154/256 writes target a nonsequential hardware destination.
+    Last write: visible1:252, CPU13609896, actual address44 versus expected255.
+    Completion after LDX: visible1:259, CPU13609898, all256 writes complete.
+    Hardware still differs, including20 body bytes. Rendering-time sprite
+    evaluation changes OAMADDR; this is not a wrong source-buffer value.
+
+  All128 active DMAs in v6 have256 bus writes, and all256 values per transfer
+  exactly match the published source image. Three completed transfers corrupt
+  the resulting hardware: DMA2 at PPU458, DMA64 at PPU534, DMA109 at PPU613.
+  DMA64 corrupts other records; its seven body records remain byte-exact.
+  Settled DMA109 first wrong destination: byte228, source offset227/value128,
+    expected227, actual228, pre-render -1:11, CPU18225566.
+    29 destination writes differ;12 body bytes change in OAM indices63,0,1.
+    DMA completes pre-render -1:186, CPU18225624; hardware remains corrupted.
+    Actual body-row samples at PPU613/614 scanline102 retain the corruption.
+    The independently saved actual PPU images613/614 show changed body tiles.
+  Actual586/587 hardware OAM and body rows equal their completed source DMA93.
+  Their crowded body dropout is a separate open priority/scanline finding.
+
+Measured NMI work and IRQ
+  Source: frozen/src/reset.s regular NMI reenables Mirror_PPUMASK before
+  BankSwitchCHR and OAMandReadJoypad; SamusFreezeUpdateScreen precedes these.
+  NMI bank127:$E336; UpdateScreen bank126:$8082; CHR bank126:$8092;
+  Samus gateway bank126:$9FF6; DMA/joy bank127:$E000; IRQ bank126:$8000.
+
+  Cold PPU458:
+    NMI entry241:30; wrapper242:7 ->255:5 =1477 inclusive CPU cycles.
+    Outer UpdateScreen857 cycles; Parodius palette capture adds wrapper cost.
+    Mask on255:154; CHR410 cycles; DMA starts259:74 and completesvisible1:259.
+    VRAM packet42 bytes:28 HUD font cells +8 attribute bytes,36 data writes.
+  Settled PPU613:
+    NMI entry241:28; display off241:240.
+    Wrapper242:5 ->252:276 =1227 cycles; outer UpdateScreen1165 cycles.
+    Packet55 bytes:28 HUD font cells$2022 +8 attributes$23C0 +4 palette$3F0C
+      +3 HUD digits$207A =43 actual PPUDATA writes, all with rendering disabled.
+    Display on253:84; CHR253:103 ->256:310 =410 cycles.
+    DMA starts257:4; DMA/joy routine779 cycles endsvisible1:279.
+    Audio2:49 ->42:299 =4630 inclusive cycles, including IRQ31:30.
+  Every logged physical IRQ entry in440..640 is scanline31. The three corrupt
+  transfers have IRQ entries458/31:34,534/31:28,613/31:30. Cold transition and
+  settled corruption are both retained. NMI actual-bank/shadow/A/SP/5SMC restore
+  assertions pass; minimum sampled SP197; no lower-stack guard writes.
+  UpdateScreen revisits its own entry label between commands. Those reported
+  spans overlap; use the outermost span, never sum all entry-to-return spans.
+
+Timing-plan constraints, not a proposed/adopted patch
+  Keeping rendering off until the existing full DMA/joy routine returns would
+  enable display after visible line0 in these failures, changing HUD/IRQ timing.
+  Moving DMA early without budgeting the remaining VRAM/CHR work also shifts
+  publication relative to visible fetches. Neither is qualified as a fix.
+  A safe solution must retain complete queued writes and source audio, preserve
+  atomic bodyCHR/OAM, title/level/lag behavior and physical line31 HUD split,
+  and meet actual vblank/pre-render constraints at the worst supported packet.
+  ROOT independently owns source/CPU timing analysis and must review a timing
+  plan before this agent builds a source candidate. No body-art reorder yet.
+
+Aggregate and capture bindings
+  D/parodius-visibility-current50b5-v1/dma-diagnostic-v1/proof.json
+  SHA256 c6eb2ff9b85d71012070f604efa2c8da83be52f3aeaaeb03744b4bd9a99cba93
+  bad-DMAs.json contains exact source/hardware bytes, first wrong bus write,
+  source body/publication/transaction/rotation, NMI work and displayed epochs.
+  NMI-timings.json contains all200 NMI spans and exact PPU/CPU timing.
+  sample-bindings.json binds11 lossless actual PPU PNGs to original ARGB files,
+  actual PPU frame, publication and DMA ID. Selected frames584..588,611..616.
+  Raw51 ARGB captures and all OAM-bus/body-write/epoch logs stay external.
+  Counts:640 frames,169 real updates,129 publications,128 active DMAs,185
+  active NMIs,2220 actual CHR-bank checks,180 exact visible starts,5 mismatched
+  visible starts,3 completed-DMA mismatches and2 sampled body-row mismatches.
+  This is a bounded Easy/Octopus controller diagnostic, not full roster,
+  every-frame visual review, all-mode coverage or original-fidelity closure.
+
+Stable fresh-run commands (new output directories required)
+  python -B tools/audit/parodius_visibility_rebind.py --parent "D/parodius-visibility-current50b5-v1" --parser-root "D/final-tmnt-items-v1/lua-parser-deps-v1" --output "D/parodius-visibility-current50b5-v1/observer-NEW"
+  python -B tools/audit/parodius_visibility_run.py --packet "D/parodius-visibility-current50b5-v1/observer-NEW" --emulator "D/mmc3-flag-fix-v23/script-budget-probe-v2/emulator/Mesen.exe" --timeout 180
+  python -B tools/audit/parodius_visibility_trace_report.py --root "D/parodius-visibility-current50b5-v1" --packet "D/parodius-visibility-current50b5-v1/observer-NEW" --output "D/parodius-visibility-current50b5-v1/diagnostic-NEW"
+  Expand D to the absolute archive path above. Native diagnostic intentionally
+  exits runner1 / emulator0 with passed=false when the actual defect repeats.

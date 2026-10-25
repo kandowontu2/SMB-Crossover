@@ -1,0 +1,103 @@
+{
+  "passed": true,
+  "goal_complete": false,
+  "ROM_before": "50b51c3c69f45ef137720c47f521574097f421056e3b73296d06ba70080d2363",
+  "ROM_after": "cf0f53f012a7830c38d4a2212ceed8bc875040b5698345a83d0b7c98213eeed5",
+  "baseline_failed_proof_sha256": "0abe5a194f513791fc5916189949501380fa0d742e843c376d8ca33177236654",
+  "candidate_strict_proof_sha256": "205686793091f49b7a67cbc76c77648230f5993791a0a78f26f3de5a2dc91fac",
+  "script_sha256": "75e2033b20a603529604f3ffcd13ba167052830cc7b6131647c95c59955b4522",
+  "strict_config_verified": true,
+  "native_result_diagnostic_tag_correction": "native-result diagnostic=true is an old hardcoded descriptive tag. Actual frozen candidate config diagnostic=false; source/DMA/body-row assertions were fatal. No native receipt edited.",
+  "common_publication_OAM_images_exact": 87,
+  "PPUDATA_values_addresses_exact": true,
+  "CHR_order_values_exact": true,
+  "PPUMASK_value_order_exact": true,
+  "all_updates_publications_DMA_NMI_counts_exact": true,
+  "physical_IRQ_scanlines": [
+    31
+  ],
+  "candidate_latest_completed_DMA": {
+    "ppu": {
+      "scanline": 260,
+      "cpu": 18225552,
+      "frame": 613,
+      "cycle": 311
+    },
+    "dma_id": 109,
+    "exact_source": true,
+    "mask": 30,
+    "completed_2004_writes": 256,
+    "nmi_depth": 1,
+    "kind": "4014-complete-after-next-LDX"
+  },
+  "latest_completion_margin_before_prerender_PPU_cycles": 30,
+  "candidate_native": {
+    "actual_mode": 0,
+    "wall": 640,
+    "diagnostic": true,
+    "publications": 129,
+    "ROM_sha256": "cf0f53f012a7830c38d4a2212ceed8bc875040b5698345a83d0b7c98213eeed5",
+    "DMAs": 128,
+    "no_emulated_writes": true,
+    "dma_checks": 185,
+    "partial_DMA_visible_starts": 0,
+    "min_sampled_SP": 197,
+    "passed": true,
+    "updates": 169,
+    "actual_variant": 1,
+    "goal_complete": false,
+    "body_raster_source_mismatches": 0,
+    "scope": "Diagnostic currentROM fixed controller; preserve non-green in-flight and completed-DMA failures, independently bind actual body raster hardware. No stage clear or visibility-fix verdict.",
+    "nmis": 185,
+    "component_only": true,
+    "chr_checks": 2220,
+    "completed_DMA_source_mismatches": 0
+  },
+  "changed_actual_PPU_frames": [
+    {
+      "frame": 613,
+      "changed_pixels": 88,
+      "outside_changed_OAM_footprints": 0,
+      "raw_baseline_sha256": "108528e85be1cc0dd63851f66c764cacf30506034c59cd0439ecd8c30a758013",
+      "raw_candidate_sha256": "d973fc9c6c87da81cffd3cd6abcf7e49c1e6a3922b56724fd47df9754627ab91",
+      "bbox": [
+        121,
+        104,
+        216,
+        209
+      ]
+    },
+    {
+      "frame": 614,
+      "changed_pixels": 88,
+      "outside_changed_OAM_footprints": 0,
+      "raw_baseline_sha256": "108528e85be1cc0dd63851f66c764cacf30506034c59cd0439ecd8c30a758013",
+      "raw_candidate_sha256": "d973fc9c6c87da81cffd3cd6abcf7e49c1e6a3922b56724fd47df9754627ab91",
+      "bbox": [
+        121,
+        104,
+        216,
+        209
+      ]
+    }
+  ],
+  "scope": "Matched Octopus Easy variant1 controller640 pilot only. Full51-frame actual RGB comparison changes only613/614,88pixels each, entirely within the changed hardware OAM record footprints; remaining49 frames byte-exact. Source art/OAM publication/VRAM/CHR values are unchanged. No all-packet budget, other-mode/variant, stage-clear or sprite-limit/priority closure. Latest DMA finishes260:311, only30PPUcycles beforepreRender. Future broader fixtures must retain that narrow measured limit.",
+  "bindings": {
+    "actual-RGB-comparison.json": "fac8ce5095c4a72d320e5df7ab4d21e46ee6c67e240bf5fd48d6d2cf3321dc11",
+    "baseline-actual-PPU-000585.png": "e6427161744c1a98596329bf2fcbc46977b7e1afc548363a650376937c863930",
+    "baseline-actual-PPU-000586.png": "6aff8309536c12b49525c3db033100c83a954606788efcaf8fc5cbec8dd022f5",
+    "baseline-actual-PPU-000587.png": "6aff8309536c12b49525c3db033100c83a954606788efcaf8fc5cbec8dd022f5",
+    "baseline-actual-PPU-000612.png": "30524e2d4fb5e37fc1cd51c8352a75b703b12899b0af79d3e4ccd72e22f84dad",
+    "baseline-actual-PPU-000613.png": "fdab704da8603d2bc2dce8153b0799402796a6d8af6f874fa18b9bddf7ca7e35",
+    "baseline-actual-PPU-000614.png": "fdab704da8603d2bc2dce8153b0799402796a6d8af6f874fa18b9bddf7ca7e35",
+    "baseline-actual-PPU-000615.png": "4d3461104868ec1f27fca253cb268b92fe34f4c55e52e0a2ff22322f87ae92b3",
+    "candidate-actual-PPU-000585.png": "e6427161744c1a98596329bf2fcbc46977b7e1afc548363a650376937c863930",
+    "candidate-actual-PPU-000586.png": "6aff8309536c12b49525c3db033100c83a954606788efcaf8fc5cbec8dd022f5",
+    "candidate-actual-PPU-000587.png": "6aff8309536c12b49525c3db033100c83a954606788efcaf8fc5cbec8dd022f5",
+    "candidate-actual-PPU-000612.png": "30524e2d4fb5e37fc1cd51c8352a75b703b12899b0af79d3e4ccd72e22f84dad",
+    "candidate-actual-PPU-000613.png": "0b49780ba204e51449e87cf04ca2269c6efab289499473836c051b38ef8b3972",
+    "candidate-actual-PPU-000614.png": "0b49780ba204e51449e87cf04ca2269c6efab289499473836c051b38ef8b3972",
+    "candidate-actual-PPU-000615.png": "4d3461104868ec1f27fca253cb268b92fe34f4c55e52e0a2ff22322f87ae92b3",
+    "matched-timings.json": "13dec8befb9b2b17dd96c3414e9e723ad406ed2c59aef4ad562a0de4e8d7075a"
+  }
+}

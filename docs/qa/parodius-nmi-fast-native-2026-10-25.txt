@@ -1,0 +1,135 @@
+Private NMI copy optimization qualification - 2026-10-25
+
+Status: NOT qualified / NOT adopted. Functional CPU checks pass; the shared
+timing defect remains under heavier legitimate native packets. ROOT alone
+owns further source review and adoption. No production/Git/Downloads changes.
+
+Baseline and exact private proposal
+  Archive D = C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py
+  Base = D/parodius-visibility-current50b5-v1
+  Accepted ROM 50b51c3c69f45ef137720c47f521574097f421056e3b73296d06ba70080d2363
+  Private ROM cf0f53f012a7830c38d4a2212ceed8bc875040b5698345a83d0b7c98213eeed5
+  nmi-fast-candidate-v1/sourcepatch.patch:
+  ef12e559d546797fa4700f562341062b185df579bf413988cb208b5b76e91501
+  Only 304 ROM bytes differ: two 3-byte JMP hooks +298 bytes in bank116.
+  UpdateScreen OutputToVRAM b001c8 ->4c99c9; palette Copy ad0720 ->4cfcc9.
+  All 72,221 old linked/scoped addresses, all RAM and all CHR bytes exact.
+  No OAM/body order, art, color, audio, joypad, mask or IRQ source rewrite.
+  Five changed source files:
+    src/reset.s
+    src/parodius_bells.s
+    src/entrypoint.s
+    src/nmi_vram_fast.s (new)
+    smb1base-mmc5-expanded.cfg
+  The added NMI_VRAM_FAST segment follows PARODIUS_EXTRA_ART in bank116.
+  No new RAM, foreground scratch, farcall SMC, JSR or extra stack frame.
+
+  Fresh standard flag-off MMC3 and MMC5 builds are byte-exact to their frozen
+  baseline builds; receipt flag-off-v1/proof.json:
+  ff47b1fb406d5abf739bf2dd679f4b063e68c803657f2f27ce948d39ae5b00a6
+  MMC3 d444cac88e13fa02b29ad16100b8f08fa565ba90f8cedde192de43fb2dc8f3eb
+  MMC5 f4ffd2483c51daa4d60bb575da2da8c4d817692cda407611c243031f67520833
+
+Independent ROOT CPU checks (functional, not native timing acceptance)
+  root-fast-cpu-v1/proof.json: 20,284 cases; 12,048 transfers/all X/C/flags/Ywrap,
+  4,096 ordered 32-read palette captures, 4,064 full native packets and 76 compiled
+  IRQ boundary injections. Exact AXYP/SP, nonstack RAM, ordered PPU operations
+  and mapper banks. Palette -245 cycles; short literals can cost 21 extra cycles.
+  root-gateway-cpu-v1/proof.json: 2,304 complete real gateway cases across 24
+  numeric base IDs, 2 modes, 4 variant values, 3 packet shapes and capture/freeze
+  states. This is a synthetic state matrix, not 24x4 playable identities.
+  Actual C116 mapping from incoming13/88/116; exact function results and PPU
+  operations. A short+freeze case may cost 38 extra cycles.
+
+Matched Octopus Easy pilot: bounded PASS, preserved separately
+  candidate-native-v1/baseline-early/proof.json:
+  205686793091f49b7a67cbc76c77648230f5993791a0a78f26f3de5a2dc91fac
+  Same cold-menu/fixed-controller 640 frames as failed50b5; 169 updates,
+  129 publications, 128 DMAs, 185 active NMIs. Every DMA/source/hardware/body-row
+  assertion passes; no state writes. Actual numeric mode0, variant1.
+  The native-result diagnostic=true field is an old hardcoded display tag.
+  Frozen config diagnostic=false makes all those assertions fatal. This is
+  disclosed additively; original native receipt/script remain unchanged.
+  matched-pilot-v1/proof.json:
+  448b8d236c4be0d1d87d21e22c4ccc70f28fc1ff58e8ac829cbcc133211a7cc4
+  All 87 common published OAM images, all 200 NMI PPUDATA value/address sequences,
+  CHR writes and mask values match. All 51 actual RGB frames570..620 compared:
+  only613/614 change, 88 pixels each, inside changed hardware OAM footprints;
+  other 49 frames exact. Viewed old/new613; damaged body becomes source body.
+  Physical IRQ remains31. Latest DMA260:311 gives only 30 PPU / about 10 CPU
+  cycles before pre-render. This narrow margin prompted the broader controls.
+
+Both numeric modes x three variants: 4 PASS, 2 FAIL
+  candidate-modes-v1/preparation.json:
+  97ff066ea27356a132832a97a16203bbe619cc77f1c3c56a6f83aaf2d2a471f1
+  candidate-modes-v1/proof.json:
+  15222395277f7cf1160475929a288490b4c451e59d3b00bbf9ae83b91be49f54
+  All six profiles bind the exact private ROM and source/tool snapshots.
+  Easy reuses each identity's original fixed controller stream; Hard performs
+  legal adaptive cold-menu selection and route controls, recording every input.
+  No status, inventory, counter, RNG, OAM, actor or result writes.
+  Numeric mode/variant readback and at least 25 real updates/DMAs required.
+
+  Octopus Easy:   PASS640, mode0 variant1,169 updates128 DMAs.
+  Twinbee Easy:   PASS640, mode0 variant2,153 updates126 DMAs.
+  Pentarou Easy:  FAIL at actual PPU479 visible-start hardware mismatch.
+  Octopus Hard:   FAIL at actual PPU612 visible-start hardware mismatch.
+  Twinbee Hard:   PASS640, mode1 variant2,72 updates66 DMAs.
+  Pentarou Hard:  PASS640, mode1 variant3,56 updates52 DMAs.
+  These are three identities, with mode variants, not six new identities.
+
+Two fresh diagnostic completions retain passed=false
+  candidate-failure-diagnostic-v1/proof.json:
+  6b633e0163447339a4de50bd93a599751060d8bcc96688332b5782a1b624e05f
+  Strict inputs through failure match the new diagnostic prefixes byte-exact
+  (479 and612 lines). The preserved strict failures are not edited/replaced.
+  All 256 DMA bus values equal the published source; hardware destinations fail.
+
+  Pentarou Easy cold PPU479:
+    Actual mode0/variant3; 49 packet bytes, 3 commands, 40 data writes:
+    $2022x28 HUD font cells,$23C0x8 attributes,$3F0Cx4 palette.
+    Fast UpdateScreen931 +capture/gateway375 =1306 cycles; CHR410 cycles.
+    DMA2 starts257:244; first wrong destination byte187 expected186 ->188,
+    pre-render -1:8 CPU14234978. 70 wrong destinations; 15 body bytes damaged.
+    All 256 writes finish visible0:89 CPU14235118; hardware still incorrect.
+    Source body PnRecordV3N4. Cold479 raw PPU is outside the frozen570..620
+    capture window; exact bus/hardware proof retained, no visual verdict claimed.
+
+  Octopus Hard settled PPU612:
+    Actual mode1/variant1; 73 packet bytes, 7 commands, 52 data writes:
+    $2640x2,$2660x2,$206Dx2,$2062x6,$3F0Cx4,$2022x28,$23C0x8.
+    Fast UpdateScreen1579 +gateway62 =1641 cycles; CHR410 cycles.
+    DMA60 starts260:222; first wrong destination byte22 expected21 ->24,
+    pre-render -1:16 CPU18195792. 234 wrong destinations; 21 body bytes damaged.
+    All 256 writes finish visible3:63 CPU18196262; body rows612/613 remain bad.
+    Source body PnRecordV1N44. Actual lossless611..614 exported;612 visibly
+    changes/cuts the body. All 52 VRAM data writes occur with rendering disabled.
+
+  Actual cold-boot UpdateScreen owner assertions pass 1,095 Pentarou and 1,254
+  Octopus entries, including internal command reentries: NMIdepth1, physical
+  Cbank116, sole actual JSR return word$C002 in PnPaletteScreenUpdate.
+  Static source owners: expanded regular NMI calls SamusFreezeUpdateScreen,
+  which mapsC116 then jumps PnPaletteScreenUpdate; its JSR and the optional
+  SamusFreezeFlushPalette tail JMP retainC116. Other direct JSR UpdateScreen
+  source sites are flag-off conditional branches. IRQ leaves PRG C unchanged.
+  Physical IRQ remains line31; NMI A/SP/5SMC/bank restore guards pass, minSP197.
+  UpdateScreen repeated-entry spans overlap; do not sum them as exclusive work.
+
+Frozen broad packet and remaining work
+  broad-budget-v1/proof.json:
+  d824c5b7de8ab9119f65f9e459237aabdadf56b6fcab6024aca66b41c07ddb1f
+  genuine-failing-packets.json reconstructs all73 Hard bytes from overlapping
+  snapshots and binds exact packet/control/source/hardware/owner/PPU evidence.
+  Source/CPU further timing review is required before another private build.
+  No blind mask reorder, dropped updates, source audio cut, actor hiding,
+  eight-sprite-limit disable or body-art reorder has been applied.
+  Full affected routes and heavier packet budget acceptance remain open.
+  Original586/587 crowded visibility and Sophia crowded overlap remain open;
+  DMA correctness does not establish their closure or every-item/full-roster
+  completion. All original negative receipts and raw captures remain external.
+
+Stable fresh commands
+  python -B tools/audit/parodius_visibility_modes_prepare.py --parent "D/parodius-visibility-current50b5-v1" --rom "D/parodius-visibility-current50b5-v1/nmi-fast-candidate-v1/candidate.nes" --expect-sha cf0f53f012a7830c38d4a2212ceed8bc875040b5698345a83d0b7c98213eeed5 --routes "D/current8ff-roster-v1" --parser-root "D/final-tmnt-items-v1/lua-parser-deps-v1" --output "D/parodius-visibility-current50b5-v1/modes-NEW"
+  python -B tools/audit/parodius_visibility_modes_run.py --packet "D/parodius-visibility-current50b5-v1/modes-NEW" --emulator "D/mmc3-flag-fix-v23/script-budget-probe-v2/emulator/Mesen.exe" --timeout 180
+  Expand D to the absolute archive path above. New output directories only;
+  no previous receipts are overwritten. Exactly one sequential native worker.

@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "native_run": false,
+  "baseline_ROM_sha256": "50b51c3c69f45ef137720c47f521574097f421056e3b73296d06ba70080d2363",
+  "candidate_ROM_sha256": "cf0f53f012a7830c38d4a2212ceed8bc875040b5698345a83d0b7c98213eeed5",
+  "tool_sha256": "36f3075233d47ad71659b0a38fbdc5e3748552b1076abd0c14263218d98d8985",
+  "cases": 2304,
+  "cases_sha256": "0d58af5c2c8d3001469c19f4a8c5402292848086347d5df0edcd8260fb3514cf",
+  "capture_cases": 18,
+  "cycle_delta_min": -317,
+  "cycle_delta_max": 38,
+  "equality": "Full linked gateway: AXYP/SP, ordered nonstack writes, actual palette reads, nonstack application RAM and mapper banks.",
+  "ownership": "All calls execute the real gateway from three incoming C banks. It maps116 before either transfer, preserves the incoming CurrentBankC shadow for outer NMI restoration, and performs only guarded32-byte palette capture.",
+  "limits": "Synthetic bounded CPU states across24 numeric base IDs and four variant values; these are not24\u00d74 playable identities or native mode/cadence/PPU acceptance."
+}
