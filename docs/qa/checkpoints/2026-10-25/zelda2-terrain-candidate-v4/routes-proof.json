@@ -1,0 +1,63 @@
+{
+  "passed": true,
+  "complete": true,
+  "goal_complete": false,
+  "ROM_sha256": "f00c2a7ad0459a3cd0b369bb4fbc9f374dc27d9335b2cc1fe1867f3f98d73d23",
+  "runs": [
+    {
+      "identity": "zelda2",
+      "mode": "easy",
+      "folder": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\zelda2-terrain-candidate-v4\\native-routes-v3\\zelda2-easy",
+      "exit": 0,
+      "result": {
+        "cleared": true,
+        "world_1_1_seen": true,
+        "frames": 4678,
+        "polls": 4677,
+        "deaths": 0,
+        "failure": null,
+        "stage_entries": {
+          "0-1": 4654,
+          "0-0": 413
+        }
+      },
+      "motion": {
+        "passed": true,
+        "checks": 2762,
+        "max_world_step": 2,
+        "max_camera_step": 3,
+        "game_state_writes": false
+      },
+      "source_policy_sha256": "716686b854eb4cf2e055110253b1a3f3a58627fd00fc00611c676271f43d2dd4",
+      "passed": true
+    },
+    {
+      "identity": "zelda2",
+      "mode": "hard",
+      "folder": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\zelda2-terrain-candidate-v4\\native-routes-v3\\zelda2-hard",
+      "exit": 0,
+      "result": {
+        "cleared": true,
+        "world_1_1_seen": true,
+        "frames": 5048,
+        "polls": 5047,
+        "deaths": 0,
+        "failure": null,
+        "stage_entries": {
+          "0-1": 5024,
+          "0-0": 521
+        }
+      },
+      "motion": {
+        "passed": true,
+        "checks": 2822,
+        "max_world_step": 4,
+        "max_camera_step": 3,
+        "game_state_writes": false
+      },
+      "source_policy_sha256": "716686b854eb4cf2e055110253b1a3f3a58627fd00fc00611c676271f43d2dd4",
+      "passed": true
+    }
+  ],
+  "scope": "Fresh controller-only1-1 routes with existing policies. No geometry, inventory or physics writes. Native body-CHR and completed-loop world<=8/camera0..4 guards. Failed original policies are retained; successful discovery still requires an independent physical PPU replay. Not every powerup, moving-platform or source enemy-hitbox qualification."
+}
