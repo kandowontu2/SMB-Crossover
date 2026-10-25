@@ -55,6 +55,13 @@ def sha(p):
 
 
 def lua(value):
+    # Python bool subclasses int; emit actual Lua literals before the generic
+    # numeric fallback. Bare True/False are undefined Lua globals, so a true
+    # configuration flag would otherwise silently become nil.
+    if isinstance(value, bool):
+        return 'true' if value else 'false'
+    if value is None:
+        return 'nil'
     if isinstance(value, str):
         return json.dumps(value)
     if isinstance(value, list):

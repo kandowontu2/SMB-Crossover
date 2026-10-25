@@ -674,3 +674,21 @@ Independent ROOT rerun on exact529:14 real cold-menu enemy-contact native cases;
 Receipts build/verification/cv3-injury/proof.json; small copies checkpoints/2026-10-25/cv3-injury-529; full native/CPU/lossless external D/cv3-dmc-root529-v1 and D/cv3-dmc-followup-v1. Do not rerun adopt_cv3_injury_once.py. Authentic primary72 and distinct Sypha75/general priority remain open; source-only installed-asset/shared bank-capacity audit is underway before a safe MMC5 fixed-bank mirror. MMC3 fixed E-window cannot use that mirror architecture. Private current-ae97 MMC32334 build was pushed2774ab2, not installed; it is now an older hash after529.
 
 Acquired62-case Pit/Rygar/Scrooge ability packet on84 pushed aa30a34. Full37/every-item fields remain false. Next turtle8profile lifecycle fixture is source-only, preferring actual25 native defeats for gear drops and original-ROM verification before calling uncapped boomerang catches a defect. Mac authentic native v5 d7e585(parent220) is HELD: exact600 gameplay rows/1021wallframes but draw595 to591 and lag5 to9. Agent is optimizing only inactive original SFX scans, requiring all original golden state/stores before native rerun. A owns1 native worker; ROOT released its worker after529; B/C source-only. Max2 project Mesen processes. User reconfirmed existing characters first, then new roster; no menu-row implementation.
+
+2026-10-25 CONFIGURATION COVERAGE CORRECTION: Shared Python-to-Lua boolean
+serialization emitted bare True/False (nil). Nine final Hard labels across
+18 Pit/Rygar/Scrooge receipts are withdrawn; actual mode was Easy0. Old raw
+receipts/captures remain unchanged. Fresh exact529 Hard numeric-mode and
+actual RAM-readback tests pass six profiles:9 progression+31 ability cases,
+15 physical collections/3 caps/720 transformations. See final-item-mode-
+correction-2026-10-25.txt, final-item-mode-native-2026-10-25.txt and
+lua-configuration-correction-2026-10-25.txt. Root inventoried1056 frozen Lua
+scripts across17 selected roots;40 hits classified, including three failed
+unadopted Zelda Fairy attempts. Accepted Zelda v4 has integer flags; Mac/CV3
+mode configurations were numeric. No whole-roster completion claim.
+Existing roster first; no new characters/menu row. Installed529 unchanged.
+A Mac v7 direct source-ZP relocation passed original golden CPU state/stores
+and is granted one native worker on donor220, pending current composition.
+B genuine529 Hard packet passed; one worker for turtle lifecycle follow-up.
+C full CV3 shared fixed-bank mirror implementation remains source-only.
+Max2 project Mesen workers; user emulator untouched. ROOT native grant idle.

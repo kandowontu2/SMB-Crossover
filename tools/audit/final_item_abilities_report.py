@@ -37,6 +37,7 @@ def main():
             z = read(folder / 'proof.json')
             n = z['native']
             assert z['passed'] and z['emulator_exit'] == 0 and n['passed']
+            assert n['actual_mode_readback'] == int(mode == 'hard') and n['hard'] == (mode == 'hard'), 'Reject historical nil-boolean mode labels; see explicit mode correction'
             assert z['ROM_sha256'] == ROM84 == sha(folder / 'candidate.nes')
             assert z['family'] == family and z['mode'] == mode
             assert len(n['abilities']) == expected

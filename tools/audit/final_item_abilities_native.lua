@@ -1,9 +1,11 @@
 -- Runs in the same lexical chunk as the immutable progression fixture.
 -- Only legal arena/target setup is written; acquired tier and ability state
 -- remain owned by actual ROM input, movement, collision and native returns.
+assert(type(C.hard)=='boolean'and(C.mode_value==0 or C.mode_value==1)and C.hard==(C.mode_value==1),'Explicit Lua boolean and numeric requested mode')
 local abilityResults,abilityQueue={},{}
 local abilityIndex,abilityTier,abilityOrigin=0,0,''
 local currentAbility=nil
+local modeReadbackLogged=false
 local abilityTrace=assert(io.open(OUTPUT..'ability-updates.csv','w'))
 abilityTrace:write('wall,update,tier,case,age,kind,x,y,state,vyHi,fuel,flight,reach,returning,pogo,enemyFlag,enemyState,enemyHealth,injury\n')
 local function health()return r('MmEnemyHealthLo')+256*r('MmEnemyHealthHi')end
@@ -27,6 +29,8 @@ local function stageEnemy(raised)
  currentAbility.enemySpawned=true;event('ability-target-staged',{kind='native stationary Goomba/default health',x=x,y=y,raised=raised})
 end
 abilityBegin=function(tier,origin)
+ assert(r('CrossoverBehaviorVersion')==C.mode_value,'Actual numeric mode readback before abilities')
+ if not modeReadbackLogged then event('actual-numeric-mode-readback',{actual=r('CrossoverBehaviorVersion'),requested=C.mode_value});modeReadbackLogged=true end
  assert(r('PlayerStatus')==tier,'Ability tier is actual cold/physical result')
  abilityTier=tier;abilityOrigin=origin;abilityQueue={};abilityIndex=0
  for _,q in ipairs(C.abilities)do if q.tier==tier then abilityQueue[#abilityQueue+1]=q end end
@@ -184,7 +188,7 @@ abilityFinish=function()
 end
 abilityReport=function()
  abilityTrace:close()
- local f=assert(io.open(OUTPUT..'native-abilities.json','w'));f:write(json({passed=true,goal_complete=false,family=C.family,hard=C.hard,physical_collections=records,abilities=abilityResults,updates=updates,nmis=nmis,minSP=minSP,apuWrites=apuWrites,irq_scroll_stores=irqStores,hardware_chr_checks=chrChecks,complete_dma_checks=dmaChecks,scope='Cold0 and physically acquired1/2; actual head/reveal/full rise/contact/transforms, then native controller abilities. World/target placement disclosed; no tier/fuel/flight/reach/pogo injection. No all-item/campaign/original-pixel/audio-fidelity claim.'}));f:close()
+ local f=assert(io.open(OUTPUT..'native-abilities.json','w'));f:write(json({passed=true,goal_complete=false,family=C.family,hard=C.hard,actual_mode_readback=r('CrossoverBehaviorVersion'),physical_collections=records,abilities=abilityResults,updates=updates,nmis=nmis,minSP=minSP,apuWrites=apuWrites,irq_scroll_stores=irqStores,hardware_chr_checks=chrChecks,complete_dma_checks=dmaChecks,scope='Cold0 and physically acquired1/2; actual head/reveal/full rise/contact/transforms, then native controller abilities. World/target placement disclosed; no tier/fuel/flight/reach/pogo injection. No all-item/campaign/original-pixel/audio-fidelity claim.'}));f:close()
 end
 for _,name in ipairs({'XgPitFuel','XgPitFlight','XgDiskReach','XgDiskReturning','ScPogo','ScEnemy','MmEnemyHealthLo','MmEnemyHealthHi'})do
  emu.addMemoryCallback(function(_,v)if phase=='ability'and not writeBoundary then event('native-ability-write',{name=name,before=r(name),value=v})end end,emu.callbackType.write,assert(L[name]))

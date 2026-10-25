@@ -3,12 +3,19 @@ from pathlib import Path
 import argparse,hashlib,json,re,shutil,subprocess,sys
 from check_tmnt_render_oa import address,location
 from link_pit_rygar_sophia_audit_cpu import scoped_load
-from observe_chip_committed_write import lua
 
 ROOT=Path(__file__).resolve().parents[2]
-ROM84='84e55b6d60da4be5550d823f88ee40a9b220dbef5a1e8dd21de3d69aa28cb328'
+TARGET='52918588bab0eec3f3a1f857bf084d2d799e88a5c781c75233c098ccc5f54f3f'
 BASE_SHA='5a3599ae1a88008cc828539686d2939b5ffd54c25ebaba8adab01fef866fbe6b'
 sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
+
+def lua(value):
+ if isinstance(value,bool):return 'true' if value else 'false'
+ if isinstance(value,str):return json.dumps(value)
+ if isinstance(value,list):return '{'+','.join(lua(v)for v in value)+'}'
+ if isinstance(value,dict):return '{'+','.join('['+lua(k)+']='+lua(v)for k,v in value.items())+'}'
+ if value is None:return 'nil'
+ assert isinstance(value,(int,float));return str(value)
 
 def replace(text,old,new):
  assert text.count(old)==1,old[:160]
@@ -25,12 +32,16 @@ def compose(base,module):
  return text+'\n'+module.read_text()
 
 def main():
- p=argparse.ArgumentParser(description=__doc__);p.add_argument('--rom',type=Path,required=True);p.add_argument('--output',type=Path,required=True);p.add_argument('--family',choices=['pit','rygar','scrooge'],required=True);p.add_argument('--mode',choices=['easy','hard'],required=True);p.add_argument('--run-native',action='store_true');p.add_argument('--emulator',type=Path)
- a=p.parse_args();assert sha(a.rom)==ROM84;a.output.mkdir(parents=True,exist_ok=False);b=scoped_load(a.rom)
+ p=argparse.ArgumentParser(description=__doc__);p.add_argument('--rom',type=Path,required=True);p.add_argument('--output',type=Path,required=True);p.add_argument('--family',choices=['pit','rygar','scrooge'],required=True);p.add_argument('--mode',choices=['easy','hard'],required=True);p.add_argument('--suite',choices=['progression','abilities'],default='abilities');p.add_argument('--expected-sha256',default=TARGET);p.add_argument('--run-native',action='store_true');p.add_argument('--emulator',type=Path)
+ a=p.parse_args();assert sha(a.rom)==a.expected_sha256;a.output.mkdir(parents=True,exist_ok=False);b=scoped_load(a.rom)
  for ext in ['.nes','.dbg','.lbl','.map']:shutil.copy2(a.rom.with_suffix(ext),a.output/('candidate'+ext))
- base=ROOT/'tools/audit/final_item_matrix_progressive.lua';module=ROOT/'tools/audit/final_item_abilities_native.lua';guard=ROOT/'tools/audit/final_item_abilities_failure.lua'
- native=compose(base,module)
- for p0 in [base,module,guard]:shutil.copy2(p0,a.output/p0.name)
+ base=ROOT/'tools/audit/final_item_matrix_progressive.lua';module=ROOT/'tools/audit/final_item_abilities_native.lua';guard=ROOT/'tools/audit/final_item_abilities_failure.lua';modeguard=ROOT/'tools/audit/final_item_abilities_mode_guard.lua'
+ if a.suite=='abilities':native=compose(base,module)
+ else:
+  assert sha(base)==BASE_SHA;native='local numericModeObserved=false\n'+base.read_text()
+  native=replace(native,'family=C.family,hard=C.hard,cases=records','family=C.family,hard=C.hard,actual_mode_readback=r(\'CrossoverBehaviorVersion\'),numeric_mode_requested=C.mode_value,mode_guard_executed=numericModeObserved,cases=records')
+  native+='\n'+modeguard.read_text()
+ for p0 in [base,module,guard,modeguard]:shutil.copy2(p0,a.output/p0.name)
  names=['GameLoop','GuestBeginPowerup','GuestPowerupUpdate','MarioSourcePowerupCollision','NonMaskableInterrupt','IrqScrollSplit','RosterOamReady','PitFlightUpdate','ExpandedWeapons::CatchDisk','MegaManWeapons::DamageEnemy','ShellOrBlockDefeat','ScroogeMovement::Bounce','ScroogePogoContact']
  hooks={n:dict(address=address(b,n),physical_bank=(location(b,n)-16)//8192,bytes=list(b['raw'][location(b,n):location(b,n)+3]))for n in names}
  for key,n in [('finish','GameLoop'),('NmiReturn','NonMaskableInterrupt')]:
@@ -51,17 +62,19 @@ def main():
    abilities.append(dict(name=f'pogo-ground-release-tier{tier}',kind='pogo_ground',tier=tier,face=1,limit=280))
    abilities += [dict(name=f'pogo-enemy-tier{tier}-face{face}',kind='pogo_enemy',tier=tier,face=face,limit=200)for face in[1,2]]
  used=set(re.findall(r"'([A-Za-z_][A-Za-z_0-9]*)'",native+guard.read_text()))
- cfg=dict(family=a.family,character=character,slot=slot,shot=shot,hard=a.mode=='hard',hooks=hooks,irq_scroll_stores=irq,powerup_sfx=address(b,'Sfx_PowerUpGrab'),abilities=abilities,steps=[dict(type=0,before=0,after=1),dict(type=1,before=1,after=2)],ram={n:address(b,n)for n in used if n in b['syms']},art={n:dict(address=address(b,n),bank=(location(b,n)-16)//8192)for n in ['MTileTopLeft','MTileTopRight','MTileBotLeft','MTileBotRight','MTileAttribute']},smc_fields=[address(b,n)+1 for n in ['NextBank_SMC','SafecallA_SMC','SafereturnA_SMC','FarcallJmpTarget_SMC']]+[address(b,'FarcallJmpTarget_SMC')+2])
+ steps=[dict(type=0,before=0,after=1),dict(type=1,before=1,after=2)]+([dict(type=1,before=2,after=2)]if a.suite=='progression'else[])
+ cfg=dict(family=a.family,character=character,slot=slot,shot=shot,hard=a.mode=='hard',mode_value=int(a.mode=='hard'),hooks=hooks,irq_scroll_stores=irq,powerup_sfx=address(b,'Sfx_PowerUpGrab'),abilities=abilities if a.suite=='abilities'else[],steps=steps,ram={n:address(b,n)for n in used if n in b['syms']},art={n:dict(address=address(b,n),bank=(location(b,n)-16)//8192)for n in ['MTileTopLeft','MTileTopRight','MTileBotLeft','MTileBotRight','MTileAttribute']},smc_fields=[address(b,n)+1 for n in ['NextBank_SMC','SafecallA_SMC','SafereturnA_SMC','FarcallJmpTarget_SMC']]+[address(b,'FarcallJmpTarget_SMC')+2])
  direct=set(re.findall(r"\b[wr]\('([A-Za-z_][A-Za-z_0-9]*)'",native));assert not direct-set(cfg['ram']),direct-set(cfg['ram'])
- script=a.output/'run.lua';script.write_text('FINAL_ITEM_PROGRESSIVE='+lua(cfg)+'\n'+guard.read_text()+'\n'+native,encoding='utf-8');(a.output/'config.json').write_text(json.dumps(cfg,indent=2)+'\n')
- proof=dict(passed=False,goal_complete=False,status='prepared_not_native_run',ROM_sha256=ROM84,family=a.family,mode=a.mode,base_fixture_sha256=sha(base),ability_module_sha256=sha(module),failure_guard_sha256=sha(guard),runner_sha256=sha(Path(__file__)),script_sha256=sha(script),scope='Cold baseline0, actual physical head/block reveal/rise/contact/transforms0→1→2, then acquired-tier abilities. World/enemy states explicitly staged; no tier/inventory/fuel/flight/reach/pogo state injection.',abilities=abilities)
+ rendered=lua(cfg);assert '["hard"]='+('true'if a.mode=='hard'else'false')in rendered
+ script=a.output/'run.lua';script.write_text('FINAL_ITEM_PROGRESSIVE='+rendered+'\n'+guard.read_text()+'\n'+native,encoding='utf-8');(a.output/'config.json').write_text(json.dumps(cfg,indent=2)+'\n')
+ proof=dict(passed=False,goal_complete=False,status='prepared_not_native_run',ROM_sha256=a.expected_sha256,family=a.family,mode=a.mode,suite=a.suite,numeric_mode_requested=cfg['mode_value'],base_fixture_sha256=sha(base),ability_module_sha256=sha(module)if a.suite=='abilities'else None,mode_guard_sha256=sha(modeguard)if a.suite=='progression'else None,failure_guard_sha256=sha(guard),runner_sha256=sha(Path(__file__)),script_sha256=sha(script),scope='Actual numeric mode readback; cold physical head/block reveal/rise/contact/transforms0→1→2, plus cap/use or acquired abilities by suite. World/enemy states staged; no tier/inventory/fuel/flight/reach/pogo state injection.',abilities=cfg['abilities'])
  (a.output/'preparation.json').write_text(json.dumps(proof,indent=2)+'\n')
  if a.run_native:
   assert a.emulator and a.emulator.is_file()
   with(a.output/'host.log').open('w')as f:
    result=subprocess.run([sys.executable,str(ROOT/'tools/audit/run_mesen_isolated.py'),'--output',str(a.output),'--emulator',str(a.emulator),str(script),str(a.output/'candidate.nes'),'--timeout','150','--option=--doNotSaveSettings','--option=--nes.ramPowerOnState=AllZeros','--option=--nes.randomizeCpuPpuAlignment=false','--option=--nes.randomizeMapperPowerOnState=false'],stdout=f,stderr=subprocess.STDOUT)
-  q=a.output/'native-abilities.json';n=json.loads(q.read_text())if q.exists()else{}
-  proof.update(passed=result.returncode==0 and n.get('passed',False),status='native_finished',emulator_exit=result.returncode,emulator_sha256=sha(a.emulator),native=n)
+  q=a.output/('native-abilities.json'if a.suite=='abilities'else'native-progressive.json');n=json.loads(q.read_text())if q.exists()else{}
+  proof.update(passed=result.returncode==0 and n.get('passed',False)and n.get('actual_mode_readback')==cfg['mode_value']and n.get('hard')==cfg['hard'],status='native_finished',emulator_exit=result.returncode,emulator_sha256=sha(a.emulator),native=n)
   (a.output/'proof.json').write_text(json.dumps(proof,indent=2)+'\n');print(json.dumps(dict(passed=proof['passed'],family=a.family,mode=a.mode,exit=result.returncode,abilities=len(n.get('abilities',[])),proof=str(a.output/'proof.json'))));raise SystemExit(0 if proof['passed']else 1)
  print(json.dumps(dict(status=proof['status'],family=a.family,mode=a.mode,abilities=len(abilities))))
 
