@@ -1,0 +1,1387 @@
+{
+  "passed": true,
+  "goal_complete": false,
+  "ROM_sha256": "84e55b6d60da4be5550d823f88ee40a9b220dbef5a1e8dd21de3d69aa28cb328",
+  "native_runs": 6,
+  "physical_block_cases": 18,
+  "committed_transform_updates": 720,
+  "game_updates": 7050,
+  "nmis": 7044,
+  "irq_scroll_stores": 7050,
+  "hardware_chr_checks": 84528,
+  "complete_dma_checks": 6582,
+  "apu_writes": 40462,
+  "minimum_sampled_sp": 217,
+  "raw_ppu_captures": 150,
+  "runs": [
+    {
+      "family": "pit",
+      "mode": "easy",
+      "proof": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-pit-easy-native-v1\\proof.json",
+      "proof_sha256": "2f94c455616b7e039143b22f60ec1114763bac10db779f8631a12acb635e6b08",
+      "fixture_sha256": "5a3599ae1a88008cc828539686d2939b5ffd54c25ebaba8adab01fef866fbe6b",
+      "runner_sha256": "d9976c3838de08a9ae250d734bd2d7914fb092dcaa86df4717796ba6f72cc2a1",
+      "script_sha256": "2fe9c009fb745c6266ca77d414cce89de0bbc520d1e307aaa6f0750de8344506",
+      "native": {
+        "nmis": 1174,
+        "hardware_chr_checks": 14088,
+        "updates": 1175,
+        "scope": "Actual head-bump/reveal/native full rise; explicit post-rise collision placement; cold selection and source-owned transformation/use. No campaign claim",
+        "complete_dma_checks": 1135,
+        "passed": true,
+        "irq_scroll_stores": 1175,
+        "apuWrites": 5932,
+        "minSP": 217,
+        "family": "pit",
+        "cases": [
+          {
+            "attackAtUpdate": 257,
+            "collected": 486,
+            "mature": 393,
+            "heldX": 112,
+            "revealY": 152,
+            "beginCalls": 1,
+            "after": 1,
+            "before": 0,
+            "expected": 1,
+            "attackObserved": true,
+            "transformCalls": 60,
+            "heldPose": 0,
+            "cleanupObserved": true,
+            "type": 0,
+            "heldY": 176,
+            "headBlockObserved": true,
+            "heldPage": 0,
+            "staged": 316,
+            "revealed": 329,
+            "ownerCalls": 1,
+            "apuBefore": 129,
+            "collisionPlaced": 426
+          },
+          {
+            "attackAtUpdate": 659,
+            "collected": 888,
+            "mature": 797,
+            "heldX": 112,
+            "revealY": 152,
+            "beginCalls": 1,
+            "after": 2,
+            "before": 1,
+            "expected": 2,
+            "attackObserved": true,
+            "transformCalls": 60,
+            "heldPose": 0,
+            "cleanupObserved": true,
+            "type": 1,
+            "heldY": 176,
+            "headBlockObserved": true,
+            "heldPage": 0,
+            "staged": 718,
+            "revealed": 731,
+            "ownerCalls": 1,
+            "apuBefore": 2161,
+            "collisionPlaced": 828
+          },
+          {
+            "attackAtUpdate": 1001,
+            "collected": 1231,
+            "mature": 1197,
+            "heldX": 112,
+            "revealY": 152,
+            "beginCalls": 1,
+            "after": 2,
+            "before": 2,
+            "expected": 2,
+            "attackObserved": true,
+            "transformCalls": 0,
+            "heldPose": 0,
+            "cleanupObserved": true,
+            "type": 1,
+            "heldY": 176,
+            "headBlockObserved": true,
+            "heldPage": 0,
+            "staged": 1120,
+            "revealed": 1133,
+            "ownerCalls": 1,
+            "apuBefore": 4271,
+            "collisionPlaced": 1230
+          }
+        ],
+        "goal_complete": false
+      },
+      "captures": [
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-pit-easy-native-v1\\block-1.argb",
+          "sha256": "38ad979594e565147fec911c0d30c2d09e1e2161b4e6c26cdd10bd4d412474b7",
+          "png_sha256": "c07f31ebc1b4c875aa86e8610e1f2489b7c5d08339cb028a10a59f4089101f99"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-pit-easy-native-v1\\reveal-1.argb",
+          "sha256": "fa47492154242ccf7c5baac62c5ac4d6fb352a57323475f706a92d704b93dc25",
+          "png_sha256": "00147081a088f7119bd1ba633b218b177dec19b5329c2d2c59fdb2d68e55b046"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-pit-easy-native-v1\\mature-1.argb",
+          "sha256": "58b351e7770badffc07601bae427daebc53dde5659cdee87a25b6baab8f055fd",
+          "png_sha256": "8eb61c8e9e1ff3ed57ed95115afa670d8d5f398aeeed0baa54e6ae2d944f2ec4"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-pit-easy-native-v1\\transform-1-6.argb",
+          "sha256": "641aba7ce8c4a69e502d747d5b94610ced4d3225e314a177708fe183716b93a8",
+          "png_sha256": "100c612c5f6cb54bb671a3d44e68b8bd1458c24381f40728e86a993a688739c8"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-pit-easy-native-v1\\transform-1-30.argb",
+          "sha256": "6d1f032201993cad0660d08ad4241be762c6f75d43e1218314b1f7ed970f11a3",
+          "png_sha256": "7a1920db2f5407f39e7da6f04251f95bc367bad729cf93e25c1b0582c6454571"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-pit-easy-native-v1\\collected-1.argb",
+          "sha256": "04c727d4f0b0463b6c887ad3ee9aee2565e2f882854030da5ffb5172ce6cef3f",
+          "png_sha256": "f70c59b91a6341391830155f372e86c1dee6b9935920ceacb9c13227d3676329"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-pit-easy-native-v1\\attack-first-1.argb",
+          "sha256": "30db610fcfe22dc5b94df749977f95ca33b5901a503af781aa91276d619d522a",
+          "png_sha256": "db46505a52786ffcb58736ea25ad686f08a9703044cc369a57c969658d2e5a48"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-pit-easy-native-v1\\attack-live-1.argb",
+          "sha256": "e4f765ff7c137366451a34085d0febd8d1e0b48ce53138af6b841444eb2852ca",
+          "png_sha256": "425636499c5043338d5851844da86579fe656674bb982130da53100686e3a945"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-pit-easy-native-v1\\used-1.argb",
+          "sha256": "c0fd2fdfb965f3ff2658e4fe387363b491fdcdc98d317340f0b832806366d1c3",
+          "png_sha256": "651a68752d5ca6d241d4f3d3c43699a47b8999965f5a068515363175b7e26618"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-pit-easy-native-v1\\block-2.argb",
+          "sha256": "7a105dd5ecb9545b6676b09342f32dcd27f9462cb28f86d6c5f4784a5d083202",
+          "png_sha256": "aeccc3fed3d54428b62927d904b0b846722062534dfba0b466df662db65ac1fe"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-pit-easy-native-v1\\reveal-2.argb",
+          "sha256": "f16572c823714853ff4832715813d9d7a6a894a74c015023abf4b30c23fc37a7",
+          "png_sha256": "417aca75617976423ac847c8bbe3b66625127859cd88f4b54ad1e99c833b201a"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-pit-easy-native-v1\\mature-2.argb",
+          "sha256": "954d62e7b08fdf9933302a1569ac2dda166f236e55703de06b9950d985c1cfc8",
+          "png_sha256": "52bcb8b5124616914ad16bec9f5f97f220109414a780c4ac0e989614d721d057"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-pit-easy-native-v1\\transform-2-6.argb",
+          "sha256": "ae154e62a99b3b3463e440688e39a6c924f5e28dbfb8d456581086f2d6f851cb",
+          "png_sha256": "474de9493fb21eed3ed92272eee67a0caad7d4d11b1cd28a6338387efabb4e88"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-pit-easy-native-v1\\transform-2-30.argb",
+          "sha256": "5a83bf10990f5538e81564572a7a993d128adba708572e4853e4ba433b2e3861",
+          "png_sha256": "db1c50c7d0d82a8464cb541255eeeb2bd3da834547ecedff1ba082f5d90e4c7c"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-pit-easy-native-v1\\collected-2.argb",
+          "sha256": "41b9dddd2931e184d5da60901e3e255adf38e7293e71a22831d4643168677b2e",
+          "png_sha256": "7f3aa6c15e24d867b6a531c29af00baf6cc3f240c5c2ad6d4cdb5ba227876116"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-pit-easy-native-v1\\attack-first-2.argb",
+          "sha256": "d812008420acbee3e35cadc02329439495203855b1048a1b74baf66d4e2ccc1b",
+          "png_sha256": "599d5e1521d19adf74b993e5bf5c24e2de9d981cacd430f41a6652ecb57927aa"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-pit-easy-native-v1\\attack-live-2.argb",
+          "sha256": "3e8cc86c286e4d1215b82b588f9de5376fcf98b80ed383ade8b9ca47ac4b05b3",
+          "png_sha256": "680f126de59bd3b7d789dfc38987c5ded0a9b304d9eeced4d1931a5816535269"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-pit-easy-native-v1\\used-2.argb",
+          "sha256": "df58d2db4f317e5851c66d333501bdc818206fff33702718f0e54c888a0eee6e",
+          "png_sha256": "519e1972c40c69c228b344bee7945f19444a93c0fa7b6b53f4723d7f9170a0b1"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-pit-easy-native-v1\\block-3.argb",
+          "sha256": "dddd05ea291b7c335bd01c01284eaa4b32ab1c779c5968dc49fc61abbd6bd425",
+          "png_sha256": "b76dde38d3b9ed186d32ea781776e00f9dc14a22e46349a76defc3c849337521"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-pit-easy-native-v1\\reveal-3.argb",
+          "sha256": "7bf02bd48095bbea60d5305f2f24ed6ce755bcbe0ebedca79d228483f28ae76e",
+          "png_sha256": "bc291c979726e7ff6d28c63aa22457199d04081e00503ed787bcdcd50711006d"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-pit-easy-native-v1\\mature-3.argb",
+          "sha256": "75b36c505637a92c80de0f59cbcbd9f2574d5fdee9853714395a8dedf15971a9",
+          "png_sha256": "55b055b950f5c6b0bfd9bb0c02fcb9323e290f4164ad2ba3ffcef5c5fce3a17b"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-pit-easy-native-v1\\collected-3.argb",
+          "sha256": "bc8e82e0c93753490e87234c6330fc139b4d3f2da91605028cec2ee8da3c07b6",
+          "png_sha256": "2f5b5e4d88641524c00ecd63e99698a4f4156c216a9e75f614b1c6e555852cf9"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-pit-easy-native-v1\\attack-first-3.argb",
+          "sha256": "8ab1d383cc847c7a2745e6cb8f5522568e89d043d6022ab83cd3eb56fc6d80d5",
+          "png_sha256": "7b96ab212d79c87ae6cdf68ca9276669afb07a884cbcac9886ec98a394754eb7"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-pit-easy-native-v1\\attack-live-3.argb",
+          "sha256": "2e613605846aa24a26e0a49ea68554f4275ade2dbacad6dcba014af44e60af07",
+          "png_sha256": "d59a13bd8e634360135ff0924abd637b213822079967b74593384a993545e396"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-pit-easy-native-v1\\used-3.argb",
+          "sha256": "1097220c2011dc66518cce8123937b11d6823e5b16825a7cd5c10330df036d13",
+          "png_sha256": "2bf4f2e58f7327b4907fc60326383771d2f626babb08470102ad07b59c8d5102"
+        }
+      ],
+      "overview": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-native-summary-v1\\pit-easy-overview.png",
+      "overview_sha256": "6ee6550fb1fe845c76d75c0e90ede3fdf0b3a76821537beab1a2efc3b32a985c",
+      "apu_trace_sha256": "e0a666e1b5337bbebf463d266ed71d2b857a20d2f276cab2aca20e7aee315562",
+      "events_sha256": "221b06f3e5d0b532f34c097c5188923cc91ff67a9e081bae2181b784dfdae18b"
+    },
+    {
+      "family": "pit",
+      "mode": "hard",
+      "proof": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-pit-hard-native-v1\\proof.json",
+      "proof_sha256": "58de6736b35b7ca3e88c7839e4ba74c5f0e5871edcfc035534fb6f444d3b96f5",
+      "fixture_sha256": "5a3599ae1a88008cc828539686d2939b5ffd54c25ebaba8adab01fef866fbe6b",
+      "runner_sha256": "d9976c3838de08a9ae250d734bd2d7914fb092dcaa86df4717796ba6f72cc2a1",
+      "script_sha256": "73ec0dbe6e62627e452a0a1315b9af7e73bc2d820cc23520124427e8b0a2c80a",
+      "native": {
+        "goal_complete": false,
+        "family": "pit",
+        "nmis": 1174,
+        "passed": true,
+        "apuWrites": 5932,
+        "scope": "Actual head-bump/reveal/native full rise; explicit post-rise collision placement; cold selection and source-owned transformation/use. No campaign claim",
+        "complete_dma_checks": 1135,
+        "irq_scroll_stores": 1175,
+        "cases": [
+          {
+            "staged": 316,
+            "beginCalls": 1,
+            "after": 1,
+            "headBlockObserved": true,
+            "attackAtUpdate": 257,
+            "type": 0,
+            "heldY": 176,
+            "ownerCalls": 1,
+            "cleanupObserved": true,
+            "heldX": 112,
+            "collected": 486,
+            "before": 0,
+            "heldPose": 0,
+            "apuBefore": 129,
+            "heldPage": 0,
+            "transformCalls": 60,
+            "expected": 1,
+            "mature": 393,
+            "attackObserved": true,
+            "revealY": 152,
+            "revealed": 329,
+            "collisionPlaced": 426
+          },
+          {
+            "staged": 718,
+            "beginCalls": 1,
+            "after": 2,
+            "headBlockObserved": true,
+            "attackAtUpdate": 659,
+            "type": 1,
+            "heldY": 176,
+            "ownerCalls": 1,
+            "cleanupObserved": true,
+            "heldX": 112,
+            "collected": 888,
+            "before": 1,
+            "heldPose": 0,
+            "apuBefore": 2161,
+            "heldPage": 0,
+            "transformCalls": 60,
+            "expected": 2,
+            "mature": 797,
+            "attackObserved": true,
+            "revealY": 152,
+            "revealed": 731,
+            "collisionPlaced": 828
+          },
+          {
+            "staged": 1120,
+            "beginCalls": 1,
+            "after": 2,
+            "headBlockObserved": true,
+            "attackAtUpdate": 1001,
+            "type": 1,
+            "heldY": 176,
+            "ownerCalls": 1,
+            "cleanupObserved": true,
+            "heldX": 112,
+            "collected": 1231,
+            "before": 2,
+            "heldPose": 0,
+            "apuBefore": 4271,
+            "heldPage": 0,
+            "transformCalls": 0,
+            "expected": 2,
+            "mature": 1197,
+            "attackObserved": true,
+            "revealY": 152,
+            "revealed": 1133,
+            "collisionPlaced": 1230
+          }
+        ],
+        "minSP": 217,
+        "hardware_chr_checks": 14088,
+        "updates": 1175
+      },
+      "captures": [
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-pit-hard-native-v1\\block-1.argb",
+          "sha256": "38ad979594e565147fec911c0d30c2d09e1e2161b4e6c26cdd10bd4d412474b7",
+          "png_sha256": "c07f31ebc1b4c875aa86e8610e1f2489b7c5d08339cb028a10a59f4089101f99"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-pit-hard-native-v1\\reveal-1.argb",
+          "sha256": "fa47492154242ccf7c5baac62c5ac4d6fb352a57323475f706a92d704b93dc25",
+          "png_sha256": "00147081a088f7119bd1ba633b218b177dec19b5329c2d2c59fdb2d68e55b046"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-pit-hard-native-v1\\mature-1.argb",
+          "sha256": "58b351e7770badffc07601bae427daebc53dde5659cdee87a25b6baab8f055fd",
+          "png_sha256": "8eb61c8e9e1ff3ed57ed95115afa670d8d5f398aeeed0baa54e6ae2d944f2ec4"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-pit-hard-native-v1\\transform-1-6.argb",
+          "sha256": "641aba7ce8c4a69e502d747d5b94610ced4d3225e314a177708fe183716b93a8",
+          "png_sha256": "100c612c5f6cb54bb671a3d44e68b8bd1458c24381f40728e86a993a688739c8"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-pit-hard-native-v1\\transform-1-30.argb",
+          "sha256": "6d1f032201993cad0660d08ad4241be762c6f75d43e1218314b1f7ed970f11a3",
+          "png_sha256": "7a1920db2f5407f39e7da6f04251f95bc367bad729cf93e25c1b0582c6454571"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-pit-hard-native-v1\\collected-1.argb",
+          "sha256": "04c727d4f0b0463b6c887ad3ee9aee2565e2f882854030da5ffb5172ce6cef3f",
+          "png_sha256": "f70c59b91a6341391830155f372e86c1dee6b9935920ceacb9c13227d3676329"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-pit-hard-native-v1\\attack-first-1.argb",
+          "sha256": "30db610fcfe22dc5b94df749977f95ca33b5901a503af781aa91276d619d522a",
+          "png_sha256": "db46505a52786ffcb58736ea25ad686f08a9703044cc369a57c969658d2e5a48"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-pit-hard-native-v1\\attack-live-1.argb",
+          "sha256": "e4f765ff7c137366451a34085d0febd8d1e0b48ce53138af6b841444eb2852ca",
+          "png_sha256": "425636499c5043338d5851844da86579fe656674bb982130da53100686e3a945"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-pit-hard-native-v1\\used-1.argb",
+          "sha256": "c0fd2fdfb965f3ff2658e4fe387363b491fdcdc98d317340f0b832806366d1c3",
+          "png_sha256": "651a68752d5ca6d241d4f3d3c43699a47b8999965f5a068515363175b7e26618"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-pit-hard-native-v1\\block-2.argb",
+          "sha256": "7a105dd5ecb9545b6676b09342f32dcd27f9462cb28f86d6c5f4784a5d083202",
+          "png_sha256": "aeccc3fed3d54428b62927d904b0b846722062534dfba0b466df662db65ac1fe"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-pit-hard-native-v1\\reveal-2.argb",
+          "sha256": "f16572c823714853ff4832715813d9d7a6a894a74c015023abf4b30c23fc37a7",
+          "png_sha256": "417aca75617976423ac847c8bbe3b66625127859cd88f4b54ad1e99c833b201a"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-pit-hard-native-v1\\mature-2.argb",
+          "sha256": "954d62e7b08fdf9933302a1569ac2dda166f236e55703de06b9950d985c1cfc8",
+          "png_sha256": "52bcb8b5124616914ad16bec9f5f97f220109414a780c4ac0e989614d721d057"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-pit-hard-native-v1\\transform-2-6.argb",
+          "sha256": "ae154e62a99b3b3463e440688e39a6c924f5e28dbfb8d456581086f2d6f851cb",
+          "png_sha256": "474de9493fb21eed3ed92272eee67a0caad7d4d11b1cd28a6338387efabb4e88"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-pit-hard-native-v1\\transform-2-30.argb",
+          "sha256": "5a83bf10990f5538e81564572a7a993d128adba708572e4853e4ba433b2e3861",
+          "png_sha256": "db1c50c7d0d82a8464cb541255eeeb2bd3da834547ecedff1ba082f5d90e4c7c"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-pit-hard-native-v1\\collected-2.argb",
+          "sha256": "41b9dddd2931e184d5da60901e3e255adf38e7293e71a22831d4643168677b2e",
+          "png_sha256": "7f3aa6c15e24d867b6a531c29af00baf6cc3f240c5c2ad6d4cdb5ba227876116"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-pit-hard-native-v1\\attack-first-2.argb",
+          "sha256": "d812008420acbee3e35cadc02329439495203855b1048a1b74baf66d4e2ccc1b",
+          "png_sha256": "599d5e1521d19adf74b993e5bf5c24e2de9d981cacd430f41a6652ecb57927aa"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-pit-hard-native-v1\\attack-live-2.argb",
+          "sha256": "3e8cc86c286e4d1215b82b588f9de5376fcf98b80ed383ade8b9ca47ac4b05b3",
+          "png_sha256": "680f126de59bd3b7d789dfc38987c5ded0a9b304d9eeced4d1931a5816535269"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-pit-hard-native-v1\\used-2.argb",
+          "sha256": "df58d2db4f317e5851c66d333501bdc818206fff33702718f0e54c888a0eee6e",
+          "png_sha256": "519e1972c40c69c228b344bee7945f19444a93c0fa7b6b53f4723d7f9170a0b1"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-pit-hard-native-v1\\block-3.argb",
+          "sha256": "dddd05ea291b7c335bd01c01284eaa4b32ab1c779c5968dc49fc61abbd6bd425",
+          "png_sha256": "b76dde38d3b9ed186d32ea781776e00f9dc14a22e46349a76defc3c849337521"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-pit-hard-native-v1\\reveal-3.argb",
+          "sha256": "7bf02bd48095bbea60d5305f2f24ed6ce755bcbe0ebedca79d228483f28ae76e",
+          "png_sha256": "bc291c979726e7ff6d28c63aa22457199d04081e00503ed787bcdcd50711006d"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-pit-hard-native-v1\\mature-3.argb",
+          "sha256": "75b36c505637a92c80de0f59cbcbd9f2574d5fdee9853714395a8dedf15971a9",
+          "png_sha256": "55b055b950f5c6b0bfd9bb0c02fcb9323e290f4164ad2ba3ffcef5c5fce3a17b"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-pit-hard-native-v1\\collected-3.argb",
+          "sha256": "bc8e82e0c93753490e87234c6330fc139b4d3f2da91605028cec2ee8da3c07b6",
+          "png_sha256": "2f5b5e4d88641524c00ecd63e99698a4f4156c216a9e75f614b1c6e555852cf9"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-pit-hard-native-v1\\attack-first-3.argb",
+          "sha256": "8ab1d383cc847c7a2745e6cb8f5522568e89d043d6022ab83cd3eb56fc6d80d5",
+          "png_sha256": "7b96ab212d79c87ae6cdf68ca9276669afb07a884cbcac9886ec98a394754eb7"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-pit-hard-native-v1\\attack-live-3.argb",
+          "sha256": "2e613605846aa24a26e0a49ea68554f4275ade2dbacad6dcba014af44e60af07",
+          "png_sha256": "d59a13bd8e634360135ff0924abd637b213822079967b74593384a993545e396"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-pit-hard-native-v1\\used-3.argb",
+          "sha256": "1097220c2011dc66518cce8123937b11d6823e5b16825a7cd5c10330df036d13",
+          "png_sha256": "2bf4f2e58f7327b4907fc60326383771d2f626babb08470102ad07b59c8d5102"
+        }
+      ],
+      "overview": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-native-summary-v1\\pit-hard-overview.png",
+      "overview_sha256": "6ee6550fb1fe845c76d75c0e90ede3fdf0b3a76821537beab1a2efc3b32a985c",
+      "apu_trace_sha256": "e0a666e1b5337bbebf463d266ed71d2b857a20d2f276cab2aca20e7aee315562",
+      "events_sha256": "a4382541edc42514d769c7fc4955b459db30a0e691f5d6508487da279a98c553"
+    },
+    {
+      "family": "rygar",
+      "mode": "easy",
+      "proof": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-rygar-easy-native-v1\\proof.json",
+      "proof_sha256": "ac6aadd5eba78bd43f4501023df9bcdf2d260ae5d06f31b63568f33b48f85878",
+      "fixture_sha256": "5a3599ae1a88008cc828539686d2939b5ffd54c25ebaba8adab01fef866fbe6b",
+      "runner_sha256": "d9976c3838de08a9ae250d734bd2d7914fb092dcaa86df4717796ba6f72cc2a1",
+      "script_sha256": "50986769033ea8a1edd66caabde05b4b8605a19d2198b633f9d6091d5289bd0b",
+      "native": {
+        "passed": true,
+        "hardware_chr_checks": 14088,
+        "scope": "Actual head-bump/reveal/native full rise; explicit post-rise collision placement; cold selection and source-owned transformation/use. No campaign claim",
+        "updates": 1175,
+        "apuWrites": 7295,
+        "family": "rygar",
+        "complete_dma_checks": 1083,
+        "irq_scroll_stores": 1175,
+        "goal_complete": false,
+        "minSP": 217,
+        "cases": [
+          {
+            "collected": 507,
+            "attackAtUpdate": 257,
+            "revealY": 152,
+            "cleanupObserved": true,
+            "mature": 413,
+            "staged": 337,
+            "transformCalls": 60,
+            "headBlockObserved": true,
+            "revealed": 349,
+            "expected": 1,
+            "heldX": 112,
+            "ownerCalls": 1,
+            "after": 1,
+            "heldPose": 0,
+            "heldY": 176,
+            "collisionPlaced": 447,
+            "heldPage": 0,
+            "before": 0,
+            "attackObserved": true,
+            "apuBefore": 174,
+            "type": 0,
+            "beginCalls": 1
+          },
+          {
+            "collected": 909,
+            "attackAtUpdate": 659,
+            "revealY": 152,
+            "cleanupObserved": true,
+            "mature": 817,
+            "staged": 739,
+            "transformCalls": 60,
+            "headBlockObserved": true,
+            "revealed": 751,
+            "expected": 2,
+            "heldX": 112,
+            "ownerCalls": 1,
+            "after": 2,
+            "heldPose": 0,
+            "heldY": 176,
+            "collisionPlaced": 849,
+            "heldPage": 0,
+            "before": 1,
+            "attackObserved": true,
+            "apuBefore": 2652,
+            "type": 1,
+            "beginCalls": 1
+          },
+          {
+            "collected": 1251,
+            "attackAtUpdate": 1001,
+            "revealY": 152,
+            "cleanupObserved": true,
+            "mature": 1217,
+            "staged": 1141,
+            "transformCalls": 0,
+            "headBlockObserved": true,
+            "revealed": 1153,
+            "expected": 2,
+            "heldX": 112,
+            "ownerCalls": 1,
+            "after": 2,
+            "heldPose": 0,
+            "heldY": 176,
+            "collisionPlaced": 1251,
+            "heldPage": 0,
+            "before": 2,
+            "attackObserved": true,
+            "apuBefore": 5185,
+            "type": 1,
+            "beginCalls": 1
+          }
+        ],
+        "nmis": 1174
+      },
+      "captures": [
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-rygar-easy-native-v1\\block-1.argb",
+          "sha256": "3873efb216a274a8817b696c8769611295dc407e022aa5fdfb6635a6ba449146",
+          "png_sha256": "31aed52092c4420c52b7559350891b515e1809f2e4f97557a1ff1f10b1a86f70"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-rygar-easy-native-v1\\reveal-1.argb",
+          "sha256": "c8802754c3f25819356396c84b8e999a574fa7fd09c28035fc083a08aacc12aa",
+          "png_sha256": "1da4f086b6c8bb8b90c3da550493fce997c723c4e77db643afd7d08b8d1de8c7"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-rygar-easy-native-v1\\mature-1.argb",
+          "sha256": "3f18e02a4cd759e708601fd3be0abc23bfd06c56057866674a4facfb5c832b27",
+          "png_sha256": "c852dcf85fb515db846c9f11c72b7a55dd78b15b8964e7abe3112c9945be14a8"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-rygar-easy-native-v1\\transform-1-6.argb",
+          "sha256": "7cb989a7683d8f9c2511de000255875e2c7555c5421558d6c2e929d59bc483df",
+          "png_sha256": "798b29023c0ca602b702a1547875218b8a5f02a6eee40257782b9cacdce86075"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-rygar-easy-native-v1\\transform-1-30.argb",
+          "sha256": "2ff7f144d44393ee3fbd8cb32e2fdfc3b50a6de521482c8d71145c2b80949e6b",
+          "png_sha256": "6bddbeda969f4f88ce10b18d3e5dbac83ca5e27bc094a7ef1fc62f6d19cada0c"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-rygar-easy-native-v1\\collected-1.argb",
+          "sha256": "9f7950c241dae55f458fc2054b6ce8ffc5d00fedd61c0a4e619a4bb06c6dcc73",
+          "png_sha256": "db0f7a763974d838da601d737480aa2368b8d81e9c51d25c08146b7f92a56670"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-rygar-easy-native-v1\\attack-first-1.argb",
+          "sha256": "96827110c72c5194b09e3925e5dadcdb753195b2ed1cf7a8d3817a1deb00550d",
+          "png_sha256": "308ca85153a8924c6eec60686a1355f140dea155c8ea5f341ab1516c51f2e38e"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-rygar-easy-native-v1\\attack-live-1.argb",
+          "sha256": "1a0d3db89044f14f46f7753b6e4cd0f3c46f44861049ea48f320dfa3f2e93377",
+          "png_sha256": "926612009dc6a498920ddf7af21bf7957a6d490e1258162541dc1c62ca9c6498"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-rygar-easy-native-v1\\used-1.argb",
+          "sha256": "ce3921f451faefa968e8f655dc8e398263c764b8eebb8d7c2ce911838a04d051",
+          "png_sha256": "93456419c5c32be90567139a6bf229178b6c7886c48db4e23c1d618772e86f6d"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-rygar-easy-native-v1\\block-2.argb",
+          "sha256": "085f3c4ebf9e178bb91fd83aee64669c7efd98fecfebf0d1d9e7e0835da1e8f7",
+          "png_sha256": "40b33f899ccea090172ea35346d639681d86444fdbf61e05617de239b8f30076"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-rygar-easy-native-v1\\reveal-2.argb",
+          "sha256": "51adea0995e6c5b4c91f21b21797336fc66d3de58c047a34e0ec49387ad402e8",
+          "png_sha256": "d571fa0b9b1e266fe77ac70c9ab44976ec2aadbb9cbe0cf7620af1a6b5aa2f39"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-rygar-easy-native-v1\\mature-2.argb",
+          "sha256": "a0403dd8dc04448daa529cd2d18e13ae43160ad93be096ffc9b3f9b5e059e40d",
+          "png_sha256": "cf6d8b630ab55219f7195843cbcb77bead4eecad36bac33c1cbe13ce713739ee"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-rygar-easy-native-v1\\transform-2-6.argb",
+          "sha256": "458ad6c92b983cf34aabfd19277f68b98c4e3e09821e5818ee6d9e964bed9f1b",
+          "png_sha256": "92bf2bd6d1b3eca81633443749261c515601fb0b8cf5474a35ad52dfa65fdbc8"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-rygar-easy-native-v1\\transform-2-30.argb",
+          "sha256": "96b52482009b1f91e0ae4e8e7de84d787cf6358fa829e18dfd6584575070800e",
+          "png_sha256": "09c4070082b889e892f4e3e3a0b3d928d5951d2f07c5e2175f7bf85262e757c9"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-rygar-easy-native-v1\\collected-2.argb",
+          "sha256": "a7daf6a341800e16bce5ce59e5838cd36367332d1f0c07b4aaacd867c34d7d69",
+          "png_sha256": "4de25bea04f189f8eff72be18fa4ea2c3bb08e034a8632489c8d76a340270b35"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-rygar-easy-native-v1\\attack-first-2.argb",
+          "sha256": "c6c2c4d5de47c23f50f4823cc90f84f88d095475325cc7d3cf941021245eba0d",
+          "png_sha256": "71b435c0e8e142f975484853a4400bd3ceac69608a3757f5b4611401fa315fba"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-rygar-easy-native-v1\\attack-live-2.argb",
+          "sha256": "4cdf07035238b12dd6b73df671035f8f8107f75586cd9a59eb6a70230f3798e5",
+          "png_sha256": "9203bbdaa99b60756bb9d22909d955f10c86ad5f31be615c0c6125bc297c75dc"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-rygar-easy-native-v1\\used-2.argb",
+          "sha256": "6d3f2678da706d1e0bb491947fc75e684c35389a8e096140d524f4ce8edc187d",
+          "png_sha256": "893ae1259201e326fa531ffdd664e5976eb8f6c6cdd5e7ebbf3c931f6972abcd"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-rygar-easy-native-v1\\block-3.argb",
+          "sha256": "8b56954b3a19d2cb9da185f3a8cfc1539f68325a9d83d15fdd608904d884675c",
+          "png_sha256": "dc67dbf3e2129726c11347b0f11f100b4e711d82ee335a050440310c2ed6f489"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-rygar-easy-native-v1\\reveal-3.argb",
+          "sha256": "3b75e947ae1fc2ad83765331b43eddca90c419c144e978645ebb098fea910205",
+          "png_sha256": "ad1990f7b4183b0c3088fbd52da73ba9bc27db83472ab011b52d9e46f313b11b"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-rygar-easy-native-v1\\mature-3.argb",
+          "sha256": "cefe87d9aa23339e2b1396ab44efd45e77528eeb8810b4ee966186904e9964b7",
+          "png_sha256": "845fdf633956f6f0740796be4f9fc462d269544f0694542baa1b1c32feb4b2de"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-rygar-easy-native-v1\\collected-3.argb",
+          "sha256": "9fd7c62e1bb490f92a2bb6f52862a76626d28b47efe7840b5465c75f008534a2",
+          "png_sha256": "2dcb21754d50b04255743b2c104bc4cf6b08efaf9d95c661d35e0a91b760b80f"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-rygar-easy-native-v1\\attack-first-3.argb",
+          "sha256": "b7f11514fee591238d5a7d79221dcdeeb40d66222397da6c1d3bf349b0dee378",
+          "png_sha256": "54f97ab77fec36e117260c9bb84ce588b1fd4fa97f579c58c37e7680e0020ce6"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-rygar-easy-native-v1\\attack-live-3.argb",
+          "sha256": "fdc6b683bd2f5fb2a6c682903647df9bf30b7717fd3f83a57a931e3942f6b867",
+          "png_sha256": "55b98f739c15dae468451a833067b78f28fb595dc0ea797e94a2d7b51d2d78f2"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-rygar-easy-native-v1\\used-3.argb",
+          "sha256": "531017280e58e34c7c1f9ba8dbfed87a374b2505fdf6a4c608e8e8e5e6094b39",
+          "png_sha256": "e4491534f9e00a20a6c484d6537ce2b10f1c6ff8a0fa4f1ac3a501266da303a3"
+        }
+      ],
+      "overview": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-native-summary-v1\\rygar-easy-overview.png",
+      "overview_sha256": "2f980c9e7b6d1001720cb0b49386bd06d648f4d37f24ba520094c7e6c6bb78b8",
+      "apu_trace_sha256": "c7621b2f867a3909631c486f7e76aeac2ebe821b34ed60f36faf9c5f29c8340f",
+      "events_sha256": "4a69c062503e01ebc6295657eefb47d588b65156e82a65678ff1d6ccc6aa42c0"
+    },
+    {
+      "family": "rygar",
+      "mode": "hard",
+      "proof": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-rygar-hard-native-v1\\proof.json",
+      "proof_sha256": "ae3551a34e9b15ae5fe31d74837d9d2b8e21636c756dc0fc041f3363aa956e49",
+      "fixture_sha256": "5a3599ae1a88008cc828539686d2939b5ffd54c25ebaba8adab01fef866fbe6b",
+      "runner_sha256": "d9976c3838de08a9ae250d734bd2d7914fb092dcaa86df4717796ba6f72cc2a1",
+      "script_sha256": "cfdb573a51afa2093ae4a9347af87f8d005bb443b7df18abe3aa6c1105caa556",
+      "native": {
+        "passed": true,
+        "nmis": 1174,
+        "apuWrites": 7295,
+        "minSP": 217,
+        "irq_scroll_stores": 1175,
+        "goal_complete": false,
+        "complete_dma_checks": 1083,
+        "hardware_chr_checks": 14088,
+        "cases": [
+          {
+            "apuBefore": 174,
+            "type": 0,
+            "beginCalls": 1,
+            "headBlockObserved": true,
+            "expected": 1,
+            "before": 0,
+            "transformCalls": 60,
+            "after": 1,
+            "heldX": 112,
+            "heldPose": 0,
+            "ownerCalls": 1,
+            "attackAtUpdate": 257,
+            "collected": 507,
+            "heldY": 176,
+            "mature": 413,
+            "heldPage": 0,
+            "cleanupObserved": true,
+            "collisionPlaced": 447,
+            "revealed": 349,
+            "staged": 337,
+            "attackObserved": true,
+            "revealY": 152
+          },
+          {
+            "apuBefore": 2652,
+            "type": 1,
+            "beginCalls": 1,
+            "headBlockObserved": true,
+            "expected": 2,
+            "before": 1,
+            "transformCalls": 60,
+            "after": 2,
+            "heldX": 112,
+            "heldPose": 0,
+            "ownerCalls": 1,
+            "attackAtUpdate": 659,
+            "collected": 909,
+            "heldY": 176,
+            "mature": 817,
+            "heldPage": 0,
+            "cleanupObserved": true,
+            "collisionPlaced": 849,
+            "revealed": 751,
+            "staged": 739,
+            "attackObserved": true,
+            "revealY": 152
+          },
+          {
+            "apuBefore": 5185,
+            "type": 1,
+            "beginCalls": 1,
+            "headBlockObserved": true,
+            "expected": 2,
+            "before": 2,
+            "transformCalls": 0,
+            "after": 2,
+            "heldX": 112,
+            "heldPose": 0,
+            "ownerCalls": 1,
+            "attackAtUpdate": 1001,
+            "collected": 1251,
+            "heldY": 176,
+            "mature": 1217,
+            "heldPage": 0,
+            "cleanupObserved": true,
+            "collisionPlaced": 1251,
+            "revealed": 1153,
+            "staged": 1141,
+            "attackObserved": true,
+            "revealY": 152
+          }
+        ],
+        "family": "rygar",
+        "scope": "Actual head-bump/reveal/native full rise; explicit post-rise collision placement; cold selection and source-owned transformation/use. No campaign claim",
+        "updates": 1175
+      },
+      "captures": [
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-rygar-hard-native-v1\\block-1.argb",
+          "sha256": "3873efb216a274a8817b696c8769611295dc407e022aa5fdfb6635a6ba449146",
+          "png_sha256": "31aed52092c4420c52b7559350891b515e1809f2e4f97557a1ff1f10b1a86f70"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-rygar-hard-native-v1\\reveal-1.argb",
+          "sha256": "c8802754c3f25819356396c84b8e999a574fa7fd09c28035fc083a08aacc12aa",
+          "png_sha256": "1da4f086b6c8bb8b90c3da550493fce997c723c4e77db643afd7d08b8d1de8c7"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-rygar-hard-native-v1\\mature-1.argb",
+          "sha256": "3f18e02a4cd759e708601fd3be0abc23bfd06c56057866674a4facfb5c832b27",
+          "png_sha256": "c852dcf85fb515db846c9f11c72b7a55dd78b15b8964e7abe3112c9945be14a8"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-rygar-hard-native-v1\\transform-1-6.argb",
+          "sha256": "7cb989a7683d8f9c2511de000255875e2c7555c5421558d6c2e929d59bc483df",
+          "png_sha256": "798b29023c0ca602b702a1547875218b8a5f02a6eee40257782b9cacdce86075"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-rygar-hard-native-v1\\transform-1-30.argb",
+          "sha256": "2ff7f144d44393ee3fbd8cb32e2fdfc3b50a6de521482c8d71145c2b80949e6b",
+          "png_sha256": "6bddbeda969f4f88ce10b18d3e5dbac83ca5e27bc094a7ef1fc62f6d19cada0c"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-rygar-hard-native-v1\\collected-1.argb",
+          "sha256": "9f7950c241dae55f458fc2054b6ce8ffc5d00fedd61c0a4e619a4bb06c6dcc73",
+          "png_sha256": "db0f7a763974d838da601d737480aa2368b8d81e9c51d25c08146b7f92a56670"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-rygar-hard-native-v1\\attack-first-1.argb",
+          "sha256": "96827110c72c5194b09e3925e5dadcdb753195b2ed1cf7a8d3817a1deb00550d",
+          "png_sha256": "308ca85153a8924c6eec60686a1355f140dea155c8ea5f341ab1516c51f2e38e"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-rygar-hard-native-v1\\attack-live-1.argb",
+          "sha256": "1a0d3db89044f14f46f7753b6e4cd0f3c46f44861049ea48f320dfa3f2e93377",
+          "png_sha256": "926612009dc6a498920ddf7af21bf7957a6d490e1258162541dc1c62ca9c6498"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-rygar-hard-native-v1\\used-1.argb",
+          "sha256": "ce3921f451faefa968e8f655dc8e398263c764b8eebb8d7c2ce911838a04d051",
+          "png_sha256": "93456419c5c32be90567139a6bf229178b6c7886c48db4e23c1d618772e86f6d"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-rygar-hard-native-v1\\block-2.argb",
+          "sha256": "085f3c4ebf9e178bb91fd83aee64669c7efd98fecfebf0d1d9e7e0835da1e8f7",
+          "png_sha256": "40b33f899ccea090172ea35346d639681d86444fdbf61e05617de239b8f30076"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-rygar-hard-native-v1\\reveal-2.argb",
+          "sha256": "51adea0995e6c5b4c91f21b21797336fc66d3de58c047a34e0ec49387ad402e8",
+          "png_sha256": "d571fa0b9b1e266fe77ac70c9ab44976ec2aadbb9cbe0cf7620af1a6b5aa2f39"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-rygar-hard-native-v1\\mature-2.argb",
+          "sha256": "a0403dd8dc04448daa529cd2d18e13ae43160ad93be096ffc9b3f9b5e059e40d",
+          "png_sha256": "cf6d8b630ab55219f7195843cbcb77bead4eecad36bac33c1cbe13ce713739ee"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-rygar-hard-native-v1\\transform-2-6.argb",
+          "sha256": "458ad6c92b983cf34aabfd19277f68b98c4e3e09821e5818ee6d9e964bed9f1b",
+          "png_sha256": "92bf2bd6d1b3eca81633443749261c515601fb0b8cf5474a35ad52dfa65fdbc8"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-rygar-hard-native-v1\\transform-2-30.argb",
+          "sha256": "96b52482009b1f91e0ae4e8e7de84d787cf6358fa829e18dfd6584575070800e",
+          "png_sha256": "09c4070082b889e892f4e3e3a0b3d928d5951d2f07c5e2175f7bf85262e757c9"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-rygar-hard-native-v1\\collected-2.argb",
+          "sha256": "a7daf6a341800e16bce5ce59e5838cd36367332d1f0c07b4aaacd867c34d7d69",
+          "png_sha256": "4de25bea04f189f8eff72be18fa4ea2c3bb08e034a8632489c8d76a340270b35"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-rygar-hard-native-v1\\attack-first-2.argb",
+          "sha256": "c6c2c4d5de47c23f50f4823cc90f84f88d095475325cc7d3cf941021245eba0d",
+          "png_sha256": "71b435c0e8e142f975484853a4400bd3ceac69608a3757f5b4611401fa315fba"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-rygar-hard-native-v1\\attack-live-2.argb",
+          "sha256": "4cdf07035238b12dd6b73df671035f8f8107f75586cd9a59eb6a70230f3798e5",
+          "png_sha256": "9203bbdaa99b60756bb9d22909d955f10c86ad5f31be615c0c6125bc297c75dc"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-rygar-hard-native-v1\\used-2.argb",
+          "sha256": "6d3f2678da706d1e0bb491947fc75e684c35389a8e096140d524f4ce8edc187d",
+          "png_sha256": "893ae1259201e326fa531ffdd664e5976eb8f6c6cdd5e7ebbf3c931f6972abcd"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-rygar-hard-native-v1\\block-3.argb",
+          "sha256": "8b56954b3a19d2cb9da185f3a8cfc1539f68325a9d83d15fdd608904d884675c",
+          "png_sha256": "dc67dbf3e2129726c11347b0f11f100b4e711d82ee335a050440310c2ed6f489"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-rygar-hard-native-v1\\reveal-3.argb",
+          "sha256": "3b75e947ae1fc2ad83765331b43eddca90c419c144e978645ebb098fea910205",
+          "png_sha256": "ad1990f7b4183b0c3088fbd52da73ba9bc27db83472ab011b52d9e46f313b11b"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-rygar-hard-native-v1\\mature-3.argb",
+          "sha256": "cefe87d9aa23339e2b1396ab44efd45e77528eeb8810b4ee966186904e9964b7",
+          "png_sha256": "845fdf633956f6f0740796be4f9fc462d269544f0694542baa1b1c32feb4b2de"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-rygar-hard-native-v1\\collected-3.argb",
+          "sha256": "9fd7c62e1bb490f92a2bb6f52862a76626d28b47efe7840b5465c75f008534a2",
+          "png_sha256": "2dcb21754d50b04255743b2c104bc4cf6b08efaf9d95c661d35e0a91b760b80f"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-rygar-hard-native-v1\\attack-first-3.argb",
+          "sha256": "b7f11514fee591238d5a7d79221dcdeeb40d66222397da6c1d3bf349b0dee378",
+          "png_sha256": "54f97ab77fec36e117260c9bb84ce588b1fd4fa97f579c58c37e7680e0020ce6"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-rygar-hard-native-v1\\attack-live-3.argb",
+          "sha256": "fdc6b683bd2f5fb2a6c682903647df9bf30b7717fd3f83a57a931e3942f6b867",
+          "png_sha256": "55b98f739c15dae468451a833067b78f28fb595dc0ea797e94a2d7b51d2d78f2"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-rygar-hard-native-v1\\used-3.argb",
+          "sha256": "531017280e58e34c7c1f9ba8dbfed87a374b2505fdf6a4c608e8e8e5e6094b39",
+          "png_sha256": "e4491534f9e00a20a6c484d6537ce2b10f1c6ff8a0fa4f1ac3a501266da303a3"
+        }
+      ],
+      "overview": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-native-summary-v1\\rygar-hard-overview.png",
+      "overview_sha256": "2f980c9e7b6d1001720cb0b49386bd06d648f4d37f24ba520094c7e6c6bb78b8",
+      "apu_trace_sha256": "c7621b2f867a3909631c486f7e76aeac2ebe821b34ed60f36faf9c5f29c8340f",
+      "events_sha256": "0a1a0fa357d9274b1b674c6316d79f13cb81707cc5cbfb44d2c54bef017505d0"
+    },
+    {
+      "family": "scrooge",
+      "mode": "easy",
+      "proof": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-scrooge-easy-native-v1\\proof.json",
+      "proof_sha256": "9f6b57e0e74838d2eac0c85531eb4928fd1f11d9bdcf1d488fd21379cc239ffe",
+      "fixture_sha256": "5a3599ae1a88008cc828539686d2939b5ffd54c25ebaba8adab01fef866fbe6b",
+      "runner_sha256": "d9976c3838de08a9ae250d734bd2d7914fb092dcaa86df4717796ba6f72cc2a1",
+      "script_sha256": "34cf0bf486534d62d482fdf8840d472a59a3ea8e94b10d94bb681a3437692906",
+      "native": {
+        "passed": true,
+        "family": "scrooge",
+        "cases": [
+          {
+            "revealed": 350,
+            "apuBefore": 176,
+            "heldX": 112,
+            "cleanupObserved": true,
+            "transformCalls": 60,
+            "attackAtUpdate": 257,
+            "mature": 414,
+            "staged": 337,
+            "revealY": 151,
+            "after": 1,
+            "ownerCalls": 1,
+            "before": 0,
+            "collected": 507,
+            "heldY": 176,
+            "heldPose": 0,
+            "collisionPlaced": 447,
+            "expected": 1,
+            "heldPage": 0,
+            "attackObserved": true,
+            "type": 0,
+            "beginCalls": 1,
+            "headBlockObserved": true
+          },
+          {
+            "revealed": 752,
+            "apuBefore": 2545,
+            "heldX": 112,
+            "cleanupObserved": true,
+            "transformCalls": 60,
+            "attackAtUpdate": 659,
+            "mature": 818,
+            "staged": 739,
+            "revealY": 152,
+            "after": 2,
+            "ownerCalls": 1,
+            "before": 1,
+            "collected": 909,
+            "heldY": 176,
+            "heldPose": 0,
+            "collisionPlaced": 849,
+            "expected": 2,
+            "heldPage": 0,
+            "attackObserved": true,
+            "type": 1,
+            "beginCalls": 1,
+            "headBlockObserved": true
+          },
+          {
+            "revealed": 1154,
+            "apuBefore": 4991,
+            "heldX": 112,
+            "cleanupObserved": true,
+            "transformCalls": 0,
+            "attackAtUpdate": 1001,
+            "mature": 1218,
+            "staged": 1141,
+            "revealY": 151,
+            "after": 2,
+            "ownerCalls": 1,
+            "before": 2,
+            "collected": 1252,
+            "heldY": 176,
+            "heldPose": 0,
+            "collisionPlaced": 1251,
+            "expected": 2,
+            "heldPage": 0,
+            "attackObserved": true,
+            "type": 1,
+            "beginCalls": 1,
+            "headBlockObserved": true
+          }
+        ],
+        "apuWrites": 7004,
+        "irq_scroll_stores": 1175,
+        "scope": "Actual head-bump/reveal/native full rise; explicit post-rise collision placement; cold selection and source-owned transformation/use. No campaign claim",
+        "updates": 1175,
+        "goal_complete": false,
+        "hardware_chr_checks": 14088,
+        "nmis": 1174,
+        "minSP": 217,
+        "complete_dma_checks": 1073
+      },
+      "captures": [
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-scrooge-easy-native-v1\\block-1.argb",
+          "sha256": "bcc7039384dde40e680b058e896d702d2bfd555fcf4a2262a0a934dc409409b7",
+          "png_sha256": "ecf833aecc37ce5dc0de62bfb57d5bb6efa90d2303c251acccb6512841664c73"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-scrooge-easy-native-v1\\reveal-1.argb",
+          "sha256": "fba331724a23267607963d6f393f46a7b95f0282fdc52ab1ad73212146888874",
+          "png_sha256": "3b157e399d418bbae52f8b79360e660937b8e9180c61a1944dcabab21324b49a"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-scrooge-easy-native-v1\\mature-1.argb",
+          "sha256": "9bf8033788494f7e98b19a1a0ce740c04ed7575d5d3b0cb860f320e2a6da19de",
+          "png_sha256": "7dc6e4f778dba90c176bbfde1a72dad6fc35ae2ae4fbf853729d017b6277fe1f"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-scrooge-easy-native-v1\\transform-1-6.argb",
+          "sha256": "436918672592382f423093f3b26c9ed799bdc53547b60d521c0a6583829f1f4f",
+          "png_sha256": "99a4813ce9560aa1465fd1c40086285cd04aa532fb2a5ed7998f79714e833508"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-scrooge-easy-native-v1\\transform-1-30.argb",
+          "sha256": "b684dea4f1f26cb372685f9f1b4c108ec35735bc0612a139d5c84e7f6d04fc58",
+          "png_sha256": "48308bc5068f73f9c8be50232c25d16ff454c0616d7561601bf6d3b74e759225"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-scrooge-easy-native-v1\\collected-1.argb",
+          "sha256": "ad18bafcad83f8e6f447f0eea0132249ab5c3efe645a137d12f368eaa6c6b9d6",
+          "png_sha256": "7ed3cd71e4a8803b40ff66608396ca25344405b14610f95b20b88735238ebbe6"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-scrooge-easy-native-v1\\attack-first-1.argb",
+          "sha256": "c3f350a4a430427dca1ecc768d57b7fa55c2300532f3a0c4fba3205d63649547",
+          "png_sha256": "c211c16fd1e2a2bcd645aa5d6ffcae9c4fea15da00356c023d6b71390f6b59b0"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-scrooge-easy-native-v1\\attack-live-1.argb",
+          "sha256": "c3f350a4a430427dca1ecc768d57b7fa55c2300532f3a0c4fba3205d63649547",
+          "png_sha256": "c211c16fd1e2a2bcd645aa5d6ffcae9c4fea15da00356c023d6b71390f6b59b0"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-scrooge-easy-native-v1\\used-1.argb",
+          "sha256": "b6fc9bffff3d194a9069de029f965c23744e5063a508d215c244929c26a49b2c",
+          "png_sha256": "81551a94386299ef33dfcb183f5fa7aaa5af06911cf4f44b65af894f6b76e19d"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-scrooge-easy-native-v1\\block-2.argb",
+          "sha256": "77a0599792d35bf2c51bf1163d3e6fc143995dce44fbec282d7aa88f9115abd8",
+          "png_sha256": "2838b936d5c09fe448d0341c959203074c726d71d15704a18abcad0563a69755"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-scrooge-easy-native-v1\\reveal-2.argb",
+          "sha256": "c717b29110ed9e5e4d77bd0e5c962ab0443dec2793503adfdb928443201f1b44",
+          "png_sha256": "5aa18d405b9ba1637efa05d81872ec9781997d2f129aced529584f2fbad1da5c"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-scrooge-easy-native-v1\\mature-2.argb",
+          "sha256": "08340e5d1c1ee5edc07107e0371d9311419f752d6946624c613936fcc0292f5d",
+          "png_sha256": "8a16c05382ac005734aa0e14a95f0ece12a8ec2b5e2216e286f5ff626450932e"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-scrooge-easy-native-v1\\transform-2-6.argb",
+          "sha256": "2c2bdb4821661458fa711ffd514708361040b05c66787f7a2cf0e4b0a0289144",
+          "png_sha256": "66b55de74bc3b4429977f35756b10d7bd3c1850d24d2b0b7d5eafdcf4ae91248"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-scrooge-easy-native-v1\\transform-2-30.argb",
+          "sha256": "668740838b2362491f34059cc814264c054db109601820a2ea949d95ee0b9690",
+          "png_sha256": "61a79494483480819386b0a688f154c119da671b1f082a52a87ad169af43743a"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-scrooge-easy-native-v1\\collected-2.argb",
+          "sha256": "e479edf1f0ae06b66809d9377c6da2f8f8d4a6fdcb4bc4f1f6aba79c843a5293",
+          "png_sha256": "74c0da05d43dc32e41c6af4674f95441b9f3290d14540c5d2a64615400783629"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-scrooge-easy-native-v1\\attack-first-2.argb",
+          "sha256": "dc9a2b133d11901687949a7fb099b4531bc941404290c3f9d9bc31552e8d40c8",
+          "png_sha256": "cccdf6390f722a5a1bfaae8ba52b3ddef311e95bd29076d40d809434feef1def"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-scrooge-easy-native-v1\\attack-live-2.argb",
+          "sha256": "dc9a2b133d11901687949a7fb099b4531bc941404290c3f9d9bc31552e8d40c8",
+          "png_sha256": "cccdf6390f722a5a1bfaae8ba52b3ddef311e95bd29076d40d809434feef1def"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-scrooge-easy-native-v1\\used-2.argb",
+          "sha256": "f0dc1db7de9d22cb7b14e52813ccbfaf5bed745615a43dea023a74011d90f7a1",
+          "png_sha256": "a6cc175979f416f0033d20a5c66e5f70ab528aa0c14b6a9262315133082183d0"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-scrooge-easy-native-v1\\block-3.argb",
+          "sha256": "31b3948c5fc5665f3626d2fbdb26f5b2c1a0fc4a06dff8149ddeb5d38ad0d4fa",
+          "png_sha256": "3dfbd3a6abbd0c20edebdad93e063b9ad7d7e57b3f695dae06d0f1f6b0c8ea63"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-scrooge-easy-native-v1\\reveal-3.argb",
+          "sha256": "ca01dc42efee0ccca67cafcab22f0a9572eb7a9f68cc1b8cddf0911b87aa4a0f",
+          "png_sha256": "018e140f2fed17c7c7392f850e610770d5e45a766b072d7f0fad983f68aa8e92"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-scrooge-easy-native-v1\\mature-3.argb",
+          "sha256": "e71df3ff40c3948e70591456b7fd14eba3b109c1c139f37192f825f93544b0af",
+          "png_sha256": "a821ca456a9b293c3473785411e74f56125d17266904f5cb5ec862f7b0d2d049"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-scrooge-easy-native-v1\\collected-3.argb",
+          "sha256": "642683be52f66d39a1697e06e21c14bf6e6cfee5a668030d263b3c1f780f905d",
+          "png_sha256": "dabe7c9ec49c822e5b0262d158380762f7b1dc1b0018b42398af146702183a1d"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-scrooge-easy-native-v1\\attack-first-3.argb",
+          "sha256": "43bbbfa8666037c973dcbb6f1b96071121c948f443c9793ffc3d1c57e400be40",
+          "png_sha256": "8ab82f12a91ba736e604ea1413aa438f13f6c8b0038fb891247a4729a3c18336"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-scrooge-easy-native-v1\\attack-live-3.argb",
+          "sha256": "0206d0754ff0044f9e0215001a24b2868c95db650099ecbf9c7b02c5ad3ea9a7",
+          "png_sha256": "e94c92727e60010ff8dd0ba45bf09bf90fa960ec6006cf2a366771035810db26"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-scrooge-easy-native-v1\\used-3.argb",
+          "sha256": "77c56077d0d7fbe200a6c5675ff2beef90b26507014fd525f2e2cd212ec98704",
+          "png_sha256": "6fffae226418cea60195f67fb82f31585001f6962051dfd84df53506a356994b"
+        }
+      ],
+      "overview": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-native-summary-v1\\scrooge-easy-overview.png",
+      "overview_sha256": "d8af31969e24770b5d0eea841b49e3682cc39a481f552dcea04c1d181047e48c",
+      "apu_trace_sha256": "fada80e3009f685a3906173a9e4d108fae71f940ef469da0b67e39f41c43882c",
+      "events_sha256": "a5e4be04e14cfe711f01f273485d008d9baf3213c268e1f67f52047e5751807b"
+    },
+    {
+      "family": "scrooge",
+      "mode": "hard",
+      "proof": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-scrooge-hard-native-v1\\proof.json",
+      "proof_sha256": "dde33c529340f7427333416685ff485cf23ff0fd951f6da9dde0e64935164742",
+      "fixture_sha256": "5a3599ae1a88008cc828539686d2939b5ffd54c25ebaba8adab01fef866fbe6b",
+      "runner_sha256": "d9976c3838de08a9ae250d734bd2d7914fb092dcaa86df4717796ba6f72cc2a1",
+      "script_sha256": "dcb14e54bf507495bff32a15bf5508bfcbd9e9aa8319b9af3d114360cb5a235d",
+      "native": {
+        "minSP": 217,
+        "irq_scroll_stores": 1175,
+        "goal_complete": false,
+        "apuWrites": 7004,
+        "updates": 1175,
+        "complete_dma_checks": 1073,
+        "scope": "Actual head-bump/reveal/native full rise; explicit post-rise collision placement; cold selection and source-owned transformation/use. No campaign claim",
+        "hardware_chr_checks": 14088,
+        "nmis": 1174,
+        "cases": [
+          {
+            "type": 0,
+            "heldX": 112,
+            "headBlockObserved": true,
+            "heldPose": 0,
+            "before": 0,
+            "expected": 1,
+            "apuBefore": 176,
+            "mature": 414,
+            "collected": 507,
+            "heldPage": 0,
+            "staged": 337,
+            "cleanupObserved": true,
+            "attackAtUpdate": 257,
+            "revealed": 350,
+            "after": 1,
+            "heldY": 176,
+            "beginCalls": 1,
+            "ownerCalls": 1,
+            "transformCalls": 60,
+            "revealY": 151,
+            "collisionPlaced": 447,
+            "attackObserved": true
+          },
+          {
+            "type": 1,
+            "heldX": 112,
+            "headBlockObserved": true,
+            "heldPose": 0,
+            "before": 1,
+            "expected": 2,
+            "apuBefore": 2545,
+            "mature": 818,
+            "collected": 909,
+            "heldPage": 0,
+            "staged": 739,
+            "cleanupObserved": true,
+            "attackAtUpdate": 659,
+            "revealed": 752,
+            "after": 2,
+            "heldY": 176,
+            "beginCalls": 1,
+            "ownerCalls": 1,
+            "transformCalls": 60,
+            "revealY": 152,
+            "collisionPlaced": 849,
+            "attackObserved": true
+          },
+          {
+            "type": 1,
+            "heldX": 112,
+            "headBlockObserved": true,
+            "heldPose": 0,
+            "before": 2,
+            "expected": 2,
+            "apuBefore": 4991,
+            "mature": 1218,
+            "collected": 1252,
+            "heldPage": 0,
+            "staged": 1141,
+            "cleanupObserved": true,
+            "attackAtUpdate": 1001,
+            "revealed": 1154,
+            "after": 2,
+            "heldY": 176,
+            "beginCalls": 1,
+            "ownerCalls": 1,
+            "transformCalls": 0,
+            "revealY": 151,
+            "collisionPlaced": 1251,
+            "attackObserved": true
+          }
+        ],
+        "passed": true,
+        "family": "scrooge"
+      },
+      "captures": [
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-scrooge-hard-native-v1\\block-1.argb",
+          "sha256": "bcc7039384dde40e680b058e896d702d2bfd555fcf4a2262a0a934dc409409b7",
+          "png_sha256": "ecf833aecc37ce5dc0de62bfb57d5bb6efa90d2303c251acccb6512841664c73"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-scrooge-hard-native-v1\\reveal-1.argb",
+          "sha256": "fba331724a23267607963d6f393f46a7b95f0282fdc52ab1ad73212146888874",
+          "png_sha256": "3b157e399d418bbae52f8b79360e660937b8e9180c61a1944dcabab21324b49a"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-scrooge-hard-native-v1\\mature-1.argb",
+          "sha256": "9bf8033788494f7e98b19a1a0ce740c04ed7575d5d3b0cb860f320e2a6da19de",
+          "png_sha256": "7dc6e4f778dba90c176bbfde1a72dad6fc35ae2ae4fbf853729d017b6277fe1f"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-scrooge-hard-native-v1\\transform-1-6.argb",
+          "sha256": "436918672592382f423093f3b26c9ed799bdc53547b60d521c0a6583829f1f4f",
+          "png_sha256": "99a4813ce9560aa1465fd1c40086285cd04aa532fb2a5ed7998f79714e833508"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-scrooge-hard-native-v1\\transform-1-30.argb",
+          "sha256": "b684dea4f1f26cb372685f9f1b4c108ec35735bc0612a139d5c84e7f6d04fc58",
+          "png_sha256": "48308bc5068f73f9c8be50232c25d16ff454c0616d7561601bf6d3b74e759225"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-scrooge-hard-native-v1\\collected-1.argb",
+          "sha256": "ad18bafcad83f8e6f447f0eea0132249ab5c3efe645a137d12f368eaa6c6b9d6",
+          "png_sha256": "7ed3cd71e4a8803b40ff66608396ca25344405b14610f95b20b88735238ebbe6"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-scrooge-hard-native-v1\\attack-first-1.argb",
+          "sha256": "c3f350a4a430427dca1ecc768d57b7fa55c2300532f3a0c4fba3205d63649547",
+          "png_sha256": "c211c16fd1e2a2bcd645aa5d6ffcae9c4fea15da00356c023d6b71390f6b59b0"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-scrooge-hard-native-v1\\attack-live-1.argb",
+          "sha256": "c3f350a4a430427dca1ecc768d57b7fa55c2300532f3a0c4fba3205d63649547",
+          "png_sha256": "c211c16fd1e2a2bcd645aa5d6ffcae9c4fea15da00356c023d6b71390f6b59b0"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-scrooge-hard-native-v1\\used-1.argb",
+          "sha256": "b6fc9bffff3d194a9069de029f965c23744e5063a508d215c244929c26a49b2c",
+          "png_sha256": "81551a94386299ef33dfcb183f5fa7aaa5af06911cf4f44b65af894f6b76e19d"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-scrooge-hard-native-v1\\block-2.argb",
+          "sha256": "77a0599792d35bf2c51bf1163d3e6fc143995dce44fbec282d7aa88f9115abd8",
+          "png_sha256": "2838b936d5c09fe448d0341c959203074c726d71d15704a18abcad0563a69755"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-scrooge-hard-native-v1\\reveal-2.argb",
+          "sha256": "c717b29110ed9e5e4d77bd0e5c962ab0443dec2793503adfdb928443201f1b44",
+          "png_sha256": "5aa18d405b9ba1637efa05d81872ec9781997d2f129aced529584f2fbad1da5c"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-scrooge-hard-native-v1\\mature-2.argb",
+          "sha256": "08340e5d1c1ee5edc07107e0371d9311419f752d6946624c613936fcc0292f5d",
+          "png_sha256": "8a16c05382ac005734aa0e14a95f0ece12a8ec2b5e2216e286f5ff626450932e"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-scrooge-hard-native-v1\\transform-2-6.argb",
+          "sha256": "2c2bdb4821661458fa711ffd514708361040b05c66787f7a2cf0e4b0a0289144",
+          "png_sha256": "66b55de74bc3b4429977f35756b10d7bd3c1850d24d2b0b7d5eafdcf4ae91248"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-scrooge-hard-native-v1\\transform-2-30.argb",
+          "sha256": "668740838b2362491f34059cc814264c054db109601820a2ea949d95ee0b9690",
+          "png_sha256": "61a79494483480819386b0a688f154c119da671b1f082a52a87ad169af43743a"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-scrooge-hard-native-v1\\collected-2.argb",
+          "sha256": "e479edf1f0ae06b66809d9377c6da2f8f8d4a6fdcb4bc4f1f6aba79c843a5293",
+          "png_sha256": "74c0da05d43dc32e41c6af4674f95441b9f3290d14540c5d2a64615400783629"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-scrooge-hard-native-v1\\attack-first-2.argb",
+          "sha256": "dc9a2b133d11901687949a7fb099b4531bc941404290c3f9d9bc31552e8d40c8",
+          "png_sha256": "cccdf6390f722a5a1bfaae8ba52b3ddef311e95bd29076d40d809434feef1def"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-scrooge-hard-native-v1\\attack-live-2.argb",
+          "sha256": "dc9a2b133d11901687949a7fb099b4531bc941404290c3f9d9bc31552e8d40c8",
+          "png_sha256": "cccdf6390f722a5a1bfaae8ba52b3ddef311e95bd29076d40d809434feef1def"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-scrooge-hard-native-v1\\used-2.argb",
+          "sha256": "f0dc1db7de9d22cb7b14e52813ccbfaf5bed745615a43dea023a74011d90f7a1",
+          "png_sha256": "a6cc175979f416f0033d20a5c66e5f70ab528aa0c14b6a9262315133082183d0"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-scrooge-hard-native-v1\\block-3.argb",
+          "sha256": "31b3948c5fc5665f3626d2fbdb26f5b2c1a0fc4a06dff8149ddeb5d38ad0d4fa",
+          "png_sha256": "3dfbd3a6abbd0c20edebdad93e063b9ad7d7e57b3f695dae06d0f1f6b0c8ea63"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-scrooge-hard-native-v1\\reveal-3.argb",
+          "sha256": "ca01dc42efee0ccca67cafcab22f0a9572eb7a9f68cc1b8cddf0911b87aa4a0f",
+          "png_sha256": "018e140f2fed17c7c7392f850e610770d5e45a766b072d7f0fad983f68aa8e92"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-scrooge-hard-native-v1\\mature-3.argb",
+          "sha256": "e71df3ff40c3948e70591456b7fd14eba3b109c1c139f37192f825f93544b0af",
+          "png_sha256": "a821ca456a9b293c3473785411e74f56125d17266904f5cb5ec862f7b0d2d049"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-scrooge-hard-native-v1\\collected-3.argb",
+          "sha256": "642683be52f66d39a1697e06e21c14bf6e6cfee5a668030d263b3c1f780f905d",
+          "png_sha256": "dabe7c9ec49c822e5b0262d158380762f7b1dc1b0018b42398af146702183a1d"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-scrooge-hard-native-v1\\attack-first-3.argb",
+          "sha256": "43bbbfa8666037c973dcbb6f1b96071121c948f443c9793ffc3d1c57e400be40",
+          "png_sha256": "8ab82f12a91ba736e604ea1413aa438f13f6c8b0038fb891247a4729a3c18336"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-scrooge-hard-native-v1\\attack-live-3.argb",
+          "sha256": "0206d0754ff0044f9e0215001a24b2868c95db650099ecbf9c7b02c5ad3ea9a7",
+          "png_sha256": "e94c92727e60010ff8dd0ba45bf09bf90fa960ec6006cf2a366771035810db26"
+        },
+        {
+          "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-scrooge-hard-native-v1\\used-3.argb",
+          "sha256": "77c56077d0d7fbe200a6c5675ff2beef90b26507014fd525f2e2cd212ec98704",
+          "png_sha256": "6fffae226418cea60195f67fb82f31585001f6962051dfd84df53506a356994b"
+        }
+      ],
+      "overview": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-item-matrix-v1\\current84-native-summary-v1\\scrooge-hard-overview.png",
+      "overview_sha256": "d8af31969e24770b5d0eea841b49e3682cc39a481f552dcea04c1d181047e48c",
+      "apu_trace_sha256": "fada80e3009f685a3906173a9e4d108fae71f940ef469da0b67e39f41c43882c",
+      "events_sha256": "effdb37e96346f7b11914b7777cd51e0885c5d2cdc936a000ec234b4fb7764d4"
+    }
+  ],
+  "limits": [
+    "Visible/logical world blocks explicitly staged",
+    "Actor contact explicitly aligned only after actual head/reveal/full native rise, matching the historical physical fixture policy",
+    "Hardware CHR-latch/DMA/IRQ guards are not an exhaustive original-pixel or audio-waveform oracle",
+    "Pit hammer/flight/recharge and enemy hits, Rygar exact reach/hit/catch and Scrooge pogo remain separate",
+    "No star/1up/damage/refill/all-item/campaign/full-goal claim"
+  ]
+}
