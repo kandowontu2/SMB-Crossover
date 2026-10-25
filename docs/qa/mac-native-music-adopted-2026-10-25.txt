@@ -1,0 +1,79 @@
+Authentic Mac music adopted on current MMC5 — 25 October 2026
+
+Accepted ROM SHA256:
+8ff245ae662059abbc77c5de517260032775b7ba881a5201b8b54686ccf08277
+Parent52918588bab0eec3f3a1f857bf084d2d799e88a5c781c75233c098ccc5f54f3f
+Downloads/SMB-Crossover-Current-MMC5.nes and build/smb-crossover-mmc5-expanded.nes
+are exact copies of a fresh canonical ROOT compile. Matching debugger/map/
+label/build artifacts were updated. Previous source/artifacts are external.
+
+Mac now uses nine authentic Punch-Out music tracks, mapped across14 native
+area/event request selections. The original music driver advances once per
+unpaused audio update. Ordered source stores and source state are preserved;
+the common guest/world-effect mixer continues to supply game effects.
+The source NSF is pinned to9a7a3ae5f16b745f74296478ec208b5b87ad5ec2773a14b243f7e631a2dd8d68.
+The agent's donor220/v7 findings remain separately scoped in
+mac-native-music-2026-10-25.txt; they were not relabeled current.
+
+Independent current composition and qualification
+------------------------------------------------
+Exactly7959 ROM bytes differ from529, only PRG38/123/126. The repaired complete
+banks equal the frozen donor; every other complete bank, raw CHR, fixed DPCM
+and all54193 retained qualified symbols remain exact. One8KiB bank123 stores
+the driver/data. The18B resident gate occupies99FE..9A0F, formerly unreachable
+padding after SmallPlatformCollision's return; the63B original span and all
+old labels remain fixed. Original raw source line endings were retained;
+the new Mac file uses LF. Both ordinary mapper outputs remain byte-identical.
+No new RAM or CHR allocation: native audio reuses the existing history image.
+
+Root reran162009 original source calls/700355 ordered stores,48570 actual
+dispatcher source calls/414342 stores. All source channel/zero-page state and
+non-owned foreground bytes match the pinned originals. Only F8/F9 indirect
+pointer borrowing remains; other observed source ZP fields are addressed
+directly in the private image. No channel/update/store omission to save time.
+
+5856 full AudioUpdate CPU cases preserve Bill/Samus/Link/four CV3 variants,
+typed effects, pause/resume and DMC controls exactly, including cycles.
+A separate9216 full AudioUpdates cover all36 non-Mac identities, both directly
+seeded CPU modes, area/event requests and pause/typed-effect/ended-DMC cases.
+Ordered APU, application RAM, registers and mapper outcomes remain exact.
+Expanded fallback identities add12 dispatcher CPU cycles per tested update;
+other identities add0. These CPU mode cells are not native mode-selection
+or gameplay certificates. The small overhead is disclosed, not called zero.
+
+Actual current8ff native Hard music matrix:14 requests,10222 physical frames,
+9306 source calls/81157 ordered source writes,130191 hardware register checks,
+9800 interrupted-state checks,9800 IRQ splits,9800 full OAM DMA comparisons.
+All actual bank/shadow/five SMC/stack/CHR guards pass. Pause holds source state,
+unpause resumes it; ordinary effects, persistent silence and explicit restart
+are exercised. Zero nested-during-source IRQs is reported as zero; it is not
+invented as coverage. The actual split/NMI guards still execute normally.
+
+Matched native Hard first-screen arenas complete the exact same600 movement/
+enemy/punch/super work rows in1021 physical frames on parent and current8ff.
+Current598 draws/2 lag NMIs versus parent595/5; every120-update work phase is
+equal or better. Earlier v5/v6 cadence failures remain retained and rejected
+by the same strict checker. This is bounded improvement, not universal60fps.
+
+Root inspected real PPU frames900/1800/5000 from the current music matrix.
+They show the same stationary Mac/first-screen world; this is three selected
+frames, not animation/campaign or exhaustive visual review. The actual DMA,
+CHR and visible-world publication guards provide separate machine checks.
+
+Provenance and remaining work
+----------------------------
+D=C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py
+Composition: D/mac-native-current529-v1/proof.json
+Independent qualification: D/mac-native-current529-v1/root-qualification-v1/proof.json
+Qualification SHA a6e8946ddbc9a10b28efc77af890361a46dd231ee342af86b0a11fbf02c53d84
+Other36 CPU: D/mac-native-current529-v1/roster-audio-cpu-v1/proof.json
+Adoption/rollback: D/mac-native-current529-v1/adoption-v1/proof.json
+Current build receipt: build/verification/mac-native-music/proof.json
+Small copied receipts: docs/qa/checkpoints/2026-10-25/mac-native-music-8ff
+Do NOT rerun adopt_mac_native_music_once.py: it already installed the result.
+
+No original waveform/cycle-exact hardware claim; source writes pass through
+the shared mixer. No new full-level clear, natural item lifecycle, all-character
+every-powerup, complete performance audit or current full-roster MMC3 claim.
+Mac natural-resource pickup/death work and complete CV3 samples remain open.
+Existing roster finishes before new characters/menu rows. Full goal ACTIVE.

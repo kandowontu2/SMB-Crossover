@@ -1,0 +1,109 @@
+{
+  "status": "QUALIFIED_PRIVATE_DONOR_READY_FOR_FRESH_CURRENT_COMPOSITION",
+  "accepted": false,
+  "parent_ROM_sha256": "220be8247baf877785c91244876038354442e68502b3f837920f39a674a1fa3e",
+  "candidate_ROM_sha256": "f4c6a5b12d33ece173da71ba40933e1368b749d8e44c7b81a6774073df120b9b",
+  "current_ROOT_ROM_tested": false,
+  "source_bindings": {
+    "src/entrypoint.s": "78a28b1e70df4fa1088ab44cd14170bc55def196a39a7720ed89abcda2611d73",
+    "src/collision.s": "c64bbc8b7a6db77847e4e3e37372099a7653e3e95c64c961b82fc79d219323da",
+    "src/gradius_audio.s": "3829fb4221dd9571b97a626b3ab3c57ebb91db1a1d951586896ca71aec0cb54d",
+    "src/mac_native_music.s": "bd42651937e0b601a5c3dfad7487da5e99d38d49d97b7f7191af136160f7fb5e",
+    "smb1base-mmc5-expanded.cfg": "b85b789835330ab2b63860e62379f8c4db991d05aa7fc4b96875500e526b7a41"
+  },
+  "artifact_bindings": {
+    "proposal-v7/candidate.nes": "f4c6a5b12d33ece173da71ba40933e1368b749d8e44c7b81a6774073df120b9b",
+    "proposal-v7/review.patch": "11dd459f008d9ffd4c5f0c9d4ad5858f76083a8acd677ff7ce5769b9c6d37337",
+    "proposal-v7/source-only.zip": "b4162f52f93e9b9d8abe7a04f2fc580ed18d805e5a96f242bbaf6a7078dba809",
+    "proposal-v7/source-bindings.json": "e10568dc73fc6a14ca04d4fe739e13b8f6569505ce01a6015aba32e6d9128b58",
+    "proposal-v7/audit-tool-bindings.json": "2e9153df8774ac4b1f4e886009966e5a191c8fc7f6dfd677c066237427e09dd9",
+    "proposal-v7/preparation.json": "79fa30a68515f90d5969381c29be0c021af3184a44021cefeafbeb6e79f42728",
+    "cpu-final-v7/proof.json": "09824d9ae905b47f0a38b05a602f75dba7887d6a9eea521823db3fae45b8da17",
+    "performance-v7-vs-parent.json": "9ae4daf85e353f10fcb17393e12c4b320bee3eef3afffaa09661b4f6a1e21b78",
+    "native-parent-performance-v3/native-result.json": "5b04ab9de9bb59f441f309e44be554a5cc19d2b666a23797c196a8bca7ad7f37",
+    "native-candidate-performance-v3/native-result.json": "198fd6f275eef68729b6cb9f9dba16fc112226596e3be046d37ebdd8925fc82f",
+    "native-music-v7/native-result.json": "02815921f1646b66e919c8bfe7355d349a8bfc1e1d17e22103c4df8489f282b2",
+    "native-music-v7/proof.json": "bd08299f4ac971a19f0cf4e6f83e3aa6459ee9e387ed95ede271eac2e7698784",
+    "native-music-v7/ownership-guards.json": "a04d9cf83259510ea4e32353b0da5e3e6e7fd60222dd0090c8a3255acdecbdcb",
+    "native-music-v7/chr-commit.json": "799ec154affe6b3b8346452cb752e6528954c4304ed309006fcc0b930411f81c",
+    "native-music-v7/run.lua": "48cf8c3ed1f05ca39d9fd16e5463b33aab5f2dad7d06715534e2709d76c043f5",
+    "performance-v5-retained-negative.json": "ab52c8fc50cf7aec3e6b5ffcb0916647418cc6e9e1bbeee8fd0c573bc027d3f2",
+    "performance-v6-vs-parent.json": "ef0a5e2cfcd57532e1d8aa9d247238629bf7045ee0cbd116422c2c3e31eb4166"
+  },
+  "donor_PRG_bank_sha256": {
+    "38": "eabf6ff316107d6ea030dd8faa3a3bc0c79b189533616d09b9759e7b3826e080",
+    "123": "e8c3714178b89fc5b933da096a71f4798cce42f7aae966e1eab2c48b4062cb51",
+    "126": "906dfa2f5c8c9d51958d2c9e2c6f9484b8b872e8eb48b525d117dfa4220f189c"
+  },
+  "CPU": {
+    "passed": true,
+    "original_calls": 162009,
+    "original_APU_stores": 700355,
+    "actual_dispatch_calls": 48570,
+    "actual_dispatch_source_APU_stores": 414342,
+    "non_Mac_exact_cases": 1404,
+    "old_qualified_symbols": 54155
+  },
+  "native_music": {
+    "passed": true,
+    "music": true,
+    "hard": true,
+    "frames": 10222,
+    "source_calls": 9306,
+    "ordered_source_APU_writes": 81157,
+    "audio_updates": 9800,
+    "hardware_register_comparisons": 130191,
+    "borrowed_state_checks": 9800,
+    "nested_IRQs": 0,
+    "IRQ_splits": 9800,
+    "OAM_DMA_frames": 9800,
+    "adapter_cycles_inclusive": 9393183,
+    "peak_adapter_cycles_inclusive": 2177,
+    "minimum_adapter_entry_SP": 239,
+    "completed_game_updates": 0,
+    "live_enemy_samples": 0,
+    "punch_samples": 0,
+    "super_samples": 0,
+    "scope": "Cold native menu followed by explicitly arranged audio requests or an equal-600-update first-screen work arena. Source calls/states and live hardware mixer are checked separately. No campaign clear or universal lag claim."
+  },
+  "native_ownership": {
+    "passed": true,
+    "nmis": 9800,
+    "mapper_store_windows": 0,
+    "protected_page_write_checks": 1570597,
+    "minimum_sampled_SP": 250,
+    "SMC_stack_floor": 123,
+    "PPU_screenshots": 3,
+    "five_SMC_operands_preserved": true,
+    "visible_world_PPU_address_writes": 0
+  },
+  "native_CHR": {
+    "passed": true,
+    "frames": 9800,
+    "mismatched_frames": 0,
+    "body_constructions": 9771,
+    "scope": "Read-only actual hardware CHR pages versus last DMA player image. Bounded natural controller movement, no full-level or pixel-comparison claim."
+  },
+  "performance": {
+    "passed": true,
+    "exact_work": true,
+    "completed_updates": 600,
+    "total_physical_frames_each": 1021,
+    "parent_draws": 595,
+    "candidate_draws": 598,
+    "parent_lag": 5,
+    "candidate_lag": 2,
+    "regressions": []
+  },
+  "source_cadence": "one original music step per unpaused audio update; no dropped rate/channel/store/state",
+  "native_mode": "Hard1; numeric config and actual readback; Easy0 separately CPU-qualified",
+  "higher_average_CPU_cost_preserved": true,
+  "retained_negative_v5_v6": true,
+  "native_worker_released": true,
+  "ROOT_production_config_Git_Downloads_changed": false,
+  "scope_limits": [
+    "Frozen220 donor only; later ROOT composition must be freshly requalified",
+    "Nine mapped original music selections only; unselected source SFX paths not exposed/qualified",
+    "Arranged music matrix and matched600-update arena, not full campaign/universal60Hz/analogue waveform"
+  ]
+}

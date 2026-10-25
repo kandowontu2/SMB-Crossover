@@ -11,7 +11,7 @@
   BankPRGA #.bank(GradiusAudioUpdate)
   jmp GradiusAudioUpdate
 Legacy:
-  jmp ExpandedAudioTick
+  jmp LmNativeMusicGate
 .endproc
 .assert *-VgAudioDispatch=23,error,"Native audio fits the existing 24-byte C-bank tail"
 .segment "VIC_NATIVE_AUDIO"

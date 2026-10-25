@@ -1,0 +1,680 @@
+{
+  "passed": true,
+  "accepted": false,
+  "baseline_sha256": "52918588bab0eec3f3a1f857bf084d2d799e88a5c781c75233c098ccc5f54f3f",
+  "candidate_sha256": "8ff245ae662059abbc77c5de517260032775b7ba881a5201b8b54686ccf08277",
+  "source_NSF_sha256": "9a7a3ae5f16b745f74296478ec208b5b87ad5ec2773a14b243f7e631a2dd8d68",
+  "old_qualified_symbols": 54193,
+  "old_PC_RAM_CHR_preserved": true,
+  "changed_PRG_banks": {
+    "38": 2,
+    "123": 7939,
+    "126": 18
+  },
+  "adapter_bytes": 470,
+  "tool_sha256": "1248bdf44808994ed2b9accf36b096bff940f048cf9d04ba010a20e41ee23736",
+  "scope": "CPU units; exact original music writes/state and actual linked dispatch. No native waveform, NMI/PPU, or gameplay lag claim.",
+  "source_music_comparison": [
+    {
+      "song": 1,
+      "source_calls_compared": 18001,
+      "ordered_APU_writes": 64677,
+      "linked_mean_cycles": 317.26472222222225,
+      "linked_peak_cycles": 1809,
+      "source_mean_cycles": 628.8722222222223,
+      "source_peak_cycles": 1697,
+      "linked_active_mean_cycles": 789.1738160178527,
+      "init_cycles": 113,
+      "minimum_SP": 245,
+      "logical_trace_sha256": "a0fe428d55e506f905282b582a5e1e36a40048e743d9399c0b4fbed11cb78436"
+    },
+    {
+      "song": 2,
+      "source_calls_compared": 18001,
+      "ordered_APU_writes": 39430,
+      "linked_mean_cycles": 197.06983333333332,
+      "linked_peak_cycles": 1759,
+      "source_mean_cycles": 546.0031666666666,
+      "source_peak_cycles": 1673,
+      "linked_active_mean_cycles": 787.4088050314465,
+      "init_cycles": 113,
+      "minimum_SP": 245,
+      "logical_trace_sha256": "c21449fba30deaf9572d252e76ae8f476623e60034dc89f4b8cce5d8ffd5467c"
+    },
+    {
+      "song": 4,
+      "source_calls_compared": 18001,
+      "ordered_APU_writes": 39559,
+      "linked_mean_cycles": 199.06827777777778,
+      "linked_peak_cycles": 1941,
+      "source_mean_cycles": 547.7922222222222,
+      "source_peak_cycles": 1757,
+      "linked_active_mean_cycles": 744.6551126516464,
+      "init_cycles": 113,
+      "minimum_SP": 245,
+      "logical_trace_sha256": "5046da9f5b33299c1a604ff42c58fa3cd645adc1be87ec7580a71bcbf5b8e139"
+    },
+    {
+      "song": 6,
+      "source_calls_compared": 18001,
+      "ordered_APU_writes": 37685,
+      "linked_mean_cycles": 189.32916666666668,
+      "linked_peak_cycles": 1718,
+      "source_mean_cycles": 540.8263333333333,
+      "source_peak_cycles": 1609,
+      "linked_active_mean_cycles": 746.7547169811321,
+      "init_cycles": 113,
+      "minimum_SP": 245,
+      "logical_trace_sha256": "8daa14a0faa2edd74494e59bd02e7dea5b67cd62d690a1910cd977c0b47b392b"
+    },
+    {
+      "song": 7,
+      "source_calls_compared": 18001,
+      "ordered_APU_writes": 37823,
+      "linked_mean_cycles": 189.97305555555556,
+      "linked_peak_cycles": 1716,
+      "source_mean_cycles": 541.2693333333333,
+      "source_peak_cycles": 1607,
+      "linked_active_mean_cycles": 739.8754325259515,
+      "init_cycles": 113,
+      "minimum_SP": 245,
+      "logical_trace_sha256": "0d0602ae47ebb663f8a7448baa024de591fbaa864be5eb1bd08754142bb870ae"
+    },
+    {
+      "song": 9,
+      "source_calls_compared": 18001,
+      "ordered_APU_writes": 40286,
+      "linked_mean_cycles": 202.55561111111112,
+      "linked_peak_cycles": 1935,
+      "source_mean_cycles": 550.2091111111112,
+      "source_peak_cycles": 1751,
+      "linked_active_mean_cycles": 786.3057722308893,
+      "init_cycles": 113,
+      "minimum_SP": 245,
+      "logical_trace_sha256": "1cfaca5d667ffac87a9dbc7855cc57048a3f2c40ea8c1e6bf52d02bfdb1b18a6"
+    },
+    {
+      "song": 20,
+      "source_calls_compared": 18001,
+      "ordered_APU_writes": 154567,
+      "linked_mean_cycles": 764.8748888888889,
+      "linked_peak_cycles": 1943,
+      "source_mean_cycles": 943.5907222222222,
+      "source_peak_cycles": 1767,
+      "linked_active_mean_cycles": 764.8748888888889,
+      "init_cycles": 113,
+      "minimum_SP": 245,
+      "logical_trace_sha256": "9e960dbc97fb4df6155e2e610b10413c5d1bd267adfb688fef36abb47b27e524"
+    },
+    {
+      "song": 22,
+      "source_calls_compared": 18001,
+      "ordered_APU_writes": 149405,
+      "linked_mean_cycles": 737.1584444444444,
+      "linked_peak_cycles": 1726,
+      "source_mean_cycles": 922.2746111111111,
+      "source_peak_cycles": 1625,
+      "linked_active_mean_cycles": 737.1584444444444,
+      "init_cycles": 113,
+      "minimum_SP": 245,
+      "logical_trace_sha256": "be462d47587b4f774f057f4e0e9bf58c572bbd115c3ba68ddabf918191f9bc54"
+    },
+    {
+      "song": 23,
+      "source_calls_compared": 18001,
+      "ordered_APU_writes": 136923,
+      "linked_mean_cycles": 663.5942777777777,
+      "linked_peak_cycles": 1722,
+      "source_mean_cycles": 867.1181666666666,
+      "source_peak_cycles": 1621,
+      "linked_active_mean_cycles": 663.5942777777777,
+      "init_cycles": 113,
+      "minimum_SP": 245,
+      "logical_trace_sha256": "c5735f43c4230ec255ee7a181728f5bd8bd484382d9b1801e4fe5eca2243aedb"
+    }
+  ],
+  "actual_adapter_source_comparison": [
+    {
+      "song": 1,
+      "behavior": 0,
+      "linked_dispatch_calls": 4501,
+      "source_APU_stores_compared": 41022,
+      "whole_tune_restarts": 1,
+      "minimum_SP": 243
+    },
+    {
+      "song": 1,
+      "behavior": 1,
+      "linked_dispatch_calls": 4501,
+      "source_APU_stores_compared": 41022,
+      "whole_tune_restarts": 1,
+      "minimum_SP": 243
+    },
+    {
+      "song": 2,
+      "behavior": 0,
+      "linked_dispatch_calls": 4501,
+      "source_APU_stores_compared": 41220,
+      "whole_tune_restarts": 9,
+      "minimum_SP": 243
+    },
+    {
+      "song": 2,
+      "behavior": 1,
+      "linked_dispatch_calls": 4501,
+      "source_APU_stores_compared": 41220,
+      "whole_tune_restarts": 9,
+      "minimum_SP": 243
+    },
+    {
+      "song": 4,
+      "behavior": 0,
+      "linked_dispatch_calls": 579,
+      "source_APU_stores_compared": 4712,
+      "whole_tune_restarts": 0,
+      "minimum_SP": 243
+    },
+    {
+      "song": 4,
+      "behavior": 1,
+      "linked_dispatch_calls": 579,
+      "source_APU_stores_compared": 4712,
+      "whole_tune_restarts": 0,
+      "minimum_SP": 243
+    },
+    {
+      "song": 6,
+      "behavior": 0,
+      "linked_dispatch_calls": 267,
+      "source_APU_stores_compared": 2214,
+      "whole_tune_restarts": 0,
+      "minimum_SP": 243
+    },
+    {
+      "song": 6,
+      "behavior": 1,
+      "linked_dispatch_calls": 267,
+      "source_APU_stores_compared": 2214,
+      "whole_tune_restarts": 0,
+      "minimum_SP": 243
+    },
+    {
+      "song": 7,
+      "behavior": 0,
+      "linked_dispatch_calls": 291,
+      "source_APU_stores_compared": 2400,
+      "whole_tune_restarts": 0,
+      "minimum_SP": 243
+    },
+    {
+      "song": 7,
+      "behavior": 1,
+      "linked_dispatch_calls": 291,
+      "source_APU_stores_compared": 2400,
+      "whole_tune_restarts": 0,
+      "minimum_SP": 243
+    },
+    {
+      "song": 9,
+      "behavior": 0,
+      "linked_dispatch_calls": 643,
+      "source_APU_stores_compared": 5567,
+      "whole_tune_restarts": 0,
+      "minimum_SP": 243
+    },
+    {
+      "song": 9,
+      "behavior": 1,
+      "linked_dispatch_calls": 643,
+      "source_APU_stores_compared": 5567,
+      "whole_tune_restarts": 0,
+      "minimum_SP": 243
+    },
+    {
+      "song": 20,
+      "behavior": 0,
+      "linked_dispatch_calls": 4501,
+      "source_APU_stores_compared": 38605,
+      "whole_tune_restarts": 0,
+      "minimum_SP": 243
+    },
+    {
+      "song": 20,
+      "behavior": 1,
+      "linked_dispatch_calls": 4501,
+      "source_APU_stores_compared": 38605,
+      "whole_tune_restarts": 0,
+      "minimum_SP": 243
+    },
+    {
+      "song": 22,
+      "behavior": 0,
+      "linked_dispatch_calls": 4501,
+      "source_APU_stores_compared": 37360,
+      "whole_tune_restarts": 0,
+      "minimum_SP": 243
+    },
+    {
+      "song": 22,
+      "behavior": 1,
+      "linked_dispatch_calls": 4501,
+      "source_APU_stores_compared": 37360,
+      "whole_tune_restarts": 0,
+      "minimum_SP": 243
+    },
+    {
+      "song": 23,
+      "behavior": 0,
+      "linked_dispatch_calls": 4501,
+      "source_APU_stores_compared": 34071,
+      "whole_tune_restarts": 0,
+      "minimum_SP": 243
+    },
+    {
+      "song": 23,
+      "behavior": 1,
+      "linked_dispatch_calls": 4501,
+      "source_APU_stores_compared": 34071,
+      "whole_tune_restarts": 0,
+      "minimum_SP": 243
+    }
+  ],
+  "dispatch": {
+    "non_Mac_exact_dispatch_cases": 1404,
+    "Mac_maps_and_pause_resume": [
+      {
+        "kind": "area",
+        "bit": 0,
+        "song": 20,
+        "init_cycles": 1269,
+        "first_play_cycles": 2270
+      },
+      {
+        "kind": "area",
+        "bit": 1,
+        "song": 22,
+        "init_cycles": 1278,
+        "first_play_cycles": 2053
+      },
+      {
+        "kind": "area",
+        "bit": 2,
+        "song": 1,
+        "init_cycles": 1287,
+        "first_play_cycles": 2013
+      },
+      {
+        "kind": "area",
+        "bit": 3,
+        "song": 23,
+        "init_cycles": 1296,
+        "first_play_cycles": 2049
+      },
+      {
+        "kind": "area",
+        "bit": 4,
+        "song": 2,
+        "init_cycles": 1305,
+        "first_play_cycles": 1829
+      },
+      {
+        "kind": "area",
+        "bit": 5,
+        "song": 1,
+        "init_cycles": 1314,
+        "first_play_cycles": 2013
+      },
+      {
+        "kind": "area",
+        "bit": 6,
+        "song": 23,
+        "init_cycles": 1323,
+        "first_play_cycles": 2049
+      },
+      {
+        "kind": "event",
+        "bit": 0,
+        "song": 7,
+        "init_cycles": 1276,
+        "first_play_cycles": 2043
+      },
+      {
+        "kind": "event",
+        "bit": 1,
+        "song": 9,
+        "init_cycles": 1285,
+        "first_play_cycles": 2262
+      },
+      {
+        "kind": "event",
+        "bit": 2,
+        "song": 6,
+        "init_cycles": 1294,
+        "first_play_cycles": 2045
+      },
+      {
+        "kind": "event",
+        "bit": 3,
+        "song": 4,
+        "init_cycles": 1303,
+        "first_play_cycles": 2268
+      },
+      {
+        "kind": "event",
+        "bit": 4,
+        "song": 9,
+        "init_cycles": 1312,
+        "first_play_cycles": 2262
+      },
+      {
+        "kind": "event",
+        "bit": 5,
+        "song": 6,
+        "init_cycles": 1321,
+        "first_play_cycles": 2045
+      },
+      {
+        "kind": "event",
+        "bit": 6,
+        "song": 23,
+        "init_cycles": 1335,
+        "first_play_cycles": 2049
+      }
+    ],
+    "whole_tune_repeat": true,
+    "finite_event_stop": true,
+    "persistent_silence": true,
+    "event_over_area_priority": true,
+    "cold_title_and_paused_queue_controls": [
+      {
+        "initial_mode": 0,
+        "paused": 0,
+        "area": 0,
+        "event": 0,
+        "resumed_song": 20
+      },
+      {
+        "initial_mode": 0,
+        "paused": 0,
+        "area": 0,
+        "event": 8,
+        "resumed_song": 20
+      },
+      {
+        "initial_mode": 0,
+        "paused": 0,
+        "area": 1,
+        "event": 0,
+        "resumed_song": 20
+      },
+      {
+        "initial_mode": 0,
+        "paused": 0,
+        "area": 1,
+        "event": 8,
+        "resumed_song": 20
+      },
+      {
+        "initial_mode": 0,
+        "paused": 0,
+        "area": 4,
+        "event": 0,
+        "resumed_song": 20
+      },
+      {
+        "initial_mode": 0,
+        "paused": 0,
+        "area": 4,
+        "event": 8,
+        "resumed_song": 20
+      },
+      {
+        "initial_mode": 0,
+        "paused": 1,
+        "area": 0,
+        "event": 0,
+        "resumed_song": 20
+      },
+      {
+        "initial_mode": 0,
+        "paused": 1,
+        "area": 0,
+        "event": 8,
+        "resumed_song": 20
+      },
+      {
+        "initial_mode": 0,
+        "paused": 1,
+        "area": 1,
+        "event": 0,
+        "resumed_song": 20
+      },
+      {
+        "initial_mode": 0,
+        "paused": 1,
+        "area": 1,
+        "event": 8,
+        "resumed_song": 20
+      },
+      {
+        "initial_mode": 0,
+        "paused": 1,
+        "area": 4,
+        "event": 0,
+        "resumed_song": 20
+      },
+      {
+        "initial_mode": 0,
+        "paused": 1,
+        "area": 4,
+        "event": 8,
+        "resumed_song": 20
+      },
+      {
+        "initial_mode": 1,
+        "paused": 0,
+        "area": 0,
+        "event": 0,
+        "resumed_song": 20
+      },
+      {
+        "initial_mode": 1,
+        "paused": 0,
+        "area": 0,
+        "event": 8,
+        "resumed_song": 4
+      },
+      {
+        "initial_mode": 1,
+        "paused": 0,
+        "area": 1,
+        "event": 0,
+        "resumed_song": 20
+      },
+      {
+        "initial_mode": 1,
+        "paused": 0,
+        "area": 1,
+        "event": 8,
+        "resumed_song": 4
+      },
+      {
+        "initial_mode": 1,
+        "paused": 0,
+        "area": 4,
+        "event": 0,
+        "resumed_song": 1
+      },
+      {
+        "initial_mode": 1,
+        "paused": 0,
+        "area": 4,
+        "event": 8,
+        "resumed_song": 4
+      },
+      {
+        "initial_mode": 1,
+        "paused": 1,
+        "area": 0,
+        "event": 0,
+        "resumed_song": 20
+      },
+      {
+        "initial_mode": 1,
+        "paused": 1,
+        "area": 0,
+        "event": 8,
+        "resumed_song": 4
+      },
+      {
+        "initial_mode": 1,
+        "paused": 1,
+        "area": 1,
+        "event": 0,
+        "resumed_song": 20
+      },
+      {
+        "initial_mode": 1,
+        "paused": 1,
+        "area": 1,
+        "event": 8,
+        "resumed_song": 4
+      },
+      {
+        "initial_mode": 1,
+        "paused": 1,
+        "area": 4,
+        "event": 0,
+        "resumed_song": 1
+      },
+      {
+        "initial_mode": 1,
+        "paused": 1,
+        "area": 4,
+        "event": 8,
+        "resumed_song": 4
+      }
+    ],
+    "dispatcher_only_costs": [
+      {
+        "area_bit": 0,
+        "old_Pit_fallback": {
+          "init_cycles": 6649,
+          "updates": 600,
+          "mean_cycles": 795.5183333333333,
+          "peak_cycles": 3642,
+          "minimum_SP": 246
+        },
+        "new_PunchOut_music": {
+          "init_cycles": 1269,
+          "updates": 600,
+          "mean_cycles": 1029.8916666666667,
+          "peak_cycles": 2185,
+          "minimum_SP": 243
+        }
+      },
+      {
+        "area_bit": 1,
+        "old_Pit_fallback": {
+          "init_cycles": 6658,
+          "updates": 600,
+          "mean_cycles": 795.5183333333333,
+          "peak_cycles": 3642,
+          "minimum_SP": 246
+        },
+        "new_PunchOut_music": {
+          "init_cycles": 1278,
+          "updates": 600,
+          "mean_cycles": 981.7833333333333,
+          "peak_cycles": 1968,
+          "minimum_SP": 243
+        }
+      },
+      {
+        "area_bit": 2,
+        "old_Pit_fallback": {
+          "init_cycles": 6667,
+          "updates": 600,
+          "mean_cycles": 795.5183333333333,
+          "peak_cycles": 3642,
+          "minimum_SP": 246
+        },
+        "new_PunchOut_music": {
+          "init_cycles": 1287,
+          "updates": 600,
+          "mean_cycles": 1042.13,
+          "peak_cycles": 1928,
+          "minimum_SP": 243
+        }
+      },
+      {
+        "area_bit": 3,
+        "old_Pit_fallback": {
+          "init_cycles": 6676,
+          "updates": 600,
+          "mean_cycles": 795.5183333333333,
+          "peak_cycles": 3642,
+          "minimum_SP": 246
+        },
+        "new_PunchOut_music": {
+          "init_cycles": 1296,
+          "updates": 600,
+          "mean_cycles": 860.2516666666667,
+          "peak_cycles": 1964,
+          "minimum_SP": 243
+        }
+      },
+      {
+        "area_bit": 4,
+        "old_Pit_fallback": {
+          "init_cycles": 6685,
+          "updates": 600,
+          "mean_cycles": 795.52,
+          "peak_cycles": 3642,
+          "minimum_SP": 246
+        },
+        "new_PunchOut_music": {
+          "init_cycles": 1305,
+          "updates": 600,
+          "mean_cycles": 1027.0333333333333,
+          "peak_cycles": 2001,
+          "minimum_SP": 243
+        }
+      },
+      {
+        "area_bit": 5,
+        "old_Pit_fallback": {
+          "init_cycles": 6694,
+          "updates": 600,
+          "mean_cycles": 795.52,
+          "peak_cycles": 3642,
+          "minimum_SP": 246
+        },
+        "new_PunchOut_music": {
+          "init_cycles": 1314,
+          "updates": 600,
+          "mean_cycles": 1042.13,
+          "peak_cycles": 1928,
+          "minimum_SP": 243
+        }
+      },
+      {
+        "area_bit": 6,
+        "old_Pit_fallback": {
+          "init_cycles": 6703,
+          "updates": 600,
+          "mean_cycles": 795.52,
+          "peak_cycles": 3642,
+          "minimum_SP": 246
+        },
+        "new_PunchOut_music": {
+          "init_cycles": 1323,
+          "updates": 600,
+          "mean_cycles": 860.2516666666667,
+          "peak_cycles": 1964,
+          "minimum_SP": 243
+        }
+      }
+    ]
+  }
+}

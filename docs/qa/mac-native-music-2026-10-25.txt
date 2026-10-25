@@ -1,0 +1,273 @@
+Little Mac original Punch-Out music — qualified private donor, 2026-10-25
+
+Status: v7 source/CPU, native music/hardware and strict matched performance PASS.
+Ready for ROOT to compose and requalify against current529. Not installed by
+this agent. The one sequential native worker was explicitly RELEASED.
+
+All evidence below belongs to frozen parent220 and its v7 donor. It must not be
+relabeled as evidence for ROOT's later accepted composition.
+
+External packet root (D):
+C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/mac-native-music-v1
+
+Parent ROM SHA-256:
+220be8247baf877785c91244876038354442e68502b3f837920f39a674a1fa3e
+Final source: D/proposal-v7/source
+Final ROM: D/proposal-v7/candidate.nes
+Final ROM SHA-256:
+f4c6a5b12d33ece173da71ba40933e1368b749d8e44c7b81a6774073df120b9b
+Review patch SHA-256:
+11dd459f008d9ffd4c5f0c9d4ad5858f76083a8acd677ff7ce5769b9c6d37337
+Source-only ZIP SHA-256:
+b4162f52f93e9b9d8abe7a04f2fc580ed18d805e5a96f242bbaf6a7078dba809
+
+Per-file bindings: D/proposal-v7/source-bindings.json
+Final qualification: D/qualification-v7.json
+Earlier receipt.json remains unchanged: its pending-native status describes
+that earlier stage, not this final qualification.
+
+Confirmed problem and delivered behavior
+----------------------------------------
+The appended selector sends Little Mac to the installed Pit family. Returning
+character ID15 instead would index beyond the14-family compressed tables.
+Recorded Mac songs were not an installed native driver.
+
+The private repair intercepts character15 before that lookup and runs the
+authenticated Punch-Out engine and nine original tracks. World/player effects
+continue through the existing guest/world mixer. No fabricated melody, muted
+fallback, captured-prefix loop or out-of-range family index was substituted.
+
+The existing playlist plan retains these explicit cross-game roles:
+
+Role                      Original NSF track / M3U name
+Normal                    20  Warming Up with Doc
+Water                     22  Get Up Little Mac!!
+Underground, level intro   1  Punch Out!! Theme
+Castle, invincibility     23  Match BGM
+Bonus                      2  Punch Out!! Theme (Reprise)
+Death                      7  You Lose
+Game over                  9  Game Over
+Stage win                  6  Bout Winner
+Castle win                 4  You've Won the Championship Ranking!!
+Hurry                     23  Match BGM
+
+Area order20,22,1,23,2,1,23 and event order7,9,6,4,9,6,23 match
+reference/new-roster-audio/playlist-plan.json. These are game-role adaptations;
+Punch-Out did not originally have SMB water/castle areas. Whole finite themes
+1/2 restart only in background roles; finite victory/death/game-over events
+stop at their authentic completion. Tracks20/22/23 loop in their original engine.
+
+Source and cadence
+------------------
+reference/new-roster-audio/mac/Mike Tyson's Punch-Out!! (1987-10)(Nintendo IRD)(Nintendo).nsf
+SHA-256:
+9a7a3ae5f16b745f74296478ec208b5b87ad5ec2773a14b243f7e631a2dd8d68
+NSFv1,75 selections, nonbanked payload32768, load$8000, init$9F80,
+play$8000, NTSC period16666us, no expansion audio.
+
+Original engine execution covers18000 plays after init on each mapped selection:
+162009 total init/play calls and700355 ordered source APU stores. These nine use
+the four native tonal/noise channels, with no active DMC, source hardware/status/
+controller reads or ROM writes. Original ordered $4017=$C0 and $4015 stores remain.
+Source probe: D/source-probe-v1/coverage.json
+SHA-256:
+f175d06d66af731cb3189618a2e6970a114c1181a3b6c3369eb025cfaaeeeed4
+
+One original music advancement runs per unpaused engine audio update. Pause and
+requested silence hold state; pending requests survive pause. Cold title requests
+do not mark random history initialized. Init queues$F2, first play activates$F6;
+the adapter distinguishes that pending start from a natural song end.
+No divided rate, tempo rewrite, omitted source store/state/channel or extra skipped
+drawing was used. This is not a universal60Hz or cycle-exact waveform assertion:
+equivalent instructions and mixer interception change timing inside a call.
+
+Only nine declared music selections are exposed. This is not a port of all75
+NSF music/SFX selections. Source SFX inputs stay zero; effects use the existing
+guest/world mixer. Unselected source paths are not asserted relocated/qualified.
+
+Packing, ownership and optimization
+----------------------------------
+One unused8192-byte A-window PRG bank, physical$7B(123). No new SRAM/CHR allocation,
+fixed-DPCM relocation or bank127 change. Original $8000..$9FFF is rebased to
+$A000..$BFFF. Every actual code/data read in the complete nine probes is represented.
+High helpers and tables fit in the original blank$8C8C..$8FFF interval:
+source$F400->$ACB6, $F53C->$AD4A, $F674->$AE4D. Original$9000 data remains$B000.
+The470-byte adapter/writer group starts$B800, inside unreferenced data for unselected
+songs. Init growth fits its unused$9F92..$9F9F pad; following tables retain bindings.
+
+Source channel RAM$0700..$072C directly uses XgLzHistory: no48-byte borrow/swap.
+V7 also replaces40 source ZP operands with absolute private-image references at
+XgLzHistory+$100. All observed modes/pointers are audited. Only the authentic
+indirect pair$F8/$F9 stays live for($F8),Y and is borrowed/restored. Every other
+interrupted ZP byte remains untouched. Counters$FC/$FD are not ROM pointers.
+Golden comparison canonicalizes only actual rebased pointers, not arbitrary state.
+
+Source-address labels permit instruction-width growth. The source backward branch
+at$8A3E becomes an equivalent long branch after its displacement grows beyond range.
+The preparer records every operand/branch/indirect mode. All162009 original calls
+were rerun after relocation.
+
+The retained music-only entry bypasses inactive source SFX scans when flags are
+zero, saving446 cycles. It retains original control stores, music advancement and
+queue-clearing epilogue. The original entry remains, but unexposed nonzero-SFX paths
+are outside this packet's nine-selection contract. No music state/store is omitted.
+
+Pending track uses inactive XgAudioSelection; marker$FC is outside generic family
+indices. Leaving Mac forces the old family-marker mismatch and decoder reinit.
+
+Resident gate: LOWCODE physical126,$99FE..$9A0F,18 bytes of the unreachable44-byte
+NOP tail after SmallPlatformCollision's expanded farcall+RTS. Original63-byte span
+and all old labels stay fixed. CrossoverPatchStatusName's pad was rejected because
+it is in bank3 RENDER; characters.s stays byte-identical. Samus/CV3 pads untouched.
+
+Private production changes:
+  src/mac_native_music.s (new49624-byte generated source)
+  src/entrypoint.s (expanded-only include after gradius_audio.s)
+  src/collision.s (18-byte gate within existing44-byte NOP pad)
+  src/gradius_audio.s (legacy JMP target;2 bytes change)
+  smb1base-mmc5-expanded.cfg (MAC_NATIVE_AUDIO:load=X5_NEW_7B,type=ro;)
+
+Exact gate source replacing the old .res44:
+::LmNativeMusicGate:
+  lda SelectedCharacter
+  cmp #15
+  bne LmNativeMusicLegacy
+  BankPRGA #.bank(LmNativeMusicUpdate)
+  jmp LmNativeMusicUpdate
+LmNativeMusicLegacy:
+  jmp ExpandedAudioTick
+  .res 26,$ea
+  .assert *-SmallPlatformCollision=63,lderror,"Native small-platform collision span"
+
+The other target changes from "jmp ExpandedAudioTick" to "jmp LmNativeMusicGate"
+in VgAudioDispatch's Legacy block. All exact snippets are in review.patch.
+Only physical banks38(2 bytes),123(7939 bytes),126(18 bytes) differ from220.
+All54155 preexisting qualified symbols, RAM, CHR and fixed/DPCM bytes are preserved.
+
+CPU and practical cost
+----------------------
+D/cpu-final-v7/proof.json SHA-256:
+09824d9ae905b47f0a38b05a602f75dba7887d6a9eea521823db3fae45b8da17
+
+All162009 original calls/700355 stores match canonical state and ordered APU stores.
+Each call asserts write ownership: owned channel/ZP/APU/dirty/status, hardware
+$4015/$4017, discarded stack and two live pointers only. Foreground ZP remains
+untouched outside the pair. All16 interrupted bytes restore after actual dispatch.
+An additional48570 linked calls across Easy0/Hard1 match414342 ordered source stores,
+endings, whole-theme restarts, pause/cold queues and random caller registers.
+All1404 non-Mac cases retain registers/meaningful flags/RAM/hardware/bank mappings.
+
+Same600-update dispatcher-only mean/peak cycles; mixer/NMI/draw excluded:
+Area             Old Pit mean/peak     V7 Punch-Out mean/peak
+Normal           795.52 /3642          1029.89 /2185
+Water            795.52 /3642           981.78 /1968
+Underground      795.52 /3642          1042.13 /1928
+Castle           795.52 /3642           860.25 /1964
+Bonus            795.52 /3642          1027.03 /2001
+Intro            795.52 /3642          1042.13 /1928
+Star             795.52 /3642           860.25 /1964
+
+Initialization1269..1323 cycles vs old6649..6703. Mean update cost is HIGHER than
+wrong Pit fallback. Lower peaks/native completed-work are separately measured;
+do not claim a broad CPU improvement.
+
+Expanded-flag-off builds were rebuilt and are byte-exact to frozen220:
+MMC3 SHA d444cac88e13fa02b29ad16100b8f08fa565ba90f8cedde192de43fb2dc8f3eb
+MMC5 SHA f4ffd2483c51daa4d60bb575da2da8c4d817692cda407611c243031f67520833
+
+Strict native matched performance: PASS
+-------------------------------------
+D/native-parent-performance-v3/native-result.json (220)
+D/native-candidate-performance-v3/native-result.json (v7)
+D/performance-v7-vs-parent.json SHA-256:
+9ae4daf85e353f10fcb17393e12c4b320bee3eef3afffaa09661b4f6a1e21b78
+
+Both finish exact same600 gameplay work rows in1021 total physical frames including
+cold menus. Movement, health/stars/stamina, enemies, punch/super state agree after
+excluding wall-frame labels only. No phase has worse draw/lag/frame counts:
+Work(120 updates)   Parent draw/lag     V7 draw/lag
+Idle               119 /1              120 /0
+Walk               120 /0              120 /0
+Enemies            120 /0              120 /0
+Punch              118 /2              119 /1
+Super punch        118 /2              119 /1
+Total              595 /5              598 /2
+
+Each run passes600 NMI bank/shadow/A/stack and five-SMC checks,599 full256-byte
+DMA/hardware OAM comparisons,599 committedCHR rows with zero mismatches, no
+visible-world PPU address/scroll writes, and minimum SP$EB versus SMC floor$7B.
+Each has120 live-enemy samples,83 punch and71 super samples. This is a bounded
+first-screen arena, not a full-level or universal-lag proof. Same final checker
+still rejects v5/v6; negative evidence was retained, not relabeled.
+
+Native source/store/hardware matrix: PASS
+----------------------------------------
+D/native-music-v7/native-result.json SHA-256:
+02815921f1646b66e919c8bfe7355d349a8bfc1e1d17e22103c4df8489f282b2
+D/native-music-v7/proof.json SHA-256:
+bd08299f4ac971a19f0cf4e6f83e3aa6459ee9e387ed95ede271eac2e7698784
+Fixture SHA-256:
+88ba805631ae15986dae52a91de19ba31f3cba65ecca6070032ee7dcf86fa3bf
+Runner SHA-256:
+257d01d6ae7ad3d27e779db2fba257cce9e46276da27f9604786822918de6351
+Generated music script SHA-256:
+48cf8c3ed1f05ca39d9fd16e5463b33aab5f2dad7d06715534e2709d76c043f5
+Mesen SHA-256:
+8b92daa209ee5052845e02a663aeb1afd6194eca55d86e6628c51114c61da0a9
+
+Actual cold menu then14 arranged selections in native Hard1:10222 frames,
+9800 audio update checks,9306 source calls,81157 ordered source stores,
+130191 actual mixer/hardware-register checks,9800 full foreground restores and
+9800 full OAM-DMA frames. Pause/resume, active world SFX, silence, restart and
+all declared maps are covered. No source/store/state/hardware mismatch.
+Inclusive adapter peak2177 cycles.
+
+Ownership:9800 NMIs/normalIRQ splits, five SMC operands intact,1570597 protected
+page checks, no mapper/shadow window mismatch or visible-world PPU address write.
+9800 committedCHR rows, zero mismatches. NestedIRQ count0 is explicit: no claim
+of an overlap that did not occur. Adapter-entry minimum SP$EF; separately NMI
+sampled minimum$FA, SMC floor$7B. Three PPU screenshots were visually inspected
+without a new artifact; frozen old donor HP/HUD is not current UI evidence.
+
+Config uses numeric music/hard/direct_zp and asserts actual
+CrossoverBehaviorVersion readback before collection. Shared Python-bool/Lua
+True/False serialization bug does not affect numeric flags. Old labels stay as
+recorded. Easy is CPU-qualified; native matrix/performance are specifically Hard.
+
+Retained negatives
+------------------
+V5 d7e5854581043a4447685d4b131db0d73d926752ebdde8dc4dafa2480a82f9f7:
+native-parent-performance-v1 / candidate-v1 have same600 updates/1021 frames but
+595->591 draws and5->9 lag. performance-v5-retained-negative.json remains false.
+native-music-v5-diagnostic1 reached14 selections without per-call failure then
+failed aggregate coverage; it remains failed. Final fixture reports normalIRQ
+splits separately from nested overlap instead of requiring unnecessary overlap.
+
+V6 4e0676545f6e7470e2cb38532fcd7a3597b9104eff8136ee84608d39865adb3d:
+native-parent-performance-v2 / candidate-v2 retain595 draws/5 lag in total but
+enemies120/0->119/1 and super118/2->117/3 regress. performance-v6-vs-parent.json
+remains false; long v6 matrix was not run. V7 removes remaining borrow overhead
+then reruns all CPU/golden checks and the unchanged native per-phase guard.
+No performance threshold was relaxed.
+
+Reproduction and integration boundary
+------------------------------------
+From ROOT, all output/source-copy paths must be absolute and external.
+The direct preparer requires a fresh frozen source copy and refuses ROOT.
+Frozen audit-tool bindings preserve the exact tools used.
+
+python tools/audit/mac_native_music_probe.py --output SOURCE_PROBE --calls 18000
+python tools/audit/mac_native_music_prepare_direct.py --source PRIVATE_SOURCE --coverage SOURCE_PROBE/coverage.json
+python tools/build_mmc5_expanded.py --workspace PRIVATE_SOURCE --compiler tools/Windows/cc65/bin/cl65.exe --output PRIVATE_ROM.nes
+python tools/audit/mac_native_music_cpu.py --rom PRIVATE_ROM.nes --baseline FROZEN220.nes --gold SOURCE_PROBE --output CPU_PROOF
+python tools/audit/mac_native_music_native.py --rom PRIVATE_ROM.nes --gold SOURCE_PROBE --output NATIVE_MUSIC --mode music --hard --emulator MESEN.exe --timeout 300 --run
+python tools/audit/mac_native_music_native.py --rom FROZEN220.nes --output NATIVE_PARENT_PERF --mode performance --hard --emulator MESEN.exe --timeout 180 --run
+python tools/audit/mac_native_music_native.py --rom PRIVATE_ROM.nes --output NATIVE_V7_PERF --mode performance --hard --emulator MESEN.exe --timeout 180 --run
+python tools/audit/mac_native_music_performance.py --baseline NATIVE_PARENT_PERF --candidate NATIVE_V7_PERF --output PERF_REPORT.json
+
+ROOT must compose only the five production changes into current529, preserving
+independent Alucard/Samus/other source and raw EOLs. Require exact donor banks38,
+123,126, all other banks equal529, oldPC/RAM/CHR/fixed-DPCM preservation, and
+fresh qualification of the resulting combined hash before adoption. Frozen220
+passes do not prove a different composition. No ROOT production/config/Git or
+Downloads writes were performed by this agent. The donor is ready for integration.

@@ -844,7 +844,15 @@ SmallPlatformCollision:
 .if ::ENABLE_MMC5_EXPANDED
   farcall Z2SmallPlatformCollision
   rts
-  .res 44,$ea
+::LmNativeMusicGate:
+  lda SelectedCharacter
+  cmp #15
+  bne LmNativeMusicLegacy
+  BankPRGA #.bank(LmNativeMusicUpdate)
+  jmp LmNativeMusicUpdate
+LmNativeMusicLegacy:
+  jmp ExpandedAudioTick
+  .res 26,$ea
   .assert *-SmallPlatformCollision=63,lderror,"Native small-platform collision span"
 .else
       lda TimerControl             ;if master timer control set,

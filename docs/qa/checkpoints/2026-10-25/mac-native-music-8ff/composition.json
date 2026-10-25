@@ -1,0 +1,60 @@
+{
+  "composed": true,
+  "native_qualified": false,
+  "adopted": false,
+  "goal_complete": false,
+  "parent_ROM_sha256": "52918588bab0eec3f3a1f857bf084d2d799e88a5c781c75233c098ccc5f54f3f",
+  "donor_ROM_sha256": "f4c6a5b12d33ece173da71ba40933e1368b749d8e44c7b81a6774073df120b9b",
+  "ROM_sha256": "8ff245ae662059abbc77c5de517260032775b7ba881a5201b8b54686ccf08277",
+  "changed_bytes": 7959,
+  "changed_PRG_banks": [
+    38,
+    123,
+    126
+  ],
+  "donor_repaired_banks_exact": true,
+  "all_other_complete_banks_exact": true,
+  "old_qualified_symbols": 54193,
+  "retained_PC_RAM_CHR_exact": true,
+  "fixed_DPCM_exact": true,
+  "new_RAM_bytes": 0,
+  "new_CHR_bytes": 0,
+  "source_files": {
+    "src/entrypoint.s": {
+      "before_sha256": "a24a896d90701c22e558707c97e64b68fa1a1a8a57233a88ecf6232f421f6edd",
+      "after_sha256": "b29d54733e049508e7df4f26c8b852edcd69c7a2a608dfe0729df2a8a007132f",
+      "donor_sha256": "78a28b1e70df4fa1088ab44cd14170bc55def196a39a7720ed89abcda2611d73"
+    },
+    "src/collision.s": {
+      "before_sha256": "2b37a28152254dc4cf80cee3d98cc4436e5dde61c954559effc509af687d0f6b",
+      "after_sha256": "c64bbc8b7a6db77847e4e3e37372099a7653e3e95c64c961b82fc79d219323da",
+      "donor_sha256": "c64bbc8b7a6db77847e4e3e37372099a7653e3e95c64c961b82fc79d219323da"
+    },
+    "src/gradius_audio.s": {
+      "before_sha256": "b35ceb2f76c862edae8a86c7aa4daf3ee1f84c51ef02bf2cf0505df0ec86a54f",
+      "after_sha256": "6e78720d80de735f9d85afe2cf4c4205bde1c197018b0e7ed9af7ded080a1f58",
+      "donor_sha256": "3829fb4221dd9571b97a626b3ab3c57ebb91db1a1d951586896ca71aec0cb54d"
+    },
+    "src/mac_native_music.s": {
+      "before_sha256": null,
+      "after_sha256": "c6ce901ff7ebbe25c933208ba428eb87c1a05b4e8eb18a8bc13e36df724d0117",
+      "donor_sha256": "bd42651937e0b601a5c3dfad7487da5e99d38d49d97b7f7191af136160f7fb5e"
+    },
+    "smb1base-mmc5-expanded.cfg": {
+      "before_sha256": "e7a4bf6e26fd3e10353ffb0aad9af74a18ff5ac3d8e1d752bc3d0539fe53c573",
+      "after_sha256": "b85b789835330ab2b63860e62379f8c4db991d05aa7fc4b96875500e526b7a41",
+      "donor_sha256": "b85b789835330ab2b63860e62379f8c4db991d05aa7fc4b96875500e526b7a41"
+    }
+  },
+  "ordinary_target_hashes": {
+    "mmc3": "d444cac88e13fa02b29ad16100b8f08fa565ba90f8cedde192de43fb2dc8f3eb",
+    "mmc5": "f4ffd2483c51daa4d60bb575da2da8c4d817692cda407611c243031f67520833"
+  },
+  "donor_receipts": {
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mac-native-music-v1\\performance-v7-vs-parent.json": "9ae4daf85e353f10fcb17393e12c4b320bee3eef3afffaa09661b4f6a1e21b78",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mac-native-music-v1\\native-music-v7\\native-result.json": "02815921f1646b66e919c8bfe7355d349a8bfc1e1d17e22103c4df8489f282b2",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mac-native-music-v1\\cpu-final-v7\\proof.json": "09824d9ae905b47f0a38b05a602f75dba7887d6a9eea521823db3fae45b8da17"
+  },
+  "tool_sha256": "eeec4771e9a0cf8536c62c7348fd50d0f6b9854766f3a34734814d8ffbfab89c",
+  "scope": "Private current529 composition only. Original raw source line endings retained; new Mac file uses LF. Must independently qualify actual current-hash source/audio/hardware/cadence before installation."
+}

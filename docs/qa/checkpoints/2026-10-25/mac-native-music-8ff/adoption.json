@@ -1,0 +1,682 @@
+{
+  "adopted": true,
+  "goal_complete": false,
+  "ROM_sha256": "8ff245ae662059abbc77c5de517260032775b7ba881a5201b8b54686ccf08277",
+  "parent_ROM_sha256": "52918588bab0eec3f3a1f857bf084d2d799e88a5c781c75233c098ccc5f54f3f",
+  "fresh_canonical_ROOT_compile_exact": true,
+  "source_files": {
+    "src/entrypoint.s": {
+      "before_sha256": "a24a896d90701c22e558707c97e64b68fa1a1a8a57233a88ecf6232f421f6edd",
+      "after_sha256": "b29d54733e049508e7df4f26c8b852edcd69c7a2a608dfe0729df2a8a007132f",
+      "donor_sha256": "78a28b1e70df4fa1088ab44cd14170bc55def196a39a7720ed89abcda2611d73"
+    },
+    "src/collision.s": {
+      "before_sha256": "2b37a28152254dc4cf80cee3d98cc4436e5dde61c954559effc509af687d0f6b",
+      "after_sha256": "c64bbc8b7a6db77847e4e3e37372099a7653e3e95c64c961b82fc79d219323da",
+      "donor_sha256": "c64bbc8b7a6db77847e4e3e37372099a7653e3e95c64c961b82fc79d219323da"
+    },
+    "src/gradius_audio.s": {
+      "before_sha256": "b35ceb2f76c862edae8a86c7aa4daf3ee1f84c51ef02bf2cf0505df0ec86a54f",
+      "after_sha256": "6e78720d80de735f9d85afe2cf4c4205bde1c197018b0e7ed9af7ded080a1f58",
+      "donor_sha256": "3829fb4221dd9571b97a626b3ab3c57ebb91db1a1d951586896ca71aec0cb54d"
+    },
+    "src/mac_native_music.s": {
+      "before_sha256": null,
+      "after_sha256": "c6ce901ff7ebbe25c933208ba428eb87c1a05b4e8eb18a8bc13e36df724d0117",
+      "donor_sha256": "bd42651937e0b601a5c3dfad7487da5e99d38d49d97b7f7191af136160f7fb5e"
+    },
+    "smb1base-mmc5-expanded.cfg": {
+      "before_sha256": "e7a4bf6e26fd3e10353ffb0aad9af74a18ff5ac3d8e1d752bc3d0539fe53c573",
+      "after_sha256": "b85b789835330ab2b63860e62379f8c4db991d05aa7fc4b96875500e526b7a41",
+      "donor_sha256": "b85b789835330ab2b63860e62379f8c4db991d05aa7fc4b96875500e526b7a41"
+    }
+  },
+  "changed_ROM_bytes": 7959,
+  "changed_PRG_banks": [
+    38,
+    123,
+    126
+  ],
+  "retained_PC_RAM_CHR_fixed_DPCM_exact": true,
+  "new_RAM_bytes": 0,
+  "new_CHR_bytes": 0,
+  "original_source_CPU_calls": 162009,
+  "original_source_CPU_APU_writes": 700355,
+  "actual_dispatch_source_CPU_calls": 48570,
+  "actual_dispatch_source_CPU_APU_writes": 414342,
+  "native_music": {
+    "passed": true,
+    "music": true,
+    "hard": true,
+    "frames": 10222,
+    "source_calls": 9306,
+    "ordered_source_APU_writes": 81157,
+    "audio_updates": 9800,
+    "hardware_register_comparisons": 130191,
+    "borrowed_state_checks": 9800,
+    "nested_IRQs": 0,
+    "IRQ_splits": 9800,
+    "OAM_DMA_frames": 9800,
+    "adapter_cycles_inclusive": 9393183,
+    "peak_adapter_cycles_inclusive": 2177,
+    "minimum_adapter_entry_SP": 239,
+    "completed_game_updates": 0,
+    "live_enemy_samples": 0,
+    "punch_samples": 0,
+    "super_samples": 0,
+    "scope": "Cold native menu followed by explicitly arranged audio requests or an equal-600-update first-screen work arena. Source calls/states and live hardware mixer are checked separately. No campaign clear or universal lag claim."
+  },
+  "matched_performance": {
+    "passed": true,
+    "scope": "Same arranged Hard-mode 600 completed game updates; explicitly compares update work, physical frames and draw counts. Not a whole-level or universal lag proof.",
+    "tool_sha256": "110a093527219d74f55a635cad59f82cb3827df36dc0fe5dc788c6c654cab2d4",
+    "baseline": {
+      "ROM_sha256": "52918588bab0eec3f3a1f857bf084d2d799e88a5c781c75233c098ccc5f54f3f",
+      "native_receipt_sha256": "ac852a7e4d6bd9b6b56129fc54864a1e1d2bd2f3bf27d976568ae3a46b507464",
+      "all_native_frames": 1021,
+      "completed_work_rows": 600,
+      "phases": {
+        "idle": {
+          "completed_game_loops": 120,
+          "draw_calls": 119,
+          "physical_frame_rows": 120,
+          "frame_movement_updates": 120,
+          "frame_draw_calls": 119,
+          "lag_NMIs": 1,
+          "game_loop_mean_CPU_cycles": 19519.9,
+          "game_loop_mean_ISR_cycles": 139.41666666666666,
+          "game_loop_peak_CPU_cycles": 20179
+        },
+        "walk": {
+          "completed_game_loops": 120,
+          "draw_calls": 120,
+          "physical_frame_rows": 120,
+          "frame_movement_updates": 120,
+          "frame_draw_calls": 120,
+          "lag_NMIs": 0,
+          "game_loop_mean_CPU_cycles": 19631.841666666667,
+          "game_loop_mean_ISR_cycles": 116.0,
+          "game_loop_peak_CPU_cycles": 21096
+        },
+        "enemies": {
+          "completed_game_loops": 120,
+          "draw_calls": 120,
+          "physical_frame_rows": 120,
+          "frame_movement_updates": 120,
+          "frame_draw_calls": 120,
+          "lag_NMIs": 0,
+          "game_loop_mean_CPU_cycles": 23249.075,
+          "game_loop_mean_ISR_cycles": 117.0,
+          "game_loop_peak_CPU_cycles": 24542
+        },
+        "punch": {
+          "completed_game_loops": 120,
+          "draw_calls": 118,
+          "physical_frame_rows": 120,
+          "frame_movement_updates": 120,
+          "frame_draw_calls": 118,
+          "lag_NMIs": 2,
+          "game_loop_mean_CPU_cycles": 23507.008333333335,
+          "game_loop_mean_ISR_cycles": 160.75,
+          "game_loop_peak_CPU_cycles": 25371
+        },
+        "super": {
+          "completed_game_loops": 120,
+          "draw_calls": 118,
+          "physical_frame_rows": 119,
+          "frame_movement_updates": 119,
+          "frame_draw_calls": 117,
+          "lag_NMIs": 2,
+          "game_loop_mean_CPU_cycles": 23627.608333333334,
+          "game_loop_mean_ISR_cycles": 160.75,
+          "game_loop_peak_CPU_cycles": 25456
+        }
+      }
+    },
+    "candidate": {
+      "ROM_sha256": "8ff245ae662059abbc77c5de517260032775b7ba881a5201b8b54686ccf08277",
+      "native_receipt_sha256": "14638fb33dda17a70226ad6db82c16244eefaa65079abb74854c31f821a91e88",
+      "all_native_frames": 1021,
+      "completed_work_rows": 600,
+      "phases": {
+        "idle": {
+          "completed_game_loops": 120,
+          "draw_calls": 120,
+          "physical_frame_rows": 120,
+          "frame_movement_updates": 120,
+          "frame_draw_calls": 120,
+          "lag_NMIs": 0,
+          "game_loop_mean_CPU_cycles": 19563.508333333335,
+          "game_loop_mean_ISR_cycles": 120.0,
+          "game_loop_peak_CPU_cycles": 20178
+        },
+        "walk": {
+          "completed_game_loops": 120,
+          "draw_calls": 120,
+          "physical_frame_rows": 120,
+          "frame_movement_updates": 120,
+          "frame_draw_calls": 120,
+          "lag_NMIs": 0,
+          "game_loop_mean_CPU_cycles": 19631.841666666667,
+          "game_loop_mean_ISR_cycles": 120.0,
+          "game_loop_peak_CPU_cycles": 21089
+        },
+        "enemies": {
+          "completed_game_loops": 120,
+          "draw_calls": 120,
+          "physical_frame_rows": 120,
+          "frame_movement_updates": 120,
+          "frame_draw_calls": 120,
+          "lag_NMIs": 0,
+          "game_loop_mean_CPU_cycles": 23249.075,
+          "game_loop_mean_ISR_cycles": 120.0,
+          "game_loop_peak_CPU_cycles": 24543
+        },
+        "punch": {
+          "completed_game_loops": 120,
+          "draw_calls": 119,
+          "physical_frame_rows": 120,
+          "frame_movement_updates": 120,
+          "frame_draw_calls": 119,
+          "lag_NMIs": 1,
+          "game_loop_mean_CPU_cycles": 23561.316666666666,
+          "game_loop_mean_ISR_cycles": 141.95,
+          "game_loop_peak_CPU_cycles": 25371
+        },
+        "super": {
+          "completed_game_loops": 120,
+          "draw_calls": 119,
+          "physical_frame_rows": 119,
+          "frame_movement_updates": 119,
+          "frame_draw_calls": 118,
+          "lag_NMIs": 1,
+          "game_loop_mean_CPU_cycles": 23682.708333333332,
+          "game_loop_mean_ISR_cycles": 141.76666666666668,
+          "game_loop_peak_CPU_cycles": 25447
+        }
+      }
+    },
+    "exact_gameplay_work_excluding_wall": true,
+    "count_differences": [
+      {
+        "phase": "idle",
+        "measure": "draw_calls",
+        "baseline": 119,
+        "candidate": 120
+      },
+      {
+        "phase": "idle",
+        "measure": "frame_draw_calls",
+        "baseline": 119,
+        "candidate": 120
+      },
+      {
+        "phase": "idle",
+        "measure": "lag_NMIs",
+        "baseline": 1,
+        "candidate": 0
+      },
+      {
+        "phase": "punch",
+        "measure": "draw_calls",
+        "baseline": 118,
+        "candidate": 119
+      },
+      {
+        "phase": "punch",
+        "measure": "frame_draw_calls",
+        "baseline": 118,
+        "candidate": 119
+      },
+      {
+        "phase": "punch",
+        "measure": "lag_NMIs",
+        "baseline": 2,
+        "candidate": 1
+      },
+      {
+        "phase": "super",
+        "measure": "draw_calls",
+        "baseline": 118,
+        "candidate": 119
+      },
+      {
+        "phase": "super",
+        "measure": "frame_draw_calls",
+        "baseline": 117,
+        "candidate": 118
+      },
+      {
+        "phase": "super",
+        "measure": "lag_NMIs",
+        "baseline": 2,
+        "candidate": 1
+      }
+    ],
+    "regressions": [],
+    "no_extra_skipped_draws_or_lag": true
+  },
+  "full_ordinary_AudioUpdate": {
+    "passed": true,
+    "ROM_sha256": "8ff245ae662059abbc77c5de517260032775b7ba881a5201b8b54686ccf08277",
+    "baseline_ROM_sha256": "52918588bab0eec3f3a1f857bf084d2d799e88a5c781c75233c098ccc5f54f3f",
+    "full_AudioUpdate_cases": 5856,
+    "added_CPU_cycle_range": [
+      0,
+      0
+    ],
+    "ordered_APU_RAM_registers_mapper_exact": true,
+    "scope": "Bill, Samus, Link and four CV3 variants; typed effects, pause/resume, ended DMC. CPU outcomes only, no native cadence or waveform claim."
+  },
+  "other36_identity_CPU_calls": 9216,
+  "non_Mac_cycle_costs": [
+    {
+      "identity": "Mario",
+      "character": 0,
+      "variant": null,
+      "value": 0,
+      "cases": 256,
+      "cycle_delta": [
+        0,
+        0
+      ]
+    },
+    {
+      "identity": "Luigi",
+      "character": 8,
+      "variant": "MarioVariant",
+      "value": 1,
+      "cases": 256,
+      "cycle_delta": [
+        0,
+        0
+      ]
+    },
+    {
+      "identity": "Mega Man",
+      "character": 1,
+      "variant": "ProtoVariant",
+      "value": 0,
+      "cases": 256,
+      "cycle_delta": [
+        0,
+        0
+      ]
+    },
+    {
+      "identity": "Proto Man",
+      "character": 1,
+      "variant": "ProtoVariant",
+      "value": 1,
+      "cases": 256,
+      "cycle_delta": [
+        0,
+        0
+      ]
+    },
+    {
+      "identity": "Samus",
+      "character": 2,
+      "variant": null,
+      "value": 0,
+      "cases": 256,
+      "cycle_delta": [
+        0,
+        0
+      ]
+    },
+    {
+      "identity": "Bill",
+      "character": 3,
+      "variant": "BillVariant",
+      "value": 0,
+      "cases": 256,
+      "cycle_delta": [
+        0,
+        0
+      ]
+    },
+    {
+      "identity": "Lance",
+      "character": 3,
+      "variant": "BillVariant",
+      "value": 1,
+      "cases": 256,
+      "cycle_delta": [
+        0,
+        0
+      ]
+    },
+    {
+      "identity": "Link",
+      "character": 4,
+      "variant": "Z2Variant",
+      "value": 0,
+      "cases": 256,
+      "cycle_delta": [
+        0,
+        0
+      ]
+    },
+    {
+      "identity": "Zelda II Link",
+      "character": 4,
+      "variant": "Z2Variant",
+      "value": 1,
+      "cases": 256,
+      "cycle_delta": [
+        0,
+        0
+      ]
+    },
+    {
+      "identity": "Simon",
+      "character": 5,
+      "variant": "Cv3Variant",
+      "value": 0,
+      "cases": 256,
+      "cycle_delta": [
+        0,
+        0
+      ]
+    },
+    {
+      "identity": "Grant",
+      "character": 5,
+      "variant": "Cv3Variant",
+      "value": 1,
+      "cases": 256,
+      "cycle_delta": [
+        0,
+        0
+      ]
+    },
+    {
+      "identity": "Sypha",
+      "character": 5,
+      "variant": "Cv3Variant",
+      "value": 2,
+      "cases": 256,
+      "cycle_delta": [
+        0,
+        0
+      ]
+    },
+    {
+      "identity": "Alucard",
+      "character": 5,
+      "variant": "Cv3Variant",
+      "value": 3,
+      "cases": 256,
+      "cycle_delta": [
+        0,
+        0
+      ]
+    },
+    {
+      "identity": "Pit",
+      "character": 6,
+      "variant": null,
+      "value": 0,
+      "cases": 256,
+      "cycle_delta": [
+        12,
+        12
+      ]
+    },
+    {
+      "identity": "Rygar",
+      "character": 7,
+      "variant": null,
+      "value": 0,
+      "cases": 256,
+      "cycle_delta": [
+        12,
+        12
+      ]
+    },
+    {
+      "identity": "Scrooge",
+      "character": 12,
+      "variant": "DarkwingVariant",
+      "value": 0,
+      "cases": 256,
+      "cycle_delta": [
+        12,
+        12
+      ]
+    },
+    {
+      "identity": "Darkwing",
+      "character": 12,
+      "variant": "DarkwingVariant",
+      "value": 1,
+      "cases": 256,
+      "cycle_delta": [
+        12,
+        12
+      ]
+    },
+    {
+      "identity": "Bass",
+      "character": 9,
+      "variant": "RlVariant",
+      "value": 0,
+      "cases": 256,
+      "cycle_delta": [
+        12,
+        12
+      ]
+    },
+    {
+      "identity": "Ryu",
+      "character": 10,
+      "variant": null,
+      "value": 0,
+      "cases": 256,
+      "cycle_delta": [
+        12,
+        12
+      ]
+    },
+    {
+      "identity": "Sophia",
+      "character": 11,
+      "variant": null,
+      "value": 0,
+      "cases": 256,
+      "cycle_delta": [
+        12,
+        12
+      ]
+    },
+    {
+      "identity": "Kirby",
+      "character": 13,
+      "variant": "KbVariant",
+      "value": 0,
+      "cases": 256,
+      "cycle_delta": [
+        12,
+        12
+      ]
+    },
+    {
+      "identity": "Chip",
+      "character": 14,
+      "variant": "CdVariant",
+      "value": 0,
+      "cases": 256,
+      "cycle_delta": [
+        12,
+        12
+      ]
+    },
+    {
+      "identity": "Dale",
+      "character": 14,
+      "variant": "CdVariant",
+      "value": 1,
+      "cases": 256,
+      "cycle_delta": [
+        12,
+        12
+      ]
+    },
+    {
+      "identity": "SMB3 Mario",
+      "character": 17,
+      "variant": "M3Variant",
+      "value": 0,
+      "cases": 256,
+      "cycle_delta": [
+        12,
+        12
+      ]
+    },
+    {
+      "identity": "SMB3 Luigi",
+      "character": 17,
+      "variant": "M3Variant",
+      "value": 1,
+      "cases": 256,
+      "cycle_delta": [
+        12,
+        12
+      ]
+    },
+    {
+      "identity": "Vic Viper",
+      "character": 18,
+      "variant": "VvVariant",
+      "value": 0,
+      "cases": 256,
+      "cycle_delta": [
+        0,
+        0
+      ]
+    },
+    {
+      "identity": "Leonardo",
+      "character": 19,
+      "variant": "TnVariant",
+      "value": 0,
+      "cases": 256,
+      "cycle_delta": [
+        12,
+        12
+      ]
+    },
+    {
+      "identity": "Raphael",
+      "character": 19,
+      "variant": "TnVariant",
+      "value": 1,
+      "cases": 256,
+      "cycle_delta": [
+        12,
+        12
+      ]
+    },
+    {
+      "identity": "Michelangelo",
+      "character": 19,
+      "variant": "TnVariant",
+      "value": 2,
+      "cases": 256,
+      "cycle_delta": [
+        12,
+        12
+      ]
+    },
+    {
+      "identity": "Donatello",
+      "character": 19,
+      "variant": "TnVariant",
+      "value": 3,
+      "cases": 256,
+      "cycle_delta": [
+        12,
+        12
+      ]
+    },
+    {
+      "identity": "Mike Jones",
+      "character": 16,
+      "variant": null,
+      "value": 0,
+      "cases": 256,
+      "cycle_delta": [
+        12,
+        12
+      ]
+    },
+    {
+      "identity": "Meta Knight",
+      "character": 13,
+      "variant": "KbVariant",
+      "value": 1,
+      "cases": 256,
+      "cycle_delta": [
+        12,
+        12
+      ]
+    },
+    {
+      "identity": "Octopus",
+      "character": 18,
+      "variant": "VvVariant",
+      "value": 1,
+      "cases": 256,
+      "cycle_delta": [
+        12,
+        12
+      ]
+    },
+    {
+      "identity": "TwinBee",
+      "character": 18,
+      "variant": "VvVariant",
+      "value": 2,
+      "cases": 256,
+      "cycle_delta": [
+        12,
+        12
+      ]
+    },
+    {
+      "identity": "Pentarou",
+      "character": 18,
+      "variant": "VvVariant",
+      "value": 3,
+      "cases": 256,
+      "cycle_delta": [
+        12,
+        12
+      ]
+    },
+    {
+      "identity": "Roll",
+      "character": 9,
+      "variant": "RlVariant",
+      "value": 1,
+      "cases": 256,
+      "cycle_delta": [
+        12,
+        12
+      ]
+    }
+  ],
+  "qualification": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mac-native-current529-v1\\root-qualification-v1\\proof.json",
+  "qualification_sha256": "a6e8946ddbc9a10b28efc77af890361a46dd231ee342af86b0a11fbf02c53d84",
+  "roster_CPU_proof": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mac-native-current529-v1\\roster-audio-cpu-v1\\proof.json",
+  "roster_CPU_proof_sha256": "1593d779c7095927c660c9b6e124e25d9fbc9811ec068b8075abee5ff12b0afa",
+  "ordinary_target_hashes": {
+    "mmc3": "d444cac88e13fa02b29ad16100b8f08fa565ba90f8cedde192de43fb2dc8f3eb",
+    "mmc5": "f4ffd2483c51daa4d60bb575da2da8c4d817692cda407611c243031f67520833"
+  },
+  "installed": "C:\\Users\\kando\\Downloads\\SMB-Crossover-Current-MMC5.nes",
+  "Downloads_and_default_build_current": true,
+  "backup_directory": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mac-native-current529-v1\\adoption-v1",
+  "scope": "Authentic nine-track Punch-Out music and14 area/event selections, current-hash source/native/hardware/cadence qualified.36 other identities retain exact CPU audio/state outcomes; expanded fallback identities add12 dispatcher CPU cycles, explicitly disclosed. No new full-level/natural-item/whole-roster or universal60fps claim."
+}

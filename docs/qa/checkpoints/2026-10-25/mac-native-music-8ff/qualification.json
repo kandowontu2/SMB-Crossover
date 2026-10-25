@@ -1,0 +1,275 @@
+{
+  "passed": true,
+  "adopted": false,
+  "goal_complete": false,
+  "ROM_sha256": "8ff245ae662059abbc77c5de517260032775b7ba881a5201b8b54686ccf08277",
+  "parent_ROM_sha256": "52918588bab0eec3f3a1f857bf084d2d799e88a5c781c75233c098ccc5f54f3f",
+  "composition": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mac-native-current529-v1\\proof.json",
+  "retained_PC_RAM_CHR_fixed_DPCM_exact": true,
+  "new_RAM_bytes": 0,
+  "new_CHR_bytes": 0,
+  "original_source_CPU_calls": 162009,
+  "full_ordinary_AudioUpdate": {
+    "passed": true,
+    "ROM_sha256": "8ff245ae662059abbc77c5de517260032775b7ba881a5201b8b54686ccf08277",
+    "baseline_ROM_sha256": "52918588bab0eec3f3a1f857bf084d2d799e88a5c781c75233c098ccc5f54f3f",
+    "full_AudioUpdate_cases": 5856,
+    "added_CPU_cycle_range": [
+      0,
+      0
+    ],
+    "ordered_APU_RAM_registers_mapper_exact": true,
+    "scope": "Bill, Samus, Link and four CV3 variants; typed effects, pause/resume, ended DMC. CPU outcomes only, no native cadence or waveform claim."
+  },
+  "native_music": {
+    "passed": true,
+    "music": true,
+    "hard": true,
+    "frames": 10222,
+    "source_calls": 9306,
+    "ordered_source_APU_writes": 81157,
+    "audio_updates": 9800,
+    "hardware_register_comparisons": 130191,
+    "borrowed_state_checks": 9800,
+    "nested_IRQs": 0,
+    "IRQ_splits": 9800,
+    "OAM_DMA_frames": 9800,
+    "adapter_cycles_inclusive": 9393183,
+    "peak_adapter_cycles_inclusive": 2177,
+    "minimum_adapter_entry_SP": 239,
+    "completed_game_updates": 0,
+    "live_enemy_samples": 0,
+    "punch_samples": 0,
+    "super_samples": 0,
+    "scope": "Cold native menu followed by explicitly arranged audio requests or an equal-600-update first-screen work arena. Source calls/states and live hardware mixer are checked separately. No campaign clear or universal lag claim."
+  },
+  "native_guards": {
+    "passed": true,
+    "nmis": 9800,
+    "mapper_store_windows": 0,
+    "protected_page_write_checks": 1570597,
+    "minimum_sampled_SP": 250,
+    "SMC_stack_floor": 123,
+    "PPU_screenshots": 3,
+    "five_SMC_operands_preserved": true,
+    "visible_world_PPU_address_writes": 0
+  },
+  "native_chr": {
+    "passed": true,
+    "frames": 9800,
+    "mismatched_frames": 0,
+    "body_constructions": 9771,
+    "scope": "Read-only actual hardware CHR pages versus last DMA player image. Bounded natural controller movement, no full-level or pixel-comparison claim."
+  },
+  "matched_performance": {
+    "passed": true,
+    "scope": "Same arranged Hard-mode 600 completed game updates; explicitly compares update work, physical frames and draw counts. Not a whole-level or universal lag proof.",
+    "tool_sha256": "110a093527219d74f55a635cad59f82cb3827df36dc0fe5dc788c6c654cab2d4",
+    "baseline": {
+      "ROM_sha256": "52918588bab0eec3f3a1f857bf084d2d799e88a5c781c75233c098ccc5f54f3f",
+      "native_receipt_sha256": "ac852a7e4d6bd9b6b56129fc54864a1e1d2bd2f3bf27d976568ae3a46b507464",
+      "all_native_frames": 1021,
+      "completed_work_rows": 600,
+      "phases": {
+        "idle": {
+          "completed_game_loops": 120,
+          "draw_calls": 119,
+          "physical_frame_rows": 120,
+          "frame_movement_updates": 120,
+          "frame_draw_calls": 119,
+          "lag_NMIs": 1,
+          "game_loop_mean_CPU_cycles": 19519.9,
+          "game_loop_mean_ISR_cycles": 139.41666666666666,
+          "game_loop_peak_CPU_cycles": 20179
+        },
+        "walk": {
+          "completed_game_loops": 120,
+          "draw_calls": 120,
+          "physical_frame_rows": 120,
+          "frame_movement_updates": 120,
+          "frame_draw_calls": 120,
+          "lag_NMIs": 0,
+          "game_loop_mean_CPU_cycles": 19631.841666666667,
+          "game_loop_mean_ISR_cycles": 116.0,
+          "game_loop_peak_CPU_cycles": 21096
+        },
+        "enemies": {
+          "completed_game_loops": 120,
+          "draw_calls": 120,
+          "physical_frame_rows": 120,
+          "frame_movement_updates": 120,
+          "frame_draw_calls": 120,
+          "lag_NMIs": 0,
+          "game_loop_mean_CPU_cycles": 23249.075,
+          "game_loop_mean_ISR_cycles": 117.0,
+          "game_loop_peak_CPU_cycles": 24542
+        },
+        "punch": {
+          "completed_game_loops": 120,
+          "draw_calls": 118,
+          "physical_frame_rows": 120,
+          "frame_movement_updates": 120,
+          "frame_draw_calls": 118,
+          "lag_NMIs": 2,
+          "game_loop_mean_CPU_cycles": 23507.008333333335,
+          "game_loop_mean_ISR_cycles": 160.75,
+          "game_loop_peak_CPU_cycles": 25371
+        },
+        "super": {
+          "completed_game_loops": 120,
+          "draw_calls": 118,
+          "physical_frame_rows": 119,
+          "frame_movement_updates": 119,
+          "frame_draw_calls": 117,
+          "lag_NMIs": 2,
+          "game_loop_mean_CPU_cycles": 23627.608333333334,
+          "game_loop_mean_ISR_cycles": 160.75,
+          "game_loop_peak_CPU_cycles": 25456
+        }
+      }
+    },
+    "candidate": {
+      "ROM_sha256": "8ff245ae662059abbc77c5de517260032775b7ba881a5201b8b54686ccf08277",
+      "native_receipt_sha256": "14638fb33dda17a70226ad6db82c16244eefaa65079abb74854c31f821a91e88",
+      "all_native_frames": 1021,
+      "completed_work_rows": 600,
+      "phases": {
+        "idle": {
+          "completed_game_loops": 120,
+          "draw_calls": 120,
+          "physical_frame_rows": 120,
+          "frame_movement_updates": 120,
+          "frame_draw_calls": 120,
+          "lag_NMIs": 0,
+          "game_loop_mean_CPU_cycles": 19563.508333333335,
+          "game_loop_mean_ISR_cycles": 120.0,
+          "game_loop_peak_CPU_cycles": 20178
+        },
+        "walk": {
+          "completed_game_loops": 120,
+          "draw_calls": 120,
+          "physical_frame_rows": 120,
+          "frame_movement_updates": 120,
+          "frame_draw_calls": 120,
+          "lag_NMIs": 0,
+          "game_loop_mean_CPU_cycles": 19631.841666666667,
+          "game_loop_mean_ISR_cycles": 120.0,
+          "game_loop_peak_CPU_cycles": 21089
+        },
+        "enemies": {
+          "completed_game_loops": 120,
+          "draw_calls": 120,
+          "physical_frame_rows": 120,
+          "frame_movement_updates": 120,
+          "frame_draw_calls": 120,
+          "lag_NMIs": 0,
+          "game_loop_mean_CPU_cycles": 23249.075,
+          "game_loop_mean_ISR_cycles": 120.0,
+          "game_loop_peak_CPU_cycles": 24543
+        },
+        "punch": {
+          "completed_game_loops": 120,
+          "draw_calls": 119,
+          "physical_frame_rows": 120,
+          "frame_movement_updates": 120,
+          "frame_draw_calls": 119,
+          "lag_NMIs": 1,
+          "game_loop_mean_CPU_cycles": 23561.316666666666,
+          "game_loop_mean_ISR_cycles": 141.95,
+          "game_loop_peak_CPU_cycles": 25371
+        },
+        "super": {
+          "completed_game_loops": 120,
+          "draw_calls": 119,
+          "physical_frame_rows": 119,
+          "frame_movement_updates": 119,
+          "frame_draw_calls": 118,
+          "lag_NMIs": 1,
+          "game_loop_mean_CPU_cycles": 23682.708333333332,
+          "game_loop_mean_ISR_cycles": 141.76666666666668,
+          "game_loop_peak_CPU_cycles": 25447
+        }
+      }
+    },
+    "exact_gameplay_work_excluding_wall": true,
+    "count_differences": [
+      {
+        "phase": "idle",
+        "measure": "draw_calls",
+        "baseline": 119,
+        "candidate": 120
+      },
+      {
+        "phase": "idle",
+        "measure": "frame_draw_calls",
+        "baseline": 119,
+        "candidate": 120
+      },
+      {
+        "phase": "idle",
+        "measure": "lag_NMIs",
+        "baseline": 1,
+        "candidate": 0
+      },
+      {
+        "phase": "punch",
+        "measure": "draw_calls",
+        "baseline": 118,
+        "candidate": 119
+      },
+      {
+        "phase": "punch",
+        "measure": "frame_draw_calls",
+        "baseline": 118,
+        "candidate": 119
+      },
+      {
+        "phase": "punch",
+        "measure": "lag_NMIs",
+        "baseline": 2,
+        "candidate": 1
+      },
+      {
+        "phase": "super",
+        "measure": "draw_calls",
+        "baseline": 118,
+        "candidate": 119
+      },
+      {
+        "phase": "super",
+        "measure": "frame_draw_calls",
+        "baseline": 117,
+        "candidate": 118
+      },
+      {
+        "phase": "super",
+        "measure": "lag_NMIs",
+        "baseline": 2,
+        "candidate": 1
+      }
+    ],
+    "regressions": [],
+    "no_extra_skipped_draws_or_lag": true
+  },
+  "tools": {
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\mac_native_music_cpu.py": "1248bdf44808994ed2b9accf36b096bff940f048cf9d04ba010a20e41ee23736",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\mac_native_music_native.py": "257d01d6ae7ad3d27e779db2fba257cce9e46276da27f9604786822918de6351",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\mac_native_music_native.lua": "88ba805631ae15986dae52a91de19ba31f3cba65ecca6070032ee7dcf86fa3bf",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\mac_native_music_performance.py": "110a093527219d74f55a635cad59f82cb3827df36dc0fe5dc788c6c654cab2d4",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\vehicles_audio_wiring_guards.lua": "d6a5c956c657c89e5f0cfd65636c82b647ebd2bc77cfa01022bb77c774290f4f",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\tmnt_performance_observer.lua": "bc4adaad934bf4dd9f8a3332e37882a37c00ea062308588106d93a39946ef8be",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\chr_commit_observer.lua": "4afbb608a13e0f94cbe110f66b55e3bd2a7c8e9c2df7c43a152ee70bafff7f7c",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\observe_chip_committed_write.py": "0922efc482e8a72b72d243ada7629f157c51afd779cee09e0f7bf35fa6235de2",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\run_mesen_isolated.py": "976f197a3712511e821f545e655eaa3f9bcfe95e42a3c6c76b2adca288d2aad3"
+  },
+  "receipts": {
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mac-native-current529-v1\\proof.json": "77863dcbd568e0605ea573de77d489ef4c25754854da78342b0283bef798ccc0",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mac-native-current529-v1\\root-qualification-v1\\source-cpu-v1\\proof.json": "14f89e8c19ceeec8217be7895b511819848cd7bed0b065c6a8139f96a7864d05",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mac-native-current529-v1\\root-qualification-v1\\ordinary-audio.json": "92d45f27c8207b2bac2308208757c71ad5254dfafc3910e632515221756c352d",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mac-native-current529-v1\\root-qualification-v1\\performance.json": "2d69d0c7ed45721f1c31c49930a87a3c4d013a874d811e4751dfe5e2b381f6e1",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mac-native-current529-v1\\root-qualification-v1\\native-candidate-music\\native-result.json": "cbc324d007b2c1c32c1b06e4273d70f522047cae3c0c3bda99dee081d124ab2e",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mac-native-current529-v1\\root-qualification-v1\\native-parent-performance\\native-result.json": "ac852a7e4d6bd9b6b56129fc54864a1e1d2bd2f3bf27d976568ae3a46b507464",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mac-native-current529-v1\\root-qualification-v1\\native-candidate-performance\\native-result.json": "14638fb33dda17a70226ad6db82c16244eefaa65079abb74854c31f821a91e88"
+  },
+  "scope": "Independent current529 composition qualification. Nine authentic Punch-Out tracks/14 request selections and matched staged600-update Hard arenas, not natural earning/full campaign, universal lag removal, original waveform identity, or whole-roster completion."
+}
