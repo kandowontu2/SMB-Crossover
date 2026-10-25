@@ -1,0 +1,522 @@
+--- a/smb1base-mmc5-expanded.cfg
++++ b/smb1base-mmc5-expanded.cfg
+@@ -141,7 +141,9 @@
+     X5_NEW_7A: start=$a000, size=$2000, type=ro, file=%O, fill=yes, fillval=$ff, bank=$7a;
+     X5_NEW_7B: start=$a000, size=$2000, type=ro, file=%O, fill=yes, fillval=$ff, bank=$7b;
+     X5_NEW_7C: start=$a000, size=$2000, type=ro, file=%O, fill=yes, fillval=$ff, bank=$7c;
+-    X5_NEW_7D: start=$a000, size=$2000, type=ro, file=%O, fill=yes, fillval=$ff, bank=$7d;
++    X5_NEW_7D: start=$c000, size=$1af7, type=ro, file=%O, fill=yes, fillval=$ff, bank=$7d;
++    CV3_DMC_C: start=$daf7,size=$031a,type=ro,file=%O,fill=yes,fillval=$ff,bank=$7d;
++    CV3_DMC_TAIL: start=$de11,size=$01ef,type=ro,file=%O,fill=yes,fillval=$ff,bank=$7d;
+ 
+     PRGLow: start = $8000,  size = $2000, type = ro, file = %O, fill = yes, fillval = $ff, bank = $7e;
+     
+@@ -168,6 +170,7 @@
+ }
+ 
+ SEGMENTS {
++    CV3_DMC_MANAGER:load=CV3_DMC_C,type=ro;
+     VIC_NATIVE_AUDIO:load=X5_NEW_7A,type=ro;
+     MAC_NATIVE_AUDIO:load=X5_NEW_7B,type=ro;
+     X5_FULL_MUSIC_0F:load=X5_NEW_73,type=ro;
+--- a/audio/remaining-source-sfx.inc
++++ b/audio/remaining-source-sfx.inc
+@@ -84,6 +84,9 @@
+ AvDmcLinkTakeDamage:
+  .byte 162,202,47,208,218,138,74,63,208,218,73,74,255,146,74,42,255,0,0,0,60,243,15,224,255,255,63,0,0,0,252,255,255,60,63,128,240,255,255,0,0,0,0,255,255,207,255,15,0,240,255,3,0,0,192,192,255,255,240,255,3,0,254,255,0,0,0,252,192,255,255,195,207,12,0,240,255,63,0,0,0,12,255,255,63,252,255,0,0,255,255,3,0,0,192,195,255,255,243,255,3,0,240,255,15,0,0,0,12,240,255,255,204,255,15,0,240,255,63,0,0,0,240,3,255,255,15,255,63,0,0,255,255,3,0,0,0,240,240,255,255,195,255,255,0,0,252,255,63,0,0,0,0,128,255,255,255,240,51,3,32
+ AvDmcLinkTakeDamageEnd:
++.if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
++ .include "cv3_dmc_owner.inc"
++.endif
+ .align $40
+ AvDmcSimonTakeDamage:
+  .byte 85,171,213,170,90,75,149,74,85,169,84,213,214,170,164,53,75,137,82,85,217,91,95,87,117,42,73,66,146,34,77,213,118,219,215,42,165,36,146,40,82,169,127,223,219,109,79,137,32,36,130,136,210,123,119,173,170,84,138,65,72,255,127,87,123,95,18,2,146,34,2,106,123,87,170,106,165,72,16,255,255,119,115,127,69,32,64,137,8,42,181,83,149,170,170,36,106,255,255,191,214,87,130,0,40,73,136,168,214,172,164,210,140,218,255,255,191,214,181,8,8,32,41,130,144,214,86,37,169,166,221,255,255,175,218,53,34,128,160,162,128,160,90,167,148,74,91,253,255,255,205,122,139,2,1,138,4,34,136,118,85,82,74,219,255,255,215,118,63,42,32,72,73,32,8,117,85,82,74,219,255,255,215,118,63,42,32,72,73,32,8,117,1
+--- a/src/bass_source_sfx.s
++++ b/src/bass_source_sfx.s
+@@ -11,6 +11,9 @@
+ ; lengths and original payload bytes stay fixed.
+ Cv3DmcInjuryRates: .byte 15,14,15,13
+ .assert Cv3DmcInjuryRates=$fe11,lderror,"Pinned unused sample alignment gap"
++.if ::MAPPER_MMC5
++.include "cv3_dmc_gate.inc"
++.endif
+ .endif
+ .segment "XG_BASS_GFX"
+ .proc BassSourceAudioTick
+@@ -196,7 +199,11 @@
+   lda #((BassWaterDpcmEnd-BassWaterDpcm-1)/16)
+   sta $4013
+   lda #1
++.if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
++  jsr Cv3DmcOwnerWrite
++.else
+   sta BassDmcActive
++.endif
+   lda GuestCombinedEnable
+   ora #$10
+   sta GuestCombinedEnable
+@@ -204,7 +211,11 @@
+   rts
+ StopDmc:
+   lda #0
++.if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
++  jsr Cv3DmcOwnerWrite
++.else
+   sta BassDmcActive
++.endif
+   sta $4011
+   lda GuestCombinedEnable
+   and #15
+--- a/src/collision.s
++++ b/src/collision.s
+@@ -852,7 +852,12 @@
+   jmp LmNativeMusicUpdate
+ LmNativeMusicLegacy:
+   jmp ExpandedAudioTick
++.if ::MAPPER_MMC5
++.include "cv3_dmc_completion.inc"
++  .res 1,$ea
++.else
+   .res 26,$ea
++.endif
+   .assert *-SmallPlatformCollision=63,lderror,"Native small-platform collision span"
+ .else
+       lda TimerControl             ;if master timer control set,
+--- a/src/cv3_combat.s
++++ b/src/cv3_combat.s
+@@ -145,8 +145,13 @@
+  lda #24
+ : sta Cv3AttackAge
+ Sound:
++.if ::MAPPER_MMC5
++ jsr Cv3DmcPrimaryQueue
++ .res 2,$ea
++.else
+  lda #4
+  sta RgSfx
++.endif
+ Move:
+  ldx #3
+ Loop:
+--- /dev/null
++++ b/src/cv3_dmc_complete.s
+@@ -0,0 +1,177 @@
++; MMC5 expanded only. Original CV3 request priority occupies four previously
++; unused bytes after the existing CV1 private image and noise lane.
++Cv3DmcPriority=RgAudioZp+32
++Cv3DmcPending=RgAudioZp+33
++Cv3DmcSavedC=RgAudioZp+34
++Cv3DmcEntryA=RgAudioZp+35
++.pushseg
++.segment "CV3_COMBAT"
++.proc Cv3DmcPrimaryQueue
++ php
++ lda Cv3AttackKind
++ cmp #1
++ bne Done
++ lda Cv3Variant
++ cmp #3
++ bcs Done
++ lda Cv3DmcPending
++ cmp #$74
++ bcs Done
++ lda #$72
++ sta Cv3DmcPending
++Done:plp
++ lda #4
++ sta RgSfx
++ rts
++.endproc
++.segment "CV3_GRIP"
++.proc Cv3DmcFullInjuryQueue
++ php
++ lda Cv3Variant
++ clc
++ adc #$73
++ sta Cv3DmcPending
++ lda #0
++ sta Square1SoundQueue
++ plp
++ lda Cv3Variant
++ cmp #2
++ lda #Sfx_PipeDown_Injury
++ rts
++.endproc
++.proc Cv3DmcSceneRequest
++ php
++ lda #0
++ sta Cv3DmcPending
++ lda BassDmcActive
++ cmp #3
++ beq Owned
++ lda #0
++ sta Cv3DmcPriority
++ jmp Done
++Owned:lda #0
++ jsr Cv3DmcOwnerWrite
++Done:
++ plp
++ lda AvAudioRequest
++ rts
++.endproc
++.segment "CV_WRAP"
++.proc Cv3DmcBeforeCv1
++ ; CvAudioPlay begins with authenticated LDA $e2, overwriting A/N/Z.
++ ; Idle only uses LDA/ORA/branch/JMP, preserving every other input flag.
++ lda Cv3DmcPending
++ ora Cv3DmcPriority
++ bne Work
++ jmp CvAudioPlay
++Work:php
++ lda MmDeathFlag
++ bne Cancel
++ lda GameEngineSubroutine
++ cmp #$0b
++ beq Cancel
++ lda Cv3DmcPending
++ beq Play
++ jsr Cv3DmcStartGate
++ jmp Play
++Cancel:lda #0
++ sta Cv3DmcPending
++ lda BassDmcActive
++ cmp #3
++ bne Unowned
++ lda #0
++ jsr Cv3DmcOwnerWrite
++ jmp Play
++Unowned:lda #0
++ sta Cv3DmcPriority
++Play:plp
++ jmp CvAudioPlay
++.endproc
++.segment "X5_AUDIO_MIX"
++.proc Cv3DmcResetOwner
++ php
++ sta Cv3DmcPending ; original two call sites both supply A=0
++ lda BassDmcActive
++ cmp #3
++ beq Owned
++ lda #0
++ sta Cv3DmcPriority
++Owned:lda #0
++ jsr Cv3DmcOwnerWrite
++ plp
++ rts
++.endproc
++.segment "CV3_DMC_MANAGER"
++Cv3DmcManagerStart:
++.proc Cv3DmcStart
++ php
++ pha
++ txa
++ pha
++ tya
++ pha
++ lda #0
++ sta Cv3DmcPending
++ lda Cv3DmcEntryA
++ cmp #$72
++ beq Valid
++ cmp #$74
++ bcc Done
++ cmp #$77
++ bcs Done
++Valid:lda Cv3DmcPriority
++ beq Incoming
++ lda $4015
++ and #$10
++ bne Incoming
++ lda #0
++ jsr Cv3DmcOwnerWrite ; exact original completion resets source priority
++Incoming:lda Cv3DmcEntryA
++ sec
++ sbc #$6d
++ tax
++ lda Cv3DmcPriority
++ cmp #5
++ bcc Start
++ txa
++ cmp Cv3DmcPriority
++ bcc Done
++Start:lda GuestCombinedEnable
++ and #15
++ sta $4015
++ lda #0
++ sta $4011
++ stx Cv3DmcPriority
++ lda Cv3DmcEntryA
++ sec
++ sbc #$72
++ tay
++ lda Rates,y
++ sta $4010
++ lda Addresses,y
++ sta $4012
++ lda Lengths,y
++ sta $4013
++ lda #$fd
++ sta $5117 ; E mirror: identical resident code/vectors, source-only samples
++ lda #3
++ sta BassDmcActive
++ lda GuestCombinedEnable
++ ora #$10
++ sta GuestCombinedEnable
++ sta $4015
++Done:pla
++ tay
++ pla
++ tax
++ pla
++ plp
++ rts
++Rates:.byte 15,15,14,15,13
++Addresses:.byte ($f140-$c000)/64,0,($ff00-$c000)/64,($f5c0-$c000)/64,($ff00-$c000)/64
++Lengths:.byte $44,0,$0c,$0c,$0c
++.endproc
++Cv3DmcManagerEnd:
++.assert Cv3DmcManagerStart=$daf7,lderror,"Share bank125 after future TMNT cold adapter"
++.assert Cv3DmcManagerEnd<=$de11,lderror,"Do not overwrite copied resident helpers or samples"
++.popseg
+--- /dev/null
++++ b/src/cv3_dmc_completion.inc
+@@ -0,0 +1,19 @@
++; Original CV3 clears request priority after DMA fetch completion without
++; clearing4011: the last buffered byte must drain and its actual DAC is held.
++.proc Cv3DmcEndedGate
++ php
++ lda BassDmcActive
++ cmp #3
++ beq SourceCompletion
++ lda #0
++ jsr Cv3DmcOwnerWrite
++ sta $4011 ; exact existing ordinary completion behavior
++ plp
++ rts
++SourceCompletion:lda #0
++ jsr Cv3DmcOwnerWrite
++ plp
++ rts
++.endproc
++.assert Cv3DmcEndedGate=$9a10,lderror,"After the exact18-byte Mac gate"
++.assert *=$9a29,lderror,"Leave the final original tail byte unused"
+--- /dev/null
++++ b/src/cv3_dmc_gate.inc
+@@ -0,0 +1,21 @@
++; Executes identically in E127 and its E125 mirror. No shared SMC farcall.
++.proc Cv3DmcStartGate
++ sta Cv3DmcEntryA
++ lda CurrentBankC
++ sta Cv3DmcSavedC
++ lda #$fd
++ sta CurrentBankC
++ sta $5116
++ lda Cv3DmcEntryA
++ jsr Cv3DmcStart
++ pha
++ php
++ lda Cv3DmcSavedC
++ sta CurrentBankC
++ sta $5116
++ plp
++ pla
++ rts
++.endproc
++.assert Cv3DmcStartGate=$fe15,lderror,"Existing Bass sample alignment gap"
++.assert *<=$fe40,lderror,"Preserve original Link sample start"
+--- a/src/cv3_dmc_injury.s
++++ b/src/cv3_dmc_injury.s
+@@ -1,12 +1,17 @@
+-; Source-original Grant74/Alucard76 injury reuses exact existing Simon
+-;193-byte payload, with source rates14/13. Sypha remains unchanged pending
+-;its distinct payload. No primary72 sample/priority implementation is claimed.
++; Original Grant74/Alucard76 injury sample/rate binding. Expanded MMC5
++;dispatches through the complete source DMC lane; other targets retain the
++;previous shared193-byte payload route without an E-window mirror.
+ .pushseg
+ .segment "CV3_GRIP"
+ .proc Cv3DmcInjuryQueue
++.if ::MAPPER_MMC5
++ jmp Cv3DmcFullInjuryQueue
++ .res 4,$ea ; exact original seven-byte entry span
++.else
+  lda Cv3Variant
+  cmp #2
+  beq Generic
++.endif
+  lda #AV_SFX_SIMONTAKEDAMAGE
+  sta AvAudioRequest
+  lda #0
+--- /dev/null
++++ b/src/cv3_dmc_owner.inc
+@@ -0,0 +1,21 @@
++; Ordinary ownership stores retain A/X/Y/P. Only an active CV3 source
++; lane adds stop/restore writes; all existing samples stay in original E127.
++.proc Cv3DmcOwnerWrite
++ sta BassDmcActive
++ php
++ pha
++ lda Cv3DmcPriority
++ beq Done
++ lda GuestCombinedEnable
++ and #15
++ sta $4015
++ lda #$ff
++ sta $5117
++ lda #0
++ sta Cv3DmcPriority
++Done:pla
++ plp
++ rts
++.endproc
++.assert Cv3DmcOwnerWrite=$fee1,lderror,"Existing Link sample alignment gap"
++.assert *=$ff00,lderror,"Preserve original Simon sample start"
+--- a/src/cv3_source_audio.s
++++ b/src/cv3_source_audio.s
+@@ -22,7 +22,11 @@
+ .segment "CV3_GRIP"
+ .proc Cv3NoiseSceneReset
+  php
++.if ::MAPPER_MMC5
++ jsr Cv3DmcSceneRequest
++.else
+  lda AvAudioRequest
++.endif
+  cmp #26
+  bne Owner
+  lda #0
+@@ -37,7 +41,11 @@
+ .endproc
+ .segment "CV_WRAP"
+ .proc Cv3MusicAndNoiseTick
++.if ::MAPPER_MMC5
++ jsr Cv3DmcBeforeCv1
++.else
+  jsr CvAudioPlay
++.endif
+  lda Cv3NoiseActive
+  beq Request
+  lda GuestNativeDirty+12
+--- a/src/entrypoint.s
++++ b/src/entrypoint.s
+@@ -480,3 +480,7 @@
+ .if ::ENABLE_MMC5_EXPANDED
+ .include "cv3_dmc_injury.s"
+ .endif
++
++.if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
++.include "cv3_dmc_complete.s"
++.endif
+--- a/src/guest_audio.s
++++ b/src/guest_audio.s
+@@ -83,9 +83,14 @@
+   ora #$10
+   rts
+ DmcEnded:
++.if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
++  jsr Cv3DmcEndedGate
++  .res 5,$ea ; original eight-byte completion span
++.else
+   lda #0
+   sta BassDmcActive
+   sta $4011
++.endif
+ DmcOff:
+   pla
+   and #15
+@@ -108,7 +113,11 @@
+   sta BassAudioPreviousMask
+   sta BassAudioLastDeath
+   sta BassAudioLastGround
++.if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
++  jsr Cv3DmcResetOwner
++.else
+   sta BassDmcActive
++.endif
+   sta $4011
+   sta GuestMixMask
+   sta GuestMixPreviousMask
+@@ -194,7 +203,11 @@
+   beq Tick
+ Silent:
+   lda #0
++.if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
++  jsr Cv3DmcResetOwner
++.else
+   sta BassDmcActive
++.endif
+   sta $4011
+   sta $4015
+   sta GuestMixMask
+--- a/src/remaining_audio.s
++++ b/src/remaining_audio.s
+@@ -229,7 +229,11 @@
+   lda Lengths,x
+   sta $4013
+   lda #2                        ; Shared DMC owner, retained by nonBass begin.
++.if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
++  jsr Cv3DmcOwnerWrite
++.else
+   sta BassDmcActive
++.endif
+   lda GuestCombinedEnable
+   ora #$10
+   sta GuestCombinedEnable
+--- a/tools/build_mmc5_expanded.py
++++ b/tools/build_mmc5_expanded.py
+@@ -51,6 +51,9 @@
+  result=subprocess.run(command,cwd=root,capture_output=True,text=True)
+  out.with_suffix('.build.log').write_text(result.stdout+result.stderr)
+  if result.returncode:print(result.stdout+result.stderr);return result.returncode
++ if flag:
++  from prepare_cv3_dmc_mirror import prepare
++  prepare(root,out)
+  rom=out.read_bytes();actual_mapper=(rom[6]>>4)|(rom[7]&240)|((rom[8]&15)<<8)
+  assert actual_mapper==(5 if mapper=='mmc5' else 4)
+  assert len(rom)==16+rom[4]*16384+rom[5]*8192
+--- /dev/null
++++ b/tools/prepare_cv3_dmc_mirror.py
+@@ -0,0 +1,31 @@
++"""Build the deterministic MMC5 CV3 fixed-E clone after every final link."""
++from pathlib import Path
++import hashlib,json,re
++PAYLOADS={"primary72.dmc":(0x1140,1089,"c1b646c36508ad4d134078c8184fea7bd632f50127c5f2af6550e89097cbda01"),"sypha75.dmc":(0x15c0,193,"137fc604fe0c0cbf8c28733411e2397cc00e72188db755a00eb8ad27da037331")}
++def prepare(root,out):
++ raw=bytearray(out.read_bytes());assert len(raw)==2097168
++ labels={v[2].lstrip('.'):int(v[1],16)for l in out.with_suffix('.lbl').read_text().splitlines()if len(v:=l.split())==3}
++ for line in out.with_suffix('.dbg').read_text().splitlines():
++  if line.startswith('sym\t'):
++   z=dict(part.split('=',1)for part in line[4:].split(',')if'='in part)
++   if'val'in z and z.get('name')=='"CvAudioPlay"':labels['CvAudioPlay']=int(z['val'],0)
++ assert labels['Cv3DmcManagerStart']==0xdaf7
++ assert labels['CvAudioPlay']==0xa443 and raw[16+27*8192+0x443:16+27*8192+0x445]==bytes((0xa5,0xe2)),"Source CV1 input-A/NZ overwrite contract changed"
++ end=labels['Cv3DmcManagerEnd'];assert end<=0xde11
++ base=16+125*8192;fixed=16+127*8192;linked=bytes(raw[base:base+8192]);mirror=bytearray(raw[fixed:fixed+8192])
++ declared=[]
++ for name,(offset,n,digest)in PAYLOADS.items():
++  b=(root/'audio/cv3'/name).read_bytes();assert len(b)==n and hashlib.sha256(b).hexdigest()==digest
++  mirror[offset:offset+n]=b;declared.append([offset,offset+n])
++ lo=0x1af7;hi=end-0xc000;mirror[lo:hi]=linked[lo:hi];declared.append([lo,hi])
++ # Future TMNT integration must explicitly advertise its relocated cold block.
++ if 'SamusAudioCold'in labels:
++  assert labels['SamusAudioCold']==0xd700
++  assert 'TnAudioAdapterReturn'in labels
++  mirror[0x1700:0x1af7]=linked[0x1700:0x1af7];declared.append([0x1700,0x1af7])
++ for i,(x,y)in enumerate(zip(mirror,raw[fixed:fixed+8192])):
++  assert x==y or any(a<=i<b for a,b in declared)
++ raw[base:base+8192]=mirror;out.write_bytes(raw)
++ receipt=dict(ROM_sha256=hashlib.sha256(raw).hexdigest(),original_fixed_bank_sha256=hashlib.sha256(raw[fixed:fixed+8192]).hexdigest(),mirror_sha256=hashlib.sha256(mirror).hexdigest(),declared_overlay_offsets=declared,manager_bytes=hi-lo,all_other_fixed_bytes_exact=True)
++ out.with_suffix('.cv3-mirror.json').write_text(json.dumps(receipt,indent=2)+'\n')
++ return receipt
+--- a/tools/reference/build_remaining_sfx.py
++++ b/tools/reference/build_remaining_sfx.py
+@@ -47,7 +47,8 @@
+  lines+=['.segment "BASS_DPCM"']
+  for name,sample in samples.items():
+   lines +=['.align $40',f'AvDmc{name}:',' .byte '+','.join(str(v)for v in bytes.fromhex(sample['hex'])),f'AvDmc{name}End:']
+- lines+=['.popseg'];(ROOT/'audio/remaining-source-sfx.inc').write_text('\n'.join(lines)+'\n')
++  if name=='LinkTakeDamage': lines +=['.if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5',' .include "cv3_dmc_owner.inc"','.endif']
++ lines+=['.popseg'];(ROOT/'audio/remaining-source-sfx.inc').write_bytes(('\n'.join(lines)+'\n').encode())
+  (ROOT/'tests/fixtures/remaining-source-sfx.json').write_text(json.dumps(fixtures,separators=(',',':'))+'\n')
+  lua=['return {']
+  for k,v in fixtures.items():

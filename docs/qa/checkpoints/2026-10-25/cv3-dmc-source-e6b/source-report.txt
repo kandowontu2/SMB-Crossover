@@ -1,0 +1,146 @@
+CV3 original DMC primary/injury source proposal — 2026-10-25
+
+Status: PRIVATE, SOURCE/ASSEMBLED-CPU QUALIFIED; NOT ADOPTED. Native qualification
+has not run. No ROOT game-source, Git, Downloads or emulator process was changed
+by this packet. Full scope is expanded MMC5. Expanded MMC3 retains its prior
+narrow Grant/Alucard injury route; this E-window mirror does not apply to MMC3.
+
+Current baseline: 8ff245ae662059abbc77c5de517260032775b7ba881a5201b8b54686ccf08277
+Private result:   e6baf465a4fb3981dc1d9f1bea64a129f1dbb8d2a8276f934a38eb9c00c0728c
+
+External D = C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py
+Frozen final source: D/cv3-dmc-complete-v1/final-current8ff-v1/source-final
+Fresh ROM and build/producer receipts: same final-current8ff-v1 directory.
+Source manifest/patch: qualification.json, implementation.patch in that directory.
+Every existing modified source file retains the raw EOL convention from Git HEAD.
+
+Implemented privately                 Evidence / remaining qualification
+Grant knife and Sypha staff source72  Actual B-input owner to pending request to
+                                     original1089-byte sample/rate15/DAC0 in CPU;
+                                     native real release/actual playback pending.
+Sypha injury source75                Distinct original193-byte sample/rate15;
+                                     actual injury owner in CPU; native pending.
+Grant74 / Alucard76 injury            Exact original193-byte sample/rates14/13;
+                                     original request precedence, no common
+                                     AvAudioRequest overwrite. Native pending.
+Completion                           Original engine does not reset4011 when
+                                     DMA fetch completes. Private completion
+                                     preserves buffered tail and held DAC;
+                                     native hardware output/drain pending.
+Pause/scene/death/character reset     Queued/active owner cancellation, no stale
+                                     restart in CPU. Port master silence/reset
+                                     policy retained. Native lifecycle pending.
+Ordinary owners                      Existing APU/RAM/register/mapper results
+                                     exact in CPU; native/cadence still pending.
+
+Original source authentication
+Original USA CV3 ROM SHA085ec6395681c7ebfda19c2986069c21a3d27738cc61ada76249de70a07ed7d3.
+Disassembly revision3272648f2bbf95f6cb11d947feca73b852a99f10, pinned local source
+and original CPU traces retained under D/cv3-primary-sfx-v1/original-source and
+D/cv3-dmc-followup-v1/capacity-source-v1. The actual original common attack entry
+1C:940A requests72 for original Grant/Sypha. Injury entry820B selects73/75/74/76
+for Simon/Sypha/Grant/Alucard. Original source priorities are request-$6D:
+current<5 admits; otherwise equal/higher replaces, lower is rejected. An inactive
+hardware4015 clears source priority. Exact original CPU matrix is retained.
+
+Source72 payload SHA c1b646c36508ad4d134078c8184fea7bd632f50127c5f2af6550e89097cbda01.
+Source75 payload SHA137fc604fe0c0cbf8c28733411e2397cc00e72188db755a00eb8ad27da037331.
+Original completion CPU proof: D/cv3-dmc-complete-v1/original-completion-v2/proof.json.
+Payload bit decoding ends72 atDAC24,74/76 at4,75 at34. Those are source-derived
+output levels, not a claim that native output or waveform has been measured.
+
+Baseline failures / first bad owner decisions
+The baseline primary owner storesRgSfx=4. The CV1 wrapper admits onlyRgSfx&1,
+so real Grant/Sypha primary72 is discarded. Changing4 to1 would play an unrelated
+CV1 cue and is not the repair. The private lane preserves the old RgSfx contract
+and queues the correct source request independently. Baseline Sypha injury keeps
+the generic SMB injury queue and lacks its source75 payload. Actual assembled
+paired before/after owner and APU cases are retained in cpu-current8ff-v2/
+baseline-negative.json. Existing Grant/Alucard narrow source rates remain bound;
+the new route adds independent priority and preserves unrelated common cues.
+
+Storage and ownership
+Read-only storage audit: D/cv3-dmc-complete-storage-v1/storage.json. It reconstructs
+all161905 installed playlist bytes and222 macros exactly, binds252 table roots,
+and decodes every live Kirby/Meta stream. All16 full-roster banks100..115 are live,
+including streams crossing banks beyond their directly named roots. Two old
+unrooted PIPE_BONUS streams are8578/8566 bytes; they are retained. Obsolete raw
+music-*.bin and Mac79685-byte preparatory captures are not installed ROM space.
+No track, family or fixed Bass sample is removed or repacked by this proposal.
+
+Accepted Mac owns123. Future retained TMNT can use A63/B124 and cold C-bank125
+atD700..DAF6, leaving CV3 managerDAF7..DB89. A separate retained-TMNTv7 relocation
+proof moves all8192 nativeA bytes123->63 exactly and relinks the unchanged cold
+adapter sources toD700/D9C9. All896 complete AudioUpdate cases retain APU, RAM,
+register and cycle equality. This proves placement, not acceptance of the held
+TMNT driver's lag or a combined final TMNT/Mac/CV3 build.
+Receipt: D/cv3-dmc-complete-storage-v1/tmnt-rebase-v1/proof.json.
+
+The post-link producer copies the FINAL linked127 to125, then overlays only:
+  source72 atF140..F580, source75 atF5C0..F680, manager atFAF7..FB89.
+Future TMNT cold data is explicitly preserved only atF700..FAF6 after its known
+relocation is present. A stale529 resident image must never be used as a mirror.
+Every other mirror byte, including code, vectors and untouched samples, is exact.
+Original127 changes only its old8-byte DmcEnded span and the approved unused
+FE15..FE3F/FEE1..FEFF padding. Original Bass/Link/Simon sample bytes, addresses
+and lengths are exact. Source-owner3 uses E125; completion/preemption restores
+E127 after disabling/fetch completion. The temporary C125 manager bracket saves
+and restores the exact C shadow/window without the shared SMC farcall operands.
+
+No RAM allocation or CHR change. Four actually unused RgAudioZp bytes32..35 hold
+priority/pending/savedC/entryA; existing drivers use0..23 and the accepted noise
+overlay24..31. Master reset clears pending/priority, including AllOnes controls.
+Mac's complete bank123 and18-byte lowcode gate99FE..9A0F remain byte-exact.
+Approved remaining tail9A10..9A28 hosts the25-byte completion gate;9A29 staysNOP.
+Future TMNT owner4/DAC44/drain policy must remain distinct when integrating its
+resident end/preemption hooks. Its integration remains a separate unqualified job.
+
+Current exact-hash CPU/build gates
+  6048 original-priority/register/C-bank/status combinations.
+  72 actual assembled primary/injury owner chains and15 pending-priority cases.
+  70 lifecycle/preemption,96 ordinary scene,4 unrelated death-owner controls.
+  7 unused-private AllOnes reset controls;1152 source completion-tail controls.
+  256 ordinary DmcStatus and5024 full ordinary AudioUpdate comparisons.
+  4056 real IRQ/RTI injections at every instruction boundary across64 start,
+  completion and preemption cases; register/flags/SP/A/C/E/shadow equality.
+  Header/CHR/old exported PC/RAM bindings preserved; complete Mac ownership exact.
+  Durable sample producer regenerates byte-exact; post-link mirror idempotent.
+  Ordinary flag-off MMC3: d444cac88e13fa02b29ad16100b8f08fa565ba90f8cedde192de43fb2dc8f3eb.
+  Ordinary flag-off MMC5: f4ffd2483c51daa4d60bb575da2da8c4d817692cda407611c243031f67520833.
+
+Cycle cost is measured, not called free. Complete idle AudioUpdate adds13 cycles
+for the Simon/CV3 family,0 for Samus/Bill/Link/Bass/Mac/Vic/TMNT controls. A held
+hardware-status source-active comparison adds41 cycles. Ordinary worst case85
+includes completion work. These exclude actual DMC bus steals. Native no-source
+pressure cadence and real active sample costs must be compared against exact8ff.
+The idle shortcut is pinned to the genuine CvAudioPlay first instructionLDA$E2,
+which overwrites A/NZ and preserves C/V. The durable producer asserts those bytes.
+The unnecessary BassAudioBegin idle ownership hook was removed: its existing
+CMP#2/BCS already prevents that store from preempting sourceowner3.
+
+Receipts: D/cv3-dmc-complete-v1/{cpu-current8ff-v2,irq-current8ff-v1,
+layout-current8ff-v1,final-current8ff-v1}/proof.json or qualification.json.
+Frozen audit tools: D/cv3-dmc-complete-v1/frozen-tools-current8ff-v1/manifest.json.
+Earlier failed/intermediate fixtures remain in their original directories.
+
+Prior serializer review
+All25 frozen generated CV3 native configurations were inspected. No Python
+True/False tokens occur in those configurations; flags/modes are integer values.
+The real Alucard release suite includes0 and1, and Lua's q.mode or1 preserves0.
+This attests frozen deterministic mode writes, not absent logged readbacks.
+Receipt: final-current8ff-v1/prior-cv3-serializer-attestation.json.
+
+Remaining before adoption
+Actual cold-menu/controller primary releases and actual enemy-contact75 must
+exercise E125 DMA, real output completion/drain, IRQ/NMI/bank/SMC/stack/OAM/CHR,
+pause/scene/death/alternate reset, ordinary DMC preemption, and mixed noise/world
+priority. Matched exact8ff no-source pressure must expose idle scheduling cost.
+The patched build_mmc5_expanded.py and post-link producer must be used together;
+the raw intermediate linker ROM has no complete E mirror and is not a final ROM.
+No native worker has been started for this proposal, and no native certification
+or full-roster/gameplay/waveform claim is made.
+
+Other authenticated CV3 effects remain separate missing work: source13 dagger,
+15 axe,14 cross,24 Sypha flame,21 ice,1E lightning and2F Alucard bat. These hex
+original sound IDs are distinct from the common decimal typed21/22 injury cues.
+Existing Castlevania music still uses the CV1 driver; this is not a CV3 music port.

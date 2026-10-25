@@ -1,0 +1,113 @@
+{
+  "passed": true,
+  "accepted": false,
+  "ROM_sha256": "e6baf465a4fb3981dc1d9f1bea64a129f1dbb8d2a8276f934a38eb9c00c0728c",
+  "source_files": [
+    {
+      "path": "smb1base-mmc5-expanded.cfg",
+      "sha256": "a74934f5c570037e00f91c58a5ee0a8f37dd274e2f7699efcf8c6fbc2a3f4875",
+      "original_git_EOL": "CRLF"
+    },
+    {
+      "path": "audio/remaining-source-sfx.inc",
+      "sha256": "c73c2b349bb4aac473c55c11b1c02f2ae3afbad20b4c0cfd871cec5798a03a39",
+      "original_git_EOL": "LF"
+    },
+    {
+      "path": "src/bass_source_sfx.s",
+      "sha256": "4af2bee3f92c84f6d053c455528d0c8ba290f21ed5f882a0db0e32699f1a3f5f",
+      "original_git_EOL": "LF"
+    },
+    {
+      "path": "src/collision.s",
+      "sha256": "6f65f30b6056ce527696f37d5793b899db633bca57d3cbac93af86f87b1409b5",
+      "original_git_EOL": "CRLF"
+    },
+    {
+      "path": "src/cv3_combat.s",
+      "sha256": "c950089a56bc506789fa02801c641960c03c4f78d113765c74c615d1de145846",
+      "original_git_EOL": "CRLF"
+    },
+    {
+      "path": "src/cv3_dmc_complete.s",
+      "sha256": "fc14a6645c73dce360363639f88b145aba380d6c9ace74a86d3f828b0affc524"
+    },
+    {
+      "path": "src/cv3_dmc_completion.inc",
+      "sha256": "f272cf87a5d77119f41f73d12bedc18e39582edfae62ed9d08ac65ac0f303a10"
+    },
+    {
+      "path": "src/cv3_dmc_gate.inc",
+      "sha256": "73d5bb34a24301f31a940881c015de338c6ac8afd7ef0e6267468a3a79a59efb"
+    },
+    {
+      "path": "src/cv3_dmc_injury.s",
+      "sha256": "38be5522a6c0259875b90f37561381b2869aca74b0aaaf79564aaf15cce3227f",
+      "original_git_EOL": "LF"
+    },
+    {
+      "path": "src/cv3_dmc_owner.inc",
+      "sha256": "49a9fcd495ee1feae459c778c744290ed63193201f4d313bf502261c17486c78"
+    },
+    {
+      "path": "src/cv3_source_audio.s",
+      "sha256": "d9ac53865adb9a834acf448995b30503cbb3829eb0c0751084df45b4e98bc98c",
+      "original_git_EOL": "LF"
+    },
+    {
+      "path": "src/entrypoint.s",
+      "sha256": "a5e8ce5e7c2aaab4a12013038e4facf7f08da1af5d72774e349ff6a78b0f2bd0",
+      "original_git_EOL": "CRLF"
+    },
+    {
+      "path": "src/guest_audio.s",
+      "sha256": "c916cc7a9836aa8b7d0e94849acc16ab51bcce0da39a8cffabe76ac0de34eb91",
+      "original_git_EOL": "CRLF"
+    },
+    {
+      "path": "src/remaining_audio.s",
+      "sha256": "6f5db043fcb9f9e066dbef962c42271e92e68eb4dc393fed55a8d620a8d113ff",
+      "original_git_EOL": "CRLF"
+    },
+    {
+      "path": "tools/build_mmc5_expanded.py",
+      "sha256": "f85dc301735ec8053a6a83420db4fb109560af2e8735bd0ddf06d9535a88361c",
+      "original_git_EOL": "CRLF"
+    },
+    {
+      "path": "tools/prepare_cv3_dmc_mirror.py",
+      "sha256": "d706aebdf6ed9b579ca276ac0a2ebf52732d3d3053de2451d29a24e79932e484"
+    },
+    {
+      "path": "tools/reference/build_remaining_sfx.py",
+      "sha256": "37dd83ab97d40d19d0e8178e47530ab153408baedb5ddf49d6c5b29ec856bb0b",
+      "original_git_EOL": "LF"
+    },
+    {
+      "path": "audio/cv3/primary72.dmc",
+      "sha256": "c1b646c36508ad4d134078c8184fea7bd632f50127c5f2af6550e89097cbda01"
+    },
+    {
+      "path": "audio/cv3/sypha75.dmc",
+      "sha256": "137fc604fe0c0cbf8c28733411e2397cc00e72188db755a00eb8ad27da037331"
+    }
+  ],
+  "source_existing_EOL_from_git_HEAD_exact": true,
+  "durable_remaining_producer_byte_exact": true,
+  "post_link_mirror_idempotent": true,
+  "ordinary_targets": [
+    {
+      "mapper": "mmc3",
+      "sha256": "d444cac88e13fa02b29ad16100b8f08fa565ba90f8cedde192de43fb2dc8f3eb",
+      "byte_identical": true
+    },
+    {
+      "mapper": "mmc5",
+      "sha256": "f4ffd2483c51daa4d60bb575da2da8c4d817692cda407611c243031f67520833",
+      "byte_identical": true
+    }
+  ],
+  "prior_generated_CV3_scripts_inspected": 25,
+  "source_manifest_sha256": "3ef6698e9ecbcc3149cefb58cb62b6de8811481174470f0f345e0e1410f4cbde",
+  "scope": "Private source/build/CPU proposal. No native worker used, no ROM installed or source adopted. Separate native mapping/DMA/audio/cadence qualification and composition on current Mac are required."
+}
