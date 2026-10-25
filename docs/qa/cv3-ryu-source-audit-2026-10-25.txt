@@ -1,0 +1,102 @@
+SIMON / GRANT / SYPHA / ALUCARD / RYU: BOUNDED SOURCE AUDIT, 25 OCT 2026
+
+Assigned active MMC5 baseline:
+f00c2a7ad0459a3cd0b369bb4fbc9f374dc27d9335b2cc1fe1867f3f98d73d23
+D = C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py
+Baseline file: D/zelda2-terrain-candidate-v4/adoption-v1/candidate.nes
+This audit used no Mesen worker and changed no root src/config/Git state.
+Private platform10e5/eaf/5061 candidates were not audit baselines.
+
+ACTIONABLE FINDINGS
+
+1. Ryu can start a sword attack while Jump Slash remains active after a new
+   pickup auto-equips another ninjitsu. Actual2.02 Ryu.pressAtkBtn at
+   Ryu.as1004..1036 requires cState != ST_ATTACK && !jumpSlash. The initial
+   InventoryCycle-only fixture omitted its caller's cleanup: full paused
+   InventoryUiTick DOES clear AvSlash, so pause switching was not a valid
+   reproduction. Root's check_ryu_pickup_primary.py executes the real
+   InventoryGrant instead; all four newly granted ninjitsu auto-equip and
+   preserve AvSlash=1. ExpandedWeapons then incorrectly starts a14-update sword. The
+   separate RemainingWeapons RyuFlipTick suppresses flip whenever RgAttack is
+   nonzero, so this also conflicts with the continuing Slash visual state.
+
+   Private repair: replace the existing3-byte LDA XgWall with3-byte JSR to an
+   appended7-byte leaf: LDA XgWall / ORA AvSlash / RTS. Its existing BNE rejects
+   either source-forbidden primary state. No new RAM, CHR or existing PC move.
+   Private file: D/cv3-ryu-source-audit-v3/candidate.nes
+   SHA256: fa6d7e5f2c0f47c2642c8b0a191aeecb8fab96765d767b6d190e3e502c4a3ecb
+   Baseline rebuilt exactly before modification.96 full-linked CPU cases pass;
+   10 isolated airborne cases repaired,12 stale-ground robustness boundaries also
+   repaired. Remaining cases retain observed application outputs. All previous
+   public labels, header and CHR stay exact.10 ROM bytes differ, all in bank37:
+   offsets303883..303885 and311186..311192. Appended leaf CPU addressBF82.
+   Cost:16 extra CPU cycles and2 transient stack bytes on primary admission.
+   Root must arrange native input/IRQ/stack/SMC checks before adoption. This
+   candidate is NOT adopted or installed; oversized MMC3 was not built here.
+   Root correction evidence: D/cv3-ryu-pickup-primary-v1/proof.json. Eight full
+   UI controls and eight actual grant/primary cases distinguish the reachable
+   equipment owner. Physical native pickup/input qualification still remains.
+
+2. All three CV3 alternates discard primary attack sound requests. Actual
+   Cv3WeaponsGate takes B, starts the16/16/24-update attack and writes RgSfx=4.
+   Inherited src/roster_audio.s156..169 tests only RgSfx &1, then its cleanup
+   clears RgSfx. Real assembled RosterAudioUpdate observes CvAudioPlay but no
+   CvAudioInit for Grant, Sypha or Alucard. A bit1 positive control does call
+   CvAudioInit. Receipt: D/cv3-ryu-source-audit-audio-v1/proof.json.
+   This establishes discarded dispatch, not just an uncertain listening
+   impression. Do not fix it by blindly changing4 to1: that selects imported
+   Castlevania1 event0B and does not authenticate the appropriate CV3 spell,
+   knife, fireball or impact sound. Native CV3 sound extraction/routing remains
+   needed. No sound patch is included in this bounded packet.
+
+PER-CHARACTER COMPLETENESS (PRESENT MEANS CODE EXISTS, NOT FULL PARITY)
+
+Character | Implemented in active source | Missing / adapted / unproved
+Simon | 2.02 whip upgrades; dagger, holy water, watch, cross, axe; hearts and Double/Triple Shot; fresh second jump, landing/stomp replenishment; whip/throw poses; native SMB block dispatcher | Current-hash exact brick impact pixels/SFX and every weapon/animation/frame timing are unproved here. Easy1.0 intentionally uses free axe/tier shot limits and committed airborne direction; Hard2.02 uses inventory/hearts and air steering. His source jumpPwr550/gravity1500 and second jump occur in BOTH pinned versions; no invented extra jump boost is proposed.
+Grant | Knife; dagger/axe/watch; 5-heart watch,1-heart other cast; source-derived58px variable jump; airborne control; wall/ceiling grip and release; private health/hearts; source-extracted art; SMB attack blocks | Primary SFX discarded (finding2). Wall/corner engine, body sizes, contact damage/drops and SMB block rules are adapters. Existing grip repair is present, but this packet supplies no new native route or whole-wall-engine parity proof.
+Sypha | Staff; source-derived Flame/Ice/Lightning motion and art; freeze/support/shatter; fixed launch direction; private health/hearts; SMB attack blocks | Primary SFX discarded (finding2). Current ordinary jump is the earlier explicit smooth SMB accommodation, not original CV3 table motion: -6 launch,+0.25 gravity,6 cap,75px isolated apex. Original shared fixed-table instruction path remains authenticated. No speculative feel change made. Full native spell timing, enemy weaknesses, freeze tint and real-render parity remain unproved.
+Alucard | Free fireball with acquired upper/lower diagonals; Down+A bat/reversion; heart drain; source-derived bat-axis math; head-clearance manual reversion; source-extracted body/shot art; SMB attack blocks | Primary SFX discarded (finding2). Ordinary source jump table's displacement is doubled for SMB terrain.58 current-ROM fixed-arc leaf cases match actual original instructions before that adaptation; this is not complete movement/collision/transform timing proof. Automatic exhaustion/ceiling interaction and all native SFX still need native qualification.
+Ryu | Sword extension; all five ninjitsu, shared costs/scroll; wall movement/300-430 wall jumps; sword/crouch/air/throw/flip poses; source-derived projectiles; NSF source effects and playlists | Finding1 needs integration/native checks. This CPU packet does not certify every special's current visible pixels, native Ninja Gaiden animation/SFX, source hitbox or whole wall/platform engine. No Ryu1.0 original exists in the hosted six-character baseline; do not label2.02 systems missing based on old narrow reports.
+
+SOURCE / EVIDENCE BINDING
+
+Pinned2.02 source: reference/crossover2/source.swf
+SHA6374c72426556bfc3cc16f7594ce4443a5867fe2d367514136c99cc8458b70af
+Scripts: reference/crossover2/extracted/scripts/com/smbc/characters/{Simon,Ryu}.as
+Ryu SHA df487c804d685cf11f79c10f31b77a8bb98753a7b8010e0c0693341eb58b48d1.
+Easy source: reference/crossover/decompiled/scripts/com/smbc/characters/Simon.as
+CV3 original: C:/NES/Castlevania III - Dracula's Curse (USA).nes
+SHA085ec6395681c7ebfda19c2986069c21a3d27738cc61ada76249de70a07ed7d3
+Disassembly: build/player-guide-agent/cv3-private/reference/source,
+revision3272648f2bbf95f6cb11d947feca73b852a99f10; source-manifest.json pinned.
+playerStateProcessing_b1c.s SHAee048f3dbe4d3e2b4ed7a4e71cf763d372ffd5cce97fbfaa76c82fed549e6392;
+playerStateProcessing_b1d.s SHA5d84499bc050b1c32f20be314d448a135ae3215cbcf53a887d257f491def965a.
+Jump source1C:98BF..990B:75 annotated instruction bytes authenticated anew;
+58 Alucard leaf cases compare against actual original CPU instructions.
+Sypha adaptation origin: tools/audit/prepare_contact_fixes_pp.py315..381.
+Its measured75px isolated apex supersedes the older doc's72px table adaptation.
+
+Primary current packet: D/cv3-ryu-source-audit-v3/{proof.json,cases.json,
+baseline-failure.json,motion-source-proof.json,sourcepatch.diff,bindings.json}.
+Precise source/evidence hashes, including Simon and local tools, are in
+bindings.json. Staged source under that packet's source/src is reviewable.
+Owned tools: tools/audit/cv3_ryu_audit_v1.py and cv3_ryu_audit_audio_v1.py.
+
+FAILURE RETENTION / LIMITS
+
+The baseline behavior failure remains passed:false and defect_reproduced:true;
+it is not rewritten as a pass. v1 had a fixture-direction assertion failure:
+forward pause selection first chooses primary0, so the corrected test uses
+actual Left/backward selection to reach the sparse acquired item. v2 retained
+the behavior failure but stopped at an overbroad no-change assertion for two
+stale grounded Slash states; these are separately labeled robustness cases in
+v3. Those directories and diagnosis remain external and are not acceptance.
+
+No native emulator, interrupt, PPU/OAM, APU waveform, physical pickup, real-time
+performance or campaign assertions are added here. Empty actor pools isolate
+Ryu's primary admission; real farcalls and inventory spending execute. Audio
+proof observes original decoder/graphics leaves as declared opaque traps.
+Historical full-roster054d /144-item /86-physical /118272-ownership receipts
+remain tied to their older ROMs and narrow assertions. They are not relabeled
+as current coverage. Character/all-powerup/audio/performance completion remains
+an open whole-project objective.

@@ -1,0 +1,169 @@
+Link, Zelda II Link, Pit, Rygar and Sophia: bounded source/CPU audit
+25 October 2026. Assignment 9 of the requested ten-agent review.
+
+Accepted MMC5 input: f00c2a7ad0459a3cd0b369bb4fbc9f374dc27d9335b2cc1fe1867f3f98d73d23.
+All 412 source files and the build configuration were copied before the audit;
+the frozen build reproduces
+that ROM exactly. ROOT source, configuration, Downloads and Git were not changed.
+No Mesen worker was used. The concurrent Zelda II terrain/body/platform/OAM
+repair is deliberately outside this assignment.
+
+One concrete allocation defect remains in the accepted build: Sophia can pay
+for a three-missile volley while only zero, one or two shared actor slots are
+free. She receives only as many missiles as fit. The private repair reserves
+three slots before spending; it is ready for native integration testing.
+
+Evidence root:
+C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/link-pit-rygar-sophia-audit-v1
+
+Current implementation and limits
+
+Profile          Implemented                         Adapted / missing / unproved
+---------------  ----------------------------------  ----------------------------------
+Original Link    Easy uses pinned six-character 1.0  Shared SMB terrain/damage delivery.
+                 progression, stomp policy, thrust  Hard bow has a two-arrow cap;
+                 timing and boomerang stun. Hard    2.02 pressSpcBtn has no dedicated
+                 uses 2.02 inventory: Bomb, Bow,     arrow-count cap. This is an engine
+                 Magic Boomerang, Red/Blue Rings,   limit, not asserted exact fidelity.
+                 mushroom shield/sword progression. Full current-hash source timing,
+                 B sword; airborne Up/Down thrust;  every shield/projectile contact,
+                 Select special; paused Left/Right  all pickups/refills and SFX are
+                 choose weapons. Bomb/arrow ammo    not established by this audit.
+                 starts 5, maximum20, cost1.
+
+Zelda II Link    Original packed Attack/Magic/Life   Explicit SMB adaptation; absent
+                 levels1..8, HP/MP, EXP thresholds,  from Crossover1.0/2.02. Enemy EXP/
+                 eight learned spells, original     damage correspondence, block-taught
+                 one-MP-short casting exception.    rewards and physical jar/drop motion
+                 Physical unique rewards, containers,are port policy. Current audio path
+                 jars/EXP bags; learned thrusts.    still uses the Zelda I family driver;
+                 Start opens stat/spell panel;      Z2 sword cue currently maps to the
+                 Left/Right changes page, Up/Down   old Link effect. Native Zelda II
+                 chooses, A buys/confirms, B defers; music/SFX and exact pause appearance
+                 Select casts during play.          are not newly qualified here.
+
+Pit              Two-arrow fresh-press bow; upward  Not a 2.02 character. Base numbers
+                 and crouch/air shots; long/fire    derive from published unfinished v3
+                 arrow tiers; Select hammer. Third  Pit code. Hammer/crouch combinations,
+                 tier has60 active updates of lift  water and flight budget are port
+                 at1.5px/update, with fresh airborneadaptations. v3 Barrier/Feather
+                 A activation and landing recharge. inventory is not implemented as
+                 Complete original wing/body/bow    separate collectible items.
+                 records replace invented wings.   Both logical flap phases currently
+                                                     alias the SAME native body image;
+                                                     separate wing-pixel motion is absent.
+
+Rygar            Crouch/air Diskarmor, one disk,     Powered reach64/88, movement/jump,
+                 original mirrored hand anchor,     water movement and area-song mapping
+                 four-pixel extension/retraction,   are deliberate adaptations. Original
+                 single short chain, native catch;  adventure items/rope systems are not
+                 three distinct walk poses with     claimed implemented. Actual current
+                 seven updates per pose. Six area   PPU pixels and walking quality were
+                 songs plus separate star/hurry     not newly inspected in this CPU audit.
+                 song are mapped in the ROM.
+
+Sophia           Fresh-press three-cannon pool;     Hard inventory applies in both modes;
+                 Hyper from mushroom, Crusher,      Easy's enemy-contact policy is separate.
+                 standard/homing missiles, Hover,   Wall/ceiling rotation/transition art
+                 wall/ceiling climb. Standard ammo  and instant jump preparation remain
+                 15/60, cost3; homing5/20, cost1;    NES adaptations. Crowded shared-pool
+                 hover8. Live-enemy homing gate,    atomic volley defect described below.
+                 independent cannon/missile limits, Natural crowded-pool reachability,
+                 refill drops and hover recharge.   full cannon/attachment SFX and frame
+                                                     timing remain native-test requirements.
+
+This table distinguishes source inspection from fresh CPU checks. It does not
+turn historical route/video receipts into evidence for this accepted ROM.
+Neither Pit nor Rygar is present in the pinned Crossover2.02 character roster.
+
+Source authentication
+
+Pinned first web SWF: 46bdcf0b60721bbe0f006cdb083f503e0312feacede6f65f2942f7a5a406b1eb.
+Pinned2.02 SWF: 6374c72426556bfc3cc16f7594ce4443a5867fe2d367514136c99cc8458b70af.
+Published unfinished Pit source commit: 83974eb7b3d554b9c8c5da07f64bfd608f3f65fc.
+Rygar original USA ROM: 965330fed9f5b8492452f3b53084752e83b7f899a1f88f3c475ece2fde6f9231.
+Zelda II original USA ROM: 9fca03064a5113e6a92f550d9f42bac9ac1ae248a84df1f653d7cd7f76a1803d.
+Pit native art reference: Kid Icarus (USA, Europe), pinned SHA in
+docs/reference/expanded.json. Its existing source-capture records are reused;
+this audit did not run or alter that original ROM.
+
+Reviewed source owners:
+reference/crossover/decompiled/scripts/com/smbc/characters/Link.as
+reference/crossover2/extracted/scripts/com/smbc/characters/Link.as
+reference/crossover2/extracted/scripts/com/smbc/characters/Sophia.as
+reference/crossover2/extracted/scripts/com/smbc/projectiles/LinkProjectile.as
+.upstream/smbc-v3/src/com/smbc/characters/Pit.as
+src/roster.s, roster_weapons.s, easy_link_order.s, inventory.s,
+inventory_data.inc, remaining_weapons.s, expanded.s, expanded_weapons.s,
+pit_collision.s, expanded_audio.s, expanded_music.inc, zelda2_link_rpg.s,
+zelda2_link_rewards.s, zelda2_link_ui.s, zelda2_pause_panel.s.
+
+Fresh actual-CPU checks on the accepted build
+
+cpu-v6/proof.json is intentionally passed:false because it retains twelve
+Sophia allocation failures. Its other checks pass:
+-15 Link/Sophia ammo-table entries match the pinned2.02 declarations.
+-72 Rygar disk cases cover all three reaches, both facings and crouches,
+ world origins0/96/250 and pages0/1. Unpowered center offsets exactly match
+ the measured original24,28,32,36,40,36,32,28,24,20; left is2 minus that.
+ Powered maxima64/88 retain the same four-pixel return. Catch clears the actor.
+-128 Rygar walk calls verify three-frame order, seven-update timing and
+ direction restart. This establishes timing/pose IDs, not displayed art quality.
+-169 Pit flight gate/recharge/duration calls run actual map-query code in an
+ explicitly empty, in-bounds arena; they do not prove a native roof traversal.
+-36 Pit flight table bindings match the existing complete body/bow record and
+ CHR bank for each tier/facing. Both phase IDs intentionally alias that record.
+-Six Zelda II numeric tables match bytes extracted afresh from the authenticated
+ original ROM: thresholds hi/lo, spell costs, damage, sword damage and drops.
+ 1,536 packed-level reads and1,024 learned/unlearned/repeated/MP-boundary casts
+ pass. Terrain/body/platform integration and full world spell effects excluded.
+-Six distinct ordinary Rygar area pointers and one distinct star/hurry pointer
+ are present. Event hurry reuses the star song; pipe bonus uses underground.
+ This is source/table binding, not a new waveform or decoder-loop test.
+
+Sophia failure and private repair
+
+Source Sophia.as AMMO_DEPLETION_ARR charges3 and pressSpcBtn calls the original
+SophiaBullet.launchMissiles triplet. The port's SophiaInput spends first, then
+attempts three separate shared-pool allocations. Cannon impact effects retain
+type6 and their short positive impact timer while not counting as active cannon
+shots. Homing missiles also occupy the shared pool, so a crowded pool is a legal
+component condition. Native controller reachability is NOT established here.
+
+cpu-v6/sophia-triplet-allocation.json records both facings and aim directions.
+First wrong write: bank59, CPU $A2F6, InvAmmo+$B1 = $7D53,15 ->12, while only
+zero/one/two slots are free. Actual created standard missiles are0/1/2.
+
+Private proposal-v3/candidate.nes:
+3e3c67648e238cd71e1c581e05773579094351f8ed1c2b7c9de59219728ad794.
+24 changed bytes, bank6 only. Two JSR operand bytes retarget the existing
+Sophia-only count call to a22-byte tail helper. It scans for three free slots
+before the old active-standard-volley count and ammo debit. Fewer slots leave
+ammo and actors untouched. Existing exported PCs, RAM addresses and all CHR
+are exact. The helper occupies existing SPECIAL_EXTRA tail space; no new RAM.
+
+proposal-v3/cpu-v2/proof.json passes the same bounded character checks.
+proposal-v3/triplet-v1/proof.json additionally passes:
+-All1,024 shared-pool occupancy masks: three shots/cost3, or no shots/cost0.
+-160 existing-standard-missile refusals, across all ten slot positions,
+ both facings, horizontal/upward aim and empty/low/full ammo.
+-80 exact old/new complete-handler application-RAM and mapper comparisons
+ when three slots fit, including ammo0/2/3/15. Only hardware stack, mapper
+ register transactions and original SMC/call bookkeeping are excluded.
+
+Earlier proposal-v1/v2 linker failures are preserved. They exceeded the nearly
+full bank; v3's smaller helper fits without moving any pre-existing symbol.
+cpu-v1/v3/v4/v5 runner errors are transcribed in development-failures.json
+as test-tool fixes (scope-name,
+constant-vs-ROM access and area-table bit order), not gameplay evidence.
+
+Owned reproducible tools:
+tools/audit/link_pit_rygar_sophia_audit_cpu.py
+tools/audit/link_pit_rygar_sophia_audit_prepare.py
+tools/audit/link_pit_rygar_sophia_audit_triplet.py
+tools/audit/link_pit_rygar_sophia_audit_proposal.patch
+
+Before adoption, compose the minimal hook/helper with current ROOT, rebuild,
+and native-test a controller-driven wall/rapid-fire/homing crowd scene with
+zero/one/two free slots, existing-volley refusal, full three-shot launches,
+actual audio/PPU output and stack/SMC/NMI guards. No candidate was installed.

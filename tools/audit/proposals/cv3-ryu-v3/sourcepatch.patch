@@ -1,0 +1,34 @@
+--- a/src/entrypoint.s
++++ b/src/entrypoint.s
+@@ -429,3 +429,7 @@
+ .include "hot_render_gate.s"
+ 
+ .endif
++
++.if ::ENABLE_CROSSOVER
++.include "cv3_ryu_audit_sword_guard.s"
++.endif
+--- a/src/expanded_weapons.s
++++ b/src/expanded_weapons.s
+@@ -197,7 +197,7 @@
+ Sword:
+   ; Only primary is rejected on a wall. Select/Up+B already dispatch above
+   ; to the separately permitted source wall subweapon/throw path.
+-  lda XgWall
++  jsr RyuPrimaryBlocked
+   bne ExistingAttackDone
+   lda InvSelected+CHARACTER_RYU
+   cmp #5
+--- a/src/cv3_ryu_audit_sword_guard.s
++++ b/src/cv3_ryu_audit_sword_guard.s
+@@ -0,0 +1,10 @@
++; Source2.02 Ryu.pressAtkBtn rejects primary while Jump Slash remains live.
++; Appended after all EXPANDED_EX contributors; every old label remains fixed.
++.pushseg
++.segment "EXPANDED_EX"
++.proc RyuPrimaryBlocked
++  lda XgWall
++  ora AvSlash
++  rts
++.endproc
++.popseg

@@ -1,0 +1,168 @@
+KIRBY / META KNIGHT / CHIP / DALE -- BOUNDED SOURCE AND CPU AUDIT
+2026-10-25, assignment8 of the user's requested ten agents
+
+Accepted input MMC5 SHA256:
+f00c2a7ad0459a3cd0b369bb4fbc9f374dc27d9335b2cc1fe1867f3f98d73d23
+This task did not change ROOT source, Downloads, Git, or the accepted build.
+No Mesen worker was used. Private proposals are NOT release/adoption approvals.
+
+Evidence root:
+C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/kirby-chip-audit-v1
+
+AUTHENTICATED REFERENCES
+
+Kirby's Adventure (USA) (Rev1), user-local C:/NES cartridge:
+a7a742f5288cd4ab220f530ee7c8d0e3714b8bf107e89c9bf03039217fec5829
+Chip 'n Dale - Rescue Rangers (USA), user-local C:/NES cartridge:
+8d5e3d9ce20fa0a61b23e93dbc975606803f2d5e7a264514b02b96f832a63181
+No ROM was downloaded or added to Git. No claim is made that Kirby, Meta,
+Chip or Dale were playable in Crossover2.02; these additions adapt NES games.
+
+CURRENT IMPLEMENTED / BOUNDEDLY CHECKED / UNPROVED
+
+Kirby (both difficulties)
+- Implemented: six HP, mushroom/flower heal two capped at six, real pickup
+  sound queue; Up inflation/flight, variable ground jump, double-tap dash,
+  Down+A/B slide, held-B inhale after eight-update startup, Down swallow,
+  fresh B spit, Select discard/recoverable copy star, underwater water gun.
+- Fourteen authored SMB-family copies: Goomba ground charge; green Koopa
+  floor-following shell; red Koopa return shell; Buzzy guard; Hammer Bro
+  hammer; Bloober upward jet; grey Cheep bubble; red/flying Cheep wave;
+  Paratroopa high jump; Lakitu cloud; Spiny needles; Piranha bite; Podoboo
+  fire; Bullet Bill dash. These are authored adaptations, not original
+  Kirby's Adventure enemy-copy assignments.
+- CPU checked on both accepted input and private proposal: all256 enemy IDs
+  against three activation flags and three states (2,304 cases); active
+  front-mouth protection vs back/startup/released-B/Meta contacts (336);
+  eighteen mapped IDs, both facings, three suction distances (108). Grounded
+  origins stay level at KirbyY+8: enemy foot+24 equals Kirby foot+32, and
+  enemy vertical speed/force are cleared. ObjectOffset restored after suction.
+- All24 HP/item combinations checked: only types0/1 heal, and both queue SFX.
+- Broken in staged admission: a shot can defeat an active enemy on vertical
+  page0 or2 if low Y matches. See first-wrong-contact evidence below.
+- Unproved here: natural emergence/pickup, every copy's native hit/expiry,
+  actual displayed shot-ground alignment, inhaling on slopes/platforms or
+  while airborne, hurt/death/drop timing, every stage, source-perfect motion,
+  sound waveform/timing and live reachability of the vertical-page defect.
+  Green-shell floor and red-Cheep wave routines are present, but source
+  inspection is not a new frame-by-frame visual certificate.
+
+Meta Knight (Kirby's Select alternate, both difficulties)
+- Implemented: six HP and same two healing foods; no inflation/Up flight or
+  midair-jump reset; ground B slash, Up+B triple slash, direction+B charge,
+  grounded Select lunge, airborne B spin, airborne Down+B windup/plunge and
+  landing recovery. Starting attack facing is held. Sword bounds use actual
+  pose sword pixels, and blocks use the strict single tip-cell dispatcher.
+- Current source resets Kirby copy/mouth/float in MkMovementInput. Eight
+  assembled combinations confirm this gate never retains those states.
+- Independent existing art checker was rerun against the private exact ROM:
+  all90 linked poses /25,245 source pixels match, with the declared sword
+  hue mapping. It also revalidated35 retained ORIGINAL-game hardware poses,
+  136 visible parts, physical CHR/palettes and descriptor priority. That is
+  not new live port OAM evidence. Kirby's original first16KiB is unchanged.
+- Original boss gravity+$0015 and attack pose sequences are documented in
+  the existing source audit. Takeoff-$0390 instead of boss-$0300 and shorter
+  recovery are explicit playable-SMB adaptations, not exact native boss AI.
+- No new Meta-specific mechanics defect was proved in this bounded task.
+- Unproved/incomplete: source sword SFX (SMB fallback remains), exact sword
+  hues (source30/37/17 maps to30/27/16), fresh full routes, all attack contacts
+  on this hash, and every-stage difficulty/progression behavior.
+
+Chip and Dale (Select alternates, same mechanics)
+- Implemented: three HP; mushroom heals one, flower restores full; ordinary
+  jump, crouch, wooden crate pickup/carry, Down hide in carried crate,
+  horizontal B throw after animation or Up+B immediate upward throw;
+  hide contact consumes crate and defeats an eligible enemy; adjacent
+  destructible bricks can be lifted into the private six-crate pool.
+- Foods select the next appearance from the actual collected type. All24
+  HP/item/alternate combinations verify healing and star/1UP rejection.
+- Original horizontal, upward/downward vertical, gravity and resting kernels
+  were independently decoded from the actual Rescue Rangers ROM:73 actual
+  linked instructions match after explicit RAM/branch retargeting. Across
+  768 actual CPU cases (128 per six entries), registers A/X/Y/P/SP and mapped
+  RAM are exact, including native F0-page wrap. Gravity has one extra cycle
+  from zero-page-to-absolute RAM addressing; the other five kernels add none.
+  This does not certify the surrounding input or SMB terrain wrapper.
+- The already-adopted ceiling-feedback repair2755ff1 is present. This task
+  did not replace it or claim a fresh native ceiling replay.
+- Broken in staged admission: crates can defeat an enemy on vertical page0
+  or2 when its low Y aliases a visible crate. Both alternates share this path.
+- Unproved/incomplete: live reachability of that defect; source-faithful box
+  floor impact and hitbox alignment; lifting/throwing against all protected
+  blocks; carrying across rooms; swimming; full routes/current PPU/palettes;
+  original attack audio. CdFlowers/CdStars are reserved but unused state,
+  not working weapon upgrades. No additional upgrades are claimed.
+
+EASY / HARD
+
+These four profiles share their own movement, abilities and health across
+difficulties. Their body dispatch refreshes the shared area eligibility and
+the behavior flag: Easy permits ordinary eligible land-enemy stomps, Hard
+uses body attack/contact damage rules. This task read that wiring; it did
+not freshly execute every landing/hazard/native difficulty contact.
+
+TWO STAGED FIRST-WRONG-CONTACT REPRODUCTIONS
+
+baseline-cpu-v2/proof.json retains accepted f00's four failures. Fixtures
+start at the actual assembled isolated contact entry, not a video boundary.
+Enemy slot0: active Goomba/state0, X612, lowY184, vertical high0 or2.
+Shot/crate: same visible X/lowY, independent native object owner4 initially.
+
+1 Kirby KbWeapons::EnemyContacts:
+  bank74 PC$A89F writes ObjectOffset($000D)4->0 and subsequently enters
+  ShellOrBlockDefeat despite no vertical-page intersection.
+2 Chip/Dale CdBoxEnemies:
+  bank79 PC$A5F6 writes ObjectOffset($000D)4->0 and subsequently enters
+  CdDefeatEnemy under the same non-intersecting vertical-page conditions.
+
+Defeat leaves were intercepted at their REAL entries to record admission.
+Native defeat/drop internals were not mocked into a gameplay success.
+The low-byte intersection is objectively wrong in the isolated routine, but
+no live route has yet established whether these active off-page states are
+reachable before native object cleanup. Do not silently relabel this as a
+reproduced gameplay/visual defect or install it solely on this evidence.
+
+PRIVATE PROPOSAL (NOT ADOPTED)
+
+proposal-v2/candidate.nes SHA256:
+38a0e516b07cf3a98be36f5281a7dac17ca9d26f37a6b5fee7c491ad8300d523
+proposal-v2/implementation.patch SHA256:
+0aa97fef03e8a14e8b182baa0e879ab4ebaa11434dc419ea94f466864cd66000
+Only43 ROM bytes differ, exclusively PRG banks74/79. All old exported labels,
+RAM and all CHR remain exact. No new RAM; two appended admission helpers.
+Kirby's existing seven-byte slot guard becomes an equal-size helper gate;
+Chip's existing six-byte flag guard becomes an equal-size helper gate.
+The new helpers require Enemy_Y_HighPos==1 before ordinary admission.
+Kirby's non-edible Bowser fallback is outside this narrow change and was
+not certified by these Goomba cases; do not claim every projectile collision
+is fully repaired. The Chip guard's temporary carry result is intentional;
+no whole-routine flag-contract differential or native timing proof is claimed.
+
+proposal-v2/cpu-v1/proof.json: all bounded components above pass and all four
+page negatives now reject defeat, while visible page1 still admits it.
+proposal-v2/native-kernels-v1/proof.json: authenticated73 instructions/768 CPU.
+proposal-v2/meta-art.json: original90 poses/25,245 pixels,35 retained captures.
+proposal-v2/binding.json: exact baseline/build/labels/CHR/change-byte binding.
+
+Preserved unsuccessful work:
+- baseline-cpu-v1 used an incorrectly hardcoded Paratroopa ID9. This fixture
+  failed before completing. The final driver resolves IDs from the actual
+  ROM debug constants; the actual code and expected allowed families remain
+  unchanged. This was a test fixture error, not a game defect.
+- proposal-v1 naively replaced a two-byte zero-page LDA with a three-byte
+  JSR. Its exported-label check correctly rejected it. It is NOT a candidate
+  to merge. proposal-v2 preserves the complete original guarded spans.
+
+NEXT ADMISSION STEPS
+
+Find an actual native off-page active enemy at the weapon update boundary,
+or keep this as an unadopted defensive proposal. If adopted later, rebase
+the appended helpers onto the then-current source, rebuild, bind its new
+hash, and run native projectile/crate positive and off-page negatives plus
+interrupt/stack/graphics guards. Root's concurrent inventory/entrypoint and
+ZeldaII platform proposals are intentionally excluded from this snapshot.
+
+Owned reproducible tools:
+tools/audit/kirby_chip_audit_cpu_v1.py
+tools/audit/kirby_chip_audit_prepare_v1.py
+tools/audit/kirby_chip_audit_source_v1.py

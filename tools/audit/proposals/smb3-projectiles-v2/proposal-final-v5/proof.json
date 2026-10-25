@@ -1,0 +1,32 @@
+{
+  "passed": true,
+  "component_assertions_passed": true,
+  "accepted": false,
+  "ROM_sha256": "cb4408155507a54c65590dcd1c3c2e31205701627a839492aec569cfd22178b4",
+  "driver_sha256": "dd33a0e066830b91982f68f1e086ebcaf3ccf6824da8ff6722a487ce1c0ac1d4",
+  "implementation_source_sha256": {
+    "mario_source.s": "d634f221acb00322480cd4cd45d5a6f724dc253a71b6a8dbe3c5621bbfb8cd3e",
+    "luigi_native.s": "18dd4aa1781c913b3b7f607ec2e2fa9cc88021b4d651163d752712d148443139",
+    "scrooge.s": "93c86e511019862499cb31caf06ecdcf7d4398067d0bdcdf9c62a0d7a78a3c3a",
+    "darkwing_core.s": "ca07ea5ecc059a7bf9029e3922369f464df9a26cf37a4f2e7dd2e04039263e89",
+    "darkwing_weapons.s": "269311d3d475170e37ab9263b2f4fe2a1b97c7ab4fc40c4b5ea94e637fcfc0eb",
+    "darkwing_pickups.s": "2ba27224d2e9be94d6ba3e593f484eb3fb164e452fdf23f866f0db5698011e7a",
+    "smb3_mario_combat.s": "b338dbf8b12a10c4829f6890b97175869f49704a20f996156cc11a8d136ba40e",
+    "smb3_mario_core.s": "19957959e77bf2b2e9513c052def64870adceb960dac7a99c5995ca30cb36dc3",
+    "smb3_mario_dispatch.s": "a35ac65b478494961e68ae5305be5e082f7d4f4931a4ea4f15f820aad7c20c7f",
+    "smb3_mario_world.s": "a182f3ce497401ae6af8ce2649c5a13510062de029914924c3b67e2852675a98"
+  },
+  "repaired_projectile_expectations": true,
+  "checks": {
+    "projectile_matrix": 32,
+    "statue_and_suit_loss": 24,
+    "Luigi_requested_ground_braking": 648,
+    "Luigi_requested_jump_fraction": 32,
+    "Mario_easy_hard_power_tiers": 12,
+    "Darkwing_original_gas_cost_caps_stances": 480,
+    "Scrooge_native_launch_release_gravity_adapter": 16,
+    "actual_original_SMB3_projectile_handler": 4
+  },
+  "known_failures": 0,
+  "scope": "Assembled isolated CPU components. Existing Luigi/statue assertions pass; baseline projectile failures are recorded explicitly. No interrupt/PPU/audio/campaign/source-complete proof."
+}

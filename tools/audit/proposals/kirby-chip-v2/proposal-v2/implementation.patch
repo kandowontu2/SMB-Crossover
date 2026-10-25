@@ -1,0 +1,71 @@
+--- a/src/kirby_weapons.s
++++ b/src/kirby_weapons.s
+@@ -2,8 +2,10 @@
+ .pushseg
+ .segment "KIRBY_ABILITIES"
+ .proc KbFamilyForEnemy
+-  cpx #6
+-  jcs No
++  jsr KbContactSlotAdmission
++  bcs No
++  nop
++  nop
+   lda Enemy_Flag,x
+   jeq No
+   jmi No                         ; Bowser/controller duplicates never enter mouth
+--- a/src/chip_dale_boxes.s
++++ b/src/chip_dale_boxes.s
+@@ -326,9 +326,9 @@
+  sta CdRectY
+  ldx #5
+ Loop:
+- lda Enemy_Flag,x
+- beq Next
+- bmi Next
++ jsr CdContactSlotAdmission
++ bcc Next
++ nop
+  lda Enemy_State,x
+  and #$20
+  bne Next
+--- a/src/entrypoint.s
++++ b/src/entrypoint.s
+@@ -429,3 +429,38 @@
+ .include "hot_render_gate.s"
+ 
+ .endif
++
++; Contact objects on another vertical page cannot overlap a visible shot.
++.if ::ENABLE_MMC5_EXPANDED
++.pushseg
++.segment "KIRBY_ABILITIES"
++.proc KbContactSlotAdmission
++  cpx #6
++  bcs Inactive
++  lda Enemy_Y_HighPos,x
++  cmp #1
++  bne Inactive
++  clc                         ; Original valid-slot CPX carry remains clear.
++  rts
++Inactive:
++  sec
++  rts
++.endproc
++.popseg
++.pushseg
++.segment "CD_LOGIC"
++.proc CdContactSlotAdmission
++  lda Enemy_Y_HighPos,x
++  cmp #1
++  bne Inactive
++  lda Enemy_Flag,x
++  beq Inactive
++  bmi Inactive
++  sec
++  rts
++Inactive:
++  clc
++  rts
++.endproc
++.popseg
++.endif

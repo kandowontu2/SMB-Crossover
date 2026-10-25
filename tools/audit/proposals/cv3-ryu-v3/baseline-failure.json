@@ -1,0 +1,58 @@
+{
+  "passed": false,
+  "defect_reproduced": true,
+  "ROM_sha256": "f00c2a7ad0459a3cd0b369bb4fbc9f374dc27d9335b2cc1fe1867f3f98d73d23",
+  "source_Ryu_sha256": "df487c804d685cf11f79c10f31b77a8bb98753a7b8010e0c0693341eb58b48d1",
+  "source_rule": "pressAtkBtn: cState != ST_ATTACK && !jumpSlash",
+  "cases": [
+    {
+      "selection": 1,
+      "result": {
+        "attack": 14,
+        "kind": 0,
+        "slash": 1,
+        "flip": 1,
+        "ammo": 40,
+        "cycles": 4414,
+        "minimum_sp": null
+      }
+    },
+    {
+      "selection": 2,
+      "result": {
+        "attack": 14,
+        "kind": 0,
+        "slash": 1,
+        "flip": 1,
+        "ammo": 40,
+        "cycles": 4414,
+        "minimum_sp": null
+      }
+    },
+    {
+      "selection": 3,
+      "result": {
+        "attack": 14,
+        "kind": 0,
+        "slash": 1,
+        "flip": 1,
+        "ammo": 40,
+        "cycles": 4414,
+        "minimum_sp": null
+      }
+    },
+    {
+      "selection": 4,
+      "result": {
+        "attack": 14,
+        "kind": 0,
+        "slash": 1,
+        "flip": 1,
+        "ammo": 40,
+        "cycles": 4414,
+        "minimum_sp": null
+      }
+    }
+  ],
+  "scope": "Real paused InventoryCycle preserves AvSlash; full assembled ExpandedWeapons then incorrectly starts14-update primary while airborne slash remains active."
+}

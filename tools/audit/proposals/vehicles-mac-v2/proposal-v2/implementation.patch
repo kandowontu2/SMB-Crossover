@@ -1,0 +1,80 @@
+--- a/src/tmnt_equipment.s
++++ b/src/tmnt_equipment.s
+@@ -253,14 +253,8 @@
+  asl
+  asl
+  tay
+- lda Enemy_X_Position,x
+- clc
+- adc #4
+- sta EnemyBoundingBoxCoord,y
+- lda Enemy_X_Position,x
+- clc
+- adc #12
+- sta EnemyBoundingBoxCoord+2,y
++ jsr TnPickupScreenBox
++ .res 13,$ea ; original sixteen-byte horizontal span
+  lda Enemy_Y_Position,x
+  clc
+  adc #4
+--- a/src/little_mac_core.s
++++ b/src/little_mac_core.s
+@@ -39,9 +39,9 @@
+  lda LmReady
+  cmp #$4d
+  jne NewLife
+- lda LmLife
+- cmp NumberofLives
+- jne NewLife
++ jsr LmLifeAdvanced
++ jcc NewLife
++ .res 3,$ea ; preserve the original life-test span
+  lda AreaPointer
+  cmp LmArea
+  jne Area
+--- a/src/entrypoint.s
++++ b/src/entrypoint.s
+@@ -429,3 +429,43 @@
+ .include "hot_render_gate.s"
+ 
+ .endif
++
++; Append after all existing contributors; existing code/RAM/CHR addresses stay fixed.
++.if ::ENABLE_MMC5_EXPANDED
++.pushseg
++.segment "TMNT_CORE"
++; PowerUpObjHandler has already computed this actor's relative position.
++; Native collision boxes are screen-relative. Reapply native edge clipping
++; after narrowing the completed 16px Kiai icon to its visible center.
++.proc TnPickupScreenBox
++ lda Enemy_Rel_XPos
++ clc
++ adc #4
++ sta EnemyBoundingBoxCoord,y
++ lda Enemy_Rel_XPos
++ clc
++ adc #12
++ sta EnemyBoundingBoxCoord+2,y
++ inx
++ iny
++ iny
++ iny
++ iny
++ jsr CheckRightScreenBBox
++ dey
++ dey
++ dey
++ dey
++ rts
++.endproc
++.segment "LM_CORE"
++; Gaining a life retains boxing HP, stars, stamina and active moves.
++; Record increases immediately so the next real death remains detectable.
++.proc LmLifeAdvanced
++ lda NumberofLives
++ cmp LmLife
++ sta LmLife
++ rts
++.endproc
++.popseg
++.endif

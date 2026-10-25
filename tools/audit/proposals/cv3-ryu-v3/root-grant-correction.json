@@ -1,0 +1,69 @@
+{
+  "passed": true,
+  "goal_complete": false,
+  "adopted": false,
+  "baseline_ROM_sha256": "f00c2a7ad0459a3cd0b369bb4fbc9f374dc27d9335b2cc1fe1867f3f98d73d23",
+  "candidate_ROM_sha256": "fa6d7e5f2c0f47c2642c8b0a191aeecb8fab96765d767b6d190e3e502c4a3ecb",
+  "actual_UI_controls": 8,
+  "actual_grant_then_primary_cases": 8,
+  "cases": [
+    {
+      "ROM": "baseline",
+      "item": 1,
+      "selected": 1,
+      "slash": 1,
+      "primary_timer": 14
+    },
+    {
+      "ROM": "baseline",
+      "item": 2,
+      "selected": 2,
+      "slash": 1,
+      "primary_timer": 14
+    },
+    {
+      "ROM": "baseline",
+      "item": 3,
+      "selected": 3,
+      "slash": 1,
+      "primary_timer": 14
+    },
+    {
+      "ROM": "baseline",
+      "item": 4,
+      "selected": 4,
+      "slash": 1,
+      "primary_timer": 14
+    },
+    {
+      "ROM": "candidate",
+      "item": 1,
+      "selected": 1,
+      "slash": 1,
+      "primary_timer": 0
+    },
+    {
+      "ROM": "candidate",
+      "item": 2,
+      "selected": 2,
+      "slash": 1,
+      "primary_timer": 0
+    },
+    {
+      "ROM": "candidate",
+      "item": 3,
+      "selected": 3,
+      "slash": 1,
+      "primary_timer": 0
+    },
+    {
+      "ROM": "candidate",
+      "item": 4,
+      "selected": 4,
+      "slash": 1,
+      "primary_timer": 0
+    }
+  ],
+  "correction": "Full paused InventoryUiTick clears AvSlash; the earlier direct InventoryCycle reproduction omits its cleanup owner. Actual InventoryGrant auto-equips each new ninjitsu while airborne and preserves Slash, reproducing the forbidden primary through its real grant owner.",
+  "scope": "Full assembled InventoryUiTick, InventoryGrant and ExpandedWeapons, real farcalls/no external traps. Explicit legal airborne/pickup staging. No native physical pickup, IRQ/PPU/audio proof or installation."
+}

@@ -1,0 +1,64 @@
+--- a/src/smb3_mario_combat.s
++++ b/src/smb3_mario_combat.s
+@@ -257,8 +257,9 @@
+  lda Enemy_Flag,y
+  jeq Next
+  bmi Next
+- lda Enemy_ID,y
+- cmp #$15
++ jsr M3AuditProjectileAdmission
++ nop
++ nop
+  jcs Next
+  cmp #Podoboo
+  jeq Next
+@@ -295,7 +296,7 @@
+  tya
+  tax
+  stx ObjectOffset
+- jsr M3DefeatEnemy
++ jsr M3AuditProjectileDamage
+  ldx M3SavedSlot
+  lda M3ShotKind,x
+  cmp #1
+--- a/src/entrypoint.s
++++ b/src/entrypoint.s
+@@ -429,3 +429,5 @@
+ .include "hot_render_gate.s"
+ 
+ .endif
++
++.include "mario_scrooge_audit_combat.inc"
+--- /dev/null
++++ b/src/mario_scrooge_audit_combat.inc
+@@ -0,0 +1,30 @@
++; Private bounded proposal: source hammers pierce fire-only armor.
++; Bowser receives the host's existing native boss damage rather than StnE.
++.pushseg
++.segment "M3_LOGIC"
++.proc M3AuditProjectileAdmission
++ lda Enemy_ID,y
++ cmp #Bowser
++ beq Allowed
++ cmp #BuzzyBeetle
++ bne Ordinary
++ ldx M3SavedSlot
++ lda M3ShotKind,x
++ cmp #2
++ bne BeetleFire
++ lda #0 ; Only the following temporary ID filters see this value.
++Allowed:clc
++ rts
++BeetleFire:lda #BuzzyBeetle
++Ordinary:cmp #$15
++ rts
++.endproc
++.proc M3AuditProjectileDamage
++ lda Enemy_ID,x
++ cmp #Bowser
++ beq Boss
++ jmp M3DefeatEnemy
++Boss:stx R1
++ jmp HandleEnemyFBallCol
++.endproc
++.popseg

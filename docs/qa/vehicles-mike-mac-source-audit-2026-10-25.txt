@@ -1,0 +1,142 @@
+Vehicles / TMNT / Mike Jones / Little Mac bounded audit, assignment 10
+2026-10-25. Private proposals only; ROOT source and installed ROM were not changed.
+
+Bound baseline
+-------------
+MMC5 f00c2a7ad0459a3cd0b369bb4fbc9f374dc27d9335b2cc1fe1867f3f98d73d23.
+The frozen source rebuilt to that exact hash. Its 628 source/generated/asset
+file hashes are retained outside the workspace. The native source ROMs used:
+
+Gradius USA: 38c44e0e6f531a2779271f10cd4daa08ee2616c59c49d476b6f4e9dc482bf5f3
+Parodius Japan: ef1dd05ad5b6095d1d8e9a9f81fcb549b5cf0248779d4e76eb7bd9b139de4c9a
+StarTropics USA: ff20d5e9600565ae61e4eae6594c9f1e55e2a748a46bba0c88285140420a219a
+TMNT USA: 15e112c3790add361157dfa42854c3159c956f72e6acd8fabc518615f1ce8525
+
+Current implementation / adaptation / limits
+-------------------------------------------
+Vic Viper: native Gradius movement, basic/DOUBLE/LASER, missiles, two Options,
+speed, five-hit shield and capsule selector are present. Actual original USA
+$8974 gear and $894B capsule code match 2,058 bounded CPU cases, including speed
+wrap, duplicate refusals, gun exclusion and capsule rapid-fire/score events.
+Auto-scroll, terrain and SMB target/drop/exit handling are explicit adapters.
+Flying ships deliberately retain shield/injury contact in both modes; they
+do not gain the walking characters' Easy stomp. Native music has its own
+Gradius dispatch. Full weapon ensemble, timing and PPU were not requalified.
+
+Parodius alternates: Octopus, TwinBee and Pentarou use separate native variant
+indices, source player/weapon/bell programs and source art. The authentic full
+graphical bar is already adopted for MMC5. MMC3 text fallback remains open.
+SMB contact classes, pickups and level exits are adaptations. This task did
+not repeat the earlier bar, bell, death, native-art or full-route suites.
+Their current music dispatch selects Pit's playlist; see the open issue below.
+
+TMNT: four identities have distinct primary reach/animation/damage and native
+variable jump/gravity. Up/neutral/down attacks and standing/crouching/aerial
+secondary throws are present. Select toggles primary/equipped secondary.
+Single/triple shuriken, returning boomerang and Kiai, per-turtle ammo/HP, native
+drop lottery and returned-boomerang refund are implemented. Mushrooms heal
+32/128; flowers heal 64/128, while a full-HP revealed flower becomes a physical
+Kiai reward. Easy permits ordinary stomps; Hard preserves native body contact.
+SMB HP targets, food delivery and contact damage are adaptations. Current Kiai
+pickup X coordinates are broken after scrolling; private repair below. Original
+TMNT music is not currently selected; the family falls back to Rygar.
+
+Mike Jones: health-dependent yo-yo/Shooting Star/Supernova tier, ten selectable
+special weapons, physical heart/tier/weapon pickups, ammo and enemy restoration
+drops are present. All 308 bounded tier cases match the actual StarTropics USA
+bank26:$A783 routine's final tier. Thirty-one assembled Select cases cycle only
+stocked weapons and primary. Easy/Hard stomp admission differs as requested.
+The side-view platform jump, swimming stroke, SMB damage, target HP, projectile
+terrain and drop delivery are adaptations. Original StarTropics top-down water
+is not represented as an exact platform swimming oracle. Every weapon's live
+range, ground alignment, reflection, expiry, art and SFX remain unproved here.
+Current music falls back to Pit rather than the supplied StarTropics source.
+
+Little Mac: source boxing attack timing and cutscene running art are connected
+to adapted SMB platform movement. Health, stamina, crouch recovery, 3-star cap,
+Up+B super punches and physical flower-to-star rewards are present. Easy/Hard
+stomp admission differs. The original fight cannot supply an SMB jumping/1-Up
+oracle. Current 1-Ups incorrectly erase boxing progress; private repair below.
+Current music falls back to Pit rather than Punch-Out source music. Full attack
+frames, native art and audible effects were not requalified by this task.
+
+Forty actual CPU checks verify these families' stomp admission flags. Those
+are admission tests, not proof that every live crossing/contact is correct.
+
+Confirmed defect 1: TMNT Kiai pickup moved away from its visible sprite
+--------------------------------------------------------------------
+src/tmnt_equipment.s:234 TnPickupCollisionDispatch overwrote a native
+screen-relative collision box with Enemy_X_Position (world low byte).
+The real PowerUpObjHandler sequence first calculates RelativeEnemyPosition,
+offscreen bits and GetEnemyBoundBox, then calls the private pickup gate.
+The new item drawing already subtracts ScreenLeft; its collision rewrite did not.
+
+Assembled legal full-health flower reveal, turtle0, actor5, world X968,
+camera X848, visible X120: baseline wrote box [204,124,212,134], whereas its
+visible icon requires [124,124,132,134]. First wrong write is bank87 PC$A920
+to $0670, value204. This can miss a visible item or collide at a false location.
+
+Private repair outlines the existing 16-byte horizontal span to an appended
+same-bank helper. It uses the already-current Enemy_Rel_XPos and reapplies
+the native CheckRightScreenBBox edge clipping. No new RAM or art. All 3,696
+scrolled-box cases also execute the actual SMB PlayerCollisionCore at the
+visible and old false locations. Another 180 cases cover partial left/right
+edges. Twenty-four per-turtle/slot cases preserve the full 48-update physical
+rise, reject collection during emergence, then collect the actual Kiai reward.
+
+Confirmed defect 2: Mac extra lives erase stars, stamina and active attacks
+-----------------------------------------------------------------------
+src/little_mac_core.s:38 LmEnsure treated every change in NumberofLives as a
+new life. A legal 1-Up changing 2 to3 replaced HP37/stars3/stamina9/attack24
+with HP96/stars0/stamina20/attack0. First wrong write: bank93 PC$A03D to $5F20.
+Score/coin extra lives reach the same native life counter, so share this defect.
+
+Private repair outlines the original life test without moving its following
+instructions. An appended helper compares current and prior counts, records
+gains immediately, and resets boxing state on a decrease. Recording gains is
+essential: a subsequent death must not compare equal to the stale old marker.
+3,528 unchanged/gain/loss/gain-then-death CPU cases pass, plus area/new-game
+controls. Active-play life counts 0..99 are covered; game-over underflow is not
+a claimed live LmEnsure state. Native lifecycle qualification remains required.
+
+Private candidate / preserved evidence
+--------------------------------------
+External root:
+C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/vehicles-mike-mac-audit-v1
+
+Use proposal-v2 ONLY. Candidate SHA256:
+3e60eab9e5a564203918acb16ee15195d88ef9d9845e905c5ee2fe1d2968012a
+68 ROM bytes changed, PRG banks87/93 only. All CHR is identical. All 54,068
+pre-existing qualified named symbols keep their addresses. No RAM allocated.
+Review implementation.patch, prepare.json and proposal-v2/cpu-v2/proof.json.
+7,430 repair CPU cases pass. family-cpu-v2/proof.json records another 2,444
+bounded baseline checks/inspections; it is not a whole-game pass certificate.
+
+Proposal v1 is rejected and retained: its first horizontal-padding estimate
+assumed 18 bytes; the actual zero-page-indexed span is16. It moved later TMNT
+labels by2, was rejected before CPU verification, and was never installed.
+family-cpu-v1 is superseded because its source-digest path pointed at that
+private edited source, although the CPU ROM was correctly f00. v2 rehashes the
+restored frozen original source; no gameplay assertion was changed.
+
+Open audio wiring issue, confirmed assembled family selection
+------------------------------------------------------------
+src/expanded_audio.s:506 KbAudioFamily returns family6(Pit) for Mac, Mike and
+Parodius alternates, and family7(Rygar) for TMNT. Actual machine-code calls
+confirm those returned indices. src/gradius_audio.s:5 VgAudioDispatch routes
+Vic variant0 to GradiusAudioUpdate and otherwise to ExpandedAudioTick.
+The historical TnAudioDispatch symbol used in earlier qualification tools is
+absent from this exact build's labels/source. Source NSF/stream assets exist,
+but their presence does not establish active music wiring. This is a real open
+source/assembled dispatch issue, not a subjective listening claim. It is not
+repaired by the two scoped collision/lifecycle changes in this packet.
+
+Samus/Bill/Lance were not audited further: the bounded work found two defects
+and this additional concrete music gap in the assigned main families. Source
+inspection did show Samus's shared pickup/extra-life SFX preservation gate in
+GuestAudioBegin, but it is not an audible/native qualification.
+
+No Mesen worker was used. No installed build, ROOT src/config, Git state or
+guide/video was changed. ROOT must compose on its then-current baseline and
+qualify real item emergence/contact, Mac 1-Up/death, rendered edges, bank/stack
+ownership and affected routes before adopting these repairs.

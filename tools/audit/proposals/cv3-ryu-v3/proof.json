@@ -1,0 +1,44 @@
+{
+  "passed": true,
+  "adopted": false,
+  "goal_complete": false,
+  "ROM_sha256": "fa6d7e5f2c0f47c2642c8b0a191aeecb8fab96765d767b6d190e3e502c4a3ecb",
+  "baseline_ROM_sha256": "f00c2a7ad0459a3cd0b369bb4fbc9f374dc27d9335b2cc1fe1867f3f98d73d23",
+  "baseline_rebuild_exact": true,
+  "source_swf_sha256": "6374c72426556bfc3cc16f7594ce4443a5867fe2d367514136c99cc8458b70af",
+  "source_Ryu_sha256": "df487c804d685cf11f79c10f31b77a8bb98753a7b8010e0c0693341eb58b48d1",
+  "CV3_ROM_sha256": "085ec6395681c7ebfda19c2986069c21a3d27738cc61ada76249de70a07ed7d3",
+  "source_changes": {
+    "src\\cv3_ryu_audit_sword_guard.s": {
+      "before_sha256": null,
+      "after_sha256": "480bcc0262495f23eb12870ff4635274aa10b022ae9e16cfa040fe94ae824390"
+    },
+    "src\\entrypoint.s": {
+      "before_sha256": "2b43daf84bbd6a7c215af048d6a68a568da0dae789f34c1ed4cfcfe5bf9d5de4",
+      "after_sha256": "a255fcc9f58f673131f42fe7b45bd5698b07e9ac197dde44d8e3d71ac2c06578"
+    },
+    "src\\expanded_weapons.s": {
+      "before_sha256": "684c6560cf7c9a29807b6c8d84a2d758ade521dd9b1e69859043ad069122980f",
+      "after_sha256": "97211a9c3a61dadf2dda2314057e9e37e576864e304f4c728fb1dbf29a0c45e8"
+    }
+  },
+  "cases": 96,
+  "repaired_boundary_cases": 22,
+  "legal_airborne_repaired_cases": 10,
+  "old_failure_retained": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-ryu-source-audit-v3\\baseline-failure.json",
+  "changed_offsets": [
+    303883,
+    303884,
+    303885,
+    311186,
+    311187,
+    311188,
+    311189,
+    311190,
+    311191,
+    311192
+  ],
+  "appended_leaf_bytes": 7,
+  "all_preexisting_public_PC_RAM_CHR_header_exact": true,
+  "scope": "Private MMC5 only. Full linked ExpandedWeapons and legal paused selection component execute with real farcalls; empty shot/enemy pools, no emulator/PPU/audio/interrupt/campaign proof. +16 CPU cycles and two transient stack bytes on a primary admission check; native stack/IRQ regression still required before adoption."
+}

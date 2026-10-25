@@ -1,0 +1,35 @@
+{
+  "record_type": "Transcription of observed development tool errors; these are not accepted gameplay receipts. Proposal linker logs are also retained in their directories.",
+  "failures": [
+    {
+      "run": "cpu-v1",
+      "error": "KeyError: 'ExpandedWeapons::MoveShot'",
+      "repair": "Use scope-aware actual DBG lookup."
+    },
+    {
+      "run": "cpu-v3",
+      "error": "KeyError: 'seg' while treating XG_POSE_COUNT as ROM data",
+      "repair": "Use assembled constant value."
+    },
+    {
+      "run": "cpu-v4",
+      "error": "ThresholdLo table mismatch from flat duplicated-name lookup",
+      "repair": "Global symbols resolved separately from scoped local tables."
+    },
+    {
+      "run": "cpu-v5",
+      "error": "Audio assertion incorrectly treated event0 as star and area6 as intro",
+      "repair": "Read compiler AREAS order; area6 is STAR, event6 is HURRY."
+    },
+    {
+      "run": "proposal-v1",
+      "error": "SPECIAL_EXTRA overflows PRGA_06 by3 bytes",
+      "repair": "Reduced helper; v2 still1 byte over."
+    },
+    {
+      "run": "proposal-v2",
+      "error": "SPECIAL_EXTRA overflows PRGA_06 by1 byte",
+      "repair": "Reserve slots before tail-jumping old count; v3 fits without symbol shifts."
+    }
+  ]
+}
