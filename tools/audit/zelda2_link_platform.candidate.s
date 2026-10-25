@@ -40,6 +40,96 @@ Z2PlatformBodyGate RyuSourceBodyPlatformPrepare,Z2PlatformBodyPrepare,Z2LegacyPl
 Z2PlatformBodyGate RyuSourceBodyPlatformFinish,Z2PlatformBodyFinish,Z2LegacyPlatformFinish
 
 .segment "Z2_COLD"
+; Native static floor quantization is retained except for an actual preceding
+; SMB platform attachment. SaveX/Y and nativeC before checking object slots;
+; the following original jump impulse depends on that carry bit.
+.proc Z2PlatformGroundY
+ php
+ lda Player_Y_Position
+ and #15
+ beq NativeAligned
+ phx
+ phy
+ jsr Z2HasPlatformSupport
+ bcs Supported
+ ply
+ plx
+NativeAligned:
+ plp
+ lda Player_Y_Position
+ and #$f0
+ sta Player_Y_Position
+ rts
+Supported:
+ ply
+ plx
+ plp
+ lda Player_Y_Position
+ rts
+.endproc
+.proc Z2HasPlatformSupport
+ lda GameEngineSubroutine
+ cmp #8
+ bne No
+ lda Player_State
+ bne No
+ lda Player_Y_HighPos
+ cmp #1
+ bne No
+ lda Player_Y_Position
+ clc
+ adc #32
+ bcs No
+ sta Z2BodyScratch+8
+ ldx #5
+Slot:
+ lda Enemy_Flag,x
+ beq Next
+ lda Enemy_Y_HighPos,x
+ cmp #1
+ bne Next
+ lda Enemy_ID,x
+ cmp #$24
+ bcc Next
+ cmp #$2d
+ bcs Next
+ cmp #$2b
+ bcs Small
+ txa
+ cmp PlatformCollisionFlag,x
+ bne Next
+ lda Enemy_Y_Position,x
+ jmp CompareY
+Small:
+ lda PlatformCollisionFlag,x
+ cmp #2
+ beq First
+ cmp #1
+ bne Next
+ lda AreaPointer
+ cmp #$62
+ bne VanillaSecond
+ lda WorldNumber
+ cmp #1
+ beq SourceSecond
+ cmp #4
+ bne VanillaSecond
+SourceSecond:lda Enemy_State,x
+ jmp CompareY
+VanillaSecond:lda Enemy_Y_Position,x
+ clc
+ adc #128
+ jmp CompareY
+First:lda Enemy_Y_Position,x
+CompareY:cmp Z2BodyScratch+8
+ beq Yes
+Next:dex
+ bpl Slot
+No:clc
+ rts
+Yes:sec
+ rts
+.endproc
 .proc Z2PlatformBodyPrepare
  RP_Save
  lda SelectedCharacter

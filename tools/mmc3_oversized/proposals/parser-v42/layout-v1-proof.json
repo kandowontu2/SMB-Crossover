@@ -1,0 +1,35 @@
+{
+  "passed": true,
+  "ROM_sha256": "bc89a756e24b354bfe1455d1c0dd942c9ef97392a721f2dc2e56da17e8e4183a",
+  "parent_ROM_sha256": "acebfc87a2cae899017f468bb4cedc539787dd510d9b3485caa49f3b6fd4f891",
+  "existing_RAM_labels_checked": 1164,
+  "all_checked_RAM_addresses_exact": true,
+  "original_ZeldaII_alias_source_exact": true,
+  "exact_native_segments": [
+    {
+      "segment": "VIC_NATIVE_AUDIO",
+      "bytes": 5925
+    },
+    {
+      "segment": "M3_RAW_CHR",
+      "bytes": 1048576
+    }
+  ],
+  "packed_music_banks_E7_F6_exact": true,
+  "all256_warp_indexed_bytes_exact": true,
+  "named_operand_aliases": {
+    "NextBank_SMC": 318,
+    "SafecallA_SMC": 341,
+    "FarcallJmpTarget_SMC": 343,
+    "SafereturnA_SMC": 345
+  },
+  "tiny_run": [
+    341,
+    347
+  ],
+  "stack_guard_floor": 91,
+  "FarCallCommon": 37941,
+  "BillNativeReadWarp": 37990,
+  "M3ReadWarpCold": 46885,
+  "scope": "Read-only complete linked RAM-label/SMC layout, raw CHR, packed music and exact5925-byte native Gradius segment comparisons. FD use begins strictly after native audio. No board RAM allocation, persistent Zelda overlap, source adoption, native timing or hardware claim."
+}

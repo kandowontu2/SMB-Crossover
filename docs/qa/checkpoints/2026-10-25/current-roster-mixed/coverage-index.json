@@ -1,0 +1,131 @@
+{
+  "private_proposal": true,
+  "goal_complete": false,
+  "affected_discoveries_complete": true,
+  "affected_discoveries_passed": true,
+  "groups": [
+    {
+      "ROM_sha256": "eaf1bb83eeeb48eb98f268235a12144dab8c0871a554c933e8b1c181208e4939",
+      "proof": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current_roster_recheck_eaf1_affected_v1\\proof.json",
+      "proof_sha256": "b78c3d693954d9c26ba3ec0c54266e2f33bfa85e957dd96ca1be1d111430f642",
+      "coverage_index": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current_roster_recheck_eaf1_affected_v1\\coverage-index.json",
+      "coverage_index_sha256": "fc88289be9761ecf21bd271952f6863c2281f51f6320b58b96605d38cfd839d0",
+      "discoveries": [
+        {
+          "identity": "samus",
+          "mode": "easy",
+          "source_mode": "easy",
+          "passed": true,
+          "frames": 5417,
+          "deaths": 0,
+          "max_world_step": 2,
+          "max_camera_step": 3,
+          "CHR_frames": 3381,
+          "CHR_mismatched_frames": 0,
+          "visible_scroll_splits": 13816,
+          "first_gameplay_difference_frame": 1220,
+          "first_nmi_difference_frame": 1220
+        },
+        {
+          "identity": "sophia",
+          "mode": "hard",
+          "source_mode": "easy",
+          "passed": true,
+          "frames": 5305,
+          "deaths": 0,
+          "max_world_step": 2,
+          "max_camera_step": 3,
+          "CHR_frames": 3557,
+          "CHR_mismatched_frames": 0,
+          "visible_scroll_splits": 14144,
+          "first_gameplay_difference_frame": 2418,
+          "first_nmi_difference_frame": 4312
+        },
+        {
+          "identity": "mac",
+          "mode": "easy",
+          "source_mode": "easy",
+          "passed": true,
+          "frames": 4476,
+          "deaths": 0,
+          "max_world_step": 3,
+          "max_camera_step": 3,
+          "CHR_frames": 2754,
+          "CHR_mismatched_frames": 0,
+          "visible_scroll_splits": 11180,
+          "first_gameplay_difference_frame": 1121,
+          "first_nmi_difference_frame": 1121
+        },
+        {
+          "identity": "link",
+          "mode": "easy",
+          "source_mode": "easy",
+          "passed": true,
+          "frames": 10230,
+          "deaths": 0,
+          "max_world_step": 5,
+          "max_camera_step": 2,
+          "CHR_frames": 8466,
+          "CHR_mismatched_frames": 0,
+          "visible_scroll_splits": 33812,
+          "first_gameplay_difference_frame": 3802,
+          "first_nmi_difference_frame": 3801
+        },
+        {
+          "identity": "zelda2",
+          "mode": "easy",
+          "source_mode": "easy",
+          "passed": true,
+          "frames": 4522,
+          "deaths": 0,
+          "max_world_step": 4,
+          "max_camera_step": 3,
+          "CHR_frames": 2968,
+          "CHR_mismatched_frames": 0,
+          "visible_scroll_splits": 11432,
+          "first_gameplay_difference_frame": 540,
+          "first_nmi_difference_frame": 540
+        }
+      ]
+    },
+    {
+      "ROM_sha256": "10e5975aa3ca738f586156fdcb9a9ea72b2312daf942484b0ecf16fbe37dd479",
+      "proof": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current_roster_recheck_10e5_affected_v1\\proof.json",
+      "proof_sha256": "f2793bf8680152d0c2a95730b10929209600f8b48416a28964fcd6f67d4a5063",
+      "coverage_index": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current_roster_recheck_10e5_affected_v1\\coverage-index.json",
+      "coverage_index_sha256": "7170a4611bd07cc150d5e6bf8d093c0ef1ce1b35ce9b526beadcfc50116da8df",
+      "discoveries": [
+        {
+          "identity": "zelda2",
+          "mode": "hard",
+          "source_mode": "easy",
+          "passed": true,
+          "frames": 4940,
+          "deaths": 0,
+          "max_world_step": 4,
+          "max_camera_step": 3,
+          "CHR_frames": 3110,
+          "CHR_mismatched_frames": 0,
+          "visible_scroll_splits": 13048,
+          "first_gameplay_difference_frame": 648,
+          "first_nmi_difference_frame": 597
+        }
+      ]
+    }
+  ],
+  "known_external_blocker": "Root/platform agent proved v6 PrepareBoundingBox actor-slot corruption; v7 fixes LDX#0. This1-1 discovery scope does not qualify those platform arenas. V6 evidence remains exact-hash only.",
+  "new_suspects": "First Samus deviation vs accepted f00 at frame1220 is one additional skipped NMI and repeated motion state; Mac first difference1121, Link NMI3801/gameplay3802. These are timing observations, not diagnosed first wrong writes or matched-input CPU/update performance qualifications. Sophia has state-only difference2418 but same final frame count5305.",
+  "independent_PPU_replays": 0,
+  "sampled_decoder_images_visually_inspected": 96,
+  "all37_covered": false,
+  "every_item_covered": false,
+  "source_fidelity_qualified": false,
+  "lag_free_qualified": false,
+  "all_graphics_frames_reviewed": false,
+  "limitation": "Five affected profiles are v6 only; only ZeldaII Hard is v7. No results are relabelled onto v7 or accepted f00. Full roster, every item, independent PPU replay and exact source/lag qualification remain for root/family agents.",
+  "owned_new_sources": [
+    "tools/audit/current_roster_recheck_routes.py",
+    "tools/audit/current_roster_recheck_index.py"
+  ],
+  "no_shared_source_recipe_git_or_other_agent_files_changed": true
+}

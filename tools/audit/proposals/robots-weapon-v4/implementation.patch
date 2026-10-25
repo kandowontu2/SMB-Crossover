@@ -1,0 +1,71 @@
+--- a/src/inventory.s
++++ b/src/inventory.s
+@@ -735,7 +735,11 @@
+   beq :+
+     ldx SelectedCharacter
+     lda #0
++ .if ::ENABLE_MMC5_EXPANDED
++    jsr InventorySelectionCommit
++ .else
+     sta InvSelected,x
++ .endif
+     jmp Changed
+   :
+   lda InvFresh
+@@ -745,7 +749,13 @@
+   jsr InventoryCycle
+ Changed:
+   inc InvDirty
++ .if ::ENABLE_MMC5_EXPANDED
++  nop                          ; Commit owns cleanup, preserving the old span.
++  nop
++  nop
++ .else
+   jsr InventoryClearActive
++ .endif
+   jmp Hud
+ Hud:
+   jsr InventoryHud
+@@ -828,8 +838,13 @@
+ Chosen:
+   ldx SelectedCharacter
+   lda InvCandidate
++ .if ::ENABLE_MMC5_EXPANDED
++  jmp InventorySelectionCommit
++  nop                          ; Tail call keeps the old span and stack depth.
++ .else
+   sta InvSelected,x
+   rts
++ .endif
+ .endproc
+ 
+ .proc InventoryHud
+--- a/src/entrypoint.s
++++ b/src/entrypoint.s
+@@ -429,3 +429,26 @@
+ .include "hot_render_gate.s"
+ 
+ .endif
++
++; Append after every original INVENTORY contributor: no old label moves.
++.if ::ENABLE_MMC5_EXPANDED
++.pushseg
++.segment "INVENTORY"
++; Source2.02 destroys robot attacks only when the equipped weapon changes.
++; Non-robot behavior is unchanged. No additional RAM or stack frame.
++.proc InventorySelectionCommit
++  cpx #CHARACTER_MEGAMAN
++  beq Check
++  cpx #CHARACTER_BASS
++  bne Commit
++Check:
++  cmp InvSelected,x
++  beq Done
++Commit:
++  sta InvSelected,x
++  jmp InventoryClearActive
++Done:
++  rts
++.endproc
++.popseg
++.endif

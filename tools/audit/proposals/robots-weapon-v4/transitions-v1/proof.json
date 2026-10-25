@@ -1,0 +1,66 @@
+{
+  "passed": true,
+  "base_ROM_sha256": "f00c2a7ad0459a3cd0b369bb4fbc9f374dc27d9335b2cc1fe1867f3f98d73d23",
+  "candidate_ROM_sha256": "859b51acb503dde2b9f57ef45a6a6d2bc22a98aa726a331897ef0af6cc4ff587",
+  "script_sha256": "af7eb9ab6ef4a8b80a99ce07edb9268019b5465983b580345e82a6c12a598e19",
+  "noop_cases": 24,
+  "real_transition_cases": 101,
+  "RAM_symbols_unchanged": 1681,
+  "all_preexisting_exported_labels_unchanged": true,
+  "CHR_unchanged": true,
+  "source_contract": "MegaManBase.updateWeaponsVec lines697..716 destroys projectile/rush/carry objects only inside oldWeapon != curWeapon.",
+  "first_wrong_write": {
+    "case": {
+      "character": 1,
+      "proto": 0,
+      "passive": false,
+      "button": 32,
+      "paused": 0
+    },
+    "changed_effect_writes": [
+      {
+        "pc": 40967,
+        "address": 31754,
+        "before": 0,
+        "after": 1,
+        "symbol": "BassSourceKill"
+      },
+      {
+        "pc": 42903,
+        "address": 24594,
+        "before": 48,
+        "after": 0,
+        "symbol": "MmChargeFrames"
+      },
+      {
+        "pc": 42906,
+        "address": 24595,
+        "before": 1,
+        "after": 0,
+        "symbol": "MmCharging"
+      },
+      {
+        "pc": 42915,
+        "address": 24607,
+        "before": 1,
+        "after": 0,
+        "symbol": "MmBulletType+0"
+      },
+      {
+        "pc": 42918,
+        "address": 24608,
+        "before": 1,
+        "after": 0,
+        "symbol": "MmBulletType+1"
+      },
+      {
+        "pc": 42924,
+        "address": 24610,
+        "before": 1,
+        "after": 0,
+        "symbol": "MmBulletType+3"
+      }
+    ]
+  },
+  "scope": "Exact assembled public InventoryUiTick entry with coherent isolated robot inventories and fresh button edges. No native game-loop/interrupt/audio/PPU/controller-only proof; private proposal only."
+}

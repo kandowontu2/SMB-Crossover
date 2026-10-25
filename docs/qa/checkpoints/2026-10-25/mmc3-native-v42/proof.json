@@ -1,0 +1,335 @@
+{
+  "bounded_qualification_passed": true,
+  "full_native_qualified": false,
+  "goal_complete": false,
+  "adopted": false,
+  "ROM_path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mmc3-parser-v42\\candidate.nes",
+  "ROM_sha256": "bc89a756e24b354bfe1455d1c0dd942c9ef97392a721f2dc2e56da17e8e4183a",
+  "baseline_ROM_sha256": "acebfc87a2cae899017f468bb4cedc539787dd510d9b3485caa49f3b6fd4f891",
+  "active_recipe_untouched": true,
+  "current_download_untouched": true,
+  "source_untouched": true,
+  "full_routes": [
+    {
+      "folder": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mmc3-native-v42-sophia-easy-v1",
+      "proof_sha256": "80cd10edd202ad0a84dbea4a791f77113874ce27b75f1ac294638b59ca69f995",
+      "identity": "sophia",
+      "mode": "easy",
+      "result": {
+        "cleared": true,
+        "world_1_1_seen": true,
+        "frames": 5524,
+        "polls": 5523,
+        "deaths": 0,
+        "failure": null,
+        "stage_entries": {
+          "0-0": 526,
+          "0-1": 5500
+        }
+      },
+      "guards": {
+        "full-smc-guard": {
+          "passed": true,
+          "protected_code_bytes": 6,
+          "observed_declared_operand_writes": 1474699,
+          "resident_call_entries": 369288,
+          "native_stack_writes": 3601847,
+          "minimum_SP_from_stack_write_addresses": 145,
+          "stack_floor": 91,
+          "observer_game_state_writes": false
+        },
+        "mmc3-cache-guard": {
+          "passed": true,
+          "boot_verified": true,
+          "entered": true,
+          "NMI_count": 5298,
+          "IRQ_count": 4806,
+          "DMA_count": 1357,
+          "VBlank_upload_bytes": 0,
+          "resident_body_bytes_verified": 118784,
+          "displayed_composite_bytes_verified": 0,
+          "controller_and_game_state_writes": false,
+          "scope": "Native MMC3 full-route bank/SMC, boot, resident-family, displayed assigned composite-source/protected terrain bytes and VBlank cache witness. This is not an independent input replay, exhaustive pose/silhouette/source fidelity or campaign admission."
+        },
+        "completed-loop-motion": {
+          "passed": true,
+          "checks": 2250,
+          "max_world_step": 2,
+          "max_camera_step": 3,
+          "game_state_writes": false
+        }
+      },
+      "visible_scroll_writes": 14892,
+      "visible_scroll_scanlines": [
+        31
+      ],
+      "visible_scroll_actual_writer_banks": [
+        254
+      ]
+    },
+    {
+      "folder": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mmc3-native-v42-chip-easy-v1",
+      "proof_sha256": "2d6652b47fa0375dcf40db399e1426b38e7dbf539dfa961e4e1f517ba570d244",
+      "identity": "chip",
+      "mode": "easy",
+      "result": {
+        "cleared": true,
+        "world_1_1_seen": true,
+        "frames": 4663,
+        "polls": 4662,
+        "deaths": 0,
+        "failure": null,
+        "stage_entries": {
+          "0-0": 469,
+          "0-1": 4639
+        }
+      },
+      "guards": {
+        "full-smc-guard": {
+          "passed": true,
+          "protected_code_bytes": 6,
+          "observed_declared_operand_writes": 1075712,
+          "resident_call_entries": 269642,
+          "native_stack_writes": 2751154,
+          "minimum_SP_from_stack_write_addresses": 168,
+          "stack_floor": 91,
+          "observer_game_state_writes": false
+        },
+        "mmc3-cache-guard": {
+          "passed": true,
+          "boot_verified": true,
+          "entered": true,
+          "NMI_count": 4452,
+          "IRQ_count": 4002,
+          "DMA_count": 1796,
+          "VBlank_upload_bytes": 64,
+          "resident_body_bytes_verified": 49152,
+          "displayed_composite_bytes_verified": 1760,
+          "controller_and_game_state_writes": false,
+          "scope": "Native MMC3 full-route bank/SMC, boot, resident-family, displayed assigned composite-source/protected terrain bytes and VBlank cache witness. This is not an independent input replay, exhaustive pose/silhouette/source fidelity or campaign admission."
+        },
+        "completed-loop-motion": {
+          "passed": true,
+          "checks": 2483,
+          "max_world_step": 3,
+          "max_camera_step": 3,
+          "game_state_writes": false
+        }
+      },
+      "visible_scroll_writes": 11900,
+      "visible_scroll_scanlines": [
+        31
+      ],
+      "visible_scroll_actual_writer_banks": [
+        254
+      ]
+    },
+    {
+      "folder": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mmc3-native-v42-sophia-hard-v4",
+      "proof_sha256": "f1f31aa443523ed8673ffa46c62bebdd882b0d32283c59b8358a14ee9086d7ef",
+      "identity": "sophia",
+      "mode": "hard",
+      "result": {
+        "cleared": true,
+        "world_1_1_seen": true,
+        "frames": 5850,
+        "polls": 5849,
+        "deaths": 0,
+        "failure": null,
+        "stage_entries": {
+          "0-0": 613,
+          "0-1": 5826
+        }
+      },
+      "guards": {
+        "full-smc-guard": {
+          "passed": true,
+          "protected_code_bytes": 6,
+          "observed_declared_operand_writes": 1519693,
+          "resident_call_entries": 380588,
+          "native_stack_writes": 3749592,
+          "minimum_SP_from_stack_write_addresses": 145,
+          "stack_floor": 91,
+          "observer_game_state_writes": false
+        },
+        "mmc3-cache-guard": {
+          "passed": true,
+          "boot_verified": true,
+          "entered": true,
+          "NMI_count": 5624,
+          "IRQ_count": 5046,
+          "DMA_count": 1442,
+          "VBlank_upload_bytes": 0,
+          "resident_body_bytes_verified": 118784,
+          "displayed_composite_bytes_verified": 0,
+          "controller_and_game_state_writes": false,
+          "scope": "Native MMC3 full-route bank/SMC, boot, resident-family, displayed assigned composite-source/protected terrain bytes and VBlank cache witness. This is not an independent input replay, exhaustive pose/silhouette/source fidelity or campaign admission."
+        },
+        "completed-loop-motion": {
+          "passed": true,
+          "checks": 2424,
+          "max_world_step": 2,
+          "max_camera_step": 3,
+          "game_state_writes": false
+        }
+      },
+      "visible_scroll_writes": 15748,
+      "visible_scroll_scanlines": [
+        31
+      ],
+      "visible_scroll_actual_writer_banks": [
+        254
+      ]
+    }
+  ],
+  "cold_entries": {
+    "proof": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mmc3-native-v42-cold-v1\\proof.json",
+    "sha256": "a1b0f9d53702a241864f254a51a1a76abb0aacc4a7f622557bbda684451d4fb7",
+    "identities": [
+      "sophia-hard",
+      "chip-easy",
+      "zelda2-easy",
+      "vic-easy"
+    ],
+    "passed": true
+  },
+  "independent_Sophia_Easy_PPU": {
+    "proof": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mmc3-native-v42-direct-sophia-easy-v1\\proof.json",
+    "sha256": "16d2537daf5044b63ae85fba603915ad5213363759be4e54ebae2059acb81468",
+    "physical_frames": 5324,
+    "raw_bytes": 1308554016,
+    "fixed_inputs_trace_exact": true,
+    "PNG_RGB_exact": true,
+    "lossless_raw_roundtrip": true
+  },
+  "native_timing": {
+    "proof": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mmc3-native-v42-performance-v3\\proof.json",
+    "sha256": "2c4eb579878e2926c6d5e904972bbaa626ee83859d8486a3fd5de146b6447fb3",
+    "matched_columns": 30,
+    "cycles_saved_per_column": [
+      2990
+    ],
+    "baseline_updates": 128,
+    "candidate_updates": 128,
+    "baseline_active_physical_frames": 185,
+    "candidate_active_physical_frames": 185,
+    "updates_per_physical_frame": 0.6918918918918919,
+    "cold_to_endpoint_physical_frames": [
+      721,
+      710
+    ],
+    "constant_60Hz_established": false
+  },
+  "retained_failures": [
+    {
+      "folder": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mmc3-native-v42-sophia-hard-v1",
+      "proof_sha256": "5934d043d4cef233f9714909981f865e2e3415963d3dba013cee717c13cd5b30",
+      "result": {
+        "cleared": false,
+        "world_1_1_seen": true,
+        "frames": 2771,
+        "polls": 2770,
+        "deaths": 0,
+        "failure": "death",
+        "stage_entries": {
+          "0-0": 613
+        }
+      },
+      "architecture_assertion_failure": false,
+      "minimum_SP": 133,
+      "maximum_committed_world_step": 2,
+      "maximum_camera_step": 3,
+      "note": "Ordinary native contact death stops the no-death harness. Code/bank/stack/motion assertions did not fail before contact; this is not a Hard clear or architecture pass."
+    },
+    {
+      "folder": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mmc3-native-v42-sophia-hard-v2",
+      "proof_sha256": "925a5491f26c0adad654e0fbeeec03777cae8fe8202ffcaf560100a71dca5830",
+      "result": {
+        "cleared": false,
+        "world_1_1_seen": true,
+        "frames": 2771,
+        "polls": 2770,
+        "deaths": 0,
+        "failure": "death",
+        "stage_entries": {
+          "0-0": 613
+        }
+      },
+      "architecture_assertion_failure": false,
+      "minimum_SP": 133,
+      "maximum_committed_world_step": 2,
+      "maximum_camera_step": 3,
+      "note": "Ordinary native contact death stops the no-death harness. Code/bank/stack/motion assertions did not fail before contact; this is not a Hard clear or architecture pass."
+    },
+    {
+      "folder": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mmc3-native-v42-sophia-hard-v3",
+      "proof_sha256": "3b6660b86df93a2c5fb44e9bc8227576112aaa906ce2b307671ca85ae481e1ce",
+      "result": {
+        "cleared": false,
+        "world_1_1_seen": true,
+        "frames": 2979,
+        "polls": 2978,
+        "deaths": 0,
+        "failure": "death",
+        "stage_entries": {
+          "0-0": 613
+        }
+      },
+      "architecture_assertion_failure": false,
+      "minimum_SP": 190,
+      "maximum_committed_world_step": 2,
+      "maximum_camera_step": 3,
+      "note": "Ordinary native contact death stops the no-death harness. Code/bank/stack/motion assertions did not fail before contact; this is not a Hard clear or architecture pass."
+    }
+  ],
+  "retained_timing_revisions": [
+    {
+      "folder": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mmc3-native-v42-performance-v1",
+      "reason": "Physical-input full-prefix replay diverges in route/cadence; old timing observer omitted7-cycle interrupt hardware entry. Retained as diagnostic; authoritative matched native measurement is performance-v3."
+    },
+    {
+      "folder": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mmc3-native-v42-performance-v2",
+      "reason": "Long constant-fire baseline fixture reached ordinary contact death before256updates. Preserved; bounded same-position128update scene passes in performance-v3."
+    }
+  ],
+  "visual_samples": [
+    {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mmc3-native-v42-packet-v2\\sophia-easy-direct-overview.png",
+      "sha256": "cb367c283bb9a0706ce862cc3dc6586dbed8be4b4309f716af48f00b499277fc"
+    },
+    {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mmc3-native-v42-packet-v2\\cold-menu-lives-overview.png",
+      "sha256": "dc847ca941dc22a2bd0da782f6b78de12c239ad2b6a3f37f6b0a7ca48b139793"
+    }
+  ],
+  "owned_tools": [
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\mmc3_native_v42_qualify.py",
+      "sha256": "2512d7b5fd5e88bdd1e1433bcb4313934139156f42fba4b429da1971612ee729"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\mmc3_native_v42_profile.py",
+      "sha256": "df3fe6619d29aa53eb6fd62c446be92c498780e726fd12ad6e969c5d044381b0"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\mmc3_native_v42_cold.py",
+      "sha256": "f46562ab6be8f0d76e38e652194b7cc4da6b377e4671db505562114e4019c65a"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\mmc3_native_v42_packet.py",
+      "sha256": "6b5f467de9fa52f9714f890fecc4eae744ec2711bd1f01b3a3b473f7e659ba2a"
+    }
+  ],
+  "sampled_visual_review": {
+    "reviewed": true,
+    "scope": "Viewed16sampled actual direct Sophia PPU frames plus four selection/lives/entry contact sheets. Selected portraits and stage geometry are legible in these samples; no obvious full-screen terrain displacement. Cold screenshots use retained asynchronous screenshot API and are samples, not independent pixel replays or exhaustive art review."
+  },
+  "remaining_requirements": [
+    "Independent fixed-input Sophia Hard PPU replay; its ordinary-controller guarded fullroute already passes.",
+    "Remaining current-hash roster cold entries/fullroutes and mode-specific/powerup/transition/warp/music mixer cases.",
+    "Broader matched native performance scenes and full-route cadence; reduced parser cost alone did not improve this185-frame active cadence.",
+    "Independent Chip/cold/menu/lives PPU replays and full art/audio/pose review; initial life samples do not establish all respawn/power-state portraits.",
+    "Exact rebuild/integration and full architecture qualification before any adoption; accepted recipe and MMC5 download remain unchanged."
+  ],
+  "scope": "Bounded exact-hash private MMC3 native architecture evidence. Strict six-byte tiny code and49-byte resident common, SP>=5b, all five operand fields across native NMI, actual banks, CHR/cache/OAM/VBlank and completed-loop world<=8/camera0..4. Sophia independent PPU frames retained. No full-roster/all-items/release or60Hz claim."
+}

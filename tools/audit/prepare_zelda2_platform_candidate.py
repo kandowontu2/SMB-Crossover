@@ -25,7 +25,7 @@ def main():
     old=load(a.parent)
     span=address(old,'ProcMoveRedPTroopa')-address(old,'PositionPlayerOnVPlat')
     assert span==32,span
-    for name in ['little_mac_terrain.s','samus.s','object.s','entrypoint.s','collision.s','ryu_source_body.s']:
+    for name in ['little_mac_terrain.s','samus.s','object.s','entrypoint.s','collision.s','ryu_source_body.s','zelda2_native_motion.inc']:
         text=(ROOT/'src'/name).read_text()
         if name=='little_mac_terrain.s':
             text=once(text,'.proc LmBoundingBoxGate\n','.proc Z2LegacyBoundingBoxGate\n')
@@ -71,11 +71,16 @@ ExPlPos:rts
 .else
 '''+old_small.split('\n',1)[1]+'.endif\n'+text[end:]
             small_body=old_small.split('\n',1)[1].replace('bcs ProcSPlatCollisions','jcs ProcSPlatCollisions')
+            assert small_body.count('jsr CrossoverLiftSecondY')==2
+            small_body=small_body.replace('jsr CrossoverLiftSecondY','farcall CrossoverLiftSecondY')
             (source/'src/zelda2_small_platform_native.inc').write_text(
                 '.pushseg\n.segment "Z2_COLD"\n.proc Z2NativeSmallPlatformCollision\n'+small_body+'.endproc\n.popseg\n')
         elif name=='ryu_source_body.s':
             text=once(text,'.proc RyuSourceBodyPlatformPrepare\n','.proc Z2LegacyPlatformPrepare\n')
             text=once(text,'.proc RyuSourceBodyPlatformFinish\n','.proc Z2LegacyPlatformFinish\n')
+        elif name=='zelda2_native_motion.inc':
+            text=once(text,'L94F8:\n lda Player_Y_Position\n and #$F0\n sta Player_Y_Position',
+                      'L94F8:\n jsr Z2PlatformGroundY\n nop\n nop\n nop')
         (source/'src'/name).write_text(text)
     shutil.copy2(ROOT/'src/little_mac.s',source/'src')
     shutil.copy2(ROOT/'tools/audit/zelda2_link_platform.candidate.s',source/'src/zelda2_link_platform.s')

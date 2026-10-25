@@ -1,0 +1,151 @@
+Robot weapon/powerup audit — 2026-10-25
+
+Scope: assignment 4 of the requested agent queue. CPU/source only. No Mesen
+worker, root source/config modification, Git operation, or installation.
+
+Accepted MMC5 base:
+  SHA256 f00c2a7ad0459a3cd0b369bb4fbc9f374dc27d9335b2cc1fe1867f3f98d73d23
+  D/zelda2-terrain-candidate-v4/adoption-v1/candidate.nes
+  D = C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py
+
+Primary reference:
+  reference/crossover2/source.swf
+  SHA256 6374c72426556bfc3cc16f7594ce4443a5867fe2d367514136c99cc8458b70af
+  Decompiled 2.02 MegaMan.as, Bass.as, base/MegaManBase.as, Character.as,
+  StatManager.as and MegaManProjectile.as are pinned by the CPU receipt.
+  Proto Man is MegaMan003 / PROTO_MAN_NAME in BmdInfo.as:369. It is a skin
+  of this Mega Man implementation; no source-backed separate weapon list or
+  shield mechanic was established. Roll's supplied mobile sprite sheet is
+  reference/new-roster-art/rollsheet_mobile1.png, SHA256
+  80a6f15a6741cd237098a9accb20e7a7d0f4e2736a8de4b11948e18634dc14a0.
+  Her executable mobile-game timing/audio reference is unavailable locally.
+
+Status table (implemented means linked code exists and the named CPU checks
+pass; it does not mean all native/source fidelity has been admitted):
+
+Character | Implemented / current CPU evidence | Missing or broken | Unproved here
+Mega Man  | Seven shared specials, Rush Coil, mushroom Charge Shot, passive
+            Energy Balancer; 112-unit independent pools; source costs;
+            owned-only forward/reverse cycling; owned exclusion/new block
+            offers/full-inventory energy; selected-first and Balancer refill;
+            both projectile pools and active locks clear on real transitions.
+          | No-op Select erases live buster shots/charge in accepted base.
+          | Current native emergence/contact, every attack lifetime/contact,
+            art/palette visibility, audio/refill presentation, complete 1-1.
+Proto Man | Same equipment/ownership/selection and refill routines as Mega Man;
+            alternate selector explicitly covered by current CPU cases.
+          | Same no-op selection defect. No separate source-backed weapon
+            omission found in the bounded 2.02 inventory comparison.
+          | Native alternate artwork/bank behavior during every weapon,
+            whistle/music/source audio and all current movement/contact paths.
+Bass      | Seven shared specials, passive Energy Balancer, source costs and
+            112-unit pools; no inherited Rush/Charge Shot inventory; cycling,
+            physical-block offer eligibility, exclusion/refills/drop allocation.
+          | Same no-op selection defect. No obtainable special omitted from
+            the pinned 2.02 arrays in this bounded comparison.
+          | Current complete emergence/collection, all weapon lifetimes,
+            directional attacks and native audio/PPU/lag behavior. Distinct
+            static HUD image data alone does not prove visible world icons.
+Roll      | Own B pellets (three cap), automatic charged projectile (4 energy),
+            full-pool deferral without spending; separate 28 HP/28 energy,
+            2/10-unit health/energy capsules; no Bass inventory dispatch.
+          | No additional source-supported move omission established. Her
+            motion, charge timing, HP scale/capsules and sounds are documented
+            adaptations, not established mobile-source parity.
+          | Exact mobile moves/timing/audio, native current reward presentation,
+            full 1-1, hardware visibility/performance and every projectile edge.
+
+2.02 obtainable equipment boundary:
+  MegaMan.as:25/27/31 and Bass.as:23/25/29 define the obtainable/mushroom/
+  replacement arrays. Magma Bazooka, Rush Jet and Rush Marine occur elsewhere
+  in source declarations/icon lists but are absent from these obtainable
+  arrays. Their absence is not an established missing obtainable 2.02 powerup.
+  Super Arm is free to lift/hold and spends 8 at the actual throw in the
+  current source-backed implementation (src/megaman_super_arm.s). The older
+  bass-inventory.md statement that payment is on lifting is stale. No broad
+  guide edits were made in this assignment.
+  Source costs: Arm 8, Metal 4, Knuckle 8, Pharaoh small 4 / charged 8,
+  Kick 4, Flame 4, Water 16; Rush gate 4, free summon, bounce 12. The CPU
+  table checks verify ordinary costs/maxima, not every attack's native use.
+
+Concrete defect and first wrong write:
+  MegaManBase.updateWeaponsVec:697..716 destroys projectiles, Rush and carried
+  items only when oldWeapon != curWeapon. InventoryUiTick in accepted f00c
+  always enters InventoryClearActive after a selection command, including a
+  buster-only inventory or paused Select while buster is already selected.
+  Actual assembled InventoryUiTick, fresh Select, powered Mega Man, owned
+  mushroom only, three live pellets and 48 accumulated charge updates:
+    selected weapon stays 0;
+    PC $A007 writes BassSourceKill $7C0A: 0 -> 1 (first changed tracked effect);
+    PC $A797 writes MmChargeFrames $6012: 48 -> 0;
+    later InventoryClearActive writes erase the three live pellet slots.
+  Proto Man and Bass reproduce the same incorrect cleanup through that entry.
+  This is an isolated coherent CPU reproduction, not a captured native user
+  input reproduction. No audio-output claim follows from the kill-byte trace.
+
+Private repair packet — use proposal-v4 only:
+  D/robots-weapon-audit-v1/proposal-v4/implementation.patch
+  Patch SHA256 7774eb5d7f90ab6568982b727d8883e6165e2e7f6f457d4322690ec094fde283
+  D/robots-weapon-audit-v1/proposal-v4/source/src/inventory.s
+  D/robots-weapon-audit-v1/proposal-v4/source/src/entrypoint.s
+  D/robots-weapon-audit-v1/proposal-v4/candidate.nes
+  Candidate SHA256 859b51acb503dde2b9f57ef45a6a6d2bc22a98aa726a331897ef0af6cc4ff587
+
+  Same-size selection hooks commit through a 20-byte helper appended after
+  every existing INVENTORY contributor. Only Mega Man/Bass no-op selections
+  skip attack cleanup; real transitions and non-robot cleanup retain their
+  previous behavior. The helper uses existing registers, no new scratch or
+  stack frame. Non-expanded code retains the original assembly branches.
+  Exactly 30 ROM bytes differ, solely PRG bank 59; all CHR bytes are identical.
+  Every prior exported label and all 1,681 segmented RAM symbols retain their
+  addresses. INVENTORY remains within its existing 8 KiB bank (29 bytes free).
+  The unmodified private snapshot reproduced accepted f00c exactly before the
+  repair. Source/build snapshot equality was checked on baseline reuse.
+  Root src/config and installed ROMs were not changed.
+  proposal-v1 is a failed incomplete staging attempt. proposal-v2/v3 are
+  superseded layouts which moved existing inventory labels; do not integrate.
+
+Evidence and exact limits:
+  D/robots-weapon-audit-v1/current-cpu-v3/proof.json
+  D/robots-weapon-audit-v1/proposal-v4/components-v1/proof.json
+    Each passes the same 548 bounded cases/table checks:
+      18 source inventory/cost/max/passive checks; 88 cycle cases;
+      249 block offer eligibility cases; 24 refill routing/completion cases;
+      96 drop chance/size/full-pool/page-carry cases; 1 active-state clear;
+      8 distinct mapped HUD icon bitplane hashes; 36 Roll capsule cases;
+      2 Roll inventory gates; 24 actual Roll charge/payment/pool cases;
+      2 actual Roll three-pellet cap cases.
+    Roll attack cases execute real movement and empty-arena block/enemy paths;
+    no external routine traps are used. Full pool is a legal mixture of three
+    pellets and one charge beam. Static icon uniqueness is not source-pixel
+    comparison or actual PPU visibility.
+
+  D/robots-weapon-audit-v1/proposal-v4/transitions-v1/proof.json
+    PASS: 24 no-op cases preserve shots/charge after repair; 101 real changes
+    retain base cleanup and selection outcomes, across Mega/Proto/Bass,
+    direct Select, paused Select, both paused directions and passive Balancer.
+    Includes first changed tracked effect writes and exact label/CHR checks.
+
+  D/robots-weapon-audit-v1/proposal-v4/prepare.json and *.build.log
+    Bind source patch, exact baseline reproduction and changed ROM range.
+    Existing MM3_AUDIO/ROSTER alignment and two unused-label warnings remain;
+    these are not newly introduced or resolved here.
+
+  Tools: tools/audit/robots_weapon_cpu_v1.py,
+         tools/audit/robots_weapon_prepare_v1.py,
+         tools/audit/robots_weapon_transition_v1.py.
+  CPU script SHA256 6e72527324dec4926898039228408d96f1ba646971d390ff601b6cc4ea777257
+  Transition script SHA256 af7eb9ab6ef4a8b80a99ce07edb9268019b5465983b580345e82a6c12a598e19
+
+Older D/native-probes-qa-v2 items-v1, legacy-physical-summary-v1,
+legacy-physical-direct-v1 and legacy-inventory-cpu-v1 remain evidence for
+054d9e33..., not new current/native results. The 118,272 ownership cases were
+not repeated. Existing Bass/Mega/Proto/Roll docs/native suites give discovery
+history, not a fresh pass for f00c or this private candidate.
+
+Integration follow-up: root should merge the narrow two-file patch, then bind
+the actual resulting candidate and run native fresh Select/pause/real switch
+arenas with interrupts, active charge/held Arm/Knuckle/Rush, physical refills,
+and representative visible/audio outputs. This packet is ready for review
+and native assignment, not installed, not a complete every-character or
+every-powerup/source-fidelity/performance admission.

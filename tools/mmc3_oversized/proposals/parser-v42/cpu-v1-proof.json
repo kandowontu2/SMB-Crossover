@@ -1,0 +1,27 @@
+{
+  "passed": true,
+  "ROM_sha256": "bc89a756e24b354bfe1455d1c0dd942c9ef97392a721f2dc2e56da17e8e4183a",
+  "parent_ROM_sha256": "acebfc87a2cae899017f468bb4cedc539787dd510d9b3485caa49f3b6fd4f891",
+  "native_reference_ROM_sha256": "09c5ced7680c303f07ff9ad4655e56300d63c99eab90b4dafcf61938d75fd45c",
+  "support_cases": 1752,
+  "cell_cases": 4032,
+  "warp_cases": 47360,
+  "parser_added_cycles_vs_native": [
+    0,
+    0
+  ],
+  "parser_saved_cycles_vs_v39": [
+    230,
+    230
+  ],
+  "support_added_cycles": [
+    0,
+    0
+  ],
+  "warp_added_cycles": [
+    141,
+    142
+  ],
+  "minimum_warp_stack_pointer": 244,
+  "scope": "Actual assembled code with real MMC3 mapper, immutable common, tiny SMC, and rare ABI. Exact A/X/Y/meaningfulP/SP, selector, application RAM excluding declared stack/SMC/return scratch, final bank maps and ordered nonbank I/O. Native parser cycle parity with V25 and230-cycle saving against V39. Full256 indexed warp source bytes exercised; all rawX/allA/all256P/all256 incoming selectors covered in pairwise matrices. No native IRQ/NMI/game-loop/audio/60Hz qualification."
+}
