@@ -60,7 +60,6 @@ FootNative:
   jmp BlockBufferColli_Feet
   .assert *-CrossoverHeadProbe=62,error,"Expanded head/feet dispatch span"
 .else
-::CrossoverSourceFootProbe:
   lda SelectedCharacter
   cmp #CHARACTER_SOPHIA
   bne FootNative

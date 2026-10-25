@@ -1,0 +1,37 @@
+{
+  "passed": true,
+  "goal_complete": false,
+  "tracked_export_commit": "1b9a862",
+  "preparation_step": "python tools/prepare_guest_audio.py",
+  "clean_tracked_export_initial_MMC5_sha256": "859b51acb503dde2b9f57ef45a6a6d2bc22a98aa726a331897ef0af6cc4ff587",
+  "source_fix": "Remove duplicate flag-off global CrossoverSourceFootProbe label; no expanded MMC5 byte changes.",
+  "source_fix_file_sha256": "662467ad0d1cfcec33496e9d8804abe74202267539e3bde92f263adac94f99be",
+  "builds": {
+    "fixed-expanded-MMC5.nes": {
+      "output": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\readme-public-build-v1\\fixed-expanded-MMC5.nes",
+      "sha256": "859b51acb503dde2b9f57ef45a6a6d2bc22a98aa726a331897ef0af6cc4ff587",
+      "bytes": 2097168,
+      "mapper": 5,
+      "expanded": true,
+      "extra_chr_sha256": null
+    },
+    "fixed-standard-MMC3.nes": {
+      "output": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\readme-public-build-v1\\fixed-standard-MMC3.nes",
+      "sha256": "d444cac88e13fa02b29ad16100b8f08fa565ba90f8cedde192de43fb2dc8f3eb",
+      "bytes": 786448,
+      "mapper": 4,
+      "expanded": false,
+      "extra_chr_sha256": null
+    },
+    "fixed-standard-MMC5.nes": {
+      "output": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\readme-public-build-v1\\fixed-standard-MMC5.nes",
+      "sha256": "f4ffd2483c51daa4d60bb575da2da8c4d817692cda407611c243031f67520833",
+      "bytes": 786448,
+      "mapper": 5,
+      "expanded": false,
+      "extra_chr_sha256": null
+    }
+  },
+  "README_sha256": "fb54969fecf886a05ead29d121ea2a9ce108ecc3ae7f2b658dfe0e5b0fcdab5b",
+  "scope": "Fresh tracked source export, audio generation from included sources, real cc65 compilation of all three documented targets. Expanded ROM exactly matches current accepted build. Standard targets compile; no new native/campaign qualification."
+}
