@@ -3,6 +3,7 @@ from pathlib import Path
 import argparse
 import hashlib
 import json
+import re
 import subprocess
 import sys
 
@@ -21,18 +22,23 @@ def main():
     p.add_argument('--candidates', type=Path, required=True)
     p.add_argument('--archive', type=Path, required=True)
     p.add_argument('--mapper', choices=['mmc3', 'mmc5'], required=True)
+    p.add_argument('--name', default='native-routes-v1')
+    p.add_argument('--bind-policy-symbols', action='store_true',
+                   help='Replace frozen numeric L aliases with actual linked symbols; record each binding')
+    p.add_argument('--chip-hard-dale-policy', action='store_true',
+                   help='Use the existing Dale Hard controller for the same Chip gameplay family')
     args = p.parse_args()
     d, mapper = args.archive.resolve(), args.mapper
     v = d / 'mmc3-static-call-v37'
     rom = args.candidates.resolve() / mapper / 'candidate.nes'
-    folder = rom.parent / 'native-routes-v1'
+    folder = rom.parent / args.name
     folder.mkdir(exist_ok=False)
     driver = d / 'mmc3-ship-lives-v25/native-routes-v1/bound-mmc3-runner.py'
     original_guard = (v / 'full-roster-v1/native-guard.lua').read_text()
+    b = load(rom)
     if mapper == 'mmc3':
         guard = original_guard
     else:
-        b = load(rom)
         names = ['OperMode', 'OperMode_Task', 'GameEngineSubroutine', 'WorldNumber',
                  'LevelNumber', 'Player_X_Position', 'Player_PageLoc',
                  'Player_Y_Position', 'ScreenLeft_X_Pos', 'ScreenLeft_PageLoc']
@@ -56,8 +62,24 @@ def main():
         first, body = text.split('\n', 1)
         assert first.startswith('dofile(') and first.endswith(')')
         for mode in ['easy', 'hard']:
+            used_original = original
+            used_body = body
+            if name == 'chip' and mode == 'hard' and args.chip_hard_dale_policy:
+                used_original = v / 'full-roster-v1/dale-hard/policy.lua'
+                used_body = used_original.read_text().split('\n', 1)[1]
+            bindings = []
+            if args.bind_policy_symbols:
+                def bind(match):
+                    symbol, old = match.group(1), int(match.group(2))
+                    if symbol not in b['syms']:
+                        assert not symbol.startswith('Cd'), symbol
+                        return match.group(0)
+                    linked = address(b, symbol)
+                    bindings.append(dict(symbol=symbol, old=old, actual=linked))
+                    return 'L.' + symbol + '=' + str(linked)
+                used_body = re.sub(r'^L\.(\w+)=(\d+)\s*$', bind, used_body, flags=re.M)
             policy = folder / (name + '-' + mode + '-policy.lua')
-            policy.write_text('dofile(' + lua(guard_path.as_posix()) + ')\n' + body)
+            policy.write_text('dofile(' + lua(guard_path.as_posix()) + ')\n' + used_body)
             out = folder / (name + '-' + mode)
             command = [sys.executable, str(driver), name, '--rom', str(rom),
                        '--output', str(out), '--mapper', mapper, '--behavior', mode,
@@ -80,7 +102,8 @@ def main():
                                    and all(q.get('passed') for q in guards.values())),
                        result=native, motion=motion, guards=guards,
                        manifest_sha256=sha(out / 'manifest.json'),
-                       original_policy_sha256=sha(original), policy_sha256=sha(policy))
+                       original_policy_sha256=sha(used_original), policy_sha256=sha(policy),
+                       actual_symbol_bindings=bindings)
             report['runs'].append(row)
             (folder / 'progress.json').write_text(json.dumps(report, indent=2))
             print(json.dumps(row), flush=True)

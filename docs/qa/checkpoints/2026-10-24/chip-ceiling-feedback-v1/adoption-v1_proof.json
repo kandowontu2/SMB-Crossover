@@ -1,0 +1,36 @@
+{
+  "adopted": true,
+  "goal_complete": false,
+  "mapper": "mmc5",
+  "ROM_sha256": "274fff8613d98a281d7549d13e59430c4d6b4553eb16bd9d2c651e0b409c8b3b",
+  "parent_ROM_sha256": "054d9e33a84f628947b0dea15914ba2aae7796ca610a25548eab96407064384a",
+  "root_build": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\chip-ceiling-feedback-v1\\adoption-v1\\candidate.nes",
+  "installed": "C:\\Users\\kando\\Downloads\\SMB-Crossover-Current-MMC5.nes",
+  "old_download_backup": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\chip-ceiling-feedback-v1\\adoption-v1\\SMB-Crossover-Current-MMC5-054d9e33a84f628947b0dea15914ba2aae7796ca610a25548eab96407064384a.nes",
+  "changed_source": "src/chip_dale_motion.s",
+  "source_before_sha256": "dabce41c9cc5c5dee858b2660d7e1c88f4e1e11fbca72a563cb9348308edac19",
+  "source_after_sha256": "4a8511435ce5faea5ee7d2122d8488d8c6da5d70642277d6bc41b1ad3e8806ec",
+  "root_build_bytes_exact_to_native_and_pixel_tested_candidate": true,
+  "native_route_cases": 8,
+  "independent_full_PPU_routes": 4,
+  "component_cases": 13440,
+  "evidence": [
+    {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\chip-ceiling-feedback-v1\\mmc5\\native-routes-v2\\proof.json",
+      "sha256": "707b1d9eab542a966961ae9c455a034606a409b7a8c8f02806723a5d5de52508"
+    },
+    {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\chip-ceiling-feedback-v1\\mmc5\\direct-v1\\proof.json",
+      "sha256": "a81891710f2f98c2a5f4058e063a08f0158216ae245a29617e533c0ccb46df69"
+    },
+    {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\chip-ceiling-feedback-v1\\mmc3\\native-routes-v2\\proof.json",
+      "sha256": "41e26cecb26aba397328fb7bd8d5ea1cb88181567920bb9095c0162e63d2682e"
+    },
+    {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\chip-ceiling-feedback-v1\\mmc3\\direct-v1\\proof.json",
+      "sha256": "93ce95e48225cf58c7a8a0691578297aa936596412b41e0e0d8627e252d4207c"
+    }
+  ],
+  "scope": "Adopt only the shared Chip/Dale positive ceiling-feedback instruction, exactly one ROM byte on the MMC5 build. Native Easy/Hard routes on both mappers and independent ChipEasy/DaleHard pixels pass. Human overview samples inspected. Original failures retained; MMC3 architecture remains private/unadopted due separate parser-cycle concern. This does not certify all current-hash roster/powerup/passive/SFX/lag/source-fidelity requirements."
+}

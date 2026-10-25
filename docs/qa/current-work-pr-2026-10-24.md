@@ -570,3 +570,31 @@ Newest user requests: Zelda II Link's TERRAIN collision box is wrong against
 blocks/pipes/platforms (explicit clarification); Parodius alternates need the
 full graphical upgrade bar like Gradius, replacing abbreviated text. These
 remain outstanding and must receive separate reviewable GitHub checkpoints.
+
+Chip/Dale ceiling feedback is now adopted, MMC5 ROM274fff8613d98a281d7549d13
+e59430c4d6b4553eb16bd9d2c651e0b409c8b3b; fresh ROOT compile matches the tested
+private candidate byte-for-byte. Downloads/SMB-Crossover-Current-MMC5.nes was
+updated and the old054d... file hash-backed up externally. Root source changes
+only BNE->BMI in CdMovement's native stop feedback, one ROM byte; original
+shared wall geometry, Rescue Rangers jump kernels, RAM/CHR/music and PCs stay
+exact. Receipt build/verification/chip-ceiling-feedback/proof.json.
+
+Native-routes-v2 all eight cases (Chip/Dale Easy/Hard, both mappers) clear
+zero-death1-1 with original committed motion and code/stack/NMI/cache/CHR
+checks. Retained v1 failures were controller observations reading fixed MMC5
+aliases on MMC3; v2 binds policy symbols to actual linked labels, recording
+each old/new binding. It changes no emulated state/ownership. Independent
+direct-v1 ChipEasy/DaleHard on each mapper retain17,448 actual PPU frames,
+RGB/index/lossless archives and exact input/trace, raw world<=3/camera0..3 and
+actual visible scanline31 writer banks254/126. All four overview sheets were
+human inspected, no obvious terrain/screen displacement in these samples.
+No exhaustive animation/SFX/all-item claim; private MMC3 architecture still
+unadopted due its parser+230cycles. Old full37-identity MMC5 evidence belongs
+to054d... parent, not relabeled as full current274f... qualification.
+
+Zelda II Link terrain diagnosis: its current ordinary Link row9 head+17 and
+feet+32 covers a short15px body, while Zelda II native artwork spans32px.
+Standing/crouch/Fairy need their own terrain integration; no source fix yet.
+Original Parodius full seven-cell HUD captures now exist for all three ships
+under D/parodius-hud-source-v1, with PPU maps, direct pixels and matching
+variant bytes; no power bar graphics have been installed yet.

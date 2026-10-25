@@ -1,0 +1,915 @@
+{
+  "passed": true,
+  "complete": true,
+  "goal_complete": false,
+  "ROM_sha256": "2e6cbe190a1e96c6247b880a5c2a35bad1504c45cb2c642e306ba5088bc5b5f0",
+  "driver_sha256": "31293c4a5be8b89caf82268afa177a2f95aa5c7ec430ef03d01bb07542aaf39a",
+  "native_guard_sha256": "02200ff4e7ac30e3b12055f5e1c4c6db5273dfac9282c9c7ba609acc4b840c5f",
+  "runs": [
+    {
+      "identity": "chip",
+      "mode": "easy",
+      "folder": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\chip-ceiling-feedback-v1\\mmc3\\native-routes-v2\\chip-easy",
+      "exit": 0,
+      "passed": true,
+      "result": {
+        "cleared": true,
+        "world_1_1_seen": true,
+        "frames": 4701,
+        "polls": 4700,
+        "deaths": 0,
+        "failure": null,
+        "stage_entries": {
+          "0-0": 474,
+          "0-1": 4677
+        }
+      },
+      "motion": {
+        "passed": true,
+        "checks": 2481,
+        "max_world_step": 3,
+        "max_camera_step": 3,
+        "game_state_writes": false
+      },
+      "guards": {
+        "full-smc-guard": {
+          "passed": true,
+          "protected_code_bytes": 6,
+          "observed_declared_operand_writes": 1090627,
+          "resident_call_entries": 273375,
+          "native_stack_writes": 2801764,
+          "minimum_SP_from_stack_write_addresses": 168,
+          "stack_floor": 91,
+          "observer_game_state_writes": false
+        },
+        "mmc3-cache-guard": {
+          "passed": true,
+          "boot_verified": true,
+          "entered": true,
+          "NMI_count": 4490,
+          "IRQ_count": 4026,
+          "DMA_count": 1811,
+          "VBlank_upload_bytes": 64,
+          "resident_body_bytes_verified": 49152,
+          "displayed_composite_bytes_verified": 1760,
+          "controller_and_game_state_writes": false,
+          "scope": "Native MMC3 full-route bank/SMC, boot, resident-family, displayed assigned composite-source/protected terrain bytes and VBlank cache witness. This is not an independent input replay, exhaustive pose/silhouette/source fidelity or campaign admission."
+        }
+      },
+      "manifest_sha256": "3e38ef9fef5fe62da11c6dfa155bd415d89b62675fabe27162ec6bf3efb0454e",
+      "original_policy_sha256": "6ce064486502c22ae1a1083a7985975e170f2750b46cd40c3a076c38e667ca54",
+      "policy_sha256": "2f5896af33bb9f424fd1f3083e0ee3fcc5f40d5aaf7303c5616a58d6e431bf5d",
+      "actual_symbol_bindings": [
+        {
+          "symbol": "CdHeld",
+          "old": 23570,
+          "actual": 28495
+        },
+        {
+          "symbol": "CdThrowAge",
+          "old": 23572,
+          "actual": 28497
+        },
+        {
+          "symbol": "CdBoxKind",
+          "old": 23584,
+          "actual": 28509
+        },
+        {
+          "symbol": "CdBoxMode",
+          "old": 23638,
+          "actual": 28563
+        },
+        {
+          "symbol": "CdBoxX",
+          "old": 23590,
+          "actual": 28515
+        },
+        {
+          "symbol": "CdBoxPage",
+          "old": 23596,
+          "actual": 28521
+        },
+        {
+          "symbol": "CdBoxY",
+          "old": 23602,
+          "actual": 28527
+        },
+        {
+          "symbol": "DwHealth",
+          "old": 29679,
+          "actual": 29679
+        },
+        {
+          "symbol": "DwAdaptor",
+          "old": 29681,
+          "actual": 29681
+        },
+        {
+          "symbol": "DwMode",
+          "old": 29682,
+          "actual": 29682
+        },
+        {
+          "symbol": "DwGas",
+          "old": 29680,
+          "actual": 29680
+        },
+        {
+          "symbol": "DwHang",
+          "old": 29687,
+          "actual": 29687
+        },
+        {
+          "symbol": "FrameCounter",
+          "old": 14,
+          "actual": 14
+        },
+        {
+          "symbol": "RgShotType",
+          "old": 27755,
+          "actual": 27755
+        },
+        {
+          "symbol": "DarkwingVariant",
+          "old": 29663,
+          "actual": 29663
+        },
+        {
+          "symbol": "Z2Variant",
+          "old": 29688,
+          "actual": 29688
+        },
+        {
+          "symbol": "XgWall",
+          "old": 28345,
+          "actual": 28345
+        },
+        {
+          "symbol": "CdHeld",
+          "old": 23570,
+          "actual": 28495
+        },
+        {
+          "symbol": "CdThrowAge",
+          "old": 23572,
+          "actual": 28497
+        },
+        {
+          "symbol": "CdBoxKind",
+          "old": 23584,
+          "actual": 28509
+        },
+        {
+          "symbol": "CdBoxMode",
+          "old": 23638,
+          "actual": 28563
+        },
+        {
+          "symbol": "CdBoxX",
+          "old": 23590,
+          "actual": 28515
+        },
+        {
+          "symbol": "CdBoxPage",
+          "old": 23596,
+          "actual": 28521
+        },
+        {
+          "symbol": "CdBoxY",
+          "old": 23602,
+          "actual": 28527
+        },
+        {
+          "symbol": "DwHealth",
+          "old": 29679,
+          "actual": 29679
+        },
+        {
+          "symbol": "DwAdaptor",
+          "old": 29681,
+          "actual": 29681
+        },
+        {
+          "symbol": "DwMode",
+          "old": 29682,
+          "actual": 29682
+        },
+        {
+          "symbol": "DwGas",
+          "old": 29680,
+          "actual": 29680
+        },
+        {
+          "symbol": "DwHang",
+          "old": 29687,
+          "actual": 29687
+        },
+        {
+          "symbol": "FrameCounter",
+          "old": 14,
+          "actual": 14
+        },
+        {
+          "symbol": "RgShotType",
+          "old": 27755,
+          "actual": 27755
+        },
+        {
+          "symbol": "DarkwingVariant",
+          "old": 29663,
+          "actual": 29663
+        },
+        {
+          "symbol": "Z2Variant",
+          "old": 29688,
+          "actual": 29688
+        },
+        {
+          "symbol": "XgWall",
+          "old": 28345,
+          "actual": 28345
+        }
+      ]
+    },
+    {
+      "identity": "chip",
+      "mode": "hard",
+      "folder": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\chip-ceiling-feedback-v1\\mmc3\\native-routes-v2\\chip-hard",
+      "exit": 0,
+      "passed": true,
+      "result": {
+        "cleared": true,
+        "world_1_1_seen": true,
+        "frames": 5016,
+        "polls": 5015,
+        "deaths": 0,
+        "failure": null,
+        "stage_entries": {
+          "0-0": 582,
+          "0-1": 4992
+        }
+      },
+      "motion": {
+        "passed": true,
+        "checks": 2602,
+        "max_world_step": 3,
+        "max_camera_step": 3,
+        "game_state_writes": false
+      },
+      "guards": {
+        "full-smc-guard": {
+          "passed": true,
+          "protected_code_bytes": 6,
+          "observed_declared_operand_writes": 1131444,
+          "resident_call_entries": 283585,
+          "native_stack_writes": 2952956,
+          "minimum_SP_from_stack_write_addresses": 168,
+          "stack_floor": 91,
+          "observer_game_state_writes": false
+        },
+        "mmc3-cache-guard": {
+          "passed": true,
+          "boot_verified": true,
+          "entered": true,
+          "NMI_count": 4805,
+          "IRQ_count": 4234,
+          "DMA_count": 1802,
+          "VBlank_upload_bytes": 64,
+          "resident_body_bytes_verified": 49152,
+          "displayed_composite_bytes_verified": 1760,
+          "controller_and_game_state_writes": false,
+          "scope": "Native MMC3 full-route bank/SMC, boot, resident-family, displayed assigned composite-source/protected terrain bytes and VBlank cache witness. This is not an independent input replay, exhaustive pose/silhouette/source fidelity or campaign admission."
+        }
+      },
+      "manifest_sha256": "618bc0adafa45e3c9a2e3726bca2616a3204ffc456839c02d1dfa66a732e6593",
+      "original_policy_sha256": "bac7e2f860da721c073506de2591c8fc18e03d8e3fec5e3213da3664c75a469f",
+      "policy_sha256": "fe4f2072a2f309d8585aaa9ed7c2544b81ae524a166ce38a52ba58a59792a434",
+      "actual_symbol_bindings": [
+        {
+          "symbol": "CdHeld",
+          "old": 23570,
+          "actual": 28495
+        },
+        {
+          "symbol": "CdThrowAge",
+          "old": 23572,
+          "actual": 28497
+        },
+        {
+          "symbol": "CdBoxKind",
+          "old": 23584,
+          "actual": 28509
+        },
+        {
+          "symbol": "CdBoxMode",
+          "old": 23638,
+          "actual": 28563
+        },
+        {
+          "symbol": "CdBoxX",
+          "old": 23590,
+          "actual": 28515
+        },
+        {
+          "symbol": "CdBoxPage",
+          "old": 23596,
+          "actual": 28521
+        },
+        {
+          "symbol": "CdBoxY",
+          "old": 23602,
+          "actual": 28527
+        },
+        {
+          "symbol": "DwHealth",
+          "old": 29679,
+          "actual": 29679
+        },
+        {
+          "symbol": "DwAdaptor",
+          "old": 29681,
+          "actual": 29681
+        },
+        {
+          "symbol": "DwMode",
+          "old": 29682,
+          "actual": 29682
+        },
+        {
+          "symbol": "DwGas",
+          "old": 29680,
+          "actual": 29680
+        },
+        {
+          "symbol": "DwHang",
+          "old": 29687,
+          "actual": 29687
+        },
+        {
+          "symbol": "FrameCounter",
+          "old": 14,
+          "actual": 14
+        },
+        {
+          "symbol": "RgShotType",
+          "old": 27755,
+          "actual": 27755
+        },
+        {
+          "symbol": "DarkwingVariant",
+          "old": 29663,
+          "actual": 29663
+        },
+        {
+          "symbol": "Z2Variant",
+          "old": 29688,
+          "actual": 29688
+        },
+        {
+          "symbol": "XgWall",
+          "old": 28345,
+          "actual": 28345
+        },
+        {
+          "symbol": "CdHeld",
+          "old": 23570,
+          "actual": 28495
+        },
+        {
+          "symbol": "CdThrowAge",
+          "old": 23572,
+          "actual": 28497
+        },
+        {
+          "symbol": "CdBoxKind",
+          "old": 23584,
+          "actual": 28509
+        },
+        {
+          "symbol": "CdBoxMode",
+          "old": 23638,
+          "actual": 28563
+        },
+        {
+          "symbol": "CdBoxX",
+          "old": 23590,
+          "actual": 28515
+        },
+        {
+          "symbol": "CdBoxPage",
+          "old": 23596,
+          "actual": 28521
+        },
+        {
+          "symbol": "CdBoxY",
+          "old": 23602,
+          "actual": 28527
+        },
+        {
+          "symbol": "DwHealth",
+          "old": 29679,
+          "actual": 29679
+        },
+        {
+          "symbol": "DwAdaptor",
+          "old": 29681,
+          "actual": 29681
+        },
+        {
+          "symbol": "DwMode",
+          "old": 29682,
+          "actual": 29682
+        },
+        {
+          "symbol": "DwGas",
+          "old": 29680,
+          "actual": 29680
+        },
+        {
+          "symbol": "DwHang",
+          "old": 29687,
+          "actual": 29687
+        },
+        {
+          "symbol": "FrameCounter",
+          "old": 14,
+          "actual": 14
+        },
+        {
+          "symbol": "RgShotType",
+          "old": 27755,
+          "actual": 27755
+        },
+        {
+          "symbol": "DarkwingVariant",
+          "old": 29663,
+          "actual": 29663
+        },
+        {
+          "symbol": "Z2Variant",
+          "old": 29688,
+          "actual": 29688
+        },
+        {
+          "symbol": "XgWall",
+          "old": 28345,
+          "actual": 28345
+        }
+      ]
+    },
+    {
+      "identity": "dale",
+      "mode": "easy",
+      "folder": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\chip-ceiling-feedback-v1\\mmc3\\native-routes-v2\\dale-easy",
+      "exit": 0,
+      "passed": true,
+      "result": {
+        "cleared": true,
+        "world_1_1_seen": true,
+        "frames": 4780,
+        "polls": 4779,
+        "deaths": 0,
+        "failure": null,
+        "stage_entries": {
+          "0-1": 4756,
+          "0-0": 495
+        }
+      },
+      "motion": {
+        "passed": true,
+        "checks": 2533,
+        "max_world_step": 3,
+        "max_camera_step": 3,
+        "game_state_writes": false
+      },
+      "guards": {
+        "full-smc-guard": {
+          "passed": true,
+          "protected_code_bytes": 6,
+          "observed_declared_operand_writes": 1106326,
+          "resident_call_entries": 277303,
+          "native_stack_writes": 2849526,
+          "minimum_SP_from_stack_write_addresses": 168,
+          "stack_floor": 91,
+          "observer_game_state_writes": false
+        },
+        "mmc3-cache-guard": {
+          "passed": true,
+          "boot_verified": true,
+          "entered": true,
+          "NMI_count": 4569,
+          "IRQ_count": 4084,
+          "DMA_count": 1834,
+          "VBlank_upload_bytes": 64,
+          "resident_body_bytes_verified": 49152,
+          "displayed_composite_bytes_verified": 1760,
+          "controller_and_game_state_writes": false,
+          "scope": "Native MMC3 full-route bank/SMC, boot, resident-family, displayed assigned composite-source/protected terrain bytes and VBlank cache witness. This is not an independent input replay, exhaustive pose/silhouette/source fidelity or campaign admission."
+        }
+      },
+      "manifest_sha256": "2ef8350d2e286de5f8eb352ea524bc0d3ffbf010b1c6e911da7bc469acc61ed8",
+      "original_policy_sha256": "bac7e2f860da721c073506de2591c8fc18e03d8e3fec5e3213da3664c75a469f",
+      "policy_sha256": "fe4f2072a2f309d8585aaa9ed7c2544b81ae524a166ce38a52ba58a59792a434",
+      "actual_symbol_bindings": [
+        {
+          "symbol": "CdHeld",
+          "old": 23570,
+          "actual": 28495
+        },
+        {
+          "symbol": "CdThrowAge",
+          "old": 23572,
+          "actual": 28497
+        },
+        {
+          "symbol": "CdBoxKind",
+          "old": 23584,
+          "actual": 28509
+        },
+        {
+          "symbol": "CdBoxMode",
+          "old": 23638,
+          "actual": 28563
+        },
+        {
+          "symbol": "CdBoxX",
+          "old": 23590,
+          "actual": 28515
+        },
+        {
+          "symbol": "CdBoxPage",
+          "old": 23596,
+          "actual": 28521
+        },
+        {
+          "symbol": "CdBoxY",
+          "old": 23602,
+          "actual": 28527
+        },
+        {
+          "symbol": "DwHealth",
+          "old": 29679,
+          "actual": 29679
+        },
+        {
+          "symbol": "DwAdaptor",
+          "old": 29681,
+          "actual": 29681
+        },
+        {
+          "symbol": "DwMode",
+          "old": 29682,
+          "actual": 29682
+        },
+        {
+          "symbol": "DwGas",
+          "old": 29680,
+          "actual": 29680
+        },
+        {
+          "symbol": "DwHang",
+          "old": 29687,
+          "actual": 29687
+        },
+        {
+          "symbol": "FrameCounter",
+          "old": 14,
+          "actual": 14
+        },
+        {
+          "symbol": "RgShotType",
+          "old": 27755,
+          "actual": 27755
+        },
+        {
+          "symbol": "DarkwingVariant",
+          "old": 29663,
+          "actual": 29663
+        },
+        {
+          "symbol": "Z2Variant",
+          "old": 29688,
+          "actual": 29688
+        },
+        {
+          "symbol": "XgWall",
+          "old": 28345,
+          "actual": 28345
+        },
+        {
+          "symbol": "CdHeld",
+          "old": 23570,
+          "actual": 28495
+        },
+        {
+          "symbol": "CdThrowAge",
+          "old": 23572,
+          "actual": 28497
+        },
+        {
+          "symbol": "CdBoxKind",
+          "old": 23584,
+          "actual": 28509
+        },
+        {
+          "symbol": "CdBoxMode",
+          "old": 23638,
+          "actual": 28563
+        },
+        {
+          "symbol": "CdBoxX",
+          "old": 23590,
+          "actual": 28515
+        },
+        {
+          "symbol": "CdBoxPage",
+          "old": 23596,
+          "actual": 28521
+        },
+        {
+          "symbol": "CdBoxY",
+          "old": 23602,
+          "actual": 28527
+        },
+        {
+          "symbol": "DwHealth",
+          "old": 29679,
+          "actual": 29679
+        },
+        {
+          "symbol": "DwAdaptor",
+          "old": 29681,
+          "actual": 29681
+        },
+        {
+          "symbol": "DwMode",
+          "old": 29682,
+          "actual": 29682
+        },
+        {
+          "symbol": "DwGas",
+          "old": 29680,
+          "actual": 29680
+        },
+        {
+          "symbol": "DwHang",
+          "old": 29687,
+          "actual": 29687
+        },
+        {
+          "symbol": "FrameCounter",
+          "old": 14,
+          "actual": 14
+        },
+        {
+          "symbol": "RgShotType",
+          "old": 27755,
+          "actual": 27755
+        },
+        {
+          "symbol": "DarkwingVariant",
+          "old": 29663,
+          "actual": 29663
+        },
+        {
+          "symbol": "Z2Variant",
+          "old": 29688,
+          "actual": 29688
+        },
+        {
+          "symbol": "XgWall",
+          "old": 28345,
+          "actual": 28345
+        }
+      ]
+    },
+    {
+      "identity": "dale",
+      "mode": "hard",
+      "folder": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\chip-ceiling-feedback-v1\\mmc3\\native-routes-v2\\dale-hard",
+      "exit": 0,
+      "passed": true,
+      "result": {
+        "cleared": true,
+        "world_1_1_seen": true,
+        "frames": 5015,
+        "polls": 5014,
+        "deaths": 0,
+        "failure": null,
+        "stage_entries": {
+          "0-1": 4991,
+          "0-0": 582
+        }
+      },
+      "motion": {
+        "passed": true,
+        "checks": 2605,
+        "max_world_step": 3,
+        "max_camera_step": 3,
+        "game_state_writes": false
+      },
+      "guards": {
+        "full-smc-guard": {
+          "passed": true,
+          "protected_code_bytes": 6,
+          "observed_declared_operand_writes": 1131538,
+          "resident_call_entries": 283608,
+          "native_stack_writes": 2952556,
+          "minimum_SP_from_stack_write_addresses": 168,
+          "stack_floor": 91,
+          "observer_game_state_writes": false
+        },
+        "mmc3-cache-guard": {
+          "passed": true,
+          "boot_verified": true,
+          "entered": true,
+          "NMI_count": 4804,
+          "IRQ_count": 4233,
+          "DMA_count": 1809,
+          "VBlank_upload_bytes": 64,
+          "resident_body_bytes_verified": 49152,
+          "displayed_composite_bytes_verified": 1760,
+          "controller_and_game_state_writes": false,
+          "scope": "Native MMC3 full-route bank/SMC, boot, resident-family, displayed assigned composite-source/protected terrain bytes and VBlank cache witness. This is not an independent input replay, exhaustive pose/silhouette/source fidelity or campaign admission."
+        }
+      },
+      "manifest_sha256": "a47292e6be9e4748028bc656503abb6991fee7db118935d807ff04181e5d4816",
+      "original_policy_sha256": "bac7e2f860da721c073506de2591c8fc18e03d8e3fec5e3213da3664c75a469f",
+      "policy_sha256": "fe4f2072a2f309d8585aaa9ed7c2544b81ae524a166ce38a52ba58a59792a434",
+      "actual_symbol_bindings": [
+        {
+          "symbol": "CdHeld",
+          "old": 23570,
+          "actual": 28495
+        },
+        {
+          "symbol": "CdThrowAge",
+          "old": 23572,
+          "actual": 28497
+        },
+        {
+          "symbol": "CdBoxKind",
+          "old": 23584,
+          "actual": 28509
+        },
+        {
+          "symbol": "CdBoxMode",
+          "old": 23638,
+          "actual": 28563
+        },
+        {
+          "symbol": "CdBoxX",
+          "old": 23590,
+          "actual": 28515
+        },
+        {
+          "symbol": "CdBoxPage",
+          "old": 23596,
+          "actual": 28521
+        },
+        {
+          "symbol": "CdBoxY",
+          "old": 23602,
+          "actual": 28527
+        },
+        {
+          "symbol": "DwHealth",
+          "old": 29679,
+          "actual": 29679
+        },
+        {
+          "symbol": "DwAdaptor",
+          "old": 29681,
+          "actual": 29681
+        },
+        {
+          "symbol": "DwMode",
+          "old": 29682,
+          "actual": 29682
+        },
+        {
+          "symbol": "DwGas",
+          "old": 29680,
+          "actual": 29680
+        },
+        {
+          "symbol": "DwHang",
+          "old": 29687,
+          "actual": 29687
+        },
+        {
+          "symbol": "FrameCounter",
+          "old": 14,
+          "actual": 14
+        },
+        {
+          "symbol": "RgShotType",
+          "old": 27755,
+          "actual": 27755
+        },
+        {
+          "symbol": "DarkwingVariant",
+          "old": 29663,
+          "actual": 29663
+        },
+        {
+          "symbol": "Z2Variant",
+          "old": 29688,
+          "actual": 29688
+        },
+        {
+          "symbol": "XgWall",
+          "old": 28345,
+          "actual": 28345
+        },
+        {
+          "symbol": "CdHeld",
+          "old": 23570,
+          "actual": 28495
+        },
+        {
+          "symbol": "CdThrowAge",
+          "old": 23572,
+          "actual": 28497
+        },
+        {
+          "symbol": "CdBoxKind",
+          "old": 23584,
+          "actual": 28509
+        },
+        {
+          "symbol": "CdBoxMode",
+          "old": 23638,
+          "actual": 28563
+        },
+        {
+          "symbol": "CdBoxX",
+          "old": 23590,
+          "actual": 28515
+        },
+        {
+          "symbol": "CdBoxPage",
+          "old": 23596,
+          "actual": 28521
+        },
+        {
+          "symbol": "CdBoxY",
+          "old": 23602,
+          "actual": 28527
+        },
+        {
+          "symbol": "DwHealth",
+          "old": 29679,
+          "actual": 29679
+        },
+        {
+          "symbol": "DwAdaptor",
+          "old": 29681,
+          "actual": 29681
+        },
+        {
+          "symbol": "DwMode",
+          "old": 29682,
+          "actual": 29682
+        },
+        {
+          "symbol": "DwGas",
+          "old": 29680,
+          "actual": 29680
+        },
+        {
+          "symbol": "DwHang",
+          "old": 29687,
+          "actual": 29687
+        },
+        {
+          "symbol": "FrameCounter",
+          "old": 14,
+          "actual": 14
+        },
+        {
+          "symbol": "RgShotType",
+          "old": 27755,
+          "actual": 27755
+        },
+        {
+          "symbol": "DarkwingVariant",
+          "old": 29663,
+          "actual": 29663
+        },
+        {
+          "symbol": "Z2Variant",
+          "old": 29688,
+          "actual": 29688
+        },
+        {
+          "symbol": "XgWall",
+          "old": 28345,
+          "actual": 28345
+        }
+      ]
+    }
+  ],
+  "scope": "Fresh ordinary-controller1-1 routes for Chip and Dale in Easy/Hard. Original failed routes retained. Unchanged world<=8/camera0..4 completed-loop bounds; MMC3 additionally retains full tiny-code/stack/NMI/bank/cache guards. MMC5 additionally observes committed CHR. Native screenshots sampled separately; independent PPU replays and other powerup/passive cases are separate."
+}

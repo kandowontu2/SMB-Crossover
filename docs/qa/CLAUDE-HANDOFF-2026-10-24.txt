@@ -27,10 +27,11 @@ test outputs as evidence, not previous agent claims or the old README alone.
 
 MMC5 current ROM:
 C:/Users/kando/Downloads/SMB-Crossover-Current-MMC5.nes
-SHA256 054d9e33a84f628947b0dea15914ba2aae7796ca610a25548eab96407064384a
+SHA256 274fff8613d98a281d7549d13e59430c4d6b4553eb16bd9d2c651e0b409c8b3b
 User already opened this in their own Mesen. Do not stop their emulator.
-Accepted source receipt: build/verification/native-probes-qa/proof.json
-Checkpoint: build/checkpoints/native-probes-qa/checkpoint.json
+Latest source receipt: build/verification/chip-ceiling-feedback/proof.json
+Parent receipt/checkpoint: build/verification/native-probes-qa/proof.json and
+build/checkpoints/native-probes-qa/checkpoint.json (054d9e33... parent).
 The four older public build/smb-crossover*.nes files are STALE; do not test
 them accidentally or label them current. No final all-requirements release.
 
@@ -38,7 +39,10 @@ External evidence roots (keep large new artifacts outside the workspace):
 D = C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py
 P = D/native-probes-qa-v2
 Q = C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-head-pz
-P/candidate.nes is byte-identical to the current Downloads MMC5 ROM.
+P/candidate.nes is the prior054d9e33... MMC5 ROM. The current Downloads ROM is
+D/chip-ceiling-feedback-v1/adoption-v1/candidate.nes, byte-verified after a
+fresh compile from adopted ROOT source. Parent download has a full hash-named
+backup in that adoption-v1 folder. Never confuse the two hashes' test scopes.
 
 The accepted QA source change from PZ is only src/characters.s and
 src/megaman_weapons.s,54 resident ROM bytes, no new RAM/CHR/OAM and unchanged
@@ -55,6 +59,7 @@ Latest accepted source/tool packet: D/mmc3-ship-lives-v25/source-packet-v1.
 
 NEVER rerun successful one-shot adopters: adopt_native_probes_qa_v3_once.py,
 adopt_ryu_head_pz_once.py, adopt_mmc3_ship_v25_once.py. They already succeeded.
+Also NEVER rerun tools/audit/adopt_chip_ceiling_feedback_once.py: succeeded.
 Their private output folders also use exist_ok=False; use new version names.
 
 2. FIRST UNRESOLVED BUG: MMC3 CHIP AND DALE MOVE13PX IN ONE COMMITTED UPDATE
@@ -105,6 +110,43 @@ Do not treat compile/component success as final native/visual admission.
 New root tools: tools/audit/{observe_chip_committed_write,
 prepare_chip_ceiling_feedback,check_chip_ceiling_feedback,
 run_chip_ceiling_routes}.py. Generated data stays outside the workspace.
+
+UPDATE: THE CHIP/Dale FIX IS NOW ADOPTED IN ROOT AND THE MMC5 DOWNLOAD.
+Both mappers' native-routes-v2/proof.json pass all four Easy/Hard cases, zero
+deaths, unchanged committed world<=8/camera0..4 and mapper/code/stack guards.
+The retained v1 controller failures came from frozen numeric aliases such as
+L.CdHeld=$5c12: on MMC3 its actual linked owner is elsewhere. V2 binds each
+declared policy symbol to the actual debug label and records old/new values;
+it does not grant equipment or change emulated state. Chip Hard uses the
+already qualified same-family Dale Hard policy. All v1 failures remain intact.
+Independent direct-v1 ChipEasy/DaleHard replays pass on each mapper:17,448
+physical PPU frames in total, exact original inputs/trace, every PNG RGB/index,
+lossless raw archive, complete native code/stack/cache/CHR guards, actual IRQ
+bank254/126 on scanline31, raw world<=3 and camera0..3. Human inspected all four
+overview sheets; no obvious whole-screen/terrain displacement in those samples.
+This is not exhaustive animation/SFX review. Native full four-case frame counts:
+ MMC3 ChipEasy4701 ChipHard5016 DaleEasy4780 DaleHard5015
+ MMC5 ChipEasy4143 ChipHard4401 DaleEasy4292 DaleHard4389
+Read actual proof files if a copied count differs; exact results are authority.
+Adoption changed only src/chip_dale_motion.s BNE->BMI, one ROM byte. Shared
+wall geometry, native jump kernels, RAM/CHR/music and old symbol PCs unchanged.
+MMC3's2e6c... candidate remains PRIVATE: its independent architectural parser
+cycle cost still prevents adoption. No final all-roster/current-hash claim.
+
+Newest-work findings: Zelda II Link currently receives the original Link's
+short15px terrain profile (row9 head+17/feet+32) despite a full32px body sprite.
+It lacks its own standing/crouching/Fairy terrain dispatch. Do not fix only
+the enemy box; user specifically reported blocks/pipes/platforms. Integrate
+proper side/head/foot and wall separation without disabling solid terrain.
+Parodius currently PnHud has text-only seven-cell abbreviations. Original ROM
+captures D/parodius-hud-source-v1/{1,2,3} have validated visible Octopus,
+TwinBee and Pentarou full seven-cell native bars and requested variant bytes.
+tests/parodius-hud-source.lua uses ordinary controls only; capture helper is
+tools/reference/capture_parodius_hud.py. PPU dump/direct pixels are retained.
+Unused native VIC CHR pages396..411 lie after Zelda II pause font395 and before
+Chip/Dale412. Verify allocation and preserve HUD glyphs/scanline publication
+before adding bar assets; consider three private fonts at396..398. No bar or
+Zelda II terrain source fix has been installed yet.
 
 3. PRIVATE MMC3 STACK REPAIR / ITS REAL PERFORMANCE COST
 

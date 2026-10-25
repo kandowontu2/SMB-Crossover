@@ -138,7 +138,7 @@ Vertical:
  lda Player_State
  beq Export
  lda Player_Y_Speed
- bne NotStopped
+ bmi NotStopped
  lda CdLastExportVY
  beq NotStopped
  lda CdVYHi
