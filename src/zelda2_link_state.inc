@@ -1,0 +1,65 @@
+; Fixed aliases only: no existing RAM declaration or address moves.
+Z2Variant=$73f8
+Z2UiState=$73f9
+Z2AttackStage=$73fa
+Z2AttackTimer=$73fb
+Z2PreviousButtons=$73fc
+Z2CachedPose=$73fd
+Z2Scratch=$73fe
+Z2Scratch2=$73ff
+Z2Hp=InvAmmo+0
+Z2Mp=InvAmmo+1
+Z2ExpLo=InvAmmo+2
+Z2ExpHi=InvAmmo+3
+Z2LevelsLo=InvAmmo+4
+Z2LevelsHi=InvAmmo+5
+Z2Containers=InvAmmo+6
+Z2LearnedSpells=InvAmmo+7
+Z2Tech=InvAmmo+8
+Z2ActiveSpells=InvAmmo+9
+Z2DropCounters=InvAmmo+10
+Z2Selection=InvAmmo+11 ; bits0..2spell;bit3defer;bits4..7lastcast+1
+Z2HpPending=InvAmmo+12
+Z2MpPending=InvAmmo+13
+Z2ExpPendingLo=InvAmmo+14
+Z2ExpPendingHi=InvAmmo+15
+.assert Z2ExpPendingHi=InvAmmo+15,error,"Z2 owner0 exactly16B"
+.assert Z2Scratch2<$7400,error,"Aligned history stays7400"
+.export Z2Variant,Z2UiState,Z2Hp,Z2Mp,Z2ExpLo,Z2ExpHi,Z2LearnedSpells
+; Root-approved private profile ExRAM, CPU read/write mode2 only.
+Z2TransientBegin=$5e00
+Z2ProfileReady=$5e19
+Z2UiDirty=$5e1a
+Z2RewardToast=$5e1b
+Z2UiPrevious=$5e1c
+Z2UiCursor=$5e1d
+Z2MeterCursor=$5e1e
+Z2DropGroup=$5e1f
+Z2SfxTimer=$5e20
+Z2EnemyHp=$5e21 ; original inclusiveHP units, six native enemy slots
+Z2EnemyExpReceipt=$5e27 ; low6=enemyID+1,bit6contact,bit7awarded
+Z2PaletteCache=$5e2d ; bit7 valid; bit0 Shield tunic palette, updated on admission
+Z2ShotKind=$5e30
+Z2ShotX=$5e32
+Z2ShotPage=$5e34
+Z2ShotY=$5e36
+Z2ShotVX=$5e38
+Z2ShotVY=$5e3a
+Z2ShotAge=$5e40
+Z2ShotDir=$5e42
+Z2BodyScratch=$5e44 ;12 bytes, foreground-only attack and query scratch
+Z2DropKind=$5e50
+Z2DropX=$5e56
+Z2DropPage=$5e5c
+Z2DropY=$5e62
+Z2DropVY=$5e68
+Z2DropAge=$5e6e
+Z2DropFraction=$5e74
+Z2DropValid=$5e7a
+Z2SpecialFlash=$5e3c
+Z2LastArea=$5e3d
+Z2LastLevel=$5e3e
+Z2HurtTimer=$5e3f
+Z2TransientEnd=$5e80
+.assert Z2BodyScratch+12=Z2DropKind,error,"Z2 scratch disjoint from six drops"
+.assert Z2DropValid+6=Z2TransientEnd,error,"Z2 private ExRAM budget128B"

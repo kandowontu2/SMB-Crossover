@@ -1610,7 +1610,11 @@ LsrEffectsFrame:
   beq LsrEffectsFrameDone
   farcall LsrEffectsBeforeEnemies
 LsrEffectsFrameDone:
+.if ::ENABLE_MMC5_EXPANDED
+  farcall Z2UpdateDropsGate
+.else
   farcall InventoryUpdateDrops
+.endif
   lda SelectedCharacter
   cmp #CHARACTER_MEGAMAN
   beq SpecialBatch
@@ -1629,17 +1633,29 @@ SpecialBatchDone:
   cmp #CHARACTER_SOPHIA
   bne RemainingBatchDone
 RemainingBatch:
+.if ::ENABLE_MMC5_EXPANDED
+  farcall Z2RemainingWeaponsGate
+.else
   farcall RemainingWeapons
+.endif
 RemainingBatchDone:
   lda SelectedCharacter
   cmp #CHARACTER_PIT
   bcc :+
+.if ::ENABLE_MMC5_EXPANDED
+    farcall RlWeaponsDispatch
+.else
     farcall ExpandedWeapons
+.endif
     jmp ProcAirBubbles
   :
   cmp #CHARACTER_BILL
   bcc :+
+.if ::ENABLE_MMC5_EXPANDED
+    farcall Cv3WeaponsGate
+.else
     farcall RosterWeapons
+.endif
     jmp ProcAirBubbles
   :
   cmp #CHARACTER_SAMUS
@@ -2645,7 +2661,11 @@ RunSmallPlatform:
 RunLargePlatform:
         jsr GetEnemyOffscreenBits
         jsr RelativeEnemyPosition
+.if ::ENABLE_CROSSOVER
+        jsr HpNativePlatformBBoxGate
+.else
         jsr LargePlatformBoundBox
+.endif
 .if ::ENABLE_CROSSOVER
         jsr RyuSourceBodyLargePlatformBridge
 .else
@@ -2699,6 +2719,12 @@ ExLPC: ldx ObjectOffset             ;get enemy object buffer offset and leave
 
 ;--------------------------------
 
+.if ::ENABLE_CROSSOVER
+LargePlatformSubroutines:
+  farcall HpNativePlatformDispatch
+  rts
+  .res 22-(*-LargePlatformSubroutines),$ea
+.else
 LargePlatformSubroutines:
       lda Enemy_ID,x  ;subtract $24 to get proper offset for jump table
       sec
@@ -2712,6 +2738,8 @@ LargePlatformSubroutines:
       .word XMovingPlatform
       .word DropPlatform
       .word RightPlatform
+
+.endif
 
 ;-------------------------------------------------------------------------------------
 ;$00 - used to hold collision flag, Y movement force + 5 or low byte of name table for rope
@@ -3032,7 +3060,11 @@ MoveLargeLiftPlat:
       jmp ChkYPCollision     ;branch to position player correctly
 
 MoveSmallPlatform:
+.if ::ENABLE_CROSSOVER
+      jsr CrossoverLiftMoveBridge
+.else
       jsr MoveLiftPlatforms      ;execute common to all large and small lift platforms
+.endif
       jmp ChkSmallPlatCollision  ;branch to position player correctly
 
 MoveLiftPlatforms:
@@ -3064,7 +3096,11 @@ PositionPlayerOnS_Plat:
       tay                        ;use bounding box counter saved in collision flag
       lda Enemy_Y_Position,x     ;for offset
       clc                        ;add positioning data using offset to the vertical
+.if ::ENABLE_CROSSOVER
+      jsr CrossoverLiftPlayerY
+.else
       adc PlayerPosSPlatData-1,y ;coordinate
+.endif
       .byte $2c                    ;BIT instruction opcode
 
 PositionPlayerOnVPlat:
@@ -3177,7 +3213,11 @@ ShroomM: jsr MoveNormalEnemy        ;do sub to make mushrooms move
 
 GrowThePowerUp:
 .if ::ENABLE_CROSSOVER
+.if ::ENABLE_MMC5_EXPANDED
+           farcall LmRiseGate
+.else
            farcall InventoryRisePickup
+.endif
            bcs RunPUSubs
 .endif
            lda FrameCounter           ;get frame counter
@@ -3204,7 +3244,11 @@ RunPUSubs: jsr RelativeEnemyPosition  ;get coordinates relative to screen
            jsr GetEnemyBoundBox       ;get bounding box coordinates
            jsr DrawPowerUp            ;draw the power-up object
 .if ::ENABLE_CROSSOVER
+.if ::ENABLE_MMC5_EXPANDED
+           farcall JnCollisionDispatch
+.else
            farcall InventoryPickupCollision
+.endif
            bcc SkipPickupCollision
 .endif
            jsr RemainingNormalPlayerCollision   ;check for collision with player
@@ -3977,7 +4021,11 @@ NextFSlot:
 ;--------------------------------
 
 FirebarSpinSpdData:
+.if ::ENABLE_CROSSOVER
+  .byte $28, $28, $28, $28, $28 ; Both pinned sources use uniform106 degrees/s.
+.else
   .byte $28, $38, $28, $38, $28
+.endif
 
 FirebarSpinDirData:
   .byte $00, $00, $10, $10, $00

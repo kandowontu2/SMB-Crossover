@@ -111,7 +111,11 @@ Native:
   clc
   rts
 Guest:
-  farcall CrossoverSourceWallDispatch, jmp
+  .if ::ENABLE_MMC5_EXPANDED
+    farcall LmWallGate,jmp
+  .else
+    farcall CrossoverSourceWallDispatch,jmp
+  .endif
 .endproc
 
 .proc SamusAfterBGCollisionBridge

@@ -1,0 +1,3619 @@
+{
+  "content_updates": {
+    "status": "frozen",
+    "baseline": {
+      "checkpoint": "parodius-death-nr",
+      "rom_sha256": "2931163dd7d3c31f9a81776b16c45631a0abd2120abff4454833084825475590",
+      "source_zip_sha256": "81a9912e7001a8c3da3a374ac39ef4b1a2f16812fb2364fa0960dff1b779d2cf"
+    },
+    "meta_knight": {
+      "checkpoint": "meta-knight-grounded-nu",
+      "status": "frozen",
+      "rom_sha256": "b90ede8fa3afaceefe3ef3090424f4d6b6662c139a1a3d6df52e64b7ec00b240",
+      "source_zip_sha256": "7ba84c9d09984cf929d6c68a67ff9fa2d9f192928ea157906bf0345383a2f4f7",
+      "original_rom_sha256": "a7a742f5288cd4ab220f530ee7c8d0e3714b8bf107e89c9bf03039217fec5829",
+      "hardware_proof_sha256": "10b92d822263e87d0397184ad8a60aaf3e9dc77a01e1eb0c8cbabec3ad79668c",
+      "body_palette": [
+        "36",
+        "14",
+        "0F"
+      ],
+      "sword_source_palette": [
+        "30",
+        "37",
+        "17"
+      ],
+      "sword_world_palette": [
+        "30",
+        "27",
+        "16"
+      ],
+      "portrait_method": "Linked native pose 8 and original bitplane alpha; palette RGB matches Mesen. Actual native OAM priority independently verified.",
+      "capture_source": "moves-easy-v9",
+      "captures_are": "Controlled practice arenas with real attacks/enemies; not campaign screenshots",
+      "downward_strike_hold_updates": 32,
+      "jump": "Fixed ballistic jump; no second-A or Up flight",
+      "audio": "SMB sword fallback; exact source audio not claimed",
+      "publication": "Published roster identity; corrected art and moves require private NU update",
+      "checkpoint_path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\checkpoints\\meta-knight-grounded-nu",
+      "checkpoint_manifest_sha256": "182bf0149c86251a378009487e2563988ac88082db378a845610f14976aa95c5",
+      "independent_audit_report": {
+        "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\meta-knight-native-audit\\manifest.json",
+        "sha256": "ad57c0afd07b946e0994ca36e6f4c534ae341330d6720f6aa0d0db6689f56388"
+      },
+      "limitations": [
+        "Sword hues explicitly remapped30/37/17 to30/27/16; source sword audio usesSMB fallback.",
+        "Player input, recovery/spin bounds and stronger jump are explicit playable-boss adaptations.",
+        "Full37identity every-item/campaign/performance/audio matrix and fullMMC3port remain open.",
+        "Original boss/food/move/rotor fixtures are explicitly seeded native-boundary components, not campaigns."
+      ]
+    },
+    "firebars": {
+      "source": "build\\verification\\firebar-nt-audit\\manifest.json",
+      "sha256": "7226a4b1f8ffc8b0c595996319b26a8128b8da407d6c85db8d523c2fa086bee6",
+      "fact": "The two empty mounts in the supplied 1-4 view are authored in SMB1 and Crossover1.x/2.02; they activate in6-4 independently of Easy/Hard. No all-castles claim."
+    },
+    "prior_edition_preserved": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-guide-meta-nu\\prior-edition",
+    "scope": "Guide update only; no game files changed."
+  },
+  "edition": "Astra editorial rebuild - grounded Meta Knight update",
+  "pages": 48,
+  "identities": 37,
+  "published": 33,
+  "private_previews": 4,
+  "source_checkpoint": "parodius-death-nr",
+  "source_rom_sha256": "2931163dd7d3c31f9a81776b16c45631a0abd2120abff4454833084825475590",
+  "source_zip_sha256": "81a9912e7001a8c3da3a374ac39ef4b1a2f16812fb2364fa0960dff1b779d2cf",
+  "images": [
+    {
+      "asset": "assets/edition/1up.png",
+      "sha256": "359873f2b23791e4a4be2688981e3ad1f7cce2d327fe01bd8e72a8e305cb0fe6",
+      "source": {
+        "asset": "1up.png",
+        "source": "src/metasprite.s :: POWERUP / chr/mmc5/sprites_misc.chr",
+        "source_sha256": "ed45a33b98ec525b5197022178765ccfb6c7bc2b17be6d7d15388b33a2c2b1af",
+        "details": "Actual native SMB item tiles/attributes. Animated color phase shown; the effect depends on the selected character.",
+        "width": 16,
+        "height": 16,
+        "sha256": "359873f2b23791e4a4be2688981e3ad1f7cce2d327fe01bd8e72a8e305cb0fe6"
+      },
+      "pages": [
+        5
+      ]
+    },
+    {
+      "asset": "assets/edition/action-samus-ball.png",
+      "sha256": "f61a97b17f53b49a9709ff41ebf5caa5c0e35cd5930f91d09ac11bf32141b369",
+      "source": {
+        "asset": "action-samus-ball.png",
+        "source": "build\\verification\\player-guide-magazine-2026-10-24\\action-samus\\build\\verification\\action-20.png",
+        "source_sha256": "d0044e97e6bc8c41f7f2c9b952e29e990f19b53f8dfed524825708d9bc7f15b6",
+        "details": "Actual NR controller-only action capture; rectangular unpainted crop, retained sky and scenery. Illustration only, not route certification.",
+        "crop": [
+          16,
+          160,
+          80,
+          224
+        ],
+        "width": 64,
+        "height": 64,
+        "sha256": "f61a97b17f53b49a9709ff41ebf5caa5c0e35cd5930f91d09ac11bf32141b369"
+      },
+      "pages": [
+        10
+      ]
+    },
+    {
+      "asset": "assets/edition/action-samus-upright.png",
+      "sha256": "191383d56c9f78f95d0ecd05dbb87b8b2de5e9e1fcaafd3afa4729cff75db50f",
+      "source": {
+        "asset": "action-samus-upright.png",
+        "source": "build\\verification\\player-guide-magazine-2026-10-24\\action-samus\\build\\verification\\action-8.png",
+        "source_sha256": "8d3e39fe8cad5b36532127230cabecfb5d4e1df73964c8a570d5066097bfe178",
+        "details": "Actual NR controller-only action capture; rectangular unpainted crop, retained sky and scenery. Illustration only, not route certification.",
+        "crop": [
+          16,
+          160,
+          80,
+          224
+        ],
+        "width": 64,
+        "height": 64,
+        "sha256": "191383d56c9f78f95d0ecd05dbb87b8b2de5e9e1fcaafd3afa4729cff75db50f"
+      },
+      "pages": [
+        10
+      ]
+    },
+    {
+      "asset": "assets/astra/av_art_billpickup10.png",
+      "sha256": "063ef4fbc0c9b91e605bfc17dcfec13f28a690b887ff498e98a5971d7674226e",
+      "source": {
+        "asset": "av_art_billpickup10.png",
+        "source": "reference\\crossover2\\images\\402_com.smbc.graphics.skins.BmdInfo_Bill000.png / BillPickup frame 10",
+        "detail": "Original 2.02 source pickup art, before host palette quantization. Labelled as source art in guide.",
+        "sha256": "063ef4fbc0c9b91e605bfc17dcfec13f28a690b887ff498e98a5971d7674226e",
+        "size": [
+          24,
+          15
+        ],
+        "source_sha256": "e7898e3646fcf6401f07de41e319c8f308c31d3954553fcfbec5406b55298455"
+      },
+      "pages": [
+        13
+      ]
+    },
+    {
+      "asset": "assets/astra/av_art_billpickup2.png",
+      "sha256": "a4c6b1b7a1923b739c73cf41f85da7e7f1d1abe13f7e785e0278c50a9250d884",
+      "source": {
+        "asset": "av_art_billpickup2.png",
+        "source": "reference\\crossover2\\images\\402_com.smbc.graphics.skins.BmdInfo_Bill000.png / BillPickup frame 2",
+        "detail": "Original 2.02 source pickup art, before host palette quantization. Labelled as source art in guide.",
+        "sha256": "a4c6b1b7a1923b739c73cf41f85da7e7f1d1abe13f7e785e0278c50a9250d884",
+        "size": [
+          24,
+          15
+        ],
+        "source_sha256": "e7898e3646fcf6401f07de41e319c8f308c31d3954553fcfbec5406b55298455"
+      },
+      "pages": [
+        13
+      ]
+    },
+    {
+      "asset": "assets/astra/av_art_billpickup4.png",
+      "sha256": "57d9c9321791a9e37af84befc97a94515b66b0eecca3249ed66946a1f807b4f3",
+      "source": {
+        "asset": "av_art_billpickup4.png",
+        "source": "reference\\crossover2\\images\\402_com.smbc.graphics.skins.BmdInfo_Bill000.png / BillPickup frame 4",
+        "detail": "Original 2.02 source pickup art, before host palette quantization. Labelled as source art in guide.",
+        "sha256": "57d9c9321791a9e37af84befc97a94515b66b0eecca3249ed66946a1f807b4f3",
+        "size": [
+          24,
+          15
+        ],
+        "source_sha256": "e7898e3646fcf6401f07de41e319c8f308c31d3954553fcfbec5406b55298455"
+      },
+      "pages": [
+        13
+      ]
+    },
+    {
+      "asset": "assets/astra/av_art_billpickup6.png",
+      "sha256": "90a846cfb425733d64e6ca2925f629b6d2fd33887b5c50f73aea21d91274918b",
+      "source": {
+        "asset": "av_art_billpickup6.png",
+        "source": "reference\\crossover2\\images\\402_com.smbc.graphics.skins.BmdInfo_Bill000.png / BillPickup frame 6",
+        "detail": "Original 2.02 source pickup art, before host palette quantization. Labelled as source art in guide.",
+        "sha256": "90a846cfb425733d64e6ca2925f629b6d2fd33887b5c50f73aea21d91274918b",
+        "size": [
+          24,
+          15
+        ],
+        "source_sha256": "e7898e3646fcf6401f07de41e319c8f308c31d3954553fcfbec5406b55298455"
+      },
+      "pages": [
+        13
+      ]
+    },
+    {
+      "asset": "assets/astra/av_art_billpickup8.png",
+      "sha256": "a1e6193bc908b00e1102f48462a41c7196c40a0b6593be8451e17614588a0ecc",
+      "source": {
+        "asset": "av_art_billpickup8.png",
+        "source": "reference\\crossover2\\images\\402_com.smbc.graphics.skins.BmdInfo_Bill000.png / BillPickup frame 8",
+        "detail": "Original 2.02 source pickup art, before host palette quantization. Labelled as source art in guide.",
+        "sha256": "a1e6193bc908b00e1102f48462a41c7196c40a0b6593be8451e17614588a0ecc",
+        "size": [
+          24,
+          15
+        ],
+        "source_sha256": "e7898e3646fcf6401f07de41e319c8f308c31d3954553fcfbec5406b55298455"
+      },
+      "pages": [
+        13
+      ]
+    },
+    {
+      "asset": "assets/astra/av_art_linkpickup2.png",
+      "sha256": "a0696a476d5077354920114a073246714bb2b7a0e5b3332940164a24e4ecd346",
+      "source": {
+        "asset": "av_art_linkpickup2.png",
+        "source": "reference\\crossover2\\images\\244_com.smbc.graphics.skins.BmdInfo_Link000.png / LinkPickup frame 2",
+        "detail": "Original 2.02 source pickup art, before host palette quantization. Labelled as source art in guide.",
+        "sha256": "a0696a476d5077354920114a073246714bb2b7a0e5b3332940164a24e4ecd346",
+        "size": [
+          8,
+          16
+        ],
+        "source_sha256": "68154420fc3b61c104d5417d1bd00e38b0730eecf6cb3ebfb6d5dcc554c6273a"
+      },
+      "pages": [
+        15
+      ]
+    },
+    {
+      "asset": "assets/astra/av_art_linkpickup3.png",
+      "sha256": "3843008edc03661e5541d4f72eaa83d408c8d938dadb9ab099653e537f413a07",
+      "source": {
+        "asset": "av_art_linkpickup3.png",
+        "source": "reference\\crossover2\\images\\244_com.smbc.graphics.skins.BmdInfo_Link000.png / LinkPickup frame 3",
+        "detail": "Original 2.02 source pickup art, before host palette quantization. Labelled as source art in guide.",
+        "sha256": "3843008edc03661e5541d4f72eaa83d408c8d938dadb9ab099653e537f413a07",
+        "size": [
+          8,
+          14
+        ],
+        "source_sha256": "68154420fc3b61c104d5417d1bd00e38b0730eecf6cb3ebfb6d5dcc554c6273a"
+      },
+      "pages": [
+        15
+      ]
+    },
+    {
+      "asset": "assets/astra/av_art_linkpickup6.png",
+      "sha256": "1f2c96f7417d8ee957c14e995105e8631492e866a4403ff18c38e75e0e8ffea7",
+      "source": {
+        "asset": "av_art_linkpickup6.png",
+        "source": "reference\\crossover2\\images\\244_com.smbc.graphics.skins.BmdInfo_Link000.png / LinkPickup frame 6",
+        "detail": "Original 2.02 source pickup art, before host palette quantization. Labelled as source art in guide.",
+        "sha256": "1f2c96f7417d8ee957c14e995105e8631492e866a4403ff18c38e75e0e8ffea7",
+        "size": [
+          5,
+          8
+        ],
+        "source_sha256": "68154420fc3b61c104d5417d1bd00e38b0730eecf6cb3ebfb6d5dcc554c6273a"
+      },
+      "pages": [
+        15
+      ]
+    },
+    {
+      "asset": "assets/astra/av_art_linkpickup7.png",
+      "sha256": "305cf0797e0a0651553052f760fb8b1f60d417e5dc1cd0b4fd17d893c299e143",
+      "source": {
+        "asset": "av_art_linkpickup7.png",
+        "source": "reference\\crossover2\\images\\244_com.smbc.graphics.skins.BmdInfo_Link000.png / LinkPickup frame 7",
+        "detail": "Original 2.02 source pickup art, before host palette quantization. Labelled as source art in guide.",
+        "sha256": "305cf0797e0a0651553052f760fb8b1f60d417e5dc1cd0b4fd17d893c299e143",
+        "size": [
+          7,
+          9
+        ],
+        "source_sha256": "68154420fc3b61c104d5417d1bd00e38b0730eecf6cb3ebfb6d5dcc554c6273a"
+      },
+      "pages": [
+        15
+      ]
+    },
+    {
+      "asset": "assets/astra/av_art_linkpickup8.png",
+      "sha256": "c2c1fff788c00e65ca952a7b7e01d2e7b3e7d4644fb8423fefadf1a1a1b465e1",
+      "source": {
+        "asset": "av_art_linkpickup8.png",
+        "source": "reference\\crossover2\\images\\244_com.smbc.graphics.skins.BmdInfo_Link000.png / LinkPickup frame 8",
+        "detail": "Original 2.02 source pickup art, before host palette quantization. Labelled as source art in guide.",
+        "sha256": "c2c1fff788c00e65ca952a7b7e01d2e7b3e7d4644fb8423fefadf1a1a1b465e1",
+        "size": [
+          7,
+          9
+        ],
+        "source_sha256": "68154420fc3b61c104d5417d1bd00e38b0730eecf6cb3ebfb6d5dcc554c6273a"
+      },
+      "pages": [
+        15
+      ]
+    },
+    {
+      "asset": "assets/astra/av_art_linkpickup9.png",
+      "sha256": "61f7fc088d78e44c3701221f7df02a60f5a6c3495a4045ea87ff05a2c741b3d1",
+      "source": {
+        "asset": "av_art_linkpickup9.png",
+        "source": "reference\\crossover2\\images\\244_com.smbc.graphics.skins.BmdInfo_Link000.png / LinkPickup frame 9",
+        "detail": "Original 2.02 source pickup art, before host palette quantization. Labelled as source art in guide.",
+        "sha256": "61f7fc088d78e44c3701221f7df02a60f5a6c3495a4045ea87ff05a2c741b3d1",
+        "size": [
+          5,
+          16
+        ],
+        "source_sha256": "68154420fc3b61c104d5417d1bd00e38b0730eecf6cb3ebfb6d5dcc554c6273a"
+      },
+      "pages": [
+        15
+      ]
+    },
+    {
+      "asset": "assets/astra/av_art_ryupickup1.png",
+      "sha256": "2b4f332dfabe17ea9844b4f5a6061e2b25849580fc892bd6faad86475093b8cf",
+      "source": {
+        "asset": "av_art_ryupickup1.png",
+        "source": "reference\\crossover2\\images\\550_com.smbc.graphics.skins.BmdInfo_Ryu000.png / RyuPickup frame 1",
+        "detail": "Original 2.02 source pickup art, before host palette quantization. Labelled as source art in guide.",
+        "sha256": "2b4f332dfabe17ea9844b4f5a6061e2b25849580fc892bd6faad86475093b8cf",
+        "size": [
+          16,
+          16
+        ],
+        "source_sha256": "12342f8c6bf4f8045a725fb4428a833158bcaee79b20343e59975c9238379665"
+      },
+      "pages": [
+        25
+      ]
+    },
+    {
+      "asset": "assets/astra/av_art_ryupickup10.png",
+      "sha256": "d971350c00c7004ef67fbbb859fe50e7d7b8d5b292d2f869251dde276683584b",
+      "source": {
+        "asset": "av_art_ryupickup10.png",
+        "source": "reference\\crossover2\\images\\550_com.smbc.graphics.skins.BmdInfo_Ryu000.png / RyuPickup frame 10",
+        "detail": "Original 2.02 source pickup art, before host palette quantization. Labelled as source art in guide.",
+        "sha256": "d971350c00c7004ef67fbbb859fe50e7d7b8d5b292d2f869251dde276683584b",
+        "size": [
+          15,
+          15
+        ],
+        "source_sha256": "12342f8c6bf4f8045a725fb4428a833158bcaee79b20343e59975c9238379665"
+      },
+      "pages": [
+        25
+      ]
+    },
+    {
+      "asset": "assets/astra/av_art_ryupickup2.png",
+      "sha256": "237bd7c4951daeaf1cb792c9e5970826148d01d8fba3eaafa204642e89bf5b86",
+      "source": {
+        "asset": "av_art_ryupickup2.png",
+        "source": "reference\\crossover2\\images\\550_com.smbc.graphics.skins.BmdInfo_Ryu000.png / RyuPickup frame 2",
+        "detail": "Original 2.02 source pickup art, before host palette quantization. Labelled as source art in guide.",
+        "sha256": "237bd7c4951daeaf1cb792c9e5970826148d01d8fba3eaafa204642e89bf5b86",
+        "size": [
+          16,
+          16
+        ],
+        "source_sha256": "12342f8c6bf4f8045a725fb4428a833158bcaee79b20343e59975c9238379665"
+      },
+      "pages": [
+        25
+      ]
+    },
+    {
+      "asset": "assets/astra/av_art_ryupickup3.png",
+      "sha256": "da491a6641863af69683a2e3ffdd0b1f3d3d13a39fc66280d582b4d6acdc9c06",
+      "source": {
+        "asset": "av_art_ryupickup3.png",
+        "source": "reference\\crossover2\\images\\550_com.smbc.graphics.skins.BmdInfo_Ryu000.png / RyuPickup frame 3",
+        "detail": "Original 2.02 source pickup art, before host palette quantization. Labelled as source art in guide.",
+        "sha256": "da491a6641863af69683a2e3ffdd0b1f3d3d13a39fc66280d582b4d6acdc9c06",
+        "size": [
+          16,
+          16
+        ],
+        "source_sha256": "12342f8c6bf4f8045a725fb4428a833158bcaee79b20343e59975c9238379665"
+      },
+      "pages": [
+        25
+      ]
+    },
+    {
+      "asset": "assets/astra/av_art_ryupickup4.png",
+      "sha256": "1f5b5365f37d12c57321d68ef8b0e24c8f70b7d0194c7086e1ef03afa734640c",
+      "source": {
+        "asset": "av_art_ryupickup4.png",
+        "source": "reference\\crossover2\\images\\550_com.smbc.graphics.skins.BmdInfo_Ryu000.png / RyuPickup frame 4",
+        "detail": "Original 2.02 source pickup art, before host palette quantization. Labelled as source art in guide.",
+        "sha256": "1f5b5365f37d12c57321d68ef8b0e24c8f70b7d0194c7086e1ef03afa734640c",
+        "size": [
+          16,
+          16
+        ],
+        "source_sha256": "12342f8c6bf4f8045a725fb4428a833158bcaee79b20343e59975c9238379665"
+      },
+      "pages": [
+        25
+      ]
+    },
+    {
+      "asset": "assets/astra/av_art_ryupickup5.png",
+      "sha256": "76ef9bb22bebd3e2b66497c2818b26fde40a71925ab904567f3272912235d29f",
+      "source": {
+        "asset": "av_art_ryupickup5.png",
+        "source": "reference\\crossover2\\images\\550_com.smbc.graphics.skins.BmdInfo_Ryu000.png / RyuPickup frame 5",
+        "detail": "Original 2.02 source pickup art, before host palette quantization. Labelled as source art in guide.",
+        "sha256": "76ef9bb22bebd3e2b66497c2818b26fde40a71925ab904567f3272912235d29f",
+        "size": [
+          16,
+          16
+        ],
+        "source_sha256": "12342f8c6bf4f8045a725fb4428a833158bcaee79b20343e59975c9238379665"
+      },
+      "pages": [
+        25
+      ]
+    },
+    {
+      "asset": "assets/astra/av_art_ryupickup7.png",
+      "sha256": "60b1fd2831ac426151e30eaf4b580cfb729ca003e0fd0728c7fb2cb3d12a2b59",
+      "source": {
+        "asset": "av_art_ryupickup7.png",
+        "source": "reference\\crossover2\\images\\550_com.smbc.graphics.skins.BmdInfo_Ryu000.png / RyuPickup frame 7",
+        "detail": "Original 2.02 source pickup art, before host palette quantization. Labelled as source art in guide.",
+        "sha256": "60b1fd2831ac426151e30eaf4b580cfb729ca003e0fd0728c7fb2cb3d12a2b59",
+        "size": [
+          16,
+          16
+        ],
+        "source_sha256": "12342f8c6bf4f8045a725fb4428a833158bcaee79b20343e59975c9238379665"
+      },
+      "pages": [
+        25
+      ]
+    },
+    {
+      "asset": "assets/astra/av_art_ryupickup8.png",
+      "sha256": "baa06e7632c0741413848043b4a4f4700f309b15f8af3be31ae807befe377060",
+      "source": {
+        "asset": "av_art_ryupickup8.png",
+        "source": "reference\\crossover2\\images\\550_com.smbc.graphics.skins.BmdInfo_Ryu000.png / RyuPickup frame 8",
+        "detail": "Original 2.02 source pickup art, before host palette quantization. Labelled as source art in guide.",
+        "sha256": "baa06e7632c0741413848043b4a4f4700f309b15f8af3be31ae807befe377060",
+        "size": [
+          16,
+          16
+        ],
+        "source_sha256": "12342f8c6bf4f8045a725fb4428a833158bcaee79b20343e59975c9238379665"
+      },
+      "pages": [
+        25
+      ]
+    },
+    {
+      "asset": "assets/astra/av_art_ryupickup9.png",
+      "sha256": "3704bcc254155475814c8774cde0622d0d1c231a277425edfc6cff375dc2f3e0",
+      "source": {
+        "asset": "av_art_ryupickup9.png",
+        "source": "reference\\crossover2\\images\\550_com.smbc.graphics.skins.BmdInfo_Ryu000.png / RyuPickup frame 9",
+        "detail": "Original 2.02 source pickup art, before host palette quantization. Labelled as source art in guide.",
+        "sha256": "3704bcc254155475814c8774cde0622d0d1c231a277425edfc6cff375dc2f3e0",
+        "size": [
+          15,
+          15
+        ],
+        "source_sha256": "12342f8c6bf4f8045a725fb4428a833158bcaee79b20343e59975c9238379665"
+      },
+      "pages": [
+        25
+      ]
+    },
+    {
+      "asset": "assets/astra/av_art_samuspickup1.png",
+      "sha256": "0a746b120bd4efa8edbebd00bc68161a057ac11f545ea4a8be6f854ddc97c2c2",
+      "source": {
+        "asset": "av_art_samuspickup1.png",
+        "source": "reference\\crossover2\\images\\372_com.smbc.graphics.skins.BmdInfo_Samus000.png / SamusPickup frame 1",
+        "detail": "Original 2.02 source pickup art, before host palette quantization. Labelled as source art in guide.",
+        "sha256": "0a746b120bd4efa8edbebd00bc68161a057ac11f545ea4a8be6f854ddc97c2c2",
+        "size": [
+          18,
+          18
+        ],
+        "source_sha256": "948624e6f0f4b57a8db1393a7b5e3a2b59f680e4899d45f151c1d99dda257750"
+      },
+      "pages": [
+        11
+      ]
+    },
+    {
+      "asset": "assets/astra/av_art_samuspickup10.png",
+      "sha256": "aa0c9e93bec7bc52238e80cfec6cd4335ab00b90d67fe281e55bed35e798dc8b",
+      "source": {
+        "asset": "av_art_samuspickup10.png",
+        "source": "reference\\crossover2\\images\\372_com.smbc.graphics.skins.BmdInfo_Samus000.png / SamusPickup frame 10",
+        "detail": "Original 2.02 source pickup art, before host palette quantization. Labelled as source art in guide.",
+        "sha256": "aa0c9e93bec7bc52238e80cfec6cd4335ab00b90d67fe281e55bed35e798dc8b",
+        "size": [
+          18,
+          18
+        ],
+        "source_sha256": "948624e6f0f4b57a8db1393a7b5e3a2b59f680e4899d45f151c1d99dda257750"
+      },
+      "pages": [
+        11
+      ]
+    },
+    {
+      "asset": "assets/astra/av_art_samuspickup11.png",
+      "sha256": "6eedc0f1bd37fe44d79653c3f1f15a0fd2220863530d2e332c65c83a8816655f",
+      "source": {
+        "asset": "av_art_samuspickup11.png",
+        "source": "reference\\crossover2\\images\\372_com.smbc.graphics.skins.BmdInfo_Samus000.png / SamusPickup frame 11",
+        "detail": "Original 2.02 source pickup art, before host palette quantization. Labelled as source art in guide.",
+        "sha256": "6eedc0f1bd37fe44d79653c3f1f15a0fd2220863530d2e332c65c83a8816655f",
+        "size": [
+          10,
+          14
+        ],
+        "source_sha256": "948624e6f0f4b57a8db1393a7b5e3a2b59f680e4899d45f151c1d99dda257750"
+      },
+      "pages": [
+        11
+      ]
+    },
+    {
+      "asset": "assets/astra/av_art_samuspickup3.png",
+      "sha256": "252c7a7818ce533edb1bb281c8d86a58388ea3c353bd5728d0cf441f13c05594",
+      "source": {
+        "asset": "av_art_samuspickup3.png",
+        "source": "reference\\crossover2\\images\\372_com.smbc.graphics.skins.BmdInfo_Samus000.png / SamusPickup frame 3",
+        "detail": "Original 2.02 source pickup art, before host palette quantization. Labelled as source art in guide.",
+        "sha256": "252c7a7818ce533edb1bb281c8d86a58388ea3c353bd5728d0cf441f13c05594",
+        "size": [
+          18,
+          18
+        ],
+        "source_sha256": "948624e6f0f4b57a8db1393a7b5e3a2b59f680e4899d45f151c1d99dda257750"
+      },
+      "pages": [
+        11
+      ]
+    },
+    {
+      "asset": "assets/astra/av_art_samuspickup4.png",
+      "sha256": "3dc03b3b359998e3effcc4cd57346f0db7ec0e54539f7cd0894cba544e888977",
+      "source": {
+        "asset": "av_art_samuspickup4.png",
+        "source": "reference\\crossover2\\images\\372_com.smbc.graphics.skins.BmdInfo_Samus000.png / SamusPickup frame 4",
+        "detail": "Original 2.02 source pickup art, before host palette quantization. Labelled as source art in guide.",
+        "sha256": "3dc03b3b359998e3effcc4cd57346f0db7ec0e54539f7cd0894cba544e888977",
+        "size": [
+          18,
+          18
+        ],
+        "source_sha256": "948624e6f0f4b57a8db1393a7b5e3a2b59f680e4899d45f151c1d99dda257750"
+      },
+      "pages": [
+        11
+      ]
+    },
+    {
+      "asset": "assets/astra/av_art_samuspickup5.png",
+      "sha256": "fab6c9d6d697f5cb549f55e6f7b21cfcc13453897040a79ccfb97117fd0bec4b",
+      "source": {
+        "asset": "av_art_samuspickup5.png",
+        "source": "reference\\crossover2\\images\\372_com.smbc.graphics.skins.BmdInfo_Samus000.png / SamusPickup frame 5",
+        "detail": "Original 2.02 source pickup art, before host palette quantization. Labelled as source art in guide.",
+        "sha256": "fab6c9d6d697f5cb549f55e6f7b21cfcc13453897040a79ccfb97117fd0bec4b",
+        "size": [
+          14,
+          15
+        ],
+        "source_sha256": "948624e6f0f4b57a8db1393a7b5e3a2b59f680e4899d45f151c1d99dda257750"
+      },
+      "pages": [
+        11
+      ]
+    },
+    {
+      "asset": "assets/astra/av_art_samuspickup7.png",
+      "sha256": "07d290afafc9b8723af096a48ffafc5456a28226374443455919a38202db9b84",
+      "source": {
+        "asset": "av_art_samuspickup7.png",
+        "source": "reference\\crossover2\\images\\372_com.smbc.graphics.skins.BmdInfo_Samus000.png / SamusPickup frame 7",
+        "detail": "Original 2.02 source pickup art, before host palette quantization. Labelled as source art in guide.",
+        "sha256": "07d290afafc9b8723af096a48ffafc5456a28226374443455919a38202db9b84",
+        "size": [
+          18,
+          18
+        ],
+        "source_sha256": "948624e6f0f4b57a8db1393a7b5e3a2b59f680e4899d45f151c1d99dda257750"
+      },
+      "pages": [
+        11
+      ]
+    },
+    {
+      "asset": "assets/astra/av_art_simonpickup1.png",
+      "sha256": "5a6cda96f54334507b13ef89ed83080c843d4ead4b31fe75e76ab741c5a9f070",
+      "source": {
+        "asset": "av_art_simonpickup1.png",
+        "source": "reference\\crossover2\\images\\468_com.smbc.graphics.skins.BmdInfo_Simon000.png / SimonPickup frame 1",
+        "detail": "Original 2.02 source pickup art, before host palette quantization. Labelled as source art in guide.",
+        "sha256": "5a6cda96f54334507b13ef89ed83080c843d4ead4b31fe75e76ab741c5a9f070",
+        "size": [
+          14,
+          13
+        ],
+        "source_sha256": "ba188f0c2ae413fc79826628d849072ed2beba0d40f59810e32277cb9556c5c9"
+      },
+      "pages": [
+        18
+      ]
+    },
+    {
+      "asset": "assets/astra/av_art_simonpickup10.png",
+      "sha256": "ed4bb2c04370c0d7bb72b225e35665bd4d05e4d92495bb0cdc8ca3bdd665e3bb",
+      "source": {
+        "asset": "av_art_simonpickup10.png",
+        "source": "reference\\crossover2\\images\\468_com.smbc.graphics.skins.BmdInfo_Simon000.png / SimonPickup frame 10",
+        "detail": "Original 2.02 source pickup art, before host palette quantization. Labelled as source art in guide.",
+        "sha256": "ed4bb2c04370c0d7bb72b225e35665bd4d05e4d92495bb0cdc8ca3bdd665e3bb",
+        "size": [
+          12,
+          10
+        ],
+        "source_sha256": "ba188f0c2ae413fc79826628d849072ed2beba0d40f59810e32277cb9556c5c9"
+      },
+      "pages": [
+        18
+      ]
+    },
+    {
+      "asset": "assets/astra/av_art_simonpickup11.png",
+      "sha256": "0ba79dd7f1495729692c4df467075763add9ba273f25b3deea8a45f8a6a6e625",
+      "source": {
+        "asset": "av_art_simonpickup11.png",
+        "source": "reference\\crossover2\\images\\468_com.smbc.graphics.skins.BmdInfo_Simon000.png / SimonPickup frame 11",
+        "detail": "Original 2.02 source pickup art, before host palette quantization. Labelled as source art in guide.",
+        "sha256": "0ba79dd7f1495729692c4df467075763add9ba273f25b3deea8a45f8a6a6e625",
+        "size": [
+          8,
+          8
+        ],
+        "source_sha256": "ba188f0c2ae413fc79826628d849072ed2beba0d40f59810e32277cb9556c5c9"
+      },
+      "pages": [
+        18
+      ]
+    },
+    {
+      "asset": "assets/astra/av_art_simonpickup2.png",
+      "sha256": "948814c3a97de11fbe297f0a792fd1baddb4b12f4539937195be789132dc0026",
+      "source": {
+        "asset": "av_art_simonpickup2.png",
+        "source": "reference\\crossover2\\images\\468_com.smbc.graphics.skins.BmdInfo_Simon000.png / SimonPickup frame 2",
+        "detail": "Original 2.02 source pickup art, before host palette quantization. Labelled as source art in guide.",
+        "sha256": "948814c3a97de11fbe297f0a792fd1baddb4b12f4539937195be789132dc0026",
+        "size": [
+          15,
+          14
+        ],
+        "source_sha256": "ba188f0c2ae413fc79826628d849072ed2beba0d40f59810e32277cb9556c5c9"
+      },
+      "pages": [
+        18
+      ]
+    },
+    {
+      "asset": "assets/astra/av_art_simonpickup3.png",
+      "sha256": "c99bd5520b6e5d334c214ebba5f7780d7b1d1574adbb70f255b94f51fcef2025",
+      "source": {
+        "asset": "av_art_simonpickup3.png",
+        "source": "reference\\crossover2\\images\\468_com.smbc.graphics.skins.BmdInfo_Simon000.png / SimonPickup frame 3",
+        "detail": "Original 2.02 source pickup art, before host palette quantization. Labelled as source art in guide.",
+        "sha256": "c99bd5520b6e5d334c214ebba5f7780d7b1d1574adbb70f255b94f51fcef2025",
+        "size": [
+          17,
+          9
+        ],
+        "source_sha256": "ba188f0c2ae413fc79826628d849072ed2beba0d40f59810e32277cb9556c5c9"
+      },
+      "pages": [
+        18
+      ]
+    },
+    {
+      "asset": "assets/astra/av_art_simonpickup4.png",
+      "sha256": "ae6eb71c499116f9b7fa2beedce570bd6926ced47a63f153c9be88864ce05c64",
+      "source": {
+        "asset": "av_art_simonpickup4.png",
+        "source": "reference\\crossover2\\images\\468_com.smbc.graphics.skins.BmdInfo_Simon000.png / SimonPickup frame 4",
+        "detail": "Original 2.02 source pickup art, before host palette quantization. Labelled as source art in guide.",
+        "sha256": "ae6eb71c499116f9b7fa2beedce570bd6926ced47a63f153c9be88864ce05c64",
+        "size": [
+          13,
+          16
+        ],
+        "source_sha256": "ba188f0c2ae413fc79826628d849072ed2beba0d40f59810e32277cb9556c5c9"
+      },
+      "pages": [
+        18
+      ]
+    },
+    {
+      "asset": "assets/astra/av_art_simonpickup5.png",
+      "sha256": "b3839dbd340a0175dbc1c07f309a40ba99e3bb7d49261bb416626a09d349b604",
+      "source": {
+        "asset": "av_art_simonpickup5.png",
+        "source": "reference\\crossover2\\images\\468_com.smbc.graphics.skins.BmdInfo_Simon000.png / SimonPickup frame 5",
+        "detail": "Original 2.02 source pickup art, before host palette quantization. Labelled as source art in guide.",
+        "sha256": "b3839dbd340a0175dbc1c07f309a40ba99e3bb7d49261bb416626a09d349b604",
+        "size": [
+          15,
+          16
+        ],
+        "source_sha256": "ba188f0c2ae413fc79826628d849072ed2beba0d40f59810e32277cb9556c5c9"
+      },
+      "pages": [
+        18
+      ]
+    },
+    {
+      "asset": "assets/astra/av_art_simonpickup6.png",
+      "sha256": "bd83e73ae8de1f96c1240c66010d87835f6b3a63c44558b0645ec96553cf05b1",
+      "source": {
+        "asset": "av_art_simonpickup6.png",
+        "source": "reference\\crossover2\\images\\468_com.smbc.graphics.skins.BmdInfo_Simon000.png / SimonPickup frame 6",
+        "detail": "Original 2.02 source pickup art, before host palette quantization. Labelled as source art in guide.",
+        "sha256": "bd83e73ae8de1f96c1240c66010d87835f6b3a63c44558b0645ec96553cf05b1",
+        "size": [
+          17,
+          17
+        ],
+        "source_sha256": "ba188f0c2ae413fc79826628d849072ed2beba0d40f59810e32277cb9556c5c9"
+      },
+      "pages": [
+        18
+      ]
+    },
+    {
+      "asset": "assets/astra/av_art_simonpickup7.png",
+      "sha256": "d084d919dcd18dbcc14e2fd719b52781a35c82b81671d482895fe55fee9c4c9f",
+      "source": {
+        "asset": "av_art_simonpickup7.png",
+        "source": "reference\\crossover2\\images\\468_com.smbc.graphics.skins.BmdInfo_Simon000.png / SimonPickup frame 7",
+        "detail": "Original 2.02 source pickup art, before host palette quantization. Labelled as source art in guide.",
+        "sha256": "d084d919dcd18dbcc14e2fd719b52781a35c82b81671d482895fe55fee9c4c9f",
+        "size": [
+          14,
+          14
+        ],
+        "source_sha256": "ba188f0c2ae413fc79826628d849072ed2beba0d40f59810e32277cb9556c5c9"
+      },
+      "pages": [
+        18
+      ]
+    },
+    {
+      "asset": "assets/astra/av_art_simonpickup8.png",
+      "sha256": "082f03b73f743c63477d8f9905092cf6b591257fa1bd5e4a92ae778a958333e1",
+      "source": {
+        "asset": "av_art_simonpickup8.png",
+        "source": "reference\\crossover2\\images\\468_com.smbc.graphics.skins.BmdInfo_Simon000.png / SimonPickup frame 8",
+        "detail": "Original 2.02 source pickup art, before host palette quantization. Labelled as source art in guide.",
+        "sha256": "082f03b73f743c63477d8f9905092cf6b591257fa1bd5e4a92ae778a958333e1",
+        "size": [
+          14,
+          14
+        ],
+        "source_sha256": "ba188f0c2ae413fc79826628d849072ed2beba0d40f59810e32277cb9556c5c9"
+      },
+      "pages": [
+        18
+      ]
+    },
+    {
+      "asset": "assets/astra/av_art_sophiapickup2.png",
+      "sha256": "2af4d4517831354f4891f48ea15aed2ac836d9200ca8d90043eb0d66b58ded42",
+      "source": {
+        "asset": "av_art_sophiapickup2.png",
+        "source": "reference\\crossover2\\images\\303_com.smbc.graphics.skins.BmdInfo_Sophia000.png / SophiaPickup frame 2",
+        "detail": "Original 2.02 source pickup art, before host palette quantization. Labelled as source art in guide.",
+        "sha256": "2af4d4517831354f4891f48ea15aed2ac836d9200ca8d90043eb0d66b58ded42",
+        "size": [
+          16,
+          13
+        ],
+        "source_sha256": "4e531b3bc0556c29072566c3728cf37b868bcf00a21ac96f64c0af0358421169"
+      },
+      "pages": [
+        27
+      ]
+    },
+    {
+      "asset": "assets/astra/av_art_sophiapickup3.png",
+      "sha256": "bbed4e411ab753361e146cb2efc337df2789348ba3523b9fca524abf5ab49b56",
+      "source": {
+        "asset": "av_art_sophiapickup3.png",
+        "source": "reference\\crossover2\\images\\303_com.smbc.graphics.skins.BmdInfo_Sophia000.png / SophiaPickup frame 3",
+        "detail": "Original 2.02 source pickup art, before host palette quantization. Labelled as source art in guide.",
+        "sha256": "bbed4e411ab753361e146cb2efc337df2789348ba3523b9fca524abf5ab49b56",
+        "size": [
+          16,
+          13
+        ],
+        "source_sha256": "4e531b3bc0556c29072566c3728cf37b868bcf00a21ac96f64c0af0358421169"
+      },
+      "pages": [
+        27
+      ]
+    },
+    {
+      "asset": "assets/astra/av_art_sophiapickup4.png",
+      "sha256": "6f8fdf145b43f91910ddb855b11c85eb12ab45f60c2dd46086ffaf7c57b45090",
+      "source": {
+        "asset": "av_art_sophiapickup4.png",
+        "source": "reference\\crossover2\\images\\303_com.smbc.graphics.skins.BmdInfo_Sophia000.png / SophiaPickup frame 4",
+        "detail": "Original 2.02 source pickup art, before host palette quantization. Labelled as source art in guide.",
+        "sha256": "6f8fdf145b43f91910ddb855b11c85eb12ab45f60c2dd46086ffaf7c57b45090",
+        "size": [
+          16,
+          13
+        ],
+        "source_sha256": "4e531b3bc0556c29072566c3728cf37b868bcf00a21ac96f64c0af0358421169"
+      },
+      "pages": [
+        27
+      ]
+    },
+    {
+      "asset": "assets/astra/av_art_sophiapickup5.png",
+      "sha256": "16d885a2ea84e3bcdf2bd16c71cf7eb7bb959c32a62eb892cbd81e4c64146f6a",
+      "source": {
+        "asset": "av_art_sophiapickup5.png",
+        "source": "reference\\crossover2\\images\\303_com.smbc.graphics.skins.BmdInfo_Sophia000.png / SophiaPickup frame 5",
+        "detail": "Original 2.02 source pickup art, before host palette quantization. Labelled as source art in guide.",
+        "sha256": "16d885a2ea84e3bcdf2bd16c71cf7eb7bb959c32a62eb892cbd81e4c64146f6a",
+        "size": [
+          16,
+          13
+        ],
+        "source_sha256": "4e531b3bc0556c29072566c3728cf37b868bcf00a21ac96f64c0af0358421169"
+      },
+      "pages": [
+        27
+      ]
+    },
+    {
+      "asset": "assets/astra/av_art_sophiapickup6.png",
+      "sha256": "aeed429387b1f15c24b66e91dc0eec0d93222053644fdac1799c86c88663bd05",
+      "source": {
+        "asset": "av_art_sophiapickup6.png",
+        "source": "reference\\crossover2\\images\\303_com.smbc.graphics.skins.BmdInfo_Sophia000.png / SophiaPickup frame 6",
+        "detail": "Original 2.02 source pickup art, before host palette quantization. Labelled as source art in guide.",
+        "sha256": "aeed429387b1f15c24b66e91dc0eec0d93222053644fdac1799c86c88663bd05",
+        "size": [
+          16,
+          16
+        ],
+        "source_sha256": "4e531b3bc0556c29072566c3728cf37b868bcf00a21ac96f64c0af0358421169"
+      },
+      "pages": [
+        27
+      ]
+    },
+    {
+      "asset": "assets/astra/av_art_sophiapickup7.png",
+      "sha256": "035a88e4673c3aaf077528ed5a4b359b1866be802dc1ca59a0d9e42521d30c8b",
+      "source": {
+        "asset": "av_art_sophiapickup7.png",
+        "source": "reference\\crossover2\\images\\303_com.smbc.graphics.skins.BmdInfo_Sophia000.png / SophiaPickup frame 7",
+        "detail": "Original 2.02 source pickup art, before host palette quantization. Labelled as source art in guide.",
+        "sha256": "035a88e4673c3aaf077528ed5a4b359b1866be802dc1ca59a0d9e42521d30c8b",
+        "size": [
+          16,
+          16
+        ],
+        "source_sha256": "4e531b3bc0556c29072566c3728cf37b868bcf00a21ac96f64c0af0358421169"
+      },
+      "pages": [
+        27
+      ]
+    },
+    {
+      "asset": "assets/edition/bass-firebars.png",
+      "sha256": "2a4464e81868daf34066704d866414642aebcea137e7bf748bcadc152eac92a2",
+      "source": {
+        "asset": "bass-firebars.png",
+        "original": "build\\roster-through-2-2\\root-bass-av-im-9-v0-mmc3\\playthrough-lossless.mkv",
+        "video_frame_zero_based": 15120,
+        "emulator_trace_frame": 15122,
+        "trace": {
+          "frame": 15122,
+          "poll": 15121,
+          "world": 0,
+          "level": 3,
+          "area": 96,
+          "areaType": 3,
+          "x": 1350,
+          "y": 84,
+          "yHigh": 1,
+          "state": 1,
+          "vx": 22,
+          "vy": 252,
+          "power": 0,
+          "engine": 8,
+          "mode": 1,
+          "task": 3,
+          "lives": 2,
+          "camera": 1238,
+          "nmiSkipped": 233,
+          "buttons": 129,
+          "cycle": 450338252
+        },
+        "rom_sha256": "9b820cd8aecb31872167f4b87a412c03e4fce2e7c0e4f17a61f34fe87b21a4d5",
+        "derivation": "Unaltered 256x240 RGB frame from native lossless recording. Selective frame extraction only; no drawing over game pixels.",
+        "sha256": "2a4464e81868daf34066704d866414642aebcea137e7bf748bcadc152eac92a2"
+      },
+      "pages": [
+        47
+      ]
+    },
+    {
+      "asset": "assets/edition/character-select.png",
+      "sha256": "71e68a141948da82fe16ab2198cbe0e2c9d7cf643d8f8c4899e758cd9ddd6611",
+      "source": {
+        "asset": "character-select.png",
+        "source": "build\\verification\\parodius-render-nq\\entry-v3\\mario\\build\\verification\\selection.png",
+        "sha256": "71e68a141948da82fe16ab2198cbe0e2c9d7cf643d8f8c4899e758cd9ddd6611",
+        "rom_sha256": "c5f15fcd1bca72ca6a0787782f010342dbea99df8391c57a305be1addca8bf2e",
+        "details": "Unaltered 37-identity selection screenshot from NQ entry verification."
+      },
+      "pages": [
+        2
+      ]
+    },
+    {
+      "asset": "assets/edition/cv1-07.png",
+      "sha256": "7297fb71f18c9bacb674c8805b83fb747e43a2bc7798466e715552c072e3c2c0",
+      "source": {
+        "asset": "cv1-07.png",
+        "source": "src/cv3_art.inc :: Cv3W1P07R",
+        "source_sha256": "08528629b5eec62cc942688889d02c22914a39d48049386378b007c87d8000cd",
+        "details": "Installed NES pixels; a static animation phase. Shared icon shapes are identified in the legend.",
+        "width": 8,
+        "height": 8,
+        "sha256": "7297fb71f18c9bacb674c8805b83fb747e43a2bc7798466e715552c072e3c2c0"
+      },
+      "pages": [
+        21
+      ]
+    },
+    {
+      "asset": "assets/edition/cv1-23.png",
+      "sha256": "14396c77503db060e82fbe46545b1e592abf70f5855ca9bcc2577364e2e7c43f",
+      "source": {
+        "asset": "cv1-23.png",
+        "source": "src/cv3_art.inc :: Cv3W1P23R",
+        "source_sha256": "08528629b5eec62cc942688889d02c22914a39d48049386378b007c87d8000cd",
+        "details": "Installed NES pixels; a static animation phase. Shared icon shapes are identified in the legend.",
+        "width": 15,
+        "height": 14,
+        "sha256": "14396c77503db060e82fbe46545b1e592abf70f5855ca9bcc2577364e2e7c43f"
+      },
+      "pages": [
+        19
+      ]
+    },
+    {
+      "asset": "assets/edition/cv1-27.png",
+      "sha256": "ff90614863ff1932815b82cfdd632642efdd7327e521f725bf8a75b7b0f23826",
+      "source": {
+        "asset": "cv1-27.png",
+        "source": "src/cv3_art.inc :: Cv3W1P27R",
+        "source_sha256": "08528629b5eec62cc942688889d02c22914a39d48049386378b007c87d8000cd",
+        "details": "Installed NES pixels; a static animation phase. Shared icon shapes are identified in the legend.",
+        "width": 16,
+        "height": 9,
+        "sha256": "ff90614863ff1932815b82cfdd632642efdd7327e521f725bf8a75b7b0f23826"
+      },
+      "pages": [
+        19
+      ]
+    },
+    {
+      "asset": "assets/edition/cv1-40.png",
+      "sha256": "7c289a46b5459c3b2807583b500945a00aaf075858139f1db33705e8cab79874",
+      "source": {
+        "asset": "cv1-40.png",
+        "source": "src/cv3_art.inc :: Cv3W1P40R",
+        "source_sha256": "08528629b5eec62cc942688889d02c22914a39d48049386378b007c87d8000cd",
+        "details": "Installed NES pixels; a static animation phase. Shared icon shapes are identified in the legend.",
+        "width": 7,
+        "height": 8,
+        "sha256": "7c289a46b5459c3b2807583b500945a00aaf075858139f1db33705e8cab79874"
+      },
+      "pages": [
+        19
+      ]
+    },
+    {
+      "asset": "assets/edition/cv2-1f.png",
+      "sha256": "bb6ebd2ed0a45c9c322d2e2ff1c63b8778d154e308d269a04e3f4bec430df231",
+      "source": {
+        "asset": "cv2-1f.png",
+        "source": "src/cv3_art.inc :: Cv3W2P1FR",
+        "source_sha256": "08528629b5eec62cc942688889d02c22914a39d48049386378b007c87d8000cd",
+        "details": "Installed NES pixels; a static animation phase. Shared icon shapes are identified in the legend.",
+        "width": 24,
+        "height": 10,
+        "sha256": "bb6ebd2ed0a45c9c322d2e2ff1c63b8778d154e308d269a04e3f4bec430df231"
+      },
+      "pages": [
+        20
+      ]
+    },
+    {
+      "asset": "assets/edition/cv2-23.png",
+      "sha256": "03156912af9575ca237a2ec26a62cb6c2b256ab40b70d90a06947b97295c6cc8",
+      "source": {
+        "asset": "cv2-23.png",
+        "source": "src/cv3_art.inc :: Cv3W2P23R",
+        "source_sha256": "08528629b5eec62cc942688889d02c22914a39d48049386378b007c87d8000cd",
+        "details": "Installed NES pixels; a static animation phase. Shared icon shapes are identified in the legend.",
+        "width": 8,
+        "height": 6,
+        "sha256": "03156912af9575ca237a2ec26a62cb6c2b256ab40b70d90a06947b97295c6cc8"
+      },
+      "pages": [
+        20
+      ]
+    },
+    {
+      "asset": "assets/edition/cv2-27.png",
+      "sha256": "d95235acc337b7319ebd7e3f97a32fe43125d149cc5e09aedd106ff015f890d1",
+      "source": {
+        "asset": "cv2-27.png",
+        "source": "src/cv3_art.inc :: Cv3W2P27R",
+        "source_sha256": "08528629b5eec62cc942688889d02c22914a39d48049386378b007c87d8000cd",
+        "details": "Installed NES pixels; a static animation phase. Shared icon shapes are identified in the legend.",
+        "width": 12,
+        "height": 14,
+        "sha256": "d95235acc337b7319ebd7e3f97a32fe43125d149cc5e09aedd106ff015f890d1"
+      },
+      "pages": [
+        20
+      ]
+    },
+    {
+      "asset": "assets/edition/cv3-22.png",
+      "sha256": "6ebfae6828a99a35a7ee0f286cc1d8a222acd0de3990f4da65b4554f516b374e",
+      "source": {
+        "asset": "cv3-22.png",
+        "source": "src/cv3_art.inc :: Cv3W3P22R",
+        "source_sha256": "08528629b5eec62cc942688889d02c22914a39d48049386378b007c87d8000cd",
+        "details": "Installed NES pixels; a static animation phase. Shared icon shapes are identified in the legend.",
+        "width": 10,
+        "height": 14,
+        "sha256": "6ebfae6828a99a35a7ee0f286cc1d8a222acd0de3990f4da65b4554f516b374e"
+      },
+      "pages": [
+        21
+      ]
+    },
+    {
+      "asset": "assets/edition/dw-22.png",
+      "sha256": "cf249aeab3f4b4c98ce414ac857d500a74f26411dd8a7204894e7ff87f2122b0",
+      "source": {
+        "asset": "dw-22.png",
+        "source": "src/darkwing_art.inc :: DwW22F0R",
+        "source_sha256": "9afd36b72e3f156fc87a982b4819f5a344056a8ccb7fb0c1b14bd175804bdcd4",
+        "details": "Installed NES pixels; a static animation phase. Shared icon shapes are identified in the legend.",
+        "width": 16,
+        "height": 16,
+        "sha256": "cf249aeab3f4b4c98ce414ac857d500a74f26411dd8a7204894e7ff87f2122b0"
+      },
+      "pages": [
+        30
+      ]
+    },
+    {
+      "asset": "assets/edition/dw-23.png",
+      "sha256": "8e7739900a31a19c4c8dbce80fd6eec0f7db99fb1ff5b9d04f65abfddcf53ea6",
+      "source": {
+        "asset": "dw-23.png",
+        "source": "src/darkwing_art.inc :: DwW23F0R",
+        "source_sha256": "9afd36b72e3f156fc87a982b4819f5a344056a8ccb7fb0c1b14bd175804bdcd4",
+        "details": "Installed NES pixels; a static animation phase. Shared icon shapes are identified in the legend.",
+        "width": 8,
+        "height": 16,
+        "sha256": "8e7739900a31a19c4c8dbce80fd6eec0f7db99fb1ff5b9d04f65abfddcf53ea6"
+      },
+      "pages": [
+        30
+      ]
+    },
+    {
+      "asset": "assets/edition/dw-24.png",
+      "sha256": "400666b905903a7ad14b88956c9a809d1fa6323fdde8a23ec76fdda66bfd9932",
+      "source": {
+        "asset": "dw-24.png",
+        "source": "src/darkwing_art.inc :: DwW24F0R",
+        "source_sha256": "9afd36b72e3f156fc87a982b4819f5a344056a8ccb7fb0c1b14bd175804bdcd4",
+        "details": "Installed NES pixels; a static animation phase. Shared icon shapes are identified in the legend.",
+        "width": 14,
+        "height": 16,
+        "sha256": "400666b905903a7ad14b88956c9a809d1fa6323fdde8a23ec76fdda66bfd9932"
+      },
+      "pages": [
+        30
+      ]
+    },
+    {
+      "asset": "assets/edition/dw-25.png",
+      "sha256": "fe31592f2f016dfb9caf68558842f8133fb99a7b239b91bf59bd221c5d18996b",
+      "source": {
+        "asset": "dw-25.png",
+        "source": "src/darkwing_art.inc :: DwW25F0R",
+        "source_sha256": "9afd36b72e3f156fc87a982b4819f5a344056a8ccb7fb0c1b14bd175804bdcd4",
+        "details": "Installed NES pixels; a static animation phase. Shared icon shapes are identified in the legend.",
+        "width": 8,
+        "height": 16,
+        "sha256": "fe31592f2f016dfb9caf68558842f8133fb99a7b239b91bf59bd221c5d18996b"
+      },
+      "pages": [
+        30
+      ]
+    },
+    {
+      "asset": "assets/edition/dw-26.png",
+      "sha256": "46e97fd0f8c3640b65f94b2c4e457b36dbecd201449757d7b8ece2aed0455c60",
+      "source": {
+        "asset": "dw-26.png",
+        "source": "src/darkwing_art.inc :: DwW26F0R",
+        "source_sha256": "9afd36b72e3f156fc87a982b4819f5a344056a8ccb7fb0c1b14bd175804bdcd4",
+        "details": "Installed NES pixels; a static animation phase. Shared icon shapes are identified in the legend.",
+        "width": 16,
+        "height": 20,
+        "sha256": "46e97fd0f8c3640b65f94b2c4e457b36dbecd201449757d7b8ece2aed0455c60"
+      },
+      "pages": [
+        30
+      ]
+    },
+    {
+      "asset": "assets/edition/dw-27.png",
+      "sha256": "7fbee6780c24fa38cbfcb91e4d8a9924f1bb4adca3345cdae4f12171394e2c41",
+      "source": {
+        "asset": "dw-27.png",
+        "source": "src/darkwing_art.inc :: DwW27F0R",
+        "source_sha256": "9afd36b72e3f156fc87a982b4819f5a344056a8ccb7fb0c1b14bd175804bdcd4",
+        "details": "Installed NES pixels; a static animation phase. Shared icon shapes are identified in the legend.",
+        "width": 16,
+        "height": 20,
+        "sha256": "7fbee6780c24fa38cbfcb91e4d8a9924f1bb4adca3345cdae4f12171394e2c41"
+      },
+      "pages": [
+        30
+      ]
+    },
+    {
+      "asset": "assets/edition/dw-28.png",
+      "sha256": "15a48b4b10ee5f0995a349892c71431ac366c48b0e6cf79283a6a419f2ffc717",
+      "source": {
+        "asset": "dw-28.png",
+        "source": "src/darkwing_art.inc :: DwW28F0R",
+        "source_sha256": "9afd36b72e3f156fc87a982b4819f5a344056a8ccb7fb0c1b14bd175804bdcd4",
+        "details": "Installed NES pixels; a static animation phase. Shared icon shapes are identified in the legend.",
+        "width": 16,
+        "height": 20,
+        "sha256": "15a48b4b10ee5f0995a349892c71431ac366c48b0e6cf79283a6a419f2ffc717"
+      },
+      "pages": [
+        30
+      ]
+    },
+    {
+      "asset": "assets/astra/enemy-1.png",
+      "sha256": "da7c6e0eed0b852bf0070ddc795b709805638e0f3df08cfda74fe3025be7185c",
+      "source": {
+        "asset": "enemy-1.png",
+        "source": "NR src/metasprite.s + src/sprite_render.s; chr/mmc5/sprites_enemies.chr",
+        "detail": "Full native enemy pose and correct world palette, not a Kirby HUD emblem. Grey Cheep/Bloober use underwater neutral palette.",
+        "sha256": "da7c6e0eed0b852bf0070ddc795b709805638e0f3df08cfda74fe3025be7185c",
+        "size": [
+          16,
+          16
+        ],
+        "source_archive_sha256": "81a9912e7001a8c3da3a374ac39ef4b1a2f16812fb2364fa0960dff1b779d2cf"
+      },
+      "pages": [
+        32
+      ]
+    },
+    {
+      "asset": "assets/astra/enemy-10.png",
+      "sha256": "3dfedfb7d486ad792a40c96ebb06ffdc3090ac7db866d4a4e58fd6e12e89b837",
+      "source": {
+        "asset": "enemy-10.png",
+        "source": "NR src/metasprite.s + src/sprite_render.s; chr/mmc5/sprites_enemies.chr",
+        "detail": "Full native enemy pose and correct world palette, not a Kirby HUD emblem. Grey Cheep/Bloober use underwater neutral palette.",
+        "sha256": "3dfedfb7d486ad792a40c96ebb06ffdc3090ac7db866d4a4e58fd6e12e89b837",
+        "size": [
+          16,
+          24
+        ],
+        "source_archive_sha256": "81a9912e7001a8c3da3a374ac39ef4b1a2f16812fb2364fa0960dff1b779d2cf"
+      },
+      "pages": [
+        32
+      ]
+    },
+    {
+      "asset": "assets/astra/enemy-11.png",
+      "sha256": "efff5e97cb2fd55d88e01d7e0d6402014645df17891d7e1e228bfefd4cdc24d8",
+      "source": {
+        "asset": "enemy-11.png",
+        "source": "NR src/metasprite.s + src/sprite_render.s; chr/mmc5/sprites_enemies.chr",
+        "detail": "Full native enemy pose and correct world palette, not a Kirby HUD emblem. Grey Cheep/Bloober use underwater neutral palette.",
+        "sha256": "efff5e97cb2fd55d88e01d7e0d6402014645df17891d7e1e228bfefd4cdc24d8",
+        "size": [
+          16,
+          16
+        ],
+        "source_archive_sha256": "81a9912e7001a8c3da3a374ac39ef4b1a2f16812fb2364fa0960dff1b779d2cf"
+      },
+      "pages": [
+        32
+      ]
+    },
+    {
+      "asset": "assets/astra/enemy-12.png",
+      "sha256": "6e307ac0fa8ca49b8b14d785c6ca615b86afeb665c7545e2ba3800476550f32d",
+      "source": {
+        "asset": "enemy-12.png",
+        "source": "NR src/metasprite.s + src/sprite_render.s; chr/mmc5/sprites_enemies.chr",
+        "detail": "Full native enemy pose and correct world palette, not a Kirby HUD emblem. Grey Cheep/Bloober use underwater neutral palette.",
+        "sha256": "6e307ac0fa8ca49b8b14d785c6ca615b86afeb665c7545e2ba3800476550f32d",
+        "size": [
+          16,
+          23
+        ],
+        "source_archive_sha256": "81a9912e7001a8c3da3a374ac39ef4b1a2f16812fb2364fa0960dff1b779d2cf"
+      },
+      "pages": [
+        32
+      ]
+    },
+    {
+      "asset": "assets/astra/enemy-13.png",
+      "sha256": "c1f3ccb2709dcbc866db88641390994d88158403e649792d4a7c6b4d1b404e76",
+      "source": {
+        "asset": "enemy-13.png",
+        "source": "NR src/metasprite.s + src/sprite_render.s; chr/mmc5/sprites_enemies.chr",
+        "detail": "Full native enemy pose and correct world palette, not a Kirby HUD emblem. Grey Cheep/Bloober use underwater neutral palette.",
+        "sha256": "c1f3ccb2709dcbc866db88641390994d88158403e649792d4a7c6b4d1b404e76",
+        "size": [
+          14,
+          16
+        ],
+        "source_archive_sha256": "81a9912e7001a8c3da3a374ac39ef4b1a2f16812fb2364fa0960dff1b779d2cf"
+      },
+      "pages": [
+        32
+      ]
+    },
+    {
+      "asset": "assets/astra/enemy-14.png",
+      "sha256": "7837b2bd0b71b2a9b31f667154c04c120c35aa568c6b9cd6dcc0486c1cde5ffc",
+      "source": {
+        "asset": "enemy-14.png",
+        "source": "NR src/metasprite.s + src/sprite_render.s; chr/mmc5/sprites_enemies.chr",
+        "detail": "Full native enemy pose and correct world palette, not a Kirby HUD emblem. Grey Cheep/Bloober use underwater neutral palette.",
+        "sha256": "7837b2bd0b71b2a9b31f667154c04c120c35aa568c6b9cd6dcc0486c1cde5ffc",
+        "size": [
+          16,
+          14
+        ],
+        "source_archive_sha256": "81a9912e7001a8c3da3a374ac39ef4b1a2f16812fb2364fa0960dff1b779d2cf"
+      },
+      "pages": [
+        32
+      ]
+    },
+    {
+      "asset": "assets/astra/enemy-2.png",
+      "sha256": "2874750ca819215d3ca9c7801ee08bbdd30805eda6f7d026f48c17f77534a924",
+      "source": {
+        "asset": "enemy-2.png",
+        "source": "NR src/metasprite.s + src/sprite_render.s; chr/mmc5/sprites_enemies.chr",
+        "detail": "Full native enemy pose and correct world palette, not a Kirby HUD emblem. Grey Cheep/Bloober use underwater neutral palette.",
+        "sha256": "2874750ca819215d3ca9c7801ee08bbdd30805eda6f7d026f48c17f77534a924",
+        "size": [
+          16,
+          23
+        ],
+        "source_archive_sha256": "81a9912e7001a8c3da3a374ac39ef4b1a2f16812fb2364fa0960dff1b779d2cf"
+      },
+      "pages": [
+        32
+      ]
+    },
+    {
+      "asset": "assets/astra/enemy-3.png",
+      "sha256": "d38a68e325c1fb22e2a85789f51dc9ab5efcd7c9cdf1c2a081dd4800f675e5ee",
+      "source": {
+        "asset": "enemy-3.png",
+        "source": "NR src/metasprite.s + src/sprite_render.s; chr/mmc5/sprites_enemies.chr",
+        "detail": "Full native enemy pose and correct world palette, not a Kirby HUD emblem. Grey Cheep/Bloober use underwater neutral palette.",
+        "sha256": "d38a68e325c1fb22e2a85789f51dc9ab5efcd7c9cdf1c2a081dd4800f675e5ee",
+        "size": [
+          16,
+          23
+        ],
+        "source_archive_sha256": "81a9912e7001a8c3da3a374ac39ef4b1a2f16812fb2364fa0960dff1b779d2cf"
+      },
+      "pages": [
+        32
+      ]
+    },
+    {
+      "asset": "assets/astra/enemy-4.png",
+      "sha256": "bbe6cfa866b75f530cd832252b462a66246c3fac726fb221e3e2a656c8c2cb1e",
+      "source": {
+        "asset": "enemy-4.png",
+        "source": "NR src/metasprite.s + src/sprite_render.s; chr/mmc5/sprites_enemies.chr",
+        "detail": "Full native enemy pose and correct world palette, not a Kirby HUD emblem. Grey Cheep/Bloober use underwater neutral palette.",
+        "sha256": "bbe6cfa866b75f530cd832252b462a66246c3fac726fb221e3e2a656c8c2cb1e",
+        "size": [
+          16,
+          16
+        ],
+        "source_archive_sha256": "81a9912e7001a8c3da3a374ac39ef4b1a2f16812fb2364fa0960dff1b779d2cf"
+      },
+      "pages": [
+        32
+      ]
+    },
+    {
+      "asset": "assets/astra/enemy-5.png",
+      "sha256": "379577291d18259fe91f13d15236be47ec5dba6efeca35fe7d8d5effb3de0702",
+      "source": {
+        "asset": "enemy-5.png",
+        "source": "NR src/metasprite.s + src/sprite_render.s; chr/mmc5/sprites_enemies.chr",
+        "detail": "Full native enemy pose and correct world palette, not a Kirby HUD emblem. Grey Cheep/Bloober use underwater neutral palette.",
+        "sha256": "379577291d18259fe91f13d15236be47ec5dba6efeca35fe7d8d5effb3de0702",
+        "size": [
+          16,
+          24
+        ],
+        "source_archive_sha256": "81a9912e7001a8c3da3a374ac39ef4b1a2f16812fb2364fa0960dff1b779d2cf"
+      },
+      "pages": [
+        32
+      ]
+    },
+    {
+      "asset": "assets/astra/enemy-6.png",
+      "sha256": "7d0b10840f73c6eef21af26c539615d6b6a5a72085a1e79c0b906ceb34f1b909",
+      "source": {
+        "asset": "enemy-6.png",
+        "source": "NR src/metasprite.s + src/sprite_render.s; chr/mmc5/sprites_enemies.chr",
+        "detail": "Full native enemy pose and correct world palette, not a Kirby HUD emblem. Grey Cheep/Bloober use underwater neutral palette.",
+        "sha256": "7d0b10840f73c6eef21af26c539615d6b6a5a72085a1e79c0b906ceb34f1b909",
+        "size": [
+          16,
+          24
+        ],
+        "source_archive_sha256": "81a9912e7001a8c3da3a374ac39ef4b1a2f16812fb2364fa0960dff1b779d2cf"
+      },
+      "pages": [
+        32
+      ]
+    },
+    {
+      "asset": "assets/astra/enemy-7.png",
+      "sha256": "02e7151485b8b72af8de2329d23eb6f2fcff1522dccc06934f1a58046e442349",
+      "source": {
+        "asset": "enemy-7.png",
+        "source": "NR src/metasprite.s + src/sprite_render.s; chr/mmc5/sprites_enemies.chr",
+        "detail": "Full native enemy pose and correct world palette, not a Kirby HUD emblem. Grey Cheep/Bloober use underwater neutral palette.",
+        "sha256": "02e7151485b8b72af8de2329d23eb6f2fcff1522dccc06934f1a58046e442349",
+        "size": [
+          16,
+          16
+        ],
+        "source_archive_sha256": "81a9912e7001a8c3da3a374ac39ef4b1a2f16812fb2364fa0960dff1b779d2cf"
+      },
+      "pages": [
+        32
+      ]
+    },
+    {
+      "asset": "assets/astra/enemy-8.png",
+      "sha256": "7ed6040a24141860e3b5e01978f225dc6591a855464f7b13179354bc4d24fc18",
+      "source": {
+        "asset": "enemy-8.png",
+        "source": "NR src/metasprite.s + src/sprite_render.s; chr/mmc5/sprites_enemies.chr",
+        "detail": "Full native enemy pose and correct world palette, not a Kirby HUD emblem. Grey Cheep/Bloober use underwater neutral palette.",
+        "sha256": "7ed6040a24141860e3b5e01978f225dc6591a855464f7b13179354bc4d24fc18",
+        "size": [
+          16,
+          16
+        ],
+        "source_archive_sha256": "81a9912e7001a8c3da3a374ac39ef4b1a2f16812fb2364fa0960dff1b779d2cf"
+      },
+      "pages": [
+        32
+      ]
+    },
+    {
+      "asset": "assets/astra/enemy-9.png",
+      "sha256": "db163c6c596594bbc0a65dfb30c3d8b91b03184b28b5bddba0f2079dd149b8ff",
+      "source": {
+        "asset": "enemy-9.png",
+        "source": "NR src/metasprite.s + src/sprite_render.s; chr/mmc5/sprites_enemies.chr",
+        "detail": "Full native enemy pose and correct world palette, not a Kirby HUD emblem. Grey Cheep/Bloober use underwater neutral palette.",
+        "sha256": "db163c6c596594bbc0a65dfb30c3d8b91b03184b28b5bddba0f2079dd149b8ff",
+        "size": [
+          16,
+          23
+        ],
+        "source_archive_sha256": "81a9912e7001a8c3da3a374ac39ef4b1a2f16812fb2364fa0960dff1b779d2cf"
+      },
+      "pages": [
+        32
+      ]
+    },
+    {
+      "asset": "assets/edition/flower.png",
+      "sha256": "683831c1c1e2a5ca8abc1ce45c4dad0ac5b778cb9a7a8c9cd62c257f9c610b45",
+      "source": {
+        "asset": "flower.png",
+        "source": "src/metasprite.s :: POWERUP / chr/mmc5/sprites_misc.chr",
+        "source_sha256": "ed45a33b98ec525b5197022178765ccfb6c7bc2b17be6d7d15388b33a2c2b1af",
+        "details": "Actual native SMB item tiles/attributes. Animated color phase shown; the effect depends on the selected character.",
+        "width": 16,
+        "height": 16,
+        "sha256": "683831c1c1e2a5ca8abc1ce45c4dad0ac5b778cb9a7a8c9cd62c257f9c610b45"
+      },
+      "pages": [
+        5,
+        13,
+        15
+      ]
+    },
+    {
+      "asset": "assets/edition/hero-alucard.png",
+      "sha256": "f448d9591cdf899dae4cb018ff32d98e600ecb23c4ea10dad8e4fe8e708a072f",
+      "source": {
+        "asset": "hero-alucard.png",
+        "source": "build\\verification\\player-guide-magazine-2026-10-24\\portrait-capture\\build\\verification\\alucard.png",
+        "source_sha256": "f9b2595ac4c99a2c6f29d7281381c6f4bb3225e9f586f7d2cc023979d44ae646",
+        "details": "NR native sprite pixels reconstructed from actual OAM/CHR and hardware palette. Every opaque pixel preserved and matched to screenshot; no color-key subtraction.",
+        "width": 17,
+        "height": 31,
+        "sha256": "f448d9591cdf899dae4cb018ff32d98e600ecb23c4ea10dad8e4fe8e708a072f",
+        "opaque_pixels": 359
+      },
+      "pages": [
+        3,
+        21
+      ]
+    },
+    {
+      "asset": "assets/edition/hero-bass.png",
+      "sha256": "50d5d4a45236cb8953f159909959a57ff7d5c13b3ff18368bc7a71bc8603510d",
+      "source": {
+        "asset": "hero-bass.png",
+        "source": "build\\verification\\player-guide-magazine-2026-10-24\\portrait-capture\\build\\verification\\bass.png",
+        "source_sha256": "b8c53a2590f5a39296bd28208a6459e78316126108eefcfdf36bc29a6e4e6bb6",
+        "details": "NR native sprite pixels reconstructed from actual OAM/CHR and hardware palette. Every opaque pixel preserved and matched to screenshot; no color-key subtraction.",
+        "width": 21,
+        "height": 26,
+        "sha256": "50d5d4a45236cb8953f159909959a57ff7d5c13b3ff18368bc7a71bc8603510d",
+        "opaque_pixels": 411
+      },
+      "pages": [
+        3,
+        9
+      ]
+    },
+    {
+      "asset": "assets/edition/hero-bill.png",
+      "sha256": "cc4b8f8628c4b6280d8e56e9396b3a224840af6ba2fac131fad8e4ab8d40dcb7",
+      "source": {
+        "asset": "hero-bill.png",
+        "source": "build\\verification\\player-guide-magazine-2026-10-24\\portrait-capture\\build\\verification\\bill.png",
+        "source_sha256": "649d7084969fe6731d749c30ef778702080c036d6505da0d82d32d4fdbb2ddc5",
+        "details": "NR native sprite pixels reconstructed from actual OAM/CHR and hardware palette. Every opaque pixel preserved and matched to screenshot; no color-key subtraction.",
+        "width": 23,
+        "height": 34,
+        "sha256": "cc4b8f8628c4b6280d8e56e9396b3a224840af6ba2fac131fad8e4ab8d40dcb7",
+        "opaque_pixels": 328
+      },
+      "pages": [
+        3,
+        4,
+        12,
+        13
+      ]
+    },
+    {
+      "asset": "assets/edition/hero-chip.png",
+      "sha256": "4f92563aaec0ecf703eaa43d72239e46f5e9790b4d5b69287c8ae20a7986af2c",
+      "source": {
+        "asset": "hero-chip.png",
+        "source": "build\\verification\\player-guide-magazine-2026-10-24\\portrait-capture\\build\\verification\\chip.png",
+        "source_sha256": "14c3e89c837b094ea52140ed2a477c0dd1fc1034b0b6eadeaee95a60be574bf5",
+        "details": "NR native sprite pixels reconstructed from actual OAM/CHR and hardware palette. Every opaque pixel preserved and matched to screenshot; no color-key subtraction.",
+        "width": 16,
+        "height": 24,
+        "sha256": "4f92563aaec0ecf703eaa43d72239e46f5e9790b4d5b69287c8ae20a7986af2c",
+        "opaque_pixels": 270
+      },
+      "pages": [
+        3,
+        34
+      ]
+    },
+    {
+      "asset": "assets/edition/hero-dale.png",
+      "sha256": "08cf9e986b36681a932a18bda4c7372783d4263dd263024ee994bc00ac70250e",
+      "source": {
+        "asset": "hero-dale.png",
+        "source": "build\\verification\\player-guide-magazine-2026-10-24\\portrait-capture\\build\\verification\\dale.png",
+        "source_sha256": "aa2f314e0190a2cdac38adca625f991f5a200e8308aa405653a778187c31b078",
+        "details": "NR native sprite pixels reconstructed from actual OAM/CHR and hardware palette. Every opaque pixel preserved and matched to screenshot; no color-key subtraction.",
+        "width": 16,
+        "height": 23,
+        "sha256": "08cf9e986b36681a932a18bda4c7372783d4263dd263024ee994bc00ac70250e",
+        "opaque_pixels": 244
+      },
+      "pages": [
+        34
+      ]
+    },
+    {
+      "asset": "assets/edition/hero-darkwing.png",
+      "sha256": "6e559053aa73f8ba2f9158210c177c93e6da62fc66388b3b7d9bc1086c799494",
+      "source": {
+        "asset": "hero-darkwing.png",
+        "source": "build\\verification\\player-guide-magazine-2026-10-24\\portrait-capture\\build\\verification\\darkwing.png",
+        "source_sha256": "034d0196f830352a4e4a85a1a3e713882801879b50c39d9ea98ee824cb9bd0f0",
+        "details": "NR native sprite pixels reconstructed from actual OAM/CHR and hardware palette. Every opaque pixel preserved and matched to screenshot; no color-key subtraction.",
+        "width": 25,
+        "height": 27,
+        "sha256": "6e559053aa73f8ba2f9158210c177c93e6da62fc66388b3b7d9bc1086c799494",
+        "opaque_pixels": 422
+      },
+      "pages": [
+        3,
+        29
+      ]
+    },
+    {
+      "asset": "assets/edition/hero-donatello.png",
+      "sha256": "952da8adfae092f1cd137b96530ba08544dd584672217c7e4d796e5df489c96f",
+      "source": {
+        "asset": "hero-donatello.png",
+        "source": "build\\verification\\player-guide-magazine-2026-10-24\\portrait-capture\\build\\verification\\donatello.png",
+        "source_sha256": "53df0d5e27f4fd9556eab1549dae99442ea27e7790ff0053f6f7d74adf41ecca",
+        "details": "NR native sprite pixels reconstructed from actual OAM/CHR and hardware palette. Every opaque pixel preserved and matched to screenshot; no color-key subtraction.",
+        "width": 59,
+        "height": 31,
+        "sha256": "952da8adfae092f1cd137b96530ba08544dd584672217c7e4d796e5df489c96f",
+        "opaque_pixels": 485
+      },
+      "pages": [
+        42
+      ]
+    },
+    {
+      "asset": "assets/edition/hero-grant.png",
+      "sha256": "8de663cd3055307e5d0952e63ed94b88d827ecb0dc0c2a031b829959a25650cc",
+      "source": {
+        "asset": "hero-grant.png",
+        "source": "build\\verification\\player-guide-magazine-2026-10-24\\portrait-capture\\build\\verification\\grant.png",
+        "source_sha256": "ab59480f76926be755a62ab1d81aa344e41377db9ad768ec47516839452b5498",
+        "details": "NR native sprite pixels reconstructed from actual OAM/CHR and hardware palette. Every opaque pixel preserved and matched to screenshot; no color-key subtraction.",
+        "width": 20,
+        "height": 25,
+        "sha256": "8de663cd3055307e5d0952e63ed94b88d827ecb0dc0c2a031b829959a25650cc",
+        "opaque_pixels": 277
+      },
+      "pages": [
+        3,
+        19
+      ]
+    },
+    {
+      "asset": "assets/edition/hero-kirby.png",
+      "sha256": "f079254cb712e39e3943382f656f90cd3d37ef575e692a9283531da5df31e628",
+      "source": {
+        "asset": "hero-kirby.png",
+        "source": "build\\verification\\player-guide-magazine-2026-10-24\\portrait-capture\\build\\verification\\kirby.png",
+        "source_sha256": "21fc43206c2dfcf911d40740871f6e47b33925894d62bec2c6652bbdd09c63bf",
+        "details": "NR native sprite pixels reconstructed from actual OAM/CHR and hardware palette. Every opaque pixel preserved and matched to screenshot; no color-key subtraction.",
+        "width": 16,
+        "height": 16,
+        "sha256": "f079254cb712e39e3943382f656f90cd3d37ef575e692a9283531da5df31e628",
+        "opaque_pixels": 205
+      },
+      "pages": [
+        1,
+        3,
+        31
+      ]
+    },
+    {
+      "asset": "assets/edition/hero-lance.png",
+      "sha256": "1fd1c44d8a5d2f399df759f9bc04aa1ac24cd547cc8fbddea6dffc7b5590af16",
+      "source": {
+        "asset": "hero-lance.png",
+        "source": "build\\verification\\player-guide-magazine-2026-10-24\\portrait-capture\\build\\verification\\lance.png",
+        "source_sha256": "4c92974e976eaa790a50f898e74493e925101961e79d3aa2d50190c6f1ad3900",
+        "details": "NR native sprite pixels reconstructed from actual OAM/CHR and hardware palette. Every opaque pixel preserved and matched to screenshot; no color-key subtraction.",
+        "width": 23,
+        "height": 34,
+        "sha256": "1fd1c44d8a5d2f399df759f9bc04aa1ac24cd547cc8fbddea6dffc7b5590af16",
+        "opaque_pixels": 328
+      },
+      "pages": [
+        12
+      ]
+    },
+    {
+      "asset": "assets/edition/hero-leonardo.png",
+      "sha256": "82698bc6711d5441395622d082a4da38d96a07ef32c6f3fb661a402fa2b9efe9",
+      "source": {
+        "asset": "hero-leonardo.png",
+        "source": "build\\verification\\player-guide-magazine-2026-10-24\\portrait-capture\\build\\verification\\leonardo.png",
+        "source_sha256": "ac8e5d83fd374d9d4f03c4ed759ff20c2498208a0e4dbd2dfd15a2796c96d66e",
+        "details": "NR native sprite pixels reconstructed from actual OAM/CHR and hardware palette. Every opaque pixel preserved and matched to screenshot; no color-key subtraction.",
+        "width": 43,
+        "height": 31,
+        "sha256": "82698bc6711d5441395622d082a4da38d96a07ef32c6f3fb661a402fa2b9efe9",
+        "opaque_pixels": 436
+      },
+      "pages": [
+        3,
+        42
+      ]
+    },
+    {
+      "asset": "assets/edition/hero-link.png",
+      "sha256": "b50af998c728db3a94c7ad6510c105409cc60896abd4b6dea35a16e75119341c",
+      "source": {
+        "asset": "hero-link.png",
+        "source": "build\\verification\\player-guide-magazine-2026-10-24\\portrait-capture\\build\\verification\\link.png",
+        "source_sha256": "79c3b914ab96bf25ce02b3c96eb0b9b8a1d67070be5599f4211088cabd124eb4",
+        "details": "NR native sprite pixels reconstructed from actual OAM/CHR and hardware palette. Every opaque pixel preserved and matched to screenshot; no color-key subtraction.",
+        "width": 15,
+        "height": 16,
+        "sha256": "b50af998c728db3a94c7ad6510c105409cc60896abd4b6dea35a16e75119341c",
+        "opaque_pixels": 161
+      },
+      "pages": [
+        1,
+        3,
+        4,
+        14
+      ]
+    },
+    {
+      "asset": "assets/edition/hero-little-mac.png",
+      "sha256": "779f66e14c8fbe89df5fbc8861dce224eb39107da2fcef1abacc620232460efd",
+      "source": {
+        "asset": "hero-little-mac.png",
+        "source": "build\\verification\\player-guide-magazine-2026-10-24\\portrait-capture\\build\\verification\\little-mac.png",
+        "source_sha256": "0bcacbb08c5cd1831858609339ab6cddec109fc3f4119c2216491c4eef70b491",
+        "details": "NR native sprite pixels reconstructed from actual OAM/CHR and hardware palette. Every opaque pixel preserved and matched to screenshot; no color-key subtraction.",
+        "width": 16,
+        "height": 43,
+        "sha256": "779f66e14c8fbe89df5fbc8861dce224eb39107da2fcef1abacc620232460efd",
+        "opaque_pixels": 428
+      },
+      "pages": [
+        3,
+        35
+      ]
+    },
+    {
+      "asset": "assets/edition/hero-luigi.png",
+      "sha256": "52615ba5c23be9068cf5a942b05b662df954ca242b59884ffebc09fb34bd6cbc",
+      "source": {
+        "asset": "hero-luigi.png",
+        "source": "build\\verification\\player-guide-magazine-2026-10-24\\portrait-capture\\build\\verification\\luigi.png",
+        "source_sha256": "7e26e1517d01781326990cfc172f32c1cb80ad72336bf16c73d9a02299fdd517",
+        "details": "NR native sprite pixels reconstructed from actual OAM/CHR and hardware palette. Every opaque pixel preserved and matched to screenshot; no color-key subtraction.",
+        "width": 12,
+        "height": 16,
+        "sha256": "52615ba5c23be9068cf5a942b05b662df954ca242b59884ffebc09fb34bd6cbc",
+        "opaque_pixels": 143
+      },
+      "pages": [
+        6
+      ]
+    },
+    {
+      "asset": "assets/edition/hero-mario.png",
+      "sha256": "37e8890136a40f32610d911d733fe6060f07f54de0ca492eb5aba3f13611759d",
+      "source": {
+        "asset": "hero-mario.png",
+        "source": "build\\verification\\player-guide-magazine-2026-10-24\\portrait-capture\\build\\verification\\mario.png",
+        "source_sha256": "71e68a141948da82fe16ab2198cbe0e2c9d7cf643d8f8c4899e758cd9ddd6611",
+        "details": "NR native sprite pixels reconstructed from actual OAM/CHR and hardware palette. Every opaque pixel preserved and matched to screenshot; no color-key subtraction.",
+        "width": 12,
+        "height": 16,
+        "sha256": "37e8890136a40f32610d911d733fe6060f07f54de0ca492eb5aba3f13611759d",
+        "opaque_pixels": 143
+      },
+      "pages": [
+        1,
+        3,
+        4,
+        6
+      ]
+    },
+    {
+      "asset": "assets/edition/hero-mega-man.png",
+      "sha256": "ab6d1aee89c0a813697aaa4370791e83fa8ab0676323d9c05a02fd014cee6c0c",
+      "source": {
+        "asset": "hero-mega-man.png",
+        "source": "build\\verification\\player-guide-magazine-2026-10-24\\portrait-capture\\build\\verification\\mega-man.png",
+        "source_sha256": "a384781c7579263d35342e4b202e248039eb3895c4297d13014cd6a4fb7cc3fb",
+        "details": "NR native sprite pixels reconstructed from actual OAM/CHR and hardware palette. Every opaque pixel preserved and matched to screenshot; no color-key subtraction.",
+        "width": 20,
+        "height": 24,
+        "sha256": "ab6d1aee89c0a813697aaa4370791e83fa8ab0676323d9c05a02fd014cee6c0c",
+        "opaque_pixels": 348
+      },
+      "pages": [
+        1,
+        3,
+        4,
+        7
+      ]
+    },
+    {
+      "asset": "assets/astra/hero-meta-knight.png",
+      "sha256": "7a5e529cbfa3570014e665d2381cdc461e35ef8c01d7dc9637f22ac6f50a5af0",
+      "source": {
+        "asset": "hero-meta-knight.png",
+        "source": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\checkpoints\\meta-knight-grounded-nu\\candidate.nes",
+        "source_sha256": "b90ede8fa3afaceefe3ef3090424f4d6b6662c139a1a3d6df52e64b7ec00b240",
+        "sha256": "7a5e529cbfa3570014e665d2381cdc461e35ef8c01d7dc9637f22ac6f50a5af0",
+        "size": [
+          23,
+          16
+        ],
+        "linked_pose": {
+          "pose": 8,
+          "page": 356,
+          "pixels": 269,
+          "bounds": [
+            0,
+            16,
+            23,
+            16
+          ]
+        },
+        "evidence": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-meta-knight-native-audit\\v7\\check\\proof.json",
+        "evidence_sha256": "10b92d822263e87d0397184ad8a60aaf3e9dc77a01e1eb0c8cbabec3ad79668c",
+        "detail": "Linked pose 8, native bitplane alpha and reverse-descriptor renderer priority. Exact body palette36/14/0F; sword world hues30/27/16. Mesen RGB palette, no color-key removal or invented pixels.",
+        "source_archive_sha256": "7ba84c9d09984cf929d6c68a67ff9fa2d9f192928ea157906bf0345383a2f4f7",
+        "checkpoint": "meta-knight-grounded-nu"
+      },
+      "pages": [
+        3,
+        33
+      ]
+    },
+    {
+      "asset": "assets/edition/hero-michelangelo.png",
+      "sha256": "2b14d304efc0ce77763400b049a3059a680e5bd9609ac3dc88d598b1eb5afe9f",
+      "source": {
+        "asset": "hero-michelangelo.png",
+        "source": "build\\verification\\player-guide-magazine-2026-10-24\\portrait-capture\\build\\verification\\michelangelo.png",
+        "source_sha256": "d720ad2b858a0e371b1d3fb20f8d6987e3a2f3349c32d0aff7a947a64bb3a20f",
+        "details": "NR native sprite pixels reconstructed from actual OAM/CHR and hardware palette. Every opaque pixel preserved and matched to screenshot; no color-key subtraction.",
+        "width": 30,
+        "height": 39,
+        "sha256": "2b14d304efc0ce77763400b049a3059a680e5bd9609ac3dc88d598b1eb5afe9f",
+        "opaque_pixels": 428
+      },
+      "pages": [
+        42
+      ]
+    },
+    {
+      "asset": "assets/edition/hero-mike-jones.png",
+      "sha256": "2950a4e8b894754e34c18a1c277a0c62d4be2a426c6a1274e8791fe931339fc5",
+      "source": {
+        "asset": "hero-mike-jones.png",
+        "source": "build\\verification\\player-guide-magazine-2026-10-24\\portrait-capture\\build\\verification\\mike-jones.png",
+        "source_sha256": "650baf58818f01ca44692d262e6696eca340ed9554b07f5ab1d15522a6deb427",
+        "details": "NR native sprite pixels reconstructed from actual OAM/CHR and hardware palette. Every opaque pixel preserved and matched to screenshot; no color-key subtraction.",
+        "width": 14,
+        "height": 30,
+        "sha256": "2950a4e8b894754e34c18a1c277a0c62d4be2a426c6a1274e8791fe931339fc5",
+        "opaque_pixels": 276
+      },
+      "pages": [
+        3
+      ]
+    },
+    {
+      "asset": "assets/edition/hero-octopus.png",
+      "sha256": "155cb409a5c90b914429cbacae5d66690d7a3e50e99e8c3cf18e9ffe2a7fa9c4",
+      "source": {
+        "asset": "hero-octopus.png",
+        "source": "build\\verification\\player-guide-magazine-2026-10-24\\portrait-capture\\build\\verification\\octopus.png",
+        "source_sha256": "78b8293071260220423103dad588982473852c659a5b47d86974090b8714437b",
+        "details": "NR native sprite pixels reconstructed from actual OAM/CHR and hardware palette. Every opaque pixel preserved and matched to screenshot; no color-key subtraction.",
+        "width": 23,
+        "height": 16,
+        "sha256": "155cb409a5c90b914429cbacae5d66690d7a3e50e99e8c3cf18e9ffe2a7fa9c4",
+        "opaque_pixels": 226
+      },
+      "pages": [
+        3,
+        44,
+        48
+      ]
+    },
+    {
+      "asset": "assets/edition/hero-pentarou.png",
+      "sha256": "b152848acdeb942cb101dd3e8f16e4767507a3b43f5c749a775915b1c64a180a",
+      "source": {
+        "asset": "hero-pentarou.png",
+        "source": "build\\verification\\player-guide-magazine-2026-10-24\\portrait-capture\\build\\verification\\pentarou.png",
+        "source_sha256": "f08b0175317ef384dd1835a97824eae8c6f50f5f39b5377650893fa542509221",
+        "details": "NR native sprite pixels reconstructed from actual OAM/CHR and hardware palette. Every opaque pixel preserved and matched to screenshot; no color-key subtraction.",
+        "width": 20,
+        "height": 12,
+        "sha256": "b152848acdeb942cb101dd3e8f16e4767507a3b43f5c749a775915b1c64a180a",
+        "opaque_pixels": 166
+      },
+      "pages": [
+        44,
+        48
+      ]
+    },
+    {
+      "asset": "assets/edition/hero-pit.png",
+      "sha256": "5e9bbd16927a63072abb86ad51d5288225eab464c5b6f4055c54dadcce0d2124",
+      "source": {
+        "asset": "hero-pit.png",
+        "source": "build\\verification\\player-guide-magazine-2026-10-24\\portrait-capture\\build\\verification\\pit.png",
+        "source_sha256": "e8de53913f96c5e46b6895c7faff40bad93611d209525d9df4350faf98176829",
+        "details": "NR native sprite pixels reconstructed from actual OAM/CHR and hardware palette. Every opaque pixel preserved and matched to screenshot; no color-key subtraction.",
+        "width": 15,
+        "height": 24,
+        "sha256": "5e9bbd16927a63072abb86ad51d5288225eab464c5b6f4055c54dadcce0d2124",
+        "opaque_pixels": 223
+      },
+      "pages": [
+        3,
+        22
+      ]
+    },
+    {
+      "asset": "assets/edition/hero-proto-man.png",
+      "sha256": "5156d54fda30b96ab282f31d6b16ad407031ad94f8131cfc3a47692974b4192f",
+      "source": {
+        "asset": "hero-proto-man.png",
+        "source": "build\\verification\\player-guide-magazine-2026-10-24\\portrait-capture\\build\\verification\\proto-man.png",
+        "source_sha256": "2eef91586f5651c1b39477067ec90e7791f3cc5f40a286bc8ad9f60c485789b2",
+        "details": "NR native sprite pixels reconstructed from actual OAM/CHR and hardware palette. Every opaque pixel preserved and matched to screenshot; no color-key subtraction.",
+        "width": 22,
+        "height": 24,
+        "sha256": "5156d54fda30b96ab282f31d6b16ad407031ad94f8131cfc3a47692974b4192f",
+        "opaque_pixels": 361
+      },
+      "pages": [
+        7
+      ]
+    },
+    {
+      "asset": "assets/edition/hero-raphael.png",
+      "sha256": "6ef2775e033a03b39557286e6602a1fb21bc4a1b0ff59af4e7040ba483c686a4",
+      "source": {
+        "asset": "hero-raphael.png",
+        "source": "build\\verification\\player-guide-magazine-2026-10-24\\portrait-capture\\build\\verification\\raphael.png",
+        "source_sha256": "4dbec8db3571ef63df032baa221a69bb67f0d9433c3acb0093eb148d0261c8fd",
+        "details": "NR native sprite pixels reconstructed from actual OAM/CHR and hardware palette. Every opaque pixel preserved and matched to screenshot; no color-key subtraction.",
+        "width": 16,
+        "height": 40,
+        "sha256": "6ef2775e033a03b39557286e6602a1fb21bc4a1b0ff59af4e7040ba483c686a4",
+        "opaque_pixels": 353
+      },
+      "pages": [
+        42
+      ]
+    },
+    {
+      "asset": "assets/edition/hero-roll.png",
+      "sha256": "e90efa924dbad288bb4456d11f6b5ef28711eaf344a75d0e0b6136d5a9a1313f",
+      "source": {
+        "asset": "hero-roll.png",
+        "source": "build\\verification\\player-guide-magazine-2026-10-24\\portrait-capture\\build\\verification\\roll.png",
+        "source_sha256": "318616232793c77f5d15f8725f6846f7b1401db26d62d34e2521b50ff9245e52",
+        "details": "NR native sprite pixels reconstructed from actual OAM/CHR and hardware palette. Every opaque pixel preserved and matched to screenshot; no color-key subtraction.",
+        "width": 18,
+        "height": 28,
+        "sha256": "e90efa924dbad288bb4456d11f6b5ef28711eaf344a75d0e0b6136d5a9a1313f",
+        "opaque_pixels": 388
+      },
+      "pages": [
+        3,
+        43,
+        48
+      ]
+    },
+    {
+      "asset": "assets/edition/hero-rygar.png",
+      "sha256": "17ae26d676f4c27411955e36e56244a26189ccaf1bf16cf1585806997250e191",
+      "source": {
+        "asset": "hero-rygar.png",
+        "source": "build\\verification\\player-guide-magazine-2026-10-24\\portrait-capture\\build\\verification\\rygar.png",
+        "source_sha256": "1e56ba98344db516115b9599f7f6d374e4eb4bd456a59489fc616b37412fcf1d",
+        "details": "NR native sprite pixels reconstructed from actual OAM/CHR and hardware palette. Every opaque pixel preserved and matched to screenshot; no color-key subtraction.",
+        "width": 16,
+        "height": 30,
+        "sha256": "17ae26d676f4c27411955e36e56244a26189ccaf1bf16cf1585806997250e191",
+        "opaque_pixels": 296
+      },
+      "pages": [
+        3,
+        23
+      ]
+    },
+    {
+      "asset": "assets/edition/hero-ryu.png",
+      "sha256": "030f8d89ddc58f6a1a889d675accf43b634cbc5c41bdbd3e5c3e54a02245d6bd",
+      "source": {
+        "asset": "hero-ryu.png",
+        "source": "build\\verification\\player-guide-magazine-2026-10-24\\portrait-capture\\build\\verification\\ryu.png",
+        "source_sha256": "9a13167404c7347aae49e9db1fb5750d3dabcb5dc80ab6b3147200fe4789fcb1",
+        "details": "NR native sprite pixels reconstructed from actual OAM/CHR and hardware palette. Every opaque pixel preserved and matched to screenshot; no color-key subtraction.",
+        "width": 17,
+        "height": 32,
+        "sha256": "030f8d89ddc58f6a1a889d675accf43b634cbc5c41bdbd3e5c3e54a02245d6bd",
+        "opaque_pixels": 337
+      },
+      "pages": [
+        3,
+        24
+      ]
+    },
+    {
+      "asset": "assets/edition/hero-samus.png",
+      "sha256": "d07f118cd5e980874b270355a077e9949692080c126ed3ea5eaa7dcb893a440f",
+      "source": {
+        "asset": "hero-samus.png",
+        "source": "build\\verification\\player-guide-magazine-2026-10-24\\portrait-capture\\build\\verification\\samus.png",
+        "source_sha256": "a0a9ce4fcf119edfcda217bfd50fdf1907d4e2f407309b3356655386e55d0d21",
+        "details": "NR native sprite pixels reconstructed from actual OAM/CHR and hardware palette. Every opaque pixel preserved and matched to screenshot; no color-key subtraction.",
+        "width": 20,
+        "height": 32,
+        "sha256": "d07f118cd5e980874b270355a077e9949692080c126ed3ea5eaa7dcb893a440f",
+        "opaque_pixels": 279
+      },
+      "pages": [
+        1,
+        3,
+        4,
+        10
+      ]
+    },
+    {
+      "asset": "assets/edition/hero-scrooge.png",
+      "sha256": "2cb8ba3d301456abc276a26685f9ac1cfcfe8c94f438f32afd355c0a7d589453",
+      "source": {
+        "asset": "hero-scrooge.png",
+        "source": "build\\verification\\player-guide-magazine-2026-10-24\\portrait-capture\\build\\verification\\scrooge.png",
+        "source_sha256": "20d651a6e1dd44a811c25dfdfddc59fda5fe632b96c6c1ff36f341e4f472a9c6",
+        "details": "NR native sprite pixels reconstructed from actual OAM/CHR and hardware palette. Every opaque pixel preserved and matched to screenshot; no color-key subtraction.",
+        "width": 24,
+        "height": 29,
+        "sha256": "2cb8ba3d301456abc276a26685f9ac1cfcfe8c94f438f32afd355c0a7d589453",
+        "opaque_pixels": 374
+      },
+      "pages": [
+        3,
+        28
+      ]
+    },
+    {
+      "asset": "assets/edition/hero-simon.png",
+      "sha256": "06e4aafe696c2fe194ad139f1ba234ed8bb4a9801e26472d29338c25f17951d7",
+      "source": {
+        "asset": "hero-simon.png",
+        "source": "build\\verification\\player-guide-magazine-2026-10-24\\portrait-capture\\build\\verification\\simon.png",
+        "source_sha256": "e0260c45e9a47e3054b2f2f3ad9f0e802d7af8b2bf1e34a784938c876c5a3e25",
+        "details": "NR native sprite pixels reconstructed from actual OAM/CHR and hardware palette. Every opaque pixel preserved and matched to screenshot; no color-key subtraction.",
+        "width": 16,
+        "height": 30,
+        "sha256": "06e4aafe696c2fe194ad139f1ba234ed8bb4a9801e26472d29338c25f17951d7",
+        "opaque_pixels": 289
+      },
+      "pages": [
+        1,
+        3,
+        4,
+        17
+      ]
+    },
+    {
+      "asset": "assets/edition/hero-smb3-luigi.png",
+      "sha256": "3388f04d11e39b2656dd98ce95a4ae98a3aeba1940a46dae379406f28e17e243",
+      "source": {
+        "asset": "hero-smb3-luigi.png",
+        "source": "build\\verification\\player-guide-magazine-2026-10-24\\portrait-capture\\build\\verification\\smb3-luigi.png",
+        "source_sha256": "ac0b642016c74ff958811dff26f4d902d3c04dadd793deb313ccfca5edcd53d4",
+        "details": "NR native sprite pixels reconstructed from actual OAM/CHR and hardware palette. Every opaque pixel preserved and matched to screenshot; no color-key subtraction.",
+        "width": 12,
+        "height": 15,
+        "sha256": "3388f04d11e39b2656dd98ce95a4ae98a3aeba1940a46dae379406f28e17e243",
+        "opaque_pixels": 138
+      },
+      "pages": [
+        38
+      ]
+    },
+    {
+      "asset": "assets/edition/hero-smb3-mario.png",
+      "sha256": "a7a38a331158dbefe4ea0c1d8351fb561912e44fd48eb441c402e9bc22dde18d",
+      "source": {
+        "asset": "hero-smb3-mario.png",
+        "source": "build\\verification\\player-guide-magazine-2026-10-24\\portrait-capture\\build\\verification\\smb3-mario.png",
+        "source_sha256": "5ad16457070c54fb6e03579ae44be3cc51f1df6fa7399aa9876d5df22f5baf10",
+        "details": "NR native sprite pixels reconstructed from actual OAM/CHR and hardware palette. Every opaque pixel preserved and matched to screenshot; no color-key subtraction.",
+        "width": 12,
+        "height": 15,
+        "sha256": "a7a38a331158dbefe4ea0c1d8351fb561912e44fd48eb441c402e9bc22dde18d",
+        "opaque_pixels": 138
+      },
+      "pages": [
+        3,
+        38
+      ]
+    },
+    {
+      "asset": "assets/edition/hero-sophia.png",
+      "sha256": "a3ae8790c8f5a5ae6910d35eedc9dfbaafae989a768c2926b06afc347a231a1e",
+      "source": {
+        "asset": "hero-sophia.png",
+        "source": "build\\verification\\player-guide-magazine-2026-10-24\\portrait-capture\\build\\verification\\sophia.png",
+        "source_sha256": "84952300bce5997ba79dcc345cf8e13ec6e9b99e231c466ede83d353726da688",
+        "details": "NR native sprite pixels reconstructed from actual OAM/CHR and hardware palette. Every opaque pixel preserved and matched to screenshot; no color-key subtraction.",
+        "width": 26,
+        "height": 18,
+        "sha256": "a3ae8790c8f5a5ae6910d35eedc9dfbaafae989a768c2926b06afc347a231a1e",
+        "opaque_pixels": 311
+      },
+      "pages": [
+        3,
+        26
+      ]
+    },
+    {
+      "asset": "assets/edition/hero-sypha.png",
+      "sha256": "d101690e4ca50d42838c268adebab967cc417a8215dec26b460b7c670d4d47c6",
+      "source": {
+        "asset": "hero-sypha.png",
+        "source": "build\\verification\\player-guide-magazine-2026-10-24\\portrait-capture\\build\\verification\\sypha.png",
+        "source_sha256": "8fe6d5736ffcd57305c0c13066876bbea097f8f1f85845c14eaea01c810d44c5",
+        "details": "NR native sprite pixels reconstructed from actual OAM/CHR and hardware palette. Every opaque pixel preserved and matched to screenshot; no color-key subtraction.",
+        "width": 15,
+        "height": 30,
+        "sha256": "d101690e4ca50d42838c268adebab967cc417a8215dec26b460b7c670d4d47c6",
+        "opaque_pixels": 307
+      },
+      "pages": [
+        3,
+        20
+      ]
+    },
+    {
+      "asset": "assets/edition/hero-twinbee.png",
+      "sha256": "cfef1691f96a8bcddfca70e2706affc0f5b5e04881451efc8c554013e6c3436f",
+      "source": {
+        "asset": "hero-twinbee.png",
+        "source": "build\\verification\\player-guide-magazine-2026-10-24\\portrait-capture\\build\\verification\\twinbee.png",
+        "source_sha256": "4fdeb36fdb1efc1bb1341d33075473243d7bbc9caf2fc51106d5df3433a4c529",
+        "details": "NR native sprite pixels reconstructed from actual OAM/CHR and hardware palette. Every opaque pixel preserved and matched to screenshot; no color-key subtraction.",
+        "width": 25,
+        "height": 13,
+        "sha256": "cfef1691f96a8bcddfca70e2706affc0f5b5e04881451efc8c554013e6c3436f",
+        "opaque_pixels": 183
+      },
+      "pages": [
+        44,
+        48
+      ]
+    },
+    {
+      "asset": "assets/edition/hero-vic-viper.png",
+      "sha256": "e0f1ac7e3d070d71e6d7bcb762ef231a7f79a673f4a8de0fc9d6c95f95bd89b8",
+      "source": {
+        "asset": "hero-vic-viper.png",
+        "source": "build\\verification\\player-guide-magazine-2026-10-24\\portrait-capture\\build\\verification\\vic-viper.png",
+        "source_sha256": "5ffcb4eede482c08337334f010eff3e35265a2b05f4996e3cf6534105762893b",
+        "details": "NR native sprite pixels reconstructed from actual OAM/CHR and hardware palette. Every opaque pixel preserved and matched to screenshot; no color-key subtraction.",
+        "width": 26,
+        "height": 12,
+        "sha256": "e0f1ac7e3d070d71e6d7bcb762ef231a7f79a673f4a8de0fc9d6c95f95bd89b8",
+        "opaque_pixels": 123
+      },
+      "pages": [
+        3,
+        40,
+        41
+      ]
+    },
+    {
+      "asset": "assets/edition/hero-zelda-ii-link.png",
+      "sha256": "e54c083b42ca9f3a6cdd99d4ae92504b87d8bcf81915440a58320d3f526b301d",
+      "source": {
+        "asset": "hero-zelda-ii-link.png",
+        "source": "build\\verification\\player-guide-magazine-2026-10-24\\portrait-capture\\build\\verification\\zelda-ii-link.png",
+        "source_sha256": "47a0214e0b5f8c0d028659f85480c908e29cd685051623cda8bc24f3f3d5b118",
+        "details": "NR native sprite pixels reconstructed from actual OAM/CHR and hardware palette. Every opaque pixel preserved and matched to screenshot; no color-key subtraction.",
+        "width": 16,
+        "height": 32,
+        "sha256": "e54c083b42ca9f3a6cdd99d4ae92504b87d8bcf81915440a58320d3f526b301d",
+        "opaque_pixels": 365
+      },
+      "pages": [
+        3,
+        16
+      ]
+    },
+    {
+      "asset": "assets/astra/mac-star.png",
+      "sha256": "a374f733d2485c65355fda325cad812530f5350f2ff5b2befb784541c15e48e2",
+      "source": {
+        "asset": "mac-star.png",
+        "source": "build\\player-guide-agent\\little-mac-private\\original-boxing-plane\\source-40.png / complete HUD star x16..26 y22..33",
+        "detail": "Complete original source HUD glyph. Old ROM extraction used x<24 and clipped its right side; this is clearly labeled source art.",
+        "sha256": "a374f733d2485c65355fda325cad812530f5350f2ff5b2befb784541c15e48e2",
+        "size": [
+          11,
+          12
+        ],
+        "source_sha256": "0c9aeb8fea387765c67877114c4969b6a91c17b707fbe6ba4e13526dfdfbdcbf"
+      },
+      "pages": [
+        5
+      ]
+    },
+    {
+      "asset": "assets/edition/mario-first-pipes.png",
+      "sha256": "3b4c262f5ba2acb046c111e6013d5fca0d9797267d7ce5f018aacd42c4c8713b",
+      "source": {
+        "asset": "mario-first-pipes.png",
+        "original": "build\\roster-through-2-2\\root-mario-av-if-0-v0-mmc3\\playthrough-lossless.mkv",
+        "video_frame_zero_based": 899,
+        "emulator_trace_frame": 901,
+        "trace": {
+          "frame": 901,
+          "poll": 900,
+          "world": 0,
+          "level": 0,
+          "area": 194,
+          "areaType": 1,
+          "x": 599,
+          "y": 121,
+          "yHigh": 1,
+          "state": 1,
+          "vx": 40,
+          "vy": 252,
+          "power": 0,
+          "engine": 8,
+          "mode": 1,
+          "task": 3,
+          "lives": 2,
+          "camera": 480,
+          "nmiSkipped": 6,
+          "buttons": 193,
+          "cycle": 26829738
+        },
+        "rom_sha256": "9b820cd8aecb31872167f4b87a412c03e4fce2e7c0e4f17a61f34fe87b21a4d5",
+        "derivation": "Unaltered 256x240 RGB frame from native lossless recording. Selective frame extraction only; no drawing over game pixels.",
+        "sha256": "3b4c262f5ba2acb046c111e6013d5fca0d9797267d7ce5f018aacd42c4c8713b"
+      },
+      "pages": [
+        46
+      ]
+    },
+    {
+      "asset": "assets/edition/mario-gap-course.png",
+      "sha256": "144020e041f3202a3e4b0b69dc0ba2b158965be48d41483e728947f8f1b3837b",
+      "source": {
+        "asset": "mario-gap-course.png",
+        "original": "build\\roster-through-2-2\\root-mario-av-if-0-v0-mmc3\\playthrough-lossless.mkv",
+        "video_frame_zero_based": 1589,
+        "emulator_trace_frame": 1591,
+        "trace": {
+          "frame": 1591,
+          "poll": 1590,
+          "world": 0,
+          "level": 0,
+          "area": 194,
+          "areaType": 1,
+          "x": 2010,
+          "y": 92,
+          "yHigh": 1,
+          "state": 1,
+          "vx": 40,
+          "vy": 0,
+          "power": 0,
+          "engine": 8,
+          "mode": 1,
+          "task": 3,
+          "lives": 2,
+          "camera": 1876,
+          "nmiSkipped": 10,
+          "buttons": 193,
+          "cycle": 47378283
+        },
+        "rom_sha256": "9b820cd8aecb31872167f4b87a412c03e4fce2e7c0e4f17a61f34fe87b21a4d5",
+        "derivation": "Unaltered 256x240 RGB frame from native lossless recording. Selective frame extraction only; no drawing over game pixels.",
+        "sha256": "144020e041f3202a3e4b0b69dc0ba2b158965be48d41483e728947f8f1b3837b"
+      },
+      "pages": [
+        46
+      ]
+    },
+    {
+      "asset": "assets/edition/mario-water-coral.png",
+      "sha256": "b253c8ab7319125b16f09a3e6df75b5e4d0e934f4f1f0a3c0f22d8430e0a1cc7",
+      "source": {
+        "asset": "mario-water-coral.png",
+        "original": "build\\roster-through-2-2\\root-mario-av-if-0-v0-mmc3\\playthrough-lossless.mkv",
+        "video_frame_zero_based": 14664,
+        "emulator_trace_frame": 14666,
+        "trace": {
+          "frame": 14666,
+          "poll": 14665,
+          "world": 1,
+          "level": 1,
+          "area": 37,
+          "areaType": 0,
+          "x": 1700,
+          "y": 176,
+          "yHigh": 1,
+          "state": 0,
+          "vx": 12,
+          "vy": 0,
+          "power": 0,
+          "engine": 8,
+          "mode": 1,
+          "task": 3,
+          "lives": 2,
+          "camera": 1584,
+          "nmiSkipped": 36,
+          "buttons": 65,
+          "cycle": 436758353
+        },
+        "rom_sha256": "9b820cd8aecb31872167f4b87a412c03e4fce2e7c0e4f17a61f34fe87b21a4d5",
+        "derivation": "Unaltered 256x240 RGB frame from native lossless recording. Selective frame extraction only; no drawing over game pixels.",
+        "sha256": "b253c8ab7319125b16f09a3e6df75b5e4d0e934f4f1f0a3c0f22d8430e0a1cc7"
+      },
+      "pages": [
+        47
+      ]
+    },
+    {
+      "asset": "assets/astra/meta-nu-charge.png",
+      "sha256": "28418df66fd3294ee88991dfe811144cf9a2fdc665622a04f32fc093c75730d2",
+      "source": {
+        "asset": "meta-nu-charge.png",
+        "source": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\meta-knight-source-nu\\moves-easy-v9\\build\\verification\\action-7-25.png",
+        "source_sha256": "9dfe7db31ed934cf7d493627e48d61e545bf82c694653327631365726de14820",
+        "rom_sha256": "b90ede8fa3afaceefe3ef3090424f4d6b6662c139a1a3d6df52e64b7ec00b240",
+        "sha256": "28418df66fd3294ee88991dfe811144cf9a2fdc665622a04f32fc093c75730d2",
+        "size": [
+          64,
+          64
+        ],
+        "crop": [
+          128,
+          160,
+          192,
+          224
+        ],
+        "state": {
+          "wall": "1079",
+          "update": "765",
+          "stage": "7",
+          "age": "25",
+          "face": "1",
+          "kind": "5",
+          "tick": "14",
+          "pose": "14",
+          "x": "152",
+          "y": "176",
+          "vxLo": "192",
+          "vxHi": "1",
+          "vyLo": "0",
+          "vyHi": "0",
+          "float": "0",
+          "hp": "6",
+          "enemy": "1",
+          "enemyState": "34",
+          "damage": "1",
+          "armed": "true",
+          "hit": "true",
+          "rectX": "167",
+          "rectPage": "0",
+          "rectY": "193",
+          "rectW": "8",
+          "rectH": "12"
+        },
+        "detail": "Unaltered native game screenshot crop from a controlled practice arena. Real controller attack and enemy; seeded terrain/player. Not a campaign screenshot.",
+        "source_archive_sha256": "7ba84c9d09984cf929d6c68a67ff9fa2d9f192928ea157906bf0345383a2f4f7",
+        "checkpoint": "meta-knight-grounded-nu"
+      },
+      "pages": [
+        33
+      ]
+    },
+    {
+      "asset": "assets/astra/meta-nu-lunge.png",
+      "sha256": "7b4402e3432c5414d5aa26051e71487e54a0288f2068ad1fc8c6b84f2ab1bea1",
+      "source": {
+        "asset": "meta-nu-lunge.png",
+        "source": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\meta-knight-source-nu\\moves-easy-v9\\build\\verification\\action-4-25.png",
+        "source_sha256": "d4f40714ccd1abb17c8b979991300ac75cfc89767264f928f7ec73385ac70ac4",
+        "rom_sha256": "b90ede8fa3afaceefe3ef3090424f4d6b6662c139a1a3d6df52e64b7ec00b240",
+        "sha256": "7b4402e3432c5414d5aa26051e71487e54a0288f2068ad1fc8c6b84f2ab1bea1",
+        "size": [
+          64,
+          64
+        ],
+        "crop": [
+          114,
+          160,
+          178,
+          224
+        ],
+        "state": {
+          "wall": "719",
+          "update": "405",
+          "stage": "4",
+          "age": "25",
+          "face": "1",
+          "kind": "2",
+          "tick": "14",
+          "pose": "48",
+          "x": "138",
+          "y": "176",
+          "vxLo": "128",
+          "vxHi": "2",
+          "vyLo": "0",
+          "vyHi": "0",
+          "float": "0",
+          "hp": "6",
+          "enemy": "1",
+          "enemyState": "34",
+          "damage": "1",
+          "armed": "true",
+          "hit": "true",
+          "rectX": "154",
+          "rectPage": "0",
+          "rectY": "195",
+          "rectW": "13",
+          "rectH": "9"
+        },
+        "detail": "Unaltered native game screenshot crop from a controlled practice arena. Real controller attack and enemy; seeded terrain/player. Not a campaign screenshot.",
+        "source_archive_sha256": "7ba84c9d09984cf929d6c68a67ff9fa2d9f192928ea157906bf0345383a2f4f7",
+        "checkpoint": "meta-knight-grounded-nu"
+      },
+      "pages": [
+        33
+      ]
+    },
+    {
+      "asset": "assets/astra/meta-nu-plunge.png",
+      "sha256": "598a37908e8f024ab8363c812876719e79f23d17e81e5de56f19b7f24150ffaf",
+      "source": {
+        "asset": "meta-nu-plunge.png",
+        "source": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\meta-knight-source-nu\\moves-easy-v9\\build\\verification\\action-6-40.png",
+        "source_sha256": "f4488f1c482b8e21322ff1ed9e68bb7cba4290fba25b3640c6069467e1289e52",
+        "rom_sha256": "b90ede8fa3afaceefe3ef3090424f4d6b6662c139a1a3d6df52e64b7ec00b240",
+        "sha256": "598a37908e8f024ab8363c812876719e79f23d17e81e5de56f19b7f24150ffaf",
+        "size": [
+          64,
+          64
+        ],
+        "crop": [
+          104,
+          114,
+          168,
+          178
+        ],
+        "state": {
+          "wall": "974",
+          "update": "660",
+          "stage": "6",
+          "age": "40",
+          "face": "1",
+          "kind": "4",
+          "tick": "14",
+          "pose": "60",
+          "x": "128",
+          "y": "130",
+          "vxLo": "0",
+          "vxHi": "0",
+          "vyLo": "0",
+          "vyHi": "0",
+          "float": "0",
+          "hp": "6",
+          "enemy": "0",
+          "enemyState": "0",
+          "damage": "0",
+          "armed": "false",
+          "hit": "false",
+          "rectX": "120",
+          "rectPage": "0",
+          "rectY": "108",
+          "rectW": "16",
+          "rectH": "16"
+        },
+        "detail": "Unaltered native game screenshot crop from a controlled practice arena. Real controller attack and enemy; seeded terrain/player. Not a campaign screenshot.",
+        "source_archive_sha256": "7ba84c9d09984cf929d6c68a67ff9fa2d9f192928ea157906bf0345383a2f4f7",
+        "checkpoint": "meta-knight-grounded-nu"
+      },
+      "pages": [
+        33
+      ]
+    },
+    {
+      "asset": "assets/astra/meta-nu-slash.png",
+      "sha256": "dc247dc96bd340a05558592c8e6c121a1cb24d18f1b756d5a52d045d9d48d6f1",
+      "source": {
+        "asset": "meta-nu-slash.png",
+        "source": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\meta-knight-source-nu\\moves-easy-v9\\build\\verification\\action-2-25.png",
+        "source_sha256": "03fbe1fa39510183f1a955b8540191eb2f8a7aef8420f25ac7314eadf2764da8",
+        "rom_sha256": "b90ede8fa3afaceefe3ef3090424f4d6b6662c139a1a3d6df52e64b7ec00b240",
+        "sha256": "dc247dc96bd340a05558592c8e6c121a1cb24d18f1b756d5a52d045d9d48d6f1",
+        "size": [
+          64,
+          64
+        ],
+        "crop": [
+          104,
+          160,
+          168,
+          224
+        ],
+        "state": {
+          "wall": "479",
+          "update": "165",
+          "stage": "2",
+          "age": "25",
+          "face": "1",
+          "kind": "0",
+          "tick": "14",
+          "pose": "30",
+          "x": "128",
+          "y": "176",
+          "vxLo": "0",
+          "vxHi": "0",
+          "vyLo": "0",
+          "vyHi": "0",
+          "float": "0",
+          "hp": "6",
+          "enemy": "1",
+          "enemyState": "34",
+          "damage": "1",
+          "armed": "true",
+          "hit": "true",
+          "rectX": "141",
+          "rectPage": "0",
+          "rectY": "184",
+          "rectW": "16",
+          "rectH": "16"
+        },
+        "detail": "Unaltered native game screenshot crop from a controlled practice arena. Real controller attack and enemy; seeded terrain/player. Not a campaign screenshot.",
+        "source_archive_sha256": "7ba84c9d09984cf929d6c68a67ff9fa2d9f192928ea157906bf0345383a2f4f7",
+        "checkpoint": "meta-knight-grounded-nu"
+      },
+      "pages": [
+        33
+      ]
+    },
+    {
+      "asset": "assets/astra/meta-nu-spin.png",
+      "sha256": "a60af1de933c02bc5c0a855482a00b3c6daea18c225fbc6bfd102a36aa8dbd27",
+      "source": {
+        "asset": "meta-nu-spin.png",
+        "source": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\meta-knight-source-nu\\moves-easy-v9\\build\\verification\\action-5-25.png",
+        "source_sha256": "8c0968cd65bb92b83c46ac8f3693839e1d3f853b8eb462ac3157d119c58cf015",
+        "rom_sha256": "b90ede8fa3afaceefe3ef3090424f4d6b6662c139a1a3d6df52e64b7ec00b240",
+        "sha256": "a60af1de933c02bc5c0a855482a00b3c6daea18c225fbc6bfd102a36aa8dbd27",
+        "size": [
+          64,
+          64
+        ],
+        "crop": [
+          104,
+          116,
+          168,
+          180
+        ],
+        "state": {
+          "wall": "839",
+          "update": "525",
+          "stage": "5",
+          "age": "25",
+          "face": "1",
+          "kind": "3",
+          "tick": "4",
+          "pose": "66",
+          "x": "128",
+          "y": "132",
+          "vxLo": "0",
+          "vxHi": "0",
+          "vyLo": "171",
+          "vyHi": "253",
+          "float": "0",
+          "hp": "6",
+          "enemy": "0",
+          "enemyState": "0",
+          "damage": "1",
+          "armed": "false",
+          "hit": "false",
+          "rectX": "123",
+          "rectPage": "0",
+          "rectY": "165",
+          "rectW": "26",
+          "rectH": "7"
+        },
+        "detail": "Unaltered native game screenshot crop from a controlled practice arena. Real controller attack and enemy; seeded terrain/player. Not a campaign screenshot.",
+        "source_archive_sha256": "7ba84c9d09984cf929d6c68a67ff9fa2d9f192928ea157906bf0345383a2f4f7",
+        "checkpoint": "meta-knight-grounded-nu"
+      },
+      "pages": [
+        33
+      ]
+    },
+    {
+      "asset": "assets/astra/meta-nu-triple.png",
+      "sha256": "b94e1de39e44b99f258e041405c8c5223a38c02d605702f9e4d7e96a75b8e3c5",
+      "source": {
+        "asset": "meta-nu-triple.png",
+        "source": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\meta-knight-source-nu\\moves-easy-v9\\build\\verification\\action-3-40.png",
+        "source_sha256": "64dcd6a619e830ac4a060780d3677090c23282f551398626336627f21b82b6a9",
+        "rom_sha256": "b90ede8fa3afaceefe3ef3090424f4d6b6662c139a1a3d6df52e64b7ec00b240",
+        "sha256": "b94e1de39e44b99f258e041405c8c5223a38c02d605702f9e4d7e96a75b8e3c5",
+        "size": [
+          64,
+          64
+        ],
+        "crop": [
+          104,
+          160,
+          168,
+          224
+        ],
+        "state": {
+          "wall": "614",
+          "update": "300",
+          "stage": "3",
+          "age": "40",
+          "face": "1",
+          "kind": "1",
+          "tick": "29",
+          "pose": "34",
+          "x": "128",
+          "y": "176",
+          "vxLo": "0",
+          "vxHi": "0",
+          "vyLo": "0",
+          "vyHi": "0",
+          "float": "0",
+          "hp": "6",
+          "enemy": "1",
+          "enemyState": "34",
+          "damage": "1",
+          "armed": "true",
+          "hit": "true",
+          "rectX": "117",
+          "rectPage": "0",
+          "rectY": "184",
+          "rectW": "48",
+          "rectH": "34"
+        },
+        "detail": "Unaltered native game screenshot crop from a controlled practice arena. Real controller attack and enemy; seeded terrain/player. Not a campaign screenshot.",
+        "source_archive_sha256": "7ba84c9d09984cf929d6c68a67ff9fa2d9f192928ea157906bf0345383a2f4f7",
+        "checkpoint": "meta-knight-grounded-nu"
+      },
+      "pages": [
+        33
+      ]
+    },
+    {
+      "asset": "assets/astra/mike-asterisk.png",
+      "sha256": "75f8e86ae55fc94ed8335038e382165e6fae1110ee804b7b3895ddc534e74040",
+      "source": {
+        "asset": "mike-asterisk.png",
+        "source": "StarTropics original Nintendo manual p.21; CLV-P-NAAZE.pdf",
+        "detail": "Unaltered isolated source illustration crop (164, 352, 286, 457); not a ROM pickup screenshot.",
+        "sha256": "75f8e86ae55fc94ed8335038e382165e6fae1110ee804b7b3895ddc534e74040",
+        "size": [
+          122,
+          105
+        ],
+        "source_sha256": "f56cf47d4c12502039b04cd6b7248d55fbd1f1fc85411894f310512a7e359be8",
+        "source_url": "https://www.nintendo.co.jp/clv/manuals/en/pdf/CLV-P-NAAZE.pdf"
+      },
+      "pages": [
+        37
+      ]
+    },
+    {
+      "asset": "assets/astra/mike-baseball.png",
+      "sha256": "25efaeb03aa3df2cf2246ba405c4b2f3c0b6081f70e37f8192ed810193beac97",
+      "source": {
+        "asset": "mike-baseball.png",
+        "source": "StarTropics original Nintendo manual p.20; CLV-P-NAAZE.pdf",
+        "detail": "Unaltered isolated source illustration crop (37, 650, 101, 715); not a ROM pickup screenshot.",
+        "sha256": "25efaeb03aa3df2cf2246ba405c4b2f3c0b6081f70e37f8192ed810193beac97",
+        "size": [
+          64,
+          65
+        ],
+        "source_sha256": "f56cf47d4c12502039b04cd6b7248d55fbd1f1fc85411894f310512a7e359be8",
+        "source_url": "https://www.nintendo.co.jp/clv/manuals/en/pdf/CLV-P-NAAZE.pdf"
+      },
+      "pages": [
+        37
+      ]
+    },
+    {
+      "asset": "assets/astra/mike-bat.png",
+      "sha256": "cf0c22a0883e03608270ed7a7e51bc1b6bf15cabd52b222a175feccc10307c5e",
+      "source": {
+        "asset": "mike-bat.png",
+        "source": "StarTropics original Nintendo manual p.20; CLV-P-NAAZE.pdf",
+        "detail": "Unaltered isolated source illustration crop (212, 240, 362, 373); not a ROM pickup screenshot.",
+        "sha256": "cf0c22a0883e03608270ed7a7e51bc1b6bf15cabd52b222a175feccc10307c5e",
+        "size": [
+          150,
+          133
+        ],
+        "source_sha256": "f56cf47d4c12502039b04cd6b7248d55fbd1f1fc85411894f310512a7e359be8",
+        "source_url": "https://www.nintendo.co.jp/clv/manuals/en/pdf/CLV-P-NAAZE.pdf"
+      },
+      "pages": [
+        37
+      ]
+    },
+    {
+      "asset": "assets/astra/mike-batter.png",
+      "sha256": "7baedaba54c2f87c74865da9f4ea9518b3a3674b5c07b93d276115de6a23ebae",
+      "source": {
+        "asset": "mike-batter.png",
+        "source": "StarTropics original Nintendo manual p.20; CLV-P-NAAZE.pdf",
+        "detail": "Unaltered isolated source illustration crop (702, 346, 906, 684); not a ROM pickup screenshot.",
+        "sha256": "7baedaba54c2f87c74865da9f4ea9518b3a3674b5c07b93d276115de6a23ebae",
+        "size": [
+          204,
+          338
+        ],
+        "source_sha256": "f56cf47d4c12502039b04cd6b7248d55fbd1f1fc85411894f310512a7e359be8",
+        "source_url": "https://www.nintendo.co.jp/clv/manuals/en/pdf/CLV-P-NAAZE.pdf"
+      },
+      "pages": [
+        36
+      ]
+    },
+    {
+      "asset": "assets/astra/mike-bigheart.png",
+      "sha256": "c414b8a9f8a8baecc1ae4a14a5c7c503332023033caaa4cef59a1dd4eb5ff8a0",
+      "source": {
+        "asset": "mike-bigheart.png",
+        "source": "StarTropics original Nintendo manual p.22; CLV-P-NAAZE.pdf",
+        "detail": "Unaltered isolated source illustration crop (833, 401, 948, 509); not a ROM pickup screenshot.",
+        "sha256": "c414b8a9f8a8baecc1ae4a14a5c7c503332023033caaa4cef59a1dd4eb5ff8a0",
+        "size": [
+          115,
+          108
+        ],
+        "source_sha256": "f56cf47d4c12502039b04cd6b7248d55fbd1f1fc85411894f310512a7e359be8",
+        "source_url": "https://www.nintendo.co.jp/clv/manuals/en/pdf/CLV-P-NAAZE.pdf"
+      },
+      "pages": [
+        36
+      ]
+    },
+    {
+      "asset": "assets/astra/mike-bola.png",
+      "sha256": "7cfd644140d9d8da0de46f2a81c2a5a8f9904edee6b46bd62d78b54045c760b8",
+      "source": {
+        "asset": "mike-bola.png",
+        "source": "StarTropics original Nintendo manual p.20; CLV-P-NAAZE.pdf",
+        "detail": "Unaltered isolated source illustration crop (329, 440, 457, 520); not a ROM pickup screenshot.",
+        "sha256": "7cfd644140d9d8da0de46f2a81c2a5a8f9904edee6b46bd62d78b54045c760b8",
+        "size": [
+          128,
+          80
+        ],
+        "source_sha256": "f56cf47d4c12502039b04cd6b7248d55fbd1f1fc85411894f310512a7e359be8",
+        "source_url": "https://www.nintendo.co.jp/clv/manuals/en/pdf/CLV-P-NAAZE.pdf"
+      },
+      "pages": [
+        37
+      ]
+    },
+    {
+      "asset": "assets/astra/mike-fire.png",
+      "sha256": "d2780bec7c9d400b4963331a759552593a14286da4d8644722317f12dd4c5ff2",
+      "source": {
+        "asset": "mike-fire.png",
+        "source": "StarTropics original Nintendo manual p.20; CLV-P-NAAZE.pdf",
+        "detail": "Unaltered isolated source illustration crop (700, 28, 864, 199); not a ROM pickup screenshot.",
+        "sha256": "d2780bec7c9d400b4963331a759552593a14286da4d8644722317f12dd4c5ff2",
+        "size": [
+          164,
+          171
+        ],
+        "source_sha256": "f56cf47d4c12502039b04cd6b7248d55fbd1f1fc85411894f310512a7e359be8",
+        "source_url": "https://www.nintendo.co.jp/clv/manuals/en/pdf/CLV-P-NAAZE.pdf"
+      },
+      "pages": [
+        37
+      ]
+    },
+    {
+      "asset": "assets/astra/mike-heart.png",
+      "sha256": "0983cc20bd959844d3311ce9c49c9a2664e28da5680d98fa1e74eb6ed527de0d",
+      "source": {
+        "asset": "mike-heart.png",
+        "source": "StarTropics original Nintendo manual p.22; CLV-P-NAAZE.pdf",
+        "detail": "Unaltered isolated source illustration crop (716, 72, 793, 136); not a ROM pickup screenshot.",
+        "sha256": "0983cc20bd959844d3311ce9c49c9a2664e28da5680d98fa1e74eb6ed527de0d",
+        "size": [
+          77,
+          64
+        ],
+        "source_sha256": "f56cf47d4c12502039b04cd6b7248d55fbd1f1fc85411894f310512a7e359be8",
+        "source_url": "https://www.nintendo.co.jp/clv/manuals/en/pdf/CLV-P-NAAZE.pdf"
+      },
+      "pages": [
+        36
+      ]
+    },
+    {
+      "asset": "assets/astra/mike-mirror.png",
+      "sha256": "1c49717cb17f4e287746bd560d0e4583d8980b054b23189d96e37fa88baf5d0d",
+      "source": {
+        "asset": "mike-mirror.png",
+        "source": "StarTropics original Nintendo manual p.21; CLV-P-NAAZE.pdf",
+        "detail": "Unaltered isolated source illustration crop (367, 23, 532, 185); not a ROM pickup screenshot.",
+        "sha256": "1c49717cb17f4e287746bd560d0e4583d8980b054b23189d96e37fa88baf5d0d",
+        "size": [
+          165,
+          162
+        ],
+        "source_sha256": "f56cf47d4c12502039b04cd6b7248d55fbd1f1fc85411894f310512a7e359be8",
+        "source_url": "https://www.nintendo.co.jp/clv/manuals/en/pdf/CLV-P-NAAZE.pdf"
+      },
+      "pages": [
+        37
+      ]
+    },
+    {
+      "asset": "assets/astra/mike-nova-source.png",
+      "sha256": "1bd18787f3a641e697656b6df2cc6b5933343086b196d87f5f6e63aa2736f451",
+      "source": {
+        "asset": "mike-nova-source.png",
+        "source": "build\\mike-kd-private\\references\\electronic-08.png / Nintendo electronic manual p.8, Super Nova row",
+        "detail": "Unaltered explicitly identified Super Nova illustration crop (177,342,220,385); not an installed pickup screenshot. Original manual PDF: CLV-P-NAAZE_en.pdf, SHA256 6b17e8feb4c5c5141bfd7f1ad4ae045e2d46d21f346bae728d58d56eda4f8b15.",
+        "sha256": "1bd18787f3a641e697656b6df2cc6b5933343086b196d87f5f6e63aa2736f451",
+        "size": [
+          43,
+          43
+        ],
+        "source_sha256": "cdb5837156f90a9afb7e04506d7438d0a7357f58a24ab81a98dfd5ccd75e73b9"
+      },
+      "pages": [
+        36
+      ]
+    },
+    {
+      "asset": "assets/astra/mike-shooting.png",
+      "sha256": "502f784ca5f51bd4b922a4010e01c393dd2134e00f2edff9502bff9a84e50d96",
+      "source": {
+        "asset": "mike-shooting.png",
+        "source": "StarTropics original Nintendo manual p.19; CLV-P-NAAZE.pdf",
+        "detail": "Unaltered isolated source illustration crop (719, 473, 943, 588); not a ROM pickup screenshot.",
+        "sha256": "502f784ca5f51bd4b922a4010e01c393dd2134e00f2edff9502bff9a84e50d96",
+        "size": [
+          224,
+          115
+        ],
+        "source_sha256": "f56cf47d4c12502039b04cd6b7248d55fbd1f1fc85411894f310512a7e359be8",
+        "source_url": "https://www.nintendo.co.jp/clv/manuals/en/pdf/CLV-P-NAAZE.pdf"
+      },
+      "pages": [
+        36
+      ]
+    },
+    {
+      "asset": "assets/astra/mike-shot-12.png",
+      "sha256": "b89714c04ce5e7c92c6191cae5bc6fe8352035d589249f590c93ab453a3229e4",
+      "source": {
+        "asset": "mike-shot-12.png",
+        "source": "NR src/mike_jones_art.inc / JnShot12_0",
+        "detail": "Actual installed projectile sprite; illustrative attack diagrams add labeled paths separately.",
+        "sha256": "b89714c04ce5e7c92c6191cae5bc6fe8352035d589249f590c93ab453a3229e4",
+        "size": [
+          7,
+          7
+        ],
+        "source_archive_sha256": "81a9912e7001a8c3da3a374ac39ef4b1a2f16812fb2364fa0960dff1b779d2cf"
+      },
+      "pages": [
+        37
+      ]
+    },
+    {
+      "asset": "assets/astra/mike-shot-13.png",
+      "sha256": "5893052c74d95d725f007fab768a4c30bd7f06014b44302b5af2882d6e706023",
+      "source": {
+        "asset": "mike-shot-13.png",
+        "source": "NR src/mike_jones_art.inc / JnShot13_0",
+        "detail": "Actual installed projectile sprite; illustrative attack diagrams add labeled paths separately.",
+        "sha256": "5893052c74d95d725f007fab768a4c30bd7f06014b44302b5af2882d6e706023",
+        "size": [
+          8,
+          24
+        ],
+        "source_archive_sha256": "81a9912e7001a8c3da3a374ac39ef4b1a2f16812fb2364fa0960dff1b779d2cf"
+      },
+      "pages": [
+        37
+      ]
+    },
+    {
+      "asset": "assets/astra/mike-sling.png",
+      "sha256": "51a4f50faa1f0ea9c529f57726291ca75ee99a996b0797b3cb66a60340b976cf",
+      "source": {
+        "asset": "mike-sling.png",
+        "source": "StarTropics original Nintendo manual p.20; CLV-P-NAAZE.pdf",
+        "detail": "Unaltered isolated source illustration crop (440, 267, 551, 393); not a ROM pickup screenshot.",
+        "sha256": "51a4f50faa1f0ea9c529f57726291ca75ee99a996b0797b3cb66a60340b976cf",
+        "size": [
+          111,
+          126
+        ],
+        "source_sha256": "f56cf47d4c12502039b04cd6b7248d55fbd1f1fc85411894f310512a7e359be8",
+        "source_url": "https://www.nintendo.co.jp/clv/manuals/en/pdf/CLV-P-NAAZE.pdf"
+      },
+      "pages": [
+        37
+      ]
+    },
+    {
+      "asset": "assets/astra/mike-spikes.png",
+      "sha256": "05fed1712c08149f8a550911c842c7f186c847fdde7b46fb4dd275a6a76dc12b",
+      "source": {
+        "asset": "mike-spikes.png",
+        "source": "StarTropics original Nintendo manual p.21; CLV-P-NAAZE.pdf",
+        "detail": "Unaltered isolated source illustration crop (68, 188, 176, 318); not a ROM pickup screenshot.",
+        "sha256": "05fed1712c08149f8a550911c842c7f186c847fdde7b46fb4dd275a6a76dc12b",
+        "size": [
+          108,
+          130
+        ],
+        "source_sha256": "f56cf47d4c12502039b04cd6b7248d55fbd1f1fc85411894f310512a7e359be8",
+        "source_url": "https://www.nintendo.co.jp/clv/manuals/en/pdf/CLV-P-NAAZE.pdf"
+      },
+      "pages": [
+        37
+      ]
+    },
+    {
+      "asset": "assets/astra/mike-star.png",
+      "sha256": "41dcb5516c3ff9d9c5425e978fb95fff5abd3c7bbaba2cd134d5790b508bd08b",
+      "source": {
+        "asset": "mike-star.png",
+        "source": "StarTropics original Nintendo manual p.22; CLV-P-NAAZE.pdf",
+        "detail": "Unaltered isolated source illustration crop (851, 33, 934, 111); not a ROM pickup screenshot.",
+        "sha256": "41dcb5516c3ff9d9c5425e978fb95fff5abd3c7bbaba2cd134d5790b508bd08b",
+        "size": [
+          83,
+          78
+        ],
+        "source_sha256": "f56cf47d4c12502039b04cd6b7248d55fbd1f1fc85411894f310512a7e359be8",
+        "source_url": "https://www.nintendo.co.jp/clv/manuals/en/pdf/CLV-P-NAAZE.pdf"
+      },
+      "pages": [
+        36
+      ]
+    },
+    {
+      "asset": "assets/astra/mike-yoyo.png",
+      "sha256": "7269e8b05f840f0e230aaa861f375a62ba969803c2bb0c43771083d8759f55c9",
+      "source": {
+        "asset": "mike-yoyo.png",
+        "source": "StarTropics original Nintendo manual p.19; CLV-P-NAAZE.pdf",
+        "detail": "Unaltered isolated source illustration crop (619, 84, 730, 157); not a ROM pickup screenshot.",
+        "sha256": "7269e8b05f840f0e230aaa861f375a62ba969803c2bb0c43771083d8759f55c9",
+        "size": [
+          111,
+          73
+        ],
+        "source_sha256": "f56cf47d4c12502039b04cd6b7248d55fbd1f1fc85411894f310512a7e359be8",
+        "source_url": "https://www.nintendo.co.jp/clv/manuals/en/pdf/CLV-P-NAAZE.pdf"
+      },
+      "pages": [
+        36
+      ]
+    },
+    {
+      "asset": "assets/astra/mm-arm.png",
+      "sha256": "aec4801fac84241a2e7abe2f203af3577b32991f35023a0dcc79bafefb8456e3",
+      "source": {
+        "asset": "mm-arm.png",
+        "source": "reference\\crossover2\\images\\412_com.smbc.graphics.skins.BmdInfo_Bass000.png / MegaManPickup frame 3",
+        "detail": "Original 2.02 source pickup art; host palette colors can differ.",
+        "sha256": "aec4801fac84241a2e7abe2f203af3577b32991f35023a0dcc79bafefb8456e3",
+        "size": [
+          16,
+          16
+        ],
+        "source_sha256": "a4b05fb7c1eede5916fcd74aae249018a3bf6fc59c9b4eee1b1ee3aef026ac0a"
+      },
+      "pages": [
+        8
+      ]
+    },
+    {
+      "asset": "assets/astra/mm-balance.png",
+      "sha256": "aa4416c684fc72e87276899b723bad14b408d010a10aa15483e992a3bb26953e",
+      "source": {
+        "asset": "mm-balance.png",
+        "source": "reference\\crossover2\\images\\412_com.smbc.graphics.skins.BmdInfo_Bass000.png / MegaManPickup frame 1",
+        "detail": "Original 2.02 source pickup art; host palette colors can differ.",
+        "sha256": "aa4416c684fc72e87276899b723bad14b408d010a10aa15483e992a3bb26953e",
+        "size": [
+          16,
+          16
+        ],
+        "source_sha256": "a4b05fb7c1eede5916fcd74aae249018a3bf6fc59c9b4eee1b1ee3aef026ac0a"
+      },
+      "pages": [
+        8
+      ]
+    },
+    {
+      "asset": "assets/astra/mm-energy-large.png",
+      "sha256": "ff5404197f4010693403fff74f4cd30bc63d0845ccd291199aa31f12da498585",
+      "source": {
+        "asset": "mm-energy-large.png",
+        "source": "reference\\crossover2\\images\\412_com.smbc.graphics.skins.BmdInfo_Bass000.png / MegaManPickup frame 14",
+        "detail": "Original 2.02 source pickup art; host palette colors can differ.",
+        "sha256": "ff5404197f4010693403fff74f4cd30bc63d0845ccd291199aa31f12da498585",
+        "size": [
+          16,
+          12
+        ],
+        "source_sha256": "a4b05fb7c1eede5916fcd74aae249018a3bf6fc59c9b4eee1b1ee3aef026ac0a"
+      },
+      "pages": [
+        5
+      ]
+    },
+    {
+      "asset": "assets/astra/mm-energy-small.png",
+      "sha256": "8615ecdff3bb0035f11727a6cc36f2d8e541a941afb3a65c4d79b420081052b9",
+      "source": {
+        "asset": "mm-energy-small.png",
+        "source": "reference\\crossover2\\images\\412_com.smbc.graphics.skins.BmdInfo_Bass000.png / MegaManPickup frame 16",
+        "detail": "Original 2.02 source pickup art; host palette colors can differ.",
+        "sha256": "8615ecdff3bb0035f11727a6cc36f2d8e541a941afb3a65c4d79b420081052b9",
+        "size": [
+          8,
+          8
+        ],
+        "source_sha256": "a4b05fb7c1eede5916fcd74aae249018a3bf6fc59c9b4eee1b1ee3aef026ac0a"
+      },
+      "pages": [
+        5
+      ]
+    },
+    {
+      "asset": "assets/astra/mm-flame.png",
+      "sha256": "27e5ccec704f414c64e131486eb564844f707ccba140f6fe10dc902a96f42820",
+      "source": {
+        "asset": "mm-flame.png",
+        "source": "reference\\crossover2\\images\\412_com.smbc.graphics.skins.BmdInfo_Bass000.png / MegaManPickup frame 8",
+        "detail": "Original 2.02 source pickup art; host palette colors can differ.",
+        "sha256": "27e5ccec704f414c64e131486eb564844f707ccba140f6fe10dc902a96f42820",
+        "size": [
+          16,
+          16
+        ],
+        "source_sha256": "a4b05fb7c1eede5916fcd74aae249018a3bf6fc59c9b4eee1b1ee3aef026ac0a"
+      },
+      "pages": [
+        8
+      ]
+    },
+    {
+      "asset": "assets/astra/mm-kick.png",
+      "sha256": "643299f5e5de75882224c88a4bccc109f6d32a56e1a1b357bf8aa357cdaee218",
+      "source": {
+        "asset": "mm-kick.png",
+        "source": "reference\\crossover2\\images\\412_com.smbc.graphics.skins.BmdInfo_Bass000.png / MegaManPickup frame 7",
+        "detail": "Original 2.02 source pickup art; host palette colors can differ.",
+        "sha256": "643299f5e5de75882224c88a4bccc109f6d32a56e1a1b357bf8aa357cdaee218",
+        "size": [
+          16,
+          16
+        ],
+        "source_sha256": "a4b05fb7c1eede5916fcd74aae249018a3bf6fc59c9b4eee1b1ee3aef026ac0a"
+      },
+      "pages": [
+        8
+      ]
+    },
+    {
+      "asset": "assets/astra/mm-knuckle.png",
+      "sha256": "4f515ec1dd6b6bbbf18b29b997bec3c76627931c35b60833f9fffd4c46f16c9a",
+      "source": {
+        "asset": "mm-knuckle.png",
+        "source": "reference\\crossover2\\images\\412_com.smbc.graphics.skins.BmdInfo_Bass000.png / MegaManPickup frame 5",
+        "detail": "Original 2.02 source pickup art; host palette colors can differ.",
+        "sha256": "4f515ec1dd6b6bbbf18b29b997bec3c76627931c35b60833f9fffd4c46f16c9a",
+        "size": [
+          16,
+          16
+        ],
+        "source_sha256": "a4b05fb7c1eede5916fcd74aae249018a3bf6fc59c9b4eee1b1ee3aef026ac0a"
+      },
+      "pages": [
+        8
+      ]
+    },
+    {
+      "asset": "assets/astra/mm-metal.png",
+      "sha256": "a6fb42cea5abc05a91fb99374ce19c8b838f630a530611f49e4f3267b9db12c6",
+      "source": {
+        "asset": "mm-metal.png",
+        "source": "reference\\crossover2\\images\\412_com.smbc.graphics.skins.BmdInfo_Bass000.png / MegaManPickup frame 4",
+        "detail": "Original 2.02 source pickup art; host palette colors can differ.",
+        "sha256": "a6fb42cea5abc05a91fb99374ce19c8b838f630a530611f49e4f3267b9db12c6",
+        "size": [
+          16,
+          16
+        ],
+        "source_sha256": "a4b05fb7c1eede5916fcd74aae249018a3bf6fc59c9b4eee1b1ee3aef026ac0a"
+      },
+      "pages": [
+        8
+      ]
+    },
+    {
+      "asset": "assets/astra/mm-pharaoh.png",
+      "sha256": "1c5b2790e4e0328da301b2ad9a6f9b681ee2d7bc0c6fc6d839650c5a3b412816",
+      "source": {
+        "asset": "mm-pharaoh.png",
+        "source": "reference\\crossover2\\images\\412_com.smbc.graphics.skins.BmdInfo_Bass000.png / MegaManPickup frame 6",
+        "detail": "Original 2.02 source pickup art; host palette colors can differ.",
+        "sha256": "1c5b2790e4e0328da301b2ad9a6f9b681ee2d7bc0c6fc6d839650c5a3b412816",
+        "size": [
+          16,
+          16
+        ],
+        "source_sha256": "a4b05fb7c1eede5916fcd74aae249018a3bf6fc59c9b4eee1b1ee3aef026ac0a"
+      },
+      "pages": [
+        8
+      ]
+    },
+    {
+      "asset": "assets/astra/mm-rush.png",
+      "sha256": "89b724e6f0b69f2a83850d8cc1337763b34f0f631d5323469bf5b10a0a5ec623",
+      "source": {
+        "asset": "mm-rush.png",
+        "source": "reference\\crossover2\\images\\412_com.smbc.graphics.skins.BmdInfo_Bass000.png / MegaManPickup frame 10",
+        "detail": "Original 2.02 source pickup art; host palette colors can differ.",
+        "sha256": "89b724e6f0b69f2a83850d8cc1337763b34f0f631d5323469bf5b10a0a5ec623",
+        "size": [
+          16,
+          16
+        ],
+        "source_sha256": "a4b05fb7c1eede5916fcd74aae249018a3bf6fc59c9b4eee1b1ee3aef026ac0a"
+      },
+      "pages": [
+        8
+      ]
+    },
+    {
+      "asset": "assets/astra/mm-water.png",
+      "sha256": "d63d86f39fc6989925137fbf72a1d8aa97075090dcecbb14cc0d5c6fadba65e7",
+      "source": {
+        "asset": "mm-water.png",
+        "source": "reference\\crossover2\\images\\412_com.smbc.graphics.skins.BmdInfo_Bass000.png / MegaManPickup frame 13",
+        "detail": "Original 2.02 source pickup art; host palette colors can differ.",
+        "sha256": "d63d86f39fc6989925137fbf72a1d8aa97075090dcecbb14cc0d5c6fadba65e7",
+        "size": [
+          16,
+          16
+        ],
+        "source_sha256": "a4b05fb7c1eede5916fcd74aae249018a3bf6fc59c9b4eee1b1ee3aef026ac0a"
+      },
+      "pages": [
+        8
+      ]
+    },
+    {
+      "asset": "assets/edition/mushroom.png",
+      "sha256": "25c6c057c39a8a70e384348ef413693cbe82a2d9c20d4ea5bd904159f51565d1",
+      "source": {
+        "asset": "mushroom.png",
+        "source": "src/metasprite.s :: POWERUP / chr/mmc5/sprites_misc.chr",
+        "source_sha256": "ed45a33b98ec525b5197022178765ccfb6c7bc2b17be6d7d15388b33a2c2b1af",
+        "details": "Actual native SMB item tiles/attributes. Animated color phase shown; the effect depends on the selected character.",
+        "width": 16,
+        "height": 16,
+        "sha256": "25c6c057c39a8a70e384348ef413693cbe82a2d9c20d4ea5bd904159f51565d1"
+      },
+      "pages": [
+        5,
+        8,
+        11,
+        13,
+        15,
+        18,
+        21,
+        27
+      ]
+    },
+    {
+      "asset": "assets/edition/pn-big.png",
+      "sha256": "5caf10db049562546f5544c4b4a9b6d22bc4fdb80d65632f11dd4e40c75fa30c",
+      "source": {
+        "asset": "pn-big.png",
+        "source": "build\\verification\\parodius-render-nq\\pickups-v3\\1\\build\\verification\\pose-249.png",
+        "source_sha256": "32069f1be73f9f053e64df5d1af07246f6e2a9e17a363527b33b3640cc034fa9",
+        "details": "Actual isolated native pickup screenshot, complete bounds; uniform sky made transparent. No tile repaint.",
+        "width": 16,
+        "height": 14,
+        "sha256": "5caf10db049562546f5544c4b4a9b6d22bc4fdb80d65632f11dd4e40c75fa30c"
+      },
+      "pages": [
+        45
+      ]
+    },
+    {
+      "asset": "assets/edition/pn-blue.png",
+      "sha256": "c132b0e54964cb3c52ca5aca8d463d4cd5600026711bb82a8d797c6731f89f1e",
+      "source": {
+        "asset": "pn-blue.png",
+        "source": "build\\verification\\parodius-render-nq\\pickups-v3\\1\\build\\verification\\pose-245.png",
+        "source_sha256": "22a73356299f71737afeed2deaf36edf1271ddea2fe13ca4762c067689925ccc",
+        "details": "Actual isolated native pickup screenshot, complete bounds; uniform sky made transparent. No tile repaint.",
+        "width": 16,
+        "height": 14,
+        "sha256": "c132b0e54964cb3c52ca5aca8d463d4cd5600026711bb82a8d797c6731f89f1e"
+      },
+      "pages": [
+        45
+      ]
+    },
+    {
+      "asset": "assets/edition/pn-gold.png",
+      "sha256": "5b73d94f8000d2dbe725835446774da0b7948ed523975fbabee0be2fd9232429",
+      "source": {
+        "asset": "pn-gold.png",
+        "source": "build\\verification\\parodius-render-nq\\pickups-v3\\1\\build\\verification\\pose-241.png",
+        "source_sha256": "2f7c23f0743e42a9bacf5a347ada220fd21f11e684086385e919088cb13701f6",
+        "details": "Actual isolated native pickup screenshot, complete bounds; uniform sky made transparent. No tile repaint.",
+        "width": 16,
+        "height": 16,
+        "sha256": "5b73d94f8000d2dbe725835446774da0b7948ed523975fbabee0be2fd9232429"
+      },
+      "pages": [
+        45
+      ]
+    },
+    {
+      "asset": "assets/edition/pn-red.png",
+      "sha256": "dbc04265578d6d85cd24a380fcd02b38970849f5580e3aa6f332308c5729dee7",
+      "source": {
+        "asset": "pn-red.png",
+        "source": "build\\verification\\parodius-render-nq\\pickups-v3\\1\\build\\verification\\pose-243.png",
+        "source_sha256": "3aa153346b393a6dc6ef7e23f3ea8fb15a8ea7c8a63b1e071c9bb314ef6bd7d0",
+        "details": "Actual isolated native pickup screenshot, complete bounds; uniform sky made transparent. No tile repaint.",
+        "width": 16,
+        "height": 14,
+        "sha256": "dbc04265578d6d85cd24a380fcd02b38970849f5580e3aa6f332308c5729dee7"
+      },
+      "pages": [
+        45
+      ]
+    },
+    {
+      "asset": "assets/astra/pn-white-source.png",
+      "sha256": "17d3fd133d015123651affca48898317412a33df09ba27c21fe18f4320cfda25",
+      "source": {
+        "asset": "pn-white-source.png",
+        "source": "reference/parodius-nes/manual-08.png / original manual p.14",
+        "detail": "Original clearly identified white Bell illustration. Replaces the old duplicated red/white capture; source illustration, not a cartridge screenshot.",
+        "sha256": "17d3fd133d015123651affca48898317412a33df09ba27c21fe18f4320cfda25",
+        "size": [
+          100,
+          89
+        ],
+        "source_sha256": "64e290ee3ebee9e8045031c36dcb1e73b9a50d6871826aa06ce15adf654a6017"
+      },
+      "pages": [
+        45
+      ]
+    },
+    {
+      "asset": "assets/edition/roll-energy-large.png",
+      "sha256": "f054cb3d70e58590df5325da578f7389c9e700aee4c0550a39977e61b6c89791",
+      "source": {
+        "asset": "roll-energy-large.png",
+        "source": "src/roll_art.inc :: RlShot6",
+        "source_sha256": "a41674dbe7da6f84dc9588a7275643b8839e1fe594deacc8571072a4ab06c37f",
+        "details": "Installed NES pixels; a static animation phase. Shared icon shapes are identified in the legend.",
+        "width": 16,
+        "height": 12,
+        "sha256": "f054cb3d70e58590df5325da578f7389c9e700aee4c0550a39977e61b6c89791"
+      },
+      "pages": [
+        43
+      ]
+    },
+    {
+      "asset": "assets/edition/roll-energy-small.png",
+      "sha256": "82605638ceec917d78227a33bc435aba205e45128a97fc9b9d02e54568f3319f",
+      "source": {
+        "asset": "roll-energy-small.png",
+        "source": "src/roll_art.inc :: RlShot5",
+        "source_sha256": "a41674dbe7da6f84dc9588a7275643b8839e1fe594deacc8571072a4ab06c37f",
+        "details": "Installed NES pixels; a static animation phase. Shared icon shapes are identified in the legend.",
+        "width": 8,
+        "height": 8,
+        "sha256": "82605638ceec917d78227a33bc435aba205e45128a97fc9b9d02e54568f3319f"
+      },
+      "pages": [
+        43
+      ]
+    },
+    {
+      "asset": "assets/edition/roll-health-large.png",
+      "sha256": "651e45bb9d8784356cb8bdcda76744850a566bd5635f12dfc5f9c64277f35b7a",
+      "source": {
+        "asset": "roll-health-large.png",
+        "source": "src/roll_art.inc :: RlShot4",
+        "source_sha256": "a41674dbe7da6f84dc9588a7275643b8839e1fe594deacc8571072a4ab06c37f",
+        "details": "Installed NES pixels; a static animation phase. Shared icon shapes are identified in the legend.",
+        "width": 16,
+        "height": 16,
+        "sha256": "651e45bb9d8784356cb8bdcda76744850a566bd5635f12dfc5f9c64277f35b7a"
+      },
+      "pages": [
+        43
+      ]
+    },
+    {
+      "asset": "assets/edition/roll-health-small.png",
+      "sha256": "af181e956895f9ac68f3c611cc8b18f04d936d12e730505223226ed2d6854fce",
+      "source": {
+        "asset": "roll-health-small.png",
+        "source": "src/roll_art.inc :: RlShot1",
+        "source_sha256": "a41674dbe7da6f84dc9588a7275643b8839e1fe594deacc8571072a4ab06c37f",
+        "details": "Installed NES pixels; a static animation phase. Shared icon shapes are identified in the legend.",
+        "width": 10,
+        "height": 10,
+        "sha256": "af181e956895f9ac68f3c611cc8b18f04d936d12e730505223226ed2d6854fce"
+      },
+      "pages": [
+        43
+      ]
+    },
+    {
+      "asset": "assets/edition/scene-bass.png",
+      "sha256": "6b4820936e79acef97666cdbb5f9904c951cfd973a1ec3a37740d0be1ae58023",
+      "source": {
+        "asset": "scene-bass.png",
+        "source": "build\\verification\\parodius-death-nr\\entry-v2\\bass\\build\\verification\\movement.png",
+        "source_sha256": "6b4820936e79acef97666cdbb5f9904c951cfd973a1ec3a37740d0be1ae58023",
+        "details": "NR controller-only entry movement fixture: an actual full game frame, not a final playthrough claim.",
+        "width": 256,
+        "height": 240,
+        "sha256": "6b4820936e79acef97666cdbb5f9904c951cfd973a1ec3a37740d0be1ae58023"
+      },
+      "pages": [
+        9
+      ]
+    },
+    {
+      "asset": "assets/edition/scene-kirby.png",
+      "sha256": "4d48b01a11adc3c69706c5fb0ec594645479159c1082cddcdd41cd96b7d08c14",
+      "source": {
+        "asset": "scene-kirby.png",
+        "source": "build\\verification\\parodius-death-nr\\entry-v2\\kirby\\build\\verification\\movement.png",
+        "source_sha256": "4d48b01a11adc3c69706c5fb0ec594645479159c1082cddcdd41cd96b7d08c14",
+        "details": "NR controller-only entry movement fixture: an actual full game frame, not a final playthrough claim.",
+        "width": 256,
+        "height": 240,
+        "sha256": "4d48b01a11adc3c69706c5fb0ec594645479159c1082cddcdd41cd96b7d08c14"
+      },
+      "pages": [
+        31
+      ]
+    },
+    {
+      "asset": "assets/edition/scene-link.png",
+      "sha256": "de396f90b40fd2ce5f08e5ab17c716d2fcf0a6a19f5332bc060bd54e2cd3b5e0",
+      "source": {
+        "asset": "scene-link.png",
+        "source": "build\\verification\\parodius-death-nr\\entry-v2\\link\\build\\verification\\movement.png",
+        "source_sha256": "de396f90b40fd2ce5f08e5ab17c716d2fcf0a6a19f5332bc060bd54e2cd3b5e0",
+        "details": "NR controller-only entry movement fixture: an actual full game frame, not a final playthrough claim.",
+        "width": 256,
+        "height": 240,
+        "sha256": "de396f90b40fd2ce5f08e5ab17c716d2fcf0a6a19f5332bc060bd54e2cd3b5e0"
+      },
+      "pages": [
+        14
+      ]
+    },
+    {
+      "asset": "assets/edition/scene-little-mac.png",
+      "sha256": "b148b8841bb56004ada2869e6e79bdc47d14e39c61f5d3ec4ef49e1570ade940",
+      "source": {
+        "asset": "scene-little-mac.png",
+        "source": "build\\verification\\parodius-death-nr\\entry-v2\\little-mac\\build\\verification\\movement.png",
+        "source_sha256": "b148b8841bb56004ada2869e6e79bdc47d14e39c61f5d3ec4ef49e1570ade940",
+        "details": "NR controller-only entry movement fixture: an actual full game frame, not a final playthrough claim.",
+        "width": 256,
+        "height": 240,
+        "sha256": "b148b8841bb56004ada2869e6e79bdc47d14e39c61f5d3ec4ef49e1570ade940"
+      },
+      "pages": [
+        35
+      ]
+    },
+    {
+      "asset": "assets/edition/scene-pit.png",
+      "sha256": "7d9cc3a724ffe6dc7e1c38f8f19372aba0e960f185b821881d44de4b7bc83d3b",
+      "source": {
+        "asset": "scene-pit.png",
+        "source": "build\\verification\\parodius-death-nr\\entry-v2\\pit\\build\\verification\\movement.png",
+        "source_sha256": "7d9cc3a724ffe6dc7e1c38f8f19372aba0e960f185b821881d44de4b7bc83d3b",
+        "details": "NR controller-only entry movement fixture: an actual full game frame, not a final playthrough claim.",
+        "width": 256,
+        "height": 240,
+        "sha256": "7d9cc3a724ffe6dc7e1c38f8f19372aba0e960f185b821881d44de4b7bc83d3b"
+      },
+      "pages": [
+        22
+      ]
+    },
+    {
+      "asset": "assets/edition/scene-sophia.png",
+      "sha256": "82912667a534e7f1b462af4de56716ef8c5051ec5ebba55ef39c03e01f75355d",
+      "source": {
+        "asset": "scene-sophia.png",
+        "source": "build\\verification\\parodius-death-nr\\entry-v2\\sophia\\build\\verification\\movement.png",
+        "source_sha256": "82912667a534e7f1b462af4de56716ef8c5051ec5ebba55ef39c03e01f75355d",
+        "details": "NR controller-only entry movement fixture: an actual full game frame, not a final playthrough claim.",
+        "width": 256,
+        "height": 240,
+        "sha256": "82912667a534e7f1b462af4de56716ef8c5051ec5ebba55ef39c03e01f75355d"
+      },
+      "pages": [
+        26
+      ]
+    },
+    {
+      "asset": "assets/edition/scene-vic-viper.png",
+      "sha256": "eac6bfae3f458433e7a7cbfb9ec0f0b4084825261895375121f11d8626935a5a",
+      "source": {
+        "asset": "scene-vic-viper.png",
+        "source": "build\\verification\\parodius-death-nr\\entry-v2\\vic-viper\\build\\verification\\movement.png",
+        "source_sha256": "eac6bfae3f458433e7a7cbfb9ec0f0b4084825261895375121f11d8626935a5a",
+        "details": "NR controller-only entry movement fixture: an actual full game frame, not a final playthrough claim.",
+        "width": 256,
+        "height": 240,
+        "sha256": "eac6bfae3f458433e7a7cbfb9ec0f0b4084825261895375121f11d8626935a5a"
+      },
+      "pages": [
+        40
+      ]
+    },
+    {
+      "asset": "assets/edition/smb3-1.png",
+      "sha256": "871f999d1f12dead60def0e167f26bd7790ca55032deeb3db494aebd6606891b",
+      "source": {
+        "asset": "smb3-1.png",
+        "source": "src/smb3_mario_world_art.inc :: M3Item1",
+        "source_sha256": "00e7d2a4c6afad82890ac88c6ff068c0df838c50b04d04dd0f56546f993b4d26",
+        "details": "Installed NES pixels; a static animation phase. Shared icon shapes are identified in the legend.",
+        "width": 16,
+        "height": 16,
+        "sha256": "871f999d1f12dead60def0e167f26bd7790ca55032deeb3db494aebd6606891b"
+      },
+      "pages": [
+        39
+      ]
+    },
+    {
+      "asset": "assets/edition/smb3-2.png",
+      "sha256": "459b64d5737bff9efe2e7f1a58b42398011552e9f2f6b06408d63a20d019ea70",
+      "source": {
+        "asset": "smb3-2.png",
+        "source": "src/smb3_mario_world_art.inc :: M3Item2",
+        "source_sha256": "00e7d2a4c6afad82890ac88c6ff068c0df838c50b04d04dd0f56546f993b4d26",
+        "details": "Installed NES pixels; a static animation phase. Shared icon shapes are identified in the legend.",
+        "width": 16,
+        "height": 16,
+        "sha256": "459b64d5737bff9efe2e7f1a58b42398011552e9f2f6b06408d63a20d019ea70"
+      },
+      "pages": [
+        39
+      ]
+    },
+    {
+      "asset": "assets/edition/smb3-3.png",
+      "sha256": "9d200b92f299e9a4c7599e4f535bc744b323b229781a491ea95e1a22d27657f5",
+      "source": {
+        "asset": "smb3-3.png",
+        "source": "src/smb3_mario_world_art.inc :: M3Item3",
+        "source_sha256": "00e7d2a4c6afad82890ac88c6ff068c0df838c50b04d04dd0f56546f993b4d26",
+        "details": "Installed NES pixels; a static animation phase. Shared icon shapes are identified in the legend.",
+        "width": 15,
+        "height": 16,
+        "sha256": "9d200b92f299e9a4c7599e4f535bc744b323b229781a491ea95e1a22d27657f5"
+      },
+      "pages": [
+        39
+      ]
+    },
+    {
+      "asset": "assets/edition/smb3-4.png",
+      "sha256": "2ee27fee1c9c6092db95b9a3d604d1675b439a4008e4e381f5c442274732dce4",
+      "source": {
+        "asset": "smb3-4.png",
+        "source": "src/smb3_mario_world_art.inc :: M3Item4",
+        "source_sha256": "00e7d2a4c6afad82890ac88c6ff068c0df838c50b04d04dd0f56546f993b4d26",
+        "details": "Installed NES pixels; a static animation phase. Shared icon shapes are identified in the legend.",
+        "width": 16,
+        "height": 16,
+        "sha256": "2ee27fee1c9c6092db95b9a3d604d1675b439a4008e4e381f5c442274732dce4"
+      },
+      "pages": [
+        39
+      ]
+    },
+    {
+      "asset": "assets/edition/smb3-5.png",
+      "sha256": "4047a838eb3223656a6be99eadb88015cf714a5a54bc4bc2df635b30e5ccf83a",
+      "source": {
+        "asset": "smb3-5.png",
+        "source": "src/smb3_mario_world_art.inc :: M3Item5",
+        "source_sha256": "00e7d2a4c6afad82890ac88c6ff068c0df838c50b04d04dd0f56546f993b4d26",
+        "details": "Installed NES pixels; a static animation phase. Shared icon shapes are identified in the legend.",
+        "width": 16,
+        "height": 16,
+        "sha256": "4047a838eb3223656a6be99eadb88015cf714a5a54bc4bc2df635b30e5ccf83a"
+      },
+      "pages": [
+        39
+      ]
+    },
+    {
+      "asset": "assets/edition/smb3-6.png",
+      "sha256": "407bc0b55d11771bb27a477794403def6cfc898f748ea44848afff39347dc39c",
+      "source": {
+        "asset": "smb3-6.png",
+        "source": "src/smb3_mario_world_art.inc :: M3Item6",
+        "source_sha256": "00e7d2a4c6afad82890ac88c6ff068c0df838c50b04d04dd0f56546f993b4d26",
+        "details": "Installed NES pixels; a static animation phase. Shared icon shapes are identified in the legend.",
+        "width": 14,
+        "height": 16,
+        "sha256": "407bc0b55d11771bb27a477794403def6cfc898f748ea44848afff39347dc39c"
+      },
+      "pages": [
+        39
+      ]
+    },
+    {
+      "asset": "assets/edition/star.png",
+      "sha256": "d3d0af83086571ee9afe80ab07225e2c9d76f9526954c84aa23172b4d6f593a3",
+      "source": {
+        "asset": "star.png",
+        "source": "src/metasprite.s :: POWERUP / chr/mmc5/sprites_misc.chr",
+        "source_sha256": "ed45a33b98ec525b5197022178765ccfb6c7bc2b17be6d7d15388b33a2c2b1af",
+        "details": "Actual native SMB item tiles/attributes. Animated color phase shown; the effect depends on the selected character.",
+        "width": 14,
+        "height": 16,
+        "sha256": "d3d0af83086571ee9afe80ab07225e2c9d76f9526954c84aa23172b4d6f593a3"
+      },
+      "pages": [
+        5,
+        30
+      ]
+    },
+    {
+      "asset": "assets/edition/vic-capsule.png",
+      "sha256": "5eaab8571edc151a890191f03f1d261d60b8d5ba3e04c6c955a45fb2223d2b4f",
+      "source": {
+        "asset": "vic-capsule.png",
+        "source": "src/vic_art.inc :: VvPose16",
+        "source_sha256": "4b3060c074b75f759ac0f53d74376625c39fbce3090f5e6ca34f167938b42b4a",
+        "details": "Installed NES pixels; a static animation phase. Shared icon shapes are identified in the legend.",
+        "width": 16,
+        "height": 14,
+        "sha256": "5eaab8571edc151a890191f03f1d261d60b8d5ba3e04c6c955a45fb2223d2b4f"
+      },
+      "pages": [
+        41
+      ]
+    },
+    {
+      "asset": "assets/edition/z2-bag.png",
+      "sha256": "5ea35d6245ec60c536737689bf24944d581e13c831fca929c71fed99c7cd7aac",
+      "source": {
+        "asset": "z2-bag.png",
+        "source": "src/zelda2_link_items.inc :: Z2ItemBAG",
+        "source_sha256": "5c022e8d0b394bdc36da5cecd977d352538df099a49ec1047c4ca12c3898c60a",
+        "details": "Installed NES pixels; a static animation phase. Shared icon shapes are identified in the legend.",
+        "width": 8,
+        "height": 15,
+        "sha256": "5ea35d6245ec60c536737689bf24944d581e13c831fca929c71fed99c7cd7aac"
+      },
+      "pages": [
+        16
+      ]
+    },
+    {
+      "asset": "assets/edition/z2-blue.png",
+      "sha256": "6bb0f2ccdfc1798e82550d4c9192ebf8cf687d28396398c5d0e9078783e50943",
+      "source": {
+        "asset": "z2-blue.png",
+        "source": "src/zelda2_link_items.inc :: Z2ItemBLUE",
+        "source_sha256": "5c022e8d0b394bdc36da5cecd977d352538df099a49ec1047c4ca12c3898c60a",
+        "details": "Installed NES pixels; a static animation phase. Shared icon shapes are identified in the legend.",
+        "width": 8,
+        "height": 14,
+        "sha256": "6bb0f2ccdfc1798e82550d4c9192ebf8cf687d28396398c5d0e9078783e50943"
+      },
+      "pages": [
+        16
+      ]
+    },
+    {
+      "asset": "assets/edition/z2-heart.png",
+      "sha256": "16bd3061453487d24a588cacc5ced0bda6d958ccf13bb981f3af0aea8ef17ca9",
+      "source": {
+        "asset": "z2-heart.png",
+        "source": "src/zelda2_link_items.inc :: Z2ItemHEART",
+        "source_sha256": "5c022e8d0b394bdc36da5cecd977d352538df099a49ec1047c4ca12c3898c60a",
+        "details": "Installed NES pixels; a static animation phase. Shared icon shapes are identified in the legend.",
+        "width": 16,
+        "height": 15,
+        "sha256": "16bd3061453487d24a588cacc5ced0bda6d958ccf13bb981f3af0aea8ef17ca9"
+      },
+      "pages": [
+        16
+      ]
+    }
+  ],
+  "corrected": [
+    "Full green/red Koopa and Buzzy poses replace shell-only HUD emblems",
+    "Grey Cheep uses underwater grey palette; Paratroopa uses green world palette and complete wings",
+    "All fourteen enemy targets independently checked",
+    "Mike distinct Nintendo manual weapons including the explicitly identified electronic-manual Super Nova; laser paths explicitly diagrams",
+    "Complete original Little Mac HUD star replaces clipped half-glyph",
+    "White Bell source manual illustration replaces duplicate red capture",
+    "Original 2.02 source pickup colors restore fine detail including Ryu Jump Slash spiral",
+    "Zelda II reduced to one coherent controls/stats/spells/rewards page",
+    "Duplicate Rapid stages and bomb/missile supply art consolidated",
+    "CV3 companions show their own tools; no redundant separate heart catalogue",
+    "Ship diagrams replace illegible miniature HUD-cell pictures",
+    "Samus exit frame removed because it followed a bomb boost",
+    "Meta Knight uses corrected native body palette and six grounded sword attacks; old flight and held-B chain removed",
+    "Two empty 1-4 firebar mounts correctly identified as authored; active in 6-4 independently of Easy/Hard"
+  ],
+  "game_art_findings": [
+    "Prior Little Mac extraction clipped its source star; corrected original HUD illustration retained. Game star repaired separately in NT.",
+    "Mike kind3 first capture is an unverified checkerboard, not proven Nova art; later fragments also require visible original OAM/CHR verification. No Nova ROM-art defect is established by these captures.",
+    "Mike JnStar display is a partial white/red object; guide uses authenticated manual star",
+    "Parodius old red and white captured assets were byte-identical"
+  ],
+  "limits": "Guide correctness is not game certification. Private preview lag/dropout, dedicated audio, full campaign and final all-item coverage remain open."
+}

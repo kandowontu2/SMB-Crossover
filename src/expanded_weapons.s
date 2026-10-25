@@ -82,7 +82,11 @@ Roof:
   lda SelectedCharacter
   cmp #CHARACTER_SCROOGE
   bne :+
+.if ::ENABLE_MMC5_EXPANDED
+    farcall DwScroogeWeapons
+.else
     farcall ScroogeWeapons
+.endif
     rts
   :
   lda #0

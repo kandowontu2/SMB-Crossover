@@ -1,0 +1,57 @@
+{
+  "passed": true,
+  "status": "LIVE_PORT_COMPOSITION_AND_HARDWARE_ADMISSION_PASS",
+  "ROM_sha256": "b90ede8fa3afaceefe3ef3090424f4d6b6662c139a1a3d6df52e64b7ec00b240",
+  "original_source_sha256": "a7a742f5288cd4ab220f530ee7c8d0e3714b8bf107e89c9bf03039217fec5829",
+  "original_hardware_forward_cases": 35,
+  "cases": {
+    "easy": {
+      "rows": 1482,
+      "all_parts_present": true,
+      "actual_part_checks": 4719,
+      "physical_pages": [
+        16,
+        356,
+        358,
+        360
+      ],
+      "physical_bytes_exact_linked_ROM": true,
+      "body_palette_exact": true,
+      "sword_declared_palette": true,
+      "priority_mismatch_frames": 0,
+      "priority_mismatch_poses": [],
+      "first_mismatches": [],
+      "all_observed_pose_facing_parts_receive_native_scanline_eligibility": true,
+      "ineligible_parts": [],
+      "maximum_hardware_sprites_on_scanline": 8,
+      "hardware_csv_sha256": "60f97b73e2c2abdc8cfff9e858db3d2b60ac4050ae7fc78b525b0c486d67c158",
+      "oam_sha256": "539020736d0bc8f258e25d257710b6c9e373ded83096fd8064dcf9dfe47663a2",
+      "palettes_sha256": "6295ae543c6ff4a7a6049e834750079140edbd2b2ff0094c4bd6b1aa919a8d62"
+    },
+    "hard": {
+      "rows": 1482,
+      "all_parts_present": true,
+      "actual_part_checks": 4720,
+      "physical_pages": [
+        16,
+        356,
+        358,
+        360
+      ],
+      "physical_bytes_exact_linked_ROM": true,
+      "body_palette_exact": true,
+      "sword_declared_palette": true,
+      "priority_mismatch_frames": 0,
+      "priority_mismatch_poses": [],
+      "first_mismatches": [],
+      "all_observed_pose_facing_parts_receive_native_scanline_eligibility": true,
+      "ineligible_parts": [],
+      "maximum_hardware_sprites_on_scanline": 8,
+      "hardware_csv_sha256": "1b8cbd389a0a21c40468735cf789a4e35861e1b9a6e4c2d3cacd7e412a9ff864",
+      "oam_sha256": "0515e279e448017689be0c0b0dcc55052f834fe96af00b15acd4373fdc7b3e94",
+      "palettes_sha256": "6295ae543c6ff4a7a6049e834750079140edbd2b2ff0094c4bd6b1aa919a8d62"
+    }
+  },
+  "checker_sha256": "badf4ee85c5cb7643e2b5690fcb6efde4492d359120bd96dcbc421dfe6cd9317",
+  "scope": "Read-only native DMA observer on separately seeded component arenas. All body/sword records, actual physical CHR, body/declaration palettes and per-pixel intrinsic body composite match original source priority; each observed part receives nontransparent hardware scanline eligibility. This is not a campaign clear or an audio parity proof."
+}

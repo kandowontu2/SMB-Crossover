@@ -1,0 +1,3388 @@
+{
+  "status": "PRIVATE_MMC5_BELLS_PICKUP_ART_COMPONENTS_36_ENTRIES_AND_THREE_EASY_1_1_REPLAYS_VERIFIED_NOT_RELEASED",
+  "source_sha256": "ef1dd05ad5b6095d1d8e9a9f81fcb549b5cf0248779d4e76eb7bd9b139de4c9a",
+  "native_component_builder": "tools/reference/build_parodius_native.py",
+  "differential_checker": "tools/audit/check_parodius_native.py",
+  "code_component": "src/parodius_native.s",
+  "data_component": "src/parodius_data.inc",
+  "native_instructions": 1847,
+  "native_animations": 92,
+  "differential": {
+    "mmc5": {
+      "cases": 92,
+      "instructions": 35493684,
+      "passed": true
+    },
+    "mmc3": {
+      "cases": 92,
+      "instructions": 35493684,
+      "passed": true
+    }
+  },
+  "art_exporter": "tools/reference/export_parodius_art.py",
+  "art_checker": "tools/audit/check_parodius_art.py",
+  "art_oracle": {
+    "source_sha256": "ef1dd05ad5b6095d1d8e9a9f81fcb549b5cf0248779d4e76eb7bd9b139de4c9a",
+    "frames": 449,
+    "groups": [
+      0,
+      1
+    ],
+    "palette_cases": 1796,
+    "source_OAM_sprites": 7324,
+    "all_original_records_match": true,
+    "cpu_renderer_entry": 34265,
+    "prg_banks": [
+      4,
+      5
+    ],
+    "scope": "Exact original relative offsets, tiles, hardware flip bits and palette override; not a packed-ROM or gameplay test."
+  },
+  "frame_sets": "reference/parodius-nes/art/frame-sets.json",
+  "verified_rules": {
+    "normal_controls": "Original B fires, A buys. SMB ship uses A fire/B buy, so adapt button bits explicitly.",
+    "option_caps": {
+      "vic": 4,
+      "octopus": 4,
+      "twinbee": 3,
+      "pentarou": 3
+    },
+    "speed_cap": 4,
+    "question_mark_cell": "Removes all upgrades; it is not random.",
+    "octopus": [
+      "2-Way missile",
+      "Tailgun",
+      "growing Ripple",
+      "O-Trap"
+    ],
+    "twinbee": [
+      "returning Rocket Punch",
+      "Tailgun",
+      "3-Way",
+      "Force Field"
+    ],
+    "pentarou": [
+      "piercing Potion",
+      "Double",
+      "Spread explosion",
+      "Bubble shield"
+    ],
+    "bell_colors": {
+      "yellow": "Successive score bonuses",
+      "blue": "Super Bomb",
+      "white": "1UP",
+      "red": "three vertical crest missiles",
+      "flashing": "limited Big invincibility, cannot fire"
+    },
+    "shield_native_HP": 15
+  },
+  "important_source_details": [
+    "Sprite renderer uses PRG banks4 and5. Group0 table ACC2; entry0 is unused. Valid frames1..240.",
+    "Original first sprite CHR page is the skin register87; remaining1KiB pages are4,11,5. Big skins8,17,19,20.",
+    "Capture CHR/OAM at startFrame. EndFrame sees native status-bar blank CHR banks.",
+    "Generated code uses a constant zero animation group, as all original callers in these ranges do.",
+    "Terrain/enemy and native Bell control callbacks are integrated. Original audio remains temporary; hero-change and exact Bell edge/disappearance behavior remain open."
+  ],
+  "next_steps": [
+    "Finish source audio/music, dynamic palette overrides, shield contact geometry, hero-change and Bell edge/disappearance fidelity.",
+    "Review the SMB enemy-drop policy and physical capsule acquisition coverage for every equipment cell.",
+    "Port the complete Parodius state/CHR/backend and36-identity portrait atlas into oversized MMC3.",
+    "Finish Roll and broader requested work, then execute the complete final character/powerup verification gate."
+  ],
+  "mapper_layout_update": "Parodius CHR now832..1023(192KiB); MMC3 menu atlas source can grow from756..821 to756..827 without overlap. PRG117 stores additional art records. MMC3 production mapping still needs page5D ->RgAudioRam+256 and dynamic special-bank support; do not build/publish it from this private source yet.",
+  "active_user_priority": "Complete the requested roster/work, then every identity must clear1-1 and exercise every applicable powerup. Fix visual, collision, scrolling and performance defects as found. Existing public MMC3 menu repair is retained.",
+  "candidate": "build/verification/parodius-bells-nm/smb-crossover-mmc5-pickups-v3.nes",
+  "candidate_sha256": "c6369dbd1e56b55751fe6ba7a06c25f48292c97b9a0a1d9be67f6fd0ddce15d3",
+  "native_pose_packer": "tools/reference/prepare_parodius_art.py",
+  "native_packed_pose_cases": 664,
+  "qa_notes": "docs/qa/parodius-integration-2026-10-23.md",
+  "final_gate": "docs/qa/final-verification-plan-2026-10-23.md",
+  "verification_root": "build/verification/parodius-bells-nm",
+  "private_checkpoint": "build/checkpoints/parodius-bells-nm",
+  "bell_builder": "tools/reference/build_parodius_bells.py",
+  "bell_differential_checker": "tools/audit/check_parodius_bells.py",
+  "bell_differential": {
+    "mmc5": {
+      "passed": true,
+      "cases": [
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 4,
+          "flags": 0
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 4,
+          "flags": 1
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 4,
+          "flags": 2
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 4,
+          "flags": 4
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 4,
+          "flags": 8
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 4,
+          "flags": 16
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 4,
+          "flags": 18
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 4,
+          "flags": 64
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 5,
+          "flags": 0
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 5,
+          "flags": 1
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 5,
+          "flags": 2
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 5,
+          "flags": 4
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 5,
+          "flags": 8
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 5,
+          "flags": 16
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 5,
+          "flags": 18
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 5,
+          "flags": 64
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 6,
+          "flags": 0
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 6,
+          "flags": 1
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 6,
+          "flags": 2
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 6,
+          "flags": 4
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 6,
+          "flags": 8
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 6,
+          "flags": 16
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 6,
+          "flags": 18
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 6,
+          "flags": 64
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 7,
+          "flags": 0
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 7,
+          "flags": 1
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 7,
+          "flags": 2
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 7,
+          "flags": 4
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 7,
+          "flags": 8
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 7,
+          "flags": 16
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 7,
+          "flags": 18
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 7,
+          "flags": 64
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 8,
+          "flags": 0
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 8,
+          "flags": 1
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 8,
+          "flags": 2
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 8,
+          "flags": 4
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 8,
+          "flags": 8
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 8,
+          "flags": 16
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 8,
+          "flags": 18
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 8,
+          "flags": 64
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 9,
+          "flags": 0
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 9,
+          "flags": 1
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 9,
+          "flags": 2
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 9,
+          "flags": 4
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 9,
+          "flags": 8
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 9,
+          "flags": 16
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 9,
+          "flags": 18
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 9,
+          "flags": 64
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 10,
+          "flags": 0
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 10,
+          "flags": 1
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 10,
+          "flags": 2
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 10,
+          "flags": 4
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 10,
+          "flags": 8
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 10,
+          "flags": 16
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 10,
+          "flags": 18
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 10,
+          "flags": 64
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 23,
+          "flags": 0
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 23,
+          "flags": 1
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 23,
+          "flags": 2
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 23,
+          "flags": 4
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 23,
+          "flags": 8
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 23,
+          "flags": 16
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 23,
+          "flags": 18
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 23,
+          "flags": 64
+        },
+        {
+          "name": "bell-lifecycle",
+          "variant": 0,
+          "flags": 1,
+          "maximum_active": 8
+        },
+        {
+          "name": "bell-lifecycle",
+          "variant": 0,
+          "flags": 4,
+          "maximum_active": 128
+        },
+        {
+          "name": "bell-lifecycle",
+          "variant": 0,
+          "flags": 8,
+          "maximum_active": 0
+        },
+        {
+          "name": "bell-lifecycle",
+          "variant": 0,
+          "flags": 16,
+          "maximum_active": 0
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 4,
+          "flags": 0
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 4,
+          "flags": 1
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 4,
+          "flags": 2
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 4,
+          "flags": 4
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 4,
+          "flags": 8
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 4,
+          "flags": 16
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 4,
+          "flags": 18
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 4,
+          "flags": 64
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 5,
+          "flags": 0
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 5,
+          "flags": 1
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 5,
+          "flags": 2
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 5,
+          "flags": 4
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 5,
+          "flags": 8
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 5,
+          "flags": 16
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 5,
+          "flags": 18
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 5,
+          "flags": 64
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 6,
+          "flags": 0
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 6,
+          "flags": 1
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 6,
+          "flags": 2
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 6,
+          "flags": 4
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 6,
+          "flags": 8
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 6,
+          "flags": 16
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 6,
+          "flags": 18
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 6,
+          "flags": 64
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 7,
+          "flags": 0
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 7,
+          "flags": 1
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 7,
+          "flags": 2
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 7,
+          "flags": 4
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 7,
+          "flags": 8
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 7,
+          "flags": 16
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 7,
+          "flags": 18
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 7,
+          "flags": 64
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 8,
+          "flags": 0
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 8,
+          "flags": 1
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 8,
+          "flags": 2
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 8,
+          "flags": 4
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 8,
+          "flags": 8
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 8,
+          "flags": 16
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 8,
+          "flags": 18
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 8,
+          "flags": 64
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 9,
+          "flags": 0
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 9,
+          "flags": 1
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 9,
+          "flags": 2
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 9,
+          "flags": 4
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 9,
+          "flags": 8
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 9,
+          "flags": 16
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 9,
+          "flags": 18
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 9,
+          "flags": 64
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 10,
+          "flags": 0
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 10,
+          "flags": 1
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 10,
+          "flags": 2
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 10,
+          "flags": 4
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 10,
+          "flags": 8
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 10,
+          "flags": 16
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 10,
+          "flags": 18
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 10,
+          "flags": 64
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 23,
+          "flags": 0
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 23,
+          "flags": 1
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 23,
+          "flags": 2
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 23,
+          "flags": 4
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 23,
+          "flags": 8
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 23,
+          "flags": 16
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 23,
+          "flags": 18
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 23,
+          "flags": 64
+        },
+        {
+          "name": "bell-lifecycle",
+          "variant": 1,
+          "flags": 1,
+          "maximum_active": 8
+        },
+        {
+          "name": "bell-lifecycle",
+          "variant": 1,
+          "flags": 4,
+          "maximum_active": 128
+        },
+        {
+          "name": "bell-lifecycle",
+          "variant": 1,
+          "flags": 8,
+          "maximum_active": 0
+        },
+        {
+          "name": "bell-lifecycle",
+          "variant": 1,
+          "flags": 16,
+          "maximum_active": 0
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 4,
+          "flags": 0
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 4,
+          "flags": 1
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 4,
+          "flags": 2
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 4,
+          "flags": 4
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 4,
+          "flags": 8
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 4,
+          "flags": 16
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 4,
+          "flags": 18
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 4,
+          "flags": 64
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 5,
+          "flags": 0
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 5,
+          "flags": 1
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 5,
+          "flags": 2
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 5,
+          "flags": 4
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 5,
+          "flags": 8
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 5,
+          "flags": 16
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 5,
+          "flags": 18
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 5,
+          "flags": 64
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 6,
+          "flags": 0
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 6,
+          "flags": 1
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 6,
+          "flags": 2
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 6,
+          "flags": 4
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 6,
+          "flags": 8
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 6,
+          "flags": 16
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 6,
+          "flags": 18
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 6,
+          "flags": 64
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 7,
+          "flags": 0
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 7,
+          "flags": 1
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 7,
+          "flags": 2
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 7,
+          "flags": 4
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 7,
+          "flags": 8
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 7,
+          "flags": 16
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 7,
+          "flags": 18
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 7,
+          "flags": 64
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 8,
+          "flags": 0
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 8,
+          "flags": 1
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 8,
+          "flags": 2
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 8,
+          "flags": 4
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 8,
+          "flags": 8
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 8,
+          "flags": 16
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 8,
+          "flags": 18
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 8,
+          "flags": 64
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 9,
+          "flags": 0
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 9,
+          "flags": 1
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 9,
+          "flags": 2
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 9,
+          "flags": 4
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 9,
+          "flags": 8
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 9,
+          "flags": 16
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 9,
+          "flags": 18
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 9,
+          "flags": 64
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 10,
+          "flags": 0
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 10,
+          "flags": 1
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 10,
+          "flags": 2
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 10,
+          "flags": 4
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 10,
+          "flags": 8
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 10,
+          "flags": 16
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 10,
+          "flags": 18
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 10,
+          "flags": 64
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 23,
+          "flags": 0
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 23,
+          "flags": 1
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 23,
+          "flags": 2
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 23,
+          "flags": 4
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 23,
+          "flags": 8
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 23,
+          "flags": 16
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 23,
+          "flags": 18
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 23,
+          "flags": 64
+        },
+        {
+          "name": "bell-lifecycle",
+          "variant": 2,
+          "flags": 1,
+          "maximum_active": 8
+        },
+        {
+          "name": "bell-lifecycle",
+          "variant": 2,
+          "flags": 4,
+          "maximum_active": 128
+        },
+        {
+          "name": "bell-lifecycle",
+          "variant": 2,
+          "flags": 8,
+          "maximum_active": 0
+        },
+        {
+          "name": "bell-lifecycle",
+          "variant": 2,
+          "flags": 16,
+          "maximum_active": 0
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 4,
+          "flags": 0
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 4,
+          "flags": 1
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 4,
+          "flags": 2
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 4,
+          "flags": 4
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 4,
+          "flags": 8
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 4,
+          "flags": 16
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 4,
+          "flags": 18
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 4,
+          "flags": 64
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 5,
+          "flags": 0
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 5,
+          "flags": 1
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 5,
+          "flags": 2
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 5,
+          "flags": 4
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 5,
+          "flags": 8
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 5,
+          "flags": 16
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 5,
+          "flags": 18
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 5,
+          "flags": 64
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 6,
+          "flags": 0
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 6,
+          "flags": 1
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 6,
+          "flags": 2
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 6,
+          "flags": 4
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 6,
+          "flags": 8
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 6,
+          "flags": 16
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 6,
+          "flags": 18
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 6,
+          "flags": 64
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 7,
+          "flags": 0
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 7,
+          "flags": 1
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 7,
+          "flags": 2
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 7,
+          "flags": 4
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 7,
+          "flags": 8
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 7,
+          "flags": 16
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 7,
+          "flags": 18
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 7,
+          "flags": 64
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 8,
+          "flags": 0
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 8,
+          "flags": 1
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 8,
+          "flags": 2
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 8,
+          "flags": 4
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 8,
+          "flags": 8
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 8,
+          "flags": 16
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 8,
+          "flags": 18
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 8,
+          "flags": 64
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 9,
+          "flags": 0
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 9,
+          "flags": 1
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 9,
+          "flags": 2
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 9,
+          "flags": 4
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 9,
+          "flags": 8
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 9,
+          "flags": 16
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 9,
+          "flags": 18
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 9,
+          "flags": 64
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 10,
+          "flags": 0
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 10,
+          "flags": 1
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 10,
+          "flags": 2
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 10,
+          "flags": 4
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 10,
+          "flags": 8
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 10,
+          "flags": 16
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 10,
+          "flags": 18
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 10,
+          "flags": 64
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 23,
+          "flags": 0
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 23,
+          "flags": 1
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 23,
+          "flags": 2
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 23,
+          "flags": 4
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 23,
+          "flags": 8
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 23,
+          "flags": 16
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 23,
+          "flags": 18
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 23,
+          "flags": 64
+        },
+        {
+          "name": "bell-lifecycle",
+          "variant": 3,
+          "flags": 1,
+          "maximum_active": 8
+        },
+        {
+          "name": "bell-lifecycle",
+          "variant": 3,
+          "flags": 4,
+          "maximum_active": 128
+        },
+        {
+          "name": "bell-lifecycle",
+          "variant": 3,
+          "flags": 8,
+          "maximum_active": 0
+        },
+        {
+          "name": "bell-lifecycle",
+          "variant": 3,
+          "flags": 16,
+          "maximum_active": 0
+        }
+      ],
+      "instructions": 440792,
+      "compared_bytes": 803,
+      "fixture_sha256": "4575ccbf226a0c2be5aba1f49bea0d49530c6d5a789cd5f603c94e03ceda9e4e"
+    },
+    "mmc3": {
+      "passed": true,
+      "cases": [
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 4,
+          "flags": 0
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 4,
+          "flags": 1
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 4,
+          "flags": 2
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 4,
+          "flags": 4
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 4,
+          "flags": 8
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 4,
+          "flags": 16
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 4,
+          "flags": 18
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 4,
+          "flags": 64
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 5,
+          "flags": 0
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 5,
+          "flags": 1
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 5,
+          "flags": 2
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 5,
+          "flags": 4
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 5,
+          "flags": 8
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 5,
+          "flags": 16
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 5,
+          "flags": 18
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 5,
+          "flags": 64
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 6,
+          "flags": 0
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 6,
+          "flags": 1
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 6,
+          "flags": 2
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 6,
+          "flags": 4
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 6,
+          "flags": 8
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 6,
+          "flags": 16
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 6,
+          "flags": 18
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 6,
+          "flags": 64
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 7,
+          "flags": 0
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 7,
+          "flags": 1
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 7,
+          "flags": 2
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 7,
+          "flags": 4
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 7,
+          "flags": 8
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 7,
+          "flags": 16
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 7,
+          "flags": 18
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 7,
+          "flags": 64
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 8,
+          "flags": 0
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 8,
+          "flags": 1
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 8,
+          "flags": 2
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 8,
+          "flags": 4
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 8,
+          "flags": 8
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 8,
+          "flags": 16
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 8,
+          "flags": 18
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 8,
+          "flags": 64
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 9,
+          "flags": 0
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 9,
+          "flags": 1
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 9,
+          "flags": 2
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 9,
+          "flags": 4
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 9,
+          "flags": 8
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 9,
+          "flags": 16
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 9,
+          "flags": 18
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 9,
+          "flags": 64
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 10,
+          "flags": 0
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 10,
+          "flags": 1
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 10,
+          "flags": 2
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 10,
+          "flags": 4
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 10,
+          "flags": 8
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 10,
+          "flags": 16
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 10,
+          "flags": 18
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 10,
+          "flags": 64
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 23,
+          "flags": 0
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 23,
+          "flags": 1
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 23,
+          "flags": 2
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 23,
+          "flags": 4
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 23,
+          "flags": 8
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 23,
+          "flags": 16
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 23,
+          "flags": 18
+        },
+        {
+          "name": "pickup",
+          "variant": 0,
+          "kind": 23,
+          "flags": 64
+        },
+        {
+          "name": "bell-lifecycle",
+          "variant": 0,
+          "flags": 1,
+          "maximum_active": 8
+        },
+        {
+          "name": "bell-lifecycle",
+          "variant": 0,
+          "flags": 4,
+          "maximum_active": 128
+        },
+        {
+          "name": "bell-lifecycle",
+          "variant": 0,
+          "flags": 8,
+          "maximum_active": 0
+        },
+        {
+          "name": "bell-lifecycle",
+          "variant": 0,
+          "flags": 16,
+          "maximum_active": 0
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 4,
+          "flags": 0
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 4,
+          "flags": 1
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 4,
+          "flags": 2
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 4,
+          "flags": 4
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 4,
+          "flags": 8
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 4,
+          "flags": 16
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 4,
+          "flags": 18
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 4,
+          "flags": 64
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 5,
+          "flags": 0
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 5,
+          "flags": 1
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 5,
+          "flags": 2
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 5,
+          "flags": 4
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 5,
+          "flags": 8
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 5,
+          "flags": 16
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 5,
+          "flags": 18
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 5,
+          "flags": 64
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 6,
+          "flags": 0
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 6,
+          "flags": 1
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 6,
+          "flags": 2
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 6,
+          "flags": 4
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 6,
+          "flags": 8
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 6,
+          "flags": 16
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 6,
+          "flags": 18
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 6,
+          "flags": 64
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 7,
+          "flags": 0
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 7,
+          "flags": 1
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 7,
+          "flags": 2
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 7,
+          "flags": 4
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 7,
+          "flags": 8
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 7,
+          "flags": 16
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 7,
+          "flags": 18
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 7,
+          "flags": 64
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 8,
+          "flags": 0
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 8,
+          "flags": 1
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 8,
+          "flags": 2
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 8,
+          "flags": 4
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 8,
+          "flags": 8
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 8,
+          "flags": 16
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 8,
+          "flags": 18
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 8,
+          "flags": 64
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 9,
+          "flags": 0
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 9,
+          "flags": 1
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 9,
+          "flags": 2
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 9,
+          "flags": 4
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 9,
+          "flags": 8
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 9,
+          "flags": 16
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 9,
+          "flags": 18
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 9,
+          "flags": 64
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 10,
+          "flags": 0
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 10,
+          "flags": 1
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 10,
+          "flags": 2
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 10,
+          "flags": 4
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 10,
+          "flags": 8
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 10,
+          "flags": 16
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 10,
+          "flags": 18
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 10,
+          "flags": 64
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 23,
+          "flags": 0
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 23,
+          "flags": 1
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 23,
+          "flags": 2
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 23,
+          "flags": 4
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 23,
+          "flags": 8
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 23,
+          "flags": 16
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 23,
+          "flags": 18
+        },
+        {
+          "name": "pickup",
+          "variant": 1,
+          "kind": 23,
+          "flags": 64
+        },
+        {
+          "name": "bell-lifecycle",
+          "variant": 1,
+          "flags": 1,
+          "maximum_active": 8
+        },
+        {
+          "name": "bell-lifecycle",
+          "variant": 1,
+          "flags": 4,
+          "maximum_active": 128
+        },
+        {
+          "name": "bell-lifecycle",
+          "variant": 1,
+          "flags": 8,
+          "maximum_active": 0
+        },
+        {
+          "name": "bell-lifecycle",
+          "variant": 1,
+          "flags": 16,
+          "maximum_active": 0
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 4,
+          "flags": 0
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 4,
+          "flags": 1
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 4,
+          "flags": 2
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 4,
+          "flags": 4
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 4,
+          "flags": 8
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 4,
+          "flags": 16
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 4,
+          "flags": 18
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 4,
+          "flags": 64
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 5,
+          "flags": 0
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 5,
+          "flags": 1
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 5,
+          "flags": 2
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 5,
+          "flags": 4
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 5,
+          "flags": 8
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 5,
+          "flags": 16
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 5,
+          "flags": 18
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 5,
+          "flags": 64
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 6,
+          "flags": 0
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 6,
+          "flags": 1
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 6,
+          "flags": 2
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 6,
+          "flags": 4
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 6,
+          "flags": 8
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 6,
+          "flags": 16
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 6,
+          "flags": 18
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 6,
+          "flags": 64
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 7,
+          "flags": 0
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 7,
+          "flags": 1
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 7,
+          "flags": 2
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 7,
+          "flags": 4
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 7,
+          "flags": 8
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 7,
+          "flags": 16
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 7,
+          "flags": 18
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 7,
+          "flags": 64
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 8,
+          "flags": 0
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 8,
+          "flags": 1
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 8,
+          "flags": 2
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 8,
+          "flags": 4
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 8,
+          "flags": 8
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 8,
+          "flags": 16
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 8,
+          "flags": 18
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 8,
+          "flags": 64
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 9,
+          "flags": 0
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 9,
+          "flags": 1
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 9,
+          "flags": 2
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 9,
+          "flags": 4
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 9,
+          "flags": 8
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 9,
+          "flags": 16
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 9,
+          "flags": 18
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 9,
+          "flags": 64
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 10,
+          "flags": 0
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 10,
+          "flags": 1
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 10,
+          "flags": 2
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 10,
+          "flags": 4
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 10,
+          "flags": 8
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 10,
+          "flags": 16
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 10,
+          "flags": 18
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 10,
+          "flags": 64
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 23,
+          "flags": 0
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 23,
+          "flags": 1
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 23,
+          "flags": 2
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 23,
+          "flags": 4
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 23,
+          "flags": 8
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 23,
+          "flags": 16
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 23,
+          "flags": 18
+        },
+        {
+          "name": "pickup",
+          "variant": 2,
+          "kind": 23,
+          "flags": 64
+        },
+        {
+          "name": "bell-lifecycle",
+          "variant": 2,
+          "flags": 1,
+          "maximum_active": 8
+        },
+        {
+          "name": "bell-lifecycle",
+          "variant": 2,
+          "flags": 4,
+          "maximum_active": 128
+        },
+        {
+          "name": "bell-lifecycle",
+          "variant": 2,
+          "flags": 8,
+          "maximum_active": 0
+        },
+        {
+          "name": "bell-lifecycle",
+          "variant": 2,
+          "flags": 16,
+          "maximum_active": 0
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 4,
+          "flags": 0
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 4,
+          "flags": 1
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 4,
+          "flags": 2
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 4,
+          "flags": 4
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 4,
+          "flags": 8
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 4,
+          "flags": 16
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 4,
+          "flags": 18
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 4,
+          "flags": 64
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 5,
+          "flags": 0
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 5,
+          "flags": 1
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 5,
+          "flags": 2
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 5,
+          "flags": 4
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 5,
+          "flags": 8
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 5,
+          "flags": 16
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 5,
+          "flags": 18
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 5,
+          "flags": 64
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 6,
+          "flags": 0
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 6,
+          "flags": 1
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 6,
+          "flags": 2
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 6,
+          "flags": 4
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 6,
+          "flags": 8
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 6,
+          "flags": 16
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 6,
+          "flags": 18
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 6,
+          "flags": 64
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 7,
+          "flags": 0
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 7,
+          "flags": 1
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 7,
+          "flags": 2
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 7,
+          "flags": 4
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 7,
+          "flags": 8
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 7,
+          "flags": 16
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 7,
+          "flags": 18
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 7,
+          "flags": 64
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 8,
+          "flags": 0
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 8,
+          "flags": 1
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 8,
+          "flags": 2
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 8,
+          "flags": 4
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 8,
+          "flags": 8
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 8,
+          "flags": 16
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 8,
+          "flags": 18
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 8,
+          "flags": 64
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 9,
+          "flags": 0
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 9,
+          "flags": 1
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 9,
+          "flags": 2
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 9,
+          "flags": 4
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 9,
+          "flags": 8
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 9,
+          "flags": 16
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 9,
+          "flags": 18
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 9,
+          "flags": 64
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 10,
+          "flags": 0
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 10,
+          "flags": 1
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 10,
+          "flags": 2
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 10,
+          "flags": 4
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 10,
+          "flags": 8
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 10,
+          "flags": 16
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 10,
+          "flags": 18
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 10,
+          "flags": 64
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 23,
+          "flags": 0
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 23,
+          "flags": 1
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 23,
+          "flags": 2
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 23,
+          "flags": 4
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 23,
+          "flags": 8
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 23,
+          "flags": 16
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 23,
+          "flags": 18
+        },
+        {
+          "name": "pickup",
+          "variant": 3,
+          "kind": 23,
+          "flags": 64
+        },
+        {
+          "name": "bell-lifecycle",
+          "variant": 3,
+          "flags": 1,
+          "maximum_active": 8
+        },
+        {
+          "name": "bell-lifecycle",
+          "variant": 3,
+          "flags": 4,
+          "maximum_active": 128
+        },
+        {
+          "name": "bell-lifecycle",
+          "variant": 3,
+          "flags": 8,
+          "maximum_active": 0
+        },
+        {
+          "name": "bell-lifecycle",
+          "variant": 3,
+          "flags": 16,
+          "maximum_active": 0
+        }
+      ],
+      "instructions": 440792,
+      "compared_bytes": 803,
+      "fixture_sha256": "1513db66dbdbcaaf7fa16aa14a9b2dcab9ad79913a4d811ea0099bf902cde773"
+    }
+  },
+  "actual_pickup_pixel_cases": 45,
+  "bell_qa_notes": "docs/qa/parodius-bells-2026-10-23.md"
+}

@@ -2,12 +2,17 @@
 -- player compete for native eight-sprite scanline visibility.
 local frame,draws=0,0
 local seen,all,orders={},{},{}
+local interruptDepth=0
 local function r(n,i) return emu.read(assert(L[n],n)+(i or 0),emu.memType.nesDebug) end
 local function w(n,v,i) emu.write(assert(L[n],n)+(i or 0),v,emu.memType.nesDebug) end
 local function key(o) return r('Sprite_Tilenumber',o)..':'..r('Sprite_Attributes',o)..':'..r('Sprite_X_Position',o)..':'..r('Sprite_Y_Position',o) end
+-- NSF playback swaps the physical A bank inside NMI without changing the
+-- interrupted CurrentBank shadow. Its code can execute the same CPU address.
+for _,pc in ipairs({L.NonMaskableInterrupt,L.IrqScrollSplit})do emu.addMemoryCallback(function()interruptDepth=interruptDepth+1 end,emu.callbackType.exec,assert(pc))end
+for _,pc in ipairs({L.NonMaskableInterrupt_RTI,L.IrqScrollSplit_RTI})do emu.addMemoryCallback(function()interruptDepth=interruptDepth-1;assert(interruptDepth>=0,'Balanced projectile audit interrupt scope')end,emu.callbackType.exec,assert(pc))end
 emu.addEventCallback(function() emu.setInput({right=frame==80,start=frame==120},0) end,emu.eventType.inputPolled)
 emu.addMemoryCallback(function()
- if r('CurrentBank')%128~=4 or frame<590 or frame>680 then return end
+ if interruptDepth~=0 or r('CurrentBank')%128~=4 or frame<590 or frame>680 then return end
  for i=0,3 do
   w('MmBulletType',i==3 and 3 or 1,i);w('MmBulletX',104+24*i,i);w('MmBulletPage',0,i)
   w('MmBulletY',183,i);w('MmBulletAge',0,i);w('MmBulletDir',1,i)
@@ -19,7 +24,7 @@ emu.addMemoryCallback(function()
  end
 end,emu.callbackType.exec,L.DrawAllMetasprites)
 emu.addMemoryCallback(function()
- if r('CurrentBank')%128~=4 or frame<590 or frame>680 then return end
+ if interruptDepth~=0 or r('CurrentBank')%128~=4 or frame<590 or frame>680 then return end
  draws=draws+1
  assert(r('GuestOamRotationActive')==1 and r('RgOamPlayerStart')>=16,'Mega Man allocates every shot before the body and enemies')
  local pattern={}

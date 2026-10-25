@@ -1,0 +1,250 @@
+SMB CROSSOVER: CONTINUATION HANDOFF (24 OCTOBER 2026)
+
+This project is INCOMPLETE. Continue the existing source; do not restart it.
+User's unchanged objective: finish the job, test EVERY character through1-1,
+test EVERY powerup for EVERY character at least once, investigate scrolling,
+sliding/bumped blocks, lag, awkward physics/jumping, graphics and abilities,
+and fix the defects found. A passing narrow fixture is not project completion.
+The user explicitly wants continued work until the Codex allowance runs out.
+The user also explicitly wants the current source pushed to GitHub and each
+subsequent coherent change committed/pushed for rollback. Preserve failures.
+
+Workspace: C:/Users/kando/Documents/ChatGPT/SMB Crossover
+Git remote: https://github.com/kandowontu2/SMB-Crossover.git
+Long working record: docs/qa/current-work-pr-2026-10-24.md
+Applicable integration skill: C:/Users/kando/.codex/skills/mario-porting/SKILL.md
+Read its relevant integration/verification references. Use current files and
+test outputs as evidence, not previous agent claims or the old README alone.
+
+1. CURRENT TESTED USER BUILD / ACCEPTED SOURCE
+
+MMC5 current ROM:
+C:/Users/kando/Downloads/SMB-Crossover-Current-MMC5.nes
+SHA256 054d9e33a84f628947b0dea15914ba2aae7796ca610a25548eab96407064384a
+User already opened this in their own Mesen. Do not stop their emulator.
+Accepted source receipt: build/verification/native-probes-qa/proof.json
+Checkpoint: build/checkpoints/native-probes-qa/checkpoint.json
+The four older public build/smb-crossover*.nes files are STALE; do not test
+them accidentally or label them current. No final all-requirements release.
+
+External evidence roots (keep large new artifacts outside the workspace):
+D = C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py
+P = D/native-probes-qa-v2
+Q = C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-head-pz
+P/candidate.nes is byte-identical to the current Downloads MMC5 ROM.
+
+The accepted QA source change from PZ is only src/characters.s and
+src/megaman_weapons.s,54 resident ROM bytes, no new RAM/CHR/OAM and unchanged
+exported PCs. It bypasses redundant dispatch for precisely admitted ordinary
+native queries. This is CPU work reduction, not a constant60Hz claim.
+
+Accepted root MMC3 conversion recipe is still tools/mmc3_oversized/repairs.json
+SHA256 29815141274a2a2e2c39108c7cde0c3568cf0c02840fafbfde00b6517eb071c9.
+Its accepted conversion ROM is D/mmc3-ship-lives-v25/candidate.nes,
+SHA256 09c5ced7680c303f07ff9ad4655e56300d63c99eab90b4dafcf61938d75fd45c.
+This is NOT qualified for all current goals. It retains the Sophia stack crash
+that the private candidates below address. Do not give it as the latest build.
+Latest accepted source/tool packet: D/mmc3-ship-lives-v25/source-packet-v1.
+
+NEVER rerun successful one-shot adopters: adopt_native_probes_qa_v3_once.py,
+adopt_ryu_head_pz_once.py, adopt_mmc3_ship_v25_once.py. They already succeeded.
+Their private output folders also use exist_ok=False; use new version names.
+
+2. FIRST UNRESOLVED BUG: MMC3 CHIP AND DALE MOVE13PX IN ONE COMMITTED UPDATE
+
+Private current MMC3 candidate (NOT ADOPTED):
+D/mmc3-static-call-v39/candidate.nes (clean recipe/source)
+D/mmc3-static-call-v37/candidate.nes (byte-identical test ROM)
+SHA256 20b9f314443db1b05a205517d27e23abb4219774f2fa255dd972b2d275e2f55d
+V39 removes only an unused misleading cfg memory declaration from V37.
+
+The complete V37/full-roster-v1/proof.json sweep has38 attempts,32 clears and
+six failed original rows. Four failures have separate valid corrected-input
+native clears (section4). TWO ACTUAL COMMITTED-MOVEMENT FAILURES REMAIN:
+  V37/full-roster-v1/chip-easy
+  V37/full-roster-v1/dale-hard
+Both fail the original world displacement<=8 assertion after402 comparisons,
+with max committed world displacement13 and camera max2. Result is null
+because the invariant stops the run. This is not just a temporary endFrame
+probe origin. Inspect completed-loop-motion.csv, trace.csv, inputs.csv,
+policy.lua and candidate-run.log. Locate the FIRST wrong state/write/contact.
+Do not raise the bound, hide the failure, relabel a different hash or assume
+the controller is to blame. Both logs also report uninitialized reads around
+7276..727a and71d5; those messages alone do not establish causality.
+
+3. PRIVATE MMC3 STACK REPAIR / ITS REAL PERFORMANCE COST
+
+V25 Sophia freezes at about2533 physical frames, X1616,Y144. Deep native
+stack/NMI writes overwrite copied farcall code originally0155..0185, then the
+CPU executes corrupted code near0194. Exact prior witnesses are retained in
+V25/sophia-stall-v1 and sophia-stack-writer-v1. V26/V27 predicate shortcuts
+did not fix complete code ownership. Older observers protected only33 of49
+code bytes and missed the return tail. Do not reuse that incomplete guard.
+
+V37/V39 repair keeps only a six-byte LDA/JMP/private-return trampoline at the
+ORIGINAL0155..015a base and moves49-byte common bank switching into resident
+ROM in the old92-byte MegaManResetBlockHealth slot. NextBank uses reserved
+013f. Named five payload fields remain explicitly compatible with source NMI
+backup/restore macros. The original parser cell-reset body moved to a verified
+FD ROM tail after the unchanged native Gradius audio. Its cold wrapper must
+publish original selector and flags through BillNativeCaptureP/ReturnSelector.
+V34 omitted selector publication; its exact CPU failure is retained.
+
+V34/V36 proposed73fa..73ff for the tiny code. REJECTED: those are Zelda II
+attack/timer/button/pose/scratch fixed aliases, even though most are not
+exported! Do not use that apparent gap or add undeclared physical board RAM.
+
+V37/abi-cpu-v1 PASSES5,784 assembled-code comparisons:1,752 inventory predicate
+cases and4,032 parser cell resets, exact meaningful registers/flags/SP, other
+application RAM, nonbank hardware writes, actual final banks and selector.
+V39/layout-v2 PASSES1,163 unchanged RAM labels outside intentionally relocated
+SMC fields, unchanged Zelda II state source, original CHR, and byte-identical
+5,925-byte native Gradius driver. Native read bounds still need care.
+
+IMPORTANT: relocated cell reset adds230CPU cycles PER PARSER CELL, although
+inventory predicate adds only0..28. This can add roughly3,000cycles per parsed
+column. Do not adopt or call this a lag improvement without addressing and
+measuring that cost. It is a reason to improve the placement before release.
+
+Possible next placement, NOT IMPLEMENTED OR VERIFIED: resident51-byte
+BillNativeReadWarp slot can fit49-byte static common plus2padding. Its public
+entry could move to the25-byte free LOWCODE tail as an18-byte BillRareCall.
+A cold warp-read leaf can live in verified FD tail instead, leaving hot
+MegaManResetBlockHealth untouched. Preserve exact selector71, A/X/Y/P and
+indexed table semantics; verify/copy the original256-byte indexed source window
+if all rawX inputs must match. Actual warp indices are0..10. Check tail room,
+table contents, native Gradius reads, nested/interrupt ABI and performance.
+Any new ROM hash requires its own exact-hash native checks. No whole bank is
+unused: E7..F6 contain packed music; FD contains the native Gradius driver.
+
+Private builders/checkers are D/build_mmc3_static_call_v39.py and
+D/check_mmc3_static_layout_v39_v2.py. They derive from earlier frozen private
+scripts in D; preserve those dependencies if bringing experiments into Git.
+
+4. CURRENT MMC3 EVIDENCE / CONTROLLER FAILURES ALREADY RESOLVED
+
+All37 actual cold selections/alternates pass V37/cold-entries-v1: boot CHR,
+native banks/NMI/cache,140 gameplay frames and unchanged committed motion
+bounds including the first native update. Do not confuse this with campaigns.
+
+V37/native-sophia-v2 passes a fresh zero-death1-1 clear in5,667physical frames,
+374,276 resident calls,3,703,152 stack writes, minimum observedSP131 vs code
+floor91. Complete tiny code and explicit five NMI payloads are protected.
+
+V37/direct-sophia-v1/direct-sophia-easy independently reproduces exact inputs,
+CPU trace and5,467 actual PPU frames, every indexed RGB/PNG and lossless gzip.
+The generic enclosing raw-X review FAILED at five temporary probe origins;
+retain it. V37/borrowed-sophia-v1 then POSITIVELY identifies those exact frames
+1904,2196,2519,3793,3853 as actual MmBlockAttack=1 probe origins, with nearby
+saved body and no borrowed origin in actual body drawing. All2,306 completed
+updates remain world<=2,camera0..3. V37/sophia-review-v1 binds specific evidence
+to the independent pixels; no blanket query-origin waiver. Human sampled all
+five three-frame sheets plus overview/loading/start/pole. Background scan
+checks5,467 PNGs/3,861 eligible triples with zero candidates, under its narrow
+transient detector limits. Sprite omissions/persistent defects are separate.
+
+Separate controller-only native1-1 clears on the SAME20b9 ROM:
+  Samus: V37/controller-corrections-v1/samus-easy,7,268frames.
+    Land on the existing higher stair near2400 then relaunch. Earlier correction
+    blocked itself trying to walk through the next stair riser; retained.
+  Darkwing: V37/darkwing-arrow-v1/darkwing-easy,7,000frames.
+    Preserve his original50px jump and actual Arrow/hanging toolkit. Original
+    controller's one-physical-poll Arrow trigger missed a lagging update;
+    eight-poll trigger reaches native launch and traverses both tall pipes.
+    The attempted long-A-only correction failed; do not change source jump.
+  Mac: V37/mac-jump-v1/mac-easy,5,047frames.
+  Grant: V37/grant-jump-v1/grant-easy,5,990frames.
+    Each requested A press lasts at least8physical polls; original longer
+    holds preserved. One-poll jump requests could be released while the player
+    still appeared grounded between logical updates. No map/physics grants.
+All four have exact code/stack/NMI/cache/committed motion guards, zero deaths.
+They still need independent pixel replays. Original failures remain retained.
+Full sweep is now TERMINAL. Recheck processes rather than assuming jobs live.
+
+5. CURRENT MMC5 ALL-CHARACTER / POWERUP EVIDENCE AND LIMITS
+
+P/full-roster-aggregate-v1/proof.json passes38 independent zero-death1-1 cases
+covering37 identities (Ryu both modes; others their selected modes). Every
+actual PPU frame, exact inputs/CPU trace, RGB/PNG/index/gzip retained. Parent
+batches: direct-v1, remaining-direct-v1, corrected-direct-v1, gap-direct-v1,
+landing-direct-v1. Read per-row guarded_review for specific probe evidence.
+P/background-v1 scans188,756 verified PPU PNGs,132,670 eligible triples,zero
+transient candidates; persistent/sprite/source fidelity are outside this test.
+
+P/items-v1 passes26 native item component cases: CV3, SMB3 Mario/Luigi, Mike,
+Darkwing, Zelda II both modes; Kirby/Meta/Chip/Dale health and Kirby copies.
+P/legacy-physical-summary-v1 passes10 Hard identities (Mega/Proto/Bass/Samus/
+Bill/Lance/Link/Simon/Ryu/Sophia):86 mature actors physically collected and51
+declared attacks observed. Legal arenas are staged at actual guarded GameLoop
+entries; ownership is NOT injected. Mushroom transformations must finish.
+Simon needs real heart refills; Sophia homing needs a fully initialized live
+target. Original failed fixtures remain retained.
+P/legacy-physical-direct-v1 independently repeats all ten frozen scenes,
+11,410 actual PPU frames and2,804,395,440 raw bytes retained losslessly.
+These do NOT establish every powerup/passive/expiry/refill/damage/SFX path,
+natural random block emergence, all source artwork or all gameplay modes.
+P/legacy-inventory-cpu-v1 covers118,272 ownership/public calls plus22,528
+spending cases; it complements physical evidence, not replaces it.
+Use tools/audit/inventory_requirements_op.py and current source enums to build
+the actual remaining item matrix. Older claims/fixtures are hash-specific.
+
+6. TOOLS / STORAGE / VERIFICATION RULES
+
+Root must stay under30,000,000,000bytes. Last measured29,995,704,213 before
+small notes. Preserve lossless captures; keep large builds/recordings outside
+the workspace under D. Do not blindly copy external source packets back in.
+Do not reset the dirty tree or delete old failures. Git checkpoints must
+include current source/assets/tools/docs; generated captures remain archived.
+
+Compiler: tools/Windows/cc65/bin/cl65.exe. Preferred existing runner:
+tools/audit/run_mesen_isolated.py. Native read-only image helper:
+build/verification/agent49g-samus-crouch-fix-proposal-b/image.py.
+Full symbol helper: tools/audit/check_tmnt_render_oa.py (load/address/location).
+Image.ram omits many absolute aliases; parse actual debug labels when needed.
+
+At most2 PROJECT test Mesen workers concurrently. User's own Mesen is separate.
+Heavy observers use the identical-binary portable Mesen at
+D/mmc3-flag-fix-v23/script-budget-probe-v2/emulator/Mesen.exe,
+only portable Debug.ScriptWindow.ScriptTimeout=5 (host callback watchdog).
+An earlier1.3second pure host callback probe proved this setting is effective.
+CLI timeout-setting overrides did not work. Do not alter emulated clocks or
+global user emulator settings to pass tests. Use --doNotSaveSettings,
+AllZeros RAM, fixed alignment and mapper state for comparable fresh tests.
+
+Capture actual emu.getScreenBuffer PPU frames, not the asynchronous decoder
+screenshot loop. Frozen capture driver:
+D/mmc3-flag-fix-v23/physical-replay-v3/capture-mmc3.py.
+Assert replay inputs/CPU trace and frame IDs, RGB/PNG/index/gzip round trip.
+Native MMC3 IRQ writer is physical bank254, MMC5 writer is126; bind actual
+compiled instruction/physical bank rather than assuming CPU addresses.
+emu.getState keys are flat, e.g. ['cpu.pc'],['cpu.sp']. im.lua dict keys become
+strings; numeric lookup must use tostring(a) or explicit numeric Lua keys.
+phx/plx macros clobber A. Guard all five source farcall payload fields across
+NMI, immutable opcodes, bank shadows and actual banks. Never invoke shared
+foreground farcall SMC from native NMI. Do not disable native music to hide lag.
+
+Measure CPU cycles AND committed game updates per physical frame. Less work
+does not prove60Hz. Existing matched MMC5 scenes cut some CPU work but not
+material throughput; some full-route lag counts increase. State limits plainly.
+No final guide/video/source-fidelity claim until relevant current evidence.
+Kirby's already delivered1:40 video is at
+C:/Users/kando/Videos/SMB-Crossover-Kirby-Abilities.mp4; do not redo it.
+
+Model capabilities are not proof of correctness. Keep the original failing
+case, locate the first wrong write, make a small source-backed fix, and test
+the exact resulting ROM. Finish the full objective instead of redefining it
+around green subset tests. Continue updating this handoff when state changes.
+
+GITHUB CHECKPOINT FOLLOW-UP
+The source checkpoint includes this handoff, guide/assets/tests and the frozen
+external continuation scripts under tools/audit/continuation_20261024. The
+unadopted V39 recipe is backed up separately under
+tools/mmc3_oversized/proposals/static-call-v39/repairs.proposed.json; it does NOT
+replace the active recipe. Lightweight proof copies and the actual Chip/Dale
+failure streams are under docs/qa/checkpoints/2026-10-24. Lossless recordings
+remain preserved externally. Git attributes preserve existing source bytes
+instead of applying automatic line-ending conversion to hash-bound fixtures.
+To provide Git object storage headroom while keeping the workspace under30GB,
+109 old generated compiler objects (153,708,058bytes) were moved, hash-verified,
+to D/git-checkpoint-20261024/compiler-cache-preserved-v1 with receipt.json.
+Source, ROMs, debug files, lossless footage and user files were not removed.

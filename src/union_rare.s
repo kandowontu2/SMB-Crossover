@@ -135,7 +135,11 @@ PutBehind:
   lda #0
   sta EnemyMetasprite,x
 .if ::ENABLE_CROSSOVER
+.if ::ENABLE_MMC5_EXPANDED
+  farcall RlPrepareDispatch
+.else
   farcall InventoryPreparePickup
+.endif
 .endif
   rts
 .endproc

@@ -1,0 +1,40 @@
+{
+  "passed": true,
+  "goal_complete": false,
+  "ROM_sha256": "20b9f314443db1b05a205517d27e23abb4219774f2fa255dd972b2d275e2f55d",
+  "parent_ROM_sha256": "09c5ced7680c303f07ff9ad4655e56300d63c99eab90b4dafcf61938d75fd45c",
+  "byte_identical_to_V37": true,
+  "existing_RAM_labels_checked": 1163,
+  "all_checked_RAM_addresses_unchanged": true,
+  "ZeldaII_alias_source_exact": true,
+  "original_native_Gradius_driver_bytes_exact": true,
+  "unchanged_native_Gradius_segment_bytes": 5925,
+  "original_CHR_source_exact": true,
+  "tiny_code_run": [
+    341,
+    347
+  ],
+  "old_code_run": [
+    341,
+    390
+  ],
+  "named_operand_aliases": {
+    "NextBank_SMC": 318,
+    "SafecallA_SMC": 341,
+    "FarcallJmpTarget_SMC": 343,
+    "SafereturnA_SMC": 345
+  },
+  "isolated_added_cycles": {
+    "support": {
+      "cases": 1752,
+      "minimum_added_cycles": 0,
+      "maximum_added_cycles": 28
+    },
+    "cell": {
+      "cases": 4032,
+      "minimum_added_cycles": 230,
+      "maximum_added_cycles": 230
+    }
+  },
+  "scope": "Read-only linked layout and original-driver/source byte comparisons. Six actual stack-page bytes retain the original base, no Zelda II overlap or new board RAM/CHR. Resident common code and appended cold parser body have explicit native banks. Isolated cycle costs are measured; the cell-reset relocation adds parser work, so native performance benchmarking remains required. No constant60Hz, native all-music data-read or campaign/source-fidelity claim."
+}

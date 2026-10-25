@@ -1410,7 +1410,11 @@ Existing:
   lda SelectedCharacter
   cmp #CHARACTER_PIT
   bcc :+
+.if ::ENABLE_MMC5_EXPANDED
+    farcall DwExpandedEnemyHit
+.else
     farcall ExpandedEnemyHit
+.endif
     rts
   :
   cmp #CHARACTER_BILL

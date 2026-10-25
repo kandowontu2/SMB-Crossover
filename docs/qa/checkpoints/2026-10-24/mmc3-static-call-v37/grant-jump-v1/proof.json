@@ -1,0 +1,50 @@
+{
+  "passed": true,
+  "goal_complete": false,
+  "ROM_sha256": "20b9f314443db1b05a205517d27e23abb4219774f2fa255dd972b2d275e2f55d",
+  "result": {
+    "cleared": true,
+    "world_1_1_seen": true,
+    "frames": 5990,
+    "polls": 5989,
+    "deaths": 0,
+    "failure": null,
+    "stage_entries": {
+      "0-0": 530,
+      "0-1": 5966
+    }
+  },
+  "tiny": {
+    "passed": true,
+    "protected_code_bytes": 6,
+    "observed_declared_operand_writes": 1099271,
+    "resident_call_entries": 275538,
+    "native_stack_writes": 3391722,
+    "minimum_SP_from_stack_write_addresses": 189,
+    "stack_floor": 91,
+    "observer_game_state_writes": false
+  },
+  "mapper_cache": {
+    "passed": true,
+    "boot_verified": true,
+    "entered": true,
+    "NMI_count": 5771,
+    "IRQ_count": 5246,
+    "DMA_count": 1844,
+    "VBlank_upload_bytes": 192,
+    "resident_body_bytes_verified": 65536,
+    "displayed_composite_bytes_verified": 3584,
+    "controller_and_game_state_writes": false,
+    "scope": "Native MMC3 full-route bank/SMC, boot, resident-family, displayed assigned composite-source/protected terrain bytes and VBlank cache witness. This is not an independent input replay, exhaustive pose/silhouette/source fidelity or campaign admission."
+  },
+  "motion": {
+    "passed": true,
+    "checks": 3242,
+    "max_world_step": 2,
+    "max_camera_step": 2,
+    "game_state_writes": false
+  },
+  "policy_sha256": "890eb6c727c195e8f389dc8c1f2d32dc2cb62bc4a8ac94e7f212c17e82d2fcfb",
+  "source_policy_sha256": "dc9d91afc5c83794da2171dcebbf1374adc6f8c1ddf5a56e75a67f3d29b40974",
+  "scope": "Controller-only native full1-1 attempt: each requested jump holds A at least eight physical polls, preserving longer original holds. Grant keeps his existing source movement. A one-poll request may be released while the character still appears grounded between logical updates. No ROM/physics/map/equipment writes; all original assertions and failed route retained. This tests input timing, not a declared game fix or independent pixel admission."
+}

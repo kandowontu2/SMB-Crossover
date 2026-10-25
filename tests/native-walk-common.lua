@@ -2,6 +2,7 @@
 local c=assert(WALK_CHARACTER)
 local frame=0
 local groups,last,count={},nil,0
+local completeRygarChecks=0
 local function r(n,i)return emu.read(assert(L[n],n)+(i or 0),emu.memType.nesDebug)end
 local function w(n,v,i)emu.write(assert(L[n],n)+(i or 0),v%256,emu.memType.nesDebug)end
 local function fixture()
@@ -48,8 +49,25 @@ emu.addEventCallback(function()
  if t==0 and n<2 then fixture() end
  if t==15 and c==9 then assert(r('RgPose')==L.XG_POSE_WALKSTEP or r('RgPose')==L.XG_POSE_WALK1,'Initial step uses dedicated art before the walk loop') end
  if t==90 then verify();assert(r('RgPose')==L.XG_POSE_STAND and r('XgWalkTick')==0,'Release returns to idle and resets the walk timer') end
+ if c==7 and t>=16 and t<80 and r('RgPose')==L.XG_POSE_WALK2 and r('XgWalkTick')>=3 and r('XgWalkTick')<=5 then
+  local x=r('Player_X_Position')+256*r('Player_PageLoc')-r('ScreenLeft_X_Pos')-256*r('ScreenLeft_PageLoc')
+  if x>24 and x<220 then
+   local pieces=0
+   for i=0,63 do
+    local y=emu.read(i*4,emu.memType.nesSpriteRam)
+    local attr=emu.read(i*4+2,emu.memType.nesSpriteRam)
+    local sx=emu.read(i*4+3,emu.memType.nesSpriteRam)
+    if (attr&3)==0 and y>=170 and y<210 and sx>=x-24 and sx<=x+36 then pieces=pieces+1 end
+   end
+   assert(pieces==6,'Rygar middle stride retains all SIX original hardware pieces, including both legs: '..pieces)
+   completeRygarChecks=completeRygarChecks+1
+  end
+ end
  if t>=8 and t<85 and t%3==0 then
   local f=assert(io.open(OUTPUT..ROM_NAME..'-walk-'..c..'-'..n..'-'..t..'.png','wb'));f:write(emu.takeScreenshot());f:close()
  end
- if n==2 then print('PASS character '..c..' source walking art order/cadence, dedicated Bass step, left/right start and idle reset');emu.stop(0) end
+ if n==2 then
+  if c==7 then assert(completeRygarChecks>=6,'Six-piece native middle stride was checked during both walking runs') end
+  print('PASS character '..c..' source walking art order/cadence, full native OAM pieces, left/right start and idle reset');emu.stop(0)
+ end
 end,emu.eventType.endFrame)

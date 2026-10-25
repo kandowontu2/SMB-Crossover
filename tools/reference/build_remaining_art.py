@@ -93,7 +93,14 @@ def main():
                 for y in range(pic.height):
                     for x in range(pic.width):
                         v=pic.getpixel((x,y))
-                        if v[3]>=128:out[pal][y][x]=1+min(range(3),key=lambda c:sum((v[k]-PALS[pal][c][k])**2 for k in range(3)))
+                        if v[3]>=128:
+                            if symbol=='RyuPickup' and frame==3:
+                                # Its pink/lavender spiral collapses under nearest-color
+                                # matching. Preserve all three original pixel classes.
+                                assert pal==3
+                                out[pal][y][x]={(86,29,0):1,(255,196,234):2,(146,144,255):3}[v[:3]]
+                            else:
+                                out[pal][y][x]=1+min(range(3),key=lambda c:sum((v[k]-PALS[pal][c][k])**2 for k in range(3)))
                 return out
             assets.layers=layers
             raw=[];parts=packing.parts(im,(48,48),raw)

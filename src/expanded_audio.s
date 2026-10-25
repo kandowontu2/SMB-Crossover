@@ -25,6 +25,7 @@ XgAudioDepth: .res 1
 XgAudioStackLo: .res 32
 XgAudioStackHi: .res 32
 XgAudioStackBank: .res 32
+.include "crossover_helper_ram.s"
 .align $100
 XgLzHistory: .res 2048
 .segment "LOWCODE"
@@ -32,9 +33,17 @@ XgLzHistory: .res 2048
   lda CurrentBank
   pha
   BankPRGC #.bank(ExpandedAudioTick)
+.if ::ENABLE_MMC5_EXPANDED
+  jsr VgAudioDispatch
+.else
   jsr ExpandedAudioTick
+.endif
 ::ExpandedAudioDecoded:
+.if ::ENABLE_MMC5_EXPANDED
+  jsr KbAudioFamily
+.else
   lda SelectedCharacter
+.endif
   cmp #CHARACTER_BASS
   bne :+
     BankPRGC #.bank(BassNativeAudioTick)
@@ -48,14 +57,22 @@ XgLzHistory: .res 2048
 .include "expanded_music.inc"
 .segment "XG_AUDIO"
 .proc ExpandedAudioTick
+.if ::ENABLE_MMC5_EXPANDED
+  jsr KbAudioFamily
+.else
   lda SelectedCharacter
+.endif
   cmp XgAudioCharacter
   bne Init
   lda AreaMusicQueue
   and #$7f
   beq Pause
 Init:
+.if ::ENABLE_MMC5_EXPANDED
+  jsr KbAudioFamily
+.else
   lda SelectedCharacter
+.endif
   sta XgAudioCharacter
   lda #0
   sta XgAudioDelay
@@ -71,7 +88,11 @@ Clear:
   bpl Clear
   lda #15
   sta XgAudioStatus
+.if ::ENABLE_MMC5_EXPANDED
+  jsr KbAudioFamily
+.else
   lda SelectedCharacter
+.endif
   sec
   sbc #CHARACTER_PIT
   sta XgAudioBase
@@ -161,9 +182,16 @@ Advance:
 .endif
   BankPRGA a
   lda XgAudioDelay
-  beq Commands
+  beq CodecCommands
   dec XgAudioDelay
   jmp ClearQueues
+CodecCommands:
+.if ::ENABLE_MMC5_EXPANDED
+  lda XgAudioCharacter
+  cmp #13
+  bcc Commands
+  jmp MaskFrame
+.endif
 Commands:
   jsr Byte
   cmp #$ff
@@ -203,7 +231,7 @@ LoopMusic:
   lda XgLoopHi,x
   sta XgAudioPtr+1
   jsr MapAudioBank
-  jmp Commands
+  jmp CodecCommands
 LoopEvent:
   jsr ResetLz
   ldx XgAudioEventSelection
@@ -214,7 +242,7 @@ LoopEvent:
   lda XgEventLoopHi,x
   sta XgAudioPtr+1
   jsr MapAudioBank
-  jmp Commands
+  jmp CodecCommands
 Register:
   tax
   jsr Byte
@@ -229,6 +257,51 @@ Store:
   sta GuestNativeApu,x
   inc GuestNativeDirty,x
   jmp Commands
+.if ::ENABLE_MMC5_EXPANDED
+MaskFrame:
+  ; Dedicated frame masks need one dispatch per frame, with no macro stack.
+  ; Reuse three bytes of that inactive stack rather than growing audio RAM.
+  jsr Byte
+  cmp #$ff
+  jeq Loop
+  cmp #$fe
+  jeq LoopMusic
+  cmp #$80
+  bcc EmptyFrames
+  cmp #$82
+  jcs StopCorruptStream
+  sta XgAudioStackLo+2
+  jsr Byte
+  sta XgAudioStackLo
+  jsr Byte
+  sta XgAudioStackLo+1
+  ldx #0
+MaskRegister:
+  lsr XgAudioStackLo+1
+  ror XgAudioStackLo
+  bcc MaskNext
+  jsr Byte
+  sta XgMusicApu,x
+  sta GuestNativeApu,x
+  inc GuestNativeDirty,x
+MaskNext:
+  inx
+  cpx #16
+  bne MaskRegister
+  lda XgAudioStackLo+2
+  and #1
+  jeq ClearQueues
+  jsr Byte
+  and #15
+  sta XgAudioStatus
+  jsr GuestNativeStatusSTA
+  jmp ClearQueues
+EmptyFrames:
+  sec
+  sbc #1
+  sta XgAudioDelay
+  jmp ClearQueues
+.endif
 ClearQueues:
   lda #0
   sta AreaMusicQueue
@@ -426,3 +499,30 @@ EndByte:
   rts
 .endproc
 .popseg
+
+.if ::ENABLE_MMC5_EXPANDED
+.pushseg
+.segment "XG_AUDIO"
+.proc KbAudioFamily
+  lda SelectedCharacter
+  cmp #CHARACTER_KIRBY
+  bne :+
+  lda KbVariant
+  beq Kirby
+  lda #14
+  rts
+Kirby:
+  lda #13
+  rts
+: lda SelectedCharacter
+  cmp #CHARACTER_TMNT
+  bne :+
+  lda #CHARACTER_RYGAR
+  rts
+: cmp #CHARACTER_KIRBY
+  bcc Done
+  lda #CHARACTER_PIT
+Done:rts
+.endproc
+.popseg
+.endif

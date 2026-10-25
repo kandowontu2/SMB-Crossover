@@ -172,23 +172,36 @@ Supported:
   ldx #5
 EnemyCandidates:
   lda Enemy_Flag,x
-  jeq EnemyNext
-  jmi EnemyNext                  ; Bowser's duplicate is not another target.
+  beq EnemyNext
+  bmi EnemyNext                  ; Bowser duplicate is not another target.
   lda Enemy_State,x
   and #$20
-  jne EnemyNext
+  bne EnemyNext
   lda Enemy_ID,x
   cmp #$15
-  jcc EnemyFound
+  bcc EnemyFound
   cmp #Bowser
-  jeq EnemyFound
+  beq EnemyFound
   cmp #BulletBill_CannonVar
-  jne EnemyNext
+  bne EnemyNext
 EnemyFound:
+  ; Same field the native consumer rejects, read live again for each ball.
+  lda EnemyOffscrBitsMasked,x
+  bne EnemyNext
   inc SsEnemies
 EnemyNext:
   dex
-  jpl EnemyCandidates
+  bpl EnemyCandidates
+  jmp EnemyCandidatesDone
+WaterEnemyTargetLo: .byte <MegaManWeapons::Enemies,<WaterShieldEnemies
+WaterEnemyTargetHi: .byte >MegaManWeapons::Enemies,>WaterShieldEnemies
+.if ::MAPPER_MMC5
+WaterEnemyTargetBank: .byte .bank(MegaManWeapons::Enemies)|MMC5_PRG_ROM,.bank(WaterShieldEnemies)|MMC5_PRG_ROM
+.else
+WaterEnemyTargetBank: .byte .bank(MegaManWeapons::Enemies),.bank(WaterShieldEnemies)
+.endif
+  .res 50-(*-EnemyCandidates),$ea
+EnemyCandidatesDone:
   lda SsBodyStop
   beq :+
     dec SsBodyStop
@@ -423,7 +436,17 @@ Enemies:
   lda SsEnemies
   jeq Next
   jsr Bridge
-  farcall MegaManWeapons::Enemies
+  ; Only the Water50 proxy selects the direct, live native enemy consumer.
+  SMC_StoreValue SafecallA, a
+  lda WaterEnemyTargetLo,y
+  SMC_StoreLowByte FarcallJmpTarget, a
+  lda WaterEnemyTargetHi,y
+  SMC_StoreHighByte FarcallJmpTarget, a
+  lda WaterEnemyTargetBank,y
+  jsr FarCallCommon
+.if ::MAPPER_MMC5
+::_FARCALL_COUNT .set ::_FARCALL_COUNT + 1
+.endif
   lda MmBulletType
   jne Next
   ldx RgSlot
@@ -461,26 +484,19 @@ MegaAttack:
   jeq Return
   jsr Count
   lda SsSelected
+  cmp #8
+  jeq Rush
+  lda SsSelected
   cmp #1
   jne Ordinary
   lda SsHeld
   jeq Return
-  tax
-  dex
-  stx RgSlot
-  lda #0
-  sta SsHeld
-  sta SsMode,x
-  lda #$55
-  sta RgShotVXLo,x
-  lda #2
-  sta RgShotVXHi,x
-  jsr SignX
-  lda #$55
-  sta RgShotVYLo,x
-  lda #$fd
-  sta RgShotVYHi,x
+ArmThrowSpan:
+  ;2.02 pays at the actual throw, after the free lift/hold epoch.
+  farcall MegaManSuperArmThrow
+  jcc Return
   jmp ShootPose
+  .res 39-(*-ArmThrowSpan),$ea
 Ordinary:
   ldy SsSelected
   lda SsCount
@@ -573,41 +589,11 @@ PharaohDone:
   jne ShootPose
   rts
 Rush:
-  lda #0
-  sta RgShotVXLo,x
-  sta RgShotVXHi,x
-  sta RgShotVYLo,x
-  sta RgShotVYHi,x
-  sta RgShotY,x
-  lda #1
-  sta RgShotYHigh,x
-  lda #20
-  ldy SavedJoypadBits
-  tya
-  and #Up_Dir
-  beq RushSide
-  lda #0
-  beq RushX
-RushSide:
-  lda #20
-  ldy PlayerFacingDir
-  cpy #1
-  beq RushX
-  lda #$ec
-RushX:
-  clc
-  adc #8
-  sta SsTmp
-  clc
-  adc Player_X_Position
-  sta RgShotX,x
-  lda #0
-  bit SsTmp
-  bpl :+
-    lda #$ff
-  :
-  adc Player_PageLoc
-  sta RgShotPage,x
+RushDispatchSpan:
+  farcall MegaManRushAttack
+  rts
+  .res 62-(*-RushDispatchSpan),$ea
+
 ShootPose:
   lda #12
   sta RgShootPose
@@ -1244,10 +1230,9 @@ RushMotion:
   adc #12
   cmp #9
   jcs NoMove
-  lda #8
-  ldy #12
-  farcall InventorySpend
-  jcc RushBeginExit
+RushBounceSpan:
+  farcall MegaManRushBounce
+  .res 27-(*-RushBounceSpan),$ea
   lda #$55
   sta MmVY+1
   lda #0
@@ -1596,10 +1581,22 @@ Grab:
   sta M0
   lda R1
   sta M1
-  lda #1
-  ldy #8
-  farcall InventorySpend
+ArmLiftCheckSpan:
+  ; Eligibility is checked before removing the cell. Holding is free.
+  lda StarInvincibleTimer
+  sec
+  bne ArmLiftReady
+  lda SelectedCharacter
+  asl
+  asl
+  asl
+  asl
+  tax
+  lda InvAmmo+1,x
+  cmp #8
   jcc Return
+ArmLiftReady:
+  .res 27-(*-ArmLiftCheckSpan),$ea
   ldy #0
   lda #0
   sta (M0),y
@@ -1710,6 +1707,11 @@ Bridge:
     adc #54                    ; Rotated flame bounds: right/down/left.
   :
   sta MmBulletType
+  ldy #0
+  cmp #50
+  bne :+
+    iny
+  :
   lda #0
   sta MmSlot
   tax

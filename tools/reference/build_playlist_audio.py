@@ -188,7 +188,15 @@ def main():
     lines.extend(['XgMacroLo:',' .byte '+','.join('<XgMacro'+str(c) for c in macros),'XgMacroHi:',' .byte '+','.join('>XgMacro'+str(c) for c in macros)])
     for code,pair in macros.items():lines.extend(['XgMacro'+str(code)+':',' .byte '+','.join(str(b) for t in pair for b in t)+',31'])
     lines.append('.popseg')
-    (ROOT/'src/expanded_music.inc').write_text('\n'.join(lines)+'\n')
+    generated='\n'.join(lines)+'\n'
+    generated='.include "full_roster_music.inc"\n'+generated
+    for prefix in ('XgArea','XgLoop','XgEvent','XgEventLoop'):
+        for suffix in ('Banks','Lo','Hi'):
+            label=prefix+suffix
+            start=generated.index(label+':')
+            end=generated.index('\n',generated.index('\n',start)+1)
+            generated=generated[:end]+'\n.if ::ENABLE_MMC5_EXPANDED\n Full'+label+'\n.endif'+generated[end:]
+    (ROOT/'src/expanded_music.inc').write_text(generated)
     (ROOT/'docs/reference/expanded-playlist-encoding.json').write_text(json.dumps({'compressed_bytes':len(data),'macros':len(macros),'maximum_macro_stack':depth,'decode_equals_reference_tokens':True,'streams':metadata,'limitations':['Frame-quantized APU writes, DPCM omitted','Pit has one stage theme; Pit/Rygar retain fallback death/victory music','Unverified loop points explicitly retained in the stream records']},indent=2)+'\n')
     print('Playlist:',len(fs),'streams,',len(data),'bytes,',len(macros),'macros, stack',depth,flush=True)
     print('Verified music loops',sum('verified_loop' in m and m['verified_loop'] is not None for m in metadata.values()),'/',len(music),flush=True)

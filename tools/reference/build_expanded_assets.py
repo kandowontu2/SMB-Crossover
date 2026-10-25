@@ -249,8 +249,11 @@ def rygar_walk(frame,foot,out):
     # ($0512 + 8), not the center of a varying arm/leg bounding rectangle.
     previous=(base.parent/f'rygar-{frame-1}.ram').read_bytes()
     origin=previous[0x512]+8
-    for i in range(4,8):
+    # The middle walking frame expands to SIX native pieces, using slots2/3
+    # for its lower body. Other frames hide those slots above$ef.
+    for i in range(2,8):
         sy,t,a,sx=oam[i*4:i*4+4]
+        if sy>=240:continue
         for y in range(16):
             yy=15-y if a&128 else y
             addr=(t&1)*4096+(t&254)*16+(yy//8)*16
@@ -259,6 +262,17 @@ def rygar_walk(frame,foot,out):
                 v=((data[addr+yy%8]>>(7-xx))&1)|(((data[addr+8+yy%8]>>(7-xx))&1)<<1)
                 if v:out.putpixel((foot[0]+sx+x-origin,foot[1]+sy+1+y-195),RGB[pal[16+(a&3)*4+v]&63]+(255,))
     return out
+
+def rygar_walk_left(pose):
+    # The native left middle frame has its own one-pixel seam placements;
+    # mirroring the right silhouette loses those original per-piece offsets.
+    frame={'WALK1':432,'WALK2':440,'WALK3':447}[pose]
+    return rygar_walk(frame,(40,64),Image.new('RGBA',(96,80)))
+
+def rygar_native_raw(lines,name,right,left):
+    packing.raw(lines,name,right,mirror=False)
+    packing.raw(lines,name+'NativeLeft',left,mirror=False)
+    lines.append(name+'Left = '+name+'NativeLeftRight')
 
 def native_tile(role,frame,tile,height=8):
     base=ROOT/f'build/reference-native/{role.lower()}-{frame}';data=base.with_suffix('.chr').read_bytes();pal=base.with_suffix('.pal').read_bytes()
@@ -394,7 +408,9 @@ def main():
         cache={};shared_body_pool=pool[:]
         for power in range(3):
             for pose in POSES:
-                im=body(role,pose,power);key=im.tobytes()
+                im=body(role,pose,power)
+                left_im=rygar_walk_left(pose) if role=='RYGAR' and pose in ('WALK1','WALK2','WALK3') else None
+                key=im.tobytes()+(left_im.tobytes() if left_im else b'')
                 if key not in cache:
                     death=role=='SOPHIA' and pose.startswith('DEATH')
                     local=[] if death else shared_body_pool[:] if role=='RYU' else pool[:]
@@ -405,8 +421,9 @@ def main():
                         for t,p,x,y in ps:
                             if local[t//2]not in compact:compact.append(local[t//2])
                         ps=[(compact.index(local[t//2])*2,p,x,y)for t,p,x,y in ps];local=compact
-                    assert len(local)<=32,(role,pose,len(local));cache[key]=(ps,local)
-                ps,local=cache[key];maxsprites=max(maxsprites,len(ps))
+                    left_ps=packing.parts(left_im,(32,32),local) if left_im else None
+                    assert len(local)<=32,(role,pose,len(local));cache[key]=(ps,local,left_ps)
+                ps,local,left_ps=cache[key];maxsprites=max(maxsprites,len(ps),len(left_ps or []))
                 if ps:maxscanline=max(maxscanline,max(sum(y<=scan<y+16 for t,p,x,y in ps) for scan in range(-32,64)))
                 death=role=='SOPHIA' and pose.startswith('DEATH')
                 candidates=[(sum(data not in g for data in local),len(g),i) for i,g in enumerate(groups) if group_death[i]==death and len(g)+sum(data not in g for data in local)<=32]
@@ -415,7 +432,12 @@ def main():
                 for data in local:
                     if data not in groups[gi]:groups[gi].append(data)
                 ps=[(groups[gi].index(local[t//2])*2,p,x,y) for t,p,x,y in ps]
-                name=f'Xg{role}{power}_{pose}';packing.raw(lines,name,ps);entries.append((name,gi))
+                name=f'Xg{role}{power}_{pose}'
+                if left_ps is not None:
+                    left_ps=[(groups[gi].index(local[t//2])*2,p,x,y)for t,p,x,y in left_ps]
+                    rygar_native_raw(lines,name,ps,left_ps)
+                else:packing.raw(lines,name,ps)
+                entries.append((name,gi))
                 out=ROOT/f'build/reference-frames/{role}-{power}-{pose}.png';out.parent.mkdir(parents=True,exist_ok=True);im.save(out)
         if role=='RYU':assert maxscanline<=8,f'Sword/body color layers exceed the native scanline budget: {maxscanline}'
         if role=='BASS':assert maxscanline<=8,'Bass body alone exceeds the native scanline budget'

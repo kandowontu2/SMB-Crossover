@@ -1,0 +1,84 @@
+; Original Parodius character-specific group0 death records / skin10.
+.pushseg
+.segment "VIC_GFX"
+PnDeathPose122:.byte 8
+ .byte 0,0,0,0
+ .byte 2,0,0,8
+PnDeathPose123:.byte 8
+ .byte 4,0,0,0
+ .byte 6,0,0,8
+PnDeathPose124:.byte 8
+ .byte 8,0,0,0
+ .byte 10,0,0,8
+PnDeathPose125:.byte 12
+ .byte 12,0,0,252
+ .byte 14,0,0,4
+ .byte 16,0,0,12
+PnDeathPose126:.byte 12
+ .byte 18,0,0,252
+ .byte 20,0,0,4
+ .byte 22,0,0,12
+PnDeathRecordLoV1:.byte <PnDeathPose122,<PnDeathPose123,<PnDeathPose124,<PnDeathPose125,<PnDeathPose126
+PnDeathRecordHiV1:.byte >PnDeathPose122,>PnDeathPose123,>PnDeathPose124,>PnDeathPose125,>PnDeathPose126
+PnDeathPose68:.byte 16
+ .byte 0,64,0,248
+ .byte 2,0,0,0
+ .byte 2,64,0,8
+ .byte 0,0,0,16
+PnDeathPose69:.byte 16
+ .byte 4,0,0,248
+ .byte 6,0,0,0
+ .byte 6,64,0,8
+ .byte 4,64,0,16
+PnDeathPose70:.byte 8
+ .byte 4,0,0,0
+ .byte 4,64,0,8
+PnDeathRecordLoV2:.byte <PnDeathPose68,<PnDeathPose69,<PnDeathPose70
+PnDeathRecordHiV2:.byte >PnDeathPose68,>PnDeathPose69,>PnDeathPose70
+PnDeathPose236:.byte 24
+ .byte 0,0,0,255
+ .byte 2,2,0,255
+ .byte 4,0,0,7
+ .byte 6,2,0,7
+ .byte 8,0,0,15
+ .byte 10,2,0,15
+PnDeathPose237:.byte 24
+ .byte 12,0,0,255
+ .byte 14,2,0,255
+ .byte 16,0,0,7
+ .byte 18,2,0,7
+ .byte 20,0,0,15
+ .byte 22,2,0,15
+PnDeathPose238:.byte 24
+ .byte 24,0,0,255
+ .byte 26,2,0,255
+ .byte 28,0,0,7
+ .byte 30,2,0,7
+ .byte 32,0,0,15
+ .byte 34,2,0,15
+PnDeathPose239:.byte 24
+ .byte 36,0,0,255
+ .byte 38,2,0,255
+ .byte 40,0,0,7
+ .byte 42,2,0,7
+ .byte 44,0,0,15
+ .byte 46,2,0,15
+PnDeathPose240:.byte 24
+ .byte 48,0,0,255
+ .byte 50,2,0,255
+ .byte 52,0,0,7
+ .byte 54,2,0,7
+ .byte 44,0,0,15
+ .byte 46,2,0,15
+PnDeathRecordLoV3:.byte <PnDeathPose236,<PnDeathPose237,<PnDeathPose238,<PnDeathPose239,<PnDeathPose240
+PnDeathRecordHiV3:.byte >PnDeathPose236,>PnDeathPose237,>PnDeathPose238,>PnDeathPose239,>PnDeathPose240
+PnDeathRecordLoAddrLo:.byte <PnDeathRecordLoV1,<PnDeathRecordLoV2,<PnDeathRecordLoV3
+PnDeathRecordHiAddrLo:.byte <PnDeathRecordHiV1,<PnDeathRecordHiV2,<PnDeathRecordHiV3
+PnDeathRecordLoAddrHi:.byte >PnDeathRecordLoV1,>PnDeathRecordLoV2,>PnDeathRecordLoV3
+PnDeathRecordHiAddrHi:.byte >PnDeathRecordHiV1,>PnDeathRecordHiV2,>PnDeathRecordHiV3
+PnDeathFirstFrames:.byte 122,68,236
+PnDeathFrameCounts:.byte 5,3,5
+PnDeathAnimationIDs:.byte 89,91,90
+.segment "VIC_WORLD"
+PnDeathPalettes:.byte 48,21,8,48,40,6,33,3,6
+.popseg

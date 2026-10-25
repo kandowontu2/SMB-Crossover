@@ -24,7 +24,10 @@ local pendingNode,pendingGoal
 local lastMask,bestSavedX=0,-1
 local trials=0
 local log=assert(io.open(cfg.out..'trials.csv','w'))
-log:write('trial,depth,parent,action,frames,x,y,engine,power,score,goal\n')
+log:write('trial,depth,parent,action,frames,x,y,engine,power,score,goal,state,yHigh,vy\n')
+local injuries=assert(io.open(cfg.out..'injuries.csv','w'))
+injuries:write('trial,depth,frame,x,y,slot,kind,enemyX,enemyY,spinLow,spinHigh,parts,lastPartX,lastPartY\n')
+local lastInjuryTrial=-1
 local function screenshot(name)local f=assert(io.open(cfg.out..name..'.png','wb'));f:write(emu.takeScreenshot());f:close()end
 local function combatKey()
  -- Position alone cannot merge a fired shot with a no-shot state: the next
@@ -82,7 +85,7 @@ local function finish(win,node)
  local f=assert(io.open(cfg.out..'result.json','w'))
  f:write('{"discovery_only":true,"uses_unedited_binary_savestates":true,"won":'..tostring(win)..',"trials":'..trials..',"depth":'..depth..',"emulated_frames":'..totalFrames..',"root_frame":'..rootFrame..',"root_poll":'..rootPoll..'}\n');f:close()
  if win then exportNode('winning',node)end
- log:close();print('BRANCH endpoint won='..tostring(win)..' trials='..trials..' depth='..depth..' totalFrames='..totalFrames)
+ log:close();injuries:close();print('BRANCH endpoint won='..tostring(win)..' trials='..trials..' depth='..depth..' totalFrames='..totalFrames)
  emu.stop(win and 0 or 1)
 end
 local function beginNext()
@@ -146,6 +149,7 @@ emu.addMemoryCallback(function()
    pendingNode.combat,pendingNode.attack=combatKey();pendingNode.lastMask=lastMask;pendingNode.vx=r('Player_X_Speed');pendingNode.vy=r('Player_Y_Speed')
    if x()>bestSavedX+64 and r('Player_State')==0 then exportNode('best',pendingNode);bestSavedX=x()end
    local actualGoal=r('GameEngineSubroutine')==8 and r('Player_Y_HighPos')==1 and x()>=cfg.goalX
+    and r('PlayerStatus')>=(cfg.goalPowerMin or 0)
     and r('Player_Y_Position')>=(cfg.goalYMin or 0) and r('Player_Y_Position')<=cfg.goalYMax and(cfg.airGoal or r('Player_State')==0)
     and r('WorldNumber')==rootWorld and r('LevelNumber')==rootLevel
    if pendingGoal and actualGoal then finish(true,pendingNode);return end
@@ -155,6 +159,21 @@ emu.addMemoryCallback(function()
   beginNext()
  end
 end,emu.callbackType.exec,L.GameLoop)
+if L.InjurePlayer then
+ emu.addMemoryCallback(function()
+  if not started or pending or done or lastInjuryTrial==trials then return end
+  local physical=emu.convertAddress(L.InjurePlayer)
+  if not physical or physical.memType~=emu.memType.nesPrgRom or physical.address//8192~=62 then return end
+  lastInjuryTrial=trials
+  local slot=r('ObjectOffset');local kind,ex,ey,lo,hi,parts,px,py=-1,-1,-1,-1,-1,0,-1,-1
+  if slot<6 then
+   kind=r('Enemy_ID',slot);ex=r('Enemy_X_Position',slot)+256*r('Enemy_PageLoc',slot);ey=r('Enemy_Y_Position',slot)
+   lo=r('FirebarSpinState_Low',slot);hi=r('FirebarSpinState_High',slot);parts=r('FirebarPartCount',slot)
+   if parts>0 and parts<=12 then px=r('FirebarPartX',slot*12+parts-1);py=r('FirebarPartY',slot*12+parts-1)end
+  end
+  injuries:write(table.concat({trials,depth,frame,x(),r('Player_Y_Position'),slot,kind,ex,ey,lo,hi,parts,px,py},',')..'\n');injuries:flush()
+ end,emu.callbackType.exec,L.InjurePlayer)
+end
 emu.addEventCallback(function()
  if done then return end
  poll=poll+1;local mask=0
@@ -172,6 +191,8 @@ emu.addEventCallback(function()
   elseif action=='RB'then mask=1+(fire and 64 or 0)
   elseif action=='RAB'then mask=129+(fire and 64 or 0)
   elseif action=='L'then mask=2
+  elseif action=='LB'then mask=2+(fire and 64 or 0)
+  elseif action=='LAB'then mask=130+(fire and 64 or 0)
   elseif action=='A'then mask=128
   elseif action=='LA'then mask=130
   elseif action=='AB'then mask=128+(fire and 64 or 0)
@@ -208,10 +229,14 @@ emu.addEventCallback(function()
  local engine,power=r('GameEngineSubroutine'),r('PlayerStatus')
  local alive=engine~=11 and((yHigh==1 and py<232)or(yHigh==0 and py>=128))
  local stage=r('WorldNumber')==rootWorld and r('LevelNumber')==rootLevel
- local goal=alive and yHigh==1 and stage and px>=cfg.goalX and py>=(cfg.goalYMin or 0) and py<=cfg.goalYMax and(cfg.airGoal or r('Player_State')==0)
+ local goal=alive and yHigh==1 and stage and px>=cfg.goalX and power>=(cfg.goalPowerMin or 0) and py>=(cfg.goalYMin or 0) and py<=cfg.goalYMax and(cfg.airGoal or r('Player_State')==0)
  if goal or not alive or not stage or trialAge>=cfg.chunk then
   local score=px+math.max(0,176-math.max(0,signedY))*0.15+(power-parent.power)*40
-  log:write(table.concat({trials,depth,parentIndex,actions[actionIndex],trialAge,px,py,engine,power,score,tostring(goal)},',')..'\n')
+  if cfg.scoreMode=='landing'then
+   score=-math.abs(px-cfg.goalX)-2*math.max(0,signedY-cfg.goalYMax)
+    -0.1*math.max(0,(cfg.goalYMin or 0)-signedY)+(power-parent.power)*40
+  end
+  log:write(table.concat({trials,depth,parentIndex,actions[actionIndex],trialAge,px,py,engine,power,score,tostring(goal),r('Player_State'),yHigh,r('Player_Y_Speed')},',')..'\n')
   if alive and stage then
    pendingNode={score=score,x=px,y=py,yHigh=yHigh,power=power,stateByte=r('Player_State')}
    pendingGoal=goal

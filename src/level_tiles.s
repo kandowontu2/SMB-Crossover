@@ -349,7 +349,11 @@ EndUChk:
       ldy R1 
       bne TerrLoop               ;unconditional branch, use Y to load next byte
 RendBBuf:
+.if ::ENABLE_CROSSOVER
+    jsr CrossoverLevelColumnBridge ; Native parser, then authored source overrides.
+.else
     jsr ProcessAreaData        ;do the area data loading routine now
+.endif
     lda BlockBufferColumnPos
     jsr GetBlockBufferAddr     ;get block buffer address from where we're at
     ldx #$00
@@ -1092,7 +1096,11 @@ StrFre:
 InitEnemyObject:
   lda #$00                 ;initialize enemy state
   sta Enemy_State,x
+.if ::ENABLE_CROSSOVER
+  farcall CrossoverLevelEnemyInit, jmp
+.else
   farcall CheckpointEnemyID, jmp    ;jump ahead to run jump engine and subroutines
+.endif
 
 DoGroup:
   jmp HandleGroupEnemies   ;handle enemy group objects
@@ -1195,7 +1203,11 @@ GSltLp: inx                       ;increment and branch if past
         lda #$01                  ;activate flag for buffer, and
         sta Enemy_Y_HighPos,x     ;put enemy within the screen vertically
         sta Enemy_Flag,x
+.if ::ENABLE_CROSSOVER
+        farcall CrossoverLevelGroupInit
+.else
         farcall CheckpointEnemyID     ;process each enemy object separately
+.endif
         dec NumberofGroupEnemies  ;do this until we run out of enemy objects
       ;   dec R7
         bne GrLoop
@@ -2472,7 +2484,11 @@ PutBehind:
   lda #0
   sta EnemyMetasprite,x
 .if ::ENABLE_CROSSOVER
+.if ::ENABLE_MMC5_EXPANDED
+  farcall RlPrepareDispatch
+.else
   farcall InventoryPreparePickup
+.endif
 .endif
   rts
 .endproc

@@ -1,0 +1,110 @@
+{
+  "complete": true,
+  "passed": false,
+  "goal_complete": false,
+  "ROM_sha256": "20b9f314443db1b05a205517d27e23abb4219774f2fa255dd972b2d275e2f55d",
+  "runs": [
+    {
+      "identity": "samus",
+      "mode": "easy",
+      "folder": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mmc3-static-call-v37\\controller-corrections-v1\\samus-easy",
+      "passed": true,
+      "result": {
+        "cleared": true,
+        "world_1_1_seen": true,
+        "frames": 7268,
+        "polls": 7267,
+        "deaths": 0,
+        "failure": null,
+        "stage_entries": {
+          "0-0": 495,
+          "0-1": 7244
+        }
+      },
+      "tiny": {
+        "passed": true,
+        "protected_code_bytes": 6,
+        "observed_declared_operand_writes": 1414023,
+        "resident_call_entries": 354456,
+        "native_stack_writes": 4530775,
+        "minimum_SP_from_stack_write_addresses": 169,
+        "stack_floor": 91,
+        "observer_game_state_writes": false
+      },
+      "mapper_cache": {
+        "passed": true,
+        "boot_verified": true,
+        "entered": true,
+        "NMI_count": 7042,
+        "IRQ_count": 6559,
+        "DMA_count": 2533,
+        "VBlank_upload_bytes": 0,
+        "resident_body_bytes_verified": 118784,
+        "displayed_composite_bytes_verified": 0,
+        "controller_and_game_state_writes": false,
+        "scope": "Native MMC3 full-route bank/SMC, boot, resident-family, displayed assigned composite-source/protected terrain bytes and VBlank cache witness. This is not an independent input replay, exhaustive pose/silhouette/source fidelity or campaign admission."
+      },
+      "motion": {
+        "passed": true,
+        "checks": 4132,
+        "max_world_step": 2,
+        "max_camera_step": 3,
+        "game_state_writes": false
+      },
+      "policy_sha256": "174f7ac8dc9c98722ee31a89bc42b87d04b6ac0e3e023baf01e6e5da3bb9dcff",
+      "source_policy_sha256": "56c8c1067adb9922e68f587fa14716e6b71962b0b4edcca5c41a9bead8b1a50b",
+      "source_failure": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mmc3-static-call-v37\\full-roster-v1\\samus-easy"
+    },
+    {
+      "identity": "darkwing",
+      "mode": "easy",
+      "folder": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mmc3-static-call-v37\\controller-corrections-v1\\darkwing-easy",
+      "passed": false,
+      "result": {
+        "cleared": false,
+        "world_1_1_seen": true,
+        "frames": 14518,
+        "polls": 14517,
+        "deaths": 0,
+        "failure": "death",
+        "stage_entries": {
+          "0-0": 493
+        }
+      },
+      "tiny": {
+        "passed": false,
+        "protected_code_bytes": 6,
+        "observed_declared_operand_writes": 3725395,
+        "resident_call_entries": 932579,
+        "native_stack_writes": 10029926,
+        "minimum_SP_from_stack_write_addresses": 163,
+        "stack_floor": 91,
+        "observer_game_state_writes": false
+      },
+      "mapper_cache": {
+        "passed": false,
+        "boot_verified": true,
+        "entered": true,
+        "NMI_count": 14315,
+        "IRQ_count": 14028,
+        "DMA_count": 4857,
+        "VBlank_upload_bytes": 448,
+        "resident_body_bytes_verified": 32768,
+        "displayed_composite_bytes_verified": 8928,
+        "controller_and_game_state_writes": false,
+        "scope": "Native MMC3 full-route bank/SMC, boot, resident-family, displayed assigned composite-source/protected terrain bytes and VBlank cache witness. This is not an independent input replay, exhaustive pose/silhouette/source fidelity or campaign admission."
+      },
+      "motion": {
+        "passed": false,
+        "checks": 9626,
+        "max_world_step": 2,
+        "max_camera_step": 3,
+        "game_state_writes": false
+      },
+      "policy_sha256": "ad73d4b20017110562db7f49fdbb5ec2da6751f8401eb36667a7d4ac14293d38",
+      "source_policy_sha256": "56c8c1067adb9922e68f587fa14716e6b71962b0b4edcca5c41a9bead8b1a50b",
+      "source_failure": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mmc3-static-call-v37\\full-roster-v1\\darkwing-easy"
+    }
+  ],
+  "scope": "Controller-only fresh native1-1 attempts on the unchanged MMC3 ROM. Original failed routes retained. Samus relaunches from the existing higher stair at2400 rather than trying to walk through its next riser; Darkwing holds his native variable jump over the pipe. No emulated state, equipment, map or physics writes; exact code/stack/NMI/cache/committed motion assertions unchanged. Independent replay and visual qualification remain separate."
+}

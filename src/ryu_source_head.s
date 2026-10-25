@@ -92,16 +92,27 @@ EnvelopeBottom:
   ; PX+1.25..PX+14.75 for every native/Q16 fraction, so no X test is lost.
 
   ; Exact current25 response: source ordinary rising ground-jump/air body.
-  ; Retained attack/throw cache transitions remain separate unfinished work.
+  ; Retained25px air attacks use their published source body. Other retained
+  ; profiles and fresh origin transitions keep the qualified native fallback.
   ; A spring can launch while source ST_ATTACK retains its ground27 frame.
   lda Player_State
   cmp #1
   jne Native
   lda XgJumpUsed
   jeq Native
+.if ::ENABLE_MMC5_EXPANDED
+  lda RgAttack
+  beq NoRetainedAttack
+  lda RyuSourceBodyProfile
+  cmp #25
+  jne Native
+NoRetainedAttack:
+.endif
   lda RgCrouch
   ora CrouchingFlag
+.if !::ENABLE_MMC5_EXPANDED
   ora RgAttack
+.endif
   ora MmUnderwater
   ora SwimmingFlag
   ora XgWall
@@ -228,6 +239,18 @@ Prior25:
   adc #7                         ; actual cached previous25 top.
   jmp PriorTopReady
 Prior27:
+.if ::ENABLE_MMC5_EXPANDED
+  ; An already-running air attack retains its published25px HRect.
+  ; Fresh attack transitions keep the existing conservative27 fallback.
+  lda RgAttack
+  beq OriginalPriorTop
+  lda RgAttackAge
+  cmp #2
+  bcc OriginalPriorTop
+  iny
+  iny
+OriginalPriorTop:
+.endif
   tya
   clc
   adc #5                         ; unchanged conservative fallback.
@@ -270,12 +293,31 @@ NoBlockEffects:
   sta Square1SoundQueue
   jsr RyuPlatformBox
 Handled:
+.if ::ENABLE_MMC5_EXPANDED
+  ; RP_Save owns17stack bytes: saved A/P are SP+16/+17. Share the full
+  ; restore tail while returning exactly the old LDA#0 A/N/Z contract.
+  ; Every write stays inside this caller's live snapshot, not other RAM.
+  tsx
+  lda #0
+  sta $0110,x
+  lda $0111,x
+  and #$7f
+  ora #2
+  sta $0111,x
+  jmp Native
+.else
   RP_Restore
   lda #0                         ; return no second native head response.
   rts
+.endif
 Native:
   RP_Restore                     ; original tile/query flags/scratch exactly.
   rts
+.if ::ENABLE_MMC5_EXPANDED
+  ; The following ROSTER routines and every old public PC remain fixed.
+  .res 8,$ea
+  .assert *-RyuSourceHeadGate=771,error,"Retained-air head response preserves ROSTER layout"
+.endif
 .endproc
 RyuSourceHeadEnd:
 .assert RyuSourceHeadEnd-RyuSourceHeadStart <= 832, error, "Head helper exceeds private ROSTER budget"

@@ -1,0 +1,30 @@
+Z2PanelStats:
+ .byte $ca,$cb,$cb,$cb,$cb,$cb,$cb,$cb,$cb,$cb,$cb,$cb,$cb,$ca
+ .byte $cc,$f4,$f4,$f4,$f4,$f4,$f4,$f4,$f4,$f4,$f4,$f4,$f4,$cc
+ .byte $cc,$e7,$de,$f1,$ed,$f4,$cc,$f4,$f4,$f4,$f4,$f4,$f4,$cc
+ .byte $ca,$cb,$cb,$cb,$cb,$ca,$cb,$cb,$cb,$cb,$cb,$cb,$cb,$ca
+ .byte $cc,$f4,$f4,$f4,$f4,$f4,$f4,$da,$ed,$ed,$da,$dc,$e4,$cc
+ .byte $cc,$f4,$e5,$de,$ef,$de,$e5,$f4,$f4,$f4,$f4,$d1,$f4,$cc
+ .byte $cc,$f4,$f4,$f4,$f4,$f4,$f4,$e6,$da,$e0,$e2,$dc,$f4,$cc
+ .byte $cc,$f4,$e5,$de,$ef,$de,$e5,$f4,$f4,$f4,$f4,$d1,$f4,$cc
+ .byte $cc,$f4,$f4,$f4,$f4,$f4,$f4,$e5,$e2,$df,$de,$f4,$f4,$cc
+ .byte $cc,$f4,$e5,$de,$ef,$de,$e5,$f4,$f4,$f4,$f4,$d1,$f4,$cc
+ .byte $ca,$cb,$cb,$cb,$cb,$ca,$cb,$cb,$cb,$cb,$cb,$cb,$cb,$ca
+ .byte $cc,$f4,$ee,$e9,$f4,$cc,$f4,$dc,$da,$e7,$dc,$de,$e5,$cc
+ .byte $cc,$da,$f4,$e8,$e4,$f4,$db,$f4,$db,$da,$dc,$e4,$f4,$cc
+ .byte $ca,$cb,$cb,$cb,$cb,$cb,$cb,$cb,$cb,$cb,$cb,$cb,$cb,$ca
+Z2PanelSpells:
+ .byte $ca,$cb,$cb,$cb,$cb,$cb,$cb,$cb,$cb,$cb,$cb,$cb,$cb,$ca
+ .byte $cc,$f4,$e6,$da,$e0,$e2,$dc,$f4,$f4,$f4,$e6,$e9,$f4,$cc
+ .byte $cc,$f4,$ec,$e1,$e2,$de,$e5,$dd,$f4,$f4,$f4,$f4,$f4,$cc
+ .byte $cc,$f4,$e3,$ee,$e6,$e9,$f4,$f4,$f4,$f4,$f4,$f4,$f4,$cc
+ .byte $cc,$f4,$e5,$e2,$df,$de,$f4,$f4,$f4,$f4,$f4,$f4,$f4,$cc
+ .byte $cc,$f4,$df,$da,$e2,$eb,$f2,$f4,$f4,$f4,$f4,$f4,$f4,$cc
+ .byte $cc,$f4,$df,$e2,$eb,$de,$f4,$f4,$f4,$f4,$f4,$f4,$f4,$cc
+ .byte $cc,$f4,$eb,$de,$df,$e5,$de,$dc,$ed,$f4,$f4,$f4,$f4,$cc
+ .byte $cc,$f4,$ec,$e9,$de,$e5,$e5,$f4,$f4,$f4,$f4,$f4,$f4,$cc
+ .byte $cc,$f4,$ed,$e1,$ee,$e7,$dd,$de,$eb,$f4,$f4,$f4,$f4,$cc
+ .byte $cc,$f4,$f4,$f4,$f4,$f4,$f4,$f4,$f4,$f4,$f4,$f4,$f4,$cc
+ .byte $cc,$e5,$eb,$f4,$ee,$e9,$e0,$eb,$da,$dd,$de,$ec,$f4,$cc
+ .byte $cc,$da,$f4,$e8,$e4,$f4,$db,$f4,$db,$da,$dc,$e4,$f4,$cc
+ .byte $ca,$cb,$cb,$cb,$cb,$cb,$cb,$cb,$cb,$cb,$cb,$cb,$cb,$ca

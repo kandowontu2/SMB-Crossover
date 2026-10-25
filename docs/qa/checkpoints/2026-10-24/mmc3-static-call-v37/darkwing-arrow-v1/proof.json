@@ -1,0 +1,50 @@
+{
+  "passed": true,
+  "goal_complete": false,
+  "ROM_sha256": "20b9f314443db1b05a205517d27e23abb4219774f2fa255dd972b2d275e2f55d",
+  "result": {
+    "cleared": true,
+    "world_1_1_seen": true,
+    "frames": 7000,
+    "polls": 6999,
+    "deaths": 0,
+    "failure": null,
+    "stage_entries": {
+      "0-0": 493,
+      "0-1": 6976
+    }
+  },
+  "tiny": {
+    "passed": true,
+    "protected_code_bytes": 6,
+    "observed_declared_operand_writes": 1735787,
+    "resident_call_entries": 434710,
+    "native_stack_writes": 4343637,
+    "minimum_SP_from_stack_write_addresses": 163,
+    "stack_floor": 91,
+    "observer_game_state_writes": false
+  },
+  "mapper_cache": {
+    "passed": true,
+    "boot_verified": true,
+    "entered": true,
+    "NMI_count": 6797,
+    "IRQ_count": 6293,
+    "DMA_count": 2157,
+    "VBlank_upload_bytes": 3072,
+    "resident_body_bytes_verified": 32768,
+    "displayed_composite_bytes_verified": 62400,
+    "controller_and_game_state_writes": false,
+    "scope": "Native MMC3 full-route bank/SMC, boot, resident-family, displayed assigned composite-source/protected terrain bytes and VBlank cache witness. This is not an independent input replay, exhaustive pose/silhouette/source fidelity or campaign admission."
+  },
+  "motion": {
+    "passed": true,
+    "checks": 3857,
+    "max_world_step": 2,
+    "max_camera_step": 3,
+    "game_state_writes": false
+  },
+  "policy_sha256": "857eb431dc02381138bb2b4b9bcece53928554dd1489c2cbc821789a596c1c91",
+  "source_policy_sha256": "56c8c1067adb9922e68f587fa14716e6b71962b0b4edcca5c41a9bead8b1a50b",
+  "scope": "Controller-only native full1-1 attempt. Preserve original50px Darkwing jump, actual recovery Arrow pickup and hanging toolkit. Hold each native Arrow trigger eight physical polls instead of one so a lagging game loop can observe the input edge. All source/ROM/physics and code/stack/NMI/cache/motion assertions unchanged. Original failures retained; no independent pixel replay/source-fidelity admission."
+}

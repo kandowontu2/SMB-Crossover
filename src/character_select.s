@@ -1,12 +1,16 @@
 ; Dedicated, non-gameplay front end. The title never runs GameCoreRoutine.
 .pushseg
 .segment "SRAM"
-CrossoverMenuState: .res 1       ; 0 title, 1 build select, 2 select, 3 build options, 4 options
+CrossoverMenuState: .res 1       ; 0 title, 1/2 select, 3/4 options, 5/6 cheats
 CrossoverMenuPressed: .res 1
 CrossoverMenuIndex: .res 1
 MarioVariant: .res 1
 CrossoverContinue: .res 1
+.if ::ENABLE_MMC5_EXPANDED
+.segment "PROTO_MENU"
+.else
 .segment "CHAR_SELECT"
+.endif
 
 .proc CrossoverMenuInput
   lda #0
@@ -31,6 +35,10 @@ CrossoverContinue: .res 1
   jeq BuildOptions
   cmp #4
   jeq OptionsInput
+  cmp #5
+  jeq BuildOptions
+  cmp #6
+  jeq CheatsInput
   lda CrossoverTitleDrawn
   bne TitleInput
   inc CrossoverTitleDrawn
@@ -103,7 +111,15 @@ BuildOptions:
   jne NotReady
   farcall InitializeNameTables
   jsr DrawOptionsPage
+  lda CrossoverMenuState
+  cmp #5
+  bne NormalOptions
+  farcall CheatsPatchPage
+  lda #6
+  bne OptionsBuilt
+NormalOptions:
   lda #4
+OptionsBuilt:
   sta CrossoverMenuState
 ScreenPalette:
   lda #$3f
@@ -146,13 +162,19 @@ CopyPalette:
   lda #2
   sta BackgroundColorCtrl
   lda CrossoverMenuState
-  cmp #4
-  beq OptionsReady
+  cmp #2
+  bne OptionsReady
   jsr QueueSelection
   jmp ScreenReady
 OptionsReady:
   farcall MoveAllSpritesOffscreen
-  jsr QueueOptions
+  lda CrossoverMenuState
+  cmp #6
+  beq CheatsReady
+  farcall QueueOptions
+  jmp ScreenReady
+CheatsReady:
+  farcall QueueCheats
 ScreenReady:
   lda #0
   sta DisableScreenFlag
@@ -160,12 +182,26 @@ ScreenReady:
 OptionsInput:
   lda CrossoverMenuPressed
   and #B_Button
-  bne ReturnTitle
+  jne ReturnTitle
   lda CrossoverMenuPressed
   and #Up_Dir | Down_Dir
   beq OptionsToggle
   lda CrossoverOptionsFocus
-  eor #1
+  ldx CrossoverMenuPressed
+  cpx #Up_Dir
+  beq OptionsUp
+  clc
+  adc #1
+  cmp #3
+  bcc OptionsFocusReady
+  lda #0
+  beq OptionsFocusReady
+OptionsUp:
+  sec
+  sbc #1
+  bpl OptionsFocusReady
+  lda #2
+OptionsFocusReady:
   sta CrossoverOptionsFocus
   jmp OptionsChanged
 OptionsToggle:
@@ -173,6 +209,9 @@ OptionsToggle:
   and #A_Button | Start_Button | Select_Button | Left_Dir | Right_Dir
   beq MenuIdle
   lda CrossoverOptionsFocus
+  cmp #2
+  beq OpenCheats
+  cmp #0
   bne ToggleBehavior
   lda PlayerOutlinesOff
   eor #1
@@ -185,10 +224,19 @@ ToggleBehavior:
 OptionsChanged:
   lda #Sfx_CoinGrab
   sta Square2SoundQueue
-  jsr QueueOptions
+  farcall QueueOptions
 MenuIdle:
   lda #0
   rts
+OpenCheats:
+  lda #5
+  sta CrossoverMenuState
+  lda #1
+  sta DisableScreenFlag
+  jmp MenuIdle
+CheatsInput:
+  farcall CheatsMenuInput
+  jmp MenuIdle
 SelectInput:
   lda CrossoverMenuPressed
   and #B_Button
@@ -210,9 +258,18 @@ CheckConfirm:
   lda CrossoverMenuPressed
   and #Start_Button | A_Button
   beq CheckDirection
+  farcall CheatsApplyStartingLevel
   lda CrossoverContinue
   bne :+
+ .if ::ENABLE_MMC5_EXPANDED
+.if ::ENABLE_MMC5_EXPANDED
+    farcall KbFreshGameInit
+.else
+    farcall X5InventoryInit
+.endif
+ .else
     farcall InventoryInit
+ .endif
   :
   lda #0
   sta CrossoverMenuState
@@ -226,6 +283,60 @@ CheckConfirm:
   ora #Start_Button
   rts
 CheckDirection:
+.if ::ENABLE_MMC5_EXPANDED
+  lda SelectedCharacter
+  cmp #CHARACTER_BASS
+  bne RlNoToggle
+  lda CrossoverMenuPressed
+  and #Select_Button
+  beq RlNoToggle
+  lda RlVariant
+  eor #1
+  sta RlVariant
+  lda #0
+  sta RlPalette
+  lda CrossoverMenuIndex
+  jmp Changed
+RlNoToggle:
+  lda SelectedCharacter
+  cmp #18
+  bne PnNoToggle
+  lda CrossoverMenuPressed
+  and #Select_Button
+  beq PnNoToggle
+  inc VvVariant
+  lda VvVariant
+  and #3
+  sta VvVariant
+  lda CrossoverMenuIndex
+  jmp Changed
+PnNoToggle:
+  lda SelectedCharacter
+  cmp #CHARACTER_KIRBY
+  bne KbNoToggle
+  lda CrossoverMenuPressed
+  and #Select_Button
+  beq KbNoToggle
+  lda KbVariant
+  eor #1
+  sta KbVariant
+  lda CrossoverMenuIndex
+  jmp Changed
+KbNoToggle:
+  lda SelectedCharacter
+  cmp #CHARACTER_TMNT
+  bne TnNoToggle
+  lda CrossoverMenuPressed
+  and #Select_Button
+  beq TnNoToggle
+  inc TnVariant
+  lda TnVariant
+  and #3
+  sta TnVariant
+  lda CrossoverMenuIndex
+  jmp Changed
+TnNoToggle:
+.endif
   lda CrossoverMenuIndex
   bne :+
     lda CrossoverMenuPressed
@@ -237,6 +348,90 @@ CheckDirection:
     lda #0
     jmp Changed
   :
+ .if ::ENABLE_MMC5_EXPANDED
+  lda SelectedCharacter
+  cmp #CHARACTER_MEGAMAN
+  bne ProtoNoToggle
+  lda CrossoverMenuPressed
+  and #Select_Button
+  beq ProtoNoToggle
+  lda ProtoVariant
+  eor #1
+  sta ProtoVariant
+  lda #0
+  sta ProtoAudioState
+  sta MmLastPalette
+  sta SsLastPalette
+  lda CrossoverMenuIndex
+  jmp Changed
+ProtoNoToggle:
+  lda SelectedCharacter
+  cmp #CHARACTER_LINK
+  bne Z2NoToggle
+  lda CrossoverMenuPressed
+  and #Select_Button
+  beq Z2NoToggle
+  lda Z2Variant
+  eor #1
+  sta Z2Variant
+  lda CrossoverMenuIndex
+  jmp Changed
+Z2NoToggle:
+  lda SelectedCharacter
+  cmp #CHARACTER_SIMON
+  bne Cv3NoToggle
+  lda CrossoverMenuPressed
+  and #Select_Button
+  beq Cv3NoToggle
+  lda Cv3Variant
+  clc
+  adc #1
+  and #3
+  sta Cv3Variant
+  lda CrossoverMenuIndex
+  jmp Changed
+Cv3NoToggle:
+  lda SelectedCharacter
+  cmp #CHARACTER_SCROOGE
+  bne DwNoToggle
+  lda CrossoverMenuPressed
+  and #Select_Button
+  beq DwNoToggle
+  lda DarkwingVariant
+  eor #1
+  sta DarkwingVariant
+  lda #0
+  sta DwAnim
+  sta DwPhase
+  sta DwAnimTick
+  lda CrossoverMenuIndex
+  jmp Changed
+DwNoToggle:
+  lda SelectedCharacter
+  cmp #14
+  bne CdNoToggle
+  lda CrossoverMenuPressed
+  and #Select_Button
+  beq CdNoToggle
+  lda CdVariant
+  eor #1
+  sta CdVariant
+  lda CrossoverMenuIndex
+  jmp Changed
+CdNoToggle:
+  lda SelectedCharacter
+  cmp #17
+  bne M3NoToggle
+  lda CrossoverMenuPressed
+  and #Select_Button
+  beq M3NoToggle
+  lda M3Variant
+  eor #1
+  sta M3Variant
+  lda CrossoverMenuIndex
+  jmp Changed
+M3NoToggle:
+ .endif
   lda SelectedCharacter
   cmp #CHARACTER_BILL
   bne Navigation
@@ -249,6 +444,31 @@ CheckDirection:
   lda CrossoverMenuIndex
   jmp Changed
 Navigation:
+.if ::ENABLE_MMC5_EXPANDED
+  lda CrossoverMenuPressed
+  and #Left_Dir|Right_Dir|Up_Dir|Down_Dir
+  jeq NotReady
+  lda #$24
+  jsr QueueCursor
+  ldx CrossoverMenuIndex
+  lda CrossoverMenuPressed
+  and #Up_Dir
+  beq :+
+  lda X5MenuUp,x
+  jmp Changed
+: lda CrossoverMenuPressed
+  and #Down_Dir
+  beq :+
+  lda X5MenuDown,x
+  jmp Changed
+: lda CrossoverMenuPressed
+  and #Left_Dir
+  beq :+
+  lda X5MenuLeft,x
+  jmp Changed
+: lda X5MenuRight,x
+  jmp Changed
+.else
   lda CrossoverMenuPressed
   and #Select_Button | Left_Dir | Right_Dir | Up_Dir | Down_Dir
   jeq NotReady
@@ -286,8 +506,13 @@ Previous:
   :
   sec
   sbc #1
+.endif
 Changed:
   sta CrossoverMenuIndex
+.if ::ENABLE_MMC5_EXPANDED
+  lda #0
+  sta RlOutlineBypass
+.endif
   jsr MenuResolveCharacter
   lda #1
   sta PlayerSize                  ; returning to Mario preserves small form
@@ -300,7 +525,11 @@ Changed:
 
 .proc MenuResolveCharacter
   ldx CrossoverMenuIndex
+.if ::ENABLE_MMC5_EXPANDED
+  lda X5MenuCharacters,x
+.else
   lda MenuCharacters,x
+.endif
   bne Done
   ldx MarioVariant
   beq Done
@@ -312,10 +541,17 @@ MenuCharacters: .byte 0,1,2,3,4,5,6,7,12,9,10,11
 .endproc
 
 .proc QueueSelection
+ .if ::ENABLE_MMC5_EXPANDED
+  farcall Z2MenuPrepare
+ .endif
   farcall GetPlayerColors
   jsr QueueSelectName
   jsr QueueVariantHint
+.if ::ENABLE_MMC5_EXPANDED
+  lda #$fd
+.else
   lda #$3f
+.endif
   jsr QueueCursor
   jmp DrawSelectionPreview
 .endproc
@@ -327,6 +563,13 @@ MenuCharacters: .byte 0,1,2,3,4,5,6,7,12,9,10,11
   lda PreviewX,x
   sta Player_X_Position
   lda #152
+.if ::ENABLE_MMC5_EXPANDED
+  ldx SelectedCharacter
+  cpx #15
+  bne :+
+  lda #160
+:
+.endif
   sta Player_Y_Position
   lda #0
   sta ObjectVerticalFlip
@@ -335,23 +578,86 @@ MenuCharacters: .byte 0,1,2,3,4,5,6,7,12,9,10,11
   sta CurrentOAMOffset
   tay
   ldx ObjectMetasprite
+.if ::ENABLE_MMC5_EXPANDED
+  farcall X5PortraitRender
+.else
   farcall DrawMetasprite
+.endif
   rts
 PreviewX: .byte 120,121,118,116,120,120
   .byte 120,120,120,121,120,120
+.if ::ENABLE_MMC5_EXPANDED
+  .byte 120,120,120,120,120,120,120
+.endif
 .endproc
 
 .proc QueueVariantHint
   ldx VRAM_Buffer1_Offset
   lda #$23
   sta VRAM_Buffer1,x
+.if ::ENABLE_MMC5_EXPANDED
+  lda #$46
+.else
   lda #$26
+.endif
   sta VRAM_Buffer1+1,x
   lda #20
   sta VRAM_Buffer1+2,x
   ldy #0
 Copy:
   lda SelectedCharacter
+ .if ::ENABLE_MMC5_EXPANDED
+  cmp #CHARACTER_BASS
+  bne RlNoHint
+  lda ProtoHint,y
+  jmp Put
+RlNoHint:
+  cmp #18
+  bne PnNoHint
+  lda ProtoHint,y
+  jmp Put
+PnNoHint:
+  cmp #CHARACTER_KIRBY
+  bne KbNoHint
+  lda ProtoHint,y
+  jmp Put
+KbNoHint:
+  cmp #CHARACTER_TMNT
+  bne TnNoHint
+  lda TnHint,y
+  jmp Put
+TnNoHint:
+  cmp #17
+  bne M3NoHint
+  lda M3Hint,y
+  jmp Put
+M3NoHint:
+  cmp #14
+  bne CdNoHint
+  lda CdHint,y
+  jmp Put
+CdNoHint:
+  cmp #CHARACTER_MEGAMAN
+  bne ProtoNoHint
+  lda ProtoHint,y
+  jmp Put
+ProtoNoHint:
+  cmp #CHARACTER_LINK
+  bne Z2NoHint
+  lda Z2Hint,y
+  jmp Put
+Z2NoHint:
+  cmp #CHARACTER_SIMON
+  bne Cv3NoHint
+  lda Cv3Hint,y
+  jmp Put
+Cv3NoHint:
+  cmp #CHARACTER_SCROOGE
+  bne DwNoHint
+  lda DwHint,y
+  jmp Put
+DwNoHint:
+ .endif
   cmp #CHARACTER_BILL
   beq BillHint
   lda CrossoverMenuIndex
@@ -368,7 +674,7 @@ Put:
   inx
   iny
   cpy #20
-  bne Copy
+  jne Copy
   txa
   clc
   adc #3
@@ -377,18 +683,148 @@ Put:
   sta VRAM_Buffer1,x
   stx VRAM_Buffer1_Offset
   rts
+ .if ::ENABLE_MMC5_EXPANDED
+Hint: .byte "SELECT  CHANGE HERO "
+MarioHint: .byte "SELECT  CHANGE HERO "
+ .else
 Hint: .byte "SELECT - BILL/LANCE "
 MarioHint: .byte "SELECT - MARIO/LUIGI"
+ .endif
+ .if ::ENABLE_MMC5_EXPANDED
+DwHint: .byte "SELECT  CHANGE HERO "
+Z2Hint: .byte "SELECT  CHANGE HERO "
+TnHint: .byte "SELECT  CHANGE HERO "
+CdHint: .byte "SELECT  CHANGE HERO "
+Cv3Hint: .byte "SELECT  CHANGE HERO "
+M3Hint: .byte "SELECT  CHANGE HERO "
+ProtoHint: .byte "SELECT  CHANGE HERO "
+ .assert *-ProtoHint=20,error,"Proto hint width"
+ .endif
 .endproc
 
 .proc QueueSelectName
   lda SelectedCharacter
+.if ::ENABLE_MMC5_EXPANDED
+  cmp #CHARACTER_BASS
+  bne RlOtherName
+  lda RlVariant
+  beq RlOriginalName
+  lda #36
+  jmp NameIndex
+RlOriginalName:lda #CHARACTER_BASS
+RlOtherName:
+  cmp #15
+  bne LmOtherName
+  lda #30
+  jmp NameIndex
+LmOtherName:
+  cmp #CHARACTER_MIKE
+  bne JnOtherName
+  lda #31
+  jmp NameIndex
+JnOtherName:
+  cmp #17
+  bne M3OtherName
+  lda #28
+  clc
+  adc M3Variant
+  jmp NameIndex
+M3OtherName:
+  cmp #18
+  bne :+
+  lda VvVariant
+  beq PnDefaultName
+  clc
+  adc #32
+  jmp NameIndex
+PnDefaultName:
+  lda #24
+  jmp NameIndex
+:
+  cmp #CHARACTER_TMNT
+  bne :+
+  lda TnVariant
+  clc
+  adc #20
+  jmp NameIndex
+:
+  cmp #14
+  bne CdOtherName
+  lda #18
+  clc
+  adc CdVariant
+  jmp NameIndex
+CdOtherName:
+  cmp #CHARACTER_KIRBY
+  bne :+
+  lda KbVariant
+  beq KirbyName
+  lda #32
+  jmp NameIndex
+KirbyName:
+  lda #17
+  jmp NameIndex
+:
+.endif
+ .if ::ENABLE_MMC5_EXPANDED
+  cmp #CHARACTER_MEGAMAN
+  bne ProtoOriginalName
+  ldx ProtoVariant
+  beq NameIndex
+  lda #14
+  bne NameIndex
+ProtoOriginalName:
+  cmp #CHARACTER_LINK
+  bne Z2OriginalName
+  ldx Z2Variant
+  beq NameIndex
+  lda #16
+  bne NameIndex
+Z2OriginalName:
+  cmp #CHARACTER_SIMON
+  bne Cv3OriginalName
+  ldx Cv3Variant
+  beq NameIndex
+  cpx #4
+  bcs Cv3OriginalName
+  txa
+  clc
+  adc #24
+  jmp NameIndex
+Cv3OriginalName:
+  lda SelectedCharacter
+  cmp #CHARACTER_SCROOGE
+  bne DwOriginalName
+  ldx DarkwingVariant
+  beq NameIndex
+  lda #15
+  bne NameIndex
+DwOriginalName:
+ .endif
   cmp #CHARACTER_BILL
   bne NameIndex
   ldx BillVariant
   beq NameIndex
   lda #CHARACTER_COUNT
 NameIndex:
+.if ::ENABLE_MMC5_EXPANDED
+  ; Names beyond15 require the high byte of index*16. R2/R3 are not the
+  ; VRAM byte counterR0; old indices retain their exact source bytes.
+  pha
+  lda #<Names
+  sta R2
+  lda #>Names
+  sta R3
+  pla
+NamePage:
+  cmp #16
+  bcc :+
+  inc R3
+  sec
+  sbc #16
+  bcs NamePage
+:
+.endif
   asl
   asl
   asl
@@ -397,13 +833,21 @@ NameIndex:
   ldx VRAM_Buffer1_Offset
   lda #$23
   sta VRAM_Buffer1,x
+.if ::ENABLE_MMC5_EXPANDED
+  lda #<X5MenuNameAddress
+.else
   lda #$08
+.endif
   sta VRAM_Buffer1+1,x
   lda #16
   sta VRAM_Buffer1+2,x
   sta R0
 Copy:
+.if ::ENABLE_MMC5_EXPANDED
+  lda (R2),y
+.else
   lda Names,y
+.endif
   sta VRAM_Buffer1+3,x
   inx
   iny
@@ -423,15 +867,29 @@ Names:
   .byte "      PIT       ", "     RYGAR      ", "     LUIGI      "
   .byte "      BASS      ", " RYU HAYABUSA   ", "   SOPHIA III   "
   .byte "SCROOGE MCDUCK  ", "   LANCE BEAN   "
+ .if ::ENABLE_MMC5_EXPANDED
+  .byte "   PROTO MAN    ", " DARKWING DUCK  ", " ZELDA II LINK  ", "     KIRBY      ","     CHIP       ","     DALE       ","   LEONARDO     ","   RAPHAEL      "," MICHELANGELO   ","   DONATELLO    ","   VIC VIPER    ","     GRANT      ","     SYPHA      ","    ALUCARD     ","   SMB3 MARIO   ","   SMB3 LUIGI   ","   LITTLE MAC   ","   MIKE JONES   "
+  .byte "  META KNIGHT   "
+  .byte "    OCTOPUS     ","    TWINBEE     ","    PENTAROU    "
+  .byte "     ROLL       "
+ .endif
 .endproc
 
 .proc QueueCursor
   pha
   ldy CrossoverMenuIndex
+.if ::ENABLE_MMC5_EXPANDED
+  lda X5MenuCursorLo,y
+.else
   lda CursorLow,y
+.endif
   ldx VRAM_Buffer1_Offset
   sta VRAM_Buffer1+1,x
+.if ::ENABLE_MMC5_EXPANDED
+  lda X5MenuCursorHi,y
+.else
   lda CursorHigh,y
+.endif
   sta VRAM_Buffer1,x
   lda #1
   sta VRAM_Buffer1+2,x
@@ -498,10 +956,13 @@ Done:
   rts
 Text:
   .byte $20,$cb,7,"OPTIONS"
+  .byte $22,$65,22,"CHEATS                "
   .byte $22,$ca,8,"B - BACK"
   .byte 0
 .endproc
 
+.pushseg
+.segment "CHEATS_MENU_COLD"
 .proc QueueOptions
   lda #$21
   sta R1
@@ -523,6 +984,11 @@ Shadows:
   ldy #66
 Behavior:
   jsr QueueOptionLine
+  lda #3
+  sta R4
+  jmp QueueOptionCursor
+.endproc
+.proc QueueOptionCursor
   lda #$24
   jsr CursorBoth
   ldy CrossoverOptionsFocus
@@ -555,7 +1021,7 @@ NextCursor:
   inx
   inx
   iny
-  cpy #2
+  cpy R4
   bne NextCursor
   pla
   stx VRAM_Buffer1_Offset
@@ -569,8 +1035,8 @@ AdvanceCursor:
   lda #0
   sta VRAM_Buffer1,x
   rts
-CursorHi:.byte $21,$22
-CursorLo:.byte $63,$03
+CursorHi:.byte $21,$22,$22
+CursorLo:.byte $63,$03,$63
 .endproc
 
 .proc QueueOptionLine
@@ -602,6 +1068,7 @@ Text:
   .byte "MODE             EASY "
   .byte "MODE             HARD "
 .endproc
+.popseg
 
 .proc QueueTitleCursor
   ldx VRAM_Buffer1_Offset
@@ -655,8 +1122,34 @@ End:
 .endproc
 
 SelectPalette:
+.if ::ENABLE_MMC5_EXPANDED
+  .byte $0f,$00,$10,$30, $0f,$30,$30,$30
+.else
   .byte $0f,$00,$10,$30, $0f,$11,$21,$30
+.endif
+ .if ::ENABLE_MMC5_EXPANDED
+  .byte $0f,$28,$28,$28, $0f,$21,$11,$21
+ .else
   .byte $0f,$28,$28,$28, $0f,$00,$10,$30 ; Bright gold option glyphs use palette2.
+ .endif
 SelectNameTable:
+.if ::ENABLE_MMC5_EXPANDED
+  .incbin "chr/raw/x5-character-select.bin"
+.else
   .incbin "chr/raw/character-select.bin"
+.endif
 .popseg
+
+.if ::ENABLE_MMC5_EXPANDED
+.pushseg
+.segment "CHAR_SELECT"
+.res $b22,$ff ; Keep following Rush reset leaf at its original public PC.
+.popseg
+.endif
+
+.if ::ENABLE_MMC5_EXPANDED
+.pushseg
+.segment "PROTO_MENU"
+.include "x5_menu_layout.inc"
+.popseg
+.endif

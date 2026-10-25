@@ -47,82 +47,89 @@ XgRYGAR0_STANDRight:
   .byte MetaspriteVramOffset{$08}, {SPRITE_BANK_0}, $40, 2, 8
   .byte MetaspriteVramOffset{$0a}, {SPRITE_BANK_0}, $c0, 18, 0
   .byte MetaspriteVramOffset{$0c}, {SPRITE_BANK_0}, $80, 18, 8
-XgRYGAR0_WALK1Left:
-  .byte 16
-  .byte MetaspriteVramOffset{$0e}, {SPRITE_BANK_0}, $40, 1, 8
-  .byte MetaspriteVramOffset{$10}, {SPRITE_BANK_0}, $00, 1, 0
-  .byte MetaspriteVramOffset{$12}, {SPRITE_BANK_0}, $80, 17, 8
-  .byte MetaspriteVramOffset{$14}, {SPRITE_BANK_0}, $c0, 17, 0
 XgRYGAR0_WALK1Right:
   .byte 16
   .byte MetaspriteVramOffset{$0e}, {SPRITE_BANK_0}, $00, 1, 0
   .byte MetaspriteVramOffset{$10}, {SPRITE_BANK_0}, $40, 1, 8
   .byte MetaspriteVramOffset{$12}, {SPRITE_BANK_0}, $c0, 17, 0
   .byte MetaspriteVramOffset{$14}, {SPRITE_BANK_0}, $80, 17, 8
-XgRYGAR0_WALK2Left:
+XgRYGAR0_WALK1NativeLeftRight:
   .byte 16
-  .byte MetaspriteVramOffset{$16}, {SPRITE_BANK_0}, $40, 2, 11
-  .byte MetaspriteVramOffset{$18}, {SPRITE_BANK_0}, $80, 2, 3
-  .byte MetaspriteVramOffset{$1a}, {SPRITE_BANK_0}, $00, 2, -5
-  .byte MetaspriteVramOffset{$1c}, {SPRITE_BANK_0}, $c0, 18, 11
+  .byte MetaspriteVramOffset{$10}, {SPRITE_BANK_0}, $00, 1, 0
+  .byte MetaspriteVramOffset{$0e}, {SPRITE_BANK_0}, $40, 1, 8
+  .byte MetaspriteVramOffset{$14}, {SPRITE_BANK_0}, $c0, 17, 0
+  .byte MetaspriteVramOffset{$12}, {SPRITE_BANK_0}, $80, 17, 8
+XgRYGAR0_WALK1Left = XgRYGAR0_WALK1NativeLeftRight
 XgRYGAR0_WALK2Right:
-  .byte 16
+  .byte 24
   .byte MetaspriteVramOffset{$16}, {SPRITE_BANK_0}, $00, 2, -3
-  .byte MetaspriteVramOffset{$18}, {SPRITE_BANK_0}, $c0, 2, 5
+  .byte MetaspriteVramOffset{$18}, {SPRITE_BANK_0}, $00, 2, 5
   .byte MetaspriteVramOffset{$1a}, {SPRITE_BANK_0}, $40, 2, 13
   .byte MetaspriteVramOffset{$1c}, {SPRITE_BANK_0}, $80, 18, -3
-XgRYGAR0_WALK3Left:
-  .byte 16
-  .byte MetaspriteVramOffset{$1e}, {SPRITE_BANK_0}, $40, 2, 4
-  .byte MetaspriteVramOffset{$20}, {SPRITE_BANK_0}, $00, 2, -4
-  .byte MetaspriteVramOffset{$22}, {SPRITE_BANK_0}, $c0, 18, 4
-  .byte MetaspriteVramOffset{$24}, {SPRITE_BANK_0}, $80, 18, -4
+  .byte MetaspriteVramOffset{$1e}, {SPRITE_BANK_0}, $80, 18, 5
+  .byte MetaspriteVramOffset{$20}, {SPRITE_BANK_0}, $40, 18, 13
+XgRYGAR0_WALK2NativeLeftRight:
+  .byte 24
+  .byte MetaspriteVramOffset{$22}, {SPRITE_BANK_0}, $00, 2, -4
+  .byte MetaspriteVramOffset{$18}, {SPRITE_BANK_0}, $40, 2, 4
+  .byte MetaspriteVramOffset{$24}, {SPRITE_BANK_0}, $40, 2, 12
+  .byte MetaspriteVramOffset{$26}, {SPRITE_BANK_0}, $00, 18, -4
+  .byte MetaspriteVramOffset{$1e}, {SPRITE_BANK_0}, $c0, 18, 4
+  .byte MetaspriteVramOffset{$28}, {SPRITE_BANK_0}, $c0, 18, 12
+XgRYGAR0_WALK2Left = XgRYGAR0_WALK2NativeLeftRight
 XgRYGAR0_WALK3Right:
   .byte 16
-  .byte MetaspriteVramOffset{$1e}, {SPRITE_BANK_0}, $00, 2, 4
-  .byte MetaspriteVramOffset{$20}, {SPRITE_BANK_0}, $40, 2, 12
-  .byte MetaspriteVramOffset{$22}, {SPRITE_BANK_0}, $80, 18, 4
-  .byte MetaspriteVramOffset{$24}, {SPRITE_BANK_0}, $c0, 18, 12
+  .byte MetaspriteVramOffset{$2a}, {SPRITE_BANK_0}, $00, 2, 4
+  .byte MetaspriteVramOffset{$2c}, {SPRITE_BANK_0}, $40, 2, 12
+  .byte MetaspriteVramOffset{$2e}, {SPRITE_BANK_0}, $80, 18, 4
+  .byte MetaspriteVramOffset{$30}, {SPRITE_BANK_0}, $c0, 18, 12
+XgRYGAR0_WALK3NativeLeftRight:
+  .byte 16
+  .byte MetaspriteVramOffset{$32}, {SPRITE_BANK_0}, $00, 2, 1
+  .byte MetaspriteVramOffset{$34}, {SPRITE_BANK_0}, $40, 2, 9
+  .byte MetaspriteVramOffset{$36}, {SPRITE_BANK_0}, $80, 18, 1
+  .byte MetaspriteVramOffset{$38}, {SPRITE_BANK_0}, $c0, 18, 9
+XgRYGAR0_WALK3Left = XgRYGAR0_WALK3NativeLeftRight
 XgRYGAR0_JUMPLeft:
   .byte 16
-  .byte MetaspriteVramOffset{$26}, {SPRITE_BANK_0}, $40, 0, 6
-  .byte MetaspriteVramOffset{$28}, {SPRITE_BANK_0}, $00, 0, -2
-  .byte MetaspriteVramOffset{$2a}, {SPRITE_BANK_0}, $c0, 16, 6
-  .byte MetaspriteVramOffset{$2c}, {SPRITE_BANK_0}, $80, 16, -2
+  .byte MetaspriteVramOffset{$06}, {SPRITE_BANK_0}, $40, 0, 6
+  .byte MetaspriteVramOffset{$08}, {SPRITE_BANK_0}, $00, 0, -2
+  .byte MetaspriteVramOffset{$0a}, {SPRITE_BANK_0}, $c0, 16, 6
+  .byte MetaspriteVramOffset{$0c}, {SPRITE_BANK_0}, $80, 16, -2
 XgRYGAR0_JUMPRight:
   .byte 16
-  .byte MetaspriteVramOffset{$26}, {SPRITE_BANK_0}, $00, 0, 2
-  .byte MetaspriteVramOffset{$28}, {SPRITE_BANK_0}, $40, 0, 10
-  .byte MetaspriteVramOffset{$2a}, {SPRITE_BANK_0}, $80, 16, 2
-  .byte MetaspriteVramOffset{$2c}, {SPRITE_BANK_0}, $c0, 16, 10
+  .byte MetaspriteVramOffset{$06}, {SPRITE_BANK_0}, $00, 0, 2
+  .byte MetaspriteVramOffset{$08}, {SPRITE_BANK_0}, $40, 0, 10
+  .byte MetaspriteVramOffset{$0a}, {SPRITE_BANK_0}, $80, 16, 2
+  .byte MetaspriteVramOffset{$0c}, {SPRITE_BANK_0}, $c0, 16, 10
 XgRYGAR0_CROUCHLeft:
   .byte 16
   .byte MetaspriteVramOffset{$06}, {SPRITE_BANK_0}, $40, 8, 8
-  .byte MetaspriteVramOffset{$2e}, {SPRITE_BANK_0}, $00, 8, 0
-  .byte MetaspriteVramOffset{$30}, {SPRITE_BANK_0}, $c0, 24, 8
-  .byte MetaspriteVramOffset{$32}, {SPRITE_BANK_0}, $c0, 24, 0
+  .byte MetaspriteVramOffset{$3a}, {SPRITE_BANK_0}, $00, 8, 0
+  .byte MetaspriteVramOffset{$3c}, {SPRITE_BANK_0}, $c0, 24, 8
+  .byte MetaspriteVramOffset{$3e}, {SPRITE_BANK_0}, $c0, 24, 0
 XgRYGAR0_CROUCHRight:
   .byte 16
   .byte MetaspriteVramOffset{$06}, {SPRITE_BANK_0}, $00, 8, 0
-  .byte MetaspriteVramOffset{$2e}, {SPRITE_BANK_0}, $40, 8, 8
-  .byte MetaspriteVramOffset{$30}, {SPRITE_BANK_0}, $80, 24, 0
-  .byte MetaspriteVramOffset{$32}, {SPRITE_BANK_0}, $80, 24, 8
+  .byte MetaspriteVramOffset{$3a}, {SPRITE_BANK_0}, $40, 8, 8
+  .byte MetaspriteVramOffset{$3c}, {SPRITE_BANK_0}, $80, 24, 0
+  .byte MetaspriteVramOffset{$3e}, {SPRITE_BANK_0}, $80, 24, 8
 XgRYGAR0_ATTACK1Left = XgRYGAR0_STANDLeft
 XgRYGAR0_ATTACK1Right = XgRYGAR0_STANDRight
 XgRYGAR0_ATTACK2Left:
   .byte 20
-  .byte MetaspriteVramOffset{$34}, {SPRITE_BANK_0}, $40, 2, 9
-  .byte MetaspriteVramOffset{$36}, {SPRITE_BANK_0}, $00, 2, 1
-  .byte MetaspriteVramOffset{$38}, {SPRITE_BANK_0}, $00, 2, -7
-  .byte MetaspriteVramOffset{$3a}, {SPRITE_BANK_0}, $80, 18, 9
-  .byte MetaspriteVramOffset{$0c}, {SPRITE_BANK_0}, $c0, 18, 1
+  .byte MetaspriteVramOffset{$0e}, {SPRITE_BANK_0}, $40, 2, 9
+  .byte MetaspriteVramOffset{$10}, {SPRITE_BANK_0}, $00, 2, 1
+  .byte MetaspriteVramOffset{$12}, {SPRITE_BANK_0}, $00, 2, -7
+  .byte MetaspriteVramOffset{$14}, {SPRITE_BANK_0}, $80, 18, 9
+  .byte MetaspriteVramOffset{$16}, {SPRITE_BANK_0}, $c0, 18, 1
 XgRYGAR0_ATTACK2Right:
   .byte 20
-  .byte MetaspriteVramOffset{$34}, {SPRITE_BANK_0}, $00, 2, -1
-  .byte MetaspriteVramOffset{$36}, {SPRITE_BANK_0}, $40, 2, 7
-  .byte MetaspriteVramOffset{$38}, {SPRITE_BANK_0}, $40, 2, 15
-  .byte MetaspriteVramOffset{$3a}, {SPRITE_BANK_0}, $c0, 18, -1
-  .byte MetaspriteVramOffset{$0c}, {SPRITE_BANK_0}, $80, 18, 7
+  .byte MetaspriteVramOffset{$0e}, {SPRITE_BANK_0}, $00, 2, -1
+  .byte MetaspriteVramOffset{$10}, {SPRITE_BANK_0}, $40, 2, 7
+  .byte MetaspriteVramOffset{$12}, {SPRITE_BANK_0}, $40, 2, 15
+  .byte MetaspriteVramOffset{$14}, {SPRITE_BANK_0}, $c0, 18, -1
+  .byte MetaspriteVramOffset{$16}, {SPRITE_BANK_0}, $80, 18, 7
 XgRYGAR0_ATTACK3Left = XgRYGAR0_ATTACK2Left
 XgRYGAR0_ATTACK3Right = XgRYGAR0_ATTACK2Right
 XgRYGAR0_CLIMB1Left = XgRYGAR0_STANDLeft
@@ -151,32 +158,32 @@ XgRYGAR0_HOVERLeft = XgRYGAR0_STANDLeft
 XgRYGAR0_HOVERRight = XgRYGAR0_STANDRight
 XgRYGAR0_CROUCHSHOOTLeft:
   .byte 20
-  .byte MetaspriteVramOffset{$06}, {SPRITE_BANK_0}, $40, 8, 9
-  .byte MetaspriteVramOffset{$08}, {SPRITE_BANK_0}, $00, 8, 1
-  .byte MetaspriteVramOffset{$0a}, {SPRITE_BANK_0}, $00, 8, -7
-  .byte MetaspriteVramOffset{$0c}, {SPRITE_BANK_0}, $80, 24, 9
-  .byte MetaspriteVramOffset{$0e}, {SPRITE_BANK_0}, $c0, 24, 1
+  .byte MetaspriteVramOffset{$18}, {SPRITE_BANK_0}, $40, 8, 9
+  .byte MetaspriteVramOffset{$1a}, {SPRITE_BANK_0}, $00, 8, 1
+  .byte MetaspriteVramOffset{$1c}, {SPRITE_BANK_0}, $00, 8, -7
+  .byte MetaspriteVramOffset{$1e}, {SPRITE_BANK_0}, $80, 24, 9
+  .byte MetaspriteVramOffset{$20}, {SPRITE_BANK_0}, $c0, 24, 1
 XgRYGAR0_CROUCHSHOOTRight:
   .byte 20
-  .byte MetaspriteVramOffset{$06}, {SPRITE_BANK_0}, $00, 8, -1
-  .byte MetaspriteVramOffset{$08}, {SPRITE_BANK_0}, $40, 8, 7
-  .byte MetaspriteVramOffset{$0a}, {SPRITE_BANK_0}, $40, 8, 15
-  .byte MetaspriteVramOffset{$0c}, {SPRITE_BANK_0}, $c0, 24, -1
-  .byte MetaspriteVramOffset{$0e}, {SPRITE_BANK_0}, $80, 24, 7
+  .byte MetaspriteVramOffset{$18}, {SPRITE_BANK_0}, $00, 8, -1
+  .byte MetaspriteVramOffset{$1a}, {SPRITE_BANK_0}, $40, 8, 7
+  .byte MetaspriteVramOffset{$1c}, {SPRITE_BANK_0}, $40, 8, 15
+  .byte MetaspriteVramOffset{$1e}, {SPRITE_BANK_0}, $c0, 24, -1
+  .byte MetaspriteVramOffset{$20}, {SPRITE_BANK_0}, $80, 24, 7
 XgRYGAR0_JUMPSHOOTLeft:
   .byte 20
-  .byte MetaspriteVramOffset{$10}, {SPRITE_BANK_0}, $40, 2, 10
-  .byte MetaspriteVramOffset{$12}, {SPRITE_BANK_0}, $00, 2, 2
-  .byte MetaspriteVramOffset{$14}, {SPRITE_BANK_0}, $00, 2, -6
-  .byte MetaspriteVramOffset{$16}, {SPRITE_BANK_0}, $80, 18, 10
-  .byte MetaspriteVramOffset{$18}, {SPRITE_BANK_0}, $c0, 18, 2
+  .byte MetaspriteVramOffset{$22}, {SPRITE_BANK_0}, $40, 2, 10
+  .byte MetaspriteVramOffset{$24}, {SPRITE_BANK_0}, $00, 2, 2
+  .byte MetaspriteVramOffset{$26}, {SPRITE_BANK_0}, $00, 2, -6
+  .byte MetaspriteVramOffset{$28}, {SPRITE_BANK_0}, $80, 18, 10
+  .byte MetaspriteVramOffset{$2a}, {SPRITE_BANK_0}, $c0, 18, 2
 XgRYGAR0_JUMPSHOOTRight:
   .byte 20
-  .byte MetaspriteVramOffset{$10}, {SPRITE_BANK_0}, $00, 2, -2
-  .byte MetaspriteVramOffset{$12}, {SPRITE_BANK_0}, $40, 2, 6
-  .byte MetaspriteVramOffset{$14}, {SPRITE_BANK_0}, $40, 2, 14
-  .byte MetaspriteVramOffset{$16}, {SPRITE_BANK_0}, $c0, 18, -2
-  .byte MetaspriteVramOffset{$18}, {SPRITE_BANK_0}, $80, 18, 6
+  .byte MetaspriteVramOffset{$22}, {SPRITE_BANK_0}, $00, 2, -2
+  .byte MetaspriteVramOffset{$24}, {SPRITE_BANK_0}, $40, 2, 6
+  .byte MetaspriteVramOffset{$26}, {SPRITE_BANK_0}, $40, 2, 14
+  .byte MetaspriteVramOffset{$28}, {SPRITE_BANK_0}, $c0, 18, -2
+  .byte MetaspriteVramOffset{$2a}, {SPRITE_BANK_0}, $80, 18, 6
 XgRYGAR0_JUMPUPLeft = XgRYGAR0_STANDLeft
 XgRYGAR0_JUMPUPRight = XgRYGAR0_STANDRight
 XgRYGAR0_CROUCHATTACK1Left = XgRYGAR0_STANDLeft
@@ -301,12 +308,15 @@ XgRYGAR0_FLAPUP2Left = XgRYGAR0_STANDLeft
 XgRYGAR0_FLAPUP2Right = XgRYGAR0_STANDRight
 XgRYGAR1_STANDLeft = XgRYGAR0_STANDLeft
 XgRYGAR1_STANDRight = XgRYGAR0_STANDRight
-XgRYGAR1_WALK1Left = XgRYGAR0_WALK1Left
 XgRYGAR1_WALK1Right = XgRYGAR0_WALK1Right
-XgRYGAR1_WALK2Left = XgRYGAR0_WALK2Left
+XgRYGAR1_WALK1NativeLeftRight = XgRYGAR0_WALK1NativeLeftRight
+XgRYGAR1_WALK1Left = XgRYGAR1_WALK1NativeLeftRight
 XgRYGAR1_WALK2Right = XgRYGAR0_WALK2Right
-XgRYGAR1_WALK3Left = XgRYGAR0_WALK3Left
+XgRYGAR1_WALK2NativeLeftRight = XgRYGAR0_WALK2NativeLeftRight
+XgRYGAR1_WALK2Left = XgRYGAR1_WALK2NativeLeftRight
 XgRYGAR1_WALK3Right = XgRYGAR0_WALK3Right
+XgRYGAR1_WALK3NativeLeftRight = XgRYGAR0_WALK3NativeLeftRight
+XgRYGAR1_WALK3Left = XgRYGAR1_WALK3NativeLeftRight
 XgRYGAR1_JUMPLeft = XgRYGAR0_JUMPLeft
 XgRYGAR1_JUMPRight = XgRYGAR0_JUMPRight
 XgRYGAR1_CROUCHLeft = XgRYGAR0_CROUCHLeft
@@ -469,12 +479,15 @@ XgRYGAR1_FLAPUP2Left = XgRYGAR0_STANDLeft
 XgRYGAR1_FLAPUP2Right = XgRYGAR0_STANDRight
 XgRYGAR2_STANDLeft = XgRYGAR0_STANDLeft
 XgRYGAR2_STANDRight = XgRYGAR0_STANDRight
-XgRYGAR2_WALK1Left = XgRYGAR0_WALK1Left
 XgRYGAR2_WALK1Right = XgRYGAR0_WALK1Right
-XgRYGAR2_WALK2Left = XgRYGAR0_WALK2Left
+XgRYGAR2_WALK1NativeLeftRight = XgRYGAR0_WALK1NativeLeftRight
+XgRYGAR2_WALK1Left = XgRYGAR2_WALK1NativeLeftRight
 XgRYGAR2_WALK2Right = XgRYGAR0_WALK2Right
-XgRYGAR2_WALK3Left = XgRYGAR0_WALK3Left
+XgRYGAR2_WALK2NativeLeftRight = XgRYGAR0_WALK2NativeLeftRight
+XgRYGAR2_WALK2Left = XgRYGAR2_WALK2NativeLeftRight
 XgRYGAR2_WALK3Right = XgRYGAR0_WALK3Right
+XgRYGAR2_WALK3NativeLeftRight = XgRYGAR0_WALK3NativeLeftRight
+XgRYGAR2_WALK3Left = XgRYGAR2_WALK3NativeLeftRight
 XgRYGAR2_JUMPLeft = XgRYGAR0_JUMPLeft
 XgRYGAR2_JUMPRight = XgRYGAR0_JUMPRight
 XgRYGAR2_CROUCHLeft = XgRYGAR0_CROUCHLeft
@@ -644,7 +657,7 @@ XgRYGARRightLo:
 XgRYGARRightHi:
  .byte >XgRYGAR0_STANDRight,>XgRYGAR0_WALK1Right,>XgRYGAR0_WALK2Right,>XgRYGAR0_WALK3Right,>XgRYGAR0_JUMPRight,>XgRYGAR0_CROUCHRight,>XgRYGAR0_ATTACK1Right,>XgRYGAR0_ATTACK2Right,>XgRYGAR0_ATTACK3Right,>XgRYGAR0_CLIMB1Right,>XgRYGAR0_CLIMB2Right,>XgRYGAR0_HURTRight,>XgRYGAR0_DIERight,>XgRYGAR0_DASHRight,>XgRYGAR0_UPRight,>XgRYGAR0_DIAGUPRight,>XgRYGAR0_DIAGDOWNRight,>XgRYGAR0_THROWRight,>XgRYGAR0_WALLRight,>XgRYGAR0_CEILINGRight,>XgRYGAR0_HOVERRight,>XgRYGAR0_CROUCHSHOOTRight,>XgRYGAR0_JUMPSHOOTRight,>XgRYGAR0_JUMPUPRight,>XgRYGAR0_CROUCHATTACK1Right,>XgRYGAR0_CROUCHATTACK2Right,>XgRYGAR0_CROUCHATTACK3Right,>XgRYGAR0_JUMPATTACK1Right,>XgRYGAR0_JUMPATTACK2Right,>XgRYGAR0_JUMPATTACK3Right,>XgRYGAR0_JUMPDIAGUPRight,>XgRYGAR0_JUMPDIAGDOWNRight,>XgRYGAR0_HOVERSMALLRight,>XgRYGAR0_DEATH1Right,>XgRYGAR0_DEATH2Right,>XgRYGAR0_DEATH3Right,>XgRYGAR0_DEATH4Right,>XgRYGAR0_RYUSLASH1Right,>XgRYGAR0_RYUSLASH2Right,>XgRYGAR0_RYUSLASH3Right,>XgRYGAR0_RYUSLASH4Right,>XgRYGAR0_RYUSLASH5Right,>XgRYGAR0_DUCKSLASH1Right,>XgRYGAR0_DUCKSLASH2Right,>XgRYGAR0_DUCKSLASH3Right,>XgRYGAR0_DUCKSLASH4Right,>XgRYGAR0_DUCKSLASH5Right,>XgRYGAR0_AIRSLASH1Right,>XgRYGAR0_AIRSLASH2Right,>XgRYGAR0_AIRSLASH3Right,>XgRYGAR0_AIRSLASH4Right,>XgRYGAR0_AIRSLASH5Right,>XgRYGAR0_RYUTHROW1Right,>XgRYGAR0_RYUTHROW2Right,>XgRYGAR0_RYUTHROW3Right,>XgRYGAR0_RYUTHROW4Right,>XgRYGAR0_RYUTHROW5Right,>XgRYGAR0_DUCKTHROW1Right,>XgRYGAR0_DUCKTHROW2Right,>XgRYGAR0_DUCKTHROW3Right,>XgRYGAR0_DUCKTHROW4Right,>XgRYGAR0_DUCKTHROW5Right,>XgRYGAR0_AIRTHROW1Right,>XgRYGAR0_AIRTHROW2Right,>XgRYGAR0_AIRTHROW3Right,>XgRYGAR0_AIRTHROW4Right,>XgRYGAR0_AIRTHROW5Right,>XgRYGAR0_WALLTHROW1Right,>XgRYGAR0_WALLTHROW2Right,>XgRYGAR0_WALLTHROW3Right,>XgRYGAR0_WALLTHROW4Right,>XgRYGAR0_WALLTHROW5Right,>XgRYGAR0_BACKTHROW1Right,>XgRYGAR0_BACKTHROW2Right,>XgRYGAR0_BACKTHROW3Right,>XgRYGAR0_BACKTHROW4Right,>XgRYGAR0_BACKTHROW5Right,>XgRYGAR0_WALKSTEPRight,>XgRYGAR0_FLAP1Right,>XgRYGAR0_FLAP2Right,>XgRYGAR0_FLAPSHOT1Right,>XgRYGAR0_FLAPSHOT2Right,>XgRYGAR0_FLAPUP1Right,>XgRYGAR0_FLAPUP2Right,>XgRYGAR1_STANDRight,>XgRYGAR1_WALK1Right,>XgRYGAR1_WALK2Right,>XgRYGAR1_WALK3Right,>XgRYGAR1_JUMPRight,>XgRYGAR1_CROUCHRight,>XgRYGAR1_ATTACK1Right,>XgRYGAR1_ATTACK2Right,>XgRYGAR1_ATTACK3Right,>XgRYGAR1_CLIMB1Right,>XgRYGAR1_CLIMB2Right,>XgRYGAR1_HURTRight,>XgRYGAR1_DIERight,>XgRYGAR1_DASHRight,>XgRYGAR1_UPRight,>XgRYGAR1_DIAGUPRight,>XgRYGAR1_DIAGDOWNRight,>XgRYGAR1_THROWRight,>XgRYGAR1_WALLRight,>XgRYGAR1_CEILINGRight,>XgRYGAR1_HOVERRight,>XgRYGAR1_CROUCHSHOOTRight,>XgRYGAR1_JUMPSHOOTRight,>XgRYGAR1_JUMPUPRight,>XgRYGAR1_CROUCHATTACK1Right,>XgRYGAR1_CROUCHATTACK2Right,>XgRYGAR1_CROUCHATTACK3Right,>XgRYGAR1_JUMPATTACK1Right,>XgRYGAR1_JUMPATTACK2Right,>XgRYGAR1_JUMPATTACK3Right,>XgRYGAR1_JUMPDIAGUPRight,>XgRYGAR1_JUMPDIAGDOWNRight,>XgRYGAR1_HOVERSMALLRight,>XgRYGAR1_DEATH1Right,>XgRYGAR1_DEATH2Right,>XgRYGAR1_DEATH3Right,>XgRYGAR1_DEATH4Right,>XgRYGAR1_RYUSLASH1Right,>XgRYGAR1_RYUSLASH2Right,>XgRYGAR1_RYUSLASH3Right,>XgRYGAR1_RYUSLASH4Right,>XgRYGAR1_RYUSLASH5Right,>XgRYGAR1_DUCKSLASH1Right,>XgRYGAR1_DUCKSLASH2Right,>XgRYGAR1_DUCKSLASH3Right,>XgRYGAR1_DUCKSLASH4Right,>XgRYGAR1_DUCKSLASH5Right,>XgRYGAR1_AIRSLASH1Right,>XgRYGAR1_AIRSLASH2Right,>XgRYGAR1_AIRSLASH3Right,>XgRYGAR1_AIRSLASH4Right,>XgRYGAR1_AIRSLASH5Right,>XgRYGAR1_RYUTHROW1Right,>XgRYGAR1_RYUTHROW2Right,>XgRYGAR1_RYUTHROW3Right,>XgRYGAR1_RYUTHROW4Right,>XgRYGAR1_RYUTHROW5Right,>XgRYGAR1_DUCKTHROW1Right,>XgRYGAR1_DUCKTHROW2Right,>XgRYGAR1_DUCKTHROW3Right,>XgRYGAR1_DUCKTHROW4Right,>XgRYGAR1_DUCKTHROW5Right,>XgRYGAR1_AIRTHROW1Right,>XgRYGAR1_AIRTHROW2Right,>XgRYGAR1_AIRTHROW3Right,>XgRYGAR1_AIRTHROW4Right,>XgRYGAR1_AIRTHROW5Right,>XgRYGAR1_WALLTHROW1Right,>XgRYGAR1_WALLTHROW2Right,>XgRYGAR1_WALLTHROW3Right,>XgRYGAR1_WALLTHROW4Right,>XgRYGAR1_WALLTHROW5Right,>XgRYGAR1_BACKTHROW1Right,>XgRYGAR1_BACKTHROW2Right,>XgRYGAR1_BACKTHROW3Right,>XgRYGAR1_BACKTHROW4Right,>XgRYGAR1_BACKTHROW5Right,>XgRYGAR1_WALKSTEPRight,>XgRYGAR1_FLAP1Right,>XgRYGAR1_FLAP2Right,>XgRYGAR1_FLAPSHOT1Right,>XgRYGAR1_FLAPSHOT2Right,>XgRYGAR1_FLAPUP1Right,>XgRYGAR1_FLAPUP2Right,>XgRYGAR2_STANDRight,>XgRYGAR2_WALK1Right,>XgRYGAR2_WALK2Right,>XgRYGAR2_WALK3Right,>XgRYGAR2_JUMPRight,>XgRYGAR2_CROUCHRight,>XgRYGAR2_ATTACK1Right,>XgRYGAR2_ATTACK2Right,>XgRYGAR2_ATTACK3Right,>XgRYGAR2_CLIMB1Right,>XgRYGAR2_CLIMB2Right,>XgRYGAR2_HURTRight,>XgRYGAR2_DIERight,>XgRYGAR2_DASHRight,>XgRYGAR2_UPRight,>XgRYGAR2_DIAGUPRight,>XgRYGAR2_DIAGDOWNRight,>XgRYGAR2_THROWRight,>XgRYGAR2_WALLRight,>XgRYGAR2_CEILINGRight,>XgRYGAR2_HOVERRight,>XgRYGAR2_CROUCHSHOOTRight,>XgRYGAR2_JUMPSHOOTRight,>XgRYGAR2_JUMPUPRight,>XgRYGAR2_CROUCHATTACK1Right,>XgRYGAR2_CROUCHATTACK2Right,>XgRYGAR2_CROUCHATTACK3Right,>XgRYGAR2_JUMPATTACK1Right,>XgRYGAR2_JUMPATTACK2Right,>XgRYGAR2_JUMPATTACK3Right,>XgRYGAR2_JUMPDIAGUPRight,>XgRYGAR2_JUMPDIAGDOWNRight,>XgRYGAR2_HOVERSMALLRight,>XgRYGAR2_DEATH1Right,>XgRYGAR2_DEATH2Right,>XgRYGAR2_DEATH3Right,>XgRYGAR2_DEATH4Right,>XgRYGAR2_RYUSLASH1Right,>XgRYGAR2_RYUSLASH2Right,>XgRYGAR2_RYUSLASH3Right,>XgRYGAR2_RYUSLASH4Right,>XgRYGAR2_RYUSLASH5Right,>XgRYGAR2_DUCKSLASH1Right,>XgRYGAR2_DUCKSLASH2Right,>XgRYGAR2_DUCKSLASH3Right,>XgRYGAR2_DUCKSLASH4Right,>XgRYGAR2_DUCKSLASH5Right,>XgRYGAR2_AIRSLASH1Right,>XgRYGAR2_AIRSLASH2Right,>XgRYGAR2_AIRSLASH3Right,>XgRYGAR2_AIRSLASH4Right,>XgRYGAR2_AIRSLASH5Right,>XgRYGAR2_RYUTHROW1Right,>XgRYGAR2_RYUTHROW2Right,>XgRYGAR2_RYUTHROW3Right,>XgRYGAR2_RYUTHROW4Right,>XgRYGAR2_RYUTHROW5Right,>XgRYGAR2_DUCKTHROW1Right,>XgRYGAR2_DUCKTHROW2Right,>XgRYGAR2_DUCKTHROW3Right,>XgRYGAR2_DUCKTHROW4Right,>XgRYGAR2_DUCKTHROW5Right,>XgRYGAR2_AIRTHROW1Right,>XgRYGAR2_AIRTHROW2Right,>XgRYGAR2_AIRTHROW3Right,>XgRYGAR2_AIRTHROW4Right,>XgRYGAR2_AIRTHROW5Right,>XgRYGAR2_WALLTHROW1Right,>XgRYGAR2_WALLTHROW2Right,>XgRYGAR2_WALLTHROW3Right,>XgRYGAR2_WALLTHROW4Right,>XgRYGAR2_WALLTHROW5Right,>XgRYGAR2_BACKTHROW1Right,>XgRYGAR2_BACKTHROW2Right,>XgRYGAR2_BACKTHROW3Right,>XgRYGAR2_BACKTHROW4Right,>XgRYGAR2_BACKTHROW5Right,>XgRYGAR2_WALKSTEPRight,>XgRYGAR2_FLAP1Right,>XgRYGAR2_FLAP2Right,>XgRYGAR2_FLAPSHOT1Right,>XgRYGAR2_FLAPSHOT2Right,>XgRYGAR2_FLAPUP1Right,>XgRYGAR2_FLAPUP2Right
 XgRYGARBanks:
- .byte $db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$dc,$dc,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$dc,$dc,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$dc,$dc,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db
+ .byte $db,$db,$db,$db,$dc,$db,$db,$dc,$dc,$db,$db,$dc,$db,$db,$db,$db,$db,$dc,$db,$db,$db,$dc,$dc,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$dc,$db,$db,$dc,$dc,$db,$db,$dc,$db,$db,$db,$db,$db,$dc,$db,$db,$db,$dc,$dc,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$dc,$db,$db,$dc,$dc,$db,$db,$dc,$db,$db,$db,$db,$db,$dc,$db,$db,$db,$dc,$dc,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db,$db
 XgRYGARWeaponLo:
  .byte <XgRYGARWeapon0Right,<XgRYGARWeapon1Right,<XgRYGARWeapon2Right,<XgRYGARWeapon3Right,<XgRYGARWeapon4Right,<XgRYGARWeapon5Right,<XgRYGARWeapon6Right,<XgRYGARWeapon7Right,<XgRYGARWeapon8Right
 XgRYGARWeaponHi:

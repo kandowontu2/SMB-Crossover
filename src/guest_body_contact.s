@@ -3,11 +3,24 @@
 .pushseg
 .segment "FIXED"
 .proc GuestBodyContactBridge
+.if ::ENABLE_MMC5_EXPANDED
+  farcall LmBodyGate
+
+.else
   farcall GuestBodyContact
+
+.endif
   rts
-  .res 16,$ea                 ;18-byte farcall+RTS+16padding=old35-byte span.
+  .include "terrain_catchup.s" ; Reuse the unreachable16-byte resident tail.
 .endproc
 
+.if ::ENABLE_MMC5_EXPANDED
+.proc GuestInjuryStatus
+  farcall RlInjuryStatusDispatch,jmp
+  .res 1,$ea
+  .assert *-GuestInjuryStatus=19,error,"fixed original span"
+.endproc
+.else
 .proc GuestInjuryStatus
   ; Bill.takeDamage calls die() in every power form. Mushrooms upgrade his
   ; weapon and never grant an additional contact hit. Lance shares this rule.
@@ -22,13 +35,18 @@ Done:
   txa
   rts
 .endproc
+.endif
 
 .segment "OBJECT"
 .proc GuestPostEnemyCollision
   lda SelectedCharacter
   cmp #CHARACTER_LINK
   bne Other
+.if ::ENABLE_MMC5_EXPANDED
+  farcall Z2DeferredThrustGate
+.else
   farcall LinkDeferredThrust
+.endif
   jmp Effects
 Other:
   cmp #CHARACTER_SAMUS
@@ -72,13 +90,21 @@ Done:
   lda SelectedCharacter
   cmp #CHARACTER_SCROOGE
   bne NotScrooge
+.if ::ENABLE_MMC5_EXPANDED
+  farcall DwScroogeContact
+.else
   farcall ScroogePogoContact
+.endif
   jcs Protected
   jmp Ordinary
 NotScrooge:
   cmp #CHARACTER_LINK
   bne OtherGuest
+.if ::ENABLE_MMC5_EXPANDED
+  farcall Z2BodyContactGate
+.else
   farcall LinkBodyContact
+.endif
   jcs Protected
   jmp Ordinary
 OtherGuest:

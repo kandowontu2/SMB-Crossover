@@ -1,0 +1,57 @@
+{
+  "status": "frozen",
+  "baseline": {
+    "checkpoint": "parodius-death-nr",
+    "rom_sha256": "2931163dd7d3c31f9a81776b16c45631a0abd2120abff4454833084825475590",
+    "source_zip_sha256": "81a9912e7001a8c3da3a374ac39ef4b1a2f16812fb2364fa0960dff1b779d2cf"
+  },
+  "meta_knight": {
+    "checkpoint": "meta-knight-grounded-nu",
+    "status": "frozen",
+    "rom_sha256": "b90ede8fa3afaceefe3ef3090424f4d6b6662c139a1a3d6df52e64b7ec00b240",
+    "source_zip_sha256": "7ba84c9d09984cf929d6c68a67ff9fa2d9f192928ea157906bf0345383a2f4f7",
+    "original_rom_sha256": "a7a742f5288cd4ab220f530ee7c8d0e3714b8bf107e89c9bf03039217fec5829",
+    "hardware_proof_sha256": "10b92d822263e87d0397184ad8a60aaf3e9dc77a01e1eb0c8cbabec3ad79668c",
+    "body_palette": [
+      "36",
+      "14",
+      "0F"
+    ],
+    "sword_source_palette": [
+      "30",
+      "37",
+      "17"
+    ],
+    "sword_world_palette": [
+      "30",
+      "27",
+      "16"
+    ],
+    "portrait_method": "Linked native pose 8 and original bitplane alpha; palette RGB matches Mesen. Actual native OAM priority independently verified.",
+    "capture_source": "moves-easy-v9",
+    "captures_are": "Controlled practice arenas with real attacks/enemies; not campaign screenshots",
+    "downward_strike_hold_updates": 32,
+    "jump": "Fixed ballistic jump; no second-A or Up flight",
+    "audio": "SMB sword fallback; exact source audio not claimed",
+    "publication": "Published roster identity; corrected art and moves require private NU update",
+    "checkpoint_path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\checkpoints\\meta-knight-grounded-nu",
+    "checkpoint_manifest_sha256": "182bf0149c86251a378009487e2563988ac88082db378a845610f14976aa95c5",
+    "independent_audit_report": {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\meta-knight-native-audit\\manifest.json",
+      "sha256": "ad57c0afd07b946e0994ca36e6f4c534ae341330d6720f6aa0d0db6689f56388"
+    },
+    "limitations": [
+      "Sword hues explicitly remapped30/37/17 to30/27/16; source sword audio usesSMB fallback.",
+      "Player input, recovery/spin bounds and stronger jump are explicit playable-boss adaptations.",
+      "Full37identity every-item/campaign/performance/audio matrix and fullMMC3port remain open.",
+      "Original boss/food/move/rotor fixtures are explicitly seeded native-boundary components, not campaigns."
+    ]
+  },
+  "firebars": {
+    "source": "build\\verification\\firebar-nt-audit\\manifest.json",
+    "sha256": "7226a4b1f8ffc8b0c595996319b26a8128b8da407d6c85db8d523c2fa086bee6",
+    "fact": "The two empty mounts in the supplied 1-4 view are authored in SMB1 and Crossover1.x/2.02; they activate in6-4 independently of Easy/Hard. No all-castles claim."
+  },
+  "prior_edition_preserved": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-guide-meta-nu\\prior-edition",
+  "scope": "Guide update only; no game files changed."
+}

@@ -140,8 +140,15 @@ Samus:
   sec
   rts
 Roster:
+ .if ::ENABLE_MMC5_EXPANDED
+::Cv3LegacyAdderBill=Roster+4
+::Cv3LegacyAdderOther=Roster+8
+  jmp Cv3ResidentAdder
+  nop
+ .else
   cmp #CHARACTER_BILL
   bne :+
+ .endif
     jsr BillCachedTerrainRow
     rts
   :
@@ -200,8 +207,15 @@ Samus:
   ldy #17
   rts
 Roster:
+ .if ::ENABLE_MMC5_EXPANDED
+::Cv3LegacyBoxBill=Roster+4
+::Cv3LegacyBoxOther=Roster+10
+  jmp Cv3ResidentBox
+  nop
+ .else
   cmp #CHARACTER_BILL
   bne :+
+ .endif
     lda #0
     jsr BillHotSelect
     rts
@@ -241,15 +255,28 @@ RosterCrouch:
   beq MegaManHead
   cmp #CHARACTER_MARIO
   beq Done
+.if .not ::ENABLE_MMC5_EXPANDED
   bne SmallHead                 ; Bill/Link/Simon break with weapons, not heads.
+.endif
 MegaManHead:
   lda PlayerStatus
   bne Done
 SmallHead:
+.if ::ENABLE_MMC5_EXPANDED
+  ; Every linked caller is NativeRarePlayerHeadCollisionCore in bank9.
+  ; Keep this resident span exact; the cold leaf releases our saved P.
+  jmp CrossoverSmallHeadCold
+.else
     ldy #1
 Done:
   plp
   rts
+.endif
+ .if ::ENABLE_MMC5_EXPANDED
+Done:
+  plp
+  rts
+ .endif
 SamusHead:
   ; Easy uses the original suit rule;2.02 only bumps while upright.
   lda CrossoverBehaviorVersion
@@ -261,6 +288,9 @@ SamusHead:
   beq SmallHead
   ldy #0
   beq Done
+.if ::ENABLE_MMC5_EXPANDED
+  nop
+.endif
 .endproc
 .proc MegaManResetBlockHealth
   pha
@@ -355,6 +385,32 @@ Loop:
 
 .popseg
 .proc MegaManFullShotBank
+.if ::ENABLE_MMC5_EXPANDED
+  farcall RlFullShotBankDispatch,jmp
+ .if ::MAPPER_MMC5
+::MmNativeSideShortcut:
+  ; The native side query is also the final exact-ID fallback for legacy
+  ; selectors0..10. Sophia/Mac/SMB3/TMNT keep the complete original source
+  ; dispatch, with its original A/P and stack contract. No geometry changes.
+  php
+  pha
+  lda SelectedCharacter
+  cmp #CHARACTER_SOPHIA
+  bcs OtherSide
+  pla
+  plp
+  jmp BlockBufferColli_Side
+OtherSide:
+  pla
+  plp
+  farcall TnFastSideGate,jmp
+  .res 3,$ea
+  .assert *-MegaManFullShotBank=55,error,"Original full-shot resident span"
+ .else
+  .res 37,$ea
+  .assert *-MegaManFullShotBank=55,error,"Original full-shot resident span"
+ .endif
+.else
   lda #0
   sta MmFireBank
   ldx #3
@@ -404,6 +460,7 @@ BankReady:
   inc ReloadCHRBank
 Done:
   rts
+.endif
 .endproc
 
 .segment "GUEST"
@@ -2042,6 +2099,18 @@ HeadXMaxEx: .byte 163,168,123,128,160,169,120,129
 
 .segment "METASPRITE"
 .proc MegaManDrawShots
+ .if ::ENABLE_MMC5_EXPANDED
+  farcall ProtoDrawShots,jmp
+::ProtoOamReservation:
+  lda ProtoVariant
+  beq LegacyReservation
+  lda #44
+  rts
+LegacyReservation:
+  jmp PlayerOAMReservation
+  .res 110,$ea
+  .assert *-MegaManDrawShots=139,error,"Shot wrapper original span"
+ .else
   lda SelectedCharacter
   cmp #CHARACTER_MEGAMAN
   jne Done
@@ -2107,6 +2176,7 @@ ShotStarts:
   .byte METASPRITE_MM_BULLET_10, METASPRITE_MM_BULLET_4, METASPRITE_MM_BULLET_13
 ShotLengths:
   .byte 1,2,4,3,2,3
+ .endif
 .endproc
 .popseg
 

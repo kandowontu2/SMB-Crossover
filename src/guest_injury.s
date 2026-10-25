@@ -16,6 +16,13 @@ Run:
   farcall GuestInjuryMovement, jmp
 .endproc
 .segment "LOWCODE"
+.if ::ENABLE_MMC5_EXPANDED
+.proc GuestPlayerVisible
+  farcall RlVisibleDispatch,jmp
+  .res 7,$ea
+  .assert *-GuestPlayerVisible=25,error,"fixed original span"
+.endproc
+.else
 .proc GuestPlayerVisible
   lda GuestHurtKind
   beq Native
@@ -35,6 +42,7 @@ Hide:
   clc
   rts
 .endproc
+.endif
 
 .proc SamusSourceGravity
   ; AnimatedObject.gravityPull consumes onGround before moving the assigned

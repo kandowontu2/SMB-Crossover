@@ -14,8 +14,13 @@ GoToNextFrameImmediately:
   cmp NmiSkipped
   beq IdleLoop
   ; We lagged this frame, so skip sprites next frame for faster processing
+.if ::ENABLE_CROSSOVER
+  jsr TerrainCatchupPending
+  bcs IdleLoop
+.else
   lda #1
   sta ShouldSkipDrawSprites
+.endif
 .if ::ENABLE_CROSSOVER
   ; Allow one immediate catch-up, then yield the published frame to NMI.
   ; An unlimited chain can keep controllers unsampled for several frames.
@@ -44,7 +49,11 @@ CatchUpOnce:
 .endif
   jsr PauseRoutine          ;handle pause
 .if ::ENABLE_CROSSOVER
+ .if ::ENABLE_MMC5_EXPANDED
+  farcall X5BounceUiDispatch
+ .else
   farcall InventoryUiTick
+ .endif
 .endif
 
   ldx #$00
@@ -112,6 +121,37 @@ PauseSkip:
 .endproc
 
 ;-------------------------------------------------------------------------------------
+.if ::ENABLE_CROSSOVER
+HpResidentBegin:
+.proc PauseRoutine
+  farcall HpPauseCold
+  rts
+.endproc
+.proc HpGraphicsBankCopy
+  ; A is dead at the original DrawAll entry; native SMC farcall ABI.
+  lda #<HpPrepareNativePointers
+  SMC_StoreLowByte FarcallJmpTarget,a
+  lda #>HpPrepareNativePointers
+  SMC_StoreHighByte FarcallJmpTarget,a
+.if ::MAPPER_MMC5
+  lda #.bank(HpPrepareNativePointers) | MMC5_PRG_ROM
+.else
+  lda #.bank(HpPrepareNativePointers)
+.endif
+  jsr FarCallCommon
+  jmp CrossoverGraphicsBank
+.endproc
+.proc HpProcessFireballsBridge
+  jsr ProcFireball_Bubble
+  lda HpCount
+  beq Done
+  farcall HpSpawnAndTrack
+Done:
+  rts
+.endproc
+.assert *-HpResidentBegin<=68,error,"Original PauseRoutine resident span"
+.res 68-(*-HpResidentBegin),$ea
+.else
 .proc PauseRoutine
                lda OperMode           ;are we in victory mode?
                cmp #MODE_VICTORY  ;if so, go ahead
@@ -145,6 +185,7 @@ ClrPauseTimer: lda GamePauseStatus    ;clear timer flag if timer is at zero and 
 SetPause:      sta GamePauseStatus
 ExitPause:     rts
 .endproc
+.endif
 
 ;-------------------------------------------------------------------------------------
 clabel GameCoreRoutine
@@ -174,7 +215,12 @@ GameCoreRoutine:
     rts
 GameEngine:
   far OBJECT
-    jsr ProcFireball_Bubble    ;process fireballs and air bubbles
+.if ::ENABLE_CROSSOVER
+    jsr HpProcessFireballsBridge
+.else
+    jsr ProcFireball_Bubble
+.endif
+    ; process fireballs and air bubbles
     ldx #$00
 ProcELoop:
       stx ObjectOffset           ;put incremented offset in X as enemy object offset
@@ -454,6 +500,10 @@ ExGTimer:
 ;WhirlpoolActivate to store maximum vertical speed
 
 ProcessWhirlpools:
+        ; Cannon_Timer aliases Whirlpool_Flag. Dry areas must return before
+        ; the guest water exemption clears that shared byte.
+        lda AreaType                ;check for water type level
+        bne ExitWh                  ;branch to leave if not found
 .if ::ENABLE_CROSSOVER
         lda SelectedCharacter       ; Luigi now shares Mario's actual water engine.
         and #$f7                    ; Mario0/Luigi8; other roster IDs remain nonzero.
@@ -463,8 +513,6 @@ ProcessWhirlpools:
         rts
         :
 .endif
-        lda AreaType                ;check for water type level
-        bne ExitWh                  ;branch to leave if not found
         sta Whirlpool_Flag          ;otherwise initialize whirlpool flag
         lda TimerControl            ;if master timer control set,
         bne ExitWh                  ;branch to leave
@@ -787,7 +835,11 @@ InitializeArea:
   sta MarioWaterActive
   sta RgOamFirst
   sta RgOamUsed
+ .if ::ENABLE_MMC5_EXPANDED
+  farcall Z2ResetAreaGate
+ .else
   farcall MegaManResetArea
+ .endif
 .endif
   ldy #<SecondaryMsgCounter                 ;clear all memory again, only as far as $074b
   jsr InitializeMemory     ;this is only necessary in game mode
@@ -824,7 +876,12 @@ SetInitNTHigh:
   dec AreaObjectLength+2
   lda #$0b                 ;set value for renderer to update 12 column sets
   sta ColumnSets           ;12 column sets = 24 metatile columns = 1 1/2 screens
-  farcall GetAreaDataAddrs     ;get enemy and level addresses and load header
+.if ::ENABLE_CROSSOVER
+  farcall HpLoadArea
+.else
+  farcall GetAreaDataAddrs
+.endif
+  ; get enemy and level addresses and load header
   lda PrimaryHardMode      ;check to see if primary hard mode has been activated
   bne SetSecHard           ;if so, activate the secondary no matter where we're at
     lda WorldNumber          ;otherwise check world number

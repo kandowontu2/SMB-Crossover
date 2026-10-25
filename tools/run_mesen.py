@@ -90,7 +90,7 @@ def run(script: Path, rom: Path, emulator: str | None = None, timeout: int = 30,
     wrapper.extend(f'B["{key}"]={value}' for key, value in sorted(banks.items()))
     # Source gameplay fixtures use explicit2.02 setup. These front-end tests
     # must observe the real power-on1.0 default and ordinary Options inputs.
-    frontend_tests = {'character-select', 'player-outlines', 'player-outlines-render'}
+    frontend_tests = {'character-select', 'player-outlines', 'player-outlines-render', 'cheats-menu', 'cheats-invincibility'}
     if script.resolve().parent == ROOT/'tests' and script.stem not in frontend_tests:
         wrapper.append(f'dofile([=[{(ROOT/"tests/menu-bootstrap.lua").as_posix()}]=])')
     wrapper.append(f'local loaded,loadError=pcall(dofile,[=[{script.resolve().as_posix()}]=]); assert(loaded,loadError)')

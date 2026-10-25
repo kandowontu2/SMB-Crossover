@@ -1,0 +1,58 @@
+{
+  "status": "CURRENT_RYGAR_EASY_CLEAR_RECORDED_AND_REVIEWED_KNOWN_PALETTE_DEFECT_OPEN",
+  "utc": "2026-10-22T23:16:40.695638+00:00",
+  "checkpoint_sha256": "c039c6bb0c37eaa542616196ba5cd384fa6be8604790600b76bc39c6d215875b",
+  "ROMs": {
+    "mmc3": "7ce2d2887e380d2ff7240426071d33e96fcdf7e4dfedbd6d253a729e897b59e3",
+    "mmc5": "ff1f8a8701b83d710871cde5667e4fe9ad55c73639c74953e64430898046f1d2"
+  },
+  "recording_manifest_sha256": "d240af127c07fb4013bbcf8f035add1bd4c1c9efdfaefb15b33025520d8de88d",
+  "source_packet": "build/roster-through-2-2/root-rygar-current-fl-av-fq-7-v0-mmc3",
+  "delivery": "Playthrough Videos/QA/Rygar-Easy-through-2-2-2026-10-22-FL-QA.mp4",
+  "delivery_sha256": "7e84e5e11a7db03fc6e6a0c7da1c3a4955619723214a99252fe3cac2977cc407",
+  "inputs": "Playthrough Videos/QA/Rygar-Easy-through-2-2-2026-10-22-FL.inputs.csv",
+  "inputs_sha256": "a669c41c61f383149d83b736d463d23bb9690fd48c145010f1f1b2e7c9b7d8a5",
+  "lossless_master": "build/roster-through-2-2/root-rygar-current-fl-av-fq-7-v0-mmc3/playthrough-lossless.mkv",
+  "lossless_proof_sha256": "db984859676046e93d201d9f05e1a939a45c55143bc29989e8bf690718a8a6cc",
+  "duration_seconds": 344.099967,
+  "native_video_frames": 20680,
+  "emulator_frames": 20681,
+  "deaths": 0,
+  "all_six_stages": true,
+  "continued_control_in_2_3": true,
+  "mode": "Easy",
+  "power_forms_observed": [
+    0,
+    1
+  ],
+  "all_specials_and_upgrades_verified": false,
+  "final_fidelity_approved": false,
+  "full_visible_scroll_records": 78028,
+  "active_rendering_scroll_records": 73392,
+  "all_active_scroll_on_scanline31": true,
+  "automated_review_sha256": "6fc2545e1cda9b3f9e4538026df712fbf668680c232892892da89a5f32a5b4a8",
+  "manual_inspection": "Both bounded contact sheets and all12 extracted underground-debris frames inspected. Every20680 recorded frame was algorithmically decoded; no claim of a person watching every frame or waveform parity.",
+  "manual_findings": [
+    {
+      "kind": "confirmed_visual_defect",
+      "finding": "Brown/orange underground brick debris instead of cyan. Same shared sprite-palette3 conflict as Bass, now visibly reproduced with Rygar on the current FL ROM.",
+      "video_frame_range": [
+        4495,
+        4506
+      ],
+      "approximate_seconds": 74.9,
+      "evidence": "underground-brick-sequence.png",
+      "repaired": false
+    },
+    {
+      "kind": "source_behavior_triage",
+      "finding": "Underwater jumps sometimes leave the visible top. Pinned1.0 and2.02 shared Character updates exit water/change to normal gravity above the surface; they do not impose a generic ceiling here. No artificial clamp added. Custom Rygar fidelity remains separate unfinished work.",
+      "source_files": [
+        "reference/crossover/decompiled/scripts/com/smbc/characters/Character.as",
+        "reference/crossover2/extracted/scripts/com/smbc/characters/Character.as"
+      ]
+    }
+  ],
+  "native_parts_and_negative_attempts_retained": true,
+  "goal_complete": false
+}

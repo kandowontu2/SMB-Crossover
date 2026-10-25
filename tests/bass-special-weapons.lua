@@ -137,7 +137,7 @@ emu.addEventCallback(function()
   elseif id==1 then
    assert(r('SsHeld')>0 and count(9)==1,'Super Arm lifts a contacted empty brick')
    assert(r('Block_Buffer_1',10*16+3)==0,'Lifting removes only the contacted masonry cell')
-   assert(r('InvAmmo',145)==104,'Super Arm charges eight units at pickup, not throw')
+   assert(r('InvAmmo',145)==112,'Super Arm lift is free; eight units are paid at throw')
   end
  end
  if id==3 and age==35 then
@@ -156,7 +156,7 @@ emu.addEventCallback(function()
   assert(r('SsWaterExpand')==1 and r('SsWaterRadius')>22,'Second press expands the completed shield: '..r('SsWaterExpand')..','..r('SsWaterRadius')..', energy '..r('InvAmmo',151))
   assert(r('InvAmmo',151)==96,'Expanding an existing shield costs no additional energy')
  end
- if id==1 and age==34 then assert(r('SsHeld')==0 and count(9)==1 and r('InvAmmo',145)==104,'Second B throws the held brick without a second charge')end
+ if id==1 and age==34 then assert(r('SsHeld')==0 and count(9)==1 and r('InvAmmo',145)==104,'Second B throws the held brick and pays eight units')end
  if age==18 or (id==4 and age==84)or(id==7 and age==175)then
   local f=assert(io.open(OUTPUT..ROM_NAME..'-bass-special-'..id..'-'..age..'.png','wb'));f:write(emu.takeScreenshot());f:close()
  end

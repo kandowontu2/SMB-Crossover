@@ -187,7 +187,11 @@ XgAudioEvent: .res 1
   sta BillSourceFlagSeen
   sta BillBodyPrevValid
   sta BillHeadFiltering
+.if ::ENABLE_MMC5_EXPANDED
+  farcall RlResetDispatch
+.else
   farcall SpecialRosterClear
+.endif
   farcall RemainingClear
   lda #<RosterRamStart
   sta R0
@@ -220,7 +224,11 @@ Loop:
   sec
   sbc #CHARACTER_BILL
   tax
+ .if ::ENABLE_MMC5_EXPANDED
+  jsr Cv3ResidentRosterBank
+ .else
   lda Banks,x
+ .endif
 .if ::MAPPER_MMC5
   ora #MMC5_PRG_ROM
 .endif
@@ -229,6 +237,9 @@ Loop:
   lda CurrentBankC             ; Preserve the original X/Y and returned bank.
   rts
 Banks:
+.if ::ENABLE_MMC5_EXPANDED
+::Cv3LegacyBanks:
+.endif
   .byte .bank(RgBILL0_STANDRight),.bank(RgLINK0_STANDRight),.bank(RgSIMON0_STANDRight)
 .endproc
 

@@ -1,0 +1,17 @@
+.include "cv3_core.s"
+.include "cv3_abilities.s"
+.include "cv3_render.s"
+.include "cv3_combat.s"
+.include "cv3_orbs.s"
+.include "cv3_drops.s"
+.include "cv3_draw.s"
+.include "cv3_pickups.s"
+.include "cv3_blocks.s"
+.include "cv3_grip.s"
+.include "cv3_motion_data.inc"
+.include "cv3_orb_tables.inc"
+.include "cv3_art.inc"
+.pushseg
+.segment "CV3_CHR"
+.incbin "chr/characters/cv3.chr"
+.popseg

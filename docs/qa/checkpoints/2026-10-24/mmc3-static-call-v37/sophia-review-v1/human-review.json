@@ -1,0 +1,13 @@
+{
+  "reviewed": true,
+  "scope": "Sampled direct physical PNG sheets only, not every-frame source fidelity.",
+  "sheets_viewed": ["overview.png", "specific-query-origins.png", "loading-start-pole.png"],
+  "findings": [
+    "No obvious terrain replacement, whole-screen shift or displaced player origin in these samples.",
+    "All five specific query triplets keep the displayed body at its ordinary world position despite temporary collision-probe coordinates in the raw trace.",
+    "Loading/lives sprite is visible and complete in the stable sampled loading frames; flagpole progression continues.",
+    "Individual sprite dropout appears during crowded shot rows; these samples do not establish complete OAM/animation/SFX fidelity."
+  ],
+  "separate_background_diagnostic": "../sophia-background-v1/proof.json",
+  "separate_background_diagnostic_scope": "All5467 indexed direct PNGs checked,3861 eligible adjacent triples,zero transient cluster candidates; persistent and sprite defects remain outside that detector."
+}

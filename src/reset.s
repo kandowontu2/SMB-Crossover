@@ -10,6 +10,48 @@
 .segment "CODE"
 
 .proc IrqScrollSplit
+.if ::ENABLE_MMC5_EXPANDED
+  pha
+  phx
+  MAPPER_IRQ_ACK
+  lda IrqPPUCTRL
+  and #1
+  asl
+  asl
+  sta PPUADDR
+  ; Native font pages for all four areas deduplicate to physical0. The
+  ; NMI publisher leaves $5130=0. Restore before the first world fetch,
+  ; independent of foreground instruction/IRQ-entry latency.
+  lda #0
+  sta $5128
+  lda #32
+  sta PPUSCROLL
+  and #$f8
+  asl
+  asl
+  ldx IrqNewScroll
+  sta IrqNewScroll
+  ; Six cycles of font publication replace six cycles of native delay.
+  ; Native LDA#0+DelayACycles(0) =17 cycles; this delay =11 cycles.
+  lda #0
+  bit R0
+  nop
+  nop
+  nop
+  txa
+  lsr
+  lsr
+  lsr
+  ora IrqNewScroll
+  stx PPUSCROLL
+  sta PPUADDR
+  stx IrqNewScroll
+  .res 5,$ea ; retain the old RTI/public entry addresses
+  plx
+  pla
+  rti
+  .assert *-IrqScrollSplit=68,error,"Expanded IRQ retains its original footprint"
+.else
   pha
   phx
     MAPPER_IRQ_ACK
@@ -75,6 +117,7 @@ DelayACycles:
   plx
   pla
   rti
+.endif
 .endproc
 
 ;-------------------------------------------------------------------------------------

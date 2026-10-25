@@ -17,9 +17,19 @@ SmFreezeLastBlue: .res 1
 .segment "SAMUS_FREEZE_LOW"
 ; NMI-only: no foreground scratch, new pending byte only; no PRG/SMC writes.
 .proc SamusFreezeUpdateScreen
+.if ::ENABLE_MMC5_EXPANDED && ::MAPPER_MMC5
+  ; NMI owns this temporary C window. Its entry bank is already stacked and
+  ; restored by ExitNMI; do not touch foreground farcall code or its shadow.
+  lda #.bank(PnPaletteScreenUpdate) | MMC5_PRG_ROM
+  sta MMC5_PRG_BANK_C
+  jmp PnPaletteScreenUpdate
+  nop
+.else
   jsr UpdateScreen
   asl SmFreezePalettePending
   jmp SamusFreezeFlushPalette
+.endif
+  .assert *-SamusFreezeUpdateScreen=9,error,"NMI gateway keeps its resident span"
 .endproc
 .segment "SAMUS_FREEZE_NMI"
 .proc SamusFreezeFlushPalette

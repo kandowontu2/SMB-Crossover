@@ -30,6 +30,26 @@ Yes:
   rts
 .endproc
 .proc RemainingAudioBegin
+
+.if ::MAPPER_MMC5 .and ::ENABLE_MMC5_EXPANDED
+  ; Audio also advances on lag NMIs. Re-establish only the HUD background
+  ; font after the previous scanline IRQ selected the level font. Sprite
+  ; CHR and its pending publication remain paired with the committed OAM.
+  lda DisableScreenFlag
+  bne HudFontDone
+  lda InvHudActive
+  beq HudFontDone
+  lda X5HudChrUpper
+  and #3
+  sta $5130
+  lda InvHudPhysical
+  sta $5128
+  ; MMC5 captures upper CHR bits when each bank register is written. The
+  ; later world-font IRQ expects the ordinary zero upper latch.
+  lda #0
+  sta $5130
+HudFontDone:
+.endif
   jsr RemainingAudioSupported
   bcs Check
   lda #0

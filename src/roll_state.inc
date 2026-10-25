@@ -1,0 +1,31 @@
+; Exclusive expanded-profile overlay. No new cartridge WRAM.
+RlVariant=$5feb
+RlHealth=$5f30
+RlEnergy=$5f31
+RlReady=$5f32
+RlLife=$5f33
+RlArea=$5f34
+RlWorld=$5f35
+RlFoodKind=$5f36
+RlPrevious=$5c00
+RlFresh=$5c01
+RlClock=$5c02
+RlWalk=$5c03
+RlAttack=$5c04
+RlCharge=$5c05
+RlHurt=$5c06
+RlInvul=$5c07
+RlDirty=$5c08
+RlPalette=$5c09
+RlPool=$5c0a
+RlPose=$5c0b
+RlButtons=$5c0c
+RlSlot=$5c0d
+RlTemp=$5c0e
+RlSavedObject=$5c0f
+RlDropSlot=$5c10
+RlDrawFrame=$5c11
+RlChargeFired=$5c12
+RlRenderLength=$5c13
+RlEnemyEnvelope=$5c14
+.export RlVariant,RlHealth,RlEnergy,RlReady,RlLife,RlArea,RlWorld,RlFoodKind,RlPrevious,RlFresh,RlClock,RlWalk,RlAttack,RlCharge,RlHurt,RlInvul,RlDirty,RlPalette,RlPool,RlPose,RlSlot,RlChargeFired

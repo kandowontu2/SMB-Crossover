@@ -854,11 +854,11 @@ AvArt72Left:
  .byte MetaspriteVramOffset{$1c}, {SPRITE_BANK_4}, $03, -16, -8
 AvArt73Right:
  .byte 8
- .byte MetaspriteVramOffset{$1e}, {SPRITE_BANK_4}, $03, -16, -8
+ .byte MetaspriteVramOffset{$1e}, {SPRITE_BANK_4}, $83, -16, -8
  .byte MetaspriteVramOffset{$1e}, {SPRITE_BANK_4}, $43, -16, 0
 AvArt73Left:
  .byte 8
- .byte MetaspriteVramOffset{$1e}, {SPRITE_BANK_4}, $43, -16, 0
+ .byte MetaspriteVramOffset{$1e}, {SPRITE_BANK_4}, $c3, -16, 0
  .byte MetaspriteVramOffset{$1e}, {SPRITE_BANK_4}, $03, -16, -8
 AvArt74Right:
  .byte 8

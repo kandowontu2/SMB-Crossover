@@ -135,6 +135,23 @@ FallCap:
 .endproc
 
 .proc MegaManHurtEnd
+.if ::ENABLE_MMC5_EXPANDED
+  farcall ProtoHurtEndCore
+  jmp MegaManHurtReturned
+::MmRecoveryDrawGate:
+  lda PlayerChrBank
+  sec
+  sbc #MM_HURT_BODY_BANK
+  lsr
+  bne RecoveryDrawReturn
+  farcall ProtoRecoveryDrawCore
+RecoveryDrawReturn:
+  plp
+Done:
+  lda #0
+  rts
+  .assert *-MegaManHurtEnd=52,error,"Keep original recovery span/Done label"
+.else
   phx
   phy
   lda ObjectOffset
@@ -162,6 +179,7 @@ FallCap:
     sta MmLastXSpeed
 Done:
   jmp MegaManHurtRestore
+.endif
 .endproc
 
 ; Called after ordinary world pickups/weapons. Injury glyphs share window0
@@ -169,7 +187,15 @@ Done:
 ; Source SimpleGraphics does not mirror splash or spark offsets with facing.
 .proc MegaManHurtDraw
   lda GuestHurtTicks
+.if ::ENABLE_MMC5_EXPANDED
+::MmRecoveryDrawBranch:
+  php
+  beq MmRecoveryDrawGate
+  plp
+  nop
+.else
   jeq Done
+.endif
   lda SelectedCharacter
   cmp #CHARACTER_MEGAMAN
   beq Mega

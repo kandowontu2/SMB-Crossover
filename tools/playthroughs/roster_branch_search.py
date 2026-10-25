@@ -13,6 +13,8 @@ import sys
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / 'tools'))
 import run_mesen
+from workspace_storage import CAP_BYTES, locate
+from roster_run import workspace_bytes
 from roster_branch_root import bind_root, validate_root
 
 
@@ -28,6 +30,8 @@ def main():
     p.add_argument('--goal-y-min', type=int, default=0,
                    help='Minimum canonical player Y at goal, excluding roof routes when needed')
     p.add_argument('--goal-y-max', type=int, default=208)
+    p.add_argument('--goal-power-min', type=int, choices=(0, 1, 2), default=0,
+                   help='Require an ordinary collected power-up at the physical landing goal')
     p.add_argument('--tag', required=True)
     p.add_argument('--width', type=int, default=4)
     p.add_argument('--depth', type=int, default=18)
@@ -37,7 +41,15 @@ def main():
     p.add_argument('--actions', help='Comma-separated subset of controller actions; default retains all actions')
     p.add_argument('--spatial-limit', type=int, default=0,
                    help='Optional max alternatives per 24-pixel X/Y/movement cell, retaining wider timing choices')
+    p.add_argument('--score-mode', choices=('forward','landing'), default='forward',
+                   help='Prefer the physical landing height when the obstacle requires gaining height before moving right')
     a = p.parse_args()
+    if workspace_bytes(ROOT) + 150_000_000 > CAP_BYTES:
+        raise RuntimeError('Archive older evidence before another branch search under the 30 GB cap')
+    a.rom = locate(a.rom)
+    a.prefix = locate(a.prefix)
+    if a.root_proof:
+        a.root_proof = locate(a.root_proof)
     assert a.root_poll > 500 and 1 <= a.width <= 12 and 1 <= a.depth <= 80
     assert 8 <= a.chunk <= 64
     assert 0 <= a.goal_y_min <= a.goal_y_max <= 255
@@ -46,7 +58,7 @@ def main():
         selected_actions = a.actions.split(',')
         allowed_actions = {'R', 'RA', 'R-A8', 'R-AOFF8', 'RB', 'RAB', 'L', 'A', 'LA', 'AB', 'B', 'WAIT',
                            'DB', 'RDB', 'ADB', 'DA', 'RDA', 'LDA', 'U', 'RU', 'RUA', 'UA',
-                           'UB', 'RUB', 'UAB', 'RUAB'}
+                           'UB', 'RUB', 'UAB', 'RUAB', 'LB', 'LAB'}
         assert len(selected_actions) == len(set(selected_actions)), 'Actions must be unique'
         assert all(v in allowed_actions for v in selected_actions), 'Unknown controller action'
     root_metadata = None
@@ -75,8 +87,9 @@ def main():
         prefix.write_text('\n'.join(kept) + '\n')
     config = dict(out=out.as_posix()+'/', prefix=prefix.as_posix(),
                   rootPoll=a.root_poll, goalX=a.goal_x, goalYMin=a.goal_y_min, goalYMax=a.goal_y_max,
+                  goalPowerMin=a.goal_power_min,
                   width=a.width, depth=a.depth, chunk=a.chunk, airGoal=a.air_goal,
-                  actions=a.actions or '', spatialLimit=a.spatial_limit)
+                  actions=a.actions or '', spatialLimit=a.spatial_limit, scoreMode=a.score_mode)
     if root_metadata:
         state = out / 'proof-root.state'
         ram = out / 'proof-root-ram.bin'

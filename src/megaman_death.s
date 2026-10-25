@@ -43,7 +43,11 @@ Done:
 .proc UnionDeathStartCore
   lda #1
   sta MmDeathFlag
+ .if ::ENABLE_MMC5_EXPANDED
+  farcall RlDeathStartDispatch
+ .else
   farcall InventoryDeath
+ .endif
   lda #0
   sta MmDeathAge
   sta MmDeathPit

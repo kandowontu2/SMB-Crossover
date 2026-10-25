@@ -82,15 +82,25 @@ local function context()
 end
 local function menu()
  local b={}
- if frame==60 then b.start=true end
+ local shift=0
+ if cfg.behavior=='hard' then
+  -- Reach Options/Mode and return through the actual menu. No setting writes.
+  if frame==60 then return{down=true}end
+  if frame==80 then return{a=true}end
+  if frame==100 then return{down=true}end
+  if frame==120 then return{a=true}end
+  if frame==140 then return{b=true}end
+  shift=120
+ end
+ if frame==60+shift then b.start=true end
  local logical=cfg.character==12 and 8 or cfg.character
  if cfg.character==8 then logical=0 end
  if logical>=6 then
-  if frame==80 then b.down=true end
-  if frame>=100 and frame<100+20*(logical-6)and(frame-100)%20==0 then b.right=true end
- elseif frame>=80 and frame<80+20*logical and(frame-80)%20==0 then b.right=true end
- if(cfg.character==8 or cfg.variant==1)and frame==180 then b.select=true end
- if frame==240 then b.start=true end
+  if frame==80+shift then b.down=true end
+  if frame>=100+shift and frame<100+shift+20*(logical-6)and(frame-100-shift)%20==0 then b.right=true end
+ elseif frame>=80+shift and frame<80+shift+20*logical and(frame-80-shift)%20==0 then b.right=true end
+ if(cfg.character==8 or cfg.variant==1)and frame==180+shift then b.select=true end
+ if frame==240+shift then b.start=true end
  return b
 end
 emu.addEventCallback(function()
@@ -139,6 +149,9 @@ emu.addEventCallback(function()
  if frame>540 and r('OperMode')==1 and r('OperMode_Task')==3 then
   local key=c.world..'-'..c.level
   if c.engine==8 and key~=current then
+   assert(r('SelectedCharacter')==cfg.character,'Controller selected the requested character')
+   if cfg.variantSymbol then assert(r(cfg.variantSymbol)==cfg.variant,'Controller selected the requested alternate')end
+   if cfg.behavior then assert(r('CrossoverBehaviorVersion')==(cfg.behavior=='hard'and 1 or 0),'Controller selected the requested Easy/Hard mode')end
    current=key;stageFrame=frame;seen[key]=true;entries[key]=frame
    screenshot('entered-'..(c.world+1)..'-'..(c.level+1))
    events:write(table.concat({frame,'stage',c.area,c.world,c.level,c.x,c.y},',')..'\n')

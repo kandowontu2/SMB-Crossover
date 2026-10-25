@@ -43,13 +43,18 @@ Loop:
 ; Entered by JMP only for Ryu. A/X and the caller's stack stay intact.
 ; An unresolved/different side resumes the original native guest dispatch.
 .proc SamusRyuWallHandled
-  ldy RyWallResolved
-  beq No
-  cpy R0
-  bne No
-  rts
-No:
-  ldy R0
-  jmp SamusStopAtWallBanked::NativeGuest
+  ; Sole predecessor supplies Y=R0 and consumes C only. No incoming A is
+  ; required by the predicate or NativeGuest. Avoid the unused SafecallA save.
+  lda #.lobyte(RyuSourceSideDispatch)
+  SMC_StoreLowByte FarcallJmpTarget, a
+  lda #.hibyte(RyuSourceSideDispatch)
+  SMC_StoreHighByte FarcallJmpTarget, a
+.if ::MAPPER_MMC5
+  lda #.bank(RyuSourceSideDispatch) | MMC5_PRG_ROM
+.else
+  lda #.bank(RyuSourceSideDispatch)
+.endif
+  jmp FarCallCommon
+  .assert *-SamusRyuWallHandled=15,error,"Keep the original SAMUS gate span"
 .endproc
 .popseg

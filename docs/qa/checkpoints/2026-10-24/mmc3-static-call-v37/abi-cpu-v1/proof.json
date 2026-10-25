@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "ROM_sha256": "20b9f314443db1b05a205517d27e23abb4219774f2fa255dd972b2d275e2f55d",
+  "parent_ROM_sha256": "09c5ced7680c303f07ff9ad4655e56300d63c99eab90b4dafcf61938d75fd45c",
+  "support_cases": 1752,
+  "cell_cases": 4032,
+  "total_cases": 5784,
+  "owned_scratch_exclusions": [
+    "discarded CPU stack",
+    "actual SMCCODE segment/tiny operands",
+    "safecall scratch",
+    "BillNativeReturnA/P/Selector"
+  ],
+  "scope": "Actual assembled MMC3 bank dispatcher exercised through full raw-ID inventory matrix and relocated parser cell-reset body. Exact A/X/Y/meaningfulP/SP, bank shadows/actual selector, other application RAM, ordered nonbank I/O and final physical banks. Native IRQ/NMI/stack, history-gap ownership, audio, timing and campaign admission remain separate."
+}

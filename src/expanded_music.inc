@@ -1,3 +1,4 @@
+.include "full_roster_music.inc"
 ; Generated source playlist streams; lossless command macros.
 .pushseg
 .segment "XG_MUSIC_27"
@@ -43,28 +44,64 @@
 .segment "XG_AUDIO"
 XgAreaBanks:
  .byte $3a,$3a,$3a,$3a,$3a,$3a,$3a,$39,$3a,$39,$3a,$3a,$3a,$3a,$3a,$3a,$3a,$3a,$3a,$3a,$3a,$27,$29,$28,$2a,$2c,$2c,$2d,$2f,$31,$30,$31,$33,$34,$3a,$35,$36,$35,$37,$37,$38,$38,.bank(ScroogeMusicIntro),.bank(ScroogeMusicIntro),.bank(ScroogeMusicIntro),.bank(ScroogeMusicIntro),.bank(ScroogeMusicIntro),.bank(ScroogeMusicIntro),.bank(ScroogeMusicIntro)
+.if ::ENABLE_MMC5_EXPANDED
+ FullXgAreaBanks
+.endif
 XgAreaLo:
  .byte $4e,$4e,$4e,$4e,$4e,$4e,$4e,$da,$23,$b8,$0c,$9e,$36,$81,$6c,$6c,$6c,$6c,$6c,$6c,$6c,$00,$e4,$8c,$19,$fd,$ed,$fc,$1a,$c4,$5f,$48,$a3,$68,$6c,$94,$d6,$c0,$ad,$3a,$7d,$87,<ScroogeMusicIntro,<ScroogeMusicIntro,<ScroogeMusicIntro,<ScroogeMusicIntro,<ScroogeMusicIntro,<ScroogeMusicIntro,<ScroogeMusicIntro
+.if ::ENABLE_MMC5_EXPANDED
+ FullXgAreaLo
+.endif
 XgAreaHi:
  .byte $b1,$b1,$b1,$b1,$b1,$b1,$b1,$b6,$a1,$bb,$a4,$ac,$ae,$af,$b8,$b8,$b8,$b8,$b8,$b8,$b8,$a0,$b0,$a7,$a8,$a8,$bd,$b0,$b7,$a0,$ab,$b7,$b5,$a8,$b8,$ab,$ac,$bd,$a8,$b7,$a1,$ad,>ScroogeMusicIntro,>ScroogeMusicIntro,>ScroogeMusicIntro,>ScroogeMusicIntro,>ScroogeMusicIntro,>ScroogeMusicIntro,>ScroogeMusicIntro
+.if ::ENABLE_MMC5_EXPANDED
+ FullXgAreaHi
+.endif
 XgLoopBanks:
  .byte $3a,$3a,$3a,$3a,$3a,$3a,$3a,$39,$3a,$39,$3a,$3a,$3a,$3a,$3a,$3a,$3a,$3a,$3a,$3a,$3a,$27,$29,$28,$2a,$2c,$2c,$2d,$2f,$31,$30,$31,$33,$34,$3a,$35,$36,$35,$37,$37,$38,$38,.bank(ScroogeMusicLoop),.bank(ScroogeMusicLoop),.bank(ScroogeMusicLoop),.bank(ScroogeMusicLoop),.bank(ScroogeMusicLoop),.bank(ScroogeMusicLoop),.bank(ScroogeMusicLoop)
+.if ::ENABLE_MMC5_EXPANDED
+ FullXgLoopBanks
+.endif
 XgLoopLo:
  .byte $a3,$a3,$a3,$a3,$a3,$a3,$a3,$4c,$4c,$db,$33,$c5,$5d,$a8,$6c,$6c,$6c,$6c,$6c,$6c,$6c,$00,$e4,$8c,$19,$fd,$ed,$fc,$1a,$c4,$5f,$48,$a3,$e3,$6c,$94,$d6,$c0,$ad,$3a,$7d,$87,<ScroogeMusicLoop,<ScroogeMusicLoop,<ScroogeMusicLoop,<ScroogeMusicLoop,<ScroogeMusicLoop,<ScroogeMusicLoop,<ScroogeMusicLoop
+.if ::ENABLE_MMC5_EXPANDED
+ FullXgLoopLo
+.endif
 XgLoopHi:
  .byte $b1,$b1,$b1,$b1,$b1,$b1,$b1,$b7,$a1,$bb,$a4,$ac,$ae,$af,$b8,$b8,$b8,$b8,$b8,$b8,$b8,$a0,$b0,$a7,$a8,$a8,$bd,$b0,$b7,$a0,$ab,$b7,$b5,$b0,$b8,$ab,$ac,$bd,$a8,$b7,$a1,$ad,>ScroogeMusicLoop,>ScroogeMusicLoop,>ScroogeMusicLoop,>ScroogeMusicLoop,>ScroogeMusicLoop,>ScroogeMusicLoop,>ScroogeMusicLoop
+.if ::ENABLE_MMC5_EXPANDED
+ FullXgLoopHi
+.endif
 XgEventBanks:
  .byte $3a,$3a,$3a,$3a,$3a,$3a,$3a,$3a,$3a,$3a,$3a,$3a,$3a,$3a,$3a,$3a,$3a,$3a,$3a,$3a,$3a,$3a,$2f,$2f,$2f,$2f,$2f,$2e,$34,$34,$35,$35,$34,$35,$34,$3a,$39,$39,$39,$39,$39,$38,$3a,$3a,$3a,$3a,$3a,$3a,$3a
+.if ::ENABLE_MMC5_EXPANDED
+ FullXgEventBanks
+.endif
 XgEventLo:
  .byte $22,$22,$b5,$b5,$22,$b5,$4e,$22,$22,$b5,$b5,$22,$b5,$81,$6c,$6c,$6c,$6c,$6c,$6c,$6c,$6c,$0c,$be,$c7,$0c,$be,$3a,$06,$06,$1c,$09,$06,$1c,$37,$6c,$ed,$5c,$6a,$ed,$5c,$e6,$22,$22,$b5,$b5,$22,$b5,$4e
+.if ::ENABLE_MMC5_EXPANDED
+ FullXgEventLo
+.endif
 XgEventHi:
  .byte $b6,$b6,$b6,$b6,$b6,$b6,$b1,$b6,$b6,$b6,$b6,$b6,$b6,$af,$b8,$b8,$b8,$b8,$b8,$b8,$b8,$b8,$b0,$a3,$aa,$b0,$a3,$a7,$bd,$bd,$a1,$a7,$bd,$a1,$b2,$b8,$b4,$ac,$b2,$b4,$ac,$b4,$b6,$b6,$b6,$b6,$b6,$b6,$b1
+.if ::ENABLE_MMC5_EXPANDED
+ FullXgEventHi
+.endif
 XgEventLoopBanks:
  .byte $3a,$3a,$3a,$3a,$3a,$3a,$3a,$3a,$3a,$3a,$3a,$3a,$3a,$3a,$3a,$3a,$3a,$3a,$3a,$3a,$3a,$3a,$2f,$2f,$2f,$2f,$2f,$2e,$34,$34,$35,$35,$34,$35,$34,$3a,$39,$39,$39,$39,$39,$38,$3a,$3a,$3a,$3a,$3a,$3a,$3a
+.if ::ENABLE_MMC5_EXPANDED
+ FullXgEventLoopBanks
+.endif
 XgEventLoopLo:
  .byte $22,$22,$b5,$b5,$22,$b5,$a3,$22,$22,$b5,$b5,$22,$b5,$a8,$6c,$6c,$6c,$6c,$6c,$6c,$6c,$6c,$0c,$be,$c7,$0c,$be,$3a,$06,$06,$1c,$09,$06,$1c,$37,$6c,$ed,$5c,$6a,$ed,$5c,$e6,$22,$22,$b5,$b5,$22,$b5,$a3
+.if ::ENABLE_MMC5_EXPANDED
+ FullXgEventLoopLo
+.endif
 XgEventLoopHi:
  .byte $b6,$b6,$b6,$b6,$b6,$b6,$b1,$b6,$b6,$b6,$b6,$b6,$b6,$af,$b8,$b8,$b8,$b8,$b8,$b8,$b8,$b8,$b0,$a3,$aa,$b0,$a3,$a7,$bd,$bd,$a1,$a7,$bd,$a1,$b2,$b8,$b4,$ac,$b2,$b4,$ac,$b4,$b6,$b6,$b6,$b6,$b6,$b6,$b1
+.if ::ENABLE_MMC5_EXPANDED
+ FullXgEventLoopHi
+.endif
 XgMacroLo:
  .byte <XgMacro32,<XgMacro33,<XgMacro34,<XgMacro35,<XgMacro36,<XgMacro37,<XgMacro38,<XgMacro39,<XgMacro40,<XgMacro41,<XgMacro42,<XgMacro43,<XgMacro44,<XgMacro45,<XgMacro46,<XgMacro47,<XgMacro48,<XgMacro49,<XgMacro50,<XgMacro51,<XgMacro52,<XgMacro53,<XgMacro54,<XgMacro55,<XgMacro56,<XgMacro57,<XgMacro58,<XgMacro59,<XgMacro60,<XgMacro61,<XgMacro62,<XgMacro63,<XgMacro64,<XgMacro65,<XgMacro66,<XgMacro67,<XgMacro68,<XgMacro69,<XgMacro70,<XgMacro71,<XgMacro72,<XgMacro73,<XgMacro74,<XgMacro75,<XgMacro76,<XgMacro77,<XgMacro78,<XgMacro79,<XgMacro80,<XgMacro81,<XgMacro82,<XgMacro83,<XgMacro84,<XgMacro85,<XgMacro86,<XgMacro87,<XgMacro88,<XgMacro89,<XgMacro90,<XgMacro91,<XgMacro92,<XgMacro93,<XgMacro94,<XgMacro95,<XgMacro96,<XgMacro97,<XgMacro98,<XgMacro99,<XgMacro100,<XgMacro101,<XgMacro102,<XgMacro103,<XgMacro104,<XgMacro105,<XgMacro106,<XgMacro107,<XgMacro108,<XgMacro109,<XgMacro110,<XgMacro111,<XgMacro112,<XgMacro113,<XgMacro114,<XgMacro115,<XgMacro116,<XgMacro117,<XgMacro118,<XgMacro119,<XgMacro120,<XgMacro121,<XgMacro122,<XgMacro123,<XgMacro124,<XgMacro125,<XgMacro126,<XgMacro127,<XgMacro128,<XgMacro129,<XgMacro130,<XgMacro131,<XgMacro132,<XgMacro133,<XgMacro134,<XgMacro135,<XgMacro136,<XgMacro137,<XgMacro138,<XgMacro139,<XgMacro140,<XgMacro141,<XgMacro142,<XgMacro143,<XgMacro144,<XgMacro145,<XgMacro146,<XgMacro147,<XgMacro148,<XgMacro149,<XgMacro150,<XgMacro151,<XgMacro152,<XgMacro153,<XgMacro154,<XgMacro155,<XgMacro156,<XgMacro157,<XgMacro158,<XgMacro159,<XgMacro160,<XgMacro161,<XgMacro162,<XgMacro163,<XgMacro164,<XgMacro165,<XgMacro166,<XgMacro167,<XgMacro168,<XgMacro169,<XgMacro170,<XgMacro171,<XgMacro172,<XgMacro173,<XgMacro174,<XgMacro175,<XgMacro176,<XgMacro177,<XgMacro178,<XgMacro179,<XgMacro180,<XgMacro181,<XgMacro182,<XgMacro183,<XgMacro184,<XgMacro185,<XgMacro186,<XgMacro187,<XgMacro188,<XgMacro189,<XgMacro190,<XgMacro191,<XgMacro192,<XgMacro193,<XgMacro194,<XgMacro195,<XgMacro196,<XgMacro197,<XgMacro198,<XgMacro199,<XgMacro200,<XgMacro201,<XgMacro202,<XgMacro203,<XgMacro204,<XgMacro205,<XgMacro206,<XgMacro207,<XgMacro208,<XgMacro209,<XgMacro210,<XgMacro211,<XgMacro212,<XgMacro213,<XgMacro214,<XgMacro215,<XgMacro216,<XgMacro217,<XgMacro218,<XgMacro219,<XgMacro220,<XgMacro221,<XgMacro222,<XgMacro223,<XgMacro224,<XgMacro225,<XgMacro226,<XgMacro227,<XgMacro228,<XgMacro229,<XgMacro230,<XgMacro231,<XgMacro232,<XgMacro233,<XgMacro234,<XgMacro235,<XgMacro236,<XgMacro237,<XgMacro238,<XgMacro239,<XgMacro240,<XgMacro241,<XgMacro242,<XgMacro243,<XgMacro244,<XgMacro245,<XgMacro246,<XgMacro247,<XgMacro248,<XgMacro249,<XgMacro250,<XgMacro251,<XgMacro252,<XgMacro253
 XgMacroHi:

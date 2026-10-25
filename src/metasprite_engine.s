@@ -313,7 +313,7 @@ LoopCount = M0
   ; Poses use different sprite counts. Hide the whole player reservation
   ; before drawing anything, including the death burst into that reservation.
 .if ::ENABLE_CROSSOVER
-  jsr CrossoverGraphicsBank
+  jsr HpGraphicsBankCopy
 .endif
  .if ::ENABLE_CROSSOVER
   lda SelectedCharacter
@@ -329,6 +329,11 @@ RotateGuestOAM:
   sta GuestOamRotationActive
   ; Move the hardware's first-sprite priority through the entire OAM list.
   ; Keep allocation offsets logical, so body/weapon budgets are unchanged.
+.if ::ENABLE_MMC5_EXPANDED
+  ; Keep the full bank4 draw gate bounded; the expanded selector retains the
+  ; same rotation and skips only pivots that split Meta's native layers.
+  farcall KbOamPriority
+.else
   lda RgOamUsed
   beq FirstRosterDraw
   lsr
@@ -352,6 +357,7 @@ RosterPriorityReady:
   clc
   adc #1
   sta RgOamRotation
+.endif
   ; Give weapons the first OAM slots. Transparent portions of layered bodies
   ; still consume the PPU's eight sprites per line and must not hide shots.
   lda #$f8
@@ -362,7 +368,11 @@ RosterPriorityReady:
  .endrepeat
   ldx #0
   stx CurrentOAMOffset
+.if ::ENABLE_MMC5_EXPANDED
+  farcall RlSpecialDrawDispatch
+.else
   farcall SpecialDrawShots
+.endif
   lda SelectedCharacter
   cmp #CHARACTER_MEGAMAN
   bne RosterShots
@@ -370,13 +380,21 @@ RosterPriorityReady:
   lda CurrentOAMOffset
   sta RgOamPlayerStart
 ::MegaManProjectileOamReady:
+ .if ::ENABLE_MMC5_EXPANDED
+  jsr ProtoOamReservation
+ .else
   jsr PlayerOAMReservation
+ .endif
   clc
   adc CurrentOAMOffset
   sta CurrentOAMOffset
   jmp InitObjectLoop
 RosterShots:
+.if ::ENABLE_MMC5_EXPANDED
+  jsr KbDrawDispatch
+.else
   jsr RosterDrawShots
+.endif
   lda CurrentOAMOffset
   sta RgOamPlayerStart
 ::RosterProjectileOamReady:
@@ -429,8 +447,13 @@ ObjectLoopPositive:
       ; implicit carry set
       sbc #24
     :
-    ; skip index zero since we draw the player first always.
+    ; Index zero is the reserved world-firebar turn. Share the shuffled OAM
+    ; budget with ordinary objects instead of always drawing firebars last.
+.if ::ENABLE_CROSSOVER
+    beq PositiveFirebars
+.else
     beq NextLoop
+.endif
       ; TODO check offscreenbits to make sure they are onscreen still
       tay
       ldx ObjectMetasprite,y
@@ -444,6 +467,12 @@ ObjectLoopPositive:
     dec LoopCount
     bpl ObjectLoopPositive
   jmp HandleFloateyNumbers
+.if ::ENABLE_CROSSOVER
+PositiveFirebars:
+  jsr WorldFirebarDrawAdmission
+  lda #0
+  beq NextLoop
+.endif
 
 ObjectLoopNegative:
     sec
@@ -452,8 +481,11 @@ ObjectLoopNegative:
       ; implicit carry clear
       adc #24
     :
-    ; skip index zero since we draw the player first always.
+.if ::ENABLE_CROSSOVER
+    beq NegativeFirebars
+.else
     beq NextLoop2
+.endif
       ; TODO check offscreenbits to make sure they are onscreen still
       tay
       ldx ObjectMetasprite,y
@@ -466,29 +498,17 @@ ObjectLoopNegative:
   NextLoop2:
     dec LoopCount
     bpl ObjectLoopNegative
+.if ::ENABLE_CROSSOVER
+  jmp HandleFloateyNumbers
+NegativeFirebars:
+  jsr WorldFirebarDrawAdmission
+  lda #0
+  beq NextLoop2
+.endif
 
 HandleFloateyNumbers:
   sta SpriteShuffleOffset
 .if ::ENABLE_CROSSOVER
-::WorldFirebarAdmission:
-  ; No matching ID can produce a firebar. Inactive/duplicate matching slots
-  ; conservatively keep the original helper, which checks their live flags.
-  ldx #5
-CheckFirebarID:
-  lda Enemy_ID,x
-  cmp #$1b
-  bcc NextFirebarID
-  cmp #$23
-  bcc DrawFirebars
-NextFirebarID:
-  dex
-  bpl CheckFirebarID
-  stx FirebarSlot              ; Preserve the helper's exhausted scratch slot.
-  bmi FirebarsReady
-DrawFirebars:
-  farcall DrawWorldFirebars
-FirebarsReady:
-::WorldFirebarAdmissionDone:
   jsr DrawBrickDebris
   farcall SamusDrawShots
   jsr MegaManFullShotBank
@@ -630,8 +650,33 @@ MouseStateMetasprite:
 .endproc
 
 .if ::ENABLE_CROSSOVER
+.proc WorldFirebarDrawAdmission
+::WorldFirebarAdmission:
+  ; No matching ID can produce a firebar. Keep the existing live-owner checks.
+  ldx #5
+CheckFirebarID:
+  lda Enemy_ID,x
+  cmp #$1b
+  bcc NextFirebarID
+  cmp #$23
+  bcc DrawFirebars
+NextFirebarID:
+  dex
+  bpl CheckFirebarID
+  stx FirebarSlot
+  bmi FirebarsReady
+DrawFirebars:
+  farcall DrawWorldFirebars
+FirebarsReady:
+::WorldFirebarAdmissionDone:
+  rts
+.endproc
+.endif
+
+.if ::ENABLE_CROSSOVER
 ; Step through the allocated list rather than all 64 slots. Coprime steps
 ; prevent an unlucky body/projectile count from starving particular parts.
+.if .not ::ENABLE_MMC5_EXPANDED
 RosterRotationStep:
   .byte 0
 .repeat 63, I
@@ -650,6 +695,7 @@ RosterRotationStep:
   .endif
  .endscope
 .endrepeat
+.endif
 .pushseg
 .segment "SRAM"
 DebrisSlot: .res 1
@@ -756,16 +802,20 @@ VFlip = M1
 DrawSprite:
 
 .if ::ENABLE_CROSSOVER
-  cpy #0
-  bne :+
-  lda ObjectMetasprite
-  cmp #METASPRITE_SAMUS_BODY
-  bne :+
-    lda SmPosePtr
-    sta Ptr
-    lda SmPosePtr+1
+  ; The once-per-DrawAll preparation validates each indirect slot. A zero
+  ; high byte keeps its original immutable native metasprite pointer.
+::HpNativePointerBegin:
+  cpy #7
+  bcs :+
+  lda HpNativeDrawHi,y
+  beq :+
     sta Ptr+1
+    lda HpNativeDrawLo,y
+    sta Ptr
+  .res 5,$ea
   :
+::HpNativePointerEnd:
+  .assert HpNativePointerEnd-HpNativePointerBegin=21,error,"Original pointer span"
 .endif
   ; sty OrigOffset
 
@@ -883,13 +933,21 @@ LsrFlashDone:
     lda PlayerOutlinesOff
     beq :+
       ldx SelectedCharacter
+ .if ::ENABLE_MMC5_EXPANDED
+      jsr X5PlayerOutlineFlag
+ .else
       lda PlayerOutlineCharacters,x
+ .endif
       beq :+                    ; Skip characters with no added mask records.
       farcall PlayerRemoveOutlines
   :
 .endif
 .if ::ENABLE_CROSSOVER && ::MAPPER_MMC5
+ .if ::ENABLE_MMC5_EXPANDED
+  jsr RlNativeRenderDispatch
+ .else
   jsr NativeGoombaRender
+ .endif
 .else
   jsr MetaspriteRenderLoop
 .endif

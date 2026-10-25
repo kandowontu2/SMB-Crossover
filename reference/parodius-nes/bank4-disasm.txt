@@ -1,0 +1,2444 @@
+8000 ???
+8001 LDA #$00
+8003 STA $0700
+8006 STA $0710
+8009 STA $0720
+800c STA $0730
+800f STA $0740
+8012 STA $0750
+8015 STA $0760
+8018 STA $0770
+801b STA $0780
+801e STA $0790
+8021 STA $07a0
+8024 STA $07b0
+8027 STA $07c0
+802a STA $07d0
+802d STA $07e0
+8030 STA $07f0
+8033 TAX
+8034 STX $01
+8036 LDA #$00
+8038 STA $6230,X
+803b LDA $63e0,X
+803e LSR A
+803f BCC $8091
+8041 LDA $6260,X
+8044 AND #$f0
+8046 STA $00
+8048 STA $03
+804a LDA $6200,X
+804d BNE $8054
+804f LDX $00
+8051 JMP $8071
+8054 ASL A
+8055 TAX
+8056 LDA $82f5,X
+8059 LSR A
+805a LSR A
+805b LSR A
+805c LSR A
+805d STA $02
+805f INC $02
+8061 TAX
+8062 LDA $00
+8064 SEC
+8065 SBC $8332,X
+8068 BCS $806c
+806a LDA #$00
+806c AND #$f0
+806e STA $03
+8070 TAX
+8071 LDA $0700,X
+8074 CMP #$0f
+8076 BCS $8087
+8078 INC $0700,X
+807b LDA $0700,X
+807e ORA $03
+8080 TAY
+8081 LDA $01
+8083 STA $0700,Y
+8086 SEC
+8087 LDA $03
+8089 ADC #$0f
+808b BCS $8091
+808d DEC $02
+808f BNE $806c
+8091 LDX $01
+8093 INX
+8094 CPX #$1c
+8096 BNE $8034
+8098 LDX #$1c
+809a STX $00
+809c LDA #$00
+809e STA $6230,X
+80a1 LDA $63e0,X
+80a4 EOR #$01
+80a6 BEQ $80ab
+80a8 JMP $81c2
+80ab LDY #$00
+80ad LDA $6500,X
+80b0 CMP #$04
+80b2 BNE $80b6
+80b4 LDY #$01
+80b6 STY $05
+80b8 LDA $62c0,X
+80bb STA $0c
+80bd LDA $6200,X
+80c0 ASL A
+80c1 TAY
+80c2 LDA $82aa,Y
+80c5 STA $0e
+80c7 LDA $82ab,Y
+80ca TAY
+80cb STA $0f
+80cd STA $02
+80cf INC $02
+80d1 LDA $6260,X
+80d4 STA $0d
+80d6 AND #$f0
+80d8 SEC
+80d9 SBC $8332,Y
+80dc BCS $80e0
+80de LDA #$00
+80e0 AND #$f0
+80e2 TAX
+80e3 LSR A
+80e4 LSR A
+80e5 LSR A
+80e6 TAY
+80e7 LDA $80f4,Y
+80ea STA $08
+80ec LDA $80f5,Y
+80ef STA $09
+80f1 JMP ($0008)
+80f4 ???
+80f5 STA ($1f,X)
+80f7 STA ($2a,X)
+80f9 STA ($35,X)
+80fb STA ($40,X)
+80fd STA ($4d,X)
+80ff STA ($58,X)
+8101 STA ($63,X)
+8103 STA ($6e,X)
+8105 STA ($79,X)
+8107 STA ($84,X)
+8109 STA ($8f,X)
+810b STA ($9a,X)
+810d STA ($a5,X)
+810f STA ($b0,X)
+8111 STA ($bb,X)
+8113 STA ($20,X)
+8115 ???
+8116 STA ($b0,X)
+8118 BMI $80e0
+811a ???
+811b BEQ $8149
+811d LDX #$10
+811f JSR $81cf
+8122 BCS $8149
+8124 DEC $02
+8126 BEQ $8149
+8128 LDX #$20
+812a JSR $81cf
+812d BCS $8149
+812f DEC $02
+8131 BEQ $8149
+8133 LDX #$30
+8135 JSR $81cf
+8138 BCS $8149
+813a DEC $02
+813c BEQ $8149
+813e LDX #$40
+8140 JSR $81cf
+8143 BCS $8149
+8145 DEC $02
+8147 BNE $814b
+8149 BEQ $81c2
+814b LDX #$50
+814d JSR $81cf
+8150 BCS $81c2
+8152 DEC $02
+8154 BEQ $81c2
+8156 LDX #$60
+8158 JSR $81cf
+815b BCS $81c2
+815d DEC $02
+815f BEQ $81c2
+8161 LDX #$70
+8163 JSR $81cf
+8166 BCS $81c2
+8168 DEC $02
+816a BEQ $81c2
+816c LDX #$80
+816e JSR $81cf
+8171 BCS $81c2
+8173 DEC $02
+8175 BEQ $81c2
+8177 LDX #$90
+8179 JSR $81cf
+817c BCS $81c2
+817e DEC $02
+8180 BEQ $81c2
+8182 LDX #$a0
+8184 JSR $81cf
+8187 BCS $81c2
+8189 DEC $02
+818b BEQ $81c2
+818d LDX #$b0
+818f JSR $81cf
+8192 BCS $81c2
+8194 DEC $02
+8196 BEQ $81c2
+8198 LDX #$c0
+819a JSR $81cf
+819d BCS $81c2
+819f DEC $02
+81a1 BEQ $81c2
+81a3 LDX #$d0
+81a5 JSR $81cf
+81a8 BCS $81c2
+81aa DEC $02
+81ac BEQ $81c2
+81ae LDX #$e0
+81b0 JSR $81cf
+81b3 BCS $81c2
+81b5 DEC $02
+81b7 BEQ $81c2
+81b9 LDX #$f0
+81bb JSR $81cf
+81be BCS $81c2
+81c0 DEC $02
+81c2 LDX $00
+81c4 INX
+81c5 CPX #$30
+81c7 BEQ $81cc
+81c9 JMP $809a
+81cc JMP $8284
+81cf LDA $0700,X
+81d2 BNE $81d7
+81d4 JMP $8259
+81d7 STX $04
+81d9 ORA $04
+81db TAX
+81dc LDY $0700,X
+81df LDA $05
+81e1 AND $8312,Y
+81e4 BNE $8254
+81e6 LDA $6200,Y
+81e9 AND #$04
+81eb BNE $81f2
+81ed LDA $6230,Y
+81f0 BNE $8254
+81f2 LDY $00
+81f4 LDA $6200,Y
+81f7 TAY
+81f8 LDA $8285,Y
+81fb BEQ $8213
+81fd CMP #$01
+81ff BEQ $820e
+8201 LDA $0700,X
+8204 CMP #$05
+8206 BEQ $8254
+8208 CMP #$1a
+820a BNE $8213
+820c BEQ $8254
+820e LDA $0700,X
+8211 BNE $8254
+8213 LDY $0700,X
+8216 LDA $6200,Y
+8219 ASL A
+821a TAY
+821b LDA $82f5,Y
+821e STA $07
+8220 LDA $82f4,Y
+8223 ORA $0e
+8225 TAY
+8226 LDA $8332,Y
+8229 STA $06
+822b LDA $07
+822d ORA $0f
+822f TAY
+8230 LDA $8332,Y
+8233 STA $07
+8235 LDY $0700,X
+8238 LDA $62c0,Y
+823b SEC
+823c SBC $0c
+823e BCS $8242
+8240 EOR #$ff
+8242 CMP $06
+8244 BCS $8254
+8246 LDA $6260,Y
+8249 SEC
+824a SBC $0d
+824c BCS $8250
+824e EOR #$ff
+8250 CMP $07
+8252 BCC $825b
+8254 DEX
+8255 CPX $04
+8257 BNE $81dc
+8259 CLC
+825a RTS
+825b LDY $0700,X
+825e LDA $6200,Y
+8261 LDY $00
+8263 ORA #$80
+8265 STA $6230,Y
+8268 TYA
+8269 LDY $0700,X
+826c STA $66b0,Y
+826f LDA $6200,Y
+8272 CMP #$1b
+8274 BEQ $8283
+8276 LDY $00
+8278 LDA $6200,Y
+827b ORA #$80
+827d LDY $0700,X
+8280 STA $6230,Y
+8283 SEC
+8284 RTS
+8285 BRK
+8286 BRK
+8287 BRK
+8288 BRK
+8289 ORA ($01,X)
+828b ???
+828c ???
+828d ???
+828e ???
+828f ???
+8290 BRK
+8291 BRK
+8292 ORA ($00,X)
+8294 BRK
+8295 BRK
+8296 BRK
+8297 BRK
+8298 BRK
+8299 BRK
+829a BRK
+829b BRK
+829c ORA ($00,X)
+829e BRK
+829f BRK
+82a0 BRK
+82a1 BRK
+82a2 BRK
+82a3 BRK
+82a4 BRK
+82a5 BRK
+82a6 BRK
+82a7 BRK
+82a8 BRK
+82a9 BRK
+82aa ORA ($01,X)
+82ac ???
+82ad ???
+82ae ORA ($02,X)
+82b0 ???
+82b1 ???
+82b2 ???
+82b3 ORA ($02,X)
+82b5 ORA ($02,X)
+82b7 ORA ($02,X)
+82b9 ORA ($02,X)
+82bb ORA ($02,X)
+82bd ORA ($02,X)
+82bf ORA ($00,X)
+82c1 BRK
+82c2 BRK
+82c3 BRK
+82c4 ???
+82c5 ORA ($02,X)
+82c7 ???
+82c8 ASL $01
+82ca ORA ($05,X)
+82cc ASL $02
+82ce ???
+82cf ORA ($04,X)
+82d1 ORA ($02,X)
+82d3 ORA ($02,X)
+82d5 ???
+82d6 ???
+82d7 ???
+82d8 ???
+82d9 ???
+82da ???
+82db ORA ($04,X)
+82dd ???
+82de ???
+82df BRK
+82e0 ???
+82e1 ORA ($04,X)
+82e3 ORA ($05,X)
+82e5 ORA ($01,X)
+82e7 BRK
+82e8 ???
+82e9 BRK
+82ea ???
+82eb BRK
+82ec ORA $00
+82ee BRK
+82ef ORA $0404
+82f2 ASL $08
+82f4 BRK
+82f5 BRK
+82f6 BRK
+82f7 BRK
+82f8 BRK
+82f9 BRK
+82fa BRK
+82fb BRK
+82fc BRK
+82fd BVC $831f
+82ff JSR $0000
+8302 ???
+8303 BRK
+8304 JSR $2020
+8307 BRK
+8308 RTI
+8309 RTI
+830a BMI $833c
+830c BRK
+830d BMI $832f
+830f JSR $0000
+8312 BRK
+8313 BRK
+8314 BRK
+8315 BRK
+8316 BRK
+8317 BRK
+8318 ORA ($01,X)
+831a ORA ($01,X)
+831c ORA ($01,X)
+831e ORA ($01,X)
+8320 ORA ($01,X)
+8322 ORA ($01,X)
+8324 ORA ($01,X)
+8326 ORA ($01,X)
+8328 ORA ($01,X)
+832a ORA ($01,X)
+832c BRK
+832d BRK
+832e BRK
+832f BRK
+8330 BRK
+8331 BRK
+8332 ASL $08
+8334 BPL $834e
+8336 JSR $3028
+8339 SEC
+833a RTI
+833b PHA
+833c BVC $8396
+833e RTS
+833f PLA
+8340 BVS $83ba
+8342 PHP
+8343 BPL $835d
+8345 JSR $3028
+8348 SEC
+8349 RTI
+834a PHA
+834b BVC $83a5
+834d RTS
+834e PLA
+834f BVS $83c9
+8351 ???
+8352 BPL $836c
+8354 JSR $3028
+8357 SEC
+8358 RTI
+8359 PHA
+835a BVC $83b4
+835c RTS
+835d PLA
+835e BVS $83d8
+8360 ???
+8361 DEY
+8362 CLC
+8363 JSR $3028
+8366 SEC
+8367 RTI
+8368 PHA
+8369 BVC $83c3
+836b RTS
+836c PLA
+836d BVS $83e7
+836f ???
+8370 DEY
+8371 BCC $8393
+8373 PLP
+8374 BMI $83ae
+8376 RTI
+8377 PHA
+8378 BVC $83d2
+837a RTS
+837b PLA
+837c BVS $83f6
+837e ???
+837f DEY
+8380 BCC $831a
+8382 PLP
+8383 BMI $83bd
+8385 RTI
+8386 PHA
+8387 BVC $83e1
+8389 RTS
+838a PLA
+838b BVS $8405
+838d ???
+838e DEY
+838f BCC $8329
+8391 LDY #$30
+8393 SEC
+8394 RTI
+8395 PHA
+8396 BVC $83f0
+8398 RTS
+8399 PLA
+839a BVS $8414
+839c ???
+839d DEY
+839e BCC $8338
+83a0 LDY #$a8
+83a2 SEC
+83a3 RTI
+83a4 PHA
+83a5 BVC $83ff
+83a7 RTS
+83a8 PLA
+83a9 BVS $8423
+83ab ???
+83ac DEY
+83ad BCC $8347
+83af LDY #$a8
+83b1 BCS $83f3
+83b3 PHA
+83b4 BVC $840e
+83b6 RTS
+83b7 PLA
+83b8 BVS $8432
+83ba ???
+83bb DEY
+83bc BCC $8356
+83be LDY #$a8
+83c0 BCS $837a
+83c2 PHA
+83c3 BVC $841d
+83c5 RTS
+83c6 PLA
+83c7 BVS $8441
+83c9 ???
+83ca DEY
+83cb BCC $8365
+83cd LDY #$a8
+83cf BCS $8389
+83d1 CPY #$50
+83d3 CLI
+83d4 RTS
+83d5 PLA
+83d6 BVS $8450
+83d8 ???
+83d9 DEY
+83da BCC $8374
+83dc LDY #$a8
+83de BCS $8398
+83e0 CPY #$c8
+83e2 CLI
+83e3 RTS
+83e4 PLA
+83e5 BVS $845f
+83e7 ???
+83e8 DEY
+83e9 BCC $8383
+83eb LDY #$a8
+83ed BCS $83a7
+83ef CPY #$c8
+83f1 BNE $8398
+83f3 ???
+83f4 CMP #$02
+83f6 BNE $841d
+83f8 LDA $61
+83fa AND #$3f
+83fc BNE $841d
+83fe LDA $60
+8400 AND #$07
+8402 TAY
+8403 LDA $8802,Y
+8406 STA $08
+8408 LDA $60
+840a LSR A
+840b LSR A
+840c LSR A
+840d STA $09
+840f LDA $81
+8411 ASL A
+8412 ASL A
+8413 ADC $09
+8415 TAY
+8416 LDA $08
+8418 AND $880a,Y
+841b STA $53
+841d LDA #$00
+841f STA $09
+8421 LDY $44
+8423 CPY #$02
+8425 BNE $8449
+8427 LDY #$00
+8429 LDA $78
+842b BEQ $842f
+842d LDY #$10
+842f STY $09
+8431 LDA $7b
+8433 AND #$01
+8435 BEQ $8439
+8437 LDA #$08
+8439 ORA $09
+843b STA $09
+843d LDA $7b
+843f AND #$04
+8441 BEQ $8449
+8443 LDY $65ab
+8446 LDA $8752,Y
+8449 ORA $09
+844b STA $09
+844d LDA $54
+844f CLC
+8450 ADC #$4c
+8452 STA $54
+8454 TAX
+8455 LDA #$40
+8457 STA $01
+8459 LDA #$05
+845b STA $0a
+845d LDY #$00
+845f STY $08
+8461 LDY $08
+8463 LDA $8756,Y
+8466 AND $09
+8468 BEQ $84a0
+846a TYA
+846b BNE $8472
+846d LDY $8f
+846f LDA $87b6,Y
+8472 ASL A
+8473 TAY
+8474 LDA $87ba,Y
+8477 STA $02
+8479 LDA $87bb,Y
+847c STA $03
+847e LDA $87a6,Y
+8481 STA $10
+8483 LDA $87a7,Y
+8486 BNE $8493
+8488 LDY #$ff
+848a LDA $78
+848c INY
+848d LSR A
+848e BCC $848c
+8490 LDA $879e,Y
+8493 STA $11
+8495 LDA #$00
+8497 STA $12
+8499 LDA #$c3
+849b STA $18
+849d JSR $856e
+84a0 INC $08
+84a2 DEC $0a
+84a4 BNE $8461
+84a6 LDA $44
+84a8 CMP #$02
+84aa BEQ $84b0
+84ac LDA #$ff
+84ae BNE $84b4
+84b0 LDA $23
+84b2 AND #$01
+84b4 STA $1f
+84b6 LDA #$2e
+84b8 STA $0a
+84ba LDY #$00
+84bc STY $08
+84be LDA $6410,Y
+84c1 BEQ $84c8
+84c3 STA $10
+84c5 JSR $85e7
+84c8 LDA $23
+84ca AND #$0f
+84cc TAY
+84cd LDA $876e,Y
+84d0 STA $08
+84d2 TAY
+84d3 LDA $6410,Y
+84d6 BEQ $84db
+84d8 JSR $85d9
+84db LDA $01
+84dd BEQ $84ee
+84df LDY $08
+84e1 INY
+84e2 CPY #$30
+84e4 BCC $84e8
+84e6 LDY #$01
+84e8 STY $08
+84ea DEC $0a
+84ec BNE $84d3
+84ee LDA $01
+84f0 BEQ $856d
+84f2 LDA $44
+84f4 CMP #$02
+84f6 BNE $855f
+84f8 LDA $53
+84fa BEQ $855f
+84fc INC $31
+84fe BNE $8502
+8500 INC $30
+8502 LDA #$08
+8504 STA $0a
+8506 LDA $30
+8508 ASL A
+8509 ASL A
+850a AND #$18
+850c ORA $0a
+850e TAY
+850f LDA $8717,Y
+8512 LDY $0a
+8514 SEC
+8515 SBC $64
+8517 STA $0200,X
+851a LDA #$52
+851c STA $0201,X
+851f LDA $8737,Y
+8522 STA $0202,X
+8525 LDA $873f,Y
+8528 STA $0c
+852a AND #$7f
+852c TAY
+852d LDA $31
+852f CPY #$00
+8531 BEQ $854d
+8533 LDA $30
+8535 STA $0b
+8537 LDA $0c
+8539 BMI $8545
+853b LDA $31
+853d ASL $0b
+853f ROL A
+8540 DEY
+8541 BNE $853d
+8543 BEQ $854d
+8545 LDA $31
+8547 LSR A
+8548 ROR $0b
+854a DEY
+854b BNE $8547
+854d EOR #$ff
+854f STA $0203,X
+8552 TXA
+8553 CLC
+8554 ADC #$c4
+8556 TAX
+8557 DEC $01
+8559 BEQ $856d
+855b DEC $0a
+855d BNE $8506
+855f LDA #$f4
+8561 STA $0200,X
+8564 TXA
+8565 CLC
+8566 ADC #$c4
+8568 TAX
+8569 DEC $01
+856b BNE $855f
+856d RTS
+856e LDY #$00
+8570 LDA ($02),Y
+8572 STA $00
+8574 INY
+8575 LDA $11
+8577 CLC
+8578 ADC ($02),Y
+857a STA $0203,X
+857d INY
+857e LDA ($02),Y
+8580 STA $19
+8582 AND $18
+8584 ORA $12
+8586 STA $0202,X
+8589 INY
+858a LDA ($02),Y
+858c STA $0201,X
+858f LDA $19
+8591 AND #$3c
+8593 BEQ $85a2
+8595 STY $1a
+8597 LSR A
+8598 LSR A
+8599 TAY
+859a LDA $8748,Y
+859d LDY $1a
+859f JMP $85a5
+85a2 INY
+85a3 LDA ($02),Y
+85a5 CLC
+85a6 ADC $10
+85a8 STA $0200,X
+85ab TXA
+85ac CLC
+85ad ADC #$c4
+85af TAX
+85b0 DEC $01
+85b2 BEQ $85b8
+85b4 DEC $00
+85b6 BNE $8574
+85b8 RTS
+85b9 BRK
+85ba BRK
+85bb ORA ($00,X)
+85bd ???
+85be BRK
+85bf BRK
+85c0 BRK
+85c1 BRK
+85c2 ORA ($01,X)
+85c4 ORA ($ff,X)
+85c6 ORA ($00,X)
+85c8 ORA ($00,X)
+85ca ???
+85cb ORA ($ff,X)
+85cd ???
+85ce ???
+85cf BRK
+85d0 ???
+85d1 BRK
+85d2 BRK
+85d3 ORA ($00,X)
+85d5 ???
+85d6 BRK
+85d7 BRK
+85d8 BRK
+85d9 STA $10
+85db CPY #$1c
+85dd BCS $85e7
+85df LDA $86fc,Y
+85e2 CMP $1f
+85e4 BNE $85e7
+85e6 RTS
+85e7 LDA $63e0,Y
+85ea LSR A
+85eb LSR A
+85ec LSR A
+85ed AND #$1e
+85ef TAY
+85f0 LDA $85b9,Y
+85f3 STA $13
+85f5 LDA $85ba,Y
+85f8 BNE $85e6
+85fa STA $14
+85fc LDY $08
+85fe LDA $66e0,Y
+8601 ASL A
+8602 TAY
+8603 LDA #$00
+8605 ASL $10
+8607 ROL A
+8608 STA $11
+860a LDA $882e,Y
+860d CLC
+860e ADC $10
+8610 STA $10
+8612 LDA $882f,Y
+8615 ADC $11
+8617 STA $11
+8619 LDY #$00
+861b LDA ($10),Y
+861d STA $02
+861f INY
+8620 LDA ($10),Y
+8622 STA $03
+8624 LDY $08
+8626 LDA $6260,Y
+8629 STA $11
+862b LDA $62c0,Y
+862e STA $10
+8630 LDA #$c3
+8632 STA $18
+8634 LDA $6440,Y
+8637 STA $12
+8639 BEQ $863f
+863b LDA #$c0
+863d STA $18
+863f LDY #$00
+8641 LDA ($02),Y
+8643 STA $00
+8645 CMP #$02
+8647 BCS $864c
+8649 JMP $8574
+864c CMP #$ff
+864e BEQ $86b0
+8650 INY
+8651 LDA #$00
+8653 STA $0e
+8655 LDA ($02),Y
+8657 BPL $865b
+8659 DEC $0e
+865b CLC
+865c ADC $11
+865e STA $0203,X
+8661 LDA $13
+8663 ADC $0e
+8665 AND #$01
+8667 BEQ $8674
+8669 INY
+866a LDA ($02),Y
+866c AND #$3c
+866e BNE $8671
+8670 INY
+8671 INY
+8672 BNE $86ab
+8674 INY
+8675 LDA ($02),Y
+8677 STA $19
+8679 AND $18
+867b ORA $12
+867d STA $0202,X
+8680 INY
+8681 LDA ($02),Y
+8683 STA $0201,X
+8686 LDA $19
+8688 AND #$3c
+868a BEQ $8699
+868c STY $1a
+868e LSR A
+868f LSR A
+8690 TAY
+8691 LDA $8748,Y
+8694 LDY $1a
+8696 JMP $869c
+8699 INY
+869a LDA ($02),Y
+869c CLC
+869d ADC $10
+869f STA $0200,X
+86a2 TXA
+86a3 CLC
+86a4 ADC #$c4
+86a6 TAX
+86a7 DEC $01
+86a9 BEQ $86af
+86ab DEC $00
+86ad BNE $8650
+86af RTS
+86b0 INY
+86b1 STY $00
+86b3 LDA $14
+86b5 BEQ $86bb
+86b7 RTS
+86b8 INY
+86b9 BNE $86eb
+86bb LDA $11
+86bd CLC
+86be ADC #$f8
+86c0 STA $0203,X
+86c3 LDA $13
+86c5 ADC #$ff
+86c7 AND #$01
+86c9 BNE $86b8
+86cb LDA $10
+86cd CLC
+86ce ADC #$f8
+86d0 STA $0200,X
+86d3 LDA ($02),Y
+86d5 AND $18
+86d7 ORA $12
+86d9 STA $0202,X
+86dc INY
+86dd LDA ($02),Y
+86df STA $0201,X
+86e2 TXA
+86e3 CLC
+86e4 ADC #$c4
+86e6 TAX
+86e7 DEC $01
+86e9 BEQ $86b7
+86eb DEC $00
+86ed BMI $86b7
+86ef INY
+86f0 LDA $13
+86f2 BNE $86b7
+86f4 LDA $11
+86f6 STA $0203,X
+86f9 JMP $86cb
+86fc ???
+86fd ???
+86fe ???
+86ff ???
+8700 ???
+8701 BRK
+8702 ORA ($00,X)
+8704 ORA ($00,X)
+8706 ORA ($00,X)
+8708 ORA ($00,X)
+870a ORA ($00,X)
+870c ORA ($00,X)
+870e ORA ($00,X)
+8710 ORA ($00,X)
+8712 ORA ($00,X)
+8714 ORA ($00,X)
+8716 ORA ($02,X)
+8718 CLC
+8719 SEC
+871a CLI
+871b SEI
+871c TYA
+871d CLV
+871e BNE $8760
+8720 SEI
+8721 BNE $8763
+8723 CLC
+8724 CLV
+8725 TYA
+8726 CLI
+8727 SEC
+8728 CLV
+8729 TYA
+872a CLI
+872b SEC
+872c SEI
+872d BNE $876f
+872f CLC
+8730 TYA
+8731 CLV
+8732 BNE $8774
+8734 CLC
+8735 SEC
+8736 CLI
+8737 SEI
+8738 JSR $2221
+873b JSR $2122
+873e AND ($20,X)
+8740 BRK
+8741 ORA ($81,X)
+8743 ???
+8744 ORA ($03,X)
+8746 BRK
+8747 ORA ($00,X)
+8749 SED
+874a BRK
+874b PHP
+874c BPL $8766
+874e JSR $f928
+8751 BEQ $8753
+8753 ORA ($03,X)
+8755 ???
+8756 ORA ($02,X)
+8758 ???
+8759 PHP
+875a BPL $877c
+875c RTI
+875d ???
+875e ???
+875f DEY
+8760 CPY $5410
+8763 TYA
+8764 ???
+8765 JSR $a864
+8768 CPX $7430
+876b CLV
+876c ???
+876d BRK
+876e ???
+876f ROL $09
+8771 ???
+8772 ???
+8773 ???
+8774 AND $08
+8776 ???
+8777 ROL $2411
+877a ???
+877b ???
+877c AND $2310
+877f ASL $19
+8781 BIT $220f
+8784 ORA $18
+8786 ???
+8787 ASL $0421
+878a ???
+878b ROL A
+878c ORA $0320
+878f ASL $29,X
+8791 ???
+8792 ???
+8793 ???
+8794 ORA $28,X
+8796 ???
+8797 ASL $1401,X
+879a ???
+879b ASL A
+879c ORA $1800,X
+879f SEC
+87a0 CLI
+87a1 SEI
+87a2 TYA
+87a3 CLV
+87a4 CLD
+87a5 SED
+87a6 ???
+87a7 BEQ $877d
+87a9 CPX $d4
+87ab CMP $f0da,X
+87ae ???
+87af BRK
+87b0 ???
+87b1 BEQ $878d
+87b3 BEQ $878f
+87b5 BEQ $87b7
+87b7 ORA $06
+87b9 ???
+87ba ???
+87bb ???
+87bc ???
+87bd ???
+87be ???
+87bf ???
+87c0 ???
+87c1 ???
+87c2 DEX
+87c3 ???
+87c4 ???
+87c5 ???
+87c6 SBC #$87
+87c8 BEQ $8751
+87ca ???
+87cb BEQ $87ce
+87cd ADC $f8fc,X
+87d0 ORA ($7f,X)
+87d2 ???
+87d3 BRK
+87d4 EOR ($7f,X)
+87d6 ???
+87d7 PHP
+87d8 EOR ($7d,X)
+87da ???
+87db ???
+87dc SED
+87dd ???
+87de ADC ($00),Y
+87e0 ???
+87e1 ???
+87e2 ???
+87e3 SED
+87e4 ASL $75
+87e6 BRK
+87e7 LSR $75
+87e9 ???
+87ea SED
+87eb ???
+87ec ???
+87ed BRK
+87ee ???
+87ef ADC $f802,Y
+87f2 ???
+87f3 ???
+87f4 BRK
+87f5 ???
+87f6 ???
+87f7 ORA ($fc,X)
+87f9 ORA $6d
+87fb ???
+87fc SED
+87fd ORA $6f
+87ff BRK
+8800 EOR $6f
+8802 ???
+8803 RTI
+8804 JSR $0810
+8807 ???
+8808 ???
+8809 ORA ($e0,X)
+880b BRK
+880c BRK
+880d BRK
+880e ???
+880f ???
+8810 ???
+8811 ???
+8812 SED
+8813 ORA ($e0,X)
+8815 BRK
+8816 CPX #$00
+8818 BRK
+8819 BRK
+881a ???
+881b ???
+881c ???
+881d ???
+881e CPX #$00
+8820 BRK
+8821 BRK
+8822 CPX #$0f
+8824 BRK
+8825 BRK
+8826 ???
+8827 BRK
+8828 BRK
+8829 BRK
+882a ???
+882b BRK
+882c BRK
+882d BRK
+882e ???
+882f LDY $8836
+8832 ???
+8833 ???
+8834 EOR #$bb
+8836 CLD
+8837 ???
+8838 ???
+8839 STA $8de1
+883c ???
+883d STX $8d3a
+8840 BVC $87cf
+8842 ADC #$8d
+8844 JMP $c48e
+8847 ???
+8848 CMP #$8f
+884a DEC $d38f
+884d ???
+884e CLD
+884f ???
+8850 CMP $e28f,X
+8853 ???
+8854 ???
+8855 ???
+8856 CPX $f18f
+8859 ???
+885a INC $8f,X
+885c ???
+885d ???
+885e BRK
+885f BCC $8866
+8861 BCC $886d
+8863 BCC $8874
+8865 BCC $887b
+8867 BCC $8882
+8869 BCC $8889
+886b BCC $8890
+886d BCC $88c0
+886f STX $9028
+8872 ???
+8873 BCC $88ab
+8875 BCC $88b4
+8877 BCC $88f8
+8879 STA $8d95
+887c LDX $c88d
+887f STA $8de6
+8882 ???
+8883 STA $8df0
+8886 SBC $8d,X
+8888 ???
+8889 STA $8dff
+888c ???
+888d BCC $88da
+888f BCC $88e3
+8891 BCC $88ec
+8893 BCC $88f5
+8895 BCC $8901
+8897 BCC $8910
+8899 BCC $881f
+889b BCC $882e
+889d BCC $8840
+889f BCC $8855
+88a1 BCC $885e
+88a3 BCC $8867
+88a5 BCC $886e
+88a7 BCC $8877
+88a9 BCC $8884
+88ab BCC $8891
+88ad BCC $889e
+88af BCC $88ab
+88b1 BCC $88b9
+88b3 STA ($12),Y
+88b5 STA ($1e),Y
+88b7 STA ($2a),Y
+88b9 STA ($34),Y
+88bb STA ($3e),Y
+88bd STA ($48),Y
+88bf STA ($52),Y
+88c1 STA ($5c),Y
+88c3 STA ($66),Y
+88c5 STA ($70),Y
+88c7 STA ($7a),Y
+88c9 STA ($87),Y
+88cb STA ($94),Y
+88cd STA ($a1),Y
+88cf STA ($ae),Y
+88d1 STA ($bb),Y
+88d3 STA ($c8),Y
+88d5 STA ($d5),Y
+88d7 STA ($e2),Y
+88d9 STA ($e7),Y
+88db STA ($ec),Y
+88dd STA ($f1),Y
+88df STA ($f6),Y
+88e1 STA ($fb),Y
+88e3 STA ($00),Y
+88e5 ???
+88e6 ???
+88e7 ???
+88e8 ASL $1392
+88eb ???
+88ec ???
+88ed ???
+88ee ???
+88ef ???
+88f0 ???
+88f1 ???
+88f2 ADC $8e92,X
+88f5 ???
+88f6 ???
+88f7 ???
+88f8 BNE $888c
+88fa SBC ($92),Y
+88fc ???
+88fd ???
+88fe ???
+88ff ???
+8900 ???
+8901 ???
+8902 EOR $93,X
+8904 ROR $93,X
+8906 ???
+8907 ???
+8908 STY $9793
+890b ???
+890c ???
+890d ???
+890e LDA $b793
+8911 ???
+8912 ???
+8913 ???
+8914 CPY $d893
+8917 ???
+8918 ???
+8919 STA $7e,X
+891b STA $85,X
+891d STA $8c,X
+891f STA $93,X
+8921 STA $9a,X
+8923 STA $a1,X
+8925 STA $a8,X
+8927 STA $af,X
+8929 STA $b4,X
+892b STA $d2,X
+892d STA $9915
+8930 ???
+8931 STA $8f80,Y
+8934 STA $ee8f,X
+8937 STA $f3,X
+8939 STA $14,X
+893b STX $35,Y
+893d STX $56,Y
+893f STX $77,Y
+8941 STX $98,Y
+8943 STX $c8,Y
+8945 STX $8ed9
+8948 NOP
+8949 STX $8f03
+894c LDA $da96,Y
+894f STX $fb,Y
+8951 STX $1c,Y
+8953 ???
+8954 AND $5e97,X
+8957 ???
+8958 ???
+8959 ???
+895a LDY #$97
+895c CMP ($97,X)
+895e ???
+895f ???
+8960 ???
+8961 TYA
+8962 ???
+8963 TYA
+8964 AND #$98
+8966 ???
+8967 TYA
+8968 ???
+8969 TYA
+896a BVS $8904
+896c STA ($98),Y
+896e ???
+896f TYA
+8970 ???
+8971 TYA
+8972 ???
+8973 TYA
+8974 ???
+8975 ???
+8976 AND ($8f),Y
+8978 LSR $8f
+897a ???
+897b ???
+897c ???
+897d STA $9924,Y
+8980 AND $5a99,X
+8983 STA $996b,Y
+8986 STY $99
+8988 LDA ($99,X)
+898a ???
+898b STA $99bf,Y
+898e CPY $d999
+8991 STA $99e6,Y
+8994 ???
+8995 STA $9a00,Y
+8998 ORA $1a9a
+899b TXS
+899c ???
+899d TXS
+899e CPX $93
+89a0 ???
+89a1 ???
+89a2 ???
+89a3 ???
+89a4 SBC $0093,Y
+89a7 STY $07,X
+89a9 STY $0e,X
+89ab STY $13,X
+89ad STY $1a,X
+89af STY $21,X
+89b1 STY $28,X
+89b3 STY $2d,X
+89b5 STY $4e,X
+89b7 STY $6f,X
+89b9 STY $90,X
+89bb STY $b1,X
+89bd STY $d2,X
+89bf STY $f3,X
+89c1 STY $14,X
+89c3 STA $35,X
+89c5 STA $56,X
+89c7 STA $56,X
+89c9 STX $8e5b
+89cc RTS
+89cd STX $8e65
+89d0 ROR A
+89d1 STX $8e77
+89d4 STY $8e
+89d6 STA $8e,X
+89d8 LDX $8e
+89da ???
+89db STX $9a34
+89de AND $439a,Y
+89e1 TXS
+89e2 EOR $549a
+89e5 TXS
+89e6 LSR $689a,X
+89e9 TXS
+89ea ADC $779a
+89ed TXS
+89ee STA ($9a,X)
+89f0 DEY
+89f1 TXS
+89f2 ???
+89f3 TXS
+89f4 ???
+89f5 TXS
+89f6 ???
+89f7 TXS
+89f8 LDX $b99a
+89fb TXS
+89fc CPY #$9a
+89fe ???
+89ff TXS
+8a00 DEC $9a,X
+8a02 CMP $ec9a,X
+8a05 TXS
+8a06 ???
+8a07 TXS
+8a08 BRK
+8a09 ???
+8a0a ???
+8a0b ???
+8a0c ASL $319b,X
+8a0f ???
+8a10 LSR A
+8a11 ???
+8a12 ???
+8a13 ???
+8a14 PLA
+8a15 ???
+8a16 JMP ($719b)
+8a19 ???
+8a1a ROR $9b,X
+8a1c ADC $829b,X
+8a1f ???
+8a20 ???
+8a21 ???
+8a22 STX $939b
+8a25 ???
+8a26 TYA
+8a27 ???
+8a28 STA $a29b,X
+8a2b ???
+8a2c ???
+8a2d ???
+8a2e LDY $c59b
+8a31 ???
+8a32 ASL $9c
+8a34 ???
+8a35 ???
+8a36 PLA
+8a37 ???
+8a38 STA ($9c,X)
+8a3a TXS
+8a3b ???
+8a3c ???
+8a3d ???
+8a3e ???
+8a3f ???
+8a40 ???
+8a41 ???
+8a42 ???
+8a43 ???
+8a44 CPY #$9c
+8a46 CMP $9c
+8a48 BVS $89e8
+8a4a ???
+8a4b ???
+8a4c DEC $9c,X
+8a4e CMP $e49c,X
+8a51 ???
+8a52 ???
+8a53 ???
+8a54 BEQ $89f2
+8a56 SBC $9c,X
+8a58 ???
+8a59 ???
+8a5a ???
+8a5b STA $9d0a,X
+8a5e ORA ($9d),Y
+8a60 CLC
+8a61 STA $9d1f,X
+8a64 BIT $9d
+8a66 ???
+8a67 STA $9d49,X
+8a6a ???
+8a6b STA $9d8d,X
+8a6e CPY $a495
+8a71 STA $9dae,X
+8a74 CLV
+8a75 STA $9dc9,X
+8a78 ???
+8a79 STA $9de0,X
+8a7c SBC $299d
+8a7f ???
+8a80 CLI
+8a81 ???
+8a82 ???
+8a83 ???
+8a84 DEC $e59d
+8a87 ???
+8a88 CPX $f39e
+8a8b ???
+8a8c ???
+8a8d ???
+8a8e ???
+8a8f ???
+8a90 ???
+8a91 ???
+8a92 ???
+8a93 ???
+8a94 ASL A
+8a95 ???
+8a96 ORA ($9f),Y
+8a98 ORA $9f,X
+8a9a ORA $1d9f,Y
+8a9d ???
+8a9e AND ($9f,X)
+8aa0 AND $9f
+8aa2 AND #$9f
+8aa4 AND $dd9f
+8aa7 STA $31,X
+8aa9 ???
+8aaa ???
+8aab ???
+8aac EOR ($9f),Y
+8aae LSR $9f,X
+8ab0 ???
+8ab1 ???
+8ab2 ADC ($9f),Y
+8ab4 DEX
+8ab5 ???
+8ab6 ???
+8ab7 ???
+8ab8 ???
+8ab9 ???
+8aba ???
+8abb ???
+8abc ???
+8abd ???
+8abe ???
+8abf ???
+8ac0 ???
+8ac1 ???
+8ac2 ???
+8ac3 ???
+8ac4 SBC $1e9f,X
+8ac7 LDY #$3f
+8ac9 LDY #$60
+8acb LDY #$81
+8acd LDY #$a2
+8acf LDY #$c3
+8ad1 LDY #$e4
+8ad3 LDY #$05
+8ad5 LDA ($26,X)
+8ad7 LDA ($71,X)
+8ad9 LDA $1b
+8adb LDX #$20
+8add LDX #$25
+8adf LDX #$2a
+8ae1 LDX #$2f
+8ae3 LDX #$34
+8ae5 LDX #$39
+8ae7 LDX #$0e
+8ae9 STX $8e12
+8aec ORA $1d8e,Y
+8aef STX $8e21
+8af2 ROL $8e
+8af4 ???
+8af5 STX $8e30
+8af8 ROL $63a2,X
+8afb LDX #$7c
+8afd LDX #$89
+8aff LDX #$90
+8b01 LDX #$b9
+8b03 STA $bd,X
+8b05 STA $c7,X
+8b07 STA $35,X
+8b09 STX $8e39
+8b0c STA $a4a2,X
+8b0f LDX #$ab
+8b11 LDX #$b2
+8b13 LDX #$b9
+8b15 LDX #$c0
+8b17 LDX #$c7
+8b19 LDX #$ce
+8b1b LDX #$d5
+8b1d LDX #$e6
+8b1f LDX #$f7
+8b21 LDX #$08
+8b23 ???
+8b24 ORA $2aa3,Y
+8b27 ???
+8b28 ???
+8b29 ???
+8b2a BVC $8acf
+8b2c ???
+8b2d ???
+8b2e CLI
+8b2f ???
+8b30 ???
+8b31 STA $76,X
+8b33 ???
+8b34 ADC $849f,X
+8b37 ???
+8b38 ???
+8b39 ???
+8b3a BCC $8adb
+8b3c ???
+8b3d ???
+8b3e ???
+8b3f LDA ($64,X)
+8b41 LDA ($81,X)
+8b43 LDA ($8e,X)
+8b45 LDA ($9f,X)
+8b47 LDA ($ac,X)
+8b49 LDA ($b9,X)
+8b4b LDA ($ca,X)
+8b4d LDA ($db,X)
+8b4f LDA ($ec,X)
+8b51 LDA ($fd,X)
+8b53 LDA ($0c,X)
+8b55 LDX #$5c
+8b57 ???
+8b58 ADC $7ea3
+8b5b ???
+8b5c ???
+8b5d ???
+8b5e LDY #$a3
+8b60 LDA ($a3),Y
+8b62 ???
+8b63 ???
+8b64 ???
+8b65 ???
+8b66 CPX $a3
+8b68 SBC $a3,X
+8b6a ASL $a4
+8b6c ???
+8b6d LDY $28
+8b6f LDY $39
+8b71 LDY $4a
+8b73 LDY $5b
+8b75 LDY $6c
+8b77 LDY $7d
+8b79 LDY $8e
+8b7b LDY $9f
+8b7d LDY $b0
+8b7f LDY $c1
+8b81 LDY $d2
+8b83 LDY $e3
+8b85 LDY $f4
+8b87 LDY $fd
+8b89 LDY $06
+8b8b LDA $0f
+8b8d LDA $18
+8b8f LDA $21
+8b91 LDA $2a
+8b93 LDA $38
+8b95 LDA $3d
+8b97 LDA $4b
+8b99 LDA $50
+8b9b LDA $5e
+8b9d LDA $63
+8b9f LDA $47
+8ba1 STX $a576
+8ba4 ???
+8ba5 LDA $87
+8ba7 LDA $8c
+8ba9 LDA $93
+8bab LDA $9d
+8bad LDA $a4
+8baf LDA $ab
+8bb1 LDA $3d
+8bb3 STX $8e42
+8bb6 ???
+8bb7 LDA $b6
+8bb9 LDA $bd
+8bbb LDA $ba
+8bbd ???
+8bbe ???
+8bbf ???
+8bc0 ORA $1ea8,Y
+8bc3 TAY
+8bc4 ???
+8bc5 TAY
+8bc6 ???
+8bc7 LDA $d1
+8bc9 LDA $db
+8bcb LDA $e5
+8bcd LDA $ef
+8bcf LDA $f9
+8bd1 LDA $03
+8bd3 LDX $0a
+8bd5 LDX $12
+8bd7 LDX $16
+8bd9 LDX $1a
+8bdb LDX $1e
+8bdd LDX $25
+8bdf LDX $2c
+8be1 LDX $36
+8be3 LDX $40
+8be5 LDX $4d
+8be7 LDX $5a
+8be9 LDX $5e
+8beb LDX $62
+8bed LDX $66
+8bef LDX $6a
+8bf1 LDX $6e
+8bf3 LDX $72
+8bf5 LDX $76
+8bf7 LDX $7a
+8bf9 LDX $7e
+8bfb LDX $87
+8bfd LDX $98
+8bff LDX $af
+8c01 LDX $d0
+8c03 LDX $f7
+8c05 LDX $fc
+8c07 LDX $01
+8c09 ???
+8c0a ASL $a7
+8c0c ???
+8c0d ???
+8c0e BPL $8bb7
+8c10 ORA $a7,X
+8c12 ???
+8c13 ???
+8c14 ???
+8c15 ???
+8c16 BIT $a7
+8c18 AND #$a7
+8c1a ???
+8c1b ???
+8c1c ???
+8c1d ???
+8c1e PLA
+8c1f ???
+8c20 STA ($a7,X)
+8c22 DEY
+8c23 ???
+8c24 ???
+8c25 ???
+8c26 LDY #$a7
+8c28 LDA ($a7),Y
+8c2a ???
+8c2b ???
+8c2c ???
+8c2d ???
+8c2e ???
+8c2f ???
+8c30 SBC #$a7
+8c32 INC $a7,X
+8c34 ???
+8c35 TAY
+8c36 BPL $8be0
+8c38 PLP
+8c39 TAY
+8c3a BIT $30a8
+8c3d TAY
+8c3e AND $a8,X
+8c40 ???
+8c41 TAY
+8c42 ???
+8c43 TAY
+8c44 ???
+8c45 TAY
+8c46 ???
+8c47 TAY
+8c48 ROR A
+8c49 TAY
+8c4a ???
+8c4b TAY
+8c4c ROR $88a8,X
+8c4f TAY
+8c50 ???
+8c51 TAY
+8c52 ???
+8c53 TAY
+8c54 LDY #$a8
+8c56 ???
+8c57 TAY
+8c58 CPY $8d
+8c5a LDX $b2a8
+8c5d TAY
+8c5e LDX $a8,Y
+8c60 TSX
+8c61 TAY
+8c62 LDX $c2a8,Y
+8c65 TAY
+8c66 DEC $a8
+8c68 DEX
+8c69 TAY
+8c6a DEC $d2a8
+8c6d TAY
+8c6e ???
+8c6f TAY
+8c70 ???
+8c71 TAY
+8c72 BEQ $8c1c
+8c74 ???
+8c75 LDA #$15
+8c77 LDA #$26
+8c79 LDA #$3b
+8c7b LDA #$50
+8c7d LDA #$61
+8c7f LDA #$72
+8c81 LDA #$76
+8c83 LDA #$7a
+8c85 LDA #$7e
+8c87 LDA #$82
+8c89 LDA #$86
+8c8b LDA #$8a
+8c8d LDA #$8e
+8c8f LDA #$92
+8c91 LDA #$99
+8c93 LDA #$a0
+8c95 LDA #$a5
+8c97 LDA #$aa
+8c99 LDA #$b7
+8c9b LDA #$c4
+8c9d LDA #$cb
+8c9f LDA #$d2
+8ca1 LDA #$dc
+8ca3 LDA #$e6
+8ca5 LDA #$ea
+8ca7 LDA #$ee
+8ca9 LDA #$f5
+8cab LDA #$fc
+8cad LDA #$03
+8caf TAX
+8cb0 ASL A
+8cb1 TAX
+8cb2 ASL $12aa
+8cb5 TAX
+8cb6 ORA $20aa,Y
+8cb9 TAX
+8cba ???
+8cbb TAX
+8cbc ROL $32aa
+8cbf TAX
+8cc0 ROL $aa,X
+8cc2 AND $42aa,X
+8cc5 TAX
+8cc6 ???
+8cc7 TAX
+8cc8 JMP $50aa
+8ccb TAX
+8ccc ???
+8ccd TAX
+8cce CLI
+8ccf TAX
+8cd0 ???
+8cd1 TAX
+8cd2 ROR $aa
+8cd4 BVS $8c80
+8cd6 ???
+8cd7 TAX
+8cd8 STY $aa
+8cda STX $98aa
+8cdd TAX
+8cde LDX #$aa
+8ce0 LDY $b6aa
+8ce3 TAX
+8ce4 CPY #$aa
+8ce6 DEX
+8ce7 TAX
+8ce8 ???
+8ce9 TAX
+8cea SBC ($aa,X)
+8cec ???
+8ced TAX
+8cee ???
+8cef TAX
+8cf0 BPL $8c9d
+8cf2 ORA $2eab,X
+8cf5 ???
+8cf6 ???
+8cf7 ???
+8cf8 RTS
+8cf9 ???
+8cfa ???
+8cfb ???
+8cfc PLA
+8cfd ???
+8cfe ???
+8cff ???
+8d00 ???
+8d01 ???
+8d02 DEY
+8d03 ???
+8d04 TXS
+8d05 ???
+8d06 ???
+8d07 ???
+8d08 CMP ($ab,X)
+8d0a DEC $ab,X
+8d0c INX
+8d0d ???
+8d0e SBC $0bab,X
+8d11 LDY $ac19
+8d14 JSR $25ac
+8d17 LDY $ac32
+8d1a EOR ($ac,X)
+8d1c ???
+8d1d LDY $ac73
+8d20 STY $90ac
+8d23 LDY $ac94
+8d26 TYA
+8d27 LDY $ac9c
+8d2a LDY #$ac
+8d2c LDY $ac
+8d2e TAY
+8d2f LDY $acac
+8d32 BCS $8ce0
+8d34 LDA $ac,X
+8d36 TSX
+8d37 LDY $acbf
+8d3a ???
+8d3b ???
+8d3c ???
+8d3d ???
+8d3e ???
+8d3f ???
+8d40 ???
+8d41 ???
+8d42 ???
+8d43 STY $ef
+8d45 ???
+8d46 DEY
+8d47 ???
+8d48 ???
+8d49 TXA
+8d4a ???
+8d4b ???
+8d4c STY $0b07
+8d4f STX $f306
+8d52 ???
+8d53 STX $f3
+8d55 ???
+8d56 ???
+8d57 ???
+8d58 ???
+8d59 ???
+8d5a ???
+8d5b STY $f3
+8d5d ???
+8d5e ???
+8d5f BCC $8d64
+8d61 ???
+8d62 ???
+8d63 ???
+8d64 ???
+8d65 ???
+8d66 ???
+8d67 STY $03,X
+8d69 ???
+8d6a ???
+8d6b ???
+8d6c ???
+8d6d ???
+8d6e ???
+8d6f ???
+8d70 ???
+8d71 ???
+8d72 STY $ef
+8d74 ???
+8d75 STX $f7,Y
+8d77 ???
+8d78 TYA
+8d79 ???
+8d7a ???
+8d7b STY $0b07
+8d7e TXS
+8d7f ???
+8d80 ASL $67
+8d82 ???
+8d83 INC $8267,X
+8d86 INC $67,X
+8d88 STY $0a
+8d8a ???
+8d8b DEY
+8d8c ???
+8d8d ???
+8d8e TXA
+8d8f ???
+8d90 ???
+8d91 STY $4bf2
+8d94 STX $0606
+8d97 ???
+8d98 STX $f3
+8d9a INC $8243,X
+8d9d ???
+8d9e INC $43,X
+8da0 STY $f3
+8da2 ASL $43
+8da4 BCC $8da9
+8da6 INC $9243,X
+8da9 ???
+8daa INC $43,X
+8dac STY $03,X
+8dae ???
+8daf ASL $67
+8db1 ???
+8db2 INC $8267,X
+8db5 INC $67,X
+8db7 STY $0a
+8db9 ???
+8dba STX $02,Y
+8dbc ???
+8dbd TYA
+8dbe ???
+8dbf ???
+8dc0 STY $4bf2
+8dc3 TXS
+8dc4 ORA ($fc,X)
+8dc6 ???
+8dc7 TAY
+8dc8 ???
+8dc9 SED
+8dca ???
+8dcb ???
+8dcc BRK
+8dcd BIT $82
+8dcf BRK
+8dd0 PHP
+8dd1 STY $03
+8dd3 SED
+8dd4 ???
+8dd5 ???
+8dd6 BRK
+8dd7 BIT $86
+8dd9 BRK
+8dda PHP
+8ddb DEY
+8ddc ???
+8ddd BRK
+8dde ???
+8ddf CPY #$3c
+8de1 ???
+8de2 BRK
+8de3 ROL $3e40,X
+8de6 ???
+8de7 ???
+8de8 ???
+8de9 RTI
+8dea ???
+8deb ???
+8dec BRK
+8ded ???
+8dee RTI
+8def ???
+8df0 ???
+8df1 BRK
+8df2 ???
+8df3 BRK
+8df4 ROL $ff,X
+8df6 BRK
+8df7 ROL $3ec0,X
+8dfa ???
+8dfb BRK
+8dfc ???
+8dfd BRK
+8dfe ???
+8dff ???
+8e00 CPY #$3c
+8e02 CPY #$3a
+8e04 ???
+8e05 ???
+8e06 ORA $5a
+8e08 ???
+8e09 ORA $6c
+8e0b ASL $05
+8e0d ROR $fc01
+8e10 AND ($4c,X)
+8e12 ???
+8e13 SED
+8e14 AND ($48,X)
+8e16 BRK
+8e17 SBC ($48,X)
+8e19 ORA ($fc,X)
+8e1b ADC ($4c,X)
+8e1d ORA ($fc,X)
+8e1f AND ($4e,X)
+8e21 ???
+8e22 BRK
+8e23 NOP
+8e24 RTI
+8e25 NOP
+8e26 ???
+8e27 ORA ($ec,X)
+8e29 EOR ($ec,X)
+8e2b ???
+8e2c BRK
+8e2d INC $ee40
+8e30 ???
+8e31 BRK
+8e32 BEQ $8e74
+8e34 BEQ $8e37
+8e36 SBC $f221,X
+8e39 ORA ($fd,X)
+8e3b ???
+8e3c ???
+8e3d ???
+8e3e ORA ($d6,X)
+8e40 EOR ($d6,X)
+8e42 ???
+8e43 ORA ($d8,X)
+8e45 EOR ($d8,X)
+8e47 ???
+8e48 BRK
+8e49 DEC $40,X
+8e4b DEC $ff,X
+8e4d BRK
+8e4e TXS
+8e4f CPY #$9a
+8e51 ???
+8e52 BRK
+8e53 ???
+8e54 CPY #$9c
+8e56 ???
+8e57 BRK
+8e58 ???
+8e59 CPY #$9e
+8e5b ???
+8e5c BRK
+8e5d LDY $ac40
+8e60 ???
+8e61 BRK
+8e62 LDX $aec0
+8e65 ???
+8e66 BRK
+8e67 BCS $8ea9
+8e69 BCS $8e6f
+8e6b SBC $e825,Y
+8e6e SBC $ec09,Y
+8e71 ORA ($25,X)
+8e73 NOP
+8e74 ORA ($09,X)
+8e76 INC $0004
+8e79 ADC $e8
+8e7b BRK
+8e7c EOR #$ec
+8e7e SED
+8e7f ADC $ea
+8e81 SED
+8e82 EOR #$ee
+8e84 ???
+8e85 SBC $e881,Y
+8e88 ORA ($f9,X)
+8e8a STA ($ec,X)
+8e8c SBC ($01),Y
+8e8e STA ($ea,X)
+8e90 ORA ($01,X)
+8e92 STA ($ee,X)
+8e94 SBC ($04),Y
+8e96 BRK
+8e97 CMP ($e8,X)
+8e99 ORA ($00,X)
+8e9b CMP ($ec,X)
+8e9d SBC ($f8),Y
+8e9f CMP ($ea,X)
+8ea1 ORA ($f8,X)
+8ea3 CMP ($ee,X)
+8ea5 SBC ($04),Y
+8ea7 SBC $e801,Y
+8eaa ???
+8eab SBC $f001,Y
+8eae ???
+8eaf ORA ($01,X)
+8eb1 NOP
+8eb2 ???
+8eb3 ORA ($01,X)
+8eb5 ???
+8eb6 ???
+8eb7 ???
+8eb8 BRK
+8eb9 EOR ($e8,X)
+8ebb ???
+8ebc BRK
+8ebd EOR ($f0,X)
+8ebf ???
+8ec0 SED
+8ec1 EOR ($ea,X)
+8ec3 ???
+8ec4 SED
+8ec5 EOR ($f2,X)
+8ec7 ???
+8ec8 ???
+8ec9 SBC $e881,Y
+8ecc ???
+8ecd SBC $f081,Y
+8ed0 ???
+8ed1 ORA ($81,X)
+8ed3 NOP
+8ed4 ???
+8ed5 ORA ($81,X)
+8ed7 ???
+8ed8 ???
+8ed9 ???
+8eda BRK
+8edb CMP ($e8,X)
+8edd ???
+8ede BRK
+8edf CMP ($f0,X)
+8ee1 ???
+8ee2 SED
+8ee3 CMP ($ea,X)
+8ee5 ???
+8ee6 SED
+8ee7 CMP ($f2,X)
+8ee9 ???
+8eea ASL $f7
+8eec ORA ($e8,X)
+8eee SBC ($f7),Y
+8ef0 ORA ($f0,X)
+8ef2 ORA ($ff,X)
+8ef4 ORA ($ea,X)
+8ef6 SBC ($ff),Y
+8ef8 ORA ($f2,X)
+8efa ORA ($06,X)
+8efc ???
+8efd ???
+8efe ???
+8eff ASL $fcc3
+8f02 ???
+8f03 ASL $02
+8f05 EOR ($e8,X)
+8f07 SBC ($02),Y
+8f09 EOR ($f0,X)
+8f0b ORA ($fa,X)
+8f0d EOR ($ea,X)
+8f0f SBC ($fa),Y
+8f11 EOR ($f2,X)
+8f13 ORA ($f3,X)
+8f15 ???
+8f16 ???
+8f17 ???
+8f18 ???
+8f19 ???
+8f1a ???
+8f1b ???
+8f1c ASL $f7
+8f1e ???
+8f1f INX
+8f20 ???
+8f21 LDA $f0
+8f23 ???
+8f24 ???
+8f25 NOP
+8f26 ???
+8f27 LDA $f2
+8f29 ASL $03
+8f2b ???
+8f2c SBC ($0e),Y
+8f2e ???
+8f2f ???
+8f30 SBC ($06),Y
+8f32 ???
+8f33 CMP #$e8
+8f35 ???
+8f36 SBC $f0
+8f38 ???
+8f39 CMP #$ea
+8f3b ???
+8f3c SBC $f2
+8f3e ???
+8f3f ???
+8f40 ???
+8f41 SBC ($eb),Y
+8f43 ???
+8f44 ???
+8f45 SBC ($07),Y
+8f47 SBC ($01),Y
+8f49 ???
+8f4a ???
+8f4b SBC $e801,Y
+8f4e ???
+8f4f SBC $f601,Y
+8f52 ???
+8f53 ORA ($01,X)
+8f55 NOP
+8f56 ???
+8f57 ORA ($01,X)
+8f59 SED
+8f5a ???
+8f5b ORA #$01
+8f5d ???
+8f5e ???
+8f5f ORA ($c1),Y
+8f61 ???
+8f62 ???
+8f63 ???
+8f64 PHP
+8f65 EOR ($f4,X)
+8f67 ???
+8f68 BRK
+8f69 EOR ($e8,X)
+8f6b ???
+8f6c BRK
+8f6d EOR ($f6,X)
+8f6f ???
+8f70 SED
+8f71 EOR ($ea,X)
+8f73 ???
+8f74 SED
+8f75 EOR ($f8,X)
+8f77 ???
+8f78 BEQ $8fbb
+8f7a ???
+8f7b ???
+8f7c INX
+8f7d STA ($fa,X)
+8f7f ???
+8f80 ???
+8f81 SBC ($81),Y
+8f83 ???
+8f84 ???
+8f85 SBC $e881,Y
+8f88 ???
+8f89 SBC $f681,Y
+8f8c ???
+8f8d ORA ($81,X)
+8f8f NOP
+8f90 ???
+8f91 ORA ($81,X)
+8f93 SED
+8f94 ???
+8f95 ORA #$01
+8f97 ???
+8f98 INC $11,X
+8f9a CMP ($fa,X)
+8f9c INC $07,X
+8f9e PHP
+8f9f CMP ($f4,X)
+8fa1 ???
+8fa2 BRK
+8fa3 CMP ($e8,X)
+8fa5 ???
+8fa6 BRK
+8fa7 CMP ($f6,X)
+8fa9 ???
+8faa SED
+8fab CMP ($ea,X)
+8fad ???
+8fae SED
+8faf CMP ($f8,X)
+8fb1 ???
+8fb2 BEQ $8ff5
+8fb4 ???
+8fb5 INC $e8,X
+8fb7 STA ($fa,X)
+8fb9 INC $ff,X
+8fbb ???
+8fbc ???
+8fbd ???
+8fbe ???
+8fbf ???
+8fc0 ORA ($fa,X)
+8fc2 CMP ($fa,X)
+8fc4 ???
+8fc5 ORA ($c0,X)
+8fc7 ORA ($c2,X)
+8fc9 ???
+8fca ORA ($d4,X)
+8fcc EOR ($d4,X)
+8fce ???
+8fcf EOR ($c2,X)
+8fd1 EOR ($c0,X)
+8fd3 ???
+8fd4 ORA ($de,X)
+8fd6 EOR ($de,X)
+8fd8 ???
+8fd9 RTI
+8fda DEC $40
+8fdc CPY $ff
+8fde BRK
+8fdf CPX #$40
+8fe1 CPX #$ff
+8fe3 BRK
+8fe4 CPY $00
+8fe6 DEC $ff
+8fe8 BRK
+8fe9 DEC $40,X
+8feb DEC $ff,X
+8fed ???
+8fee ???
+8fef ???
+8ff0 ???
+8ff1 ???
+8ff2 ???
+8ff3 INY
+8ff4 ???
+8ff5 DEX
+8ff6 ???
+8ff7 ???
+8ff8 CLD
+8ff9 ???
+8ffa CLD
+8ffb ???
+8ffc ???
+8ffd DEX
+8ffe ???
+8fff INY

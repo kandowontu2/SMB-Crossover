@@ -232,12 +232,20 @@ NoReset:
   lda SelectedCharacter
   cmp #CHARACTER_PIT
   bcc :+
+.if ::ENABLE_MMC5_EXPANDED
+    farcall RlPortraitDispatch
+.else
     farcall ExpandedPortrait
+.endif
     rts
   :
   cmp #CHARACTER_BILL
   bcc :+
+.if ::ENABLE_MMC5_EXPANDED
+    farcall Cv3PortraitGate
+.else
     farcall RosterPortrait
+.endif
     rts
   :
   cmp #CHARACTER_SAMUS
@@ -247,6 +255,11 @@ NoReset:
 NotSamus:
   cmp #CHARACTER_MEGAMAN
   bne PortraitReady
+ .if ::ENABLE_MMC5_EXPANDED
+ProtoPortraitSpan:
+  farcall ProtoPortrait
+  .res 32-(*-ProtoPortraitSpan),$ea
+ .else
   jsr CrossoverGraphicsBank
   lda PlayerStatus
   asl
@@ -265,6 +278,7 @@ NotSamus:
   adc #$40
   sta PlayerChrBank
   inc ReloadCHRBank
+ .endif
 PortraitReady:
 .endif
   rts
@@ -292,7 +306,11 @@ PlayerInter:
   lda #0
   ldy #0
   ldx ObjectMetasprite
+.if ::ENABLE_MMC5_EXPANDED
+  farcall X5PortraitRender
+.else
   farcall DrawMetasprite
+.endif
   lda #$01                     ;lives display, then output lives display to buffer
 OutputInter:
   jsr WriteGameText
@@ -362,6 +380,9 @@ NoBGColor:
   ;fallthrough
 
 GetPlayerColors:
+.if ::ENABLE_MMC5_EXPANDED
+  farcall X5GetPlayerColors,jmp
+.else
 .if ::ENABLE_CROSSOVER
   jsr QueueMegaManFacePalette
   jsr QueueGuestWeaponPalette
@@ -371,6 +392,7 @@ GetPlayerColors:
   lda CurrentPlayer        ;check which player is on the screen
   beq ChkFiery
   ldy #$04                 ;load offset for luigi
+.endif
 ChkFiery:
   lda PlayerStatus         ;check player status
   cmp #$02
@@ -818,6 +840,11 @@ GetSBNybbles:
   ldy CurrentPlayer      ;get current player
   lda StatusBarNybbles,y ;get nybbles based on player, use to update score and coins
 
+.if ::ENABLE_CROSSOVER
+UpdateNumber:
+  jmp HudUpdateNumberLocal
+  .res 19-(*-UpdateNumber), $ea
+.else
 UpdateNumber:
   jsr PrintStatusBarNumbers ;print status bar numbers based on nybbles, whatever they be
   ldy VRAM_Buffer1_Offset   
@@ -829,6 +856,8 @@ NoZSup:
   ldx ObjectOffset          ;get enemy object buffer offset
   rts
       
+.endif
+
 CoinTallyOffsets:
   .byte (Player1CoinDisplay + PlayerCoinLastIndex - DisplayDigits)
   .byte (Player2CoinDisplay + PlayerCoinLastIndex - DisplayDigits)
@@ -1275,6 +1304,12 @@ MTILE_CURRENT_INDEX .set $40
   MTileDefine $54, $64, $55, $65, MTILE_PALETTE_1 | MTILE_SOLID | MTILE_BUMP ;water pipe top
   MTileDefine $74, $84, $75, $85, MTILE_PALETTE_1 | MTILE_SOLID | MTILE_BUMP ;water pipe bottom
   MTileDefine $24, $5F, $24, $6F, MTILE_PALETTE_1 | MTILE_SOLID | MTILE_BUMP | MTILE_CLIMB ;flag ball (residual object)
+
+.if ::ENABLE_CROSSOVER
+MTILE_CURRENT_INDEX .set $6e
+  MTileDefine $47, $48, $47, $48, MTILE_PALETTE_1 | MTILE_SOLID | MTILE_BUMP ; hosted solid brick, lined
+  MTileDefine $48, $48, $48, $48, MTILE_PALETTE_1 | MTILE_SOLID | MTILE_BUMP ; hosted solid brick, plain
+.endif
 
 MTILE_CURRENT_INDEX .set $80
   MTileDefine $24, $24, $24, $30, MTILE_PALETTE_2 ;cloud left

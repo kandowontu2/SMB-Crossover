@@ -844,7 +844,11 @@ NearbyRTS:
 
 Shroom_Flower_PUp:
 .if ::ENABLE_CROSSOVER
+.if ::ENABLE_MMC5_EXPANDED
+      farcall RlCollectDispatch
+.else
       farcall InventoryCollect
+.endif
       bcc :+
         rts
       :

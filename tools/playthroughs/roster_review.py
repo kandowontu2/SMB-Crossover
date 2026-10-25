@@ -106,7 +106,7 @@ def review(directory: Path):
 
     by_split = {}
     for r in splits:
-        if active(r) and number(r, "screenDisabled") == 0:
+        if active(r) and number(r, "screenDisabled") == 0 and number(r, "renderingEnabled", 1):
             by_split.setdefault(number(r, "frame"), []).append(r)
     bad_splits = []
     for frame, rr in by_split.items():
@@ -120,12 +120,19 @@ def review(directory: Path):
         wanted[number(r, "frame") + 1] = "lag CHR change"
 
     source_count = 0
+    idle_audio_markers = 0
     audio_unconfirmed = []
     audio_observed = []
     for e in sounds:
         if number(e, "engine") != 8:
             continue
         frame, event = number(e, "frame"), e["event"]
+        # BassAudioBegin writes $ff every update. BassSourceAudioTick explicitly
+        # branches past request handling for that sentinel; it requests no cue.
+        # Keep genuine requests (and any unconfirmed ownership) in the audit.
+        if event == "BassAudioRequest" and number(e, "value") == 255:
+            idle_audio_markers += 1
+            continue
         source_count += 1
         nearby = [render.get(f, {}) for f in range(frame, frame + 7)]
         if event == "AvAudioRequest":
@@ -224,11 +231,14 @@ def review(directory: Path):
         "telemetry_files_present": telemetry, "comparable_background_frames": compared,
         "committed_dma_transactions": sum(1 for _ in (directory / "oam.csv").open()) - 1 if telemetry["oam"] else 0,
         "gameplay_split_frames": len(by_split), "split_timing_candidates": bad_splits,
+        "scroll_capture_scope": ("all visible scanlines, active hardware rendering" if splits and "renderingEnabled" in splits[0]
+            else "legacy HUD-window-only log; cannot exclude writes outside scanlines30..38"),
         "lag_chr_change_candidates": bad_chr, "motion_candidates": motion,
         "video_vertical_shift_candidates": pixel_flags, "video_background_flash_candidates": background_flashes,
         "overloaded_sprite_frames": sum(number(r, "maxSprites") > 8 for r in render.values() if active(r)),
         "lag_hardware_frames": sum(number(r, "lagNmi") for r in render.values() if active(r)),
         "audio_source_event_count": source_count, "audio_events_with_voice_and_physical_writes": len(audio_observed),
+        "audio_idle_sentinels_excluded": idle_audio_markers,
         "native_stomp_audit": stomp_summary,
         "illegal_guest_native_stomps": [e for e in stomp_events if number(e, "illegalGuest")],
         "audio_events_needing_priority_or_audible_review": audio_unconfirmed,

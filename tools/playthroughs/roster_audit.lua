@@ -10,8 +10,8 @@ return function(cfg)
  end
  local render=file('render','frame,world,level,areaType,mode,task,engine,x,y,yHigh,camera,power,pose,crouch,attack,shoot,wall,ceiling,hover,pitFlight,playerChr,specialChr,worldMask,sourceMask,nativeMask,apuMask,apuWrites,expansionWrites,dmaCount,maxSprites,hudSprites,screenDisabled,lagNmi,behaviorVersion')
  local oam=file('oam','frame,world,level,engine,camera,pose,playerChr,specialChr,visible,maxSprites,hudSprites,chrBanks,oamHex')
- local chr=file('chr','frame,register,value,previous,lagNmi,world,level,engine')
- local splits=file('scroll-writes','frame,scanline,dot,address,value,world,level,engine,mode,task,screenDisabled')
+ local chr=file('chr','frame,register,value,previous,lagNmi,world,level,engine,rawValue,upperLatch')
+ local splits=file('scroll-writes','frame,scanline,dot,address,value,world,level,engine,mode,task,screenDisabled,renderingEnabled,writerPC,writerBank')
  local audio=file('audio-events','frame,event,value,world,level,engine')
  local stomps=file('stomp-events','frame,character,slot,enemyId,enemyFlag,enemyState,hpLo,hpHi,world,level,playerX,playerY,enemyX,enemyY,pc,bank,illegalGuest,behaviorVersion,behaviorSource')
  local function r(n,i)if not L[n]then return 0 end;return emu.read(L[n]+(i or 0),emu.memType.nesDebug)end
@@ -26,6 +26,8 @@ return function(cfg)
   return value
  end
  local lagNmi,inNmi=false,false
+ local hardwareMask=0
+ emu.addMemoryCallback(function(a,v)hardwareMask=v end,emu.callbackType.write,0x2001)
  local nmiDepth,irqDepth=0,0
  local stompCount,guestStompCount,stompOpcodeMismatches=0,0,0
  local guestEvents,allowedGuestEvents=0,0
@@ -44,16 +46,21 @@ return function(cfg)
  end
  local selector=0
  local banks={}
+ local physicalChrChecks,highChrChecks,maxPhysicalChr=0,0,0
  local apuMask,apuWrites,expansionWrites,dmaCount,maxSprites,hudSprites=0,0,0,0,0,0
- local function bank(index,v)
+ local function bank(index,v,raw,upper)
   local old=banks[index]
   if old~=v then
-   if frame>=500 then chr:write(table.concat({frame,index,v,old or -1,inNmi and lagNmi and 1 or 0,r('WorldNumber'),r('LevelNumber'),r('GameEngineSubroutine')},',')..'\n')end
+   if frame>=500 then chr:write(table.concat({frame,index,v,old or -1,inNmi and lagNmi and 1 or 0,r('WorldNumber'),r('LevelNumber'),r('GameEngineSubroutine'),raw or v,upper or 0},',')..'\n')end
    banks[index]=v
   end
  end
  if cfg.mapper=='mmc5' then
-  emu.addMemoryCallback(function(a,v)if not finished then bank(a-0x5120,v)end end,emu.callbackType.write,0x5120,0x512b)
+  -- MMC5 captures5130 at each512x write. A later reset of the high latch
+  -- does not move already published windows back into the first256 pages.
+  local upper=0
+  emu.addMemoryCallback(function(_,v)upper=v&3 end,emu.callbackType.write,0x5130)
+  emu.addMemoryCallback(function(a,v)if not finished then bank(a-0x5120,v+256*upper,v,upper)end end,emu.callbackType.write,0x5120,0x512b)
  else
   emu.addMemoryCallback(function(a,v)selector=v&7 end,emu.callbackType.write,0x8000)
   emu.addMemoryCallback(function(a,v)if not finished and selector<6 then bank(selector,v)end end,emu.callbackType.write,0x8001)
@@ -92,8 +99,12 @@ return function(cfg)
  emu.addMemoryCallback(function(a,v)
   if finished or frame<500 then return end
   local st=emu.getState();local line=st['ppu.scanline']
-  if line>=30 and line<=38 then
-   splits:write(table.concat({frame,line,st['ppu.cycle'],a,v,r('WorldNumber'),r('LevelNumber'),r('GameEngineSubroutine'),r('OperMode'),r('OperMode_Task'),r('DisableScreenFlag')},',')..'\n')
+  -- Include every visible scanline. A HUD-window-only log cannot detect
+  -- the late IRQ/NMI writes that can move the rest of the playfield.
+  if line>=0 and line<=239 then
+   local pc=st['cpu.pc'];local physical=emu.convertAddress(pc)
+   local writerBank=physical and physical.memType==emu.memType.nesPrgRom and physical.address//8192 or -1
+   splits:write(table.concat({frame,line,st['ppu.cycle'],a,v,r('WorldNumber'),r('LevelNumber'),r('GameEngineSubroutine'),r('OperMode'),r('OperMode_Task'),r('DisableScreenFlag'),(hardwareMask&0x18)~=0 and 1 or 0,pc,writerBank},',')..'\n')
   end
  end,emu.callbackType.write,0x2005,0x2006)
  emu.addMemoryCallback(function(a,v)
@@ -138,6 +149,17 @@ return function(cfg)
   failure=function()return failure end,
   frame=function(f)
    frame=f;if finished or frame<500 then return end
+   if cfg.mapper=='mmc5' then
+    local hardware=emu.getState()
+    for i=0,11 do
+     local actual=hardware['mapper.chrBanks'..i]
+     assert(actual~=nil and banks[i]~=nil,'MMC5 physical CHR evidence is available')
+     assert(actual==banks[i],'MMC5 write-time latch model matches actual hardware window'..i..': '..tostring(banks[i])..' vs '..tostring(actual))
+     physicalChrChecks=physicalChrChecks+1
+     if actual>=256 then highChrChecks=highChrChecks+1 end
+     maxPhysicalChr=math.max(maxPhysicalChr,actual)
+    end
+   end
    render:write(table.concat({frame,r('WorldNumber'),r('LevelNumber'),r('AreaType'),r('OperMode'),r('OperMode_Task'),r('GameEngineSubroutine'),pos('Player_X_Position','Player_PageLoc'),r('Player_Y_Position'),r('Player_Y_HighPos'),pos('ScreenLeft_X_Pos','ScreenLeft_PageLoc'),r('PlayerStatus'),r('RgPose'),r('RgCrouch'),r('RgAttack'),r('RgShootPose'),r('XgWall'),r('XgCeiling'),r('XgHoverActive'),r('XgPitFlight'),r('PlayerChrBank'),r('SsChrActive'),r('GuestMixMask'),r('AvAudioMask'),r('BassAudioPreviousMask')|r('MmAudioSfxMask'),apuMask,apuWrites,expansionWrites,dmaCount,maxSprites,hudSprites,r('DisableScreenFlag'),lagNmi and 1 or 0,behavior()},',')..'\n')
    apuMask,apuWrites,expansionWrites,dmaCount=0,0,0,0
   end,
@@ -146,6 +168,8 @@ return function(cfg)
    for _,f in ipairs(files)do f:close()end
    local f=assert(io.open(cfg.out..'stomp-summary.json','w'))
    f:write('{"events":'..stompCount..',"illegal_guest_events":'..guestStompCount..',"guest_events":'..guestEvents..',"allowed_mode_1_0_guest_events":'..allowedGuestEvents..',"behavior_version":'..behavior()..',"behavior_source":'..string.format('%q',behaviorSource)..',"resident_opcode_mismatches":'..stompOpcodeMismatches..',"hook_address":'..stompPc..',"nested_interrupt_guards":true,"physical_frame":"previous endFrame + 1","failure":'..(failure and string.format('%q',failure)or'null')..'}\n');f:close()
+   local c=assert(io.open(cfg.out..'chr-audit-summary.json','w'))
+   c:write(string.format('{"mapper":%q,"physical_window_checks":%d,"high_window_checks":%d,"maximum_physical_page":%d,"mmc5_write_time_upper_latch":true,"failure":null}\n',cfg.mapper,physicalChrChecks,highChrChecks,maxPhysicalChr));c:close()
   end
  }
 end

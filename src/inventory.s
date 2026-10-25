@@ -79,6 +79,11 @@ Ammo:
 ; Carry=classic guest in Easy, X clobbered, A/Y preserved. Mario has no2.02
 ; inventory in either mode. Later additions retain their own current systems.
 .proc InventoryLegacyClassic
+ .if ::ENABLE_MMC5_EXPANDED
+  farcall InventoryLegacyItemLeaf,jmp
+  .res 2,$ea
+  .assert *-InventoryLegacyClassic=20,error,"Original leaf span preserved"
+ .else
   ldx CrossoverBehaviorVersion
   bne No
   ldx SelectedCharacter
@@ -91,9 +96,38 @@ Ammo:
 No:
   clc
   rts
+ .endif
 .endproc
 
 .proc InventorySupported
+ .if ::ENABLE_MMC5_EXPANDED
+  ; These six profiles own their own items and never use the legacy2.02
+  ; inventory. Match the old dispatch chain's A=ID, X=ID, C=0 exactly.
+  ; Mac15 retains his supported-item path. All other IDs use the old entry.
+  php
+  pha
+  phx
+  ldx SelectedCharacter
+  cpx #13
+  bcc LegacySupported
+  cpx #15
+  beq LegacySupported
+  cpx #20
+  bcs LegacySupported
+  ; CPX20 left C clear. None of the checks/pops changes V/D/I, so discard
+  ; saved P rather than restoring its old carry. TXA supplies final N/Z.
+  pla
+  pla
+  pla
+  txa
+  rts
+LegacySupported:
+  plx
+  pla
+  plp
+  farcall RlSupportedDispatch,jmp
+  .assert *-InventorySupported=46,error,"Original leaf span preserved"
+ .else
   jsr InventoryLegacyClassic
   bcc ModernRules
   clc                           ; No2.02 ownership, ammo or UI in classic Easy.
@@ -122,6 +156,7 @@ ModernRules:
 Supported:
   sec
   rts
+ .endif
 .endproc
 
 ; A=local item, X/Y clobbered. Mushroom is checked through PlayerStatus so
@@ -478,6 +513,11 @@ Native:
 .endproc
 
 .proc InventoryHurt
+ .if ::ENABLE_MMC5_EXPANDED
+  farcall Z2InventoryHurtGate,jmp
+  .res 32,$ea
+  .assert *-InventoryHurt=50,error,"Original leaf span preserved"
+ .else
   jsr InventorySupported
   bcc Done
   ldx SelectedCharacter
@@ -498,6 +538,7 @@ Native:
 Done:
   lda #0
   rts
+ .endif
 .endproc
 .proc InventoryRemove
   ldx SelectedCharacter
@@ -536,7 +577,11 @@ Done:
   beq Energy
   cmp #CHARACTER_MEGAMAN
   beq Energy
+.if ::ENABLE_MMC5_EXPANDED
+  farcall DwRefill
+.else
   farcall RemainingRefill
+.endif
   rts
 Energy:
   ldx SelectedCharacter

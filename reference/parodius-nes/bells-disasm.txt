@@ -1,0 +1,561 @@
+97fc: LDX #$1b
+97fe: JSR $9c1e
+9801: LDX #$1b
+9803: LDA $7b
+9805: AND #$0f
+9807: BNE $980a
+9809: RTS
+980a: LSR A
+980b: BCS $9810
+980d: JMP $9a6b
+9810: LDA $56
+9812: BNE $9837
+9814: LDA $81
+9816: CMP #$01
+9818: BNE $9827
+981a: LDY $60
+981c: LDA $9a57,Y
+981f: BEQ $9837
+9821: LDA #$0d
+9823: STA $1f
+9825: BNE $983b
+9827: CMP #$04
+9829: BNE $9837
+982b: LDA $60
+982d: CMP #$03
+982f: BCC $9837
+9831: LDA #$0c
+9833: STA $1f
+9835: BNE $983b
+9837: LDA $56
+9839: STA $1f
+983b: LDA $6500,X
+983e: BNE $986e
+9840: JSR $9c3d
+9843: BEQ $985e
+9845: LDA #$3c
+9847: JSR $fe20
+984a: LDA #$08
+984c: STA $6500,X
+984f: LDA #$00
+9851: STA $9e
+9853: STA $64a0,X
+9856: STA $64d0,X
+9859: LDA #$08
+985b: STA $6470,X
+985e: RTS
+985f: LDA $6500,X
+9862: AND #$04
+9864: BNE $986b
+9866: LDA $64a0,X
+9869: BEQ $985e
+986b: JMP $fb1d
+986e: LDA $64d0,X
+9871: CMP #$01
+9873: BEQ $98a8
+9875: CMP #$02
+9877: BEQ $98f5
+9879: DEC $6470,X
+987c: BNE $985f
+987e: JSR $9859
+9881: LDA $6500,X
+9884: AND #$04
+9886: BNE $98f9
+9888: LDA $64a0,X
+988b: CLC
+988c: ADC #$10
+988e: CMP #$50
+9890: BNE $989b
+9892: LSR $6500,X
+9895: LDA #$10
+9897: STA $6470,X
+989a: RTS
+989b: STA $64a0,X
+989e: CMP #$40
+98a0: BNE $98f5
+98a2: LDA $8b
+98a4: ORA #$02
+98a6: STA $8b
+98a8: LDX $26
+98aa: CPX #$10
+98ac: BCC $98b8
+98ae: LDX #$1b
+98b0: LDA #$01
+98b2: STA $64d0,X
+98b5: JMP $98f8
+98b8: LDX #$1b
+98ba: LDA #$00
+98bc: STA $64d0,X
+98bf: LDX $26
+98c1: LDA #$01
+98c3: JSR $da66
+98c6: LDA #$10
+98c8: STA $18
+98ca: JSR $da66
+98cd: LDA #$3f
+98cf: JSR $da66
+98d2: LDA #$00
+98d4: STA $19
+98d6: LDY #$0f
+98d8: LDA $19
+98da: AND #$03
+98dc: BNE $98e2
+98de: LDA #$30
+98e0: BNE $98e3
+98e2: TYA
+98e3: JSR $da66
+98e6: INC $19
+98e8: DEC $18
+98ea: BNE $98d8
+98ec: LDA #$ff
+98ee: JSR $da66
+98f1: STX $26
+98f3: LDX #$1b
+98f5: JSR $991e
+98f8: RTS
+98f9: LDA $64a0,X
+98fc: SEC
+98fd: SBC #$10
+98ff: BCS $990a
+9901: LDA $7b
+9903: AND #$fe
+9905: STA $7b
+9907: JMP $9bba
+990a: STA $64a0,X
+990d: CMP #$30
+990f: BNE $98f5
+9911: LDA $8b
+9913: AND #$fd
+9915: STA $8b
+9917: LDA #$02
+9919: STA $2c
+991b: JMP $98f5
+991e: LDA $26
+9920: CMP #$10
+9922: BCC $992b
+9924: LDA #$02
+9926: STA $64d0,X
+9929: BNE $98f8
+992b: STA $00
+992d: LDY #$00
+992f: STY $01
+9931: LDA #$01
+9933: JSR $999a
+9936: LDA #$00
+9938: JSR $999a
+993b: LDA #$3f
+993d: JSR $999a
+9940: LDA $66
+9942: AND #$70
+9944: BNE $99a2
+9946: LDA $1f
+9948: BNE $99a2
+994a: LDA #$10
+994c: STA $02
+994e: JSR $9963
+9951: LDA #$ff
+9953: JSR $999a
+9956: LDA $00
+9958: STA $26
+995a: LDA $64d0,X
+995d: AND #$fd
+995f: STA $64d0,X
+9962: RTS
+9963: LDA $64a0,X
+9966: CMP #$30
+9968: BCC $9975
+996a: LDA #$0f
+996c: CPX #$00
+996e: BEQ $9990
+9970: LDA #$20
+9972: JMP $9990
+9975: LDY $01
+9977: LDA $0380,Y
+997a: AND #$f0
+997c: CMP $64a0,X
+997f: LDA $0380,Y
+9982: BCS $9990
+9984: CPY #$00
+9986: BEQ $9990
+9988: LDA $0380,Y
+998b: AND #$0f
+998d: ORA $64a0,X
+9990: JSR $999a
+9993: INC $01
+9995: DEC $02
+9997: BNE $9963
+9999: RTS
+999a: LDY $00
+999c: STA $0300,Y
+999f: INC $00
+99a1: RTS
+99a2: LDA $1f
+99a4: ASL A
+99a5: ASL A
+99a6: STA $04
+99a8: LDA #$00
+99aa: STA $01
+99ac: LDA #$04
+99ae: STA $02
+99b0: LDY $01
+99b2: CPY #$10
+99b4: BNE $99b9
+99b6: JMP $9951
+99b9: LDY $04
+99bb: LDA $9a1f,Y
+99be: BEQ $9a17
+99c0: CMP #$02
+99c2: BEQ $99e3
+99c4: LDA $64a0,X
+99c7: CMP #$30
+99c9: BCC $9a17
+99cb: LDA #$20
+99cd: JSR $999a
+99d0: DEC $02
+99d2: INC $01
+99d4: LDA #$0f
+99d6: JSR $999a
+99d9: INC $01
+99db: DEC $02
+99dd: BNE $99d4
+99df: INC $04
+99e1: BNE $99ac
+99e3: LDA $64a0,X
+99e6: CMP #$30
+99e8: BCC $9a17
+99ea: LDA #$0f
+99ec: JSR $999a
+99ef: INC $01
+99f1: DEC $02
+99f3: LDA $02
+99f5: CMP #$01
+99f7: BNE $99ea
+99f9: LDA #$20
+99fb: JSR $999a
+99fe: INC $01
+9a00: INC $04
+9a02: BNE $99ac
+9a04: LDY $01
+9a06: LDA $0380,Y
+9a09: JSR $999a
+9a0c: INC $01
+9a0e: DEC $02
+9a10: BNE $9a04
+9a12: INC $04
+9a14: JMP $99ac
+9a17: JSR $9963
+9a1a: INC $04
+9a1c: JMP $99ac
+9a1f: BRK
+9a20: ???
+9a21: ???
+9a22: BRK
+9a23: BRK
+9a24: ORA ($01,X)
+9a26: BRK
+9a27: BRK
+9a28: ???
+9a29: ???
+9a2a: BRK
+9a2b: BRK
+9a2c: ORA ($00,X)
+9a2e: BRK
+9a2f: BRK
+9a30: ORA ($01,X)
+9a32: ORA ($00,X)
+9a34: ORA ($01,X)
+9a36: ORA ($00,X)
+9a38: ORA ($00,X)
+9a3a: BRK
+9a3b: BRK
+9a3c: BRK
+9a3d: ORA ($01,X)
+9a3f: BRK
+9a40: BRK
+9a41: ORA ($00,X)
+9a43: BRK
+9a44: ORA ($01,X)
+9a46: BRK
+9a47: BRK
+9a48: ORA ($01,X)
+9a4a: BRK
+9a4b: BRK
+9a4c: ORA ($01,X)
+9a4e: BRK
+9a4f: BRK
+9a50: ORA ($01,X)
+9a52: ORA ($00,X)
+9a54: BRK
+9a55: ORA ($01,X)
+9a57: BRK
+9a58: BRK
+9a59: BRK
+9a5a: BRK
+9a5b: BRK
+9a5c: ORA ($01,X)
+9a5e: ORA ($01,X)
+9a60: ORA ($01,X)
+9a62: BRK
+9a63: BRK
+9a64: BRK
+9a65: BRK
+9a66: BRK
+9a67: BRK
+9a68: BRK
+9a69: BRK
+9a6a: BRK
+9a6b: LSR A
+9a6c: LSR A
+9a6d: BCS $9a72
+9a6f: JMP $9bf7
+9a72: LDA $6500,X
+9a75: BNE $9ac6
+9a77: LDA $6590,X
+9a7a: BNE $9a81
+9a7c: LDA #$03
+9a7e: STA $6590,X
+9a81: JSR $9c3d
+9a84: BEQ $9ac5
+9a86: LDA #$27
+9a88: JSR $fe20
+9a8b: DEC $6590,X
+9a8e: LDA #$07
+9a90: STA $6200,X
+9a93: LDA #$01
+9a95: STA $63e0,X
+9a98: LDA #$80
+9a9a: STA $6500,X
+9a9d: LDA $6260
+9aa0: STA $6260,X
+9aa3: LDA $62c0
+9aa6: STA $62c0,X
+9aa9: LDA #$10
+9aab: STA $6470,X
+9aae: LDY $8f
+9ab0: LDA $9bef,Y
+9ab3: STA $6410,X
+9ab6: LDA #$00
+9ab8: STA $6440,X
+9abb: LDA #$ff
+9abd: STA $64a0,X
+9ac0: LDA #$01
+9ac2: STA $64d0,X
+9ac5: RTS
+9ac6: ASL A
+9ac7: BCC $9b0f
+9ac9: DEC $6470,X
+9acc: BNE $9ae0
+9ace: LSR $6500,X
+9ad1: LDA #$29
+9ad3: JSR $fe20
+9ad6: LDY $8f
+9ad8: LDA $9bf3,Y
+9adb: LDY #$00
+9add: JMP $c977
+9ae0: LDA $6260,X
+9ae3: CLC
+9ae4: ADC #$04
+9ae6: STA $6260,X
+9ae9: BCS $9aef
+9aeb: CMP #$f8
+9aed: BCC $9af4
+9aef: LDA #$f8
+9af1: STA $6260,X
+9af4: LDA $62c0,X
+9af7: STA $02
+9af9: LDA $6260,X
+9afc: STA $00
+9afe: LDA #$00
+9b00: STA $01
+9b02: STA $03
+9b04: JSR $c905
+9b07: CMP #$02
+9b09: BNE $9b0e
+9b0b: JMP $90e6
+9b0e: RTS
+9b0f: ASL A
+9b10: BCC $9b2b
+9b12: JSR $9bd5
+9b15: JSR $9b77
+9b18: JSR $c98a
+9b1b: LDA $6740,X
+9b1e: CMP #$04
+9b20: BCC $9b2a
+9b22: LSR $6500,X
+9b25: LDA #$00
+9b27: STA $66b0,X
+9b2a: RTS
+9b2b: ASL A
+9b2c: BCC $9ba2
+9b2e: LDA $66b0,X
+9b31: CMP #$10
+9b33: BCS $9b4f
+9b35: AND #$01
+9b37: TAY
+9b38: LDA $66b0,X
+9b3b: INC $66b0,X
+9b3e: AND #$fe
+9b40: ASL A
+9b41: ASL A
+9b42: CPY #$01
+9b44: BEQ $9b48
+9b46: EOR #$ff
+9b48: CLC
+9b49: ADC $62c0,X
+9b4c: JSR $9af7
+9b4f: LDA $6260,X
+9b52: CMP #$10
+9b54: BCC $9b5e
+9b56: LDA $64a0,X
+9b59: ORA $64d0,X
+9b5c: BNE $9b6b
+9b5e: LSR $6500,X
+9b61: LDY $8f
+9b63: LDA $9beb,Y
+9b66: LDY #$00
+9b68: JMP $c977
+9b6b: DEC $64a0,X
+9b6e: LDY $64a0,X
+9b71: INY
+9b72: BNE $9b77
+9b74: DEC $64d0,X
+9b77: LDA $6290,X
+9b7a: SEC
+9b7b: SBC $6b
+9b7d: STA $6290,X
+9b80: LDA $6260,X
+9b83: SBC $6a
+9b85: STA $6260,X
+9b88: LDA $66
+9b8a: AND #$07
+9b8c: BEQ $9b9f
+9b8e: LDA $62f0,X
+9b91: SEC
+9b92: SBC $6d
+9b94: STA $62f0,X
+9b97: LDA $62c0,X
+9b9a: SBC $6c
+9b9c: STA $62c0,X
+9b9f: JMP $9bd5
+9ba2: JSR $c98a
+9ba5: JSR $9b77
+9ba8: LDA $6740,X
+9bab: CMP #$04
+9bad: BCC $9bd4
+9baf: LDA $6590,X
+9bb2: BNE $9bba
+9bb4: LDA $7b
+9bb6: AND #$fb
+9bb8: STA $7b
+9bba: LDA #$00
+9bbc: STA $6500,X
+9bbf: STA $63e0,X
+9bc2: STA $6410,X
+9bc5: STA $6440,X
+9bc8: STA $6200,X
+9bcb: STA $6470,X
+9bce: STA $64a0,X
+9bd1: STA $64d0,X
+9bd4: RTS
+9bd5: LDA $23
+9bd7: AND #$03
+9bd9: BNE $9bea
+9bdb: INC $6440,X
+9bde: LDA $6440,X
+9be1: CMP #$03
+9be3: BCC $9bea
+9be5: LDA #$00
+9be7: STA $6440,X
+9bea: RTS
+9beb: ???
+9bec: ???
+9bed: ???
+9bee: ???
+9bef: AND $39b9,Y
+9bf2: LDA $4e12,Y
+9bf5: ???
+9bf6: LSR $904a
+9bf9: ???
+9bfa: LDX $26
+9bfc: CPX #$10
+9bfe: BCS $9c1d
+9c00: LDA $7b
+9c02: AND #$f7
+9c04: STA $7b
+9c06: INC $80
+9c08: LDA $80
+9c0a: AND #$0f
+9c0c: CMP #$0a
+9c0e: BNE $9c1a
+9c10: DEC $80
+9c12: LDA $80
+9c14: AND #$f0
+9c16: ADC #$10
+9c18: STA $80
+9c1a: JSR $fd4e
+9c1d: RTS
+9c1e: LDA $7b
+9c20: AND #$10
+9c22: BEQ $9c3c
+9c24: LDA $23
+9c26: AND #$03
+9c28: BNE $9c3c
+9c2a: LDA $78
+9c2c: BNE $9c30
+9c2e: INC $78
+9c30: ASL $78
+9c32: LDA $78
+9c34: AND #$80
+9c36: BEQ $9c3c
+9c38: LDA #$01
+9c3a: STA $78
+9c3c: RTS
+9c3d: LDA $40
+9c3f: AND #$40
+9c41: RTS
+9c42: LDA $7b
+9c44: AND #$40
+9c46: BEQ $9c99
+9c48: LDA $40
+9c4a: AND #$40
+9c4c: BEQ $9c61
+9c4e: LDA #$00
+9c50: STA $6650
+9c53: LDA $7b
+9c55: AND #$bf
+9c57: STA $7b
+9c59: LDA #$1b
+9c5b: JSR $fe20
+9c5e: JMP $9c95
+9c61: STA $40
+9c63: STA $42
+9c65: STA $6620
+9c68: LDA $6650
+9c6b: BNE $9c92
+9c6d: INC $8f
+9c6f: LDA $8f
+9c71: AND #$03
+9c73: STA $8f
+9c75: LDA #$40
+9c77: STA $6650
+9c7a: LDA #$00
+9c7c: STA $64a0
+9c7f: JSR $fd4e
+9c82: JSR $fd5b
+9c85: LDA $6500
+9c88: AND #$7f
+9c8a: STA $6500
+9c8d: LDA #$1a
+9c8f: JMP $fe20
+9c92: DEC $6650
+9c95: LDA $8f
+9c97: STA $87
+9c99: RTS
+9c9a: JSR $c887
+9c9d: JSR $fe16
+9ca0: JSR $ff7a
+9ca3: LDA #$00
+9ca5: STA $fe
+9ca7: LDX #$0a
+9ca9: JSR $d95b
+9cac: LDA #$00

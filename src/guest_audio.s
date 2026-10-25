@@ -104,7 +104,7 @@ DmcOff:
   beq Queues
   sta GuestAudioCharacter
   lda #0
-  sta BassAudioInit
+  jsr MegaManRushLandCharacterReset
   sta BassAudioPreviousMask
   sta BassAudioLastDeath
   sta BassAudioLastGround
@@ -260,7 +260,12 @@ Tick:
   jsr GuestExpansionFlush
 .endif
   lda GuestMixMask
+.if ::ENABLE_MMC5_EXPANDED
+::X5NativeNoiseSpan:
+  jsr X5NativeNoiseMask
+.else
   ora GuestMixChanged
+.endif
   bne MixedChannels
   jmp GuestAudioNativeFlush
 MixedChannels:
@@ -378,3 +383,17 @@ NativeDone:
 .include "mmc5_sfx.s"
 .endif
 .popseg
+
+.if ::ENABLE_MMC5_EXPANDED
+.pushseg
+.segment "X5_AUDIO_MIX"
+; Pulse effects are already flushed on the separate MMC5 voices.
+; Only native-noise ownership/change needs the ordinary APU owner loop.
+.proc X5NativeNoiseMask
+ ora GuestMixChanged
+ and #8
+ rts
+.endproc
+.export X5NativeNoiseMask
+.popseg
+.endif

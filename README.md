@@ -1,10 +1,24 @@
 # SMB Crossover for NES
 
-A native NES adaptation built on [SMB1Base](https://github.com/smbstudio/smb1base), with **13 playable characters across 12 selection slots**, plus Lance Bean as Bill's alternate: Mario, Mega Man, Samus, Bill Rizer, Link, Simon Belmont, Pit, Rygar, Luigi, Bass, Ryu Hayabusa, Sophia III, and Scrooge McDuck. Select on Mario switches to Luigi; Scrooge occupies the former Luigi slot. MMC3 and MMC5 are supported.
+A native NES adaptation built on [SMB1Base](https://github.com/smbstudio/smb1base). The expanded working source contains **37 playable characters and alternates**, including Roll, Meta Knight, Proto Man, Darkwing Duck, Zelda II Link, Kirby, Chip/Dale, the four TMNT turtles, the NES Parodius roster, Grant/Sypha/Alucard, SMB3 Mario/Luigi, Mike Jones and Little Mac alongside the original roster.
+
+The current tested expanded MMC5 ROM has SHA-256 `054d9e33a84f628947b0dea15914ba2aae7796ca610a25548eab96407064384a`. Its verification includes independent zero-death1-1 replays for all37 identities, with selected modes recorded per case. Complete powerup, passive ability, graphics, audio and performance verification is still in progress. The oversized MMC3 conversion has additional unresolved movement and timing checks; it is not a final release. See the [current evidence and outstanding work](docs/qa/current-work-pr-2026-10-24.md) and the [continuation handoff](docs/qa/CLAUDE-HANDOFF-2026-10-24.txt).
+
+Generated ROMs, large captures and local verification archives are not versioned here. Older files already present under `build/` may predate the current working source; compare their hashes before using them. Git checkpoints preserve the source, assets, build tools, tests and guide so changes can be reviewed or reverted.
+
+The standard MMC3 and smaller MMC5 control builds retain **14 playable identities across 12 selection slots**: Mario/Luigi, Mega Man, Samus, Bill/Lance, Link, Simon Belmont, Pit, Rygar, Bass, Ryu Hayabusa, Sophia III, and Scrooge McDuck. Select on the character screen cycles the highlighted character's available alternates. The oversized MMC3 build requires full eight-bit PRG banking and 256 KiB CHR RAM; it is emulator-verified, with physical-cartridge compatibility still unverified.
 
 The guest characters use code constants and art extracted from [the requested hosted game](https://www.smbgames.be/smb-crossover.php). This is a playable port in progress. [The parity audit](docs/reference/parity.md) records differences from the Flash version.
 
-The current build passes the complete regression suite: all 757 emulator cases on both mappers plus the Mario trace check. All fourteen fixed routes clear through 2-2 with zero deaths. It also fixes Sophia's wall-climb flicker. See [the green-suite record](docs/qa/regression-green-v49.md).
+The current build includes the [Super Arm/Rush source corrections and Mega Man audio optimization](docs/qa/arm-rush-source-2026-10-22.md), [Ryu side-contact corrections](docs/qa/ryu-side-overlap-2026-10-22.md), and the recent HUD, terrain, score, cannon, firebar, cheats and Rygar palette fixes. The October23 Rygar walking repair restores two omitted native lower-body sprites, uses the original left-facing frames, and preserves his three-frame/seven-update cadence. Both mapper builds pass original-pixel and actual six-piece OAM checks; other Rygar poses remain unchanged. The prior HR Mario, Bass and Rygar controller replays clear through 2-2 with zero deaths. [Fresh Mario/Bass QA recordings](docs/qa/current-route-review-2026-10-22.md) preserve native video and audio; Bass still has a confirmed sideways snap at the 2-2 coral. Full new-build roster routes, every weapon and final recordings remain under review; the earlier [green-suite and fourteen-route record](docs/qa/regression-green-v49.md) applies to its recorded checkpoint.
+
+The [24-page player's guide](<Player Guide/SMB-Crossover-Players-Guide.pdf>) covers the standard roster, Easy/Hard differences, equipment and tips. It predates Proto Man. The [level-layout audit](docs/qa/level-layout-audit-2026-10-22.md) inventories Crossover's character-specific platforms and terrain across all 32 campaign levels; the definite static changes and native moving-platform accommodations are now installed. Unproved maze/camera/generator differences remain listed in the implementation report.
+
+The **1 MiB PRG / 1 MiB CHR MMC5 cartridge** uses authenticated original character artwork and source movement/weapon components with declared SMB adaptations. The current frozen source and ROMs are under `build/checkpoints/full-roster-nd`. Combined native checks cover the three CV3 profiles and the seven earlier added profile families, including physical pickups, attacks, injury/death, graphics banks and IRQ font timing. This is a playable port in progress: several profiles inherit existing music/SFX, TMNT secondary equipment is incomplete, and full campaign traversal remains unclaimed. [Native level helpers and definite terrain changes](docs/qa/level-platform-mr-private-implementation-2026-10-23.md) are integrated using the original platform actors, graphics, collision and carry routines. The [CV3 contract](docs/qa/cv3-alternates-implementation-2026-10-23.md), [ship implementation](docs/qa/vic-viper-implementation-2026-10-23.md), [third-row research](docs/player-guide/third-row-source-audit.md), and [alternate proposal](docs/qa/alternate-roster-proposal-2026-10-22.md) distinguish source mechanics from adaptations. Video work is deferred at the user's request.
+
+All **18 added identities** pass controller-only Easy-mode surface 1-1 through restored control in 1-2 on the combined build: **82,167 frames, zero deaths**. All **32 identities** pass cold selection and lives-screen checks. The [five-agent playthrough review](docs/qa/new-roster-playthroughs-2026-10-23.md) covers the repaired contact rules, flagpole exits, turtle terrain collisions, HUD queue bounds, SMB3 item/projectile graphics and enemy palettes. The character menu has clearer portraits, names and instructions; Bass's missing idle/firing arm is restored from the original body/arm clips in all three ROM targets. Fourteen focused ability suites and 30 spring/contact arenas also pass. Hard-mode full routes, shortcut routes, every upgrade and full campaigns remain outside this pass; earlier geometry fixtures remain separately labeled in their checkpoint records.
+
+The workspace has a **30 GB limit**. Historical build evidence and lossless captures are retained in the [external archive](docs/qa/workspace-cleanup-2026-10-22.md); source, current builds, current replay work and posting videos remain here.
 
 The earlier provisional v49 build corrects Ryu's upward block response and preserves the START/OPTIONS menu. Regression coverage comprises759 unchanged passes plus the independently source-backed ceiling fixture on both mappers:761 staged passes, with the original two failures retained. Focused head and behavior checks also pass. Full roster routes, all upgrades, source geometry and final recordings remain in progress; see [the current evidence and limits](docs/qa/roster-provisional-v49.md).
 
@@ -21,16 +35,23 @@ The [roster corrections](docs/qa/roster-fixes.md) resolve the original audit's 2
 
 ## Play
 
-Open `build/smb-crossover-mmc3.nes` or `build/smb-crossover-mmc5.nes` in a NES emulator. The static title offers START and OPTIONS. Up/Down chooses a row; A or Start confirms. START opens character selection. Left/Right cycles the roster; Up/Down switches between its two rows. Select on Mario toggles Mario/Luigi; Select on Bill toggles Bill/Lance. On other portraits it advances the selection. Only the highlighted character's name appears beneath the color preview. A or a fresh Start press begins; B returns to the title. Start pauses during gameplay.
+Open `build/smb-crossover-mmc5-expanded.nes` for the expanded roster, or `build/smb-crossover-mmc3.nes` / `build/smb-crossover-mmc5.nes` for the standard roster. The static title offers START and OPTIONS. Up/Down chooses an entry; A or Start confirms. START opens character selection. Left/Right moves across a row; Up/Down changes rows. The expanded grid has three rows. Select cycles alternates on Mario, Mega Man, Bill, Link, Simon, Scrooge, Chip, SMB3 Mario and the turtles. Other expanded portraits keep their current selection. Only the highlighted character's name appears beneath the color preview. A or a fresh Start press begins; B returns to the title. Start pauses during gameplay.
 
-OPTIONS contains **PLAYER SHADOWS** (default OFF) and **BEHAVIOR** (default 1.0).
+OPTIONS contains **PLAYER OUTLINES** (default OFF) and **MODE** (default EASY).
 Up/Down highlights a setting; A, Start, Select, Left or Right toggles it. B returns
 to the title. Shadows OFF omits extra black mask sprites while retaining normal
-body colors and face details. Behavior 1.0 lets the roster stomp ordinary enemies;
-2.02 retains the previous character-specific contact rules. Special body attacks,
+body colors and face details. EASY lets the roster stomp ordinary enemies;
+HARD retains the previous character-specific contact rules. Special body attacks,
 hazards and underwater rules keep their existing priority. Preferences persist
 through selection, gameplay and deaths until reset. Character select contains
 only character selection. See [menu validation](docs/qa/menu-options-v49.md).
+
+**OPTIONS → CHEATS** opens a submenu with **INVINCIBLE** (default OFF) and
+**START LEVEL** (1-1 through 8-4). Up/Down selects a row; Left/Right changes its
+value, and A/Start also toggles or advances it. B returns to Options. A changed
+starting level applies when you next confirm a character. Invincibility prevents
+enemy and hazard damage; pits and running out of time still work normally. Cheat
+settings last until reset. See [Cheats validation](docs/qa/cheats-menu-2026-10-22.md).
 
 | Character | Controls and upgrades |
 | --- | --- |
@@ -48,13 +69,37 @@ only character selection. See [menu validation](docs/qa/menu-options-v49.md).
 | Sophia III | A jumps. B fires the cannon; Up+B fires upward. Mushroom adds hyper shots. Missiles, homing missiles, hover, Crusher, wall climbing and ceiling attachment are separate block upgrades. Select launches a standard missile triplet or a homing missile. After acquiring hover, press A again in the air and hold; fuel regenerates when inactive. With the corresponding upgrades, Up attaches to a wall/ceiling. Aim and fire away from an attached surface; A releases the ceiling. |
 | Scrooge | A jumps. B swings the cane. Down+B while airborne engages pogo; holding it continues bouncing after landings. DuckTales body/cane/pogo frames and Amazon music come from native captures. |
 
-Samus cannot stomp ordinary enemies in Crossover 2.02. After collecting Screw Attack, her active spinning jump damages eligible enemies; ordinary contact still hurts her.
+Expanded MMC5 additions:
 
-All thirteen and Lance appear on the lives screen. Guest growth pickups hold the current pose and run a 60-frame color/form transition; Luigi alternates small/large forms when growing. Mega Man/Bass inventory upgrades are separate pickups and do not repeat the growth transition. Guest weapons use enemy health, activate question blocks, and damage breakable bricks while preserving terrain. Luigi's fireballs preserve blocks. Mega Man's ordinary buster still takes **two hits** to break a brick.
+| Character | Controls and upgrades |
+| --- | --- |
+| Proto Man | Select on Mega Man. Shares his movement and weapons, with Proto Man art and music. |
+| Darkwing Duck | Select on Scrooge. A jumps, B fires, Up guards, Select toggles normal gas and the carried adaptor. Heavy, Arrow and Thunder Gas are physical pickups. Arrow Gas makes a ledge to hang from; A releases, Down drops. Four health units; visible gas and healing drops. |
+| Zelda II Link | Select on Link. A jumps, B attacks; learned Up/Down thrusts work in the air. Pause and use Up/Down to choose a spell, then Select during play to cast. Paused Left/Right changes spell/stat panels; A buys an affordable stat level. Physical spell/technique pickups, EXP, HP/MP containers and restoration drops. The first Jump upgrade rises fully, then walks and falls so it can be collected before the taller pipes. |
+| Kirby | A jumps; Up inflates, then Up/A flaps. Hold B to inhale, Down swallows, B spits a star or uses the copied power. Select discards a recoverable copy star. Down+A/B slides. Six health units; mushrooms and flowers heal. SMB enemy families supply distinct adapted powers. |
+| Chip / Dale | Menu Select toggles the pair. A jumps. B lifts a nearby crate or legal brick; B throws, Up+B throws upward. Down while carrying a wooden crate hides inside it. Three health units and physical health food. |
+| Grant | Select on Simon cycles the CV3 companions. A jumps with air steering; B uses his knife, Up+B uses the carried dagger, axe or stopwatch. Push against walls to climb; Up grabs ceilings, A releases. |
+| Sypha | B uses the staff; Up+B casts the carried Flame, Ice or homing Lightning. Frozen Goombas can support her and the staff shatters them. Her fixed-direction jump uses doubled displacement to clear SMB pipes and gaps, with original timing and ground speed. |
+| Alucard | B fires; flower upgrades add diagonal fireballs. Down+A transforms to/from a bat, spending hearts over time. His ordinary jump receives the same SMB displacement adjustment as Sypha; bat movement keeps its original values. CV3 companions share a 16-unit health bar, heart pickups and physical subweapon upgrades. |
+| SMB3 Mario / Luigi | Menu Select toggles the pair. A jumps, B runs and uses the current suit. Mushroom grows; subsequent blocks randomly provide Fire, Raccoon, Frog, Tanooki or Hammer. Fill the P meter for flight with a tail suit; tap A to flap. Tanooki Down+B becomes a statue. |
+| Vic Viper | D-pad flies, A fires, B buys the highlighted upgrade. Physical capsules advance the original Speed/Missile/Double/Laser/Option/Shield bar. Two Options, missiles and a five-hit shield; levels automatically scroll until the end lock. |
+| TMNT | Menu Select cycles Leonardo, Raphael, Michelangelo and Donatello. A jumps; B, Up+B and Down+B attack forward, upward and downward with their own primary weapons. Food restores health. Secondary equipment is not implemented. |
+| Little Mac | A jumps, B punches, Up+B spends one star for a super punch. Down ducks; duck and rest to recover exhausted hearts. Flowers become physical star pickups, capped at three; mushrooms heal. Uses his original pink tracksuit running animation with authored source-pixel attack compositions. |
+| Mike Jones | A hops; B attacks; Select cycles stocked specials and the unlimited primary. Shooting Star and Super Nova depend on filled hearts. Big Hearts increase maximum health. Ten collectible special weapons include Asterisk (fresh B splits it), Miracle Mirror and the two lasers. Enemy drops replenish health. |
+
+Easy permits ordinary enemy stomps for the new ground profiles; Hard requires attacks, except the SMB3 pair retains stomping in both modes. Vic Viper uses ship contact and shield rules in both modes. In Hard, Samus cannot stomp ordinary enemies; her acquired Screw Attack damages eligible enemies during an active spin.
+
+All playable identities appear on the lives screen: 32 in the expanded build and 14 in the standard builds. Guest growth pickups hold the current pose and run a 60-frame color/form transition; Luigi alternates small/large forms when growing. Mega Man/Bass inventory upgrades are separate pickups and do not repeat the growth transition. Guest weapons use enemy health, activate question blocks, and damage breakable bricks while preserving terrain. Luigi's fireballs preserve blocks. Mega Man's ordinary buster still takes **two hits** to break a brick.
 
 For Samus, Bill, Link, Simon, Ryu and Sophia, **pause with Start, use Left/Right to select an acquired weapon, and press Start again to resume**. Paused Select returns to the primary weapon. The HUD shows the selected item and ammo. Mega Man/Bass also cycle with Select during play.
 
 The [special-button audit](docs/reference/special-attacks.md) distinguishes the linked game's S attacks from Crossover 2.02's larger weapon inventories. The [Bass inventory update](docs/qa/bass-inventory.md) records weapon selection, HUD and interrupt fixes and their remaining limits. The [walking, brick, flight and music update](docs/qa/walk-flight-update.md) covers the preceding changes.
+
+Super Arm requires eight energy to lift, carries for free, and spends the energy
+when the brick is thrown. Cancelling before throwing costs nothing. Rush requires
+four energy to summon for free; while he is present, B fires the ordinary buster.
+His spring costs twelve energy, clamped at zero. See the [Arm/Rush source checks](docs/qa/arm-rush-source-2026-10-22.md)
+for the new landing sound, audio savings and remaining validation limits.
 
 Water follows the pinned hosted source: Mario and Luigi press A repeatedly to paddle; the other guests use underwater ground jumps, with Simon and Bass retaining their second jumps. Luigi shares Mario's swimming and whirlpool behavior. Gravity and jump release remain character-specific for the other guests. Bottom walking caps at 0.75 NES pixels per frame, while airborne movement keeps each character's own limit. Mega Man can slide underwater; Samus can use Morph Ball and bombs. Water-surface detection follows the active hit rectangle, including fractional pixels. See [the water reference](docs/reference/water.md).
 
@@ -100,13 +145,18 @@ The camera follows every character. Scroll-register timing is checked during nor
 
 Python 3 and Pillow are required. Windows uses the supplied cc65 tools; elsewhere install cc65 and put `cl65` on PATH.
 
+The source archive excludes the compiler binaries. To rebuild it, install cc65
+on PATH or pass `--compiler C:/path/to/cl65.exe` to `tools/build_mmc5_expanded.py`.
+
 ```sh
 python tools/build.py
 python tools/build.py --mapper mmc5
 python tools/build.py --baseline
+python tools/build_mmc5_expanded.py
+python tools/build_mmc3_oversized.py
 ```
 
-Both NES 2.0 cartridges contain 512 KiB PRG, 256 KiB CHR, and 8 KiB volatile WRAM. Generated assets, the packing fixtures and audio provenance are included; building requires no downloaded reference files, original game ROMs, Java or ffmpeg. Pillow is used by the automatic injury-art packing step. [Architecture notes](docs/architecture.md) describe optional regeneration and source provenance.
+The standard NES 2.0 cartridges contain 512 KiB PRG and 256 KiB CHR. The expanded MMC5 target contains 1 MiB of each. Oversized MMC3 contains 2 MiB PRG and 256 KiB CHR RAM; all targets use 8 KiB volatile WRAM. The separate expanded builders use prepared assets and leave standard cartridge outputs intact. Build MMC5 first: the MMC3 preparer checks its graphics against that reference before porting. Generated assets, the packing fixtures and audio provenance are included; building requires no downloaded reference files, original game ROMs, Java or ffmpeg. Pillow is used by the automatic injury-art packing step. [Architecture notes](docs/architecture.md) describe optional regeneration and source provenance.
 
 ## Verify
 

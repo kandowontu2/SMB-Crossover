@@ -22,8 +22,15 @@ nes2mapper 5 ; mmc5
 .elseif MAPPER_MMC3
 nes2mapper 4 ; mmc3
 .endif
+.if ::MAPPER_MMC5 .and ::ENABLE_MMC5_EXPANDED
+ .assert ::MAPPER_MMC5 .and (.not ::MAPPER_MMC3), error, "Expanded cartridge is MMC5-only"
+ .assert ::ENABLE_MMC5_EXPANDED, error, "Separate expanded build flag required"
+nes2prg $100000
+nes2chr $100000
+.else
 nes2prg $80000
 nes2chr $40000
+.endif
 .if ::ENABLE_CROSSOVER
 nes2wram $2000
 .else
@@ -40,7 +47,30 @@ _COMMON_DEFINE_SEGMENTS = 1
 
 .include "inc/charmap.inc"
 .include "inc/constants.inc"
+.if ::ENABLE_MMC5_EXPANDED
+ProtoVariant=$73dd
+ProtoAudioState=$73de
+.export ProtoVariant,ProtoAudioState
+DarkwingVariant=$73df
+DwHealth=$73ef
+DwGas=$73f0
+DwAdaptor=$73f1
+DwMode=$73f2
+DwAnim=$73f3
+DwPhase=$73f4
+DwAnimTick=$73f5
+DwPrevious=$73f6
+DwHang=$73f7
+.export DarkwingVariant,DwHealth,DwGas,DwAdaptor,DwMode,DwAnim,DwPhase,DwAnimTick,DwPrevious,DwHang
+
+.endif
 .include "memory.s"
+.if ::ENABLE_MMC5_EXPANDED
+.include "kirby_state.inc"
+.include "cv3_state.inc"
+.include "little_mac_state.inc"
+.include "tmnt_state.inc"
+.endif
 
 .if MAPPER_MMC5
 .include "mmc5.s"
@@ -147,7 +177,11 @@ _COMMON_DEFINE_SEGMENTS = 1
 CrossoverChrStart:
 .if ::ENABLE_CROSSOVER
 .if ::MAPPER_MMC5
+.if ::ENABLE_MMC5_EXPANDED
+.incbin "chr/characters/packed-mmc5-expanded.chr"
+.else
 .incbin "chr/characters/packed-mmc5.chr"
+.endif
 .else
 .incbin "chr/characters/packed-mmc3.chr"
 .endif
@@ -294,4 +328,103 @@ TitleScreenData:
 ; Preserve all old contribution addresses; reuse the bank11 cold tail.
 .if ::ENABLE_CROSSOVER
 .include "samus_head_axis.s"
+.endif
+
+.if ::ENABLE_CROSSOVER
+.include "score_popup.s"
+.include "cheats.s"
+.include "water_shield_enemies.s"
+.include "hud_tail.s"
+.include "world_sprite_palette.s"
+.endif
+
+.if ::ENABLE_CROSSOVER
+.include "megaman_super_arm.s"
+.include "megaman_rush.s"
+.include "megaman_rush_land.s"
+.endif
+
+.if ::ENABLE_CROSSOVER
+.include "ryu_side_overlap.s"
+.include "level_variants.s"
+.include "crossover_helpers.s"
+.endif
+
+.if ::MAPPER_MMC5 .and ::ENABLE_MMC5_EXPANDED
+.include "mmc5_expanded.s"
+.include "protoman.s"
+.include "darkwing.s"
+.include "x5_profiles.s"
+.include "zelda2_link_state.inc"
+.include "zelda2_native_aliases.inc"
+.include "zelda2_link_rpg.s"
+.include "zelda2_native_motion.inc"
+.include "zelda2_link_art.inc"
+.include "zelda2_link_render.s"
+.include "zelda2_link_motion.s"
+.include "zelda2_link_rewards.s"
+.include "zelda2_link_ui.s"
+.include "zelda2_pause_panel.s"
+.include "zelda2_inventory_glue.s"
+.include "zelda2_inventory_original.inc"
+.include "zelda2_link_items.inc"
+.include "zelda2_link_draw_world.s"
+.include "zelda2_link_combat.s"
+.include "zelda2_link_projectiles.s"
+.include "zelda2_link_damage.s"
+.include "zelda2_link_block.s"
+.include "zelda2_link_drops.s"
+.include "zelda2_link_menu.s"
+.include "kirby.s"
+.include "chip_dale_state.inc"
+.include "chip_dale_native_motion.inc"
+.include "chip_dale_art.inc"
+.include "chip_dale_core.s"
+.include "chip_dale_motion.s"
+.include "chip_dale_render.s"
+.include "chip_dale_boxes.s"
+.include "chip_dale_health.s"
+.include "chip_dale_dispatch.s"
+.pushseg
+.segment "CD_CHR"
+.incbin "chr/characters/chip-dale.chr"
+.popseg
+.include "tmnt.s"
+.include "mike_jones_state.inc"
+.include "mike_jones.s"
+.include "x5_palette.s"
+.include "vic_viper.s"
+.include "gradius_audio.s"
+.include "cv3.s"
+.include "little_mac.s"
+.include "smb3_mario_state.inc"
+.include "smb3_native_controller.inc"
+.include "smb3_mario_art.inc"
+.include "smb3_mario_core.s"
+.include "smb3_mario_motion.s"
+.include "smb3_mario_render.s"
+.include "smb3_native_projectiles.inc"
+.include "smb3_mario_world_art.inc"
+.include "smb3_mario_pickups.s"
+.include "smb3_mario_combat.s"
+.include "smb3_mario_world.s"
+.include "smb3_mario_dispatch.s"
+.include "x5_bounce.s"
+.include "x5_menu_ui.s"
+.include "roll.s"
+.pushseg
+.segment "M3_CHR"
+.incbin "chr/characters/smb3-mario.chr"
+.popseg
+.pushseg
+.segment "Z2_CHR"
+.incbin "chr/characters/zelda2-link-body.chr"
+.incbin "chr/characters/zelda2-link-items.chr"
+.popseg
+.include "mac_visible_side.s"
+.include "protoman_hurt_end.s"
+.include "inventory_legacy_leaf.s"
+.include "hot_collision_gate.s"
+.include "hot_render_gate.s"
+
 .endif

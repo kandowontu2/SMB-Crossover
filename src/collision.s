@@ -455,7 +455,11 @@ TInjE:    lda Enemy_MovingDir,x  ;if enemy moving towards the left,
           jmp LInj
 
 InjurePlayer:
+.if ::ENABLE_CROSSOVER
+      jsr CheatsInjuryTimer    ; Damage protection without star colors or blink.
+.else
       lda InjuryTimer          ;check again to see if injured invincibility timer is
+.endif
       bne ExInjColRoutines     ;at zero, and branch to leave if so
 
 ForceInjury:
@@ -471,7 +475,11 @@ ForceInjury:
             farcall MarioSourceInjuryStart
             jmp ExInjColRoutines
           :
+.if ::ENABLE_MMC5_EXPANDED
+          farcall RlInjuryDispatch
+.else
           farcall GuestInjuryStart
+.endif
           bcs ExInjColRoutines
 .endif
           sta PlayerStatus          ;otherwise set player's status to small
@@ -650,6 +658,10 @@ SFcRt:
 .endif
 
 SetupFloateyNumber:
+.if ::ENABLE_CROSSOVER
+  BillRareCall ScorePopupSetup
+  .res 19-(*-SetupFloateyNumber),$ea ; Keep ExSFN and every later resident PC.
+.else
   sta FloateyNum_Control,x ;set number of points control for floatey numbers
   lda #$30
   sta FloateyNum_Timer,x   ;set timer for floatey numbers
@@ -657,6 +669,7 @@ SetupFloateyNumber:
   sta FloateyNum_Y_Pos,x   ;set vertical coordinate
   lda Enemy_Rel_XPos
   sta FloateyNum_X_Pos,x   ;set horizontal coordinate and leave
+.endif
 ExSFN:
   rts
 
@@ -849,12 +862,20 @@ ChkSmallPlatLoop:
 
 MoveBoundBox:
        lda BoundingBox_UL_YPos,y  ;move bounding box vertical coordinates
+.if ::ENABLE_CROSSOVER
+       jsr CrossoverLiftSecondY
+.else
        clc                        ;128 pixels downwards
        adc #$80
+.endif
        sta BoundingBox_UL_YPos,y
        lda BoundingBox_DR_YPos,y
+.if ::ENABLE_CROSSOVER
+       jsr CrossoverLiftSecondY
+.else
        clc
        adc #$80
+.endif
        sta BoundingBox_DR_YPos,y
        dec R0                     ;decrement counter we set earlier
        bne ChkSmallPlatLoop       ;loop back until both bounding boxes are checked
@@ -1049,7 +1070,11 @@ ExHCF: rts                      ;and now let's leave
 
 HandlePowerUpCollision:
 .if ::ENABLE_CROSSOVER
+.if ::ENABLE_MMC5_EXPANDED
+      farcall JnPickupDispatch, jmp
+.else
       farcall MarioSourcePowerupCollision, jmp
+.endif
 .else
       jsr EraseEnemyObject    ;erase the power-up object
       lda #$06
@@ -1070,7 +1095,11 @@ NearbyRTS:
 
 Shroom_Flower_PUp:
 .if ::ENABLE_CROSSOVER
+.if ::ENABLE_MMC5_EXPANDED
+      farcall DwCollectPickup
+.else
       farcall InventoryCollect
+.endif
       bcc :+
         rts
       :
@@ -2356,7 +2385,11 @@ BoundBoxCtrlData:
   .byte $03, $14, $0d, $20  ; small mario
   .byte $02, $14, $0e, $20  ; big mario crouching
   .byte $02, $09, $0e, $15
+.if ::ENABLE_CROSSOVER
+  .byte $00, $00, $18, $08 ;24x8 source constant-lift rectangle.
+.else
   .byte $00, $00, $18, $06
+.endif
   .byte $00, $00, $20, $0d
   .byte $00, $00, $30, $0d
   .byte $00, $00, $08, $08

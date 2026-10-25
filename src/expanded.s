@@ -10,6 +10,29 @@
 .include "scrooge_metasprites.inc"
 .pushseg
 .segment "FIXED"
+.if ::ENABLE_MMC5_EXPANDED
+.proc ExpandedGraphicsBank
+  jmp DwResidentGraphicsSelector
+::X5PlayerOutlineFlag:
+  ; Legacy records own optional masks; new profiles draw their own ink.
+  ; Preserve the original LDA's C/V/D/I and report only returned A in N/Z.
+  php
+  cpx #13
+  bcs NewProfile
+  lda RlOutlineBypass
+  bne NewProfile
+  lda PlayerOutlineCharacters,x
+  jmp RestoreFlags
+NewProfile:
+  lda #0
+RestoreFlags:
+  plp
+  ora #0
+  rts
+  .res 1,$ea
+  .assert *-ExpandedGraphicsBank=26,error,"original graphics bank span"
+.endproc
+.else
 .proc ExpandedGraphicsBank
   lda SelectedCharacter
   sec
@@ -23,6 +46,18 @@
   rts
 Banks: .byte .bank(XgPIT0_STANDRight),.bank(XgRYGAR0_STANDRight),.bank(XgLUIGI0_STANDRight),.bank(XgBASS0_STANDRight),.bank(XgRYU0_STANDRight),.bank(XgSOPHIA0_STANDRight),.bank(XgSCROOGE_STANDRight)
 .endproc
+.endif
+.if ::ENABLE_MMC5_EXPANDED
+.proc ExpandedCollisionAdder
+  farcall HotCollisionAdder,jmp
+::KbNativeHeadBridge:
+  farcall TnFastHeadGate,jmp
+::VvScrollBridge:
+  farcall VvScrollGate,jmp
+  .res 3,$ea
+  .assert *-ExpandedCollisionAdder=57,error,"Original collision leaf span"
+.endproc
+.else
 .proc ExpandedCollisionAdder
   ldy #6
   cmp #CHARACTER_SCROOGE
@@ -61,6 +96,29 @@ Scrooge:
   sec
   rts
 .endproc
+.endif
+.if ::ENABLE_MMC5_EXPANDED
+.proc ExpandedCollisionBox
+  farcall HotCollisionBox,jmp
+::Cv3ResidentBox:
+ cmp #CHARACTER_SIMON
+ bne Cv3BoxLegacy
+ lda Cv3Variant
+ beq Cv3BoxLegacy
+ cmp #4
+ bcs Cv3BoxLegacy
+ ldy Cv3CachedBox
+ rts
+Cv3BoxLegacy:
+ lda SelectedCharacter
+ cmp #CHARACTER_BILL
+ bne Cv3BoxOther
+ jmp Cv3LegacyBoxBill
+Cv3BoxOther:jmp Cv3LegacyBoxOther
+  .res 7,$ea
+  .assert *-ExpandedCollisionBox=55,error,"Original collision leaf span"
+.endproc
+.else
 .proc ExpandedCollisionBox
   cmp #CHARACTER_SCROOGE
   beq Scrooge
@@ -97,6 +155,7 @@ Scrooge:
   iny
   rts
 .endproc
+.endif
 
 .segment "EXPANDED"
 .proc ExpandedMovement
@@ -109,7 +168,11 @@ Scrooge:
   :
   cmp #CHARACTER_SCROOGE
   bne :+
+.if ::ENABLE_MMC5_EXPANDED
+    farcall DwScroogeMovement
+.else
     farcall ScroogeMovement
+.endif
   :
   lda SelectedCharacter
   sec
@@ -593,7 +656,11 @@ Abilities:
   lda SelectedCharacter
   cmp #CHARACTER_SCROOGE
   bne :+
+.if ::ENABLE_MMC5_EXPANDED
+    farcall DwScroogePhysics
+.else
     farcall ScroogePhysics
+.endif
     jmp Integrate
   :
   cmp #CHARACTER_PIT
@@ -1286,7 +1353,11 @@ RunJump:
   lda SelectedCharacter
   cmp #CHARACTER_SCROOGE
   bne :+
+.if ::ENABLE_MMC5_EXPANDED
+    farcall DwScroogeGraphics
+.else
     farcall ScroogeGraphics
+.endif
     rts
   :
   lda Player_SprAttrib
@@ -1824,4 +1895,5 @@ Done:
   rts
 .endproc
 .popseg
+
 

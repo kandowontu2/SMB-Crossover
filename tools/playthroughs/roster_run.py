@@ -7,6 +7,7 @@ is a candidate until its complete CSV is independently replayed with --replay.
 from __future__ import annotations
 
 import argparse
+import gzip
 import hashlib
 import json
 import math
@@ -21,6 +22,7 @@ import sys
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "tools"))
 import run_mesen
+from workspace_storage import CAP_BYTES, locate
 
 
 def sha(path: Path) -> str:
@@ -90,6 +92,8 @@ def main() -> int:
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("--character", type=int, required=True, choices=range(13))
     p.add_argument("--variant", type=int, default=0, choices=(0, 1))
+    p.add_argument("--behavior", choices=("easy", "hard"), default="easy",
+                   help="Choose the real Options menu setting through controller input")
     p.add_argument("--mapper", default="mmc3", choices=("mmc3", "mmc5"))
     p.add_argument("--rom", type=Path, help="Frozen checkpoint ROM with matching .lbl/.dbg files")
     p.add_argument("--tag", required=True)
@@ -114,12 +118,18 @@ def main() -> int:
         assert a.frames <= 100000
     assert not (a.prefix and a.replay), "Choose --prefix or --replay"
     assert not (a.discovery_fast and (a.record or a.replay)), "Final fixed replay and recording require the full frame audit"
-    assert a.variant == 0 or a.character == 3, "Variant 1 is Lance; Luigi is character 8"
+    assert a.variant == 0 or a.character in (1, 3), "Variant 1 is Proto Man or Lance; Luigi is character 8"
     assert a.frames > 600
     used = workspace_bytes(ROOT)
-    cap = int(a.workspace_cap_gb * 1_000_000_000)
+    cap = min(int(a.workspace_cap_gb * 1_000_000_000), CAP_BYTES)
     assert cap > 0, "Workspace cap must be positive"
     print(json.dumps({"workspace_bytes_before": used, "workspace_cap_bytes": cap}), flush=True)
+    if used + 64 * 1024 * 1024 > cap:
+        raise RuntimeError("Archive older evidence before starting another run under the 30 GB cap")
+    for name in ('rom', 'policy', 'prefix', 'replay'):
+        value = getattr(a, name)
+        if value is not None:
+            setattr(a, name, locate(value))
     recording_reserve = a.frames * (256 * 240 * 4 + 4096) + 512 * 1024 * 1024
     if a.record_segments:
         recording_reserve = (a.segment_frames * (256 * 240 * 4 + 16384)
@@ -131,9 +141,24 @@ def main() -> int:
         raise FileExistsError(f"Output tag already has evidence; choose a fresh tag: {out}")
     out.mkdir(parents=True, exist_ok=True)
     source = a.rom.resolve() if a.rom else ROOT / f"build/smb-crossover-{a.mapper}.nes"
+    header = source.read_bytes()[:16]
+    actual_mapper = (header[6] >> 4) | (header[7] & 0xf0) | ((header[8] & 15) << 8)
+    assert actual_mapper == (5 if a.mapper == "mmc5" else 4), "Declared mapper differs from the actual cartridge"
+    variant_symbol = "BillVariant" if a.character == 3 else "ProtoVariant" if a.character == 1 else None
+    if a.character == 1 and a.variant:
+        labels = source.with_suffix('.lbl').read_text()
+        assert a.mapper == 'mmc5' and re.search(r'^al [0-9A-Fa-f]+ \.ProtoVariant$', labels, re.M), "Proto Man requires the expanded MMC5 cartridge"
     rom = out / source.name
-    for extension in (".nes", ".lbl", ".dbg"):
+    for extension in (".nes", ".lbl"):
         shutil.copyfile(source.with_suffix(extension), rom.with_suffix(extension))
+    debug = source.with_suffix('.dbg')
+    if debug.exists():
+        raw_debug = debug.read_bytes()
+        packed_debug = gzip.compress(raw_debug, mtime=0)
+        assert gzip.decompress(packed_debug) == raw_debug
+        rom.with_suffix('.dbg.gz').write_bytes(packed_debug)
+    else:
+        shutil.copyfile(source.with_suffix('.dbg.gz'), rom.with_suffix('.dbg.gz'))
     policy = out / "policy.lua"
     shutil.copyfile(a.policy.resolve(), policy)
     core = out / "harness.lua"
@@ -159,6 +184,7 @@ def main() -> int:
         os.environ["SMB_CROSSOVER_CAPTURE_AVI"] = (out / "native.avi").as_posix()
     config = {
         "character": a.character, "variant": a.variant, "mapper": a.mapper,
+        "variantSymbol": variant_symbol, "behavior": a.behavior,
         "limit": a.frames, "out": out.as_posix() + "/", "record": a.record,
         "allowDeaths": a.allow_deaths, "bridge": bridge.as_posix(),
         "policy": policy.as_posix(), "replay": a.replay.resolve().as_posix() if a.replay else None,

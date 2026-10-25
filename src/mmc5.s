@@ -165,6 +165,78 @@ MMC5_CHR_BG_BANK_0C = MMC5_CHR_BANK_BASE + 11
 .endmacro
 
 .macro SwitchAreaCHR
+.if ::ENABLE_MMC5_EXPANDED
+ .local StartPublication,EndPublication
+StartPublication:
+  ; This NMI-only bridge does not touch shared farcall SMC or CurrentBank.
+  lda CurrentBank
+  pha
+  lda #$be                       ; physical62 in the expanded cartridge
+  sta MMC5_PRG_BANK_A
+  jsr X5PublishChr
+  tax
+  pla
+  sta MMC5_PRG_BANK_A
+  txa
+  jmp EndPublication
+::DwResidentGraphicsSelector:
+  ; Called by NMI audio as well as the main renderer. Never use shared
+  ; farcall SMC here: it can interrupt a partially prepared main call.
+  lda SelectedCharacter
+  sec
+  sbc #CHARACTER_PIT
+  tax
+  cpx #CHARACTER_SCROOGE-CHARACTER_PIT
+  bne NativeGraphics
+  lda DarkwingVariant
+  beq NativeGraphics
+  lda #68 | MMC5_PRG_ROM
+  bne StoreGraphics
+NativeGraphics:
+  lda DwResidentGraphicsBanks,x
+  ora #MMC5_PRG_ROM
+StoreGraphics:
+  sta CurrentBankC
+  sta MMC5_PRG_BANK_C
+  rts
+::DwResidentGraphicsBanks:
+  .byte .bank(XgPIT0_STANDRight),.bank(XgRYGAR0_STANDRight),.bank(XgLUIGI0_STANDRight),.bank(XgBASS0_STANDRight),.bank(XgRYU0_STANDRight),.bank(XgSOPHIA0_STANDRight),.bank(XgSCROOGE_STANDRight),.bank(KbArtStart),.bank(CdArtBegin),94,97,91,76,.bank(TnArtStart)
+::Cv3ResidentRosterBank:
+ lda SelectedCharacter
+ cmp #CHARACTER_SIMON
+ bne Cv3BankLegacy
+ lda Cv3Variant
+ beq Cv3BankLegacy
+ cmp #4
+ bcs Cv3BankLegacy
+ cmp #3
+ lda #83
+ bcc Cv3BankReturn
+ lda #85
+Cv3BankReturn:rts
+Cv3BankLegacy:
+ lda Cv3LegacyBanks,x
+ rts
+::Cv3ResidentAdder:
+ cmp #CHARACTER_SIMON
+ bne Cv3AdderLegacy
+ lda Cv3Variant
+ beq Cv3AdderLegacy
+ cmp #4
+ bcs Cv3AdderLegacy
+ ldy Cv3CachedAdder
+ sec
+ rts
+Cv3AdderLegacy:
+ lda SelectedCharacter
+ cmp #CHARACTER_BILL
+ bne Cv3AdderOther
+ jmp Cv3LegacyAdderBill
+Cv3AdderOther:jmp Cv3LegacyAdderOther
+  .res 136-(*-StartPublication),$ea ; old unrolled publication footprint
+EndPublication:
+
+.else
   .local SpecialChrDone
   .local HudChrDone
   .repeat 12, I
@@ -187,6 +259,8 @@ SpecialChrDone:
 .endif
     sta MMC5_CHR_BANK_BASE + I
   .endrepeat
+
+.endif
 .endmacro
 
 .macro LoadAreaTypeCHR
@@ -259,6 +333,19 @@ MapperInit:
 
   ; now setup the CHR banks
   ; To prevent graphics glitches, they must always be written in this order
+.if ::ENABLE_MMC5_EXPANDED
+  ; Preserve the original20-byte boot publication span and all following PCs.
+X5BootPublication:
+  lda #$be
+  sta MMC5_PRG_BANK_A
+  jsr X5ColdInit
+  pha
+  lda #.bank(PLAYER) | MMC5_PRG_ROM
+  sta MMC5_PRG_BANK_A
+  pla
+  cpx #12                       ; restore original boot-loop flags exactly
+  .res 20-(*-X5BootPublication),$ea
+.else
   ldx #0
   :
     lda CHRBankInitValues,x
@@ -271,6 +358,7 @@ MapperInit:
     inx
     cpx #12
     bcc :-
+.endif
   rts
 CHRBankInitValues:
 ; SPR bank init values

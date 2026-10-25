@@ -570,6 +570,26 @@ InitVStf:
 ;--------------------------------
 ;$00 - used to store enemy identifier in KillEnemies
 .proc KillEnemies
+.if ::ENABLE_CROSSOVER
+  ; R0 is this routine's original input save. The cold leaf does not consume
+  ; SafecallA, leaving exactly seven bytes for the rare injury predicate.
+  sta R0
+  lda #.lobyte(CheatsNativeKillEnemies)
+  SMC_StoreLowByte FarcallJmpTarget, a
+  lda #.hibyte(CheatsNativeKillEnemies)
+  SMC_StoreHighByte FarcallJmpTarget, a
+.if ::MAPPER_MMC5
+  lda #.bank(CheatsNativeKillEnemies) | MMC5_PRG_ROM
+.else
+  lda #.bank(CheatsNativeKillEnemies)
+.endif
+  jmp BillRareCallCommon
+::CheatsInjuryTimer:
+  lda InjuryTimer
+  ora CheatInvincible
+  rts
+  .assert *-KillEnemies=24,error,"Keep the original resident KillEnemies span"
+.else
   sta R0            ;store identifier here
   lda #$00
   ldx #$04          ;check for identifier in enemy object buffer
@@ -584,6 +604,7 @@ KillELoop:
     dex               ;do this until all slots are checked
     bpl KillELoop
   rts
+.endif
 .endproc
 
 ;-------------------------------------------------------------------------------------

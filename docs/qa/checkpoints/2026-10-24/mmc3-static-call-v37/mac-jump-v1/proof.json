@@ -1,0 +1,50 @@
+{
+  "passed": true,
+  "goal_complete": false,
+  "ROM_sha256": "20b9f314443db1b05a205517d27e23abb4219774f2fa255dd972b2d275e2f55d",
+  "result": {
+    "cleared": true,
+    "world_1_1_seen": true,
+    "frames": 5047,
+    "polls": 5046,
+    "deaths": 0,
+    "failure": null,
+    "stage_entries": {
+      "0-0": 497,
+      "0-1": 5023
+    }
+  },
+  "tiny": {
+    "passed": true,
+    "protected_code_bytes": 6,
+    "observed_declared_operand_writes": 847654,
+    "resident_call_entries": 212659,
+    "native_stack_writes": 3045934,
+    "minimum_SP_from_stack_write_addresses": 168,
+    "stack_floor": 91,
+    "observer_game_state_writes": false
+  },
+  "mapper_cache": {
+    "passed": true,
+    "boot_verified": true,
+    "entered": true,
+    "NMI_count": 4840,
+    "IRQ_count": 4339,
+    "DMA_count": 1786,
+    "VBlank_upload_bytes": 0,
+    "resident_body_bytes_verified": 40960,
+    "displayed_composite_bytes_verified": 0,
+    "controller_and_game_state_writes": false,
+    "scope": "Native MMC3 full-route bank/SMC, boot, resident-family, displayed assigned composite-source/protected terrain bytes and VBlank cache witness. This is not an independent input replay, exhaustive pose/silhouette/source fidelity or campaign admission."
+  },
+  "motion": {
+    "passed": true,
+    "checks": 2702,
+    "max_world_step": 3,
+    "max_camera_step": 3,
+    "game_state_writes": false
+  },
+  "policy_sha256": "36a2d5c0831fba071aebf4222f5b51f06e8fdd67fedc550456a5a1b617a2e6c7",
+  "source_policy_sha256": "009cf8b1407f393ef3d2f317097cbb522a9380189480d8cb3af73ed9e7905933",
+  "scope": "Controller-only native full1-1 attempt: each requested jump holds A at least eight physical polls, preserving longer original holds. Source Mac already uses Mario movement. A one-poll request may be released while the character still appears grounded between logical updates. No ROM/physics/map/equipment writes; all original assertions and failed route retained. This tests input timing, not a declared game fix or independent pixel admission."
+}

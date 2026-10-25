@@ -35,18 +35,34 @@ def main():
             assert all(a[i*32:(i+1)*32]==b[i*32:(i+1)*32]for i in range(32)if i not in owned),'Growth only allocates four proved weapon pairs' 
     expanded=bytearray((folder/'crossover-expanded.chr').read_bytes());low=bytearray((folder/'crossover-roster-low.chr').read_bytes())
     first=0xd1+len((folder/'crossover-roster-high.chr').read_bytes())//1024
+    complete_bass=(folder/'bass-arm-source-plan.json').exists()
     lines=['; Generated low-pressure poses; original records are retained for viewport fallback.'];report=[]
     for item in plan['replacements']:
         b=item['bank'];baseline=bytes.fromhex(item['baseline_bank_hex']);is_bass=b in(224,225)
         blob,off=(expanded,(b-first)*1024)if is_bass else(low,(b-0x1d)*1024)
         block=bytes(blob[off:off+1024]);assert len(block)==1024
         inc=ROOT/'src'/('bass_metasprites.inc'if is_bass else'bill_metasprites.inc')
+        source_block=block
+        if is_bass and complete_bass:
+            # The restored source arm repacks normal Bass banks. Walking still
+            # has exactly the frozen pixels, while its fallback tile indices
+            # can move. Follow its real current bank for the pixel proof.
+            text=inc.read_text()
+            refs=re.search(r'^XgBASSRightLo:\n\s+\.byte ([^\n]+)',text,re.M)[1].split(',')
+            banks=re.search(r'^XgBASSBanks:\n\s+\.byte ([^\n]+)',text,re.M)[1].split(',')
+            index=[v.strip().lstrip('<')for v in refs].index(item['name']+'Right')
+            actual=int(banks[index].strip().lstrip('$'),16)
+            source_block=bytes(expanded[(actual-first)*1024:(actual-first+1)*1024])
         for side in('Left','Right'):
             source=source_parts(inc,item['name']+side)
-            assert source==item['old_parts'][side],'Original fallback record must remain exact: '+item['name']+side
-            assert composite(source,block)==item['baseline_pixels'][side],'Original fallback pixels remain exact'
+            if not(is_bass and complete_bass):
+                assert source==item['old_parts'][side],'Original fallback record must remain exact: '+item['name']+side
+            assert composite(source,source_block)==item['baseline_pixels'][side],'Original fallback pixels remain exact'
         if b==224:
-            assert block==baseline,'Common buster/normal Bass bank must remain byte-identical'
+            if complete_bass:
+                assert block[:32]==baseline[:32],'Restored-arm banks retain the exact common buster'
+            else:
+                assert block==baseline,'Common buster/normal Bass bank must remain byte-identical'
             cover=plan['walk1_cover'];pool=[block[:32]]+[bytes.fromhex(c['pattern'])for c in cover]
             private=b''.join(pool)+bytes(1024-len(pool)*32);assert private[:32]==block[:32]
             (folder/'ordinary-bass-walk.chr').write_bytes(private)

@@ -13,6 +13,8 @@ def main():
     parser.add_argument('rom', type=Path)
     parser.add_argument('--emulator')
     parser.add_argument('--timeout', type=int, default=30)
+    parser.add_argument('--option', action='append', default=None,
+                        help='Repeatable emulator option; use --option=--name=value')
     args = parser.parse_args()
     original = R / 'tools/run_mesen.py'
     text = original.read_text()
@@ -22,7 +24,8 @@ def main():
     sys.path.insert(0, str(R / 'tools'))
     namespace = dict(__file__=str(original), __name__='_isolated_mesen_driver', ISOLATED_OUTPUT=args.output.resolve())
     exec(compile(text, str(original), 'exec'), namespace)
-    return namespace['run'](args.script, args.rom, args.emulator, args.timeout)
+    return namespace['run'](args.script, args.rom, args.emulator, args.timeout,
+                            emulator_options=args.option)
 
 
 if __name__ == '__main__':

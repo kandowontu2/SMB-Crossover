@@ -5,7 +5,11 @@
 .endproc
 .proc MegaManBounceVelocity
   php
+.if ::ENABLE_MMC5_EXPANDED
+  farcall X5StompDispatch
+.else
   farcall MegaManBounceVelocityModes
+.endif
   plp
   rts
 .endproc
@@ -65,7 +69,11 @@ FirebarNative:
 EasyLinkFirebarBridgeEnd:
 .proc MegaManSpringVelocity
   php
+.if ::ENABLE_MMC5_EXPANDED
+  farcall X5SpringDispatch
+.else
   farcall MegaManSpringVelocityModes
+.endif
   plp
   rts
 .endproc
@@ -119,8 +127,13 @@ Guest:
 Return:
   rts
 Native:
+.if ::ENABLE_MMC5_EXPANDED
+  jmp KbNativeHeadBridge
+Ryu:
+.else
   jmp BlockBufferColli_Head
 Ryu:
+.endif
   jsr BlockBufferColli_Head
   .if !::MAPPER_MMC3
   nop
@@ -320,7 +333,11 @@ ExitVine:
   lda SelectedCharacter
   cmp #CHARACTER_BILL
   bcc :+
+ .if ::ENABLE_MMC5_EXPANDED
+    farcall Cv3MovementGate
+ .else
     farcall RosterMovement
+ .endif
     rts
   :
   cmp #CHARACTER_SAMUS

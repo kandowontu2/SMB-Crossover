@@ -181,11 +181,19 @@ ChkMoveDir:
   SetMoveDir:
     sta Player_MovingDir        ;set moving direction
 PlayerSubs:
+ .if ::ENABLE_MMC5_EXPANDED
+  jsr VvScrollBridge
+ .else
   jsr ScrollHandler           ;move the screen if necessary
+ .endif
   jsr GetPlayerOffscreenBits  ;get player's offscreen bits
   jsr RelativePlayerPosition  ;get coordinates relative to the screen
   ldx #$00                    ;set offset for player object
+ .if ::ENABLE_MMC5_EXPANDED
+  farcall LmBoundingBoxGate
+ .else
   jsr BoundingBoxCore     ;get player's bounding box coordinates
+ .endif
   jsr PlayerBGCollision       ;do collision detection and process
 .if ::ENABLE_CROSSOVER
   lda SmCeilingHit
@@ -526,12 +534,20 @@ GuestDeathGraphicsReady:
   lda SelectedCharacter
   cmp #CHARACTER_PIT
   bcc :+
+.if ::ENABLE_MMC5_EXPANDED
+    farcall HotPlayerGraphics
+.else
     farcall ExpandedGraphics
+.endif
     rts
   :
   cmp #CHARACTER_BILL
   bcc :+
+ .if ::ENABLE_MMC5_EXPANDED
+    farcall Cv3GraphicsGate
+ .else
     farcall RosterGraphics
+ .endif
     rts
   :
   cmp #CHARACTER_SAMUS
@@ -772,7 +788,11 @@ PlayerDeath:
   beq NativePlayerDeath
   cmp #CHARACTER_PIT
   bcc :+
+.if ::ENABLE_MMC5_EXPANDED
+    farcall RlDeathDispatch
+.else
     farcall ExpandedDeathUpdate
+.endif
     rts
   :
   cmp #CHARACTER_BILL
@@ -975,7 +995,11 @@ CrossoverGuestDispatch:
     lda GameEngineSubroutine
     cmp #8
     jne CrossoverVanillaMovement
+.if ::ENABLE_MMC5_EXPANDED
+    farcall RlMovementDispatch
+.else
     farcall SpecialMovement
+.endif
     rts
   :
   lda SelectedCharacter
@@ -984,7 +1008,11 @@ CrossoverGuestDispatch:
     lda GameEngineSubroutine
     cmp #8
     jne CrossoverVanillaMovement
+.if ::ENABLE_MMC5_EXPANDED
+    farcall X5BounceMovementDispatch
+.else
     farcall ExpandedMovement
+.endif
     rts
   :
   cmp #CHARACTER_BILL
@@ -992,7 +1020,11 @@ CrossoverGuestDispatch:
     lda GameEngineSubroutine
     cmp #8
     bne CrossoverVanillaMovement
+ .if ::ENABLE_MMC5_EXPANDED
+    farcall Cv3MovementGate
+ .else
     farcall RosterMovement
+ .endif
     rts
   :
   cmp #CHARACTER_SAMUS

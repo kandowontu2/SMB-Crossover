@@ -3,6 +3,12 @@
 BillNativeReturnP: .res 1
 BillNativeReturnA: .res 1
 BillNativeReturnSelector: .res 1
+.if ::ENABLE_MMC5_EXPANDED
+; SRAM is fully assigned through$7fff. Use the two unassigned global
+; ExRAM bytes immediately after the existing expanded bounce state.
+NativeStatusPending=$5ff6
+NativeStatusCursor=$5ff7
+.endif
 .assert BillNativeReturnSelector=$7ff6,error,"Append explicit original output selector"
 .assert BillNativeReturnP=$7ff4,error,"Append rare-call P after exact old Bill cache"
 .assert * <= $8000,error,"Rare-call result exceeds SRAM"
@@ -528,8 +534,13 @@ OutputNumbers:
   pha                      ;save incremented value to stack for now and
     asl                      ;shift to left and use as offset
     tay
+ .if ::ENABLE_MMC5_EXPANDED
+    jsr BillNativeStatusReserve
+    bcs RejectedNumbers
+ .else
     ldx VRAM_Buffer1_Offset  ;get current buffer pointer
     lda #$20                 ;put at top of screen by default
+ .endif
     cpy #$00                 ;are we writing top score on title screen?
     bne SetupNums
     lda #$22                 ;if so, put further down on the screen
@@ -563,6 +574,11 @@ DigitPLoop:
   stx VRAM_Buffer1_Offset  ;store it in case we want to use it again
 ExitOutputN:
   rts
+.if ::ENABLE_MMC5_EXPANDED
+RejectedNumbers:
+  pla
+  rts
+.endif
   
 
 ;-------------------------------------------------------------------------------------
@@ -846,8 +862,9 @@ GuestBlockTileReady:
 StartBTmr:
 .if ::ENABLE_CROSSOVER
       lda SelectedCharacter
-      beq NativeCoinTimer
-      farcall MegaManCoinBrick
+      nop                         ; Keep all original public PCs.
+      nop
+      farcall CrossoverLevelCoinBrick
       jmp PutMTileB
 NativeCoinTimer:
 .endif
@@ -938,6 +955,20 @@ NativeRareContinueGame:
 .endif
   rts
 .popseg
+
+.if ::ENABLE_MMC5_EXPANDED
+.proc BillNativeStatusReserve
+  farcall X5NativeStatusReserve
+  beq Full
+  ldx VRAM_Buffer1_Offset
+  lda #$20
+  clc
+  rts
+Full:sec
+  rts
+.endproc
+.endif
+
 BillNativeRareEnd:
 .assert BillNativeRareEnd-BillSourceBodyStart <= 1679,error,"Bill/native layout exceeds old MM2 audio tail"
 .popseg
@@ -1006,6 +1037,50 @@ BillRareCallCommon:
 .proc SophiaHeadBlockOrigin
   ; Other characters tail-call the native initializer: the caller reloads A
   ; and flags, and this keeps their common bump timing close to the original.
+.if ::ENABLE_MMC5_EXPANDED
+  jsr InitBlock_XY_Pos
+  php
+  pha
+  lda SelectedCharacter
+  beq Done
+  lda R6
+  sec
+  sbc #<Block_Buffer_1
+  and #$0f
+  asl
+  asl
+  asl
+  asl
+  sta Block_X_Position,x
+  lda Player_PageLoc
+  sta Block_PageLoc,x
+  sta Block_PageLoc2,x
+  ; The two buffers encode world-page parity. A head/proxy can only sample
+  ; the player's page or one neighbor, including a left-edge page carry.
+  lda R6
+  sec
+  sbc #<Block_Buffer_1
+  and #$10
+  lsr
+  lsr
+  lsr
+  lsr
+  eor Player_PageLoc
+  and #1
+  beq Done
+  lda Player_X_Position
+  bmi NextPage
+  dec Block_PageLoc,x
+  dec Block_PageLoc2,x
+  jmp Done
+NextPage:
+  inc Block_PageLoc,x
+  inc Block_PageLoc2,x
+Done:
+  pla
+  plp
+  rts
+.else
   lda SelectedCharacter
   cmp #CHARACTER_SOPHIA
   jne InitBlock_XY_Pos
@@ -1026,5 +1101,22 @@ Done:
   pla
   plp
   rts
+.endif
 .endproc
 .popseg
+
+.if ::ENABLE_MMC5_EXPANDED
+.pushseg
+.segment "BILL_BODY_COLD"
+.proc CrossoverSmallHeadCold
+  ldy #1
+  lda SelectedCharacter
+  cmp #CHARACTER_MIKE
+  bne Done
+  ldy #0
+Done:
+  plp
+  rts
+.endproc
+.popseg
+.endif

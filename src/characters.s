@@ -34,7 +34,11 @@ Native:
 .endproc
 
 .proc CrossoverHeadProbe
+.if ::ENABLE_MMC5_EXPANDED && ::MAPPER_MMC5
+  jmp MmNativeHeadShortcut
+.else
   jmp BillHeadDispatch
+.endif
   ; Contextual cold-query tail uses existing unreachable57-EA head padding.
   ; The extra JMP from SAMUS preserves all flags/AXY/SP and adds no bank call.
 ::SophiaSourceHeadTail:
@@ -56,12 +60,32 @@ FootNative:
 .endproc
 
 .proc CrossoverSourceSideProbe
+ .if ::ENABLE_MMC5_EXPANDED
+ .if ::MAPPER_MMC5
+  jmp MmNativeSideShortcut
+::MmNativeHeadShortcut:
+  ; Mega Man / Proto Man reach the ordinary query after the other families'
+  ; exact-ID gates. Keep its actual native head cell and every later consumer.
+  lda SelectedCharacter
+  cmp #CHARACTER_SAMUS
+  bcs OrdinaryHeadDispatch
+  jmp BlockBufferColli_Head
+OrdinaryHeadDispatch:
+  jmp BillHeadDispatch
+  .res 12,$ea
+ .else
+  farcall TnFastSideGate,jmp
+  .res 10,$ea
+ .endif
+ .else
   lda SelectedCharacter
   cmp #CHARACTER_SOPHIA
   bne Native
   farcall SophiaSourceSideProbe, jmp
 Native:
   jmp BlockBufferColli_Side
+ .endif
+  .assert *-CrossoverSourceSideProbe=28,error,"Original side leaf footprint"
 .endproc
 
 .proc CrossoverHeadWithinTerrain
@@ -98,7 +122,15 @@ Samus:
 .endproc
 
 .proc CrossoverInit
+ .if ::ENABLE_MMC5_EXPANDED
+.if ::ENABLE_MMC5_EXPANDED
+  farcall KbGlobalInit
+.else
+  farcall ProtoGlobalInit
+.endif
+ .else
   farcall InventoryInit
+ .endif
 .if ::MAPPER_MMC3
   lda #28
   sta GuestHudNextDelay
@@ -114,6 +146,8 @@ Samus:
   sta CrossoverMenuState
   sta CrossoverMenuPressed
   sta CrossoverContinue
+  sta CheatInvincible
+  sta CheatStartLevel
   sta OutlineSourceHi
   sta OutlineTinyHi
   sta OutlineTinyHi+1
@@ -160,17 +194,14 @@ CharacterNames:
 
 .proc QueueMegaManFacePalette
   ldx VRAM_Buffer1_Offset
-  ldy #0
-  lda SelectedCharacter
-  bne Guest
-    lda AreaType
-    asl
-    sta R0
-    asl
-    clc
-    adc R0
-    adc #6
-    tay
+PaletteSelector:
+.if ::ENABLE_MMC5_EXPANDED
+  farcall KbWorldPaletteIndex
+.else
+  jsr GuestWorldPaletteIndex
+  jmp Guest
+.endif
+  .res 20-(*-PaletteSelector), $ea
 Guest:
   lda #6
   sta R0
@@ -221,7 +252,16 @@ FacePalette:
 ; share these colors instead of recoloring every object using palette 2.
 .endproc
 
-.proc CrossoverPatchStatusName
+ .proc CrossoverPatchStatusName
+ .if ::ENABLE_MMC5_EXPANDED
+.if ::ENABLE_MMC5_EXPANDED
+  farcall RlNameDispatch,jmp
+.else
+  farcall ProtoStatusName,jmp
+.endif
+  .res 48,$ea
+  .assert *-CrossoverPatchStatusName=66,error,"Status wrapper original span"
+ .else
   ; Called with WriteGameText's message number in A. Preserve A and X.
   cmp #0
   bne Done
@@ -267,6 +307,7 @@ Restore:
   pla
 Done:
   rts
+ .endif
 .endproc
 
 .segment "PLAYER"
@@ -426,7 +467,11 @@ AddBase:
   clc
   adc #METASPRITE_MM_HAIR_STAND
   sta ObjectMetasprite
+ .if ::ENABLE_MMC5_EXPANDED
+  farcall ProtoPoseSelector
+ .else
   farcall SpecialMegaPose
+ .endif
   lda Player_Rel_XPos
   sta Player_Pos_ForScroll
   rts

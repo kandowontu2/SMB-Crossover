@@ -22,6 +22,15 @@ MmAudioChargeAge: .res 1
 MmAudioSfxMask: .res 1
 MmAudioLastMask: .res 1
 MmAudioLastGround: .res 1
+
+; Explicit new semantics inside previously unused MM512B slab padding.
+MmRushLandRequest: .res 1
+MmRushLandIndex: .res 1
+MmRushLandActive: .res 1
+MmRushLandPreviousMask: .res 1
+MmRushLandMusic: .res 16
+MmRushLandImage: .res 16
+MmRushLandDirty: .res 16
 .res $200 - (* - MmAudioRamStart)
 MmAudioRamEnd:
 .include "audio/megaman2/imported.s"
@@ -42,9 +51,19 @@ Loop:
 .endproc
 
 .proc MegaManAudioUpdate
+ .if ::ENABLE_MMC5_EXPANDED
+  lda #.bank(ProtoNmiAudioCore) | MMC5_PRG_ROM
+  sta MMC5_PRG_BANK_A
+  jsr ProtoNmiAudioCore
+  sta MMC5_PRG_BANK_A
+  jmp CrossoverGraphicsBank
+  .byte $ea,$ea
+  .assert *-MegaManAudioUpdate=16,error,"Audio resident span unchanged"
+ .else
   BankPRGC #.bank(MegaManAudioNativeUpdate)
   jsr MegaManAudioNativeUpdate
   jmp CrossoverGraphicsBank
+ .endif
 .endproc
 .segment "GUEST_GFX"
 .proc MegaManAudioNativeUpdate
@@ -182,7 +201,7 @@ SaveZp:
  .repeat $36, I
   lda $c0+I
   sta MmAudioCpuZp+I
- .if (::MAPPER_MMC5 = 0) || (I < $1d)
+ .if I < $1d
   ; MM3 owns C0..DC. Its saved DD..F5 bytes are never consumed or
   ; modified by the driver; MM2 separately owns E0..F5 below.
   lda Mm3AudioZp+I
@@ -192,7 +211,7 @@ SaveZp:
   ldx #$36
   cpx #$36
   lda #$0f
-  jsr GuestNativeStatusSTA
+  jsr MegaManRushLandBeginStatus
 Driver3:
   lda MmAudioStart
   beq Resume3
@@ -228,7 +247,7 @@ Process3:
   and #$0f
   sta MmAudioSfxMask
  .repeat $36, I
- .if (::MAPPER_MMC5 = 0) || (($35-I) < $1d)
+ .if ($35-I) < $1d
   lda $f5-I
   sta Mm3AudioZp+$35-I
  .endif
@@ -272,7 +291,6 @@ Save2:
  .endrepeat
   ldx #$ff
 RestoreCpu:
- .if ::MAPPER_MMC5
   lda MmAudioEngine
   cmp #2
   bne RestoreMm3Cpu
@@ -285,17 +303,12 @@ RestoreMm3Cpu:
   lda MmAudioCpuZp+$1c-I
   sta $dc-I
  .endrepeat
- .else
- .repeat $36, I
-  lda MmAudioCpuZp+$35-I
-  sta $f5-I
- .endrepeat
- .endif
   ldx #$ff
   pla
   sta $41
-  lda #0
-  sta MmAudioPaused
+  jsr MegaManRushLandEnd
+  nop
+  nop
 Exit:
   lda #0
   sta Square1SoundQueue
@@ -408,6 +421,11 @@ Tracks2:
   .byte $ff,0,0,7,11,13,21,15,23,10,65
 Effects3:
   .byte 21,24,22,20,57,58,59,23,19
+ .if ::MAPPER_MMC3
+  ; Keep every foreign function/address literal. Unreachable tail padding
+  ; occupies only bytes removed from this private audio closure.
+  .res 258, $ea
+ .endif
 .endproc
 
 ; Preserve registers and flags exactly as a native STA would. The MM2 driver

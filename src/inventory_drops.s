@@ -23,7 +23,11 @@
 Allowed:
   pla
   plp
+.if ::ENABLE_MMC5_EXPANDED
+  farcall RlDropDispatch
+.else
   farcall InventoryEnemyDrop
+.endif
   rts
 .endproc
 .segment "INVENTORY"
@@ -59,7 +63,11 @@ CheckCharacter:
   beq Chance
   cmp #CHARACTER_BASS
   beq Chance
+.if ::ENABLE_MMC5_EXPANDED
+  farcall DwCanDrop
+.else
   farcall RemainingCanDrop
+.endif
   jcc Done
 Chance:
   ldx InvDropEnemy
@@ -91,7 +99,11 @@ Spawn:
   beq :+
   cmp #CHARACTER_BASS
   beq :+
+.if ::ENABLE_MMC5_EXPANDED
+    farcall DwDropMade
+.else
     farcall RemainingDropMade
+.endif
   :
   ldy InvDropEnemy
   bmi PointPosition
@@ -265,7 +277,11 @@ Collect:
   lda AvDropItem,x
   sta AvRefillItem
   pla
+.if ::ENABLE_MMC5_EXPANDED
+  farcall RlRefillDispatch
+.else
   jsr InventoryRefillAmount
+.endif
   ldx InvDropSlot
 Kill:
   lda #0

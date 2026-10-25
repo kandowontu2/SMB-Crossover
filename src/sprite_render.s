@@ -301,7 +301,11 @@ JumpingCoinTiles:
 .proc DrawPowerUp
   ldx ObjectOffset
 .if ::ENABLE_CROSSOVER
+.if ::ENABLE_MMC5_EXPANDED
+  farcall LmPrivateGate
+.else
   farcall InventoryPrivatePickup
+.endif
   bcc :+
     lda #0
     sta EnemyMetasprite,x
@@ -942,6 +946,19 @@ FireA:
 ;-------------------------------------------------------------------------------------
 
 DrawSmallPlatform:
+.if ::ENABLE_CROSSOVER
+  farcall CrossoverDrawSmallPlatform
+  rts
+TopSP=DrawSmallPlatform+61
+BotSP=DrawSmallPlatform+75
+SOfs=DrawSmallPlatform+100
+SOfs2=DrawSmallPlatform+114
+ExSPl=DrawSmallPlatform+127
+.include "level_lift_bridges.inc"
+.include "native_platform_bbox_gate.s"
+  .assert *-DrawSmallPlatform<=130,error,"Retain old draw-body span"
+  .res 130-(*-DrawSmallPlatform),$ea
+.else
       ;  ldy Enemy_SprDataOffset,x   ;get OAM data offset
     AllocSpr 6
        lda #PLATFORM_GIRDER        ;load tile number for small platforms
@@ -1002,6 +1019,8 @@ SOfs2: pla                         ;get from stack
        sta Sprite_Y_Position+20,y
 ExSPl: ldx ObjectOffset            ;get enemy object offset and leave
        rts
+
+.endif
 
 ;-------------------------------------------------------------------------------------
 ;$00-$01 - used to hold tile numbers ($01 addressed in draw floatey number part)

@@ -198,6 +198,7 @@ def main() -> int:
               'water-oam-differential', 'water-corner-differential',
               'megaman-bass-lone-boss', 'megaman-water-performance',
               'bass-water-performance')
+    names += ('terrain-coin-publication', 'score-popup-location', 'cheats-menu', 'cheats-invincibility', 'cannon-cooldown', 'firebar-budget-fairness')
     with concurrent.futures.ThreadPoolExecutor(max_workers=max(1,args.jobs)) as pool:
         pending = {pool.submit(test,name,f'smb-crossover-{mapper}'): (name,mapper)
                    for mapper in mappers for name in names}

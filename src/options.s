@@ -56,6 +56,7 @@ Num = 123
 bool_option MAPPER_MMC3
 bool_option MAPPER_MMC5
 bool_option ENABLE_CROSSOVER
+bool_option ENABLE_MMC5_EXPANDED, 0
 bool_option USE_SMB2J_FEATURES
 bool_option ENABLE_C_CODE
 bool_option USE_CUSTOM_TITLESCREEN

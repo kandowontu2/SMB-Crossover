@@ -1,0 +1,26 @@
+; Exclusively active profile transient aliases; zero bytes allocated.
+Z2NativeVX=$5e00
+Z2NativeVY=$5e01
+Z2NativeGravityFraction=$5e02
+Z2NativeXFraction=$5e03
+Z2NativeWalkFace=$5e04
+Z2NativeAir=$5e05
+Z2NativeShield=$5e06
+Z2NativeContacts=$5e07
+Z2NativePressedAB=$5e08
+Z2NativeHeldLR=$5e09
+Z2NativeHeldUD=$5e0a
+Z2NativeJumpFlag=$5e0b
+Z2NativeAttackStand=$5e0c
+Z2NativeWalkFrame=$5e0d
+Z2NativeWalkTimer=$5e0e
+Z2NativeRecoilTimer=$5e0f
+Z2NativeEntryTimer=$5e10
+Z2NativeEntrySide=$5e11
+Z2NativeElevator=$5e12
+Z2NativeLandCrouch=$5e13
+Z2NativeLava=$5e14
+Z2NativePressed=$5e15
+Z2NativeSound2=$5e16
+Z2NativeSound3=$5e17
+Z2NativeAttackFace=$5e18
