@@ -1,0 +1,980 @@
+{
+  "passed": true,
+  "source_only": true,
+  "native_run": false,
+  "production_changes": false,
+  "actual_native_candidate_sha256": "a9838664f94d29d87fbf4742e31d4e20d8b3a96862beabd11224afa4742d9003",
+  "actual_native_state_stream_sha256": "b48c9cdb21f352204b1fc87dfdc00f0dc4b1e73b35d0a132c60104bb4fb9776e",
+  "actual_native_cost_stream_sha256": "93d046642ca4899aa14a8eea1b231a8b761b9e151fd57cf66796e90c5b96bb13",
+  "source_before_and_after188_byte_states_literal_native_exact": true,
+  "complete_original_ordered_APU_exact": true,
+  "rows": [
+    {
+      "sourceTick": 407,
+      "original_source_cycles": 3340,
+      "duration_and_storage_raw_cycles": 3212,
+      "actual_native_core_cycles": 3793,
+      "actual_native_writer_cycles": 561,
+      "replaced_STA_count": 13,
+      "JSR_minus_actual_original_STA_cycles": 20,
+      "measured_native_minus_reconstructed_residual": 0,
+      "hot_instructions": [
+        {
+          "pc": 44231,
+          "instruction": "DEC $e2",
+          "cycles": 110,
+          "count": 22
+        },
+        {
+          "pc": 44236,
+          "instruction": "LDA $7004,X",
+          "cycles": 80,
+          "count": 20
+        },
+        {
+          "pc": 44239,
+          "instruction": "ADC $e4",
+          "cycles": 60,
+          "count": 20
+        },
+        {
+          "pc": 44241,
+          "instruction": "STA $e4",
+          "cycles": 60,
+          "count": 20
+        },
+        {
+          "pc": 44243,
+          "instruction": "BCC $acc7",
+          "cycles": 60,
+          "count": 20
+        },
+        {
+          "pc": 44233,
+          "instruction": "BMI $acd9",
+          "cycles": 46,
+          "count": 22
+        },
+        {
+          "pc": 44235,
+          "instruction": "CLC",
+          "cycles": 40,
+          "count": 20
+        },
+        {
+          "pc": 43728,
+          "instruction": "ADC $e2",
+          "cycles": 39,
+          "count": 13
+        },
+        {
+          "pc": 43732,
+          "instruction": "JMP $aacc",
+          "cycles": 39,
+          "count": 13
+        },
+        {
+          "pc": 44274,
+          "instruction": "RTS",
+          "cycles": 36,
+          "count": 6
+        },
+        {
+          "pc": 43937,
+          "instruction": "LSR $ed",
+          "cycles": 35,
+          "count": 7
+        },
+        {
+          "pc": 43939,
+          "instruction": "ROR $ec",
+          "cycles": 35,
+          "count": 7
+        },
+        {
+          "pc": 43725,
+          "instruction": "BEQ $aad7",
+          "cycles": 29,
+          "count": 14
+        },
+        {
+          "pc": 42615,
+          "instruction": "DEC $7004,X",
+          "cycles": 28,
+          "count": 4
+        },
+        {
+          "pc": 43724,
+          "instruction": "DEX",
+          "cycles": 28,
+          "count": 14
+        },
+        {
+          "pc": 43727,
+          "instruction": "CLC",
+          "cycles": 26,
+          "count": 13
+        },
+        {
+          "pc": 43730,
+          "instruction": "BCS $aadb",
+          "cycles": 26,
+          "count": 13
+        },
+        {
+          "pc": 43308,
+          "instruction": "LDA ($e0),Y",
+          "cycles": 25,
+          "count": 5
+        },
+        {
+          "pc": 42571,
+          "instruction": "STX $7092",
+          "cycles": 24,
+          "count": 6
+        },
+        {
+          "pc": 42574,
+          "instruction": "STY $7093",
+          "cycles": 24,
+          "count": 6
+        },
+        {
+          "pc": 42577,
+          "instruction": "LDA $700a,X",
+          "cycles": 24,
+          "count": 6
+        },
+        {
+          "pc": 42582,
+          "instruction": "JSR $a671",
+          "cycles": 24,
+          "count": 4
+        },
+        {
+          "pc": 42609,
+          "instruction": "JSR $af96",
+          "cycles": 24,
+          "count": 4
+        },
+        {
+          "pc": 44962,
+          "instruction": "RTS",
+          "cycles": 24,
+          "count": 4
+        },
+        {
+          "pc": 43301,
+          "instruction": "LDA $7092",
+          "cycles": 24,
+          "count": 6
+        }
+      ],
+      "own_cycles_by_direct_call_target": {
+        "0xa671": 1472,
+        "0xacbd": 556,
+        "0xa644": 249,
+        "0xabda": 225,
+        "0xac71": 174,
+        "0xa71e": 150,
+        "0xace8": 146,
+        "0xaf96": 88,
+        "0xab27": 62,
+        "0xa200": 47,
+        "0xaf86": 30,
+        "0xa612": 13
+      },
+      "direct_call_counts": {
+        "0xace8": 6,
+        "0xa671": 4,
+        "0xaf96": 4,
+        "0xac71": 3,
+        "0xabda": 3,
+        "0xacbd": 2,
+        "0xab27": 2,
+        "0xa71e": 2,
+        "0xa612": 1,
+        "0xa200": 1,
+        "0xaf86": 1
+      },
+      "original_ACBD_multiply_inputs": [
+        {
+          "A": 10,
+          "coefficient": 7,
+          "X": 0,
+          "P": 48
+        },
+        {
+          "A": 10,
+          "coefficient": 7,
+          "X": 1,
+          "P": 48
+        }
+      ],
+      "writer_details": [
+        {
+          "serial": "3034",
+          "name": "TnSourceSTA00X",
+          "phase": "primary",
+          "update": "405",
+          "startFrame": "735",
+          "startScan": "4",
+          "startDot": "138",
+          "startCPU": "21859397",
+          "endFrame": "735",
+          "endScan": "4",
+          "endDot": "213",
+          "endCPU": "21859422",
+          "inclusiveCycles": "25",
+          "IRQCycles": "0",
+          "CPUcycles": "25",
+          "childCPUcycles": "0",
+          "exclusiveCPUcycles": "25"
+        },
+        {
+          "serial": "3035",
+          "name": "TnSourceSTA02X",
+          "phase": "primary",
+          "update": "405",
+          "startFrame": "735",
+          "startScan": "7",
+          "startDot": "48",
+          "startCPU": "21859708",
+          "endFrame": "735",
+          "endScan": "7",
+          "endDot": "123",
+          "endCPU": "21859733",
+          "inclusiveCycles": "25",
+          "IRQCycles": "0",
+          "CPUcycles": "25",
+          "childCPUcycles": "0",
+          "exclusiveCPUcycles": "25"
+        },
+        {
+          "serial": "3036",
+          "name": "TnSourceSTA00X",
+          "phase": "primary",
+          "update": "405",
+          "startFrame": "735",
+          "startScan": "14",
+          "startDot": "22",
+          "startCPU": "21860495",
+          "endFrame": "735",
+          "endScan": "14",
+          "endDot": "97",
+          "endCPU": "21860520",
+          "inclusiveCycles": "25",
+          "IRQCycles": "0",
+          "CPUcycles": "25",
+          "childCPUcycles": "0",
+          "exclusiveCPUcycles": "25"
+        },
+        {
+          "serial": "3037",
+          "name": "TnSourceSTA02X",
+          "phase": "primary",
+          "update": "405",
+          "startFrame": "735",
+          "startScan": "16",
+          "startDot": "318",
+          "startCPU": "21860821",
+          "endFrame": "735",
+          "endScan": "17",
+          "endDot": "52",
+          "endCPU": "21860846",
+          "inclusiveCycles": "25",
+          "IRQCycles": "0",
+          "CPUcycles": "25",
+          "childCPUcycles": "0",
+          "exclusiveCPUcycles": "25"
+        },
+        {
+          "serial": "3038",
+          "name": "TnSourceSTA08",
+          "phase": "primary",
+          "update": "405",
+          "startFrame": "735",
+          "startScan": "21",
+          "startDot": "170",
+          "startCPU": "21861340",
+          "endFrame": "735",
+          "endScan": "21",
+          "endDot": "239",
+          "endCPU": "21861363",
+          "inclusiveCycles": "23",
+          "IRQCycles": "0",
+          "CPUcycles": "23",
+          "childCPUcycles": "0",
+          "exclusiveCPUcycles": "23"
+        },
+        {
+          "serial": "3039",
+          "name": "TnSourceSTA03X",
+          "phase": "primary",
+          "update": "405",
+          "startFrame": "735",
+          "startScan": "23",
+          "startDot": "91",
+          "startCPU": "21861541",
+          "endFrame": "735",
+          "endScan": "23",
+          "endDot": "166",
+          "endCPU": "21861566",
+          "inclusiveCycles": "25",
+          "IRQCycles": "0",
+          "CPUcycles": "25",
+          "childCPUcycles": "0",
+          "exclusiveCPUcycles": "25"
+        },
+        {
+          "serial": "3040",
+          "name": "TnSourceSTA02X",
+          "phase": "primary",
+          "update": "405",
+          "startFrame": "735",
+          "startScan": "23",
+          "startDot": "313",
+          "startCPU": "21861615",
+          "endFrame": "735",
+          "endScan": "24",
+          "endDot": "47",
+          "endCPU": "21861640",
+          "inclusiveCycles": "25",
+          "IRQCycles": "0",
+          "CPUcycles": "25",
+          "childCPUcycles": "0",
+          "exclusiveCPUcycles": "25"
+        },
+        {
+          "serial": "3041",
+          "name": "TnSourceSTA15",
+          "phase": "primary",
+          "update": "405",
+          "startFrame": "735",
+          "startScan": "26",
+          "startDot": "292",
+          "startCPU": "21861949",
+          "endFrame": "735",
+          "endScan": "28",
+          "endDot": "60",
+          "endCPU": "21862099",
+          "inclusiveCycles": "150",
+          "IRQCycles": "0",
+          "CPUcycles": "150",
+          "childCPUcycles": "0",
+          "exclusiveCPUcycles": "150"
+        },
+        {
+          "serial": "3042",
+          "name": "TnSourceSTA10",
+          "phase": "primary",
+          "update": "405",
+          "startFrame": "735",
+          "startScan": "28",
+          "startDot": "90",
+          "startCPU": "21862109",
+          "endFrame": "735",
+          "endScan": "28",
+          "endDot": "132",
+          "endCPU": "21862123",
+          "inclusiveCycles": "14",
+          "IRQCycles": "0",
+          "CPUcycles": "14",
+          "childCPUcycles": "0",
+          "exclusiveCPUcycles": "14"
+        },
+        {
+          "serial": "3043",
+          "name": "TnSourceSTA11",
+          "phase": "primary",
+          "update": "405",
+          "startFrame": "735",
+          "startScan": "28",
+          "startDot": "162",
+          "startCPU": "21862133",
+          "endFrame": "735",
+          "endScan": "28",
+          "endDot": "216",
+          "endCPU": "21862151",
+          "inclusiveCycles": "18",
+          "IRQCycles": "0",
+          "CPUcycles": "18",
+          "childCPUcycles": "0",
+          "exclusiveCPUcycles": "18"
+        },
+        {
+          "serial": "3044",
+          "name": "TnSourceSTA12",
+          "phase": "primary",
+          "update": "405",
+          "startFrame": "735",
+          "startScan": "28",
+          "startDot": "246",
+          "startCPU": "21862161",
+          "endFrame": "735",
+          "endScan": "29",
+          "endDot": "1",
+          "endCPU": "21862193",
+          "inclusiveCycles": "32",
+          "IRQCycles": "0",
+          "CPUcycles": "32",
+          "childCPUcycles": "0",
+          "exclusiveCPUcycles": "32"
+        },
+        {
+          "serial": "3045",
+          "name": "TnSourceSTA13",
+          "phase": "primary",
+          "update": "405",
+          "startFrame": "735",
+          "startScan": "29",
+          "startDot": "31",
+          "startCPU": "21862203",
+          "endFrame": "735",
+          "endScan": "29",
+          "endDot": "73",
+          "endCPU": "21862217",
+          "inclusiveCycles": "14",
+          "IRQCycles": "0",
+          "CPUcycles": "14",
+          "childCPUcycles": "0",
+          "exclusiveCPUcycles": "14"
+        },
+        {
+          "serial": "3046",
+          "name": "TnSourceSTA15",
+          "phase": "primary",
+          "update": "405",
+          "startFrame": "735",
+          "startScan": "29",
+          "startDot": "97",
+          "startCPU": "21862225",
+          "endFrame": "735",
+          "endScan": "30",
+          "endDot": "236",
+          "endCPU": "21862385",
+          "inclusiveCycles": "160",
+          "IRQCycles": "0",
+          "CPUcycles": "160",
+          "childCPUcycles": "0",
+          "exclusiveCPUcycles": "160"
+        }
+      ]
+    },
+    {
+      "sourceTick": 505,
+      "original_source_cycles": 5183,
+      "duration_and_storage_raw_cycles": 4979,
+      "actual_native_core_cycles": 5641,
+      "actual_native_writer_cycles": 636,
+      "replaced_STA_count": 16,
+      "JSR_minus_actual_original_STA_cycles": 23,
+      "measured_native_minus_reconstructed_residual": 3,
+      "hot_instructions": [
+        {
+          "pc": 43308,
+          "instruction": "LDA ($e0),Y",
+          "cycles": 65,
+          "count": 13
+        },
+        {
+          "pc": 43301,
+          "instruction": "LDA $7092",
+          "cycles": 64,
+          "count": 16
+        },
+        {
+          "pc": 44274,
+          "instruction": "RTS",
+          "cycles": 54,
+          "count": 9
+        },
+        {
+          "pc": 43338,
+          "instruction": "LDA ($e0),Y",
+          "cycles": 50,
+          "count": 10
+        },
+        {
+          "pc": 43342,
+          "instruction": "JMP ($00e2)",
+          "cycles": 50,
+          "count": 10
+        },
+        {
+          "pc": 43728,
+          "instruction": "ADC $e2",
+          "cycles": 45,
+          "count": 15
+        },
+        {
+          "pc": 43732,
+          "instruction": "JMP $aacc",
+          "cycles": 45,
+          "count": 15
+        },
+        {
+          "pc": 43325,
+          "instruction": "LDA $afc4,X",
+          "cycles": 40,
+          "count": 10
+        },
+        {
+          "pc": 43330,
+          "instruction": "LDA $afc5,X",
+          "cycles": 40,
+          "count": 10
+        },
+        {
+          "pc": 43335,
+          "instruction": "LDX $7092",
+          "cycles": 40,
+          "count": 10
+        },
+        {
+          "pc": 44962,
+          "instruction": "RTS",
+          "cycles": 36,
+          "count": 6
+        },
+        {
+          "pc": 43314,
+          "instruction": "BCS $a937",
+          "cycles": 36,
+          "count": 13
+        },
+        {
+          "pc": 44273,
+          "instruction": "PLA",
+          "cycles": 36,
+          "count": 9
+        },
+        {
+          "pc": 42615,
+          "instruction": "DEC $7004,X",
+          "cycles": 35,
+          "count": 5
+        },
+        {
+          "pc": 43306,
+          "instruction": "BEQ $a951",
+          "cycles": 35,
+          "count": 16
+        },
+        {
+          "pc": 43937,
+          "instruction": "LSR $ed",
+          "cycles": 35,
+          "count": 7
+        },
+        {
+          "pc": 43939,
+          "instruction": "ROR $ec",
+          "cycles": 35,
+          "count": 7
+        },
+        {
+          "pc": 43725,
+          "instruction": "BEQ $aad7",
+          "cycles": 33,
+          "count": 16
+        },
+        {
+          "pc": 43304,
+          "instruction": "CMP #$03",
+          "cycles": 32,
+          "count": 16
+        },
+        {
+          "pc": 43724,
+          "instruction": "DEX",
+          "cycles": 32,
+          "count": 16
+        },
+        {
+          "pc": 42582,
+          "instruction": "JSR $a671",
+          "cycles": 30,
+          "count": 5
+        },
+        {
+          "pc": 42609,
+          "instruction": "JSR $af96",
+          "cycles": 30,
+          "count": 5
+        },
+        {
+          "pc": 43328,
+          "instruction": "STA $e2",
+          "cycles": 30,
+          "count": 10
+        },
+        {
+          "pc": 43333,
+          "instruction": "STA $e3",
+          "cycles": 30,
+          "count": 10
+        },
+        {
+          "pc": 44231,
+          "instruction": "DEC $e2",
+          "cycles": 30,
+          "count": 6
+        }
+      ],
+      "own_cycles_by_direct_call_target": {
+        "0xa671": 3078,
+        "0xabda": 301,
+        "0xa644": 254,
+        "0xac71": 254,
+        "0xace8": 215,
+        "0xacbd": 204,
+        "0xa200": 188,
+        "0xa6f3": 146,
+        "0xaf96": 132,
+        "0xa71e": 72,
+        "0xab27": 62,
+        "0xafa3": 30,
+        "0xaf86": 30,
+        "0xa612": 13
+      },
+      "direct_call_counts": {
+        "0xace8": 9,
+        "0xaf96": 6,
+        "0xa671": 5,
+        "0xa200": 4,
+        "0xabda": 4,
+        "0xac71": 3,
+        "0xacbd": 2,
+        "0xab27": 2,
+        "0xa612": 1,
+        "0xa71e": 1,
+        "0xa6f3": 1,
+        "0xafa3": 1,
+        "0xaf86": 1
+      },
+      "original_ACBD_multiply_inputs": [
+        {
+          "A": 2,
+          "coefficient": 56,
+          "X": 0,
+          "P": 48
+        },
+        {
+          "A": 2,
+          "coefficient": 56,
+          "X": 1,
+          "P": 48
+        }
+      ],
+      "writer_details": [
+        {
+          "serial": "3800",
+          "name": "TnSourceSTA00X",
+          "phase": "secondary",
+          "update": "503",
+          "startFrame": "833",
+          "startScan": "5",
+          "startDot": "124",
+          "startCPU": "24777995",
+          "endFrame": "833",
+          "endScan": "5",
+          "endDot": "199",
+          "endCPU": "24778020",
+          "inclusiveCycles": "25",
+          "IRQCycles": "0",
+          "CPUcycles": "25",
+          "childCPUcycles": "0",
+          "exclusiveCPUcycles": "25"
+        },
+        {
+          "serial": "3801",
+          "name": "TnSourceSTA02X",
+          "phase": "secondary",
+          "update": "503",
+          "startFrame": "833",
+          "startScan": "8",
+          "startDot": "52",
+          "startCPU": "24778312",
+          "endFrame": "833",
+          "endScan": "8",
+          "endDot": "127",
+          "endCPU": "24778337",
+          "inclusiveCycles": "25",
+          "IRQCycles": "0",
+          "CPUcycles": "25",
+          "childCPUcycles": "0",
+          "exclusiveCPUcycles": "25"
+        },
+        {
+          "serial": "3802",
+          "name": "TnSourceSTA00X",
+          "phase": "secondary",
+          "update": "503",
+          "startFrame": "833",
+          "startScan": "20",
+          "startDot": "85",
+          "startCPU": "24779687",
+          "endFrame": "833",
+          "endScan": "20",
+          "endDot": "160",
+          "endCPU": "24779712",
+          "inclusiveCycles": "25",
+          "IRQCycles": "0",
+          "CPUcycles": "25",
+          "childCPUcycles": "0",
+          "exclusiveCPUcycles": "25"
+        },
+        {
+          "serial": "3803",
+          "name": "TnSourceSTA02X",
+          "phase": "secondary",
+          "update": "503",
+          "startFrame": "833",
+          "startScan": "23",
+          "startDot": "19",
+          "startCPU": "24780006",
+          "endFrame": "833",
+          "endScan": "23",
+          "endDot": "94",
+          "endCPU": "24780031",
+          "inclusiveCycles": "25",
+          "IRQCycles": "0",
+          "CPUcycles": "25",
+          "childCPUcycles": "0",
+          "exclusiveCPUcycles": "25"
+        },
+        {
+          "serial": "3804",
+          "name": "TnSourceSTA08",
+          "phase": "secondary",
+          "update": "503",
+          "startFrame": "833",
+          "startScan": "30",
+          "startDot": "56",
+          "startCPU": "24780814",
+          "endFrame": "833",
+          "endScan": "30",
+          "endDot": "125",
+          "endCPU": "24780837",
+          "inclusiveCycles": "23",
+          "IRQCycles": "0",
+          "CPUcycles": "23",
+          "childCPUcycles": "0",
+          "exclusiveCPUcycles": "23"
+        },
+        {
+          "serial": "3805",
+          "name": "TnSourceSTA03X",
+          "phase": "secondary",
+          "update": "503",
+          "startFrame": "833",
+          "startScan": "32",
+          "startDot": "337",
+          "startCPU": "24781135",
+          "endFrame": "833",
+          "endScan": "33",
+          "endDot": "71",
+          "endCPU": "24781160",
+          "inclusiveCycles": "25",
+          "IRQCycles": "0",
+          "CPUcycles": "25",
+          "childCPUcycles": "0",
+          "exclusiveCPUcycles": "25"
+        },
+        {
+          "serial": "3806",
+          "name": "TnSourceSTA02X",
+          "phase": "secondary",
+          "update": "503",
+          "startFrame": "833",
+          "startScan": "33",
+          "startDot": "218",
+          "startCPU": "24781209",
+          "endFrame": "833",
+          "endScan": "33",
+          "endDot": "293",
+          "endCPU": "24781234",
+          "inclusiveCycles": "25",
+          "IRQCycles": "0",
+          "CPUcycles": "25",
+          "childCPUcycles": "0",
+          "exclusiveCPUcycles": "25"
+        },
+        {
+          "serial": "3807",
+          "name": "TnSourceSTA15",
+          "phase": "secondary",
+          "update": "503",
+          "startFrame": "833",
+          "startScan": "38",
+          "startDot": "331",
+          "startCPU": "24781815",
+          "endFrame": "833",
+          "endScan": "40",
+          "endDot": "99",
+          "endCPU": "24781965",
+          "inclusiveCycles": "150",
+          "IRQCycles": "0",
+          "CPUcycles": "150",
+          "childCPUcycles": "0",
+          "exclusiveCPUcycles": "150"
+        },
+        {
+          "serial": "3808",
+          "name": "TnSourceSTA10",
+          "phase": "secondary",
+          "update": "503",
+          "startFrame": "833",
+          "startScan": "40",
+          "startDot": "129",
+          "startCPU": "24781975",
+          "endFrame": "833",
+          "endScan": "40",
+          "endDot": "171",
+          "endCPU": "24781989",
+          "inclusiveCycles": "14",
+          "IRQCycles": "0",
+          "CPUcycles": "14",
+          "childCPUcycles": "0",
+          "exclusiveCPUcycles": "14"
+        },
+        {
+          "serial": "3809",
+          "name": "TnSourceSTA11",
+          "phase": "secondary",
+          "update": "503",
+          "startFrame": "833",
+          "startScan": "40",
+          "startDot": "201",
+          "startCPU": "24781999",
+          "endFrame": "833",
+          "endScan": "40",
+          "endDot": "255",
+          "endCPU": "24782017",
+          "inclusiveCycles": "18",
+          "IRQCycles": "0",
+          "CPUcycles": "18",
+          "childCPUcycles": "0",
+          "exclusiveCPUcycles": "18"
+        },
+        {
+          "serial": "3810",
+          "name": "TnSourceSTA12",
+          "phase": "secondary",
+          "update": "503",
+          "startFrame": "833",
+          "startScan": "40",
+          "startDot": "285",
+          "startCPU": "24782027",
+          "endFrame": "833",
+          "endScan": "41",
+          "endDot": "40",
+          "endCPU": "24782059",
+          "inclusiveCycles": "32",
+          "IRQCycles": "0",
+          "CPUcycles": "32",
+          "childCPUcycles": "0",
+          "exclusiveCPUcycles": "32"
+        },
+        {
+          "serial": "3811",
+          "name": "TnSourceSTA13",
+          "phase": "secondary",
+          "update": "503",
+          "startFrame": "833",
+          "startScan": "41",
+          "startDot": "70",
+          "startCPU": "24782069",
+          "endFrame": "833",
+          "endScan": "41",
+          "endDot": "112",
+          "endCPU": "24782083",
+          "inclusiveCycles": "14",
+          "IRQCycles": "0",
+          "CPUcycles": "14",
+          "childCPUcycles": "0",
+          "exclusiveCPUcycles": "14"
+        },
+        {
+          "serial": "3812",
+          "name": "TnSourceSTA15",
+          "phase": "secondary",
+          "update": "503",
+          "startFrame": "833",
+          "startScan": "41",
+          "startDot": "136",
+          "startCPU": "24782091",
+          "endFrame": "833",
+          "endScan": "42",
+          "endDot": "275",
+          "endCPU": "24782251",
+          "inclusiveCycles": "160",
+          "IRQCycles": "0",
+          "CPUcycles": "160",
+          "childCPUcycles": "0",
+          "exclusiveCPUcycles": "160"
+        },
+        {
+          "serial": "3813",
+          "name": "TnSourceSTA00X",
+          "phase": "secondary",
+          "update": "503",
+          "startFrame": "833",
+          "startScan": "45",
+          "startDot": "14",
+          "startCPU": "24782505",
+          "endFrame": "833",
+          "endScan": "45",
+          "endDot": "89",
+          "endCPU": "24782530",
+          "inclusiveCycles": "25",
+          "IRQCycles": "0",
+          "CPUcycles": "25",
+          "childCPUcycles": "0",
+          "exclusiveCPUcycles": "25"
+        },
+        {
+          "serial": "3814",
+          "name": "TnSourceSTA03X",
+          "phase": "secondary",
+          "update": "503",
+          "startFrame": "833",
+          "startScan": "46",
+          "startDot": "18",
+          "startCPU": "24782620",
+          "endFrame": "833",
+          "endScan": "46",
+          "endDot": "93",
+          "endCPU": "24782645",
+          "inclusiveCycles": "25",
+          "IRQCycles": "0",
+          "CPUcycles": "25",
+          "childCPUcycles": "0",
+          "exclusiveCPUcycles": "25"
+        },
+        {
+          "serial": "3815",
+          "name": "TnSourceSTA02X",
+          "phase": "secondary",
+          "update": "503",
+          "startFrame": "833",
+          "startScan": "46",
+          "startDot": "249",
+          "startCPU": "24782697",
+          "endFrame": "833",
+          "endScan": "46",
+          "endDot": "324",
+          "endCPU": "24782722",
+          "inclusiveCycles": "25",
+          "IRQCycles": "0",
+          "CPUcycles": "25",
+          "childCPUcycles": "0",
+          "exclusiveCPUcycles": "25"
+        }
+      ]
+    }
+  ],
+  "tool_sha256": "2099666d783d6daac2136bd6de1ce8c3131940f3dc043c55ad9041b2debd0bcf",
+  "limits": "Exact CPU driver trace bound to actual native source input/output states; measured residual remains explicit rather than asserted to be fully DMA. No optimized implementation or native cadence acceptance."
+}

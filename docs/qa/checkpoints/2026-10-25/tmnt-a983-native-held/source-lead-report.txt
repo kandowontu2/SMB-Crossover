@@ -1,0 +1,8 @@
+Source-only finite lead, not a candidate or performance pass.
+Actual first missed sourceTick407: raw optimized original3212 +actual writers561 +real JSR-minus-original-STA20 =3793 native core, residual0.
+Actual peak505: original5183, duration-optimized4979 +writers636 +actual replacement23 =5638 versus native5641, residual3 retained.
+A671 channel parser owns1472/3078 cycles at407/505. Bounded ACBD repeated multiply costs556 at407 (two10x7 calls) and204 at505 (two2x56 calls).
+81,920 original-function tests establish full nibble0..15/coefficient0..255/flags10/X0,3 contract: A=E5=product>>4; E4=low product; E2=FF; C0; N/Z result; V final original ADC except nibble0 preserves input V; D/I/X/Y unchanged.
+Existing Proto audio already uses MMC5 hardware multiplication; src/protoman_audio_kernel.inc is the only direct5205/5206 source user. Mutual exclusion and live register ownership must still be proved.
+Possible next helper fits declared unallocated A63 A125..A1FF and same-width ACBD entry; retain all scratch/public flags and avoid regressing zero/small operands. No helper assembled, no hardware math contract waived, no shared125 consumption.
+Neither this bounded lead nor average-cost reductions close eight native draw losses. Source/API/whole16-song/IRQ/native qualification remains required.

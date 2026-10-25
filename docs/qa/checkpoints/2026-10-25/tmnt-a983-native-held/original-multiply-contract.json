@@ -1,0 +1,56 @@
+{
+  "passed": true,
+  "source_only": true,
+  "native_run": false,
+  "optimized_implementation": false,
+  "original_function_PC": 44221,
+  "component_cases": 81920,
+  "nibble_domain": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "coefficient_domain": [
+    0,
+    255
+  ],
+  "caller_flags": [
+    32,
+    33,
+    34,
+    96,
+    97,
+    98,
+    224,
+    225,
+    238,
+    255
+  ],
+  "original_component_min_cycles": 58,
+  "original_component_max_cycles": 486,
+  "actual_native_hot_binding": "9699f4350b9d73735515ad108d4e52e4b628b008e6c442f39bcb1c810bac4781",
+  "complete_original_AXYP_SP_and_exact_three_ZP_writes": true,
+  "result": "A=E5=((A_in&15)*source_channel_coefficient)>>4; E4=product low; E2=FF; C=0; N/Z from result; V from original final ADC, or input V if nibble0; D/I/X/Y preserved.",
+  "current_MMC5_multiplier_source_users": [
+    {
+      "path": "src/protoman_audio_kernel.inc",
+      "sha256": "beb49da96252117fda9b6e13cae1d33541583885254aa0d33b0199ae3103830c"
+    }
+  ],
+  "tool_sha256": "2c4f60a41fadf33daa1352317719b05279903d80862355e13f8772a7196f909f",
+  "proposed_source_path": "Consider a same-width ACBD entry trampoline into existing unallocated A63 writer tail A125..A1FF. Reuse MMC5 unsigned product only after proving mutually exclusive Proto audio ownership, preserve final-ADC V and all scratch outputs. No shared125 allocation or song/channel/rate/store deletion.",
+  "limits": "Only authentic original arithmetic contract and a finite implementation lead. No new helper assembled, no speed-up number or native draw recovery proved. Full original16-song/private current build/IRQ/native qualification still required for any implementation."
+}
