@@ -429,3 +429,26 @@ TitleScreenData:
 .include "hot_render_gate.s"
 
 .endif
+
+; Append after every original INVENTORY contributor: no old label moves.
+.if ::ENABLE_MMC5_EXPANDED
+.pushseg
+.segment "INVENTORY"
+; Source2.02 destroys robot attacks only when the equipped weapon changes.
+; Non-robot behavior is unchanged. No additional RAM or stack frame.
+.proc InventorySelectionCommit
+  cpx #CHARACTER_MEGAMAN
+  beq Check
+  cpx #CHARACTER_BASS
+  bne Commit
+Check:
+  cmp InvSelected,x
+  beq Done
+Commit:
+  sta InvSelected,x
+  jmp InventoryClearActive
+Done:
+  rts
+.endproc
+.popseg
+.endif

@@ -735,7 +735,11 @@ Paused:
   beq :+
     ldx SelectedCharacter
     lda #0
+ .if ::ENABLE_MMC5_EXPANDED
+    jsr InventorySelectionCommit
+ .else
     sta InvSelected,x
+ .endif
     jmp Changed
   :
   lda InvFresh
@@ -745,7 +749,13 @@ Cycle:
   jsr InventoryCycle
 Changed:
   inc InvDirty
+ .if ::ENABLE_MMC5_EXPANDED
+  nop                          ; Commit owns cleanup, preserving the old span.
+  nop
+  nop
+ .else
   jsr InventoryClearActive
+ .endif
   jmp Hud
 Hud:
   jsr InventoryHud
@@ -828,8 +838,13 @@ Again:
 Chosen:
   ldx SelectedCharacter
   lda InvCandidate
+ .if ::ENABLE_MMC5_EXPANDED
+  jmp InventorySelectionCommit
+  nop                          ; Tail call keeps the old span and stack depth.
+ .else
   sta InvSelected,x
   rts
+ .endif
 .endproc
 
 .proc InventoryHud
