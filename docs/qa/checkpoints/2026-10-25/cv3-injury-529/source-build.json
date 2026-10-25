@@ -1,0 +1,48 @@
+{
+  "prepared": true,
+  "accepted": false,
+  "baseline_ROM_sha256": "ae97d45e5a33b20a399c0b55f241ea933a72eaea6f88e7fc69eae93af85c96e4",
+  "candidate_ROM_sha256": "52918588bab0eec3f3a1f857bf084d2d799e88a5c781c75233c098ccc5f54f3f",
+  "changed_bytes": 68,
+  "changed_banks": [
+    7,
+    82,
+    127
+  ],
+  "old_exported_PC_RAM_CHR_exact": true,
+  "new_RAM_bytes": 0,
+  "sample_bytes_locations_lengths_exact": {
+    "BassWaterDpcm": {
+      "address": 61760,
+      "length": 3281,
+      "sha256": "cbf0342504483d0bd6129095a506aa3ba58326952b37faf95f083d75ebc1fd75"
+    },
+    "AvDmcLinkTakeDamage": {
+      "address": 65088,
+      "length": 161,
+      "sha256": "059cb4471feec9aba8352343f30ae658cab7e40b1357343127d6cf752debcb2a"
+    },
+    "AvDmcSimonTakeDamage": {
+      "address": 65280,
+      "length": 193,
+      "sha256": "4d6a9738d5ed47be13ffc70e7ee6841ff53756fc182356e4494563b28e630e8d"
+    }
+  },
+  "rate_table_in_old_padding": [
+    65041,
+    65045
+  ],
+  "helper_in_old_bank7_tail": [
+    49123,
+    49151
+  ],
+  "source_files": {
+    "src/entrypoint.s": "a24a896d90701c22e558707c97e64b68fa1a1a8a57233a88ecf6232f421f6edd",
+    "src/remaining_audio.s": "2d21aaadbb70e2853d398d24c36e086c9865e70adb74ad3712afe1af58282e05",
+    "src/bass_source_sfx.s": "2c2b3c5cf7f7e7b45ed63dff1a2d342148775e608b55b446012cdc2f6c59df4e",
+    "src/cv3_pickups.s": "00026e6b84377c18d45afc9f10e39367cc482ce380863fd203ceb41b2d2686c4",
+    "src/cv3_dmc_injury.s": "13dfeb64cd3142a660e4c0c3f9b62cc7fdc6c1b3f3d22ddc6e5cbaf6322c64a8"
+  },
+  "original_EOLS_from_git_HEAD": true,
+  "scope": "Private source/build only; original CPU/public ABI/owner and native qualification still required; missing attack72 and Sypha payload/priority not implemented."
+}

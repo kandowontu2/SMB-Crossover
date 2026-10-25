@@ -9,12 +9,12 @@ The user explicitly wants continued work until the Codex allowance runs out.
 The user also explicitly wants the current source pushed to GitHub and each
 subsequent coherent change committed/pushed for rollback. Preserve failures.
 
-Newest user requests (after the GitHub checkpoint): Zelda II Link's TERRAIN
-hitbox is wrong specifically against blocks/pipes/platforms; inspect standing,
-crouching, fairy, side/ceiling/foot integration rather than assuming sword or
-enemy contact. Parodius alternates need a FULL GRAPHICAL power-up bar like
-Vic Viper/Gradius, replacing the current abbreviated text labels. Keep these
-as distinct reviewable changes and push them to GitHub too.
+Latest user steering: finish these existing characters before adding any new
+ones. The extra-menu-row discussion was curiosity only; no implementation
+request. Finish the full37 roster and every-item/ability/performance gates.
+ZeldaII terrain/platform/body and MMC5 Parodius graphical bar are accepted
+bounded repairs documented below, not the current unresolved source tasks.
+Keep each coherent subsequent change committed/pushed for rollback.
 
 Workspace: C:/Users/kando/Documents/ChatGPT/SMB Crossover
 Git remote: https://github.com/kandowontu2/SMB-Crossover.git
@@ -27,9 +27,10 @@ test outputs as evidence, not previous agent claims or the old README alone.
 
 MMC5 current ROM:
 C:/Users/kando/Downloads/SMB-Crossover-Current-MMC5.nes
-SHA256 ae97d45e5a33b20a399c0b55f241ea933a72eaea6f88e7fc69eae93af85c96e4
+SHA256 52918588bab0eec3f3a1f857bf084d2d799e88a5c781c75233c098ccc5f54f3f
 The user has run earlier builds in their own Mesen. Do not stop their emulator.
-Latest source receipt: build/verification/cv3-alucard-audio/proof.json
+Latest source receipt: build/verification/cv3-injury/proof.json
+Previous child: build/verification/cv3-alucard-audio/proof.json (ae97d45e...).
 Previous child: build/verification/samus-wave-fixes/proof.json (84e55b6d...).
 Previous child: build/verification/pickup-contact-fixes/proof.json (220be824...).
 Previous child: build/verification/native-weapon-fixes/proof.json (55bcfb82...).
@@ -41,7 +42,7 @@ Previous child: build/verification/chip-ceiling-feedback/proof.json (274fff...).
 Parent receipt/checkpoint: build/verification/native-probes-qa/proof.json and
 build/checkpoints/native-probes-qa/checkpoint.json (054d9e33... parent).
 Default build/smb-crossover-mmc5-expanded.nes and its matching debugger files
-now alias currentae97d45e. Three other older build/smb-crossover*.nes files
+now alias current52918588. Three other older build/smb-crossover*.nes files
 remain STALE. No final all-requirements release.
 
 External evidence roots (keep large new artifacts outside the workspace):
@@ -49,7 +50,7 @@ D = C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py
 P = D/native-probes-qa-v2
 Q = C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-head-pz
 P/candidate.nes is the prior054d9e33... MMC5 ROM. The current Downloads ROM is
-D/cv3-audio-combined84-v2/source-eol-v1/candidate.nes, byte-verified after a
+D/cv3-dmc-root529-v1/adoption-v1/candidate.nes, byte-verified after a
 fresh compile from adopted ROOT source. Parent download has a full hash-named
 backup in that adoption-v1 folder. Never confuse the two hashes' test scopes.
 
@@ -612,3 +613,11 @@ Separate current-source MMC3 build417e254d on parent220 and compact Sophia capac
 Current exact-hash tests:22 native cases (12 real B releases, source/legacy/pressure,5 ownership/pause/retrigger/scene/DMC controls,2 Bill controls),4,160 full ordinary AudioUpdate CPU cases and256 restore differentials. Original28-update noise register schedule passes; source bus flush order/frame quantization is an explicit adaptation, not an identical-waveform claim. Matched1,233 wallframes: zero-update97 to92, draws1099 to1103. Six-Goomba pressure boundary-inclusive draws158 to161. All1,069 non-noise source-register writes and legacy145 full writes match; Bill cadence/APU/cycles exact. Root inspected22 actual endpoint PPU frames; seeded invulnerability deliberately hides Alucard in some endpoint phases. This is not exhaustive animation/level/audio review. LF restored from actual Git originals in roster_audio.s and prepare_guest_audio.py, followed by another exact compile. Source-final donor EOL claim was insufficient and the canonical proof records the correction.
 
 Small receipts: checkpoints/2026-10-25/cv3-alucard-ae97. Full native/CPU/lossless evidence external D/cv3-audio-combined84-v2. Do not rerun adopt_cv3_alucard_audio_once.py. Grant/Sypha primary DMC storage and other CV3 cue/music routes remain incomplete. Mac authentic one-bank native music and CV3 actual injury-rate follow-ups are private source/CPU work; progressive acquired Pit/Rygar/Scrooge abilities have one sequential native grant. Mac's old character-name pad reservation was released: verified new resident gate reservation is LOWCODE bank126,99FE..9A0F, the18-byte prefix of the branch-skipped SmallPlatformCollision tail. ROOT worker released; max2 project Mesen processes. Workspace measured29,737,482,935bytes before this small checkpoint; lossless material remains external. Full37/every-item/performance/MMC3 goal remains open.
+
+2026-10-25 adopted Grant/Alucard injury repair52918588bab0eec3f3a1f857bf084d2d799e88a5c781c75233c098ccc5f54f3f. Real enemy-contact owners now request the existing authentic193-byte Simon-shared DMC at original Grant14/Alucard13 rates; Sypha remains unchanged pending its distinct sample. Same-width hooks and28-byte bank7 helper/four FE11..FE14 padding bytes preserve all old qualified PC/RAM/CHR/sample bytes/starts/lengths. Only68 ROM bytes in banks7/82/127; no new RAM. Last bank7 byte BFFF remains free, previous29-byte pad is now occupied. Current Downloads/default artifacts and fresh canonical ROOT compile exact; old source/build backed up externally. Git-original source EOLs retained, no full-file churn.
+
+Independent ROOT rerun on exact529:14 real cold-menu enemy-contact native cases; Grant/Alucard attack-before-contact, pressure/retrigger, actual Start pause/resume and natural DMC hardware completion; Sypha/Simon/Link controls.1,728 public DMC ABI,144 actual injury-owner,2 original-source payload/rate/DAC chains and5,024 ordinary full AudioUpdate CPU cases. Ordinary targets unchanged. All guarded native banks/5SMC/stack/CHR/OAM/visible IRQ pass. Cost is explicit: public DMC starts add34..49 CPU cycles; Alucard180-update pressure takes270 rather than269 wallframes,90 rather than89 zero-update frames, same91draws. Grant and control cadence unchanged. No identical-waveform/full-CV3/full-roster claim.
+
+Receipts build/verification/cv3-injury/proof.json; small copies checkpoints/2026-10-25/cv3-injury-529; full native/CPU/lossless external D/cv3-dmc-root529-v1 and D/cv3-dmc-followup-v1. Do not rerun adopt_cv3_injury_once.py. Authentic primary72 and distinct Sypha75/general priority remain open; source-only installed-asset/shared bank-capacity audit is underway before a safe MMC5 fixed-bank mirror. MMC3 fixed E-window cannot use that mirror architecture. Private current-ae97 MMC32334 build was pushed2774ab2, not installed; it is now an older hash after529.
+
+Acquired62-case Pit/Rygar/Scrooge ability packet on84 pushed aa30a34. Full37/every-item fields remain false. Next turtle8profile lifecycle fixture is source-only, preferring actual25 native defeats for gear drops and original-ROM verification before calling uncapped boomerang catches a defect. Mac authentic native v5 d7e585(parent220) is HELD: exact600 gameplay rows/1021wallframes but draw595 to591 and lag5 to9. Agent is optimizing only inactive original SFX scans, requiring all original golden state/stores before native rerun. A owns1 native worker; ROOT released its worker after529; B/C source-only. Max2 project Mesen processes. User reconfirmed existing characters first, then new roster; no menu-row implementation.

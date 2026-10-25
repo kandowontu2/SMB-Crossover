@@ -1,0 +1,155 @@
+{
+  "passed": true,
+  "accepted": false,
+  "candidate_ROM_sha256": "52918588bab0eec3f3a1f857bf084d2d799e88a5c781c75233c098ccc5f54f3f",
+  "baseline_ROM_sha256": "ae97d45e5a33b20a399c0b55f241ea933a72eaea6f88e7fc69eae93af85c96e4",
+  "changed_bytes": 68,
+  "changed_banks": [
+    7,
+    82,
+    127
+  ],
+  "source_manifest_sha256": "04032b79200679673099a1e9dab14213b418d8bf24b6c38686594feef0c6d88f",
+  "source_capacity_sha256": "68ffb2cd03e883cf9a105f29a119ea201f9115b270f80dc069e38af39d7c2c91",
+  "CPU_receipt_sha256": "df21bfe25bd18feaa415ace96c3dbfc2def168212b39f393fe6e9bf49c782d23",
+  "ordinary_build_receipt_sha256": "beef81241d19bd24dfb232e9397d28b0795974be44d1b4b875f93bf6e37de14a",
+  "native": [
+    {
+      "character": "grant",
+      "cases": 4,
+      "real_injuries": 5,
+      "hardware_DMC_starts": 5,
+      "min_SP": 190,
+      "candidate_receipt_sha256": "95a0c3c98047b3d0313176271d151d42beffe445c3440b244767251f082b691a",
+      "baseline_receipt_sha256": "3dca1d0c234d5516df3ca777ba9ffee1bd3b603f135a0c8460b8a96db34a1c77"
+    },
+    {
+      "character": "alucard",
+      "cases": 4,
+      "real_injuries": 5,
+      "hardware_DMC_starts": 5,
+      "min_SP": 188,
+      "candidate_receipt_sha256": "662fd96c4cdfe1d2826784295daf5ce176446a4b8fd0e0b801252cf05a01d72e",
+      "baseline_receipt_sha256": "45398e256964b10a10a0e14456da6109869c7831fc07d45fd18f53a0a448d849"
+    },
+    {
+      "character": "sypha",
+      "cases": 2,
+      "real_injuries": 3,
+      "hardware_DMC_starts": 0,
+      "min_SP": 197,
+      "candidate_receipt_sha256": "1fd9fb6f8d83d6decd3d0d381b9c9dc78840dfdc35062572af4c289ba1471f22",
+      "baseline_receipt_sha256": "1528ec3c17bd32344e24f267e6ba9a854adcfbd6f1450f6ef2959b56db8538e6"
+    },
+    {
+      "character": "simon",
+      "cases": 2,
+      "real_injuries": 2,
+      "hardware_DMC_starts": 2,
+      "min_SP": 186,
+      "candidate_receipt_sha256": "dbbfee4e0225d849d62ae0d59bb42f0ed522a4272a3b792505ad4f8f5bf68037",
+      "baseline_receipt_sha256": "755b375738ca2bd6e2636c1cd4dc6a84bbd6641b80e5e27182a667d0dce09d26"
+    },
+    {
+      "character": "link",
+      "cases": 2,
+      "real_injuries": 2,
+      "hardware_DMC_starts": 2,
+      "min_SP": 166,
+      "candidate_receipt_sha256": "0a9c0dbf35dbf7d70b0d730dd57462d46c3a6dc400c9532d6a020cd066f2b394",
+      "baseline_receipt_sha256": "8f4c93eaf8b0505ffc9ebaf228a380ef738d4a2f448fa21abbef85a8b5ce0523"
+    }
+  ],
+  "native_candidate_cases": 14,
+  "native_baseline_cases": 14,
+  "matched_pressure": [
+    {
+      "character": "grant",
+      "before": {
+        "frames": 270,
+        "zero_update_frames": 90,
+        "draws": 91,
+        "updates": 180
+      },
+      "after": {
+        "frames": 270,
+        "zero_update_frames": 90,
+        "draws": 91,
+        "updates": 180
+      },
+      "extra_wall_frames": 0
+    },
+    {
+      "character": "alucard",
+      "before": {
+        "frames": 269,
+        "zero_update_frames": 89,
+        "draws": 91,
+        "updates": 180
+      },
+      "after": {
+        "frames": 270,
+        "zero_update_frames": 90,
+        "draws": 91,
+        "updates": 180
+      },
+      "extra_wall_frames": 1
+    },
+    {
+      "character": "sypha",
+      "before": {
+        "frames": 270,
+        "zero_update_frames": 90,
+        "draws": 91,
+        "updates": 180
+      },
+      "after": {
+        "frames": 270,
+        "zero_update_frames": 90,
+        "draws": 91,
+        "updates": 180
+      },
+      "extra_wall_frames": 0
+    },
+    {
+      "character": "simon",
+      "before": {
+        "frames": 554,
+        "zero_update_frames": 374,
+        "draws": 266,
+        "updates": 180
+      },
+      "after": {
+        "frames": 554,
+        "zero_update_frames": 374,
+        "draws": 266,
+        "updates": 180
+      },
+      "extra_wall_frames": 0
+    },
+    {
+      "character": "link",
+      "before": {
+        "frames": 626,
+        "zero_update_frames": 446,
+        "draws": 346,
+        "updates": 180
+      },
+      "after": {
+        "frames": 626,
+        "zero_update_frames": 446,
+        "draws": 346,
+        "updates": 180
+      },
+      "extra_wall_frames": 0
+    }
+  ],
+  "added_pressure_cost": "Alucard +1 wall/zero-update frame in270 while retaining91draws/180updates; Grant and all unchanged controls no pressure cadence loss.",
+  "limitations": [
+    "Sypha native sourceExact means unchanged no-DMC control; her authentic distinct source75 remains missing.",
+    "Original72 primary sample/storage/priority remains unimplemented.",
+    "Noise28-update cue remains accepted ae97; pending-native Alucard injury verifies active noise/DMC coexistence, not a new complete noise-cue timing suite.",
+    "Native explicitly staged actor contact arenas; no campaign or identical waveform claim."
+  ],
+  "tool_sha256": "b85b1f50f8a0c3f394e518150f2adf16af6955c65590a2dada76d982a3e51775"
+}

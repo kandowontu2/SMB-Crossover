@@ -227,8 +227,8 @@ Damage:sta Cv3Temp
  jeq Recoil
  lda #$ff
 Recoil:sta Cv3VxHi
- lda #Sfx_PipeDown_Injury
- sta Square1SoundQueue
+ jsr Cv3DmcInjuryQueue
+ .res 2,$ea ; same five-byte injury cue span
 Protected:sec
  rts
 Dead:

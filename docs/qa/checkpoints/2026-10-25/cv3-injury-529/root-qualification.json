@@ -1,0 +1,142 @@
+{
+  "passed": true,
+  "adopted": false,
+  "goal_complete": false,
+  "ROM_sha256": "52918588bab0eec3f3a1f857bf084d2d799e88a5c781c75233c098ccc5f54f3f",
+  "parent_ROM_sha256": "ae97d45e5a33b20a399c0b55f241ea933a72eaea6f88e7fc69eae93af85c96e4",
+  "changed_bytes": 68,
+  "changed_banks": [
+    7,
+    82,
+    127
+  ],
+  "retained_PC_RAM_CHR_exact": true,
+  "existing_DMC_samples_exact": true,
+  "new_RAM_bytes": 0,
+  "candidate_native_cases": 14,
+  "public_DMC_cases": 1728,
+  "injury_owner_CPU_cases": 144,
+  "original_injury_to_APU_CPU_chains": 2,
+  "ordinary_AudioUpdate_CPU_cases": 5024,
+  "public_DMC_start_added_CPU_cycles": [
+    34,
+    49
+  ],
+  "native": [
+    {
+      "character": "grant",
+      "cases": 4,
+      "pressure_before": {
+        "wall_frames": 270,
+        "zero_update_frames": 90,
+        "draws": 91,
+        "updates": 180
+      },
+      "pressure_after": {
+        "wall_frames": 270,
+        "zero_update_frames": 90,
+        "draws": 91,
+        "updates": 180
+      },
+      "minimum_sampled_SP": 190,
+      "native": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-dmc-root529-v1\\native-grant\\native-proof.json",
+      "baseline": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-dmc-followup-v1\\native-grant-baseline-v1\\native-proof.json"
+    },
+    {
+      "character": "alucard",
+      "cases": 4,
+      "pressure_before": {
+        "wall_frames": 269,
+        "zero_update_frames": 89,
+        "draws": 91,
+        "updates": 180
+      },
+      "pressure_after": {
+        "wall_frames": 270,
+        "zero_update_frames": 90,
+        "draws": 91,
+        "updates": 180
+      },
+      "minimum_sampled_SP": 188,
+      "native": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-dmc-root529-v1\\native-alucard\\native-proof.json",
+      "baseline": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-dmc-followup-v1\\native-alucard-baseline-v1\\native-proof.json"
+    },
+    {
+      "character": "sypha",
+      "cases": 2,
+      "pressure_before": {
+        "wall_frames": 270,
+        "zero_update_frames": 90,
+        "draws": 91,
+        "updates": 180
+      },
+      "pressure_after": {
+        "wall_frames": 270,
+        "zero_update_frames": 90,
+        "draws": 91,
+        "updates": 180
+      },
+      "minimum_sampled_SP": 197,
+      "native": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-dmc-root529-v1\\native-sypha\\native-proof.json",
+      "baseline": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-dmc-followup-v1\\native-sypha-baseline-v1\\native-proof.json"
+    },
+    {
+      "character": "simon",
+      "cases": 2,
+      "pressure_before": {
+        "wall_frames": 554,
+        "zero_update_frames": 374,
+        "draws": 266,
+        "updates": 180
+      },
+      "pressure_after": {
+        "wall_frames": 554,
+        "zero_update_frames": 374,
+        "draws": 266,
+        "updates": 180
+      },
+      "minimum_sampled_SP": 186,
+      "native": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-dmc-root529-v1\\native-simon\\native-proof.json",
+      "baseline": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-dmc-followup-v1\\native-simon-baseline-v1\\native-proof.json"
+    },
+    {
+      "character": "link",
+      "cases": 2,
+      "pressure_before": {
+        "wall_frames": 626,
+        "zero_update_frames": 446,
+        "draws": 346,
+        "updates": 180
+      },
+      "pressure_after": {
+        "wall_frames": 626,
+        "zero_update_frames": 446,
+        "draws": 346,
+        "updates": 180
+      },
+      "minimum_sampled_SP": 166,
+      "native": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-dmc-root529-v1\\native-link\\native-proof.json",
+      "baseline": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-dmc-followup-v1\\native-link-baseline-v1\\native-proof.json"
+    }
+  ],
+  "tools": {
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\cv3_dmc_cpu_v1.py": "ea28aba21876cb4ce08bed63dc202db42bf28078cf2d92f370e15c3deb224cf6",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\cv3_dmc_native_v1.py": "531f376be30dd5b61068a3e4633093e548c1b2b0100cbe5775c4e137d54ba2e7",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\cv3_dmc_native_v1.lua": "833b69bd9035fa92f44c4c414c9feb2ebd171deb834e2dae50b5d63a7a0c18c9"
+  },
+  "receipts": {
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-dmc-root529-v1\\cpu-v1\\proof.json": "df21bfe25bd18feaa415ace96c3dbfc2def168212b39f393fe6e9bf49c782d23",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-dmc-followup-v1\\proposal-v1\\prepare.json": "04032b79200679673099a1e9dab14213b418d8bf24b6c38686594feef0c6d88f",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-dmc-root529-v1\\native-grant\\native-proof.json": "f0b57b5c6abd5937e90f662aedfd45957e6177df7a579327601a1b12d99cc853",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-dmc-followup-v1\\native-grant-baseline-v1\\native-proof.json": "3dca1d0c234d5516df3ca777ba9ffee1bd3b603f135a0c8460b8a96db34a1c77",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-dmc-root529-v1\\native-alucard\\native-proof.json": "777aae092dc2cf762da34a726b508b149ea71ce494f91bc81ed24702a200d09e",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-dmc-followup-v1\\native-alucard-baseline-v1\\native-proof.json": "45398e256964b10a10a0e14456da6109869c7831fc07d45fd18f53a0a448d849",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-dmc-root529-v1\\native-sypha\\native-proof.json": "bfef0f273300a5e2c3374f91fee6d8a98b1fa0d697ed444824d95c9c71794057",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-dmc-followup-v1\\native-sypha-baseline-v1\\native-proof.json": "1528ec3c17bd32344e24f267e6ba9a854adcfbd6f1450f6ef2959b56db8538e6",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-dmc-root529-v1\\native-simon\\native-proof.json": "304085992517c57f6f0bc4bd7d5936f3719ec766d46e8dc68c94009e3b076b6d",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-dmc-followup-v1\\native-simon-baseline-v1\\native-proof.json": "755b375738ca2bd6e2636c1cd4dc6a84bbd6641b80e5e27182a667d0dce09d26",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-dmc-root529-v1\\native-link\\native-proof.json": "44db0377763b68fd46e5122b1c221541790e6c2043f0d7a907473c653b269ef1",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-dmc-followup-v1\\native-link-baseline-v1\\native-proof.json": "8f4c93eaf8b0505ffc9ebaf228a380ef738d4a2f448fa21abbef85a8b5ce0523"
+  },
+  "scope": "Exact original shared193-byte injury payload/rates14/13 through real Grant/Alucard contact, pending attack, pressure and Start pause/resume. One extra Alucard pressure lag frame, unchanged180updates/91draws, disclosed. Controls preserve hardware/cadence; all DMC starts add34..49 CPU cycles. Distinct Sypha sample, primary72 storage/priority and full-roster/campaign remain open."
+}

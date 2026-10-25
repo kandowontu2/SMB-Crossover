@@ -475,3 +475,7 @@ Done:
 .if ::ENABLE_MMC5_EXPANDED
 .include "cv3_source_audio.s"
 .endif
+
+.if ::ENABLE_MMC5_EXPANDED
+.include "cv3_dmc_injury.s"
+.endif

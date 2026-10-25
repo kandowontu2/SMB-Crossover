@@ -1,0 +1,78 @@
+{
+  "passed": true,
+  "driver_sha256": "f2276072a61cf6fcee87a207be73a5a4340c231f77504d93205a623a7da26a0b",
+  "prepared_receipt_sha256": "04032b79200679673099a1e9dab14213b418d8bf24b6c38686594feef0c6d88f",
+  "results": [
+    {
+      "mapper": "mmc3",
+      "passed": true,
+      "byte_identical": true,
+      "hashes": {
+        "baseline": "d444cac88e13fa02b29ad16100b8f08fa565ba90f8cedde192de43fb2dc8f3eb",
+        "candidate": "d444cac88e13fa02b29ad16100b8f08fa565ba90f8cedde192de43fb2dc8f3eb"
+      },
+      "commands": [
+        [
+          "C:\\Users\\kando\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+          "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\build_mmc5_expanded.py",
+          "--workspace",
+          "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-dmc-followup-v1\\proposal-v1\\baseline-source",
+          "--compiler",
+          "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\Windows\\cc65\\bin\\cl65.exe",
+          "--flag-off",
+          "mmc3",
+          "--output",
+          "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-dmc-followup-v1\\flagoff-v1\\baseline-mmc3.nes"
+        ],
+        [
+          "C:\\Users\\kando\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+          "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\build_mmc5_expanded.py",
+          "--workspace",
+          "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-dmc-followup-v1\\proposal-v1\\source",
+          "--compiler",
+          "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\Windows\\cc65\\bin\\cl65.exe",
+          "--flag-off",
+          "mmc3",
+          "--output",
+          "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-dmc-followup-v1\\flagoff-v1\\candidate-mmc3.nes"
+        ]
+      ]
+    },
+    {
+      "mapper": "mmc5",
+      "passed": true,
+      "byte_identical": true,
+      "hashes": {
+        "baseline": "f4ffd2483c51daa4d60bb575da2da8c4d817692cda407611c243031f67520833",
+        "candidate": "f4ffd2483c51daa4d60bb575da2da8c4d817692cda407611c243031f67520833"
+      },
+      "commands": [
+        [
+          "C:\\Users\\kando\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+          "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\build_mmc5_expanded.py",
+          "--workspace",
+          "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-dmc-followup-v1\\proposal-v1\\baseline-source",
+          "--compiler",
+          "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\Windows\\cc65\\bin\\cl65.exe",
+          "--flag-off",
+          "mmc5",
+          "--output",
+          "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-dmc-followup-v1\\flagoff-v1\\baseline-mmc5.nes"
+        ],
+        [
+          "C:\\Users\\kando\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+          "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\build_mmc5_expanded.py",
+          "--workspace",
+          "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-dmc-followup-v1\\proposal-v1\\source",
+          "--compiler",
+          "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\Windows\\cc65\\bin\\cl65.exe",
+          "--flag-off",
+          "mmc5",
+          "--output",
+          "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-dmc-followup-v1\\flagoff-v1\\candidate-mmc5.nes"
+        ]
+      ]
+    }
+  ],
+  "scope": "Actual fresh before/after ordinary MMC3/MMC5 compilation and byte comparison. No native ordinary-mapper gameplay claim."
+}

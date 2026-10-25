@@ -6,6 +6,12 @@
 BassWaterDpcm:
   .incbin "audio/bass/water-shield.dmc"
 BassWaterDpcmEnd:
+.if ::ENABLE_MMC5_EXPANDED
+; Four bytes of the existing47-byte alignment gap. All sample addresses,
+; lengths and original payload bytes stay fixed.
+Cv3DmcInjuryRates: .byte 15,14,15,13
+.assert Cv3DmcInjuryRates=$fe11,lderror,"Pinned unused sample alignment gap"
+.endif
 .segment "XG_BASS_GFX"
 .proc BassSourceAudioTick
   lda GamePauseStatus

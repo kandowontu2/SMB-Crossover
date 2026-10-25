@@ -1,0 +1,88 @@
+{
+  "adopted": true,
+  "goal_complete": false,
+  "ROM_sha256": "52918588bab0eec3f3a1f857bf084d2d799e88a5c781c75233c098ccc5f54f3f",
+  "parent_ROM_sha256": "ae97d45e5a33b20a399c0b55f241ea933a72eaea6f88e7fc69eae93af85c96e4",
+  "fresh_root_compile_exact": true,
+  "changed_ROM_bytes": 68,
+  "changed_PRG_banks": [
+    7,
+    82,
+    127
+  ],
+  "retained_PC_RAM_CHR_exact": true,
+  "sample_bytes_addresses_lengths_exact": true,
+  "new_RAM_bytes": 0,
+  "candidate_native_cases": 14,
+  "public_DMC_CPU_cases": 1728,
+  "injury_owner_CPU_cases": 144,
+  "ordinary_AudioUpdate_CPU_cases": 5024,
+  "original_injury_to_APU_CPU_chains": 2,
+  "public_DMC_start_added_CPU_cycles": [
+    34,
+    49
+  ],
+  "native_pressure": [
+    {
+      "character": "grant",
+      "before": {
+        "wall_frames": 270,
+        "zero_update_frames": 90,
+        "draws": 91,
+        "updates": 180
+      },
+      "after": {
+        "wall_frames": 270,
+        "zero_update_frames": 90,
+        "draws": 91,
+        "updates": 180
+      }
+    },
+    {
+      "character": "alucard",
+      "before": {
+        "wall_frames": 269,
+        "zero_update_frames": 89,
+        "draws": 91,
+        "updates": 180
+      },
+      "after": {
+        "wall_frames": 270,
+        "zero_update_frames": 90,
+        "draws": 91,
+        "updates": 180
+      }
+    }
+  ],
+  "source_files": {
+    "src/entrypoint.s": {
+      "before_sha256": "13190a89d6cfc5832e4c21702af0c5251e06291c11dff7e5c1020c7aacdcc5fe",
+      "after_sha256": "a24a896d90701c22e558707c97e64b68fa1a1a8a57233a88ecf6232f421f6edd"
+    },
+    "src/remaining_audio.s": {
+      "before_sha256": "040ddf10f1fdfb781e5f6d4a66acb81bedf4090be2281e26bbfffd34c626ac3e",
+      "after_sha256": "2d21aaadbb70e2853d398d24c36e086c9865e70adb74ad3712afe1af58282e05"
+    },
+    "src/bass_source_sfx.s": {
+      "before_sha256": "0217a0fe78197da5f95ec6e80fb929a4ec7507e804d7651bbec3b38893051568",
+      "after_sha256": "2c2b3c5cf7f7e7b45ed63dff1a2d342148775e608b55b446012cdc2f6c59df4e"
+    },
+    "src/cv3_pickups.s": {
+      "before_sha256": "ea32e298fd6048b9890564488822c88bd6b56f9f75ce6cfe1e5c84881b49b7d7",
+      "after_sha256": "00026e6b84377c18d45afc9f10e39367cc482ce380863fd203ceb41b2d2686c4"
+    },
+    "src/cv3_dmc_injury.s": {
+      "before_sha256": null,
+      "after_sha256": "13dfeb64cd3142a660e4c0c3f9b62cc7fdc6c1b3f3d22ddc6e5cbaf6322c64a8"
+    }
+  },
+  "qualification": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-dmc-root529-v1\\proof.json",
+  "qualification_sha256": "e3e644209784b71ccfde46c5e023e407a0b9511778fe84439ad3897d3a072b23",
+  "ordinary_target_hashes": {
+    "mmc3": "d444cac88e13fa02b29ad16100b8f08fa565ba90f8cedde192de43fb2dc8f3eb",
+    "mmc5": "f4ffd2483c51daa4d60bb575da2da8c4d817692cda407611c243031f67520833"
+  },
+  "Downloads_and_default_build_current": true,
+  "backup_directory": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-dmc-root529-v1\\adoption-v1",
+  "scope": "Authentic Grant/Alucard injury sample/rates via actual enemy contact, pressure/pending attack/Start pause. One extra Alucard pressure lag frame, unchanged updates/draws, explicitly retained. Sypha distinct sample, primary72 storage/priority and whole-roster goal remain open."
+}

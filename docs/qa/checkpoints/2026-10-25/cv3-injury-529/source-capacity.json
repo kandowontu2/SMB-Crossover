@@ -1,0 +1,348 @@
+{
+  "passed": true,
+  "accepted": false,
+  "ROM_sha256": "ae97d45e5a33b20a399c0b55f241ea933a72eaea6f88e7fc69eae93af85c96e4",
+  "original_ROM_sha256": "085ec6395681c7ebfda19c2986069c21a3d27738cc61ada76249de70a07ed7d3",
+  "tool_sha256": "94d5db694e7b22baaf7b7a04aa9f973d2c79853d5be64af0e468dd3b9fc8905c",
+  "original_callsite_authenticated_bytes": 13,
+  "fixed_occupied": [
+    [
+      57344,
+      57426,
+      "\"OAMALIGNED\""
+    ],
+    [
+      57426,
+      57440,
+      "\"SAMUS_FREEZE_NMI\""
+    ],
+    [
+      57440,
+      61678,
+      "\"FIXED\""
+    ],
+    [
+      61678,
+      61743,
+      "\"SAMUS_CROUCH_WATER\""
+    ],
+    [
+      61743,
+      61757,
+      "\"SAMUS_FREEZE_STORE\""
+    ],
+    [
+      61760,
+      65041,
+      "BassWaterDpcm"
+    ],
+    [
+      65088,
+      65249,
+      "AvDmcLinkTakeDamage"
+    ],
+    [
+      65280,
+      65473,
+      "AvDmcSimonTakeDamage"
+    ],
+    [
+      65473,
+      65527,
+      "\"SAMUS_CROUCH_BODY\""
+    ],
+    [
+      65530,
+      65536,
+      "\"VECTORS\""
+    ]
+  ],
+  "fixed_gaps": [
+    {
+      "start": 61757,
+      "end": 61760,
+      "length": 3
+    },
+    {
+      "start": 65041,
+      "end": 65088,
+      "length": 47
+    },
+    {
+      "start": 65249,
+      "end": 65280,
+      "length": 31
+    },
+    {
+      "start": 65527,
+      "end": 65530,
+      "length": 3
+    }
+  ],
+  "fixed_free_bytes": 84,
+  "largest_contiguous_gap": 47,
+  "aligned_sample_starts": {
+    "193": [],
+    "1089": []
+  },
+  "source_injury": [
+    {
+      "character": "Simon",
+      "original_enum": 0,
+      "event": 115,
+      "rate": 15,
+      "DAC": 0,
+      "source_start": 50816,
+      "length": 193,
+      "payload_sha256": "4d6a9738d5ed47be13ffc70e7ee6841ff53756fc182356e4494563b28e630e8d",
+      "reuse_labels": [
+        "AvDmcSimonTakeDamage"
+      ],
+      "launch_writes": [
+        {
+          "frame": -1,
+          "cycle": 628,
+          "pc": 35109,
+          "bank": 24,
+          "address": 16405,
+          "value": 15
+        },
+        {
+          "frame": -1,
+          "cycle": 636,
+          "pc": 35115,
+          "bank": 24,
+          "address": 16400,
+          "value": 15
+        },
+        {
+          "frame": -1,
+          "cycle": 644,
+          "pc": 35121,
+          "bank": 24,
+          "address": 16401,
+          "value": 0
+        },
+        {
+          "frame": -1,
+          "cycle": 652,
+          "pc": 35127,
+          "bank": 24,
+          "address": 16402,
+          "value": 26
+        },
+        {
+          "frame": -1,
+          "cycle": 660,
+          "pc": 35133,
+          "bank": 24,
+          "address": 16403,
+          "value": 12
+        },
+        {
+          "frame": -1,
+          "cycle": 666,
+          "pc": 35138,
+          "bank": 24,
+          "address": 16405,
+          "value": 31
+        }
+      ]
+    },
+    {
+      "character": "Sypha",
+      "original_enum": 1,
+      "event": 117,
+      "rate": 15,
+      "DAC": 0,
+      "source_start": 51008,
+      "length": 193,
+      "payload_sha256": "137fc604fe0c0cbf8c28733411e2397cc00e72188db755a00eb8ad27da037331",
+      "reuse_labels": [],
+      "launch_writes": [
+        {
+          "frame": -1,
+          "cycle": 628,
+          "pc": 35109,
+          "bank": 24,
+          "address": 16405,
+          "value": 15
+        },
+        {
+          "frame": -1,
+          "cycle": 636,
+          "pc": 35115,
+          "bank": 24,
+          "address": 16400,
+          "value": 15
+        },
+        {
+          "frame": -1,
+          "cycle": 644,
+          "pc": 35121,
+          "bank": 24,
+          "address": 16401,
+          "value": 0
+        },
+        {
+          "frame": -1,
+          "cycle": 652,
+          "pc": 35127,
+          "bank": 24,
+          "address": 16402,
+          "value": 29
+        },
+        {
+          "frame": -1,
+          "cycle": 660,
+          "pc": 35133,
+          "bank": 24,
+          "address": 16403,
+          "value": 12
+        },
+        {
+          "frame": -1,
+          "cycle": 666,
+          "pc": 35138,
+          "bank": 24,
+          "address": 16405,
+          "value": 31
+        }
+      ]
+    },
+    {
+      "character": "Grant",
+      "original_enum": 2,
+      "event": 116,
+      "rate": 14,
+      "DAC": 0,
+      "source_start": 50816,
+      "length": 193,
+      "payload_sha256": "4d6a9738d5ed47be13ffc70e7ee6841ff53756fc182356e4494563b28e630e8d",
+      "reuse_labels": [
+        "AvDmcSimonTakeDamage"
+      ],
+      "launch_writes": [
+        {
+          "frame": -1,
+          "cycle": 628,
+          "pc": 35109,
+          "bank": 24,
+          "address": 16405,
+          "value": 15
+        },
+        {
+          "frame": -1,
+          "cycle": 636,
+          "pc": 35115,
+          "bank": 24,
+          "address": 16400,
+          "value": 14
+        },
+        {
+          "frame": -1,
+          "cycle": 644,
+          "pc": 35121,
+          "bank": 24,
+          "address": 16401,
+          "value": 0
+        },
+        {
+          "frame": -1,
+          "cycle": 652,
+          "pc": 35127,
+          "bank": 24,
+          "address": 16402,
+          "value": 26
+        },
+        {
+          "frame": -1,
+          "cycle": 660,
+          "pc": 35133,
+          "bank": 24,
+          "address": 16403,
+          "value": 12
+        },
+        {
+          "frame": -1,
+          "cycle": 666,
+          "pc": 35138,
+          "bank": 24,
+          "address": 16405,
+          "value": 31
+        }
+      ]
+    },
+    {
+      "character": "Alucard",
+      "original_enum": 3,
+      "event": 118,
+      "rate": 13,
+      "DAC": 0,
+      "source_start": 50816,
+      "length": 193,
+      "payload_sha256": "4d6a9738d5ed47be13ffc70e7ee6841ff53756fc182356e4494563b28e630e8d",
+      "reuse_labels": [
+        "AvDmcSimonTakeDamage"
+      ],
+      "launch_writes": [
+        {
+          "frame": -1,
+          "cycle": 628,
+          "pc": 35109,
+          "bank": 24,
+          "address": 16405,
+          "value": 15
+        },
+        {
+          "frame": -1,
+          "cycle": 636,
+          "pc": 35115,
+          "bank": 24,
+          "address": 16400,
+          "value": 13
+        },
+        {
+          "frame": -1,
+          "cycle": 644,
+          "pc": 35121,
+          "bank": 24,
+          "address": 16401,
+          "value": 0
+        },
+        {
+          "frame": -1,
+          "cycle": 652,
+          "pc": 35127,
+          "bank": 24,
+          "address": 16402,
+          "value": 26
+        },
+        {
+          "frame": -1,
+          "cycle": 660,
+          "pc": 35133,
+          "bank": 24,
+          "address": 16403,
+          "value": 12
+        },
+        {
+          "frame": -1,
+          "cycle": 666,
+          "pc": 35138,
+          "bank": 24,
+          "address": 16405,
+          "value": 31
+        }
+      ]
+    }
+  ],
+  "original_priority_cases": 56,
+  "fully_unoccupied_FF_banks": [
+    63,
+    123,
+    124,
+    125
+  ],
+  "scope": "Read-only capacity and actual original CPU requests/launch writes. Alternate fixed-bank mirroring/owner is an architectural plan, not implemented or native-qualified."
+}

@@ -215,8 +215,13 @@ Bits: .byte 1,2,4,8
   lda GuestCombinedEnable
   and #15
   sta $4015
+.if ::ENABLE_MMC5_EXPANDED
+  jsr Cv3DmcInjuryRate
+  .res 2,$ea                   ; old five-byte rate/store span
+.else
   lda #15                       ; Exact NTSC source rate, no IRQ or loop.
   sta $4010
+.endif
   lda #0
   sta $4011
   lda Addresses,x
