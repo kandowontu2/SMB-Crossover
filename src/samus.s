@@ -119,6 +119,12 @@ Guest:
 .endproc
 
 .proc SamusAfterBGCollisionBridge
+.if ::ENABLE_MMC5_EXPANDED
+  farcall Z2PostBGBodyBridge
+  rts
+  .res 20,$ea
+  .assert *-SamusAfterBGCollisionBridge=39,lderror,"Original post-BG bridge span"
+.else
   ; Called only by PlayerCtrlRoutine with PLAYER mapped at A000. The rare
   ; farcall restores that bank before its original position/box subroutines.
   lda SelectedCharacter
@@ -142,6 +148,7 @@ Handle:
   jsr BoundingBoxCore
 Done:
   rts
+.endif
 .endproc
 
 .segment "SAMUS"

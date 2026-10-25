@@ -27,9 +27,10 @@ test outputs as evidence, not previous agent claims or the old README alone.
 
 MMC5 current ROM:
 C:/Users/kando/Downloads/SMB-Crossover-Current-MMC5.nes
-SHA256 859b51acb503dde2b9f57ef45a6a6d2bc22a98aa726a331897ef0af6cc4ff587
-User already opened this in their own Mesen. Do not stop their emulator.
-Latest source receipt: build/verification/robot-selection/proof.json
+SHA256 49d980e564abfb8bfc71bf0c69d5f25c91afed0968d231f959252fa53552b174
+The user has run earlier builds in their own Mesen. Do not stop their emulator.
+Latest source receipt: build/verification/zelda2-platform/proof.json
+Previous child: build/verification/robot-selection/proof.json (859b51ac...).
 Previous child: build/verification/zelda2-terrain/proof.json (f00c2a7a...).
 Previous child: build/verification/parodius-graphical-hud/proof.json (ee0b6bc5...).
 Previous child: build/verification/chip-ceiling-feedback/proof.json (274fff...).
@@ -479,3 +480,43 @@ exact. Standard builds uncovered duplicate CrossoverSourceFootProbe global in
 flag-off branch; removed redundant label only. Both standard mappers compile;
 expanded MMC5 remains byte-exact859b. Build receipt in checkpoints/2026-10-25/
 public-readme-build. No visibility settings or release publication changed.
+
+25 OCTOBER ZELDA II PLATFORM/BODY + NATIVE SMALL-LIFT DRAW FIX ADOPTED
+Current source/download49d980e5..., fresh root compile exact. Backup859b and
+previous sources at D/zelda2-platform-late-candidate-v4/adoption-v1. Do not
+rerun tools/audit/adopt_zelda2_platform_once.py. V12+lateV4 only changes legacy
+conditional names from V11+lateV3; expanded ROM is identical49. Standard
+MMC3/MMC5 outputs remain byte-exact d444cac8/f4ffd248 (no new native claim).
+
+Uses original source standing/crouched body projection and actual native
+platform collision/carry/motion, temporary private Link/Fairy platform shapes,
+Fairy foot26, source nongrid support origins and native parent/child balance
+flags. Fixes nonzero-slot bbox ownership, foreign-bank small-platform helper
+calls, native ground quantization and early direct-OAM clear. Small lifts for
+rotated guests now draw authentic tile5A/palette2/masked three-girder rows
+through the bounded late allocator. Existing RAM and CHR unchanged. Firebars
+retain their original late draw priority; CPU OAM/owner differential exact.
+
+Evidence docs/qa/checkpoints/2026-10-25/zelda2-platform-final49 and external
+D/zelda2-platform-late-packet-v3. 3240 position/576 body/96 BIT +6048 native
+jump +384 balance jump +late renderer CPU oracles.58 staged native arenas:
+54 main/viewport and4 original-init balance pairs; direct hardware/DMA/body
+publications verified. Main2100 actor returns/2099 NMIs; balance168/189. Root
+viewed normal/Fairy/balance contact sheets. Fresh controller-only1-1 Easy4751
+andHard4840 clear with zero deaths/CHR/committed motion guards. These are
+new discovery runs, not independent full-route PPU/audio replays. Constant
+frame-rate/full-campaign/all-character and every-item proof still open.
+
+All ten requested agents returned bounded audits, not complete families.
+Their proposed fixes live under tools/audit/proposals and remain PRIVATE:
+SMB3 Bowser+Buzzy weapon admission, Ryu auto-equipped pickup during Slash,
+Kirby/Chip staged wrong-Y-page collision, Sophia incomplete missile triplets,
+TMNT scrolled Kiai pickup box and Mac life-gain resets. CV3 attack SFX are
+proved discarded; native audio remains unfinished. Last reports distinguish
+source, staged components and live qualification. No shortcut green claim.
+Assignments7 and10 have follow-up native grants (one sequential worker each):
+SMB3 projectile/boss qualification, TMNT music restoration/performance. They
+froze older f00/859 parents; final49 composition/requalification still needed.
+Root has NO Mesen grant while those two run. Keep all large artifacts external;
+last workspace measurement29,729,319,020 bytes, under30GB. Continue original
+whole-roster/all-powerup/graphics/audio/performance goal; never pause by default.

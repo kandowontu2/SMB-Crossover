@@ -70,42 +70,72 @@ Supported:
 .proc Z2HasPlatformSupport
  lda GameEngineSubroutine
  cmp #8
- bne No
+ jne No
  lda Player_State
- bne No
+ jne No
  lda Player_Y_HighPos
  cmp #1
- bne No
+ jne No
  lda Player_Y_Position
  clc
  adc #32
- bcs No
+ jcs No
  sta Z2BodyScratch+8
  ldx #5
 Slot:
  lda Enemy_Flag,x
- beq Next
+ jeq Next
  lda Enemy_Y_HighPos,x
  cmp #1
- bne Next
+ jne Next
  lda Enemy_ID,x
  cmp #$24
- bcc Next
+ jcc Next
  cmp #$2d
- bcs Next
+ jcs Next
+ cmp #$24
+ beq Balance
  cmp #$2b
  bcs Small
  txa
  cmp PlatformCollisionFlag,x
- bne Next
+ jne Next
  lda Enemy_Y_Position,x
+ jmp CompareY
+Balance:
+ ; A native balance pair stores the contacted sibling slot on its parent.
+ ; The sibling itself has state$ff and owns no collision pass. Resolve the
+ ; exact referenced active platform; never infer support from matchingY.
+ lda Enemy_State,x
+ cmp #6
+ jcs Next
+ lda PlatformCollisionFlag,x
+ cmp #6
+ jcs Next
+ tay
+ txa
+ cmp PlatformCollisionFlag,x
+ beq BalanceTarget
+ lda Enemy_State,x
+ cmp PlatformCollisionFlag,x
+ jne Next
+BalanceTarget:
+ lda Enemy_Flag,y
+ jeq Next
+ lda Enemy_ID,y
+ cmp #$24
+ jne Next
+ lda Enemy_Y_HighPos,y
+ cmp #1
+ jne Next
+ lda Enemy_Y_Position,y
  jmp CompareY
 Small:
  lda PlatformCollisionFlag,x
  cmp #2
  beq First
  cmp #1
- bne Next
+ jne Next
  lda AreaPointer
  cmp #$62
  bne VanillaSecond
@@ -124,7 +154,7 @@ First:lda Enemy_Y_Position,x
 CompareY:cmp Z2BodyScratch+8
  beq Yes
 Next:dex
- bpl Slot
+ jpl Slot
 No:clc
  rts
 Yes:sec

@@ -651,6 +651,14 @@ MouseStateMetasprite:
 
 .if ::ENABLE_CROSSOVER
 .proc WorldFirebarDrawAdmission
+.if ::ENABLE_MMC5_EXPANDED
+::WorldFirebarAdmission:
+ farcall Z2LateWorldAdmission
+ .res 20,$ea
+::WorldFirebarAdmissionDone:
+ rts
+ .assert *-WorldFirebarDrawAdmission=39,lderror,"Late world admission span"
+.else
 ::WorldFirebarAdmission:
   ; No matching ID can produce a firebar. Keep the existing live-owner checks.
   ldx #5
@@ -670,6 +678,7 @@ DrawFirebars:
 FirebarsReady:
 ::WorldFirebarAdmissionDone:
   rts
+.endif
 .endproc
 .endif
 

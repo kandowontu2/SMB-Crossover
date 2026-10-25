@@ -18,6 +18,7 @@ def main():
     p.add_argument('--controls',action='store_true')
     p.add_argument('--identities',nargs='+',help='Run only named profiles in the selected group')
     p.add_argument('--stair-policy',action='store_true',help='Controller-only top-step landing before the last small gap')
+    p.add_argument('--workers',type=int,choices=[1,2],default=2,help='Respect the shared native emulator worker budget')
     a=p.parse_args();out=a.output.resolve();assert not out.is_relative_to(ROOT)
     out.mkdir(exist_ok=False);d=a.archive.resolve();b=load(a.rom)
     driver=d/'mmc3-ship-lives-v25/native-routes-v1/bound-mmc3-runner.py'
@@ -75,7 +76,7 @@ end
                    passed=bool(result.returncode==0 and native.get('cleared')and native.get('deaths')==0
                                and motion.get('passed')and q.get('chr_commit',{}).get('passed')))
         print(json.dumps(entry),flush=True);return entry
-    with ThreadPoolExecutor(max_workers=2)as pool:runs=list(pool.map(run,profiles))
+    with ThreadPoolExecutor(max_workers=a.workers)as pool:runs=list(pool.map(run,profiles))
     proof=dict(passed=all(r['passed']for r in runs),complete=True,goal_complete=False,
                ROM_sha256=hashlib.sha256(b['raw']).hexdigest(),runs=runs,
                scope='Fresh controller-only1-1 routes with existing policies. No geometry, inventory or physics writes. Native body-CHR and completed-loop world<=8/camera0..4 guards. Failed original policies are retained; successful discovery still requires an independent physical PPU replay. Not every powerup, moving-platform or source enemy-hitbox qualification.')

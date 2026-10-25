@@ -316,7 +316,11 @@ No:
   clc
   rts
 .endproc
+.if ::ENABLE_MMC5_EXPANDED
+.proc Z2LegacyPlatformPrepare
+.else
 .proc RyuSourceBodyPlatformPrepare
+.endif
   RP_Save
   jsr RyuSourceBodyPlatformOverlap
   bcc Done
@@ -334,7 +338,11 @@ Done:
   RP_Restore
   rts
 .endproc
+.if ::ENABLE_MMC5_EXPANDED
+.proc Z2LegacyPlatformFinish
+.else
 .proc RyuSourceBodyPlatformFinish
+.endif
   RP_Save
   jsr RyuSourceBodyPlatformBasic
   bcc Done

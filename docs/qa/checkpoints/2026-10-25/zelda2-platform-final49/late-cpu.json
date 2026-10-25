@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "adopted": false,
+  "goal_complete": false,
+  "ROM_sha256": "49d980e564abfb8bfc71bf0c69d5f25c91afed0968d231f959252fa53552b174",
+  "parent_ROM_sha256": "7cf37c96f4616f24854e628eb45ac4431b758c71e05e0e7dcffc3127dfde5861",
+  "cases": {
+    "mask_records": 8,
+    "source_geometry": 99,
+    "all_rotations": 2304,
+    "capacity": 1344,
+    "vertical_limits": 144,
+    "negative_admission": 656,
+    "native_firebars": 2048
+  },
+  "scope": "Actual late renderer and original direct native small-lift row control; all64 rotations, slots0..5, both lift IDs, source worlds2/5 and vanilla +128 second rows, native horizontal column masks, vertical clipping and capacity rejection. Exact helper A/X/Y/P, restored shared scratch/Cbank. Actual native world-firebar OAM and owner outputs remain exact for tested foreign cases; outer farcall transient N/Z excluded because the caller immediately loads0. No interrupts, native PPU or frame-timing claim."
+}

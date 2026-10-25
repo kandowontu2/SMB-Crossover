@@ -3104,6 +3104,13 @@ PositionPlayerOnS_Plat:
       .byte $2c                    ;BIT instruction opcode
 
 PositionPlayerOnVPlat:
+.if ::ENABLE_MMC5_EXPANDED
+  lda Enemy_Y_Position,x ; Keep the small-platform BIT skip's original2bytes.
+  farcall Z2PositionOnPlatform
+ExPlPos:rts
+  .res 11,$ea
+  .assert *-PositionPlayerOnVPlat=32,lderror,"Original native platform position span"
+.else
          lda Enemy_Y_Position,x    ;get vertical coordinate
          ldy GameEngineSubroutine
          cpy #$0b                  ;if certain routine being executed on this frame,
@@ -3121,6 +3128,7 @@ PositionPlayerOnVPlat:
          sta Player_Y_Speed        ;initialize vertical speed and low byte of force
          sta Player_Y_MoveForce    ;and then leave
 ExPlPos: rts
+.endif
 
 
 ;--------------------------------

@@ -187,9 +187,10 @@ L94ED:
  sta Z2NativeVY
  sta Z2AttackStage
 L94F8:
- lda Player_Y_Position
- and #$F0
- sta Player_Y_Position
+ jsr Z2PlatformGroundY
+ nop
+ nop
+ nop
  lda Z2NativePressedAB
  and #$80
  jeq L94C2

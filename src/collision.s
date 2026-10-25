@@ -841,6 +841,12 @@ ExTA:  rts                      ;leave!!!
 ;$00 - counter for bounding boxes
 
 SmallPlatformCollision:
+.if ::ENABLE_MMC5_EXPANDED
+  farcall Z2SmallPlatformCollision
+  rts
+  .res 44,$ea
+  .assert *-SmallPlatformCollision=63,lderror,"Native small-platform collision span"
+.else
       lda TimerControl             ;if master timer control set,
       bne ExSPC                    ;branch to leave
       sta PlatformCollisionFlag,x  ;otherwise initialize collision flag
@@ -881,6 +887,7 @@ MoveBoundBox:
        bne ChkSmallPlatLoop       ;loop back until both bounding boxes are checked
 ExSPC: ldx ObjectOffset           ;get enemy object buffer offset, then leave
        rts
+.endif
 
 ;--------------------------------
 

@@ -76,8 +76,11 @@ ExPlPos:rts
             (source/'src/zelda2_small_platform_native.inc').write_text(
                 '.pushseg\n.segment "Z2_COLD"\n.proc Z2NativeSmallPlatformCollision\n'+small_body+'.endproc\n.popseg\n')
         elif name=='ryu_source_body.s':
-            text=once(text,'.proc RyuSourceBodyPlatformPrepare\n','.proc Z2LegacyPlatformPrepare\n')
-            text=once(text,'.proc RyuSourceBodyPlatformFinish\n','.proc Z2LegacyPlatformFinish\n')
+            for suffix in ['Prepare','Finish']:
+                native='RyuSourceBodyPlatform'+suffix
+                legacy='Z2LegacyPlatform'+suffix
+                text=once(text,'.proc '+native+'\n',
+                          '.if ::ENABLE_MMC5_EXPANDED\n.proc '+legacy+'\n.else\n.proc '+native+'\n.endif\n')
         elif name=='zelda2_native_motion.inc':
             text=once(text,'L94F8:\n lda Player_Y_Position\n and #$F0\n sta Player_Y_Position',
                       'L94F8:\n jsr Z2PlatformGroundY\n nop\n nop\n nop')

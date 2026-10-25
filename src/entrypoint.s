@@ -413,6 +413,7 @@ TitleScreenData:
 .include "x5_menu_ui.s"
 .include "roll.s"
 .include "zelda2_link_terrain.s"
+.include "zelda2_link_platform.s"
 .pushseg
 .segment "M3_CHR"
 .incbin "chr/characters/smb3-mario.chr"
@@ -427,6 +428,7 @@ TitleScreenData:
 .include "inventory_legacy_leaf.s"
 .include "hot_collision_gate.s"
 .include "hot_render_gate.s"
+.include "z2_platform_late_render.s"
 
 .endif
 

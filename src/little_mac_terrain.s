@@ -1,6 +1,6 @@
 .pushseg
 .segment "LM_CORE"
-.proc LmBoundingBoxGate
+.proc Z2LegacyBoundingBoxGate
  php
  pha
  lda SelectedCharacter
