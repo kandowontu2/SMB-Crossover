@@ -547,3 +547,26 @@ still need independent replay/visual admission. Next assemble exact current-
 hash roster evidence without dropping failed originals; continue remaining
 all-item/passive/audio/performance checks. Do not adopt or release20b9 merely
 because discovery coverage finishes; retain the parser+230cycle concern.
+
+GitHub checkpoint3720c8f was pushed to master with current source/guide/tests,
+a coherent CLAUDE-HANDOFF-2026-10-24.txt and frozen external tools/proofs. The
+user explicitly requests all subsequent coherent changes committed/pushed.
+V37 full-roster-v1 is TERMINAL:38 attempts,32 clears,six original failures.
+Samus/Darkwing/Mac/Grant have separate corrected-input native clears. ChipEasy
+and DaleHard retain real13px committed displacements; no bound was relaxed.
+
+Chip exact failed-input observer chip-collision-v2 reproduces identical trace
+and input bytes. First wrong horizontal write is bank10/$A2FD/frame924,
+Player_X_Position82->95 (world338->351), SamusStopAtWallBanked left clamp.
+Earlier actual head/side callbacks show Chip's private rising velocity ignores
+SMB's positive1 ceiling response and keeps rising into a used block. Its
+feedback gate accepts only zero. Private chip-ceiling-feedback-v1 changes one
+BNE opcode to BMI on each mapper, preserving all other ROM bytes/symbol PCs;
+no shared wall or jump kernel changes. CPU feedback6,720 cases per mapper pass.
+New native Easy/Hard Chip/Dale routes are pending; no adoption/release claim.
+Original failures and read-only causal evidence remain retained.
+
+Newest user requests: Zelda II Link's TERRAIN collision box is wrong against
+blocks/pipes/platforms (explicit clarification); Parodius alternates need the
+full graphical upgrade bar like Gradius, replacing abbreviated text. These
+remain outstanding and must receive separate reviewable GitHub checkpoints.

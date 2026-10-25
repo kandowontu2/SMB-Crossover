@@ -9,6 +9,13 @@ The user explicitly wants continued work until the Codex allowance runs out.
 The user also explicitly wants the current source pushed to GitHub and each
 subsequent coherent change committed/pushed for rollback. Preserve failures.
 
+Newest user requests (after the GitHub checkpoint): Zelda II Link's TERRAIN
+hitbox is wrong specifically against blocks/pipes/platforms; inspect standing,
+crouching, fairy, side/ceiling/foot integration rather than assuming sword or
+enemy contact. Parodius alternates need a FULL GRAPHICAL power-up bar like
+Vic Viper/Gradius, replacing the current abbreviated text labels. Keep these
+as distinct reviewable changes and push them to GitHub too.
+
 Workspace: C:/Users/kando/Documents/ChatGPT/SMB Crossover
 Git remote: https://github.com/kandowontu2/SMB-Crossover.git
 Long working record: docs/qa/current-work-pr-2026-10-24.md
@@ -71,6 +78,33 @@ policy.lua and candidate-run.log. Locate the FIRST wrong state/write/contact.
 Do not raise the bound, hide the failure, relabel a different hash or assume
 the controller is to blame. Both logs also report uninitialized reads around
 7276..727a and71d5; those messages alone do not establish causality.
+
+FIRST WRONG WRITE NOW LOCATED: read-only exact failed-input Chip replay at
+V37/chip-collision-v2 retains identical inputs/trace and original failure.
+At physical frame924, actual bank10 PC$A2FD (SamusStopAtWallBanked left clamp)
+writes Player_X_Position$75 from82 to95, world338 to351, SP$E9/R0=2.
+The preceding collision history identifies a more specific cause: Chip keeps
+his private positive/upward Rescue Rangers velocity after SMB sets native
+Player_Y_Speed=1 on a solid ceiling. Its feedback gate recognizes only zero.
+Chip therefore continues rising into a used block over successive updates;
+only then does the shared side clamp mistake the embedded head for a wall.
+Do not disable stationary wall separation to hide this upstream cause.
+
+Private candidates D/chip-ceiling-feedback-v1/{mmc5,mmc3}/candidate.nes change
+only BNE to BMI in CdMovement's Vertical feedback gate (one ROM byte each,
+all existing symbol addresses and every other ROM byte exact):
+ MMC5 274fff8613d98a281d7549d13e59430c4d6b4553eb16bd9d2c651e0b409c8b3b
+ MMC3 2e6cbe190a1e96c6247b880a5c2a35bad1504c45cb2c642e306ba5088bc5b5f0
+No source adoption yet. CPU gate checks pass6,720 cases per mapper. An initial
+test incorrectly demanded identical transient A/N/Z at the middle of a new
+positive-response path; the next existing release-input bridge overwrites
+those. The corrected component checks exact RAM/X/Y/SP/C/V/D/I and all original
+path A/N/Z, with intended positive ceiling-response changes explicit. Native
+Easy/Hard Chip/Dale routes on both mappers are running in native-routes-v1.
+Do not treat compile/component success as final native/visual admission.
+New root tools: tools/audit/{observe_chip_committed_write,
+prepare_chip_ceiling_feedback,check_chip_ceiling_feedback,
+run_chip_ceiling_routes}.py. Generated data stays outside the workspace.
 
 3. PRIVATE MMC3 STACK REPAIR / ITS REAL PERFORMANCE COST
 
