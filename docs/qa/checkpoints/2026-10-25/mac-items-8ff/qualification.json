@@ -1,0 +1,262 @@
+{
+  "status": "BOTH_NATIVE_RESOURCE_LIFECYCLES_PASSED_EXACT_8FF",
+  "goal_complete": false,
+  "ROM_sha256": "8ff245ae662059abbc77c5de517260032775b7ba881a5201b8b54686ccf08277",
+  "preparation_sha256": "a4ba44ccd2c34759e0bdfe225c317fffb82dd51ed2989f03f040c5b2ec7c1580",
+  "fixture_sha256": "8446795af40e44b5b24b1c9f9a2b32c3d50616ed9a9e44dc2dfa88c03ef91524",
+  "preparer_sha256": "13e9bf0a3fe72b7c21bdfeba82a9ae5b8ad470f5f8136cd3185b8406e675bded",
+  "runner_sha256": "051c4c245567e2973ea17578023a350f92b9d8ff435f618d9a3ed06bae81fca3",
+  "reference_fixture_sha256": "da17fa7fd11dc8bdb804d6954c56771d6177fa679bcaed14707625522a9a567d",
+  "emulator_sha256": "8b92daa209ee5052845e02a663aeb1afd6194eca55d86e6628c51114c61da0a9",
+  "results": {
+    "easy": {
+      "proof_sha256": "3fe170a99d004b1cebf8478a3be606dd88229deb683a10d6f32b6f5ccd82d4df",
+      "native_result_sha256": "2518b5135223c80e6cd4583d3cf19773ba7991c90bc296bbfe6a24f76fcad270",
+      "script_sha256": "4fbeb932537f66c429ec408e9037ae59ed19dc0c8e039d8549d0852772b4f212",
+      "actual_mode": 0,
+      "wall": 3175,
+      "updates": 2526,
+      "star_DMA_frames": 568,
+      "full_OAM_DMA_frames": 2696,
+      "guards": {
+        "passed": true,
+        "nmis": 2526,
+        "mapper_store_windows": 0,
+        "protected_page_write_checks": 418384,
+        "minimum_sampled_SP": 250,
+        "SMC_stack_floor": 123,
+        "PPU_screenshots": 0,
+        "five_SMC_operands_preserved": true,
+        "visible_world_PPU_address_writes": 0
+      },
+      "CHR": {
+        "passed": true,
+        "frames": 2077,
+        "mismatched_frames": 0,
+        "body_constructions": 2079,
+        "scope": "Read-only actual hardware CHR pages versus last DMA player image. Bounded natural controller movement, no full-level or pixel-comparison claim."
+      },
+      "trajectory": [
+        {
+          "name": "six-real-contacts96-to48",
+          "hp": 48,
+          "stars": 0,
+          "stamina": 2,
+          "contacts": 6,
+          "grants": 0,
+          "rise_calls": 0,
+          "star_art_frames": 0
+        },
+        {
+          "name": "physical-mushroom-heals24-to72",
+          "hp": 72,
+          "stars": 0,
+          "stamina": 2,
+          "contacts": 0,
+          "grants": 1,
+          "rise_calls": 48,
+          "star_art_frames": 0
+        },
+        {
+          "name": "physical-flower-star-1",
+          "hp": 72,
+          "stars": 1,
+          "stamina": 2,
+          "contacts": 0,
+          "grants": 1,
+          "rise_calls": 48,
+          "star_art_frames": 142
+        },
+        {
+          "name": "physical-flower-star-2",
+          "hp": 72,
+          "stars": 2,
+          "stamina": 2,
+          "contacts": 0,
+          "grants": 1,
+          "rise_calls": 48,
+          "star_art_frames": 142
+        },
+        {
+          "name": "physical-flower-star-3",
+          "hp": 72,
+          "stars": 3,
+          "stamina": 2,
+          "contacts": 0,
+          "grants": 1,
+          "rise_calls": 48,
+          "star_art_frames": 142
+        },
+        {
+          "name": "physical-flower-star-4",
+          "hp": 72,
+          "stars": 3,
+          "stamina": 2,
+          "contacts": 0,
+          "grants": 1,
+          "rise_calls": 48,
+          "star_art_frames": 142
+        },
+        {
+          "name": "earned-up-B-spends-star",
+          "hp": 72,
+          "stars": 2,
+          "stamina": 1,
+          "contacts": 0,
+          "grants": 0,
+          "rise_calls": 0,
+          "star_art_frames": 0
+        },
+        {
+          "name": "real-contact-removes-star",
+          "hp": 64,
+          "stars": 1,
+          "stamina": 0,
+          "contacts": 1,
+          "grants": 0,
+          "rise_calls": 0,
+          "star_art_frames": 0
+        },
+        {
+          "name": "eight-real-contacts-death-healthy-respawn",
+          "hp": 96,
+          "stars": 0,
+          "stamina": 20,
+          "contacts": 8,
+          "grants": 0,
+          "rise_calls": 0,
+          "star_art_frames": 0
+        }
+      ]
+    },
+    "hard": {
+      "proof_sha256": "2e3a735a837db30d3008b003d6edcfeff73cd74f3ad8dde52be99b354718fffe",
+      "native_result_sha256": "4a9c02ef8ae6cc4ced366b8d173febf20041768dae9af8ed05f462e01b31e68e",
+      "script_sha256": "dc0004bdc89b87ea17c71359d92090fe14200b85151f1f0611415197d7d7d03d",
+      "actual_mode": 1,
+      "wall": 3262,
+      "updates": 2526,
+      "star_DMA_frames": 568,
+      "full_OAM_DMA_frames": 2695,
+      "guards": {
+        "passed": true,
+        "nmis": 2526,
+        "mapper_store_windows": 0,
+        "protected_page_write_checks": 418495,
+        "minimum_sampled_SP": 235,
+        "SMC_stack_floor": 123,
+        "PPU_screenshots": 0,
+        "five_SMC_operands_preserved": true,
+        "visible_world_PPU_address_writes": 0
+      },
+      "CHR": {
+        "passed": true,
+        "frames": 2077,
+        "mismatched_frames": 0,
+        "body_constructions": 2078,
+        "scope": "Read-only actual hardware CHR pages versus last DMA player image. Bounded natural controller movement, no full-level or pixel-comparison claim."
+      },
+      "trajectory": [
+        {
+          "name": "six-real-contacts96-to48",
+          "hp": 48,
+          "stars": 0,
+          "stamina": 2,
+          "contacts": 6,
+          "grants": 0,
+          "rise_calls": 0,
+          "star_art_frames": 0
+        },
+        {
+          "name": "physical-mushroom-heals24-to72",
+          "hp": 72,
+          "stars": 0,
+          "stamina": 2,
+          "contacts": 0,
+          "grants": 1,
+          "rise_calls": 48,
+          "star_art_frames": 0
+        },
+        {
+          "name": "physical-flower-star-1",
+          "hp": 72,
+          "stars": 1,
+          "stamina": 2,
+          "contacts": 0,
+          "grants": 1,
+          "rise_calls": 48,
+          "star_art_frames": 142
+        },
+        {
+          "name": "physical-flower-star-2",
+          "hp": 72,
+          "stars": 2,
+          "stamina": 2,
+          "contacts": 0,
+          "grants": 1,
+          "rise_calls": 48,
+          "star_art_frames": 142
+        },
+        {
+          "name": "physical-flower-star-3",
+          "hp": 72,
+          "stars": 3,
+          "stamina": 2,
+          "contacts": 0,
+          "grants": 1,
+          "rise_calls": 48,
+          "star_art_frames": 142
+        },
+        {
+          "name": "physical-flower-star-4",
+          "hp": 72,
+          "stars": 3,
+          "stamina": 2,
+          "contacts": 0,
+          "grants": 1,
+          "rise_calls": 48,
+          "star_art_frames": 142
+        },
+        {
+          "name": "earned-up-B-spends-star",
+          "hp": 72,
+          "stars": 2,
+          "stamina": 1,
+          "contacts": 0,
+          "grants": 0,
+          "rise_calls": 0,
+          "star_art_frames": 0
+        },
+        {
+          "name": "real-contact-removes-star",
+          "hp": 64,
+          "stars": 1,
+          "stamina": 0,
+          "contacts": 1,
+          "grants": 0,
+          "rise_calls": 0,
+          "star_art_frames": 0
+        },
+        {
+          "name": "eight-real-contacts-death-healthy-respawn",
+          "hp": 96,
+          "stars": 0,
+          "stamina": 20,
+          "contacts": 8,
+          "grants": 0,
+          "rise_calls": 0,
+          "star_art_frames": 0
+        }
+      ]
+    }
+  },
+  "no_resource_status_attack_protection_timer_writes": true,
+  "no_item_actor_or_pickup_contact_teleport": true,
+  "native_worker_released": true,
+  "production_or_Downloads_changes": false,
+  "limits": [
+    "Explicit aligned dry terrain/player/ordinaryGoomba component arrangement; not continuous campaign",
+    "Resource state and all pickups/attacks/injuries/death/respawn run through actual engine code",
+    "Exact8ff only; later composition needs its own qualification"
+  ]
+}

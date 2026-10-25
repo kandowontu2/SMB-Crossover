@@ -1,0 +1,138 @@
+Little Mac naturally earned item lifecycle — 2026-10-25
+
+Status: PASS in native Easy0 and Hard1 on exact adopted MMC5 ROM
+8ff245ae662059abbc77c5de517260032775b7ba881a5201b8b54686ccf08277.
+No production repair was required by this component pass. The one sequential
+native worker was explicitly RELEASED after both runs. No later combined-ROM,
+full-level, full-roster or complete-goal certificate is asserted.
+
+External packet:
+C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/final-mac-items-v3
+Final qualification.json SHA-256:
+b8294327bfee9c8b17c4d8e754a6a01b65f5919031c12d4449e61dc3f56214d0
+Preparation.json SHA-256:
+a4ba44ccd2c34759e0bdfe225c317fffb82dd51ed2989f03f040c5b2ec7c1580
+Frozen fixture SHA-256:
+8446795af40e44b5b24b1c9f9a2b32c3d50616ed9a9e44dc2dfa88c03ef91524
+Runner SHA-256:
+051c4c245567e2973ea17578023a350f92b9d8ff435f618d9a3ed06bae81fca3
+Original tests/little-mac-powerups.lua was read and left unchanged:
+da17fa7fd11dc8bdb804d6954c56771d6177fa679bcaed14707625522a9a567d
+Mesen SHA-256:
+8b92daa209ee5052845e02a663aeb1afd6194eca55d86e6628c51114c61da0a9
+
+What this fixture improves
+--------------------------
+The older physical-pickup test explicitly set PlayerStatus, HP, stars and injury
+state before portions of its tests. The new fixture gets every resource/result
+through actual game code. It prohibits fixture writes to PlayerStatus, HP, stars,
+stamina, attack/super, hurt/invulnerability, ready/life/rest/input-edge state,
+InjuryTimer, star/master/game timers, lives, death flags, selection, pickup type,
+inventory/stamp and cheat state. It does not inject an item actor or move a
+post-rise item into the player. Resource-write observers also reject fixture
+boundary alias writes to HP/stars/stamina/status.
+
+Disclosed component arrangement still writes ordinary world/Goomba/motion state
+at native GameLoop boundaries. It creates flat dry terrain and a question block
+with its matching nametable four tiles and palette attributes. Thus the logical
+collision cell and visible block occupy the same place. Ordinary Goombas use
+their real ID6, standing Y184 and source small bounding-box control9. The native
+engine handles contact, item reveal/rise/collection, attacks, injury and death.
+
+Six separate contacts establish the wounded state. After each contact the actor
+is removed, both InjuryTimer AND LmInvul/LmHurt expire naturally, Mac lands and
+the actor remains absent for at least four updates before the next setup. No
+protection timer or injury state is reset to hurry that sequence.
+
+Actual menus choose Little Mac. Both scripts use explicit numeric mode0/1 and
+assert actual CrossoverBehaviorVersion readback before collecting data. Verified
+Lua54 compilation parsed both bound scripts before a native worker was launched.
+
+Same nine completed stages in each mode
+--------------------------------------
+Stage                                     HP    Stars   Stamina
+Cold initialization                       96      0       20
+Six actual Goomba contacts                 48      0        2
+Controller head bump/physical mushroom     72      0        2
+First physical flower/star                 72      1        2
+Second physical flower/star                72      2        2
+Third physical flower/star                 72      3        2
+Fourth physical flower/cap                 72      3        2
+Earned Up+B super punch                    72      2        1
+Actual Goomba contact removes star         64      1        0
+Eight more actual contacts -> real death
+Native movable respawn                     96      0       20
+
+The five physical items each emerge through48 actual handler calls. No HP/star
+award occurs while they rise. The mushroom heals24; each flower gives one star
+with cap3; the native pickup queues its powerup sound. Controller Up+B spends
+one physically earned star and one stamina, starting the actual88-tick super.
+Contact removes a star and8HP. The final actual contact takes8HP to0, consumes
+one native life (2->1) and the engine restores96HP/20 stamina/0 stars. Controller
+movement after respawn is required. Committed HUD health/star digits are checked.
+
+Hardware and artwork checks
+---------------------------
+The original star oracle retains all73 original white pixels, including its
+right points and original white palette. It observes actual two-piece hardware
+OAM and uploaded physical CHR page704. Its metadata is paired with the complete
+RosterOamReady publication and actual DMA source bytes, so a later partially
+constructed RAM image cannot become an oracle for an earlier hardware frame.
+Each flower receives142 verified star DMA frames,568 per run.
+
+The existing vehicles_audio_wiring_guards.lua and chr_commit_observer.lua are
+reused unchanged (the wrapper selects character15). They check real foreground
+banks/shadows/A/stack, five SMC operands, visible-world PPU writes and committed
+player CHR. The new fixture also compares every byte of each committed256-byte
+source OAM image with hardware after DMA. No guard threshold was weakened.
+
+Mode   Physical frames   Game updates   OAM DMA checks   CHR frames/bad
+Easy        3175             2526             2696           2077 /0
+Hard        3262             2526             2695           2077 /0
+
+Each run has15 actual contacts,5 physical pickups,9 completed stages and2526
+checked NMIs. Protected-page write checks:418384 Easy,418495 Hard. No mapper
+window mismatch, altered SMC operand or visible-world PPU address write.
+Minimum sampled SP:Easy$FA, Hard$EB, copied-code floor$7B.
+
+Source-aligned mushroom/flower maturation, capped-stock HUD, spent-stock HUD,
+super and healthy respawn screenshots were visually inspected. Initial action
+captures can precede the next committed HUD update; the complete-stage captures
+and native HUD assertions are the displayed-result evidence.
+
+Exact receipts
+--------------
+native-easy-pilot-v1/proof.json SHA-256:
+3fe170a99d004b1cebf8478a3be606dd88229deb683a10d6f32b6f5ccd82d4df
+native-hard-v1/proof.json SHA-256:
+2e3a735a837db30d3008b003d6edcfeff73cd74f3ad8dde52be99b354718fffe
+Easy generated script SHA-256:
+4fbeb932537f66c429ec408e9037ae59ed19dc0c8e039d8549d0852772b4f212
+Hard generated script SHA-256:
+dc0004bdc89b87ea17c71359d92090fe14200b85151f1f0611415197d7d7d03d
+
+Both native runs passed their first attempts with the same frozen fixture.
+Earlier source-only preparation artifacts are retained: v1 failed because host
+Python3.14 could not import a verified cp312 Lua54 extension; v2 uses bundled
+Python3.12 to compile and never ran native. V3 additionally removed all master/
+game timer resets before its first native run. These are preparation versions,
+not discarded gameplay failures. The v1 failure has an explicit external receipt.
+
+Owned files and reproduction
+----------------------------
+tools/audit/final_mac_items_prepare.py
+tools/audit/final_mac_items_native.lua
+tools/audit/final_mac_items_run.py
+This QA report. All generated large files remain external. No production source,
+config, Git or Downloads write was performed by this agent.
+
+The preparer never launches an emulator and verifies the explicit ROM hash,
+original fixture, frozen source/artifact ledger and parser provenance. Use fresh
+absolute external output directories:
+
+python tools/audit/final_mac_items_prepare.py --rom ADOPTED8FF.nes --source FROZEN_SOURCE/src --output EXTERNAL_PACKET
+python tools/audit/final_mac_items_run.py --packet EXTERNAL_PACKET --mode easy --output EXTERNAL_EASY --emulator MESEN.exe --timeout 300
+python tools/audit/final_mac_items_run.py --packet EXTERNAL_PACKET --mode hard --output EXTERNAL_HARD --emulator MESEN.exe --timeout 300
+
+Native runs require a separately granted sequential worker. Neither prepared
+scripts nor parsed source are described as native passes until actual completion.
