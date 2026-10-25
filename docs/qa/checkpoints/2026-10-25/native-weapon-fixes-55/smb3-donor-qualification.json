@@ -1,0 +1,94 @@
+{
+  "passed": true,
+  "accepted": false,
+  "goal_complete": false,
+  "parent_sha256": "49d980e564abfb8bfc71bf0c69d5f25c91afed0968d231f959252fa53552b174",
+  "candidate_sha256": "7d43c1bdbe1941e150575f6ea52b4b3c8f00ddc36674fe749d53d3a3c4fb82c3",
+  "source_changes": {
+    "src/entrypoint.s": "794aa372ef8780771326c4d5f5d91279757f71fd3efe4410806fb7d153ac156f",
+    "src/smb3_mario_combat.s": "339d716c7c559049fe7be9ea5735219d8b6f7c6d300961039f22ff01263b8708",
+    "src/smb3_projectile_damage.s": "13fd21581b2a3f2943026424a2a1223895a70f1ab981b663ea7046a4ee0b415d"
+  },
+  "changed_PRG_banks": [
+    90
+  ],
+  "changed_bytes": 51,
+  "CPU_components": 1248,
+  "native_positive_cases": 80,
+  "native_paired_negative_cases": 40,
+  "source_consecutive_original_updates": 8,
+  "original_hammer_lifetime": "Active through each repeated overlap; boss counter decrements once/update without new hurt state/timer. Source35-hit balance differs from native SMB1 five-HP adaptation.",
+  "ordinary_mappers_byte_identical": true,
+  "runs": [
+    {
+      "folder": "composed49-baseline-native-v1",
+      "variant": null,
+      "ROM_sha256": "49d980e564abfb8bfc71bf0c69d5f25c91afed0968d231f959252fa53552b174",
+      "passed": false,
+      "expected_negative": true,
+      "cases": 40,
+      "failed_cases": 20,
+      "PPU_snapshots": 159,
+      "nmis": 1680,
+      "irq_scroll_writes": 3360,
+      "min_sp": 210,
+      "hardware_chr_window_checks": 20160,
+      "body_oam_checks": 1598,
+      "shot_oam_checks": 1298,
+      "complete_dma_checks": 1598
+    },
+    {
+      "folder": "composed49-mario-native-v1",
+      "variant": 0,
+      "ROM_sha256": "7d43c1bdbe1941e150575f6ea52b4b3c8f00ddc36674fe749d53d3a3c4fb82c3",
+      "passed": true,
+      "expected_negative": false,
+      "cases": 40,
+      "failed_cases": 0,
+      "PPU_snapshots": 159,
+      "nmis": 1680,
+      "irq_scroll_writes": 3360,
+      "min_sp": 210,
+      "hardware_chr_window_checks": 20160,
+      "body_oam_checks": 1596,
+      "shot_oam_checks": 1018,
+      "complete_dma_checks": 1596
+    },
+    {
+      "folder": "composed49-luigi-native-v1",
+      "variant": 1,
+      "ROM_sha256": "7d43c1bdbe1941e150575f6ea52b4b3c8f00ddc36674fe749d53d3a3c4fb82c3",
+      "passed": true,
+      "expected_negative": false,
+      "cases": 40,
+      "failed_cases": 0,
+      "PPU_snapshots": 159,
+      "nmis": 1680,
+      "irq_scroll_writes": 3360,
+      "min_sp": 210,
+      "hardware_chr_window_checks": 20160,
+      "body_oam_checks": 1596,
+      "shot_oam_checks": 1018,
+      "complete_dma_checks": 1596
+    }
+  ],
+  "files": {
+    "composed49-v2\\prepare.json": "3b50f7a43177b146f3c327921529f1c5787d5ad675bbffd75619da320401a5ad",
+    "composed49-v2\\implementation.patch": "9b5117a9b67f498d0bbedd97ad97cad698263051591ef99d9392cd68e7e1bf05",
+    "composed49-cpu-v1\\proof.json": "e0164c6aebd69036cf5531c95755813d590a45e8d2caba7118a8ff8f1f7ef6f7",
+    "composed49-flagoff-v1\\proof.json": "27aa5cbc513878383f82cad2bbc6708ae431381e5017158e7ff50d328115df87",
+    "original-hammer-lifetime-final-v2\\proof.json": "9e8371aed6f03de4799faf5a5f8314807045b7d525b03bf48afa1ce73bc76194",
+    "final-comparison.png": "430b4e11e452e4f079f557baa075cdf8faf568b69bd7ebedef85e615798d5a5f",
+    "composed49-baseline-native-v1\\native-proof.json": "11eb0e158bdf3ed80765222ab8048d3b0e7c3078c0b87dca2ec8bb4f1bcec002",
+    "composed49-mario-native-v1\\native-proof.json": "0fef6ffbf705f5c1b91ba5455a106d9227b82ef9b4c3c977eaa325d9e8ce129f",
+    "composed49-luigi-native-v1\\native-proof.json": "b806b6da2dd12f29efec0ee737531846250b6dbf675c915e5b5b3b4c0682c5ca"
+  },
+  "dependencies": {
+    "fixture_sha256": "15075f524bf95befae937bb18537baa7783caa401979dcb04e5244cf391ffaec",
+    "runner_sha256": "b87e150d66ea47c8fc688f4b2cd8ad3b0057a5ea31cc1ac2f2f24cf55b0a7e34",
+    "imported_NMI_guard_source_sha256": "3afea42151155616e587917d5612415c3970f66634a9e4af4761e96a1239a4dd",
+    "emulator_sha256": "8b92daa209ee5052845e02a663aeb1afd6194eca55d86e6628c51114c61da0a9"
+  },
+  "driver_sha256": "9ab3b8f934e4292ceac7a375607528cf94aa97eb23c715e257a4668b2849d489",
+  "limits": "Staged native combat qualification. Forms/enemies/terrain/behavior are explicitly seeded after genuine cold menu/alternate selection; protected player and pinned living Bowser. No natural power acquisition, 1-1/castle traversal, every terrain/Bowser phase, acoustic comparison, physical-console or complete-game guarantee. Human PPU review is sampled; automated source-descriptor/OAM/CHR ownership checks cover recorded native publications."
+}

@@ -27,9 +27,10 @@ test outputs as evidence, not previous agent claims or the old README alone.
 
 MMC5 current ROM:
 C:/Users/kando/Downloads/SMB-Crossover-Current-MMC5.nes
-SHA256 49d980e564abfb8bfc71bf0c69d5f25c91afed0968d231f959252fa53552b174
+SHA256 55bcfb8209b628062ce1f833a2ed386bd6f08426d34fed9fa8b5ba1f90694be7
 The user has run earlier builds in their own Mesen. Do not stop their emulator.
-Latest source receipt: build/verification/zelda2-platform/proof.json
+Latest source receipt: build/verification/native-weapon-fixes/proof.json
+Previous child: build/verification/zelda2-platform/proof.json (49d980e5...).
 Previous child: build/verification/robot-selection/proof.json (859b51ac...).
 Previous child: build/verification/zelda2-terrain/proof.json (f00c2a7a...).
 Previous child: build/verification/parodius-graphical-hud/proof.json (ee0b6bc5...).
@@ -37,7 +38,7 @@ Previous child: build/verification/chip-ceiling-feedback/proof.json (274fff...).
 Parent receipt/checkpoint: build/verification/native-probes-qa/proof.json and
 build/checkpoints/native-probes-qa/checkpoint.json (054d9e33... parent).
 Default build/smb-crossover-mmc5-expanded.nes and its matching debugger files
-now alias current49d980e5. Three other older build/smb-crossover*.nes files
+now alias current55bcfb82. Three other older build/smb-crossover*.nes files
 remain STALE. No final all-requirements release.
 
 External evidence roots (keep large new artifacts outside the workspace):
@@ -542,3 +543,51 @@ regression are pushed under tools/audit/proposals/tmnt-audio-held-v1, full
 external D/vehicles-audio-wiring-v1. Mac/Mike/Parodius native drivers are not
 integrated and need substantial storage/driver work; simple family ID remap
 would index past installed tables. Root/current stays49. Agent10 worker free.
+
+25 OCTOBER NATIVE WEAPON ADMISSION FIXES ADOPTED
+Current source, Downloads/SMB-Crossover-Current-MMC5.nes and default
+build/smb-crossover-mmc5-expanded.nes are55bcfb8209b628062ce1f833a2ed386bd6f
+08426d34fed9fa8b5ba1f90694be7, fresh ROOT compile exact. Matched debugger files
+updated too. Previous49 ROM/default/source files retained under
+D/native-weapon-fixes-combined-v1/adoption-v1. Do NOT rerun adopter.
+
+Exactly85 changed bytes, only PRG6/37/90; all original exportedPC/RAM/CHR exact.
+Whole repaired PRG6/37 match native-qualified donor15392 and90 matches7d43;
+all other bytes equal49. Re-ran all89 native cases on combined55: Ryu5,
+Sophia4, SMB3Mario40/Luigi40, all pass. Actual fresh-input/actor/native combat,
+hardwareOAM/CHR/DMA, fiveSMC/NMI/bank/SP/line31 guards retained.1248 CPU
+components pass. Both standard mapper outputs remain whole-ROM identical to
+d444cac8/f4ffd248; original shared helpers are expanded-only to retain bank
+budget. Helpers have production names; no extra RAM or graphics bytes.
+
+Ryu: actual grown pickup auto-equips a new ninjitsu during active Slash;
+primary correctly refuses until Slash ends. Full paused UI already cleared
+Slash; that earlier direct-Cycle theory remains corrected. Sophia reserves
+all3 free slots before spending3 missile energy; partial volleys now refuse.
+SMB3 fire/hammer reach Bowser, hammer pierces Buzzy armor. Actual original
+full hammer loop persists across4 consecutive hits/facing, no new hit lock;
+source35-hit counter remains an explicit host5HP adaptation. Root viewed
+combined Ryu/Sophia/Buzzy-hammer/Bowser-fire PPU samples. Staged actors/pools,
+not natural earning, complete AI phases, new whole-level routes, exhaustive
+frame/audio review or every-character completion. Receipt named above; small
+copies checkpoints/2026-10-25/native-weapon-fixes-55. Both follow-up agents
+finished and all native workers are free. ROOT may use at most2 at once.
+
+NEXT REQUIRED WORK
+1. Native qualify current55 Mac life-gain and TMNT Kiai scrolled pickup fixes,
+   staged source proposals tools/audit/proposals/vehicles-mac-v2. Retain death
+   reset, score/coin1-Up and ordinary pickup/camera/viewport negatives.
+2. Investigate actual reachability of Kirby/Chip wrong-Y-page contact guards;
+   these remain staged-only proposals, not proven gameplay repairs.
+3. Repair CV3 discarded primarySFX using original CV3 audio, not blind4->1
+   Castlevania1 event substitution. Dedicated Mac/Mike/Parodius music also
+   unfinished; TMNT authentic driver held for added missed draws as above.
+4. Current-hash all37 1-1 routes/independent PPU review and every powerup,
+   including passive/refill/expiry/damage/removal/contact/emergence. Earlier
+   054d/144-item/86-physical and mixedV6/V7 clears are scoped historical data.
+5. Remaining physics/graphics/water/scroll/performance/source fidelity, standard
+   and oversizedMMC3 integration. ParserV42 proposal/native bc89 predates new
+   source; do not relabel its bounded passes as current55MMC3 qualification.
+User's original unlimited active goal remains INCOMPLETE. Latest public README
+request is DONE/pushed with clean-tracked-build verification. Do not pause or
+make a final-release/all-perfect claim. No user emulator was stopped.

@@ -257,8 +257,9 @@ Loop:sty M3EnemySlot
  lda Enemy_Flag,y
  jeq Next
  bmi Next
- lda Enemy_ID,y
- cmp #$15
+ jsr M3ProjectileAdmission
+ nop
+ nop
  jcs Next
  cmp #Podoboo
  jeq Next
@@ -295,7 +296,7 @@ Loop:sty M3EnemySlot
  tya
  tax
  stx ObjectOffset
- jsr M3DefeatEnemy
+ jsr M3ProjectileDamage
  ldx M3SavedSlot
  lda M3ShotKind,x
  cmp #1

@@ -832,7 +832,11 @@ SophiaInput:
   sta AvLimit
   lda #1
   sta AvItem
+ .if ::ENABLE_MMC5_EXPANDED
+  jsr SophiaTripletAdmission
+ .else
   jsr CountType
+ .endif
   lda AvCount
   jne Return
   lda #1

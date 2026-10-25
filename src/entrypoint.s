@@ -454,3 +454,12 @@ Done:
 .endproc
 .popseg
 .endif
+
+.if ::ENABLE_MMC5_EXPANDED
+.include "ryu_primary_gate.s"
+.include "sophia_missile_capacity.s"
+.endif
+
+.if ::ENABLE_MMC5_EXPANDED
+.include "smb3_projectile_damage.s"
+.endif

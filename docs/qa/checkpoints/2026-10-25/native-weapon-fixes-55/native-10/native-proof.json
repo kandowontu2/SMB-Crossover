@@ -1,0 +1,252 @@
+{
+  "passed": true,
+  "nmis": 61,
+  "scope": "Real selection and controller inputs; explicit legal airborne/equipment/pickup or shared-pool staging at native boundaries. Actual pickup collision/InventoryGrant, source Slash activation, production weapons and paused-selection cleanup. Exact DMA/hardware OAM, sky palette and PPU frames; fiveSMC/NMI/actualbanks/SP guards. No natural pickup emergence, naturally crowded scene, route, full roster, campaign or audio fidelity proof.",
+  "min_sp": 170,
+  "cases": [
+    {
+      "pickup_collisions": 1,
+      "attempts": 1,
+      "slash_inputs": 1,
+      "primary_timer": 0,
+      "slash_wall": 398,
+      "release_age": 1,
+      "kind": "ryu",
+      "graphics": 4,
+      "observe_age": 4,
+      "cleanup_selected": 1,
+      "granted_item": 1,
+      "grant_wall": 399,
+      "actor_updates": 12,
+      "cleanup": 1,
+      "grants": 1,
+      "first_bad_write": false,
+      "name": "ryu-slash-pickup1"
+    },
+    {
+      "pickup_collisions": 1,
+      "attempts": 1,
+      "slash_inputs": 1,
+      "primary_timer": 0,
+      "slash_wall": 410,
+      "release_age": 1,
+      "kind": "ryu",
+      "graphics": 4,
+      "observe_age": 4,
+      "cleanup_selected": 2,
+      "granted_item": 2,
+      "grant_wall": 412,
+      "actor_updates": 12,
+      "cleanup": 1,
+      "grants": 1,
+      "first_bad_write": false,
+      "name": "ryu-slash-pickup2"
+    },
+    {
+      "pickup_collisions": 1,
+      "attempts": 1,
+      "slash_inputs": 1,
+      "primary_timer": 0,
+      "slash_wall": 423,
+      "release_age": 1,
+      "kind": "ryu",
+      "graphics": 4,
+      "observe_age": 4,
+      "cleanup_selected": 3,
+      "granted_item": 3,
+      "grant_wall": 424,
+      "actor_updates": 12,
+      "cleanup": 1,
+      "grants": 1,
+      "first_bad_write": false,
+      "name": "ryu-slash-pickup3"
+    },
+    {
+      "pickup_collisions": 1,
+      "attempts": 1,
+      "slash_inputs": 1,
+      "primary_timer": 0,
+      "slash_wall": 436,
+      "release_age": 1,
+      "kind": "ryu",
+      "graphics": 4,
+      "observe_age": 4,
+      "cleanup_selected": 4,
+      "granted_item": 4,
+      "grant_wall": 437,
+      "actor_updates": 12,
+      "cleanup": 1,
+      "grants": 1,
+      "first_bad_write": false,
+      "name": "ryu-slash-pickup4"
+    },
+    {
+      "kind": "primary",
+      "attempts": 1,
+      "slash_inputs": 0,
+      "name": "ryu-ordinary-primary",
+      "cleanup_selected": 0,
+      "observe_age": 0,
+      "grants": 0,
+      "primary_timer": 14,
+      "actor_updates": 9,
+      "cleanup": 1,
+      "graphics": 4,
+      "first_bad_write": false,
+      "pickup_collisions": 0
+    }
+  ],
+  "stack_writes": 44230,
+  "violations": {},
+  "staged": true,
+  "nmi_mapper_store_windows": [
+    {
+      "code": [
+        69,
+        1,
+        72,
+        169,
+        210,
+        141,
+        69,
+        1,
+        141,
+        21,
+        81,
+        169,
+        10,
+        32,
+        199,
+        174,
+        141
+      ],
+      "age": 1,
+      "resume": 358,
+      "shadow_a": 82,
+      "shadow_c": 35,
+      "wall": 412,
+      "case": 2,
+      "a": 93,
+      "c": 35
+    },
+    {
+      "code": [
+        187,
+        141,
+        121,
+        1,
+        104,
+        141,
+        69,
+        1,
+        141,
+        21,
+        81,
+        169,
+        0,
+        96,
+        0,
+        0,
+        0
+      ],
+      "age": 3,
+      "resume": 373,
+      "shadow_a": 4,
+      "shadow_c": 35,
+      "wall": 453,
+      "case": 5,
+      "a": 120,
+      "c": 35
+    }
+  ],
+  "emulator_exit": 0,
+  "ROM_sha256": "55bcfb8209b628062ce1f833a2ed386bd6f08426d34fed9fa8b5ba1f90694be7",
+  "ROM_path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\native-weapon-fixes-combined-v1\\candidate.nes",
+  "fixture_sha256": "0fd624e9645d3ccd8dc253a18e9d231bc6eb12e4c4364185bb44702f2431679e",
+  "runner_sha256": "ef33566b592d065dd3d18a89363866567ebd9a4914a0c9ccdbded8ef4e6c3a8b",
+  "script_sha256": "76abc89d0ee0e5d3c41a090a0cd470c9a61a64580e5b41ab96ada66b1e0374bc",
+  "emulator_sha256": "8b92daa209ee5052845e02a663aeb1afd6194eca55d86e6628c51114c61da0a9",
+  "physical_frames": [
+    {
+      "file": "case-01-observe-01-wall-0404.argb",
+      "sha256": "e0dd6ad1fb6939dd6142bed629140040b504801ad77bd5ecfc6c9ee1c5547e81"
+    },
+    {
+      "file": "case-01-observe-02-wall-0405.argb",
+      "sha256": "6e433a49b6fe1877254b1cc32a3248d6587f1f93f60afc66a9ea4492bd0b9184"
+    },
+    {
+      "file": "case-01-observe-03-wall-0406.argb",
+      "sha256": "6e433a49b6fe1877254b1cc32a3248d6587f1f93f60afc66a9ea4492bd0b9184"
+    },
+    {
+      "file": "case-02-observe-01-wall-0417.argb",
+      "sha256": "2af3d324394840727dd4d3f4d07c986b78e612648e9c15888f6e50c2bce78266"
+    },
+    {
+      "file": "case-02-observe-02-wall-0418.argb",
+      "sha256": "0c3dad1855bbded504720b321a98145facb546d40d33545d249c3462dd715901"
+    },
+    {
+      "file": "case-02-observe-03-wall-0419.argb",
+      "sha256": "0c3dad1855bbded504720b321a98145facb546d40d33545d249c3462dd715901"
+    },
+    {
+      "file": "case-03-observe-01-wall-0430.argb",
+      "sha256": "29d2a5bec73cac466928a46589c859983b46aaccf63c8627c6a1fcff2a9fce7c"
+    },
+    {
+      "file": "case-03-observe-02-wall-0431.argb",
+      "sha256": "491e486ea046483093f6cc05f53447ee89e7e5ddf02ebbe069cec81b067515ff"
+    },
+    {
+      "file": "case-03-observe-03-wall-0432.argb",
+      "sha256": "491e486ea046483093f6cc05f53447ee89e7e5ddf02ebbe069cec81b067515ff"
+    },
+    {
+      "file": "case-04-observe-01-wall-0443.argb",
+      "sha256": "827804c4b90f26c30a5d07594855641de2b97ae825fb92e5ca80725acbb9f074"
+    },
+    {
+      "file": "case-04-observe-02-wall-0444.argb",
+      "sha256": "ce1266ba1648c8fd034a9ef13c9475226a61d9466d66cd305f153b6cbb30b4ba"
+    },
+    {
+      "file": "case-04-observe-03-wall-0445.argb",
+      "sha256": "ce1266ba1648c8fd034a9ef13c9475226a61d9466d66cd305f153b6cbb30b4ba"
+    },
+    {
+      "file": "case-05-observe-01-wall-0452.argb",
+      "sha256": "2808753c80e778075ef95b79fc7d204ef3ee118830f8e4144343ba153672e24f"
+    },
+    {
+      "file": "case-05-observe-02-wall-0453.argb",
+      "sha256": "4d0bf0708f719b4e43830955afdf8836b6b038d0f12d9c44a015d4ba07cbbb97"
+    },
+    {
+      "file": "case-05-observe-03-wall-0454.argb",
+      "sha256": "4d0bf0708f719b4e43830955afdf8836b6b038d0f12d9c44a015d4ba07cbbb97"
+    },
+    {
+      "file": "case-1-slash.argb",
+      "sha256": "96565700a43427c79e2568be088c5125d81f0708f31cbda9f2af64364183638c"
+    },
+    {
+      "file": "case-2-slash.argb",
+      "sha256": "8f5ebbfbe3b4aefe893c43bebeef5dd3d12d3333f3d11c13b10cf4e3f270deea"
+    },
+    {
+      "file": "case-3-slash.argb",
+      "sha256": "707b5731717b80d0248b3baaa06dec12ffbed13749e3e3a415525fee23a9e43e"
+    },
+    {
+      "file": "case-4-slash.argb",
+      "sha256": "c71e74be7a68059f092bfd8af21f30fda6ab415e3c29c1de1411ad717ee6f24e"
+    }
+  ],
+  "goal_complete": false,
+  "dependencies": {
+    "tools\\run_mesen.py": "84070d3017992819cc02c7cb8502d43e4e25f24e42133491926b101cf8cdd305",
+    "tools\\audit\\run_mesen_isolated.py": "976f197a3712511e821f545e655eaa3f9bcfe95e42a3c6c76b2adca288d2aad3"
+  }
+}

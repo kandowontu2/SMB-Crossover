@@ -1,0 +1,51 @@
+{
+  "passed": true,
+  "adopted": false,
+  "goal_complete": false,
+  "ROM_sha256": "55bcfb8209b628062ce1f833a2ed386bd6f08426d34fed9fa8b5ba1f90694be7",
+  "parent_ROM_sha256": "49d980e564abfb8bfc71bf0c69d5f25c91afed0968d231f959252fa53552b174",
+  "changed_PRG_banks": [
+    6,
+    37,
+    90
+  ],
+  "changed_bytes": 85,
+  "all_preexisting_exported_addresses_exact": true,
+  "header_and_CHR_exact": true,
+  "exact_complete_bank_donors": {
+    "6,37": "15392a62b9a6978e9090459b4d899ac8cc0274ffb5e01d80a3082e9aeb8fbc60",
+    "90": "7d43c1bdbe1941e150575f6ea52b4b3c8f00ddc36674fe749d53d3a3c4fb82c3"
+  },
+  "source_files": {
+    "src/expanded_weapons.s": {
+      "before_sha256": "684c6560cf7c9a29807b6c8d84a2d758ade521dd9b1e69859043ad069122980f",
+      "after_sha256": "f963685b369f153e77e99248009124f00bdceb57d3b3ab07a3aa2a30345dd7d1"
+    },
+    "src/remaining_weapons.s": {
+      "before_sha256": "a7af60bb0dd70ba4453189fe62a02dfad74f13386b05bb9494132761b843d8f8",
+      "after_sha256": "49b3f843f85827814639caefdfba0d6fd2bf3cbe95aa28b7ad5475bffca3a0f9"
+    },
+    "src/smb3_mario_combat.s": {
+      "before_sha256": "2bff199e920fd557a31f9debceb2917f02f70073002fc2111ff666ef76bb47c0",
+      "after_sha256": "339d716c7c559049fe7be9ea5735219d8b6f7c6d300961039f22ff01263b8708"
+    },
+    "src/entrypoint.s": {
+      "before_sha256": "368833e14d5e094caba1e9dfdc3550b4102261c1bf4b1d59aaa9e5e77a15f2eb",
+      "after_sha256": "b4b3da546e462b22d388c8e65a69b96003afacf70635b928ac8ebc86540b01f8"
+    },
+    "src/ryu_primary_gate.s": {
+      "before_sha256": null,
+      "after_sha256": "1afa4af1472ad82ec1a0c56e05a50abb7d8ef1bb32c28d232e7896b4715197e1"
+    },
+    "src/sophia_missile_capacity.s": {
+      "before_sha256": null,
+      "after_sha256": "c83f226bd4fa38c13023d8964ce09f03c864e5febd3e2d0b60aa4e42189fbaf8"
+    },
+    "src/smb3_projectile_damage.s": {
+      "before_sha256": null,
+      "after_sha256": "13fd21581b2a3f2943026424a2a1223895a70f1ab981b663ea7046a4ee0b415d"
+    }
+  },
+  "implementation_patch_sha256": "180e44dba9e52ee3f23457ac30df3a2e6ec9d8df71e33cb23e3dddd299cff557",
+  "scope": "Fresh combined build: each repaired complete PRG bank exactly matches its native-qualified donor; all other bytes equal current49. Current-hash native rerun and flag-off verification remain required before adoption."
+}

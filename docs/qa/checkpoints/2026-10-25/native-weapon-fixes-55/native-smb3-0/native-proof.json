@@ -1,0 +1,1748 @@
+{
+  "min_sp": 210,
+  "shot_draws": 1074,
+  "body_draws": 1680,
+  "body_oam_checks": 1596,
+  "hardware_shot_frames": 1018,
+  "hardware_chr_window_checks": 20160,
+  "complete_dma_checks": 1596,
+  "nmis": 1680,
+  "nmi_mapper_store_windows": {},
+  "failed_cases": 0,
+  "passed": true,
+  "scope": "Actual cold menu/alternate choice, then explicit native update-boundary form/enemy arenas with protected player. Fresh B launches authentic projectiles; native motion, generic collision, host boss HP/death and graphics execute. Bowser positions are pinned while living; SMB1 boss HP policy. Bank-qualified opcodes, line31 scroll, NMI five-SMC/bank/stack checks, complete OAM publication/source descriptor checks, physical body/weapon CHR bytes and PPU captures. Not controller-only traversal, physical power acquisition, source-complete armor/boss balance, acoustic or campaign proof.",
+  "shot_oam_checks": 1018,
+  "staged": true,
+  "stack_writes": 1291018,
+  "cases": [
+    {
+      "damage_calls": 0,
+      "shot_draws": 1,
+      "advance_calls": 2,
+      "body_draws": 42,
+      "enemy": 6,
+      "body_oam_checks": 40,
+      "kind": 1,
+      "hw_shot_frames": 1,
+      "expected": "enemy defeated",
+      "weapon_updates": 42,
+      "hp_before": 5,
+      "collision_calls": 2,
+      "sfx2": 0,
+      "minimum_hp": 5,
+      "passed": true,
+      "sfx1": 63,
+      "enemy_id_after": 6,
+      "enemy_state": 34,
+      "mode": 0,
+      "hp_after": 5,
+      "launches": 1,
+      "shot_oam_checks": 1,
+      "frames": 42,
+      "name": "goomba-fire-face1-mode0",
+      "dead": true
+    },
+    {
+      "damage_calls": 0,
+      "shot_draws": 38,
+      "advance_calls": 38,
+      "body_draws": 42,
+      "enemy": 6,
+      "body_oam_checks": 40,
+      "kind": 2,
+      "hw_shot_frames": 36,
+      "expected": "enemy defeated",
+      "weapon_updates": 42,
+      "hp_before": 5,
+      "collision_calls": 38,
+      "sfx2": 0,
+      "minimum_hp": 5,
+      "passed": true,
+      "sfx1": 47,
+      "enemy_id_after": 6,
+      "enemy_state": 34,
+      "mode": 0,
+      "hp_after": 5,
+      "launches": 1,
+      "shot_oam_checks": 36,
+      "frames": 42,
+      "name": "goomba-hammer-face1-mode0",
+      "dead": true
+    },
+    {
+      "damage_calls": 0,
+      "shot_draws": 38,
+      "advance_calls": 38,
+      "body_draws": 42,
+      "enemy": 2,
+      "body_oam_checks": 40,
+      "kind": 1,
+      "hw_shot_frames": 36,
+      "expected": "immune enemy survives",
+      "weapon_updates": 42,
+      "hp_before": 5,
+      "collision_calls": 38,
+      "sfx2": 0,
+      "minimum_hp": 5,
+      "passed": true,
+      "sfx1": 63,
+      "enemy_id_after": 2,
+      "enemy_state": 0,
+      "mode": 0,
+      "hp_after": 5,
+      "launches": 1,
+      "shot_oam_checks": 36,
+      "frames": 42,
+      "name": "buzzy-fire-face1-mode0",
+      "dead": false
+    },
+    {
+      "damage_calls": 0,
+      "shot_draws": 38,
+      "advance_calls": 38,
+      "body_draws": 42,
+      "enemy": 2,
+      "body_oam_checks": 40,
+      "kind": 2,
+      "hw_shot_frames": 36,
+      "expected": "enemy defeated",
+      "weapon_updates": 42,
+      "hp_before": 5,
+      "collision_calls": 38,
+      "sfx2": 0,
+      "minimum_hp": 5,
+      "passed": true,
+      "sfx1": 47,
+      "enemy_id_after": 2,
+      "enemy_state": 34,
+      "mode": 0,
+      "hp_after": 5,
+      "launches": 1,
+      "shot_oam_checks": 36,
+      "frames": 42,
+      "name": "buzzy-hammer-face1-mode0",
+      "dead": true
+    },
+    {
+      "damage_calls": 0,
+      "shot_draws": 38,
+      "advance_calls": 38,
+      "body_draws": 42,
+      "enemy": 12,
+      "body_oam_checks": 40,
+      "kind": 1,
+      "hw_shot_frames": 36,
+      "expected": "immune enemy survives",
+      "weapon_updates": 42,
+      "hp_before": 5,
+      "collision_calls": 38,
+      "sfx2": 0,
+      "minimum_hp": 5,
+      "passed": true,
+      "sfx1": 63,
+      "enemy_id_after": 12,
+      "enemy_state": 0,
+      "mode": 0,
+      "hp_after": 5,
+      "launches": 1,
+      "shot_oam_checks": 36,
+      "frames": 42,
+      "name": "podoboo-fire-face1-mode0",
+      "dead": false
+    },
+    {
+      "damage_calls": 0,
+      "shot_draws": 38,
+      "advance_calls": 38,
+      "body_draws": 42,
+      "enemy": 12,
+      "body_oam_checks": 40,
+      "kind": 2,
+      "hw_shot_frames": 36,
+      "expected": "immune enemy survives",
+      "weapon_updates": 42,
+      "hp_before": 5,
+      "collision_calls": 38,
+      "sfx2": 0,
+      "minimum_hp": 5,
+      "passed": true,
+      "sfx1": 63,
+      "enemy_id_after": 12,
+      "enemy_state": 0,
+      "mode": 0,
+      "hp_after": 5,
+      "launches": 1,
+      "shot_oam_checks": 36,
+      "frames": 42,
+      "name": "podoboo-hammer-face1-mode0",
+      "dead": false
+    },
+    {
+      "damage_calls": 1,
+      "shot_draws": 1,
+      "advance_calls": 2,
+      "body_draws": 42,
+      "enemy": 45,
+      "body_oam_checks": 40,
+      "kind": 1,
+      "hw_shot_frames": 1,
+      "expected": "native boss HP decreases",
+      "weapon_updates": 42,
+      "hp_before": 5,
+      "collision_calls": 2,
+      "sfx2": 0,
+      "minimum_hp": 4,
+      "passed": true,
+      "sfx1": 63,
+      "enemy_id_after": 45,
+      "enemy_state": 0,
+      "mode": 0,
+      "hp_after": 4,
+      "launches": 1,
+      "shot_oam_checks": 1,
+      "frames": 42,
+      "name": "bowser-hit-fire-face1-mode0",
+      "dead": false
+    },
+    {
+      "damage_calls": 4,
+      "shot_draws": 38,
+      "advance_calls": 38,
+      "body_draws": 42,
+      "enemy": 45,
+      "body_oam_checks": 40,
+      "kind": 2,
+      "hw_shot_frames": 36,
+      "expected": "native boss HP decreases",
+      "weapon_updates": 42,
+      "hp_before": 5,
+      "collision_calls": 38,
+      "sfx2": 0,
+      "minimum_hp": 1,
+      "passed": true,
+      "sfx1": 63,
+      "enemy_id_after": 45,
+      "enemy_state": 0,
+      "mode": 0,
+      "hp_after": 1,
+      "launches": 1,
+      "shot_oam_checks": 36,
+      "frames": 42,
+      "name": "bowser-hit-hammer-face1-mode0",
+      "dead": false
+    },
+    {
+      "damage_calls": 1,
+      "shot_draws": 1,
+      "advance_calls": 2,
+      "body_draws": 42,
+      "enemy": 45,
+      "body_oam_checks": 40,
+      "kind": 1,
+      "hw_shot_frames": 1,
+      "expected": "native boss defeat",
+      "weapon_updates": 42,
+      "hp_before": 1,
+      "collision_calls": 2,
+      "sfx2": 128,
+      "minimum_hp": 0,
+      "passed": true,
+      "sfx1": 63,
+      "enemy_id_after": 6,
+      "enemy_state": 35,
+      "mode": 0,
+      "hp_after": 0,
+      "launches": 1,
+      "shot_oam_checks": 1,
+      "frames": 42,
+      "name": "bowser-defeat-fire-face1-mode0",
+      "dead": true
+    },
+    {
+      "damage_calls": 1,
+      "shot_draws": 38,
+      "advance_calls": 38,
+      "body_draws": 42,
+      "enemy": 45,
+      "body_oam_checks": 40,
+      "kind": 2,
+      "hw_shot_frames": 36,
+      "expected": "native boss defeat",
+      "weapon_updates": 42,
+      "hp_before": 1,
+      "collision_calls": 38,
+      "sfx2": 128,
+      "minimum_hp": 0,
+      "passed": true,
+      "sfx1": 47,
+      "enemy_id_after": 6,
+      "enemy_state": 35,
+      "mode": 0,
+      "hp_after": 0,
+      "launches": 1,
+      "shot_oam_checks": 36,
+      "frames": 42,
+      "name": "bowser-defeat-hammer-face1-mode0",
+      "dead": true
+    },
+    {
+      "damage_calls": 0,
+      "shot_draws": 1,
+      "advance_calls": 2,
+      "body_draws": 42,
+      "enemy": 6,
+      "body_oam_checks": 40,
+      "kind": 1,
+      "hw_shot_frames": 1,
+      "expected": "enemy defeated",
+      "weapon_updates": 42,
+      "hp_before": 5,
+      "collision_calls": 2,
+      "sfx2": 0,
+      "minimum_hp": 5,
+      "passed": true,
+      "sfx1": 63,
+      "enemy_id_after": 6,
+      "enemy_state": 34,
+      "mode": 0,
+      "hp_after": 5,
+      "launches": 1,
+      "shot_oam_checks": 1,
+      "frames": 42,
+      "name": "goomba-fire-face2-mode0",
+      "dead": true
+    },
+    {
+      "damage_calls": 0,
+      "shot_draws": 38,
+      "advance_calls": 38,
+      "body_draws": 42,
+      "enemy": 6,
+      "body_oam_checks": 40,
+      "kind": 2,
+      "hw_shot_frames": 36,
+      "expected": "enemy defeated",
+      "weapon_updates": 42,
+      "hp_before": 5,
+      "collision_calls": 38,
+      "sfx2": 0,
+      "minimum_hp": 5,
+      "passed": true,
+      "sfx1": 47,
+      "enemy_id_after": 6,
+      "enemy_state": 34,
+      "mode": 0,
+      "hp_after": 5,
+      "launches": 1,
+      "shot_oam_checks": 36,
+      "frames": 42,
+      "name": "goomba-hammer-face2-mode0",
+      "dead": true
+    },
+    {
+      "damage_calls": 0,
+      "shot_draws": 38,
+      "advance_calls": 38,
+      "body_draws": 42,
+      "enemy": 2,
+      "body_oam_checks": 40,
+      "kind": 1,
+      "hw_shot_frames": 36,
+      "expected": "immune enemy survives",
+      "weapon_updates": 42,
+      "hp_before": 5,
+      "collision_calls": 38,
+      "sfx2": 0,
+      "minimum_hp": 5,
+      "passed": true,
+      "sfx1": 63,
+      "enemy_id_after": 2,
+      "enemy_state": 0,
+      "mode": 0,
+      "hp_after": 5,
+      "launches": 1,
+      "shot_oam_checks": 36,
+      "frames": 42,
+      "name": "buzzy-fire-face2-mode0",
+      "dead": false
+    },
+    {
+      "damage_calls": 0,
+      "shot_draws": 38,
+      "advance_calls": 38,
+      "body_draws": 42,
+      "enemy": 2,
+      "body_oam_checks": 40,
+      "kind": 2,
+      "hw_shot_frames": 36,
+      "expected": "enemy defeated",
+      "weapon_updates": 42,
+      "hp_before": 5,
+      "collision_calls": 38,
+      "sfx2": 0,
+      "minimum_hp": 5,
+      "passed": true,
+      "sfx1": 47,
+      "enemy_id_after": 2,
+      "enemy_state": 34,
+      "mode": 0,
+      "hp_after": 5,
+      "launches": 1,
+      "shot_oam_checks": 36,
+      "frames": 42,
+      "name": "buzzy-hammer-face2-mode0",
+      "dead": true
+    },
+    {
+      "damage_calls": 0,
+      "shot_draws": 38,
+      "advance_calls": 38,
+      "body_draws": 42,
+      "enemy": 12,
+      "body_oam_checks": 40,
+      "kind": 1,
+      "hw_shot_frames": 36,
+      "expected": "immune enemy survives",
+      "weapon_updates": 42,
+      "hp_before": 5,
+      "collision_calls": 38,
+      "sfx2": 0,
+      "minimum_hp": 5,
+      "passed": true,
+      "sfx1": 63,
+      "enemy_id_after": 12,
+      "enemy_state": 0,
+      "mode": 0,
+      "hp_after": 5,
+      "launches": 1,
+      "shot_oam_checks": 36,
+      "frames": 42,
+      "name": "podoboo-fire-face2-mode0",
+      "dead": false
+    },
+    {
+      "damage_calls": 0,
+      "shot_draws": 38,
+      "advance_calls": 38,
+      "body_draws": 42,
+      "enemy": 12,
+      "body_oam_checks": 40,
+      "kind": 2,
+      "hw_shot_frames": 36,
+      "expected": "immune enemy survives",
+      "weapon_updates": 42,
+      "hp_before": 5,
+      "collision_calls": 38,
+      "sfx2": 0,
+      "minimum_hp": 5,
+      "passed": true,
+      "sfx1": 63,
+      "enemy_id_after": 12,
+      "enemy_state": 0,
+      "mode": 0,
+      "hp_after": 5,
+      "launches": 1,
+      "shot_oam_checks": 36,
+      "frames": 42,
+      "name": "podoboo-hammer-face2-mode0",
+      "dead": false
+    },
+    {
+      "damage_calls": 1,
+      "shot_draws": 1,
+      "advance_calls": 2,
+      "body_draws": 42,
+      "enemy": 45,
+      "body_oam_checks": 40,
+      "kind": 1,
+      "hw_shot_frames": 1,
+      "expected": "native boss HP decreases",
+      "weapon_updates": 42,
+      "hp_before": 5,
+      "collision_calls": 2,
+      "sfx2": 0,
+      "minimum_hp": 4,
+      "passed": true,
+      "sfx1": 63,
+      "enemy_id_after": 45,
+      "enemy_state": 0,
+      "mode": 0,
+      "hp_after": 4,
+      "launches": 1,
+      "shot_oam_checks": 1,
+      "frames": 42,
+      "name": "bowser-hit-fire-face2-mode0",
+      "dead": false
+    },
+    {
+      "damage_calls": 4,
+      "shot_draws": 38,
+      "advance_calls": 38,
+      "body_draws": 42,
+      "enemy": 45,
+      "body_oam_checks": 40,
+      "kind": 2,
+      "hw_shot_frames": 36,
+      "expected": "native boss HP decreases",
+      "weapon_updates": 42,
+      "hp_before": 5,
+      "collision_calls": 38,
+      "sfx2": 0,
+      "minimum_hp": 1,
+      "passed": true,
+      "sfx1": 63,
+      "enemy_id_after": 45,
+      "enemy_state": 0,
+      "mode": 0,
+      "hp_after": 1,
+      "launches": 1,
+      "shot_oam_checks": 36,
+      "frames": 42,
+      "name": "bowser-hit-hammer-face2-mode0",
+      "dead": false
+    },
+    {
+      "damage_calls": 1,
+      "shot_draws": 1,
+      "advance_calls": 2,
+      "body_draws": 42,
+      "enemy": 45,
+      "body_oam_checks": 40,
+      "kind": 1,
+      "hw_shot_frames": 1,
+      "expected": "native boss defeat",
+      "weapon_updates": 42,
+      "hp_before": 1,
+      "collision_calls": 2,
+      "sfx2": 128,
+      "minimum_hp": 0,
+      "passed": true,
+      "sfx1": 63,
+      "enemy_id_after": 6,
+      "enemy_state": 35,
+      "mode": 0,
+      "hp_after": 0,
+      "launches": 1,
+      "shot_oam_checks": 1,
+      "frames": 42,
+      "name": "bowser-defeat-fire-face2-mode0",
+      "dead": true
+    },
+    {
+      "damage_calls": 1,
+      "shot_draws": 38,
+      "advance_calls": 38,
+      "body_draws": 42,
+      "enemy": 45,
+      "body_oam_checks": 39,
+      "kind": 2,
+      "hw_shot_frames": 36,
+      "expected": "native boss defeat",
+      "weapon_updates": 42,
+      "hp_before": 1,
+      "collision_calls": 38,
+      "sfx2": 128,
+      "minimum_hp": 0,
+      "passed": true,
+      "sfx1": 47,
+      "enemy_id_after": 6,
+      "enemy_state": 35,
+      "mode": 0,
+      "hp_after": 0,
+      "launches": 1,
+      "shot_oam_checks": 36,
+      "frames": 42,
+      "name": "bowser-defeat-hammer-face2-mode0",
+      "dead": true
+    },
+    {
+      "damage_calls": 0,
+      "shot_draws": 1,
+      "advance_calls": 2,
+      "body_draws": 42,
+      "enemy": 6,
+      "body_oam_checks": 40,
+      "kind": 1,
+      "hw_shot_frames": 1,
+      "expected": "enemy defeated",
+      "weapon_updates": 42,
+      "hp_before": 5,
+      "collision_calls": 2,
+      "sfx2": 0,
+      "minimum_hp": 5,
+      "passed": true,
+      "sfx1": 63,
+      "enemy_id_after": 6,
+      "enemy_state": 34,
+      "mode": 1,
+      "hp_after": 5,
+      "launches": 1,
+      "shot_oam_checks": 1,
+      "frames": 42,
+      "name": "goomba-fire-face1-mode1",
+      "dead": true
+    },
+    {
+      "damage_calls": 0,
+      "shot_draws": 38,
+      "advance_calls": 38,
+      "body_draws": 42,
+      "enemy": 6,
+      "body_oam_checks": 40,
+      "kind": 2,
+      "hw_shot_frames": 36,
+      "expected": "enemy defeated",
+      "weapon_updates": 42,
+      "hp_before": 5,
+      "collision_calls": 38,
+      "sfx2": 0,
+      "minimum_hp": 5,
+      "passed": true,
+      "sfx1": 47,
+      "enemy_id_after": 6,
+      "enemy_state": 34,
+      "mode": 1,
+      "hp_after": 5,
+      "launches": 1,
+      "shot_oam_checks": 36,
+      "frames": 42,
+      "name": "goomba-hammer-face1-mode1",
+      "dead": true
+    },
+    {
+      "damage_calls": 0,
+      "shot_draws": 38,
+      "advance_calls": 38,
+      "body_draws": 42,
+      "enemy": 2,
+      "body_oam_checks": 40,
+      "kind": 1,
+      "hw_shot_frames": 36,
+      "expected": "immune enemy survives",
+      "weapon_updates": 42,
+      "hp_before": 5,
+      "collision_calls": 38,
+      "sfx2": 0,
+      "minimum_hp": 5,
+      "passed": true,
+      "sfx1": 63,
+      "enemy_id_after": 2,
+      "enemy_state": 0,
+      "mode": 1,
+      "hp_after": 5,
+      "launches": 1,
+      "shot_oam_checks": 36,
+      "frames": 42,
+      "name": "buzzy-fire-face1-mode1",
+      "dead": false
+    },
+    {
+      "damage_calls": 0,
+      "shot_draws": 38,
+      "advance_calls": 38,
+      "body_draws": 42,
+      "enemy": 2,
+      "body_oam_checks": 40,
+      "kind": 2,
+      "hw_shot_frames": 36,
+      "expected": "enemy defeated",
+      "weapon_updates": 42,
+      "hp_before": 5,
+      "collision_calls": 38,
+      "sfx2": 0,
+      "minimum_hp": 5,
+      "passed": true,
+      "sfx1": 47,
+      "enemy_id_after": 2,
+      "enemy_state": 34,
+      "mode": 1,
+      "hp_after": 5,
+      "launches": 1,
+      "shot_oam_checks": 36,
+      "frames": 42,
+      "name": "buzzy-hammer-face1-mode1",
+      "dead": true
+    },
+    {
+      "damage_calls": 0,
+      "shot_draws": 38,
+      "advance_calls": 38,
+      "body_draws": 42,
+      "enemy": 12,
+      "body_oam_checks": 40,
+      "kind": 1,
+      "hw_shot_frames": 36,
+      "expected": "immune enemy survives",
+      "weapon_updates": 42,
+      "hp_before": 5,
+      "collision_calls": 38,
+      "sfx2": 0,
+      "minimum_hp": 5,
+      "passed": true,
+      "sfx1": 63,
+      "enemy_id_after": 12,
+      "enemy_state": 0,
+      "mode": 1,
+      "hp_after": 5,
+      "launches": 1,
+      "shot_oam_checks": 36,
+      "frames": 42,
+      "name": "podoboo-fire-face1-mode1",
+      "dead": false
+    },
+    {
+      "damage_calls": 0,
+      "shot_draws": 38,
+      "advance_calls": 38,
+      "body_draws": 42,
+      "enemy": 12,
+      "body_oam_checks": 40,
+      "kind": 2,
+      "hw_shot_frames": 36,
+      "expected": "immune enemy survives",
+      "weapon_updates": 42,
+      "hp_before": 5,
+      "collision_calls": 38,
+      "sfx2": 0,
+      "minimum_hp": 5,
+      "passed": true,
+      "sfx1": 63,
+      "enemy_id_after": 12,
+      "enemy_state": 0,
+      "mode": 1,
+      "hp_after": 5,
+      "launches": 1,
+      "shot_oam_checks": 36,
+      "frames": 42,
+      "name": "podoboo-hammer-face1-mode1",
+      "dead": false
+    },
+    {
+      "damage_calls": 1,
+      "shot_draws": 1,
+      "advance_calls": 2,
+      "body_draws": 42,
+      "enemy": 45,
+      "body_oam_checks": 40,
+      "kind": 1,
+      "hw_shot_frames": 1,
+      "expected": "native boss HP decreases",
+      "weapon_updates": 42,
+      "hp_before": 5,
+      "collision_calls": 2,
+      "sfx2": 0,
+      "minimum_hp": 4,
+      "passed": true,
+      "sfx1": 63,
+      "enemy_id_after": 45,
+      "enemy_state": 0,
+      "mode": 1,
+      "hp_after": 4,
+      "launches": 1,
+      "shot_oam_checks": 1,
+      "frames": 42,
+      "name": "bowser-hit-fire-face1-mode1",
+      "dead": false
+    },
+    {
+      "damage_calls": 4,
+      "shot_draws": 38,
+      "advance_calls": 38,
+      "body_draws": 42,
+      "enemy": 45,
+      "body_oam_checks": 40,
+      "kind": 2,
+      "hw_shot_frames": 36,
+      "expected": "native boss HP decreases",
+      "weapon_updates": 42,
+      "hp_before": 5,
+      "collision_calls": 38,
+      "sfx2": 0,
+      "minimum_hp": 1,
+      "passed": true,
+      "sfx1": 63,
+      "enemy_id_after": 45,
+      "enemy_state": 0,
+      "mode": 1,
+      "hp_after": 1,
+      "launches": 1,
+      "shot_oam_checks": 36,
+      "frames": 42,
+      "name": "bowser-hit-hammer-face1-mode1",
+      "dead": false
+    },
+    {
+      "damage_calls": 1,
+      "shot_draws": 1,
+      "advance_calls": 2,
+      "body_draws": 42,
+      "enemy": 45,
+      "body_oam_checks": 40,
+      "kind": 1,
+      "hw_shot_frames": 1,
+      "expected": "native boss defeat",
+      "weapon_updates": 42,
+      "hp_before": 1,
+      "collision_calls": 2,
+      "sfx2": 128,
+      "minimum_hp": 0,
+      "passed": true,
+      "sfx1": 63,
+      "enemy_id_after": 6,
+      "enemy_state": 35,
+      "mode": 1,
+      "hp_after": 0,
+      "launches": 1,
+      "shot_oam_checks": 1,
+      "frames": 42,
+      "name": "bowser-defeat-fire-face1-mode1",
+      "dead": true
+    },
+    {
+      "damage_calls": 1,
+      "shot_draws": 38,
+      "advance_calls": 38,
+      "body_draws": 42,
+      "enemy": 45,
+      "body_oam_checks": 40,
+      "kind": 2,
+      "hw_shot_frames": 36,
+      "expected": "native boss defeat",
+      "weapon_updates": 42,
+      "hp_before": 1,
+      "collision_calls": 38,
+      "sfx2": 128,
+      "minimum_hp": 0,
+      "passed": true,
+      "sfx1": 47,
+      "enemy_id_after": 6,
+      "enemy_state": 35,
+      "mode": 1,
+      "hp_after": 0,
+      "launches": 1,
+      "shot_oam_checks": 36,
+      "frames": 42,
+      "name": "bowser-defeat-hammer-face1-mode1",
+      "dead": true
+    },
+    {
+      "damage_calls": 0,
+      "shot_draws": 1,
+      "advance_calls": 2,
+      "body_draws": 42,
+      "enemy": 6,
+      "body_oam_checks": 40,
+      "kind": 1,
+      "hw_shot_frames": 1,
+      "expected": "enemy defeated",
+      "weapon_updates": 42,
+      "hp_before": 5,
+      "collision_calls": 2,
+      "sfx2": 0,
+      "minimum_hp": 5,
+      "passed": true,
+      "sfx1": 63,
+      "enemy_id_after": 6,
+      "enemy_state": 34,
+      "mode": 1,
+      "hp_after": 5,
+      "launches": 1,
+      "shot_oam_checks": 1,
+      "frames": 42,
+      "name": "goomba-fire-face2-mode1",
+      "dead": true
+    },
+    {
+      "damage_calls": 0,
+      "shot_draws": 38,
+      "advance_calls": 38,
+      "body_draws": 42,
+      "enemy": 6,
+      "body_oam_checks": 40,
+      "kind": 2,
+      "hw_shot_frames": 36,
+      "expected": "enemy defeated",
+      "weapon_updates": 42,
+      "hp_before": 5,
+      "collision_calls": 38,
+      "sfx2": 0,
+      "minimum_hp": 5,
+      "passed": true,
+      "sfx1": 47,
+      "enemy_id_after": 6,
+      "enemy_state": 34,
+      "mode": 1,
+      "hp_after": 5,
+      "launches": 1,
+      "shot_oam_checks": 36,
+      "frames": 42,
+      "name": "goomba-hammer-face2-mode1",
+      "dead": true
+    },
+    {
+      "damage_calls": 0,
+      "shot_draws": 38,
+      "advance_calls": 38,
+      "body_draws": 42,
+      "enemy": 2,
+      "body_oam_checks": 40,
+      "kind": 1,
+      "hw_shot_frames": 36,
+      "expected": "immune enemy survives",
+      "weapon_updates": 42,
+      "hp_before": 5,
+      "collision_calls": 38,
+      "sfx2": 0,
+      "minimum_hp": 5,
+      "passed": true,
+      "sfx1": 63,
+      "enemy_id_after": 2,
+      "enemy_state": 0,
+      "mode": 1,
+      "hp_after": 5,
+      "launches": 1,
+      "shot_oam_checks": 36,
+      "frames": 42,
+      "name": "buzzy-fire-face2-mode1",
+      "dead": false
+    },
+    {
+      "damage_calls": 0,
+      "shot_draws": 38,
+      "advance_calls": 38,
+      "body_draws": 42,
+      "enemy": 2,
+      "body_oam_checks": 40,
+      "kind": 2,
+      "hw_shot_frames": 36,
+      "expected": "enemy defeated",
+      "weapon_updates": 42,
+      "hp_before": 5,
+      "collision_calls": 38,
+      "sfx2": 0,
+      "minimum_hp": 5,
+      "passed": true,
+      "sfx1": 47,
+      "enemy_id_after": 2,
+      "enemy_state": 34,
+      "mode": 1,
+      "hp_after": 5,
+      "launches": 1,
+      "shot_oam_checks": 36,
+      "frames": 42,
+      "name": "buzzy-hammer-face2-mode1",
+      "dead": true
+    },
+    {
+      "damage_calls": 0,
+      "shot_draws": 38,
+      "advance_calls": 38,
+      "body_draws": 42,
+      "enemy": 12,
+      "body_oam_checks": 40,
+      "kind": 1,
+      "hw_shot_frames": 36,
+      "expected": "immune enemy survives",
+      "weapon_updates": 42,
+      "hp_before": 5,
+      "collision_calls": 38,
+      "sfx2": 0,
+      "minimum_hp": 5,
+      "passed": true,
+      "sfx1": 63,
+      "enemy_id_after": 12,
+      "enemy_state": 0,
+      "mode": 1,
+      "hp_after": 5,
+      "launches": 1,
+      "shot_oam_checks": 36,
+      "frames": 42,
+      "name": "podoboo-fire-face2-mode1",
+      "dead": false
+    },
+    {
+      "damage_calls": 0,
+      "shot_draws": 38,
+      "advance_calls": 38,
+      "body_draws": 42,
+      "enemy": 12,
+      "body_oam_checks": 40,
+      "kind": 2,
+      "hw_shot_frames": 36,
+      "expected": "immune enemy survives",
+      "weapon_updates": 42,
+      "hp_before": 5,
+      "collision_calls": 38,
+      "sfx2": 0,
+      "minimum_hp": 5,
+      "passed": true,
+      "sfx1": 63,
+      "enemy_id_after": 12,
+      "enemy_state": 0,
+      "mode": 1,
+      "hp_after": 5,
+      "launches": 1,
+      "shot_oam_checks": 36,
+      "frames": 42,
+      "name": "podoboo-hammer-face2-mode1",
+      "dead": false
+    },
+    {
+      "damage_calls": 1,
+      "shot_draws": 1,
+      "advance_calls": 2,
+      "body_draws": 42,
+      "enemy": 45,
+      "body_oam_checks": 40,
+      "kind": 1,
+      "hw_shot_frames": 1,
+      "expected": "native boss HP decreases",
+      "weapon_updates": 42,
+      "hp_before": 5,
+      "collision_calls": 2,
+      "sfx2": 0,
+      "minimum_hp": 4,
+      "passed": true,
+      "sfx1": 63,
+      "enemy_id_after": 45,
+      "enemy_state": 0,
+      "mode": 1,
+      "hp_after": 4,
+      "launches": 1,
+      "shot_oam_checks": 1,
+      "frames": 42,
+      "name": "bowser-hit-fire-face2-mode1",
+      "dead": false
+    },
+    {
+      "damage_calls": 4,
+      "shot_draws": 36,
+      "advance_calls": 38,
+      "body_draws": 42,
+      "enemy": 45,
+      "body_oam_checks": 38,
+      "kind": 2,
+      "hw_shot_frames": 34,
+      "expected": "native boss HP decreases",
+      "weapon_updates": 42,
+      "hp_before": 5,
+      "collision_calls": 38,
+      "sfx2": 0,
+      "minimum_hp": 1,
+      "passed": true,
+      "sfx1": 63,
+      "enemy_id_after": 45,
+      "enemy_state": 0,
+      "mode": 1,
+      "hp_after": 1,
+      "launches": 1,
+      "shot_oam_checks": 34,
+      "frames": 42,
+      "name": "bowser-hit-hammer-face2-mode1",
+      "dead": false
+    },
+    {
+      "damage_calls": 1,
+      "shot_draws": 1,
+      "advance_calls": 2,
+      "body_draws": 42,
+      "enemy": 45,
+      "body_oam_checks": 40,
+      "kind": 1,
+      "hw_shot_frames": 1,
+      "expected": "native boss defeat",
+      "weapon_updates": 42,
+      "hp_before": 1,
+      "collision_calls": 2,
+      "sfx2": 128,
+      "minimum_hp": 0,
+      "passed": true,
+      "sfx1": 63,
+      "enemy_id_after": 6,
+      "enemy_state": 35,
+      "mode": 1,
+      "hp_after": 0,
+      "launches": 1,
+      "shot_oam_checks": 1,
+      "frames": 42,
+      "name": "bowser-defeat-fire-face2-mode1",
+      "dead": true
+    },
+    {
+      "damage_calls": 1,
+      "shot_draws": 38,
+      "advance_calls": 38,
+      "body_draws": 42,
+      "enemy": 45,
+      "body_oam_checks": 39,
+      "kind": 2,
+      "hw_shot_frames": 36,
+      "expected": "native boss defeat",
+      "weapon_updates": 42,
+      "hp_before": 1,
+      "collision_calls": 38,
+      "sfx2": 128,
+      "minimum_hp": 0,
+      "passed": true,
+      "sfx1": 47,
+      "enemy_id_after": 6,
+      "enemy_state": 35,
+      "mode": 1,
+      "hp_after": 0,
+      "launches": 1,
+      "shot_oam_checks": 36,
+      "frames": 42,
+      "name": "bowser-defeat-hammer-face2-mode1",
+      "dead": true
+    }
+  ],
+  "irq_scroll_writes": 3360,
+  "ROM_sha256": "55bcfb8209b628062ce1f833a2ed386bd6f08426d34fed9fa8b5ba1f90694be7",
+  "ROM_path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\native-weapon-fixes-combined-v1\\candidate.nes",
+  "emulator_exit": 0,
+  "fixture_sha256": "15075f524bf95befae937bb18537baa7783caa401979dcb04e5244cf391ffaec",
+  "runner_sha256": "b87e150d66ea47c8fc688f4b2cd8ad3b0057a5ea31cc1ac2f2f24cf55b0a7e34",
+  "imported_NMI_guard_source_sha256": "3afea42151155616e587917d5612415c3970f66634a9e4af4761e96a1239a4dd",
+  "emulator_sha256": "8b92daa209ee5052845e02a663aeb1afd6194eca55d86e6628c51114c61da0a9",
+  "generated_script_sha256": "136e48196c412d197aaa8078240cd16546ac1e9b90d6dde52c083e0c16fa63bc",
+  "physical_PPU_files": [
+    {
+      "file": "case-01-age-03-wall-0401.argb",
+      "sha256": "afeab68473edcab26d170289a63e3d6b3dfa0ed1126769426c3554723dc4251a"
+    },
+    {
+      "file": "case-01-age-06-wall-0404.argb",
+      "sha256": "bc5ca835eece8ace51ffdd61db30552ed8848160433fef9f6ff136a30ba4c05c"
+    },
+    {
+      "file": "case-01-age-12-wall-0410.argb",
+      "sha256": "97fecffee0387cab8dbcacf6b34b71980087f7f17a374524e0da804f3e8fedf4"
+    },
+    {
+      "file": "case-01-age-30-wall-0428.argb",
+      "sha256": "027b384ccc28d03d1d47071d915e3b5382c2a550132d44497b16108456e4805f"
+    },
+    {
+      "file": "case-02-age-03-wall-0443.argb",
+      "sha256": "9c6397e7b80b9c4155be2c8137fa3183aa9ddab934bcc95d8fb8bc414a25ba3f"
+    },
+    {
+      "file": "case-02-age-06-wall-0446.argb",
+      "sha256": "88b34e947d7e63b982a6e89a6d63baf8f92e34539a753746596c68bb2d545291"
+    },
+    {
+      "file": "case-02-age-12-wall-0452.argb",
+      "sha256": "886abb4e1cb9603536f3c536fbe79e6172797a8c613fe059f9bc4fb646e8805e"
+    },
+    {
+      "file": "case-02-age-30-wall-0470.argb",
+      "sha256": "d655052cac26fcefaad1d502e51a144ea7de95627ce8e962b9ecd07135165375"
+    },
+    {
+      "file": "case-03-age-03-wall-0485.argb",
+      "sha256": "d6b32a1773390f18ecf05f7be6c1352a67461a426305540e58969d89743799ec"
+    },
+    {
+      "file": "case-03-age-06-wall-0488.argb",
+      "sha256": "f980deed3771d9eca9e36eac38f857b10bd5c9ec6df8a0a028c9577051c616ff"
+    },
+    {
+      "file": "case-03-age-12-wall-0494.argb",
+      "sha256": "11281d797b4e45f0d30d99d6af1859a7138ae91a2d628019822d2a3118efe6f7"
+    },
+    {
+      "file": "case-03-age-30-wall-0512.argb",
+      "sha256": "ee318af4307a0bc3c3a9ed0311157f2ccf376f7c20dffb1b17b1ffa2b267b94c"
+    },
+    {
+      "file": "case-04-age-03-wall-0527.argb",
+      "sha256": "a44551dd0bff4df6b945bcc476ba79ad869f7ea72cb52af750cd23d7b8c8b9e9"
+    },
+    {
+      "file": "case-04-age-06-wall-0530.argb",
+      "sha256": "dae9fd15a08ad8d31db807018f3ce76edf645cd74d01af8391e65ff1043ff93d"
+    },
+    {
+      "file": "case-04-age-12-wall-0536.argb",
+      "sha256": "da9ebe0d75b49fd4101fb6f75062889cd2de4b2e543fe34b33ad91f901dddd3d"
+    },
+    {
+      "file": "case-04-age-30-wall-0554.argb",
+      "sha256": "b89bf1c51664c1a4af216ff54c735b7bf1bce09dd566887db1134ca533655eaa"
+    },
+    {
+      "file": "case-05-age-03-wall-0569.argb",
+      "sha256": "c5e6debafe87ed2a0a55c005b1d1091b32b4b1dab51f24e395f6fe4628a96f62"
+    },
+    {
+      "file": "case-05-age-06-wall-0572.argb",
+      "sha256": "e06e54480fa45b413cd9af447f034f577cd3806758e346afa7d68f8dcd6272d4"
+    },
+    {
+      "file": "case-05-age-12-wall-0578.argb",
+      "sha256": "e04d5e740357721f33b1b22bfd36e4eb5457e31b2f62d0c0b89836a74dcca70e"
+    },
+    {
+      "file": "case-05-age-30-wall-0596.argb",
+      "sha256": "a2b522e7e2811f46c8bc244f5cde7316d0f14eb6018851941c16ac8443805727"
+    },
+    {
+      "file": "case-06-age-03-wall-0611.argb",
+      "sha256": "52361904d7bdd047330aae50946f55a2d86e030fac41faef179a505ff8bb8463"
+    },
+    {
+      "file": "case-06-age-06-wall-0614.argb",
+      "sha256": "667f923367ef9063bca47b5ff5fb8d8a0f3d450871fb38c2cc32db4ab3c75de0"
+    },
+    {
+      "file": "case-06-age-12-wall-0620.argb",
+      "sha256": "1c84dba9b1a590f2351372eb154298578750b931d698c8dd7072c9ded1020ed2"
+    },
+    {
+      "file": "case-06-age-30-wall-0638.argb",
+      "sha256": "d39c242c2bfb1b0b0e13cda18c80a4ede8d65b6cded33d46c987fd262a1d9d6b"
+    },
+    {
+      "file": "case-07-age-03-wall-0653.argb",
+      "sha256": "b466ae13945eb1b80689756f3d5f4a527ed5c1b99cdeed890f4ec4fdcd03ab7a"
+    },
+    {
+      "file": "case-07-age-06-wall-0656.argb",
+      "sha256": "75de643bb2ae73af75fede6a00d3ee3833a54d34b41bdf9becdf0d0cfeacb7f8"
+    },
+    {
+      "file": "case-07-age-12-wall-0662.argb",
+      "sha256": "090e05665015b3d7eca85ad4f47d3ac66eb8db3c9fee05833943e8fdac1bbc08"
+    },
+    {
+      "file": "case-07-age-30-wall-0680.argb",
+      "sha256": "c5a3e27434ceb0c852d58c792b38cd3c099e51abf677d68d94aae3291caf6f5a"
+    },
+    {
+      "file": "case-08-age-03-wall-0695.argb",
+      "sha256": "d636f76669a4fe11191ff54113b0609853e70aed46364c35827fad31be340914"
+    },
+    {
+      "file": "case-08-age-06-wall-0698.argb",
+      "sha256": "1a04f321a5cc55651776bd62d6061e0c1386019f42f157b240c7830318d17136"
+    },
+    {
+      "file": "case-08-age-12-wall-0704.argb",
+      "sha256": "480da257c88925497792e797f5063e94cca80192c2f7b919c674ea7739ae47c4"
+    },
+    {
+      "file": "case-08-age-30-wall-0722.argb",
+      "sha256": "4a37e7848a1976b5dea4f459f3d353daabf52ca6282d044a5eb78fd122a3d37d"
+    },
+    {
+      "file": "case-09-age-03-wall-0737.argb",
+      "sha256": "49755e5f3725fe4d110e005bcbe0add94b80f01923854d663b08321be25bdd43"
+    },
+    {
+      "file": "case-09-age-06-wall-0740.argb",
+      "sha256": "1f9af66895cdb2507fb92c6787c62da74bad3c3a75a408fb8e33473b2920fd34"
+    },
+    {
+      "file": "case-09-age-12-wall-0746.argb",
+      "sha256": "d9ef4a968ddff28d46d1e690388bd90ff1ed4b306ae4a9ed7770387d9f4d90b6"
+    },
+    {
+      "file": "case-09-age-30-wall-0764.argb",
+      "sha256": "0f95dba33ec519053d270617cd71955e746362b62be85e7da2cb0f9911bc75b0"
+    },
+    {
+      "file": "case-10-age-03-wall-0779.argb",
+      "sha256": "2d8ba93b8bdd72b7e24dcbd326c6c5ef4a8b6977886f5412f007a5aef46a6492"
+    },
+    {
+      "file": "case-10-age-06-wall-0782.argb",
+      "sha256": "abbce115a3dbee3a6198ed7c01a60cb6ada4bcd706615855985e6b920dbbca61"
+    },
+    {
+      "file": "case-10-age-12-wall-0788.argb",
+      "sha256": "42078847a047aab2e506362f96ccf703b5f809db8a20f2083ffca3119c911b19"
+    },
+    {
+      "file": "case-10-age-30-wall-0806.argb",
+      "sha256": "97321bc5165dd14bb3e4b5a82c777630637d69d64a9b430fb643dd059ab46722"
+    },
+    {
+      "file": "case-11-age-03-wall-0821.argb",
+      "sha256": "5f04ae91d2fe74b156ca57ab140497a673ebed0411f6d28c376fe2730074e760"
+    },
+    {
+      "file": "case-11-age-06-wall-0824.argb",
+      "sha256": "b914ad1702d86fba1a89599c949010e2ea6b21e17fdec562d93308e8022eee27"
+    },
+    {
+      "file": "case-11-age-12-wall-0830.argb",
+      "sha256": "3f2099de7bec05d37651b8793c8168569f0624a46485d33916deb8ff0cded22e"
+    },
+    {
+      "file": "case-11-age-30-wall-0848.argb",
+      "sha256": "74250b44cbebee39649092e8843398c17905955380a8c8a3642e63f81314fd46"
+    },
+    {
+      "file": "case-12-age-03-wall-0863.argb",
+      "sha256": "6cd7b21ed25ad66059af8a998edc97a7005cc65566d63f118b97e78b2f109b8f"
+    },
+    {
+      "file": "case-12-age-06-wall-0866.argb",
+      "sha256": "0883002425e4d0eec2f5be532a621d39e11bf64b5fb8e09d44ea2c62ce753af1"
+    },
+    {
+      "file": "case-12-age-12-wall-0872.argb",
+      "sha256": "743340a45a2738ccd43f7cedc93c2b4ea4a151a97ae0bcfdd35abf5ba8169fd7"
+    },
+    {
+      "file": "case-12-age-30-wall-0890.argb",
+      "sha256": "28271bc37e9fc33a8029a155dcb316ff4136251715896a0b4b2abd3cff10edc9"
+    },
+    {
+      "file": "case-13-age-03-wall-0905.argb",
+      "sha256": "9725420424c2af849b1d00f69ee3249cd3633a5203d1607c1b711f73f62573af"
+    },
+    {
+      "file": "case-13-age-06-wall-0908.argb",
+      "sha256": "545b0e5746b297b14c2bd2c0aaeec97356fc10de2e5cf61e2e4ccc14f40f6ff9"
+    },
+    {
+      "file": "case-13-age-12-wall-0914.argb",
+      "sha256": "0aff9b7a091ac427ccdc886d7490f1c2c1914620bb3b873a89ff57caa80b2d04"
+    },
+    {
+      "file": "case-13-age-30-wall-0932.argb",
+      "sha256": "a717842bc83c58db7d1db54e221d0797d55747dd918bb60f687638642cf7dfc3"
+    },
+    {
+      "file": "case-14-age-03-wall-0947.argb",
+      "sha256": "6bcc440a372f00b1ce73509e025f68ec653c268bdb528ee308df179bc0000edc"
+    },
+    {
+      "file": "case-14-age-06-wall-0950.argb",
+      "sha256": "0da246843a77bedfd9100f343ac7b34345291f558f56927eb6599a8dcf180faf"
+    },
+    {
+      "file": "case-14-age-12-wall-0956.argb",
+      "sha256": "bf0e18ef3e6f95821257bdc0619cc4b6ff55343000f285ebafb38a33a7b30c34"
+    },
+    {
+      "file": "case-14-age-30-wall-0974.argb",
+      "sha256": "8362adef3c58348e94c8f0f072086a0e35b34f9e7dbe7d3883904f538a6146a2"
+    },
+    {
+      "file": "case-15-age-03-wall-0989.argb",
+      "sha256": "e00e76d1b38dd57e0bdd17dab0c7dd018c0886767af0de4a30f0c414b8ca2e4a"
+    },
+    {
+      "file": "case-15-age-06-wall-0992.argb",
+      "sha256": "70674cd7c1d90b93f1830d8dc2caa0d1b15e816691aea6e5a717e44ead44c38a"
+    },
+    {
+      "file": "case-15-age-12-wall-0998.argb",
+      "sha256": "badc08279e8531c1cac9371033aad9cf014d1230696bac72600841e4ec8f9115"
+    },
+    {
+      "file": "case-15-age-30-wall-1016.argb",
+      "sha256": "ff75f11b3bb44f99f86ea5c6459f5bec39fc0061a869f4dbafd5cc52c7a0fc2e"
+    },
+    {
+      "file": "case-16-age-03-wall-1031.argb",
+      "sha256": "444752317f5d81d63a8c8f7376ef4b1f251ba963486ec1cfa744870f6b89c88d"
+    },
+    {
+      "file": "case-16-age-06-wall-1034.argb",
+      "sha256": "afd366e9fe54e3f0ef0cb8581fa2aa67028e5c063104c6894c6e74b7f74b2ce0"
+    },
+    {
+      "file": "case-16-age-12-wall-1040.argb",
+      "sha256": "046f29382cd67a6bc0eb87e7f739affe4f598d7c8db65c4e282df67e641e961d"
+    },
+    {
+      "file": "case-16-age-30-wall-1058.argb",
+      "sha256": "4a010580745bac79d8522eb6c7dd40652fc7687622fabbbb0d192c79f8ee72ec"
+    },
+    {
+      "file": "case-17-age-03-wall-1073.argb",
+      "sha256": "eb46616e01ae02867a18a5e2fd559843cba16e36afd27a3dee8e56d65bc6c3e3"
+    },
+    {
+      "file": "case-17-age-06-wall-1076.argb",
+      "sha256": "b9e6fa9a4a815928c148892c98015ba3b6be293e748b6c26ac390ae18f241c6f"
+    },
+    {
+      "file": "case-17-age-12-wall-1082.argb",
+      "sha256": "a4473e647cfb3f7d4cd55c30aad384f07084b8e060080ee2fa06d8e9df79f2f1"
+    },
+    {
+      "file": "case-17-age-30-wall-1100.argb",
+      "sha256": "1ad85f5e450e0e3f81aef23ce19a30c7499ad2bce0fc264d52a5d980c22f8ca6"
+    },
+    {
+      "file": "case-18-age-03-wall-1115.argb",
+      "sha256": "ba1dbe6df6eccec1f288ee4895511ab0424a3d0711c81d3de15ecae5a0c48860"
+    },
+    {
+      "file": "case-18-age-06-wall-1118.argb",
+      "sha256": "329283244ea3d1d7b8574e28a221c487397445ccfb3a3ffc77ac8add5ca8d60e"
+    },
+    {
+      "file": "case-18-age-12-wall-1124.argb",
+      "sha256": "8de936a5c9d01a32235d335be0778506e4394e8d9bbd270a6590d99f5d445b27"
+    },
+    {
+      "file": "case-18-age-30-wall-1142.argb",
+      "sha256": "393a33f46ba20cedb2ebb31cb477d89045ec6e35f7a332109d135ee21f8310bf"
+    },
+    {
+      "file": "case-19-age-03-wall-1157.argb",
+      "sha256": "f2d5cc90700e048df7020432f657bab393869b65d946349137dc34c94121b3bb"
+    },
+    {
+      "file": "case-19-age-06-wall-1160.argb",
+      "sha256": "124e48c337e3af6bdc051da15396a0cc96173636e6dd89b208226c38bf758f87"
+    },
+    {
+      "file": "case-19-age-12-wall-1166.argb",
+      "sha256": "3cabe75b218354b92e81565841d2fc080a32e8b03af15293f18eae4484fdfcd0"
+    },
+    {
+      "file": "case-19-age-30-wall-1184.argb",
+      "sha256": "cbb4c7c9cbdcb7baa4076528018025d3dd5f5d6ceda1d0981fc50532287e0a12"
+    },
+    {
+      "file": "case-20-age-03-wall-1199.argb",
+      "sha256": "49fcf2328a27c704286c87ccb156aa1ee7f795b41ce261f1e33986fee661c6e7"
+    },
+    {
+      "file": "case-20-age-06-wall-1202.argb",
+      "sha256": "1278003540c33e398d13376ec0219304da0faf875d5cd16c94e2c21beb196dcf"
+    },
+    {
+      "file": "case-20-age-12-wall-1208.argb",
+      "sha256": "8a7f2448183a63b193939e96a43802b2ee6f1813f9839af4c016f5d9825ec4f9"
+    },
+    {
+      "file": "case-20-age-30-wall-1226.argb",
+      "sha256": "56a0a7f0bb86a74de44e3eea5769a96d6be0a0d380c09e9d80d10b87871f7bf9"
+    },
+    {
+      "file": "case-21-age-03-wall-1241.argb",
+      "sha256": "5359ca9fc7f3629fbdad82fb182a128b8c17e9aa5829bdcfb28ece969ebcb82d"
+    },
+    {
+      "file": "case-21-age-06-wall-1244.argb",
+      "sha256": "8f66e0ec1c32dbf831630a08e6a69574c49476146baa7612247d44bfaded71cd"
+    },
+    {
+      "file": "case-21-age-12-wall-1250.argb",
+      "sha256": "a8ab70b16f2a97ad9d0bc938ce671e14109a84cce3cc132f47e3e2290527b182"
+    },
+    {
+      "file": "case-21-age-30-wall-1268.argb",
+      "sha256": "270615bc221499a66b3beae5666e74de1af69efe993e81c2197be79628745c67"
+    },
+    {
+      "file": "case-22-age-03-wall-1283.argb",
+      "sha256": "601e81f4c750287b2a0e41aa5444d5288c0172952a1996d40f8caa00d7b69cb2"
+    },
+    {
+      "file": "case-22-age-06-wall-1286.argb",
+      "sha256": "22b1c6382570d5db7b15c82391117c1ff93018de6795ac82e0b08fb3048b84b9"
+    },
+    {
+      "file": "case-22-age-12-wall-1292.argb",
+      "sha256": "aa187a96eaed6f7a82f92e56992f15b10fab4a9e0873f678768466a4a6a778be"
+    },
+    {
+      "file": "case-22-age-30-wall-1310.argb",
+      "sha256": "60a05c8a29cda0cf50102d3fcfffba2db2bab4e05177c5d1f484337996dfd865"
+    },
+    {
+      "file": "case-23-age-03-wall-1325.argb",
+      "sha256": "8728bc4600328ace605831fe6ae4b8fc63e8677cbcfa2a0de8bb1a11edb2f856"
+    },
+    {
+      "file": "case-23-age-06-wall-1328.argb",
+      "sha256": "80eb6af80f25ff159897b8d08bdd954f45e4a7e062ed84d264852ce94475a815"
+    },
+    {
+      "file": "case-23-age-12-wall-1334.argb",
+      "sha256": "35a34438bcd59569097227419115204774861f3e9bba2c8b05068ae3c00a7876"
+    },
+    {
+      "file": "case-23-age-30-wall-1352.argb",
+      "sha256": "d82fee26c5aeb7b5d2d18b0c034be0f2559993ea667ee29fc1f1823164e69dab"
+    },
+    {
+      "file": "case-24-age-03-wall-1367.argb",
+      "sha256": "f237b280f007cb6584a96ef1ecc0fdb7d69af9063fb958f042ad819ef947b46e"
+    },
+    {
+      "file": "case-24-age-06-wall-1370.argb",
+      "sha256": "6b017320fcbabd7417f0982b15616c5ce24016a43c9e5e92e5d4569cfa05b536"
+    },
+    {
+      "file": "case-24-age-12-wall-1376.argb",
+      "sha256": "4933e49ad813387d5450936f286a492c3f09af3a48fad0bb8b0b53effde197a0"
+    },
+    {
+      "file": "case-24-age-30-wall-1394.argb",
+      "sha256": "c41acb9a97a9484f7b24fe7e6d11600e3436dcdf92587171b77470462b7315e0"
+    },
+    {
+      "file": "case-25-age-03-wall-1409.argb",
+      "sha256": "e7ba8eb13c08f911b42453cf853f66b59e2d064c00d607865a89f56d4d17aeca"
+    },
+    {
+      "file": "case-25-age-06-wall-1412.argb",
+      "sha256": "bf823330e1dd205701e87f63f566e9c86d370b0c8b8c3d08b7c85447431940c8"
+    },
+    {
+      "file": "case-25-age-12-wall-1418.argb",
+      "sha256": "7af2496e6dcb85b14ba18819722cd0318fa0bee8d1c97600cbf9d9fa08a65e07"
+    },
+    {
+      "file": "case-25-age-30-wall-1436.argb",
+      "sha256": "7c30db372d1fadf0c939778525d2a6f12769a0013dda68b11117d08e45fc2ef0"
+    },
+    {
+      "file": "case-26-age-03-wall-1451.argb",
+      "sha256": "71436350d48b5933f80f0d67843fb03912f58350b87ad3a38914f447a9ee950b"
+    },
+    {
+      "file": "case-26-age-06-wall-1454.argb",
+      "sha256": "1b16f3ffe8f0afb2059db977fcfeac061b3fa16c9e9809bf59f2f06586a18b82"
+    },
+    {
+      "file": "case-26-age-12-wall-1460.argb",
+      "sha256": "a34f8974e9fdeb17b7bbf80323a09230ff74e2034177ac45c241c2e8de65781d"
+    },
+    {
+      "file": "case-26-age-30-wall-1478.argb",
+      "sha256": "0b09c7ffba0dfd594f03a0518a2eccecc42b296fb0f8cbdd5cdb9d1eb0b17f20"
+    },
+    {
+      "file": "case-27-age-03-wall-1493.argb",
+      "sha256": "5309839051db8fd5182c23d9728fdaabc3dffc2d0d180240f26aa5cc9a3eac36"
+    },
+    {
+      "file": "case-27-age-06-wall-1496.argb",
+      "sha256": "fc7f3fa635f1a0332882bb5b2f657960ec5ab4945797d2700aae392c9e3d96f4"
+    },
+    {
+      "file": "case-27-age-12-wall-1502.argb",
+      "sha256": "43a2d5d68abaf8bcd267e9f1049f89ee5496a8509f5e507e62039e0f7261e24f"
+    },
+    {
+      "file": "case-27-age-30-wall-1520.argb",
+      "sha256": "f797c6b1adaf58dacb5f60c7c76c1cac966bd0c7f206693fb1060765ed1d998c"
+    },
+    {
+      "file": "case-28-age-03-wall-1535.argb",
+      "sha256": "19811f0a201879a7bf3874a5e435a9c8c439e5744173e7797c78ce3e98d85ea7"
+    },
+    {
+      "file": "case-28-age-06-wall-1538.argb",
+      "sha256": "8045dbeff788218fd5879767a61b82210548b270d60f8cadb46d410d89b30c75"
+    },
+    {
+      "file": "case-28-age-12-wall-1544.argb",
+      "sha256": "71e82f0bae699cc1bb5859eb2dcb1d3c995cb92b88e27b90e9fa5353f54b5693"
+    },
+    {
+      "file": "case-28-age-30-wall-1562.argb",
+      "sha256": "eee3806caec068e969ebe49cd214ef32e80182cadbbd4eefba79d8514c1e8e53"
+    },
+    {
+      "file": "case-29-age-03-wall-1577.argb",
+      "sha256": "a79d2120b6c3c4882f4ea107acadba247f3227859663eec022d21f23f976f152"
+    },
+    {
+      "file": "case-29-age-06-wall-1580.argb",
+      "sha256": "197bd4da13f6f682c164e8c4419a5824391f75c9d8c8a233c4860ca3b3608ff9"
+    },
+    {
+      "file": "case-29-age-12-wall-1586.argb",
+      "sha256": "05c6c8db43b5d037b92c2bcf28772959c865b7c683441785eeb974920b0fd558"
+    },
+    {
+      "file": "case-29-age-30-wall-1604.argb",
+      "sha256": "4943594ad671c72bf1ccbfd43cea02fdddd8671c6f2f410f809205c66e3ba1ae"
+    },
+    {
+      "file": "case-30-age-03-wall-1619.argb",
+      "sha256": "17f70162a884fe0259ad45f91c1728249fc28e2e5a044d8803deb9d62cebb70c"
+    },
+    {
+      "file": "case-30-age-06-wall-1622.argb",
+      "sha256": "4c8c3eb9ad911d6e6bb737ef715a30a616a5ce942c4640b93d19c2b85f16e822"
+    },
+    {
+      "file": "case-30-age-12-wall-1628.argb",
+      "sha256": "70d71fa33a6a1e5647df3328aad45f1b89b7ad8e89472304259e4f30b44a2f2a"
+    },
+    {
+      "file": "case-30-age-30-wall-1646.argb",
+      "sha256": "ef0ab78953ef20fdb3f8ff9a110dd5b9518d5a9a3d86f6ddbf00f119aab8a2b3"
+    },
+    {
+      "file": "case-31-age-03-wall-1661.argb",
+      "sha256": "b02204361071ab2f1701f955984e8b6841be64cc246bce5195ebb42d1c18ef4b"
+    },
+    {
+      "file": "case-31-age-06-wall-1664.argb",
+      "sha256": "b22e0b6fe144082a938fd50448be2872b42305272e04a3f7f82250f7821f4e3d"
+    },
+    {
+      "file": "case-31-age-12-wall-1670.argb",
+      "sha256": "a4c6ddfe1c4afec85349b4a669a1566f93b1411d302d373b29ca5a6bd86e9658"
+    },
+    {
+      "file": "case-31-age-30-wall-1688.argb",
+      "sha256": "af6e74d1bfca77efda1cd2464c6ed1f7e76934d6bce8242da88e87659381e0bd"
+    },
+    {
+      "file": "case-32-age-03-wall-1703.argb",
+      "sha256": "c86c85fd889ed05d454f661d617323a4bd0c574369d292cfdf379809a0e0e487"
+    },
+    {
+      "file": "case-32-age-06-wall-1706.argb",
+      "sha256": "9e52e9c41aabb60516cb6cb6e75d5266375df1d86447c83e1e19b8a25ff59d6f"
+    },
+    {
+      "file": "case-32-age-12-wall-1712.argb",
+      "sha256": "1f9f4d384096e6b21f2d9aed2455fafd8c68e728647f482312d1117c5e350bd5"
+    },
+    {
+      "file": "case-32-age-30-wall-1730.argb",
+      "sha256": "2c02dd5be913174b79417b6436e95adf1edb8cbd1e3ea1e8d26cc1693fddc35f"
+    },
+    {
+      "file": "case-33-age-03-wall-1745.argb",
+      "sha256": "53fa188aa712e23b94d9b3224a3014d61c60cb2cef9a36a73afab37596e0ffbd"
+    },
+    {
+      "file": "case-33-age-06-wall-1748.argb",
+      "sha256": "b88ee86e7e7529c45c73526d0c84e4e93f15a44ff7581ab9b93f7074c4f6e86e"
+    },
+    {
+      "file": "case-33-age-12-wall-1754.argb",
+      "sha256": "98775d1ce67357f300a225ca29050d615337b6acd52deeb65685d8aa076946a8"
+    },
+    {
+      "file": "case-33-age-30-wall-1772.argb",
+      "sha256": "f25e43f25faec2bac83d135742718b4381f56c23b250cd44a8457618445d9acd"
+    },
+    {
+      "file": "case-34-age-03-wall-1787.argb",
+      "sha256": "c65c54ed0c76ec30fd260fda76b2888cccdf76c374a2a3293a1034545c2deeba"
+    },
+    {
+      "file": "case-34-age-06-wall-1790.argb",
+      "sha256": "37e5e860ff0a302bc47dbc9d8d9569ae9cbe1e4980e9ed7ecede651bfc00de70"
+    },
+    {
+      "file": "case-34-age-12-wall-1796.argb",
+      "sha256": "9e8673a70bf6fc4ce143acfe38811b4111103a01ee6a043c89a1f3eb7ab9479a"
+    },
+    {
+      "file": "case-34-age-30-wall-1814.argb",
+      "sha256": "ecdb05fa95ab2686e9b64daca73f2696fe18862288f8c3107b025bc088d94017"
+    },
+    {
+      "file": "case-35-age-03-wall-1829.argb",
+      "sha256": "cb3820f345a53d945e2ef280e3a50704145865734e17248d21b2d52287523f62"
+    },
+    {
+      "file": "case-35-age-06-wall-1832.argb",
+      "sha256": "6311ec136f37fea016dce456b44f475a88c6cf060d784d59339d49cfe1b7e54d"
+    },
+    {
+      "file": "case-35-age-12-wall-1838.argb",
+      "sha256": "b0536c992cad6f8b744ddde5cecacdc075f0d4db968d69c62a432c901177a63b"
+    },
+    {
+      "file": "case-35-age-30-wall-1856.argb",
+      "sha256": "0924cc38fdd88b37973c58809e9e7d8e40614870428d92ef4998ba6531445534"
+    },
+    {
+      "file": "case-36-age-03-wall-1871.argb",
+      "sha256": "b47a5f9dcd5cf15c1c079049e12eda0782d0954df3f2703d842ab2c0a5f8d5b9"
+    },
+    {
+      "file": "case-36-age-06-wall-1874.argb",
+      "sha256": "23136f4a84f3de213e5c06c50ace2f5806df661c05691b580d423d43870018db"
+    },
+    {
+      "file": "case-36-age-12-wall-1880.argb",
+      "sha256": "4c797ce9720a56d1f7a2e54ebfce9de5f52eb0f6c2046e5bf40bc064070a5a9c"
+    },
+    {
+      "file": "case-36-age-30-wall-1898.argb",
+      "sha256": "4be2580ac7982b4115185d3072adcf311a6004da2f55c0a19161a9d0b795fc41"
+    },
+    {
+      "file": "case-37-age-03-wall-1913.argb",
+      "sha256": "4d4fd4436b2076352f9df3dbd4bfa06527fa2f40807e05408830938446375b5d"
+    },
+    {
+      "file": "case-37-age-06-wall-1916.argb",
+      "sha256": "4564454eb9d0be8ac846d6a3649d7445a9ca0b67a22a944a64bb0f93628e4b0c"
+    },
+    {
+      "file": "case-37-age-12-wall-1922.argb",
+      "sha256": "813f483497731896e9073725fa3724c6b3a6b64f9a498b9ce71809aa84927459"
+    },
+    {
+      "file": "case-37-age-30-wall-1940.argb",
+      "sha256": "0d79439f2feeae96cdcf84f27a2b59e9365e3e6444eeba35bb949fcd7706ce73"
+    },
+    {
+      "file": "case-38-age-03-wall-1955.argb",
+      "sha256": "8f3e5905c4c2a142e225d7a475f44546d0093527a80eb8893557ea11bb920762"
+    },
+    {
+      "file": "case-38-age-06-wall-1958.argb",
+      "sha256": "0598442e25127d832824b24cadee51e2bdfb1439c308323f0e8d03ace2e84660"
+    },
+    {
+      "file": "case-38-age-30-wall-1982.argb",
+      "sha256": "4243dc86ed8f1ebad43f79053a9c4e77e05ba93b65704b792bdd17c29c6e227d"
+    },
+    {
+      "file": "case-39-age-03-wall-1997.argb",
+      "sha256": "4d4fd4436b2076352f9df3dbd4bfa06527fa2f40807e05408830938446375b5d"
+    },
+    {
+      "file": "case-39-age-06-wall-2000.argb",
+      "sha256": "db92d90973c60816ebae8e92ac25d0c623e2ba92826fde8acfb6f51669cb64eb"
+    },
+    {
+      "file": "case-39-age-12-wall-2006.argb",
+      "sha256": "dd0867523ca65d08f27ae69d71ead5f3781eaf80822aee9fc8cfc3e8ca64eb2d"
+    },
+    {
+      "file": "case-39-age-30-wall-2024.argb",
+      "sha256": "a93cc2d4a898f1084a60a05a6056bf536dfa7b6b617f73dd5b262878314b718c"
+    },
+    {
+      "file": "case-40-age-03-wall-2039.argb",
+      "sha256": "1ff1a992bd2015ca9e6516254207d8a11da69f8d92f3d4cc239b27cefde1053a"
+    },
+    {
+      "file": "case-40-age-06-wall-2042.argb",
+      "sha256": "5690f12a45c47b4b630da1be7da2989f6e010b21dfec3b768634338a21149d98"
+    },
+    {
+      "file": "case-40-age-12-wall-2048.argb",
+      "sha256": "5da79be30e6935f517fb5a84a336ef4e51b5f08e268e6a8a3e9667737115b90d"
+    },
+    {
+      "file": "case-40-age-30-wall-2066.argb",
+      "sha256": "ee672378c99e2592b32e3e683c90a45f7ba055d4f83015ef7527e16302305293"
+    }
+  ],
+  "accepted": false,
+  "goal_complete": false
+}

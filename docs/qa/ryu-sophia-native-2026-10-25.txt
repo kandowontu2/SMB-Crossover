@@ -1,0 +1,140 @@
+Private Ryu pickup/primary and Sophia triplet qualification, 2026-10-25
+
+External evidence root (D):
+C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/ryu-sophia-native-v1
+
+Accepted input ROM:
+49d980e564abfb8bfc71bf0c69d5f25c91afed0968d231f959252fa53552b174
+Authoritative metadata was copied from zelda2-platform-late-candidate-v4/adoption-v1,
+not stale workspace build/smb-crossover*.nes outputs. The 632 frozen source/asset
+files rebuild byte-exact49; frozen-inputs.json records every input. No ROOT src,
+Downloads ROM or Git mutation was made by this worker.
+
+Qualified private composition:
+D/composition-v2/candidate.nes
+15392a62b9a6978e9090459b4d899ac8cc0274ffb5e01d80a3082e9aeb8fbc60
+Source patch: D/composition-v2/implementation.patch
+74dbdc73bc33162b697b0930429d36d8bcd5c9f0b95db6b0e946d498238e73c9
+Combined receipt: D/qualification-proof.json
+Review packet: D/packet (patch, five source files, receipt, reviewed contact sheets).
+The packet is PRIVATE and not an adoption receipt.
+
+Change and build binding
+
+Ryu's original three-byte LDA XgWall is replaced by JSR RyuPrimaryBlocked.
+The seven-byte helper returns XgWall OR AvSlash, retaining the source prohibition
+on a new primary while Jump Slash remains live. The independently permitted
+Select/Up+B dispatch above the guard is unchanged.
+
+Sophia's original three-byte JSR CountType is replaced by JSR
+SophiaTripletAdmission. Its 24-byte helper requires three free shared slots
+before the original CountType/one-active-volley and InventorySpend path.
+The native spawn, trajectory, damage, effects and original cleanup stay intact.
+
+Exactly34 PRG bytes differ in banks6/37; every old exported label and RAM label
+retains its address, all CHR is byte-exact, and no RAM was added. The first
+unguarded composition failed ordinary MMC3 linking: SPECIAL_EXTRA overflowed
+bank6 by4 bytes. That failure is retained under D/composition. Both replacement
+sites and helper includes now require ENABLE_MMC5_EXPANDED. Expanded bytes
+remain exactly15392. Both ordinary targets compile and their entire ROMs equal
+fresh frozen-baseline controls:
+ MMC3 d444cac88e13fa02b29ad16100b8f08fa565ba90f8cedde192de43fb2dc8f3eb
+ MMC5 f4ffd2483c51daa4d60bb575da2da8c4d817692cda407611c243031f67520833
+D/composition-v2/flagoff-proof.json records those comparisons.
+
+Correct Ryu reproduction owner
+
+The earlier direct paused InventoryCycle theory omitted its cleanup owner.
+Full InventoryUiTick clears AvSlash when the selection changes. Actual
+InventoryGrant, reached through a grown pickup actor's real collision, instead
+auto-equips each newly collected ninjitsu1..4 while preserving active Slash.
+
+Each native Ryu case starts after real menu selection, stages legal airborne
+equipment with Jump Slash5 and shared ammo99, then uses actual B to activate
+Slash and spend5. It stages a fully grown native PowerUpObject at the body.
+PowerUpObjHandler -> HandlePowerUpCollision -> production dispatch ->
+InventoryGrant equips the new item while Slash stays1. After a released input
+edge, actual fresh B attempts primary. A fifth case verifies ordinary primary
+still starts with no Slash. Every case then uses actual Start and direction
+input to run full paused-selection cleanup, asserting Slash/attack/pool clear.
+
+Same-fixture negative: D/ryu-negative1/native-proof.json (passed=false).
+All four pickups write RgAttack0->14 while Slash1. The first is wall402, age4,
+callback PC$A510, actual bank37, SP212, selected1. violations.json and
+first-writes.csv preserve each first bad write. The control primary also
+starts14, as intended. Native positive: D/ryu-positive1/native-proof.json:
+all four forbidden attempts remain0; ordinary primary remains14.
+
+Sophia native reservation cases
+
+Real menu selection and actual Select edges run the production remaining-
+weapons dispatch with standard missile1 equipped and ammo15. Legal explicit
+pool occupancy uses up to4 homing missiles,3 active cannon shots, plus still-
+occupied cannon impact slots; those impacts no longer count as active cannon
+bullets. All projectile coordinates, high bytes, directions, fractions,
+speeds, ages and mode/scratch fields are initialized. Cases have exactly1,
+2 or3 free slots at actual input entry, plus an existing standard-missile
+refusal control. The handler entry records the actual free count. Complete
+paused-selection cleanup executes and clears the pool after every case.
+
+Same-fixture negative: D/sophia-baseline-probe4/native-proof.json (passed=false).
+One free slot creates1 missile, two create2; both spend3. First wrong ammo
+write15->12 occurs at wall371, age0, callback PC$A2F9, bank59, SP228. The
+second occurs at wall382. Three-free and existing-missile controls retain
+their correct behavior. Positive: D/sophia-positive1/native-proof.json:
+one/two free slots create0 and spend0; three creates3 and spends3; existing
+missile creates0 and spends0. Each case records one actual input attempt.
+
+Bounded exact-hash qualification
+
+All9 positive cases pass on15392:89 completed native updates,107 NMIs,
+minimum SP170,71,695 writes observed at $180..$1FF,41 hardware-OAM observations,
+31 lossless ARGB frames with PNG copies. Actual mapped A/C banks, bank shadows,
+five shared SMC operands, NMI accumulator/stack restoration and lower-stack
+guards pass. Two precisely decoded interrupted shadow/mapper-store windows
+are recorded in the Ryu positive run; all ordinary entries restore their
+entry physical banks.
+
+Hardware OAM is compared byte-for-byte with the captured $4014 DMA bytes.
+Visibility checks wait for this case's completed update2-or-later DMA, avoiding
+the preserved initial old-body publication. Each case requires at least two
+fresh display observations, at least two sprite parts near the player, and
+the original sky palette. This is a bounded visibility/palette guard, not a
+complete original-pose/atlas or projectile pixel-parity oracle. Both positive
+contact sheets were visually inspected: player, scenery and the tested weapon
+states remain visible. OAM observations may include repeated publications.
+
+The baseline and positive runs share exact fixture and runner hashes:
+ fixture0fd624e9645d3ccd8dc253a18e9d231bc6eb12e4c4364185bb44702f2431679e
+ runner ef33566b592d065dd3d18a89363866567ebd9a4914a0c9ccdbded8ef4e6c3a8b
+Mesen8b92daa209ee5052845e02a663aeb1afd6194eca55d86e6628c51114c61da0a9;
+AllZeros, deterministic CPU/PPU/mapper alignment and doNotSaveSettings.
+One native worker was used sequentially; the user's emulator was not stopped.
+
+Actual assembled CPU checks on exact15392 also pass:
+D/ryu-cpu/proof.json:8 complete UI controls and8 actual grant/primary cases.
+D/sophia-cpu/proof.json:1,024 occupancy masks,160 existing-missile refusals,
+80 full original-handler application-RAM/bank differentials for enough room.
+No application-state exclusions; only hardware stack, mapper windows and
+original SMC/call bookkeeping are excluded by that Sophia CPU differential.
+
+Retained setup diagnoses
+
+ryu-baseline-probe1 had a host symbol-scope setup error; probes2..4 exposed
+second-row menu navigation and then death before an unnecessary world400 wait.
+Probe5 exercised the defect but the one-case NMI minimum was too high; probe6
+retains the first completed native pickup reproduction. Sophia probes1..3
+retain the first bad ammo writes and show the pre-staging body still in old
+DMA. The final fixture binds current-case update2-or-later DMA; it retains
+the visibility assertion and requires successful observations before cleanup.
+All earlier outputs remain external and are not green qualification receipts.
+
+Limits
+
+These are bounded component arenas after real boot/menu selection. The pickup
+is staged fully grown; natural block emergence and an input-only acquisition
+route are not established. Crowded Sophia pools are legal explicit staging,
+not a naturally crowded route proof. No full campaign, all-roster completion,
+audio fidelity, constant60Hz or physical-console claim follows. The worker
+observed no remaining defect within these9 cases. ROOT must freshly compose,
+verify the exact final hash and make the adoption/push decision.

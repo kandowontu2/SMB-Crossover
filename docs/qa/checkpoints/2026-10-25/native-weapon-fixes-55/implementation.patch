@@ -1,0 +1,135 @@
+--- a/src/expanded_weapons.s
++++ b/src/expanded_weapons.s
+@@ -197,7 +197,11 @@
+ Sword:
+   ; Only primary is rejected on a wall. Select/Up+B already dispatch above
+   ; to the separately permitted source wall subweapon/throw path.
++ .if ::ENABLE_MMC5_EXPANDED
++  jsr RyuPrimaryBlocked
++ .else
+   lda XgWall
++ .endif
+   bne ExistingAttackDone
+   lda InvSelected+CHARACTER_RYU
+   cmp #5
+--- a/src/remaining_weapons.s
++++ b/src/remaining_weapons.s
+@@ -832,7 +832,11 @@
+   sta AvLimit
+   lda #1
+   sta AvItem
++ .if ::ENABLE_MMC5_EXPANDED
++  jsr SophiaTripletAdmission
++ .else
+   jsr CountType
++ .endif
+   lda AvCount
+   jne Return
+   lda #1
+--- a/src/smb3_mario_combat.s
++++ b/src/smb3_mario_combat.s
+@@ -257,8 +257,9 @@
+  lda Enemy_Flag,y
+  jeq Next
+  bmi Next
+- lda Enemy_ID,y
+- cmp #$15
++ jsr M3ProjectileAdmission
++ nop
++ nop
+  jcs Next
+  cmp #Podoboo
+  jeq Next
+@@ -295,7 +296,7 @@
+  tya
+  tax
+  stx ObjectOffset
+- jsr M3DefeatEnemy
++ jsr M3ProjectileDamage
+  ldx M3SavedSlot
+  lda M3ShotKind,x
+  cmp #1
+--- a/src/entrypoint.s
++++ b/src/entrypoint.s
+@@ -454,3 +454,12 @@
+ .endproc
+ .popseg
+ .endif
++
++.if ::ENABLE_MMC5_EXPANDED
++.include "ryu_primary_gate.s"
++.include "sophia_missile_capacity.s"
++.endif
++
++.if ::ENABLE_MMC5_EXPANDED
++.include "smb3_projectile_damage.s"
++.endif
+--- /dev/null
++++ b/src/ryu_primary_gate.s
+@@ -0,0 +1,9 @@
++; Source2.02 Ryu.pressAtkBtn rejects primary while Jump Slash remains live.
++.pushseg
++.segment "EXPANDED_EX"
++.proc RyuPrimaryBlocked
++  lda XgWall
++  ora AvSlash
++  rts
++.endproc
++.popseg
+--- /dev/null
++++ b/src/sophia_missile_capacity.s
+@@ -0,0 +1,21 @@
++; Reserve all three shared projectile slots before spending one missile volley.
++; Existing missile-type occupancy retains the native one-volley limit.
++.pushseg
++.segment "SPECIAL_EXTRA"
++.proc SophiaTripletAdmission
++ ldx #9
++ ldy #3
++Loop:
++ lda RgShotType,x
++ bne Next
++ dey
++ beq Enough
++Next:
++ dex
++ bpl Loop
++ sty AvCount
++ rts
++Enough:
++ jmp RemainingWeapons::CountType
++.endproc
++.popseg
+--- /dev/null
++++ b/src/smb3_projectile_damage.s
+@@ -0,0 +1,30 @@
++; SMB3 projectiles retain source weapon admission/lifetime against SMB foes.
++; Bowser damage uses the host's existing HP and native defeat progression.
++.pushseg
++.segment "M3_LOGIC"
++.proc M3ProjectileAdmission
++ lda Enemy_ID,y
++ cmp #Bowser
++ beq Allowed
++ cmp #BuzzyBeetle
++ bne Ordinary
++ ldx M3SavedSlot
++ lda M3ShotKind,x
++ cmp #2
++ bne BeetleFire
++ lda #0 ; Only the following temporary ID filters see this value.
++Allowed:clc
++ rts
++BeetleFire:lda #BuzzyBeetle
++Ordinary:cmp #$15
++ rts
++.endproc
++.proc M3ProjectileDamage
++ lda Enemy_ID,x
++ cmp #Bowser
++ beq Boss
++ jmp M3DefeatEnemy
++Boss:stx R1
++ jmp HandleEnemyFBallCol
++.endproc
++.popseg

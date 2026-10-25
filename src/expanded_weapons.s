@@ -197,7 +197,11 @@ NewAttack:
 Sword:
   ; Only primary is rejected on a wall. Select/Up+B already dispatch above
   ; to the separately permitted source wall subweapon/throw path.
+ .if ::ENABLE_MMC5_EXPANDED
+  jsr RyuPrimaryBlocked
+ .else
   lda XgWall
+ .endif
   bne ExistingAttackDone
   lda InvSelected+CHARACTER_RYU
   cmp #5
