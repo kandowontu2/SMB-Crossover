@@ -39,7 +39,7 @@ Highlight a character and press **Select** to cycle the alternates in that slot.
 | StarTropics | Mike Jones | Heart-dependent primary weapons and collectible specials. |
 | SMB3 | SMB3 Mario / Luigi | P meter, flight and Fire, Raccoon, Frog, Tanooki and Hammer forms. |
 | Gradius / Parodius | Vic Viper / Octopus / TwinBee / Pentarou | Flight, automatic level scrolling and ship-specific upgrade bars. |
-| TMNT | Leonardo / Raphael / Michelangelo / Donatello | Distinct primary weapons and directional attacks. |
+| TMNT | Leonardo / Raphael / Michelangelo / Donatello | Distinct primary weapons, directional attacks and collectible secondary weapons. |
 
 ## Build and play
 
@@ -114,7 +114,7 @@ Settings last until reset. Use B to return from a submenu.
 - Lag, sprite flicker, scrolling and collision regressions are still under review. NES sprite limits remain relevant.
 - Moving-platform behavior, the full campaign and every powerup on the latest build have not yet completed verification across the entire roster.
 - Some characters still share music or sound effects. Dedicated audio routing and additional effects remain unfinished.
-- TMNT secondary equipment is incomplete. Some newer abilities, HUDs and animations still need refinement.
+- TMNT secondary weapons and other newer abilities still need broader gameplay verification. Some HUDs and animations need refinement.
 - Oversized MMC3 is experimental and does not yet match every MMC5 feature.
 
 The [current development record](docs/qa/current-work-pr-2026-10-24.md) and [source comparison notes](docs/reference/parity.md) contain detailed findings. QA reports describe specific ROM hashes and checkpoints; a passing older test does not certify the latest build. Generated ROMs and large test recordings are excluded from Git.
