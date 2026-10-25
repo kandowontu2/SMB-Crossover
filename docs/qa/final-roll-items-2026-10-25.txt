@@ -1,0 +1,243 @@
+Roll physical items -- private single-owner native packet, 2026-10-25
+
+LIFECYCLE PASS on private9bac, one identity x numeric Easy/Hard,72 totalsteps.
+Overall Roll visual qualification and the every-item/full-roster goal remain OPEN:
+custom dropped capsules/orbs lack shared-host age240/odd-frame fade admission.
+That separate visible issue is retained; no perfect mobile-original gameplay,
+audio, timing or full campaign claim is made. Native worker RELEASED to ROOT.
+
+External prefix D used below:
+C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/final-roll-items-v1/
+
+Exact ROM/source boundary
+-------------------------
+Accepted base frozen freshly for this packet:
+4c70fe485f73fb8d437fae2e79ae8ddad83908dc26d4008f21e0a2abeccee2da
+frozen4c70-v1/binding.json SHA256:
+977d56040cf66eb3c09a97568605de9abef157f86089ddefbd2cb0b399103c6d
+All428 sourcefiles were copied with equal before/after source ledgers. ROOT
+build and Downloads were required equal. Pinned assets copied from frozen8ff
+were required byte-identical to current ROOT. Old8ff receipts remain8ff.
+
+Private composed candidate:
+D/drop-single-owner-private4c70-v1/candidate.nes
+9bac46e934d3301e378139783febf2d54c4fd5753a62e082f2d7e6580946d58c
+Sole source change:src/roll_weapons.s, redundant local InventoryUpdateDrops
+farcall replaced with18 NOP bytes and owner comment. All other ROM bytes are
+identical to4c70; all address symbols, RAM and CHR remain identical. Assembly
+macro diagnostic _FARCALL_COUNT alone changes1154to1153. RlWeapons::Done and
+all existing public code addresses retain their old PCs. No ROOT game source,
+configuration, Git or Downloads was changed by this agent. ROOT owns adoption.
+sourcepatch.patch SHA256:
+3bf96727dde09388234be0e26da2effc5e83318e78725778adb2a96b8d76028e
+drop-single-owner-private4c70-v1/proof.json SHA256:
+9c0d14dde1ed492771fd00989c68f46ccff21f7696345afd01775a3e853fec4a
+
+Actual native first wrong gameplay write
+--------------------------------------
+Retained8ff baseline:drop-owner-hard-v2/drop-owner-proof.json SHA256:
+f387af345d3e75476f494384875323ef737e28c2373c625593df8091ac6a919e
+Cold real selectionRoll9/variant1/mode1; staged valid default-health Goomba,
+real free buster defeat and unmodified RNG/drop owner. No resource, RNG, pickup,
+drop, enemy-health or result writes by fixture. This is a diagnostic proof,
+not a complete lifecycle pass.
+
+ProcFireball_Bubble first calls Z2UpdateDropsGate, which routes non-Link2 to
+shared InventoryUpdateDrops. It then calls active Roll weapons. Baseline Roll
+weapons calls shared InventoryUpdateDrops again after its projectile contacts.
+At native tick441/frame87 the global call saw no actor. Real enemy defeat then
+created slot3 kind1 age0. The redundant Roll-local call immediately performed
+INC at bank59:$B4DD, bytes FE0A6F, callbackPC$B4E0, writing$6F0D age0to1 on
+that same birth tick; endFrame confirmed age1. Source global callSP235 and
+redundant local callSP230 are retained. first-premature-write.argb is external.
+Existing old actors received two gravity/position/age/contact updates per game
+update. The correction retains the existing global order and removes only the
+redundant local owner, so births remain0 until the following global update.
+
+Fresh source/CPU controls on4c70/private9bac
+-----------------------------------------
+Exact base rebuild4c70,18-byte-only diff and address/RAM/CHR checks PASS.
+drop-single-owner-cpu4c70-v1/proof.json SHA256:
+e992f29e6f89148815bd5f213599484a853838056fcafb90e73e5e634c208ea7
+412 actual assembled CPU cases, explicit CPU RAM:
+  288 whole object-dispatch actor/contact/physics/expiry states equal one real
+      InventoryUpdateDrops oracle call; both modes, kinds, meters, slots0/3;
+  8 actual final-hit/contact/drop births retain global-before-weapons order,
+      old age1 versus corrected age0 (CPU final-hit HP/RNG explicitly staged);
+  4 ordinary Bass whole-dispatch ordered writes/registers/cycles exact;
+  104 actual character/variant admission controls;
+  6 timer/death/other-engine inactive-order comparisons exact;
+  2 actual whole paused GameLoop comparisons exact, no object/drop/weapon entry.
+CPU returnSP$FD, actual/shadow A/C bank equality and free lower-stack guard
+$17B..$1BF pass. This is not an interrupt/PPU/native-reachability claim.
+
+cpu4c70-v1 and cpu-single-owner4c70-v1 each PASS8,140 resource controls:
+3364 food,4 star/1up bypass,2784 capsule amount/cap/isolation/slots,1682 actual
+HUD-command digit combinations,2 full-HUD-queue deferrals,58 charge sequences,
+2 full-pool no-payment,2 area-preserve/volatile-clear,2 life-reset and240
+injury/protection leaves. Private CPU receipt SHA256:
+e2c28e8a4ddc48e9bcd41df429861cf92edd404c5fbbe4d40b20e56c2068b764
+These explicitly staged CPU states do not count as natural native acquisitions.
+
+Pinned Roll art remains static PASS:68 supplied body/facing/outline source
+pixel controls plus10 projectile/orb facing controls. Both current preparations
+also verify82 linked records and all6 actual4KiB candidate CHR pages. These
+controls do not replace actual native display review.
+
+Both native36-step lifecycles
+----------------------------
+Hard:roll-hard-single-owner4c70-v1/proof.json,33089 gameupdates,actual mode1.
+Easy:roll-easy-single-owner4c70-v2/proof.json,53235 gameupdates,actual mode0.
+Both cold-selected realRoll9/variant1 through menu, numeric readback checked on
+every active update. The identical36-step resource/item plan is explicit.
+Hard moduleSHA9e78a1f1b1ccc6322447f94f6e40aa5ec03c91d89bf5ae2bfd55fa8470f609e9
+Easy moduleSHAfeba8b85dab6e154a0bcc4354ebf2111be33969823a4a44a9fcd34594e7da730
+Different fixture versions are bound explicitly, not claimed identical: Easy
+v1's late left/jump chase missed the moving mushroom because classic inertia
+left it behind the item beyond the fixed viewport. Source/recorded trajectories
+show a controller error, no wrong game write. Easyv2 walks ahead during actual
+native rise for moving mushroom/star/1up; static flower approach unchanged.
+It logs real slot5/player positions, speeds and buttons. No item/motion/resource
+write replaces contact. Easyv1 failed receipt/captures remain immutable.
+
+Per mode, real injuries and25 accepted charged attacks earn depletion; free
+pellets remain usable at actual energy0 and physically acquired energy2 without
+charged allocation/payment. Four actual head/block food deliveries include
+depleted mushroom, depleted flower and repeated full-meter flower. All6 block
+rewards (food4/star1/1up1) prove head hit, reveal, native full rise, no premature
+grant, actual controller contact and consumption. No mature actor placement.
+Thirteen desired real capsules cover small/large health/energy below cap,
+reach/cross cap28, full-meter consumption and other-meter isolation. Actual
+unmodified RNG and ordinary default75HP/25damage buster defeats supply them.
+Unwanted actual actors expire untouched; none is cloned or converted.
+
+Actual uncollected desired actor starts age0, advances once per active GameLoop,
+and is removed exactly420updates after birth; all12 source ages236..247 are
+sampled. Real star pickup loads timer35, real Goomba body contact preserves
+resources, and native expiry is followed by real injury. Actual1up increases
+native life counter2to3 with HP24/energy/food unchanged. Earned HP4, a genuine
+uncollected actor and an actual live projectile precede lethal contact. Native
+death/life loss resets resources28/28,food0,shots/drops0 and real movement after
+respawn. Native life counter returns3to2. No raw resource/tier/status/life,
+protection/latch/RNG/drop/counter/health/result writes by the fixture.
+
+Total72steps:8 food +26 capsules +2stars +2oneups;50 actual charged attacks,
+30 nonlethal injuries +2 lethal sequences;624 actual defeats and139 native
+natural drop generations. One identity, two mode cells, not two identities.
+Total86324gameupdates,87403wallframes;86656NMI checks,86600line31IRQ stores,
+1039872actual12-window CHR checks,85960complete OAM-to-hardware DMA checks,
+72committed HUD checks and748579APU-range writes. Sampled hook-entry minimum
+SP187; native lower-stack write guard$17F did not trigger. NMI saves/restores
+five actual SMC operand fields, A/SP and actual/shadow A/C banks, retaining
+bounded publication-window exceptions. No waveform/music/original audio parity
+or exhaustive performance claim follows from register logging.
+
+Native provenance, capture review and limits
+------------------------------------------
+aggregate-single-owner4c70-v1/proof.json SHA256:
+feb2cd2bd321a4d0a89aaa231c65120c00733acd5e536273f1bb3918062ac160
+summary.json SHA256:
+bc7ff506ea265dc5130cb9fdb5b06481d0d117b1ee606a2ac0107cd73f9aea07
+native-packet-single-owner4c70-v1/proof.json SHA256:
+6488f944a0bd9ba553a76a87ea6ab4362e8f400fc41846014e5cbd2ab4bf391e
+visual-review-single-owner4c70-v1/proof.json SHA256:
+d81eab12bd3c561b29861c62500ff2281b0a64b0e5856a4cbb1ccd37e316a626
+
+427 distinct raw event captures are hashed;244 selected captures were actually
+reviewed on14 overview sheets. This includes72 before/committed-after HUD pairs,
+actual mature/contact reward frames, desired dropped actors, charge events,
+all24 age236..247 frames and death/respawn. Real HP/EN0/2/4/8/12/16/18/24/26/28
+remain readable; complete Roll body and supplied food/capsule/orb art remain
+visible in these bounded arenas. No new HUD corruption is shown by these values.
+
+Age labels belong to actual foreground draw/finish observations; lossless PPU
+pixels retain the committed displayed epoch, which may precede current RAM.
+Each native frame separately verifies committed OAM publication reaches actual
+hardware DMA. Do not equate a newer RAM epoch with the displayed actor epoch.
+Hardv1 reused raw expiry-boundary label for419 and420, retaining the latest420
+image;419 source chronology is asserted but its earlier raw image is overwritten.
+Easyv2 has distinct419/420 raw files. This capture limit is retained, not hidden.
+The frozen draw observer's y_page field is raw incomingR7 scratch at entry,
+not actor Ypage: RlDrawRecord itself setsR7=1 before actual emission. Additive
+register-label-correction.json SHA256:
+4e2b69c64370b45ba55e4ba2f4c657fe78509997e74696191184431ca496bd7c
+Future observer labels this incoming_r7. No old successful receipt was edited.
+
+Separate confirmed custom-render fade omission
+--------------------------------------------
+Shared InventoryDrawDrops checks ageHi/nonzero or age>=240, skips odd native
+FrameCounter; Roll's custom RlDraw loop checks only nonzero InvDropKind.
+On corrected Hard, actual age240/frame43/odd entered the health-orb record and
+advanced actual OAM cursor0to16. On corrected Easy, first sampled violating
+admission is age241/frame125/odd, also0to16. Every actual source age236..247
+emits16bytes in both modes. White orb remains visible across all12 actual
+completed display captures per mode. This establishes an admission/render
+omission relative to shared-host fade policy. It does not invent mobile
+original timing or replace supplied art. The single-owner9bac patch does NOT
+repair this. ROOT separately authorized a source/CPU-only matching-host proposal;
+no additional native worker or fade-native qualification is authorized yet.
+
+Staging and source-fidelity boundary
+-----------------------------------
+Flat visible/logical terrain, block tiles, camera/player setup, default valid
+high-page1/Y184 Goombas and per-step clock399 are explicit component staging.
+Defeat-search NPCs are removed only after verified native defeat. Contact NPCs
+are explicitly removed after one verified native injury, before the next contact
+fixture. Real injuries wait private invul/
+hurt0 AND native InjuryTimer0, grounded state and separation before next NPC;
+no repeated-contact latch/protection clear on a live overlapping actor. Controller
+navigation owns all post-rise contacts; no forced pickup/player alignment.
+This is not untouched campaign spawn density, enemy navigation or a full route.
+
+Pinned mobile sprite sheet SHA256:
+80a6f15a6741cd237098a9accb20e7a7d0f4e2736a8de4b11948e18634dc14a0
+Packed RollCHR SHA256:
+6cbb7e987a031c98d89478fa0ef15ec37fe16d36a95cdba3ffc8a6ca78fffaa6
+Imported capsule art SHA256:
+ec9fe57d916f7548514940ca8253b17be9b35fe3a398caa7d801bfb587489c72
+reference/roll-mobile/art.json binds actual supplied crop/pose/facing/outline
+pixels. The reference is sprite assets, not executable mobile gameplay source.
+Production28HP/energy,2/10capsules,4damage/8Bowser,60accumulation+61stattempt/
+4energy charge, native SMB star/1up and shared movement are explicit adaptations.
+No unavailable mobile timing/audio/moveset parity is certified. No broom/carry
+move is inferred from an unused sheet. Bowser/full projectile pool/area-reset
+controls here are source/CPU only; native pool-full reachability, other stances,
+facings, water/areas, natural routes, performance and exhaustive PPU/audio remain
+open. Missing host fade prevents full visual completion even in this identity.
+
+Immutable failures and old-hash receipts
+--------------------------------------
+roll-hard-native-v1 on8ff: fixture generated RAM omitted Sprite_Data; first
+active update stopped before any item case. v2: after9steps and actual first
+defeat, arena retry lacked wait for native attack pose cleanup. Both are fixture
+errors retained with logs/captures, not game wrong writes. v3 on8ff completed
+36 observed steps and36committed HUD checks, but final bookkeeping assertion
+failed because start() never appended current to results. It remains FAILED,
+never relabeled PASS. That run's odd-only age samples exposed double updating.
+The new frozen module appends results and asserts exact single-owner chronology.
+Baseline Hardv3 receipt SHA256:
+e71417cf322de94c91d42bb9c8ef633bb882ffb8e62ff331dba6ec345c0c403f
+
+Early drop-owner-hard-v1 diagnostic failed missing observer symbol InvDropY;
+v2 retains actual first wrong write. Private-build-v1 audit incorrectly treated
+_FARCALL_COUNT as an address; v2 accounts for only that diagnostic delta. First
+single-owner CPU harness sentinel mistakenly covered live stack-page RAM/SMC;
+its timeout/failure script is retained in drop-single-owner-cpu-v1, corrected
+free guard range controls pass separately. No game defect inferred from these.
+Old source/readiness snapshots and historical report bytes remain external.
+No historical hash/mode receipt is silently called current4c70 or private9bac.
+
+Stable native reproduction, requires explicit new worker grant
+------------------------------------------------------------
+Run one profile at a time and fresh output directories. Emulator is isolated
+AllZeros/nonrandom/doNotSaveSettings; never stop user's C:/mesen2/Mesen.exe.
+
+python tools/audit/final_roll_items_run.py --packet "C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/final-roll-items-v1/preparation-single-owner4c70-v1" --mode hard --expected-sha256 9bac46e934d3301e378139783febf2d54c4fd5753a62e082f2d7e6580946d58c --output "C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/final-roll-items-v1/NEW-hard" --emulator "C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/mmc3-flag-fix-v23/script-budget-probe-v2/emulator/Mesen.exe"
+python tools/audit/final_roll_items_run.py --packet "C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/final-roll-items-v1/preparation-single-owner4c70-v2" --mode easy --expected-sha256 9bac46e934d3301e378139783febf2d54c4fd5753a62e082f2d7e6580946d58c --output "C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/final-roll-items-v1/NEW-easy" --emulator "C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/mmc3-flag-fix-v23/script-budget-probe-v2/emulator/Mesen.exe"
+
+Source-only rebuild/control tools:final_roll_items_private.py (explicit base
+hash), final_roll_items_single_owner_cpu.py (both exact hashes),
+final_roll_items_cpu.py (explicit expected hash), prepare/static/report tools.
+Prelaunch tool/dependency hashes:launch-bindings4c70-v1 andv2/proof.json.
+All ROMs/debug/source snapshots, failures, APU/update logs and raw lossless
+captures remain external. No new native launch is planned without coordination.

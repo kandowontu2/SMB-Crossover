@@ -81,7 +81,9 @@ Loop:stx MmSlot
 Next:ldx MmSlot
  dex
  bpl Loop
- farcall InventoryUpdateDrops
+ ; ProcFireball_Bubble already owns shared drop updates before weapons.
+ ; Preserve the old farcall macro span and all subsequent public PCs.
+ .res 18,$ea
  lda RlSavedObject
  sta ObjectOffset
 Done:rts
