@@ -85,8 +85,16 @@ Flying:
   lda SmShotType,x
   beq Next
   jsr BridgeShot
+.if ::ENABLE_MMC5_EXPANDED
+  ; BridgeShot hands the shared projectile over in slot0 and returns X=0.
+  ; The bridged type, rather than a now-unrelated Samus pool index, owns
+  ; whether this live projectile can collide with terrain.
+  lda MmBulletType
+  cmp #9
+.else
   lda SmShotType,x
   cmp #3
+.endif
   beq :+
     farcall MegaManWeapons::Blocks
   :
@@ -295,8 +303,11 @@ Wave:
   sta SmShotY,x
   jmp Onscreen
 WaveUp:
-  ; Upward waves are short-lived on screen; spawn X is the fixed center.
+.if ::ENABLE_MMC5_EXPANDED
+  jsr SamusWaveWorldX
+.else
   sta SmShotX,x
+.endif
 Onscreen:
   lda SmShotX,x
   sec

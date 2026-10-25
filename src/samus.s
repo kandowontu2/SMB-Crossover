@@ -122,7 +122,19 @@ Guest:
 .if ::ENABLE_MMC5_EXPANDED
   farcall Z2PostBGBodyBridge
   rts
-  .res 20,$ea
+::SamusWaveWorldPage:
+  bmi Negative
+  bcs Store
+  inc SmShotPage,x
+  bcc Store                    ; INC leaves the proven clear carry intact.
+Negative:
+  bcc Store
+  dec SmShotPage,x
+Store:
+  pla
+  sta SmShotX,x
+  rts
+  .res 1,$ea
   .assert *-SamusAfterBGCollisionBridge=39,lderror,"Original post-BG bridge span"
 .else
   ; Called only by PlayerCtrlRoutine with PLAYER mapped at A000. The rare
@@ -367,7 +379,18 @@ Probe:
   rts
 Classify:
   farcall SamusHeadAxisProbe, jmp
+.if ::ENABLE_MMC5_EXPANDED
+::SamusWaveWorldX:
+  ; New low X versus the previous wave position. Source sinusoid motion
+  ; changes by less than128px/update, so this is its signed world delta.
+  pha
+  sec
+  sbc SmShotX,x
+  jmp SamusWaveWorldPage
+  .res 7,$ea
+.else
   .res 15, $ea
+.endif
   .assert *-SamusHeadProbe=184, lderror, "Original complete head footprint must remain184"
 .endproc
 

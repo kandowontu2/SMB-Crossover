@@ -1,0 +1,33 @@
+{
+  "passed": true,
+  "adopted": false,
+  "goal_complete": false,
+  "ROM_sha256": "84e55b6d60da4be5550d823f88ee40a9b220dbef5a1e8dd21de3d69aa28cb328",
+  "parent_ROM_sha256": "220be8247baf877785c91244876038354442e68502b3f837920f39a674a1fa3e",
+  "donor_ROM_sha256": "3eabe05b1259b3f1c764528559f5e9c1baba5771e5539380475d1d02e9c681a4",
+  "changed_PRG_banks": [
+    10,
+    127
+  ],
+  "changed_bytes": 34,
+  "all_old_qualified_addresses_exact": true,
+  "qualified_symbols": 54155,
+  "all_other_ROM_bytes_parent_exact": true,
+  "CHR_exact": true,
+  "new_RAM_bytes": 0,
+  "source_files": {
+    "src/samus.s": {
+      "before_sha256": "6b0736a6d281496389ab1de7029546e5eab54c1a499d74fc461757ac69088861",
+      "after_sha256": "52783dbaf27769c2aad52a109ab519ee984572efb18f225bc47c8aec72889838"
+    },
+    "src/samus_weapons.s": {
+      "before_sha256": "71cd5bbe01f812ba25f0be8529ca3c69038acab9358b2993e8bd36fb32c56a17",
+      "after_sha256": "552e2e021233c2c2c02e4f3c621639eb63126052c9ff798347337ca75eb6fd62"
+    }
+  },
+  "ordinary_target_hashes": {
+    "mmc3": "d444cac88e13fa02b29ad16100b8f08fa565ba90f8cedde192de43fb2dc8f3eb",
+    "mmc5": "f4ffd2483c51daa4d60bb575da2da8c4d817692cda407611c243031f67520833"
+  },
+  "scope": "Exact complete Samus repaired-bank composition. Current-hash native rerun required before adoption."
+}

@@ -1,0 +1,44 @@
+{
+  "passed": true,
+  "goal_complete": false,
+  "ROM_sha256": "84e55b6d60da4be5550d823f88ee40a9b220dbef5a1e8dd21de3d69aa28cb328",
+  "identity": "samus",
+  "mode": "easy",
+  "source_discovery_manifest_sha256": "6bbbcfb5c145f7aab22b457ce447c896fd8a1687275f620c7d3a985cf8ce73be",
+  "source_inputs_sha256": "99d932d09323b28ff5e8d107e52a38384be383b0c436a09905895c58952d619a",
+  "fixed_inputs_and_trace_exact": true,
+  "result": {
+    "cleared": true,
+    "world_1_1_seen": true,
+    "frames": 5933,
+    "polls": 5932,
+    "deaths": 0,
+    "failure": null,
+    "stage_entries": {
+      "0-0": 392,
+      "0-1": 5909
+    }
+  },
+  "direct_frames": 5733,
+  "actual_PPU_frame_ids_complete": true,
+  "every_saved_PNG_RGB_exact": true,
+  "frame_index_sha256": "1a75460402b1ca83dba6a95c495c4c908b5c888260e6ffd5c696c59021352d8e",
+  "raw_stream_bytes": 1409079672,
+  "raw_stream_sha256": "7f172b9f81124c7e49d081ffa084f12ac0fb62156b3e2a6ac7020775d085b51a",
+  "raw_lossless_archive": {
+    "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\samus-wave-combined220-v1\\route-samus\\samus-easy-direct\\direct.argb.gz",
+    "sha256": "8d3f26cc05009cfda24982f0e19d377d66ad62252c631740eab9ce22fad0d9ea"
+  },
+  "raw_gzip_roundtrip_exact": true,
+  "temporary_raw_removed_after_exact_lossless_roundtrip": true,
+  "observer_sha256": "df6a306374b5328b227bd943820fd8d1df7c1d4efdfaa05b1d5b51714f6bdb34",
+  "driver_sha256": "a23bbb8244cd0352ae4a7818e9028acc0572f75e65feef477710f07fc03f9c96",
+  "body_chr": {
+    "passed": true,
+    "frames": 4119,
+    "mismatched_frames": 0,
+    "body_constructions": 2645,
+    "scope": "Read-only MMC5 physical/legacy mapping versus matching actual DMA player parts on every observed active video frame. Source pose art, body visibility and full campaign are separate."
+  },
+  "scope": "Read-only public direct console screen buffer at each actual PPU endFrame, not asynchronous decoder PNG output. Complete200..endpoint-1PPU IDs, RGB-verified PNGs and full lossless raw record archive. Independent original inputs/trace and zero-death movable1-2result are exact. This repairs evidence capture only; lag, source fidelity, other graphic/ability defects, every-item and final mapper work remain open."
+}

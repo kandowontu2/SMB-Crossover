@@ -1,0 +1,157 @@
+{
+  "passed": true,
+  "adopted": false,
+  "parent_ROM_sha256": "55bcfb8209b628062ce1f833a2ed386bd6f08426d34fed9fa8b5ba1f90694be7",
+  "ROM_sha256": "3eabe05b1259b3f1c764528559f5e9c1baba5771e5539380475d1d02e9c681a4",
+  "build": {
+    "passed": true,
+    "adopted": false,
+    "parent_ROM_sha256": "55bcfb8209b628062ce1f833a2ed386bd6f08426d34fed9fa8b5ba1f90694be7",
+    "ROM_sha256": "3eabe05b1259b3f1c764528559f5e9c1baba5771e5539380475d1d02e9c681a4",
+    "changed_bytes": 34,
+    "changed_PRG_banks": [
+      10,
+      127
+    ],
+    "qualified_old_symbols_exact": 54150,
+    "CHR_exact": true,
+    "new_RAM_bytes": 0,
+    "ordinary_flagoff_byte_exact": true,
+    "ordinary": {
+      "mmc3": "d444cac88e13fa02b29ad16100b8f08fa565ba90f8cedde192de43fb2dc8f3eb",
+      "mmc5": "f4ffd2483c51daa4d60bb575da2da8c4d817692cda407611c243031f67520833"
+    },
+    "source_files": {
+      "src/samus_weapons.s": "552e2e021233c2c2c02e4f3c621639eb63126052c9ff798347337ca75eb6fd62",
+      "src/samus.s": "52783dbaf27769c2aad52a109ab519ee984572efb18f225bc47c8aec72889838"
+    },
+    "reference_bindings": {
+      "reference/crossover/super-mario-crossover.swf": "46bdcf0b60721bbe0f006cdb083f503e0312feacede6f65f2942f7a5a406b1eb",
+      "reference/crossover2/source.swf": "6374c72426556bfc3cc16f7594ce4443a5867fe2d367514136c99cc8458b70af",
+      "reference/crossover/decompiled/scripts/com/smbc/characters/Samus.as": "8473d340a5dfd2724d3e02261f083d91f1ab54785206f8e9b170a21dd2ff1b29",
+      "reference/crossover/decompiled/scripts/com/smbc/characters/Bill.as": "f42ffca518e415d9859d07a5bc305ac9c86f46ff8987984a8042c050e3c33216",
+      "reference/crossover/decompiled/scripts/com/smbc/projectiles/SamusShot.as": "13e21a731845f2672c00afe96675b8437a07132fbe54a2d7f52687f47f9f9b15",
+      "reference/crossover/decompiled/scripts/com/smbc/projectiles/SamusBomb.as": "df58f63ee104772d65ba418a77291291fc263ba7d09c7cc625371f6525efed58",
+      "reference/crossover/decompiled/scripts/com/smbc/projectiles/BillBullet.as": "d057ae128bcaa45aade5c49558870b1ed811471972d7feabb0ebe022ad7d0db5",
+      "reference/crossover/decompiled/scripts/com/smbc/characters/Character.as": "16ed6e51f8994e09fc22f2f58b5ee8a84dc1f7efa96fc152162c066b0031a112",
+      "reference/crossover2/extracted/scripts/com/smbc/characters/Samus.as": "1f2e577a62b339def01f1e7c8fea0b773184a6039a2e78ad48eca6e6a651986b",
+      "reference/crossover2/extracted/scripts/com/smbc/characters/Bill.as": "37ef313254ac529832f4fb213819052426ad30db0b778511738e5ebb645e12fa",
+      "reference/crossover2/extracted/scripts/com/smbc/projectiles/SamusShot.as": "0c6c48d6bb94e75579d9033c149366322fb938fd18d97a53764dd5d87bf2c65f",
+      "reference/crossover2/extracted/scripts/com/smbc/projectiles/SamusBomb.as": "24d978f4468c8eb67ae396fed8ddbb90093d3eb0e7c9e973742541879e33f409",
+      "reference/crossover2/extracted/scripts/com/smbc/projectiles/BillBullet.as": "1da18a45b681288522647df38eacd0a1746741ce023045d22a7a1f8f019afd2a",
+      "reference/crossover2/extracted/scripts/com/smbc/characters/Character.as": "248c72c742a181a4ac73374343e44dda7837a80773552162b0262a07ae8f0029",
+      "reference/crossover2/extracted/scripts/com/smbc/data/PickupInfo.as": "e9c98b59615ea5a1eb384dfcb9c8ddf277c81e9494ba076a41ead3990e58efc3",
+      "reference/crossover2/extracted/scripts/com/smbc/data/GameSettings.as": "3adb523518ed4e3383497d71622308c0d13b26bbd663dd5b12f72c6cadbc02a5"
+    },
+    "patch_sha256": "7ecc354df7909dd919b7177ff0a96a5012a513c11373b5da14a359871b37dda2",
+    "scope": "Private source and build only; current55 assembled/native qualification follows. Fixed bank donor is a small unused tail, not permission to replace a later whole fixed bank."
+  },
+  "source_ZIP_files": 635,
+  "evidence": {
+    "native-candidate-v2/native-proof.json": "c46cf8f7e25c9176dd464611a99031a0cb22463a72bfa0a65e6fe1adbe5738f1",
+    "native-baseline-v2/native-proof.json": "b4235ca43b27822a537953d8b824f62581b562d88d7dbb26c3c34756c7cea834",
+    "native-page-only-negative-v2/native-proof.json": "e2a44481bbd7f316c167e2d203cdb740c46682da786220bfabf18810dbad8b63",
+    "proposal-v2/source.zip": "de1f317bb163a3389d374b76e263c4838db57645c1cce86bd201a109a7d24149",
+    "proposal-v2/implementation.patch": "7ecc354df7909dd919b7177ff0a96a5012a513c11373b5da14a359871b37dda2",
+    "proposal-v2/build-proof.json": "ad2847daac85a358f161642d682683a6fa52e64499ee916b39cb31e446d46769",
+    "cpu-final-v1/proof.json": "d3c9262aa3a216f0e04f07b578056124a56391dfdb2dde77d25fd11a4470ed98",
+    "cpu-final-v1/preserved-failure.json": "ef2d67fd43581ea9ff7323896a405e6372e40578ab79ab9a79b25717fa27eeee",
+    "cpu-final-v1/preserved-terrain-failures.json": "bd5c5fd8d29216484826c538b3cf5d70b92c0f10ee22370001d061347ca52e0e",
+    "native-candidate-v2/chr-commit.json": "2bbdfb46229d1b72ffda04eb0ce41294113206304c57ecdbda5fa939587b68ef"
+  },
+  "changed_ranges": [
+    {
+      "ROM_offset": 82976,
+      "PRG_bank": 10,
+      "old": "eaeaeaeaeaeaeaea",
+      "new": "4838fd1a6b4c3be8"
+    },
+    {
+      "ROM_offset": 84479,
+      "PRG_bank": 10,
+      "old": "bd176b",
+      "new": "ad1f60"
+    },
+    {
+      "ROM_offset": 84483,
+      "PRG_bank": 10,
+      "old": "03",
+      "new": "09"
+    },
+    {
+      "ROM_offset": 84969,
+      "PRG_bank": 10,
+      "old": "9d1a6b",
+      "new": "2010a4"
+    },
+    {
+      "ROM_offset": 1042507,
+      "PRG_bank": 127,
+      "old": "eaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaea",
+      "new": "3007b00afe1d6b90059003de1d6b689d1a6b60"
+    }
+  ],
+  "tools": {
+    "tools/audit/samus_contra_source_chr.lua": "0d33d3ffdf010bcf5c6e28147b4817f57741f18aac1ef5a3b671ef34ed67651e",
+    "tools/audit/samus_contra_source_cpu.py": "9d6aee2b7959d2102e405426a8a35321281e10fef3ccd68c8a2f7bc62d433eb4",
+    "tools/audit/samus_contra_source_finalize.py": "ed71b475d288c33eea174064f5e5bf92ccc62f8b48726fbdf3763b9cd90e135b",
+    "tools/audit/samus_contra_source_native.lua": "736c4be6e5e5b8080892064685da00287ac8ee44f4858ede59c687b405d7297a",
+    "tools/audit/samus_contra_source_native.py": "542a08d25d4f90ad30801f0b9d57baca2118a078fa6b0d7c355bdc9332c32774",
+    "tools/audit/samus_contra_source_prepare.py": "f08495baabb34331fc3eac45778575d878e22af03c62eb726eab2b7f52a7a9ee"
+  },
+  "dependencies": {
+    "tools/build_mmc5_expanded.py": "bcb213c2dfc975d2fba4a2c401d46e63977a6796958a4691e94482920fd36b00",
+    "tools/run_mesen.py": "84070d3017992819cc02c7cb8502d43e4e25f24e42133491926b101cf8cdd305",
+    "tools/audit/run_mesen_isolated.py": "976f197a3712511e821f545e655eaa3f9bcfe95e42a3c6c76b2adca288d2aad3",
+    "tools/audit/check_tmnt_render_oa.py": "32033893e48055adc9a23c661238e9331dd1db856be51b753ba9b6781eb528e4",
+    "tools/audit/link_pit_rygar_sophia_audit_cpu.py": "15ef348bc124a97d8ef2c8a56777180276271b44fb77c8ace7e62c2a50310113",
+    "tools/audit/verify_native_relocation.py": "1bab7154bc2e5468e827087d14030a7e30c4d3676db5e775ef15de4d0c34ce11",
+    "tools/audit/check_tmnt_audio_fallback_oc.py": "ea61148dbd4c4804b89e7fd02388558bb1bce573ae451fc6eb89d82ccccc5232",
+    "tools/audit/observe_chip_committed_write.py": "1b0533e4d789847324789d45cb9e77ac8fa6f05154b3334b11184469b3774bf4",
+    "tools/audit/vehicles_mike_mac_audit_cpu_v1.py": "06caec85324999c0ddc4610ac40b4c8f18203606c7ce27359ef45df83a5728e4"
+  },
+  "native": {
+    "cases": 16,
+    "physical_frames": 813,
+    "NMI_guards": 319,
+    "sampled_min_SP": 200,
+    "native_shot_updates": 288,
+    "world_page_crossings": 28,
+    "actual_Hard_Wave_pickups": 8,
+    "raw_PPU_samples": 76,
+    "hardware_CHR": {
+      "passed": true,
+      "frames": 484,
+      "mismatched_frames": 0,
+      "body_constructions": 481,
+      "scope": "Read-only actual hardware CHR pages versus last DMA player image. Bounded natural controller movement, no full-level or pixel-comparison claim."
+    },
+    "identical_fixture_baseline_failures": 8,
+    "identical_fixture_page_only_failures": 8
+  },
+  "CPU": {
+    "passed": true,
+    "parent_ROM_sha256": "55bcfb8209b628062ce1f833a2ed386bd6f08426d34fed9fa8b5ba1f90694be7",
+    "ROM_sha256": "3eabe05b1259b3f1c764528559f5e9c1baba5771e5539380475d1d02e9c681a4",
+    "page_only_negative_ROM_sha256": "00d22cc36369cc515bb1699639272629506c95ad268830020c4041ae97a98975",
+    "upward_wave_sequences": 1536,
+    "upward_actual_CPU_updates": 70656,
+    "page_crossings": 1074,
+    "unchanged_horizontal_wave_and_nonwave_controls": 2688,
+    "viewport_controls": 150,
+    "full_production_terrain_cases": 18,
+    "preserved_terrain_failures": 4,
+    "family_source_components": 79,
+    "tool_sha256": "9d6aee2b7959d2102e405426a8a35321281e10fef3ccd68c8a2f7bc62d433eb4",
+    "scope": "Actual assembled routines; independent signed source-sinusoid offsets around a full world center using unchanged quantized WaveTable. Full beam/block components, original0/+1 mushroom collection, Contra native getRealSpeed/contacts and Samus Down admission are bounded checks. Native actor/input/interrupt/render qualification is separate."
+  },
+  "Mesen_worker_released": true,
+  "limits": [
+    "Hard inventory uses actual legal mushroom/base+Long ownership129, and physically collects a mature seeded Wave actor to145. Natural item emergence is not claimed.",
+    "Easy flower tier and player positions are explicitly seeded; actual real input fires every shot.",
+    "Empty actor arena clears enemies at native update boundaries, retaining original question-block terrain for Wave pass-through.",
+    "No whole-route/hardware, all-beam/suit/Contra ability native qualification, source audio equivalence or FPS improvement claim.",
+    "Original hosted six-character source is not independently authenticated as a specific1.0 patch. Later source explicitly declares2.02."
+  ],
+  "scope": "Two confirmed Samus source-coordinate/terrain defects repaired privately. ROOT must qualify its exact composed hash before adoption. Bill/Lance source comparison and bounded CPU components are not current native playthrough certification."
+}

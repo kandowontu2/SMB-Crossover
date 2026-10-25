@@ -1,0 +1,186 @@
+Samus / Bill / Lance: bounded source, CPU and native audit, 2026-10-25
+
+Two confirmed Samus defects repaired privately. ROOT source, Git, installed
+ROMs and audio were not changed. The Mesen worker grant is RELEASED.
+
+Frozen parent55:
+55bcfb8209b628062ce1f833a2ed386bd6f08426d34fed9fa8b5ba1f90694be7
+Final private proposal-v2:
+3eabe05b1259b3f1c764528559f5e9c1baba5771e5539380475d1d02e9c681a4
+34 ROM bytes change in banks10/127; all54,150 existing qualified named
+symbols, RAM addresses and CHR remain exact. Zero new RAM. Ordinary flag-off
+MMC3/MMC5 builds remain byte identical. The ordinary builds do not receive
+this expanded-build repair and are not newly native-qualified here.
+
+External D:
+C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/samus-contra-source-v1
+Use D/proposal-v2/source, implementation.patch and source.zip. Its patch SHA:
+7ecc354df7909dd919b7177ff0a96a5012a513c11373b5da14a359871b37dda2
+D/review-binding.json SHA:
+776aa8ba25c98f28e7d204349d20bdd05714ba4957838f0ee02b8ef4c6afdaef
+D/proposal-v2/source.zip SHA:
+de1f317bb163a3389d374b76e263c4838db57645c1cce86bd201a109a7d24149
+
+Primary reference boundary
+--------------------------
+Hosted original-six SWF:
+46bdcf0b60721bbe0f006cdb083f503e0312feacede6f65f2942f7a5a406b1eb
+Later SWF, explicitly declaring2.02:
+6374c72426556bfc3cc16f7594ce4443a5867fe2d367514136c99cc8458b70af
+The hosted original-six build is the requested Easy reference, but its exact
+1.0/1.x patch identity is not independently authenticated. It must not be
+presented as a separately verified retail1.0 release. Actual ActionScript
+Samus/Bill/Character/SamusShot/SamusBomb/BillBullet, PickupInfo/GameSettings
+are frozen in proposal-v2/references with exact hashes in build-proof.json.
+No Lance class is present: the requested Lance alternate shares Bill's
+mechanics and has dedicated authored graphics/palettes in this project.
+
+Implemented / differences / adaptation / limits
+-----------------------------------------------
+Samus motion:
+  Easy intrinsic Morph on Down; Hard first grounded Down crouches, fresh
+  second Down/air Down requires Morph ownership. Up/A can exit with terrain
+  clearance. Shared walk cap150Flash/s is correct:2.02 input speed185 is
+  still clamped by setStats vxMax150. Jump500, gravity700/400 water, release
+  friction, spin/aim/vine and bomb boost have source-derived paths.79 bounded
+  family CPU components include first/second Down admission; full trajectories,
+  every crouch/stand corner, swimmer and bomb-boost contact remain unproved.
+
+Samus weapons/upgrades:
+  Easy short->Long->Wave uses mushroom/flower tiers. Hard mushroom gives
+  Long, with Morph, missiles, mutually exclusive Ice/Wave, Varia and Screw
+  in the2.02 obtainable list. B remains beam; Special fires missiles outside
+  ball. The three-beam/missile/Ice shared limit, separate three-bomb pool,
+  Ice freeze and target effects are implemented. Missiles start5, cap20,
+  cost1; owned-missile enemy restoration adds2. High Jump and missile-capacity
+  constants/icon entries exist in2.02 but are absent from its obtainable
+  upgrade array, so their absence from normal random rewards is not a
+  demonstrated missing obtainable powerup. Wave page/terrain defects below
+  are confirmed. All other beam/bomb damage, freeze, expiry and native SFX
+  fidelity are not certified by this finite packet.
+
+Samus suits/contact/presentation:
+  Easy retains ordinary stomp; Hard uses source body contact, with paid
+  Screw during spin and its Bowser exclusion. Varia's firebar protection and
+  source injury paths exist. Current form/art routing retains the inherited
+  three-form presentation, including suitless third-form art; pinned2.02
+  Varia instead chooses Power Suit/Varia palette rows. Treat that retained
+  presentation as a source difference requiring an explicit final policy,
+  not an already-qualified exact2.02 visual implementation. This packet does
+  not silently remove the suitless presentation the user previously requested.
+
+Bill / Lance:
+  Easy mushroom gives Machine and flower gives Spread, plus normal powered
+  extra contact hit/stomps. Hard mushroom establishes base ownership only:
+  normal gun remains until Machine/Spread/Laser/Flare is physically acquired;
+  body contact is fatal in every powered form. The single active weapon,
+  Rapid1/2, directional/prone/aerial shooting, four-segment Laser, Flare with
+  invisible center, ordered truncated Spread and110ms automatic cadence/
+  six-shot burst pause have actual source-derived paths. Native caps4/6/10
+  and Flare dictionary accounting exist. Rapid changes projectile speed,
+  not the110ms machine-gun timer.60 actual compiled projection cases cover
+  both identities/facings/allfive guns/allthree Rapid states against source
+  getRealSpeed integer truncation, plus12 contact-policy cases. Full input
+  cadence, source hitbox cache, walking/pipe/flag/spring routes, overload art
+  and all weapon collision/SFX require separate current-hash native work.
+
+Audio:
+  AudioUpdate actively dispatches Samus to SamusAudioUpdate (imported native
+  Metroid driver) and Bill/Lance to RosterAudioUpdate's native Contra family.
+  GuestAudioBegin preserves Samus pickup/extra-life bits for the shared mixer
+  before the Metroid driver clears its queues. These are source/assembled
+  wiring observations; neither listening quality, complete2.02 track mapping
+  nor all sounds were natively requalified. No old audio receipt is relabeled
+  as a result for this candidate. No music change is included.
+
+Confirmed defect1: upward Wave loses world page
+----------------------------------------------
+Both pinned SamusShot.formWavePattern implementations assign full nx around
+fixed centerX. Current SamusWeapons::WaveUp assigns only SmShotX. A legal
+upward Wave center766, age2/polarity1 should be world772 (page3,low4), but
+becomes page2,low4 and disappears despite remaining visible. First actual
+CPU wrong erase: bank10 PC$ABEE -> SmShotType[2],$6B19 =0.
+Native original55: actual Up+B creates center254; age2 expects260 but becomes
+4 while camera133. Native erase callback resumes at$ABF1 (instruction$ABEE).
+
+The same-PC helper computes signed new-low minus prior-low and adjusts the
+page only on an actual wrap. The sinusoid's bounded per-update displacement
+makes that signed delta unambiguous. It allocates no center-page RAM. SAMUS
+bank10 was completely full; an8-byte prefix reuses unreachable15-byte head
+probe padding, and a19-byte tail reuses unreachable20-byte resident post-BG
+bridge padding in bank127. Every old entry/span remains fixed; no bank switch.
+
+Confirmed defect2: Wave reads another projectile slot for terrain policy
+-----------------------------------------------------------------------
+BridgeShot intentionally returns X=0 for the shared Mega Man collision slot.
+Its caller then reads SmShotType,X to decide whether Wave ignores ground.
+A real Wave in Samus slot1/2 reads unrelated slot0, enters block collision,
+gets impact3 on an original question block and is erased three updates later.
+Both ActionScript constructors omit all ground hit-testables for Wave.
+
+The five-byte gate now reads already-bridged MmBulletType==9. Its join/X ABI
+and every following PC remain unchanged; normal/Long retain terrain impacts.
+Page-only proposal00d22cc36369cc515bb1699639272629506c95ad268830020c4041ae97a98975
+is REJECTED and retained to isolate this second bug. First actual CPU wrong
+impact: bank10 PC$AA32 -> SmShotImpact[2],$6B34 =3. Actual native callback
+resumes$AA35. Candidate normal/Long controls still collide and expire.
+
+Exact-candidate qualification
+-----------------------------
+Assembled CPU:1,536 upward sequences/70,656 updates,1,074 page crossings;
+2,688 unchanged horizontal-wave/non-Wave controls;150 viewport cases;
+18 full SamusWeapons terrain components, including four preserved page-only
+failures;79 family components for actual mushroom collection/60-update
+animation, Bill/Lance source contact/rapid speeds and Samus first/second Down.
+All pass. CPU components are not PPU/interrupt/route certification.
+
+Native final v2:16 cases,813 physical frames,319 guarded NMIs, sampled SP200,
+288 actual shot moves,28 world-page crossings, eight physical Hard Wave grants.
+Cold real menu and ordinary navigation reach the first-block area. Hard seeds
+the legal prior mushroom/base+Long record129 and collects a mature physical
+Wave actor through InventoryGrant to145; natural emergence is not claimed.
+Easy flower tier and legal player positions are explicitly staged. Real
+Up+B/B creates every shot. The controlled empty actor arena clears enemies
+at native update boundaries and retains original question-block terrain.
+Both facings/polarities cross256 and back; horizontal controls remain live.
+The same frozen final fixture completes16 cases on original55 with eight page
+failures, and on the rejected page-only ROM with eight terrain failures.
+
+Native guards preserve interrupted A/C banks and shadow-store windows,
+five SMC operands, A/SP and a stack sentinel above copied SMC. Active DMA
+matches hardware OAM.484 actual hardware CHR frames/481 body constructions
+show zero mismatch. The CHR observer uses the original ChrPhysicalMap for
+Samus's logical pages; the generic expanded-only observer was rejected for
+this legacy family.76 lossless PPU samples and an overview were inspected.
+Sampled SP is not an every-instruction minimum. No FPS improvement is claimed.
+
+Native-dev1..7 are retained fixture-development negatives. They include an
+inapplicable expanded-only CHR assumption and the genuine terrain failure
+discovered after correcting page arithmetic. v1 receipts used a missing
+base-bit seed128; final v2 corrects it to the actual source129. The exact same
+corrected v2 fixture runs allthree final/negative ROMs; no assertion was
+weakened to let either gameplay bug pass.
+
+Reproduction and ownership
+--------------------------
+Six tools/audit/samus_contra_source_* files are owned by this packet. Final
+native fixture SHA736c4be6e5e5b8080892064685da00287ac8ee44f4858ede59c687b405d7297a;
+runner SHA542a08d25d4f90ad30801f0b9d57baca2118a078fa6b0d7c355bdc9332c32774;
+CHR observer SHA0d33d3ffdf010bcf5c6e28147b4817f57741f18aac1ef5a3b671ef34ed67651e.
+Final CPU tool SHA9d6aee2b7959d2102e405426a8a35321281e10fef3ccd68c8a2f7bc62d433eb4.
+
+python tools/audit/samus_contra_source_native.py --rom <ROM+debuggers>
+  --output <new external directory> --emulator <Mesen.exe> --character 2
+Negative runs add --diagnostic. Final evidence: native-{candidate,baseline,
+page-only-negative}-v2. Mesen SHA:
+8b92daa209ee5052845e02a663aeb1afd6194eca55d86e6628c51114c61da0a9
+AllZeros; random CPU/PPU/mapper alignment off; doNotSaveSettings.
+
+python tools/audit/samus_contra_source_cpu.py --baseline <baseline ROM>
+  --candidate <candidate ROM> --page-only D/page-only-negative.nes
+  --output <new external directory>
+
+Root must compare exact donor sites (especially its fixed bank127 tail),
+compose current source and rerun the exact combined hash before adoption.
+No whole campaign/physical hardware, full Contra native playthrough or
+every-ability/music/visual-fidelity completion claim is made.
