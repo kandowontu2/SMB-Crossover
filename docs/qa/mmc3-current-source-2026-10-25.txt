@@ -37,3 +37,37 @@ C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/mmc3-curre
 Before adoption, rebase to the next final MMC5 source, requalify rare/tiny/SMC
 and native mapper/stack/cache/OAM/CHR/motion paths, independently replay the
 roster, qualify all items and compare actual update/draw cadence. No60Hz claim.
+
+CURRENT ae97 PRIVATE REBASE
+Parent MMC5 ae97d45e5a33b20a399c0b55f241ea933a72eaea6f88e7fc69eae93af85c96e4.
+Private MMC3 2334dca42726399756a7053a0b8d093dc1e1850a4eb71c4351ef92015b4ce320.
+Recipe abcddeb092238628487912db8c98355ad6a51f650b7c872da1a792ae2d8076d7.
+Tools/proposal copies: tools/mmc3_oversized/proposals/current-ae97-capacity.
+
+The generated CV1 driver contains a new expanded Alucard noise-cache hook.
+Normal MMC3 preparation only converts src source flags, so its generated
+ENABLE_MMC5_EXPANDED conditional would remain false and omit that cache
+store. Private --cv3-noise recipe now carries that specific same-size guard
+to ENABLE_FULL_ROSTER and preserves the new scene-stop call in the existing
+CV3 profile-clear alias repair. First preparation correctly failed on the
+old LDA Cv3Variant context; that negative is preserved, no unguarded change.
+
+The final private tree compiles. Complete220-to-ae97 port comparison finds
+only677 changed bytes in banks10/27/28/82/84/255, matching the bounded Samus
+and Alucard repair footprint. All54,732 retained qualified symbols exact;
+the deliberately removed private restore-loop Load label is disclosed.
+Complete resident LOWCODE bank254, immutable49-byte FarCallCommon, all old
+six-byte SMC addresses and raw1MiB CHR are exact. Generated source contains
+one enabled cache hook and actual linked bank27 contains its sole JSR to
+bank28 Cv3NoiseVolumeStore.2,048 local same-bank Sophia occupancy CPU cases
+pass again, with original friction prefix/suffix exact. These are static
+composition/CPU checks, not a current MMC3 native sound or gameplay pass.
+
+Fresh external evidence: D/mmc3-current-ae97-v42-v5.
+Reproduce privately:
+ python tools/audit/mmc3_current_source_build.py --reference <ae97.nes> --output <fresh-external-folder> --compact-sophia --cv3-noise
+ python tools/audit/mmc3_current_source_bindings.py --prepared <new-folder> --baseline <417e254d.nes> --output <fresh-proof-folder>
+
+No user build, active MMC3 conversion recipe or menu layout was changed.
+Parodius graphical-font upload/native mapper qualification remains open.
+Existing-character verification remains the priority before any new roster.
