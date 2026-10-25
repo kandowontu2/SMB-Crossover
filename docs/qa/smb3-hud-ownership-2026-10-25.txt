@@ -1,0 +1,74 @@
+SMB3 P-bar font withdrawal repair — 2026-10-25
+
+Accepted expanded MMC5:
+5ec81c9250c20aee31af0d3b98c241932c72b3147e05702de70e266f3c854893
+Parent9bac46e934d3301e378139783febf2d54c4fd5753a62e082f2d7e6580946d58c.
+
+Actual direct-PPU footage exposed cloud graphics in SMB3 Luigi's P-bar at1354.
+The conservative background scanner flagged a different question-block cell;
+its32..208ROI excludes the HUD, so it could not certify this defect absent.
+
+First incorrect state: generic X5NativeInventoryUiLeaf clears InvHudActive at
+physicalbank86:$A6F4 while the SMB3 bar remains on screen. An update can be
+interrupted between this clear and M3Hud reacquisition. At1353, the actual
+clear occurs scanline15; the1354NMI sees0 and publishes ordinaryfont0. Those
+same tile IDs contain cloud artwork, producing the observed wrong bar. This
+is transient ownership withdrawal, not a new early-NMI deadline deficiency.
+No NMI hook, audio font publisher, IRQ timing or hardware mapping was changed.
+
+Fix: replace the real three-byte font read with a call to a13-byte helper in
+the dispatcher's already unused15-byte tail. For character17, return the
+existing empty-HUD read result without withdrawing the P-bar's ownership;
+all other admitted IDs preserve their original hide behavior. Carry remains
+clear exactly as before. Only16ROMbytes change inbank86; all preexisting
+symbols/RAM/CHR/banks and standard flag-off binaries remain identical.
+
+Validation on exact5ec8:
+- Baseline9bac actual PPU mask mismatch reproduced on183of1892eligible frames.
+- Mario3 andLuigi3 each check1892eligible real PPU frames in3000frame prefixes;
+  zero wrong eight-tile mask pixels, no545font publication afterscanline8.
+  Controller/menu inputs are replayed, not game state or mapper writes.
+- Actual NMI A/SP/A-bank/C-bank/shadows and allfive farcall operands guarded;
+  exact shadow-STA mapper windows are handled by their real opcodes.
+-1600 assembled CPU leaf cases compare flags/registers/SP/ordered writes.
+  SMB3 retention is the only intended state difference. Other nonhurt native
+  leaf paths add at most19CPUcycles; hurt paths stay exact; activeM3 saves3.
+-11affected identities clear1-1 withoutdeath: bothSMB3, Kirby/MetaKnight,
+  Chip/Dale, Mike, allfourTurtles. Completed-loop camera/motion and actual
+  committed bodyCHR pass. These are routes, not everypowerup or allHard cells.
+- OrdinaryMMC3 d444cac88e13fa02b29ad16100b8f08fa565ba90f8cedde192de43fb2dc8f3eb
+  andordinaryMMC5 f4ffd2483c51daa4d60bb575da2da8c4d817692cda407611c243031f67520833
+  fresh flag-off builds remain exact. No expandedMMC3 native claim.
+
+Retained failed/private probes:
+- First diagnostic pointed to Downloads without a debug companion; it never
+  launched. Fresh canonical debug-bound run retained separately.
+- First observer usedevents.csv, colliding with the route harness' own output;
+  that mixed diagnostic log is not the final first-write/timing authority.
+  Fresh observer useshud-events.csv and retains every raw frame separately.
+- Initial private8508 fixed pixels but changed carry via CPX. The1600case
+  CPU audit rejected it. Finalhelper explicitly restorescarry; old failure
+  remains incheckpoint and was never installed.
+- Initial8508 NMIguard did not recognize a genuine pending shadow→STA mapper
+  instructionwindow and stopped at1524. Fresh final guard uses exact adjacent
+  opcodes and native stack returnPC; no production banking fix inferred.
+
+Earlier full-roster progress is explicitly a different hash:
+8ff245ae662059abbc77c5de517260032775b7ba881a5201b8b54686ccf08277.
+37identities/38profiles independently clear1-1 and reproduce exact controls,
+trace/result and193035actualPPUframes. Original BassHard died while the
+controller parked pointblank at1496; retained failure and new jump-controller
+retry remain separate. No gameplay/physics repair was made for that route.
+The earlier recordings are not silently certified oncurrent5ec8.
+
+Three conservative scanner candidates occupy question-block regions; pending
+agent selected-frame review provides their final classifications. All193035
+PNG/RGB hashes were checked, but transient masks exclude sprites/HUD and do
+not establish no multi-frame defects, missing actors/effects/SFX or source
+fidelity. Eight actual frames perprofile are selected for visual review.
+Roll fade, authentic Mike/Parodius music and remaining CV3 cues remain open.
+No universal lag removal, all-current37native campaign or every-item completion.
+
+Receipts:docs/qa/checkpoints/2026-10-25/m3-hud-5ec8/manifest.json.
+Full evidence:C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py.
+Installation and previous source/build/ROM backups are inadoption-owner-v1.

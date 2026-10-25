@@ -1,0 +1,49 @@
+{
+  "passed": true,
+  "goal_complete": false,
+  "ROM_sha256": "5ec81c9250c20aee31af0d3b98c241932c72b3147e05702de70e266f3c854893",
+  "baseline_ROM_sha256": "9bac46e934d3301e378139783febf2d54c4fd5753a62e082f2d7e6580946d58c",
+  "native": [
+    {
+      "name": "baseline-luigi3",
+      "ROM_sha256": "9bac46e934d3301e378139783febf2d54c4fd5753a62e082f2d7e6580946d58c",
+      "pixel_frames": 1892,
+      "mismatched_frames": 183,
+      "font_publications": 4499,
+      "late_font_publications": 0,
+      "proof_sha256": "1130e640f41f97dc6e0a5702c864ad2ee037eabbee113f568a8b8ffdd43a8111"
+    },
+    {
+      "name": "candidate-luigi3",
+      "ROM_sha256": "5ec81c9250c20aee31af0d3b98c241932c72b3147e05702de70e266f3c854893",
+      "pixel_frames": 1892,
+      "mismatched_frames": 0,
+      "font_publications": 4852,
+      "late_font_publications": 0,
+      "proof_sha256": "a2534edd8cc91c2c22873288cf7ba8e5dccf0592144946311df31cdf83bf3efa"
+    },
+    {
+      "name": "candidate-mario3",
+      "ROM_sha256": "5ec81c9250c20aee31af0d3b98c241932c72b3147e05702de70e266f3c854893",
+      "pixel_frames": 1892,
+      "mismatched_frames": 0,
+      "font_publications": 4853,
+      "late_font_publications": 0,
+      "proof_sha256": "8b35159113b0d743775fd81058d6f48b6c9c71f56151428cb775a863ec318892"
+    }
+  ],
+  "cpu_cases": 1600,
+  "affected_identity_routes": 11,
+  "refs": {
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\m3-hud-timing-v1\\owner-cpu-v2\\proof.json": "12f9a3aee1050678fb2f791a77735096cbaa3dc56e78b6bb1c59ba2cb362c74b",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\m3-hud-timing-v1\\affected-routes-v1\\proof.json": "7db842c4e70497fee8940491b6eac1036e2fdb9c5f87199d0bd65f1db277a8b7",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\m3-hud-timing-v1\\private-owner-v2\\proof.json": "7a87099d90e6db4d73c9752f4b26d4ea160ee08e6f12a161d3b46198516ba516"
+  },
+  "tools": {
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\probe_m3_hud_timing_v1.py": "87e4a17cffba286282530c170a0eb259e6169736b0df8925c4d1c2e8c2e65067",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\check_m3_hud_owner_cpu_v1.py": "f5c829560d63513de07cf36bdcfdbe9b2043376925f9eb4ec689aee0ec5b89a6",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\prepare_m3_hud_owner_v1.py": "4964aa2ee0d34697e7351ffc13d76752d424c105cf8382e8de02fdd9b4475417",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\qualify_m3_hud_owner_v1.py": "31fb99d367b7d9a9db0c030a1e887638f181d86a7263abdcc7fbd2d4c4c776d6"
+  },
+  "scope": "Baseline incorrect-font pixels reproduced with actual read-only PPU screen data; both SMB3 identities have zero wrong bar-mask pixels in the fixed3000-frame replay prefixes and no late font545 publication. All11 identities sharing the changed generic leaf independently clear1-1 without death, with completed-loop camera/body-CHR guards. Registers/flags/writes pass1600CPU cases; nonM3 leaf overhead<=19CPU cycles is explicit, not a universal cadence guarantee. All actual remaining source/CHR/addresses unchanged; no full-roster current every-item, all-Hard, campaign, hardware or MMC3 expansion claim."
+}

@@ -1,0 +1,33 @@
+--- a/src/x5_bounce.s
++++ b/src/x5_bounce.s
+@@ -729,7 +729,20 @@
+  pla
+  plp
+  jmp X5NativeInventoryUiLeaf
+- .res 15,$ea
++; The SMB3 P-bar owns its font throughout the update, including a lag NMI
++; between this generic input leaf and M3Hud. Other native leaves still hide
++; the legacy inventory font. Reuse this previously unreachable15-byte tail.
++HudRead:
++ cpx #17
++ bne OrdinaryHud
++ lda #0
++ clc
++ rts
++OrdinaryHud:
++ lda InvHudActive
++ clc
++ rts
++ .res 2,$ea
+ Legacy:
+  plx
+  pla
+@@ -881,7 +894,7 @@
+   sta InvPrevious
+   ldx SelectedCharacter
+   clc
+-  lda InvHudActive
++  jsr X5OwnInventoryUi::HudRead
+   beq Done
+   lda #0
+   sta InvHudActive
