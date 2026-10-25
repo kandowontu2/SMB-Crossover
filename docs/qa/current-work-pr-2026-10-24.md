@@ -628,3 +628,5 @@ MMC3 asset preparation now packs the three fonts and passes complete raw-CHR
 equality against this MMC5 reference; MMC3 graphical font loading remains a
 text fallback. Receipt build/verification/parodius-graphical-hud/proof.json.
 Zelda II Link TERRAIN profile is next, still unresolved.
+
+2026-10-25 Zelda II terrain diagnosis: all 24 linked original/alternate Link selector combinations still return short profile 9. Authenticated original USA ROM queries show normal/crouched head Y+0, feet Y+32, sides Y+6/+26; Fairy head Y+8 and feet Y+26. Crouching does not halve the native body. Source ROM query and prepared sprite bounds are preserved in checkpoints/2026-10-25/zelda2-terrain-observation/proof.json. No collision repair or native gameplay claim yet.
