@@ -1,0 +1,267 @@
+PARODIUS ORIGINAL MUSIC: SOURCE/CPU PROPOSAL, 2026-10-25
+
+STATUS: OPEN. No game implementation is installed by this packet.
+No Mesen process was launched; no game src/config, Git or Downloads was changed.
+This packet preserves the earlier ready Mike music files and every TMNT/CV3 reservation.
+Current routing/layout parent: 50b51c3c69f45ef137720c47f521574097f421056e3b73296d06ba70080d2363
+Original Parodius Da! (Japan).nes: ef1dd05ad5b6095d1d8e9a9f81fcb549b5cf0248779d4e76eb7bd9b139de4c9a
+Original local source: C:/NES/Parodius Da! (Japan).nes
+External packet: C:\Users\kando\Videos\SMB Crossover Archive\2026-10-24-native-rest-py\parodius-native-music-v1\ready-v1
+
+1. AUTHENTIC EXECUTABLE AND GOLDENS
+Original cartridge FE07/FE36/80A2 binds music play; FE16/C542 binds reset;
+FE20/C58D binds request. Banks12/13 are the original8000/A000 windows,
+with original14/15 fixed atC000/E000. Requests46,4A,...,9A are hexadecimal.
+All22 groups run18,000 play calls each, plus reset/request:396,044 source
+calls and1,252,908 ordered APU stores. The fresh goldens compare every call
+against the earlier independent probe: cycles, ordered stores and the full
+original CPU-RAM plus6000..7FFF hash, not only a selected state subset.
+The persistent source domain is45 andE0..EF plus500..5FF (273 bytes).
+Actual writes areE0..EA/EC..EE and500..5E9;45 is only read. Source8F is
+not a music-driver input: actual game request sites choose the hero music.
+Source stack use is balanced; minimum observed SP isF6 from entryFD.
+
+The v2 ROM_data_reads field tracked loads only. The plan explicitly adds
+272 bytes read by CMP tables:11,013 complete data bytes, plus3,233 source
+instruction bytes. All14,217 actually read original ROM bytes are accounted
+for;29 retained instruction operand bytes were skipped by the source CPU
+on untaken branches. Nothing is declared free merely because it is FF.
+
+The original v2 pointer log described the pointer before its Y index.
+A new source replay through every first exact-state repeat binds final
+pointer+Y targets:55,201 calls,200,329 ordered stores,43,740 accesses,
+442 pointer-origin pairs and zero unknown origins. Cycles, every ordered
+store,273-byte state and entire original-RAM hash match the full goldens.
+It reaches the same1,431 original instructions and11,013 complete data
+bytes. The full goldens remain unchanged; the correction is explicit.
+
+2. SOURCE REQUEST SELECTION AND LOOPS
+The real original E276 block loadsEADA[source8F] then callsFE20.
+Actual original basic-block execution proves Vic4E, Octopus52, TwinBee56,
+Pentarou5A. No song title is guessed from request order.
+Original E235..E259 was executed for144 seeded legal stage/hero/progress
+cases, plus the four direct hero cases. With source96=0A and source60<4,
+stages0..6 select the hero; stages7+ select7A. With source60>=4, source81
+(stage) selects E937[stage+1]:5E,62,66,6A,6E,72,76,7A,7A forstages0..8.
+These are original executable selector cases, not a complete original
+playthrough or a proven SMB area-role adaptation. Death/boss request
+call sites are retained, but their complete scene control flow is open.
+
+First identical persistent states, source play-step convention:
+Request | first state | repeated state | period | source request lanes
+46 | 470 | 471 | 1 | all0506..050B zero
+4A | 23 | 471 | 448 | active
+4E | 892 | 1692 | 800 | active
+52 | 1010 | 2018 | 1008 | active
+56 | 1010 | 2018 | 1008 | active
+5A | 892 | 1692 | 800 | active
+5E | 2690 | 5210 | 2520 | active
+62 | 1602 | 4162 | 2560 | active
+66 | 1570 | 3362 | 1792 | active
+6A | 1127 | 3047 | 1920 | active
+6E | 996 | 2341 | 1345 | active
+72 | 1166 | 3854 | 2688 | active
+76 | 37 | 1463 | 1426 | active
+7A | 102 | 6182 | 6080 | active
+7E | 842 | 1842 | 1000 | active
+82 | 392 | 1448 | 1056 | active
+86 | 1254 | 2878 | 1624 | active
+8A | 20 | 1556 | 1536 | active
+8E | 116 | 2420 | 2304 | active
+92 | 176 | 181 | 5 | all0506..050B zero
+96 | 474 | 475 | 1 | all0506..050B zero
+9A | 6389 | 6396 | 7 | all0506..050B zero
+These are exact source-state recurrences. A zero source request lane does
+not prove real hardware DMC completion. No rendered-waveform claim is made.
+
+3. SOURCE-EQUIVALENT HOT PATH
+Original895C..8970 repeatedly adds050C,X for each duration. A private
+94-byte helper replaces that arithmetic, retaining the authentic final
+ADC carry/overflow and final DEC N/Z. All396,044 source calls,1,252,908
+ordered stores and273-byte source states match.262,144 direct cases
+cover256 multipliers x256 input counts x four independent incoming flag
+patterns20,22,61,E3. No tick, channel, sample or source APU store is cut.
+Helper code is temporarily at7000 with7100..7103 scratch in the private
+original-ROM CPU model. These are not allocated game addresses.
+
+Request | original peak | optimized peak | original mean | optimized mean
+46 | 13194 | 6196 | 253.654 | 252.951
+4A | 4978 | 5020 | 1306.181 | 1309.610
+4E | 7050 | 7086 | 1349.440 | 1353.127
+52 | 8404 | 6928 | 1491.920 | 1494.696
+56 | 6815 | 6857 | 1491.305 | 1494.082
+5A | 7050 | 7086 | 1347.442 | 1351.122
+5E | 5796 | 5844 | 1279.275 | 1282.971
+62 | 6226 | 6268 | 1400.171 | 1403.827
+66 | 10511 | 6805 | 1420.455 | 1423.721
+6A | 6102 | 6150 | 1341.557 | 1345.922
+6E | 10833 | 7364 | 1411.979 | 1412.678
+72 | 6367 | 6415 | 1321.068 | 1324.917
+76 | 6939 | 6975 | 1283.642 | 1285.982
+7A | 6473 | 6521 | 1689.460 | 1694.004
+7E | 7260 | 7302 | 1562.341 | 1567.134
+82 | 8160 | 8184 | 1622.982 | 1626.860
+86 | 9899 | 9929 | 1752.195 | 1730.310
+8A | 8551 | 8581 | 1749.727 | 1753.071
+8E | 8265 | 8295 | 1734.152 | 1738.657
+92 | 8351 | 4124 | 248.298 | 247.934
+96 | 5613 | 5637 | 260.418 | 260.463
+9A | 9366 | 6936 | 539.810 | 525.500
+The13,194-cycle worst original request spike becomes6,196; the overall
+new maximum is9,929. Several other request peaks rise24..48cycles and
+some means rise about4cycles. This is source CPU work only: no mixer,
+real DMC DMA, IRQ/NMI, whole-game draw count or60Hz acceptance is proved.
+APU order/value/tick remain exact; intra-call store cycle positions change.
+
+Negative v2 is retained. It assumed incoming Z matched A; actual source
+group46 step2 reachesA=0,Z=0 and legally performs256 additions. The draft
+failed that real source call. V3 preserves incoming Z before comparing A.
+The v1 inner-loop helper also remains as earlier source-equivalent proof.
+
+4. CURRENT COMPILED ROUTING: ALL37 IDENTITIES
+Actual physical entrypoints in AudioUpdate were observed in1,036 cold
+contexts:37 identities xEasy/Hard numeric0/1 x7 area and7 event bits.
+Four updates/context give4,144 calls. The following is dispatch evidence,
+not a new authenticity/campaign qualification for every existing family.
+Identity | executed music source
+Mario | Original SMB audio
+Luigi | Original SMB audio
+Mega Man | Original Mega Man2/Mega Man
+Proto Man | Original Mega Man3/Proto Man
+Samus | Original Metroid/Samus
+Bill | Original Contra/Bill
+Lance | Original Contra/Bill
+Link | Original Zelda1/Link
+Zelda II Link | Original Zelda1/Link
+Simon | Original Castlevania1/Simon
+Grant | Original Castlevania1/Simon
+Sypha | Original Castlevania1/Simon
+Alucard | Original Castlevania1/Simon
+Pit | Kid Icarus/Pit
+Rygar | Rygar
+Scrooge | DuckTales/Scrooge
+Darkwing | DuckTales/Scrooge
+Bass | Mega Man10/Bass
+Ryu | Ninja Gaiden/Ryu
+Sophia | Blaster Master/Sophia
+Kirby | Kirby's Adventure/Kirby
+Chip | Kid Icarus/Pit
+Dale | Kid Icarus/Pit
+SMB3 Mario | Kid Icarus/Pit
+SMB3 Luigi | Kid Icarus/Pit
+Vic Viper | Original Gradius/Vic Viper
+Leonardo | Rygar
+Raphael | Rygar
+Michelangelo | Rygar
+Donatello | Rygar
+Little Mac | Original Punch-Out!!/Little Mac
+Mike Jones | Original StarTropics/Mike Jones
+Meta Knight | Kirby's Adventure/Meta Knight
+Octopus | Kid Icarus/Pit
+TwinBee | Kid Icarus/Pit
+Pentarou | Kid Icarus/Pit
+Roll | Mega Man10/Bass
+Chip/Dale, SMB3Mario/Luigi and all three Parodius alternates still execute
+Pit fallback. All four turtles execute Rygar fallback. The historical
+native TMNT candidate remains held for measured combat cadence regressions.
+ZeldaII Link still uses Zelda1 music; CV3 alternates still use CV1 music;
+Darkwing uses DuckTales and Roll shares Bass. CV3 DMC effects do not make
+its separately requested music a CV3 implementation.
+The new-roster encoder defaults only toKirby/Meta and its current report
+contains those two roles. Full_roster_music.inc has14 entries for those
+roles, not a working soundtrack for every added identity. That producer
+also excludes19,630 source DPCM stores from its tonal packed captures.
+Presence of an NSF, capture or playlist name is not actual dispatch proof.
+
+5. LEGITIMATE PRG/RAM PLAN; NO ALLOCATION APPLIED
+Current50b5 declared tails, preserving every old segment/prefix:
+  bank62:A300..BFFF,7,424 bytes for new code/adapter. Original code3,233B
+  plus the94-byte optimized arithmetic fits the raw budget; real assembly
+  with relocated branches, tables, writers and mixer remains required.
+  bank94:C300..DFFF,7,424 bytes; planned observed data6,690B,734B spare.
+  bank95:C400..DFFF,7,168 bytes; planned observed data5,435B,1,733B spare.
+  Existing bank95 A000-prefix would remain at its exact address while
+  its new tail receives a separate C400 linker-memory declaration.
+This includes the real contiguous474-byte8DA5 header table, not a forged
+virtual label. It also closes every observed affine base-to-final-target
+span and direct indexed table span, retaining11,286 unique data bytes.
+The per-bank copies contain12,125 bytes in total. A balanced2,000-order
+search retains useful spare space. This is byte-set feasibility, not a
+linked connected-pointer layout. Fixed locations for common absolute
+tables, all pointer rewrites and every actual request still need proof.
+
+No new global SRAM is proposed. Inactive XgLzHistory7400..7BFF is the
+candidate owner for source500..5FF and saved source zero-page state, as
+already done by mutually exclusive native Gradius/Mac/Mike. A character
+change must restart the compressed decoder. The14-byteDE..EB decoder
+slab is protected by current InitializeMemory. A later source-equivalent
+direct-field/ZP remap may avoid per-tick borrowing, but is not qualified
+here. Native foreground, life/area reset and IRQ ownership remain open.
+
+Keep VgAudioDispatch at its current C38 23-byte span. For character18,
+map a unified A62 selector. Parodius variants stay inA62; variant0 uses
+the established resident farcall tail to original GradiusA122. Other
+identities retain LmNativeMusicGate. Never map A away from a live A-window
+helper. All callers, flags, stack, SMC scratch and IRQ boundaries must
+be tested; no LOWCODE padding is requested or consumed.
+
+6. DPCM MIRROR: CONCRETE REMAINING RESOURCE CONSTRAINT
+Original sample bytesC040..C540 inclusive are1,281 bytes. The source
+starts are4012=1,10,15,20(decimal), lengths4013=36,20,20,4(decimal).
+All source rate/DAC/start/length combinations remain in the goldens.
+Real DMA continues after music returns, while gameplay changes C banks.
+A temporary C bank during the audio call cannot preserve these samples.
+The candidate design needs an E clone retaining all fixed code/vectors,
+with source samples atF140..F640 (4012 relocation deltaC4). Every source
+sample byte, rate, DAC initialization and status transition must survive.
+
+Reserved bank125 is not free: CV3 samples occupyF140..F580 andF5C0..F680,
+with its manager at physical1AF7 and copied resident helpers/vectors.
+Future TMNT cold code explicitly owns physical1700..1AF6. Overlaying
+Parodius samples would destroy live CV3 content. Current native Mac123,
+future TMNT63/124, shared125, resident126 and fixed127 remain reserved.
+There is no unreserved whole8KiB PRG bank in the current linker map.
+
+A reviewable coordinated path is to rehouse future TMNT B124 in bank99,
+which has a preserved138-byte menu-UI prefix and8,054-byte declared tail.
+Its leading connected TMNT streams must first be relocated into the
+deliberate TMNT A writer reserve, retaining every loop/pointer and linear
+continuation. Then124 could become the Parodius E mirror. This is only
+a proposal: no reservation was changed, no TMNT stream was moved, and
+the original all16-song192,016-call TMNT goldens must pass such a move.
+Root current TMNT A200/A300 arithmetic work must also be retained.
+Current CV3 uses BassDmcActive=3; historical TMNTv7 also used3. Both
+future native integrations need a coordinated owner namespace and real
+DMA completion, pause/silence/exit and another-owner-precedence tests.
+
+7. REMAINING IMPLEMENTATION / ACCEPTANCE
+Assemble actual code and connected data relocation; choose an explicit
+SMB area/event adaptation bound to real original requests; implement the
+persistent DMC mirror and shared ownership; compare every original call
+through the actual linked writers; prove all non-Parodius outer audio
+ABI/register/RAM/APU outcomes and both ordinary flag-off builds unchanged.
+Only then qualify actual native hardware/APU/DMA, interrupt bank/stack,
+OAM/CHR and pause/event transitions, followed by matched completed game
+updates AND draws in both modes. Original music rate/channels/stores must
+not be reduced to manufacture performance. Parodius music remains open.
+
+KEY RECEIPTS (SHA256)
+original_full: 8a0b8cc09e7bd38336c7b0610646d2daafddf0bfbc91419c05dc0e641eeec03d
+  C:\Users\kando\Videos\SMB Crossover Archive\2026-10-24-native-rest-py\parodius-native-music-v1\full-v2\coverage.json
+pointer_closure: c7afd4103541116e5624b921bc49099623f53c91d1ec7b825a3627cf4e42ec16
+  C:\Users\kando\Videos\SMB Crossover Archive\2026-10-24-native-rest-py\parodius-native-music-v1\pointer-closure-v1\coverage.json
+multiply: 545dcadba7f30f180dc671e8c6c89f4af8e30a301810f58026db3f2ba7157136
+  C:\Users\kando\Videos\SMB Crossover Archive\2026-10-24-native-rest-py\parodius-native-music-v1\multiply-v3\proof.json
+requests: e4d4c6d65bdc9a11d969225928811f274d661677ecdf785b8aaf39440abcb22a
+  C:\Users\kando\Videos\SMB Crossover Archive\2026-10-24-native-rest-py\parodius-native-music-v1\request-sites-v2\tables.json
+current_routes: 39e3a33b8ae2f669eeb20bc56eb1b889b799712f336a7fd8741252993bf6e16e
+  C:\Users\kando\Videos\SMB Crossover Archive\2026-10-24-native-rest-py\parodius-native-music-v1\current50b5-routes-v1\proof.json
+layout: a8de2ce60eaa68ba4173603bf6053926fa80122d067021566754c8cc199cef0a
+  C:\Users\kando\Videos\SMB Crossover Archive\2026-10-24-native-rest-py\parodius-native-music-v1\layout-current50b5-v1\layout.json
+data_plan: 07c93130215fac435ffa23ce5e79f8a1e64693d16b05a89ad264a84269df5a01
+  C:\Users\kando\Videos\SMB Crossover Archive\2026-10-24-native-rest-py\parodius-native-music-v1\data-plan-current50b5-v3\proposal.json
+
+Historical negative/raw artifacts are retained under multiply-v1/v2/v3,
+pilot-v1, full-v2-a/b, full-v2, pointer-closure-v1 and data-plan*.
+The broad parent source bindings are read-only evidence; this packet has
+no deployable game patch and does not reopen frozen Mike qualifications.

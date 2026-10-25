@@ -1,0 +1,615 @@
+{
+  "passed": true,
+  "source_CPU_proposal_only": true,
+  "game_implementation_installed": false,
+  "native_emulator_launched": false,
+  "production_game_writes": false,
+  "parent_ROM_sha256": "50b51c3c69f45ef137720c47f521574097f421056e3b73296d06ba70080d2363",
+  "original_ROM_sha256": "ef1dd05ad5b6095d1d8e9a9f81fcb549b5cf0248779d4e76eb7bd9b139de4c9a",
+  "golden_calls": 396044,
+  "golden_ordered_APU_stores": 1252908,
+  "pointer_closure_calls": 55201,
+  "pointer_closure_APU_stores": 200329,
+  "arithmetic_cases": 262144,
+  "report_sha256": "647175fdd298c1190f429ba3557c5b0e3badb06b778e69a2a3a637de70120bcf",
+  "proofs": {
+    "original_full": {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\parodius-native-music-v1\\full-v2\\coverage.json",
+      "sha256": "8a0b8cc09e7bd38336c7b0610646d2daafddf0bfbc91419c05dc0e641eeec03d"
+    },
+    "pointer_closure": {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\parodius-native-music-v1\\pointer-closure-v1\\coverage.json",
+      "sha256": "c7afd4103541116e5624b921bc49099623f53c91d1ec7b825a3627cf4e42ec16"
+    },
+    "multiply": {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\parodius-native-music-v1\\multiply-v3\\proof.json",
+      "sha256": "545dcadba7f30f180dc671e8c6c89f4af8e30a301810f58026db3f2ba7157136"
+    },
+    "requests": {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\parodius-native-music-v1\\request-sites-v2\\tables.json",
+      "sha256": "e4d4c6d65bdc9a11d969225928811f274d661677ecdf785b8aaf39440abcb22a"
+    },
+    "current_routes": {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\parodius-native-music-v1\\current50b5-routes-v1\\proof.json",
+      "sha256": "39e3a33b8ae2f669eeb20bc56eb1b889b799712f336a7fd8741252993bf6e16e"
+    },
+    "layout": {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\parodius-native-music-v1\\layout-current50b5-v1\\layout.json",
+      "sha256": "a8de2ce60eaa68ba4173603bf6053926fa80122d067021566754c8cc199cef0a"
+    },
+    "data_plan": {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\parodius-native-music-v1\\data-plan-current50b5-v3\\proposal.json",
+      "sha256": "07c93130215fac435ffa23ce5e79f8a1e64693d16b05a89ad264a84269df5a01"
+    }
+  },
+  "source_bindings": {
+    "smb1base-mmc5-expanded.cfg": "fbad45b9b687f4a6d746b1b60f6ace7fa994037b50c32f44f16afd9b03ebebd2",
+    "src/gradius_audio.s": "6e78720d80de735f9d85afe2cf4c4205bde1c197018b0e7ed9af7ded080a1f58",
+    "src/expanded_audio.s": "39600ed73bcc08c66b7d4c726a8f398c8470d70d72ce865091c94733b72e5422",
+    "src/mac_native_music.s": "c6ce901ff7ebbe25c933208ba428eb87c1a05b4e8eb18a8bc13e36df724d0117",
+    "src/mike_native_music.s": "6d4fa8d812be2d662e09c11bef5757fb83111bf6b4bb73545cd86a501845bea3",
+    "src/guest_audio.s": "c916cc7a9836aa8b7d0e94849acc16ab51bcce0da39a8cffabe76ac0de34eb91",
+    "src/cv3_dmc_complete.s": "aee614d8ceb4f8f9a0135ab39119a50511908192c758d04a11a26a662853825d",
+    "src/remaining_audio.s": "6f5db043fcb9f9e066dbef962c42271e92e68eb4dc393fed55a8d620a8d113ff",
+    "src/reset.s": "f397d26a2e67c3f1c6486108532c187ce64b51f3580043ae1f37167503423d24",
+    "src/mmc5.s": "778b1e20473c7a0b7de0b90aaa5c653f0110ce6acb95f10559f8f6ba26cfd659",
+    "src/x5_menu_ui.s": "4cf12d67bd13b30b851f47cc777f5970a948f288d3cf0ef7a9624138eda4a7ca",
+    "src/entrypoint.s": "d5276b02584213dbc1afa192f79f3e27e383587faea533c78e66a33b0b433137",
+    "tools/prepare_cv3_dmc_mirror.py": "d706aebdf6ed9b579ca276ac0a2ebf52732d3d3053de2451d29a24e79932e484",
+    "tools/reference/build_new_roster_audio.py": "69b674cdf86795c60f29041e09ab61f2d1f466affac58834a7fe5a1451b9f237",
+    "reference/new-roster-audio/encoding-report.json": "03fb320a54097035e8bdf47afb51e21669aa71b74d73c067e997d9eb0c9191de"
+  },
+  "tools": {
+    "parodius_native_music_data_plan.py": "01d564440b8002fd7dc55604bc1361124eb7a7c82623cc562c2b1eef4159f8ab",
+    "parodius_native_music_finalize.py": "b926d1f572cf70474b0de1f419c3f0896cf1517c6a9ec926270c83ad2acf4355",
+    "parodius_native_music_layout.py": "1cac433742ffb5b1e26569344b4b7989d4507679475e62b4cbdca8d91c5e7b90",
+    "parodius_native_music_merge.py": "d6e8ced9b918dcc32415f291f114b856e974925bf6a453a0eb0f22c501aaf9b0",
+    "parodius_native_music_multiply.py": "6aff44a430deba2f026ee064d3b17141ec58f4af4fd0f3bce034df5b586df265",
+    "parodius_native_music_pointer_closure.py": "2d87da52bf0d4a3f53deb911c04ab080bd75a02e6132d0cc3171068d9a0dee17",
+    "parodius_native_music_probe.py": "28dbae5d036c74bcc36a6ab6d146b2a8b619f1ca35f83883cdc3fc4c6838e9fb",
+    "parodius_native_music_requests.py": "3a5ffc2d0abdb60575bdddc497edca2cd479efe01363a5ce4e045f75d596d301",
+    "parodius_native_music_routes.py": "6e52ddfd417faf1379b54baf2200827eb09ea429e8e85306690a7bbec21ba119"
+  },
+  "current_routes": [
+    [
+      "Mario",
+      "Original SMB audio"
+    ],
+    [
+      "Luigi",
+      "Original SMB audio"
+    ],
+    [
+      "Mega Man",
+      "Original Mega Man2/Mega Man"
+    ],
+    [
+      "Proto Man",
+      "Original Mega Man3/Proto Man"
+    ],
+    [
+      "Samus",
+      "Original Metroid/Samus"
+    ],
+    [
+      "Bill",
+      "Original Contra/Bill"
+    ],
+    [
+      "Lance",
+      "Original Contra/Bill"
+    ],
+    [
+      "Link",
+      "Original Zelda1/Link"
+    ],
+    [
+      "Zelda II Link",
+      "Original Zelda1/Link"
+    ],
+    [
+      "Simon",
+      "Original Castlevania1/Simon"
+    ],
+    [
+      "Grant",
+      "Original Castlevania1/Simon"
+    ],
+    [
+      "Sypha",
+      "Original Castlevania1/Simon"
+    ],
+    [
+      "Alucard",
+      "Original Castlevania1/Simon"
+    ],
+    [
+      "Pit",
+      "Kid Icarus/Pit"
+    ],
+    [
+      "Rygar",
+      "Rygar"
+    ],
+    [
+      "Scrooge",
+      "DuckTales/Scrooge"
+    ],
+    [
+      "Darkwing",
+      "DuckTales/Scrooge"
+    ],
+    [
+      "Bass",
+      "Mega Man10/Bass"
+    ],
+    [
+      "Ryu",
+      "Ninja Gaiden/Ryu"
+    ],
+    [
+      "Sophia",
+      "Blaster Master/Sophia"
+    ],
+    [
+      "Kirby",
+      "Kirby's Adventure/Kirby"
+    ],
+    [
+      "Chip",
+      "Kid Icarus/Pit"
+    ],
+    [
+      "Dale",
+      "Kid Icarus/Pit"
+    ],
+    [
+      "SMB3 Mario",
+      "Kid Icarus/Pit"
+    ],
+    [
+      "SMB3 Luigi",
+      "Kid Icarus/Pit"
+    ],
+    [
+      "Vic Viper",
+      "Original Gradius/Vic Viper"
+    ],
+    [
+      "Leonardo",
+      "Rygar"
+    ],
+    [
+      "Raphael",
+      "Rygar"
+    ],
+    [
+      "Michelangelo",
+      "Rygar"
+    ],
+    [
+      "Donatello",
+      "Rygar"
+    ],
+    [
+      "Little Mac",
+      "Original Punch-Out!!/Little Mac"
+    ],
+    [
+      "Mike Jones",
+      "Original StarTropics/Mike Jones"
+    ],
+    [
+      "Meta Knight",
+      "Kirby's Adventure/Meta Knight"
+    ],
+    [
+      "Octopus",
+      "Kid Icarus/Pit"
+    ],
+    [
+      "TwinBee",
+      "Kid Icarus/Pit"
+    ],
+    [
+      "Pentarou",
+      "Kid Icarus/Pit"
+    ],
+    [
+      "Roll",
+      "Mega Man10/Bass"
+    ]
+  ],
+  "original_loops": [
+    {
+      "request": 70,
+      "first_equal_states": [
+        470,
+        471,
+        1
+      ],
+      "source_0506_to_050B": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "all_source_request_lanes_zero": true
+    },
+    {
+      "request": 74,
+      "first_equal_states": [
+        23,
+        471,
+        448
+      ],
+      "source_0506_to_050B": [
+        74,
+        74,
+        74,
+        74,
+        0,
+        1
+      ],
+      "all_source_request_lanes_zero": false
+    },
+    {
+      "request": 78,
+      "first_equal_states": [
+        892,
+        1692,
+        800
+      ],
+      "source_0506_to_050B": [
+        78,
+        78,
+        78,
+        78,
+        0,
+        2
+      ],
+      "all_source_request_lanes_zero": false
+    },
+    {
+      "request": 82,
+      "first_equal_states": [
+        1010,
+        2018,
+        1008
+      ],
+      "source_0506_to_050B": [
+        82,
+        82,
+        82,
+        82,
+        0,
+        0
+      ],
+      "all_source_request_lanes_zero": false
+    },
+    {
+      "request": 86,
+      "first_equal_states": [
+        1010,
+        2018,
+        1008
+      ],
+      "source_0506_to_050B": [
+        86,
+        86,
+        86,
+        86,
+        0,
+        0
+      ],
+      "all_source_request_lanes_zero": false
+    },
+    {
+      "request": 90,
+      "first_equal_states": [
+        892,
+        1692,
+        800
+      ],
+      "source_0506_to_050B": [
+        90,
+        90,
+        90,
+        90,
+        0,
+        2
+      ],
+      "all_source_request_lanes_zero": false
+    },
+    {
+      "request": 94,
+      "first_equal_states": [
+        2690,
+        5210,
+        2520
+      ],
+      "source_0506_to_050B": [
+        94,
+        94,
+        94,
+        94,
+        0,
+        0
+      ],
+      "all_source_request_lanes_zero": false
+    },
+    {
+      "request": 98,
+      "first_equal_states": [
+        1602,
+        4162,
+        2560
+      ],
+      "source_0506_to_050B": [
+        98,
+        98,
+        98,
+        98,
+        0,
+        1
+      ],
+      "all_source_request_lanes_zero": false
+    },
+    {
+      "request": 102,
+      "first_equal_states": [
+        1570,
+        3362,
+        1792
+      ],
+      "source_0506_to_050B": [
+        102,
+        102,
+        102,
+        102,
+        0,
+        0
+      ],
+      "all_source_request_lanes_zero": false
+    },
+    {
+      "request": 106,
+      "first_equal_states": [
+        1127,
+        3047,
+        1920
+      ],
+      "source_0506_to_050B": [
+        106,
+        106,
+        106,
+        106,
+        0,
+        0
+      ],
+      "all_source_request_lanes_zero": false
+    },
+    {
+      "request": 110,
+      "first_equal_states": [
+        996,
+        2341,
+        1345
+      ],
+      "source_0506_to_050B": [
+        110,
+        110,
+        110,
+        110,
+        0,
+        0
+      ],
+      "all_source_request_lanes_zero": false
+    },
+    {
+      "request": 114,
+      "first_equal_states": [
+        1166,
+        3854,
+        2688
+      ],
+      "source_0506_to_050B": [
+        114,
+        114,
+        114,
+        114,
+        0,
+        0
+      ],
+      "all_source_request_lanes_zero": false
+    },
+    {
+      "request": 118,
+      "first_equal_states": [
+        37,
+        1463,
+        1426
+      ],
+      "source_0506_to_050B": [
+        118,
+        118,
+        118,
+        118,
+        0,
+        0
+      ],
+      "all_source_request_lanes_zero": false
+    },
+    {
+      "request": 122,
+      "first_equal_states": [
+        102,
+        6182,
+        6080
+      ],
+      "source_0506_to_050B": [
+        122,
+        122,
+        122,
+        122,
+        0,
+        2
+      ],
+      "all_source_request_lanes_zero": false
+    },
+    {
+      "request": 126,
+      "first_equal_states": [
+        842,
+        1842,
+        1000
+      ],
+      "source_0506_to_050B": [
+        126,
+        126,
+        126,
+        126,
+        0,
+        0
+      ],
+      "all_source_request_lanes_zero": false
+    },
+    {
+      "request": 130,
+      "first_equal_states": [
+        392,
+        1448,
+        1056
+      ],
+      "source_0506_to_050B": [
+        130,
+        130,
+        130,
+        130,
+        0,
+        2
+      ],
+      "all_source_request_lanes_zero": false
+    },
+    {
+      "request": 134,
+      "first_equal_states": [
+        1254,
+        2878,
+        1624
+      ],
+      "source_0506_to_050B": [
+        134,
+        134,
+        134,
+        134,
+        0,
+        0
+      ],
+      "all_source_request_lanes_zero": false
+    },
+    {
+      "request": 138,
+      "first_equal_states": [
+        20,
+        1556,
+        1536
+      ],
+      "source_0506_to_050B": [
+        138,
+        138,
+        138,
+        138,
+        0,
+        2
+      ],
+      "all_source_request_lanes_zero": false
+    },
+    {
+      "request": 142,
+      "first_equal_states": [
+        116,
+        2420,
+        2304
+      ],
+      "source_0506_to_050B": [
+        142,
+        142,
+        142,
+        142,
+        0,
+        1
+      ],
+      "all_source_request_lanes_zero": false
+    },
+    {
+      "request": 146,
+      "first_equal_states": [
+        176,
+        181,
+        5
+      ],
+      "source_0506_to_050B": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "all_source_request_lanes_zero": true
+    },
+    {
+      "request": 150,
+      "first_equal_states": [
+        474,
+        475,
+        1
+      ],
+      "source_0506_to_050B": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "all_source_request_lanes_zero": true
+    },
+    {
+      "request": 154,
+      "first_equal_states": [
+        6389,
+        6396,
+        7
+      ],
+      "source_0506_to_050B": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "all_source_request_lanes_zero": true
+    }
+  ],
+  "reserved_banks_untouched": [
+    63,
+    123,
+    124,
+    125,
+    126,
+    127
+  ],
+  "open": [
+    "actual linked code/data relocation",
+    "source-bound SMB area/event mapping",
+    "persistent DPCM mirror and coordinated owners",
+    "outer audio compatibility",
+    "native hardware/IRQ/OAM/CHR/draw cadence"
+  ],
+  "limits": "Source equivalence and resource feasibility are demonstrated. No game integration, real DMA, interrupt, native cadence or overall music-completion claim."
+}
