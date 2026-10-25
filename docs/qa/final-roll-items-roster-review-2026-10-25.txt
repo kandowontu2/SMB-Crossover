@@ -1,0 +1,139 @@
+Selected actual-PPU roster review -- 2026-10-25
+
+OFFLINE SELECTED-FRAME REVIEW COMPLETE, with open visibility findings.
+No emulator launched, no production/source/Git/Downloads changes. All original
+raw receipts, scan flags and failures remain untouched. This is not an every-
+frame, all-37-identity, every-item, timing/audio or source-fidelity verdict.
+
+ROM hash of ALL reviewed native captures:
+8ff245ae662059abbc77c5de517260032775b7ba881a5201b8b54686ccf08277
+
+Scope and exact bindings
+-------------------------
+Requested batch-v3:26 sheets x8 actual frames =208 frames,25 unique identities
+because Ryu Easy/Hard are one identity. Added requested Bass Hard batch-v4:
+1sheet x8frames. Total27 sheets,216 selected frames,26 unique identities.
+Another17 specific adjacent/context frames were inspected, total233 distinct
+actual PPU frames. Detail enlargements repeat these pixels, not extra frames.
+
+Every selected sheet and sample PNG hash was checked against its source batch
+proof. Every sample/context PNG and decoded RGB also matches the recorded direct
+PPU frame index. Every sheet cell is pixel-exact to its corresponding actual
+PNG (not a rerender or a newly captured emulator image). Immutable before/after
+input hash checks pass. No historical8ff result is relabeled as current5ec,
+9bac, c32b or any later composition.
+
+Batch-v3 proof SHA256:98cc89bafdbb43b0407d738c74f3f04cfd3c3c3af0601e7e297d0ee6833ab9f1
+Batch-v4 proof SHA256:43fefc99c46274eae91381b7f76e4b092c2a07d29d2e7a2f33fea68f82ff885f
+Review proof SHA256:61271b5bc288a8dfb8657258b3a237ba1dc08bd875301f361ab84fe8cf41d8b0
+Full exact sheet/sample PNG/RGB hashes, frame IDs, direct/scan proof bindings,
+context CSVs and per-profile observations are in:
+C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/current8ff-roster-review-v1/selected27-final-review-v1/proof.json
+
+Reviewed profile/frame IDs
+---------------------------
+darkwing easy: 627, 1400, 1663, 2426, 2855, 3329, 3837, 4216
+roll easy: 595, 820, 1085, 1408, 1795, 2195, 2561, 3016
+sophia easy: 633, 946, 1358, 1775, 2228, 2648, 3102, 3652
+kirby easy: 559, 1408, 1792, 2281, 2892, 3307, 3779, 4467
+meta easy: 559, 1374, 1635, 1937, 2270, 2626, 3036, 3431
+mac easy: 591, 824, 1095, 1390, 1733, 2141, 2553, 2970
+mike easy: 622, 860, 1061, 1326, 1603, 1898, 2154, 2444
+vic easy: 596, 731, 1036, 1425, 1842, 2289, 2727, 3233
+octopus easy: 586, 752, 1085, 1492, 1939, 2403, 2907, 3425
+twinbee easy: 605, 766, 1086, 1497, 1936, 2398, 2888, 3404
+pentarou easy: 605, 766, 1087, 1493, 1940, 2402, 2891, 3411
+raphael easy: 664, 1484, 1763, 2080, 2444, 2857, 3281, 3736
+michelangelo easy: 664, 894, 1195, 1510, 1876, 2282, 2666, 3134
+mario3 easy: 540, 705, 988, 1209, 1385, 1590, 1878, 2123
+luigi3 easy: 540, 705, 988, 1209, 1382, 1587, 1877, 2123
+grant easy: 618, 865, 1160, 1562, 1942, 2476, 2998, 3531
+rygar easy: 719, 960, 1485, 1867, 2284, 3302, 3712, 4219
+leonardo easy: 643, 873, 1172, 1485, 1853, 2263, 2682, 3153
+ryu easy: 677, 966, 1301, 1668, 2197, 2899, 3639, 4271
+ryu hard: 842, 1122, 1477, 1838, 2372, 3098, 3811, 4421
+donatello easy: 685, 1505, 1784, 2101, 2463, 2879, 3300, 3835
+scrooge easy: 534, 690, 1055, 1333, 1713, 2113, 2473, 2829
+link easy: 1669, 2082, 2769, 4114, 5074, 6071, 6889, 8298
+dale hard: 617, 1381, 1551, 1835, 2068, 2349, 2691, 2992
+simon easy: 582, 1548, 1895, 2453, 2805, 3308, 3829, 4315
+chip easy: 509, 1273, 1443, 1661, 1895, 2233, 2585, 2879
+bass hard: 865, 1041, 2027, 2738, 3297, 7145, 7794, 8527
+
+Open body-visibility findings, not proved CHR corruption
+-------------------------------------------------------
+Octopus Easy586 is mostly sparse white pixels where a purple body is visible
+in585 and588;587 repeats the dropout. Retained render/OAM rows report up to15
+sprites on a scanline and late body parts. This is consistent with sprite-limit
+or priority overload, but it does not prove the actual owner or close a visible
+dropout. The user requested reduced flicker, so it remains OPEN. No new wrong-
+CHR or first wrong source write is established by this review.
+
+Sophia Easy3652 and adjacent3651/3653 show a large white/pink cannon/effect
+cluster over the vehicle. Nearby hardware OAM contains the normal body tile
+range24..2c plus overlapping weapon parts; render rows report up to18sprites
+on a scanline and no new DMA on3652/3653. The repeated display can include a
+held committed image. Actual body readability/overlap remains OPEN; it is not
+dismissed as an ordinary effect, certified as source-perfect, or labeled CHR
+corruption without owner/pixel evidence.
+
+Source leads supplied by ROOT for later audit, not a proved cause here:
+DrawAllMetasprites draws weapon lists before reserving body at RgOamPlayerStart;
+KbOamPriority rotates the used OAM ring. Meta has MkClampOamPriority for layered
+body splitting; PnDraw emits27 actor records before body. Future work must bind
+actual source OAM/priority to pixel visibility, preserve projectile/enemy fairness
+and keep the NES eight-sprite limit. No visibility source patch is proposed now.
+
+Known M3 HUD issue and scanner classification
+---------------------------------------------
+The selected Mario3/Luigi3 bodies and stage tiles are coherent in these8samples
+each. Additional Luigi1354 visibly replaces P-meter glyphs with white cloud
+shapes while1353/1355 use arrow outlines. This retains the known M3 HUD tile-
+ownership issue. ROOT separately reports a later private repair and native
+qualification; those later ROMs/frames are not certified by this8ff review.
+
+Scanner candidate regions:
+Mike1981:cell(15,5),14 changed non-green pixels, right-edge question-block area.
+Luigi1354:cell(14,5),16 clustered non-green pixels, right-side question block.
+Ryu2831:cells(5,5),(2,9),(5,9),(8,9), all on question-block regions;67 total
+changed pixels,0 green. The actual1980..1982/1353..1355/2830..2832 montages
+show ordinary question-tile animation/scroll-alignment variation in these
+flagged regions. They do not demonstrate a new green-block or stage-CHR fault.
+This classification is local to the flagged regions; Luigi1354 concurrently
+contains the known P-meter artifact outside its flagged stage cell. No scan
+receipt is edited to accepted=true and no empty-scan all-graphics pass is inferred.
+
+Bass green-strip suspicion retracted after actual-frame inspection
+------------------------------------------------------------------
+Bass Hard2738 has a normal green pipe at actual LEFT x0, continuous down to the
+ground. Actual2737/2739 show its width shrinking with viewport movement;2750
+has scrolled it offscreen. The montage places this left edge next to the prior
+panel right edge, creating a floating-strip illusion. All8Bass selected frames
+look bounded normal for body, projectiles, BUSTER/BASS HUD, score and stage.
+No new green-block defect is established and no source change is proposed.
+
+Other selected observations and limits
+---------------------------------------
+Darkwing/Roll/Kirby/Meta/Mac/Mike/TwinBee/Pentarou, all four turtles, Grant,
+Rygar, Ryu in both modes, Scrooge, Link, Dale, Simon and Chip show recognizable
+complete poses or intended compact somersault/attack shapes, coherent sampled
+effects and readable main HUD/score/coin/time fields. This is a bounded visual
+observation, not proof of every pose, every item, every frame or original art.
+
+Vic has a dense/stylized power strip. Frozen8ff vic_hud.inc and VvHud explicitly
+queue native-style Gradius cell masks; no wrong-CHR write is shown. It remains
+a readability limitation rather than a newly proved corruption fault. Other
+craft HUD labels are also compact. No replacement UI/font/art is proposed.
+
+Separate Roll double-update/fade defects were established by dedicated physical
+item work; sparse route samples do not close or supersede those findings. The
+Roll fade source packet remains frozen, and native qualification is separate.
+
+All216 selected frames were inspected, not all183205 batch-v3 scanned frames
+nor all later batch-v4 captures. An unexplained or absent sprite cannot be
+dismissed solely because an existing body-CHR mapping checker passed. No audio,
+cadence, input responsiveness, dynamic collision or source-motion verdict is
+made from contact sheets. Unseen glitches and later/current builds remain open.
+
+External review bindings are additive; original proof.json, raw PNGs, OAM,
+trace/render CSVs, archives, failures and scanner flags remain immutable.
