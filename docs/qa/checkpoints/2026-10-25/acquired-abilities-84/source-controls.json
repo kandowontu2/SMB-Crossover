@@ -1,0 +1,37 @@
+{
+  "passed": true,
+  "ROM_sha256": "84e55b6d60da4be5550d823f88ee40a9b220dbef5a1e8dd21de3d69aa28cb328",
+  "script_sha256": "d4df2353c362a87083a9b3dd68a4aca7960439463731411abbbef35eefa5de2a",
+  "enemy_foot_offset": 24,
+  "controls": [
+    {
+      "initial_canonical_y": 192,
+      "floor_y": 208,
+      "result_y": 192,
+      "result_state": 1,
+      "state_writes": [
+        {
+          "pc": 41233,
+          "bank": 0,
+          "address": 31,
+          "value": 1
+        }
+      ]
+    },
+    {
+      "initial_canonical_y": 184,
+      "floor_y": 208,
+      "result_y": 184,
+      "result_state": 0,
+      "state_writes": []
+    },
+    {
+      "initial_canonical_y": 168,
+      "floor_y": 192,
+      "result_y": 168,
+      "result_state": 0,
+      "state_writes": []
+    }
+  ],
+  "scope": "Direct CPU control of original native enemy-floor admission. This explains invalid target staging and does not qualify gameplay or native PPU timing."
+}
