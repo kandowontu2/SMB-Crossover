@@ -27,9 +27,10 @@ test outputs as evidence, not previous agent claims or the old README alone.
 
 MMC5 current ROM:
 C:/Users/kando/Downloads/SMB-Crossover-Current-MMC5.nes
-SHA256 274fff8613d98a281d7549d13e59430c4d6b4553eb16bd9d2c651e0b409c8b3b
+SHA256 ee0b6bc5e253e6de7476ef9b781e748c1fced896a28cadd13d74561119172a44
 User already opened this in their own Mesen. Do not stop their emulator.
-Latest source receipt: build/verification/chip-ceiling-feedback/proof.json
+Latest source receipt: build/verification/parodius-graphical-hud/proof.json
+Previous child: build/verification/chip-ceiling-feedback/proof.json (274fff...).
 Parent receipt/checkpoint: build/verification/native-probes-qa/proof.json and
 build/checkpoints/native-probes-qa/checkpoint.json (054d9e33... parent).
 The four older public build/smb-crossover*.nes files are STALE; do not test
@@ -40,7 +41,7 @@ D = C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py
 P = D/native-probes-qa-v2
 Q = C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-head-pz
 P/candidate.nes is the prior054d9e33... MMC5 ROM. The current Downloads ROM is
-D/chip-ceiling-feedback-v1/adoption-v1/candidate.nes, byte-verified after a
+D/parodius-hud-candidate-v2/adoption-v1/candidate.nes, byte-verified after a
 fresh compile from adopted ROOT source. Parent download has a full hash-named
 backup in that adoption-v1 folder. Never confuse the two hashes' test scopes.
 
@@ -60,6 +61,7 @@ Latest accepted source/tool packet: D/mmc3-ship-lives-v25/source-packet-v1.
 NEVER rerun successful one-shot adopters: adopt_native_probes_qa_v3_once.py,
 adopt_ryu_head_pz_once.py, adopt_mmc3_ship_v25_once.py. They already succeeded.
 Also NEVER rerun tools/audit/adopt_chip_ceiling_feedback_once.py: succeeded.
+Also NEVER rerun tools/audit/adopt_parodius_hud_once.py: succeeded.
 Their private output folders also use exist_ok=False; use new version names.
 
 2. FIRST UNRESOLVED BUG: MMC3 CHIP AND DALE MOVE13PX IN ONE COMMITTED UPDATE
@@ -179,6 +181,27 @@ stages unchanged vic_viper.s parent so its includes reach the overlay component.
 New tools: capture_parodius_hud.py/prepare_parodius_hud.py under reference;
 prepare_parodius_hud_candidate.py/check_parodius_hud_queue.py under audit.
 Root game source/download still ONLY has the accepted Chip fix274fff... .
+
+UPDATE: PARODIUS GRAPHICAL BAR IS NOW ADOPTED FOR MMC5, CURRENT DOWNLOADee0b...
+Receipt build/verification/parodius-graphical-hud/proof.json. A fresh ROOT
+compile is byte-identical to the tested candidate, installed file hash checked,
+previous274fff... download preserved with its full hash name in adoption-v1.
+Native-v1/proof.json passes all three actual-menu ships, all seven cursor
+positions, empty cursor and font reacquisition:192 direct PPU frames,
+344,064pixel mask checks,639/640 font writes total across cases,324 guarded
+NMIs with all five operand fields and A/C banks intact. Font writes stay out
+of stage scanlines. Human inspected representative actual PPU screenshots for
+all three ships; original-native bar masks/layout and selected cell are clear.
+Native-routes-v1/proof.json also passes ordinary-controller Octopus4974,
+TwinBee4958,Pentarou4970 physicalframes, zero deaths, original committed
+world<=2/camera0..1 and body-CHR checks, continued movement after1-2 entry.
+These are discovery routes; not independent full PPU campaign replays.
+Changed active source: parodius_render.s, parodius.s, parodius_hud.inc,
+chr/characters/parodius-hud.chr, smb1base-mmc5-expanded.cfg. No old RAM or
+other character CHR changes. prepare_mmc3_oversized.py now packs396..398 too;
+its full raw-CHR/reference equality passes on the new current MMC5 build.
+MMC3 still uses prior text fallback; background font upload remains TODO.
+Zelda II Link terrain fix is the NEXT active request; not implemented yet.
 
 3. PRIVATE MMC3 STACK REPAIR / ITS REAL PERFORMANCE COST
 

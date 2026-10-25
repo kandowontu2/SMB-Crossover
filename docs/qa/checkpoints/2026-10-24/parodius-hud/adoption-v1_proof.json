@@ -1,0 +1,55 @@
+{
+  "adopted": true,
+  "goal_complete": false,
+  "ROM_sha256": "ee0b6bc5e253e6de7476ef9b781e748c1fced896a28cadd13d74561119172a44",
+  "parent_ROM_sha256": "274fff8613d98a281d7549d13e59430c4d6b4553eb16bd9d2c651e0b409c8b3b",
+  "installed": "C:\\Users\\kando\\Downloads\\SMB-Crossover-Current-MMC5.nes",
+  "previous_download_backup": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\parodius-hud-candidate-v2\\adoption-v1\\SMB-Crossover-Current-MMC5-274fff8613d98a281d7549d13e59430c4d6b4553eb16bd9d2c651e0b409c8b3b.nes",
+  "root_build": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\parodius-hud-candidate-v2\\adoption-v1\\candidate.nes",
+  "source": [
+    {
+      "path": "smb1base-mmc5-expanded.cfg",
+      "sha256": "e7a4bf6e26fd3e10353ffb0aad9af74a18ff5ac3d8e1d752bc3d0539fe53c573"
+    },
+    {
+      "path": "src/parodius.s",
+      "sha256": "8470651ece44ba953eeacfb14806f5aea3809bbb09f5bb8a5411650e42fe0799"
+    },
+    {
+      "path": "src/parodius_render.s",
+      "sha256": "ce8db46376c2eaea3769302bb5325725f91e85f3a4d6222717cb24c25cb33a58"
+    },
+    {
+      "path": "src/parodius_hud.inc",
+      "sha256": "af397226cad12095528b5858687711e0659b91d612690248ed390cff8f04d3b7"
+    },
+    {
+      "path": "chr/characters/parodius-hud.chr",
+      "sha256": "826e23be42445e062a28b6912d2304064191bfd9a28a35ff4d294f609f18f867"
+    },
+    {
+      "path": "tools/prepare_mmc3_oversized.py",
+      "sha256": "4ca3be07841e29bbcf498e2a37721f9fbb9d4163025d9059b6b348294110fadd"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\parodius-hud-candidate-v2\\queue-proof.json",
+      "sha256": "ce19bb8ffec8e08f76cc7fca041a0096040e5ddf6f0c25e7f44a79e00d75aabe"
+    },
+    {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\parodius-hud-candidate-v2\\native-v1\\proof.json",
+      "sha256": "800478d55a90b89447f9af626810bed3525a4d324ebeb7b8bdb1273427c91aaa"
+    },
+    {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\parodius-hud-candidate-v2\\native-routes-v1\\proof.json",
+      "sha256": "bf106cdad98bc4f1570aacd5dfae4477c05153358d6f8becdb50db224c5e08a5"
+    }
+  ],
+  "original_other_CHR_and_RAM_exact": true,
+  "root_compile_exact_to_tested_ROM": true,
+  "MMC3_prepared_asset_parity": true,
+  "native_PPU_cursor_pixel_frames": 192,
+  "native_PPU_cursor_pixels": 344064,
+  "scope": "MMC5 full graphical original Parodius bars, all seven32px cursor positions, private font acquisition and bounded dirty queue. Actual rendered masks/NMI/banks pass for all three ships; three ordinary-controller zero-death1-1 runs continue through1-2 entry. Human inspected representative actual PPU images. MMC3 retains text fallback; its full graphical font upload and separate architecture remain outstanding. Zelda II terrain and overall roster/item/audio/lag goal remain incomplete."
+}

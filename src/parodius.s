@@ -14,3 +14,8 @@
 .segment "PARODIUS_CHR"
 .incbin "chr/characters/parodius.chr"
 .popseg
+
+.pushseg
+.segment "PN_HUD_CHR"
+.incbin "chr/characters/parodius-hud.chr"
+.popseg

@@ -613,3 +613,18 @@ prior text fallback until its font upload ownership is handled. Rejected
 candidate-v1 accidentally compiled parent nested includes; exact CHR assertion
 caught it and v2 stages the unchanged parent include correctly. No source
 adoption or current-build graphical-HUD completion claim.
+
+Parodius bar now ADOPTED for MMC5, exact current download/root buildee0b6bc5
+e253e6de7476ef9b781e748c1fced896a28cadd13d74561119172a44. Fresh ROOT compile
+matches tested private candidate; previous274fff... download hash-backed up.
+Native UI all three actual-menu ships passes192directPPUframes/344,064pixels,
+all seven full32px cursor positions, empty cursor/font reacquisition, font
+timing, full five-field NMI and A/C bank ownership. Human inspected actual
+PPU images. Three ordinary-controller zero-death1-1 clears (4974/4958/4970
+frames) continue through1-2 entry with strict motion/body-CHR checks. Native
+route PPU/SFX/full-campaign review remains distinct from UI pixel components.
+No other character graphics/RAM/global palette changes. Active oversized
+MMC3 asset preparation now packs the three fonts and passes complete raw-CHR
+equality against this MMC5 reference; MMC3 graphical font loading remains a
+text fallback. Receipt build/verification/parodius-graphical-hud/proof.json.
+Zelda II Link TERRAIN profile is next, still unresolved.

@@ -271,6 +271,11 @@ Done:rts
     raw[336*1024:340*1024]=roll[20480:24576]
     ui=(prepared/'zelda2-pause-font.chr').read_bytes();assert len(ui)==1024
     raw[395*1024:396*1024]=ui
+    # Graphical Parodius fonts share the verified unused gap before Chip412.
+    hud=prepared/'parodius-hud.chr'
+    if hud.exists():
+        data=hud.read_bytes();assert len(data)==3072
+        raw[396*1024:399*1024]=data
     parodius=(prepared/'parodius.chr').read_bytes();assert len(parodius)==192*1024
     raw[832*1024:1024*1024]=parodius
     released=args.reference_rom.resolve()

@@ -1,0 +1,28 @@
+{
+  "compiled": true,
+  "adopted": false,
+  "goal_complete": false,
+  "ROM_sha256": "ee0b6bc5e253e6de7476ef9b781e748c1fced896a28cadd13d74561119172a44",
+  "parent_ROM_sha256": "274fff8613d98a281d7549d13e59430c4d6b4553eb16bd9d2c651e0b409c8b3b",
+  "new_font_pages": [
+    396,
+    397,
+    398
+  ],
+  "original_other_CHR_exact": true,
+  "existing_RAM_addresses_exact": true,
+  "changed_PRG_banks": [
+    77,
+    118
+  ],
+  "art_manifest_sha256": "807f0eb9819b11ec842185c2bc2fd2e90283a1eaeaa79ddb7fb18c0ca3018fc1",
+  "changed_source": {
+    "smb1base-mmc5-expanded.cfg": "e7a4bf6e26fd3e10353ffb0aad9af74a18ff5ac3d8e1d752bc3d0539fe53c573",
+    "src\\parodius.s": "8470651ece44ba953eeacfb14806f5aea3809bbb09f5bb8a5411650e42fe0799",
+    "src\\parodius_hud.inc": "af397226cad12095528b5858687711e0659b91d612690248ed390cff8f04d3b7",
+    "src\\parodius_render.s": "ce8db46376c2eaea3769302bb5325725f91e85f3a4d6222717cb24c25cb33a58",
+    "src\\vic_viper.s": "e0c6406a076f5aff3154511e6099e1d32bf2c63165632bb0de2645f0c5e57cce",
+    "chr\\characters\\parodius-hud.chr": "826e23be42445e062a28b6912d2304064191bfd9a28a35ff4d294f609f18f867"
+  },
+  "scope": "Private MMC5 seven-cell native graphical Parodius bars and full32px attribute cursor. Fonts are refreshed without per-frame VRAM redraw; queue guard retained. MMC3 keeps its prior text fallback until its background-font upload ownership is implemented. No gameplay, weapons, global palette, RAM or existing other-character graphics changes. Native pixels/cursor/boundaries/entry/exit/lag-CHR tests pending; no adoption."
+}

@@ -453,6 +453,101 @@ LastColor:
 Done:rts
 .endproc
 .proc PnHud
+.if ::MAPPER_MMC5
+
+ ; All seven original frame/label cells fit inside the TV-safe28-column row.
+ ; Like the Gradius HUD, renew font ownership even while its cells are clean.
+ lda DisableScreenFlag
+ jne GraphicalDone
+ lda VvVariant
+ clc
+ adc #.lobyte(395)
+ sta InvHudPhysical
+ lda #.hibyte(396)
+ sta X5HudChrUpper
+ lda InvHudActive
+ bne FontActive
+ inc ReloadCHRBank
+FontActive:
+ lda #1
+ sta InvHudActive
+ lda VvHudDirty
+ jeq GraphicalDone
+ ldx VRAM_Buffer1_Offset
+ cpx #40                    ;42-byte append and terminator fit84-byte queue.
+ jcs GraphicalDone
+ lda #$20
+ sta VRAM_Buffer1,x
+ lda #$22                   ;row1, columns2..29: sixteen-pixel side margins.
+ sta VRAM_Buffer1+1,x
+ lda #28
+ sta VRAM_Buffer1+2,x
+ lda VvVariant
+ sec
+ sbc #1
+ tay
+ lda GraphicalOffsets,y
+ tay
+ lda #28
+ sta VvTemp2
+GraphicalCells:
+ lda PnHudCells,y
+ sta VRAM_Buffer1+3,x
+ iny
+ inx
+ dec VvTemp2
+ bne GraphicalCells
+ inx
+ inx
+ inx
+ lda #$23
+ sta VRAM_Buffer1,x
+ lda #$c0
+ sta VRAM_Buffer1+1,x
+ lda #8
+ sta VRAM_Buffer1+2,x
+ txa
+ clc
+ adc #3
+ tax
+ lda #1
+ sta VvTemp
+ ldy #8
+GraphicalAttributes:
+ lda #$aa
+ sta VvTemp2
+ ; A cell starts two tiles into an attribute byte. Highlight its right
+ ; quadrant here and the next byte's left quadrant, covering all32pixels.
+ lda VvTemp
+ and VvMeter
+ beq RightNormal
+ lda #$a6
+ sta VvTemp2
+RightNormal:
+ lda VvTemp
+ lsr
+ and VvMeter
+ beq LeftNormal
+ lda VvTemp2
+ and #$fc
+ ora #1
+ sta VvTemp2
+LeftNormal:
+ lda VvTemp2
+ sta VRAM_Buffer1,x
+ inx
+ asl VvTemp
+ dey
+ bne GraphicalAttributes
+ stx VRAM_Buffer1_Offset
+ lda #0
+ sta VRAM_Buffer1,x
+ sta VvHudDirty
+GraphicalDone:
+ rts
+GraphicalOffsets:.byte 0,28,56
+.include "parodius_hud.inc"
+.else
  lda VvHudDirty
  jeq Done
  lda DisableScreenFlag
@@ -521,5 +616,6 @@ LabelOffsets:.byte 0,28,56
 Text:.byte "SPD 2WY TAI RIP OPT RST OTR "
  .byte "SPD RKT TAI 3WY OPT RST FLD "
  .byte "SPD POT DBL SPR OPT RST BUB "
+.endif
 .endproc
 .popseg
