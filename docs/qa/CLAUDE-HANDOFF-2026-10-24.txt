@@ -126,7 +126,7 @@ bank254/126 on scanline31, raw world<=3 and camera0..3. Human inspected all four
 overview sheets; no obvious whole-screen/terrain displacement in those samples.
 This is not exhaustive animation/SFX review. Native full four-case frame counts:
  MMC3 ChipEasy4701 ChipHard5016 DaleEasy4780 DaleHard5015
- MMC5 ChipEasy4143 ChipHard4401 DaleEasy4292 DaleHard4389
+ MMC5 ChipEasy4143 ChipHard4389 DaleEasy4292 DaleHard4389
 Read actual proof files if a copied count differs; exact results are authority.
 Adoption changed only src/chip_dale_motion.s BNE->BMI, one ROM byte. Shared
 wall geometry, native jump kernels, RAM/CHR/music and old symbol PCs unchanged.
@@ -147,6 +147,38 @@ Unused native VIC CHR pages396..411 lie after Zelda II pause font395 and before
 Chip/Dale412. Verify allocation and preserve HUD glyphs/scanline publication
 before adding bar assets; consider three private fonts at396..398. No bar or
 Zelda II terrain source fix has been installed yet.
+
+PARODIUS HUD RESEARCH UPDATE: source-v1 endFrame CHR is NOT the HUD font.
+Actual original raster swaps it while drawing the bottom bar. Source-v2 now
+captures mapped PPU data during a real PPU read at frame1799/scanline216.
+The original bar is second nametable$2400,row2, shown at screenY216, not the
+first nametable row27. Rejected art-v1/v2 failures retained. Art-v3 validates
+all1,792pixels per ship (5,376total) against direct native screen masks and
+records each original-ROM CHR tile provenance. Its3072-byte fonts preserve
+all digits/current Parodius HUD-label/name glyphs, blank/dash/multiply/coin;
+unused full-alphabet glyphs are private storage. Pages396/397/398 are clear
+in parent ROM. No global palette modifications. Preview bars are faithful
+source frame/letter masks, collapsing original white/gray to HUD foreground.
+
+D/parodius-hud-candidate-v2/candidate.nes is PRIVATE/UNADOPTED:
+ee0b6bc5e253e6de7476ef9b781e748c1fced896a28cadd13d74561119172a44.
+It replaces MMC5 PnHud's abbreviations with original graphical seven cells;
+sets private font ownership even on clean frames like Gradius, and highlights
+both attribute-byte halves of each32px cell (row1 cols2..29). Entire42B queue
+append plus terminator stays within84B. CPU queue-proof.json passes16,128cases:
+three ships, all empty/seven native cursors, every84offset, dirty/clean,
+screen disable/enable and active/inactive font. Other CHR/RAM unchanged;
+PRG diff banks77/118. Native actual PPU/font cursor entry/exit checks pending.
+MMC3 retains prior text fallback: its background-font upload ownership needs
+explicit support; do not truncate396..398 to eight-bit mapper register values.
+Before any root adoption, update prepare_mmc3_oversized.py's explicit packed
+font list as well, otherwise its raw-CHR/reference parity assertion will fail.
+Candidate-v1 compiled the unchanged parent and was REJECTED by exact CHR
+assertion: nested includes prefer their own directory. Candidate-v2 correctly
+stages unchanged vic_viper.s parent so its includes reach the overlay component.
+New tools: capture_parodius_hud.py/prepare_parodius_hud.py under reference;
+prepare_parodius_hud_candidate.py/check_parodius_hud_queue.py under audit.
+Root game source/download still ONLY has the accepted Chip fix274fff... .
 
 3. PRIVATE MMC3 STACK REPAIR / ITS REAL PERFORMANCE COST
 

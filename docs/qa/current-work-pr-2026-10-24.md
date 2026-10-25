@@ -598,3 +598,18 @@ Standing/crouch/Fairy need their own terrain integration; no source fix yet.
 Original Parodius full seven-cell HUD captures now exist for all three ships
 under D/parodius-hud-source-v1, with PPU maps, direct pixels and matching
 variant bytes; no power bar graphics have been installed yet.
+
+Parodius graphical bar private work: actual original HUD uses a raster-swapped
+font, so the first endFrame-pattern export was rejected. Source-v2 captures
+PPU during real scanline216, original second nametable row2; art-v3 verifies
+all5,376 native frame/letter-mask pixels across three ships, with original CHR
+provenance and all required current HUD glyphs retained. Private candidate-v2
+ee0b6bc5e253e6de7476ef9b781e748c1fced896a28cadd13d74561119172a44
+uses three free1KiB font pages396..398 and full32px cursor halves across eight
+attribute bytes. CPU queue-proof passes16,128actual cases, max terminator81
+within84B, deferral/clean/screen flags and font acquisition. Native PPU/entry/
+exit qualification pending; ROOT source/download unchanged. MMC3 keeps its
+prior text fallback until its font upload ownership is handled. Rejected
+candidate-v1 accidentally compiled parent nested includes; exact CHR assertion
+caught it and v2 stages the unchanged parent include correctly. No source
+adoption or current-build graphical-HUD completion claim.
