@@ -1,0 +1,154 @@
+{
+  "passed": true,
+  "scope": "Same arranged mode-verified600 completed game updates; explicitly compares update work, physical frames and draw counts. Not a whole-level or universal lag proof.",
+  "tool_sha256": "4a2f82b0cf65bfc65dc39706dc2399a01256bd56fca57b035c6d2686e492cc3a",
+  "baseline": {
+    "ROM_sha256": "5ec81c9250c20aee31af0d3b98c241932c72b3147e05702de70e266f3c854893",
+    "native_receipt_sha256": "daa933c9991638973c3936862c440be6cfc74db57e7636cdfbb0532c1c8da810",
+    "all_native_frames": 1021,
+    "completed_work_rows": 600,
+    "phases": {
+      "idle": {
+        "completed_game_loops": 120,
+        "draw_calls": 120,
+        "physical_frame_rows": 120,
+        "frame_movement_updates": 120,
+        "frame_draw_calls": 120,
+        "lag_NMIs": 0,
+        "game_loop_mean_CPU_cycles": 17253.266666666666,
+        "game_loop_mean_ISR_cycles": 119.0,
+        "game_loop_peak_CPU_cycles": 18153
+      },
+      "walk": {
+        "completed_game_loops": 120,
+        "draw_calls": 120,
+        "physical_frame_rows": 120,
+        "frame_movement_updates": 120,
+        "frame_draw_calls": 120,
+        "lag_NMIs": 0,
+        "game_loop_mean_CPU_cycles": 17408.108333333334,
+        "game_loop_mean_ISR_cycles": 116.0,
+        "game_loop_peak_CPU_cycles": 18316
+      },
+      "enemies": {
+        "completed_game_loops": 120,
+        "draw_calls": 120,
+        "physical_frame_rows": 120,
+        "frame_movement_updates": 120,
+        "frame_draw_calls": 120,
+        "lag_NMIs": 0,
+        "game_loop_mean_CPU_cycles": 21036.458333333332,
+        "game_loop_mean_ISR_cycles": 117.0,
+        "game_loop_peak_CPU_cycles": 21816
+      },
+      "primary": {
+        "completed_game_loops": 120,
+        "draw_calls": 119,
+        "physical_frame_rows": 120,
+        "frame_movement_updates": 120,
+        "frame_draw_calls": 119,
+        "lag_NMIs": 1,
+        "game_loop_mean_CPU_cycles": 21458.616666666665,
+        "game_loop_mean_ISR_cycles": 143.78333333333333,
+        "game_loop_peak_CPU_cycles": 23135
+      },
+      "special": {
+        "completed_game_loops": 120,
+        "draw_calls": 120,
+        "physical_frame_rows": 119,
+        "frame_movement_updates": 119,
+        "frame_draw_calls": 119,
+        "lag_NMIs": 0,
+        "game_loop_mean_CPU_cycles": 21534.458333333332,
+        "game_loop_mean_ISR_cycles": 116.0,
+        "game_loop_peak_CPU_cycles": 23127
+      }
+    }
+  },
+  "candidate": {
+    "ROM_sha256": "9e0e5ed5d4957aac9baa040ea76616ee4a88233312700b78a8c55250c19f42d3",
+    "native_receipt_sha256": "e124a27a93cf58c5c264e7ab5919c32f03ab36700c91b8745531ab4a33f8ad5a",
+    "all_native_frames": 1021,
+    "completed_work_rows": 600,
+    "phases": {
+      "idle": {
+        "completed_game_loops": 120,
+        "draw_calls": 120,
+        "physical_frame_rows": 120,
+        "frame_movement_updates": 120,
+        "frame_draw_calls": 120,
+        "lag_NMIs": 0,
+        "game_loop_mean_CPU_cycles": 17253.266666666666,
+        "game_loop_mean_ISR_cycles": 112.0,
+        "game_loop_peak_CPU_cycles": 18153
+      },
+      "walk": {
+        "completed_game_loops": 120,
+        "draw_calls": 120,
+        "physical_frame_rows": 120,
+        "frame_movement_updates": 120,
+        "frame_draw_calls": 120,
+        "lag_NMIs": 0,
+        "game_loop_mean_CPU_cycles": 17408.108333333334,
+        "game_loop_mean_ISR_cycles": 115.0,
+        "game_loop_peak_CPU_cycles": 18316
+      },
+      "enemies": {
+        "completed_game_loops": 120,
+        "draw_calls": 120,
+        "physical_frame_rows": 120,
+        "frame_movement_updates": 120,
+        "frame_draw_calls": 120,
+        "lag_NMIs": 0,
+        "game_loop_mean_CPU_cycles": 21036.458333333332,
+        "game_loop_mean_ISR_cycles": 113.0,
+        "game_loop_peak_CPU_cycles": 21816
+      },
+      "primary": {
+        "completed_game_loops": 120,
+        "draw_calls": 120,
+        "physical_frame_rows": 120,
+        "frame_movement_updates": 120,
+        "frame_draw_calls": 120,
+        "lag_NMIs": 0,
+        "game_loop_mean_CPU_cycles": 21508.458333333332,
+        "game_loop_mean_ISR_cycles": 99.0,
+        "game_loop_peak_CPU_cycles": 23135
+      },
+      "special": {
+        "completed_game_loops": 120,
+        "draw_calls": 120,
+        "physical_frame_rows": 119,
+        "frame_movement_updates": 119,
+        "frame_draw_calls": 119,
+        "lag_NMIs": 0,
+        "game_loop_mean_CPU_cycles": 21534.433333333334,
+        "game_loop_mean_ISR_cycles": 99.0,
+        "game_loop_peak_CPU_cycles": 23127
+      }
+    }
+  },
+  "exact_gameplay_work_excluding_wall": true,
+  "count_differences": [
+    {
+      "phase": "primary",
+      "measure": "draw_calls",
+      "baseline": 119,
+      "candidate": 120
+    },
+    {
+      "phase": "primary",
+      "measure": "frame_draw_calls",
+      "baseline": 119,
+      "candidate": 120
+    },
+    {
+      "phase": "primary",
+      "measure": "lag_NMIs",
+      "baseline": 1,
+      "candidate": 0
+    }
+  ],
+  "regressions": [],
+  "no_extra_skipped_draws_or_lag": true
+}

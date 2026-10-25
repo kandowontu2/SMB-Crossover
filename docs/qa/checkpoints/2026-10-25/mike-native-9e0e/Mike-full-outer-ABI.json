@@ -1,0 +1,176 @@
+{
+  "passed": true,
+  "accepted": false,
+  "faithful_v5_ROM_sha256": "60764705860545752d21162581332fb055cc84717abff00c98447e4b76833e75",
+  "candidate_ROM_sha256": "9e0e5ed5d4957aac9baa040ea76616ee4a88233312700b78a8c55250c19f42d3",
+  "tool_sha256": "723d16bfd055b4691ae67d99c1cdded76b34bebf36d7b0c785e029dd9a93de76",
+  "whole_Mike_AudioUpdate_calls": 4032,
+  "CPU_modes": [
+    0,
+    1
+  ],
+  "all_N_V_Z_C_combinations_plus_DI": [
+    32,
+    33,
+    34,
+    35,
+    96,
+    97,
+    98,
+    99,
+    160,
+    161,
+    162,
+    163,
+    224,
+    225,
+    226,
+    227,
+    238,
+    255
+  ],
+  "rows": [
+    {
+      "role": "area",
+      "bit": 0,
+      "song": 1,
+      "cases": 288,
+      "cycle_delta": [
+        -160,
+        9
+      ]
+    },
+    {
+      "role": "area",
+      "bit": 1,
+      "song": 2,
+      "cases": 288,
+      "cycle_delta": [
+        -200,
+        9
+      ]
+    },
+    {
+      "role": "area",
+      "bit": 2,
+      "song": 4,
+      "cases": 288,
+      "cycle_delta": [
+        -205,
+        9
+      ]
+    },
+    {
+      "role": "area",
+      "bit": 3,
+      "song": 5,
+      "cases": 288,
+      "cycle_delta": [
+        -200,
+        9
+      ]
+    },
+    {
+      "role": "area",
+      "bit": 4,
+      "song": 14,
+      "cases": 288,
+      "cycle_delta": [
+        -129,
+        9
+      ]
+    },
+    {
+      "role": "area",
+      "bit": 5,
+      "song": 11,
+      "cases": 288,
+      "cycle_delta": [
+        -201,
+        9
+      ]
+    },
+    {
+      "role": "area",
+      "bit": 6,
+      "song": 22,
+      "cases": 288,
+      "cycle_delta": [
+        -200,
+        20
+      ]
+    },
+    {
+      "role": "event",
+      "bit": 0,
+      "song": 13,
+      "cases": 288,
+      "cycle_delta": [
+        -163,
+        9
+      ]
+    },
+    {
+      "role": "event",
+      "bit": 1,
+      "song": 15,
+      "cases": 288,
+      "cycle_delta": [
+        -163,
+        9
+      ]
+    },
+    {
+      "role": "event",
+      "bit": 2,
+      "song": 9,
+      "cases": 288,
+      "cycle_delta": [
+        -200,
+        9
+      ]
+    },
+    {
+      "role": "event",
+      "bit": 3,
+      "song": 17,
+      "cases": 288,
+      "cycle_delta": [
+        -200,
+        9
+      ]
+    },
+    {
+      "role": "event",
+      "bit": 4,
+      "song": 15,
+      "cases": 288,
+      "cycle_delta": [
+        -163,
+        9
+      ]
+    },
+    {
+      "role": "event",
+      "bit": 5,
+      "song": 9,
+      "cases": 288,
+      "cycle_delta": [
+        -200,
+        9
+      ]
+    },
+    {
+      "role": "event",
+      "bit": 6,
+      "song": 5,
+      "cases": 288,
+      "cycle_delta": [
+        -200,
+        9
+      ]
+    }
+  ],
+  "scope": "Exact full Mike AudioUpdate ABI of faithful v5 versus fast candidate.\n\nOriginal source pointer fields are asserted against the independent NSF\nstate before canonically comparing those precise private bytes. All other\nRAM, ordered hardware APU stores, A/X/Y/P/SP and banks are compared literally.\n",
+  "native_emulator_launched": false
+}

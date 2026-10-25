@@ -396,6 +396,7 @@ TitleScreenData:
 .include "vic_viper.s"
 .include "gradius_audio.s"
 .include "mac_native_music.s"
+.include "mike_native_music.s"
 .include "cv3.s"
 .include "little_mac.s"
 .include "smb3_mario_state.inc"

@@ -1,0 +1,12553 @@
+; Generated from authenticated StarTropics original NSF and full-track provenance.
+.pushseg
+.segment "MIKE_NATIVE_AUDIO"
+StNativeRam=XgLzHistory
+StNativeZp=XgLzHistory+$100
+StNativeSavedZp=XgLzHistory+$110
+StNativePending=XgAudioSelection
+StNativeBankStart:
+.assert StNativeBankStart=$a200,lderror,"Mike tail must follow all existing music bytes"
+StNativeP0400:
+  .byte $8f
+StNativeP0401:
+  .byte $85
+StNativeP0402:
+  .byte $36
+StNativeP0403:
+  .byte $54
+StNativeP0404:
+  .byte $32
+StNativeP0405:
+  .byte $22
+StNativeP0406:
+  .byte $22
+StNativeP0407:
+  .byte $22
+StNativeP0408:
+  .byte $13
+StNativeP0409:
+  .byte $57
+StNativeP040A:
+  .byte $9c
+StNativeP040B:
+  .byte $ef
+StNativeP040C:
+  .byte $fe
+StNativeP040D:
+  .byte $da
+StNativeP040E:
+  .byte $97
+StNativeP040F:
+  .byte $64
+StNativeP0410:
+  .byte $cf
+StNativeP0411:
+  .byte $ec
+StNativeP0412:
+  .byte $97
+StNativeP0413:
+  .byte $53
+StNativeP0414:
+  .byte $33
+StNativeP0415:
+  .byte $33
+StNativeP0416:
+  .byte $33
+StNativeP0417:
+  .byte $33
+StNativeP0418:
+  .byte $00
+StNativeP0419:
+  .byte $00
+StNativeP041A:
+  .byte $00
+StNativeP041B:
+  .byte $00
+StNativeP041C:
+  .byte $00
+StNativeP041D:
+  .byte $00
+StNativeP041E:
+  .byte $00
+StNativeP041F:
+  .byte $00
+StNativeP0420:
+  .byte $f8
+StNativeP0421:
+  .byte $41
+StNativeP0422:
+  .byte $00
+StNativeP0423:
+  .byte $00
+StNativeP0424:
+  .byte $00
+StNativeP0425:
+  .byte $00
+StNativeP0426:
+  .byte $00
+StNativeP0427:
+  .byte $00
+StNativeP0428:
+  .byte $00
+StNativeP0429:
+  .byte $00
+StNativeP042A:
+  .byte $00
+StNativeP042B:
+  .byte $00
+StNativeP042C:
+  .byte $00
+StNativeP042D:
+  .byte $00
+StNativeP042E:
+  .byte $00
+StNativeP042F:
+  .byte $00
+StNativeP0430:
+  .byte $01
+StNativeP0431:
+  .byte $23
+StNativeP0432:
+  .byte $45
+StNativeP0433:
+  .byte $67
+StNativeP0434:
+  .byte $89
+StNativeP0435:
+  .byte $ab
+StNativeP0436:
+  .byte $cd
+StNativeP0437:
+  .byte $ef
+StNativeP0438:
+  .byte $00
+StNativeP0439:
+  .byte $00
+StNativeP043A:
+  .byte $00
+StNativeP043B:
+  .byte $00
+StNativeP043C:
+  .byte $00
+StNativeP043D:
+  .byte $00
+StNativeP043E:
+  .byte $00
+StNativeP043F:
+  .byte $00
+StNativeP0440:
+  .byte $f0
+StNativeP0441:
+  .byte $f0
+StNativeP0442:
+  .byte $f0
+StNativeP0443:
+  .byte $f0
+StNativeP0444:
+  .byte $00
+StNativeP0445:
+  .byte $00
+StNativeP0446:
+  .byte $00
+StNativeP0447:
+  .byte $00
+StNativeP0448:
+  .byte $00
+StNativeP0449:
+  .byte $00
+StNativeP044A:
+  .byte $00
+StNativeP044B:
+  .byte $00
+StNativeP044C:
+  .byte $00
+StNativeP044D:
+  .byte $00
+StNativeP044E:
+  .byte $00
+StNativeP044F:
+  .byte $00
+StNativeP0450:
+  .byte $00
+StNativeP0451:
+  .byte $00
+StNativeP0452:
+  .byte $00
+StNativeP0453:
+  .byte $00
+StNativeP0454:
+  .byte $00
+StNativeP0455:
+  .byte $00
+StNativeP0456:
+  .byte $00
+StNativeP0457:
+  .byte $00
+StNativeP0458:
+  .byte $00
+StNativeP0459:
+  .byte $00
+StNativeP045A:
+  .byte $00
+StNativeP045B:
+  .byte $00
+StNativeP045C:
+  .byte $00
+StNativeP045D:
+  .byte $00
+StNativeP045E:
+  .byte $00
+StNativeP045F:
+  .byte $00
+StNativeP0460:
+  .byte $00
+StNativeP0461:
+  .byte $00
+StNativeP0462:
+  .byte $00
+StNativeP0463:
+  .byte $00
+StNativeP0464:
+  .byte $00
+StNativeP0465:
+  .byte $00
+StNativeP0466:
+  .byte $00
+StNativeP0467:
+  .byte $00
+StNativeP0468:
+  .byte $00
+StNativeP0469:
+  .byte $00
+StNativeP046A:
+  .byte $00
+StNativeP046B:
+  .byte $00
+StNativeP046C:
+  .byte $00
+StNativeP046D:
+  .byte $00
+StNativeP046E:
+  .byte $00
+StNativeP046F:
+  .byte $00
+StNativeP0470:
+  .byte $00
+StNativeP0471:
+  .byte $00
+StNativeP0472:
+  .byte $00
+StNativeP0473:
+  .byte $00
+StNativeP0474:
+  .byte $00
+StNativeP0475:
+  .byte $00
+StNativeP0476:
+  .byte $00
+StNativeP0477:
+  .byte $00
+StNativeP0478:
+  .byte $00
+StNativeP0479:
+  .byte $00
+StNativeP047A:
+  .byte $00
+StNativeP047B:
+  .byte $00
+StNativeP047C:
+  .byte $00
+StNativeP047D:
+  .byte $00
+StNativeP047E:
+  .byte $00
+StNativeP047F:
+  .byte $00
+StNativeP0480:
+  .byte $00
+StNativeP0481:
+  .byte $00
+StNativeP0482:
+  .byte $00
+StNativeP0483:
+  .byte $00
+StNativeP0484:
+  .byte $00
+StNativeP0485:
+  .byte $00
+StNativeP0486:
+  .byte $00
+StNativeP0487:
+  .byte $00
+StNativeP0488:
+  .byte $00
+StNativeP0489:
+  .byte $00
+StNativeP048A:
+  .byte $00
+StNativeP048B:
+  .byte $00
+StNativeP048C:
+  .byte $00
+StNativeP048D:
+  .byte $00
+StNativeP048E:
+  .byte $00
+StNativeP048F:
+  .byte $00
+StNativeP0490:
+  LDA #$ff
+StNativeP0492:
+  STA ::StNativeRam+$10
+StNativeP0495:
+  STA ::StNativeRam+$11
+StNativeP0498:
+  STA ::StNativeRam+$12
+StNativeP049B:
+  STA ::StNativeRam+$13
+StNativeP049E:
+  STA ::StNativeRam+$14
+StNativeP04A1:
+  STA ::StNativeRam+$15
+StNativeP04A4:
+  STA ::StNativeRam+$0b
+StNativeP04A7:
+  STA ::StNativeRam+$0d
+StNativeP04AA:
+  LDX #$00
+StNativeP04AC:
+  STX ::StNativeZp+0
+StNativeP04AE:
+  STX ::StNativeZp+1
+StNativeP04B0:
+  STX ::StNativeZp+2
+StNativeP04B2:
+  STX ::StNativeZp+3
+StNativeP04B4:
+  STX ::StNativeZp+4
+StNativeP04B6:
+  STX ::StNativeZp+5
+StNativeP04B8:
+  STX ::StNativeRam+$08
+StNativeP04BB:
+  jsr StNativeStatusSTX
+StNativeP04BE:
+  STX ::StNativeRam+$00
+StNativeP04C1:
+  STX ::StNativeRam+$01
+StNativeP04C4:
+  STX ::StNativeRam+$02
+StNativeP04C7:
+  STX ::StNativeRam+$03
+StNativeP04CA:
+  STX ::StNativeRam+$04
+StNativeP04CD:
+  LDA #$50
+StNativeP04CF:
+  STA ::StNativeRam+$0c
+StNativeP04D2:
+  NOP
+StNativeP04D3:
+  NOP
+StNativeP04D4:
+  NOP
+StNativeP04D5:
+  RTS
+StNativeP04D6:
+  .byte $00
+StNativeP04D7:
+  .byte $00
+StNativeP04D8:
+  .byte $00
+StNativeP04D9:
+  .byte $00
+StNativeP04DA:
+  .byte $00
+StNativeP04DB:
+  .byte $00
+StNativeP04DC:
+  .byte $00
+StNativeP04DD:
+  .byte $00
+StNativeP04DE:
+  .byte $00
+StNativeP04DF:
+  .byte $00
+StNativeP04E0:
+  .byte $00
+StNativeP04E1:
+  .byte $00
+StNativeP04E2:
+  .byte $00
+StNativeP04E3:
+  .byte $00
+StNativeP04E4:
+  .byte $00
+StNativeP04E5:
+  .byte $00
+StNativeP04E6:
+  .byte $00
+StNativeP04E7:
+  .byte $00
+StNativeP04E8:
+  .byte $00
+StNativeP04E9:
+  .byte $00
+StNativeP04EA:
+  .byte $00
+StNativeP04EB:
+  .byte $00
+StNativeP04EC:
+  .byte $00
+StNativeP04ED:
+  .byte $00
+StNativeP04EE:
+  .byte $00
+StNativeP04EF:
+  .byte $00
+StNativeP04F0:
+  .byte $00
+StNativeP04F1:
+  .byte $00
+StNativeP04F2:
+  .byte $00
+StNativeP04F3:
+  .byte $00
+StNativeP04F4:
+  .byte $00
+StNativeP04F5:
+  .byte $00
+StNativeP04F6:
+  .byte $00
+StNativeP04F7:
+  .byte $00
+StNativeP04F8:
+  .byte $00
+StNativeP04F9:
+  .byte $00
+StNativeP04FA:
+  .byte $00
+StNativeP04FB:
+  .byte $00
+StNativeP04FC:
+  .byte $00
+StNativeP04FD:
+  .byte $00
+StNativeP04FE:
+  .byte $00
+StNativeP04FF:
+  .byte $00
+StNativeP0500:
+  .byte $00
+StNativeP0501:
+  .byte $00
+StNativeP0502:
+  .byte $00
+StNativeP0503:
+  .byte $00
+StNativeP0504:
+  .byte $00
+StNativeP0505:
+  .byte $00
+StNativeP0506:
+  .byte $00
+StNativeP0507:
+  .byte $00
+StNativeP0508:
+  .byte $00
+StNativeP0509:
+  ASL A
+StNativeP050A:
+  TAX
+StNativeP050B:
+  LDA ::StNativeP2000,x
+StNativeP050E:
+  STA $f0
+StNativeP0510:
+  LDA ::StNativeP2001,x
+StNativeP0513:
+  STA $f1
+StNativeP0515:
+  LDY #$00
+StNativeP0517:
+  LDA ($f0),Y
+StNativeP0519:
+  STA ::StNativeZp+10
+StNativeP051B:
+  INY
+StNativeP051C:
+  LDA ($f0),Y
+StNativeP051E:
+  INY
+StNativeP051F:
+  TAX
+StNativeP0520:
+  LDA ($f0),Y
+StNativeP0522:
+  INY
+StNativeP0523:
+  STA ::StNativeRam+$16,x
+StNativeP0526:
+  LDA ($f0),Y
+StNativeP0528:
+  INY
+StNativeP0529:
+  STA ::StNativeRam+$1c,x
+StNativeP052C:
+  LDA #$00
+StNativeP052E:
+  STA ::StNativeRam+$10,x
+StNativeP0531:
+  DEC ::StNativeZp+10
+StNativeP0533:
+  BPL ::StNativeP051C
+StNativeP0535:
+  RTS
+StNativeP0536:
+  .byte $00
+StNativeP0537:
+  .byte $00
+StNativeP0538:
+  .byte $00
+StNativeP0539:
+  .byte $00
+StNativeP053A:
+  .byte $00
+StNativeP053B:
+  .byte $00
+StNativeP053C:
+  .byte $00
+StNativeP053D:
+  .byte $00
+StNativeP053E:
+  .byte $00
+StNativeP053F:
+  .byte $00
+StNativeP0540:
+  .byte $00
+StNativeP0541:
+  .byte $00
+StNativeP0542:
+  .byte $00
+StNativeP0543:
+  .byte $00
+StNativeP0544:
+  .byte $00
+StNativeP0545:
+  .byte $00
+StNativeP0546:
+  .byte $00
+StNativeP0547:
+  .byte $00
+StNativeP0548:
+  .byte $00
+StNativeP0549:
+  .byte $00
+StNativeP054A:
+  .byte $00
+StNativeP054B:
+  .byte $00
+StNativeP054C:
+  .byte $00
+StNativeP054D:
+  .byte $00
+StNativeP054E:
+  .byte $00
+StNativeP054F:
+  .byte $00
+StNativeP0550:
+  .byte $00
+StNativeP0551:
+  .byte $00
+StNativeP0552:
+  .byte $00
+StNativeP0553:
+  .byte $00
+StNativeP0554:
+  .byte $00
+StNativeP0555:
+  .byte $00
+StNativeP0556:
+  .byte $00
+StNativeP0557:
+  .byte $00
+StNativeP0558:
+  .byte $00
+StNativeP0559:
+  .byte $00
+StNativeP055A:
+  .byte $00
+StNativeP055B:
+  .byte $00
+StNativeP055C:
+  .byte $00
+StNativeP055D:
+  .byte $00
+StNativeP055E:
+  .byte $00
+StNativeP055F:
+  .byte $00
+StNativeP0560:
+  .byte $00
+StNativeP0561:
+  .byte $00
+StNativeP0562:
+  .byte $00
+StNativeP0563:
+  .byte $00
+StNativeP0564:
+  .byte $00
+StNativeP0565:
+  .byte $00
+StNativeP0566:
+  .byte $00
+StNativeP0567:
+  .byte $00
+StNativeP0568:
+  .byte $00
+StNativeP0569:
+  .byte $00
+StNativeP056A:
+  .byte $00
+StNativeP056B:
+  .byte $00
+StNativeP056C:
+  .byte $00
+StNativeP056D:
+  .byte $00
+StNativeP056E:
+  .byte $00
+StNativeP056F:
+  .byte $00
+StNativeP0570:
+  .byte $00
+StNativeP0571:
+  .byte $00
+StNativeP0572:
+  .byte $00
+StNativeP0573:
+  .byte $00
+StNativeP0574:
+  .byte $00
+StNativeP0575:
+  .byte $00
+StNativeP0576:
+  .byte $00
+StNativeP0577:
+  .byte $00
+StNativeP0578:
+  .byte $00
+StNativeP0579:
+  .byte $00
+StNativeP057A:
+  .byte $00
+StNativeP057B:
+  .byte $00
+StNativeP057C:
+  .byte $00
+StNativeP057D:
+  .byte $00
+StNativeP057E:
+  .byte $00
+StNativeP057F:
+  .byte $00
+StNativeP0580:
+  .byte $00
+StNativeP0581:
+  .byte $00
+StNativeP0582:
+  .byte $00
+StNativeP0583:
+  .byte $00
+StNativeP0584:
+  .byte $00
+StNativeP0585:
+  .byte $00
+StNativeP0586:
+  .byte $00
+StNativeP0587:
+  .byte $00
+StNativeP0588:
+  .byte $00
+StNativeP0589:
+  .byte $00
+StNativeP058A:
+  .byte $00
+StNativeP058B:
+  .byte $00
+StNativeP058C:
+  .byte $00
+StNativeP058D:
+  .byte $00
+StNativeP058E:
+  .byte $00
+StNativeP058F:
+  .byte $00
+StNativeP0590:
+  .byte $00
+StNativeP0591:
+  .byte $00
+StNativeP0592:
+  .byte $00
+StNativeP0593:
+  .byte $00
+StNativeP0594:
+  .byte $00
+StNativeP0595:
+  .byte $00
+StNativeP0596:
+  .byte $00
+StNativeP0597:
+  .byte $00
+StNativeP0598:
+  .byte $00
+StNativeP0599:
+  .byte $00
+StNativeP059A:
+  .byte $00
+StNativeP059B:
+  .byte $00
+StNativeP059C:
+  .byte $00
+StNativeP059D:
+  .byte $00
+StNativeP059E:
+  .byte $00
+StNativeP059F:
+  .byte $00
+StNativeP05A0:
+  .byte $00
+StNativeP05A1:
+  .byte $00
+StNativeP05A2:
+  .byte $00
+StNativeP05A3:
+  .byte $00
+StNativeP05A4:
+  .byte $00
+StNativeP05A5:
+  .byte $00
+StNativeP05A6:
+  .byte $00
+StNativeP05A7:
+  .byte $00
+StNativeP05A8:
+  .byte $00
+StNativeP05A9:
+  .byte $00
+StNativeP05AA:
+  .byte $00
+StNativeP05AB:
+  .byte $00
+StNativeP05AC:
+  .byte $00
+StNativeP05AD:
+  .byte $00
+StNativeP05AE:
+  .byte $00
+StNativeP05AF:
+  .byte $00
+StNativeP05B0:
+  .byte $00
+StNativeP05B1:
+  .byte $00
+StNativeP05B2:
+  .byte $00
+StNativeP05B3:
+  .byte $00
+StNativeP05B4:
+  .byte $00
+StNativeP05B5:
+  .byte $00
+StNativeP05B6:
+  .byte $00
+StNativeP05B7:
+  .byte $00
+StNativeP05B8:
+  .byte $00
+StNativeP05B9:
+  .byte $00
+StNativeP05BA:
+  .byte $00
+StNativeP05BB:
+  .byte $00
+StNativeP05BC:
+  .byte $00
+StNativeP05BD:
+  .byte $00
+StNativeP05BE:
+  .byte $00
+StNativeP05BF:
+  .byte $00
+StNativeP05C0:
+  .byte $00
+StNativeP05C1:
+  .byte $00
+StNativeP05C2:
+  .byte $00
+StNativeP05C3:
+  .byte $00
+StNativeP05C4:
+  .byte $00
+StNativeP05C5:
+  .byte $00
+StNativeP05C6:
+  .byte $00
+StNativeP05C7:
+  LDA ::StNativeZp+2
+StNativeP05C9:
+  BNE ::StNativeP060F
+StNativeP05CB:
+  LDA ::StNativeZp+3
+StNativeP05CD:
+  BNE ::StNativeP0617
+StNativeP05CF:
+  LDA ::StNativeZp+4
+StNativeP05D1:
+  BNE ::StNativeP061F
+StNativeP05D3:
+  LDA ::StNativeZp+5
+StNativeP05D5:
+  BNE ::StNativeP05EE
+StNativeP05D7:
+  LDA ::StNativeRam+$12
+StNativeP05DA:
+  AND ::StNativeRam+$14
+StNativeP05DD:
+  CMP #$ff
+StNativeP05DF:
+  BEQ ::StNativeP05E4
+StNativeP05E1:
+  .byte $00
+StNativeP05E2:
+  .byte $00
+StNativeP05E3:
+  .byte $00
+StNativeP05E4:
+  RTS
+StNativeP05E5:
+  .byte $00
+StNativeP05E6:
+  .byte $00
+StNativeP05E7:
+  .byte $00
+StNativeP05E8:
+  .byte $00
+StNativeP05E9:
+  .byte $00
+StNativeP05EA:
+  .byte $00
+StNativeP05EB:
+  .byte $00
+StNativeP05EC:
+  .byte $00
+StNativeP05ED:
+  .byte $00
+StNativeP05EE:
+  .byte $00
+StNativeP05EF:
+  .byte $00
+StNativeP05F0:
+  .byte $00
+StNativeP05F1:
+  .byte $00
+StNativeP05F2:
+  .byte $00
+StNativeP05F3:
+  .byte $00
+StNativeP05F4:
+  .byte $00
+StNativeP05F5:
+  .byte $00
+StNativeP05F6:
+  .byte $00
+StNativeP05F7:
+  .byte $00
+StNativeP05F8:
+  .byte $00
+StNativeP05F9:
+  .byte $00
+StNativeP05FA:
+  .byte $00
+StNativeP05FB:
+  .byte $00
+StNativeP05FC:
+  .byte $00
+StNativeP05FD:
+  .byte $00
+StNativeP05FE:
+  .byte $00
+StNativeP05FF:
+  .byte $00
+StNativeP0600:
+  .byte $00
+StNativeP0601:
+  .byte $00
+StNativeP0602:
+  .byte $00
+StNativeP0603:
+  .byte $00
+StNativeP0604:
+  .byte $00
+StNativeP0605:
+  .byte $00
+StNativeP0606:
+  .byte $00
+StNativeP0607:
+  .byte $00
+StNativeP0608:
+  .byte $00
+StNativeP0609:
+  .byte $00
+StNativeP060A:
+  .byte $00
+StNativeP060B:
+  .byte $00
+StNativeP060C:
+  .byte $00
+StNativeP060D:
+  .byte $00
+StNativeP060E:
+  .byte $00
+StNativeP060F:
+  .byte $00
+StNativeP0610:
+  .byte $00
+StNativeP0611:
+  .byte $00
+StNativeP0612:
+  .byte $00
+StNativeP0613:
+  .byte $00
+StNativeP0614:
+  .byte $00
+StNativeP0615:
+  .byte $00
+StNativeP0616:
+  .byte $00
+StNativeP0617:
+  .byte $00
+StNativeP0618:
+  .byte $00
+StNativeP0619:
+  .byte $00
+StNativeP061A:
+  .byte $00
+StNativeP061B:
+  .byte $00
+StNativeP061C:
+  .byte $00
+StNativeP061D:
+  .byte $00
+StNativeP061E:
+  .byte $00
+StNativeP061F:
+  .byte $00
+StNativeP0620:
+  .byte $00
+StNativeP0621:
+  .byte $00
+StNativeP0622:
+  .byte $00
+StNativeP0623:
+  .byte $00
+StNativeP0624:
+  .byte $00
+StNativeP0625:
+  .byte $00
+StNativeP0626:
+  .byte $00
+StNativeP0627:
+  .byte $00
+StNativeP0628:
+  .byte $00
+StNativeP0629:
+  .byte $00
+StNativeP062A:
+  .byte $00
+StNativeP062B:
+  .byte $00
+StNativeP062C:
+  .byte $00
+StNativeP062D:
+  .byte $00
+StNativeP062E:
+  .byte $00
+StNativeP062F:
+  .byte $00
+StNativeP0630:
+  .byte $00
+StNativeP0631:
+  .byte $00
+StNativeP0632:
+  .byte $00
+StNativeP0633:
+  .byte $00
+StNativeP0634:
+  .byte $00
+StNativeP0635:
+  .byte $00
+StNativeP0636:
+  .byte $00
+StNativeP0637:
+  .byte $00
+StNativeP0638:
+  .byte $00
+StNativeP0639:
+  .byte $00
+StNativeP063A:
+  .byte $00
+StNativeP063B:
+  .byte $00
+StNativeP063C:
+  .byte $00
+StNativeP063D:
+  .byte $00
+StNativeP063E:
+  .byte $00
+StNativeP063F:
+  .byte $00
+StNativeP0640:
+  .byte $00
+StNativeP0641:
+  .byte $00
+StNativeP0642:
+  .byte $00
+StNativeP0643:
+  .byte $00
+StNativeP0644:
+  .byte $00
+StNativeP0645:
+  .byte $00
+StNativeP0646:
+  .byte $00
+StNativeP0647:
+  .byte $00
+StNativeP0648:
+  .byte $00
+StNativeP0649:
+  .byte $00
+StNativeP064A:
+  .byte $00
+StNativeP064B:
+  .byte $00
+StNativeP064C:
+  .byte $00
+StNativeP064D:
+  .byte $00
+StNativeP064E:
+  .byte $00
+StNativeP064F:
+  .byte $00
+StNativeP0650:
+  .byte $00
+StNativeP0651:
+  .byte $00
+StNativeP0652:
+  .byte $00
+StNativeP0653:
+  .byte $00
+StNativeP0654:
+  .byte $00
+StNativeP0655:
+  .byte $00
+StNativeP0656:
+  .byte $00
+StNativeP0657:
+  .byte $00
+StNativeP0658:
+  .byte $00
+StNativeP0659:
+  .byte $00
+StNativeP065A:
+  .byte $00
+StNativeP065B:
+  .byte $00
+StNativeP065C:
+  .byte $00
+StNativeP065D:
+  .byte $00
+StNativeP065E:
+  .byte $00
+StNativeP065F:
+  .byte $00
+StNativeP0660:
+  .byte $00
+StNativeP0661:
+  .byte $00
+StNativeP0662:
+  .byte $00
+StNativeP0663:
+  .byte $00
+StNativeP0664:
+  .byte $00
+StNativeP0665:
+  .byte $00
+StNativeP0666:
+  .byte $00
+StNativeP0667:
+  .byte $00
+StNativeP0668:
+  .byte $00
+StNativeP0669:
+  .byte $00
+StNativeP066A:
+  .byte $00
+StNativeP066B:
+  .byte $00
+StNativeP066C:
+  .byte $00
+StNativeP066D:
+  .byte $00
+StNativeP066E:
+  .byte $00
+StNativeP066F:
+  LDA ::StNativeZp+2
+StNativeP0671:
+  BNE ::StNativeP060F
+StNativeP0673:
+  LDA ::StNativeZp+3
+StNativeP0675:
+  BNE ::StNativeP0617
+StNativeP0677:
+  LDA ::StNativeZp+4
+StNativeP0679:
+  BNE ::StNativeP061F
+StNativeP067B:
+  LDA ::StNativeZp+5
+StNativeP067D:
+  BEQ ::StNativeP06CE
+StNativeP067F:
+  .byte $00
+StNativeP0680:
+  .byte $00
+StNativeP0681:
+  .byte $00
+StNativeP0682:
+  CMP ::StNativeZp+1
+StNativeP0684:
+  BEQ ::StNativeP066B
+StNativeP0686:
+  LDX ::StNativeZp+1
+StNativeP0688:
+  BEQ ::StNativeP0695
+StNativeP068A:
+  .byte $00
+StNativeP068B:
+  .byte $00
+StNativeP068C:
+  .byte $00
+StNativeP068D:
+  .byte $00
+StNativeP068E:
+  .byte $00
+StNativeP068F:
+  .byte $00
+StNativeP0690:
+  .byte $00
+StNativeP0691:
+  .byte $00
+StNativeP0692:
+  .byte $00
+StNativeP0693:
+  .byte $00
+StNativeP0694:
+  .byte $00
+StNativeP0695:
+  STA ::StNativeZp+1
+StNativeP0697:
+  AND #$7f
+StNativeP0699:
+  STA ::StNativeZp+0
+StNativeP069B:
+  JMP ::StNativeP0509
+StNativeP069E:
+  JMP ::StNativeP05C7
+StNativeP06A1:
+  .byte $00
+StNativeP06A2:
+  .byte $00
+StNativeP06A3:
+  .byte $00
+StNativeP06A4:
+  LDX ::StNativeRam+$08
+StNativeP06A7:
+  BMI ::StNativeP06A1
+StNativeP06A9:
+  LDA ::StNativeZp+0
+StNativeP06AB:
+  BEQ ::StNativeP069E
+StNativeP06AD:
+  BPL ::StNativeP066F
+StNativeP06AF:
+  CMP #$81
+StNativeP06B1:
+  BCS ::StNativeP0682
+StNativeP06B3:
+  .byte $00
+StNativeP06B4:
+  .byte $00
+StNativeP06B5:
+  .byte $00
+StNativeP06B6:
+  .byte $00
+StNativeP06B7:
+  .byte $00
+StNativeP06B8:
+  .byte $00
+StNativeP06B9:
+  .byte $00
+StNativeP06BA:
+  .byte $00
+StNativeP06BB:
+  .byte $00
+StNativeP06BC:
+  .byte $00
+StNativeP06BD:
+  .byte $00
+StNativeP06BE:
+  .byte $00
+StNativeP06BF:
+  .byte $00
+StNativeP06C0:
+  .byte $00
+StNativeP06C1:
+  .byte $00
+StNativeP06C2:
+  .byte $00
+StNativeP06C3:
+  .byte $00
+StNativeP06C4:
+  .byte $00
+StNativeP06C5:
+  .byte $00
+StNativeP06C6:
+  .byte $00
+StNativeP06C7:
+  .byte $00
+StNativeP06C8:
+  .byte $00
+StNativeP06C9:
+  .byte $00
+StNativeP06CA:
+  .byte $00
+StNativeP06CB:
+  .byte $00
+StNativeP06CC:
+  .byte $00
+StNativeP06CD:
+  .byte $00
+StNativeP06CE:
+  LDX #$00
+StNativeP06D0:
+  STX ::StNativeRam+$0a
+StNativeP06D3:
+  LDA ::StNativeRam+$10
+StNativeP06D6:
+  CMP #$ff
+StNativeP06D8:
+  BEQ ::StNativeP06F6
+StNativeP06DA:
+  CMP #$00
+StNativeP06DC:
+  BEQ ::StNativeP075A
+StNativeP06DE:
+  INC ::StNativeRam+$5e
+StNativeP06E1:
+  LDA ::StNativeRam+$5e
+StNativeP06E4:
+  SBC ::StNativeRam+$58
+StNativeP06E7:
+  BCC ::StNativeP06FE
+StNativeP06E9:
+  LDA ::StNativeRam+$52
+StNativeP06EC:
+  BPL ::StNativeP06F9
+StNativeP06EE:
+  LDA ::StNativeRam+$58
+StNativeP06F1:
+  SBC #$01
+StNativeP06F3:
+  JMP ::StNativeP06FB
+StNativeP06F6:
+  .byte $4c
+StNativeP06F7:
+  .byte $62
+StNativeP06F8:
+  .byte $f7
+StNativeP06F9:
+  .byte $00
+StNativeP06FA:
+  .byte $00
+StNativeP06FB:
+  STA ::StNativeRam+$5e
+StNativeP06FE:
+  DEC ::StNativeRam+$2e
+StNativeP0701:
+  BPL ::StNativeP0754
+StNativeP0703:
+  LDA ::StNativeRam+$28
+StNativeP0706:
+  STA ::StNativeRam+$2e
+StNativeP0709:
+  LDA ::StNativeRam+$64
+StNativeP070C:
+  BEQ ::StNativeP0744
+StNativeP070E:
+  .byte $00
+StNativeP070F:
+  .byte $00
+StNativeP0710:
+  .byte $00
+StNativeP0711:
+  .byte $00
+StNativeP0712:
+  .byte $00
+StNativeP0713:
+  .byte $00
+StNativeP0714:
+  .byte $00
+StNativeP0715:
+  .byte $00
+StNativeP0716:
+  .byte $00
+StNativeP0717:
+  .byte $00
+StNativeP0718:
+  .byte $00
+StNativeP0719:
+  .byte $00
+StNativeP071A:
+  .byte $00
+StNativeP071B:
+  .byte $00
+StNativeP071C:
+  .byte $00
+StNativeP071D:
+  .byte $00
+StNativeP071E:
+  .byte $00
+StNativeP071F:
+  .byte $00
+StNativeP0720:
+  .byte $00
+StNativeP0721:
+  .byte $00
+StNativeP0722:
+  .byte $00
+StNativeP0723:
+  .byte $00
+StNativeP0724:
+  .byte $00
+StNativeP0725:
+  .byte $00
+StNativeP0726:
+  .byte $00
+StNativeP0727:
+  .byte $00
+StNativeP0728:
+  .byte $00
+StNativeP0729:
+  .byte $00
+StNativeP072A:
+  .byte $00
+StNativeP072B:
+  .byte $00
+StNativeP072C:
+  .byte $00
+StNativeP072D:
+  .byte $00
+StNativeP072E:
+  .byte $00
+StNativeP072F:
+  .byte $00
+StNativeP0730:
+  .byte $00
+StNativeP0731:
+  .byte $00
+StNativeP0732:
+  .byte $00
+StNativeP0733:
+  .byte $00
+StNativeP0734:
+  .byte $00
+StNativeP0735:
+  .byte $00
+StNativeP0736:
+  .byte $00
+StNativeP0737:
+  .byte $00
+StNativeP0738:
+  .byte $00
+StNativeP0739:
+  .byte $00
+StNativeP073A:
+  .byte $00
+StNativeP073B:
+  .byte $00
+StNativeP073C:
+  .byte $00
+StNativeP073D:
+  .byte $00
+StNativeP073E:
+  .byte $00
+StNativeP073F:
+  .byte $00
+StNativeP0740:
+  .byte $00
+StNativeP0741:
+  .byte $00
+StNativeP0742:
+  .byte $00
+StNativeP0743:
+  .byte $00
+StNativeP0744:
+  DEC ::StNativeRam+$3a
+StNativeP0747:
+  BNE ::StNativeP0754
+StNativeP0749:
+  JSR ::StNativeP0AB0
+StNativeP074C:
+  LDA ::StNativeZp+15
+StNativeP074E:
+  STA ::StNativeRam+$22
+StNativeP0751:
+  JMP ::StNativeP0762
+StNativeP0754:
+  JSR ::StNativeP0C0D
+StNativeP0757:
+  JMP ::StNativeP0762
+StNativeP075A:
+  JSR ::StNativeP0A43
+StNativeP075D:
+  LDA ::StNativeZp+15
+StNativeP075F:
+  STA ::StNativeRam+$22
+StNativeP0762:
+  INX
+StNativeP0763:
+  STX ::StNativeRam+$0a
+StNativeP0766:
+  LDA ::StNativeRam+$11
+StNativeP0769:
+  CMP #$ff
+StNativeP076B:
+  BEQ ::StNativeP0789
+StNativeP076D:
+  CMP #$00
+StNativeP076F:
+  BEQ ::StNativeP07E7
+StNativeP0771:
+  INC ::StNativeRam+$5f
+StNativeP0774:
+  LDA ::StNativeRam+$5f
+StNativeP0777:
+  SBC ::StNativeRam+$59
+StNativeP077A:
+  BCC ::StNativeP0791
+StNativeP077C:
+  LDA ::StNativeRam+$53
+StNativeP077F:
+  BPL ::StNativeP078C
+StNativeP0781:
+  LDA ::StNativeRam+$59
+StNativeP0784:
+  SBC #$01
+StNativeP0786:
+  JMP ::StNativeP078E
+StNativeP0789:
+  .byte $4c
+StNativeP078A:
+  .byte $f5
+StNativeP078B:
+  .byte $f7
+StNativeP078C:
+  .byte $00
+StNativeP078D:
+  .byte $00
+StNativeP078E:
+  STA ::StNativeRam+$5f
+StNativeP0791:
+  DEC ::StNativeRam+$2f
+StNativeP0794:
+  BPL ::StNativeP07F2
+StNativeP0796:
+  LDA ::StNativeRam+$29
+StNativeP0799:
+  STA ::StNativeRam+$2f
+StNativeP079C:
+  LDA ::StNativeRam+$65
+StNativeP079F:
+  BEQ ::StNativeP07D7
+StNativeP07A1:
+  .byte $ce
+StNativeP07A2:
+  .byte $d1
+StNativeP07A3:
+  .byte $71
+StNativeP07A4:
+  .byte $d0
+StNativeP07A5:
+  .byte $31
+StNativeP07A6:
+  .byte $ad
+StNativeP07A7:
+  .byte $cb
+StNativeP07A8:
+  .byte $71
+StNativeP07A9:
+  .byte $8d
+StNativeP07AA:
+  .byte $d1
+StNativeP07AB:
+  .byte $71
+StNativeP07AC:
+  .byte $ad
+StNativeP07AD:
+  .byte $95
+StNativeP07AE:
+  .byte $71
+StNativeP07AF:
+  .byte $29
+StNativeP07B0:
+  .byte $1f
+StNativeP07B1:
+  .byte $85
+StNativeP07B2:
+  .byte $f0
+StNativeP07B3:
+  .byte $29
+StNativeP07B4:
+  .byte $10
+StNativeP07B5:
+  .byte $f0
+StNativeP07B6:
+  .byte $20
+StNativeP07B7:
+  .byte $ad
+StNativeP07B8:
+  .byte $c5
+StNativeP07B9:
+  .byte $71
+StNativeP07BA:
+  .byte $30
+StNativeP07BB:
+  .byte $0f
+StNativeP07BC:
+  .byte $ce
+StNativeP07BD:
+  .byte $c5
+StNativeP07BE:
+  .byte $71
+StNativeP07BF:
+  .byte $a5
+StNativeP07C0:
+  .byte $f0
+StNativeP07C1:
+  .byte $c9
+StNativeP07C2:
+  .byte $1f
+StNativeP07C3:
+  .byte $f0
+StNativeP07C4:
+  .byte $12
+StNativeP07C5:
+  .byte $ee
+StNativeP07C6:
+  .byte $95
+StNativeP07C7:
+  .byte $71
+StNativeP07C8:
+  .byte $4c
+StNativeP07C9:
+  .byte $d7
+StNativeP07CA:
+  .byte $f7
+StNativeP07CB:
+  .byte $00
+StNativeP07CC:
+  .byte $00
+StNativeP07CD:
+  .byte $00
+StNativeP07CE:
+  .byte $00
+StNativeP07CF:
+  .byte $00
+StNativeP07D0:
+  .byte $00
+StNativeP07D1:
+  .byte $00
+StNativeP07D2:
+  .byte $00
+StNativeP07D3:
+  .byte $00
+StNativeP07D4:
+  .byte $00
+StNativeP07D5:
+  .byte $00
+StNativeP07D6:
+  .byte $00
+StNativeP07D7:
+  DEC ::StNativeRam+$3b
+StNativeP07DA:
+  BNE ::StNativeP07F2
+StNativeP07DC:
+  JSR ::StNativeP0AB0
+StNativeP07DF:
+  LDA ::StNativeZp+15
+StNativeP07E1:
+  STA ::StNativeRam+$23
+StNativeP07E4:
+  JMP ::StNativeP07F5
+StNativeP07E7:
+  JSR ::StNativeP0A43
+StNativeP07EA:
+  LDA ::StNativeZp+15
+StNativeP07EC:
+  STA ::StNativeRam+$23
+StNativeP07EF:
+  JMP ::StNativeP07F5
+StNativeP07F2:
+  JSR ::StNativeP0C0D
+StNativeP07F5:
+  INX
+StNativeP07F6:
+  LDA ::StNativeRam+$12
+StNativeP07F9:
+  CMP #$ff
+StNativeP07FB:
+  BEQ ::StNativeP0819
+StNativeP07FD:
+  .byte $00
+StNativeP07FE:
+  .byte $00
+StNativeP07FF:
+  .byte $00
+StNativeP0800:
+  .byte $00
+StNativeP0801:
+  .byte $00
+StNativeP0802:
+  .byte $00
+StNativeP0803:
+  .byte $00
+StNativeP0804:
+  .byte $00
+StNativeP0805:
+  .byte $00
+StNativeP0806:
+  .byte $00
+StNativeP0807:
+  .byte $00
+StNativeP0808:
+  .byte $00
+StNativeP0809:
+  .byte $00
+StNativeP080A:
+  .byte $00
+StNativeP080B:
+  .byte $00
+StNativeP080C:
+  .byte $00
+StNativeP080D:
+  .byte $00
+StNativeP080E:
+  .byte $00
+StNativeP080F:
+  .byte $00
+StNativeP0810:
+  .byte $00
+StNativeP0811:
+  .byte $00
+StNativeP0812:
+  .byte $00
+StNativeP0813:
+  .byte $00
+StNativeP0814:
+  .byte $00
+StNativeP0815:
+  .byte $00
+StNativeP0816:
+  .byte $00
+StNativeP0817:
+  .byte $00
+StNativeP0818:
+  .byte $00
+StNativeP0819:
+  JMP ::StNativeP0885
+StNativeP081C:
+  .byte $00
+StNativeP081D:
+  .byte $00
+StNativeP081E:
+  .byte $00
+StNativeP081F:
+  .byte $00
+StNativeP0820:
+  .byte $00
+StNativeP0821:
+  .byte $00
+StNativeP0822:
+  .byte $00
+StNativeP0823:
+  .byte $00
+StNativeP0824:
+  .byte $00
+StNativeP0825:
+  .byte $00
+StNativeP0826:
+  .byte $00
+StNativeP0827:
+  .byte $00
+StNativeP0828:
+  .byte $00
+StNativeP0829:
+  .byte $00
+StNativeP082A:
+  .byte $00
+StNativeP082B:
+  .byte $00
+StNativeP082C:
+  .byte $00
+StNativeP082D:
+  .byte $00
+StNativeP082E:
+  .byte $00
+StNativeP082F:
+  .byte $00
+StNativeP0830:
+  .byte $00
+StNativeP0831:
+  .byte $00
+StNativeP0832:
+  .byte $00
+StNativeP0833:
+  .byte $00
+StNativeP0834:
+  .byte $00
+StNativeP0835:
+  .byte $00
+StNativeP0836:
+  .byte $00
+StNativeP0837:
+  .byte $00
+StNativeP0838:
+  .byte $00
+StNativeP0839:
+  .byte $00
+StNativeP083A:
+  .byte $00
+StNativeP083B:
+  .byte $00
+StNativeP083C:
+  .byte $00
+StNativeP083D:
+  .byte $00
+StNativeP083E:
+  .byte $00
+StNativeP083F:
+  .byte $00
+StNativeP0840:
+  .byte $00
+StNativeP0841:
+  .byte $00
+StNativeP0842:
+  .byte $00
+StNativeP0843:
+  .byte $00
+StNativeP0844:
+  .byte $00
+StNativeP0845:
+  .byte $00
+StNativeP0846:
+  .byte $00
+StNativeP0847:
+  .byte $00
+StNativeP0848:
+  .byte $00
+StNativeP0849:
+  .byte $00
+StNativeP084A:
+  .byte $00
+StNativeP084B:
+  .byte $00
+StNativeP084C:
+  .byte $00
+StNativeP084D:
+  .byte $00
+StNativeP084E:
+  .byte $00
+StNativeP084F:
+  .byte $00
+StNativeP0850:
+  .byte $00
+StNativeP0851:
+  .byte $00
+StNativeP0852:
+  .byte $00
+StNativeP0853:
+  .byte $00
+StNativeP0854:
+  .byte $00
+StNativeP0855:
+  .byte $00
+StNativeP0856:
+  .byte $00
+StNativeP0857:
+  .byte $00
+StNativeP0858:
+  .byte $00
+StNativeP0859:
+  .byte $00
+StNativeP085A:
+  .byte $00
+StNativeP085B:
+  .byte $00
+StNativeP085C:
+  .byte $00
+StNativeP085D:
+  .byte $00
+StNativeP085E:
+  .byte $00
+StNativeP085F:
+  .byte $00
+StNativeP0860:
+  .byte $00
+StNativeP0861:
+  .byte $00
+StNativeP0862:
+  .byte $00
+StNativeP0863:
+  .byte $00
+StNativeP0864:
+  .byte $00
+StNativeP0865:
+  .byte $00
+StNativeP0866:
+  .byte $00
+StNativeP0867:
+  .byte $00
+StNativeP0868:
+  .byte $00
+StNativeP0869:
+  .byte $00
+StNativeP086A:
+  .byte $00
+StNativeP086B:
+  .byte $00
+StNativeP086C:
+  .byte $00
+StNativeP086D:
+  .byte $00
+StNativeP086E:
+  .byte $00
+StNativeP086F:
+  .byte $00
+StNativeP0870:
+  .byte $00
+StNativeP0871:
+  .byte $00
+StNativeP0872:
+  .byte $00
+StNativeP0873:
+  .byte $00
+StNativeP0874:
+  .byte $00
+StNativeP0875:
+  .byte $00
+StNativeP0876:
+  .byte $00
+StNativeP0877:
+  .byte $00
+StNativeP0878:
+  .byte $00
+StNativeP0879:
+  .byte $00
+StNativeP087A:
+  .byte $00
+StNativeP087B:
+  .byte $00
+StNativeP087C:
+  .byte $00
+StNativeP087D:
+  .byte $00
+StNativeP087E:
+  .byte $00
+StNativeP087F:
+  .byte $00
+StNativeP0880:
+  .byte $00
+StNativeP0881:
+  .byte $00
+StNativeP0882:
+  .byte $00
+StNativeP0883:
+  .byte $00
+StNativeP0884:
+  .byte $00
+StNativeP0885:
+  INX
+StNativeP0886:
+  STX ::StNativeRam+$0a
+StNativeP0889:
+  LDA ::StNativeRam+$13
+StNativeP088C:
+  CMP #$ff
+StNativeP088E:
+  BEQ ::StNativeP08AC
+StNativeP0890:
+  CMP #$00
+StNativeP0892:
+  BEQ ::StNativeP090A
+StNativeP0894:
+  INC ::StNativeRam+$61
+StNativeP0897:
+  LDA ::StNativeRam+$61
+StNativeP089A:
+  SBC ::StNativeRam+$5b
+StNativeP089D:
+  BCC ::StNativeP08B4
+StNativeP089F:
+  LDA ::StNativeRam+$55
+StNativeP08A2:
+  BPL ::StNativeP08AF
+StNativeP08A4:
+  LDA ::StNativeRam+$5b
+StNativeP08A7:
+  SBC #$01
+StNativeP08A9:
+  JMP ::StNativeP08B1
+StNativeP08AC:
+  JMP ::StNativeP0918
+StNativeP08AF:
+  .byte $00
+StNativeP08B0:
+  .byte $00
+StNativeP08B1:
+  STA ::StNativeRam+$61
+StNativeP08B4:
+  DEC ::StNativeRam+$31
+StNativeP08B7:
+  BPL ::StNativeP0915
+StNativeP08B9:
+  LDA ::StNativeRam+$2b
+StNativeP08BC:
+  STA ::StNativeRam+$31
+StNativeP08BF:
+  LDA ::StNativeRam+$67
+StNativeP08C2:
+  BEQ ::StNativeP08FA
+StNativeP08C4:
+  .byte $ce
+StNativeP08C5:
+  .byte $d3
+StNativeP08C6:
+  .byte $71
+StNativeP08C7:
+  .byte $d0
+StNativeP08C8:
+  .byte $31
+StNativeP08C9:
+  .byte $ad
+StNativeP08CA:
+  .byte $cd
+StNativeP08CB:
+  .byte $71
+StNativeP08CC:
+  .byte $8d
+StNativeP08CD:
+  .byte $d3
+StNativeP08CE:
+  .byte $71
+StNativeP08CF:
+  .byte $ad
+StNativeP08D0:
+  .byte $97
+StNativeP08D1:
+  .byte $71
+StNativeP08D2:
+  .byte $29
+StNativeP08D3:
+  .byte $1f
+StNativeP08D4:
+  .byte $85
+StNativeP08D5:
+  .byte $f0
+StNativeP08D6:
+  .byte $29
+StNativeP08D7:
+  .byte $10
+StNativeP08D8:
+  .byte $f0
+StNativeP08D9:
+  .byte $20
+StNativeP08DA:
+  .byte $ad
+StNativeP08DB:
+  .byte $c7
+StNativeP08DC:
+  .byte $71
+StNativeP08DD:
+  .byte $30
+StNativeP08DE:
+  .byte $0f
+StNativeP08DF:
+  .byte $00
+StNativeP08E0:
+  .byte $00
+StNativeP08E1:
+  .byte $00
+StNativeP08E2:
+  .byte $00
+StNativeP08E3:
+  .byte $00
+StNativeP08E4:
+  .byte $00
+StNativeP08E5:
+  .byte $00
+StNativeP08E6:
+  .byte $00
+StNativeP08E7:
+  .byte $00
+StNativeP08E8:
+  .byte $00
+StNativeP08E9:
+  .byte $00
+StNativeP08EA:
+  .byte $00
+StNativeP08EB:
+  .byte $00
+StNativeP08EC:
+  .byte $00
+StNativeP08ED:
+  .byte $00
+StNativeP08EE:
+  .byte $ee
+StNativeP08EF:
+  .byte $c7
+StNativeP08F0:
+  .byte $71
+StNativeP08F1:
+  .byte $a5
+StNativeP08F2:
+  .byte $f0
+StNativeP08F3:
+  .byte $c9
+StNativeP08F4:
+  .byte $10
+StNativeP08F5:
+  .byte $f0
+StNativeP08F6:
+  .byte $03
+StNativeP08F7:
+  .byte $ce
+StNativeP08F8:
+  .byte $97
+StNativeP08F9:
+  .byte $71
+StNativeP08FA:
+  DEC ::StNativeRam+$3d
+StNativeP08FD:
+  BNE ::StNativeP0915
+StNativeP08FF:
+  JSR ::StNativeP0AB0
+StNativeP0902:
+  LDA ::StNativeZp+15
+StNativeP0904:
+  STA ::StNativeRam+$25
+StNativeP0907:
+  JMP ::StNativeP0918
+StNativeP090A:
+  JSR ::StNativeP0A43
+StNativeP090D:
+  LDA ::StNativeZp+15
+StNativeP090F:
+  STA ::StNativeRam+$25
+StNativeP0912:
+  JMP ::StNativeP0918
+StNativeP0915:
+  JSR ::StNativeP0C41
+StNativeP0918:
+  INX
+StNativeP0919:
+  LDA ::StNativeRam+$14
+StNativeP091C:
+  CMP #$ff
+StNativeP091E:
+  BEQ ::StNativeP093C
+StNativeP0920:
+  .byte $00
+StNativeP0921:
+  .byte $00
+StNativeP0922:
+  .byte $00
+StNativeP0923:
+  .byte $00
+StNativeP0924:
+  .byte $00
+StNativeP0925:
+  .byte $00
+StNativeP0926:
+  .byte $00
+StNativeP0927:
+  .byte $00
+StNativeP0928:
+  .byte $00
+StNativeP0929:
+  .byte $00
+StNativeP092A:
+  .byte $00
+StNativeP092B:
+  .byte $00
+StNativeP092C:
+  .byte $00
+StNativeP092D:
+  .byte $00
+StNativeP092E:
+  .byte $00
+StNativeP092F:
+  .byte $00
+StNativeP0930:
+  .byte $00
+StNativeP0931:
+  .byte $00
+StNativeP0932:
+  .byte $00
+StNativeP0933:
+  .byte $00
+StNativeP0934:
+  .byte $00
+StNativeP0935:
+  .byte $00
+StNativeP0936:
+  .byte $00
+StNativeP0937:
+  .byte $00
+StNativeP0938:
+  .byte $00
+StNativeP0939:
+  .byte $00
+StNativeP093A:
+  .byte $00
+StNativeP093B:
+  .byte $00
+StNativeP093C:
+  JMP ::StNativeP09A8
+StNativeP093F:
+  .byte $00
+StNativeP0940:
+  .byte $00
+StNativeP0941:
+  .byte $00
+StNativeP0942:
+  .byte $00
+StNativeP0943:
+  .byte $00
+StNativeP0944:
+  .byte $00
+StNativeP0945:
+  .byte $00
+StNativeP0946:
+  .byte $00
+StNativeP0947:
+  .byte $00
+StNativeP0948:
+  .byte $00
+StNativeP0949:
+  .byte $00
+StNativeP094A:
+  .byte $00
+StNativeP094B:
+  .byte $00
+StNativeP094C:
+  .byte $00
+StNativeP094D:
+  .byte $00
+StNativeP094E:
+  .byte $00
+StNativeP094F:
+  .byte $00
+StNativeP0950:
+  .byte $00
+StNativeP0951:
+  .byte $00
+StNativeP0952:
+  .byte $00
+StNativeP0953:
+  .byte $00
+StNativeP0954:
+  .byte $00
+StNativeP0955:
+  .byte $00
+StNativeP0956:
+  .byte $00
+StNativeP0957:
+  .byte $00
+StNativeP0958:
+  .byte $00
+StNativeP0959:
+  .byte $00
+StNativeP095A:
+  .byte $00
+StNativeP095B:
+  .byte $00
+StNativeP095C:
+  .byte $00
+StNativeP095D:
+  .byte $00
+StNativeP095E:
+  .byte $00
+StNativeP095F:
+  .byte $00
+StNativeP0960:
+  .byte $00
+StNativeP0961:
+  .byte $00
+StNativeP0962:
+  .byte $00
+StNativeP0963:
+  .byte $00
+StNativeP0964:
+  .byte $00
+StNativeP0965:
+  .byte $00
+StNativeP0966:
+  .byte $00
+StNativeP0967:
+  .byte $00
+StNativeP0968:
+  .byte $00
+StNativeP0969:
+  .byte $00
+StNativeP096A:
+  .byte $00
+StNativeP096B:
+  .byte $00
+StNativeP096C:
+  .byte $00
+StNativeP096D:
+  .byte $00
+StNativeP096E:
+  .byte $00
+StNativeP096F:
+  .byte $00
+StNativeP0970:
+  .byte $00
+StNativeP0971:
+  .byte $00
+StNativeP0972:
+  .byte $00
+StNativeP0973:
+  .byte $00
+StNativeP0974:
+  .byte $00
+StNativeP0975:
+  .byte $00
+StNativeP0976:
+  .byte $00
+StNativeP0977:
+  .byte $00
+StNativeP0978:
+  .byte $00
+StNativeP0979:
+  .byte $00
+StNativeP097A:
+  .byte $00
+StNativeP097B:
+  .byte $00
+StNativeP097C:
+  .byte $00
+StNativeP097D:
+  .byte $00
+StNativeP097E:
+  .byte $00
+StNativeP097F:
+  .byte $00
+StNativeP0980:
+  .byte $00
+StNativeP0981:
+  .byte $00
+StNativeP0982:
+  .byte $00
+StNativeP0983:
+  .byte $00
+StNativeP0984:
+  .byte $00
+StNativeP0985:
+  .byte $00
+StNativeP0986:
+  .byte $00
+StNativeP0987:
+  .byte $00
+StNativeP0988:
+  .byte $00
+StNativeP0989:
+  .byte $00
+StNativeP098A:
+  .byte $00
+StNativeP098B:
+  .byte $00
+StNativeP098C:
+  .byte $00
+StNativeP098D:
+  .byte $00
+StNativeP098E:
+  .byte $00
+StNativeP098F:
+  .byte $00
+StNativeP0990:
+  .byte $00
+StNativeP0991:
+  .byte $00
+StNativeP0992:
+  .byte $00
+StNativeP0993:
+  .byte $00
+StNativeP0994:
+  .byte $00
+StNativeP0995:
+  .byte $00
+StNativeP0996:
+  .byte $00
+StNativeP0997:
+  .byte $00
+StNativeP0998:
+  .byte $00
+StNativeP0999:
+  .byte $00
+StNativeP099A:
+  .byte $00
+StNativeP099B:
+  .byte $00
+StNativeP099C:
+  .byte $00
+StNativeP099D:
+  .byte $00
+StNativeP099E:
+  .byte $00
+StNativeP099F:
+  .byte $00
+StNativeP09A0:
+  .byte $00
+StNativeP09A1:
+  .byte $00
+StNativeP09A2:
+  .byte $00
+StNativeP09A3:
+  .byte $00
+StNativeP09A4:
+  .byte $00
+StNativeP09A5:
+  .byte $00
+StNativeP09A6:
+  .byte $00
+StNativeP09A7:
+  .byte $00
+StNativeP09A8:
+  INX
+StNativeP09A9:
+  LDA #$02
+StNativeP09AB:
+  STA ::StNativeRam+$0a
+StNativeP09AE:
+  LDA ::StNativeRam+$0c
+StNativeP09B1:
+  CMP ::StNativeRam+$5d
+StNativeP09B4:
+  BEQ ::StNativeP09BA
+StNativeP09B6:
+  BCC ::StNativeP09F4
+StNativeP09B8:
+  BCS ::StNativeP09FF
+StNativeP09BA:
+  LDA ::StNativeRam+$15
+StNativeP09BD:
+  CMP #$ff
+StNativeP09BF:
+  BEQ ::StNativeP09DD
+StNativeP09C1:
+  CMP #$00
+StNativeP09C3:
+  BEQ ::StNativeP0A24
+StNativeP09C5:
+  DEC ::StNativeRam+$33
+StNativeP09C8:
+  BPL ::StNativeP0A0A
+StNativeP09CA:
+  LDA ::StNativeRam+$2d
+StNativeP09CD:
+  STA ::StNativeRam+$33
+StNativeP09D0:
+  DEC ::StNativeRam+$3f
+StNativeP09D3:
+  BNE ::StNativeP0A0A
+StNativeP09D5:
+  JSR ::StNativeP0AB0
+StNativeP09D8:
+  LDA ::StNativeZp+15
+StNativeP09DA:
+  STA ::StNativeRam+$27
+StNativeP09DD:
+  LDA ::StNativeRam+$10
+StNativeP09E0:
+  AND ::StNativeRam+$11
+StNativeP09E3:
+  AND ::StNativeRam+$13
+StNativeP09E6:
+  AND ::StNativeRam+$15
+StNativeP09E9:
+  CMP #$ff
+StNativeP09EB:
+  BNE ::StNativeP09F3
+StNativeP09ED:
+  LDA #$00
+StNativeP09EF:
+  STA ::StNativeZp+0
+StNativeP09F1:
+  STA ::StNativeZp+1
+StNativeP09F3:
+  RTS
+StNativeP09F4:
+  .byte $00
+StNativeP09F5:
+  .byte $00
+StNativeP09F6:
+  .byte $00
+StNativeP09F7:
+  .byte $00
+StNativeP09F8:
+  .byte $00
+StNativeP09F9:
+  .byte $00
+StNativeP09FA:
+  .byte $00
+StNativeP09FB:
+  .byte $00
+StNativeP09FC:
+  .byte $00
+StNativeP09FD:
+  .byte $00
+StNativeP09FE:
+  .byte $00
+StNativeP09FF:
+  SBC #$04
+StNativeP0A01:
+  STA ::StNativeRam+$0c
+StNativeP0A04:
+  NOP
+StNativeP0A05:
+  NOP
+StNativeP0A06:
+  NOP
+StNativeP0A07:
+  JMP ::StNativeP09BA
+StNativeP0A0A:
+  JSR ::StNativeP0CD9
+StNativeP0A0D:
+  LDA ::StNativeRam+$10
+StNativeP0A10:
+  AND ::StNativeRam+$11
+StNativeP0A13:
+  AND ::StNativeRam+$13
+StNativeP0A16:
+  AND ::StNativeRam+$15
+StNativeP0A19:
+  CMP #$ff
+StNativeP0A1B:
+  BNE ::StNativeP09F3
+StNativeP0A1D:
+  .byte $00
+StNativeP0A1E:
+  .byte $00
+StNativeP0A1F:
+  .byte $00
+StNativeP0A20:
+  .byte $00
+StNativeP0A21:
+  .byte $00
+StNativeP0A22:
+  .byte $00
+StNativeP0A23:
+  .byte $00
+StNativeP0A24:
+  JSR ::StNativeP0A43
+StNativeP0A27:
+  LDA ::StNativeZp+15
+StNativeP0A29:
+  STA ::StNativeRam+$27
+StNativeP0A2C:
+  LDA ::StNativeRam+$10
+StNativeP0A2F:
+  AND ::StNativeRam+$11
+StNativeP0A32:
+  AND ::StNativeRam+$13
+StNativeP0A35:
+  AND ::StNativeRam+$15
+StNativeP0A38:
+  CMP #$ff
+StNativeP0A3A:
+  BNE ::StNativeP09F3
+StNativeP0A3C:
+  .byte $00
+StNativeP0A3D:
+  .byte $00
+StNativeP0A3E:
+  .byte $00
+StNativeP0A3F:
+  .byte $00
+StNativeP0A40:
+  .byte $00
+StNativeP0A41:
+  .byte $00
+StNativeP0A42:
+  .byte $00
+StNativeP0A43:
+  LDA #$00
+StNativeP0A45:
+  STA ::StNativeRam+$94,x
+StNativeP0A48:
+  STA ::StNativeRam+$8e,x
+StNativeP0A4B:
+  STA ::StNativeRam+$88,x
+StNativeP0A4E:
+  STA ::StNativeRam+$82,x
+StNativeP0A51:
+  STA ::StNativeRam+$7c,x
+StNativeP0A54:
+  STA ::StNativeRam+$76,x
+StNativeP0A57:
+  STA ::StNativeRam+$70,x
+StNativeP0A5A:
+  STA ::StNativeRam+$6a,x
+StNativeP0A5D:
+  STA ::StNativeRam+$64,x
+StNativeP0A60:
+  STA ::StNativeRam+$5e,x
+StNativeP0A63:
+  STA ::StNativeRam+$58,x
+StNativeP0A66:
+  STA ::StNativeRam+$4c,x
+StNativeP0A69:
+  STA ::StNativeRam+$46,x
+StNativeP0A6C:
+  STA ::StNativeRam+$40,x
+StNativeP0A6F:
+  STA ::StNativeRam+$3a,x
+StNativeP0A72:
+  STA ::StNativeRam+$34,x
+StNativeP0A75:
+  LDA #$80
+StNativeP0A77:
+  STA ::StNativeRam+$52,x
+StNativeP0A7A:
+  LDA ::StNativeRam+$16,x
+StNativeP0A7D:
+  STA $ac
+StNativeP0A7F:
+  LDA ::StNativeRam+$1c,x
+StNativeP0A82:
+  STA $ad
+StNativeP0A84:
+  LDY #$00
+StNativeP0A86:
+  LDA ($ac),Y
+StNativeP0A88:
+  INY
+StNativeP0A89:
+  AND #$0f
+StNativeP0A8B:
+  STA ::StNativeRam+$28,x
+StNativeP0A8E:
+  STA ::StNativeRam+$2e,x
+StNativeP0A91:
+  LDA ($ac),Y
+StNativeP0A93:
+  INY
+StNativeP0A94:
+  ROR A
+StNativeP0A95:
+  ROR A
+StNativeP0A96:
+  ROR A
+StNativeP0A97:
+  AND #$c0
+StNativeP0A99:
+  STA $f0
+StNativeP0A9B:
+  LDA ($ac),Y
+StNativeP0A9D:
+  ORA $f0
+StNativeP0A9F:
+  STA ::StNativeRam+$34,x
+StNativeP0AA2:
+  INY
+StNativeP0AA3:
+  LDA ($ac),Y
+StNativeP0AA5:
+  INY
+StNativeP0AA6:
+  STA ::StNativeRam+$40,x
+StNativeP0AA9:
+  LDA #$02
+StNativeP0AAB:
+  STA ::StNativeRam+$10,x
+StNativeP0AAE:
+  BNE ::StNativeP0ABD
+StNativeP0AB0:
+  LDA ::StNativeRam+$16,x
+StNativeP0AB3:
+  STA $ac
+StNativeP0AB5:
+  LDA ::StNativeRam+$1c,x
+StNativeP0AB8:
+  STA $ad
+StNativeP0ABA:
+  LDY ::StNativeRam+$22,x
+StNativeP0ABD:
+  LDA ($ac),Y
+StNativeP0ABF:
+  INY
+StNativeP0AC0:
+  CMP #$f0
+StNativeP0AC2:
+  BCS ::StNativeP0AF1
+StNativeP0AC4:
+  CMP #$e0
+StNativeP0AC6:
+  BCS ::StNativeP0ADB
+StNativeP0AC8:
+  CMP #$d0
+StNativeP0ACA:
+  BCS ::StNativeP0AD7
+StNativeP0ACC:
+  CMP #$c0
+StNativeP0ACE:
+  BCS ::StNativeP0B09
+StNativeP0AD0:
+  CMP #$b0
+StNativeP0AD2:
+  BCS ::StNativeP0B27
+StNativeP0AD4:
+  JMP ::StNativeP0B51
+StNativeP0AD7:
+  .byte $29
+StNativeP0AD8:
+  .byte $0f
+StNativeP0AD9:
+  .byte $10
+StNativeP0ADA:
+  .byte $07
+StNativeP0ADB:
+  .byte $29
+StNativeP0ADC:
+  .byte $0f
+StNativeP0ADD:
+  .byte $49
+StNativeP0ADE:
+  .byte $ff
+StNativeP0ADF:
+  .byte $18
+StNativeP0AE0:
+  .byte $69
+StNativeP0AE1:
+  .byte $01
+StNativeP0AE2:
+  .byte $9d
+StNativeP0AE3:
+  .byte $c4
+StNativeP0AE4:
+  .byte $71
+StNativeP0AE5:
+  .byte $b1
+StNativeP0AE6:
+  .byte $ac
+StNativeP0AE7:
+  .byte $c8
+StNativeP0AE8:
+  .byte $9d
+StNativeP0AE9:
+  .byte $ca
+StNativeP0AEA:
+  .byte $71
+StNativeP0AEB:
+  .byte $9d
+StNativeP0AEC:
+  .byte $d0
+StNativeP0AED:
+  .byte $71
+StNativeP0AEE:
+  .byte $4c
+StNativeP0AEF:
+  .byte $bd
+StNativeP0AF0:
+  .byte $fa
+StNativeP0AF1:
+  STX ::StNativeZp+14
+StNativeP0AF3:
+  EOR #$ff
+StNativeP0AF5:
+  ASL A
+StNativeP0AF6:
+  TAX
+StNativeP0AF7:
+  LDA ::StNativeP0DF5,x
+StNativeP0AFA:
+  STA $f0
+StNativeP0AFC:
+  LDA ::StNativeP0DF6,x
+StNativeP0AFF:
+  STA $f1
+StNativeP0B01:
+  LDX ::StNativeZp+14
+StNativeP0B03:
+  LDA ($ac),Y
+StNativeP0B05:
+  INY
+StNativeP0B06:
+  JMP ($00f0)
+StNativeP0B09:
+  AND #$0f
+StNativeP0B0B:
+  STA $f0
+StNativeP0B0D:
+  LDA ::StNativeRam+$34,x
+StNativeP0B10:
+  AND #$10
+StNativeP0B12:
+  BEQ ::StNativeP0B23
+StNativeP0B14:
+  LDA ($ac),Y
+StNativeP0B16:
+  STA ::StNativeRam+$58,x
+StNativeP0B19:
+  LDA ::StNativeRam+$52,x
+StNativeP0B1C:
+  AND #$80
+StNativeP0B1E:
+  ORA $f0
+StNativeP0B20:
+  STA ::StNativeRam+$52,x
+StNativeP0B23:
+  INY
+StNativeP0B24:
+  JMP ::StNativeP0ABD
+StNativeP0B27:
+  AND #$0f
+StNativeP0B29:
+  BEQ ::StNativeP0B3A
+StNativeP0B2B:
+  .byte $38
+StNativeP0B2C:
+  .byte $e9
+StNativeP0B2D:
+  .byte $01
+StNativeP0B2E:
+  .byte $f0
+StNativeP0B2F:
+  .byte $f3
+StNativeP0B30:
+  .byte $de
+StNativeP0B31:
+  .byte $ac
+StNativeP0B32:
+  .byte $71
+StNativeP0B33:
+  .byte $f0
+StNativeP0B34:
+  .byte $ee
+StNativeP0B35:
+  .byte $10
+StNativeP0B36:
+  .byte $03
+StNativeP0B37:
+  .byte $9d
+StNativeP0B38:
+  .byte $ac
+StNativeP0B39:
+  .byte $71
+StNativeP0B3A:
+  LDA ($ac),Y
+StNativeP0B3C:
+  DEY
+StNativeP0B3D:
+  ASL A
+StNativeP0B3E:
+  STY ::StNativeZp+15
+StNativeP0B40:
+  CLC
+StNativeP0B41:
+  ADC ::StNativeZp+15
+StNativeP0B43:
+  TAY
+StNativeP0B44:
+  JMP ::StNativeP0ABD
+StNativeP0B47:
+  LDA $f0
+StNativeP0B49:
+  STA ::StNativeRam+$88,x
+StNativeP0B4C:
+  LDY #$03
+StNativeP0B4E:
+  JMP ::StNativeP0B9C
+StNativeP0B51:
+  STA $f0
+StNativeP0B53:
+  LDA ($ac),Y
+StNativeP0B55:
+  INY
+StNativeP0B56:
+  STY ::StNativeZp+15
+StNativeP0B58:
+  STA ::StNativeRam+$3a,x
+StNativeP0B5B:
+  LDA #$00
+StNativeP0B5D:
+  STA ::StNativeRam+$5e,x
+StNativeP0B60:
+  CPX #$03
+StNativeP0B62:
+  BEQ ::StNativeP0B47
+StNativeP0B64:
+  CPX #$04
+StNativeP0B66:
+  BEQ ::StNativeP0B47
+StNativeP0B68:
+  LDA $f0
+StNativeP0B6A:
+  BNE ::StNativeP0B6F
+StNativeP0B6C:
+  JMP ::StNativeP0D11
+StNativeP0B6F:
+  AND #$0f
+StNativeP0B71:
+  ASL A
+StNativeP0B72:
+  TAY
+StNativeP0B73:
+  LDA ::StNativeP0DCB,y
+StNativeP0B76:
+  STA ::StNativeRam+$88,x
+StNativeP0B79:
+  LDA ::StNativeP0DCC,y
+StNativeP0B7C:
+  STA ::StNativeRam+$8e,x
+StNativeP0B7F:
+  LDA $f0
+StNativeP0B81:
+  LSR A
+StNativeP0B82:
+  LSR A
+StNativeP0B83:
+  LSR A
+StNativeP0B84:
+  LSR A
+StNativeP0B85:
+  STA ::StNativeRam+$82,x
+StNativeP0B88:
+  CPX #$05
+StNativeP0B8A:
+  BEQ ::StNativeP0B99
+StNativeP0B8C:
+  CPX #$01
+StNativeP0B8E:
+  jeq ::StNativeP0BF3
+StNativeP0B90:
+  LDY ::StNativeP0DEF,x
+StNativeP0B93:
+  LDA ::StNativeRam+$40,x
+StNativeP0B96:
+  sta GuestNativeApu+1,y
+  php
+  pha
+  lda #1
+  sta GuestNativeDirty+1,y
+  pla
+  plp
+StNativeP0B99:
+  LDY ::StNativeRam+$0a
+StNativeP0B9C:
+  LDA ::StNativeP0DE3,x
+StNativeP0B9F:
+  ORA ::StNativeRam+$00
+StNativeP0BA2:
+  JSR ::StNativeP0D1A
+StNativeP0BA5:
+  JSR ::StNativeP0C41
+StNativeP0BA8:
+  LDA ::StNativeRam+$88,x
+StNativeP0BAB:
+  STA ::StNativeZp+11
+StNativeP0BAD:
+  LDA ::StNativeRam+$8e,x
+StNativeP0BB0:
+  STA ::StNativeZp+12
+StNativeP0BB2:
+  LDY ::StNativeRam+$82,x
+StNativeP0BB5:
+  BEQ ::StNativeP0BBE
+StNativeP0BB7:
+  LSR ::StNativeZp+12
+StNativeP0BB9:
+  ROR ::StNativeZp+11
+StNativeP0BBB:
+  DEY
+StNativeP0BBC:
+  BNE ::StNativeP0BB7
+StNativeP0BBE:
+  CPX #$01
+StNativeP0BC0:
+  BEQ ::StNativeP0C05
+StNativeP0BC2:
+  LDY ::StNativeP0DEF,x
+StNativeP0BC5:
+  LDA ::StNativeRam+$94,x
+StNativeP0BC8:
+  BMI ::StNativeP0BD3
+StNativeP0BCA:
+  ADC ::StNativeZp+11
+StNativeP0BCC:
+  sta GuestNativeApu+2,y
+  php
+  pha
+  lda #1
+  sta GuestNativeDirty+2,y
+  pla
+  plp
+StNativeP0BCF:
+  LDA #$00
+StNativeP0BD1:
+  BEQ ::StNativeP0BDA
+StNativeP0BD3:
+  .byte $00
+StNativeP0BD4:
+  .byte $00
+StNativeP0BD5:
+  .byte $00
+StNativeP0BD6:
+  .byte $00
+StNativeP0BD7:
+  .byte $00
+StNativeP0BD8:
+  .byte $00
+StNativeP0BD9:
+  .byte $00
+StNativeP0BDA:
+  ADC ::StNativeZp+12
+StNativeP0BDC:
+  AND #$07
+StNativeP0BDE:
+  ORA #$08
+StNativeP0BE0:
+  STX ::StNativeZp+14
+StNativeP0BE2:
+  LDX ::StNativeRam+$0a
+StNativeP0BE5:
+  CMP ::StNativeRam+$01,x
+StNativeP0BE8:
+  BEQ ::StNativeP0BF0
+StNativeP0BEA:
+  STA ::StNativeRam+$01,x
+StNativeP0BED:
+  sta GuestNativeApu+3,y
+  php
+  pha
+  lda #1
+  sta GuestNativeDirty+3,y
+  pla
+  plp
+StNativeP0BF0:
+  LDX ::StNativeZp+14
+StNativeP0BF2:
+  RTS
+StNativeP0BF3:
+  LDY #$ff
+StNativeP0BF5:
+  CPY ::StNativeRam+$12
+StNativeP0BF8:
+  BNE ::StNativeP0B99
+StNativeP0BFA:
+  LDA ::StNativeRam+$41
+StNativeP0BFD:
+  sta GuestNativeApu+5
+  php
+  inc GuestNativeDirty+5
+  plp
+StNativeP0C00:
+  LDY #$01
+StNativeP0C02:
+  JMP ::StNativeP0B9C
+StNativeP0C05:
+  LDY #$ff
+StNativeP0C07:
+  CPY ::StNativeRam+$12
+StNativeP0C0A:
+  BEQ ::StNativeP0BC2
+StNativeP0C0C:
+  .byte $00
+StNativeP0C0D:
+  LDA ::StNativeRam+$46,x
+StNativeP0C10:
+  CLC
+StNativeP0C11:
+  BMI ::StNativeP0C21
+StNativeP0C13:
+  ADC ::StNativeRam+$88,x
+StNativeP0C16:
+  STA ::StNativeRam+$88,x
+StNativeP0C19:
+  LDA ::StNativeRam+$8e,x
+StNativeP0C1C:
+  ADC #$00
+StNativeP0C1E:
+  JMP ::StNativeP0C2C
+StNativeP0C21:
+  .byte $00
+StNativeP0C22:
+  .byte $00
+StNativeP0C23:
+  .byte $00
+StNativeP0C24:
+  .byte $00
+StNativeP0C25:
+  .byte $00
+StNativeP0C26:
+  .byte $00
+StNativeP0C27:
+  .byte $00
+StNativeP0C28:
+  .byte $00
+StNativeP0C29:
+  .byte $00
+StNativeP0C2A:
+  .byte $00
+StNativeP0C2B:
+  .byte $00
+StNativeP0C2C:
+  STA ::StNativeRam+$8e,x
+StNativeP0C2F:
+  LDA ::StNativeRam+$88,x
+StNativeP0C32:
+  STA ::StNativeZp+11
+StNativeP0C34:
+  LDA ::StNativeRam+$8e,x
+StNativeP0C37:
+  STA ::StNativeZp+12
+StNativeP0C39:
+  LDA ::StNativeRam+$40,x
+StNativeP0C3C:
+  BNE ::StNativeP0C41
+StNativeP0C3E:
+  JSR ::StNativeP0BB2
+StNativeP0C41:
+  LDA ::StNativeRam+$52,x
+StNativeP0C44:
+  AND #$7f
+StNativeP0C46:
+  BNE ::StNativeP0C67
+StNativeP0C48:
+  LDY ::StNativeP0DEF,x
+StNativeP0C4B:
+  LDA ::StNativeRam+$34,x
+StNativeP0C4E:
+  AND #$10
+StNativeP0C50:
+  ASL A
+StNativeP0C51:
+  ORA ::StNativeRam+$34,x
+StNativeP0C54:
+  CPX #$01
+StNativeP0C56:
+  BEQ ::StNativeP0C5C
+StNativeP0C58:
+  sta GuestNativeApu+0,y
+  php
+  pha
+  lda #1
+  sta GuestNativeDirty+0,y
+  pla
+  plp
+StNativeP0C5B:
+  RTS
+StNativeP0C5C:
+  LDY #$ff
+StNativeP0C5E:
+  CPY ::StNativeRam+$12
+StNativeP0C61:
+  BNE ::StNativeP0C66
+StNativeP0C63:
+  sta GuestNativeApu+4
+  php
+  inc GuestNativeDirty+4
+  plp
+StNativeP0C66:
+  RTS
+StNativeP0C67:
+  SEC
+StNativeP0C68:
+  SBC #$01
+StNativeP0C6A:
+  ASL A
+StNativeP0C6B:
+  ASL A
+StNativeP0C6C:
+  ASL A
+StNativeP0C6D:
+  STA ::StNativeZp+10
+StNativeP0C6F:
+  LDA ::StNativeRam+$58,x
+StNativeP0C72:
+  STA ::StNativeZp+13
+StNativeP0C74:
+  LDA ::StNativeRam+$5e,x
+StNativeP0C77:
+  STA ::StNativeZp+11
+StNativeP0C79:
+  LDY #$04
+StNativeP0C7B:
+  LDA #$00
+StNativeP0C7D:
+  STA ::StNativeZp+12
+StNativeP0C7F:
+  ASL ::StNativeZp+11
+StNativeP0C81:
+  LDA ::StNativeZp+11
+StNativeP0C83:
+  SEC
+StNativeP0C84:
+  SBC ::StNativeZp+13
+StNativeP0C86:
+  BCC ::StNativeP0C8A
+StNativeP0C88:
+  STA ::StNativeZp+11
+StNativeP0C8A:
+  ROL ::StNativeZp+12
+StNativeP0C8C:
+  DEY
+StNativeP0C8D:
+  BNE ::StNativeP0C7F
+StNativeP0C8F:
+  LDA ::StNativeZp+12
+StNativeP0C91:
+  LSR A
+StNativeP0C92:
+  PHP
+StNativeP0C93:
+  CLC
+StNativeP0C94:
+  ADC ::StNativeZp+10
+StNativeP0C96:
+  TAY
+StNativeP0C97:
+  LDA #<::StNativeP0400
+StNativeP0C99:
+  STA $f0
+StNativeP0C9B:
+  LDA #>::StNativeP0400
+StNativeP0C9D:
+  STA $f1
+StNativeP0C9F:
+  LDA ($f0),Y
+StNativeP0CA1:
+  PLP
+StNativeP0CA2:
+  BCC ::StNativeP0CA8
+StNativeP0CA4:
+  ASL A
+StNativeP0CA5:
+  ASL A
+StNativeP0CA6:
+  ASL A
+StNativeP0CA7:
+  ASL A
+StNativeP0CA8:
+  STA ::StNativeZp+11
+StNativeP0CAA:
+  LDA ::StNativeRam+$34,x
+StNativeP0CAD:
+  AND #$0f
+StNativeP0CAF:
+  STA ::StNativeZp+13
+StNativeP0CB1:
+  LDY #$04
+StNativeP0CB3:
+  LDA #$00
+StNativeP0CB5:
+  ASL A
+StNativeP0CB6:
+  ASL ::StNativeZp+11
+StNativeP0CB8:
+  BCC ::StNativeP0CBC
+StNativeP0CBA:
+  ADC ::StNativeZp+13
+StNativeP0CBC:
+  DEY
+StNativeP0CBD:
+  BNE ::StNativeP0CB5
+StNativeP0CBF:
+  LDY ::StNativeP0DEF,x
+StNativeP0CC2:
+  LSR A
+StNativeP0CC3:
+  LSR A
+StNativeP0CC4:
+  LSR A
+StNativeP0CC5:
+  LSR A
+StNativeP0CC6:
+  STA ::StNativeZp+12
+StNativeP0CC8:
+  LDA ::StNativeRam+$34,x
+StNativeP0CCB:
+  AND #$c0
+StNativeP0CCD:
+  ORA #$30
+StNativeP0CCF:
+  ORA ::StNativeZp+12
+StNativeP0CD1:
+  CPX #$01
+StNativeP0CD3:
+  jeq ::StNativeP0C5C
+StNativeP0CD5:
+  sta GuestNativeApu+0,y
+  php
+  pha
+  lda #1
+  sta GuestNativeDirty+0,y
+  pla
+  plp
+StNativeP0CD8:
+  RTS
+StNativeP0CD9:
+  LDA ::StNativeRam+$4b
+StNativeP0CDC:
+  CLC
+StNativeP0CDD:
+  BMI ::StNativeP0CED
+StNativeP0CDF:
+  ADC ::StNativeRam+$8d
+StNativeP0CE2:
+  STA ::StNativeRam+$8d
+StNativeP0CE5:
+  LDA ::StNativeRam+$93
+StNativeP0CE8:
+  ADC #$00
+StNativeP0CEA:
+  JMP ::StNativeP0CF8
+StNativeP0CED:
+  .byte $00
+StNativeP0CEE:
+  .byte $00
+StNativeP0CEF:
+  .byte $00
+StNativeP0CF0:
+  .byte $00
+StNativeP0CF1:
+  .byte $00
+StNativeP0CF2:
+  .byte $00
+StNativeP0CF3:
+  .byte $00
+StNativeP0CF4:
+  .byte $00
+StNativeP0CF5:
+  .byte $00
+StNativeP0CF6:
+  .byte $00
+StNativeP0CF7:
+  .byte $00
+StNativeP0CF8:
+  STA ::StNativeRam+$93
+StNativeP0CFB:
+  LDA ::StNativeRam+$8d
+StNativeP0CFE:
+  STA ::StNativeZp+11
+StNativeP0D00:
+  LDA ::StNativeRam+$93
+StNativeP0D03:
+  STA ::StNativeZp+12
+StNativeP0D05:
+  JSR ::StNativeP0BB2
+StNativeP0D08:
+  LDA ::StNativeRam+$39
+StNativeP0D0B:
+  AND #$7f
+StNativeP0D0D:
+  sta GuestNativeApu+8
+  php
+  inc GuestNativeDirty+8
+  plp
+StNativeP0D10:
+  RTS
+StNativeP0D11:
+  LDY ::StNativeRam+$0a
+StNativeP0D14:
+  LDA ::StNativeP0DE9,x
+StNativeP0D17:
+  AND ::StNativeRam+$00
+StNativeP0D1A:
+  CPX #$01
+StNativeP0D1C:
+  BEQ ::StNativeP0D2A
+StNativeP0D1E:
+  STA ::StNativeRam+$00
+StNativeP0D21:
+  jsr GuestNativeStatusSTA
+StNativeP0D24:
+  LDA #$00
+StNativeP0D26:
+  STA ::StNativeRam+$01,y
+StNativeP0D29:
+  RTS
+StNativeP0D2A:
+  LDY #$ff
+StNativeP0D2C:
+  CPY ::StNativeRam+$12
+StNativeP0D2F:
+  BNE ::StNativeP0D3C
+StNativeP0D31:
+  STA ::StNativeRam+$00
+StNativeP0D34:
+  jsr GuestNativeStatusSTA
+StNativeP0D37:
+  LDA #$00
+StNativeP0D39:
+  STA ::StNativeRam+$02
+StNativeP0D3C:
+  RTS
+StNativeP0D3D:
+  LDA #$ff
+StNativeP0D3F:
+  STA ::StNativeRam+$10,x
+StNativeP0D42:
+  JMP ::StNativeP0D11
+StNativeP0D45:
+  .byte $00
+StNativeP0D46:
+  .byte $00
+StNativeP0D47:
+  .byte $00
+StNativeP0D48:
+  .byte $00
+StNativeP0D49:
+  .byte $00
+StNativeP0D4A:
+  .byte $00
+StNativeP0D4B:
+  .byte $00
+StNativeP0D4C:
+  .byte $00
+StNativeP0D4D:
+  .byte $00
+StNativeP0D4E:
+  .byte $00
+StNativeP0D4F:
+  .byte $00
+StNativeP0D50:
+  .byte $00
+StNativeP0D51:
+  .byte $e0
+StNativeP0D52:
+  .byte $05
+StNativeP0D53:
+  .byte $f0
+StNativeP0D54:
+  .byte $0f
+StNativeP0D55:
+  .byte $00
+StNativeP0D56:
+  .byte $00
+StNativeP0D57:
+  .byte $00
+StNativeP0D58:
+  .byte $00
+StNativeP0D59:
+  .byte $00
+StNativeP0D5A:
+  .byte $00
+StNativeP0D5B:
+  .byte $00
+StNativeP0D5C:
+  .byte $00
+StNativeP0D5D:
+  .byte $00
+StNativeP0D5E:
+  .byte $00
+StNativeP0D5F:
+  .byte $00
+StNativeP0D60:
+  .byte $00
+StNativeP0D61:
+  .byte $00
+StNativeP0D62:
+  .byte $00
+StNativeP0D63:
+  .byte $00
+StNativeP0D64:
+  .byte $9d
+StNativeP0D65:
+  .byte $94
+StNativeP0D66:
+  .byte $71
+StNativeP0D67:
+  .byte $4c
+StNativeP0D68:
+  .byte $bd
+StNativeP0D69:
+  .byte $fa
+StNativeP0D6A:
+  TYA
+StNativeP0D6B:
+  STA ::StNativeRam+$76,x
+StNativeP0D6E:
+  JMP ::StNativeP0ABD
+StNativeP0D71:
+  CMP #$00
+StNativeP0D73:
+  BEQ ::StNativeP0D85
+StNativeP0D75:
+  INC ::StNativeRam+$7c,x
+StNativeP0D78:
+  CMP ::StNativeRam+$7c,x
+StNativeP0D7B:
+  BNE ::StNativeP0D85
+StNativeP0D7D:
+  LDA #$00
+StNativeP0D7F:
+  STA ::StNativeRam+$7c,x
+StNativeP0D82:
+  JMP ::StNativeP0ABD
+StNativeP0D85:
+  LDY ::StNativeRam+$76,x
+StNativeP0D88:
+  JMP ::StNativeP0ABD
+StNativeP0D8B:
+  .byte $00
+StNativeP0D8C:
+  .byte $00
+StNativeP0D8D:
+  .byte $00
+StNativeP0D8E:
+  .byte $00
+StNativeP0D8F:
+  .byte $00
+StNativeP0D90:
+  .byte $00
+StNativeP0D91:
+  .byte $00
+StNativeP0D92:
+  .byte $00
+StNativeP0D93:
+  .byte $4c
+StNativeP0D94:
+  .byte $bd
+StNativeP0D95:
+  .byte $fa
+StNativeP0D96:
+  .byte $e0
+StNativeP0D97:
+  .byte $05
+StNativeP0D98:
+  .byte $f0
+StNativeP0D99:
+  .byte $09
+StNativeP0D9A:
+  .byte $85
+StNativeP0D9B:
+  .byte $f0
+StNativeP0D9C:
+  .byte $bd
+StNativeP0D9D:
+  .byte $94
+StNativeP0D9E:
+  .byte $71
+StNativeP0D9F:
+  .byte $29
+StNativeP0DA0:
+  .byte $c0
+StNativeP0DA1:
+  .byte $05
+StNativeP0DA2:
+  .byte $f0
+StNativeP0DA3:
+  .byte $9d
+StNativeP0DA4:
+  .byte $94
+StNativeP0DA5:
+  .byte $71
+StNativeP0DA6:
+  .byte $4c
+StNativeP0DA7:
+  .byte $bd
+StNativeP0DA8:
+  .byte $fa
+StNativeP0DA9:
+  .byte $9d
+StNativeP0DAA:
+  .byte $f4
+StNativeP0DAB:
+  .byte $71
+StNativeP0DAC:
+  .byte $4c
+StNativeP0DAD:
+  .byte $bd
+StNativeP0DAE:
+  .byte $fa
+StNativeP0DAF:
+  .byte $00
+StNativeP0DB0:
+  .byte $00
+StNativeP0DB1:
+  .byte $00
+StNativeP0DB2:
+  .byte $00
+StNativeP0DB3:
+  .byte $00
+StNativeP0DB4:
+  .byte $00
+StNativeP0DB5:
+  .byte $00
+StNativeP0DB6:
+  .byte $00
+StNativeP0DB7:
+  .byte $00
+StNativeP0DB8:
+  .byte $00
+StNativeP0DB9:
+  .byte $00
+StNativeP0DBA:
+  .byte $00
+StNativeP0DBB:
+  .byte $00
+StNativeP0DBC:
+  .byte $00
+StNativeP0DBD:
+  .byte $00
+StNativeP0DBE:
+  .byte $00
+StNativeP0DBF:
+  .byte $00
+StNativeP0DC0:
+  .byte $00
+StNativeP0DC1:
+  .byte $00
+StNativeP0DC2:
+  .byte $09
+StNativeP0DC3:
+  .byte $80
+StNativeP0DC4:
+  .byte $85
+StNativeP0DC5:
+  .byte $a0
+StNativeP0DC6:
+  .byte $a9
+StNativeP0DC7:
+  .byte $00
+StNativeP0DC8:
+  .byte $85
+StNativeP0DC9:
+  .byte $a1
+StNativeP0DCA:
+  .byte $60
+StNativeP0DCB:
+  .byte $ae
+StNativeP0DCC:
+  .byte $06
+StNativeP0DCD:
+  .byte $4e
+StNativeP0DCE:
+  .byte $06
+StNativeP0DCF:
+  .byte $f4
+StNativeP0DD0:
+  .byte $05
+StNativeP0DD1:
+  .byte $9e
+StNativeP0DD2:
+  .byte $05
+StNativeP0DD3:
+  .byte $4d
+StNativeP0DD4:
+  .byte $05
+StNativeP0DD5:
+  .byte $01
+StNativeP0DD6:
+  .byte $05
+StNativeP0DD7:
+  .byte $b9
+StNativeP0DD8:
+  .byte $04
+StNativeP0DD9:
+  .byte $75
+StNativeP0DDA:
+  .byte $04
+StNativeP0DDB:
+  .byte $35
+StNativeP0DDC:
+  .byte $04
+StNativeP0DDD:
+  .byte $f9
+StNativeP0DDE:
+  .byte $03
+StNativeP0DDF:
+  .byte $c0
+StNativeP0DE0:
+  .byte $03
+StNativeP0DE1:
+  .byte $8a
+StNativeP0DE2:
+  .byte $03
+StNativeP0DE3:
+  .byte $01
+StNativeP0DE4:
+  .byte $02
+StNativeP0DE5:
+  .byte $00
+StNativeP0DE6:
+  .byte $08
+StNativeP0DE7:
+  .byte $00
+StNativeP0DE8:
+  .byte $04
+StNativeP0DE9:
+  .byte $0e
+StNativeP0DEA:
+  .byte $0d
+StNativeP0DEB:
+  .byte $00
+StNativeP0DEC:
+  .byte $07
+StNativeP0DED:
+  .byte $00
+StNativeP0DEE:
+  .byte $0b
+StNativeP0DEF:
+  .byte $00
+StNativeP0DF0:
+  .byte $04
+StNativeP0DF1:
+  .byte $00
+StNativeP0DF2:
+  .byte $0c
+StNativeP0DF3:
+  .byte $00
+StNativeP0DF4:
+  .byte $08
+StNativeP0DF5:
+  .byte <::StNativeP0D3D
+StNativeP0DF6:
+  .byte >::StNativeP0D3D
+StNativeP0DF7:
+  .byte $93
+StNativeP0DF8:
+  .byte $fd
+StNativeP0DF9:
+  .byte $51
+StNativeP0DFA:
+  .byte $fd
+StNativeP0DFB:
+  .byte <::StNativeP0D6A
+StNativeP0DFC:
+  .byte >::StNativeP0D6A
+StNativeP0DFD:
+  .byte <::StNativeP0D71
+StNativeP0DFE:
+  .byte >::StNativeP0D71
+StNativeP0DFF:
+  .byte $00
+StNativeP0E00:
+  .byte $00
+StNativeP0E01:
+  .byte $96
+StNativeP0E02:
+  .byte $fd
+StNativeP0E03:
+  .byte $a9
+StNativeP0E04:
+  .byte $fd
+StNativeP0E05:
+  .byte $00
+StNativeP0E06:
+  .byte $00
+StNativeP0E07:
+  .byte $00
+StNativeP0E08:
+  .byte $00
+StNativeP0E09:
+  .byte $00
+StNativeP0E0A:
+  .byte $00
+StNativeP0E0B:
+  .byte $00
+StNativeP0E0C:
+  .byte $00
+StNativeP0E0D:
+  .byte $c2
+StNativeP0E0E:
+  .byte $fd
+StNativeP0E0F:
+  .byte $00
+StNativeP0E10:
+  .byte $00
+StNativeP0E11:
+  .byte $00
+StNativeP0E12:
+  .byte $00
+StNativeP0E13:
+  TAX
+StNativeP0E14:
+  INX
+StNativeP0E15:
+  TXA
+StNativeP0E16:
+  ORA #$80
+StNativeP0E18:
+  PHA
+StNativeP0E19:
+  JSR ::StNativeP0490
+StNativeP0E1C:
+  PLA
+StNativeP0E1D:
+  STA ::StNativeZp+0
+StNativeP0E1F:
+  RTS
+StNativeP11BB:
+  .byte $02
+StNativeP11BC:
+  .byte $00
+StNativeP11BD:
+  .byte <::StNativeP11C5
+StNativeP11BE:
+  .byte >::StNativeP11C5
+StNativeP11BF:
+  .byte $01
+StNativeP11C0:
+  .byte <::StNativeP11E2
+StNativeP11C1:
+  .byte >::StNativeP11E2
+StNativeP11C2:
+  .byte $05
+StNativeP11C3:
+  .byte <::StNativeP11FF
+StNativeP11C4:
+  .byte >::StNativeP11FF
+StNativeP11C5:
+  .byte $06
+StNativeP11C6:
+  .byte $01
+StNativeP11C7:
+  .byte $19
+StNativeP11C8:
+  .byte $00
+StNativeP11C9:
+  .byte $c1
+StNativeP11CA:
+  .byte $18
+StNativeP11CB:
+  .byte $32
+StNativeP11CC:
+  .byte $02
+StNativeP11CD:
+  .byte $31
+StNativeP11CE:
+  .byte $02
+StNativeP11CF:
+  .byte $2a
+StNativeP11D0:
+  .byte $02
+StNativeP11D1:
+  .byte $29
+StNativeP11D2:
+  .byte $02
+StNativeP11D3:
+  .byte $27
+StNativeP11D4:
+  .byte $02
+StNativeP11D5:
+  .byte $25
+StNativeP11D6:
+  .byte $02
+StNativeP11D7:
+  .byte $24
+StNativeP11D8:
+  .byte $02
+StNativeP11D9:
+  .byte $22
+StNativeP11DA:
+  .byte $02
+StNativeP11DB:
+  .byte $21
+StNativeP11DC:
+  .byte $06
+StNativeP11DD:
+  .byte $22
+StNativeP11DE:
+  .byte $02
+StNativeP11DF:
+  .byte $22
+StNativeP11E0:
+  .byte $04
+StNativeP11E1:
+  .byte $ff
+StNativeP11E2:
+  .byte $16
+StNativeP11E3:
+  .byte $01
+StNativeP11E4:
+  .byte $19
+StNativeP11E5:
+  .byte $00
+StNativeP11E6:
+  .byte $c1
+StNativeP11E7:
+  .byte $18
+StNativeP11E8:
+  .byte $2a
+StNativeP11E9:
+  .byte $02
+StNativeP11EA:
+  .byte $29
+StNativeP11EB:
+  .byte $02
+StNativeP11EC:
+  .byte $27
+StNativeP11ED:
+  .byte $02
+StNativeP11EE:
+  .byte $25
+StNativeP11EF:
+  .byte $02
+StNativeP11F0:
+  .byte $24
+StNativeP11F1:
+  .byte $02
+StNativeP11F2:
+  .byte $22
+StNativeP11F3:
+  .byte $02
+StNativeP11F4:
+  .byte $20
+StNativeP11F5:
+  .byte $02
+StNativeP11F6:
+  .byte $1a
+StNativeP11F7:
+  .byte $02
+StNativeP11F8:
+  .byte $19
+StNativeP11F9:
+  .byte $06
+StNativeP11FA:
+  .byte $15
+StNativeP11FB:
+  .byte $02
+StNativeP11FC:
+  .byte $15
+StNativeP11FD:
+  .byte $04
+StNativeP11FE:
+  .byte $ff
+StNativeP11FF:
+  .byte $26
+StNativeP1200:
+  .byte $28
+StNativeP1201:
+  .byte $7f
+StNativeP1202:
+  .byte $00
+StNativeP1203:
+  .byte $fc
+StNativeP1204:
+  .byte $fe
+StNativeP1205:
+  .byte $27
+StNativeP1206:
+  .byte $01
+StNativeP1207:
+  .byte $fb
+StNativeP1208:
+  .byte $08
+StNativeP1209:
+  .byte $fc
+StNativeP120A:
+  .byte $fe
+StNativeP120B:
+  .byte $2a
+StNativeP120C:
+  .byte $01
+StNativeP120D:
+  .byte $fb
+StNativeP120E:
+  .byte $08
+StNativeP120F:
+  .byte $fc
+StNativeP1210:
+  .byte $fe
+StNativeP1211:
+  .byte $24
+StNativeP1212:
+  .byte $01
+StNativeP1213:
+  .byte $fb
+StNativeP1214:
+  .byte $06
+StNativeP1215:
+  .byte $fc
+StNativeP1216:
+  .byte $fe
+StNativeP1217:
+  .byte $22
+StNativeP1218:
+  .byte $01
+StNativeP1219:
+  .byte $fb
+StNativeP121A:
+  .byte $02
+StNativeP121B:
+  .byte $fc
+StNativeP121C:
+  .byte $fe
+StNativeP121D:
+  .byte $22
+StNativeP121E:
+  .byte $01
+StNativeP121F:
+  .byte $fb
+StNativeP1220:
+  .byte $04
+StNativeP1221:
+  .byte $ff
+StNativeP1222:
+  .byte $02
+StNativeP1223:
+  .byte $00
+StNativeP1224:
+  .byte <::StNativeP122C
+StNativeP1225:
+  .byte >::StNativeP122C
+StNativeP1226:
+  .byte $01
+StNativeP1227:
+  .byte <::StNativeP12AD
+StNativeP1228:
+  .byte >::StNativeP12AD
+StNativeP1229:
+  .byte $05
+StNativeP122A:
+  .byte <::StNativeP1330
+StNativeP122B:
+  .byte >::StNativeP1330
+StNativeP122C:
+  .byte $06
+StNativeP122D:
+  .byte $02
+StNativeP122E:
+  .byte $17
+StNativeP122F:
+  .byte $00
+StNativeP1230:
+  .byte $c3
+StNativeP1231:
+  .byte $28
+StNativeP1232:
+  .byte $4b
+StNativeP1233:
+  .byte $02
+StNativeP1234:
+  .byte $49
+StNativeP1235:
+  .byte $02
+StNativeP1236:
+  .byte $44
+StNativeP1237:
+  .byte $02
+StNativeP1238:
+  .byte $49
+StNativeP1239:
+  .byte $02
+StNativeP123A:
+  .byte $47
+StNativeP123B:
+  .byte $02
+StNativeP123C:
+  .byte $42
+StNativeP123D:
+  .byte $02
+StNativeP123E:
+  .byte $47
+StNativeP123F:
+  .byte $02
+StNativeP1240:
+  .byte $45
+StNativeP1241:
+  .byte $02
+StNativeP1242:
+  .byte $40
+StNativeP1243:
+  .byte $02
+StNativeP1244:
+  .byte $45
+StNativeP1245:
+  .byte $02
+StNativeP1246:
+  .byte $44
+StNativeP1247:
+  .byte $02
+StNativeP1248:
+  .byte $3b
+StNativeP1249:
+  .byte $02
+StNativeP124A:
+  .byte $fc
+StNativeP124B:
+  .byte $fe
+StNativeP124C:
+  .byte $39
+StNativeP124D:
+  .byte $02
+StNativeP124E:
+  .byte $37
+StNativeP124F:
+  .byte $02
+StNativeP1250:
+  .byte $32
+StNativeP1251:
+  .byte $02
+StNativeP1252:
+  .byte $42
+StNativeP1253:
+  .byte $02
+StNativeP1254:
+  .byte $39
+StNativeP1255:
+  .byte $02
+StNativeP1256:
+  .byte $37
+StNativeP1257:
+  .byte $02
+StNativeP1258:
+  .byte $fb
+StNativeP1259:
+  .byte $04
+StNativeP125A:
+  .byte $fc
+StNativeP125B:
+  .byte $fe
+StNativeP125C:
+  .byte $37
+StNativeP125D:
+  .byte $02
+StNativeP125E:
+  .byte $35
+StNativeP125F:
+  .byte $02
+StNativeP1260:
+  .byte $30
+StNativeP1261:
+  .byte $02
+StNativeP1262:
+  .byte $40
+StNativeP1263:
+  .byte $02
+StNativeP1264:
+  .byte $37
+StNativeP1265:
+  .byte $02
+StNativeP1266:
+  .byte $35
+StNativeP1267:
+  .byte $02
+StNativeP1268:
+  .byte $fb
+StNativeP1269:
+  .byte $04
+StNativeP126A:
+  .byte $fc
+StNativeP126B:
+  .byte $fe
+StNativeP126C:
+  .byte $35
+StNativeP126D:
+  .byte $02
+StNativeP126E:
+  .byte $33
+StNativeP126F:
+  .byte $02
+StNativeP1270:
+  .byte $2a
+StNativeP1271:
+  .byte $02
+StNativeP1272:
+  .byte $3a
+StNativeP1273:
+  .byte $02
+StNativeP1274:
+  .byte $35
+StNativeP1275:
+  .byte $02
+StNativeP1276:
+  .byte $33
+StNativeP1277:
+  .byte $02
+StNativeP1278:
+  .byte $fb
+StNativeP1279:
+  .byte $04
+StNativeP127A:
+  .byte $fc
+StNativeP127B:
+  .byte $fe
+StNativeP127C:
+  .byte $33
+StNativeP127D:
+  .byte $02
+StNativeP127E:
+  .byte $31
+StNativeP127F:
+  .byte $02
+StNativeP1280:
+  .byte $28
+StNativeP1281:
+  .byte $02
+StNativeP1282:
+  .byte $38
+StNativeP1283:
+  .byte $02
+StNativeP1284:
+  .byte $33
+StNativeP1285:
+  .byte $02
+StNativeP1286:
+  .byte $31
+StNativeP1287:
+  .byte $02
+StNativeP1288:
+  .byte $fb
+StNativeP1289:
+  .byte $04
+StNativeP128A:
+  .byte $fc
+StNativeP128B:
+  .byte $fe
+StNativeP128C:
+  .byte $35
+StNativeP128D:
+  .byte $02
+StNativeP128E:
+  .byte $33
+StNativeP128F:
+  .byte $02
+StNativeP1290:
+  .byte $2a
+StNativeP1291:
+  .byte $02
+StNativeP1292:
+  .byte $3a
+StNativeP1293:
+  .byte $02
+StNativeP1294:
+  .byte $35
+StNativeP1295:
+  .byte $02
+StNativeP1296:
+  .byte $33
+StNativeP1297:
+  .byte $02
+StNativeP1298:
+  .byte $fb
+StNativeP1299:
+  .byte $04
+StNativeP129A:
+  .byte $fc
+StNativeP129B:
+  .byte $fe
+StNativeP129C:
+  .byte $37
+StNativeP129D:
+  .byte $02
+StNativeP129E:
+  .byte $35
+StNativeP129F:
+  .byte $02
+StNativeP12A0:
+  .byte $30
+StNativeP12A1:
+  .byte $02
+StNativeP12A2:
+  .byte $40
+StNativeP12A3:
+  .byte $02
+StNativeP12A4:
+  .byte $37
+StNativeP12A5:
+  .byte $02
+StNativeP12A6:
+  .byte $35
+StNativeP12A7:
+  .byte $02
+StNativeP12A8:
+  .byte $fb
+StNativeP12A9:
+  .byte $04
+StNativeP12AA:
+  .byte $b0
+StNativeP12AB:
+  .byte $d0
+StNativeP12AC:
+  .byte $00
+StNativeP12AD:
+  .byte $16
+StNativeP12AE:
+  .byte $02
+StNativeP12AF:
+  .byte $15
+StNativeP12B0:
+  .byte $00
+StNativeP12B1:
+  .byte $00
+StNativeP12B2:
+  .byte $01
+StNativeP12B3:
+  .byte $c3
+StNativeP12B4:
+  .byte $28
+StNativeP12B5:
+  .byte $4b
+StNativeP12B6:
+  .byte $02
+StNativeP12B7:
+  .byte $49
+StNativeP12B8:
+  .byte $02
+StNativeP12B9:
+  .byte $44
+StNativeP12BA:
+  .byte $02
+StNativeP12BB:
+  .byte $49
+StNativeP12BC:
+  .byte $02
+StNativeP12BD:
+  .byte $47
+StNativeP12BE:
+  .byte $02
+StNativeP12BF:
+  .byte $42
+StNativeP12C0:
+  .byte $02
+StNativeP12C1:
+  .byte $47
+StNativeP12C2:
+  .byte $02
+StNativeP12C3:
+  .byte $45
+StNativeP12C4:
+  .byte $02
+StNativeP12C5:
+  .byte $40
+StNativeP12C6:
+  .byte $02
+StNativeP12C7:
+  .byte $45
+StNativeP12C8:
+  .byte $02
+StNativeP12C9:
+  .byte $44
+StNativeP12CA:
+  .byte $02
+StNativeP12CB:
+  .byte $3b
+StNativeP12CC:
+  .byte $02
+StNativeP12CD:
+  .byte $fc
+StNativeP12CE:
+  .byte $fe
+StNativeP12CF:
+  .byte $39
+StNativeP12D0:
+  .byte $02
+StNativeP12D1:
+  .byte $37
+StNativeP12D2:
+  .byte $02
+StNativeP12D3:
+  .byte $32
+StNativeP12D4:
+  .byte $02
+StNativeP12D5:
+  .byte $42
+StNativeP12D6:
+  .byte $02
+StNativeP12D7:
+  .byte $39
+StNativeP12D8:
+  .byte $02
+StNativeP12D9:
+  .byte $37
+StNativeP12DA:
+  .byte $02
+StNativeP12DB:
+  .byte $fb
+StNativeP12DC:
+  .byte $04
+StNativeP12DD:
+  .byte $fc
+StNativeP12DE:
+  .byte $fe
+StNativeP12DF:
+  .byte $37
+StNativeP12E0:
+  .byte $02
+StNativeP12E1:
+  .byte $35
+StNativeP12E2:
+  .byte $02
+StNativeP12E3:
+  .byte $30
+StNativeP12E4:
+  .byte $02
+StNativeP12E5:
+  .byte $40
+StNativeP12E6:
+  .byte $02
+StNativeP12E7:
+  .byte $37
+StNativeP12E8:
+  .byte $02
+StNativeP12E9:
+  .byte $35
+StNativeP12EA:
+  .byte $02
+StNativeP12EB:
+  .byte $fb
+StNativeP12EC:
+  .byte $04
+StNativeP12ED:
+  .byte $fc
+StNativeP12EE:
+  .byte $fe
+StNativeP12EF:
+  .byte $35
+StNativeP12F0:
+  .byte $02
+StNativeP12F1:
+  .byte $33
+StNativeP12F2:
+  .byte $02
+StNativeP12F3:
+  .byte $2a
+StNativeP12F4:
+  .byte $02
+StNativeP12F5:
+  .byte $3a
+StNativeP12F6:
+  .byte $02
+StNativeP12F7:
+  .byte $35
+StNativeP12F8:
+  .byte $02
+StNativeP12F9:
+  .byte $33
+StNativeP12FA:
+  .byte $02
+StNativeP12FB:
+  .byte $fb
+StNativeP12FC:
+  .byte $04
+StNativeP12FD:
+  .byte $fc
+StNativeP12FE:
+  .byte $fe
+StNativeP12FF:
+  .byte $33
+StNativeP1300:
+  .byte $02
+StNativeP1301:
+  .byte $31
+StNativeP1302:
+  .byte $02
+StNativeP1303:
+  .byte $28
+StNativeP1304:
+  .byte $02
+StNativeP1305:
+  .byte $38
+StNativeP1306:
+  .byte $02
+StNativeP1307:
+  .byte $33
+StNativeP1308:
+  .byte $02
+StNativeP1309:
+  .byte $31
+StNativeP130A:
+  .byte $02
+StNativeP130B:
+  .byte $fb
+StNativeP130C:
+  .byte $04
+StNativeP130D:
+  .byte $fc
+StNativeP130E:
+  .byte $fe
+StNativeP130F:
+  .byte $35
+StNativeP1310:
+  .byte $02
+StNativeP1311:
+  .byte $33
+StNativeP1312:
+  .byte $02
+StNativeP1313:
+  .byte $2a
+StNativeP1314:
+  .byte $02
+StNativeP1315:
+  .byte $3a
+StNativeP1316:
+  .byte $02
+StNativeP1317:
+  .byte $35
+StNativeP1318:
+  .byte $02
+StNativeP1319:
+  .byte $33
+StNativeP131A:
+  .byte $02
+StNativeP131B:
+  .byte $fb
+StNativeP131C:
+  .byte $04
+StNativeP131D:
+  .byte $fc
+StNativeP131E:
+  .byte $fe
+StNativeP131F:
+  .byte $37
+StNativeP1320:
+  .byte $02
+StNativeP1321:
+  .byte $35
+StNativeP1322:
+  .byte $02
+StNativeP1323:
+  .byte $30
+StNativeP1324:
+  .byte $02
+StNativeP1325:
+  .byte $40
+StNativeP1326:
+  .byte $02
+StNativeP1327:
+  .byte $37
+StNativeP1328:
+  .byte $02
+StNativeP1329:
+  .byte $35
+StNativeP132A:
+  .byte $02
+StNativeP132B:
+  .byte $fb
+StNativeP132C:
+  .byte $04
+StNativeP132D:
+  .byte $b0
+StNativeP132E:
+  .byte $d0
+StNativeP132F:
+  .byte $00
+StNativeP1330:
+  .byte $26
+StNativeP1331:
+  .byte $38
+StNativeP1332:
+  .byte $7f
+StNativeP1333:
+  .byte $00
+StNativeP1334:
+  .byte $00
+StNativeP1335:
+  .byte $18
+StNativeP1336:
+  .byte $fc
+StNativeP1337:
+  .byte $fe
+StNativeP1338:
+  .byte $22
+StNativeP1339:
+  .byte $02
+StNativeP133A:
+  .byte $29
+StNativeP133B:
+  .byte $02
+StNativeP133C:
+  .byte $32
+StNativeP133D:
+  .byte $02
+StNativeP133E:
+  .byte $32
+StNativeP133F:
+  .byte $02
+StNativeP1340:
+  .byte $32
+StNativeP1341:
+  .byte $02
+StNativeP1342:
+  .byte $32
+StNativeP1343:
+  .byte $02
+StNativeP1344:
+  .byte $fb
+StNativeP1345:
+  .byte $04
+StNativeP1346:
+  .byte $fc
+StNativeP1347:
+  .byte $fe
+StNativeP1348:
+  .byte $20
+StNativeP1349:
+  .byte $02
+StNativeP134A:
+  .byte $27
+StNativeP134B:
+  .byte $02
+StNativeP134C:
+  .byte $30
+StNativeP134D:
+  .byte $02
+StNativeP134E:
+  .byte $30
+StNativeP134F:
+  .byte $02
+StNativeP1350:
+  .byte $30
+StNativeP1351:
+  .byte $02
+StNativeP1352:
+  .byte $30
+StNativeP1353:
+  .byte $02
+StNativeP1354:
+  .byte $fb
+StNativeP1355:
+  .byte $04
+StNativeP1356:
+  .byte $fc
+StNativeP1357:
+  .byte $fe
+StNativeP1358:
+  .byte $1a
+StNativeP1359:
+  .byte $02
+StNativeP135A:
+  .byte $25
+StNativeP135B:
+  .byte $02
+StNativeP135C:
+  .byte $2a
+StNativeP135D:
+  .byte $02
+StNativeP135E:
+  .byte $2a
+StNativeP135F:
+  .byte $02
+StNativeP1360:
+  .byte $2a
+StNativeP1361:
+  .byte $02
+StNativeP1362:
+  .byte $2a
+StNativeP1363:
+  .byte $02
+StNativeP1364:
+  .byte $fb
+StNativeP1365:
+  .byte $04
+StNativeP1366:
+  .byte $fc
+StNativeP1367:
+  .byte $fe
+StNativeP1368:
+  .byte $18
+StNativeP1369:
+  .byte $02
+StNativeP136A:
+  .byte $23
+StNativeP136B:
+  .byte $02
+StNativeP136C:
+  .byte $28
+StNativeP136D:
+  .byte $02
+StNativeP136E:
+  .byte $28
+StNativeP136F:
+  .byte $02
+StNativeP1370:
+  .byte $28
+StNativeP1371:
+  .byte $02
+StNativeP1372:
+  .byte $28
+StNativeP1373:
+  .byte $02
+StNativeP1374:
+  .byte $fb
+StNativeP1375:
+  .byte $04
+StNativeP1376:
+  .byte $fc
+StNativeP1377:
+  .byte $fe
+StNativeP1378:
+  .byte $1a
+StNativeP1379:
+  .byte $02
+StNativeP137A:
+  .byte $25
+StNativeP137B:
+  .byte $02
+StNativeP137C:
+  .byte $2a
+StNativeP137D:
+  .byte $02
+StNativeP137E:
+  .byte $2a
+StNativeP137F:
+  .byte $02
+StNativeP1380:
+  .byte $2a
+StNativeP1381:
+  .byte $02
+StNativeP1382:
+  .byte $2a
+StNativeP1383:
+  .byte $02
+StNativeP1384:
+  .byte $fb
+StNativeP1385:
+  .byte $04
+StNativeP1386:
+  .byte $fc
+StNativeP1387:
+  .byte $fe
+StNativeP1388:
+  .byte $20
+StNativeP1389:
+  .byte $02
+StNativeP138A:
+  .byte $27
+StNativeP138B:
+  .byte $02
+StNativeP138C:
+  .byte $30
+StNativeP138D:
+  .byte $02
+StNativeP138E:
+  .byte $30
+StNativeP138F:
+  .byte $02
+StNativeP1390:
+  .byte $30
+StNativeP1391:
+  .byte $02
+StNativeP1392:
+  .byte $30
+StNativeP1393:
+  .byte $02
+StNativeP1394:
+  .byte $fb
+StNativeP1395:
+  .byte $04
+StNativeP1396:
+  .byte $b0
+StNativeP1397:
+  .byte $d0
+StNativeP1398:
+  .byte $00
+StNativeP1399:
+  .byte $02
+StNativeP139A:
+  .byte $00
+StNativeP139B:
+  .byte <::StNativeP13A3
+StNativeP139C:
+  .byte >::StNativeP13A3
+StNativeP139D:
+  .byte $01
+StNativeP139E:
+  .byte <::StNativeP13D2
+StNativeP139F:
+  .byte >::StNativeP13D2
+StNativeP13A0:
+  .byte $05
+StNativeP13A1:
+  .byte <::StNativeP1401
+StNativeP13A2:
+  .byte >::StNativeP1401
+StNativeP13A3:
+  .byte $0c
+StNativeP13A4:
+  .byte $02
+StNativeP13A5:
+  .byte $19
+StNativeP13A6:
+  .byte $00
+StNativeP13A7:
+  .byte $c1
+StNativeP13A8:
+  .byte $10
+StNativeP13A9:
+  .byte $32
+StNativeP13AA:
+  .byte $01
+StNativeP13AB:
+  .byte $31
+StNativeP13AC:
+  .byte $01
+StNativeP13AD:
+  .byte $32
+StNativeP13AE:
+  .byte $01
+StNativeP13AF:
+  .byte $34
+StNativeP13B0:
+  .byte $01
+StNativeP13B1:
+  .byte $35
+StNativeP13B2:
+  .byte $01
+StNativeP13B3:
+  .byte $34
+StNativeP13B4:
+  .byte $01
+StNativeP13B5:
+  .byte $35
+StNativeP13B6:
+  .byte $01
+StNativeP13B7:
+  .byte $37
+StNativeP13B8:
+  .byte $01
+StNativeP13B9:
+  .byte $39
+StNativeP13BA:
+  .byte $01
+StNativeP13BB:
+  .byte $3a
+StNativeP13BC:
+  .byte $01
+StNativeP13BD:
+  .byte $39
+StNativeP13BE:
+  .byte $01
+StNativeP13BF:
+  .byte $37
+StNativeP13C0:
+  .byte $01
+StNativeP13C1:
+  .byte $35
+StNativeP13C2:
+  .byte $01
+StNativeP13C3:
+  .byte $34
+StNativeP13C4:
+  .byte $01
+StNativeP13C5:
+  .byte $32
+StNativeP13C6:
+  .byte $01
+StNativeP13C7:
+  .byte $31
+StNativeP13C8:
+  .byte $01
+StNativeP13C9:
+  .byte $c2
+StNativeP13CA:
+  .byte $20
+StNativeP13CB:
+  .byte $32
+StNativeP13CC:
+  .byte $04
+StNativeP13CD:
+  .byte $34
+StNativeP13CE:
+  .byte $04
+StNativeP13CF:
+  .byte $32
+StNativeP13D0:
+  .byte $06
+StNativeP13D1:
+  .byte $ff
+StNativeP13D2:
+  .byte $1c
+StNativeP13D3:
+  .byte $02
+StNativeP13D4:
+  .byte $19
+StNativeP13D5:
+  .byte $00
+StNativeP13D6:
+  .byte $c1
+StNativeP13D7:
+  .byte $10
+StNativeP13D8:
+  .byte $2a
+StNativeP13D9:
+  .byte $01
+StNativeP13DA:
+  .byte $29
+StNativeP13DB:
+  .byte $01
+StNativeP13DC:
+  .byte $2a
+StNativeP13DD:
+  .byte $01
+StNativeP13DE:
+  .byte $31
+StNativeP13DF:
+  .byte $01
+StNativeP13E0:
+  .byte $32
+StNativeP13E1:
+  .byte $01
+StNativeP13E2:
+  .byte $31
+StNativeP13E3:
+  .byte $01
+StNativeP13E4:
+  .byte $32
+StNativeP13E5:
+  .byte $01
+StNativeP13E6:
+  .byte $34
+StNativeP13E7:
+  .byte $01
+StNativeP13E8:
+  .byte $35
+StNativeP13E9:
+  .byte $01
+StNativeP13EA:
+  .byte $37
+StNativeP13EB:
+  .byte $01
+StNativeP13EC:
+  .byte $35
+StNativeP13ED:
+  .byte $01
+StNativeP13EE:
+  .byte $34
+StNativeP13EF:
+  .byte $01
+StNativeP13F0:
+  .byte $32
+StNativeP13F1:
+  .byte $01
+StNativeP13F2:
+  .byte $31
+StNativeP13F3:
+  .byte $01
+StNativeP13F4:
+  .byte $2a
+StNativeP13F5:
+  .byte $01
+StNativeP13F6:
+  .byte $29
+StNativeP13F7:
+  .byte $01
+StNativeP13F8:
+  .byte $c2
+StNativeP13F9:
+  .byte $20
+StNativeP13FA:
+  .byte $2a
+StNativeP13FB:
+  .byte $04
+StNativeP13FC:
+  .byte $31
+StNativeP13FD:
+  .byte $04
+StNativeP13FE:
+  .byte $29
+StNativeP13FF:
+  .byte $06
+StNativeP1400:
+  .byte $ff
+StNativeP1401:
+  .byte $2c
+StNativeP1402:
+  .byte $28
+StNativeP1403:
+  .byte $7f
+StNativeP1404:
+  .byte $00
+StNativeP1405:
+  .byte $fc
+StNativeP1406:
+  .byte $fe
+StNativeP1407:
+  .byte $22
+StNativeP1408:
+  .byte $01
+StNativeP1409:
+  .byte $fb
+StNativeP140A:
+  .byte $10
+StNativeP140B:
+  .byte $fc
+StNativeP140C:
+  .byte $fe
+StNativeP140D:
+  .byte $25
+StNativeP140E:
+  .byte $01
+StNativeP140F:
+  .byte $fb
+StNativeP1410:
+  .byte $04
+StNativeP1411:
+  .byte $fc
+StNativeP1412:
+  .byte $fe
+StNativeP1413:
+  .byte $27
+StNativeP1414:
+  .byte $01
+StNativeP1415:
+  .byte $fb
+StNativeP1416:
+  .byte $04
+StNativeP1417:
+  .byte $fc
+StNativeP1418:
+  .byte $fe
+StNativeP1419:
+  .byte $22
+StNativeP141A:
+  .byte $01
+StNativeP141B:
+  .byte $fb
+StNativeP141C:
+  .byte $06
+StNativeP141D:
+  .byte $ff
+StNativeP141E:
+  .byte $03
+StNativeP1541:
+  .byte $03
+StNativeP1542:
+  .byte $00
+StNativeP1543:
+  .byte <::StNativeP154E
+StNativeP1544:
+  .byte >::StNativeP154E
+StNativeP1545:
+  .byte $01
+StNativeP1546:
+  .byte <::StNativeP15FB
+StNativeP1547:
+  .byte >::StNativeP15FB
+StNativeP1548:
+  .byte $05
+StNativeP1549:
+  .byte <::StNativeP16A8
+StNativeP154A:
+  .byte >::StNativeP16A8
+StNativeP154B:
+  .byte $03
+StNativeP154C:
+  .byte <::StNativeP1725
+StNativeP154D:
+  .byte >::StNativeP1725
+StNativeP154E:
+  .byte $03
+StNativeP154F:
+  .byte $02
+StNativeP1550:
+  .byte $17
+StNativeP1551:
+  .byte $00
+StNativeP1552:
+  .byte $c3
+StNativeP1553:
+  .byte $10
+StNativeP1554:
+  .byte $23
+StNativeP1555:
+  .byte $02
+StNativeP1556:
+  .byte $20
+StNativeP1557:
+  .byte $02
+StNativeP1558:
+  .byte $18
+StNativeP1559:
+  .byte $02
+StNativeP155A:
+  .byte $20
+StNativeP155B:
+  .byte $02
+StNativeP155C:
+  .byte $23
+StNativeP155D:
+  .byte $02
+StNativeP155E:
+  .byte $27
+StNativeP155F:
+  .byte $02
+StNativeP1560:
+  .byte $25
+StNativeP1561:
+  .byte $02
+StNativeP1562:
+  .byte $22
+StNativeP1563:
+  .byte $02
+StNativeP1564:
+  .byte $1a
+StNativeP1565:
+  .byte $02
+StNativeP1566:
+  .byte $22
+StNativeP1567:
+  .byte $02
+StNativeP1568:
+  .byte $25
+StNativeP1569:
+  .byte $02
+StNativeP156A:
+  .byte $2a
+StNativeP156B:
+  .byte $02
+StNativeP156C:
+  .byte $27
+StNativeP156D:
+  .byte $06
+StNativeP156E:
+  .byte $24
+StNativeP156F:
+  .byte $06
+StNativeP1570:
+  .byte $27
+StNativeP1571:
+  .byte $06
+StNativeP1572:
+  .byte $30
+StNativeP1573:
+  .byte $06
+StNativeP1574:
+  .byte $23
+StNativeP1575:
+  .byte $02
+StNativeP1576:
+  .byte $20
+StNativeP1577:
+  .byte $02
+StNativeP1578:
+  .byte $18
+StNativeP1579:
+  .byte $02
+StNativeP157A:
+  .byte $20
+StNativeP157B:
+  .byte $02
+StNativeP157C:
+  .byte $23
+StNativeP157D:
+  .byte $02
+StNativeP157E:
+  .byte $27
+StNativeP157F:
+  .byte $02
+StNativeP1580:
+  .byte $25
+StNativeP1581:
+  .byte $02
+StNativeP1582:
+  .byte $22
+StNativeP1583:
+  .byte $02
+StNativeP1584:
+  .byte $1a
+StNativeP1585:
+  .byte $02
+StNativeP1586:
+  .byte $22
+StNativeP1587:
+  .byte $02
+StNativeP1588:
+  .byte $25
+StNativeP1589:
+  .byte $02
+StNativeP158A:
+  .byte $2a
+StNativeP158B:
+  .byte $02
+StNativeP158C:
+  .byte $27
+StNativeP158D:
+  .byte $06
+StNativeP158E:
+  .byte $30
+StNativeP158F:
+  .byte $06
+StNativeP1590:
+  .byte $34
+StNativeP1591:
+  .byte $06
+StNativeP1592:
+  .byte $37
+StNativeP1593:
+  .byte $06
+StNativeP1594:
+  .byte $fc
+StNativeP1595:
+  .byte $fe
+StNativeP1596:
+  .byte $25
+StNativeP1597:
+  .byte $06
+StNativeP1598:
+  .byte $25
+StNativeP1599:
+  .byte $02
+StNativeP159A:
+  .byte $27
+StNativeP159B:
+  .byte $02
+StNativeP159C:
+  .byte $29
+StNativeP159D:
+  .byte $02
+StNativeP159E:
+  .byte $2a
+StNativeP159F:
+  .byte $03
+StNativeP15A0:
+  .byte $29
+StNativeP15A1:
+  .byte $03
+StNativeP15A2:
+  .byte $27
+StNativeP15A3:
+  .byte $03
+StNativeP15A4:
+  .byte $25
+StNativeP15A5:
+  .byte $03
+StNativeP15A6:
+  .byte $30
+StNativeP15A7:
+  .byte $0c
+StNativeP15A8:
+  .byte $25
+StNativeP15A9:
+  .byte $0c
+StNativeP15AA:
+  .byte $2a
+StNativeP15AB:
+  .byte $0f
+StNativeP15AC:
+  .byte $29
+StNativeP15AD:
+  .byte $03
+StNativeP15AE:
+  .byte $27
+StNativeP15AF:
+  .byte $03
+StNativeP15B0:
+  .byte $25
+StNativeP15B1:
+  .byte $03
+StNativeP15B2:
+  .byte $27
+StNativeP15B3:
+  .byte $18
+StNativeP15B4:
+  .byte $25
+StNativeP15B5:
+  .byte $06
+StNativeP15B6:
+  .byte $25
+StNativeP15B7:
+  .byte $02
+StNativeP15B8:
+  .byte $27
+StNativeP15B9:
+  .byte $02
+StNativeP15BA:
+  .byte $29
+StNativeP15BB:
+  .byte $02
+StNativeP15BC:
+  .byte $2a
+StNativeP15BD:
+  .byte $03
+StNativeP15BE:
+  .byte $29
+StNativeP15BF:
+  .byte $03
+StNativeP15C0:
+  .byte $27
+StNativeP15C1:
+  .byte $03
+StNativeP15C2:
+  .byte $25
+StNativeP15C3:
+  .byte $03
+StNativeP15C4:
+  .byte $30
+StNativeP15C5:
+  .byte $0c
+StNativeP15C6:
+  .byte $25
+StNativeP15C7:
+  .byte $0c
+StNativeP15C8:
+  .byte $2a
+StNativeP15C9:
+  .byte $0c
+StNativeP15CA:
+  .byte $29
+StNativeP15CB:
+  .byte $03
+StNativeP15CC:
+  .byte $27
+StNativeP15CD:
+  .byte $03
+StNativeP15CE:
+  .byte $25
+StNativeP15CF:
+  .byte $03
+StNativeP15D0:
+  .byte $27
+StNativeP15D1:
+  .byte $03
+StNativeP15D2:
+  .byte $25
+StNativeP15D3:
+  .byte $18
+StNativeP15D4:
+  .byte $25
+StNativeP15D5:
+  .byte $06
+StNativeP15D6:
+  .byte $25
+StNativeP15D7:
+  .byte $02
+StNativeP15D8:
+  .byte $25
+StNativeP15D9:
+  .byte $02
+StNativeP15DA:
+  .byte $25
+StNativeP15DB:
+  .byte $02
+StNativeP15DC:
+  .byte $27
+StNativeP15DD:
+  .byte $06
+StNativeP15DE:
+  .byte $27
+StNativeP15DF:
+  .byte $02
+StNativeP15E0:
+  .byte $25
+StNativeP15E1:
+  .byte $02
+StNativeP15E2:
+  .byte $27
+StNativeP15E3:
+  .byte $02
+StNativeP15E4:
+  .byte $29
+StNativeP15E5:
+  .byte $18
+StNativeP15E6:
+  .byte $25
+StNativeP15E7:
+  .byte $06
+StNativeP15E8:
+  .byte $25
+StNativeP15E9:
+  .byte $02
+StNativeP15EA:
+  .byte $25
+StNativeP15EB:
+  .byte $02
+StNativeP15EC:
+  .byte $25
+StNativeP15ED:
+  .byte $02
+StNativeP15EE:
+  .byte $27
+StNativeP15EF:
+  .byte $06
+StNativeP15F0:
+  .byte $27
+StNativeP15F1:
+  .byte $02
+StNativeP15F2:
+  .byte $25
+StNativeP15F3:
+  .byte $02
+StNativeP15F4:
+  .byte $27
+StNativeP15F5:
+  .byte $02
+StNativeP15F6:
+  .byte $25
+StNativeP15F7:
+  .byte $18
+StNativeP15F8:
+  .byte $fb
+StNativeP15F9:
+  .byte $00
+StNativeP15FA:
+  .byte $00
+StNativeP15FB:
+  .byte $13
+StNativeP15FC:
+  .byte $02
+StNativeP15FD:
+  .byte $17
+StNativeP15FE:
+  .byte $00
+StNativeP15FF:
+  .byte $c3
+StNativeP1600:
+  .byte $10
+StNativeP1601:
+  .byte $20
+StNativeP1602:
+  .byte $02
+StNativeP1603:
+  .byte $18
+StNativeP1604:
+  .byte $02
+StNativeP1605:
+  .byte $13
+StNativeP1606:
+  .byte $02
+StNativeP1607:
+  .byte $18
+StNativeP1608:
+  .byte $02
+StNativeP1609:
+  .byte $20
+StNativeP160A:
+  .byte $02
+StNativeP160B:
+  .byte $23
+StNativeP160C:
+  .byte $02
+StNativeP160D:
+  .byte $22
+StNativeP160E:
+  .byte $02
+StNativeP160F:
+  .byte $1a
+StNativeP1610:
+  .byte $02
+StNativeP1611:
+  .byte $15
+StNativeP1612:
+  .byte $02
+StNativeP1613:
+  .byte $1a
+StNativeP1614:
+  .byte $02
+StNativeP1615:
+  .byte $22
+StNativeP1616:
+  .byte $02
+StNativeP1617:
+  .byte $25
+StNativeP1618:
+  .byte $02
+StNativeP1619:
+  .byte $24
+StNativeP161A:
+  .byte $06
+StNativeP161B:
+  .byte $20
+StNativeP161C:
+  .byte $06
+StNativeP161D:
+  .byte $24
+StNativeP161E:
+  .byte $06
+StNativeP161F:
+  .byte $27
+StNativeP1620:
+  .byte $06
+StNativeP1621:
+  .byte $20
+StNativeP1622:
+  .byte $02
+StNativeP1623:
+  .byte $18
+StNativeP1624:
+  .byte $02
+StNativeP1625:
+  .byte $13
+StNativeP1626:
+  .byte $02
+StNativeP1627:
+  .byte $18
+StNativeP1628:
+  .byte $02
+StNativeP1629:
+  .byte $20
+StNativeP162A:
+  .byte $02
+StNativeP162B:
+  .byte $23
+StNativeP162C:
+  .byte $02
+StNativeP162D:
+  .byte $22
+StNativeP162E:
+  .byte $02
+StNativeP162F:
+  .byte $1a
+StNativeP1630:
+  .byte $02
+StNativeP1631:
+  .byte $15
+StNativeP1632:
+  .byte $02
+StNativeP1633:
+  .byte $1a
+StNativeP1634:
+  .byte $02
+StNativeP1635:
+  .byte $22
+StNativeP1636:
+  .byte $02
+StNativeP1637:
+  .byte $25
+StNativeP1638:
+  .byte $02
+StNativeP1639:
+  .byte $24
+StNativeP163A:
+  .byte $06
+StNativeP163B:
+  .byte $27
+StNativeP163C:
+  .byte $06
+StNativeP163D:
+  .byte $30
+StNativeP163E:
+  .byte $06
+StNativeP163F:
+  .byte $34
+StNativeP1640:
+  .byte $06
+StNativeP1641:
+  .byte $fc
+StNativeP1642:
+  .byte $fe
+StNativeP1643:
+  .byte $20
+StNativeP1644:
+  .byte $06
+StNativeP1645:
+  .byte $20
+StNativeP1646:
+  .byte $02
+StNativeP1647:
+  .byte $24
+StNativeP1648:
+  .byte $02
+StNativeP1649:
+  .byte $25
+StNativeP164A:
+  .byte $02
+StNativeP164B:
+  .byte $27
+StNativeP164C:
+  .byte $03
+StNativeP164D:
+  .byte $25
+StNativeP164E:
+  .byte $03
+StNativeP164F:
+  .byte $24
+StNativeP1650:
+  .byte $03
+StNativeP1651:
+  .byte $22
+StNativeP1652:
+  .byte $03
+StNativeP1653:
+  .byte $29
+StNativeP1654:
+  .byte $0c
+StNativeP1655:
+  .byte $22
+StNativeP1656:
+  .byte $0c
+StNativeP1657:
+  .byte $27
+StNativeP1658:
+  .byte $0f
+StNativeP1659:
+  .byte $25
+StNativeP165A:
+  .byte $03
+StNativeP165B:
+  .byte $24
+StNativeP165C:
+  .byte $03
+StNativeP165D:
+  .byte $22
+StNativeP165E:
+  .byte $03
+StNativeP165F:
+  .byte $24
+StNativeP1660:
+  .byte $18
+StNativeP1661:
+  .byte $20
+StNativeP1662:
+  .byte $06
+StNativeP1663:
+  .byte $20
+StNativeP1664:
+  .byte $02
+StNativeP1665:
+  .byte $24
+StNativeP1666:
+  .byte $02
+StNativeP1667:
+  .byte $25
+StNativeP1668:
+  .byte $02
+StNativeP1669:
+  .byte $27
+StNativeP166A:
+  .byte $03
+StNativeP166B:
+  .byte $25
+StNativeP166C:
+  .byte $03
+StNativeP166D:
+  .byte $24
+StNativeP166E:
+  .byte $03
+StNativeP166F:
+  .byte $22
+StNativeP1670:
+  .byte $03
+StNativeP1671:
+  .byte $29
+StNativeP1672:
+  .byte $0c
+StNativeP1673:
+  .byte $22
+StNativeP1674:
+  .byte $0c
+StNativeP1675:
+  .byte $27
+StNativeP1676:
+  .byte $0c
+StNativeP1677:
+  .byte $25
+StNativeP1678:
+  .byte $03
+StNativeP1679:
+  .byte $24
+StNativeP167A:
+  .byte $03
+StNativeP167B:
+  .byte $22
+StNativeP167C:
+  .byte $03
+StNativeP167D:
+  .byte $24
+StNativeP167E:
+  .byte $03
+StNativeP167F:
+  .byte $20
+StNativeP1680:
+  .byte $18
+StNativeP1681:
+  .byte $21
+StNativeP1682:
+  .byte $06
+StNativeP1683:
+  .byte $21
+StNativeP1684:
+  .byte $02
+StNativeP1685:
+  .byte $21
+StNativeP1686:
+  .byte $02
+StNativeP1687:
+  .byte $21
+StNativeP1688:
+  .byte $02
+StNativeP1689:
+  .byte $23
+StNativeP168A:
+  .byte $06
+StNativeP168B:
+  .byte $23
+StNativeP168C:
+  .byte $02
+StNativeP168D:
+  .byte $21
+StNativeP168E:
+  .byte $02
+StNativeP168F:
+  .byte $23
+StNativeP1690:
+  .byte $02
+StNativeP1691:
+  .byte $25
+StNativeP1692:
+  .byte $18
+StNativeP1693:
+  .byte $21
+StNativeP1694:
+  .byte $06
+StNativeP1695:
+  .byte $21
+StNativeP1696:
+  .byte $02
+StNativeP1697:
+  .byte $21
+StNativeP1698:
+  .byte $02
+StNativeP1699:
+  .byte $21
+StNativeP169A:
+  .byte $02
+StNativeP169B:
+  .byte $23
+StNativeP169C:
+  .byte $06
+StNativeP169D:
+  .byte $23
+StNativeP169E:
+  .byte $02
+StNativeP169F:
+  .byte $21
+StNativeP16A0:
+  .byte $02
+StNativeP16A1:
+  .byte $23
+StNativeP16A2:
+  .byte $02
+StNativeP16A3:
+  .byte $20
+StNativeP16A4:
+  .byte $18
+StNativeP16A5:
+  .byte $fb
+StNativeP16A6:
+  .byte $00
+StNativeP16A7:
+  .byte $00
+StNativeP16A8:
+  .byte $23
+StNativeP16A9:
+  .byte $28
+StNativeP16AA:
+  .byte $20
+StNativeP16AB:
+  .byte $00
+StNativeP16AC:
+  .byte $fc
+StNativeP16AD:
+  .byte $fe
+StNativeP16AE:
+  .byte $18
+StNativeP16AF:
+  .byte $06
+StNativeP16B0:
+  .byte $18
+StNativeP16B1:
+  .byte $06
+StNativeP16B2:
+  .byte $1a
+StNativeP16B3:
+  .byte $06
+StNativeP16B4:
+  .byte $1a
+StNativeP16B5:
+  .byte $06
+StNativeP16B6:
+  .byte $20
+StNativeP16B7:
+  .byte $06
+StNativeP16B8:
+  .byte $20
+StNativeP16B9:
+  .byte $06
+StNativeP16BA:
+  .byte $1a
+StNativeP16BB:
+  .byte $06
+StNativeP16BC:
+  .byte $1a
+StNativeP16BD:
+  .byte $06
+StNativeP16BE:
+  .byte $fb
+StNativeP16BF:
+  .byte $02
+StNativeP16C0:
+  .byte $fc
+StNativeP16C1:
+  .byte $fe
+StNativeP16C2:
+  .byte $25
+StNativeP16C3:
+  .byte $06
+StNativeP16C4:
+  .byte $25
+StNativeP16C5:
+  .byte $06
+StNativeP16C6:
+  .byte $24
+StNativeP16C7:
+  .byte $06
+StNativeP16C8:
+  .byte $24
+StNativeP16C9:
+  .byte $06
+StNativeP16CA:
+  .byte $22
+StNativeP16CB:
+  .byte $06
+StNativeP16CC:
+  .byte $22
+StNativeP16CD:
+  .byte $06
+StNativeP16CE:
+  .byte $20
+StNativeP16CF:
+  .byte $06
+StNativeP16D0:
+  .byte $20
+StNativeP16D1:
+  .byte $06
+StNativeP16D2:
+  .byte $1a
+StNativeP16D3:
+  .byte $06
+StNativeP16D4:
+  .byte $1a
+StNativeP16D5:
+  .byte $06
+StNativeP16D6:
+  .byte $19
+StNativeP16D7:
+  .byte $06
+StNativeP16D8:
+  .byte $19
+StNativeP16D9:
+  .byte $06
+StNativeP16DA:
+  .byte $17
+StNativeP16DB:
+  .byte $06
+StNativeP16DC:
+  .byte $17
+StNativeP16DD:
+  .byte $06
+StNativeP16DE:
+  .byte $20
+StNativeP16DF:
+  .byte $06
+StNativeP16E0:
+  .byte $20
+StNativeP16E1:
+  .byte $06
+StNativeP16E2:
+  .byte $25
+StNativeP16E3:
+  .byte $06
+StNativeP16E4:
+  .byte $25
+StNativeP16E5:
+  .byte $06
+StNativeP16E6:
+  .byte $24
+StNativeP16E7:
+  .byte $06
+StNativeP16E8:
+  .byte $24
+StNativeP16E9:
+  .byte $06
+StNativeP16EA:
+  .byte $22
+StNativeP16EB:
+  .byte $06
+StNativeP16EC:
+  .byte $22
+StNativeP16ED:
+  .byte $06
+StNativeP16EE:
+  .byte $20
+StNativeP16EF:
+  .byte $06
+StNativeP16F0:
+  .byte $20
+StNativeP16F1:
+  .byte $06
+StNativeP16F2:
+  .byte $1a
+StNativeP16F3:
+  .byte $06
+StNativeP16F4:
+  .byte $1a
+StNativeP16F5:
+  .byte $06
+StNativeP16F6:
+  .byte $20
+StNativeP16F7:
+  .byte $06
+StNativeP16F8:
+  .byte $20
+StNativeP16F9:
+  .byte $06
+StNativeP16FA:
+  .byte $25
+StNativeP16FB:
+  .byte $06
+StNativeP16FC:
+  .byte $25
+StNativeP16FD:
+  .byte $06
+StNativeP16FE:
+  .byte $25
+StNativeP16FF:
+  .byte $06
+StNativeP1700:
+  .byte $25
+StNativeP1701:
+  .byte $06
+StNativeP1702:
+  .byte $21
+StNativeP1703:
+  .byte $06
+StNativeP1704:
+  .byte $21
+StNativeP1705:
+  .byte $06
+StNativeP1706:
+  .byte $23
+StNativeP1707:
+  .byte $06
+StNativeP1708:
+  .byte $23
+StNativeP1709:
+  .byte $06
+StNativeP170A:
+  .byte $25
+StNativeP170B:
+  .byte $06
+StNativeP170C:
+  .byte $25
+StNativeP170D:
+  .byte $06
+StNativeP170E:
+  .byte $23
+StNativeP170F:
+  .byte $06
+StNativeP1710:
+  .byte $23
+StNativeP1711:
+  .byte $06
+StNativeP1712:
+  .byte $21
+StNativeP1713:
+  .byte $06
+StNativeP1714:
+  .byte $21
+StNativeP1715:
+  .byte $06
+StNativeP1716:
+  .byte $23
+StNativeP1717:
+  .byte $06
+StNativeP1718:
+  .byte $23
+StNativeP1719:
+  .byte $06
+StNativeP171A:
+  .byte $25
+StNativeP171B:
+  .byte $06
+StNativeP171C:
+  .byte $25
+StNativeP171D:
+  .byte $06
+StNativeP171E:
+  .byte $25
+StNativeP171F:
+  .byte $06
+StNativeP1720:
+  .byte $25
+StNativeP1721:
+  .byte $06
+StNativeP1722:
+  .byte $fb
+StNativeP1723:
+  .byte $00
+StNativeP1724:
+  .byte $00
+StNativeP1725:
+  .byte $33
+StNativeP1726:
+  .byte $00
+StNativeP1727:
+  .byte $18
+StNativeP1728:
+  .byte $00
+StNativeP1729:
+  .byte $c5
+StNativeP172A:
+  .byte $10
+StNativeP172B:
+  .byte $fc
+StNativeP172C:
+  .byte $fe
+StNativeP172D:
+  .byte $03
+StNativeP172E:
+  .byte $06
+StNativeP172F:
+  .byte $03
+StNativeP1730:
+  .byte $02
+StNativeP1731:
+  .byte $03
+StNativeP1732:
+  .byte $02
+StNativeP1733:
+  .byte $03
+StNativeP1734:
+  .byte $02
+StNativeP1735:
+  .byte $fb
+StNativeP1736:
+  .byte $00
+StNativeP1B39:
+  .byte $03
+StNativeP1B3A:
+  .byte $00
+StNativeP1B3B:
+  .byte <::StNativeP1B46
+StNativeP1B3C:
+  .byte >::StNativeP1B46
+StNativeP1B3D:
+  .byte $01
+StNativeP1B3E:
+  .byte <::StNativeP1BA9
+StNativeP1B3F:
+  .byte >::StNativeP1BA9
+StNativeP1B40:
+  .byte $05
+StNativeP1B41:
+  .byte <::StNativeP1C0C
+StNativeP1B42:
+  .byte >::StNativeP1C0C
+StNativeP1B43:
+  .byte $03
+StNativeP1B44:
+  .byte <::StNativeP1C25
+StNativeP1B45:
+  .byte >::StNativeP1C25
+StNativeP1B46:
+  .byte $0a
+StNativeP1B47:
+  .byte $01
+StNativeP1B48:
+  .byte $1b
+StNativeP1B49:
+  .byte $00
+StNativeP1B4A:
+  .byte $c1
+StNativeP1B4B:
+  .byte $10
+StNativeP1B4C:
+  .byte $23
+StNativeP1B4D:
+  .byte $01
+StNativeP1B4E:
+  .byte $24
+StNativeP1B4F:
+  .byte $01
+StNativeP1B50:
+  .byte $25
+StNativeP1B51:
+  .byte $01
+StNativeP1B52:
+  .byte $26
+StNativeP1B53:
+  .byte $01
+StNativeP1B54:
+  .byte $27
+StNativeP1B55:
+  .byte $01
+StNativeP1B56:
+  .byte $28
+StNativeP1B57:
+  .byte $01
+StNativeP1B58:
+  .byte $29
+StNativeP1B59:
+  .byte $01
+StNativeP1B5A:
+  .byte $2a
+StNativeP1B5B:
+  .byte $01
+StNativeP1B5C:
+  .byte $2b
+StNativeP1B5D:
+  .byte $01
+StNativeP1B5E:
+  .byte $30
+StNativeP1B5F:
+  .byte $01
+StNativeP1B60:
+  .byte $31
+StNativeP1B61:
+  .byte $01
+StNativeP1B62:
+  .byte $32
+StNativeP1B63:
+  .byte $01
+StNativeP1B64:
+  .byte $33
+StNativeP1B65:
+  .byte $01
+StNativeP1B66:
+  .byte $34
+StNativeP1B67:
+  .byte $01
+StNativeP1B68:
+  .byte $35
+StNativeP1B69:
+  .byte $01
+StNativeP1B6A:
+  .byte $36
+StNativeP1B6B:
+  .byte $01
+StNativeP1B6C:
+  .byte $fc
+StNativeP1B6D:
+  .byte $fe
+StNativeP1B6E:
+  .byte $23
+StNativeP1B6F:
+  .byte $01
+StNativeP1B70:
+  .byte $24
+StNativeP1B71:
+  .byte $01
+StNativeP1B72:
+  .byte $00
+StNativeP1B73:
+  .byte $02
+StNativeP1B74:
+  .byte $26
+StNativeP1B75:
+  .byte $01
+StNativeP1B76:
+  .byte $27
+StNativeP1B77:
+  .byte $01
+StNativeP1B78:
+  .byte $00
+StNativeP1B79:
+  .byte $02
+StNativeP1B7A:
+  .byte $29
+StNativeP1B7B:
+  .byte $01
+StNativeP1B7C:
+  .byte $2a
+StNativeP1B7D:
+  .byte $01
+StNativeP1B7E:
+  .byte $00
+StNativeP1B7F:
+  .byte $01
+StNativeP1B80:
+  .byte $30
+StNativeP1B81:
+  .byte $05
+StNativeP1B82:
+  .byte $fb
+StNativeP1B83:
+  .byte $02
+StNativeP1B84:
+  .byte $fc
+StNativeP1B85:
+  .byte $fe
+StNativeP1B86:
+  .byte $00
+StNativeP1B87:
+  .byte $01
+StNativeP1B88:
+  .byte $30
+StNativeP1B89:
+  .byte $01
+StNativeP1B8A:
+  .byte $2a
+StNativeP1B8B:
+  .byte $01
+StNativeP1B8C:
+  .byte $28
+StNativeP1B8D:
+  .byte $01
+StNativeP1B8E:
+  .byte $00
+StNativeP1B8F:
+  .byte $01
+StNativeP1B90:
+  .byte $2a
+StNativeP1B91:
+  .byte $01
+StNativeP1B92:
+  .byte $00
+StNativeP1B93:
+  .byte $01
+StNativeP1B94:
+  .byte $28
+StNativeP1B95:
+  .byte $01
+StNativeP1B96:
+  .byte $00
+StNativeP1B97:
+  .byte $01
+StNativeP1B98:
+  .byte $26
+StNativeP1B99:
+  .byte $01
+StNativeP1B9A:
+  .byte $00
+StNativeP1B9B:
+  .byte $01
+StNativeP1B9C:
+  .byte $24
+StNativeP1B9D:
+  .byte $01
+StNativeP1B9E:
+  .byte $26
+StNativeP1B9F:
+  .byte $02
+StNativeP1BA0:
+  .byte $28
+StNativeP1BA1:
+  .byte $01
+StNativeP1BA2:
+  .byte $00
+StNativeP1BA3:
+  .byte $01
+StNativeP1BA4:
+  .byte $fb
+StNativeP1BA5:
+  .byte $02
+StNativeP1BA6:
+  .byte $b0
+StNativeP1BA7:
+  .byte $e3
+StNativeP1BA8:
+  .byte $00
+StNativeP1BA9:
+  .byte $1a
+StNativeP1BAA:
+  .byte $01
+StNativeP1BAB:
+  .byte $1b
+StNativeP1BAC:
+  .byte $00
+StNativeP1BAD:
+  .byte $c1
+StNativeP1BAE:
+  .byte $10
+StNativeP1BAF:
+  .byte $20
+StNativeP1BB0:
+  .byte $01
+StNativeP1BB1:
+  .byte $21
+StNativeP1BB2:
+  .byte $01
+StNativeP1BB3:
+  .byte $22
+StNativeP1BB4:
+  .byte $01
+StNativeP1BB5:
+  .byte $23
+StNativeP1BB6:
+  .byte $01
+StNativeP1BB7:
+  .byte $24
+StNativeP1BB8:
+  .byte $01
+StNativeP1BB9:
+  .byte $25
+StNativeP1BBA:
+  .byte $01
+StNativeP1BBB:
+  .byte $26
+StNativeP1BBC:
+  .byte $01
+StNativeP1BBD:
+  .byte $27
+StNativeP1BBE:
+  .byte $01
+StNativeP1BBF:
+  .byte $28
+StNativeP1BC0:
+  .byte $01
+StNativeP1BC1:
+  .byte $29
+StNativeP1BC2:
+  .byte $01
+StNativeP1BC3:
+  .byte $2a
+StNativeP1BC4:
+  .byte $01
+StNativeP1BC5:
+  .byte $2b
+StNativeP1BC6:
+  .byte $01
+StNativeP1BC7:
+  .byte $30
+StNativeP1BC8:
+  .byte $01
+StNativeP1BC9:
+  .byte $31
+StNativeP1BCA:
+  .byte $01
+StNativeP1BCB:
+  .byte $32
+StNativeP1BCC:
+  .byte $01
+StNativeP1BCD:
+  .byte $33
+StNativeP1BCE:
+  .byte $01
+StNativeP1BCF:
+  .byte $fc
+StNativeP1BD0:
+  .byte $fe
+StNativeP1BD1:
+  .byte $20
+StNativeP1BD2:
+  .byte $01
+StNativeP1BD3:
+  .byte $21
+StNativeP1BD4:
+  .byte $01
+StNativeP1BD5:
+  .byte $00
+StNativeP1BD6:
+  .byte $02
+StNativeP1BD7:
+  .byte $23
+StNativeP1BD8:
+  .byte $01
+StNativeP1BD9:
+  .byte $24
+StNativeP1BDA:
+  .byte $01
+StNativeP1BDB:
+  .byte $00
+StNativeP1BDC:
+  .byte $02
+StNativeP1BDD:
+  .byte $26
+StNativeP1BDE:
+  .byte $01
+StNativeP1BDF:
+  .byte $27
+StNativeP1BE0:
+  .byte $01
+StNativeP1BE1:
+  .byte $00
+StNativeP1BE2:
+  .byte $01
+StNativeP1BE3:
+  .byte $29
+StNativeP1BE4:
+  .byte $05
+StNativeP1BE5:
+  .byte $fb
+StNativeP1BE6:
+  .byte $02
+StNativeP1BE7:
+  .byte $fc
+StNativeP1BE8:
+  .byte $fe
+StNativeP1BE9:
+  .byte $00
+StNativeP1BEA:
+  .byte $01
+StNativeP1BEB:
+  .byte $28
+StNativeP1BEC:
+  .byte $01
+StNativeP1BED:
+  .byte $26
+StNativeP1BEE:
+  .byte $01
+StNativeP1BEF:
+  .byte $24
+StNativeP1BF0:
+  .byte $01
+StNativeP1BF1:
+  .byte $00
+StNativeP1BF2:
+  .byte $01
+StNativeP1BF3:
+  .byte $26
+StNativeP1BF4:
+  .byte $01
+StNativeP1BF5:
+  .byte $00
+StNativeP1BF6:
+  .byte $01
+StNativeP1BF7:
+  .byte $24
+StNativeP1BF8:
+  .byte $01
+StNativeP1BF9:
+  .byte $00
+StNativeP1BFA:
+  .byte $01
+StNativeP1BFB:
+  .byte $22
+StNativeP1BFC:
+  .byte $01
+StNativeP1BFD:
+  .byte $00
+StNativeP1BFE:
+  .byte $01
+StNativeP1BFF:
+  .byte $20
+StNativeP1C00:
+  .byte $01
+StNativeP1C01:
+  .byte $22
+StNativeP1C02:
+  .byte $02
+StNativeP1C03:
+  .byte $24
+StNativeP1C04:
+  .byte $01
+StNativeP1C05:
+  .byte $00
+StNativeP1C06:
+  .byte $01
+StNativeP1C07:
+  .byte $fb
+StNativeP1C08:
+  .byte $02
+StNativeP1C09:
+  .byte $b0
+StNativeP1C0A:
+  .byte $e3
+StNativeP1C0B:
+  .byte $00
+StNativeP1C0C:
+  .byte $2a
+StNativeP1C0D:
+  .byte $28
+StNativeP1C0E:
+  .byte $10
+StNativeP1C0F:
+  .byte $00
+StNativeP1C10:
+  .byte $fc
+StNativeP1C11:
+  .byte $fe
+StNativeP1C12:
+  .byte $22
+StNativeP1C13:
+  .byte $01
+StNativeP1C14:
+  .byte $fb
+StNativeP1C15:
+  .byte $10
+StNativeP1C16:
+  .byte $fc
+StNativeP1C17:
+  .byte $fe
+StNativeP1C18:
+  .byte $17
+StNativeP1C19:
+  .byte $01
+StNativeP1C1A:
+  .byte $fb
+StNativeP1C1B:
+  .byte $20
+StNativeP1C1C:
+  .byte $fc
+StNativeP1C1D:
+  .byte $fe
+StNativeP1C1E:
+  .byte $20
+StNativeP1C1F:
+  .byte $01
+StNativeP1C20:
+  .byte $fb
+StNativeP1C21:
+  .byte $20
+StNativeP1C22:
+  .byte $b0
+StNativeP1C23:
+  .byte $fa
+StNativeP1C24:
+  .byte $00
+StNativeP1C25:
+  .byte $3a
+StNativeP1C26:
+  .byte $00
+StNativeP1C27:
+  .byte $16
+StNativeP1C28:
+  .byte $00
+StNativeP1C29:
+  .byte $c5
+StNativeP1C2A:
+  .byte $10
+StNativeP1C2B:
+  .byte $fc
+StNativeP1C2C:
+  .byte $fe
+StNativeP1C2D:
+  .byte $03
+StNativeP1C2E:
+  .byte $01
+StNativeP1C2F:
+  .byte $fb
+StNativeP1C30:
+  .byte $10
+StNativeP1C31:
+  .byte $fc
+StNativeP1C32:
+  .byte $fe
+StNativeP1C33:
+  .byte $06
+StNativeP1C34:
+  .byte $01
+StNativeP1C35:
+  .byte $06
+StNativeP1C36:
+  .byte $01
+StNativeP1C37:
+  .byte $03
+StNativeP1C38:
+  .byte $01
+StNativeP1C39:
+  .byte $06
+StNativeP1C3A:
+  .byte $01
+StNativeP1C3B:
+  .byte $fb
+StNativeP1C3C:
+  .byte $00
+StNativeP2000:
+  .byte $00
+StNativeP2001:
+  .byte $00
+StNativeP2002:
+  .byte <::StNativeP2048
+StNativeP2003:
+  .byte >::StNativeP2048
+StNativeP2004:
+  .byte <::StNativeP2378
+StNativeP2005:
+  .byte >::StNativeP2378
+StNativeP2006:
+  .byte $9b
+StNativeP2007:
+  .byte $a4
+StNativeP2008:
+  .byte <::StNativeP25E4
+StNativeP2009:
+  .byte >::StNativeP25E4
+StNativeP200A:
+  .byte <::StNativeP27AF
+StNativeP200B:
+  .byte >::StNativeP27AF
+StNativeP200C:
+  .byte $f8
+StNativeP200D:
+  .byte $a9
+StNativeP200E:
+  .byte $8b
+StNativeP200F:
+  .byte $aa
+StNativeP2010:
+  .byte $5c
+StNativeP2011:
+  .byte $ab
+StNativeP2012:
+  .byte <::StNativeP2C79
+StNativeP2013:
+  .byte >::StNativeP2C79
+StNativeP2014:
+  .byte $24
+StNativeP2015:
+  .byte $ad
+StNativeP2016:
+  .byte <::StNativeP2DE9
+StNativeP2017:
+  .byte >::StNativeP2DE9
+StNativeP2018:
+  .byte $20
+StNativeP2019:
+  .byte $b0
+StNativeP201A:
+  .byte <::StNativeP11BB
+StNativeP201B:
+  .byte >::StNativeP11BB
+StNativeP201C:
+  .byte <::StNativeP1222
+StNativeP201D:
+  .byte >::StNativeP1222
+StNativeP201E:
+  .byte <::StNativeP1399
+StNativeP201F:
+  .byte >::StNativeP1399
+StNativeP2020:
+  .byte $1e
+StNativeP2021:
+  .byte $b4
+StNativeP2022:
+  .byte <::StNativeP1541
+StNativeP2023:
+  .byte >::StNativeP1541
+StNativeP2024:
+  .byte $38
+StNativeP2025:
+  .byte $b7
+StNativeP2026:
+  .byte $6d
+StNativeP2027:
+  .byte $b8
+StNativeP2028:
+  .byte $01
+StNativeP2029:
+  .byte $b9
+StNativeP202A:
+  .byte $fa
+StNativeP202B:
+  .byte $b9
+StNativeP202C:
+  .byte <::StNativeP1B39
+StNativeP202D:
+  .byte >::StNativeP1B39
+StNativeP2048:
+  .byte $03
+StNativeP2049:
+  .byte $00
+StNativeP204A:
+  .byte <::StNativeP2055
+StNativeP204B:
+  .byte >::StNativeP2055
+StNativeP204C:
+  .byte $01
+StNativeP204D:
+  .byte <::StNativeP210E
+StNativeP204E:
+  .byte >::StNativeP210E
+StNativeP204F:
+  .byte $05
+StNativeP2050:
+  .byte <::StNativeP2298
+StNativeP2051:
+  .byte >::StNativeP2298
+StNativeP2052:
+  .byte $03
+StNativeP2053:
+  .byte <::StNativeP2361
+StNativeP2054:
+  .byte >::StNativeP2361
+StNativeP2055:
+  .byte $06
+StNativeP2056:
+  .byte $02
+StNativeP2057:
+  .byte $17
+StNativeP2058:
+  .byte $00
+StNativeP2059:
+  .byte $c3
+StNativeP205A:
+  .byte $10
+StNativeP205B:
+  .byte $fc
+StNativeP205C:
+  .byte $fe
+StNativeP205D:
+  .byte $37
+StNativeP205E:
+  .byte $03
+StNativeP205F:
+  .byte $32
+StNativeP2060:
+  .byte $03
+StNativeP2061:
+  .byte $2b
+StNativeP2062:
+  .byte $02
+StNativeP2063:
+  .byte $00
+StNativeP2064:
+  .byte $03
+StNativeP2065:
+  .byte $2b
+StNativeP2066:
+  .byte $01
+StNativeP2067:
+  .byte $30
+StNativeP2068:
+  .byte $02
+StNativeP2069:
+  .byte $32
+StNativeP206A:
+  .byte $02
+StNativeP206B:
+  .byte $30
+StNativeP206C:
+  .byte $03
+StNativeP206D:
+  .byte $32
+StNativeP206E:
+  .byte $03
+StNativeP206F:
+  .byte $34
+StNativeP2070:
+  .byte $02
+StNativeP2071:
+  .byte $00
+StNativeP2072:
+  .byte $08
+StNativeP2073:
+  .byte $36
+StNativeP2074:
+  .byte $03
+StNativeP2075:
+  .byte $32
+StNativeP2076:
+  .byte $03
+StNativeP2077:
+  .byte $29
+StNativeP2078:
+  .byte $02
+StNativeP2079:
+  .byte $00
+StNativeP207A:
+  .byte $03
+StNativeP207B:
+  .byte $29
+StNativeP207C:
+  .byte $01
+StNativeP207D:
+  .byte $2b
+StNativeP207E:
+  .byte $02
+StNativeP207F:
+  .byte $30
+StNativeP2080:
+  .byte $02
+StNativeP2081:
+  .byte $2b
+StNativeP2082:
+  .byte $03
+StNativeP2083:
+  .byte $30
+StNativeP2084:
+  .byte $03
+StNativeP2085:
+  .byte $32
+StNativeP2086:
+  .byte $02
+StNativeP2087:
+  .byte $00
+StNativeP2088:
+  .byte $03
+StNativeP2089:
+  .byte $32
+StNativeP208A:
+  .byte $01
+StNativeP208B:
+  .byte $34
+StNativeP208C:
+  .byte $01
+StNativeP208D:
+  .byte $32
+StNativeP208E:
+  .byte $01
+StNativeP208F:
+  .byte $31
+StNativeP2090:
+  .byte $01
+StNativeP2091:
+  .byte $32
+StNativeP2092:
+  .byte $01
+StNativeP2093:
+  .byte $37
+StNativeP2094:
+  .byte $03
+StNativeP2095:
+  .byte $32
+StNativeP2096:
+  .byte $03
+StNativeP2097:
+  .byte $2b
+StNativeP2098:
+  .byte $02
+StNativeP2099:
+  .byte $00
+StNativeP209A:
+  .byte $03
+StNativeP209B:
+  .byte $2b
+StNativeP209C:
+  .byte $01
+StNativeP209D:
+  .byte $30
+StNativeP209E:
+  .byte $02
+StNativeP209F:
+  .byte $32
+StNativeP20A0:
+  .byte $02
+StNativeP20A1:
+  .byte $30
+StNativeP20A2:
+  .byte $03
+StNativeP20A3:
+  .byte $32
+StNativeP20A4:
+  .byte $03
+StNativeP20A5:
+  .byte $34
+StNativeP20A6:
+  .byte $02
+StNativeP20A7:
+  .byte $00
+StNativeP20A8:
+  .byte $08
+StNativeP20A9:
+  .byte $36
+StNativeP20AA:
+  .byte $03
+StNativeP20AB:
+  .byte $32
+StNativeP20AC:
+  .byte $03
+StNativeP20AD:
+  .byte $29
+StNativeP20AE:
+  .byte $02
+StNativeP20AF:
+  .byte $00
+StNativeP20B0:
+  .byte $03
+StNativeP20B1:
+  .byte $29
+StNativeP20B2:
+  .byte $01
+StNativeP20B3:
+  .byte $2b
+StNativeP20B4:
+  .byte $02
+StNativeP20B5:
+  .byte $30
+StNativeP20B6:
+  .byte $02
+StNativeP20B7:
+  .byte $2b
+StNativeP20B8:
+  .byte $03
+StNativeP20B9:
+  .byte $29
+StNativeP20BA:
+  .byte $03
+StNativeP20BB:
+  .byte $27
+StNativeP20BC:
+  .byte $02
+StNativeP20BD:
+  .byte $00
+StNativeP20BE:
+  .byte $08
+StNativeP20BF:
+  .byte $30
+StNativeP20C0:
+  .byte $08
+StNativeP20C1:
+  .byte $32
+StNativeP20C2:
+  .byte $02
+StNativeP20C3:
+  .byte $30
+StNativeP20C4:
+  .byte $01
+StNativeP20C5:
+  .byte $2b
+StNativeP20C6:
+  .byte $02
+StNativeP20C7:
+  .byte $29
+StNativeP20C8:
+  .byte $03
+StNativeP20C9:
+  .byte $2b
+StNativeP20CA:
+  .byte $02
+StNativeP20CB:
+  .byte $30
+StNativeP20CC:
+  .byte $01
+StNativeP20CD:
+  .byte $32
+StNativeP20CE:
+  .byte $02
+StNativeP20CF:
+  .byte $2b
+StNativeP20D0:
+  .byte $03
+StNativeP20D1:
+  .byte $27
+StNativeP20D2:
+  .byte $02
+StNativeP20D3:
+  .byte $29
+StNativeP20D4:
+  .byte $01
+StNativeP20D5:
+  .byte $2b
+StNativeP20D6:
+  .byte $02
+StNativeP20D7:
+  .byte $24
+StNativeP20D8:
+  .byte $03
+StNativeP20D9:
+  .byte $30
+StNativeP20DA:
+  .byte $08
+StNativeP20DB:
+  .byte $32
+StNativeP20DC:
+  .byte $02
+StNativeP20DD:
+  .byte $30
+StNativeP20DE:
+  .byte $02
+StNativeP20DF:
+  .byte $2b
+StNativeP20E0:
+  .byte $02
+StNativeP20E1:
+  .byte $29
+StNativeP20E2:
+  .byte $02
+StNativeP20E3:
+  .byte $2b
+StNativeP20E4:
+  .byte $10
+StNativeP20E5:
+  .byte $30
+StNativeP20E6:
+  .byte $08
+StNativeP20E7:
+  .byte $32
+StNativeP20E8:
+  .byte $02
+StNativeP20E9:
+  .byte $30
+StNativeP20EA:
+  .byte $01
+StNativeP20EB:
+  .byte $2b
+StNativeP20EC:
+  .byte $02
+StNativeP20ED:
+  .byte $29
+StNativeP20EE:
+  .byte $03
+StNativeP20EF:
+  .byte $2b
+StNativeP20F0:
+  .byte $02
+StNativeP20F1:
+  .byte $30
+StNativeP20F2:
+  .byte $01
+StNativeP20F3:
+  .byte $32
+StNativeP20F4:
+  .byte $02
+StNativeP20F5:
+  .byte $2b
+StNativeP20F6:
+  .byte $03
+StNativeP20F7:
+  .byte $27
+StNativeP20F8:
+  .byte $02
+StNativeP20F9:
+  .byte $29
+StNativeP20FA:
+  .byte $01
+StNativeP20FB:
+  .byte $2b
+StNativeP20FC:
+  .byte $02
+StNativeP20FD:
+  .byte $24
+StNativeP20FE:
+  .byte $03
+StNativeP20FF:
+  .byte $30
+StNativeP2100:
+  .byte $08
+StNativeP2101:
+  .byte $32
+StNativeP2102:
+  .byte $04
+StNativeP2103:
+  .byte $34
+StNativeP2104:
+  .byte $02
+StNativeP2105:
+  .byte $36
+StNativeP2106:
+  .byte $02
+StNativeP2107:
+  .byte $37
+StNativeP2108:
+  .byte $08
+StNativeP2109:
+  .byte $39
+StNativeP210A:
+  .byte $08
+StNativeP210B:
+  .byte $fb
+StNativeP210C:
+  .byte $00
+StNativeP210D:
+  .byte $00
+StNativeP210E:
+  .byte $16
+StNativeP210F:
+  .byte $01
+StNativeP2110:
+  .byte $14
+StNativeP2111:
+  .byte $00
+StNativeP2112:
+  .byte $c5
+StNativeP2113:
+  .byte $10
+StNativeP2114:
+  .byte $fc
+StNativeP2115:
+  .byte $fe
+StNativeP2116:
+  .byte $00
+StNativeP2117:
+  .byte $02
+StNativeP2118:
+  .byte $2b
+StNativeP2119:
+  .byte $01
+StNativeP211A:
+  .byte $2b
+StNativeP211B:
+  .byte $01
+StNativeP211C:
+  .byte $00
+StNativeP211D:
+  .byte $02
+StNativeP211E:
+  .byte $32
+StNativeP211F:
+  .byte $01
+StNativeP2120:
+  .byte $32
+StNativeP2121:
+  .byte $01
+StNativeP2122:
+  .byte $00
+StNativeP2123:
+  .byte $02
+StNativeP2124:
+  .byte $2b
+StNativeP2125:
+  .byte $01
+StNativeP2126:
+  .byte $2b
+StNativeP2127:
+  .byte $01
+StNativeP2128:
+  .byte $00
+StNativeP2129:
+  .byte $02
+StNativeP212A:
+  .byte $32
+StNativeP212B:
+  .byte $01
+StNativeP212C:
+  .byte $32
+StNativeP212D:
+  .byte $01
+StNativeP212E:
+  .byte $00
+StNativeP212F:
+  .byte $02
+StNativeP2130:
+  .byte $30
+StNativeP2131:
+  .byte $01
+StNativeP2132:
+  .byte $30
+StNativeP2133:
+  .byte $01
+StNativeP2134:
+  .byte $00
+StNativeP2135:
+  .byte $02
+StNativeP2136:
+  .byte $34
+StNativeP2137:
+  .byte $01
+StNativeP2138:
+  .byte $34
+StNativeP2139:
+  .byte $01
+StNativeP213A:
+  .byte $00
+StNativeP213B:
+  .byte $02
+StNativeP213C:
+  .byte $30
+StNativeP213D:
+  .byte $01
+StNativeP213E:
+  .byte $30
+StNativeP213F:
+  .byte $01
+StNativeP2140:
+  .byte $00
+StNativeP2141:
+  .byte $02
+StNativeP2142:
+  .byte $34
+StNativeP2143:
+  .byte $01
+StNativeP2144:
+  .byte $34
+StNativeP2145:
+  .byte $01
+StNativeP2146:
+  .byte $00
+StNativeP2147:
+  .byte $02
+StNativeP2148:
+  .byte $32
+StNativeP2149:
+  .byte $01
+StNativeP214A:
+  .byte $32
+StNativeP214B:
+  .byte $01
+StNativeP214C:
+  .byte $00
+StNativeP214D:
+  .byte $02
+StNativeP214E:
+  .byte $36
+StNativeP214F:
+  .byte $01
+StNativeP2150:
+  .byte $36
+StNativeP2151:
+  .byte $01
+StNativeP2152:
+  .byte $00
+StNativeP2153:
+  .byte $02
+StNativeP2154:
+  .byte $32
+StNativeP2155:
+  .byte $01
+StNativeP2156:
+  .byte $32
+StNativeP2157:
+  .byte $01
+StNativeP2158:
+  .byte $00
+StNativeP2159:
+  .byte $02
+StNativeP215A:
+  .byte $36
+StNativeP215B:
+  .byte $01
+StNativeP215C:
+  .byte $36
+StNativeP215D:
+  .byte $01
+StNativeP215E:
+  .byte $00
+StNativeP215F:
+  .byte $02
+StNativeP2160:
+  .byte $2b
+StNativeP2161:
+  .byte $01
+StNativeP2162:
+  .byte $2b
+StNativeP2163:
+  .byte $01
+StNativeP2164:
+  .byte $00
+StNativeP2165:
+  .byte $02
+StNativeP2166:
+  .byte $32
+StNativeP2167:
+  .byte $01
+StNativeP2168:
+  .byte $32
+StNativeP2169:
+  .byte $01
+StNativeP216A:
+  .byte $00
+StNativeP216B:
+  .byte $02
+StNativeP216C:
+  .byte $32
+StNativeP216D:
+  .byte $01
+StNativeP216E:
+  .byte $32
+StNativeP216F:
+  .byte $01
+StNativeP2170:
+  .byte $00
+StNativeP2171:
+  .byte $02
+StNativeP2172:
+  .byte $36
+StNativeP2173:
+  .byte $01
+StNativeP2174:
+  .byte $36
+StNativeP2175:
+  .byte $01
+StNativeP2176:
+  .byte $00
+StNativeP2177:
+  .byte $02
+StNativeP2178:
+  .byte $2b
+StNativeP2179:
+  .byte $01
+StNativeP217A:
+  .byte $2b
+StNativeP217B:
+  .byte $01
+StNativeP217C:
+  .byte $00
+StNativeP217D:
+  .byte $02
+StNativeP217E:
+  .byte $32
+StNativeP217F:
+  .byte $01
+StNativeP2180:
+  .byte $32
+StNativeP2181:
+  .byte $01
+StNativeP2182:
+  .byte $00
+StNativeP2183:
+  .byte $02
+StNativeP2184:
+  .byte $2b
+StNativeP2185:
+  .byte $01
+StNativeP2186:
+  .byte $2b
+StNativeP2187:
+  .byte $01
+StNativeP2188:
+  .byte $00
+StNativeP2189:
+  .byte $02
+StNativeP218A:
+  .byte $32
+StNativeP218B:
+  .byte $01
+StNativeP218C:
+  .byte $32
+StNativeP218D:
+  .byte $01
+StNativeP218E:
+  .byte $00
+StNativeP218F:
+  .byte $02
+StNativeP2190:
+  .byte $30
+StNativeP2191:
+  .byte $01
+StNativeP2192:
+  .byte $30
+StNativeP2193:
+  .byte $01
+StNativeP2194:
+  .byte $00
+StNativeP2195:
+  .byte $02
+StNativeP2196:
+  .byte $34
+StNativeP2197:
+  .byte $01
+StNativeP2198:
+  .byte $34
+StNativeP2199:
+  .byte $01
+StNativeP219A:
+  .byte $00
+StNativeP219B:
+  .byte $02
+StNativeP219C:
+  .byte $30
+StNativeP219D:
+  .byte $01
+StNativeP219E:
+  .byte $30
+StNativeP219F:
+  .byte $01
+StNativeP21A0:
+  .byte $00
+StNativeP21A1:
+  .byte $02
+StNativeP21A2:
+  .byte $34
+StNativeP21A3:
+  .byte $01
+StNativeP21A4:
+  .byte $34
+StNativeP21A5:
+  .byte $01
+StNativeP21A6:
+  .byte $00
+StNativeP21A7:
+  .byte $02
+StNativeP21A8:
+  .byte $32
+StNativeP21A9:
+  .byte $01
+StNativeP21AA:
+  .byte $32
+StNativeP21AB:
+  .byte $01
+StNativeP21AC:
+  .byte $00
+StNativeP21AD:
+  .byte $02
+StNativeP21AE:
+  .byte $36
+StNativeP21AF:
+  .byte $01
+StNativeP21B0:
+  .byte $36
+StNativeP21B1:
+  .byte $01
+StNativeP21B2:
+  .byte $00
+StNativeP21B3:
+  .byte $02
+StNativeP21B4:
+  .byte $32
+StNativeP21B5:
+  .byte $01
+StNativeP21B6:
+  .byte $32
+StNativeP21B7:
+  .byte $01
+StNativeP21B8:
+  .byte $00
+StNativeP21B9:
+  .byte $02
+StNativeP21BA:
+  .byte $36
+StNativeP21BB:
+  .byte $01
+StNativeP21BC:
+  .byte $36
+StNativeP21BD:
+  .byte $01
+StNativeP21BE:
+  .byte $00
+StNativeP21BF:
+  .byte $02
+StNativeP21C0:
+  .byte $2b
+StNativeP21C1:
+  .byte $01
+StNativeP21C2:
+  .byte $2b
+StNativeP21C3:
+  .byte $01
+StNativeP21C4:
+  .byte $00
+StNativeP21C5:
+  .byte $02
+StNativeP21C6:
+  .byte $32
+StNativeP21C7:
+  .byte $01
+StNativeP21C8:
+  .byte $32
+StNativeP21C9:
+  .byte $01
+StNativeP21CA:
+  .byte $00
+StNativeP21CB:
+  .byte $02
+StNativeP21CC:
+  .byte $2b
+StNativeP21CD:
+  .byte $01
+StNativeP21CE:
+  .byte $2b
+StNativeP21CF:
+  .byte $01
+StNativeP21D0:
+  .byte $00
+StNativeP21D1:
+  .byte $02
+StNativeP21D2:
+  .byte $32
+StNativeP21D3:
+  .byte $01
+StNativeP21D4:
+  .byte $32
+StNativeP21D5:
+  .byte $01
+StNativeP21D6:
+  .byte $00
+StNativeP21D7:
+  .byte $02
+StNativeP21D8:
+  .byte $30
+StNativeP21D9:
+  .byte $01
+StNativeP21DA:
+  .byte $30
+StNativeP21DB:
+  .byte $01
+StNativeP21DC:
+  .byte $00
+StNativeP21DD:
+  .byte $02
+StNativeP21DE:
+  .byte $34
+StNativeP21DF:
+  .byte $01
+StNativeP21E0:
+  .byte $34
+StNativeP21E1:
+  .byte $01
+StNativeP21E2:
+  .byte $00
+StNativeP21E3:
+  .byte $02
+StNativeP21E4:
+  .byte $32
+StNativeP21E5:
+  .byte $01
+StNativeP21E6:
+  .byte $32
+StNativeP21E7:
+  .byte $01
+StNativeP21E8:
+  .byte $00
+StNativeP21E9:
+  .byte $02
+StNativeP21EA:
+  .byte $36
+StNativeP21EB:
+  .byte $01
+StNativeP21EC:
+  .byte $36
+StNativeP21ED:
+  .byte $01
+StNativeP21EE:
+  .byte $00
+StNativeP21EF:
+  .byte $02
+StNativeP21F0:
+  .byte $2b
+StNativeP21F1:
+  .byte $01
+StNativeP21F2:
+  .byte $2b
+StNativeP21F3:
+  .byte $01
+StNativeP21F4:
+  .byte $00
+StNativeP21F5:
+  .byte $02
+StNativeP21F6:
+  .byte $32
+StNativeP21F7:
+  .byte $01
+StNativeP21F8:
+  .byte $32
+StNativeP21F9:
+  .byte $01
+StNativeP21FA:
+  .byte $00
+StNativeP21FB:
+  .byte $02
+StNativeP21FC:
+  .byte $27
+StNativeP21FD:
+  .byte $01
+StNativeP21FE:
+  .byte $27
+StNativeP21FF:
+  .byte $01
+StNativeP2200:
+  .byte $00
+StNativeP2201:
+  .byte $02
+StNativeP2202:
+  .byte $2b
+StNativeP2203:
+  .byte $01
+StNativeP2204:
+  .byte $2b
+StNativeP2205:
+  .byte $01
+StNativeP2206:
+  .byte $00
+StNativeP2207:
+  .byte $02
+StNativeP2208:
+  .byte $30
+StNativeP2209:
+  .byte $01
+StNativeP220A:
+  .byte $30
+StNativeP220B:
+  .byte $01
+StNativeP220C:
+  .byte $00
+StNativeP220D:
+  .byte $02
+StNativeP220E:
+  .byte $00
+StNativeP220F:
+  .byte $00
+StNativeP2210:
+  .byte $00
+StNativeP2211:
+  .byte $00
+StNativeP2212:
+  .byte $00
+StNativeP2213:
+  .byte $00
+StNativeP2214:
+  .byte $00
+StNativeP2215:
+  .byte $00
+StNativeP2216:
+  .byte $00
+StNativeP2217:
+  .byte $00
+StNativeP2218:
+  .byte $00
+StNativeP2219:
+  .byte $00
+StNativeP221A:
+  .byte $00
+StNativeP221B:
+  .byte $00
+StNativeP221C:
+  .byte $00
+StNativeP221D:
+  .byte $00
+StNativeP221E:
+  .byte $00
+StNativeP221F:
+  .byte $00
+StNativeP2220:
+  .byte $00
+StNativeP2221:
+  .byte $00
+StNativeP2222:
+  .byte $00
+StNativeP2223:
+  .byte $00
+StNativeP2224:
+  .byte $00
+StNativeP2225:
+  .byte $00
+StNativeP2226:
+  .byte $00
+StNativeP2227:
+  .byte $00
+StNativeP2228:
+  .byte $00
+StNativeP2229:
+  .byte $00
+StNativeP222A:
+  .byte $00
+StNativeP222B:
+  .byte $00
+StNativeP222C:
+  .byte $00
+StNativeP222D:
+  .byte $00
+StNativeP222E:
+  .byte $00
+StNativeP222F:
+  .byte $00
+StNativeP2230:
+  .byte $00
+StNativeP2231:
+  .byte $00
+StNativeP2232:
+  .byte $00
+StNativeP2233:
+  .byte $00
+StNativeP2234:
+  .byte $00
+StNativeP2235:
+  .byte $00
+StNativeP2236:
+  .byte $00
+StNativeP2237:
+  .byte $00
+StNativeP2238:
+  .byte $00
+StNativeP2239:
+  .byte $00
+StNativeP223A:
+  .byte $00
+StNativeP223B:
+  .byte $00
+StNativeP223C:
+  .byte $00
+StNativeP223D:
+  .byte $00
+StNativeP223E:
+  .byte $00
+StNativeP223F:
+  .byte $00
+StNativeP2240:
+  .byte $00
+StNativeP2241:
+  .byte $00
+StNativeP2242:
+  .byte $00
+StNativeP2243:
+  .byte $00
+StNativeP2244:
+  .byte $00
+StNativeP2245:
+  .byte $00
+StNativeP2246:
+  .byte $00
+StNativeP2247:
+  .byte $00
+StNativeP2248:
+  .byte $00
+StNativeP2249:
+  .byte $00
+StNativeP224A:
+  .byte $00
+StNativeP224B:
+  .byte $00
+StNativeP224C:
+  .byte $00
+StNativeP224D:
+  .byte $00
+StNativeP224E:
+  .byte $00
+StNativeP224F:
+  .byte $00
+StNativeP2250:
+  .byte $00
+StNativeP2251:
+  .byte $00
+StNativeP2252:
+  .byte $00
+StNativeP2253:
+  .byte $00
+StNativeP2254:
+  .byte $00
+StNativeP2255:
+  .byte $00
+StNativeP2256:
+  .byte $00
+StNativeP2257:
+  .byte $00
+StNativeP2258:
+  .byte $00
+StNativeP2259:
+  .byte $00
+StNativeP225A:
+  .byte $00
+StNativeP225B:
+  .byte $00
+StNativeP225C:
+  .byte $00
+StNativeP225D:
+  .byte $00
+StNativeP225E:
+  .byte $00
+StNativeP225F:
+  .byte $00
+StNativeP2260:
+  .byte $00
+StNativeP2261:
+  .byte $00
+StNativeP2262:
+  .byte $00
+StNativeP2263:
+  .byte $00
+StNativeP2264:
+  .byte $00
+StNativeP2265:
+  .byte $00
+StNativeP2266:
+  .byte $00
+StNativeP2267:
+  .byte $00
+StNativeP2268:
+  .byte $00
+StNativeP2269:
+  .byte $00
+StNativeP226A:
+  .byte $00
+StNativeP226B:
+  .byte $00
+StNativeP226C:
+  .byte $00
+StNativeP226D:
+  .byte $00
+StNativeP226E:
+  .byte $00
+StNativeP226F:
+  .byte $00
+StNativeP2270:
+  .byte $00
+StNativeP2271:
+  .byte $00
+StNativeP2272:
+  .byte $00
+StNativeP2273:
+  .byte $00
+StNativeP2274:
+  .byte $00
+StNativeP2275:
+  .byte $00
+StNativeP2276:
+  .byte $00
+StNativeP2277:
+  .byte $00
+StNativeP2278:
+  .byte $00
+StNativeP2279:
+  .byte $00
+StNativeP227A:
+  .byte $00
+StNativeP227B:
+  .byte $00
+StNativeP227C:
+  .byte $00
+StNativeP227D:
+  .byte $00
+StNativeP227E:
+  .byte $00
+StNativeP227F:
+  .byte $00
+StNativeP2280:
+  .byte $00
+StNativeP2281:
+  .byte $00
+StNativeP2282:
+  .byte $00
+StNativeP2283:
+  .byte $00
+StNativeP2284:
+  .byte $00
+StNativeP2285:
+  .byte $00
+StNativeP2286:
+  .byte $00
+StNativeP2287:
+  .byte $00
+StNativeP2288:
+  .byte $00
+StNativeP2289:
+  .byte $00
+StNativeP228A:
+  .byte $00
+StNativeP228B:
+  .byte $00
+StNativeP228C:
+  .byte $00
+StNativeP228D:
+  .byte $00
+StNativeP228E:
+  .byte $00
+StNativeP228F:
+  .byte $00
+StNativeP2290:
+  .byte $00
+StNativeP2291:
+  .byte $00
+StNativeP2292:
+  .byte $00
+StNativeP2293:
+  .byte $00
+StNativeP2294:
+  .byte $00
+StNativeP2295:
+  .byte $00
+StNativeP2296:
+  .byte $00
+StNativeP2297:
+  .byte $00
+StNativeP2298:
+  .byte $26
+StNativeP2299:
+  .byte $28
+StNativeP229A:
+  .byte $10
+StNativeP229B:
+  .byte $00
+StNativeP229C:
+  .byte $fc
+StNativeP229D:
+  .byte $fe
+StNativeP229E:
+  .byte $17
+StNativeP229F:
+  .byte $03
+StNativeP22A0:
+  .byte $22
+StNativeP22A1:
+  .byte $03
+StNativeP22A2:
+  .byte $27
+StNativeP22A3:
+  .byte $02
+StNativeP22A4:
+  .byte $17
+StNativeP22A5:
+  .byte $03
+StNativeP22A6:
+  .byte $22
+StNativeP22A7:
+  .byte $03
+StNativeP22A8:
+  .byte $27
+StNativeP22A9:
+  .byte $02
+StNativeP22AA:
+  .byte $20
+StNativeP22AB:
+  .byte $03
+StNativeP22AC:
+  .byte $27
+StNativeP22AD:
+  .byte $03
+StNativeP22AE:
+  .byte $30
+StNativeP22AF:
+  .byte $02
+StNativeP22B0:
+  .byte $20
+StNativeP22B1:
+  .byte $03
+StNativeP22B2:
+  .byte $27
+StNativeP22B3:
+  .byte $03
+StNativeP22B4:
+  .byte $30
+StNativeP22B5:
+  .byte $02
+StNativeP22B6:
+  .byte $22
+StNativeP22B7:
+  .byte $03
+StNativeP22B8:
+  .byte $29
+StNativeP22B9:
+  .byte $03
+StNativeP22BA:
+  .byte $32
+StNativeP22BB:
+  .byte $02
+StNativeP22BC:
+  .byte $22
+StNativeP22BD:
+  .byte $03
+StNativeP22BE:
+  .byte $29
+StNativeP22BF:
+  .byte $03
+StNativeP22C0:
+  .byte $32
+StNativeP22C1:
+  .byte $02
+StNativeP22C2:
+  .byte $17
+StNativeP22C3:
+  .byte $03
+StNativeP22C4:
+  .byte $22
+StNativeP22C5:
+  .byte $03
+StNativeP22C6:
+  .byte $27
+StNativeP22C7:
+  .byte $02
+StNativeP22C8:
+  .byte $22
+StNativeP22C9:
+  .byte $03
+StNativeP22CA:
+  .byte $29
+StNativeP22CB:
+  .byte $03
+StNativeP22CC:
+  .byte $32
+StNativeP22CD:
+  .byte $02
+StNativeP22CE:
+  .byte $17
+StNativeP22CF:
+  .byte $03
+StNativeP22D0:
+  .byte $22
+StNativeP22D1:
+  .byte $03
+StNativeP22D2:
+  .byte $27
+StNativeP22D3:
+  .byte $02
+StNativeP22D4:
+  .byte $17
+StNativeP22D5:
+  .byte $03
+StNativeP22D6:
+  .byte $22
+StNativeP22D7:
+  .byte $03
+StNativeP22D8:
+  .byte $27
+StNativeP22D9:
+  .byte $02
+StNativeP22DA:
+  .byte $20
+StNativeP22DB:
+  .byte $03
+StNativeP22DC:
+  .byte $27
+StNativeP22DD:
+  .byte $03
+StNativeP22DE:
+  .byte $30
+StNativeP22DF:
+  .byte $02
+StNativeP22E0:
+  .byte $20
+StNativeP22E1:
+  .byte $03
+StNativeP22E2:
+  .byte $27
+StNativeP22E3:
+  .byte $03
+StNativeP22E4:
+  .byte $30
+StNativeP22E5:
+  .byte $02
+StNativeP22E6:
+  .byte $22
+StNativeP22E7:
+  .byte $03
+StNativeP22E8:
+  .byte $29
+StNativeP22E9:
+  .byte $03
+StNativeP22EA:
+  .byte $32
+StNativeP22EB:
+  .byte $02
+StNativeP22EC:
+  .byte $22
+StNativeP22ED:
+  .byte $03
+StNativeP22EE:
+  .byte $29
+StNativeP22EF:
+  .byte $03
+StNativeP22F0:
+  .byte $32
+StNativeP22F1:
+  .byte $02
+StNativeP22F2:
+  .byte $17
+StNativeP22F3:
+  .byte $03
+StNativeP22F4:
+  .byte $22
+StNativeP22F5:
+  .byte $03
+StNativeP22F6:
+  .byte $27
+StNativeP22F7:
+  .byte $02
+StNativeP22F8:
+  .byte $17
+StNativeP22F9:
+  .byte $03
+StNativeP22FA:
+  .byte $22
+StNativeP22FB:
+  .byte $03
+StNativeP22FC:
+  .byte $27
+StNativeP22FD:
+  .byte $02
+StNativeP22FE:
+  .byte $20
+StNativeP22FF:
+  .byte $03
+StNativeP2300:
+  .byte $27
+StNativeP2301:
+  .byte $03
+StNativeP2302:
+  .byte $30
+StNativeP2303:
+  .byte $02
+StNativeP2304:
+  .byte $22
+StNativeP2305:
+  .byte $03
+StNativeP2306:
+  .byte $29
+StNativeP2307:
+  .byte $03
+StNativeP2308:
+  .byte $32
+StNativeP2309:
+  .byte $02
+StNativeP230A:
+  .byte $17
+StNativeP230B:
+  .byte $03
+StNativeP230C:
+  .byte $22
+StNativeP230D:
+  .byte $03
+StNativeP230E:
+  .byte $27
+StNativeP230F:
+  .byte $02
+StNativeP2310:
+  .byte $14
+StNativeP2311:
+  .byte $03
+StNativeP2312:
+  .byte $19
+StNativeP2313:
+  .byte $03
+StNativeP2314:
+  .byte $24
+StNativeP2315:
+  .byte $02
+StNativeP2316:
+  .byte $20
+StNativeP2317:
+  .byte $03
+StNativeP2318:
+  .byte $27
+StNativeP2319:
+  .byte $03
+StNativeP231A:
+  .byte $30
+StNativeP231B:
+  .byte $02
+StNativeP231C:
+  .byte $22
+StNativeP231D:
+  .byte $03
+StNativeP231E:
+  .byte $29
+StNativeP231F:
+  .byte $03
+StNativeP2320:
+  .byte $32
+StNativeP2321:
+  .byte $02
+StNativeP2322:
+  .byte $17
+StNativeP2323:
+  .byte $03
+StNativeP2324:
+  .byte $22
+StNativeP2325:
+  .byte $03
+StNativeP2326:
+  .byte $27
+StNativeP2327:
+  .byte $02
+StNativeP2328:
+  .byte $14
+StNativeP2329:
+  .byte $03
+StNativeP232A:
+  .byte $19
+StNativeP232B:
+  .byte $03
+StNativeP232C:
+  .byte $24
+StNativeP232D:
+  .byte $02
+StNativeP232E:
+  .byte $20
+StNativeP232F:
+  .byte $03
+StNativeP2330:
+  .byte $27
+StNativeP2331:
+  .byte $03
+StNativeP2332:
+  .byte $30
+StNativeP2333:
+  .byte $02
+StNativeP2334:
+  .byte $22
+StNativeP2335:
+  .byte $03
+StNativeP2336:
+  .byte $29
+StNativeP2337:
+  .byte $03
+StNativeP2338:
+  .byte $32
+StNativeP2339:
+  .byte $02
+StNativeP233A:
+  .byte $17
+StNativeP233B:
+  .byte $03
+StNativeP233C:
+  .byte $22
+StNativeP233D:
+  .byte $03
+StNativeP233E:
+  .byte $27
+StNativeP233F:
+  .byte $02
+StNativeP2340:
+  .byte $14
+StNativeP2341:
+  .byte $03
+StNativeP2342:
+  .byte $19
+StNativeP2343:
+  .byte $03
+StNativeP2344:
+  .byte $24
+StNativeP2345:
+  .byte $02
+StNativeP2346:
+  .byte $19
+StNativeP2347:
+  .byte $03
+StNativeP2348:
+  .byte $24
+StNativeP2349:
+  .byte $03
+StNativeP234A:
+  .byte $29
+StNativeP234B:
+  .byte $02
+StNativeP234C:
+  .byte $1b
+StNativeP234D:
+  .byte $03
+StNativeP234E:
+  .byte $26
+StNativeP234F:
+  .byte $03
+StNativeP2350:
+  .byte $2b
+StNativeP2351:
+  .byte $02
+StNativeP2352:
+  .byte $20
+StNativeP2353:
+  .byte $03
+StNativeP2354:
+  .byte $27
+StNativeP2355:
+  .byte $03
+StNativeP2356:
+  .byte $30
+StNativeP2357:
+  .byte $02
+StNativeP2358:
+  .byte $22
+StNativeP2359:
+  .byte $03
+StNativeP235A:
+  .byte $29
+StNativeP235B:
+  .byte $03
+StNativeP235C:
+  .byte $32
+StNativeP235D:
+  .byte $02
+StNativeP235E:
+  .byte $fb
+StNativeP235F:
+  .byte $00
+StNativeP2360:
+  .byte $00
+StNativeP2361:
+  .byte $36
+StNativeP2362:
+  .byte $00
+StNativeP2363:
+  .byte $15
+StNativeP2364:
+  .byte $00
+StNativeP2365:
+  .byte $c5
+StNativeP2366:
+  .byte $10
+StNativeP2367:
+  .byte $fc
+StNativeP2368:
+  .byte $fe
+StNativeP2369:
+  .byte $07
+StNativeP236A:
+  .byte $04
+StNativeP236B:
+  .byte $03
+StNativeP236C:
+  .byte $04
+StNativeP236D:
+  .byte $07
+StNativeP236E:
+  .byte $01
+StNativeP236F:
+  .byte $03
+StNativeP2370:
+  .byte $03
+StNativeP2371:
+  .byte $07
+StNativeP2372:
+  .byte $02
+StNativeP2373:
+  .byte $03
+StNativeP2374:
+  .byte $02
+StNativeP2375:
+  .byte $fb
+StNativeP2376:
+  .byte $00
+StNativeP2377:
+  .byte $00
+StNativeP2378:
+  .byte $03
+StNativeP2379:
+  .byte $00
+StNativeP237A:
+  .byte <::StNativeP2385
+StNativeP237B:
+  .byte >::StNativeP2385
+StNativeP237C:
+  .byte $01
+StNativeP237D:
+  .byte <::StNativeP23D6
+StNativeP237E:
+  .byte >::StNativeP23D6
+StNativeP237F:
+  .byte $05
+StNativeP2380:
+  .byte <::StNativeP2427
+StNativeP2381:
+  .byte >::StNativeP2427
+StNativeP2382:
+  .byte $03
+StNativeP2383:
+  .byte <::StNativeP2460
+StNativeP2384:
+  .byte >::StNativeP2460
+StNativeP2385:
+  .byte $07
+StNativeP2386:
+  .byte $00
+StNativeP2387:
+  .byte $17
+StNativeP2388:
+  .byte $00
+StNativeP2389:
+  .byte $c1
+StNativeP238A:
+  .byte $10
+StNativeP238B:
+  .byte $fc
+StNativeP238C:
+  .byte $fe
+StNativeP238D:
+  .byte $29
+StNativeP238E:
+  .byte $02
+StNativeP238F:
+  .byte $2b
+StNativeP2390:
+  .byte $02
+StNativeP2391:
+  .byte $00
+StNativeP2392:
+  .byte $02
+StNativeP2393:
+  .byte $31
+StNativeP2394:
+  .byte $02
+StNativeP2395:
+  .byte $00
+StNativeP2396:
+  .byte $02
+StNativeP2397:
+  .byte $33
+StNativeP2398:
+  .byte $02
+StNativeP2399:
+  .byte $35
+StNativeP239A:
+  .byte $14
+StNativeP239B:
+  .byte $33
+StNativeP239C:
+  .byte $02
+StNativeP239D:
+  .byte $35
+StNativeP239E:
+  .byte $02
+StNativeP239F:
+  .byte $00
+StNativeP23A0:
+  .byte $02
+StNativeP23A1:
+  .byte $33
+StNativeP23A2:
+  .byte $02
+StNativeP23A3:
+  .byte $00
+StNativeP23A4:
+  .byte $02
+StNativeP23A5:
+  .byte $31
+StNativeP23A6:
+  .byte $02
+StNativeP23A7:
+  .byte $00
+StNativeP23A8:
+  .byte $02
+StNativeP23A9:
+  .byte $2b
+StNativeP23AA:
+  .byte $04
+StNativeP23AB:
+  .byte $29
+StNativeP23AC:
+  .byte $02
+StNativeP23AD:
+  .byte $27
+StNativeP23AE:
+  .byte $0c
+StNativeP23AF:
+  .byte $fb
+StNativeP23B0:
+  .byte $02
+StNativeP23B1:
+  .byte $fc
+StNativeP23B2:
+  .byte $fe
+StNativeP23B3:
+  .byte $2a
+StNativeP23B4:
+  .byte $02
+StNativeP23B5:
+  .byte $30
+StNativeP23B6:
+  .byte $02
+StNativeP23B7:
+  .byte $32
+StNativeP23B8:
+  .byte $02
+StNativeP23B9:
+  .byte $30
+StNativeP23BA:
+  .byte $02
+StNativeP23BB:
+  .byte $00
+StNativeP23BC:
+  .byte $04
+StNativeP23BD:
+  .byte $2a
+StNativeP23BE:
+  .byte $02
+StNativeP23BF:
+  .byte $30
+StNativeP23C0:
+  .byte $02
+StNativeP23C1:
+  .byte $32
+StNativeP23C2:
+  .byte $02
+StNativeP23C3:
+  .byte $30
+StNativeP23C4:
+  .byte $02
+StNativeP23C5:
+  .byte $00
+StNativeP23C6:
+  .byte $04
+StNativeP23C7:
+  .byte $2a
+StNativeP23C8:
+  .byte $01
+StNativeP23C9:
+  .byte $30
+StNativeP23CA:
+  .byte $01
+StNativeP23CB:
+  .byte $32
+StNativeP23CC:
+  .byte $02
+StNativeP23CD:
+  .byte $30
+StNativeP23CE:
+  .byte $02
+StNativeP23CF:
+  .byte $00
+StNativeP23D0:
+  .byte $02
+StNativeP23D1:
+  .byte $fb
+StNativeP23D2:
+  .byte $02
+StNativeP23D3:
+  .byte $b0
+StNativeP23D4:
+  .byte $db
+StNativeP23D5:
+  .byte $00
+StNativeP23D6:
+  .byte $17
+StNativeP23D7:
+  .byte $00
+StNativeP23D8:
+  .byte $17
+StNativeP23D9:
+  .byte $00
+StNativeP23DA:
+  .byte $c1
+StNativeP23DB:
+  .byte $10
+StNativeP23DC:
+  .byte $fc
+StNativeP23DD:
+  .byte $fe
+StNativeP23DE:
+  .byte $25
+StNativeP23DF:
+  .byte $02
+StNativeP23E0:
+  .byte $27
+StNativeP23E1:
+  .byte $02
+StNativeP23E2:
+  .byte $00
+StNativeP23E3:
+  .byte $02
+StNativeP23E4:
+  .byte $29
+StNativeP23E5:
+  .byte $02
+StNativeP23E6:
+  .byte $00
+StNativeP23E7:
+  .byte $02
+StNativeP23E8:
+  .byte $2b
+StNativeP23E9:
+  .byte $02
+StNativeP23EA:
+  .byte $31
+StNativeP23EB:
+  .byte $14
+StNativeP23EC:
+  .byte $2b
+StNativeP23ED:
+  .byte $02
+StNativeP23EE:
+  .byte $31
+StNativeP23EF:
+  .byte $02
+StNativeP23F0:
+  .byte $00
+StNativeP23F1:
+  .byte $02
+StNativeP23F2:
+  .byte $2b
+StNativeP23F3:
+  .byte $02
+StNativeP23F4:
+  .byte $00
+StNativeP23F5:
+  .byte $02
+StNativeP23F6:
+  .byte $29
+StNativeP23F7:
+  .byte $02
+StNativeP23F8:
+  .byte $00
+StNativeP23F9:
+  .byte $02
+StNativeP23FA:
+  .byte $27
+StNativeP23FB:
+  .byte $04
+StNativeP23FC:
+  .byte $25
+StNativeP23FD:
+  .byte $02
+StNativeP23FE:
+  .byte $23
+StNativeP23FF:
+  .byte $0c
+StNativeP2400:
+  .byte $fb
+StNativeP2401:
+  .byte $02
+StNativeP2402:
+  .byte $fc
+StNativeP2403:
+  .byte $fe
+StNativeP2404:
+  .byte $26
+StNativeP2405:
+  .byte $02
+StNativeP2406:
+  .byte $28
+StNativeP2407:
+  .byte $02
+StNativeP2408:
+  .byte $2a
+StNativeP2409:
+  .byte $02
+StNativeP240A:
+  .byte $28
+StNativeP240B:
+  .byte $02
+StNativeP240C:
+  .byte $00
+StNativeP240D:
+  .byte $04
+StNativeP240E:
+  .byte $26
+StNativeP240F:
+  .byte $02
+StNativeP2410:
+  .byte $28
+StNativeP2411:
+  .byte $02
+StNativeP2412:
+  .byte $2a
+StNativeP2413:
+  .byte $02
+StNativeP2414:
+  .byte $28
+StNativeP2415:
+  .byte $02
+StNativeP2416:
+  .byte $00
+StNativeP2417:
+  .byte $04
+StNativeP2418:
+  .byte $26
+StNativeP2419:
+  .byte $01
+StNativeP241A:
+  .byte $28
+StNativeP241B:
+  .byte $01
+StNativeP241C:
+  .byte $2a
+StNativeP241D:
+  .byte $02
+StNativeP241E:
+  .byte $28
+StNativeP241F:
+  .byte $02
+StNativeP2420:
+  .byte $00
+StNativeP2421:
+  .byte $02
+StNativeP2422:
+  .byte $fb
+StNativeP2423:
+  .byte $02
+StNativeP2424:
+  .byte $b0
+StNativeP2425:
+  .byte $db
+StNativeP2426:
+  .byte $00
+StNativeP2427:
+  .byte $27
+StNativeP2428:
+  .byte $28
+StNativeP2429:
+  .byte $20
+StNativeP242A:
+  .byte $00
+StNativeP242B:
+  .byte $fc
+StNativeP242C:
+  .byte $fe
+StNativeP242D:
+  .byte $15
+StNativeP242E:
+  .byte $02
+StNativeP242F:
+  .byte $15
+StNativeP2430:
+  .byte $04
+StNativeP2431:
+  .byte $15
+StNativeP2432:
+  .byte $04
+StNativeP2433:
+  .byte $15
+StNativeP2434:
+  .byte $02
+StNativeP2435:
+  .byte $15
+StNativeP2436:
+  .byte $04
+StNativeP2437:
+  .byte $15
+StNativeP2438:
+  .byte $04
+StNativeP2439:
+  .byte $15
+StNativeP243A:
+  .byte $04
+StNativeP243B:
+  .byte $15
+StNativeP243C:
+  .byte $02
+StNativeP243D:
+  .byte $15
+StNativeP243E:
+  .byte $02
+StNativeP243F:
+  .byte $15
+StNativeP2440:
+  .byte $04
+StNativeP2441:
+  .byte $15
+StNativeP2442:
+  .byte $02
+StNativeP2443:
+  .byte $15
+StNativeP2444:
+  .byte $04
+StNativeP2445:
+  .byte $15
+StNativeP2446:
+  .byte $04
+StNativeP2447:
+  .byte $15
+StNativeP2448:
+  .byte $04
+StNativeP2449:
+  .byte $15
+StNativeP244A:
+  .byte $04
+StNativeP244B:
+  .byte $15
+StNativeP244C:
+  .byte $02
+StNativeP244D:
+  .byte $15
+StNativeP244E:
+  .byte $04
+StNativeP244F:
+  .byte $15
+StNativeP2450:
+  .byte $02
+StNativeP2451:
+  .byte $15
+StNativeP2452:
+  .byte $02
+StNativeP2453:
+  .byte $15
+StNativeP2454:
+  .byte $04
+StNativeP2455:
+  .byte $fb
+StNativeP2456:
+  .byte $02
+StNativeP2457:
+  .byte $fc
+StNativeP2458:
+  .byte $fe
+StNativeP2459:
+  .byte $16
+StNativeP245A:
+  .byte $02
+StNativeP245B:
+  .byte $fb
+StNativeP245C:
+  .byte $20
+StNativeP245D:
+  .byte $b0
+StNativeP245E:
+  .byte $e7
+StNativeP245F:
+  .byte $00
+StNativeP2460:
+  .byte $37
+StNativeP2461:
+  .byte $00
+StNativeP2462:
+  .byte $17
+StNativeP2463:
+  .byte $00
+StNativeP2464:
+  .byte $c5
+StNativeP2465:
+  .byte $10
+StNativeP2466:
+  .byte $fc
+StNativeP2467:
+  .byte $fe
+StNativeP2468:
+  .byte $03
+StNativeP2469:
+  .byte $02
+StNativeP246A:
+  .byte $03
+StNativeP246B:
+  .byte $04
+StNativeP246C:
+  .byte $02
+StNativeP246D:
+  .byte $04
+StNativeP246E:
+  .byte $03
+StNativeP246F:
+  .byte $02
+StNativeP2470:
+  .byte $03
+StNativeP2471:
+  .byte $04
+StNativeP2472:
+  .byte $03
+StNativeP2473:
+  .byte $04
+StNativeP2474:
+  .byte $02
+StNativeP2475:
+  .byte $04
+StNativeP2476:
+  .byte $03
+StNativeP2477:
+  .byte $02
+StNativeP2478:
+  .byte $03
+StNativeP2479:
+  .byte $02
+StNativeP247A:
+  .byte $03
+StNativeP247B:
+  .byte $04
+StNativeP247C:
+  .byte $02
+StNativeP247D:
+  .byte $02
+StNativeP247E:
+  .byte $03
+StNativeP247F:
+  .byte $04
+StNativeP2480:
+  .byte $03
+StNativeP2481:
+  .byte $04
+StNativeP2482:
+  .byte $03
+StNativeP2483:
+  .byte $04
+StNativeP2484:
+  .byte $02
+StNativeP2485:
+  .byte $04
+StNativeP2486:
+  .byte $03
+StNativeP2487:
+  .byte $02
+StNativeP2488:
+  .byte $03
+StNativeP2489:
+  .byte $04
+StNativeP248A:
+  .byte $03
+StNativeP248B:
+  .byte $02
+StNativeP248C:
+  .byte $02
+StNativeP248D:
+  .byte $02
+StNativeP248E:
+  .byte $03
+StNativeP248F:
+  .byte $04
+StNativeP2490:
+  .byte $fb
+StNativeP2491:
+  .byte $02
+StNativeP2492:
+  .byte $fc
+StNativeP2493:
+  .byte $fe
+StNativeP2494:
+  .byte $03
+StNativeP2495:
+  .byte $02
+StNativeP2496:
+  .byte $fb
+StNativeP2497:
+  .byte $20
+StNativeP2498:
+  .byte $b0
+StNativeP2499:
+  .byte $e7
+StNativeP25E4:
+  .byte $03
+StNativeP25E5:
+  .byte $00
+StNativeP25E6:
+  .byte <::StNativeP25F1
+StNativeP25E7:
+  .byte >::StNativeP25F1
+StNativeP25E8:
+  .byte $01
+StNativeP25E9:
+  .byte <::StNativeP26AA
+StNativeP25EA:
+  .byte >::StNativeP26AA
+StNativeP25EB:
+  .byte $05
+StNativeP25EC:
+  .byte <::StNativeP2737
+StNativeP25ED:
+  .byte >::StNativeP2737
+StNativeP25EE:
+  .byte $03
+StNativeP25EF:
+  .byte <::StNativeP279C
+StNativeP25F0:
+  .byte >::StNativeP279C
+StNativeP25F1:
+  .byte $06
+StNativeP25F2:
+  .byte $02
+StNativeP25F3:
+  .byte $16
+StNativeP25F4:
+  .byte $00
+StNativeP25F5:
+  .byte $c3
+StNativeP25F6:
+  .byte $18
+StNativeP25F7:
+  .byte $fc
+StNativeP25F8:
+  .byte $fe
+StNativeP25F9:
+  .byte $27
+StNativeP25FA:
+  .byte $02
+StNativeP25FB:
+  .byte $29
+StNativeP25FC:
+  .byte $01
+StNativeP25FD:
+  .byte $2a
+StNativeP25FE:
+  .byte $01
+StNativeP25FF:
+  .byte $00
+StNativeP2600:
+  .byte $01
+StNativeP2601:
+  .byte $30
+StNativeP2602:
+  .byte $01
+StNativeP2603:
+  .byte $00
+StNativeP2604:
+  .byte $01
+StNativeP2605:
+  .byte $32
+StNativeP2606:
+  .byte $03
+StNativeP2607:
+  .byte $30
+StNativeP2608:
+  .byte $02
+StNativeP2609:
+  .byte $32
+StNativeP260A:
+  .byte $02
+StNativeP260B:
+  .byte $35
+StNativeP260C:
+  .byte $02
+StNativeP260D:
+  .byte $37
+StNativeP260E:
+  .byte $03
+StNativeP260F:
+  .byte $37
+StNativeP2610:
+  .byte $01
+StNativeP2611:
+  .byte $00
+StNativeP2612:
+  .byte $04
+StNativeP2613:
+  .byte $37
+StNativeP2614:
+  .byte $03
+StNativeP2615:
+  .byte $37
+StNativeP2616:
+  .byte $01
+StNativeP2617:
+  .byte $00
+StNativeP2618:
+  .byte $04
+StNativeP2619:
+  .byte $27
+StNativeP261A:
+  .byte $02
+StNativeP261B:
+  .byte $29
+StNativeP261C:
+  .byte $01
+StNativeP261D:
+  .byte $2a
+StNativeP261E:
+  .byte $01
+StNativeP261F:
+  .byte $00
+StNativeP2620:
+  .byte $01
+StNativeP2621:
+  .byte $30
+StNativeP2622:
+  .byte $01
+StNativeP2623:
+  .byte $00
+StNativeP2624:
+  .byte $01
+StNativeP2625:
+  .byte $32
+StNativeP2626:
+  .byte $03
+StNativeP2627:
+  .byte $30
+StNativeP2628:
+  .byte $02
+StNativeP2629:
+  .byte $32
+StNativeP262A:
+  .byte $02
+StNativeP262B:
+  .byte $35
+StNativeP262C:
+  .byte $02
+StNativeP262D:
+  .byte $27
+StNativeP262E:
+  .byte $03
+StNativeP262F:
+  .byte $27
+StNativeP2630:
+  .byte $01
+StNativeP2631:
+  .byte $00
+StNativeP2632:
+  .byte $04
+StNativeP2633:
+  .byte $27
+StNativeP2634:
+  .byte $03
+StNativeP2635:
+  .byte $27
+StNativeP2636:
+  .byte $01
+StNativeP2637:
+  .byte $00
+StNativeP2638:
+  .byte $04
+StNativeP2639:
+  .byte $fb
+StNativeP263A:
+  .byte $02
+StNativeP263B:
+  .byte $32
+StNativeP263C:
+  .byte $08
+StNativeP263D:
+  .byte $30
+StNativeP263E:
+  .byte $01
+StNativeP263F:
+  .byte $2a
+StNativeP2640:
+  .byte $01
+StNativeP2641:
+  .byte $00
+StNativeP2642:
+  .byte $01
+StNativeP2643:
+  .byte $29
+StNativeP2644:
+  .byte $01
+StNativeP2645:
+  .byte $00
+StNativeP2646:
+  .byte $01
+StNativeP2647:
+  .byte $2a
+StNativeP2648:
+  .byte $01
+StNativeP2649:
+  .byte $00
+StNativeP264A:
+  .byte $01
+StNativeP264B:
+  .byte $27
+StNativeP264C:
+  .byte $09
+StNativeP264D:
+  .byte $00
+StNativeP264E:
+  .byte $02
+StNativeP264F:
+  .byte $29
+StNativeP2650:
+  .byte $01
+StNativeP2651:
+  .byte $2a
+StNativeP2652:
+  .byte $01
+StNativeP2653:
+  .byte $00
+StNativeP2654:
+  .byte $01
+StNativeP2655:
+  .byte $29
+StNativeP2656:
+  .byte $01
+StNativeP2657:
+  .byte $00
+StNativeP2658:
+  .byte $01
+StNativeP2659:
+  .byte $25
+StNativeP265A:
+  .byte $01
+StNativeP265B:
+  .byte $22
+StNativeP265C:
+  .byte $20
+StNativeP265D:
+  .byte $32
+StNativeP265E:
+  .byte $08
+StNativeP265F:
+  .byte $30
+StNativeP2660:
+  .byte $01
+StNativeP2661:
+  .byte $2a
+StNativeP2662:
+  .byte $01
+StNativeP2663:
+  .byte $00
+StNativeP2664:
+  .byte $01
+StNativeP2665:
+  .byte $29
+StNativeP2666:
+  .byte $01
+StNativeP2667:
+  .byte $00
+StNativeP2668:
+  .byte $01
+StNativeP2669:
+  .byte $2a
+StNativeP266A:
+  .byte $01
+StNativeP266B:
+  .byte $00
+StNativeP266C:
+  .byte $01
+StNativeP266D:
+  .byte $27
+StNativeP266E:
+  .byte $09
+StNativeP266F:
+  .byte $00
+StNativeP2670:
+  .byte $02
+StNativeP2671:
+  .byte $29
+StNativeP2672:
+  .byte $01
+StNativeP2673:
+  .byte $2a
+StNativeP2674:
+  .byte $01
+StNativeP2675:
+  .byte $00
+StNativeP2676:
+  .byte $01
+StNativeP2677:
+  .byte $29
+StNativeP2678:
+  .byte $01
+StNativeP2679:
+  .byte $00
+StNativeP267A:
+  .byte $01
+StNativeP267B:
+  .byte $25
+StNativeP267C:
+  .byte $01
+StNativeP267D:
+  .byte $27
+StNativeP267E:
+  .byte $20
+StNativeP267F:
+  .byte $fc
+StNativeP2680:
+  .byte $fe
+StNativeP2681:
+  .byte $23
+StNativeP2682:
+  .byte $03
+StNativeP2683:
+  .byte $23
+StNativeP2684:
+  .byte $01
+StNativeP2685:
+  .byte $00
+StNativeP2686:
+  .byte $01
+StNativeP2687:
+  .byte $23
+StNativeP2688:
+  .byte $01
+StNativeP2689:
+  .byte $27
+StNativeP268A:
+  .byte $01
+StNativeP268B:
+  .byte $2a
+StNativeP268C:
+  .byte $01
+StNativeP268D:
+  .byte $32
+StNativeP268E:
+  .byte $03
+StNativeP268F:
+  .byte $30
+StNativeP2690:
+  .byte $03
+StNativeP2691:
+  .byte $29
+StNativeP2692:
+  .byte $02
+StNativeP2693:
+  .byte $27
+StNativeP2694:
+  .byte $08
+StNativeP2695:
+  .byte $00
+StNativeP2696:
+  .byte $02
+StNativeP2697:
+  .byte $29
+StNativeP2698:
+  .byte $01
+StNativeP2699:
+  .byte $2a
+StNativeP269A:
+  .byte $01
+StNativeP269B:
+  .byte $00
+StNativeP269C:
+  .byte $01
+StNativeP269D:
+  .byte $29
+StNativeP269E:
+  .byte $01
+StNativeP269F:
+  .byte $00
+StNativeP26A0:
+  .byte $01
+StNativeP26A1:
+  .byte $25
+StNativeP26A2:
+  .byte $01
+StNativeP26A3:
+  .byte $fb
+StNativeP26A4:
+  .byte $02
+StNativeP26A5:
+  .byte $27
+StNativeP26A6:
+  .byte $20
+StNativeP26A7:
+  .byte $b0
+StNativeP26A8:
+  .byte $a8
+StNativeP26A9:
+  .byte $00
+StNativeP26AA:
+  .byte $16
+StNativeP26AB:
+  .byte $01
+StNativeP26AC:
+  .byte $15
+StNativeP26AD:
+  .byte $00
+StNativeP26AE:
+  .byte $c5
+StNativeP26AF:
+  .byte $18
+StNativeP26B0:
+  .byte $fc
+StNativeP26B1:
+  .byte $fe
+StNativeP26B2:
+  .byte $27
+StNativeP26B3:
+  .byte $02
+StNativeP26B4:
+  .byte $2a
+StNativeP26B5:
+  .byte $01
+StNativeP26B6:
+  .byte $22
+StNativeP26B7:
+  .byte $02
+StNativeP26B8:
+  .byte $25
+StNativeP26B9:
+  .byte $02
+StNativeP26BA:
+  .byte $27
+StNativeP26BB:
+  .byte $02
+StNativeP26BC:
+  .byte $2a
+StNativeP26BD:
+  .byte $01
+StNativeP26BE:
+  .byte $22
+StNativeP26BF:
+  .byte $02
+StNativeP26C0:
+  .byte $27
+StNativeP26C1:
+  .byte $02
+StNativeP26C2:
+  .byte $25
+StNativeP26C3:
+  .byte $02
+StNativeP26C4:
+  .byte $24
+StNativeP26C5:
+  .byte $02
+StNativeP26C6:
+  .byte $27
+StNativeP26C7:
+  .byte $01
+StNativeP26C8:
+  .byte $1a
+StNativeP26C9:
+  .byte $02
+StNativeP26CA:
+  .byte $20
+StNativeP26CB:
+  .byte $02
+StNativeP26CC:
+  .byte $24
+StNativeP26CD:
+  .byte $02
+StNativeP26CE:
+  .byte $27
+StNativeP26CF:
+  .byte $01
+StNativeP26D0:
+  .byte $1a
+StNativeP26D1:
+  .byte $02
+StNativeP26D2:
+  .byte $20
+StNativeP26D3:
+  .byte $02
+StNativeP26D4:
+  .byte $24
+StNativeP26D5:
+  .byte $02
+StNativeP26D6:
+  .byte $fb
+StNativeP26D7:
+  .byte $04
+StNativeP26D8:
+  .byte $fc
+StNativeP26D9:
+  .byte $fe
+StNativeP26DA:
+  .byte $27
+StNativeP26DB:
+  .byte $03
+StNativeP26DC:
+  .byte $22
+StNativeP26DD:
+  .byte $02
+StNativeP26DE:
+  .byte $27
+StNativeP26DF:
+  .byte $02
+StNativeP26E0:
+  .byte $25
+StNativeP26E1:
+  .byte $02
+StNativeP26E2:
+  .byte $25
+StNativeP26E3:
+  .byte $01
+StNativeP26E4:
+  .byte $20
+StNativeP26E5:
+  .byte $02
+StNativeP26E6:
+  .byte $20
+StNativeP26E7:
+  .byte $02
+StNativeP26E8:
+  .byte $25
+StNativeP26E9:
+  .byte $02
+StNativeP26EA:
+  .byte $23
+StNativeP26EB:
+  .byte $03
+StNativeP26EC:
+  .byte $1a
+StNativeP26ED:
+  .byte $02
+StNativeP26EE:
+  .byte $23
+StNativeP26EF:
+  .byte $02
+StNativeP26F0:
+  .byte $25
+StNativeP26F1:
+  .byte $02
+StNativeP26F2:
+  .byte $25
+StNativeP26F3:
+  .byte $01
+StNativeP26F4:
+  .byte $20
+StNativeP26F5:
+  .byte $02
+StNativeP26F6:
+  .byte $20
+StNativeP26F7:
+  .byte $02
+StNativeP26F8:
+  .byte $25
+StNativeP26F9:
+  .byte $02
+StNativeP26FA:
+  .byte $fb
+StNativeP26FB:
+  .byte $04
+StNativeP26FC:
+  .byte $fc
+StNativeP26FD:
+  .byte $fe
+StNativeP26FE:
+  .byte $23
+StNativeP26FF:
+  .byte $03
+StNativeP2700:
+  .byte $20
+StNativeP2701:
+  .byte $02
+StNativeP2702:
+  .byte $23
+StNativeP2703:
+  .byte $02
+StNativeP2704:
+  .byte $27
+StNativeP2705:
+  .byte $01
+StNativeP2706:
+  .byte $25
+StNativeP2707:
+  .byte $03
+StNativeP2708:
+  .byte $22
+StNativeP2709:
+  .byte $02
+StNativeP270A:
+  .byte $25
+StNativeP270B:
+  .byte $02
+StNativeP270C:
+  .byte $29
+StNativeP270D:
+  .byte $01
+StNativeP270E:
+  .byte $27
+StNativeP270F:
+  .byte $03
+StNativeP2710:
+  .byte $23
+StNativeP2711:
+  .byte $02
+StNativeP2712:
+  .byte $27
+StNativeP2713:
+  .byte $02
+StNativeP2714:
+  .byte $2a
+StNativeP2715:
+  .byte $01
+StNativeP2716:
+  .byte $25
+StNativeP2717:
+  .byte $03
+StNativeP2718:
+  .byte $22
+StNativeP2719:
+  .byte $02
+StNativeP271A:
+  .byte $25
+StNativeP271B:
+  .byte $02
+StNativeP271C:
+  .byte $29
+StNativeP271D:
+  .byte $01
+StNativeP271E:
+  .byte $fb
+StNativeP271F:
+  .byte $02
+StNativeP2720:
+  .byte $fc
+StNativeP2721:
+  .byte $fe
+StNativeP2722:
+  .byte $27
+StNativeP2723:
+  .byte $03
+StNativeP2724:
+  .byte $22
+StNativeP2725:
+  .byte $02
+StNativeP2726:
+  .byte $25
+StNativeP2727:
+  .byte $02
+StNativeP2728:
+  .byte $27
+StNativeP2729:
+  .byte $02
+StNativeP272A:
+  .byte $27
+StNativeP272B:
+  .byte $01
+StNativeP272C:
+  .byte $22
+StNativeP272D:
+  .byte $02
+StNativeP272E:
+  .byte $22
+StNativeP272F:
+  .byte $02
+StNativeP2730:
+  .byte $25
+StNativeP2731:
+  .byte $02
+StNativeP2732:
+  .byte $fb
+StNativeP2733:
+  .byte $02
+StNativeP2734:
+  .byte $b0
+StNativeP2735:
+  .byte $bd
+StNativeP2736:
+  .byte $00
+StNativeP2737:
+  .byte $26
+StNativeP2738:
+  .byte $38
+StNativeP2739:
+  .byte $10
+StNativeP273A:
+  .byte $00
+StNativeP273B:
+  .byte $fc
+StNativeP273C:
+  .byte $fe
+StNativeP273D:
+  .byte $17
+StNativeP273E:
+  .byte $03
+StNativeP273F:
+  .byte $22
+StNativeP2740:
+  .byte $03
+StNativeP2741:
+  .byte $27
+StNativeP2742:
+  .byte $02
+StNativeP2743:
+  .byte $17
+StNativeP2744:
+  .byte $03
+StNativeP2745:
+  .byte $22
+StNativeP2746:
+  .byte $03
+StNativeP2747:
+  .byte $27
+StNativeP2748:
+  .byte $02
+StNativeP2749:
+  .byte $20
+StNativeP274A:
+  .byte $03
+StNativeP274B:
+  .byte $27
+StNativeP274C:
+  .byte $03
+StNativeP274D:
+  .byte $30
+StNativeP274E:
+  .byte $02
+StNativeP274F:
+  .byte $20
+StNativeP2750:
+  .byte $03
+StNativeP2751:
+  .byte $27
+StNativeP2752:
+  .byte $03
+StNativeP2753:
+  .byte $30
+StNativeP2754:
+  .byte $02
+StNativeP2755:
+  .byte $fb
+StNativeP2756:
+  .byte $04
+StNativeP2757:
+  .byte $fc
+StNativeP2758:
+  .byte $fe
+StNativeP2759:
+  .byte $17
+StNativeP275A:
+  .byte $03
+StNativeP275B:
+  .byte $22
+StNativeP275C:
+  .byte $03
+StNativeP275D:
+  .byte $27
+StNativeP275E:
+  .byte $02
+StNativeP275F:
+  .byte $15
+StNativeP2760:
+  .byte $03
+StNativeP2761:
+  .byte $20
+StNativeP2762:
+  .byte $03
+StNativeP2763:
+  .byte $25
+StNativeP2764:
+  .byte $02
+StNativeP2765:
+  .byte $13
+StNativeP2766:
+  .byte $03
+StNativeP2767:
+  .byte $1a
+StNativeP2768:
+  .byte $03
+StNativeP2769:
+  .byte $23
+StNativeP276A:
+  .byte $02
+StNativeP276B:
+  .byte $15
+StNativeP276C:
+  .byte $03
+StNativeP276D:
+  .byte $20
+StNativeP276E:
+  .byte $03
+StNativeP276F:
+  .byte $25
+StNativeP2770:
+  .byte $02
+StNativeP2771:
+  .byte $fb
+StNativeP2772:
+  .byte $04
+StNativeP2773:
+  .byte $fc
+StNativeP2774:
+  .byte $fe
+StNativeP2775:
+  .byte $10
+StNativeP2776:
+  .byte $03
+StNativeP2777:
+  .byte $17
+StNativeP2778:
+  .byte $03
+StNativeP2779:
+  .byte $20
+StNativeP277A:
+  .byte $02
+StNativeP277B:
+  .byte $12
+StNativeP277C:
+  .byte $03
+StNativeP277D:
+  .byte $19
+StNativeP277E:
+  .byte $03
+StNativeP277F:
+  .byte $22
+StNativeP2780:
+  .byte $02
+StNativeP2781:
+  .byte $13
+StNativeP2782:
+  .byte $03
+StNativeP2783:
+  .byte $1a
+StNativeP2784:
+  .byte $03
+StNativeP2785:
+  .byte $23
+StNativeP2786:
+  .byte $02
+StNativeP2787:
+  .byte $15
+StNativeP2788:
+  .byte $03
+StNativeP2789:
+  .byte $20
+StNativeP278A:
+  .byte $03
+StNativeP278B:
+  .byte $25
+StNativeP278C:
+  .byte $02
+StNativeP278D:
+  .byte $fb
+StNativeP278E:
+  .byte $02
+StNativeP278F:
+  .byte $fc
+StNativeP2790:
+  .byte $fe
+StNativeP2791:
+  .byte $17
+StNativeP2792:
+  .byte $03
+StNativeP2793:
+  .byte $22
+StNativeP2794:
+  .byte $03
+StNativeP2795:
+  .byte $27
+StNativeP2796:
+  .byte $02
+StNativeP2797:
+  .byte $fb
+StNativeP2798:
+  .byte $04
+StNativeP2799:
+  .byte $b0
+StNativeP279A:
+  .byte $d1
+StNativeP279B:
+  .byte $00
+StNativeP279C:
+  .byte $36
+StNativeP279D:
+  .byte $00
+StNativeP279E:
+  .byte $15
+StNativeP279F:
+  .byte $00
+StNativeP27A0:
+  .byte $c5
+StNativeP27A1:
+  .byte $10
+StNativeP27A2:
+  .byte $fc
+StNativeP27A3:
+  .byte $fe
+StNativeP27A4:
+  .byte $07
+StNativeP27A5:
+  .byte $03
+StNativeP27A6:
+  .byte $07
+StNativeP27A7:
+  .byte $01
+StNativeP27A8:
+  .byte $03
+StNativeP27A9:
+  .byte $03
+StNativeP27AA:
+  .byte $07
+StNativeP27AB:
+  .byte $01
+StNativeP27AC:
+  .byte $fb
+StNativeP27AD:
+  .byte $00
+StNativeP27AE:
+  .byte $00
+StNativeP27AF:
+  .byte $03
+StNativeP27B0:
+  .byte $00
+StNativeP27B1:
+  .byte <::StNativeP27BC
+StNativeP27B2:
+  .byte >::StNativeP27BC
+StNativeP27B3:
+  .byte $01
+StNativeP27B4:
+  .byte <::StNativeP287B
+StNativeP27B5:
+  .byte >::StNativeP287B
+StNativeP27B6:
+  .byte $05
+StNativeP27B7:
+  .byte <::StNativeP293A
+StNativeP27B8:
+  .byte >::StNativeP293A
+StNativeP27B9:
+  .byte $03
+StNativeP27BA:
+  .byte <::StNativeP29A1
+StNativeP27BB:
+  .byte >::StNativeP29A1
+StNativeP27BC:
+  .byte $01
+StNativeP27BD:
+  .byte $00
+StNativeP27BE:
+  .byte $17
+StNativeP27BF:
+  .byte $00
+StNativeP27C0:
+  .byte $c1
+StNativeP27C1:
+  .byte $18
+StNativeP27C2:
+  .byte $fc
+StNativeP27C3:
+  .byte $fe
+StNativeP27C4:
+  .byte $34
+StNativeP27C5:
+  .byte $03
+StNativeP27C6:
+  .byte $fb
+StNativeP27C7:
+  .byte $05
+StNativeP27C8:
+  .byte $00
+StNativeP27C9:
+  .byte $0f
+StNativeP27CA:
+  .byte $fc
+StNativeP27CB:
+  .byte $fe
+StNativeP27CC:
+  .byte $34
+StNativeP27CD:
+  .byte $03
+StNativeP27CE:
+  .byte $fb
+StNativeP27CF:
+  .byte $04
+StNativeP27D0:
+  .byte $00
+StNativeP27D1:
+  .byte $06
+StNativeP27D2:
+  .byte $fc
+StNativeP27D3:
+  .byte $fe
+StNativeP27D4:
+  .byte $34
+StNativeP27D5:
+  .byte $03
+StNativeP27D6:
+  .byte $fb
+StNativeP27D7:
+  .byte $05
+StNativeP27D8:
+  .byte $00
+StNativeP27D9:
+  .byte $0f
+StNativeP27DA:
+  .byte $fc
+StNativeP27DB:
+  .byte $fe
+StNativeP27DC:
+  .byte $34
+StNativeP27DD:
+  .byte $03
+StNativeP27DE:
+  .byte $fb
+StNativeP27DF:
+  .byte $04
+StNativeP27E0:
+  .byte $00
+StNativeP27E1:
+  .byte $06
+StNativeP27E2:
+  .byte $c1
+StNativeP27E3:
+  .byte $18
+StNativeP27E4:
+  .byte $fc
+StNativeP27E5:
+  .byte $fe
+StNativeP27E6:
+  .byte $2a
+StNativeP27E7:
+  .byte $09
+StNativeP27E8:
+  .byte $2a
+StNativeP27E9:
+  .byte $03
+StNativeP27EA:
+  .byte $00
+StNativeP27EB:
+  .byte $03
+StNativeP27EC:
+  .byte $2a
+StNativeP27ED:
+  .byte $03
+StNativeP27EE:
+  .byte $00
+StNativeP27EF:
+  .byte $03
+StNativeP27F0:
+  .byte $2a
+StNativeP27F1:
+  .byte $03
+StNativeP27F2:
+  .byte $2a
+StNativeP27F3:
+  .byte $03
+StNativeP27F4:
+  .byte $00
+StNativeP27F5:
+  .byte $03
+StNativeP27F6:
+  .byte $30
+StNativeP27F7:
+  .byte $03
+StNativeP27F8:
+  .byte $00
+StNativeP27F9:
+  .byte $03
+StNativeP27FA:
+  .byte $2a
+StNativeP27FB:
+  .byte $03
+StNativeP27FC:
+  .byte $00
+StNativeP27FD:
+  .byte $03
+StNativeP27FE:
+  .byte $30
+StNativeP27FF:
+  .byte $03
+StNativeP2800:
+  .byte $00
+StNativeP2801:
+  .byte $03
+StNativeP2802:
+  .byte $2a
+StNativeP2803:
+  .byte $03
+StNativeP2804:
+  .byte $2a
+StNativeP2805:
+  .byte $03
+StNativeP2806:
+  .byte $00
+StNativeP2807:
+  .byte $03
+StNativeP2808:
+  .byte $2a
+StNativeP2809:
+  .byte $03
+StNativeP280A:
+  .byte $00
+StNativeP280B:
+  .byte $03
+StNativeP280C:
+  .byte $2a
+StNativeP280D:
+  .byte $03
+StNativeP280E:
+  .byte $00
+StNativeP280F:
+  .byte $03
+StNativeP2810:
+  .byte $2a
+StNativeP2811:
+  .byte $03
+StNativeP2812:
+  .byte $2a
+StNativeP2813:
+  .byte $03
+StNativeP2814:
+  .byte $00
+StNativeP2815:
+  .byte $03
+StNativeP2816:
+  .byte $30
+StNativeP2817:
+  .byte $03
+StNativeP2818:
+  .byte $00
+StNativeP2819:
+  .byte $03
+StNativeP281A:
+  .byte $2a
+StNativeP281B:
+  .byte $03
+StNativeP281C:
+  .byte $00
+StNativeP281D:
+  .byte $03
+StNativeP281E:
+  .byte $30
+StNativeP281F:
+  .byte $03
+StNativeP2820:
+  .byte $00
+StNativeP2821:
+  .byte $03
+StNativeP2822:
+  .byte $2b
+StNativeP2823:
+  .byte $09
+StNativeP2824:
+  .byte $2b
+StNativeP2825:
+  .byte $03
+StNativeP2826:
+  .byte $00
+StNativeP2827:
+  .byte $03
+StNativeP2828:
+  .byte $2b
+StNativeP2829:
+  .byte $03
+StNativeP282A:
+  .byte $00
+StNativeP282B:
+  .byte $03
+StNativeP282C:
+  .byte $2b
+StNativeP282D:
+  .byte $03
+StNativeP282E:
+  .byte $2b
+StNativeP282F:
+  .byte $03
+StNativeP2830:
+  .byte $00
+StNativeP2831:
+  .byte $03
+StNativeP2832:
+  .byte $31
+StNativeP2833:
+  .byte $03
+StNativeP2834:
+  .byte $00
+StNativeP2835:
+  .byte $03
+StNativeP2836:
+  .byte $2b
+StNativeP2837:
+  .byte $03
+StNativeP2838:
+  .byte $00
+StNativeP2839:
+  .byte $03
+StNativeP283A:
+  .byte $31
+StNativeP283B:
+  .byte $03
+StNativeP283C:
+  .byte $00
+StNativeP283D:
+  .byte $03
+StNativeP283E:
+  .byte $2b
+StNativeP283F:
+  .byte $03
+StNativeP2840:
+  .byte $2b
+StNativeP2841:
+  .byte $03
+StNativeP2842:
+  .byte $00
+StNativeP2843:
+  .byte $03
+StNativeP2844:
+  .byte $2b
+StNativeP2845:
+  .byte $03
+StNativeP2846:
+  .byte $00
+StNativeP2847:
+  .byte $03
+StNativeP2848:
+  .byte $2b
+StNativeP2849:
+  .byte $03
+StNativeP284A:
+  .byte $00
+StNativeP284B:
+  .byte $03
+StNativeP284C:
+  .byte $2b
+StNativeP284D:
+  .byte $03
+StNativeP284E:
+  .byte $2b
+StNativeP284F:
+  .byte $03
+StNativeP2850:
+  .byte $00
+StNativeP2851:
+  .byte $03
+StNativeP2852:
+  .byte $31
+StNativeP2853:
+  .byte $03
+StNativeP2854:
+  .byte $00
+StNativeP2855:
+  .byte $03
+StNativeP2856:
+  .byte $2b
+StNativeP2857:
+  .byte $03
+StNativeP2858:
+  .byte $00
+StNativeP2859:
+  .byte $03
+StNativeP285A:
+  .byte $31
+StNativeP285B:
+  .byte $03
+StNativeP285C:
+  .byte $00
+StNativeP285D:
+  .byte $03
+StNativeP285E:
+  .byte $fb
+StNativeP285F:
+  .byte $02
+StNativeP2860:
+  .byte $35
+StNativeP2861:
+  .byte $08
+StNativeP2862:
+  .byte $33
+StNativeP2863:
+  .byte $08
+StNativeP2864:
+  .byte $31
+StNativeP2865:
+  .byte $08
+StNativeP2866:
+  .byte $33
+StNativeP2867:
+  .byte $08
+StNativeP2868:
+  .byte $31
+StNativeP2869:
+  .byte $08
+StNativeP286A:
+  .byte $2b
+StNativeP286B:
+  .byte $08
+StNativeP286C:
+  .byte $31
+StNativeP286D:
+  .byte $08
+StNativeP286E:
+  .byte $2b
+StNativeP286F:
+  .byte $08
+StNativeP2870:
+  .byte $29
+StNativeP2871:
+  .byte $08
+StNativeP2872:
+  .byte $2b
+StNativeP2873:
+  .byte $08
+StNativeP2874:
+  .byte $29
+StNativeP2875:
+  .byte $08
+StNativeP2876:
+  .byte $27
+StNativeP2877:
+  .byte $08
+StNativeP2878:
+  .byte $b0
+StNativeP2879:
+  .byte $b5
+StNativeP287A:
+  .byte $00
+StNativeP287B:
+  .byte $11
+StNativeP287C:
+  .byte $00
+StNativeP287D:
+  .byte $17
+StNativeP287E:
+  .byte $00
+StNativeP287F:
+  .byte $c1
+StNativeP2880:
+  .byte $18
+StNativeP2881:
+  .byte $fc
+StNativeP2882:
+  .byte $fe
+StNativeP2883:
+  .byte $32
+StNativeP2884:
+  .byte $03
+StNativeP2885:
+  .byte $fb
+StNativeP2886:
+  .byte $05
+StNativeP2887:
+  .byte $00
+StNativeP2888:
+  .byte $0f
+StNativeP2889:
+  .byte $fc
+StNativeP288A:
+  .byte $fe
+StNativeP288B:
+  .byte $32
+StNativeP288C:
+  .byte $03
+StNativeP288D:
+  .byte $fb
+StNativeP288E:
+  .byte $04
+StNativeP288F:
+  .byte $00
+StNativeP2890:
+  .byte $06
+StNativeP2891:
+  .byte $fc
+StNativeP2892:
+  .byte $fe
+StNativeP2893:
+  .byte $32
+StNativeP2894:
+  .byte $03
+StNativeP2895:
+  .byte $fb
+StNativeP2896:
+  .byte $05
+StNativeP2897:
+  .byte $00
+StNativeP2898:
+  .byte $0f
+StNativeP2899:
+  .byte $fc
+StNativeP289A:
+  .byte $fe
+StNativeP289B:
+  .byte $32
+StNativeP289C:
+  .byte $03
+StNativeP289D:
+  .byte $fb
+StNativeP289E:
+  .byte $04
+StNativeP289F:
+  .byte $00
+StNativeP28A0:
+  .byte $06
+StNativeP28A1:
+  .byte $c1
+StNativeP28A2:
+  .byte $18
+StNativeP28A3:
+  .byte $fc
+StNativeP28A4:
+  .byte $fe
+StNativeP28A5:
+  .byte $26
+StNativeP28A6:
+  .byte $09
+StNativeP28A7:
+  .byte $26
+StNativeP28A8:
+  .byte $03
+StNativeP28A9:
+  .byte $00
+StNativeP28AA:
+  .byte $03
+StNativeP28AB:
+  .byte $26
+StNativeP28AC:
+  .byte $03
+StNativeP28AD:
+  .byte $00
+StNativeP28AE:
+  .byte $03
+StNativeP28AF:
+  .byte $26
+StNativeP28B0:
+  .byte $03
+StNativeP28B1:
+  .byte $26
+StNativeP28B2:
+  .byte $03
+StNativeP28B3:
+  .byte $00
+StNativeP28B4:
+  .byte $03
+StNativeP28B5:
+  .byte $28
+StNativeP28B6:
+  .byte $03
+StNativeP28B7:
+  .byte $00
+StNativeP28B8:
+  .byte $03
+StNativeP28B9:
+  .byte $26
+StNativeP28BA:
+  .byte $03
+StNativeP28BB:
+  .byte $00
+StNativeP28BC:
+  .byte $03
+StNativeP28BD:
+  .byte $28
+StNativeP28BE:
+  .byte $03
+StNativeP28BF:
+  .byte $00
+StNativeP28C0:
+  .byte $03
+StNativeP28C1:
+  .byte $26
+StNativeP28C2:
+  .byte $03
+StNativeP28C3:
+  .byte $26
+StNativeP28C4:
+  .byte $03
+StNativeP28C5:
+  .byte $00
+StNativeP28C6:
+  .byte $03
+StNativeP28C7:
+  .byte $26
+StNativeP28C8:
+  .byte $03
+StNativeP28C9:
+  .byte $00
+StNativeP28CA:
+  .byte $03
+StNativeP28CB:
+  .byte $26
+StNativeP28CC:
+  .byte $03
+StNativeP28CD:
+  .byte $00
+StNativeP28CE:
+  .byte $03
+StNativeP28CF:
+  .byte $26
+StNativeP28D0:
+  .byte $03
+StNativeP28D1:
+  .byte $26
+StNativeP28D2:
+  .byte $03
+StNativeP28D3:
+  .byte $00
+StNativeP28D4:
+  .byte $03
+StNativeP28D5:
+  .byte $28
+StNativeP28D6:
+  .byte $03
+StNativeP28D7:
+  .byte $00
+StNativeP28D8:
+  .byte $03
+StNativeP28D9:
+  .byte $26
+StNativeP28DA:
+  .byte $03
+StNativeP28DB:
+  .byte $00
+StNativeP28DC:
+  .byte $03
+StNativeP28DD:
+  .byte $28
+StNativeP28DE:
+  .byte $03
+StNativeP28DF:
+  .byte $00
+StNativeP28E0:
+  .byte $03
+StNativeP28E1:
+  .byte $27
+StNativeP28E2:
+  .byte $09
+StNativeP28E3:
+  .byte $27
+StNativeP28E4:
+  .byte $03
+StNativeP28E5:
+  .byte $00
+StNativeP28E6:
+  .byte $03
+StNativeP28E7:
+  .byte $27
+StNativeP28E8:
+  .byte $03
+StNativeP28E9:
+  .byte $00
+StNativeP28EA:
+  .byte $03
+StNativeP28EB:
+  .byte $27
+StNativeP28EC:
+  .byte $03
+StNativeP28ED:
+  .byte $27
+StNativeP28EE:
+  .byte $03
+StNativeP28EF:
+  .byte $00
+StNativeP28F0:
+  .byte $03
+StNativeP28F1:
+  .byte $29
+StNativeP28F2:
+  .byte $03
+StNativeP28F3:
+  .byte $00
+StNativeP28F4:
+  .byte $03
+StNativeP28F5:
+  .byte $27
+StNativeP28F6:
+  .byte $03
+StNativeP28F7:
+  .byte $00
+StNativeP28F8:
+  .byte $03
+StNativeP28F9:
+  .byte $29
+StNativeP28FA:
+  .byte $03
+StNativeP28FB:
+  .byte $00
+StNativeP28FC:
+  .byte $03
+StNativeP28FD:
+  .byte $27
+StNativeP28FE:
+  .byte $03
+StNativeP28FF:
+  .byte $27
+StNativeP2900:
+  .byte $03
+StNativeP2901:
+  .byte $00
+StNativeP2902:
+  .byte $03
+StNativeP2903:
+  .byte $27
+StNativeP2904:
+  .byte $03
+StNativeP2905:
+  .byte $00
+StNativeP2906:
+  .byte $03
+StNativeP2907:
+  .byte $27
+StNativeP2908:
+  .byte $03
+StNativeP2909:
+  .byte $00
+StNativeP290A:
+  .byte $03
+StNativeP290B:
+  .byte $27
+StNativeP290C:
+  .byte $03
+StNativeP290D:
+  .byte $27
+StNativeP290E:
+  .byte $03
+StNativeP290F:
+  .byte $00
+StNativeP2910:
+  .byte $03
+StNativeP2911:
+  .byte $29
+StNativeP2912:
+  .byte $03
+StNativeP2913:
+  .byte $00
+StNativeP2914:
+  .byte $03
+StNativeP2915:
+  .byte $27
+StNativeP2916:
+  .byte $03
+StNativeP2917:
+  .byte $00
+StNativeP2918:
+  .byte $03
+StNativeP2919:
+  .byte $29
+StNativeP291A:
+  .byte $03
+StNativeP291B:
+  .byte $00
+StNativeP291C:
+  .byte $03
+StNativeP291D:
+  .byte $fb
+StNativeP291E:
+  .byte $02
+StNativeP291F:
+  .byte $31
+StNativeP2920:
+  .byte $08
+StNativeP2921:
+  .byte $2b
+StNativeP2922:
+  .byte $08
+StNativeP2923:
+  .byte $29
+StNativeP2924:
+  .byte $08
+StNativeP2925:
+  .byte $2b
+StNativeP2926:
+  .byte $08
+StNativeP2927:
+  .byte $29
+StNativeP2928:
+  .byte $08
+StNativeP2929:
+  .byte $27
+StNativeP292A:
+  .byte $08
+StNativeP292B:
+  .byte $29
+StNativeP292C:
+  .byte $08
+StNativeP292D:
+  .byte $27
+StNativeP292E:
+  .byte $08
+StNativeP292F:
+  .byte $25
+StNativeP2930:
+  .byte $08
+StNativeP2931:
+  .byte $27
+StNativeP2932:
+  .byte $08
+StNativeP2933:
+  .byte $25
+StNativeP2934:
+  .byte $08
+StNativeP2935:
+  .byte $23
+StNativeP2936:
+  .byte $08
+StNativeP2937:
+  .byte $b0
+StNativeP2938:
+  .byte $b5
+StNativeP2939:
+  .byte $00
+StNativeP293A:
+  .byte $21
+StNativeP293B:
+  .byte $28
+StNativeP293C:
+  .byte $10
+StNativeP293D:
+  .byte $00
+StNativeP293E:
+  .byte $fc
+StNativeP293F:
+  .byte $fe
+StNativeP2940:
+  .byte $2b
+StNativeP2941:
+  .byte $03
+StNativeP2942:
+  .byte $fb
+StNativeP2943:
+  .byte $05
+StNativeP2944:
+  .byte $00
+StNativeP2945:
+  .byte $0f
+StNativeP2946:
+  .byte $fc
+StNativeP2947:
+  .byte $fe
+StNativeP2948:
+  .byte $2b
+StNativeP2949:
+  .byte $03
+StNativeP294A:
+  .byte $fb
+StNativeP294B:
+  .byte $04
+StNativeP294C:
+  .byte $00
+StNativeP294D:
+  .byte $06
+StNativeP294E:
+  .byte $fc
+StNativeP294F:
+  .byte $fe
+StNativeP2950:
+  .byte $2b
+StNativeP2951:
+  .byte $03
+StNativeP2952:
+  .byte $fb
+StNativeP2953:
+  .byte $05
+StNativeP2954:
+  .byte $00
+StNativeP2955:
+  .byte $0f
+StNativeP2956:
+  .byte $fc
+StNativeP2957:
+  .byte $fe
+StNativeP2958:
+  .byte $2b
+StNativeP2959:
+  .byte $03
+StNativeP295A:
+  .byte $fb
+StNativeP295B:
+  .byte $04
+StNativeP295C:
+  .byte $00
+StNativeP295D:
+  .byte $06
+StNativeP295E:
+  .byte $fc
+StNativeP295F:
+  .byte $fe
+StNativeP2960:
+  .byte $16
+StNativeP2961:
+  .byte $06
+StNativeP2962:
+  .byte $20
+StNativeP2963:
+  .byte $03
+StNativeP2964:
+  .byte $20
+StNativeP2965:
+  .byte $03
+StNativeP2966:
+  .byte $fb
+StNativeP2967:
+  .byte $08
+StNativeP2968:
+  .byte $fc
+StNativeP2969:
+  .byte $fe
+StNativeP296A:
+  .byte $17
+StNativeP296B:
+  .byte $06
+StNativeP296C:
+  .byte $21
+StNativeP296D:
+  .byte $03
+StNativeP296E:
+  .byte $21
+StNativeP296F:
+  .byte $03
+StNativeP2970:
+  .byte $fb
+StNativeP2971:
+  .byte $08
+StNativeP2972:
+  .byte $fc
+StNativeP2973:
+  .byte $fe
+StNativeP2974:
+  .byte $16
+StNativeP2975:
+  .byte $06
+StNativeP2976:
+  .byte $20
+StNativeP2977:
+  .byte $03
+StNativeP2978:
+  .byte $20
+StNativeP2979:
+  .byte $03
+StNativeP297A:
+  .byte $fb
+StNativeP297B:
+  .byte $08
+StNativeP297C:
+  .byte $fc
+StNativeP297D:
+  .byte $fe
+StNativeP297E:
+  .byte $17
+StNativeP297F:
+  .byte $06
+StNativeP2980:
+  .byte $21
+StNativeP2981:
+  .byte $03
+StNativeP2982:
+  .byte $21
+StNativeP2983:
+  .byte $03
+StNativeP2984:
+  .byte $fb
+StNativeP2985:
+  .byte $08
+StNativeP2986:
+  .byte $29
+StNativeP2987:
+  .byte $08
+StNativeP2988:
+  .byte $27
+StNativeP2989:
+  .byte $08
+StNativeP298A:
+  .byte $25
+StNativeP298B:
+  .byte $08
+StNativeP298C:
+  .byte $27
+StNativeP298D:
+  .byte $08
+StNativeP298E:
+  .byte $25
+StNativeP298F:
+  .byte $08
+StNativeP2990:
+  .byte $23
+StNativeP2991:
+  .byte $08
+StNativeP2992:
+  .byte $25
+StNativeP2993:
+  .byte $08
+StNativeP2994:
+  .byte $23
+StNativeP2995:
+  .byte $08
+StNativeP2996:
+  .byte $21
+StNativeP2997:
+  .byte $08
+StNativeP2998:
+  .byte $23
+StNativeP2999:
+  .byte $08
+StNativeP299A:
+  .byte $21
+StNativeP299B:
+  .byte $08
+StNativeP299C:
+  .byte $1b
+StNativeP299D:
+  .byte $08
+StNativeP299E:
+  .byte $b0
+StNativeP299F:
+  .byte $e0
+StNativeP29A0:
+  .byte $00
+StNativeP29A1:
+  .byte $31
+StNativeP29A2:
+  .byte $00
+StNativeP29A3:
+  .byte $17
+StNativeP29A4:
+  .byte $00
+StNativeP29A5:
+  .byte $c5
+StNativeP29A6:
+  .byte $10
+StNativeP29A7:
+  .byte $fc
+StNativeP29A8:
+  .byte $fe
+StNativeP29A9:
+  .byte $03
+StNativeP29AA:
+  .byte $03
+StNativeP29AB:
+  .byte $fb
+StNativeP29AC:
+  .byte $05
+StNativeP29AD:
+  .byte $00
+StNativeP29AE:
+  .byte $0f
+StNativeP29AF:
+  .byte $fc
+StNativeP29B0:
+  .byte $fe
+StNativeP29B1:
+  .byte $03
+StNativeP29B2:
+  .byte $03
+StNativeP29B3:
+  .byte $fb
+StNativeP29B4:
+  .byte $04
+StNativeP29B5:
+  .byte $00
+StNativeP29B6:
+  .byte $06
+StNativeP29B7:
+  .byte $fc
+StNativeP29B8:
+  .byte $fe
+StNativeP29B9:
+  .byte $03
+StNativeP29BA:
+  .byte $03
+StNativeP29BB:
+  .byte $fb
+StNativeP29BC:
+  .byte $05
+StNativeP29BD:
+  .byte $00
+StNativeP29BE:
+  .byte $0f
+StNativeP29BF:
+  .byte $fc
+StNativeP29C0:
+  .byte $fe
+StNativeP29C1:
+  .byte $03
+StNativeP29C2:
+  .byte $03
+StNativeP29C3:
+  .byte $fb
+StNativeP29C4:
+  .byte $04
+StNativeP29C5:
+  .byte $00
+StNativeP29C6:
+  .byte $06
+StNativeP29C7:
+  .byte $c5
+StNativeP29C8:
+  .byte $10
+StNativeP29C9:
+  .byte $fc
+StNativeP29CA:
+  .byte $fe
+StNativeP29CB:
+  .byte $03
+StNativeP29CC:
+  .byte $09
+StNativeP29CD:
+  .byte $03
+StNativeP29CE:
+  .byte $06
+StNativeP29CF:
+  .byte $03
+StNativeP29D0:
+  .byte $06
+StNativeP29D1:
+  .byte $03
+StNativeP29D2:
+  .byte $03
+StNativeP29D3:
+  .byte $03
+StNativeP29D4:
+  .byte $06
+StNativeP29D5:
+  .byte $03
+StNativeP29D6:
+  .byte $06
+StNativeP29D7:
+  .byte $03
+StNativeP29D8:
+  .byte $06
+StNativeP29D9:
+  .byte $03
+StNativeP29DA:
+  .byte $06
+StNativeP29DB:
+  .byte $03
+StNativeP29DC:
+  .byte $03
+StNativeP29DD:
+  .byte $03
+StNativeP29DE:
+  .byte $06
+StNativeP29DF:
+  .byte $03
+StNativeP29E0:
+  .byte $06
+StNativeP29E1:
+  .byte $03
+StNativeP29E2:
+  .byte $06
+StNativeP29E3:
+  .byte $03
+StNativeP29E4:
+  .byte $03
+StNativeP29E5:
+  .byte $03
+StNativeP29E6:
+  .byte $06
+StNativeP29E7:
+  .byte $03
+StNativeP29E8:
+  .byte $06
+StNativeP29E9:
+  .byte $03
+StNativeP29EA:
+  .byte $06
+StNativeP29EB:
+  .byte $03
+StNativeP29EC:
+  .byte $06
+StNativeP29ED:
+  .byte $fb
+StNativeP29EE:
+  .byte $04
+StNativeP29EF:
+  .byte $fc
+StNativeP29F0:
+  .byte $fe
+StNativeP29F1:
+  .byte $03
+StNativeP29F2:
+  .byte $08
+StNativeP29F3:
+  .byte $fb
+StNativeP29F4:
+  .byte $0c
+StNativeP29F5:
+  .byte $b0
+StNativeP29F6:
+  .byte $ea
+StNativeP2C79:
+  .byte $03
+StNativeP2C7A:
+  .byte $00
+StNativeP2C7B:
+  .byte <::StNativeP2C86
+StNativeP2C7C:
+  .byte >::StNativeP2C86
+StNativeP2C7D:
+  .byte $01
+StNativeP2C7E:
+  .byte <::StNativeP2CB9
+StNativeP2C7F:
+  .byte >::StNativeP2CB9
+StNativeP2C80:
+  .byte $05
+StNativeP2C81:
+  .byte <::StNativeP2CEC
+StNativeP2C82:
+  .byte >::StNativeP2CEC
+StNativeP2C83:
+  .byte $03
+StNativeP2C84:
+  .byte <::StNativeP2D09
+StNativeP2C85:
+  .byte >::StNativeP2D09
+StNativeP2C86:
+  .byte $07
+StNativeP2C87:
+  .byte $02
+StNativeP2C88:
+  .byte $17
+StNativeP2C89:
+  .byte $00
+StNativeP2C8A:
+  .byte $c3
+StNativeP2C8B:
+  .byte $10
+StNativeP2C8C:
+  .byte $29
+StNativeP2C8D:
+  .byte $01
+StNativeP2C8E:
+  .byte $00
+StNativeP2C8F:
+  .byte $02
+StNativeP2C90:
+  .byte $24
+StNativeP2C91:
+  .byte $01
+StNativeP2C92:
+  .byte $00
+StNativeP2C93:
+  .byte $02
+StNativeP2C94:
+  .byte $29
+StNativeP2C95:
+  .byte $01
+StNativeP2C96:
+  .byte $00
+StNativeP2C97:
+  .byte $01
+StNativeP2C98:
+  .byte $29
+StNativeP2C99:
+  .byte $01
+StNativeP2C9A:
+  .byte $00
+StNativeP2C9B:
+  .byte $02
+StNativeP2C9C:
+  .byte $26
+StNativeP2C9D:
+  .byte $01
+StNativeP2C9E:
+  .byte $00
+StNativeP2C9F:
+  .byte $02
+StNativeP2CA0:
+  .byte $29
+StNativeP2CA1:
+  .byte $01
+StNativeP2CA2:
+  .byte $00
+StNativeP2CA3:
+  .byte $01
+StNativeP2CA4:
+  .byte $2b
+StNativeP2CA5:
+  .byte $01
+StNativeP2CA6:
+  .byte $00
+StNativeP2CA7:
+  .byte $02
+StNativeP2CA8:
+  .byte $28
+StNativeP2CA9:
+  .byte $01
+StNativeP2CAA:
+  .byte $00
+StNativeP2CAB:
+  .byte $02
+StNativeP2CAC:
+  .byte $2b
+StNativeP2CAD:
+  .byte $01
+StNativeP2CAE:
+  .byte $00
+StNativeP2CAF:
+  .byte $02
+StNativeP2CB0:
+  .byte $29
+StNativeP2CB1:
+  .byte $01
+StNativeP2CB2:
+  .byte $00
+StNativeP2CB3:
+  .byte $01
+StNativeP2CB4:
+  .byte $29
+StNativeP2CB5:
+  .byte $01
+StNativeP2CB6:
+  .byte $29
+StNativeP2CB7:
+  .byte $01
+StNativeP2CB8:
+  .byte $ff
+StNativeP2CB9:
+  .byte $17
+StNativeP2CBA:
+  .byte $02
+StNativeP2CBB:
+  .byte $17
+StNativeP2CBC:
+  .byte $00
+StNativeP2CBD:
+  .byte $c3
+StNativeP2CBE:
+  .byte $10
+StNativeP2CBF:
+  .byte $21
+StNativeP2CC0:
+  .byte $01
+StNativeP2CC1:
+  .byte $00
+StNativeP2CC2:
+  .byte $02
+StNativeP2CC3:
+  .byte $19
+StNativeP2CC4:
+  .byte $01
+StNativeP2CC5:
+  .byte $00
+StNativeP2CC6:
+  .byte $02
+StNativeP2CC7:
+  .byte $21
+StNativeP2CC8:
+  .byte $01
+StNativeP2CC9:
+  .byte $00
+StNativeP2CCA:
+  .byte $01
+StNativeP2CCB:
+  .byte $22
+StNativeP2CCC:
+  .byte $01
+StNativeP2CCD:
+  .byte $00
+StNativeP2CCE:
+  .byte $02
+StNativeP2CCF:
+  .byte $19
+StNativeP2CD0:
+  .byte $01
+StNativeP2CD1:
+  .byte $00
+StNativeP2CD2:
+  .byte $02
+StNativeP2CD3:
+  .byte $22
+StNativeP2CD4:
+  .byte $01
+StNativeP2CD5:
+  .byte $00
+StNativeP2CD6:
+  .byte $01
+StNativeP2CD7:
+  .byte $24
+StNativeP2CD8:
+  .byte $01
+StNativeP2CD9:
+  .byte $00
+StNativeP2CDA:
+  .byte $02
+StNativeP2CDB:
+  .byte $1b
+StNativeP2CDC:
+  .byte $01
+StNativeP2CDD:
+  .byte $00
+StNativeP2CDE:
+  .byte $02
+StNativeP2CDF:
+  .byte $24
+StNativeP2CE0:
+  .byte $01
+StNativeP2CE1:
+  .byte $00
+StNativeP2CE2:
+  .byte $02
+StNativeP2CE3:
+  .byte $21
+StNativeP2CE4:
+  .byte $01
+StNativeP2CE5:
+  .byte $00
+StNativeP2CE6:
+  .byte $01
+StNativeP2CE7:
+  .byte $21
+StNativeP2CE8:
+  .byte $01
+StNativeP2CE9:
+  .byte $21
+StNativeP2CEA:
+  .byte $01
+StNativeP2CEB:
+  .byte $ff
+StNativeP2CEC:
+  .byte $27
+StNativeP2CED:
+  .byte $28
+StNativeP2CEE:
+  .byte $18
+StNativeP2CEF:
+  .byte $00
+StNativeP2CF0:
+  .byte $19
+StNativeP2CF1:
+  .byte $03
+StNativeP2CF2:
+  .byte $24
+StNativeP2CF3:
+  .byte $03
+StNativeP2CF4:
+  .byte $29
+StNativeP2CF5:
+  .byte $02
+StNativeP2CF6:
+  .byte $22
+StNativeP2CF7:
+  .byte $03
+StNativeP2CF8:
+  .byte $29
+StNativeP2CF9:
+  .byte $03
+StNativeP2CFA:
+  .byte $32
+StNativeP2CFB:
+  .byte $02
+StNativeP2CFC:
+  .byte $24
+StNativeP2CFD:
+  .byte $03
+StNativeP2CFE:
+  .byte $2b
+StNativeP2CFF:
+  .byte $03
+StNativeP2D00:
+  .byte $34
+StNativeP2D01:
+  .byte $03
+StNativeP2D02:
+  .byte $19
+StNativeP2D03:
+  .byte $02
+StNativeP2D04:
+  .byte $19
+StNativeP2D05:
+  .byte $01
+StNativeP2D06:
+  .byte $19
+StNativeP2D07:
+  .byte $01
+StNativeP2D08:
+  .byte $ff
+StNativeP2D09:
+  .byte $37
+StNativeP2D0A:
+  .byte $00
+StNativeP2D0B:
+  .byte $16
+StNativeP2D0C:
+  .byte $00
+StNativeP2D0D:
+  .byte $c5
+StNativeP2D0E:
+  .byte $10
+StNativeP2D0F:
+  .byte $fc
+StNativeP2D10:
+  .byte $fe
+StNativeP2D11:
+  .byte $06
+StNativeP2D12:
+  .byte $03
+StNativeP2D13:
+  .byte $06
+StNativeP2D14:
+  .byte $01
+StNativeP2D15:
+  .byte $03
+StNativeP2D16:
+  .byte $02
+StNativeP2D17:
+  .byte $06
+StNativeP2D18:
+  .byte $02
+StNativeP2D19:
+  .byte $fb
+StNativeP2D1A:
+  .byte $03
+StNativeP2D1B:
+  .byte $00
+StNativeP2D1C:
+  .byte $01
+StNativeP2D1D:
+  .byte $03
+StNativeP2D1E:
+  .byte $02
+StNativeP2D1F:
+  .byte $03
+StNativeP2D20:
+  .byte $01
+StNativeP2D21:
+  .byte $03
+StNativeP2D22:
+  .byte $01
+StNativeP2D23:
+  .byte $ff
+StNativeP2D24:
+  .byte $03
+StNativeP2DE9:
+  .byte $03
+StNativeP2DEA:
+  .byte $00
+StNativeP2DEB:
+  .byte <::StNativeP2DF6
+StNativeP2DEC:
+  .byte >::StNativeP2DF6
+StNativeP2DED:
+  .byte $01
+StNativeP2DEE:
+  .byte <::StNativeP2EA5
+StNativeP2DEF:
+  .byte >::StNativeP2EA5
+StNativeP2DF0:
+  .byte $05
+StNativeP2DF1:
+  .byte <::StNativeP2F54
+StNativeP2DF2:
+  .byte >::StNativeP2F54
+StNativeP2DF3:
+  .byte $03
+StNativeP2DF4:
+  .byte <::StNativeP2FE5
+StNativeP2DF5:
+  .byte >::StNativeP2FE5
+StNativeP2DF6:
+  .byte $07
+StNativeP2DF7:
+  .byte $02
+StNativeP2DF8:
+  .byte $1a
+StNativeP2DF9:
+  .byte $00
+StNativeP2DFA:
+  .byte $c3
+StNativeP2DFB:
+  .byte $10
+StNativeP2DFC:
+  .byte $fc
+StNativeP2DFD:
+  .byte $fe
+StNativeP2DFE:
+  .byte $37
+StNativeP2DFF:
+  .byte $03
+StNativeP2E00:
+  .byte $34
+StNativeP2E01:
+  .byte $03
+StNativeP2E02:
+  .byte $30
+StNativeP2E03:
+  .byte $02
+StNativeP2E04:
+  .byte $35
+StNativeP2E05:
+  .byte $03
+StNativeP2E06:
+  .byte $32
+StNativeP2E07:
+  .byte $03
+StNativeP2E08:
+  .byte $2a
+StNativeP2E09:
+  .byte $02
+StNativeP2E0A:
+  .byte $33
+StNativeP2E0B:
+  .byte $03
+StNativeP2E0C:
+  .byte $30
+StNativeP2E0D:
+  .byte $03
+StNativeP2E0E:
+  .byte $28
+StNativeP2E0F:
+  .byte $02
+StNativeP2E10:
+  .byte $35
+StNativeP2E11:
+  .byte $03
+StNativeP2E12:
+  .byte $32
+StNativeP2E13:
+  .byte $03
+StNativeP2E14:
+  .byte $2a
+StNativeP2E15:
+  .byte $02
+StNativeP2E16:
+  .byte $fb
+StNativeP2E17:
+  .byte $02
+StNativeP2E18:
+  .byte $24
+StNativeP2E19:
+  .byte $02
+StNativeP2E1A:
+  .byte $24
+StNativeP2E1B:
+  .byte $01
+StNativeP2E1C:
+  .byte $25
+StNativeP2E1D:
+  .byte $01
+StNativeP2E1E:
+  .byte $00
+StNativeP2E1F:
+  .byte $01
+StNativeP2E20:
+  .byte $27
+StNativeP2E21:
+  .byte $01
+StNativeP2E22:
+  .byte $00
+StNativeP2E23:
+  .byte $01
+StNativeP2E24:
+  .byte $30
+StNativeP2E25:
+  .byte $05
+StNativeP2E26:
+  .byte $27
+StNativeP2E27:
+  .byte $02
+StNativeP2E28:
+  .byte $24
+StNativeP2E29:
+  .byte $02
+StNativeP2E2A:
+  .byte $29
+StNativeP2E2B:
+  .byte $03
+StNativeP2E2C:
+  .byte $29
+StNativeP2E2D:
+  .byte $01
+StNativeP2E2E:
+  .byte $00
+StNativeP2E2F:
+  .byte $0c
+StNativeP2E30:
+  .byte $26
+StNativeP2E31:
+  .byte $02
+StNativeP2E32:
+  .byte $26
+StNativeP2E33:
+  .byte $01
+StNativeP2E34:
+  .byte $27
+StNativeP2E35:
+  .byte $01
+StNativeP2E36:
+  .byte $00
+StNativeP2E37:
+  .byte $01
+StNativeP2E38:
+  .byte $29
+StNativeP2E39:
+  .byte $01
+StNativeP2E3A:
+  .byte $00
+StNativeP2E3B:
+  .byte $01
+StNativeP2E3C:
+  .byte $32
+StNativeP2E3D:
+  .byte $05
+StNativeP2E3E:
+  .byte $29
+StNativeP2E3F:
+  .byte $02
+StNativeP2E40:
+  .byte $26
+StNativeP2E41:
+  .byte $02
+StNativeP2E42:
+  .byte $2b
+StNativeP2E43:
+  .byte $03
+StNativeP2E44:
+  .byte $2b
+StNativeP2E45:
+  .byte $01
+StNativeP2E46:
+  .byte $00
+StNativeP2E47:
+  .byte $0c
+StNativeP2E48:
+  .byte $28
+StNativeP2E49:
+  .byte $02
+StNativeP2E4A:
+  .byte $28
+StNativeP2E4B:
+  .byte $01
+StNativeP2E4C:
+  .byte $29
+StNativeP2E4D:
+  .byte $01
+StNativeP2E4E:
+  .byte $00
+StNativeP2E4F:
+  .byte $01
+StNativeP2E50:
+  .byte $2b
+StNativeP2E51:
+  .byte $01
+StNativeP2E52:
+  .byte $00
+StNativeP2E53:
+  .byte $01
+StNativeP2E54:
+  .byte $34
+StNativeP2E55:
+  .byte $05
+StNativeP2E56:
+  .byte $2b
+StNativeP2E57:
+  .byte $02
+StNativeP2E58:
+  .byte $28
+StNativeP2E59:
+  .byte $02
+StNativeP2E5A:
+  .byte $30
+StNativeP2E5B:
+  .byte $03
+StNativeP2E5C:
+  .byte $30
+StNativeP2E5D:
+  .byte $01
+StNativeP2E5E:
+  .byte $00
+StNativeP2E5F:
+  .byte $0a
+StNativeP2E60:
+  .byte $30
+StNativeP2E61:
+  .byte $01
+StNativeP2E62:
+  .byte $2b
+StNativeP2E63:
+  .byte $01
+StNativeP2E64:
+  .byte $29
+StNativeP2E65:
+  .byte $03
+StNativeP2E66:
+  .byte $29
+StNativeP2E67:
+  .byte $01
+StNativeP2E68:
+  .byte $00
+StNativeP2E69:
+  .byte $01
+StNativeP2E6A:
+  .byte $29
+StNativeP2E6B:
+  .byte $01
+StNativeP2E6C:
+  .byte $2b
+StNativeP2E6D:
+  .byte $01
+StNativeP2E6E:
+  .byte $30
+StNativeP2E6F:
+  .byte $01
+StNativeP2E70:
+  .byte $2b
+StNativeP2E71:
+  .byte $03
+StNativeP2E72:
+  .byte $2b
+StNativeP2E73:
+  .byte $01
+StNativeP2E74:
+  .byte $00
+StNativeP2E75:
+  .byte $01
+StNativeP2E76:
+  .byte $2b
+StNativeP2E77:
+  .byte $01
+StNativeP2E78:
+  .byte $30
+StNativeP2E79:
+  .byte $01
+StNativeP2E7A:
+  .byte $32
+StNativeP2E7B:
+  .byte $01
+StNativeP2E7C:
+  .byte $30
+StNativeP2E7D:
+  .byte $01
+StNativeP2E7E:
+  .byte $00
+StNativeP2E7F:
+  .byte $02
+StNativeP2E80:
+  .byte $2a
+StNativeP2E81:
+  .byte $01
+StNativeP2E82:
+  .byte $2a
+StNativeP2E83:
+  .byte $01
+StNativeP2E84:
+  .byte $00
+StNativeP2E85:
+  .byte $01
+StNativeP2E86:
+  .byte $30
+StNativeP2E87:
+  .byte $01
+StNativeP2E88:
+  .byte $30
+StNativeP2E89:
+  .byte $01
+StNativeP2E8A:
+  .byte $00
+StNativeP2E8B:
+  .byte $01
+StNativeP2E8C:
+  .byte $2a
+StNativeP2E8D:
+  .byte $01
+StNativeP2E8E:
+  .byte $00
+StNativeP2E8F:
+  .byte $01
+StNativeP2E90:
+  .byte $2a
+StNativeP2E91:
+  .byte $01
+StNativeP2E92:
+  .byte $30
+StNativeP2E93:
+  .byte $02
+StNativeP2E94:
+  .byte $2a
+StNativeP2E95:
+  .byte $02
+StNativeP2E96:
+  .byte $2a
+StNativeP2E97:
+  .byte $01
+StNativeP2E98:
+  .byte $2a
+StNativeP2E99:
+  .byte $01
+StNativeP2E9A:
+  .byte $00
+StNativeP2E9B:
+  .byte $01
+StNativeP2E9C:
+  .byte $2a
+StNativeP2E9D:
+  .byte $01
+StNativeP2E9E:
+  .byte $00
+StNativeP2E9F:
+  .byte $01
+StNativeP2EA0:
+  .byte $2a
+StNativeP2EA1:
+  .byte $01
+StNativeP2EA2:
+  .byte $30
+StNativeP2EA3:
+  .byte $02
+StNativeP2EA4:
+  .byte $ff
+StNativeP2EA5:
+  .byte $17
+StNativeP2EA6:
+  .byte $02
+StNativeP2EA7:
+  .byte $1a
+StNativeP2EA8:
+  .byte $00
+StNativeP2EA9:
+  .byte $c3
+StNativeP2EAA:
+  .byte $10
+StNativeP2EAB:
+  .byte $fc
+StNativeP2EAC:
+  .byte $fe
+StNativeP2EAD:
+  .byte $34
+StNativeP2EAE:
+  .byte $03
+StNativeP2EAF:
+  .byte $30
+StNativeP2EB0:
+  .byte $03
+StNativeP2EB1:
+  .byte $27
+StNativeP2EB2:
+  .byte $02
+StNativeP2EB3:
+  .byte $32
+StNativeP2EB4:
+  .byte $03
+StNativeP2EB5:
+  .byte $2a
+StNativeP2EB6:
+  .byte $03
+StNativeP2EB7:
+  .byte $25
+StNativeP2EB8:
+  .byte $02
+StNativeP2EB9:
+  .byte $30
+StNativeP2EBA:
+  .byte $03
+StNativeP2EBB:
+  .byte $28
+StNativeP2EBC:
+  .byte $03
+StNativeP2EBD:
+  .byte $23
+StNativeP2EBE:
+  .byte $02
+StNativeP2EBF:
+  .byte $32
+StNativeP2EC0:
+  .byte $03
+StNativeP2EC1:
+  .byte $2a
+StNativeP2EC2:
+  .byte $03
+StNativeP2EC3:
+  .byte $25
+StNativeP2EC4:
+  .byte $02
+StNativeP2EC5:
+  .byte $fb
+StNativeP2EC6:
+  .byte $02
+StNativeP2EC7:
+  .byte $20
+StNativeP2EC8:
+  .byte $02
+StNativeP2EC9:
+  .byte $20
+StNativeP2ECA:
+  .byte $01
+StNativeP2ECB:
+  .byte $22
+StNativeP2ECC:
+  .byte $01
+StNativeP2ECD:
+  .byte $00
+StNativeP2ECE:
+  .byte $01
+StNativeP2ECF:
+  .byte $24
+StNativeP2ED0:
+  .byte $01
+StNativeP2ED1:
+  .byte $00
+StNativeP2ED2:
+  .byte $01
+StNativeP2ED3:
+  .byte $27
+StNativeP2ED4:
+  .byte $05
+StNativeP2ED5:
+  .byte $24
+StNativeP2ED6:
+  .byte $02
+StNativeP2ED7:
+  .byte $20
+StNativeP2ED8:
+  .byte $02
+StNativeP2ED9:
+  .byte $25
+StNativeP2EDA:
+  .byte $03
+StNativeP2EDB:
+  .byte $25
+StNativeP2EDC:
+  .byte $01
+StNativeP2EDD:
+  .byte $00
+StNativeP2EDE:
+  .byte $0c
+StNativeP2EDF:
+  .byte $22
+StNativeP2EE0:
+  .byte $02
+StNativeP2EE1:
+  .byte $22
+StNativeP2EE2:
+  .byte $01
+StNativeP2EE3:
+  .byte $24
+StNativeP2EE4:
+  .byte $01
+StNativeP2EE5:
+  .byte $00
+StNativeP2EE6:
+  .byte $01
+StNativeP2EE7:
+  .byte $26
+StNativeP2EE8:
+  .byte $01
+StNativeP2EE9:
+  .byte $00
+StNativeP2EEA:
+  .byte $01
+StNativeP2EEB:
+  .byte $29
+StNativeP2EEC:
+  .byte $05
+StNativeP2EED:
+  .byte $26
+StNativeP2EEE:
+  .byte $02
+StNativeP2EEF:
+  .byte $22
+StNativeP2EF0:
+  .byte $02
+StNativeP2EF1:
+  .byte $27
+StNativeP2EF2:
+  .byte $03
+StNativeP2EF3:
+  .byte $27
+StNativeP2EF4:
+  .byte $01
+StNativeP2EF5:
+  .byte $00
+StNativeP2EF6:
+  .byte $0c
+StNativeP2EF7:
+  .byte $24
+StNativeP2EF8:
+  .byte $02
+StNativeP2EF9:
+  .byte $24
+StNativeP2EFA:
+  .byte $01
+StNativeP2EFB:
+  .byte $26
+StNativeP2EFC:
+  .byte $01
+StNativeP2EFD:
+  .byte $00
+StNativeP2EFE:
+  .byte $01
+StNativeP2EFF:
+  .byte $28
+StNativeP2F00:
+  .byte $01
+StNativeP2F01:
+  .byte $00
+StNativeP2F02:
+  .byte $01
+StNativeP2F03:
+  .byte $2b
+StNativeP2F04:
+  .byte $05
+StNativeP2F05:
+  .byte $28
+StNativeP2F06:
+  .byte $02
+StNativeP2F07:
+  .byte $24
+StNativeP2F08:
+  .byte $02
+StNativeP2F09:
+  .byte $29
+StNativeP2F0A:
+  .byte $03
+StNativeP2F0B:
+  .byte $29
+StNativeP2F0C:
+  .byte $01
+StNativeP2F0D:
+  .byte $00
+StNativeP2F0E:
+  .byte $0a
+StNativeP2F0F:
+  .byte $29
+StNativeP2F10:
+  .byte $01
+StNativeP2F11:
+  .byte $27
+StNativeP2F12:
+  .byte $01
+StNativeP2F13:
+  .byte $25
+StNativeP2F14:
+  .byte $03
+StNativeP2F15:
+  .byte $25
+StNativeP2F16:
+  .byte $01
+StNativeP2F17:
+  .byte $00
+StNativeP2F18:
+  .byte $01
+StNativeP2F19:
+  .byte $25
+StNativeP2F1A:
+  .byte $01
+StNativeP2F1B:
+  .byte $27
+StNativeP2F1C:
+  .byte $01
+StNativeP2F1D:
+  .byte $29
+StNativeP2F1E:
+  .byte $01
+StNativeP2F1F:
+  .byte $27
+StNativeP2F20:
+  .byte $03
+StNativeP2F21:
+  .byte $27
+StNativeP2F22:
+  .byte $01
+StNativeP2F23:
+  .byte $00
+StNativeP2F24:
+  .byte $01
+StNativeP2F25:
+  .byte $27
+StNativeP2F26:
+  .byte $01
+StNativeP2F27:
+  .byte $29
+StNativeP2F28:
+  .byte $01
+StNativeP2F29:
+  .byte $2b
+StNativeP2F2A:
+  .byte $01
+StNativeP2F2B:
+  .byte $27
+StNativeP2F2C:
+  .byte $01
+StNativeP2F2D:
+  .byte $00
+StNativeP2F2E:
+  .byte $02
+StNativeP2F2F:
+  .byte $25
+StNativeP2F30:
+  .byte $01
+StNativeP2F31:
+  .byte $25
+StNativeP2F32:
+  .byte $01
+StNativeP2F33:
+  .byte $00
+StNativeP2F34:
+  .byte $01
+StNativeP2F35:
+  .byte $27
+StNativeP2F36:
+  .byte $01
+StNativeP2F37:
+  .byte $27
+StNativeP2F38:
+  .byte $01
+StNativeP2F39:
+  .byte $00
+StNativeP2F3A:
+  .byte $01
+StNativeP2F3B:
+  .byte $25
+StNativeP2F3C:
+  .byte $01
+StNativeP2F3D:
+  .byte $00
+StNativeP2F3E:
+  .byte $01
+StNativeP2F3F:
+  .byte $25
+StNativeP2F40:
+  .byte $01
+StNativeP2F41:
+  .byte $27
+StNativeP2F42:
+  .byte $02
+StNativeP2F43:
+  .byte $25
+StNativeP2F44:
+  .byte $02
+StNativeP2F45:
+  .byte $25
+StNativeP2F46:
+  .byte $01
+StNativeP2F47:
+  .byte $25
+StNativeP2F48:
+  .byte $01
+StNativeP2F49:
+  .byte $00
+StNativeP2F4A:
+  .byte $01
+StNativeP2F4B:
+  .byte $25
+StNativeP2F4C:
+  .byte $01
+StNativeP2F4D:
+  .byte $00
+StNativeP2F4E:
+  .byte $01
+StNativeP2F4F:
+  .byte $25
+StNativeP2F50:
+  .byte $01
+StNativeP2F51:
+  .byte $27
+StNativeP2F52:
+  .byte $02
+StNativeP2F53:
+  .byte $ff
+StNativeP2F54:
+  .byte $27
+StNativeP2F55:
+  .byte $28
+StNativeP2F56:
+  .byte $20
+StNativeP2F57:
+  .byte $00
+StNativeP2F58:
+  .byte $fc
+StNativeP2F59:
+  .byte $fe
+StNativeP2F5A:
+  .byte $20
+StNativeP2F5B:
+  .byte $03
+StNativeP2F5C:
+  .byte $27
+StNativeP2F5D:
+  .byte $03
+StNativeP2F5E:
+  .byte $30
+StNativeP2F5F:
+  .byte $02
+StNativeP2F60:
+  .byte $1a
+StNativeP2F61:
+  .byte $03
+StNativeP2F62:
+  .byte $25
+StNativeP2F63:
+  .byte $03
+StNativeP2F64:
+  .byte $2a
+StNativeP2F65:
+  .byte $02
+StNativeP2F66:
+  .byte $18
+StNativeP2F67:
+  .byte $03
+StNativeP2F68:
+  .byte $23
+StNativeP2F69:
+  .byte $03
+StNativeP2F6A:
+  .byte $28
+StNativeP2F6B:
+  .byte $02
+StNativeP2F6C:
+  .byte $1a
+StNativeP2F6D:
+  .byte $03
+StNativeP2F6E:
+  .byte $25
+StNativeP2F6F:
+  .byte $03
+StNativeP2F70:
+  .byte $2a
+StNativeP2F71:
+  .byte $02
+StNativeP2F72:
+  .byte $fb
+StNativeP2F73:
+  .byte $02
+StNativeP2F74:
+  .byte $fc
+StNativeP2F75:
+  .byte $fe
+StNativeP2F76:
+  .byte $20
+StNativeP2F77:
+  .byte $03
+StNativeP2F78:
+  .byte $27
+StNativeP2F79:
+  .byte $03
+StNativeP2F7A:
+  .byte $30
+StNativeP2F7B:
+  .byte $02
+StNativeP2F7C:
+  .byte $fb
+StNativeP2F7D:
+  .byte $02
+StNativeP2F7E:
+  .byte $fc
+StNativeP2F7F:
+  .byte $fe
+StNativeP2F80:
+  .byte $15
+StNativeP2F81:
+  .byte $03
+StNativeP2F82:
+  .byte $20
+StNativeP2F83:
+  .byte $03
+StNativeP2F84:
+  .byte $25
+StNativeP2F85:
+  .byte $02
+StNativeP2F86:
+  .byte $fb
+StNativeP2F87:
+  .byte $02
+StNativeP2F88:
+  .byte $fc
+StNativeP2F89:
+  .byte $fe
+StNativeP2F8A:
+  .byte $22
+StNativeP2F8B:
+  .byte $03
+StNativeP2F8C:
+  .byte $29
+StNativeP2F8D:
+  .byte $03
+StNativeP2F8E:
+  .byte $32
+StNativeP2F8F:
+  .byte $02
+StNativeP2F90:
+  .byte $fb
+StNativeP2F91:
+  .byte $02
+StNativeP2F92:
+  .byte $fc
+StNativeP2F93:
+  .byte $fe
+StNativeP2F94:
+  .byte $17
+StNativeP2F95:
+  .byte $03
+StNativeP2F96:
+  .byte $22
+StNativeP2F97:
+  .byte $03
+StNativeP2F98:
+  .byte $27
+StNativeP2F99:
+  .byte $02
+StNativeP2F9A:
+  .byte $fb
+StNativeP2F9B:
+  .byte $02
+StNativeP2F9C:
+  .byte $fc
+StNativeP2F9D:
+  .byte $fe
+StNativeP2F9E:
+  .byte $24
+StNativeP2F9F:
+  .byte $03
+StNativeP2FA0:
+  .byte $2b
+StNativeP2FA1:
+  .byte $03
+StNativeP2FA2:
+  .byte $34
+StNativeP2FA3:
+  .byte $02
+StNativeP2FA4:
+  .byte $fb
+StNativeP2FA5:
+  .byte $02
+StNativeP2FA6:
+  .byte $fc
+StNativeP2FA7:
+  .byte $fe
+StNativeP2FA8:
+  .byte $19
+StNativeP2FA9:
+  .byte $03
+StNativeP2FAA:
+  .byte $24
+StNativeP2FAB:
+  .byte $03
+StNativeP2FAC:
+  .byte $29
+StNativeP2FAD:
+  .byte $02
+StNativeP2FAE:
+  .byte $fb
+StNativeP2FAF:
+  .byte $02
+StNativeP2FB0:
+  .byte $15
+StNativeP2FB1:
+  .byte $03
+StNativeP2FB2:
+  .byte $20
+StNativeP2FB3:
+  .byte $03
+StNativeP2FB4:
+  .byte $25
+StNativeP2FB5:
+  .byte $02
+StNativeP2FB6:
+  .byte $17
+StNativeP2FB7:
+  .byte $03
+StNativeP2FB8:
+  .byte $22
+StNativeP2FB9:
+  .byte $03
+StNativeP2FBA:
+  .byte $27
+StNativeP2FBB:
+  .byte $02
+StNativeP2FBC:
+  .byte $20
+StNativeP2FBD:
+  .byte $01
+StNativeP2FBE:
+  .byte $00
+StNativeP2FBF:
+  .byte $02
+StNativeP2FC0:
+  .byte $1a
+StNativeP2FC1:
+  .byte $01
+StNativeP2FC2:
+  .byte $1a
+StNativeP2FC3:
+  .byte $01
+StNativeP2FC4:
+  .byte $00
+StNativeP2FC5:
+  .byte $01
+StNativeP2FC6:
+  .byte $20
+StNativeP2FC7:
+  .byte $01
+StNativeP2FC8:
+  .byte $20
+StNativeP2FC9:
+  .byte $01
+StNativeP2FCA:
+  .byte $00
+StNativeP2FCB:
+  .byte $01
+StNativeP2FCC:
+  .byte $1a
+StNativeP2FCD:
+  .byte $01
+StNativeP2FCE:
+  .byte $00
+StNativeP2FCF:
+  .byte $01
+StNativeP2FD0:
+  .byte $1a
+StNativeP2FD1:
+  .byte $01
+StNativeP2FD2:
+  .byte $20
+StNativeP2FD3:
+  .byte $02
+StNativeP2FD4:
+  .byte $1a
+StNativeP2FD5:
+  .byte $02
+StNativeP2FD6:
+  .byte $1a
+StNativeP2FD7:
+  .byte $01
+StNativeP2FD8:
+  .byte $1a
+StNativeP2FD9:
+  .byte $01
+StNativeP2FDA:
+  .byte $00
+StNativeP2FDB:
+  .byte $01
+StNativeP2FDC:
+  .byte $1a
+StNativeP2FDD:
+  .byte $01
+StNativeP2FDE:
+  .byte $00
+StNativeP2FDF:
+  .byte $01
+StNativeP2FE0:
+  .byte $1a
+StNativeP2FE1:
+  .byte $01
+StNativeP2FE2:
+  .byte $20
+StNativeP2FE3:
+  .byte $02
+StNativeP2FE4:
+  .byte $ff
+StNativeP2FE5:
+  .byte $37
+StNativeP2FE6:
+  .byte $00
+StNativeP2FE7:
+  .byte $17
+StNativeP2FE8:
+  .byte $00
+StNativeP2FE9:
+  .byte $c5
+StNativeP2FEA:
+  .byte $10
+StNativeP2FEB:
+  .byte $fc
+StNativeP2FEC:
+  .byte $fe
+StNativeP2FED:
+  .byte $07
+StNativeP2FEE:
+  .byte $03
+StNativeP2FEF:
+  .byte $07
+StNativeP2FF0:
+  .byte $01
+StNativeP2FF1:
+  .byte $03
+StNativeP2FF2:
+  .byte $02
+StNativeP2FF3:
+  .byte $07
+StNativeP2FF4:
+  .byte $02
+StNativeP2FF5:
+  .byte $fb
+StNativeP2FF6:
+  .byte $16
+StNativeP2FF7:
+  .byte $20
+StNativeP2FF8:
+  .byte $01
+StNativeP2FF9:
+  .byte $00
+StNativeP2FFA:
+  .byte $02
+StNativeP2FFB:
+  .byte $03
+StNativeP2FFC:
+  .byte $01
+StNativeP2FFD:
+  .byte $03
+StNativeP2FFE:
+  .byte $01
+StNativeP2FFF:
+  .byte $00
+StNativeP1000:
+  .byte $01
+StNativeP1001:
+  .byte $03
+StNativeP1002:
+  .byte $01
+StNativeP1003:
+  .byte $03
+StNativeP1004:
+  .byte $01
+StNativeP1005:
+  .byte $00
+StNativeP1006:
+  .byte $01
+StNativeP1007:
+  .byte $03
+StNativeP1008:
+  .byte $01
+StNativeP1009:
+  .byte $00
+StNativeP100A:
+  .byte $01
+StNativeP100B:
+  .byte $03
+StNativeP100C:
+  .byte $01
+StNativeP100D:
+  .byte $03
+StNativeP100E:
+  .byte $02
+StNativeP100F:
+  .byte $03
+StNativeP1010:
+  .byte $02
+StNativeP1011:
+  .byte $03
+StNativeP1012:
+  .byte $01
+StNativeP1013:
+  .byte $03
+StNativeP1014:
+  .byte $01
+StNativeP1015:
+  .byte $00
+StNativeP1016:
+  .byte $01
+StNativeP1017:
+  .byte $03
+StNativeP1018:
+  .byte $01
+StNativeP1019:
+  .byte $00
+StNativeP101A:
+  .byte $01
+StNativeP101B:
+  .byte $03
+StNativeP101C:
+  .byte $01
+StNativeP101D:
+  .byte $03
+StNativeP101E:
+  .byte $02
+StNativeP101F:
+  .byte $ff
+StNativeP1020:
+  .byte $03
+StNativeSourceInit=StNativeP0E13
+StNativeSourcePlay=StNativeP06A4
+
+; Only the first ExpandedAudioTick family call reaches this path. Discard its
+; one inner return; the native updater returns to ExpandedAudioDecoded.
+StNativeFromFamily:
+  pla
+  pla
+  jmp StNativeMusicUpdate
+.proc StNativeMusicUpdate
+  lda #0
+  sta RgAudioRequest
+  lda OperMode
+  jeq Mute
+  lda XgAudioCharacter
+  cmp #$fb
+  beq Initialized
+  lda #$fb
+  sta XgAudioCharacter
+  lda #0
+  sta RgAudioSong
+  sta RgAudioSilenced
+  sta XgAudioEvent
+  lda #1
+  sta StNativePending
+Initialized:
+  lda AreaMusicQueue
+  ora EventMusicQueue
+  and #Silence
+  beq Area
+  lda #1
+  sta RgAudioSilenced
+Area:
+  lda AreaMusicQueue
+  and #$7f
+  beq Event
+  ldx #0
+FindArea:
+  lsr
+  bcs AreaFound
+  inx
+  bne FindArea
+AreaFound:
+  lda Areas,x
+  sta StNativePending
+  lda #0
+  sta RgAudioSilenced
+  sta XgAudioEvent
+Event:
+  lda EventMusicQueue
+  and #$7f
+  beq Pause
+  ldx #0
+FindEvent:
+  lsr
+  bcs EventFound
+  inx
+  bne FindEvent
+EventFound:
+  lda Events,x
+  sta StNativePending
+  lda #0
+  sta RgAudioSilenced
+  lda #1
+  sta XgAudioEvent
+  cpx #6
+  bne Pause
+  lda #4
+  sta XgAudioEvent
+Pause:
+  lda GamePauseStatus
+  and #1
+  jne Mute
+  lda RgAudioSilenced
+  jne Mute
+  lda StNativePending
+  sta RgAudioRequest
+  bne Restart
+  lda XgAudioEvent
+  cmp #2
+  jeq Mute
+  ; All six source channel states are $ff at a finite tune's end. A queued
+  ; original init still has its source request in $a0 until first play.
+  lda StNativeZp
+  bne SaveCpu
+  lda StNativeRam+$10
+  and StNativeRam+$11
+  and StNativeRam+$12
+  and StNativeRam+$13
+  and StNativeRam+$14
+  and StNativeRam+$15
+  cmp #$ff
+  bne SaveCpu
+  lda XgAudioEvent
+  beq LoopWholeTune
+  cmp #4
+  beq LoopWholeTune
+  lda #2
+  sta XgAudioEvent
+  jmp Mute
+LoopWholeTune:
+  lda RgAudioSong
+  sta RgAudioRequest
+Restart:
+  lda RgAudioRequest
+  sta RgAudioSong
+  inc XgAudioSong
+  lda #0
+  ldx #$9f
+ResetState:
+  sta StNativeRam,x
+  dex
+  cpx #$ff
+  bne ResetState
+  ldx #15
+ResetImage:
+  sta StNativeZp,x
+  sta GuestNativeApu,x
+  lda #1
+  sta GuestNativeDirty,x
+  lda #0
+  dex
+  bpl ResetImage
+SaveCpu:
+  jsr StNativeBorrow
+  lda RgAudioRequest
+  beq Play
+  sec
+  sbc #1
+  ldx #0
+  ldy #0
+  jsr StNativeSourceInit
+  lda #0
+  sta StNativePending
+  jmp Restore
+Play:
+  lda StNativeRam
+  cmp GuestNativeEnable
+  beq Enabled
+  jsr GuestNativeStatusSTA
+Enabled:
+  ldx #0
+  ldy #0
+  jsr StNativeMusicPlay
+Restore:
+  jsr StNativeRestore
+  jmp Queues
+Mute:
+  lda #0
+  jsr GuestNativeStatusSTA
+Queues:
+  lda #0
+  sta AreaMusicQueue
+  sta EventMusicQueue
+  sta Square1SoundQueue
+  sta Square2SoundQueue
+  sta NoiseSoundQueue
+  rts
+Areas:
+  .byte 1,2,4,5,14,11,22
+Events:
+  .byte 13,15,9,17,15,9,5
+.endproc
+; The adapter never feeds original NSF SFX queues. Init is the only selected
+; music writer to A2..A5/7168, and clears them with X=0. Keep pending-init's
+; full original dispatch; active music enters its unmodified channel loop.
+StNativeMusicPlay:
+  lda StNativeZp
+  bmi StNativeFullSource
+  beq StNativeMusicIdle
+  jmp StNativeP06CE
+StNativeMusicIdle:
+  rts
+StNativeFullSource:
+  jmp StNativeSourcePlay
+StNativeStatusSTX:
+  php
+  pha
+  txa
+  jsr GuestNativeStatusSTA
+  pla
+  plp
+  rts
+
+StNativeBorrow:
+  lda $ac
+  sta StNativeSavedZp+0
+  lda StNativeZp+6
+  sta $ac
+  lda $ad
+  sta StNativeSavedZp+1
+  lda StNativeZp+7
+  sta $ad
+  lda $f0
+  sta StNativeSavedZp+2
+  lda StNativeZp+8
+  sta $f0
+  lda $f1
+  sta StNativeSavedZp+3
+  lda StNativeZp+9
+  sta $f1
+  rts
+StNativeRestore:
+  lda $ac
+  sta StNativeZp+6
+  lda StNativeSavedZp+0
+  sta $ac
+  lda $ad
+  sta StNativeZp+7
+  lda StNativeSavedZp+1
+  sta $ad
+  lda $f0
+  sta StNativeZp+8
+  lda StNativeSavedZp+2
+  sta $f0
+  lda $f1
+  sta StNativeZp+9
+  lda StNativeSavedZp+3
+  sta $f1
+  rts
+StNativeEnd:
+.assert *-StNativeBankStart <= $1e00,error,"Mike source exceeds unused bank-115 tail"
+.popseg

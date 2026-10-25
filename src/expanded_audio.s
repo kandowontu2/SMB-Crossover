@@ -40,7 +40,7 @@ XgLzHistory: .res 2048
 .endif
 ::ExpandedAudioDecoded:
 .if ::ENABLE_MMC5_EXPANDED
-  jsr KbAudioFamily
+  lda SelectedCharacter
 .else
   lda SelectedCharacter
 .endif
@@ -505,23 +505,25 @@ EndByte:
 .segment "XG_AUDIO"
 .proc KbAudioFamily
   lda SelectedCharacter
+  cmp #16
+  beq StFamilyMike
+  php
   cmp #CHARACTER_KIRBY
-  bne :+
-  lda KbVariant
+  bcc StFamilyDone
   beq Kirby
-  lda #14
-  rts
-Kirby:
-  lda #13
-  rts
-: lda SelectedCharacter
   cmp #CHARACTER_TMNT
-  bne :+
-  lda #CHARACTER_RYGAR
+  lda #3
+  rol
+StFamilyDone:
+  plp
   rts
-: cmp #CHARACTER_KIRBY
-  bcc Done
-  lda #CHARACTER_PIT
+StFamilyMike:
+  BankPRGA #.bank(StNativeMusicUpdate)
+  jmp StNativeFromFamily
+Kirby:
+  clc
+  adc KbVariant
+  plp
 Done:rts
 .endproc
 .popseg
