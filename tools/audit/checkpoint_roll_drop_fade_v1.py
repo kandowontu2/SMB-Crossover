@@ -110,7 +110,7 @@ and every-powerup verification remain the priority; new characters come later.
     tools = sorted((ROOT / 'tools/audit').glob('final_roll_items_fade_*'))
     tools += [ROOT / 'tools/audit' / n for n in ['adopt_roll_drop_fade_once_v1.py', 'checkpoint_roll_drop_fade_v1.py']]
     obj = dict(ROM_sha256=FINAL, goal_complete=False, files={p.name: sha(p) for p in out.iterdir() if p.is_file()},
-               tools={str(p.relative_to(ROOT)): sha(p) for p in tools if p.is_file()},
+               tools={p.relative_to(ROOT).as_posix(): sha(p) for p in tools if p.is_file()},
                adopted_report_sha256=sha(report), external_archive=str(P),
                limitations=adopted['remaining'])
     (out / 'manifest.json').write_text(json.dumps(obj, indent=2)+'\n')

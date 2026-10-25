@@ -91,7 +91,7 @@ characters/menu row, video completion, expandedMMC3 or real-hardware claim.
                'adopt_mike_native_music_once_v1.py', 'checkpoint_mike_native_music_v1.py']]
     manifest = dict(ROM_sha256=FINAL, goal_complete=False,
                     files={p.name: sha(p) for p in out.iterdir() if p.is_file()},
-                    tools={str(p.relative_to(ROOT)): sha(p) for p in tools},
+                    tools={p.relative_to(ROOT).as_posix(): sha(p) for p in tools},
                     source_files={n: sha(ROOT / n) for n in adopted['changed_source_files']},
                     adopted_report_sha256=sha(report), external_archive=str(D),
                     limitations=adopted['scope'])

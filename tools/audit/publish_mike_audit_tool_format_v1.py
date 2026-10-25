@@ -41,6 +41,7 @@ def main():
     manifest = checkpoint / 'manifest.json'
     shutil.copy2(manifest, out / 'pre-publication-manifest.json')
     obj = json.loads(manifest.read_text())
+    obj['tools'] = {name.replace('\\', '/'): digest for name, digest in obj['tools'].items()}
     for name in rows:
         obj['tools']['tools/audit/' + name] = sha(ROOT / 'tools/audit' / name)
     obj['tools']['tools/audit/publish_mike_audit_tool_format_v1.py'] = sha(Path(__file__))
