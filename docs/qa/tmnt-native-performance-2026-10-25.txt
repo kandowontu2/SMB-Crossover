@@ -1,0 +1,65 @@
+TMNT original-music performance experiment - 2026-10-25
+
+Status: source/CPU lead only; not installed and not a native performance pass.
+The current50b5 release still uses Rygar music for the four turtles. The prior
+authentic TMNT adapter remains held for extra skipped draws under real attacks.
+This experiment does not waive that rejection or claim to finish turtle music.
+
+Pinned inputs
+Historical held adapter:
+5af948178620e7abcbb7c15c538815841afc6a42a3b86d1cffe6f2861e24fbb7
+Private binary trial:
+66eff54c988b5e4d485a179ec261ec84476e8cb0761e762c942b9447935ac254
+Original Konami NSF:
+f220e8d069e321f392526d41e46f5d0f72966d5a22e56d2b269607c678bd58d9
+Installed MMC5, unchanged throughout:
+50b51c3c69f45ef137720c47f521574097f421056e3b73296d06ba70080d2363
+
+Actual CPU work
+The original duration calculation repeatedly adds a four-bit tempo value.
+The experiment replaces its repeated intermediate additions with a256-byte
+multiplication table and the original final ADC/DEC. That final ADC retains
+the original carry/overflow result. The real saved-channel X is restored;
+Y and the full final source-private state remain exact. No ticks, songs,
+channels, requests or original ordered APU stores are removed.
+
+The27-byte helper and256-byte table occupy checked FF writer-reserve bytes
+at historical A123:A200/A300. No RAM is allocated. This is intentionally a
+binary experiment: its retained historical link outputs do not invent names
+for the new helper. Those addresses are not current-source reservations.
+
+Independent checks
+23,040 arithmetic/register boundary cases pass.
+All16 original source tracks pass192,016 actual linked calls against549,602
+ordered original APU requests. Parent/trial A/X/Y/status/SP, final source RAM,
+source ZP, mapper banks and adapter APU/dirty images match. Actual entry checks
+also verify the nibble and saved-X assumptions. The135,787 entry observations
+count both executions; they are not135,787 distinct original music events.
+Intermediate private counter stores intentionally differ, so this is not an
+assertion that every private RAM write at every intermediate cycle is equal.
+
+In601 whole expanded-audio calls (initialization plus600 normal updates),
+normal-play mean cycles improve1710.6817 ->1705.1583. The largest normal burst
+improves6031 ->5827 at update505, saving204 cycles. Some other source tracks
+cost more overall and individual calls can add120 cycles. The full report
+retains all per-track added/saved costs; no universal speedup is claimed.
+
+Remaining integration and acceptance
+The historical adapter cannot be copied into current production. Its old
+A123 conflicts with accepted Mac music; current source reserves A63/B124 and
+has real CV3/cold consumers in E125. Current CV3 owns DMC owner3, so a future
+TMNT rebase must use owner4 with complete owner, tail and preemption checks.
+Any connected-stream relocation must prove full pointer closure and original
+golden parity. A canonical source build, current mirror/IRQ/ordinary-roster
+qualification and real same-work attack cadence still precede adoption.
+
+Evidence
+D = C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py
+D/tmnt-native-performance-v1/held5af-profile-v1/proof.json
+D/tmnt-native-performance-v1/duration-trial-pilot-v1/proof.json
+D/tmnt-native-performance-v1/duration-trial-full-v1/proof.json
+D/tmnt-native-performance-v1/duration-cost-pilot-v1/proof.json
+Small copies/summaries and exact tool/external-artifact bindings are in
+docs/qa/checkpoints/2026-10-25/tmnt-performance-study/manifest.json.
+All raw traces, original requests, binary trials and lossless files remain
+external. No footage was deleted, no production ROM/source was changed.
