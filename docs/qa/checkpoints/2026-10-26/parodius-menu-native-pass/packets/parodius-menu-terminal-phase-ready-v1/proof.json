@@ -1,0 +1,85 @@
+{
+  "prepared": true,
+  "source_checks_passed": true,
+  "native_run": false,
+  "native_granted": false,
+  "goal_complete": false,
+  "ROM_sha256": "5354161f339548f2e12b955f5fc1481b9956fe83a63263a04f4b2816edbbdf30",
+  "parent_ROM_sha256": "5354161f339548f2e12b955f5fc1481b9956fe83a63263a04f4b2816edbbdf30",
+  "profiles": [
+    {
+      "kind": "menu",
+      "limit": 1800,
+      "packet": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\parodius-menu-terminal-phase-preparation-v1\\menu",
+      "preparation_sha256": "65e3255f9a1881804b4ce96e262edab08dc564ed959fefddfba16601c02e253a",
+      "script_sha256": "15c785a329c078aeabb45012c9cae3e3ca2c4699d2c99ec68989db6fb02d2874"
+    }
+  ],
+  "preparation_sha256": "834a6d3a6365d8afdf8ebb10d316a1614353f06cd9ae806614ed2a1ee0c235fc",
+  "source_cpu_sha256": "541f393042193b28c9bd859b05c5143b100037994f92c2fd0f6eb8e5614845a4",
+  "proposal_sha256": "d47858c83cd2fc614d0cfada86ea9f1531bd28969bd7c7beb2ba2d955d5aab25",
+  "full_caller_CPU_sha256": "3b39afd7d7bbc74a594286b42ddef24dcc40eb41917939ec6873edd440152154",
+  "initial_PPU_interrupt_CPU_sha256": "a08205523e9ea036ff703b7188576127219209d4499262a3e571bba8657c1ee7",
+  "build_controls_sha256": "6ced45b333c2ce341a9c79f3a995f8cd3a04d55ac6fd64c6d31adfef75ab653f",
+  "environment": {
+    "emulator": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mmc3-flag-fix-v23\\script-budget-probe-v2\\emulator\\Mesen.exe",
+    "emulator_sha256": "8b92daa209ee5052845e02a663aeb1afd6194eca55d86e6628c51114c61da0a9",
+    "core": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mmc3-flag-fix-v23\\script-budget-probe-v2\\emulator\\MesenCore.dll",
+    "core_sha256": "4bd40dfc6512328d56d8ad0563263b52be57bac726d8804f0720e461e558cd41",
+    "worker_settings": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mmc3-flag-fix-v23\\script-budget-probe-v2\\emulator\\settings.json",
+    "worker_settings_sha256": "627cd9c71a2011b4cf5fb03a0712d4d77f7890bc269b174d5757776034aab715",
+    "user_settings": "C:\\Mesen2\\settings.json",
+    "user_settings_sha256": "8a439e0a5eeddc2d4776e516aacfc224c03048b9c7d23d9926a463460a7e748a",
+    "effective_worker_conditions": {
+      "Region": "Auto",
+      "DisableSprites": false,
+      "DisableBackground": false,
+      "RemoveSpriteLimit": false,
+      "AdaptiveSpriteLimit": false,
+      "RandomizeMapperPowerOnState": false,
+      "RandomizeCpuPpuAlignment": false,
+      "RamPowerOnState": "Random",
+      "PpuExtraScanlinesBeforeNmi": 0,
+      "PpuExtraScanlinesAfterNmi": 0,
+      "RunAheadFrames": 0
+    },
+    "deterministic_command_overrides": [
+      "--doNotSaveSettings",
+      "--nes.ramPowerOnState=AllZeros",
+      "--nes.randomizeCpuPpuAlignment=false",
+      "--nes.randomizeMapperPowerOnState=false",
+      "--nes.removeSpriteLimit=false"
+    ],
+    "settings_untouched": true,
+    "limits": "Fresh actual user settings copy and effective portable-worker settings bound independently. User current settings differ from historical snapshots; no old bytes or invented diff claimed. No extra scanlines, runahead0, hardware8sprites/adaptiveoff. RAM Random in persisted worker settings is overridden toAllZeros by the original command."
+  },
+  "source_equivalence": {
+    "parent_script_sha256": "e6fe8ca4318cf18a6a2c7ed03ef1084f48d9e31b0ca98b554e69f2fa7233c2a1",
+    "candidate_script_sha256": "15c785a329c078aeabb45012c9cae3e3ca2c4699d2c99ec68989db6fb02d2874",
+    "same_complete_old_guard_and_controller_tail_after_explicit_module_bridge_replacement": true,
+    "bridge_v3_literal_prefix_preserved": true,
+    "controller_harness_policy_stream_exact": true,
+    "only_observer_config_delta": {
+      "HUD_font": 396,
+      "world_font": 0,
+      "IRQ_bank": 126,
+      "IRQ_font_instruction_PC": 32786,
+      "IRQ_font_instruction": [
+        141,
+        40,
+        81
+      ],
+      "IRQ_font_write_PC": 32789
+    },
+    "ROM_exact": true,
+    "original_static_guard_sha256": "5408fa03f8f6e30af1868ac72e1bb70e89a9d6d54c86eb13c62553bb3240290a",
+    "diagnostic_bridge_sha256": "051e4f4d2a74737a7ed8215107ae7cf24404bc9c46d566b06ec21712ed125f7d",
+    "original_negative_sha256": "043f98012909514dada366e9e6cdae5481f8777e9e74fff6dcc680b9759efb82",
+    "old_terminal_components_not_retagged": true
+  },
+  "manifest_count": 2515,
+  "manifest_sha256": "3fc5bd28d206fae7c0912875e24c3d13052178147f25059e28a8e023323f0678",
+  "report_sha256": "e7060e4968de8f0c6f944169f95f66bb15c286e95b9ab91af84e48bd2489ea25",
+  "tool_sha256": "e1e6d7a1b4b51d44194de3146d9af654259492b2d2b205d325caacf8a4600fb6",
+  "scope": "ONE unrun same-ROM5354/same-controller menu1800 observation successor. Original static/init/diagnostic/live/scroll/CHR/APU/body guards retained byteexact. Only terminal phase assertion replaced, additive realHUD-start/completedIRQ31 font evidence and terminal counters logged. Source mocks reject40 bad phase/epoch/ownership states; 4callback scenarios and8actualcompiledIRQ executions qualify protocol under synthetic APIs. Reused SAME5354 game source/329PPU+257live/build controls, not retagged native results. No new native grant/launch/death/area/body/adoption."
+}

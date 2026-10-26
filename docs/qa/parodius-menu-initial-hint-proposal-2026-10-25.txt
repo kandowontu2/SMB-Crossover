@@ -1,0 +1,110 @@
+Parodius initial menu hint publication proposal, 2026-10-25
+
+PRIVATE SOURCE/CPU ONLY. No new native grant or launch/adoption. All prior
+df515/636f menu negatives remain unchanged, including the636f rebuilt-menu
+failure at376:-1:0 with actual172/256 DMA writes and all256 hardware bytes
+already equal to source. It is a real incomplete-transfer deadline failure,
+not evidence of a visible pixel mismatch. Production remains50b5.
+
+Parent636f2b7e2cf296f5b893fd448c8e4a47b3024fbf955980e80f134bfa33262707.
+Candidate5354161f339548f2e12b955f5fc1481b9956fe83a63263a04f4b2816edbbdf30.
+Candidate/sourcepatch: parodius-menu-hint-candidate-v2.
+PPU/interrupt CPU: parodius-menu-hint-initial-cpu-v3.
+Live/fallback CPU: parodius-menu-hint-v2-live-cpu-v1.
+Build controls: parodius-menu-hint-v2-build-controls-v1.
+Preparation: parodius-menu-hint-v2-preparation-v1.
+Observer source: parodius-menu-hint-v2-observer-source-v1.
+Readiness: parodius-menu-hint-v2-ready-v1.
+All under C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py.
+
+Source owner and intended I/O change
+
+The real BuildScreen owner already waits for Mirror_PPUMASK display-off, writes
+the complete menu nametable and palette directly, leaves DisableScreenFlag1
+through QueueSelection, then enables the menu only at ScreenReady. GameLoop
+keeps NmiDisable negative throughout that foreground work. Its lag NMI with
+DisableScreenFlag!=0 skips the PPU scroll/CHR transaction and retains audio.
+
+The new same-bank dispatcher recognizes ONLY selected18/menuState2,
+DisableScreenFlag!=0, Mirror_PPUMASK&18hex==0 and NmiDisable negative. It writes
+the exact original ProtoHint20 source cells to2346..2359 within that existing
+blanked owner, then omits their redundant queued command. It does not treat
+an unpublished initial hint as already valid. The old636f live Select-only
+reuse and all other original fallback code remain. Missing private context,
+render-on, other hero/state and live noninitial paths do no new PPUDATA work.
+
+The bounded direct transaction uses PHP/SEI, restores PPUCTRL's increment1
+policy from Mirror_PPUCTRL with bit2 clear, BIT PPUSTATUS resets the write
+latch, paired PPUADDR23/46,20 original PPUDATA writes, exact Mirror_PPUCTRL
+restore, PLP and RTS. NMI remains enabled. A pending IRQ waits until actual I
+clear after the complete address/data transaction; no IRQ is forced through
+SEI. The helper uses A/Y plus one bounded stack byte and no new RAM, scratch
+alias, bank change or fiveSMC write. The following native NMI owns final scroll
+and control, which are tested through the whole caller, not a partial stop.
+
+Only src/character_select.s changes versus636f. Exactly84 ROM bytes change in
+bank66: the first3 bytes of the private636f gate JMP to a new81-byte oldFF tail
+atB957..B9A7. All72,278 parent scoped values, CHR and other ROM bytes remain
+exact;117 bytes cumulatively differ from df515, all66. The original public
+entry addresses and636f private labels remain exact. No global NMI change.
+
+Source/CPU qualification
+
+329 actual assembled cases pass.64 complete CrossoverMenuInput/BuildScreen
+cases cover two synthetic CPU behavior values, four variants, four mirror/
+increment settings and both initial PPU latches. They execute the real full
+menu rebuild and the whole following regular-NMI prefix to OAM entry. Full
+returned AXYP/SP/banks and nonstack/nonqueue application RAM/OAM match. The
+20 intended direct writes use exact addresses/source cells. Final all16KB of
+the modeled logical PPU map, t/v/w/fineX/PPUCTRL/PPUMASK match after the NMI.
+Each tested initial path saves393 foreground cycles and375 NMI-prefix cycles
+versus636f; the initial queued packet drops62->39 bytes. Actual raster/DMC
+budgets still require native evidence.
+
+Five exclusive-owner controls require the literal old queued writer and zero
+foreground PPU access when display-on, Disable0, NmiDisable nonnegative,
+wrong menu state or wrong hero.260 instruction-boundary cases use actual
+compiled handlers:130 lag-NMI and130 IRQ.112 IRQ injection points defer until
+the real PLP. Every lag NMI preserves the in-flight PPU state and performs no
+PPU I/O; every actual interrupt restores AXYP/SP, physical banks/shadows and
+fiveSMC. Complete caller continuation plus following NMI preserves exact tiles
+and final PPU scroll/control, including interruptions before/after the lock.
+
+The first two interrupt fixture versions compared a standalone helper followed
+by an EMPTY packet. A deferred IRQ legitimately changed current v after that
+partial stop, so their overstrong comparison failed. Both tools/receipts are
+retained in initial-cpu-v1/v2. The separately named v3 keeps the v assertion
+and resumes the actual BuildScreen/QueueSelection continuation, including its
+real name/cursor/palette packet, before the next NMI. It passes without any
+candidate/source change or masked PPU fields.
+
+The unchanged257-case live/fallback oracle also passes against df515. Those
+components deliberately omit private NmiDisable when invoking initial helper
+controls, so they test conservative fallback, not the real blanked owner.
+The separate64 whole BuildScreen controls above qualify that owner. Live
+Select-only complete paths save702 foreground/375 NMI cycles versus df515;
+tested combined fallback adds44 foreground cycles and zero NMI cycles.
+Other helper fallback costs are15..80 foreground cycles, only on menu changes.
+No game clean-frame overhead, audio removal or global60Hz claim.
+
+Fresh canonical compile reproduces5354 exactly. Ordinary flag-off MMC3 and
+MMC5 remain byte-exact against636f (d444cac8/f4ffd248). The complete generated
+strict observer passes14 assembled owner/parser components, six generation
+cases, five preassertion diagnostic cases and startup with64 fixed callbacks,
+one final dispatcher and149 inactive frames; no runtime API registration.
+Original guard5408fa03 and diagnostic bridge6a194f33 remain byte-exact.
+
+Same-controller readiness, unrun
+
+Complete run.lua matches the prior636f script after ONLY ROM-hash and isolated
+path normalization. The original controller/harness/policy/input stream and
+all guard bodies remain. Current effective portable settings and actual user
+settings are separately copied/bound without mutation; original deterministic
+overrides, hardware8/adaptiveoff/runahead0/no extra scanlines remain.
+
+Only after a new explicit grant, stable one-case command:
+python -B tools/audit/parodius_visibility_menu_hint_run_v2.py --ready "C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/parodius-menu-hint-v2-ready-v1" --profile menu --native-grant
+The unchanged init-complete assertion and all five terminal component results
+remain mandatory. No retry/death/area/body/adoption follows from readiness.
+Actual menu timing/pixels/re-entry/45 fresh active updates and broader HUD
+lifecycle/heavy-DMC/readability/crowded-body findings remain open.

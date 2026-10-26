@@ -1,0 +1,70 @@
+{
+  "prepared": true,
+  "source_checks_passed": true,
+  "native_run": false,
+  "native_granted": false,
+  "goal_complete": false,
+  "ROM_sha256": "5354161f339548f2e12b955f5fc1481b9956fe83a63263a04f4b2816edbbdf30",
+  "parent_ROM_sha256": "636f2b7e2cf296f5b893fd448c8e4a47b3024fbf955980e80f134bfa33262707",
+  "profiles": [
+    {
+      "kind": "menu",
+      "limit": 1800,
+      "packet": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\parodius-menu-hint-v2-preparation-v1\\menu",
+      "preparation_sha256": "a4a1ed8e9dd68fb573ca60620cf598c5604836ae1a8b8a048d7c55b60917bdf3",
+      "script_sha256": "e6fe8ca4318cf18a6a2c7ed03ef1084f48d9e31b0ca98b554e69f2fa7233c2a1"
+    }
+  ],
+  "preparation_sha256": "e46ed00224b50c7dfcf4e97a9673b7657d8862e4a51d7f4d64babdc305027110",
+  "source_cpu_sha256": "01d600e45e2dbb381328f77121735c20fc365077e40d253bd48ebf71b22dcd7a",
+  "proposal_sha256": "d47858c83cd2fc614d0cfada86ea9f1531bd28969bd7c7beb2ba2d955d5aab25",
+  "full_caller_CPU_sha256": "3b39afd7d7bbc74a594286b42ddef24dcc40eb41917939ec6873edd440152154",
+  "initial_PPU_interrupt_CPU_sha256": "a08205523e9ea036ff703b7188576127219209d4499262a3e571bba8657c1ee7",
+  "build_controls_sha256": "6ced45b333c2ce341a9c79f3a995f8cd3a04d55ac6fd64c6d31adfef75ab653f",
+  "environment": {
+    "emulator": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mmc3-flag-fix-v23\\script-budget-probe-v2\\emulator\\Mesen.exe",
+    "emulator_sha256": "8b92daa209ee5052845e02a663aeb1afd6194eca55d86e6628c51114c61da0a9",
+    "core": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mmc3-flag-fix-v23\\script-budget-probe-v2\\emulator\\MesenCore.dll",
+    "core_sha256": "4bd40dfc6512328d56d8ad0563263b52be57bac726d8804f0720e461e558cd41",
+    "worker_settings": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mmc3-flag-fix-v23\\script-budget-probe-v2\\emulator\\settings.json",
+    "worker_settings_sha256": "627cd9c71a2011b4cf5fb03a0712d4d77f7890bc269b174d5757776034aab715",
+    "user_settings": "C:\\Mesen2\\settings.json",
+    "user_settings_sha256": "8a439e0a5eeddc2d4776e516aacfc224c03048b9c7d23d9926a463460a7e748a",
+    "effective_worker_conditions": {
+      "Region": "Auto",
+      "DisableSprites": false,
+      "DisableBackground": false,
+      "RemoveSpriteLimit": false,
+      "AdaptiveSpriteLimit": false,
+      "RandomizeMapperPowerOnState": false,
+      "RandomizeCpuPpuAlignment": false,
+      "RamPowerOnState": "Random",
+      "PpuExtraScanlinesBeforeNmi": 0,
+      "PpuExtraScanlinesAfterNmi": 0,
+      "RunAheadFrames": 0
+    },
+    "deterministic_command_overrides": [
+      "--doNotSaveSettings",
+      "--nes.ramPowerOnState=AllZeros",
+      "--nes.randomizeCpuPpuAlignment=false",
+      "--nes.randomizeMapperPowerOnState=false",
+      "--nes.removeSpriteLimit=false"
+    ],
+    "settings_untouched": true,
+    "limits": "Fresh actual user settings copy and effective portable-worker settings bound independently. User current settings differ from historical snapshots; no old bytes or invented diff claimed. No extra scanlines, runahead0, hardware8sprites/adaptiveoff. RAM Random in persisted worker settings is overridden toAllZeros by the original command."
+  },
+  "source_equivalence": {
+    "parent_script_sha256": "0436412b367f174819e65c67ab019b1813074d96f699265d6130a584efc08784",
+    "candidate_script_sha256": "e6fe8ca4318cf18a6a2c7ed03ef1084f48d9e31b0ca98b554e69f2fa7233c2a1",
+    "same_complete_script_after_ROM_hash_and_path_normalization": true,
+    "controller_harness_policy_stream_exact": true,
+    "original_static_guard_sha256": "5408fa03f8f6e30af1868ac72e1bb70e89a9d6d54c86eb13c62553bb3240290a",
+    "diagnostic_bridge_sha256": "6a194f33acc50e5fa0c2cfd422a5161d45fbbb5e0da9db71f0e36c68cbfdb7f4",
+    "original_negative_sha256": "2860f2b6866bf748aaf3ae5b6cb77bd2362271e4c3e493d0c3977a64218f5d8c"
+  },
+  "manifest_count": 814,
+  "manifest_sha256": "0c3c00de10e05283a9f2b31072cb86a52d2d90340f33f8477928f3c3e534433c",
+  "report_sha256": "575b0fb54e481e8a6416af330022d7b015b3f713b68a48f2e2b2059ef20b700d",
+  "tool_sha256": "b5607b1b35b3a12efdfd9e54baa8459559c1f3c2238cd83ce179b93036be9d41",
+  "scope": "ONE unrun same-controller menu1800 initial-owner strict proposal.84newbytes vs636f only66; all original init/live/diagnostic guards exact. CPU329PPU/interrupt +257live/fallback +observer14 +canonical/flagoff pass, no native deadline/pixels/lifecycle verdict. Only proven blanked/private initialship owner moves20sourcehinttiles toforeground; live636f Select-only reuse remains. No new grant/launch/death/area/body/adoption."
+}

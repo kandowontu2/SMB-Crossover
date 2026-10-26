@@ -1,0 +1,82 @@
+Parodius menu lifecycle - same-ROM terminal-phase observation readiness
+
+Production remains 50b51c3c69f45ef137720c47f521574097f421056e3b73296d06ba70080d2363.
+This is a SOURCE/MOCK preparation only, with no native grant or launch.
+The private ROM remains exact 5354161f339548f2e12b955f5fc1481b9956fe83a63263a04f4b2816edbbdf30.
+No production source, ROM, Git, Downloads, user settings, art or game bytes changed.
+
+Why the original negative remains false
+
+The original one-run5354 menu1800 receipt failed its final assertion that the
+current mapper font must equal396 at endFrame1800. Actual HUD start1800 has396;
+the intended compiled IRQ31 writes physical0 at1800:31:128, and returns with
+worldfont0 before endFrame. The frozen negative remains false with all five
+terminal components absent and1650 actual ARGB frames150..1799. There is no
+frame1800 image, exact terminal freshcounter or complete terminal RAM tuple.
+The earlier all4-variant/cancel/re-entry/fresh45 assertion did pass. These
+facts diagnose a wrong-time fixture predicate; they do not create a native pass.
+
+Frozen negative: D/parodius-menu-hint-v2-native-phase-negative-v1/proof.json
+SHA043f98012909514dada366e9e6cdae5481f8777e9e74fff6dcc680b9759efb82.
+Manifest1699 bindings SHA63e93c63a0177a5229043541ea81f743ee52ed07dfde40fc6a91a289bae7cdd0.
+Selected fullPPU review covers fourvariant menus, title/rebuild, firstactive545,
+capture547, firstsavedfont548..549 and late1797..1799. Transitions349/375 remain
+explicit transition images. This is selected-frame review, not every-frame QA.
+
+Separately versioned observation changes
+
+The original static observer5408fa03f8f6e30af1868ac72e1bb70e89a9d6d54c86eb13c62553bb3240290a
+is byteexact. Bridge_v4 is bridge_v3's literal prefix plus terminal_phase_v1.
+The original body/init/DMA/CHR/APU/scroll/5SMC/bank/stack/raster assertions and
+all natural controller logic remain. The lifecycle_v4 module adds a flushed
+terminal-state event before any terminal assertions, retains all coverage
+conditions, replaces only the wrong endFrame-HUD-font test, and includes the
+observed phase evidence in a future successful lifecycle result.
+
+The new check requires the same actual frame, displayed publication/DMA IDs,
+current source generation, exact completed256-byte hardware image at HUD start,
+hardware font396 and source labels already covered by original HUD guards.
+It records native IRQ entry at actual line31, the bound STA$5128 at8012
+(write-callback PC8015 in physical126), the actual zero-upper/zero-font write,
+and hardware font0 at the original8043 RTI endpoint. It rejects a later write,
+stale epoch/generation, wrong mode/variant or fewer than45 fresh updates.
+Supporting RAM tags alone cannot satisfy the predicate. EndFrame correctly
+requires the recorded world-font phase, rather than requiring a HUD font afterIRQ.
+No new game repair is proposed by this observation successor.
+
+Source/mock qualification
+
+The generated script parses. Its67 fixed memory callbacks are old64 plus the
+two IRQ entry/return observers and one5128 write observer. All register at
+startup, and the one full-range return dispatcher remains last.149 inactive
+mock frames and actual source-owner tests attempt no runtime registrations.
+Existing six generation, five init preassertion and14 assembled native-owner
+cases pass unchanged. New41 predicate cases include one valid sequence and40
+rejections, including absentIRQ, wrongHUD-start/font/line/source/epoch, stale
+publication/DMA, later writes and insufficient fresh updates. Four exact
+observer callback-sequence mocks reject same-font later writes, new generation
+and different displayed publication. Eight actual compiled IRQ executions
+restore full AXYP/SP and bind the real font instruction and RTI endpoints.
+These are synthetic CPU/API tests, not native raster or Easy/Hard coverage.
+
+An initial source-v1 checker attempt is retained separately as failed: setup
+used host status25, while py65 RTI represents the returned status as35. The
+source-v2 check uses35 caller convention and actual IRQ push with B cleared.
+The ROM and observer were unchanged. This was a mock setup correction, not a
+game defect or a silently rewritten receipt.
+
+Readiness/replay
+
+D is C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py.
+Prepared: D/parodius-menu-terminal-phase-preparation-v1
+Source: D/parodius-menu-terminal-phase-source-v2
+Readiness: D/parodius-menu-terminal-phase-ready-v1
+Stable command, ONLY after a separate explicit ROOT grant:
+python -B tools/audit/parodius_visibility_menu_hint_run_v3.py --ready "C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/parodius-menu-terminal-phase-ready-v1" --profile menu --native-grant
+
+One menu1800 natural-input control only. No automatic retry, death/area/body
+or additional profile is authorized. All five component results and selected
+actual fullPPU review remain required after any future grant. Actual source
+font fidelity does not close dense tiny-label readability. Octopus/Sophia
+crowded-body visibility, hardware DMC worst cases, wider lifecycle and full
+roster/every-item completion remain open. No candidate adoption is implied.

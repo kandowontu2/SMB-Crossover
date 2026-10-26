@@ -1,0 +1,49 @@
+Parodius menu hint native hold, 2026-10-25
+
+ONE authorized636f menu1800 replay stopped on the unchanged init-start DMA
+assertion later during rebuilt-menu initialization. Overall passed=false.
+All five required terminal component results remain absent. The native worker
+was explicitly RELEASED; no retry/death/area/body/settings/adoption changes.
+
+Candidate636f2b7e2cf296f5b893fd448c8e4a47b3024fbf955980e80f134bfa33262707.
+Readiness dbc8be4be2bb1fd10ef7651ff1bbf3d5719a599c533a3cb7e9c3bb1967f5ea21.
+Run: parodius-menu-hint-preparation-v1/menu/baseline-early.
+Additive outcome: parodius-menu-hint-native-negative-v1.
+External base C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py.
+
+The prior278 Select-only toggle now has a real complete exact DMA: starts
+278:254:223, post-LDX256-byte completion278:259:64/CPU8248884, actual pre-render
+278:-1:0/CPU8249090. The measured completed-update endpoint precedes start by
+206 CPU cycles. All256 hardware/source bytes match, OAMADDR0, no pending DMA.
+This is real bounded improvement of that event, not a global timing guarantee.
+
+The run reaches actual variant readbacks0/1/2/3, cycles back to1, cancels to the
+title and begins rebuilding selection. It then stops at actual376:-1:0,
+CPU11167584, PC E005/SP244/NMI1, mask30, OAMADDR172, actual172/256 writes on
+pendingDMA56. Source pub9 is native portrait generation1, currentgeneration1.
+All256 hardware bytes already equal exact source/currentRAM. DMA starts
+376:257:324/CPU11167238; last recorded write376:260:339/CPU11167584. The last84
+writes and actual full frame376 remain unobserved because the guard stops.
+No visible corruption or source-byte mismatch is inferred.
+
+Re-entry carries the initial full62-byte packet:6 commands plus terminator,
+including the20-cell help command deliberately retained during initial page
+construction. The native init owner sets DisableScreenFlag1, builds the page
+under rendering-off and only clears the flag after QueueSelection. Thus the
+636f Select-only guard correctly refuses to treat that initial hint as already
+published. This later failure requires a separate init-owner repair rather
+than weakening or widening the same-family reuse predicate.
+
+226 full lossless ARGB frames150..375 and all bus/generation/source/input logs
+are retained. The selected10 full frames bind actual menu variants, cancellation,
+title and pending rebuild context. They do not show the stopped376 epoch or
+prove45 active updates. Strict original live/scroll/CHR/IRQ/bank/stack guards
+remain; no complete native lifecycle verdict is claimed from partial output.
+
+Authorized source-only follow-up can examine publishing the initial20-cell
+hint directly within the existing source-proved rendering-off BuildScreen
+owner, before it enables the menu and queues its remaining name/palette/cursor
+packet. This must use actual PPU latch/control ownership, preserve initial text
+and palette, avoid new RAM/unsafe visible writes and qualify full native owner
+continuation/queue/budget before any separately granted replay. No new source
+candidate or native grant is implied by this negative packet.

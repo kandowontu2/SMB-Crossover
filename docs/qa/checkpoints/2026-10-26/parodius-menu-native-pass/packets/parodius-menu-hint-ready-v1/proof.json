@@ -1,0 +1,69 @@
+{
+  "prepared": true,
+  "source_checks_passed": true,
+  "native_run": false,
+  "native_granted": false,
+  "goal_complete": false,
+  "ROM_sha256": "636f2b7e2cf296f5b893fd448c8e4a47b3024fbf955980e80f134bfa33262707",
+  "parent_ROM_sha256": "df5154bc035ba2c392bb8d34068897a2bccf7a78a6f4554bd6790d31a586c357",
+  "profiles": [
+    {
+      "kind": "menu",
+      "limit": 1800,
+      "packet": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\parodius-menu-hint-preparation-v1\\menu",
+      "preparation_sha256": "83b07e44aeaf3f16d1a67e25b9365dae4510bd4f4cca276a8e3a5c8d1668d02c",
+      "script_sha256": "0436412b367f174819e65c67ab019b1813074d96f699265d6130a584efc08784"
+    }
+  ],
+  "preparation_sha256": "987cb24b588d6c810de4500306a5fc08ec852f5ab55b9061504c3c1e42987329",
+  "source_cpu_sha256": "a96e064545b0f919fbb2a00cc854d4d3830d8fb255bed46aa32e43f48ac0f9f8",
+  "proposal_sha256": "5b457c6622711235ee79f03a8521c1a29ab16699d4c856cb006d11c817430983",
+  "full_caller_CPU_sha256": "52e41a3d9bd68bd2b4ce3661ba74d5b2877b8af9a8171672f43a7c9ba72a9972",
+  "build_controls_sha256": "97d5679bb1af19186533f939254a8b5865a4ba2058627e942fe3600f0c1c30a8",
+  "environment": {
+    "emulator": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mmc3-flag-fix-v23\\script-budget-probe-v2\\emulator\\Mesen.exe",
+    "emulator_sha256": "8b92daa209ee5052845e02a663aeb1afd6194eca55d86e6628c51114c61da0a9",
+    "core": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mmc3-flag-fix-v23\\script-budget-probe-v2\\emulator\\MesenCore.dll",
+    "core_sha256": "4bd40dfc6512328d56d8ad0563263b52be57bac726d8804f0720e461e558cd41",
+    "worker_settings": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mmc3-flag-fix-v23\\script-budget-probe-v2\\emulator\\settings.json",
+    "worker_settings_sha256": "627cd9c71a2011b4cf5fb03a0712d4d77f7890bc269b174d5757776034aab715",
+    "user_settings": "C:\\Mesen2\\settings.json",
+    "user_settings_sha256": "8a439e0a5eeddc2d4776e516aacfc224c03048b9c7d23d9926a463460a7e748a",
+    "effective_worker_conditions": {
+      "Region": "Auto",
+      "DisableSprites": false,
+      "DisableBackground": false,
+      "RemoveSpriteLimit": false,
+      "AdaptiveSpriteLimit": false,
+      "RandomizeMapperPowerOnState": false,
+      "RandomizeCpuPpuAlignment": false,
+      "RamPowerOnState": "Random",
+      "PpuExtraScanlinesBeforeNmi": 0,
+      "PpuExtraScanlinesAfterNmi": 0,
+      "RunAheadFrames": 0
+    },
+    "deterministic_command_overrides": [
+      "--doNotSaveSettings",
+      "--nes.ramPowerOnState=AllZeros",
+      "--nes.randomizeCpuPpuAlignment=false",
+      "--nes.randomizeMapperPowerOnState=false",
+      "--nes.removeSpriteLimit=false"
+    ],
+    "settings_untouched": true,
+    "limits": "Fresh actual user settings copy and effective portable-worker settings bound independently. User current settings differ from historical snapshots; no old bytes or invented diff claimed. No extra scanlines, runahead0, hardware8sprites/adaptiveoff. RAM Random in persisted worker settings is overridden toAllZeros by the original command."
+  },
+  "source_equivalence": {
+    "parent_script_sha256": "3b2f90a592c7a04608c793a278a4ee4260bcdbe78140e2e1f4ae9871bc9a1f27",
+    "candidate_script_sha256": "0436412b367f174819e65c67ab019b1813074d96f699265d6130a584efc08784",
+    "same_complete_script_after_ROM_hash_and_path_normalization": true,
+    "controller_harness_policy_stream_exact": true,
+    "original_static_guard_sha256": "5408fa03f8f6e30af1868ac72e1bb70e89a9d6d54c86eb13c62553bb3240290a",
+    "diagnostic_bridge_sha256": "6a194f33acc50e5fa0c2cfd422a5161d45fbbb5e0da9db71f0e36c68cbfdb7f4",
+    "original_negative_sha256": "ed10c7e9aa75f66bfd551fd750ded06ae5d311038cc06b0b890b29376e8ae9d4"
+  },
+  "manifest_count": 799,
+  "manifest_sha256": "edb4ec42aca172b5eb7dbd685352940c318e9e885cb9aa9ecdb31c2d5ee88d80",
+  "report_sha256": "eb7b916dd9b004ebabd8260488e233d5b20c73e5cde739bfa259ce74c13ddec6",
+  "tool_sha256": "a341f0a2e40d4c391fbd4f3e7dead8b58809e209799ddb9fedad4ad121870ae8",
+  "scope": "ONE unrun same-controller menu1800 strict candidate proposal. 36newbytes in66 only; original init/live/diagnostic guards exact. CPU257 +observer14 +canonical/flagoff pass, no native deadline/pixels/lifecycle pass. Initial hints and other navigation use original full writer; only same-ship Select-only live-page toggles reuse proven identical help. No new grant/launch/death/area/body/adoption."
+}

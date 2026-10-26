@@ -1,0 +1,107 @@
+Parodius same-family menu hint proposal, 2026-10-25
+
+PRIVATE SOURCE/CPU ONLY. No new native grant or launch/adoption. Both original
+df515 menu failures and diagnostic ed10c7e9 remain unchanged and passed=false.
+The native evidence proves actual unfinished173/256-byte DMA at pre-render
+start, while all256 hardware bytes already equal source; it does not prove a
+visible pixel defect. This proposal removes a source-proved redundant owner
+from that actual62-byte six-command packet without changing the deadline guard.
+
+Parent df5154bc035ba2c392bb8d34068897a2bccf7a78a6f4554bd6790d31a586c357.
+Candidate636f2b7e2cf296f5b893fd448c8e4a47b3024fbf955980e80f134bfa33262707.
+External candidate parodius-menu-hint-candidate-v1 includes sourcepatch.patch.
+CPU parodius-menu-hint-cpu-v2; builds parodius-menu-hint-build-controls-v1;
+preparation parodius-menu-hint-preparation-v1;
+observer source parodius-menu-hint-observer-source-v1;
+finite readiness parodius-menu-hint-ready-v1.
+All external directories under C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py.
+
+Minimal source change
+
+Only src/character_select.s and smb1base-mmc5-expanded.cfg change versus df515.
+Exactly36 ROM bytes in physical bank66 differ: the3-byte QueueVariantHint entry
+LDX changes to JMP, and33 bytes occupy verifiedFF tail B936..B956. All72,276
+old symbol addresses, complete CHR, every other ROM byte and all RAM allocation
+remain exact. No global NMI instruction, bank mapping, fiveSMC or new RAM writes.
+The original function's code after its first3 bytes remains present and exact.
+The new same-bank JMP/RTS gate adds no stack level; fallback replays original
+LDX and resumes QueueVariantHint+3.
+
+The gate skips only when CrossoverMenuPressed is EXACTLY Select32,
+SelectedCharacter18, CrossoverMenuState2 and DisableScreenFlag0. All four ship
+variants use the same source ProtoHint20-cell SELECT  CHANGE HERO text. The
+native full frames274..277 already show that hint before the failed variant
+toggle. Initial/rebuilt selection pages keep DisableScreenFlag1 through their
+real QueueSelection, so they still queue all20 cells. Cancel/re-entry rebuilds
+the page under that same owner. Directional/combined inputs and every other
+hero retain the original writer; no assumption that all heroes share a hint.
+
+Source ownership narrows Select-only reuse: in expanded Navigation, Select
+alone cannot change a non-variant hero/index, because navigation requires an
+actual direction. The SelectedCharacter18 Select branch cycles VvVariant and
+passes the unchanged index to Changed. Thus exactlySelect/newselected18 comes
+from the same ship family, not a cross-hero navigation. Initial BuildScreen
+sets state2 but leaves DisableScreenFlag1 until after QueueSelection. The
+actual title/main-thread/NMI publication order and already-visible native help
+bind the reuse; no arbitrary RAM cache or queue-admission-as-visibility claim.
+
+QueueSelection still owns GetPlayerColors, name, cursor and complete native
+portrait. Only the repeated help command is omitted on that narrow path.
+The two equal palette commands remain unchanged. No text/art/color is replaced,
+no actor is hidden and hardware8sprite emulation remains enabled.
+
+CPU/source qualification
+
+257 CPU cases pass:240 public-helper controls across20 numeric host IDs,
+Select/direction/combined input, initial/active menu state and screen-off/on;
+16 complete actual CrossoverMenuInput cases cover both numeric CPU behavior
+values, every0->1->2->3->0 ship transition and Select+Right fallback;
+one exact genuinely recorded native62-byte packet replay completes the set.
+The CPU mode values are synthetic source components, not native difficulty runs.
+
+The complete owner first executes original QueueSelection/actual native flush
+to publish the full hint, then the actual input owner toggles the variant.
+All full returned AXYP/SP, physical banks, nonstack/nonqueue application RAM
+and full OAM remain exact. The initial packets match exactly. A PPU address/
+palette-alias map driven by actual compiled native PPUDATA writes preserves
+the final complete nametable/attribute/palette/cursor contents. Resident
+InitBuffer clearing and PPU model are explicit synthetic CPU setup; they do
+not substitute for native pixel/deadline/lifecycle verification. Direct hot
+helper returns are not falsely claimed identical: full caller liveness/ABI is
+the actual asserted contract, including original QueueCursor continuation.
+
+Hot complete paths: packet62->39 encoded bytes,20 fewer repeated tile writes,
+foreground731 fewer CPU cycles, actual full gateway1336->961 cycles (-375).
+Fallback helper paths add15..37 foreground CPU cycles; tested complete combined
+fallback adds15 and its packet/NMI cost stays exact. No global/frame60Hz claim.
+The measured old DMA shortfall is not retagged as a passing estimated margin;
+actual combined native timing and DMC/IRQ behavior remain required.
+
+The first CPU fixture used offset10 with an unstaged empty prefix, so its parser
+assertion failed. That failed-tool/receipt is preserved in cpu-v1. Separately
+versioned cpu-v2 supplies two actual palette commands forming a valid10-byte
+prefix; no production or successful proof was rewritten.
+
+Fresh canonical source compile reproduces636f exactly. Ordinary flag-off MMC3
+and MMC5 parent/candidate builds match byte-for-byte (d444cac8 and f4ffd248).
+The same strict diagnostic observer passes14 assembled owner/parser components,
+six generation-retention cases, five preassertion snapshot/predicate cases and
+full generated Lua startup with64 static callbacks/last dispatcher/149 frames.
+Original guard5408fa03 and diagnostic bridge6a194f33 are unchanged.
+
+Same-controller readiness, not yet run
+
+Complete generated script equality holds after ONLY replacing parent ROM hash
+with candidate hash and normalizing isolated paths. Original adaptive controller,
+harness, policy, input stream, original body metadata and all guard/diagnostic
+bodies remain exact. Current actual user and effective worker settings are
+copied/bound separately without mutation; original deterministic overrides,
+hardware8/adaptiveoff/runahead0/no extra scanlines remain.
+
+Only after a new explicit grant, stable one-case command:
+python -B tools/audit/parodius_visibility_menu_hint_run_v1.py --ready "C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/parodius-menu-hint-ready-v1" --profile menu --native-grant
+No retry/death/area/body/adoption is authorized by preparation. Meaningful all4
+menu readbacks/cancel/title/re-entry,45 fresh-generation updates, actual complete
+DMA/IRQ31/CHR/SMC/banks/stack/scroll and selected fullPPU review remain required.
+The HUD-only broader lifecycle/heavy/DMC and crowded-body/readability goals stay
+open. Production/default/Downloads are untouched50b5.
