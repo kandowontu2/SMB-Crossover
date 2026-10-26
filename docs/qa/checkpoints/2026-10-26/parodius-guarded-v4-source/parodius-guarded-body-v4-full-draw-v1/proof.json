@@ -1,0 +1,51 @@
+{
+  "passed": true,
+  "native_run": false,
+  "component_only": true,
+  "quick": false,
+  "body_records": 131,
+  "complete_DrawAll_cases": 6288,
+  "public_AXYP_SP_exact": true,
+  "banks_exact": true,
+  "active_other_OAM_exact": true,
+  "all_scanline_other8sprite_admission_exact": true,
+  "body_parts_multiset_exact": true,
+  "only_intended_pointer_and_named_scratch_RAM_differences": true,
+  "scratch_difference_addresses": {
+    "0x6b06": 304,
+    "0x6b07": 304
+  },
+  "scratch_liveness_still_requires_source_review": true,
+  "paths": {
+    "original-clip": {
+      "cases": 2096,
+      "min_delta": 133,
+      "max_delta": 205
+    },
+    "original-unsupported": {
+      "cases": 1124,
+      "min_delta": 133,
+      "max_delta": 135
+    },
+    "original-offset": {
+      "cases": 2096,
+      "min_delta": 133,
+      "max_delta": 156
+    },
+    "sorted": {
+      "cases": 304,
+      "min_delta": 308,
+      "max_delta": 309
+    },
+    "original-wrap": {
+      "cases": 668,
+      "min_delta": 133,
+      "max_delta": 254
+    }
+  },
+  "baseline_ROM_sha256": "df5154bc035ba2c392bb8d34068897a2bccf7a78a6f4554bd6790d31a586c357",
+  "candidate_ROM_sha256": "2dcac8cc0292d4e9bb70d055ca2e73d4851d56168acd7d11fe5fcd34a9f9eefa",
+  "tool_sha256": "3219ec712edcf1dde82b3aaaa18363f11a0ebb3ebaba8cab6134c3fc46cb7cd8",
+  "cases_sha256": "46d2841e954bd97b736161d70027fbf04f55e7763eacd5a7459e8c24dd1222ed",
+  "limits": "Synthetic complete CPU DrawAll controls with source-valid body/pool and0or1 explicitly staged native nonbody record; no native lifecycle/gameplay reachability claim. All scratch differences are named/disclosed, not a literal wholeRAM equality assertion. Row pixel/core dominance, interrupts, native cadence, IRQ/PPU visibility and flagoff builds remain separate requirements."
+}

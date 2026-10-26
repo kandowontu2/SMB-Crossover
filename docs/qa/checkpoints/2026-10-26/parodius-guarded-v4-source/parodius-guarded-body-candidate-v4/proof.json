@@ -1,0 +1,169 @@
+{
+  "prepared": true,
+  "native_run": false,
+  "adopted": false,
+  "CPU_passed": false,
+  "baseline_ROM_sha256": "df5154bc035ba2c392bb8d34068897a2bccf7a78a6f4554bd6790d31a586c357",
+  "candidate_ROM_sha256": "2dcac8cc0292d4e9bb70d055ca2e73d4851d56168acd7d11fe5fcd34a9f9eefa",
+  "original_records": 131,
+  "sorted_supported_records": 32,
+  "explicit_original_fallback_records": 99,
+  "row_dominance_proof_sha256": "d095890f142460d02269aba21d127374f86ec99aeaa4d3c30cd7732ab5204988",
+  "body_duplicate_sizes": [
+    {
+      "bank": 76,
+      "records": 12,
+      "record_bytes": 348,
+      "table_bytes": 524,
+      "min_frame": 71,
+      "max_frame": 201,
+      "frames": [
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        86,
+        87,
+        88
+      ]
+    },
+    {
+      "bank": 117,
+      "records": 0,
+      "record_bytes": 0,
+      "table_bytes": 828,
+      "min_frame": 1,
+      "max_frame": 207,
+      "frames": []
+    },
+    {
+      "bank": 116,
+      "records": 20,
+      "record_bytes": 520,
+      "table_bytes": 296,
+      "min_frame": 162,
+      "max_frame": 235,
+      "frames": [
+        162,
+        163,
+        164,
+        165,
+        167,
+        181,
+        182,
+        183,
+        214,
+        215,
+        216,
+        220,
+        221,
+        222,
+        226,
+        227,
+        228,
+        232,
+        233,
+        234
+      ]
+    }
+  ],
+  "selectors": [
+    {
+      "bank": 76,
+      "start": 57088,
+      "code_bytes": 210,
+      "code_sha256": "d1b6b17511fdfe04c232069797988ec95054886e865655ef73dce7063a117be6"
+    },
+    {
+      "bank": 117,
+      "start": 57088,
+      "code_bytes": 210,
+      "code_sha256": "d1b6b17511fdfe04c232069797988ec95054886e865655ef73dce7063a117be6"
+    },
+    {
+      "bank": 116,
+      "start": 57088,
+      "code_bytes": 210,
+      "code_sha256": "d1b6b17511fdfe04c232069797988ec95054886e865655ef73dce7063a117be6"
+    }
+  ],
+  "all_selector_code_replicas_exact": true,
+  "old_symbols_exact": 72276,
+  "all_old_ROM_data_exact_except_named_hook": true,
+  "CHR_exact": true,
+  "new_ranges": [
+    {
+      "name": "\"PN_BODY_ALT_76\"",
+      "offset": 629129,
+      "size": 872
+    },
+    {
+      "name": "\"PN_BODY_SELECT_76\"",
+      "offset": 630544,
+      "size": 210
+    },
+    {
+      "name": "\"PN_BODY_DESC_76\"",
+      "offset": 630784,
+      "size": 16
+    },
+    {
+      "name": "\"PN_BODY_ALT_117\"",
+      "offset": 960978,
+      "size": 828
+    },
+    {
+      "name": "\"PN_BODY_SELECT_117\"",
+      "offset": 966416,
+      "size": 210
+    },
+    {
+      "name": "\"PN_BODY_DESC_117\"",
+      "offset": 966656,
+      "size": 16
+    },
+    {
+      "name": "\"PN_BODY_ALT_116\"",
+      "offset": 953999,
+      "size": 816
+    },
+    {
+      "name": "\"PN_BODY_SELECT_116\"",
+      "offset": 958224,
+      "size": 210
+    },
+    {
+      "name": "\"PN_BODY_DESC_116\"",
+      "offset": 958464,
+      "size": 16
+    },
+    {
+      "name": "\"PN_BODY_BANK_STUB\"",
+      "offset": 638973,
+      "size": 10
+    }
+  ],
+  "hook_offset": 637846,
+  "hook_before": "8da17d8d1651",
+  "hook_after": "20edbfeaeaea",
+  "delta_bytes": 3177,
+  "delta_banks": {
+    "76": 1082,
+    "77": 16,
+    "116": 1031,
+    "117": 1048
+  },
+  "tool_sha256": "a128b1780f4df043d6db911020e52959ab3ba3238e75015a19a05c120fde37f3",
+  "compiler_sha256": "ff2e9c628ef209f034200168872c74b6c7ceddbdb9717b92e03bc6e9b13a5641",
+  "changed_source": {
+    "src/parodius_render.s": "c0102f9cf3958d4637e54cedc76c6d11b6e4c5e8d0fca3301e5d9042f7dbef5c",
+    "src/parodius_body_guard.s": "f4d3dcd7fa1dc2b8212a23f9526b8b2aacb41a83d2fc5665082ed6f64becb83b",
+    "smb1base-mmc5-expanded.cfg": "3eb5d206a4b394b1ff36892e14b99027a73cb52ec27e6e51835bdd46e1b0f99d"
+  },
+  "limits": "Private source candidate only. Actual full DrawAll continuation scratch/flags/liveness, all131pose/physicalring/pixel/otheractor/IRQ and cost proofs remain required. No native/adoption or global visibility verdict. Original e11 actual negative retained."
+}

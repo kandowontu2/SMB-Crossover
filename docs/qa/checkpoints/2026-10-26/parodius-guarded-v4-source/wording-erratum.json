@@ -1,0 +1,15 @@
+{
+  "kind": "ADDITIVE_WORDING_PRECISION",
+  "original_report_sha256": "864cb8e0805796616add6e9264b1ac3b82c243b666cdd292b902d8e9831bf9aa",
+  "original_proof_sha256": "9ae7fd8830ec2ad00c5d46de3f9129e03b51ae5a48621be4cdb47d58a7471884",
+  "correction": "All nonstack/non-OAM application RAM matches except the intended two SmPosePtr bytes. OAM is separately checked: exact active nonbody records and body-part multisets, with intentional body order differences.",
+  "exact_RAM_ranges": [
+    "0000..00FF",
+    "0300..07FF",
+    "5C00..7FFF"
+  ],
+  "excluded_stack": "0100..01FF",
+  "separately_checked_OAM": "0200..02FF",
+  "native_run": false,
+  "ROM_or_receipt_changed": false
+}

@@ -1,0 +1,103 @@
+Private guarded body-order prototype v4: source/CPU packet only
+
+The actual e11 native rejection stays unchanged. This new private ROM supports
+32 row-dominant poses and retains literal original order for the other99.
+This is a partial visibility proposal. It does not solve body readability or
+flicker for all vehicles, and it has not run in native Mesen.
+
+D = C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py
+Parent HUD-only ROM: df5154bc035ba2c392bb8d34068897a2bccf7a78a6f4554bd6790d31a586c357
+Private v4 ROM: 2dcac8cc0292d4e9bb70d055ca2e73d4851d56168acd7d11fe5fcd34a9f9eefa
+Path: D/parodius-guarded-body-candidate-v4/candidate.nes
+Source patch: D/parodius-guarded-body-candidate-v4/sourcepatch.patch
+No production, Git, Downloads or installed-ROM changes were made.
+
+The original131 records and all nonbody data remain unchanged. Same-bank
+duplicates exist only for12 ordinary Octopus poses and20 Pentarou poses;
+all Twinbee poses and99 total poses retain original defaults. Both total body
+and primary/core pixel counts dominate the original on every modeled row and
+remaining-slot budget for these32 poses. The broader119-pose tradeoff and
+actual e11 negatives are separately retained, not relabeled.
+
+The hook replaces the native six-byte PnDraw Done bank-store span with a JSR
+and three NOPs. A ten-byte bank77 stub performs the same shadow/hardware bank
+stores, then calls a210-byte selector at DF00. Its code is byte-identical in
+banks76/116/117; bank-specific descriptors live at DFF0. Direct same-bank
+original-pointer tables recover the literal default on every known body pose,
+including consecutive draws after a prior alternate. No PnRecordPointer call,
+new RAM, farcall SMC usage, VvTemp, VvTemp2 or PnDrawFrame writes are added.
+
+Selection uses the final actual actor allocation and OAM rotation. It permits
+an alternate only in active gameplay, with rotation enabled, zero player
+ObjectVerticalFlip, player Y high page1, relative X32..223 and Y64..175, a
+supported record, and a complete physical body span ending at or before256.
+Wraps, clipped/offset states and unsupported known poses recover the original.
+The conservative viewport bound includes the complete source offsets of all
+32 supported records. Ending exactly at256 is admitted; an emitted wrap is not.
+
+All72,276 parent symbol addresses, all original records and CHR are exact.
+Only the named six-byte hook and verified old-FF tails differ:3,177 ROM bytes
+in banks76/77/116/117. Bank76 new data uses872 bytes, bank117828, bank116816.
+The bank116 allocation starts CE7F, after the capture-scroll helper ends CE7E;
+existing NMI/HUD/art reservations are preserved. The canonical cfg maps ART
+to117 and EXTRA/NMI/HUD to116; prior reversed verbal labels were corrected
+additively in the separate wrap-model report.
+
+Fresh source reproduction produces the exact v4 hash. Ordinary MMC3 and MMC5
+builds are byte-identical to fresh parent builds:
+MMC3 d444cac88e13fa02b29ad16100b8f08fa565ba90f8cedde192de43fb2dc8f3eb
+MMC5 f4ffd2483c51daa4d60bb575da2da8c4d817692cda407611c243031f67520833
+
+CPU evidence, all independently scoped:
+-6,288 complete DrawAll cases cover all131 bodies, six interior/edge/wrap/
+  native-Y-offset profiles, two numeric mode values, two facing values and
+  zero/one explicitly staged source-valid nonbody actor. Full returned AXYP,
+  SP, banks, body part multisets, active nonbody OAM and every visible row's
+  first-eight other-sprite admission match. All nonstack application RAM
+  matches except the two intended SmPosePtr bytes in selected cases. The
+  generic checker conservatively retains a scratch-review field, but its
+  actual difference set contains only6B06/6B07; the old three scratch deltas
+  from v3 are gone. No partial-return flag exclusions are used here.
+-150,912 selector cases cover all131 bodies, all64 physical ring starts,
+  three legal full-body cursor capacities and six guard profiles. They prove
+  original fallback after a prior alternate, correct stack/banks and96 exact
+  endpoint256 admissions. Partial selector AXYP/R0/R1/R3 are not an ABI claim;
+  the full DrawAll comparison separately proves tested continuation liveness.
+-670 actual compiled interrupt cases inject335 lag NMIs and335 IRQs at every
+  instruction boundary of five representative selector paths. Foreground
+  AXYP/SP, five SMC operand bytes, actual C bank/shadow and resumed graphics
+  fields restore exactly. Audio state is synthetically cleared. This does
+  not establish physical IRQ31 timing, native DMC maximum or a global budget.
+-All131 original/32 duplicate compiled records preserve part multisets and
+  unlimited exact palette/pattern-index pixels. Against185 source-bound
+  actual df515 publication/DMA epochs, executing the compiled selector in
+  the offline model chooses63 alternates:33 body and44 core improvements,
+  zero modeled body/core regressions and zero other-sprite pixel changes.
+  At actual frame586 the model retains the original95 body/93 core pixels.
+  These are counterfactual model results; no actual v4 RGB is claimed.
+
+Measured full DrawAll costs versus df515:
+selected alternate +308..309 CPU cycles; unsupported +133..135;
+wrapped +133..254; clipped +133..205; nonzero Y offset +133..156.
+This reduces the former selected-path +367..369 cost but remains material.
+Native same-input draw/update cadence and sprite visibility are untested.
+
+Exact proof bindings:
+D/parodius-guarded-body-candidate-v4/proof.json
+deb01b4756336e0ed8392753e172627a531546d735042f3ecb07b561a1a46d94
+D/parodius-guarded-body-v4-full-draw-v1/proof.json
+2c4c0dbed91bf6b8e2cc21b99cb0412e50276ec64d31bf8e96b60f3e4a371350
+D/parodius-guarded-body-v4-ring-cpu-v1/proof.json
+76c1a5add8223fdff5cf5a0ed50270dadc8ad7be61191dfb2fc74262228920ee
+D/parodius-guarded-body-v4-interrupt-cpu-v1/proof.json
+652b2145417281d7c9afb77b40c075cc3364607d3544c7051b69e7d8c09c81f1
+D/parodius-guarded-body-v4-pixels-v1/proof.json
+8034c37523c32e1260c18954dc78f67d420be062207be83dd4dd7d763d45c1df
+D/parodius-guarded-body-v4-build-controls-v1/proof.json
+0cbe44b2c39acd04ac6ec238eb03acaa9be7b15a15e19d44d9cf5b68ce65fb99
+
+Limits remain explicit: synthetic CPU contexts, not natural gameplay claims;
+no body-hidden injury/menu/death/area lifecycle qualification, no actual v4
+PPU/native cadence, no worst-DMC budget, no native grant or adoption. The
+body proposal is held while the independently useful df515 HUD lifecycle
+preparation moves forward. No native worker is held by this packet.
