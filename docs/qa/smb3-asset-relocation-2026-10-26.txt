@@ -1,0 +1,105 @@
+Private asset-relocation prerequisite for authentic SMB3 music
+2026-10-26. Source/CPU qualification only; NOT installed or native-qualified.
+
+Parent: frozen root-chip-hud-composed-v1/source, adopted/pushed 0357670.
+Parent ROM: 3cee18caa732b2e85e3bdb00faf719223324f9bf24e72dd30c56be355da33b99.
+Private candidate: b86bfa95032a54837fbd1802d60659aaca9dfa8c55a713cc8a58a58ef0a594f6.
+External packet: C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/smb3-assets-current3cee-v2.
+
+Only smb1base-mmc5-expanded.cfg changes. No driver, music routing, songs,
+audio stores, RAM, CHR, native worker or default/Downloads/Git mutation.
+The complete frozen source manifest/ZIP and review.patch accompany readiness.
+
+Three genuine segment moves
+  Z2_GFX: 886B, C70:C000 -> C95:C340 (ends C6B5).
+  MIKE_GFX: 863B, C97:C000 -> C95:C6C0 (ends CA1E).
+  BILL_ORBIT_2: 5120B, C38:CBE8 -> C85:CBE8 (ends DFE7).
+The genuine Z2/Mike data labels move with their bytes. No callable alias is
+invented. All 72,620 other qualified symbols retain their addresses.
+VG_AUDIO_DISPATCH is explicitly kept at DFE8; its bytes remain unchanged.
+C95's real memory blocks are A000..A33F, C340..C6BF and C6C0..DFFF, in that
+physical order. They sum to exactly 8192B. LM_COMBAT's first 779B stay exact.
+
+Complete binary accounting passes: all non-pointer asset bytes are exact;
+178 original internal table entries reassemble to their genuine moved targets;
+all five moved Bill vectors retain exact 5120B and CPU addresses; its bank table
+changes only five entries. The only other changes are 52 load-operand bytes in
+35 genuine emitted instruction spans, cataloged with source locations. Entire
+ROM equals exactly those moves/reference fixups and FF at the vacated regions.
+Actual changed banks are 25,38,69,70,71,85,95,96,97,98 (13,650 differing bytes).
+All fixed code, DPCM, interrupt vectors, other audio families and CHR are exact.
+
+Shared storage conflicts resolved as a PLAN, not an allocation
+  Held Chip8b4 sources compile CHIP_NATIVE_ADAPTER = 409B at A78:A500..A698
+  in both root-chip-native-adapter-v6 and chip-hot-control-v5. Full compiled
+  span is reserved. The old 512B SMB3 cold-pool proposal there was invalid.
+  A62/C94 remain fully Chip-owned; Tn63/99/124, Mac123, CV3/shared125, and
+  resident126/fixed127 remain excluded. No shared prepared driver is erased.
+  Current3cee X5_BOUNCE is 1862B, A86:A000..A745 (including the +73B helper).
+  A86:A800..A9FF is a proposed replacement 512B cold pool, proven outside
+  compiled segments and exactly FF, but NOT linked or allocated in this ROM.
+  All nine proposed original-payload page tails B000..BFFF remain unallocated
+  and FF in banks78,86,90,93,95,96,98,118,119. Chip's adapter ends below B000.
+  The original 36,864B SMB3 payload, DMC clones, translated core and ownership
+  gates remain future work. No SMB3 music is made active by this prerequisite.
+
+Fresh finite CPU checks (no native emulator)
+  13,502 complete assembled reader/renderer/caller cases:
+    7,424 Bill late ages385..4096, both facings;
+    4,352 Z2/Mike pose publications, all 64 physical flags;
+    1,240 leaf-render edge/capacity/rotation cases;
+    240 shot, 81 physical world-item, five restoration-drop cases;
+    144 real graphics dispatch callers and 16 complete DrawAll callers.
+  All 155 source leaf records retain exact tile/attribute/coordinate bytes.
+  1,296 native late-lift clipping/slot/rotation/capacity cases pass.
+  1,352 actual compiled IRQ/vector/handler/RTI injections pass across reached
+  data consumers, mapping publications and complete callers. No nested NMI or
+  PPU/DMC clocks are modeled. Actual IRQ hardware stores are 2005/2006/5128;
+  the four possible split-IRQ cells 2005/2006/5128/5130 are explicitly projected
+  only in the interrupted-versus-uninterrupted final hardware-image check.
+  No emulated RAM, bank or register state is restored to force equality.
+
+Exact A/X/Y/physical flags/SP and non-discarded RAM/SMC are compared after
+typed relocation of genuine R0/R1, SmPosePtr and HpNativeDrawLo[0]/Hi[0]
+art pointers and the corresponding physical C-bank shadow/5116 identity.
+Ordered OAM, CHR and VRAM publications are literal; temporary physical bank
+numbers translate to the actual relocated owner. Only discarded01A0..01FF is
+omitted. Real pointer publication is required, not hidden by dropping fields.
+
+Cost is NOT universally neutral. Changed low-byte alignment changes indexed
+page crossings. Full observed cycle deltas:
+  Bill late / tested DrawAll / native late-lift calls: exactly0.
+  Pose publication:0..+1; graphics dispatch:0.
+  Individual record render:-10..+11; world items:-1..+8;
+  two-shot draw:-2..+4; restoration drops:0.
+These positive costs require native deadline/cadence qualification with any
+future driver integration. This private move has no current player-facing
+benefit and must not be installed solely on source/CPU evidence.
+
+Fresh canonical expanded build reproduces b86bfa95 exactly. Ordinary targets
+remain MMC3 d444cac88e13fa02b29ad16100b8f08fa565ba90f8cedde192de43fb2dc8f3eb
+and MMC5 f4ffd2483c51daa4d60bb575da2da8c4d817692cda407611c243031f67520833.
+
+Retained negatives/fixture corrections
+  prepare_v1: real linker-order failure from putting both relocated segments
+  in one C95 memory area while MIKE precedes Z2 in SEGMENTS. No successful ROM.
+  prepare_v2 uses two source-declared C95 memory blocks; source remains cfg-only.
+  cpu_v1.failed.txt: parse-only failure (missing whitespace); never ran cases.
+  cpu_v2: DrawAll comparison rejected HpNativeDrawLo0/Hi0's genuine moved pose
+  snapshot. Source native_platform16_v2.s explicitly copies SmPosePtr there.
+  cpu_v3 adds that typed pointer, passes406 pilot cases; its unused draft IRQ
+  branch was removed in v4 before actual IRQ qualification because it restored
+  hardware cells. v4/full and separate IRQ-v1 never restore emulated state.
+  All earlier artifacts/tools remain classified; no old failure is relabeled.
+  packet_v1: freeze check initially treated four copied candidate metadata/ROM
+  files and Python's prepare_cv3_dmc_mirror cache as production source inputs.
+  Those five explicitly named non-input artifacts differ from liveROOT; actual
+  production inputs all match the frozen parent. packet_v2 initially assumed
+  only those five artifact entries; the copied snapshot also contains further
+  unchanged reference-tool caches. packet_v3 explicitly catalogs every copied
+  candidate artifact/cache as a non-input; all remaining actual ROOT production
+  inputs still compare literally. Copied source and test outputs stay untouched.
+
+Ready packet catalog binds exact inputs, source, tools, proofs and commands.
+Limits: no native route, scanline/OAM-DMA timing, hardware performance, active
+SMB3 source driver, all-song contract, production adoption or goal-complete claim.

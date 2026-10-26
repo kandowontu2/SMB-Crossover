@@ -1,0 +1,23 @@
+{
+  "passed": true,
+  "source_only": true,
+  "native_run": false,
+  "parent_ROM_sha256": "3cee18caa732b2e85e3bdb00faf719223324f9bf24e72dd30c56be355da33b99",
+  "candidate_ROM_sha256": "b86bfa95032a54837fbd1802d60659aaca9dfa8c55a713cc8a58a58ef0a594f6",
+  "late_native_lift_cases": 1296,
+  "late_lift_cycle_delta": [
+    0,
+    0
+  ],
+  "actual_IRQ_RTI_injections": 1352,
+  "actual_IRQ_hardware_ports": [
+    8197,
+    8198,
+    20776
+  ],
+  "final_AXYP_SP_RAM_SMC_OAM_CHR_VRAM_banks_exact_after_typed_data_relocation": true,
+  "IRQ_classification": "Only discarded upper stack, actual four split-IRQ hardware cells and separately validated IRQ event stores are projected. No emulated machine state is restored or forced. Actual vector/handler/RTI execute at each distinct reached tested consumer boundary.",
+  "checker_sha256": "916e0b00ef9b5c2af63210df5070c983cb827df87add758a5056ba6be5407843",
+  "consumer_checker_sha256": "b2beab9581613085393006eadf21cdf7bebf93402a0f85a075991bae88e3f685",
+  "limits": "Isolated actual 6502 IRQ and art consumers. No nested NMI, PPU/DMC hardware clocks, native frame cadence or adoption claim."
+}

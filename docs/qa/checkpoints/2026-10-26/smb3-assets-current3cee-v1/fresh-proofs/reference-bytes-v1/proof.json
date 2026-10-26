@@ -1,0 +1,675 @@
+{
+  "passed": true,
+  "source_only": true,
+  "native_run": false,
+  "parent_ROM_sha256": "3cee18caa732b2e85e3bdb00faf719223324f9bf24e72dd30c56be355da33b99",
+  "candidate_ROM_sha256": "b86bfa95032a54837fbd1802d60659aaca9dfa8c55a713cc8a58a58ef0a594f6",
+  "entire_ROM_equals_only_declared_asset_moves_pointer_reassembly_and_real_load_references": true,
+  "complete_segments": [
+    {
+      "segment": "Z2_GFX",
+      "old_offset": 573456,
+      "new_offset": 779088,
+      "bytes": 886,
+      "table_entries": 72,
+      "all_nonpointer_bytes_exact": true
+    },
+    {
+      "segment": "MIKE_GFX",
+      "old_offset": 794640,
+      "new_offset": 779984,
+      "bytes": 863,
+      "table_entries": 106,
+      "all_nonpointer_bytes_exact": true
+    },
+    {
+      "segment": "BILL_ORBIT_2",
+      "old_offset": 314360,
+      "new_offset": 699384,
+      "bytes": 5120,
+      "table_entries": 0,
+      "all_nonpointer_bytes_exact": true
+    }
+  ],
+  "internal_pointer_entries": 178,
+  "intentional_vector_bank_table_changes": 5,
+  "other_reassembled_load_operand_bytes": 52,
+  "load_instruction_spans": 35,
+  "fixed_DPCM_code_vectors_exact": true,
+  "CHR_exact": true,
+  "genuine_reference_catalog": [
+    {
+      "physical_bank": 69,
+      "CPU": 42197,
+      "parent_bytes": "a9c6",
+      "candidate_bytes": "a9df",
+      "kind": "immediate actual data bank",
+      "matching_genuine_symbols": [],
+      "source_locations": [
+        {
+          "file": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-hud-composed-v1\\source\\src/mmc5.s",
+          "line": 122
+        }
+      ]
+    },
+    {
+      "physical_bank": 69,
+      "CPU": 42202,
+      "parent_bytes": "a9c6",
+      "candidate_bytes": "a9df",
+      "kind": "immediate actual data bank",
+      "matching_genuine_symbols": [],
+      "source_locations": [
+        {
+          "file": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-hud-composed-v1\\source\\src/mmc5.s",
+          "line": 147
+        }
+      ]
+    },
+    {
+      "physical_bank": 69,
+      "CPU": 42207,
+      "parent_bytes": "bdaac2",
+      "candidate_bytes": "bdeac5",
+      "kind": "absolute moved data",
+      "matching_genuine_symbols": [
+        "Z2PoseChrLo"
+      ],
+      "source_locations": [
+        {
+          "file": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-hud-composed-v1\\source\\src/zelda2_link_render.s",
+          "line": 84
+        }
+      ]
+    },
+    {
+      "physical_bank": 69,
+      "CPU": 42220,
+      "parent_bytes": "bd74c2",
+      "candidate_bytes": "bdb4c5",
+      "kind": "absolute moved data",
+      "matching_genuine_symbols": [
+        "Z2PoseRightLo"
+      ],
+      "source_locations": [
+        {
+          "file": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-hud-composed-v1\\source\\src/zelda2_link_render.s",
+          "line": 89
+        }
+      ]
+    },
+    {
+      "physical_bank": 69,
+      "CPU": 42226,
+      "parent_bytes": "bd8fc2",
+      "candidate_bytes": "bdcfc5",
+      "kind": "absolute moved data",
+      "matching_genuine_symbols": [
+        "Z2PoseRightHi"
+      ],
+      "source_locations": [
+        {
+          "file": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-hud-composed-v1\\source\\src/zelda2_link_render.s",
+          "line": 91
+        }
+      ]
+    },
+    {
+      "physical_bank": 69,
+      "CPU": 42232,
+      "parent_bytes": "bd3ec2",
+      "candidate_bytes": "bd7ec5",
+      "kind": "absolute moved data",
+      "matching_genuine_symbols": [
+        "Z2PoseLeftLo"
+      ],
+      "source_locations": [
+        {
+          "file": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-hud-composed-v1\\source\\src/zelda2_link_render.s",
+          "line": 94
+        }
+      ]
+    },
+    {
+      "physical_bank": 69,
+      "CPU": 42238,
+      "parent_bytes": "bd59c2",
+      "candidate_bytes": "bd99c5",
+      "kind": "absolute moved data",
+      "matching_genuine_symbols": [
+        "Z2PoseLeftHi"
+      ],
+      "source_locations": [
+        {
+          "file": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-hud-composed-v1\\source\\src/zelda2_link_render.s",
+          "line": 96
+        }
+      ]
+    },
+    {
+      "physical_bank": 69,
+      "CPU": 42275,
+      "parent_bytes": "a9c6",
+      "candidate_bytes": "a9df",
+      "kind": "immediate actual data bank",
+      "matching_genuine_symbols": [],
+      "source_locations": [
+        {
+          "file": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-hud-composed-v1\\source\\src/mmc5.s",
+          "line": 122
+        }
+      ]
+    },
+    {
+      "physical_bank": 69,
+      "CPU": 42280,
+      "parent_bytes": "a9c6",
+      "candidate_bytes": "a9df",
+      "kind": "immediate actual data bank",
+      "matching_genuine_symbols": [],
+      "source_locations": [
+        {
+          "file": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-hud-composed-v1\\source\\src/mmc5.s",
+          "line": 147
+        }
+      ]
+    },
+    {
+      "physical_bank": 69,
+      "CPU": 46089,
+      "parent_bytes": "a9c6",
+      "candidate_bytes": "a9df",
+      "kind": "immediate actual data bank",
+      "matching_genuine_symbols": [],
+      "source_locations": [
+        {
+          "file": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-hud-composed-v1\\source\\src/mmc5.s",
+          "line": 122
+        }
+      ]
+    },
+    {
+      "physical_bank": 69,
+      "CPU": 46094,
+      "parent_bytes": "a9c6",
+      "candidate_bytes": "a9df",
+      "kind": "immediate actual data bank",
+      "matching_genuine_symbols": [],
+      "source_locations": [
+        {
+          "file": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-hud-composed-v1\\source\\src/mmc5.s",
+          "line": 147
+        }
+      ]
+    },
+    {
+      "physical_bank": 69,
+      "CPU": 46382,
+      "parent_bytes": "b91ac3",
+      "candidate_bytes": "b95ac6",
+      "kind": "absolute moved data",
+      "matching_genuine_symbols": [
+        "Z2ItemPtrLo"
+      ],
+      "source_locations": [
+        {
+          "file": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-hud-composed-v1\\source\\src/zelda2_link_draw_world.s",
+          "line": 118
+        }
+      ]
+    },
+    {
+      "physical_bank": 69,
+      "CPU": 46387,
+      "parent_bytes": "b924c3",
+      "candidate_bytes": "b964c6",
+      "kind": "absolute moved data",
+      "matching_genuine_symbols": [
+        "Z2ItemPtrHi"
+      ],
+      "source_locations": [
+        {
+          "file": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-hud-composed-v1\\source\\src/zelda2_link_draw_world.s",
+          "line": 120
+        }
+      ]
+    },
+    {
+      "physical_bank": 71,
+      "CPU": 44447,
+      "parent_bytes": "a9c6",
+      "candidate_bytes": "a9df",
+      "kind": "immediate actual data bank",
+      "matching_genuine_symbols": [],
+      "source_locations": [
+        {
+          "file": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-hud-composed-v1\\source\\src/mmc5.s",
+          "line": 122
+        }
+      ]
+    },
+    {
+      "physical_bank": 71,
+      "CPU": 44452,
+      "parent_bytes": "a9c6",
+      "candidate_bytes": "a9df",
+      "kind": "immediate actual data bank",
+      "matching_genuine_symbols": [],
+      "source_locations": [
+        {
+          "file": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-hud-composed-v1\\source\\src/mmc5.s",
+          "line": 147
+        }
+      ]
+    },
+    {
+      "physical_bank": 71,
+      "CPU": 44591,
+      "parent_bytes": "bd66c3",
+      "candidate_bytes": "bda6c6",
+      "kind": "absolute moved data",
+      "matching_genuine_symbols": [
+        "Z2LateSmallRowLo"
+      ],
+      "source_locations": [
+        {
+          "file": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-hud-composed-v1\\source\\src/z2_platform_late_render.s",
+          "line": 118
+        }
+      ]
+    },
+    {
+      "physical_bank": 71,
+      "CPU": 44596,
+      "parent_bytes": "bd6ec3",
+      "candidate_bytes": "bdaec6",
+      "kind": "absolute moved data",
+      "matching_genuine_symbols": [
+        "Z2LateSmallRowHi"
+      ],
+      "source_locations": [
+        {
+          "file": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-hud-composed-v1\\source\\src/z2_platform_late_render.s",
+          "line": 120
+        }
+      ]
+    },
+    {
+      "physical_bank": 96,
+      "CPU": 41590,
+      "parent_bytes": "a9e1",
+      "candidate_bytes": "a9df",
+      "kind": "immediate actual data bank",
+      "matching_genuine_symbols": [],
+      "source_locations": [
+        {
+          "file": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-hud-composed-v1\\source\\src/mmc5.s",
+          "line": 122
+        }
+      ]
+    },
+    {
+      "physical_bank": 96,
+      "CPU": 41595,
+      "parent_bytes": "a9e1",
+      "candidate_bytes": "a9df",
+      "kind": "immediate actual data bank",
+      "matching_genuine_symbols": [],
+      "source_locations": [
+        {
+          "file": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-hud-composed-v1\\source\\src/mmc5.s",
+          "line": 147
+        }
+      ]
+    },
+    {
+      "physical_bank": 96,
+      "CPU": 41621,
+      "parent_bytes": "bd00c0",
+      "candidate_bytes": "bdc0c6",
+      "kind": "absolute moved data",
+      "matching_genuine_symbols": [
+        "JnBodyRLo",
+        "JnArtStart"
+      ],
+      "source_locations": [
+        {
+          "file": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-hud-composed-v1\\source\\src/mike_jones_core.s",
+          "line": 287
+        }
+      ]
+    },
+    {
+      "physical_bank": 96,
+      "CPU": 41627,
+      "parent_bytes": "bd07c0",
+      "candidate_bytes": "bdc7c6",
+      "kind": "absolute moved data",
+      "matching_genuine_symbols": [
+        "JnBodyRHi"
+      ],
+      "source_locations": [
+        {
+          "file": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-hud-composed-v1\\source\\src/mike_jones_core.s",
+          "line": 289
+        }
+      ]
+    },
+    {
+      "physical_bank": 96,
+      "CPU": 41633,
+      "parent_bytes": "bd85c0",
+      "candidate_bytes": "bd45c7",
+      "kind": "absolute moved data",
+      "matching_genuine_symbols": [
+        "JnBodyLLo"
+      ],
+      "source_locations": [
+        {
+          "file": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-hud-composed-v1\\source\\src/mike_jones_core.s",
+          "line": 291
+        }
+      ]
+    },
+    {
+      "physical_bank": 96,
+      "CPU": 41639,
+      "parent_bytes": "bd8cc0",
+      "candidate_bytes": "bd4cc7",
+      "kind": "absolute moved data",
+      "matching_genuine_symbols": [
+        "JnBodyLHi"
+      ],
+      "source_locations": [
+        {
+          "file": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-hud-composed-v1\\source\\src/mike_jones_core.s",
+          "line": 293
+        }
+      ]
+    },
+    {
+      "physical_bank": 98,
+      "CPU": 43295,
+      "parent_bytes": "a9e1",
+      "candidate_bytes": "a9df",
+      "kind": "immediate actual data bank",
+      "matching_genuine_symbols": [],
+      "source_locations": [
+        {
+          "file": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-hud-composed-v1\\source\\src/mmc5.s",
+          "line": 122
+        }
+      ]
+    },
+    {
+      "physical_bank": 98,
+      "CPU": 43300,
+      "parent_bytes": "a9e1",
+      "candidate_bytes": "a9df",
+      "kind": "immediate actual data bank",
+      "matching_genuine_symbols": [],
+      "source_locations": [
+        {
+          "file": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-hud-composed-v1\\source\\src/mmc5.s",
+          "line": 147
+        }
+      ]
+    },
+    {
+      "physical_bank": 98,
+      "CPU": 43448,
+      "parent_bytes": "b9f7c2",
+      "candidate_bytes": "b9b7c9",
+      "kind": "absolute moved data",
+      "matching_genuine_symbols": [
+        "JnShotAllLo"
+      ],
+      "source_locations": [
+        {
+          "file": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-hud-composed-v1\\source\\src/mike_jones_render.s",
+          "line": 55
+        }
+      ]
+    },
+    {
+      "physical_bank": 98,
+      "CPU": 43453,
+      "parent_bytes": "b92bc3",
+      "candidate_bytes": "b9ebc9",
+      "kind": "absolute moved data",
+      "matching_genuine_symbols": [
+        "JnShotAllHi"
+      ],
+      "source_locations": [
+        {
+          "file": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-hud-composed-v1\\source\\src/mike_jones_render.s",
+          "line": 57
+        }
+      ]
+    },
+    {
+      "physical_bank": 98,
+      "CPU": 43547,
+      "parent_bytes": "a96c",
+      "candidate_bytes": "a92c",
+      "kind": "immediate moved pointer byte",
+      "matching_genuine_symbols": [
+        "JnBigHeart"
+      ],
+      "source_locations": [
+        {
+          "file": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-hud-composed-v1\\source\\src/mike_jones_render.s",
+          "line": 95
+        }
+      ]
+    },
+    {
+      "physical_bank": 98,
+      "CPU": 43551,
+      "parent_bytes": "a9c2",
+      "candidate_bytes": "a9c9",
+      "kind": "immediate moved pointer byte",
+      "matching_genuine_symbols": [
+        "JnShotAllLo",
+        "JnShot13_1Left",
+        "JnShot13_0Left",
+        "JnShot12_1Left",
+        "JnShot12_0Left",
+        "JnShot11_1Left",
+        "JnShot11_0Left",
+        "JnShot10_1Left",
+        "JnShot10_0Left",
+        "JnShot9_1Left",
+        "JnShot9_0Left",
+        "JnShot8_1Left",
+        "JnShot8_0Left",
+        "JnShot7_1Left",
+        "JnShot7_0Left",
+        "JnShot6_1Left",
+        "JnShot6_0Left",
+        "JnShot5_1Left",
+        "JnShot5_0Left",
+        "JnShot4_1Left",
+        "JnShot4_0Left",
+        "JnShot3_1Left",
+        "JnShot3_0Left",
+        "JnShot2_1Left",
+        "JnShot2_0Left",
+        "JnShot1_1Left",
+        "JnShot1_0Left",
+        "JnBigHeart",
+        "JnStar",
+        "JnHeart",
+        "JnItem13",
+        "JnItem12"
+      ],
+      "source_locations": [
+        {
+          "file": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-hud-composed-v1\\source\\src/mike_jones_render.s",
+          "line": 97
+        }
+      ]
+    },
+    {
+      "physical_bank": 98,
+      "CPU": 43557,
+      "parent_bytes": "b9c0c1",
+      "candidate_bytes": "b980c8",
+      "kind": "absolute moved data",
+      "matching_genuine_symbols": [
+        "JnItemLo"
+      ],
+      "source_locations": [
+        {
+          "file": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-hud-composed-v1\\source\\src/mike_jones_render.s",
+          "line": 101
+        }
+      ]
+    },
+    {
+      "physical_bank": 98,
+      "CPU": 43562,
+      "parent_bytes": "b9cec1",
+      "candidate_bytes": "b98ec8",
+      "kind": "absolute moved data",
+      "matching_genuine_symbols": [
+        "JnItemHi"
+      ],
+      "source_locations": [
+        {
+          "file": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-hud-composed-v1\\source\\src/mike_jones_render.s",
+          "line": 103
+        }
+      ]
+    },
+    {
+      "physical_bank": 98,
+      "CPU": 43618,
+      "parent_bytes": "a95a",
+      "candidate_bytes": "a91a",
+      "kind": "immediate moved pointer byte",
+      "matching_genuine_symbols": [
+        "JnHeart"
+      ],
+      "source_locations": [
+        {
+          "file": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-hud-composed-v1\\source\\src/mike_jones_render.s",
+          "line": 127
+        }
+      ]
+    },
+    {
+      "physical_bank": 98,
+      "CPU": 43622,
+      "parent_bytes": "a9c2",
+      "candidate_bytes": "a9c9",
+      "kind": "immediate moved pointer byte",
+      "matching_genuine_symbols": [
+        "JnShotAllLo",
+        "JnShot13_1Left",
+        "JnShot13_0Left",
+        "JnShot12_1Left",
+        "JnShot12_0Left",
+        "JnShot11_1Left",
+        "JnShot11_0Left",
+        "JnShot10_1Left",
+        "JnShot10_0Left",
+        "JnShot9_1Left",
+        "JnShot9_0Left",
+        "JnShot8_1Left",
+        "JnShot8_0Left",
+        "JnShot7_1Left",
+        "JnShot7_0Left",
+        "JnShot6_1Left",
+        "JnShot6_0Left",
+        "JnShot5_1Left",
+        "JnShot5_0Left",
+        "JnShot4_1Left",
+        "JnShot4_0Left",
+        "JnShot3_1Left",
+        "JnShot3_0Left",
+        "JnShot2_1Left",
+        "JnShot2_0Left",
+        "JnShot1_1Left",
+        "JnShot1_0Left",
+        "JnBigHeart",
+        "JnStar",
+        "JnHeart",
+        "JnItem13",
+        "JnItem12"
+      ],
+      "source_locations": [
+        {
+          "file": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-hud-composed-v1\\source\\src/mike_jones_render.s",
+          "line": 129
+        }
+      ]
+    },
+    {
+      "physical_bank": 98,
+      "CPU": 43627,
+      "parent_bytes": "a963",
+      "candidate_bytes": "a923",
+      "kind": "immediate moved pointer byte",
+      "matching_genuine_symbols": [
+        "JnStar",
+        "JnPose5R"
+      ],
+      "source_locations": [
+        {
+          "file": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-hud-composed-v1\\source\\src/mike_jones_render.s",
+          "line": 131
+        }
+      ]
+    },
+    {
+      "physical_bank": 98,
+      "CPU": 43631,
+      "parent_bytes": "a9c2",
+      "candidate_bytes": "a9c9",
+      "kind": "immediate moved pointer byte",
+      "matching_genuine_symbols": [
+        "JnShotAllLo",
+        "JnShot13_1Left",
+        "JnShot13_0Left",
+        "JnShot12_1Left",
+        "JnShot12_0Left",
+        "JnShot11_1Left",
+        "JnShot11_0Left",
+        "JnShot10_1Left",
+        "JnShot10_0Left",
+        "JnShot9_1Left",
+        "JnShot9_0Left",
+        "JnShot8_1Left",
+        "JnShot8_0Left",
+        "JnShot7_1Left",
+        "JnShot7_0Left",
+        "JnShot6_1Left",
+        "JnShot6_0Left",
+        "JnShot5_1Left",
+        "JnShot5_0Left",
+        "JnShot4_1Left",
+        "JnShot4_0Left",
+        "JnShot3_1Left",
+        "JnShot3_0Left",
+        "JnShot2_1Left",
+        "JnShot2_0Left",
+        "JnShot1_1Left",
+        "JnShot1_0Left",
+        "JnBigHeart",
+        "JnStar",
+        "JnHeart",
+        "JnItem13",
+        "JnItem12"
+      ],
+      "source_locations": [
+        {
+          "file": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-hud-composed-v1\\source\\src/mike_jones_render.s",
+          "line": 133
+        }
+      ]
+    }
+  ],
+  "checker_sha256": "c59bf4d0427ebcd852e6e6c1325a76a88bd2223a15365abf9959f8716663a0e2",
+  "limits": "Complete binary/source reference accounting, plus separate assembled caller tests. No native PPU or cadence qualification."
+}

@@ -1,0 +1,39 @@
+{
+  "packet_v2": {
+    "kind": "Metadata checker assumed five non-input copied files; the parent snapshot additionally contains byte-exact reference-tool caches. v3 explicitly classifies all candidate artifacts/cache files, with every other ROOT input still literally verified."
+  },
+  "packet_v1": {
+    "kind": "Metadata checker compared copied non-input candidate artifacts and Python cache against liveROOT; correct source input identity excludes exactly those five named files. No game source mismatch."
+  },
+  "prepare_v1": {
+    "kind": "Real linker segment-order failure; no successful candidate",
+    "directory": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\smb3-assets-current3cee-v1",
+    "original_output": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\smb3-assets-current3cee-v1\\build-command.json"
+  },
+  "cpu_v1": {
+    "kind": "Parse only; zero executed cases",
+    "retained_source": "tools/smb3_asset_relocation_cpu_v1.py.failed.txt",
+    "original_terminal_output_saved": false
+  },
+  "cpu_v2": {
+    "kind": "Checker omitted genuine HpNativeDrawLo[0]/Hi[0] snapshot translation",
+    "source": "tools/smb3_asset_relocation_cpu_v2.py",
+    "original_terminal_output_saved": false,
+    "observed_difference": {
+      "HpNativeDrawLo0": [
+        0,
+        64
+      ],
+      "HpNativeDrawHi0": [
+        192,
+        195
+      ]
+    },
+    "native_source_owner": "src/native_platform16_v2.s::HpPrepareNativePointers",
+    "assertion_preserved": "Full pointer identity compared after explicit genuine data relocation, not omitted"
+  },
+  "cpu_v3": {
+    "kind": "406 successful pilot cases, no IRQ called; unused draft IRQ branch restored cells",
+    "replacement": "v4 removes restoration before real IRQ tests; separate IRQ-v1 executes no restoration"
+  }
+}

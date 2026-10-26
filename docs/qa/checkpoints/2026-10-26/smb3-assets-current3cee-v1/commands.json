@@ -1,0 +1,44 @@
+{
+  "prepare": [
+    "C:\\Users\\kando\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\smb3_asset_relocation_prepare_v2.py",
+    "--output",
+    "<new external output>"
+  ],
+  "cpu": [
+    "C:\\Users\\kando\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\smb3_asset_relocation_cpu_v4.py",
+    "--parent",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-hud-composed-v1\\candidate.nes",
+    "--candidate",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\smb3-assets-current3cee-v2\\candidate.nes",
+    "--output",
+    "<new external CPU output>"
+  ],
+  "irq": [
+    "C:\\Users\\kando\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\smb3_asset_relocation_irq_v1.py",
+    "--parent",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-hud-composed-v1\\candidate.nes",
+    "--candidate",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\smb3-assets-current3cee-v2\\candidate.nes",
+    "--output",
+    "<new external IRQ output>"
+  ],
+  "references": [
+    "C:\\Users\\kando\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\smb3_asset_relocation_references_v1.py",
+    "--parent",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-hud-composed-v1\\candidate.nes",
+    "--candidate",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\smb3-assets-current3cee-v2\\candidate.nes",
+    "--output",
+    "<new external reference output>"
+  ],
+  "controls": [
+    "C:\\Users\\kando\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\smb3_asset_relocation_controls_v1.py",
+    "--packet",
+    "<new prepared packet directory>"
+  ]
+}

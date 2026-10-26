@@ -1,0 +1,68 @@
+{
+  "passed": true,
+  "source_only": true,
+  "native_run": false,
+  "quick": false,
+  "parent_ROM_sha256": "3cee18caa732b2e85e3bdb00faf719223324f9bf24e72dd30c56be355da33b99",
+  "candidate_ROM_sha256": "b86bfa95032a54837fbd1802d60659aaca9dfa8c55a713cc8a58a58ef0a594f6",
+  "cases": 13502,
+  "grouped": {
+    "all-flare-late": {
+      "cases": 7424,
+      "min_delta": 0,
+      "max_delta": 0,
+      "sum_delta": 0
+    },
+    "complete-drawall-caller": {
+      "cases": 16,
+      "min_delta": 0,
+      "max_delta": 0,
+      "sum_delta": 0
+    },
+    "pose-publish": {
+      "cases": 4352,
+      "min_delta": 0,
+      "max_delta": 1,
+      "sum_delta": 640
+    },
+    "real-graphics-caller": {
+      "cases": 144,
+      "min_delta": 0,
+      "max_delta": 0,
+      "sum_delta": 0
+    },
+    "real-world-pickup": {
+      "cases": 81,
+      "min_delta": -1,
+      "max_delta": 8,
+      "sum_delta": 14
+    },
+    "record-render": {
+      "cases": 1240,
+      "min_delta": -10,
+      "max_delta": 11,
+      "sum_delta": 15
+    },
+    "restoration-drop": {
+      "cases": 5,
+      "min_delta": 0,
+      "max_delta": 0,
+      "sum_delta": 0
+    },
+    "world-shots": {
+      "cases": 240,
+      "min_delta": -2,
+      "max_delta": 4,
+      "sum_delta": -106
+    }
+  },
+  "leaf_records": 155,
+  "all_leaf_pixels_attributes_coords_exact": true,
+  "Bill_vectors_exact_bytes": 5120,
+  "final_AXYP_SP_exact": true,
+  "all_non_discarded_RAM_SMC_exact_after_typed_pointer_translation": true,
+  "ordered_OAM_CHR_VRAM_publications_exact": true,
+  "translation": "Only genuine R0/R1, SmPosePtr and noncontiguous HpNativeDrawLo[0]/Hi[0] snapshot pointers in the moved interval are translated to their original logical art identity; actual owned C bank/shadow/5116 values likewise. Everything else compared literally. Discarded01A0..01FF omitted.",
+  "checker_sha256": "b2beab9581613085393006eadf21cdf7bebf93402a0f85a075991bae88e3f685",
+  "limits": "Arranged CPU states, actual assembled readers/callers. No native PPU, clocks, gameplay route or cadence claim. Separate IRQ controls required."
+}

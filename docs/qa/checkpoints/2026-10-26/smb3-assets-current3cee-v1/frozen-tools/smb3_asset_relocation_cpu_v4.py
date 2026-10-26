@@ -1,0 +1,162 @@
+"""Assembled relocated art readers/callers; explicit genuine pointer translation."""
+from pathlib import Path
+from collections import defaultdict
+import argparse,hashlib,itertools,json,re
+from link_pit_rygar_sophia_audit_cpu import scoped_load
+from check_tmnt_render_oa import Memory,address,location
+from verify_native_relocation import NesMPU
+
+R=Path(__file__).resolve().parents[2]
+sha=lambda p:hashlib.sha256(Path(p).read_bytes()).hexdigest()
+FLAGS=[0x20|(v&15)|((v&16)<<2)|((v&32)<<2)for v in range(64)]
+
+def setup(b,cfg):
+    m=Memory(b);entry=cfg['entry'];bank=(location(b,entry)-16)//8192;window=(address(b,entry)-0x8000)//8192
+    m.page(window,bank)
+    def put(n,v,i=0):m[address(b,n)+i]=v&255
+    for i in range(256):m[0x200+i]=(i*73+29)&255
+    seed=dict(SelectedCharacter=16 if cfg['owner']=='mike'else 4,OperMode=1,GameEngineSubroutine=8,
+              PlayerFacingDir=cfg.get('face',1),Player_X_Position=cfg.get('x',128),Player_PageLoc=0,
+              Player_Y_Position=cfg.get('y',160),Player_Y_HighPos=1,Player_Rel_XPos=cfg.get('x',128),
+              CurrentBank=m.banks[1]|128,CurrentBankC=m.banks[2]|128,ScreenLeft_PageLoc=0,
+              CurrentOAMOffset=cfg.get('offset',0),GuestOamRotationActive=cfg.get('rotate',1),RgOamRotation=cfg.get('rotation',0),
+              Z2Variant=1,Z2PaletteCache=128,Z2ProfileReady=1,JnReady=165,JnHealth=12,JnMaxHearts=6,
+              FrameCounter=cfg.get('frame',0),Player_State=cfg.get('state',0),Player_X_Speed=cfg.get('speed',0))
+    seed.update(cfg.get('seed',{}))
+    for n,v in seed.items():put(n,v)
+    if cfg['owner']in ['z2','mike']:
+        pose=cfg.get('pose',0);face='Left'if cfg.get('face',1)==2 else'Right'
+        n=f'Z2Pose{pose}{face}'if cfg['owner']=='z2'else f'JnPose{pose}{"L"if face=="Left"else"R"}'
+        ptr=address(b,n);put('SmPosePtr',ptr&255);put('SmPosePtr',ptr>>8,1)
+    if'record'in cfg:
+        rec=cfg['record'];ptr=address(b,rec);phys=(location(b,rec)-16)//8192
+        m.page(2,phys);put('CurrentBankC',phys|128)
+        for n,v in dict(R0=ptr&255,R1=ptr>>8,R3=cfg.get('attr',0),R4=cfg.get('x',128),R5=cfg.get('xpage',0),R6=cfg.get('y',160),R7=cfg.get('ypage',1)).items():put(n,v)
+    for i,kind in cfg.get('shots',[]):
+        names=['JnShotKind','JnShotX','JnShotPage','JnShotY','JnShotVX','JnShotAge']if cfg['owner']=='mike'else ['Z2ShotKind','Z2ShotX','Z2ShotPage','Z2ShotY','Z2ShotVX','Z2ShotAge']
+        for n,v in zip(names,[kind,cfg.get('x',128),cfg.get('xpage',0),cfg.get('y',160),cfg.get('vx',1),cfg.get('age',0)]):put(n,v,i)
+    for i,kind in cfg.get('drops',[]):
+        pre='Jn'if cfg['owner']=='mike'else'Z2'
+        for n,v in {pre+'DropKind':kind,pre+'DropX':cfg.get('x',128),pre+'DropPage':cfg.get('xpage',0),pre+'DropY':cfg.get('y',160)}.items():put(n,v,i)
+    for i,code in cfg.get('items',[]):
+        for n,v in dict(Enemy_Flag=1,Enemy_ID=0x2e,Enemy_State=128,InvPickupOwner=16 if cfg['owner']=='mike'else 4,
+                        InvPickup=code,Enemy_X_Position=cfg.get('x',128),Enemy_PageLoc=cfg.get('xpage',0),
+                        Enemy_Y_Position=cfg.get('y',160),Enemy_Y_HighPos=1).items():put(n,v,i)
+    if cfg['owner']=='bill':
+        age=cfg['age'];i=cfg.get('slot',0)
+        put('RgShotAge',age&255,i);put('SsMode',age>>8,i);put('RgShotDir',cfg.get('face',1),i)
+    c=NesMPU(memory=m,pc=address(b,entry));c.sp,c.a,c.x,c.y,c.p=253,cfg.get('a',85),cfg.get('index',cfg.get('slot',3)if cfg['owner']=='bill'else cfg.get('pose',0)),7,cfg.get('flags',0x60)
+    c.stPushWord(0x7eff);m.writes=[]
+    return c,m
+
+def execute(b,cfg,irq_at=None):
+    c,m=setup(b,cfg);trace=[];irq=None
+    for index in range(60000):
+        if c.pc==0x7f00:break
+        if irq_at==index:
+            m[0x5204]=128
+            before=(c.pc,c.a,c.x,c.y,c.p&207,c.sp,tuple(m.banks),bytes(m[:0x100]+m[0x200:0x2000]+m[0x5c00:0x8000]))
+            start=len(m.writes);c.irq();assert c.pc==0x8000
+            for _ in range(300):
+                if c.pc==before[0]and c.sp==before[5]:break
+                c.step()
+            else:raise AssertionError(('IRQ timeout',cfg,index))
+            after=(c.pc,c.a,c.x,c.y,c.p&207,c.sp,tuple(m.banks),bytes(m[:0x100]+m[0x200:0x2000]+m[0x5c00:0x8000]))
+            assert before==after,('IRQ corruption',cfg,index)
+            hardware=[(a,v)for a,v in m.writes[start:]if 0x2000<=a<0x6000]
+            assert hardware and all(a in [0x2005,0x2006,0x5128,0x5130]for a,v in hardware),hardware
+            irq=dict(index=index,pc=c.pc,hardware=hardware)
+            # Separately validated IRQ hardware cells are not foreground output.
+            del m.writes[start:]
+        trace.append((index,c.pc,tuple(m.banks)))
+        c.step()
+    else:raise AssertionError(('CPU timeout',cfg,hex(c.pc),m.banks))
+    assert c.sp==253,(cfg,c.sp)
+    return c,m,trace,irq
+
+def canonical(b,c,m,cfg,new=False):
+    ram=bytearray(m[:0x8000]);owner=cfg['owner'];bankmap={95:70 if owner=='z2'else 97}if owner in ['z2','mike']else{85:38}
+    if new:
+        lo,hi,delta=(0xc340,0xc6b6,0x340)if owner=='z2'else(0xc6c0,0xca1f,0x6c0)
+        if owner in ['z2','mike']:
+            for n in ['R0','SmPosePtr']:
+                at=address(b,n);v=ram[at]+256*ram[at+1]
+                if lo<=v<hi:v-=delta;ram[at],ram[at+1]=v&255,v>>8
+        if owner in ['z2','mike']:
+            low,high=address(b,'HpNativeDrawLo'),address(b,'HpNativeDrawHi')
+            v=ram[low]+256*ram[high]
+            if lo<=v<hi:
+                v-=delta;ram[low],ram[high]=v&255,v>>8
+        for at in [address(b,'CurrentBankC'),0x5116]:
+            v=ram[at];ram[at]=(v&128)|bankmap.get(v&127,v&127)
+    # Only discarded upper stack cells are omitted, not zero page or SMC.
+    ordinary=bytes(ram[:0x1a0]+ram[0x200:])
+    stores=[]
+    for at,v in m.writes:
+        if 0x200<=at<0x300 or 0x2000<=at<0x5c00:
+            if new and at==0x5116:v=(v&128)|bankmap.get(v&127,v&127)
+            stores.append((at,v))
+    banks=list(m.banks)
+    if new:banks[2]=bankmap.get(banks[2],banks[2])
+    return(c.a,c.x,c.y,c.p&207,c.sp,ordinary,tuple(banks),tuple(stores))
+
+def leaves(b):
+    pats=[r'Z2Pose\d+(Right|Left)',r'Z2Item(MAGIC|SWORD|FAIRY|HEART|FIRE|GLOVE|BLUE|RED|BAG|BEAM)',r'Z2LateSmallRow\d',r'JnPose\d[RL]',r'JnShot\d+_[01](Left)?',r'JnItem\d+',r'Jn(Heart|Star|BigHeart)']
+    return sorted(n for n in b['syms']if any(re.fullmatch(p,n)for p in pats))
+
+def main():
+    p=argparse.ArgumentParser(description=__doc__)
+    for n in ['parent','candidate','output']:p.add_argument('--'+n,type=Path,required=True)
+    p.add_argument('--quick',action='store_true');a=p.parse_args();a.output.mkdir(parents=True,exist_ok=False)
+    old,new=scoped_load(a.parent),scoped_load(a.candidate);rows=[];recordrows=[]
+    for n in leaves(old):
+        x,y=location(old,n),location(new,n);length=old['raw'][x];assert length%4==0 and length<128,(n,length)
+        assert old['raw'][x:x+length+1]==new['raw'][y:y+length+1],n
+        recordrows.append(dict(name=n,bytes=length+1,sha256=hashlib.sha256(old['raw'][x:x+length+1]).hexdigest()))
+    # All moved vector bytes, including four directional/fraction arrays, exact.
+    for i in range(11,16):
+        n=f'BillFlareLate{i}';x,y=location(old,n),location(new,n)
+        assert old['raw'][x:x+1024]==new['raw'][y:y+1024],n
+    def check(tag,cfg):
+        c,m,t,_=execute(old,cfg);d,n,u,_=execute(new,cfg)
+        l,r=canonical(old,c,m,cfg),canonical(new,d,n,cfg,True)
+        assert l==r,(tag,cfg,l[:5],r[:5],[(hex(i),m[i],n[i])for i in range(0x8000)if not 0x1a0<=i<0x200 and m[i]!=n[i]][:18],l[6:],r[6:])
+        rows.append(dict(tag=tag,cfg=cfg,parent_cycles=c.processorCycles,candidate_cycles=d.processorCycles,delta=d.processorCycles-c.processorCycles))
+        return d,n,u
+    for owner,npose,entry in [('z2',27,'Z2SetPose'),('mike',7,'JnSetPose')]:
+        for pose,face,flag in itertools.product(range(npose),[1,2],FLAGS if not a.quick else[0x20,0xe9]):
+            check('pose-publish',dict(owner=owner,entry=entry,pose=pose,face=face,flags=flag))
+    recs=leaves(old)if not a.quick else ['Z2Pose0Right','JnShot13_1Left','Z2LateSmallRow3']
+    for n,edge in itertools.product(recs,range(8)if not a.quick else range(2)):
+        x,y,xp,yp,off,rotate,rot=[(128,160,0,1,0,1,0),(0,24,0,1,240,1,252),(7,23,0,1,248,1,4),(255,255,0,1,252,1,128),(128,0,0,2,255,1,255),(128,0,1,0,16,0,0),(8,32,255,1,128,0,0),(248,232,0,1,1,1,64)][edge]
+        check('record-render',dict(owner='mike'if n.startswith('Jn')else'z2',entry='MetaspriteRenderLoop',record=n,x=x,y=y,xpage=xp,ypage=yp,offset=off,rotate=rotate,rotation=rot,attr=edge*17,flags=FLAGS[edge]))
+    for owner,entry,maxkind in [('z2','Z2DrawShots',2),('mike','JnDraw',13)]:
+        for kind,face,age,edge in itertools.product(range(1,maxkind+1),[1,2],[0,4],range(4)if not a.quick else[0]):
+            x,y,off,rot=[(128,160,0,0),(0,24,240,252),(7,23,248,4),(255,255,252,128)][edge]
+            check('world-shots',dict(owner=owner,entry=entry,shots=[(0,kind),(1,kind)],face=face,age=age,vx=255 if face==2 else 1,x=x,y=y,offset=off,rotation=rot,flags=FLAGS[(kind+edge)%64]))
+        for code,edge in itertools.product(range(0xc0,0xce)if owner=='z2'else range(0x81,0x8e),range(3)if not a.quick else[0]):
+            check('real-world-pickup',dict(owner=owner,entry=entry,items=[(edge,code)],x=[128,0,255][edge],y=[160,24,255][edge],offset=[0,240,252][edge],rotation=[0,252,128][edge]))
+        for kind in ([0x90,0x91,0x92]if owner=='z2'else[1,2]):
+            check('restoration-drop',dict(owner=owner,entry=entry,drops=[(0,kind),(1,kind)],rotation=252))
+    for age,face in itertools.product(range(385,4097)if not a.quick else[385,1792,1793,2432,2433,4096],[1,2]):
+        check('all-flare-late',dict(owner='bill',entry='BillFlareLoadLate',age=age,face=face,slot=0,flags=FLAGS[age%64]))
+    for owner,entry in [('z2','Z2GraphicsGate'),('mike','JnGraphicsDispatch')]:
+        for face,state,clock,attack in itertools.product([1,2],range(3),range(0,16,4),[0,1,7]):
+            seed={'Z2CachedPose':clock//4,'JnClock':clock,'JnAttack':attack,'JnWeapon':1}
+            check('real-graphics-caller',dict(owner=owner,entry=entry,face=face,state=state,speed=9,seed=seed,flags=FLAGS[(clock+state)%64]))
+    # Real complete DrawAll caller with live owned shots/body and native lifts.
+    for owner,pose,face,frame in itertools.product(['z2','mike'],[0,3],[1,2],[0,1]):
+        cfg=dict(owner=owner,entry='DrawAllMetasprites',pose=pose,face=face,frame=frame,shots=[(0,1)],seed={'ObjectMetasprite':address(new,'METASPRITE_SAMUS_BODY')})
+        check('complete-drawall-caller',cfg)
+    grouped={}
+    for tag in sorted({q['tag']for q in rows}):
+        r=[q for q in rows if q['tag']==tag];v=[q['delta']for q in r]
+        grouped[tag]=dict(cases=len(r),min_delta=min(v),max_delta=max(v),sum_delta=sum(v))
+    proof=dict(passed=True,source_only=True,native_run=False,quick=a.quick,parent_ROM_sha256=sha(a.parent),candidate_ROM_sha256=sha(a.candidate),
+               cases=len(rows),grouped=grouped,leaf_records=len(recordrows),all_leaf_pixels_attributes_coords_exact=True,Bill_vectors_exact_bytes=5120,
+               final_AXYP_SP_exact=True,all_non_discarded_RAM_SMC_exact_after_typed_pointer_translation=True,ordered_OAM_CHR_VRAM_publications_exact=True,
+               translation='Only genuine R0/R1, SmPosePtr and noncontiguous HpNativeDrawLo[0]/Hi[0] snapshot pointers in the moved interval are translated to their original logical art identity; actual owned C bank/shadow/5116 values likewise. Everything else compared literally. Discarded01A0..01FF omitted.',
+               checker_sha256=sha(__file__),limits='Arranged CPU states, actual assembled readers/callers. No native PPU, clocks, gameplay route or cadence claim. Separate IRQ controls required.')
+    (a.output/'proof.json').write_text(json.dumps(proof,indent=2)+'\n');(a.output/'cases.json').write_text(json.dumps(rows,separators=(',',':'))+'\n');(a.output/'records.json').write_text(json.dumps(recordrows,indent=2)+'\n')
+    print(json.dumps(proof,indent=2))
+if __name__=='__main__':main()

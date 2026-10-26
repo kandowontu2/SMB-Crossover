@@ -1,0 +1,42 @@
+--- a/smb1base-mmc5-expanded.cfg
++++ b/smb1base-mmc5-expanded.cfg
+@@ -111,7 +111,9 @@
+     X5_NEW_5C: start=$a000, size=$2000, type=ro, file=%O, fill=yes, fillval=$ff, bank=$5c;
+     X5_NEW_5D: start=$a000, size=$2000, type=ro, file=%O, fill=yes, fillval=$ff, bank=$5d;
+     X5_NEW_5E: start=$c000, size=$2000, type=ro, file=%O, fill=yes, fillval=$ff, bank=$5e;
+-    X5_NEW_5F: start=$a000, size=$2000, type=ro, file=%O, fill=yes, fillval=$ff, bank=$5f;
++    X5_NEW_5F: start=$a000, size=$0340, type=ro, file=%O, fill=yes, fillval=$ff, bank=$5f;
++    SMB3_ASSET_Z2_C95: start=$c340, size=$0380, type=ro, file=%O, fill=yes, fillval=$ff, bank=$5f;
++    SMB3_ASSET_MIKE_C95: start=$c6c0, size=$1940, type=ro, file=%O, fill=yes, fillval=$ff, bank=$5f;
+     X5_NEW_60: start=$a000, size=$2000, type=ro, file=%O, fill=yes, fillval=$ff, bank=$60;
+     X5_NEW_61: start=$c000, size=$2000, type=ro, file=%O, fill=yes, fillval=$ff, bank=$61;
+     X5_NEW_62: start=$a000, size=$2000, type=ro, file=%O, fill=yes, fillval=$ff, bank=$62;
+@@ -197,7 +199,7 @@
+     LM_CHR:load=LM_CHR_MEM,type=ro;
+ 
+     MIKE_CORE:load=X5_NEW_60,type=ro;
+-    MIKE_GFX:load=X5_NEW_61,type=ro;
++    MIKE_GFX:load=SMB3_ASSET_MIKE_C95,type=ro,start=$c6c0;
+     MIKE_COMBAT:load=X5_NEW_62,type=ro;
+     MIKE_CHR:load=MIKE_CHR_MEM,type=ro;
+ 
+@@ -254,7 +256,7 @@
+     KIRBY_CHR: load=KIRBY_CHR_MEM,type=ro;
+ 
+     Z2_LOGIC: load=X5_NEW_45,type=ro;
+-    Z2_GFX: load=X5_NEW_46,type=ro,optional=yes;
++    Z2_GFX: load=SMB3_ASSET_Z2_C95,type=ro,start=$c340,optional=yes;
+     Z2_COLD: load=X5_NEW_47,type=ro,optional=yes;
+     Z2_CHR: load=Z2_CHR_MEM,type=ro;
+ 
+@@ -300,8 +302,8 @@
+     SCORE_POPUP_COLD: load=XG_SOPHIA_A_TAIL_MEM, type=ro, optional=yes, start=$bfc0;
+     EXPANDED_EX: load=XG_EXTRA_MEM, type=ro, optional=yes;
+     XG_AUDIO: load=XG_AUDIO_MEM, type=ro, optional=yes;
+-    BILL_ORBIT_2: load=XG_AUDIO_MEM, type=ro, optional=yes; # Existing C000 FF tail; all prior data fixed.
+-    VG_AUDIO_DISPATCH:load=XG_AUDIO_MEM,type=ro;
++    BILL_ORBIT_2: load=X5_NEW_55, type=ro, start=$cbe8, optional=yes; # Same CPU addresses; real label bank expressions reassemble.
++    VG_AUDIO_DISPATCH:load=XG_AUDIO_MEM,type=ro,start=$dfe8;
+     XG_MUSIC_27: load=XG_MUSIC_27_MEM, type=ro, optional=yes;
+     XG_MUSIC_28: load=XG_MUSIC_28_MEM, type=ro, optional=yes;
+     XG_MUSIC_29: load=XG_MUSIC_29_MEM, type=ro, optional=yes;
