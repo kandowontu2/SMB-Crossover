@@ -1,0 +1,11 @@
+--- native_v2.lua
++++ native_v3.lua
+@@ -49,7 +49,7 @@
+  if t.kind=='block' or t.kind=='wave-block' then
+   local col=t.face==1 and 10 or 5;w('Block_Buffer_1',0xc1,9*16+col);tile(0,col,11,0xc1)
+  end
+- if t.kind=='pool' then
++ if t.kind=='pool' or t.kind=='missile-pool' then
+   -- Three complete far-from-player Long records occupy the native shared cap.
+   for i=0,2 do w('SmShotType',2,i);w('SmShotX',90+i*10,i);w('SmShotPage',0,i);w('SmShotY',72,i);w('SmShotDir',t.face,i)end
+  end

@@ -1,0 +1,1 @@
+Original native aggregateFALSE/dependencyFALSE retained.14completed subphases are prefix observations only. All8actual image sheets/81placements and source/icon limitations reviewed. Minimal missing-pool readiness is source/static-only and ungranted at freeze. All raw captures/ROM/runtime/source remain external. No production edits or Git mutation.

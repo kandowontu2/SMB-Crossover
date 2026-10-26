@@ -1,0 +1,1 @@
+Original native aggregate FALSE; zero completed cases/subphases. Prefix hardware checks and five agent-inspected images are scoped evidence only. Observer successor is SOURCE/static-ready, not granted or run. All large/raw/game/runtime data remain external; external-bindings pins exact paths. No production source or installed ROM changes.

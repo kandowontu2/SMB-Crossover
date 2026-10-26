@@ -1,0 +1,10 @@
+Samus Hard missing-pool fixture correction
+26 October 2026. Source/static readiness only; no retry/grant.
+
+Exact3b target 3b112e1d79ba7348f2f7a4c426f4675845a5781017ab74690feb235121a66287 unchanged. Prior outline nativefac86ece1c6079da5a452c4a2da0c7e4298808d8ae6f4bed42835f3fe7f99c09 remains FALSE.14subphases completed; the last missile-pool setup accidentally did not populate the source shared cap. Native wall1468 has3empty native slots/stock2, wall1474 correctly spends2→1/spawns missile41. This is a setup omission, not a game defect.
+
+ONE condition adds missile-pool to the existing complete3Long occupancy setup. All SamusRam was already cleared before these15seed writes; position/page/age/impact/bomb fields and facing are complete and source-valid.27 actual Lua setup tasks compare:26 write streams/final RAM identical; only missile-pool gains15 writes and three live Long records. Actual full RlUiDispatch→ProcFireball_Bubble controls for both facings, pool0/3 confirm correct missile cost/spawn vs refusal. All32phase models pass; zero-spawn/no-debit assertion remains literal. No other controller, pool, resources, metadata, observer, strict NMI/DMA/E008/IRQ/CHR/SP/SMC or output changes.
+
+Previous readiness mistakenly copied/bound a generated Debugger/candidate.cdl. Its one runtime rewrite caused dependencies_unchangedFALSE; all965otherbindings stayed exact. Original manifest/result retained. This successor copies only original immutable top-level runtime files, without generated coverage dependencies; settings unchanged.
+
+Actual missile HUD container matches source SWF frame7/ROM page229 patterns with deliberate fixedpalette3 brown quantization in sampled286opaque pixels; color/readability loss and three absent-OAM sample epochs remain explicit. No glyph/CHR/game-art fix. This remains controlled B use, not acquisition or all-item/wholepixel/60Hz/audio fidelity.

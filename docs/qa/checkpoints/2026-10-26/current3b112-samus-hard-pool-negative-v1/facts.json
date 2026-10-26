@@ -1,0 +1,32 @@
+{
+  "native_aggregate_remains_FALSE": true,
+  "ROM_sha256": "3b112e1d79ba7348f2f7a4c426f4675845a5781017ab74690feb235121a66287",
+  "numeric_mode": 1,
+  "completed_case_prefix": [
+    1,
+    2,
+    3
+  ],
+  "completed_subphases": 14,
+  "missile_case_partial": true,
+  "unrun_cases": [
+    5,
+    6,
+    7,
+    8
+  ],
+  "complete_actual_PPU_frames": 1480,
+  "complete256DMA": 1446,
+  "startFrames": 1480,
+  "safe_scoped_enables": 1129,
+  "captured_events": 106,
+  "saved_capture_files": 105,
+  "review_placements": 81,
+  "source_cause": "setupTask tests only t.kind=='pool'; missile-pool therefore starts after complete pool clear without occupancy records. Native fresh Select correctly debits2\u21921 and spawns41. Final no-spawn/no-debit oracle is valid only with a full pool. This is a fixture initialization omission, not a proved game defect.",
+  "next_minimal_fixture_change": "Seed the same complete native Long records for pool OR missile-pool; preserve all controller/seed fields, assertions and limits otherwise.",
+  "B_seeded_scope": true,
+  "acquisition": false,
+  "worker_released": true,
+  "visual_review_pending": true,
+  "limits": "Whole native aggregate FALSE and missing terminal outputs remain; case completion is inferred only from emitted source finalizer events. No Ice/Wave/Varia/Screw native coverage. Actual capture-to-publication delay is explicit; no all-pixel/FPS/audio fidelity claim. Missile HUD container readability suspicion remains separately open pending actual source/pixel attribution."
+}

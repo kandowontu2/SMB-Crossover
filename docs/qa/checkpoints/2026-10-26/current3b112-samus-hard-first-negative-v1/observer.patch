@@ -1,0 +1,71 @@
+--- native_v1.lua
++++ native_v2.lua
+@@ -222,11 +222,47 @@
+  if entered and phase=='run'and not writeBoundary and v~=0 then current.stage.sourceSfx[#current.stage.sourceSfx+1]={kind='Square1SoundQueue',value=v,wall=wall,pc=emu.getState()['cpu.pc']}end
+ end,emu.callbackType.write,L.Square1SoundQueue)
+ -- Source art admission is separate from the later physical PPU pixel review.
++local function samusBodyArt(ptr,cb)
++ local f=drawContext and drawContext.filtered
++ if f then
++  assert(cb==f.bank and ptr==f.pointer,'Filtered body retains its witnessed return pointer and C-bank')
++  local d=ptr-L.OutlinePoseBuffer
++  assert(d==0 or d==32 or d==64 or d==96,'Only actual source outline-buffer slots are admitted')
++  return{address=ptr,bank=cb,bytes=f.bytes},true
++ end
++ local expected=C.body_records[tostring(cb)..':'..tostring(ptr)]
++ assert(expected,'Actual selected body pointer is a bound Samus record')
++ return expected,false
++end
+ hook('DrawAllMetasprites',function()bodyPrepared=nil end)
+ hook('DrawMetasprite',function()
+  if not entered or emu.getState()['cpu.y']~=0 then return end
+  drawContext={kind='body'};onReturn('Samus-body-art-scope',function()drawContext=nil end)
+ end)
++hook('PlayerRemoveOutlines',function()
++ if not entered or not drawContext or drawContext.kind~='body'then return end
++ local ctx=drawContext;local cb=bank(0xc000);local ptr=r('R0')+256*r('R1')
++ local original=C.body_records[tostring(cb)..':'..tostring(ptr)]
++ assert(original,'Outline input is an immutable bound Samus body record')
++ for i,v in ipairs(original.bytes)do assert(emu.read(cb*8192+ptr%8192+i-1,emu.memType.nesPrgRom)==v,'Exact immutable pre-filter Samus source bytes')end
++ local filtered={0}
++ for i=2,#original.bytes,4 do
++  if original.bytes[i+1]&4==0 then for j=0,3 do filtered[#filtered+1]=original.bytes[i+j]end end
++ end
++ filtered[1]=#filtered-1
++ onReturn('Samus-source-outline-filter',function()
++  assert(drawContext==ctx and bank(0xc000)==cb,'Actual outline return retains body scope and C-bank')
++  local output=r('R0')+256*r('R1')
++  if output==ptr then
++   assert(original.bytes[1]==0 or original.bytes[1]>=129 or original.bytes[1]%4~=0,'Only original invalid-filter admission may retain ROM pointer')
++   return
++  end
++  assert(original.bytes[1]>0 and original.bytes[1]<129 and original.bytes[1]%4==0,'Source outline-filter header admission')
++  ctx.filtered={pointer=output,bank=cb,source_pointer=ptr,bytes=filtered}
++  local expected,isRAM=samusBodyArt(output,cb);assert(isRAM)
++  for i,v in ipairs(expected.bytes)do assert(emu.read(output+i-1,emu.memType.nesDebug)==v,'Exact legal filtered Samus RAM record bytes/header')end
++ end)
++end)
+ hook('SamusDrawShots::Draw',function()
+  if not entered or phase~='run'then return end
+  local y=emu.getState()['cpu.y'];local k=y-C.native_effect_base+1
+@@ -242,9 +278,9 @@
+ end)
+ hook('MetaspriteRenderLoop',function()
+  if not entered or not drawContext then return end
+- local ptr=r('R0')+256*r('R1');local cb=bank(0xc000);local expected
++ local ptr=r('R0')+256*r('R1');local cb=bank(0xc000);local expected;local isRAM=false
+  if drawContext.kind=='body'then
+-  expected=C.body_records[tostring(cb)..':'..tostring(ptr)];assert(expected,'Actual selected body pointer is a bound Samus record')
++  expected,isRAM=samusBodyArt(ptr,cb)
+   assert(r('CurrentCHRBank')==r('SmChrBank'),'Body logical page is its current source page')
+   bodyPrepared={logical=r('SmChrBank'),physical=C.legacy_chr[r('SmChrBank')+1],pose=r('SmPose'),pointer=ptr,bank=cb,update=updates}
+   if phase=='run'and current and current.stage then
+@@ -253,7 +289,7 @@
+   end
+  else expected=drawContext.expected[drawContext.face==2 and 2 or 1]end
+  assert(expected and expected.bank==cb and expected.address==ptr,'Exact real body/effect source pointer and C-bank')
+- for i,v in ipairs(expected.bytes)do assert(emu.read(cb*8192+ptr%8192+i-1,emu.memType.nesPrgRom)==v,'Actual immutable Samus source record bytes')end
++ for i,v in ipairs(expected.bytes)do assert(emu.read(isRAM and ptr+i-1 or cb*8192+ptr%8192+i-1,isRAM and emu.memType.nesDebug or emu.memType.nesPrgRom)==v,'Actual exact source-derived Samus record bytes/header')end
+  if phase=='run'and current and current.stage then
+   local key=drawContext.kind..':'..tostring(ptr);current.stage.draws[key]=(current.stage.draws[key]or 0)+1
+   if drawContext.explosion then current.stage.explosionDraw=true end

@@ -1,0 +1,70 @@
+{
+  "native_aggregate_remains_FALSE": true,
+  "ROM_sha256": "3b112e1d79ba7348f2f7a4c426f4675845a5781017ab74690feb235121a66287",
+  "actual_numeric_mode": 1,
+  "completed_cases": 0,
+  "completed_subphases": 0,
+  "complete_fixture_setups": 1,
+  "original_failure": {
+    "pc": 42426,
+    "bank": 4,
+    "y": 0,
+    "a": 126,
+    "x": 0,
+    "message": "Actual selected body pointer is a bound Samus record",
+    "sp": 238,
+    "phase": {
+      "name": "starting-short",
+      "phase": "run"
+    }
+  },
+  "last_setup": {
+    "pc": 33497,
+    "kind": "B-native-boundary-complete-setup",
+    "case": 1,
+    "phase": "run",
+    "update": 1,
+    "sp": 250,
+    "wall": 374,
+    "data": {
+      "task": {
+        "face": 1,
+        "kind": "free"
+      },
+      "disclosure": "World/player/motion/input history/pools/drops/native actor initialization/resource seeds only at GameLoop entry; no acquisition, RNG, target result or damage writes.",
+      "source_palette_packet": [
+        63,
+        29,
+        3,
+        15,
+        55,
+        23,
+        63,
+        25,
+        3,
+        22,
+        48,
+        39,
+        63,
+        16,
+        4,
+        34,
+        22,
+        26,
+        39,
+        0
+      ],
+      "stock": 0,
+      "owned": 0
+    },
+    "bank": 126
+  },
+  "complete_PPU_frames": 374,
+  "complete256DMAs": 352,
+  "startFrame_records": 374,
+  "safe_scoped_enables": 35,
+  "last_complete_DMA": 352,
+  "native_worker_released": true,
+  "classification": "Art-observer ROM-only registry rejects a source-owned filtered RAM record. First failure A126 at NativeGoombaRender Slow continuation is consistent with R1=$7E; actual pointer low and runtime filter inputs were not logged. Separate complete compiled caller reproduction is required; the original native evidence is not backfilled.",
+  "scope": "No ability was exercised or completed. Saved complete frames predate the first staged body publication; first-failure image is a partial-screen snapshot, not a completed stage result. No ROM defect, acquisition, gameplay or visual pass claimed."
+}

@@ -1,0 +1,20 @@
+{
+  "original_manifest_unchanged": true,
+  "original_dependencies_unchanged_remains_FALSE": true,
+  "stable_bindings": 965,
+  "drift": [
+    {
+      "expected": {
+        "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3b112-samus-hard-outline-ready-v2\\emulator\\Debugger\\candidate.cdl",
+        "bytes": 2097161,
+        "sha256": "5eee7cacd9cdb8fadd2bf6e8f97e77b10874c558614f20e549d8d0a14ef1a377"
+      },
+      "actual": {
+        "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3b112-samus-hard-outline-ready-v2\\emulator\\Debugger\\candidate.cdl",
+        "bytes": 2097161,
+        "sha256": "2de3c9b5c15bf604513a55b8d6bd7e141d249c5d50697d99cfff3e37fb300459"
+      }
+    }
+  ],
+  "cause": "Successor copied the prior emulator tree, inadvertently binding mutable pre-existing CDL coverage. Mesen rewrote only this coverage file. Source, ROM, scripts, settings and all other bindings remain exact; no result retagging."
+}
