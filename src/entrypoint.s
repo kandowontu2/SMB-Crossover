@@ -497,3 +497,7 @@ Done:
 .if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
 .include "cv3_remaining_source_fx.s"
 .endif
+
+.if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
+.include "luigi_source_profile.s"
+.endif

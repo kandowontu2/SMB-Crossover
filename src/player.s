@@ -982,8 +982,13 @@ CrossoverNativeDryMario:
 CrossoverGuestDispatch:
   cmp #CHARACTER_LUIGI
   bne :+
+.if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
+    jmp LuigiSourceMovementBridge
+    .res 3,$ea
+.else
     jsr LuigiNativePrepare
     jmp CrossoverMarioMovement
+.endif
   :
   lda GuestHurtTicks
   beq :+

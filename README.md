@@ -6,7 +6,9 @@ This is a native NES adaptation of [Super Mario Bros. Crossover](https://www.smb
 
 **Status: playable, actively developed, and unfinished.** Character behavior, graphics, sound and performance are still being tested and corrected. MMC5 is the recommended target for the full roster.
 
-The October 26 development build (`731c918b`) fixes character-select background shifts and a level-start HUD jump. It also includes the earlier Castlevania sound repairs, reduced Chip/Dale movement overhead, and clearer Parodius power-bar lettering. See the [timing repair results](docs/qa/presentation-timing-adoption-2026-10-26.json).
+The October 26 development build (`641460e2`) gives Luigi Mario's mode-specific movement with a modestly higher jump and less traction. His full Easy 1-1 run and independent replay pass, along with Easy/Hard powerup and attack checks. This is a movement correction, with additional CPU cost; it does not establish a lag-free game. See the [Luigi change and test limits](docs/qa/luigi-profile-adoption-2026-10-26.json).
+
+It retains the character-select background and level-start HUD fixes from `731c918b`, earlier Castlevania sound repairs, reduced Chip/Dale movement overhead, and clearer Parodius power-bar lettering. See the [timing repair results](docs/qa/presentation-timing-adoption-2026-10-26.json).
 
 The last complete 37-character 1-1 suite ran on `3cee18ca`: 36 identities cleared in Easy and Bass in Hard, each with an independent replay. Those results remain specific to that build; further checks on the latest build are in progress. See the [1-1 results](docs/qa/current37-1-1-2026-10-26.txt).
 

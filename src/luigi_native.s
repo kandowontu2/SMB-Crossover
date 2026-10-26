@@ -34,6 +34,20 @@ Done:
   rts
 .endproc
 .proc LuigiNativeTraction
+.if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
+  ; Foreign callers execute the exact original prefix and original Done RTS.
+  lda SelectedCharacter
+  cmp #CHARACTER_LUIGI
+  bne Done
+  farcall LuigiSourceNativeTractionBody,jmp
+::LuigiSourceMovementBridge:
+  ; Genuine local entry, only called by Luigi's actual movement selector.
+  farcall LuigiSourceMovementDispatch,jmp
+  .res 83-(*-::LuigiNativeTraction),$ea
+Done:
+  rts
+  .assert *-LuigiNativeTraction=84,error,"Retained native traction public span"
+.else
   lda SelectedCharacter
   cmp #CHARACTER_LUIGI
   bne Done
@@ -73,6 +87,7 @@ Brake:
   sta FrictionAdderHigh
 Done:
   rts
+.endif
 .endproc
 .segment "EXPANDED"
 .proc LuigiNativeVisuals
