@@ -1,0 +1,42 @@
+{
+  "passed": true,
+  "native_run": false,
+  "adoption_qualified": false,
+  "parent_ROM_sha256": "d53d74081e18b89957c7919c5b9c2f9dffb861fd6f714770080a32ce41c82433",
+  "candidate_ROM_sha256": "7aad4b3f0d9b4b1ca685209da8419a79cdd9da6b7f7dbcfce62bdca76135a085",
+  "cases": 20284,
+  "groups": {
+    "transfer": {
+      "cases": 12048,
+      "cycle_delta_min": -2,
+      "cycle_delta_max": -2
+    },
+    "palette": {
+      "cases": 4096,
+      "cycle_delta_min": 0,
+      "cycle_delta_max": 0
+    },
+    "packet": {
+      "cases": 4064,
+      "cycle_delta_min": -8,
+      "cycle_delta_max": -2
+    },
+    "irq-transfer": {
+      "cases": 76,
+      "cycle_delta_min": -2,
+      "cycle_delta_max": -2
+    }
+  },
+  "raw_cases_sha256": "8462604552949fc7360821eb365ae4ae12713f5078b4c1945e22543ebfc0ac95",
+  "changed_ROM_bytes": 12,
+  "allowed_ROM_window": [
+    952745,
+    952844
+  ],
+  "original_shape_catalog_sha256": "88f303ff2e1a3cf249294866186cf84eb7c637a53e69431658bd66fd229717ad",
+  "tool_sha256": "7361b6dcf91e3ff44d42caccf0bc285ebcc801e4336115bae9d6898f686e6cc6",
+  "genuine_private_label_moves": {},
+  "equality": "Full returned AXYP/SP, all final nonstack application RAM, ordered nonstack writes and palette reads, mapper banks.",
+  "liveness": "Both linked continuations are exactly SEC/TYA/ADC R0/STA R0/LDA#0/ADC R1/STA R1. Removed source CLC/SEC has no consumer before this first SEC. All final AXYP/SP, application RAM and IO compare without a new mask; actual IRQ controls remain included.",
+  "limits": "Complete returned-state catalog for three dead-carry NMI exits; no native. CPU-only same-input full-caller comparisons; native945 PPU/DMA acceptance remains separate."
+}

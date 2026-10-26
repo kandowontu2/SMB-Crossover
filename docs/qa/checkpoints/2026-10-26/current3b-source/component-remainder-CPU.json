@@ -1,0 +1,92 @@
+{
+  "passed": true,
+  "source_only": true,
+  "native_run": false,
+  "parent_ROM_sha256": "641460e2646806c03fb98cf84f8a8c2e8de99c74dac8c5876c50f05ef1eb512c",
+  "candidate_ROM_sha256": "9eeaf55435beb162fcd2332eb7e47ecfec089f6460b807adf718a4597a5e64b4",
+  "arithmetic_physical_flag_cases": 98304,
+  "full_renderer_or_caller_cases": 9642,
+  "actual_IRQ_cases": 320,
+  "grouped": {
+    "actual_complete_callers": {
+      "cases": 192,
+      "cycle_delta": [
+        -6560,
+        24
+      ],
+      "sum_delta": -63168
+    },
+    "captured_projectile_fields_configured_full_caller": {
+      "cases": 102,
+      "cycle_delta": [
+        -903,
+        0
+      ],
+      "sum_delta": -33952
+    },
+    "crowded_full_capacity_caller": {
+      "cases": 8,
+      "cycle_delta": [
+        -1622,
+        -1622
+      ],
+      "sum_delta": -12976
+    },
+    "death_exact": {
+      "cases": 4,
+      "cycle_delta": [
+        0,
+        0
+      ],
+      "sum_delta": 0
+    },
+    "edge_capacity_rotation": {
+      "cases": 96,
+      "cycle_delta": [
+        -6560,
+        24
+      ],
+      "sum_delta": -103040
+    },
+    "foreign_byte_and_cycle_exact": {
+      "cases": 152,
+      "cycle_delta": [
+        0,
+        0
+      ],
+      "sum_delta": 0
+    },
+    "full_pool_masks_mixed": {
+      "cases": 256,
+      "cycle_delta": [
+        -1640,
+        18
+      ],
+      "sum_delta": -63936
+    },
+    "full_renderer_all64physical_flags": {
+      "cases": 2688,
+      "cycle_delta": [
+        -1640,
+        6
+      ],
+      "sum_delta": -176256
+    },
+    "full_renderer_all_types_ages_faces_variants": {
+      "cases": 6144,
+      "cycle_delta": [
+        -6560,
+        24
+      ],
+      "sum_delta": -3216352
+    }
+  },
+  "nonIRQ_all8flag_bits_SP_full_application_and_entire_stack_RAM_exact": true,
+  "ordered_original_RAM_IO_OAM_SMC_mapper_writes_and_final_banks_exact": true,
+  "all_original_live_projectile_fields_exact": true,
+  "no_physics_or_visibility_change": true,
+  "foreign_empty_death_cycles_exact": true,
+  "IRQ_oracle": "Actual compiled IRQ/RTI at each distinct changed helper/resident-boundary PC in real caller traces; live physical flags/application RAM/lower stack/banks exact. Only IRQ-owned scroll/CHR IO and dead top64 stack slots excluded in final comparison. No physical flag masking for ordinary complete caller comparisons.",
+  "limits": "Source CPU only, no native cadence/visible publication claim. Captured-projectile caller profiles configure only recorded projectile/position/rotation inputs before a valid seeded caller; they are not complete native-frame recreations. Positive charged-type routing costs are disclosed by exact whole-caller measurements.",
+  "tool_sha256": "162344ef5ac70687be145bb624f5542d8ba5d7f09b60a8fefb6eee2c7c39e9ea"
+}

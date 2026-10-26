@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "source_only": true,
+  "native_run": false,
+  "cases": 288,
+  "baseline_ROM_sha256": "d53d74081e18b89957c7919c5b9c2f9dffb861fd6f714770080a32ce41c82433",
+  "candidate_ROM_sha256": "7aad4b3f0d9b4b1ca685209da8419a79cdd9da6b7f7dbcfce62bdca76135a085",
+  "all_full_returned_AXYP_SP_RAM_banks_ordered_IO_and_entire_IRQ_writes_exact": true,
+  "every_IRQ_resumes_AXY_SP_PC_physical_NV_DIZC_5SMC_shadows_mapping": true,
+  "unreachable_NOPs_never_executed": true,
+  "all_case_cycle_delta": -2,
+  "tool_sha256": "925d2a92d344b37f71f33669b556f4435021ff51eebc36b54afcaf3914183851",
+  "cases_sha256": "649b6b4a0a8f42344fbb98ba64cd19aced4dcc601804dc754cd60be98f844c6d",
+  "limits": "Defensive instruction-boundary IRQ controls with I clear. The real NMI pre-DMA helper runs with I set; no claim these IRQs physically occur there. py65 virtual B/U bits alone excluded for RTI-resume; final returned flags compare in full."
+}

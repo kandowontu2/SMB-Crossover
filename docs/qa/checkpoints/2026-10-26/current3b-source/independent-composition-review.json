@@ -1,0 +1,54 @@
+{
+  "passed": true,
+  "review_only": true,
+  "new_build": false,
+  "new_CPU_matrix": false,
+  "native_run": false,
+  "production_mutation": false,
+  "ROM_sha256": "3b112e1d79ba7348f2f7a4c426f4675845a5781017ab74690feb235121a66287",
+  "source_manifest_files_verified": 869,
+  "ROOT_bindings_verified": 15,
+  "exact_ROM_union": "All7aad except completebank66 byteexact9ee; header/CHR exact",
+  "all_old_C_qualified_symbols_and_RAM_exact": 61322,
+  "changed_source_vs7aad": [
+    "smb1base-mmc5-expanded.cfg",
+    "src/protoman_legacy_shots.inc"
+  ],
+  "proto_source_byteexact9ee": true,
+  "cfg_logical_reverse_delta_exact7aad": true,
+  "cfg_raw_byte_reversal_exact": false,
+  "cfg_EOL_difference": "Combined is LF; frozen7aad has438CRLF lines. First strict byte-reversal failure retained; no semantic difference hidden.",
+  "helper": {
+    "bank": 66,
+    "address": 47528,
+    "bytes": 23,
+    "compiled_bytes": "c001f00eed9968cd99689008ed99684cafb9a9004c05a4",
+    "previousC_fill_FF": true,
+    "exact_donor_code_and_owner": true
+  },
+  "ProtoNmiAudioCore_bytes_identical_all_three": true,
+  "NMI_fast_scroll_bank116_exact7aad": true,
+  "ordinary_hashes_rechecked": true,
+  "ROOT_controls_reviewed": {
+    "NMI": 152,
+    "HUD": 68,
+    "sha256": "7fb5948d590510678a3fe1df4320b3bbd1968fb72cd0cd93be05061a2b00282e"
+  },
+  "owner_assessment": "Helper remains in the A66 window already owned by the foreground shot renderer. It writes no state, pushes no stack and changes no bank; donor code/old entry PCs are exact. Unchanged ProtoNmiAudioCore preserves the real existing NMI bank restoration interface. C NMI bank116 code remains exact. This is a static composition review plus inspection of ROOT existing controls, not freshly executed combined native/IRQ coverage.",
+  "limits": "No build/native/candidate/extra bundle. Combined-hash native galleries remain pending. Other positive remainders retain+6CPUcycles per shot, original8x16 body/shot dropout remains open.",
+  "bindings": {
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-current-roster-composition-v1\\ROOT-source-readiness.json": "a332aec91cb2b16f8064c2423b2e0f3d5bbc9603325c0e06e4f0965d0386c220",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-current-roster-composition-v1\\ROOT-bindings.json": "4674bac08c5eee3c09919c6f9589510d0c0a31d870ba41c27bce27c50beb8c89",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-current-roster-composition-v1\\ROOT-composition-controls.json": "7fb5948d590510678a3fe1df4320b3bbd1968fb72cd0cd93be05061a2b00282e",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-current-roster-composition-v1\\source-manifest.json": "86eacaf0a954abf8cf0ff7fc8ee6b03b13fc406f2335b5d864eb96c554f868a6",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-current-roster-composition-v1\\candidate.nes": "3b112e1d79ba7348f2f7a4c426f4675845a5781017ab74690feb235121a66287",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-current-roster-composition-v1\\candidate.dbg": "bb96dbe9e73fcfd99fb26ceb6d2edbe07d82ca07c892993c80db7aa9fe9682e9",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mm-proto-basic-remainder-v3\\candidate.nes": "9eeaf55435beb162fcd2332eb7e47ecfec089f6460b807adf718a4597a5e64b4",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mm-proto-basic-remainder-v3\\source\\src\\protoman_legacy_shots.inc": "666e32e22ce184c955501144706cc9936bb3127821ca03e5ddcbdd6f44230acb",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\nmi-copy-dead-carry-current641-v2\\candidate.nes": "7aad4b3f0d9b4b1ca685209da8419a79cdd9da6b7f7dbcfce62bdca76135a085",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\nmi-copy-dead-carry-current641-v2\\source\\smb1base-mmc5-expanded.cfg": "18446dca70683ad243add2b9771b43c2225abfd0d57762b73ea5162831387388",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-current-roster-composition-v1\\source\\smb1base-mmc5-expanded.cfg": "519c61a621eb3d164ba736d389bdbbb93cd90a08962b01ec8ffb0ee5bc949eea",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-current-roster-composition-v1\\source\\src\\protoman_legacy_shots.inc": "666e32e22ce184c955501144706cc9936bb3127821ca03e5ddcbdd6f44230acb",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mm-proto-basic-remainder-v3\\composition-review-3b-v1-failure.json": "ffce2d95087119fe344e419aaddc97413652aa6fdc1401bd6b710a3697eb42bc"
+  }
+}
