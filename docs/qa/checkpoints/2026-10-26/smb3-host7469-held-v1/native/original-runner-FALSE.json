@@ -1,0 +1,6 @@
+{
+  "passed": false,
+  "error": "('Native ordered sourceRAM', 2)",
+  "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\smb3_host_current3b_native_run_v1.py\", line 25, in main\n    proof=verify(packet);put(packet/'native-proof.json',proof);print(json.dumps(dict(passed=True,source_calls=proof['actual_source_calls'],DMA=proof['complete256_DMA_epochs'])))\n  File \"C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\smb3_host_current3b_native_verify_v1.py\", line 23, in verify\n    assert ram==[list(z)for z in source.nonstack_writes],('Native ordered sourceRAM',call['serial'])\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: ('Native ordered sourceRAM', 2)\n",
+  "retry_permitted": false
+}

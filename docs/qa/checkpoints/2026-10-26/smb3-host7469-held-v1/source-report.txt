@@ -1,0 +1,121 @@
+Authentic SMB3 host music: PRIVATE current3b source adapter, 2026-10-26
+
+STATUS: SOURCE/CPU ONLY. No native launch, production edit or installation.
+Parent: 3b112e1d79ba7348f2f7a4c426f4675845a5781017ab74690feb235121a66287
+Candidate: 7469d9f62af3161c896b844546ead66002bb425ba8b5143692b1c2ae1d9f1219
+Evidence root D = C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py
+Stable packet: D/smb3-host-current3b-v3
+Source: packet/source; assembled ROM/debug: packet/candidate.nes/.dbg.
+Nothing here transfers older unused-core or current3b native qualification.
+
+IMPLEMENTED PRIVATE ADAPTER
+Actual SMB3 identity17, either variant/mode, now dispatches to the authenticated
+SMB3 source, replacing current3b's Pit-family fallback. Nine original4K pages
+(36,864B) are retained literally. The previously qualified e578 known-address
+reader optimization is reused, not reimported/re-recorded or retimed.
+Area queue bits select source tracks 9,11,12,23,14,1,13; event bits select
+43,42,39,39,42,38,27. Original per-play source tick/events/loops remain intact.
+World SFX are captured by actual GuestAudioBegin before the adapter clears
+host queues, then restored/mixed by actual GuestAudioFinish. Native4000..0F
+music stores become dirty GuestNativeApu image updates. Original logical
+source-store ordering is exact; physical hardware flush intentionally uses
+the existing common ascending mixer and expansion-pulse world-SFX policy.
+This is NOT an original-ordered physical4000..0F or waveform claim.
+
+RAM / BANK / INTERRUPT OWNERSHIP
+Source4D0..4FF -> SRAM7400..742F;7F0..7FA ->7440..744A. Source6B..6E,71..72
+temporarily use hostDE..E3. Persistent source ZP image7450..55, saved host
+values7456..5B. Borrow+restore costs192CPU per source call INCLUDING bothJSR.
+These six bytes are unconditionally saved/restored, even if a foreground
+graphics/audio owner is active. The current linked DECODE segment is empty;
+named history consumers and both actual InitializeMemory/RosterClearState
+paths are recorded. Both clear paths preserve the entire2048B XgLzHistory.
+This is a bounded ownership audit, not a universal arbitrary foreground-NMI
+proof. Actual native menu/start/scene/queued-CHR work remains to be observed.
+Existing source metadata7B00..7B14 and original7AE0..7AFF state are retained.
+History ownership is exclusive between the selected music families.
+
+Core: C38 CBE8..DF07,4896/5120B (224B remaining).
+Cold/update: A86 A800..A925,294/512B (218B remaining).
+Vanilla cleanup gate: existing A5 tailBEEC, after Sophia's current cold code.
+CurrentBank FOREGROUND SHADOW NEVER CHANGED. Source readers restore hardware
+A86; the existing ExpandedAudio outer wrapper restores the real foregroundA.
+Payload tails:78,86,90,93,95,96,98,118,119. Z2/Mike art genuinely relocated
+to95;5120B Bill orbit data relocated38->85.180 real art symbols move; all
+72,745 other existing symbols remain, none disappear. Header and allCHR exact.
+Fresh13502art cases and1296late-lift/1352IRQ cases qualify these relocations.
+
+DMC: original4010/11/13/17 and logical4012/15 retained. Source sample addresses
+translate to exact samples in E70/E97. These are regenerated from FINAL
+current127, not stale imported clones. Four declared sample spans only are
+overlaid; resident code, vectors, FE15..3F/FEE1..FF00 gates are preserved.
+Final127 SHA e3536ad5d4642271b61c1050a5e3df7d449450f28c87673ebfab5251d5074ea5.
+Owner4 + existing Cv3DmcPriority=$80 denotes the SMB3 lease. E is mapped BEFORE
+physical4015 enable; original disable precedes E127 restoration. Existing
+shared owner writer handles preemption. Two BEQ->BCS changes admit owner4 for
+reset/completion while preserving exact valid old0..3 behavior/cycles.
+Completion preserves real DAC hold; pause stops DMC and restores E127, holds
+source state, then resumes ordinary saved voices without inventing a DMC
+retrigger. Title/foreign selection cleans owner/marker before vanilla playback.
+Pause policy is explicit host adaptation, not original-game pause equivalence.
+Future native observer MUST bind/log actual resident aliases70/97/127 and real
+entry/return/SP/DMA. A127-only observer would silently miss clone execution.
+
+FRESH FINITE QUALIFICATION ON EXACT7469
+controls-v1:10085 whole AudioUpdate/source calls across12 roles through first
+original state recurrence;61695 ordered logical sourceAPU stores;365 original
+sample-payload comparisons. Same-input original executable RAM/order/virtual
+maps/AXYP/SP exact, including actual source inputI0 rather than oldI1 masks.
+Four mode/variant lifecycle cells: pause/resume, queueddeath, silence, area,
+title cleanup and reentry. Modeled DMC fetch/status only.
+world-sfx-v1:56 profiles/336 whole ticks, all24single queue bits plus mixed
+controls in both modes; shared capture/image/dirty/buffer/mix ownership exact.
+owner-controls-v2:512 valid original0..3 owner calls exact to3b, including
+cycles;512 real cloned-E70/E97 preemptions;128 owner4 resets versus genuine
+original source-owner reset. Six additional real E70/E97 completion entries
+with DAC0/47/127 preserve DAC and stop before restoring E127.
+boundaries-v2:868 actual hardware-vector IRQ injections across reached new
+driver/helper instructions. Complete continuation RAM/OAM/state/AXYP/SP/banks
+and ordered main writes exact. Exact IRQ bus classified separately;120CPU
+per IRQ. This CPU model does not clock PPU, DMC DMA or NMI scheduling.
+asset-controls-v1:13502 actual art/caller cases, typed genuine data-pointer
+translation only; all leaf pixels/attributes/coords and publications exact.
+asset-irq-v1:1296 late-lift cases plus1352 actual IRQ continuations pass.
+rebuild-controls-v1: fresh canonical7469; ordinary MMC3 d444cac88e13fa02b29ad
+16100b8f08fa565ba90f8cedde192de43fb2dc8f3eb and MMC5 f4ffd2483c51daa4d60bb575
+da2da8c4d817692cda407611c243031f67520833 remain exact.
+layout-v1 binds872complete source inputs,9changed/new deployable files,
+21changed physical banks, real symbol moves, hook aliases and literal payload.
+
+COST / LIMITS THAT MUST REMAIN VISIBLE
+Normal original-source role: whole AudioUpdate steady mean3502.764CPU,
+peak9629, cold4557. Other role means3330.706..4053.165 and peaks7496..9783.
+Minimum observed SP234 normal /232 event roles. No native stack highwater.
+Same external normal-queue+64ticks: existing Pit fallback mean1957.641,
+range1677..3521,cold8982; new SMB3 mean3489.828,range3162..9629,cold4557.
+Different intended music content: this is budget evidence, not same-work
+speedup. Steady mean increase is material and needs native draw/deadline tests.
+44 other identity/mode/ship-variant whole-audio profiles preserve exact
+nonstack writes/AXYP/SP; added cycles Mario/Luigi/title28, allships10,TMNT10,
+other tested identities0 including CV3/Mac/Mike. Not a full37alternate matrix.
+
+REPRODUCTION / REMAINING WORK
+Private two-step build: build_mmc5_expanded.py --source-overlay packet/source
+--output NEW.nes; then prepare_smb3_dmc_mirrors.py --source packet/source
+--rom NEW.nes. Existing CV3 mirror generation runs first. A future production
+integration must wire the durable SMB3 producer into the real build path;
+no production build script was changed in this unit.
+Native actual cold/menu identity, source samples/clones, sharedSFX, actual
+render transfer/full256DMA/PPUMASK/visibleIRQ/5SMC/SP and Main cadence remain
+unqualified. No waveform, fullcampaign, everytrack transition or adoption claim.
+
+PRESERVED NEGATIVES / FIXTURE CORRECTIONS
+Hostv1 label collision;hostv2 linker segment-order placement; both frozen.
+boundaries-v1 omitted actual IRQ5128=0 from its expected IRQ bus; preserved
+FALSE;v2 explicitly checks complete actual bus and only classifies tagged IRQ
+stores. owner-controls-v1 tried to construct new-core HostMemory on old3b and
+failed on missing B3SourceA000 BEFORE instructions;v2 uses a common literal
+peripheral Memory model, retains identical finite assertions and flags.
+One controls-v1 completion invoke helper mapped E127 before entry; it is not
+actual cloned-E evidence. Dedicated boundaries-v2 enters while E70/E97 remains
+mapped and supplies the six real-clone completion claims instead.

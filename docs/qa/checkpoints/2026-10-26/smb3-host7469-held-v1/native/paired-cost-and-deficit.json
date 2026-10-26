@@ -1,0 +1,41 @@
+{
+  "candidate_ROM": "7469d9f62af3161c896b844546ead66002bb425ba8b5143692b1c2ae1d9f1219",
+  "baseline_ROM": "3b112e1d79ba7348f2f7a4c426f4675845a5781017ab74690feb235121a66287",
+  "same_inputs_byteexact": true,
+  "candidate_draws": 599,
+  "baseline_draws": 697,
+  "candidate_Main_commits": 1125,
+  "baseline_Main_commits": 1163,
+  "candidate_lagNMI_entries": 179,
+  "baseline_lagNMI_entries": 81,
+  "actual_extra_lag_NMIs_and_draw_loss_match": true,
+  "candidate_audio_calls_fromPPU433": 768,
+  "baseline_audio_calls_fromPPU433": 768,
+  "candidate_audio_total": 2988252,
+  "baseline_audio_total": 1996853,
+  "candidate_audio_mean": 3890.953125,
+  "baseline_audio_mean": 2600.0690104166665,
+  "candidate_audio_peak": 9841,
+  "baseline_audio_peak": 8261,
+  "first_draw_deficit": {
+    "ordinal": 513,
+    "ppuFrame": 513,
+    "candidate_minus_baseline_updates": 0,
+    "candidate_minus_baseline_draws": -1,
+    "candidate_minus_baseline_commits": 0
+  },
+  "first_Main_commit_deficit": {
+    "ordinal": 516,
+    "ppuFrame": 516,
+    "candidate_minus_baseline_updates": 0,
+    "candidate_minus_baseline_draws": -1,
+    "candidate_minus_baseline_commits": -1
+  },
+  "interpretation": "Measured actual wholeAudio elapsed includes hardware DMC and IRQ overhead; different original music engines/content. Extra audio cost is material. Component-only source fidelity does not qualify cadence. No renderer compensation or source workaround assumed.",
+  "source_original_mean": 645.761408083442,
+  "source_translated_native_mean": 1736.8735332464146,
+  "source_excess_elapsed_including_DMC_IRQ": 1091.1121251629725,
+  "whole_audio_minus_source_body_mean": 2155.884114583333,
+  "audio_extra_cycles_total": 991399,
+  "source_profile_next_scope": "Partition actual compiled readers/image-writers/bank transfers and ordinary source instructions. Native elapsed minus original includes DMC/IRQ; do not call this pure translation overhead without assembled replay attribution."
+}
