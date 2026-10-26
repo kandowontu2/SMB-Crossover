@@ -1,0 +1,71 @@
+{
+  "passed": true,
+  "source_only": true,
+  "native_run": false,
+  "ROM_sha256": "64ccd5038c26cabd3c57c4c3ed13b1fe467b275238610f3a227ceaa48e1ac2b6",
+  "fresh_canonical_exact": true,
+  "ordinary_flagoffs": {
+    "mmc3": "d444cac88e13fa02b29ad16100b8f08fa565ba90f8cedde192de43fb2dc8f3eb",
+    "mmc5": "f4ffd2483c51daa4d60bb575da2da8c4d817692cda407611c243031f67520833"
+  },
+  "commands": [
+    {
+      "command": [
+        "C:\\Users\\kando\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\build_mmc5_expanded.py",
+        "--source-overlay",
+        "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\smb3-host-hot6-v2\\source",
+        "--output",
+        "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\smb3-host-hot6-v2\\build-controls-v1\\canonical.nes"
+      ],
+      "returncode": 0,
+      "stdout": "{\"output\": \"C:\\\\Users\\\\kando\\\\Videos\\\\SMB Crossover Archive\\\\2026-10-24-native-rest-py\\\\smb3-host-hot6-v2\\\\build-controls-v1\\\\canonical.nes\", \"sha256\": \"08248e0a4668ab0a0be6977bcdfa2e36630aa8fec699ac0c2e1067bc9370473f\", \"bytes\": 2097168, \"mapper\": 5, \"expanded\": true, \"extra_chr_sha256\": null}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "C:\\Users\\kando\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\prepare_smb3_dmc_mirrors.py",
+        "--source",
+        "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\smb3-host-hot6-v2\\source",
+        "--rom",
+        "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\smb3-host-hot6-v2\\build-controls-v1\\canonical.nes"
+      ],
+      "returncode": 0,
+      "stdout": "{\n  \"ROM_sha256\": \"64ccd5038c26cabd3c57c4c3ed13b1fe467b275238610f3a227ceaa48e1ac2b6\",\n  \"final127_sha256\": \"e3536ad5d4642271b61c1050a5e3df7d449450f28c87673ebfab5251d5074ea5\",\n  \"payload_sha256\": \"d54ae38d695f5787915b47534de768a32116007929181888237b80c14f347b45\",\n  \"clones\": [\n    {\n      \"bank\": 70,\n      \"sha256\": \"1cb559d054f3edec1e9ffb5d88d3d0280a52a983129201ff84e894f0463d546a\",\n      \"declared_sample_spans\": [\n        [\n          4416,\n          6721\n        ],\n        [\n          6784,\n          7361\n        ],\n        [\n          7424,\n          7489\n        ]\n      ],\n      \"all_other_final_resident_bytes_exact\": true\n    },\n    {\n      \"bank\": 97,\n      \"sha256\": \"fcdcb6d440aa426cefe45e604e23782c3cca003c1c5d27254a37651735698108\",\n      \"declared_sample_spans\": [\n        [\n          4416,\n          5249\n        ]\n      ],\n      \"all_other_final_resident_bytes_exact\": true\n    }\n  ],\n  \"no_old_clone_code_used\": true\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "C:\\Users\\kando\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\build_mmc5_expanded.py",
+        "--source-overlay",
+        "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\smb3-host-hot6-v2\\source",
+        "--flag-off",
+        "mmc3",
+        "--output",
+        "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\smb3-host-hot6-v2\\build-controls-v1\\mmc3.nes"
+      ],
+      "returncode": 0,
+      "stdout": "{\"output\": \"C:\\\\Users\\\\kando\\\\Videos\\\\SMB Crossover Archive\\\\2026-10-24-native-rest-py\\\\smb3-host-hot6-v2\\\\build-controls-v1\\\\mmc3.nes\", \"sha256\": \"d444cac88e13fa02b29ad16100b8f08fa565ba90f8cedde192de43fb2dc8f3eb\", \"bytes\": 786448, \"mapper\": 4, \"expanded\": false, \"extra_chr_sha256\": null}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "C:\\Users\\kando\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\build_mmc5_expanded.py",
+        "--source-overlay",
+        "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\smb3-host-hot6-v2\\source",
+        "--flag-off",
+        "mmc5",
+        "--output",
+        "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\smb3-host-hot6-v2\\build-controls-v1\\mmc5.nes"
+      ],
+      "returncode": 0,
+      "stdout": "{\"output\": \"C:\\\\Users\\\\kando\\\\Videos\\\\SMB Crossover Archive\\\\2026-10-24-native-rest-py\\\\smb3-host-hot6-v2\\\\build-controls-v1\\\\mmc5.nes\", \"sha256\": \"f4ffd2483c51daa4d60bb575da2da8c4d817692cda407611c243031f67520833\", \"bytes\": 786448, \"mapper\": 5, \"expanded\": false, \"extra_chr_sha256\": null}\n",
+      "stderr": ""
+    }
+  ],
+  "checker_sha256": "bd063fffce1e3e1e9a43909db586cac842d199c04bc1f0006aa02db76a827073",
+  "no_production_default_settings_or_installation_mutation": true
+}

@@ -1,0 +1,197 @@
+--- a/src/smb3_native_standalone.s
++++ b/src/smb3_native_standalone.s
+@@ -3585,7 +3585,7 @@
+ B3SourceE2E4:
+  TAY
+ B3SourceE2E5:
+- jsr B3KnownE2E5
++ jsr B3Hot6E2E5
+  nop
+  nop
+ B3SourceE2E8:
+@@ -3593,13 +3593,13 @@
+ B3SourceE2EB:
+  STA $7aff
+ B3SourceE2EE:
+- jsr B3KnownE2EE
++ jsr B3Hot6E2EE
+  nop
+  nop
+ B3SourceE2F1:
+  jsr B3Write4012
+ B3SourceE2F4:
+- jsr B3KnownE2F4
++ jsr B3Hot6E2F4
+  nop
+  nop
+ B3SourceE2F7:
+@@ -3727,7 +3727,7 @@
+ B3SourceE344:
+  TAY
+ B3SourceE345:
+- jsr B3KnownE345
++ jsr B3Hot6E345
+  nop
+  nop
+ B3SourceE348:
+@@ -4633,19 +4633,19 @@
+ B3SourceE6E4:
+  TAY
+ B3SourceE6E5:
+- jsr B3KnownE6E5
++ jsr B3Hot6E6E5
+  nop
+  nop
+ B3SourceE6E8:
+  jsr B3ImageSTA0C
+ B3SourceE6EB:
+- jsr B3KnownE6EB
++ jsr B3Hot6E6EB
+  nop
+  nop
+ B3SourceE6EE:
+  jsr B3ImageSTA0E
+ B3SourceE6F1:
+- jsr B3KnownE6F1
++ jsr B3Hot6E6F1
+  nop
+  nop
+ B3SourceE6F4:
+@@ -4837,13 +4837,13 @@
+ B3SourceE790:
+  jcc ::B3SourceE79E
+ B3SourceE792:
+- jsr B3KnownE792
++ jsr B3Hot6E792
+  nop
+  nop
+ B3SourceE795:
+  STA z:B3SourceZp+4
+ B3SourceE797:
+- jsr B3KnownE797
++ jsr B3Hot6E797
+  nop
+  nop
+ B3SourceE79A:
+@@ -4851,13 +4851,13 @@
+ B3SourceE79C:
+  jne ::B3SourceE7A8
+ B3SourceE79E:
+- jsr B3KnownE79E
++ jsr B3Hot6E79E
+  nop
+  nop
+ B3SourceE7A1:
+  STA z:B3SourceZp+4
+ B3SourceE7A3:
+- jsr B3KnownE7A3
++ jsr B3Hot6E7A3
+  nop
+  nop
+ B3SourceE7A6:
+@@ -4941,13 +4941,13 @@
+ B3SourceE7DC:
+  TAY
+ B3SourceE7DD:
+- jsr B3KnownE7DD
++ jsr B3Hot6E7DD
+  nop
+  nop
+ B3SourceE7E0:
+  STA z:B3SourceZp+2
+ B3SourceE7E2:
+- jsr B3KnownE7E2
++ jsr B3Hot6E7E2
+  nop
+  nop
+ B3SourceE7E5:
+@@ -5852,6 +5852,80 @@
+ .assert *<=$c000,lderror,"Only verified bank5 tail after Sophia cold"
+ 
+ .segment "SMB3_NATIVE_CORE"
++B3Hot6E2E5:
++ lda #93|MMC5_PRG_ROM
++ BankPRGA a
++ lda $b329,y
++ rts
++B3Hot6E2EE:
++ lda #93|MMC5_PRG_ROM
++ BankPRGA a
++ lda $b309,y
++ rts
++B3Hot6E2F4:
++ lda #93|MMC5_PRG_ROM
++ BankPRGA a
++ lda $b319,y
++ rts
++B3Hot6E345:
++ lda #93|MMC5_PRG_ROM
++ BankPRGA a
++ lda $b874,y
++ rts
++B3Hot6E6E5:
++ lda #93|MMC5_PRG_ROM
++ BankPRGA a
++ lda $b74a,y
++ rts
++B3Hot6E6EB:
++ lda #93|MMC5_PRG_ROM
++ BankPRGA a
++ lda $b74e,y
++ rts
++B3Hot6E6F1:
++ lda #93|MMC5_PRG_ROM
++ BankPRGA a
++ lda $b752,y
++ rts
++B3Hot6E792:
++ lda #93|MMC5_PRG_ROM
++ BankPRGA a
++ lda $b765,x
++ rts
++B3Hot6E797:
++ lda #93|MMC5_PRG_ROM
++ BankPRGA a
++ lda $b766,x
++ rts
++B3Hot6E79E:
++ lda #93|MMC5_PRG_ROM
++ BankPRGA a
++ lda $b775,x
++ rts
++B3Hot6E7A3:
++ lda #93|MMC5_PRG_ROM
++ BankPRGA a
++ lda $b776,x
++ rts
++B3Hot6E7DD:
++ lda #93|MMC5_PRG_ROM
++ BankPRGA a
++ lda $b839,y
++ rts
++B3Hot6E7E2:
++ lda #93|MMC5_PRG_ROM
++ BankPRGA a
++ lda $b83a,y
++ rts
++B3Hot6Play:
++ jsr B3SourceA000
++ php
++ pha
++ lda #86|MMC5_PRG_ROM
++ BankPRGA a
++ pla
++ plp
++ rts
+ B3CoreEnd:
+ .assert B3CoreEnd<=$dfe8,lderror,"SMB3 native core exceeds actual5120B free C38 span"
+ .segment "SMB3_NATIVE_COLD"
+@@ -5974,7 +6048,7 @@
+  lda #0
+  ldx #0
+  ldy #0
+- jsr B3SourceA000
++ jsr B3Hot6Play
+  jsr B3Restore
+  jmp Queues
+ Restart:sta RgAudioSong

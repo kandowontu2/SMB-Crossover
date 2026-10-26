@@ -1,0 +1,145 @@
+{
+  "source_only": true,
+  "native_run": false,
+  "parent_ROM_sha256": "7469d9f62af3161c896b844546ead66002bb425ba8b5143692b1c2ae1d9f1219",
+  "source_map_writers": [
+    {
+      "source_PC": 36868,
+      "physical_source_PC": 4,
+      "source_bytes": 3,
+      "source_instruction": "STA $5ffc",
+      "linked_instruction": "sta B3VirtualMaps+4",
+      "classification": "logical original NSF mapping write"
+    },
+    {
+      "source_PC": 36874,
+      "physical_source_PC": 10,
+      "source_bytes": 3,
+      "source_instruction": "STA $5ffd",
+      "linked_instruction": "sta B3VirtualMaps+5",
+      "classification": "logical original NSF mapping write"
+    }
+  ],
+  "compiled_adapter_mapper_writes": [
+    " sta B3VirtualMaps,x",
+    " sta B3VirtualMaps+4",
+    " sta B3VirtualMaps+5"
+  ],
+  "constant_map6": 3,
+  "actual_private_sites": [
+    {
+      "original_helper": "B3KnownE2E5",
+      "new_helper": "B3Hot6E2E5",
+      "source_PC": 58085,
+      "physical_payload_page": 3,
+      "physical_A_bank": 93,
+      "load": "$b329,y"
+    },
+    {
+      "original_helper": "B3KnownE2EE",
+      "new_helper": "B3Hot6E2EE",
+      "source_PC": 58094,
+      "physical_payload_page": 3,
+      "physical_A_bank": 93,
+      "load": "$b309,y"
+    },
+    {
+      "original_helper": "B3KnownE2F4",
+      "new_helper": "B3Hot6E2F4",
+      "source_PC": 58100,
+      "physical_payload_page": 3,
+      "physical_A_bank": 93,
+      "load": "$b319,y"
+    },
+    {
+      "original_helper": "B3KnownE345",
+      "new_helper": "B3Hot6E345",
+      "source_PC": 58181,
+      "physical_payload_page": 3,
+      "physical_A_bank": 93,
+      "load": "$b874,y"
+    },
+    {
+      "original_helper": "B3KnownE6E5",
+      "new_helper": "B3Hot6E6E5",
+      "source_PC": 59109,
+      "physical_payload_page": 3,
+      "physical_A_bank": 93,
+      "load": "$b74a,y"
+    },
+    {
+      "original_helper": "B3KnownE6EB",
+      "new_helper": "B3Hot6E6EB",
+      "source_PC": 59115,
+      "physical_payload_page": 3,
+      "physical_A_bank": 93,
+      "load": "$b74e,y"
+    },
+    {
+      "original_helper": "B3KnownE6F1",
+      "new_helper": "B3Hot6E6F1",
+      "source_PC": 59121,
+      "physical_payload_page": 3,
+      "physical_A_bank": 93,
+      "load": "$b752,y"
+    },
+    {
+      "original_helper": "B3KnownE792",
+      "new_helper": "B3Hot6E792",
+      "source_PC": 59282,
+      "physical_payload_page": 3,
+      "physical_A_bank": 93,
+      "load": "$b765,x"
+    },
+    {
+      "original_helper": "B3KnownE797",
+      "new_helper": "B3Hot6E797",
+      "source_PC": 59287,
+      "physical_payload_page": 3,
+      "physical_A_bank": 93,
+      "load": "$b766,x"
+    },
+    {
+      "original_helper": "B3KnownE79E",
+      "new_helper": "B3Hot6E79E",
+      "source_PC": 59294,
+      "physical_payload_page": 3,
+      "physical_A_bank": 93,
+      "load": "$b775,x"
+    },
+    {
+      "original_helper": "B3KnownE7A3",
+      "new_helper": "B3Hot6E7A3",
+      "source_PC": 59299,
+      "physical_payload_page": 3,
+      "physical_A_bank": 93,
+      "load": "$b776,x"
+    },
+    {
+      "original_helper": "B3KnownE7DD",
+      "new_helper": "B3Hot6E7DD",
+      "source_PC": 59357,
+      "physical_payload_page": 3,
+      "physical_A_bank": 93,
+      "load": "$b839,y"
+    },
+    {
+      "original_helper": "B3KnownE7E2",
+      "new_helper": "B3Hot6E7E2",
+      "source_PC": 59362,
+      "physical_payload_page": 3,
+      "physical_A_bank": 93,
+      "load": "$b83a,y"
+    }
+  ],
+  "new_RAM_bytes": 0,
+  "checked_generic_and_known_compatibility_helpers_unchanged": true,
+  "source_change": [
+    {
+      "path": "src/smb3_native_standalone.s",
+      "before": "849caef3b881ab61c36b5ec38157c6c6c979da22dd5e0051856097ee90a1d81c",
+      "after": "97ee8d1bba22f6887ba2016e886834b46358e21c135790135914c71fc01f1956"
+    }
+  ],
+  "checker_sha256": "2ef7a219d9030226d28b3e027d037e5275aef95864f07969cf6ae2c1eed67b12"
+}

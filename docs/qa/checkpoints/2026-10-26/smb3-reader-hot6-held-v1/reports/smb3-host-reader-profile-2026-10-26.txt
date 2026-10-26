@@ -1,0 +1,62 @@
+Held7469 authentic SMB3 music: source-only measured cost split, 2026-10-26
+
+Production3b unchanged. No optimization/native retry/new allocation in this unit.
+CPU profiler: tools/audit/smb3_host_reader_profile_v2.py
+Evidence: C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/smb3-host-reader-profile-v2
+
+767steady whole-AudioUpdate calls use the actual opening's captured incoming
+shared-SFX queues and original source inputI1. The original executable oracle
+still checks ordered sourceAPU/RAM/virtualmaps/fullstate/AXYP/SP per call.
+These are arranged CPU states, NOT complete native entryRAM replay. Actual
+Main/PPU/DMC-DMA/IRQ clocks are omitted. Whole mean3809.574,peak9629 versus
+actual native3890.953/9841. The source-engine reference mean645.761 exactly
+matches the real observed same-input source-call oracle's mean.
+
+Exclusive instruction costs, steady CPU/call:
+  original source-site translated instructions 748.802
+  generic logical readers                    466.999
+  known-address logical readers              336.772
+  APU image helpers                          105.248
+  DMC address/status adapter                  47.893
+  unrolled six-byte host ZP borrow/restore    180.000 (192including bothJSR)
+  B3MusicUpdate                              131.000
+  B3ExpandedRoutes                            13.000
+  other actual bank29 common mixer/guest code1332.544
+  remaining host/resident/dispatch instructions447.317
+The original645.761 reference is a separate comparison, NOT added into the
+native totals. All native instruction buckets sum to the actual emulated
+whole-call total. No phantom function boundary is used to infer a speedup.
+
+Readers alone consume803.771CPU/call, the largest specific translation
+opportunity; preserving all source voices/ticks/samples remains required.
+5775actual logical data reads perform11550 A-window hardware writes inside
+the source calls (map then restore per read). Generic indirect helpers are
+called2085times:551Read6B,1534Read71. Each also preserves R0/R1/X/Y/status.
+Source-site748.802 versus original645.761 includes expanded branches and
+replacementJSR/NOP sites; it is not evidence that the source engine needs
+748CPU intrinsically. Host common-mixer costs remain separately visible.
+
+Observed immutable physical payload256-byte slices, normal opening only:
+  payload page3 offset0700..07FF:3236reads
+  payload page2 offset0200..02FF:1211reads
+  payload page2 offset0500..05FF:350reads
+  payload page3 offset0800..08FF:341reads
+These four account for88.970% of5775reads. Other observed slices:
+page2:0100(323),0600(204),0400(32); page3:0300(78).
+Keys must include real payload-page identity as well as offset. A logical
+address alone is unsafe if an original virtual-map register changes.
+This finite normal-song observation is not an all-track cache domain proof.
+
+Next finite source work: audit genuinely unused selected-SMB3 history bytes,
+all original source-read/write domains and foreign-owner/reset lifetimes.
+Only then propose a small immutable cache for hottest slices, with explicit
+banked keys, exact fallback, initialization cost and unchanged source state.
+No RAM has been reserved. No old public PC/sample/CHR byte has been changed.
+Do not assume such a cache recovers the full measured991399-cycle/98draw
+native deficit, or that a separate renderer repair compensates for it.
+
+Profiler v1 retained: nearest-label attribution mislabeled11hostCPU/call
+after the realB3CoreEnd as that boundary, and named internal original-source
+JSR targets by a nearby boundary. v2 reports bank38 host code and exact target
+identities instead. Total costs/read counts/state assertions were unchanged;
+no fake callable boundary or PC alias was added to the ROM.

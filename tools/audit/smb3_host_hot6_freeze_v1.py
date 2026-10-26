@@ -1,0 +1,23 @@
+"""Seal the partial source-only reader step; does not grant or run native."""
+from pathlib import Path
+import argparse,difflib,json,sys
+from smb3_host_current3b_cpu_v1 import D,R,sha,put
+from smb3_host_current3b_freeze_v1 import dependencies
+
+def main():
+ p=argparse.ArgumentParser(description=__doc__);p.add_argument('--packet',type=Path,required=True);p.add_argument('--output',type=Path,required=True);a=p.parse_args();a.output.mkdir(exist_ok=False,parents=True);base=D/'smb3-host-current3b-v3';assert sha(a.packet/'candidate.nes')=='64ccd5038c26cabd3c57c4c3ed13b1fe467b275238610f3a227ceaa48e1ac2b6'
+ manifest=json.loads((a.packet/'source-manifest.json').read_text());old=json.loads((base/'source-manifest.json').read_text());assert manifest.keys()==old.keys();changed=[]
+ for name,h in manifest.items():
+  assert sha(a.packet/'source'/name)==h,name
+  if old[name]!=h:changed.append(name)
+ assert changed==['src/smb3_native_standalone.s'],changed
+ path=changed[0];before=(base/'source'/path).read_bytes();after=(a.packet/'source'/path).read_bytes();patch=''.join(difflib.unified_diff(before.decode().splitlines(True),after.decode().splitlines(True),fromfile='a/'+path,tofile='b/'+path));(a.output/'implementation.patch').write_bytes(patch.encode())
+ receipts=['preparation.json','layout.json','candidate.smb3-mirrors.json','reader-controls-v2/proof.json','controls-v1/proof.json','boundaries-v1/proof.json','profile-v1/proof.json','whole-v1/proof.json','build-controls-v1/proof.json']
+ for n in receipts:assert json.loads((a.packet/n).read_text()).get('passed',True),n
+ report=R/'docs/qa/smb3-host-hot6-source-2026-10-26.txt'
+ starts=[R/'tools/audit'/n for n in ['smb3_host_hot6_prepare_v1.py','smb3_host_hot6_prepare_v2.py','smb3_host_hot6_controls_v1.py','smb3_host_hot6_controls_v2.py','smb3_host_hot6_whole_v1.py','smb3_host_hot6_profile_v1.py','smb3_host_hot6_build_v1.py','smb3_host_hot6_freeze_v1.py','smb3_host_cache_ownership_v1.py','smb3_host_reader_profile_v1.py','smb3_host_reader_profile_v2.py','smb3_host_current3b_controls_v1.py','smb3_host_current3b_boundaries_v2.py']]+[R/'tools/build_mmc5_expanded.py',R/'tools/prepare_smb3_dmc_mirrors.py'];tools=dependencies(starts)
+ files=[a.packet/'source'/n for n in manifest]+[a.packet/n for n in receipts]+[a.packet/n for n in ['candidate.nes','candidate.dbg','source-manifest.json','build-command.json','mirror-command.json','reader-controls-v1/failure.json']]+[base/n for n in ['candidate.nes','candidate.dbg','source-manifest.json','source-freeze-v1/readiness.json','controls-v1/proof.json']]+[D/'smb3-host-hot6-v1/failure.json',D/'smb3-host-reader-profile-v2/proof.json',D/'smb3-host-reader-profile-v2/freeze.json',D/'smb3-host-cache-ownership-v1/proof.json',D/'smb3-host-current3b-native-ready-v1/native/smb3-music-native.jsonl',D/'smb3-native-core-v5/preparation.json',D/'smb3-original-music-closure-v3/dynamic-closure.json',D/'smb3-original-music-closure-v3/proof.json',R/'reference/new-roster-audio/mario3/crossover-named.nsf',a.output/'implementation.patch',report,Path(sys.executable)]+tools
+ files=sorted(set(q.resolve()for q in files));bindings=[dict(path=str(q).replace('\\','/'),sha256=sha(q),bytes=q.stat().st_size)for q in files]
+ put(a.output/'readiness.json',dict(passed=True,source_component_ready=True,native_ready=False,native_run=False,native_granted=False,adopted=False,installed_parent_ROM_sha256='3b112e1d79ba7348f2f7a4c426f4675845a5781017ab74690feb235121a66287',held_adapter_parent_ROM_sha256=sha(base/'candidate.nes'),private_successor_ROM_sha256=sha(a.packet/'candidate.nes'),source_directory=str(a.packet/'source').replace('\\','/'),source_files=len(manifest),changed_source_files=[dict(path=path,before=sha(base/'source'/path),after=sha(a.packet/'source'/path),before_CRLF=before.count(b'\r\n'),after_CRLF=after.count(b'\r\n'),before_bareLF=before.count(b'\n')-before.count(b'\r\n'),after_bareLF=after.count(b'\n')-after.count(b'\r\n'))],bindings=bindings,receipts=receipts,tools=[str(q).replace('\\','/')for q in tools],report=str(report).replace('\\','/'),no_cache_reserved_or_implemented=True,remaining=['Partial225.327CPU/call saving only; actual old98draw regression not requalified or closed','Native actual return-owner metadata must bind new genuine C38 bridge and resident E70/97/127 aliases','Common mixer/helper partition remains to inspect; no event/voice/sample/clock cut allowed','Private durable post-link producer production hook still pending'],freeze_tool_sha256=sha(__file__)))
+ print(json.dumps(dict(passed=True,bindings=len(bindings),tools=len(tools),source_files=len(manifest),readiness_sha256=sha(a.output/'readiness.json'))))
+if __name__=='__main__':main()

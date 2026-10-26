@@ -1,0 +1,949 @@
+{
+  "passed": true,
+  "source_only": true,
+  "native_run": false,
+  "ROM_sha256": "64ccd5038c26cabd3c57c4c3ed13b1fe467b275238610f3a227ceaa48e1ac2b6",
+  "actual_cue_source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\smb3-host-current3b-native-ready-v1\\native\\smb3-music-native.jsonl",
+  "actual_cue_source_sha256": "fc9bb7e7d85456f2c20db0136f1d6f00ee673653b8c273af9293cfaf6df2fcd7",
+  "calls": 767,
+  "cold": {
+    "whole": 4557,
+    "costs": {
+      "host-other/bank127": 211,
+      "host-other/bank7": 157,
+      "host-other/bank29": 1861,
+      "host-other/bank126": 89,
+      "host-other/bank38": 11,
+      "host-B3-adapter:B3ExpandedRoutes": 13,
+      "host-B3-adapter:B3MusicUpdate": 187,
+      "host-B3-adapter:B3ResetImage": 1293,
+      "host-B3-adapter:B3HostMute": 34,
+      "host-ZP-borrow-restore": 180,
+      "host-B3-adapter:B3StandaloneCold": 18,
+      "host-B3-adapter:B3ResetMaps": 152,
+      "ORIGINAL-source-engine": 47,
+      "original-sites/native-translation": 71,
+      "known-readers": 280
+    }
+  },
+  "steady_whole_mean": 3584.2464146023467,
+  "steady_whole_peak": 8527,
+  "exclusive_cycle_categories": {
+    "APU-image-writers": {
+      "total": 80725,
+      "mean": 105.24771838331161
+    },
+    "DMC-status-address-adapter": {
+      "total": 36734,
+      "mean": 47.89308996088657
+    },
+    "ORIGINAL-source-engine": {
+      "total": 495299,
+      "mean": 645.761408083442
+    },
+    "fixed-page6-lease-readers": {
+      "total": 58480,
+      "mean": 76.24511082138201
+    },
+    "generic-readers": {
+      "total": 358188,
+      "mean": 466.9986962190352
+    },
+    "host-B3-adapter:B3ExpandedRoutes": {
+      "total": 9971,
+      "mean": 13.0
+    },
+    "host-B3-adapter:B3Hot6Play": {
+      "total": 24544,
+      "mean": 32.0
+    },
+    "host-B3-adapter:B3MusicUpdate": {
+      "total": 100477,
+      "mean": 131.0
+    },
+    "host-ZP-borrow-restore": {
+      "total": 138060,
+      "mean": 180.0
+    },
+    "host-other/bank126": {
+      "total": 68263,
+      "mean": 89.0
+    },
+    "host-other/bank127": {
+      "total": 57012,
+      "mean": 74.33116036505866
+    },
+    "host-other/bank29": {
+      "total": 1022061,
+      "mean": 1332.5436766623206
+    },
+    "host-other/bank38": {
+      "total": 8437,
+      "mean": 11.0
+    },
+    "host-other/bank7": {
+      "total": 120419,
+      "mean": 157.0
+    },
+    "host-other/bank70": {
+      "total": 88961,
+      "mean": 115.98565840938723
+    },
+    "known-readers": {
+      "total": 2454,
+      "mean": 3.1994784876140807
+    },
+    "original-sites/native-translation": {
+      "total": 574331,
+      "mean": 748.8018252933507
+    }
+  },
+  "native_cycle_sum": 2749117,
+  "original_sameinput_reference_preserved": true,
+  "ordered_source_APU_RAM_virtualmaps_finalstate_AXYP_SP_assertions_preserved": true,
+  "physical_payload_256_slices": [
+    {
+      "payload_page": 3,
+      "offset_lo": 1792,
+      "offset_hi": 2047,
+      "reads": 3236
+    },
+    {
+      "payload_page": 2,
+      "offset_lo": 512,
+      "offset_hi": 767,
+      "reads": 1211
+    },
+    {
+      "payload_page": 2,
+      "offset_lo": 1280,
+      "offset_hi": 1535,
+      "reads": 350
+    },
+    {
+      "payload_page": 3,
+      "offset_lo": 2048,
+      "offset_hi": 2303,
+      "reads": 341
+    },
+    {
+      "payload_page": 2,
+      "offset_lo": 256,
+      "offset_hi": 511,
+      "reads": 323
+    },
+    {
+      "payload_page": 2,
+      "offset_lo": 1536,
+      "offset_hi": 1791,
+      "reads": 204
+    },
+    {
+      "payload_page": 3,
+      "offset_lo": 768,
+      "offset_hi": 1023,
+      "reads": 78
+    },
+    {
+      "payload_page": 2,
+      "offset_lo": 1024,
+      "offset_hi": 1279,
+      "reads": 32
+    }
+  ],
+  "source_reader_data_reads": 5775,
+  "top4_slice_read_fraction": 0.8896969696969697,
+  "source_PRG_register_writes": [
+    {
+      "inside_source": false,
+      "register": 20757,
+      "writes": 7670
+    },
+    {
+      "inside_source": false,
+      "register": 20758,
+      "writes": 1534
+    },
+    {
+      "inside_source": true,
+      "register": 20757,
+      "writes": 7895
+    },
+    {
+      "inside_source": true,
+      "register": 20759,
+      "writes": 378
+    }
+  ],
+  "actual_helper_call_counts": [
+    {
+      "inside_source": false,
+      "routine": "B3Borrow",
+      "calls": 767
+    },
+    {
+      "inside_source": false,
+      "routine": "B3Hot6Play",
+      "calls": 767
+    },
+    {
+      "inside_source": false,
+      "routine": "B3Restore",
+      "calls": 767
+    },
+    {
+      "inside_source": false,
+      "routine": "host-target:126:915b",
+      "calls": 767
+    },
+    {
+      "inside_source": false,
+      "routine": "host-target:127:e7bd",
+      "calls": 304
+    },
+    {
+      "inside_source": false,
+      "routine": "host-target:127:ebcc",
+      "calls": 3
+    },
+    {
+      "inside_source": false,
+      "routine": "host-target:127:ebd5",
+      "calls": 26
+    },
+    {
+      "inside_source": false,
+      "routine": "host-target:127:ebde",
+      "calls": 26
+    },
+    {
+      "inside_source": false,
+      "routine": "host-target:127:ebe7",
+      "calls": 1
+    },
+    {
+      "inside_source": false,
+      "routine": "host-target:127:ebf9",
+      "calls": 21
+    },
+    {
+      "inside_source": false,
+      "routine": "host-target:127:ec02",
+      "calls": 15
+    },
+    {
+      "inside_source": false,
+      "routine": "host-target:127:ed0a",
+      "calls": 304
+    },
+    {
+      "inside_source": false,
+      "routine": "host-target:29:a000",
+      "calls": 767
+    },
+    {
+      "inside_source": false,
+      "routine": "host-target:29:a06e",
+      "calls": 32
+    },
+    {
+      "inside_source": false,
+      "routine": "host-target:29:a075",
+      "calls": 14
+    },
+    {
+      "inside_source": false,
+      "routine": "host-target:29:a08c",
+      "calls": 27
+    },
+    {
+      "inside_source": false,
+      "routine": "host-target:29:a093",
+      "calls": 27
+    },
+    {
+      "inside_source": false,
+      "routine": "host-target:29:a104",
+      "calls": 767
+    },
+    {
+      "inside_source": false,
+      "routine": "host-target:29:a263",
+      "calls": 767
+    },
+    {
+      "inside_source": false,
+      "routine": "host-target:29:a360",
+      "calls": 767
+    },
+    {
+      "inside_source": false,
+      "routine": "host-target:29:a425",
+      "calls": 767
+    },
+    {
+      "inside_source": false,
+      "routine": "host-target:29:a4ec",
+      "calls": 767
+    },
+    {
+      "inside_source": false,
+      "routine": "host-target:29:aab5",
+      "calls": 767
+    },
+    {
+      "inside_source": false,
+      "routine": "host-target:29:ac28",
+      "calls": 590
+    },
+    {
+      "inside_source": false,
+      "routine": "host-target:29:ac67",
+      "calls": 885
+    },
+    {
+      "inside_source": false,
+      "routine": "host-target:29:acc8",
+      "calls": 1534
+    },
+    {
+      "inside_source": false,
+      "routine": "host-target:29:bfbd",
+      "calls": 767
+    },
+    {
+      "inside_source": false,
+      "routine": "host-target:38:cbe8",
+      "calls": 767
+    },
+    {
+      "inside_source": false,
+      "routine": "host-target:38:dfe8",
+      "calls": 767
+    },
+    {
+      "inside_source": false,
+      "routine": "host-target:70:e7bd",
+      "calls": 463
+    },
+    {
+      "inside_source": false,
+      "routine": "host-target:70:ebcc",
+      "calls": 1
+    },
+    {
+      "inside_source": false,
+      "routine": "host-target:70:ebd5",
+      "calls": 38
+    },
+    {
+      "inside_source": false,
+      "routine": "host-target:70:ebde",
+      "calls": 38
+    },
+    {
+      "inside_source": false,
+      "routine": "host-target:70:ebf9",
+      "calls": 11
+    },
+    {
+      "inside_source": false,
+      "routine": "host-target:70:ec02",
+      "calls": 12
+    },
+    {
+      "inside_source": false,
+      "routine": "host-target:70:ed0a",
+      "calls": 463
+    },
+    {
+      "inside_source": false,
+      "routine": "host-target:7:b3a2",
+      "calls": 1534
+    },
+    {
+      "inside_source": false,
+      "routine": "host-target:7:b3b9",
+      "calls": 767
+    },
+    {
+      "inside_source": false,
+      "routine": "host-target:7:b421",
+      "calls": 767
+    },
+    {
+      "inside_source": false,
+      "routine": "host-target:7:bfb4",
+      "calls": 767
+    },
+    {
+      "inside_source": true,
+      "routine": "B3BorrowPointer",
+      "calls": 2085
+    },
+    {
+      "inside_source": true,
+      "routine": "B3Hot6E2E5",
+      "calls": 26
+    },
+    {
+      "inside_source": true,
+      "routine": "B3Hot6E2EE",
+      "calls": 26
+    },
+    {
+      "inside_source": true,
+      "routine": "B3Hot6E2F4",
+      "calls": 26
+    },
+    {
+      "inside_source": true,
+      "routine": "B3Hot6E345",
+      "calls": 171
+    },
+    {
+      "inside_source": true,
+      "routine": "B3Hot6E6E5",
+      "calls": 56
+    },
+    {
+      "inside_source": true,
+      "routine": "B3Hot6E6EB",
+      "calls": 56
+    },
+    {
+      "inside_source": true,
+      "routine": "B3Hot6E6F1",
+      "calls": 56
+    },
+    {
+      "inside_source": true,
+      "routine": "B3Hot6E792",
+      "calls": 800
+    },
+    {
+      "inside_source": true,
+      "routine": "B3Hot6E797",
+      "calls": 800
+    },
+    {
+      "inside_source": true,
+      "routine": "B3Hot6E79E",
+      "calls": 734
+    },
+    {
+      "inside_source": true,
+      "routine": "B3Hot6E7A3",
+      "calls": 734
+    },
+    {
+      "inside_source": true,
+      "routine": "B3Hot6E7DD",
+      "calls": 85
+    },
+    {
+      "inside_source": true,
+      "routine": "B3Hot6E7E2",
+      "calls": 85
+    },
+    {
+      "inside_source": true,
+      "routine": "B3ImageSTA00",
+      "calls": 767
+    },
+    {
+      "inside_source": true,
+      "routine": "B3ImageSTA01",
+      "calls": 767
+    },
+    {
+      "inside_source": true,
+      "routine": "B3ImageSTA02X",
+      "calls": 85
+    },
+    {
+      "inside_source": true,
+      "routine": "B3ImageSTA03X",
+      "calls": 85
+    },
+    {
+      "inside_source": true,
+      "routine": "B3ImageSTA04",
+      "calls": 767
+    },
+    {
+      "inside_source": true,
+      "routine": "B3ImageSTA08",
+      "calls": 89
+    },
+    {
+      "inside_source": true,
+      "routine": "B3ImageSTA0C",
+      "calls": 56
+    },
+    {
+      "inside_source": true,
+      "routine": "B3ImageSTA0E",
+      "calls": 56
+    },
+    {
+      "inside_source": true,
+      "routine": "B3ImageSTA0F",
+      "calls": 56
+    },
+    {
+      "inside_source": true,
+      "routine": "B3ImageSTX05",
+      "calls": 767
+    },
+    {
+      "inside_source": true,
+      "routine": "B3KnownE388",
+      "calls": 1
+    },
+    {
+      "inside_source": true,
+      "routine": "B3KnownE38E",
+      "calls": 1
+    },
+    {
+      "inside_source": true,
+      "routine": "B3KnownE397",
+      "calls": 1
+    },
+    {
+      "inside_source": true,
+      "routine": "B3KnownE3B6",
+      "calls": 4
+    },
+    {
+      "inside_source": true,
+      "routine": "B3KnownE3BA",
+      "calls": 4
+    },
+    {
+      "inside_source": true,
+      "routine": "B3KnownE3C0",
+      "calls": 4
+    },
+    {
+      "inside_source": true,
+      "routine": "B3KnownE3C5",
+      "calls": 4
+    },
+    {
+      "inside_source": true,
+      "routine": "B3KnownE3CA",
+      "calls": 4
+    },
+    {
+      "inside_source": true,
+      "routine": "B3KnownE3D0",
+      "calls": 4
+    },
+    {
+      "inside_source": true,
+      "routine": "B3KnownE3D6",
+      "calls": 4
+    },
+    {
+      "inside_source": true,
+      "routine": "B3KnownE3DF",
+      "calls": 4
+    },
+    {
+      "inside_source": true,
+      "routine": "B3KnownPage3",
+      "calls": 35
+    },
+    {
+      "inside_source": true,
+      "routine": "B3Read6B",
+      "calls": 551
+    },
+    {
+      "inside_source": true,
+      "routine": "B3Read71",
+      "calls": 1534
+    },
+    {
+      "inside_source": true,
+      "routine": "B3Write4012",
+      "calls": 26
+    },
+    {
+      "inside_source": true,
+      "routine": "B3Write4015",
+      "calls": 364
+    },
+    {
+      "inside_source": true,
+      "routine": "original-source-target:38:cc92",
+      "calls": 767
+    },
+    {
+      "inside_source": true,
+      "routine": "original-source-target:38:cea2",
+      "calls": 767
+    },
+    {
+      "inside_source": true,
+      "routine": "original-source-target:38:d049",
+      "calls": 767
+    },
+    {
+      "inside_source": true,
+      "routine": "original-source-target:38:d26a",
+      "calls": 767
+    },
+    {
+      "inside_source": true,
+      "routine": "original-source-target:38:d352",
+      "calls": 767
+    },
+    {
+      "inside_source": true,
+      "routine": "original-source-target:38:d3df",
+      "calls": 171
+    },
+    {
+      "inside_source": true,
+      "routine": "original-source-target:38:d3f5",
+      "calls": 767
+    },
+    {
+      "inside_source": true,
+      "routine": "original-source-target:38:d8ee",
+      "calls": 56
+    },
+    {
+      "inside_source": true,
+      "routine": "original-source-target:38:d923",
+      "calls": 1534
+    },
+    {
+      "inside_source": true,
+      "routine": "original-source-target:38:d96c",
+      "calls": 53
+    },
+    {
+      "inside_source": true,
+      "routine": "original-source-target:38:d9f4",
+      "calls": 59
+    },
+    {
+      "inside_source": true,
+      "routine": "original-source-target:38:d9fb",
+      "calls": 49
+    },
+    {
+      "inside_source": true,
+      "routine": "original-source-target:38:dbb3",
+      "calls": 364
+    }
+  ],
+  "top_native_instruction_costs": [
+    {
+      "bank": 29,
+      "PC": 44164,
+      "category": "host-other/bank29",
+      "total": 23670
+    },
+    {
+      "bank": 29,
+      "PC": 44167,
+      "category": "host-other/bank29",
+      "total": 23670
+    },
+    {
+      "bank": 38,
+      "PC": 56110,
+      "category": "generic-readers",
+      "total": 12510
+    },
+    {
+      "bank": 38,
+      "PC": 56099,
+      "category": "generic-readers",
+      "total": 12510
+    },
+    {
+      "bank": 29,
+      "PC": 44171,
+      "category": "host-other/bank29",
+      "total": 10950
+    },
+    {
+      "bank": 38,
+      "PC": 56058,
+      "category": "generic-readers",
+      "total": 10425
+    },
+    {
+      "bank": 7,
+      "PC": 46006,
+      "category": "host-other/bank7",
+      "total": 9204
+    },
+    {
+      "bank": 29,
+      "PC": 44268,
+      "category": "host-other/bank29",
+      "total": 9204
+    },
+    {
+      "bank": 38,
+      "PC": 55636,
+      "category": "original-sites/native-translation",
+      "total": 9204
+    },
+    {
+      "bank": 38,
+      "PC": 55999,
+      "category": "generic-readers",
+      "total": 9204
+    },
+    {
+      "bank": 38,
+      "PC": 55639,
+      "category": "original-sites/native-translation",
+      "total": 9204
+    },
+    {
+      "bank": 38,
+      "PC": 56102,
+      "category": "generic-readers",
+      "total": 8340
+    },
+    {
+      "bank": 38,
+      "PC": 56107,
+      "category": "generic-readers",
+      "total": 8340
+    },
+    {
+      "bank": 38,
+      "PC": 56023,
+      "category": "generic-readers",
+      "total": 8340
+    },
+    {
+      "bank": 38,
+      "PC": 56036,
+      "category": "generic-readers",
+      "total": 8340
+    },
+    {
+      "bank": 38,
+      "PC": 56040,
+      "category": "generic-readers",
+      "total": 8340
+    },
+    {
+      "bank": 38,
+      "PC": 56045,
+      "category": "generic-readers",
+      "total": 8340
+    },
+    {
+      "bank": 38,
+      "PC": 56060,
+      "category": "generic-readers",
+      "total": 8340
+    },
+    {
+      "bank": 38,
+      "PC": 56063,
+      "category": "generic-readers",
+      "total": 8340
+    },
+    {
+      "bank": 38,
+      "PC": 56066,
+      "category": "generic-readers",
+      "total": 8340
+    },
+    {
+      "bank": 38,
+      "PC": 56079,
+      "category": "generic-readers",
+      "total": 8340
+    },
+    {
+      "bank": 38,
+      "PC": 56084,
+      "category": "generic-readers",
+      "total": 8340
+    },
+    {
+      "bank": 38,
+      "PC": 56089,
+      "category": "generic-readers",
+      "total": 8340
+    },
+    {
+      "bank": 38,
+      "PC": 56092,
+      "category": "generic-readers",
+      "total": 8340
+    },
+    {
+      "bank": 38,
+      "PC": 56095,
+      "category": "generic-readers",
+      "total": 8340
+    },
+    {
+      "bank": 38,
+      "PC": 56096,
+      "category": "generic-readers",
+      "total": 8340
+    },
+    {
+      "bank": 29,
+      "PC": 44170,
+      "category": "host-other/bank29",
+      "total": 7890
+    },
+    {
+      "bank": 38,
+      "PC": 56100,
+      "category": "generic-readers",
+      "total": 6255
+    },
+    {
+      "bank": 38,
+      "PC": 56105,
+      "category": "generic-readers",
+      "total": 6255
+    },
+    {
+      "bank": 38,
+      "PC": 56016,
+      "category": "generic-readers",
+      "total": 6255
+    },
+    {
+      "bank": 38,
+      "PC": 56026,
+      "category": "generic-readers",
+      "total": 6255
+    },
+    {
+      "bank": 38,
+      "PC": 56048,
+      "category": "generic-readers",
+      "total": 6255
+    },
+    {
+      "bank": 38,
+      "PC": 56054,
+      "category": "generic-readers",
+      "total": 6255
+    },
+    {
+      "bank": 38,
+      "PC": 56069,
+      "category": "generic-readers",
+      "total": 6255
+    },
+    {
+      "bank": 38,
+      "PC": 56082,
+      "category": "generic-readers",
+      "total": 6255
+    },
+    {
+      "bank": 38,
+      "PC": 56087,
+      "category": "generic-readers",
+      "total": 6255
+    },
+    {
+      "bank": 7,
+      "PC": 45986,
+      "category": "host-other/bank7",
+      "total": 6136
+    },
+    {
+      "bank": 29,
+      "PC": 44232,
+      "category": "host-other/bank29",
+      "total": 6136
+    },
+    {
+      "bank": 29,
+      "PC": 44241,
+      "category": "host-other/bank29",
+      "total": 6136
+    },
+    {
+      "bank": 29,
+      "PC": 44244,
+      "category": "host-other/bank29",
+      "total": 6136
+    },
+    {
+      "bank": 29,
+      "PC": 44247,
+      "category": "host-other/bank29",
+      "total": 6136
+    },
+    {
+      "bank": 29,
+      "PC": 44250,
+      "category": "host-other/bank29",
+      "total": 6136
+    },
+    {
+      "bank": 29,
+      "PC": 44253,
+      "category": "host-other/bank29",
+      "total": 6136
+    },
+    {
+      "bank": 29,
+      "PC": 44256,
+      "category": "host-other/bank29",
+      "total": 6136
+    },
+    {
+      "bank": 38,
+      "PC": 55595,
+      "category": "original-sites/native-translation",
+      "total": 6136
+    },
+    {
+      "bank": 38,
+      "PC": 55993,
+      "category": "generic-readers",
+      "total": 6136
+    },
+    {
+      "bank": 38,
+      "PC": 55996,
+      "category": "generic-readers",
+      "total": 6136
+    },
+    {
+      "bank": 38,
+      "PC": 56005,
+      "category": "generic-readers",
+      "total": 6136
+    },
+    {
+      "bank": 29,
+      "PC": 44229,
+      "category": "host-other/bank29",
+      "total": 5310
+    },
+    {
+      "bank": 38,
+      "PC": 55603,
+      "category": "original-sites/native-translation",
+      "total": 4800
+    }
+  ],
+  "checker_sha256": "4c021f5568a5b587b184977f092fc7e65b039ea197da27755c7ddf9592e9ed32",
+  "limits": "Arranged wholeAudioUpdate/source CPU replay using actual recorded incoming shared queues and767normal ticks with I1. Source sameinput reference remains exact. Omits actual Main/PPU/DMC-DMA/IRQ clocks and does not claim complete native entryRAM reproduction. Native elapsed1737 is not directly equated to this instruction-only partition. Cache feasibility/ownership and fresh native cadence remain separate."
+}
