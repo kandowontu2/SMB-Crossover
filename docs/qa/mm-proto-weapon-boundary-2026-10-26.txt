@@ -1,0 +1,116 @@
+Mega Man / Proto Man weapon followup — source-only first-profile preparation
+2026-10-26. No native grant/run, game patch, settings/default or Git changes.
+
+Input
+  D = C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py
+  Frozen D/root-current-roster-composition-v1, exact ROM
+  3b112e1d79ba7348f2f7a4c426f4675845a5781017ab74690feb235121a66287.
+  All869 source-manifest files checked. ROOT subsequently adopted this same
+  ROM; the tests continue to bind the immutable external input, not ROOT files.
+  Corrected Bass architecture: D/current3b112-bass-semantic-cleanup-ready-v1,
+  proof95eb297447cb811065c0da80b307b94d9ac12d553307b29d73a810462bfa6d0f.
+
+What is genuinely different / what still needs native checks
+  Mega/Proto are family and inventory owner1; ProtoVariant is presentation
+  alternate0/1, not another family or inventory. Menu slot was derived from
+  compiled X5MenuCharacters. The prepared profile cold-selects Mega, Hard1,
+  variant0 by real menu/controller readback; it never writes live selection,
+  family, variant or behavior RAM. (The readiness metadata's unused field
+  passive_alternates=[0,1] means presentation variants, not passive upgrades.)
+
+  Default: four MmBullet records, at most three ordinary shots; charge has its
+  own admission rules. Types1/2/3, source48/87 update thresholds. Tier2 adds3
+  to the emitted type. Bass default instead uses type4 in the ten-record Rg
+  pool. Bass's own gallery cannot stand in for Mega's primary/charge renderer.
+  Own checks needed: actual charge release, cap/pool refusal, both tier/art
+  families, physical shot/body presentation and real enemy/block contacts.
+
+  Rush8: native stock index24;4-unit summon gate, free summon/waiting, then a
+  direct twelve-unit/clamped spring debit in MegaManRushBounce. This bypasses
+  InventorySpend, just as charged Pharaoh has a distinct direct debit. B with
+  an existing Rush goes through the actual ordinary-buster source spawn path.
+  Own checks needed: floor landing, real spring contact/launch, source art,
+  free existing-Rush buster, cleanup and underfunded admission.
+
+  BALANCE9 is passive; CHARGE10 is passive, whereas Bass's BALANCE is8.
+  InvSelectable/InvAmmoIndex/InvCosts/InvItemCount and item mappings were read
+  from the linked ROM. Passive BALANCE under default selection must choose
+  the least-energy owned weapon and schedule actual refill ticks. It is not
+  another selectable weapon or an immediate auto-collected resource grant.
+
+  Easy uses the classic three power tiers and excludes the six original
+  characters from the modern inventory. A Hard Rush/inventory scene must not
+  be relabeled Easy coverage. Proto additionally needs its own body/CHR,
+  portrait/status/palette and native audio observations; matching isolated
+  mechanics does not establish presentation/audio equivalence.
+
+Prepared finite first profile: MegaHard tier1, right-facing
+  D/mm-proto-weapon-boundary-v1/native-ready-v2/readiness.json
+  SHA46957e10994cae2d9fc201b25033b1e3086b63aaeed95388383f720f11223b19
+  Six components, one potential sequential launch,4000 emulated frames maximum,
+  host timeout1200. Exact future command array is sibling command.json;
+  launch is NOT granted. Source/stock/arena resets are explicitly logged at
+  native GameLoop component boundaries. Case records have cumulative completion
+  fields; no phase-reset boolean is relabeled as a cumulative pass.
+
+  1. Actual ordinary type1 press/release, free stock and native cleanup.
+  2. Actual weak charge type1 then2 release, source threshold/art/free stock.
+  3. Actual full charge type1 then3 release, capped source counter/art/free stock.
+  4. Real Select reaches Rush8; native falling Rush lands feet at208, waiting
+     costs0; second B emits the actual free ordinary buster. A separately
+     disclosed before-subphase descending-player setup then crosses Rush;
+     source contact must debit20->8, set real jump flags, launch and complete
+     spring/exit/flying departure. This contact is not a natural controller jump.
+  5. Explicit new component stock3; actual B must refuse Rush with unchanged
+     stock and empty primary/special pools.
+  6. Real Select returns0 while skipping passive9/10. Declared before-phase
+     owned ARM/METAL/Rush stocks60/4/8 and complete small energy capsule actor
+     allow actual native pickup. BALANCE must choose index18 and actual two
+     four-unit ticks must produce METAL12, leaving ARM60/Rush8/default0 intact.
+     This is controlled pickup/use, not natural enemy-drop/acquisition evidence.
+
+  The seven shared paid special weapons are deliberately outside this first
+  profile. Bass's Phaser/semantic Kick/refill findings remain their own exact
+  evidence; the new profile neither text-substitutes its owner/index nor
+  silently claims those Bass native cases for Mega/Proto. Default/fire tier2,
+  actual damage contacts, full-pool native refusal, Easy and Proto native
+  presentation/audio remain unrun after this prepared first unit.
+
+Source/mock controls
+  Twenty-four finite assembled-CPU rows: both ProtoVariant values, ordinary /
+  48-update weak /87-update full release, Rush gate3/4/20, direct spring consumer
+  0/4/20/112, actual BALANCE admission and actual Select8->0 skipping passives.
+  Direct spring-consumer rows include states not admitted by summon; they are
+  not a claim that stock0 can naturally summon Rush. No native controller,
+  contact, timing or presentation evidence is inferred from these CPU rows.
+  Lua5.4 parse/startup:71 static callbacks, final return dispatcher, no runtime
+  host registration; eight return controls and13 original strict DMA controls;
+  seven threshold/debit accept/reject models and valid numeric-object-key JSON.
+  Supplemental nine actual generated callback/return models accept the correct
+  primary/Rush/BALANCE outcomes and reject bad debits/indices. Synthetic only.
+
+  All original E008/full256-source+physical-DMA/deadline/CHR/IRQ31/NMI A+SP/
+  bank/five-SMC/stack/APU/full-PPU guard bodies remain. Prefix changes are only
+  the source-bound menu variant predicate and numeric-key JSON tostring.
+  Tail changes are only the result filename and stricter wall bound. The
+  original NMI check does not assert all AXY. Actual primary-art pointers and
+  immutable record bytes and Rush art pointers have source-based observers;
+  actual captured HUD/body/shot readability still requires a native result
+  and independent pixel review. No universal visibility or performance claim.
+
+Retained draft failure
+  native-ready-v1/failure.json: component CPU used player page0 but inherited
+  Arena camera page1, so native offscreen cleanup correctly erased the shot.
+  No emulator was launched; no game bug or loosened assertion. v2 supplies
+  coherent explicit page0 viewport0..255. Native fixture arena was already
+  coherent and its Lua mechanics are unchanged by that CPU setup correction.
+
+Tools / outputs
+  tools/audit/mm_proto_weapon_boundary_v1.lua
+  tools/audit/mm_proto_weapon_boundary_prepare_v1.py (failed draft retained)
+  tools/audit/mm_proto_weapon_boundary_prepare_v2.py (successful source prep)
+  tools/audit/mm_proto_weapon_boundary_live_models_v1.py
+  D/mm-proto-weapon-boundary-v1/native-ready-v2/{assembled-controls,source-controls}.json
+  D/mm-proto-weapon-boundary-v1/live-models-v1/proof.json
+  Final small review receipt/catalog and owned review-files map are external;
+  no repeated ROM/runtime/source ZIP or lossless capture bundle was created.

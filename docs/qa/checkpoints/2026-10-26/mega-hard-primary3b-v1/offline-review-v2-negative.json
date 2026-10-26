@@ -1,0 +1,8 @@
+{
+  "offline_review_failure": true,
+  "native_unchanged": true,
+  "assertion": "queued capture request wall375 was incorrectly equated to completed PPU frame",
+  "observed": "basic-tier1-setup image SHA matches unique completed frame376; endFrame capture increments wall before ppu-frame-captured event",
+  "correction": "Use actual outer event wall376 for completed image; retain queued data.wall375 as source request time",
+  "original_tool_sha256": "7be21eaed4cb01b4240b4b35e882f48750d5d288b60bbc4ead2c7388cd6bae07"
+}

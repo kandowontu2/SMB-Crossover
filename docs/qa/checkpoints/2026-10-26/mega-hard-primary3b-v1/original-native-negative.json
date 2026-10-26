@@ -1,0 +1,50 @@
+{
+  "passed": false,
+  "native_attempts": 1,
+  "retries": 0,
+  "worker_released": true,
+  "first_failure": {
+    "sp": 236,
+    "y": 213,
+    "phase": {
+      "phase": "use",
+      "name": "basic-tier1"
+    },
+    "x": 3,
+    "a": 209,
+    "pc": 42021,
+    "bank": 66,
+    "message": "Actual linked primary effect pointer and C owner"
+  },
+  "runner_exit": 1,
+  "components_completed": 0,
+  "observed_primary": [
+    {
+      "data": {
+        "type": 1,
+        "update": 9,
+        "phase": "use",
+        "slot": 3,
+        "charge": 0
+      },
+      "update": 9,
+      "case": 1,
+      "pc": 41355,
+      "wall": 382,
+      "sp": 236,
+      "kind": "actual-mm-primary",
+      "bank": 8,
+      "phase": "use"
+    }
+  ],
+  "partial_actual_PPU_frames": 382,
+  "partial_allmode_exact_DMA_pages": 359,
+  "partial_DMA_data_writes": 91904,
+  "raw_epoch_counts": {
+    "startFrame-hardware": 382,
+    "actual-PPUMASK-write": 719,
+    "completed-DMA-before-render-enable": 359
+  },
+  "bindings_sha256": "1a452ea77ce08cd9f688dddcd12be6564167ba37049dcf792b2d8007b08aaefa",
+  "limits": "Stop at first primary art metadata assertion. No six-component or full hardware/gameplay verdict. First-failure screenshot is a callback-time image, not independently a completed PPU frame. C-bank/R0 not serialized at failure; ownership diagnosis is linked-source/assembled-order evidence."
+}

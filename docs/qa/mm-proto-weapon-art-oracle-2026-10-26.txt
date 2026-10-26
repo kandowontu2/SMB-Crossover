@@ -1,0 +1,68 @@
+MegaHard first native profile — retained fixture failure / corrected oracle
+2026-10-26. No game patch. One native launch used; no retry; worker released.
+
+Retained first native outcome
+  Exact3b ROM 3b112e1d79ba7348f2f7a4c426f4675845a5781017ab74690feb235121a66287.
+  D = C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py
+  Original native-ready-v2 and grant14e01c40... remain unchanged under
+  D/mm-proto-weapon-boundary-v1. Exit1 at the first primary-art check, PC A425,
+  execution bank66, A=D1/X3/Y213/SP236, component basic-tier1/use.
+  Actual type1 native spawn was observed after the free-stock/slot assertions;
+  zero of six components completed. Rush/BALANCE/charges were not reached.
+  Partial raw capture:382 completed PPU frames,359 exact physical DMA pages
+  (91904 writes). No full hardware/graphics/profile pass is claimed.
+  Native-negative-v1/proof.json SHA
+    8d4ccf589a6dbde6ae6cb42660ce5429873236552450e2385ce14321c5ff4a80
+  First-failure image is callback-time, not a separately completed PPU frame.
+  R0 and the C-bank at the exact failed instruction were not logged.
+
+Confirmed source-oracle defect
+  The preparer derived target-record bank from the pointer TABLE's segment.
+  ProtoLegacyDrawShotsCold is A66:A3BF; ProtoShotRightLo is A66:A488.
+  MmMM_BULLET_1Right is actually C12:D111, ROM offset102689:
+    08 00 02 FF 00 02 03 FD FC
+  The old configured address D111 was correct, but bank66 and its unrelated
+  36-byte record were wrong. The observed failing A=D1 fits the real path;
+  source/CPU controls below establish the actual ownership without inventing
+  a missing native C/R0 readback or declaring a gameplay graphics defect.
+
+  ProtoDrawShots's genuine first13 assembled bytes are:
+    A9 8C 8D A1 7D A9 8C 8D 16 51 20 BF A3
+  This publishes C12 to CurrentBankC and5116, then calls the A66 legacy reader.
+  The reader's low/high pointer tables address C12 records. Pointer+2 really
+  follows STA R1; it is a metadata hook, not a fake callable compiled symbol.
+
+Correction and bounded controls
+  Preparer-v3 resolves each MmMM_BULLET_N{Right,Left} target's genuine label,
+  proves table pointer equality and uses that target's physical bank/file
+  offset. Lua observer/assertions, six components, controls, input, seeds,
+  runtime/settings, maximum4000 wall/1200 host and all guard bodies are exact.
+  Only the primary-record expected bank/bytes in generated configuration change.
+  No game, palette, mapper, art, rate, outcome or scope change.
+
+  Fresh nine complete assembled ProtoDrawShots variant0 cases (types1/2/3,
+  ages1/3/9, facing1), starting with C88, all publish C12 before the real
+  reader/emitter, observe genuine pointer/record bytes and return normally.
+  Thirty-six actual generated art-callback models accept the correct pointer/
+  C12/record and reject the old C66 owner, wrong pointer and changed byte.
+  Source-only proof: art-owner-controls-v1/proof.json.
+  Fresh original24 component CPU rows and source guard/threshold models pass;
+  nine other actual generated callback models rerun on corrected script in
+  live-models-v2/proof.json. None is native renderer/PPU acceptance.
+
+Corrected readiness, NOT GRANTED / NOT RUN
+  D/mm-proto-weapon-boundary-v1/native-ready-v3/readiness.json
+  SHA41c43a07803fd2cfc9d395f1ca84683135e079adff2d82bc269e1ccb0280562a
+  Exact future command array in sibling command.json.902 original bindings.
+  One proposed native launch, same six-component MegaHard tier1/facing1 unit.
+  No automatic retry, Easy/Proto native profile, damage-contact expansion or
+  additional source changes. The earlier staging and all coverage limits
+  in mm-proto-weapon-boundary-2026-10-26.txt continue to apply.
+
+Owned new files
+  tools/audit/mm_proto_weapon_boundary_prepare_v3.py
+  tools/audit/mm_proto_weapon_art_owner_controls_v1.py
+  tools/audit/mm_proto_weapon_boundary_live_models_v2.py
+  This report. Final small corrected-readiness receipt binds these files,
+  every native negative file and the original frozen source/readiness inputs;
+  large observations are referenced by hash without copying them.
