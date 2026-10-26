@@ -1,0 +1,87 @@
+{
+  "prepared": true,
+  "source_checks_passed": true,
+  "native_run": false,
+  "native_granted": false,
+  "goal_complete": false,
+  "ROM_sha256": "5354161f339548f2e12b955f5fc1481b9956fe83a63263a04f4b2816edbbdf30",
+  "profiles": [
+    {
+      "kind": "death",
+      "limit": 2200,
+      "actual_mode_required": 0,
+      "actual_variant_required": 1,
+      "script_sha256": "a4e725c0a736f7d0992522862bb58f61b5671fae9e0b6a8c430b66b1f86a74ab",
+      "packet": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\parodius-hud-transition-preparation-v1\\death",
+      "preparation_sha256": "0b523a3936567c8f9d2925ecdca1bfffdd45555f11aaaa865ba7cc9ecf3211e6"
+    },
+    {
+      "kind": "area",
+      "limit": 2600,
+      "actual_mode_required": 0,
+      "actual_variant_required": 1,
+      "script_sha256": "73aff633fe8434e94c7a83ce89eb925031fdc01f25667b5f5312dcae17b3d167",
+      "packet": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\parodius-hud-transition-preparation-v1\\area",
+      "preparation_sha256": "ad33fdcc211b5b37c85484c93760e73c48a6302e6695eaf6d98b6ab5c28b8fbb"
+    }
+  ],
+  "preparation_sha256": "fce5631d9436f6e5a9c2cc8bfc23dd1e3d4e850a5095d2fe4ec78f74f8a73802",
+  "receipts": {
+    "observer": {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\parodius-hud-transition-observer-source-v1\\proof.json",
+      "sha256": "09c011c1adc8427e7cdf18f9d5769e20647360ae6af2cda4932fe94f757b6c98"
+    },
+    "transition": {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\parodius-hud-transition-cpu-v3\\proof.json",
+      "sha256": "de73ca9e62cd710eeb14d78ee5df72240d8dcaf92507021d31c22f1667aad8f8"
+    },
+    "buffer": {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\parodius-hud-transition-buffer-cpu-v4\\proof.json",
+      "sha256": "50c3604ca4a08ec3f4a529879a08a91064a0342e1b923b3e23452166a1be8191"
+    },
+    "DMC_source_model": {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\parodius-hud-transition-dmc-source-v1\\proof.json",
+      "sha256": "c164d5939e326436d199e79ddd88d531d830473fc3749a51b5d0597c147faf3b"
+    }
+  },
+  "qualified_menu_final_sha256": "524e16b45df2b63b12306635fd80b8366791e5209680e8ceb69e01a2bc07d16c",
+  "original_static_guard_sha256": "5408fa03f8f6e30af1868ac72e1bb70e89a9d6d54c86eb13c62553bb3240290a",
+  "terminal_bridge_sha256": "051e4f4d2a74737a7ed8215107ae7cf24404bc9c46d566b06ec21712ed125f7d",
+  "environment": {
+    "emulator": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mmc3-flag-fix-v23\\script-budget-probe-v2\\emulator\\Mesen.exe",
+    "emulator_sha256": "8b92daa209ee5052845e02a663aeb1afd6194eca55d86e6628c51114c61da0a9",
+    "core": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mmc3-flag-fix-v23\\script-budget-probe-v2\\emulator\\MesenCore.dll",
+    "core_sha256": "4bd40dfc6512328d56d8ad0563263b52be57bac726d8804f0720e461e558cd41",
+    "worker_settings": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mmc3-flag-fix-v23\\script-budget-probe-v2\\emulator\\settings.json",
+    "worker_settings_sha256": "627cd9c71a2011b4cf5fb03a0712d4d77f7890bc269b174d5757776034aab715",
+    "user_settings": "C:\\Mesen2\\settings.json",
+    "user_settings_sha256": "8a439e0a5eeddc2d4776e516aacfc224c03048b9c7d23d9926a463460a7e748a",
+    "effective_worker_conditions": {
+      "Region": "Auto",
+      "DisableSprites": false,
+      "DisableBackground": false,
+      "RemoveSpriteLimit": false,
+      "AdaptiveSpriteLimit": false,
+      "RandomizeMapperPowerOnState": false,
+      "RandomizeCpuPpuAlignment": false,
+      "RamPowerOnState": "Random",
+      "PpuExtraScanlinesBeforeNmi": 0,
+      "PpuExtraScanlinesAfterNmi": 0,
+      "RunAheadFrames": 0
+    },
+    "deterministic_command_overrides": [
+      "--doNotSaveSettings",
+      "--nes.ramPowerOnState=AllZeros",
+      "--nes.randomizeCpuPpuAlignment=false",
+      "--nes.randomizeMapperPowerOnState=false",
+      "--nes.removeSpriteLimit=false"
+    ],
+    "settings_untouched": true,
+    "limits": "Fresh actual user settings copy and effective portable-worker settings bound independently. User current settings differ from historical snapshots; no old bytes or invented diff claimed. No extra scanlines, runahead0, hardware8sprites/adaptiveoff. RAM Random in persisted worker settings is overridden toAllZeros by the original command."
+  },
+  "manifest_bindings": 4999,
+  "manifest_sha256": "873275666e04207322f86736a57d1b619dcb7da1b8d9880964913d35a61a3af9",
+  "report_sha256": "fe2f26331190af9fc92367b7226f71c4927d9b365402cc5828084b4033040520",
+  "tool_sha256": "a14fa0628a8d54f5f70e45103f740e9d324341844403948e7f4b2cdc028c1076",
+  "limits": "Two finite UNRUN numericEasy0/Octopus controllers: natural death/restart2200 and physical pipe/area2600. No staged arena/resources/queues/audio/outcome writes. Actual current-area identity comes from observed assembled loader, not mutable destinationAreaPointer. Native death/loaded-area/current-generation45 and real pending Buffer2 hold/catch-up remain required; reachability is unproved, and missing overlap must stay coverage failure rather than game defect. Character18 DMC eligibility is source-closed;32cycle bound is an explicit synthetic steady-sample model, not a native DMC/global hardware verdict. No grant/worker reservation/production/settings/adoption changes."
+}

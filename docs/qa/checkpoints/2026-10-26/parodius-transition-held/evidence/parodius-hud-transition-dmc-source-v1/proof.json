@@ -1,0 +1,237 @@
+{
+  "passed": true,
+  "native_run": false,
+  "ROM_sha256": "5354161f339548f2e12b955f5fc1481b9956fe83a63263a04f4b2816edbbdf30",
+  "character18_no_eligible_owned_DMC_path": true,
+  "source_owner_controls": [
+    {
+      "variant": 0,
+      "RemainingAudioSupported_carry": false,
+      "actual_character_change_resets_shared_DMC": true,
+      "DMC_enable_writes": 0,
+      "actual_hardware_writes": [
+        {
+          "pc": 42059,
+          "bank": 29,
+          "address": 16401,
+          "value": 0
+        }
+      ],
+      "limits": "Isolated source owner inputs, not a new native mode/control"
+    },
+    {
+      "variant": 1,
+      "RemainingAudioSupported_carry": false,
+      "actual_character_change_resets_shared_DMC": true,
+      "DMC_enable_writes": 0,
+      "actual_hardware_writes": [
+        {
+          "pc": 42059,
+          "bank": 29,
+          "address": 16401,
+          "value": 0
+        }
+      ],
+      "limits": "Isolated source owner inputs, not a new native mode/control"
+    },
+    {
+      "variant": 2,
+      "RemainingAudioSupported_carry": false,
+      "actual_character_change_resets_shared_DMC": true,
+      "DMC_enable_writes": 0,
+      "actual_hardware_writes": [
+        {
+          "pc": 42059,
+          "bank": 29,
+          "address": 16401,
+          "value": 0
+        }
+      ],
+      "limits": "Isolated source owner inputs, not a new native mode/control"
+    },
+    {
+      "variant": 3,
+      "RemainingAudioSupported_carry": false,
+      "actual_character_change_resets_shared_DMC": true,
+      "DMC_enable_writes": 0,
+      "actual_hardware_writes": [
+        {
+          "pc": 42059,
+          "bank": 29,
+          "address": 16401,
+          "value": 0
+        }
+      ],
+      "limits": "Isolated source owner inputs, not a new native mode/control"
+    }
+  ],
+  "existing_exact_menu_APU_window": {
+    "first": {
+      "scanline": 255,
+      "cpu": 13102694,
+      "frame": 441,
+      "cycle": 171
+    },
+    "last": {
+      "scanline": 14,
+      "cpu": 53576744,
+      "frame": 1800,
+      "cycle": 54
+    },
+    "DMC_register_writes": 0,
+    "DMC_enable_writes": 0,
+    "APU4015_writes": 1361,
+    "scope": "Original immutable bus only recordsAPU afterwall440; not a wholeboot absence proof"
+  },
+  "synthetic_timing_envelopes": [
+    {
+      "variant": 1,
+      "column": 0,
+      "phase": "hold_prefix",
+      "base_cycles": 2101,
+      "synthetic_max_extra_cycles": 28,
+      "synthetic_total_cycles": 2129,
+      "assumptions": "Steady uninterrupted DMC sample, fastestNTSC432CPUcycles/byte,4CPUcycles/fetch +two extra fetches. No repeated sample re-enables/glitch chain, actual DMA arbitration, input deletion or IRQ raster emulation."
+    },
+    {
+      "variant": 1,
+      "column": 0,
+      "phase": "catchup_prefix",
+      "base_cycles": 2513,
+      "synthetic_max_extra_cycles": 32,
+      "synthetic_total_cycles": 2545,
+      "assumptions": "Steady uninterrupted DMC sample, fastestNTSC432CPUcycles/byte,4CPUcycles/fetch +two extra fetches. No repeated sample re-enables/glitch chain, actual DMA arbitration, input deletion or IRQ raster emulation."
+    },
+    {
+      "variant": 1,
+      "column": 15,
+      "phase": "hold_prefix",
+      "base_cycles": 2101,
+      "synthetic_max_extra_cycles": 28,
+      "synthetic_total_cycles": 2129,
+      "assumptions": "Steady uninterrupted DMC sample, fastestNTSC432CPUcycles/byte,4CPUcycles/fetch +two extra fetches. No repeated sample re-enables/glitch chain, actual DMA arbitration, input deletion or IRQ raster emulation."
+    },
+    {
+      "variant": 1,
+      "column": 15,
+      "phase": "catchup_prefix",
+      "base_cycles": 2513,
+      "synthetic_max_extra_cycles": 32,
+      "synthetic_total_cycles": 2545,
+      "assumptions": "Steady uninterrupted DMC sample, fastestNTSC432CPUcycles/byte,4CPUcycles/fetch +two extra fetches. No repeated sample re-enables/glitch chain, actual DMA arbitration, input deletion or IRQ raster emulation."
+    },
+    {
+      "variant": 2,
+      "column": 0,
+      "phase": "hold_prefix",
+      "base_cycles": 2101,
+      "synthetic_max_extra_cycles": 28,
+      "synthetic_total_cycles": 2129,
+      "assumptions": "Steady uninterrupted DMC sample, fastestNTSC432CPUcycles/byte,4CPUcycles/fetch +two extra fetches. No repeated sample re-enables/glitch chain, actual DMA arbitration, input deletion or IRQ raster emulation."
+    },
+    {
+      "variant": 2,
+      "column": 0,
+      "phase": "catchup_prefix",
+      "base_cycles": 2513,
+      "synthetic_max_extra_cycles": 32,
+      "synthetic_total_cycles": 2545,
+      "assumptions": "Steady uninterrupted DMC sample, fastestNTSC432CPUcycles/byte,4CPUcycles/fetch +two extra fetches. No repeated sample re-enables/glitch chain, actual DMA arbitration, input deletion or IRQ raster emulation."
+    },
+    {
+      "variant": 2,
+      "column": 15,
+      "phase": "hold_prefix",
+      "base_cycles": 2101,
+      "synthetic_max_extra_cycles": 28,
+      "synthetic_total_cycles": 2129,
+      "assumptions": "Steady uninterrupted DMC sample, fastestNTSC432CPUcycles/byte,4CPUcycles/fetch +two extra fetches. No repeated sample re-enables/glitch chain, actual DMA arbitration, input deletion or IRQ raster emulation."
+    },
+    {
+      "variant": 2,
+      "column": 15,
+      "phase": "catchup_prefix",
+      "base_cycles": 2513,
+      "synthetic_max_extra_cycles": 32,
+      "synthetic_total_cycles": 2545,
+      "assumptions": "Steady uninterrupted DMC sample, fastestNTSC432CPUcycles/byte,4CPUcycles/fetch +two extra fetches. No repeated sample re-enables/glitch chain, actual DMA arbitration, input deletion or IRQ raster emulation."
+    },
+    {
+      "variant": 3,
+      "column": 0,
+      "phase": "hold_prefix",
+      "base_cycles": 2101,
+      "synthetic_max_extra_cycles": 28,
+      "synthetic_total_cycles": 2129,
+      "assumptions": "Steady uninterrupted DMC sample, fastestNTSC432CPUcycles/byte,4CPUcycles/fetch +two extra fetches. No repeated sample re-enables/glitch chain, actual DMA arbitration, input deletion or IRQ raster emulation."
+    },
+    {
+      "variant": 3,
+      "column": 0,
+      "phase": "catchup_prefix",
+      "base_cycles": 2513,
+      "synthetic_max_extra_cycles": 32,
+      "synthetic_total_cycles": 2545,
+      "assumptions": "Steady uninterrupted DMC sample, fastestNTSC432CPUcycles/byte,4CPUcycles/fetch +two extra fetches. No repeated sample re-enables/glitch chain, actual DMA arbitration, input deletion or IRQ raster emulation."
+    },
+    {
+      "variant": 3,
+      "column": 15,
+      "phase": "hold_prefix",
+      "base_cycles": 2101,
+      "synthetic_max_extra_cycles": 28,
+      "synthetic_total_cycles": 2129,
+      "assumptions": "Steady uninterrupted DMC sample, fastestNTSC432CPUcycles/byte,4CPUcycles/fetch +two extra fetches. No repeated sample re-enables/glitch chain, actual DMA arbitration, input deletion or IRQ raster emulation."
+    },
+    {
+      "variant": 3,
+      "column": 15,
+      "phase": "catchup_prefix",
+      "base_cycles": 2513,
+      "synthetic_max_extra_cycles": 32,
+      "synthetic_total_cycles": 2545,
+      "assumptions": "Steady uninterrupted DMC sample, fastestNTSC432CPUcycles/byte,4CPUcycles/fetch +two extra fetches. No repeated sample re-enables/glitch chain, actual DMA arbitration, input deletion or IRQ raster emulation."
+    }
+  ],
+  "synthetic_max_extra_cycles": 32,
+  "existing_native_menu_margin_comparison": [
+    {
+      "actual_frame": 278,
+      "observed_margin_CPU_cycles": 208,
+      "model_only_margin_after_extra": 176
+    },
+    {
+      "actual_frame": 376,
+      "observed_margin_CPU_cycles": 206,
+      "model_only_margin_after_extra": 174
+    }
+  ],
+  "primary_sources": {
+    "APU/DeltaModulationChannel.h": {
+      "url": "https://raw.githubusercontent.com/SourMesen/Mesen2/master/Core/NES/APU/DeltaModulationChannel.h",
+      "sha256": "75279ffc73123dcba1aec6468071e435bcd6b7f4aa707309978898ca08e7af18",
+      "scope": "Contemporary upstream primary implementation for a disclosed model, not asserted byte/source identity with pinned localMesenCore.dll"
+    },
+    "APU/DeltaModulationChannel.cpp": {
+      "url": "https://raw.githubusercontent.com/SourMesen/Mesen2/master/Core/NES/APU/DeltaModulationChannel.cpp",
+      "sha256": "8dfd980b8552f35f1385fadfb43fdc076b1435ffb3e4722288cdba9a588ec0a1",
+      "scope": "Contemporary upstream primary implementation for a disclosed model, not asserted byte/source identity with pinned localMesenCore.dll"
+    },
+    "NesCpu.cpp": {
+      "url": "https://raw.githubusercontent.com/SourMesen/Mesen2/master/Core/NES/NesCpu.cpp",
+      "sha256": "8880a333bf5cae15f08b666233f1a2b604e050fbfc1ef9388ccfeea9d510d552",
+      "scope": "Contemporary upstream primary implementation for a disclosed model, not asserted byte/source identity with pinned localMesenCore.dll"
+    }
+  },
+  "source_sha256": {
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\parodius-menu-hint-candidate-v2\\source\\src\\remaining_audio.s": "6f5db043fcb9f9e066dbef962c42271e92e68eb4dc393fed55a8d620a8d113ff",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\parodius-menu-hint-candidate-v2\\source\\src\\guest_audio.s": "c916cc7a9836aa8b7d0e94849acc16ab51bcce0da39a8cffabe76ac0de34eb91",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\parodius-menu-hint-candidate-v2\\source\\src\\expanded_audio.s": "39600ed73bcc08c66b7d4c726a8f398c8470d70d72ce865091c94733b72e5422",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\parodius-menu-hint-candidate-v2\\source\\src\\gradius_audio.s": "6e78720d80de735f9d85afe2cf4c4205bde1c197018b0e7ed9af7ded080a1f58",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\parodius-menu-hint-candidate-v2\\source\\src\\parodius_adapter.s": "446d08b68d98852a9180151feb05642760de6becae2e6c6a3333865c063b9304"
+  },
+  "menu_receipt_sha256": "b29110eb25a68a2b4319b353842461485b7083948b65808d4e2497d63e3cec8b",
+  "buffer_CPU_sha256": "50c3604ca4a08ec3f4a529879a08a91064a0342e1b923b3e23452166a1be8191",
+  "tool_sha256": "d3c23a23cf7ae40b895404427e98597c3b35b40400000b087d257cf5f678116d",
+  "limits": "Source-owned DMC eligibility is closed only for currentcharacter18 sound paths; no injected/native DMC case is proposed. Existing native observations and synthetic timing bounds are distinct. Model excludes repeated sample restarts/glitches/input deletion/raster arbitration and does not establish globalNMI60Hz or hardware worstcase for other characters. Genuine death/area/Buffer2 lifecycle coverage remains unrun."
+}

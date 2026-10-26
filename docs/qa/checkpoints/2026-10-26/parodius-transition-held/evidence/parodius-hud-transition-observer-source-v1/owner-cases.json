@@ -1,0 +1,150 @@
+[
+  {
+    "mode": 0,
+    "owner": "InitializeMemory",
+    "publishes": false,
+    "page2_preserved_exact": true,
+    "steps": 17914
+  },
+  {
+    "mode": 0,
+    "owner": "MoveAllSpritesOffscreen",
+    "publication": 1,
+    "phase": "init-blank",
+    "oam_bytes": 256,
+    "all64_Y_248": true
+  },
+  {
+    "mode": 0,
+    "owner": "OAMandReadJoypad",
+    "source_phase": "init-blank",
+    "complete_bytes": 256,
+    "completion_after_actual_next_LDX": true,
+    "exact256": true,
+    "untimed_model": true
+  },
+  {
+    "mode": 0,
+    "owner": "X5PortraitRender",
+    "publication": 2,
+    "phase": "init-portrait",
+    "body_source": "PnRecordV1N0",
+    "body_parts": 7,
+    "oam_bytes": 256
+  },
+  {
+    "mode": 0,
+    "owner": "DrawAllMetasprites",
+    "engine": 3,
+    "publication": 3,
+    "generation": 1,
+    "phase": "init-draw",
+    "body_source": "PnRecordV1N0",
+    "body_parts": 7,
+    "oam_bytes": 256
+  },
+  {
+    "mode": 0,
+    "owner": "OAMandReadJoypad",
+    "source_phase": "init-draw",
+    "generation": 1,
+    "complete_bytes": 256,
+    "completion_after_actual_next_LDX": true,
+    "exact256": true,
+    "untimed_model": true
+  },
+  {
+    "mode": 0,
+    "owner": "SamusFreezeUpdateScreen",
+    "actual_parser_loop_entries": 2,
+    "actual_JSR_calls": 1,
+    "packet": [
+      32,
+      34,
+      2,
+      3,
+      4,
+      0
+    ],
+    "loop_pointers": [
+      1199,
+      1204
+    ],
+    "constant_return_word": 49154,
+    "untimed_host_NMI_context": true
+  },
+  {
+    "mode": 1,
+    "owner": "InitializeMemory",
+    "publishes": false,
+    "page2_preserved_exact": true,
+    "steps": 17914
+  },
+  {
+    "mode": 1,
+    "owner": "MoveAllSpritesOffscreen",
+    "publication": 1,
+    "phase": "init-blank",
+    "oam_bytes": 256,
+    "all64_Y_248": true
+  },
+  {
+    "mode": 1,
+    "owner": "OAMandReadJoypad",
+    "source_phase": "init-blank",
+    "complete_bytes": 256,
+    "completion_after_actual_next_LDX": true,
+    "exact256": true,
+    "untimed_model": true
+  },
+  {
+    "mode": 1,
+    "owner": "X5PortraitRender",
+    "publication": 2,
+    "phase": "init-portrait",
+    "body_source": "PnRecordV1N0",
+    "body_parts": 7,
+    "oam_bytes": 256
+  },
+  {
+    "mode": 1,
+    "owner": "DrawAllMetasprites",
+    "engine": 3,
+    "publication": 3,
+    "generation": 1,
+    "phase": "init-draw",
+    "body_source": "PnRecordV1N0",
+    "body_parts": 7,
+    "oam_bytes": 256
+  },
+  {
+    "mode": 1,
+    "owner": "OAMandReadJoypad",
+    "source_phase": "init-draw",
+    "generation": 1,
+    "complete_bytes": 256,
+    "completion_after_actual_next_LDX": true,
+    "exact256": true,
+    "untimed_model": true
+  },
+  {
+    "mode": 1,
+    "owner": "SamusFreezeUpdateScreen",
+    "actual_parser_loop_entries": 2,
+    "actual_JSR_calls": 1,
+    "packet": [
+      32,
+      34,
+      2,
+      3,
+      4,
+      0
+    ],
+    "loop_pointers": [
+      1199,
+      1204
+    ],
+    "constant_return_word": 49154,
+    "untimed_host_NMI_context": true
+  }
+]

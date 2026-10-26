@@ -1,0 +1,52 @@
+{
+  "reviewed": true,
+  "scope": "30selected actual wholePPU frames only",
+  "profiles": [
+    {
+      "kind": "death",
+      "frames": [
+        278,
+        456,
+        459,
+        460,
+        477,
+        500,
+        510,
+        511,
+        512,
+        513
+      ],
+      "sheet_sha256": "dbf9a8d2be77e1d061549fc7d659224fd6fe118bdf5661ec7bc38e80fecd8938"
+    },
+    {
+      "kind": "area",
+      "frames": [
+        278,
+        456,
+        459,
+        460,
+        477,
+        500,
+        510,
+        511,
+        512,
+        513,
+        1177,
+        1178,
+        1179,
+        1200,
+        1300,
+        1500,
+        1556,
+        1557,
+        1558,
+        1559
+      ],
+      "sheet_sha256": "e241689a50061142ddc48a078715057f589916798360653ec717e3ac9cb9038e"
+    }
+  ],
+  "conclusion": "Selected menus/firstHUD stable; deathprefix descends intofloor, area target already behind right-edge hero then stale duringautoscroll. No death-animation frame captured after actualowner. No ROMdefect or fullvisualclearance inferred.",
+  "source_limit": "Original missing-body-alias assertion logs no pointer/bytes/PC snapshot. Separate13death records/CHR owner must be source/CPU-qualified before an observer successor.",
+  "report_sha256": "9b668ef9dd26c7d5c94c6382e54b77a2073508bca06e6e46d5d677b192b877eb",
+  "worker_released": true
+}

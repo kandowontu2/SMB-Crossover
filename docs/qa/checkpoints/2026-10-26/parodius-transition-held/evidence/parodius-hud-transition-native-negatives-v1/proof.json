@@ -1,0 +1,94 @@
+{
+  "passed": false,
+  "native_run": true,
+  "launches": 2,
+  "retries": 0,
+  "worker_released": true,
+  "ROM_sha256": "5354161f339548f2e12b955f5fc1481b9956fe83a63263a04f4b2816edbbdf30",
+  "profiles": [
+    {
+      "kind": "death",
+      "passed": false,
+      "run_receipt_sha256": "43afd02aad0280ae7015a92f1624937a38cb5b0aa0ac60c2dd5f5d87cb64edd3",
+      "raw_frames": 364,
+      "last_actual_saved_frame": 513,
+      "actual_KillPlayer": {
+        "scanline": 42,
+        "cycle": 99,
+        "frame": 514,
+        "cpu": 15282213
+      },
+      "actual_VvDeathStart": {
+        "scanline": 45,
+        "cycle": 312,
+        "frame": 514,
+        "cpu": 15282625
+      },
+      "required_components_present": 0,
+      "required_components": 5,
+      "selected_frames": [
+        278,
+        456,
+        459,
+        460,
+        477,
+        500,
+        510,
+        511,
+        512,
+        513
+      ],
+      "evidence_sha256": "db358714743ada37469b0af36151897a095fdc7682c49b3705b95a83cac8ffa8",
+      "sheet_sha256": "dbf9a8d2be77e1d061549fc7d659224fd6fe118bdf5661ec7bc38e80fecd8938"
+    },
+    {
+      "kind": "area",
+      "passed": false,
+      "run_receipt_sha256": "86066a6e8fbfc9c4d22964baaf2209b61753aec90b48b21c7711f3460593e56e",
+      "raw_frames": 1410,
+      "last_actual_saved_frame": 1559,
+      "actual_KillPlayer": {
+        "cycle": 199,
+        "scanline": 46,
+        "frame": 1560,
+        "cpu": 46433104
+      },
+      "actual_VvDeathStart": {
+        "cycle": 71,
+        "scanline": 50,
+        "frame": 1560,
+        "cpu": 46433516
+      },
+      "required_components_present": 0,
+      "required_components": 5,
+      "selected_frames": [
+        278,
+        456,
+        459,
+        460,
+        477,
+        500,
+        510,
+        511,
+        512,
+        513,
+        1177,
+        1178,
+        1179,
+        1200,
+        1300,
+        1500,
+        1556,
+        1557,
+        1558,
+        1559
+      ],
+      "evidence_sha256": "b6768c61429c86e2f996cb62c9cff346630e3f5e231399e1d11145a25d75dc5d",
+      "sheet_sha256": "e241689a50061142ddc48a078715057f589916798360653ec717e3ac9cb9038e"
+    }
+  ],
+  "manifest_bindings": 1867,
+  "manifest_sha256": "663fad52786aabef64c6a411b4a06280d9301e08049c5188fb3760645b9c9598",
+  "tool_sha256": "204f0455fd19321e4a1d493292a56f3c846a70080066bd30769cd67015ad49cd",
+  "limits": "Two exact authorized original runs, both false, all raw prefixes/five missing components preserved. Source body metadata131live records omits the separate death-pose family; actual failing pointer/owner snapshot was not logged before original assertion, so source/CPU attribution remains separate. Selected actual visual review still required. No new native grant/retry, guard weakening, ROM defect, life/restart/area/Buffer2/adoption/fullgoal verdict."
+}

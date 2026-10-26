@@ -1,0 +1,405 @@
+{
+  "predicate_cases": [
+    {
+      "case": "correct recorded phases",
+      "accepted": true,
+      "reason": "Actual HUD-start lease and completed native IRQ31 world-font phase"
+    },
+    {
+      "case": "wrongHUDstartfont",
+      "accepted": false,
+      "reason": "Actual HUD-start hardware lease"
+    },
+    {
+      "case": "wrongVisibleHUDfont",
+      "accepted": false,
+      "reason": "Actual HUD-start hardware lease"
+    },
+    {
+      "case": "absentIRQ",
+      "accepted": false,
+      "reason": "Recorded physical IRQ31 native owner"
+    },
+    {
+      "case": "absentFontWrite",
+      "accepted": false,
+      "reason": "Recorded intended IRQ world-font write"
+    },
+    {
+      "case": "absentIRQreturn",
+      "accepted": false,
+      "reason": "Completed IRQ hardware world-font takeover"
+    },
+    {
+      "case": "wrongIRQfont",
+      "accepted": false,
+      "reason": "Completed IRQ hardware world-font takeover"
+    },
+    {
+      "case": "wrongIRQwrite",
+      "accepted": false,
+      "reason": "Recorded intended IRQ world-font write"
+    },
+    {
+      "case": "wrongIRQupper",
+      "accepted": false,
+      "reason": "Recorded intended IRQ world-font write"
+    },
+    {
+      "case": "wrongIRQphysical",
+      "accepted": false,
+      "reason": "Recorded intended IRQ world-font write"
+    },
+    {
+      "case": "wrongIRQsourcePC",
+      "accepted": false,
+      "reason": "Recorded intended IRQ world-font write"
+    },
+    {
+      "case": "wrongIRQbank",
+      "accepted": false,
+      "reason": "Recorded physical IRQ31 native owner"
+    },
+    {
+      "case": "wrongIRQinstruction",
+      "accepted": false,
+      "reason": "Recorded intended IRQ world-font write"
+    },
+    {
+      "case": "wrongIRQline",
+      "accepted": false,
+      "reason": "Recorded physical IRQ31 native owner"
+    },
+    {
+      "case": "wrongIRQepoch",
+      "accepted": false,
+      "reason": "Recorded physical IRQ31 native owner"
+    },
+    {
+      "case": "wrongStartEpoch",
+      "accepted": false,
+      "reason": "Same actual visible/endFrame epoch"
+    },
+    {
+      "case": "wrongOriginalStartEpoch",
+      "accepted": false,
+      "reason": "Same actual visible/endFrame epoch"
+    },
+    {
+      "case": "wrongEndEpoch",
+      "accepted": false,
+      "reason": "Same actual visible/endFrame epoch"
+    },
+    {
+      "case": "wrongEndPhase",
+      "accepted": false,
+      "reason": "Same actual visible/endFrame epoch"
+    },
+    {
+      "case": "wrongSourceGeneration",
+      "accepted": false,
+      "reason": "Current displayed source generation"
+    },
+    {
+      "case": "wrongCurrentGeneration",
+      "accepted": false,
+      "reason": "Current displayed source generation"
+    },
+    {
+      "case": "wrongVisibleGeneration",
+      "accepted": false,
+      "reason": "Current displayed source generation"
+    },
+    {
+      "case": "wrongPublication",
+      "accepted": false,
+      "reason": "Same displayed publication and DMA"
+    },
+    {
+      "case": "wrongDMA",
+      "accepted": false,
+      "reason": "Same displayed publication and DMA"
+    },
+    {
+      "case": "incompleteDMA",
+      "accepted": false,
+      "reason": "Completed exact visible hardware owner"
+    },
+    {
+      "case": "wrongHardware",
+      "accepted": false,
+      "reason": "Completed exact visible hardware owner"
+    },
+    {
+      "case": "pendingDMA",
+      "accepted": false,
+      "reason": "Completed exact visible hardware owner"
+    },
+    {
+      "case": "renderingOff",
+      "accepted": false,
+      "reason": "Completed exact visible hardware owner"
+    },
+    {
+      "case": "wrongVariant",
+      "accepted": false,
+      "reason": "Matching live mode/variant and supporting lease tag"
+    },
+    {
+      "case": "wrongMode",
+      "accepted": false,
+      "reason": "Matching live mode/variant and supporting lease tag"
+    },
+    {
+      "case": "wrongTag",
+      "accepted": false,
+      "reason": "Matching live mode/variant and supporting lease tag"
+    },
+    {
+      "case": "wrongPhysicalTag",
+      "accepted": false,
+      "reason": "Matching live mode/variant and supporting lease tag"
+    },
+    {
+      "case": "wrongUpperTag",
+      "accepted": false,
+      "reason": "Matching live mode/variant and supporting lease tag"
+    },
+    {
+      "case": "inactiveEngine",
+      "accepted": false,
+      "reason": "Matching live mode/variant and supporting lease tag"
+    },
+    {
+      "case": "wrongEndpointFont",
+      "accepted": false,
+      "reason": "No later unexpected font ownership"
+    },
+    {
+      "case": "noMeaningfulUpdates",
+      "accepted": false,
+      "reason": "Meaningful current-generation update coverage"
+    },
+    {
+      "case": "IRQbeforeStart",
+      "accepted": false,
+      "reason": "Recorded physical IRQ31 native owner"
+    },
+    {
+      "case": "fontWriteBeforeIRQ",
+      "accepted": false,
+      "reason": "Recorded intended IRQ world-font write"
+    },
+    {
+      "case": "returnBeforeWrite",
+      "accepted": false,
+      "reason": "Completed IRQ hardware world-font takeover"
+    },
+    {
+      "case": "returnAfterEnd",
+      "accepted": false,
+      "reason": "Completed IRQ hardware world-font takeover"
+    },
+    {
+      "case": "unexpectedLaterFontWrite",
+      "accepted": false,
+      "reason": "No later unexpected font ownership"
+    }
+  ],
+  "observer_sequence_cases": [
+    {
+      "case": "correct-observed-sequence",
+      "accepted": true,
+      "reason": "Actual HUD-start lease and completed native IRQ31 world-font phase",
+      "static_start_callbacks": 1,
+      "static_memory_callbacks": 1,
+      "logged_events": 4,
+      "actual_endpoint_font_in_mock": 0,
+      "limits": "Host-only synthetic state/callback ordering, not native execution"
+    },
+    {
+      "case": "later-same-font-write",
+      "accepted": false,
+      "reason": "No later unexpected font ownership",
+      "static_start_callbacks": 1,
+      "static_memory_callbacks": 1,
+      "logged_events": 5,
+      "actual_endpoint_font_in_mock": 0,
+      "limits": "Host-only synthetic state/callback ordering, not native execution"
+    },
+    {
+      "case": "new-generation",
+      "accepted": false,
+      "reason": "Current displayed source generation",
+      "static_start_callbacks": 1,
+      "static_memory_callbacks": 1,
+      "logged_events": 4,
+      "actual_endpoint_font_in_mock": 0,
+      "limits": "Host-only synthetic state/callback ordering, not native execution"
+    },
+    {
+      "case": "new-displayed-publication",
+      "accepted": false,
+      "reason": "Same displayed publication and DMA",
+      "static_start_callbacks": 1,
+      "static_memory_callbacks": 1,
+      "logged_events": 4,
+      "actual_endpoint_font_in_mock": 0,
+      "limits": "Host-only synthetic state/callback ordering, not native execution"
+    }
+  ],
+  "compiled_IRQ_cases": [
+    {
+      "mode": 0,
+      "scroll": 0,
+      "AXYP_SP_restored": true,
+      "actual_compiled_font_write": {
+        "instruction_PC": 32786,
+        "callback_PC": 32789,
+        "physical_bank": 126,
+        "value": 0,
+        "completed_CPU_cycles": 32
+      },
+      "actual_RTI_endpoint": {
+        "PC": 32835,
+        "cycles": 107,
+        "SP": 250
+      },
+      "full_CPU_cycles": 113,
+      "limits": "Synthetic CPU state/interrupt entry, no PPU raster timing claim"
+    },
+    {
+      "mode": 0,
+      "scroll": 7,
+      "AXYP_SP_restored": true,
+      "actual_compiled_font_write": {
+        "instruction_PC": 32786,
+        "callback_PC": 32789,
+        "physical_bank": 126,
+        "value": 0,
+        "completed_CPU_cycles": 32
+      },
+      "actual_RTI_endpoint": {
+        "PC": 32835,
+        "cycles": 107,
+        "SP": 250
+      },
+      "full_CPU_cycles": 113,
+      "limits": "Synthetic CPU state/interrupt entry, no PPU raster timing claim"
+    },
+    {
+      "mode": 0,
+      "scroll": 128,
+      "AXYP_SP_restored": true,
+      "actual_compiled_font_write": {
+        "instruction_PC": 32786,
+        "callback_PC": 32789,
+        "physical_bank": 126,
+        "value": 0,
+        "completed_CPU_cycles": 32
+      },
+      "actual_RTI_endpoint": {
+        "PC": 32835,
+        "cycles": 107,
+        "SP": 250
+      },
+      "full_CPU_cycles": 113,
+      "limits": "Synthetic CPU state/interrupt entry, no PPU raster timing claim"
+    },
+    {
+      "mode": 0,
+      "scroll": 255,
+      "AXYP_SP_restored": true,
+      "actual_compiled_font_write": {
+        "instruction_PC": 32786,
+        "callback_PC": 32789,
+        "physical_bank": 126,
+        "value": 0,
+        "completed_CPU_cycles": 32
+      },
+      "actual_RTI_endpoint": {
+        "PC": 32835,
+        "cycles": 107,
+        "SP": 250
+      },
+      "full_CPU_cycles": 113,
+      "limits": "Synthetic CPU state/interrupt entry, no PPU raster timing claim"
+    },
+    {
+      "mode": 1,
+      "scroll": 0,
+      "AXYP_SP_restored": true,
+      "actual_compiled_font_write": {
+        "instruction_PC": 32786,
+        "callback_PC": 32789,
+        "physical_bank": 126,
+        "value": 0,
+        "completed_CPU_cycles": 32
+      },
+      "actual_RTI_endpoint": {
+        "PC": 32835,
+        "cycles": 107,
+        "SP": 250
+      },
+      "full_CPU_cycles": 113,
+      "limits": "Synthetic CPU state/interrupt entry, no PPU raster timing claim"
+    },
+    {
+      "mode": 1,
+      "scroll": 7,
+      "AXYP_SP_restored": true,
+      "actual_compiled_font_write": {
+        "instruction_PC": 32786,
+        "callback_PC": 32789,
+        "physical_bank": 126,
+        "value": 0,
+        "completed_CPU_cycles": 32
+      },
+      "actual_RTI_endpoint": {
+        "PC": 32835,
+        "cycles": 107,
+        "SP": 250
+      },
+      "full_CPU_cycles": 113,
+      "limits": "Synthetic CPU state/interrupt entry, no PPU raster timing claim"
+    },
+    {
+      "mode": 1,
+      "scroll": 128,
+      "AXYP_SP_restored": true,
+      "actual_compiled_font_write": {
+        "instruction_PC": 32786,
+        "callback_PC": 32789,
+        "physical_bank": 126,
+        "value": 0,
+        "completed_CPU_cycles": 32
+      },
+      "actual_RTI_endpoint": {
+        "PC": 32835,
+        "cycles": 107,
+        "SP": 250
+      },
+      "full_CPU_cycles": 113,
+      "limits": "Synthetic CPU state/interrupt entry, no PPU raster timing claim"
+    },
+    {
+      "mode": 1,
+      "scroll": 255,
+      "AXYP_SP_restored": true,
+      "actual_compiled_font_write": {
+        "instruction_PC": 32786,
+        "callback_PC": 32789,
+        "physical_bank": 126,
+        "value": 0,
+        "completed_CPU_cycles": 32
+      },
+      "actual_RTI_endpoint": {
+        "PC": 32835,
+        "cycles": 107,
+        "SP": 250
+      },
+      "full_CPU_cycles": 113,
+      "limits": "Synthetic CPU state/interrupt entry, no PPU raster timing claim"
+    }
+  ]
+}

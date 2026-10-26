@@ -1,0 +1,135 @@
+{
+  "passed": true,
+  "native_run": false,
+  "ROM_modified": false,
+  "ROM_sha256": "5354161f339548f2e12b955f5fc1481b9956fe83a63263a04f4b2816edbbdf30",
+  "profiles": [
+    {
+      "kind": "death",
+      "script_sha256": "a4e725c0a736f7d0992522862bb58f61b5671fae9e0b6a8c430b66b1f86a74ab",
+      "fixed_callbacks": 71,
+      "dispatcher_last": true,
+      "inactive_mock_frames": 149,
+      "runtime_API_registration_attempts": 0
+    },
+    {
+      "kind": "area",
+      "script_sha256": "73aff633fe8434e94c7a83ce89eb925031fdc01f25667b5f5312dcae17b3d167",
+      "fixed_callbacks": 71,
+      "dispatcher_last": true,
+      "inactive_mock_frames": 149,
+      "runtime_API_registration_attempts": 0
+    }
+  ],
+  "bridge_cases": [
+    {
+      "blocked": "none",
+      "accepted": true,
+      "retains_same_visible_and_completed_images": true,
+      "generation": 1,
+      "logged": 1
+    },
+    {
+      "blocked": "nmi",
+      "accepted": false,
+      "retains_same_visible_and_completed_images": true,
+      "generation": 0,
+      "logged": 0
+    },
+    {
+      "blocked": "irq",
+      "accepted": false,
+      "retains_same_visible_and_completed_images": true,
+      "generation": 0,
+      "logged": 0
+    },
+    {
+      "blocked": "emitter",
+      "accepted": false,
+      "retains_same_visible_and_completed_images": true,
+      "generation": 0,
+      "logged": 0
+    },
+    {
+      "blocked": "pending-body",
+      "accepted": false,
+      "retains_same_visible_and_completed_images": true,
+      "generation": 0,
+      "logged": 0
+    },
+    {
+      "blocked": "dma",
+      "accepted": false,
+      "retains_same_visible_and_completed_images": true,
+      "generation": 0,
+      "logged": 0
+    }
+  ],
+  "diagnostic_cases": [
+    {
+      "completed": false,
+      "hardware_exact": false,
+      "mask": 30,
+      "unchanged_assertion_passed": false,
+      "preassertion_full_snapshots_logged": true,
+      "hardware_source_current_RAM_bytes": 256,
+      "mismatch_file_saved_before_failure": true,
+      "first_diff_offset": 101
+    },
+    {
+      "completed": false,
+      "hardware_exact": true,
+      "mask": 30,
+      "unchanged_assertion_passed": false,
+      "preassertion_full_snapshots_logged": true,
+      "hardware_source_current_RAM_bytes": 256,
+      "mismatch_file_saved_before_failure": true,
+      "first_diff_offset": null
+    },
+    {
+      "completed": true,
+      "hardware_exact": false,
+      "mask": 30,
+      "unchanged_assertion_passed": false,
+      "preassertion_full_snapshots_logged": true,
+      "hardware_source_current_RAM_bytes": 256,
+      "mismatch_file_saved_before_failure": true,
+      "first_diff_offset": 101
+    },
+    {
+      "completed": true,
+      "hardware_exact": true,
+      "mask": 30,
+      "unchanged_assertion_passed": true,
+      "preassertion_full_snapshots_logged": true,
+      "hardware_source_current_RAM_bytes": 256,
+      "mismatch_file_saved_before_failure": false,
+      "first_diff_offset": null
+    },
+    {
+      "completed": false,
+      "hardware_exact": false,
+      "mask": 6,
+      "unchanged_assertion_passed": true,
+      "preassertion_full_snapshots_logged": true,
+      "hardware_source_current_RAM_bytes": 256,
+      "mismatch_file_saved_before_failure": false,
+      "first_diff_offset": 101
+    }
+  ],
+  "assembled_owner_cases": 14,
+  "terminal_phase_cases": {
+    "predicate_cases": 41,
+    "observer_sequence_cases": 4,
+    "compiled_IRQ_cases": 8
+  },
+  "terminal_phase_cases_sha256": "92c9f44c7e93e429b83df00020daade8065fa32ef5a73b34b58d7bfcba74d6cc",
+  "terminal_phase_tool_sha256": "4287d61931c8f000375ef92693cd57a9bc464d3d942c83bfd380aa8f5086140d",
+  "owner_cases_sha256": "432375adea182f8840b78cd1588d19c1bed59e23c9c697b17f6ae61d1bdeedaf",
+  "preserves_original_live_guard_file": true,
+  "original_guard_sha256": "5408fa03f8f6e30af1868ac72e1bb70e89a9d6d54c86eb13c62553bb3240290a",
+  "bridge_sha256": "051e4f4d2a74737a7ed8215107ae7cf24404bc9c46d566b06ec21712ed125f7d",
+  "preparation_sha256": "fce5631d9436f6e5a9c2cc8bfc23dd1e3d4e850a5095d2fe4ec78f74f8a73802",
+  "tool_sha256": "cab3c674ed5f22e4aff94391fe77b3f43b74d7e7d75dd029b164fcf9bc6cc7a3",
+  "limits": "Source-only Lua startup, host generation data and actual assembled CPU init paths under synthetic APIs. Four actual OAMandReadJoypad CPU calls use an explicit untimed256-byte hardware model to exercise completion and return endpoints, not real DMA/PPU timing. Two genuine parser gateway calls use an explicit host NMI context and show two public-label iterations for one JSR. Terminal phase positive/negative cases use synthetic host evidence; eight additional actual compiled IRQ routines bind the intended zero-font write PC/RTI and restore AXYP/SP. No native reachability, visibility, menu/death/pipe or pending Buffer2 overlap verdict. InitializeMemory preserves page2 and cannot establish a new publication. Native lifecycle controls remain required."
+}

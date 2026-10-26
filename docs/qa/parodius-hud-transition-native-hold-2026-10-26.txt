@@ -1,0 +1,78 @@
+Parodius5354 - two original lifecycle native failures retained
+
+Candidate5354161f339548f2e12b955f5fc1481b9956fe83a63263a04f4b2816edbbdf30.
+Exactly two authorized sequential runs: death2200, then area2600. Both fail
+the unchanged assertion "Actual body immutable record alias" after a real
+KillPlayer and native VvDeathStart. Both stay false; all five terminal result
+files are absent in each. No retry, guard edit, ROM change or adoption.
+Worker explicitly RELEASED after the second launch. Production remains50b5.
+
+D = C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py.
+Readiness D/parodius-hud-transition-ready-v1/proof.json
+SHAed173cf27f257a0531af3964a3789526de7cc69654cefc47c4bb8aa7b8d2c0a2.
+Original aggregate D/parodius-hud-transition-native-negatives-v1/proof.json
+SHA92e0dde23bdab992a25b9aac498f468190bfe6eb7f735940a3e22a35a80e021c.
+Its1867-binding manifest SHA663fad52786aabef64c6a411b4a06280d9301e08049c5188fb3760645b9c9598.
+
+Death original
+
+NumericEasy0/Octopus1, ordinary cold selection and controllerDown. Actual
+KillPlayer514:42:99/CPU15282213, VvDeathStart514:45:312/CPU15282625.364 raw
+frames150..513 retained, no514 capture. Last trace x98/y199/camera58 with
+Down4. The real terrain death owner was reached; life loss, restart, death
+animation visibility and45 fresh new-life updates were NOT completed.
+Original run receipt43afd02aad0280ae7015a92f1624937a38cb5b0aa0ac60c2dd5f5d87cb64edd3.
+
+Area original
+
+NumericEasy0/Octopus1. A real10/11 pair is detected at actual1178, worldleft912,
+top144, intended PlayerX920/PlayerY136. At that point the preceding trace has
+already reachedx925/y104/camera688 (frame1177). The controller then holdsLeft
+andDown, but worldX rises926..936 while camera rises689..725; by1219 it holds
+Left withy130, still outside the centered target. The target never produces
+a native HandlePipeEntry. Actual KillPlayer1560:46:199/CPU46433104 and
+VvDeathStart1560:50:71/CPU46433516 follow.1410 raw frames150..1559 retained,
+no1560 capture. Last trace x1016/y130/camera1010, Left2, still activeengine8.
+There is one original loaded-area record, no pipe entry, no changed loaded
+area, no reset/new-area updates and no demonstrated pending Buffer2 catch-up.
+Original run receipt86066a6e8fbfc9c4d22964baaf2209b61753aec90b48b21c7711f3460593e56e.
+
+The area approach controller drove to the far-right screen boundary before
+detecting a pipe; it then targeted a center already behind the player. This
+is a concrete fixture reachability problem. Its exact inputs/trace remain;
+neither a detected pipe pair nor a native death constitutes area coverage.
+No speculative pipe-collision or movement ROM defect is claimed.
+
+Body-record source context and missing evidence
+
+The original renderer guard requires every owner0 record in the131-entry
+live-body map. Actual source vic_render.s routes MmDeathFlag through
+PnDeathGraphics. parodius_death.s selects separate PnDeathPose records for
+skin10, and parodius_death_art.inc defines13 records (5Octopus,3Twinbee,
+5Pentarou) plus physicalCHR892/956/1020. These are outside the live-body map.
+This is a concrete observation-coverage lead. The original assertion fires
+before logging its missing pointer/bank/record bytes, so the native failing
+pointer and exact assertion PPU stamp are unavailable. The real KillPlayer/
+death-owner stamps above are logged; they are not substituted for a missing
+assertion snapshot. Source/CPU qualification of the actual death owner,
+immutable record bytes and CHR must precede any separate observer successor.
+Do not weaken live-body checks or relabel either failed run as a ROM pass.
+
+Selected actual wholePPU review
+
+Viewed10 death frames278/456/459/460/477/500/510..513, and20 area frames listed
+in selected-frame-bindings.json, including1177..1179/1200/1300/1500/1556..1559.
+Menu and firstHUD publication are stable in these samples. Death-prefix
+images show the player descending into the native floor. Area images show
+the pipe behind/under the right-edge player, then the player near the left
+viewport and a block as the stale target falls behind. No death-animation
+frame is saved after either owner entry. No obvious new background/font/CHR
+corruption is established by these30 selected images. Dense tinyHUD labels
+and separately known body sprite-limit loss remain open. This is selected
+visual review, not every-frame/source-fidelity clearance.
+
+Death sheet SHA dbf9a8d2be77e1d061549fc7d659224fd6fe118bdf5661ec7bc38e80fecd8938.
+Area sheet SHA e241689a50061142ddc48a078715057f589916798360653ec717e3ac9cb9038e.
+Every raw capture, original receipt/log and prepared script remains unchanged.
+No new native grant, worker reservation, production/settings/Git change,
+death/restart/area/Buffer2 success, global timing or full-goal claim follows.
