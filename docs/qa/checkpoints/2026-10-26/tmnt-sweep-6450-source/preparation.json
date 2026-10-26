@@ -1,0 +1,2942 @@
+{
+  "passed": true,
+  "source_rebase_only": true,
+  "native_run": false,
+  "accepted": false,
+  "parent_ROM_sha256": "9a791d0e13015ff362ffc9e460aaac8c8a0a5b6f73e990959dee4e074da473fd",
+  "candidate_ROM_sha256": "64504f58b7fee3382f9c661e0274c20f5ebdcb8ef0da8d59aae0fcc751629c5d",
+  "changed_source_files": {
+    "src/tmnt_audio.s": {
+      "before_sha256": null,
+      "after_sha256": "7b5b035108bc887904d3900e6ada37d82ef18605b7645ba0e406bf2a1684efc6"
+    },
+    "src/tmnt_audio_writers.s": {
+      "before_sha256": null,
+      "after_sha256": "bb336fb92a5a5e40b4481f1aa5c1a034a9da693caff7aa08d9fe40bbfda7863b"
+    },
+    "audio/tmnt/native-drum.dmc": {
+      "before_sha256": null,
+      "after_sha256": "225add377a86b0499c2c902cf9ba410c2edcdfec7e0d530f2dc719b58f886dfe"
+    },
+    "src/tmnt-native.inc": {
+      "before_sha256": null,
+      "after_sha256": "7c242b2f70e6ab54319465498ce530cecd3e7d9054b3e330ba3ff0b41f756722"
+    },
+    "src/tmnt_audio_samus_cold.s": {
+      "before_sha256": null,
+      "after_sha256": "1258ef04004f74598bc28944d7c67231879b72b59745b933cd36df602812b73e"
+    },
+    "src/samus_audio.s": {
+      "before_sha256": "06b20616f1357a4d0e49fbec4c7b776d23e93005b644bee4c4dbcee006de5295",
+      "after_sha256": "7b657c6957097c8439791153105025c87886e175575176125effed5dae57e157"
+    },
+    "src/tmnt_audio_resident.s": {
+      "before_sha256": null,
+      "after_sha256": "4cd0681c3039eb0f2936d8b2bb40a4842bbd083931ce0df4a73ce65c36296a19"
+    },
+    "src/gradius_audio.s": {
+      "before_sha256": "6e78720d80de735f9d85afe2cf4c4205bde1c197018b0e7ed9af7ded080a1f58",
+      "after_sha256": "ab060301d8543b6a591357717f02f7b2dfcc816a29f3129244211fe96ecdc2fa"
+    },
+    "src/guest_audio.s": {
+      "before_sha256": "c916cc7a9836aa8b7d0e94849acc16ab51bcce0da39a8cffabe76ac0de34eb91",
+      "after_sha256": "449c5c1f8f6ed005fd9cb62ac0e46e7ad8dab32c32446e5c9877471e72e1eaaa"
+    },
+    "src/cv3_dmc_owner.inc": {
+      "before_sha256": "49a9fcd495ee1feae459c778c744290ed63193201f4d313bf502261c17486c78",
+      "after_sha256": "cffe3499711257fd28b8a5642dc7af71e9b0fc9a45ba4a3af402c6a28eb5b3bf"
+    },
+    "src/cv3_dmc_complete.s": {
+      "before_sha256": "aee614d8ceb4f8f9a0135ab39119a50511908192c758d04a11a26a662853825d",
+      "after_sha256": "c5512d977abb2a05d08990513948434aaf75ac3d28c7076c3c13f408906652b7"
+    },
+    "src/music_drivers/audio.s": {
+      "before_sha256": "0684765dca3aa9f63be6f4d79276cbc540788d8d7bcc1ee4889ff8e0edf8cb97",
+      "after_sha256": "3b8faf591ba1be1ab1bee5fd6860d36e97ea6e6d8c78e66bae621bbaac8cf6b0"
+    },
+    "src/entrypoint.s": {
+      "before_sha256": "d5276b02584213dbc1afa192f79f3e27e383587faea533c78e66a33b0b433137",
+      "after_sha256": "615520c880e21fad9281c0adf6a3d2b408f416d77860dec56b0d1ca5d1cd37b4"
+    },
+    "smb1base-mmc5-expanded.cfg": {
+      "before_sha256": "fbad45b9b687f4a6d746b1b60f6ace7fa994037b50c32f44f16afd9b03ebebd2",
+      "after_sha256": "c13483d61a114ce710609ceb1622700d9b14c7ec6e640fc87cf3de1fe9826c21"
+    }
+  },
+  "changed_PRG_bytes": {
+    "29": 223,
+    "87": 491
+  },
+  "CHR_exact": true,
+  "Mac123_Mike115_exact": true,
+  "existing_CV3_owner": 3,
+  "native_TMNT_owner": 4,
+  "original_public_runtime_addresses_retained": 60684,
+  "root_authorized_genuine_private_Samus_label_exceptions": {
+    "('SamusAudioUpdate', 'FireFlag')": [
+      59909,
+      null
+    ],
+    "('SamusAudioUpdate', 'Effects')": [
+      59882,
+      null
+    ],
+    "('SamusAudioUpdate', 'Init')": [
+      59846,
+      null
+    ],
+    "('SamusAudioUpdate', 'Unpaused')": [
+      59684,
+      null
+    ],
+    "('SamusAudioUpdate', 'Death')": [
+      59653,
+      null
+    ],
+    "('SamusAudioUpdate', 'Pause')": [
+      59661,
+      null
+    ],
+    "('SamusAudioUpdate', 'Event')": [
+      59619,
+      null
+    ],
+    "('SamusAudioUpdate', 'Mute')": [
+      59676,
+      null
+    ],
+    "('SamusAudioUpdate', 'Exit')": [
+      60195,
+      null
+    ],
+    "('SamusAudioUpdate', 'Running')": [
+      59526,
+      null
+    ]
+  },
+  "held_source_bindings": {
+    "src/tmnt_audio.s": "461931731caf7dea28d50ff44a2b1453ca1fa0f7e73f6bcba8a9067c9231aaa3",
+    "src/tmnt_audio_writers.s": "ff52179b86a84818f69005ba50fd19e7c3f75a820e23f5dc320f713d884d1498",
+    "src/tmnt_audio_resident.s": "f9a3b628c0f2b9bed8662e35870587667922483b81545ecdfccf5f8101ee79b6",
+    "audio/tmnt/native-drum.dmc": "225add377a86b0499c2c902cf9ba410c2edcdfec7e0d530f2dc719b58f886dfe"
+  },
+  "standalone_source": {
+    "passed": true,
+    "source_only": true,
+    "production_changes": false,
+    "native_run": false,
+    "parent_ROM_sha256": "50b51c3c69f45ef137720c47f521574097f421056e3b73296d06ba70080d2363",
+    "original_NSF_sha256": "f220e8d069e321f392526d41e46f5d0f72966d5a22e56d2b269607c678bd58d9",
+    "duration_optimization": true,
+    "bank99_storage_swap": true,
+    "moved_source_interval": [
+      40745,
+      41114,
+      42025
+    ],
+    "moved_source_bytes": 369,
+    "page_aligned_native_pointer_delta": -6912,
+    "original_closed_instructions": 1289,
+    "all_original_pointer_words": [
+      36242,
+      36244,
+      36246,
+      36248,
+      36250,
+      36252,
+      36254,
+      36784,
+      36786,
+      36788,
+      36790,
+      36792,
+      36794,
+      36796,
+      36798,
+      36802,
+      36804,
+      36806,
+      36808,
+      36810,
+      36884,
+      37269,
+      37272,
+      37275,
+      37278,
+      37494,
+      37497,
+      37500,
+      37503,
+      37509,
+      37512,
+      37515,
+      37518,
+      37521,
+      37524,
+      37527,
+      37530,
+      37533,
+      37536,
+      37539,
+      37542,
+      37545,
+      37548,
+      37551,
+      37554,
+      37557,
+      37560,
+      37563,
+      37566,
+      37569,
+      37572,
+      37575,
+      37578,
+      37581,
+      37584,
+      37587,
+      37590,
+      37593,
+      37596,
+      37599,
+      37602,
+      37605,
+      37608,
+      37611,
+      37614,
+      37617,
+      37620,
+      37623,
+      37626,
+      37629,
+      37632,
+      37635,
+      37638,
+      37641,
+      37644,
+      37647,
+      37650,
+      37653,
+      37656,
+      37659,
+      37662,
+      37665,
+      37668,
+      37671,
+      37674,
+      37677,
+      37680,
+      37683,
+      37686,
+      39536,
+      39540,
+      39544,
+      39562,
+      39587,
+      39604,
+      39609,
+      39637,
+      39659,
+      39745,
+      39780,
+      39829,
+      39852,
+      39903,
+      40226,
+      40230,
+      40234,
+      40238,
+      40243,
+      40258,
+      40261,
+      40296,
+      40380,
+      40415,
+      40436,
+      40441,
+      40457,
+      40768,
+      40775,
+      40778,
+      40791,
+      40799,
+      40812,
+      40823,
+      40848,
+      40858,
+      40865,
+      40963,
+      41115,
+      41118,
+      41128,
+      41139,
+      41142,
+      41145,
+      41179,
+      41283,
+      41314,
+      41418,
+      41444,
+      41495,
+      41526,
+      41637,
+      41678,
+      41730,
+      41737,
+      41742,
+      41749,
+      41778,
+      41887,
+      41891,
+      41939,
+      41967,
+      41986,
+      42107,
+      42157,
+      42216,
+      42246,
+      42267,
+      42280,
+      42284,
+      42363,
+      42415,
+      42431,
+      42498,
+      42503,
+      42543,
+      42591,
+      42595,
+      42641,
+      42649,
+      42659,
+      42690,
+      42735,
+      42745,
+      42761,
+      42771,
+      42788,
+      42797,
+      42843,
+      42951,
+      42963,
+      42982,
+      43000,
+      43018,
+      43027,
+      43047,
+      43057,
+      43072,
+      43218,
+      43243,
+      43280,
+      43300,
+      43349,
+      43368,
+      43373,
+      43381,
+      43384,
+      43395,
+      43434,
+      43443,
+      43451,
+      43457,
+      43461,
+      43566,
+      43581,
+      43584,
+      43596,
+      43605,
+      43616,
+      43685,
+      43692,
+      43701,
+      43707,
+      43711,
+      43805,
+      43812,
+      43828,
+      43833,
+      43848,
+      43857,
+      43870,
+      43909,
+      43959,
+      43969,
+      43988,
+      44014,
+      44020,
+      44047,
+      44072,
+      44088,
+      44111,
+      44134,
+      44138,
+      44177,
+      44181,
+      44188,
+      44192,
+      44255,
+      44259,
+      44295,
+      44299,
+      44310,
+      44314,
+      44319,
+      44323,
+      44327,
+      44331,
+      44341,
+      44368,
+      44386,
+      44405,
+      44408,
+      44493,
+      44498,
+      44579,
+      44596,
+      44602,
+      44624,
+      44627,
+      44677,
+      44690,
+      44755,
+      44762,
+      44838,
+      44852,
+      44936,
+      44943,
+      44956,
+      45081,
+      45098,
+      45111,
+      45115,
+      45118,
+      45122,
+      45125,
+      45141,
+      45210,
+      45219,
+      45281,
+      45285,
+      45425,
+      45438,
+      45442,
+      45449,
+      45453,
+      45460,
+      45468,
+      45489,
+      45514,
+      45526,
+      45608,
+      45620,
+      45695,
+      45698,
+      45718,
+      45727,
+      45732,
+      45737,
+      45770,
+      45891,
+      45901,
+      45912,
+      45917,
+      45953,
+      45987,
+      45992,
+      46002,
+      46073,
+      46189,
+      46192,
+      46206,
+      46315,
+      46425,
+      46429,
+      46542,
+      46565,
+      46568,
+      46571,
+      46583,
+      46592,
+      46677,
+      46750,
+      46837,
+      46872,
+      46879,
+      46951,
+      47026,
+      47181,
+      47350,
+      47447,
+      47467,
+      47540,
+      47601,
+      47606,
+      47611,
+      47668,
+      47673,
+      47678,
+      48102,
+      48105,
+      48162,
+      48411,
+      48426,
+      48430,
+      48435,
+      48449,
+      48547,
+      48567,
+      48816,
+      48818,
+      48820,
+      48826,
+      48832,
+      48834,
+      48840,
+      48844,
+      48846,
+      48850,
+      48852,
+      48854,
+      48858,
+      48860,
+      48862,
+      48864,
+      48866,
+      48870,
+      48874,
+      48876,
+      48878,
+      48880
+    ],
+    "original_source_code_unmoved": true,
+    "APU_stores": [
+      {
+        "pc": 49155,
+        "operation": "STA",
+        "mode": "abs",
+        "address": 16405,
+        "helper": "TnSourceSTA15"
+      },
+      {
+        "pc": 49160,
+        "operation": "STA",
+        "mode": "aby",
+        "address": 16384,
+        "helper": "TnSourceSTA00Y"
+      },
+      {
+        "pc": 34633,
+        "operation": "STA",
+        "mode": "abx",
+        "address": 16384,
+        "helper": "TnSourceSTA00X"
+      },
+      {
+        "pc": 35230,
+        "operation": "STA",
+        "mode": "abs",
+        "address": 16405,
+        "helper": "TnSourceSTA15"
+      },
+      {
+        "pc": 35236,
+        "operation": "STA",
+        "mode": "abs",
+        "address": 16400,
+        "helper": "TnSourceSTA10"
+      },
+      {
+        "pc": 35242,
+        "operation": "STA",
+        "mode": "abs",
+        "address": 16401,
+        "helper": "TnSourceSTA11"
+      },
+      {
+        "pc": 35248,
+        "operation": "STA",
+        "mode": "abs",
+        "address": 16402,
+        "helper": "TnSourceSTA12"
+      },
+      {
+        "pc": 35254,
+        "operation": "STA",
+        "mode": "abs",
+        "address": 16403,
+        "helper": "TnSourceSTA13"
+      },
+      {
+        "pc": 35259,
+        "operation": "STA",
+        "mode": "abs",
+        "address": 16405,
+        "helper": "TnSourceSTA15"
+      },
+      {
+        "pc": 35403,
+        "operation": "STA",
+        "mode": "abx",
+        "address": 16385,
+        "helper": "TnSourceSTA01X"
+      },
+      {
+        "pc": 35426,
+        "operation": "STA",
+        "mode": "abs",
+        "address": 16392,
+        "helper": "TnSourceSTA08"
+      },
+      {
+        "pc": 35478,
+        "operation": "STA",
+        "mode": "abx",
+        "address": 16384,
+        "helper": "TnSourceSTA00X"
+      },
+      {
+        "pc": 35549,
+        "operation": "STA",
+        "mode": "abs",
+        "address": 16392,
+        "helper": "TnSourceSTA08"
+      },
+      {
+        "pc": 35849,
+        "operation": "STA",
+        "mode": "abx",
+        "address": 16387,
+        "helper": "TnSourceSTA03X"
+      },
+      {
+        "pc": 35869,
+        "operation": "STA",
+        "mode": "abx",
+        "address": 16386,
+        "helper": "TnSourceSTA02X"
+      },
+      {
+        "pc": 36113,
+        "operation": "STA",
+        "mode": "abx",
+        "address": 16384,
+        "helper": "TnSourceSTA00X"
+      },
+      {
+        "pc": 36670,
+        "operation": "STA",
+        "mode": "abx",
+        "address": 16384,
+        "helper": "TnSourceSTA00X"
+      },
+      {
+        "pc": 36679,
+        "operation": "STA",
+        "mode": "abs",
+        "address": 16405,
+        "helper": "TnSourceSTA15"
+      },
+      {
+        "pc": 36684,
+        "operation": "STA",
+        "mode": "abs",
+        "address": 16392,
+        "helper": "TnSourceSTA08"
+      },
+      {
+        "pc": 36689,
+        "operation": "STA",
+        "mode": "abs",
+        "address": 16405,
+        "helper": "TnSourceSTA15"
+      },
+      {
+        "pc": 36723,
+        "operation": "STA",
+        "mode": "abs",
+        "address": 16396,
+        "helper": "TnSourceSTA0C"
+      },
+      {
+        "pc": 36933,
+        "operation": "STA",
+        "mode": "abs",
+        "address": 16384,
+        "helper": "TnSourceSTA00"
+      },
+      {
+        "pc": 36936,
+        "operation": "STA",
+        "mode": "abs",
+        "address": 16388,
+        "helper": "TnSourceSTA04"
+      },
+      {
+        "pc": 36939,
+        "operation": "STA",
+        "mode": "abs",
+        "address": 16396,
+        "helper": "TnSourceSTA0C"
+      },
+      {
+        "pc": 36944,
+        "operation": "STA",
+        "mode": "abs",
+        "address": 16385,
+        "helper": "TnSourceSTA01"
+      },
+      {
+        "pc": 36947,
+        "operation": "STA",
+        "mode": "abs",
+        "address": 16389,
+        "helper": "TnSourceSTA05"
+      },
+      {
+        "pc": 37228,
+        "operation": "STA",
+        "mode": "abx",
+        "address": 16384,
+        "helper": "TnSourceSTA00X"
+      },
+      {
+        "pc": 37233,
+        "operation": "STA",
+        "mode": "abx",
+        "address": 16385,
+        "helper": "TnSourceSTA01X"
+      }
+    ],
+    "relocated_operands": [
+      {
+        "pc": 49170,
+        "address": 49176,
+        "new": 40984
+      },
+      {
+        "pc": 49173,
+        "address": 36951,
+        "new": 45143
+      },
+      {
+        "pc": 34322,
+        "address": 409,
+        "new": null
+      },
+      {
+        "pc": 34331,
+        "address": 36886,
+        "new": 45078
+      },
+      {
+        "pc": 34338,
+        "address": 408,
+        "new": null
+      },
+      {
+        "pc": 34347,
+        "address": 269,
+        "new": null
+      },
+      {
+        "pc": 34350,
+        "address": 408,
+        "new": null
+      },
+      {
+        "pc": 34355,
+        "address": 408,
+        "new": null
+      },
+      {
+        "pc": 34362,
+        "address": 408,
+        "new": null
+      },
+      {
+        "pc": 34365,
+        "address": 407,
+        "new": null
+      },
+      {
+        "pc": 34368,
+        "address": 409,
+        "new": null
+      },
+      {
+        "pc": 34372,
+        "address": 34322,
+        "new": 42514
+      },
+      {
+        "pc": 34379,
+        "address": 402,
+        "new": null
+      },
+      {
+        "pc": 34382,
+        "address": 403,
+        "new": null
+      },
+      {
+        "pc": 34385,
+        "address": 266,
+        "new": null
+      },
+      {
+        "pc": 34390,
+        "address": 34417,
+        "new": 42609
+      },
+      {
+        "pc": 34404,
+        "address": 34412,
+        "new": 42604
+      },
+      {
+        "pc": 34413,
+        "address": 34379,
+        "new": 42571
+      },
+      {
+        "pc": 34417,
+        "address": 36758,
+        "new": 44950
+      },
+      {
+        "pc": 34420,
+        "address": 278,
+        "new": null
+      },
+      {
+        "pc": 34423,
+        "address": 260,
+        "new": null
+      },
+      {
+        "pc": 34428,
+        "address": 35103,
+        "new": 43295
+      },
+      {
+        "pc": 34439,
+        "address": 398,
+        "new": null
+      },
+      {
+        "pc": 34444,
+        "address": 272,
+        "new": null
+      },
+      {
+        "pc": 34449,
+        "address": 398,
+        "new": null
+      },
+      {
+        "pc": 34461,
+        "address": 260,
+        "new": null
+      },
+      {
+        "pc": 34471,
+        "address": 278,
+        "new": null
+      },
+      {
+        "pc": 34480,
+        "address": 278,
+        "new": null
+      },
+      {
+        "pc": 34487,
+        "address": 384,
+        "new": null
+      },
+      {
+        "pc": 34492,
+        "address": 384,
+        "new": null
+      },
+      {
+        "pc": 34495,
+        "address": 34903,
+        "new": 43095
+      },
+      {
+        "pc": 34498,
+        "address": 35802,
+        "new": 43994
+      },
+      {
+        "pc": 34501,
+        "address": 358,
+        "new": null
+      },
+      {
+        "pc": 34506,
+        "address": 358,
+        "new": null
+      },
+      {
+        "pc": 34509,
+        "address": 34736,
+        "new": 42928
+      },
+      {
+        "pc": 34512,
+        "address": 278,
+        "new": null
+      },
+      {
+        "pc": 34518,
+        "address": 36784,
+        "new": 44976
+      },
+      {
+        "pc": 34523,
+        "address": 36785,
+        "new": 44977
+      },
+      {
+        "pc": 34531,
+        "address": 378,
+        "new": null
+      },
+      {
+        "pc": 34536,
+        "address": 380,
+        "new": null
+      },
+      {
+        "pc": 34541,
+        "address": 35876,
+        "new": 44068
+      },
+      {
+        "pc": 34544,
+        "address": 34471,
+        "new": 42663
+      },
+      {
+        "pc": 34547,
+        "address": 356,
+        "new": null
+      },
+      {
+        "pc": 34552,
+        "address": 48816,
+        "new": 57008
+      },
+      {
+        "pc": 34557,
+        "address": 48817,
+        "new": 57009
+      },
+      {
+        "pc": 34562,
+        "address": 360,
+        "new": null
+      },
+      {
+        "pc": 34580,
+        "address": 358,
+        "new": null
+      },
+      {
+        "pc": 34583,
+        "address": 360,
+        "new": null
+      },
+      {
+        "pc": 34590,
+        "address": 332,
+        "new": null
+      },
+      {
+        "pc": 34593,
+        "address": 332,
+        "new": null
+      },
+      {
+        "pc": 34599,
+        "address": 374,
+        "new": null
+      },
+      {
+        "pc": 34607,
+        "address": 407,
+        "new": null
+      },
+      {
+        "pc": 34616,
+        "address": 278,
+        "new": null
+      },
+      {
+        "pc": 34625,
+        "address": 344,
+        "new": null
+      },
+      {
+        "pc": 34628,
+        "address": 36072,
+        "new": 44264
+      },
+      {
+        "pc": 34636,
+        "address": 402,
+        "new": null
+      },
+      {
+        "pc": 34644,
+        "address": 396,
+        "new": null
+      },
+      {
+        "pc": 34651,
+        "address": 34628,
+        "new": 42820
+      },
+      {
+        "pc": 34660,
+        "address": 360,
+        "new": null
+      },
+      {
+        "pc": 34663,
+        "address": 360,
+        "new": null
+      },
+      {
+        "pc": 34666,
+        "address": 364,
+        "new": null
+      },
+      {
+        "pc": 34669,
+        "address": 34562,
+        "new": 42754
+      },
+      {
+        "pc": 34673,
+        "address": 362,
+        "new": null
+      },
+      {
+        "pc": 34678,
+        "address": 362,
+        "new": null
+      },
+      {
+        "pc": 34685,
+        "address": 362,
+        "new": null
+      },
+      {
+        "pc": 34688,
+        "address": 364,
+        "new": null
+      },
+      {
+        "pc": 34691,
+        "address": 360,
+        "new": null
+      },
+      {
+        "pc": 34694,
+        "address": 360,
+        "new": null
+      },
+      {
+        "pc": 34697,
+        "address": 34562,
+        "new": 42754
+      },
+      {
+        "pc": 34700,
+        "address": 364,
+        "new": null
+      },
+      {
+        "pc": 34703,
+        "address": 360,
+        "new": null
+      },
+      {
+        "pc": 34706,
+        "address": 34562,
+        "new": 42754
+      },
+      {
+        "pc": 34709,
+        "address": 360,
+        "new": null
+      },
+      {
+        "pc": 34714,
+        "address": 332,
+        "new": null
+      },
+      {
+        "pc": 34719,
+        "address": 332,
+        "new": null
+      },
+      {
+        "pc": 34722,
+        "address": 34590,
+        "new": 42782
+      },
+      {
+        "pc": 34725,
+        "address": 332,
+        "new": null
+      },
+      {
+        "pc": 34729,
+        "address": 278,
+        "new": null
+      },
+      {
+        "pc": 34736,
+        "address": 278,
+        "new": null
+      },
+      {
+        "pc": 34745,
+        "address": 260,
+        "new": null
+      },
+      {
+        "pc": 34748,
+        "address": 366,
+        "new": null
+      },
+      {
+        "pc": 34753,
+        "address": 278,
+        "new": null
+      },
+      {
+        "pc": 34758,
+        "address": 278,
+        "new": null
+      },
+      {
+        "pc": 34761,
+        "address": 396,
+        "new": null
+      },
+      {
+        "pc": 34768,
+        "address": 34771,
+        "new": 42963
+      },
+      {
+        "pc": 34771,
+        "address": 396,
+        "new": null
+      },
+      {
+        "pc": 34778,
+        "address": 278,
+        "new": null
+      },
+      {
+        "pc": 34783,
+        "address": 278,
+        "new": null
+      },
+      {
+        "pc": 34787,
+        "address": 278,
+        "new": null
+      },
+      {
+        "pc": 34794,
+        "address": 278,
+        "new": null
+      },
+      {
+        "pc": 34802,
+        "address": 34771,
+        "new": 42963
+      },
+      {
+        "pc": 34807,
+        "address": 34590,
+        "new": 42782
+      },
+      {
+        "pc": 34810,
+        "address": 398,
+        "new": null
+      },
+      {
+        "pc": 34817,
+        "address": 398,
+        "new": null
+      },
+      {
+        "pc": 34824,
+        "address": 400,
+        "new": null
+      },
+      {
+        "pc": 34844,
+        "address": 414,
+        "new": null
+      },
+      {
+        "pc": 34849,
+        "address": 422,
+        "new": null
+      },
+      {
+        "pc": 34854,
+        "address": 35818,
+        "new": 44010
+      },
+      {
+        "pc": 34857,
+        "address": 396,
+        "new": null
+      },
+      {
+        "pc": 34864,
+        "address": 372,
+        "new": null
+      },
+      {
+        "pc": 34869,
+        "address": 370,
+        "new": null
+      },
+      {
+        "pc": 34876,
+        "address": 372,
+        "new": null
+      },
+      {
+        "pc": 34879,
+        "address": 332,
+        "new": null
+      },
+      {
+        "pc": 34886,
+        "address": 332,
+        "new": null
+      },
+      {
+        "pc": 34893,
+        "address": 332,
+        "new": null
+      },
+      {
+        "pc": 34896,
+        "address": 34593,
+        "new": 42785
+      },
+      {
+        "pc": 34899,
+        "address": 332,
+        "new": null
+      },
+      {
+        "pc": 34903,
+        "address": 388,
+        "new": null
+      },
+      {
+        "pc": 34908,
+        "address": 48866,
+        "new": 57058
+      },
+      {
+        "pc": 34913,
+        "address": 48867,
+        "new": 57059
+      },
+      {
+        "pc": 34918,
+        "address": 390,
+        "new": null
+      },
+      {
+        "pc": 34936,
+        "address": 384,
+        "new": null
+      },
+      {
+        "pc": 34939,
+        "address": 390,
+        "new": null
+      },
+      {
+        "pc": 34952,
+        "address": 34973,
+        "new": 43165
+      },
+      {
+        "pc": 34955,
+        "address": 34994,
+        "new": 43186
+      },
+      {
+        "pc": 34966,
+        "address": 34973,
+        "new": 43165
+      },
+      {
+        "pc": 34969,
+        "address": 35016,
+        "new": 43208
+      },
+      {
+        "pc": 34973,
+        "address": 386,
+        "new": null
+      },
+      {
+        "pc": 34985,
+        "address": 34979,
+        "new": 43171
+      },
+      {
+        "pc": 34988,
+        "address": 402,
+        "new": null
+      },
+      {
+        "pc": 34995,
+        "address": 378,
+        "new": null
+      },
+      {
+        "pc": 35002,
+        "address": 380,
+        "new": null
+      },
+      {
+        "pc": 35010,
+        "address": 380,
+        "new": null
+      },
+      {
+        "pc": 35016,
+        "address": 378,
+        "new": null
+      },
+      {
+        "pc": 35026,
+        "address": 380,
+        "new": null
+      },
+      {
+        "pc": 35036,
+        "address": 380,
+        "new": null
+      },
+      {
+        "pc": 35048,
+        "address": 390,
+        "new": null
+      },
+      {
+        "pc": 35051,
+        "address": 390,
+        "new": null
+      },
+      {
+        "pc": 35054,
+        "address": 392,
+        "new": null
+      },
+      {
+        "pc": 35057,
+        "address": 34903,
+        "new": 43095
+      },
+      {
+        "pc": 35061,
+        "address": 394,
+        "new": null
+      },
+      {
+        "pc": 35066,
+        "address": 394,
+        "new": null
+      },
+      {
+        "pc": 35073,
+        "address": 394,
+        "new": null
+      },
+      {
+        "pc": 35076,
+        "address": 392,
+        "new": null
+      },
+      {
+        "pc": 35079,
+        "address": 390,
+        "new": null
+      },
+      {
+        "pc": 35082,
+        "address": 390,
+        "new": null
+      },
+      {
+        "pc": 35085,
+        "address": 34903,
+        "new": 43095
+      },
+      {
+        "pc": 35088,
+        "address": 392,
+        "new": null
+      },
+      {
+        "pc": 35091,
+        "address": 390,
+        "new": null
+      },
+      {
+        "pc": 35094,
+        "address": 34903,
+        "new": 43095
+      },
+      {
+        "pc": 35099,
+        "address": 384,
+        "new": null
+      },
+      {
+        "pc": 35106,
+        "address": 35277,
+        "new": 43469
+      },
+      {
+        "pc": 35109,
+        "address": 402,
+        "new": null
+      },
+      {
+        "pc": 35124,
+        "address": 35646,
+        "new": 43838
+      },
+      {
+        "pc": 35133,
+        "address": 36804,
+        "new": 44996
+      },
+      {
+        "pc": 35138,
+        "address": 36805,
+        "new": 44997
+      },
+      {
+        "pc": 35143,
+        "address": 402,
+        "new": null
+      },
+      {
+        "pc": 35165,
+        "address": 36454,
+        "new": 44646
+      },
+      {
+        "pc": 35172,
+        "address": 35953,
+        "new": 44145
+      },
+      {
+        "pc": 35179,
+        "address": 272,
+        "new": null
+      },
+      {
+        "pc": 35183,
+        "address": 35153,
+        "new": 43345
+      },
+      {
+        "pc": 35198,
+        "address": 405,
+        "new": null
+      },
+      {
+        "pc": 35201,
+        "address": 35265,
+        "new": 43457
+      },
+      {
+        "pc": 35204,
+        "address": 402,
+        "new": null
+      },
+      {
+        "pc": 35211,
+        "address": 36951,
+        "new": 45143
+      },
+      {
+        "pc": 35217,
+        "address": 404,
+        "new": null
+      },
+      {
+        "pc": 35222,
+        "address": 404,
+        "new": null
+      },
+      {
+        "pc": 35233,
+        "address": 49192,
+        "new": 41000
+      },
+      {
+        "pc": 35239,
+        "address": 49193,
+        "new": 41001
+      },
+      {
+        "pc": 35245,
+        "address": 49194,
+        "new": 41002
+      },
+      {
+        "pc": 35251,
+        "address": 49195,
+        "new": 41003
+      },
+      {
+        "pc": 35289,
+        "address": 36454,
+        "new": 44646
+      },
+      {
+        "pc": 35311,
+        "address": 35391,
+        "new": 43583
+      },
+      {
+        "pc": 35317,
+        "address": 272,
+        "new": null
+      },
+      {
+        "pc": 35321,
+        "address": 35277,
+        "new": 43469
+      },
+      {
+        "pc": 35327,
+        "address": 344,
+        "new": null
+      },
+      {
+        "pc": 35331,
+        "address": 35277,
+        "new": 43469
+      },
+      {
+        "pc": 35346,
+        "address": 35441,
+        "new": 43633
+      },
+      {
+        "pc": 35349,
+        "address": 272,
+        "new": null
+      },
+      {
+        "pc": 35365,
+        "address": 344,
+        "new": null
+      },
+      {
+        "pc": 35368,
+        "address": 35433,
+        "new": 43625
+      },
+      {
+        "pc": 35371,
+        "address": 344,
+        "new": null
+      },
+      {
+        "pc": 35381,
+        "address": 278,
+        "new": null
+      },
+      {
+        "pc": 35386,
+        "address": 278,
+        "new": null
+      },
+      {
+        "pc": 35395,
+        "address": 410,
+        "new": null
+      },
+      {
+        "pc": 35398,
+        "address": 36072,
+        "new": 44264
+      },
+      {
+        "pc": 35406,
+        "address": 402,
+        "new": null
+      },
+      {
+        "pc": 35410,
+        "address": 35277,
+        "new": 43469
+      },
+      {
+        "pc": 35413,
+        "address": 278,
+        "new": null
+      },
+      {
+        "pc": 35418,
+        "address": 278,
+        "new": null
+      },
+      {
+        "pc": 35423,
+        "address": 35391,
+        "new": 43583
+      },
+      {
+        "pc": 35430,
+        "address": 35277,
+        "new": 43469
+      },
+      {
+        "pc": 35438,
+        "address": 35277,
+        "new": 43469
+      },
+      {
+        "pc": 35441,
+        "address": 272,
+        "new": null
+      },
+      {
+        "pc": 35444,
+        "address": 260,
+        "new": null
+      },
+      {
+        "pc": 35457,
+        "address": 338,
+        "new": null
+      },
+      {
+        "pc": 35460,
+        "address": 344,
+        "new": null
+      },
+      {
+        "pc": 35467,
+        "address": 338,
+        "new": null
+      },
+      {
+        "pc": 35470,
+        "address": 344,
+        "new": null
+      },
+      {
+        "pc": 35473,
+        "address": 36072,
+        "new": 44264
+      },
+      {
+        "pc": 35481,
+        "address": 402,
+        "new": null
+      },
+      {
+        "pc": 35499,
+        "address": 35802,
+        "new": 43994
+      },
+      {
+        "pc": 35502,
+        "address": 36742,
+        "new": 44934
+      },
+      {
+        "pc": 35505,
+        "address": 344,
+        "new": null
+      },
+      {
+        "pc": 35508,
+        "address": 35473,
+        "new": 43665
+      },
+      {
+        "pc": 35517,
+        "address": 340,
+        "new": null
+      },
+      {
+        "pc": 35540,
+        "address": 35532,
+        "new": 43724
+      },
+      {
+        "pc": 35552,
+        "address": 412,
+        "new": null
+      },
+      {
+        "pc": 35555,
+        "address": 35696,
+        "new": 43888
+      },
+      {
+        "pc": 35561,
+        "address": 35549,
+        "new": 43741
+      },
+      {
+        "pc": 35566,
+        "address": 358,
+        "new": null
+      },
+      {
+        "pc": 35569,
+        "address": 338,
+        "new": null
+      },
+      {
+        "pc": 35572,
+        "address": 34590,
+        "new": 42782
+      },
+      {
+        "pc": 35575,
+        "address": 356,
+        "new": null
+      },
+      {
+        "pc": 35580,
+        "address": 360,
+        "new": null
+      },
+      {
+        "pc": 35583,
+        "address": 278,
+        "new": null
+      },
+      {
+        "pc": 35590,
+        "address": 278,
+        "new": null
+      },
+      {
+        "pc": 35593,
+        "address": 35696,
+        "new": 43888
+      },
+      {
+        "pc": 35610,
+        "address": 36812,
+        "new": 45004
+      },
+      {
+        "pc": 35615,
+        "address": 36813,
+        "new": 45005
+      },
+      {
+        "pc": 35620,
+        "address": 35732,
+        "new": 43924
+      },
+      {
+        "pc": 35623,
+        "address": 278,
+        "new": null
+      },
+      {
+        "pc": 35628,
+        "address": 278,
+        "new": null
+      },
+      {
+        "pc": 35631,
+        "address": 396,
+        "new": null
+      },
+      {
+        "pc": 35637,
+        "address": 278,
+        "new": null
+      },
+      {
+        "pc": 35642,
+        "address": 278,
+        "new": null
+      },
+      {
+        "pc": 35646,
+        "address": 35953,
+        "new": 44145
+      },
+      {
+        "pc": 35653,
+        "address": 35511,
+        "new": 43703
+      },
+      {
+        "pc": 35656,
+        "address": 35623,
+        "new": 43815
+      },
+      {
+        "pc": 35659,
+        "address": 356,
+        "new": null
+      },
+      {
+        "pc": 35666,
+        "address": 360,
+        "new": null
+      },
+      {
+        "pc": 35669,
+        "address": 364,
+        "new": null
+      },
+      {
+        "pc": 35672,
+        "address": 362,
+        "new": null
+      },
+      {
+        "pc": 35675,
+        "address": 358,
+        "new": null
+      },
+      {
+        "pc": 35678,
+        "address": 358,
+        "new": null
+      },
+      {
+        "pc": 35683,
+        "address": 34547,
+        "new": 42739
+      },
+      {
+        "pc": 35688,
+        "address": 278,
+        "new": null
+      },
+      {
+        "pc": 35693,
+        "address": 278,
+        "new": null
+      },
+      {
+        "pc": 35706,
+        "address": 402,
+        "new": null
+      },
+      {
+        "pc": 35709,
+        "address": 353,
+        "new": null
+      },
+      {
+        "pc": 35718,
+        "address": 353,
+        "new": null
+      },
+      {
+        "pc": 35722,
+        "address": 36836,
+        "new": 45028
+      },
+      {
+        "pc": 35727,
+        "address": 36837,
+        "new": 45029
+      },
+      {
+        "pc": 35734,
+        "address": 402,
+        "new": null
+      },
+      {
+        "pc": 35737,
+        "address": 350,
+        "new": null
+      },
+      {
+        "pc": 35752,
+        "address": 402,
+        "new": null
+      },
+      {
+        "pc": 35759,
+        "address": 398,
+        "new": null
+      },
+      {
+        "pc": 35764,
+        "address": 35876,
+        "new": 44068
+      },
+      {
+        "pc": 35769,
+        "address": 378,
+        "new": null
+      },
+      {
+        "pc": 35774,
+        "address": 380,
+        "new": null
+      },
+      {
+        "pc": 35777,
+        "address": 278,
+        "new": null
+      },
+      {
+        "pc": 35784,
+        "address": 382,
+        "new": null
+      },
+      {
+        "pc": 35791,
+        "address": 34903,
+        "new": 43095
+      },
+      {
+        "pc": 35796,
+        "address": 35802,
+        "new": 43994
+      },
+      {
+        "pc": 35799,
+        "address": 36742,
+        "new": 44934
+      },
+      {
+        "pc": 35806,
+        "address": 384,
+        "new": null
+      },
+      {
+        "pc": 35820,
+        "address": 326,
+        "new": null
+      },
+      {
+        "pc": 35825,
+        "address": 278,
+        "new": null
+      },
+      {
+        "pc": 35830,
+        "address": 344,
+        "new": null
+      },
+      {
+        "pc": 35839,
+        "address": 326,
+        "new": null
+      },
+      {
+        "pc": 35844,
+        "address": 36072,
+        "new": 44264
+      },
+      {
+        "pc": 35854,
+        "address": 402,
+        "new": null
+      },
+      {
+        "pc": 35861,
+        "address": 376,
+        "new": null
+      },
+      {
+        "pc": 35864,
+        "address": 36072,
+        "new": 44264
+      },
+      {
+        "pc": 35872,
+        "address": 402,
+        "new": null
+      },
+      {
+        "pc": 35878,
+        "address": 400,
+        "new": null
+      },
+      {
+        "pc": 35890,
+        "address": 422,
+        "new": null
+      },
+      {
+        "pc": 35895,
+        "address": 414,
+        "new": null
+      },
+      {
+        "pc": 35898,
+        "address": 398,
+        "new": null
+      },
+      {
+        "pc": 35905,
+        "address": 398,
+        "new": null
+      },
+      {
+        "pc": 35910,
+        "address": 398,
+        "new": null
+      },
+      {
+        "pc": 35920,
+        "address": 422,
+        "new": null
+      },
+      {
+        "pc": 35925,
+        "address": 414,
+        "new": null
+      },
+      {
+        "pc": 35934,
+        "address": 400,
+        "new": null
+      },
+      {
+        "pc": 35937,
+        "address": 400,
+        "new": null
+      },
+      {
+        "pc": 35942,
+        "address": 400,
+        "new": null
+      },
+      {
+        "pc": 35946,
+        "address": 36742,
+        "new": 44934
+      },
+      {
+        "pc": 35950,
+        "address": 35186,
+        "new": 43378
+      },
+      {
+        "pc": 35961,
+        "address": 272,
+        "new": null
+      },
+      {
+        "pc": 35974,
+        "address": 272,
+        "new": null
+      },
+      {
+        "pc": 35977,
+        "address": 260,
+        "new": null
+      },
+      {
+        "pc": 35984,
+        "address": 278,
+        "new": null
+      },
+      {
+        "pc": 35991,
+        "address": 382,
+        "new": null
+      },
+      {
+        "pc": 35994,
+        "address": 384,
+        "new": null
+      },
+      {
+        "pc": 35997,
+        "address": 384,
+        "new": null
+      },
+      {
+        "pc": 36002,
+        "address": 390,
+        "new": null
+      },
+      {
+        "pc": 36005,
+        "address": 394,
+        "new": null
+      },
+      {
+        "pc": 36008,
+        "address": 392,
+        "new": null
+      },
+      {
+        "pc": 36019,
+        "address": 368,
+        "new": null
+      },
+      {
+        "pc": 36022,
+        "address": 36029,
+        "new": 44221
+      },
+      {
+        "pc": 36025,
+        "address": 366,
+        "new": null
+      },
+      {
+        "pc": 36044,
+        "address": 260,
+        "new": null
+      },
+      {
+        "pc": 36077,
+        "address": 403,
+        "new": null
+      },
+      {
+        "pc": 36083,
+        "address": 270,
+        "new": null
+      },
+      {
+        "pc": 36091,
+        "address": 35957,
+        "new": 44149
+      },
+      {
+        "pc": 36100,
+        "address": 36677,
+        "new": 44869
+      },
+      {
+        "pc": 36103,
+        "address": 36116,
+        "new": 44308
+      },
+      {
+        "pc": 36108,
+        "address": 36072,
+        "new": 44264
+      },
+      {
+        "pc": 36116,
+        "address": 402,
+        "new": null
+      },
+      {
+        "pc": 36119,
+        "address": 278,
+        "new": null
+      },
+      {
+        "pc": 36124,
+        "address": 278,
+        "new": null
+      },
+      {
+        "pc": 36127,
+        "address": 36742,
+        "new": 44934
+      },
+      {
+        "pc": 36130,
+        "address": 272,
+        "new": null
+      },
+      {
+        "pc": 36142,
+        "address": 344,
+        "new": null
+      },
+      {
+        "pc": 36149,
+        "address": 338,
+        "new": null
+      },
+      {
+        "pc": 36155,
+        "address": 356,
+        "new": null
+      },
+      {
+        "pc": 36164,
+        "address": 338,
+        "new": null
+      },
+      {
+        "pc": 36167,
+        "address": 374,
+        "new": null
+      },
+      {
+        "pc": 36175,
+        "address": 368,
+        "new": null
+      },
+      {
+        "pc": 36184,
+        "address": 370,
+        "new": null
+      },
+      {
+        "pc": 36187,
+        "address": 370,
+        "new": null
+      },
+      {
+        "pc": 36194,
+        "address": 372,
+        "new": null
+      },
+      {
+        "pc": 36198,
+        "address": 35109,
+        "new": 43301
+      },
+      {
+        "pc": 36201,
+        "address": 340,
+        "new": null
+      },
+      {
+        "pc": 36205,
+        "address": 35109,
+        "new": 43301
+      },
+      {
+        "pc": 36212,
+        "address": 350,
+        "new": null
+      },
+      {
+        "pc": 36216,
+        "address": 35109,
+        "new": 43301
+      },
+      {
+        "pc": 36226,
+        "address": 36242,
+        "new": 44434
+      },
+      {
+        "pc": 36231,
+        "address": 36243,
+        "new": 44435
+      },
+      {
+        "pc": 36236,
+        "address": 402,
+        "new": null
+      },
+      {
+        "pc": 36259,
+        "address": 272,
+        "new": null
+      },
+      {
+        "pc": 36263,
+        "address": 35109,
+        "new": 43301
+      },
+      {
+        "pc": 36269,
+        "address": 356,
+        "new": null
+      },
+      {
+        "pc": 36273,
+        "address": 35109,
+        "new": 43301
+      },
+      {
+        "pc": 36277,
+        "address": 36171,
+        "new": 44363
+      },
+      {
+        "pc": 36291,
+        "address": 396,
+        "new": null
+      },
+      {
+        "pc": 36294,
+        "address": 278,
+        "new": null
+      },
+      {
+        "pc": 36299,
+        "address": 278,
+        "new": null
+      },
+      {
+        "pc": 36303,
+        "address": 35109,
+        "new": 43301
+      },
+      {
+        "pc": 36306,
+        "address": 278,
+        "new": null
+      },
+      {
+        "pc": 36311,
+        "address": 278,
+        "new": null
+      },
+      {
+        "pc": 36314,
+        "address": 36302,
+        "new": 44494
+      },
+      {
+        "pc": 36319,
+        "address": 344,
+        "new": null
+      },
+      {
+        "pc": 36322,
+        "address": 36302,
+        "new": 44494
+      },
+      {
+        "pc": 36331,
+        "address": 353,
+        "new": null
+      },
+      {
+        "pc": 36335,
+        "address": 35109,
+        "new": 43301
+      },
+      {
+        "pc": 36341,
+        "address": 36331,
+        "new": 44523
+      },
+      {
+        "pc": 36365,
+        "address": 272,
+        "new": null
+      },
+      {
+        "pc": 36369,
+        "address": 272,
+        "new": null
+      },
+      {
+        "pc": 36378,
+        "address": 272,
+        "new": null
+      },
+      {
+        "pc": 36381,
+        "address": 382,
+        "new": null
+      },
+      {
+        "pc": 36388,
+        "address": 386,
+        "new": null
+      },
+      {
+        "pc": 36394,
+        "address": 388,
+        "new": null
+      },
+      {
+        "pc": 36397,
+        "address": 278,
+        "new": null
+      },
+      {
+        "pc": 36402,
+        "address": 278,
+        "new": null
+      },
+      {
+        "pc": 36405,
+        "address": 36302,
+        "new": 44494
+      },
+      {
+        "pc": 36408,
+        "address": 278,
+        "new": null
+      },
+      {
+        "pc": 36413,
+        "address": 278,
+        "new": null
+      },
+      {
+        "pc": 36416,
+        "address": 36302,
+        "new": 44494
+      },
+      {
+        "pc": 36435,
+        "address": 398,
+        "new": null
+      },
+      {
+        "pc": 36440,
+        "address": 400,
+        "new": null
+      },
+      {
+        "pc": 36444,
+        "address": 35109,
+        "new": 43301
+      },
+      {
+        "pc": 36449,
+        "address": 398,
+        "new": null
+      },
+      {
+        "pc": 36460,
+        "address": 36624,
+        "new": 44816
+      },
+      {
+        "pc": 36475,
+        "address": 374,
+        "new": null
+      },
+      {
+        "pc": 36479,
+        "address": 35109,
+        "new": 43301
+      },
+      {
+        "pc": 36482,
+        "address": 36771,
+        "new": 44963
+      },
+      {
+        "pc": 36490,
+        "address": 314,
+        "new": null
+      },
+      {
+        "pc": 36498,
+        "address": 320,
+        "new": null
+      },
+      {
+        "pc": 36501,
+        "address": 278,
+        "new": null
+      },
+      {
+        "pc": 36506,
+        "address": 278,
+        "new": null
+      },
+      {
+        "pc": 36509,
+        "address": 36549,
+        "new": 44741
+      },
+      {
+        "pc": 36517,
+        "address": 302,
+        "new": null
+      },
+      {
+        "pc": 36524,
+        "address": 308,
+        "new": null
+      },
+      {
+        "pc": 36527,
+        "address": 36552,
+        "new": 44744
+      },
+      {
+        "pc": 36530,
+        "address": 284,
+        "new": null
+      },
+      {
+        "pc": 36533,
+        "address": 284,
+        "new": null
+      },
+      {
+        "pc": 36543,
+        "address": 284,
+        "new": null
+      },
+      {
+        "pc": 36546,
+        "address": 36771,
+        "new": 44963
+      },
+      {
+        "pc": 36549,
+        "address": 36758,
+        "new": 44950
+      },
+      {
+        "pc": 36552,
+        "address": 278,
+        "new": null
+      },
+      {
+        "pc": 36558,
+        "address": 35109,
+        "new": 43301
+      },
+      {
+        "pc": 36561,
+        "address": 35277,
+        "new": 43469
+      },
+      {
+        "pc": 36566,
+        "address": 284,
+        "new": null
+      },
+      {
+        "pc": 36583,
+        "address": 36552,
+        "new": 44744
+      },
+      {
+        "pc": 36586,
+        "address": 302,
+        "new": null
+      },
+      {
+        "pc": 36589,
+        "address": 290,
+        "new": null
+      },
+      {
+        "pc": 36592,
+        "address": 308,
+        "new": null
+      },
+      {
+        "pc": 36595,
+        "address": 296,
+        "new": null
+      },
+      {
+        "pc": 36598,
+        "address": 36549,
+        "new": 44741
+      },
+      {
+        "pc": 36601,
+        "address": 314,
+        "new": null
+      },
+      {
+        "pc": 36606,
+        "address": 320,
+        "new": null
+      },
+      {
+        "pc": 36611,
+        "address": 278,
+        "new": null
+      },
+      {
+        "pc": 36616,
+        "address": 278,
+        "new": null
+      },
+      {
+        "pc": 36621,
+        "address": 36552,
+        "new": 44744
+      },
+      {
+        "pc": 36624,
+        "address": 278,
+        "new": null
+      },
+      {
+        "pc": 36631,
+        "address": 36601,
+        "new": 44793
+      },
+      {
+        "pc": 36634,
+        "address": 266,
+        "new": null
+      },
+      {
+        "pc": 36641,
+        "address": 266,
+        "new": null
+      },
+      {
+        "pc": 36647,
+        "address": 36792,
+        "new": 44984
+      },
+      {
+        "pc": 36652,
+        "address": 36793,
+        "new": 44985
+      },
+      {
+        "pc": 36657,
+        "address": 402,
+        "new": null
+      },
+      {
+        "pc": 36665,
+        "address": 36072,
+        "new": 44264
+      },
+      {
+        "pc": 36673,
+        "address": 402,
+        "new": null
+      },
+      {
+        "pc": 36738,
+        "address": 413,
+        "new": null
+      },
+      {
+        "pc": 36747,
+        "address": 290,
+        "new": null
+      },
+      {
+        "pc": 36754,
+        "address": 296,
+        "new": null
+      },
+      {
+        "pc": 36760,
+        "address": 290,
+        "new": null
+      },
+      {
+        "pc": 36765,
+        "address": 296,
+        "new": null
+      },
+      {
+        "pc": 36774,
+        "address": 290,
+        "new": null
+      },
+      {
+        "pc": 36780,
+        "address": 296,
+        "new": null
+      },
+      {
+        "pc": 36886,
+        "address": 269,
+        "new": null
+      },
+      {
+        "pc": 36901,
+        "address": 266,
+        "new": null
+      },
+      {
+        "pc": 36909,
+        "address": 384,
+        "new": null
+      },
+      {
+        "pc": 36912,
+        "address": 385,
+        "new": null
+      },
+      {
+        "pc": 36915,
+        "address": 408,
+        "new": null
+      },
+      {
+        "pc": 36918,
+        "address": 409,
+        "new": null
+      },
+      {
+        "pc": 36921,
+        "address": 407,
+        "new": null
+      },
+      {
+        "pc": 36928,
+        "address": 36677,
+        "new": 44869
+      },
+      {
+        "pc": 36951,
+        "address": 404,
+        "new": null
+      },
+      {
+        "pc": 36958,
+        "address": 35214,
+        "new": 43406
+      },
+      {
+        "pc": 36965,
+        "address": 269,
+        "new": null
+      },
+      {
+        "pc": 36975,
+        "address": 384,
+        "new": null
+      },
+      {
+        "pc": 36978,
+        "address": 385,
+        "new": null
+      },
+      {
+        "pc": 36981,
+        "address": 404,
+        "new": null
+      },
+      {
+        "pc": 36992,
+        "address": 36886,
+        "new": 45078
+      },
+      {
+        "pc": 36995,
+        "address": 404,
+        "new": null
+      },
+      {
+        "pc": 37008,
+        "address": 413,
+        "new": null
+      },
+      {
+        "pc": 37017,
+        "address": 271,
+        "new": null
+      },
+      {
+        "pc": 37023,
+        "address": 267,
+        "new": null
+      },
+      {
+        "pc": 37030,
+        "address": 404,
+        "new": null
+      },
+      {
+        "pc": 37046,
+        "address": 36884,
+        "new": 45076
+      },
+      {
+        "pc": 37051,
+        "address": 36885,
+        "new": 45077
+      },
+      {
+        "pc": 37060,
+        "address": 404,
+        "new": null
+      },
+      {
+        "pc": 37103,
+        "address": 404,
+        "new": null
+      },
+      {
+        "pc": 37106,
+        "address": 266,
+        "new": null
+      },
+      {
+        "pc": 37111,
+        "address": 37236,
+        "new": 45428
+      },
+      {
+        "pc": 37116,
+        "address": 266,
+        "new": null
+      },
+      {
+        "pc": 37122,
+        "address": 290,
+        "new": null
+      },
+      {
+        "pc": 37130,
+        "address": 296,
+        "new": null
+      },
+      {
+        "pc": 37137,
+        "address": 326,
+        "new": null
+      },
+      {
+        "pc": 37142,
+        "address": 260,
+        "new": null
+      },
+      {
+        "pc": 37155,
+        "address": 374,
+        "new": null
+      },
+      {
+        "pc": 37158,
+        "address": 396,
+        "new": null
+      },
+      {
+        "pc": 37163,
+        "address": 398,
+        "new": null
+      },
+      {
+        "pc": 37168,
+        "address": 353,
+        "new": null
+      },
+      {
+        "pc": 37173,
+        "address": 284,
+        "new": null
+      },
+      {
+        "pc": 37185,
+        "address": 408,
+        "new": null
+      },
+      {
+        "pc": 37188,
+        "address": 407,
+        "new": null
+      },
+      {
+        "pc": 37192,
+        "address": 278,
+        "new": null
+      },
+      {
+        "pc": 37195,
+        "address": 404,
+        "new": null
+      },
+      {
+        "pc": 37198,
+        "address": 266,
+        "new": null
+      },
+      {
+        "pc": 37212,
+        "address": 37219,
+        "new": 45411
+      },
+      {
+        "pc": 37247,
+        "address": 37091,
+        "new": 45283
+      },
+      {
+        "pc": 37253,
+        "address": 266,
+        "new": null
+      },
+      {
+        "pc": 37259,
+        "address": 37215,
+        "new": 45407
+      }
+    ],
+    "source_RAM_relocation_base": 28672,
+    "source_ZP_base": 224,
+    "raw_binary_sha256": "fad8fccf0f5f55a8b83fa82bbefda059953c4c315ae763fb3e198a6d5ede5ce8",
+    "driver_sha256": "78680bb72270e48e813b0514c2511d3bd8683065a97d349170fd6637275bd609",
+    "parent_bank99_UI_prefix_sha256": "90d8c3836acdd2039823484cb71ba52712bd54df008320ed4a008f53a00feef9",
+    "tool_sha256": "06eff190c5e9a1db08d69474eb5bd00b8d64684e12879bd2bee991232ddf8b7e",
+    "scope": "Reproducible standalone assembly only. Current game integration, complete dynamic closure, original goldens/state/ABI and native timing are not established by generation."
+  },
+  "shared125_overlays_limited_by_current_CV3_producer": true,
+  "tool_sha256": "681992c4b617ecff118e9cab8a9f9ddda620982350e77f7ed5992ad9f2394c13",
+  "limits": "Canonical private source assembly plus structure. Original-linked calls/state, complete owner/tail/interrupt behavior, unaffected outer audio, native DMA and matched cadence remain unqualified.",
+  "source_multiply_parent_sha256": "a9838664f94d29d87fbf4742e31d4e20d8b3a96862beabd11224afa4742d9003",
+  "parser_parent_sha256": "2f61cd0ce8d1fdef09185bdeaad3d5fcb1072f6a28cc54c05c0c1c39ca792523",
+  "prepared": true,
+  "source_changes": {
+    "src/mmc5_sfx.s": {
+      "before": "cb815214d58003865a7e14033e121fc07d6c40ee6e12ab4bc5ee1778959d6d15",
+      "after": "b4c30390180dc83750a49c2aadf241acb051ded3d77d03fd6684465bbbc119fd"
+    },
+    "src/guest_audio.s": {
+      "before": "449c5c1f8f6ed005fd9cb62ac0e46e7ad8dab32c32446e5c9877471e72e1eaaa",
+      "after": "a71a8b8b58d12997faee9bb2ce42dc899082fe5ad079fd232898861ae68a054b"
+    },
+    "src/entrypoint.s": {
+      "before": "615520c880e21fad9281c0adf6a3d2b408f416d77860dec56b0d1ca5d1cd37b4",
+      "after": "9fa7cd1de3b5294eea0404b37c54080757b5cf84535ccb1c4520bb4ee8a62f09"
+    },
+    "src/tmnt_sweep_fast.s": {
+      "before": null,
+      "after": "f08d9ad2b843060c81b55106139e9cc1d174812392472717b59f58524caa0f0e"
+    },
+    "smb1base-mmc5-expanded.cfg": {
+      "before": "c13483d61a114ce710609ceb1622700d9b14c7ec6e640fc87cf3de1fe9826c21",
+      "after": "60eeb7f39a2d4b45540455df21523939193a0138dd008486053416dc44e97fd7"
+    }
+  },
+  "all_existing_qualified_symbols_exact": true,
+  "original_sweep_public_entry_span_clock_target_unchanged": true,
+  "source_audio_and_CHR_unchanged": true,
+  "bounded_period_range": [
+    18,
+    2047
+  ],
+  "timer_range_bits": 11,
+  "lower_guard_literal_fallback": true,
+  "C87_mapping_only_owner0_or4": true,
+  "temporary_C_bank_restored": true,
+  "new_RAM_or_SMC_borrow": false,
+  "old_lead_erratum": "Periods18..2047 are the bounded11-bit timer range, not the entire13-bit domain.",
+  "checker_sha256": "d764934fb3075f89d11fb2585fa5f2bab0982697349de36436de7e0767bf8b3a"
+}

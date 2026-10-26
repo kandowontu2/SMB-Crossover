@@ -1,0 +1,84 @@
+{
+  "passed": true,
+  "source_only": true,
+  "native_run": false,
+  "baseline_ROM_sha256": "9a791d0e13015ff362ffc9e460aaac8c8a0a5b6f73e990959dee4e074da473fd",
+  "candidate_ROM_sha256": "64504f58b7fee3382f9c661e0274c20f5ebdcb8ef0da8d59aae0fcc751629c5d",
+  "actual_IRQ_injections": 554,
+  "maximum_stack_depth": 10,
+  "rows": [
+    {
+      "config": {
+        "period": 128
+      },
+      "instruction_boundaries": 107
+    },
+    {
+      "config": {
+        "period": 2047,
+        "owner": 4,
+        "status": 16
+      },
+      "instruction_boundaries": 114
+    },
+    {
+      "config": {
+        "period": 17
+      },
+      "instruction_boundaries": 112
+    },
+    {
+      "config": {
+        "period": 128,
+        "dirty": 1
+      },
+      "instruction_boundaries": 106
+    },
+    {
+      "config": {
+        "period": 128,
+        "control": 129
+      },
+      "instruction_boundaries": 98
+    },
+    {
+      "config": {
+        "period": 128,
+        "owner": 3,
+        "status": 16
+      },
+      "instruction_boundaries": 8
+    },
+    {
+      "config": {
+        "period": 128,
+        "owner": 0,
+        "status": 16
+      },
+      "instruction_boundaries": 9
+    }
+  ],
+  "IRQ_hardware_stores": [
+    8197,
+    8198,
+    20776
+  ],
+  "full_interrupted_AXYP_SP_PC_RAM_SMC_banks_exact": true,
+  "final_ordered_APU_and_all_state_exact": true,
+  "owner0_physical_active_DMC_literal_fallback": true,
+  "foreign_owners_literal_fallback": true,
+  "original_all16_song_DMC_address_requests": 6223,
+  "original_source_DMC_values": [
+    0,
+    1
+  ],
+  "active_Tn_DMC_range": [
+    59584,
+    59713
+  ],
+  "both_E127_and_E125_identical": true,
+  "entire_other126_banks_including_sourceDMC_and_fixedcontracts_exact": true,
+  "no_new_hardware_math": true,
+  "no_nested_NMI_claim": true,
+  "checker_sha256": "e77d8dad2e94397a05f7b4f0f3b4637b5d55be5208fbe47e3afe872092721570"
+}

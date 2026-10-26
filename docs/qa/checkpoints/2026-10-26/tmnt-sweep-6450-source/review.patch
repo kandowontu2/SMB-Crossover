@@ -1,0 +1,333 @@
+--- a/smb1base-mmc5-expanded.cfg
++++ b/smb1base-mmc5-expanded.cfg
+@@ -109,7 +109,8 @@
+     X5_NEW_54: start=$a000, size=$2000, type=ro, file=%O, fill=yes, fillval=$ff, bank=$54;
+     X5_NEW_55: start=$c000, size=$2000, type=ro, file=%O, fill=yes, fillval=$ff, bank=$55;
+     X5_NEW_56: start=$a000, size=$2000, type=ro, file=%O, fill=yes, fillval=$ff, bank=$56;
+-    X5_NEW_57: start=$a000, size=$2000, type=ro, file=%O, fill=yes, fillval=$ff, bank=$57;
++    X5_NEW_57: start=$a000, size=$1500, type=ro, file=%O, fill=yes, fillval=$ff, bank=$57;
++    TN_SWEEP_C87_MEM: start=$d500, size=$0b00, type=ro, file=%O, fill=yes, fillval=$ff, bank=$57;
+     X5_NEW_58: start=$c000, size=$2000, type=ro, file=%O, fill=yes, fillval=$ff, bank=$58;
+     X5_NEW_59: start=$a000, size=$2000, type=ro, file=%O, fill=yes, fillval=$ff, bank=$59;
+     X5_NEW_5A: start=$a000, size=$2000, type=ro, file=%O, fill=yes, fillval=$ff, bank=$5a;
+@@ -247,6 +248,7 @@
+     PARODIUS_CHR:load=PARODIUS_CHR_MEM,type=ro;
+ 
+     TMNT_CORE:load=X5_NEW_57,type=ro;
++    TN_SWEEP_C87:load=TN_SWEEP_C87_MEM,type=ro;
+     TMNT_GFX:load=X5_NEW_58,type=ro;
+     TMNT_COMBAT:load=X5_NEW_59,type=ro;
+     TMNT_CHR:load=TMNT_CHR_MEM,type=ro;
+@@ -393,6 +395,7 @@
+     WATER:           load = PRG_EXTRA, type = ro, optional=yes;
+     CHAR_SELECT:     load = PRG_EXTRA, type = ro, optional=yes;
+     X5_AUDIO_MIX: load=PRG_EXTRA,type=ro,optional=yes;
++    TN_SWEEP_GATE:load=PRG_EXTRA,start=$bfda,type=ro;
+     CHEATS_MENU_COLD: load=CHEATS_MENU_MEM, type=ro, optional=yes;
+     CONTRA_AUDIO: load=CONTRA_MEM, type=ro, optional=yes;
+     CONTRA_WRAP: load=CONTRA_WRAP_MEM, type=ro, optional=yes;
+--- a/src/entrypoint.s
++++ b/src/entrypoint.s
+@@ -490,3 +490,7 @@
+ .include "tmnt_audio_samus_cold.s"
+ .include "tmnt_audio.s"
+ .endif
++
++.if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
++.include "tmnt_sweep_fast.s"
++.endif
+--- a/src/guest_audio.s
++++ b/src/guest_audio.s
+@@ -100,8 +100,13 @@
+ .include "build/generated/guest-audio/shared-sfx.inc"
+ .proc GuestAudioBegin
+   lda SelectedCharacter
++.if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
++  cmp #CHARACTER_PIT
++  bcs :+
++.else
+   cmp #CHARACTER_BASS
+   beq :+
++.endif
+     jsr BassAudioBegin
+   :
+   lda SelectedCharacter
+@@ -161,8 +166,13 @@
+   sta GuestWorldQueues+1
+   lda NoiseSoundQueue
+   sta GuestWorldQueues+2
++.if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
++  jmp BassAudioBegin
++  nop
++.else
+   jsr BassAudioBegin
+   rts
++.endif
+ NativeQueues:
+   lda Square1SoundQueue
+   and #Sfx_Bump|Sfx_Flagpole
+@@ -270,7 +280,11 @@
+     sta $4015
+   :
+ .if ::MAPPER_MMC5
++.if ::ENABLE_MMC5_EXPANDED
++  jsr TnExpansionSweepGate
++.else
+   jsr GuestExpansionFlush
++.endif
+ .endif
+   lda GuestMixMask
+ .if ::ENABLE_MMC5_EXPANDED
+--- a/src/mmc5_sfx.s
++++ b/src/mmc5_sfx.s
+@@ -53,6 +53,58 @@
+   and #$c0
+   ora #$30                       ; MMC5 does not implement NES sweep muting.
+   sta GuestExpansionApu
++.if ::ENABLE_MMC5_EXPANDED
++Output:
++.repeat 2,C
++.scope
++ lda #(1<<C)
++ and GuestMixMask
++ beq NextChannel
++.repeat 4,R
++.scope
++ I=C*4+R
++.if R<>1
++ lda GuestExpansionApu+I
++ cmp GuestExpansionLast+I
++ bne Write
++ lda #(1<<C)
++ and GuestMixChanged
++ bne Write
++ lda GuestFxDirty+I
++ beq Next
++Write:
++ lda GuestExpansionApu+I
++ sta $5000+I
++ sta GuestExpansionLast+I
++Next:
++.endif
++.endscope
++.endrepeat
++NextChannel:
++.endscope
++.endrepeat
++ ldx #8
++ ldy #1
++ cpx #8
++ rts
++::TnExpansionSweepCall:
++ lda CurrentBankC
++ pha
++ lda #$d7
++ sta CurrentBankC
++ sta $5116
++ jsr TnExpansionFlushFast
++ ; Private helper returns Y=original final A. Original public X=8 and
++ ; final CPX#8 flags are independent of final A. LDA/STA retain V/D/I.
++ pla
++ sta CurrentBankC
++ sta $5116
++ tya
++ ldy #1
++ cpx #8
++ rts
++.assert *-GuestExpansionFlush=371,lderror,"Public flush span"
++.else
+ Output:
+   ; Fixed register/channel offsets also make silent channels cheap. Keep the
+   ; original ascending hardware writes and dirty/ownership retriggers.
+@@ -83,6 +135,7 @@
+   ldy #1
+   cpx #8
+   rts
++.endif
+ .endproc
+ 
+ .proc GuestExpansionSweepClock
+--- a/src/tmnt_sweep_fast.s
++++ b/src/tmnt_sweep_fast.s
+@@ -0,0 +1,181 @@
++; Enter only from GuestAudioFinish, whose consumed A/N/Z are dead.
++; The original public flush remains the fallback for all foreign owners.
++.pushseg
++.segment "TN_SWEEP_GATE"
++.proc TnExpansionSweepGate
++ lda SelectedCharacter
++ cmp #CHARACTER_TMNT
++ bne Original
++ lda BassDmcActive
++ beq Idle
++ cmp #4                       ; original TMNT E-window owner4 only
++ bne Original
++ beq CheckMask
++Idle:
++ lda $4015                    ; unowned active DMC takes literal original
++ and #$10
++ bne Original
++CheckMask:
++ lda GuestMixMask
++ and #1
++ beq Original
++ jmp TnExpansionSweepCall
++Original:
++ jmp GuestExpansionFlush
++.endproc
++.assert TnExpansionSweepGate=$bfda,lderror,"Declared A29 free tail"
++.assert *=$c000,lderror,"Exact38-byte gate in A29 tail"
++.popseg
++; New private C87 run alias. A29 remains mapped for literal fallback
++; clock/target calls. Only owner0/4 is admitted; TMNT samples reside in E.
++.pushseg
++.segment "TN_SWEEP_C87"
++.proc TnExpansionFlushFast
++ lda GuestMixMask
++ and #3
++ sta $5015
++.repeat 8,I
++ lda GuestFxApu+7-I
++ sta GuestExpansionApu+7-I
++.endrepeat
++ ; Gate already proves pulse1. Dirty images, nonzero divider
++ ; or reload, and values outside18..2047 retain literal source halfclocks.
++ lda GuestSweepControl
++ cmp #$99
++ jne Original
++ lda GuestFxDirty+1
++ ora GuestFxDirty+2
++ ora GuestFxDirty+3
++ jne Original
++ lda GuestSweepDivider
++ ora GuestSweepReload
++ bne Original
++ lda GuestSweepPeriod+1
++ cmp #8
++ bcs Original
++ cmp #0
++ bne Wide
++ lda GuestSweepPeriod
++ cmp #18
++ bcc Original
++ ; Exact8-bit specialization. Last SBC cannot overflow for P>=18.
++ sec
++ sbc #1
++ lsr
++ sta GuestSweepPeriod
++ sta GuestExpansionApu+2
++ sec
++ sbc #1
++ lsr
++ sta GuestSweepDelta
++ lda #0
++ sta GuestSweepPeriod+1
++ sta GuestSweepDelta+1
++ sta GuestSweepTicks
++ lda GuestFxApu+3
++ and #$f8
++ sta GuestExpansionApu+3
++ jmp Output
++Wide:
++ sec
++ lda GuestSweepPeriod
++ sbc #1
++ sta GuestSweepPeriod
++ lda GuestSweepPeriod+1
++ sbc #0
++ lsr
++ sta GuestSweepPeriod+1
++ ror GuestSweepPeriod
++ sec
++ lda GuestSweepPeriod
++ sbc #1
++ sta GuestSweepDelta
++ lda GuestSweepPeriod+1
++ sbc #0
++ lsr
++ sta GuestSweepDelta+1
++ ror GuestSweepDelta
++ lda #0
++ sta GuestSweepTicks
++ lda GuestSweepPeriod
++ sta GuestExpansionApu+2
++ lda GuestFxApu+3
++ and #$f8
++ ora GuestSweepPeriod+1
++ sta GuestExpansionApu+3
++ jmp Output
++Original:
++  ; MMC5 has no sweep registers. Keep a private pulse-1 timer and implement
++  ; the NES divider/negate behavior in software, at two half clocks per NMI.
++  ; The phase within the video frame is quantized to this 60 Hz update.
++  lda GuestFxDirty+2
++  beq :+
++    lda GuestFxApu+2
++    sta GuestSweepPeriod
++  :
++  lda GuestFxDirty+3
++  beq :+
++    lda GuestFxApu+3
++    and #7
++    sta GuestSweepPeriod+1
++  :
++  lda GuestFxDirty+1
++  beq :+
++    lda GuestFxApu+1
++    sta GuestSweepControl
++    lda #1
++    sta GuestSweepReload
++  :
++  lda #2
++  sta GuestSweepTicks
++Clock:
++  jsr GuestExpansionSweepClock
++  dec GuestSweepTicks
++  bne Clock
++  lda GuestSweepPeriod
++  sta GuestExpansionApu+2
++  lda GuestFxApu+3
++  and #$f8
++  ora GuestSweepPeriod+1
++  sta GuestExpansionApu+3
++  jsr GuestExpansionSweepTarget
++  bcs Output
++  lda GuestExpansionApu
++  and #$c0
++  ora #$30                       ; MMC5 does not implement NES sweep muting.
++  sta GuestExpansionApu
++Output:
++.repeat 2,C
++.scope
++ lda #(1<<C)
++ and GuestMixMask
++ beq NextChannel
++.repeat 4,R
++.scope
++ I=C*4+R
++.if R<>1
++ lda GuestExpansionApu+I
++ cmp GuestExpansionLast+I
++ bne Write
++ lda #(1<<C)
++ and GuestMixChanged
++ bne Write
++ lda GuestFxDirty+I
++ beq Next
++Write:
++ lda GuestExpansionApu+I
++ sta $5000+I
++ sta GuestExpansionLast+I
++Next:
++.endif
++.endscope
++.endrepeat
++NextChannel:
++.endscope
++.endrepeat
++ ldx #8
++ tay
++ cpx #8
++ rts
++.endproc
++.popseg

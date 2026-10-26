@@ -1,0 +1,52 @@
+{
+  "independently_verified": {
+    "source_archive_members": 659,
+    "owned_tools": 9,
+    "proofs": 10
+  },
+  "source_CPU_only": true,
+  "native_run": false,
+  "adopted": false,
+  "ROM_sha256": "64504f58b7fee3382f9c661e0274c20f5ebdcb8ef0da8d59aae0fcc751629c5d",
+  "notes": [
+    "Full original16song engine output/state remains exact within frozen checks.",
+    "Disclosed before-call shared cue CPU control saves425 at407; no literal native full-RAM snapshot or recovered draw claim.",
+    "19 effect/retrigger cost regressions18x+1/1x+6 remain disclosed; no universal no-harm.",
+    "BFDA tail overlaps0c45 Cv3FxOwnerInit. This donor is immutable; a separate mixed-channel code specialization/composition is being prepared.",
+    "Bounded period18..2047 is11bit, not full13bit; idle extra4015read precondition explicitly retained."
+  ],
+  "files": {
+    "changed-source-versus-50b5.json": "83b475d2303672e4ce55a74b0406d6cf472de33792ef67d4af4aaf1cd827f69e",
+    "changed-source-versus-9a791.json": "53822d9a7abfc875c6c9ad8bff574591f66d992e1e375831f6de0ca96230afc6",
+    "preparation.json": "3defba10a3b9ca544fe17e95a11097eba5ea330dd6a5d2600275af7d26a2c708",
+    "qualification.json": "94761dd9af6f942bfcd2822649d3077651cb2c620f472cbb9d79fa91feadee0a",
+    "receipt.json": "28efe69b2486dae9e18edbc1fc9cd8a371114c2387d77e1dc1a6a5b465af6d83",
+    "reused-checkers.json": "bbdcd4623576c82b6687f50a51e45ae6c60393db1922cb0f77e202a213374187",
+    "review.patch": "fc0bcdc6ad6aa19f74fa4ff9d3a6b7c99e5290bc4f7cd9f505e22bd13f32d01d",
+    "source-bindings.json": "f6f8c090c66a8bafa6a41c9726102c8ae0ad46542911df44d18c2697a329a672",
+    "changed-source/smb1base-mmc5-expanded.cfg": "60eeb7f39a2d4b45540455df21523939193a0138dd008486053416dc44e97fd7",
+    "frozen-tools/tmnt_sweep_fast_build_controls_v1.py": "bb535d9b3f67d38580ba7985ca5f65056baebf5a32423f83579c3151eaf495cb",
+    "frozen-tools/tmnt_sweep_fast_cpu_v2.py": "2aed49ccbbc3ef97f344be3f50ee8766172cb631d165c12c432b9800ed58f91b",
+    "frozen-tools/tmnt_sweep_fast_cues_v1.py": "ff06e0a7be7443ad55428022e45e6e8f40d08b4894ab5857e433414f5182095c",
+    "frozen-tools/tmnt_sweep_fast_edges_v1.py": "0d8f2fd53a60f91fd8296e34f824f38cb4968a21c1ce66d61a83e14e29f0dc8d",
+    "frozen-tools/tmnt_sweep_fast_finalize_v1.py": "89c29d9d0f33604efca8c0762a0d6a5a3c0d4cfa058871763feb4f6d00cfe904",
+    "frozen-tools/tmnt_sweep_fast_hot_v1.py": "a58a92a41e3735e8c93a382615df03dc499acd6fda5a8654a7450f971beea234",
+    "frozen-tools/tmnt_sweep_fast_irq_v2.py": "e77d8dad2e94397a05f7b4f0f3b4637b5d55be5208fbe47e3afe872092721570",
+    "frozen-tools/tmnt_sweep_fast_outer_v1.py": "aadaae0ada18c2deebc07e8693246b13c5d3b1178fd6100cdb290ed2f1e3331a",
+    "frozen-tools/tmnt_sweep_fast_source_v6.py": "d764934fb3075f89d11fb2585fa5f2bab0982697349de36436de7e0767bf8b3a",
+    "proofs/builds.json": "6f52ff902a2faf4fd12f031e77c6b884775c46d11b3512bffddc608b7992b6c2",
+    "proofs/cues.json": "0a39feded60f1bb83b20c54101ceaa4db68e1902b68e5ff2cab202897a51ff9c",
+    "proofs/edges.json": "5cec05c48fd7668e02fbc18ea3c6ec78acbb5e5f5ea0871a46b66e403394250b",
+    "proofs/hot403.json": "cb631452b9377990a5cac6d2e16226dfea5804fe33cd47d6071b4b5d4a54e4a0",
+    "proofs/hot404.json": "03807fd72b95b47925d68f1183d36b72bd8bbddb369ff633c718c209f23e6548",
+    "proofs/hot405.json": "ed0b251122e5f1d1dac6f11260daec84e2d97d3a87aa83e538cd1a66cc7780b0",
+    "proofs/IRQ.json": "27cba01a877d2992c63d43277850edcdaea68f62d0879eef5558373ef75c38ad",
+    "proofs/math.json": "5e3c55aa14187a22f14781d399afe352c3d0c519c184d3eaed9ea457abea4394",
+    "proofs/outer37.json": "0928ecad376a706b2e697572e0fdce2e9fa1440a994f7bef6d44b962a2320696",
+    "proofs/songs.json": "4e0de60d182bbb0e84e9f73a2acb6105dc1fde8ca125ff032bfb589b652a491a",
+    "changed-source/src/entrypoint.s": "9fa7cd1de3b5294eea0404b37c54080757b5cf84535ccb1c4520bb4ee8a62f09",
+    "changed-source/src/guest_audio.s": "a71a8b8b58d12997faee9bb2ce42dc899082fe5ad079fd232898861ae68a054b",
+    "changed-source/src/mmc5_sfx.s": "b4c30390180dc83750a49c2aadf241acb051ded3d77d03fd6684465bbbc119fd",
+    "changed-source/src/tmnt_sweep_fast.s": "f08d9ad2b843060c81b55106139e9cc1d174812392472717b59f58524caa0f0e"
+  }
+}
