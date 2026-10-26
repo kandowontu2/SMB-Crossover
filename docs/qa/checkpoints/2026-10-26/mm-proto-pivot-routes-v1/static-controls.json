@@ -1,0 +1,131 @@
+{
+  "passed": true,
+  "source_mock_only": true,
+  "native_launches": 0,
+  "observer_mechanic_bytes_unchanged": true,
+  "tests": [
+    {
+      "passed": true,
+      "registration_order_range_late_next_event_and_rejections": 9
+    },
+    {
+      "module": "legacy_chr_observer_of.lua",
+      "scenario": "normal_and_reuse",
+      "complete_mock_files_and_ordered_reads_state_calls_exact": true,
+      "intended_dynamic_native_callbacks": 8,
+      "new_static_native_callbacks": 3,
+      "exact_read_state_operations": 258
+    },
+    {
+      "module": "legacy_chr_observer_of.lua",
+      "scenario": "wrong_pc_sp_retains_inside",
+      "complete_mock_files_and_ordered_reads_state_calls_exact": true,
+      "intended_dynamic_native_callbacks": 8,
+      "new_static_native_callbacks": 3,
+      "exact_read_state_operations": 231
+    },
+    {
+      "module": "legacy_chr_observer_of.lua",
+      "scenario": "stack_and_return_wrap",
+      "complete_mock_files_and_ordered_reads_state_calls_exact": true,
+      "intended_dynamic_native_callbacks": 8,
+      "new_static_native_callbacks": 3,
+      "exact_read_state_operations": 216
+    },
+    {
+      "module": "legacy_chr_observer_of.lua",
+      "scenario": "wrong_entry_bank_then_valid",
+      "complete_mock_files_and_ordered_reads_state_calls_exact": true,
+      "intended_dynamic_native_callbacks": 8,
+      "new_static_native_callbacks": 3,
+      "exact_read_state_operations": 228
+    },
+    {
+      "module": "legacy_chr_observer_of.lua",
+      "scenario": "literal_no_return_bank_guard",
+      "complete_mock_files_and_ordered_reads_state_calls_exact": true,
+      "intended_dynamic_native_callbacks": 8,
+      "new_static_native_callbacks": 3,
+      "exact_read_state_operations": 217
+    },
+    {
+      "module": "legacy_chr_observer_of.lua",
+      "scenario": "different_return_and_stale_DMA",
+      "complete_mock_files_and_ordered_reads_state_calls_exact": true,
+      "intended_dynamic_native_callbacks": 8,
+      "new_static_native_callbacks": 3,
+      "exact_read_state_operations": 230
+    },
+    {
+      "module": "chr_commit_observer.lua",
+      "scenario": "normal_and_reuse",
+      "complete_mock_files_and_ordered_reads_state_calls_exact": true,
+      "intended_dynamic_native_callbacks": 7,
+      "new_static_native_callbacks": 2,
+      "exact_read_state_operations": 230
+    },
+    {
+      "module": "chr_commit_observer.lua",
+      "scenario": "wrong_pc_sp_retains_inside",
+      "complete_mock_files_and_ordered_reads_state_calls_exact": true,
+      "intended_dynamic_native_callbacks": 7,
+      "new_static_native_callbacks": 2,
+      "exact_read_state_operations": 206
+    },
+    {
+      "module": "chr_commit_observer.lua",
+      "scenario": "stack_and_return_wrap",
+      "complete_mock_files_and_ordered_reads_state_calls_exact": true,
+      "intended_dynamic_native_callbacks": 7,
+      "new_static_native_callbacks": 2,
+      "exact_read_state_operations": 202
+    },
+    {
+      "module": "chr_commit_observer.lua",
+      "scenario": "wrong_entry_bank_then_valid",
+      "complete_mock_files_and_ordered_reads_state_calls_exact": true,
+      "intended_dynamic_native_callbacks": 7,
+      "new_static_native_callbacks": 2,
+      "exact_read_state_operations": 217
+    },
+    {
+      "module": "chr_commit_observer.lua",
+      "scenario": "literal_no_return_bank_guard",
+      "complete_mock_files_and_ordered_reads_state_calls_exact": true,
+      "intended_dynamic_native_callbacks": 7,
+      "new_static_native_callbacks": 2,
+      "exact_read_state_operations": 203
+    },
+    {
+      "module": "chr_commit_observer.lua",
+      "scenario": "different_return_and_stale_DMA",
+      "complete_mock_files_and_ordered_reads_state_calls_exact": true,
+      "intended_dynamic_native_callbacks": 7,
+      "new_static_native_callbacks": 2,
+      "exact_read_state_operations": 210
+    }
+  ],
+  "complete_startups": [
+    {
+      "identity": "megaman",
+      "full_generated_startup": true,
+      "inactive_mock_frames": 439,
+      "static_host_callbacks": 18,
+      "final_full_range_exec_dispatcher": true
+    },
+    {
+      "identity": "proto",
+      "full_generated_startup": true,
+      "inactive_mock_frames": 439,
+      "static_host_callbacks": 17,
+      "final_full_range_exec_dispatcher": true
+    }
+  ],
+  "Lua_runtime": "Lua54",
+  "literal_return_scope": "Entry bank and PC/SP checks retained exactly. Original return closures do NOT test bank; the bank-mismatch scenario preserves that original behavior rather than inventing a new guard.",
+  "prior_static_native_qualification": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\tmnt-static-observer-native-ready-v1\\receipt.json",
+  "prior_native_scope": "Same dispatcher had one actual historical9a791 replay/566draw outcome and source/PPU equality; this does not retag the new routes as native-qualified.",
+  "limits": "Synthetic source observer/API snapshots, not Mesen vector mutation emulation or actual new gameplay/PPU equivalence. Startup controller executes under inactive zero-memory mocks; real natural mode/identity/return/native rendering checks remain in the unchanged harness.",
+  "preparation_sha256": "72afdc63d3b5b665540cc3ea7f7c3023aebd3c36ded89f2d200724625a451e40",
+  "tool_sha256": "ad1b563826d01dd705c8206b17a3aa061b15e424dbc9e6b87ae449ff60a2cde6"
+}

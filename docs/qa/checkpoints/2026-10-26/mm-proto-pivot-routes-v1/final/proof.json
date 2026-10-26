@@ -1,0 +1,94 @@
+{
+  "passed": true,
+  "native_route_pass": true,
+  "graphics_complete": false,
+  "adopted": false,
+  "new_native_launches": 0,
+  "total_granted_launches_completed": 4,
+  "native_worker_released": true,
+  "ROM_sha256": "0a7dd88e6732bc189e432a9d55b18dd8f7ecf68a22e3b20f0a13ab7276241c09",
+  "preparation_bindings_checked": 2021,
+  "catalog_files": 131,
+  "catalog_sha256": "fb24c516acd9ed5fbdc734aabd8abe7497dd87ca137fc00f51cb8745dbfef79e",
+  "review_files_sha256": "919da8745dbc879a8feee870754773a3004cafcf687905d3322e5b50ee3acd45",
+  "rows": [
+    {
+      "case": "megaman-easy",
+      "result": {
+        "cleared": true,
+        "world_1_1_seen": true,
+        "frames": 5279,
+        "polls": 5278,
+        "deaths": 0,
+        "failure": null,
+        "stage_entries": {
+          "0-0": 371,
+          "0-1": 5255
+        }
+      },
+      "actual_numeric_mode": 0,
+      "direct_PPU_frames": 5079,
+      "CHR_commit": {
+        "passed": true,
+        "frames": 3546,
+        "mismatched_frames": 0,
+        "body_constructions": 1783,
+        "scope": "Read-only MMC5 physical/legacy mapping versus matching actual DMA player parts on every observed active video frame. Source pose art, body visibility and full campaign are separate."
+      },
+      "completed_loop": {
+        "passed": true,
+        "checks": 2738,
+        "max_world_step": 2,
+        "max_camera_step": 3,
+        "game_state_writes": false
+      },
+      "literal_gameplay_suffix_exact": true,
+      "complete_events_file_exact": false,
+      "raw_lossless_archive": {
+        "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mega-proto-pivot-routes0a-static-v1\\native\\megaman-easy-direct\\direct.argb.gz",
+        "sha256": "b23988678f13086f61a6ebb79c59a9fe5bc0a2df70dd9f376d6d4bdac5fbbd3c"
+      }
+    },
+    {
+      "case": "proto-easy",
+      "result": {
+        "cleared": true,
+        "world_1_1_seen": true,
+        "frames": 5118,
+        "polls": 5117,
+        "deaths": 0,
+        "failure": null,
+        "stage_entries": {
+          "0-0": 393,
+          "0-1": 5094
+        }
+      },
+      "actual_numeric_mode": 0,
+      "direct_PPU_frames": 4918,
+      "CHR_commit": {
+        "passed": true,
+        "frames": 3370,
+        "mismatched_frames": 0,
+        "body_constructions": 1797,
+        "scope": "Read-only actual hardware CHR pages versus last DMA player image. Bounded natural controller movement, no full-level or pixel-comparison claim."
+      },
+      "completed_loop": {
+        "passed": true,
+        "checks": 2717,
+        "max_world_step": 2,
+        "max_camera_step": 3,
+        "game_state_writes": false
+      },
+      "literal_gameplay_suffix_exact": true,
+      "complete_events_file_exact": false,
+      "raw_lossless_archive": {
+        "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mega-proto-pivot-routes0a-static-v1\\native\\proto-easy-direct\\direct.argb.gz",
+        "sha256": "19d9d3bc24beadfbeb39bde034ac6631199f5515449ad9bb061c6e427d0546a1"
+      }
+    }
+  ],
+  "selected_unique_whole_frames": 122,
+  "ROOT_visual_review": "ROOT reported independent review of 42 original selected wholeframes plus adjacent1938..1953 and both20-frame first-block/rise sheets:98 placements. No scenery corruption identified in that sample; real head-only1941..1943 recovers1944.",
+  "residual": "Actual head-only Mega1941..1943. Fairer construction order is incomplete and changing live counts/publication can still omit body or shots.",
+  "limits": "Selected manual visual review only. All saved PNG RGB/lossless roundtrip is a capture integrity result, not manual review of every frame. Original full event-file mismatch remains, literal active-gameplay suffix and other10CSV files exact. No all-weapons, everyitem, audible SFX, per-live-slot fairness, full256DMA/NMI/SP/SMC long-route oracle, or matched performance claim. V1 later767sheet was not the first bump; corrected initial windows are separate v2 outputs."
+}

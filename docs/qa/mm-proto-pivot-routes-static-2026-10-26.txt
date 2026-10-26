@@ -1,0 +1,46 @@
+Mega/Proto0a7dd route observer: SOURCE/MOCK preparation only, zero native runs.
+Private ROM0a7dd88e6732bc189e432a9d55b18dd8f7ecf68a22e3b20f0a13ab7276241c09.
+Existing current3b is unchanged; no game patch, source/default/settings writes.
+
+The original route runner can register a new exact-PC CHR return callback
+while inside an exec callback. That mutates the pinned host callback vector.
+The existing qualified89987828 TMNT_STATIC_EXEC dispatcher is now installed
+once at startup, after every original registration. Startup and later exec
+callbacks occupy ordered Lua slots. New slots run on the next dispatch event,
+not in the event that adds them. Runtime nonexec host registration is rejected.
+
+Original legacy_chr_observer_of.lua and chr_commit_observer.lua bytes, all
+mechanics/guards, policies, camera guard, logging and capture.py remain exact.
+The runner adds only dispatcher prefix/suffix and a source-only prepare switch.
+The coordinator rebinds its private paths and stops on first discovery or
+independent replay failure. It cannot retry. Proposed scope is exactly MegaEasy
+discovery/replay then ProtoEasy discovery/replay, maximum4 sequential launches,
+one worker, unchanged18000 emulated-frame bound and original240-second host
+timeout per run. Actual controller menus select the identity/variant/Easy mode;
+no live selection, resource, actor, outcome or source-clock injection occurs.
+
+Finite Lua54 controls PASS:9 dispatcher order/range/next-event/rejection checks;
+12 cases executing the complete two ORIGINAL observer modules, with normal,
+reused/different return PCs, wrong PC/SP, stack/return wrap, wrong entry bank,
+stale DMA, and existing return-bank semantics. Complete ordered emulated reads,
+state reads and observer file strings match the intended original snapshot
+model. Each static version uses exactly one native exec dispatcher. Original
+return closures do not test bank; this absence is preserved rather than being
+silently strengthened or called a new bank guarantee. Entry-bank checks remain.
+
+Both complete actual generated source previews load with a final startup exec
+dispatcher.439 inactive mock frames run the original controller/log callbacks
+with no added native memory registration. This uses synthetic zero-memory
+inactive APIs, not emulation. No new native same-input CSV/PPU/JSON equivalence
+is claimed. The SAME dispatcher had one historical9a791 replay with exact raw
+PPU/original gameplay outputs and the old566draw failure retained; that scoped
+native receipt is referenced without relabeling it current0a7dd qualification.
+
+Preparation directory:
+C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/
+mega-proto-pivot-routes0a-static-v1
+Exact runner/coordinator deltas are in observer-only.patch. Both generated
+previews, current runtime/settings/import/source hashes and the final command
+are bound for ROOT review. A separate explicit native grant is still required.
+Longer controller routes can test progression/pixels; they do not automatically
+qualify every weapon, body/shot temporal fairness or matched no-harm performance.

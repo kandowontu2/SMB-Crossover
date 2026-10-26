@@ -1,0 +1,264 @@
+{
+  "passed": true,
+  "offline_only": true,
+  "agent_visual_review": false,
+  "identity": "proto",
+  "mode": "easy",
+  "actual_numeric_mode": 0,
+  "ROM_sha256": "0a7dd88e6732bc189e432a9d55b18dd8f7ecf68a22e3b20f0a13ab7276241c09",
+  "result": {
+    "cleared": true,
+    "world_1_1_seen": true,
+    "frames": 5118,
+    "polls": 5117,
+    "deaths": 0,
+    "failure": null,
+    "stage_entries": {
+      "0-0": 393,
+      "0-1": 5094
+    }
+  },
+  "direct_PPU_frames": 4918,
+  "comparisons": {
+    "inputs.csv": {
+      "exact": true,
+      "discovery_sha256": "0e49ca5f3f4ef8103281767a97b27839704807c00a73e6512b5688e886f2f355",
+      "replay_sha256": "0e49ca5f3f4ef8103281767a97b27839704807c00a73e6512b5688e886f2f355"
+    },
+    "trace.csv": {
+      "exact": true,
+      "discovery_sha256": "a4c4dcc2cb968f45bebd92ffcc335bd8a44a01be007940a93d374ba556dbc2c9",
+      "replay_sha256": "a4c4dcc2cb968f45bebd92ffcc335bd8a44a01be007940a93d374ba556dbc2c9"
+    },
+    "events.csv": {
+      "exact": false,
+      "discovery_sha256": "1ba637f94462bd3ab5a573ab68b7ba1c94d4aae5d8d5a2bc82ed31df2afd7101",
+      "replay_sha256": "74d08fcf817c43890bf85b371285453b04897dfc9486b85e508e4b60bd5c1aa5",
+      "gameplay_suffix_exact": true,
+      "first_native_stage_frame": 393,
+      "discovery_pregame_rows": [
+        {
+          "frame": "216",
+          "event": "sfx-0104",
+          "value": "1",
+          "world": "0",
+          "level": "0",
+          "x": "121",
+          "y": "152"
+        },
+        {
+          "frame": "217",
+          "event": "sfx-0104",
+          "value": "1",
+          "world": "0",
+          "level": "0",
+          "x": "121",
+          "y": "152"
+        },
+        {
+          "frame": "217",
+          "event": "sfx-0104",
+          "value": "1",
+          "world": "0",
+          "level": "0",
+          "x": "121",
+          "y": "152"
+        }
+      ],
+      "replay_pregame_rows": [],
+      "reason": "Original live-menu selectionDone logger opens before fixed replay selectionDone; untouched pregame event rows retained. All gameplay rows compare literally."
+    },
+    "render.csv": {
+      "exact": true,
+      "discovery_sha256": "aca2e6c3120a40cde728d38dfb493e97756caa8875ff3f269e8f33af8fc1f14e",
+      "replay_sha256": "aca2e6c3120a40cde728d38dfb493e97756caa8875ff3f269e8f33af8fc1f14e"
+    },
+    "audio-events.csv": {
+      "exact": true,
+      "discovery_sha256": "19d052466acbb2f17a30cb5652f25201816daeec70d78ef78dbb034ef97d965c",
+      "replay_sha256": "19d052466acbb2f17a30cb5652f25201816daeec70d78ef78dbb034ef97d965c"
+    },
+    "oam.csv": {
+      "exact": true,
+      "discovery_sha256": "f0188766b655e2a3133b0ccf0de72b94f033e9a6bd125c06dd2d144e695428a1",
+      "replay_sha256": "f0188766b655e2a3133b0ccf0de72b94f033e9a6bd125c06dd2d144e695428a1"
+    },
+    "chr.csv": {
+      "exact": true,
+      "discovery_sha256": "6de0ba409fe049aab4297c79f2169609d2fcbda7163153eed5835b50ad69a71d",
+      "replay_sha256": "6de0ba409fe049aab4297c79f2169609d2fcbda7163153eed5835b50ad69a71d"
+    },
+    "chr-commit.csv": {
+      "exact": true,
+      "discovery_sha256": "de3f9ca184af5cf2bd298d2e9838d254e825c0bbb191a647f2878ca46b106461",
+      "replay_sha256": "de3f9ca184af5cf2bd298d2e9838d254e825c0bbb191a647f2878ca46b106461"
+    },
+    "scroll-writes.csv": {
+      "exact": true,
+      "discovery_sha256": "6c6f74a7436d398d990544f52de2ff85b56e657a5b3d322363f94af7e7eb218b",
+      "replay_sha256": "6c6f74a7436d398d990544f52de2ff85b56e657a5b3d322363f94af7e7eb218b"
+    },
+    "stomp-events.csv": {
+      "exact": true,
+      "discovery_sha256": "dffe1ca7cbdd329a41d54a7ec8a1fe3ce0951e6dcdceb5a05ad66409f491d257",
+      "replay_sha256": "dffe1ca7cbdd329a41d54a7ec8a1fe3ce0951e6dcdceb5a05ad66409f491d257"
+    },
+    "completed-loop-motion.csv": {
+      "exact": true,
+      "discovery_sha256": "74854bbf2dddbd7eac124724a100146c31020fe8848249ec0ea6a2b7427b20c5",
+      "replay_sha256": "74854bbf2dddbd7eac124724a100146c31020fe8848249ec0ea6a2b7427b20c5"
+    }
+  },
+  "completed_loop": {
+    "passed": true,
+    "checks": 2717,
+    "max_world_step": 2,
+    "max_camera_step": 3,
+    "game_state_writes": false
+  },
+  "source_CHR_commit": {
+    "passed": true,
+    "frames": 3370,
+    "mismatched_frames": 0,
+    "body_constructions": 1797,
+    "scope": "Read-only actual hardware CHR pages versus last DMA player image. Bounded natural controller movement, no full-level or pixel-comparison claim."
+  },
+  "numeric_modes_observed": [
+    0
+  ],
+  "stomps": {
+    "events": 1,
+    "illegal_guest_events": 0,
+    "guest_events": 1,
+    "allowed_mode_1_0_guest_events": 1,
+    "behavior_version": 0,
+    "behavior_source": "menu-setting",
+    "resident_opcode_mismatches": 0,
+    "hook_address": 38918,
+    "nested_interrupt_guards": true,
+    "physical_frame": "previous endFrame + 1",
+    "failure": null
+  },
+  "power_status_values": [
+    0,
+    1
+  ],
+  "power_status_transitions": [
+    {
+      "frame": 889,
+      "old": 0,
+      "new": 1,
+      "x": 401,
+      "y": 155,
+      "engine": 8,
+      "preceding_engine9_start": 829
+    },
+    {
+      "frame": 1226,
+      "old": 1,
+      "new": 0,
+      "x": 692,
+      "y": 166,
+      "engine": 8,
+      "preceding_engine9_start": 1166
+    }
+  ],
+  "active_video_pose_rows": {
+    "crouch": 0,
+    "attack": 0,
+    "shoot": 0,
+    "wall": 0,
+    "ceiling": 0,
+    "hover": 0,
+    "pitFlight": 0
+  },
+  "request_store_events": [
+    {
+      "name": "MmAudioShotType",
+      "value": 1,
+      "stores": 206
+    },
+    {
+      "name": "NoiseSoundQueue",
+      "value": 1,
+      "stores": 3
+    },
+    {
+      "name": "Square1SoundQueue",
+      "value": 1,
+      "stores": 6
+    },
+    {
+      "name": "Square1SoundQueue",
+      "value": 2,
+      "stores": 8
+    },
+    {
+      "name": "Square1SoundQueue",
+      "value": 4,
+      "stores": 4
+    },
+    {
+      "name": "Square1SoundQueue",
+      "value": 8,
+      "stores": 108
+    },
+    {
+      "name": "Square1SoundQueue",
+      "value": 16,
+      "stores": 6
+    },
+    {
+      "name": "Square1SoundQueue",
+      "value": 32,
+      "stores": 404
+    },
+    {
+      "name": "Square1SoundQueue",
+      "value": 64,
+      "stores": 3
+    },
+    {
+      "name": "Square2SoundQueue",
+      "value": 1,
+      "stores": 291
+    },
+    {
+      "name": "Square2SoundQueue",
+      "value": 2,
+      "stores": 289
+    },
+    {
+      "name": "Square2SoundQueue",
+      "value": 4,
+      "stores": 286
+    },
+    {
+      "name": "Square2SoundQueue",
+      "value": 8,
+      "stores": 286
+    },
+    {
+      "name": "Square2SoundQueue",
+      "value": 16,
+      "stores": 429
+    },
+    {
+      "name": "Square2SoundQueue",
+      "value": 32,
+      "stores": 2
+    }
+  ],
+  "event_classes": {
+    "stage": 2,
+    "sfx-0105": 551,
+    "sfx-0104": 1583,
+    "sfx-0103": 3
+  },
+  "hardware_APU_write_count": 28892,
+  "hardware_expansion_write_count": 5013,
+  "selected_whole_frame_samples": 12,
+  "selected_interaction_samples": 12,
+  "selected_frame_bindings_sha256": "34c3c33c0a88ee090880fa4a22d2ac68df49692d5d08dda7630379ccf2d9d14d",
+  "limits": "Actual saved source/request/pose/status telemetry and selected actual wholePPU samples only. Power readback changes do not alone identify item owner/type. Sound request stores and perframe hardware activity are not audible/correct-source/duration proofs or distinct-use counts. No everyitem/weapon/SFX/physics/flicker/fidelity/60Hz/global completion claim."
+}
