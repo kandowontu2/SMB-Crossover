@@ -1,11 +1,69 @@
-Current roster status, 2026-10-26T13:45:42.730679+00:00
+Current roster status, 2026-10-26 -- clean731 timing adoption
 
 Current work covers 37 playable identities in 19 menu slots. Additional
 characters and promotional videos remain deferred. All37 selected ordinary1-1
-routes now clear and replay on current3cee; the complete physical powerup,
-graphics, sound and performance qualification remains unfinished.
+routes cleared and replayed on previous3cee. Those results are not relabeled
+as new731 coverage. Physical powerup, graphics, sound, performance and campaign
+qualification remains unfinished.
 
-Installed/default/Downloads MMC5 now includes the CV3/HUD/timing fixes,
+CURRENT731 TIMING REPAIR
+Installed/default/Downloads expandedMMC5:
+731c918b0f448564587d90fca2979afc9fc0e5eb9b26616f4241801e2e73e16c.
+Download: C:/Users/kando/Downloads/SMB-Crossover-Current-MMC5.nes.
+Dated: C:/Users/kando/Downloads/SMB-Crossover-2026-10-26-731c918b-MMC5.nes.
+Fresh ROOT source builds reproduce731 and unchanged ordinaryMMC3/MMC5 hashes.
+639 primary inputs checked; exact4-file source delta and rollback are retained.
+Receipt: presentation-timing-adoption-2026-10-26.json.
+
+Character-selection VRAM work is reduced by drawing the static alternate-key
+legend once and removing redundant palette commands after the native preview.
+Rendering stays disabled through all256 DMA writes, and expandedMMC5 arms its
+HUD IRQ after DMA/input. No held shot-budget, body-order or music experiment
+is included; original Mega/Proto ordinary shots remain byte-exact3cee.
+
+Fresh actual menu1800 passes all6 original guards plus ungated timing:
+1300 physical complete256-byte DMAs/0hardware mismatches,945 scoped render
+enables/0late,1257 physicalIRQ31 checks. All1799input/trace and1121completed
+motion rows are exact3cee. Of1651whole RGB frames,1486are exact3cee; the165
+changes comprise164menu frames and one blanking transition. All164owned menu
+wholeframes were reviewed by the agent. ROOT independently recomputes all
+8,480,768 static-pixel comparisons (51,712/frame),0mismatches, and verifies
+that the same mask rejects all7oldb0wraps. The9,728dynamic/preview exclusions
+are explicit; no full-background oracle is claimed. ROOT also views all8
+before/held/after wholeframe triples: seven wraps absent, Mario preview retained.
+
+A separate fresh actual MegaEasy450 preflight passes402fullDMA pages,
+72safe enables,442NMI return checks and79IRQ31 checks.275lossless PPU frames
+176..450 are hashed. The first-active372 HUD does not wrap in this sample;
+enable260:83, DMAcomplete260:72. This is a new fixed-frame-input preflight,
+not an exact full historical route replay. Queue/phase differences also affect
+the timing; do not attribute the entire difference to the20-cycle IRQ move.
+
+Fresh staged Hard1F240 heavy-audio control passes280original source calls,
+850APU stores and strict source/hardware/cadence comparison with3cee. Complete
+totals240updates/168draws, no draw-prefix deferrals. ROOT separately verifies
+all168physical DMA pages and byte-exact actual case-end. Existing lag remains;
+this is a regression control, not a global frame-rate or waveform claim.
+
+Fresh exact731 MarioEasy physical mushroom/flower/use control passes with
+zero deaths: pickups839/1457, two60-update held-position transformations,
+actual Goomba fireball contact1898, neutral inputs1899..1944 and both projectile
+slots clear1906/1911. Final Fire retained;1396CHR observations/0bad and1476
+completed-motion checks/maxstep3 pass. ROOT verifies all3522 frozen bindings,
+all23 public payload files and views the27 sample placements on two wholeframe
+sheets. No obvious displacement or corrupt scenery appears in those samples.
+This endpoint1945 is mid-level, not a fresh full1-1 clear or waveform check.
+The separate900 success and all three earlier failed controller attempts remain
+their own evidence. See mario-flower731-east-native-2026-10-26.txt.
+
+Known crowded-scene body/shot visibility, tinyHUD lettering, natural pending
+HUD/Buffer2 overlap, every powerup/mode/shortcut and missing music remain open.
+Mega/Proto body-priority work is private. Luigi's next physical item route is
+being prepared separately; no result is inferred from Mario's test.
+
+HISTORICAL3cee ADOPTION AND TEST RESULTS FOLLOW
+
+Previous installed/default/Downloads MMC5 included the CV3/HUD/timing fixes,
 a separate Chip/Dale controller optimization and clearer Parodius bar lettering:
 3cee18caa732b2e85e3bdb00faf719223324f9bf24e72dd30c56be355da33b99.
 Download: C:/Users/kando/Downloads/SMB-Crossover-Current-MMC5.nes.
@@ -16,7 +74,7 @@ qualified source. Adoption checked4290 final menu bindings and914 current CPU
 bindings. Receipt: chip-hud-adoption-2026-10-26.json. No held Chip music imported.
 Turtle70ba and Chip8b4 authentic-sound trials remain private and uninstalled.
 
-CURRENT3cee TARGETED QUALIFICATION
+PREVIOUS3cee TARGETED QUALIFICATION
 All6current menu1800 native components PASS:1122updates,1000complete DMAs and
 797publications versus6c69's997/794. All1799inputs and1121completed-motion rows
 are byte-exact. Independent check of2254336 foreground/background HUD pixels

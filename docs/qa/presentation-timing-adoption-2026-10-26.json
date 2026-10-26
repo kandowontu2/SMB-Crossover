@@ -1,0 +1,62 @@
+{
+  "passed": true,
+  "adopted": true,
+  "goal_complete": false,
+  "ROM_sha256": "731c918b0f448564587d90fca2979afc9fc0e5eb9b26616f4241801e2e73e16c",
+  "parent_ROM_sha256": "3cee18caa732b2e85e3bdb00faf719223324f9bf24e72dd30c56be355da33b99",
+  "source_files": [
+    {
+      "path": "smb1base-mmc5-expanded.cfg",
+      "before_sha256": "24e42a14fc35f57f1229795c433c48e40ad55cada20764d2f98ecbce4f25d43a",
+      "after_sha256": "62982d0e1d5d3f41cc5253f735a5442282b989624adc43922a3f9053acb88c64"
+    },
+    {
+      "path": "src/character_select.s",
+      "before_sha256": "a856d45219c149681a5c543f420c322fa4093cbfac5f8e660771e639c6095160",
+      "after_sha256": "1aed522afcdb674adf09abe83f08ed1f8491b6b569e3118ebd026afd463200cd"
+    },
+    {
+      "path": "src/reset.s",
+      "before_sha256": "446d50b4fe968b32e9b61d272423109af26c3b186bafbe67c0b0f1ddf9e9183c",
+      "after_sha256": "4e9af1d0455d62e7f1852406463c98fbc44ea0e1720a5a9dd9555e25870960aa"
+    },
+    {
+      "path": "src/menu_vram_budget.s",
+      "before_sha256": null,
+      "after_sha256": "b5ffa2f59e0e5c417e5e7d4a270dfa62f53edcd18f202418eacd0a655d8fd237"
+    }
+  ],
+  "checked_primary_inputs": 639,
+  "builds": [
+    {
+      "target": "expanded",
+      "ROM_sha256": "731c918b0f448564587d90fca2979afc9fc0e5eb9b26616f4241801e2e73e16c",
+      "passed": true
+    },
+    {
+      "target": "mmc3",
+      "ROM_sha256": "d444cac88e13fa02b29ad16100b8f08fa565ba90f8cedde192de43fb2dc8f3eb",
+      "passed": true
+    },
+    {
+      "target": "mmc5",
+      "ROM_sha256": "f4ffd2483c51daa4d60bb575da2da8c4d817692cda407611c243031f67520833",
+      "passed": true
+    }
+  ],
+  "menu_proof": {
+    "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\parodius-menu-clean731-native-final-v1\\proof.json",
+    "sha256": "82049d36e0d354586f52f8e1413ffbdbe24303ac7273df9224e714165a932f59"
+  },
+  "menu_visual_proof": {
+    "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\parodius-menu-clean731-native-final-v1\\visual-proof.json",
+    "sha256": "4ad81078ae93f9a44c579bc814fe86c09334cac93718387a93d8199093ae657f"
+  },
+  "finite_timing_receipt_sha256": "a98a6f0edfc2e7aba3a8fdc8b08d527f4e308a07095524802afef72e796daa89",
+  "pressure_comparison_sha256": "e555c801ff459ab4f494dcb1099e6e4f407cb042827a48b5e696010e102c24a2",
+  "original_shots_retained": true,
+  "installed": "C:\\Users\\kando\\Downloads\\SMB-Crossover-Current-MMC5.nes",
+  "dated_build": "C:\\Users\\kando\\Downloads\\SMB-Crossover-2026-10-26-731c918b-MMC5.nes",
+  "rollback": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\clean731-adoption-v1",
+  "limits": "Targeted menu and level-start timing adoption only. Existing37 route clears remain exact3cee evidence, not retagged. Body/shot flicker, every-powerup, other-mode/shortcut, missing music, broader performance and campaign work remain open."
+}

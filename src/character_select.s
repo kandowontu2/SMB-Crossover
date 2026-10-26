@@ -553,7 +553,11 @@ MenuCharacters: .byte 0,1,2,3,4,5,6,7,12,9,10,11
   lda #$3f
 .endif
   jsr QueueCursor
+.if ::ENABLE_MMC5_EXPANDED && ::MAPPER_MMC5
+  jmp MenuPreviewBudget
+.else
   jmp DrawSelectionPreview
+.endif
 .endproc
 
 .proc DrawSelectionPreview
@@ -1168,17 +1172,8 @@ SelectNameTable:
 .segment "PN_MENU_HINT"
 .proc PnMenuVariantHintGate
  jmp PnMenuInitialHintDispatch
- cmp #Select_Button
- bne Original
- lda SelectedCharacter
- cmp #18
- bne Original
- lda CrossoverMenuState
- cmp #2
- bne Original
- lda DisableScreenFlag
- bne Original
- rts
+ jmp MenuHintQueuePolicy
+ .res 21,$ea
 Original:
  ldx VRAM_Buffer1_Offset
  jmp QueueVariantHint+3
@@ -1194,9 +1189,7 @@ Original:
 ; NmiDisable is negative. Lag NMI skips PPU work with DisableScreenFlag!=0.
 ; Mask IRQ only around the paired address/data transaction; retain NMI/audio.
 .proc PnMenuInitialHintDispatch
- lda SelectedCharacter
- cmp #18
- bne Native
+ .res 7,$ea ; Existing entry/copy/native addresses remain genuine.
  lda CrossoverMenuState
  cmp #2
  bne Native
@@ -1219,7 +1212,7 @@ Original:
  sta PPUADDR
  ldy #0
 Copy:
- lda QueueVariantHint::ProtoHint,y
+ lda MenuStaticLegend,y
  sta PPUDATA
  iny
  cpy #20
@@ -1227,10 +1220,12 @@ Copy:
  lda Mirror_PPUCTRL
  sta PPUCTRL
  plp
- rts
+ nop
 Native:
  lda CrossoverMenuPressed
  jmp PnMenuVariantHintGate+3
 .endproc
 .popseg
 .endif
+
+.include "menu_vram_budget.s"

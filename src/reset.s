@@ -359,6 +359,7 @@ ScreenOff:
   sta IrqNewScroll
   ; lda Mirror_PPUCTRL
   ; sta IrqScrollBit
+.if !(::ENABLE_MMC5_EXPANDED && ::MAPPER_MMC5)
   lda Sprite0HitDetectFlag  ;check for flag here
   beq SkipSprite0
 .if ::ENABLE_CROSSOVER && ::MAPPER_MMC3
@@ -370,14 +371,17 @@ ScreenOff:
     ; cli just in case NMI runs late
     cli
 SkipSprite0:
+.endif
   lda Mirror_PPUCTRL
   sta IrqPPUCTRL
   ; and also reset the flags for the HUD
   and #%11111100
   sta PPUCTRL
 
+.if !(::ENABLE_MMC5_EXPANDED && ::MAPPER_MMC5)
   lda Mirror_PPUMASK       ;copy mirror of $2001 to register
   sta PPUMASK
+.endif
 
   ; If the main thread requested a CHR bank switch, do it before the timing window passes
   jsr BankSwitchCHR
@@ -392,6 +396,22 @@ SkipSprite0:
   sta NmiR1
 .endif
   jsr OAMandReadJoypad
+.if ::ENABLE_MMC5_EXPANDED && ::MAPPER_MMC5
+  ; Arm the HUD split after the protected DMA/input transfer. Its work
+  ; no longer delays rendering past the pre-render vertical reload.
+  ; Native IRQ31 timing still requires separate physical validation.
+  lda Sprite0HitDetectFlag  ;check for flag here
+  beq SkipSprite0
+.if ::ENABLE_CROSSOVER && ::MAPPER_MMC3
+    ; Publish timing with the new OAM image. Lag NMIs keep both old values.
+    lda GuestHudNextDelay
+    sta GuestHudIrqDelay
+.endif
+    SetScanlineIRQ #$1f
+    ; cli just in case NMI runs late
+    cli
+SkipSprite0:
+.endif
 
   ldy #$00
   ldx VRAM_Buffer_AddrCtrl  ;check for usage of $0341
@@ -758,6 +778,13 @@ CONTROLLER_PORT = $4016
 
   LDA #OAM
   STA OAM_DMA
+ .if ::ENABLE_MMC5_EXPANDED && ::MAPPER_MMC5
+  ; Keep rendering disabled until all256 DMA writes finish. The next input
+  ; load kills A/NZ; the pair preserves C/V and the controller GET/PUT parity.
+::PostDmaMaskEnable:
+  lda Mirror_PPUMASK
+  sta PPUMASK
+ .endif
  
   ; Desync cycles: 432, 576, 672, 848, 432*2-4 (860)
 
@@ -884,6 +911,13 @@ RESERVE_ZP SavedJoypad2Bits, 1
 .proc OAMandReadJoypad
   lda #OAM
   sta OAM_DMA          ; ------ OAM DMA ------
+ .if ::ENABLE_MMC5_EXPANDED && ::MAPPER_MMC5
+  ; Keep rendering disabled until all256 DMA writes finish. The next input
+  ; load kills A/NZ; the pair preserves C/V and the controller GET/PUT parity.
+::PostDmaMaskEnable:
+  lda Mirror_PPUMASK
+  sta PPUMASK
+ .endif
   ldx #1             ; get put          <- strobe code must take an odd number of cycles total
   stx SavedJoypad1Bits ; get put get
   stx JOYPAD_PORT1   ; put get put get
