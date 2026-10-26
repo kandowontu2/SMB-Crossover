@@ -1,0 +1,160 @@
+Current Mario0 versus Luigi8 movement: source/assembled-CPU comparison
+2026-10-26. Documentation only; no game changes or additional native run.
+
+Conclusion: Luigi is a modestly modified native SMB player, but current Mario0
+uses a different Crossover movement engine. Consequently Luigi is not current
+Mario's physics with only a slightly higher jump and slightly less traction.
+Several differences are substantial. The small Luigi constants themselves are
+consistent with that stated intent relative to native SMB; the current dispatch
+means they are being compared against a different Mario profile.
+
+Exact accepted ROM:
+731c918b0f448564587d90fca2979afc9fc0e5eb9b26616f4241801e2e73e16c
+Frozen source/build: C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/mm-proto-clean-menu-candidates-v1/clean-menu-irq
+Evidence: same external root /mario-luigi731-physics-v1.
+Tool: tools/audit/mario_luigi731_coefficients_v1.py.
+
+Actual dispatch and units
+-------------------------
+src/player.s:953..986,1064..1089: normal dry Mario0/engine8 dispatches to
+MarioSourceMovement. Luigi8 calls LuigiNativePrepare and then native
+PlayerPhysicsSub + OnGroundStateSub/JumpSwimSub/FallingSub. Native dry Luigi
+has no Easy/Hard coefficient branch. Climbing, active springs and other engine
+states have separate fallback paths and are not covered by the trajectory table.
+Mario has Q8.16 velocities; native Luigi stores horizontal speed in sixteenths
+plus a separate 8-bit velocity fraction, and vertical velocity in Q8.8.
+All figures below are NES world pixels per source update, not lagged video frames.
+
+Horizontal coefficients
+-----------------------
+                              Mario Easy       Mario Hard       Luigi Easy/Hard
+Direction acceleration       3641/65536        3186/65536        native state classes
+                             .05555725         .04861450        (listed below)
+Walking cap                  1.25              1.45832825       1.5
+Running cap                  2.5               2.5              2.5
+From rest, walk cap update    23                30               41
+From rest, run cap update     45                52               45
+
+Luigi's native ordinary walk acceleration is 152/4096=.037109375; a matching
+ground B/run branch uses 228/4096=.0556640625. The native fast/RunningSpeed
+branch uses 208/4096=.05078125. Native reversal may double the selected force.
+These are state-dependent source branches, not one universal acceleration.
+LuigiNativeTraction changes braking only while dry, grounded, engine8, moving
+with no matching direction input: F -> F-floor(F/8). Examples152->133,
+228->200,208->182, doubled304->266 and456->399. Acceleration in the held
+movement direction is not reduced by this helper.
+
+Mario ground coast multiplies speed by62344/65536=.9512939453, then stops
+below1/3 pixel/update. Skidding applies56210/65536=.8576965332 after input
+acceleration. Run-to-walk uses61399/65536=.9368743896 with a remembered run
+cap. Native Luigi instead subtracts its state-dependent additive braking force.
+In identical isolated no-input ground coast components starting at2.5:
+Mario Easy/Hard first visible stop update41, displacement42 pixels;
+Luigi Easy/Hard update55, displacement67 pixels. This is a59.5% longer stopping
+distance in this explicit component, not merely12.5% relative to current Mario.
+Native high speed0 can retain a nonzero Player_X_MoveForce fraction; no-input
+ImposeFriction leaves that fraction intact. The actual native displacement uses
+the sixteenth-unit speed, so the table's native cap is the displacement cap,
+not a claim that the separate accumulated velocity fraction is cleared.
+
+Air/run admission also differs. Mario's B-held dry cap can become2.5 in air.
+Luigi's native airborne cap follows the existing speed class: abs speed>=25/16
+selects the run cap; slower air movement selects the walking cap even with B.
+Native RunningTimer/RunningSpeed and facing-versus-moving direction affect
+acceleration/reversal. Mario has an explicit first-directional-update skip after
+crouching and exponential skid/coast branches. A single native friction tweak
+does not reproduce those controls.
+
+Vertical coefficients and integration
+-------------------------------------
+Mario Easy jump: -354987/65536=-5.41667175 at ordinary speed,
+                -382293/65536=-5.83332825 at full2.5 run speed.
+Mario Hard jump: -218453/65536=-3.33332825 ordinary, -3.5 at full run.
+Only two Mario classes exist here, split at full2.5 speed. Hard first holds
+velocity with MarioJumpRise and zero gravity, targeting42/56 pixels. Once the
+target is reached it clamps position and clears Rise; it retains velocity, so
+42/56 are transition distances, NOT complete jump heights. Hard release waits
+for its19-pixel minimum target, then uses stronger upward friction.
+Easy release activates upward friction immediately without that minimum target.
+After the rise stage gravity is12743/65536=.1944427490 Easy or
+13653/65536=.2083282471 Hard. Upward release multiplies velocity by
+56210/65536=.8576965332 Easy or52057/65536=.7943267822 Hard.
+Dry downward velocity is capped to exactly5. Mario applies gravity before
+position integration.
+
+Luigi native jump classes by abs horizontal speed (sixteenth-unit thresholds):
+  class0 <9; class1 9..15; class2 16..24; class3 25..27; class4 >=28.
+Luigi subtracts51/256 from the original native initial vertical velocity:
+  classes0..2: -4.19921875; classes3..4: -5.19921875.
+Held rise gravity by class: .125,.125,.1171875,.15625,.15625.
+Release/fall gravity:       .4375,.4375,.375,.5625,.5625.
+Native release changes to falling gravity after at least1 pixel of rise; it
+does not multiply upward velocity by Mario's source release-friction factor.
+Native position integration occurs BEFORE its velocity/gravity update.
+The native fall limiter checks integer speed>=4 plus fraction>=.5 and clamps
+back to4. With ordinary .4375 fall force the measured steady post-gravity
+states alternate4 and4.4375; do not label it a strict4.0 velocity cap.
+
+Actual isolated full PlayerMovementSubs jump components
+-----------------------------------------------------
+Each starts at Y176/highpage1, with no terrain/enemies, holds A throughout,
+and records first integer-Y apex plus the first return crossing of starting Y.
+
+Profile/speed          Rise pixels   First apex update   Return crossing update
+Mario Easy,0 or1.25    73            25                  55
+Mario Easy,2.5         85            27                  60
+Mario Hard,0 or1.25    68            28                  54
+Mario Hard,2.5         84            30                  62
+Luigi either,0         73            31                  57
+Luigi either,1.25      78            34                  61
+Luigi either,2.5       90            33                  61
+
+At rest Luigi is not higher than Easy Mario in this component; the apex is
+six updates later. At ordinary horizontal1.25 he is5 pixels higher, with a
+nine-update-later apex. At2.5 he is5/6 pixels higher than Easy/Hard Mario.
+Thus the full-jump height difference can be modest while its acceleration,
+rise timing, walking cap, release response and braking remain different.
+All36 jump cases also include release after1 and8 updates; complete source
+trajectories are saved. Those trajectories are isolated CPU components, not
+an assertion about live level collision, landing or elapsed video-frame timing.
+
+Water scope
+-----------
+Both identities use shared MarioWaterMovement while normally swimming, not
+LuigiNativeJump/Traction. Shared paddle is approximately-1.66667; shared
+submerged gravity3186/65536 and room-water fall cap about3.33333. Mario0
+has additional collision-bit/input, Hard current-pull acceleration and cap
+branches in MarioSourceWaterAcceleration/Clamp; Luigi retains the preexisting
+shared water profile (normal walk1.25; submerged ground.75). Hard Mario's
+normal non-run cap1.458328 differs. These water branches were source-inspected,
+not newly native/CPU water-qualified here. Native dry tweaks cannot establish
+water equivalence.
+
+Intent assessment and finite recommendation
+-------------------------------------------
+The current implementation does NOT strictly meet "current Mario physics with
+only modestly higher jump/slightly less traction." Luigi's current physical
+item/Fire progression is separately native-qualified and no game bug is inferred
+from a distinct projectile pool. The movement differences above are a separate
+source finding, not a reason to discard the successful native item test.
+
+If preserving that original intent takes precedence, a future private change
+should share Mario0's selected Easy/Hard dry profile, then add only explicitly
+bounded Luigi jump/brake changes. Simply sending SelectedCharacter8 into the
+existing MarioSourceMovement is insufficient: its integration/gravity/water
+helpers and several source behaviors branch on literal character0/8. Those
+branches require a genuine profile contract and full controller/collision/IRQ
+qualification, retaining actual Luigi identity/graphics/projectile owners.
+No such patch, model tuning, installed-ROM mutation or extra native run is
+included in this packet. ROOT can decide how to reconcile the original intent.
+
+Proof scope
+-----------
+7 actual ROM tables,55 assembled helper components,36 actual movement jump
+components,12 horizontal components and4 falling components passed. Seven
+frozen source files, actual731 ROM/debug, CPU helper dependencies, tool and all
+outputs are hashed in proof.json; final-proof.json additionally binds this report.
+CPU components call assembled code with explicit legal initial states and
+controller/history/moving-direction/running-timer bookkeeping. They omit actual
+NMI/IRQ/PPU/APU, terrain/actors, PlayerCtrlRoutine and real landing. No native
+physical-frame, hardware, source-audio, all-physics or fullcampaign claim follows.

@@ -1,0 +1,1 @@
+Narrow current731 PitEasy A physical delivery/B controlled acquired use component. One launch,10plans,two real pickups,two60transforms. No Hard/otherprofiles/allitem/sourceaudio/art/no-flicker claim. Binary captures remain external; source/native/review hashes and explicit sheet placements are in the bound external packet.

@@ -1,0 +1,33 @@
+Luigi731 growth versus stable Fire colors: source diagnosis, no palette patch
+
+The green/white image at1713 is still the final growth flash, not stable Fire.
+Actual saved state: engine9, GuestPowerupActive1, age59, PlayerStatus1. At1714
+the real finish owner makes Fire2/engine8 and ends growth. Selected actual PPU
+1720 and1760 already show white/red Luigi while RgShootPose0 and no Rg shots
+exist; first genuine allocation/source fire request is1761. Thus shooting did
+not trigger this particular color transition.
+
+Fresh isolated execution of all60 GuestPowerupPalette ages on exact731 proves
+age59 queues $3F11 colors $1A,$27,$30 (green, skin, white). The genuine finish
+GuestPowerupUpdate -> GetPlayerColors -> X5LegacyGetPlayerColors queues stable
+Luigi Fire $3F10 [$22,$30,$27,$16] (area backdrop, white, skin, red). The retained
+Luigi Colors/PlayerColors source tables agree. Twelve ordinary power/pose
+components, including idle/walking/air/shooting, give the same body palette
+for a given stable power. Super uses $1A,$27,$17. No firing palette-owner bug
+is established by these samples/source paths; no game change is proposed.
+
+Erratum to earlier failure report's visual wording "white/green Fire Luigi":
+that described a selected transformation image too broadly. Stable Fire is
+white/red in the current source and actual pre-shot images. The original report
+and native FALSE remain immutable. This addendum does not change their result.
+
+Exact ROM731c918b0f448564587d90fca2979afc9fc0e5eb9b26616f4241801e2e73e16c.
+Tool tools/audit/luigi_palette731_source_v1.py.
+External mario archive /luigi-palette731-source-v1/proof.json SHA256
+887c68c5a43b81d5b114e3a9ff224920c3e6c9871dbe73d0bb8a41f48b11975c.
+14 bindings;60 growth/12 stable pose/1 finish actual assembled components.
+Selected complete images1713/1720/1760/1768 reviewed. Existing state CSV is
+actual native RAM evidence; native PPU palette RAM itself was not recorded.
+This is a source-correlated diagnosis, not new native palette-RAM observation
+or original Crossover/NES palette-art parity certification. No new native run,
+ROM/settings/default/Git mutation or waveform claim.
