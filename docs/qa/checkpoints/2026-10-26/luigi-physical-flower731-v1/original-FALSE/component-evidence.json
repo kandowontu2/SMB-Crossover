@@ -1,0 +1,160 @@
+{
+  "analysis_passed": true,
+  "native_passed": false,
+  "ROM_sha256": "731c918b0f448564587d90fca2979afc9fc0e5eb9b26616f4241801e2e73e16c",
+  "native_launches": 1,
+  "retries": 0,
+  "native_worker_released": true,
+  "genuine_pickups": [
+    {
+      "frame": 851,
+      "itemIndex": 1,
+      "kind": "real-native-collection",
+      "playerPower": 0,
+      "slot": 5,
+      "type": 0,
+      "x": 408,
+      "y": 176
+    },
+    {
+      "frame": 1653,
+      "itemIndex": 2,
+      "kind": "real-native-collection",
+      "playerPower": 1,
+      "slot": 5,
+      "type": 1,
+      "x": 1260,
+      "y": 111
+    }
+  ],
+  "growth": [
+    {
+      "first": 852,
+      "last": 911,
+      "source_updates": 60,
+      "held_position": [
+        "408",
+        "176"
+      ]
+    },
+    {
+      "first": 1654,
+      "last": 1713,
+      "source_updates": 60,
+      "held_position": [
+        "1260",
+        "111"
+      ]
+    }
+  ],
+  "retained_Fire1714_through2260": true,
+  "first_observed_Rg_shoot_pose_frame": 1762,
+  "native_Mario_slot_allocations_observed": 0,
+  "projectile_owner_diagnosis": "The fixture watched Mario Fireball_State/native enemy-hit hook. Luigi8 dispatches ExpandedWeapons, clears Mario slots and uses RgShotType3 in ten shared slots with a two-shot limit. Native allocation/contact/drain were unobserved, not proven absent.",
+  "actual_complete_dispatcher_source_controls": [
+    {
+      "power": 1,
+      "held": 64,
+      "previous": 0,
+      "RgShotType": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "Fireball_State": [
+        0,
+        0
+      ],
+      "actual_owner": "ProcFireball_Bubble -> RlWeaponsDispatch -> ExpandedWeapons",
+      "source_only": true
+    },
+    {
+      "power": 2,
+      "held": 0,
+      "previous": 0,
+      "RgShotType": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "Fireball_State": [
+        0,
+        0
+      ],
+      "actual_owner": "ProcFireball_Bubble -> RlWeaponsDispatch -> ExpandedWeapons",
+      "source_only": true
+    },
+    {
+      "power": 2,
+      "held": 64,
+      "previous": 64,
+      "RgShotType": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "Fireball_State": [
+        0,
+        0
+      ],
+      "actual_owner": "ProcFireball_Bubble -> RlWeaponsDispatch -> ExpandedWeapons",
+      "source_only": true
+    },
+    {
+      "power": 2,
+      "held": 64,
+      "previous": 0,
+      "RgShotType": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        3
+      ],
+      "Fireball_State": [
+        0,
+        0
+      ],
+      "actual_owner": "ProcFireball_Bubble -> RlWeaponsDispatch -> ExpandedWeapons",
+      "source_only": true
+    }
+  ],
+  "partial_CHR_rows": 1722,
+  "partial_CHR_bad": 0,
+  "original_motion_final_JSON": {
+    "passed": false,
+    "checks": 1684,
+    "max_world_step": 3,
+    "max_camera_step": 3,
+    "game_state_writes": false
+  },
+  "no_final_successful_component_or_CHR_receipt": true,
+  "no_retry_or_game_change": true,
+  "scope": "Two physical pickups/120growth and selected visible Luigi shots are components of an overall FALSE observer attempt. No actual Rg allocation/contact/lifetime/SFX waveform or fullroute qualification."
+}

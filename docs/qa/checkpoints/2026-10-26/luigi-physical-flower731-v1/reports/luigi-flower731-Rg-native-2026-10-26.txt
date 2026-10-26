@@ -1,0 +1,49 @@
+Luigi Easy physical mushroom -> flower -> Rg fireball: bounded native PASS
+2026-10-26. Source/build and controller qualification; no production changes.
+
+Exact ROM: 731c918b0f448564587d90fca2979afc9fc0e5eb9b26616f4241801e2e73e16c
+Evidence: C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/luigi-flower731-rg-owner-v1
+Readiness: b443734f84719a0022936a1aff749275e7c76aa8ee72ccb01ad45ff1d0ab9697 (3,964 bound inputs).
+Exactly one granted launch, zero retries; exited successfully and worker released.
+
+Actual selection/readbacks: character 8, Mario slot/variant 1, Easy 0.
+Endpoint: frame 2054, 2053 input polls, zero deaths, two remaining lives and Fire status 2.
+Physical mushroom from world block 336 collected at 851; flower from block 1248
+collected at 1653. Each transformation performed 60 actual source updates with the
+player held at a fixed position: 852..911 at 408/176 and 1654..1713 at 1260/111.
+Actual crouch/jump, owner/rise/physical-contact, mode, injury and motion checks
+remain active; no actor/resource/outcome writes or cheats were used.
+
+Eight genuine RgShotType=3 allocations and eight original source sound-request
+stores (value 32 to Square1SoundQueue) occurred. Sixteen raw queue stores include
+subsequent shifts/replays; those are observation counts, not sixteen shots.
+At frame 2007 real slot 8/type 3 reached the actual expanded enemy-contact owner:
+live enemy slot 2, native ID 0, state 0 (green Koopa), bridge type 30. Source contact
+consumed that shot; the remaining slot was inactive by 2017. All ten Rg slots were
+empty from 2017 through endpoint. Forty-six neutral polls followed contact, retaining
+the original minimum-45 cleanup bound. Maximum simultaneous active Rg shots: two.
+
+CHR: 1,516 active rows, zero bad rows, 1,480 body constructions. Completed-loop
+motion: 1,535 checks, maximum world/camera step 3, passed. This component's guard
+scope does not certify complete DMA deadlines, every SMC/stack path or a full level.
+
+Visual review: both saved contact sheets were opened and reviewed, containing 17
+selected complete 256x240 PPU images. They show the physical items, both growth
+animations, right-side flower approach, Fire poses/fireballs, the flipped Koopa and
+200-point popup, and projectile cleanup. No obvious displaced scenery, broken body
+or corrupt block tiles were seen in these selected images. This is not an every-frame
+visual review, source-art certification, intended-palette certification or audio
+waveform/listening parity claim. Sound evidence is actual source requests only.
+
+The original wrong-Mario-pool observer result remains FALSE and byte-immutable in
+luigi-flower731-east-ready-v2/failure-freeze-v1. Its real shots were previously
+missed by the observer, so the earlier broad wording "no fireballs" was corrected.
+The corrected observer uses genuine Rg allocation/request/contact owners and all
+ten actual Rg slots; the gameplay controller, 500-step use limit and original
+pickup/growth/injury/CHR/motion assertions were retained.
+
+Frozen postprocessing: tools/audit/luigi_flower731_result_v1.py.
+Independent saved-data analysis: native-result-freeze-v1/component-evidence.json
+SHA256 0565c14ebba8cc138fc87deba2085f7c9f208ed5fe2c0af71cc9791410d95060.
+Final proof and source/file bindings are in native-result-freeze-v1/proof.json.
+No Hard, all-item, all-roster, full-campaign or waveform qualification is implied.

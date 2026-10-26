@@ -1,0 +1,197 @@
+{
+  "passed": true,
+  "source_mock_CPU_only": true,
+  "native_launches": 0,
+  "ROM_sha256": "731c918b0f448564587d90fca2979afc9fc0e5eb9b26616f4241801e2e73e16c",
+  "Lua_runtime": "Lua 5.4",
+  "original_module_sha256": "eff27402c2aad001fe1c12f1e5ee39359e19f0593daffeb7de4b149ad6ea2b8a",
+  "static_core_sha256": "196333f51e2a4828773d9bdcb5c08f374056cac360214d1466e9c1d853eace18",
+  "old_module_unchanged": true,
+  "mechanics_reverse_normalization_exact": true,
+  "profiles": [
+    {
+      "family": "pit",
+      "mode": "easy",
+      "actual_numeric_requested": 0,
+      "preparation": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current731-abilities-observer-v4\\static-return-control\\pit-easy\\static-preparation.json",
+      "script_sha256": "0039d1965765e6cc2e37e558193861676f77b09b0cbfe96ee81285cd7cb1a110",
+      "static_memory_callbacks": 29,
+      "planned_ability_cases": 10
+    },
+    {
+      "family": "pit",
+      "mode": "hard",
+      "actual_numeric_requested": 1,
+      "preparation": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current731-abilities-observer-v4\\static-return-control\\pit-hard\\static-preparation.json",
+      "script_sha256": "08312c79d18a282816f17ee3f061fe4ea3c902cabfe01986123026245ca1db1e",
+      "static_memory_callbacks": 29,
+      "planned_ability_cases": 10
+    },
+    {
+      "family": "rygar",
+      "mode": "easy",
+      "actual_numeric_requested": 0,
+      "preparation": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current731-abilities-observer-v4\\static-return-control\\rygar-easy\\static-preparation.json",
+      "script_sha256": "e98a4bcacce7684272b32d6a45496f90375b663ff0e38911cdc2b4bc18cefa36",
+      "static_memory_callbacks": 29,
+      "planned_ability_cases": 12
+    },
+    {
+      "family": "rygar",
+      "mode": "hard",
+      "actual_numeric_requested": 1,
+      "preparation": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current731-abilities-observer-v4\\static-return-control\\rygar-hard\\static-preparation.json",
+      "script_sha256": "0ad45a6b055f3cadb6b17744497a4fe561fded316941b60987d34bfe0a7b7472",
+      "static_memory_callbacks": 29,
+      "planned_ability_cases": 12
+    },
+    {
+      "family": "scrooge",
+      "mode": "easy",
+      "actual_numeric_requested": 0,
+      "preparation": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current731-abilities-observer-v4\\static-return-control\\scrooge-easy\\static-preparation.json",
+      "script_sha256": "73a0ff82e4bc33fee5ce9cd1dc6e08d4e1efb140f6951be5526e5e76399518db",
+      "static_memory_callbacks": 29,
+      "planned_ability_cases": 9
+    },
+    {
+      "family": "scrooge",
+      "mode": "hard",
+      "actual_numeric_requested": 1,
+      "preparation": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current731-abilities-observer-v4\\static-return-control\\scrooge-hard\\static-preparation.json",
+      "script_sha256": "d5805184c45b2ac65d060149b112c4b4102acc47a326acaaca118f8265db813e",
+      "static_memory_callbacks": 29,
+      "planned_ability_cases": 9
+    }
+  ],
+  "return_core_model_cases": [
+    {
+      "name": "wrong_pc_sp_bank",
+      "passed": true,
+      "expected": [
+        "ok"
+      ]
+    },
+    {
+      "name": "same_pc_first_registration_order",
+      "passed": true,
+      "expected": [
+        "a-replaced",
+        "b"
+      ]
+    },
+    {
+      "name": "same_key_nested_preserves_old_overwrite",
+      "passed": true,
+      "expected": [
+        "inner"
+      ]
+    },
+    {
+      "name": "different_key_nested_depth",
+      "passed": true,
+      "expected": [
+        "inner",
+        "outer"
+      ]
+    },
+    {
+      "name": "reentrant_existing_slot",
+      "passed": true,
+      "expected": [
+        "first",
+        "second"
+      ]
+    },
+    {
+      "name": "new_slot_waits_for_next_exec",
+      "passed": true,
+      "expected": [
+        "first",
+        "new"
+      ]
+    },
+    {
+      "name": "stack_and_pc_wrap",
+      "passed": true,
+      "expected": [
+        "wrap"
+      ]
+    },
+    {
+      "name": "multiple_return_addresses",
+      "passed": true,
+      "expected": [
+        "right",
+        "left"
+      ]
+    }
+  ],
+  "genuine_compiled_call_returns": [
+    {
+      "child": "ScroogeMovement::Bounce",
+      "actual_JSR_pc": 43428,
+      "JSR_bytes": [
+        32,
+        195,
+        169
+      ],
+      "entry": {
+        "pc": 43459,
+        "physical_bank": 61,
+        "sp": 239,
+        "return_pc": 43431,
+        "return_bank": 61
+      },
+      "return_sp": 241,
+      "steps": 18,
+      "passed": true
+    },
+    {
+      "child": "MegaManWeapons::DamageEnemy",
+      "actual_JSR_pc": 43388,
+      "JSR_bytes": [
+        32,
+        148,
+        169
+      ],
+      "entry": {
+        "pc": 43412,
+        "physical_bank": 8,
+        "sp": 239,
+        "return_pc": 43391,
+        "return_bank": 8
+      },
+      "return_sp": 241,
+      "steps": 410,
+      "passed": true
+    },
+    {
+      "child": "PitFlightUpdate",
+      "actual_JSR_pc": 363,
+      "JSR_bytes": [
+        32,
+        63,
+        161
+      ],
+      "entry": {
+        "pc": 41279,
+        "sp": 246,
+        "physical_bank": 37,
+        "return_pc": 366,
+        "return_address_kind": "internal_RAM",
+        "return_bank": null
+      },
+      "expected_return_sp": 248,
+      "return_sp": 248,
+      "steps": 298,
+      "passed": true
+    }
+  ],
+  "limits": [
+    "No native same-input equivalence or current ability qualification is claimed. Six profiles are source/mock prepared only and require full observer reconciliation and separately reviewed native grant.",
+    "Full generated scripts preserve original mechanics/assertions and numeric mode request/readback; inherited old DMA observation protocol is not a newly qualified current complete-hardware lease observer.",
+    "Legacy same-name/same-return nested pending overwrite is intentionally preserved, not silently changed into a stack. Host-only snapshot model describes intended callbacks, not unsafe vector mutation behavior.",
+    "CPU tests execute genuine assembled calls/callees; Scrooge/MM start at the actual JSR, Pit reaches it from real ExpandedMovement. These are not full GameLoop reachability proofs. Pit returns to internal-RAM farcall code, not a ROM bank; the unchanged Lua convertAddress bank predicate is mock-tested, not newly measured in native Mesen."
+  ]
+}

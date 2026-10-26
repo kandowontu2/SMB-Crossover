@@ -1,0 +1,167 @@
+{
+  "passed": true,
+  "source_CPU_only": true,
+  "native_executed": false,
+  "ROM_sha256": "731c918b0f448564587d90fca2979afc9fc0e5eb9b26616f4241801e2e73e16c",
+  "actual_dispatcher_controls": [
+    {
+      "character": 8,
+      "power": 1,
+      "held": 64,
+      "previous": 0,
+      "allocation_stores": []
+    },
+    {
+      "character": 8,
+      "power": 2,
+      "held": 0,
+      "previous": 0,
+      "allocation_stores": []
+    },
+    {
+      "character": 8,
+      "power": 2,
+      "held": 64,
+      "previous": 64,
+      "allocation_stores": []
+    },
+    {
+      "character": 0,
+      "power": 2,
+      "held": 64,
+      "previous": 0,
+      "allocation_stores": []
+    },
+    {
+      "character": 8,
+      "power": 2,
+      "held": 64,
+      "previous": 0,
+      "allocation_stores": [
+        {
+          "address": 42516,
+          "bank": 37,
+          "bytes": [
+            157,
+            107,
+            108
+          ],
+          "destination": 27764,
+          "value": 3
+        }
+      ]
+    }
+  ],
+  "genuine_store_hooks": {
+    "RgAllocationStore": {
+      "address": 42516,
+      "bank": 37,
+      "bytes": [
+        157,
+        107,
+        108
+      ]
+    },
+    "RgFireRequestStore": {
+      "address": 42983,
+      "bank": 37,
+      "bytes": [
+        141,
+        5,
+        1
+      ]
+    },
+    "ExpandedEnemyHit": {
+      "address": 44586,
+      "bank": 37,
+      "bytes": [
+        173,
+        31,
+        96
+      ]
+    }
+  },
+  "pool_size": 10,
+  "active_limit": 2,
+  "actual_two_shot_counts": [
+    1,
+    2,
+    2
+  ],
+  "actual_source_clear_after_no_new_input": 25,
+  "bridge_type": 30,
+  "source_contact_admits_damage": true,
+  "source_fire_request": {
+    "queue": "Square1SoundQueue",
+    "value": 32
+  },
+  "source_art_records": [
+    {
+      "age": 0,
+      "record": 49161,
+      "actual_bytes": [
+        8,
+        0,
+        192,
+        254,
+        254,
+        2,
+        130,
+        252,
+        252,
+        8
+      ]
+    },
+    {
+      "age": 4,
+      "record": 49179,
+      "actual_bytes": [
+        8,
+        4,
+        192,
+        254,
+        253,
+        6,
+        130,
+        252,
+        252,
+        8
+      ]
+    },
+    {
+      "age": 8,
+      "record": 49197,
+      "actual_bytes": [
+        8,
+        8,
+        192,
+        253,
+        253,
+        10,
+        130,
+        252,
+        252,
+        8
+      ]
+    },
+    {
+      "age": 12,
+      "record": 49215,
+      "actual_bytes": [
+        8,
+        12,
+        192,
+        253,
+        254,
+        14,
+        194,
+        252,
+        252,
+        8
+      ]
+    }
+  ],
+  "contact_scope": "ExpandedEnemyHit is admitted after real MegaManWeapons enemy collision; source component proves its type30 admission only, not collision geometry",
+  "lifetime": "Type3 integrates gravity/terrain, is killed after side terrain, consumed shared enemy hit, viewport X bounds or Y>=240; all ten slots must be zero after native drain.",
+  "scope": "Isolated actual compiled dispatch/pool/lifetime/art/admission controls, no natural enemy/PPU/IRQ/audio waveform result. Store keys are observer metadata, not invented callable game labels."
+}

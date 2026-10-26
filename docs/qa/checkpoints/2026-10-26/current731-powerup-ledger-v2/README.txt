@@ -1,0 +1,1 @@
+Read-only current731 completion ledger plus versioned source/mock observer preparation. No native qualification or grant. All historical receipts stay at their own ROM hashes. summary.json binds external finite packets; ledger.json enumerates37identities/74difficulty cells. No binary/capture/settings payloads included.
