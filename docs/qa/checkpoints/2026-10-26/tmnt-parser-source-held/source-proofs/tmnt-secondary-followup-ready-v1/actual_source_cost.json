@@ -1,0 +1,319 @@
+{
+  "measurement_valid": true,
+  "implementation": false,
+  "native_run": false,
+  "ROM_sha256": "53736e142c6cf568039a3c4927c9356077e3358b7c02fb7b69d3ca72985f2ff6",
+  "actual_frozen_native_negative": "5373 Easy600:4extra secondary lost draws; no retry",
+  "source_state_stream_sha256": "b48c9cdb21f352204b1fc87dfdc00f0dc4b1e73b35d0a132c60104bb4fb9776e",
+  "audio_costs_sha256": "727876cf1559300764c41fc8ca28ac4b99ffa1971718116508254e50376d183b",
+  "source_full_before_after188B_state_and_original_APU_exact": true,
+  "first_loss_preceding_actual_AudioUpdate": {
+    "serial": "3976",
+    "name": "AudioUpdate",
+    "phase": "secondary",
+    "update": "531",
+    "startFrame": "861",
+    "startScan": "254",
+    "startDot": "32",
+    "startCPU": "25610341",
+    "endFrame": "861",
+    "endScan": "42",
+    "endDot": "47",
+    "endCPU": "25616029",
+    "inclusiveCycles": "5688",
+    "IRQCycles": "120",
+    "CPUcycles": "5568",
+    "childCPUcycles": "3490",
+    "exclusiveCPUcycles": "2078"
+  },
+  "actual_source_core_profile": {
+    "actual_sourceTick": 533,
+    "actual_full_native_core": {
+      "serial": "3979",
+      "name": "TnNativePlay",
+      "phase": "secondary",
+      "update": "531",
+      "startFrame": "861",
+      "startScan": "258",
+      "startDot": "66",
+      "startCPU": "25610807",
+      "endFrame": "861",
+      "endScan": "24",
+      "endDot": "41",
+      "endCPU": "25613981",
+      "inclusiveCycles": "3174",
+      "IRQCycles": "0",
+      "CPUcycles": "3174",
+      "childCPUcycles": "248",
+      "exclusiveCPUcycles": "2926"
+    },
+    "paired_isolated_full_core_cycles": 3174,
+    "native_minus_isolated_cycles": 0,
+    "source_APU_count": 10,
+    "exclusive_cycles_by_direct_call_owner": {
+      "0xa671": 1563,
+      "0xabda": 307,
+      "0xa644": 254,
+      "0xa857": 186,
+      "0xace8": 165,
+      "0xaf96": 110,
+      "0xa074": 100,
+      "0xa200": 94,
+      "0xa89d": 54,
+      "0xa7b0": 54,
+      "0xa8b2": 50,
+      "0xa07d": 50,
+      "0xa062": 50,
+      "0xac71": 46,
+      "0xaf86": 30,
+      "0xa06b": 25,
+      "0xa050": 23,
+      "0xa612": 13
+    },
+    "actual_direct_calls": {
+      "0xace8": 7,
+      "0xa671": 5,
+      "0xaf96": 5,
+      "0xabda": 4,
+      "0xa074": 4,
+      "0xa857": 2,
+      "0xa89d": 2,
+      "0xa8b2": 2,
+      "0xa7b0": 2,
+      "0xa200": 2,
+      "0xa07d": 2,
+      "0xa062": 2,
+      "0xa612": 1,
+      "0xac71": 1,
+      "0xa050": 1,
+      "0xaf86": 1,
+      "0xa06b": 1
+    },
+    "top_instructions": [
+      {
+        "PC": 43728,
+        "instruction": "ADC $e0",
+        "cycles": 45,
+        "count": 15
+      },
+      {
+        "PC": 43733,
+        "instruction": "BNE $aacf",
+        "cycles": 44,
+        "count": 15
+      },
+      {
+        "PC": 44274,
+        "instruction": "RTS",
+        "cycles": 42,
+        "count": 7
+      },
+      {
+        "PC": 42615,
+        "instruction": "DEC $7404,X",
+        "cycles": 35,
+        "count": 5
+      },
+      {
+        "PC": 42582,
+        "instruction": "JSR $a671",
+        "cycles": 30,
+        "count": 5
+      },
+      {
+        "PC": 42609,
+        "instruction": "JSR $af96",
+        "cycles": 30,
+        "count": 5
+      },
+      {
+        "PC": 44962,
+        "instruction": "RTS",
+        "cycles": 30,
+        "count": 5
+      },
+      {
+        "PC": 43727,
+        "instruction": "CLC",
+        "cycles": 30,
+        "count": 15
+      },
+      {
+        "PC": 43730,
+        "instruction": "BCS $aadb",
+        "cycles": 30,
+        "count": 15
+      },
+      {
+        "PC": 43732,
+        "instruction": "DEX",
+        "cycles": 30,
+        "count": 15
+      },
+      {
+        "PC": 44273,
+        "instruction": "PLA",
+        "cycles": 28,
+        "count": 7
+      },
+      {
+        "PC": 41080,
+        "instruction": "INC $72ac,X",
+        "cycles": 28,
+        "count": 4
+      },
+      {
+        "PC": 42571,
+        "instruction": "STX $7492",
+        "cycles": 24,
+        "count": 6
+      },
+      {
+        "PC": 42574,
+        "instruction": "STY $7493",
+        "cycles": 24,
+        "count": 6
+      },
+      {
+        "PC": 42577,
+        "instruction": "LDA $740a,X",
+        "cycles": 24,
+        "count": 6
+      },
+      {
+        "PC": 44056,
+        "instruction": "JSR $ace8",
+        "cycles": 24,
+        "count": 4
+      },
+      {
+        "PC": 44061,
+        "instruction": "JSR $a074",
+        "cycles": 24,
+        "count": 4
+      },
+      {
+        "PC": 41084,
+        "instruction": "RTS",
+        "cycles": 24,
+        "count": 4
+      },
+      {
+        "PC": 44067,
+        "instruction": "RTS",
+        "cycles": 24,
+        "count": 4
+      },
+      {
+        "PC": 42989,
+        "instruction": "RTS",
+        "cycles": 24,
+        "count": 4
+      },
+      {
+        "PC": 44269,
+        "instruction": "LDX $7493",
+        "cycles": 24,
+        "count": 6
+      },
+      {
+        "PC": 44264,
+        "instruction": "PHA",
+        "cycles": 21,
+        "count": 7
+      },
+      {
+        "PC": 44952,
+        "instruction": "LDA $7422,X",
+        "cycles": 20,
+        "count": 5
+      },
+      {
+        "PC": 44957,
+        "instruction": "LDA $7428,X",
+        "cycles": 20,
+        "count": 5
+      }
+    ]
+  },
+  "actual_first_loss_foreground": {
+    "name": "GameLoop",
+    "phase": "secondary",
+    "startFrame": "860",
+    "endFrame": "861",
+    "cycles": "27514",
+    "isrCycles": "4228",
+    "cpuCycles": "23286",
+    "bullets": "1",
+    "enemies": "2"
+  },
+  "actual_first_loss_caller_components": {
+    "DrawAllMetasprites": {
+      "calls": 1,
+      "cycles": 7046
+    },
+    "GameLoop": {
+      "calls": 1,
+      "cycles": 23286
+    },
+    "MetaspriteRenderLoop": {
+      "calls": 2,
+      "cycles": 892
+    },
+    "TnAllWeapons": {
+      "calls": 1,
+      "cycles": 1861
+    },
+    "TnAmmoHud": {
+      "calls": 1,
+      "cycles": 67
+    },
+    "TnDraw": {
+      "calls": 1,
+      "cycles": 1867
+    },
+    "TnDrawEquipment": {
+      "calls": 1,
+      "cycles": 1255
+    },
+    "TnEnemyEligible": {
+      "calls": 12,
+      "cycles": 290
+    },
+    "TnGraphics": {
+      "calls": 1,
+      "cycles": 139
+    },
+    "TnMovement": {
+      "calls": 1,
+      "cycles": 767
+    },
+    "TnOverlap": {
+      "calls": 1,
+      "cycles": 159
+    },
+    "TnShotEnemies": {
+      "calls": 1,
+      "cycles": 561
+    },
+    "TnWeaponPosition": {
+      "calls": 2,
+      "cycles": 30
+    },
+    "TnWeapons": {
+      "calls": 1,
+      "cycles": 572
+    },
+    "TnWorldDraw": {
+      "calls": 2,
+      "cycles": 727
+    },
+    "X5SetPhysicalChr": {
+      "calls": 1,
+      "cycles": 32
+    }
+  },
+  "source_trace_sha256": "e851f2dd932d97cb68a6465fe458073472bb983cbd31831fab7e7d6e65ef7a0b",
+  "checker_sha256": "ab4c98fcf4142bec8acfb68fb1202a09c1fac9480dbde390a8663f16bc831449",
+  "limits": "Source CPU profile reproduces real captured188B source states and every ordered request. No full native mixer/Main snapshot or physical DMC/NMI timing replay is claimed. Direct-call exclusive owners are a cost lead, not proof of removable work; preserve complete parser/voice/stream/ABI behavior in any future optimization. No production or native change."
+}

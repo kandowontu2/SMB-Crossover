@@ -1,0 +1,76 @@
+{
+  "passed": true,
+  "source_only": true,
+  "native_run": false,
+  "baseline_ROM_sha256": "13463703ea95e769f332acecbcc0d35ef066f4ddd22624fa3fa771d5773fe60d",
+  "candidate_ROM_sha256": "66b911f3a937d3d749b3a88d9e6ba8b1b56b8f2d56c5b16b9317273b13dc20fb",
+  "full_AXYP_SP_nonstackRAM_SMC_banks_products_APU_join_cases": 9600,
+  "all64physical_flags": true,
+  "reachable_loop_channels": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "source_preceding_CPX6_BEQ_guard_exact": true,
+  "malformed_driver_X_outside0_5_not_claimed": true,
+  "exact_loop_delta_per_X": {
+    "0": [
+      -7
+    ],
+    "1": [
+      -7
+    ],
+    "2": [
+      -7
+    ],
+    "3": [
+      -7
+    ],
+    "4": [
+      -7
+    ],
+    "5": [
+      -3
+    ]
+  },
+  "actual_compiled_IRQ_injections": 48,
+  "maximum_stack_depth": 7,
+  "original_span": [
+    34398,
+    34413
+  ],
+  "external_original_entries": [
+    [
+      34396,
+      34398
+    ]
+  ],
+  "interior_original_pointer_roots": [],
+  "existing_math_helpers_unchanged": {
+    "TnFastProduct": {
+      "PC": 41253,
+      "bytes": 78,
+      "compiled_body_exact": true
+    },
+    "TnTempoProduct": {
+      "PC": 41394,
+      "bytes": 40,
+      "compiled_body_exact": true
+    },
+    "TnParserPointer": {
+      "PC": 41434,
+      "bytes": 26,
+      "compiled_body_exact": true
+    },
+    "TnFastDuration": {
+      "PC": 41472,
+      "bytes": 27,
+      "compiled_body_exact": true
+    }
+  },
+  "checker_sha256": "34d89c9a5096f323063e75926d8b6d1dbd3b52d0e5ef4da7686039506f5caf8b",
+  "native_recovery_claim": false
+}

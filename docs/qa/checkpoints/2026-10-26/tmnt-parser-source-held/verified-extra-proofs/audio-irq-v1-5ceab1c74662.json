@@ -1,0 +1,113 @@
+{
+  "passed": true,
+  "source_only": true,
+  "native_run": false,
+  "baseline_ROM_sha256": "0c45ce16fa189debc2303f4df664a0e75f326a807a64bf23280797734615339c",
+  "candidate_ROM_sha256": "53736e142c6cf568039a3c4927c9356077e3358b7c02fb7b69d3ca72985f2ff6",
+  "actual_IRQ_injections": 853,
+  "maximum_stack_depth": 12,
+  "rows": [
+    {
+      "config": {
+        "period": 128
+      },
+      "instruction_boundaries": 100
+    },
+    {
+      "config": {
+        "period": 2047,
+        "owner": 4,
+        "status": 16
+      },
+      "instruction_boundaries": 108
+    },
+    {
+      "config": {
+        "period": 17
+      },
+      "instruction_boundaries": 107
+    },
+    {
+      "config": {
+        "period": 128,
+        "dirty": 1
+      },
+      "instruction_boundaries": 101
+    },
+    {
+      "config": {
+        "period": 128,
+        "control": 129
+      },
+      "instruction_boundaries": 93
+    },
+    {
+      "config": {
+        "period": 128,
+        "owner": 3,
+        "status": 16
+      },
+      "instruction_boundaries": 8
+    },
+    {
+      "config": {
+        "period": 128,
+        "owner": 0,
+        "status": 16
+      },
+      "instruction_boundaries": 9
+    },
+    {
+      "config": {
+        "entry": "GuestAudioFinish",
+        "noise": 1
+      },
+      "instruction_boundaries": 243
+    },
+    {
+      "config": {
+        "entry": "GuestAudioFinish",
+        "paused": 1,
+        "char": 5,
+        "owner": 3,
+        "status": 16
+      },
+      "instruction_boundaries": 84
+    }
+  ],
+  "IRQ_hardware_stores": [
+    8197,
+    8198,
+    20776
+  ],
+  "full_interrupted_AXYP_SP_PC_RAM_SMC_banks_exact": true,
+  "final_ordered_APU_and_all_state_exact": true,
+  "owner0_physical_active_DMC_literal_fallback": true,
+  "foreign_owners_literal_fallback": true,
+  "original_all16_song_DMC_address_requests": 6223,
+  "original_source_DMC_values": [
+    0,
+    1
+  ],
+  "active_Tn_DMC_range": [
+    59584,
+    59713
+  ],
+  "both_E127_and_E125_identical": true,
+  "literal0c45_Cv3OwnerInit_and_whole_ResetOwner_bytes_exact": true,
+  "actual_IRQ_reads_never_touch_sweep_or_expansion_image": true,
+  "distinct_IRQ_read_addresses": 84,
+  "literal_private_return_continuation": [
+    "PLA",
+    "STA $7da1",
+    "STA $5116",
+    "TYA",
+    "LDY #$01",
+    "CPX #$08",
+    "RTS"
+  ],
+  "private_A_CN_Z_dead_before_real_wrapper_restoration": true,
+  "no_new_hardware_math": true,
+  "no_nested_NMI_claim": true,
+  "checker_sha256": "639729ccfa9da4286799786d3b19ec68d178c8a47e9d348084a1e77401ad95b7"
+}

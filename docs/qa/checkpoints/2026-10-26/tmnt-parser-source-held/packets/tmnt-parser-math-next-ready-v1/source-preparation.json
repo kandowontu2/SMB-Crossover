@@ -1,0 +1,33 @@
+{
+  "prepared": true,
+  "native_run": false,
+  "accepted": false,
+  "parent_ROM_sha256": "53736e142c6cf568039a3c4927c9356077e3358b7c02fb7b69d3ca72985f2ff6",
+  "candidate_ROM_sha256": "13463703ea95e769f332acecbcc0d35ef066f4ddd22624fa3fa771d5773fe60d",
+  "changed_PRG_bytes": {
+    "63": 72
+  },
+  "verified_FF_helper_span": [
+    41394,
+    41472
+  ],
+  "all_existing_qualified_symbols_exact": true,
+  "source_changes": {
+    "src/tmnt-native.inc": {
+      "before_sha256": "8ebb33edec94718fe472273e759f94b33446244dbf73bac9b833415d829103b9",
+      "after_sha256": "4af873319499e702d8ce504f7aba1bd259e3ad41834ef6458e803ed15bb3c6d5"
+    },
+    "src/tmnt_audio.s": {
+      "before_sha256": "f52c13311c2d1f1c2de32b1b97b805f5c4141ae961874f3aab6f2a3296c529fa",
+      "after_sha256": "712a27c5e60354b4101a368ad756fe391c5bca2887709aa675f6534a6669c850"
+    },
+    "src/tmnt_parser_math_next.s": {
+      "before_sha256": null,
+      "after_sha256": "c22d00bb2200c37516a6b7f8fe77959b36c12c26aa7f05761389af59795886e5"
+    }
+  },
+  "source_init_play_ticks_APU_and_RAM_unchanged_still_require_tests": true,
+  "math_new_user_in_existing_Tn_NMI_owner": true,
+  "no_foreground_math": true,
+  "checker_sha256": "e0426bc13aa6b956540e26153817293ada0efcfbad31d9147933611dbab5d1fc"
+}

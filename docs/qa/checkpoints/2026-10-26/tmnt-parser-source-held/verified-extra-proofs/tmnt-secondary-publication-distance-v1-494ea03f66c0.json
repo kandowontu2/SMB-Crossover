@@ -1,0 +1,237 @@
+{
+  "valid": true,
+  "source_only": true,
+  "native_run": false,
+  "ROM_sha256": "53736e142c6cf568039a3c4927c9356077e3358b7c02fb7b69d3ca72985f2ff6",
+  "publication_update": 532,
+  "following_actual_missing_hardware_epoch": 862,
+  "source_reconstructed_acceptance_CPU": 25638639,
+  "counterfactual_Main_clear_without_NMI_CPU": 25639373,
+  "strict_before_same_acceptance_saving_target": 735,
+  "measured_intervening_audio": {
+    "serial": "3990",
+    "name": "AudioUpdate",
+    "phase": "secondary",
+    "update": "532",
+    "startFrame": "862",
+    "startScan": "241",
+    "startDot": "294",
+    "startCPU": "25638731",
+    "endFrame": "862",
+    "endScan": "15",
+    "endDot": "315",
+    "endCPU": "25642830",
+    "inclusiveCycles": "4099",
+    "IRQCycles": "0",
+    "CPUcycles": "4099",
+    "childCPUcycles": "2071",
+    "exclusiveCPUcycles": "2028"
+  },
+  "actual_main_span": {
+    "name": "GameLoop",
+    "phase": "secondary",
+    "startFrame": "860",
+    "endFrame": "861",
+    "cycles": "27514",
+    "isrCycles": "4228",
+    "cpuCycles": "23286",
+    "bullets": "1",
+    "enemies": "2"
+  },
+  "compiled_prelude_cycles": 85,
+  "compiled_postlude_cycles": 37,
+  "hardware_entry_cycles": 7,
+  "entire_Main_ISR4228_exactly_reproduced": true,
+  "prelude": [
+    {
+      "PC": 58166,
+      "instruction": "PHA",
+      "cycles": 3
+    },
+    {
+      "PC": 58167,
+      "instruction": "TXA",
+      "cycles": 2
+    },
+    {
+      "PC": 58168,
+      "instruction": "PHA",
+      "cycles": 3
+    },
+    {
+      "PC": 58169,
+      "instruction": "TYA",
+      "cycles": 2
+    },
+    {
+      "PC": 58170,
+      "instruction": "PHA",
+      "cycles": 3
+    },
+    {
+      "PC": 58171,
+      "instruction": "LDA $7da1",
+      "cycles": 4
+    },
+    {
+      "PC": 58174,
+      "instruction": "PHA",
+      "cycles": 3
+    },
+    {
+      "PC": 58175,
+      "instruction": "LDA $0139",
+      "cycles": 4
+    },
+    {
+      "PC": 58178,
+      "instruction": "BPL $e375",
+      "cycles": 2
+    },
+    {
+      "PC": 58180,
+      "instruction": "INC $013a",
+      "cycles": 6
+    },
+    {
+      "PC": 58183,
+      "instruction": "LDA $0775",
+      "cycles": 4
+    },
+    {
+      "PC": 58186,
+      "instruction": "BNE $e367",
+      "cycles": 2
+    },
+    {
+      "PC": 58188,
+      "instruction": "LDA #$1f",
+      "cycles": 2
+    },
+    {
+      "PC": 58190,
+      "instruction": "STA $5203",
+      "cycles": 4
+    },
+    {
+      "PC": 58193,
+      "instruction": "LDA #$80",
+      "cycles": 2
+    },
+    {
+      "PC": 58195,
+      "instruction": "STA $5204",
+      "cycles": 4
+    },
+    {
+      "PC": 58198,
+      "instruction": "LDA $0779",
+      "cycles": 4
+    },
+    {
+      "PC": 58201,
+      "instruction": "AND #$fe",
+      "cycles": 2
+    },
+    {
+      "PC": 58203,
+      "instruction": "STA $2000",
+      "cycles": 4
+    },
+    {
+      "PC": 58206,
+      "instruction": "LDA #$00",
+      "cycles": 2
+    },
+    {
+      "PC": 58208,
+      "instruction": "STA $2005",
+      "cycles": 4
+    },
+    {
+      "PC": 58211,
+      "instruction": "STA $2005",
+      "cycles": 4
+    },
+    {
+      "PC": 58214,
+      "instruction": "CLI",
+      "cycles": 2
+    },
+    {
+      "PC": 58215,
+      "instruction": "LDA $6002",
+      "cycles": 4
+    },
+    {
+      "PC": 58218,
+      "instruction": "BNE $e36f",
+      "cycles": 3
+    },
+    {
+      "PC": 58223,
+      "instruction": "JSR $f05d",
+      "cycles": 6
+    }
+  ],
+  "postlude": [
+    {
+      "PC": 58226,
+      "instruction": "JMP $e403",
+      "cycles": 3
+    },
+    {
+      "PC": 58371,
+      "instruction": "PLA",
+      "cycles": 4
+    },
+    {
+      "PC": 58372,
+      "instruction": "STA $7da1",
+      "cycles": 4
+    },
+    {
+      "PC": 58375,
+      "instruction": "STA $5116",
+      "cycles": 4
+    },
+    {
+      "PC": 58378,
+      "instruction": "PLA",
+      "cycles": 4
+    },
+    {
+      "PC": 58379,
+      "instruction": "TAY",
+      "cycles": 2
+    },
+    {
+      "PC": 58380,
+      "instruction": "PLA",
+      "cycles": 4
+    },
+    {
+      "PC": 58381,
+      "instruction": "TAX",
+      "cycles": 2
+    },
+    {
+      "PC": 58382,
+      "instruction": "PLA",
+      "cycles": 4
+    },
+    {
+      "PC": 58383,
+      "instruction": "RTI",
+      "cycles": 6
+    }
+  ],
+  "inputs": {
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\tmnt-sweep-live-math-v1\\candidate.nes": "53736e142c6cf568039a3c4927c9356077e3358b7c02fb7b69d3ca72985f2ff6",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\tmnt-sweep-live-math-native-ready-v1\\candidate-easy\\native-bus.jsonl": "a94074343e4972b6d4a01caca8956ae7282a00dd293a330698a5f304d9748fff",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\tmnt-sweep-live-math-native-ready-v1\\candidate-easy\\audio-components.csv": "727876cf1559300764c41fc8ca28ac4b99ffa1971718116508254e50376d183b",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\tmnt-sweep-live-math-native-ready-v1\\candidate-easy\\tmnt-performance-calls.csv": "4c536477a3355ddfa8280a8b9385de49a43425f038381efafc28d0eb9f789858"
+  },
+  "checker_sha256": "5d6a48312f3d7d02ee914860c528edbfe8ad7b0bff03cce2e9edd19a7241f690",
+  "limits": "734/735 are source reconstruction under the same interrupt/instruction/DMC alignment, not an actual recorded NMI-entry/stackedPC or a native recovery promise. Main cannot publish during the ISR. No state/workload/ROM/native changes; original strict negative remains."
+}

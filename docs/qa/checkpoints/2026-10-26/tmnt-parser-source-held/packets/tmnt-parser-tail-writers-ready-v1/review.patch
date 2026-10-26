@@ -1,0 +1,123 @@
+--- a/src/tmnt-native.inc
++++ b/src/tmnt-native.inc
+@@ -1161,7 +1161,7 @@
+   .if ::TN_RAW_APU
+   STA $4000,x
+ .else
+-  jsr ::TnSourceSTA00X
++  JMP ::TnTailAA96
+ .endif
+   .assert *=$aa99,lderror,"Original instruction offset 8a99"
+   LDX ::TnAudioRam+$92
+@@ -1232,7 +1232,7 @@
+   .if ::TN_RAW_APU
+   STA $4008
+ .else
+-  jsr ::TnSourceSTA08
++  JMP ::TnTailAADD
+ .endif
+   .assert *=$aae0,lderror,"Original instruction offset 8ae0"
+   STA ::TnAudioRam+$9c
+@@ -1506,7 +1506,7 @@
+   .if ::TN_RAW_APU
+   STA $4003,x
+ .else
+-  jsr ::TnSourceSTA03X
++  JMP ::TnTailAC09
+ .endif
+   .assert *=$ac0c,lderror,"Original instruction offset 8c0c"
+   LDA ::TnAudioZp+$0c
+@@ -1526,7 +1526,7 @@
+   .if ::TN_RAW_APU
+   STA $4002,x
+ .else
+-  jsr ::TnSourceSTA02X
++  JMP ::TnTailAC1D
+ .endif
+   .assert *=$ac20,lderror,"Original instruction offset 8c20"
+   LDX ::TnAudioRam+$92
+@@ -2726,7 +2726,7 @@
+   .if ::TN_RAW_APU
+   STA $4000,x
+ .else
+-  jsr ::TnSourceSTA00X
++  JMP ::TnTailB16C
+ .endif
+   .assert *=$b16f,lderror,"Original instruction offset 916f"
+   LDA #$7f
+@@ -2734,7 +2734,7 @@
+   .if ::TN_RAW_APU
+   STA $4001,x
+ .else
+-  jsr ::TnSourceSTA01X
++  JMP ::TnTailB171
+ .endif
+   .assert *=$b174,lderror,"Original instruction offset 9174"
+   INC ::TnAudioZp+$0b
+--- a/src/tmnt_audio.s
++++ b/src/tmnt_audio.s
+@@ -28,6 +28,7 @@
+ .include "tmnt_parser_math_next.s"
+ .include "tmnt_parser_channels.s"
+ .include "tmnt_parser_unrolled.s"
++.include "tmnt_parser_tail_writers.s"
+ .segment "TMNT_SAMUS_AUDIO_COLD"
+ .proc TnAudioUpdate
+  lda #0
+--- a/src/tmnt_parser_tail_writers.s
++++ b/src/tmnt_parser_tail_writers.s
+@@ -0,0 +1,54 @@
++; Exact original STA replacement body; only adapter JSR/RTS removed.
++.pushseg
++.segment "TMNT_DURATION_HELPER"
++.proc TnTailAC1D
++ sta a:GuestNativeApu+2,x
++ php
++ inc a:GuestNativeDirty+2,x
++ plp
++ jmp $ac20
++.endproc
++.export TnTailAC1D
++.proc TnTailAC09
++ sta a:GuestNativeApu+3,x
++ php
++ inc a:GuestNativeDirty+3,x
++ plp
++ jmp $ac0c
++.endproc
++.export TnTailAC09
++.proc TnTailAADD
++ sta a:GuestNativeApu+8
++ php
++ inc a:GuestNativeDirty+8
++ plp
++ jmp $aae0
++.endproc
++.export TnTailAADD
++.proc TnTailB16C
++ sta a:GuestNativeApu+0,x
++ php
++ inc a:GuestNativeDirty+0,x
++ plp
++ jmp $b16f
++.endproc
++.export TnTailB16C
++.proc TnTailB171
++ sta a:GuestNativeApu+1,x
++ php
++ inc a:GuestNativeDirty+1,x
++ plp
++ jmp $b174
++.endproc
++.export TnTailB171
++.proc TnTailAA96
++ sta a:GuestNativeApu+0,x
++ php
++ inc a:GuestNativeDirty+0,x
++ plp
++ jmp $aa99
++.endproc
++.export TnTailAA96
++.assert TnTailAC1D=$a29e,lderror,"Append only original declared FF"
++.assert *<=$a300,lderror,"Keep all original products and stream bytes"
++.popseg

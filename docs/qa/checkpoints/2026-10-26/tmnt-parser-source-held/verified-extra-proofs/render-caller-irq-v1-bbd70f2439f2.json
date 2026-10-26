@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "source_only": true,
+  "native_run": false,
+  "accepted": false,
+  "baseline_ROM_sha256": "a8e0d391161f5e828c0790b691a002342e403d718aabab14596f44760f3feb2a",
+  "candidate_ROM_sha256": "e5951e94c4b6d9d5acf1257d894ce31ce86ff5784f3ccb8aa3db00b8291d274b",
+  "complete_actual_draw_caller_cases": 4608,
+  "actual_compiled_IRQ_injections": 48,
+  "complete_final_AXYP_SP_RAM_SMC_banks_ordered_OAM_VRAM_hardware_exact": true,
+  "IRQ_hardware_writes": [
+    8197,
+    8198,
+    20776
+  ],
+  "IRQ_exceptions": "Only discarded upper stack and explicit actual IRQ hardware cells",
+  "checker_sha256": "e75dd9c950f8f871ed47af8464bd303fca33e2dfe68b34cec90a9798d57cfe15",
+  "limits": "CPU-only complete actual draw callers and real vector/IRQ/RTI at every reached lookup instruction. No PPU/NMI/DMC DMA clocks, native cadence or deployment claim."
+}

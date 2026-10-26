@@ -1,0 +1,41 @@
+{
+  "prepared": true,
+  "native_run": false,
+  "accepted": false,
+  "parent_ROM_sha256": "e5951e94c4b6d9d5acf1257d894ce31ce86ff5784f3ccb8aa3db00b8291d274b",
+  "candidate_ROM_sha256": "53736e142c6cf568039a3c4927c9356077e3358b7c02fb7b69d3ca72985f2ff6",
+  "changed_PRG_bytes": {
+    "87": 420
+  },
+  "source_changes": {
+    "src/tmnt_sweep_fast.s": {
+      "before_sha256": "fad3192c082b18911ac0b7bb8583c91e23cfbf286222fbe075f295c77535837f",
+      "after_sha256": "6fd9260382297af4b8ceb1e0fbdf993d3c558430dc1df016a133dcda210f405a"
+    }
+  },
+  "only_genuine_new_helper_private_labels_move": {
+    "('TnExpansionFlushFast', 'Clock')": [
+      54785,
+      54768
+    ],
+    "('TnExpansionFlushFast', 'Output')": [
+      54825,
+      54808
+    ],
+    "('TnExpansionFlushFast', 'Wide')": [
+      54673,
+      54657
+    ],
+    "('TnExpansionFlushFast', 'Original')": [
+      54740,
+      54723
+    ]
+  },
+  "all_old_public_entries_RAMP_CHR_otherbanks_exact": true,
+  "source_C87_initial_2_3_images_dead_until_literal_unconditional_replacement": true,
+  "small_C_and_Phi0_proved_by_preceding_CMP_branches": true,
+  "private_CN_Z_dead_before_real_wrapper_CPX8": true,
+  "provisional_small_path_cycle_saving": 24,
+  "actual_savings_still_require_whole_caller_measurement": true,
+  "checker_sha256": "1440edb4f562679ec8885e94a6ad31b376791d7a8588e33b917f90cd2f8457af"
+}

@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "baseline_ROM_sha256": "0c45ce16fa189debc2303f4df664a0e75f326a807a64bf23280797734615339c",
+  "candidate_ROM_sha256": "53736e142c6cf568039a3c4927c9356077e3358b7c02fb7b69d3ca72985f2ff6",
+  "cases": {
+    "existing_owner0_1_2_3_GuestDmcStatus_exact_all_RAM_APU_banks_ABI": 4500,
+    "native_completion_software_hold44_without_clearing_DAC": 150,
+    "global_exit_preserves_newer_foreign_owners_and_entry_ABI": 1000,
+    "delayed_tail_clear_preserves_newer_live_owners": 50,
+    "actual_Cv3_owner_store_TMNT_preemption_claim_stop_flags": 250,
+    "actual_CV3_start_preempts_TMNT_retains_source_sample_priority_mirror": 40,
+    "CV3_silent73_and_invalid_request_controls_preserve_TMNT_owner": 50
+  },
+  "total_cases": 6040,
+  "source_only": true,
+  "native_run": false,
+  "production_changes": false,
+  "checker_sha256": "e6d20dd4265151ffa3a479285819f00890daf4cab92c91da2702796bf4649d17",
+  "scope": "Current-linked DMC owner4 coexistence, completion and delayed-tail controls.\n\nCPU-only arranged audio component states. Hardware4015/DAC readbacks are\nexplicit test inputs, not real sample-clock or natural gameplay evidence.\n",
+  "limits": "Explicitly arranged CPU owner/status states and actual compiled routines; no claim of real DAC tail evolution, DMA completion, physical IRQ timing or gameplay reachability."
+}

@@ -1,0 +1,17 @@
+PUBLICATION DEADLINE ERRATUM: PRIOR410 TARGET WITHDRAWN
+2026-10-25. Read-only retained trace/source reconstruction; no native run.
+The old model compared hypothetical uninterrupted Main publication to a later
+NmiDisable read INSIDE NMI. Main cannot execute during that prelude, so this
+is not a scheduling cutoff and410must not be used as a recovery target.
+
+AudioStart21886385 -85compiled prelude =firstNMIopcode21886300.
+Minus7hardware entry reconstructs NMI acceptance21886293. Uninterrupted
+Main publication21886733 is440cycles later. Conservative strict-before
+acceptance needs at least441cycles saved for this assumed same alignment.
+425is a measured CPU saving but is16short of that conservative source model.
+
+The raw historical bus log has ONLY draw/complete/DMA events, no NMI-entry,
+stackedPC or last-Main-PC observations. Thus the acceptance boundary is source
+reconstruction, not a recorded instruction/bus boundary. Instruction/DMC/IRQ
+alignment can change. Only a fresh unchanged-workload native run can establish
+recovered draws. Preserve all old proof files; this is an additive correction.

@@ -1,0 +1,149 @@
+{
+  "prepared": true,
+  "source_only": true,
+  "native_run": false,
+  "accepted": false,
+  "production_parent_ROM_sha256": "50b51c3c69f45ef137720c47f521574097f421056e3b73296d06ba70080d2363",
+  "candidate_ROM_sha256": "e5951e94c4b6d9d5acf1257d894ce31ce86ff5784f3ccb8aa3db00b8291d274b",
+  "parents": {
+    "inline": "aa5ba7af19a5ee353aa60f8c4ec5c10973de5678fa000d6f73af7fbb0bf29eff",
+    "CV3": "0c45ce16fa189debc2303f4df664a0e75f326a807a64bf23280797734615339c",
+    "render": "a8e0d391161f5e828c0790b691a002342e403d718aabab14596f44760f3feb2a"
+  },
+  "source_files": 662,
+  "real_source_changes": 27,
+  "source_merges": [
+    {
+      "path": "src/cv3_abilities.s",
+      "kind": "0c45_only"
+    },
+    {
+      "path": "src/cv3_combat.s",
+      "kind": "0c45_only"
+    },
+    {
+      "path": "src/cv3_dmc_complete.s",
+      "kind": "reviewable_disjoint_three_way"
+    },
+    {
+      "path": "src/cv3_remaining_source_fx.s",
+      "kind": "new0c45"
+    },
+    {
+      "path": "src/cv3_source_audio.s",
+      "kind": "0c45_only"
+    },
+    {
+      "path": "src/entrypoint.s",
+      "kind": "exact_one_include_union"
+    },
+    {
+      "path": "src/megaman_death.s",
+      "kind": "0c45_only"
+    },
+    {
+      "path": "src/roster_audio.s",
+      "kind": "0c45_only"
+    }
+  ],
+  "qualified_symbols": {
+    "inline": {
+      "symbols": 60800,
+      "explicit_private_changes": {
+        "('Cv3NoiseSceneReset', 'Variant')": [
+          45255,
+          null
+        ],
+        "('Cv3NoiseSceneReset', 'Owner')": [
+          45245,
+          null
+        ],
+        "('Cv3SpawnAudioType', 'Done')": [
+          46059,
+          null
+        ]
+      },
+      "removed_private_CV3_branches_exactly_as_frozen0c45": [
+        "('Cv3NoiseSceneReset', 'Owner')",
+        "('Cv3NoiseSceneReset', 'Variant')",
+        "('Cv3SpawnAudioType', 'Done')"
+      ]
+    },
+    "CV3": {
+      "symbols": 61129,
+      "explicit_private_changes": {
+        "('SamusAudioUpdate', 'FireFlag')": [
+          59909,
+          null
+        ],
+        "('SamusAudioUpdate', 'Effects')": [
+          59882,
+          null
+        ],
+        "('SamusAudioUpdate', 'Init')": [
+          59846,
+          null
+        ],
+        "('SamusAudioUpdate', 'Unpaused')": [
+          59684,
+          null
+        ],
+        "('SamusAudioUpdate', 'Death')": [
+          59653,
+          null
+        ],
+        "('SamusAudioUpdate', 'Pause')": [
+          59661,
+          null
+        ],
+        "('SamusAudioUpdate', 'Event')": [
+          59619,
+          null
+        ],
+        "('SamusAudioUpdate', 'Mute')": [
+          59676,
+          null
+        ],
+        "('SamusAudioUpdate', 'Exit')": [
+          60195,
+          null
+        ],
+        "('SamusAudioUpdate', 'Running')": [
+          59526,
+          null
+        ]
+      },
+      "removed_private_CV3_branches_exactly_as_frozen0c45": []
+    },
+    "render": {
+      "symbols": 60799,
+      "explicit_private_changes": {
+        "('Cv3NoiseSceneReset', 'Variant')": [
+          45255,
+          null
+        ],
+        "('Cv3NoiseSceneReset', 'Owner')": [
+          45245,
+          null
+        ],
+        "('Cv3SpawnAudioType', 'Done')": [
+          46059,
+          null
+        ]
+      },
+      "removed_private_CV3_branches_exactly_as_frozen0c45": [
+        "('Cv3NoiseSceneReset', 'Owner')",
+        "('Cv3NoiseSceneReset', 'Variant')",
+        "('Cv3SpawnAudioType', 'Done')"
+      ]
+    }
+  },
+  "Cv3FxOwnerInit_BFDA38_exact": true,
+  "real_sweep_gate_A845": true,
+  "no_additional_bank_trips": true,
+  "root_renderer_bank87_prefix_0x1500_exact": true,
+  "C87_sweep_tail_exact": true,
+  "CHR_header_exact": true,
+  "no_native_grant_or_adoption": true,
+  "checker_sha256": "5d0db4eba45d265ab26c2ee14fa6d894044478ada349c70cc044801858a593d9"
+}

@@ -1,0 +1,398 @@
+{
+  "passed": true,
+  "source_only": true,
+  "native_run": false,
+  "baseline_ROM_sha256": "53736e142c6cf568039a3c4927c9356077e3358b7c02fb7b69d3ca72985f2ff6",
+  "candidate_ROM_sha256": "13463703ea95e769f332acecbcc0d35ef066f4ddd22624fa3fa771d5773fe60d",
+  "complete_private_source_math_reference_files": {
+    "src/protoman_audio_kernel.inc": {
+      "sha256": "beb49da96252117fda9b6e13cae1d33541583885254aa0d33b0199ae3103830c",
+      "source_sites": [
+        " sta $5205",
+        " sta $5206",
+        " lda $5205",
+        " lda $5206"
+      ]
+    },
+    "src/tmnt_audio_multiply.s": {
+      "sha256": "232b7ad0db4e9221c66245b4a3a76a4aae32437bacb0cfa94a49980ce3e439dd",
+      "source_sites": [
+        " sta $5205",
+        " sta $5206",
+        " lda $5205",
+        " lda $5206"
+      ]
+    },
+    "src/tmnt_parser_math_next.s": {
+      "sha256": "c22d00bb2200c37516a6b7f8fe77959b36c12c26aa7f05761389af59795886e5",
+      "source_sites": [
+        " stx $5205",
+        " sta $5206",
+        " lda $5206",
+        " lda $5205"
+      ]
+    },
+    "build/generated/guest-audio/megaman3.inc": {
+      "sha256": "22930aec669b7850d1a464e51bb879d5c3fc6ffbc1c774819775a8098855984f",
+      "source_sites": [
+        " sta $5205",
+        " sta $5206",
+        " lda $5205",
+        " lda $5206"
+      ]
+    },
+    "audio/megaman3/imported.s": {
+      "sha256": "6c3d2497607740b8b01ed766919e6fe35adcf756828ac95e1dd083c770a7f1c3",
+      "source_sites": [
+        " sta $5205",
+        " sta $5206",
+        " lda $5205",
+        " lda $5206"
+      ]
+    }
+  },
+  "genuine_compiled_owners": [
+    {
+      "label": "Mm3::_fraction255_mmc5",
+      "physical_bank": 11,
+      "PC": 45866,
+      "bytes": 78,
+      "operations": [
+        {
+          "PC": 45877,
+          "operation": "W",
+          "register": 20997
+        },
+        {
+          "PC": 45883,
+          "operation": "W",
+          "register": 20998
+        },
+        {
+          "PC": 45886,
+          "operation": "R",
+          "register": 20997
+        },
+        {
+          "PC": 45893,
+          "operation": "R",
+          "register": 20998
+        }
+      ],
+      "body_sha256": "25173a5d9d39ef0d799f495e227bfc0c043912348fa0c990b86422c8b94c153b"
+    },
+    {
+      "label": "ProtoMm3::_fraction255_mmc5",
+      "physical_bank": 64,
+      "PC": 45866,
+      "bytes": 78,
+      "operations": [
+        {
+          "PC": 45877,
+          "operation": "W",
+          "register": 20997
+        },
+        {
+          "PC": 45883,
+          "operation": "W",
+          "register": 20998
+        },
+        {
+          "PC": 45886,
+          "operation": "R",
+          "register": 20997
+        },
+        {
+          "PC": 45893,
+          "operation": "R",
+          "register": 20998
+        }
+      ],
+      "body_sha256": "25173a5d9d39ef0d799f495e227bfc0c043912348fa0c990b86422c8b94c153b"
+    },
+    {
+      "label": "TnFastProduct",
+      "physical_bank": 63,
+      "PC": 41253,
+      "bytes": 78,
+      "operations": [
+        {
+          "PC": 41261,
+          "operation": "W",
+          "register": 20997
+        },
+        {
+          "PC": 41267,
+          "operation": "W",
+          "register": 20998
+        },
+        {
+          "PC": 41270,
+          "operation": "R",
+          "register": 20997
+        },
+        {
+          "PC": 41283,
+          "operation": "R",
+          "register": 20998
+        }
+      ],
+      "body_sha256": "b1e7b295c8815113bcbfca2af90dae619a453087280bbff73701dc5c5d140f3a"
+    },
+    {
+      "label": "TnTempoProduct",
+      "physical_bank": 63,
+      "PC": 41394,
+      "bytes": 40,
+      "operations": [
+        {
+          "PC": 41398,
+          "operation": "W",
+          "register": 20997
+        },
+        {
+          "PC": 41401,
+          "operation": "W",
+          "register": 20998
+        },
+        {
+          "PC": 41404,
+          "operation": "R",
+          "register": 20998
+        },
+        {
+          "PC": 41409,
+          "operation": "R",
+          "register": 20997
+        }
+      ],
+      "body_sha256": "e90e227d53e3003e0741562ecf633ecf5b4f3e675ab7087df40977a497bcc44a"
+    }
+  ],
+  "inactive_reference_artifact": "audio/megaman3/imported.s",
+  "two_real_AudioUpdate_callers_inside_fixed_NMI": [
+    58223,
+    58362
+  ],
+  "literal_source_callers": {
+    "src/reset.s": [
+      "    jsr AudioUpdate",
+      "  jsr AudioUpdate"
+    ]
+  },
+  "Megaman_Mm3_ProtoMm3_char1_and_TMNT_char19_dispatch_mutually_exclusive": true,
+  "all_owners_write_both_operands_before_any_product_read": true,
+  "no_persistent_operand_read_after_return_or_fake_operand_restore": true,
+  "real_IRQ68_inline_no_multiplier_access": true,
+  "decoded_actual_IRQ": [
+    {
+      "PC": 32768,
+      "instruction": "PHA"
+    },
+    {
+      "PC": 32769,
+      "instruction": "TXA"
+    },
+    {
+      "PC": 32770,
+      "instruction": "PHA"
+    },
+    {
+      "PC": 32771,
+      "instruction": "BIT $5204"
+    },
+    {
+      "PC": 32774,
+      "instruction": "LDA $0138"
+    },
+    {
+      "PC": 32777,
+      "instruction": "AND #$01"
+    },
+    {
+      "PC": 32779,
+      "instruction": "ASL A"
+    },
+    {
+      "PC": 32780,
+      "instruction": "ASL A"
+    },
+    {
+      "PC": 32781,
+      "instruction": "STA $2006"
+    },
+    {
+      "PC": 32784,
+      "instruction": "LDA #$00"
+    },
+    {
+      "PC": 32786,
+      "instruction": "STA $5128"
+    },
+    {
+      "PC": 32789,
+      "instruction": "LDA #$20"
+    },
+    {
+      "PC": 32791,
+      "instruction": "STA $2005"
+    },
+    {
+      "PC": 32794,
+      "instruction": "AND #$f8"
+    },
+    {
+      "PC": 32796,
+      "instruction": "ASL A"
+    },
+    {
+      "PC": 32797,
+      "instruction": "ASL A"
+    },
+    {
+      "PC": 32798,
+      "instruction": "LDX $0137"
+    },
+    {
+      "PC": 32801,
+      "instruction": "STA $0137"
+    },
+    {
+      "PC": 32804,
+      "instruction": "LDA #$00"
+    },
+    {
+      "PC": 32806,
+      "instruction": "BIT $03"
+    },
+    {
+      "PC": 32808,
+      "instruction": "NOP"
+    },
+    {
+      "PC": 32809,
+      "instruction": "NOP"
+    },
+    {
+      "PC": 32810,
+      "instruction": "NOP"
+    },
+    {
+      "PC": 32811,
+      "instruction": "TXA"
+    },
+    {
+      "PC": 32812,
+      "instruction": "LSR A"
+    },
+    {
+      "PC": 32813,
+      "instruction": "LSR A"
+    },
+    {
+      "PC": 32814,
+      "instruction": "LSR A"
+    },
+    {
+      "PC": 32815,
+      "instruction": "ORA $0137"
+    },
+    {
+      "PC": 32818,
+      "instruction": "STX $2005"
+    },
+    {
+      "PC": 32821,
+      "instruction": "STA $2006"
+    },
+    {
+      "PC": 32824,
+      "instruction": "STX $0137"
+    },
+    {
+      "PC": 32827,
+      "instruction": "NOP"
+    },
+    {
+      "PC": 32828,
+      "instruction": "NOP"
+    },
+    {
+      "PC": 32829,
+      "instruction": "NOP"
+    },
+    {
+      "PC": 32830,
+      "instruction": "NOP"
+    },
+    {
+      "PC": 32831,
+      "instruction": "NOP"
+    },
+    {
+      "PC": 32832,
+      "instruction": "PLA"
+    },
+    {
+      "PC": 32833,
+      "instruction": "TAX"
+    },
+    {
+      "PC": 32834,
+      "instruction": "PLA"
+    },
+    {
+      "PC": 32835,
+      "instruction": "RTI"
+    }
+  ],
+  "old_partial_instruction_entry_not_reachable": [
+    [
+      36022,
+      36029
+    ]
+  ],
+  "no_new_RAM_or_shared125_bytes": true,
+  "helper_PC": 41253,
+  "helper_bytes": 78,
+  "new_hook_instruction_closure": [
+    {
+      "source_span": [
+        34417,
+        34420
+      ],
+      "incoming": [
+        [
+          34390,
+          34417
+        ]
+      ],
+      "pointer_interiors": []
+    },
+    {
+      "source_span": [
+        35532,
+        35535
+      ],
+      "incoming": [
+        [
+          35530,
+          35532
+        ],
+        [
+          35540,
+          35532
+        ]
+      ],
+      "pointer_interiors": []
+    }
+  ],
+  "original_AF96_still_genuine_and_exact": true,
+  "new_helper_verified_FF_tail": [
+    41394,
+    41472
+  ],
+  "checker_sha256": "00d66cc00b39217c011c058e4d0da9e20157657c22f7ec19cde28af929283b42",
+  "Mesen_model_source": "https://github.com/SourMesen/Mesen2/blob/master/Core/NES/Mappers/Nintendo/MMC5.h",
+  "limits": "Exclusive within the existing serial single-depth NMI audio contract; IRQ interleavings are separately executed at every helper boundary. Nested NMI inside an audio call was unsupported before this change and is not advertised as a new supported domain. No native run of this candidate or source/hardware cadence claim."
+}

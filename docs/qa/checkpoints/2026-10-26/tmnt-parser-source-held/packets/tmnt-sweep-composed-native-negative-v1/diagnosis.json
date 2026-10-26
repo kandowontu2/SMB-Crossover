@@ -1,0 +1,2216 @@
+{
+  "source_original_executable_calls": 602,
+  "original_ordered_APU_requests": 2125,
+  "original188byte_state_exact": true,
+  "baseline_historical_CSVs_exact": {
+    "gameplay.csv": true,
+    "tmnt-performance-calls.csv": true,
+    "tmnt-performance-frames.csv": true
+  },
+  "same_BEFORE_setup_commands": true,
+  "phase_costs": {
+    "baseline": {
+      "idle": {
+        "AudioUpdate_inclusive": {
+          "count": 120,
+          "mean": 2934.925,
+          "p95_nearest_rank": 4017,
+          "maximum": 4926
+        },
+        "AudioUpdate_excluding_IRQ": {
+          "count": 120,
+          "mean": 2932.925,
+          "p95_nearest_rank": 4017,
+          "maximum": 4806
+        },
+        "foreground_GameLoop_excluding_NMI_IRQ": {
+          "count": 120,
+          "mean": 17087.166666666668,
+          "p95_nearest_rank": 17714,
+          "maximum": 18249
+        }
+      },
+      "walk": {
+        "AudioUpdate_inclusive": {
+          "count": 120,
+          "mean": 3173.7833333333333,
+          "p95_nearest_rank": 4629,
+          "maximum": 5172
+        },
+        "AudioUpdate_excluding_IRQ": {
+          "count": 120,
+          "mean": 3165.7833333333333,
+          "p95_nearest_rank": 4509,
+          "maximum": 5052
+        },
+        "foreground_GameLoop_excluding_NMI_IRQ": {
+          "count": 120,
+          "mean": 17165.808333333334,
+          "p95_nearest_rank": 17815,
+          "maximum": 20786
+        }
+      },
+      "enemies": {
+        "AudioUpdate_inclusive": {
+          "count": 120,
+          "mean": 3086.0666666666666,
+          "p95_nearest_rank": 4065,
+          "maximum": 4970
+        },
+        "AudioUpdate_excluding_IRQ": {
+          "count": 120,
+          "mean": 3083.0666666666666,
+          "p95_nearest_rank": 4065,
+          "maximum": 4850
+        },
+        "foreground_GameLoop_excluding_NMI_IRQ": {
+          "count": 120,
+          "mean": 20850.45,
+          "p95_nearest_rank": 21678,
+          "maximum": 22237
+        }
+      },
+      "primary": {
+        "AudioUpdate_inclusive": {
+          "count": 120,
+          "mean": 3277.8,
+          "p95_nearest_rank": 4656,
+          "maximum": 5109
+        },
+        "AudioUpdate_excluding_IRQ": {
+          "count": 120,
+          "mean": 3268.8,
+          "p95_nearest_rank": 4536,
+          "maximum": 4989
+        },
+        "foreground_GameLoop_excluding_NMI_IRQ": {
+          "count": 120,
+          "mean": 21380.625,
+          "p95_nearest_rank": 22649,
+          "maximum": 23400
+        }
+      },
+      "secondary": {
+        "AudioUpdate_inclusive": {
+          "count": 119,
+          "mean": 3368.0420168067226,
+          "p95_nearest_rank": 4546,
+          "maximum": 5440
+        },
+        "AudioUpdate_excluding_IRQ": {
+          "count": 119,
+          "mean": 3363,
+          "p95_nearest_rank": 4455,
+          "maximum": 5440
+        },
+        "foreground_GameLoop_excluding_NMI_IRQ": {
+          "count": 119,
+          "mean": 21527.655462184874,
+          "p95_nearest_rank": 26734,
+          "maximum": 27499
+        }
+      }
+    },
+    "candidate": {
+      "idle": {
+        "AudioUpdate_inclusive": {
+          "count": 120,
+          "mean": 2850.608333333333,
+          "p95_nearest_rank": 3929,
+          "maximum": 6372
+        },
+        "AudioUpdate_excluding_IRQ": {
+          "count": 120,
+          "mean": 2847.608333333333,
+          "p95_nearest_rank": 3929,
+          "maximum": 6252
+        },
+        "foreground_GameLoop_excluding_NMI_IRQ": {
+          "count": 120,
+          "mean": 17102.95,
+          "p95_nearest_rank": 17714,
+          "maximum": 18409
+        }
+      },
+      "walk": {
+        "AudioUpdate_inclusive": {
+          "count": 120,
+          "mean": 2960.05,
+          "p95_nearest_rank": 5047,
+          "maximum": 6132
+        },
+        "AudioUpdate_excluding_IRQ": {
+          "count": 120,
+          "mean": 2952.05,
+          "p95_nearest_rank": 4927,
+          "maximum": 6012
+        },
+        "foreground_GameLoop_excluding_NMI_IRQ": {
+          "count": 120,
+          "mean": 17178.916666666668,
+          "p95_nearest_rank": 17815,
+          "maximum": 20786
+        }
+      },
+      "enemies": {
+        "AudioUpdate_inclusive": {
+          "count": 120,
+          "mean": 2943.4666666666667,
+          "p95_nearest_rank": 4231,
+          "maximum": 6226
+        },
+        "AudioUpdate_excluding_IRQ": {
+          "count": 120,
+          "mean": 2938.4666666666667,
+          "p95_nearest_rank": 4231,
+          "maximum": 6106
+        },
+        "foreground_GameLoop_excluding_NMI_IRQ": {
+          "count": 120,
+          "mean": 20869.508333333335,
+          "p95_nearest_rank": 21696,
+          "maximum": 22237
+        }
+      },
+      "primary": {
+        "AudioUpdate_inclusive": {
+          "count": 120,
+          "mean": 3118.15,
+          "p95_nearest_rank": 5008,
+          "maximum": 5992
+        },
+        "AudioUpdate_excluding_IRQ": {
+          "count": 120,
+          "mean": 3109.15,
+          "p95_nearest_rank": 4888,
+          "maximum": 5872
+        },
+        "foreground_GameLoop_excluding_NMI_IRQ": {
+          "count": 120,
+          "mean": 21394.441666666666,
+          "p95_nearest_rank": 22655,
+          "maximum": 23400
+        }
+      },
+      "secondary": {
+        "AudioUpdate_inclusive": {
+          "count": 119,
+          "mean": 3268.781512605042,
+          "p95_nearest_rank": 4716,
+          "maximum": 7340
+        },
+        "AudioUpdate_excluding_IRQ": {
+          "count": 119,
+          "mean": 3263.7394957983192,
+          "p95_nearest_rank": 4716,
+          "maximum": 7220
+        },
+        "foreground_GameLoop_excluding_NMI_IRQ": {
+          "count": 119,
+          "mean": 21152.647058823528,
+          "p95_nearest_rank": 26544,
+          "maximum": 27302
+        }
+      }
+    }
+  },
+  "disjoint_exclusive_components": {
+    "baseline": {
+      "idle": {
+        "AudioUpdate": {
+          "count": 120,
+          "mean": 1316.4666666666667,
+          "p95_nearest_rank": 1334,
+          "maximum": 1336
+        },
+        "ExpandedAudioUpdate": {
+          "count": 120,
+          "mean": 1616.4583333333333,
+          "p95_nearest_rank": 2683,
+          "maximum": 3470
+        }
+      },
+      "walk": {
+        "AudioUpdate": {
+          "count": 120,
+          "mean": 1317.2666666666667,
+          "p95_nearest_rank": 1324,
+          "maximum": 1331
+        },
+        "ExpandedAudioUpdate": {
+          "count": 120,
+          "mean": 1848.5166666666667,
+          "p95_nearest_rank": 3180,
+          "maximum": 3721
+        }
+      },
+      "enemies": {
+        "AudioUpdate": {
+          "count": 120,
+          "mean": 1316.8666666666666,
+          "p95_nearest_rank": 1322,
+          "maximum": 1331
+        },
+        "ExpandedAudioUpdate": {
+          "count": 120,
+          "mean": 1766.2,
+          "p95_nearest_rank": 2745,
+          "maximum": 3519
+        }
+      },
+      "primary": {
+        "AudioUpdate": {
+          "count": 120,
+          "mean": 1410.3583333333333,
+          "p95_nearest_rank": 1955,
+          "maximum": 2139
+        },
+        "ExpandedAudioUpdate": {
+          "count": 120,
+          "mean": 1858.4416666666666,
+          "p95_nearest_rank": 3191,
+          "maximum": 3658
+        }
+      },
+      "secondary": {
+        "AudioUpdate": {
+          "count": 119,
+          "mean": 1569.0588235294117,
+          "p95_nearest_rank": 2112,
+          "maximum": 2228
+        },
+        "ExpandedAudioUpdate": {
+          "count": 119,
+          "mean": 1793.9411764705883,
+          "p95_nearest_rank": 2872,
+          "maximum": 3380
+        }
+      }
+    },
+    "candidate": {
+      "idle": {
+        "AudioUpdate": {
+          "count": 120,
+          "mean": 1309.5166666666667,
+          "p95_nearest_rank": 1341,
+          "maximum": 1385
+        },
+        "ExpandedAudioUpdate": {
+          "count": 120,
+          "mean": 151.18333333333334,
+          "p95_nearest_rank": 151,
+          "maximum": 155
+        },
+        "TnAudioUpdate": {
+          "count": 120,
+          "mean": 165.16666666666666,
+          "p95_nearest_rank": 165,
+          "maximum": 173
+        },
+        "TnNativePlay": {
+          "count": 120,
+          "mean": 1115.55,
+          "p95_nearest_rank": 2110,
+          "maximum": 3959
+        },
+        "TnSourceSTA00X": {
+          "count": 153,
+          "mean": 25,
+          "p95_nearest_rank": 25,
+          "maximum": 25
+        },
+        "TnSourceSTA01X": {
+          "count": 8,
+          "mean": 25,
+          "p95_nearest_rank": 25,
+          "maximum": 25
+        },
+        "TnSourceSTA02X": {
+          "count": 103,
+          "mean": 25,
+          "p95_nearest_rank": 25,
+          "maximum": 25
+        },
+        "TnSourceSTA03X": {
+          "count": 101,
+          "mean": 25,
+          "p95_nearest_rank": 25,
+          "maximum": 25
+        },
+        "TnSourceSTA08": {
+          "count": 30,
+          "mean": 23,
+          "p95_nearest_rank": 23,
+          "maximum": 23
+        },
+        "TnSourceSTA10": {
+          "count": 6,
+          "mean": 14,
+          "p95_nearest_rank": 14,
+          "maximum": 14
+        },
+        "TnSourceSTA11": {
+          "count": 6,
+          "mean": 18,
+          "p95_nearest_rank": 18,
+          "maximum": 18
+        },
+        "TnSourceSTA12": {
+          "count": 6,
+          "mean": 32,
+          "p95_nearest_rank": 32,
+          "maximum": 32
+        },
+        "TnSourceSTA13": {
+          "count": 6,
+          "mean": 14,
+          "p95_nearest_rank": 14,
+          "maximum": 14
+        },
+        "TnSourceSTA15": {
+          "count": 16,
+          "mean": 153.75,
+          "p95_nearest_rank": 160,
+          "maximum": 160
+        }
+      },
+      "walk": {
+        "AudioUpdate": {
+          "count": 120,
+          "mean": 1307.3666666666666,
+          "p95_nearest_rank": 1337,
+          "maximum": 1369
+        },
+        "ExpandedAudioUpdate": {
+          "count": 120,
+          "mean": 151.1,
+          "p95_nearest_rank": 151,
+          "maximum": 155
+        },
+        "TnAudioUpdate": {
+          "count": 120,
+          "mean": 165.15833333333333,
+          "p95_nearest_rank": 165,
+          "maximum": 169
+        },
+        "TnNativePlay": {
+          "count": 120,
+          "mean": 1232.5833333333333,
+          "p95_nearest_rank": 2988,
+          "maximum": 3748
+        },
+        "TnSourceSTA00X": {
+          "count": 211,
+          "mean": 25.018957345971565,
+          "p95_nearest_rank": 25,
+          "maximum": 29
+        },
+        "TnSourceSTA01X": {
+          "count": 8,
+          "mean": 25,
+          "p95_nearest_rank": 25,
+          "maximum": 25
+        },
+        "TnSourceSTA02X": {
+          "count": 79,
+          "mean": 25,
+          "p95_nearest_rank": 25,
+          "maximum": 25
+        },
+        "TnSourceSTA03X": {
+          "count": 64,
+          "mean": 25,
+          "p95_nearest_rank": 25,
+          "maximum": 25
+        },
+        "TnSourceSTA08": {
+          "count": 9,
+          "mean": 23,
+          "p95_nearest_rank": 23,
+          "maximum": 23
+        },
+        "TnSourceSTA10": {
+          "count": 5,
+          "mean": 14,
+          "p95_nearest_rank": 14,
+          "maximum": 14
+        },
+        "TnSourceSTA11": {
+          "count": 5,
+          "mean": 18,
+          "p95_nearest_rank": 18,
+          "maximum": 18
+        },
+        "TnSourceSTA12": {
+          "count": 5,
+          "mean": 32,
+          "p95_nearest_rank": 32,
+          "maximum": 32
+        },
+        "TnSourceSTA13": {
+          "count": 5,
+          "mean": 14,
+          "p95_nearest_rank": 14,
+          "maximum": 14
+        },
+        "TnSourceSTA15": {
+          "count": 12,
+          "mean": 154.16666666666666,
+          "p95_nearest_rank": 160,
+          "maximum": 160
+        }
+      },
+      "enemies": {
+        "AudioUpdate": {
+          "count": 120,
+          "mean": 1307.35,
+          "p95_nearest_rank": 1349,
+          "maximum": 1389
+        },
+        "ExpandedAudioUpdate": {
+          "count": 120,
+          "mean": 151.1,
+          "p95_nearest_rank": 151,
+          "maximum": 155
+        },
+        "TnAudioUpdate": {
+          "count": 120,
+          "mean": 165.03333333333333,
+          "p95_nearest_rank": 165,
+          "maximum": 169
+        },
+        "TnNativePlay": {
+          "count": 120,
+          "mean": 1214.8166666666666,
+          "p95_nearest_rank": 2286,
+          "maximum": 3836
+        },
+        "TnSourceSTA00X": {
+          "count": 187,
+          "mean": 25.037433155080215,
+          "p95_nearest_rank": 25,
+          "maximum": 29
+        },
+        "TnSourceSTA01X": {
+          "count": 7,
+          "mean": 25,
+          "p95_nearest_rank": 25,
+          "maximum": 25
+        },
+        "TnSourceSTA02X": {
+          "count": 82,
+          "mean": 25.085365853658537,
+          "p95_nearest_rank": 25,
+          "maximum": 29
+        },
+        "TnSourceSTA03X": {
+          "count": 77,
+          "mean": 25,
+          "p95_nearest_rank": 25,
+          "maximum": 25
+        },
+        "TnSourceSTA08": {
+          "count": 11,
+          "mean": 23,
+          "p95_nearest_rank": 23,
+          "maximum": 23
+        },
+        "TnSourceSTA10": {
+          "count": 6,
+          "mean": 14,
+          "p95_nearest_rank": 14,
+          "maximum": 14
+        },
+        "TnSourceSTA11": {
+          "count": 6,
+          "mean": 18,
+          "p95_nearest_rank": 18,
+          "maximum": 18
+        },
+        "TnSourceSTA12": {
+          "count": 6,
+          "mean": 32,
+          "p95_nearest_rank": 32,
+          "maximum": 32
+        },
+        "TnSourceSTA13": {
+          "count": 6,
+          "mean": 14,
+          "p95_nearest_rank": 14,
+          "maximum": 14
+        },
+        "TnSourceSTA15": {
+          "count": 16,
+          "mean": 153.75,
+          "p95_nearest_rank": 160,
+          "maximum": 160
+        }
+      },
+      "primary": {
+        "AudioUpdate": {
+          "count": 120,
+          "mean": 1364.1083333333333,
+          "p95_nearest_rank": 1592,
+          "maximum": 2176
+        },
+        "ExpandedAudioUpdate": {
+          "count": 120,
+          "mean": 151.1,
+          "p95_nearest_rank": 151,
+          "maximum": 155
+        },
+        "TnAudioUpdate": {
+          "count": 120,
+          "mean": 165,
+          "p95_nearest_rank": 165,
+          "maximum": 165
+        },
+        "TnNativePlay": {
+          "count": 120,
+          "mean": 1327.2833333333333,
+          "p95_nearest_rank": 2988,
+          "maximum": 3992
+        },
+        "TnSourceSTA00X": {
+          "count": 185,
+          "mean": 25,
+          "p95_nearest_rank": 25,
+          "maximum": 25
+        },
+        "TnSourceSTA01X": {
+          "count": 8,
+          "mean": 25,
+          "p95_nearest_rank": 25,
+          "maximum": 25
+        },
+        "TnSourceSTA02X": {
+          "count": 131,
+          "mean": 25,
+          "p95_nearest_rank": 25,
+          "maximum": 25
+        },
+        "TnSourceSTA03X": {
+          "count": 65,
+          "mean": 25,
+          "p95_nearest_rank": 25,
+          "maximum": 25
+        },
+        "TnSourceSTA08": {
+          "count": 10,
+          "mean": 23,
+          "p95_nearest_rank": 23,
+          "maximum": 23
+        },
+        "TnSourceSTA10": {
+          "count": 5,
+          "mean": 14,
+          "p95_nearest_rank": 14,
+          "maximum": 14
+        },
+        "TnSourceSTA11": {
+          "count": 5,
+          "mean": 18,
+          "p95_nearest_rank": 18,
+          "maximum": 18
+        },
+        "TnSourceSTA12": {
+          "count": 5,
+          "mean": 32,
+          "p95_nearest_rank": 32,
+          "maximum": 32
+        },
+        "TnSourceSTA13": {
+          "count": 5,
+          "mean": 14,
+          "p95_nearest_rank": 14,
+          "maximum": 14
+        },
+        "TnSourceSTA15": {
+          "count": 12,
+          "mean": 154.5,
+          "p95_nearest_rank": 164,
+          "maximum": 164
+        }
+      },
+      "secondary": {
+        "AudioUpdate": {
+          "count": 119,
+          "mean": 1530.6302521008404,
+          "p95_nearest_rank": 2134,
+          "maximum": 2287
+        },
+        "ExpandedAudioUpdate": {
+          "count": 119,
+          "mean": 151.10084033613447,
+          "p95_nearest_rank": 151,
+          "maximum": 155
+        },
+        "TnAudioUpdate": {
+          "count": 119,
+          "mean": 165.19327731092437,
+          "p95_nearest_rank": 165,
+          "maximum": 173
+        },
+        "TnNativePlay": {
+          "count": 119,
+          "mean": 1318.327731092437,
+          "p95_nearest_rank": 2841,
+          "maximum": 4924
+        },
+        "TnSourceSTA00X": {
+          "count": 126,
+          "mean": 25,
+          "p95_nearest_rank": 25,
+          "maximum": 25
+        },
+        "TnSourceSTA01X": {
+          "count": 7,
+          "mean": 25,
+          "p95_nearest_rank": 25,
+          "maximum": 25
+        },
+        "TnSourceSTA02X": {
+          "count": 155,
+          "mean": 25,
+          "p95_nearest_rank": 25,
+          "maximum": 25
+        },
+        "TnSourceSTA03X": {
+          "count": 70,
+          "mean": 25,
+          "p95_nearest_rank": 25,
+          "maximum": 25
+        },
+        "TnSourceSTA08": {
+          "count": 10,
+          "mean": 23,
+          "p95_nearest_rank": 23,
+          "maximum": 23
+        },
+        "TnSourceSTA10": {
+          "count": 5,
+          "mean": 14,
+          "p95_nearest_rank": 14,
+          "maximum": 14
+        },
+        "TnSourceSTA11": {
+          "count": 5,
+          "mean": 18,
+          "p95_nearest_rank": 18,
+          "maximum": 18
+        },
+        "TnSourceSTA12": {
+          "count": 5,
+          "mean": 32,
+          "p95_nearest_rank": 32,
+          "maximum": 32
+        },
+        "TnSourceSTA13": {
+          "count": 5,
+          "mean": 14,
+          "p95_nearest_rank": 14,
+          "maximum": 14
+        },
+        "TnSourceSTA15": {
+          "count": 14,
+          "mean": 153.57142857142858,
+          "p95_nearest_rank": 160,
+          "maximum": 160
+        }
+      }
+    }
+  },
+  "first_prefix": {
+    "update": 406,
+    "phase": "primary",
+    "added_physical_frames": 1,
+    "fewer_draw_constructions": 0
+  },
+  "first_fewer_draw_prefix": {
+    "update": 533,
+    "phase": "secondary",
+    "added_physical_frames": 0,
+    "fewer_draw_constructions": 1
+  },
+  "causal_windows": {
+    "baseline": {
+      "406": {
+        "records": [
+          {
+            "stamp": {
+              "frame": 735,
+              "scanline": 162,
+              "cpu": 21877416,
+              "cycle": 317,
+              "pc": 40960,
+              "sp": 243
+            },
+            "nmi_depth": 0,
+            "kind": "draw-construction",
+            "draws": 406,
+            "index": 406,
+            "phase": "primary"
+          },
+          {
+            "stamp": {
+              "frame": 735,
+              "scanline": 218,
+              "cpu": 21883774,
+              "cycle": 295,
+              "pc": 33470,
+              "sp": 252
+            },
+            "completed": 406,
+            "draws": 406,
+            "nmi_depth": 0,
+            "kind": "completed-game-update",
+            "skipped": 10,
+            "index": 406,
+            "phase": "primary"
+          }
+        ],
+        "preceding_AudioUpdate": {
+          "serial": "811",
+          "name": "AudioUpdate",
+          "phase": "primary",
+          "update": "405",
+          "startFrame": "735",
+          "startScan": "255",
+          "startDot": "186",
+          "startCPU": "21858163",
+          "endFrame": "735",
+          "endScan": "20",
+          "endDot": "22",
+          "endCPU": "21861177",
+          "inclusiveCycles": "3014",
+          "IRQCycles": "0",
+          "CPUcycles": "3014",
+          "childCPUcycles": "1063",
+          "exclusiveCPUcycles": "1951"
+        },
+        "disjoint_components": [
+          {
+            "serial": "812",
+            "name": "ExpandedAudioUpdate",
+            "phase": "primary",
+            "update": "405",
+            "startFrame": "735",
+            "startScan": "258",
+            "startDot": "117",
+            "startCPU": "21858481",
+            "endFrame": "735",
+            "endScan": "5",
+            "endDot": "238",
+            "endCPU": "21859544",
+            "inclusiveCycles": "1063",
+            "IRQCycles": "0",
+            "CPUcycles": "1063",
+            "childCPUcycles": "0",
+            "exclusiveCPUcycles": "1063"
+          },
+          {
+            "serial": "811",
+            "name": "AudioUpdate",
+            "phase": "primary",
+            "update": "405",
+            "startFrame": "735",
+            "startScan": "255",
+            "startDot": "186",
+            "startCPU": "21858163",
+            "endFrame": "735",
+            "endScan": "20",
+            "endDot": "22",
+            "endCPU": "21861177",
+            "inclusiveCycles": "3014",
+            "IRQCycles": "0",
+            "CPUcycles": "3014",
+            "childCPUcycles": "1063",
+            "exclusiveCPUcycles": "1951"
+          }
+        ]
+      },
+      "407": {
+        "records": [
+          {
+            "stamp": {
+              "frame": 736,
+              "scanline": 160,
+              "cpu": 21906947,
+              "cycle": 250,
+              "pc": 40960,
+              "sp": 243
+            },
+            "nmi_depth": 0,
+            "kind": "draw-construction",
+            "draws": 407,
+            "index": 407,
+            "phase": "primary"
+          },
+          {
+            "stamp": {
+              "frame": 736,
+              "scanline": 216,
+              "cpu": 21913249,
+              "cycle": 60,
+              "pc": 33470,
+              "sp": 252
+            },
+            "completed": 407,
+            "draws": 407,
+            "nmi_depth": 0,
+            "kind": "completed-game-update",
+            "skipped": 10,
+            "index": 407,
+            "phase": "primary"
+          }
+        ],
+        "preceding_AudioUpdate": {
+          "serial": "813",
+          "name": "AudioUpdate",
+          "phase": "primary",
+          "update": "406",
+          "startFrame": "736",
+          "startScan": "254",
+          "startDot": "40",
+          "startCPU": "21887781",
+          "endFrame": "736",
+          "endScan": "29",
+          "endDot": "197",
+          "endCPU": "21892039",
+          "inclusiveCycles": "4258",
+          "IRQCycles": "0",
+          "CPUcycles": "4258",
+          "childCPUcycles": "2872",
+          "exclusiveCPUcycles": "1386"
+        },
+        "disjoint_components": [
+          {
+            "serial": "814",
+            "name": "ExpandedAudioUpdate",
+            "phase": "primary",
+            "update": "406",
+            "startFrame": "736",
+            "startScan": "256",
+            "startDot": "312",
+            "startCPU": "21888099",
+            "endFrame": "736",
+            "endScan": "20",
+            "endDot": "62",
+            "endCPU": "21890971",
+            "inclusiveCycles": "2872",
+            "IRQCycles": "0",
+            "CPUcycles": "2872",
+            "childCPUcycles": "0",
+            "exclusiveCPUcycles": "2872"
+          },
+          {
+            "serial": "813",
+            "name": "AudioUpdate",
+            "phase": "primary",
+            "update": "406",
+            "startFrame": "736",
+            "startScan": "254",
+            "startDot": "40",
+            "startCPU": "21887781",
+            "endFrame": "736",
+            "endScan": "29",
+            "endDot": "197",
+            "endCPU": "21892039",
+            "inclusiveCycles": "4258",
+            "IRQCycles": "0",
+            "CPUcycles": "4258",
+            "childCPUcycles": "2872",
+            "exclusiveCPUcycles": "1386"
+          }
+        ]
+      },
+      "532": {
+        "records": [
+          {
+            "stamp": {
+              "frame": 861,
+              "scanline": 161,
+              "cpu": 25629647,
+              "cycle": 322,
+              "pc": 40960,
+              "sp": 243
+            },
+            "nmi_depth": 0,
+            "kind": "draw-construction",
+            "draws": 508,
+            "index": 532,
+            "phase": "secondary"
+          },
+          {
+            "stamp": {
+              "frame": 861,
+              "scanline": 227,
+              "cpu": 25637105,
+              "cycle": 190,
+              "pc": 33470,
+              "sp": 252
+            },
+            "completed": 532,
+            "draws": 508,
+            "nmi_depth": 0,
+            "kind": "completed-game-update",
+            "skipped": 34,
+            "index": 532,
+            "phase": "secondary"
+          }
+        ],
+        "preceding_AudioUpdate": {
+          "serial": "1063",
+          "name": "AudioUpdate",
+          "phase": "secondary",
+          "update": "531",
+          "startFrame": "861",
+          "startScan": "254",
+          "startDot": "32",
+          "startCPU": "25610341",
+          "endFrame": "861",
+          "endScan": "19",
+          "endDot": "138",
+          "endCPU": "25613445",
+          "inclusiveCycles": "3104",
+          "IRQCycles": "0",
+          "CPUcycles": "3104",
+          "childCPUcycles": "1063",
+          "exclusiveCPUcycles": "2041"
+        },
+        "disjoint_components": [
+          {
+            "serial": "1064",
+            "name": "ExpandedAudioUpdate",
+            "phase": "secondary",
+            "update": "531",
+            "startFrame": "861",
+            "startScan": "256",
+            "startDot": "304",
+            "startCPU": "25610659",
+            "endFrame": "861",
+            "endScan": "4",
+            "endDot": "84",
+            "endCPU": "25611722",
+            "inclusiveCycles": "1063",
+            "IRQCycles": "0",
+            "CPUcycles": "1063",
+            "childCPUcycles": "0",
+            "exclusiveCPUcycles": "1063"
+          },
+          {
+            "serial": "1063",
+            "name": "AudioUpdate",
+            "phase": "secondary",
+            "update": "531",
+            "startFrame": "861",
+            "startScan": "254",
+            "startDot": "32",
+            "startCPU": "25610341",
+            "endFrame": "861",
+            "endScan": "19",
+            "endDot": "138",
+            "endCPU": "25613445",
+            "inclusiveCycles": "3104",
+            "IRQCycles": "0",
+            "CPUcycles": "3104",
+            "childCPUcycles": "1063",
+            "exclusiveCPUcycles": "2041"
+          }
+        ]
+      },
+      "533": {
+        "records": [
+          {
+            "stamp": {
+              "frame": 862,
+              "scanline": 153,
+              "cpu": 25658424,
+              "cycle": 39,
+              "pc": 40960,
+              "sp": 243
+            },
+            "nmi_depth": 0,
+            "kind": "draw-construction",
+            "draws": 509,
+            "index": 533,
+            "phase": "secondary"
+          },
+          {
+            "stamp": {
+              "frame": 862,
+              "scanline": 220,
+              "cpu": 25666140,
+              "cycle": 340,
+              "pc": 33470,
+              "sp": 252
+            },
+            "completed": 533,
+            "draws": 509,
+            "nmi_depth": 0,
+            "kind": "completed-game-update",
+            "skipped": 34,
+            "index": 533,
+            "phase": "secondary"
+          }
+        ],
+        "preceding_AudioUpdate": {
+          "serial": "1065",
+          "name": "AudioUpdate",
+          "phase": "secondary",
+          "update": "532",
+          "startFrame": "862",
+          "startScan": "254",
+          "startDot": "31",
+          "startCPU": "25640121",
+          "endFrame": "862",
+          "endScan": "29",
+          "endDot": "128",
+          "endCPU": "25644359",
+          "inclusiveCycles": "4238",
+          "IRQCycles": "0",
+          "CPUcycles": "4238",
+          "childCPUcycles": "2227",
+          "exclusiveCPUcycles": "2011"
+        },
+        "disjoint_components": [
+          {
+            "serial": "1066",
+            "name": "ExpandedAudioUpdate",
+            "phase": "secondary",
+            "update": "532",
+            "startFrame": "862",
+            "startScan": "256",
+            "startDot": "303",
+            "startCPU": "25640439",
+            "endFrame": "862",
+            "endScan": "14",
+            "endDot": "164",
+            "endCPU": "25642666",
+            "inclusiveCycles": "2227",
+            "IRQCycles": "0",
+            "CPUcycles": "2227",
+            "childCPUcycles": "0",
+            "exclusiveCPUcycles": "2227"
+          },
+          {
+            "serial": "1065",
+            "name": "AudioUpdate",
+            "phase": "secondary",
+            "update": "532",
+            "startFrame": "862",
+            "startScan": "254",
+            "startDot": "31",
+            "startCPU": "25640121",
+            "endFrame": "862",
+            "endScan": "29",
+            "endDot": "128",
+            "endCPU": "25644359",
+            "inclusiveCycles": "4238",
+            "IRQCycles": "0",
+            "CPUcycles": "4238",
+            "childCPUcycles": "2227",
+            "exclusiveCPUcycles": "2011"
+          }
+        ]
+      }
+    },
+    "candidate": {
+      "406": {
+        "records": [
+          {
+            "nmi_depth": 0,
+            "index": 406,
+            "phase": "primary",
+            "stamp": {
+              "sp": 243,
+              "pc": 40960,
+              "cycle": 135,
+              "cpu": 21879856,
+              "frame": 735,
+              "scanline": 184
+            },
+            "kind": "draw-construction",
+            "draws": 406
+          },
+          {
+            "skipped": 10,
+            "completed": 406,
+            "nmi_depth": 0,
+            "index": 406,
+            "phase": "primary",
+            "stamp": {
+              "sp": 252,
+              "pc": 33470,
+              "cycle": 290,
+              "cpu": 21886273,
+              "frame": 736,
+              "scanline": 240
+            },
+            "kind": "completed-game-update",
+            "draws": 406
+          }
+        ],
+        "preceding_AudioUpdate": {
+          "serial": "3030",
+          "name": "AudioUpdate",
+          "phase": "primary",
+          "update": "405",
+          "startFrame": "735",
+          "startScan": "255",
+          "startDot": "180",
+          "startCPU": "21858161",
+          "endFrame": "735",
+          "endScan": "41",
+          "endDot": "100",
+          "endCPU": "21863590",
+          "inclusiveCycles": "5429",
+          "IRQCycles": "120",
+          "CPUcycles": "5309",
+          "childCPUcycles": "3715",
+          "exclusiveCPUcycles": "1594"
+        },
+        "disjoint_components": [
+          {
+            "serial": "3034",
+            "name": "TnSourceSTA00X",
+            "phase": "primary",
+            "update": "405",
+            "startFrame": "735",
+            "startScan": "2",
+            "startDot": "73",
+            "startCPU": "21859148",
+            "endFrame": "735",
+            "endScan": "2",
+            "endDot": "148",
+            "endCPU": "21859173",
+            "inclusiveCycles": "25",
+            "IRQCycles": "0",
+            "CPUcycles": "25",
+            "childCPUcycles": "0",
+            "exclusiveCPUcycles": "25"
+          },
+          {
+            "serial": "3035",
+            "name": "TnSourceSTA02X",
+            "phase": "primary",
+            "update": "405",
+            "startFrame": "735",
+            "startScan": "4",
+            "startDot": "324",
+            "startCPU": "21859459",
+            "endFrame": "735",
+            "endScan": "5",
+            "endDot": "58",
+            "endCPU": "21859484",
+            "inclusiveCycles": "25",
+            "IRQCycles": "0",
+            "CPUcycles": "25",
+            "childCPUcycles": "0",
+            "exclusiveCPUcycles": "25"
+          },
+          {
+            "serial": "3036",
+            "name": "TnSourceSTA00X",
+            "phase": "primary",
+            "update": "405",
+            "startFrame": "735",
+            "startScan": "10",
+            "startDot": "84",
+            "startCPU": "21860061",
+            "endFrame": "735",
+            "endScan": "10",
+            "endDot": "159",
+            "endCPU": "21860086",
+            "inclusiveCycles": "25",
+            "IRQCycles": "0",
+            "CPUcycles": "25",
+            "childCPUcycles": "0",
+            "exclusiveCPUcycles": "25"
+          },
+          {
+            "serial": "3037",
+            "name": "TnSourceSTA02X",
+            "phase": "primary",
+            "update": "405",
+            "startFrame": "735",
+            "startScan": "13",
+            "startDot": "39",
+            "startCPU": "21860387",
+            "endFrame": "735",
+            "endScan": "13",
+            "endDot": "114",
+            "endCPU": "21860412",
+            "inclusiveCycles": "25",
+            "IRQCycles": "0",
+            "CPUcycles": "25",
+            "childCPUcycles": "0",
+            "exclusiveCPUcycles": "25"
+          },
+          {
+            "serial": "3038",
+            "name": "TnSourceSTA08",
+            "phase": "primary",
+            "update": "405",
+            "startFrame": "735",
+            "startScan": "17",
+            "startDot": "148",
+            "startCPU": "21860878",
+            "endFrame": "735",
+            "endScan": "17",
+            "endDot": "217",
+            "endCPU": "21860901",
+            "inclusiveCycles": "23",
+            "IRQCycles": "0",
+            "CPUcycles": "23",
+            "childCPUcycles": "0",
+            "exclusiveCPUcycles": "23"
+          },
+          {
+            "serial": "3039",
+            "name": "TnSourceSTA03X",
+            "phase": "primary",
+            "update": "405",
+            "startFrame": "735",
+            "startScan": "19",
+            "startDot": "69",
+            "startCPU": "21861079",
+            "endFrame": "735",
+            "endScan": "19",
+            "endDot": "144",
+            "endCPU": "21861104",
+            "inclusiveCycles": "25",
+            "IRQCycles": "0",
+            "CPUcycles": "25",
+            "childCPUcycles": "0",
+            "exclusiveCPUcycles": "25"
+          },
+          {
+            "serial": "3040",
+            "name": "TnSourceSTA02X",
+            "phase": "primary",
+            "update": "405",
+            "startFrame": "735",
+            "startScan": "19",
+            "startDot": "291",
+            "startCPU": "21861153",
+            "endFrame": "735",
+            "endScan": "20",
+            "endDot": "25",
+            "endCPU": "21861178",
+            "inclusiveCycles": "25",
+            "IRQCycles": "0",
+            "CPUcycles": "25",
+            "childCPUcycles": "0",
+            "exclusiveCPUcycles": "25"
+          },
+          {
+            "serial": "3041",
+            "name": "TnSourceSTA15",
+            "phase": "primary",
+            "update": "405",
+            "startFrame": "735",
+            "startScan": "22",
+            "startDot": "270",
+            "startCPU": "21861487",
+            "endFrame": "735",
+            "endScan": "24",
+            "endDot": "38",
+            "endCPU": "21861637",
+            "inclusiveCycles": "150",
+            "IRQCycles": "0",
+            "CPUcycles": "150",
+            "childCPUcycles": "0",
+            "exclusiveCPUcycles": "150"
+          },
+          {
+            "serial": "3042",
+            "name": "TnSourceSTA10",
+            "phase": "primary",
+            "update": "405",
+            "startFrame": "735",
+            "startScan": "24",
+            "startDot": "68",
+            "startCPU": "21861647",
+            "endFrame": "735",
+            "endScan": "24",
+            "endDot": "110",
+            "endCPU": "21861661",
+            "inclusiveCycles": "14",
+            "IRQCycles": "0",
+            "CPUcycles": "14",
+            "childCPUcycles": "0",
+            "exclusiveCPUcycles": "14"
+          },
+          {
+            "serial": "3043",
+            "name": "TnSourceSTA11",
+            "phase": "primary",
+            "update": "405",
+            "startFrame": "735",
+            "startScan": "24",
+            "startDot": "140",
+            "startCPU": "21861671",
+            "endFrame": "735",
+            "endScan": "24",
+            "endDot": "194",
+            "endCPU": "21861689",
+            "inclusiveCycles": "18",
+            "IRQCycles": "0",
+            "CPUcycles": "18",
+            "childCPUcycles": "0",
+            "exclusiveCPUcycles": "18"
+          },
+          {
+            "serial": "3044",
+            "name": "TnSourceSTA12",
+            "phase": "primary",
+            "update": "405",
+            "startFrame": "735",
+            "startScan": "24",
+            "startDot": "224",
+            "startCPU": "21861699",
+            "endFrame": "735",
+            "endScan": "24",
+            "endDot": "320",
+            "endCPU": "21861731",
+            "inclusiveCycles": "32",
+            "IRQCycles": "0",
+            "CPUcycles": "32",
+            "childCPUcycles": "0",
+            "exclusiveCPUcycles": "32"
+          },
+          {
+            "serial": "3045",
+            "name": "TnSourceSTA13",
+            "phase": "primary",
+            "update": "405",
+            "startFrame": "735",
+            "startScan": "25",
+            "startDot": "9",
+            "startCPU": "21861741",
+            "endFrame": "735",
+            "endScan": "25",
+            "endDot": "51",
+            "endCPU": "21861755",
+            "inclusiveCycles": "14",
+            "IRQCycles": "0",
+            "CPUcycles": "14",
+            "childCPUcycles": "0",
+            "exclusiveCPUcycles": "14"
+          },
+          {
+            "serial": "3046",
+            "name": "TnSourceSTA15",
+            "phase": "primary",
+            "update": "405",
+            "startFrame": "735",
+            "startScan": "25",
+            "startDot": "75",
+            "startCPU": "21861763",
+            "endFrame": "735",
+            "endScan": "26",
+            "endDot": "226",
+            "endCPU": "21861927",
+            "inclusiveCycles": "164",
+            "IRQCycles": "0",
+            "CPUcycles": "164",
+            "childCPUcycles": "0",
+            "exclusiveCPUcycles": "164"
+          },
+          {
+            "serial": "3033",
+            "name": "TnNativePlay",
+            "phase": "primary",
+            "update": "405",
+            "startFrame": "735",
+            "startScan": "259",
+            "startDot": "214",
+            "startCPU": "21858627",
+            "endFrame": "735",
+            "endScan": "27",
+            "endDot": "182",
+            "endCPU": "21862026",
+            "inclusiveCycles": "3399",
+            "IRQCycles": "0",
+            "CPUcycles": "3399",
+            "childCPUcycles": "565",
+            "exclusiveCPUcycles": "2834"
+          },
+          {
+            "serial": "3032",
+            "name": "TnAudioUpdate",
+            "phase": "primary",
+            "update": "405",
+            "startFrame": "735",
+            "startScan": "258",
+            "startDot": "240",
+            "startCPU": "21858522",
+            "endFrame": "735",
+            "endScan": "28",
+            "endDot": "21",
+            "endCPU": "21862086",
+            "inclusiveCycles": "3564",
+            "IRQCycles": "0",
+            "CPUcycles": "3564",
+            "childCPUcycles": "3399",
+            "exclusiveCPUcycles": "165"
+          },
+          {
+            "serial": "3031",
+            "name": "ExpandedAudioUpdate",
+            "phase": "primary",
+            "update": "405",
+            "startFrame": "735",
+            "startScan": "258",
+            "startDot": "48",
+            "startCPU": "21858458",
+            "endFrame": "735",
+            "endScan": "28",
+            "endDot": "282",
+            "endCPU": "21862173",
+            "inclusiveCycles": "3715",
+            "IRQCycles": "0",
+            "CPUcycles": "3715",
+            "childCPUcycles": "3564",
+            "exclusiveCPUcycles": "151"
+          },
+          {
+            "serial": "3030",
+            "name": "AudioUpdate",
+            "phase": "primary",
+            "update": "405",
+            "startFrame": "735",
+            "startScan": "255",
+            "startDot": "180",
+            "startCPU": "21858161",
+            "endFrame": "735",
+            "endScan": "41",
+            "endDot": "100",
+            "endCPU": "21863590",
+            "inclusiveCycles": "5429",
+            "IRQCycles": "120",
+            "CPUcycles": "5309",
+            "childCPUcycles": "3715",
+            "exclusiveCPUcycles": "1594"
+          }
+        ]
+      },
+      "407": {
+        "records": [
+          {
+            "nmi_depth": 0,
+            "index": 407,
+            "phase": "primary",
+            "stamp": {
+              "sp": 243,
+              "pc": 40960,
+              "cycle": 276,
+              "cpu": 21905478,
+              "frame": 736,
+              "scanline": 147
+            },
+            "kind": "draw-construction",
+            "draws": 407
+          },
+          {
+            "skipped": 10,
+            "completed": 407,
+            "nmi_depth": 0,
+            "index": 407,
+            "phase": "primary",
+            "stamp": {
+              "sp": 252,
+              "pc": 33470,
+              "cycle": 263,
+              "cpu": 21911839,
+              "frame": 736,
+              "scanline": 203
+            },
+            "kind": "completed-game-update",
+            "draws": 407
+          }
+        ],
+        "preceding_AudioUpdate": {
+          "serial": "3047",
+          "name": "AudioUpdate",
+          "phase": "primary",
+          "update": "406",
+          "startFrame": "736",
+          "startScan": "254",
+          "startDot": "70",
+          "startCPU": "21887791",
+          "endFrame": "736",
+          "endScan": "15",
+          "endDot": "165",
+          "endCPU": "21890437",
+          "inclusiveCycles": "2646",
+          "IRQCycles": "0",
+          "CPUcycles": "2646",
+          "childCPUcycles": "1276",
+          "exclusiveCPUcycles": "1370"
+        },
+        "disjoint_components": [
+          {
+            "serial": "3051",
+            "name": "TnSourceSTA00X",
+            "phase": "primary",
+            "update": "406",
+            "startFrame": "736",
+            "startScan": "260",
+            "startDot": "331",
+            "startCPU": "21888560",
+            "endFrame": "736",
+            "endScan": "-1",
+            "endDot": "65",
+            "endCPU": "21888585",
+            "inclusiveCycles": "25",
+            "IRQCycles": "0",
+            "CPUcycles": "25",
+            "childCPUcycles": "0",
+            "exclusiveCPUcycles": "25"
+          },
+          {
+            "serial": "3052",
+            "name": "TnSourceSTA00X",
+            "phase": "primary",
+            "update": "406",
+            "startFrame": "736",
+            "startScan": "1",
+            "startDot": "316",
+            "startCPU": "21888896",
+            "endFrame": "736",
+            "endScan": "2",
+            "endDot": "50",
+            "endCPU": "21888921",
+            "inclusiveCycles": "25",
+            "IRQCycles": "0",
+            "CPUcycles": "25",
+            "childCPUcycles": "0",
+            "exclusiveCPUcycles": "25"
+          },
+          {
+            "serial": "3050",
+            "name": "TnNativePlay",
+            "phase": "primary",
+            "update": "406",
+            "startFrame": "736",
+            "startScan": "258",
+            "startDot": "101",
+            "startCPU": "21888256",
+            "endFrame": "736",
+            "endScan": "4",
+            "endDot": "253",
+            "endCPU": "21889216",
+            "inclusiveCycles": "960",
+            "IRQCycles": "0",
+            "CPUcycles": "960",
+            "childCPUcycles": "50",
+            "exclusiveCPUcycles": "910"
+          },
+          {
+            "serial": "3049",
+            "name": "TnAudioUpdate",
+            "phase": "primary",
+            "update": "406",
+            "startFrame": "736",
+            "startScan": "257",
+            "startDot": "127",
+            "startCPU": "21888151",
+            "endFrame": "736",
+            "endScan": "5",
+            "endDot": "92",
+            "endCPU": "21889276",
+            "inclusiveCycles": "1125",
+            "IRQCycles": "0",
+            "CPUcycles": "1125",
+            "childCPUcycles": "960",
+            "exclusiveCPUcycles": "165"
+          },
+          {
+            "serial": "3048",
+            "name": "ExpandedAudioUpdate",
+            "phase": "primary",
+            "update": "406",
+            "startFrame": "736",
+            "startScan": "256",
+            "startDot": "276",
+            "startCPU": "21888087",
+            "endFrame": "736",
+            "endScan": "6",
+            "endDot": "12",
+            "endCPU": "21889363",
+            "inclusiveCycles": "1276",
+            "IRQCycles": "0",
+            "CPUcycles": "1276",
+            "childCPUcycles": "1125",
+            "exclusiveCPUcycles": "151"
+          },
+          {
+            "serial": "3047",
+            "name": "AudioUpdate",
+            "phase": "primary",
+            "update": "406",
+            "startFrame": "736",
+            "startScan": "254",
+            "startDot": "70",
+            "startCPU": "21887791",
+            "endFrame": "736",
+            "endScan": "15",
+            "endDot": "165",
+            "endCPU": "21890437",
+            "inclusiveCycles": "2646",
+            "IRQCycles": "0",
+            "CPUcycles": "2646",
+            "childCPUcycles": "1276",
+            "exclusiveCPUcycles": "1370"
+          }
+        ]
+      },
+      "532": {
+        "records": [
+          {
+            "nmi_depth": 0,
+            "index": 532,
+            "phase": "secondary",
+            "stamp": {
+              "sp": 243,
+              "pc": 40960,
+              "cycle": 212,
+              "cpu": 25632111,
+              "frame": 861,
+              "scanline": 183
+            },
+            "kind": "draw-construction",
+            "draws": 508
+          },
+          {
+            "skipped": 35,
+            "completed": 532,
+            "nmi_depth": 0,
+            "index": 532,
+            "phase": "secondary",
+            "stamp": {
+              "sp": 252,
+              "pc": 33470,
+              "cycle": 259,
+              "cpu": 25643607,
+              "frame": 862,
+              "scanline": 22
+            },
+            "kind": "completed-game-update",
+            "draws": 508
+          }
+        ],
+        "preceding_AudioUpdate": {
+          "serial": "3976",
+          "name": "AudioUpdate",
+          "phase": "secondary",
+          "update": "531",
+          "startFrame": "861",
+          "startScan": "254",
+          "startDot": "32",
+          "startCPU": "25610341",
+          "endFrame": "861",
+          "endScan": "42",
+          "endDot": "47",
+          "endCPU": "25616029",
+          "inclusiveCycles": "5688",
+          "IRQCycles": "120",
+          "CPUcycles": "5568",
+          "childCPUcycles": "3490",
+          "exclusiveCPUcycles": "2078"
+        },
+        "disjoint_components": [
+          {
+            "serial": "3980",
+            "name": "TnSourceSTA02X",
+            "phase": "secondary",
+            "update": "531",
+            "startFrame": "861",
+            "startScan": "-1",
+            "startDot": "183",
+            "startCPU": "25611187",
+            "endFrame": "861",
+            "endScan": "-1",
+            "endDot": "258",
+            "endCPU": "25611212",
+            "inclusiveCycles": "25",
+            "IRQCycles": "0",
+            "CPUcycles": "25",
+            "childCPUcycles": "0",
+            "exclusiveCPUcycles": "25"
+          },
+          {
+            "serial": "3981",
+            "name": "TnSourceSTA02X",
+            "phase": "secondary",
+            "update": "531",
+            "startFrame": "861",
+            "startScan": "4",
+            "startDot": "48",
+            "startCPU": "25611710",
+            "endFrame": "861",
+            "endScan": "4",
+            "endDot": "123",
+            "endCPU": "25611735",
+            "inclusiveCycles": "25",
+            "IRQCycles": "0",
+            "CPUcycles": "25",
+            "childCPUcycles": "0",
+            "exclusiveCPUcycles": "25"
+          },
+          {
+            "serial": "3982",
+            "name": "TnSourceSTA08",
+            "phase": "secondary",
+            "update": "531",
+            "startFrame": "861",
+            "startScan": "9",
+            "startDot": "332",
+            "startCPU": "25612373",
+            "endFrame": "861",
+            "endScan": "10",
+            "endDot": "60",
+            "endCPU": "25612396",
+            "inclusiveCycles": "23",
+            "IRQCycles": "0",
+            "CPUcycles": "23",
+            "childCPUcycles": "0",
+            "exclusiveCPUcycles": "23"
+          },
+          {
+            "serial": "3983",
+            "name": "TnSourceSTA03X",
+            "phase": "secondary",
+            "update": "531",
+            "startFrame": "861",
+            "startScan": "11",
+            "startDot": "196",
+            "startCPU": "25612555",
+            "endFrame": "861",
+            "endScan": "11",
+            "endDot": "271",
+            "endCPU": "25612580",
+            "inclusiveCycles": "25",
+            "IRQCycles": "0",
+            "CPUcycles": "25",
+            "childCPUcycles": "0",
+            "exclusiveCPUcycles": "25"
+          },
+          {
+            "serial": "3984",
+            "name": "TnSourceSTA02X",
+            "phase": "secondary",
+            "update": "531",
+            "startFrame": "861",
+            "startScan": "12",
+            "startDot": "77",
+            "startCPU": "25612629",
+            "endFrame": "861",
+            "endScan": "12",
+            "endDot": "152",
+            "endCPU": "25612654",
+            "inclusiveCycles": "25",
+            "IRQCycles": "0",
+            "CPUcycles": "25",
+            "childCPUcycles": "0",
+            "exclusiveCPUcycles": "25"
+          },
+          {
+            "serial": "3985",
+            "name": "TnSourceSTA00X",
+            "phase": "secondary",
+            "update": "531",
+            "startFrame": "861",
+            "startScan": "18",
+            "startDot": "62",
+            "startCPU": "25613306",
+            "endFrame": "861",
+            "endScan": "18",
+            "endDot": "137",
+            "endCPU": "25613331",
+            "inclusiveCycles": "25",
+            "IRQCycles": "0",
+            "CPUcycles": "25",
+            "childCPUcycles": "0",
+            "exclusiveCPUcycles": "25"
+          },
+          {
+            "serial": "3986",
+            "name": "TnSourceSTA01X",
+            "phase": "secondary",
+            "update": "531",
+            "startFrame": "861",
+            "startScan": "18",
+            "startDot": "161",
+            "startCPU": "25613339",
+            "endFrame": "861",
+            "endScan": "18",
+            "endDot": "236",
+            "endCPU": "25613364",
+            "inclusiveCycles": "25",
+            "IRQCycles": "0",
+            "CPUcycles": "25",
+            "childCPUcycles": "0",
+            "exclusiveCPUcycles": "25"
+          },
+          {
+            "serial": "3987",
+            "name": "TnSourceSTA00X",
+            "phase": "secondary",
+            "update": "531",
+            "startFrame": "861",
+            "startScan": "21",
+            "startDot": "254",
+            "startCPU": "25613711",
+            "endFrame": "861",
+            "endScan": "21",
+            "endDot": "329",
+            "endCPU": "25613736",
+            "inclusiveCycles": "25",
+            "IRQCycles": "0",
+            "CPUcycles": "25",
+            "childCPUcycles": "0",
+            "exclusiveCPUcycles": "25"
+          },
+          {
+            "serial": "3988",
+            "name": "TnSourceSTA03X",
+            "phase": "secondary",
+            "update": "531",
+            "startFrame": "861",
+            "startScan": "22",
+            "startDot": "258",
+            "startCPU": "25613826",
+            "endFrame": "861",
+            "endScan": "22",
+            "endDot": "333",
+            "endCPU": "25613851",
+            "inclusiveCycles": "25",
+            "IRQCycles": "0",
+            "CPUcycles": "25",
+            "childCPUcycles": "0",
+            "exclusiveCPUcycles": "25"
+          },
+          {
+            "serial": "3989",
+            "name": "TnSourceSTA02X",
+            "phase": "secondary",
+            "update": "531",
+            "startFrame": "861",
+            "startScan": "23",
+            "startDot": "139",
+            "startCPU": "25613900",
+            "endFrame": "861",
+            "endScan": "23",
+            "endDot": "214",
+            "endCPU": "25613925",
+            "inclusiveCycles": "25",
+            "IRQCycles": "0",
+            "CPUcycles": "25",
+            "childCPUcycles": "0",
+            "exclusiveCPUcycles": "25"
+          },
+          {
+            "serial": "3979",
+            "name": "TnNativePlay",
+            "phase": "secondary",
+            "update": "531",
+            "startFrame": "861",
+            "startScan": "258",
+            "startDot": "66",
+            "startCPU": "25610807",
+            "endFrame": "861",
+            "endScan": "24",
+            "endDot": "41",
+            "endCPU": "25613981",
+            "inclusiveCycles": "3174",
+            "IRQCycles": "0",
+            "CPUcycles": "3174",
+            "childCPUcycles": "248",
+            "exclusiveCPUcycles": "2926"
+          },
+          {
+            "serial": "3978",
+            "name": "TnAudioUpdate",
+            "phase": "secondary",
+            "update": "531",
+            "startFrame": "861",
+            "startScan": "257",
+            "startDot": "92",
+            "startCPU": "25610702",
+            "endFrame": "861",
+            "endScan": "24",
+            "endDot": "221",
+            "endCPU": "25614041",
+            "inclusiveCycles": "3339",
+            "IRQCycles": "0",
+            "CPUcycles": "3339",
+            "childCPUcycles": "3174",
+            "exclusiveCPUcycles": "165"
+          },
+          {
+            "serial": "3977",
+            "name": "ExpandedAudioUpdate",
+            "phase": "secondary",
+            "update": "531",
+            "startFrame": "861",
+            "startScan": "256",
+            "startDot": "241",
+            "startCPU": "25610638",
+            "endFrame": "861",
+            "endScan": "25",
+            "endDot": "141",
+            "endCPU": "25614128",
+            "inclusiveCycles": "3490",
+            "IRQCycles": "0",
+            "CPUcycles": "3490",
+            "childCPUcycles": "3339",
+            "exclusiveCPUcycles": "151"
+          },
+          {
+            "serial": "3976",
+            "name": "AudioUpdate",
+            "phase": "secondary",
+            "update": "531",
+            "startFrame": "861",
+            "startScan": "254",
+            "startDot": "32",
+            "startCPU": "25610341",
+            "endFrame": "861",
+            "endScan": "42",
+            "endDot": "47",
+            "endCPU": "25616029",
+            "inclusiveCycles": "5688",
+            "IRQCycles": "120",
+            "CPUcycles": "5568",
+            "childCPUcycles": "3490",
+            "exclusiveCPUcycles": "2078"
+          }
+        ]
+      },
+      "533": {
+        "records": [
+          {
+            "skipped": 35,
+            "completed": 533,
+            "nmi_depth": 0,
+            "index": 533,
+            "phase": "secondary",
+            "stamp": {
+              "sp": 252,
+              "pc": 33488,
+              "cycle": 93,
+              "cpu": 25658101,
+              "frame": 862,
+              "scanline": 150
+            },
+            "kind": "completed-game-update",
+            "draws": 508
+          }
+        ],
+        "preceding_AudioUpdate": {
+          "serial": "3990",
+          "name": "AudioUpdate",
+          "phase": "secondary",
+          "update": "532",
+          "startFrame": "862",
+          "startScan": "241",
+          "startDot": "294",
+          "startCPU": "25638731",
+          "endFrame": "862",
+          "endScan": "15",
+          "endDot": "315",
+          "endCPU": "25642830",
+          "inclusiveCycles": "4099",
+          "IRQCycles": "0",
+          "CPUcycles": "4099",
+          "childCPUcycles": "2071",
+          "exclusiveCPUcycles": "2028"
+        },
+        "disjoint_components": [
+          {
+            "serial": "3994",
+            "name": "TnSourceSTA02X",
+            "phase": "secondary",
+            "update": "532",
+            "startFrame": "862",
+            "startScan": "249",
+            "startDot": "104",
+            "startCPU": "25639577",
+            "endFrame": "862",
+            "endScan": "249",
+            "endDot": "179",
+            "endCPU": "25639602",
+            "inclusiveCycles": "25",
+            "IRQCycles": "0",
+            "CPUcycles": "25",
+            "childCPUcycles": "0",
+            "exclusiveCPUcycles": "25"
+          },
+          {
+            "serial": "3995",
+            "name": "TnSourceSTA02X",
+            "phase": "secondary",
+            "update": "532",
+            "startFrame": "862",
+            "startScan": "253",
+            "startDot": "309",
+            "startCPU": "25640100",
+            "endFrame": "862",
+            "endScan": "254",
+            "endDot": "43",
+            "endCPU": "25640125",
+            "inclusiveCycles": "25",
+            "IRQCycles": "0",
+            "CPUcycles": "25",
+            "childCPUcycles": "0",
+            "exclusiveCPUcycles": "25"
+          },
+          {
+            "serial": "3996",
+            "name": "TnSourceSTA00X",
+            "phase": "secondary",
+            "update": "532",
+            "startFrame": "862",
+            "startScan": "259",
+            "startDot": "9",
+            "startCPU": "25640682",
+            "endFrame": "862",
+            "endScan": "259",
+            "endDot": "84",
+            "endCPU": "25640707",
+            "inclusiveCycles": "25",
+            "IRQCycles": "0",
+            "CPUcycles": "25",
+            "childCPUcycles": "0",
+            "exclusiveCPUcycles": "25"
+          },
+          {
+            "serial": "3997",
+            "name": "TnSourceSTA03X",
+            "phase": "secondary",
+            "update": "532",
+            "startFrame": "862",
+            "startScan": "260",
+            "startDot": "13",
+            "startCPU": "25640797",
+            "endFrame": "862",
+            "endScan": "260",
+            "endDot": "88",
+            "endCPU": "25640822",
+            "inclusiveCycles": "25",
+            "IRQCycles": "0",
+            "CPUcycles": "25",
+            "childCPUcycles": "0",
+            "exclusiveCPUcycles": "25"
+          },
+          {
+            "serial": "3998",
+            "name": "TnSourceSTA02X",
+            "phase": "secondary",
+            "update": "532",
+            "startFrame": "862",
+            "startScan": "260",
+            "startDot": "235",
+            "startCPU": "25640871",
+            "endFrame": "862",
+            "endScan": "260",
+            "endDot": "310",
+            "endCPU": "25640896",
+            "inclusiveCycles": "25",
+            "IRQCycles": "0",
+            "CPUcycles": "25",
+            "childCPUcycles": "0",
+            "exclusiveCPUcycles": "25"
+          },
+          {
+            "serial": "3993",
+            "name": "TnNativePlay",
+            "phase": "secondary",
+            "update": "532",
+            "startFrame": "862",
+            "startScan": "245",
+            "startDot": "328",
+            "startCPU": "25639197",
+            "endFrame": "862",
+            "endScan": "-1",
+            "endDot": "137",
+            "endCPU": "25640952",
+            "inclusiveCycles": "1755",
+            "IRQCycles": "0",
+            "CPUcycles": "1755",
+            "childCPUcycles": "125",
+            "exclusiveCPUcycles": "1630"
+          },
+          {
+            "serial": "3992",
+            "name": "TnAudioUpdate",
+            "phase": "secondary",
+            "update": "532",
+            "startFrame": "862",
+            "startScan": "245",
+            "startDot": "13",
+            "startCPU": "25639092",
+            "endFrame": "862",
+            "endScan": "-1",
+            "endDot": "317",
+            "endCPU": "25641012",
+            "inclusiveCycles": "1920",
+            "IRQCycles": "0",
+            "CPUcycles": "1920",
+            "childCPUcycles": "1755",
+            "exclusiveCPUcycles": "165"
+          },
+          {
+            "serial": "3991",
+            "name": "ExpandedAudioUpdate",
+            "phase": "secondary",
+            "update": "532",
+            "startFrame": "862",
+            "startScan": "244",
+            "startDot": "162",
+            "startCPU": "25639028",
+            "endFrame": "862",
+            "endScan": "0",
+            "endDot": "237",
+            "endCPU": "25641099",
+            "inclusiveCycles": "2071",
+            "IRQCycles": "0",
+            "CPUcycles": "2071",
+            "childCPUcycles": "1920",
+            "exclusiveCPUcycles": "151"
+          },
+          {
+            "serial": "3990",
+            "name": "AudioUpdate",
+            "phase": "secondary",
+            "update": "532",
+            "startFrame": "862",
+            "startScan": "241",
+            "startDot": "294",
+            "startCPU": "25638731",
+            "endFrame": "862",
+            "endScan": "15",
+            "endDot": "315",
+            "endCPU": "25642830",
+            "inclusiveCycles": "4099",
+            "IRQCycles": "0",
+            "CPUcycles": "4099",
+            "childCPUcycles": "2071",
+            "exclusiveCPUcycles": "2028"
+          }
+        ]
+      }
+    }
+  },
+  "primary_update406_publication_cpu": 21886273,
+  "previous_source_reconstructed_NMIacceptance_cpu": 21886293,
+  "recorded_actual_NMIentry_or_stackedPC": false,
+  "scan240_frameCounter_prefix_diff_is_not_claimed_an_actual_NMI_skip": true,
+  "no_added_primary_phase_skips": true,
+  "secondary_skips_baseline": 28,
+  "secondary_skips_candidate": 32,
+  "no_native_recovery_or_adoption_claim": true
+}

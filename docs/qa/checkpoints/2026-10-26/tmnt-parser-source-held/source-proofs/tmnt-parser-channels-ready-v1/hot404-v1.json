@@ -1,0 +1,503 @@
+{
+  "passed": true,
+  "source_only": true,
+  "native_run": false,
+  "baseline_ROM_sha256": "13463703ea95e769f332acecbcc0d35ef066f4ddd22624fa3fa771d5773fe60d",
+  "candidate_ROM_sha256": "66b911f3a937d3d749b3a88d9e6ba8b1b56b8f2d56c5b16b9317273b13dc20fb",
+  "full_calls": 602,
+  "all_original188byte_native_states_exact": true,
+  "full_AXYP_SP_RAM_SMC_banks_ordered_APU_exact": true,
+  "arranged_shared_fireball_before_call": 404,
+  "arranged_physical4015_status_cleared_before_each_call": true,
+  "literal_full_native_snapshot": false,
+  "actual_native_source_state_sha256": "b48c9cdb21f352204b1fc87dfdc00f0dc4b1e73b35d0a132c60104bb4fb9776e",
+  "hot_calls": [
+    {
+      "tick": 407,
+      "parent": 5136,
+      "candidate": 5105,
+      "delta": -31,
+      "profiles": [
+        {
+          "full_cycles": 5136,
+          "spans": [
+            {
+              "name": "BassAudioBegin",
+              "ret": 61576,
+              "sp": 252,
+              "bank": 127,
+              "cycles": 50
+            },
+            {
+              "name": "GuestAudioBegin",
+              "ret": 61576,
+              "sp": 252,
+              "bank": 127,
+              "cycles": 105
+            },
+            {
+              "name": "ExpandedAudioUpdate",
+              "ret": 61590,
+              "sp": 253,
+              "bank": 127,
+              "cycles": 3557
+            },
+            {
+              "name": "TnExpansionFlushFast",
+              "ret": 44059,
+              "sp": 247,
+              "bank": 29,
+              "cycles": 257
+            },
+            {
+              "name": "TnExpansionSweepGate",
+              "ret": 42371,
+              "sp": 250,
+              "bank": 29,
+              "cycles": 336
+            },
+            {
+              "name": "GuestAudioFinish",
+              "ret": 61651,
+              "sp": 252,
+              "bank": 127,
+              "cycles": 1139
+            },
+            {
+              "name": "AudioUpdate",
+              "ret": 32512,
+              "sp": 255,
+              "bank": -1,
+              "cycles": 5136
+            }
+          ],
+          "exclusive": {
+            "AudioUpdate": 335,
+            "GuestAudioBegin": 55,
+            "BassAudioBegin": 50,
+            "ExpandedAudioUpdate": 3557,
+            "GuestAudioFinish": 803,
+            "TnExpansionSweepGate": 79,
+            "TnExpansionFlushFast": 257
+          },
+          "sweep_entry": {
+            "BassDmcActive": 4,
+            "GuestMixMask": 1,
+            "GuestSweepControl": 153,
+            "GuestSweepDivider": 0,
+            "GuestSweepReload": 0,
+            "period": 70,
+            "dirty123": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "full_cycles": 5105,
+          "spans": [
+            {
+              "name": "BassAudioBegin",
+              "ret": 61576,
+              "sp": 252,
+              "bank": 127,
+              "cycles": 50
+            },
+            {
+              "name": "GuestAudioBegin",
+              "ret": 61576,
+              "sp": 252,
+              "bank": 127,
+              "cycles": 105
+            },
+            {
+              "name": "ExpandedAudioUpdate",
+              "ret": 61590,
+              "sp": 253,
+              "bank": 127,
+              "cycles": 3526
+            },
+            {
+              "name": "TnExpansionFlushFast",
+              "ret": 44059,
+              "sp": 247,
+              "bank": 29,
+              "cycles": 257
+            },
+            {
+              "name": "TnExpansionSweepGate",
+              "ret": 42371,
+              "sp": 250,
+              "bank": 29,
+              "cycles": 336
+            },
+            {
+              "name": "GuestAudioFinish",
+              "ret": 61651,
+              "sp": 252,
+              "bank": 127,
+              "cycles": 1139
+            },
+            {
+              "name": "AudioUpdate",
+              "ret": 32512,
+              "sp": 255,
+              "bank": -1,
+              "cycles": 5105
+            }
+          ],
+          "exclusive": {
+            "AudioUpdate": 335,
+            "GuestAudioBegin": 55,
+            "BassAudioBegin": 50,
+            "ExpandedAudioUpdate": 3526,
+            "GuestAudioFinish": 803,
+            "TnExpansionSweepGate": 79,
+            "TnExpansionFlushFast": 257
+          },
+          "sweep_entry": {
+            "BassDmcActive": 4,
+            "GuestMixMask": 1,
+            "GuestSweepControl": 153,
+            "GuestSweepDivider": 0,
+            "GuestSweepReload": 0,
+            "period": 70,
+            "dirty123": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "tick": 505,
+      "parent": 7019,
+      "candidate": 6988,
+      "delta": -31,
+      "profiles": [
+        {
+          "full_cycles": 7019,
+          "spans": [
+            {
+              "name": "BassAudioBegin",
+              "ret": 61576,
+              "sp": 252,
+              "bank": 127,
+              "cycles": 50
+            },
+            {
+              "name": "GuestAudioBegin",
+              "ret": 61576,
+              "sp": 252,
+              "bank": 127,
+              "cycles": 105
+            },
+            {
+              "name": "ExpandedAudioUpdate",
+              "ret": 61590,
+              "sp": 253,
+              "bank": 127,
+              "cycles": 5686
+            },
+            {
+              "name": "GuestExpansionFlush",
+              "ret": 42371,
+              "sp": 250,
+              "bank": 29,
+              "cycles": 115
+            },
+            {
+              "name": "TnExpansionSweepGate",
+              "ret": 42371,
+              "sp": 250,
+              "bank": 29,
+              "cycles": 148
+            },
+            {
+              "name": "GuestAudioFinish",
+              "ret": 61651,
+              "sp": 252,
+              "bank": 127,
+              "cycles": 893
+            },
+            {
+              "name": "AudioUpdate",
+              "ret": 32512,
+              "sp": 255,
+              "bank": -1,
+              "cycles": 7019
+            }
+          ],
+          "exclusive": {
+            "AudioUpdate": 335,
+            "GuestAudioBegin": 55,
+            "BassAudioBegin": 50,
+            "ExpandedAudioUpdate": 5686,
+            "GuestAudioFinish": 745,
+            "TnExpansionSweepGate": 33,
+            "GuestExpansionFlush": 115
+          },
+          "sweep_entry": {
+            "BassDmcActive": 4,
+            "GuestMixMask": 0,
+            "GuestSweepControl": 153,
+            "GuestSweepDivider": 0,
+            "GuestSweepReload": 0,
+            "period": 34,
+            "dirty123": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "full_cycles": 6988,
+          "spans": [
+            {
+              "name": "BassAudioBegin",
+              "ret": 61576,
+              "sp": 252,
+              "bank": 127,
+              "cycles": 50
+            },
+            {
+              "name": "GuestAudioBegin",
+              "ret": 61576,
+              "sp": 252,
+              "bank": 127,
+              "cycles": 105
+            },
+            {
+              "name": "ExpandedAudioUpdate",
+              "ret": 61590,
+              "sp": 253,
+              "bank": 127,
+              "cycles": 5655
+            },
+            {
+              "name": "GuestExpansionFlush",
+              "ret": 42371,
+              "sp": 250,
+              "bank": 29,
+              "cycles": 115
+            },
+            {
+              "name": "TnExpansionSweepGate",
+              "ret": 42371,
+              "sp": 250,
+              "bank": 29,
+              "cycles": 148
+            },
+            {
+              "name": "GuestAudioFinish",
+              "ret": 61651,
+              "sp": 252,
+              "bank": 127,
+              "cycles": 893
+            },
+            {
+              "name": "AudioUpdate",
+              "ret": 32512,
+              "sp": 255,
+              "bank": -1,
+              "cycles": 6988
+            }
+          ],
+          "exclusive": {
+            "AudioUpdate": 335,
+            "GuestAudioBegin": 55,
+            "BassAudioBegin": 50,
+            "ExpandedAudioUpdate": 5655,
+            "GuestAudioFinish": 745,
+            "TnExpansionSweepGate": 33,
+            "GuestExpansionFlush": 115
+          },
+          "sweep_entry": {
+            "BassDmcActive": 4,
+            "GuestMixMask": 0,
+            "GuestSweepControl": 153,
+            "GuestSweepDivider": 0,
+            "GuestSweepReload": 0,
+            "period": 34,
+            "dirty123": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "tick": 533,
+      "parent": 4628,
+      "candidate": 4597,
+      "delta": -31,
+      "profiles": [
+        {
+          "full_cycles": 4628,
+          "spans": [
+            {
+              "name": "BassAudioBegin",
+              "ret": 61576,
+              "sp": 252,
+              "bank": 127,
+              "cycles": 50
+            },
+            {
+              "name": "GuestAudioBegin",
+              "ret": 61576,
+              "sp": 252,
+              "bank": 127,
+              "cycles": 105
+            },
+            {
+              "name": "ExpandedAudioUpdate",
+              "ret": 61590,
+              "sp": 253,
+              "bank": 127,
+              "cycles": 3309
+            },
+            {
+              "name": "GuestExpansionFlush",
+              "ret": 42371,
+              "sp": 250,
+              "bank": 29,
+              "cycles": 115
+            },
+            {
+              "name": "TnExpansionSweepGate",
+              "ret": 42371,
+              "sp": 250,
+              "bank": 29,
+              "cycles": 150
+            },
+            {
+              "name": "GuestAudioFinish",
+              "ret": 61651,
+              "sp": 252,
+              "bank": 127,
+              "cycles": 879
+            },
+            {
+              "name": "AudioUpdate",
+              "ret": 32512,
+              "sp": 255,
+              "bank": -1,
+              "cycles": 4628
+            }
+          ],
+          "exclusive": {
+            "AudioUpdate": 335,
+            "GuestAudioBegin": 55,
+            "BassAudioBegin": 50,
+            "ExpandedAudioUpdate": 3309,
+            "GuestAudioFinish": 729,
+            "TnExpansionSweepGate": 35,
+            "GuestExpansionFlush": 115
+          },
+          "sweep_entry": {
+            "BassDmcActive": 0,
+            "GuestMixMask": 0,
+            "GuestSweepControl": 153,
+            "GuestSweepDivider": 0,
+            "GuestSweepReload": 0,
+            "period": 34,
+            "dirty123": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "full_cycles": 4597,
+          "spans": [
+            {
+              "name": "BassAudioBegin",
+              "ret": 61576,
+              "sp": 252,
+              "bank": 127,
+              "cycles": 50
+            },
+            {
+              "name": "GuestAudioBegin",
+              "ret": 61576,
+              "sp": 252,
+              "bank": 127,
+              "cycles": 105
+            },
+            {
+              "name": "ExpandedAudioUpdate",
+              "ret": 61590,
+              "sp": 253,
+              "bank": 127,
+              "cycles": 3278
+            },
+            {
+              "name": "GuestExpansionFlush",
+              "ret": 42371,
+              "sp": 250,
+              "bank": 29,
+              "cycles": 115
+            },
+            {
+              "name": "TnExpansionSweepGate",
+              "ret": 42371,
+              "sp": 250,
+              "bank": 29,
+              "cycles": 150
+            },
+            {
+              "name": "GuestAudioFinish",
+              "ret": 61651,
+              "sp": 252,
+              "bank": 127,
+              "cycles": 879
+            },
+            {
+              "name": "AudioUpdate",
+              "ret": 32512,
+              "sp": 255,
+              "bank": -1,
+              "cycles": 4597
+            }
+          ],
+          "exclusive": {
+            "AudioUpdate": 335,
+            "GuestAudioBegin": 55,
+            "BassAudioBegin": 50,
+            "ExpandedAudioUpdate": 3278,
+            "GuestAudioFinish": 729,
+            "TnExpansionSweepGate": 35,
+            "GuestExpansionFlush": 115
+          },
+          "sweep_entry": {
+            "BassDmcActive": 0,
+            "GuestMixMask": 0,
+            "GuestSweepControl": 153,
+            "GuestSweepDivider": 0,
+            "GuestSweepReload": 0,
+            "period": 34,
+            "dirty123": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "total_delta": -18631,
+  "delta_range": [
+    -31,
+    0
+  ],
+  "checker_sha256": "7306435ad43d9deaae16ffdb597c80ae4d574970c47ca895db53ae321bd32af4",
+  "native_deadline_recovery_claim": false
+}

@@ -1,0 +1,40 @@
+{
+  "passed": true,
+  "source_only": true,
+  "native_run": false,
+  "baseline_ROM_sha256": "66b911f3a937d3d749b3a88d9e6ba8b1b56b8f2d56c5b16b9317273b13dc20fb",
+  "candidate_ROM_sha256": "5057b9e78a54d247914bfc506be4462b4a4d4a1fb9f5f598687bcd8268c17f39",
+  "actual_native_188byte_state_stream_sha256": "b48c9cdb21f352204b1fc87dfdc00f0dc4b1e73b35d0a132c60104bb4fb9776e",
+  "full_source_calls": 602,
+  "per_voice_full_AXYP_SP_sourceRAM_SMC_banks_orderedAPU_and_math_induction_checks": 3606,
+  "every_ordered_nonstack_source_write_exact": true,
+  "no_source_parser_call_event_or_store_omission": true,
+  "actual_compiled_IRQ_injections": 105,
+  "maximum_total_stack_depth": 7,
+  "IRQ_cases": [
+    {
+      "before_source_tick533_state": true,
+      "all_six_private_active_flags_forced_zero": false,
+      "boundaries": 55
+    },
+    {
+      "before_source_tick533_state": true,
+      "all_six_private_active_flags_forced_zero": true,
+      "boundaries": 50
+    }
+  ],
+  "no_nested_NMI_or_physical_hardware_claim": true,
+  "new_genuine_header_PCs": [
+    41512,
+    41532,
+    41552,
+    41572,
+    41592,
+    41612
+  ],
+  "old_numeric_play_entry_genuine_JMP": true,
+  "original_entry_external_refs": [],
+  "original_entry_pointer_roots": [],
+  "checker_sha256": "08a63ed19fc3e203393ca07338232037a9682e4e17b956c639bf62c57a3834cf",
+  "native_recovery_claim": false
+}

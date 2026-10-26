@@ -1,0 +1,52 @@
+--- a/src/tmnt-native.inc
++++ b/src/tmnt-native.inc
+@@ -178,23 +178,11 @@
+   .assert *=$a65c,lderror,"Original instruction offset 865c"
+   .byte $f0,$12 ; BEQ source$8670
+   .assert *=$a65e,lderror,"Original instruction offset 865e"
+-  CPX #$05
+-  .assert *=$a660,lderror,"Original instruction offset 8660"
+-  .byte $d0,$05 ; BNE source$8667
+-  .assert *=$a662,lderror,"Original instruction offset 8662"
+-  LDA #$0c
+-  .assert *=$a664,lderror,"Original instruction offset 8664"
+-  JMP $a66c
+-  .assert *=$a667,lderror,"Original instruction offset 8667"
+-  TXA
+-  .assert *=$a668,lderror,"Original instruction offset 8668"
+-  ASL A
+-  .assert *=$a669,lderror,"Original instruction offset 8669"
+-  ASL A
+-  .assert *=$a66a,lderror,"Original instruction offset 866a"
+-  AND #$0f
+-  .assert *=$a66c,lderror,"Original instruction offset 866c"
+-  TAY
++  LDY ::TnNativeChannelOffsets,x
++  CPX #5 ; Identical C:0for1..4,1for5. V/D/I remain untouched.
++  TYA    ; Identical final A/N/Z as original offset arithmetic.
++  JMP $a64b
++  .res 6,$ff ; Unreachable; retain all original later numeric entries.
+   .assert *=$a66d,lderror,"Original instruction offset 866d"
+   JMP $a64b
+   .assert *=$a670,lderror,"Original instruction offset 8670"
+--- a/src/tmnt_audio.s
++++ b/src/tmnt_audio.s
+@@ -26,6 +26,7 @@
+ .include "tmnt_audio_multiply.s"
+ .include "tmnt_audio_parser.s"
+ .include "tmnt_parser_math_next.s"
++.include "tmnt_parser_channels.s"
+ .segment "TMNT_SAMUS_AUDIO_COLD"
+ .proc TnAudioUpdate
+  lda #0
+--- a/src/tmnt_parser_channels.s
++++ b/src/tmnt_parser_channels.s
+@@ -0,0 +1,8 @@
++; Immutable original six-channel register mapping; no music data removed.
++.pushseg
++.segment "TMNT_DURATION_HELPER"
++TnNativeChannelOffsets:
++ .byte 0,4,8,12,0,12
++.assert TnNativeChannelOffsets>=$a200 && *<=$a300,lderror,"Declared duration-helper FF tail only"
++.export TnNativeChannelOffsets
++.popseg

@@ -1,0 +1,1122 @@
+{
+  "passed": false,
+  "measurement_valid": true,
+  "both_native_guard_suites_passed": true,
+  "performance_gate_passed": false,
+  "behavior": 0,
+  "baseline_ROM_sha256": "50b51c3c69f45ef137720c47f521574097f421056e3b73296d06ba70080d2363",
+  "candidate_ROM_sha256": "53736e142c6cf568039a3c4927c9356077e3358b7c02fb7b69d3ca72985f2ff6",
+  "gameplay_differences": [
+    {
+      "update": 532,
+      "fields": {
+        "input": [
+          "2",
+          "66"
+        ]
+      }
+    },
+    {
+      "update": 560,
+      "fields": {
+        "input": [
+          "65",
+          "1"
+        ]
+      }
+    }
+  ],
+  "phases": {
+    "idle": {
+      "baseline": {
+        "physical_frames": 120,
+        "lag_NMIs": 0,
+        "completed_frame_draw_constructions": 120,
+        "longest_consecutive_physical_frames_without_draw": 0,
+        "movement_updates": 120,
+        "GameLoop": {
+          "calls": 120,
+          "mean_foreground_cycles": 17087.166666666668,
+          "peak_foreground_cycles": 18249
+        },
+        "DrawAllMetasprites": {
+          "calls": 120,
+          "mean_foreground_cycles": 4641.866666666667,
+          "peak_foreground_cycles": 5022
+        },
+        "TnDrawEquipment": {
+          "calls": 120,
+          "mean_foreground_cycles": 178,
+          "peak_foreground_cycles": 178
+        }
+      },
+      "candidate": {
+        "physical_frames": 120,
+        "lag_NMIs": 0,
+        "completed_frame_draw_constructions": 120,
+        "longest_consecutive_physical_frames_without_draw": 0,
+        "movement_updates": 120,
+        "GameLoop": {
+          "calls": 120,
+          "mean_foreground_cycles": 17102.95,
+          "peak_foreground_cycles": 18409
+        },
+        "DrawAllMetasprites": {
+          "calls": 120,
+          "mean_foreground_cycles": 4646.058333333333,
+          "peak_foreground_cycles": 5022
+        },
+        "TnDrawEquipment": {
+          "calls": 120,
+          "mean_foreground_cycles": 178.25833333333333,
+          "peak_foreground_cycles": 182
+        }
+      },
+      "added_lag_NMIs": 0,
+      "longest_stall_change": 0
+    },
+    "walk": {
+      "baseline": {
+        "physical_frames": 120,
+        "lag_NMIs": 0,
+        "completed_frame_draw_constructions": 120,
+        "longest_consecutive_physical_frames_without_draw": 0,
+        "movement_updates": 120,
+        "GameLoop": {
+          "calls": 120,
+          "mean_foreground_cycles": 17165.808333333334,
+          "peak_foreground_cycles": 20786
+        },
+        "DrawAllMetasprites": {
+          "calls": 120,
+          "mean_foreground_cycles": 4688.808333333333,
+          "peak_foreground_cycles": 5022
+        },
+        "TnDrawEquipment": {
+          "calls": 120,
+          "mean_foreground_cycles": 178,
+          "peak_foreground_cycles": 178
+        }
+      },
+      "candidate": {
+        "physical_frames": 120,
+        "lag_NMIs": 0,
+        "completed_frame_draw_constructions": 120,
+        "longest_consecutive_physical_frames_without_draw": 0,
+        "movement_updates": 120,
+        "GameLoop": {
+          "calls": 120,
+          "mean_foreground_cycles": 17178.916666666668,
+          "peak_foreground_cycles": 20786
+        },
+        "DrawAllMetasprites": {
+          "calls": 120,
+          "mean_foreground_cycles": 4692.341666666666,
+          "peak_foreground_cycles": 5022
+        },
+        "TnDrawEquipment": {
+          "calls": 120,
+          "mean_foreground_cycles": 178.13333333333333,
+          "peak_foreground_cycles": 182
+        }
+      },
+      "added_lag_NMIs": 0,
+      "longest_stall_change": 0
+    },
+    "enemies": {
+      "baseline": {
+        "physical_frames": 120,
+        "lag_NMIs": 0,
+        "completed_frame_draw_constructions": 120,
+        "longest_consecutive_physical_frames_without_draw": 0,
+        "movement_updates": 120,
+        "GameLoop": {
+          "calls": 120,
+          "mean_foreground_cycles": 20850.45,
+          "peak_foreground_cycles": 22237
+        },
+        "DrawAllMetasprites": {
+          "calls": 120,
+          "mean_foreground_cycles": 5632.541666666667,
+          "peak_foreground_cycles": 5960
+        },
+        "TnDrawEquipment": {
+          "calls": 120,
+          "mean_foreground_cycles": 178,
+          "peak_foreground_cycles": 178
+        }
+      },
+      "candidate": {
+        "physical_frames": 120,
+        "lag_NMIs": 0,
+        "completed_frame_draw_constructions": 120,
+        "longest_consecutive_physical_frames_without_draw": 0,
+        "movement_updates": 120,
+        "GameLoop": {
+          "calls": 120,
+          "mean_foreground_cycles": 20869.508333333335,
+          "peak_foreground_cycles": 22237
+        },
+        "DrawAllMetasprites": {
+          "calls": 120,
+          "mean_foreground_cycles": 5637.733333333334,
+          "peak_foreground_cycles": 5960
+        },
+        "TnDrawEquipment": {
+          "calls": 120,
+          "mean_foreground_cycles": 178.13333333333333,
+          "peak_foreground_cycles": 182
+        }
+      },
+      "added_lag_NMIs": 0,
+      "longest_stall_change": 0
+    },
+    "primary": {
+      "baseline": {
+        "physical_frames": 120,
+        "lag_NMIs": 0,
+        "completed_frame_draw_constructions": 120,
+        "longest_consecutive_physical_frames_without_draw": 0,
+        "movement_updates": 120,
+        "GameLoop": {
+          "calls": 120,
+          "mean_foreground_cycles": 21380.625,
+          "peak_foreground_cycles": 23400
+        },
+        "DrawAllMetasprites": {
+          "calls": 120,
+          "mean_foreground_cycles": 5912.358333333334,
+          "peak_foreground_cycles": 6367
+        },
+        "TnDrawEquipment": {
+          "calls": 120,
+          "mean_foreground_cycles": 178,
+          "peak_foreground_cycles": 178
+        }
+      },
+      "candidate": {
+        "physical_frames": 120,
+        "lag_NMIs": 0,
+        "completed_frame_draw_constructions": 120,
+        "longest_consecutive_physical_frames_without_draw": 0,
+        "movement_updates": 120,
+        "GameLoop": {
+          "calls": 120,
+          "mean_foreground_cycles": 21394.441666666666,
+          "peak_foreground_cycles": 23400
+        },
+        "DrawAllMetasprites": {
+          "calls": 120,
+          "mean_foreground_cycles": 5916.908333333334,
+          "peak_foreground_cycles": 6391
+        },
+        "TnDrawEquipment": {
+          "calls": 120,
+          "mean_foreground_cycles": 178.1,
+          "peak_foreground_cycles": 182
+        }
+      },
+      "added_lag_NMIs": 0,
+      "longest_stall_change": 0
+    },
+    "secondary": {
+      "baseline": {
+        "physical_frames": 120,
+        "lag_NMIs": 28,
+        "completed_frame_draw_constructions": 92,
+        "longest_consecutive_physical_frames_without_draw": 1,
+        "movement_updates": 120,
+        "GameLoop": {
+          "calls": 119,
+          "mean_foreground_cycles": 21527.655462184874,
+          "peak_foreground_cycles": 27499
+        },
+        "DrawAllMetasprites": {
+          "calls": 92,
+          "mean_foreground_cycles": 7466.217391304348,
+          "peak_foreground_cycles": 8336
+        },
+        "TnDrawEquipment": {
+          "calls": 92,
+          "mean_foreground_cycles": 1903.4673913043478,
+          "peak_foreground_cycles": 2537
+        }
+      },
+      "candidate": {
+        "physical_frames": 120,
+        "lag_NMIs": 32,
+        "completed_frame_draw_constructions": 88,
+        "longest_consecutive_physical_frames_without_draw": 1,
+        "movement_updates": 120,
+        "GameLoop": {
+          "calls": 119,
+          "mean_foreground_cycles": 21152.647058823528,
+          "peak_foreground_cycles": 27302
+        },
+        "DrawAllMetasprites": {
+          "calls": 88,
+          "mean_foreground_cycles": 7282,
+          "peak_foreground_cycles": 8011
+        },
+        "TnDrawEquipment": {
+          "calls": 88,
+          "mean_foreground_cycles": 1723.7045454545455,
+          "peak_foreground_cycles": 2212
+        }
+      },
+      "added_lag_NMIs": 4,
+      "longest_stall_change": 0
+    }
+  },
+  "all_completed_update_prefix_deficits": [
+    {
+      "update": 406,
+      "phase": "primary",
+      "added_physical_frames": 1,
+      "fewer_draw_constructions": 0
+    },
+    {
+      "update": 532,
+      "phase": "secondary",
+      "added_physical_frames": 1,
+      "fewer_draw_constructions": 0
+    },
+    {
+      "update": 533,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 534,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 535,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 536,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 537,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 538,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 539,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 540,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 541,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 542,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 543,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 544,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 545,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 546,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 547,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 548,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 549,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 550,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 551,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 552,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 553,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 554,
+      "phase": "secondary",
+      "added_physical_frames": 1,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 555,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 2
+    },
+    {
+      "update": 556,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 2
+    },
+    {
+      "update": 557,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 2
+    },
+    {
+      "update": 558,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 2
+    },
+    {
+      "update": 559,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 2
+    },
+    {
+      "update": 560,
+      "phase": "secondary",
+      "added_physical_frames": 1,
+      "fewer_draw_constructions": 2
+    },
+    {
+      "update": 561,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 3
+    },
+    {
+      "update": 562,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 3
+    },
+    {
+      "update": 563,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 3
+    },
+    {
+      "update": 564,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 3
+    },
+    {
+      "update": 565,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 3
+    },
+    {
+      "update": 566,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 3
+    },
+    {
+      "update": 567,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 3
+    },
+    {
+      "update": 568,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 3
+    },
+    {
+      "update": 569,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 3
+    },
+    {
+      "update": 570,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 3
+    },
+    {
+      "update": 571,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 3
+    },
+    {
+      "update": 572,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 3
+    },
+    {
+      "update": 573,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 3
+    },
+    {
+      "update": 574,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 3
+    },
+    {
+      "update": 575,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 3
+    },
+    {
+      "update": 576,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 3
+    },
+    {
+      "update": 577,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 3
+    },
+    {
+      "update": 578,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 3
+    },
+    {
+      "update": 579,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 3
+    },
+    {
+      "update": 580,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 3
+    },
+    {
+      "update": 581,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 3
+    },
+    {
+      "update": 582,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 3
+    },
+    {
+      "update": 583,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 3
+    },
+    {
+      "update": 584,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 3
+    },
+    {
+      "update": 585,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 3
+    },
+    {
+      "update": 586,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 3
+    },
+    {
+      "update": 587,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 3
+    },
+    {
+      "update": 588,
+      "phase": "secondary",
+      "added_physical_frames": 1,
+      "fewer_draw_constructions": 3
+    },
+    {
+      "update": 589,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 4
+    },
+    {
+      "update": 590,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 4
+    },
+    {
+      "update": 591,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 4
+    },
+    {
+      "update": 592,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 4
+    },
+    {
+      "update": 593,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 4
+    },
+    {
+      "update": 594,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 4
+    },
+    {
+      "update": 595,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 4
+    },
+    {
+      "update": 596,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 4
+    },
+    {
+      "update": 597,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 4
+    },
+    {
+      "update": 598,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 4
+    },
+    {
+      "update": 599,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 4
+    },
+    {
+      "update": 600,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 4
+    }
+  ],
+  "all_phase_prefix_deficits": [
+    {
+      "update": 406,
+      "phase": "primary",
+      "added_physical_frames": 1,
+      "fewer_draw_constructions": 0
+    },
+    {
+      "update": 532,
+      "phase": "secondary",
+      "added_physical_frames": 1,
+      "fewer_draw_constructions": 0
+    },
+    {
+      "update": 533,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 534,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 535,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 536,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 537,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 538,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 539,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 540,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 541,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 542,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 543,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 544,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 545,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 546,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 547,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 548,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 549,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 550,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 551,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 552,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 553,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 554,
+      "phase": "secondary",
+      "added_physical_frames": 1,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 555,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 2
+    },
+    {
+      "update": 556,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 2
+    },
+    {
+      "update": 557,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 2
+    },
+    {
+      "update": 558,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 2
+    },
+    {
+      "update": 559,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 2
+    },
+    {
+      "update": 560,
+      "phase": "secondary",
+      "added_physical_frames": 1,
+      "fewer_draw_constructions": 2
+    },
+    {
+      "update": 561,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 3
+    },
+    {
+      "update": 562,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 3
+    },
+    {
+      "update": 563,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 3
+    },
+    {
+      "update": 564,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 3
+    },
+    {
+      "update": 565,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 3
+    },
+    {
+      "update": 566,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 3
+    },
+    {
+      "update": 567,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 3
+    },
+    {
+      "update": 568,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 3
+    },
+    {
+      "update": 569,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 3
+    },
+    {
+      "update": 570,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 3
+    },
+    {
+      "update": 571,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 3
+    },
+    {
+      "update": 572,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 3
+    },
+    {
+      "update": 573,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 3
+    },
+    {
+      "update": 574,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 3
+    },
+    {
+      "update": 575,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 3
+    },
+    {
+      "update": 576,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 3
+    },
+    {
+      "update": 577,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 3
+    },
+    {
+      "update": 578,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 3
+    },
+    {
+      "update": 579,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 3
+    },
+    {
+      "update": 580,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 3
+    },
+    {
+      "update": 581,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 3
+    },
+    {
+      "update": 582,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 3
+    },
+    {
+      "update": 583,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 3
+    },
+    {
+      "update": 584,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 3
+    },
+    {
+      "update": 585,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 3
+    },
+    {
+      "update": 586,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 3
+    },
+    {
+      "update": 587,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 3
+    },
+    {
+      "update": 588,
+      "phase": "secondary",
+      "added_physical_frames": 1,
+      "fewer_draw_constructions": 3
+    },
+    {
+      "update": 589,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 4
+    },
+    {
+      "update": 590,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 4
+    },
+    {
+      "update": 591,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 4
+    },
+    {
+      "update": 592,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 4
+    },
+    {
+      "update": 593,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 4
+    },
+    {
+      "update": 594,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 4
+    },
+    {
+      "update": 595,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 4
+    },
+    {
+      "update": 596,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 4
+    },
+    {
+      "update": 597,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 4
+    },
+    {
+      "update": 598,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 4
+    },
+    {
+      "update": 599,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 4
+    },
+    {
+      "update": 600,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 4
+    }
+  ],
+  "native_result_sha256": [
+    "939ded0b0024958766a650bc81b699bc201c7bcb381713107ca5368d2195e7a0",
+    "30c60d49d407221c3f2669f030119be8ce7f1720592f812a25117450023c2234"
+  ],
+  "checker_sha256": "76fe196d8ac2f8dac686768e8383e5a18cf6a1783ab30c8a2b5e72a40e415395",
+  "accepted": false,
+  "limits": "One explicitly staged same-work600-update arena per actual cold numeric mode; foreground spans exclude ISR bodies and include real DMA stalls. All deficits retained, no universal cadence or natural gear acquisition claim."
+}
