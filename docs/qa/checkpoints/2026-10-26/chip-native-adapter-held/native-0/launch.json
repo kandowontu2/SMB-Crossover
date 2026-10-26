@@ -1,0 +1,35 @@
+{
+  "preparation_sha256": "b71045e9dc12b897ef40dbe67f8c178d5e12c395ac4304cee7c87b59159936c2",
+  "runner_sha256": "d6a9ee5c6ae55bc60f7132d81ed65676292129d68d43da39ab4852ec4309bb4b",
+  "role": "baseline",
+  "exit": 0,
+  "ROM_sha256": "50b51c3c69f45ef137720c47f521574097f421056e3b73296d06ba70080d2363",
+  "bounded_launches": 1,
+  "retries": 0,
+  "audio-native.json": {
+    "passed": true,
+    "IRQ_entries": 908,
+    "candidate": false,
+    "source_calls": 0,
+    "DMA_starts": 908,
+    "no_emulated_state_writes": true,
+    "input_only": true,
+    "wall_frames": 1300,
+    "ordered_original_source_stores": 0,
+    "completed_active_updates": 909,
+    "scope": "Cold menu followed by idle controller input. Natural contact/death remains possible. No campaign clear, forced item use or strict matched-cadence verdict."
+  },
+  "ownership-guards.json": {
+    "passed": true,
+    "nmis": 908,
+    "mapper_store_windows": 0,
+    "protected_page_write_checks": 180355,
+    "minimum_sampled_SP": 250,
+    "SMC_stack_floor": 123,
+    "PPU_screenshots": 0,
+    "five_SMC_operands_preserved": true,
+    "visible_world_PPU_address_writes": 0
+  },
+  "passed": true,
+  "settings_unchanged": true
+}

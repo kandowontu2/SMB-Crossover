@@ -1,0 +1,99 @@
+{
+  "native_source_guard_passed": true,
+  "performance_gate_passed": false,
+  "production_adopted": false,
+  "controller": "Same generated cold-menu BFS and then empty input. Exact individual input-poll CSV equivalence is unclaimed.",
+  "baseline_active_updates": 909,
+  "candidate_active_updates": 909,
+  "baseline_DMA_starts": 908,
+  "candidate_DMA_starts": 871,
+  "extra_missed_DMA_starts": 37,
+  "baseline_initial_NmiSkipped": 10,
+  "candidate_initial_NmiSkipped": 10,
+  "baseline_final_NmiSkipped": 10,
+  "candidate_final_NmiSkipped": 47,
+  "differing_endFrame_logic_snapshots": 41,
+  "first_endFrame_logic_difference": {
+    "baseline": {
+      "wall": "392",
+      "updates": "1",
+      "dmas": "0",
+      "sourceCalls": "0",
+      "engine": "8",
+      "x": "40",
+      "y": "176",
+      "camera": "0",
+      "nmiSkipped": "10"
+    },
+    "candidate": {
+      "wall": "392",
+      "updates": "0",
+      "dmas": "0",
+      "sourceCalls": "2",
+      "engine": "8",
+      "x": "40",
+      "y": "176",
+      "camera": "0",
+      "nmiSkipped": "10"
+    }
+  },
+  "selected_actual_PPU_comparisons": [
+    {
+      "frame": 1080,
+      "RGB_equal": true,
+      "baseline_sha256": "9ce14cf2041b08bbf3c94968a3860798dd0e9626202657e1fb0913d8d31b29e5",
+      "candidate_sha256": "9ce14cf2041b08bbf3c94968a3860798dd0e9626202657e1fb0913d8d31b29e5",
+      "difference_bbox": null
+    },
+    {
+      "frame": 1200,
+      "RGB_equal": true,
+      "baseline_sha256": "272941b658f6d8dab89ee97f0634b67e5c23ed13087eb7f2c4230ba50b1bb7a8",
+      "candidate_sha256": "272941b658f6d8dab89ee97f0634b67e5c23ed13087eb7f2c4230ba50b1bb7a8",
+      "difference_bbox": null
+    },
+    {
+      "frame": 360,
+      "RGB_equal": true,
+      "baseline_sha256": "c88b7e2cd32a3827ee0d6a47cfecb48edd1552d28bd73578dc2ff3c697b7d5a7",
+      "candidate_sha256": "c88b7e2cd32a3827ee0d6a47cfecb48edd1552d28bd73578dc2ff3c697b7d5a7",
+      "difference_bbox": null
+    },
+    {
+      "frame": 480,
+      "RGB_equal": true,
+      "baseline_sha256": "4f5b601a3b4b2c7b771dd9d6129e3215be74c4e95a7083bd174c737eff3a9cb2",
+      "candidate_sha256": "4f5b601a3b4b2c7b771dd9d6129e3215be74c4e95a7083bd174c737eff3a9cb2",
+      "difference_bbox": null
+    },
+    {
+      "frame": 600,
+      "RGB_equal": true,
+      "baseline_sha256": "c979f621117efb54a1415ee40e20e4c1351f81eb2daeff00a56f753fe2a11f75",
+      "candidate_sha256": "c979f621117efb54a1415ee40e20e4c1351f81eb2daeff00a56f753fe2a11f75",
+      "difference_bbox": null
+    },
+    {
+      "frame": 720,
+      "RGB_equal": true,
+      "baseline_sha256": "a2d63003f98205a359f41040dc36e22632027b2e9f82dc8fcef3b9af4bc5a20a",
+      "candidate_sha256": "a2d63003f98205a359f41040dc36e22632027b2e9f82dc8fcef3b9af4bc5a20a",
+      "difference_bbox": null
+    },
+    {
+      "frame": 840,
+      "RGB_equal": true,
+      "baseline_sha256": "d17fc120d5b834888b7c3e492511e004afaa9702a9ba8a3696f50ed06e791072",
+      "candidate_sha256": "d17fc120d5b834888b7c3e492511e004afaa9702a9ba8a3696f50ed06e791072",
+      "difference_bbox": null
+    },
+    {
+      "frame": 960,
+      "RGB_equal": true,
+      "baseline_sha256": "a5bb38cebe8709d59b296aaea9ff442170dc1bdae8388da5db8bc62645d5ac08",
+      "candidate_sha256": "a5bb38cebe8709d59b296aaea9ff442170dc1bdae8388da5db8bc62645d5ac08",
+      "difference_bbox": null
+    }
+  ],
+  "limits": "Idle current-scene observation only. EndFrame samples are distinct from completed DMA/visible PPU epochs; no all-frame, campaign, scrolling, or complete-transfer verdict. Extra37DMA starts and NmiSkipped increase keep music trial held."
+}

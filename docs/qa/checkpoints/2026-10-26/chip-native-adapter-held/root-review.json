@@ -1,0 +1,366 @@
+{
+  "accepted": false,
+  "production_adopted": false,
+  "performance_gate_passed": false,
+  "actual_native_launches": 3,
+  "extra_idle_missed_DMA_starts": 37,
+  "original_startup_failure_retained": true,
+  "outer_return_fault_repaired": true,
+  "selected_actual_full_PPU_frames_ROOT_viewed": [
+    1200
+  ],
+  "copied_bindings": {
+    "v4/preparation.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-native-adapter-v4\\preparation.json",
+      "sha256": "8ea3146199e73139c315affc73b1729113859c1a8d88de2b333c30eae1910915"
+    },
+    "v4/changed-source/smb1base-mmc5-expanded.cfg": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-native-adapter-v4\\source\\smb1base-mmc5-expanded.cfg",
+      "sha256": "3d451df47b4acaebecb68881aed3df62e2755ec85c6bd68bd3c8aaf5660f56c0"
+    },
+    "v4/changed-source/src/chip_native_adapter.s": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-native-adapter-v4\\source\\src\\chip_native_adapter.s",
+      "sha256": "b4ad6acb2df2e210a196d9aa455dfbcc079a9ce0af3bb43d60984463129e9be6"
+    },
+    "v4/changed-source/src/chip_native_music.s": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-native-adapter-v4\\source\\src\\chip_native_music.s",
+      "sha256": "f3001edd612c63c88697e448f5f2fad6f455c4f6bc1e8edfb6b309096ded207a"
+    },
+    "v4/changed-source/src/collision.s": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-native-adapter-v4\\source\\src\\collision.s",
+      "sha256": "38b36ac5be1bb2bfffd4d83f2d2171676f742b7bea0570258bc9d3332c2520fa"
+    },
+    "v4/changed-source/src/entrypoint.s": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-native-adapter-v4\\source\\src\\entrypoint.s",
+      "sha256": "455b9e86170b81c48570c8fd92a01555584a64ce52ee5e8817cad9b52ba651f8"
+    },
+    "v4/cpu512-v1.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-native-adapter-v4\\cpu512-v1\\proof.json",
+      "sha256": "3607b1a365aeadafef4923b3ac3e03eccd46470ebaa4a4ac5cc894912bec07d4"
+    },
+    "v4/foreign-v1.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-native-adapter-v4\\foreign-v1\\proof.json",
+      "sha256": "0977d2f6b89b810ca3a7e1412c4dbcdc89d31737246e677f5fc68a5a1fc1a521"
+    },
+    "v4/irq-v2.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-native-adapter-v4\\irq-v2\\proof.json",
+      "sha256": "594bbe305c9a558cdeebde5cc0dc3f7a19a080ad87f7f3abaf5be01fb0c21ab8"
+    },
+    "v4/build-controls-v1.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-native-adapter-v4\\build-controls-v1\\proof.json",
+      "sha256": "5668305b47294d5e1168bb614b59a4f1d79d43f32ef442ff46394e4f82886d41"
+    },
+    "v5/preparation.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-native-adapter-v5\\preparation.json",
+      "sha256": "2470bfa1af0f647b975d623709ffcf7098c0359418a55c05a2d5f05152335c90"
+    },
+    "v5/changed-source/smb1base-mmc5-expanded.cfg": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-native-adapter-v5\\source\\smb1base-mmc5-expanded.cfg",
+      "sha256": "3d451df47b4acaebecb68881aed3df62e2755ec85c6bd68bd3c8aaf5660f56c0"
+    },
+    "v5/changed-source/src/chip_native_adapter.s": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-native-adapter-v5\\source\\src\\chip_native_adapter.s",
+      "sha256": "d90eaea6cb333f419150ae6abbe455c750637d062857ed3dfedd74c4b2e9a253"
+    },
+    "v5/changed-source/src/chip_native_music.s": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-native-adapter-v5\\source\\src\\chip_native_music.s",
+      "sha256": "f3001edd612c63c88697e448f5f2fad6f455c4f6bc1e8edfb6b309096ded207a"
+    },
+    "v5/changed-source/src/collision.s": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-native-adapter-v5\\source\\src\\collision.s",
+      "sha256": "38b36ac5be1bb2bfffd4d83f2d2171676f742b7bea0570258bc9d3332c2520fa"
+    },
+    "v5/changed-source/src/entrypoint.s": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-native-adapter-v5\\source\\src\\entrypoint.s",
+      "sha256": "455b9e86170b81c48570c8fd92a01555584a64ce52ee5e8817cad9b52ba651f8"
+    },
+    "v5/cpu512-v2.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-native-adapter-v5\\cpu512-v2\\proof.json",
+      "sha256": "d792abc7bb045905acb8939ffef661a6d2cf0d2c828245eeea67cb59cb0437d6"
+    },
+    "v5/foreign-v1.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-native-adapter-v5\\foreign-v1\\proof.json",
+      "sha256": "ac414e96a3dc0947e07cb7eb12531bc3f3630da7bd97ca16915e1ce6ac5bc1da"
+    },
+    "v5/irq-v3.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-native-adapter-v5\\irq-v3\\proof.json",
+      "sha256": "e2cee75fd060d40d9c5730c5be8e215c1f6dd7cdf1cd0558a1e7de8b61fcbd84"
+    },
+    "v5/outer-return-v1.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-native-adapter-v5\\outer-return-v1\\proof.json",
+      "sha256": "a68e2282d7eaae459e161b2b92b8f126ee138e7778ebe66e1b8afefe261d98bb"
+    },
+    "v5/build-controls-v2.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-native-adapter-v5\\build-controls-v2\\proof.json",
+      "sha256": "1ed70c723a5bd88a042192ec6a46b4e0f2928ea52b7011e80889d2a0aa9156e5"
+    },
+    "native-0/preparation.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-native-audio-v1\\baseline\\preparation.json",
+      "sha256": "b71045e9dc12b897ef40dbe67f8c178d5e12c395ac4304cee7c87b59159936c2"
+    },
+    "native-0/launch-started.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-native-audio-v1\\baseline\\launch-started.json",
+      "sha256": "e62240ba594d18ba3e52358f0562cbfb835d26d735b45046c4a88dede63dc6cd"
+    },
+    "native-0/launch.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-native-audio-v1\\baseline\\launch.json",
+      "sha256": "f8bcd4b30131cbde64f50a951f88ed53eb870c91406ca85ada94eced7d532918"
+    },
+    "native-0/manifest.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-native-audio-v1\\baseline\\manifest.json",
+      "sha256": "b9f3eb11cf1663bdc08222ffe357457e22ce264f50dca9ad82a10d43310ab96f"
+    },
+    "native-0/run.lua": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-native-audio-v1\\baseline\\run.lua",
+      "sha256": "4b25bdeb474966fdd14d277ee2a79b2872f07ea1251c91227734575a0d9cc536"
+    },
+    "native-0/audio-native.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-native-audio-v1\\baseline\\audio-native.json",
+      "sha256": "c63a851b020116b19f8eee03a239a677d3bd43ea3d44369d78825cd7cfd1d014"
+    },
+    "native-0/ownership-guards.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-native-audio-v1\\baseline\\ownership-guards.json",
+      "sha256": "59aef958c2bf957caf50eb60ba54f0c0690d4c0715f66dcbfe1bf549b7efdcbd"
+    },
+    "native-0/cadence.csv": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-native-audio-v1\\baseline\\cadence.csv",
+      "sha256": "63cda6c50a68e224f40ffbbdb512fda5b93eaa654f825d476d138109f126956d"
+    },
+    "native-0/ppu-1080.png": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-native-audio-v1\\baseline\\ppu-1080.png",
+      "sha256": "9ce14cf2041b08bbf3c94968a3860798dd0e9626202657e1fb0913d8d31b29e5"
+    },
+    "native-0/ppu-1200.png": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-native-audio-v1\\baseline\\ppu-1200.png",
+      "sha256": "272941b658f6d8dab89ee97f0634b67e5c23ed13087eb7f2c4230ba50b1bb7a8"
+    },
+    "native-0/ppu-360.png": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-native-audio-v1\\baseline\\ppu-360.png",
+      "sha256": "c88b7e2cd32a3827ee0d6a47cfecb48edd1552d28bd73578dc2ff3c697b7d5a7"
+    },
+    "native-0/ppu-480.png": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-native-audio-v1\\baseline\\ppu-480.png",
+      "sha256": "4f5b601a3b4b2c7b771dd9d6129e3215be74c4e95a7083bd174c737eff3a9cb2"
+    },
+    "native-0/ppu-600.png": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-native-audio-v1\\baseline\\ppu-600.png",
+      "sha256": "c979f621117efb54a1415ee40e20e4c1351f81eb2daeff00a56f753fe2a11f75"
+    },
+    "native-0/ppu-720.png": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-native-audio-v1\\baseline\\ppu-720.png",
+      "sha256": "a2d63003f98205a359f41040dc36e22632027b2e9f82dc8fcef3b9af4bc5a20a"
+    },
+    "native-0/ppu-840.png": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-native-audio-v1\\baseline\\ppu-840.png",
+      "sha256": "d17fc120d5b834888b7c3e492511e004afaa9702a9ba8a3696f50ed06e791072"
+    },
+    "native-0/ppu-960.png": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-native-audio-v1\\baseline\\ppu-960.png",
+      "sha256": "a5bb38cebe8709d59b296aaea9ff442170dc1bdae8388da5db8bc62645d5ac08"
+    },
+    "native-1/preparation.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-native-audio-v1\\candidate\\preparation.json",
+      "sha256": "15bc137181c683f514883944b142b35494a0050304fb6001d72bd6e6a43bee96"
+    },
+    "native-1/launch-started.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-native-audio-v1\\candidate\\launch-started.json",
+      "sha256": "1bec25ee7dce03fc13e1a628c24d108320a3ac3e79ce1f2ab9b244c0c60329a3"
+    },
+    "native-1/launch.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-native-audio-v1\\candidate\\launch.json",
+      "sha256": "631f0e9bb717f0ec2341db63f1ad40bb7b3e8cfa95ca13e3b99b1c59c97ab570"
+    },
+    "native-1/manifest.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-native-audio-v1\\candidate\\manifest.json",
+      "sha256": "b95d22246332de51acb2a6718f322db2f460cbd15953eda6422980f0d3907bec"
+    },
+    "native-1/run.lua": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-native-audio-v1\\candidate\\run.lua",
+      "sha256": "c85154528aba9d0b4e4388cdec0a751b218a879c457d74b7ba1d0b44738253d6"
+    },
+    "native-1/cadence.csv": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-native-audio-v1\\candidate\\cadence.csv",
+      "sha256": "75734acf547f8187f84bdbf27ad537a4df7b32a76625a1c3621c9d5a201705fb"
+    },
+    "native-1/ppu-1080.png": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-native-audio-v1\\candidate\\ppu-1080.png",
+      "sha256": "788d6984576bb13490a00df106ec8ec4a1c2f966e544debd99f7ffce8d65c029"
+    },
+    "native-1/ppu-1200.png": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-native-audio-v1\\candidate\\ppu-1200.png",
+      "sha256": "788d6984576bb13490a00df106ec8ec4a1c2f966e544debd99f7ffce8d65c029"
+    },
+    "native-1/ppu-360.png": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-native-audio-v1\\candidate\\ppu-360.png",
+      "sha256": "788d6984576bb13490a00df106ec8ec4a1c2f966e544debd99f7ffce8d65c029"
+    },
+    "native-1/ppu-480.png": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-native-audio-v1\\candidate\\ppu-480.png",
+      "sha256": "788d6984576bb13490a00df106ec8ec4a1c2f966e544debd99f7ffce8d65c029"
+    },
+    "native-1/ppu-600.png": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-native-audio-v1\\candidate\\ppu-600.png",
+      "sha256": "788d6984576bb13490a00df106ec8ec4a1c2f966e544debd99f7ffce8d65c029"
+    },
+    "native-1/ppu-720.png": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-native-audio-v1\\candidate\\ppu-720.png",
+      "sha256": "788d6984576bb13490a00df106ec8ec4a1c2f966e544debd99f7ffce8d65c029"
+    },
+    "native-1/ppu-840.png": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-native-audio-v1\\candidate\\ppu-840.png",
+      "sha256": "788d6984576bb13490a00df106ec8ec4a1c2f966e544debd99f7ffce8d65c029"
+    },
+    "native-1/ppu-960.png": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-native-audio-v1\\candidate\\ppu-960.png",
+      "sha256": "788d6984576bb13490a00df106ec8ec4a1c2f966e544debd99f7ffce8d65c029"
+    },
+    "native-2/preparation.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-native-audio-v2\\candidate\\preparation.json",
+      "sha256": "e9b9a01d00308760b6bc836b4bf1d16cce835546a674d75e34f42ab55e35eeb8"
+    },
+    "native-2/launch-started.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-native-audio-v2\\candidate\\launch-started.json",
+      "sha256": "68144b009714b58219ac8ad50a67ce92b77c47e97c76213b387a395abad23d50"
+    },
+    "native-2/launch.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-native-audio-v2\\candidate\\launch.json",
+      "sha256": "35160a2862b9e2f2ed0c53eaf6848677fde3f0ea42840f99124e213f5349a5ae"
+    },
+    "native-2/manifest.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-native-audio-v2\\candidate\\manifest.json",
+      "sha256": "35187fabda8d93bcbd775a582a26ba2c3c3adb9b68d2b4b7ec4402470b2a76bf"
+    },
+    "native-2/run.lua": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-native-audio-v2\\candidate\\run.lua",
+      "sha256": "1d01948c177820e9a355d559f2376c1f9c92847a6c77130fef0132bfd31a8fa3"
+    },
+    "native-2/audio-native.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-native-audio-v2\\candidate\\audio-native.json",
+      "sha256": "2c8aa3c804dcec1061cf7bf180c944612b467faef30b1f2b867fadc6342fe428"
+    },
+    "native-2/ownership-guards.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-native-audio-v2\\candidate\\ownership-guards.json",
+      "sha256": "f1027176491594adee37b634e0bc7e1d77ca874c5be8750e3a7c9189b7cedbf2"
+    },
+    "native-2/cadence.csv": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-native-audio-v2\\candidate\\cadence.csv",
+      "sha256": "4e339f5c25c75a96dd12b4f0844d98656dde7be266230cbbf8b6bc006538a92b"
+    },
+    "native-2/ppu-1080.png": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-native-audio-v2\\candidate\\ppu-1080.png",
+      "sha256": "9ce14cf2041b08bbf3c94968a3860798dd0e9626202657e1fb0913d8d31b29e5"
+    },
+    "native-2/ppu-1200.png": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-native-audio-v2\\candidate\\ppu-1200.png",
+      "sha256": "272941b658f6d8dab89ee97f0634b67e5c23ed13087eb7f2c4230ba50b1bb7a8"
+    },
+    "native-2/ppu-360.png": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-native-audio-v2\\candidate\\ppu-360.png",
+      "sha256": "c88b7e2cd32a3827ee0d6a47cfecb48edd1552d28bd73578dc2ff3c697b7d5a7"
+    },
+    "native-2/ppu-480.png": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-native-audio-v2\\candidate\\ppu-480.png",
+      "sha256": "4f5b601a3b4b2c7b771dd9d6129e3215be74c4e95a7083bd174c737eff3a9cb2"
+    },
+    "native-2/ppu-600.png": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-native-audio-v2\\candidate\\ppu-600.png",
+      "sha256": "c979f621117efb54a1415ee40e20e4c1351f81eb2daeff00a56f753fe2a11f75"
+    },
+    "native-2/ppu-720.png": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-native-audio-v2\\candidate\\ppu-720.png",
+      "sha256": "a2d63003f98205a359f41040dc36e22632027b2e9f82dc8fcef3b9af4bc5a20a"
+    },
+    "native-2/ppu-840.png": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-native-audio-v2\\candidate\\ppu-840.png",
+      "sha256": "d17fc120d5b834888b7c3e492511e004afaa9702a9ba8a3696f50ed06e791072"
+    },
+    "native-2/ppu-960.png": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-native-audio-v2\\candidate\\ppu-960.png",
+      "sha256": "a5bb38cebe8709d59b296aaea9ff442170dc1bdae8388da5db8bc62645d5ac08"
+    },
+    "paired-native-review.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-native-audio-v2\\paired-review-v1\\proof.json",
+      "sha256": "f62d27ab96b2945de85ceb425931a183bdfa7fd9936d0c77328edeac2599bff3"
+    },
+    "frozen-tools/root_chip_native_adapter_builds_v1.py": {
+      "source": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\root_chip_native_adapter_builds_v1.py",
+      "sha256": "ef82ebc007339fbff17481e92c5da73face18e512e84b56da1c5ceaa55ce8271"
+    },
+    "frozen-tools/root_chip_native_adapter_builds_v2.py": {
+      "source": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\root_chip_native_adapter_builds_v2.py",
+      "sha256": "4430b5b8e48fb940cc59fa4477dfc3405b502cf46c3203e692af3fd4e9c35de3"
+    },
+    "frozen-tools/root_chip_native_adapter_checkpoint_v1.py": {
+      "source": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\root_chip_native_adapter_checkpoint_v1.py",
+      "sha256": "bc2ab32a0e927f8715297cb1e099e1d850c28e635b3ae2a5453aec6be6266cc4"
+    },
+    "frozen-tools/root_chip_native_adapter_cpu_v1.py": {
+      "source": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\root_chip_native_adapter_cpu_v1.py",
+      "sha256": "719b6e08f082a3854ffc423aa361da783eef7787f565b83bbfb98a3a556668d5"
+    },
+    "frozen-tools/root_chip_native_adapter_cpu_v2.py": {
+      "source": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\root_chip_native_adapter_cpu_v2.py",
+      "sha256": "9cb0323d933e972eb15d1eeaf7e0e4d9ff997f6d2cde69d4bc8e5833d0a676d9"
+    },
+    "frozen-tools/root_chip_native_adapter_foreign_v1.py": {
+      "source": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\root_chip_native_adapter_foreign_v1.py",
+      "sha256": "4ba77729d67a5096c07b0e73340ebbe1d1e6657db7b8e8c7b925d06c6a770b04"
+    },
+    "frozen-tools/root_chip_native_adapter_irq_v1.py": {
+      "source": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\root_chip_native_adapter_irq_v1.py",
+      "sha256": "e4a8c354206de2a90884c0dcb8ebe1ecb56b525e65b0b8e789f9bf88bf4bfce2"
+    },
+    "frozen-tools/root_chip_native_adapter_irq_v2.py": {
+      "source": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\root_chip_native_adapter_irq_v2.py",
+      "sha256": "1ac3a49ae0f655b54964ef46d3bfd27debd164f2f54edf6d3be5fee0ee90160c"
+    },
+    "frozen-tools/root_chip_native_adapter_irq_v3.py": {
+      "source": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\root_chip_native_adapter_irq_v3.py",
+      "sha256": "f62da7050b1d48e1ae338b5857da96f103fcba4deaee4c429c4e9af9b5b4e6d0"
+    },
+    "frozen-tools/root_chip_native_adapter_prepare_v1.py": {
+      "source": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\root_chip_native_adapter_prepare_v1.py",
+      "sha256": "518c613325108756e7296ac8bfa644aa8b0d12ec2c123b3f83959939dd636a2f"
+    },
+    "frozen-tools/root_chip_native_adapter_prepare_v2.py": {
+      "source": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\root_chip_native_adapter_prepare_v2.py",
+      "sha256": "f1ea32d2cdef5754d5839bc12236dcd1e498dfe1c3fd21741660e7efe0024cca"
+    },
+    "frozen-tools/root_chip_native_adapter_prepare_v3.py": {
+      "source": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\root_chip_native_adapter_prepare_v3.py",
+      "sha256": "06adfe1a14f3954ad86221abddffee68d1f519e5291806e6923f71df3f9b4b8f"
+    },
+    "frozen-tools/root_chip_native_adapter_prepare_v4.py": {
+      "source": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\root_chip_native_adapter_prepare_v4.py",
+      "sha256": "a28ba8720281b56b9bd6ae41196fce670f937a37abe57a074d736ab6a6eb892e"
+    },
+    "frozen-tools/root_chip_native_adapter_prepare_v5.py": {
+      "source": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\root_chip_native_adapter_prepare_v5.py",
+      "sha256": "61d63b037d8c543b2504ea266ca6f8ad1fc10612f5cfad89b21c92d40fd01efc"
+    },
+    "frozen-tools/root_chip_native_audio_prepare_v1.py": {
+      "source": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\root_chip_native_audio_prepare_v1.py",
+      "sha256": "6e15600f292faf09afce31295c487ef8143cad5f68f83516278669752435ce56"
+    },
+    "frozen-tools/root_chip_native_audio_prepare_v2.py": {
+      "source": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\root_chip_native_audio_prepare_v2.py",
+      "sha256": "643a95dd5a69bf82005108e2d89b251e2d05d80ea81f43725a76ff5ebabd3487"
+    },
+    "frozen-tools/root_chip_native_audio_return_v1.py": {
+      "source": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\root_chip_native_audio_return_v1.py",
+      "sha256": "1fb253f029cee25efd54cab266e3244f7764fa971c1667ae0964a811defad956"
+    },
+    "frozen-tools/root_chip_native_audio_run_v1.py": {
+      "source": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\root_chip_native_audio_run_v1.py",
+      "sha256": "d6a9ee5c6ae55bc60f7132d81ed65676292129d68d43da39ab4852ec4309bb4b"
+    },
+    "frozen-tools/root_chip_native_audio_run_v2.py": {
+      "source": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\root_chip_native_audio_run_v2.py",
+      "sha256": "8d79adde30f946365fb91f21c1cf636b2ebb5c3e99b862d9a56605f50dedde1c"
+    },
+    "report.txt": {
+      "source": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\docs\\qa\\chip-native-music-adapter-held-2026-10-26.txt",
+      "sha256": "b0fe6b165c4ed99c5cd9f9f109dfe1d401be8fba4df0247793ea4cb489cf1c80"
+    }
+  }
+}

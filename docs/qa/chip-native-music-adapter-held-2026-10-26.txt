@@ -1,0 +1,50 @@
+Chip/Dale native music adapter: PERFORMANCE HELD, 2026-10-26
+
+No production installation or goal-completion claim. Default/download ROM
+remains50b51c3c. This checkpoint preserves actual source implementations,
+the native startup failure, its repair, and the remaining measured lag.
+
+The original11-track player component remains byte-exact to qualified2a116.
+New route uses A78 free code space, the original A62/C94 free tails and a
+real18-byte resident dispatcher span. All60,694 old scoped symbols retain
+their addresses. Header/CHR and other banks are unchanged. Existing music
+requests choose all11original tracks; pause, held requests, silence and
+foreground pointer restoration are checked. No source tick, voice, timer-high
+store, song data, clock or original sound request is omitted.
+
+Initiala537 passes5,643 source calls,4,176 complete foreign audio calls across
+35unchanged identities,1,109 actual compiled IRQ boundaries and both ordinary
+mapper builds. Its cold native run nevertheless stays black before gameplay.
+Root cause: the new adapter changed CurrentBank to206, while the full audio
+caller/NMI must retain the interrupted main bank215. Returning then remapped
+physicalA78 over mainA87. Unit-only adapter checks missed that outer contract.
+The native failure remains false and all original PNGs/records are retained.
+
+Repairedf7cf preserves the foreground shadow and uses a physical-only,
+NMI-private A-window roundtrip, as existing native drivers do.192 complete
+AudioUpdate return cases explicitly reproduce/reject the old fault and pass
+both modes/Chip-Dale/title/pause/event conditions on the repair. Fresh5,643
+source calls,4,176 unchanged-identity calls,1,103 actualIRQ boundaries and
+canonical/ordinary flagoff builds pass. All shared SMC code is untouched.
+
+Three total native launches, no retries: baseline50b1300, rejecteda5371300,
+and repairedf7cf1300. The repaired run cold-starts normally and checks910
+original source calls/6,429 ordered raw source APU stores and original written
+RAM states.908 nativeNMI/IRQ guards pass, every fiveSMC operand and main bank
+is restored, no visible-world PPU address write. These are source-image and
+actual register-stream checks; no recorded waveform claim.
+
+PERFORMANCE FAILS: both completed909active logic updates, but DMA starts
+fall908->871. NmiSkipped rises10->47 instead of remaining10. EndFrame logic
+snapshots differ41times, beginning with a within-frame completion difference;
+they are not described as matching all completed display epochs. Eight
+selected actual wholePPU PNGs are RGB/byte identical; ROOT viewed1200. This
+idle visual equality does not excuse37missed draws or qualify scrolling.
+The trial remains excluded from the installed build until the real player
+cost is reduced and native source/cadence checks pass.
+
+All runtime callbacks register at startup. Native controls use only real
+menu/controller input, no emulated state or outcome writes. Hardware8-sprite
+limit, no runahead/extra scanlines, original settings unchanged. No complete
+OAM-transfer, full1-1, all-item, all-track-native, waveform or roster verdict.
+Native raw settings, gold traces, ROMs and lossless captures remain external.
