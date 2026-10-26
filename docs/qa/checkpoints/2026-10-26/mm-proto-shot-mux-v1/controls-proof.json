@@ -1,0 +1,47 @@
+{
+  "passed": true,
+  "source_only": true,
+  "native_run": false,
+  "adopted": false,
+  "ROM_sha256": "c5b65d96f6d76d4e9ebc62b5b28ae02e9cdea838414035fb1b2d4e0e4b706e48",
+  "parent_ROM_sha256": "3cee18caa732b2e85e3bdb00faf719223324f9bf24e72dd30c56be355da33b99",
+  "old_qualified_symbols_retained": 61209,
+  "new_RAM_bytes": 0,
+  "changed_source": [
+    "smb1base-mmc5-expanded.cfg",
+    "src/protoman_legacy_shots.inc"
+  ],
+  "hook": {
+    "file_offset": 541690,
+    "bank": 66,
+    "PC": 41962,
+    "before": "bd3b60",
+    "after": "20a8b9"
+  },
+  "helper": {
+    "bank": 66,
+    "start": 47528,
+    "end_exclusive": 47945,
+    "bytes": 417,
+    "previously_fill_FF": true,
+    "declared_segment": "MM_PROTO_SHOT_MUX"
+  },
+  "changed_PRG_bytes": 420,
+  "all_other_PRG_CHR_exact": true,
+  "canonical_and_ordinary_builds": [
+    {
+      "mode": "canonical",
+      "sha256": "c5b65d96f6d76d4e9ebc62b5b28ae02e9cdea838414035fb1b2d4e0e4b706e48"
+    },
+    {
+      "mode": "mmc3",
+      "sha256": "d444cac88e13fa02b29ad16100b8f08fa565ba90f8cedde192de43fb2dc8f3eb"
+    },
+    {
+      "mode": "mmc5",
+      "sha256": "f4ffd2483c51daa4d60bb575da2da8c4d817692cda407611c243031f67520833"
+    }
+  ],
+  "checker_sha256": "5f286f8f06db8ccc24bf60450b667d639874cb3981b94d7b24f21e05fe471102",
+  "limits": "Source/CPU only. No native timing or visible improvement qualification; lone active shot CPU overhead remains open."
+}

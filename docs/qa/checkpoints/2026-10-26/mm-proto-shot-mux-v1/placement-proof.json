@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "source_only": true,
+  "native_run": false,
+  "adopted": false,
+  "parent_ROM_sha256": "3cee18caa732b2e85e3bdb00faf719223324f9bf24e72dd30c56be355da33b99",
+  "ROM_sha256": "c5b65d96f6d76d4e9ebc62b5b28ae02e9cdea838414035fb1b2d4e0e4b706e48",
+  "changed_source": [
+    "src/protoman_legacy_shots.inc",
+    "smb1base-mmc5-expanded.cfg"
+  ],
+  "changed_PRG_bytes": {
+    "66": 420
+  },
+  "new_helper_PC": 47528,
+  "all_old_addresses_CHR_RAM_and_unrelated_banks_exact": true,
+  "new_RAM_bytes": 0,
+  "intended_change": "One ordinary visible-shot admission per construction, selected fairly across live slots; one live shot remains always selected. No actor/collision/art/age update changes. Empty/foreign/death guards remain original.",
+  "tool_sha256": "c799ab26c608c5f4b9dc6e15a8417cb21fc95b4a3858349c42157e8ec98fffbe",
+  "qualification": "Build/layout only; actual helpers/callers/IRQ/art/visibility and CPU costs not yet qualified."
+}

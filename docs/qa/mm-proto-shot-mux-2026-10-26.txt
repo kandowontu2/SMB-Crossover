@@ -1,0 +1,93 @@
+MEGA MAN / PROTO MAN SHOT PRESENTATION EXPERIMENT — 2026-10-26
+
+Status: PRIVATE SOURCE/CPU EXPERIMENT, not installed and not native-qualified.
+Parent: current adopted 3cee18caa732b2e85e3bdb00faf719223324f9bf24e72dd30c56be355da33b99.
+Candidate: c5b65d96f6d76d4e9ebc62b5b28ae02e9cdea838414035fb1b2d4e0e4b706e48.
+External packet: C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/mm-proto-shot-mux-v4.
+
+Proposed behavior
+The existing four-slot ordinary Mega/Proto buster renderer admits one live slot
+per source construction, rotating among the current live slots using the already
+owned Main FrameCounter. A lone live slot is admitted on every construction.
+Physics, collision, damage, age, ammo and projectile lifespan remain unchanged.
+All original selected-shot art, coordinate handling, clipping and OAM rotation
+execute through the original emitter. No new RAM is allocated or borrowed.
+Expanded/special Rg projectiles are outside this hook and remain unchanged.
+
+The choice counts live slots, including offscreen slots; an offscreen live slot
+can consume a turn. Constant populations of 1..4 are selected at most four source
+constructions apart, including FrameCounter 255-to-0. This is NOT a bound on
+physical visible frames or a promise that one shot survives original clipping,
+capacity or the eight-sprites-per-scanline hardware limit.
+
+Source placement
+Only smb1base-mmc5-expanded.cfg and src/protoman_legacy_shots.inc change.
+Bank66 A3EA has the sole original LDA MmBulletAge,x replaced by JSR B9A8.
+The 417-byte helper/tables are in a new linker-declared MM_PROTO_SHOT_MUX segment,
+B9A8..BB48, after genuine PN_MENU_HINT B936..B9A7. The complete parent extent
+B9A8..BFFF is FF fill. Exact ROM difference is 420 bytes, all bank66.
+All 61,209 genuine old qualified symbols, CHR, fixed code, RAM and all other PRG
+banks retain exact addresses/bytes. No fake old label aliases are used.
+
+CPU qualification
+cpu-full-v1: 7,072 cases and 88 actual IRQ/RTI injections pass.
+- All16 live masks x256 FrameCounter phases, all64 physical flag combinations.
+- All six original shot types, both facings, eight edge/capacity/rotation samples.
+- 2,432 foreign identity/variant/flag calls remain byte AND cycle exact.
+- 160 complete ProtoDrawShots / DrawAllMetasprites caller cases cover Mega/Proto,
+  live counts, phase wrap and actual death-path dispatch.
+- IRQ injections reach helper branches and both genuine inner-return discard PLAs.
+The mathematical oracle calls the original renderer with nonselected type inputs
+absent BEFORE the arranged render invocation. Its four input type bytes are
+normalized back ONLY in the comparison image. The candidate always retains all
+original live fields. This is not a native acquisition or gameplay fixture.
+Final AXYP/SP, live arrays, non-discarded RAM/SMC, bank maps, ordered OAM and
+hardware stores match the filtered original. Dead stack residue 01C0..01FF and
+virtual CPU B are excluded; all physical NV-DIZC flags are compared.
+No NMI injection or native-bank/stack/timing claim is made.
+
+Actual measured CPU cost versus the unfiltered original renderer
+Ordinary normal-shot mask/phase cases:
+ live slots    min..max delta cycles
+ 0             0
+ 1             +141..+142
+ 2             -185..-183
+ 3             -496..-493
+ 4             -833
+Other shot-art/edge cases range -3,535..+141. A two-live clipped/art sample adds
+48 cycles. Lone-source and clipped positive costs remain open native risks.
+These are actual assembled CPU costs, not a cadence or lag-recovery result.
+Canonical rebuild reproduces c5b65d96 exactly. Ordinary MMC3 d444cac8 and MMC5
+f4ffd248 targets retain their established exact hashes.
+
+Captured hardware motivation — counterfactual only
+Root attribution SHA83049a3ea3a60ac33e87d0b27e397a9341976763552839fa495819fc4a953d53
+and visibility CSV SHAd9a621bf7df9fc2688da2099adb7b2d476e6051f79155aa38374003652cab937
+are immutable current3cee native observations. Actual PPUCTRL168 selects 8x16
+sprites. Normal busters consist of the verified original two-layer art records.
+In the original physical OAM, hiding all but any one normal group while keeping
+all remaining bytes/order fixed would admit 18/25 previously omitted opaque body
+witnesses at PPU2475, and36/48 at PPU2871. Residual7/12 witnesses remain.
+This is NOT a new candidate framebuffer, nor a prediction of its compressed OAM
+slot positions. The new compressed renderer is qualified separately by CPU.
+
+Publication and adoption limits
+The immutable original probe shows last-DMA FrameCounter239 atPPU2473..2475,
+then241 at2476. Construction240 was not displayed there. A source phase wheel can
+alias skipped publications; real per-live-shot displayed age/fairness must be
+measured before adoption. Native checks must retain physical OAM/DMA source,
+actual visible shot/body evidence, both facings, normal/charge/death/Proto paths,
+source state, NMI/IRQ/SMC/CHR/bank/stack guards and matched cadence. This packet
+provides no native grant, no native results and no claim every body/shot is fixed.
+
+Preserved rejected attempts
+prepare-v1: malformed Population directive; original assembler failure retained.
+prepare-v2: builds, but unqualified duplicate Attributes alias failed symbol check;
+its actual CPU pilot also found a real Y clobber (type1 art became type4).
+prepare-v3: genuine qualified check caught 417-byte movement of later bank66 code.
+prepare-v4: restores Y on selection and declares separate proven free tail segment.
+Witness-v1 assumed8-pixel height and correctly failed original first-eight proof.
+Witness-v2 derives16 from the actual logged PPUCTRL, retaining all original guards.
+Early CPU/assert terminal failures were not independently saved as raw log files;
+retained tools/source/ROM/build logs and this classification do not invent logs.
+All ROOT production/default/Git/settings files remain unchanged by this work.

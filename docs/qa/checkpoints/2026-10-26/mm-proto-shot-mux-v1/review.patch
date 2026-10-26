@@ -1,0 +1,93 @@
+--- a/smb1base-mmc5-expanded.cfg
++++ b/smb1base-mmc5-expanded.cfg
+@@ -272,6 +272,7 @@
+     HOT_RENDER_GATE: load=X5_NEW_42,type=ro;
+     INVENTORY_ITEM_RETURN: load=X5_NEW_42,type=ro,optional=yes;
+     PN_MENU_HINT: load=X5_NEW_42,type=ro,optional=yes;
++    MM_PROTO_SHOT_MUX: load=X5_NEW_42,type=ro,start=$b9a8;
+ 
+     X5_PUBLISH: load=X5_NEW_3E, type=ro;
+     X5_CHR_MORE: load=X5_CHR_MORE, type=ro, optional=yes;
+--- a/src/protoman_legacy_shots.inc
++++ b/src/protoman_legacy_shots.inc
+@@ -11,7 +11,7 @@
+   stx MmSlot
+   ldy MmBulletType,x
+   beq Next
+-  lda MmBulletAge,x
++  jsr MmProtoShotMuxAdmission
+   lsr
+   sta MmTemp
+   lda ShotLengths-1,y
+@@ -74,3 +74,71 @@
+ ProtoShotRightHi:
+  .byte >MmMM_BULLET_1Right,>MmMM_BULLET_2Right,>MmMM_BULLET_3Right,>MmMM_BULLET_4Right,>MmMM_BULLET_5Right,>MmMM_BULLET_6Right,>MmMM_BULLET_7Right,>MmMM_BULLET_8Right,>MmMM_BULLET_9Right,>MmMM_BULLET_10Right,>MmMM_BULLET_11Right,>MmMM_BULLET_12Right,>MmMM_BULLET_13Right,>MmMM_BULLET_14Right,>MmMM_BULLET_15Right,>MmMM_BULLET_16Right
+ .assert METASPRITE_MM_BULLET_16-METASPRITE_MM_BULLET_1=15,error,"Bullet IDs remain contiguous"
++
++
++; Ordinary shot presentation only. No new RAM or projectile-state stores.
++; Main increments FrameCounter once per game update (game.s), independently
++; from skipped display frames. A lone live shot is selected for every phase.
++; Original live/type/death/family guards execute before this helper.
++.pushseg
++.segment "MM_PROTO_SHOT_MUX"
++.proc MmProtoShotMuxAdmission
++ php
++ pha
++ txa
++ pha
++ lda #0
++ ldx #3
++Mask:
++ ldy MmBulletType,x
++ cpy #1
++ rol
++ dex
++ bpl Mask
++ tax
++ asl
++ asl
++ pha
++ lda Population,x
++ cmp #3
++ bne FourPhase
++ ldx FrameCounter
++ lda ModuloThree,x
++ jmp PhaseReady
++FourPhase:
++ lda FrameCounter
++ and #3
++PhaseReady:
++ tax
++ pla
++ ora PhaseIndex,x
++ tay
++ lda Choice,y
++ cmp MmSlot
++ bne Skip
++ pla
++ tax
++ pla
++ plp
++ ldy MmBulletType,x
++ lda MmBulletAge,x
++ rts
++Skip:
++ pla
++ pla
++ plp
++ tax ; A is live across the old zero-type path; X is reloaded at Next.
++ pla ; discard only this helper's genuine inner JSR return address
++ pla
++ txa
++ ldy #0
++ jmp ProtoLegacyDrawShotsCold::Next
++PhaseIndex:.byte 0,1,2,3
++Population:
++ .byte 0,1,1,2,1,2,2,3,1,2,2,3,2,3,3,4
++Choice:
++ .byte 0,0,0,0,0,0,0,0,1,1,1,1,1,0,1,0,2,2,2,2,2,0,2,0,2,1,2,1,2,1,0,2,3,3,3,3,3,0,3,0,3,1,3,1,3,1,0,3,3,2,3,2,3,2,0,3,3,2,1,3,3,2,1,0
++ModuloThree:
++ .byte 0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0
++.endproc
++.popseg

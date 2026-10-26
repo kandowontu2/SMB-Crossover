@@ -1,0 +1,31 @@
+{
+  "prepare": [
+    "C:\\Users\\kando\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\mm_proto_shot_mux_prepare_v4.py",
+    "--output",
+    "<new external packet>"
+  ],
+  "CPU": [
+    "C:\\Users\\kando\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\mm_proto_shot_mux_cpu_v1.py",
+    "--parent",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-hud-composed-v1\\candidate.nes",
+    "--candidate",
+    "<new packet>/candidate.nes",
+    "--output",
+    "<new external CPU output>"
+  ],
+  "controls": [
+    "C:\\Users\\kando\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\mm_proto_shot_mux_controls_v1.py",
+    "--packet",
+    "<new external packet>"
+  ],
+  "witness": [
+    "C:\\Users\\kando\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\mm_proto_shot_mux_witness_v2.py",
+    "--output",
+    "<new external witness output>"
+  ],
+  "native_grant": false
+}

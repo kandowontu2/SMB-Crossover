@@ -1,0 +1,43 @@
+{
+  "passed": true,
+  "source_only": true,
+  "native_run": false,
+  "quick": false,
+  "parent_ROM_sha256": "3cee18caa732b2e85e3bdb00faf719223324f9bf24e72dd30c56be355da33b99",
+  "candidate_ROM_sha256": "c5b65d96f6d76d4e9ebc62b5b28ae02e9cdea838414035fb1b2d4e0e4b706e48",
+  "cases": 7072,
+  "grouped": {
+    "all_masks_phase": {
+      "cases": 4096,
+      "min_delta": -833,
+      "max_delta": 142,
+      "sum_delta": -858260
+    },
+    "all_types_art_edges": {
+      "cases": 384,
+      "min_delta": -3535,
+      "max_delta": 141,
+      "sum_delta": -197926
+    },
+    "foreign_exact": {
+      "cases": 2432,
+      "min_delta": 0,
+      "max_delta": 0,
+      "sum_delta": 0
+    },
+    "real_callers": {
+      "cases": 160,
+      "min_delta": -833,
+      "max_delta": 141,
+      "sum_delta": -21956
+    }
+  },
+  "actual_IRQ_cases": 88,
+  "all_live_projectile_fields_unchanged": true,
+  "original_selected_shot_art_emitter_ordered_OAM_CHR_SMC_banks_and_complete_caller_ABI_exact": true,
+  "oracle": "Original renderer with nonselected type slots absent BEFORE arranged renderer invocation; its four input type bytes are normalized back only in the comparison image. Candidate always keeps all original live fields untouched. No observed native state is altered.",
+  "no_new_RAM": true,
+  "foreign_and_owned_empty_cycles_exact": true,
+  "checker_sha256": "c5fbac4dc31d771da005ab35de930dd5677c7b2aad3bafad68c765df97e75d73",
+  "limits": "Temporal fairness across source constructions only; skipped DMA publications may alias phases. No native visibility/cadence improvement or all-body/all-projectile fix claim. Owned single/live-source cost regressions remain measured."
+}
