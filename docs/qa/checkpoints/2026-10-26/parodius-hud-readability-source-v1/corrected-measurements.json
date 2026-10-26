@@ -1,0 +1,205 @@
+{
+  "letter_height_pixels": 5,
+  "character_width": "proportional source shapes; not assigned a fixed width",
+  "actual_word_bounds": [
+    {
+      "variant": 1,
+      "seven_exact_source_word_masks": true,
+      "word_bounding_boxes": [
+        {
+          "left": 3,
+          "right": 27,
+          "top": 2,
+          "bottom": 6,
+          "width": 25
+        },
+        {
+          "left": 2,
+          "right": 28,
+          "top": 2,
+          "bottom": 6,
+          "width": 27
+        },
+        {
+          "left": 1,
+          "right": 29,
+          "top": 2,
+          "bottom": 6,
+          "width": 29
+        },
+        {
+          "left": 3,
+          "right": 28,
+          "top": 2,
+          "bottom": 6,
+          "width": 26
+        },
+        {
+          "left": 2,
+          "right": 28,
+          "top": 2,
+          "bottom": 6,
+          "width": 27
+        },
+        {
+          "left": 12,
+          "right": 18,
+          "top": 2,
+          "bottom": 6,
+          "width": 7
+        },
+        {
+          "left": 2,
+          "right": 29,
+          "top": 2,
+          "bottom": 6,
+          "width": 28
+        }
+      ]
+    },
+    {
+      "variant": 2,
+      "seven_exact_source_word_masks": true,
+      "word_bounding_boxes": [
+        {
+          "left": 3,
+          "right": 27,
+          "top": 2,
+          "bottom": 6,
+          "width": 25
+        },
+        {
+          "left": 2,
+          "right": 30,
+          "top": 2,
+          "bottom": 6,
+          "width": 29
+        },
+        {
+          "left": 1,
+          "right": 29,
+          "top": 2,
+          "bottom": 6,
+          "width": 29
+        },
+        {
+          "left": 3,
+          "right": 28,
+          "top": 2,
+          "bottom": 6,
+          "width": 26
+        },
+        {
+          "left": 2,
+          "right": 28,
+          "top": 2,
+          "bottom": 6,
+          "width": 27
+        },
+        {
+          "left": 12,
+          "right": 18,
+          "top": 2,
+          "bottom": 6,
+          "width": 7
+        },
+        {
+          "left": 2,
+          "right": 29,
+          "top": 2,
+          "bottom": 6,
+          "width": 28
+        }
+      ]
+    },
+    {
+      "variant": 3,
+      "seven_exact_source_word_masks": true,
+      "word_bounding_boxes": [
+        {
+          "left": 3,
+          "right": 27,
+          "top": 2,
+          "bottom": 6,
+          "width": 25
+        },
+        {
+          "left": 5,
+          "right": 28,
+          "top": 2,
+          "bottom": 6,
+          "width": 24
+        },
+        {
+          "left": 2,
+          "right": 28,
+          "top": 2,
+          "bottom": 6,
+          "width": 27
+        },
+        {
+          "left": 2,
+          "right": 29,
+          "top": 2,
+          "bottom": 6,
+          "width": 28
+        },
+        {
+          "left": 2,
+          "right": 28,
+          "top": 2,
+          "bottom": 6,
+          "width": 27
+        },
+        {
+          "left": 12,
+          "right": 18,
+          "top": 2,
+          "bottom": 6,
+          "width": 7
+        },
+        {
+          "left": 2,
+          "right": 28,
+          "top": 2,
+          "bottom": 6,
+          "width": 27
+        }
+      ]
+    }
+  ],
+  "row_pixels": [
+    224,
+    8
+  ],
+  "cell_pixels": [
+    32,
+    8
+  ],
+  "standard_HUD_tiles_preserved_per_page": 31,
+  "existing_spare_tiles": [
+    5,
+    5,
+    8
+  ],
+  "proposal_spare_tiles": [
+    7,
+    7,
+    10
+  ],
+  "unchanged_CHR_bytes": 3072,
+  "unchanged_table_bytes": 84,
+  "first_publication_queue_bytes": 42,
+  "attribute_only_queue_bytes": 11,
+  "static_added_CPU_cycles": 0,
+  "static_added_PPU_writes": 0,
+  "compiled_or_native_cycle_measurement": false,
+  "cycle_reason": "Only fixed-size pattern/table data would change. PnHudQueue cell load/STA is followed by INY/INX/DEC and BNE from DEC; values never affect a branch. Queue addresses, lengths, palette/status attributes, CHR lease and all instructions stay identical. No new per-frame work.",
+  "source_proposal_changes": [
+    "chr/characters/parodius-hud.chr (same3072bytes)",
+    "src/parodius_hud.inc (same84bytes of cell indices)"
+  ],
+  "future_generator_requirement": "Integrate the deterministic exact-source-letter polarity transform at the existing prepared-font stage; retain the31HUD/name/status glyphs and fixed-size three-page output. No runtime font transform.",
+  "all_128_meter_attribute_predicates_equal": true,
+  "actual_physical_selected_meter_coverage": false
+}

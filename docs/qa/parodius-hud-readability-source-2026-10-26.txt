@@ -1,0 +1,52 @@
+Parodius graphical power-bar readability: finite source-only audit, 2026-10-26
+
+Bound to frozen6c69 ROM 6c69e506b45c8420cf57a62b868f89c0fe86d308c0ee55655b48e8f44af9521a and its actual EasyOctopus frame548.
+No production files, ROM, settings, native worker, roster or audio were changed.
+
+Concrete low-cost proposal: retain all seven32px cells at x16..239/y8..15,
+but render the exact existing letter-hole shapes as positive foreground pixels
+without the solid plate or horizontal frame. This uses the existing Gradius
+bar's positive-letter polarity; it does not copy its weapon names or invent art.
+All21 source word masks remain exact, including punctuation and source spelling.
+The selected preview is assembled entirely from actual current game tile masks
+and two RGB colors calibrated from the actual captured bar. Pixels outside the
+bar remain byte-exact. It is a mock, not a new PPU capture or native pass.
+
+The first framed positive-letter mock remains retained and rejected for quality:
+letters touch its horizontal borders and stay dense. An earlier source-only
+attempt also rejected a false x30-interior assumption; no letter pixels were
+deleted to obtain the final preview. No failed receipt was relabeled.
+
+Layout/capacity: 224x8px, seven32px cells, fonts396..398. Each font preserves31
+standard HUD/name/status tiles. Current spare capacity is5/5/8 tiles; proposed
+spare capacity is[7, 7, 10]. All3072CHR bytes and84cell-table
+bytes retain their sizes. First full publication stays28tiles+8attributes=42
+queue bytes; attribute-only publication stays11bytes. All128 seven-bit meter
+patterns retain exactly the same attributes and selected/unselected palettes.
+The actual selected frame has meter0, so that enumeration is source evidence,
+not physical acquisition/selection coverage.
+
+No per-frame timing cost is added by this DATA-ONLY proposal: instructions,
+iteration counts, transfer addresses/lengths, dirty protocol, font lease and
+palette writes are unchanged. The cell byte is stored then INY/INX/DEC overwrites
+flags before its loop branch. This is a static construction argument; no new
+compiled ROM or native cycle measurement was made. A future integrated build
+must verify exact address/layout confinement and displayed palette/status paths.
+
+Limit: this does not enlarge the five-pixel-high proportional glyph shapes.
+Withdraw the earlier helper's nominal fixed3px-width/3x5 shorthand: actual
+whole-word bounding boxes, not a fixed character width, are measured in the
+corrected receipt. Seven-high text plus two border rows needs at least9rows
+(10with the current Gradius leading blank), so it cannot keep this8px framed
+row. Full-size multi-row labels require a separate layout/publication/timing
+design. The finite no-cost option may improve separation, but tiny-label
+readability remains open until actual display/user review. Body flicker and
+the failed natural Buffer2 overlap coverage are separate, unchanged findings.
+
+Proposal and actual-tile previews:
+C:\Users\kando\Videos\SMB Crossover Archive\2026-10-24-native-rest-py\parodius-hud-readability6c69-v4
+Framed preview retained/rejected:
+C:\Users\kando\Videos\SMB Crossover Archive\2026-10-24-native-rest-py\parodius-hud-readability6c69-v3
+Final source/agent-review packet:
+C:\Users\kando\Videos\SMB Crossover Archive\2026-10-24-native-rest-py\parodius-hud-readability6c69-final-v1
+Stable reproduction (source-only): python -B tools/audit/parodius_visibility_hud_readability_v2.py --source "C:\Users\kando\Videos\SMB Crossover Archive\2026-10-24-native-rest-py\world-firebar-padding-v2\source" --rom "C:\Users\kando\Videos\SMB Crossover Archive\2026-10-24-native-rest-py\world-firebar-padding-v2\candidate.nes" --run "C:\Users\kando\Videos\SMB Crossover Archive\2026-10-24-native-rest-py\parodius-menu6c69-preparation-v1\menu\baseline-early" --output FRESH_EXTERNAL_DIRECTORY
