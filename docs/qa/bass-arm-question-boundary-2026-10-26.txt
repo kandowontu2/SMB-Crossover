@@ -1,0 +1,93 @@
+Bass Super Arm versus powerup question block — bounded source followup
+2026-10-26; SOURCE/CPU ONLY. No native launch, production patch or adoption.
+
+Input
+  D = C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py
+  Frozen source/ROM: D/root-current-roster-composition-v1
+  ROM: 3b112e1d79ba7348f2f7a4c426f4675845a5781017ab74690feb235121a66287
+  ROOT-source-readiness: a332aec91cb2b16f8064c2423b2e0f3d5bbc9603325c0e06e4f0965d0386c220
+  Source manifest: 869 entries. All inputs were checked against that manifest.
+
+Source conclusion
+  No remaining hardlock was established in this bounded examination. Current
+  SpecialWeapons::GrabBrick removes a real masonry cell; a later fresh attack
+  invokes MegaManSuperArmThrow and spends eight stock. The actual moving ARM
+  proxy42 goes through MegaManWeapons::Blocks, GuestClaimBlockSlot and native
+  PlayerHeadCollision. The bridge uses the contacted tile's coordinates and
+  restores Player_X_Position/PageLoc/Y_Position/Y_HighPos, PlayerSize,
+  CrouchingFlag and Player_Y_Speed. Its consumed brick spawns four independent
+  type21 fragments, rather than borrowing the native bouncing-block records.
+  Current native NMI C-bank restoration and metasprite length validation are
+  present. Their presence alone does not prove absence of a runtime freeze.
+
+  Source locations, all within the frozen source above:
+    src/megaman_super_arm.s: MegaManSuperArmThrow
+    src/special_weapons.s: SpecialWeapons; GrabBrick; ArmShatter
+    src/megaman_weapons.s: Blocks::Activate and ConsumeBlock
+    src/level_tiles.s: SetupPowerUp
+    src/union_rare.s: UnionPwrUpCore
+    src/inventory.s: InventoryPreparePickup
+    src/inventory_drops.s: InventoryRisePickup
+    src/metasprite_engine.s: actual pose-header validation
+
+Fresh component CPU control
+  Tool: tools/audit/bass_arm_question_boundary_source_v1.py
+  SHA: 7b98363a7fb3298ee672ca67c408f78cabe2fa6010e709767b1f7921ab0dea14
+  Output: D/bass-arm-question-boundary-v1/source-control-v1
+  PASS: 11 assembled SpecialWeapons invocations; actual free lift, throw
+  stock112->104, native actor5 ID2E at x64/page0, four independent fragments,
+  adjacent cell117 still51 and all seven player fields restored on every return.
+  This component fixture explicitly supplies powered Bass, ARM ownership,
+  selection/stock, map and button-edge inputs and steps FrameCounter. It does
+  not execute complete GameLoop/controller/NMI/PPU, bounce/rise or acquisition.
+  Historical tests/bass-arm-question.lua and its stress variant seed endFrame
+  and predate these current hardware guards; their results are not relabeled.
+
+One prepared native-boundary regression, NOT RUN / NOT GRANTED
+  Preparation: tools/audit/bass_arm_question_boundary_prepare_v3.py
+  SHA: 53e97a927b3a792aeb70f6d0877a00370d6e099b26f7d43836b60f38c72c9966
+  Mechanics: tools/audit/bass_arm_question_boundary_v1.lua
+  Ready: D/bass-arm-question-boundary-v1/native-ready-v3/readiness.json
+  Exact command array: sibling command.json. Separate ROOT grant is required.
+  One BassEasy, right-facing case; one sequential worker/launch, 1800-frame
+  ceiling and host timeout600. No retry or implicit gallery/campaign extension.
+
+  Cold real menu selection and numeric Easy readback precede an explicitly
+  configured B-only powered tier1/owned3/stock112 scene at actual GameLoop
+  boundaries. Real Select commits ARM. A complete logical and visible arena
+  supplies lift cell163=51, question116=C1 and adjacent117=51. Held B lifts;
+  fresh B throws. There are no raw selection/mode/RNG/contact/reward/fragment
+  outcome writes during exercise. Initial resources/scene are not acquisition.
+  C1 is SMB's mushroom/flower family. With powered Bass it adaptively reveals
+  an inventory upgrade; a literal red mushroom would be a false expectation.
+
+  The test observes actual native throw, Blocks and PlayerHeadCollision calls;
+  exact player-field restoration; actual InventoryPreparePickup and reward
+  actor creation/full16-pixel rise; four real fragments; neighboring cell;
+  and250 continued GameLoop updates after the throw. All full E008/completed
+  256-byte disabled OAM, CHR, physical IRQ31, five-SMC, bank, stack, APU and
+  full PPU capture guards from the frozen 3b Bass fixture remain unchanged.
+  Its native NMI register check covers A/SP, not a falsely claimed all-AXY.
+
+  Offline preparation PASS: Lua5.4 parsing, all direct RAM names bound,
+  68 startup callbacks and no runtime host callback registration; eight
+  return-dispatch controls;13 strict DMA accept/reject controls; actual
+  generated throw-return callback accepts stock104 and rejects stock105.
+  Synthetic callback controls are not native gameplay evidence. Contact,
+  emergence, real continued progress and physical presentation remain unrun.
+
+Retained preparation failures, neither launched Mesen
+  prepare-v1: missing newline joined mock suffix to generated script. Lua
+  compile failed before the new callback controls. Partial outputs retained.
+  prepare-v2: a separate synthetic Lua chunk could not access script-local C,
+  phase and record. Failed the expected-success mock; no native result.
+  prepare-v3 appends controls in the same lexical chunk. It changes no native
+  mechanics or hardware guards. Failure JSONs remain under the case directory.
+
+Review scope
+  Current3b is the exact private composition input, not a claim that it is the
+  installed build. This packet supplies a focused source conclusion and one
+  reviewable native test. No game source, settings, default ROM or Git change.
+  Final small review catalog/receipt alongside this report binds exact tools,
+  successful and failed preparation evidence and the command without copying
+  ROM, audio, complete source archives or lossless captures.
