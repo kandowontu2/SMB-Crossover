@@ -1,0 +1,1596 @@
+{
+  "passed": true,
+  "native_executed": false,
+  "matrix_sha256": "38f48aeec46fefc7bb909c1d0fc4ae70203dea54a808a18c70231e46cf396c38",
+  "actual_assembled_scenarios": 39,
+  "negative_controls": 234,
+  "cases": [
+    {
+      "cell": "easy-dagger",
+      "scenario": "none",
+      "event": 19,
+      "mode": 0,
+      "epochs": 100,
+      "original_image_order_contract": true,
+      "declared_legacy_adapter_order": null,
+      "negative_controls": [
+        {
+          "name": "raw400F image low bits",
+          "error": "('Ordered source register image incl raw400F', 1, [(16396, 52), (16399, 13), (16398, 1)], [(16396, 52), (16399, 8), (16398, 1)])"
+        },
+        {
+          "name": "raw400F hardware low bits",
+          "error": "('Original complete owned-voice hardware values, no400F mask', 1, [(16396, 52), (16398, 1), (16399, 13)], [(16396, 52), (16398, 1), (16399, 8)])"
+        },
+        {
+          "name": "missing image store",
+          "error": "('Ordered source register image incl raw400F', 1, [(16396, 52), (16398, 1)], [(16396, 52), (16399, 8), (16398, 1)])"
+        },
+        {
+          "name": "duplicate owned hardware store",
+          "error": "('Original complete owned-voice hardware values, no400F mask', 1, [(16396, 52), (16398, 1), (16399, 8), (16399, 8)], [(16396, 52), (16398, 1), (16399, 8)])"
+        },
+        {
+          "name": "source emission image sequence swapped",
+          "error": "('Ordered source register image incl raw400F', 1, [(16396, 52), (16398, 1), (16399, 8)], [(16396, 52), (16399, 8), (16398, 1)])"
+        },
+        {
+          "name": "wrong consumed event",
+          "error": "Basic consumer contains an unauthenticated source event"
+        }
+      ],
+      "inputs": {
+        "queue-owners.jsonl": "5b0b89eb7427d1c41887f3bc12e95a6b834933fc4f35bc623a704502dd709346",
+        "source-register-image.csv": "97d3621f393debd195cee19b1cf192c37b7196fc79bc0c77a9eda4063d8729ce",
+        "assembled-apu.csv": "7961c1feb767e1e9001d6eda6d5f0a8b694e37007d88f9d2338e9493a8aa4f92"
+      }
+    },
+    {
+      "cell": "easy-dagger",
+      "scenario": "slot",
+      "event": 19,
+      "mode": 0,
+      "epochs": 100,
+      "original_image_order_contract": true,
+      "declared_legacy_adapter_order": null,
+      "negative_controls": [
+        {
+          "name": "raw400F image low bits",
+          "error": "('Ordered source register image incl raw400F', 2, [(16396, 52), (16399, 13), (16398, 1)], [(16396, 52), (16399, 8), (16398, 1)])"
+        },
+        {
+          "name": "raw400F hardware low bits",
+          "error": "('Original complete owned-voice hardware values, no400F mask', 2, [(16396, 52), (16398, 1), (16399, 13)], [(16396, 52), (16398, 1), (16399, 8)])"
+        },
+        {
+          "name": "missing image store",
+          "error": "('Ordered source register image incl raw400F', 2, [(16396, 52), (16398, 1)], [(16396, 52), (16399, 8), (16398, 1)])"
+        },
+        {
+          "name": "duplicate owned hardware store",
+          "error": "('Original complete owned-voice hardware values, no400F mask', 2, [(16396, 52), (16398, 1), (16399, 8), (16399, 8)], [(16396, 52), (16398, 1), (16399, 8)])"
+        },
+        {
+          "name": "source emission image sequence swapped",
+          "error": "('Ordered source register image incl raw400F', 2, [(16396, 52), (16398, 1), (16399, 8)], [(16396, 52), (16399, 8), (16398, 1)])"
+        },
+        {
+          "name": "wrong consumed event",
+          "error": "Basic consumer contains an unauthenticated source event"
+        }
+      ],
+      "inputs": {
+        "queue-owners.jsonl": "aa7bf5453e406d2e594c51563a79fbc4cd5a68a7a5e45bd96d61920ead721a4a",
+        "source-register-image.csv": "9f4c4b4fe75b745d2d15c29e91da75550e714d57384f8c10bec245953973dd8a",
+        "assembled-apu.csv": "1683586b91deee9b6e186e3da17fc7067238aa54b8d81759d7ab300239c47306"
+      }
+    },
+    {
+      "cell": "easy-dagger",
+      "scenario": "head",
+      "event": 19,
+      "mode": 0,
+      "epochs": 101,
+      "original_image_order_contract": true,
+      "declared_legacy_adapter_order": null,
+      "negative_controls": [
+        {
+          "name": "raw400F image low bits",
+          "error": "('Ordered source register image incl raw400F', 1, [(16396, 52), (16399, 13), (16398, 1)], [(16396, 52), (16399, 8), (16398, 1)])"
+        },
+        {
+          "name": "raw400F hardware low bits",
+          "error": "('Original complete owned-voice hardware values, no400F mask', 1, [(16396, 52), (16398, 1), (16399, 13)], [(16396, 52), (16398, 1), (16399, 8)])"
+        },
+        {
+          "name": "missing image store",
+          "error": "('Ordered source register image incl raw400F', 1, [(16396, 52), (16398, 1)], [(16396, 52), (16399, 8), (16398, 1)])"
+        },
+        {
+          "name": "duplicate owned hardware store",
+          "error": "('Original complete owned-voice hardware values, no400F mask', 1, [(16396, 52), (16398, 1), (16399, 8), (16399, 8)], [(16396, 52), (16398, 1), (16399, 8)])"
+        },
+        {
+          "name": "source emission image sequence swapped",
+          "error": "('Ordered source register image incl raw400F', 1, [(16396, 52), (16398, 1), (16399, 8)], [(16396, 52), (16399, 8), (16398, 1)])"
+        },
+        {
+          "name": "wrong consumed event",
+          "error": "Basic consumer contains an unauthenticated source event"
+        }
+      ],
+      "inputs": {
+        "queue-owners.jsonl": "4579b5a01745b50ab5451282a56839f81635c2fdac53b11385e667b1e74c861a",
+        "source-register-image.csv": "97d3621f393debd195cee19b1cf192c37b7196fc79bc0c77a9eda4063d8729ce",
+        "assembled-apu.csv": "dc114c0be14d604dfc02b230cb724796be5bd138f18e2fd3737db450f55e602d"
+      }
+    },
+    {
+      "cell": "easy-axe",
+      "scenario": "none",
+      "event": 21,
+      "mode": 0,
+      "epochs": 100,
+      "original_image_order_contract": true,
+      "declared_legacy_adapter_order": null,
+      "negative_controls": [
+        {
+          "name": "raw400F image low bits",
+          "error": "('Ordered source register image incl raw400F', 1, [(16396, 49), (16399, 13), (16398, 1)], [(16396, 49), (16399, 8), (16398, 1)])"
+        },
+        {
+          "name": "raw400F hardware low bits",
+          "error": "('Original complete owned-voice hardware values, no400F mask', 1, [(16396, 49), (16398, 1), (16399, 13)], [(16396, 49), (16398, 1), (16399, 8)])"
+        },
+        {
+          "name": "missing image store",
+          "error": "('Ordered source register image incl raw400F', 1, [(16396, 49), (16398, 1)], [(16396, 49), (16399, 8), (16398, 1)])"
+        },
+        {
+          "name": "duplicate owned hardware store",
+          "error": "('Original complete owned-voice hardware values, no400F mask', 1, [(16396, 49), (16398, 1), (16399, 8), (16399, 8)], [(16396, 49), (16398, 1), (16399, 8)])"
+        },
+        {
+          "name": "source emission image sequence swapped",
+          "error": "('Ordered source register image incl raw400F', 1, [(16396, 49), (16398, 1), (16399, 8)], [(16396, 49), (16399, 8), (16398, 1)])"
+        },
+        {
+          "name": "wrong consumed event",
+          "error": "Basic consumer contains an unauthenticated source event"
+        }
+      ],
+      "inputs": {
+        "queue-owners.jsonl": "4aee83b4181156ff7e72fb543e97951bf0d50c71f46f763cd9c26990031e105b",
+        "source-register-image.csv": "5dc269cab35dfa0026d971526f5dafcc9648421da7e402716dee4397be1ceaa2",
+        "assembled-apu.csv": "0b6ddd143bee72bad3429e5975649a83d63d487034efcd3dc7f39aba69e66006"
+      }
+    },
+    {
+      "cell": "easy-axe",
+      "scenario": "slot",
+      "event": 21,
+      "mode": 0,
+      "epochs": 100,
+      "original_image_order_contract": true,
+      "declared_legacy_adapter_order": null,
+      "negative_controls": [
+        {
+          "name": "raw400F image low bits",
+          "error": "('Ordered source register image incl raw400F', 2, [(16396, 49), (16399, 13), (16398, 1)], [(16396, 49), (16399, 8), (16398, 1)])"
+        },
+        {
+          "name": "raw400F hardware low bits",
+          "error": "('Original complete owned-voice hardware values, no400F mask', 2, [(16396, 49), (16398, 1), (16399, 13)], [(16396, 49), (16398, 1), (16399, 8)])"
+        },
+        {
+          "name": "missing image store",
+          "error": "('Ordered source register image incl raw400F', 2, [(16396, 49), (16398, 1)], [(16396, 49), (16399, 8), (16398, 1)])"
+        },
+        {
+          "name": "duplicate owned hardware store",
+          "error": "('Original complete owned-voice hardware values, no400F mask', 2, [(16396, 49), (16398, 1), (16399, 8), (16399, 8)], [(16396, 49), (16398, 1), (16399, 8)])"
+        },
+        {
+          "name": "source emission image sequence swapped",
+          "error": "('Ordered source register image incl raw400F', 2, [(16396, 49), (16398, 1), (16399, 8)], [(16396, 49), (16399, 8), (16398, 1)])"
+        },
+        {
+          "name": "wrong consumed event",
+          "error": "Basic consumer contains an unauthenticated source event"
+        }
+      ],
+      "inputs": {
+        "queue-owners.jsonl": "e52b57b7f271de8147c131c529715b9980f9f12d3782bdf03a68a72eab499fc8",
+        "source-register-image.csv": "a50ad6e260d8cf6ce3f43157f6467c7d0c2a0c8806b7dd0f8e5cc6244ae6e909",
+        "assembled-apu.csv": "23067a49785c102664cbebb5c7fc23555f3c07032f2e3ff0d713233e09f422fa"
+      }
+    },
+    {
+      "cell": "easy-axe",
+      "scenario": "head",
+      "event": 21,
+      "mode": 0,
+      "epochs": 101,
+      "original_image_order_contract": true,
+      "declared_legacy_adapter_order": null,
+      "negative_controls": [
+        {
+          "name": "raw400F image low bits",
+          "error": "('Ordered source register image incl raw400F', 1, [(16396, 49), (16399, 13), (16398, 1)], [(16396, 49), (16399, 8), (16398, 1)])"
+        },
+        {
+          "name": "raw400F hardware low bits",
+          "error": "('Original complete owned-voice hardware values, no400F mask', 1, [(16396, 49), (16398, 1), (16399, 13)], [(16396, 49), (16398, 1), (16399, 8)])"
+        },
+        {
+          "name": "missing image store",
+          "error": "('Ordered source register image incl raw400F', 1, [(16396, 49), (16398, 1)], [(16396, 49), (16399, 8), (16398, 1)])"
+        },
+        {
+          "name": "duplicate owned hardware store",
+          "error": "('Original complete owned-voice hardware values, no400F mask', 1, [(16396, 49), (16398, 1), (16399, 8), (16399, 8)], [(16396, 49), (16398, 1), (16399, 8)])"
+        },
+        {
+          "name": "source emission image sequence swapped",
+          "error": "('Ordered source register image incl raw400F', 1, [(16396, 49), (16398, 1), (16399, 8)], [(16396, 49), (16399, 8), (16398, 1)])"
+        },
+        {
+          "name": "wrong consumed event",
+          "error": "Basic consumer contains an unauthenticated source event"
+        }
+      ],
+      "inputs": {
+        "queue-owners.jsonl": "56569afaeaacbdd35d35910c3880f6e56f2bc1cfdac98dbb2a75f3d313616e01",
+        "source-register-image.csv": "5dc269cab35dfa0026d971526f5dafcc9648421da7e402716dee4397be1ceaa2",
+        "assembled-apu.csv": "30c4755ea2c14f1eaa28ca1fb0d14343acda0db5ce19866552a866588186b7ef"
+      }
+    },
+    {
+      "cell": "easy-flame",
+      "scenario": "none",
+      "event": 36,
+      "mode": 0,
+      "epochs": 100,
+      "original_image_order_contract": true,
+      "declared_legacy_adapter_order": null,
+      "negative_controls": [
+        {
+          "name": "raw400F image low bits",
+          "error": "('Ordered source register image incl raw400F', 1, [(16385, 127), (16384, 187), (16387, 10), (16386, 112), (16396, 48), (16399, 15), (16398, 0)], [(16385, 127), (16384, 187), (16387, 10), (16386, 112), (16396, 48), (16399, 10), (16398, 0)])"
+        },
+        {
+          "name": "raw400F hardware low bits",
+          "error": "('Original complete owned-voice hardware values, no400F mask', 1, [(16396, 48), (16398, 0), (16399, 15)], [(16396, 48), (16398, 0), (16399, 10)])"
+        },
+        {
+          "name": "missing image store",
+          "error": "('Ordered source register image incl raw400F', 1, [(16385, 127), (16384, 187), (16387, 10), (16386, 112), (16396, 48), (16398, 0)], [(16385, 127), (16384, 187), (16387, 10), (16386, 112), (16396, 48), (16399, 10), (16398, 0)])"
+        },
+        {
+          "name": "duplicate owned hardware store",
+          "error": "('Original complete owned-voice hardware values, no400F mask', 1, [(16396, 48), (16398, 0), (16399, 10), (16399, 10)], [(16396, 48), (16398, 0), (16399, 10)])"
+        },
+        {
+          "name": "source emission image sequence swapped",
+          "error": "('Ordered source register image incl raw400F', 1, [(16385, 127), (16384, 187), (16387, 10), (16386, 112), (16396, 48), (16398, 0), (16399, 10)], [(16385, 127), (16384, 187), (16387, 10), (16386, 112), (16396, 48), (16399, 10), (16398, 0)])"
+        },
+        {
+          "name": "wrong consumed event",
+          "error": "Basic consumer contains an unauthenticated source event"
+        }
+      ],
+      "inputs": {
+        "queue-owners.jsonl": "58d391dfbea2c9fd3a38c753656b7fa00889fe7956da5926c013c546a2188164",
+        "source-register-image.csv": "5da5956ab721e05f66395f3ca30d8da6dccca52f19aa12447496b20d5d490593",
+        "assembled-apu.csv": "e0d3eda092dbba12b7c785b356c23dda0e2198872a90f8dfd4b97b10a297cf6f"
+      }
+    },
+    {
+      "cell": "easy-flame",
+      "scenario": "slot",
+      "event": 36,
+      "mode": 0,
+      "epochs": 100,
+      "original_image_order_contract": true,
+      "declared_legacy_adapter_order": null,
+      "negative_controls": [
+        {
+          "name": "raw400F image low bits",
+          "error": "('Ordered source register image incl raw400F', 2, [(16385, 127), (16384, 187), (16387, 10), (16386, 112), (16396, 48), (16399, 15), (16398, 0)], [(16385, 127), (16384, 187), (16387, 10), (16386, 112), (16396, 48), (16399, 10), (16398, 0)])"
+        },
+        {
+          "name": "raw400F hardware low bits",
+          "error": "('Original complete owned-voice hardware values, no400F mask', 2, [(16396, 48), (16398, 0), (16399, 15)], [(16396, 48), (16398, 0), (16399, 10)])"
+        },
+        {
+          "name": "missing image store",
+          "error": "('Ordered source register image incl raw400F', 2, [(16385, 127), (16384, 187), (16387, 10), (16386, 112), (16396, 48), (16398, 0)], [(16385, 127), (16384, 187), (16387, 10), (16386, 112), (16396, 48), (16399, 10), (16398, 0)])"
+        },
+        {
+          "name": "duplicate owned hardware store",
+          "error": "('Original complete owned-voice hardware values, no400F mask', 2, [(16396, 48), (16398, 0), (16399, 10), (16399, 10)], [(16396, 48), (16398, 0), (16399, 10)])"
+        },
+        {
+          "name": "source emission image sequence swapped",
+          "error": "('Ordered source register image incl raw400F', 2, [(16385, 127), (16384, 187), (16387, 10), (16386, 112), (16396, 48), (16398, 0), (16399, 10)], [(16385, 127), (16384, 187), (16387, 10), (16386, 112), (16396, 48), (16399, 10), (16398, 0)])"
+        },
+        {
+          "name": "wrong consumed event",
+          "error": "Basic consumer contains an unauthenticated source event"
+        }
+      ],
+      "inputs": {
+        "queue-owners.jsonl": "07e8e7e6591390aa2c101fa884e7295133f5f51c154106469d67542c7210eb2c",
+        "source-register-image.csv": "fd7d7c36c6a8b5cb71181cdfce610cd3c67bec653f16d17609d8bf377efbf581",
+        "assembled-apu.csv": "c878e5c6b3c3466727db09c9024cf60e56e7fdff46c3d8cef40da0f0124e0ed2"
+      }
+    },
+    {
+      "cell": "easy-flame",
+      "scenario": "head",
+      "event": 36,
+      "mode": 0,
+      "epochs": 101,
+      "original_image_order_contract": true,
+      "declared_legacy_adapter_order": null,
+      "negative_controls": [
+        {
+          "name": "raw400F image low bits",
+          "error": "('Ordered source register image incl raw400F', 1, [(16385, 127), (16384, 187), (16387, 10), (16386, 112), (16396, 48), (16399, 15), (16398, 0)], [(16385, 127), (16384, 187), (16387, 10), (16386, 112), (16396, 48), (16399, 10), (16398, 0)])"
+        },
+        {
+          "name": "raw400F hardware low bits",
+          "error": "('Original complete owned-voice hardware values, no400F mask', 1, [(16396, 48), (16398, 0), (16399, 15)], [(16396, 48), (16398, 0), (16399, 10)])"
+        },
+        {
+          "name": "missing image store",
+          "error": "('Ordered source register image incl raw400F', 1, [(16385, 127), (16384, 187), (16387, 10), (16386, 112), (16396, 48), (16398, 0)], [(16385, 127), (16384, 187), (16387, 10), (16386, 112), (16396, 48), (16399, 10), (16398, 0)])"
+        },
+        {
+          "name": "duplicate owned hardware store",
+          "error": "('Original complete owned-voice hardware values, no400F mask', 1, [(16396, 48), (16398, 0), (16399, 10), (16399, 10)], [(16396, 48), (16398, 0), (16399, 10)])"
+        },
+        {
+          "name": "source emission image sequence swapped",
+          "error": "('Ordered source register image incl raw400F', 1, [(16385, 127), (16384, 187), (16387, 10), (16386, 112), (16396, 48), (16398, 0), (16399, 10)], [(16385, 127), (16384, 187), (16387, 10), (16386, 112), (16396, 48), (16399, 10), (16398, 0)])"
+        },
+        {
+          "name": "wrong consumed event",
+          "error": "Basic consumer contains an unauthenticated source event"
+        }
+      ],
+      "inputs": {
+        "queue-owners.jsonl": "7e5f87514ed68d03728ccd4e5144f83f96cf5dd9eb77687aded89cc0629a991c",
+        "source-register-image.csv": "5da5956ab721e05f66395f3ca30d8da6dccca52f19aa12447496b20d5d490593",
+        "assembled-apu.csv": "a65c8e7975563689d3158b47616d2f9453de9a056b55c2fdb63f3ce5a752b3fd"
+      }
+    },
+    {
+      "cell": "easy-ice",
+      "scenario": "none",
+      "event": 33,
+      "mode": 0,
+      "epochs": 100,
+      "original_image_order_contract": true,
+      "declared_legacy_adapter_order": null,
+      "negative_controls": [
+        {
+          "name": "raw400F image low bits",
+          "error": "('Ordered source register image incl raw400F', 1, [(16384, 48), (16385, 127), (16396, 56), (16399, 13), (16398, 15)], [(16384, 48), (16385, 127), (16396, 56), (16399, 8), (16398, 15)])"
+        },
+        {
+          "name": "raw400F hardware low bits",
+          "error": "('Original complete owned-voice hardware values, no400F mask', 1, [(16396, 56), (16398, 15), (16399, 13)], [(16396, 56), (16398, 15), (16399, 8)])"
+        },
+        {
+          "name": "missing image store",
+          "error": "('Ordered source register image incl raw400F', 1, [(16384, 48), (16385, 127), (16396, 56), (16398, 15)], [(16384, 48), (16385, 127), (16396, 56), (16399, 8), (16398, 15)])"
+        },
+        {
+          "name": "duplicate owned hardware store",
+          "error": "('Original complete owned-voice hardware values, no400F mask', 1, [(16396, 56), (16398, 15), (16399, 8), (16399, 8)], [(16396, 56), (16398, 15), (16399, 8)])"
+        },
+        {
+          "name": "source emission image sequence swapped",
+          "error": "('Ordered source register image incl raw400F', 1, [(16384, 48), (16385, 127), (16396, 56), (16398, 15), (16399, 8)], [(16384, 48), (16385, 127), (16396, 56), (16399, 8), (16398, 15)])"
+        },
+        {
+          "name": "wrong consumed event",
+          "error": "Basic consumer contains an unauthenticated source event"
+        }
+      ],
+      "inputs": {
+        "queue-owners.jsonl": "badd3a8b540de9d84d63cb4615fb9a16537e0b9d1217155e7e18af62e88b3e30",
+        "source-register-image.csv": "77ab2a18b1ca6d99612928da263440ebed5b0c5aac85e7ed2e8ed2e1a10b35e2",
+        "assembled-apu.csv": "a040ec0d5b3e4460da480614cf961171bc99e21e3098c377e09b5f667a58bd32"
+      }
+    },
+    {
+      "cell": "easy-ice",
+      "scenario": "slot",
+      "event": 33,
+      "mode": 0,
+      "epochs": 100,
+      "original_image_order_contract": true,
+      "declared_legacy_adapter_order": null,
+      "negative_controls": [
+        {
+          "name": "raw400F image low bits",
+          "error": "('Ordered source register image incl raw400F', 2, [(16384, 48), (16385, 127), (16396, 56), (16399, 13), (16398, 15)], [(16384, 48), (16385, 127), (16396, 56), (16399, 8), (16398, 15)])"
+        },
+        {
+          "name": "raw400F hardware low bits",
+          "error": "('Original complete owned-voice hardware values, no400F mask', 2, [(16396, 56), (16398, 15), (16399, 13)], [(16396, 56), (16398, 15), (16399, 8)])"
+        },
+        {
+          "name": "missing image store",
+          "error": "('Ordered source register image incl raw400F', 2, [(16384, 48), (16385, 127), (16396, 56), (16398, 15)], [(16384, 48), (16385, 127), (16396, 56), (16399, 8), (16398, 15)])"
+        },
+        {
+          "name": "duplicate owned hardware store",
+          "error": "('Original complete owned-voice hardware values, no400F mask', 2, [(16396, 56), (16398, 15), (16399, 8), (16399, 8)], [(16396, 56), (16398, 15), (16399, 8)])"
+        },
+        {
+          "name": "source emission image sequence swapped",
+          "error": "('Ordered source register image incl raw400F', 2, [(16384, 48), (16385, 127), (16396, 56), (16398, 15), (16399, 8)], [(16384, 48), (16385, 127), (16396, 56), (16399, 8), (16398, 15)])"
+        },
+        {
+          "name": "wrong consumed event",
+          "error": "Basic consumer contains an unauthenticated source event"
+        }
+      ],
+      "inputs": {
+        "queue-owners.jsonl": "dde8757d8212808e91aa615cb9b6f828512c610067fbd7deb062f05a1d6a9188",
+        "source-register-image.csv": "e3ced0e911bda2700d39e3f4ba8313e08d2b7b202e6ee35b70659ac850392252",
+        "assembled-apu.csv": "57a2c33474bd68f0a92e3b9ac942596034be14e5243090613954ae489404145f"
+      }
+    },
+    {
+      "cell": "easy-ice",
+      "scenario": "head",
+      "event": 33,
+      "mode": 0,
+      "epochs": 101,
+      "original_image_order_contract": true,
+      "declared_legacy_adapter_order": null,
+      "negative_controls": [
+        {
+          "name": "raw400F image low bits",
+          "error": "('Ordered source register image incl raw400F', 1, [(16384, 48), (16385, 127), (16396, 56), (16399, 13), (16398, 15)], [(16384, 48), (16385, 127), (16396, 56), (16399, 8), (16398, 15)])"
+        },
+        {
+          "name": "raw400F hardware low bits",
+          "error": "('Original complete owned-voice hardware values, no400F mask', 1, [(16396, 56), (16398, 15), (16399, 13)], [(16396, 56), (16398, 15), (16399, 8)])"
+        },
+        {
+          "name": "missing image store",
+          "error": "('Ordered source register image incl raw400F', 1, [(16384, 48), (16385, 127), (16396, 56), (16398, 15)], [(16384, 48), (16385, 127), (16396, 56), (16399, 8), (16398, 15)])"
+        },
+        {
+          "name": "duplicate owned hardware store",
+          "error": "('Original complete owned-voice hardware values, no400F mask', 1, [(16396, 56), (16398, 15), (16399, 8), (16399, 8)], [(16396, 56), (16398, 15), (16399, 8)])"
+        },
+        {
+          "name": "source emission image sequence swapped",
+          "error": "('Ordered source register image incl raw400F', 1, [(16384, 48), (16385, 127), (16396, 56), (16398, 15), (16399, 8)], [(16384, 48), (16385, 127), (16396, 56), (16399, 8), (16398, 15)])"
+        },
+        {
+          "name": "wrong consumed event",
+          "error": "Basic consumer contains an unauthenticated source event"
+        }
+      ],
+      "inputs": {
+        "queue-owners.jsonl": "f15cafcf8e4d111f165f35426f954e8ed8dfc65898c64e4e172d41d90253d44b",
+        "source-register-image.csv": "aae3665a65103dc7274478c840a58a8e7164354ab0bc6777de032238456b7b7f",
+        "assembled-apu.csv": "39b00000733ca0b2dd7a00088799614ca7880a968417d67eb47954ee7fe29225"
+      }
+    },
+    {
+      "cell": "easy-fireball",
+      "scenario": "none",
+      "event": 31,
+      "mode": 0,
+      "epochs": 100,
+      "original_image_order_contract": false,
+      "declared_legacy_adapter_order": [
+        16398,
+        16399,
+        16396
+      ],
+      "negative_controls": [
+        {
+          "name": "raw400F image low bits",
+          "error": "('Ordered source register image incl raw400F', 1, [(16398, 7), (16399, 13), (16396, 57)], [(16398, 7), (16399, 8), (16396, 57)])"
+        },
+        {
+          "name": "raw400F hardware low bits",
+          "error": "('Original complete owned-voice hardware values, no400F mask', 1, [(16396, 57), (16398, 7), (16399, 13)], [(16396, 57), (16398, 7), (16399, 8)])"
+        },
+        {
+          "name": "missing image store",
+          "error": "('Ordered source register image incl raw400F', 1, [(16398, 7), (16396, 57)], [(16398, 7), (16399, 8), (16396, 57)])"
+        },
+        {
+          "name": "duplicate owned hardware store",
+          "error": "('Original complete owned-voice hardware values, no400F mask', 1, [(16396, 57), (16398, 7), (16399, 8), (16399, 8)], [(16396, 57), (16398, 7), (16399, 8)])"
+        },
+        {
+          "name": "source emission image sequence swapped",
+          "error": "('Ordered source register image incl raw400F', 1, [(16398, 7), (16396, 57), (16399, 8)], [(16398, 7), (16399, 8), (16396, 57)])"
+        },
+        {
+          "name": "wrong consumed event",
+          "error": "Basic consumer contains an unauthenticated source event"
+        }
+      ],
+      "inputs": {
+        "queue-owners.jsonl": "a6a3c0beec903c2de2acc4186d0673518094383fc1231a55e33ae3fee995fad9",
+        "source-register-image.csv": "8bcb1bd2c58c34d15a0d7015870a49355ef8c058ff72fc89da06037c940fb742",
+        "assembled-apu.csv": "7f2c3ba1f04d8992873d47798fd55c3c8e9e220f3544342a9f402b0865f83b3a"
+      }
+    },
+    {
+      "cell": "easy-fireball",
+      "scenario": "slot",
+      "event": 31,
+      "mode": 0,
+      "epochs": 100,
+      "original_image_order_contract": false,
+      "declared_legacy_adapter_order": [
+        16398,
+        16399,
+        16396
+      ],
+      "negative_controls": [
+        {
+          "name": "raw400F image low bits",
+          "error": "('Ordered source register image incl raw400F', 2, [(16398, 7), (16399, 13), (16396, 57)], [(16398, 7), (16399, 8), (16396, 57)])"
+        },
+        {
+          "name": "raw400F hardware low bits",
+          "error": "('Original complete owned-voice hardware values, no400F mask', 2, [(16396, 57), (16398, 7), (16399, 13)], [(16396, 57), (16398, 7), (16399, 8)])"
+        },
+        {
+          "name": "missing image store",
+          "error": "('Ordered source register image incl raw400F', 2, [(16398, 7), (16396, 57)], [(16398, 7), (16399, 8), (16396, 57)])"
+        },
+        {
+          "name": "duplicate owned hardware store",
+          "error": "('Original complete owned-voice hardware values, no400F mask', 2, [(16396, 57), (16398, 7), (16399, 8), (16399, 8)], [(16396, 57), (16398, 7), (16399, 8)])"
+        },
+        {
+          "name": "source emission image sequence swapped",
+          "error": "('Ordered source register image incl raw400F', 2, [(16398, 7), (16396, 57), (16399, 8)], [(16398, 7), (16399, 8), (16396, 57)])"
+        },
+        {
+          "name": "wrong consumed event",
+          "error": "Basic consumer contains an unauthenticated source event"
+        }
+      ],
+      "inputs": {
+        "queue-owners.jsonl": "2088ae79c136d0fedca384c7f04ae0be15be4abd6895e0b081736613847f7219",
+        "source-register-image.csv": "aa7aa73609ecae9c6cda20e89ab71c2f0b0034c3eb7a5729ae371e4a51416587",
+        "assembled-apu.csv": "0260429bdf011e473edca42701d56f615e2aa57c5f7196b37a3a658f56ce7cd6"
+      }
+    },
+    {
+      "cell": "easy-fireball",
+      "scenario": "head",
+      "event": 31,
+      "mode": 0,
+      "epochs": 101,
+      "original_image_order_contract": false,
+      "declared_legacy_adapter_order": [
+        16398,
+        16399,
+        16396
+      ],
+      "negative_controls": [
+        {
+          "name": "raw400F image low bits",
+          "error": "('Ordered source register image incl raw400F', 1, [(16398, 7), (16399, 13), (16396, 57)], [(16398, 7), (16399, 8), (16396, 57)])"
+        },
+        {
+          "name": "raw400F hardware low bits",
+          "error": "('Original complete owned-voice hardware values, no400F mask', 1, [(16396, 57), (16398, 7), (16399, 13)], [(16396, 57), (16398, 7), (16399, 8)])"
+        },
+        {
+          "name": "missing image store",
+          "error": "('Ordered source register image incl raw400F', 1, [(16398, 7), (16396, 57)], [(16398, 7), (16399, 8), (16396, 57)])"
+        },
+        {
+          "name": "duplicate owned hardware store",
+          "error": "('Original complete owned-voice hardware values, no400F mask', 1, [(16396, 57), (16398, 7), (16399, 8), (16399, 8)], [(16396, 57), (16398, 7), (16399, 8)])"
+        },
+        {
+          "name": "source emission image sequence swapped",
+          "error": "('Ordered source register image incl raw400F', 1, [(16398, 7), (16396, 57), (16399, 8)], [(16398, 7), (16399, 8), (16396, 57)])"
+        },
+        {
+          "name": "wrong consumed event",
+          "error": "Basic consumer contains an unauthenticated source event"
+        }
+      ],
+      "inputs": {
+        "queue-owners.jsonl": "e04629cc26f6a8dcf00d00b3271abc3a878279aba597e5971b01e2187dc8a8ea",
+        "source-register-image.csv": "8bcb1bd2c58c34d15a0d7015870a49355ef8c058ff72fc89da06037c940fb742",
+        "assembled-apu.csv": "0cbf9e85655911e2d4c22c67c23fd60ce751e076e6b3dc0dd2073e1f8a0620a6"
+      }
+    },
+    {
+      "cell": "easy-bat",
+      "scenario": "none",
+      "event": 47,
+      "mode": 0,
+      "epochs": 100,
+      "original_image_order_contract": true,
+      "declared_legacy_adapter_order": null,
+      "negative_controls": [
+        {
+          "name": "raw400F image low bits",
+          "error": "('Ordered source register image incl raw400F', 1, [(16385, 127), (16384, 177), (16387, 9), (16386, 83), (16396, 48), (16399, 12), (16398, 0)], [(16385, 127), (16384, 177), (16387, 9), (16386, 83), (16396, 48), (16399, 9), (16398, 0)])"
+        },
+        {
+          "name": "raw400F hardware low bits",
+          "error": "('Original complete owned-voice hardware values, no400F mask', 1, [(16396, 48), (16398, 0), (16399, 12)], [(16396, 48), (16398, 0), (16399, 9)])"
+        },
+        {
+          "name": "missing image store",
+          "error": "('Ordered source register image incl raw400F', 1, [(16385, 127), (16384, 177), (16387, 9), (16386, 83), (16396, 48), (16398, 0)], [(16385, 127), (16384, 177), (16387, 9), (16386, 83), (16396, 48), (16399, 9), (16398, 0)])"
+        },
+        {
+          "name": "duplicate owned hardware store",
+          "error": "('Original complete owned-voice hardware values, no400F mask', 1, [(16396, 48), (16398, 0), (16399, 9), (16399, 9)], [(16396, 48), (16398, 0), (16399, 9)])"
+        },
+        {
+          "name": "source emission image sequence swapped",
+          "error": "('Ordered source register image incl raw400F', 1, [(16385, 127), (16384, 177), (16387, 9), (16386, 83), (16396, 48), (16398, 0), (16399, 9)], [(16385, 127), (16384, 177), (16387, 9), (16386, 83), (16396, 48), (16399, 9), (16398, 0)])"
+        },
+        {
+          "name": "wrong consumed event",
+          "error": "Basic consumer contains an unauthenticated source event"
+        }
+      ],
+      "inputs": {
+        "queue-owners.jsonl": "eafbc0d16406145f94725be65f9bdfe125d791011c06da6c4b731a2ef863bd8d",
+        "source-register-image.csv": "c23305a02b1a25d45c36d621f9fdfdcaecebed2a692a0899be7862e1ce690119",
+        "assembled-apu.csv": "5d606d37f3ceca328fe0360cf9b02956ebd1dc568f601e8d251c2db668324ed9"
+      }
+    },
+    {
+      "cell": "easy-bat",
+      "scenario": "slot",
+      "event": 47,
+      "mode": 0,
+      "epochs": 100,
+      "original_image_order_contract": true,
+      "declared_legacy_adapter_order": null,
+      "negative_controls": [
+        {
+          "name": "raw400F image low bits",
+          "error": "('Ordered source register image incl raw400F', 2, [(16385, 127), (16384, 177), (16387, 9), (16386, 83), (16396, 48), (16399, 12), (16398, 0)], [(16385, 127), (16384, 177), (16387, 9), (16386, 83), (16396, 48), (16399, 9), (16398, 0)])"
+        },
+        {
+          "name": "raw400F hardware low bits",
+          "error": "('Original complete owned-voice hardware values, no400F mask', 2, [(16396, 48), (16398, 0), (16399, 12)], [(16396, 48), (16398, 0), (16399, 9)])"
+        },
+        {
+          "name": "missing image store",
+          "error": "('Ordered source register image incl raw400F', 2, [(16385, 127), (16384, 177), (16387, 9), (16386, 83), (16396, 48), (16398, 0)], [(16385, 127), (16384, 177), (16387, 9), (16386, 83), (16396, 48), (16399, 9), (16398, 0)])"
+        },
+        {
+          "name": "duplicate owned hardware store",
+          "error": "('Original complete owned-voice hardware values, no400F mask', 2, [(16396, 48), (16398, 0), (16399, 9), (16399, 9)], [(16396, 48), (16398, 0), (16399, 9)])"
+        },
+        {
+          "name": "source emission image sequence swapped",
+          "error": "('Ordered source register image incl raw400F', 2, [(16385, 127), (16384, 177), (16387, 9), (16386, 83), (16396, 48), (16398, 0), (16399, 9)], [(16385, 127), (16384, 177), (16387, 9), (16386, 83), (16396, 48), (16399, 9), (16398, 0)])"
+        },
+        {
+          "name": "wrong consumed event",
+          "error": "Basic consumer contains an unauthenticated source event"
+        }
+      ],
+      "inputs": {
+        "queue-owners.jsonl": "44365e87f5b1b2a676e3e3396e06d7702e13ae946ba52c44bce1c416463ab406",
+        "source-register-image.csv": "c65d7e0a702e2b06310f34fdb55be17fc486c4ab346e95d0caec9d3121ef5d9c",
+        "assembled-apu.csv": "9000425d23424e545487375d119e94086343edb6955ca6373e2e97856e4a90ad"
+      }
+    },
+    {
+      "cell": "easy-bat",
+      "scenario": "head",
+      "event": 47,
+      "mode": 0,
+      "epochs": 101,
+      "original_image_order_contract": true,
+      "declared_legacy_adapter_order": null,
+      "negative_controls": [
+        {
+          "name": "raw400F image low bits",
+          "error": "('Ordered source register image incl raw400F', 1, [(16385, 127), (16384, 177), (16387, 9), (16386, 83), (16396, 48), (16399, 12), (16398, 0)], [(16385, 127), (16384, 177), (16387, 9), (16386, 83), (16396, 48), (16399, 9), (16398, 0)])"
+        },
+        {
+          "name": "raw400F hardware low bits",
+          "error": "('Original complete owned-voice hardware values, no400F mask', 1, [(16396, 48), (16398, 0), (16399, 12)], [(16396, 48), (16398, 0), (16399, 9)])"
+        },
+        {
+          "name": "missing image store",
+          "error": "('Ordered source register image incl raw400F', 1, [(16385, 127), (16384, 177), (16387, 9), (16386, 83), (16396, 48), (16398, 0)], [(16385, 127), (16384, 177), (16387, 9), (16386, 83), (16396, 48), (16399, 9), (16398, 0)])"
+        },
+        {
+          "name": "duplicate owned hardware store",
+          "error": "('Original complete owned-voice hardware values, no400F mask', 1, [(16396, 48), (16398, 0), (16399, 9), (16399, 9)], [(16396, 48), (16398, 0), (16399, 9)])"
+        },
+        {
+          "name": "source emission image sequence swapped",
+          "error": "('Ordered source register image incl raw400F', 1, [(16385, 127), (16384, 177), (16387, 9), (16386, 83), (16396, 48), (16398, 0), (16399, 9)], [(16385, 127), (16384, 177), (16387, 9), (16386, 83), (16396, 48), (16399, 9), (16398, 0)])"
+        },
+        {
+          "name": "wrong consumed event",
+          "error": "Basic consumer contains an unauthenticated source event"
+        }
+      ],
+      "inputs": {
+        "queue-owners.jsonl": "273e8705737de9010de07d4c9872b0bd143f933ca0170571647193c7fd06bbe6",
+        "source-register-image.csv": "c23305a02b1a25d45c36d621f9fdfdcaecebed2a692a0899be7862e1ce690119",
+        "assembled-apu.csv": "beb1cc56376b37722f4b3c94d881b2ede448cd0f59f907b71e8c9c6d83714285"
+      }
+    },
+    {
+      "cell": "hard-dagger",
+      "scenario": "none",
+      "event": 19,
+      "mode": 1,
+      "epochs": 100,
+      "original_image_order_contract": true,
+      "declared_legacy_adapter_order": null,
+      "negative_controls": [
+        {
+          "name": "raw400F image low bits",
+          "error": "('Ordered source register image incl raw400F', 1, [(16396, 52), (16399, 13), (16398, 1)], [(16396, 52), (16399, 8), (16398, 1)])"
+        },
+        {
+          "name": "raw400F hardware low bits",
+          "error": "('Original complete owned-voice hardware values, no400F mask', 1, [(16396, 52), (16398, 1), (16399, 13)], [(16396, 52), (16398, 1), (16399, 8)])"
+        },
+        {
+          "name": "missing image store",
+          "error": "('Ordered source register image incl raw400F', 1, [(16396, 52), (16398, 1)], [(16396, 52), (16399, 8), (16398, 1)])"
+        },
+        {
+          "name": "duplicate owned hardware store",
+          "error": "('Original complete owned-voice hardware values, no400F mask', 1, [(16396, 52), (16398, 1), (16399, 8), (16399, 8)], [(16396, 52), (16398, 1), (16399, 8)])"
+        },
+        {
+          "name": "source emission image sequence swapped",
+          "error": "('Ordered source register image incl raw400F', 1, [(16396, 52), (16398, 1), (16399, 8)], [(16396, 52), (16399, 8), (16398, 1)])"
+        },
+        {
+          "name": "wrong consumed event",
+          "error": "Basic consumer contains an unauthenticated source event"
+        }
+      ],
+      "inputs": {
+        "queue-owners.jsonl": "4cf9a13a67a9ad69ee80ed4e7f1b85f43a9edca6019fec0599d6a597b6de1e3f",
+        "source-register-image.csv": "97d3621f393debd195cee19b1cf192c37b7196fc79bc0c77a9eda4063d8729ce",
+        "assembled-apu.csv": "7961c1feb767e1e9001d6eda6d5f0a8b694e37007d88f9d2338e9493a8aa4f92"
+      }
+    },
+    {
+      "cell": "hard-dagger",
+      "scenario": "slot",
+      "event": 19,
+      "mode": 1,
+      "epochs": 100,
+      "original_image_order_contract": true,
+      "declared_legacy_adapter_order": null,
+      "negative_controls": [
+        {
+          "name": "raw400F image low bits",
+          "error": "('Ordered source register image incl raw400F', 2, [(16396, 52), (16399, 13), (16398, 1)], [(16396, 52), (16399, 8), (16398, 1)])"
+        },
+        {
+          "name": "raw400F hardware low bits",
+          "error": "('Original complete owned-voice hardware values, no400F mask', 2, [(16396, 52), (16398, 1), (16399, 13)], [(16396, 52), (16398, 1), (16399, 8)])"
+        },
+        {
+          "name": "missing image store",
+          "error": "('Ordered source register image incl raw400F', 2, [(16396, 52), (16398, 1)], [(16396, 52), (16399, 8), (16398, 1)])"
+        },
+        {
+          "name": "duplicate owned hardware store",
+          "error": "('Original complete owned-voice hardware values, no400F mask', 2, [(16396, 52), (16398, 1), (16399, 8), (16399, 8)], [(16396, 52), (16398, 1), (16399, 8)])"
+        },
+        {
+          "name": "source emission image sequence swapped",
+          "error": "('Ordered source register image incl raw400F', 2, [(16396, 52), (16398, 1), (16399, 8)], [(16396, 52), (16399, 8), (16398, 1)])"
+        },
+        {
+          "name": "wrong consumed event",
+          "error": "Basic consumer contains an unauthenticated source event"
+        }
+      ],
+      "inputs": {
+        "queue-owners.jsonl": "7b024c4cdff0072b6e16122157543d50e4915f3e3c9e9b27cbd202bade8a4055",
+        "source-register-image.csv": "9f4c4b4fe75b745d2d15c29e91da75550e714d57384f8c10bec245953973dd8a",
+        "assembled-apu.csv": "1683586b91deee9b6e186e3da17fc7067238aa54b8d81759d7ab300239c47306"
+      }
+    },
+    {
+      "cell": "hard-dagger",
+      "scenario": "head",
+      "event": 19,
+      "mode": 1,
+      "epochs": 101,
+      "original_image_order_contract": true,
+      "declared_legacy_adapter_order": null,
+      "negative_controls": [
+        {
+          "name": "raw400F image low bits",
+          "error": "('Ordered source register image incl raw400F', 1, [(16396, 52), (16399, 13), (16398, 1)], [(16396, 52), (16399, 8), (16398, 1)])"
+        },
+        {
+          "name": "raw400F hardware low bits",
+          "error": "('Original complete owned-voice hardware values, no400F mask', 1, [(16396, 52), (16398, 1), (16399, 13)], [(16396, 52), (16398, 1), (16399, 8)])"
+        },
+        {
+          "name": "missing image store",
+          "error": "('Ordered source register image incl raw400F', 1, [(16396, 52), (16398, 1)], [(16396, 52), (16399, 8), (16398, 1)])"
+        },
+        {
+          "name": "duplicate owned hardware store",
+          "error": "('Original complete owned-voice hardware values, no400F mask', 1, [(16396, 52), (16398, 1), (16399, 8), (16399, 8)], [(16396, 52), (16398, 1), (16399, 8)])"
+        },
+        {
+          "name": "source emission image sequence swapped",
+          "error": "('Ordered source register image incl raw400F', 1, [(16396, 52), (16398, 1), (16399, 8)], [(16396, 52), (16399, 8), (16398, 1)])"
+        },
+        {
+          "name": "wrong consumed event",
+          "error": "Basic consumer contains an unauthenticated source event"
+        }
+      ],
+      "inputs": {
+        "queue-owners.jsonl": "8374a0d522a838cfc19bccb273d3a7548f41e1352871b17af5e558e1b7057897",
+        "source-register-image.csv": "97d3621f393debd195cee19b1cf192c37b7196fc79bc0c77a9eda4063d8729ce",
+        "assembled-apu.csv": "dc114c0be14d604dfc02b230cb724796be5bd138f18e2fd3737db450f55e602d"
+      }
+    },
+    {
+      "cell": "hard-axe",
+      "scenario": "none",
+      "event": 21,
+      "mode": 1,
+      "epochs": 100,
+      "original_image_order_contract": true,
+      "declared_legacy_adapter_order": null,
+      "negative_controls": [
+        {
+          "name": "raw400F image low bits",
+          "error": "('Ordered source register image incl raw400F', 1, [(16396, 49), (16399, 13), (16398, 1)], [(16396, 49), (16399, 8), (16398, 1)])"
+        },
+        {
+          "name": "raw400F hardware low bits",
+          "error": "('Original complete owned-voice hardware values, no400F mask', 1, [(16396, 49), (16398, 1), (16399, 13)], [(16396, 49), (16398, 1), (16399, 8)])"
+        },
+        {
+          "name": "missing image store",
+          "error": "('Ordered source register image incl raw400F', 1, [(16396, 49), (16398, 1)], [(16396, 49), (16399, 8), (16398, 1)])"
+        },
+        {
+          "name": "duplicate owned hardware store",
+          "error": "('Original complete owned-voice hardware values, no400F mask', 1, [(16396, 49), (16398, 1), (16399, 8), (16399, 8)], [(16396, 49), (16398, 1), (16399, 8)])"
+        },
+        {
+          "name": "source emission image sequence swapped",
+          "error": "('Ordered source register image incl raw400F', 1, [(16396, 49), (16398, 1), (16399, 8)], [(16396, 49), (16399, 8), (16398, 1)])"
+        },
+        {
+          "name": "wrong consumed event",
+          "error": "Basic consumer contains an unauthenticated source event"
+        }
+      ],
+      "inputs": {
+        "queue-owners.jsonl": "1d4b40a59716695988b6d740afbcd001490afc809f4c12de3749c4af24480032",
+        "source-register-image.csv": "5dc269cab35dfa0026d971526f5dafcc9648421da7e402716dee4397be1ceaa2",
+        "assembled-apu.csv": "0b6ddd143bee72bad3429e5975649a83d63d487034efcd3dc7f39aba69e66006"
+      }
+    },
+    {
+      "cell": "hard-axe",
+      "scenario": "slot",
+      "event": 21,
+      "mode": 1,
+      "epochs": 100,
+      "original_image_order_contract": true,
+      "declared_legacy_adapter_order": null,
+      "negative_controls": [
+        {
+          "name": "raw400F image low bits",
+          "error": "('Ordered source register image incl raw400F', 2, [(16396, 49), (16399, 13), (16398, 1)], [(16396, 49), (16399, 8), (16398, 1)])"
+        },
+        {
+          "name": "raw400F hardware low bits",
+          "error": "('Original complete owned-voice hardware values, no400F mask', 2, [(16396, 49), (16398, 1), (16399, 13)], [(16396, 49), (16398, 1), (16399, 8)])"
+        },
+        {
+          "name": "missing image store",
+          "error": "('Ordered source register image incl raw400F', 2, [(16396, 49), (16398, 1)], [(16396, 49), (16399, 8), (16398, 1)])"
+        },
+        {
+          "name": "duplicate owned hardware store",
+          "error": "('Original complete owned-voice hardware values, no400F mask', 2, [(16396, 49), (16398, 1), (16399, 8), (16399, 8)], [(16396, 49), (16398, 1), (16399, 8)])"
+        },
+        {
+          "name": "source emission image sequence swapped",
+          "error": "('Ordered source register image incl raw400F', 2, [(16396, 49), (16398, 1), (16399, 8)], [(16396, 49), (16399, 8), (16398, 1)])"
+        },
+        {
+          "name": "wrong consumed event",
+          "error": "Basic consumer contains an unauthenticated source event"
+        }
+      ],
+      "inputs": {
+        "queue-owners.jsonl": "91da36893ed63e2a150999acd55a6de8dc8c97758f0c51402aa15ea6fe1c5721",
+        "source-register-image.csv": "a50ad6e260d8cf6ce3f43157f6467c7d0c2a0c8806b7dd0f8e5cc6244ae6e909",
+        "assembled-apu.csv": "23067a49785c102664cbebb5c7fc23555f3c07032f2e3ff0d713233e09f422fa"
+      }
+    },
+    {
+      "cell": "hard-axe",
+      "scenario": "head",
+      "event": 21,
+      "mode": 1,
+      "epochs": 101,
+      "original_image_order_contract": true,
+      "declared_legacy_adapter_order": null,
+      "negative_controls": [
+        {
+          "name": "raw400F image low bits",
+          "error": "('Ordered source register image incl raw400F', 1, [(16396, 49), (16399, 13), (16398, 1)], [(16396, 49), (16399, 8), (16398, 1)])"
+        },
+        {
+          "name": "raw400F hardware low bits",
+          "error": "('Original complete owned-voice hardware values, no400F mask', 1, [(16396, 49), (16398, 1), (16399, 13)], [(16396, 49), (16398, 1), (16399, 8)])"
+        },
+        {
+          "name": "missing image store",
+          "error": "('Ordered source register image incl raw400F', 1, [(16396, 49), (16398, 1)], [(16396, 49), (16399, 8), (16398, 1)])"
+        },
+        {
+          "name": "duplicate owned hardware store",
+          "error": "('Original complete owned-voice hardware values, no400F mask', 1, [(16396, 49), (16398, 1), (16399, 8), (16399, 8)], [(16396, 49), (16398, 1), (16399, 8)])"
+        },
+        {
+          "name": "source emission image sequence swapped",
+          "error": "('Ordered source register image incl raw400F', 1, [(16396, 49), (16398, 1), (16399, 8)], [(16396, 49), (16399, 8), (16398, 1)])"
+        },
+        {
+          "name": "wrong consumed event",
+          "error": "Basic consumer contains an unauthenticated source event"
+        }
+      ],
+      "inputs": {
+        "queue-owners.jsonl": "3c1b2fe4ddc06d4e2263f880f00598464b17d45e22e66c654dcb62684e33f781",
+        "source-register-image.csv": "5dc269cab35dfa0026d971526f5dafcc9648421da7e402716dee4397be1ceaa2",
+        "assembled-apu.csv": "30c4755ea2c14f1eaa28ca1fb0d14343acda0db5ce19866552a866588186b7ef"
+      }
+    },
+    {
+      "cell": "hard-flame",
+      "scenario": "none",
+      "event": 36,
+      "mode": 1,
+      "epochs": 100,
+      "original_image_order_contract": true,
+      "declared_legacy_adapter_order": null,
+      "negative_controls": [
+        {
+          "name": "raw400F image low bits",
+          "error": "('Ordered source register image incl raw400F', 1, [(16385, 127), (16384, 187), (16387, 10), (16386, 112), (16396, 48), (16399, 15), (16398, 0)], [(16385, 127), (16384, 187), (16387, 10), (16386, 112), (16396, 48), (16399, 10), (16398, 0)])"
+        },
+        {
+          "name": "raw400F hardware low bits",
+          "error": "('Original complete owned-voice hardware values, no400F mask', 1, [(16396, 48), (16398, 0), (16399, 15)], [(16396, 48), (16398, 0), (16399, 10)])"
+        },
+        {
+          "name": "missing image store",
+          "error": "('Ordered source register image incl raw400F', 1, [(16385, 127), (16384, 187), (16387, 10), (16386, 112), (16396, 48), (16398, 0)], [(16385, 127), (16384, 187), (16387, 10), (16386, 112), (16396, 48), (16399, 10), (16398, 0)])"
+        },
+        {
+          "name": "duplicate owned hardware store",
+          "error": "('Original complete owned-voice hardware values, no400F mask', 1, [(16396, 48), (16398, 0), (16399, 10), (16399, 10)], [(16396, 48), (16398, 0), (16399, 10)])"
+        },
+        {
+          "name": "source emission image sequence swapped",
+          "error": "('Ordered source register image incl raw400F', 1, [(16385, 127), (16384, 187), (16387, 10), (16386, 112), (16396, 48), (16398, 0), (16399, 10)], [(16385, 127), (16384, 187), (16387, 10), (16386, 112), (16396, 48), (16399, 10), (16398, 0)])"
+        },
+        {
+          "name": "wrong consumed event",
+          "error": "Basic consumer contains an unauthenticated source event"
+        }
+      ],
+      "inputs": {
+        "queue-owners.jsonl": "e9234ed248d9909af229f737faac2d2ffc2a4ed697e2b48b9c60d1857c0f64bd",
+        "source-register-image.csv": "5da5956ab721e05f66395f3ca30d8da6dccca52f19aa12447496b20d5d490593",
+        "assembled-apu.csv": "e0d3eda092dbba12b7c785b356c23dda0e2198872a90f8dfd4b97b10a297cf6f"
+      }
+    },
+    {
+      "cell": "hard-flame",
+      "scenario": "slot",
+      "event": 36,
+      "mode": 1,
+      "epochs": 100,
+      "original_image_order_contract": true,
+      "declared_legacy_adapter_order": null,
+      "negative_controls": [
+        {
+          "name": "raw400F image low bits",
+          "error": "('Ordered source register image incl raw400F', 2, [(16385, 127), (16384, 187), (16387, 10), (16386, 112), (16396, 48), (16399, 15), (16398, 0)], [(16385, 127), (16384, 187), (16387, 10), (16386, 112), (16396, 48), (16399, 10), (16398, 0)])"
+        },
+        {
+          "name": "raw400F hardware low bits",
+          "error": "('Original complete owned-voice hardware values, no400F mask', 2, [(16396, 48), (16398, 0), (16399, 15)], [(16396, 48), (16398, 0), (16399, 10)])"
+        },
+        {
+          "name": "missing image store",
+          "error": "('Ordered source register image incl raw400F', 2, [(16385, 127), (16384, 187), (16387, 10), (16386, 112), (16396, 48), (16398, 0)], [(16385, 127), (16384, 187), (16387, 10), (16386, 112), (16396, 48), (16399, 10), (16398, 0)])"
+        },
+        {
+          "name": "duplicate owned hardware store",
+          "error": "('Original complete owned-voice hardware values, no400F mask', 2, [(16396, 48), (16398, 0), (16399, 10), (16399, 10)], [(16396, 48), (16398, 0), (16399, 10)])"
+        },
+        {
+          "name": "source emission image sequence swapped",
+          "error": "('Ordered source register image incl raw400F', 2, [(16385, 127), (16384, 187), (16387, 10), (16386, 112), (16396, 48), (16398, 0), (16399, 10)], [(16385, 127), (16384, 187), (16387, 10), (16386, 112), (16396, 48), (16399, 10), (16398, 0)])"
+        },
+        {
+          "name": "wrong consumed event",
+          "error": "Basic consumer contains an unauthenticated source event"
+        }
+      ],
+      "inputs": {
+        "queue-owners.jsonl": "74db3fe326e6a30289454fe5d35bc19de61cb249ebe03b43366f8dfa9fe5ec95",
+        "source-register-image.csv": "fd7d7c36c6a8b5cb71181cdfce610cd3c67bec653f16d17609d8bf377efbf581",
+        "assembled-apu.csv": "c878e5c6b3c3466727db09c9024cf60e56e7fdff46c3d8cef40da0f0124e0ed2"
+      }
+    },
+    {
+      "cell": "hard-flame",
+      "scenario": "head",
+      "event": 36,
+      "mode": 1,
+      "epochs": 101,
+      "original_image_order_contract": true,
+      "declared_legacy_adapter_order": null,
+      "negative_controls": [
+        {
+          "name": "raw400F image low bits",
+          "error": "('Ordered source register image incl raw400F', 1, [(16385, 127), (16384, 187), (16387, 10), (16386, 112), (16396, 48), (16399, 15), (16398, 0)], [(16385, 127), (16384, 187), (16387, 10), (16386, 112), (16396, 48), (16399, 10), (16398, 0)])"
+        },
+        {
+          "name": "raw400F hardware low bits",
+          "error": "('Original complete owned-voice hardware values, no400F mask', 1, [(16396, 48), (16398, 0), (16399, 15)], [(16396, 48), (16398, 0), (16399, 10)])"
+        },
+        {
+          "name": "missing image store",
+          "error": "('Ordered source register image incl raw400F', 1, [(16385, 127), (16384, 187), (16387, 10), (16386, 112), (16396, 48), (16398, 0)], [(16385, 127), (16384, 187), (16387, 10), (16386, 112), (16396, 48), (16399, 10), (16398, 0)])"
+        },
+        {
+          "name": "duplicate owned hardware store",
+          "error": "('Original complete owned-voice hardware values, no400F mask', 1, [(16396, 48), (16398, 0), (16399, 10), (16399, 10)], [(16396, 48), (16398, 0), (16399, 10)])"
+        },
+        {
+          "name": "source emission image sequence swapped",
+          "error": "('Ordered source register image incl raw400F', 1, [(16385, 127), (16384, 187), (16387, 10), (16386, 112), (16396, 48), (16398, 0), (16399, 10)], [(16385, 127), (16384, 187), (16387, 10), (16386, 112), (16396, 48), (16399, 10), (16398, 0)])"
+        },
+        {
+          "name": "wrong consumed event",
+          "error": "Basic consumer contains an unauthenticated source event"
+        }
+      ],
+      "inputs": {
+        "queue-owners.jsonl": "7e329440be4158f482d60ee5e3dbc0889f6d3aa2578615afeb51d5d20df2ad93",
+        "source-register-image.csv": "5da5956ab721e05f66395f3ca30d8da6dccca52f19aa12447496b20d5d490593",
+        "assembled-apu.csv": "a65c8e7975563689d3158b47616d2f9453de9a056b55c2fdb63f3ce5a752b3fd"
+      }
+    },
+    {
+      "cell": "hard-ice",
+      "scenario": "none",
+      "event": 33,
+      "mode": 1,
+      "epochs": 100,
+      "original_image_order_contract": true,
+      "declared_legacy_adapter_order": null,
+      "negative_controls": [
+        {
+          "name": "raw400F image low bits",
+          "error": "('Ordered source register image incl raw400F', 1, [(16384, 48), (16385, 127), (16396, 56), (16399, 13), (16398, 15)], [(16384, 48), (16385, 127), (16396, 56), (16399, 8), (16398, 15)])"
+        },
+        {
+          "name": "raw400F hardware low bits",
+          "error": "('Original complete owned-voice hardware values, no400F mask', 1, [(16396, 56), (16398, 15), (16399, 13)], [(16396, 56), (16398, 15), (16399, 8)])"
+        },
+        {
+          "name": "missing image store",
+          "error": "('Ordered source register image incl raw400F', 1, [(16384, 48), (16385, 127), (16396, 56), (16398, 15)], [(16384, 48), (16385, 127), (16396, 56), (16399, 8), (16398, 15)])"
+        },
+        {
+          "name": "duplicate owned hardware store",
+          "error": "('Original complete owned-voice hardware values, no400F mask', 1, [(16396, 56), (16398, 15), (16399, 8), (16399, 8)], [(16396, 56), (16398, 15), (16399, 8)])"
+        },
+        {
+          "name": "source emission image sequence swapped",
+          "error": "('Ordered source register image incl raw400F', 1, [(16384, 48), (16385, 127), (16396, 56), (16398, 15), (16399, 8)], [(16384, 48), (16385, 127), (16396, 56), (16399, 8), (16398, 15)])"
+        },
+        {
+          "name": "wrong consumed event",
+          "error": "Basic consumer contains an unauthenticated source event"
+        }
+      ],
+      "inputs": {
+        "queue-owners.jsonl": "c94da117ae291b4304b8437bfa389eaf687df1984f0b3cb1e9d586a431c7165b",
+        "source-register-image.csv": "77ab2a18b1ca6d99612928da263440ebed5b0c5aac85e7ed2e8ed2e1a10b35e2",
+        "assembled-apu.csv": "a040ec0d5b3e4460da480614cf961171bc99e21e3098c377e09b5f667a58bd32"
+      }
+    },
+    {
+      "cell": "hard-ice",
+      "scenario": "slot",
+      "event": 33,
+      "mode": 1,
+      "epochs": 100,
+      "original_image_order_contract": true,
+      "declared_legacy_adapter_order": null,
+      "negative_controls": [
+        {
+          "name": "raw400F image low bits",
+          "error": "('Ordered source register image incl raw400F', 2, [(16384, 48), (16385, 127), (16396, 56), (16399, 13), (16398, 15)], [(16384, 48), (16385, 127), (16396, 56), (16399, 8), (16398, 15)])"
+        },
+        {
+          "name": "raw400F hardware low bits",
+          "error": "('Original complete owned-voice hardware values, no400F mask', 2, [(16396, 56), (16398, 15), (16399, 13)], [(16396, 56), (16398, 15), (16399, 8)])"
+        },
+        {
+          "name": "missing image store",
+          "error": "('Ordered source register image incl raw400F', 2, [(16384, 48), (16385, 127), (16396, 56), (16398, 15)], [(16384, 48), (16385, 127), (16396, 56), (16399, 8), (16398, 15)])"
+        },
+        {
+          "name": "duplicate owned hardware store",
+          "error": "('Original complete owned-voice hardware values, no400F mask', 2, [(16396, 56), (16398, 15), (16399, 8), (16399, 8)], [(16396, 56), (16398, 15), (16399, 8)])"
+        },
+        {
+          "name": "source emission image sequence swapped",
+          "error": "('Ordered source register image incl raw400F', 2, [(16384, 48), (16385, 127), (16396, 56), (16398, 15), (16399, 8)], [(16384, 48), (16385, 127), (16396, 56), (16399, 8), (16398, 15)])"
+        },
+        {
+          "name": "wrong consumed event",
+          "error": "Basic consumer contains an unauthenticated source event"
+        }
+      ],
+      "inputs": {
+        "queue-owners.jsonl": "4f55ad8d6408fa2b4376216853bcfee78ded932b50de365fe201955e7d3aaf0c",
+        "source-register-image.csv": "e3ced0e911bda2700d39e3f4ba8313e08d2b7b202e6ee35b70659ac850392252",
+        "assembled-apu.csv": "57a2c33474bd68f0a92e3b9ac942596034be14e5243090613954ae489404145f"
+      }
+    },
+    {
+      "cell": "hard-ice",
+      "scenario": "head",
+      "event": 33,
+      "mode": 1,
+      "epochs": 101,
+      "original_image_order_contract": true,
+      "declared_legacy_adapter_order": null,
+      "negative_controls": [
+        {
+          "name": "raw400F image low bits",
+          "error": "('Ordered source register image incl raw400F', 1, [(16384, 48), (16385, 127), (16396, 56), (16399, 13), (16398, 15)], [(16384, 48), (16385, 127), (16396, 56), (16399, 8), (16398, 15)])"
+        },
+        {
+          "name": "raw400F hardware low bits",
+          "error": "('Original complete owned-voice hardware values, no400F mask', 1, [(16396, 56), (16398, 15), (16399, 13)], [(16396, 56), (16398, 15), (16399, 8)])"
+        },
+        {
+          "name": "missing image store",
+          "error": "('Ordered source register image incl raw400F', 1, [(16384, 48), (16385, 127), (16396, 56), (16398, 15)], [(16384, 48), (16385, 127), (16396, 56), (16399, 8), (16398, 15)])"
+        },
+        {
+          "name": "duplicate owned hardware store",
+          "error": "('Original complete owned-voice hardware values, no400F mask', 1, [(16396, 56), (16398, 15), (16399, 8), (16399, 8)], [(16396, 56), (16398, 15), (16399, 8)])"
+        },
+        {
+          "name": "source emission image sequence swapped",
+          "error": "('Ordered source register image incl raw400F', 1, [(16384, 48), (16385, 127), (16396, 56), (16398, 15), (16399, 8)], [(16384, 48), (16385, 127), (16396, 56), (16399, 8), (16398, 15)])"
+        },
+        {
+          "name": "wrong consumed event",
+          "error": "Basic consumer contains an unauthenticated source event"
+        }
+      ],
+      "inputs": {
+        "queue-owners.jsonl": "ab8ecd5a2327eb80ea2cf8deb5f7464fe23f722ec6075694f4f9bcaaa56a503d",
+        "source-register-image.csv": "aae3665a65103dc7274478c840a58a8e7164354ab0bc6777de032238456b7b7f",
+        "assembled-apu.csv": "39b00000733ca0b2dd7a00088799614ca7880a968417d67eb47954ee7fe29225"
+      }
+    },
+    {
+      "cell": "hard-lightning",
+      "scenario": "none",
+      "event": 30,
+      "mode": 1,
+      "epochs": 100,
+      "original_image_order_contract": true,
+      "declared_legacy_adapter_order": null,
+      "negative_controls": [
+        {
+          "name": "raw400F image low bits",
+          "error": "('Ordered source register image incl raw400F', 1, [(16384, 48), (16385, 127), (16396, 56), (16399, 13), (16398, 15)], [(16384, 48), (16385, 127), (16396, 56), (16399, 8), (16398, 15)])"
+        },
+        {
+          "name": "raw400F hardware low bits",
+          "error": "('Original complete owned-voice hardware values, no400F mask', 1, [(16396, 56), (16398, 15), (16399, 13)], [(16396, 56), (16398, 15), (16399, 8)])"
+        },
+        {
+          "name": "missing image store",
+          "error": "('Ordered source register image incl raw400F', 1, [(16384, 48), (16385, 127), (16396, 56), (16398, 15)], [(16384, 48), (16385, 127), (16396, 56), (16399, 8), (16398, 15)])"
+        },
+        {
+          "name": "duplicate owned hardware store",
+          "error": "('Original complete owned-voice hardware values, no400F mask', 1, [(16396, 56), (16398, 15), (16399, 8), (16399, 8)], [(16396, 56), (16398, 15), (16399, 8)])"
+        },
+        {
+          "name": "source emission image sequence swapped",
+          "error": "('Ordered source register image incl raw400F', 1, [(16384, 48), (16385, 127), (16396, 56), (16398, 15), (16399, 8)], [(16384, 48), (16385, 127), (16396, 56), (16399, 8), (16398, 15)])"
+        },
+        {
+          "name": "wrong consumed event",
+          "error": "Basic consumer contains an unauthenticated source event"
+        }
+      ],
+      "inputs": {
+        "queue-owners.jsonl": "ae8c7754e7a0e3d96ac70cc49f9a583ff8300c3a13b2e8acebe7f048872e64d8",
+        "source-register-image.csv": "77ab2a18b1ca6d99612928da263440ebed5b0c5aac85e7ed2e8ed2e1a10b35e2",
+        "assembled-apu.csv": "a040ec0d5b3e4460da480614cf961171bc99e21e3098c377e09b5f667a58bd32"
+      }
+    },
+    {
+      "cell": "hard-lightning",
+      "scenario": "slot",
+      "event": 30,
+      "mode": 1,
+      "epochs": 100,
+      "original_image_order_contract": true,
+      "declared_legacy_adapter_order": null,
+      "negative_controls": [
+        {
+          "name": "raw400F image low bits",
+          "error": "('Ordered source register image incl raw400F', 2, [(16384, 48), (16385, 127), (16396, 56), (16399, 13), (16398, 15)], [(16384, 48), (16385, 127), (16396, 56), (16399, 8), (16398, 15)])"
+        },
+        {
+          "name": "raw400F hardware low bits",
+          "error": "('Original complete owned-voice hardware values, no400F mask', 2, [(16396, 56), (16398, 15), (16399, 13)], [(16396, 56), (16398, 15), (16399, 8)])"
+        },
+        {
+          "name": "missing image store",
+          "error": "('Ordered source register image incl raw400F', 2, [(16384, 48), (16385, 127), (16396, 56), (16398, 15)], [(16384, 48), (16385, 127), (16396, 56), (16399, 8), (16398, 15)])"
+        },
+        {
+          "name": "duplicate owned hardware store",
+          "error": "('Original complete owned-voice hardware values, no400F mask', 2, [(16396, 56), (16398, 15), (16399, 8), (16399, 8)], [(16396, 56), (16398, 15), (16399, 8)])"
+        },
+        {
+          "name": "source emission image sequence swapped",
+          "error": "('Ordered source register image incl raw400F', 2, [(16384, 48), (16385, 127), (16396, 56), (16398, 15), (16399, 8)], [(16384, 48), (16385, 127), (16396, 56), (16399, 8), (16398, 15)])"
+        },
+        {
+          "name": "wrong consumed event",
+          "error": "Basic consumer contains an unauthenticated source event"
+        }
+      ],
+      "inputs": {
+        "queue-owners.jsonl": "f3d48c22725fd46bf3f5908243eef6faa121d2903d7669355ee9aedd36533975",
+        "source-register-image.csv": "e3ced0e911bda2700d39e3f4ba8313e08d2b7b202e6ee35b70659ac850392252",
+        "assembled-apu.csv": "57a2c33474bd68f0a92e3b9ac942596034be14e5243090613954ae489404145f"
+      }
+    },
+    {
+      "cell": "hard-lightning",
+      "scenario": "head",
+      "event": 30,
+      "mode": 1,
+      "epochs": 101,
+      "original_image_order_contract": true,
+      "declared_legacy_adapter_order": null,
+      "negative_controls": [
+        {
+          "name": "raw400F image low bits",
+          "error": "('Ordered source register image incl raw400F', 1, [(16384, 48), (16385, 127), (16396, 56), (16399, 13), (16398, 15)], [(16384, 48), (16385, 127), (16396, 56), (16399, 8), (16398, 15)])"
+        },
+        {
+          "name": "raw400F hardware low bits",
+          "error": "('Original complete owned-voice hardware values, no400F mask', 1, [(16396, 56), (16398, 15), (16399, 13)], [(16396, 56), (16398, 15), (16399, 8)])"
+        },
+        {
+          "name": "missing image store",
+          "error": "('Ordered source register image incl raw400F', 1, [(16384, 48), (16385, 127), (16396, 56), (16398, 15)], [(16384, 48), (16385, 127), (16396, 56), (16399, 8), (16398, 15)])"
+        },
+        {
+          "name": "duplicate owned hardware store",
+          "error": "('Original complete owned-voice hardware values, no400F mask', 1, [(16396, 56), (16398, 15), (16399, 8), (16399, 8)], [(16396, 56), (16398, 15), (16399, 8)])"
+        },
+        {
+          "name": "source emission image sequence swapped",
+          "error": "('Ordered source register image incl raw400F', 1, [(16384, 48), (16385, 127), (16396, 56), (16398, 15), (16399, 8)], [(16384, 48), (16385, 127), (16396, 56), (16399, 8), (16398, 15)])"
+        },
+        {
+          "name": "wrong consumed event",
+          "error": "Basic consumer contains an unauthenticated source event"
+        }
+      ],
+      "inputs": {
+        "queue-owners.jsonl": "e4434111ab3f423304ddb134b8dd6688212be6e62d27d19237ef4ec6a6f3cc4e",
+        "source-register-image.csv": "aae3665a65103dc7274478c840a58a8e7164354ab0bc6777de032238456b7b7f",
+        "assembled-apu.csv": "39b00000733ca0b2dd7a00088799614ca7880a968417d67eb47954ee7fe29225"
+      }
+    },
+    {
+      "cell": "hard-fireball",
+      "scenario": "none",
+      "event": 31,
+      "mode": 1,
+      "epochs": 100,
+      "original_image_order_contract": false,
+      "declared_legacy_adapter_order": [
+        16398,
+        16399,
+        16396
+      ],
+      "negative_controls": [
+        {
+          "name": "raw400F image low bits",
+          "error": "('Ordered source register image incl raw400F', 1, [(16398, 7), (16399, 13), (16396, 57)], [(16398, 7), (16399, 8), (16396, 57)])"
+        },
+        {
+          "name": "raw400F hardware low bits",
+          "error": "('Original complete owned-voice hardware values, no400F mask', 1, [(16396, 57), (16398, 7), (16399, 13)], [(16396, 57), (16398, 7), (16399, 8)])"
+        },
+        {
+          "name": "missing image store",
+          "error": "('Ordered source register image incl raw400F', 1, [(16398, 7), (16396, 57)], [(16398, 7), (16399, 8), (16396, 57)])"
+        },
+        {
+          "name": "duplicate owned hardware store",
+          "error": "('Original complete owned-voice hardware values, no400F mask', 1, [(16396, 57), (16398, 7), (16399, 8), (16399, 8)], [(16396, 57), (16398, 7), (16399, 8)])"
+        },
+        {
+          "name": "source emission image sequence swapped",
+          "error": "('Ordered source register image incl raw400F', 1, [(16398, 7), (16396, 57), (16399, 8)], [(16398, 7), (16399, 8), (16396, 57)])"
+        },
+        {
+          "name": "wrong consumed event",
+          "error": "Basic consumer contains an unauthenticated source event"
+        }
+      ],
+      "inputs": {
+        "queue-owners.jsonl": "6cbc8db5dd7b2652c4e8b26bceca9f5f9f11f55517e6b9290670a3636cb02415",
+        "source-register-image.csv": "8bcb1bd2c58c34d15a0d7015870a49355ef8c058ff72fc89da06037c940fb742",
+        "assembled-apu.csv": "7f2c3ba1f04d8992873d47798fd55c3c8e9e220f3544342a9f402b0865f83b3a"
+      }
+    },
+    {
+      "cell": "hard-fireball",
+      "scenario": "slot",
+      "event": 31,
+      "mode": 1,
+      "epochs": 100,
+      "original_image_order_contract": false,
+      "declared_legacy_adapter_order": [
+        16398,
+        16399,
+        16396
+      ],
+      "negative_controls": [
+        {
+          "name": "raw400F image low bits",
+          "error": "('Ordered source register image incl raw400F', 2, [(16398, 7), (16399, 13), (16396, 57)], [(16398, 7), (16399, 8), (16396, 57)])"
+        },
+        {
+          "name": "raw400F hardware low bits",
+          "error": "('Original complete owned-voice hardware values, no400F mask', 2, [(16396, 57), (16398, 7), (16399, 13)], [(16396, 57), (16398, 7), (16399, 8)])"
+        },
+        {
+          "name": "missing image store",
+          "error": "('Ordered source register image incl raw400F', 2, [(16398, 7), (16396, 57)], [(16398, 7), (16399, 8), (16396, 57)])"
+        },
+        {
+          "name": "duplicate owned hardware store",
+          "error": "('Original complete owned-voice hardware values, no400F mask', 2, [(16396, 57), (16398, 7), (16399, 8), (16399, 8)], [(16396, 57), (16398, 7), (16399, 8)])"
+        },
+        {
+          "name": "source emission image sequence swapped",
+          "error": "('Ordered source register image incl raw400F', 2, [(16398, 7), (16396, 57), (16399, 8)], [(16398, 7), (16399, 8), (16396, 57)])"
+        },
+        {
+          "name": "wrong consumed event",
+          "error": "Basic consumer contains an unauthenticated source event"
+        }
+      ],
+      "inputs": {
+        "queue-owners.jsonl": "225594a9fb0594abb422399a2680d588fbccb828f7853b903991320bd4160201",
+        "source-register-image.csv": "aa7aa73609ecae9c6cda20e89ab71c2f0b0034c3eb7a5729ae371e4a51416587",
+        "assembled-apu.csv": "0260429bdf011e473edca42701d56f615e2aa57c5f7196b37a3a658f56ce7cd6"
+      }
+    },
+    {
+      "cell": "hard-fireball",
+      "scenario": "head",
+      "event": 31,
+      "mode": 1,
+      "epochs": 101,
+      "original_image_order_contract": false,
+      "declared_legacy_adapter_order": [
+        16398,
+        16399,
+        16396
+      ],
+      "negative_controls": [
+        {
+          "name": "raw400F image low bits",
+          "error": "('Ordered source register image incl raw400F', 1, [(16398, 7), (16399, 13), (16396, 57)], [(16398, 7), (16399, 8), (16396, 57)])"
+        },
+        {
+          "name": "raw400F hardware low bits",
+          "error": "('Original complete owned-voice hardware values, no400F mask', 1, [(16396, 57), (16398, 7), (16399, 13)], [(16396, 57), (16398, 7), (16399, 8)])"
+        },
+        {
+          "name": "missing image store",
+          "error": "('Ordered source register image incl raw400F', 1, [(16398, 7), (16396, 57)], [(16398, 7), (16399, 8), (16396, 57)])"
+        },
+        {
+          "name": "duplicate owned hardware store",
+          "error": "('Original complete owned-voice hardware values, no400F mask', 1, [(16396, 57), (16398, 7), (16399, 8), (16399, 8)], [(16396, 57), (16398, 7), (16399, 8)])"
+        },
+        {
+          "name": "source emission image sequence swapped",
+          "error": "('Ordered source register image incl raw400F', 1, [(16398, 7), (16396, 57), (16399, 8)], [(16398, 7), (16399, 8), (16396, 57)])"
+        },
+        {
+          "name": "wrong consumed event",
+          "error": "Basic consumer contains an unauthenticated source event"
+        }
+      ],
+      "inputs": {
+        "queue-owners.jsonl": "94ce255dd3a43b455bd9060c1814bb983f7e970320032f0b22dcdf89326e1cdb",
+        "source-register-image.csv": "8bcb1bd2c58c34d15a0d7015870a49355ef8c058ff72fc89da06037c940fb742",
+        "assembled-apu.csv": "0cbf9e85655911e2d4c22c67c23fd60ce751e076e6b3dc0dd2073e1f8a0620a6"
+      }
+    },
+    {
+      "cell": "hard-bat",
+      "scenario": "none",
+      "event": 47,
+      "mode": 1,
+      "epochs": 100,
+      "original_image_order_contract": true,
+      "declared_legacy_adapter_order": null,
+      "negative_controls": [
+        {
+          "name": "raw400F image low bits",
+          "error": "('Ordered source register image incl raw400F', 1, [(16385, 127), (16384, 177), (16387, 9), (16386, 83), (16396, 48), (16399, 12), (16398, 0)], [(16385, 127), (16384, 177), (16387, 9), (16386, 83), (16396, 48), (16399, 9), (16398, 0)])"
+        },
+        {
+          "name": "raw400F hardware low bits",
+          "error": "('Original complete owned-voice hardware values, no400F mask', 1, [(16396, 48), (16398, 0), (16399, 12)], [(16396, 48), (16398, 0), (16399, 9)])"
+        },
+        {
+          "name": "missing image store",
+          "error": "('Ordered source register image incl raw400F', 1, [(16385, 127), (16384, 177), (16387, 9), (16386, 83), (16396, 48), (16398, 0)], [(16385, 127), (16384, 177), (16387, 9), (16386, 83), (16396, 48), (16399, 9), (16398, 0)])"
+        },
+        {
+          "name": "duplicate owned hardware store",
+          "error": "('Original complete owned-voice hardware values, no400F mask', 1, [(16396, 48), (16398, 0), (16399, 9), (16399, 9)], [(16396, 48), (16398, 0), (16399, 9)])"
+        },
+        {
+          "name": "source emission image sequence swapped",
+          "error": "('Ordered source register image incl raw400F', 1, [(16385, 127), (16384, 177), (16387, 9), (16386, 83), (16396, 48), (16398, 0), (16399, 9)], [(16385, 127), (16384, 177), (16387, 9), (16386, 83), (16396, 48), (16399, 9), (16398, 0)])"
+        },
+        {
+          "name": "wrong consumed event",
+          "error": "Basic consumer contains an unauthenticated source event"
+        }
+      ],
+      "inputs": {
+        "queue-owners.jsonl": "835af36fad99db6cf4c68b99292c94f1afd09486f0afa3e94c115c59b16e1950",
+        "source-register-image.csv": "c23305a02b1a25d45c36d621f9fdfdcaecebed2a692a0899be7862e1ce690119",
+        "assembled-apu.csv": "5d606d37f3ceca328fe0360cf9b02956ebd1dc568f601e8d251c2db668324ed9"
+      }
+    },
+    {
+      "cell": "hard-bat",
+      "scenario": "slot",
+      "event": 47,
+      "mode": 1,
+      "epochs": 100,
+      "original_image_order_contract": true,
+      "declared_legacy_adapter_order": null,
+      "negative_controls": [
+        {
+          "name": "raw400F image low bits",
+          "error": "('Ordered source register image incl raw400F', 2, [(16385, 127), (16384, 177), (16387, 9), (16386, 83), (16396, 48), (16399, 12), (16398, 0)], [(16385, 127), (16384, 177), (16387, 9), (16386, 83), (16396, 48), (16399, 9), (16398, 0)])"
+        },
+        {
+          "name": "raw400F hardware low bits",
+          "error": "('Original complete owned-voice hardware values, no400F mask', 2, [(16396, 48), (16398, 0), (16399, 12)], [(16396, 48), (16398, 0), (16399, 9)])"
+        },
+        {
+          "name": "missing image store",
+          "error": "('Ordered source register image incl raw400F', 2, [(16385, 127), (16384, 177), (16387, 9), (16386, 83), (16396, 48), (16398, 0)], [(16385, 127), (16384, 177), (16387, 9), (16386, 83), (16396, 48), (16399, 9), (16398, 0)])"
+        },
+        {
+          "name": "duplicate owned hardware store",
+          "error": "('Original complete owned-voice hardware values, no400F mask', 2, [(16396, 48), (16398, 0), (16399, 9), (16399, 9)], [(16396, 48), (16398, 0), (16399, 9)])"
+        },
+        {
+          "name": "source emission image sequence swapped",
+          "error": "('Ordered source register image incl raw400F', 2, [(16385, 127), (16384, 177), (16387, 9), (16386, 83), (16396, 48), (16398, 0), (16399, 9)], [(16385, 127), (16384, 177), (16387, 9), (16386, 83), (16396, 48), (16399, 9), (16398, 0)])"
+        },
+        {
+          "name": "wrong consumed event",
+          "error": "Basic consumer contains an unauthenticated source event"
+        }
+      ],
+      "inputs": {
+        "queue-owners.jsonl": "bb6683e8873ba921c27456cab748721c85345b3486d2a8340a8b20436e566607",
+        "source-register-image.csv": "c65d7e0a702e2b06310f34fdb55be17fc486c4ab346e95d0caec9d3121ef5d9c",
+        "assembled-apu.csv": "9000425d23424e545487375d119e94086343edb6955ca6373e2e97856e4a90ad"
+      }
+    },
+    {
+      "cell": "hard-bat",
+      "scenario": "head",
+      "event": 47,
+      "mode": 1,
+      "epochs": 101,
+      "original_image_order_contract": true,
+      "declared_legacy_adapter_order": null,
+      "negative_controls": [
+        {
+          "name": "raw400F image low bits",
+          "error": "('Ordered source register image incl raw400F', 1, [(16385, 127), (16384, 177), (16387, 9), (16386, 83), (16396, 48), (16399, 12), (16398, 0)], [(16385, 127), (16384, 177), (16387, 9), (16386, 83), (16396, 48), (16399, 9), (16398, 0)])"
+        },
+        {
+          "name": "raw400F hardware low bits",
+          "error": "('Original complete owned-voice hardware values, no400F mask', 1, [(16396, 48), (16398, 0), (16399, 12)], [(16396, 48), (16398, 0), (16399, 9)])"
+        },
+        {
+          "name": "missing image store",
+          "error": "('Ordered source register image incl raw400F', 1, [(16385, 127), (16384, 177), (16387, 9), (16386, 83), (16396, 48), (16398, 0)], [(16385, 127), (16384, 177), (16387, 9), (16386, 83), (16396, 48), (16399, 9), (16398, 0)])"
+        },
+        {
+          "name": "duplicate owned hardware store",
+          "error": "('Original complete owned-voice hardware values, no400F mask', 1, [(16396, 48), (16398, 0), (16399, 9), (16399, 9)], [(16396, 48), (16398, 0), (16399, 9)])"
+        },
+        {
+          "name": "source emission image sequence swapped",
+          "error": "('Ordered source register image incl raw400F', 1, [(16385, 127), (16384, 177), (16387, 9), (16386, 83), (16396, 48), (16398, 0), (16399, 9)], [(16385, 127), (16384, 177), (16387, 9), (16386, 83), (16396, 48), (16399, 9), (16398, 0)])"
+        },
+        {
+          "name": "wrong consumed event",
+          "error": "Basic consumer contains an unauthenticated source event"
+        }
+      ],
+      "inputs": {
+        "queue-owners.jsonl": "c80582bff3ccb40d35ecfb64c5c7e8aa73fbe68723ca4f69c5d475f27b037adf",
+        "source-register-image.csv": "c23305a02b1a25d45c36d621f9fdfdcaecebed2a692a0899be7862e1ce690119",
+        "assembled-apu.csv": "beb1cc56376b37722f4b3c94d881b2ede448cd0f59f907b71e8c9c6d83714285"
+      }
+    }
+  ],
+  "validator_sha256": "83e5572fd1aa31d32ef16f52ce3d86150ae872b36a82f16605b622e5091f036b",
+  "scope": "Source components only: actual assembled CPU stores, not fabricated native proof. All original bytes/raw400F and hardware compared. New effects require original image order; existing1F has explicitly declared unchanged adapter order. No native140-update gameplay/cadence verdict.",
+  "tool_sha256": "384c6022afb55487308779f0b2eac76cd13b418bd009f2b87a80e83986f0ab99"
+}

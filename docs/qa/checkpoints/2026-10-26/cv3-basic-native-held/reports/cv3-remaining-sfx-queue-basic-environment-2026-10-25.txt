@@ -1,0 +1,43 @@
+CV3 remaining BASIC readiness: additive CURRENT ENVIRONMENT binding
+No native launch/grant, no retry, no user settings overwrite, no ROM adoption.
+The frozen source readiness2cc9dc9d... remains unchanged. Its old settings
+binding d10b4fbc... is historical and is NOT silently treated as current.
+
+Current raw C:/Mesen2/settings.json is copied byte-exact, including original
+encoding/EOL, to this addendum's settings.current.json. SHA:
+8a439e0a5eeddc2d4776e516aacfc224c03048b9c7d23d9926a463460a7e748a.
+Source settings read before/after snapshot are equal; no bytes written back.
+The prior CV3 fixtures recorded the old hash but did not archive old raw
+settings. Settings-named inventory of project/evidence/C:/Mesen2 is preserved.
+If no exact old SHA is found, old bytes/diff are unavailable: do not infer the
+changed fields from hashes or compare an unrelated older snapshot as oldd10.
+
+Actual current conditions:
+-NES hardware8sprite limit ENABLED, adaptive sprites OFF. Extra PPU scanlines
+ before/afterNMI BOTH0; runAhead0; emulation speed100. RegionAuto, consoleNes001;
+ both exact ROM headers declare NTSC. Actual frame/scanline/cycle observations
+ remain required in fresh native results; header/settings alone are not a new
+ measured runtime clock proof.
+-Current settings RAM is Random; ORIGINAL deterministic command overrides it
+ to AllZeros and both random CPU/PPU alignment and mapper power-on to false.
+ No new override is introduced. --doNotSaveSettings remains enabled.
+-Audio enabled,48kHz, latency60, master100, all NES/APU/expansion includingMMC5
+ volumes100/panning0. No reverb/crossfeed/EQ/stereo filter. Noise-mode flag,
+ DMC-popping reduction, high triangle silence, duty swap and reversedDPCM OFF.
+ Full Audio/NES/Video/Emulation and all core/bug/input flags are saved as data;
+ no unrecorded assumption that every optional accuracy flag is enabled.
+-VerticalSync/IntegerFps/VRR OFF. Current executables/CoreDLL/Python/Lua54 and
+ every other prior source/fixture/environment binding are reverified exact.
+-Static callback and strict raw hardware/PPU/cadence source fixtures unchanged.
+ Mesen --testRunner/--enableStdout are supplied by unchanged runner. This
+ verifies emulated APU writes; no host audio waveform/campaign claim is made.
+
+All13 fresh50b baseline/candidate pairs (26 planned sequential runs) must use
+THIS SAME new raw environment and original deterministic commands. Each future
+run must preflight the current raw settings hash against this addendum and
+verify it remains unchanged afterward; any drift stops execution. Old completed
+d10b cases are historical observations, not newly relabeled same-environment
+controls. No launch is authorized by this addendum; explicit grant still needed.
+
+The JSON proof binds snapshot, complete sections, search output, optional exact
+old diff, all revalidated inputs, process inventory,26commands and this report.

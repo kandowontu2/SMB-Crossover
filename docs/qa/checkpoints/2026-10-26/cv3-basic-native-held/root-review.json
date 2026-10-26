@@ -1,0 +1,473 @@
+{
+  "passed": false,
+  "accepted": false,
+  "production_adopted": false,
+  "source_hardware_cells_passed": 13,
+  "strict_cadence_cells_passed": 12,
+  "retained_failure": "hard-ice: 140 updates/137 draws vs baseline 140/138",
+  "root_independent_checks": "654 actual native/batch/tool bindings and all13 cumulative draw-prefix comparisons verified before checkpoint.",
+  "scope": "BASIC only. Lifecycle, active DMC, priority, pause, death, scene and pressure remain required.",
+  "recordings_and_raw_settings_retained_external": true,
+  "copied_bindings": {
+    "readiness-source-only.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-queue-native-basic-v3\\freeze-v1\\readiness-source-only.json",
+      "sha256": "2cc9dc9d2aab9759e5d6223fb969bf9d5bc40114dc50cb6981ac4eeb6e319b00"
+    },
+    "qualification-native.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-queue-native-basic-v3\\native-freeze-v1\\qualification-native.json",
+      "sha256": "81c39fd576a61e007d937cb3e70d292cc6339fffa0312f4148eb164f170c96d5"
+    },
+    "hard-ice-deadline.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-queue-native-basic-v3\\native-freeze-v1\\hard-ice-deadline.json",
+      "sha256": "91b6fb15c0eae721399aa7c274a95bc25416e6522e1207b7805526ca37eb4bb9"
+    },
+    "source-receipts/source-matrix-v1/proof.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-queue-native-basic-v3\\source-matrix-v1\\proof.json",
+      "sha256": "38f48aeec46fefc7bb909c1d0fc4ae70203dea54a808a18c70231e46cf396c38"
+    },
+    "source-receipts/verifier-v1/proof.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-queue-native-basic-v3\\verifier-v1\\proof.json",
+      "sha256": "68589f838666ccabc71677b033175c0703ed4562c73871350b5b7e43139c7ca3"
+    },
+    "source-receipts/legacy-control-v1/proof.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-queue-native-basic-v3\\legacy-control-v1\\proof.json",
+      "sha256": "ce59e7112d476cff97512c0671a42bf28d1e70119ce22981bbb24dbb4ae6020f"
+    },
+    "source-receipts/legacy-verifier-v2/proof.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-queue-native-basic-v3\\legacy-verifier-v2\\proof.json",
+      "sha256": "90c1d2947b75258045b1ec58ed357e42e66648538e47e3d7cf5fbc3eb8323bda"
+    },
+    "source-receipts/baselines-v1/proof.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-queue-native-basic-v3\\baselines-v1\\proof.json",
+      "sha256": "5640c3be30f8361b8e9b7cab87d55bad507573371867ab529f3f4d26c2a8c486"
+    },
+    "frozen-tools/cv3_remaining_sfx_queue_native_prepare_v1.py": {
+      "source": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\cv3_remaining_sfx_queue_native_prepare_v1.py",
+      "sha256": "535c44708bd05b109d26329b1326abe8588e8dc55f40eaf137e812c6e7820317"
+    },
+    "frozen-tools/cv3_remaining_sfx_queue_native_v1.lua": {
+      "source": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\cv3_remaining_sfx_queue_native_v1.lua",
+      "sha256": "77fc65cc8584b174bcf2b75a89cc147719b0bb6d46437a708807537cb3589547"
+    },
+    "frozen-tools/cv3_remaining_sfx_queue_native_cpu_v1.py": {
+      "source": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\cv3_remaining_sfx_queue_native_cpu_v1.py",
+      "sha256": "367753b8b5c25b6b0648f82ac9e0e22b784fe9c2cf93eec2acc0e1469dcd57ee"
+    },
+    "frozen-tools/cv3_remaining_sfx_queue_native_cpu_v2.py": {
+      "source": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\cv3_remaining_sfx_queue_native_cpu_v2.py",
+      "sha256": "e286981026cf0855b18d525e64a2c73e3a6e7b0b07bdf60b3b42f1e53317aaf7"
+    },
+    "frozen-tools/cv3_remaining_sfx_queue_native_startup_v1.py": {
+      "source": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\cv3_remaining_sfx_queue_native_startup_v1.py",
+      "sha256": "8f55349652d464beea01bd75860c189406f0afb9156a5ca853890296f8881d8e"
+    },
+    "frozen-tools/cv3_remaining_sfx_queue_native_verify_v1.py": {
+      "source": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\cv3_remaining_sfx_queue_native_verify_v1.py",
+      "sha256": "1cca766c26643ee3b7a6a5c77d038e93142c1836abd65d78106368fcc4901d65"
+    },
+    "frozen-tools/cv3_remaining_sfx_queue_native_verify_v2.py": {
+      "source": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\cv3_remaining_sfx_queue_native_verify_v2.py",
+      "sha256": "53a6f1d31694a28b2874b779c4415431f89cf3178e062acac3e557c7038da20b"
+    },
+    "frozen-tools/cv3_remaining_sfx_queue_native_verify_test_v1.py": {
+      "source": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\cv3_remaining_sfx_queue_native_verify_test_v1.py",
+      "sha256": "cc43c9805357a89911bd1ff7e770dc797bcebcf08a366850064512c5555ece82"
+    },
+    "frozen-tools/cv3_remaining_sfx_queue_native_packet_v1.py": {
+      "source": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\cv3_remaining_sfx_queue_native_packet_v1.py",
+      "sha256": "ec547e6ae862567f01cd8d298dcaeb288e1b7cba8c37d0a054d2ecb7336f5c5f"
+    },
+    "frozen-tools/cv3_remaining_sfx_static_core_v1.lua": {
+      "source": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\cv3_remaining_sfx_static_core_v1.lua",
+      "sha256": "e658407661bc27fda4f97489507863be613ffe3c6c7eb3c4644a258876d71b58"
+    },
+    "frozen-tools/cv3_primary_sfx_source_v1.py": {
+      "source": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\cv3_primary_sfx_source_v1.py",
+      "sha256": "76fc864887c50c2b6a6c2163cf91ea9953193cea6c64d8c2f124982dcf03ba25"
+    },
+    "frozen-tools/cv3_remaining_sfx_queue256_support_v1.py": {
+      "source": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\cv3_remaining_sfx_queue256_support_v1.py",
+      "sha256": "ddd459dc2f630b3ed3268ccc0cfa2f41e364384d59384ff086a3098b40838898"
+    },
+    "frozen-tools/check_tmnt_render_oa.py": {
+      "source": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\check_tmnt_render_oa.py",
+      "sha256": "32033893e48055adc9a23c661238e9331dd1db856be51b753ba9b6781eb528e4"
+    },
+    "frozen-tools/check_tmnt_audio_fallback_oc.py": {
+      "source": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\check_tmnt_audio_fallback_oc.py",
+      "sha256": "ea61148dbd4c4804b89e7fd02388558bb1bce573ae451fc6eb89d82ccccc5232"
+    },
+    "frozen-tools/observe_chip_committed_write.py": {
+      "source": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\observe_chip_committed_write.py",
+      "sha256": "0922efc482e8a72b72d243ada7629f157c51afd779cee09e0f7bf35fa6235de2"
+    },
+    "frozen-tools/verify_native_relocation.py": {
+      "source": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\verify_native_relocation.py",
+      "sha256": "1bab7154bc2e5468e827087d14030a7e30c4d3676db5e775ef15de4d0c34ce11"
+    },
+    "frozen-tools/parodius_visibility_hud_static_startup_v1.py": {
+      "source": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\parodius_visibility_hud_static_startup_v1.py",
+      "sha256": "cb2d78ed47e76535fbc567d1f0742b6d611ae8a222cff23155475e7e50ff6580"
+    },
+    "frozen-tools/run_mesen_isolated.py": {
+      "source": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\run_mesen_isolated.py",
+      "sha256": "976f197a3712511e821f545e655eaa3f9bcfe95e42a3c6c76b2adca288d2aad3"
+    },
+    "frozen-tools/run_mesen.py": {
+      "source": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\run_mesen.py",
+      "sha256": "84070d3017992819cc02c7cb8502d43e4e25f24e42133491926b101cf8cdd305"
+    },
+    "frozen-tools/cv3_remaining_sfx_queue_native_v2.lua": {
+      "source": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\cv3_remaining_sfx_queue_native_v2.lua",
+      "sha256": "a07490f78f3f99a2ee2b39eb952eea31f0b95423eb871e5cb1d3ca726c7871d7"
+    },
+    "frozen-tools/cv3_remaining_sfx_queue_native_prepare_v2.py": {
+      "source": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\cv3_remaining_sfx_queue_native_prepare_v2.py",
+      "sha256": "a74c4381508912f242bddeaae097846fde5b990d194d2debdc10ee6c4a51d496"
+    },
+    "frozen-tools/cv3_remaining_sfx_queue_native_prepare_v3.py": {
+      "source": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\cv3_remaining_sfx_queue_native_prepare_v3.py",
+      "sha256": "77731689431ccb86f5f9f2f205e688844b2157033d377c4d404e837d8e413d73"
+    },
+    "frozen-tools/cv3_remaining_sfx_queue_native_cpu_v3.py": {
+      "source": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\cv3_remaining_sfx_queue_native_cpu_v3.py",
+      "sha256": "434832a1ac2caeab868f38c987f70aceddba50c245cc8120576fec7dd7cfa75e"
+    },
+    "frozen-tools/cv3_remaining_sfx_queue_native_cpu_v4.py": {
+      "source": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\cv3_remaining_sfx_queue_native_cpu_v4.py",
+      "sha256": "8794653415fc59a1e48953a8c8ed23f69672fcc882fdf4377c26d86b19eac9cb"
+    },
+    "frozen-tools/cv3_remaining_sfx_queue_native_startup_v2.py": {
+      "source": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\cv3_remaining_sfx_queue_native_startup_v2.py",
+      "sha256": "d602adb3b2aef1d291c8c96bd6c2052a9b69c8f0bdb65df019982510f7d70ed9"
+    },
+    "frozen-tools/cv3_remaining_sfx_queue_native_verify_v3.py": {
+      "source": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\cv3_remaining_sfx_queue_native_verify_v3.py",
+      "sha256": "fb0927e49133f8885b4e7dd0daaf6b0d64292b1595e61a5abafa16688e486d12"
+    },
+    "frozen-tools/cv3_remaining_sfx_queue_native_verify_v4.py": {
+      "source": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\cv3_remaining_sfx_queue_native_verify_v4.py",
+      "sha256": "83e5572fd1aa31d32ef16f52ce3d86150ae872b36a82f16605b622e5091f036b"
+    },
+    "frozen-tools/cv3_remaining_sfx_queue_native_verify_v5.py": {
+      "source": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\cv3_remaining_sfx_queue_native_verify_v5.py",
+      "sha256": "a7be172d89a967fc15d7b6035fe946674315478f847ec09ab4e71d035d0c9671"
+    },
+    "frozen-tools/cv3_remaining_sfx_queue_native_basic_source_v1.py": {
+      "source": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\cv3_remaining_sfx_queue_native_basic_source_v1.py",
+      "sha256": "12080987ec37a2a782bc2f164f6be9f0f82ba254a7a47e341b1cfcc0a7e3b8b6"
+    },
+    "frozen-tools/cv3_remaining_sfx_queue_native_basic_verify_test_v1.py": {
+      "source": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\cv3_remaining_sfx_queue_native_basic_verify_test_v1.py",
+      "sha256": "384c6022afb55487308779f0b2eac76cd13b418bd009f2b87a80e83986f0ab99"
+    },
+    "frozen-tools/cv3_remaining_sfx_queue_native_basic_baseline_v1.py": {
+      "source": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\cv3_remaining_sfx_queue_native_basic_baseline_v1.py",
+      "sha256": "5a3ae697c4d36651bc82a2bf3e02e6939f1bc2ae585e5d3f0630e3670f29a839"
+    },
+    "frozen-tools/cv3_remaining_sfx_queue_native_legacy_control_v1.py": {
+      "source": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\cv3_remaining_sfx_queue_native_legacy_control_v1.py",
+      "sha256": "df1b7c3e6cf97abc9a2b4aed0e176c92bc89596a326c530633e8d5c4bbd58a9d"
+    },
+    "frozen-tools/cv3_remaining_sfx_queue_native_legacy_verify_test_v1.py": {
+      "source": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\cv3_remaining_sfx_queue_native_legacy_verify_test_v1.py",
+      "sha256": "415e71bc9b8aeebd0a3877f00444aec1dae39f125e2b321254aadfb420573d76"
+    },
+    "frozen-tools/cv3_remaining_sfx_queue_native_basic_packet_v1.py": {
+      "source": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\cv3_remaining_sfx_queue_native_basic_packet_v1.py",
+      "sha256": "40da61ccc4936e094eb6023cd61c456a50683e4f40f96d889408d26054f261fc"
+    },
+    "frozen-tools/cv3_remaining_sfx_complete_cpu_v1.py": {
+      "source": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\cv3_remaining_sfx_complete_cpu_v1.py",
+      "sha256": "978a7cd7b6a00a5bc7b2bcd128d6b7e766fc63925ebc90579629cab10e5c9e35"
+    },
+    "frozen-tools/cv3_dmc_complete_cpu_v1.py": {
+      "source": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\cv3_dmc_complete_cpu_v1.py",
+      "sha256": "566db3327d15d503ccd2de013d38c895d8312d941f8d5e50c9445c7a8827820b"
+    },
+    "frozen-tools/robots_weapon_cpu_v1.py": {
+      "source": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\robots_weapon_cpu_v1.py",
+      "sha256": "6e72527324dec4926898039228408d96f1ba646971d390ff601b6cc4ea777257"
+    },
+    "frozen-tools/cv3_remaining_sfx_queue_native_basic_launch_v1.py": {
+      "source": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\cv3_remaining_sfx_queue_native_basic_launch_v1.py",
+      "sha256": "06a1607e06d90b83643cc96fed80ac11dc88d618f37054dd83030de639f31886"
+    },
+    "frozen-tools/cv3_remaining_sfx_queue_native_basic_result_v1.py": {
+      "source": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\cv3_remaining_sfx_queue_native_basic_result_v1.py",
+      "sha256": "bbcf3beef99df94589a657b226301e7e40b8b1d34f9a24a173518abb77a65229"
+    },
+    "native-cases/easy-dagger/comparison.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-queue-native-basic-v3\\native-v1\\easy-dagger-comparison\\proof.json",
+      "sha256": "8e6e1c6b948523ebd5f775903efd78260706fdedce2e91901e313305b35a2873"
+    },
+    "native-cases/easy-dagger/baseline-proof.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-queue-native-basic-v3\\baselines-v1\\easy-dagger\\proof.json",
+      "sha256": "bccd98b387382be845224c881e1fc75be295d3ce0adc9bb41b898549af613143"
+    },
+    "native-cases/easy-dagger/baseline-launch.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-queue-native-basic-v3\\native-v1\\easy-dagger-baseline\\proof.json",
+      "sha256": "08d813a793147a4f719020edd374e4b59b5b6e2d64ebd6826576624afd3e64c4"
+    },
+    "native-cases/easy-dagger/candidate-proof.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-queue-native-basic-v3\\easy-dagger\\proof.json",
+      "sha256": "46c11073cb39627e79aa97345c093d962c11a0ca07f1d2dc8e1b2401b3763599"
+    },
+    "native-cases/easy-dagger/candidate-launch.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-queue-native-basic-v3\\native-v1\\easy-dagger-candidate\\proof.json",
+      "sha256": "5cd364e1de5c3f06c0c1a9948857d03f7025130c92dc9fa6f84136d60311ff13"
+    },
+    "native-cases/easy-axe/comparison.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-queue-native-basic-v3\\native-v1\\easy-axe-comparison\\proof.json",
+      "sha256": "aad18bbe864c029f95f128f72493e90ebb7c73e4206b2dafe80782cab78a591d"
+    },
+    "native-cases/easy-axe/baseline-proof.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-queue-native-basic-v3\\baselines-v1\\easy-axe\\proof.json",
+      "sha256": "4f79f6067811eaf34320df0ddcf2bf1da2c073852af9a55dd8515b0b184b4276"
+    },
+    "native-cases/easy-axe/baseline-launch.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-queue-native-basic-v3\\native-v1\\easy-axe-baseline\\proof.json",
+      "sha256": "b13574bf0992c389d0260bb24bf019339589c85c5bf52cc3de606d371195a65e"
+    },
+    "native-cases/easy-axe/candidate-proof.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-queue-native-basic-v3\\easy-axe\\proof.json",
+      "sha256": "6f361b0f10430a6669d5030588531f00e8b98699486d9906e060ed0cbd9d8c9a"
+    },
+    "native-cases/easy-axe/candidate-launch.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-queue-native-basic-v3\\native-v1\\easy-axe-candidate\\proof.json",
+      "sha256": "3383f02fbca36ebad1d7d53bbd19d58c4a39879e739d5e1387618c5acb7756d7"
+    },
+    "native-cases/easy-flame/comparison.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-queue-native-basic-v3\\native-v1\\easy-flame-comparison\\proof.json",
+      "sha256": "e188dfd78f30ee54f0692fad24617447e955ab2f55ffdb96d1774653651c8851"
+    },
+    "native-cases/easy-flame/baseline-proof.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-queue-native-basic-v3\\baselines-v1\\easy-flame\\proof.json",
+      "sha256": "59b0dda1902b285121f5966314087755343c1601a76abab6bb850dbdb97ea711"
+    },
+    "native-cases/easy-flame/baseline-launch.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-queue-native-basic-v3\\native-v1\\easy-flame-baseline\\proof.json",
+      "sha256": "5e694695f116bfc1e5bd53bd656df82b114f64bb1d72ab425d5dfdcb87b65ae0"
+    },
+    "native-cases/easy-flame/candidate-proof.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-queue-native-basic-v3\\easy-flame\\proof.json",
+      "sha256": "81330b8c8834dc29e48b3a1da199359e88805cb82b9159294ab59990afdb4728"
+    },
+    "native-cases/easy-flame/candidate-launch.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-queue-native-basic-v3\\native-v1\\easy-flame-candidate\\proof.json",
+      "sha256": "e139473698a112c90070baf79e5d0a834611e7c7d8564de3704e2a15c6632623"
+    },
+    "native-cases/easy-ice/comparison.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-queue-native-basic-v3\\native-v1\\easy-ice-comparison\\proof.json",
+      "sha256": "2e8506cd19b9929899503422dae71056092390e171167637443438fdca8edcfd"
+    },
+    "native-cases/easy-ice/baseline-proof.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-queue-native-basic-v3\\baselines-v1\\easy-ice\\proof.json",
+      "sha256": "7985cf3b433f2477bdbbf061f62d444208b72b96bb4fe23a9de0d1c115a835b8"
+    },
+    "native-cases/easy-ice/baseline-launch.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-queue-native-basic-v3\\native-v1\\easy-ice-baseline\\proof.json",
+      "sha256": "9b2130a139e8cd4ba15b128cb6b3ac1b153352f43c50d82aebb95ca4cdadfe71"
+    },
+    "native-cases/easy-ice/candidate-proof.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-queue-native-basic-v3\\easy-ice\\proof.json",
+      "sha256": "70a429222d72d6d6f21ca70285045b3161ee255afa6e0cfaf5f09f40d4eacec9"
+    },
+    "native-cases/easy-ice/candidate-launch.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-queue-native-basic-v3\\native-v1\\easy-ice-candidate\\proof.json",
+      "sha256": "90a92b0cee4fb193e8e779a74863f1a7c6920550ca09ae979086247773019fc2"
+    },
+    "native-cases/easy-fireball/comparison.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-queue-native-basic-v3\\native-v1\\easy-fireball-comparison\\proof.json",
+      "sha256": "41f87f3f56f1db4c26f8b74904513cea10698d6776c3a19d88b78b3e99b0148f"
+    },
+    "native-cases/easy-fireball/baseline-proof.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-queue-native-basic-v3\\baselines-v1\\easy-fireball\\proof.json",
+      "sha256": "a9a712a14fedabb7674721dc94567f3135c05600fb5941583206c046ca613206"
+    },
+    "native-cases/easy-fireball/baseline-launch.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-queue-native-basic-v3\\native-v1\\easy-fireball-baseline\\proof.json",
+      "sha256": "68477cba39bf8e4b5895eef8f5e3ab9552c38e04b7662355d9b71916eadfd03c"
+    },
+    "native-cases/easy-fireball/candidate-proof.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-queue-native-basic-v3\\easy-fireball\\proof.json",
+      "sha256": "677e2fcb66da3f9637725c1207a12ffda63fda7060293a6a9b5594a67bdb8ac3"
+    },
+    "native-cases/easy-fireball/candidate-launch.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-queue-native-basic-v3\\native-v1\\easy-fireball-candidate\\proof.json",
+      "sha256": "8ec8ba7e0ad1ecf4898e74226608aff75681cf6b30f1d9b5cea25340377b5695"
+    },
+    "native-cases/easy-bat/comparison.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-queue-native-basic-v3\\native-v1\\easy-bat-comparison\\proof.json",
+      "sha256": "f56cf8f353bf4217674c94956288aebda8c7fbcc8645fb12f30e8e327c88885b"
+    },
+    "native-cases/easy-bat/baseline-proof.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-queue-native-basic-v3\\baselines-v1\\easy-bat\\proof.json",
+      "sha256": "1b2c2816d19f4517cf702b9f2e9418548a8f4473a2588abe8ceb418181579a15"
+    },
+    "native-cases/easy-bat/baseline-launch.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-queue-native-basic-v3\\native-v1\\easy-bat-baseline\\proof.json",
+      "sha256": "57440f3f52b1a3dbff345d857873c4c2f8ae22c22045e66efc9417eb0d4f6b9a"
+    },
+    "native-cases/easy-bat/candidate-proof.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-queue-native-basic-v3\\easy-bat\\proof.json",
+      "sha256": "5aaa4af03b37a88bb97efc8b1fb45ae22aec874c37e2b8ed5634c4d8da6998b2"
+    },
+    "native-cases/easy-bat/candidate-launch.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-queue-native-basic-v3\\native-v1\\easy-bat-candidate\\proof.json",
+      "sha256": "ace8be1c3469e61e8293869375a3240cca9c26f42e53039bb447639e214ac8c7"
+    },
+    "native-cases/hard-dagger/comparison.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-queue-native-basic-v3\\native-v1\\hard-dagger-comparison\\proof.json",
+      "sha256": "f3c5d94b274c7e664e42d7283082cdecc0ad3dddcce51e9ddcd653ce691164fc"
+    },
+    "native-cases/hard-dagger/baseline-proof.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-queue-native-basic-v3\\baselines-v1\\hard-dagger\\proof.json",
+      "sha256": "800f448471b14dbe4d246e8dfb7c8e22a26326c64c0b86d2b36388ee412de17f"
+    },
+    "native-cases/hard-dagger/baseline-launch.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-queue-native-basic-v3\\native-v1\\hard-dagger-baseline\\proof.json",
+      "sha256": "bdf37a9210c8f4e1ba0ca67dc682225cf77adf767497bf37f942be9e8dd34029"
+    },
+    "native-cases/hard-dagger/candidate-proof.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-queue-native-basic-v3\\hard-dagger\\proof.json",
+      "sha256": "13b1892603245ccc7d27b010d68ab1286465b15151f2d9692e05115b49ff425f"
+    },
+    "native-cases/hard-dagger/candidate-launch.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-queue-native-basic-v3\\native-v1\\hard-dagger-candidate\\proof.json",
+      "sha256": "86eb54934c0f3f0934733bdae2a04450dc0e4262272d25e362d59d94c946294d"
+    },
+    "native-cases/hard-axe/comparison.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-queue-native-basic-v3\\native-v1\\hard-axe-comparison\\proof.json",
+      "sha256": "24bd679b681942ffaffcbff2c37fdba1dc0d7c4df05f8d400ebcaf6a8a2a6108"
+    },
+    "native-cases/hard-axe/baseline-proof.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-queue-native-basic-v3\\baselines-v1\\hard-axe\\proof.json",
+      "sha256": "f6bf9669982f688f1841145b8a7659e4ff438025064b0169627b08f6e21b7dfb"
+    },
+    "native-cases/hard-axe/baseline-launch.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-queue-native-basic-v3\\native-v1\\hard-axe-baseline\\proof.json",
+      "sha256": "81707bdf00ebdc21701fc6b102c68903cdc3b7157f2052814908265ea0adfd27"
+    },
+    "native-cases/hard-axe/candidate-proof.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-queue-native-basic-v3\\hard-axe\\proof.json",
+      "sha256": "5e07f3b30708a7378fb76b5669bd2a279badc5112d4d3f2b8c4e8f7aea3f0a08"
+    },
+    "native-cases/hard-axe/candidate-launch.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-queue-native-basic-v3\\native-v1\\hard-axe-candidate\\proof.json",
+      "sha256": "b16f27578bee7d348c5f073f188bb8dd53a2f6663efdff8ed35c9109838b0d49"
+    },
+    "native-cases/hard-flame/comparison.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-queue-native-basic-v3\\native-v1\\hard-flame-comparison\\proof.json",
+      "sha256": "ec33ebfd2dece7d4bd0ef263e8bdd969f2728d34a357ff725233f3d6b88104c2"
+    },
+    "native-cases/hard-flame/baseline-proof.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-queue-native-basic-v3\\baselines-v1\\hard-flame\\proof.json",
+      "sha256": "5f29636e024bbb650a1cf622ce420f14cb6c212439e6fd2483396dcdd92c3e24"
+    },
+    "native-cases/hard-flame/baseline-launch.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-queue-native-basic-v3\\native-v1\\hard-flame-baseline\\proof.json",
+      "sha256": "5e4bb9e59769ee18df1a95b3c130340299f92fe0c53b209b73fdd6f101a1f5e3"
+    },
+    "native-cases/hard-flame/candidate-proof.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-queue-native-basic-v3\\hard-flame\\proof.json",
+      "sha256": "07513a5ee9a33ef19feaf747ef28037721e8a066ebae85b3742da1e0b54c5aa0"
+    },
+    "native-cases/hard-flame/candidate-launch.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-queue-native-basic-v3\\native-v1\\hard-flame-candidate\\proof.json",
+      "sha256": "a4c4f4afc870a0c232db2fb11ccfc8c236af4847b7004e872f0b51d33a149e61"
+    },
+    "native-cases/hard-ice/comparison.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-queue-native-basic-v3\\native-v1\\hard-ice-comparison\\proof.json",
+      "sha256": "a7eb6db75c5a6905f73c7f622ea03b21fdb3bc0b95b8b519facb23ebd5fc403d"
+    },
+    "native-cases/hard-ice/baseline-proof.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-queue-native-basic-v3\\baselines-v1\\hard-ice\\proof.json",
+      "sha256": "d3fe6a96286bee9d0c62cb2afcf0218c688535cf8ef22bd273683e2ad101ab64"
+    },
+    "native-cases/hard-ice/baseline-launch.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-queue-native-basic-v3\\native-v1\\hard-ice-baseline\\proof.json",
+      "sha256": "dd93195d33b4c2fdee38527e5075a92afc8445d3758123f8234aad28e25e2265"
+    },
+    "native-cases/hard-ice/candidate-proof.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-queue-native-basic-v3\\hard-ice\\proof.json",
+      "sha256": "cc6176d91c9849842cfa35dc44166e0e0e01a3d2f3806aa8a795f1f2cb364e86"
+    },
+    "native-cases/hard-ice/candidate-launch.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-queue-native-basic-v3\\native-v1\\hard-ice-candidate\\proof.json",
+      "sha256": "63c2f6c8d1d4679ada9f145fc22782505dcc2a3403e5adfd0ae46369a3b7dfcd"
+    },
+    "native-cases/hard-lightning/comparison.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-queue-native-basic-v3\\native-v1\\hard-lightning-comparison\\proof.json",
+      "sha256": "4f39a6465fa67d4ad169bea54f7fc8701b063d0da11ff6697b2c0a509cd1f507"
+    },
+    "native-cases/hard-lightning/baseline-proof.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-queue-native-basic-v3\\baselines-v1\\hard-lightning\\proof.json",
+      "sha256": "0ce75d498226bff3e8692d875f2218a2eebff5521da081169c2fe084f946e0c1"
+    },
+    "native-cases/hard-lightning/baseline-launch.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-queue-native-basic-v3\\native-v1\\hard-lightning-baseline\\proof.json",
+      "sha256": "8dff7da26ddaace967853bd9f0495d581aab7ce0888a6ebc0f3ae863b49e4676"
+    },
+    "native-cases/hard-lightning/candidate-proof.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-queue-native-basic-v3\\hard-lightning\\proof.json",
+      "sha256": "e7496117461d2f5684a0430b53d8abc0e7406bb984706d2f7004c6028754ccfe"
+    },
+    "native-cases/hard-lightning/candidate-launch.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-queue-native-basic-v3\\native-v1\\hard-lightning-candidate\\proof.json",
+      "sha256": "13390ae468f70791067d29909f1681cb34f70ff2b24edd4afdc2cc8e35b71cc2"
+    },
+    "native-cases/hard-fireball/comparison.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-queue-native-basic-v3\\native-v1\\hard-fireball-comparison\\proof.json",
+      "sha256": "a7addbbb14c55b0235f03d63766551c93b804c754fc5ab8b6dbf01479dc745dd"
+    },
+    "native-cases/hard-fireball/baseline-proof.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-queue-native-basic-v3\\baselines-v1\\hard-fireball\\proof.json",
+      "sha256": "9f0255b0aeb606bc809aee00a6d150eeb132cdec26604de920ce65f8fa8465e0"
+    },
+    "native-cases/hard-fireball/baseline-launch.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-queue-native-basic-v3\\native-v1\\hard-fireball-baseline\\proof.json",
+      "sha256": "b3fbe5bbf27fb8802f32de6bea6cbe6728a82ad6a8300cc3daf7b9a1f65545bb"
+    },
+    "native-cases/hard-fireball/candidate-proof.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-queue-native-basic-v3\\hard-fireball\\proof.json",
+      "sha256": "14dc2484e112e745aadd29c2e423d2d49a1a25893efbc3b53d8f54541aacde5c"
+    },
+    "native-cases/hard-fireball/candidate-launch.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-queue-native-basic-v3\\native-v1\\hard-fireball-candidate\\proof.json",
+      "sha256": "e6e4c1e85080c3e14a5c0d1acdcd1a420ade0f95c6d47bf85684c67bf069f2d1"
+    },
+    "native-cases/hard-bat/comparison.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-queue-native-basic-v3\\native-v1\\hard-bat-comparison\\proof.json",
+      "sha256": "2a095911430ce147a35ba8a35779bc3063c634f0656f560725f7ef569333895a"
+    },
+    "native-cases/hard-bat/baseline-proof.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-queue-native-basic-v3\\baselines-v1\\hard-bat\\proof.json",
+      "sha256": "79540de6d86a33735a44de0a17c37dee0f7536f0579b9738de44a99a632dcdb3"
+    },
+    "native-cases/hard-bat/baseline-launch.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-queue-native-basic-v3\\native-v1\\hard-bat-baseline\\proof.json",
+      "sha256": "0c202cf7c417c2b1caacb6fce7ac878e79ce405c2cb3daa68af8875db99f9190"
+    },
+    "native-cases/hard-bat/candidate-proof.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-queue-native-basic-v3\\hard-bat\\proof.json",
+      "sha256": "0ee1fff2e2d4ffb98b830d5e24e920dfa81498850501b2a5afa6f47c8cb0893f"
+    },
+    "native-cases/hard-bat/candidate-launch.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-queue-native-basic-v3\\native-v1\\hard-bat-candidate\\proof.json",
+      "sha256": "1fbf419fe11da0cbb82aadb972f06fac5e7e7d3616cb2041ea9b60d70f792c5f"
+    },
+    "reports/cv3-remaining-sfx-queue-basic-ready-2026-10-25.txt": {
+      "source": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\docs\\qa\\cv3-remaining-sfx-queue-basic-ready-2026-10-25.txt",
+      "sha256": "01978bb23608e60311a2e08cb384cf1b83fc7c812863b7c5168985d261caf493"
+    },
+    "reports/cv3-remaining-sfx-queue-basic-native-2026-10-25.txt": {
+      "source": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\docs\\qa\\cv3-remaining-sfx-queue-basic-native-2026-10-25.txt",
+      "sha256": "a1a0d9d714a561292b89bff73500fa0608b21f2119d0214e78d2b8590a39604a"
+    },
+    "reports/cv3-remaining-sfx-queue-basic-environment-2026-10-25.txt": {
+      "source": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\docs\\qa\\cv3-remaining-sfx-queue-basic-environment-2026-10-25.txt",
+      "sha256": "1f9a866e4ae20a7f08845cadf9273ce1f6c200e61c57209beb46c9fdf4ed69f0"
+    }
+  }
+}

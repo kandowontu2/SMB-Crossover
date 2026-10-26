@@ -1,0 +1,83 @@
+{
+  "passed": true,
+  "native_executed": false,
+  "v4_source_and_cadence_function_bytes_retained": true,
+  "cases": [
+    {
+      "mode": 0,
+      "actual_assembled_control_sha256": "a9ea4494e6aa1df72dcd5b8cf902321e179c05b9e77a2f9a8221a3fa20d4ac34",
+      "positive": {
+        "equal": true,
+        "hardware_stores": 282,
+        "actual_audio_epoch_bound": true,
+        "register_value_masks": false,
+        "excluded_non_APU_DMA_and_controller_registers": [
+          16404,
+          16406
+        ]
+      },
+      "negative_controls": [
+        {
+          "name": "raw400F low bits",
+          "error": "('Existing1F complete ordered native hardware stream/actualAudioEpoch differs', (5, (1, 16399, 13), (1, 16399, 8)))"
+        },
+        {
+          "name": "actual audio epoch",
+          "error": "('Existing1F complete ordered native hardware stream/actualAudioEpoch differs', (0, (0, 16405, 15), (1, 16405, 15)))"
+        },
+        {
+          "name": "full host music byte",
+          "error": "('Existing1F complete ordered native hardware stream/actualAudioEpoch differs', (0, (1, 16405, 14), (1, 16405, 15)))"
+        },
+        {
+          "name": "missing ordered hardware store",
+          "error": "('Existing1F complete ordered native hardware stream/actualAudioEpoch differs', (0, (1, 16384, 243), (1, 16405, 15)))"
+        },
+        {
+          "name": "added APUframecounter4017 store",
+          "error": "('Existing1F complete ordered native hardware stream/actualAudioEpoch differs', (0, (1, 16407, 64), (1, 16405, 15)))"
+        }
+      ]
+    },
+    {
+      "mode": 1,
+      "actual_assembled_control_sha256": "a9ea4494e6aa1df72dcd5b8cf902321e179c05b9e77a2f9a8221a3fa20d4ac34",
+      "positive": {
+        "equal": true,
+        "hardware_stores": 282,
+        "actual_audio_epoch_bound": true,
+        "register_value_masks": false,
+        "excluded_non_APU_DMA_and_controller_registers": [
+          16404,
+          16406
+        ]
+      },
+      "negative_controls": [
+        {
+          "name": "raw400F low bits",
+          "error": "('Existing1F complete ordered native hardware stream/actualAudioEpoch differs', (5, (1, 16399, 13), (1, 16399, 8)))"
+        },
+        {
+          "name": "actual audio epoch",
+          "error": "('Existing1F complete ordered native hardware stream/actualAudioEpoch differs', (0, (0, 16405, 15), (1, 16405, 15)))"
+        },
+        {
+          "name": "full host music byte",
+          "error": "('Existing1F complete ordered native hardware stream/actualAudioEpoch differs', (0, (1, 16405, 14), (1, 16405, 15)))"
+        },
+        {
+          "name": "missing ordered hardware store",
+          "error": "('Existing1F complete ordered native hardware stream/actualAudioEpoch differs', (0, (1, 16384, 243), (1, 16405, 15)))"
+        },
+        {
+          "name": "added APUframecounter4017 store",
+          "error": "('Existing1F complete ordered native hardware stream/actualAudioEpoch differs', (0, (1, 16407, 64), (1, 16405, 15)))"
+        }
+      ]
+    }
+  ],
+  "negative_controls": 10,
+  "v5_sha256": "a7be172d89a967fc15d7b6035fe946674315478f847ec09ab4e71d035d0c9671",
+  "scope": "Source component proof only. Whole actual baseline/candidate assembled1F hardware equality is established by the bound legacy-control receipt. This adds unmasked ordered400x/4015/4017+actual epoch comparator and5meaningful failures per mode. No fabricated native proof, no emulator/adoption.",
+  "tool_sha256": "415e71bc9b8aeebd0a3877f00444aec1dae39f125e2b321254aadfb420573d76"
+}

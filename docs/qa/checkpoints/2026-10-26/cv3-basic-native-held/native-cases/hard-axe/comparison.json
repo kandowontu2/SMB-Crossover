@@ -1,0 +1,44 @@
+{
+  "legacy1F_complete_native_hardware_control": null,
+  "passed": true,
+  "accepted": false,
+  "ROM_sha256": "0c45ce16fa189debc2303f4df664a0e75f326a807a64bf23280797734615339c",
+  "script_sha256": "dce832f69fcfd135acd5c87761793bfb562eb89857c3195e12e113230d7cf3d7",
+  "actual_numeric_mode": 1,
+  "actual_event": 21,
+  "actual_actor_cues": 1,
+  "original_source_ROM_sha256": "085ec6395681c7ebfda19c2986069c21a3d27738cc61ada76249de70a07ed7d3",
+  "strict_ordered_source_and_raw_owned_hardware_frames": 127,
+  "no_raw400F_or_source_value_masks": true,
+  "new_effect_original_ordered_image_contract": true,
+  "legacy1F_declared_unchanged_adapter_order": null,
+  "cadence": {
+    "passed": true,
+    "candidate_updates": 139,
+    "baseline_updates": 139,
+    "candidate_skipped_draw_frames": 1,
+    "baseline_skipped_draw_frames": 1,
+    "candidate_frames": 140,
+    "baseline_frames": 140,
+    "candidate_draws": 139,
+    "baseline_draws": 139,
+    "candidate_max_no_draw": 1,
+    "baseline_max_no_draw": 1,
+    "candidate_max_no_update": 1,
+    "baseline_max_no_update": 1,
+    "all_draw_prefix_deferrals": [],
+    "complete_game_proof_totals": {
+      "candidate": {
+        "updates": 140,
+        "draws": 140
+      },
+      "baseline": {
+        "updates": 140,
+        "draws": 140
+      }
+    }
+  },
+  "status": "BOUNDED_NATIVE_SOURCE_AND_STRICT_CADENCE_PASS",
+  "tool_sha256": "a7be172d89a967fc15d7b6035fe946674315478f847ec09ab4e71d035d0c9671",
+  "scope": "Only the bound real0c45 BASIC140 effect/mode cell. New effects require exact original ordered image;1F is explicitly an unchanged period/high/volume adapter control with exact original values/raw400F and ascending hardware flush, not original image-order equality.  Original effects requested on observed actualNMI consumer epochs; every ordered source image store plus adapted ascending owned-voice hardware flush compared. Released voices may restore host music. Any prefix/draw/stall/frame deferral remains HELD; no automatic adoption."
+}
