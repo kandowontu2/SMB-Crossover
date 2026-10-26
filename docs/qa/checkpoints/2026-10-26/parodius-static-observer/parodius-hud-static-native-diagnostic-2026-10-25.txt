@@ -1,0 +1,84 @@
+Parodius static observer native prefix diagnostic, 2026-10-25
+
+ONE approved native case completed; worker released. No automatic retry or
+additional profile launched. Production remains50b5; private ROM remains
+df5154bc035ba2c392bb8d34068897a2bccf7a78a6f4554bd6790d31a586c357.
+
+P = C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/parodius-visibility-current50b5-v1
+Readiness/source and both retained AVs are described separately in
+docs/qa/parodius-hud-static-observer-2026-10-25.txt.
+
+Exact approved fixture
+P/hud-static-native-diagnostic-v1/twinbee-easy
+preparation SHA1ba75acc8a0475b9a5e560fd654234669f334f27957629a7579dc0008376903b
+run.lua SHA11ffa9ba99b0ab9fc63572b67f472d61c16c5f2b2435d9a0f89fe08c8d913b17
+Actual numeric mode0/variant2, unchanged failed-run controller/input stream.
+ROM/source, all guard/output bodies and fixed hardware sprite limit retained.
+Mesen2.2.1.0 SHA8b92daa209ee5052845e02a663aeb1afd6194eca55d86e6628c51114c61da0a9
+was the sole observed native process, PID175092; it exited0 and is no longer
+running. Its isolated options used AllZeros/nonrandom/no settings save/real
+8-sprite limit. No outcome, resource or state writes were added.
+
+Actual native result through frame640
+P/hud-static-native-diagnostic-v1/twinbee-easy/baseline-early/scroll-proof.json
+SHA064751cec2072d6924f6570c0af6af7705471d3d25c2df85ac9c3bdb4e30ab4f
+153 committed updates,126 publications,125 completed DMAs,164 sampled NMIs,
+1076 all-boot UpdateScreen physicalC116 owner checks, min sampledSP197.
+Zero partial visible-start DMA mismatches, zero completed256-byte DMA source
+mismatches, zero body-raster source mismatches. Actual CHR/write-time mapping,
+five shared SMC fields, physical A/C bank restoration, stack and IRQ31 checks
+passed.201 lossless full PPU frames440..640 saved.
+HUD:123 actual label checks,161 displayed font checks,165 physicalIRQ31 checks.
+Scroll:164 displayed-start checks,32 ordered reads for each capture308/479.
+Capture308 occurred displayoff, outside the201-frame image window.
+Live capture479 cleared at245:190 witht0C00/fineX0/wfalse; actual visible
+start479:-1:0 hast0/fineX0/wfalse. The source-blank prelease mask checks1792
+actual RGB pixels with0 bad. Custom HUD/font first publishes480.
+The strict native registration count was not directly measured: the frozen
+reviewed fixture was run unchanged. Exact source/startup Lua proof records49
+fixed callbacks; there is no runtime add/remove registration in that source.
+
+Exact old crash prefix
+P/hud-static-prefix-diagnostic-v1/proof.json
+SHAa3a01cd177b001bb50419ba6f462d8ed87a6366a4c78e44964f375931dcd6c68
+All1816 flushed oam-bus events equal through actual444:250:248, AudioUpdate
+entry/profile20. All4 flushed HUD frame records,2 capture/scroll records and
+raw RGB frames440..443 equal exactly. Empty old epochs/body-write/HUD-event
+streams remain empty-prefix comparisons, not evidence of active gameplay.
+All flushed input/trace/other CSV prefixes and their incomplete tails match.
+Inputs:430 complete CSV lines including header, then partial tail"4".
+Trace:376 complete CSV lines including header, then partial tail
+"376,375,0,0,37". No missing buffered crash data is reconstructed or asserted.
+The old run remains HOST_FAILURE0xC0000005/RVA12F820; it is not relabeled pass.
+
+Offline RGB and honest human review
+P/hud-static-RGB-diagnostic-v1/twinbee-easy/proof.json
+All161 published label-frame source masks pass on full-resolution actual PPU
+captures,0 mismatches; colors are observed NES-index/RGB consistency, not an
+independent absolute palette calibration.
+first-publication-full-PPU.png SHA
+c3cccb837c653bede42f78503b187cb0e1fae2846d46906b462bf2e33dcaa2cc
+Human viewed fullframes477..484 and all201 HUD crops as a sheet. Native HUD
+and ground remain stable477..479; former479 ground strip across HUD is absent.
+Complete source labels appear480 and remain stable through484. Labels remain
+dense/tiny by source design. No claim of full human review of201 full screens,
+all pose readability or sprite-overload closure.
+
+Frozen finite packet
+P/hud-static-native-packet-v1/proof.json
+SHA57e266cd6b242b7da6f25cdc43d1115c93aaca5792dedbd61ca129b62ec1ee34
+Manifest bad73a7a5b4f4d0176dd81554e4257f12c045fa99d304dad658aa9917c098e7c,
+269 bindings. Additive visual-review SHA
+6293a27edb0331ae339303c22b2553ef90a423b8fd2724d41b7c5319bceb63ae.
+
+Run command actually executed, with P expanded to the full path above:
+python -B tools/audit/parodius_visibility_hud_scroll_native_run_v1.py --packet "P/hud-static-native-diagnostic-v1/twinbee-easy" --emulator "C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/mmc3-flag-fix-v23/script-budget-probe-v2/emulator/Mesen.exe"
+The output is immutable and the runner will not overwrite it.
+
+Both host AVs remain preserved. New equal-prefix/full640 success supports the
+callback-registration host-cause correction and this exact bounded control.
+OctopusEasy df515 was completed separately with the original observer. Six
+initial df515 profiles remain uncompleted: PentaEasy,OctHard,TwinHard,PentaHard,
+VicEasy,VicHard. No broadening or native grant is presumed. Menu/area/death/
+Buffer2/heavy/DMC controls, body-priority trial, overcrowded flicker and global
+timing/fidelity/full-goal qualification remain open. No production adoption.

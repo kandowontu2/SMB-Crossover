@@ -1,0 +1,43 @@
+{
+  "ready_for_parent_review": true,
+  "native_run": false,
+  "native_authorized": false,
+  "goal_complete": false,
+  "ROM_sha256": "df5154bc035ba2c392bb8d34068897a2bccf7a78a6f4554bd6790d31a586c357",
+  "production_unchanged": true,
+  "static_observer_sha256": "5408fa03f8f6e30af1868ac72e1bb70e89a9d6d54c86eb13c62553bb3240290a",
+  "original_observer_sha256": "094a731a824434b2abacdc1f2387697abd39d84c7aa819fe3d71f0f876c6e9e7",
+  "prepared_profile": {
+    "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\parodius-visibility-current50b5-v1\\hud-static-native-diagnostic-v1\\twinbee-easy",
+    "mode": 0,
+    "variant": 2,
+    "preparation_sha256": "1ba75acc8a0475b9a5e560fd654234669f334f27957629a7579dc0008376903b",
+    "script_sha256": "11ffa9ba99b0ab9fc63572b67f472d61c16c5f2b2435d9a0f89fe08c8d913b17"
+  },
+  "same_frozen_ROM_and_controller": true,
+  "exact_only_five_registration_source_transforms": true,
+  "all_prior_guards_and_output_schemas_retained": true,
+  "dispatcher_registered_last_after_controller": true,
+  "checks": {
+    "hud-static-observer-build-v1": {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\parodius-visibility-current50b5-v1\\hud-static-observer-build-v1\\proof.json",
+      "sha256": "5e8d4162d62908244dc0c9bd38a9a74683f98f36219c05e410e97fca2fc35894"
+    },
+    "hud-static-observer-cpu-v1": {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\parodius-visibility-current50b5-v1\\hud-static-observer-cpu-v1\\proof.json",
+      "sha256": "7cee7793d61a7859086e8fb49d072fdae57c9fd842c9f9378c2f8d7b62ab1fc2"
+    },
+    "hud-static-startup-cpu-v2": {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\parodius-visibility-current50b5-v1\\hud-static-startup-cpu-v2\\proof.json",
+      "sha256": "1eb5dc034fcd6070bacd3705d5d105ed5ffce34d636d94f5fa453896ab961737"
+    }
+  },
+  "manifest_sha256": "a1e711ca838c05e058c10209bcfe21230431a7f8955b4f196c959120c6bafd8c",
+  "manifest_bindings": 68,
+  "host_cause": "Strongly supported callback-vector invalidation: original onReturn adds unique profile callbacks inside exec callback; official Mesen source push_back mutates the vector iterated by InternalCallMemoryCallback. Parent independently matched actual DLL RVA12F820 to that callback loop. No ROM clearance inferred.",
+  "upstream_sources": [
+    "https://github.com/SourMesen/Mesen2/blob/master/Core/Debugger/ScriptingContext.cpp",
+    "https://github.com/SourMesen/Mesen2/blob/master/Core/Debugger/ScriptingContext.h"
+  ],
+  "limits": "Separate observation-layer proposal only. Actual Lua5.5 unit/mocked startup is not the Mesen runtime. Both host AVs remain failed immutable runs. Await ROOT review and explicit grant, then require same-input flushed-prefix/PPU equality and full strict native guards. No game patch, no body-order trial or lifecycle broadening."
+}

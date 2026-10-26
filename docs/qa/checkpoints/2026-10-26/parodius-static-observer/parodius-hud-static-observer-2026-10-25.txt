@@ -1,0 +1,88 @@
+Parodius static observer readiness, 2026-10-25
+
+Status: SOURCE/OBSERVATION ONLY. No new native launch or game-source change.
+Production remains 50b51c3c69f45ef137720c47f521574097f421056e3b73296d06ba70080d2363.
+The private capture-scroll candidate remains exactly
+df5154bc035ba2c392bb8d34068897a2bccf7a78a6f4554bd6790d31a586c357.
+
+Archive P = C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/parodius-visibility-current50b5-v1
+
+Frozen host failure
+P/hud-scroll-host-failure-v1/proof.json
+SHA256 ee6d9f14222ff1d757892a76d1f6264db25412c964e4048570fc6dae3e67db9e
+Manifest aa8481e30ea20177cfa18e857b66943de07d09142a56c287732d8c8d8b0c0dfa, 182 bindings.
+The first remaining df515 Twinbee Easy control exited 0xC0000005, not a Lua
+assertion. Windows Application Error record122057 identifies Mesen.exe2.2.1.0,
+MesenCore.dll0.0.0.0, RVA0x12F820, local2026-10-25T20:34:04.1038952-04:00.
+Only raw PPU frames440..443 flushed; buffered input/CSV tails are not inferred.
+The other six remaining profiles never launched. The earlier v11 Hard Octopus
+AV remains separately preserved, including its successful matched retry and
+prefix comparison; neither AV is converted to a pass.
+
+Host cause and scope
+The original onReturn creates an emulator exec callback inside an active exec
+callback. Its unique serial profile key creates thousands of permanent native
+callbacks. ROOT independently disassembled the actual DLL fault at12F820 as
+the cached callback-vector iteration. The official Mesen source confirms that
+RegisterMemoryCallback uses vector.push_back while InternalCallMemoryCallback
+iterates that same vector across Lua calls:
+https://github.com/SourMesen/Mesen2/blob/master/Core/Debugger/ScriptingContext.cpp
+https://github.com/SourMesen/Mesen2/blob/master/Core/Debugger/ScriptingContext.h
+Together these strongly support host iterator/pointer invalidation. The source
+mechanism alone does not prove the linked DLL revision or clear the ROM.
+
+Separate observation-layer proposal
+Original tools/audit/parodius_visibility_observer.lua is unchanged, SHA256
+094a731a824434b2abacdc1f2387697abd39d84c7aa819fe3d71f0f876c6e9e7.
+New tools/audit/parodius_visibility_hud_static_observer_v1.lua is SHA256
+5408fa03f8f6e30af1868ac72e1bb70e89a9d6d54c86eb13c62553bb3240290a.
+The exact builder permits only five documented transformations:
+- Return watches use Lua-only ordered slots keyed by actual return PC, retaining
+  original pending replacement, first-registration order, SP and physical bank.
+- DMA completion retains its original persistent closure, bank guard, pending
+  object, 256-write/destination assertions and output; it uses the same ordered
+  Lua slots, preserving relative first-registration order with return watches.
+- The PPU raster callback registers at startup and returns until the unchanged
+  endFrame capture_start-1 activation predicate sets its gate.
+- ONE native exec callback for0..65535 dispatches the Lua slots. The generated
+  complete run.lua registers it LAST, after the controller harness and every
+  HUD/scroll/native guard. There is no runtime native add/remove registration.
+All original observation bodies, assertions, output schemas and ROM/controller
+bytes remain unchanged. Policy paths change only to the new isolated directory.
+No emulator outcome, resource, state or register writes were added.
+
+Finite source-only checks
+P/hud-static-observer-build-v1 contains exact transformation data and patch.
+P/hud-static-observer-cpu-v1 executes actual original/new Lua return logic in
+Lupa2.8/Lua5.5:28,715 comparisons,13,211 identical log events, including reused
+keys, replacement, nested stack/bank misses, return wrap and persistent DMA
+interleaving. The old test accumulated4,073 native callbacks; the new test used
+one. New runtime addMemoryCallback was replaced by a failing mock, never called.
+P/hud-static-startup-cpu-v2 loads the actual complete generated run.lua and
+actual policy/harness/native guard with linked labels under inactive-game mocks.
+49 fixed memory callbacks, final exec range0..65535;439 mock frame transitions
+through the exact raster activation boundary make no registration attempt.
+These are Lua observation-layer tests, not NES CPU or native-gameplay tests.
+The failed startup-v1 mock omitted runner-provided global L; its failure and
+tool are retained separately. V2 corrects only that mock setup.
+
+Readiness and exact first diagnostic fixture
+P/hud-static-readiness-v1/proof.json
+SHA256 9ee9c753b9b67456b10b98343b2076da0a5f8dbb32111a08b3736124c37766cb
+Manifest a1e711ca838c05e058c10209bcfe21230431a7f8955b4f196c959120c6bafd8c,
+68 immutable bindings.
+P/hud-static-native-diagnostic-v1/twinbee-easy/preparation.json
+SHA256 1ba75acc8a0475b9a5e560fd654234669f334f27957629a7579dc0008376903b
+Generated run.lua SHA256
+11ffa9ba99b0ab9fc63572b67f472d61c16c5f2b2435d9a0f89fe08c8d913b17.
+Numeric mode0, variant2; exact failed-df515 ROM/controller/input stream; no
+adaptive controller substitution. Preparer checks byte equality of ROM/dbg/lbl/
+map and harness/input/native-guard/manifest, and exact observer-only script delta.
+
+After ROOT review/explicit grant ONLY, the stable existing strict runner is:
+python -B tools/audit/parodius_visibility_hud_scroll_native_run_v1.py --packet "P/hud-static-native-diagnostic-v1/twinbee-easy" --emulator "C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/mmc3-flag-fix-v23/script-budget-probe-v2/emulator/Mesen.exe"
+Replace P with the full archive path above; this command is not run by readiness.
+First require exact matching flushed CPU/PPU/source-event and raw-image prefix,
+then the original full strict DMA/IRQ/bank/SMC/SP/CHR/scroll/RGB guard results.
+No game pass, lifecycle broadening, all-eight completion, body-order trial,
+global timing closure or original-game fidelity claim follows from this packet.
