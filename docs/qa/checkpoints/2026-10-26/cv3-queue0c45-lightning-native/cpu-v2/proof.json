@@ -1,0 +1,66 @@
+{
+  "passed": true,
+  "native_executed": false,
+  "ROM_sha256": "0c45ce16fa189debc2303f4df664a0e75f326a807a64bf23280797734615339c",
+  "script_sha256": "6b51694e3f209c4817396881c8ad34d41d7459656dc3a9ad0fe1eb96b3eb40c6",
+  "cases": [
+    {
+      "interference": "none",
+      "synthetic_RMW_dummy_writes": false,
+      "actual_native_casts": 3,
+      "actual_published": 3,
+      "actual_consumed": 3,
+      "actual_full_lag_NMIs": 60,
+      "ordered_original_source_frames": 44,
+      "source_image_writes": 129,
+      "callbacks": 12,
+      "logs": {
+        "queue-owners.jsonl": "d716f94555cea16732a6ea93b3d0f1e9a8702a43255b32e83cf54cceaddc767b",
+        "source-register-image.csv": "77ab2a18b1ca6d99612928da263440ebed5b0c5aac85e7ed2e8ed2e1a10b35e2",
+        "requests.csv": "5652de8aff64f17954476ae88834401da14b1103add85a032c22cce88b40b3a7",
+        "assembled-apu.csv": "f0820272302ca92d9bad17b3ff5987e6a23338adde5ce7e5f30fca0e431a3b42"
+      }
+    },
+    {
+      "interference": "slot",
+      "synthetic_RMW_dummy_writes": true,
+      "actual_native_casts": 3,
+      "actual_published": 3,
+      "actual_consumed": 3,
+      "actual_full_lag_NMIs": 61,
+      "ordered_original_source_frames": 44,
+      "source_image_writes": 129,
+      "callbacks": 12,
+      "logs": {
+        "queue-owners.jsonl": "b90a76bbe10c6faf6b408e4bc93bd09430f835b8ea3940060328794d38832472",
+        "source-register-image.csv": "e3ced0e911bda2700d39e3f4ba8313e08d2b7b202e6ee35b70659ac850392252",
+        "requests.csv": "f8ba29044a72ed8a9641df46ca102963f659cf8e7226c09965747f643016a6c3",
+        "assembled-apu.csv": "b36264b81a2127149ce10c5a71468d0198467a4c30c1d683bac2a38a4e3368cd"
+      }
+    },
+    {
+      "interference": "head",
+      "synthetic_RMW_dummy_writes": true,
+      "actual_native_casts": 3,
+      "actual_published": 3,
+      "actual_consumed": 3,
+      "actual_full_lag_NMIs": 61,
+      "ordered_original_source_frames": 45,
+      "source_image_writes": 134,
+      "callbacks": 12,
+      "logs": {
+        "queue-owners.jsonl": "f6509e921a732111d0ceb203025d340719220cbc3b1b474bd5cdef6305d783a0",
+        "source-register-image.csv": "aae3665a65103dc7274478c840a58a8e7164354ab0bc6777de032238456b7b7f",
+        "requests.csv": "b713e8fb32f2777c1aef6452c097ccdf550a5bab57875391ca4744f079f4d260",
+        "assembled-apu.csv": "40b3e05a2b494bfccfdae97fc0f02c9af8bd85d9b9a33c81ed98f501c19663a1"
+      }
+    }
+  ],
+  "actual_assembled_Cv3WeaponsGate_and_full_NMI_ISR": true,
+  "actual_genuine_caller_stack_writer_opcodes_banks_and_raw_source_image_hooks": true,
+  "all_raw_source_register_stores_including400F_order_equal_original": true,
+  "no_game_source_modifications": true,
+  "Lua_runtime": "Lua5.4",
+  "tool_sha256": "e286981026cf0855b18d525e64a2c73e3a6e7b0b07bdf60b3b42f1e53317aaf7",
+  "scope": "Actual6502 main cast and complete lagNMI replay into the read-only new Lua module, with source writes compared to original executable on actual consumer epochs. Synthetic PPU/bus-free CPU layer and an optional simulated INC dummy event; no Mesen, controller140-update fixture execution, OAM/CHR/DMC bus or native deadline verdict."
+}
