@@ -1,0 +1,32 @@
+CURRENT6c69 CHIP HOT CONTROL: EXACT PRIVATE SOURCE REBASE, 2026-10-26
+
+One candidate ready for ROOT native checks. SOURCE/CPU ONLY; no native launch, production edit, install or adoption.
+
+Parent:6c69e506b45c8420cf57a62b868f89c0fe86d308c0ee55655b48e8f44af9521a.
+Candidate:22fdf1f6ed7e70f87344cc17733f76da60e376ebfc9314c2cb9358587dd45fcf.
+Files: external chip-hot-control-current6c-v2/candidate.nes, candidate.dbg, candidate.lbl.
+Complete source: same directory/source.
+Readiness: freeze-v1/readiness-source-only.json SHA0ee3af8e2960d87a2b4184e0c42a9a851f826c7e81766ba586389561a5ef3fa8;1017 bindings. Adjacent source-manifest.json, implementation.patch and original/new raw four-file copies.
+
+Frozen baseline was world-firebar-padding-v2/source, not the old8b4 source or its native-music overlay. All872 original snapshot files were hash-verified. Two independent fresh parent builds equal6c69; two independent fresh candidate builds equal22fd. Exactly four source files differ: src/x5_bounce.s, src/characters.s, src/megaman_weapons.s, src/tmnt_probe_gates.s. Their raw after-images equal the qualified donor four-file delta. Original line endings preserved. No old entrypoint, old mapper config, native Chip music source, audio asset or extra RAM was imported. Current recorded music remains installed.
+
+Protected current source files match the full current snapshot: entrypoint/config, character_select, metasprite_engine, nmi_vram_fast, parodius_bells/hud_queue/render, reset, samus_freeze_render, screen_render, vic_adapter, roster_audio, cv3_source_audio, cv3_dmc_complete and cv3_remaining_source_fx. All remaining source files are also byte-identical through the complete manifest comparison.
+
+ROM changes from actual6c69 only banks86(125 bytes),89(23),125(11),126(32),127(11). Header, all CHR, bank4 and every other PRG bank remain exact. Bank125's resident prefix changes mirror127 exactly; retained DMC manager, samples and vectors remain unchanged. Thus current HUD/CV3/world-padding display fixes remain intact outside the intended control spans. No authentic-source music dependency or sample/driver change.
+
+Fresh results on actual22fd against actual freshly built6c69:
+-4 full PlayerCtrl CPU cases PASS, each saving658 cycles.
+-256 complete-caller Easy/Hard0/1,land/water,16-input-mask cases PASS. Exact application RAM, all copied SMC, fullAXYPS and mapper banks; saving658 in every case.
+-168 side-component cases PASS. Foreign source admissions improve5..14cycles.
+-15360 foreign movement continuation cases PASS with all256 input P values and A0/14/255. Exact whole RAM INCLUDING stack/SMC and CPU/banks at unchanged LmMovementGate common continuation or TnMovement entry. LmMovementGate is a dispatcher, not a final leaf. Byte-identical following code supplies compositional continuation equality. Net foreign movement saving20cycles after replacing30NOP cycles with a3cycle JMP.
+-97 compiled mapper IRQ/vector/RTI boundary injections PASS. Minimum SP227; resumed CPU/RAM/SMC/banks exact.
+-61200 old qualified symbols remain exact. Same five genuine private exceptions as the donor: remove X5OwnMovement::Legacy, CrossoverSourceSideProbe::OwnZ2Side and old solecaller Z2NativeSideSelector; move TnFastSideGate::CheckMac-2 and MegaManFullShotBank::OtherSide+7. No fake aliases; public procedure entries/spans unchanged.
+-Fresh ordinary MMC3 and MMC5 builds retain exact d444cac88e13fa02b29ad16100b8f08fa565ba90f8cedde192de43fb2dc8f3eb and f4ffd2483c51daa4d60bb575da2da8c4d817692cda407611c243031f67520833 hashes.
+
+CPU scope: these are NEW executions of actual current-parent/composed code using the same historical8b4 captured-state arenas as controlled inputs. They are not newly captured current native states, scene traversals, timed NMI/PPU/DMA/DMC simulations or a transferred native verdict. IRQ tests execute the actual current compiled handler under explicit mapper-pending status. No native cadence/lag-closure claim. The658-cycle saving remains bounded; historical first-publication deficit was larger.
+
+Retained negative: current6c-v1 successfully built the exact two ROM hashes, then its postbuild protected-source check named nonexistent cv3_remaining_sfx.s. Actual source is cv3_remaining_source_fx.s. Failure is preserved; v2 corrected that validation-only fixture and independently rebuilt both hashes. Earlier faster4e52 strict-SMC failure remains REJECTED. No observer/oracle mask, original settings mutation or native retry.
+
+ROOT native checks should use exactly22fd with matching DBG/LBL. Default/current ROM remains6c69. No production files were touched by this agent. No native worker is held.
+
+External prefix: C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/

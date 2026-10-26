@@ -1,0 +1,41 @@
+{
+  "passed": true,
+  "source_only": true,
+  "native_run": false,
+  "production_changes": false,
+  "adopted": false,
+  "goal_complete": false,
+  "parent_ROM_sha256": "6c69e506b45c8420cf57a62b868f89c0fe86d308c0ee55655b48e8f44af9521a",
+  "candidate_ROM_sha256": "3cee18caa732b2e85e3bdb00faf719223324f9bf24e72dd30c56be355da33b99",
+  "chip_ROM_sha256": "22fdf1f6ed7e70f87344cc17733f76da60e376ebfc9314c2cb9358587dd45fcf",
+  "hud_ROM_sha256": "bb5bf4fa4189ede2ab4f9ee0eb6e8e54dd67b1c77eb1c78e7c50a1079d4fc1db",
+  "chip_bindings_verified": 1017,
+  "hud_bindings_verified": 923,
+  "frozen_source_files": 872,
+  "changed_source_files": [
+    "src/x5_bounce.s",
+    "src/characters.s",
+    "src/megaman_weapons.s",
+    "src/tmnt_probe_gates.s",
+    "chr/characters/parodius-hud.chr",
+    "src/parodius_hud.inc"
+  ],
+  "changed_ROM_bytes": 824,
+  "disjoint_ROM_changes": true,
+  "exact_fresh_compilation": true,
+  "command": [
+    "C:\\Users\\kando\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+    "-B",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-hud-composed-v1\\source\\tools\\build_mmc5_expanded.py",
+    "--workspace",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-hud-composed-v1\\source",
+    "--compiler",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\Windows\\cc65\\bin\\cl65.exe",
+    "--output",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-hud-composed-v1\\candidate.nes"
+  ],
+  "compiler_sha256": "ff2e9c628ef209f034200168872c74b6c7ceddbdb9717b92e03bc6e9b13a5641",
+  "source_manifest_sha256": "6fb85570cd1bbc1bcc56a3a1abca3ce3c2bdc8e845d6c557be9a252323984f57",
+  "tool_sha256": "8c8fc7579b53275bba976f6cf14de6966ab24d529ed9936ca1417e5efb346c63",
+  "limits": "Composition only. Component caller/IRQ and HUD queue evidence remains distinct; fresh native gameplay/menu/timing qualification is required. No held Chip music imported."
+}

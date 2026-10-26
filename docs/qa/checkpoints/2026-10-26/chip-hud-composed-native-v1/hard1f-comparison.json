@@ -1,0 +1,58 @@
+{
+  "passed": true,
+  "accepted": false,
+  "native_scope": {
+    "name": "pressure-fireball-hard",
+    "profile": "pressure",
+    "mode": 1,
+    "sub": 0,
+    "event": 31,
+    "kind": "fireball",
+    "updates": 240
+  },
+  "ROM_sha256": "3cee18caa732b2e85e3bdb00faf719223324f9bf24e72dd30c56be355da33b99",
+  "source_original_ROM_sha256": "085ec6395681c7ebfda19c2986069c21a3d27738cc61ada76249de70a07ed7d3",
+  "original_source_frames": 280,
+  "complete_mixer_flushes": 280,
+  "legacy1F_unchanged_complete_hardware_control": {
+    "equal": true,
+    "hardware_stores": 850,
+    "actual_audio_epoch_bound": true,
+    "register_value_masks": false,
+    "excluded_non_APU_DMA_and_controller_registers": [
+      16404,
+      16406
+    ]
+  },
+  "no_raw_register_value_masks": true,
+  "actual_mode_readback": 1,
+  "cadence": {
+    "passed": true,
+    "candidate_updates": 238,
+    "baseline_updates": 238,
+    "candidate_skipped_draw_frames": 113,
+    "baseline_skipped_draw_frames": 114,
+    "candidate_frames": 280,
+    "baseline_frames": 280,
+    "candidate_draws": 167,
+    "baseline_draws": 166,
+    "candidate_max_no_draw": 2,
+    "baseline_max_no_draw": 2,
+    "candidate_max_no_update": 2,
+    "baseline_max_no_update": 2,
+    "all_draw_prefix_deferrals": [],
+    "complete_game_totals": {
+      "candidate": {
+        "updates": 240,
+        "draws": 168
+      },
+      "baseline": {
+        "updates": 240,
+        "draws": 167
+      }
+    }
+  },
+  "source_model_sha256": "d225f642236340623e4eb0e6c05137d4c6fe1c07286301f7870e57ad3543e37f",
+  "tool_sha256": "65a3374e97d30d60e5ede27fd7c9b38e4e441c0c094ec441623b7afbf6f55157",
+  "scope": "Only the bound finite lifecycle profile. Real consumer epochs feed authenticated original executable; mute freezes source, actual scene/music owner cancels. Every source-image byte and complete native/mixed flush is checked from prior image/last/dirty/world ownership, including resume replay and raw400F. Existing1F adapter order remains explicitly unchanged; complete hardware regression control. No waveform or full-campaign certification."
+}

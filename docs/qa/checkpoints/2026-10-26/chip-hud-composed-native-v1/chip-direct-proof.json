@@ -1,0 +1,44 @@
+{
+  "passed": true,
+  "goal_complete": false,
+  "ROM_sha256": "3cee18caa732b2e85e3bdb00faf719223324f9bf24e72dd30c56be355da33b99",
+  "identity": "chip",
+  "mode": "easy",
+  "source_discovery_manifest_sha256": "65579400617d846f915afa7bf1117432fba737bdf6437911c29195a4e47e939a",
+  "source_inputs_sha256": "0216f647be3bfc09846c712a7b2859f491c67e4aa85bcf25112bed8f47f70565",
+  "fixed_inputs_and_trace_exact": true,
+  "result": {
+    "cleared": true,
+    "world_1_1_seen": true,
+    "frames": 4282,
+    "polls": 4281,
+    "deaths": 0,
+    "failure": null,
+    "stage_entries": {
+      "0-1": 4258,
+      "0-0": 392
+    }
+  },
+  "direct_frames": 4082,
+  "actual_PPU_frame_ids_complete": true,
+  "every_saved_PNG_RGB_exact": true,
+  "frame_index_sha256": "9a328dd164fdab7497fe2ba3d4db12e6203b9c78fe04f38799e59c1d522d017f",
+  "raw_stream_bytes": 1003290288,
+  "raw_stream_sha256": "5236e936048fd048fdf69f4adb4057608c4beda86dd58bc106ca971ec7eec57b",
+  "raw_lossless_archive": {
+    "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-hud-playthroughs-v1\\native\\chip-easy-direct\\direct.argb.gz",
+    "sha256": "e1e116a27e75bd8954cfcce17785560261acf5e8d5e1a758c65784cee58c830d"
+  },
+  "raw_gzip_roundtrip_exact": true,
+  "temporary_raw_removed_after_exact_lossless_roundtrip": true,
+  "observer_sha256": "a5389acf315e72386f123f5e21f450ec9cedf75865f058c258120acb4ca82fd3",
+  "driver_sha256": "5df29ab2ba244bfbec6e3ce793ef7f99553dc70c1acf49a8337b51547fabab0f",
+  "body_chr": {
+    "passed": true,
+    "frames": 2617,
+    "mismatched_frames": 0,
+    "body_constructions": 2415,
+    "scope": "Read-only actual hardware CHR pages versus last DMA player image. Bounded natural controller movement, no full-level or pixel-comparison claim."
+  },
+  "scope": "Read-only public direct console screen buffer at each actual PPU endFrame, not asynchronous decoder PNG output. Complete200..endpoint-1PPU IDs, RGB-verified PNGs and full lossless raw record archive. Independent original inputs/trace and zero-death movable1-2result are exact. This repairs evidence capture only; lag, source fidelity, other graphic/ability defects, every-item and final mapper work remain open."
+}

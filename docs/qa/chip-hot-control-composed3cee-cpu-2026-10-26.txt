@@ -1,0 +1,20 @@
+COMPOSED3cee CHIP CONTROL CPU QUALIFICATION, 2026-10-26
+
+Candidate3cee18caa732b2e85e3bdb00faf719223324f9bf24e72dd30c56be355da33b99.
+Baseline6c69e506b45c8420cf57a62b868f89c0fe86d308c0ee55655b48e8f44af9521a.
+Actual candidate is ROOT's fresh chip+HUD composition at external root-chip-hud-composed-v1/candidate.nes with matching DBG/LBL. ROOT's separate composition receipt owns the824-byte disjoint-union/source-build result.
+
+Five finite controls were REEXECUTED on actual3cee, not transferred from22fd. Explicit wrapper --expected-candidate-sha256 and --expected-parent-sha256 arguments bind the two actual ROMs before and after execution. It invokes the same frozen current6c caller/input/side/foreign/IRQ tools with identical assertions and historical captured-state arenas. No original test tool, workload, state, oracle, source or gameplay behavior changed.
+
+All pass:
+-4 complete PlayerCtrl cases, each658cycles saved.
+-256 full-caller Easy/Hard0/1,land/water/controller-mask cases; exact applicationRAM/copiedSMC/fullAXYPS/banks, saving658 in every case.
+-168 side-component cases; all foreign cases pass with5..14cycle improvements.
+-15360 foreign continuation cases; exact fullCPU/wholeRAM/stack/SMC/banks at unchanged common continuation, net20cycle movement saving after camera-padding skip. LmMovementGate is a dispatcher continuation, not itself a final leaf.
+-97 actual current compiled mapperIRQ/vector/RTI boundary injections; minimumSP227, exact resumed caller/SMC/bank state.
+
+Fresh aggregate: external chip-hot-control-composed3cee-v1/proof.json SHA33b6cc096e0fb9c0ab04d6e84d4b179ef23b54b2499953daf53b798801ea1677. Exact commands, tool/input hashes, per-suite receipts and stdout/stderr retained beside it. Freeze receipt binds actual composed ROM/DBG/LBL and ROOT's source manifest/872 source files.
+
+Scope stays SOURCE/CPU ONLY. Inputs remain controlled historical8b4 captured-state arenas evaluated with actual3cee/current6c code; they are not newly captured native3cee states. Untimed CPU IRQ execution does not establish native NMI/PPU/DMA/DMC timing, HUD appearance, cadence or lag closure. No Mesen/native launch, new optimization, production edit, install or adoption. No native worker held. Existing source/adoption negatives remain unchanged.
+
+External prefix: C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/
