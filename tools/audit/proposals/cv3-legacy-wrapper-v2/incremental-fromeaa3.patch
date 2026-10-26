@@ -1,0 +1,114 @@
+--- a/src/cv3_remaining_source_fx.s
++++ b/src/cv3_remaining_source_fx.s
+@@ -155,6 +155,35 @@
+  lda CurrentBank
+  sta Cv3FxSavedA
+  jmp Cv3FxResidentDispatch::Generic
++ ; Genuine sole roster-wrapper caller, in the original unreachable tail.
++ ; Original public Tick compatibility entry remains byte-exact.
++::Cv3FxNativeTick:
++ lda Cv3DmcPending
++ ora Cv3DmcPriority
++ bne NativeDmcWork
++ jsr CvAudioPlay ; its first LDA overwrites A/NZ, all other flags unchanged
++NativePlayed:
++ lda Cv3FxQueueHead
++ cmp Cv3FxQueueTail
++ beq NativeEmpty
++ jsr Cv3FxDrainGate
++NativeEmpty:lda Cv3NoiseActive
++ beq NativeInactive
++ bmi NativeSteady
++ jmp Cv3MusicAndNoiseTick::KnownActive
++NativeInactive:lda Cv3FxOwned
++ bne NativeFull
++ lda AvAudioRequest
++ cmp #26
++ beq NativeLegacyCold
++ lda #0
++ rts
++NativeLegacyCold:jmp Cv3MusicAndNoiseTick+3
++NativeFull:jmp Cv3FxResidentDispatch
++NativeSteady:jmp Cv3FxSteadyTry
++NativeDmcWork:
++ jsr Cv3DmcBeforeCv1::Work ; identical nonzero guard already executed
++ jmp NativePlayed
+  .assert *-::Cv3FxResidentNoise<=149,error,"Old genuine callable span"
+  .res 149-(*-::Cv3FxResidentNoise),$ea
+ .endproc
+--- a/src/cv3_source_audio.s
++++ b/src/cv3_source_audio.s
+@@ -58,7 +58,7 @@
+ .endif
+  lda Cv3NoiseActive
+  beq Request
+- lda GuestNativeDirty+12
++KnownActive:lda GuestNativeDirty+12
+  beq Period
+  lda GuestNativeApu+12
+  sta Cv3NoiseMusicVolume
+@@ -82,8 +82,12 @@
+  sta GuestNativeApu+15
+  lda #0
+  sta GuestNativeDirty+15
+-Request:lda Cv3NoiseActive
++Request:
++ .if !::MAPPER_MMC5
++ lda Cv3NoiseActive
+  bmi End
++ .endif
++ ; Both MMC5 Tick callers enter only with a nonnegative Active value.
+  lda AvAudioRequest
+  cmp #26
+  bne Continue
+@@ -100,8 +104,12 @@
+  sta Cv3NoiseIndex
+  lda #1
+  sta Cv3NoiseActive
+-Continue:lda Cv3NoiseActive
++Continue:
++ .if !::MAPPER_MMC5
++ lda Cv3NoiseActive
+  beq Done
++ .endif
++ ; Entry is positive, or cold Av26 has just set Active=1. No phase is omitted.
+  ldy Cv3NoiseIndex
+  cpy #28
+  beq End
+@@ -143,6 +151,10 @@
+  sta GuestNativeDirty+14
+  sta GuestNativeDirty+15
+  rts
++ .if ::MAPPER_MMC5
++ .assert *-::Cv3MusicAndNoiseTick<=221,error,"Retained genuine public legacy span"
++ .res 221-(*-::Cv3MusicAndNoiseTick),$ea
++ .endif
+ .endproc
+ ; The imported driver's one unmarked direct volume store also participates
+ ; in the private music cache. Preserve its original A/X/Y/status contract.
+--- a/src/roster_audio.s
++++ b/src/roster_audio.s
+@@ -54,7 +54,11 @@
+ .proc Wrapper
+   lda SelectedCharacter
+   cmp RgAudioCharacter
++ .if Kind=2 .and ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
++  beq Save ; actual unrolled Save never reads inputY; hot LDY23 was dead
++ .else
+   beq AlreadyInit
++ .endif
+   sta RgAudioCharacter
+   lda #0
+   sta RgAudioSong
+@@ -224,7 +228,11 @@
+   jsr ZeldaNative::process_audio
+ .else
+ .if ::ENABLE_MMC5_EXPANDED
++ .if ::MAPPER_MMC5
++  jsr Cv3FxNativeTick ; real private caller; compatibility entry remains callable
++ .else
+   jsr Cv3MusicAndNoiseTick
++ .endif
+ .else
+   jsr CvAudioPlay
+ .endif

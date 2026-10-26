@@ -1,0 +1,93 @@
+CV3 remaining SFX: bounded legacy-wrapper successor readiness, 2026-10-26
+
+STATUS: SOURCE READY ONLY. No native run or adoption on this successor.
+Private candidate 2cb5fca0757c3e347c264eab0bf3f22bd02d851787f38802a4af3cb0c3aa1fa5
+Parent eaa36e56c09e87f58a85db312894f14bfd7fb5838be139fc508ae6121c9e0732
+Accepted production remains 50b51c3c69f45ef137720c47f521574097f421056e3b73296d06ba70080d2363.
+
+Reason for this successor
+The frozen ten-profile eaa3 lifecycle matrix passed all source/hardware guards,
+but Hard Alucard 1F pressure genuinely lost one transfer: PPU717 had baseline
+DMA and no candidate DMA. Its real preceding AudioUpdate cost was +26 cycles.
+The recorded conditional Main publication cutoff required 27 cycles recovered;
+there is no complete interrupted RAM snapshot, so this is a measured conditional
+budget target, not a source-only prediction of native success. The original
+missed transfer, all twenty receipts and exact deadline evidence stay unchanged.
+
+Implementation and ownership
+Only three incremental LF source files change: roster_audio.s, cv3_source_audio.s,
+cv3_remaining_source_fx.s. Fresh ROM differs from eaa3 in 206 bytes of bank28.
+All other banks, header, CHR, fixed-E125/127 samples, Mac/Mike/Roll/P-bar remain
+exact. No new RAM, CHR, source ticks, event coalescing or sample change.
+
+The initialized CV1 roster wrapper skips a dead LDY#23 (2 cycles); the real
+private Tick call targets Cv3FxNativeTick at DA51 (3 cycles); positive legacy
+dispatch saves 1 cycle; source-proved redundant legacy tests/reloads save 18;
+the empty DMC guard inline path saves 3. The real nonzero DMC branch enters the
+existing genuine Work label only after identical original guard flags/state.
+The 67-byte NativeTick occupies previously unreachable NOPs at DA51 within the
+declared ResidentNoise span. Public Cv3FxTick is still byte-exact and callable.
+The original legacy phase/CPY/INC/source store loop is byte-exact.
+
+All public PCs/spans remain; 61,131 qualified old symbols remain exact. Six
+genuine internal legacy labels move: Reset, Continue, Volume, Done, End and
+RestoreMusic. Their real executable positions are rebound; no fake aliases.
+The sole compiled Save caller establishes Y is dead before the first LDY. Both
+actual incoming flag cases and complete DMC/ordinary call continuations pass.
+
+Source-only qualification on exact 2cb5
+- 1,400 whole AudioUpdate source schedules: complete RAM/APU/AXYP/SP/maps exact,
+  saving 6..27 cycles; 4,096 legacy cases cover every phase byte, eight dirty
+  images and two actually passed flag inputs. Target phase25 always saves27.
+- 420 whole AudioUpdate pending/active/cancel DMC controls: exact state/APU,
+  cost -27..0. Original phase data and physical source sample bytes retained.
+- 9,472 ordinary AudioUpdate cases over all37 identities and 80 actual base
+  Simon cross controls are exact.
+- 42,102 actual IRQ/RTI instruction boundaries over42 cases preserve interrupted
+  AXYP/SP/PC, mapping and all five self-modifying operands, including E aliases.
+- Eight full software source/lifecycle schedules compare 1,051 authentic source
+  ticks and 1,171 composed hardware flushes, including raw400F, original voice
+  priorities, mute/resume restoration, source cancellation and existing1F.
+  Three intentional stream corruptions reject. This is CPU, not physical DMA.
+- Fresh canonical compile matches. Ordinary MMC3/MMC5 flag-off outputs remain
+  exact. Full636 deployable-file catalog and full eight-file delta from50b5 are
+  retained beside the three-file incremental patch.
+
+Replay instrumentation readiness
+The only proposed native profile is candidate Hard1F pressure, actual numeric
+Hard1, unchanged240-update workload, same actors/resources/controllers and
+matching reused50b baseline from the frozen lifecycle matrix under settings8a.
+No fresh baseline, other profile, retry or production action is authorized here.
+
+New startup-static Lua observes the actual Cv3FxNativeTick DA51, validates real
+private caller return DCDF and physical bank28, and retains a separate public
+Cv3FxTick compatibility guard asserting it is not used as gameplay. All source,
+raw400F, full hardware/mixer, DMC fetching, IRQ/SMC/stack/bank/CHR/viewport,
+entire256-byte DMA, publication/NMI timing and full draw/prefix guards remain.
+The moved real Continue label and original derived fixed-bank RTI hook are
+bound directly. New full generated Lua passes439 inactive frames, 74 startup
+callbacks with final broad dispatcher, no runtime add/remove registration and
+no inactive game writes. The active CPU observer exercises a genuine cast,
+publication/consumption and140 complete lag NMIs with140 authentic source ticks.
+Legacy1F retains its declared period/high/volume image order with exact original
+raw values and complete hardware order; no new ordered-source-buffer claim.
+
+Retained preparation negatives
+The v1 wrapper prototype did not omit a duplicated DMC guard and cost11 extra
+cycles on real DMC work; it remains insufficient. The first CPU fixture looped
+two flags without actually passing them; corrected CPUv2 passes both inputs.
+Fixture drafts v1/v2 failed parsing/derived RTI metadata before execution, v3
+failed UTF8/default-Windows encoding matching before generation. The absent
+fixture caused startup-v1/observer-v1 FileNotFound, without ROM instructions.
+Fixturev4 explicitly preserves frozen literal encoding and succeeds; none of
+these preparation failures is a native retry or silently rewritten receipt.
+The first readiness catalog expected native_executed in the existing CPU-only
+compat/IRQ receipts, which do not declare that field. Its KeyError is retained
+in freeze-v1/failure.json. Readinessv2 recognizes those two explicitly CPU-only
+receipt types without rewriting their successful original bytes.
+
+Evidence root
+C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/cv3-remaining-legacy-wrapper-v2
+Freeze manifest is freeze-v1/readiness-source-only.json. Native qualification
+remains pending a separate explicit one-profile grant. No waveform, campaign,
+all-character performance or final-build certification is claimed.

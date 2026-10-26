@@ -1,0 +1,226 @@
+{
+  "passed": true,
+  "accepted": false,
+  "production_mutated": false,
+  "status": "ONE_HARD1F_NATIVE_SUCCESSOR_PASSED_NOT_DEPLOYED",
+  "native_launches": 1,
+  "retries": 0,
+  "worker_released": true,
+  "source_ready": {
+    "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-legacy-wrapper-v2\\freeze-v2\\readiness-source-only.json",
+    "sha256": "fab1c3c38bd8885ca957442bf84b155adfd7f17a3142118b6c29e769c1141445"
+  },
+  "source_bindings_rechecked": 2521,
+  "native_receipt": {
+    "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-legacy-wrapper-v2\\native-pilot-v1\\proof.json",
+    "sha256": "699b183ef96f33ef13fc6d44703f6ec50f57f5a3cc54a8a3f0e747034f202afd"
+  },
+  "complete_GAMEproof": {
+    "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-legacy-wrapper-v2\\native-hard1F-v3\\proof.json",
+    "sha256": "063ea9d6de88fe2bf26d870e383e395c3c2a6b50504759ca683082efb57dca28"
+  },
+  "comparison": {
+    "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-legacy-wrapper-v2\\native-pilot-v1\\comparison\\proof.json",
+    "sha256": "de36889f37d45d72459b215a52c6a77d2ca7f571deea826c24064884c159e9df"
+  },
+  "actual_numeric_Hard": 1,
+  "complete_GAME_counts": {
+    "baseline": {
+      "updates": 240,
+      "draws": 167,
+      "strict_completed_DMA": 167,
+      "complete_dma_checks": 165,
+      "nmis": 280
+    },
+    "held_eaa3": {
+      "updates": 240,
+      "draws": 166,
+      "strict_completed_DMA": 166,
+      "complete_dma_checks": 165,
+      "nmis": 280
+    },
+    "candidate": {
+      "updates": 240,
+      "draws": 167,
+      "strict_completed_DMA": 167,
+      "complete_dma_checks": 165,
+      "nmis": 280
+    }
+  },
+  "all_DMA_frame_count_differences_vs_baseline": [],
+  "cadence": {
+    "passed": true,
+    "candidate_updates": 238,
+    "baseline_updates": 238,
+    "candidate_skipped_draw_frames": 114,
+    "baseline_skipped_draw_frames": 114,
+    "candidate_frames": 280,
+    "baseline_frames": 280,
+    "candidate_draws": 166,
+    "baseline_draws": 166,
+    "candidate_max_no_draw": 2,
+    "baseline_max_no_draw": 2,
+    "candidate_max_no_update": 2,
+    "baseline_max_no_update": 2,
+    "all_draw_prefix_deferrals": [],
+    "complete_game_totals": {
+      "candidate": {
+        "updates": 240,
+        "draws": 167
+      },
+      "baseline": {
+        "updates": 240,
+        "draws": 167
+      }
+    }
+  },
+  "source": {
+    "original_frames": 280,
+    "complete_mixer_flushes": 280,
+    "full_existing_1F_hardware_stores": 850,
+    "no_raw_value_masks": true
+  },
+  "recovered_PPU717": {
+    "actual_start": {
+      "frame": 717,
+      "cycle": 302,
+      "scanline": 246,
+      "wall": 716,
+      "mask": 30
+    },
+    "actual_complete": {
+      "frame": 717,
+      "cycle": 143,
+      "scanline": 251,
+      "wall": 716,
+      "mask": 30
+    },
+    "source_exact_all256bytes": true,
+    "actual_NMI_entry": {
+      "kind": "NMI-entry",
+      "wall": "716",
+      "age": "239",
+      "audioEpoch": "279",
+      "cpuCycle": "21320474",
+      "ppuFrame": "717",
+      "scanline": "241",
+      "dot": "25",
+      "pc": "58166",
+      "bank": "127",
+      "sp": "247",
+      "interruptedPC": "33621",
+      "stackP": "34",
+      "nmiDisable": "0",
+      "nmiSkipped": "128",
+      "skipDraw": "0",
+      "framesSinceDraw": "0",
+      "newValue": "-1"
+    },
+    "actual_publication": {
+      "kind": "publication-write",
+      "wall": "716",
+      "age": "239",
+      "audioEpoch": "279",
+      "cpuCycle": "21320467",
+      "ppuFrame": "717",
+      "scanline": "241",
+      "dot": "3",
+      "pc": "33621",
+      "bank": "126",
+      "sp": "250",
+      "interruptedPC": "-1",
+      "stackP": "-1",
+      "nmiDisable": "255",
+      "nmiSkipped": "128",
+      "skipDraw": "0",
+      "framesSinceDraw": "0",
+      "newValue": "0"
+    },
+    "last_possible_Main_boundary": 21320467,
+    "publication_slack_cycles": 0,
+    "original_held_NMI": {
+      "kind": "NMI-entry",
+      "wall": "716",
+      "age": "238",
+      "audioEpoch": "279",
+      "cpuCycle": "21320474",
+      "ppuFrame": "717",
+      "scanline": "241",
+      "dot": "25",
+      "pc": "58166",
+      "bank": "127",
+      "sp": "245",
+      "interruptedPC": "33960",
+      "stackP": "160",
+      "nmiDisable": "255",
+      "nmiSkipped": "128",
+      "skipDraw": "0",
+      "framesSinceDraw": "0",
+      "newValue": "-1"
+    }
+  },
+  "actual_epoch279_costs": {
+    "baseline": {
+      "CvAudioPlay": 2525,
+      "AudioUpdate": 5287
+    },
+    "held_eaa3": {
+      "CvAudioPlay": 2525,
+      "AudioUpdate": 5313
+    },
+    "candidate": {
+      "CvAudioPlay": 2525,
+      "AudioUpdate": 5286
+    }
+  },
+  "whole_AudioUpdate_saving_vs_held": 27,
+  "actual_new_NativeTick": {
+    "entry": 55889,
+    "return_PC": 56543,
+    "bank": 28,
+    "cycles": 2683,
+    "phase_before": 25,
+    "phase_after": 26,
+    "old_public_compatibility_guard_retained": true
+  },
+  "readiness_report_erratum": "Hash-bound readiness report final evidence line says freeze-v1/readiness-source-only.json; actual successful frozen manifest is freeze-v2/readiness-source-only.json, SHA fab1c3c38bd8885ca957442bf84b155adfd7f17a3142118b6c29e769c1141445. Original report unchanged.",
+  "report": {
+    "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\docs\\qa\\cv3-remaining-sfx-legacy-wrapper-native-2026-10-26.txt",
+    "sha256": "d4383738b2e6c5a4ed6e735a61404cd882681bc144929cc5c54cfcf21c6a6cb5"
+  },
+  "all_new_frozen_bindings": {
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-legacy-wrapper-v2\\freeze-v2\\readiness-source-only.json": "fab1c3c38bd8885ca957442bf84b155adfd7f17a3142118b6c29e769c1141445",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\docs\\qa\\cv3-remaining-sfx-legacy-wrapper-native-2026-10-26.txt": "d4383738b2e6c5a4ed6e735a61404cd882681bc144929cc5c54cfcf21c6a6cb5",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\cv3_remaining_sfx_legacy_wrapper_native_result_v1.py": "a2681f7c2f8357ec40745a6cb70674eb97d14bbb8363061a8cffa7a9355e5ab3",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-legacy-wrapper-v2\\native-hard1F-v3\\actors.csv": "a33f0aea9167105b761fb43b15228d1ada35c88b9bc048e6fb298ea41aa9ede0",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-legacy-wrapper-v2\\native-hard1F-v3\\apu.csv": "1a1a151f1df23a8cd7798f72255c868c25a73bc26c604715992c83bbc7852a22",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-legacy-wrapper-v2\\native-hard1F-v3\\cadence.csv": "ddfcf84f7f58a85ec9132e9764f9e23b0aa5637b95303cd9bde330a59a0a9151",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-legacy-wrapper-v2\\native-hard1F-v3\\candidate-run.log": "da2b84006b6c0fee6e1c2379d364b4974ee3bd9a10326979d6b44349e570a2e8",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-legacy-wrapper-v2\\native-hard1F-v3\\candidate.lbl": "70a67634690c5ded8f25c95ad74d86ac4b816269f029a686f8e62807187135aa",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-legacy-wrapper-v2\\native-hard1F-v3\\case-end.argb": "4a0206d0b45456ff87e7c0bfb96b68ca164d68d57877cb08f9cd54192fa2db28",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-legacy-wrapper-v2\\native-hard1F-v3\\configuration.json": "bd5ce6d45615c80b067a1457e20bf72eb2c3acdb4c16ae7e19fb5994490eebc2",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-legacy-wrapper-v2\\native-hard1F-v3\\deadline-timing.csv": "6baf2901627123129a473fd1f563af5bdbf14e09cb0e7a61c3beb4cc3a77048f",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-legacy-wrapper-v2\\native-hard1F-v3\\dma-bus.jsonl": "2b62a0f46c08bb57533c5d14280fe034285ddf5c4e86a28b03f56e37bb415e58",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-legacy-wrapper-v2\\native-hard1F-v3\\dmc-fetch.csv": "6aeb1c4f36c506872bee5326f85750a2eb99e5a8cf7978648e4ff0c18798e0b1",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-legacy-wrapper-v2\\native-hard1F-v3\\last-case.json": "56af415162ad13a0fd539dcc483dd93f4b1e20ed08849e6bfcbf771ea1bf8ebd",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-legacy-wrapper-v2\\native-hard1F-v3\\lifecycle.jsonl": "dc5abd65df61564d2dbb2e0431f5b593a2a31e8dd184ab75a942d65d36274b78",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-legacy-wrapper-v2\\native-hard1F-v3\\native-cycles.csv": "60e4dce67e9ff1dfba0d1cdfa6a1544faf2b91a41016e15a764ab51a8c6da64a",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-legacy-wrapper-v2\\native-hard1F-v3\\preparation.json": "4949385d4e07826d64fbb627815745d9890cd7a0efaf3d5378d168a555dccc62",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-legacy-wrapper-v2\\native-hard1F-v3\\proof.json": "063ea9d6de88fe2bf26d870e383e395c3c2a6b50504759ca683082efb57dca28",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-legacy-wrapper-v2\\native-hard1F-v3\\queue-owners.jsonl": "02f5aed3122b0aba3a4ce9a7d0d5f29167a05352645ee5afb77abdd9b27c7ece",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-legacy-wrapper-v2\\native-hard1F-v3\\requests.csv": "aa6499a5d2218ce40754bea4a439fc6668130f85720a8e2e91648931c0b331b1",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-legacy-wrapper-v2\\native-hard1F-v3\\run.lua": "6dd92121fb64bb92ce2c471a50aac7dd45fae1c5d20f10aa1e0aa22cb0fc605a",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-legacy-wrapper-v2\\native-hard1F-v3\\source-register-image.csv": "f0ccced50acc17b9e7a4d0b956e32226790b215461344cf365045ea542d7e55e",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-legacy-wrapper-v2\\native-hard1F-v3\\source-voices.csv": "cb7cd2e0c05f6f3251b38bd43c9e5d56d571d5b312919905de1e7ec38f27312b",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-legacy-wrapper-v2\\native-pilot-v1\\host.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-legacy-wrapper-v2\\native-pilot-v1\\host.stdout.txt": "62d243b002f118211164f0e1235dd6ac27d94ff2224b6fd2fa43c29f760b2ac0",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-legacy-wrapper-v2\\native-pilot-v1\\launch.json": "d7bc264dbae566cf3a4b59789f2de1079d3eaa9e22c1f4dddd099d7a874a74dd",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-legacy-wrapper-v2\\native-pilot-v1\\proof.json": "699b183ef96f33ef13fc6d44703f6ec50f57f5a3cc54a8a3f0e747034f202afd",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-legacy-wrapper-v2\\native-pilot-v1\\verify.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-legacy-wrapper-v2\\native-pilot-v1\\verify.stdout.txt": "de36889f37d45d72459b215a52c6a77d2ca7f571deea826c24064884c159e9df",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-legacy-wrapper-v2\\native-pilot-v1\\comparison\\proof.json": "de36889f37d45d72459b215a52c6a77d2ca7f571deea826c24064884c159e9df",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-legacy-wrapper-v2\\native-pilot-v1\\comparison\\source-model.json": "d225f642236340623e4eb0e6c05137d4c6fe1c07286301f7870e57ad3543e37f"
+  },
+  "tool_sha256": "a2681f7c2f8357ec40745a6cb70674eb97d14bbb8363061a8cffa7a9355e5ab3",
+  "scope": "Exactly one granted same-input Hard1F pressure240 candidate run against existing bound50b baseline. Actual missing717 transfer recovered and all source/hardware/cumulative/fullGAME gates pass. Old eaa3/other negatives unchanged; other component receipts remain on their own hashes. No waveform/fullcampaign/all-roster certification or adoption."
+}

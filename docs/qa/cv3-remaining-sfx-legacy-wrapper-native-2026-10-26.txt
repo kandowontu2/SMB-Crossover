@@ -1,0 +1,57 @@
+CV3 legacy-wrapper successor: one focused native pressure replay, 2026-10-26
+
+STATUS: ONE PROFILE PASSES; NOT DEPLOYED. Worker released; no retry/extra run.
+Candidate 2cb5fca0757c3e347c264eab0bf3f22bd02d851787f38802a4af3cb0c3aa1fa5
+Native input: Hard1, Alucard original1F, original frozen240-update pressure
+profile, same6 actors/resources/controller setup and actual current8a settings.
+Reused matching50b5 baseline is unchanged. There was exactly one new launch.
+
+Actual missed transfer is repaired
+All240 native updates now produce167 draws and167 completed DMAs, matching
+baseline. Held eaa3 remains166. Independent actual DMA-start frame counts now
+match baseline for every PPU frame, including the original missing frame717.
+At717 the candidate copies all256 hardware OAM bytes exactly from the source;
+transfer starts246:302 and completes251:143. No relaxed sprite limit or guard.
+
+The candidate publication write is CPU21320467, with zero Main cutoff slack:
+its NMI entry at21320474 (seven hardware-entry cycles later) sees NmiDisable0.
+Original held eaa3 entry saw255 and deferred publication until after lag ISR.
+Actual epoch279 AudioUpdate is5286 cycles, versus held5313 and baseline5287.
+CvAudioPlay is2525 in all three; the exact27-cycle wrapper saving is observed.
+The actual new NativeTick is DA51, physical bank28, returning to real DCDF;
+phase25 advances to26. Original public compatibility entry remains separately
+guarded as unused by this genuine gameplay caller, not falsely relabeled.
+
+Full verification
+The frozen designated lifecycle validator passes all original source/hardware
+and cadence guards. There are280 authentic source ticks,280 complete composed
+flushes and850 unchanged legacy1F hardware stores, including raw400F values.
+Actual numeric Hard readback is1. Full native IRQ/stack/5SMC/bank/CHR/viewport,
+DMC and entire256-byte DMA guards remain active and pass. Current8a settings
+are byte-exact before/after. Startup-static callback ownership is unchanged.
+
+Both recordings have280 physical rows, no cumulative draw-prefix deferrals,
+maximum no-draw2 and maximum no-update2. The endFrame CSV contains238 updates
+and166 draws on both sides; the full GAME proof and actual DMA bus include the
+final two updates and167th transfer. The previous held result was a genuine
+missing transfer; no CSV endpoint waiver was used to certify this successor.
+
+Limitations and report erratum
+This is one pressure regression replay, plus the already frozen exact-candidate
+source/CPU proofs. The other14 BASIC and9 lifecycle passes were performed on
+eaa3 and are not silently retagged as2cb5 native certification. Any composition
+or adoption requires ROOT qualification. No audible waveform/fullcampaign or
+complete all-character claim is made.
+
+The unchanged hash-bound source readiness report's final evidence line says
+freeze-v1/readiness-source-only.json. That was a pointer typo: the actual frozen
+successful readiness is freeze-v2/readiness-source-only.json, SHA
+fab1c3c38bd8885ca957442bf84b155adfd7f17a3142118b6c29e769c1141445.
+The failed readinessv1 catalog is preserved separately. No old report changed.
+
+Evidence root
+C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/cv3-remaining-legacy-wrapper-v2
+Native fixture native-hard1F-v3; receipt native-pilot-v1/proof.json; final
+qualification native-freeze-v1/qualification-native.json. All original frozen
+negatives, source receipts, source catalogs/patches and environment bindings
+remain available unchanged.
