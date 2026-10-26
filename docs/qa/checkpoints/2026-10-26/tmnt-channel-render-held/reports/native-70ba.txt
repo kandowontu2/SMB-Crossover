@@ -1,0 +1,65 @@
+TMNT70BA: ONE MATCHED EASY600 PAIR, STRICT PREFIX GATE FAILED
+Baseline 50b51c3c69f45ef137720c47f521574097f421056e3b73296d06ba70080d2363
+Candidate 70ba4f682723e62b00ef4278c19e3b898383d2903ce6ad6b35199816748217de
+One baseline and one candidate launch; sequential grant explicitly RELEASED.
+No retry, Hard, other campaign, source optimization or adoption.
+
+All source/hardware guards PASS:600equal updates/actualnumeric Easy0, identical
+five BEFORE-phase setup lists,602original executable188-byte states and2125
+ordered original APUs. Native8400hardware comparisons,54active DMC/540held
+DAC44frames,600IRQs/921totalNMIs/maxdepth1; wrong/unsafeDMA0. Both5SMC/PRGbank/
+stack/actualCHR/current-player-image guards pass. Candidate minimumSP228 versus
+baseline233, safely above stackfloor123. Baseline three historical gameplay/
+call/frame CSVs are byte-exact. Candidate source-state equals immutable9a.
+
+StrictFAIL is unchanged:3absolute and3phase prefixes at actual1-based updates
+532,560,588; each says+1completed-update frame label, despite candidate draw
+construction counts already AHEAD by2/4/3. Overall candidate575DMA versus572;
+secondary95versus92draws,25versus28lagNMIs. Otherfourphases120draws/no addedlag.
+Longest physical stall stays1. Two0-based gameplay input samples differ528/560;
+all other recorded fields match. At the three exact deficient updates, full
+BEFORE-movement CSVrows531/559/587 (including input/position/health/gear/ammo/
+pose/shot kinds/enemy geometry) are pairwise identical. This is staged same-work
+arena scope, not natural gear acquisition or whole captured gameplay RAM.
+
+ACTUAL ASSOCIATED DMA CLASSIFICATION, additive only:
+532: baseline return frame861/scan227/dot190; candidate862/240/332. Matching
+source532 DMA finishes in SAME epoch862 (baseline CPU25639826, candidate25639830).
+This is endFrame completion-label drift, without that construction's DMA delay.
+588: baseline return917/219/236; candidate918/240/59. Matching source588 DMA
+finishes in SAME epoch918 (baseline27307536,candidate27307538). Same distinction.
+560: REAL one-epoch deferral. Baseline source560 DMA finishes epoch890,
+CPU26473684. Candidate source560 finishes891,CPU26503462. At actualepoch890
+candidate performs NO DMA and retains source559 from epoch889; baseline shows
+source560. Candidate561 has no draw, then source562 transfers epoch892. This
+matching-construction delay remains a real blocking result, despite more total
+DMAs/no addedphase aggregate lag and two other rawlabel-only deficits.
+
+Every mapped transfer has exact complete256B source==hardware destination,
+safe start/finishscan241..260 in one physical epoch. Full paired OAM images
+are NOT equal:145/145/133bytes differ at532/560/588. Visible Y<240 sprite-part
+multisets have two Y-coordinate differences at532 (168versus167) and560
+(144versus141);588's visible tuple multiset is equal. The records do not bind
+those parts to an actor or explain their cause; no guessed ownership/rotation
+or RGB/background/CHR equality claim is made. Full pages, hashes, tuple diffs
+and physical persistent-image/source-ID epoch mapping are frozen.
+
+Deficit560 actual preceding AudioUpdate: baseline starts26444195,ends26447141;
+candidate26444197..26448238 (inclusive2946versus4041,1095added). Captured Main
+return minus capturedinclusivecycles gives starts26447205versus26448299.
+Main foreground excludingISR is24942versus24438 (candidate saves504). Actual
+candidate AudioUpdate26472584..26475088 lies INSIDE that Main call before
+captured return26475490; baseline returns26472267 before its next corresponding
+AudioUpdate. Full preceding/intersecting audio, original source tick/call and
+disjoint owner spans are frozen. ActualNMIentry/stackedPC and exact NmiDisable
+publication-store times were NOT logged; do not turn AudioUpdate entry or
+reconstructed CPUstart into an observed NMI acceptance/deadline. No new saving
+or optimization target is asserted before ROOT reviews these classifications.
+
+The source740..749/735model and5..14margin remain model facts, not a recovery
+proof. Cold renderer+2/+7 and earlier8d602+119/c195+191/source/native negatives
+remain immutable. New full result/runtime/scripts/settings/host logs/raw CSV/
+JSONL and source checkpoint are hash-bound. No user settings or emulator touched.
+Initial DMA precedes first logged construction; final source600 has no nextDMA
+within the bounded capture. Those edges remain explicit rather than fabricated.
+No production/Git/Downloads mutation or acceptance. StrictFAIL retained.

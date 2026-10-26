@@ -1,0 +1,69 @@
+{
+  "passed": true,
+  "source_only": true,
+  "native_run": false,
+  "accepted": false,
+  "baseline_ROM_sha256": "d9d69ea1a8e6b4eee0f753fd4c33f9873f713a0bde35d2ce61c7ba24718dd523",
+  "candidate_ROM_sha256": "70ba4f682723e62b00ef4278c19e3b898383d2903ce6ad6b35199816748217de",
+  "complete_domain_and_real_callers": 691968,
+  "all64P_all256A_actual_X0_to5": true,
+  "all256X_with_A_edges": true,
+  "Y_and_stack_edges": true,
+  "exact_AXYP_SP_banks_and_no_nonstack_writes": true,
+  "cycle_delta_histogram": {
+    "0": 73920,
+    "-5": 618048
+  },
+  "actual_compiled_IRQ_injections": 208,
+  "maximum_total_stack_depth": 8,
+  "all_five_IRQ_stores_exact": true,
+  "IRQ_cases_sha256": "f518bbdadee747d781740389c570b314fdf46039ef89e3bea03ef2852207e3df",
+  "native188byte_source_stream_calls": 602,
+  "native_state_binding_sha256": "b48c9cdb21f352204b1fc87dfdc00f0dc4b1e73b35d0a132c60104bb4fb9776e",
+  "every_original_ordered_nonstack_write_math_and_source_endpoint_exact": true,
+  "stream_sha256": "006b674095a82a383ed19dd9e4e8c78b2c6f04cb8166c2eddbacb5dd0a24c1dd",
+  "hot_source_rows": [
+    {
+      "sourceTick": 407,
+      "baseline_cycles": 3179,
+      "candidate_cycles": 3159,
+      "delta": -20,
+      "original_entry_calls": {
+        "zero": 2,
+        "nonzero": 4
+      }
+    },
+    {
+      "sourceTick": 505,
+      "baseline_cycles": 5290,
+      "candidate_cycles": 5255,
+      "delta": -35,
+      "original_entry_calls": {
+        "zero": 2,
+        "nonzero": 7
+      }
+    },
+    {
+      "sourceTick": 533,
+      "baseline_cycles": 2857,
+      "candidate_cycles": 2827,
+      "delta": -30,
+      "original_entry_calls": {
+        "zero": 1,
+        "nonzero": 6
+      }
+    },
+    {
+      "sourceTick": 535,
+      "baseline_cycles": 1641,
+      "candidate_cycles": 1621,
+      "delta": -20,
+      "original_entry_calls": {
+        "zero": 1,
+        "nonzero": 4
+      }
+    }
+  ],
+  "checker_sha256": "4ff4d0a6c060c8c8b17efdb258dd4db7eb2143602f9e332ad0d2878a02dec47a",
+  "limits": "Arranged CPU leaf/caller axes and actual compiled IRQ. Native188-byte music inputs are real; no whole foreground RAM snapshot, physical DMC/NMI/PPU scheduling or recovered native display claim."
+}

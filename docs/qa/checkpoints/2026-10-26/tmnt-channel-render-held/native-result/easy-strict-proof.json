@@ -1,0 +1,318 @@
+{
+  "passed": false,
+  "measurement_valid": true,
+  "both_native_guard_suites_passed": true,
+  "performance_gate_passed": false,
+  "behavior": 0,
+  "baseline_ROM_sha256": "50b51c3c69f45ef137720c47f521574097f421056e3b73296d06ba70080d2363",
+  "candidate_ROM_sha256": "70ba4f682723e62b00ef4278c19e3b898383d2903ce6ad6b35199816748217de",
+  "gameplay_differences": [
+    {
+      "update": 528,
+      "fields": {
+        "input": [
+          "2",
+          "66"
+        ]
+      }
+    },
+    {
+      "update": 560,
+      "fields": {
+        "input": [
+          "65",
+          "1"
+        ]
+      }
+    }
+  ],
+  "phases": {
+    "idle": {
+      "baseline": {
+        "physical_frames": 120,
+        "lag_NMIs": 0,
+        "completed_frame_draw_constructions": 120,
+        "longest_consecutive_physical_frames_without_draw": 0,
+        "movement_updates": 120,
+        "GameLoop": {
+          "calls": 120,
+          "mean_foreground_cycles": 17087.166666666668,
+          "peak_foreground_cycles": 18249
+        },
+        "DrawAllMetasprites": {
+          "calls": 120,
+          "mean_foreground_cycles": 4641.866666666667,
+          "peak_foreground_cycles": 5022
+        },
+        "TnDrawEquipment": {
+          "calls": 120,
+          "mean_foreground_cycles": 178,
+          "peak_foreground_cycles": 178
+        }
+      },
+      "candidate": {
+        "physical_frames": 120,
+        "lag_NMIs": 0,
+        "completed_frame_draw_constructions": 120,
+        "longest_consecutive_physical_frames_without_draw": 0,
+        "movement_updates": 120,
+        "GameLoop": {
+          "calls": 120,
+          "mean_foreground_cycles": 17102.883333333335,
+          "peak_foreground_cycles": 18403
+        },
+        "DrawAllMetasprites": {
+          "calls": 120,
+          "mean_foreground_cycles": 4646.108333333334,
+          "peak_foreground_cycles": 5022
+        },
+        "TnDrawEquipment": {
+          "calls": 120,
+          "mean_foreground_cycles": 178.16666666666666,
+          "peak_foreground_cycles": 182
+        }
+      },
+      "added_lag_NMIs": 0,
+      "longest_stall_change": 0
+    },
+    "walk": {
+      "baseline": {
+        "physical_frames": 120,
+        "lag_NMIs": 0,
+        "completed_frame_draw_constructions": 120,
+        "longest_consecutive_physical_frames_without_draw": 0,
+        "movement_updates": 120,
+        "GameLoop": {
+          "calls": 120,
+          "mean_foreground_cycles": 17165.808333333334,
+          "peak_foreground_cycles": 20786
+        },
+        "DrawAllMetasprites": {
+          "calls": 120,
+          "mean_foreground_cycles": 4688.808333333333,
+          "peak_foreground_cycles": 5022
+        },
+        "TnDrawEquipment": {
+          "calls": 120,
+          "mean_foreground_cycles": 178,
+          "peak_foreground_cycles": 178
+        }
+      },
+      "candidate": {
+        "physical_frames": 120,
+        "lag_NMIs": 0,
+        "completed_frame_draw_constructions": 120,
+        "longest_consecutive_physical_frames_without_draw": 0,
+        "movement_updates": 120,
+        "GameLoop": {
+          "calls": 120,
+          "mean_foreground_cycles": 17178.9,
+          "peak_foreground_cycles": 20786
+        },
+        "DrawAllMetasprites": {
+          "calls": 120,
+          "mean_foreground_cycles": 4692.333333333333,
+          "peak_foreground_cycles": 5022
+        },
+        "TnDrawEquipment": {
+          "calls": 120,
+          "mean_foreground_cycles": 178.06666666666666,
+          "peak_foreground_cycles": 182
+        }
+      },
+      "added_lag_NMIs": 0,
+      "longest_stall_change": 0
+    },
+    "enemies": {
+      "baseline": {
+        "physical_frames": 120,
+        "lag_NMIs": 0,
+        "completed_frame_draw_constructions": 120,
+        "longest_consecutive_physical_frames_without_draw": 0,
+        "movement_updates": 120,
+        "GameLoop": {
+          "calls": 120,
+          "mean_foreground_cycles": 20850.45,
+          "peak_foreground_cycles": 22237
+        },
+        "DrawAllMetasprites": {
+          "calls": 120,
+          "mean_foreground_cycles": 5632.541666666667,
+          "peak_foreground_cycles": 5960
+        },
+        "TnDrawEquipment": {
+          "calls": 120,
+          "mean_foreground_cycles": 178,
+          "peak_foreground_cycles": 178
+        }
+      },
+      "candidate": {
+        "physical_frames": 120,
+        "lag_NMIs": 0,
+        "completed_frame_draw_constructions": 120,
+        "longest_consecutive_physical_frames_without_draw": 0,
+        "movement_updates": 120,
+        "GameLoop": {
+          "calls": 120,
+          "mean_foreground_cycles": 20869.608333333334,
+          "peak_foreground_cycles": 22237
+        },
+        "DrawAllMetasprites": {
+          "calls": 120,
+          "mean_foreground_cycles": 5637.741666666667,
+          "peak_foreground_cycles": 5960
+        },
+        "TnDrawEquipment": {
+          "calls": 120,
+          "mean_foreground_cycles": 178.2,
+          "peak_foreground_cycles": 182
+        }
+      },
+      "added_lag_NMIs": 0,
+      "longest_stall_change": 0
+    },
+    "primary": {
+      "baseline": {
+        "physical_frames": 120,
+        "lag_NMIs": 0,
+        "completed_frame_draw_constructions": 120,
+        "longest_consecutive_physical_frames_without_draw": 0,
+        "movement_updates": 120,
+        "GameLoop": {
+          "calls": 120,
+          "mean_foreground_cycles": 21380.625,
+          "peak_foreground_cycles": 23400
+        },
+        "DrawAllMetasprites": {
+          "calls": 120,
+          "mean_foreground_cycles": 5912.358333333334,
+          "peak_foreground_cycles": 6367
+        },
+        "TnDrawEquipment": {
+          "calls": 120,
+          "mean_foreground_cycles": 178,
+          "peak_foreground_cycles": 178
+        }
+      },
+      "candidate": {
+        "physical_frames": 120,
+        "lag_NMIs": 0,
+        "completed_frame_draw_constructions": 120,
+        "longest_consecutive_physical_frames_without_draw": 0,
+        "movement_updates": 120,
+        "GameLoop": {
+          "calls": 120,
+          "mean_foreground_cycles": 21392.233333333334,
+          "peak_foreground_cycles": 23400
+        },
+        "DrawAllMetasprites": {
+          "calls": 120,
+          "mean_foreground_cycles": 5917.025,
+          "peak_foreground_cycles": 6395
+        },
+        "TnDrawEquipment": {
+          "calls": 120,
+          "mean_foreground_cycles": 178.13333333333333,
+          "peak_foreground_cycles": 182
+        }
+      },
+      "added_lag_NMIs": 0,
+      "longest_stall_change": 0
+    },
+    "secondary": {
+      "baseline": {
+        "physical_frames": 120,
+        "lag_NMIs": 28,
+        "completed_frame_draw_constructions": 92,
+        "longest_consecutive_physical_frames_without_draw": 1,
+        "movement_updates": 120,
+        "GameLoop": {
+          "calls": 119,
+          "mean_foreground_cycles": 21527.655462184874,
+          "peak_foreground_cycles": 27499
+        },
+        "DrawAllMetasprites": {
+          "calls": 92,
+          "mean_foreground_cycles": 7466.217391304348,
+          "peak_foreground_cycles": 8336
+        },
+        "TnDrawEquipment": {
+          "calls": 92,
+          "mean_foreground_cycles": 1903.4673913043478,
+          "peak_foreground_cycles": 2537
+        }
+      },
+      "candidate": {
+        "physical_frames": 120,
+        "lag_NMIs": 25,
+        "completed_frame_draw_constructions": 95,
+        "longest_consecutive_physical_frames_without_draw": 1,
+        "movement_updates": 120,
+        "GameLoop": {
+          "calls": 119,
+          "mean_foreground_cycles": 21213.210084033613,
+          "peak_foreground_cycles": 26750
+        },
+        "DrawAllMetasprites": {
+          "calls": 95,
+          "mean_foreground_cycles": 6812.473684210527,
+          "peak_foreground_cycles": 7447
+        },
+        "TnDrawEquipment": {
+          "calls": 95,
+          "mean_foreground_cycles": 1243.2736842105264,
+          "peak_foreground_cycles": 1772
+        }
+      },
+      "added_lag_NMIs": -3,
+      "longest_stall_change": 0
+    }
+  },
+  "all_completed_update_prefix_deficits": [
+    {
+      "update": 532,
+      "phase": "secondary",
+      "added_physical_frames": 1,
+      "fewer_draw_constructions": -2
+    },
+    {
+      "update": 560,
+      "phase": "secondary",
+      "added_physical_frames": 1,
+      "fewer_draw_constructions": -4
+    },
+    {
+      "update": 588,
+      "phase": "secondary",
+      "added_physical_frames": 1,
+      "fewer_draw_constructions": -3
+    }
+  ],
+  "all_phase_prefix_deficits": [
+    {
+      "update": 532,
+      "phase": "secondary",
+      "added_physical_frames": 1,
+      "fewer_draw_constructions": -2
+    },
+    {
+      "update": 560,
+      "phase": "secondary",
+      "added_physical_frames": 1,
+      "fewer_draw_constructions": -4
+    },
+    {
+      "update": 588,
+      "phase": "secondary",
+      "added_physical_frames": 1,
+      "fewer_draw_constructions": -3
+    }
+  ],
+  "native_result_sha256": [
+    "1992723ef2e06283f4ab23f63d8539d0488c89173adcaebbff11fcb1c6e9d97b",
+    "573080e28deadf03e7455a0b6370ecfcbdb6c622b7eb92ed9a6a390d6acfba65"
+  ],
+  "checker_sha256": "76fe196d8ac2f8dac686768e8383e5a18cf6a1783ab30c8a2b5e72a40e415395",
+  "accepted": false,
+  "limits": "One explicitly staged same-work600-update arena per actual cold numeric mode; foreground spans exclude ISR bodies and include real DMA stalls. All deficits retained, no universal cadence or natural gear acquisition claim."
+}

@@ -1,0 +1,484 @@
+--- a/src/tmnt-native.inc
++++ b/src/tmnt-native.inc
+@@ -374,7 +374,11 @@
+   .assert *=$a741,lderror,"Original instruction offset 8741"
+   ORA ::TnAudioRam+$58,x
+   .assert *=$a744,lderror,"Original instruction offset 8744"
++.if ::TN_RAW_APU
+   JSR $ace8
++.else
++  JSR ::TnSourceChannelOwner
++.endif
+   .assert *=$a747,lderror,"Original instruction offset 8747"
+   .byte $b0,$03 ; BCS source$874c
+   .assert *=$a749,lderror,"Original instruction offset 8749"
+@@ -1080,7 +1084,11 @@
+   .assert *=$aa43,lderror,"Original instruction offset 8a43"
+   STA ::TnAudioRam+$9a
+   .assert *=$aa46,lderror,"Original instruction offset 8a46"
++.if ::TN_RAW_APU
+   JSR $ace8
++.else
++  JSR ::TnSourceChannelOwner
++.endif
+   .assert *=$aa49,lderror,"Original instruction offset 8a49"
+   .byte $b0,$03 ; BCS source$8a4e
+   .assert *=$aa4b,lderror,"Original instruction offset 8a4b"
+@@ -1154,7 +1162,11 @@
+   .assert *=$aa8e,lderror,"Original instruction offset 8a8e"
+   ORA ::TnAudioRam+$58,x
+   .assert *=$aa91,lderror,"Original instruction offset 8a91"
++.if ::TN_RAW_APU
+   JSR $ace8
++.else
++  JSR ::TnSourceChannelOwner
++.endif
+   .assert *=$aa94,lderror,"Original instruction offset 8a94"
+   .byte $b0,$03 ; BCS source$8a99
+   .assert *=$aa96,lderror,"Original instruction offset 8a96"
+@@ -1499,7 +1511,11 @@
+   .assert *=$ac02,lderror,"Original instruction offset 8c02"
+   ORA #$08
+   .assert *=$ac04,lderror,"Original instruction offset 8c04"
++.if ::TN_RAW_APU
+   JSR $ace8
++.else
++  JSR ::TnSourceChannelOwner
++.endif
+   .assert *=$ac07,lderror,"Original instruction offset 8c07"
+   .byte $b0,$03 ; BCS source$8c0c
+   .assert *=$ac09,lderror,"Original instruction offset 8c09"
+@@ -1519,7 +1535,11 @@
+   .assert *=$ac15,lderror,"Original instruction offset 8c15"
+   STA ::TnAudioRam+$78,x
+   .assert *=$ac18,lderror,"Original instruction offset 8c18"
++.if ::TN_RAW_APU
+   JSR $ace8
++.else
++  JSR ::TnSourceChannelOwner
++.endif
+   .assert *=$ac1b,lderror,"Original instruction offset 8c1b"
+   .byte $b0,$03 ; BCS source$8c20
+   .assert *=$ac1d,lderror,"Original instruction offset 8c1d"
+@@ -1744,7 +1764,11 @@
+   .assert *=$ad0a,lderror,"Original instruction offset 8d0a"
+   LDA #$30
+   .assert *=$ad0c,lderror,"Original instruction offset 8d0c"
++.if ::TN_RAW_APU
+   JSR $ace8
++.else
++  JSR ::TnSourceChannelOwner
++.endif
+   .assert *=$ad0f,lderror,"Original instruction offset 8d0f"
+   .byte $b0,$03 ; BCS source$8d14
+   .assert *=$ad11,lderror,"Original instruction offset 8d11"
+@@ -2251,7 +2275,11 @@
+   .assert *=$af37,lderror,"Original instruction offset 8f37"
+   LDA #$30
+   .assert *=$af39,lderror,"Original instruction offset 8f39"
++.if ::TN_RAW_APU
+   JSR $ace8
++.else
++  JSR ::TnSourceChannelOwner
++.endif
+   .assert *=$af3c,lderror,"Original instruction offset 8f3c"
+   .byte $b0,$03 ; BCS source$8f41
+   .assert *=$af3e,lderror,"Original instruction offset 8f3e"
+--- a/src/tmnt.s
++++ b/src/tmnt.s
+@@ -28,6 +28,7 @@
+ .include "tmnt_hud_world.s"
+ .include "tmnt_equipment_icon_fast.s"
+ .include "tmnt_equipment_shuriken_fast.s"
++.include "tmnt_equipment_shot_scope.s"
+ 
+ .include "tmnt_probe_gates.s"
+ 
+--- a/src/tmnt_audio.s
++++ b/src/tmnt_audio.s
+@@ -29,6 +29,7 @@
+ .include "tmnt_parser_channels.s"
+ .include "tmnt_parser_unrolled.s"
+ .include "tmnt_parser_tail_writers.s"
++.include "tmnt_source_channel_owner.s"
+ .segment "TMNT_SAMUS_AUDIO_COLD"
+ .proc TnAudioUpdate
+  lda #0
+--- a/src/tmnt_equipment_draw.s
++++ b/src/tmnt_equipment_draw.s
+@@ -46,7 +46,7 @@
+  lda TnShotAnim,x
+  jeq NextShot
+ ShotPointer:
+- ldy TnShotFace,x
++ jmp TnShotOwnerScope
+  jsr TnWorldPointer
+  ldx TnDrawSlot
+  lda TnShotX,x
+--- a/src/tmnt_equipment_shot_scope.s
++++ b/src/tmnt_equipment_shot_scope.s
+@@ -0,0 +1,333 @@
++; Actual ShotPointer entry: X=slot, A=nonzero original source pose.
++; No extra renderer admission on uncommon poses. Scratch world/page
++; subtraction is performed directly; its discarded input copies vanish.
++.pushseg
++.segment "TN_EQUIP_FAST"
++.proc TnShotOwnerScope
++ cmp #73
++ beq Select0
++ cmp #74
++ beq Select1
++ cmp #75
++ beq Select2
++Legacy:
++ tay
++ lda TnShotFace,x
++ cmp #2
++ beq Left
++ lda TnWorldRLo,y
++ sta R0
++ lda TnWorldRHi,y
++ sta R1
++ jmp Coordinate
++Left:
++ lda TnWorldLLo,y
++ sta R0
++ lda TnWorldLHi,y
++ sta R1
++Coordinate:
++ sec
++ lda TnShotX,x
++ sbc ScreenLeft_X_Pos
++ sta R4
++ lda TnShotPage,x
++ sbc ScreenLeft_PageLoc
++ sta R5
++ lda TnShotY,x
++ sta R6
++ lda #1
++ sta R7
++ lda #0
++ sta R3
++ jsr TnWorldDraw
++ jmp TnDrawEquipment::NextShot
++Select0:
++ ldy TnShotFace,x
++ cpy #2
++ beq Left0
++ jmp Path0
++Left0:
++ jmp Path3
++Select1:
++ ldy TnShotFace,x
++ cpy #2
++ beq Left1
++ jmp Path1
++Left1:
++ jmp Path4
++Select2:
++ ldy TnShotFace,x
++ cpy #2
++ beq Left2
++ jmp Path2
++Left2:
++ jmp Path5
++Path0:
++ lda #$66
++ sta R0
++ lda #$d1
++ sta R1
++ sec
++ lda TnShotX,x
++ sbc ScreenLeft_X_Pos
++ sta R4
++ lda TnShotPage,x
++ sbc ScreenLeft_PageLoc
++ sta R5
++ bne PageLegacy0
++ php
++ lda TnShotY,x
++ sta R6
++ cmp #24
++ bcc RestoreLegacy0
++ lda R4
++ cmp #8
++ bcc RestoreLegacy0
++ lda CurrentOAMOffset
++ cmp #248
++ bcs RestoreLegacy0
++ plp
++ lda #1
++ sta R7
++ lda #0
++ sta R3
++ jsr TnExactShurikenRender::Record0
++ jmp TnDrawEquipment::NextShot
++RestoreLegacy0:
++ plp
++LegacyAfterY0:
++ lda #1
++ sta R7
++ lda #0
++ sta R3
++ jsr TnWorldDraw
++ jmp TnDrawEquipment::NextShot
++PageLegacy0:
++ lda TnShotY,x
++ sta R6
++ jmp LegacyAfterY0
++Path1:
++ lda #$6f
++ sta R0
++ lda #$d1
++ sta R1
++ sec
++ lda TnShotX,x
++ sbc ScreenLeft_X_Pos
++ sta R4
++ lda TnShotPage,x
++ sbc ScreenLeft_PageLoc
++ sta R5
++ bne PageLegacy1
++ php
++ lda TnShotY,x
++ sta R6
++ cmp #24
++ bcc RestoreLegacy1
++ lda R4
++ cmp #8
++ bcc RestoreLegacy1
++ lda CurrentOAMOffset
++ cmp #248
++ bcs RestoreLegacy1
++ plp
++ lda #1
++ sta R7
++ lda #0
++ sta R3
++ jsr TnExactShurikenRender::Record1
++ jmp TnDrawEquipment::NextShot
++RestoreLegacy1:
++ plp
++LegacyAfterY1:
++ lda #1
++ sta R7
++ lda #0
++ sta R3
++ jsr TnWorldDraw
++ jmp TnDrawEquipment::NextShot
++PageLegacy1:
++ lda TnShotY,x
++ sta R6
++ jmp LegacyAfterY1
++Path2:
++ lda #$78
++ sta R0
++ lda #$d1
++ sta R1
++ sec
++ lda TnShotX,x
++ sbc ScreenLeft_X_Pos
++ sta R4
++ lda TnShotPage,x
++ sbc ScreenLeft_PageLoc
++ sta R5
++ bne PageLegacy2
++ php
++ lda TnShotY,x
++ sta R6
++ cmp #24
++ bcc RestoreLegacy2
++ lda R4
++ cmp #8
++ bcc RestoreLegacy2
++ lda CurrentOAMOffset
++ cmp #248
++ bcs RestoreLegacy2
++ plp
++ lda #1
++ sta R7
++ lda #0
++ sta R3
++ jsr TnExactShurikenRender::Record2
++ jmp TnDrawEquipment::NextShot
++RestoreLegacy2:
++ plp
++LegacyAfterY2:
++ lda #1
++ sta R7
++ lda #0
++ sta R3
++ jsr TnWorldDraw
++ jmp TnDrawEquipment::NextShot
++PageLegacy2:
++ lda TnShotY,x
++ sta R6
++ jmp LegacyAfterY2
++Path3:
++ lda #$cb
++ sta R0
++ lda #$d2
++ sta R1
++ sec
++ lda TnShotX,x
++ sbc ScreenLeft_X_Pos
++ sta R4
++ lda TnShotPage,x
++ sbc ScreenLeft_PageLoc
++ sta R5
++ bne PageLegacy3
++ php
++ lda TnShotY,x
++ sta R6
++ cmp #24
++ bcc RestoreLegacy3
++ lda R4
++ cmp #8
++ bcc RestoreLegacy3
++ lda CurrentOAMOffset
++ cmp #248
++ bcs RestoreLegacy3
++ plp
++ lda #1
++ sta R7
++ lda #0
++ sta R3
++ jsr TnExactShurikenRender::Record3
++ jmp TnDrawEquipment::NextShot
++RestoreLegacy3:
++ plp
++LegacyAfterY3:
++ lda #1
++ sta R7
++ lda #0
++ sta R3
++ jsr TnWorldDraw
++ jmp TnDrawEquipment::NextShot
++PageLegacy3:
++ lda TnShotY,x
++ sta R6
++ jmp LegacyAfterY3
++Path4:
++ lda #$d4
++ sta R0
++ lda #$d2
++ sta R1
++ sec
++ lda TnShotX,x
++ sbc ScreenLeft_X_Pos
++ sta R4
++ lda TnShotPage,x
++ sbc ScreenLeft_PageLoc
++ sta R5
++ bne PageLegacy4
++ php
++ lda TnShotY,x
++ sta R6
++ cmp #24
++ bcc RestoreLegacy4
++ lda R4
++ cmp #8
++ bcc RestoreLegacy4
++ lda CurrentOAMOffset
++ cmp #248
++ bcs RestoreLegacy4
++ plp
++ lda #1
++ sta R7
++ lda #0
++ sta R3
++ jsr TnExactShurikenRender::Record4
++ jmp TnDrawEquipment::NextShot
++RestoreLegacy4:
++ plp
++LegacyAfterY4:
++ lda #1
++ sta R7
++ lda #0
++ sta R3
++ jsr TnWorldDraw
++ jmp TnDrawEquipment::NextShot
++PageLegacy4:
++ lda TnShotY,x
++ sta R6
++ jmp LegacyAfterY4
++Path5:
++ lda #$dd
++ sta R0
++ lda #$d2
++ sta R1
++ sec
++ lda TnShotX,x
++ sbc ScreenLeft_X_Pos
++ sta R4
++ lda TnShotPage,x
++ sbc ScreenLeft_PageLoc
++ sta R5
++ bne PageLegacy5
++ php
++ lda TnShotY,x
++ sta R6
++ cmp #24
++ bcc RestoreLegacy5
++ lda R4
++ cmp #8
++ bcc RestoreLegacy5
++ lda CurrentOAMOffset
++ cmp #248
++ bcs RestoreLegacy5
++ plp
++ lda #1
++ sta R7
++ lda #0
++ sta R3
++ jsr TnExactShurikenRender::Record5
++ jmp TnDrawEquipment::NextShot
++RestoreLegacy5:
++ plp
++LegacyAfterY5:
++ lda #1
++ sta R7
++ lda #0
++ sta R3
++ jsr TnWorldDraw
++ jmp TnDrawEquipment::NextShot
++PageLegacy5:
++ lda TnShotY,x
++ sta R6
++ jmp LegacyAfterY5
++.endproc
++.assert TnShotOwnerScope=$bc8d,lderror,"Verified new A87 tail"
++.assert *<=$c000,lderror,"Keep bank87 bounded"
++.export TnShotOwnerScope
++.popseg
+--- a/src/tmnt_source_channel_owner.s
++++ b/src/tmnt_source_channel_owner.s
+@@ -0,0 +1,28 @@
++; Same original channel selection, carry and final A/N/Z/V/D/I.
++; X!=0 never changes A before PLA; ORA#0 supplies those exact original N/Z.
++; The complete original X=0 branch retains its PHA/PLA and conditional carry.
++.pushseg
++.segment "TMNT_DURATION_HELPER"
++.proc TnSourceChannelOwner
++ cpx #0
++ beq Zero
++ ldx a:TnAudioRam+$93
++ clc
++ ora #0
++ rts
++Zero:
++ pha
++ lda a:TnAudioRam+$0e
++ beq Clear
++ sec
++ pla
++ rts
++Clear:
++ clc
++ pla
++ rts
++.endproc
++.assert TnSourceChannelOwner=$a2e0,lderror,"Verified last32B writer slack"
++.assert *<=$a300,lderror,"Keep genuine duration products and note stream"
++.export TnSourceChannelOwner
++.popseg

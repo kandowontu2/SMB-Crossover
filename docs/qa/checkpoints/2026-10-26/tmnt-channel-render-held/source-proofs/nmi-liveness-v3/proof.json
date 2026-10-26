@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "source_only": true,
+  "native_run": false,
+  "accepted": false,
+  "candidate_ROM_sha256": "70ba4f682723e62b00ef4278c19e3b898383d2903ce6ad6b35199816748217de",
+  "literal_original_setup_reference_ROM_sha256": "8d60280ccec6cea4a7544cd1745bae03598fee2c05b736877e166dc1d42e1184",
+  "literal_hook_bytes": "bc805c",
+  "actual_compiled_lag_NMI_injections": 538,
+  "maximum_total_stack_depth": 35,
+  "CPU_AXYP_PC_SP_banks_and_all_foreground_R0_toR7_preserved": true,
+  "every_ordered_nonstack_NMI_store_equals_literal_original_setup": true,
+  "unfinished_OAM_never_published": true,
+  "case_file_sha256": "6fd242379493d3e54847b6b77b50640ee800c46b17fe26e557477b19fc509198",
+  "checker_sha256": "df158ea10f141b9326a5d6c31186fd28cb7847422160a73089cdb3801fc47967",
+  "limits": "CPU executes real vector/NMI/RTI on explicitly arranged cold guest19 lag path, including real source music. Literal setup is the verified old3-byte LDY hook in memory only. No physical PPU/DMC DMA/IRQ scheduling, whole foreground RAM snapshot, natural acquisition or recovered draw claim."
+}
