@@ -1,0 +1,128 @@
+Parodius HUD cancellation: one F35 death/restart observation, 2026-10-26
+
+The actual visible death/restart glyph defect is repaired in the observed
+Easy0/Octopus1 profile. The original six-component aggregate remains FALSE:
+the original five native components passed, but the added HUD-pair finalizer
+did not write its terminal receipt. Independent OFFLINE reaggregation of all
+saved native pair rows and actual RGB certifies that observed pair scope.
+No missing native receipt was created or backfilled; no second run occurred.
+
+Frozen source/candidate
+  Parent5354 SHA256:
+  5354161f339548f2e12b955f5fc1481b9956fe83a63263a04f4b2816edbbdf30
+  CandidateF35 SHA256:
+  f35f0ec2f70d5dcb6eb1bbfcbd84359d9f6da68c39719d75217aed149edb0631
+  Candidate/source: D/parodius-hud-cancel-candidate-v1
+  Private source delta: src/parodius_hud_queue.s, src/vic_adapter.s,
+  smb1base-mmc5-expanded.cfg. 293 ROM bytes, banks77/116 only, old symbols
+  and CHR exact. Source controls/readiness remain frozen and separate.
+  Readiness SHA256:
+  aecb20fb2e31ba5cfc7856bf629e3febf9e2c3ff7f9646cfb8809d0c176a35e2
+  Readiness manifest:8591 bindings, SHA256
+  3fef22e7fb5eec38983c283ba2469b388af613d6fe3f989789f7316eaf6cf3f0
+
+D means C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py.
+
+One authorized native launch; no retries
+  python -B tools/audit/parodius_visibility_hud_cancel_run_v1.py --ready
+  "D/parodius-hud-cancel-ready-v1" --profile death --native-grant
+  This command consumed its one-shot output. A fresh launch would require a
+  separately prepared output and a new explicit grant; this is not permission.
+  Run: D/parodius-hud-cancel-preparation-v1/death/baseline-early
+  Script SHA256:
+  222bfffc9456139ecab5992aa6ab6430932f5e5ac7f640386b35155c5386395f
+  Native worker RELEASED. No production, Git, Downloads, user settings or
+  unrelated process edits. Actual mode0 and variant1 were read back.
+
+Results and finalizer defect
+  Mesen exit0; six-component runner exit1. native-result, hud-native-result,
+  scroll-native-result, lifecycle-native-result and lifecycle-init-native-
+  result all passed. hud-lease-native-result.json is absent.
+  Original lifecycle-proof SHA256:
+  af62289d941ed20e84961ec98044db918f4c2aefbf441922fbff2ebcb6f422e5
+  The new lease endFrame finalizer was registered after the original static
+  observer's endFrame callback, which writes native-result and calls
+  emu.stop(0). All lease startFrame assertions ran through2200; the later
+  finalizer did not produce its receipt. This is an observation-finalization
+  defect, not evidence of a ROM fault. Frozen files remain unchanged.
+  Future preparation should register the additional finalizer before that
+  original stop, with source/event-order controls. A rerun merely to produce
+  the file is unnecessary for the independently reconstructed saved scope.
+
+Independent saved pair/RGB evidence
+  1574 actual startFrame pairs454..2200:1564 custom labels/font396 and
+  10 native blank labels/font0. Every native row assertion passed. Independent
+  replay checks exact pair predicates and independently cross-checks the
+  corresponding hud-frames actual PPU metadata, font and all28 labels.
+  Exact unchanged ROM CHR, actual attributes/palette and actual raw RGB:
+  2,820,608 glyph-mask pixels, zero mismatches. The two observed NES color
+  classes map consistently to actual RGB; this is not an independent absolute
+  RGB palette calibration. HUD row8..15 only; not every-screen art clearance.
+  D/parodius-hud-cancel-rgb-v1/proof.json SHA256:
+  4473f5e9b611feb808ec97372be3f50eec6b5a21a86d1cb91cd50319bb9ca1d1
+  No missing native component was written; the original aggregate stays false.
+
+Actual repaired chronology and selected visual review
+  Actual KillPlayer514 and VvDeathStart514:45:312 are naturally reached with
+  the unchanged controller. F35 keeps the committed font396 through death.
+  The old5354 frame515 displayed world-font glyphs in the custom label row;
+  F35 frame515 displays the intended custom labels.
+  During new-life811, UI first admits42 bytes; actual cancellation removes
+  that owned segment and sets offset0/Dirty1 before clearing Upper85->01 at
+  811:46:157 CPU24127500. Native prefix/tail ownership is preserved by the
+  separately qualified source routine. There is no stale label write at813.
+  Actual813 capture has font0/native blank labels. Fresh full labels first
+  write2022 at814:243:138 CPU24209447; commit restores Active3 and font396
+  for814 start. This is an intentional bounded fresh-HUD delay, not a claim
+  of byte-identical publication timing with the defective5354.
+  Viewed all24 selected actual wholePPU frames in native-v1/selected-full-PPU:
+  456,458,459,460,514,515,520,548,612,634,635,638,640,642,655,800,810,811,
+  812,813,814,815,830,2200. Also viewed four whole before/after images:
+  old/new515 and old/new813. The previous wrong glyphs are absent in these
+  F35 frames. Native death/restart and selected body art appear coherent.
+  Whole before/after sheet:
+  D/parodius-hud-cancel-rgb-v1/before-after-full-PPU.png
+  SHA2565fdda0c7fb698460b484ed41639ae4b6b213cbdc215a1bff6153c4eacf8856a5
+  Selected visual review is not an exhaustive every-frame/source-fidelity
+  verdict. Labels remain tiny and densely packed; source-exact masks do not
+  close user-facing HUD readability. Crowded body visibility remains open.
+
+Actual cadence, transfer and hardware guards
+  2200 wall frames,1296 game updates,1366 active DMAs,1037 publications,
+  1449 NMI/completed-DMA guard checks,17388 CHR checks, min sampledSP181.
+  Zero partial-visible DMA starts, completed-source mismatches or body-raster
+  source mismatches. All original actual-bank/5SMC/stack/scroll/IRQ/APU guards
+  remained enabled. Hardware8-sprite limit was retained.
+  Offline inspection binds all1923 recorded visible/init epochs to complete
+  256-write DMA, exact hardware/source256 bytes and genuine PPU endpoint.
+  Worst observed last-data-write->start margins:8CPU cycles at644 intro,
+  9 at298 intro,42 at814 freshHUD,45 at459 freshHUD. These narrow observed
+  margins do not establish global60Hz or a hardware DMC worst-case budget.
+  One real death,1237 new-life updates;219 actual Buffer2 flushes but ZERO
+  pending HUD/Buffer2 holds. No area-entry/area-change coverage is claimed.
+  Terminal2200 actualHUDstart font396, then real IRQ31:33, worldfont write
+  31:128, RTI-entry32:13 and subsequent endFrame240:0 with worldfont0.
+  The RTI hook is at entry to that instruction, not an after-RTI callback.
+
+Same-input baseline comparison has a strict finite bound
+  Old5354 run failed813. All365 raw actual RGB frames150..514 are byte-exact
+  before intended visible divergence515. All514 trace rows and237 actual
+  DMA visible epochs through514 match: hardware/source256, CHR/palette/mask,
+  actualstart counters, generation where present, transfer count/destination
+  and instruction owner. Source-publication timestamps are recorded separately.
+  No post-divergence full-baseline performance comparison is claimed.
+  D/parodius-hud-cancel-cadence-v2/proof.json SHA256:
+  3a882cd8dfe21bda8718235b480ee3d8a18d8f4d3e2640e97af38295276be9fa
+  Offline cadence-v1 failed on an omitted nil game_generation key in early
+  Lua epochs; its tool/failure remain frozen. V2 handles omitted metadata
+  explicitly; no native artifact or ROM changed.
+
+Preserved scope and open gates
+  All old5354 menu success, death515/restart813 negatives and original alias
+  failures remain separate. Roll full-pool, Sophia crowding and rejected e11
+  body-order evidence are not relabeled. Rare+117 NMI death-attribute path
+  and source cancellation219..1805 foreground-cycle range remain disclosed.
+  This one actual Easy/Octopus death run plus independent saved-pair replay
+  does not certify Hard, other variants, natural area/Buffer2 pending catch-up,
+  every item, mobile/source fidelity, all-roster visibility, full campaign,
+  global performance or adoption. Current installed50b5 remains untouched.

@@ -1,0 +1,23 @@
+{
+  "passed": true,
+  "native_component_receipt": false,
+  "classification": "Offline replay of already-written native startFrame observations; no missing receipt backfill",
+  "observed_pairs": 1574,
+  "classifications": {
+    "native-blank": 10,
+    "custom-pair": 1564
+  },
+  "first_frame": 454,
+  "last_frame": 2200,
+  "actual_mode": 0,
+  "actual_variant": 1,
+  "all_original_row_assertions_passed": true,
+  "independent_predicate_replay_passed": true,
+  "missing_native_receipt": "hud-lease-native-result.json",
+  "source_registration_order": {
+    "original_stop_character_offset": 109782,
+    "lease_layer_character_offset": 127879,
+    "lease_finalizer_character_offset": 130487
+  },
+  "diagnosis": "The lease endFrame finalizer is registered after the original native endFrame callback that calls emu.stop(0). All observed startFrame pair assertions ran; the later finalizer did not produce its receipt. This is an observation finalization defect, not a demonstrated ROM defect."
+}
