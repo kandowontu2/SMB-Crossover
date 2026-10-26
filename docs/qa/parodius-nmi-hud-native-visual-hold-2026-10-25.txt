@@ -1,0 +1,21 @@
+V11 remains held after actual frame review.
+
+Seven completed native controls passed the transfer/source assertions. Vic Hard
+was not launched. The Octopus Hard host crash and exact successful retry remain
+explicitly retained; they are not erased or counted as a clean first run.
+
+Actual first-capture frames show a misplaced ground strip across the HUD:
+Octopus Easy PPU458, TwinBee Easy PPU479, Pentarou Easy PPU479.
+Palette reads overwrite the scroll address after the native zero-scroll writes.
+This is visible corruption despite exact completed OAM transfers and correct
+subsequent custom-font masks. Source-qualified does not mean visually accepted.
+
+ROOT directly inspected actual Octopus Easy frames457/458/459,478/479/480,
+584..589 and612..614. It confirmed the strip on458, stable images at479/613,
+and separate partial-body flicker at586/589. TwinBee/Pentarou479 refer to
+those characters' own captures, not Octopus479.
+
+The immutable native proof/manifest and selected lossless PNGs are checkpointed
+in parodius-hud-v11-native-held. Full traces/captures stay in the external
+archive. A successor capture-scroll repair is private and requires new native
+qualification. Production remains50b51c3c; this goal is unfinished.
