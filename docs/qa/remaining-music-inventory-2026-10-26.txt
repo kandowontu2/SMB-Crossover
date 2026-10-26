@@ -1,0 +1,138 @@
+REMAINING DISTINCT MUSIC: SMB3 AND PARODIUS — 2026-10-26
+
+Decision: implement two authentic engines, shared by five identities. SMB3 Mario
+and Luigi share the original SMB3 engine/data; Octopus, TwinBee and Pentarou share
+the original Parodius engine with distinct original character-theme requests.
+Keep Vic Viper's existing native Gradius engine. This is an implementation plan,
+not installed music, a bank/RAM reservation, or native performance acceptance.
+
+PINNED INPUTS AND CURRENT ROUTING
+
+Current frozen source/ROM: external cv3-remaining-legacy-wrapper-v2/source and
+candidate.nes, SHA256
+2cb5fca0757c3e347c264eab0bf3f22bd02d851787f38802a4af3cb0c3aa1fa5.
+Compared with external tmnt-native-storage-current50b5-v1/current-baseline-v1,
+ROM SHA25650b51c3c69f45ef137720c47f521574097f421056e3b73296d06ba70080d2363.
+The four actual compiled routing spans remain byte-exact: VgAudioDispatch23B,
+KbAudioFamily35B, ExpandedAudioUpdate45B, ExpandedAudioTick877B. The four frozen
+source files expanded_audio.s, gradius_audio.s, mac_native_music.s and
+mike_native_music.s also remain byte-exact. Thus the earlier actual50b CPU route
+proof applies to these unchanged branches; no new whole-roster matrix was run.
+
+Identity                        Current route                   Authentic target
+SMB3 Mario/Luigi, char17         KbAudioFamily -> packed Pit6    shared SMB3
+Octopus, char18/VvVariant1       Vg legacy -> packed Pit6        Parodius request$52
+TwinBee, char18/VvVariant2       Vg legacy -> packed Pit6        Parodius request$56
+Pentarou, char18/VvVariant3      Vg legacy -> packed Pit6        Parodius request$5A
+Vic Viper, char18/VvVariant0     GradiusAudioUpdate              preserve unchanged
+
+The names in full_roster_music.inc are not proof of executable SMB3/Parodius
+music. The current new-roster encoder report contains only Kirby/Meta roles.
+
+SMB3: AVAILABLE EXACT MATERIAL AND NEXT IMPLEMENTATION UNIT
+
+reference/new-roster-audio/mario3/crossover-named.nsf is36,992B including128B
+header; its36,864B payload is exactly the DATA chunk supplied by Crossover's
+GameSuperMarioBros3 NSFE (reference/crossover2/extracted/binaryData/254_...bin).
+NSF SHA2564f22166e5baf4db867564b57c3d152dacb85b6365f7bf94cf0883d612e7f915c;
+NSFE SHA2567b86c232cbd9643042fba9285a1ec900ce7544f8f33a3202e31ffe8950868aa3.
+Original init/play=$9000/$A000, load$8000, nine4KiB source pages with initial
+mapping7,0,1,2,5,6,3,4; NTSC NSF period16,639us. Both characters use these same
+authentic tracks; Luigi does not need a second music payload.
+
+Existing playlist plan, exact one-based NSFE labels:
+normal9 Running Around; water11 Swimming in the Calm Water;
+underground12 Running Around Underground; castle23 The Castle...;
+bonus13 Up Above; intro1 Grass Land; star14 Invincible!;
+die43 You have Died; game_over42 Game Over; win38 Level Completed;
+win_castle39 Bowser Defeated!; hurry27 Hurry! (Running Around).
+The labels are original supplied metadata. Assigning them to SMB1 area/event
+roles is the existing project adaptation, not an original SMB3 level-map claim.
+Raw original register captures for all12 selections already exist in the
+2026-10-23-new-roster-music archive and captures-manifest.json.
+
+One finite, unmodified original-driver CPU pilot was reproduced: track9 init
+plus600 play calls, exact ordered3,664 APU stores; init47cycles, play mean644.472,
+p95=1,095, maximum1,940. It had no unmodeled IO reads or ROM writes. This excludes
+adapter/mixer/bank-call overhead and physical DMC stalls. It is not all12-track
+closure or native timing. Observed source ZP=$6B..$6E/$71..$72; other observed
+state occupies sparse$04D0..$04FF, $07F0..$07FA and$7AE0..$7AFF. Full exact ranges
+are in proof.json. Those are observed lower bounds, not assigned host RAM.
+Normal9 alone starts1,282 distinct source DPCM bytes, payload ranges
+$3000..$3080 and$3980..$3E00 inclusive. SMB3 therefore cannot use a tonal-only
+conversion or borrow a C-window sample bank only during its call.
+
+Small next unit: obtain complete12-selection pointer/RAM/sample closure and
+original ordered-APU/state goldens using the existing NSF CPU harness; translate
+the real source operands/pointers into the mutually exclusive native-family
+workspace, with logical source-address read helpers for scattered PRG data.
+Preserve source4015/DPCM and timing. Only then size a real linked adapter/data
+placement.36,864B is the complete source-payload upper bound; no smaller packed
+SMB3 extent has yet been proved. Do not declare470 executed instruction entries
+from this one pilot to be470 code bytes or a complete engine size.
+
+PARODIUS: READY SOURCE CORE, DISTINCT HERO REQUESTS, REAL COST
+
+Authenticated original C:/NES/Parodius Da! (Japan).nes:
+SHA256ef1dd05ad5b6095d1d8e9a9f81fcb549b5cf0248779d4e76eb7bd9b139de4c9a.
+Original game scene/request control proves hero $52/$56/$5A, not guessed NSF song
+numbers. The original stage-selector requests are bound in request-site proofs;
+death/boss scene context and SMB1 water/castle/death/fanfare role adaptation still
+need explicit scene binding. Do not invent titles or copy Gradius's request
+numbers into this engine.
+
+Existing complete source qualification:22 request groups,396,044 source calls,
+1,252,908 ordered APU writes; connected-pointer closure55,201 calls with no
+unknown pointer origins. The engine requires3,233 source code bytes and11,286B
+conservatively retained/closed source data; persistent sample mirror1,281B
+(original$C040..$C540). Original state domain=$45 read-only,$E0..$EF,$0500..$05FF
+(273B). Use existing mutually exclusive native-family history and protected
+decoder-ZP ownership machinery; no new addresses are allocated by this inventory.
+
+Original assembled-source cost per update (18,002calls per request):
+             Mean      Peak      Faithful multiply-v3 mean / peak
+Octopus      1,491.920  8,404     1,494.696 /6,928
+TwinBee      1,491.305  6,815     1,494.082 /6,857
+Pentarou     1,347.442  7,050     1,351.122 /7,086
+The94B arithmetic helper is source/state/APU exact over all396,044 calls and
+262,144 direct arithmetic cases. It is not a universal speedup: TwinBee/Pentarou
+means and peaks increase. Across all22 requests original maximum13,194 becomes
+optimized maximum9,929. These exclude a new host adapter/DMC DMA and prove no
+native draw-cadence recovery. Reuse the source/goldens, not an unconditional
+claim that the existing arithmetic trial solves lag.
+
+SMALLEST SHARED IMPLEMENTATION / STORAGE CONSTRAINT
+
+Use one common identity/event dispatcher and existing owner-aware guest mixer,
+source-bank read helpers, restart/pause lifecycle and persistent DMC mechanism;
+retain two actual original cores. Route17 to SMB3; route18 variants1..3 to one
+Parodius core with its real hero request; preserve variant0 Gradius. Prove every
+new boundary's register/stack/IRQ and source APU/state outcomes. This avoids five
+copies and avoids replaying pre-truncated register recordings as invented music.
+
+Persistent source samples are the common storage constraint. Current shared125
+contains live CV3 samples/manager and reserved TMNT cold adapter; it cannot be
+blindly overwritten by Parodius's proposed$F140..$F640 mirror. The former A62/C94
+Parodius placement is obsolete: ROOT reserves those tails for Chip's authentic
+music. Held TMNT's source-qualified124-to99 exchange is not installed by2cb5;
+bank124 is not released. Mac123, Mike115, fixed127 and existing reachable songs,
+code and CHR remain preserved. No unreserved whole8KiB bank was established.
+
+Consequently the implementable next step is the bounded SMB3 closure above,
+then a single source-declared fragmented data/read-helper and DMC-mirror layout
+for both cores, based on current map plus explicit held-family reservations.
+If a complete immutable E mirror cannot fit, change the sample-owner mapping
+architecture with full old-owner/preemption/tail proofs; do not drop drums,
+truncate songs, assume held-bank exchanges, or silently use Pit. Bank/RAM
+allocation and music installation are deliberately not performed here.
+
+REPRODUCTION / COMPACT BINDINGS
+
+Tool: tools/audit/remaining_music_inventory_v1.py
+Command: python tools/audit/remaining_music_inventory_v1.py --output <new external dir>
+External proof: .../2026-10-24-native-rest-py/remaining-music-inventory-v1/proof.json
+SHA256cb8f4961cf3a2902f63f225968ba05573f10c2832c7cd2fc3cd95248e59f6323.
+The proof binds both frozen ROM/debuggers, unchanged compiled dispatch spans,
+original assets, metadata, five inherited actual routing rows, one601-call SMB3
+log and existing Parodius full-source cost proof. No native launch, production
+game-source edit, source-rate change, sample omission or allocation occurred.

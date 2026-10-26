@@ -1,0 +1,119 @@
+AUTHENTIC SMB3 MUSIC — FINITE ORIGINAL-SOURCE CLOSURE
+
+Status: original executable traced, not relocated, linked, allocated or installed.
+No native emulator was launched. No game source, original source payload, voice,
+sample, store, source tick or playback rate was changed. A62/C94 remain Chip-owned;
+124/125 are not assumed free. The separate three-byte firebar repair is untouched.
+
+INPUT / CALL CONTRACT
+
+The existing named NSF payload is exactly the supplied Crossover SMB3 NSFE DATA.
+NSF SHA2564f22166e5baf4db867564b57c3d152dacb85b6365f7bf94cf0883d612e7f915c;
+NSFE SHA2567b86c232cbd9643042fba9285a1ec900ce7544f8f33a3202e31ffe8950868aa3.
+Original payload36,864B; load/init/play=$8000/$9000/$A000; period16,639us.
+Cold source RAM starts zero. Init A=one-based-track minus1. Each play call has
+A/X/Y=0, P=$24, SP=$FD and a real synthetic outer return to$7F00. The original
+executable executes every call; no captured-prefix replacement or music codec.
+All12 planned roles receive init plus18,000 play calls:216,012 calls total.
+
+PER-ROLE ORIGINAL ASSEMBLED COST
+
+Role         Track  Mean cycles   p95    Peak   Source-state repeat period
+normal          9      648.726   1198    2010       1536 calls
+water          11      637.406   1019    2028       1536
+underground    12      635.632    842    1852       1152
+castle         23      601.643    586    1821       1088
+bonus          13      616.969    860    1848        512
+intro           1      650.744   1204    2072        864
+star           14      678.177   1664    2102        192
+die            43      274.418    271    1703          1, after cue ends
+game_over      42      274.079    271    1787          1, after cue ends
+win            38      274.552    271    2054          1, after cue ends
+win_castle     39      276.303    271    1989          1, after cue ends
+hurry          27      662.113   1224    2010       1280
+
+Each init costs47cycles. p95 uses nearest rank over18,000 plays. Labels and
+first/repeat ticks are in proof.json. Repeat keys cover full non-stack source
+RAM, original page maps and latched APU values; all roles repeat by call1809.
+This is CPU-state recurrence under the fixed cold contract, not physical sample
+completion or static/universal driver reachability. Costs exclude an eventual
+host adapter/mixer, real DMC stalls, interrupts, PPU and drawing work.
+
+EXACT REUSABLE TRACE / MEMORY METADATA
+
+957,715 ordered original APU stores are retained, including every4017 write.
+Per-call gzip records contain cycles, post A/X/Y/P/SP, full ordered APU writes,
+their instruction-end offsets, page-register writes/maps, ordered non-stack RAM
+writes and complete non-stack source-RAM hash. Per-role footprint files contain
+all observed instruction/operand bytes, data reads, PC/physical bindings, peak
+instruction trace, cold dependencies and final live source state.
+
+Observed source ROM union:
+  1,355 instruction/operand bytes;
+  2,728 actual ROM data-read bytes, overlapping23 code bytes;
+  4,060 distinct CPU-read bytes;
+  3,780 requested DPCM bytes;
+  7,840 total distinct read/sample bytes, without overlap between those sets.
+The exact physical payload ranges and per-range byte hashes are retained for
+later source-address mapping. No unobserved payload byte is removed or called
+free. These counts are not a proved packed-engine size or linked-space fit.
+
+There are3,366 distinct actual pointer-plus-Y bindings. The only observed
+indirect pairs are$6B/$6C and$71/$72. Metadata retains instruction PC/physical
+PC, pointer-cell addresses, actual base, Y, final logical address and physical
+data offset. This is effective dynamic access closure, not pointer-origin
+taint proof or permission to rewrite embedded pointers. A later mapped reader
+can preserve the original numeric pointers; direct relocation needs its own proof.
+
+Observed non-stack read/write union:62bytes. Original six ZP fields are
+$6B..$6E/$71..$72; remaining fields are sparse$04D0..$04FF,$07F0..$07FA and
+$7AE0..$7AFF, with exact address lists in link-inputs.json. Nineteen fields are
+read before their first source write and depend on cold zero initialization;
+that list is explicit. These are original addresses, not allocated host aliases.
+All observed explicit load/RMW operand ranges and actual indirect targets were
+checked to exclude I/O reads, supplementing the generic NSF bus's narrower IO
+counter. No original ROM write occurred. Stack behavior is separately recorded.
+
+Requested DPCM physical payload ranges, inclusive:
+$3000..$3240 (577B); $3980..$4280 (2305B);
+$6B40..$6B80 (65B); $8800..$8B40 (833B).
+Thirteen complete source4010/4011/4012/4013/page-map configurations are retained,
+including4010=$4C loop/control bits. Original source C/D page pairs include5/6
+and7/8; mapping is preserved per role/call. The source sample requests require
+persistent sample mapping after a host audio call. This trace does not simulate
+physical DMC completion, DMA reads after later banking, tail ownership or preemption.
+
+OLDER RECORDINGS: RAW DIVERGENCE RETAINED
+
+299,403 ordered4000..4015 stores match the beginnings of the existing native
+captures. Their observer never recorded4017. Eight long captures first diverge
+at frame7212: an all-register-zero burst and restart replaces continued source
+play. Four short captures have extra zero/reset/restarted tails after the fixed
+source cue becomes quiet (frames359..385); no subsequent source write exists to
+match those extra rows. Raw first mismatch/context or unmatched-tail rows are
+retained per role. An NSF-player track transition is consistent with the pattern,
+but its specific cause is not certified here. None of these tails is accepted as
+an unlimited fixed-song golden or silently dropped from the old evidence.
+
+V2's first failed whole-capture assumption remains frozen: normal source
+call7209, capture store37582, source$4004=$50 versus captured$4000=$00. V3 keeps
+the same original18,000-call source contract and records each capture divergence;
+its new complete original-source goldens are the reusable linking oracle.
+V1 failed Python parsing before execution and is retained as .py.failed.txt.
+
+OUTPUT / REPRODUCTION
+
+External archive:2026-10-24-native-rest-py/smb3-original-music-closure-v3.
+Original proof SHA256fd6d4c2dc248943b225063ce3c1ce3dacb7739221981b10abb4a849ed60f3e9e.
+dynamic-closure.json contains exact ranges/bindings. Each role has calls.jsonl.gz,
+footprint.json and peak.json. The additive ready-v1 packet contains link-inputs,
+the exact tool copies and a verified hash catalog; all large traces stay external.
+
+python tools/audit/smb3_original_music_closure_v3.py --output <new external dir>
+python tools/audit/smb3_music_closure_packet_v1.py --trace <trace dir> --output <new ready dir> --report docs/qa/smb3-original-music-closure-2026-10-26.txt
+
+Next linking work is concrete but unperformed: preserve the original logical
+address/pointer behavior using these immutable source traces and read bindings,
+prove source transitions/cold initialization and persistent DPCM ownership,
+then qualify a real source-declared storage/adapter layout. No song/sample cuts,
+shared125 overwrite, held-bank release assumption or native performance claim.

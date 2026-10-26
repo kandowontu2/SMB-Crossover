@@ -1,0 +1,58 @@
+SMB3 CANONICAL REPEAT STATE — ADDENDUM TO THE FINITE TRACE REPORT
+
+The original216,012-call trace and its proof remain frozen. This additive witness
+states precisely what repeats and what that can prove. It does not allocate,
+relocate, remove payload, reduce the source clock or claim native playback.
+
+At each recorded call boundary, the canonical key contains:
+* all9,984 canonical non-stack source RAM bytes:0000..00FF,0200..07FF,
+  6000..7FFF, not merely the62 fields actually touched in the traces;
+* all eight original4KiB NSF page mappings;
+* all24 shadow/latched values for source stores4000..4017, including4017.
+
+For every subsequent play entry, PC=$A000,A/X/Y=0,P=$24,SP=$FD and the outer
+return bytes at$01FE/$01FF=$FF/$7E are explicitly set to the same values.
+Post-call registers need not recur because the entry contract overwrites them.
+The source executable and other unmodified memory remain immutable. There are
+no delivered interrupts, inputs, external RAM writes or source-readable clock.
+The model's accumulating processor-cycle counter is not readable by the6502.
+
+Physical APU sequencer/envelope/timer counters, DMC current position/completion
+and hardware time are not modeled in that key. The executed source has no I/O
+reads: all observed absolute/indexed load/RMW ranges and actual indirect targets
+exclude2000..5FFF. They therefore cannot consume those physical counters as
+CPU-control inputs in the witnessed cycle. Latched APU values are included in
+the witness conservatively; the source CPU does not read them either.
+
+Discarded stack bytes are not included. Across the observed code there are no
+direct/indexed/indirect stack-data operands and no TXS/TSX. Stack use is internal
+JSR/RTS/PHA/PLA with the defined outer return; minimum observed SP=$F8. There
+are no observed PHP/PLP/BRK/RTI/CLI/SEI paths. Each complete call returns SP=$FF.
+Thus stack reads are supplied by the same call's pushes or the explicitly set
+outer return, not undefined data retained from an earlier play call.
+
+The additive packet reconstructs source RAM from ordered original RAM writes,
+and APU latches from ordered original stores. It verifies every RAM hash through
+each role's first repeat and binds both exact repeat boundaries/maps/latches.
+All12 canonical keys recur as reported in the original trace. No source call
+was rerun or replaced to generate the witness.
+
+Under precisely that fixed cold contract, the complete deterministic entry
+state at a cycle boundary is equal. Instruction-by-instruction determinism
+therefore supports indefinite repetition of the original CPU state/store
+sequence for these12 selections, including the quiet ended-cue state. This is
+a separate finite-state argument; the observed read-union remains dynamic
+evidence, not static universal reachability for all71 songs, SFX requests,
+runtime role transitions, external writes or different entry/interrupt contracts.
+
+It does not certify a periodic physical waveform, real DMC DMA/ownership/tails,
+wall-clock timing, a relocated adapter, future native cadence, or permission to
+remove the unobserved portion of the36,864-byte source payload.
+
+Additive source packet: smb3-original-music-closure-v3/ready-v2. link-inputs.json
+contains the exact twelve repeat witnesses and reset-tail classifications;
+receipt.json catalogs the original traces, explicit negatives, reports and the
+seven exact audit-tool/import copies. No original v1 packet/report is rewritten.
+
+Reproduce metadata only:
+python tools/audit/smb3_music_closure_packet_v2.py --trace <smb3-original-music-closure-v3> --output <new external ready dir> --report docs/qa/smb3-original-music-closure-2026-10-26.txt --repeat-report docs/qa/smb3-original-music-repeat-state-2026-10-26.txt
