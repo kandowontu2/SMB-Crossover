@@ -1,0 +1,100 @@
+{
+  "passed": false,
+  "analysis_complete": true,
+  "native_control_passed": true,
+  "visibility_proposal_accepted": false,
+  "native_worker_released": true,
+  "no_native_launch_in_analysis": true,
+  "baseline_ROM_sha256": "df5154bc035ba2c392bb8d34068897a2bccf7a78a6f4554bd6790d31a586c357",
+  "candidate_ROM_sha256": "e11c64ec155fd90a55604ec4cc8f9f722f97fa79140eb861dd4ffec31601d5da",
+  "native_receipt_sha256": "709aef59484e8c66397df42df97da5f04927d9408880a165604868a9c36e874c",
+  "pixel_analysis_sha256": "5123086c11f866471a057503f9ec492562882be5c64919adf216d4b4035ea158",
+  "actual_mode": 0,
+  "actual_variant": 1,
+  "wall": 640,
+  "updates": 168,
+  "publications": 130,
+  "DMAs": 130,
+  "matched_actual_PPU_epochs": 185,
+  "raw_fullframes_per_side": 201,
+  "other_sprite_actual_loss_frames": 7,
+  "other_sprite_actual_gain_frames": 23,
+  "other_sprite_actual_lost_pixels": 26,
+  "other_sprite_actual_gained_pixels": 250,
+  "first_other_changes": {
+    "gain": {
+      "frame": 469,
+      "x": 72,
+      "y": 176,
+      "DMA": 13,
+      "publication": 13,
+      "hardware_OAM_index": 61,
+      "unchanged_part": [
+        168,
+        10,
+        2,
+        69
+      ],
+      "other_part": [
+        168,
+        10,
+        2,
+        69
+      ],
+      "RGB24": [
+        9605375,
+        16776959
+      ],
+      "actual_start": {
+        "frame": 469,
+        "scanline": -1,
+        "cycle": 0,
+        "cpu": 13937170
+      },
+      "attr": 2,
+      "NEScolor": 48
+    },
+    "loss": {
+      "frame": 480,
+      "x": 137,
+      "y": 176,
+      "DMA": 24,
+      "publication": 24,
+      "hardware_OAM_index": 62,
+      "unchanged_part": [
+        168,
+        34,
+        0,
+        135
+      ],
+      "other_part": [
+        168,
+        34,
+        0,
+        135
+      ],
+      "RGB24": [
+        6598911,
+        9605375
+      ],
+      "actual_start": {
+        "cycle": 0,
+        "cpu": 14264755,
+        "frame": 480,
+        "scanline": -1
+      },
+      "attr": 0,
+      "NEScolor": 33
+    }
+  },
+  "cadence_event_counts_exact": true,
+  "source_bindings": {
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-parodius-hud-body-v1\\source\\src\\metasprite_engine.s": "84f70fdbe50076a4bba6ef27a306c4d1a867c43b43e98033cdba21bc362fff7e",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-parodius-hud-body-v1\\source\\src\\meta_knight.s": "d36fdbf65342fda03b6c802b330dd8a48073ddb3c0cd4a7f3e9ef03990d3226d",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-parodius-hud-body-v1\\source\\src\\parodius_render.s": "a6f0d11ab8e4f1d1e8e9a92dfd54a47de0acca4383b3022965dea3f21a920330"
+  },
+  "tool_sha256": "f5e64ab8b194d3716e64c176f76f31dadc78375991c0f2de5fe4351aa2ba47f9",
+  "limits": "One exact cold Octopus Easy640 only; hardware8sprites retained. Actual RGB/model has calibrated front-sprite coverage, not exhaustive background/behind-background composition. Other sprite identity beyond native prefill/OAM record is not inferred. Body order is intentionally different, not CHR corruption. No lifecycle/death/area/Buffer2/heavy/DMC or other-mode verdict; no production edits/adoption. Existing negative analyses and native receipts remain immutable.",
+  "manifest_sha256": "4d3c7db83d78c11cbe80581feee93634f3501acc80e2b3cf0ae4ea3e8b48ade9",
+  "binding_count": 505
+}

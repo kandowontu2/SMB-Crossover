@@ -1,0 +1,5109 @@
+[
+  {
+    "frame": 461,
+    "baseline": {
+      "actual_start": {
+        "cycle": 0,
+        "cpu": 13698926,
+        "frame": 461,
+        "scanline": -1
+      },
+      "body_row": {
+        "cycle": 261,
+        "cpu": 13718563,
+        "frame": 461,
+        "scanline": 171
+      },
+      "body": {
+        "attribute": 0,
+        "player_start": 12,
+        "rotation": 236,
+        "source": {
+          "bytes": [
+            28,
+            171,
+            192,
+            11,
+            248,
+            191,
+            0,
+            0,
+            0,
+            187,
+            64,
+            0,
+            8,
+            157,
+            130,
+            11,
+            248,
+            173,
+            2,
+            254,
+            0,
+            179,
+            66,
+            254,
+            8,
+            161,
+            195,
+            11,
+            248
+          ],
+          "pointer": 51270,
+          "label": "PnRecordV1N0",
+          "bank": 76,
+          "parts": [
+            [
+              171,
+              192,
+              11,
+              248
+            ],
+            [
+              191,
+              0,
+              0,
+              0
+            ],
+            [
+              187,
+              64,
+              0,
+              8
+            ],
+            [
+              157,
+              130,
+              11,
+              248
+            ],
+            [
+              173,
+              2,
+              254,
+              0
+            ],
+            [
+              179,
+              66,
+              254,
+              8
+            ],
+            [
+              161,
+              195,
+              11,
+              248
+            ]
+          ],
+          "refs": [
+            {
+              "frame": 71,
+              "body": true,
+              "phase": 0,
+              "variant": 1,
+              "pool": 0
+            }
+          ]
+        },
+        "finished": {
+          "cycle": 114,
+          "cpu": 13692144,
+          "frame": 460,
+          "scanline": 201
+        },
+        "first": 20,
+        "origin": {
+          "page": 0,
+          "y": 172,
+          "x": 43,
+          "high": 1
+        },
+        "bank": 76,
+        "cursor_after": 40,
+        "pointer": 51270,
+        "indices": [
+          62,
+          63,
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "parts": [
+          [
+            183,
+            161,
+            195,
+            35
+          ],
+          [
+            170,
+            179,
+            66,
+            51
+          ],
+          [
+            170,
+            173,
+            2,
+            43
+          ],
+          [
+            183,
+            157,
+            130,
+            35
+          ],
+          [
+            172,
+            187,
+            64,
+            51
+          ],
+          [
+            172,
+            191,
+            0,
+            43
+          ],
+          [
+            183,
+            171,
+            192,
+            35
+          ]
+        ],
+        "cursor_before": 12,
+        "entry": {
+          "cycle": 334,
+          "cpu": 13691308,
+          "frame": 460,
+          "scanline": 193
+        },
+        "transaction": 5
+      },
+      "transaction": {
+        "camera": 5,
+        "id": 5,
+        "native_frame": 71,
+        "prior_used": 40,
+        "pool": 0,
+        "world_x": 48,
+        "prior_first": 32,
+        "body_pointer": 51270,
+        "entry": {
+          "cycle": 190,
+          "cpu": 13684440,
+          "frame": 460,
+          "scanline": 133
+        },
+        "player_y": 172
+      },
+      "prefill": {
+        "entry_cursor": 0,
+        "end_cursor": 12,
+        "finished": {
+          "cycle": 255,
+          "cpu": 13689463,
+          "frame": 460,
+          "scanline": 177
+        },
+        "first": 20,
+        "rotation": 236
+      },
+      "publication": {
+        "id": 5,
+        "ppu": {
+          "cycle": 189,
+          "cpu": 13692169,
+          "frame": 460,
+          "scanline": 201
+        },
+        "used": 40,
+        "rotation": 236,
+        "owners": [
+          0
+        ],
+        "first": 20
+      },
+      "DMA": {
+        "id": 5,
+        "ppu": {
+          "cycle": 60,
+          "cpu": 13697355,
+          "frame": 461,
+          "scanline": 247
+        },
+        "oam_address": 0,
+        "mask": 30,
+        "writer_bank": 127,
+        "writer_callback_pc": 57349,
+        "writer_instruction": [
+          141,
+          20,
+          64
+        ],
+        "data_writes": 256
+      },
+      "DMA_complete": {
+        "ppu": {
+          "cycle": 242,
+          "cpu": 13697870,
+          "frame": 461,
+          "scanline": 251
+        },
+        "completed_2004_writes": 256,
+        "exact_source": true,
+        "mask": 30
+      },
+      "body_writes": [
+        {
+          "index": 62,
+          "transaction": 5,
+          "previous": 34,
+          "ppu": {
+            "cycle": 211,
+            "cpu": 13691381,
+            "frame": 460,
+            "scanline": 194
+          },
+          "writer_bank": 4,
+          "callback_pc": 42501,
+          "source": "PnRecordV1N0",
+          "address": 763,
+          "instruction_window": [
+            157,
+            3,
+            2
+          ],
+          "value": 35
+        },
+        {
+          "index": 62,
+          "transaction": 5,
+          "previous": 248,
+          "ppu": {
+            "cycle": 295,
+            "cpu": 13691409,
+            "frame": 460,
+            "scanline": 194
+          },
+          "writer_bank": 4,
+          "callback_pc": 42546,
+          "source": "PnRecordV1N0",
+          "address": 760,
+          "instruction_window": [
+            157,
+            0,
+            2
+          ],
+          "value": 183
+        },
+        {
+          "index": 62,
+          "transaction": 5,
+          "previous": 130,
+          "ppu": {
+            "cycle": 53,
+            "cpu": 13691442,
+            "frame": 460,
+            "scanline": 195
+          },
+          "writer_bank": 4,
+          "callback_pc": 42577,
+          "source": "PnRecordV1N0",
+          "address": 762,
+          "instruction_window": [
+            157,
+            2,
+            2
+          ],
+          "value": 195
+        },
+        {
+          "index": 62,
+          "transaction": 5,
+          "previous": 157,
+          "ppu": {
+            "cycle": 89,
+            "cpu": 13691454,
+            "frame": 460,
+            "scanline": 195
+          },
+          "writer_bank": 4,
+          "callback_pc": 42583,
+          "source": "PnRecordV1N0",
+          "address": 761,
+          "instruction_window": [
+            157,
+            1,
+            2
+          ],
+          "value": 161
+        },
+        {
+          "index": 63,
+          "transaction": 5,
+          "previous": 50,
+          "ppu": {
+            "cycle": 185,
+            "cpu": 13691486,
+            "frame": 460,
+            "scanline": 195
+          },
+          "writer_bank": 4,
+          "callback_pc": 42514,
+          "source": "PnRecordV1N0",
+          "address": 767,
+          "instruction_window": [
+            157,
+            3,
+            2
+          ],
+          "value": 51
+        },
+        {
+          "index": 63,
+          "transaction": 5,
+          "previous": 248,
+          "ppu": {
+            "cycle": 263,
+            "cpu": 13691512,
+            "frame": 460,
+            "scanline": 195
+          },
+          "writer_bank": 4,
+          "callback_pc": 42531,
+          "source": "PnRecordV1N0",
+          "address": 764,
+          "instruction_window": [
+            157,
+            0,
+            2
+          ],
+          "value": 170
+        },
+        {
+          "index": 63,
+          "transaction": 5,
+          "previous": 64,
+          "ppu": {
+            "cycle": 24,
+            "cpu": 13691546,
+            "frame": 460,
+            "scanline": 196
+          },
+          "writer_bank": 4,
+          "callback_pc": 42577,
+          "source": "PnRecordV1N0",
+          "address": 766,
+          "instruction_window": [
+            157,
+            2,
+            2
+          ],
+          "value": 66
+        },
+        {
+          "index": 63,
+          "transaction": 5,
+          "previous": 187,
+          "ppu": {
+            "cycle": 60,
+            "cpu": 13691558,
+            "frame": 460,
+            "scanline": 196
+          },
+          "writer_bank": 4,
+          "callback_pc": 42583,
+          "source": "PnRecordV1N0",
+          "address": 765,
+          "instruction_window": [
+            157,
+            1,
+            2
+          ],
+          "value": 179
+        },
+        {
+          "index": 0,
+          "transaction": 5,
+          "previous": 42,
+          "ppu": {
+            "cycle": 156,
+            "cpu": 13691590,
+            "frame": 460,
+            "scanline": 196
+          },
+          "writer_bank": 4,
+          "callback_pc": 42514,
+          "source": "PnRecordV1N0",
+          "address": 515,
+          "instruction_window": [
+            157,
+            3,
+            2
+          ],
+          "value": 43
+        },
+        {
+          "index": 0,
+          "transaction": 5,
+          "previous": 248,
+          "ppu": {
+            "cycle": 234,
+            "cpu": 13691616,
+            "frame": 460,
+            "scanline": 196
+          },
+          "writer_bank": 4,
+          "callback_pc": 42531,
+          "source": "PnRecordV1N0",
+          "address": 512,
+          "instruction_window": [
+            157,
+            0,
+            2
+          ],
+          "value": 170
+        },
+        {
+          "index": 0,
+          "transaction": 5,
+          "previous": 0,
+          "ppu": {
+            "cycle": 336,
+            "cpu": 13691650,
+            "frame": 460,
+            "scanline": 196
+          },
+          "writer_bank": 4,
+          "callback_pc": 42577,
+          "source": "PnRecordV1N0",
+          "address": 514,
+          "instruction_window": [
+            157,
+            2,
+            2
+          ],
+          "value": 2
+        },
+        {
+          "index": 0,
+          "transaction": 5,
+          "previous": 191,
+          "ppu": {
+            "cycle": 31,
+            "cpu": 13691662,
+            "frame": 460,
+            "scanline": 197
+          },
+          "writer_bank": 4,
+          "callback_pc": 42583,
+          "source": "PnRecordV1N0",
+          "address": 513,
+          "instruction_window": [
+            157,
+            1,
+            2
+          ],
+          "value": 173
+        },
+        {
+          "index": 1,
+          "transaction": 5,
+          "previous": 34,
+          "ppu": {
+            "cycle": 124,
+            "cpu": 13691693,
+            "frame": 460,
+            "scanline": 197
+          },
+          "writer_bank": 4,
+          "callback_pc": 42501,
+          "source": "PnRecordV1N0",
+          "address": 519,
+          "instruction_window": [
+            157,
+            3,
+            2
+          ],
+          "value": 35
+        },
+        {
+          "index": 1,
+          "transaction": 5,
+          "previous": 248,
+          "ppu": {
+            "cycle": 208,
+            "cpu": 13691721,
+            "frame": 460,
+            "scanline": 197
+          },
+          "writer_bank": 4,
+          "callback_pc": 42546,
+          "source": "PnRecordV1N0",
+          "address": 516,
+          "instruction_window": [
+            157,
+            0,
+            2
+          ],
+          "value": 183
+        },
+        {
+          "index": 1,
+          "transaction": 5,
+          "previous": 192,
+          "ppu": {
+            "cycle": 307,
+            "cpu": 13691754,
+            "frame": 460,
+            "scanline": 197
+          },
+          "writer_bank": 4,
+          "callback_pc": 42577,
+          "source": "PnRecordV1N0",
+          "address": 518,
+          "instruction_window": [
+            157,
+            2,
+            2
+          ],
+          "value": 130
+        },
+        {
+          "index": 1,
+          "transaction": 5,
+          "previous": 171,
+          "ppu": {
+            "cycle": 2,
+            "cpu": 13691766,
+            "frame": 460,
+            "scanline": 198
+          },
+          "writer_bank": 4,
+          "callback_pc": 42583,
+          "source": "PnRecordV1N0",
+          "address": 517,
+          "instruction_window": [
+            157,
+            1,
+            2
+          ],
+          "value": 157
+        },
+        {
+          "index": 2,
+          "transaction": 5,
+          "previous": 34,
+          "ppu": {
+            "cycle": 98,
+            "cpu": 13691798,
+            "frame": 460,
+            "scanline": 198
+          },
+          "writer_bank": 4,
+          "callback_pc": 42514,
+          "source": "PnRecordV1N0",
+          "address": 523,
+          "instruction_window": [
+            157,
+            3,
+            2
+          ],
+          "value": 51
+        },
+        {
+          "index": 2,
+          "transaction": 5,
+          "previous": 248,
+          "ppu": {
+            "cycle": 179,
+            "cpu": 13691825,
+            "frame": 460,
+            "scanline": 198
+          },
+          "writer_bank": 4,
+          "callback_pc": 42546,
+          "source": "PnRecordV1N0",
+          "address": 520,
+          "instruction_window": [
+            157,
+            0,
+            2
+          ],
+          "value": 172
+        },
+        {
+          "index": 2,
+          "transaction": 5,
+          "previous": 195,
+          "ppu": {
+            "cycle": 278,
+            "cpu": 13691858,
+            "frame": 460,
+            "scanline": 198
+          },
+          "writer_bank": 4,
+          "callback_pc": 42577,
+          "source": "PnRecordV1N0",
+          "address": 522,
+          "instruction_window": [
+            157,
+            2,
+            2
+          ],
+          "value": 64
+        },
+        {
+          "index": 2,
+          "transaction": 5,
+          "previous": 161,
+          "ppu": {
+            "cycle": 314,
+            "cpu": 13691870,
+            "frame": 460,
+            "scanline": 198
+          },
+          "writer_bank": 4,
+          "callback_pc": 42583,
+          "source": "PnRecordV1N0",
+          "address": 521,
+          "instruction_window": [
+            157,
+            1,
+            2
+          ],
+          "value": 187
+        },
+        {
+          "index": 3,
+          "transaction": 5,
+          "previous": 50,
+          "ppu": {
+            "cycle": 69,
+            "cpu": 13691902,
+            "frame": 460,
+            "scanline": 199
+          },
+          "writer_bank": 4,
+          "callback_pc": 42514,
+          "source": "PnRecordV1N0",
+          "address": 527,
+          "instruction_window": [
+            157,
+            3,
+            2
+          ],
+          "value": 43
+        },
+        {
+          "index": 3,
+          "transaction": 5,
+          "previous": 248,
+          "ppu": {
+            "cycle": 150,
+            "cpu": 13691929,
+            "frame": 460,
+            "scanline": 199
+          },
+          "writer_bank": 4,
+          "callback_pc": 42546,
+          "source": "PnRecordV1N0",
+          "address": 524,
+          "instruction_window": [
+            157,
+            0,
+            2
+          ],
+          "value": 172
+        },
+        {
+          "index": 3,
+          "transaction": 5,
+          "previous": 66,
+          "ppu": {
+            "cycle": 249,
+            "cpu": 13691962,
+            "frame": 460,
+            "scanline": 199
+          },
+          "writer_bank": 4,
+          "callback_pc": 42577,
+          "source": "PnRecordV1N0",
+          "address": 526,
+          "instruction_window": [
+            157,
+            2,
+            2
+          ],
+          "value": 0
+        },
+        {
+          "index": 3,
+          "transaction": 5,
+          "previous": 179,
+          "ppu": {
+            "cycle": 285,
+            "cpu": 13691974,
+            "frame": 460,
+            "scanline": 199
+          },
+          "writer_bank": 4,
+          "callback_pc": 42583,
+          "source": "PnRecordV1N0",
+          "address": 525,
+          "instruction_window": [
+            157,
+            1,
+            2
+          ],
+          "value": 191
+        },
+        {
+          "index": 4,
+          "transaction": 5,
+          "previous": 42,
+          "ppu": {
+            "cycle": 37,
+            "cpu": 13692005,
+            "frame": 460,
+            "scanline": 200
+          },
+          "writer_bank": 4,
+          "callback_pc": 42501,
+          "source": "PnRecordV1N0",
+          "address": 531,
+          "instruction_window": [
+            157,
+            3,
+            2
+          ],
+          "value": 35
+        },
+        {
+          "index": 4,
+          "transaction": 5,
+          "previous": 248,
+          "ppu": {
+            "cycle": 121,
+            "cpu": 13692033,
+            "frame": 460,
+            "scanline": 200
+          },
+          "writer_bank": 4,
+          "callback_pc": 42546,
+          "source": "PnRecordV1N0",
+          "address": 528,
+          "instruction_window": [
+            157,
+            0,
+            2
+          ],
+          "value": 183
+        },
+        {
+          "index": 4,
+          "transaction": 5,
+          "previous": 2,
+          "ppu": {
+            "cycle": 220,
+            "cpu": 13692066,
+            "frame": 460,
+            "scanline": 200
+          },
+          "writer_bank": 4,
+          "callback_pc": 42577,
+          "source": "PnRecordV1N0",
+          "address": 530,
+          "instruction_window": [
+            157,
+            2,
+            2
+          ],
+          "value": 192
+        },
+        {
+          "index": 4,
+          "transaction": 5,
+          "previous": 173,
+          "ppu": {
+            "cycle": 256,
+            "cpu": 13692078,
+            "frame": 460,
+            "scanline": 200
+          },
+          "writer_bank": 4,
+          "callback_pc": 42583,
+          "source": "PnRecordV1N0",
+          "address": 529,
+          "instruction_window": [
+            157,
+            1,
+            2
+          ],
+          "value": 171
+        }
+      ]
+    },
+    "candidate": {
+      "actual_start": {
+        "frame": 461,
+        "scanline": -1,
+        "cycle": 0,
+        "cpu": 13698926
+      },
+      "body_row": {
+        "frame": 461,
+        "scanline": 171,
+        "cycle": 261,
+        "cpu": 13718563
+      },
+      "body": {
+        "indices": [
+          62,
+          63,
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "attribute": 0,
+        "first": 20,
+        "bank": 76,
+        "cursor_after": 40,
+        "finished": {
+          "frame": 460,
+          "scanline": 201,
+          "cycle": 114,
+          "cpu": 13692144
+        },
+        "origin": {
+          "x": 43,
+          "high": 1,
+          "page": 0,
+          "y": 172
+        },
+        "entry": {
+          "frame": 460,
+          "scanline": 193,
+          "cycle": 334,
+          "cpu": 13691308
+        },
+        "rotation": 236,
+        "cursor_before": 12,
+        "parts": [
+          [
+            172,
+            191,
+            0,
+            43
+          ],
+          [
+            172,
+            187,
+            64,
+            51
+          ],
+          [
+            183,
+            171,
+            192,
+            35
+          ],
+          [
+            170,
+            179,
+            66,
+            51
+          ],
+          [
+            170,
+            173,
+            2,
+            43
+          ],
+          [
+            183,
+            161,
+            195,
+            35
+          ],
+          [
+            183,
+            157,
+            130,
+            35
+          ]
+        ],
+        "transaction": 5,
+        "player_start": 12,
+        "pointer": 51270,
+        "source": {
+          "parts": [
+            [
+              157,
+              130,
+              11,
+              248
+            ],
+            [
+              161,
+              195,
+              11,
+              248
+            ],
+            [
+              173,
+              2,
+              254,
+              0
+            ],
+            [
+              179,
+              66,
+              254,
+              8
+            ],
+            [
+              171,
+              192,
+              11,
+              248
+            ],
+            [
+              187,
+              64,
+              0,
+              8
+            ],
+            [
+              191,
+              0,
+              0,
+              0
+            ]
+          ],
+          "bank": 76,
+          "label": "PnRecordV1N0",
+          "pointer": 51270,
+          "refs": [
+            {
+              "body": true,
+              "frame": 71,
+              "phase": 0,
+              "variant": 1,
+              "pool": 0
+            }
+          ],
+          "bytes": [
+            28,
+            157,
+            130,
+            11,
+            248,
+            161,
+            195,
+            11,
+            248,
+            173,
+            2,
+            254,
+            0,
+            179,
+            66,
+            254,
+            8,
+            171,
+            192,
+            11,
+            248,
+            187,
+            64,
+            0,
+            8,
+            191,
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      "transaction": {
+        "entry": {
+          "frame": 460,
+          "scanline": 133,
+          "cycle": 190,
+          "cpu": 13684440
+        },
+        "player_y": 172,
+        "world_x": 48,
+        "body_pointer": 51270,
+        "camera": 5,
+        "prior_used": 40,
+        "id": 5,
+        "prior_first": 32,
+        "native_frame": 71,
+        "pool": 0
+      },
+      "prefill": {
+        "first": 20,
+        "rotation": 236,
+        "finished": {
+          "frame": 460,
+          "scanline": 177,
+          "cycle": 255,
+          "cpu": 13689463
+        },
+        "entry_cursor": 0,
+        "end_cursor": 12
+      },
+      "publication": {
+        "rotation": 236,
+        "first": 20,
+        "used": 40,
+        "ppu": {
+          "frame": 460,
+          "scanline": 201,
+          "cycle": 189,
+          "cpu": 13692169
+        },
+        "id": 5,
+        "owners": [
+          0
+        ]
+      },
+      "DMA": {
+        "id": 5,
+        "ppu": {
+          "frame": 461,
+          "scanline": 247,
+          "cycle": 60,
+          "cpu": 13697355
+        },
+        "oam_address": 0,
+        "mask": 30,
+        "writer_bank": 127,
+        "writer_callback_pc": 57349,
+        "writer_instruction": [
+          141,
+          20,
+          64
+        ],
+        "data_writes": 256
+      },
+      "DMA_complete": {
+        "ppu": {
+          "frame": 461,
+          "scanline": 251,
+          "cycle": 242,
+          "cpu": 13697870
+        },
+        "completed_2004_writes": 256,
+        "exact_source": true,
+        "mask": 30
+      },
+      "body_writes": [
+        {
+          "index": 62,
+          "address": 763,
+          "instruction_window": [
+            157,
+            3,
+            2
+          ],
+          "writer_bank": 4,
+          "callback_pc": 42514,
+          "ppu": {
+            "frame": 460,
+            "scanline": 194,
+            "cycle": 214,
+            "cpu": 13691382
+          },
+          "value": 43,
+          "previous": 50,
+          "source": "PnRecordV1N0",
+          "transaction": 5
+        },
+        {
+          "index": 62,
+          "address": 760,
+          "instruction_window": [
+            157,
+            0,
+            2
+          ],
+          "writer_bank": 4,
+          "callback_pc": 42546,
+          "ppu": {
+            "frame": 460,
+            "scanline": 194,
+            "cycle": 295,
+            "cpu": 13691409
+          },
+          "value": 172,
+          "previous": 248,
+          "source": "PnRecordV1N0",
+          "transaction": 5
+        },
+        {
+          "index": 62,
+          "address": 762,
+          "instruction_window": [
+            157,
+            2,
+            2
+          ],
+          "writer_bank": 4,
+          "callback_pc": 42577,
+          "ppu": {
+            "frame": 460,
+            "scanline": 195,
+            "cycle": 53,
+            "cpu": 13691442
+          },
+          "value": 0,
+          "previous": 66,
+          "source": "PnRecordV1N0",
+          "transaction": 5
+        },
+        {
+          "index": 62,
+          "address": 761,
+          "instruction_window": [
+            157,
+            1,
+            2
+          ],
+          "writer_bank": 4,
+          "callback_pc": 42583,
+          "ppu": {
+            "frame": 460,
+            "scanline": 195,
+            "cycle": 89,
+            "cpu": 13691454
+          },
+          "value": 191,
+          "previous": 179,
+          "source": "PnRecordV1N0",
+          "transaction": 5
+        },
+        {
+          "index": 63,
+          "address": 767,
+          "instruction_window": [
+            157,
+            3,
+            2
+          ],
+          "writer_bank": 4,
+          "callback_pc": 42514,
+          "ppu": {
+            "frame": 460,
+            "scanline": 195,
+            "cycle": 185,
+            "cpu": 13691486
+          },
+          "value": 51,
+          "previous": 42,
+          "source": "PnRecordV1N0",
+          "transaction": 5
+        },
+        {
+          "index": 63,
+          "address": 764,
+          "instruction_window": [
+            157,
+            0,
+            2
+          ],
+          "writer_bank": 4,
+          "callback_pc": 42546,
+          "ppu": {
+            "frame": 460,
+            "scanline": 195,
+            "cycle": 266,
+            "cpu": 13691513
+          },
+          "value": 172,
+          "previous": 248,
+          "source": "PnRecordV1N0",
+          "transaction": 5
+        },
+        {
+          "index": 63,
+          "address": 766,
+          "instruction_window": [
+            157,
+            2,
+            2
+          ],
+          "writer_bank": 4,
+          "callback_pc": 42577,
+          "ppu": {
+            "frame": 460,
+            "scanline": 196,
+            "cycle": 24,
+            "cpu": 13691546
+          },
+          "value": 64,
+          "previous": 2,
+          "source": "PnRecordV1N0",
+          "transaction": 5
+        },
+        {
+          "index": 63,
+          "address": 765,
+          "instruction_window": [
+            157,
+            1,
+            2
+          ],
+          "writer_bank": 4,
+          "callback_pc": 42583,
+          "ppu": {
+            "frame": 460,
+            "scanline": 196,
+            "cycle": 60,
+            "cpu": 13691558
+          },
+          "value": 187,
+          "previous": 173,
+          "source": "PnRecordV1N0",
+          "transaction": 5
+        },
+        {
+          "index": 0,
+          "address": 515,
+          "instruction_window": [
+            157,
+            3,
+            2
+          ],
+          "writer_bank": 4,
+          "callback_pc": 42501,
+          "ppu": {
+            "frame": 460,
+            "scanline": 196,
+            "cycle": 153,
+            "cpu": 13691589
+          },
+          "value": 35,
+          "previous": 34,
+          "source": "PnRecordV1N0",
+          "transaction": 5
+        },
+        {
+          "index": 0,
+          "address": 512,
+          "instruction_window": [
+            157,
+            0,
+            2
+          ],
+          "writer_bank": 4,
+          "callback_pc": 42546,
+          "ppu": {
+            "frame": 460,
+            "scanline": 196,
+            "cycle": 237,
+            "cpu": 13691617
+          },
+          "value": 183,
+          "previous": 248,
+          "source": "PnRecordV1N0",
+          "transaction": 5
+        },
+        {
+          "index": 0,
+          "address": 514,
+          "instruction_window": [
+            157,
+            2,
+            2
+          ],
+          "writer_bank": 4,
+          "callback_pc": 42577,
+          "ppu": {
+            "frame": 460,
+            "scanline": 196,
+            "cycle": 336,
+            "cpu": 13691650
+          },
+          "value": 192,
+          "previous": 195,
+          "source": "PnRecordV1N0",
+          "transaction": 5
+        },
+        {
+          "index": 0,
+          "address": 513,
+          "instruction_window": [
+            157,
+            1,
+            2
+          ],
+          "writer_bank": 4,
+          "callback_pc": 42583,
+          "ppu": {
+            "frame": 460,
+            "scanline": 197,
+            "cycle": 31,
+            "cpu": 13691662
+          },
+          "value": 171,
+          "previous": 161,
+          "source": "PnRecordV1N0",
+          "transaction": 5
+        },
+        {
+          "index": 1,
+          "address": 519,
+          "instruction_window": [
+            157,
+            3,
+            2
+          ],
+          "writer_bank": 4,
+          "callback_pc": 42514,
+          "ppu": {
+            "frame": 460,
+            "scanline": 197,
+            "cycle": 127,
+            "cpu": 13691694
+          },
+          "value": 51,
+          "previous": 34,
+          "source": "PnRecordV1N0",
+          "transaction": 5
+        },
+        {
+          "index": 1,
+          "address": 516,
+          "instruction_window": [
+            157,
+            0,
+            2
+          ],
+          "writer_bank": 4,
+          "callback_pc": 42531,
+          "ppu": {
+            "frame": 460,
+            "scanline": 197,
+            "cycle": 205,
+            "cpu": 13691720
+          },
+          "value": 170,
+          "previous": 248,
+          "source": "PnRecordV1N0",
+          "transaction": 5
+        },
+        {
+          "index": 1,
+          "address": 518,
+          "instruction_window": [
+            157,
+            2,
+            2
+          ],
+          "writer_bank": 4,
+          "callback_pc": 42577,
+          "ppu": {
+            "frame": 460,
+            "scanline": 197,
+            "cycle": 307,
+            "cpu": 13691754
+          },
+          "value": 66,
+          "previous": 130,
+          "source": "PnRecordV1N0",
+          "transaction": 5
+        },
+        {
+          "index": 1,
+          "address": 517,
+          "instruction_window": [
+            157,
+            1,
+            2
+          ],
+          "writer_bank": 4,
+          "callback_pc": 42583,
+          "ppu": {
+            "frame": 460,
+            "scanline": 198,
+            "cycle": 2,
+            "cpu": 13691766
+          },
+          "value": 179,
+          "previous": 157,
+          "source": "PnRecordV1N0",
+          "transaction": 5
+        },
+        {
+          "index": 2,
+          "address": 523,
+          "instruction_window": [
+            157,
+            3,
+            2
+          ],
+          "writer_bank": 4,
+          "callback_pc": 42514,
+          "ppu": {
+            "frame": 460,
+            "scanline": 198,
+            "cycle": 98,
+            "cpu": 13691798
+          },
+          "value": 43,
+          "previous": 42,
+          "source": "PnRecordV1N0",
+          "transaction": 5
+        },
+        {
+          "index": 2,
+          "address": 520,
+          "instruction_window": [
+            157,
+            0,
+            2
+          ],
+          "writer_bank": 4,
+          "callback_pc": 42531,
+          "ppu": {
+            "frame": 460,
+            "scanline": 198,
+            "cycle": 176,
+            "cpu": 13691824
+          },
+          "value": 170,
+          "previous": 248,
+          "source": "PnRecordV1N0",
+          "transaction": 5
+        },
+        {
+          "index": 2,
+          "address": 522,
+          "instruction_window": [
+            157,
+            2,
+            2
+          ],
+          "writer_bank": 4,
+          "callback_pc": 42577,
+          "ppu": {
+            "frame": 460,
+            "scanline": 198,
+            "cycle": 278,
+            "cpu": 13691858
+          },
+          "value": 2,
+          "previous": 0,
+          "source": "PnRecordV1N0",
+          "transaction": 5
+        },
+        {
+          "index": 2,
+          "address": 521,
+          "instruction_window": [
+            157,
+            1,
+            2
+          ],
+          "writer_bank": 4,
+          "callback_pc": 42583,
+          "ppu": {
+            "frame": 460,
+            "scanline": 198,
+            "cycle": 314,
+            "cpu": 13691870
+          },
+          "value": 173,
+          "previous": 191,
+          "source": "PnRecordV1N0",
+          "transaction": 5
+        },
+        {
+          "index": 3,
+          "address": 527,
+          "instruction_window": [
+            157,
+            3,
+            2
+          ],
+          "writer_bank": 4,
+          "callback_pc": 42501,
+          "ppu": {
+            "frame": 460,
+            "scanline": 199,
+            "cycle": 66,
+            "cpu": 13691901
+          },
+          "value": 35,
+          "previous": 50,
+          "source": "PnRecordV1N0",
+          "transaction": 5
+        },
+        {
+          "index": 3,
+          "address": 524,
+          "instruction_window": [
+            157,
+            0,
+            2
+          ],
+          "writer_bank": 4,
+          "callback_pc": 42546,
+          "ppu": {
+            "frame": 460,
+            "scanline": 199,
+            "cycle": 150,
+            "cpu": 13691929
+          },
+          "value": 183,
+          "previous": 248,
+          "source": "PnRecordV1N0",
+          "transaction": 5
+        },
+        {
+          "index": 3,
+          "address": 526,
+          "instruction_window": [
+            157,
+            2,
+            2
+          ],
+          "writer_bank": 4,
+          "callback_pc": 42577,
+          "ppu": {
+            "frame": 460,
+            "scanline": 199,
+            "cycle": 249,
+            "cpu": 13691962
+          },
+          "value": 195,
+          "previous": 64,
+          "source": "PnRecordV1N0",
+          "transaction": 5
+        },
+        {
+          "index": 3,
+          "address": 525,
+          "instruction_window": [
+            157,
+            1,
+            2
+          ],
+          "writer_bank": 4,
+          "callback_pc": 42583,
+          "ppu": {
+            "frame": 460,
+            "scanline": 199,
+            "cycle": 285,
+            "cpu": 13691974
+          },
+          "value": 161,
+          "previous": 187,
+          "source": "PnRecordV1N0",
+          "transaction": 5
+        },
+        {
+          "index": 4,
+          "address": 531,
+          "instruction_window": [
+            157,
+            3,
+            2
+          ],
+          "writer_bank": 4,
+          "callback_pc": 42501,
+          "ppu": {
+            "frame": 460,
+            "scanline": 200,
+            "cycle": 37,
+            "cpu": 13692005
+          },
+          "value": 35,
+          "previous": 34,
+          "source": "PnRecordV1N0",
+          "transaction": 5
+        },
+        {
+          "index": 4,
+          "address": 528,
+          "instruction_window": [
+            157,
+            0,
+            2
+          ],
+          "writer_bank": 4,
+          "callback_pc": 42546,
+          "ppu": {
+            "frame": 460,
+            "scanline": 200,
+            "cycle": 121,
+            "cpu": 13692033
+          },
+          "value": 183,
+          "previous": 248,
+          "source": "PnRecordV1N0",
+          "transaction": 5
+        },
+        {
+          "index": 4,
+          "address": 530,
+          "instruction_window": [
+            157,
+            2,
+            2
+          ],
+          "writer_bank": 4,
+          "callback_pc": 42577,
+          "ppu": {
+            "frame": 460,
+            "scanline": 200,
+            "cycle": 220,
+            "cpu": 13692066
+          },
+          "value": 130,
+          "previous": 192,
+          "source": "PnRecordV1N0",
+          "transaction": 5
+        },
+        {
+          "index": 4,
+          "address": 529,
+          "instruction_window": [
+            157,
+            1,
+            2
+          ],
+          "writer_bank": 4,
+          "callback_pc": 42583,
+          "ppu": {
+            "frame": 460,
+            "scanline": 200,
+            "cycle": 256,
+            "cpu": 13692078
+          },
+          "value": 157,
+          "previous": 171,
+          "source": "PnRecordV1N0",
+          "transaction": 5
+        }
+      ]
+    }
+  },
+  {
+    "frame": 480,
+    "baseline": {
+      "actual_start": {
+        "cycle": 0,
+        "cpu": 14264755,
+        "frame": 480,
+        "scanline": -1
+      },
+      "body_row": {
+        "cycle": 261,
+        "cpu": 14282688,
+        "frame": 480,
+        "scanline": 156
+      },
+      "body": {
+        "attribute": 0,
+        "player_start": 24,
+        "rotation": 228,
+        "source": {
+          "bytes": [
+            28,
+            169,
+            192,
+            11,
+            248,
+            183,
+            0,
+            255,
+            0,
+            179,
+            64,
+            0,
+            8,
+            155,
+            130,
+            11,
+            248,
+            175,
+            66,
+            252,
+            0,
+            177,
+            66,
+            253,
+            8,
+            159,
+            195,
+            11,
+            248
+          ],
+          "pointer": 52474,
+          "label": "PnRecordV1N40",
+          "bank": 76,
+          "parts": [
+            [
+              169,
+              192,
+              11,
+              248
+            ],
+            [
+              183,
+              0,
+              255,
+              0
+            ],
+            [
+              179,
+              64,
+              0,
+              8
+            ],
+            [
+              155,
+              130,
+              11,
+              248
+            ],
+            [
+              175,
+              66,
+              252,
+              0
+            ],
+            [
+              177,
+              66,
+              253,
+              8
+            ],
+            [
+              159,
+              195,
+              11,
+              248
+            ]
+          ],
+          "refs": [
+            {
+              "frame": 77,
+              "body": true,
+              "phase": 0,
+              "variant": 1,
+              "pool": 1
+            }
+          ]
+        },
+        "finished": {
+          "cycle": 214,
+          "cpu": 14260962,
+          "frame": 479,
+          "scanline": 227
+        },
+        "first": 28,
+        "origin": {
+          "page": 0,
+          "y": 159,
+          "x": 56,
+          "high": 1
+        },
+        "bank": 76,
+        "cursor_after": 52,
+        "pointer": 52474,
+        "indices": [
+          63,
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "parts": [
+          [
+            170,
+            159,
+            195,
+            48
+          ],
+          [
+            156,
+            177,
+            66,
+            64
+          ],
+          [
+            155,
+            175,
+            66,
+            56
+          ],
+          [
+            170,
+            155,
+            130,
+            48
+          ],
+          [
+            159,
+            179,
+            64,
+            64
+          ],
+          [
+            158,
+            183,
+            0,
+            56
+          ],
+          [
+            170,
+            169,
+            192,
+            48
+          ]
+        ],
+        "cursor_before": 24,
+        "entry": {
+          "cycle": 24,
+          "cpu": 14260103,
+          "frame": 479,
+          "scanline": 220
+        },
+        "transaction": 24
+      },
+      "transaction": {
+        "camera": 24,
+        "id": 24,
+        "native_frame": 77,
+        "prior_used": 52,
+        "pool": 1,
+        "world_x": 80,
+        "prior_first": 0,
+        "body_pointer": 52474,
+        "entry": {
+          "cycle": 137,
+          "cpu": 14252184,
+          "frame": 479,
+          "scanline": 150
+        },
+        "player_y": 159
+      },
+      "prefill": {
+        "entry_cursor": 0,
+        "end_cursor": 24,
+        "finished": {
+          "cycle": 148,
+          "cpu": 14258212,
+          "frame": 479,
+          "scanline": 203
+        },
+        "first": 28,
+        "rotation": 228
+      },
+      "publication": {
+        "id": 24,
+        "ppu": {
+          "cycle": 289,
+          "cpu": 14260987,
+          "frame": 479,
+          "scanline": 227
+        },
+        "used": 52,
+        "rotation": 228,
+        "owners": [
+          0
+        ],
+        "first": 28
+      },
+      "DMA": {
+        "id": 24,
+        "ppu": {
+          "cycle": 189,
+          "cpu": 14263341,
+          "frame": 480,
+          "scanline": 248
+        },
+        "oam_address": 0,
+        "mask": 30,
+        "writer_bank": 127,
+        "writer_callback_pc": 57349,
+        "writer_instruction": [
+          141,
+          20,
+          64
+        ],
+        "data_writes": 256
+      },
+      "DMA_complete": {
+        "ppu": {
+          "cycle": 30,
+          "cpu": 14263856,
+          "frame": 480,
+          "scanline": 253
+        },
+        "completed_2004_writes": 256,
+        "exact_source": true,
+        "mask": 30
+      },
+      "body_writes": [
+        {
+          "index": 63,
+          "transaction": 24,
+          "previous": 123,
+          "ppu": {
+            "cycle": 245,
+            "cpu": 14260177,
+            "frame": 479,
+            "scanline": 220
+          },
+          "writer_bank": 4,
+          "callback_pc": 42501,
+          "source": "PnRecordV1N40",
+          "address": 767,
+          "instruction_window": [
+            157,
+            3,
+            2
+          ],
+          "value": 48
+        },
+        {
+          "index": 63,
+          "transaction": 24,
+          "previous": 248,
+          "ppu": {
+            "cycle": 332,
+            "cpu": 14260206,
+            "frame": 479,
+            "scanline": 220
+          },
+          "writer_bank": 4,
+          "callback_pc": 42546,
+          "source": "PnRecordV1N40",
+          "address": 764,
+          "instruction_window": [
+            157,
+            0,
+            2
+          ],
+          "value": 170
+        },
+        {
+          "index": 63,
+          "transaction": 24,
+          "previous": 2,
+          "ppu": {
+            "cycle": 93,
+            "cpu": 14260240,
+            "frame": 479,
+            "scanline": 221
+          },
+          "writer_bank": 4,
+          "callback_pc": 42577,
+          "source": "PnRecordV1N40",
+          "address": 766,
+          "instruction_window": [
+            157,
+            2,
+            2
+          ],
+          "value": 195
+        },
+        {
+          "index": 63,
+          "transaction": 24,
+          "previous": 10,
+          "ppu": {
+            "cycle": 132,
+            "cpu": 14260253,
+            "frame": 479,
+            "scanline": 221
+          },
+          "writer_bank": 4,
+          "callback_pc": 42583,
+          "source": "PnRecordV1N40",
+          "address": 765,
+          "instruction_window": [
+            157,
+            1,
+            2
+          ],
+          "value": 159
+        },
+        {
+          "index": 0,
+          "transaction": 24,
+          "previous": 166,
+          "ppu": {
+            "cycle": 231,
+            "cpu": 14260286,
+            "frame": 479,
+            "scanline": 221
+          },
+          "writer_bank": 4,
+          "callback_pc": 42514,
+          "source": "PnRecordV1N40",
+          "address": 515,
+          "instruction_window": [
+            157,
+            3,
+            2
+          ],
+          "value": 64
+        },
+        {
+          "index": 0,
+          "transaction": 24,
+          "previous": 248,
+          "ppu": {
+            "cycle": 312,
+            "cpu": 14260313,
+            "frame": 479,
+            "scanline": 221
+          },
+          "writer_bank": 4,
+          "callback_pc": 42531,
+          "source": "PnRecordV1N40",
+          "address": 512,
+          "instruction_window": [
+            157,
+            0,
+            2
+          ],
+          "value": 156
+        },
+        {
+          "index": 0,
+          "transaction": 24,
+          "previous": 2,
+          "ppu": {
+            "cycle": 76,
+            "cpu": 14260348,
+            "frame": 479,
+            "scanline": 222
+          },
+          "writer_bank": 4,
+          "callback_pc": 42577,
+          "source": "PnRecordV1N40",
+          "address": 514,
+          "instruction_window": [
+            157,
+            2,
+            2
+          ],
+          "value": 66
+        },
+        {
+          "index": 0,
+          "transaction": 24,
+          "previous": 10,
+          "ppu": {
+            "cycle": 115,
+            "cpu": 14260361,
+            "frame": 479,
+            "scanline": 222
+          },
+          "writer_bank": 4,
+          "callback_pc": 42583,
+          "source": "PnRecordV1N40",
+          "address": 513,
+          "instruction_window": [
+            157,
+            1,
+            2
+          ],
+          "value": 177
+        },
+        {
+          "index": 1,
+          "transaction": 24,
+          "previous": 166,
+          "ppu": {
+            "cycle": 214,
+            "cpu": 14260394,
+            "frame": 479,
+            "scanline": 222
+          },
+          "writer_bank": 4,
+          "callback_pc": 42514,
+          "source": "PnRecordV1N40",
+          "address": 519,
+          "instruction_window": [
+            157,
+            3,
+            2
+          ],
+          "value": 56
+        },
+        {
+          "index": 1,
+          "transaction": 24,
+          "previous": 248,
+          "ppu": {
+            "cycle": 295,
+            "cpu": 14260421,
+            "frame": 479,
+            "scanline": 222
+          },
+          "writer_bank": 4,
+          "callback_pc": 42531,
+          "source": "PnRecordV1N40",
+          "address": 516,
+          "instruction_window": [
+            157,
+            0,
+            2
+          ],
+          "value": 155
+        },
+        {
+          "index": 1,
+          "transaction": 24,
+          "previous": 0,
+          "ppu": {
+            "cycle": 59,
+            "cpu": 14260456,
+            "frame": 479,
+            "scanline": 223
+          },
+          "writer_bank": 4,
+          "callback_pc": 42577,
+          "source": "PnRecordV1N40",
+          "address": 518,
+          "instruction_window": [
+            157,
+            2,
+            2
+          ],
+          "value": 66
+        },
+        {
+          "index": 1,
+          "transaction": 24,
+          "previous": 34,
+          "ppu": {
+            "cycle": 98,
+            "cpu": 14260469,
+            "frame": 479,
+            "scanline": 223
+          },
+          "writer_bank": 4,
+          "callback_pc": 42583,
+          "source": "PnRecordV1N40",
+          "address": 517,
+          "instruction_window": [
+            157,
+            1,
+            2
+          ],
+          "value": 175
+        },
+        {
+          "index": 2,
+          "transaction": 24,
+          "previous": 166,
+          "ppu": {
+            "cycle": 194,
+            "cpu": 14260501,
+            "frame": 479,
+            "scanline": 223
+          },
+          "writer_bank": 4,
+          "callback_pc": 42501,
+          "source": "PnRecordV1N40",
+          "address": 523,
+          "instruction_window": [
+            157,
+            3,
+            2
+          ],
+          "value": 48
+        },
+        {
+          "index": 2,
+          "transaction": 24,
+          "previous": 248,
+          "ppu": {
+            "cycle": 281,
+            "cpu": 14260530,
+            "frame": 479,
+            "scanline": 223
+          },
+          "writer_bank": 4,
+          "callback_pc": 42546,
+          "source": "PnRecordV1N40",
+          "address": 520,
+          "instruction_window": [
+            157,
+            0,
+            2
+          ],
+          "value": 170
+        },
+        {
+          "index": 2,
+          "transaction": 24,
+          "previous": 3,
+          "ppu": {
+            "cycle": 42,
+            "cpu": 14260564,
+            "frame": 479,
+            "scanline": 224
+          },
+          "writer_bank": 4,
+          "callback_pc": 42577,
+          "source": "PnRecordV1N40",
+          "address": 522,
+          "instruction_window": [
+            157,
+            2,
+            2
+          ],
+          "value": 130
+        },
+        {
+          "index": 2,
+          "transaction": 24,
+          "previous": 40,
+          "ppu": {
+            "cycle": 81,
+            "cpu": 14260577,
+            "frame": 479,
+            "scanline": 224
+          },
+          "writer_bank": 4,
+          "callback_pc": 42583,
+          "source": "PnRecordV1N40",
+          "address": 521,
+          "instruction_window": [
+            157,
+            1,
+            2
+          ],
+          "value": 155
+        },
+        {
+          "index": 3,
+          "transaction": 24,
+          "previous": 129,
+          "ppu": {
+            "cycle": 180,
+            "cpu": 14260610,
+            "frame": 479,
+            "scanline": 224
+          },
+          "writer_bank": 4,
+          "callback_pc": 42514,
+          "source": "PnRecordV1N40",
+          "address": 527,
+          "instruction_window": [
+            157,
+            3,
+            2
+          ],
+          "value": 64
+        },
+        {
+          "index": 3,
+          "transaction": 24,
+          "previous": 248,
+          "ppu": {
+            "cycle": 264,
+            "cpu": 14260638,
+            "frame": 479,
+            "scanline": 224
+          },
+          "writer_bank": 4,
+          "callback_pc": 42546,
+          "source": "PnRecordV1N40",
+          "address": 524,
+          "instruction_window": [
+            157,
+            0,
+            2
+          ],
+          "value": 159
+        },
+        {
+          "index": 3,
+          "transaction": 24,
+          "previous": 2,
+          "ppu": {
+            "cycle": 25,
+            "cpu": 14260672,
+            "frame": 479,
+            "scanline": 225
+          },
+          "writer_bank": 4,
+          "callback_pc": 42577,
+          "source": "PnRecordV1N40",
+          "address": 526,
+          "instruction_window": [
+            157,
+            2,
+            2
+          ],
+          "value": 64
+        },
+        {
+          "index": 3,
+          "transaction": 24,
+          "previous": 10,
+          "ppu": {
+            "cycle": 64,
+            "cpu": 14260685,
+            "frame": 479,
+            "scanline": 225
+          },
+          "writer_bank": 4,
+          "callback_pc": 42583,
+          "source": "PnRecordV1N40",
+          "address": 525,
+          "instruction_window": [
+            157,
+            1,
+            2
+          ],
+          "value": 179
+        },
+        {
+          "index": 4,
+          "transaction": 24,
+          "previous": 129,
+          "ppu": {
+            "cycle": 163,
+            "cpu": 14260718,
+            "frame": 479,
+            "scanline": 225
+          },
+          "writer_bank": 4,
+          "callback_pc": 42514,
+          "source": "PnRecordV1N40",
+          "address": 531,
+          "instruction_window": [
+            157,
+            3,
+            2
+          ],
+          "value": 56
+        },
+        {
+          "index": 4,
+          "transaction": 24,
+          "previous": 248,
+          "ppu": {
+            "cycle": 244,
+            "cpu": 14260745,
+            "frame": 479,
+            "scanline": 225
+          },
+          "writer_bank": 4,
+          "callback_pc": 42531,
+          "source": "PnRecordV1N40",
+          "address": 528,
+          "instruction_window": [
+            157,
+            0,
+            2
+          ],
+          "value": 158
+        },
+        {
+          "index": 4,
+          "transaction": 24,
+          "previous": 0,
+          "ppu": {
+            "cycle": 8,
+            "cpu": 14260780,
+            "frame": 479,
+            "scanline": 226
+          },
+          "writer_bank": 4,
+          "callback_pc": 42577,
+          "source": "PnRecordV1N40",
+          "address": 530,
+          "instruction_window": [
+            157,
+            2,
+            2
+          ],
+          "value": 0
+        },
+        {
+          "index": 4,
+          "transaction": 24,
+          "previous": 34,
+          "ppu": {
+            "cycle": 44,
+            "cpu": 14260792,
+            "frame": 479,
+            "scanline": 226
+          },
+          "writer_bank": 4,
+          "callback_pc": 42583,
+          "source": "PnRecordV1N40",
+          "address": 529,
+          "instruction_window": [
+            157,
+            1,
+            2
+          ],
+          "value": 183
+        },
+        {
+          "index": 5,
+          "transaction": 24,
+          "previous": 129,
+          "ppu": {
+            "cycle": 137,
+            "cpu": 14260823,
+            "frame": 479,
+            "scanline": 226
+          },
+          "writer_bank": 4,
+          "callback_pc": 42501,
+          "source": "PnRecordV1N40",
+          "address": 535,
+          "instruction_window": [
+            157,
+            3,
+            2
+          ],
+          "value": 48
+        },
+        {
+          "index": 5,
+          "transaction": 24,
+          "previous": 248,
+          "ppu": {
+            "cycle": 221,
+            "cpu": 14260851,
+            "frame": 479,
+            "scanline": 226
+          },
+          "writer_bank": 4,
+          "callback_pc": 42546,
+          "source": "PnRecordV1N40",
+          "address": 532,
+          "instruction_window": [
+            157,
+            0,
+            2
+          ],
+          "value": 170
+        },
+        {
+          "index": 5,
+          "transaction": 24,
+          "previous": 3,
+          "ppu": {
+            "cycle": 320,
+            "cpu": 14260884,
+            "frame": 479,
+            "scanline": 226
+          },
+          "writer_bank": 4,
+          "callback_pc": 42577,
+          "source": "PnRecordV1N40",
+          "address": 534,
+          "instruction_window": [
+            157,
+            2,
+            2
+          ],
+          "value": 192
+        },
+        {
+          "index": 5,
+          "transaction": 24,
+          "previous": 40,
+          "ppu": {
+            "cycle": 15,
+            "cpu": 14260896,
+            "frame": 479,
+            "scanline": 227
+          },
+          "writer_bank": 4,
+          "callback_pc": 42583,
+          "source": "PnRecordV1N40",
+          "address": 533,
+          "instruction_window": [
+            157,
+            1,
+            2
+          ],
+          "value": 169
+        }
+      ]
+    },
+    "candidate": {
+      "actual_start": {
+        "frame": 480,
+        "scanline": -1,
+        "cycle": 0,
+        "cpu": 14264755
+      },
+      "body_row": {
+        "frame": 480,
+        "scanline": 156,
+        "cycle": 261,
+        "cpu": 14282688
+      },
+      "body": {
+        "indices": [
+          63,
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "attribute": 0,
+        "first": 28,
+        "bank": 76,
+        "cursor_after": 52,
+        "finished": {
+          "frame": 479,
+          "scanline": 227,
+          "cycle": 214,
+          "cpu": 14260962
+        },
+        "origin": {
+          "x": 56,
+          "high": 1,
+          "page": 0,
+          "y": 159
+        },
+        "entry": {
+          "frame": 479,
+          "scanline": 220,
+          "cycle": 24,
+          "cpu": 14260103
+        },
+        "rotation": 228,
+        "cursor_before": 24,
+        "parts": [
+          [
+            158,
+            183,
+            0,
+            56
+          ],
+          [
+            159,
+            179,
+            64,
+            64
+          ],
+          [
+            170,
+            169,
+            192,
+            48
+          ],
+          [
+            156,
+            177,
+            66,
+            64
+          ],
+          [
+            155,
+            175,
+            66,
+            56
+          ],
+          [
+            170,
+            159,
+            195,
+            48
+          ],
+          [
+            170,
+            155,
+            130,
+            48
+          ]
+        ],
+        "transaction": 24,
+        "player_start": 24,
+        "pointer": 52474,
+        "source": {
+          "parts": [
+            [
+              155,
+              130,
+              11,
+              248
+            ],
+            [
+              159,
+              195,
+              11,
+              248
+            ],
+            [
+              175,
+              66,
+              252,
+              0
+            ],
+            [
+              177,
+              66,
+              253,
+              8
+            ],
+            [
+              169,
+              192,
+              11,
+              248
+            ],
+            [
+              179,
+              64,
+              0,
+              8
+            ],
+            [
+              183,
+              0,
+              255,
+              0
+            ]
+          ],
+          "bank": 76,
+          "label": "PnRecordV1N40",
+          "pointer": 52474,
+          "refs": [
+            {
+              "body": true,
+              "frame": 77,
+              "phase": 0,
+              "variant": 1,
+              "pool": 1
+            }
+          ],
+          "bytes": [
+            28,
+            155,
+            130,
+            11,
+            248,
+            159,
+            195,
+            11,
+            248,
+            175,
+            66,
+            252,
+            0,
+            177,
+            66,
+            253,
+            8,
+            169,
+            192,
+            11,
+            248,
+            179,
+            64,
+            0,
+            8,
+            183,
+            0,
+            255,
+            0
+          ]
+        }
+      },
+      "transaction": {
+        "entry": {
+          "frame": 479,
+          "scanline": 150,
+          "cycle": 137,
+          "cpu": 14252184
+        },
+        "player_y": 159,
+        "world_x": 80,
+        "body_pointer": 52474,
+        "camera": 24,
+        "prior_used": 52,
+        "id": 24,
+        "prior_first": 0,
+        "native_frame": 77,
+        "pool": 1
+      },
+      "prefill": {
+        "first": 28,
+        "rotation": 228,
+        "finished": {
+          "frame": 479,
+          "scanline": 203,
+          "cycle": 148,
+          "cpu": 14258212
+        },
+        "entry_cursor": 0,
+        "end_cursor": 24
+      },
+      "publication": {
+        "rotation": 228,
+        "first": 28,
+        "used": 52,
+        "ppu": {
+          "frame": 479,
+          "scanline": 227,
+          "cycle": 289,
+          "cpu": 14260987
+        },
+        "id": 24,
+        "owners": [
+          0
+        ]
+      },
+      "DMA": {
+        "id": 24,
+        "ppu": {
+          "frame": 480,
+          "scanline": 248,
+          "cycle": 189,
+          "cpu": 14263341
+        },
+        "oam_address": 0,
+        "mask": 30,
+        "writer_bank": 127,
+        "writer_callback_pc": 57349,
+        "writer_instruction": [
+          141,
+          20,
+          64
+        ],
+        "data_writes": 256
+      },
+      "DMA_complete": {
+        "ppu": {
+          "frame": 480,
+          "scanline": 253,
+          "cycle": 30,
+          "cpu": 14263856
+        },
+        "completed_2004_writes": 256,
+        "exact_source": true,
+        "mask": 30
+      },
+      "body_writes": [
+        {
+          "index": 63,
+          "address": 767,
+          "instruction_window": [
+            157,
+            3,
+            2
+          ],
+          "writer_bank": 4,
+          "callback_pc": 42514,
+          "ppu": {
+            "frame": 479,
+            "scanline": 220,
+            "cycle": 248,
+            "cpu": 14260178
+          },
+          "value": 56,
+          "previous": 123,
+          "source": "PnRecordV1N40",
+          "transaction": 24
+        },
+        {
+          "index": 63,
+          "address": 764,
+          "instruction_window": [
+            157,
+            0,
+            2
+          ],
+          "writer_bank": 4,
+          "callback_pc": 42531,
+          "ppu": {
+            "frame": 479,
+            "scanline": 220,
+            "cycle": 329,
+            "cpu": 14260205
+          },
+          "value": 158,
+          "previous": 248,
+          "source": "PnRecordV1N40",
+          "transaction": 24
+        },
+        {
+          "index": 63,
+          "address": 766,
+          "instruction_window": [
+            157,
+            2,
+            2
+          ],
+          "writer_bank": 4,
+          "callback_pc": 42577,
+          "ppu": {
+            "frame": 479,
+            "scanline": 221,
+            "cycle": 93,
+            "cpu": 14260240
+          },
+          "value": 0,
+          "previous": 2,
+          "source": "PnRecordV1N40",
+          "transaction": 24
+        },
+        {
+          "index": 63,
+          "address": 765,
+          "instruction_window": [
+            157,
+            1,
+            2
+          ],
+          "writer_bank": 4,
+          "callback_pc": 42583,
+          "ppu": {
+            "frame": 479,
+            "scanline": 221,
+            "cycle": 132,
+            "cpu": 14260253
+          },
+          "value": 183,
+          "previous": 10,
+          "source": "PnRecordV1N40",
+          "transaction": 24
+        },
+        {
+          "index": 0,
+          "address": 515,
+          "instruction_window": [
+            157,
+            3,
+            2
+          ],
+          "writer_bank": 4,
+          "callback_pc": 42514,
+          "ppu": {
+            "frame": 479,
+            "scanline": 221,
+            "cycle": 231,
+            "cpu": 14260286
+          },
+          "value": 64,
+          "previous": 166,
+          "source": "PnRecordV1N40",
+          "transaction": 24
+        },
+        {
+          "index": 0,
+          "address": 512,
+          "instruction_window": [
+            157,
+            0,
+            2
+          ],
+          "writer_bank": 4,
+          "callback_pc": 42546,
+          "ppu": {
+            "frame": 479,
+            "scanline": 221,
+            "cycle": 315,
+            "cpu": 14260314
+          },
+          "value": 159,
+          "previous": 248,
+          "source": "PnRecordV1N40",
+          "transaction": 24
+        },
+        {
+          "index": 0,
+          "address": 514,
+          "instruction_window": [
+            157,
+            2,
+            2
+          ],
+          "writer_bank": 4,
+          "callback_pc": 42577,
+          "ppu": {
+            "frame": 479,
+            "scanline": 222,
+            "cycle": 76,
+            "cpu": 14260348
+          },
+          "value": 64,
+          "previous": 2,
+          "source": "PnRecordV1N40",
+          "transaction": 24
+        },
+        {
+          "index": 0,
+          "address": 513,
+          "instruction_window": [
+            157,
+            1,
+            2
+          ],
+          "writer_bank": 4,
+          "callback_pc": 42583,
+          "ppu": {
+            "frame": 479,
+            "scanline": 222,
+            "cycle": 115,
+            "cpu": 14260361
+          },
+          "value": 179,
+          "previous": 10,
+          "source": "PnRecordV1N40",
+          "transaction": 24
+        },
+        {
+          "index": 1,
+          "address": 519,
+          "instruction_window": [
+            157,
+            3,
+            2
+          ],
+          "writer_bank": 4,
+          "callback_pc": 42501,
+          "ppu": {
+            "frame": 479,
+            "scanline": 222,
+            "cycle": 211,
+            "cpu": 14260393
+          },
+          "value": 48,
+          "previous": 166,
+          "source": "PnRecordV1N40",
+          "transaction": 24
+        },
+        {
+          "index": 1,
+          "address": 516,
+          "instruction_window": [
+            157,
+            0,
+            2
+          ],
+          "writer_bank": 4,
+          "callback_pc": 42546,
+          "ppu": {
+            "frame": 479,
+            "scanline": 222,
+            "cycle": 298,
+            "cpu": 14260422
+          },
+          "value": 170,
+          "previous": 248,
+          "source": "PnRecordV1N40",
+          "transaction": 24
+        },
+        {
+          "index": 1,
+          "address": 518,
+          "instruction_window": [
+            157,
+            2,
+            2
+          ],
+          "writer_bank": 4,
+          "callback_pc": 42577,
+          "ppu": {
+            "frame": 479,
+            "scanline": 223,
+            "cycle": 59,
+            "cpu": 14260456
+          },
+          "value": 192,
+          "previous": 0,
+          "source": "PnRecordV1N40",
+          "transaction": 24
+        },
+        {
+          "index": 1,
+          "address": 517,
+          "instruction_window": [
+            157,
+            1,
+            2
+          ],
+          "writer_bank": 4,
+          "callback_pc": 42583,
+          "ppu": {
+            "frame": 479,
+            "scanline": 223,
+            "cycle": 98,
+            "cpu": 14260469
+          },
+          "value": 169,
+          "previous": 34,
+          "source": "PnRecordV1N40",
+          "transaction": 24
+        },
+        {
+          "index": 2,
+          "address": 523,
+          "instruction_window": [
+            157,
+            3,
+            2
+          ],
+          "writer_bank": 4,
+          "callback_pc": 42514,
+          "ppu": {
+            "frame": 479,
+            "scanline": 223,
+            "cycle": 197,
+            "cpu": 14260502
+          },
+          "value": 64,
+          "previous": 166,
+          "source": "PnRecordV1N40",
+          "transaction": 24
+        },
+        {
+          "index": 2,
+          "address": 520,
+          "instruction_window": [
+            157,
+            0,
+            2
+          ],
+          "writer_bank": 4,
+          "callback_pc": 42531,
+          "ppu": {
+            "frame": 479,
+            "scanline": 223,
+            "cycle": 278,
+            "cpu": 14260529
+          },
+          "value": 156,
+          "previous": 248,
+          "source": "PnRecordV1N40",
+          "transaction": 24
+        },
+        {
+          "index": 2,
+          "address": 522,
+          "instruction_window": [
+            157,
+            2,
+            2
+          ],
+          "writer_bank": 4,
+          "callback_pc": 42577,
+          "ppu": {
+            "frame": 479,
+            "scanline": 224,
+            "cycle": 42,
+            "cpu": 14260564
+          },
+          "value": 66,
+          "previous": 3,
+          "source": "PnRecordV1N40",
+          "transaction": 24
+        },
+        {
+          "index": 2,
+          "address": 521,
+          "instruction_window": [
+            157,
+            1,
+            2
+          ],
+          "writer_bank": 4,
+          "callback_pc": 42583,
+          "ppu": {
+            "frame": 479,
+            "scanline": 224,
+            "cycle": 81,
+            "cpu": 14260577
+          },
+          "value": 177,
+          "previous": 40,
+          "source": "PnRecordV1N40",
+          "transaction": 24
+        },
+        {
+          "index": 3,
+          "address": 527,
+          "instruction_window": [
+            157,
+            3,
+            2
+          ],
+          "writer_bank": 4,
+          "callback_pc": 42514,
+          "ppu": {
+            "frame": 479,
+            "scanline": 224,
+            "cycle": 180,
+            "cpu": 14260610
+          },
+          "value": 56,
+          "previous": 129,
+          "source": "PnRecordV1N40",
+          "transaction": 24
+        },
+        {
+          "index": 3,
+          "address": 524,
+          "instruction_window": [
+            157,
+            0,
+            2
+          ],
+          "writer_bank": 4,
+          "callback_pc": 42531,
+          "ppu": {
+            "frame": 479,
+            "scanline": 224,
+            "cycle": 261,
+            "cpu": 14260637
+          },
+          "value": 155,
+          "previous": 248,
+          "source": "PnRecordV1N40",
+          "transaction": 24
+        },
+        {
+          "index": 3,
+          "address": 526,
+          "instruction_window": [
+            157,
+            2,
+            2
+          ],
+          "writer_bank": 4,
+          "callback_pc": 42577,
+          "ppu": {
+            "frame": 479,
+            "scanline": 225,
+            "cycle": 25,
+            "cpu": 14260672
+          },
+          "value": 66,
+          "previous": 2,
+          "source": "PnRecordV1N40",
+          "transaction": 24
+        },
+        {
+          "index": 3,
+          "address": 525,
+          "instruction_window": [
+            157,
+            1,
+            2
+          ],
+          "writer_bank": 4,
+          "callback_pc": 42583,
+          "ppu": {
+            "frame": 479,
+            "scanline": 225,
+            "cycle": 64,
+            "cpu": 14260685
+          },
+          "value": 175,
+          "previous": 10,
+          "source": "PnRecordV1N40",
+          "transaction": 24
+        },
+        {
+          "index": 4,
+          "address": 531,
+          "instruction_window": [
+            157,
+            3,
+            2
+          ],
+          "writer_bank": 4,
+          "callback_pc": 42501,
+          "ppu": {
+            "frame": 479,
+            "scanline": 225,
+            "cycle": 160,
+            "cpu": 14260717
+          },
+          "value": 48,
+          "previous": 129,
+          "source": "PnRecordV1N40",
+          "transaction": 24
+        },
+        {
+          "index": 4,
+          "address": 528,
+          "instruction_window": [
+            157,
+            0,
+            2
+          ],
+          "writer_bank": 4,
+          "callback_pc": 42546,
+          "ppu": {
+            "frame": 479,
+            "scanline": 225,
+            "cycle": 247,
+            "cpu": 14260746
+          },
+          "value": 170,
+          "previous": 248,
+          "source": "PnRecordV1N40",
+          "transaction": 24
+        },
+        {
+          "index": 4,
+          "address": 530,
+          "instruction_window": [
+            157,
+            2,
+            2
+          ],
+          "writer_bank": 4,
+          "callback_pc": 42577,
+          "ppu": {
+            "frame": 479,
+            "scanline": 226,
+            "cycle": 8,
+            "cpu": 14260780
+          },
+          "value": 195,
+          "previous": 0,
+          "source": "PnRecordV1N40",
+          "transaction": 24
+        },
+        {
+          "index": 4,
+          "address": 529,
+          "instruction_window": [
+            157,
+            1,
+            2
+          ],
+          "writer_bank": 4,
+          "callback_pc": 42583,
+          "ppu": {
+            "frame": 479,
+            "scanline": 226,
+            "cycle": 44,
+            "cpu": 14260792
+          },
+          "value": 159,
+          "previous": 34,
+          "source": "PnRecordV1N40",
+          "transaction": 24
+        },
+        {
+          "index": 5,
+          "address": 535,
+          "instruction_window": [
+            157,
+            3,
+            2
+          ],
+          "writer_bank": 4,
+          "callback_pc": 42501,
+          "ppu": {
+            "frame": 479,
+            "scanline": 226,
+            "cycle": 137,
+            "cpu": 14260823
+          },
+          "value": 48,
+          "previous": 129,
+          "source": "PnRecordV1N40",
+          "transaction": 24
+        },
+        {
+          "index": 5,
+          "address": 532,
+          "instruction_window": [
+            157,
+            0,
+            2
+          ],
+          "writer_bank": 4,
+          "callback_pc": 42546,
+          "ppu": {
+            "frame": 479,
+            "scanline": 226,
+            "cycle": 221,
+            "cpu": 14260851
+          },
+          "value": 170,
+          "previous": 248,
+          "source": "PnRecordV1N40",
+          "transaction": 24
+        },
+        {
+          "index": 5,
+          "address": 534,
+          "instruction_window": [
+            157,
+            2,
+            2
+          ],
+          "writer_bank": 4,
+          "callback_pc": 42577,
+          "ppu": {
+            "frame": 479,
+            "scanline": 226,
+            "cycle": 320,
+            "cpu": 14260884
+          },
+          "value": 130,
+          "previous": 3,
+          "source": "PnRecordV1N40",
+          "transaction": 24
+        },
+        {
+          "index": 5,
+          "address": 533,
+          "instruction_window": [
+            157,
+            1,
+            2
+          ],
+          "writer_bank": 4,
+          "callback_pc": 42583,
+          "ppu": {
+            "frame": 479,
+            "scanline": 227,
+            "cycle": 15,
+            "cpu": 14260896
+          },
+          "value": 155,
+          "previous": 40,
+          "source": "PnRecordV1N40",
+          "transaction": 24
+        }
+      ]
+    }
+  },
+  {
+    "frame": 586,
+    "baseline": {
+      "actual_start": {
+        "cycle": 0,
+        "cpu": 17421488,
+        "frame": 586,
+        "scanline": -1
+      },
+      "body_row": {
+        "cycle": 277,
+        "cpu": 17433288,
+        "frame": 586,
+        "scanline": 102
+      },
+      "body": {
+        "attribute": 0,
+        "player_start": 24,
+        "rotation": 212,
+        "source": {
+          "bytes": [
+            28,
+            171,
+            192,
+            11,
+            248,
+            191,
+            0,
+            0,
+            0,
+            187,
+            64,
+            0,
+            8,
+            157,
+            130,
+            11,
+            248,
+            173,
+            2,
+            254,
+            0,
+            179,
+            66,
+            254,
+            8,
+            161,
+            195,
+            11,
+            248
+          ],
+          "pointer": 51270,
+          "label": "PnRecordV1N0",
+          "bank": 76,
+          "parts": [
+            [
+              171,
+              192,
+              11,
+              248
+            ],
+            [
+              191,
+              0,
+              0,
+              0
+            ],
+            [
+              187,
+              64,
+              0,
+              8
+            ],
+            [
+              157,
+              130,
+              11,
+              248
+            ],
+            [
+              173,
+              2,
+              254,
+              0
+            ],
+            [
+              179,
+              66,
+              254,
+              8
+            ],
+            [
+              161,
+              195,
+              11,
+              248
+            ]
+          ],
+          "refs": [
+            {
+              "frame": 71,
+              "body": true,
+              "phase": 0,
+              "variant": 1,
+              "pool": 0
+            }
+          ]
+        },
+        "finished": {
+          "cycle": 337,
+          "cpu": 17418418,
+          "frame": 585,
+          "scanline": 233
+        },
+        "first": 44,
+        "origin": {
+          "page": 0,
+          "y": 103,
+          "x": 129,
+          "high": 1
+        },
+        "bank": 76,
+        "cursor_after": 52,
+        "pointer": 51270,
+        "indices": [
+          59,
+          60,
+          61,
+          62,
+          63,
+          0,
+          1
+        ],
+        "parts": [
+          [
+            114,
+            161,
+            195,
+            121
+          ],
+          [
+            101,
+            179,
+            66,
+            137
+          ],
+          [
+            101,
+            173,
+            2,
+            129
+          ],
+          [
+            114,
+            157,
+            130,
+            121
+          ],
+          [
+            103,
+            187,
+            64,
+            137
+          ],
+          [
+            103,
+            191,
+            0,
+            129
+          ],
+          [
+            114,
+            171,
+            192,
+            121
+          ]
+        ],
+        "cursor_before": 24,
+        "entry": {
+          "cycle": 216,
+          "cpu": 17417582,
+          "frame": 585,
+          "scanline": 226
+        },
+        "transaction": 92
+      },
+      "transaction": {
+        "camera": 122,
+        "id": 92,
+        "native_frame": 71,
+        "prior_used": 56,
+        "pool": 0,
+        "world_x": 251,
+        "prior_first": 24,
+        "body_pointer": 51270,
+        "entry": {
+          "cycle": 239,
+          "cpu": 17408269,
+          "frame": 585,
+          "scanline": 144
+        },
+        "player_y": 103
+      },
+      "prefill": {
+        "entry_cursor": 0,
+        "end_cursor": 24,
+        "finished": {
+          "cycle": 290,
+          "cpu": 17414765,
+          "frame": 585,
+          "scanline": 201
+        },
+        "first": 44,
+        "rotation": 212
+      },
+      "publication": {
+        "id": 92,
+        "ppu": {
+          "cycle": 71,
+          "cpu": 17418443,
+          "frame": 585,
+          "scanline": 234
+        },
+        "used": 68,
+        "rotation": 212,
+        "owners": [
+          21,
+          1,
+          0
+        ],
+        "first": 44
+      },
+      "DMA": {
+        "id": 92,
+        "ppu": {
+          "cycle": 65,
+          "cpu": 17419919,
+          "frame": 586,
+          "scanline": 247
+        },
+        "oam_address": 0,
+        "mask": 30,
+        "writer_bank": 127,
+        "writer_callback_pc": 57349,
+        "writer_instruction": [
+          141,
+          20,
+          64
+        ],
+        "data_writes": 256
+      },
+      "DMA_complete": {
+        "ppu": {
+          "cycle": 247,
+          "cpu": 17420434,
+          "frame": 586,
+          "scanline": 251
+        },
+        "completed_2004_writes": 256,
+        "exact_source": true,
+        "mask": 30
+      },
+      "body_writes": [
+        {
+          "index": 59,
+          "transaction": 92,
+          "previous": 240,
+          "ppu": {
+            "cycle": 93,
+            "cpu": 17417655,
+            "frame": 585,
+            "scanline": 227
+          },
+          "writer_bank": 4,
+          "callback_pc": 42501,
+          "source": "PnRecordV1N0",
+          "address": 751,
+          "instruction_window": [
+            157,
+            3,
+            2
+          ],
+          "value": 121
+        },
+        {
+          "index": 59,
+          "transaction": 92,
+          "previous": 248,
+          "ppu": {
+            "cycle": 177,
+            "cpu": 17417683,
+            "frame": 585,
+            "scanline": 227
+          },
+          "writer_bank": 4,
+          "callback_pc": 42546,
+          "source": "PnRecordV1N0",
+          "address": 748,
+          "instruction_window": [
+            157,
+            0,
+            2
+          ],
+          "value": 114
+        },
+        {
+          "index": 59,
+          "transaction": 92,
+          "previous": 2,
+          "ppu": {
+            "cycle": 276,
+            "cpu": 17417716,
+            "frame": 585,
+            "scanline": 227
+          },
+          "writer_bank": 4,
+          "callback_pc": 42577,
+          "source": "PnRecordV1N0",
+          "address": 750,
+          "instruction_window": [
+            157,
+            2,
+            2
+          ],
+          "value": 195
+        },
+        {
+          "index": 59,
+          "transaction": 92,
+          "previous": 10,
+          "ppu": {
+            "cycle": 312,
+            "cpu": 17417728,
+            "frame": 585,
+            "scanline": 227
+          },
+          "writer_bank": 4,
+          "callback_pc": 42583,
+          "source": "PnRecordV1N0",
+          "address": 749,
+          "instruction_window": [
+            157,
+            1,
+            2
+          ],
+          "value": 161
+        },
+        {
+          "index": 60,
+          "transaction": 92,
+          "previous": 240,
+          "ppu": {
+            "cycle": 67,
+            "cpu": 17417760,
+            "frame": 585,
+            "scanline": 228
+          },
+          "writer_bank": 4,
+          "callback_pc": 42514,
+          "source": "PnRecordV1N0",
+          "address": 755,
+          "instruction_window": [
+            157,
+            3,
+            2
+          ],
+          "value": 137
+        },
+        {
+          "index": 60,
+          "transaction": 92,
+          "previous": 248,
+          "ppu": {
+            "cycle": 145,
+            "cpu": 17417786,
+            "frame": 585,
+            "scanline": 228
+          },
+          "writer_bank": 4,
+          "callback_pc": 42531,
+          "source": "PnRecordV1N0",
+          "address": 752,
+          "instruction_window": [
+            157,
+            0,
+            2
+          ],
+          "value": 101
+        },
+        {
+          "index": 60,
+          "transaction": 92,
+          "previous": 0,
+          "ppu": {
+            "cycle": 247,
+            "cpu": 17417820,
+            "frame": 585,
+            "scanline": 228
+          },
+          "writer_bank": 4,
+          "callback_pc": 42577,
+          "source": "PnRecordV1N0",
+          "address": 754,
+          "instruction_window": [
+            157,
+            2,
+            2
+          ],
+          "value": 66
+        },
+        {
+          "index": 60,
+          "transaction": 92,
+          "previous": 34,
+          "ppu": {
+            "cycle": 283,
+            "cpu": 17417832,
+            "frame": 585,
+            "scanline": 228
+          },
+          "writer_bank": 4,
+          "callback_pc": 42583,
+          "source": "PnRecordV1N0",
+          "address": 753,
+          "instruction_window": [
+            157,
+            1,
+            2
+          ],
+          "value": 179
+        },
+        {
+          "index": 61,
+          "transaction": 92,
+          "previous": 121,
+          "ppu": {
+            "cycle": 38,
+            "cpu": 17417864,
+            "frame": 585,
+            "scanline": 229
+          },
+          "writer_bank": 4,
+          "callback_pc": 42514,
+          "source": "PnRecordV1N0",
+          "address": 759,
+          "instruction_window": [
+            157,
+            3,
+            2
+          ],
+          "value": 129
+        },
+        {
+          "index": 61,
+          "transaction": 92,
+          "previous": 248,
+          "ppu": {
+            "cycle": 116,
+            "cpu": 17417890,
+            "frame": 585,
+            "scanline": 229
+          },
+          "writer_bank": 4,
+          "callback_pc": 42531,
+          "source": "PnRecordV1N0",
+          "address": 756,
+          "instruction_window": [
+            157,
+            0,
+            2
+          ],
+          "value": 101
+        },
+        {
+          "index": 61,
+          "transaction": 92,
+          "previous": 195,
+          "ppu": {
+            "cycle": 218,
+            "cpu": 17417924,
+            "frame": 585,
+            "scanline": 229
+          },
+          "writer_bank": 4,
+          "callback_pc": 42577,
+          "source": "PnRecordV1N0",
+          "address": 758,
+          "instruction_window": [
+            157,
+            2,
+            2
+          ],
+          "value": 2
+        },
+        {
+          "index": 61,
+          "transaction": 92,
+          "previous": 161,
+          "ppu": {
+            "cycle": 254,
+            "cpu": 17417936,
+            "frame": 585,
+            "scanline": 229
+          },
+          "writer_bank": 4,
+          "callback_pc": 42583,
+          "source": "PnRecordV1N0",
+          "address": 757,
+          "instruction_window": [
+            157,
+            1,
+            2
+          ],
+          "value": 173
+        },
+        {
+          "index": 62,
+          "transaction": 92,
+          "previous": 137,
+          "ppu": {
+            "cycle": 6,
+            "cpu": 17417967,
+            "frame": 585,
+            "scanline": 230
+          },
+          "writer_bank": 4,
+          "callback_pc": 42501,
+          "source": "PnRecordV1N0",
+          "address": 763,
+          "instruction_window": [
+            157,
+            3,
+            2
+          ],
+          "value": 121
+        },
+        {
+          "index": 62,
+          "transaction": 92,
+          "previous": 248,
+          "ppu": {
+            "cycle": 90,
+            "cpu": 17417995,
+            "frame": 585,
+            "scanline": 230
+          },
+          "writer_bank": 4,
+          "callback_pc": 42546,
+          "source": "PnRecordV1N0",
+          "address": 760,
+          "instruction_window": [
+            157,
+            0,
+            2
+          ],
+          "value": 114
+        },
+        {
+          "index": 62,
+          "transaction": 92,
+          "previous": 66,
+          "ppu": {
+            "cycle": 189,
+            "cpu": 17418028,
+            "frame": 585,
+            "scanline": 230
+          },
+          "writer_bank": 4,
+          "callback_pc": 42577,
+          "source": "PnRecordV1N0",
+          "address": 762,
+          "instruction_window": [
+            157,
+            2,
+            2
+          ],
+          "value": 130
+        },
+        {
+          "index": 62,
+          "transaction": 92,
+          "previous": 179,
+          "ppu": {
+            "cycle": 225,
+            "cpu": 17418040,
+            "frame": 585,
+            "scanline": 230
+          },
+          "writer_bank": 4,
+          "callback_pc": 42583,
+          "source": "PnRecordV1N0",
+          "address": 761,
+          "instruction_window": [
+            157,
+            1,
+            2
+          ],
+          "value": 157
+        },
+        {
+          "index": 63,
+          "transaction": 92,
+          "previous": 129,
+          "ppu": {
+            "cycle": 321,
+            "cpu": 17418072,
+            "frame": 585,
+            "scanline": 230
+          },
+          "writer_bank": 4,
+          "callback_pc": 42514,
+          "source": "PnRecordV1N0",
+          "address": 767,
+          "instruction_window": [
+            157,
+            3,
+            2
+          ],
+          "value": 137
+        },
+        {
+          "index": 63,
+          "transaction": 92,
+          "previous": 248,
+          "ppu": {
+            "cycle": 61,
+            "cpu": 17418099,
+            "frame": 585,
+            "scanline": 231
+          },
+          "writer_bank": 4,
+          "callback_pc": 42546,
+          "source": "PnRecordV1N0",
+          "address": 764,
+          "instruction_window": [
+            157,
+            0,
+            2
+          ],
+          "value": 103
+        },
+        {
+          "index": 63,
+          "transaction": 92,
+          "previous": 2,
+          "ppu": {
+            "cycle": 160,
+            "cpu": 17418132,
+            "frame": 585,
+            "scanline": 231
+          },
+          "writer_bank": 4,
+          "callback_pc": 42577,
+          "source": "PnRecordV1N0",
+          "address": 766,
+          "instruction_window": [
+            157,
+            2,
+            2
+          ],
+          "value": 64
+        },
+        {
+          "index": 63,
+          "transaction": 92,
+          "previous": 173,
+          "ppu": {
+            "cycle": 196,
+            "cpu": 17418144,
+            "frame": 585,
+            "scanline": 231
+          },
+          "writer_bank": 4,
+          "callback_pc": 42583,
+          "source": "PnRecordV1N0",
+          "address": 765,
+          "instruction_window": [
+            157,
+            1,
+            2
+          ],
+          "value": 187
+        },
+        {
+          "index": 0,
+          "transaction": 92,
+          "previous": 121,
+          "ppu": {
+            "cycle": 292,
+            "cpu": 17418176,
+            "frame": 585,
+            "scanline": 231
+          },
+          "writer_bank": 4,
+          "callback_pc": 42514,
+          "source": "PnRecordV1N0",
+          "address": 515,
+          "instruction_window": [
+            157,
+            3,
+            2
+          ],
+          "value": 129
+        },
+        {
+          "index": 0,
+          "transaction": 92,
+          "previous": 248,
+          "ppu": {
+            "cycle": 32,
+            "cpu": 17418203,
+            "frame": 585,
+            "scanline": 232
+          },
+          "writer_bank": 4,
+          "callback_pc": 42546,
+          "source": "PnRecordV1N0",
+          "address": 512,
+          "instruction_window": [
+            157,
+            0,
+            2
+          ],
+          "value": 103
+        },
+        {
+          "index": 0,
+          "transaction": 92,
+          "previous": 130,
+          "ppu": {
+            "cycle": 131,
+            "cpu": 17418236,
+            "frame": 585,
+            "scanline": 232
+          },
+          "writer_bank": 4,
+          "callback_pc": 42577,
+          "source": "PnRecordV1N0",
+          "address": 514,
+          "instruction_window": [
+            157,
+            2,
+            2
+          ],
+          "value": 0
+        },
+        {
+          "index": 0,
+          "transaction": 92,
+          "previous": 157,
+          "ppu": {
+            "cycle": 167,
+            "cpu": 17418248,
+            "frame": 585,
+            "scanline": 232
+          },
+          "writer_bank": 4,
+          "callback_pc": 42583,
+          "source": "PnRecordV1N0",
+          "address": 513,
+          "instruction_window": [
+            157,
+            1,
+            2
+          ],
+          "value": 191
+        },
+        {
+          "index": 1,
+          "transaction": 92,
+          "previous": 137,
+          "ppu": {
+            "cycle": 260,
+            "cpu": 17418279,
+            "frame": 585,
+            "scanline": 232
+          },
+          "writer_bank": 4,
+          "callback_pc": 42501,
+          "source": "PnRecordV1N0",
+          "address": 519,
+          "instruction_window": [
+            157,
+            3,
+            2
+          ],
+          "value": 121
+        },
+        {
+          "index": 1,
+          "transaction": 92,
+          "previous": 248,
+          "ppu": {
+            "cycle": 3,
+            "cpu": 17418307,
+            "frame": 585,
+            "scanline": 233
+          },
+          "writer_bank": 4,
+          "callback_pc": 42546,
+          "source": "PnRecordV1N0",
+          "address": 516,
+          "instruction_window": [
+            157,
+            0,
+            2
+          ],
+          "value": 114
+        },
+        {
+          "index": 1,
+          "transaction": 92,
+          "previous": 64,
+          "ppu": {
+            "cycle": 102,
+            "cpu": 17418340,
+            "frame": 585,
+            "scanline": 233
+          },
+          "writer_bank": 4,
+          "callback_pc": 42577,
+          "source": "PnRecordV1N0",
+          "address": 518,
+          "instruction_window": [
+            157,
+            2,
+            2
+          ],
+          "value": 192
+        },
+        {
+          "index": 1,
+          "transaction": 92,
+          "previous": 187,
+          "ppu": {
+            "cycle": 138,
+            "cpu": 17418352,
+            "frame": 585,
+            "scanline": 233
+          },
+          "writer_bank": 4,
+          "callback_pc": 42583,
+          "source": "PnRecordV1N0",
+          "address": 517,
+          "instruction_window": [
+            157,
+            1,
+            2
+          ],
+          "value": 171
+        }
+      ]
+    },
+    "candidate": {
+      "actual_start": {
+        "frame": 586,
+        "scanline": -1,
+        "cycle": 0,
+        "cpu": 17421488
+      },
+      "body_row": {
+        "frame": 586,
+        "scanline": 102,
+        "cycle": 277,
+        "cpu": 17433288
+      },
+      "body": {
+        "indices": [
+          59,
+          60,
+          61,
+          62,
+          63,
+          0,
+          1
+        ],
+        "attribute": 0,
+        "first": 44,
+        "bank": 76,
+        "cursor_after": 52,
+        "finished": {
+          "frame": 585,
+          "scanline": 233,
+          "cycle": 337,
+          "cpu": 17418418
+        },
+        "origin": {
+          "x": 129,
+          "high": 1,
+          "page": 0,
+          "y": 103
+        },
+        "entry": {
+          "frame": 585,
+          "scanline": 226,
+          "cycle": 216,
+          "cpu": 17417582
+        },
+        "rotation": 212,
+        "cursor_before": 24,
+        "parts": [
+          [
+            103,
+            191,
+            0,
+            129
+          ],
+          [
+            103,
+            187,
+            64,
+            137
+          ],
+          [
+            114,
+            171,
+            192,
+            121
+          ],
+          [
+            101,
+            179,
+            66,
+            137
+          ],
+          [
+            101,
+            173,
+            2,
+            129
+          ],
+          [
+            114,
+            161,
+            195,
+            121
+          ],
+          [
+            114,
+            157,
+            130,
+            121
+          ]
+        ],
+        "transaction": 92,
+        "player_start": 24,
+        "pointer": 51270,
+        "source": {
+          "parts": [
+            [
+              157,
+              130,
+              11,
+              248
+            ],
+            [
+              161,
+              195,
+              11,
+              248
+            ],
+            [
+              173,
+              2,
+              254,
+              0
+            ],
+            [
+              179,
+              66,
+              254,
+              8
+            ],
+            [
+              171,
+              192,
+              11,
+              248
+            ],
+            [
+              187,
+              64,
+              0,
+              8
+            ],
+            [
+              191,
+              0,
+              0,
+              0
+            ]
+          ],
+          "bank": 76,
+          "label": "PnRecordV1N0",
+          "pointer": 51270,
+          "refs": [
+            {
+              "body": true,
+              "frame": 71,
+              "phase": 0,
+              "variant": 1,
+              "pool": 0
+            }
+          ],
+          "bytes": [
+            28,
+            157,
+            130,
+            11,
+            248,
+            161,
+            195,
+            11,
+            248,
+            173,
+            2,
+            254,
+            0,
+            179,
+            66,
+            254,
+            8,
+            171,
+            192,
+            11,
+            248,
+            187,
+            64,
+            0,
+            8,
+            191,
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      "transaction": {
+        "entry": {
+          "frame": 585,
+          "scanline": 144,
+          "cycle": 239,
+          "cpu": 17408269
+        },
+        "player_y": 103,
+        "world_x": 251,
+        "body_pointer": 51270,
+        "camera": 122,
+        "prior_used": 56,
+        "id": 92,
+        "prior_first": 24,
+        "native_frame": 71,
+        "pool": 0
+      },
+      "prefill": {
+        "first": 44,
+        "rotation": 212,
+        "finished": {
+          "frame": 585,
+          "scanline": 201,
+          "cycle": 290,
+          "cpu": 17414765
+        },
+        "entry_cursor": 0,
+        "end_cursor": 24
+      },
+      "publication": {
+        "rotation": 212,
+        "first": 44,
+        "used": 68,
+        "ppu": {
+          "frame": 585,
+          "scanline": 234,
+          "cycle": 71,
+          "cpu": 17418443
+        },
+        "id": 92,
+        "owners": [
+          21,
+          1,
+          0
+        ]
+      },
+      "DMA": {
+        "id": 92,
+        "ppu": {
+          "frame": 586,
+          "scanline": 247,
+          "cycle": 65,
+          "cpu": 17419919
+        },
+        "oam_address": 0,
+        "mask": 30,
+        "writer_bank": 127,
+        "writer_callback_pc": 57349,
+        "writer_instruction": [
+          141,
+          20,
+          64
+        ],
+        "data_writes": 256
+      },
+      "DMA_complete": {
+        "ppu": {
+          "frame": 586,
+          "scanline": 251,
+          "cycle": 247,
+          "cpu": 17420434
+        },
+        "completed_2004_writes": 256,
+        "exact_source": true,
+        "mask": 30
+      },
+      "body_writes": [
+        {
+          "index": 59,
+          "address": 751,
+          "instruction_window": [
+            157,
+            3,
+            2
+          ],
+          "writer_bank": 4,
+          "callback_pc": 42514,
+          "ppu": {
+            "frame": 585,
+            "scanline": 227,
+            "cycle": 96,
+            "cpu": 17417656
+          },
+          "value": 129,
+          "previous": 240,
+          "source": "PnRecordV1N0",
+          "transaction": 92
+        },
+        {
+          "index": 59,
+          "address": 748,
+          "instruction_window": [
+            157,
+            0,
+            2
+          ],
+          "writer_bank": 4,
+          "callback_pc": 42546,
+          "ppu": {
+            "frame": 585,
+            "scanline": 227,
+            "cycle": 177,
+            "cpu": 17417683
+          },
+          "value": 103,
+          "previous": 248,
+          "source": "PnRecordV1N0",
+          "transaction": 92
+        },
+        {
+          "index": 59,
+          "address": 750,
+          "instruction_window": [
+            157,
+            2,
+            2
+          ],
+          "writer_bank": 4,
+          "callback_pc": 42577,
+          "ppu": {
+            "frame": 585,
+            "scanline": 227,
+            "cycle": 276,
+            "cpu": 17417716
+          },
+          "value": 0,
+          "previous": 2,
+          "source": "PnRecordV1N0",
+          "transaction": 92
+        },
+        {
+          "index": 59,
+          "address": 749,
+          "instruction_window": [
+            157,
+            1,
+            2
+          ],
+          "writer_bank": 4,
+          "callback_pc": 42583,
+          "ppu": {
+            "frame": 585,
+            "scanline": 227,
+            "cycle": 312,
+            "cpu": 17417728
+          },
+          "value": 191,
+          "previous": 10,
+          "source": "PnRecordV1N0",
+          "transaction": 92
+        },
+        {
+          "index": 60,
+          "address": 755,
+          "instruction_window": [
+            157,
+            3,
+            2
+          ],
+          "writer_bank": 4,
+          "callback_pc": 42514,
+          "ppu": {
+            "frame": 585,
+            "scanline": 228,
+            "cycle": 67,
+            "cpu": 17417760
+          },
+          "value": 137,
+          "previous": 240,
+          "source": "PnRecordV1N0",
+          "transaction": 92
+        },
+        {
+          "index": 60,
+          "address": 752,
+          "instruction_window": [
+            157,
+            0,
+            2
+          ],
+          "writer_bank": 4,
+          "callback_pc": 42546,
+          "ppu": {
+            "frame": 585,
+            "scanline": 228,
+            "cycle": 148,
+            "cpu": 17417787
+          },
+          "value": 103,
+          "previous": 248,
+          "source": "PnRecordV1N0",
+          "transaction": 92
+        },
+        {
+          "index": 60,
+          "address": 754,
+          "instruction_window": [
+            157,
+            2,
+            2
+          ],
+          "writer_bank": 4,
+          "callback_pc": 42577,
+          "ppu": {
+            "frame": 585,
+            "scanline": 228,
+            "cycle": 247,
+            "cpu": 17417820
+          },
+          "value": 64,
+          "previous": 0,
+          "source": "PnRecordV1N0",
+          "transaction": 92
+        },
+        {
+          "index": 60,
+          "address": 753,
+          "instruction_window": [
+            157,
+            1,
+            2
+          ],
+          "writer_bank": 4,
+          "callback_pc": 42583,
+          "ppu": {
+            "frame": 585,
+            "scanline": 228,
+            "cycle": 283,
+            "cpu": 17417832
+          },
+          "value": 187,
+          "previous": 34,
+          "source": "PnRecordV1N0",
+          "transaction": 92
+        },
+        {
+          "index": 61,
+          "address": 759,
+          "instruction_window": [
+            157,
+            3,
+            2
+          ],
+          "writer_bank": 4,
+          "callback_pc": 42501,
+          "ppu": {
+            "frame": 585,
+            "scanline": 229,
+            "cycle": 35,
+            "cpu": 17417863
+          },
+          "value": 121,
+          "previous": 129,
+          "source": "PnRecordV1N0",
+          "transaction": 92
+        },
+        {
+          "index": 61,
+          "address": 756,
+          "instruction_window": [
+            157,
+            0,
+            2
+          ],
+          "writer_bank": 4,
+          "callback_pc": 42546,
+          "ppu": {
+            "frame": 585,
+            "scanline": 229,
+            "cycle": 119,
+            "cpu": 17417891
+          },
+          "value": 114,
+          "previous": 248,
+          "source": "PnRecordV1N0",
+          "transaction": 92
+        },
+        {
+          "index": 61,
+          "address": 758,
+          "instruction_window": [
+            157,
+            2,
+            2
+          ],
+          "writer_bank": 4,
+          "callback_pc": 42577,
+          "ppu": {
+            "frame": 585,
+            "scanline": 229,
+            "cycle": 218,
+            "cpu": 17417924
+          },
+          "value": 192,
+          "previous": 0,
+          "source": "PnRecordV1N0",
+          "transaction": 92
+        },
+        {
+          "index": 61,
+          "address": 757,
+          "instruction_window": [
+            157,
+            1,
+            2
+          ],
+          "writer_bank": 4,
+          "callback_pc": 42583,
+          "ppu": {
+            "frame": 585,
+            "scanline": 229,
+            "cycle": 254,
+            "cpu": 17417936
+          },
+          "value": 171,
+          "previous": 191,
+          "source": "PnRecordV1N0",
+          "transaction": 92
+        },
+        {
+          "index": 62,
+          "address": 763,
+          "instruction_window": [
+            157,
+            3,
+            2
+          ],
+          "writer_bank": 4,
+          "callback_pc": 42514,
+          "ppu": {
+            "frame": 585,
+            "scanline": 230,
+            "cycle": 9,
+            "cpu": 17417968
+          },
+          "value": 137,
+          "previous": 137,
+          "source": "PnRecordV1N0",
+          "transaction": 92
+        },
+        {
+          "index": 62,
+          "address": 760,
+          "instruction_window": [
+            157,
+            0,
+            2
+          ],
+          "writer_bank": 4,
+          "callback_pc": 42531,
+          "ppu": {
+            "frame": 585,
+            "scanline": 230,
+            "cycle": 87,
+            "cpu": 17417994
+          },
+          "value": 101,
+          "previous": 248,
+          "source": "PnRecordV1N0",
+          "transaction": 92
+        },
+        {
+          "index": 62,
+          "address": 762,
+          "instruction_window": [
+            157,
+            2,
+            2
+          ],
+          "writer_bank": 4,
+          "callback_pc": 42577,
+          "ppu": {
+            "frame": 585,
+            "scanline": 230,
+            "cycle": 189,
+            "cpu": 17418028
+          },
+          "value": 66,
+          "previous": 64,
+          "source": "PnRecordV1N0",
+          "transaction": 92
+        },
+        {
+          "index": 62,
+          "address": 761,
+          "instruction_window": [
+            157,
+            1,
+            2
+          ],
+          "writer_bank": 4,
+          "callback_pc": 42583,
+          "ppu": {
+            "frame": 585,
+            "scanline": 230,
+            "cycle": 225,
+            "cpu": 17418040
+          },
+          "value": 179,
+          "previous": 187,
+          "source": "PnRecordV1N0",
+          "transaction": 92
+        },
+        {
+          "index": 63,
+          "address": 767,
+          "instruction_window": [
+            157,
+            3,
+            2
+          ],
+          "writer_bank": 4,
+          "callback_pc": 42514,
+          "ppu": {
+            "frame": 585,
+            "scanline": 230,
+            "cycle": 321,
+            "cpu": 17418072
+          },
+          "value": 129,
+          "previous": 121,
+          "source": "PnRecordV1N0",
+          "transaction": 92
+        },
+        {
+          "index": 63,
+          "address": 764,
+          "instruction_window": [
+            157,
+            0,
+            2
+          ],
+          "writer_bank": 4,
+          "callback_pc": 42531,
+          "ppu": {
+            "frame": 585,
+            "scanline": 231,
+            "cycle": 58,
+            "cpu": 17418098
+          },
+          "value": 101,
+          "previous": 248,
+          "source": "PnRecordV1N0",
+          "transaction": 92
+        },
+        {
+          "index": 63,
+          "address": 766,
+          "instruction_window": [
+            157,
+            2,
+            2
+          ],
+          "writer_bank": 4,
+          "callback_pc": 42577,
+          "ppu": {
+            "frame": 585,
+            "scanline": 231,
+            "cycle": 160,
+            "cpu": 17418132
+          },
+          "value": 2,
+          "previous": 192,
+          "source": "PnRecordV1N0",
+          "transaction": 92
+        },
+        {
+          "index": 63,
+          "address": 765,
+          "instruction_window": [
+            157,
+            1,
+            2
+          ],
+          "writer_bank": 4,
+          "callback_pc": 42583,
+          "ppu": {
+            "frame": 585,
+            "scanline": 231,
+            "cycle": 196,
+            "cpu": 17418144
+          },
+          "value": 173,
+          "previous": 171,
+          "source": "PnRecordV1N0",
+          "transaction": 92
+        },
+        {
+          "index": 0,
+          "address": 515,
+          "instruction_window": [
+            157,
+            3,
+            2
+          ],
+          "writer_bank": 4,
+          "callback_pc": 42501,
+          "ppu": {
+            "frame": 585,
+            "scanline": 231,
+            "cycle": 289,
+            "cpu": 17418175
+          },
+          "value": 121,
+          "previous": 137,
+          "source": "PnRecordV1N0",
+          "transaction": 92
+        },
+        {
+          "index": 0,
+          "address": 512,
+          "instruction_window": [
+            157,
+            0,
+            2
+          ],
+          "writer_bank": 4,
+          "callback_pc": 42546,
+          "ppu": {
+            "frame": 585,
+            "scanline": 232,
+            "cycle": 32,
+            "cpu": 17418203
+          },
+          "value": 114,
+          "previous": 248,
+          "source": "PnRecordV1N0",
+          "transaction": 92
+        },
+        {
+          "index": 0,
+          "address": 514,
+          "instruction_window": [
+            157,
+            2,
+            2
+          ],
+          "writer_bank": 4,
+          "callback_pc": 42577,
+          "ppu": {
+            "frame": 585,
+            "scanline": 232,
+            "cycle": 131,
+            "cpu": 17418236
+          },
+          "value": 195,
+          "previous": 66,
+          "source": "PnRecordV1N0",
+          "transaction": 92
+        },
+        {
+          "index": 0,
+          "address": 513,
+          "instruction_window": [
+            157,
+            1,
+            2
+          ],
+          "writer_bank": 4,
+          "callback_pc": 42583,
+          "ppu": {
+            "frame": 585,
+            "scanline": 232,
+            "cycle": 167,
+            "cpu": 17418248
+          },
+          "value": 161,
+          "previous": 179,
+          "source": "PnRecordV1N0",
+          "transaction": 92
+        },
+        {
+          "index": 1,
+          "address": 519,
+          "instruction_window": [
+            157,
+            3,
+            2
+          ],
+          "writer_bank": 4,
+          "callback_pc": 42501,
+          "ppu": {
+            "frame": 585,
+            "scanline": 232,
+            "cycle": 260,
+            "cpu": 17418279
+          },
+          "value": 121,
+          "previous": 129,
+          "source": "PnRecordV1N0",
+          "transaction": 92
+        },
+        {
+          "index": 1,
+          "address": 516,
+          "instruction_window": [
+            157,
+            0,
+            2
+          ],
+          "writer_bank": 4,
+          "callback_pc": 42546,
+          "ppu": {
+            "frame": 585,
+            "scanline": 233,
+            "cycle": 3,
+            "cpu": 17418307
+          },
+          "value": 114,
+          "previous": 248,
+          "source": "PnRecordV1N0",
+          "transaction": 92
+        },
+        {
+          "index": 1,
+          "address": 518,
+          "instruction_window": [
+            157,
+            2,
+            2
+          ],
+          "writer_bank": 4,
+          "callback_pc": 42577,
+          "ppu": {
+            "frame": 585,
+            "scanline": 233,
+            "cycle": 102,
+            "cpu": 17418340
+          },
+          "value": 130,
+          "previous": 2,
+          "source": "PnRecordV1N0",
+          "transaction": 92
+        },
+        {
+          "index": 1,
+          "address": 517,
+          "instruction_window": [
+            157,
+            1,
+            2
+          ],
+          "writer_bank": 4,
+          "callback_pc": 42583,
+          "ppu": {
+            "frame": 585,
+            "scanline": 233,
+            "cycle": 138,
+            "cpu": 17418352
+          },
+          "value": 157,
+          "previous": 173,
+          "source": "PnRecordV1N0",
+          "transaction": 92
+        }
+      ]
+    }
+  }
+]

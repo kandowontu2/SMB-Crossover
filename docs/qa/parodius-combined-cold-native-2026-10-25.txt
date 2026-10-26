@@ -1,0 +1,97 @@
+Parodius combined e11 cold control: native guards pass; visibility proposal HELD
+
+This additive report covers exactly one authorized Octopus Easy cold-menu run
+to wall640. Native mode readback=0, variant=1. No lifecycle bridge or staged
+world/resource/outcome writes were used. No retry or other profile was run.
+The sequential Mesen worker was released after this run; no further native
+launch is authorized by this report.
+
+Archive root D = C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py
+Baseline: df5154bc035ba2c392bb8d34068897a2bccf7a78a6f4554bd6790d31a586c357
+Candidate: e11c64ec155fd90a55604ec4cc8f9f722f97fa79140eb861dd4ffec31601d5da
+Production/default/Downloads remains50b51c3c69f45ef137720c47f521574097f421056e3b73296d06ba70080d2363.
+
+Frozen fixture: D/parodius-combined-e11-cold-crowd-v1
+Preparation SHA2560ca13fac71dc09ef9ec5e030cd1260f93421ad7b209b3c7d542aa02cd6883c69
+Generated Lua SHA256682636966d112db8699dbb5a3c31939ecfd91976b04ab3e4f9a3cea5050fdb66
+Runner SHA256ac352e30f272668a897389fd9169ea20fdea8aed198d52f86bd71a422ab66c9a
+Emulator SHA2568b92daa209ee5052845e02a663aeb1afd6194eca55d86e6628c51114c61da0a9
+Stable command from repository root (grant flag is historical, not permission):
+python -B tools/audit/parodius_visibility_combined_cold_run_v1.py --packet "D/parodius-combined-e11-cold-crowd-v1" --emulator "D/mmc3-flag-fix-v23/script-budget-probe-v2/emulator/Mesen.exe" --native-grant
+Expand D to the archive root above. The existing output is immutable and must
+not be overwritten by a replay.
+
+Native result: PASS, emulator exit0,168 actual updates,130 publications,
+130 DMAs,185 checked visible epochs/NMIs,185 IRQ31 checks,2,220 CHR checks,
+1,068 actual C116 UpdateScreen owner checks,minimum sampled SP197. All
+completed256-byte DMA destinations/source buffers, OAMADDR, body-row hardware,
+bank/stack/five-SMC guards passed. Hardware8-sprite evaluation remained enabled.
+HUD/font checks182;label checks128. All201 lossless full frames440..640 retained.
+Live capture458 has32 ordered palette reads and restored t/fineX/w before
+visible start;1,792 prelease source-blank RGB pixels have0 mismatches. First
+complete custom HUD459. No displaced ground strip in reviewed458/459.
+Native receipt D/parodius-combined-e11-cold-crowd-v1/baseline-early/cold-proof.json
+SHA256709aef59484e8c66397df42df97da5f04927d9408880a165604868a9c36e874c.
+This receipt explicitly leaves visibility/fairness/RGB comparison open.
+
+Paired actual-PPU review FAILS the body-order proposal. The185 matched frames
+456..640 have the same actual PPU frame,publication ID,DMA ID,controller,
+gameplay trace,body-part multiset,CHR/palette and every active nonbody record.
+HiddenY248 records retain stale tile/attribute/X fields and are not full-byte
+equal after ordering;987 such differences are disclosed separately. The first
+analysis expectation error is retained in actual-pixels-v1; no native assertion
+or prior receipt was relaxed or relabeled. The v2 analysis compares every
+active nonbody record and real rendered other-sprite pixels independently.
+
+The source-bound8-sprite model uses actual completed hardware OAM, actual
+current CHR/palette and calibrated colors from uncontested rows. It matches
+actual front-sprite RGB with0 mismatches. It is not exhaustive background or
+behind-background composition proof. Body pixel counts improve64 frames and
+regress46;primary palette/core improves78 and regresses49. First regression:
+actual PPU461,publication/DMA5,PnRecordV1N0,body slots62,63,0,1,2,3,4.
+Body219->186 pixels;primary173->133. Actual47 RGB pixels change.
+
+The native source owner is unchanged MetaspriteRenderLoop in bank4, which
+emits records in reverse and adds RgOamRotation to the logical cursor. At
+transaction5,body cursor12 plus rotation236 yields hardware byte248/slot62.
+The candidate puts core tiles191/187 at62/63, while secondary planes wrap to
+hardware slots0..4 and are evaluated first. The first source write leading to
+this regression is address$02FB:baseline X35 vs candidate X43;candidate bank4
+callback PC$A612/instruction9D0302 at actual460:194:214. The candidate then
+writes Y172,attribute0,tile191 at slot62;baseline Y183,attribute195,tile161.
+These are intentional reordered source parts, not CHR corruption or bad DMA.
+Publication5 completed460:201:189;DMA5 started461:247:60 and finished
+461:251:242 with all256 source bytes exact;actual visible start461:-1:0.
+
+Around the original crowded region, actual PPU586/DMA92 regresses body95->27
+and core93->17;589/DMA95 improves body141->202/core88->173. Actual wholeframes
+584..589 and paired lossless differences are retained, not old DMA-row labels.
+Unchanged nonbody source records do not guarantee equal rendered admission:
+other sprites lose26 verified front-RGB pixels across7 frames and gain250
+across23 frames (overlap allowed). First gain469 is4 pixels. First loss480 is
+6 pixels,starting(x137,y176),unchanged hardware OAM62=[168,34,0,135].
+Do not infer a named enemy/projectile beyond the recorded native prefill/OAM
+owner; per-actor slot identity was not logged for this bounded comparison.
+
+Cadence: identical inputs/events/completed motion and all non-cycle trace
+fields;same168 updates/130 publications/130 DMA counts. All five measured
+inclusive routine profiles are pairwise equal:UpdateScreen351 calls,
+SamusFreezeUpdateScreen145,BankSwitchCHR145,OAMandReadJoypad145,AudioUpdate200.
+These are inclusive measured intervals, not constant-rate/global timing proof.
+
+Frozen actual negative:
+D/parodius-combined-e11-actual-pixels-v2/proof.json
+SHA2565123086c11f866471a057503f9ec492562882be5c64919adf216d4b4035ea158
+D/parodius-combined-e11-outcome-v1/proof.json
+SHA2561b307544fe556e9347b5670102b716ba4a61c9d6294ec70f68603de0ac9d41df
+Outcome manifest505 bindings SHA2564d3c7db83d78c11cbe80581feee93634f3501acc80e2b3cf0ae4ea3e8b48ade9
+Wholeframes:D/parodius-combined-e11-outcome-v1/actual-PPU-selected-wholeframes.png
+Exact first owners:D/parodius-combined-e11-outcome-v1/actual-owner-traces.json
+Other-sprite losses/gains:D/parodius-combined-e11-outcome-v1/other-sprite-loss-gain.json
+
+Overall passed=false for the body-order proposal. Native guard PASS remains
+true and separately scoped. No production/source/Git/Downloads changes,
+adoption or art changes. Counterfactual analyses must be separate from these
+actual e11 frames. Tiny/dense source-exact HUD readability, crowded Sophia,
+Roll full-pool visibility, other modes/variants,menu/death/area/Buffer2,
+worst-DMC budget and full-game/source-fidelity goals remain open.

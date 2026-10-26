@@ -1,0 +1,140 @@
+{
+  "prepared": true,
+  "executed": false,
+  "status": "STARTUP_STATIC_REPLAY_FIXTURES_ONLY_NO_NATIVE_GRANT",
+  "cases": [
+    {
+      "name": "baseline50b",
+      "ROM": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-current50b-v1\\baseline.nes",
+      "ROM_sha256": "50b51c3c69f45ef137720c47f521574097f421056e3b73296d06ba70080d2363",
+      "original_completed_case": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-resident-v4\\native-v1\\baseline-easy-lightning",
+      "original_script_sha256": "ce69f2ed1fcf10b3e9d27f5f983f165e95b00afb151d3a964b8834de74dbb371",
+      "static_script": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-static-observer-v1\\replay-packet-v1\\baseline50b\\run.lua",
+      "static_script_sha256": "8e173f297b7d1da600c0d63a7b91858f455e0e5a3fa35ba31292ccff7416ba03",
+      "configuration_sha256": "b33b1bb6deb0d9db429ff4aba77ac049b78b9c7440fb360f75b9eea064fadee5",
+      "same_actual_cold_numeric_mode": 0,
+      "event": 30,
+      "profile": "basic",
+      "historical_component_proof_passed": true,
+      "historical_cadence_acceptance": null,
+      "historical_artifact_hashes": {
+        "actors.csv": "201fe65eb55513e6bf84ffaab7c4f0091b684adf0c37054144bdff335a5f1065",
+        "apu.csv": "20205b3d9f36be5d34964cac673ec755052f402b1b15c4d6576ad4c39988891c",
+        "bindings.json": "6de596a8f318f2e21cef900b52e5821bbb40721cec68fffacf39a934c360f226",
+        "cadence.csv": "0d043a907cd600fca128b376645ba5116b8b3abf121f951b3f7778a551053c97",
+        "case-end.argb": "2c7ae0bfa51e38216bae1242da1f9203573ad671e635650ce51e9266591d95e7",
+        "deadline-timing.csv": "e9df846adbbb64adec961fccb62e2429da3d1918d5e0688d074703c0f465a539",
+        "dma-bus.jsonl": "3c356df63f0535e6362381963c22d7bb2e196544e0d440e27d49d09249d489a8",
+        "dmc-fetch.csv": "6aeb1c4f36c506872bee5326f85750a2eb99e5a8cf7978648e4ff0c18798e0b1",
+        "last-case.json": "b5534b72fb8f5b799e6f43986b051fd1d8eb8466476468b996d4f47cfc2a13ca",
+        "native-cycles.csv": "f6bc8365a56e65d24104f54067196b0e865e44b0f20bf253a0dc999f9557407b",
+        "native-proof.json": "cbe34ca3af1143b9c12f5997b4ff589e064a641e86a9db68e54be2582ea3dd90",
+        "proof.json": "fbeee255f06f5b76465acc6bc01ada1df823156b15529e43209b8f167e54223f",
+        "requests.csv": "962d77449f728a10d2aed83e74dffc98f20930eb7cc0a6dfbfdc4a336a1a8e88",
+        "source-voices.csv": "b8ca1d6b2f668555e710feeaa5e6cc734395e5ccc197a390f8491a1ea0923bae"
+      },
+      "transforms": [
+        {
+          "kind": "replace-and-relocate-core",
+          "original_sha256": "8c4f78b946c426d466ff39834cb0d9be14ec8453ae1a9b349502c30818a279b6",
+          "new_sha256": "e658407661bc27fda4f97489507863be613ffe3c6c7eb3c4644a258876d71b58"
+        },
+        {
+          "kind": "DMA completion to Lua-only slot"
+        },
+        {
+          "kind": "last startup dispatcher installation"
+        }
+      ],
+      "future_explicit_grant_command": [
+        "C:\\Users\\kando\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\run_mesen_isolated.py",
+        "--output",
+        "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-static-observer-v1\\replay-packet-v1\\baseline50b",
+        "--emulator",
+        "C:/Mesen2/Mesen.exe",
+        "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-static-observer-v1\\replay-packet-v1\\baseline50b\\run.lua",
+        "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-current50b-v1\\baseline.nes",
+        "--timeout",
+        "180",
+        "--option=--doNotSaveSettings",
+        "--option=--nes.ramPowerOnState=AllZeros",
+        "--option=--nes.randomizeCpuPpuAlignment=false",
+        "--option=--nes.randomizeMapperPowerOnState=false"
+      ],
+      "native_executed": false
+    },
+    {
+      "name": "held0802",
+      "ROM": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-resident-v4\\candidate.nes",
+      "ROM_sha256": "0802527d8a2e0cf8f9584e854d6dd263b72e330c3c89d30921abddc1b10c5790",
+      "original_completed_case": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-resident-v4\\native-v1\\candidate-easy-lightning",
+      "original_script_sha256": "fb5541503c54ff860b812d7ff6aff27f9de447d5f2647c7909c5df6811b2c140",
+      "static_script": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-static-observer-v1\\replay-packet-v1\\held0802\\run.lua",
+      "static_script_sha256": "784f86a5d5cecd2a1d97934fc9f5e514f62abf820967e356da08d5dea9fd1148",
+      "configuration_sha256": "ae8c9f661535a9497fb3992acc23ab44937c5efbcc3ae0f15e2682b166b6dd32",
+      "same_actual_cold_numeric_mode": 0,
+      "event": 30,
+      "profile": "basic",
+      "historical_component_proof_passed": true,
+      "historical_cadence_acceptance": false,
+      "historical_artifact_hashes": {
+        "actors.csv": "201fe65eb55513e6bf84ffaab7c4f0091b684adf0c37054144bdff335a5f1065",
+        "apu.csv": "7b5e927f2d009dbb1113a86a192e4226c060ebbf5e6621e6abe27b8305a00111",
+        "bindings.json": "091f56fb746fbf0ffa24074e8fa34486f378c303ef98ae2f90588e07ff66e162",
+        "cadence.csv": "d189e5fbf1199a971027c427243040b7aed51995a7561b1061519f8bbd5333c3",
+        "case-end.argb": "2c7ae0bfa51e38216bae1242da1f9203573ad671e635650ce51e9266591d95e7",
+        "deadline-timing.csv": "04ad69eb14dd4b20749142dd7913f35b86c5b9e57cb5438a1829cfa3d07f0416",
+        "dma-bus.jsonl": "327b1880020e70c3eab26d79b6c60360c59779f61647c22aaf1c96cd673026a4",
+        "dmc-fetch.csv": "6aeb1c4f36c506872bee5326f85750a2eb99e5a8cf7978648e4ff0c18798e0b1",
+        "last-case.json": "b69ecdb8c4bb50803c429d32c4edb6aee1af058322097020dc5ea9ba9c2582cd",
+        "native-cycles.csv": "68037e9904ef0f79139c529db56a1d68f6d7bfa6c90c446ffb7e0dd433c8c2bf",
+        "native-proof.json": "a2f8e388665d3193b8d3bb4c257049b46516cbef4144cdd7732d26ce73bb940a",
+        "proof.json": "534ef0bb85cdd377ac74597e724d15f28314cae0b8ea53518afcd4701794dee3",
+        "requests.csv": "b82f54e5207e00a0e33c5060d28c2d0ab2817c706e2249247be1e2719ea66b0d",
+        "source-voices.csv": "1264a04629080b91e2099ff8439a2a410193c87c6c38fa15bce10e760986bb23"
+      },
+      "transforms": [
+        {
+          "kind": "replace-and-relocate-core",
+          "original_sha256": "8c4f78b946c426d466ff39834cb0d9be14ec8453ae1a9b349502c30818a279b6",
+          "new_sha256": "e658407661bc27fda4f97489507863be613ffe3c6c7eb3c4644a258876d71b58"
+        },
+        {
+          "kind": "DMA completion to Lua-only slot"
+        },
+        {
+          "kind": "last startup dispatcher installation"
+        }
+      ],
+      "future_explicit_grant_command": [
+        "C:\\Users\\kando\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\run_mesen_isolated.py",
+        "--output",
+        "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-static-observer-v1\\replay-packet-v1\\held0802",
+        "--emulator",
+        "C:/Mesen2/Mesen.exe",
+        "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-static-observer-v1\\replay-packet-v1\\held0802\\run.lua",
+        "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-resident-v4\\candidate.nes",
+        "--timeout",
+        "180",
+        "--option=--doNotSaveSettings",
+        "--option=--nes.ramPowerOnState=AllZeros",
+        "--option=--nes.randomizeCpuPpuAlignment=false",
+        "--option=--nes.randomizeMapperPowerOnState=false"
+      ],
+      "native_executed": false
+    }
+  ],
+  "emulator": {
+    "path": "C:/Mesen2/Mesen.exe",
+    "sha256": "8b92daa209ee5052845e02a663aeb1afd6194eca55d86e6628c51114c61da0a9"
+  },
+  "core": {
+    "path": "C:/Mesen2/MesenCore.dll",
+    "sha256": "4bd40dfc6512328d56d8ad0563263b52be57bac726d8804f0720e461e558cd41",
+    "embedded_Lua54_marker": true
+  },
+  "tool_sha256": "e9d63a47db15da86f42aef7a4a98c5d268cc34ed53656d7b1077897a54884cec",
+  "scope": "Exact completed historical controller/arena/config/cold-mode fixture scripts, transformed only at callback registration. Replays compare against immutable old completed observations; no new unsafe dynamic observer launch is needed. Held0802 cadence rejection remains unchanged. No0c45 gameplay retry or source modification."
+}
