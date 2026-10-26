@@ -1,0 +1,59 @@
+{
+  "passed": true,
+  "source_only": true,
+  "native_run": false,
+  "baseline_ROM_sha256": "1d741cfa4c502b22906eb8fb74296c12899f34cf03be86e0eb31131fc77e353e",
+  "candidate_ROM_sha256": "c1957666f674ead536e7382913fae08f4ad840a1428bc41ecdfd5ce5a2580d68",
+  "cases": 5262,
+  "all_source_world_entries": 168,
+  "full_caller_flags": 64,
+  "grouped": {
+    "all-populated": {
+      "cases": 60,
+      "min_delta": -201,
+      "max_delta": 191,
+      "total_delta": 4520
+    },
+    "all-world-records": {
+      "cases": 1344,
+      "min_delta": -323,
+      "max_delta": 65,
+      "total_delta": -143608
+    },
+    "each-nonzero-drop": {
+      "cases": 48,
+      "min_delta": -254,
+      "max_delta": -13,
+      "total_delta": -4480
+    },
+    "early-controls": {
+      "cases": 8,
+      "min_delta": -254,
+      "max_delta": 0,
+      "total_delta": -254
+    },
+    "hud-and-empty-groups": {
+      "cases": 1050,
+      "min_delta": -327,
+      "max_delta": -67,
+      "total_delta": -182700
+    },
+    "private-stamp-owner-controls": {
+      "cases": 1728,
+      "min_delta": -254,
+      "max_delta": -254,
+      "total_delta": -438912
+    },
+    "real-farcall-continuation": {
+      "cases": 1024,
+      "min_delta": -449,
+      "max_delta": -440,
+      "total_delta": -455168
+    }
+  },
+  "full_final_AXYP_SP_RAM_SMC_banks_ordered_OAM_hardware_exact": true,
+  "omitted_memory_only_discarded_stack": "01A0..01FF",
+  "populated_scans_exact": true,
+  "checker_sha256": "8e19239bf74eec50771b10f910bf6bdb12275dc9c9917fe2d8326b24cd31c2eb",
+  "limits": "Arranged CPU states, including actual compiled caller continuations. No PPU/DMC DMA clocks or native cadence/recovered-draw claim. Dead A/C before the icon tail are not asserted identical; complete final ABI and every ordinary RAM byte are exact."
+}

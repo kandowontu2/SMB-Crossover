@@ -1,0 +1,110 @@
+Parodius5354 - separately qualified death observation, source only
+
+ROM5354161f339548f2e12b955f5fc1481b9956fe83a63263a04f4b2816edbbdf30.
+Production remains50b5. No native grant, worker reservation, game-source edit,
+ROM change, retry or adoption follows from this packet. The original death514
+and area1560 immutable-alias failures remain false, with all their captures.
+Their missing native pointer/assertion stamp was not recorded and is not
+reconstructed retrospectively from the CPU tests.
+
+D = C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py.
+Original negatives/final binding:
+D/parodius-hud-transition-negative-final-v1/proof.json
+714cb2b95a48d0b734a7de788cacb13dab65bd2c52ebbd0e51e52b6e50c1d5b9.
+All6855 bindings verified after freezing.1774 raw frames retained and30 selected
+wholePPU images reviewed; neither run reaches all five terminal components.
+
+Actual source and original assets
+
+vic_render.s VvGraphics branches on actual MmDeathFlag to PnDeathGraphics.
+parodius_death.s selects separate skin10/group0 records and later PnDeathDraw
+publishes physical CHR892/956/1020 through existing CurrentCHRBank/X5ChrMode
+shadows. Hardware CHR publication belongs to the subsequent NMI owner.
+The13 separate death records occupy bank76 and do not alias any of the131
+live-body keys. Native source frames are Octopus122..126, Twinbee68..70,
+Pentarou236..240, with original animations89/91/90 respectively.
+
+D/parodius-hud-death-records-cpu-v2/proof.json
+27a3adf234c09957ddb432956ad491d3dd2542d4bc446e2c33764766ae69dee2.
+Regenerated all13 records and three1024-byte CHR pages directly from pinned
+C:/NES/Parodius Da! (Japan).nes SHA
+ef1dd05ad5b6095d1d8e9a9f81fcb549b5cf0248779d4e76eb7bd9b139de4c9a.
+Compiled5354 bytes, current packed manifest and installed50b5 bytes all match.
+Source Octopus/Twinbee indexed colors are preserved. Existing Pentarou yellow28
+maps to declared shared-world yellow27; the other four colors remain exact.
+Existing +8 coordinate translation and palette-plane splitting are retained.
+No supplied art was changed or invented.
+
+Actual assembled KillPlayer/VvGraphics/PnDeathGraphics ran through720 death
+updates in six synthetic numeric-mode/variant chronologies.78 full DrawAll
+cases cover all13 records, both facings and three positions; six out-of-range
+frame controls hide ObjectMetasprite as the compiled source specifies.
+The first Octopus CPU path selects76:55405/PnDeathPose122. This is CPU source
+context, not recovery of the unlogged native failing pointer.
+
+An initial CPU-v1 assertion incorrectly expected this foreground draw to write
+hardware5120 immediately. Its failed receipt and exact tool snapshot remain.
+CPU-v2 checks the actual CurrentCHRBank/X5ChrMode83/ReloadCHR publication
+shadows. It makes no NMI/hardware timing claim.
+
+Separate observer proposal
+
+tools/audit/parodius_visibility_hud_static_observer_v2.lua is a NEW observer;
+v1 and all its native failures remain unchanged. The131 live-source table is
+exactly retained and is checked first. All original guard bodies restore to
+the exact original text when removing the new helper and replacing its one
+source-selection call. The original immutable-byte assertion remains intact.
+
+Only the real VvGraphics -> PnDeathGraphics return may authorize one of the13
+qualified death keys. Admission requires matching generation, pointer/bank,
+variant, native frame, skin10, original animation, actual death flag, body
+metasprite233 and correct SmChrBank/CurrentCHRBank/X5ChrMode83 shadows.
+Every death admission records its actual owner. Unknown or mismatched records
+log the actual stamp, PC/banks/SP/depth, OAMADDR/mask, source record256 bytes,
+full source OAM and hardware OAM BEFORE the unchanged alias assertion.
+No generic bank admission, history search, outcome write or runtime callback
+registration was added. Static exec dispatcher remains last.
+
+D/parodius-hud-death-observer-preparation-v1/proof.json
+ac4fcc2b7cb86ba72877800370830eb37e0fcd992cb37a113482b90cd216ac1e.
+The same original death controller is retained; only separate observation,
+qualified metadata and isolated paths change. NumericEasy0/Octopus1/2200.
+Generated script32eab7011c3e901fb94e7856547bfea867f0ba8382d5b4bd95b68030c8606e93.
+
+D/parodius-hud-death-observer-cpu-v1/proof.json
+967bf9d68d0063b037e19ecb134d3cfc5bf6852aee57d95a12d93758f3a63515.
+26 complete compiled death draws cover13 records x2 numeric modes, all131
+original live-record controls pass, and13 negative controls reject old-observer
+death, stale generation, wrong frame/skin/animation/CHR/variant/character/
+metasprite/death flag and a modified immutable record byte. Preassert snapshots
+are checked in the rejected owner cases.73 callbacks register at startup;
+149 inactive mock frames perform zero runtime callback registrations.
+These are isolated CPU/read-only API mocks, not native difficulty coverage or
+actual PPU/DMA/raster/death-restart certification. Generic live guard controls
+explicitly synthesize only the host observation transaction, then execute the
+actual compiled generic renderer; they are not complete gameplay callers.
+
+Separate area-controller diagnosis
+
+D/parodius-hud-area-controller-cpu-v1/proof.json
+89fb282eb564bf94e6f60f3d1e6ea5d397a01257195da66cfef1527a2f8bf6be.
+250 actual compiled motion-suffix contact cases establish the native entry
+window for the original observed912/144 pipe: PlayerX917..922, PlayerY136..151,
+Down held.60 compiled movement/scroll updates show the initial-speed0 Left
+relationship with native autoscroll in an explicitly isolated empty world.
+The native preceding frame1177 is already worldX925/screenX237, outside entry.
+The old controller therefore detects a pipe behind its recoverable approach,
+then retains that stale target. No real pipe/vertical/loaded-area transition
+was logged before its death. trace.csv field mode is engine OperMode, whereas
+actual difficulty is independently guarded/read back as CrossoverBehavior0.
+
+Proposed fixture correction remains unrun: keep near screenX112 while looking,
+discover the pipe ahead, pre-align its height, stall in the genuine native
+entry window while descending with Down, and discard an irrecoverably passed
+target. No replacement controller or area coverage is qualified here. Native
+pending full-label Buffer2 hold/catch-up remains a required missing gate.
+
+No real DMC scenario is invented: current character18 reachability analysis
+and explicit synthetic worst-case timing limits stay separate. Dense tiny HUD
+labels, crowded body visibility and full original-fidelity completion remain
+open. The qualified5354 menu success is preserved as its own bounded packet.

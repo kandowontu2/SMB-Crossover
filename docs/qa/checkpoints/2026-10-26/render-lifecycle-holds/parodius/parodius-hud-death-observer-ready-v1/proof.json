@@ -1,0 +1,74 @@
+{
+  "prepared": true,
+  "source_checks_passed": true,
+  "native_run": false,
+  "native_granted": false,
+  "goal_complete": false,
+  "ROM_sha256": "5354161f339548f2e12b955f5fc1481b9956fe83a63263a04f4b2816edbbdf30",
+  "profiles": [
+    {
+      "kind": "death",
+      "limit": 2200,
+      "actual_mode_required": 0,
+      "actual_variant_required": 1,
+      "packet": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\parodius-hud-death-observer-preparation-v1\\death",
+      "preparation_sha256": "aabbf87c640043663611d0c55923438c8994db81003dae5de8a9a0ad0f4b5607",
+      "script_sha256": "32eab7011c3e901fb94e7856547bfea867f0ba8382d5b4bd95b68030c8606e93"
+    }
+  ],
+  "receipts": {
+    "records_cpu": {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\parodius-hud-death-records-cpu-v2\\proof.json",
+      "sha256": "27a3adf234c09957ddb432956ad491d3dd2542d4bc446e2c33764766ae69dee2"
+    },
+    "observer_cpu": {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\parodius-hud-death-observer-cpu-v1\\proof.json",
+      "sha256": "967bf9d68d0063b037e19ecb134d3cfc5bf6852aee57d95a12d93758f3a63515"
+    },
+    "area_cpu": {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\parodius-hud-area-controller-cpu-v1\\proof.json",
+      "sha256": "89fb282eb564bf94e6f60f3d1e6ea5d397a01257195da66cfef1527a2f8bf6be"
+    }
+  },
+  "original_negative_final_sha256": "714cb2b95a48d0b734a7de788cacb13dab65bd2c52ebbd0e51e52b6e50c1d5b9",
+  "original131live_records_exact": true,
+  "death_records_narrowly_owned": 13,
+  "environment": {
+    "emulator": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mmc3-flag-fix-v23\\script-budget-probe-v2\\emulator\\Mesen.exe",
+    "emulator_sha256": "8b92daa209ee5052845e02a663aeb1afd6194eca55d86e6628c51114c61da0a9",
+    "core": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mmc3-flag-fix-v23\\script-budget-probe-v2\\emulator\\MesenCore.dll",
+    "core_sha256": "4bd40dfc6512328d56d8ad0563263b52be57bac726d8804f0720e461e558cd41",
+    "worker_settings": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mmc3-flag-fix-v23\\script-budget-probe-v2\\emulator\\settings.json",
+    "worker_settings_sha256": "627cd9c71a2011b4cf5fb03a0712d4d77f7890bc269b174d5757776034aab715",
+    "user_settings": "C:\\Mesen2\\settings.json",
+    "user_settings_sha256": "8a439e0a5eeddc2d4776e516aacfc224c03048b9c7d23d9926a463460a7e748a",
+    "effective_worker_conditions": {
+      "Region": "Auto",
+      "DisableSprites": false,
+      "DisableBackground": false,
+      "RemoveSpriteLimit": false,
+      "AdaptiveSpriteLimit": false,
+      "RandomizeMapperPowerOnState": false,
+      "RandomizeCpuPpuAlignment": false,
+      "RamPowerOnState": "Random",
+      "PpuExtraScanlinesBeforeNmi": 0,
+      "PpuExtraScanlinesAfterNmi": 0,
+      "RunAheadFrames": 0
+    },
+    "deterministic_command_overrides": [
+      "--doNotSaveSettings",
+      "--nes.ramPowerOnState=AllZeros",
+      "--nes.randomizeCpuPpuAlignment=false",
+      "--nes.randomizeMapperPowerOnState=false",
+      "--nes.removeSpriteLimit=false"
+    ],
+    "settings_untouched": true,
+    "limits": "Fresh actual user settings copy and effective portable-worker settings bound independently. User current settings differ from historical snapshots; no old bytes or invented diff claimed. No extra scanlines, runahead0, hardware8sprites/adaptiveoff. RAM Random in persisted worker settings is overridden toAllZeros by the original command."
+  },
+  "manifest_bindings": 6913,
+  "manifest_sha256": "ba4c58d1102b78c231cfb0bc5df788a7c7d1a4a055b846d88e62fba6b9e61238",
+  "report_sha256": "67c3521bc2dd6ebb323d505fee365de9936eab63766a578470f21c1b57a87242",
+  "tool_sha256": "78e2465e73e15d0af30c88965f031639dbe73b17cf3127e73334d727c3cc3b74",
+  "stable_command": "python -B tools/audit/parodius_visibility_hud_transition_run_v1.py --ready \"C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/parodius-hud-death-observer-ready-v1\" --profile death --native-grant",
+  "limits": "SOURCE-ONLY readiness for ONE unchanged-controller death2200 observer successor. No grant, retry, native timing/death/new-life success or production/adoption permission. Original death/area failures remain false. Area controller/source window diagnosis is a separate unrun followup, not a second launch profile. Existing hardware/PPU/NMI/IRQ/scroll/font/generation guards remain; original RTI callback denotes entry before RTI."
+}

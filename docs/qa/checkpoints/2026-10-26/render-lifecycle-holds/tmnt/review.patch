@@ -1,0 +1,778 @@
+--- a/smb1base-mmc5-expanded.cfg
++++ b/smb1base-mmc5-expanded.cfg
+@@ -110,7 +110,8 @@
+     X5_NEW_55: start=$c000, size=$2000, type=ro, file=%O, fill=yes, fillval=$ff, bank=$55;
+     X5_NEW_56: start=$a000, size=$2000, type=ro, file=%O, fill=yes, fillval=$ff, bank=$56;
+     X5_NEW_57: start=$a000, size=$1500, type=ro, file=%O, fill=yes, fillval=$ff, bank=$57;
+-    TN_SWEEP_C87_MEM: start=$d500, size=$0b00, type=ro, file=%O, fill=yes, fillval=$ff, bank=$57;
++    TN_SWEEP_C87_MEM: start=$d500, size=$0200, type=ro, file=%O, fill=yes, fillval=$ff, bank=$57;
++    TN_EQUIP_FAST_MEM: start=$b700, size=$0900, type=ro, file=%O, fill=yes, fillval=$ff, bank=$57;
+     X5_NEW_58: start=$c000, size=$2000, type=ro, file=%O, fill=yes, fillval=$ff, bank=$58;
+     X5_NEW_59: start=$a000, size=$2000, type=ro, file=%O, fill=yes, fillval=$ff, bank=$59;
+     X5_NEW_5A: start=$a000, size=$2000, type=ro, file=%O, fill=yes, fillval=$ff, bank=$5a;
+@@ -249,6 +250,7 @@
+ 
+     TMNT_CORE:load=X5_NEW_57,type=ro;
+     TN_SWEEP_C87:load=TN_SWEEP_C87_MEM,type=ro;
++    TN_EQUIP_FAST:load=TN_EQUIP_FAST_MEM,type=ro;
+     TMNT_GFX:load=X5_NEW_58,type=ro;
+     TMNT_COMBAT:load=X5_NEW_59,type=ro;
+     TMNT_CHR:load=TMNT_CHR_MEM,type=ro;
+--- a/src/tmnt.s
++++ b/src/tmnt.s
+@@ -26,6 +26,8 @@
+ .popseg
+ 
+ .include "tmnt_hud_world.s"
++.include "tmnt_equipment_icon_fast.s"
++.include "tmnt_equipment_shuriken_fast.s"
+ 
+ .include "tmnt_probe_gates.s"
+ 
+--- a/src/tmnt_equipment_draw.s
++++ b/src/tmnt_equipment_draw.s
+@@ -19,6 +19,7 @@
+  ; Inactive slots cannot produce source sprites. Retain the old ammo HUD
+  ; path and its final scratch slot even when there is nothing to scan.
+  lda TnGearSelected
++ bne RenderActors
+  ora TnShotKind
+  ora TnShotKind+1
+  ora TnShotKind+2
+@@ -33,7 +34,7 @@
+  ora TnPickupStamp+4
+  ora TnPickupStamp+5
+  bne RenderActors
+- lda #0
++ ; The complete OR result is already zero, including its N/Z flags.
+  sta TnDrawSlot
+  ldx #$ff
+  jmp Ammo
+@@ -59,7 +60,7 @@
+  sta R7
+  lda #0
+  sta R3
+- jsr TnWorldDraw
++ jsr TnExactShurikenRender
+ NextShot:
+ .if ::MAPPER_MMC5
+  jmp ::TnSkipEmptyEquipmentScans
+@@ -152,7 +153,7 @@
+  sta R6
+  lda #1
+  sta R7
+- jsr TnWorldDraw
++ jsr TnExactIconRender
+ Ammo:jsr TnAmmoHud
+ Done:rts
+ .endproc
+--- a/src/tmnt_equipment_icon_fast.s
++++ b/src/tmnt_equipment_icon_fast.s
+@@ -0,0 +1,323 @@
++; Private icon-call entry: the caller retains the exact original
++; fixed coordinates/palette/page setup. Original fallback is literal.
++.pushseg
++.segment "TN_EQUIP_FAST"
++.proc TnExactIconRender
++EmitterStart:
++ ; Only the original icon JSR calls here: X is its immutable right
++ ; table index (Equipment+79), and R4/R5/R6/R7/R3=128/0/23/1/0.
++ lda CurrentOAMOffset
++ cmp #240
++ bcs Legacy
++ cpx #80
++ beq Icon0Gate
++ cpx #81
++ beq Icon1Gate
++ cpx #82
++ beq Icon2Gate
++ cpx #83
++ beq Icon3Gate
++Legacy:
++ jmp TnWorldDraw
++Icon0Gate:
++ jmp Icon0
++Icon1Gate:
++ jmp Icon1
++Icon2Gate:
++ jmp Icon2
++Icon3Gate:
++ jmp Icon3
++Icon0:
++ ldx CurrentOAMOffset
++ lda GuestOamRotationActive
++ beq Draw0
++ txa
++ clc
++ adc RgOamRotation
++ tax
++Draw0:
++ lda #120
++ sta Sprite_X_Position,x
++ lda #7
++ sta Sprite_Y_Position,x
++ lda #3
++ sta Sprite_Attributes,x
++ lda #13
++ sta Sprite_Tilenumber,x
++ inx
++ inx
++ inx
++ inx
++ lda #120
++ sta Sprite_X_Position,x
++ lda #7
++ sta Sprite_Y_Position,x
++ lda #2
++ sta Sprite_Attributes,x
++ lda #15
++ sta Sprite_Tilenumber,x
++ inx
++ inx
++ inx
++ inx
++ lda #128
++ sta Sprite_X_Position,x
++ lda #7
++ sta Sprite_Y_Position,x
++ lda #3
++ sta Sprite_Attributes,x
++ lda #17
++ sta Sprite_Tilenumber,x
++ inx
++ inx
++ inx
++ inx
++ lda #128
++ sta Sprite_X_Position,x
++ lda #7
++ sta Sprite_Y_Position,x
++ lda #2
++ sta Sprite_Attributes,x
++ lda #19
++ sta Sprite_Tilenumber,x
++ inx
++ inx
++ inx
++ inx
++ clv
++ txa
++ ldy GuestOamRotationActive
++ beq Save0
++ sec
++ sbc RgOamRotation
++Save0:
++ sta CurrentOAMOffset
++ ldy #0
++ ora #0
++ sec
++ BankPRGC #.bank(TnWorldArtStart)
++ rts
++Legacy0:
++ jmp TnWorldDraw
++Icon1:
++ ldx CurrentOAMOffset
++ lda GuestOamRotationActive
++ beq Draw1
++ txa
++ clc
++ adc RgOamRotation
++ tax
++Draw1:
++ lda #120
++ sta Sprite_X_Position,x
++ lda #7
++ sta Sprite_Y_Position,x
++ lda #3
++ sta Sprite_Attributes,x
++ lda #21
++ sta Sprite_Tilenumber,x
++ inx
++ inx
++ inx
++ inx
++ lda #120
++ sta Sprite_X_Position,x
++ lda #7
++ sta Sprite_Y_Position,x
++ lda #2
++ sta Sprite_Attributes,x
++ lda #23
++ sta Sprite_Tilenumber,x
++ inx
++ inx
++ inx
++ inx
++ lda #128
++ sta Sprite_X_Position,x
++ lda #7
++ sta Sprite_Y_Position,x
++ lda #3
++ sta Sprite_Attributes,x
++ lda #25
++ sta Sprite_Tilenumber,x
++ inx
++ inx
++ inx
++ inx
++ lda #128
++ sta Sprite_X_Position,x
++ lda #7
++ sta Sprite_Y_Position,x
++ lda #2
++ sta Sprite_Attributes,x
++ lda #27
++ sta Sprite_Tilenumber,x
++ inx
++ inx
++ inx
++ inx
++ clv
++ txa
++ ldy GuestOamRotationActive
++ beq Save1
++ sec
++ sbc RgOamRotation
++Save1:
++ sta CurrentOAMOffset
++ ldy #0
++ ora #0
++ sec
++ BankPRGC #.bank(TnWorldArtStart)
++ rts
++Legacy1:
++ jmp TnWorldDraw
++Icon2:
++ ldx CurrentOAMOffset
++ lda GuestOamRotationActive
++ beq Draw2
++ txa
++ clc
++ adc RgOamRotation
++ tax
++Draw2:
++ lda #120
++ sta Sprite_X_Position,x
++ lda #7
++ sta Sprite_Y_Position,x
++ lda #3
++ sta Sprite_Attributes,x
++ lda #29
++ sta Sprite_Tilenumber,x
++ inx
++ inx
++ inx
++ inx
++ lda #120
++ sta Sprite_X_Position,x
++ lda #7
++ sta Sprite_Y_Position,x
++ lda #2
++ sta Sprite_Attributes,x
++ lda #31
++ sta Sprite_Tilenumber,x
++ inx
++ inx
++ inx
++ inx
++ lda #128
++ sta Sprite_X_Position,x
++ lda #7
++ sta Sprite_Y_Position,x
++ lda #3
++ sta Sprite_Attributes,x
++ lda #33
++ sta Sprite_Tilenumber,x
++ inx
++ inx
++ inx
++ inx
++ lda #128
++ sta Sprite_X_Position,x
++ lda #7
++ sta Sprite_Y_Position,x
++ lda #2
++ sta Sprite_Attributes,x
++ lda #35
++ sta Sprite_Tilenumber,x
++ inx
++ inx
++ inx
++ inx
++ clv
++ txa
++ ldy GuestOamRotationActive
++ beq Save2
++ sec
++ sbc RgOamRotation
++Save2:
++ sta CurrentOAMOffset
++ ldy #0
++ ora #0
++ sec
++ BankPRGC #.bank(TnWorldArtStart)
++ rts
++Legacy2:
++ jmp TnWorldDraw
++Icon3:
++ ldx CurrentOAMOffset
++ lda GuestOamRotationActive
++ beq Draw3
++ txa
++ clc
++ adc RgOamRotation
++ tax
++Draw3:
++ lda #120
++ sta Sprite_X_Position,x
++ lda #7
++ sta Sprite_Y_Position,x
++ lda #3
++ sta Sprite_Attributes,x
++ lda #37
++ sta Sprite_Tilenumber,x
++ inx
++ inx
++ inx
++ inx
++ lda #120
++ sta Sprite_X_Position,x
++ lda #7
++ sta Sprite_Y_Position,x
++ lda #2
++ sta Sprite_Attributes,x
++ lda #39
++ sta Sprite_Tilenumber,x
++ inx
++ inx
++ inx
++ inx
++ lda #128
++ sta Sprite_X_Position,x
++ lda #7
++ sta Sprite_Y_Position,x
++ lda #3
++ sta Sprite_Attributes,x
++ lda #41
++ sta Sprite_Tilenumber,x
++ inx
++ inx
++ inx
++ inx
++ lda #128
++ sta Sprite_X_Position,x
++ lda #7
++ sta Sprite_Y_Position,x
++ lda #2
++ sta Sprite_Attributes,x
++ lda #43
++ sta Sprite_Tilenumber,x
++ inx
++ inx
++ inx
++ inx
++ clv
++ txa
++ ldy GuestOamRotationActive
++ beq Save3
++ sec
++ sbc RgOamRotation
++Save3:
++ sta CurrentOAMOffset
++ ldy #0
++ ora #0
++ sec
++ BankPRGC #.bank(TnWorldArtStart)
++ rts
++Legacy3:
++ jmp TnWorldDraw
++ .res 655-(*-EmitterStart),$ff ; preserve this private helper footprint
++.endproc
++.assert TnExactIconRender=$b700,lderror,"Only declared new A87 tail"
++.assert *<=$c000,lderror,"Keep fixed bank layout"
++.export TnExactIconRender
++.popseg
+--- a/src/tmnt_equipment_shuriken_fast.s
++++ b/src/tmnt_equipment_shuriken_fast.s
+@@ -0,0 +1,381 @@
++; Private source ShotPointer caller sets attr0/page1 and restores C88.
++; Exact original two palette layers; all unknown/edge/capacity paths legacy.
++.pushseg
++.segment "TN_EQUIP_FAST"
++.proc TnExactShurikenRender
++EmitterStart:
++ ; Caller retains X=shot slot; R7=1 and R3=0 are fixed before this JSR.
++ ; EOR preserves original C/V for the earliest legacy page rejection.
++ lda TnShotKind,x
++ eor #2
++ bne Legacy
++ lda R5
++ bne Legacy
++ lda CurrentOAMOffset
++ cmp #248
++ bcs Legacy
++ lda R4
++ cmp #8
++ bcc Legacy
++ lda R6
++ cmp #24
++ bcc Legacy
++ lda R1
++ cmp #$d1
++ beq Right
++ cmp #$d2
++ bne Legacy
++ lda R0
++ cmp #$cb
++ beq Record3Gate
++ cmp #$d4
++ beq Record4Gate
++ cmp #$dd
++ beq Record5Gate
++ jmp Legacy
++Right:
++ lda R0
++ cmp #$66
++ beq Record0Gate
++ cmp #$6f
++ beq Record1Gate
++ cmp #$78
++ beq Record2Gate
++Legacy:
++ jmp TnWorldDraw
++Record0Gate:
++ jmp Record0
++Record1Gate:
++ jmp Record1
++Record2Gate:
++ jmp Record2
++Record3Gate:
++ jmp Record3
++Record4Gate:
++ jmp Record4
++Record5Gate:
++ jmp Record5
++Record0:
++ ldx CurrentOAMOffset
++ lda GuestOamRotationActive
++ beq Draw0
++ txa
++ clc
++ adc RgOamRotation
++ tax
++Draw0:
++ lda R4
++ sec
++ sbc #4
++ sta Sprite_X_Position,x
++ lda R6
++ sec
++ sbc #8
++ sta Sprite_Y_Position,x
++ lda #3
++ sta Sprite_Attributes,x
++ lda #9
++ sta Sprite_Tilenumber,x
++ inx
++ inx
++ inx
++ inx
++ lda R4
++ sec
++ sbc #4
++ sta Sprite_X_Position,x
++ lda R6
++ sec
++ sbc #8
++ sta Sprite_Y_Position,x
++ lda #2
++ sta Sprite_Attributes,x
++ lda #11
++ sta Sprite_Tilenumber,x
++ inx
++ inx
++ inx
++ inx
++ clv
++ txa
++ ldy GuestOamRotationActive
++ beq Save0
++ sec
++ sbc RgOamRotation
++Save0:
++ sta CurrentOAMOffset
++ ldy #0
++ sec
++ BankPRGC #.bank(TnWorldArtStart)
++ rts
++Record1:
++ ldx CurrentOAMOffset
++ lda GuestOamRotationActive
++ beq Draw1
++ txa
++ clc
++ adc RgOamRotation
++ tax
++Draw1:
++ lda R4
++ sec
++ sbc #4
++ sta Sprite_X_Position,x
++ lda R6
++ sec
++ sbc #8
++ sta Sprite_Y_Position,x
++ lda #67
++ sta Sprite_Attributes,x
++ lda #9
++ sta Sprite_Tilenumber,x
++ inx
++ inx
++ inx
++ inx
++ lda R4
++ sec
++ sbc #4
++ sta Sprite_X_Position,x
++ lda R6
++ sec
++ sbc #8
++ sta Sprite_Y_Position,x
++ lda #66
++ sta Sprite_Attributes,x
++ lda #11
++ sta Sprite_Tilenumber,x
++ inx
++ inx
++ inx
++ inx
++ clv
++ txa
++ ldy GuestOamRotationActive
++ beq Save1
++ sec
++ sbc RgOamRotation
++Save1:
++ sta CurrentOAMOffset
++ ldy #0
++ sec
++ BankPRGC #.bank(TnWorldArtStart)
++ rts
++Record2:
++ ldx CurrentOAMOffset
++ lda GuestOamRotationActive
++ beq Draw2
++ txa
++ clc
++ adc RgOamRotation
++ tax
++Draw2:
++ lda R4
++ sec
++ sbc #4
++ sta Sprite_X_Position,x
++ lda R6
++ sec
++ sbc #8
++ sta Sprite_Y_Position,x
++ lda #195
++ sta Sprite_Attributes,x
++ lda #9
++ sta Sprite_Tilenumber,x
++ inx
++ inx
++ inx
++ inx
++ lda R4
++ sec
++ sbc #4
++ sta Sprite_X_Position,x
++ lda R6
++ sec
++ sbc #8
++ sta Sprite_Y_Position,x
++ lda #194
++ sta Sprite_Attributes,x
++ lda #11
++ sta Sprite_Tilenumber,x
++ inx
++ inx
++ inx
++ inx
++ clv
++ txa
++ ldy GuestOamRotationActive
++ beq Save2
++ sec
++ sbc RgOamRotation
++Save2:
++ sta CurrentOAMOffset
++ ldy #0
++ sec
++ BankPRGC #.bank(TnWorldArtStart)
++ rts
++Record3:
++ ldx CurrentOAMOffset
++ lda GuestOamRotationActive
++ beq Draw3
++ txa
++ clc
++ adc RgOamRotation
++ tax
++Draw3:
++ lda R4
++ sec
++ sbc #4
++ sta Sprite_X_Position,x
++ lda R6
++ sec
++ sbc #8
++ sta Sprite_Y_Position,x
++ lda #67
++ sta Sprite_Attributes,x
++ lda #9
++ sta Sprite_Tilenumber,x
++ inx
++ inx
++ inx
++ inx
++ lda R4
++ sec
++ sbc #4
++ sta Sprite_X_Position,x
++ lda R6
++ sec
++ sbc #8
++ sta Sprite_Y_Position,x
++ lda #66
++ sta Sprite_Attributes,x
++ lda #11
++ sta Sprite_Tilenumber,x
++ inx
++ inx
++ inx
++ inx
++ clv
++ txa
++ ldy GuestOamRotationActive
++ beq Save3
++ sec
++ sbc RgOamRotation
++Save3:
++ sta CurrentOAMOffset
++ ldy #0
++ sec
++ BankPRGC #.bank(TnWorldArtStart)
++ rts
++Record4:
++ ldx CurrentOAMOffset
++ lda GuestOamRotationActive
++ beq Draw4
++ txa
++ clc
++ adc RgOamRotation
++ tax
++Draw4:
++ lda R4
++ sec
++ sbc #4
++ sta Sprite_X_Position,x
++ lda R6
++ sec
++ sbc #8
++ sta Sprite_Y_Position,x
++ lda #3
++ sta Sprite_Attributes,x
++ lda #9
++ sta Sprite_Tilenumber,x
++ inx
++ inx
++ inx
++ inx
++ lda R4
++ sec
++ sbc #4
++ sta Sprite_X_Position,x
++ lda R6
++ sec
++ sbc #8
++ sta Sprite_Y_Position,x
++ lda #2
++ sta Sprite_Attributes,x
++ lda #11
++ sta Sprite_Tilenumber,x
++ inx
++ inx
++ inx
++ inx
++ clv
++ txa
++ ldy GuestOamRotationActive
++ beq Save4
++ sec
++ sbc RgOamRotation
++Save4:
++ sta CurrentOAMOffset
++ ldy #0
++ sec
++ BankPRGC #.bank(TnWorldArtStart)
++ rts
++Record5:
++ ldx CurrentOAMOffset
++ lda GuestOamRotationActive
++ beq Draw5
++ txa
++ clc
++ adc RgOamRotation
++ tax
++Draw5:
++ lda R4
++ sec
++ sbc #4
++ sta Sprite_X_Position,x
++ lda R6
++ sec
++ sbc #8
++ sta Sprite_Y_Position,x
++ lda #131
++ sta Sprite_Attributes,x
++ lda #9
++ sta Sprite_Tilenumber,x
++ inx
++ inx
++ inx
++ inx
++ lda R4
++ sec
++ sbc #4
++ sta Sprite_X_Position,x
++ lda R6
++ sec
++ sbc #8
++ sta Sprite_Y_Position,x
++ lda #130
++ sta Sprite_Attributes,x
++ lda #11
++ sta Sprite_Tilenumber,x
++ inx
++ inx
++ inx
++ inx
++ clv
++ txa
++ ldy GuestOamRotationActive
++ beq Save5
++ sec
++ sbc RgOamRotation
++Save5:
++ sta CurrentOAMOffset
++ ldy #0
++ sec
++ BankPRGC #.bank(TnWorldArtStart)
++ rts
++ .res 766-(*-EmitterStart),$ff ; preserve this private helper footprint
++.endproc
++.assert TnExactShurikenRender=$b98f,lderror,"Append only verified A87 tail"
++.assert *<=$c000,lderror,"Keep fixed layout"
++.export TnExactShurikenRender
++.popseg
