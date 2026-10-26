@@ -1,0 +1,50 @@
+Parodius HUD menu lifecycle native hold, 2026-10-25
+
+ONE authorized menu1800 attempt on frozen df5154bc035ba2c392bb8d34068897a2bccf7a78a6f4554bd6790d31a586c357 stopped on its first Lua assertion. Passed=false.
+Native worker explicitly released; no retry or other profile was launched.
+Production/Git/Downloads/settings were not changed.
+
+Exact readiness d3fb136764d197281fb2d3638ef4a27ede5f6dd268ab91a93a006083ff5211b6,
+script b9c581c53b03dd2e9c94f34c8be7200e83ae5d10cd5878eb02cfc1a69b0bec84,
+runner1a0fa59eb173af9178a831f1c52d53a4b5d17996d852493d8694b22cc836b49f.
+All frozen source/runtime dependencies remained exact. The worker627cd settings
+and separately bound user8a439 context were retained without modification.
+
+Original run: external parodius-hud-df515-lifecycle-preparation-v2/menu/baseline-early.
+Additive outcome: external parodius-hud-df515-menu-negative-v1.
+Both directories are under C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py.
+
+Observed failure
+
+The assertion is Visible init has complete exact hardware source. It is from
+the new inactive startFrame observer, before it logs that start's snapshot.
+This is a Lua assertion/exit1, not a terminal native host access violation.
+The last completed captured PPU frame is277. All128 lossless ARGB frames150..277,
+source/body/bus/generation/controller logs and failed runner receipts remain.
+All five required terminal component results are absent; there is no active
+play, all-four-variant/cancel/re-entry, death, area or body-candidate verdict.
+
+Actual source chronology retained in oam-bus.jsonl:
+pub1 init-blank, generation0, actual PPU277:29:179, CPU8222779, complete256 bytes.
+pub2 init-portrait, generation0, actual PPU277:56:143, CPU8225836, complete256 bytes,
+original7-part PnRecordV1N0.
+DMA1 source init-portrait/gen0: actual PPU278:257:322, CPU8248743, physical bank127,
+callbackPC E005, OAMADDR0, PPUMASK30, NMIdepth1.
+Seven actual UpdateScreen entries occur in NMI278 before this DMA. Their
+recorded masks are6. The normal original software later enables mask30.
+No post-LDX completed-DMA event was emitted before the assertion stopped.
+
+The failed-start callback has not saved its actual PPU stamp, hardware256
+snapshot, first differing byte, completion endpoint, first portrait raster row
+or full frame278. This evidence gap is explicit. A late source DMA and an
+unsatisfied start predicate alone do not prove visible portrait corruption or
+clear the ROM. No comparison is relaxed and no completed old image is relabeled
+as current. The original live-engine8 guards remain byte-exact.
+
+The additive outcome binds every immutable run file and the four preceding
+completed full frames274..277. These frames are only presentation aids for
+the pre-failure selection context; they cannot show the missing failed epoch.
+Any diagnostic observer extension, rerun or source repair requires separate
+review/grant. Prior native/source receipts stay unchanged and failure remains
+passed=false. The broader HUD lifecycle, heavy/DMC, readability and crowded
+body visibility requirements remain open.

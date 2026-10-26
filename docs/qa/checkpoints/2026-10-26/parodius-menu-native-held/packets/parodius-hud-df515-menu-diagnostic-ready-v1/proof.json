@@ -1,0 +1,67 @@
+{
+  "prepared": true,
+  "source_checks_passed": true,
+  "native_run": false,
+  "native_granted": false,
+  "goal_complete": false,
+  "ROM_sha256": "df5154bc035ba2c392bb8d34068897a2bccf7a78a6f4554bd6790d31a586c357",
+  "profiles": [
+    {
+      "kind": "menu",
+      "limit": 1800,
+      "packet": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\parodius-hud-df515-menu-diagnostic-preparation-v1\\menu",
+      "preparation_sha256": "a09688774d041a1165b2256afa2d73951a9990c2379963e32c261348548ba282",
+      "script_sha256": "3b2f90a592c7a04608c793a278a4ee4260bcdbe78140e2e1f4ae9871bc9a1f27"
+    }
+  ],
+  "preparation_sha256": "44bfd14e4751106208dfa9bbaa8bacf11025e47c43248dc4f32bd234b721f1d1",
+  "source_cpu_sha256": "cb785956ec40afa93e734b3d8662bdcf6666d036afe49a260b43fb7f44b0ea2e",
+  "environment": {
+    "emulator": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mmc3-flag-fix-v23\\script-budget-probe-v2\\emulator\\Mesen.exe",
+    "emulator_sha256": "8b92daa209ee5052845e02a663aeb1afd6194eca55d86e6628c51114c61da0a9",
+    "core": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mmc3-flag-fix-v23\\script-budget-probe-v2\\emulator\\MesenCore.dll",
+    "core_sha256": "4bd40dfc6512328d56d8ad0563263b52be57bac726d8804f0720e461e558cd41",
+    "worker_settings": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mmc3-flag-fix-v23\\script-budget-probe-v2\\emulator\\settings.json",
+    "worker_settings_sha256": "627cd9c71a2011b4cf5fb03a0712d4d77f7890bc269b174d5757776034aab715",
+    "user_settings": "C:\\Mesen2\\settings.json",
+    "user_settings_sha256": "8a439e0a5eeddc2d4776e516aacfc224c03048b9c7d23d9926a463460a7e748a",
+    "effective_worker_conditions": {
+      "Region": "Auto",
+      "DisableSprites": false,
+      "DisableBackground": false,
+      "RemoveSpriteLimit": false,
+      "AdaptiveSpriteLimit": false,
+      "RandomizeMapperPowerOnState": false,
+      "RandomizeCpuPpuAlignment": false,
+      "RamPowerOnState": "Random",
+      "PpuExtraScanlinesBeforeNmi": 0,
+      "PpuExtraScanlinesAfterNmi": 0,
+      "RunAheadFrames": 0
+    },
+    "deterministic_command_overrides": [
+      "--doNotSaveSettings",
+      "--nes.ramPowerOnState=AllZeros",
+      "--nes.randomizeCpuPpuAlignment=false",
+      "--nes.randomizeMapperPowerOnState=false",
+      "--nes.removeSpriteLimit=false"
+    ],
+    "settings_untouched": true,
+    "limits": "Fresh actual user settings copy and effective portable-worker settings bound independently. User current settings differ from historical snapshots; no old bytes or invented diff claimed. No extra scanlines, runahead0, hardware8sprites/adaptiveoff. RAM Random in persisted worker settings is overridden toAllZeros by the original command."
+  },
+  "source_equivalence": {
+    "ROM_exact": true,
+    "old_script_sha256": "b9c581c53b03dd2e9c94f34c8be7200e83ae5d10cd5878eb02cfc1a69b0bec84",
+    "new_script_sha256": "3b2f90a592c7a04608c793a278a4ee4260bcdbe78140e2e1f4ae9871bc9a1f27",
+    "only_new_bridge_and_isolated_paths": true,
+    "controller_harness_policy_stream_exact_after_path_normalization": true,
+    "configuration_except_output_exact": true,
+    "original128_ARGB_retained": true,
+    "original_negative_sha256": "3295e15654f6d07b8d414862cb2c3d553349dceaf05fc085fb95def64cd2a44a",
+    "new_native_run": false
+  },
+  "manifest_count": 907,
+  "manifest_sha256": "65afca9a5ded066fbf2247924eaaf5710b80fdba206a7194bc47349591c20301",
+  "report_sha256": "97bd70d45ab4e09270313599aed5f436db01927785099a022cac530d8e8887f6",
+  "tool_sha256": "663fba20ad5759596fdd8d0c31dee58b953c4da2494bdeeac4b89b674ecaac0d",
+  "scope": "ONE unrun same-menu diagnostic observer successor. ROM/controller/harness/policy/body/config exact after isolated paths; only new bridge adds pre-assertion hardware/source/current256 snapshots and actual parser-loop pointers. Original live guard and exact init assertion retained. Fresh/old generations/visible epochs unchanged. Must stop first failure; no retry/death/area/body/adoption. No native grant or launch implied."
+}

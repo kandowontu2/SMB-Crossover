@@ -1,0 +1,53 @@
+{
+  "passed": false,
+  "native_run": true,
+  "native_worker_released": true,
+  "launches": 1,
+  "retries": 0,
+  "ROM_sha256": "df5154bc035ba2c392bb8d34068897a2bccf7a78a6f4554bd6790d31a586c357",
+  "readiness_sha256": "ff3643f5522c228d9fd1effac7c95b12c24f3295ff206edfd002281ca9f03c00",
+  "script_sha256": "3b2f90a592c7a04608c793a278a4ee4260bcdbe78140e2e1f4ae9871bc9a1f27",
+  "original_failed_component_receipt_sha256": "62930d4c9c55f93cbac1b0b575bd0f1266be8cedc85285469238dcc0a57becc5",
+  "first_actual_start_snapshot_sha256": "62dca98340c9e834aa233d0371b0de9d8232a9133fe51f34ca51d3685793b3f0",
+  "actual_failure_PPU": {
+    "scanline": -1,
+    "frame": 278,
+    "cpu": 8249090,
+    "cycle": 0
+  },
+  "actual_DMA_start": {
+    "scanline": 257,
+    "frame": 278,
+    "cpu": 8248743,
+    "cycle": 322
+  },
+  "actual_DMA_bytes_written": 173,
+  "actual_OAMADDR": 173,
+  "mask": 30,
+  "hardware_source_current256_exact": true,
+  "late_real_DMA": true,
+  "completion_accounting_false_positive": false,
+  "visible_pixel_corruption_proven": false,
+  "actual_terminal_components": 0,
+  "required_terminal_components": 5,
+  "prefix_equivalence": {
+    "passed": true,
+    "comparison_only": true,
+    "raw_ARGB_exact": 128,
+    "actual_frames": [
+      150,
+      277
+    ],
+    "inputs_trace_bodywrite_motion_exact": true,
+    "all_original_bus_rows_exact": true,
+    "new_readonly_rows": 8,
+    "previous_failure_retained": true,
+    "no_outcome_retagging": true
+  },
+  "actual_packet_sha256": "da87687177c70c0a6039c01ee70195ce2e6e4e0adad0cace1ab6c7c129b7f37f",
+  "manifest_bindings": 309,
+  "manifest_sha256": "78914cc6718731b922eec1e1d99ab8bec9d475d286b41e5d9c3721efa7a0c66a",
+  "report_sha256": "86a962b10d83c528425101437b97ea9d87d41a7804e6070d5686af03e336f517",
+  "tool_sha256": "a66baf8b546628ff48ce062332e63eaa88e73b6ec6c18403f5ae55085213fdd3",
+  "limits": "ONE authorized diagnostic stops at unchanged predicate. Actual173 writes/pending DMA prove incomplete transfer at pre-render start; byte identity is already exact and later transfer/portrait pixels remain unobserved. No visible corruption or game clearance. Source-only narrower queue optimization may follow; no native retries/death/area/body/adoption."
+}

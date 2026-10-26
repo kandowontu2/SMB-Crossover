@@ -1,0 +1,61 @@
+Parodius HUD menu diagnostic native outcome, 2026-10-25
+
+ONE explicitly authorized diagnostic launch on exactdf515 stopped on the same
+unchanged Visible init has complete exact hardware source assertion. Passed=false.
+Worker explicitly RELEASED. No retry/death/area/body/settings/adoption changes.
+No five terminal component receipts were produced. No active lifecycle verdict.
+
+Readiness ff3643f5522c228d9fd1effac7c95b12c24f3295ff206edfd002281ca9f03c00.
+Script3b2f90a592c7a04608c793a278a4ee4260bcdbe78140e2e1f4ae9871bc9a1f27.
+Run: parodius-hud-df515-menu-diagnostic-preparation-v1/menu/baseline-early.
+Outcome: parodius-hud-df515-menu-diagnostic-outcome-v1.
+All external paths under C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py.
+
+Actual first-failure evidence
+
+first-init-start-mismatch.json records actual PPU278:-1:0, CPU8249090,
+PC E005/SP244, physical PCbank127/Abank0/Cbank116, NMIdepth1/IRQdepth0,
+PPUMASK30 with sprites and background enabled, software/hardware OAMADDR173.
+DMA1 started278:257:322/CPU8248743 with OAMADDR0. At start there have actually
+been173 of256 observed2004 writes; its last write is278:260:340/CPU8249090.
+DMA remains pending and the post-LDX completion has not occurred.
+
+All256 hardware bytes ALREADY equal the exact completed portrait publication
+and current source RAM. The differences table is empty. Therefore this is
+genuinely unfinished DMA at pre-render start, not a source-byte mismatch or a
+missed observer callback after a completed transfer.83 writes remain, but the
+assertion stops immediately; their endpoint and actual next portrait pixels
+are not observed. No visible corruption or ROM clearance is claimed. Neither
+the original failed attempt nor this diagnostic is relabeled as passing.
+
+Prefix equality is exact:128 actual full ARGB frames150..277, inputs/trace,
+body writes/motion and every original parsed bus row equal the old failed run.
+Only seven new parser rows and the new preassertion snapshot row are added.
+The original live engine8 guards, first failure and old source/generation
+labels remain unchanged. No current visible image was erased or promoted.
+
+Actual Buffer1 packet attribution
+
+There is ONE native JSR UpdateScreen, six commands, then terminator. All seven
+public-label entries share SP242/return C002; ctrl0, offset62, C116, NMI1.
+Pointer1199:3F10, length1, payload0F, observed122CPU to next entry.
+Pointer1203:3F11, length3, payload15/08/21, observed154CPU.
+Pointer1209:2328, length16, padded OCTOPUS name, observed311CPU.
+Pointer1228:2346, length20, SELECT  CHANGE HERO help, observed375CPU.
+Pointer1251:21F5, length1, cursorFD, observed122CPU.
+Pointer1255:3F11, length3, same15/08/21 palette, observed154CPU.
+Pointer1261:terminator0. Encoded packet62B,44 data writes,1238CPU from parser
+entry through terminator entry;548CPU from there to actual DMA start.
+These native CPU spans include their original parser work and real execution;
+they are not a standalone instruction-cost oracle or worst-DMC certificate.
+
+QueueSelection source owns GetPlayerColors, QueueSelectName, QueueVariantHint,
+QueueCursor and DrawSelectionPreview. The latter's DrawPlayer_Intermediate
+eventually owns PnPortrait/PnQueuePalette. Thus the two3F11 palette commands
+are actually equal in this packet. A narrow source-only optimization may
+avoid already-valid identical help during a same-family variant change or
+coalesce a proven same-owner duplicate palette. Initial menu construction,
+different heroes/hints, name/cursor updates, native publication and final
+displayed palette must remain correct. No source patch or timing improvement
+is claimed by this failure packet; any private repair needs fresh assembled
+equivalence/budget and separately authorized native same-input qualification.
