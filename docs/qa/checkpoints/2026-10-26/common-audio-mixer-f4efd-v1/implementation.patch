@@ -1,0 +1,62 @@
+--- a/src/guest_audio.s
++++ b/src/guest_audio.s
+@@ -100,8 +100,13 @@
+ .include "build/generated/guest-audio/shared-sfx.inc"
+ .proc GuestAudioBegin
+   lda SelectedCharacter
++ .if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
++  cmp #CHARACTER_PIT
++  bcs :+
++ .else
+   cmp #CHARACTER_BASS
+   beq :+
++ .endif
+     jsr BassAudioBegin
+   :
+   lda SelectedCharacter
+--- a/src/mmc5_sfx.s
++++ b/src/mmc5_sfx.s
+@@ -59,10 +59,24 @@
+  .repeat 8, I
+  .scope
+  .if I <> 1 && I <> 5             ; $5001/$5005 are unimplemented.
++ .if ::ENABLE_MMC5_EXPANDED
++ .if I = 0
++  lda #1
++  and GuestMixMask
++  beq ::X5ExpansionOutputChannel2
++ .elseif I = 4
++::X5ExpansionOutputChannel2:
++  lda #2
++  and GuestMixMask
++  beq ::X5ExpansionOutputDone
++ .endif
++  lda GuestExpansionApu+I
++ .else
+   lda #(1 << (I / 4))
+   and GuestMixMask
+   beq Next
+   lda GuestExpansionApu+I
++ .endif
+   cmp GuestExpansionLast+I
+   bne Write
+   lda #(1 << (I / 4))
+@@ -78,11 +92,18 @@
+  .endif
+  .endscope
+  .endrepeat
++ .if ::ENABLE_MMC5_EXPANDED
++::X5ExpansionOutputDone:
++ .endif
+   ; Match the old exhausted loop's A/X/Y and all flags, including carry.
+   ldx #8
+   ldy #1
+   cpx #8
+   rts
++  ; Unreachable capacity retains every following real function entry.
++ .if ::ENABLE_MMC5_EXPANDED
++  .res 371-(*-::GuestExpansionFlush),$ea
++ .endif
+ .endproc
+ 
+ .proc GuestExpansionSweepClock

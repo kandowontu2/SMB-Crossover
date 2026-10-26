@@ -1,0 +1,24 @@
+{
+  "exact_patch_and_source": [
+    "implementation.patch",
+    "source-overlay/src/guest_audio.s",
+    "source-overlay/src/mmc5_sfx.s"
+  ],
+  "source_contract": [
+    "reports/source.txt",
+    "source-receipts/proof.json",
+    "source-receipts/layout.json"
+  ],
+  "actual_native": [
+    "reports/native.txt",
+    "native-receipts/native-receipt.json",
+    "native-receipts/paired-review.json"
+  ],
+  "visual": [
+    "images/paired-selected-wholeframes.png"
+  ],
+  "immutable_failures": [
+    "negative-drafts/first-assembly.json",
+    "negative-drafts/unguarded-ordinary-scope.json"
+  ]
+}

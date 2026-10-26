@@ -1,0 +1,128 @@
+{
+  "passed": true,
+  "source_only": true,
+  "native_run": false,
+  "native_granted": false,
+  "adopted": false,
+  "parent_ROM_sha256": "3b112e1d79ba7348f2f7a4c426f4675845a5781017ab74690feb235121a66287",
+  "ROM_sha256": "f4efd9ccb222501877dfc77c5189841aa9dc500756736f15aaf02a6994ae8c0f",
+  "complete_source_files": 869,
+  "changed_source_files": [
+    {
+      "path": "src/guest_audio.s",
+      "before": "c916cc7a9836aa8b7d0e94849acc16ab51bcce0da39a8cffabe76ac0de34eb91",
+      "after": "ba9de03e10675a5744f2a23063a5aebe7cc0212aed9ba31a98b2e883f3a15262",
+      "old_CRLF": 412,
+      "new_CRLF": 417,
+      "old_bareLF": 0,
+      "new_bareLF": 0
+    },
+    {
+      "path": "src/mmc5_sfx.s",
+      "before": "cb815214d58003865a7e14033e121fc07d6c40ee6e12ab4bc5ee1778959d6d15",
+      "after": "5823530ad774b2a98d0701d0de28a34be99bdf526614a13859acbcc59b924a09",
+      "old_CRLF": 0,
+      "new_CRLF": 0,
+      "old_bareLF": 170,
+      "new_bareLF": 191
+    }
+  ],
+  "changed_banks": [
+    {
+      "bank": 29,
+      "bytes": 186
+    }
+  ],
+  "all_other_banks_header_CHR_exact": true,
+  "all_public_entries_spans_preserved": true,
+  "genuine_private_moves": [
+    {
+      "name": "GuestExpansionFlush::$anon-SCOPE-0117::Write",
+      "before": "0xAC18",
+      "after": "0xABFC"
+    },
+    {
+      "name": "GuestExpansionFlush::$anon-SCOPE-0117::Next",
+      "before": "0xAC21",
+      "after": "0xAC05"
+    },
+    {
+      "name": "GuestExpansionFlush::$anon-SCOPE-0116::Write",
+      "before": "0xABF4",
+      "after": "0xABDF"
+    },
+    {
+      "name": "GuestExpansionFlush::$anon-SCOPE-0116::Next",
+      "before": "0xABFD",
+      "after": "0xABE8"
+    },
+    {
+      "name": "GuestExpansionFlush::$anon-SCOPE-0114::Write",
+      "before": "0xABD0",
+      "after": "0xABC2"
+    },
+    {
+      "name": "GuestExpansionFlush::$anon-SCOPE-0114::Next",
+      "before": "0xABD9",
+      "after": "0xABCB"
+    },
+    {
+      "name": "GuestExpansionFlush::$anon-SCOPE-0113::Write",
+      "before": "0xABAC",
+      "after": "0xAB9E"
+    },
+    {
+      "name": "GuestExpansionFlush::$anon-SCOPE-0113::Next",
+      "before": "0xABB5",
+      "after": "0xABA7"
+    },
+    {
+      "name": "GuestExpansionFlush::$anon-SCOPE-0112::Write",
+      "before": "0xAB88",
+      "after": "0xAB81"
+    },
+    {
+      "name": "GuestExpansionFlush::$anon-SCOPE-0112::Next",
+      "before": "0xAB91",
+      "after": "0xAB8A"
+    }
+  ],
+  "qualification_same_literal_ROM_across_unguarded_and_guarded_sources": true,
+  "guarded_source_fresh_canonical_and_both_ordinary_exact": true,
+  "source_manifest_sha256": "b3a3678f1c7586afa739a74c47487ab97c0e65d7b346fe3e008de3330bdf50b6",
+  "receipts": [
+    {
+      "path": "C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/common-audio-mixer-current3b-v2/controls-v1/proof.json",
+      "sha256": "23860a18f1ce70a4c27d1ccda61713204861bd9d8754e6c6c02513e26fb0a2b6"
+    },
+    {
+      "path": "C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/common-audio-mixer-current3b-v2/roster-v1/proof.json",
+      "sha256": "ffe2decec99c6d9266e6f496e362531b0473de241b27cf48493a3b6ecec57c3e"
+    },
+    {
+      "path": "C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/common-audio-mixer-current3b-v2/irq-v1/proof.json",
+      "sha256": "3966b206d27230496ef7581680e3f6ba4f67a568a09cc203d2e1a076dd102868"
+    },
+    {
+      "path": "C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/common-audio-mixer-current3b-v2/whole-v1/proof.json",
+      "sha256": "c2a4d84e7d55a7f802217ee84c1f737a5953688e5ee578aa1ee8abe1364b879a"
+    },
+    {
+      "path": "C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/common-audio-mixer-current3b-v3/build-controls-v1/proof.json",
+      "sha256": "1acfa9cd5ae4c075003b4bffd00057f3c3543c98301424e70e379ee7f91c5e76"
+    },
+    {
+      "path": "C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/common-audio-mixer-current3b-v3/layout.json",
+      "sha256": "c86f584dc060b40226d50f5b174c66f8ac0c175e7d7dad70d1b58463ba9d14cd"
+    }
+  ],
+  "counts": {
+    "caller_cases": 7344,
+    "ordinary_full_AudioUpdate": 9472,
+    "identities": 37,
+    "actual_IRQ": 1072,
+    "matched_whole_calls": 768
+  },
+  "ordinary_source_scope_failure": "C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/common-audio-mixer-current3b-v2/ordinary-scope-v1/scope.json",
+  "limits": "CPU/source ready only, no native timing/PPU/APU waveform/campaign acceptance. Independent current3b two-file patch, no held SMB3 core/cache/data/clones imported."
+}

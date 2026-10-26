@@ -1,0 +1,37 @@
+{
+  "passed": true,
+  "source_only": true,
+  "native_run": false,
+  "parent_ROM_sha256": "3b112e1d79ba7348f2f7a4c426f4675845a5781017ab74690feb235121a66287",
+  "ROM_sha256": "f4efd9ccb222501877dfc77c5189841aa9dc500756736f15aaf02a6994ae8c0f",
+  "cases": {
+    "mask_changed_dirty_image": 3072,
+    "physical_flags": 3072,
+    "cleanup_owners_coldwarm": 1200
+  },
+  "expansion_cycle_delta": {
+    "min": -35,
+    "max": -31,
+    "mean": -33.458333333333336
+  },
+  "begin_cycle_delta": {
+    "min": -55,
+    "max": 0
+  },
+  "all_flush_RAM_images_sweep_dirty_ordered_hardware_bus_AXYP_SP_exact": true,
+  "actual_duplicate_cleanup_only_removed": true,
+  "intermediate_compiled_PC_path_literal": true,
+  "intermediate_private_read_value_differences": [
+    {
+      "PC": 49095,
+      "bank": 29,
+      "address": 31755,
+      "old_value": 0,
+      "new_value": 1,
+      "cases": 78
+    }
+  ],
+  "unmodified_original_sweep_prefix_and_both_sweep_helpers_literal": true,
+  "checker_sha256": "103400d6ef269559779d1314dc6005847510978ae7021b46f655708612bf03eb",
+  "limits": "Finite arranged assembled caller states and modeled DMC status, not physical PPU/APU/IRQ timing. Intermediate PC path is literal; changed private reads are enumerated rather than masked. Actual complete IRQ continuation and full-roster wholeAudio remain separate."
+}

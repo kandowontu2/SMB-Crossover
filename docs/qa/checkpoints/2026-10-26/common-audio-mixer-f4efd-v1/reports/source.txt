@@ -1,0 +1,96 @@
+Common audio mixer performance, source-only private proposal, 2026-10-26
+
+Production/default remains3b112e1d79ba7348f2f7a4c426f4675845a5781017ab74690feb235121a66287.
+Independent candidate=f4efd9ccb222501877dfc77c5189841aa9dc500756736f15aaf02a6994ae8c0f.
+Guarded source packet:
+C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/common-audio-mixer-current3b-v3
+No new character, music import, native run, settings/install or lag-free claim.
+
+Only src/guest_audio.s and src/mmc5_sfx.s change. They preserve original raw
+CRLF and LF respectively. The active expansion changes186ROMbytes, solely
+bank29. Header/all CHR/all other banks are literal3b. No RAM is allocated.
+Every original symbol remains; ten real private Write/Next labels move inside
+GuestExpansionFlush. All public entries and function extents stay fixed.
+The original eight macro scopes are retained.28unreachable NOP bytes after
+the real RTS preserve following GuestExpansionSweepClock/Bass entrypoints.
+No private-label fake alias is introduced.
+
+Change1: GuestExpansionFlush checks each pulse channel's ownership once,
+then processes its original three implemented registers in ascending order.
+The original eight descending image copies, $5015 write, every sweep clock,
+target calculation, register comparison, dirty/retrigger and ascending
+$5000/$5002/$5003/$5004/$5006/$5007 hardware store remain unchanged.
+The original exact A/X/Y/P/SP return is retained. The initial structural
+projection was32..36CPU; actual assembled layout saves31..35CPU/call due
+to branch page placement. No projection is presented as the measurement.
+
+Change2: GuestAudioBegin skips its preliminary Bass-only cleanup for the
+added-character path, which already performs the same genuine cleanup after
+capturing world queues. Bass still enters its original request/filter path
+once. IDs0..5 preserve the earlier cleanup; Mario/Luigi vanilla dispatch is
+unchanged. Removed stores are exactly the actual first cleanup's duplicate
+zeros. Later real cleanup/owner/reset/queue routing still executes.
+
+Intermediate liveness is explicit:78cold owner1 cases read BassDmcActive=1
+at bank29:BFC7 rather than the old precleared0. The next CMP#3 takes the same
+classification and the COMPLETE intermediate PC path is literal, as are all
+final RAM/images/registers/hardware events. No value/read is masked. The
+remaining five removed-clear fields are not consumed before their genuine
+late cleanup or already-dominating cold reset. Actual resident IRQ code reads
+none of these transient values; complete interrupted continuations are tested.
+
+Finite exact-f4efd CPU results (initial unguarded-source packet v2):
+-6144expansion calls cover all16owner masks/all16change masks, six dirty
+ patterns, held/changed images, all64physical flags and period boundaries.
+-1200Begin calls cover all20slots, warm/cold owner, all owner values0..4,
+ three stale-state/queue patterns and I0/I1 physical flag representatives.
+ Final RAM/images/sweep/dirty/AXYP/SP/banks and ordered expansion hardware
+ stores match. Only actual old first-cleanup spans are removed from the
+ Begin ordered-write comparison; no address-wide filtering is used.
+-9472whole ordinaryAudioUpdate calls across all37identities/74direct CPU
+ modes retain all original queue/pause/ended controls. Complete nonstack
+ flat state, AXY/P/SP and ordered original+expansion APU/mapper stores match.
+ No call is slower. Mario/Luigi0; low native families/Bass/Roll0..-35;
+ added nonBass paths improve50..90CPU depending state/pause/output.
+-1072actual resident IRQ/RTI boundary cases across11legal contexts preserve
+ full continuation RAM/OAM/private images/AXYP/SP/banks/shadows and ordered
+ main bus. IRQ itself emits the same five PPU stores and adds120CPU. Active
+ original CV3 owner3 starts in actual E125; ordinary owner0/1 starts E127.
+-768paired opening calls use the existing actual recorded world queues,
+ arranged CPU inputI1. Complete RAM including private images, whole AXYP/SP,
+ hardware/banks and literal whole nonstack bus match after only the real
+ duplicate first-cleanup spans are omitted. Mean saving89.077CPU/update,
+ steady range86..90; cold90. This is not full native entry-RAM reproduction.
+
+These CPU receipts bind the SAME literal f4efd ROM. Guarded v3 subsequently
+reproduces f4efd exactly; no different-ROM result is relabeled. Guarding was
+required: unguarded v2 altered ordinary MMC3 to e4f84736b24dc1534893bc69a1e1905b6a5ba3523e22de0c7db9bfeaff185443.
+That scope failure is retained. Expanded-only guards preserve f4efd while
+fresh canonical and ordinary builds reproduce d444cac88e13fa02b29ad16100b8f08fa565ba90f8cedde192de43fb2dc8f3eb
+and f4ffd2483c51daa4d60bb575da2da8c4d817692cda407611c243031f67520833.
+The first preparation draft failed assembly on an unqualified proc-span
+expression; explicit ::GuestExpansionFlush fixed only that source expression.
+The failed command/source and later exact guarded builds remain separate.
+
+Existing-roster music experiment stays separate:
+The same bank29 edit on private64ccd yields2b4e0e2237fd3fefa027df1bb2bc50f06d2e48c6d4c9cf2247e5fb6869ee49fb.
+Its own7344caller cases,9472ordinary all37calls,768paired original-source
+calls and1178actualIRQ boundaries pass. Practical steady saving86.065CPU
+versus64ccd; original source RAM/APU/maps/register oracle remains active.
+Together with the earlier225.327 reader saving this is311.392CPU, partial
+only. Earlier7469's genuine98draw regression remains HELD. No cache is used.
+No held SMB3 source or stale E clone is needed for independent f4efd.
+
+Measured follow-up cost attribution, not an extra optimization:
+on64ccd bank29 totals1332.544CPU/update: native flush432.480; expansion
+flush216.872; sweep-clock exclusive36.173; sweep-target181.918; shared
+SFX154.215; Begin69; Finish135.909; duplicated Bass cleanup93.977; mask12.
+All885observed sweep-target calls use enabled nonzero shifts3/4/6/7, and
+590clock calls change the real period149times. Skipping these calculations
+is unsupported.32dirty-byte clears alone cost128CPU in native flush. This
+small proposal removes measured redundant admission/cleanup work only.
+
+Remaining: one exact natural MegaEasy450 same-input native control against
+the existing actual3b reference is PREPARATION ONLY until ROOT's fresh grant.
+Current source results do not certify PPU/DMA/render-enable deadlines,
+native SFX waveforms, frame cadence, whole campaign or every powerup.

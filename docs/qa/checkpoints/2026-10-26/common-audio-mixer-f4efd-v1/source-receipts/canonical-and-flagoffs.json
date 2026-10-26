@@ -1,0 +1,59 @@
+{
+  "passed": true,
+  "source_only": true,
+  "native_run": false,
+  "ROM_sha256": "f4efd9ccb222501877dfc77c5189841aa9dc500756736f15aaf02a6994ae8c0f",
+  "fresh_canonical_exact": true,
+  "expanded_guarded_ROM_exact_to_prior_qualified_same_hash": true,
+  "ordinary_flagoffs": {
+    "mmc3": "d444cac88e13fa02b29ad16100b8f08fa565ba90f8cedde192de43fb2dc8f3eb",
+    "mmc5": "f4ffd2483c51daa4d60bb575da2da8c4d817692cda407611c243031f67520833"
+  },
+  "commands": [
+    {
+      "command": [
+        "C:\\Users\\kando\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\build_mmc5_expanded.py",
+        "--source-overlay",
+        "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\common-audio-mixer-current3b-v3\\source",
+        "--output",
+        "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\common-audio-mixer-current3b-v3\\build-controls-v1\\canonical.nes"
+      ],
+      "returncode": 0,
+      "stdout": "{\"output\": \"C:\\\\Users\\\\kando\\\\Videos\\\\SMB Crossover Archive\\\\2026-10-24-native-rest-py\\\\common-audio-mixer-current3b-v3\\\\build-controls-v1\\\\canonical.nes\", \"sha256\": \"f4efd9ccb222501877dfc77c5189841aa9dc500756736f15aaf02a6994ae8c0f\", \"bytes\": 2097168, \"mapper\": 5, \"expanded\": true, \"extra_chr_sha256\": null}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "C:\\Users\\kando\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\build_mmc5_expanded.py",
+        "--source-overlay",
+        "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\common-audio-mixer-current3b-v3\\source",
+        "--flag-off",
+        "mmc3",
+        "--output",
+        "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\common-audio-mixer-current3b-v3\\build-controls-v1\\mmc3.nes"
+      ],
+      "returncode": 0,
+      "stdout": "{\"output\": \"C:\\\\Users\\\\kando\\\\Videos\\\\SMB Crossover Archive\\\\2026-10-24-native-rest-py\\\\common-audio-mixer-current3b-v3\\\\build-controls-v1\\\\mmc3.nes\", \"sha256\": \"d444cac88e13fa02b29ad16100b8f08fa565ba90f8cedde192de43fb2dc8f3eb\", \"bytes\": 786448, \"mapper\": 4, \"expanded\": false, \"extra_chr_sha256\": null}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "C:\\Users\\kando\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\build_mmc5_expanded.py",
+        "--source-overlay",
+        "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\common-audio-mixer-current3b-v3\\source",
+        "--flag-off",
+        "mmc5",
+        "--output",
+        "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\common-audio-mixer-current3b-v3\\build-controls-v1\\mmc5.nes"
+      ],
+      "returncode": 0,
+      "stdout": "{\"output\": \"C:\\\\Users\\\\kando\\\\Videos\\\\SMB Crossover Archive\\\\2026-10-24-native-rest-py\\\\common-audio-mixer-current3b-v3\\\\build-controls-v1\\\\mmc5.nes\", \"sha256\": \"f4ffd2483c51daa4d60bb575da2da8c4d817692cda407611c243031f67520833\", \"bytes\": 786448, \"mapper\": 5, \"expanded\": false, \"extra_chr_sha256\": null}\n",
+      "stderr": ""
+    }
+  ],
+  "checker_sha256": "377d3eaec135da5739a54dbd3bb90053dbfdfb3b41be11fd23831512e19c7960",
+  "no_production_default_settings_or_installation_mutation": true
+}

@@ -1,0 +1,65 @@
+COMMON AUDIO MIXER: BOUNDED NATIVE NO-REGRESSION CHECK
+2026-10-26; PRIVATE / UNADOPTED
+
+Candidate f4efd9ccb222501877dfc77c5189841aa9dc500756736f15aaf02a6994ae8c0f
+Parent    3b112e1d79ba7348f2f7a4c426f4675845a5781017ab74690feb235121a66287
+
+The independent two-file common-audio change passed its ONE authorised
+Mega Man Easy 450-frame natural-input comparison. No additional launch or
+retry occurred. The worker was released and user/worker settings remained
+unchanged. This is a narrow current-roster performance regression check,
+not adoption, all-roster lag closure, waveform verification or a route clear.
+
+The unchanged qualified presentation observer recorded 449 input polls,
+442 complete NMI checks, 79 IRQ31 checks, 402 complete OAM DMAs and 72 scoped
+render enables. All 256 source/destination OAM bytes, rendering-disabled
+transfer timing, strict pre-render <=274 enable rule, five self-modifying
+code values, stack/register/bank guards passed. The actual poll/frame/mask
+sequence matched the genuine parent450 observation exactly. Both completed
+402 DMAs, with no cumulative DMA deficit at any of 275 visible PPU capture
+cutoffs. All 275 full-frame RGB pairs were byte-identical.
+
+Manual review viewed the selected six whole-frame pairs 184,372,403,438,
+444,450. They agree with byte equality. The parent's preexisting eight-
+sprite-contention lower-body loss at 438/444/450 remains visible in BOTH;
+this packet does not certify clean sprites or fix that separate issue.
+The current title/selection preview was likewise unchanged in frame184.
+
+Source-only qualification remains separate: 7,344 exact caller/state/bus
+controls, 9,472 whole-AudioUpdate cases across 37 identities, 1,072 actual
+IRQ/RTI boundaries, and 768 whole-call cost comparisons. The source costs
+show 31..35 cycles saved in expansion flushing and up to 55 in duplicate
+cleanup, depending on identity/state. The later-family duplicate-cleanup
+branch has CPU evidence; this one Mega Man native test does not exercise
+all those identities. Exact final RAM/AXYP/SP/mapper and ordered hardware
+stores were retained. One intermediate cold-owner read is intentionally
+different but has the same CMP classification/path; see source report.
+
+Only 186 ROM bytes in bank29 differ from3b. No samples, RAM, CHR, held SMB3
+driver or E-clone data enter this independent candidate. All public entry
+PCs/spans are preserved; ten genuine private labels move. Fresh canonical
+f4efd and unchanged ordinary MMC3 d444... and MMC5 f4ffd... builds passed.
+The failed first assembly and unguarded ordinary-build draft remain saved;
+guarded source reproduces the same f4efd ROM used by CPU and native checks.
+
+External evidence root:
+C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/
+
+Source: common-audio-mixer-current3b-v3/source-freeze-v1/readiness.json
+  SHA256 0f06bee8a51b1303facfd554fc767335dae32ef901dffb9d62d5924e79a4b2d1
+Native: common-audio-mixer-f4efd-mega450-ready-v1/
+  readiness.json SHA256 72f4d33b00dbdf892bc7d7b70064f997e06f12fab828a781e63bac64c59217f0
+  ROOT-grant.json SHA256 d9d4df72e7e4f3b2fe60c8548973171754cfa1da290d99543de9810119248782
+  native-receipt.json, result.json, launch.json, review-v1/proof.json,
+  review-v1/all275-paired-observations.json, review-v1/bindings.json,
+  review-v1/paired-selected-wholeframes.png and final-freeze-v1/readiness.json.
+Reference: root-presentation450-3b112-v1/ (actual3b; not a different hash).
+Raw PPU/timing files remain external. Reproduction needs those bound raw
+files, the original emulator/core, original source inputs and settings.
+No ROM/emulator/settings/raw media payload is copied into the repository.
+
+Tools: common_audio_mixer_native_prepare_v1.py and native_review_v1.py;
+unchanged presentation_timing_preflight_v1.lua / timing_launch_v1.py;
+common_audio_mixer_native_freeze_v1.py binds the completed evidence.
+Source controls and limits are detailed in
+docs/qa/common-audio-mixer-source-2026-10-26.txt.

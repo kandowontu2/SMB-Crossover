@@ -1,0 +1,157 @@
+{
+  "passed": true,
+  "source_only": true,
+  "native_run": false,
+  "ROM_sha256": "f4efd9ccb222501877dfc77c5189841aa9dc500756736f15aaf02a6994ae8c0f",
+  "cases": [
+    {
+      "entry": "GuestExpansionFlush",
+      "mask": 0,
+      "char": 17,
+      "owner": 0,
+      "cold": 0,
+      "start_E": 127,
+      "actual_instruction_boundaries": 32,
+      "IRQ_added_cycles": [
+        120
+      ],
+      "uninterrupted_cycles": 115
+    },
+    {
+      "entry": "GuestExpansionFlush",
+      "mask": 1,
+      "char": 17,
+      "owner": 0,
+      "cold": 0,
+      "start_E": 127,
+      "actual_instruction_boundaries": 128,
+      "IRQ_added_cycles": [
+        120
+      ],
+      "uninterrupted_cycles": 673
+    },
+    {
+      "entry": "GuestExpansionFlush",
+      "mask": 2,
+      "char": 17,
+      "owner": 0,
+      "cold": 0,
+      "start_E": 127,
+      "actual_instruction_boundaries": 50,
+      "IRQ_added_cycles": [
+        120
+      ],
+      "uninterrupted_cycles": 182
+    },
+    {
+      "entry": "GuestExpansionFlush",
+      "mask": 3,
+      "char": 17,
+      "owner": 0,
+      "cold": 0,
+      "start_E": 127,
+      "actual_instruction_boundaries": 146,
+      "IRQ_added_cycles": [
+        120
+      ],
+      "uninterrupted_cycles": 740
+    },
+    {
+      "entry": "GuestExpansionFlush",
+      "mask": 11,
+      "char": 17,
+      "owner": 0,
+      "cold": 0,
+      "start_E": 127,
+      "actual_instruction_boundaries": 146,
+      "IRQ_added_cycles": [
+        120
+      ],
+      "uninterrupted_cycles": 740
+    },
+    {
+      "entry": "GuestExpansionFlush",
+      "mask": 15,
+      "char": 17,
+      "owner": 0,
+      "cold": 0,
+      "start_E": 127,
+      "actual_instruction_boundaries": 146,
+      "IRQ_added_cycles": [
+        120
+      ],
+      "uninterrupted_cycles": 740
+    },
+    {
+      "entry": "GuestAudioBegin",
+      "mask": 3,
+      "char": 17,
+      "owner": 0,
+      "cold": 0,
+      "start_E": 127,
+      "actual_instruction_boundaries": 32,
+      "IRQ_added_cycles": [
+        120
+      ],
+      "uninterrupted_cycles": 114
+    },
+    {
+      "entry": "GuestAudioBegin",
+      "mask": 3,
+      "char": 17,
+      "owner": 1,
+      "cold": 1,
+      "start_E": 127,
+      "actual_instruction_boundaries": 101,
+      "IRQ_added_cycles": [
+        120
+      ],
+      "uninterrupted_cycles": 978
+    },
+    {
+      "entry": "GuestAudioBegin",
+      "mask": 3,
+      "char": 17,
+      "owner": 3,
+      "cold": 1,
+      "start_E": 125,
+      "actual_instruction_boundaries": 106,
+      "IRQ_added_cycles": [
+        120
+      ],
+      "uninterrupted_cycles": 994
+    },
+    {
+      "entry": "GuestAudioBegin",
+      "mask": 3,
+      "char": 9,
+      "owner": 1,
+      "cold": 0,
+      "start_E": 127,
+      "actual_instruction_boundaries": 64,
+      "IRQ_added_cycles": [
+        120
+      ],
+      "uninterrupted_cycles": 436
+    },
+    {
+      "entry": "GuestAudioBegin",
+      "mask": 3,
+      "char": 2,
+      "owner": 3,
+      "cold": 1,
+      "start_E": 125,
+      "actual_instruction_boundaries": 121,
+      "IRQ_added_cycles": [
+        120
+      ],
+      "uninterrupted_cycles": 1039
+    }
+  ],
+  "actual_IRQ_cases": 1072,
+  "full_RAM_OAM_images_sweep_dirty_AXYP_SP_banks_shadow_and_ordered_main_bus_exact": true,
+  "actual_five_IRQ_PPU_writes_literal": true,
+  "only_tagged_IRQ_stores_removed_from_ordered_main_bus": true,
+  "checker_sha256": "c3c6efc09c5bf5ece9b463540899ce5cc1d04be3124b410730f0668de49e7232",
+  "limits": "Actual IRQ/RTI and hardware-vector execution at every reached instruction boundary in finite legal isolated common-audio calls. Source aliases125/70 where owned are genuine mapped clone bytes. Not physical PPU/APU/DMA timing, native cadence or arbitrary foreground workload proof."
+}

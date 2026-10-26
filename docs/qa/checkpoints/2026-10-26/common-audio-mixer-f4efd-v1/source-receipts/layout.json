@@ -1,0 +1,94 @@
+{
+  "passed": true,
+  "source_only": true,
+  "native_run": false,
+  "parent_name": "current3b",
+  "parent_directory": "C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/root-current-roster-composition-v1",
+  "parent_ROM_sha256": "3b112e1d79ba7348f2f7a4c426f4675845a5781017ab74690feb235121a66287",
+  "ROM_sha256": "f4efd9ccb222501877dfc77c5189841aa9dc500756736f15aaf02a6994ae8c0f",
+  "changes": [
+    {
+      "path": "src/guest_audio.s",
+      "before": "c916cc7a9836aa8b7d0e94849acc16ab51bcce0da39a8cffabe76ac0de34eb91",
+      "after": "ba9de03e10675a5744f2a23063a5aebe7cc0212aed9ba31a98b2e883f3a15262",
+      "old_CRLF": 412,
+      "new_CRLF": 417,
+      "old_bareLF": 0,
+      "new_bareLF": 0
+    },
+    {
+      "path": "src/mmc5_sfx.s",
+      "before": "cb815214d58003865a7e14033e121fc07d6c40ee6e12ab4bc5ee1778959d6d15",
+      "after": "5823530ad774b2a98d0701d0de28a34be99bdf526614a13859acbcc59b924a09",
+      "old_CRLF": 0,
+      "new_CRLF": 0,
+      "old_bareLF": 170,
+      "new_bareLF": 191
+    }
+  ],
+  "changed_banks": [
+    {
+      "bank": 29,
+      "bytes": 186
+    }
+  ],
+  "header_all_CHR_and_all_other_banks_exact": true,
+  "old_symbols_removed": [],
+  "genuine_private_moved_symbols": [
+    {
+      "name": "GuestExpansionFlush::$anon-SCOPE-0117::Write",
+      "before": "0xAC18",
+      "after": "0xABFC"
+    },
+    {
+      "name": "GuestExpansionFlush::$anon-SCOPE-0117::Next",
+      "before": "0xAC21",
+      "after": "0xAC05"
+    },
+    {
+      "name": "GuestExpansionFlush::$anon-SCOPE-0116::Write",
+      "before": "0xABF4",
+      "after": "0xABDF"
+    },
+    {
+      "name": "GuestExpansionFlush::$anon-SCOPE-0116::Next",
+      "before": "0xABFD",
+      "after": "0xABE8"
+    },
+    {
+      "name": "GuestExpansionFlush::$anon-SCOPE-0114::Write",
+      "before": "0xABD0",
+      "after": "0xABC2"
+    },
+    {
+      "name": "GuestExpansionFlush::$anon-SCOPE-0114::Next",
+      "before": "0xABD9",
+      "after": "0xABCB"
+    },
+    {
+      "name": "GuestExpansionFlush::$anon-SCOPE-0113::Write",
+      "before": "0xABAC",
+      "after": "0xAB9E"
+    },
+    {
+      "name": "GuestExpansionFlush::$anon-SCOPE-0113::Next",
+      "before": "0xABB5",
+      "after": "0xABA7"
+    },
+    {
+      "name": "GuestExpansionFlush::$anon-SCOPE-0112::Write",
+      "before": "0xAB88",
+      "after": "0xAB81"
+    },
+    {
+      "name": "GuestExpansionFlush::$anon-SCOPE-0112::Next",
+      "before": "0xAB91",
+      "after": "0xAB8A"
+    }
+  ],
+  "all_public_entrypoints_and_function_spans_preserved": true,
+  "new_RAM_bytes": 0,
+  "cache_implemented": false,
+  "proof_pending": true,
+  "checker_sha256": "35a667b66e1734e73069d2e32fd59d98da6452e0be38c54c84b5586bc3234fd0"
+}
