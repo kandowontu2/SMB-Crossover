@@ -1,0 +1,122 @@
+{
+  "candidate_ROM_sha256": "a2b58350d4b5a4765cd11e5d7e08b37d72f51abdbf1d6debc5b58dcef6c90820",
+  "source_only": true,
+  "accepted": false,
+  "native_run": false,
+  "production_changed": false,
+  "canonical_and_flagoff_qualification_pending": true,
+  "primary_miss_not_addressed": true,
+  "changed_ROM_bytes": 800,
+  "changed_bank": 87,
+  "unchanged_all_other_banks_CHR_audio": true,
+  "cpu_component_cases": 17664,
+  "actual_draw_caller_cases": 4608,
+  "actual_IRQ_boundary_cases": 48,
+  "measured_cycles": [
+    {
+      "ammo": 0,
+      "baseline_cycles": 204,
+      "candidate_cycles": 221,
+      "delta": 17
+    },
+    {
+      "ammo": 9,
+      "baseline_cycles": 204,
+      "candidate_cycles": 221,
+      "delta": 17
+    },
+    {
+      "ammo": 10,
+      "baseline_cycles": 221,
+      "candidate_cycles": 221,
+      "delta": 0
+    },
+    {
+      "ammo": 19,
+      "baseline_cycles": 221,
+      "candidate_cycles": 221,
+      "delta": 0
+    },
+    {
+      "ammo": 20,
+      "baseline_cycles": 238,
+      "candidate_cycles": 221,
+      "delta": -17
+    },
+    {
+      "ammo": 50,
+      "baseline_cycles": 289,
+      "candidate_cycles": 221,
+      "delta": -68
+    },
+    {
+      "ammo": 90,
+      "baseline_cycles": 357,
+      "candidate_cycles": 221,
+      "delta": -136
+    },
+    {
+      "ammo": 98,
+      "baseline_cycles": 357,
+      "candidate_cycles": 221,
+      "delta": -136
+    },
+    {
+      "ammo": 99,
+      "baseline_cycles": 357,
+      "candidate_cycles": 221,
+      "delta": -136
+    },
+    {
+      "ammo": 100,
+      "baseline_cycles": 220,
+      "candidate_cycles": 220,
+      "delta": 0
+    },
+    {
+      "ammo": 199,
+      "baseline_cycles": 373,
+      "candidate_cycles": 220,
+      "delta": -153
+    },
+    {
+      "ammo": 200,
+      "baseline_cycles": 237,
+      "candidate_cycles": 220,
+      "delta": -17
+    },
+    {
+      "ammo": 255,
+      "baseline_cycles": 322,
+      "candidate_cycles": 220,
+      "delta": -102
+    }
+  ],
+  "tools": {
+    "root_tmnt_ammo_lookup_trial_v1.py": "f6d84f7de0df875f99ac0faaafb9221b7c404dd04000974984a8f1dd3f9be395",
+    "root_tmnt_ammo_lookup_trial_v2.py": "2ec0ac072e75a96eadd2b84d3286d0d5331418a5cce1befb4be3e5ba829886fb",
+    "root_tmnt_ammo_lookup_trial_v3.py": "3659927dfd4668d252949ab6c2850df118587f25325cdde69863bf8578810ec5",
+    "root_tmnt_ammo_lookup_cpu_v1.py": "12a3d540bcd20807fdd54047a3048c06136e0a5a1728462a43d1162c7a0b9588",
+    "root_tmnt_ammo_caller_irq_v1.py": "e75dd9c950f8f871ed47af8464bd303fca33e2dfe68b34cec90a9798d57cfe15"
+  },
+  "external_case_bindings": {
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-tmnt-ammo-lookup-v3\\cpu-v1\\cases.json": "e5baaaff6208944829a72fab99e5eeea15bad31651db296176b000451896d030",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-tmnt-ammo-lookup-v3\\caller-irq-v1\\cases.json": "3bc30ae67aa60ead98a5449e6d02a6efa7372b98fb5ffdcd85d996bf5a990236",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-tmnt-ammo-lookup-v3\\candidate.nes": "a2b58350d4b5a4765cd11e5d7e08b37d72f51abdbf1d6debc5b58dcef6c90820",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-tmnt-ammo-lookup-v3\\candidate.dbg": "a2abe6bbebef35953057bd5591f8c7df48df3a9a7ce20bd118290ed25386899c",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-tmnt-ammo-lookup-v3\\build.log": "41295be8c18f893d833fb096a7ad91e3eb01ee87ec1bd95a0d702af38d5b820a"
+  },
+  "limits": "No native cadence or recovery claim. Ammo90..99 saves136cycles;0..9 adds17. Primary existing miss has no dirty ammo call. Initial v1/v2 padding builds failed and remain retained. Fresh canonical/flagoff and lifecycle/NMI acceptance are pending.",
+  "raw_failure_logs": {
+    "retained-v1-build-failure.txt": {
+      "sha256": "064593c438b7a0e2a32edddae3284c725f6b6a02e7a32881021d3a645349411c",
+      "bytes": 349,
+      "whitespace_exception": "Verbatim immutable compiler output retains its original trailing blank lines."
+    },
+    "retained-v2-build-failure.txt": {
+      "sha256": "302c5fb0b39060ff827fc602ef32059dcdadeea5558ff9f1bb271025e97d47ba",
+      "bytes": 176,
+      "whitespace_exception": "Verbatim immutable compiler output retains its original trailing blank lines."
+    }
+  }
+}

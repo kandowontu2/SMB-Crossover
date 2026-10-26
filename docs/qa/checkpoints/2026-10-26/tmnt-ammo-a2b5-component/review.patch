@@ -1,0 +1,104 @@
+--- a/src/tmnt_equipment_draw.s
++++ b/src/tmnt_equipment_draw.s
+@@ -220,8 +220,13 @@
+  sta VRAM_Buffer1+5,x
+  lda TnTemp
+  beq Commit
++.if ::MAPPER_MMC5
++ jmp ::TnAmmoDecimalLookup
++ .res 2,$ea ; original five-byte LDA/STA footprint
++.else
+  lda #0
+  sta TnTempX
++.endif
+  sta TnTempY
+  lda TnTemp2
+ Hundreds:cmp #100
+--- a/src/entrypoint.s
++++ b/src/entrypoint.s
+@@ -490,3 +490,7 @@
+ .include "tmnt_audio_samus_cold.s"
+ .include "tmnt_audio.s"
+ .endif
++
++.if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
++.include "tmnt_ammo_decimal_lookup.s"
++.endif
+--- a/src/tmnt_ammo_decimal_lookup.s
++++ b/src/tmnt_ammo_decimal_lookup.s
+@@ -0,0 +1,75 @@
++; Private MMC5 lookup. Keep the caller's X queue offset and Y intact.
++; The ones store is the literal first Digits store; return to the following
++; instruction. Original inner labels and the entire commit path stay fixed.
++.pushseg
++.segment "TMNT_CORE"
++.res $e0,$ff ; parent TMNT_CORE ends atB020
++.proc TnAmmoDecimalLookup
++ tya
++ pha
++ ldy TnTemp2
++ lda Hundreds,y
++ sta TnTempX
++ lda Tens,y
++ sta TnTempY
++ lda Ones,y
++ sta VRAM_Buffer1+5,x
++ pla
++ tay
++ jmp ::TnAmmoHud::Digits+3
++.assert TnAmmoDecimalLookup=$b100,lderror,"Private unused tail only"
++.align $100,$ff
++Hundreds:
++ .byte 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
++ .byte 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
++ .byte 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
++ .byte 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
++ .byte 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
++ .byte 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
++ .byte 0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1
++ .byte 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
++ .byte 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
++ .byte 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
++ .byte 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
++ .byte 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
++ .byte 1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2
++ .byte 2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2
++ .byte 2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2
++ .byte 2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2
++Tens:
++ .byte 0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1
++ .byte 1,1,1,1,2,2,2,2,2,2,2,2,2,2,3,3
++ .byte 3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4
++ .byte 4,4,5,5,5,5,5,5,5,5,5,5,6,6,6,6
++ .byte 6,6,6,6,6,6,7,7,7,7,7,7,7,7,7,7
++ .byte 8,8,8,8,8,8,8,8,8,8,9,9,9,9,9,9
++ .byte 9,9,9,9,0,0,0,0,0,0,0,0,0,0,1,1
++ .byte 1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2
++ .byte 2,2,3,3,3,3,3,3,3,3,3,3,4,4,4,4
++ .byte 4,4,4,4,4,4,5,5,5,5,5,5,5,5,5,5
++ .byte 6,6,6,6,6,6,6,6,6,6,7,7,7,7,7,7
++ .byte 7,7,7,7,8,8,8,8,8,8,8,8,8,8,9,9
++ .byte 9,9,9,9,9,9,9,9,0,0,0,0,0,0,0,0
++ .byte 0,0,1,1,1,1,1,1,1,1,1,1,2,2,2,2
++ .byte 2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3
++ .byte 4,4,4,4,4,4,4,4,4,4,5,5,5,5,5,5
++Ones:
++ .byte 0,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5
++ .byte 6,7,8,9,0,1,2,3,4,5,6,7,8,9,0,1
++ .byte 2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7
++ .byte 8,9,0,1,2,3,4,5,6,7,8,9,0,1,2,3
++ .byte 4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9
++ .byte 0,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5
++ .byte 6,7,8,9,0,1,2,3,4,5,6,7,8,9,0,1
++ .byte 2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7
++ .byte 8,9,0,1,2,3,4,5,6,7,8,9,0,1,2,3
++ .byte 4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9
++ .byte 0,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5
++ .byte 6,7,8,9,0,1,2,3,4,5,6,7,8,9,0,1
++ .byte 2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7
++ .byte 8,9,0,1,2,3,4,5,6,7,8,9,0,1,2,3
++ .byte 4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9
++ .byte 0,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5
++.endproc
++.export TnAmmoDecimalLookup
++.popseg

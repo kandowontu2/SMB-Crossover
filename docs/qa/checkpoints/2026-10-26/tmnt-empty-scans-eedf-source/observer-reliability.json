@@ -1,0 +1,40 @@
+{
+  "frozen_observers": {
+    "run.lua": {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\tmnt-native-storage-current50b5-v1\\parser-native-pilot-v1\\candidate-easy\\run.lua",
+      "sha256": "cbf56a031f7a852ef31de08d98aab332c08d38685eabf7bccf318221280f0b98",
+      "runtime_registration_guards": [
+        {
+          "line": 117,
+          "text": "if not installed[key]then"
+        },
+        {
+          "line": 139,
+          "text": "if not returnHooks[key]then returnHooks[key]=true;local owner=bank(pc)"
+        },
+        {
+          "line": 337,
+          "text": "if not installed[key]then installed[key]=true"
+        },
+        {
+          "line": 365,
+          "text": "if not instructionHooks[key]then instructionHooks[key]=true"
+        }
+      ]
+    },
+    "performance-observer.lua": {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\tmnt-native-storage-current50b5-v1\\parser-native-pilot-v1\\candidate-easy\\performance-observer.lua",
+      "sha256": "bc4adaad934bf4dd9f8a3332e37882a37c00ea062308588106d93a39946ef8be",
+      "runtime_registration_guards": [
+        {
+          "line": 42,
+          "text": "if not returns[pc]then"
+        }
+      ]
+    }
+  },
+  "runtime_registration_present": true,
+  "old_native_negative_unchanged": true,
+  "future_native_requires_startup_static_dispatcher_and_independent_trace_equivalence": true,
+  "limits": "Historical scripts register DMA completion, source/function returns and post-DMC-STA callbacks inside running callbacks. This overlaps the known Mesen host vector-growth risk. Existing completed timing negatives remain retained; this audit does not establish a host failure or change any ROM verdict."
+}

@@ -1,0 +1,76 @@
+--- a/src/entrypoint.s
++++ b/src/entrypoint.s
+@@ -490,3 +490,7 @@
+ .include "tmnt_audio_samus_cold.s"
+ .include "tmnt_audio.s"
+ .endif
++
++.if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
++.include "tmnt_empty_equipment_scans.s"
++.endif
+--- a/src/tmnt_empty_equipment_scans.s
++++ b/src/tmnt_empty_equipment_scans.s
+@@ -0,0 +1,35 @@
++; Guard only the provably empty BOTH-groups case. Every nonzero flag or
++; private stamp resumes literal original loops and their original visible work.
++; No RAM borrow or foreground hardware math. Icon/ammo code supplies final ABI.
++.if ::MAPPER_MMC5
++.pushseg
++.segment "TMNT_CORE"
++.proc TnSkipEmptyEquipmentScans
++ ldx TnDrawSlot
++ dex
++ bmi CheckEmpty
++ jmp ::TnDrawEquipment::Shot
++CheckEmpty:
++ lda TnDropKind
++ ora TnDropKind+1
++ ora TnDropKind+2
++ ora TnDropKind+3
++ bne Original
++ lda TnPickupStamp
++ ora TnPickupStamp+1
++ ora TnPickupStamp+2
++ ora TnPickupStamp+3
++ ora TnPickupStamp+4
++ ora TnPickupStamp+5
++ bne Original
++ lda #0
++ sta TnDrawSlot
++ ldx #$ff
++ jmp TnEquipmentIconResume
++Original:
++ jmp TnEquipmentScansResume
++.endproc
++.assert TnSkipEmptyEquipmentScans=$b020,lderror,"Append within unallocated TMNT_CORE tail"
++.export TnSkipEmptyEquipmentScans,TnEquipmentScansResume,TnEquipmentIconResume
++.popseg
++.endif
+--- a/src/tmnt_equipment_draw.s
++++ b/src/tmnt_equipment_draw.s
+@@ -60,9 +60,16 @@
+  lda #0
+  sta R3
+  jsr TnWorldDraw
+-NextShot:ldx TnDrawSlot
++NextShot:
++.if ::MAPPER_MMC5
++ jmp ::TnSkipEmptyEquipmentScans
++ .res 3,$ea
++.else
++ ldx TnDrawSlot
+  dex
+  jpl Shot
++.endif
++::TnEquipmentScansResume:
+  ldx #3
+ Drop:stx TnDrawSlot
+  lda TnDropKind,x
+@@ -124,6 +131,7 @@
+ NextPickup:ldx TnDrawSlot
+  dex
+  bpl Pickup
++::TnEquipmentIconResume:
+  ; An icon and three background digits are visible only while secondary is active.
+  ; Existing four health sprites + at most four icon parts fit eight HUD sprites.
+  lda TnGearSelected

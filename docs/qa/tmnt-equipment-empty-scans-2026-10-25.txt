@@ -1,0 +1,62 @@
+TMNT EMPTY RENDER SCANS: PRIVATE SOURCE/CPU ONLY
+2026-10-25. No native launch/grant, production, Git or Downloads change.
+Accepted production 50b51c3c69f45ef137720c47f521574097f421056e3b73296d06ba70080d2363
+Frozen parser donor 9a791d0e13015ff362ffc9e460aaac8c8a0a5b6f73e990959dee4e074da473fd
+New private candidate eedf07f7c63f2a2ad286d389a2bfe855dafdd0529bc09f1588476ac5f70c0d47
+
+Three changed/new source files versus donor: entrypoint.s appends an MMC5-only
+include after every old TMNT_CORE contributor, tmnt_equipment_draw.s replaces
+the genuine six-byte NextShot entry with JMP/three NOPs and names two actual
+resume instructions, and tmnt_empty_equipment_scans.s adds the real56-byte
+helper at bank87 B020..B057. All old qualified labels remain true live entries
+and exact PCs; no fake aliases. No new RAM, foreground hardware math or audio
+changes. Only61 ROM bytes in bank87 differ. Other127banks, complete CHR,
+header, all music/sample/dispatch bytes and copied SMC code remain exact.
+659-file archive; fresh canonical rebuild and both flag-off builds exact.
+
+The helper reproduces LDX/DEX/loop branch. Only after the last shot, all four
+drop-kind flags and all six private pickup stamps must be zero to skip both
+loops. Every nonzero path resumes original LDX3 and unchanged loop bodies.
+Final DrawSlot0/XFF and all original icon/ammo behavior are retained. Icon-tail
+A/C/N/Z may differ because they are dead before actual LDA/CMP/CLC;384 cases
+prove live X/Y/V/D/I/SP/scratch/ordinary RAM/banks exact there and complete final
+ABI exact. This is explicit liveness, not weakened final-state equality.
+
+5,262 complete renderer CPU cases pass exact final A/X/Y/P/SP, all ordinary
+RAM and SMC bytes, PRG banks, ordered OAM/hardware/CHR publications; only upper
+discarded stack01A0..01FF differs. Includes168 world entries/both facings,
+clipping/OAM rotation/overload,1,024 actual caller/farcall cases with all64flag
+contexts, every drop slot, private owner/stamp/state controls and HUD queues.
+68 real compiled IRQ injections at every reached helper instruction preserve
+interrupted state and final draw; IRQ-owned hardware cells are explicitly
+listed, no emulated state is restored. No real PPU/NMI/DMA claim.
+12,256 full audio calls over37identities and all four turtle variants pass
+with exact outcomes and zero cycle changes, including ordinary/SMC/APU/banks.
+
+Measured arranged CPU savings: empty groups with0/2/6ordinary enemies save
+140/190/290cycles per reached draw. Populated drop paths cost+36cycles; stamp-
+only populated paths cost+62. Original scan counts and visible work stay exact.
+Recorded9a secondary's87draw invocations imply15,855cycles saved in source
+reconstruction (60with2enemies,27with1). No primary saving: its renderer's
+existing broad empty-admission gate bypasses this hook. This does NOT close
+the primary miss, six native lost draws, or establish recovered native draws.
+
+Both initial private builds retained: v1 included helper too early; v2 fixed
+contributor order but incorrectly expanded old jpl2B into5B. Strict B020 linker
+assertions stopped both. No candidate fixture or oracle weakening used them.
+
+Observer reliability: historical run.lua dynamically registers DMA/source-return/
+component-return/post-DMC-STA callbacks; performance-observer.lua registers
+returns dynamically too. Exact hashes/sites are bound separately. Future native
+work needs a startup static dispatcher with independent trace equivalence before
+any launch. Frozen completed native negatives and all old receipts stay intact.
+No ammo-HUD optimization, song/rate/channel/sample removal, Parodius change,
+campaign/native/audio acceptance or whole-goal completion is claimed.
+
+PUBLICATION DEADLINE FOLLOW-UP (separate frozen proof)
+C:\Users\kando\Videos\SMB Crossover Archive\2026-10-24-native-rest-py\tmnt-equipment-empty-scans-v1\publication-deadline-v1\proof.json
+SHA256 41d255112764d03a0397719a37b3d8ff622a17c459156a1a2676ad17a74c7139
+Actual full2832cycle lag NMI reconstructed from85prelude+2703nativeAudio+37postlude+7hardwareentry, matching observed total ISR. Candidate release, with that intervening NMI removed, completes409cycles after actual flag-read completion; strict-before target410cycles at existing alignment. Baseline slack2556. Native instruction alignment must be requalified; no recovered-draw claim.
+
+Ready receipt 13835df064054ac8acad6e254836d4925612a61851bd62a96467e19f9131f64a
+Source zip 892a5b94fd028f249cabf84a0669b349e1463330b87da70d3fad8e495dd70b2a

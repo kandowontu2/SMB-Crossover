@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "source_only": true,
+  "native_run": false,
+  "baseline_ROM_sha256": "9a791d0e13015ff362ffc9e460aaac8c8a0a5b6f73e990959dee4e074da473fd",
+  "candidate_ROM_sha256": "eedf07f7c63f2a2ad286d389a2bfe855dafdd0529bc09f1588476ac5f70c0d47",
+  "actual_compiled_IRQ_injections": 68,
+  "maximum_stack_depth": 7,
+  "IRQ_hardware_writes": [
+    8197,
+    8198,
+    20776
+  ],
+  "full_draw_final_IRQ_result_exact": true,
+  "IRQ_memory_exceptions_only_discarded_stack_and_actual_IRQ_hardware_cells": true,
+  "icon_tail_cases": 384,
+  "icon_tail_XY_VDI_SP_PC_scratch_ordinaryRAM_banks_exact": true,
+  "dead_A_CNZ_difference_permitted_only_before_real_original_tail": true,
+  "complete_tail_final_ABI_exact": true,
+  "checker_sha256": "dd288431502c0425944b255084e694c948dde45645c295a7d9f893cb03d55be8",
+  "limits": "CPU executes actual vector/IRQ/RTI at helper boundaries; no PPU clock, real NMI scheduling, DMA or native draw-cadence claim. IRQ log segment alone is removed from comparison; emulated state is never restored."
+}

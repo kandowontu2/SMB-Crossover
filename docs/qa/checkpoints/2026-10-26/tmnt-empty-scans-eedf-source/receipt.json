@@ -1,0 +1,63 @@
+{
+  "ready": true,
+  "accepted": false,
+  "source_only": true,
+  "native_run": false,
+  "production_parent_ROM_sha256": "50b51c3c69f45ef137720c47f521574097f421056e3b73296d06ba70080d2363",
+  "donor_ROM_sha256": "9a791d0e13015ff362ffc9e460aaac8c8a0a5b6f73e990959dee4e074da473fd",
+  "candidate_ROM_sha256": "eedf07f7c63f2a2ad286d389a2bfe855dafdd0529bc09f1588476ac5f70c0d47",
+  "changed_PRG_bytes": {
+    "87": 61
+  },
+  "source_files": 659,
+  "source_changes_versus_donor": {
+    "src/entrypoint.s": {
+      "before_sha256": "615520c880e21fad9281c0adf6a3d2b408f416d77860dec56b0d1ca5d1cd37b4",
+      "after_sha256": "f352ab5d00c4708fba7c524eae38eb27ee02d1d41403d017aa3be8f5d99d047c"
+    },
+    "src/tmnt_empty_equipment_scans.s": {
+      "before_sha256": null,
+      "after_sha256": "1f198ffeea1502a6921fb6400e1ead45b626a86c0adf9176cef98426e1b45d10"
+    },
+    "src/tmnt_equipment_draw.s": {
+      "before_sha256": "2a8a7d424332011ed3d9b451d23657fc84272316aebbade577e9d1ee44c0ea38",
+      "after_sha256": "c3abb6a5e51ffd51ea38302574937988a9542b7894eb793606121d490d314fd4"
+    }
+  },
+  "source_changes_versus_production": 18,
+  "canonical_and_flagoff": {
+    "roundtrip": "eedf07f7c63f2a2ad286d389a2bfe855dafdd0529bc09f1588476ac5f70c0d47",
+    "flagoff-mmc3": "d444cac88e13fa02b29ad16100b8f08fa565ba90f8cedde192de43fb2dc8f3eb",
+    "flagoff-mmc5": "f4ffd2483c51daa4d60bb575da2da8c4d817692cda407611c243031f67520833"
+  },
+  "proofs": {
+    "cpu-v1": {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\tmnt-equipment-empty-scans-v1\\cpu-v1\\proof.json",
+      "sha256": "8106548b52ab52499f7428bf076556ccff725f22592de006e5a1b3828eabb753"
+    },
+    "irq-tail-v1": {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\tmnt-equipment-empty-scans-v1\\irq-tail-v1\\proof.json",
+      "sha256": "6eb46307a4619481008fcf481894906d701e22177bb25271c9d68604612564bc"
+    },
+    "audio-outer-v1": {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\tmnt-equipment-empty-scans-v1\\audio-outer-v1\\proof.json",
+      "sha256": "4e9c9ca0e69e35398e1e355185b86ab78eccbbd8fe253be9a87ed5720746281e"
+    }
+  },
+  "tools": {
+    "tmnt_equipment_empty_scans_v3.py": "9f555190d7dfce75002c895c1a82c0bebe3e118ca9ed800b8e34740d068a939b",
+    "tmnt_equipment_empty_scans_cpu_v1.py": "8e19239bf74eec50771b10f910bf6bdb12275dc9c9917fe2d8326b24cd31c2eb",
+    "tmnt_equipment_empty_scans_irq_v1.py": "dd288431502c0425944b255084e694c948dde45645c295a7d9f893cb03d55be8",
+    "tmnt_equipment_empty_scans_finalize_v2.py": "c2673d0a13204fa910c7d2fa3e10d0c4860fb5af831c3068f861710c71f7b476"
+  },
+  "source_archive_sha256": "892a5b94fd028f249cabf84a0669b349e1463330b87da70d3fad8e495dd70b2a",
+  "report_sha256": "d28f5c0a0503e9fd66a03f1ea0cfeded6d9ad990622ed4e2dfb7195295a7ba6d",
+  "observer_reliability_sha256": "560868fbc0be2652b1413ad8354550c2a2ef5d5dce8b073630883deaa8b9846d",
+  "projection_sha256": "ecf3a33a309563e66621406e48591d754593d7c162924877ee385091a1fcd616",
+  "original_native_negative_preserved": true,
+  "primary_native_miss_still_open": true,
+  "populated_path_regressions_cycles": [
+    36,
+    62
+  ]
+}

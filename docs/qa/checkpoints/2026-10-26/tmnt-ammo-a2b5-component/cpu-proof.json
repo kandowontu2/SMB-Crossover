@@ -1,0 +1,119 @@
+{
+  "passed": true,
+  "source_only": true,
+  "native_run": false,
+  "accepted": false,
+  "baseline_ROM_sha256": "9a791d0e13015ff362ffc9e460aaac8c8a0a5b6f73e990959dee4e074da473fd",
+  "candidate_ROM_sha256": "a2b58350d4b5a4765cd11e5d7e08b37d72f51abdbf1d6debc5b58dcef6c90820",
+  "cases": 17664,
+  "grouped": {
+    "all-byte-ammo": {
+      "cases": 8192,
+      "min_delta": -153,
+      "max_delta": 17,
+      "total_delta": -268192
+    },
+    "all-caller-Y": {
+      "cases": 256,
+      "min_delta": -153,
+      "max_delta": 17,
+      "total_delta": -16762
+    },
+    "all-caller-flags": {
+      "cases": 4096,
+      "min_delta": -153,
+      "max_delta": 17,
+      "total_delta": -191488
+    },
+    "queue-and-clean-controls": {
+      "cases": 5120,
+      "min_delta": -136,
+      "max_delta": 0,
+      "total_delta": -42432
+    }
+  },
+  "representatives": [
+    {
+      "ammo": 0,
+      "baseline_cycles": 204,
+      "candidate_cycles": 221,
+      "delta": 17
+    },
+    {
+      "ammo": 9,
+      "baseline_cycles": 204,
+      "candidate_cycles": 221,
+      "delta": 17
+    },
+    {
+      "ammo": 10,
+      "baseline_cycles": 221,
+      "candidate_cycles": 221,
+      "delta": 0
+    },
+    {
+      "ammo": 19,
+      "baseline_cycles": 221,
+      "candidate_cycles": 221,
+      "delta": 0
+    },
+    {
+      "ammo": 20,
+      "baseline_cycles": 238,
+      "candidate_cycles": 221,
+      "delta": -17
+    },
+    {
+      "ammo": 50,
+      "baseline_cycles": 289,
+      "candidate_cycles": 221,
+      "delta": -68
+    },
+    {
+      "ammo": 90,
+      "baseline_cycles": 357,
+      "candidate_cycles": 221,
+      "delta": -136
+    },
+    {
+      "ammo": 98,
+      "baseline_cycles": 357,
+      "candidate_cycles": 221,
+      "delta": -136
+    },
+    {
+      "ammo": 99,
+      "baseline_cycles": 357,
+      "candidate_cycles": 221,
+      "delta": -136
+    },
+    {
+      "ammo": 100,
+      "baseline_cycles": 220,
+      "candidate_cycles": 220,
+      "delta": 0
+    },
+    {
+      "ammo": 199,
+      "baseline_cycles": 373,
+      "candidate_cycles": 220,
+      "delta": -153
+    },
+    {
+      "ammo": 200,
+      "baseline_cycles": 237,
+      "candidate_cycles": 220,
+      "delta": -17
+    },
+    {
+      "ammo": 255,
+      "baseline_cycles": 322,
+      "candidate_cycles": 220,
+      "delta": -102
+    }
+  ],
+  "exact_complete_final_AXYP_SP_RAM_SMC_banks_ordered_VRAM_hardware": true,
+  "omitted_memory": "Only discarded upper CPU stack01A0..01FF",
+  "checker_sha256": "12a3d540bcd20807fdd54047a3048c06136e0a5a1728462a43d1162c7a0b9588",
+  "limitations": "Arranged component CPU calls. Includes all256 ammo values/queue offsets/Y and all64 physical caller flags, with full final-call state. No native draw-deadline, interrupt, global cadence or deployment claim."
+}
