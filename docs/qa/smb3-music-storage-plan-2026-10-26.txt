@@ -1,0 +1,147 @@
+SMB3 MUSIC: CONCRETE STORAGE PROPOSAL ON CURRENT6C69
+
+Recommendation: the storage plan is feasible for a private source prototype if
+the three explicit existing-data relocations below are accepted. It is NOT an
+integration-ready adapter. Its actual assembly must fit a5120B C-bank core and
+512B cold pool; overflowing either budget rejects this plan. No source/config,
+allocation, game ROM, installed build or native emulator was changed here.
+
+Pinned6c69:6c69e506b45c8420cf57a62b868f89c0fe86d308c0ee55655b48e8f44af9521a.
+The compiled map has174,187B of eligible declared gaps after excluding all of
+62/63/94/99/123..127, but no whole unreserved8KiB bank. Actual selected gaps were
+also checked to contain FF bytes. Apparent interior padding is not used.
+
+PRESERVE THE ENTIRE36,864-BYTE ORIGINAL PAYLOAD
+
+The7,840B observed union is NOT the storage budget or permission to remove data.
+Keep all nine original4KiB pages, bit-for-bit, at physical offset$1000 in each
+proposed host bank. A reader maps that bank into A and reads$B000+(source&$FFF):
+
+Original page       0   1   2   3   4   5   6    7    8
+Proposed bank      78  86  90  93  95  96  98  118  119
+
+Every4KiB placement fits a genuine declared unused tail and is4KiB aligned.
+All current prefixes remain at their old addresses. Per-page hashes and an exact
+nine-page round trip bind the complete original payload, including unobserved
+music/SFX data. Runtime selection remains the twelve qualified fixed-cold roles;
+retaining other bytes does not certify all71 tracks or arbitrary source inputs.
+
+THREE DATA MOVES, NO PIXEL OR TABLE LOSS
+
+1. Z2_GFX: physical70:$0000..$0375,886B ->95:$0340..$06B5.
+   Genuine data labels move C000->C340. Includes the late small-lift masks.
+2. MIKE_GFX: physical97:$0000..$035E,863B ->95:$06C0..$0A1E.
+   Genuine data labels move C000->C6C0. Internal pointer bytes reassemble to
+   the new real labels; all metasprite leaf records and CHR pixels stay exact.
+3. BILL_ORBIT_2: physical38:$0BE8..$1FE7,5120B ->85 at the SAME offsets.
+   All BillFlareLate11..15 CPU addresses CBE8..DFE7, vector bytes, pointer
+   values and indexed page-cross behavior remain unchanged. Existing generated
+   Banks entries use .bank(label) and must become85; no numeric-pointer rewrite.
+
+Bank95's LM_COMBAT prefix ends at A30B. Split its memory declaration into a
+prefix A000,size$0340 and a REAL C-view tail C340,size$1CC0, adjacent in file
+order with bank95 on both; total physical output remains exactly8KiB. Existing
+LM code PCs/bytes remain fixed. Put Z2/Mike data in that tail, and raw source
+page4 at physical$1000 (declared D000 in the C view, read B000 through A).
+This is a real physical load/run-view declaration, not an executable alias.
+
+All actual Z2/Mike C-bank selectors use .bank(Z2ArtBegin/JnArtStart or the
+late-row label); their source references must reassemble and be qualified.
+The two data families' moved CPU labels are genuine explicit exceptions to
+old-address equality. No existing runtime CODE function moves. The vector data
+does not move in CPU address. Merely copying old pointer-table bytes is wrong.
+
+ALIGNED LIVE CODE AND BRIDGE BUDGET
+
+Moving BILL_ORBIT_2 frees C38:CBE8..DFE7, exactly5120B, after the unchanged packed
+decoder/audio data and before the genuine VgAudioDispatch at DFE8. Native SMB3
+code executes here while its mapped reader changes A; it never banks away its
+own executing C window. Current packed helper/driver PCs remain fixed.
+
+Conservative original contiguous execution spans A000..A6A4 and E2C0..E838
+contain3102B, including unexecuted intervening bytes. Their live native copies
+must be reassembled with real branch/call mapping and logical-data readers;
+the raw copies of ALL source bytes remain intact in the nine payload pages.
+2018B remains in the core cap for native re-encoding,48 hot ROM-read sites,
+APU/status writers, dispatch and lifecycle code. There are13 two-byte indirect
+read sites; converting those to three-byte calls alone adds13B. Absolute reads
+must preserve original numeric pointer/data values, not blindly add an offset.
+The exact adapter has NOT been assembled;2018B is a hard budget, not a measured
+completed implementation. Existing flag-preserving guest APU writers can be
+reused where their actual opcode/ABI contract matches.
+
+Also propose A78:A500..A6FF,512B, for cold initialization/role tables/bridges.
+It fits between the unchanged profile prefix and raw page0 at B000. The original
+30B init can read its four source tables directly through that raw page while
+preserving virtual bank-map writes. Source page values are metadata; they must
+not be sent blindly to MMC5 registers.
+
+The planned23B Vg gate and23B C-helper were executed in an isolated CPU byte
+model over20 IDs, all64 physical flags and all four vehicle alternates. The real
+public Vg entry and Legacy PC remain fixed. Same outputs/banks, cost delta0 for
+IDs0..16 (including the tight CV3 route); Vic/Parodius18 costs+12cycles, current
+TMNT19 costs+4. SMB3 reaches its new entry instead of Pit. These are dispatch
+prototype costs only, not whole adapter or no-harm timing qualification.
+
+PERSISTENT DPCM: TWO OWNED FIXED-E CLONES
+
+Rehousing Z2/Mike frees physical70 and97 for full8KiB fixed-E clones. Each clones
+every original127 byte, including code/vectors, and replaces only the pure
+BASS_DPCM interval F140..FFC0 (3713B). Neither shared125 nor124 is borrowed.
+
+CloneA /bank70:
+  original payload3980..4280 ->F140..FA40 (2305B)
+  original payload3000..3240 ->FA80..FCC0 (577B)
+  original payload6B40..6B80 ->FD00..FD40 (65B)
+CloneB /bank97:
+  original payload8800..8B40 ->F140..F480 (833B)
+
+Every start is64-byte aligned. All13 observed4010/4011/4012/4013/page-map
+configurations select exactly the original sample bytes/lengths/rates/loop bits
+through the proposed address translations. Model clones are byte-exact to127
+outside that data interval. They were modeled as byte arrays, not installed.
+
+One clone is impossible within the safe3713B data interval: seven distinct
+sample strings sum3783B, with no aligned containment or overlap of65B or more.
+Even optimistically sharing six single endpoints needs3777B before alignment.
+The second clone is required unless a separate fixed-code relocation is proved.
+
+Do NOT switch E on each4012 write:3562 of5007 source address writes occur while
+the source DMC-enable bit is set. Latch the proposed next clone; switch only
+while disabled, AFTER the ORIGINAL4015 clear and BEFORE its source re-enable.
+All40 required cross-clone changes in the216012-call traces satisfy this rule;
+there are zero re-enables with the wrong modeled clone. No new stop/mute is
+inserted. Existing GuestDmcStatus must not suppress that physical source-owned
+clear. Actual DMC DMA/hold/loop/tail/preemption and previous-owner transitions
+still require source/whole-audio/IRQ and native hardware qualification.
+
+RAM / TOTAL / ACCEPTANCE
+
+Use the existing mutually exclusive2048B XgLzHistory and inactive14-byte decoder
+ZP namespace for the62 observed source fields, source page shadows and adapter
+state; no new global RAM or mapper-multiplier ownership is proposed. Exact aliases
+and lifecycle still need review/proof. Return to a packed family must restart its
+decoder; new owner/init/reset/pause/death/area changes must preserve every other
+family and explicitly restore physical E before their DMC can run.
+
+At full budgets the new regions total65,749B, including6869B of rehomed existing
+data. Net PRG occupancy increase is58,880B:36864 raw source+16384 E clones+
+5120 live core+512 cold pool. All alignment locations are explicit above.
+Actual native linked bytes and source-read/helper CPU costs are still unknown.
+
+Accept only as a staged source prototype proposal: authorize the three data
+moves, compile within both hard caps, reproduce all216012 source calls/states/
+ordered stores/samples and the fixed-contract cycles, qualify relocated Z2/Mike
+drawing and every Bill vector/caller, all old owner lifecycles/interrupts, CHR and
+ordinary builds, then strict matched native cadence. If data relocation, two E
+clones or either code budget is rejected, this plan cannot be called integrated;
+do not substitute Pit, remove drums/data or claim the observed7840B fits alone.
+
+MODEL / REPRODUCTION
+
+tools/audit/smb3_music_storage_plan_v2.py --output <new external dir>
+(invoke with python). External smb3-music-placement6c69-v2/plan.json:
+SHA256f4a5f0c9cb0d9d0894634d72ba7f4e0bf64a253ab6ae51a1118c7d3e49f75a70.
+It binds current6c69/map, declared extents, source segment hashes, nine intact
+payload pages, exact two-clone sample models and planned-dispatch CPU results.
+V1 was a parse-only failure before execution, retained as .py.failed.txt.
