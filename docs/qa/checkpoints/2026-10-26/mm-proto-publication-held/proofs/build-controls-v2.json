@@ -1,0 +1,166 @@
+{
+  "passed": true,
+  "source_only": true,
+  "native_run": false,
+  "installed": false,
+  "parent_ROM_sha256": "731c918b0f448564587d90fca2979afc9fc0e5eb9b26616f4241801e2e73e16c",
+  "candidate_ROM_sha256": "a801f8e397a416e1b12cb6b78bad25774670c8f9fea0e8334cd0c830cf8a3d56",
+  "canonical_build_exact": true,
+  "ordinary_targets_exact": true,
+  "ordinary_hashes": {
+    "mmc3": "d444cac88e13fa02b29ad16100b8f08fa565ba90f8cedde192de43fb2dc8f3eb",
+    "mmc5": "f4ffd2483c51daa4d60bb575da2da8c4d817692cda407611c243031f67520833"
+  },
+  "source_manifest_unchanged": true,
+  "changed_PRG_bytes": {
+    "4": 542,
+    "66": 185
+  },
+  "all_other_PRG_CHR_header_exact": true,
+  "old_RAM_symbols_exact": true,
+  "assembler_only_FARCALL_COUNT_delta": 1,
+  "new_lifecycle_byte": 24568,
+  "declared_new_code_extents": {
+    "MM_BODY_PRIORITY_GATE": {
+      "bank": 4,
+      "start": 48947,
+      "size": 82,
+      "end": 49029,
+      "original_fill255": true
+    },
+    "MM_PUBLICATION_COLD": {
+      "bank": 66,
+      "start": 47528,
+      "size": 126,
+      "end": 47654,
+      "original_fill255": true
+    }
+  },
+  "genuine_symbol_moves": [
+    {
+      "symbol": [
+        "ProtoNmiAudioCore",
+        "Restore"
+      ],
+      "old": 41034,
+      "new": null
+    },
+    {
+      "symbol": [
+        "ProtoNmiAudioCore",
+        "Original"
+      ],
+      "old": 41021,
+      "new": null
+    },
+    {
+      "symbol": [
+        "WorldFirebarAdmission"
+      ],
+      "old": 41567,
+      "new": 41568
+    },
+    {
+      "symbol": [
+        "WorldFirebarDrawAdmission"
+      ],
+      "old": 41567,
+      "new": 41568
+    },
+    {
+      "symbol": [
+        "RosterOamReady"
+      ],
+      "old": 41544,
+      "new": 41545
+    },
+    {
+      "symbol": [
+        "DrawAllMetasprites",
+        "RosterPriorityInRange"
+      ],
+      "old": 41544,
+      "new": 41545
+    },
+    {
+      "symbol": [
+        "DrawAllMetasprites",
+        "LegacyTailClear"
+      ],
+      "old": 41545,
+      "new": 41546
+    },
+    {
+      "symbol": [
+        "DrawAllMetasprites",
+        "PlayerBankReady"
+      ],
+      "old": 41508,
+      "new": 41507
+    },
+    {
+      "symbol": [
+        "DrawAllMetasprites",
+        "DoneDrawingPlayer"
+      ],
+      "old": 41522,
+      "new": 41521
+    },
+    {
+      "symbol": [
+        "DrawAllMetasprites",
+        "ClearPlayerOAM"
+      ],
+      "old": 41290,
+      "new": 41291
+    },
+    {
+      "symbol": [
+        "RosterProjectileOamReady"
+      ],
+      "old": 41260,
+      "new": 41261
+    },
+    {
+      "symbol": [
+        "MegaManProjectileOamReady"
+      ],
+      "old": 41238,
+      "new": 47238
+    },
+    {
+      "symbol": [
+        "DrawAllMetasprites",
+        "RosterShots"
+      ],
+      "old": 41251,
+      "new": 41252
+    },
+    {
+      "symbol": [
+        "DrawAllMetasprites",
+        "ClearReservedPlayer"
+      ],
+      "old": 41284,
+      "new": 41285
+    },
+    {
+      "symbol": [
+        "DrawAllMetasprites",
+        "RotateGuestOAM"
+      ],
+      "old": 40982,
+      "new": 40983
+    },
+    {
+      "symbol": [
+        "_FARCALL_COUNT"
+      ],
+      "old": 1154,
+      "new": 1155
+    }
+  ],
+  "removed_private_core_labels": "Only real Original/Restore private branches moved with actual Proto core into MmPublicationAudioCore; no fake aliases. Other DrawAll private movement is explicitly catalogued.",
+  "limits": "Build/source/control evidence only. Positive owned render/NMI and common reset costs require native timing/actual visibility qualification.",
+  "tool_sha256": "a33c5301b166ace75043bbad29c8dce5531f2c577de272b4d074ca0fc6d82eb3"
+}

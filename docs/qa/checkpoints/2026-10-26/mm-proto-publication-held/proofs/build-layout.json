@@ -1,0 +1,152 @@
+{
+  "passed": true,
+  "source_only": true,
+  "native_run": false,
+  "installed": false,
+  "parent_ROM_sha256": "731c918b0f448564587d90fca2979afc9fc0e5eb9b26616f4241801e2e73e16c",
+  "ROM_sha256": "a801f8e397a416e1b12cb6b78bad25774670c8f9fea0e8334cd0c830cf8a3d56",
+  "changed_source": [
+    "smb1base-mmc5-expanded.cfg",
+    "src/entrypoint.s",
+    "src/megaman_weapons.s",
+    "src/metasprite_engine.s",
+    "src/protoman_cold.s",
+    "src/reset.s",
+    "src/mm_proto_publication.s"
+  ],
+  "changed_PRG_bytes": {
+    "4": 542,
+    "66": 185
+  },
+  "new_lifecycle_byte": 24568,
+  "no_existing_RAM_or_CHR_moved": true,
+  "genuine_symbol_moves": [
+    {
+      "name": [
+        "ProtoNmiAudioCore",
+        "Restore"
+      ],
+      "old": 41034,
+      "new": null
+    },
+    {
+      "name": [
+        "ProtoNmiAudioCore",
+        "Original"
+      ],
+      "old": 41021,
+      "new": null
+    },
+    {
+      "name": [
+        "WorldFirebarAdmission"
+      ],
+      "old": 41567,
+      "new": 41568
+    },
+    {
+      "name": [
+        "WorldFirebarDrawAdmission"
+      ],
+      "old": 41567,
+      "new": 41568
+    },
+    {
+      "name": [
+        "RosterOamReady"
+      ],
+      "old": 41544,
+      "new": 41545
+    },
+    {
+      "name": [
+        "DrawAllMetasprites",
+        "RosterPriorityInRange"
+      ],
+      "old": 41544,
+      "new": 41545
+    },
+    {
+      "name": [
+        "DrawAllMetasprites",
+        "LegacyTailClear"
+      ],
+      "old": 41545,
+      "new": 41546
+    },
+    {
+      "name": [
+        "DrawAllMetasprites",
+        "PlayerBankReady"
+      ],
+      "old": 41508,
+      "new": 41507
+    },
+    {
+      "name": [
+        "DrawAllMetasprites",
+        "DoneDrawingPlayer"
+      ],
+      "old": 41522,
+      "new": 41521
+    },
+    {
+      "name": [
+        "DrawAllMetasprites",
+        "ClearPlayerOAM"
+      ],
+      "old": 41290,
+      "new": 41291
+    },
+    {
+      "name": [
+        "RosterProjectileOamReady"
+      ],
+      "old": 41260,
+      "new": 41261
+    },
+    {
+      "name": [
+        "MegaManProjectileOamReady"
+      ],
+      "old": 41238,
+      "new": 47238
+    },
+    {
+      "name": [
+        "DrawAllMetasprites",
+        "RosterShots"
+      ],
+      "old": 41251,
+      "new": 41252
+    },
+    {
+      "name": [
+        "DrawAllMetasprites",
+        "ClearReservedPlayer"
+      ],
+      "old": 41284,
+      "new": 41285
+    },
+    {
+      "name": [
+        "DrawAllMetasprites",
+        "RotateGuestOAM"
+      ],
+      "old": 40982,
+      "new": 40983
+    },
+    {
+      "name": [
+        "_FARCALL_COUNT"
+      ],
+      "old": 1154,
+      "new": 1155
+    }
+  ],
+  "public_original_NMI_DMA_Audio_core_and_render_entries_retained": true,
+  "private_original_core_Original_Restore_labels_removed_with_actual_body_relocation": true,
+  "prototype00fb_held": true,
+  "limits": "Build/layout only; no CPU/source/audio/caller/lifecycle/capacity/cost/IRQ/native acceptance yet. Actual construction acknowledges only a regularNMI call route; body/shot/world visibility tradeoff remains.",
+  "tool_sha256": "5e62c26952fd27d52a6b47fdfd911802a203f74f561aaf4aa083c0db7a589f77"
+}

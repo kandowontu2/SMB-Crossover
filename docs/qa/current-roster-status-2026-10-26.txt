@@ -1,4 +1,4 @@
-Current roster status, 2026-10-26 -- current roster only; new HUD failure
+Current roster status, 2026-10-26 -- current roster only; repairs under test
 
 Current work covers 37 playable identities in 19 menu slots. Additional
 characters and promotional videos remain deferred. All37 selected ordinary1-1
@@ -109,14 +109,20 @@ trade improved body visibility for fewer visible buster circles. ROOT verifies
 979 actual-artifact bindings/58 public payloads and views eight actual image
 pairs. No installation follows from source or hardware component passes.
 Publication-aware sharing is being investigated. See the public held checkpoint.
-Luigi movement differs from Mario by more than the requested modest jump and
-traction changes. Private641 gives him Mario's mode-specific dry movement,
-plus a small jump increase and reduced ground braking. Source/CPU and actual
-Easy/Hard mushroom/flower/fire/contact components pass. Owned PlayerCtrl costs
-add411..1368 cycles in twenty finite cases; foreign zero-cost controls are a
-separate fact. A subsequent Easy full1-1 discovery ends in death at1396; its
-conditional independent replay is unrun. This does not establish a physics
-bug or full-route pass. The candidate remains private and unadopted. ROOT
+Private641 gives Luigi Mario's mode-specific dry movement, plus a small jump
+increase and reduced ground braking. Source/CPU and actual Easy/Hard
+mushroom/flower/fire/contact components pass. Owned PlayerCtrl costs add411..
+1368 cycles in twenty finite cases; foreign zero-cost controls are separate.
+The original full-route death1396 and corrected-controller pipe-stall1177
+remain FALSE. A separately prepared corridor-aware controller now clears1-1
+and independently replays all3640 physical frames exactly, with zero deaths,
+physical mushroom60growth, real Goomba stomp/bounce/score and movable1-2.
+ROOT verifies all7205 frozen bindings and views all19 selected wholeframes.
+Apparent doubled flagpoles in the borderless sample sheet are adjacent panels;
+standalone2700 has one normal pole. No level defect is inferred from that
+sheet-reading error. Exact source, fullPPU,256DMA, E008, scoped-enable, bank,
+SMC, CHR and motion guards pass. No matched old-ROM cadence or every-frame
+visual claim follows. The candidate remains private and unadopted. ROOT
 views all42 component samples and flags Hard2056 lower-body absence during
 crowded firing; source/OAM followup identifies first-eight contention with
 an explicit missing-full-hardware-image limit. No blanket graphics-clean claim.
@@ -129,10 +135,26 @@ render enable is line0dot20, outside the safe window, despite exact complete
 already shows WATER112 text with coin/dot-like meter/icon glyphs;1306 is normal.
 ROOT independently verifies1053 frozen bindings and views both actual images.
 Three initial cases reached progress, not a sixteen-case or profile pass;
-BassHard and later weapons remain unrun. Immediate font-lease release before
-pending icon removal is a source lead; exact producer/queue/timing attribution
-requires the separately prepared read-only diagnostic. No production fix yet.
+BassHard and later weapons remain unrun. An unchanged731 diagnostic preserves
+all1307 completed PPU frames and original events/DMA records exactly. It
+attributes the glyph fault to early font-lease release before queued icon
+removal, and the extra CHR reload to the HUD itself. No production fix yet.
 See checkpoints/2026-10-26/bass731-gallery-first-negative/ROOT-review.json.
+
+Private69ae retains the default-weapon font lease and avoids the unnecessary
+reload. Source/caller/interrupt controls pass, and its actual Easy gallery
+visibly repairs old1307/1308. A later strict render-enable failure at1630,
+line0dot41, stops that run; Hard stays unrun. The failure is preserved and the
+candidate is not installed. ROOT verifies all196 final negative bindings.
+
+Successor30a1 adds uniform seven-cell meter run-length encoding, preserving
+the same ordered PPU writes while saving6 queue bytes and45 consumer cycles.
+Only105 ROM bytes in bank59 differ from731; no CHR/NMI/audio/RAM changes.
+Source checks cover34816 full HUD cases/all256stocks,888 actual37-identity
+UI cases,4352 real UpdateScreen bus comparisons,192 full NMI cases and3200
+interrupt boundaries. Independent agent review and ROOT's426 additional HUD
+and decoder cases pass. ROOT's fresh build reproduces exact30a1. These are
+source checks; native rendering and adoption remain pending.
 
 A separate unchanged731 Mega ownership observation preserves all original
 450-frame input/PPU/timing/result bytes while recording actual construction,
@@ -141,7 +163,13 @@ images must not advance a future sprite-priority turn; the last completed
 image can survive a no-draw catchup. No new priority implementation or adoption
 is claimed. See mm-proto-publication-ownership-native-2026-10-26.txt.
 
-Latest reviewed checkpoint pushed:7dbcc34. All larger native captures and private
+The a801 publication-priority prototype stays HELD:399 versus402 physical DMA
+completions,63 prefix deficits and a source-proven Vine partial-body overwrite.
+ROOT verifies1071 native bindings and46 public checkpoint payloads, and views
+the actual385/403/404 whole-image pairs. No priority code is installed. See
+checkpoints/2026-10-26/mm-proto-publication-held/ROOT-additive-review.json.
+
+Prior reviewed checkpoint pushed:ec59fc4. All larger native captures and private
 builds remain outside the workspace. Latest workspace scan is29,871,736,270 bytes,
 under the decimal30GB cap with128,263,730 bytes of headroom. Current work stays
 on the37 existing identities; additional characters and promo videos are deferred.

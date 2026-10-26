@@ -1,0 +1,24 @@
+{
+  "passed": true,
+  "source_only": true,
+  "native_run": false,
+  "parent_ROM_sha256": "731c918b0f448564587d90fca2979afc9fc0e5eb9b26616f4241801e2e73e16c",
+  "candidate_ROM_sha256": "a801f8e397a416e1b12cb6b78bad25774670c8f9fea0e8334cd0c830cf8a3d56",
+  "actual_lifecycle_cases": 528,
+  "full_original_AXYP_SP_RAM_5SMC_banks_and_ordered_OAM_otherstores_exact": true,
+  "new_byte_resets_zero": true,
+  "common_MoveAllSpritesOffscreen_added_cycles": 18,
+  "other_cold_newgame_entries_added_cycles": 0,
+  "source_named_direct_OAMClear_callers": 0,
+  "computed_OAMClear_owner": "Only original DrawAllMetasprites legacy tail computes the OAMClear address; owned negative modes use genuine Roster tail instead.",
+  "lifecycle_entry_counts": {
+    "CrossoverInit": 4,
+    "KbFreshGameInit": 4,
+    "MoveAllSpritesOffscreen": 256,
+    "X5InventoryInit": 8,
+    "X5ProfilesNewGame": 256
+  },
+  "ownership": "New ExRAM5FF8 sits outside existing5FF0..5FF5 bounce and5FF6..5FF7 NativeStatus, inside genuine X5ProfilesNewGame5C00..5FFF full reset. Complete owner audit is bound separately; no existing RAM symbol changes.",
+  "limits": "Source/cold/fresh-game/OAM-clear simulation, not native scene/death/area coverage or displayed fairness.",
+  "tool_sha256": "1a2fb1b3797feba1479d8916fac8f37be7cf4089424388a5eb78aa6c7b9c677b"
+}

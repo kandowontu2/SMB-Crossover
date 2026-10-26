@@ -1,0 +1,41 @@
+{
+  "passed": true,
+  "source_only": true,
+  "native_run": false,
+  "parent_ROM_sha256": "731c918b0f448564587d90fca2979afc9fc0e5eb9b26616f4241801e2e73e16c",
+  "candidate_ROM_sha256": "a801f8e397a416e1b12cb6b78bad25774670c8f9fea0e8334cd0c830cf8a3d56",
+  "complete_NMI_cases": 2156,
+  "actual_IRQ_cases": 512,
+  "groups": {
+    "foreign_original_full_NMI": {
+      "cases": 76,
+      "cycle_delta": [
+        0,
+        0
+      ]
+    },
+    "owned_all64physical_flags_both_stack_depths": {
+      "cases": 2048,
+      "cycle_delta": [
+        17,
+        88
+      ]
+    },
+    "real_scene_death_guards": {
+      "cases": 32,
+      "cycle_delta": [
+        0,
+        82
+      ]
+    }
+  },
+  "original_full_AXYP_SP_application_RAM_5SMC_banks_input_APU_and_other_ordered_writes_exact": true,
+  "only_new_lifecycle_byte": 24568,
+  "foreign_full_NMI_cycles_exact": true,
+  "original_stack_dead_writes_excluded": true,
+  "physical_status_mask": 207,
+  "IRQ_note": "Only virtual B/U excluded at RTI boundary; all six physical condition/control flags compared.",
+  "acknowledgement": "Only a pending bit7 at genuine regular outer AudioUpdate return E3FC, with live scene1/task3/engine8/death0, consumes bit6 via XOR C0. Lag, no-pending, foreign, and original OperMode0 vanilla-audio routes do not consume; scene reset is separately owned by MoveAllSpritesOffscreen.",
+  "limits": "Assembled complete source NMI/IRQ only. No physical DMA/PPU/DMC timing, displayed fairness, or cadence claim.",
+  "checker_sha256": "6f5d64abff81558091d4fc4a6973628314cbf1d7342bbc7d76ce43ce21914473"
+}

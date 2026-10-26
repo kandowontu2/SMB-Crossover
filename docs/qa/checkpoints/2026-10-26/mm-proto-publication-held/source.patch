@@ -1,0 +1,429 @@
+--- clean731/smb1base-mmc5-expanded.cfg
++++ private/smb1base-mmc5-expanded.cfg
+@@ -272,6 +272,7 @@
+     HOT_RENDER_GATE: load=X5_NEW_42,type=ro;
+     INVENTORY_ITEM_RETURN: load=X5_NEW_42,type=ro,optional=yes;
+     PN_MENU_HINT: load=X5_NEW_42,type=ro,optional=yes;
++    MM_PUBLICATION_COLD: load=X5_NEW_42,type=ro,start=$b9a8;
+     MENU_VRAM_BUDGET: load=X5_NEW_42,type=ro,start=$bb50,optional=yes;
+ 
+     X5_PUBLISH: load=X5_NEW_3E, type=ro;
+@@ -348,6 +349,7 @@
+     WORLD_SPRITE_PALETTE: load=PRGA_03, type=ro, optional=yes, start=$bfc9;
+     PN_HUD_TEXT:load=PRGA_03,type=ro;
+     METASPRITE: load = PRGA_04, type = ro;
++    MM_BODY_PRIORITY_GATE: load=PRGA_04,type=ro,start=$bf33;
+     DARKWING_DRAW_GUARD: load=PRGA_04, type=ro, start=$BF8B, optional=yes; # Reclaimed unused guard plus legacy NOPs.
+     Z2_DRAW_GATE: load=PRGA_04,type=ro,start=$bfb9;
+     X5_DRAW_GATE: load=PRGA_04,type=ro,start=$bfcc;
+--- clean731/src/entrypoint.s
++++ private/src/entrypoint.s
+@@ -497,3 +497,7 @@
+ .if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
+ .include "cv3_remaining_source_fx.s"
+ .endif
++
++.if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
++.include "mm_proto_publication.s"
++.endif
+--- clean731/src/megaman_weapons.s
++++ private/src/megaman_weapons.s
+@@ -2117,7 +2117,56 @@
+   rts
+ LegacyReservation:
+   jmp PlayerOAMReservation
+-  .res 110,$ea
++::MmBodyPriorityBegin:
++  lda #1
++  sta GuestOamRotationActive
++  farcall KbOamPriority         ; Retain the genuine whole-ring phase update.
++  jsr MmBodyPriorityActive
++  bcc PriorityLegacy
++  lda MmPublicationState
++  and #$40
++  ora #$80                    ; owned80body / C0shots, always an actual reserveR.
++  sta GuestOamRotationActive
++  jsr ProtoOamReservation
++  tax                         ; Both priority turns begin logicalR40/44.
++  lda #0
++  bit GuestOamRotationActive
++  bvc PublicationStoreRotation
++  txa
++  eor #$ff
++  clc
++  adc #1                      ; shot physical0 = logicalR + (-R).
++PublicationStoreRotation:
++  sta RgOamRotation
++  jmp MmBodyPriorityClearRing
++PriorityLegacy:
++  ; Ineligible/hidden/death draw replaces the old tagged page. Retain only
++  ; desired bit6; no invalid image may be acknowledged as a priority turn.
++  asl MmPublicationState
++  lsr MmPublicationState
++  ldx #0
++  jmp MmBodyPriorityClearRing
++::MmBodyPriorityFinish:
++  lda CurrentOAMOffset
++  bit GuestOamRotationActive
++  bpl LegacyPlayerStart
++  sec
++  sbc #40
++  ldx ProtoVariant
++  beq LegacyPlayerStart
++  sbc #4
++LegacyPlayerStart:
++  sta RgOamPlayerStart
++::MegaManProjectileOamReady:
++  bit GuestOamRotationActive
++  bmi PriorityFinished
++  jsr ProtoOamReservation
++  clc
++  adc CurrentOAMOffset
++  sta CurrentOAMOffset
++PriorityFinished:
++  rts
++  .res 1,$ea
+   .assert *-MegaManDrawShots=139,error,"Shot wrapper original span"
+  .else
+   lda SelectedCharacter
+@@ -2433,3 +2482,55 @@
+ .endproc
+ .assert .bank(GrowthRadiusLo) = .bank(RgBILLWeaponsRightLo), lderror, "Bill mapped C000 scalar/art ABI"
+ .popseg
++
++.if ::ENABLE_MMC5_EXPANDED
++.pushseg
++.segment "MM_BODY_PRIORITY_GATE"
++.proc MmBodyPriorityActive
++  lda OperMode
++  eor #1
++  ora MmDeathFlag
++  bne No
++  lda OperMode_Task
++  cmp #3
++  bne No
++  lda GameEngineSubroutine
++  cmp #8
++  bne No
++  lda ObjectMetasprite
++  beq No
++  lda ObjectVerticalFlip
++  eor #$80
++  asl                         ; C=1 precisely when the original sign was clear.
++  rts
++No:
++  clc
++  rts
++.endproc
++.proc MmBodyPriorityExit
++  ; Reproduce the original body's physical X and last SBC overflow flag.
++  ; The retained real shot count and phase suffice; allocate no new RAM.
++  sta MmPublicationState      ; A is the genuine owned80/C0 mode from tail.
++  lda CurrentOAMOffset
++  bit GuestOamRotationActive
++  bvs PublicationLogicalReady
++  clc
++  adc RgOamPlayerStart         ; Body0 logical count excludes the real shots.
++  sta CurrentOAMOffset
++PublicationLogicalReady:
++  sec
++  sbc RgOamFirst
++  tax
++  lda #0
++  sec
++  sbc RgOamFirst
++  sta RgOamRotation
++  txa
++  sec
++  sbc RgOamRotation
++  ldy #0
++  sty RgOamRotation
++  jmp MmBodyPriorityRosterTail
++.endproc
++.popseg
++.endif
+--- clean731/src/metasprite_engine.s
++++ private/src/metasprite_engine.s
+@@ -316,6 +316,20 @@
+   jsr HpGraphicsBankCopy
+ .endif
+  .if ::ENABLE_CROSSOVER
++.if ::ENABLE_MMC5_EXPANDED
++  ; Check the already-rotated foreign families first. Their saved four
++  ; cycles pay for the common-clear X setup below, retaining exact cost.
++  lda SelectedCharacter
++  cmp #CHARACTER_BILL
++  bcs RotateGuestOAM
++  lsr
++  bcc NonMegaPriority
++  jmp MmBodyPriorityBegin
++NonMegaPriority:
++  lsr                         ; Both Mario0 and Samus2 become zero.
++  sta GuestOamRotationActive
++  jmp ClearReservedPlayer
++.else
+   lda SelectedCharacter
+   cmp #CHARACTER_MEGAMAN
+   beq RotateGuestOAM
+@@ -324,6 +338,7 @@
+   lda #0
+   sta GuestOamRotationActive
+   jmp ClearReservedPlayer
++.endif
+ RotateGuestOAM:
+   lda #1
+   sta GuestOamRotationActive
+@@ -358,6 +373,10 @@
+   adc #1
+   sta RgOamRotation
+ .endif
++.if ::ENABLE_MMC5_EXPANDED
++  ldx #0
++::MmBodyPriorityClearRing:
++.endif
+   ; Give weapons the first OAM slots. Transparent portions of layered bodies
+   ; still consume the PPU's eight sprites per line and must not hide shots.
+   lda #$f8
+@@ -366,7 +385,12 @@
+  .repeat 64, I
+   sta Sprite_Y_Position+I*4
+  .endrepeat
++.if ::ENABLE_MMC5_EXPANDED
++  ; X already owns the reservation or foreign zero. The following farcall
++  ; replaces N/Z before either is consumed, so no flag-only instruction.
++.else
+   ldx #0
++.endif
+   stx CurrentOAMOffset
+ .if ::ENABLE_MMC5_EXPANDED
+   farcall RlSpecialDrawDispatch
+@@ -377,18 +401,25 @@
+   cmp #CHARACTER_MEGAMAN
+   bne RosterShots
+   jsr MegaManDrawShots
++.if ::ENABLE_MMC5_EXPANDED
++  jsr MmBodyPriorityFinish
++  bit GuestOamRotationActive
++  bpl PublicationWorldReady
++  lda #0
++  sta RgOamRotation           ; world has the same mapping on both turns.
++PublicationWorldReady:
++  jmp InitObjectLoop
++  .res 3,$ea                  ; Retain the actual original object-loop PCs.
++.else
+   lda CurrentOAMOffset
+   sta RgOamPlayerStart
+ ::MegaManProjectileOamReady:
+- .if ::ENABLE_MMC5_EXPANDED
+-  jsr ProtoOamReservation
+- .else
+   jsr PlayerOAMReservation
+- .endif
+   clc
+   adc CurrentOAMOffset
+   sta CurrentOAMOffset
+   jmp InitObjectLoop
++.endif
+ RosterShots:
+ .if ::ENABLE_MMC5_EXPANDED
+   jsr KbDrawDispatch
+@@ -419,8 +450,13 @@
+   dex
+   dex
+   sta Sprite_Y_Position,x
++.if !::ENABLE_MMC5_EXPANDED
+   cpx #0
++.endif
+   bne ClearPlayerOAM
++.if ::ENABLE_MMC5_EXPANDED
++  sec                         ; DEX/STA already provide CPX0's final N/Z.
++.endif
+ 
+ InitObjectLoop:
+   lda #24 - 1 ; size of the different object update list
+@@ -529,12 +565,22 @@
+   pha
+ 
+     ; put the player in slot 0 always
++.if ::ENABLE_MMC5_EXPANDED
++    ; Existing modes0/1 and owned80/C0: ASL is zero only for legacy0/body80.
++    ; X is dead here; the genuine next player LDX replaces it on every path.
++    lda GuestOamRotationActive
++    asl
++    beq :+
++      lda RgOamPlayerStart
++    :
++.else
+     lda #0
+ .if ::ENABLE_CROSSOVER
+     ldx GuestOamRotationActive
+     beq :+
+       lda RgOamPlayerStart
+     :
++.endif
+ .endif
+     sta CurrentOAMOffset
+ 
+@@ -608,8 +654,12 @@
+ .endif
+  .if ::ENABLE_CROSSOVER
+     lda GuestOamRotationActive
++.if ::ENABLE_MMC5_EXPANDED
++    bmi MmBodyPriorityExitBranch
++.endif
+     beq LegacyTailClear
+       ; The full ring was hidden at entry; no linear tail clear is needed.
++::MmBodyPriorityRosterTail:
+       pla
+       sta RgOamUsed
+       lda RgOamFirst
+@@ -655,10 +705,17 @@
+ ::WorldFirebarAdmission:
+  farcall Z2LateWorldAdmission
+  jmp WorldFirebarAdmissionDone
+- .res 17,$ea
++::MmBodyPriorityExitBranch:
++ jmp MmBodyPriorityExit
++::MmPublicationClearOamCursor:
++ lda #0
++ sta CurrentOAMOffset
++ sta MmPublicationState
++ rts
++ .res 4,$ea
+ ::WorldFirebarAdmissionDone:
+  rts
+- .assert *-WorldFirebarDrawAdmission=39,lderror,"Late world admission span"
++ .assert *-WorldFirebarDrawAdmission=38,lderror,"Publication priority admission span"
+ .else
+ ::WorldFirebarAdmission:
+   ; No matching ID can produce a firebar. Keep the existing live-owner checks.
+@@ -774,8 +831,13 @@
+ .endif
+ 
+ MoveAllSpritesOffscreen:
++.if ::ENABLE_MMC5_EXPANDED
++  jsr MmPublicationClearOamCursor
++  ldy #0
++.else
+   ldy #0
+   sty CurrentOAMOffset
++.endif
+   lda #$f8
+ OAMClear:
+ .repeat 64, I
+--- clean731/src/protoman_cold.s
++++ private/src/protoman_cold.s
+@@ -16,28 +16,9 @@
+ ; Native wrapper saves/restores the A-window itself. Preserve actual C hardware
+ ; and its shadow together before returning to the original C-wrapper dispatcher.
+ .proc ProtoNmiAudioCore
+-  ; Resident14B entry mapped A hardware only; its old shadow is our return bank.
+-  lda CurrentBank
+-  pha
+-  lda #.bank(ProtoNmiAudioCore) | MMC5_PRG_ROM
+-  sta CurrentBank
+-  lda CurrentBankC
+-  pha
+-  lda ProtoVariant
+-  beq Original
+-  BankPRGC #.bank(ProtoNativeAudioUpdate)
+-  jsr ProtoNativeAudioUpdate
+-  jmp Restore
+-Original:
+-  BankPRGC #.bank(MegaManAudioNativeUpdate)
+-  jsr MegaManAudioNativeUpdate
+-Restore:
+-  pla
+-  BankPRGC a
+-  pla
+-  sta CurrentBank
+-  ; Caller immediately publishes A to5115 from resident code.
+-  rts
++  jmp MmPublicationAudioCore
++  .res 56,$ea
++  .assert *-ProtoNmiAudioCore=59,error,"Original public NMI core wrapper span"
+ .endproc
+ 
+ .proc ProtoMenuPrepare
+--- clean731/src/reset.s
++++ private/src/reset.s
+@@ -430,6 +430,9 @@
+   ; This needs to happen later in NMI but before Audio as custom music can use the Nmi temp variables
+   jsr UpdateMouseExtra
+ .endif
++.if ::ENABLE_MMC5_EXPANDED && ::MAPPER_MMC5
++::MmPublicationRegularAudioCall:
++.endif
+   jsr AudioUpdate
+   
+ .if ::DEBUG_WORLD_SELECT
+--- clean731/src/mm_proto_publication.s
++++ private/src/mm_proto_publication.s
+@@ -0,0 +1,67 @@
++; One new explicitly declared lifecycle owner; never borrow audio/OAM scratch.
++MmPublicationState=$5ff8
++.export MmPublicationState
++.pushseg
++.segment "MM_PUBLICATION_COLD"
++.proc MmPublicationAudioCore
++  ; This real core is reached only by Mega/Proto AudioUpdate. The outer
++  ; regularNMI return word lies atSP+5; savedP/X move it toSP+7/+8.
++  ; Main cannot mutate page2 while NMI owns this acknowledged transfer.
++  php
++  bit MmPublicationState
++  bpl NoPending
++  phx
++  tsx
++  lda $0107,x
++  cmp #<(MmPublicationRegularAudioCall+2)
++  bne RestoreX
++  lda $0108,x
++  cmp #>(MmPublicationRegularAudioCall+2)
++  bne RestoreX
++  lda OperMode
++  cmp #1
++  bne Invalidate
++  lda OperMode_Task
++  cmp #3
++  bne Invalidate
++  lda GameEngineSubroutine
++  cmp #8
++  bne Invalidate
++  lda MmDeathFlag
++  bne Invalidate
++  lda MmPublicationState
++  eor #$c0                    ; pending80->desired40; pendingC0->desired0.
++  sta MmPublicationState
++  jmp RestoreX
++Invalidate:
++  lda #0                      ; scene/death replacement cannot consume a turn.
++  sta MmPublicationState
++RestoreX:
++  plx
++NoPending:
++  plp
++  ; Resident14B entry mapped A hardware only; its old shadow is our return bank.
++  lda CurrentBank
++  pha
++  lda #.bank(ProtoNmiAudioCore) | MMC5_PRG_ROM
++  sta CurrentBank
++  lda CurrentBankC
++  pha
++  lda ProtoVariant
++  beq Original
++  BankPRGC #.bank(ProtoNativeAudioUpdate)
++  jsr ProtoNativeAudioUpdate
++  jmp Restore
++Original:
++  BankPRGC #.bank(MegaManAudioNativeUpdate)
++  jsr MegaManAudioNativeUpdate
++Restore:
++  pla
++  BankPRGC a
++  pla
++  sta CurrentBank
++  ; Caller immediately publishes A to5115 from resident code.
++  rts
++.endproc
++.assert *<=$bb50,error,"Publication cold code overlaps pinned menuBB50"
++.popseg

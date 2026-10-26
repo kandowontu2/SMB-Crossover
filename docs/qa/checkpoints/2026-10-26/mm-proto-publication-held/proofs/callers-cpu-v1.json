@@ -1,0 +1,25 @@
+{
+  "passed": true,
+  "source_only": true,
+  "native_run": false,
+  "parent_ROM_sha256": "731c918b0f448564587d90fca2979afc9fc0e5eb9b26616f4241801e2e73e16c",
+  "candidate_ROM_sha256": "a801f8e397a416e1b12cb6b78bad25774670c8f9fea0e8334cd0c830cf8a3d56",
+  "actual_postdraw_Main_release_NMI_next_GameLoop_cases": 64,
+  "original_draw_and_live_caller_full_AXYP_SP_banks_exact": true,
+  "all_other_application_RAM_SMC_Hardware_exact": true,
+  "postdraw_control_flow_and_ordered_writes_exact": true,
+  "explicit_differences": [
+    "physical OAM image",
+    "GuestOamRotationActive",
+    "RgOamRotation",
+    "new MmPublicationState5FF8"
+  ],
+  "dead_stack_only_excluded": true,
+  "actual_regularNMI_consumes_one_completed_owned_tag": true,
+  "cycle_delta": [
+    87,
+    88
+  ],
+  "limits": "Synthetic true compiled Main/release/NMI/next frame with actual controller reads. Physical PPU/DMA/visibility/cadence not modeled.",
+  "tool_sha256": "99195b6574814eeade7f1eae364bc7b6536f04248620473ca7101a6e02fd7f62"
+}
