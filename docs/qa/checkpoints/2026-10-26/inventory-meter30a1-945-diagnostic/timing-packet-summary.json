@@ -1,0 +1,322 @@
+{
+  "ROM_sha256": "30a102f9b107f436943e701ef6907c68a68af7d7cf2d8ea83c014a2696204f39",
+  "packet": [
+    32,
+    35,
+    11,
+    11,
+    30,
+    28,
+    29,
+    14,
+    27,
+    36,
+    36,
+    36,
+    36,
+    36,
+    32,
+    55,
+    2,
+    36,
+    36,
+    32,
+    87,
+    2,
+    36,
+    36,
+    32,
+    74,
+    71,
+    36,
+    63,
+    29,
+    3,
+    15,
+    55,
+    23,
+    63,
+    25,
+    3,
+    22,
+    48,
+    39,
+    63,
+    16,
+    4,
+    34,
+    15,
+    39,
+    0,
+    63,
+    12,
+    4,
+    15,
+    7,
+    23,
+    15
+  ],
+  "commands": [
+    {
+      "declared_length": 11,
+      "vertical": false,
+      "PPU_address": 8227,
+      "repeat_byte": false,
+      "raw": [
+        32,
+        35,
+        11,
+        11,
+        30,
+        28,
+        29,
+        14,
+        27,
+        36,
+        36,
+        36,
+        36,
+        36
+      ],
+      "pointer": 1199,
+      "terminator": false,
+      "header": [
+        32,
+        35,
+        11
+      ]
+    },
+    {
+      "declared_length": 2,
+      "vertical": false,
+      "PPU_address": 8247,
+      "repeat_byte": false,
+      "raw": [
+        32,
+        55,
+        2,
+        36,
+        36
+      ],
+      "pointer": 1213,
+      "terminator": false,
+      "header": [
+        32,
+        55,
+        2
+      ]
+    },
+    {
+      "declared_length": 2,
+      "vertical": false,
+      "PPU_address": 8279,
+      "repeat_byte": false,
+      "raw": [
+        32,
+        87,
+        2,
+        36,
+        36
+      ],
+      "pointer": 1218,
+      "terminator": false,
+      "header": [
+        32,
+        87,
+        2
+      ]
+    },
+    {
+      "declared_length": 7,
+      "vertical": false,
+      "PPU_address": 8266,
+      "repeat_byte": true,
+      "raw": [
+        32,
+        74,
+        71,
+        36
+      ],
+      "pointer": 1223,
+      "terminator": false,
+      "header": [
+        32,
+        74,
+        71
+      ]
+    },
+    {
+      "declared_length": 3,
+      "vertical": false,
+      "PPU_address": 16157,
+      "repeat_byte": false,
+      "raw": [
+        63,
+        29,
+        3,
+        15,
+        55,
+        23
+      ],
+      "pointer": 1227,
+      "terminator": false,
+      "header": [
+        63,
+        29,
+        3
+      ]
+    },
+    {
+      "declared_length": 3,
+      "vertical": false,
+      "PPU_address": 16153,
+      "repeat_byte": false,
+      "raw": [
+        63,
+        25,
+        3,
+        22,
+        48,
+        39
+      ],
+      "pointer": 1233,
+      "terminator": false,
+      "header": [
+        63,
+        25,
+        3
+      ]
+    },
+    {
+      "declared_length": 4,
+      "vertical": false,
+      "PPU_address": 16144,
+      "repeat_byte": false,
+      "raw": [
+        63,
+        16,
+        4,
+        34,
+        15,
+        39,
+        0
+      ],
+      "pointer": 1239,
+      "terminator": false,
+      "header": [
+        63,
+        16,
+        4
+      ]
+    },
+    {
+      "declared_length": 4,
+      "vertical": false,
+      "PPU_address": 16140,
+      "repeat_byte": false,
+      "raw": [
+        63,
+        12,
+        4,
+        15,
+        7,
+        23,
+        15
+      ],
+      "pointer": 1246,
+      "terminator": false,
+      "header": [
+        63,
+        12,
+        4
+      ]
+    }
+  ],
+  "costs": {
+    "entry_to_gateway": 106,
+    "VRAM_gateway": 1433,
+    "gateway_to_CHR": 28,
+    "CHR_publication": 261,
+    "CHR_return_to_4014_source": 12,
+    "source_DMA_to_E008": 518,
+    "E008_to_mask": 4
+  },
+  "changed_CHR": [
+    {
+      "slot": 4,
+      "before": 19,
+      "after": 169
+    },
+    {
+      "slot": 8,
+      "before": 0,
+      "after": 242
+    }
+  ],
+  "reload_owner": {
+    "name": "SpecialDrawShots::Changed",
+    "bank": 60,
+    "start": 47360,
+    "bytes": [
+      173,
+      5,
+      126,
+      141,
+      7,
+      126,
+      173,
+      6,
+      126,
+      141,
+      8,
+      126,
+      238,
+      70,
+      1
+    ],
+    "INC_CPU": 47372,
+    "write_callback_PC": 47375,
+    "callback_PC_semantics": "CPUwrite callback PC is nextinstruction/Done, not INCentry"
+  },
+  "last_stamp": {
+    "scanline": -1,
+    "frame": 945,
+    "bankA": 0,
+    "dot": 299,
+    "sp": 244,
+    "bankC": 116,
+    "fixture_write_boundary": false,
+    "y": 7,
+    "cpu": 28112788,
+    "phase": "pool",
+    "v": 16144,
+    "updates": 609,
+    "x": 0,
+    "pc": 57355,
+    "nmi": 937,
+    "a": 30,
+    "bankPC": 127,
+    "fineX": 0,
+    "observed_mask": 6,
+    "t": 0,
+    "oamaddr": 0,
+    "w": false,
+    "nmi_depth": 1,
+    "wall": 944,
+    "irq_depth": 0,
+    "stack": [
+      209,
+      227,
+      162,
+      4,
+      47,
+      0,
+      34,
+      181
+    ],
+    "observed_ctrl": 168,
+    "case": 2
+  },
+  "strict_FALSE_preserved": true,
+  "controlled_fullpool_reachability_limit": "B-only fullpoolstress seeds ten completeMETAL actors under selectedBUSTER; nativeSelect normallyclears oldspecials. This exactcombination is controlled coverage, not claimed naturallyreachable acquisition/selection history."
+}

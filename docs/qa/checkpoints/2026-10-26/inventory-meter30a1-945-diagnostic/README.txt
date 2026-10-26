@@ -1,0 +1,1 @@
+Actual945diagnostic: exact944prefix, originalFALSEpreserved.54B8commandpacket plus requiredSpecialoverlayCHRcost; no skipreload/patch/adoptionclaim. Fullrawexternal; see namedreport and exactbindings.

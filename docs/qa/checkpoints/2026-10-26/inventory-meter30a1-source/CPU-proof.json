@@ -1,0 +1,35 @@
+{
+  "passed": true,
+  "source_only": true,
+  "native_run": false,
+  "baseline_ROM_sha256": "69aef8a3c57048ad356f4df622a5322ee2ea4076ef9816744c7d07257d294f69",
+  "candidate_ROM_sha256": "30a102f9b107f436943e701ef6907c68a68af7d7cf2d8ea83c014a2696204f39",
+  "all256_stock_HUD_cases": 34816,
+  "actual37_UI_cases": 888,
+  "actual_GameLoop_continuations": 36,
+  "complete_NMI_cases": 192,
+  "actual_interrupt_cases": 3200,
+  "ordered_UpdateScreen_bus_control_cases": 4352,
+  "HUD_foreground_delta": [
+    -66,
+    -33
+  ],
+  "UpdateScreen_cycle_delta": [
+    -45,
+    0
+  ],
+  "complete_NMI_cycle_delta": [
+    -46,
+    0
+  ],
+  "declared_ABI": "Uniform producer returns queuecursorX/Offset\u22126; exact real GameLoop continuation overwrites X/Y beforeuse. A/Y/P/SP exactatproducer; completeUpdateScreen/NMI returnedAXYP/SP exact. Sevenbar cells monotone, first==last iff uniform.",
+  "RAM_scope": "All application RAM through01BF plus0200..07FF/5C00..7FFF; only changed84Bqueue/offset normalized semantically; privateNmiR0/1 endingpointer changed by exact packetextent. Top64deadstackexcluded.",
+  "limits": "Source/models only. Actual1630newpacket/reloadcause unobserved, no nativequalification/adoption/deadline/FPS/visibilityclaim.69aeFALSEunchanged. AllNMIandothercodebyteexact; no universalIRQ/DMCtiming proof.",
+  "tool_sha256": "2ba7a34eb62e5638bac97752bbc120fd699e1aed9d8a7a0dcb21bd3413179921",
+  "case_hashes": {
+    "HUD-cases.json": "b1ce2effaef9aafb48759321bab0a0840a220a771c0db968978a3ff35d673e9d",
+    "interrupt-cases.json": "5d2fcd87a8ac31f25611fd9d6745f90990452e2eb453fa51226e9884c57ce8c9",
+    "NMI-cases.json": "cd405297e5b7ca19260fc5ce9dad3c2c5f386d46896804ce082f3834ec71d5af",
+    "UI-cases.json": "ba8aeb4c0c52b54f346fcf85e985e3f43678385e70f1072e4db79a171e523380"
+  }
+}

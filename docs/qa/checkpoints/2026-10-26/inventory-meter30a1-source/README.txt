@@ -1,0 +1,1 @@
+Source-only private30a1 uniformbarRLE plus preserveddefaultfontlease. No native grant/launch/adoption.69aeFALSE remainsFALSE; Hardunrun. Exact runtime/settings/deps in external readiness; no settings/capture binaries tracked. See final-inventory-meter-source/ready-2026-10-26 reports.

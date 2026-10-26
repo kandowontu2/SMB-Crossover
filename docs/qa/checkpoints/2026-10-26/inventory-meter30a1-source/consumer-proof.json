@@ -1,0 +1,25 @@
+{
+  "passed": true,
+  "source_only": true,
+  "native_run": false,
+  "baseline_ROM_sha256": "69aef8a3c57048ad356f4df622a5322ee2ea4076ef9816744c7d07257d294f69",
+  "candidate_ROM_sha256": "30a102f9b107f436943e701ef6907c68a68af7d7cf2d8ea83c014a2696204f39",
+  "cases": 212,
+  "case_counts": {
+    "actual_Proto_palette_RLE_walk": 12,
+    "actual_numeric_tail_RLE_walk": 96,
+    "complete_HUD_flags": 96,
+    "complete_lifecycle": 8
+  },
+  "cases_sha256": "99774498e0afec52eace810188c1e3385b054f36a26461f7981e0e0017727e7f",
+  "tool_sha256": "f1d977b351f168d1f4c4deb082a4f77c839d1daa7d9044213953c2c500191150",
+  "consumer_closure": [
+    "Actual UpdateScreen bit6repeat with4,352fullbus cases inprimaryproof.",
+    "HudUpdateNumberLocal ReuseTail explicitly decodesbit6 andskipsonepayloadbyte; actual repeatednumericproducer controls here.",
+    "ProtoFixQueuedPalette explicitly decodesbit6 andskipsonepayloadbyte; actualpaletteappend/fix/consume here.",
+    "MenuPreviewBudget requiresOperMode0/menuState2 beforeanyqueueedit; InventoryUiTick HUDrequiresOperMode1. No shared menu path changed.",
+    "PnHudPreUpdateScreen marker/selected18 ownership guard precedesfixedheaderreads; primary192wholeNMI controls includeinactive1/9 andBuffer2 hold.",
+    "Native screen_render/status-tail field reads refer to their own freshlyappended numericfields; tested producer continuation, notassumed packetabsoluteoffset."
+  ],
+  "limits": "Finite actual compiled/source closure. Proto walker scratchcursor R0 intentionallydepends onpacketextent; no claim ofpartialwalkerAXYP/RAM identity. No native deadline/1630queue attribution, DMC or universal budget proof."
+}

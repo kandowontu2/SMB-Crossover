@@ -1,0 +1,15 @@
+Actual30a1 first945FALSE diagnostic - source owner and budget attribution
+2026-10-26
+ROM30a102f9b107f436943e701ef6907c68a68af7d7cf2d8ea83c014a2696204f39.
+ONE read-only850..950 replay reproduced original944rawPPU/index/APU byte-for-byte, ordered original source/DMA rows semantically exact, allcase/firstfailureARGB identical. StrictFALSE unchanged; worker RELEASED; Hard unrun. DiagnosticintegrityPASS is not nativegalleryPASS.
+
+941lag,942regular,943lag,944lag,945regular. Native HUD at942 returns28B compressed BUSTER packet in706CPU; actual native face/weapon/bodypalette producer adds19B to47; ColorRotation at944 adds7B at3F0C for54B total. Actual945commands:2023/11,2037/2,2057/2,204A/repeat7/24,3F1D/3,3F19/3,3F10/4,3F0C/4.8headers/36actualPPUDATA writes. Native Samusgateway1433CPU.
+
+DefaultHUD correctly did NOTrequestreload. RealSpecialDrawShots on injectedfullpool firstsetsSsChrPhysical169/Active1 at943, then Changed storeshistory and INCReload atbank60B90C. CallbackPC B90F isnextinstruction/Done, not INCentry. NMI945BankSwitchCHR spends261CPU andchangesactualslot4 from19to169, andHUDslot8 from0to242. CurrentCHRBank/X5ChrMode logical arrays remainunchanged but the physicalspecialoverlay isnew: publication is required to pair currentOAM. Do NOTsuppressthispendingrequest as redundant.
+
+Realpre-enable cost2362CPU: entry→gateway106; gateway1433; gap28; CHR261; CHRreturn→4014source12; sourceDMA→E008518; E008→mask4. DMA837source257:97/E005, complete-1:288/E008 (256bytesexact/mask6/OAM0), finaldiagnosticcallback PPUMASK-1:299/E00B/cpu28112788 immediatelybeforeunchangedassertion. Atleast9CPUcycles required to reach274 here, paritydependent. No completed945frame/pixelverdict.
+
+All14physicalCHRdumpfiles now compareexact full1024B ROMpages, including highphysicalpages; no16bit alias. No added gamewrites or runtimecallbackregistration. Actualrawdiagnostic5402rows retained. Original731/69ae/30a1FALSEs remainimmutable.
+
+Scope: tenMETALactors underselectedBUSTER are explicit B-only fullpoolseeds. NativeSelect wouldclear oldspecials, so this exact actor/selectionhistory is NOTclaimed naturallyreachable. Its renderer/CHRowner is source-owned and mustremaincoherent. ActualMETAL gallery notcompleted. No globalworstcase/DMC/deadline/FPS/flicker/acquisition/campaign/sourcefix/adoption claim. A further coherent queue/copybudget proposal requires source/CPUreview; no newnativegrant remains.
+External D/current30a1-bass-diagnostic945-ready-v1/native/proof.json andthispacket attribution.json bindeveryactualowner/command/stamp/CHRepoch. D=C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py.

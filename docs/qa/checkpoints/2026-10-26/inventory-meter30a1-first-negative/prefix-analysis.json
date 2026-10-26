@@ -1,0 +1,81 @@
+{
+  "preserved_original_FALSE": true,
+  "passed": false,
+  "source_integrity_passed": true,
+  "native_run": false,
+  "ROM_sha256": "30a102f9b107f436943e701ef6907c68a68af7d7cf2d8ea83c014a2696204f39",
+  "original_native_proof": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current30a1-bass-gallery-ready-v1\\profiles\\bass-easy\\native\\proof.json",
+  "original_native_proof_sha256": "74f2739adaa90561f335425786666481b5bc6aefae66968fc450271d9612f38b",
+  "ready_sha256": "ec0f3cd80d2d12ba8ee82255150358c43f9e87cde8813913ca2087a28f182e10",
+  "ready_bindings_verified": 943,
+  "actual_numeric_mode": 0,
+  "Hard_launched": false,
+  "complete_profile": false,
+  "planned_cases": 16,
+  "observed_case_indices": [
+    1,
+    2
+  ],
+  "prior_component_prefix_cases": [
+    1
+  ],
+  "event_counts": {
+    "1": {
+      "B-only-native-boundary-seeds": 1,
+      "gallery-phase": 9,
+      "actual-controller-selection": 9,
+      "ppu-frame-captured": 10,
+      "actual-source-effect-draw": 1,
+      "controlled-falling-Goomba-target": 1,
+      "actual-source-contact": 1,
+      "actual-buster-full-pool-refusal": 1
+    },
+    "2": {
+      "gallery-phase": 9,
+      "ppu-frame-captured": 11,
+      "actual-controller-selection": 7,
+      "actual-source-effect-draw": 1,
+      "controlled-falling-Goomba-target": 1,
+      "actual-source-contact": 1
+    }
+  },
+  "complete256DMAs": 837,
+  "actual_data_writes": 214272,
+  "startFrame_snapshots": 944,
+  "pending_startFrames": 1,
+  "scoped_enables": 584,
+  "safe_scoped_enables": 583,
+  "unsafe_scoped_enables": 1,
+  "complete_PPU_frames": 944,
+  "raw_bytes": 231997440,
+  "case_capture_events": 21,
+  "unique_original_case_filenames": 19,
+  "duplicate_case_names": {
+    "buster-face1-buster": [
+      401,
+      613
+    ],
+    "buster-face2-buster": [
+      711,
+      922
+    ]
+  },
+  "case_files_match_last_saved_raw_event": true,
+  "derived_actual_wholeframes": 34,
+  "sheets": 4,
+  "agent_visual_review": false,
+  "missing_success_components": [
+    "native-bass-gallery.json",
+    "ppu-capture-native-result.json"
+  ],
+  "native_worker_released": true,
+  "limits": [
+    "Original aggregateFALSE staysFALSE; this is independent saved-prefix analysis.",
+    "One initial case reached all source component transitions; second case reached funded/empty but failed before pool-refusal; full16case native summary missing, no profile pass or all32plan coverage.",
+    "Two generic buster capture names were reused for funded/empty; originals remain unchanged, allcaptureevent occurrences are separately recovered from fullraw with exact ordinal map.",
+    "First-failure ARGB comes from live pre-render before completedframe945 and cannot prove a completed visible wrap. Last full raw frame944 retained.",
+    "Every complete DMA exact while renderingoff does not make the late rendering enable safe.",
+    "Diagnostic focus1200..1800 was never reached; newrawdiagnosticfile is empty. No raw VRAM/parser/producer/NMI costs at945. Source/diagnostic follow-up requires separate readiness/grant.",
+    "Source draw-pointer match is not effect pixel fidelity; actual selected wholeframes require separate agent review."
+  ]
+}

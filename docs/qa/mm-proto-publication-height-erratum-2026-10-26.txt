@@ -1,0 +1,44 @@
+Additive correction: a801 first-eight rectangle derivation
+
+The frozen mm_proto_publication_native_review_v2.py incorrectly used an
+8-pixel sprite height for the derived first-eight OAM-record counts. I
+withdraw those derived counts in its proof, native report and held
+checkpoint. The original artifacts remain unchanged.
+
+All 46 owned captured DMA images use 8x16 sprites: 44 have PPUCTRL $A8,
+two have $AC. The separate offline correction uses each image's actual
+captured PPUCTRL bit5, while rechecking all 399 complete source/physical
+256-byte DMA images. It reproduces the old eight-high numbers before
+replacing the derived geometry; no byte mask or native rerun is used.
+
+Corrected actual owned-image counts (23 turns of each kind):
+  Body turns with any first-eight body-record rejection: 0.
+  Shot turns with any first-eight body-record rejection: 21 (formerly15).
+  Body turns with any first-eight shot-record rejection: 21 (formerly16).
+  Shot turns with any first-eight shot-record rejection: 0.
+By the original actual visible-capture cutoffs, the longest consecutive
+body-record rejection run is two frames; shot-record rejection is three.
+These are visible-Y rectangle-selection counts, not opaque pixel or
+per-projectile lifetime guarantees. Transparent halves of a 16-high
+sprite still consume hardware selection slots.
+
+Unchanged: all actual pixels, 46 consumed source/ack phase turns, 399
+exact physical DMA images, real399vs402 cadence failure, three compiled
+Vine partial-writer body-overlap counterexamples, HELD status. A geometry
+correction cannot qualify or repair the candidate.
+
+Dependency audit: mm_proto_priority450_review_v1.py's shared load/rawbytes
+helpers do not derive first-eight geometry. Its image/DMA/cadence review
+is unaffected. The separate mm_proto_postdma_native_review_v1/v2/v3.py
+already uses `height=16 if captured_ctrl &32 else8`; its opaque-row
+decoder and review are not invalidated by this a801-specific mistake.
+The retired publication reviewer v1 has the same wrong literal as v2;
+neither is edited or used as a corrected source of these counts.
+
+Tool: tools/audit/mm_proto_publication_height_erratum_v1.py
+Output: external archive/mm-proto-publication-height-erratum-v1/
+  proof.json, bindings.json, corrected-owned-publications.json,
+  corrected-visible-record-runs.json, corrected-visible-frame-links.json.
+The output preserves the original selected capture cutoffs and source
+ownership model. No new source candidate, native test, installation,
+settings change, or Git operation is performed.

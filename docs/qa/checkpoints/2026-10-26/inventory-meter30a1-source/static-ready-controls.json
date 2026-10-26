@@ -1,0 +1,217 @@
+{
+  "passed": true,
+  "native_run": false,
+  "profiles": [
+    {
+      "profile": "bass-easy",
+      "reverse_original_script_except_new_config_and_default_oracle_exact": true,
+      "original_NMI_stack_APU_bank_5SMC_guard_literal_exact": true,
+      "fresh_all_hook_bytes_protocol_exact": true,
+      "startup_static_callback_count": 72,
+      "no_startup_emulated_writes": true
+    },
+    {
+      "profile": "bass-hard",
+      "reverse_original_script_except_new_config_and_default_oracle_exact": true,
+      "original_NMI_stack_APU_bank_5SMC_guard_literal_exact": true,
+      "fresh_all_hook_bytes_protocol_exact": true,
+      "startup_static_callback_count": 72,
+      "no_startup_emulated_writes": true
+    }
+  ],
+  "fresh_compiled_CPU_cases": 180,
+  "DMA_controls": [
+    {
+      "name": "complete256_exact",
+      "passed": true,
+      "expected_native_guard_outcome": "accept",
+      "rejection": null
+    },
+    {
+      "name": "E005_rejected_as_completion",
+      "passed": true,
+      "expected_native_guard_outcome": "reject",
+      "rejection": "[string \"<python>\"]:61: Actual DMA has256 data writes before E008 completion"
+    },
+    {
+      "name": "only255_writes",
+      "passed": true,
+      "expected_native_guard_outcome": "reject",
+      "rejection": "[string \"<python>\"]:61: Actual DMA has256 data writes before E008 completion"
+    },
+    {
+      "name": "corrupted_physical_byte",
+      "passed": true,
+      "expected_native_guard_outcome": "reject",
+      "rejection": "[string \"<python>\"]:70: All256 physical OAM bytes equal the actual DMA source"
+    },
+    {
+      "name": "wrong_destination_ordinal",
+      "passed": true,
+      "expected_native_guard_outcome": "reject",
+      "rejection": "[string \"<python>\"]:67: Actual DMA destination ordinal is unmodified"
+    },
+    {
+      "name": "render_enabled_during_DMA",
+      "passed": true,
+      "expected_native_guard_outcome": "reject",
+      "rejection": "[string \"<python>\"]:64: Rendering remains disabled through completed DMA"
+    },
+    {
+      "name": "wrong_start_address",
+      "passed": true,
+      "expected_native_guard_outcome": "reject",
+      "rejection": "[string \"<python>\"]:63: Actual DMA starts/ends at OAMADDR0"
+    },
+    {
+      "name": "wrong_source_write",
+      "passed": true,
+      "expected_native_guard_outcome": "reject",
+      "rejection": "[string \"<python>\"]:68: Actual DMA reads its exact frozen source byte"
+    },
+    {
+      "name": "later_start_hardware_changed",
+      "passed": true,
+      "expected_native_guard_outcome": "reject",
+      "rejection": "[string \"<python>\"]:78: startFrame hardware retains last completed DMA"
+    },
+    {
+      "name": "pending_start_classified_not_complete",
+      "passed": true,
+      "expected_native_guard_outcome": "accept",
+      "rejection": null
+    },
+    {
+      "name": "safe_render_enable_dot274",
+      "passed": true,
+      "expected_native_guard_outcome": "accept",
+      "rejection": null
+    },
+    {
+      "name": "late_render_enable_dot275",
+      "passed": true,
+      "expected_native_guard_outcome": "reject",
+      "rejection": "[string \"<python>\"]:38: Scoped render enable precedes native pre-render vertical reload"
+    },
+    {
+      "name": "transient_render_during_one_data_write",
+      "passed": true,
+      "expected_native_guard_outcome": "reject",
+      "rejection": "[string \"<python>\"]:66: Rendering remains disabled at every actual DMA data write"
+    }
+  ],
+  "static_return_controls": [
+    {
+      "name": "wrong_pc_sp_bank",
+      "passed": true,
+      "expected": [
+        "ok"
+      ]
+    },
+    {
+      "name": "same_pc_first_registration_order",
+      "passed": true,
+      "expected": [
+        "a-replaced",
+        "b"
+      ]
+    },
+    {
+      "name": "same_key_nested_preserves_old_overwrite",
+      "passed": true,
+      "expected": [
+        "inner"
+      ]
+    },
+    {
+      "name": "different_key_nested_depth",
+      "passed": true,
+      "expected": [
+        "inner",
+        "outer"
+      ]
+    },
+    {
+      "name": "reentrant_existing_slot",
+      "passed": true,
+      "expected": [
+        "first",
+        "second"
+      ]
+    },
+    {
+      "name": "new_slot_waits_for_next_exec",
+      "passed": true,
+      "expected": [
+        "first",
+        "new"
+      ]
+    },
+    {
+      "name": "stack_and_pc_wrap",
+      "passed": true,
+      "expected": [
+        "wrap"
+      ]
+    },
+    {
+      "name": "multiple_return_addresses",
+      "passed": true,
+      "expected": [
+        "right",
+        "left"
+      ]
+    }
+  ],
+  "default_behavior_oracle_controls": [
+    {
+      "case": "pass",
+      "accepted": true
+    },
+    {
+      "case": "wrong-icon",
+      "accepted": false
+    },
+    {
+      "case": "wrong-digit",
+      "accepted": false
+    },
+    {
+      "case": "wrong-meter",
+      "accepted": false
+    },
+    {
+      "case": "no-lease",
+      "accepted": false
+    },
+    {
+      "case": "wrong-font",
+      "accepted": false
+    }
+  ],
+  "diagnostic_models": {
+    "passed": true,
+    "models": 8,
+    "static_callbacks": 48,
+    "controls": [
+      "NMI depth/actual regular branch",
+      "literal header payload10",
+      "repeat header payload4/length7",
+      "terminator payload1",
+      "wrong returnSP rejected",
+      "wrong returnbank rejected",
+      "real SP+2/PC/bank return observed",
+      "full raw mask/84+34queues before unchanged rejection"
+    ],
+    "runtime_callback_mutations": 0,
+    "emulated_writes": 0,
+    "scope": "Actual additive Lua module under synthetic read-only APIs; no native timing/owner verdict."
+  },
+  "diagnostic_window": [
+    1200,
+    1800
+  ],
+  "fixed_physical_CHR_offset242_model": true,
+  "diagnostic_raw_mask_before_unchanged_deadline": true,
+  "source_freeze_sha256": "ba454f47eb0be758acee0e782fbb8fa17ee099d0f32515a6da05a8fbd54fae61"
+}
