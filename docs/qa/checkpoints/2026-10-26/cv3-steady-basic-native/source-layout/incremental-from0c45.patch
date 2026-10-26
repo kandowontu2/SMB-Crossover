@@ -1,0 +1,195 @@
+--- a/src/cv3_remaining_source_fx.s
++++ b/src/cv3_remaining_source_fx.s
+@@ -28,7 +28,7 @@
+  beq Empty
+  jsr Cv3FxDrainGate
+ Empty:lda Cv3NoiseActive
+- bmi Full
++ bmi Steady
+  bne Legacy
+  lda Cv3FxOwned
+  bne Full
+@@ -39,6 +39,7 @@
+  rts
+ Legacy:jmp Cv3MusicAndNoiseTick+3 ; unchanged executable legacy body
+ Full:jmp Cv3FxResidentDispatch
++Steady:jmp Cv3FxSteadyTry
+  .res 67-(*-::Cv3FxTick),$ea
+ .endproc
+ .proc Cv3FxMusicInit
+@@ -116,63 +117,46 @@
+  rts
+ .endproc
+ .proc Cv3FxResidentNoise
+- lda GuestNativeDirty+12
+- beq NC12
+- lda GuestNativeApu+12
+- sta Cv3NoiseMusicVolume
+- lda Cv3NoiseApu
+- sta GuestNativeApu+12
+- lda #0
+- sta GuestNativeDirty+12
+-NC12:lda GuestNativeDirty+14
+- beq NC14
+- lda GuestNativeApu+14
+- sta Cv3NoiseMusicPeriod
+- lda Cv3NoiseApu+2
+- sta GuestNativeApu+14
+- lda #0
+- sta GuestNativeDirty+14
+-NC14:lda GuestNativeDirty+15
+- beq NC15
+- lda GuestNativeApu+15
+- sta Cv3NoiseMusicHigh
+- lda Cv3NoiseApu+3
+- sta GuestNativeApu+15
+- lda #0
+- sta GuestNativeDirty+15
+-NC15:ldy Cv3NoiseIndex
+- lda Cv3FxResidentVolume,y
+- sta GuestNativeApu+12
+- sta Cv3NoiseApu
+- lda #1
+- sta GuestNativeDirty+12
+- cpy #42
+- beq Final
+- lda Cv3FxSourceHigh
+- ora #8
+- sta GuestNativeApu+15
+- sta Cv3NoiseApu+3
+- lda #1
+- sta GuestNativeDirty+15
+- lda Cv3FxResidentPeriod,y
+- sta GuestNativeApu+14
+- sta Cv3NoiseApu+2
+- lda #1
+- sta GuestNativeDirty+14
+- lda #7
+- bne Commit
+-Final:lda #0
+- sta Cv3FxNoiseID
+- lda #5
+-Commit:clc
+- adc Cv3FxNoisePtr
+- sta Cv3FxNoisePtr
+- bcc NoCarry
+- inc Cv3FxNoisePtr+1
+-NoCarry:inc Cv3NoiseIndex
++ ; Genuine old callable entry/span: pure body plus original normalization.
++ jsr Cv3FxResidentBody
+  lda #$80
+  sta Cv3NoiseActive
+  rts
++ ; Sole private entry is Tick's BMI path. A is the negative Active byte.
++ ; P is saved before checks; a non80 value falls back with exact originalA/P.
++::Cv3FxSteadyTry:
++ php
++ cmp #$80
++ bne Slow
++ lda Cv3FxOwned
++ cmp #8
++ bne Slow
++ lda Cv3FxNoiseID
++ cmp #$21
++ beq Pending
++ cmp #$1e
++ bne Slow
++Pending:lda AvAudioRequest
++ ora Cv3FxPendingNoise
++ ora Cv3FxPendingPulse
++ bne Slow
++ ; SavedA is dead bank-cache scratch on this C28-only path. Generic always
++ ; dominates its bank-restore read with its own CurrentBank write.
++ sty Cv3FxSavedA
++ jsr Cv3FxResidentBody
++ ldy Cv3FxSavedA
++ lda #$80 ; inputA proven80; Active remains80; V/C/DI restored byPLP
++ plp
++ rts
++Slow:lda Cv3NoiseActive
++ pha
++ tya
++ pha
++ lda CurrentBank
++ sta Cv3FxSavedA
++ jmp Cv3FxResidentDispatch::Generic
++ .assert *-::Cv3FxResidentNoise<=149,error,"Old genuine callable span"
++ .res 149-(*-::Cv3FxResidentNoise),$ea
+ .endproc
+ Cv3FxResidentVolume:.byte 56,56,56,56,56,56,56,56,56,56,48,52,52,52,52,52,52,52,52,52,52,48,50,50,50,50,50,50,50,50,50,50,48,49,49,49,49,49,49,49,49,49,48
+ Cv3FxResidentPeriod:.byte 15,13,15,10,9,8,7,6,5,4,0,13,12,11,10,9,8,7,6,5,4,0,13,12,11,10,9,8,7,6,5,4,0,13,12,11,10,9,8,7,6,4
+@@ -1785,5 +1769,74 @@
+  lda #0
+  jmp GuestNativeStatusSTA
+ .endproc
++.proc Cv3FxResidentBody
++ ; All-zero dirty state avoids three separate taken branches. If music
++ ; wrote fields, cache exact new music values before original source emission.
++ lda GuestNativeDirty+12
++ ora GuestNativeDirty+14
++ ora GuestNativeDirty+15
++ beq Ready
++ lda GuestNativeDirty+12
++ beq P
++ lda GuestNativeApu+12
++ sta Cv3NoiseMusicVolume
++P:lda GuestNativeDirty+14
++ beq H
++ lda GuestNativeApu+14
++ sta Cv3NoiseMusicPeriod
++H:lda GuestNativeDirty+15
++ beq FinalCheck
++ lda GuestNativeApu+15
++ sta Cv3NoiseMusicHigh
++FinalCheck:ldy Cv3NoiseIndex
++ cpy #42
++ bne Emit
++ ; The final source frame writes volume only. Reproduce the original
++ ; pre-emission restoration/clear of any music period/high writes exactly.
++ lda GuestNativeDirty+14
++ beq FH
++ lda Cv3NoiseApu+2
++ sta GuestNativeApu+14
++ lda #0
++ sta GuestNativeDirty+14
++FH:lda GuestNativeDirty+15
++ beq Emit
++ lda Cv3NoiseApu+3
++ sta GuestNativeApu+15
++ lda #0
++ sta GuestNativeDirty+15
++ jmp Emit
++Ready:ldy Cv3NoiseIndex
++Emit:lda Cv3FxResidentVolume,y
++ sta GuestNativeApu+12
++ sta Cv3NoiseApu
++ cpy #42
++ beq Final
++ lda Cv3FxSourceHigh
++ ora #8
++ sta GuestNativeApu+15
++ sta Cv3NoiseApu+3
++ lda Cv3FxResidentPeriod,y
++ sta GuestNativeApu+14
++ sta Cv3NoiseApu+2
++ lda #1
++ sta GuestNativeDirty+12
++ sta GuestNativeDirty+15
++ sta GuestNativeDirty+14
++ lda #7
++ bne Commit
++Final:lda #1
++ sta GuestNativeDirty+12
++ lda #0
++ sta Cv3FxNoiseID
++ lda #5
++Commit:clc
++ adc Cv3FxNoisePtr
++ sta Cv3FxNoisePtr
++ bcc NoCarry
++ inc Cv3FxNoisePtr+1
++NoCarry:inc Cv3NoiseIndex
++ rts
++.endproc
+ .assert *<=$dc00,lderror,"Declared remaining C28 source space"
+ .popseg

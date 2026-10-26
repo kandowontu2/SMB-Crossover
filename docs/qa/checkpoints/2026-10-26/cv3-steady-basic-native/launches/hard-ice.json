@@ -1,0 +1,68 @@
+{
+  "start_UTC": "2026-10-26T04:06:01.433190+00:00",
+  "command": [
+    "C:\\Users\\kando\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\run_mesen_isolated.py",
+    "--output",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-steady-native-v2\\hard-ice",
+    "--emulator",
+    "C:/Mesen2/Mesen.exe",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-steady-native-v2\\hard-ice\\run.lua",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-steady-v3\\candidate.nes",
+    "--timeout",
+    "180",
+    "--option=--doNotSaveSettings",
+    "--option=--nes.ramPowerOnState=AllZeros",
+    "--option=--nes.randomizeCpuPpuAlignment=false",
+    "--option=--nes.randomizeMapperPowerOnState=false"
+  ],
+  "readiness_sha256": "e56d43409453ea54cd898637078498aa6d5d9b7ad3e08d46f4347ef9ed7b15cb",
+  "cell": "hard-ice",
+  "ROM_sha256": "eaa36e56c09e87f58a85db312894f14bfd7fb5838be139fc508ae6121c9e0732",
+  "script_sha256": "f0734718dadee4771e57d18d5e6a84df35b240fd74088b20a3bccc5504b6989a",
+  "settings_before_sha256": "8a439e0a5eeddc2d4776e516aacfc224c03048b9c7d23d9926a463460a7e748a",
+  "retries": 0,
+  "launcher_sha256": "7d587cff7fe96f121dda35fa217c57854f234647dd90ff2af9f6ade50f05e76b",
+  "end_UTC": "2026-10-26T04:06:06.517853+00:00",
+  "exit_code": 0,
+  "settings_after_sha256": "8a439e0a5eeddc2d4776e516aacfc224c03048b9c7d23d9926a463460a7e748a",
+  "native_guard_passed": true,
+  "accepted": false,
+  "complete_GAMEproof": {
+    "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-steady-native-v2\\hard-ice\\proof.json",
+    "sha256": "57f990d194f12b1b00edad662f875922a9b472d83b08749b450d6637e937d0ae"
+  },
+  "verification_exit": 0,
+  "comparison": {
+    "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-steady-native-v2\\native-hard-ice-v1\\comparison\\proof.json",
+    "sha256": "6b4533f250c355bcb53388fe7aa1f63a0c316298db39a21643d36ceb65580320",
+    "passed": true,
+    "status": "BOUNDED_NATIVE_SOURCE_AND_STRICT_CADENCE_PASS",
+    "cadence": {
+      "passed": true,
+      "candidate_updates": 139,
+      "baseline_updates": 139,
+      "candidate_skipped_draw_frames": 3,
+      "baseline_skipped_draw_frames": 3,
+      "candidate_frames": 140,
+      "baseline_frames": 140,
+      "candidate_draws": 137,
+      "baseline_draws": 137,
+      "candidate_max_no_draw": 1,
+      "baseline_max_no_draw": 1,
+      "candidate_max_no_update": 1,
+      "baseline_max_no_update": 1,
+      "all_draw_prefix_deferrals": [],
+      "complete_game_proof_totals": {
+        "candidate": {
+          "updates": 140,
+          "draws": 138
+        },
+        "baseline": {
+          "updates": 140,
+          "draws": 138
+        }
+      }
+    }
+  }
+}

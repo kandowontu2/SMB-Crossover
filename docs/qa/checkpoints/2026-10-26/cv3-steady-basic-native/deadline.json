@@ -1,0 +1,236 @@
+{
+  "passed": true,
+  "native_executed": false,
+  "actual_baseline_publication": {
+    "kind": "publication-write",
+    "wall": 470,
+    "age": 34,
+    "audioEpoch": 34,
+    "cpuCycle": 14024076,
+    "ppuFrame": 471,
+    "scanline": 239,
+    "dot": 180,
+    "pc": 33621,
+    "bank": 126,
+    "sp": 250,
+    "interruptedPC": -1,
+    "stackP": -1,
+    "nmiDisable": 255,
+    "nmiSkipped": 17,
+    "skipDraw": 0,
+    "framesSinceDraw": 0,
+    "newValue": 0
+  },
+  "actual_baseline_NMI_entry": {
+    "kind": "NMI-entry",
+    "wall": 471,
+    "age": 34,
+    "audioEpoch": 34,
+    "cpuCycle": 14024254,
+    "ppuFrame": 472,
+    "scanline": 241,
+    "dot": 33,
+    "pc": 58166,
+    "bank": 127,
+    "sp": 250,
+    "interruptedPC": 33458,
+    "stackP": 35,
+    "nmiDisable": 0,
+    "nmiSkipped": 17,
+    "skipDraw": 0,
+    "framesSinceDraw": 0,
+    "newValue": -1
+  },
+  "actual_candidate_NMI_entry": {
+    "kind": "NMI-entry",
+    "wall": 471,
+    "age": 33,
+    "audioEpoch": 34,
+    "cpuCycle": 14024255,
+    "ppuFrame": 472,
+    "scanline": 241,
+    "dot": 36,
+    "pc": 58166,
+    "bank": 127,
+    "sp": 245,
+    "interruptedPC": 33953,
+    "stackP": 34,
+    "nmiDisable": 255,
+    "nmiSkipped": 17,
+    "skipDraw": 0,
+    "framesSinceDraw": 0,
+    "newValue": -1
+  },
+  "actual_NoLagSoDraw_comparison": {
+    "baseline": {
+      "kind": "NoLagSoDraw",
+      "wall": 470,
+      "age": 33,
+      "audioEpoch": 34,
+      "cpuCycle": 14016168,
+      "ppuFrame": 471,
+      "scanline": 169,
+      "dot": 327,
+      "pc": 33830,
+      "bank": 126,
+      "sp": 248,
+      "interruptedPC": -1,
+      "stackP": -1,
+      "nmiDisable": 255,
+      "nmiSkipped": 17,
+      "skipDraw": 0,
+      "framesSinceDraw": 0,
+      "newValue": -1
+    },
+    "candidate": {
+      "kind": "NoLagSoDraw",
+      "wall": 470,
+      "age": 33,
+      "audioEpoch": 34,
+      "cpuCycle": 14016375,
+      "ppuFrame": 471,
+      "scanline": 171,
+      "dot": 266,
+      "pc": 33830,
+      "bank": 126,
+      "sp": 248,
+      "interruptedPC": -1,
+      "stackP": -1,
+      "nmiDisable": 255,
+      "nmiSkipped": 17,
+      "skipDraw": 0,
+      "framesSinceDraw": 0,
+      "newValue": -1
+    }
+  },
+  "assumed_hardware_NMI_entry_cycles": 7,
+  "last_foreground_boundary_cycle": 14024248,
+  "stacked_next_PC": 33953,
+  "preceding_foreground_instruction": {
+    "pc": 33950,
+    "bytes": [
+      141,
+      90,
+      5
+    ],
+    "meaning": "STA Left_Right_Buttons",
+    "cycles": 4
+  },
+  "matched_foreground_start_delay": 207,
+  "reconstructed_uninterrupted_publication": 14024283,
+  "minimum_publication_recovery_cycles": 35,
+  "baseline_margin_to_last_foreground_boundary": 171,
+  "compiled_tail_alternatives": [
+    {
+      "VRAMcontrol": 0,
+      "parser": 0,
+      "scrollThirtyTwo": 0,
+      "cycles_to_actual_publication": 35,
+      "trace": [
+        {
+          "pc": 33953,
+          "opcode": 173,
+          "cycles": 4
+        },
+        {
+          "pc": 33956,
+          "opcode": 201,
+          "cycles": 2
+        },
+        {
+          "pc": 33958,
+          "opcode": 240,
+          "cycles": 2
+        },
+        {
+          "pc": 33960,
+          "opcode": 173,
+          "cycles": 4
+        },
+        {
+          "pc": 33963,
+          "opcode": 208,
+          "cycles": 2
+        },
+        {
+          "pc": 33965,
+          "opcode": 173,
+          "cycles": 4
+        },
+        {
+          "pc": 33968,
+          "opcode": 201,
+          "cycles": 2
+        },
+        {
+          "pc": 33970,
+          "opcode": 48,
+          "cycles": 3
+        },
+        {
+          "pc": 34003,
+          "opcode": 96,
+          "cycles": 6
+        },
+        {
+          "pc": 33616,
+          "opcode": 169,
+          "cycles": 2
+        },
+        {
+          "pc": 33618,
+          "opcode": 141,
+          "cycles": 4
+        }
+      ]
+    },
+    {
+      "VRAMcontrol": 6,
+      "parser": 0,
+      "scrollThirtyTwo": 0,
+      "cycles_to_actual_publication": 21,
+      "trace": [
+        {
+          "pc": 33953,
+          "opcode": 173,
+          "cycles": 4
+        },
+        {
+          "pc": 33956,
+          "opcode": 201,
+          "cycles": 2
+        },
+        {
+          "pc": 33958,
+          "opcode": 240,
+          "cycles": 3
+        },
+        {
+          "pc": 34003,
+          "opcode": 96,
+          "cycles": 6
+        },
+        {
+          "pc": 33616,
+          "opcode": 169,
+          "cycles": 2
+        },
+        {
+          "pc": 33618,
+          "opcode": 141,
+          "cycles": 4
+        }
+      ]
+    }
+  ],
+  "calculation": "207 - (178 - 7) -1 NMI-entry phase difference =35",
+  "scope": "Reconstruction from actual matched NoLag->publication foreground path and actual stacked nextPC, subtracting seven hardware-entrycycles. The compiled no-parser/no-scroll Ctrl0 tail uniquely matches35 remainingcycles. No mid-frame RAM snapshot was recorded: Ctrl6 alternative21 is disclosed, not falsely observed. Equal foreground work is source/actor/unchanged-code justified; this is a recovery target, not a new native outcome or grant. The later NmiDisable read inside ISR supplies NO additional foreground slack.",
+  "artifacts": {
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-queue-native-basic-v3\\baselines-v1\\hard-ice\\deadline-timing.csv": "cb88d1fcf0ca3a0c47d0de8d80c1d4dce55e688a6ee37fff42625bfbd0f0d43e",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-queue-native-basic-v3\\hard-ice\\deadline-timing.csv": "cad0025f0a7e3c7cbb7e8fb484449b52d977503a63efbd4950e2ca067f90949b",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-queue-native-basic-v3\\baselines-v1\\hard-ice\\actors.csv": "72f825ed3a96f7e78e4dd785073793caa598a26a08040a4d591168e760740f80",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-queue-native-basic-v3\\hard-ice\\actors.csv": "9683a786fb0e956f1facaa80357cfaa9c3025672ac6fb5ed619f2e928bc7b114"
+  },
+  "ROM_sha256": "0c45ce16fa189debc2303f4df664a0e75f326a807a64bf23280797734615339c",
+  "tool_sha256": "418de88d6b66d09dd847321bdad739761667a63515d41a360df97c70c35f7f8b"
+}

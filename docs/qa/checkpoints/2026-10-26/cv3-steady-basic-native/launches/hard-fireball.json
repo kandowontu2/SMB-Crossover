@@ -1,0 +1,68 @@
+{
+  "start_UTC": "2026-10-26T04:09:59.391163+00:00",
+  "command": [
+    "C:\\Users\\kando\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\run_mesen_isolated.py",
+    "--output",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-steady-native-v2\\hard-fireball",
+    "--emulator",
+    "C:/Mesen2/Mesen.exe",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-steady-native-v2\\hard-fireball\\run.lua",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-steady-v3\\candidate.nes",
+    "--timeout",
+    "180",
+    "--option=--doNotSaveSettings",
+    "--option=--nes.ramPowerOnState=AllZeros",
+    "--option=--nes.randomizeCpuPpuAlignment=false",
+    "--option=--nes.randomizeMapperPowerOnState=false"
+  ],
+  "readiness_sha256": "e56d43409453ea54cd898637078498aa6d5d9b7ad3e08d46f4347ef9ed7b15cb",
+  "cell": "hard-fireball",
+  "ROM_sha256": "eaa36e56c09e87f58a85db312894f14bfd7fb5838be139fc508ae6121c9e0732",
+  "script_sha256": "52c80c4d35949ca105f4b368222c4b882f7e18597e5b382e2de0736ef5ef48ef",
+  "settings_before_sha256": "8a439e0a5eeddc2d4776e516aacfc224c03048b9c7d23d9926a463460a7e748a",
+  "retries": 0,
+  "launcher_sha256": "7d587cff7fe96f121dda35fa217c57854f234647dd90ff2af9f6ade50f05e76b",
+  "end_UTC": "2026-10-26T04:10:04.046478+00:00",
+  "exit_code": 0,
+  "settings_after_sha256": "8a439e0a5eeddc2d4776e516aacfc224c03048b9c7d23d9926a463460a7e748a",
+  "native_guard_passed": true,
+  "accepted": false,
+  "complete_GAMEproof": {
+    "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-steady-native-v2\\hard-fireball\\proof.json",
+    "sha256": "de36bdcff9a922e7a4ee594777687d09fb0c19c93de18c081bfb9402b44c5744"
+  },
+  "verification_exit": 0,
+  "comparison": {
+    "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-steady-native-v2\\native-remaining-v1\\hard-fireball\\comparison\\proof.json",
+    "sha256": "f83ca2fe09ffa1945456bc02927a23065ba5242fd83f1f637a6c08035e51aa99",
+    "passed": true,
+    "status": "BOUNDED_NATIVE_SOURCE_AND_STRICT_CADENCE_PASS",
+    "cadence": {
+      "passed": true,
+      "candidate_updates": 139,
+      "baseline_updates": 139,
+      "candidate_skipped_draw_frames": 1,
+      "baseline_skipped_draw_frames": 1,
+      "candidate_frames": 140,
+      "baseline_frames": 140,
+      "candidate_draws": 139,
+      "baseline_draws": 139,
+      "candidate_max_no_draw": 1,
+      "baseline_max_no_draw": 1,
+      "candidate_max_no_update": 1,
+      "baseline_max_no_update": 1,
+      "all_draw_prefix_deferrals": [],
+      "complete_game_proof_totals": {
+        "candidate": {
+          "updates": 140,
+          "draws": 140
+        },
+        "baseline": {
+          "updates": 140,
+          "draws": 140
+        }
+      }
+    }
+  }
+}

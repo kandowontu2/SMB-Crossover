@@ -1,0 +1,151 @@
+{
+  "passed": true,
+  "native_executed": false,
+  "accepted": false,
+  "ROM_sha256": "eaa36e56c09e87f58a85db312894f14bfd7fb5838be139fc508ae6121c9e0732",
+  "parent_ROM_sha256": "0c45ce16fa189debc2303f4df664a0e75f326a807a64bf23280797734615339c",
+  "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-steady-v3\\source",
+  "all_deployable_files": 636,
+  "all_deployable_manifest_sha256": "55797dcc9193b432ee3b40b583a79a2a786befcbe9240843f08e87bb435a2c05",
+  "incremental_source": [
+    {
+      "path": "src/cv3_remaining_source_fx.s",
+      "sha256": "909c1db757db4409342d0a811d2522405c299351e8e56f0d46add2f8b9f3fad6",
+      "old_sha256": "c4c4b35f05aff40d42ff218afe1dec1593cccb3b58844300af51012203b09454",
+      "EOL": "LF"
+    }
+  ],
+  "deployment_source": [
+    {
+      "path": "src/cv3_abilities.s",
+      "sha256": "dae20bc574a72a9f764b7262d262c407f03d8aee547ff5ac41b7dcab4fd7b771",
+      "old_sha256": "0c1d6d3c04a78bdf33d40b4ec23ab188e7d5a73041300123012590b7b41148ae",
+      "EOL": "CRLF"
+    },
+    {
+      "path": "src/cv3_combat.s",
+      "sha256": "075ca22c58a5976d3fa4ab4ac21c09dcab08f245b17e6a1764b8370cd67a61d9",
+      "old_sha256": "c950089a56bc506789fa02801c641960c03c4f78d113765c74c615d1de145846",
+      "EOL": "CRLF"
+    },
+    {
+      "path": "src/cv3_dmc_complete.s",
+      "sha256": "106f1fdc4a17c17b3cb56ec763ae4984207cc5b9a2a80122466ca5db32ec7739",
+      "old_sha256": "aee614d8ceb4f8f9a0135ab39119a50511908192c758d04a11a26a662853825d",
+      "EOL": "LF"
+    },
+    {
+      "path": "src/cv3_remaining_source_fx.s",
+      "sha256": "909c1db757db4409342d0a811d2522405c299351e8e56f0d46add2f8b9f3fad6",
+      "old_sha256": null,
+      "EOL": "LF"
+    },
+    {
+      "path": "src/cv3_source_audio.s",
+      "sha256": "fa7f64da0b18f6427dbfdc705a4ec73f91d2b024f0fb7fb9d296bdff4c7c5044",
+      "old_sha256": "d9ac53865adb9a834acf448995b30503cbb3829eb0c0751084df45b4e98bc98c",
+      "EOL": "LF"
+    },
+    {
+      "path": "src/entrypoint.s",
+      "sha256": "3283c771ce6517c52cef3800b0836ad4036bda5e6bfc08fcc3327affd3d70c33",
+      "old_sha256": "d5276b02584213dbc1afa192f79f3e27e383587faea533c78e66a33b0b433137",
+      "EOL": "CRLF"
+    },
+    {
+      "path": "src/megaman_death.s",
+      "sha256": "f19a8acc3db5a77bf5dca76d6eee4a1e94744d1e5a0ffac18240a768f3de289c",
+      "old_sha256": "7c66cd759f438eaa2206e85113446790dc6253b500b72ca2e5d0004b1d995e88",
+      "EOL": "CRLF"
+    },
+    {
+      "path": "src/roster_audio.s",
+      "sha256": "785f045f6858ae1f000c16a8be57fd467b2e9dbccdf3998285baa31b83951c37",
+      "old_sha256": "5458ff7072b16fed35133ef4febd5e4cf380decf2718add910ab8fb8080c6fcc",
+      "EOL": "LF"
+    }
+  ],
+  "incremental_patch_sha256": "feff9d075299d5665fa968254bc15199c0dce91cae244c7f1b3be3e55509effb",
+  "implementation_patch_sha256": "cdf548192702dd42e1f06bab1bcd135b44ab5a799ffb76195e9fe46782c4c770",
+  "changed_banks": [
+    {
+      "bank": 28,
+      "bytes": 318
+    }
+  ],
+  "all_other_banks_header_CHR_exact": true,
+  "new_RAM_CHR": 0,
+  "retained_qualified_symbols": 61123,
+  "legitimate_private_symbol_removals": [
+    {
+      "scope": [
+        "Cv3FxResidentNoise",
+        "Commit"
+      ],
+      "old": 55946,
+      "new": null,
+      "reason": "Old private ResidentNoise branches genuinely replaced; old callable entry/span retained. No external source references and no fabricated callable aliases."
+    },
+    {
+      "scope": [
+        "Cv3FxResidentNoise",
+        "Final"
+      ],
+      "old": 55939,
+      "new": null,
+      "reason": "Old private ResidentNoise branches genuinely replaced; old callable entry/span retained. No external source references and no fabricated callable aliases."
+    },
+    {
+      "scope": [
+        "Cv3FxResidentNoise",
+        "NC12"
+      ],
+      "old": 55840,
+      "new": null,
+      "reason": "Old private ResidentNoise branches genuinely replaced; old callable entry/span retained. No external source references and no fabricated callable aliases."
+    },
+    {
+      "scope": [
+        "Cv3FxResidentNoise",
+        "NC14"
+      ],
+      "old": 55862,
+      "new": null,
+      "reason": "Old private ResidentNoise branches genuinely replaced; old callable entry/span retained. No external source references and no fabricated callable aliases."
+    },
+    {
+      "scope": [
+        "Cv3FxResidentNoise",
+        "NC15"
+      ],
+      "old": 55884,
+      "new": null,
+      "reason": "Old private ResidentNoise branches genuinely replaced; old callable entry/span retained. No external source references and no fabricated callable aliases."
+    },
+    {
+      "scope": [
+        "Cv3FxResidentNoise",
+        "NoCarry"
+      ],
+      "old": 55958,
+      "new": null,
+      "reason": "Old private ResidentNoise branches genuinely replaced; old callable entry/span retained. No external source references and no fabricated callable aliases."
+    }
+  ],
+  "new_body": {
+    "start": 56122,
+    "size": 165,
+    "declared_space_end": 56320
+  },
+  "ordinary_flagoff": [
+    {
+      "mapper": "mmc3",
+      "sha256": "d444cac88e13fa02b29ad16100b8f08fa565ba90f8cedde192de43fb2dc8f3eb"
+    },
+    {
+      "mapper": "mmc5",
+      "sha256": "f4ffd2483c51daa4d60bb575da2da8c4d817692cda407611c243031f67520833"
+    }
+  ],
+  "tool_sha256": "45f82daad10231c819d946a424059a2a2b87e9202f5d9a14f991154f5840e573"
+}

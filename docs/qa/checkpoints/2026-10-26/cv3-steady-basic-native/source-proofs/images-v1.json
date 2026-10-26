@@ -1,0 +1,642 @@
+{
+  "passed": true,
+  "accepted": false,
+  "native_executed": false,
+  "ROM_sha256": "eaa36e56c09e87f58a85db312894f14bfd7fb5838be139fc508ae6121c9e0732",
+  "original_ROM_sha256": "085ec6395681c7ebfda19c2986069c21a3d27738cc61ada76249de70a07ed7d3",
+  "original_ordered_source_whole_updates": 1200,
+  "full_composed_hardware_whole_updates": 1200,
+  "source_register_400F_never_masked": true,
+  "legacy1F_contract": "Unchanged adapter buffered order and complete baseline hardware; separate CPU/native regression controls. This original ordered-image claim excludes1F.",
+  "direct_saved52_references": [
+    {
+      "path": "src/cv3_remaining_source_fx.s",
+      "line": 11,
+      "text": "Cv3FxSavedA=RgAudioZp+52"
+    },
+    {
+      "path": "src/cv3_remaining_source_fx.s",
+      "line": 85,
+      "text": "sta Cv3FxSavedA"
+    },
+    {
+      "path": "src/cv3_remaining_source_fx.s",
+      "line": 108,
+      "text": "lda Cv3FxSavedA"
+    },
+    {
+      "path": "src/cv3_remaining_source_fx.s",
+      "line": 145,
+      "text": "sty Cv3FxSavedA"
+    },
+    {
+      "path": "src/cv3_remaining_source_fx.s",
+      "line": 147,
+      "text": "ldy Cv3FxSavedA"
+    },
+    {
+      "path": "src/cv3_remaining_source_fx.s",
+      "line": 156,
+      "text": "sta Cv3FxSavedA"
+    }
+  ],
+  "all_slab_mentions": [
+    {
+      "path": "src/cv3_dmc_complete.s",
+      "line": 3,
+      "text": "Cv3DmcPriority=RgAudioZp+32",
+      "sha256": "106f1fdc4a17c17b3cb56ec763ae4984207cc5b9a2a80122466ca5db32ec7739"
+    },
+    {
+      "path": "src/cv3_dmc_complete.s",
+      "line": 4,
+      "text": "Cv3DmcPending=RgAudioZp+33",
+      "sha256": "106f1fdc4a17c17b3cb56ec763ae4984207cc5b9a2a80122466ca5db32ec7739"
+    },
+    {
+      "path": "src/cv3_dmc_complete.s",
+      "line": 5,
+      "text": "Cv3DmcSavedC=RgAudioZp+34",
+      "sha256": "106f1fdc4a17c17b3cb56ec763ae4984207cc5b9a2a80122466ca5db32ec7739"
+    },
+    {
+      "path": "src/cv3_dmc_complete.s",
+      "line": 6,
+      "text": "Cv3DmcEntryA=RgAudioZp+35",
+      "sha256": "106f1fdc4a17c17b3cb56ec763ae4984207cc5b9a2a80122466ca5db32ec7739"
+    },
+    {
+      "path": "src/cv3_dmc_complete.s",
+      "line": 185,
+      "text": "lda RgAudioZp+23",
+      "sha256": "106f1fdc4a17c17b3cb56ec763ae4984207cc5b9a2a80122466ca5db32ec7739"
+    },
+    {
+      "path": "src/cv3_dmc_complete.s",
+      "line": 189,
+      "text": "lda RgAudioZp+22",
+      "sha256": "106f1fdc4a17c17b3cb56ec763ae4984207cc5b9a2a80122466ca5db32ec7739"
+    },
+    {
+      "path": "src/cv3_dmc_complete.s",
+      "line": 193,
+      "text": "lda RgAudioZp+21",
+      "sha256": "106f1fdc4a17c17b3cb56ec763ae4984207cc5b9a2a80122466ca5db32ec7739"
+    },
+    {
+      "path": "src/cv3_dmc_complete.s",
+      "line": 197,
+      "text": "lda RgAudioZp+20",
+      "sha256": "106f1fdc4a17c17b3cb56ec763ae4984207cc5b9a2a80122466ca5db32ec7739"
+    },
+    {
+      "path": "src/cv3_dmc_complete.s",
+      "line": 201,
+      "text": "lda RgAudioZp+19",
+      "sha256": "106f1fdc4a17c17b3cb56ec763ae4984207cc5b9a2a80122466ca5db32ec7739"
+    },
+    {
+      "path": "src/cv3_dmc_complete.s",
+      "line": 205,
+      "text": "lda RgAudioZp+18",
+      "sha256": "106f1fdc4a17c17b3cb56ec763ae4984207cc5b9a2a80122466ca5db32ec7739"
+    },
+    {
+      "path": "src/cv3_dmc_complete.s",
+      "line": 209,
+      "text": "lda RgAudioZp+17",
+      "sha256": "106f1fdc4a17c17b3cb56ec763ae4984207cc5b9a2a80122466ca5db32ec7739"
+    },
+    {
+      "path": "src/cv3_dmc_complete.s",
+      "line": 213,
+      "text": "lda RgAudioZp+16",
+      "sha256": "106f1fdc4a17c17b3cb56ec763ae4984207cc5b9a2a80122466ca5db32ec7739"
+    },
+    {
+      "path": "src/cv3_dmc_complete.s",
+      "line": 217,
+      "text": "lda RgAudioZp+15",
+      "sha256": "106f1fdc4a17c17b3cb56ec763ae4984207cc5b9a2a80122466ca5db32ec7739"
+    },
+    {
+      "path": "src/cv3_dmc_complete.s",
+      "line": 221,
+      "text": "lda RgAudioZp+14",
+      "sha256": "106f1fdc4a17c17b3cb56ec763ae4984207cc5b9a2a80122466ca5db32ec7739"
+    },
+    {
+      "path": "src/cv3_dmc_complete.s",
+      "line": 225,
+      "text": "lda RgAudioZp+13",
+      "sha256": "106f1fdc4a17c17b3cb56ec763ae4984207cc5b9a2a80122466ca5db32ec7739"
+    },
+    {
+      "path": "src/cv3_dmc_complete.s",
+      "line": 229,
+      "text": "lda RgAudioZp+12",
+      "sha256": "106f1fdc4a17c17b3cb56ec763ae4984207cc5b9a2a80122466ca5db32ec7739"
+    },
+    {
+      "path": "src/cv3_dmc_complete.s",
+      "line": 233,
+      "text": "lda RgAudioZp+11",
+      "sha256": "106f1fdc4a17c17b3cb56ec763ae4984207cc5b9a2a80122466ca5db32ec7739"
+    },
+    {
+      "path": "src/cv3_dmc_complete.s",
+      "line": 237,
+      "text": "lda RgAudioZp+10",
+      "sha256": "106f1fdc4a17c17b3cb56ec763ae4984207cc5b9a2a80122466ca5db32ec7739"
+    },
+    {
+      "path": "src/cv3_dmc_complete.s",
+      "line": 241,
+      "text": "lda RgAudioZp+9",
+      "sha256": "106f1fdc4a17c17b3cb56ec763ae4984207cc5b9a2a80122466ca5db32ec7739"
+    },
+    {
+      "path": "src/cv3_dmc_complete.s",
+      "line": 245,
+      "text": "lda RgAudioZp+8",
+      "sha256": "106f1fdc4a17c17b3cb56ec763ae4984207cc5b9a2a80122466ca5db32ec7739"
+    },
+    {
+      "path": "src/cv3_dmc_complete.s",
+      "line": 249,
+      "text": "lda RgAudioZp+7",
+      "sha256": "106f1fdc4a17c17b3cb56ec763ae4984207cc5b9a2a80122466ca5db32ec7739"
+    },
+    {
+      "path": "src/cv3_dmc_complete.s",
+      "line": 253,
+      "text": "lda RgAudioZp+6",
+      "sha256": "106f1fdc4a17c17b3cb56ec763ae4984207cc5b9a2a80122466ca5db32ec7739"
+    },
+    {
+      "path": "src/cv3_dmc_complete.s",
+      "line": 257,
+      "text": "lda RgAudioZp+5",
+      "sha256": "106f1fdc4a17c17b3cb56ec763ae4984207cc5b9a2a80122466ca5db32ec7739"
+    },
+    {
+      "path": "src/cv3_dmc_complete.s",
+      "line": 261,
+      "text": "lda RgAudioZp+4",
+      "sha256": "106f1fdc4a17c17b3cb56ec763ae4984207cc5b9a2a80122466ca5db32ec7739"
+    },
+    {
+      "path": "src/cv3_dmc_complete.s",
+      "line": 265,
+      "text": "lda RgAudioZp+3",
+      "sha256": "106f1fdc4a17c17b3cb56ec763ae4984207cc5b9a2a80122466ca5db32ec7739"
+    },
+    {
+      "path": "src/cv3_dmc_complete.s",
+      "line": 269,
+      "text": "lda RgAudioZp+2",
+      "sha256": "106f1fdc4a17c17b3cb56ec763ae4984207cc5b9a2a80122466ca5db32ec7739"
+    },
+    {
+      "path": "src/cv3_dmc_complete.s",
+      "line": 273,
+      "text": "lda RgAudioZp+1",
+      "sha256": "106f1fdc4a17c17b3cb56ec763ae4984207cc5b9a2a80122466ca5db32ec7739"
+    },
+    {
+      "path": "src/cv3_dmc_complete.s",
+      "line": 277,
+      "text": "lda RgAudioZp+0",
+      "sha256": "106f1fdc4a17c17b3cb56ec763ae4984207cc5b9a2a80122466ca5db32ec7739"
+    },
+    {
+      "path": "src/cv3_remaining_source_fx.s",
+      "line": 3,
+      "text": "Cv3FxNoiseID=RgAudioZp+36",
+      "sha256": "909c1db757db4409342d0a811d2522405c299351e8e56f0d46add2f8b9f3fad6"
+    },
+    {
+      "path": "src/cv3_remaining_source_fx.s",
+      "line": 4,
+      "text": "Cv3FxPulseID=RgAudioZp+37",
+      "sha256": "909c1db757db4409342d0a811d2522405c299351e8e56f0d46add2f8b9f3fad6"
+    },
+    {
+      "path": "src/cv3_remaining_source_fx.s",
+      "line": 5,
+      "text": "Cv3FxOwned=RgAudioZp+38 ;1pulse,8noise,64promote legacy1F,128new request",
+      "sha256": "909c1db757db4409342d0a811d2522405c299351e8e56f0d46add2f8b9f3fad6"
+    },
+    {
+      "path": "src/cv3_remaining_source_fx.s",
+      "line": 6,
+      "text": "Cv3FxPulseFrame=RgAudioZp+39",
+      "sha256": "909c1db757db4409342d0a811d2522405c299351e8e56f0d46add2f8b9f3fad6"
+    },
+    {
+      "path": "src/cv3_remaining_source_fx.s",
+      "line": 7,
+      "text": "Cv3FxPulseApu=RgAudioZp+40",
+      "sha256": "909c1db757db4409342d0a811d2522405c299351e8e56f0d46add2f8b9f3fad6"
+    },
+    {
+      "path": "src/cv3_remaining_source_fx.s",
+      "line": 8,
+      "text": "Cv3FxPulseMusic=RgAudioZp+44",
+      "sha256": "909c1db757db4409342d0a811d2522405c299351e8e56f0d46add2f8b9f3fad6"
+    },
+    {
+      "path": "src/cv3_remaining_source_fx.s",
+      "line": 9,
+      "text": "Cv3FxNoisePtr=RgAudioZp+48",
+      "sha256": "909c1db757db4409342d0a811d2522405c299351e8e56f0d46add2f8b9f3fad6"
+    },
+    {
+      "path": "src/cv3_remaining_source_fx.s",
+      "line": 10,
+      "text": "Cv3FxPulsePtr=RgAudioZp+50",
+      "sha256": "909c1db757db4409342d0a811d2522405c299351e8e56f0d46add2f8b9f3fad6"
+    },
+    {
+      "path": "src/cv3_remaining_source_fx.s",
+      "line": 11,
+      "text": "Cv3FxSavedA=RgAudioZp+52",
+      "sha256": "909c1db757db4409342d0a811d2522405c299351e8e56f0d46add2f8b9f3fad6"
+    },
+    {
+      "path": "src/cv3_remaining_source_fx.s",
+      "line": 12,
+      "text": "Cv3FxPendingNoise=RgAudioZp+53 ; independent same-update source requests",
+      "sha256": "909c1db757db4409342d0a811d2522405c299351e8e56f0d46add2f8b9f3fad6"
+    },
+    {
+      "path": "src/cv3_remaining_source_fx.s",
+      "line": 13,
+      "text": "Cv3FxPendingPulse=RgAudioZp+54",
+      "sha256": "909c1db757db4409342d0a811d2522405c299351e8e56f0d46add2f8b9f3fad6"
+    },
+    {
+      "path": "src/cv3_remaining_source_fx.s",
+      "line": 14,
+      "text": "Cv3FxSourceHigh=RgAudioZp+55 ; original shared source frequency-high image",
+      "sha256": "909c1db757db4409342d0a811d2522405c299351e8e56f0d46add2f8b9f3fad6"
+    },
+    {
+      "path": "src/cv3_remaining_source_fx.s",
+      "line": 18,
+      "text": "Cv3FxQueueHead=RgAudioZp+56",
+      "sha256": "909c1db757db4409342d0a811d2522405c299351e8e56f0d46add2f8b9f3fad6"
+    },
+    {
+      "path": "src/cv3_remaining_source_fx.s",
+      "line": 19,
+      "text": "Cv3FxQueueTail=RgAudioZp+57",
+      "sha256": "909c1db757db4409342d0a811d2522405c299351e8e56f0d46add2f8b9f3fad6"
+    },
+    {
+      "path": "src/cv3_remaining_source_fx.s",
+      "line": 20,
+      "text": "Cv3FxQueueOverflow=RgAudioZp+58 ; impossible in the bounded gameplay producer graph",
+      "sha256": "909c1db757db4409342d0a811d2522405c299351e8e56f0d46add2f8b9f3fad6"
+    },
+    {
+      "path": "src/cv3_source_audio.s",
+      "line": 4,
+      "text": "Cv3NoiseApu=RgAudioZp+24",
+      "sha256": "fa7f64da0b18f6427dbfdc705a4ec73f91d2b024f0fb7fb9d296bdff4c7c5044"
+    },
+    {
+      "path": "src/cv3_source_audio.s",
+      "line": 5,
+      "text": "Cv3NoiseActive=RgAudioZp+25 ; unused APU noise register13",
+      "sha256": "fa7f64da0b18f6427dbfdc705a4ec73f91d2b024f0fb7fb9d296bdff4c7c5044"
+    },
+    {
+      "path": "src/cv3_source_audio.s",
+      "line": 6,
+      "text": "Cv3NoiseIndex=RgAudioZp+28",
+      "sha256": "fa7f64da0b18f6427dbfdc705a4ec73f91d2b024f0fb7fb9d296bdff4c7c5044"
+    },
+    {
+      "path": "src/cv3_source_audio.s",
+      "line": 7,
+      "text": "Cv3NoiseMusicVolume=RgAudioZp+29",
+      "sha256": "fa7f64da0b18f6427dbfdc705a4ec73f91d2b024f0fb7fb9d296bdff4c7c5044"
+    },
+    {
+      "path": "src/cv3_source_audio.s",
+      "line": 8,
+      "text": "Cv3NoiseMusicPeriod=RgAudioZp+30",
+      "sha256": "fa7f64da0b18f6427dbfdc705a4ec73f91d2b024f0fb7fb9d296bdff4c7c5044"
+    },
+    {
+      "path": "src/cv3_source_audio.s",
+      "line": 9,
+      "text": "Cv3NoiseMusicHigh=RgAudioZp+31",
+      "sha256": "fa7f64da0b18f6427dbfdc705a4ec73f91d2b024f0fb7fb9d296bdff4c7c5044"
+    },
+    {
+      "path": "src/cv3_source_audio.s",
+      "line": 166,
+      "text": "sta RgAudioZp+23",
+      "sha256": "fa7f64da0b18f6427dbfdc705a4ec73f91d2b024f0fb7fb9d296bdff4c7c5044"
+    },
+    {
+      "path": "src/cv3_source_audio.s",
+      "line": 170,
+      "text": "sta RgAudioZp+22",
+      "sha256": "fa7f64da0b18f6427dbfdc705a4ec73f91d2b024f0fb7fb9d296bdff4c7c5044"
+    },
+    {
+      "path": "src/cv3_source_audio.s",
+      "line": 174,
+      "text": "sta RgAudioZp+21",
+      "sha256": "fa7f64da0b18f6427dbfdc705a4ec73f91d2b024f0fb7fb9d296bdff4c7c5044"
+    },
+    {
+      "path": "src/cv3_source_audio.s",
+      "line": 178,
+      "text": "sta RgAudioZp+20",
+      "sha256": "fa7f64da0b18f6427dbfdc705a4ec73f91d2b024f0fb7fb9d296bdff4c7c5044"
+    },
+    {
+      "path": "src/cv3_source_audio.s",
+      "line": 182,
+      "text": "sta RgAudioZp+19",
+      "sha256": "fa7f64da0b18f6427dbfdc705a4ec73f91d2b024f0fb7fb9d296bdff4c7c5044"
+    },
+    {
+      "path": "src/cv3_source_audio.s",
+      "line": 186,
+      "text": "sta RgAudioZp+18",
+      "sha256": "fa7f64da0b18f6427dbfdc705a4ec73f91d2b024f0fb7fb9d296bdff4c7c5044"
+    },
+    {
+      "path": "src/cv3_source_audio.s",
+      "line": 190,
+      "text": "sta RgAudioZp+17",
+      "sha256": "fa7f64da0b18f6427dbfdc705a4ec73f91d2b024f0fb7fb9d296bdff4c7c5044"
+    },
+    {
+      "path": "src/cv3_source_audio.s",
+      "line": 194,
+      "text": "sta RgAudioZp+16",
+      "sha256": "fa7f64da0b18f6427dbfdc705a4ec73f91d2b024f0fb7fb9d296bdff4c7c5044"
+    },
+    {
+      "path": "src/cv3_source_audio.s",
+      "line": 198,
+      "text": "sta RgAudioZp+15",
+      "sha256": "fa7f64da0b18f6427dbfdc705a4ec73f91d2b024f0fb7fb9d296bdff4c7c5044"
+    },
+    {
+      "path": "src/cv3_source_audio.s",
+      "line": 202,
+      "text": "sta RgAudioZp+14",
+      "sha256": "fa7f64da0b18f6427dbfdc705a4ec73f91d2b024f0fb7fb9d296bdff4c7c5044"
+    },
+    {
+      "path": "src/cv3_source_audio.s",
+      "line": 206,
+      "text": "sta RgAudioZp+13",
+      "sha256": "fa7f64da0b18f6427dbfdc705a4ec73f91d2b024f0fb7fb9d296bdff4c7c5044"
+    },
+    {
+      "path": "src/cv3_source_audio.s",
+      "line": 210,
+      "text": "sta RgAudioZp+12",
+      "sha256": "fa7f64da0b18f6427dbfdc705a4ec73f91d2b024f0fb7fb9d296bdff4c7c5044"
+    },
+    {
+      "path": "src/cv3_source_audio.s",
+      "line": 214,
+      "text": "sta RgAudioZp+11",
+      "sha256": "fa7f64da0b18f6427dbfdc705a4ec73f91d2b024f0fb7fb9d296bdff4c7c5044"
+    },
+    {
+      "path": "src/cv3_source_audio.s",
+      "line": 218,
+      "text": "sta RgAudioZp+10",
+      "sha256": "fa7f64da0b18f6427dbfdc705a4ec73f91d2b024f0fb7fb9d296bdff4c7c5044"
+    },
+    {
+      "path": "src/cv3_source_audio.s",
+      "line": 222,
+      "text": "sta RgAudioZp+9",
+      "sha256": "fa7f64da0b18f6427dbfdc705a4ec73f91d2b024f0fb7fb9d296bdff4c7c5044"
+    },
+    {
+      "path": "src/cv3_source_audio.s",
+      "line": 226,
+      "text": "sta RgAudioZp+8",
+      "sha256": "fa7f64da0b18f6427dbfdc705a4ec73f91d2b024f0fb7fb9d296bdff4c7c5044"
+    },
+    {
+      "path": "src/cv3_source_audio.s",
+      "line": 230,
+      "text": "sta RgAudioZp+7",
+      "sha256": "fa7f64da0b18f6427dbfdc705a4ec73f91d2b024f0fb7fb9d296bdff4c7c5044"
+    },
+    {
+      "path": "src/cv3_source_audio.s",
+      "line": 234,
+      "text": "sta RgAudioZp+6",
+      "sha256": "fa7f64da0b18f6427dbfdc705a4ec73f91d2b024f0fb7fb9d296bdff4c7c5044"
+    },
+    {
+      "path": "src/cv3_source_audio.s",
+      "line": 238,
+      "text": "sta RgAudioZp+5",
+      "sha256": "fa7f64da0b18f6427dbfdc705a4ec73f91d2b024f0fb7fb9d296bdff4c7c5044"
+    },
+    {
+      "path": "src/cv3_source_audio.s",
+      "line": 242,
+      "text": "sta RgAudioZp+4",
+      "sha256": "fa7f64da0b18f6427dbfdc705a4ec73f91d2b024f0fb7fb9d296bdff4c7c5044"
+    },
+    {
+      "path": "src/cv3_source_audio.s",
+      "line": 246,
+      "text": "sta RgAudioZp+3",
+      "sha256": "fa7f64da0b18f6427dbfdc705a4ec73f91d2b024f0fb7fb9d296bdff4c7c5044"
+    },
+    {
+      "path": "src/cv3_source_audio.s",
+      "line": 250,
+      "text": "sta RgAudioZp+2",
+      "sha256": "fa7f64da0b18f6427dbfdc705a4ec73f91d2b024f0fb7fb9d296bdff4c7c5044"
+    },
+    {
+      "path": "src/cv3_source_audio.s",
+      "line": 254,
+      "text": "sta RgAudioZp+1",
+      "sha256": "fa7f64da0b18f6427dbfdc705a4ec73f91d2b024f0fb7fb9d296bdff4c7c5044"
+    },
+    {
+      "path": "src/cv3_source_audio.s",
+      "line": 258,
+      "text": "sta RgAudioZp+0",
+      "sha256": "fa7f64da0b18f6427dbfdc705a4ec73f91d2b024f0fb7fb9d296bdff4c7c5044"
+    },
+    {
+      "path": "src/gradius_audio.s",
+      "line": 97,
+      "text": "sta RgAudioZp,x",
+      "sha256": "6e78720d80de735f9d85afe2cf4c4205bde1c197018b0e7ed9af7ded080a1f58"
+    },
+    {
+      "path": "src/gradius_audio.s",
+      "line": 116,
+      "text": "lda RgAudioZp+Offset",
+      "sha256": "6e78720d80de735f9d85afe2cf4c4205bde1c197018b0e7ed9af7ded080a1f58"
+    },
+    {
+      "path": "src/gradius_audio.s",
+      "line": 140,
+      "text": "sta RgAudioZp+Offset",
+      "sha256": "6e78720d80de735f9d85afe2cf4c4205bde1c197018b0e7ed9af7ded080a1f58"
+    },
+    {
+      "path": "src/roster_audio.s",
+      "line": 8,
+      "text": "RgAudioZp: .res 160",
+      "sha256": "785f045f6858ae1f000c16a8be57fd467b2e9dbccdf3998285baa31b83951c37"
+    },
+    {
+      "path": "src/roster_audio.s",
+      "line": 74,
+      "text": "sta RgAudioZp,x",
+      "sha256": "785f045f6858ae1f000c16a8be57fd467b2e9dbccdf3998285baa31b83951c37"
+    },
+    {
+      "path": "src/roster_audio.s",
+      "line": 97,
+      "text": "lda RgAudioZp,y",
+      "sha256": "785f045f6858ae1f000c16a8be57fd467b2e9dbccdf3998285baa31b83951c37"
+    },
+    {
+      "path": "src/roster_audio.s",
+      "line": 251,
+      "text": "sta RgAudioZp,y",
+      "sha256": "785f045f6858ae1f000c16a8be57fd467b2e9dbccdf3998285baa31b83951c37"
+    }
+  ],
+  "actual_ordinary_music_dead52_profiles": [
+    {
+      "area": 1,
+      "event": 0,
+      "updates": 512,
+      "actual_dead52_reads": 0,
+      "hardware_AXYP_banks_independent": true
+    },
+    {
+      "area": 2,
+      "event": 0,
+      "updates": 512,
+      "actual_dead52_reads": 0,
+      "hardware_AXYP_banks_independent": true
+    },
+    {
+      "area": 4,
+      "event": 0,
+      "updates": 512,
+      "actual_dead52_reads": 0,
+      "hardware_AXYP_banks_independent": true
+    },
+    {
+      "area": 8,
+      "event": 0,
+      "updates": 512,
+      "actual_dead52_reads": 0,
+      "hardware_AXYP_banks_independent": true
+    },
+    {
+      "area": 16,
+      "event": 0,
+      "updates": 512,
+      "actual_dead52_reads": 0,
+      "hardware_AXYP_banks_independent": true
+    },
+    {
+      "area": 32,
+      "event": 0,
+      "updates": 512,
+      "actual_dead52_reads": 0,
+      "hardware_AXYP_banks_independent": true
+    },
+    {
+      "area": 64,
+      "event": 0,
+      "updates": 512,
+      "actual_dead52_reads": 0,
+      "hardware_AXYP_banks_independent": true
+    },
+    {
+      "area": 0,
+      "event": 1,
+      "updates": 512,
+      "actual_dead52_reads": 0,
+      "hardware_AXYP_banks_independent": true
+    },
+    {
+      "area": 0,
+      "event": 2,
+      "updates": 512,
+      "actual_dead52_reads": 0,
+      "hardware_AXYP_banks_independent": true
+    },
+    {
+      "area": 0,
+      "event": 4,
+      "updates": 512,
+      "actual_dead52_reads": 0,
+      "hardware_AXYP_banks_independent": true
+    },
+    {
+      "area": 0,
+      "event": 8,
+      "updates": 512,
+      "actual_dead52_reads": 0,
+      "hardware_AXYP_banks_independent": true
+    },
+    {
+      "area": 0,
+      "event": 16,
+      "updates": 512,
+      "actual_dead52_reads": 0,
+      "hardware_AXYP_banks_independent": true
+    },
+    {
+      "area": 0,
+      "event": 32,
+      "updates": 512,
+      "actual_dead52_reads": 0,
+      "hardware_AXYP_banks_independent": true
+    },
+    {
+      "area": 0,
+      "event": 64,
+      "updates": 512,
+      "actual_dead52_reads": 0,
+      "hardware_AXYP_banks_independent": true
+    },
+    {
+      "area": 128,
+      "event": 0,
+      "updates": 512,
+      "actual_dead52_reads": 0,
+      "hardware_AXYP_banks_independent": true
+    },
+    {
+      "area": 0,
+      "event": 128,
+      "updates": 512,
+      "actual_dead52_reads": 0,
+      "hardware_AXYP_banks_independent": true
+    }
+  ],
+  "actual_ordinary_music_updates": 8192,
+  "source_scope": "Saved52 reads are dominated by their own Generic bank-cache write or steady savedY write. No imported direct slab reference; selectedKind2 borrows only24 bytes. Actual complete music menus under two52 values never read it. This bounded runtime indirect-read coverage is not an unbounded claim about every future song phase.",
+  "tool_sha256": "1145005a71ec23559a51deb7871df41d12845909cd4ed36a30c183ed0d1997e1"
+}

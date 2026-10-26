@@ -1,0 +1,70 @@
+{
+  "passed": true,
+  "accepted": false,
+  "ROM_sha256": "eaa36e56c09e87f58a85db312894f14bfd7fb5838be139fc508ae6121c9e0732",
+  "held_parent_ROM_sha256": "0c45ce16fa189debc2303f4df664a0e75f326a807a64bf23280797734615339c",
+  "actual_menu_resets": 1536,
+  "menu": [
+    {
+      "pending_event": null,
+      "real_scene_resets": 512,
+      "real_vanilla_audio_updates": 512,
+      "largest_bound": 2,
+      "final_menu_occupancy": 1,
+      "resume_music_flush": true
+    },
+    {
+      "pending_event": 31,
+      "real_scene_resets": 512,
+      "real_vanilla_audio_updates": 512,
+      "largest_bound": 2,
+      "final_menu_occupancy": 2,
+      "resume_music_flush": true
+    },
+    {
+      "pending_event": 33,
+      "real_scene_resets": 512,
+      "real_vanilla_audio_updates": 512,
+      "largest_bound": 2,
+      "final_menu_occupancy": 2,
+      "resume_music_flush": true
+    }
+  ],
+  "actual_lifecycle_cases": 84,
+  "whole_Cv3Spawn_caller_AXYP_gameplay_RAM_cases": 288,
+  "actual_full_lag_NMI_command_boundaries": 780,
+  "consecutive_pending_CANCEL_only_idempotency": true,
+  "source_effect_events_coalesced": false,
+  "retained_negatives": [
+    {
+      "kind": "menu",
+      "ROM_sha256": "9efbc7b726f757964ba4e90d63f02ec6ed2b5039b07ae4898457d7a8b287e34f",
+      "reset_calls": 512,
+      "occupancy": 64,
+      "overflow_byte": 192,
+      "expected_failure": true
+    },
+    {
+      "kind": "Y",
+      "ROM_sha256": "7afc5178aa6715a7bb8ebc88071b61a5ad156c5189b38d714694c95f230820b3",
+      "character": 2,
+      "parent_AXYP": [
+        215,
+        255,
+        0,
+        129,
+        253
+      ],
+      "draft_AXYP": [
+        215,
+        255,
+        255,
+        129,
+        253
+      ],
+      "expected_failure": true
+    }
+  ],
+  "scope": "Source/CPU protocol and actual owner components. No native cadence, audible playback, OAM/CHR, full-game or adoption claim. Remaining generic-world/ordinary/IRQ/source-layout/cost controls separate.",
+  "tool_sha256": "e3950271cdd4b3918b1193133b263b88ee52bd7ca2069bc92eb234868a2eaffe"
+}
