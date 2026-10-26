@@ -1,0 +1,4951 @@
+{
+  "passed": true,
+  "selected27_routes_passed": true,
+  "original27_pipeline_passed": false,
+  "original27_FALSE_preserved": true,
+  "visibility_findings_open": true,
+  "all_visual_findings_closed": false,
+  "ROM_sha256": "3cee18caa732b2e85e3bdb00faf719223324f9bf24e72dd30c56be355da33b99",
+  "native_new_run": false,
+  "native_workers_released": true,
+  "actual_numeric_modes": [
+    0
+  ],
+  "profile_count": 27,
+  "total_direct_saved_frames": 131446,
+  "agent_selected_sample_placements": 508,
+  "profiles": [
+    {
+      "case": "mario-easy",
+      "actual_numeric_mode": 0,
+      "selected_controller_retry": false,
+      "discovery": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-routes-v1\\native\\mario-easy",
+      "direct": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-routes-v1\\native\\mario-easy-direct",
+      "result": {
+        "cleared": true,
+        "world_1_1_seen": true,
+        "frames": 3174,
+        "polls": 3173,
+        "deaths": 0,
+        "failure": null,
+        "stage_entries": {
+          "0-0": 347,
+          "0-1": 3150
+        }
+      },
+      "direct_frames": 2974,
+      "direct_proof_sha256": "eb6fd2c7ac8918a7d9ae3b603b10977ec5ac23facc6cee6ab7fe348c0a2fafed",
+      "archive": {
+        "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-routes-v1\\native\\mario-easy-direct\\direct.argb.gz",
+        "sha256": "724d1865d5b1a96064b8efae4d806897d2c23965949d3939697a23398681fdbc"
+      },
+      "review_path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-review-v1\\mario-easy\\proof.json",
+      "review_sha256": "33db338d02ed38308e0899fea410abffcef3dc68f39bd550ced6e90bef933fed",
+      "power_status_values": [
+        0
+      ],
+      "power_status_transitions": [],
+      "pose_observation_rows": {
+        "crouch": 0,
+        "attack": 0,
+        "shoot": 0,
+        "wall": 0,
+        "ceiling": 0,
+        "hover": 0,
+        "pitFlight": 0
+      },
+      "request_store_events": [
+        {
+          "name": "Square1SoundQueue",
+          "value": 1,
+          "stores": 12
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 2,
+          "stores": 12
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 4,
+          "stores": 8
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 8,
+          "stores": 4
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 16,
+          "stores": 4
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 32,
+          "stores": 2
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 64,
+          "stores": 2
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 128,
+          "stores": 22
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 1,
+          "stores": 338
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 2,
+          "stores": 336
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 4,
+          "stores": 334
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 8,
+          "stores": 334
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 16,
+          "stores": 334
+        }
+      ],
+      "hardware_APU_write_count": 13519,
+      "hardware_expansion_write_count": 2674,
+      "event_file_comparison": {
+        "exact": false,
+        "discovery_sha256": "c041b2e2b17a410bd44c717940a5786b65eb23da571fdeb152e51ecb6e1caffd",
+        "replay_sha256": "3eb546a744cd74a26d6cda68d01bc76ec5fb102b0e131ef7ea3319078d1f7dee",
+        "gameplay_suffix_exact": true,
+        "first_native_stage_frame": 347,
+        "discovery_pregame_rows": [
+          {
+            "frame": "192",
+            "event": "sfx-0104",
+            "value": "1",
+            "world": "0",
+            "level": "0",
+            "x": "120",
+            "y": "152"
+          },
+          {
+            "frame": "193",
+            "event": "sfx-0104",
+            "value": "1",
+            "world": "0",
+            "level": "0",
+            "x": "120",
+            "y": "152"
+          }
+        ],
+        "replay_pregame_rows": [],
+        "reason": "Original live-menu selectionDone logger opens before fixed replay selectionDone; untouched pregame event rows retained. All gameplay rows compare literally."
+      },
+      "completed_loop": {
+        "passed": true,
+        "checks": 1603,
+        "max_world_step": 3,
+        "max_camera_step": 3,
+        "game_state_writes": false
+      },
+      "body_CHR": {
+        "passed": true,
+        "frames": 1610,
+        "mismatched_frames": 0,
+        "body_constructions": 1613,
+        "scope": "Read-only MMC5 physical/legacy mapping versus matching actual DMA player parts on every observed active video frame. Source pose art, body visibility and full campaign are separate."
+      },
+      "stomps": {
+        "events": 2,
+        "illegal_guest_events": 0,
+        "guest_events": 0,
+        "allowed_mode_1_0_guest_events": 0,
+        "behavior_version": 0,
+        "behavior_source": "menu-setting",
+        "resident_opcode_mismatches": 0,
+        "hook_address": 38918,
+        "nested_interrupt_guards": true,
+        "physical_frame": "previous endFrame + 1",
+        "failure": null
+      }
+    },
+    {
+      "case": "luigi-easy",
+      "actual_numeric_mode": 0,
+      "selected_controller_retry": false,
+      "discovery": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-routes-v1\\native\\luigi-easy",
+      "direct": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-routes-v1\\native\\luigi-easy-direct",
+      "result": {
+        "cleared": true,
+        "world_1_1_seen": true,
+        "frames": 3789,
+        "polls": 3788,
+        "deaths": 0,
+        "failure": null,
+        "stage_entries": {
+          "0-1": 3765,
+          "0-0": 371
+        }
+      },
+      "direct_frames": 3589,
+      "direct_proof_sha256": "94552766027b6c38695a6fc90c706c7974ddd91c73dd6e26f0b77f4740ee46a5",
+      "archive": {
+        "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-routes-v1\\native\\luigi-easy-direct\\direct.argb.gz",
+        "sha256": "2a3703f32d74530a5b0ad6331af3c16d1a883f21cefff234cc14bd3b80e81eca"
+      },
+      "review_path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-review-v1\\luigi-easy\\proof.json",
+      "review_sha256": "2dfb5e7612f095a3378a9ed3a22afadacfc38d534deeb3a1498156c2b14ca758",
+      "power_status_values": [
+        0
+      ],
+      "power_status_transitions": [],
+      "pose_observation_rows": {
+        "crouch": 0,
+        "attack": 0,
+        "shoot": 0,
+        "wall": 0,
+        "ceiling": 0,
+        "hover": 0,
+        "pitFlight": 0
+      },
+      "request_store_events": [
+        {
+          "name": "Square1SoundQueue",
+          "value": 1,
+          "stores": 18
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 2,
+          "stores": 18
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 4,
+          "stores": 10
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 8,
+          "stores": 4
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 16,
+          "stores": 4
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 32,
+          "stores": 2
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 64,
+          "stores": 2
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 128,
+          "stores": 19
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 1,
+          "stores": 310
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 2,
+          "stores": 308
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 4,
+          "stores": 308
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 8,
+          "stores": 308
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 16,
+          "stores": 308
+        }
+      ],
+      "hardware_APU_write_count": 18076,
+      "hardware_expansion_write_count": 3289,
+      "event_file_comparison": {
+        "exact": false,
+        "discovery_sha256": "a210e4dfa8a5629bdd79abf794e0df2b9ee1bbc78ceac57deb431031879c1f03",
+        "replay_sha256": "44e5e45cd27aa372d654a88b69af8ac196f836e6b621c4d976e816b0f80fe653",
+        "gameplay_suffix_exact": true,
+        "first_native_stage_frame": 371,
+        "discovery_pregame_rows": [
+          {
+            "frame": "204",
+            "event": "sfx-0104",
+            "value": "1",
+            "world": "0",
+            "level": "0",
+            "x": "120",
+            "y": "152"
+          },
+          {
+            "frame": "205",
+            "event": "sfx-0104",
+            "value": "1",
+            "world": "0",
+            "level": "0",
+            "x": "120",
+            "y": "152"
+          }
+        ],
+        "replay_pregame_rows": [],
+        "reason": "Original live-menu selectionDone logger opens before fixed replay selectionDone; untouched pregame event rows retained. All gameplay rows compare literally."
+      },
+      "completed_loop": {
+        "passed": true,
+        "checks": 2208,
+        "max_world_step": 3,
+        "max_camera_step": 3,
+        "game_state_writes": false
+      },
+      "body_CHR": {
+        "passed": true,
+        "frames": 2261,
+        "mismatched_frames": 0,
+        "body_constructions": 2172,
+        "scope": "Read-only MMC5 physical/legacy mapping versus matching actual DMA player parts on every observed active video frame. Source pose art, body visibility and full campaign are separate."
+      },
+      "stomps": {
+        "events": 3,
+        "illegal_guest_events": 0,
+        "guest_events": 0,
+        "allowed_mode_1_0_guest_events": 0,
+        "behavior_version": 0,
+        "behavior_source": "menu-setting",
+        "resident_opcode_mismatches": 0,
+        "hook_address": 38918,
+        "nested_interrupt_guards": true,
+        "physical_frame": "previous endFrame + 1",
+        "failure": null
+      }
+    },
+    {
+      "case": "link-easy",
+      "actual_numeric_mode": 0,
+      "selected_controller_retry": false,
+      "discovery": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-routes-v1\\native\\link-easy",
+      "direct": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-routes-v1\\native\\link-easy-direct",
+      "result": {
+        "cleared": true,
+        "world_1_1_seen": true,
+        "frames": 9831,
+        "polls": 9830,
+        "deaths": 0,
+        "failure": null,
+        "stage_entries": {
+          "0-1": 9801,
+          "0-0": 413
+        }
+      },
+      "direct_frames": 9631,
+      "direct_proof_sha256": "dac8b7e22e02ee69aaf98104771b1101194b7ac4c12818282268874b0da8e9e7",
+      "archive": {
+        "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-routes-v1\\native\\link-easy-direct\\direct.argb.gz",
+        "sha256": "59b2e7baef5072d4edb39a020e25989a693c3101408aee3ec45260733e72c36c"
+      },
+      "review_path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-review-v1\\link-easy\\proof.json",
+      "review_sha256": "4911fbe1388612ee9205a8d153f502c06c0730de82f51104851ac5a11588f468",
+      "power_status_values": [
+        0,
+        1
+      ],
+      "power_status_transitions": [
+        {
+          "frame": 2157,
+          "old": 0,
+          "new": 1,
+          "x": 421,
+          "y": 145,
+          "engine": 8,
+          "preceding_engine9_start": 2097
+        }
+      ],
+      "pose_observation_rows": {
+        "crouch": 0,
+        "attack": 5726,
+        "shoot": 0,
+        "wall": 0,
+        "ceiling": 0,
+        "hover": 0,
+        "pitFlight": 0
+      },
+      "request_store_events": [
+        {
+          "name": "NoiseSoundQueue",
+          "value": 1,
+          "stores": 18
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 1,
+          "stores": 12
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 2,
+          "stores": 17
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 4,
+          "stores": 14
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 8,
+          "stores": 33
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 16,
+          "stores": 4
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 32,
+          "stores": 2
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 64,
+          "stores": 3
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 1,
+          "stores": 129
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 2,
+          "stores": 129
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 4,
+          "stores": 120
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 8,
+          "stores": 123
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 16,
+          "stores": 171
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 32,
+          "stores": 4
+        }
+      ],
+      "hardware_APU_write_count": 37863,
+      "hardware_expansion_write_count": 9696,
+      "event_file_comparison": {
+        "exact": false,
+        "discovery_sha256": "52503aab0575971f24d9e57cb4db808db2a0a342968d2ff30dc917e2643ff4ef",
+        "replay_sha256": "8fe483697f8a50fe7577c37309ca401a43baed42a697a1a3a378dd369462b063",
+        "gameplay_suffix_exact": true,
+        "first_native_stage_frame": 413,
+        "discovery_pregame_rows": [
+          {
+            "frame": "240",
+            "event": "sfx-0104",
+            "value": "1",
+            "world": "0",
+            "level": "0",
+            "x": "120",
+            "y": "152"
+          },
+          {
+            "frame": "241",
+            "event": "sfx-0104",
+            "value": "1",
+            "world": "0",
+            "level": "0",
+            "x": "120",
+            "y": "152"
+          },
+          {
+            "frame": "241",
+            "event": "sfx-0104",
+            "value": "1",
+            "world": "0",
+            "level": "0",
+            "x": "120",
+            "y": "152"
+          }
+        ],
+        "replay_pregame_rows": [],
+        "reason": "Original live-menu selectionDone logger opens before fixed replay selectionDone; untouched pregame event rows retained. All gameplay rows compare literally."
+      },
+      "completed_loop": {
+        "passed": true,
+        "checks": 6908,
+        "max_world_step": 2,
+        "max_camera_step": 2,
+        "game_state_writes": false
+      },
+      "body_CHR": {
+        "passed": true,
+        "frames": 8293,
+        "mismatched_frames": 0,
+        "body_constructions": 4629,
+        "scope": "Read-only MMC5 physical/legacy mapping versus matching actual DMA player parts on every observed active video frame. Source pose art, body visibility and full campaign are separate."
+      },
+      "stomps": {
+        "events": 6,
+        "illegal_guest_events": 0,
+        "guest_events": 6,
+        "allowed_mode_1_0_guest_events": 6,
+        "behavior_version": 0,
+        "behavior_source": "menu-setting",
+        "resident_opcode_mismatches": 0,
+        "hook_address": 38918,
+        "nested_interrupt_guards": true,
+        "physical_frame": "previous endFrame + 1",
+        "failure": null
+      }
+    },
+    {
+      "case": "zelda2-easy",
+      "actual_numeric_mode": 0,
+      "selected_controller_retry": false,
+      "discovery": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-routes-v1\\native\\zelda2-easy",
+      "direct": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-routes-v1\\native\\zelda2-easy-direct",
+      "result": {
+        "cleared": true,
+        "world_1_1_seen": true,
+        "frames": 4787,
+        "polls": 4786,
+        "deaths": 0,
+        "failure": null,
+        "stage_entries": {
+          "0-0": 413,
+          "0-1": 4763
+        }
+      },
+      "direct_frames": 4587,
+      "direct_proof_sha256": "c56eb6b8aa5fa51ca420a044dd723b99bd94838e7153c2f6c663afc8d4e94627",
+      "archive": {
+        "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-routes-v1\\native\\zelda2-easy-direct\\direct.argb.gz",
+        "sha256": "3ad5ba7ef7798e9e10a47e0ddf30cbde557b81d78939cd0f442face0c25c2a62"
+      },
+      "review_path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-review-v1\\zelda2-easy\\proof.json",
+      "review_sha256": "3e4c2a47a84d3fe992a6fb7c2b2272d9a842013817e2bdaa09f5949fd3256eb9",
+      "power_status_values": [
+        0,
+        1
+      ],
+      "power_status_transitions": [
+        {
+          "frame": 822,
+          "old": 0,
+          "new": 1,
+          "x": 405,
+          "y": 176,
+          "engine": 8,
+          "preceding_engine9_start": 822
+        }
+      ],
+      "pose_observation_rows": {
+        "crouch": 0,
+        "attack": 0,
+        "shoot": 0,
+        "wall": 0,
+        "ceiling": 0,
+        "hover": 0,
+        "pitFlight": 0
+      },
+      "request_store_events": [
+        {
+          "name": "NoiseSoundQueue",
+          "value": 1,
+          "stores": 9
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 1,
+          "stores": 12
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 2,
+          "stores": 17
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 4,
+          "stores": 8
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 8,
+          "stores": 8
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 16,
+          "stores": 8
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 32,
+          "stores": 12
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 64,
+          "stores": 3
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 1,
+          "stores": 286
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 2,
+          "stores": 282
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 4,
+          "stores": 276
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 8,
+          "stores": 276
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 16,
+          "stores": 414
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 32,
+          "stores": 8
+        }
+      ],
+      "hardware_APU_write_count": 14962,
+      "hardware_expansion_write_count": 4750,
+      "event_file_comparison": {
+        "exact": false,
+        "discovery_sha256": "ee5f3fa7b505faaebf2ee948e0cd14d08d61a840b7152a45179a99cf315111c5",
+        "replay_sha256": "c0c13a078fbb51272e7f9201e6b79d8c2d25dc7a9a7c9bba71b8fe770e1614fe",
+        "gameplay_suffix_exact": true,
+        "first_native_stage_frame": 413,
+        "discovery_pregame_rows": [
+          {
+            "frame": "252",
+            "event": "sfx-0104",
+            "value": "1",
+            "world": "0",
+            "level": "0",
+            "x": "120",
+            "y": "152"
+          },
+          {
+            "frame": "253",
+            "event": "sfx-0104",
+            "value": "1",
+            "world": "0",
+            "level": "0",
+            "x": "120",
+            "y": "152"
+          },
+          {
+            "frame": "253",
+            "event": "sfx-0104",
+            "value": "1",
+            "world": "0",
+            "level": "0",
+            "x": "120",
+            "y": "152"
+          }
+        ],
+        "replay_pregame_rows": [],
+        "reason": "Original live-menu selectionDone logger opens before fixed replay selectionDone; untouched pregame event rows retained. All gameplay rows compare literally."
+      },
+      "completed_loop": {
+        "passed": true,
+        "checks": 2928,
+        "max_world_step": 4,
+        "max_camera_step": 3,
+        "game_state_writes": false
+      },
+      "body_CHR": {
+        "passed": true,
+        "frames": 3175,
+        "mismatched_frames": 0,
+        "body_constructions": 2340,
+        "scope": "Read-only actual hardware CHR pages versus last DMA player image. Bounded natural controller movement, no full-level or pixel-comparison claim."
+      },
+      "stomps": {
+        "events": 3,
+        "illegal_guest_events": 0,
+        "guest_events": 3,
+        "allowed_mode_1_0_guest_events": 3,
+        "behavior_version": 0,
+        "behavior_source": "menu-setting",
+        "resident_opcode_mismatches": 0,
+        "hook_address": 38918,
+        "nested_interrupt_guards": true,
+        "physical_frame": "previous endFrame + 1",
+        "failure": null
+      }
+    },
+    {
+      "case": "simon-easy",
+      "actual_numeric_mode": 0,
+      "selected_controller_retry": true,
+      "discovery": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-simon-gap-v1\\discovery",
+      "direct": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-simon-gap-v1\\direct",
+      "result": {
+        "cleared": true,
+        "world_1_1_seen": true,
+        "frames": 5648,
+        "polls": 5647,
+        "deaths": 0,
+        "failure": null,
+        "stage_entries": {
+          "0-0": 413,
+          "0-1": 5611
+        }
+      },
+      "direct_frames": 5448,
+      "direct_proof_sha256": "42be68725065dd938a2066f7090cbfe3e581d3fc3f4efcbfcfa31fda57997cdc",
+      "archive": {
+        "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-simon-gap-v1\\direct\\direct.argb.gz",
+        "sha256": "8c8c0b1d7d6c1ac1c45422902ce8334f72a6eb21288ec0cf1e7e06cf2b9d6406"
+      },
+      "review_path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-review-v1\\simon-easy\\proof.json",
+      "review_sha256": "c4561a1524ee34de5feed41978fbf8a31b7a86ae7f90cf2c5b01e2058cd2e45a",
+      "power_status_values": [
+        0
+      ],
+      "power_status_transitions": [],
+      "pose_observation_rows": {
+        "crouch": 0,
+        "attack": 2200,
+        "shoot": 0,
+        "wall": 0,
+        "ceiling": 0,
+        "hover": 0,
+        "pitFlight": 0
+      },
+      "request_store_events": [
+        {
+          "name": "NoiseSoundQueue",
+          "value": 1,
+          "stores": 6
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 1,
+          "stores": 142
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 2,
+          "stores": 14
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 4,
+          "stores": 8
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 8,
+          "stores": 2
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 16,
+          "stores": 4
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 32,
+          "stores": 2
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 64,
+          "stores": 3
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 1,
+          "stores": 276
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 2,
+          "stores": 271
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 4,
+          "stores": 268
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 8,
+          "stores": 274
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 16,
+          "stores": 384
+        }
+      ],
+      "hardware_APU_write_count": 13441,
+      "hardware_expansion_write_count": 5569,
+      "event_file_comparison": {
+        "exact": false,
+        "discovery_sha256": "84eeaf913b38364a238df207f6e53bf510a70e85a6b174793fa44bbe0bc6744b",
+        "replay_sha256": "98e0d0d198119a5e13bad8d4f5fe4c55de571870d70038010b0efcb4025e06e4",
+        "gameplay_suffix_exact": true,
+        "first_native_stage_frame": 413,
+        "discovery_pregame_rows": [
+          {
+            "frame": "252",
+            "event": "sfx-0104",
+            "value": "1",
+            "world": "0",
+            "level": "0",
+            "x": "120",
+            "y": "152"
+          },
+          {
+            "frame": "253",
+            "event": "sfx-0104",
+            "value": "1",
+            "world": "0",
+            "level": "0",
+            "x": "120",
+            "y": "152"
+          },
+          {
+            "frame": "253",
+            "event": "sfx-0104",
+            "value": "1",
+            "world": "0",
+            "level": "0",
+            "x": "120",
+            "y": "152"
+          }
+        ],
+        "replay_pregame_rows": [],
+        "reason": "Original live-menu selectionDone logger opens before fixed replay selectionDone; untouched pregame event rows retained. All gameplay rows compare literally."
+      },
+      "completed_loop": {
+        "passed": true,
+        "checks": 3478,
+        "max_world_step": 2,
+        "max_camera_step": 3,
+        "game_state_writes": false
+      },
+      "body_CHR": {
+        "passed": true,
+        "frames": 3702,
+        "mismatched_frames": 0,
+        "body_constructions": 2899,
+        "scope": "Read-only MMC5 physical/legacy mapping versus matching actual DMA player parts on every observed active video frame. Source pose art, body visibility and full campaign are separate."
+      },
+      "stomps": {
+        "events": 3,
+        "illegal_guest_events": 0,
+        "guest_events": 3,
+        "allowed_mode_1_0_guest_events": 3,
+        "behavior_version": 0,
+        "behavior_source": "menu-setting",
+        "resident_opcode_mismatches": 0,
+        "hook_address": 38918,
+        "nested_interrupt_guards": true,
+        "physical_frame": "previous endFrame + 1",
+        "failure": null
+      }
+    },
+    {
+      "case": "grant-easy",
+      "actual_numeric_mode": 0,
+      "selected_controller_retry": false,
+      "discovery": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-routes-v1\\native\\grant-easy",
+      "direct": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-routes-v1\\native\\grant-easy-direct",
+      "result": {
+        "cleared": true,
+        "world_1_1_seen": true,
+        "frames": 5109,
+        "polls": 5108,
+        "deaths": 0,
+        "failure": null,
+        "stage_entries": {
+          "0-1": 5085,
+          "0-0": 434
+        }
+      },
+      "direct_frames": 4909,
+      "direct_proof_sha256": "a8fb975ff2fa15fb743ca827f5051f3125776419303e40819fee51c70495839f",
+      "archive": {
+        "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-routes-v1\\native\\grant-easy-direct\\direct.argb.gz",
+        "sha256": "48eceaaeb0312033a52425c8fd65ab878b9797701e047aa0ee13d4be5e145477"
+      },
+      "review_path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-review-v1\\grant-easy\\proof.json",
+      "review_sha256": "2712986d67250bd3a599a7b918f08feb56a416277466e285e4bf66a18493c184",
+      "power_status_values": [
+        0,
+        1
+      ],
+      "power_status_transitions": [
+        {
+          "frame": 857,
+          "old": 0,
+          "new": 1,
+          "x": 398,
+          "y": 146,
+          "engine": 8,
+          "preceding_engine9_start": 857
+        }
+      ],
+      "pose_observation_rows": {
+        "crouch": 0,
+        "attack": 0,
+        "shoot": 0,
+        "wall": 0,
+        "ceiling": 0,
+        "hover": 0,
+        "pitFlight": 0
+      },
+      "request_store_events": [
+        {
+          "name": "Square1SoundQueue",
+          "value": 1,
+          "stores": 65
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 2,
+          "stores": 11
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 4,
+          "stores": 8
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 8,
+          "stores": 13
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 16,
+          "stores": 4
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 32,
+          "stores": 2
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 64,
+          "stores": 3
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 1,
+          "stores": 284
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 2,
+          "stores": 273
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 4,
+          "stores": 270
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 8,
+          "stores": 273
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 16,
+          "stores": 396
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 32,
+          "stores": 3
+        }
+      ],
+      "hardware_APU_write_count": 12285,
+      "hardware_expansion_write_count": 5019,
+      "event_file_comparison": {
+        "exact": false,
+        "discovery_sha256": "591af454769962eb3132a5dd57119c2575adad4fd4ec1f5389a4efb3f3191181",
+        "replay_sha256": "f704ee5ed908b23e1e9f1848103908ae2d283506d4d61cf192e7fe7ae5bb0730",
+        "gameplay_suffix_exact": true,
+        "first_native_stage_frame": 434,
+        "discovery_pregame_rows": [
+          {
+            "frame": "264",
+            "event": "sfx-0104",
+            "value": "1",
+            "world": "0",
+            "level": "0",
+            "x": "120",
+            "y": "152"
+          },
+          {
+            "frame": "265",
+            "event": "sfx-0104",
+            "value": "1",
+            "world": "0",
+            "level": "0",
+            "x": "120",
+            "y": "152"
+          },
+          {
+            "frame": "265",
+            "event": "sfx-0104",
+            "value": "1",
+            "world": "0",
+            "level": "0",
+            "x": "120",
+            "y": "152"
+          }
+        ],
+        "replay_pregame_rows": [],
+        "reason": "Original live-menu selectionDone logger opens before fixed replay selectionDone; untouched pregame event rows retained. All gameplay rows compare literally."
+      },
+      "completed_loop": {
+        "passed": true,
+        "checks": 3305,
+        "max_world_step": 2,
+        "max_camera_step": 2,
+        "game_state_writes": false
+      },
+      "body_CHR": {
+        "passed": true,
+        "frames": 3457,
+        "mismatched_frames": 0,
+        "body_constructions": 2884,
+        "scope": "Read-only actual hardware CHR pages versus last DMA player image. Bounded natural controller movement, no full-level or pixel-comparison claim."
+      },
+      "stomps": {
+        "events": 3,
+        "illegal_guest_events": 0,
+        "guest_events": 3,
+        "allowed_mode_1_0_guest_events": 3,
+        "behavior_version": 0,
+        "behavior_source": "menu-setting",
+        "resident_opcode_mismatches": 0,
+        "hook_address": 38918,
+        "nested_interrupt_guards": true,
+        "physical_frame": "previous endFrame + 1",
+        "failure": null
+      }
+    },
+    {
+      "case": "sypha-easy",
+      "actual_numeric_mode": 0,
+      "selected_controller_retry": false,
+      "discovery": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-routes-v1\\native\\sypha-easy",
+      "direct": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-routes-v1\\native\\sypha-easy-direct",
+      "result": {
+        "cleared": true,
+        "world_1_1_seen": true,
+        "frames": 5505,
+        "polls": 5504,
+        "deaths": 0,
+        "failure": null,
+        "stage_entries": {
+          "0-1": 5386,
+          "0-0": 434
+        }
+      },
+      "direct_frames": 5305,
+      "direct_proof_sha256": "f656ac0b6b008fae655a5058680e464e84d0a0e6b2d10d478acb5760909e87d9",
+      "archive": {
+        "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-routes-v1\\native\\sypha-easy-direct\\direct.argb.gz",
+        "sha256": "abf561d2a8d28c2a69aadfd359d3ab47606b31690c78575904f589040a34efb9"
+      },
+      "review_path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-review-v1\\sypha-easy\\proof.json",
+      "review_sha256": "cff80691b227a3c63a8e5e401064f2fb87f05c1ce0049b5066c38887e89fbfe4",
+      "power_status_values": [
+        0,
+        1
+      ],
+      "power_status_transitions": [
+        {
+          "frame": 982,
+          "old": 0,
+          "new": 1,
+          "x": 402,
+          "y": 170,
+          "engine": 8,
+          "preceding_engine9_start": 982
+        }
+      ],
+      "pose_observation_rows": {
+        "crouch": 486,
+        "attack": 0,
+        "shoot": 0,
+        "wall": 0,
+        "ceiling": 0,
+        "hover": 0,
+        "pitFlight": 0
+      },
+      "request_store_events": [
+        {
+          "name": "NoiseSoundQueue",
+          "value": 1,
+          "stores": 9
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 1,
+          "stores": 66
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 2,
+          "stores": 11
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 4,
+          "stores": 4
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 8,
+          "stores": 44
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 16,
+          "stores": 4
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 32,
+          "stores": 2
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 64,
+          "stores": 3
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 1,
+          "stores": 258
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 2,
+          "stores": 247
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 4,
+          "stores": 244
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 8,
+          "stores": 244
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 16,
+          "stores": 366
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 32,
+          "stores": 3
+        }
+      ],
+      "hardware_APU_write_count": 13719,
+      "hardware_expansion_write_count": 5381,
+      "event_file_comparison": {
+        "exact": false,
+        "discovery_sha256": "a6caaa3378a00762ddc707c5630fb70aad1c395e8e2424c4e0b2a301a35c4cec",
+        "replay_sha256": "318ea706775b60b1828a84762916ef24bdee94176a027fe56e207a3c9c8b0b97",
+        "gameplay_suffix_exact": true,
+        "first_native_stage_frame": 434,
+        "discovery_pregame_rows": [
+          {
+            "frame": "276",
+            "event": "sfx-0104",
+            "value": "1",
+            "world": "0",
+            "level": "0",
+            "x": "120",
+            "y": "152"
+          },
+          {
+            "frame": "277",
+            "event": "sfx-0104",
+            "value": "1",
+            "world": "0",
+            "level": "0",
+            "x": "120",
+            "y": "152"
+          },
+          {
+            "frame": "277",
+            "event": "sfx-0104",
+            "value": "1",
+            "world": "0",
+            "level": "0",
+            "x": "120",
+            "y": "152"
+          }
+        ],
+        "replay_pregame_rows": [],
+        "reason": "Original live-menu selectionDone logger opens before fixed replay selectionDone; untouched pregame event rows retained. All gameplay rows compare literally."
+      },
+      "completed_loop": {
+        "passed": true,
+        "checks": 3763,
+        "max_world_step": 2,
+        "max_camera_step": 3,
+        "game_state_writes": false
+      },
+      "body_CHR": {
+        "passed": true,
+        "frames": 3938,
+        "mismatched_frames": 0,
+        "body_constructions": 3505,
+        "scope": "Read-only actual hardware CHR pages versus last DMA player image. Bounded natural controller movement, no full-level or pixel-comparison claim."
+      },
+      "stomps": {
+        "events": 1,
+        "illegal_guest_events": 0,
+        "guest_events": 1,
+        "allowed_mode_1_0_guest_events": 1,
+        "behavior_version": 0,
+        "behavior_source": "menu-setting",
+        "resident_opcode_mismatches": 0,
+        "hook_address": 38918,
+        "nested_interrupt_guards": true,
+        "physical_frame": "previous endFrame + 1",
+        "failure": null
+      }
+    },
+    {
+      "case": "alucard-easy",
+      "actual_numeric_mode": 0,
+      "selected_controller_retry": false,
+      "discovery": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-routes-v1\\native\\alucard-easy",
+      "direct": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-routes-v1\\native\\alucard-easy-direct",
+      "result": {
+        "cleared": true,
+        "world_1_1_seen": true,
+        "frames": 5665,
+        "polls": 5664,
+        "deaths": 0,
+        "failure": null,
+        "stage_entries": {
+          "0-1": 5515,
+          "0-0": 455
+        }
+      },
+      "direct_frames": 5465,
+      "direct_proof_sha256": "17460b3fe61c10740254c42a276c512c895d30972a66a6e4b3ca62077f566c48",
+      "archive": {
+        "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-routes-v1\\native\\alucard-easy-direct\\direct.argb.gz",
+        "sha256": "e4ac0a1e7850e42038a788746262dda62045d98275b6b5dec6530c5bd11f37fb"
+      },
+      "review_path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-review-v1\\alucard-easy\\proof.json",
+      "review_sha256": "f8b1838a26bf2092da8b5de9c212024f53a9807a4fa335b5dd0a99fe5889dec3",
+      "power_status_values": [
+        0,
+        1
+      ],
+      "power_status_transitions": [
+        {
+          "frame": 939,
+          "old": 0,
+          "new": 1,
+          "x": 359,
+          "y": 112,
+          "engine": 8,
+          "preceding_engine9_start": 939
+        }
+      ],
+      "pose_observation_rows": {
+        "crouch": 247,
+        "attack": 0,
+        "shoot": 0,
+        "wall": 0,
+        "ceiling": 0,
+        "hover": 0,
+        "pitFlight": 0
+      },
+      "request_store_events": [
+        {
+          "name": "AvAudioRequest",
+          "value": 26,
+          "stores": 17
+        },
+        {
+          "name": "NoiseSoundQueue",
+          "value": 1,
+          "stores": 9
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 1,
+          "stores": 66
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 2,
+          "stores": 8
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 4,
+          "stores": 2
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 8,
+          "stores": 47
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 16,
+          "stores": 4
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 32,
+          "stores": 2
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 64,
+          "stores": 3
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 1,
+          "stores": 261
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 2,
+          "stores": 259
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 4,
+          "stores": 256
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 8,
+          "stores": 262
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 16,
+          "stores": 366
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 32,
+          "stores": 3
+        }
+      ],
+      "hardware_APU_write_count": 13703,
+      "hardware_expansion_write_count": 5548,
+      "event_file_comparison": {
+        "exact": false,
+        "discovery_sha256": "aeb9320fda1580b28bafe407a5956bc1d3aad314693b0033adced7ed2ac8e7cd",
+        "replay_sha256": "d7cc0154975e95a00f5ed90921e46b2262375d9b5a874809a201e72ff0516c3f",
+        "gameplay_suffix_exact": true,
+        "first_native_stage_frame": 455,
+        "discovery_pregame_rows": [
+          {
+            "frame": "288",
+            "event": "sfx-0104",
+            "value": "1",
+            "world": "0",
+            "level": "0",
+            "x": "120",
+            "y": "152"
+          },
+          {
+            "frame": "289",
+            "event": "sfx-0104",
+            "value": "1",
+            "world": "0",
+            "level": "0",
+            "x": "120",
+            "y": "152"
+          },
+          {
+            "frame": "289",
+            "event": "sfx-0104",
+            "value": "1",
+            "world": "0",
+            "level": "0",
+            "x": "120",
+            "y": "152"
+          }
+        ],
+        "replay_pregame_rows": [],
+        "reason": "Original live-menu selectionDone logger opens before fixed replay selectionDone; untouched pregame event rows retained. All gameplay rows compare literally."
+      },
+      "completed_loop": {
+        "passed": true,
+        "checks": 3698,
+        "max_world_step": 6,
+        "max_camera_step": 3,
+        "game_state_writes": false
+      },
+      "body_CHR": {
+        "passed": true,
+        "frames": 3900,
+        "mismatched_frames": 0,
+        "body_constructions": 3437,
+        "scope": "Read-only actual hardware CHR pages versus last DMA player image. Bounded natural controller movement, no full-level or pixel-comparison claim."
+      },
+      "stomps": {
+        "events": 0,
+        "illegal_guest_events": 0,
+        "guest_events": 0,
+        "allowed_mode_1_0_guest_events": 0,
+        "behavior_version": 0,
+        "behavior_source": "menu-setting",
+        "resident_opcode_mismatches": 0,
+        "hook_address": 38918,
+        "nested_interrupt_guards": true,
+        "physical_frame": "previous endFrame + 1",
+        "failure": null
+      }
+    },
+    {
+      "case": "pit-easy",
+      "actual_numeric_mode": 0,
+      "selected_controller_retry": false,
+      "discovery": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-routes-v1\\native\\pit-easy",
+      "direct": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-routes-v1\\native\\pit-easy-direct",
+      "result": {
+        "cleared": true,
+        "world_1_1_seen": true,
+        "frames": 4927,
+        "polls": 4926,
+        "deaths": 0,
+        "failure": null,
+        "stage_entries": {
+          "0-0": 371,
+          "0-1": 4903
+        }
+      },
+      "direct_frames": 4727,
+      "direct_proof_sha256": "c9f55efe893e8ce1b70d773f33ca30ad623dc1c960ebf6393605c3f1a0ec2d23",
+      "archive": {
+        "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-routes-v1\\native\\pit-easy-direct\\direct.argb.gz",
+        "sha256": "f28fad6aa9e995a61e86c4f2b959aea2936ccf1ab615708b02dc0ff603ca3aac"
+      },
+      "review_path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-review-v1\\pit-easy\\proof.json",
+      "review_sha256": "0ce82511b1efe56f947c1fb11804841cd73e7cea4e5b17c19d7511b7fa3f8999",
+      "power_status_values": [
+        0
+      ],
+      "power_status_transitions": [],
+      "pose_observation_rows": {
+        "crouch": 0,
+        "attack": 0,
+        "shoot": 2336,
+        "wall": 0,
+        "ceiling": 0,
+        "hover": 0,
+        "pitFlight": 0
+      },
+      "request_store_events": [
+        {
+          "name": "NoiseSoundQueue",
+          "value": 1,
+          "stores": 3
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 1,
+          "stores": 622
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 2,
+          "stores": 571
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 4,
+          "stores": 558
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 8,
+          "stores": 569
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 16,
+          "stores": 519
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 32,
+          "stores": 779
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 64,
+          "stores": 3
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 1,
+          "stores": 302
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 2,
+          "stores": 290
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 4,
+          "stores": 290
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 8,
+          "stores": 293
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 16,
+          "stores": 426
+        }
+      ],
+      "hardware_APU_write_count": 9504,
+      "hardware_expansion_write_count": 6887,
+      "event_file_comparison": {
+        "exact": false,
+        "discovery_sha256": "f44216b07c5b16a86707351a86e003747dae096ae28328454007a50547f9b13a",
+        "replay_sha256": "b2c303328cf81b2747e85390814ac9041af0a160f4811ada31102ceafe369cdd",
+        "gameplay_suffix_exact": true,
+        "first_native_stage_frame": 371,
+        "discovery_pregame_rows": [
+          {
+            "frame": "204",
+            "event": "sfx-0104",
+            "value": "1",
+            "world": "0",
+            "level": "0",
+            "x": "120",
+            "y": "152"
+          },
+          {
+            "frame": "205",
+            "event": "sfx-0104",
+            "value": "1",
+            "world": "0",
+            "level": "0",
+            "x": "120",
+            "y": "152"
+          },
+          {
+            "frame": "205",
+            "event": "sfx-0104",
+            "value": "1",
+            "world": "0",
+            "level": "0",
+            "x": "120",
+            "y": "152"
+          }
+        ],
+        "replay_pregame_rows": [],
+        "reason": "Original live-menu selectionDone logger opens before fixed replay selectionDone; untouched pregame event rows retained. All gameplay rows compare literally."
+      },
+      "completed_loop": {
+        "passed": true,
+        "checks": 2808,
+        "max_world_step": 2,
+        "max_camera_step": 3,
+        "game_state_writes": false
+      },
+      "body_CHR": {
+        "passed": true,
+        "frames": 3347,
+        "mismatched_frames": 0,
+        "body_constructions": 2216,
+        "scope": "Read-only MMC5 physical/legacy mapping versus matching actual DMA player parts on every observed active video frame. Source pose art, body visibility and full campaign are separate."
+      },
+      "stomps": {
+        "events": 2,
+        "illegal_guest_events": 0,
+        "guest_events": 2,
+        "allowed_mode_1_0_guest_events": 2,
+        "behavior_version": 0,
+        "behavior_source": "menu-setting",
+        "resident_opcode_mismatches": 0,
+        "hook_address": 38918,
+        "nested_interrupt_guards": true,
+        "physical_frame": "previous endFrame + 1",
+        "failure": null
+      }
+    },
+    {
+      "case": "rygar-easy",
+      "actual_numeric_mode": 0,
+      "selected_controller_retry": false,
+      "discovery": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-routes-v1\\native\\rygar-easy",
+      "direct": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-routes-v1\\native\\rygar-easy-direct",
+      "result": {
+        "cleared": true,
+        "world_1_1_seen": true,
+        "frames": 5600,
+        "polls": 5599,
+        "deaths": 0,
+        "failure": null,
+        "stage_entries": {
+          "0-1": 5576,
+          "0-0": 392
+        }
+      },
+      "direct_frames": 5400,
+      "direct_proof_sha256": "3c6d93fe3987a8e7e455014e1498e98d1e745660131cecf2cbf5f3f6521fa6d3",
+      "archive": {
+        "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-routes-v1\\native\\rygar-easy-direct\\direct.argb.gz",
+        "sha256": "561972dc53fae1f0d651daf390668bbf11f5addabbd27d6da6d807353170a08d"
+      },
+      "review_path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-review-v1\\rygar-easy\\proof.json",
+      "review_sha256": "f9c03f694ae53fbc1f22b140e69721e329febab160352be2469f883c11844cc8",
+      "power_status_values": [
+        0,
+        1
+      ],
+      "power_status_transitions": [
+        {
+          "frame": 933,
+          "old": 0,
+          "new": 1,
+          "x": 359,
+          "y": 170,
+          "engine": 8,
+          "preceding_engine9_start": 872
+        }
+      ],
+      "pose_observation_rows": {
+        "crouch": 1331,
+        "attack": 0,
+        "shoot": 2293,
+        "wall": 0,
+        "ceiling": 0,
+        "hover": 0,
+        "pitFlight": 0
+      },
+      "request_store_events": [
+        {
+          "name": "NoiseSoundQueue",
+          "value": 1,
+          "stores": 36
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 1,
+          "stores": 329
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 2,
+          "stores": 262
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 4,
+          "stores": 238
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 8,
+          "stores": 254
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 16,
+          "stores": 207
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 32,
+          "stores": 305
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 64,
+          "stores": 3
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 1,
+          "stores": 279
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 2,
+          "stores": 267
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 4,
+          "stores": 258
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 8,
+          "stores": 258
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 16,
+          "stores": 385
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 32,
+          "stores": 6
+        }
+      ],
+      "hardware_APU_write_count": 17786,
+      "hardware_expansion_write_count": 7003,
+      "event_file_comparison": {
+        "exact": false,
+        "discovery_sha256": "1e2f3ff6863daef2a31d9650ef5d057a5a1d8a148c286fbf771d71a1eb33ee25",
+        "replay_sha256": "86847c8d96679f13071eddb9d6a5bca6e7d8d17174363eaa73b16ae9ecf9c79b",
+        "gameplay_suffix_exact": true,
+        "first_native_stage_frame": 392,
+        "discovery_pregame_rows": [
+          {
+            "frame": "216",
+            "event": "sfx-0104",
+            "value": "1",
+            "world": "0",
+            "level": "0",
+            "x": "120",
+            "y": "152"
+          },
+          {
+            "frame": "217",
+            "event": "sfx-0104",
+            "value": "1",
+            "world": "0",
+            "level": "0",
+            "x": "120",
+            "y": "152"
+          },
+          {
+            "frame": "217",
+            "event": "sfx-0104",
+            "value": "1",
+            "world": "0",
+            "level": "0",
+            "x": "120",
+            "y": "152"
+          }
+        ],
+        "replay_pregame_rows": [],
+        "reason": "Original live-menu selectionDone logger opens before fixed replay selectionDone; untouched pregame event rows retained. All gameplay rows compare literally."
+      },
+      "completed_loop": {
+        "passed": true,
+        "checks": 3489,
+        "max_world_step": 2,
+        "max_camera_step": 3,
+        "game_state_writes": false
+      },
+      "body_CHR": {
+        "passed": true,
+        "frames": 3986,
+        "mismatched_frames": 0,
+        "body_constructions": 2541,
+        "scope": "Read-only MMC5 physical/legacy mapping versus matching actual DMA player parts on every observed active video frame. Source pose art, body visibility and full campaign are separate."
+      },
+      "stomps": {
+        "events": 0,
+        "illegal_guest_events": 0,
+        "guest_events": 0,
+        "allowed_mode_1_0_guest_events": 0,
+        "behavior_version": 0,
+        "behavior_source": "menu-setting",
+        "resident_opcode_mismatches": 0,
+        "hook_address": 38918,
+        "nested_interrupt_guards": true,
+        "physical_frame": "previous endFrame + 1",
+        "failure": null
+      }
+    },
+    {
+      "case": "scrooge-easy",
+      "actual_numeric_mode": 0,
+      "selected_controller_retry": false,
+      "discovery": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-routes-v1\\native\\scrooge-easy",
+      "direct": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-routes-v1\\native\\scrooge-easy-direct",
+      "result": {
+        "cleared": true,
+        "world_1_1_seen": true,
+        "frames": 4434,
+        "polls": 4433,
+        "deaths": 0,
+        "failure": null,
+        "stage_entries": {
+          "0-1": 4410,
+          "0-0": 392
+        }
+      },
+      "direct_frames": 4234,
+      "direct_proof_sha256": "4ad81c02051189b312213886b9bdb857af07ab8f44f5586748f270a3e2fde431",
+      "archive": {
+        "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-routes-v1\\native\\scrooge-easy-direct\\direct.argb.gz",
+        "sha256": "b89b12a2b576775bc1f6236caaf855ad1c67e76051ba73366811243afdba059f"
+      },
+      "review_path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-review-v1\\scrooge-easy\\proof.json",
+      "review_sha256": "5796cc0da5c6443ba3848ef94fafc4b5f9ca6633c922cd94e1e14e093e6dddea",
+      "power_status_values": [
+        0,
+        1
+      ],
+      "power_status_transitions": [
+        {
+          "frame": 851,
+          "old": 0,
+          "new": 1,
+          "x": 417,
+          "y": 176,
+          "engine": 8,
+          "preceding_engine9_start": 791
+        }
+      ],
+      "pose_observation_rows": {
+        "crouch": 0,
+        "attack": 0,
+        "shoot": 0,
+        "wall": 0,
+        "ceiling": 0,
+        "hover": 0,
+        "pitFlight": 0
+      },
+      "request_store_events": [
+        {
+          "name": "NoiseSoundQueue",
+          "value": 1,
+          "stores": 9
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 1,
+          "stores": 162
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 2,
+          "stores": 61
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 4,
+          "stores": 48
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 8,
+          "stores": 56
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 16,
+          "stores": 43
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 32,
+          "stores": 59
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 64,
+          "stores": 3
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 1,
+          "stores": 328
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 2,
+          "stores": 324
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 4,
+          "stores": 318
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 8,
+          "stores": 324
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 16,
+          "stores": 458
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 32,
+          "stores": 3
+        }
+      ],
+      "hardware_APU_write_count": 11911,
+      "hardware_expansion_write_count": 5409,
+      "event_file_comparison": {
+        "exact": false,
+        "discovery_sha256": "f776fca8e7b46e4aa4e28709f660b9de7c2a491d34487e69f2fcb59216f458c5",
+        "replay_sha256": "2d5bcc5323879a53b84aa27fc5c9bd3d065fe9f978628ef6241a302c982ce597",
+        "gameplay_suffix_exact": true,
+        "first_native_stage_frame": 392,
+        "discovery_pregame_rows": [
+          {
+            "frame": "228",
+            "event": "sfx-0104",
+            "value": "1",
+            "world": "0",
+            "level": "0",
+            "x": "120",
+            "y": "152"
+          },
+          {
+            "frame": "229",
+            "event": "sfx-0104",
+            "value": "1",
+            "world": "0",
+            "level": "0",
+            "x": "120",
+            "y": "152"
+          },
+          {
+            "frame": "229",
+            "event": "sfx-0104",
+            "value": "1",
+            "world": "0",
+            "level": "0",
+            "x": "120",
+            "y": "152"
+          }
+        ],
+        "replay_pregame_rows": [],
+        "reason": "Original live-menu selectionDone logger opens before fixed replay selectionDone; untouched pregame event rows retained. All gameplay rows compare literally."
+      },
+      "completed_loop": {
+        "passed": true,
+        "checks": 2266,
+        "max_world_step": 4,
+        "max_camera_step": 3,
+        "game_state_writes": false
+      },
+      "body_CHR": {
+        "passed": true,
+        "frames": 2625,
+        "mismatched_frames": 0,
+        "body_constructions": 1739,
+        "scope": "Read-only MMC5 physical/legacy mapping versus matching actual DMA player parts on every observed active video frame. Source pose art, body visibility and full campaign are separate."
+      },
+      "stomps": {
+        "events": 0,
+        "illegal_guest_events": 0,
+        "guest_events": 0,
+        "allowed_mode_1_0_guest_events": 0,
+        "behavior_version": 0,
+        "behavior_source": "menu-setting",
+        "resident_opcode_mismatches": 0,
+        "hook_address": 38918,
+        "nested_interrupt_guards": true,
+        "physical_frame": "previous endFrame + 1",
+        "failure": null
+      }
+    },
+    {
+      "case": "darkwing-easy",
+      "actual_numeric_mode": 0,
+      "selected_controller_retry": false,
+      "discovery": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-routes-v1\\native\\darkwing-easy",
+      "direct": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-routes-v1\\native\\darkwing-easy-direct",
+      "result": {
+        "cleared": true,
+        "world_1_1_seen": true,
+        "frames": 5765,
+        "polls": 5764,
+        "deaths": 0,
+        "failure": null,
+        "stage_entries": {
+          "0-1": 5741,
+          "0-0": 413
+        }
+      },
+      "direct_frames": 5565,
+      "direct_proof_sha256": "377dcc46e4eca5a550ed0876eaaa03fb8c4ca8bbf3925d37f4c6bc177ae1750e",
+      "archive": {
+        "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-routes-v1\\native\\darkwing-easy-direct\\direct.argb.gz",
+        "sha256": "89d29aba55501a1da436b2b2fd1797dc9e9f2852fade4991445ceb26717d2e8d"
+      },
+      "review_path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-review-v1\\darkwing-easy\\proof.json",
+      "review_sha256": "0b618198892252251ed1833980943fb6f9afe6feddb0edcd2f25839ba745cd2f",
+      "power_status_values": [
+        0
+      ],
+      "power_status_transitions": [],
+      "pose_observation_rows": {
+        "crouch": 0,
+        "attack": 0,
+        "shoot": 944,
+        "wall": 0,
+        "ceiling": 0,
+        "hover": 0,
+        "pitFlight": 0
+      },
+      "request_store_events": [
+        {
+          "name": "Square1SoundQueue",
+          "value": 1,
+          "stores": 302
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 2,
+          "stores": 226
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 4,
+          "stores": 227
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 8,
+          "stores": 264
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 16,
+          "stores": 145
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 32,
+          "stores": 213
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 64,
+          "stores": 3
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 1,
+          "stores": 246
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 2,
+          "stores": 246
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 4,
+          "stores": 246
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 8,
+          "stores": 246
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 16,
+          "stores": 366
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 32,
+          "stores": 10
+        }
+      ],
+      "hardware_APU_write_count": 16299,
+      "hardware_expansion_write_count": 7135,
+      "event_file_comparison": {
+        "exact": false,
+        "discovery_sha256": "959ecaea84f3e233400cb88266f1d29f6f5f38455c059bebf8f572c679ffe689",
+        "replay_sha256": "d09494d71bb2d87f2a7e5deb767ebce99cc77c3b7d38ccdb65c8d8b7e1c805e6",
+        "gameplay_suffix_exact": true,
+        "first_native_stage_frame": 413,
+        "discovery_pregame_rows": [
+          {
+            "frame": "240",
+            "event": "sfx-0104",
+            "value": "1",
+            "world": "0",
+            "level": "0",
+            "x": "120",
+            "y": "152"
+          },
+          {
+            "frame": "241",
+            "event": "sfx-0104",
+            "value": "1",
+            "world": "0",
+            "level": "0",
+            "x": "120",
+            "y": "152"
+          },
+          {
+            "frame": "241",
+            "event": "sfx-0104",
+            "value": "1",
+            "world": "0",
+            "level": "0",
+            "x": "120",
+            "y": "152"
+          }
+        ],
+        "replay_pregame_rows": [],
+        "reason": "Original live-menu selectionDone logger opens before fixed replay selectionDone; untouched pregame event rows retained. All gameplay rows compare literally."
+      },
+      "completed_loop": {
+        "passed": true,
+        "checks": 3850,
+        "max_world_step": 2,
+        "max_camera_step": 3,
+        "game_state_writes": false
+      },
+      "body_CHR": {
+        "passed": true,
+        "frames": 4236,
+        "mismatched_frames": 0,
+        "body_constructions": 2855,
+        "scope": "Read-only actual hardware CHR pages versus last DMA player image. Bounded natural controller movement, no full-level or pixel-comparison claim."
+      },
+      "stomps": {
+        "events": 1,
+        "illegal_guest_events": 0,
+        "guest_events": 1,
+        "allowed_mode_1_0_guest_events": 1,
+        "behavior_version": 0,
+        "behavior_source": "menu-setting",
+        "resident_opcode_mismatches": 0,
+        "hook_address": 38918,
+        "nested_interrupt_guards": true,
+        "physical_frame": "previous endFrame + 1",
+        "failure": null
+      }
+    },
+    {
+      "case": "sophia-easy",
+      "actual_numeric_mode": 0,
+      "selected_controller_retry": false,
+      "discovery": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-routes-v1\\native\\sophia-easy",
+      "direct": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-routes-v1\\native\\sophia-easy-direct",
+      "result": {
+        "cleared": true,
+        "world_1_1_seen": true,
+        "frames": 5288,
+        "polls": 5287,
+        "deaths": 0,
+        "failure": null,
+        "stage_entries": {
+          "0-0": 434,
+          "0-1": 5264
+        }
+      },
+      "direct_frames": 5088,
+      "direct_proof_sha256": "d40b321d8e31a0a735bfb603a761bc4ad9c5a6b720afa8be9d724c1e3758731a",
+      "archive": {
+        "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-routes-v1\\native\\sophia-easy-direct\\direct.argb.gz",
+        "sha256": "05eac5486134db233d7808638ad8455390c67c4e7d61d2ed0daf486ebf503fe1"
+      },
+      "review_path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-review-v1\\sophia-easy\\proof.json",
+      "review_sha256": "c456f9a9d2efe840835229f041828d6e953173efb4d8f7d90c110ecf249a1cae",
+      "power_status_values": [
+        0,
+        1
+      ],
+      "power_status_transitions": [
+        {
+          "frame": 1027,
+          "old": 0,
+          "new": 1,
+          "x": 417,
+          "y": 170,
+          "engine": 8,
+          "preceding_engine9_start": 967
+        }
+      ],
+      "pose_observation_rows": {
+        "crouch": 0,
+        "attack": 0,
+        "shoot": 1749,
+        "wall": 0,
+        "ceiling": 0,
+        "hover": 0,
+        "pitFlight": 0
+      },
+      "request_store_events": [
+        {
+          "name": "AvAudioRequest",
+          "value": 18,
+          "stores": 97
+        },
+        {
+          "name": "AvAudioRequest",
+          "value": 19,
+          "stores": 11
+        },
+        {
+          "name": "AvAudioRequest",
+          "value": 20,
+          "stores": 9
+        },
+        {
+          "name": "AvAudioRequest",
+          "value": 25,
+          "stores": 26
+        },
+        {
+          "name": "NoiseSoundQueue",
+          "value": 1,
+          "stores": 9
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 1,
+          "stores": 354
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 2,
+          "stores": 319
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 4,
+          "stores": 286
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 8,
+          "stores": 297
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 16,
+          "stores": 285
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 32,
+          "stores": 445
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 64,
+          "stores": 3
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 1,
+          "stores": 325
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 2,
+          "stores": 319
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 4,
+          "stores": 310
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 8,
+          "stores": 310
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 16,
+          "stores": 464
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 32,
+          "stores": 3
+        }
+      ],
+      "hardware_APU_write_count": 20415,
+      "hardware_expansion_write_count": 6615,
+      "event_file_comparison": {
+        "exact": false,
+        "discovery_sha256": "8856c658ccb8bb927b38d6151d04ae41b018719534af980a6f9271d27289ade1",
+        "replay_sha256": "a1fc7c783360b29e452ae9fca2597821fdc6b8dc3cb14683f9661d14dcd6257d",
+        "gameplay_suffix_exact": true,
+        "first_native_stage_frame": 434,
+        "discovery_pregame_rows": [
+          {
+            "frame": "264",
+            "event": "sfx-0104",
+            "value": "1",
+            "world": "0",
+            "level": "0",
+            "x": "120",
+            "y": "152"
+          },
+          {
+            "frame": "265",
+            "event": "sfx-0104",
+            "value": "1",
+            "world": "0",
+            "level": "0",
+            "x": "120",
+            "y": "152"
+          },
+          {
+            "frame": "265",
+            "event": "sfx-0104",
+            "value": "1",
+            "world": "0",
+            "level": "0",
+            "x": "120",
+            "y": "152"
+          }
+        ],
+        "replay_pregame_rows": [],
+        "reason": "Original live-menu selectionDone logger opens before fixed replay selectionDone; untouched pregame event rows retained. All gameplay rows compare literally."
+      },
+      "completed_loop": {
+        "passed": true,
+        "checks": 2247,
+        "max_world_step": 2,
+        "max_camera_step": 3,
+        "game_state_writes": false
+      },
+      "body_CHR": {
+        "passed": true,
+        "frames": 3623,
+        "mismatched_frames": 0,
+        "body_constructions": 1360,
+        "scope": "Read-only MMC5 physical/legacy mapping versus matching actual DMA player parts on every observed active video frame. Source pose art, body visibility and full campaign are separate."
+      },
+      "stomps": {
+        "events": 0,
+        "illegal_guest_events": 0,
+        "guest_events": 0,
+        "allowed_mode_1_0_guest_events": 0,
+        "behavior_version": 0,
+        "behavior_source": "menu-setting",
+        "resident_opcode_mismatches": 0,
+        "hook_address": 38918,
+        "nested_interrupt_guards": true,
+        "physical_frame": "previous endFrame + 1",
+        "failure": null
+      }
+    },
+    {
+      "case": "kirby-easy",
+      "actual_numeric_mode": 0,
+      "selected_controller_retry": false,
+      "discovery": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-routes-v1\\native\\kirby-easy",
+      "direct": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-routes-v1\\native\\kirby-easy-direct",
+      "result": {
+        "cleared": true,
+        "world_1_1_seen": true,
+        "frames": 6123,
+        "polls": 6122,
+        "deaths": 0,
+        "failure": null,
+        "stage_entries": {
+          "0-0": 392,
+          "0-1": 6099
+        }
+      },
+      "direct_frames": 5923,
+      "direct_proof_sha256": "64952957121d7b94eddec6b8d1c3c673df07b78b8e4917294b5029a5f982c3bb",
+      "archive": {
+        "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-routes-v1\\native\\kirby-easy-direct\\direct.argb.gz",
+        "sha256": "4c03764f6a30d0d1cd849afc84241252f575a9ff30d38717bcfdcfff14d31c6a"
+      },
+      "review_path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-review-v1\\kirby-easy\\proof.json",
+      "review_sha256": "a89ecd4da84ed214d357dea74ef1fa03cbc8266bb8e4708ed47bdd7353bbcc77",
+      "power_status_values": [
+        0
+      ],
+      "power_status_transitions": [],
+      "pose_observation_rows": {
+        "crouch": 0,
+        "attack": 0,
+        "shoot": 0,
+        "wall": 0,
+        "ceiling": 0,
+        "hover": 0,
+        "pitFlight": 0
+      },
+      "request_store_events": [
+        {
+          "name": "Square1SoundQueue",
+          "value": 1,
+          "stores": 96
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 2,
+          "stores": 110
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 4,
+          "stores": 80
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 8,
+          "stores": 49
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 16,
+          "stores": 35
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 32,
+          "stores": 49
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 64,
+          "stores": 3
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 128,
+          "stores": 16
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 1,
+          "stores": 230
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 2,
+          "stores": 218
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 4,
+          "stores": 218
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 8,
+          "stores": 218
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 16,
+          "stores": 326
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 32,
+          "stores": 3
+        }
+      ],
+      "hardware_APU_write_count": 16912,
+      "hardware_expansion_write_count": 6634,
+      "event_file_comparison": {
+        "exact": false,
+        "discovery_sha256": "080f381def6601e8830f1d63cd2fb0b31a9083b5f562655f8bbb301e5f12f24d",
+        "replay_sha256": "229a3186cf1763f21005b889b2c14676ae8bed12aa94f90e4960e8a11d039166",
+        "gameplay_suffix_exact": true,
+        "first_native_stage_frame": 392,
+        "discovery_pregame_rows": [
+          {
+            "frame": "216",
+            "event": "sfx-0104",
+            "value": "1",
+            "world": "0",
+            "level": "0",
+            "x": "120",
+            "y": "152"
+          },
+          {
+            "frame": "217",
+            "event": "sfx-0104",
+            "value": "1",
+            "world": "0",
+            "level": "0",
+            "x": "120",
+            "y": "152"
+          },
+          {
+            "frame": "217",
+            "event": "sfx-0104",
+            "value": "1",
+            "world": "0",
+            "level": "0",
+            "x": "120",
+            "y": "152"
+          }
+        ],
+        "replay_pregame_rows": [],
+        "reason": "Original live-menu selectionDone logger opens before fixed replay selectionDone; untouched pregame event rows retained. All gameplay rows compare literally."
+      },
+      "completed_loop": {
+        "passed": true,
+        "checks": 4471,
+        "max_world_step": 2,
+        "max_camera_step": 3,
+        "game_state_writes": false
+      },
+      "body_CHR": {
+        "passed": true,
+        "frames": 4588,
+        "mismatched_frames": 0,
+        "body_constructions": 4118,
+        "scope": "Read-only actual hardware CHR pages versus last DMA player image. Bounded natural controller movement, no full-level or pixel-comparison claim."
+      },
+      "stomps": {
+        "events": 4,
+        "illegal_guest_events": 0,
+        "guest_events": 4,
+        "allowed_mode_1_0_guest_events": 4,
+        "behavior_version": 0,
+        "behavior_source": "menu-setting",
+        "resident_opcode_mismatches": 0,
+        "hook_address": 38918,
+        "nested_interrupt_guards": true,
+        "physical_frame": "previous endFrame + 1",
+        "failure": null
+      }
+    },
+    {
+      "case": "meta-easy",
+      "actual_numeric_mode": 0,
+      "selected_controller_retry": false,
+      "discovery": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-routes-v1\\native\\meta-easy",
+      "direct": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-routes-v1\\native\\meta-easy-direct",
+      "result": {
+        "cleared": true,
+        "world_1_1_seen": true,
+        "frames": 5090,
+        "polls": 5089,
+        "deaths": 0,
+        "failure": null,
+        "stage_entries": {
+          "0-0": 392,
+          "0-1": 5066
+        }
+      },
+      "direct_frames": 4890,
+      "direct_proof_sha256": "4f3c81a694b37d09c93238c98942f6108b18caf349cdaa901c2a09404abf888e",
+      "archive": {
+        "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-routes-v1\\native\\meta-easy-direct\\direct.argb.gz",
+        "sha256": "684bab1b6c157b69271010df3f80403153d360a7687cd86f62ff01e1827a9f93"
+      },
+      "review_path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-review-v1\\meta-easy\\proof.json",
+      "review_sha256": "c629bc3614556a4ea59f35442a397fc1f8d487c1c2a439d52578d6f5fabbac14",
+      "power_status_values": [
+        0
+      ],
+      "power_status_transitions": [],
+      "pose_observation_rows": {
+        "crouch": 0,
+        "attack": 0,
+        "shoot": 0,
+        "wall": 0,
+        "ceiling": 0,
+        "hover": 0,
+        "pitFlight": 0
+      },
+      "request_store_events": [
+        {
+          "name": "NoiseSoundQueue",
+          "value": 1,
+          "stores": 3
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 1,
+          "stores": 40
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 2,
+          "stores": 45
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 4,
+          "stores": 30
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 8,
+          "stores": 42
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 16,
+          "stores": 19
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 32,
+          "stores": 23
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 64,
+          "stores": 3
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 128,
+          "stores": 45
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 1,
+          "stores": 287
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 2,
+          "stores": 278
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 4,
+          "stores": 278
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 8,
+          "stores": 284
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 16,
+          "stores": 399
+        }
+      ],
+      "hardware_APU_write_count": 17481,
+      "hardware_expansion_write_count": 5580,
+      "event_file_comparison": {
+        "exact": false,
+        "discovery_sha256": "973f1b4bea2cb1b00dcf7ea2943295569543919b095585000bd8058b49f48324",
+        "replay_sha256": "5c2a1b289588e74ec118cd0709020ea457b91892a10f879aa688d7e6e114bcd1",
+        "gameplay_suffix_exact": true,
+        "first_native_stage_frame": 392,
+        "discovery_pregame_rows": [
+          {
+            "frame": "228",
+            "event": "sfx-0104",
+            "value": "1",
+            "world": "0",
+            "level": "0",
+            "x": "120",
+            "y": "152"
+          },
+          {
+            "frame": "229",
+            "event": "sfx-0104",
+            "value": "1",
+            "world": "0",
+            "level": "0",
+            "x": "120",
+            "y": "152"
+          },
+          {
+            "frame": "229",
+            "event": "sfx-0104",
+            "value": "1",
+            "world": "0",
+            "level": "0",
+            "x": "120",
+            "y": "152"
+          }
+        ],
+        "replay_pregame_rows": [],
+        "reason": "Original live-menu selectionDone logger opens before fixed replay selectionDone; untouched pregame event rows retained. All gameplay rows compare literally."
+      },
+      "completed_loop": {
+        "passed": true,
+        "checks": 3228,
+        "max_world_step": 2,
+        "max_camera_step": 3,
+        "game_state_writes": false
+      },
+      "body_CHR": {
+        "passed": true,
+        "frames": 3405,
+        "mismatched_frames": 0,
+        "body_constructions": 2939,
+        "scope": "Read-only actual hardware CHR pages versus last DMA player image. Bounded natural controller movement, no full-level or pixel-comparison claim."
+      },
+      "stomps": {
+        "events": 0,
+        "illegal_guest_events": 0,
+        "guest_events": 0,
+        "allowed_mode_1_0_guest_events": 0,
+        "behavior_version": 0,
+        "behavior_source": "menu-setting",
+        "resident_opcode_mismatches": 0,
+        "hook_address": 38918,
+        "nested_interrupt_guards": true,
+        "physical_frame": "previous endFrame + 1",
+        "failure": null
+      }
+    },
+    {
+      "case": "mac-easy",
+      "actual_numeric_mode": 0,
+      "selected_controller_retry": false,
+      "discovery": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-routes-v1\\native\\mac-easy",
+      "direct": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-routes-v1\\native\\mac-easy-direct",
+      "result": {
+        "cleared": true,
+        "world_1_1_seen": true,
+        "frames": 4668,
+        "polls": 4667,
+        "deaths": 0,
+        "failure": null,
+        "stage_entries": {
+          "0-1": 4644,
+          "0-0": 413
+        }
+      },
+      "direct_frames": 4468,
+      "direct_proof_sha256": "0fcfc1500dd24e96949714b4635be25df5dc7df9db474e7bf3ddf463a898c894",
+      "archive": {
+        "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-routes-v1\\native\\mac-easy-direct\\direct.argb.gz",
+        "sha256": "da3546bdc87c854e4b209aa6c289164ffa6d76fa775cdb442a414187bca2f551"
+      },
+      "review_path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-review-v1\\mac-easy\\proof.json",
+      "review_sha256": "032e9e469b07b2933fd1ab8113e69ec027824e96de44f7d49981c47d3aac11fd",
+      "power_status_values": [
+        0,
+        1
+      ],
+      "power_status_transitions": [
+        {
+          "frame": 841,
+          "old": 0,
+          "new": 1,
+          "x": 405,
+          "y": 166,
+          "engine": 8,
+          "preceding_engine9_start": 841
+        }
+      ],
+      "pose_observation_rows": {
+        "crouch": 0,
+        "attack": 0,
+        "shoot": 0,
+        "wall": 0,
+        "ceiling": 0,
+        "hover": 0,
+        "pitFlight": 0
+      },
+      "request_store_events": [
+        {
+          "name": "NoiseSoundQueue",
+          "value": 1,
+          "stores": 6
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 1,
+          "stores": 168
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 2,
+          "stores": 67
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 4,
+          "stores": 47
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 8,
+          "stores": 44
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 16,
+          "stores": 48
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 32,
+          "stores": 53
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 64,
+          "stores": 3
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 1,
+          "stores": 313
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 2,
+          "stores": 305
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 4,
+          "stores": 302
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 8,
+          "stores": 308
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 16,
+          "stores": 434
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 32,
+          "stores": 4
+        }
+      ],
+      "hardware_APU_write_count": 26710,
+      "hardware_expansion_write_count": 5543,
+      "event_file_comparison": {
+        "exact": false,
+        "discovery_sha256": "c8f597b4cfc6683577f53ff9344dcd023e1955b08d192f3cd610d0b310b0cafc",
+        "replay_sha256": "f131c45eaa19c41f6f99e4a5b8c4753ecb6726ff058a10768c3f74e65e8030a5",
+        "gameplay_suffix_exact": true,
+        "first_native_stage_frame": 413,
+        "discovery_pregame_rows": [
+          {
+            "frame": "240",
+            "event": "sfx-0104",
+            "value": "1",
+            "world": "0",
+            "level": "0",
+            "x": "120",
+            "y": "160"
+          },
+          {
+            "frame": "241",
+            "event": "sfx-0104",
+            "value": "1",
+            "world": "0",
+            "level": "0",
+            "x": "120",
+            "y": "160"
+          },
+          {
+            "frame": "241",
+            "event": "sfx-0104",
+            "value": "1",
+            "world": "0",
+            "level": "0",
+            "x": "120",
+            "y": "160"
+          }
+        ],
+        "replay_pregame_rows": [],
+        "reason": "Original live-menu selectionDone logger opens before fixed replay selectionDone; untouched pregame event rows retained. All gameplay rows compare literally."
+      },
+      "completed_loop": {
+        "passed": true,
+        "checks": 2743,
+        "max_world_step": 6,
+        "max_camera_step": 3,
+        "game_state_writes": false
+      },
+      "body_CHR": {
+        "passed": true,
+        "frames": 2787,
+        "mismatched_frames": 0,
+        "body_constructions": 2331,
+        "scope": "Read-only actual hardware CHR pages versus last DMA player image. Bounded natural controller movement, no full-level or pixel-comparison claim."
+      },
+      "stomps": {
+        "events": 1,
+        "illegal_guest_events": 0,
+        "guest_events": 1,
+        "allowed_mode_1_0_guest_events": 1,
+        "behavior_version": 0,
+        "behavior_source": "menu-setting",
+        "resident_opcode_mismatches": 0,
+        "hook_address": 38918,
+        "nested_interrupt_guards": true,
+        "physical_frame": "previous endFrame + 1",
+        "failure": null
+      }
+    },
+    {
+      "case": "mike-easy",
+      "actual_numeric_mode": 0,
+      "selected_controller_retry": false,
+      "discovery": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-routes-v1\\native\\mike-easy",
+      "direct": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-routes-v1\\native\\mike-easy-direct",
+      "result": {
+        "cleared": true,
+        "world_1_1_seen": true,
+        "frames": 4011,
+        "polls": 4010,
+        "deaths": 0,
+        "failure": null,
+        "stage_entries": {
+          "0-0": 413,
+          "0-1": 3987
+        }
+      },
+      "direct_frames": 3811,
+      "direct_proof_sha256": "f2d53a6f8ca7c4331266c627ed27cb3a17f7fd628c4df04bbe3947b6dc1ca25c",
+      "archive": {
+        "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-routes-v1\\native\\mike-easy-direct\\direct.argb.gz",
+        "sha256": "2801aaffa772787197f706904a037297ad2a80ee7de953e685313efb6d27a266"
+      },
+      "review_path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-review-v1\\mike-easy\\proof.json",
+      "review_sha256": "417a72157711b2567bb644fdf6420a2e4197de44835d4b74d48d8bcb7005e42a",
+      "power_status_values": [
+        0,
+        1
+      ],
+      "power_status_transitions": [
+        {
+          "frame": 796,
+          "old": 0,
+          "new": 1,
+          "x": 325,
+          "y": 112,
+          "engine": 8,
+          "preceding_engine9_start": 796
+        }
+      ],
+      "pose_observation_rows": {
+        "crouch": 0,
+        "attack": 0,
+        "shoot": 0,
+        "wall": 0,
+        "ceiling": 0,
+        "hover": 0,
+        "pitFlight": 0
+      },
+      "request_store_events": [
+        {
+          "name": "NoiseSoundQueue",
+          "value": 1,
+          "stores": 9
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 1,
+          "stores": 131
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 2,
+          "stores": 61
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 4,
+          "stores": 54
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 8,
+          "stores": 58
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 16,
+          "stores": 31
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 32,
+          "stores": 42
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 64,
+          "stores": 3
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 1,
+          "stores": 320
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 2,
+          "stores": 322
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 4,
+          "stores": 316
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 8,
+          "stores": 316
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 16,
+          "stores": 470
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 32,
+          "stores": 12
+        }
+      ],
+      "hardware_APU_write_count": 22611,
+      "hardware_expansion_write_count": 4854,
+      "event_file_comparison": {
+        "exact": false,
+        "discovery_sha256": "cbf3c9be81af537962c26c0b6c46e3a59020d62f6627ab819843669ce4a132e2",
+        "replay_sha256": "cf19a3b09f8c2de4a25abb47220591f24c94998efb9807165b80bb34e81b3b61",
+        "gameplay_suffix_exact": true,
+        "first_native_stage_frame": 413,
+        "discovery_pregame_rows": [
+          {
+            "frame": "252",
+            "event": "sfx-0104",
+            "value": "1",
+            "world": "0",
+            "level": "0",
+            "x": "120",
+            "y": "152"
+          },
+          {
+            "frame": "253",
+            "event": "sfx-0104",
+            "value": "1",
+            "world": "0",
+            "level": "0",
+            "x": "120",
+            "y": "152"
+          },
+          {
+            "frame": "253",
+            "event": "sfx-0104",
+            "value": "1",
+            "world": "0",
+            "level": "0",
+            "x": "120",
+            "y": "152"
+          }
+        ],
+        "replay_pregame_rows": [],
+        "reason": "Original live-menu selectionDone logger opens before fixed replay selectionDone; untouched pregame event rows retained. All gameplay rows compare literally."
+      },
+      "completed_loop": {
+        "passed": true,
+        "checks": 2251,
+        "max_world_step": 3,
+        "max_camera_step": 4,
+        "game_state_writes": false
+      },
+      "body_CHR": {
+        "passed": true,
+        "frames": 2294,
+        "mismatched_frames": 0,
+        "body_constructions": 1988,
+        "scope": "Read-only actual hardware CHR pages versus last DMA player image. Bounded natural controller movement, no full-level or pixel-comparison claim."
+      },
+      "stomps": {
+        "events": 2,
+        "illegal_guest_events": 0,
+        "guest_events": 2,
+        "allowed_mode_1_0_guest_events": 2,
+        "behavior_version": 0,
+        "behavior_source": "menu-setting",
+        "resident_opcode_mismatches": 0,
+        "hook_address": 38918,
+        "nested_interrupt_guards": true,
+        "physical_frame": "previous endFrame + 1",
+        "failure": null
+      }
+    },
+    {
+      "case": "mario3-easy",
+      "actual_numeric_mode": 0,
+      "selected_controller_retry": false,
+      "discovery": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-routes-v1\\native\\mario3-easy",
+      "direct": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-routes-v1\\native\\mario3-easy-direct",
+      "result": {
+        "cleared": true,
+        "world_1_1_seen": true,
+        "frames": 3702,
+        "polls": 3701,
+        "deaths": 0,
+        "failure": null,
+        "stage_entries": {
+          "0-0": 434,
+          "0-1": 3678
+        }
+      },
+      "direct_frames": 3502,
+      "direct_proof_sha256": "5d45f0ff308bf522e8f0d681eead77191f00ef28e458fc3cc1af3893d172d125",
+      "archive": {
+        "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-routes-v1\\native\\mario3-easy-direct\\direct.argb.gz",
+        "sha256": "bc9415c973ed765e8d82c93dabe9626ba054afac8d1290ce4814f289a0633dfb"
+      },
+      "review_path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-review-v1\\mario3-easy\\proof.json",
+      "review_sha256": "25b4f66c5dfb72354e468336895f859c49d9ce5a712c7672c2f967e0d6fd16ac",
+      "power_status_values": [
+        0,
+        1
+      ],
+      "power_status_transitions": [
+        {
+          "frame": 765,
+          "old": 0,
+          "new": 1,
+          "x": 419,
+          "y": 169,
+          "engine": 8,
+          "preceding_engine9_start": 765
+        },
+        {
+          "frame": 971,
+          "old": 1,
+          "new": 0,
+          "x": 692,
+          "y": 165,
+          "engine": 8,
+          "preceding_engine9_start": 971
+        }
+      ],
+      "pose_observation_rows": {
+        "crouch": 0,
+        "attack": 0,
+        "shoot": 0,
+        "wall": 0,
+        "ceiling": 0,
+        "hover": 0,
+        "pitFlight": 0
+      },
+      "request_store_events": [
+        {
+          "name": "Square1SoundQueue",
+          "value": 1,
+          "stores": 85
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 2,
+          "stores": 19
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 4,
+          "stores": 12
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 8,
+          "stores": 6
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 16,
+          "stores": 8
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 32,
+          "stores": 2
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 64,
+          "stores": 3
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 1,
+          "stores": 344
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 2,
+          "stores": 345
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 4,
+          "stores": 342
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 8,
+          "stores": 348
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 16,
+          "stores": 494
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 32,
+          "stores": 3
+        }
+      ],
+      "hardware_APU_write_count": 6852,
+      "hardware_expansion_write_count": 4383,
+      "event_file_comparison": {
+        "exact": false,
+        "discovery_sha256": "aac51194b1da6b6adafa998349cea3e803620f7f49881b7c3096c36b3853bf45",
+        "replay_sha256": "6e4bac23ff7cb2c7cb1dfdd8d3f774811e631c8052cf07e00a076aac3c61f016",
+        "gameplay_suffix_exact": true,
+        "first_native_stage_frame": 434,
+        "discovery_pregame_rows": [
+          {
+            "frame": "264",
+            "event": "sfx-0104",
+            "value": "1",
+            "world": "0",
+            "level": "0",
+            "x": "120",
+            "y": "152"
+          },
+          {
+            "frame": "265",
+            "event": "sfx-0104",
+            "value": "1",
+            "world": "0",
+            "level": "0",
+            "x": "120",
+            "y": "152"
+          },
+          {
+            "frame": "265",
+            "event": "sfx-0104",
+            "value": "1",
+            "world": "0",
+            "level": "0",
+            "x": "120",
+            "y": "152"
+          }
+        ],
+        "replay_pregame_rows": [],
+        "reason": "Original live-menu selectionDone logger opens before fixed replay selectionDone; untouched pregame event rows retained. All gameplay rows compare literally."
+      },
+      "completed_loop": {
+        "passed": true,
+        "checks": 1777,
+        "max_world_step": 4,
+        "max_camera_step": 4,
+        "game_state_writes": false
+      },
+      "body_CHR": {
+        "passed": true,
+        "frames": 1877,
+        "mismatched_frames": 0,
+        "body_constructions": 1641,
+        "scope": "Read-only actual hardware CHR pages versus last DMA player image. Bounded natural controller movement, no full-level or pixel-comparison claim."
+      },
+      "stomps": {
+        "events": 2,
+        "illegal_guest_events": 0,
+        "guest_events": 0,
+        "allowed_mode_1_0_guest_events": 0,
+        "behavior_version": 0,
+        "behavior_source": "menu-setting",
+        "resident_opcode_mismatches": 0,
+        "hook_address": 38918,
+        "nested_interrupt_guards": true,
+        "physical_frame": "previous endFrame + 1",
+        "failure": null
+      }
+    },
+    {
+      "case": "luigi3-easy",
+      "actual_numeric_mode": 0,
+      "selected_controller_retry": false,
+      "discovery": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-routes-v1\\native\\luigi3-easy",
+      "direct": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-routes-v1\\native\\luigi3-easy-direct",
+      "result": {
+        "cleared": true,
+        "world_1_1_seen": true,
+        "frames": 3702,
+        "polls": 3701,
+        "deaths": 0,
+        "failure": null,
+        "stage_entries": {
+          "0-0": 434,
+          "0-1": 3678
+        }
+      },
+      "direct_frames": 3502,
+      "direct_proof_sha256": "34a8bb1f47e767529d5ade2a35b61e503a918a36007200bfd10212c4c3f3cf32",
+      "archive": {
+        "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-routes-v1\\native\\luigi3-easy-direct\\direct.argb.gz",
+        "sha256": "e8c8ad3c3f0d3499c4576bd7d463ed182eb9ad541c8b1926e8a8cfe5837c9625"
+      },
+      "review_path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-review-v1\\luigi3-easy\\proof.json",
+      "review_sha256": "dd5c324def1b7eeab6254b3bd5da16f428d38e19b57d40fe20fb31ceb02515fa",
+      "power_status_values": [
+        0,
+        1
+      ],
+      "power_status_transitions": [
+        {
+          "frame": 767,
+          "old": 0,
+          "new": 1,
+          "x": 423,
+          "y": 169,
+          "engine": 8,
+          "preceding_engine9_start": 767
+        },
+        {
+          "frame": 973,
+          "old": 1,
+          "new": 0,
+          "x": 694,
+          "y": 165,
+          "engine": 8,
+          "preceding_engine9_start": 973
+        }
+      ],
+      "pose_observation_rows": {
+        "crouch": 0,
+        "attack": 0,
+        "shoot": 0,
+        "wall": 0,
+        "ceiling": 0,
+        "hover": 0,
+        "pitFlight": 0
+      },
+      "request_store_events": [
+        {
+          "name": "Square1SoundQueue",
+          "value": 1,
+          "stores": 85
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 2,
+          "stores": 19
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 4,
+          "stores": 12
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 8,
+          "stores": 6
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 16,
+          "stores": 8
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 32,
+          "stores": 2
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 64,
+          "stores": 3
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 1,
+          "stores": 340
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 2,
+          "stores": 341
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 4,
+          "stores": 338
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 8,
+          "stores": 344
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 16,
+          "stores": 488
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 32,
+          "stores": 3
+        }
+      ],
+      "hardware_APU_write_count": 6852,
+      "hardware_expansion_write_count": 4379,
+      "event_file_comparison": {
+        "exact": false,
+        "discovery_sha256": "56e12d140846ad45ae96b33b2e759ab01616835fd19310d44362e7354776d227",
+        "replay_sha256": "e5e09e87215ce83c96ebf97beae6e6bec77cefdb9c18b5e14a46b142cc447497",
+        "gameplay_suffix_exact": true,
+        "first_native_stage_frame": 434,
+        "discovery_pregame_rows": [
+          {
+            "frame": "276",
+            "event": "sfx-0104",
+            "value": "1",
+            "world": "0",
+            "level": "0",
+            "x": "120",
+            "y": "152"
+          },
+          {
+            "frame": "277",
+            "event": "sfx-0104",
+            "value": "1",
+            "world": "0",
+            "level": "0",
+            "x": "120",
+            "y": "152"
+          },
+          {
+            "frame": "277",
+            "event": "sfx-0104",
+            "value": "1",
+            "world": "0",
+            "level": "0",
+            "x": "120",
+            "y": "152"
+          }
+        ],
+        "replay_pregame_rows": [],
+        "reason": "Original live-menu selectionDone logger opens before fixed replay selectionDone; untouched pregame event rows retained. All gameplay rows compare literally."
+      },
+      "completed_loop": {
+        "passed": true,
+        "checks": 1777,
+        "max_world_step": 4,
+        "max_camera_step": 4,
+        "game_state_writes": false
+      },
+      "body_CHR": {
+        "passed": true,
+        "frames": 1877,
+        "mismatched_frames": 0,
+        "body_constructions": 1641,
+        "scope": "Read-only actual hardware CHR pages versus last DMA player image. Bounded natural controller movement, no full-level or pixel-comparison claim."
+      },
+      "stomps": {
+        "events": 2,
+        "illegal_guest_events": 0,
+        "guest_events": 0,
+        "allowed_mode_1_0_guest_events": 0,
+        "behavior_version": 0,
+        "behavior_source": "menu-setting",
+        "resident_opcode_mismatches": 0,
+        "hook_address": 38918,
+        "nested_interrupt_guards": true,
+        "physical_frame": "previous endFrame + 1",
+        "failure": null
+      }
+    },
+    {
+      "case": "vic-easy",
+      "actual_numeric_mode": 0,
+      "selected_controller_retry": false,
+      "discovery": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-routes-v1\\native\\vic-easy",
+      "direct": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-routes-v1\\native\\vic-easy-direct",
+      "result": {
+        "cleared": true,
+        "world_1_1_seen": true,
+        "frames": 4849,
+        "polls": 4848,
+        "deaths": 0,
+        "failure": null,
+        "stage_entries": {
+          "0-1": 4825,
+          "0-0": 434
+        }
+      },
+      "direct_frames": 4649,
+      "direct_proof_sha256": "78d253d17ec72cfe3a9fc31fc79ac6c4f8760026ccf206f37703bf537bea3c50",
+      "archive": {
+        "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-routes-v1\\native\\vic-easy-direct\\direct.argb.gz",
+        "sha256": "6de47ad938a48c11f680bfa1c74a9268da0a749a793c48b37081e546b1f5f3fc"
+      },
+      "review_path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-review-v1\\vic-easy\\proof.json",
+      "review_sha256": "914db5a8320ecc281e6f0cfc4bda52330ddf086dec7dc13c156d7f3deec8d4c1",
+      "power_status_values": [
+        0
+      ],
+      "power_status_transitions": [],
+      "pose_observation_rows": {
+        "crouch": 0,
+        "attack": 0,
+        "shoot": 0,
+        "wall": 0,
+        "ceiling": 0,
+        "hover": 0,
+        "pitFlight": 0
+      },
+      "request_store_events": [
+        {
+          "name": "Square1SoundQueue",
+          "value": 1,
+          "stores": 546
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 2,
+          "stores": 547
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 4,
+          "stores": 544
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 8,
+          "stores": 545
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 16,
+          "stores": 543
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 32,
+          "stores": 809
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 64,
+          "stores": 3
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 1,
+          "stores": 281
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 2,
+          "stores": 278
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 4,
+          "stores": 278
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 8,
+          "stores": 281
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 16,
+          "stores": 408
+        }
+      ],
+      "hardware_APU_write_count": 5025,
+      "hardware_expansion_write_count": 6631,
+      "event_file_comparison": {
+        "exact": false,
+        "discovery_sha256": "583fe2e4846a3d890d1be35d52ad69fe76c4aefd58cf1d317c6101432754206f",
+        "replay_sha256": "4ee8975d74b4d02276069070cdff0456c37e5ead98c3064817800cd6dff82a45",
+        "gameplay_suffix_exact": true,
+        "first_native_stage_frame": 434,
+        "discovery_pregame_rows": [
+          {
+            "frame": "276",
+            "event": "sfx-0104",
+            "value": "1",
+            "world": "0",
+            "level": "0",
+            "x": "120",
+            "y": "152"
+          },
+          {
+            "frame": "277",
+            "event": "sfx-0104",
+            "value": "1",
+            "world": "0",
+            "level": "0",
+            "x": "120",
+            "y": "152"
+          },
+          {
+            "frame": "277",
+            "event": "sfx-0104",
+            "value": "1",
+            "world": "0",
+            "level": "0",
+            "x": "120",
+            "y": "152"
+          }
+        ],
+        "replay_pregame_rows": [],
+        "reason": "Original live-menu selectionDone logger opens before fixed replay selectionDone; untouched pregame event rows retained. All gameplay rows compare literally."
+      },
+      "completed_loop": {
+        "passed": true,
+        "checks": 3048,
+        "max_world_step": 2,
+        "max_camera_step": 1,
+        "game_state_writes": false
+      },
+      "body_CHR": {
+        "passed": true,
+        "frames": 3215,
+        "mismatched_frames": 0,
+        "body_constructions": 2680,
+        "scope": "Read-only actual hardware CHR pages versus last DMA player image. Bounded natural controller movement, no full-level or pixel-comparison claim."
+      },
+      "stomps": {
+        "events": 0,
+        "illegal_guest_events": 0,
+        "guest_events": 0,
+        "allowed_mode_1_0_guest_events": 0,
+        "behavior_version": 0,
+        "behavior_source": "menu-setting",
+        "resident_opcode_mismatches": 0,
+        "hook_address": 38918,
+        "nested_interrupt_guards": true,
+        "physical_frame": "previous endFrame + 1",
+        "failure": null
+      }
+    },
+    {
+      "case": "octopus-easy",
+      "actual_numeric_mode": 0,
+      "selected_controller_retry": false,
+      "discovery": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-routes-v1\\native\\octopus-easy",
+      "direct": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-routes-v1\\native\\octopus-easy-direct",
+      "result": {
+        "cleared": true,
+        "world_1_1_seen": true,
+        "frames": 5001,
+        "polls": 5000,
+        "deaths": 0,
+        "failure": null,
+        "stage_entries": {
+          "0-0": 455,
+          "0-1": 4977
+        }
+      },
+      "direct_frames": 4801,
+      "direct_proof_sha256": "2c8da8a0f7cd9c812ba1768ff7d16c432a560b04926e2c0edec22605f94ae763",
+      "archive": {
+        "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-routes-v1\\native\\octopus-easy-direct\\direct.argb.gz",
+        "sha256": "b868fc08e4b1388b79b90f00d768735f975ea1946626fc437632b50ad13161b8"
+      },
+      "review_path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-review-v1\\octopus-easy\\proof.json",
+      "review_sha256": "3460ebd5ec816c241ed29e0002bb04f96f82aab7ce1ba1697a13c8ec282ece51",
+      "power_status_values": [
+        0
+      ],
+      "power_status_transitions": [],
+      "pose_observation_rows": {
+        "crouch": 0,
+        "attack": 0,
+        "shoot": 0,
+        "wall": 0,
+        "ceiling": 0,
+        "hover": 0,
+        "pitFlight": 0
+      },
+      "request_store_events": [
+        {
+          "name": "Square1SoundQueue",
+          "value": 1,
+          "stores": 510
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 2,
+          "stores": 511
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 4,
+          "stores": 508
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 8,
+          "stores": 509
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 16,
+          "stores": 507
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 32,
+          "stores": 755
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 64,
+          "stores": 3
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 1,
+          "stores": 279
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 2,
+          "stores": 276
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 4,
+          "stores": 276
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 8,
+          "stores": 276
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 16,
+          "stores": 414
+        }
+      ],
+      "hardware_APU_write_count": 9480,
+      "hardware_expansion_write_count": 6648,
+      "event_file_comparison": {
+        "exact": false,
+        "discovery_sha256": "62ac318dc02e5cc4c994499bed59c4df4ca07fa540dcf785e4cea408b75b9af1",
+        "replay_sha256": "66e7f37cb9dcd7bfd96bc034d29ebf553b29a5db1f7f026b3af8aa809ef3870b",
+        "gameplay_suffix_exact": true,
+        "first_native_stage_frame": 455,
+        "discovery_pregame_rows": [
+          {
+            "frame": "288",
+            "event": "sfx-0104",
+            "value": "1",
+            "world": "0",
+            "level": "0",
+            "x": "120",
+            "y": "152"
+          },
+          {
+            "frame": "289",
+            "event": "sfx-0104",
+            "value": "1",
+            "world": "0",
+            "level": "0",
+            "x": "120",
+            "y": "152"
+          },
+          {
+            "frame": "289",
+            "event": "sfx-0104",
+            "value": "1",
+            "world": "0",
+            "level": "0",
+            "x": "120",
+            "y": "152"
+          }
+        ],
+        "replay_pregame_rows": [],
+        "reason": "Original live-menu selectionDone logger opens before fixed replay selectionDone; untouched pregame event rows retained. All gameplay rows compare literally."
+      },
+      "completed_loop": {
+        "passed": true,
+        "checks": 3031,
+        "max_world_step": 2,
+        "max_camera_step": 1,
+        "game_state_writes": false
+      },
+      "body_CHR": {
+        "passed": true,
+        "frames": 3387,
+        "mismatched_frames": 0,
+        "body_constructions": 2235,
+        "scope": "Read-only actual hardware CHR pages versus last DMA player image. Bounded natural controller movement, no full-level or pixel-comparison claim."
+      },
+      "stomps": {
+        "events": 0,
+        "illegal_guest_events": 0,
+        "guest_events": 0,
+        "allowed_mode_1_0_guest_events": 0,
+        "behavior_version": 0,
+        "behavior_source": "menu-setting",
+        "resident_opcode_mismatches": 0,
+        "hook_address": 38918,
+        "nested_interrupt_guards": true,
+        "physical_frame": "previous endFrame + 1",
+        "failure": null
+      }
+    },
+    {
+      "case": "twinbee-easy",
+      "actual_numeric_mode": 0,
+      "selected_controller_retry": false,
+      "discovery": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-routes-v1\\native\\twinbee-easy",
+      "direct": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-routes-v1\\native\\twinbee-easy-direct",
+      "result": {
+        "cleared": true,
+        "world_1_1_seen": true,
+        "frames": 4980,
+        "polls": 4979,
+        "deaths": 0,
+        "failure": null,
+        "stage_entries": {
+          "0-0": 476,
+          "0-1": 4956
+        }
+      },
+      "direct_frames": 4780,
+      "direct_proof_sha256": "ad3d96e9c724de260d9e2bec7cf16ce0bcb4ade4f9d4494e1118be1328c8246c",
+      "archive": {
+        "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-routes-v1\\native\\twinbee-easy-direct\\direct.argb.gz",
+        "sha256": "8b734fec4b6abac72816fc9a3a3b6c27415d0d34396822a95c166f2053aa3ba3"
+      },
+      "review_path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-review-v1\\twinbee-easy\\proof.json",
+      "review_sha256": "32712f7e19435378e36bfc4123bb01821b31d65021f60ce9251cc912518c29d9",
+      "power_status_values": [
+        0
+      ],
+      "power_status_transitions": [],
+      "pose_observation_rows": {
+        "crouch": 0,
+        "attack": 0,
+        "shoot": 0,
+        "wall": 0,
+        "ceiling": 0,
+        "hover": 0,
+        "pitFlight": 0
+      },
+      "request_store_events": [
+        {
+          "name": "Square1SoundQueue",
+          "value": 1,
+          "stores": 506
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 2,
+          "stores": 507
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 4,
+          "stores": 504
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 8,
+          "stores": 504
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 16,
+          "stores": 505
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 32,
+          "stores": 752
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 64,
+          "stores": 3
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 1,
+          "stores": 279
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 2,
+          "stores": 276
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 4,
+          "stores": 276
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 8,
+          "stores": 276
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 16,
+          "stores": 414
+        }
+      ],
+      "hardware_APU_write_count": 9415,
+      "hardware_expansion_write_count": 6616,
+      "event_file_comparison": {
+        "exact": false,
+        "discovery_sha256": "79ac3f9a16f66c46f38600606d0dbc404658c571b4dd48a59952a4f48c26d465",
+        "replay_sha256": "08651210e31ffd3e38d793e24ac7934ae7b79a17b53f52696eb31674000af2ef",
+        "gameplay_suffix_exact": true,
+        "first_native_stage_frame": 476,
+        "discovery_pregame_rows": [
+          {
+            "frame": "300",
+            "event": "sfx-0104",
+            "value": "1",
+            "world": "0",
+            "level": "0",
+            "x": "120",
+            "y": "152"
+          },
+          {
+            "frame": "301",
+            "event": "sfx-0104",
+            "value": "1",
+            "world": "0",
+            "level": "0",
+            "x": "120",
+            "y": "152"
+          },
+          {
+            "frame": "301",
+            "event": "sfx-0104",
+            "value": "1",
+            "world": "0",
+            "level": "0",
+            "x": "120",
+            "y": "152"
+          }
+        ],
+        "replay_pregame_rows": [],
+        "reason": "Original live-menu selectionDone logger opens before fixed replay selectionDone; untouched pregame event rows retained. All gameplay rows compare literally."
+      },
+      "completed_loop": {
+        "passed": true,
+        "checks": 3031,
+        "max_world_step": 2,
+        "max_camera_step": 1,
+        "game_state_writes": false
+      },
+      "body_CHR": {
+        "passed": true,
+        "frames": 3371,
+        "mismatched_frames": 0,
+        "body_constructions": 2340,
+        "scope": "Read-only actual hardware CHR pages versus last DMA player image. Bounded natural controller movement, no full-level or pixel-comparison claim."
+      },
+      "stomps": {
+        "events": 0,
+        "illegal_guest_events": 0,
+        "guest_events": 0,
+        "allowed_mode_1_0_guest_events": 0,
+        "behavior_version": 0,
+        "behavior_source": "menu-setting",
+        "resident_opcode_mismatches": 0,
+        "hook_address": 38918,
+        "nested_interrupt_guards": true,
+        "physical_frame": "previous endFrame + 1",
+        "failure": null
+      }
+    },
+    {
+      "case": "pentarou-easy",
+      "actual_numeric_mode": 0,
+      "selected_controller_retry": false,
+      "discovery": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-routes-v1\\native\\pentarou-easy",
+      "direct": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-routes-v1\\native\\pentarou-easy-direct",
+      "result": {
+        "cleared": true,
+        "world_1_1_seen": true,
+        "frames": 4975,
+        "polls": 4974,
+        "deaths": 0,
+        "failure": null,
+        "stage_entries": {
+          "0-1": 4951,
+          "0-0": 476
+        }
+      },
+      "direct_frames": 4775,
+      "direct_proof_sha256": "7cb9940a2ef9ec10d12f496a13a16d044d5456c987caaaf21168fc8134aa9294",
+      "archive": {
+        "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-routes-v1\\native\\pentarou-easy-direct\\direct.argb.gz",
+        "sha256": "811f847504610ab9db50d275addfbb8e338b2f7c4962fd7b228df6056ed6374c"
+      },
+      "review_path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-review-v1\\pentarou-easy\\proof.json",
+      "review_sha256": "4111c87636a22ce3dcff5bc77a2dd09a258894fae42178c30f72d655f21cf663",
+      "power_status_values": [
+        0
+      ],
+      "power_status_transitions": [],
+      "pose_observation_rows": {
+        "crouch": 0,
+        "attack": 0,
+        "shoot": 0,
+        "wall": 0,
+        "ceiling": 0,
+        "hover": 0,
+        "pitFlight": 0
+      },
+      "request_store_events": [
+        {
+          "name": "Square1SoundQueue",
+          "value": 1,
+          "stores": 516
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 2,
+          "stores": 517
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 4,
+          "stores": 514
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 8,
+          "stores": 515
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 16,
+          "stores": 513
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 32,
+          "stores": 764
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 64,
+          "stores": 3
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 1,
+          "stores": 275
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 2,
+          "stores": 272
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 4,
+          "stores": 272
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 8,
+          "stores": 272
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 16,
+          "stores": 408
+        }
+      ],
+      "hardware_APU_write_count": 9407,
+      "hardware_expansion_write_count": 6640,
+      "event_file_comparison": {
+        "exact": false,
+        "discovery_sha256": "77e378ba3b53b5059c3664be088fde0dccf5352706ce98ba7548462b5c394901",
+        "replay_sha256": "32e374b15cf1fe9c2ac16233b3b0cb3b42b395be892905534911549a27138cfa",
+        "gameplay_suffix_exact": true,
+        "first_native_stage_frame": 476,
+        "discovery_pregame_rows": [
+          {
+            "frame": "312",
+            "event": "sfx-0104",
+            "value": "1",
+            "world": "0",
+            "level": "0",
+            "x": "120",
+            "y": "152"
+          },
+          {
+            "frame": "313",
+            "event": "sfx-0104",
+            "value": "1",
+            "world": "0",
+            "level": "0",
+            "x": "120",
+            "y": "152"
+          },
+          {
+            "frame": "313",
+            "event": "sfx-0104",
+            "value": "1",
+            "world": "0",
+            "level": "0",
+            "x": "120",
+            "y": "152"
+          }
+        ],
+        "replay_pregame_rows": [],
+        "reason": "Original live-menu selectionDone logger opens before fixed replay selectionDone; untouched pregame event rows retained. All gameplay rows compare literally."
+      },
+      "completed_loop": {
+        "passed": true,
+        "checks": 3031,
+        "max_world_step": 2,
+        "max_camera_step": 1,
+        "game_state_writes": false
+      },
+      "body_CHR": {
+        "passed": true,
+        "frames": 3366,
+        "mismatched_frames": 0,
+        "body_constructions": 2364,
+        "scope": "Read-only actual hardware CHR pages versus last DMA player image. Bounded natural controller movement, no full-level or pixel-comparison claim."
+      },
+      "stomps": {
+        "events": 0,
+        "illegal_guest_events": 0,
+        "guest_events": 0,
+        "allowed_mode_1_0_guest_events": 0,
+        "behavior_version": 0,
+        "behavior_source": "menu-setting",
+        "resident_opcode_mismatches": 0,
+        "hook_address": 38918,
+        "nested_interrupt_guards": true,
+        "physical_frame": "previous endFrame + 1",
+        "failure": null
+      }
+    },
+    {
+      "case": "leonardo-easy",
+      "actual_numeric_mode": 0,
+      "selected_controller_retry": false,
+      "discovery": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-routes-v1\\native\\leonardo-easy",
+      "direct": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-routes-v1\\native\\leonardo-easy-direct",
+      "result": {
+        "cleared": true,
+        "world_1_1_seen": true,
+        "frames": 4764,
+        "polls": 4763,
+        "deaths": 0,
+        "failure": null,
+        "stage_entries": {
+          "0-0": 455,
+          "0-1": 4740
+        }
+      },
+      "direct_frames": 4564,
+      "direct_proof_sha256": "a91b32e36a7253b18e8ecf578edbd4c7856f313bc6844a6a10a550fad62e9117",
+      "archive": {
+        "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-routes-v1\\native\\leonardo-easy-direct\\direct.argb.gz",
+        "sha256": "a05df892f309aa6ef6e851105c75d787291d3d38ccbcf215c736936956012f69"
+      },
+      "review_path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-review-v1\\leonardo-easy\\proof.json",
+      "review_sha256": "03f2d080fbe52017cca5bfb0068fef92882377c6f89b384c7e56fcdc63a1fa35",
+      "power_status_values": [
+        0,
+        1
+      ],
+      "power_status_transitions": [
+        {
+          "frame": 874,
+          "old": 0,
+          "new": 1,
+          "x": 400,
+          "y": 158,
+          "engine": 8,
+          "preceding_engine9_start": 874
+        }
+      ],
+      "pose_observation_rows": {
+        "crouch": 0,
+        "attack": 0,
+        "shoot": 0,
+        "wall": 0,
+        "ceiling": 0,
+        "hover": 0,
+        "pitFlight": 0
+      },
+      "request_store_events": [
+        {
+          "name": "Square1SoundQueue",
+          "value": 1,
+          "stores": 252
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 2,
+          "stores": 256
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 4,
+          "stores": 244
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 8,
+          "stores": 269
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 16,
+          "stores": 221
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 32,
+          "stores": 326
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 64,
+          "stores": 3
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 128,
+          "stores": 46
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 1,
+          "stores": 290
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 2,
+          "stores": 285
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 4,
+          "stores": 282
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 8,
+          "stores": 285
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 16,
+          "stores": 413
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 32,
+          "stores": 3
+        }
+      ],
+      "hardware_APU_write_count": 13126,
+      "hardware_expansion_write_count": 5965,
+      "event_file_comparison": {
+        "exact": false,
+        "discovery_sha256": "233c30b4d2cc5569486692d46e16957989a1adf7b5d6e24f83b774037c48c95a",
+        "replay_sha256": "0bd902284545cb6f080b24d8cb50dfe533e09c7ec46e790ddf75e9b67d8fda07",
+        "gameplay_suffix_exact": true,
+        "first_native_stage_frame": 455,
+        "discovery_pregame_rows": [
+          {
+            "frame": "288",
+            "event": "sfx-0104",
+            "value": "1",
+            "world": "0",
+            "level": "0",
+            "x": "120",
+            "y": "152"
+          },
+          {
+            "frame": "289",
+            "event": "sfx-0104",
+            "value": "1",
+            "world": "0",
+            "level": "0",
+            "x": "120",
+            "y": "152"
+          },
+          {
+            "frame": "289",
+            "event": "sfx-0104",
+            "value": "1",
+            "world": "0",
+            "level": "0",
+            "x": "120",
+            "y": "152"
+          }
+        ],
+        "replay_pregame_rows": [],
+        "reason": "Original live-menu selectionDone logger opens before fixed replay selectionDone; untouched pregame event rows retained. All gameplay rows compare literally."
+      },
+      "completed_loop": {
+        "passed": true,
+        "checks": 3049,
+        "max_world_step": 3,
+        "max_camera_step": 4,
+        "game_state_writes": false
+      },
+      "body_CHR": {
+        "passed": true,
+        "frames": 3111,
+        "mismatched_frames": 0,
+        "body_constructions": 2921,
+        "scope": "Read-only actual hardware CHR pages versus last DMA player image. Bounded natural controller movement, no full-level or pixel-comparison claim."
+      },
+      "stomps": {
+        "events": 0,
+        "illegal_guest_events": 0,
+        "guest_events": 0,
+        "allowed_mode_1_0_guest_events": 0,
+        "behavior_version": 0,
+        "behavior_source": "menu-setting",
+        "resident_opcode_mismatches": 0,
+        "hook_address": 38918,
+        "nested_interrupt_guards": true,
+        "physical_frame": "previous endFrame + 1",
+        "failure": null
+      }
+    },
+    {
+      "case": "raphael-easy",
+      "actual_numeric_mode": 0,
+      "selected_controller_retry": false,
+      "discovery": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-routes-v1\\native\\raphael-easy",
+      "direct": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-routes-v1\\native\\raphael-easy-direct",
+      "result": {
+        "cleared": true,
+        "world_1_1_seen": true,
+        "frames": 5277,
+        "polls": 5276,
+        "deaths": 0,
+        "failure": null,
+        "stage_entries": {
+          "0-0": 476,
+          "0-1": 5253
+        }
+      },
+      "direct_frames": 5077,
+      "direct_proof_sha256": "9e49212db44ef8d89e563c0a01680a35383a27645d3899ff4bc34e77e60b6644",
+      "archive": {
+        "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-routes-v1\\native\\raphael-easy-direct\\direct.argb.gz",
+        "sha256": "a7326d74375850807ebeef074b763414721e4843d27830cceef6d401f2f37039"
+      },
+      "review_path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-review-v1\\raphael-easy\\proof.json",
+      "review_sha256": "afaa7c8f16d3b819dfb23d3d869f2749cb22f4abd285301ab4c8df8d14523ab1",
+      "power_status_values": [
+        0
+      ],
+      "power_status_transitions": [],
+      "pose_observation_rows": {
+        "crouch": 0,
+        "attack": 0,
+        "shoot": 0,
+        "wall": 0,
+        "ceiling": 0,
+        "hover": 0,
+        "pitFlight": 0
+      },
+      "request_store_events": [
+        {
+          "name": "Square1SoundQueue",
+          "value": 1,
+          "stores": 276
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 2,
+          "stores": 279
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 4,
+          "stores": 270
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 8,
+          "stores": 290
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 16,
+          "stores": 251
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 32,
+          "stores": 373
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 64,
+          "stores": 3
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 128,
+          "stores": 42
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 1,
+          "stores": 251
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 2,
+          "stores": 248
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 4,
+          "stores": 248
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 8,
+          "stores": 248
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 16,
+          "stores": 372
+        }
+      ],
+      "hardware_APU_write_count": 14821,
+      "hardware_expansion_write_count": 6326,
+      "event_file_comparison": {
+        "exact": false,
+        "discovery_sha256": "09bdbc531e41217ffb4d4d76ff43a35d7546f2d777b503e9fe22976aafda6f20",
+        "replay_sha256": "664faaa5dcaa8ddafc2a214dee96290cf296b97a21ba3d686f95f943fa2d32a3",
+        "gameplay_suffix_exact": true,
+        "first_native_stage_frame": 476,
+        "discovery_pregame_rows": [
+          {
+            "frame": "300",
+            "event": "sfx-0104",
+            "value": "1",
+            "world": "0",
+            "level": "0",
+            "x": "120",
+            "y": "160"
+          },
+          {
+            "frame": "301",
+            "event": "sfx-0104",
+            "value": "1",
+            "world": "0",
+            "level": "0",
+            "x": "120",
+            "y": "160"
+          },
+          {
+            "frame": "301",
+            "event": "sfx-0104",
+            "value": "1",
+            "world": "0",
+            "level": "0",
+            "x": "120",
+            "y": "160"
+          }
+        ],
+        "replay_pregame_rows": [],
+        "reason": "Original live-menu selectionDone logger opens before fixed replay selectionDone; untouched pregame event rows retained. All gameplay rows compare literally."
+      },
+      "completed_loop": {
+        "passed": true,
+        "checks": 3617,
+        "max_world_step": 3,
+        "max_camera_step": 4,
+        "game_state_writes": false
+      },
+      "body_CHR": {
+        "passed": true,
+        "frames": 3688,
+        "mismatched_frames": 0,
+        "body_constructions": 3483,
+        "scope": "Read-only actual hardware CHR pages versus last DMA player image. Bounded natural controller movement, no full-level or pixel-comparison claim."
+      },
+      "stomps": {
+        "events": 0,
+        "illegal_guest_events": 0,
+        "guest_events": 0,
+        "allowed_mode_1_0_guest_events": 0,
+        "behavior_version": 0,
+        "behavior_source": "menu-setting",
+        "resident_opcode_mismatches": 0,
+        "hook_address": 38918,
+        "nested_interrupt_guards": true,
+        "physical_frame": "previous endFrame + 1",
+        "failure": null
+      }
+    },
+    {
+      "case": "michelangelo-easy",
+      "actual_numeric_mode": 0,
+      "selected_controller_retry": false,
+      "discovery": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-routes-v1\\native\\michelangelo-easy",
+      "direct": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-routes-v1\\native\\michelangelo-easy-direct",
+      "result": {
+        "cleared": true,
+        "world_1_1_seen": true,
+        "frames": 4843,
+        "polls": 4842,
+        "deaths": 0,
+        "failure": null,
+        "stage_entries": {
+          "0-1": 4819,
+          "0-0": 476
+        }
+      },
+      "direct_frames": 4643,
+      "direct_proof_sha256": "2922a5b20629cb5f1e2ed69920504dda6701d28e9e140565551d047b57c6954f",
+      "archive": {
+        "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-routes-v1\\native\\michelangelo-easy-direct\\direct.argb.gz",
+        "sha256": "8dec29e8d26d1518c9666f3d4f1303446f0fe2fd8a247d683d135e0fc0f669e7"
+      },
+      "review_path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-review-v1\\michelangelo-easy\\proof.json",
+      "review_sha256": "0b07fba86e39c82dcc41b19a53627df849a678aa731f1dde3a4d14fe205a32ec",
+      "power_status_values": [
+        0,
+        1
+      ],
+      "power_status_transitions": [
+        {
+          "frame": 895,
+          "old": 0,
+          "new": 1,
+          "x": 400,
+          "y": 158,
+          "engine": 8,
+          "preceding_engine9_start": 895
+        }
+      ],
+      "pose_observation_rows": {
+        "crouch": 0,
+        "attack": 0,
+        "shoot": 0,
+        "wall": 0,
+        "ceiling": 0,
+        "hover": 0,
+        "pitFlight": 0
+      },
+      "request_store_events": [
+        {
+          "name": "NoiseSoundQueue",
+          "value": 1,
+          "stores": 3
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 1,
+          "stores": 332
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 2,
+          "stores": 336
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 4,
+          "stores": 326
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 8,
+          "stores": 351
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 16,
+          "stores": 305
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 32,
+          "stores": 453
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 64,
+          "stores": 3
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 128,
+          "stores": 45
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 1,
+          "stores": 296
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 2,
+          "stores": 291
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 4,
+          "stores": 288
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 8,
+          "stores": 294
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 16,
+          "stores": 413
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 32,
+          "stores": 3
+        }
+      ],
+      "hardware_APU_write_count": 13393,
+      "hardware_expansion_write_count": 6281,
+      "event_file_comparison": {
+        "exact": false,
+        "discovery_sha256": "e255d6552b6792ecfaf7b8106ee15c13f7b2989643cd9237035061dfbc435b36",
+        "replay_sha256": "ba933c742c793d7c87b8474634258b5f313cae23140c490ae8d9fa253702d7d8",
+        "gameplay_suffix_exact": true,
+        "first_native_stage_frame": 476,
+        "discovery_pregame_rows": [
+          {
+            "frame": "312",
+            "event": "sfx-0104",
+            "value": "1",
+            "world": "0",
+            "level": "0",
+            "x": "120",
+            "y": "152"
+          },
+          {
+            "frame": "313",
+            "event": "sfx-0104",
+            "value": "1",
+            "world": "0",
+            "level": "0",
+            "x": "120",
+            "y": "152"
+          },
+          {
+            "frame": "313",
+            "event": "sfx-0104",
+            "value": "1",
+            "world": "0",
+            "level": "0",
+            "x": "120",
+            "y": "152"
+          }
+        ],
+        "replay_pregame_rows": [],
+        "reason": "Original live-menu selectionDone logger opens before fixed replay selectionDone; untouched pregame event rows retained. All gameplay rows compare literally."
+      },
+      "completed_loop": {
+        "passed": true,
+        "checks": 2981,
+        "max_world_step": 3,
+        "max_camera_step": 4,
+        "game_state_writes": false
+      },
+      "body_CHR": {
+        "passed": true,
+        "frames": 3059,
+        "mismatched_frames": 0,
+        "body_constructions": 2840,
+        "scope": "Read-only actual hardware CHR pages versus last DMA player image. Bounded natural controller movement, no full-level or pixel-comparison claim."
+      },
+      "stomps": {
+        "events": 0,
+        "illegal_guest_events": 0,
+        "guest_events": 0,
+        "allowed_mode_1_0_guest_events": 0,
+        "behavior_version": 0,
+        "behavior_source": "menu-setting",
+        "resident_opcode_mismatches": 0,
+        "hook_address": 38918,
+        "nested_interrupt_guards": true,
+        "physical_frame": "previous endFrame + 1",
+        "failure": null
+      }
+    },
+    {
+      "case": "donatello-easy",
+      "actual_numeric_mode": 0,
+      "selected_controller_retry": false,
+      "discovery": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-routes-v1\\native\\donatello-easy",
+      "direct": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-routes-v1\\native\\donatello-easy-direct",
+      "result": {
+        "cleared": true,
+        "world_1_1_seen": true,
+        "frames": 5339,
+        "polls": 5338,
+        "deaths": 0,
+        "failure": null,
+        "stage_entries": {
+          "0-0": 497,
+          "0-1": 5315
+        }
+      },
+      "direct_frames": 5139,
+      "direct_proof_sha256": "b417761e047579abf6d1db07a13ad5a315391f3b5dc41980a1bb6a5b22329d5d",
+      "archive": {
+        "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-routes-v1\\native\\donatello-easy-direct\\direct.argb.gz",
+        "sha256": "8c33f71b164be9882b501c613929ce9ef2c42e2114ff055af364a4802fd72a1a"
+      },
+      "review_path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-remaining27-review-v1\\donatello-easy\\proof.json",
+      "review_sha256": "7949ce51262e08d68ccc887cf391a7045a3638a2fdaeaf5fe3cd5303fd383d77",
+      "power_status_values": [
+        0
+      ],
+      "power_status_transitions": [],
+      "pose_observation_rows": {
+        "crouch": 0,
+        "attack": 0,
+        "shoot": 0,
+        "wall": 0,
+        "ceiling": 0,
+        "hover": 0,
+        "pitFlight": 0
+      },
+      "request_store_events": [
+        {
+          "name": "Square1SoundQueue",
+          "value": 1,
+          "stores": 184
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 2,
+          "stores": 189
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 4,
+          "stores": 174
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 8,
+          "stores": 196
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 16,
+          "stores": 155
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 32,
+          "stores": 227
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 64,
+          "stores": 3
+        },
+        {
+          "name": "Square1SoundQueue",
+          "value": 128,
+          "stores": 41
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 1,
+          "stores": 254
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 2,
+          "stores": 248
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 4,
+          "stores": 248
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 8,
+          "stores": 248
+        },
+        {
+          "name": "Square2SoundQueue",
+          "value": 16,
+          "stores": 372
+        }
+      ],
+      "hardware_APU_write_count": 15052,
+      "hardware_expansion_write_count": 6132,
+      "event_file_comparison": {
+        "exact": false,
+        "discovery_sha256": "e9cda5c10834505572c35559393d11321a4aa4bf1e026e69e1f836ad007360c5",
+        "replay_sha256": "42e9b2968315ad096ff0864dffe2077f11299e0f8077d597377c2d2c538fc528",
+        "gameplay_suffix_exact": true,
+        "first_native_stage_frame": 497,
+        "discovery_pregame_rows": [
+          {
+            "frame": "324",
+            "event": "sfx-0104",
+            "value": "1",
+            "world": "0",
+            "level": "0",
+            "x": "120",
+            "y": "152"
+          },
+          {
+            "frame": "325",
+            "event": "sfx-0104",
+            "value": "1",
+            "world": "0",
+            "level": "0",
+            "x": "120",
+            "y": "152"
+          },
+          {
+            "frame": "325",
+            "event": "sfx-0104",
+            "value": "1",
+            "world": "0",
+            "level": "0",
+            "x": "120",
+            "y": "152"
+          }
+        ],
+        "replay_pregame_rows": [],
+        "reason": "Original live-menu selectionDone logger opens before fixed replay selectionDone; untouched pregame event rows retained. All gameplay rows compare literally."
+      },
+      "completed_loop": {
+        "passed": true,
+        "checks": 3665,
+        "max_world_step": 4,
+        "max_camera_step": 4,
+        "game_state_writes": false
+      },
+      "body_CHR": {
+        "passed": true,
+        "frames": 3675,
+        "mismatched_frames": 0,
+        "body_constructions": 3484,
+        "scope": "Read-only actual hardware CHR pages versus last DMA player image. Bounded natural controller movement, no full-level or pixel-comparison claim."
+      },
+      "stomps": {
+        "events": 0,
+        "illegal_guest_events": 0,
+        "guest_events": 0,
+        "allowed_mode_1_0_guest_events": 0,
+        "behavior_version": 0,
+        "behavior_source": "menu-setting",
+        "resident_opcode_mismatches": 0,
+        "hook_address": 38918,
+        "nested_interrupt_guards": true,
+        "physical_frame": "previous endFrame + 1",
+        "failure": null
+      }
+    }
+  ],
+  "report_path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\docs\\qa\\current3cee-remaining27-native-2026-10-26.txt",
+  "report_sha256": "0aab5c055d24db740825bcd1377ad7dbd1c400880822b9efe33d1545b85556b4",
+  "manifest_sha256": "9775e2a588f122f265fcabac0286f6a8bf11c8c66945bbdf66dbdf7a35e3ca18",
+  "bindings_count": 2969,
+  "scope": "27selected current-ROM ordinary1-1replays; retained originalSimon failure/single controller retry. Item/audio/bodyvisibility/fullroster limits remain open."
+}
