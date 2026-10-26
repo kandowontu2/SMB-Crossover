@@ -1,0 +1,78 @@
+{
+  "source_CPU_readiness_passed": true,
+  "native_run": false,
+  "native_qualified": false,
+  "adopted": false,
+  "goal_complete": false,
+  "baseline_ROM_sha256": "50b51c3c69f45ef137720c47f521574097f421056e3b73296d06ba70080d2363",
+  "candidate_ROM_sha256": "64f454a248785ff4c53bd0d52158fd2cf5389de38e5c35a888c3e6a6ed982362",
+  "receipts": {
+    "layout": {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\parodius-visibility-current50b5-v1\\hud-candidate-v11\\proof.json",
+      "sha256": "b306718fade67962a5bfc7e2662260b937f8d7d1c712868402161fb126e91fd4"
+    },
+    "protocol": {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\parodius-visibility-current50b5-v1\\hud-protocol-cpu-v4\\proof.json",
+      "sha256": "ed61b8cb2331a56e65d1606611761d7de1f5e127fb55a6bb0c4d5bec1d442939"
+    },
+    "final_guard": {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\parodius-visibility-current50b5-v1\\hud-final-guard-cpu-v3\\proof.json",
+      "sha256": "0a40ae6b1c7413b3b66115ebcc45e6ee49f8399404a149d5356105513b8add63"
+    },
+    "lag_NMI": {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\parodius-visibility-current50b5-v1\\hud-nmi-cpu-v4\\proof.json",
+      "sha256": "c2dfa51bde1de21084ddd906e4e06562540442397cdbba99a22ad020e7547d2d"
+    },
+    "whole_NMI_prefix": {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\parodius-visibility-current50b5-v1\\hud-whole-nmi-cpu-v6\\proof.json",
+      "sha256": "87567b83c6c1ff6db475101695862d8700b762d409a5b25f87b5d189073418d8"
+    },
+    "no_pending_gateway": {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\parodius-visibility-current50b5-v1\\hud-gateway-cpu-v1\\proof.json",
+      "sha256": "472c65671c9509baff25f7a9e683adda0a720401fc093053b13d8b83819a788d"
+    },
+    "source_owners": {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\parodius-visibility-current50b5-v1\\hud-owner-v4\\proof.json",
+      "sha256": "9b322f2e6966206f80cb251e4a7b067bb3d335f838c1cd89ad3c87b0aa8c8fdc"
+    },
+    "ROOT_chunk_full_return": {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-nmi-chunk-v11-equivalence-v1\\proof.json",
+      "sha256": "fe17d1d5c67a454e98e44f36199450629c149cf652d059b6e5859c63c93c7c34"
+    }
+  },
+  "counts": {
+    "protocol": 28899,
+    "final_guard": 4884,
+    "lag_NMI_instruction_boundaries": 638,
+    "no_pending_gateway": 2304,
+    "ROOT_chunk_full_return": 20284
+  },
+  "layout": {
+    "installed_symbols_exact": 72221,
+    "CHR_exact": true,
+    "ROM_differing_bytes": 1392,
+    "changed_source": [
+      "smb1base-mmc5-expanded.cfg",
+      "src/entrypoint.s",
+      "src/nmi_vram_fast.s",
+      "src/parodius_bells.s",
+      "src/parodius_hud_queue.s",
+      "src/parodius_render.s",
+      "src/reset.s",
+      "src/samus_freeze_render.s",
+      "src/screen_render.s",
+      "src/vic_adapter.s"
+    ]
+  },
+  "global_empty_nonship_NMI_extra_cycles": 9,
+  "limits": [
+    "Source/CPU components only; numeric Easy/Hard controls here are6 isolated setup cases, not native mode coverage. Gateway OperMode0/1 means menu/game.",
+    "Whole-NMI prefix ends after STA4014 instruction and excludes513/514-cycle hardware DMA, NMI-entry latency/jitter, PPU evaluation/IRQ timing and DMC stalls.",
+    "First HUD publication and dirty attrs intentionally defer when combined extent is unsafe; native bounded delay/starvation, cold/menu/area/death/reset/font and Buffer2 behavior remain gates.",
+    "Finite final-guard tests cover valid packets through83B and ordered native suffix/prefix retention; they do not certify arbitrary producer overflow or every<=31B packet deadline.",
+    "The original copy-only cf0f candidate remains rejected with4/6 native controls. Original50b5 OAM/DMA failures remain negative evidence.",
+    "Octopus crowded body dropout and Sophia overlap remain open; no BODY record/art/priority change was made."
+  ],
+  "tool_sha256": "cabf0cfc9337dfc152fd957e312793b9e47048f28d2c00e5e16974bba9871809",
+  "report_sha256": "538b4ceee5ab12ca4c6b9959b93254bbd087a532005ef9550919275df6601bde"
+}

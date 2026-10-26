@@ -1,0 +1,752 @@
+--- a/smb1base-mmc5-expanded.cfg
++++ b/smb1base-mmc5-expanded.cfg
+@@ -216,12 +216,15 @@
+     VIC_CORE:load=X5_NEW_4B,type=ro;
+     VIC_GFX:load=X5_NEW_4C,type=ro;
+     VIC_WORLD:load=X5_NEW_4D,type=ro;
++    PN_HUD_GATE:load=X5_NEW_4D,type=ro;
+     VIC_CHR:load=VIC_CHR_MEM,type=ro;
+     Z2_UI_CHR:load=VIC_CHR_MEM,type=ro,start=$62c00;
+     PN_HUD_CHR:load=VIC_CHR_MEM,type=ro,start=$63000; # Pages396..398; before Chip412.
+     PARODIUS_ART:load=X5_NEW_75,type=ro;
+     PARODIUS_NMI:load=X5_NEW_74,type=ro;
+     PARODIUS_EXTRA_ART:load=X5_NEW_74,type=ro;
++    NMI_VRAM_FAST:load=X5_NEW_74,type=ro;
++    PN_HUD_QUEUE:load=X5_NEW_74,type=ro;
+     PARODIUS_BELLS:load=X5_NEW_76,type=ro;
+     ROLL_CORE:load=X5_NEW_77,type=ro;
+     ROLL_WORLD:load=X5_NEW_78,type=ro;
+@@ -317,6 +320,7 @@
+     XG_MUSIC_3A: load=XG_MUSIC_3A_MEM, type=ro, optional=yes;
+     SOPHIA_BODY_COLD: load=XG_MUSIC_3A_MEM, type=ro, optional=yes;
+     INVENTORY: load=XG_MUSIC_3B_MEM, type=ro, optional=yes;
++    PN_HUD_INIT:load=XG_MUSIC_3B_MEM,type=ro;
+     SPECIAL_MM: load=XG_MUSIC_3C_MEM, type=ro, optional=yes;
+     SPECIAL_ROSTER: load=XG_MUSIC_3D_MEM, type=ro, optional=yes;
+     REMAINING_AUDIO: load=PRGA_07, type=ro, optional=yes;
+@@ -337,6 +341,7 @@
+     RENDER:     load = PRGA_03, type = ro;
+     HUD_TAIL_COLD: load=PRGA_03, type=ro, optional=yes, start=$be97;
+     WORLD_SPRITE_PALETTE: load=PRGA_03, type=ro, optional=yes, start=$bfc9;
++    PN_HUD_TEXT:load=PRGA_03,type=ro;
+     METASPRITE: load = PRGA_04, type = ro;
+     DARKWING_DRAW_GUARD: load=PRGA_04, type=ro, start=$BF8B, optional=yes; # Reclaimed unused guard plus legacy NOPs.
+     Z2_DRAW_GATE: load=PRGA_04,type=ro,start=$bfb9;
+--- a/src/entrypoint.s
++++ b/src/entrypoint.s
+@@ -485,3 +485,11 @@
+ .if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
+ .include "cv3_dmc_complete.s"
+ .endif
++
++.if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
++.include "nmi_vram_fast.s"
++.endif
++
++.if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
++.include "parodius_hud_queue.s"
++.endif
+--- a/src/nmi_vram_fast.s
++++ b/src/nmi_vram_fast.s
+@@ -0,0 +1,56 @@
++; NMI-only: bank116 is already owned by SamusFreezeUpdateScreen.
++; Retain full native UpdateScreen results and ordered data/pointer wrap.
++; Internal A/V are dead at the unchanged SEC/TYA/ADC continuation.
++; No new RAM, foreground scratch, SMC, JSR or stack frame.
++.pushseg
++.segment "NMI_VRAM_FAST"
++.proc FastNmiVramCopy
++ bcs Repeat
++ ; X=0 naturally follows the native256-byte literal tail.
++ cpx #8
++ bcc LiteralTail
++Chunk:
++ .repeat 8
++  iny
++  lda (NmiR0),y
++  sta PPUDATA
++ .endrepeat
++ txa
++ sec
++ sbc #8
++ tax
++ cpx #8
++ bcs Chunk
++ cpx #0
++ bne LiteralTail
++ clc
++ jmp OutputToVRAM+11
++LiteralTail:
++ iny
++ lda (NmiR0),y
++ sta PPUDATA
++ dex
++ bne LiteralTail
++LiteralDone:
++ clc
++ jmp OutputToVRAM+11 ; native SEC and pointer/next-command continuation
++Repeat:
++ lda (NmiR0),y
++RepeatLoop:
++ sta PPUDATA
++ dex
++ bne RepeatLoop
++ sec
++ jmp OutputToVRAM+11
++.endproc
++ .res 3,$ea ; retain following genuine entry PCs
++.proc FastNmiPaletteCapture
++ .repeat 32,I
++  lda PPUDATA
++  sta PnBombPaletteShadow+I
++ .endrepeat
++ ldx #32
++ cpx #32
++ jmp PnPaletteScreenUpdate::Copy+11 ; after the unchanged old BNE
++.endproc
++.popseg
+--- a/src/parodius_bells.s
++++ b/src/parodius_bells.s
+@@ -11,7 +11,11 @@
+  lda SelectedCharacter
+  cmp #18
+  bne Samus
++.if ::ENABLE_MMC5_EXPANDED && ::MAPPER_MMC5
++ jmp PnHudCommitAfterVram
++.else
+  lda OperMode
++.endif
+  cmp #1
+  bne Samus
+  lda VvVariant
+@@ -30,7 +34,11 @@
+  sta PPUADDR
+  tax
+ Copy:
++.if ::ENABLE_MMC5_EXPANDED && ::MAPPER_MMC5
++ jmp FastNmiPaletteCapture
++.else
+  lda PPUDATA
++.endif
+  sta PnBombPaletteShadow,x
+  inx
+  cpx #32
+--- a/src/parodius_hud_queue.s
++++ b/src/parodius_hud_queue.s
+@@ -0,0 +1,508 @@
++; Parodius-only queue cache. All old instructions/data retain their addresses.
++.pushseg
++.segment "PN_HUD_GATE"
++.proc PnHudGate
++ lda DisableScreenFlag
++ bne Done
++ lda VvVariant
++ asl
++ ora #1
++ cmp InvHudActive
++ bne Slow
++ lda VvHudDirty
++ bne Slow
++ ; Clean valid labels: renew exactly the original physical font lease.
++ lda VvVariant
++ clc
++ adc #.lobyte(395)
++ sta InvHudPhysical
++ lda X5HudChrUpper
++ bmi CleanZero
++ lda #.hibyte(396)
++ sta X5HudChrUpper
++CleanZero:
++ lda #0
++Done:rts
++Slow:
++ ; The normal farcall macro owns A. Keep A77 tables mapped and own C
++ ; explicitly, using the same shadow-before-hardware NMI-safe convention.
++ lda CurrentBankC
++ pha
++ lda #.bank(PnHudQueue) | MMC5_PRG_ROM
++ sta CurrentBankC
++ sta MMC5_PRG_BANK_C
++ jsr PnHudQueue
++ pla
++ sta CurrentBankC
++ sta MMC5_PRG_BANK_C
++ rts
++.endproc
++.proc PnHudCancelLife
++ ; Original callers have A=0. Keep A/XY/C/V and original store's NZ.
++ sta InvHudActive
++ lda X5HudChrUpper
++ and #3
++ sta X5HudChrUpper
++ lda #0
++ rts
++.endproc
++.proc PnHudNewLife
++ lda #0
++ jsr PnHudCancelLife
++ tax
++ rts
++.endproc
++.assert *-PnHudGate <=106,error,"Use only verified A77 tail"
++.popseg
++.pushseg
++.segment "PN_HUD_INIT"
++.proc PnHudInventoryInit
++ pha
++ lda X5HudChrUpper
++ and #3
++ sta X5HudChrUpper
++ pla
++ inc InvDirty
++ rts
++.endproc
++.popseg
++.pushseg
++.segment "PN_HUD_TEXT"
++.proc PnHudTextCancel
++ ; WriteGameText overwrites Buffer1, including live warp-zone delivery.
++ ; Keep its original saved-A stack item and exact ASL/TAY continuation.
++ pha
++ pha
++ lda X5HudChrUpper
++ bpl Restore
++ and #3
++ sta X5HudChrUpper
++ lda #1
++ sta VvHudDirty
++Restore:
++ pla
++ asl
++ tay
++ jmp WriteGameText+3
++.endproc
++.assert *-PnHudTextCancel=23,error,"Exact verified bank3 tail"
++.popseg
++; A77 caller remains mapped while C116 owns the rare foreground helper.
++; Pending: Upper=$80|(variant<<2)|1, Active=0, Physical=admission offset.
++; Both hardware readers require Active!=0 and mask Upper with AND#3.
++.pushseg
++.segment "PN_HUD_QUEUE"
++.proc PnHudQueue
++ lda VvVariant
++ cmp #1
++ jcc Done
++ cmp #4
++ jcs Done
++ asl
++ ora #1
++ cmp InvHudActive
++ jeq Valid
++ lda InvHudActive
++ bne Invalid
++ lda X5HudChrUpper
++ bpl Invalid
++ and #$0c
++ lsr
++ lsr
++ cmp VvVariant
++ jeq Done ; append already pending: preserve any new meter dirty state
++Invalid:
++ lda InvHudActive
++ beq :+
++ inc ReloadCHRBank
++:
++ lda #0
++ sta InvHudActive
++ lda X5HudChrUpper
++ and #3
++ sta X5HudChrUpper
++ lda #1
++ sta VvHudDirty
++ lda PnInitialized
++ cmp #$50
++ jne Done
++ lda PnBombPaletteReady
++ cmp #1
++ jne Done
++ ldx VRAM_Buffer1_Offset
++ cpx #0
++ jne Done
++ stx InvHudPhysical
++ lda #$20
++ sta VRAM_Buffer1,x
++ lda #$22
++ sta VRAM_Buffer1+1,x
++ lda #28
++ sta VRAM_Buffer1+2,x
++ lda VvVariant
++ sec
++ sbc #1
++ tay
++ lda PnHud::GraphicalOffsets,y
++ tay
++ lda #28
++ sta VvTemp2
++Cells:
++ lda PnHud::PnHudCells,y
++ sta VRAM_Buffer1+3,x
++ iny
++ inx
++ dec VvTemp2
++ bne Cells
++ inx
++ inx
++ inx
++ jsr Attributes
++ lda VvVariant
++ asl
++ asl
++ ora #$81
++ sta X5HudChrUpper
++ rts
++Valid:
++ lda X5HudChrUpper
++ jmi Done
++ lda VvVariant
++ clc
++ adc #.lobyte(395)
++ sta InvHudPhysical
++ lda #1
++ sta X5HudChrUpper
++ lda VvHudDirty
++ jeq Done
++ ldx VRAM_Buffer1_Offset
++ cpx #32
++ jcs Done
++ txa
++ pha
++ jsr Attributes
++ pla
++ asl
++ asl
++ ora #$81
++ sta X5HudChrUpper
++ rts
++Attributes:
++ lda #$23
++ sta VRAM_Buffer1,x
++ lda #$c0
++ sta VRAM_Buffer1+1,x
++ lda #8
++ sta VRAM_Buffer1+2,x
++ txa
++ clc
++ adc #3
++ tax
++ lda #1
++ sta VvTemp
++ ldy #8
++Loop:
++ lda #$aa
++ sta VvTemp2
++ lda VvTemp
++ and VvMeter
++ beq RightNormal
++ lda #$a6
++ sta VvTemp2
++RightNormal:
++ lda VvTemp
++ lsr
++ and VvMeter
++ beq LeftNormal
++ lda VvTemp2
++ and #$fc
++ ora #1
++ sta VvTemp2
++LeftNormal:
++ lda VvTemp2
++ sta VRAM_Buffer1,x
++ inx
++ asl VvTemp
++ dey
++ bne Loop
++ stx VRAM_Buffer1_Offset
++ lda #0
++ sta VRAM_Buffer1,x
++ sta VvHudDirty
++Done:rts
++.endproc
++
++; NMI owns C116, no foreground scratch/SMC or mapping changes. The normal
++; gateway's ctrl0 selection starts at Buffer1. At this hook UpdateScreen has
++; consumed every byte through the live terminator, before CHR/OAM publication.
++.proc PnHudCommitAfterVram
++ lda X5HudChrUpper
++ bmi Pending
++ lda OperMode
++ jmp PnPaletteScreenUpdate+13
++Pending:
++ lda InvHudActive
++ jne Return ; ctrl6 may retain an attribute command; pre-guard owns it.
++ php
++ txa
++ pha
++ tya
++ pha
++ lda SelectedCharacter
++ cmp #18
++ jne Cancel
++ lda OperMode
++ cmp #1
++ jne Cancel
++ lda GameEngineSubroutine
++ cmp #8
++ jne Cancel
++ lda DisableScreenFlag
++ jne Cancel
++ lda PnInitialized
++ cmp #$50
++ jne Cancel
++ lda PnBombPaletteReady
++ cmp #1
++ jne Cancel
++ lda VvVariant
++ cmp #1
++ jcc Cancel
++ cmp #4
++ jcs Cancel
++ asl
++ asl
++ ora #$81
++ cmp X5HudChrUpper
++ jne Cancel
++ lda VRAM_Buffer_AddrCtrl
++ cmp #6
++ jeq Deferred
++ cmp #0
++ jne Cancel
++ lda InvHudActive
++ jne Cancel
++ ldx InvHudPhysical
++ cpx #1
++ jcs Cancel
++ lda VRAM_Buffer1_Offset
++ cmp #84
++ jcs Cancel
++ sec
++ sbc InvHudPhysical
++ jcc Cancel
++ cmp #42
++ jne Cancel
++ ; Check consumed pointer, including Buffer1's actual AF-page crossing.
++ lda VRAM_Buffer1_Offset
++ clc
++ adc #<VRAM_Buffer1
++ tax
++ lda #>VRAM_Buffer1
++ adc #0
++ cmp NmiR1
++ jne Cancel
++ txa
++ cmp NmiR0
++ jne Cancel
++ ldx InvHudPhysical
++ lda VRAM_Buffer1,x
++ cmp #$20
++ bne Cancel
++ lda VRAM_Buffer1+1,x
++ cmp #$22
++ bne Cancel
++ lda VRAM_Buffer1+2,x
++ cmp #28
++ bne Cancel
++ lda VRAM_Buffer1+31,x
++ cmp #$23
++ bne Cancel
++ lda VRAM_Buffer1+32,x
++ cmp #$c0
++ bne Cancel
++ lda VRAM_Buffer1+33,x
++ cmp #8
++ bne Cancel
++ lda VvVariant
++ clc
++ adc #.lobyte(395)
++ sta InvHudPhysical
++ lda VvVariant
++ asl
++ ora #1
++ sta InvHudActive
++ lda #1
++ sta X5HudChrUpper
++ inc ReloadCHRBank
++ jmp Deferred
++Cancel:
++ lda X5HudChrUpper
++ and #3
++ sta X5HudChrUpper
++ lda #0
++ sta InvHudActive
++ lda #1
++ sta VvHudDirty
++Deferred:
++ pla
++ tay
++ pla
++ tax
++ plp
++Return:
++ lda OperMode
++ jmp PnPaletteScreenUpdate+13
++.endproc
++.popseg
++; Guard the final assembled packet, after every native foreground producer.
++; Full labels are only queued first at offset0. Attribute admissions carry
++; offset0..31 in Upper bits2..6 with Active!=0 and the physical font retained.
++; All nonpending identities pay only this LDA/branch/JMP before native code.
++.pushseg
++.segment "PN_HUD_QUEUE"
++.proc PnHudPreUpdateScreen
++ lda X5HudChrUpper
++ bmi Pending
++Native:
++ jmp PnPaletteScreenUpdate
++Pending:
++ lda InvHudActive
++ jne AttrControl
++ ; Common first-full case: ctrl0's initial pointer is owned by the
++ ; resident VRAM_AddrTable selection. The post-flush commit still checks
++ ; its consumed end pointer and six headers before leasing the font.
++ lda VRAM_Buffer_AddrCtrl
++ bne FullControl
++ lda VRAM_Buffer1_Offset
++ cmp #42
++ bne FullGeneral
++ lda GameEngineSubroutine
++ cmp #8
++ bne FullGeneral
++ lda DisableScreenFlag
++ bne FullGeneral
++ jmp Native
++FullControl:
++ cmp #6
++ jeq Native
++ jmp Cancel
++FullGeneral:
++ lda NmiR0
++ cmp #<VRAM_Buffer1
++ jne Cancel
++ lda NmiR1
++ cmp #>VRAM_Buffer1
++ jne Cancel
++ lda InvHudPhysical
++ jne Cancel
++ lda VRAM_Buffer1_Offset
++ cmp #42
++ jcc Cancel
++ jmp DeferFull
++AttrControl:
++ lda VRAM_Buffer_AddrCtrl
++ cmp #6
++ beq Native ; Buffer2 flush cannot consume or discard the pending Buffer1.
++ cmp #0
++ jne Cancel
++ lda NmiR0
++ cmp #<VRAM_Buffer1
++ jne Cancel
++ lda NmiR1
++ cmp #>VRAM_Buffer1
++ jne Cancel
++ jmp Attr
++ ; A full first-HUD append has no prefix. Never combine it with any later
++ ; timer/score/palette/bomb command; those original commands still flush.
++DeferFull:
++ lda VRAM_Buffer1
++ cmp #$20
++ jne Cancel
++ lda VRAM_Buffer1+1
++ cmp #$22
++ jne Cancel
++ lda VRAM_Buffer1+2
++ cmp #28
++ jne Cancel
++ lda VRAM_Buffer1+31
++ cmp #$23
++ jne Cancel
++ lda VRAM_Buffer1+32
++ cmp #$c0
++ jne Cancel
++ lda VRAM_Buffer1+33
++ cmp #8
++ jne Cancel
++ lda #<(VRAM_Buffer1+42)
++ sta NmiR0
++ lda #>(VRAM_Buffer1+42)
++ sta NmiR1
++ clv ; native nonempty Buffer1's final pointer high-ADC always clears V.
++ jmp Cancel
++Attr:
++ lda X5HudChrUpper
++ and #$7c
++ lsr
++ lsr
++ tax
++ lda VRAM_Buffer1_Offset
++ cmp #84
++ jcs Cancel
++ txa
++ clc
++ adc #11
++ cmp VRAM_Buffer1_Offset
++ bcc ExtentChecked
++ beq ExtentChecked
++ jmp Cancel
++ExtentChecked:
++ lda VRAM_Buffer1,x
++ cmp #$23
++ jne Cancel
++ lda VRAM_Buffer1+1,x
++ cmp #$c0
++ jne Cancel
++ lda VRAM_Buffer1+2,x
++ cmp #8
++ jne Cancel
++ lda VRAM_Buffer1_Offset
++ cmp #32
++ bcs DeferAttr
++ ; Success does not erase Dirty raised by a later meter/pickup owner.
++ lda X5HudChrUpper
++ and #3
++ sta X5HudChrUpper
++ jmp Native
++DeferAttr:
++ cpx #0
++ beq AfterPrefix
++ ; Flush the unmodified prefix through native UpdateScreen, ending only
++ ; at the temporary attribute header. No foreground can observe this.
++ lda #0
++ sta VRAM_Buffer1,x
++ jsr UpdateScreen
++ lda X5HudChrUpper
++ and #$7c
++ lsr
++ lsr
++ tax
++ lda #$23
++ sta VRAM_Buffer1,x
++AfterPrefix:
++ txa
++ clc
++ adc #<(VRAM_Buffer1+11)
++ sta NmiR0
++ lda #>(VRAM_Buffer1+11)
++ adc #0
++ sta NmiR1
++Cancel:
++ lda X5HudChrUpper
++ and #3
++ sta X5HudChrUpper
++ lda #1
++ sta VvHudDirty
++ jmp Native
++.endproc
++.popseg
+--- a/src/parodius_render.s
++++ b/src/parodius_render.s
+@@ -457,7 +457,11 @@
+ 
+  ; All seven original frame/label cells fit inside the TV-safe28-column row.
+  ; Like the Gradius HUD, renew font ownership even while its cells are clean.
++.if ::ENABLE_MMC5_EXPANDED && ::MAPPER_MMC5
++ jmp PnHudGate
++.else
+  lda DisableScreenFlag
++.endif
+  jne GraphicalDone
+  lda VvVariant
+  clc
+--- a/src/reset.s
++++ b/src/reset.s
+@@ -231,8 +231,12 @@
+   lsr                       ;note that d1 will now be in carry
+   tax
+ OutputToVRAM:
++.if ::ENABLE_MMC5_EXPANDED && ::MAPPER_MMC5
++  jmp FastNmiVramCopy
++.else
+   bcs RepeatByte            ;if carry set, repeat loading the same byte
+     iny                       ;otherwise increment Y to load next byte
++.endif
+ RepeatByte:
+   lda (NmiR0), y               ;load more data from buffer and write to vram
+   sta PPUDATA
+--- a/src/samus_freeze_render.s
++++ b/src/samus_freeze_render.s
+@@ -22,7 +22,7 @@
+   ; restored by ExitNMI; do not touch foreground farcall code or its shadow.
+   lda #.bank(PnPaletteScreenUpdate) | MMC5_PRG_ROM
+   sta MMC5_PRG_BANK_C
+-  jmp PnPaletteScreenUpdate
++  jmp PnHudPreUpdateScreen
+   nop
+ .else
+   jsr UpdateScreen
+@@ -56,7 +56,11 @@
+ .endproc
+ .segment "INVENTORY"
+ .proc SamusFreezeInit
++.if ::ENABLE_MMC5_EXPANDED && ::MAPPER_MMC5
++  jsr PnHudInventoryInit
++.else
+   inc InvDirty
++.endif
+   php
+   pha
+   phx
+--- a/src/screen_render.s
++++ b/src/screen_render.s
+@@ -586,9 +586,13 @@
+ 
+ ;-------------------------------------------------------------------------------------
+ cproc WriteGameText
++.if ::ENABLE_MMC5_EXPANDED && ::MAPPER_MMC5
++  jmp PnHudTextCancel
++.else
+   pha                      ;save text number to stack
+     asl
+-    tay                      ;multiply by 2 and use as offset
++    tay
++.endif                      ;multiply by 2 and use as offset
+     cpy #$04                 ;if set to do top status bar or world/lives display,
+     bcc LdGameText           ;branch to use current offset as-is
+     cpy #$08                 ;if set to do time-up or game over,
+--- a/src/vic_adapter.s
++++ b/src/vic_adapter.s
+@@ -51,8 +51,12 @@
+  sta VvLife
+  jmp Entry
+ NewLife:
++.if ::ENABLE_MMC5_EXPANDED && ::MAPPER_MMC5
++ jsr PnHudNewLife
++.else
+  lda #0
+  tax
++.endif
+ Clear:sta $5d00,x
+  inx
+  bne Clear
+@@ -128,7 +132,11 @@
+  bpl Caps
+ Cleanup:
+  lda #0
++.if ::ENABLE_MMC5_EXPANDED && ::MAPPER_MMC5
++ jsr PnHudCancelLife
++.else
+  sta InvHudActive
++.endif
+  sta DisableCollisionDet
+  lda #1
+  sta VvNeedEntry
+@@ -694,7 +702,11 @@
+  lda #0
+  sta VvAlive
+  sta VvDeathAge
++.if ::ENABLE_MMC5_EXPANDED && ::MAPPER_MMC5
++ jsr PnHudCancelLife
++.else
+  sta InvHudActive
++.endif
+  sta DisableCollisionDet
+  lda #$ff
+  sta VvLife

@@ -1,0 +1,54 @@
+{
+  "goal_complete": false,
+  "adopted": false,
+  "production_changes": false,
+  "candidate_ROM_sha256": "64f454a248785ff4c53bd0d52158fd2cf5389de38e5c35a888c3e6a6ed982362",
+  "independently_verified_PRG_deltas": {
+    "3": 26,
+    "59": 17,
+    "77": 99,
+    "116": 1245,
+    "126": 5
+  },
+  "immutable_bindings_checked": 88,
+  "frozen_production_inputs_unchanged": 650,
+  "files": {
+    "bank126-erratum.json": "9f5ea644fe38ac3fdf8dc137affdb9dda3e4b2514b333160ebb65194730392fe",
+    "implementation.patch": "491bb877934f16d31b65984e33d0f5c4b4def72fcb56cd1881428a280e3b957a",
+    "layout.json": "b306718fade67962a5bfc7e2662260b937f8d7d1c712868402161fb126e91fd4",
+    "readiness-bindings.json": "dfd5de6ecd11d1b4e5cd9015a5af4de4b512bbaae22ba5d5eea1c47867cecab4",
+    "readiness.json": "9f0000279e984f5ae7f510b92f3d967b35f6a01a301a086fef6bcf5280177880",
+    "changed-source/smb1base-mmc5-expanded.cfg": "22ea8060bb5e17f75d5a0b23eaa9aece60767b32e30a9d9ece16d91a8cf16118",
+    "changed-source/src/entrypoint.s": "edb43ccafbcc04a14d84b85e8d961d0fd56f98aa63cea035ac9690cc1c998cbd",
+    "changed-source/src/nmi_vram_fast.s": "99d07b22d5851658b054a3f5445581545974a71df40f9b84330c23d2ecbb1df8",
+    "changed-source/src/parodius_bells.s": "c17cc064952f271ca1bcfa6715c69614d6ad96b6ddad68f69cc68ef64cb61d01",
+    "changed-source/src/parodius_hud_queue.s": "e81c545b780bdc38e25a54e5ea5c97bec93a21f82302b73ed41d1b90e003a77d",
+    "changed-source/src/parodius_render.s": "a6f0d11ab8e4f1d1e8e9a92dfd54a47de0acca4383b3022965dea3f21a920330",
+    "changed-source/src/reset.s": "446d50b4fe968b32e9b61d272423109af26c3b186bafbe67c0b0f1ddf9e9183c",
+    "changed-source/src/samus_freeze_render.s": "7ec4fd56277428593ad5e9a86637f70b02b12a66c2d76c573746c48f276ab972",
+    "changed-source/src/screen_render.s": "b8498b948de9be1f85a525c982864f9d1743a8471e03a4022aabb13d7e9aa06f",
+    "changed-source/src/vic_adapter.s": "54fbb7471e9ad374aa2258a44f576931f4ca290a8b1f6d0e8f650fb9c89dbfda"
+  },
+  "tools": {
+    "tools/audit/parodius_visibility_hud_packet_v1.py": "cabf0cfc9337dfc152fd957e312793b9e47048f28d2c00e5e16974bba9871809",
+    "tools/audit/parodius_visibility_hud_candidate_v1.py": "0b18a6ca91487fa842870083183b7a21f9c20604141ee7eee6266b0456857b18",
+    "tools/audit/parodius_visibility_hud_cpu_v1.py": "3fa90e3b660e685d2246fde649e83348af861e1fca7a4401f02dfdb39783754d",
+    "tools/audit/parodius_visibility_hud_guard_cpu_v1.py": "058b15ca9b7485eb4baf420cdfb160cd2a4064db557f2eb127be27c8005fc48d",
+    "tools/audit/parodius_visibility_hud_nmi_cpu_v1.py": "4c5f16f15e453624874c562d44b1d639248dd3db33e592c7144af02a6baf7269",
+    "tools/audit/parodius_visibility_hud_nmi_budget_v1.py": "558093cdb29533132692aadc35065f49ea40a32c4953841c27c3cfcf69cd7bce",
+    "tools/audit/parodius_visibility_hud_gateway_cpu_v1.py": "761626a092a9ae4c57b6c6f13f9204d3d68c5adfa225843d2fb512820b2913df",
+    "tools/audit/parodius_visibility_hud_owner_v1.py": "c4a2a505085ba05dda5ca7a5f5cc7f88500108bcc542564c488efefcead656cc",
+    "tools/audit/parodius_visibility_hud_design_v1.py": "afaa2fccad9468f82f2fc43fc5693c7136dec724dea62dc8460b2b9b2ee45d2c",
+    "tools/audit/check_nmi_vram_fast_cpu_v1.py": "31e5e26335eded510b3846fa34f7d27547e15c00ccc6211e1fd5dacb937ada35",
+    "tools/audit/check_nmi_chunk_arithmetic_v2.py": "d8a5558c68736d8e1d198a5c5a42077f52b9f034da52efb7b04ba1cf9b66fed7",
+    "tools/audit/link_pit_rygar_sophia_audit_cpu.py": "15ef348bc124a97d8ef2c8a56777180276271b44fb77c8ace7e62c2a50310113",
+    "tools/audit/check_tmnt_render_oa.py": "32033893e48055adc9a23c661238e9331dd1db856be51b753ba9b6781eb528e4",
+    "tools/audit/verify_native_relocation.py": "1bab7154bc2e5468e827087d14030a7e30c4d3676db5e775ef15de4d0c34ce11",
+    "tools/audit/checkpoint_parodius_hud_source_v1.py": "15dc997c7e980bf0f50b5cc432280a3844b199493f5e465e7368fe1e6cd51c76"
+  },
+  "report": {
+    "docs/qa/parodius-nmi-hud-2026-10-25.txt": "538b4ceee5ab12ca4c6b9959b93254bbd087a532005ef9550919275df6601bde"
+  },
+  "external_archive": "C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/parodius-visibility-current50b5-v1",
+  "limits": "Source/CPU checkpoint only. Frozen report omitted bank126 in one layout sentence; additive erratum and independent byte review explicitly include its5 changed bytes. Native tests have separate receipts; no adoption is granted here."
+}

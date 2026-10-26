@@ -1,0 +1,143 @@
+{
+  "prepared": true,
+  "CPU_passed": false,
+  "native_run": false,
+  "goal_complete": false,
+  "before_sha256": "50b51c3c69f45ef137720c47f521574097f421056e3b73296d06ba70080d2363",
+  "after_sha256": "64f454a248785ff4c53bd0d52158fd2cf5389de38e5c35a888c3e6a6ed982362",
+  "script_sha256": "0b18a6ca91487fa842870083183b7a21f9c20604141ee7eee6266b0456857b18",
+  "patch_sha256": "491bb877934f16d31b65984e33d0f5c4b4def72fcb56cd1881428a280e3b957a",
+  "all_old_symbols_exact": true,
+  "old_symbols": 72221,
+  "CHR_bytes_exact": true,
+  "changed_source": {
+    "smb1base-mmc5-expanded.cfg": "22ea8060bb5e17f75d5a0b23eaa9aece60767b32e30a9d9ece16d91a8cf16118",
+    "src/entrypoint.s": "edb43ccafbcc04a14d84b85e8d961d0fd56f98aa63cea035ac9690cc1c998cbd",
+    "src/nmi_vram_fast.s": "99d07b22d5851658b054a3f5445581545974a71df40f9b84330c23d2ecbb1df8",
+    "src/parodius_bells.s": "c17cc064952f271ca1bcfa6715c69614d6ad96b6ddad68f69cc68ef64cb61d01",
+    "src/parodius_hud_queue.s": "e81c545b780bdc38e25a54e5ea5c97bec93a21f82302b73ed41d1b90e003a77d",
+    "src/parodius_render.s": "a6f0d11ab8e4f1d1e8e9a92dfd54a47de0acca4383b3022965dea3f21a920330",
+    "src/reset.s": "446d50b4fe968b32e9b61d272423109af26c3b186bafbe67c0b0f1ddf9e9183c",
+    "src/samus_freeze_render.s": "7ec4fd56277428593ad5e9a86637f70b02b12a66c2d76c573746c48f276ab972",
+    "src/screen_render.s": "b8498b948de9be1f85a525c982864f9d1743a8471e03a4022aabb13d7e9aa06f",
+    "src/vic_adapter.s": "54fbb7471e9ad374aa2258a44f576931f4ca290a8b1f6d0e8f650fb9c89dbfda"
+  },
+  "hooks": [
+    {
+      "symbol": "OutputToVRAM",
+      "delta": 0,
+      "offset": 1032315,
+      "before": "b001c8",
+      "after": "4c99c9"
+    },
+    {
+      "symbol": "PnPaletteScreenUpdate::Copy",
+      "delta": 0,
+      "offset": 950337,
+      "before": "ad0720",
+      "after": "4cfcc9"
+    },
+    {
+      "symbol": "PnHud",
+      "delta": 0,
+      "offset": 638271,
+      "before": "ad7507",
+      "after": "4c96bf"
+    },
+    {
+      "symbol": "VvReset::Cleanup",
+      "delta": 2,
+      "offset": 630997,
+      "before": "8d9e7d",
+      "after": "20d8bf"
+    },
+    {
+      "symbol": "VvDeathStart",
+      "delta": 8,
+      "offset": 632328,
+      "before": "8d9e7d",
+      "after": "20d8bf"
+    },
+    {
+      "symbol": "VvEnsure::NewLife",
+      "delta": 0,
+      "offset": 630840,
+      "before": "a900aa",
+      "after": "20e6bf"
+    },
+    {
+      "symbol": "SamusFreezeInit",
+      "delta": 0,
+      "offset": 491446,
+      "before": "ee8e7d",
+      "after": "20e3bf"
+    },
+    {
+      "symbol": "SamusFreezeUpdateScreen",
+      "delta": 5,
+      "offset": 1040395,
+      "before": "4c00c0",
+      "after": "4c28cd"
+    },
+    {
+      "symbol": "PnPaletteScreenUpdate",
+      "delta": 10,
+      "offset": 950298,
+      "before": "ad7107",
+      "after": "4cfccb"
+    },
+    {
+      "symbol": "WriteGameText",
+      "delta": 0,
+      "offset": 30360,
+      "before": "480aa8",
+      "after": "4ce9bf"
+    }
+  ],
+  "tails": [
+    {
+      "segment": "NMI_VRAM_FAST",
+      "offset": 952745,
+      "size": 298,
+      "bank": 116
+    },
+    {
+      "segment": "PN_HUD_GATE",
+      "offset": 638886,
+      "size": 87,
+      "bank": 77
+    },
+    {
+      "segment": "PN_HUD_QUEUE",
+      "offset": 953043,
+      "size": 941,
+      "bank": 116
+    },
+    {
+      "segment": "PN_HUD_INIT",
+      "offset": 491507,
+      "size": 14,
+      "bank": 59
+    },
+    {
+      "segment": "PN_HUD_TEXT",
+      "offset": 32761,
+      "size": 23,
+      "bank": 3
+    }
+  ],
+  "differing_bytes": 1392,
+  "build_command": [
+    "C:\\Users\\kando\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+    "-B",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\parodius-visibility-current50b5-v1\\hud-candidate-v11\\source\\tools\\build_mmc5_expanded.py",
+    "--workspace",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\parodius-visibility-current50b5-v1\\hud-candidate-v11\\source",
+    "--source-overlay",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\parodius-visibility-current50b5-v1\\hud-candidate-v11\\source",
+    "--compiler",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\Windows\\cc65\\bin\\cl65.exe",
+    "--output",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\parodius-visibility-current50b5-v1\\hud-candidate-v11\\candidate.nes"
+  ]
+}

@@ -1,0 +1,20 @@
+Additive erratum to frozen Parodius HUD v11 source/CPU readiness
+
+The frozen report parodius-nmi-hud-2026-10-25.txt incorrectly lists only banks
+3/59/77/116 for its1,392 changed ROM bytes. Bank126 also contains five expected
+changed bytes. Correct totals are {3:26,59:17,77:99,116:1245,126:5}, total1,392.
+
+The five bank126 bytes are within the already-bound hooks:
+OutputToVRAM3B at file offsets1032315..1032317;
+SamusFreezeUpdateScreen JMP operand2B at1040396..1040397.
+The original opcode in the latter remains unchanged. SAMUS_FREEZE_LOW loads
+from PRGLow in the exact linked configuration.
+
+This corrects human text only. All ten hooks were already included in the
+frozen allowed-layout check. Candidate remains exact
+64f454a248785ff4c53bd0d52158fd2cf5389de38e5c35a888c3e6a6ed982362.
+The original readiness proof/manifest/report remain immutable. No ROM, source,
+CPU outcome or native result is relabeled. ROOT independently identified and
+confirmed this omission before native launch. The additive external receipt is
+P/hud-readiness-bank126-erratum-v1/proof.json, where P is the investigation
+archive path named in the original report.

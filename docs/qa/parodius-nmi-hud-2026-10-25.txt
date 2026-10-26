@@ -1,0 +1,138 @@
+Parodius HUD publication/NMI timing successor - source/CPU readiness only
+
+Status: PRIVATE v11. No native run, adoption or full-roster completion claim.
+Installed source/default/Downloads remain50b5. All earlier failures and receipts
+remain immutable. ROOT alone integrates production and Git.
+
+Baseline50b5:
+50b51c3c69f45ef137720c47f521574097f421056e3b73296d06ba70080d2363
+Private v11:
+64f454a248785ff4c53bd0d52158fd2cf5389de38e5c35a888c3e6a6ed982362
+
+Archive prefix D:
+C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py
+Investigation prefix P: D/parodius-visibility-current50b5-v1
+Candidate/source/patch: P/hud-candidate-v11/
+Finite aggregate: P/hud-readiness-v1/proof.json and manifest.json
+
+Observed production problem and retained negatives
+The source OAM page was correct, but legitimate NMI VRAM work delayed DMA into
+pre-render evaluation after rendering was enabled. The actual destination OAM
+then differed. Baseline PPU458 and613 owner traces remain retained. The first
+copy-only cf0f proposal retained all native updates but passed only4/6 actual
+numeric-mode/variant cold-menu640 controls; PentarouEasy479 and OctopusHard612
+failed. Those are not successful qualification or superseded production ROMs.
+See the immutable parodius-nmi-fast-native-2026-10-25.txt and linked negative
+receipts. No body-order mitigation was applied to conceal this timing defect.
+
+Proposed finite repair
+PnHud now distinguishes invalid/full-pending/published/cached-attribute-pending
+owners using the existing Active/Physical/Upper lease bytes. All hardware font
+consumers gate Physical on Active and mask Upper. No new RAM or shared fiveSMC
+operand is used. First labels require initialized50 and paletteReady1, only at
+Buffer1 offset0; they do not claim the custom font before actual NMI flush.
+Cached labels only queue8 changing attribute bytes, at prefix offset0..31.
+
+The final NMI guard runs after every foreground producer. A first-full HUD may
+flush only when its final packet is exactly42B. Otherwise its42B is skipped,
+the later original commands still flush, and Dirty remains1. Cached attrs may
+flush in final packets<=31B; otherwise only their11B command is deferred. For a
+nonempty prefix the original UpdateScreen flushes up to a temporary terminator,
+the exact header is restored, and the original suffix then flushes. Extra two
+scroll writes/status boundary remain inside the display-off gateway. Original
+queue bytes, ordered remaining PPUDATA, final native pointer and public AXYP/SP
+are CPU-compared. Attribute success never clears Dirty raised after UI.
+
+The postflush full-HUD commit verifies the live selected family, variant,
+engine/display, initialization/palette readiness, ctrl0, physical0, exact42B
+extent, consumed linked terminator pointer and all six header bytes before
+publishing tag3/5/7, physical140/141/142, upper1 and ReloadCHR. Ctrl6 retains
+pending while Buffer2 clears; other controls cancel/re-dirty before the unchanged
+InitBuffer clears Buffer1. Reset/newlife/inventory/menu owners cancel pending.
+WriteGameText cancels either marker before its native overwrite from index0.
+Vic Viper variant0 retains its older publication behavior, explicitly unfixed.
+
+The exact-copy helper and32-read palette capture remain NMI C116-owned. ROOT's
+new chunk arithmetic uses8 literal stores then subtracts8 once. Its internal A/V
+changes are dead before the unchanged SEC/TYA/ADC pointer continuation. The
+independent full-return oracle compares every public returned AXYP/SP, all
+nonstack RAM, ordered I/O and mapper banks without A/V exclusions. The old
+partial-stop catalog and rejected proposal receipts were not weakened.
+
+Layout and source
+All72,221 installed scoped symbols and all CHR bytes remain exact. There are
+1,392 differing ROM bytes confined to10 three-byte hooks and verified FF tails
+in banks3/59/77/116. The nine-byte resident gateway span keeps its original PCs;
+there is no new InitBuffer hook. ROOT's v10-to-v11 arithmetic comparison confines
+its independent delta to83 bytes in116; only four genuine private inner labels
+move. All other v10/v11 bytes remain exact. The builder emits sourcepatch.patch.
+
+Changed source list:
+smb1base-mmc5-expanded.cfg
+src/entrypoint.s
+src/nmi_vram_fast.s (new)
+src/parodius_bells.s
+src/parodius_hud_queue.s (new)
+src/parodius_render.s
+src/reset.s
+src/samus_freeze_render.s
+src/screen_render.s
+src/vic_adapter.s
+
+Ordinary flag-off builds freshly reproduce the prior exact outputs:
+MMC3 d444cac88e13fa02b29ad16100b8f08fa565ba90f8cedde192de43fb2dc8f3eb
+MMC5 f4ffd2483c51daa4d60bb575da2da8c4d817692cda407611c243031f67520833
+These are compatibility CPU/build components, not current native mode coverage.
+
+Fresh CPU/source receipts (all bound by readiness manifest)
+28,899 protocol cases: foreground admission/catch-up, source labels/attributes
+for all256 meters, first-full/attr bounds, commit rejects, original clear and
+ctrl0..7, both pending classes/Buffer2 catch-up, reset/init, actual later palette
+append, numeric difficulty readback, WriteGameText overwrite and unchanged Vic0.
+4,884 final-guard cases: legal prefix/suffix/dirty/flags and owner changes,
+ordered native remaining PPUDATA, restored queue, pointer, public AXYP/SP.
+638 actual compiled lag-NMI instruction boundaries: resumed foreground AXYP/SP,
+fiveSMC and C shadow/physical restoration exact; no incomplete foreground DMA.
+2,304 whole-gateway no-pending cases: public state/RAM/ordered I/O/banks exact.
+OperMode0/1 in this synthetic suite means menu/game, not Easy/Hard. The new
+global no-pending guard adds9cycles; full gateway deltas are -352..+43 cycles.
+20,284 ROOT independent v10-to-v11 full-return arithmetic cases, including76
+actual compiled IRQ boundary injections; ROOT proof is external at
+D/root-nmi-chunk-v11-equivalence-v1/proof.json.
+Source owner review binds91 lease references across31 source files.
+
+Whole linked NMI prefix components on the native PnPublish slot0/6/7 CHR state:
+genuine cold49B/capture reconstruction:1,183 CPUcycles through completed STA4014;
+following first full42B:1,702 cycles (CHR410), versus1,766 on v9;
+first-full then actual ColorRotation7B: HUD defers,1,016 cycles;
+genuine settled73B source packet reduced to42B final attr packet: attrs defer,
+1,689 cycles. Synthetic all-legacy/direct mode boundaries are separately tagged.
+These counts exclude actual513/514-cycle DMA, NMI-entry latency/jitter, DMC stalls,
+PPU sprite evaluation and physical IRQ scheduling. No global60Hz claim is made.
+
+Retained preparation/checker failures
+v1/v2 source branch-range builds, v3 invalid A-only farcall prototype, v4 layout
+expectation, v8 range build and earlier genuine budget-negative components remain.
+The v9 final-guard first oracle failure was a fixture engine8/6 comparison error
+after4,860 good cases; the source was unchanged. The source-owner v3 checker
+expected bne where the frozen builder emitted jne; failed-tool.py/failure.txt
+are retained, and v4 is a fresh corrected receipt. No game fix is inferred from
+these fixture/checker mistakes. Older receipts are not relabeled.
+
+Remaining native gates
+No Mesen run is included in this packet. First qualify the six actual numeric
+Easy/Hard x3 variant cold-menu640 controls and an unchanged Vic0 control, observing
+real DMA completion/destination, PPUMASK/OAMADDR, actual PPU epochs, fiveSMC/C/SP,
+IRQline31 and all affected first-HUD/font frames. Then bound native deferral and
+catch-up through Buffer2/menu/area/death/reset and genuine heavier packet/DMC
+conditions. The finite guard does not prove arbitrary overflow packets or every
+possible<=31B packet meets a deadline. No starvation or campaign verdict is made.
+
+Octopus585..588 crowded body dropout and Sophia overlap remain open visibility
+findings. No body art, record order, colors, sprite counts or priority changed;
+the hardware eight-sprite limit stays enabled and no actors/weapons are hidden.
+
+Build/check runner paths are copied into P/hud-readiness-v1/tools and bound in
+manifest.json. Use exact frozen source/configs and a fresh output directory;
+never overwrite historical receipts. ROOT must review before granting native
+launch or production adoption. User Mesen PID165672 stays untouched.
