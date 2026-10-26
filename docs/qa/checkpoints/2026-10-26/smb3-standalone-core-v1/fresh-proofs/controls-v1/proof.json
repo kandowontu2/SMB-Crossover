@@ -1,0 +1,97 @@
+{
+  "passed": true,
+  "source_only": true,
+  "native_run": false,
+  "active_host_driver": false,
+  "ROM_sha256": "a4be8e02de0f8c0c43e5a7c94e4719e8b62c2ae80c1b1769978b06e73f2cac98",
+  "parent_ROM_sha256": "b86bfa95032a54837fbd1802d60659aaca9dfa8c55a713cc8a58a58ef0a594f6",
+  "retained_old_qualified_symbols": 72800,
+  "exact_code_changes_only_in_genuine_previously_free_extents": true,
+  "changed_PRG_bytes": {
+    "38": 4011,
+    "70": 7925,
+    "78": 4096,
+    "86": 4177,
+    "90": 3921,
+    "93": 3761,
+    "95": 4020,
+    "96": 2538,
+    "97": 7773,
+    "98": 3051,
+    "118": 4061,
+    "119": 2695
+  },
+  "complete_original_payload_bytes": 36864,
+  "payload_sha256": "d54ae38d695f5787915b47534de768a32116007929181888237b80c14f347b45",
+  "physical_source_page_banks": [
+    78,
+    86,
+    90,
+    93,
+    95,
+    96,
+    98,
+    118,
+    119
+  ],
+  "reserved_banks_exact": [
+    62,
+    63,
+    94,
+    99,
+    123,
+    124,
+    125,
+    126,
+    127
+  ],
+  "held_Chip_A78_prefix_and_adapter_span_exact": true,
+  "work_range": [
+    31488,
+    31509
+  ],
+  "original_observed_source_RAM_disjoint_from_work": true,
+  "borrowed_pointer_cells": [
+    3,
+    4
+  ],
+  "cold_pool_current_parent_unallocated_and_FF": true,
+  "fixed_E_clones": [
+    {
+      "bank": 70,
+      "bytes": 8192,
+      "sha256": "0e8e02ffa0b26e3e089b46bf56a602e8f97e8da6a068174ec7be8f9ede6d7686",
+      "all_fixed_code_vectors_exact": true
+    },
+    {
+      "bank": 97,
+      "bytes": 8192,
+      "sha256": "450bdcc295f25a89a5133e0f2c0eff2eb4307d12f76699a81083b3b28e8a3af3",
+      "all_fixed_code_vectors_exact": true
+    }
+  ],
+  "CHR_exact": true,
+  "existing_source_changes": [
+    "smb1base-mmc5-expanded.cfg",
+    "src/entrypoint.s"
+  ],
+  "builds": [
+    {
+      "mode": "canonical",
+      "ROM_sha256": "a4be8e02de0f8c0c43e5a7c94e4719e8b62c2ae80c1b1769978b06e73f2cac98",
+      "exact": true
+    },
+    {
+      "mode": "mmc3",
+      "ROM_sha256": "d444cac88e13fa02b29ad16100b8f08fa565ba90f8cedde192de43fb2dc8f3eb",
+      "exact": true
+    },
+    {
+      "mode": "mmc5",
+      "ROM_sha256": "f4ffd2483c51daa4d60bb575da2da8c4d817692cda407611c243031f67520833",
+      "exact": true
+    }
+  ],
+  "checker_sha256": "bab2a94e77efd4276e7c27852f00116d6a8b4cb01d6738759fcf02c0eda34f6f",
+  "limits": "Exact source/storage/build accounting and fixed12 source RAM separation. CPU call qualification separate; no runtime host-state ownership, AudioUpdate, native cadence, DMC hardware clocks or all71 songs claim."
+}

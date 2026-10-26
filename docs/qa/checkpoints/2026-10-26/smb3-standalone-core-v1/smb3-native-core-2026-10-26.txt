@@ -1,0 +1,124 @@
+Authentic SMB3 standalone assembled core: finite source/CPU prototype
+2026-10-26. UNUSED private code, not installed or ready for host integration.
+
+Private asset parent b86bfa95032a54837fbd1802d60659aaca9dfa8c55a713cc8a58a58ef0a594f6,
+itself based on adopted3cee18caa732b2e85e3bdb00faf719223324f9bf24e72dd30c56be355da33b99.
+Core candidate a4be8e02de0f8c0c43e5a7c94e4719e8b62c2ae80c1b1769978b06e73f2cac98.
+Packet C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/smb3-native-core-v5.
+Original NSF4f22166e5baf4db867564b57c3d152dacb85b6365f7bf94cf0883d612e7f915c;
+entire authenticated NSFE-DATA-equivalent payload retained, 36,864 bytes.
+
+Actual fit and ownership
+  New core/readers/writers: 4032B at C38:CBE8..DBA7; 1088B of the5120B span remain.
+  New cold/init block:86B at A86:A800..A855; within512B pool endingAA00.
+  Original source pages0..8: nine exact4096B copies in B000 tails of physical
+  banks78,86,90,93,95,96,98,118,119. Page4 has a genuine C95 D000 linker view;
+  the reader maps its physical bank into A and reads B000 plus source offset.
+  Every parent byte in new extents was unallocated FF. Current bounce ends
+  A745, leaving the verified gap beforeA800. Held Chip A78:A500..A698 remains
+  exact/untouched, as does its whole A78 prefix. A62/C94 remain reserved.
+  Two full8192B fixed-E clones occupy the formerly freed70/97 banks; every
+  code/vector byte matches parent127, with only pure DPCM F140..FFC0 overlaid.
+  Reserved banks62/63/94/99/123/124/125/126/127 and all CHR stay byte-exact.
+  All72800 parent qualified symbol values remain genuine and unchanged.
+
+Only existing-source edits are linker declarations and appended definitions in
+entrypoint.s. Five new files: two generated assembly definitions, complete
+source payload and two generated fixed-E clone images. There is NO call/hook
+from AudioUpdate, no new family dispatch, no active initializer or music change.
+Every pre-existing occupied code byte is exact; unused-core definitions alone
+do not restore SMB3 music to a playable character. No production/default/Git,
+Downloads/settings mutation or native process occurred.
+
+Original source execution, not an approximate sequencer
+  The producer translates562 actually observed instructions and their genuine
+  branches/calls. It retains larger contiguous raw spans A000..A73F and
+  E2C0..E87F, including unexecuted intervening bytes, and original30B init.
+  Four cold and35 steady absolute ROM-read sites become shared indexed-load
+  helpers; thirteen indirect sites retain source pointer cells6B/6C and71/72.
+  All numeric ROM/data pointers remain original. The reader selects original
+  virtual page metadata, maps the intact physical source page into A, reads it,
+  restores the actual prior A-bank/shadow, source scratch03/04, X/Y and all
+  physical flags except the original LDA's required new N/Z.
+  The only source NSF mapper writes,5FFC/5FFD, retain their ordered values in
+  explicit virtual-map metadata. No original source RAM field is relocated.
+  Original APU stores to4010/4011/4013/4015/4017 and voices remain. Source4012
+  stays in its logical image and translates to the exact preserved sample.
+  Pending E clone changes wait for original DMC-disabled state; source4015
+  clear is physically written before any pending clone change. No extra stop,
+  tick reduction, event/voice/sample deletion or source-store suppression.
+
+Source-state and caller scope
+  Isolated original cold contract: all source RAM zero; initA=track-1,
+  playA/X/Y=0, P24, SPFD with return7F00. One actual play call per original tick.
+  Added21B adapter metadata7B00..7B14 uses an existing XgLzHistory tail. The
+  frozen12-role dynamic RAM read/write union is disjoint from that tail and
+  borrowed03/04/host bank shadows. Metadata and CurrentBankC are explicitly
+  projected out of canonical original RAM;03/04 are restored literally.
+  CurrentBank lies in145, inside the original excluded CPU-stack range.
+  The original complete9984B nonstack source-state hash matches after this
+  declared metadata projection, and every original RAM write/order matches.
+  A/X/Y/SP and real NV-DIZC flags are exact. B/U are emulator bookkeeping,
+  not live6502 flags; they are explicitly masked byCF, never C/V/D/I/N/Z.
+  Minimum observed core SP isF3. This is NOT proof of a host NMI/IRQ stack or
+  background-state borrowing/lifecycle contract. Host RAM ownership, prior
+  music/SFX/sample preemption and tail policy require future integration.
+
+Full finite source/CPU result
+  12 exact cold selections,18001 calls each =216012 actual assembled calls.
+  957715 ordered original APU stores; all original ordered RAM writes,
+  canonical source state, physical flags/registers/SP and virtual banks exact.
+  5007 original DMC-enable requests compare actual translated bytes read from
+  the linked E70/E97 clone against the original virtual-page payload. All pass.
+  Seven sample profiles cover the complete3780B observed source sample union;
+  all source rate/loop/control/length values remain in the original APU stream.
+  CPU bus reads sample bytes on requests; it does NOT emulate DMC DMA stalls,
+  physical completion or waveform timing. No native/Mesen run was authorized.
+
+Measured standalone cost (cycles, excluding real DMA/interrupts/host mixer)
+Role/track          original mean/peak        candidate mean/peak
+normal9                648.73 /2010             2394.98 /12552
+water11                637.41 /2028             2284.00 /11214
+underground12          635.63 /1852             2375.21 /10570
+castle23               601.64 /1821             2101.94 /10178
+bonus13                616.97 /1848             2144.97 /9621
+intro1                 650.74 /2072             2414.66 /12664
+star14                 678.18 /2102             2549.50 /12714
+die43                  274.42 /1703              317.44 /8316
+game_over42            274.08 /1787              314.84 /8845
+win38                  274.55 /2054              317.88 /11941
+win_castle39           276.30 /1989              324.18 /10545
+hurry27                662.11 /2010             2477.95 /12552
+Candidate cold/init is1197cycles, including metadata setup and four mapped
+reads. The common per-read bank/stack adapter is expensive. This fits storage
+and preserves the source contract, but is NOT performance-qualified. No claim
+of reduced lag, acceptable native deadlines, or playable music completion.
+
+Reproduction/build controls
+  Fresh canonical expanded build reproduces a4be8e02 exactly. Ordinary hashes
+  remain MMC3 d444cac88e13fa02b29ad16100b8f08fa565ba90f8cedde192de43fb2dc8f3eb
+  and MMC5 f4ffd2483c51daa4d60bb575da2da8c4d817692cda407611c243031f67520833.
+  Full payload round trip SHA d54ae38d695f5787915b47534de768a32116007929181888237b80c14f347b45.
+  CPU proof cpu-full-v3/proof.json SHA1d4df972d4fb3102d994a676c24bfb7ad783310c729ef4b1db8941e88311e17d.
+
+Retained failed attempts and limits
+  prepare_v1: earlier conservative E2C0..E838 span omitted an unexecuted direct
+  branch targetE851; bound check failed before assembly. No false size claim.
+  prepare_v2/v3: exploratory direct CFG classifier walked impossible branch
+  fallthrough into adjacent data atE83A/A70D; both failures retained. These
+  attempts establish no static closure. v4 retains larger raw contiguous spans
+  but still translates only the observed instructions. Qualification remains
+  the actual twelve cold contracts; unobserved native control/71songs unproved.
+  cpu_v1 onv4: raw py65 B bookkeeping differed after PHP/PLP. cpu_v2 explicitly
+  compares real physical flagsCF, retaining every other ABI/state assertion.
+  cpu_v2: projection initially assumed CurrentBank outside stack; its genuine
+  address145 is already excluded by the original source-state definition.
+  cpu_v3 onv4: actual first source sample request hit the unsupported-request
+  trap: PHX/PHY macros clobbered A before recording4012. v5 records original A
+  before those macros and reloads it; all source/output assertions stay exact.
+  Seven original sample-address values are supported for these contracts;
+  other values deliberately trap, never silently select an unrelated sample.
+  Full intact payload/observed union is NOT static reachability or71-song proof.
+
+Stop point: reviewable unused source/CPU core packet. No automatic active host
+integration, source optimization campaign, native run or adoption follows it.
