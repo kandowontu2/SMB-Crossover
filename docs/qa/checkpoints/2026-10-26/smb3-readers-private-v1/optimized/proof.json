@@ -1,0 +1,30 @@
+{
+  "passed": true,
+  "source_only": true,
+  "native_run": false,
+  "host_integration": false,
+  "parent_ROM_sha256": "a4be8e02de0f8c0c43e5a7c94e4719e8b62c2ae80c1b1769978b06e73f2cac98",
+  "ROM_sha256": "e578d0de91b0613ccfd6907467109c7c30dabd3fa69dcbefb4fe68c4ed4e2eff",
+  "changed_PRG_bytes": {
+    "38": 615,
+    "86": 16
+  },
+  "changed_source": [
+    "src/smb3_native_standalone.s"
+  ],
+  "known_absolute_sites": 39,
+  "source_index_domain": [
+    0,
+    255
+  ],
+  "generic_indirect_readers_unchanged": true,
+  "new_RAM_bytes": 0,
+  "core_bytes": 4508,
+  "core_cap": 5120,
+  "retained_parent_symbols": 75417,
+  "legitimate_symbol_exception": "B3CoreEnd moves to the genuine new end of previously unused standalone core; no callable/host PC moves",
+  "source_EOL_preserved": true,
+  "old_E_clones_exact_to_OLD_parent_only": true,
+  "NOT_current3b_clone_or_native_evidence": true,
+  "tool_sha256": "5b4d99451a12c951de6f55f3f47cfef35791945cb6893a575abdabcbb699bd27"
+}

@@ -532,6 +532,22 @@ Missing distinct current-roster music includes SMB3 Mario/Luigi and three
 Parodius alternatives. A private cfg-only asset relocation passes source/IRQ/
 reference controls and frees prospective storage; indexed page-cross costs can
 increase by11cycles and native timing remains unqualified. It is uninstalled.
+A separate private SMB3 reader optimization on the old unused a4be core now
+passes18624 reader and10085 complete-call controls. Weighted mean cost falls
+2339.74to1538.29cycles; no live music hook, host RAM lifecycle or native result
+exists. It is excluded from641/3b. Future integration must regenerate both
+sample clones from the final current resident code: old clones each contain949
+stale non-sample bytes. See checkpoints/2026-10-26/smb3-readers-private-v1.
+
+Whole-DMA priority rotation through nonzero OAMADDR was reviewed and rejected
+before implementation. Restoring OAMADDR after DMA can itself corrupt an8-byte
+row on documented2C02G alignments; four-byte record alignment does not establish
+safe hardware behavior. Existing source rotation can also be cancelled by the
+proposed destination offset. No source/native/settings change was made; keep
+the existing pre-DMA OAMADDR0 pattern and pursue fair construction ordering.
+Sources: https://www.nesdev.org/wiki/Errata and
+https://www.nesdev.org/wiki/PPU_glitches. This rejection does not close the
+existing crowded-scene sprite-visibility problem.
 The guide is not a current verification receipt.
 Oversized MMC3 remains unqualified; MMC5 is the focus. Full campaign, all
 alternate-mode/shortcut routes and all physical item delivery/use remain unfinished.

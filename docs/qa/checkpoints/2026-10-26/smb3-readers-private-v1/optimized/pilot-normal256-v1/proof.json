@@ -1,0 +1,56 @@
+{
+  "passed": true,
+  "source_only": true,
+  "native_run": false,
+  "host_integration": false,
+  "ROM_sha256": "e578d0de91b0613ccfd6907467109c7c30dabd3fa69dcbefb4fe68c4ed4e2eff",
+  "source_NSF_sha256": "4f22166e5baf4db867564b57c3d152dacb85b6365f7bf94cf0883d612e7f915c",
+  "original_trace_proof_sha256": "fd6d4c2dc248943b225063ce3c1ce3dacb7739221981b10abb4a849ed60f3e9e",
+  "calls": 257,
+  "ordered_original_APU_stores": 1524,
+  "roles": [
+    {
+      "role": "normal",
+      "song": 9,
+      "calls": 257,
+      "ordered_original_APU_stores": 1524,
+      "physical_APU_stores": 1524,
+      "init_cycles": 521,
+      "mean_play_cycles": 1560.84375,
+      "p95": 3793,
+      "peak_play_cycles": 7229,
+      "original_mean": 648.7260555555556,
+      "original_peak": 2010,
+      "minimum_SP": 243,
+      "source_state_digest": "a96cbe1a6b6d07f841e2c18a515ab4c470181aaaecdfe21b25d7a2a622c1a249",
+      "physical_DMC_sample_checks": 10,
+      "distinct_DMC_configs": 3,
+      "DMC_payload_union_bytes": 1282,
+      "samples": [
+        {
+          "source_first": 12288,
+          "bytes": 129,
+          "sha256": "9e0c3bff0b771ae01b6b53ab9a2ca2cc35a72645b695f052df5c08b0635da0cd",
+          "requests": 1
+        },
+        {
+          "source_first": 14720,
+          "bytes": 257,
+          "sha256": "1352f0528e01d7bddcbb5ada9356b23b223a352a9664e13b2173d69a91df9ee7",
+          "requests": 5
+        },
+        {
+          "source_first": 14976,
+          "bytes": 897,
+          "sha256": "b677132016b549b4bacc2cbf1c34cf972b7c4366ecf7da49e38b9ae9d17ea940",
+          "requests": 4
+        }
+      ]
+    }
+  ],
+  "all_original_source_RAM_writes_state_AXYP_SP_maps_ordered_APU_exact": true,
+  "full_original_payload_preserved": true,
+  "physical_sample_bytes_match_original_virtual_payload": true,
+  "checker_sha256": "3dbb32d2d17cb0699600cd88d154f5fae6b4c86cd6b74b03aea06c2613eb2980",
+  "limits": "Standalone fixed12 cold init/play contract only. Original numeric RAM remains live in isolated fixture; helper metadata7B00..7B14 and host bank shadows are explicitly canonicalized. No host borrow/ownership/lifecycle, native scheduling/DMC DMA/PPU, all71 songs or universal/static reachability claim."
+}

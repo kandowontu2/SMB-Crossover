@@ -1,0 +1,190 @@
+SMB3 MARIO/LUIGI MUSIC: CURRENT ROUTE AND PRACTICAL NEXT STEP
+2026-10-26. Read-only recommendation; no new integration, build or native run.
+
+The gap is real: SMB3 Mario and Luigi both use Pit's music. Authentic SMB3
+assets and an unused source-qualified driver already exist locally. Reuse
+that work, but do not connect its present generic reader directly to gameplay:
+its measured overhead is substantial, its RAM is not host-owned yet, and its
+old fixed-E clones would undo current interrupt repairs.
+
+Exact inspected builds
+  Installed641: 641460e2646806c03fb98cf84f8a8c2e8de99c74dac8c5876c50f05ef1eb512c
+  Private3b:    3b112e1d79ba7348f2f7a4c426f4675845a5781017ab74690feb235121a66287
+  Unusedcore:   a4be8e02de0f8c0c43e5a7c94e4719e8b62c2ae80c1b1769978b06e73f2cac98
+  The installed/default build was641 during this review. No claim transfers
+  these observations to any later source composition or adopted build.
+
+WHAT THE CURRENT GAME ACTUALLY DOES
+
+The assembled whole AudioUpdate was executed cold and steady on both current
+ROMs, both numeric modes0/1 and M3Variant0/1: eight matching route pairs.
+ID17 passes AudioUpdate -> ExpandedAudioUpdate -> VgAudioDispatch ->
+LmNativeMusicGate -> ExpandedAudioTick -> KbAudioFamily. The family function
+returns6, XgAudioBase0 and area selection0. Family6 is Pit/Kid Icarus. Neither
+variant nor Easy/Hard selects distinct SMB3 music. These compiled route spans
+are identical between641 and3b. Title/select still deliberately uses vanilla
+audio. This is an explicit fallback route, not a missing local asset.
+
+REUSE THE EXISTING AUTHENTIC WORK
+
+reference/new-roster-audio/mario3/crossover-named.nsf is36992B, SHA256
+4f22166e5baf4db867564b57c3d152dacb85b6365f7bf94cf0883d612e7f915c.
+Its complete36864B payload exactly matches the supplied Crossover2 SMB3 NSFE
+DATA; original load/init/play8000/9000/A000, nominal period16639us. Existing
+role selections are normal9, water11, underground12, castle23, bonus13,
+intro1, star14, die43, game-over42, win38, castle-win39 and hurry27.
+
+The existing original-source closure ran216012 calls over those twelve fixed
+cold roles and retained957715 ordered original APU stores, full source RAM,
+raw400F/4017, source maps and sample requests. The unused a4be core reproduces
+that finite contract, including5007 translated sample requests. It retains
+the complete payload; the7840B observed read/sample union is not permission
+to discard the other bytes. All71 tracks and arbitrary source inputs remain
+unproved. Earlier captured songs restart around frame7212; their tails are
+not infinite-song goldens. Original executable traces are the binding oracle.
+
+The unused core is4032B in C38:CBE8..DBA7 (1088B left of the5120B cap), plus
+86B at A86:A800..A855 (426B left of its512B cap). It has no AudioUpdate hook,
+host RAM save/aliasing, music-owner lifecycle or native playback qualification.
+No failed native playback is being reported: this integration was never run.
+Earlier source/preparer failures and all scope limits remain in the existing
+smb3-native-core-2026-10-26.txt report and immutable private packet.
+
+CURRENT STORAGE STILL FITS THE EXISTING TARGETED PLAN
+
+The nine4096B payload tails at physical offset1000 in banks
+78/86/90/93/95/96/98/118/119 are still genuinely unallocated FF on private3b.
+The current Luigi prefix in78 now endsAB57; it does not reach B000. The old
+held Chip A78:A500..A698 placement is NOT free on current Luigi and must not
+be carried forward as a spare adapter location. The separate86:A800..A9FF
+cold pool is still free.
+
+Reuse only these three genuine data relocations from the old source plan:
+  Z2_GFX886B: bank70 C000 -> bank95 C340.
+  MIKE_GFX863B: bank97 C000 -> bank95 C6C0; reassemble real internal pointers.
+  BILL_ORBIT_2 5120B: bank38 CBE8..DFE7 -> bank85, same CPU addresses.
+This frees the C38 core span and physical70/97 for two persistent DPCM clones.
+The earlier relocation has finite CPU/IRQ/drawing controls but no native
+qualification, and was based on old3cee. Rebase only its relevant linker/data
+declarations onto current source; never overlay its whole source/config tree.
+Preserve current Luigi, Bass inventory/font, robot HUD and host NMI changes.
+
+CRITICAL CLONE REBASE WARNING
+
+Each old a4be E70/E97 clone differs from current fixed127 in949 bytes OUTSIDE
+the declared pure-sample interval F140..FFC0 inclusive. The first difference
+is E005: old A2 01 86 DC 8E 16 40 CA versus current AD 7A 07 8D 01 20 A2 01.
+That is current post-DMA enable/interrupt code, not replaceable audio data.
+Regenerate both full8192B clones from the exact FINAL linked127, then overlay
+only the declared sample spans. Prove every other code/vector byte exact and
+keep this producer durable after future host repairs. Copying old clones into
+current641/3b would regress code already repaired by the host NMI work.
+
+WHY THE CURRENT READER IS TOO EXPENSIVE
+
+A fresh read-only profile rechecked the original normal9 cold call plus1024
+plays of the EXISTING a4be core. All original ordered source RAM/APU/maps,
+physical registers/flags/SP and complete projected source RAM hashes passed.
+This is an isolated CPU model, without real DMC stalls, interrupts or PPU.
+
+Metric over1024 plays                        Mean cycles/count     Maximum
+Original source play                           644.845 cycles         2010
+Current translated core                       2382.160 cycles        12552
+All generic read helpers incl outer JSR        1680.357 cycles        10398
+Bank save/map/restore instruction portion       150.684 cycles          920
+ROM-reading helper calls                         7.534 calls            46
+Actual5115 stores                               15.068 stores           92
+Ideal same-read-order full-call A lease           5.888 stores           25
+Mapper-store-only lower-bound saving             36.723 cycles          268
+Per-read save/restore instructions removable     120.547 cycles          736
+  before ANY new lease-control/restore cost
+
+The core adds1737.315 mean cycles. The bank protocol is only about8.7% of
+that increase; the removable save/restore part is about6.9%. Most overhead
+is generic return-stack/inline-operand decoding, borrowed R0/R1 handling,
+flag/register preservation and logical-address translation. Per-call maxima
+above are independent and must not be subtracted as a shared peak estimate.
+The longer existing18000-play result is similar: normal2394.98/12552 versus
+648.73/2010 original; star2549.50/12714 versus678.18/2102. Nothing here proves
+native deadline safety. A full-driver A-window lease alone is not enough.
+
+BOUNDED A-WINDOW LEASE: FEASIBLE CONTRACT, NOT IMPLEMENTED
+
+The steady translated core executes in C38. Its A86 cold bridge ends with a
+tail JMP into C before data readers run. The current resident IRQ uses no
+A-window code/data and performs no5115 write. Those facts make a bounded
+full-source-call A lease plausible, subject to actual interrupt proof:
+  1. Enter a resident/C helper after the cold A bridge has relinquished A.
+  2. Keep CurrentBank, the foreground shadow, literally unchanged. Track any
+     temporary data-bank selection in owned adapter metadata if caching it.
+  3. Map the requested intact source page into A; keep it until another page
+     is required. All active code and return destinations must remain C/fixed.
+  4. Restore the saved foreground hardware-A mapping before host return,
+     ExpandedAudioDecoded/CrossoverGraphicsBank, or any A-resident mixer call.
+  5. Prove IRQ at each instruction boundary, all NMI return/bank ownership,
+     original A/X/Y/P/SP, source pointers and every ordered source store.
+
+Important correction to the old report's shorthand: B3ReadAddress reads
+CurrentBank and later writes that value to5115. It does NOT read the physical
+mapper bank, and BankPRGA a is only STA5115; it does not update CurrentBank.
+The isolated core fixture deliberately sets hardware A and CurrentBank to86.
+That equality is a fixture contract, not a proved host invariant during a
+lease. An integration must not overwrite CurrentBank to make the adapter
+appear correct, nor assume reading5115 yields the prior mapping. The outer
+ExpandedAudioUpdate already saves its foreground CurrentBank and restores A
+on return; exact driver/helper ownership still needs to be established inside
+that boundary. No lease implementation or guaranteed saving exists yet.
+
+SMALLEST PRACTICAL NEXT IMPLEMENTATION UNIT
+
+Reuse the original source/goldens and current storage plan. Before adding a
+live music hook, specialize the35 steady absolute-read sites (four cold and
+thirteen indirect sites also exist) enough to remove return-stack operand
+decoding, combined with the bounded A lease above. A per-site direct indexed
+load stub is only valid after proving the original virtual-page/index/page-
+cross domain; preserve genuine source numeric pointers and keep a correct
+fallback for unproved indirect domains. This is a source-faithful engineering
+lead, not permission to cache or drop original events, voices or samples.
+Fit the measured code/data expansion within the existing1088B core slack or
+declare a revised ownership plan. Re-run all216012 original call contracts
+and report actual mean/peak costs before deciding whether to connect it.
+
+The remaining host work is concrete and cannot be replaced by a family ID:
+  - Give the62 original source RAM fields real mutually exclusive ownership,
+    using the available decoder history/ZP only after a full alias/reset audit.
+    Present standalone code still writes original host-conflicting addresses.
+  - Add genuine ID17 dispatch for both variants with zero or explicitly
+    qualified foreign-family cost. Existing Vg23B and Mac18B resident gates,
+    plus the adjoining CV3 completion gate, are occupied; do not grow them
+    over another owner. Retain current code PCs and ordinary build outputs.
+  - Route source pulse/triangle/noise into the common guest image/world-SFX
+    mixer while preserving original values/order and actual source cadence.
+  - Implement source DMC status/priority/lifecycle ownership. GuestDmcStatus
+    currently masks bit4 unless its Bass/CV3 owner admits it. Original SMB3
+    sample-address writes often occur while DMC remains enabled, so latch the
+    next E clone and switch only after the ORIGINAL4015 disable, before its
+    re-enable. Preserve original4010/11/12/13/15/17 and DAC/tail semantics.
+  - Prove pause/resume, area/event/death/character changes, mute, previous
+    Bass/CV3 preemption and E127 restoration; then actual DMA/IRQ/native
+    hardware/cadence for both variants and modes. Do not transfer the
+    standalone sample-request check into a physical DMC/waveform claim.
+
+Scope is MMC5 expanded only. The proposed persistent E clone selection cannot
+be used unchanged on fixed-E MMC3. There was no web download, source/ROM/config/
+settings mutation, native launch, integration/adoption or new character here.
+
+EVIDENCE / REPRODUCTION
+
+External evidence root:
+C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/
+Fresh review: smb3-music-current641-review-v1/{proof.json,
+actual-current-routes.json,current-layout-and-clones.json,
+old-core-normal-prefix-profile.json}. Its final-readiness-v1 manifest binds
+these outputs, exact frozen ROM/debug/source inputs, prior authentic receipts,
+local runtime and immutable review tool. No binaries/audio are copied into the
+public report. Reproduce into a NEW external output directory with:
+python tools/audit/smb3_music_current641_readonly_v1.py --output <new-directory>
+
+Existing source/core/relocation scope and retained failures remain in
+docs/qa/smb3-{original-music-closure,music-storage-plan,asset-relocation,
+native-core}-2026-10-26.txt and their original external/checkpoint packets.

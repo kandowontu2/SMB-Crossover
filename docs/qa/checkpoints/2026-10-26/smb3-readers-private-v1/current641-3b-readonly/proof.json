@@ -1,0 +1,58 @@
+{
+  "passed": true,
+  "read_only": true,
+  "native_run": false,
+  "source_or_ROM_or_settings_changed": false,
+  "installed641_ROM_sha256": "641460e2646806c03fb98cf84f8a8c2e8de99c74dac8c5876c50f05ef1eb512c",
+  "frozen3b_ROM_sha256": "3b112e1d79ba7348f2f7a4c426f4675845a5781017ab74690feb235121a66287",
+  "actual_full_AudioUpdate_route_pairs": 8,
+  "all_SMB3_variants_modes_use_Pit_family6": true,
+  "prior_standalone_core_ROM_sha256": "a4be8e02de0f8c0c43e5a7c94e4719e8b62c2ae80c1b1769978b06e73f2cac98",
+  "new_profile_scope": "Existing isolated a4be core coldnormal9 +first1024plays only; every original source RAM/APU/mapper/physicalflag/store contract rechecked. No new implementation or host/PPU/DMC/IRQ lease qualification.",
+  "profile_calls": 1025,
+  "profile_aggregates": {
+    "core_cycles": {
+      "mean": 2382.16015625,
+      "max": 12552
+    },
+    "original_cycles": {
+      "mean": 644.8447265625,
+      "max": 2010
+    },
+    "translated_read_calls": {
+      "mean": 7.5341796875,
+      "max": 46
+    },
+    "ROM_read_calls": {
+      "mean": 7.5341796875,
+      "max": 46
+    },
+    "all_read_helper_cycles": {
+      "mean": 1680.357421875,
+      "max": 10398
+    },
+    "bank_protocol_cycles": {
+      "mean": 150.68359375,
+      "max": 920
+    },
+    "actual5115_stores": {
+      "mean": 15.068359375,
+      "max": 92
+    },
+    "ideal_source_order_Alease_5115_stores": {
+      "mean": 5.8876953125,
+      "max": 25
+    },
+    "ideal_mapper_store_cycles_saved": {
+      "mean": 36.72265625,
+      "max": 268
+    },
+    "per_read_save_restore_instructions_removable_before_lease_control_cost": {
+      "mean": 120.546875,
+      "max": 736
+    }
+  },
+  "old_fixed_E_clones_fail_current_resident_code_identity": true,
+  "source_profile_method": "Actual per-instruction elapsed cycles inside existing read helpers; includes nestedcalls and outerJSR6. Bank protocol is actual LDA/STA CurrentBank/B3SavedABank/5115 instructions. Ideal lease count is a read-only source-order lower bound, NOT an implemented saving; caching/ABI/IRQ/restore/lifecycle cost still required.",
+  "tool_sha256": "29b667af47389188e5bef9dc39e675a80e9629a9e5a22f9f9a8b8cee00801657"
+}

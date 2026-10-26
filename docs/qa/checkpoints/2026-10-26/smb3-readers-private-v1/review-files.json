@@ -1,0 +1,26 @@
+{
+  "first": "README.txt",
+  "primary": [
+    "reports/smb3-native-readers-opt-2026-10-26.txt",
+    "reports/smb3-music-current641-readonly-2026-10-26.txt"
+  ],
+  "implementation": [
+    "source-overlay/src/smb3_native_standalone.s",
+    "optimized/final-readiness/implementation.patch",
+    "optimized/source-delta.json"
+  ],
+  "candidate_controls": [
+    "optimized/proof.json",
+    "optimized/reader-controls-v1/proof.json",
+    "optimized/full-call-recurrences-v1/proof.json",
+    "optimized/ordinary-controls-v1/proof.json"
+  ],
+  "current_dispatch_clone_and_shadow": [
+    "current641-3b-readonly/proof.json",
+    "current641-3b-readonly/actual-current-routes.json",
+    "current641-3b-readonly/current-layout-and-clones.json"
+  ],
+  "retained_failure": "retained-negatives/preparer-v1-failure.json",
+  "external_reproduction_limits": "README.txt",
+  "not_current_or_native_evidence": true
+}

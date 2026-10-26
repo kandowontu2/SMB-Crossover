@@ -1,0 +1,556 @@
+{
+  "route_spans": {
+    "AudioUpdate": {
+      "PC": 61533,
+      "bank": 127,
+      "bytes": 145,
+      "sha256": "a6f2f04e7b051032b659b933fa405961ca0b520f66f9037072fde987b6f06e75"
+    },
+    "ExpandedAudioUpdate": {
+      "PC": 37211,
+      "bank": 126,
+      "bytes": 45,
+      "sha256": "b77792fc47694a1e5c83311a0564ca46c0f7e39ae941fbd447ccdc7a039819b2"
+    },
+    "VgAudioDispatch": {
+      "PC": 57320,
+      "bank": 38,
+      "bytes": 23,
+      "sha256": "74f5c3c749112af4576dcea465a6470f8391b6e5f66d059ed44ed1aa23859fa4"
+    },
+    "LmNativeMusicGate": {
+      "PC": 39422,
+      "bank": 126,
+      "bytes": 18,
+      "sha256": "76fd601a8b36cea8b8019c6918402effee7539a5150bbe4c0425087e36c96e65"
+    },
+    "ExpandedAudioTick": {
+      "PC": 51288,
+      "bank": 38,
+      "bytes": 877,
+      "sha256": "4a70d3c2e95c1efc05f333a5dfbb0ddedf475417d116a05cb33d1ce4cfc563a2"
+    },
+    "KbAudioFamily": {
+      "PC": 52165,
+      "bank": 38,
+      "bytes": 35,
+      "sha256": "91472479fa3b4b5239af95d253237af1ae42fdbf359d38e9c2cab894894a1a73"
+    },
+    "GuestDmcStatus": {
+      "PC": 60682,
+      "bank": 127,
+      "bytes": 24,
+      "sha256": "d82d4de05afba261b355e413c9a890f0eb0871246ecea61f444d75d462516c01"
+    }
+  },
+  "free_payload_tails": [
+    {
+      "bank": 78,
+      "proposed_page_offset": 4096,
+      "size": 4096,
+      "currently_unallocated_FF": true,
+      "preserved_prefix": [
+        {
+          "name": "X5_PROFILES",
+          "PC": 40960,
+          "physical_start": 0,
+          "size": 2904
+        }
+      ]
+    },
+    {
+      "bank": 86,
+      "proposed_page_offset": 4096,
+      "size": 4096,
+      "currently_unallocated_FF": true,
+      "preserved_prefix": [
+        {
+          "name": "X5_BOUNCE",
+          "PC": 40960,
+          "physical_start": 0,
+          "size": 1862
+        }
+      ]
+    },
+    {
+      "bank": 90,
+      "proposed_page_offset": 4096,
+      "size": 4096,
+      "currently_unallocated_FF": true,
+      "preserved_prefix": [
+        {
+          "name": "M3_LOGIC",
+          "PC": 40960,
+          "physical_start": 0,
+          "size": 3788
+        }
+      ]
+    },
+    {
+      "bank": 93,
+      "proposed_page_offset": 4096,
+      "size": 4096,
+      "currently_unallocated_FF": true,
+      "preserved_prefix": [
+        {
+          "name": "LM_CORE",
+          "PC": 40960,
+          "physical_start": 0,
+          "size": 3416
+        }
+      ]
+    },
+    {
+      "bank": 95,
+      "proposed_page_offset": 4096,
+      "size": 4096,
+      "currently_unallocated_FF": true,
+      "preserved_prefix": [
+        {
+          "name": "LM_COMBAT",
+          "PC": 40960,
+          "physical_start": 0,
+          "size": 779
+        }
+      ]
+    },
+    {
+      "bank": 96,
+      "proposed_page_offset": 4096,
+      "size": 4096,
+      "currently_unallocated_FF": true,
+      "preserved_prefix": [
+        {
+          "name": "MIKE_CORE",
+          "PC": 40960,
+          "physical_start": 0,
+          "size": 2358
+        }
+      ]
+    },
+    {
+      "bank": 98,
+      "proposed_page_offset": 4096,
+      "size": 4096,
+      "currently_unallocated_FF": true,
+      "preserved_prefix": [
+        {
+          "name": "MIKE_COMBAT",
+          "PC": 40960,
+          "physical_start": 0,
+          "size": 3038
+        }
+      ]
+    },
+    {
+      "bank": 118,
+      "proposed_page_offset": 4096,
+      "size": 4096,
+      "currently_unallocated_FF": true,
+      "preserved_prefix": [
+        {
+          "name": "PARODIUS_BELLS",
+          "PC": 40960,
+          "physical_start": 0,
+          "size": 1591
+        }
+      ]
+    },
+    {
+      "bank": 119,
+      "proposed_page_offset": 4096,
+      "size": 4096,
+      "currently_unallocated_FF": true,
+      "preserved_prefix": [
+        {
+          "name": "ROLL_CORE",
+          "PC": 40960,
+          "physical_start": 0,
+          "size": 2785
+        }
+      ]
+    }
+  ],
+  "cold86_A800_512B_currently_unallocated_FF": true,
+  "required_existing_data_moves": [
+    "Z2_GFX70\u219295",
+    "MIKE_GFX97\u219295",
+    "BILL_ORBIT_2 38\u219285"
+  ],
+  "old_clone_rebase_rejection": [
+    {
+      "old_clone_bank": 70,
+      "outside_sample_region_differing_bytes": 949,
+      "first_differences": [
+        {
+          "PC": 57349,
+          "old": 162,
+          "current": 173
+        },
+        {
+          "PC": 57350,
+          "old": 1,
+          "current": 122
+        },
+        {
+          "PC": 57351,
+          "old": 134,
+          "current": 7
+        },
+        {
+          "PC": 57352,
+          "old": 220,
+          "current": 141
+        },
+        {
+          "PC": 57353,
+          "old": 142,
+          "current": 1
+        },
+        {
+          "PC": 57354,
+          "old": 22,
+          "current": 32
+        },
+        {
+          "PC": 57355,
+          "old": 64,
+          "current": 162
+        },
+        {
+          "PC": 57356,
+          "old": 202,
+          "current": 1
+        },
+        {
+          "PC": 57357,
+          "old": 142,
+          "current": 134
+        },
+        {
+          "PC": 57358,
+          "old": 22,
+          "current": 220
+        },
+        {
+          "PC": 57359,
+          "old": 64,
+          "current": 142
+        },
+        {
+          "PC": 57360,
+          "old": 173,
+          "current": 22
+        },
+        {
+          "PC": 57361,
+          "old": 23,
+          "current": 64
+        },
+        {
+          "PC": 57362,
+          "old": 64,
+          "current": 202
+        },
+        {
+          "PC": 57363,
+          "old": 41,
+          "current": 142
+        },
+        {
+          "PC": 57364,
+          "old": 3,
+          "current": 22
+        },
+        {
+          "PC": 57365,
+          "old": 201,
+          "current": 64
+        },
+        {
+          "PC": 57366,
+          "old": 1,
+          "current": 173
+        },
+        {
+          "PC": 57367,
+          "old": 54,
+          "current": 23
+        },
+        {
+          "PC": 57368,
+          "old": 221,
+          "current": 64
+        },
+        {
+          "PC": 57369,
+          "old": 173,
+          "current": 41
+        },
+        {
+          "PC": 57370,
+          "old": 22,
+          "current": 3
+        },
+        {
+          "PC": 57371,
+          "old": 64,
+          "current": 201
+        },
+        {
+          "PC": 57372,
+          "old": 41,
+          "current": 1
+        },
+        {
+          "PC": 57373,
+          "old": 3,
+          "current": 54
+        },
+        {
+          "PC": 57374,
+          "old": 201,
+          "current": 221
+        },
+        {
+          "PC": 57375,
+          "old": 1,
+          "current": 173
+        },
+        {
+          "PC": 57376,
+          "old": 38,
+          "current": 22
+        },
+        {
+          "PC": 57377,
+          "old": 220,
+          "current": 64
+        },
+        {
+          "PC": 57378,
+          "old": 144,
+          "current": 41
+        },
+        {
+          "PC": 57379,
+          "old": 236,
+          "current": 3
+        },
+        {
+          "PC": 57380,
+          "old": 96,
+          "current": 201
+        }
+      ],
+      "old_E005": [
+        162,
+        1,
+        134,
+        220,
+        142,
+        22,
+        64,
+        202
+      ],
+      "current_E005": [
+        173,
+        122,
+        7,
+        141,
+        1,
+        32,
+        162,
+        1
+      ],
+      "safe_to_copy_old_clone": false
+    },
+    {
+      "old_clone_bank": 97,
+      "outside_sample_region_differing_bytes": 949,
+      "first_differences": [
+        {
+          "PC": 57349,
+          "old": 162,
+          "current": 173
+        },
+        {
+          "PC": 57350,
+          "old": 1,
+          "current": 122
+        },
+        {
+          "PC": 57351,
+          "old": 134,
+          "current": 7
+        },
+        {
+          "PC": 57352,
+          "old": 220,
+          "current": 141
+        },
+        {
+          "PC": 57353,
+          "old": 142,
+          "current": 1
+        },
+        {
+          "PC": 57354,
+          "old": 22,
+          "current": 32
+        },
+        {
+          "PC": 57355,
+          "old": 64,
+          "current": 162
+        },
+        {
+          "PC": 57356,
+          "old": 202,
+          "current": 1
+        },
+        {
+          "PC": 57357,
+          "old": 142,
+          "current": 134
+        },
+        {
+          "PC": 57358,
+          "old": 22,
+          "current": 220
+        },
+        {
+          "PC": 57359,
+          "old": 64,
+          "current": 142
+        },
+        {
+          "PC": 57360,
+          "old": 173,
+          "current": 22
+        },
+        {
+          "PC": 57361,
+          "old": 23,
+          "current": 64
+        },
+        {
+          "PC": 57362,
+          "old": 64,
+          "current": 202
+        },
+        {
+          "PC": 57363,
+          "old": 41,
+          "current": 142
+        },
+        {
+          "PC": 57364,
+          "old": 3,
+          "current": 22
+        },
+        {
+          "PC": 57365,
+          "old": 201,
+          "current": 64
+        },
+        {
+          "PC": 57366,
+          "old": 1,
+          "current": 173
+        },
+        {
+          "PC": 57367,
+          "old": 54,
+          "current": 23
+        },
+        {
+          "PC": 57368,
+          "old": 221,
+          "current": 64
+        },
+        {
+          "PC": 57369,
+          "old": 173,
+          "current": 41
+        },
+        {
+          "PC": 57370,
+          "old": 22,
+          "current": 3
+        },
+        {
+          "PC": 57371,
+          "old": 64,
+          "current": 201
+        },
+        {
+          "PC": 57372,
+          "old": 41,
+          "current": 1
+        },
+        {
+          "PC": 57373,
+          "old": 3,
+          "current": 54
+        },
+        {
+          "PC": 57374,
+          "old": 201,
+          "current": 221
+        },
+        {
+          "PC": 57375,
+          "old": 1,
+          "current": 173
+        },
+        {
+          "PC": 57376,
+          "old": 38,
+          "current": 22
+        },
+        {
+          "PC": 57377,
+          "old": 220,
+          "current": 64
+        },
+        {
+          "PC": 57378,
+          "old": 144,
+          "current": 41
+        },
+        {
+          "PC": 57379,
+          "old": 236,
+          "current": 3
+        },
+        {
+          "PC": 57380,
+          "old": 96,
+          "current": 201
+        }
+      ],
+      "old_E005": [
+        162,
+        1,
+        134,
+        220,
+        142,
+        22,
+        64,
+        202
+      ],
+      "current_E005": [
+        173,
+        122,
+        7,
+        141,
+        1,
+        32,
+        162,
+        1
+      ],
+      "safe_to_copy_old_clone": false
+    }
+  ]
+}

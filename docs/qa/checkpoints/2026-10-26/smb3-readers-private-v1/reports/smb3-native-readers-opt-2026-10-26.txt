@@ -1,0 +1,124 @@
+SMB3 UNUSED NATIVE CORE: BOUNDED ABSOLUTE READER OPTIMIZATION
+2026-10-26. Private source/CPU component; not installed or connected to AudioUpdate.
+
+Parent unused core a4be8e02de0f8c0c43e5a7c94e4719e8b62c2ae80c1b1769978b06e73f2cac98.
+Optimized unused core e578d0de91b0613ccfd6907467109c7c30dabd3fa69dcbefb4fe68c4ed4e2eff.
+External packet: SMB Crossover Archive/2026-10-24-native-rest-py/smb3-native-readers-opt-v2.
+Installed641 and private3b inputs, game source, settings, default builds and Git
+were untouched. No native emulator was launched. This is not new3b evidence.
+
+CHANGE AND OWNERSHIP
+
+Replace the39 existing absolute ROM-reader calls:35 steady and4 cold. Every
+base offset is at most0874, so ALL byte indices0..255 remain in the same original
+4096B page. Four genuine setup helpers select original virtual pages1/2/3/6;
+each per-site stub executes a direct Bxxx,X/Y load, then the shared bank/flags
+restore. Virtual mapping remains dynamic and the entire36864B source stays
+intact. There is no A-window lease, caching, tick/event/voice/sample removal,
+new RAM, source pointer rewrite or source-state relocation.
+
+The direct readers avoid return-stack inline-operand decoding and never borrow
+R0/R1. PHP/PLP preserve original C/V/D/I; the final LDA supplies its correct N/Z.
+X/Y, liveSP, foreground CurrentBank and ordered5115 map/restore writes remain
+exact. Existing21B private metadata may contain different scratch values; the
+original source-state projection already excludes it. Raw consumed stack bytes
+can differ, while liveSP/flags/registers and complete nonstack source RAM match.
+
+Each existing five-byte callsite remains five bytes: JSR new real stub, followed
+by two executed NOPs. Their four-cycle cost is included in every measurement.
+They preserve all subsequent real source-entry PCs. The old generic absolute
+and indirect helper bytes remain intact; thirteen indirect sites are unchanged.
+No fake compatibility labels were added. All75417 old symbols retain their real
+values except B3CoreEnd, now the genuine extended private core end.
+
+Only src/smb3_native_standalone.s changes, preserving its original CRLF endings.
+ROM differences are615bytes in bank38 and16bytes in bank86 (four cold callsites).
+Header, CHR and every other bank are exact to OLD a4be, including fixed127 and
+old70/97. Core grows4032->4508B within5120B, leaving612B. Cold pool stays86B
+within512B. The four cold callsites still return to their genuine A86 code.
+
+FIRST COMPARISON, THEN BOUNDED EXPANSION
+
+First pilot: original normal9 cold plus256plays,257calls. Ordered source RAM,
+complete projected RAM state, A/X/Y/physicalflags/SP, virtual maps, ordered APU
+and actual translated sample-request bytes all pass the unchanged source checker.
+Same-prefix mean2367.17->1560.84cycles; peak12552->7229; cold1197->521.
+
+Changed-address controls:18624 paired assembled caller executions.
+  9984: all256indices at all39sites, with valid virtual pages varied0..8.
+  8640: all64physical flag combinations, all9valid page values and indices
+        0/127/255 for the five actual logical-page/index-register helper kinds.
+Original source values, A/X/Y/physicalflags/SP, complete final nonstack RAM
+outside the declared metadata, literal R0/R1, bank shadows and ordered mapper
+stores match. All cases save165..169cycles per changed absolute read. Generic
+and indirect fallback code is byte-exact. These are isolated caller controls,
+not host NMI/IRQ or native hardware qualification.
+
+Full-call comparison reuses the unchanged authentic-source checker. Each role
+stops at its FIRST original proved call-boundary recurrence, including all its
+cold/transient behavior, rather than repeating the old18000play suffix.
+10085calls per ROM;61695 ordered original APU stores;365 source sample payload
+checks. All source state digests, registers/flags/SP, source RAM/store order,
+APU/store order including raw400F/4017, virtual maps and sample bytes match.
+
+Role             Mean old -> new       Peak old -> new        Calls inclcold
+normal           2392.78 ->1579.60       12552 ->7229                1770
+water            2267.55 ->1487.13       11214 ->6887                1810
+underground      2356.98 ->1535.83       10570 ->6557                1442
+castle           2117.99 ->1404.03       10178 ->6026                1282
+bonus            2159.35 ->1430.28        9621 ->5625                 514
+intro            2425.82 ->1581.71       12664 ->7340                 866
+star             2602.02 ->1693.79       12714 ->7390                 194
+die              2193.73 ->1454.54        8316 ->5316                 195
+game-over        2185.61 ->1443.39        8845 ->5354                 171
+win              2234.77 ->1450.26       11941 ->7122                 195
+castle-win       3174.61 ->2086.72       10545 ->6390                 171
+hurry            2472.97 ->1632.66       12552 ->7229                1475
+
+All cold calls1197->521. Weighted mean of the10073plays is2339.74->1538.29,
+saving801.45cycles/34.25%. Short cues here include their active prefix, not the
+long quiet suffix used in the older18000play averages. Do not compare those
+averages as if they were the same workload. New full18k, all71tracks, arbitrary
+inputs, DMC DMA/completion/waveforms and native scheduling remain unproved.
+
+The ordinary flag-off builds remain byte-exact:
+MMC3 d444cac88e13fa02b29ad16100b8f08fa565ba90f8cedde192de43fb2dc8f3eb
+MMC5 f4ffd2483c51daa4d60bb575da2da8c4d817692cda407611c243031f67520833
+
+RETAINED NEGATIVE AND REMAINING WORK
+
+Preparer v1 compiled these SAME e578 bytes but failed its structural assertion:
+the oracle allowed only bank38 and forgot the four explicitly intended cold
+callsite changes in86. It ran no CPU pilot. Its source, output and failure.json
+remain immutable under smb3-native-readers-opt-v1. v2 corrects that allowed-bank
+catalog to38+86/16bytes. No failed game behavior was masked or retried.
+
+This is a useful source-faithful optimization, not native lag closure. Peak7390
+still excludes host mixer/borrowing/interrupts/DMC stalls and remains much more
+expensive than the original source. The dynamic indirect readers and source-
+state ownership remain practical next cost/ABI work, not changed here.
+
+Before current integration, rebase ONLY the intended source/data relocations
+onto final current source. Regenerate E70/E97 from that final fixed127 and overlay
+only declared sample data. The inherited OLD clones differ from current host
+code in949bytes outside the pure sample span; none were copied into current.
+Retain the post-DMA/NMI repairs in every regenerated clone.
+
+Host work remains: allocate/alias62 original RAM fields safely, establish real
+ID17 dispatch without foreign cost regressions, route through the common guest
+image/world-SFX mixer, preserve DMC owner/priority/tail and original disable/
+pending-clone/enable semantics, and qualify pause/reset/death/scene/preemption/
+E127 restore with complete host NMI/IRQ and later strict native cadence. The
+existing old5007sample/source216012call proof remains old-a4be evidence, not a
+renamed candidate result. No live hook, new import or new character was added.
+
+REPRODUCTION / FINITE FREEZE
+
+python tools/audit/smb3_native_readers_opt_prepare_v2.py --output <newexternal>
+python tools/audit/smb3_native_core_cpu_v3.py --rom <candidate.nes> --output <newpilot> --role normal --calls 256
+python tools/audit/smb3_native_readers_opt_controls_v1.py --packet <packet>
+python tools/audit/smb3_native_readers_opt_calls_v1.py --packet <packet>
+The frozen launch JSON contains the exact executable command.
+final-readiness-v1 binds the source delta/patch,
+tools, source manifest, original inputs, all finite receipts and flagoff commands.
+No ROM/audio/capture/settings bundle or new large checkpoint is required.

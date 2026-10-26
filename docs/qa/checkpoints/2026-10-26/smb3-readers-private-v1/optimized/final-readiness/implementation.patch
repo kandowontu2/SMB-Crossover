@@ -1,0 +1,618 @@
+--- a/src/smb3_native_standalone.s
++++ b/src/smb3_native_standalone.s
+@@ -3585,20 +3585,23 @@
+ B3SourceE2E4:
+  TAY
+ B3SourceE2E5:
+- jsr B3ReadAbsY
+- .word $e329
++ jsr B3KnownE2E5
++ nop
++ nop
+ B3SourceE2E8:
+  STA $4010
+ B3SourceE2EB:
+  STA $7aff
+ B3SourceE2EE:
+- jsr B3ReadAbsY
+- .word $e309
++ jsr B3KnownE2EE
++ nop
++ nop
+ B3SourceE2F1:
+  jsr B3Write4012
+ B3SourceE2F4:
+- jsr B3ReadAbsY
+- .word $e319
++ jsr B3KnownE2F4
++ nop
++ nop
+ B3SourceE2F7:
+  STA $4013
+ B3SourceE2FA:
+@@ -3724,8 +3727,9 @@
+ B3SourceE344:
+  TAY
+ B3SourceE345:
+- jsr B3ReadAbsY
+- .word $e874
++ jsr B3KnownE345
++ nop
++ nop
+ B3SourceE348:
+  RTS
+ B3SourceE349:
+@@ -3799,13 +3803,15 @@
+ B3SourceE387:
+  TAY
+ B3SourceE388:
+- jsr B3ReadAbsY
+- .word $b52f
++ jsr B3KnownE388
++ nop
++ nop
+ B3SourceE38B:
+  STA $7ae0
+ B3SourceE38E:
+- jsr B3ReadAbsY
+- .word $b53b
++ jsr B3KnownE38E
++ nop
++ nop
+ B3SourceE391:
+  CLC
+ B3SourceE392:
+@@ -3813,8 +3819,9 @@
+ B3SourceE394:
+  STA $7ae1
+ B3SourceE397:
+- jsr B3ReadAbsY
+- .word $b547
++ jsr B3KnownE397
++ nop
++ nop
+ B3SourceE39A:
+  STA $7ae2
+ B3SourceE39D:
+@@ -3840,45 +3847,53 @@
+ B3SourceE3B5:
+  .byte $e5
+ B3SourceE3B6:
+- jsr B3ReadAbsY
+- .word $b3ff
++ jsr B3KnownE3B6
++ nop
++ nop
+ B3SourceE3B9:
+  TAY
+ B3SourceE3BA:
+- jsr B3ReadAbsY
+- .word $b42d
++ jsr B3KnownE3BA
++ nop
++ nop
+ B3SourceE3BD:
+  STA $04fd
+ B3SourceE3C0:
+- jsr B3ReadAbsY
+- .word $b42e
++ jsr B3KnownE3C0
++ nop
++ nop
+ B3SourceE3C3:
+  STA $6b
+ B3SourceE3C5:
+- jsr B3ReadAbsY
+- .word $b42f
++ jsr B3KnownE3C5
++ nop
++ nop
+ B3SourceE3C8:
+  STA $6c
+ B3SourceE3CA:
+- jsr B3ReadAbsY
+- .word $b430
++ jsr B3KnownE3CA
++ nop
++ nop
+ B3SourceE3CD:
+  STA $04d0
+ B3SourceE3D0:
+- jsr B3ReadAbsY
+- .word $b431
++ jsr B3KnownE3D0
++ nop
++ nop
+ B3SourceE3D3:
+  STA $04ff
+ B3SourceE3D6:
+- jsr B3ReadAbsY
+- .word $b432
++ jsr B3KnownE3D6
++ nop
++ nop
+ B3SourceE3D9:
+  STA $04d1
+ B3SourceE3DC:
+  STA $07f3
+ B3SourceE3DF:
+- jsr B3ReadAbsY
+- .word $b433
++ jsr B3KnownE3DF
++ nop
++ nop
+ B3SourceE3E2:
+  STA $04d2
+ B3SourceE3E5:
+@@ -3924,13 +3939,15 @@
+ B3SourceE416:
+  TAY
+ B3SourceE417:
+- jsr B3ReadAbsY
+- .word $a86c
++ jsr B3KnownE417
++ nop
++ nop
+ B3SourceE41A:
+  STA $7ae0
+ B3SourceE41D:
+- jsr B3ReadAbsY
+- .word $a87b
++ jsr B3KnownE41D
++ nop
++ nop
+ B3SourceE420:
+  CLC
+ B3SourceE421:
+@@ -3938,8 +3955,9 @@
+ B3SourceE423:
+  STA $7ae1
+ B3SourceE426:
+- jsr B3ReadAbsY
+- .word $a88a
++ jsr B3KnownE426
++ nop
++ nop
+ B3SourceE429:
+  STA $7ae2
+ B3SourceE42C:
+@@ -3983,45 +4001,53 @@
+ B3SourceE458:
+  jcc ::B3SourceE456
+ B3SourceE45A:
+- jsr B3ReadAbsY
+- .word $a73f
++ jsr B3KnownE45A
++ nop
++ nop
+ B3SourceE45D:
+  TAY
+ B3SourceE45E:
+- jsr B3ReadAbsY
+- .word $a76c
++ jsr B3KnownE45E
++ nop
++ nop
+ B3SourceE461:
+  STA $04fd
+ B3SourceE464:
+- jsr B3ReadAbsY
+- .word $a76d
++ jsr B3KnownE464
++ nop
++ nop
+ B3SourceE467:
+  STA $6b
+ B3SourceE469:
+- jsr B3ReadAbsY
+- .word $a76e
++ jsr B3KnownE469
++ nop
++ nop
+ B3SourceE46C:
+  STA $6c
+ B3SourceE46E:
+- jsr B3ReadAbsY
+- .word $a76f
++ jsr B3KnownE46E
++ nop
++ nop
+ B3SourceE471:
+  STA $04d0
+ B3SourceE474:
+- jsr B3ReadAbsY
+- .word $a770
++ jsr B3KnownE474
++ nop
++ nop
+ B3SourceE477:
+  STA $04ff
+ B3SourceE47A:
+- jsr B3ReadAbsY
+- .word $a771
++ jsr B3KnownE47A
++ nop
++ nop
+ B3SourceE47D:
+  STA $04d1
+ B3SourceE480:
+  STA $07f3
+ B3SourceE483:
+- jsr B3ReadAbsY
+- .word $a772
++ jsr B3KnownE483
++ nop
++ nop
+ B3SourceE486:
+  STA $04d2
+ B3SourceE489:
+@@ -4607,18 +4633,21 @@
+ B3SourceE6E4:
+  TAY
+ B3SourceE6E5:
+- jsr B3ReadAbsY
+- .word $e74a
++ jsr B3KnownE6E5
++ nop
++ nop
+ B3SourceE6E8:
+  STA $400c
+ B3SourceE6EB:
+- jsr B3ReadAbsY
+- .word $e74e
++ jsr B3KnownE6EB
++ nop
++ nop
+ B3SourceE6EE:
+  STA $400e
+ B3SourceE6F1:
+- jsr B3ReadAbsY
+- .word $e752
++ jsr B3KnownE6F1
++ nop
++ nop
+ B3SourceE6F4:
+  STA $400f
+ B3SourceE6F7:
+@@ -4808,25 +4837,29 @@
+ B3SourceE790:
+  jcc ::B3SourceE79E
+ B3SourceE792:
+- jsr B3ReadAbsX
+- .word $e765
++ jsr B3KnownE792
++ nop
++ nop
+ B3SourceE795:
+  STA $71
+ B3SourceE797:
+- jsr B3ReadAbsX
+- .word $e766
++ jsr B3KnownE797
++ nop
++ nop
+ B3SourceE79A:
+  STA $72
+ B3SourceE79C:
+  jne ::B3SourceE7A8
+ B3SourceE79E:
+- jsr B3ReadAbsX
+- .word $e775
++ jsr B3KnownE79E
++ nop
++ nop
+ B3SourceE7A1:
+  STA $71
+ B3SourceE7A3:
+- jsr B3ReadAbsX
+- .word $e776
++ jsr B3KnownE7A3
++ nop
++ nop
+ B3SourceE7A6:
+  STA $72
+ B3SourceE7A8:
+@@ -4908,13 +4941,15 @@
+ B3SourceE7DC:
+  TAY
+ B3SourceE7DD:
+- jsr B3ReadAbsY
+- .word $e839
++ jsr B3KnownE7DD
++ nop
++ nop
+ B3SourceE7E0:
+  STA $6d
+ B3SourceE7E2:
+- jsr B3ReadAbsY
+- .word $e83a
++ jsr B3KnownE7E2
++ nop
++ nop
+ B3SourceE7E5:
+  STA $6e
+ B3SourceE7E7:
+@@ -5343,6 +5378,243 @@
+ B3TranslatedAddresses:
+  .byte $d7,$c5,$c9,$ea,$f4,$ec,$c5
+ 
++; Known absolute sites: every possible byte index stays in its logical4K page.
++; CurrentBank remains foreground/fixture shadow; no A lease or new state.
++; Preserve all original flags except LDA N/Z and X/Y; never borrow R0/R1.
++B3KnownE2E5:
++ php
++ jsr B3KnownPage6
++ lda $b329,y
++ jmp B3KnownRestore
++B3KnownE2EE:
++ php
++ jsr B3KnownPage6
++ lda $b309,y
++ jmp B3KnownRestore
++B3KnownE2F4:
++ php
++ jsr B3KnownPage6
++ lda $b319,y
++ jmp B3KnownRestore
++B3KnownE345:
++ php
++ jsr B3KnownPage6
++ lda $b874,y
++ jmp B3KnownRestore
++B3KnownE388:
++ php
++ jsr B3KnownPage3
++ lda $b52f,y
++ jmp B3KnownRestore
++B3KnownE38E:
++ php
++ jsr B3KnownPage3
++ lda $b53b,y
++ jmp B3KnownRestore
++B3KnownE397:
++ php
++ jsr B3KnownPage3
++ lda $b547,y
++ jmp B3KnownRestore
++B3KnownE3B6:
++ php
++ jsr B3KnownPage3
++ lda $b3ff,y
++ jmp B3KnownRestore
++B3KnownE3BA:
++ php
++ jsr B3KnownPage3
++ lda $b42d,y
++ jmp B3KnownRestore
++B3KnownE3C0:
++ php
++ jsr B3KnownPage3
++ lda $b42e,y
++ jmp B3KnownRestore
++B3KnownE3C5:
++ php
++ jsr B3KnownPage3
++ lda $b42f,y
++ jmp B3KnownRestore
++B3KnownE3CA:
++ php
++ jsr B3KnownPage3
++ lda $b430,y
++ jmp B3KnownRestore
++B3KnownE3D0:
++ php
++ jsr B3KnownPage3
++ lda $b431,y
++ jmp B3KnownRestore
++B3KnownE3D6:
++ php
++ jsr B3KnownPage3
++ lda $b432,y
++ jmp B3KnownRestore
++B3KnownE3DF:
++ php
++ jsr B3KnownPage3
++ lda $b433,y
++ jmp B3KnownRestore
++B3KnownE417:
++ php
++ jsr B3KnownPage2
++ lda $b86c,y
++ jmp B3KnownRestore
++B3KnownE41D:
++ php
++ jsr B3KnownPage2
++ lda $b87b,y
++ jmp B3KnownRestore
++B3KnownE426:
++ php
++ jsr B3KnownPage2
++ lda $b88a,y
++ jmp B3KnownRestore
++B3KnownE45A:
++ php
++ jsr B3KnownPage2
++ lda $b73f,y
++ jmp B3KnownRestore
++B3KnownE45E:
++ php
++ jsr B3KnownPage2
++ lda $b76c,y
++ jmp B3KnownRestore
++B3KnownE464:
++ php
++ jsr B3KnownPage2
++ lda $b76d,y
++ jmp B3KnownRestore
++B3KnownE469:
++ php
++ jsr B3KnownPage2
++ lda $b76e,y
++ jmp B3KnownRestore
++B3KnownE46E:
++ php
++ jsr B3KnownPage2
++ lda $b76f,y
++ jmp B3KnownRestore
++B3KnownE474:
++ php
++ jsr B3KnownPage2
++ lda $b770,y
++ jmp B3KnownRestore
++B3KnownE47A:
++ php
++ jsr B3KnownPage2
++ lda $b771,y
++ jmp B3KnownRestore
++B3KnownE483:
++ php
++ jsr B3KnownPage2
++ lda $b772,y
++ jmp B3KnownRestore
++B3KnownE6E5:
++ php
++ jsr B3KnownPage6
++ lda $b74a,y
++ jmp B3KnownRestore
++B3KnownE6EB:
++ php
++ jsr B3KnownPage6
++ lda $b74e,y
++ jmp B3KnownRestore
++B3KnownE6F1:
++ php
++ jsr B3KnownPage6
++ lda $b752,y
++ jmp B3KnownRestore
++B3KnownE792:
++ php
++ jsr B3KnownPage6
++ lda $b765,x
++ jmp B3KnownRestore
++B3KnownE797:
++ php
++ jsr B3KnownPage6
++ lda $b766,x
++ jmp B3KnownRestore
++B3KnownE79E:
++ php
++ jsr B3KnownPage6
++ lda $b775,x
++ jmp B3KnownRestore
++B3KnownE7A3:
++ php
++ jsr B3KnownPage6
++ lda $b776,x
++ jmp B3KnownRestore
++B3KnownE7DD:
++ php
++ jsr B3KnownPage6
++ lda $b839,y
++ jmp B3KnownRestore
++B3KnownE7E2:
++ php
++ jsr B3KnownPage6
++ lda $b83a,y
++ jmp B3KnownRestore
++B3Known9001:
++ php
++ jsr B3KnownPage1
++ lda $b300,x
++ jmp B3KnownRestore
++B3Known900D:
++ php
++ jsr B3KnownPage1
++ lda $b100,x
++ jmp B3KnownRestore
++B3Known9011:
++ php
++ jsr B3KnownPage1
++ lda $b200,x
++ jmp B3KnownRestore
++B3Known9017:
++ php
++ jsr B3KnownPage1
++ lda $b400,x
++ jmp B3KnownRestore
++B3KnownPage1:
++ sty B3SavedY
++ ldy B3VirtualMaps+1
++ lda B3PayloadBanks,y
++ ora #MMC5_PRG_ROM
++ BankPRGA a
++ ldy B3SavedY
++ rts
++B3KnownPage2:
++ sty B3SavedY
++ ldy B3VirtualMaps+2
++ lda B3PayloadBanks,y
++ ora #MMC5_PRG_ROM
++ BankPRGA a
++ ldy B3SavedY
++ rts
++B3KnownPage3:
++ sty B3SavedY
++ ldy B3VirtualMaps+3
++ lda B3PayloadBanks,y
++ ora #MMC5_PRG_ROM
++ BankPRGA a
++ ldy B3SavedY
++ rts
++B3KnownPage6:
++ sty B3SavedY
++ ldy B3VirtualMaps+6
++ lda B3PayloadBanks,y
++ ora #MMC5_PRG_ROM
++ BankPRGA a
++ ldy B3SavedY
++ rts
++B3KnownRestore:
++ sta B3Value
++ lda CurrentBank
++ BankPRGA a
++ plp
++ lda B3Value
++ rts
+ B3CoreEnd:
+ .assert B3CoreEnd<=$dfe8,lderror,"SMB3 native core exceeds actual5120B free C38 span"
+ .segment "SMB3_NATIVE_COLD"
+@@ -5374,8 +5646,9 @@
+ B3Source9000:
+  TAX
+ B3Source9001:
+- jsr B3ReadAbsX
+- .word $9300
++ jsr B3Known9001
++ nop
++ nop
+ B3Source9004:
+  sta B3VirtualMaps+4
+ B3Source9007:
+@@ -5385,18 +5658,21 @@
+ B3Source900A:
+  sta B3VirtualMaps+5
+ B3Source900D:
+- jsr B3ReadAbsX
+- .word $9100
++ jsr B3Known900D
++ nop
++ nop
+ B3Source9010:
+  TAY
+ B3Source9011:
+- jsr B3ReadAbsX
+- .word $9200
++ jsr B3Known9011
++ nop
++ nop
+ B3Source9014:
+  STA $04f0,Y
+ B3Source9017:
+- jsr B3ReadAbsX
+- .word $9400
++ jsr B3Known9017
++ nop
++ nop
+ B3Source901A:
+  STA $7af7
+ B3Source901D:
