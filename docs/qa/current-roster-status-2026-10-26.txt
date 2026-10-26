@@ -1,139 +1,131 @@
-Current roster status, 2026-10-26T02:52:12+00:00
+Current roster status, 2026-10-26T05:37:00+00:00
 
-Goal active. Finish the current37 playable identities/19 slots, then verify
-1-1 clears and every powerup. Additional characters remain deferred.
+Goal active. Finish the current 37 playable identities / 19 menu slots,
+then verify 1-1 clears and every physically delivered powerup. Additional
+characters remain deferred. Videos are deferred. No completion is claimed.
 
 Installed/default/Downloads MMC5 remains
 50b51c3c69f45ef137720c47f521574097f421056e3b73296d06ba70080d2363.
-Currentdownload: C:/Users/kando/Downloads/SMB-Crossover-Current-MMC5.nes.
-All650 frozen production inputs remain unchanged during this round.
+Download: C:/Users/kando/Downloads/SMB-Crossover-Current-MMC5.nes.
+No production adoption occurred in this round. Private ROMs below are trials.
 
-Private display work
-df5154bc is the HUD queue/VRAM-copy repair plus capture-scroll restoration.
-Its first Octopus Easy640 control passed and ROOT reviewed the actualframes;
-the ground strip at458 is gone. TwinBee Easy640 also passes with corrected479
-and first fullHUD480. No incomplete/wrong-destination/body-row OAM transfers.
-The earlier v11 candidate64f454 stays held for its actualvisible HUD strip.
+Display work
+The df515 HUD queue/VRAM-copy and capture-scroll repair passed all eight
+initial vehicle/mode controls: 1,608 full PPU frames and 726 HUD source masks,
+zero mismatches. ROOT verified 2,316 bindings and viewed 61 selected frames.
+The dynamic observer's host crash was diagnosed; a static successor preserves
+all original guards and reproduces saved RGB/observation streams exactly.
 
-Two native host access violations are retained with Windows records; the
-actual DLL fault reads a callback-vector record atRVA12F820. The original
-observer registered thousands of return callbacks while processing that same
-vector. A separate static observer retains all guards with one fixed dispatcher.
-28,715 Lua comparisons passed. Its TwinBee replay matched the entire flushed
-failed prefix, then passed640. A full Octopus replay matched all201 RGB frames,
-six normalized JSON streams and four CSV streams of the earlier completed run.
-All8 initial mode/vehicle controls now have passing completed receipts. The
-original VicHard fixture stalled at the menu because it expected VIC while the
-actual menu/source name is VIC VIPER; the retained failed200frame capture
-shows no active coverage. One corrected-name fixture passes withmode1/variant0.
-The final eight-profile packet binds1,608 full PPU frames and726 Parodius HUD
-source masks with0mismatches. ROOT independently verified2,316 bindings and
-viewed61 selected full PPU frames. Nativeworker is released. Lifecycle/DMC/
-area/body fairness and dense HUD-label readability remain open.
+Native menu testing then caught two real late initial OAM transfers. The
+636f live same-family hint reuse repairs the first toggle. The 5354 extension
+publishes the original hint during the real exclusive blanked initial build,
+repairing the second reentry transfer. The independent terminal font check
+also needed the real HUD-start / line31 IRQ phases; its original wrong-phase
+negative is retained. The source predicates still reject partial DMA, wrong
+owners, wrong generation and wrong font timing.
 
-7e52b78d reorders only existing body pieces, preserving original pixels/colors
-and CHR.131 body poses,2,096 edge/facing pixel cases,11,790 actual CPU emitter
-cases pass; emitter cost delta minus9 through plus8 cycles. It remains private.
-Combined e11c64ec is an exact disjoint byte union of df515 and7e52. Its one
-actual OctEasy640 control passes all original hardware/cadence guards, with
-168updates/130DMA/185matched epochs. Actual RGB review REJECTS its fixed body
-order:46body/49core regression frames and7other-sprite loss frames. ROOT viewed
-the actual586 pair; the candidate nearly loses the whole body. It stays held.
-All regression frames cross physical OAM wrap. An explicitly MODEL-ONLY
-original-order fallback on wrap/clip removes observed regressions across185
-paired epochs;51body/66core frames improve. No actual frame is retagged.
-B's separate private2dcac8cc conservative selector supports32 row-dominant
-poses, with99 literal-original fallbacks. ROOT verified934 bindings. Complete
-6,288 DrawAll/150,912 ring/670 compiled interrupt cases, original compiled
-pixels and canonical/ordinary builds pass. Other application RAM equality
-excludes stack AND separately checked OAM; only two intended SmPose bytes
-differ. Selected paths still add308..309cycles. There is no native candidate
-run or full-visibility verdict. Original e11/119-pose negatives are retained.
-B is prioritizing independently useful df515 HUD lifecycle readiness. Native
-InitializeArea preserves OAM; real blank/portrait/init DrawAll completions
-must establish new-generation image owners. Already displayed PPU epochs and
-prior-generation completed snapshots must not be erased or falsely relabeled.
-Menu/death/area/Buffer2/heavy-DMC remain pending; no native grant is active.
+One actual 5354 menu1800 run now passes all five components. All four ship
+alternatives, title cancellation and reentry are covered. There are 1,122
+fresh current-generation gameplay updates, 219 init DMAs, 171 visible init
+checks and zero partial-visible / source-DMA / body-row mismatches. Both
+previous failing transfers complete exact256/OAMADDR0 before pre-render.
+All 1,650 shared RGB frames and 286,184 original bus events match the same-ROM
+preserved terminal-phase negative. ROOT verified all 4,221 final bindings and
+viewed 18 selected whole PPU frames. Menu success does not cover death,
+actual area catch-up / Buffer2 hold, worst-case timing or crowded visibility.
+B completed two genuine lifecycle attempts. Death514 and area1560 both stop
+at the original immutable-record alias guard; neither achieves all five
+terminal components. All 6,855 bindings and 30 selected whole PPU images were
+reviewed. These negatives remain unchanged. Source analysis qualifies 13
+separate original death records/CHR pages while retaining all 131 live guards.
+ROOT verified all 6,913 new readiness bindings and granted ONE death2200
+observer successor; its native result is pending. The old area controller
+found its pipe after passing the real entry window, so no pipe/loaded-area
+coverage is claimed. Character18 has no reachable DMC scenario in this test;
+synthetic DMC timing controls remain separate.
 
-Private sound work
-TMNT9a791d0e has exact original16-song output/state/interrupt coverage and
-small native-driver optimizations. Its fresh Easy600 paired test still adds
-six skipped draws: primary1,secondary5. Both sound/hardware suites pass;
-performance remains held. Existing baseline secondary already skipped28/120.
-A qualified guarded empty item scans: eedf07f7 changes61bytes onlybank87;
-5,262 renderer cases,384 tail cases,68 actualIRQ injections and12,256 unchanged
-audio calls pass. Empty occupied scenes save190cycles; populated paths add36
-or62. Existing primary renderer already bypasses these scans, so no primary
-recovery is claimed. Historical native observer registrations are dynamic;
-a separately qualified static successor is required before another native run.
+Fixed body-order e11 remains rejected: 46 body / 49 core regression frames
+cross OAM wrap. The separate conservative selector 2dca has 32 supported poses
+and 99 original fallbacks, with exact compiled pixels/IRQ controls, but adds
+308..309 cycles. No native visibility verdict or adoption. Dense HUD labels,
+Octopus/Sophia crowded-body visibility and Roll full-pool visibility remain.
 
-ROOT's separate ammo lookup a2b58350 passes17,664 component cases,4,608 actual
-caller cases and48 actualIRQ boundaries. Ammo90..99 saves136cycles;0..9 adds17.
-The source-built combined a8e0d391 is the exact disjoint861-byte union of the
-scan and ammo changes, onlybank87. Fresh combined5,262 renderer/4,608 caller/
-48IRQ cases, canonical rebuild and both ordinary flagoffs pass. All audio and
-CHR bytes remain9a791-exact. This remains private/source-only; the primary
-native miss has no dirty ammo and remains open. Reconstruction places that
-existing publication409cycles late (strict-before target410), rather than
-requiring removal of the entire2,903-cycle later draw-start span. Native
-alignment must still be measured. A's source-only original sweep99 arithmetic
-lead passes129,920 compiled-prefix cases. Actual active Fireball work cannot
-be skipped. A completed a frozen faithful sweep/outer proposal64504f58.
-ROOT verified659 archive/source members,9 tools and10 proofs. Original16-song
-output remains exact; arranged cue404/405 saves425cycles at407, but native
-recovery is unproved.19 full-caller cost regressions18x+1/1x+6 remain. The
-added owner0 physical4015 read has an explicit frame-IRQ-inhibit premise.
-It occupies the same BFDA38-byte tail as0c45's Cv3FxOwnerInit, so it cannot be
-blindly composed. New aa5ba7af source layout specializes genuine owner0 native
-mixed channels and reclaims232 bytes, moving its gate into real post-RTS space
-while retaining the public span. Qualification/composition with0c45 and a8e0
-rendering is underway; no native optimization run or adoption is claimed.
-The static observer now passes ONE exact historical9a791 Easy600 replay:
-all8CSV/2orderedJSONL/5JSON match, including the old566draw failure. ROOT
-independently compared all15 observations and verified25 output records.
-This is observer qualification, not a repaired music run. Worker released.
+Sound work
+CV3 eaa36e56 retains original sound output and fixes the one missed Hard Sypha
+ice draw in 0c45. All 14 BASIC attack/mode cells now pass strict cumulative
+cadence and original source / physical APU comparisons. The completed matrix
+used 15 bounded launches: one pilot, 13 remaining candidates, one fresh baseline.
+ROOT independently checked all 14 cumulative draw prefixes and 443 new native
+artifact bindings. Hard ice has 140 updates / 138 draws, equal the baseline;
+its publication is 7 CPU cycles before actual NMI entry. The 35-cycle local
+saving is real; no extra deadline margin is inferred from that entry gap.
+Legacy1F retains its declared buffered image order; original raw values,
+lifetime and complete physical APU order are separately checked.
 
-CV3 queue0c45ce16 has frozen source/CPU qualification:4,764 actual compiled
-NMI boundaries,42,266 IRQ boundaries,18,432 checked-entry cases and extensive
-source/priority/DMC/mute/capacity controls pass. The public wrapper now restores
-inputA after savingY; sole gameplay fast producer remains33cycles. Triple
-Main+51vs50b and firstaudio+330/steady+11vs0802 remain explicit costs. No
-0c45 adoption is claimed. All seven old source files match50b before
-the eight-file patch; other banks/header/CHR/DMC/Mac/Mike/Roll/Pbar stay exact.
-The startup-static CV3 observer reproduces both saved historical Easy-lightning
-controls exactly in two new native replays. All24 gameplay observation files
-match, including every CSV/raw capture byte and full game-proof state; the
-old0802 one-draw deficit remains rejected. Worker released.
-ONE new0c45 Easy-lightning strict native run now PASSES:140updates/138draws,
-every cumulative draw prefix equal50b,140NMI/280IRQ/1,680CHR/138fullDMA/minSP213.
-Three genuine cues publish and consume;129 original image stores and123
-source/hardware epochs match without400F masks. ROOT verified32 final bindings,
-checked no orphan source epochs and viewed its single final fullPPU frame.
-C's next13 BASIC cells plus13 same-input50b counterparts are source-ready;
-39 assembled scenarios/26 startups/244 meaningful negative controls pass.
-Legacy1F's old preflush image order is explicitly an unchanged adapter control,
-not original-order equality; its raw values, lifetime and full hardware stream
-remain checked. No production edit merely reorders its buffered RAM writes.
-Before any next grant, ROOT caught live Mesen settings drift d10b4fbc to
-8a439e0a. C is preparing a separate actual-settings/environment addendum for
-all fresh pairs; nobody may overwrite user settings or retag old runs. No
-next native grant is active. Lifecycle/priority/pause/scene/pressure follow.
+C completed all 20 baseline/candidate lifecycle launches without retries.
+All ten original-source / physical hardware comparisons pass: actual Grant
+axe-noise plus primary/injury DMC, real Start pause, physical Sypha pickup,
+natural fatal contacts and actual Down+A / pipe / bonus-area entry. ROOT
+verified 1,367 readiness and 529 final native bindings. Nine strict cadence
+comparisons pass. Hard legacy1F pressure genuinely misses one transfer at
+physical PPU717: baseline publishes seven CPU cycles before NMI entry;
+candidate publishes after its skipped-draw ISR. This is not an endpoint label
+artifact. Its whole AudioUpdate costs 26 more cycles. A finite source-only
+wrapper optimization is underway; no native rerun or performance pass yet.
+Current-parent composition and independent qualification remain required.
 
-Chip/Dale's original NSF source study completed11 selected tracks,198,011
-calls and904,219 orderedAPUstores. No original DMC start was observed. This
-is source analysis only; no Chip music driver is linked.7,929 observed used
-bytes do not prove a one-bank fit, and8,866 unresolved pointer-origin rows
-are diagnostic only. Original gold traces stay external. Existing missing
-music still covers Chip/Dale,SMB3Mario/Luigi and3Parodius alternates; authentic
-TMNT music is held for cadence. These are current-roster tasks, not new slots.
+TMNT original-driver 9a output is exact but its original fresh stress run
+added six skipped draws. Combined source 5373 reduces this to four, all in
+secondary attacks. All 602 original state/APU updates and physical hardware
+controls pass. The first 508 actual complete DMA images AND physical PPU
+transfer epochs are exact; an earlier endFrame label mismatch at source406
+is not an actual delayed transfer. First missing physical transfer is at
+source533, baseline frame862 versus candidate863. The original strict negative
+remains unchanged, with additive actual-hardware epoch evidence.
 
-Checkpoints pushed through3006f50 include the source proposals, actual native
-failures, body/pixel studies, exact source snapshots, eight-profile vehicle
-aggregate, turtle renderer/ammo trials and host-crash diagnosis.
-See docs/qa/checkpoints/2026-10-25 and2026-10-26. New static-observer native
-receipts are separate. No production adoption, fullcurrent37-character final
-pass or goal completion is claimed. OversizedMMC3 remains unqualified.
+The earlier primary deadline estimate of410 was wrong. A separate erratum
+subtracts the compiled 85-cycle prelude AND 7-cycle hardware NMI entry: the
+reconstructed strict-before target is441 cycles. 5373 saves449 on that source
+hot call and its actual primary DMA now matches. This reconstruction is not
+an unrecorded NMI-entry measurement. Secondary533 needs approximately735 more
+cycles in the old5373 timing model. The qualified 1346/66b arithmetic/lookup,
+5057 six-channel unroll and 1d741 tail writers save 317 total on that hot call.
+All16-song 192,016-call / 549,602-APU / 1,099,204-writer-return streams remain
+exact; direct whole-call comparisons have no positive cost regressions. The
+remaining approximately418 is a model, not a measured native margin. A new
+source-only equipment renderer keeps the literal uncommon-case fallback and
+original OAM store order. Its admission and four-icon paths pass 5,262 cases
+each; the actual constrained caller falls1255->1203->1001 cycles. A finite
+two-layer projectile emitter is being qualified next. No fresh native grant
+or performance pass. Authentic source events, samples and clocks are retained.
 
-Latest storage measurement29,767,133,266bytes, below30,000,000,000. Lossless
-recordings and large private artifacts remain in the external video archive.
-No footage was deleted.
+Chip/Dale's original player component is linked privately in existing A62/C94
+free tails with original numeric score pointers and all source data retained.
+The v5 component passes 11 tracks / 198,011 calls / 904,219 ordered APU stores,
+plus 74,040 compiled pointer-read and 44,424 high-setter cases. All source state
+and physical CPU flags/registers match. Worst component update is17,973 cycles.
+Its a537 gameplay adapter exposed an actual cold-boot black screen despite
+passing direct component tests. It overwrote the foreground bank shadow; f7cf
+repairs that real outer-caller contract. The old failed run is retained. The
+repair passes 192 whole AudioUpdate returns, 4,176 unchanged-character calls,
+1,103 compiled IRQ interruption cases, canonical and ordinary flag-off builds.
+One real cold-boot1300 comparison now passes 910 original source calls / 6,429
+ordered raw source APU stores, stack/bank/PPU guards and eight exact whole-PPU
+snapshots. However, idle completed DMA falls908->871:37 extra missed draws.
+Source music correctness does not excuse this performance regression; f7cf is
+HELD and not installed. A contiguous score-data / cached-pointer layout is
+being investigated without removing source events, clocks or samples.
+Missing current-roster music also includes SMB3 Mario/Luigi and three Parodius
+alternatives. No additional character slot is being added.
+
+Git checkpoints pushed through2566a75 preserve source implementations, retained
+failures, actual menu success, all14 BASIC CV3 passes, the full20 lifecycle
+matrix, the held Chip adapter and the complete TMNT parser chain. See checkpoint
+folders for exact bindings. Full current37-character 1-1 and all-item delivery /
+use verification remain incomplete. Oversized MMC3 remains unqualified; MMC5
+is the current focus. The older guide is not a current verification receipt.
+
+Latest storage measurement:29,806,646,582 bytes, under30,000,000,000.
+Lossless recordings, raw settings and large private artifacts stay external.
+No footage was deleted. One worker is granted only for Parodius death2200;
+no other native launch is reserved. The two-worker project limit remains.
