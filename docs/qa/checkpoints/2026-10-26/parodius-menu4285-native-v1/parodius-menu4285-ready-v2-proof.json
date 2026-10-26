@@ -1,0 +1,71 @@
+{
+  "prepared": true,
+  "source_checks_passed": true,
+  "native_run": false,
+  "native_granted": false,
+  "agent_visual_review": false,
+  "additional_source_helpers_bound": true,
+  "goal_complete": false,
+  "ROM_sha256": "4285d35db234ecdaf7c561f721c0aa8798545f9937e933acf5ab3e3f0b642682",
+  "profiles": [
+    {
+      "kind": "menu",
+      "limit": 1800,
+      "actual_mode_required": 0,
+      "actual_variant_required": 1,
+      "packet": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\parodius-menu4285-preparation-v1\\menu",
+      "preparation_sha256": "96d70b35dcfa915fbaadcca29ebba5b05915aca58fa0f308b03e64ec70c9d722",
+      "script_sha256": "0a0954628f0e60b6262a655ed9e104a8fbd7272dfb4c5ae197125ee178c4c323"
+    }
+  ],
+  "composition_ready_sha256": "9609d87ad0545251fd19408baa6994ce09cd788f79f734ae336c1983e80d7749",
+  "static_source_proof_sha256": "1fc27a5dbf510d7fe82987ba517334705e2e363c9351bf3797aca0578a698a89",
+  "historical5354_menu_final_sha256": "524e16b45df2b63b12306635fd80b8366791e5209680e8ceb69e01a2bc07d16c",
+  "separate_area_false_final_sha256": "c4e7c3473bf35c212beec14feeb6167f464e4aa75748a9f9ff0d3519bd4a79d8",
+  "required_native_components": [
+    "native-result.json",
+    "hud-native-result.json",
+    "scroll-native-result.json",
+    "lifecycle-native-result.json",
+    "lifecycle-init-native-result.json",
+    "hud-lease-native-result.json"
+  ],
+  "environment": {
+    "emulator": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mmc3-flag-fix-v23\\script-budget-probe-v2\\emulator\\Mesen.exe",
+    "emulator_sha256": "8b92daa209ee5052845e02a663aeb1afd6194eca55d86e6628c51114c61da0a9",
+    "core": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mmc3-flag-fix-v23\\script-budget-probe-v2\\emulator\\MesenCore.dll",
+    "core_sha256": "4bd40dfc6512328d56d8ad0563263b52be57bac726d8804f0720e461e558cd41",
+    "worker_settings": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mmc3-flag-fix-v23\\script-budget-probe-v2\\emulator\\settings.json",
+    "worker_settings_sha256": "627cd9c71a2011b4cf5fb03a0712d4d77f7890bc269b174d5757776034aab715",
+    "user_settings": "C:\\Mesen2\\settings.json",
+    "user_settings_sha256": "8a439e0a5eeddc2d4776e516aacfc224c03048b9c7d23d9926a463460a7e748a",
+    "effective_worker_conditions": {
+      "Region": "Auto",
+      "DisableSprites": false,
+      "DisableBackground": false,
+      "RemoveSpriteLimit": false,
+      "AdaptiveSpriteLimit": false,
+      "RandomizeMapperPowerOnState": false,
+      "RandomizeCpuPpuAlignment": false,
+      "RamPowerOnState": "Random",
+      "PpuExtraScanlinesBeforeNmi": 0,
+      "PpuExtraScanlinesAfterNmi": 0,
+      "RunAheadFrames": 0
+    },
+    "deterministic_command_overrides": [
+      "--doNotSaveSettings",
+      "--nes.ramPowerOnState=AllZeros",
+      "--nes.randomizeCpuPpuAlignment=false",
+      "--nes.randomizeMapperPowerOnState=false",
+      "--nes.removeSpriteLimit=false"
+    ],
+    "settings_untouched": true,
+    "limits": "Fresh actual user settings copy and effective portable-worker settings bound independently. User current settings differ from historical snapshots; no old bytes or invented diff claimed. No extra scanlines, runahead0, hardware8sprites/adaptiveoff. RAM Random in persisted worker settings is overridden toAllZeros by the original command."
+  },
+  "manifest_bindings": 3519,
+  "manifest_sha256": "85b0d7ea7dc59f58f052d2ee0aa4aa820e47190b2c3fb0a73d9e8d2e6ae95977",
+  "report_sha256": "c6e7db96e8eac5ed54ab8be6467bb28d5f4e718647b3a7c43ee099f3157010f0",
+  "review_files_sha256": "f968f0750028345906bbddae6143e7b238cf7ad2c55671829bebd7fd4d8578d1",
+  "stable_command": "python -B tools/audit/parodius_visibility_menu4285_run_v1.py --ready \"C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/parodius-menu4285-ready-v2\" --profile menu --native-grant",
+  "limits": "SOURCE ONLY, one separate UNRUN focusedmenu1800 requires explicit newgrant. No area retry/death/Hard/automaticretry/adoption or globalcoverage. OriginalareaFALSE/6missingoutputs/naturalBuffer2limitation remain untouched. Originalmenu5guards/controllers preserved exactly; addedactualpairfinalizer precedesstop."
+}

@@ -1,0 +1,9 @@
+--- a/src/metasprite_engine.s
++++ b/src/metasprite_engine.s
+@@
+  farcall Z2LateWorldAdmission
+- .res 20,$ea
++ jmp WorldFirebarAdmissionDone
++ .res 17,$ea
+ ::WorldFirebarAdmissionDone:
+  rts

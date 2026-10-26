@@ -1,0 +1,236 @@
+{
+  "packets": {
+    "held4285": {
+      "ROM_sha256": "4285d35db234ecdaf7c561f721c0aa8798545f9937e933acf5ab3e3f0b642682",
+      "strict_verdict": false,
+      "native_guard_passed": true,
+      "actual_complete_DMA": 166,
+      "matched_complete_hardware_pages_and_physical_epochs": 166,
+      "source_ticks": 280,
+      "mixer_flushes": 280,
+      "physical_legacy_stores": 850,
+      "actual_PPU717_NMI_entry": {
+        "kind": "NMI-entry",
+        "wall": "716",
+        "age": "238",
+        "audioEpoch": "279",
+        "cpuCycle": "21320475",
+        "ppuFrame": "717",
+        "scanline": "241",
+        "dot": "28",
+        "pc": "58166",
+        "bank": "127",
+        "sp": "245",
+        "interruptedPC": "33968",
+        "stackP": "34",
+        "nmiDisable": "255",
+        "nmiSkipped": "128",
+        "skipDraw": "0",
+        "framesSinceDraw": "0",
+        "newValue": "-1"
+      },
+      "actual_PPU717_publications": [
+        {
+          "kind": "publication-write",
+          "wall": "716",
+          "age": "239",
+          "audioEpoch": "280",
+          "cpuCycle": "21324412",
+          "ppuFrame": "717",
+          "scanline": "13",
+          "dot": "245",
+          "pc": "33621",
+          "bank": "126",
+          "sp": "250",
+          "interruptedPC": "-1",
+          "stackP": "-1",
+          "nmiDisable": "255",
+          "nmiSkipped": "129",
+          "skipDraw": "0",
+          "framesSinceDraw": "0",
+          "newValue": "0"
+        }
+      ],
+      "final_RGB_sha256": "071d810eca42b642ac46c0ddb95f5f5cbec5ec61e5affef30f5615a680abc259",
+      "final_RGB_equals_installed2cb": false
+    },
+    "repair6c69": {
+      "ROM_sha256": "6c69e506b45c8420cf57a62b868f89c0fe86d308c0ee55655b48e8f44af9521a",
+      "strict_verdict": true,
+      "native_guard_passed": true,
+      "actual_complete_DMA": 167,
+      "matched_complete_hardware_pages_and_physical_epochs": 167,
+      "source_ticks": 280,
+      "mixer_flushes": 280,
+      "physical_legacy_stores": 850,
+      "actual_PPU717_NMI_entry": {
+        "kind": "NMI-entry",
+        "wall": "716",
+        "age": "239",
+        "audioEpoch": "279",
+        "cpuCycle": "21320475",
+        "ppuFrame": "717",
+        "scanline": "241",
+        "dot": "28",
+        "pc": "58166",
+        "bank": "127",
+        "sp": "250",
+        "interruptedPC": "33458",
+        "stackP": "35",
+        "nmiDisable": "0",
+        "nmiSkipped": "128",
+        "skipDraw": "0",
+        "framesSinceDraw": "0",
+        "newValue": "-1"
+      },
+      "actual_PPU717_publications": [
+        {
+          "kind": "publication-write",
+          "wall": "716",
+          "age": "239",
+          "audioEpoch": "279",
+          "cpuCycle": "21320451",
+          "ppuFrame": "717",
+          "scanline": "240",
+          "dot": "296",
+          "pc": "33621",
+          "bank": "126",
+          "sp": "250",
+          "interruptedPC": "-1",
+          "stackP": "-1",
+          "nmiDisable": "255",
+          "nmiSkipped": "128",
+          "skipDraw": "0",
+          "framesSinceDraw": "0",
+          "newValue": "0"
+        }
+      ],
+      "final_RGB_sha256": "4a0206d0b45456ff87e7c0bfb96b68ca164d68d57877cb08f9cd54192fa2db28",
+      "final_RGB_equals_installed2cb": true
+    }
+  },
+  "production_adopted": false,
+  "goal_complete": false,
+  "original_failed_integration_preserved": true,
+  "no_native_retries": true,
+  "source_changes": "Exactly EA EA EA -> JMP genuine Done at bank4:A271; remaining17NOPs/39B span/old PCs retained.",
+  "CPU_cases": 274,
+  "IRQ_injections": 111,
+  "exact_cycles_saved_per_call": 37,
+  "verifier_erratum": "v2 writes passed:false but exits0 for a cadence-only failure. The original receipt is unchanged; v3 preserves its comparison and exits1, verified against the actual held4285 recording. Shell exit0 is not acceptance.",
+  "limits": "One strict staged Hard1F240 control per candidate. No global60Hz, waveform, full-roster1-1/item/campaign, new-menu-on6c or natural pending-HUD/Buffer2-overlap certification.",
+  "copied_bindings": {
+    "held4285/readiness-source-only.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-combined4285-hard1f-v2\\readiness-source-only.json",
+      "sha256": "2bfb43351bf3e8f41f56001a9903b49fa572c8ec82bc6d8431fd2acea4c81b2b"
+    },
+    "held4285/native/proof.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-combined4285-hard1f-v2\\native\\proof.json",
+      "sha256": "bedd6a767fb68765624fe415228620492dd379864af06746e97a2a3f76205e2d"
+    },
+    "held4285/native/comparison/proof.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-combined4285-hard1f-v2\\native\\comparison\\proof.json",
+      "sha256": "b6a5db8bd36a3305c598db44faa0912f1642fe7a0b99274cfd600f7b18ccc3c8"
+    },
+    "held4285/fixture/proof.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-combined4285-hard1f-v2\\fixture\\proof.json",
+      "sha256": "cf48958eb28389303da98900a53cb5b78dccd098c259311ccd3b451f9f62543f"
+    },
+    "held4285/fixture/preparation.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-combined4285-hard1f-v2\\fixture\\preparation.json",
+      "sha256": "25936e7b31dff18aa6e8ae2d3544a69ea0b5d61d498d011655cdd4a697127077"
+    },
+    "held4285/startup/proof.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-combined4285-hard1f-v2\\startup\\proof.json",
+      "sha256": "5f8246600bfaa8b29e28e98e31a2f4bedccfac77ca196428e2b1f5c002b008cb"
+    },
+    "held4285/observer/proof.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-combined4285-hard1f-v2\\observer\\proof.json",
+      "sha256": "cf215ba5fe80c7ab4555454729283d3c74960192eeb42d1062f33c5cd027340a"
+    },
+    "repair6c69/readiness-source-only.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-padding6c69-hard1f-v1\\readiness-source-only.json",
+      "sha256": "a133cba5bd934d0f55441247f095f001b563d459fc15fb36dbe795949e0f754a"
+    },
+    "repair6c69/native/proof.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-padding6c69-hard1f-v1\\native\\proof.json",
+      "sha256": "f9e1a6d80d8dfeae34442ce415c5d189c69bc0974c4c3f810ccf30412267d5ed"
+    },
+    "repair6c69/native/comparison/proof.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-padding6c69-hard1f-v1\\native\\comparison\\proof.json",
+      "sha256": "88bdcb891ef4813ed1ad2926af32a3034ea8e248a52a17c45da361401e394587"
+    },
+    "repair6c69/fixture/proof.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-padding6c69-hard1f-v1\\fixture\\proof.json",
+      "sha256": "349fe184e6197983133b2afe5ef6521ab1a3bab7745734dc8197c3472e048032"
+    },
+    "repair6c69/fixture/preparation.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-padding6c69-hard1f-v1\\fixture\\preparation.json",
+      "sha256": "792f6e8a73898c2251a738a594b019a46720c3bff1564a6fb2bd024c2ab86d03"
+    },
+    "repair6c69/startup/proof.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-padding6c69-hard1f-v1\\startup\\proof.json",
+      "sha256": "f0024e35603de27d883832e99d8ce6d5e4b85ce6abb81bbb466ec9f9ae09fab8"
+    },
+    "repair6c69/observer/proof.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-padding6c69-hard1f-v1\\observer\\proof.json",
+      "sha256": "93d37169843b3af33cbba97b09788a743d633aba00e93894c4f728e0af3ce6ff"
+    },
+    "padding-source/proof.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\world-firebar-padding-v2\\proof.json",
+      "sha256": "8dbd440ddc590b10d43d99d23cba2aa352c9d065ac6cbd68d69e179bf95ee0c6"
+    },
+    "padding-source/cpu-v1/proof.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\world-firebar-padding-v2\\cpu-v1\\proof.json",
+      "sha256": "ec76abab8275ac8d1d2bcd2eaff23c1a8fee7a6024f35e40c574397267955270"
+    },
+    "padding-source/review.patch": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\world-firebar-padding-v2\\review.patch",
+      "sha256": "763da3e66ee238c175e2e7cdd76fef1443d1172e14f2cbedd2941f67b6c5a2f3"
+    },
+    "padding-source/source/src/metasprite_engine.s": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\world-firebar-padding-v2\\source\\src\\metasprite_engine.s",
+      "sha256": "e5d424f3f1ddc7411faa491789933d74bd0b43ea7714cccfa37e9a9c515caf63"
+    },
+    "padding-source/ready-v1/receipt.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\world-firebar-padding-v2\\ready-v1\\receipt.json",
+      "sha256": "9225b3bafce11ac542d6d10725d7e2ca99757bf586d908ff469af943f045722f"
+    },
+    "retained-preparation-failure/startup.log": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-combined4285-hard1f-v1\\startup.log",
+      "sha256": "41eafa8db8098582d8485327e42f9fa56c62013b66df56516f7cd7e2285eef2b"
+    },
+    "retained-preparation-failure/failed-preparer-v1.py.txt": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-combined4285-hard1f-v1\\failed-preparer-v1.py.txt",
+      "sha256": "d6754ee8d8adaab269747bc1c44ace6947266ecb110c208c0fb5d756bfe80902"
+    },
+    "retained-preparation-failure/failure-classification.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-combined4285-hard1f-v1\\failure-classification.json",
+      "sha256": "fb51cc612102b7e7e9e5d945591f41815f9e4743ef26a48cff7a36c57ed7dd93"
+    },
+    "comparator-false-exit-control.json": {
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-combined4285-hard1f-v2\\comparison-v3-negative\\proof.json",
+      "sha256": "b6a5db8bd36a3305c598db44faa0912f1642fe7a0b99274cfd600f7b18ccc3c8"
+    },
+    "frozen-tools/root_combined4285_hard1f_prepare_v2.py": {
+      "source": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\root_combined4285_hard1f_prepare_v2.py",
+      "sha256": "f1a4ba1363faf933451463d1e404d4a61d8dbb656c61572a24da4618afcd45d4"
+    },
+    "frozen-tools/root_padding6c69_hard1f_prepare_v1.py": {
+      "source": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\root_padding6c69_hard1f_prepare_v1.py",
+      "sha256": "005b5d4fb12ca611653833505bc21698145be85161a058d0145b4878ad691d3d"
+    },
+    "frozen-tools/cv3_remaining_sfx_lifecycle_verify_v3.py": {
+      "source": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\cv3_remaining_sfx_lifecycle_verify_v3.py",
+      "sha256": "a5668b395d2f4be24114bc0b08a31f3886793a71c78876440c5726a2ad02ebb2"
+    },
+    "frozen-tools/world_firebar_padding_prepare_v2.py": {
+      "source": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\world_firebar_padding_prepare_v2.py",
+      "sha256": "c63277865757810c65313bb8456eeacd4ce323bef379f52623158917d46bdbd0"
+    },
+    "frozen-tools/world_firebar_padding_cpu_v1.py": {
+      "source": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\world_firebar_padding_cpu_v1.py",
+      "sha256": "a60935809e62844d1c90e3caa38284345bfabead62cfbdc75d942a3032440c94"
+    }
+  }
+}

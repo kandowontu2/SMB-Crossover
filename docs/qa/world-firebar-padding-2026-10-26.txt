@@ -1,0 +1,55 @@
+WORLDFIREBAR ADMISSION PADDING — PRIVATE SOURCE/CPU REPAIR
+
+Parent is the held combined4285, not installed2cb5 and not held70ba:
+4285d35db234ecdaf7c561f721c0aa8798545f9937e933acf5ab3e3f0b642682.
+Private canonical candidate:
+6c69e506b45c8420cf57a62b868f89c0fe86d308c0ee55655b48e8f44af9521a.
+
+Only source change, preserving the original CRLF bytes:
+  farcall Z2LateWorldAdmission
+- .res 20,$ea
++ jmp WorldFirebarAdmissionDone
++ .res 17,$ea
+::WorldFirebarAdmissionDone:
+  rts
+
+Canonical build proves exactly three changed ROM bytes, file offsets
+33409..33411, physical bank4, CPU$A271..$A273: EA EA EA becomes4C85A2.
+The helper remains39B at$A25F. The genuine old Done callback/RTS remains$A285;
+the17 remaining NOP bytes are unchanged. Every qualified old label, all RAM
+labels, CHR and every other ROM byte are exact. No source audio is changed.
+All other files in the complete frozen parent snapshot are byte-exact.
+
+Actual CPU differential passed256 helper cases: empty actor list, native
+firebar, late small lift and edge/capacity control across64 physical flag
+combinations.18 complete DrawAllMetasprites callers cover Mario, CV3 and
+Parodius, both shuffle directions and empty/firebar/lift states. Full final
+AXYP/SP, ordinary RAM, SMC, PRG banks and every ordered non-stack write,
+including OAM/CHR/mapper/hardware publications, are exact. All274 calls reach
+the genuine old Done callback exactly once and cost exactly37 fewer cycles.
+
+Actual compiled vector/IRQ/RTI passed111 injections across every executed
+wrapper instruction boundary on empty/firebar/lift paths in both ROMs:
+farcall setup/return, old NOPs, new JMP and genuine Done RTS. Each interrupted
+state/continuation preserves registers, ordinary RAM/SMC and PRG banks.
+Only separately checked native IRQ stores to2005/2006/5128/5130 are omitted
+from the interrupted event-log comparison; no emulated state is restored.
+Discarded CPU stack and emulator B/U flag representation are excluded.
+
+This is source/CPU qualification only. No native emulator launch, physical
+PPU/DMC/DMA timing, recovered-frame claim, production install or Git write.
+ROOT's one-draw Hard regression remains a native acceptance requirement.
+
+External directory (under the usual2026-10-24-native-rest-py archive):
+world-firebar-padding-v2. Files: candidate.nes/.dbg/.lbl/.map, source,
+review.patch, source-manifest.json, proof.json and cpu-v1/{proof,cases}.json.
+Build proof SHA2568dbd440ddc590b10d43d99d23cba2aa352c9d065ac6cbd68d69e179bf95ee0c6.
+CPU proof SHA256ec76abab8275ac8d1d2bcd2eaff23c1a8fee7a6024f35e40c574397267955270.
+
+Reproduce into a NEW external output directory:
+python tools/audit/world_firebar_padding_prepare_v2.py --output <new-directory>
+python tools/audit/world_firebar_padding_cpu_v1.py --parent <combined4285>/candidate.nes --candidate <new-directory>/candidate.nes --output <new-directory>/cpu-v1
+
+Retained v1 preparation failure: LF-only text anchor rejected frozen CRLF
+before modification/build. world-firebar-padding-v1/preparation-failure.txt
+and the original prepare_v1 tool remain; this was no ROM/runtime failure.

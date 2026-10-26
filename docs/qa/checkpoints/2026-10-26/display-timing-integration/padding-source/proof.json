@@ -1,0 +1,39 @@
+{
+  "passed": true,
+  "source_only": true,
+  "native_run": false,
+  "adopted": false,
+  "parent": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-parodius-combined-f35-v1\\candidate.nes",
+  "parent_ROM_sha256": "4285d35db234ecdaf7c561f721c0aa8798545f9937e933acf5ab3e3f0b642682",
+  "candidate_ROM_sha256": "6c69e506b45c8420cf57a62b868f89c0fe86d308c0ee55655b48e8f44af9521a",
+  "command": [
+    "C:\\Users\\kando\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\build_mmc5_expanded.py",
+    "--source-overlay",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\world-firebar-padding-v2\\source",
+    "--output",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\world-firebar-padding-v2\\candidate.nes"
+  ],
+  "changed_ROM_offsets": [
+    33409,
+    33410,
+    33411
+  ],
+  "changed_bank": 4,
+  "helper_PC": 41567,
+  "genuine_Done_PC": 41605,
+  "helper_bytes": 39,
+  "old_NOP_cycles": 40,
+  "new_JMP_cycles": 3,
+  "exact_cycle_saving": 37,
+  "all_qualified_labels_exact": true,
+  "all_RAM_labels_exact": true,
+  "CHR_and_all_other_ROM_bytes_exact": true,
+  "sole_changed_source": "src/metasprite_engine.s",
+  "source_files": 872,
+  "source_manifest_sha256": "8ba710d1a0c7cdefd26b3f3831f78bc28cb71e534e30e82a1402103d09d71b9c",
+  "source_before_sha256": "84f70fdbe50076a4bba6ef27a306c4d1a867c43b43e98033cdba21bc362fff7e",
+  "source_after_sha256": "e5d424f3f1ddc7411faa491789933d74bd0b43ea7714cccfa37e9a9c515caf63",
+  "tool_sha256": "c63277865757810c65313bb8456eeacd4ce323bef379f52623158917d46bdbd0",
+  "limits": "Canonical assembly and exact three-byte delta only. CPU helper/caller/interrupt proof is separate; no native cadence or adoption claim."
+}
