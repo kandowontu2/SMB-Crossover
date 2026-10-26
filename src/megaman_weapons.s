@@ -392,19 +392,28 @@ Loop:
   ; The native side query is also the final exact-ID fallback for legacy
   ; selectors0..10. Sophia/Mac/SMB3/TMNT keep the complete original source
   ; dispatch, with its original A/P and stack contract. No geometry changes.
-  php
-  pha
-  lda SelectedCharacter
-  jsr Z2NativeSideSelector
-  bcs OtherSide
-  pla
-  plp
-  jmp BlockBufferColli_Side
+   php
+   pha
+   lda SelectedCharacter
+   cmp #CHARACTER_LINK
+   beq OtherSide
+   cmp #14
+   beq OtherSide
+   cmp #CHARACTER_SOPHIA
+   bcs OtherSide
+NativeSide:
+   pla
+   plp
+   jmp BlockBufferColli_Side
 OtherSide:
-  pla
-  plp
-  farcall TnFastSideGate,jmp
-  .res 2,$ea
+   pla
+   plp
+   jmp MmSideDispatchPrefix
+::MmSideDispatchTail:
+   lda #>TnFastSideGate
+   SMC_StoreHighByte FarcallJmpTarget,a
+   lda #.bank(TnFastSideGate)|MMC5_PRG_ROM
+   jmp FarCallCommon
   .assert *-MegaManFullShotBank=55,error,"Original full-shot resident span"
  .else
   .res 37,$ea

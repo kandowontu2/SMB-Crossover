@@ -6,7 +6,7 @@ This is a native NES adaptation of [Super Mario Bros. Crossover](https://www.smb
 
 **Status: playable, actively developed, and unfinished.** Character behavior, graphics, sound and performance are still being tested and corrected. MMC5 is the recommended target for the full roster.
 
-The October 26 development build includes the Castlevania sound repair, Parodius HUD fixes, and a timing repair verified against the previous build. The full roster and every powerup still need current-build playthrough verification; see the [current testing status](docs/qa/current-roster-status-2026-10-26.txt).
+The October 26 development build includes Castlevania sound and HUD/timing repairs, reduced Chip/Dale movement overhead, and clearer Parodius power-bar lettering. The full roster and every powerup still need current-build playthrough verification; see the [current testing status](docs/qa/current-roster-status-2026-10-26.txt).
 
 ## Features
 

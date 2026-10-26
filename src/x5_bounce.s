@@ -609,7 +609,13 @@ Done:
   pla
 ::X5OwnMovementCall:
   jsr X5OwnMovement
+ .if ::MAPPER_MMC5
+  jmp CameraResult
+  .res 12,$ea
+CameraResult:
+ .else
   .res 15,$ea
+ .endif
   php
   pha
   lda SelectedCharacter
@@ -757,18 +763,23 @@ Legacy:
 .pushseg
 .segment "X5_BOUNCE"
 .proc X5OwnMovement
- php
- pha
- lda SelectedCharacter
- cmp #19
- bne Legacy
- pla
- plp
- farcall TnMovement,jmp
+ .if ::MAPPER_MMC5
+  jmp CdCameraMovementAdmission
+  .res 46,$ea
+ .else
+  php
+  pha
+  lda SelectedCharacter
+  cmp #19
+  bne Legacy
+  pla
+  plp
+  farcall TnMovement,jmp
 Legacy:
- pla
- plp
- farcall LmMovementGate,jmp
+  pla
+  plp
+  farcall LmMovementGate,jmp
+ .endif
 .endproc
 .export X5OwnMovement
 .popseg
@@ -905,3 +916,32 @@ Done:rts
 .endproc
 
 .popseg
+
+; Exact Chip admission retains X5NewMovementFinish's pre-step camera sample.
+; Other owners retain their real movement leaf. Skipped old camera padding
+; pays for this admission on every foreign new-profile path.
+.if ::MAPPER_MMC5
+.pushseg
+.segment "X5_BOUNCE"
+.proc CdCameraMovementAdmission
+  php
+  pha
+  lda SelectedCharacter
+  cmp #14
+  beq Chip
+  cmp #19
+  bne Legacy
+  pla
+  plp
+  farcall TnMovement,jmp
+Legacy:
+  pla
+  plp
+  farcall LmMovementGate,jmp
+Chip:
+  pla
+  plp
+  farcall CdMovement,jmp
+.endproc
+.popseg
+.endif

@@ -1,0 +1,91 @@
+{
+  "passed": true,
+  "source_only": true,
+  "native_run": false,
+  "production_changes": false,
+  "adopted": false,
+  "parent_ROM_sha256": "6c69e506b45c8420cf57a62b868f89c0fe86d308c0ee55655b48e8f44af9521a",
+  "candidate_ROM_sha256": "bb5bf4fa4189ede2ab4f9ee0eb6e8e54dd67b1c77eb1c78e7c50a1079d4fc1db",
+  "fresh_baseline_compile_exact": true,
+  "commands": [
+    [
+      "C:\\Users\\kando\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+      "-B",
+      "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\parodius-hud-readability6c69-candidate-v1\\source\\tools\\build_mmc5_expanded.py",
+      "--workspace",
+      "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\parodius-hud-readability6c69-candidate-v1\\source",
+      "--compiler",
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\Windows\\cc65\\bin\\cl65.exe",
+      "--output",
+      "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\parodius-hud-readability6c69-candidate-v1\\baseline.nes"
+    ],
+    [
+      "C:\\Users\\kando\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+      "-B",
+      "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\parodius-hud-readability6c69-candidate-v1\\source\\tools\\build_mmc5_expanded.py",
+      "--workspace",
+      "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\parodius-hud-readability6c69-candidate-v1\\source",
+      "--compiler",
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\Windows\\cc65\\bin\\cl65.exe",
+      "--output",
+      "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\parodius-hud-readability6c69-candidate-v1\\candidate.nes"
+    ]
+  ],
+  "source_files": 872,
+  "parent_pinned_source_files": 872,
+  "source_changes": [
+    "chr/characters/parodius-hud.chr",
+    "src/parodius_hud.inc"
+  ],
+  "source_overlay": {
+    "chr/characters/parodius-hud.chr": {
+      "before_sha256": "826e23be42445e062a28b6912d2304064191bfd9a28a35ff4d294f609f18f867",
+      "after_sha256": "d278c3e3f04aa95504099d6f4b6d4ffc932e745c2c8045b7227763b493fba2d0"
+    },
+    "src/parodius_hud.inc": {
+      "before_sha256": "af397226cad12095528b5858687711e0659b91d612690248ed390cff8f04d3b7",
+      "after_sha256": "17e11b188dfed3acea7b0c646d4f8ae9bbb7b4bfa0d2643310b65ba08b03cd0f"
+    }
+  },
+  "all_other_source_bytes_exact": true,
+  "all_qualified_addresses_RAM_exact": 61205,
+  "label_file_byte_exact": true,
+  "header_exact": true,
+  "intended_data_ranges": {
+    "table": {
+      "offset": 638463,
+      "length": 84,
+      "bank": 77,
+      "CPU_address": 48623
+    },
+    "font": {
+      "offset": 1454096,
+      "length": 3072,
+      "physical_pages": [
+        396,
+        397,
+        398
+      ]
+    }
+  },
+  "different_ROM_bytes": 622,
+  "different_table_bytes": 22,
+  "different_CHR_bytes": 600,
+  "every_other_ROM_byte_exact": true,
+  "all_runtime_instruction_bytes_exact": true,
+  "all_audio_ROM_and_source_bytes_exact": true,
+  "standard_glyph_tiles_exact": 93,
+  "same_all21_source_word_masks_from_frozen_proposal": true,
+  "layout_and_first42_dirty11byte_lengths_exact": true,
+  "actual_linked_queue_CPU_cases": 1152,
+  "all128meters_threevariants_threepaths": true,
+  "full_register_flags_SP_RAM_orderedwrites_mapper_and_cycles_exact_except_intended_cells": true,
+  "added_CPU_cycles": 0,
+  "compiler_sha256": "ff2e9c628ef209f034200168872c74b6c7ceddbdb9717b92e03bc6e9b13a5641",
+  "build_tool_sha256": "f85dc301735ec8053a6a83420db4fb109560af2e8735bd0ddf06d9535a88361c",
+  "source_ready_sha256": "4d0e4a8100fdcc12786fd22c48db40e4498c9118fc5c9108802381fae985663c",
+  "source_manifest_sha256": "3124b338af81f4045430b409371ff182c4884a3e459897d709b072068456e48c",
+  "queue_cases_sha256": "fc11d254d192a5f910d99a11781acfef9306a3727ef03fe80bce3fa9135dd96d",
+  "tool_sha256": "fc9362d77ade798a50ee50053d5c6b1e7599667f5000d1c9110742777d604de3",
+  "limits": "Private canonical source builds and exact data confinement/1152actualCPU queue cases only. No native run, user readability validation, palette/color/transition/physical acquisition/fullcampaign/roster/audio performance/adoption verdict. Existing font remains tiny; original areaFALSE/naturalBuffer2overlap and bodyvisibility findings unchanged."
+}

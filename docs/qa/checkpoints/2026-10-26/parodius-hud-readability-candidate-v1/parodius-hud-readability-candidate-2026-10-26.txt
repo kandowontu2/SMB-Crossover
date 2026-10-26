@@ -1,0 +1,55 @@
+Private current6c69 Parodius readability candidate, 2026-10-26
+
+PASS source/build/data confinement and bounded actual-CPU queue equivalence.
+No production/Git/Downloads/settings changes, emulator launch or adoption.
+Parent6c69: 6c69e506b45c8420cf57a62b868f89c0fe86d308c0ee55655b48e8f44af9521a
+Candidate: bb5bf4fa4189ede2ab4f9ee0eb6e8e54dd67b1c77eb1c78e7c50a1079d4fc1db
+Candidate/source/overlay/build logs and exact commands:
+C:\Users\kando\Videos\SMB Crossover Archive\2026-10-24-native-rest-py\parodius-hud-readability6c69-candidate-v1
+
+A fresh canonical baseline compile of the frozen872-file source reproduced
+6c69 exactly before the two-file overlay. The second real canonical compile
+produced the candidate. No artwork regeneration or binary patch substituted
+for either compile. Prepared assets are deliberate canonical build inputs.
+
+Exact overlay (the reviewed v4 bytes, without other changes):
+chr/characters/parodius-hud.chr
+  before826e23be42445e062a28b6912d2304064191bfd9a28a35ff4d294f609f18f867
+  after d278c3e3f04aa95504099d6f4b6d4ffc932e745c2c8045b7227763b493fba2d0
+src/parodius_hud.inc
+  beforeaf397226cad12095528b5858687711e0659b91d612690248ed390cff8f04d3b7
+  after 17e11b188dfed3acea7b0c646d4f8ae9bbb7b4bfa0d2643310b65ba08b03cd0f
+All other870 frozen source/asset/tool/reference file bytes remain exact.
+The canonical builder intentionally consumes prepared assets; the separately
+frozen v4 audit generator documents deterministic regeneration of this variant.
+The original-art import generator itself is unchanged, not silently repurposed.
+
+622 actual ROM bytes differ, confined to these two DATA ranges:
+22bytes in84-byte PnHud::PnHudCells: bank77 CPU$BDEF, file638463..638546.
+600bytes in3072-byte PN_HUD_CHR: pages396..398, file1454096..1457167.
+Every other ROM byte, header, runtime instruction and audio byte is exact.
+All61205 qualified old addresses/RAM values match; the complete .lbl file is
+byte-exact against both the fresh baseline and accepted6c69 parent.
+All31 standard name/HUD/status tiles on each of three pages remain exact.
+Only the exact21 existing label masks become positive foreground. Their
+source words/proportional shapes, size, seven cells, font pages and status
+palettes are not renamed/enlarged. The source-only mock remains a mock.
+
+1152 actual linked PnHudQueue CPU comparisons cover three variants, all128
+meter values, and first-label/attribute-dirty/clean paths. Full A/X/Y/P/SP,
+every RAM byte, ordered write addresses/data, mapper windows and cycle counts
+match except the intended28 label tile indices on first publication.
+First/dirty queue lengths stay42/11bytes; all status attributes are exact.
+Added queue CPU cycles0. Since the complete runtime instruction image and
+transfer structure remain exact, this introduces no new per-frame work.
+
+This is current expanded-target source/CPU qualification only. No native run,
+flag-off rebuild, physical selection/acquisition, actual new-color/status
+publication, transition, audio-output/performance or in-play user-readability
+claim follows. The tiny-font limitation and existing body visibility and
+natural Buffer2-overlap coverage findings stay open. No Chip changes combined.
+
+Source qualification receipt: C:\Users\kando\Videos\SMB Crossover Archive\2026-10-24-native-rest-py\parodius-hud-readability6c69-candidate-v1\proof.json
+Frozen readiness: C:\Users\kando\Videos\SMB Crossover Archive\2026-10-24-native-rest-py\parodius-hud-readability6c69-candidate-v1\ready-v1
+Stable private build reproduction:
+python -B tools/audit/parodius_visibility_hud_readability_candidate_v1.py --parent "C:\Users\kando\Videos\SMB Crossover Archive\2026-10-24-native-rest-py\world-firebar-padding-v2" --proposal "C:\Users\kando\Videos\SMB Crossover Archive\2026-10-24-native-rest-py\parodius-hud-readability6c69-v4" --source-ready "C:\Users\kando\Videos\SMB Crossover Archive\2026-10-24-native-rest-py\parodius-hud-readability6c69-final-v1" --output FRESH_EXTERNAL_DIRECTORY

@@ -89,14 +89,14 @@ FootNative:
   jmp BlockBufferColli_Head
 OrdinaryHeadDispatch:
   jmp BillHeadDispatch
-::Z2NativeSideSelector:
-  cmp #CHARACTER_LINK
-  beq OwnZ2Side
-  cmp #CHARACTER_SOPHIA
-  rts
-OwnZ2Side:sec
-  rts
-  .res 3,$ea
+::MmSideDispatchPrefix:
+   ; Former solecaller selector span: first ordered half of ordinary farcall.
+   ; A/P have been restored before this genuine JMP-only helper entry.
+   SMC_StoreValue SafecallA,a
+   lda #<TnFastSideGate
+   SMC_StoreLowByte FarcallJmpTarget,a
+   jmp MmSideDispatchTail
+   nop
  .else
   farcall TnFastSideGate,jmp
   .res 10,$ea

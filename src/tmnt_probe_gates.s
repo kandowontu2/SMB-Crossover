@@ -4,6 +4,30 @@
 .pushseg
 .segment "TMNT_COMBAT"
 .macro TnProbeGate Name,Own,Mac,Other
+.if ::MAPPER_MMC5 .and .xmatch(Name,TnFastSideGate)
+.proc Name
+ ; The only compiled callers use the standard farcall, whose preserved
+ ; SafecallA is the incoming A. No intervening calls precede the reload.
+ ; Native turtle/Mac leaves load A before consuming it; keep original P.
+ php
+ lda SelectedCharacter
+ cmp #19
+ bne CheckMac
+ plp
+ jmp Own
+CheckMac:
+ cmp #15
+ beq IsMac
+ lda SafecallA_SMC+1
+ plp
+ farcall Other,jmp
+IsMac:
+ plp
+ jmp Mac
+ .res 1,$ea
+ .assert *-Name=43,error,"Original side-gate span"
+.endproc
+.else
 .proc Name
  php
  pha
@@ -24,6 +48,7 @@ IsMac:
  plp
  jmp Mac
 .endproc
+.endif
 .endmacro
 TnProbeGate TnFastSideGate,TnSideDispatch,TnMacSideProbe,Z2SideAdmission
 .proc TnFastHeadGate
