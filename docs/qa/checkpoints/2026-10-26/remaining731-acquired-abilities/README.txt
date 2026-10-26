@@ -1,0 +1,1 @@
+Five narrowcurrent731Aphysical/Bcontrolled-acquired-use components,actualnumericmodes,52plans. No retries,workerreleased. Rawlosslesscaptures remainexternal. Exactnativeproofs,source/frame/epoch/selection paths andlimits in summary/visualreview. Completepowerupcells remainFALSE;oldreceipts untouched.

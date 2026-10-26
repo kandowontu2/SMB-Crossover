@@ -1,0 +1,115 @@
+Mega Man / Proto Man body-first experiment -- private, SOURCE/CPU ONLY
+
+No native run, installation, production/default/settings or Git change.
+The original full ordinary shot renderer is retained; no shot-mux helper.
+
+D = C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py
+Parent D/mm-proto-clean-menu-candidates-v1/clean-menu-irq/candidate.nes
+731c918b0f448564587d90fca2979afc9fc0e5eb9b26616f4241801e2e73e16c
+Candidate D/mm-proto-body-priority-v3/candidate.nes
+00fb4a72ec9788f7b2878d6201f70a96ae6e47b4935ba186648c7edc04806a62
+
+IMPLEMENTATION / OWNERS
+Only494physical PRG bytes change, all in bank4. CHR, header, RAM locations,
+all other PRG banks and original ordinary projectile physics/art are exact.
+Changed inputs: smb1base-mmc5-expanded.cfg, src/metasprite_engine.s,
+src/megaman_weapons.s. Canonical rebuild exact; ordinary MMC3 d444cac8 and
+ordinary MMC5 f4ffd248 remain byte-exact. No hidden RAM allocation.
+
+Live gameplay Mega/Proto alone reserves40/44bytes before any special/ordinary
+shot admission; physical body starts0, shots startR, world follows their real
+count. All original body parts/order and generic capacity/clip rules remain.
+The original KbOamPriority phase update, RgOamFirst/RgOamUsed progression,
+world +19/+/-13 traversal and shuffled firebar bundle are retained. There is
+no invented nonbody subring. GuestOamRotationActive=$80 is an explicit mode
+of the existing boolean owner; all preexisting consumers test zero/nonzero.
+RgOamRotation=0 intentionally changes the physical priority mapping. Death,
+non-gameplay, hidden ObjectMetasprite0 and vertical-flipped body use the
+literal original mapping. All48 actual Mega indices and27 Proto poses were
+qualified; arbitrary corrupted/empty private pose pointers are not covered.
+
+Genuine RgOamPlayerStart keeps the original shot count p. At exit, p plus the
+body cursor and retained phase reconstruct the original physical returned X
+and last SBC's V flag; CurrentOAMOffset is restored to its original value.
+The temporary old rotation is then cleared before the genuine original tail.
+Actual IRQ and lag-NMI controls cover those transient instructions.
+
+The139byte MegaManDrawShots wrapper is retained. Its genuinely unreachable
+110byte tail holds the owned entry/finish helpers. A linker-declared segment
+uses84of88 verified FF bytes BF33..BF86, before Darkwing's BF8B segment. The
+3byte exit trampoline occupies skipped world-admission NOPs. The genuine
+WorldFirebarDrawAdmission moves+4 and shrinks39->35; its genuine Done RTS
+and all following functions remain at their original PCs.13 other genuine
+symbol movements, including early private branches, RosterOamReady and the
+real MegaManProjectileOamReady callback, are cataloged; no callable aliases.
+InitObjectLoop and HandleFloateyNumbers retain their real addresses. One
+extra source farcall declaration increments _FARCALL_COUNT; runtime executes
+the original phase call once, not twice. Five SMC bytes remain exact at return.
+
+FINAL FINITE CONTROLS ON00fb
+partition-v6/proof.json (2751740adbd12cd1314d4de61ecf5694bccd9605de1430012e5d37b2ea9feccd):
+6,324 complete compiled DrawAll cases, including2,432 foreign all64flag
+contexts,256 owned all64flags,2,560 mask/phase/facing contexts,108 actual
+Proto poses,320 pose/edge/outline cases,72 lifecycle and144 crowded cases.
+432 crowded firebar cases use1/3/6 real owners,1/6/12cached parts, vertical
+edge filters, actors, special shots and floating scores. Original ordered
+OAM values/count match every case; only physical addresses change. No
+firebar record is removed in these source fixtures.697 actual IRQ/RTI cases.
+The independent reference uses unchanged parent emitters with the explicit
+reserved-prefix/postshot allocation and mathematical exit reconstruction.
+Every unmodified parent's AXYP/SP is also independently exact; no X/V mask.
+
+records-v1/proof.json (3c51c47b1c60455f27f6a29bea4cf10eb4ae7a4ad37a10fb4bf9708c3b559612):
+576 cases cover all48 original Mega pose indices145..192 in both facings,
+outlines on/off, and all6 ordinary shot types for both variants/facings/ages.
+Complete reference state and original register/OAM-value/count checks pass.
+
+callers-v3/proof.json (b61fc656063ab9f2f4e5a3cde54639d2c66fa4ea6b2cec2709b6a00931b81a6d):
+96 actual GameCore post-draw continuations, correct JumpEngine/IdleLoop stack,
+true full NMI, then the actual next GameLoop random/score boundary. Complete
+AXYP/SP, nonstack application RAM, banks, SMC and ordered continuation writes
+match, including saved BillNativeReturnP. Only physical OAM and the two
+declared persistent mapping fields GuestOamRotationActive/RgOamRotation differ.
+The v3 caller tool retains prose from its earlier liveness experiment; its
+actual additional assertion now requires the original draw return itself
+to match. There is no remaining returned-X/V exception in this candidate.
+
+ownership-v1/proof.json (54ec798886020e719800edd8ec17274b0e451f7ac3b8190b4dd5c5eeb5899726):
+128 complete owned RAM comparisons preserve every byte except those two
+fields/OAM/dead stack; full registers and bank state exact.262,144 assembled
+exit arithmetic cases cover all256logical-end/all256phase bytes/four flag
+contexts; original physical X/final-SBC V exact, helper53cycles.72 true lag
+NMIs at every18 reached exit boundaries for four actual states restore all
+registers/PC/SP, banks/shadows, five SMC and render state. No NMI reads the
+six watched renderer allocation fields; no lag-DMA/OAM stores occur.
+
+COST / TRADEOFF, NOT A PERFORMANCE OR VISIBILITY PASS
+Foreign full callers: -23..0cycles in all2,432flag cases. Active owned:
++159..160cycles; inactive/death/hidden cases +68..89. This is not lag reduction.
+Source geometric first8 priority in a four-buster fixture changes Mega body
+admitted part-rows44->128 but busters128->44; Proto body74->160, busters128->42.
+Crowded firebar scene: Mega body24->128, busters128->44, world128->108;
+Proto body54->160, busters128->42, world128->108. Source ordered record counts
+remain exact: these are PPU admission tradeoffs, not deleted source actors.
+They are Y-eligible16px sprite counts, not opaque RGB/native observations.
+Permanent body priority can starve shots or world parts. World shuffle still
+orders actors against one another, but no temporal publication bound against
+the body is established. Native actual images/cadence/shot visibility remain
+required; no claim that all flicker, body or shot problems are solved.
+
+NEGATIVES RETAINED
+mm-proto-body-priority-v1: assembler rejected a nonconstant .res expression.
+v2/92797527: geometry source passed but changed returned X and V. Actual
+GameCore continuation frame1/phase112/star4 saved70vs30 in BillNativeReturnP
+7FF4. That field was not excluded. The00fb correction retains the contract.
+partition-v1/v2 erroneously applied body-prefix assertions to the untouched
+full-ring parent; both failures remain. partition-v3 then caught an invalid
+fixture combining ProtoVariant1 with a forced Mega hair pose instead of the
+actual ProtoSetPose pointer. v4 corrected this setup and covers all27 poses.
+callers-v1 compared IO by rereading serial ports; v2 uses bus snapshots and
+retains the genuine V failure above. All failures are source/fixture scope,
+not native gameplay verdicts. Old c5/b0 shot-menu native negatives are exact.
+
+The final ready-v1 catalog binds the source archive, all proofs, actual source
+patch and owned tools/imports. A separately prepared450-frame pilot is not a
+native grant or adoption. No emulator is launched by this source task.

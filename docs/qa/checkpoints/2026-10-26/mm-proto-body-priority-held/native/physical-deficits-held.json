@@ -1,0 +1,3014 @@
+{
+  "passed": true,
+  "evidence_freeze_only": true,
+  "candidate_held": true,
+  "native_no_harm_cadence_pass": false,
+  "physical_prefix_deficit_frames": [
+    385,
+    437,
+    438,
+    439,
+    440,
+    441,
+    442,
+    443,
+    444,
+    445,
+    446,
+    447,
+    448,
+    449,
+    450
+  ],
+  "maximum_DMA_prefix_deficit": 2,
+  "first_deficit": {
+    "frame": 385,
+    "baseline_completed_DMA": 366,
+    "candidate_completed_DMA": 365,
+    "DMA_delta": -1,
+    "baseline_capture_cpu": 11463001,
+    "candidate_capture_cpu": 11463001,
+    "baseline_last_DMA_id": 366,
+    "candidate_last_DMA_id": 365,
+    "baseline_last_DMA": {
+      "cpu": 11434340,
+      "dot": 287,
+      "frame": 385,
+      "scanline": 249
+    },
+    "candidate_last_DMA": {
+      "cpu": 11404558,
+      "dot": 283,
+      "frame": 384,
+      "scanline": 249
+    },
+    "active_OAM_record_multiset_exact": false,
+    "raw_OAM_exact": false,
+    "different_RGB_pixels": 394,
+    "difference_box": [
+      45,
+      185,
+      103,
+      209
+    ],
+    "baseline_RGB_sha256": "3eaf0449988e3c876a63af6f9a8cbd62f05c321432a3e830ed26206ae1d7413c",
+    "candidate_RGB_sha256": "9033010161b0c1c367c44a4f6a099f5f2ef8cae92d4ef6f7b45e93dced68a310"
+  },
+  "final_deficit": {
+    "frame": 450,
+    "baseline_completed_DMA": 402,
+    "candidate_completed_DMA": 401,
+    "DMA_delta": -1,
+    "baseline_capture_cpu": 13398734,
+    "candidate_capture_cpu": 13398734,
+    "baseline_last_DMA_id": 402,
+    "candidate_last_DMA_id": 401,
+    "baseline_last_DMA": {
+      "cpu": 13310956,
+      "dot": 257,
+      "frame": 448,
+      "scanline": 253
+    },
+    "candidate_last_DMA": {
+      "cpu": 13340736,
+      "dot": 255,
+      "frame": 449,
+      "scanline": 253
+    },
+    "active_OAM_record_multiset_exact": true,
+    "raw_OAM_exact": false,
+    "different_RGB_pixels": 227,
+    "difference_box": [
+      85,
+      193,
+      247,
+      208
+    ],
+    "baseline_RGB_sha256": "d96323d852205f3b61abba47254221ac7d406a73f51b1b677f75e415cf5f2f55",
+    "candidate_RGB_sha256": "34fd331fc1acaad4b1437a78513ffbae292e6ba6966c279eb9bfc7c82ad99182"
+  },
+  "negative_epochs": [
+    {
+      "frame": 384,
+      "baseline": [
+        {
+          "kind": "input",
+          "mask": 65,
+          "poll": 383,
+          "ppu": {
+            "cpu": 11403554,
+            "dot": 0,
+            "frame": 384,
+            "scanline": 241
+          }
+        },
+        {
+          "depth": 1,
+          "kind": "NMI-entry",
+          "ppu": {
+            "cpu": 11403565,
+            "dot": 32,
+            "frame": 384,
+            "scanline": 241
+          },
+          "reload": 1,
+          "scope": true,
+          "sprite0": 1,
+          "wide": 0
+        },
+        {
+          "kind": "DMA-complete",
+          "DMA": {
+            "complete": {
+              "cpu": 11404560,
+              "dot": 289,
+              "frame": 384,
+              "scanline": 249
+            },
+            "completed_writes": 256,
+            "ctrl": 168,
+            "end_mask": 6,
+            "equal": true,
+            "first": {
+              "cpu": 11404046,
+              "dot": 110,
+              "frame": 384,
+              "scanline": 245
+            },
+            "id": 365,
+            "last": {
+              "cpu": 11404556,
+              "dot": 276,
+              "frame": 384,
+              "scanline": 249
+            },
+            "mask": 6,
+            "scope": true,
+            "start": {
+              "cpu": 11404043,
+              "dot": 101,
+              "frame": 384,
+              "scanline": 245
+            },
+            "writes": 256
+          }
+        },
+        {
+          "engine": 8,
+          "kind": "render-enable",
+          "menu": 0,
+          "oper": 1,
+          "ppu": {
+            "cpu": 11404564,
+            "dot": 300,
+            "frame": 384,
+            "scanline": 249
+          },
+          "safe": true,
+          "task": 3,
+          "value": 30
+        },
+        {
+          "address": 20995,
+          "kind": "IRQ-arm",
+          "nmi_depth": 1,
+          "ppu": {
+            "cpu": 11404836,
+            "dot": 93,
+            "frame": 384,
+            "scanline": 252
+          },
+          "value": 31
+        },
+        {
+          "address": 20996,
+          "kind": "IRQ-arm",
+          "nmi_depth": 1,
+          "ppu": {
+            "cpu": 11404842,
+            "dot": 111,
+            "frame": 384,
+            "scanline": 252
+          },
+          "value": 128
+        },
+        {
+          "kind": "IRQ31",
+          "nmi_depth": 1,
+          "ppu": {
+            "cpu": 11409477,
+            "dot": 36,
+            "frame": 384,
+            "scanline": 31
+          }
+        },
+        {
+          "depth": 1,
+          "kind": "NMI-return",
+          "ppu": {
+            "cpu": 11410976,
+            "dot": 100,
+            "frame": 384,
+            "scanline": 44
+          }
+        }
+      ],
+      "candidate": [
+        {
+          "kind": "input",
+          "mask": 65,
+          "poll": 383,
+          "ppu": {
+            "cpu": 11403554,
+            "dot": 0,
+            "frame": 384,
+            "scanline": 241
+          }
+        },
+        {
+          "depth": 1,
+          "kind": "NMI-entry",
+          "ppu": {
+            "cpu": 11403563,
+            "dot": 26,
+            "frame": 384,
+            "scanline": 241
+          },
+          "reload": 1,
+          "scope": true,
+          "sprite0": 1,
+          "wide": 0
+        },
+        {
+          "kind": "DMA-complete",
+          "DMA": {
+            "complete": {
+              "cpu": 11404558,
+              "dot": 283,
+              "frame": 384,
+              "scanline": 249
+            },
+            "completed_writes": 256,
+            "ctrl": 168,
+            "end_mask": 6,
+            "equal": true,
+            "first": {
+              "cpu": 11404044,
+              "dot": 104,
+              "frame": 384,
+              "scanline": 245
+            },
+            "id": 365,
+            "last": {
+              "cpu": 11404554,
+              "dot": 270,
+              "frame": 384,
+              "scanline": 249
+            },
+            "mask": 6,
+            "scope": true,
+            "start": {
+              "cpu": 11404041,
+              "dot": 95,
+              "frame": 384,
+              "scanline": 245
+            },
+            "writes": 256
+          }
+        },
+        {
+          "engine": 8,
+          "kind": "render-enable",
+          "menu": 0,
+          "oper": 1,
+          "ppu": {
+            "cpu": 11404562,
+            "dot": 294,
+            "frame": 384,
+            "scanline": 249
+          },
+          "safe": true,
+          "task": 3,
+          "value": 30
+        },
+        {
+          "address": 20995,
+          "kind": "IRQ-arm",
+          "nmi_depth": 1,
+          "ppu": {
+            "cpu": 11404834,
+            "dot": 87,
+            "frame": 384,
+            "scanline": 252
+          },
+          "value": 31
+        },
+        {
+          "address": 20996,
+          "kind": "IRQ-arm",
+          "nmi_depth": 1,
+          "ppu": {
+            "cpu": 11404840,
+            "dot": 105,
+            "frame": 384,
+            "scanline": 252
+          },
+          "value": 128
+        },
+        {
+          "kind": "IRQ31",
+          "nmi_depth": 1,
+          "ppu": {
+            "cpu": 11409475,
+            "dot": 30,
+            "frame": 384,
+            "scanline": 31
+          }
+        },
+        {
+          "depth": 1,
+          "kind": "NMI-return",
+          "ppu": {
+            "cpu": 11410974,
+            "dot": 94,
+            "frame": 384,
+            "scanline": 44
+          }
+        }
+      ]
+    },
+    {
+      "frame": 385,
+      "baseline": [
+        {
+          "kind": "input",
+          "mask": 65,
+          "poll": 384,
+          "ppu": {
+            "cpu": 11433335,
+            "dot": 0,
+            "frame": 385,
+            "scanline": 241
+          }
+        },
+        {
+          "depth": 1,
+          "kind": "NMI-entry",
+          "ppu": {
+            "cpu": 11433344,
+            "dot": 27,
+            "frame": 385,
+            "scanline": 241
+          },
+          "reload": 1,
+          "scope": true,
+          "sprite0": 1,
+          "wide": 0
+        },
+        {
+          "kind": "DMA-complete",
+          "DMA": {
+            "complete": {
+              "cpu": 11434340,
+              "dot": 287,
+              "frame": 385,
+              "scanline": 249
+            },
+            "completed_writes": 256,
+            "ctrl": 168,
+            "end_mask": 6,
+            "equal": true,
+            "first": {
+              "cpu": 11433826,
+              "dot": 108,
+              "frame": 385,
+              "scanline": 245
+            },
+            "id": 366,
+            "last": {
+              "cpu": 11434336,
+              "dot": 274,
+              "frame": 385,
+              "scanline": 249
+            },
+            "mask": 6,
+            "scope": true,
+            "start": {
+              "cpu": 11433822,
+              "dot": 96,
+              "frame": 385,
+              "scanline": 245
+            },
+            "writes": 256
+          }
+        },
+        {
+          "engine": 8,
+          "kind": "render-enable",
+          "menu": 0,
+          "oper": 1,
+          "ppu": {
+            "cpu": 11434344,
+            "dot": 298,
+            "frame": 385,
+            "scanline": 249
+          },
+          "safe": true,
+          "task": 3,
+          "value": 30
+        },
+        {
+          "address": 20995,
+          "kind": "IRQ-arm",
+          "nmi_depth": 1,
+          "ppu": {
+            "cpu": 11434616,
+            "dot": 91,
+            "frame": 385,
+            "scanline": 252
+          },
+          "value": 31
+        },
+        {
+          "address": 20996,
+          "kind": "IRQ-arm",
+          "nmi_depth": 1,
+          "ppu": {
+            "cpu": 11434622,
+            "dot": 109,
+            "frame": 385,
+            "scanline": 252
+          },
+          "value": 128
+        },
+        {
+          "kind": "IRQ31",
+          "nmi_depth": 1,
+          "ppu": {
+            "cpu": 11439257,
+            "dot": 35,
+            "frame": 385,
+            "scanline": 31
+          }
+        },
+        {
+          "depth": 1,
+          "kind": "NMI-return",
+          "ppu": {
+            "cpu": 11441689,
+            "dot": 170,
+            "frame": 385,
+            "scanline": 52
+          }
+        }
+      ],
+      "candidate": [
+        {
+          "kind": "input",
+          "mask": 65,
+          "poll": 384,
+          "ppu": {
+            "cpu": 11433335,
+            "dot": 0,
+            "frame": 385,
+            "scanline": 241
+          }
+        },
+        {
+          "depth": 1,
+          "kind": "NMI-entry",
+          "ppu": {
+            "cpu": 11433345,
+            "dot": 30,
+            "frame": 385,
+            "scanline": 241
+          },
+          "reload": 1,
+          "scope": true,
+          "sprite0": 1,
+          "wide": 0
+        },
+        {
+          "address": 20995,
+          "kind": "IRQ-arm",
+          "nmi_depth": 1,
+          "ppu": {
+            "cpu": 11433389,
+            "dot": 161,
+            "frame": 385,
+            "scanline": 241
+          },
+          "value": 31
+        },
+        {
+          "address": 20996,
+          "kind": "IRQ-arm",
+          "nmi_depth": 1,
+          "ppu": {
+            "cpu": 11433395,
+            "dot": 179,
+            "frame": 385,
+            "scanline": 241
+          },
+          "value": 128
+        },
+        {
+          "kind": "IRQ31",
+          "nmi_depth": 1,
+          "ppu": {
+            "cpu": 11439255,
+            "dot": 29,
+            "frame": 385,
+            "scanline": 31
+          }
+        },
+        {
+          "depth": 1,
+          "kind": "NMI-return",
+          "ppu": {
+            "cpu": 11440453,
+            "dot": 213,
+            "frame": 385,
+            "scanline": 41
+          }
+        }
+      ]
+    },
+    {
+      "frame": 386,
+      "baseline": [
+        {
+          "kind": "input",
+          "mask": 1,
+          "poll": 385,
+          "ppu": {
+            "cpu": 11463115,
+            "dot": 0,
+            "frame": 386,
+            "scanline": 241
+          }
+        },
+        {
+          "depth": 1,
+          "kind": "NMI-entry",
+          "ppu": {
+            "cpu": 11463128,
+            "dot": 38,
+            "frame": 386,
+            "scanline": 241
+          },
+          "reload": 1,
+          "scope": true,
+          "sprite0": 1,
+          "wide": 0
+        },
+        {
+          "address": 20995,
+          "kind": "IRQ-arm",
+          "nmi_depth": 1,
+          "ppu": {
+            "cpu": 11463172,
+            "dot": 169,
+            "frame": 386,
+            "scanline": 241
+          },
+          "value": 31
+        },
+        {
+          "address": 20996,
+          "kind": "IRQ-arm",
+          "nmi_depth": 1,
+          "ppu": {
+            "cpu": 11463178,
+            "dot": 187,
+            "frame": 386,
+            "scanline": 241
+          },
+          "value": 128
+        },
+        {
+          "kind": "IRQ31",
+          "nmi_depth": 1,
+          "ppu": {
+            "cpu": 11469035,
+            "dot": 27,
+            "frame": 386,
+            "scanline": 31
+          }
+        },
+        {
+          "depth": 1,
+          "kind": "NMI-return",
+          "ppu": {
+            "cpu": 11469154,
+            "dot": 43,
+            "frame": 386,
+            "scanline": 32
+          }
+        }
+      ],
+      "candidate": [
+        {
+          "kind": "input",
+          "mask": 1,
+          "poll": 385,
+          "ppu": {
+            "cpu": 11463115,
+            "dot": 0,
+            "frame": 386,
+            "scanline": 241
+          }
+        },
+        {
+          "depth": 1,
+          "kind": "NMI-entry",
+          "ppu": {
+            "cpu": 11463124,
+            "dot": 26,
+            "frame": 386,
+            "scanline": 241
+          },
+          "reload": 1,
+          "scope": true,
+          "sprite0": 1,
+          "wide": 0
+        },
+        {
+          "kind": "DMA-complete",
+          "DMA": {
+            "complete": {
+              "cpu": 11464290,
+              "dot": 114,
+              "frame": 386,
+              "scanline": 251
+            },
+            "completed_writes": 256,
+            "ctrl": 168,
+            "end_mask": 6,
+            "equal": true,
+            "first": {
+              "cpu": 11463776,
+              "dot": 276,
+              "frame": 386,
+              "scanline": 246
+            },
+            "id": 366,
+            "last": {
+              "cpu": 11464286,
+              "dot": 101,
+              "frame": 386,
+              "scanline": 251
+            },
+            "mask": 6,
+            "scope": true,
+            "start": {
+              "cpu": 11463772,
+              "dot": 264,
+              "frame": 386,
+              "scanline": 246
+            },
+            "writes": 256
+          }
+        },
+        {
+          "engine": 8,
+          "kind": "render-enable",
+          "menu": 0,
+          "oper": 1,
+          "ppu": {
+            "cpu": 11464294,
+            "dot": 125,
+            "frame": 386,
+            "scanline": 251
+          },
+          "safe": true,
+          "task": 3,
+          "value": 30
+        },
+        {
+          "address": 20995,
+          "kind": "IRQ-arm",
+          "nmi_depth": 1,
+          "ppu": {
+            "cpu": 11464566,
+            "dot": 259,
+            "frame": 386,
+            "scanline": 253
+          },
+          "value": 31
+        },
+        {
+          "address": 20996,
+          "kind": "IRQ-arm",
+          "nmi_depth": 1,
+          "ppu": {
+            "cpu": 11464572,
+            "dot": 277,
+            "frame": 386,
+            "scanline": 253
+          },
+          "value": 128
+        },
+        {
+          "kind": "IRQ31",
+          "nmi_depth": 1,
+          "ppu": {
+            "cpu": 11469035,
+            "dot": 27,
+            "frame": 386,
+            "scanline": 31
+          }
+        },
+        {
+          "depth": 1,
+          "kind": "NMI-return",
+          "ppu": {
+            "cpu": 11470557,
+            "dot": 160,
+            "frame": 386,
+            "scanline": 44
+          }
+        }
+      ]
+    },
+    {
+      "frame": 387,
+      "baseline": [
+        {
+          "kind": "input",
+          "mask": 1,
+          "poll": 386,
+          "ppu": {
+            "cpu": 11492896,
+            "dot": 0,
+            "frame": 387,
+            "scanline": 241
+          }
+        },
+        {
+          "depth": 1,
+          "kind": "NMI-entry",
+          "ppu": {
+            "cpu": 11492905,
+            "dot": 27,
+            "frame": 387,
+            "scanline": 241
+          },
+          "reload": 1,
+          "scope": true,
+          "sprite0": 1,
+          "wide": 0
+        },
+        {
+          "kind": "DMA-complete",
+          "DMA": {
+            "complete": {
+              "cpu": 11494070,
+              "dot": 112,
+              "frame": 387,
+              "scanline": 251
+            },
+            "completed_writes": 256,
+            "ctrl": 168,
+            "end_mask": 6,
+            "equal": true,
+            "first": {
+              "cpu": 11493556,
+              "dot": 274,
+              "frame": 387,
+              "scanline": 246
+            },
+            "id": 367,
+            "last": {
+              "cpu": 11494066,
+              "dot": 99,
+              "frame": 387,
+              "scanline": 251
+            },
+            "mask": 6,
+            "scope": true,
+            "start": {
+              "cpu": 11493553,
+              "dot": 265,
+              "frame": 387,
+              "scanline": 246
+            },
+            "writes": 256
+          }
+        },
+        {
+          "engine": 8,
+          "kind": "render-enable",
+          "menu": 0,
+          "oper": 1,
+          "ppu": {
+            "cpu": 11494074,
+            "dot": 123,
+            "frame": 387,
+            "scanline": 251
+          },
+          "safe": true,
+          "task": 3,
+          "value": 30
+        },
+        {
+          "address": 20995,
+          "kind": "IRQ-arm",
+          "nmi_depth": 1,
+          "ppu": {
+            "cpu": 11494346,
+            "dot": 257,
+            "frame": 387,
+            "scanline": 253
+          },
+          "value": 31
+        },
+        {
+          "address": 20996,
+          "kind": "IRQ-arm",
+          "nmi_depth": 1,
+          "ppu": {
+            "cpu": 11494352,
+            "dot": 275,
+            "frame": 387,
+            "scanline": 253
+          },
+          "value": 128
+        },
+        {
+          "kind": "IRQ31",
+          "nmi_depth": 1,
+          "ppu": {
+            "cpu": 11498818,
+            "dot": 35,
+            "frame": 387,
+            "scanline": 31
+          }
+        },
+        {
+          "depth": 1,
+          "kind": "NMI-return",
+          "ppu": {
+            "cpu": 11500489,
+            "dot": 274,
+            "frame": 387,
+            "scanline": 45
+          }
+        }
+      ],
+      "candidate": [
+        {
+          "kind": "input",
+          "mask": 1,
+          "poll": 386,
+          "ppu": {
+            "cpu": 11492896,
+            "dot": 0,
+            "frame": 387,
+            "scanline": 241
+          }
+        },
+        {
+          "depth": 1,
+          "kind": "NMI-entry",
+          "ppu": {
+            "cpu": 11492907,
+            "dot": 33,
+            "frame": 387,
+            "scanline": 241
+          },
+          "reload": 0,
+          "scope": true,
+          "sprite0": 1,
+          "wide": 0
+        },
+        {
+          "kind": "DMA-complete",
+          "DMA": {
+            "complete": {
+              "cpu": 11493664,
+              "dot": 258,
+              "frame": 387,
+              "scanline": 247
+            },
+            "completed_writes": 256,
+            "ctrl": 168,
+            "end_mask": 6,
+            "equal": true,
+            "first": {
+              "cpu": 11493150,
+              "dot": 79,
+              "frame": 387,
+              "scanline": 243
+            },
+            "id": 367,
+            "last": {
+              "cpu": 11493660,
+              "dot": 245,
+              "frame": 387,
+              "scanline": 247
+            },
+            "mask": 6,
+            "scope": true,
+            "start": {
+              "cpu": 11493146,
+              "dot": 67,
+              "frame": 387,
+              "scanline": 243
+            },
+            "writes": 256
+          }
+        },
+        {
+          "engine": 8,
+          "kind": "render-enable",
+          "menu": 0,
+          "oper": 1,
+          "ppu": {
+            "cpu": 11493668,
+            "dot": 269,
+            "frame": 387,
+            "scanline": 247
+          },
+          "safe": true,
+          "task": 3,
+          "value": 30
+        },
+        {
+          "address": 20995,
+          "kind": "IRQ-arm",
+          "nmi_depth": 1,
+          "ppu": {
+            "cpu": 11493940,
+            "dot": 62,
+            "frame": 387,
+            "scanline": 250
+          },
+          "value": 31
+        },
+        {
+          "address": 20996,
+          "kind": "IRQ-arm",
+          "nmi_depth": 1,
+          "ppu": {
+            "cpu": 11493946,
+            "dot": 80,
+            "frame": 387,
+            "scanline": 250
+          },
+          "value": 128
+        },
+        {
+          "kind": "IRQ31",
+          "nmi_depth": 1,
+          "ppu": {
+            "cpu": 11498817,
+            "dot": 32,
+            "frame": 387,
+            "scanline": 31
+          }
+        },
+        {
+          "depth": 1,
+          "kind": "NMI-return",
+          "ppu": {
+            "cpu": 11500083,
+            "dot": 79,
+            "frame": 387,
+            "scanline": 42
+          }
+        }
+      ]
+    },
+    {
+      "frame": 436,
+      "baseline": [
+        {
+          "kind": "input",
+          "mask": 1,
+          "poll": 435,
+          "ppu": {
+            "cpu": 12952140,
+            "dot": 0,
+            "frame": 436,
+            "scanline": 241
+          }
+        },
+        {
+          "depth": 1,
+          "kind": "NMI-entry",
+          "ppu": {
+            "cpu": 12952149,
+            "dot": 26,
+            "frame": 436,
+            "scanline": 241
+          },
+          "reload": 1,
+          "scope": true,
+          "sprite0": 1,
+          "wide": 0
+        },
+        {
+          "kind": "DMA-complete",
+          "DMA": {
+            "complete": {
+              "cpu": 12953144,
+              "dot": 283,
+              "frame": 436,
+              "scanline": 249
+            },
+            "completed_writes": 256,
+            "ctrl": 168,
+            "end_mask": 6,
+            "equal": true,
+            "first": {
+              "cpu": 12952630,
+              "dot": 104,
+              "frame": 436,
+              "scanline": 245
+            },
+            "id": 395,
+            "last": {
+              "cpu": 12953140,
+              "dot": 270,
+              "frame": 436,
+              "scanline": 249
+            },
+            "mask": 6,
+            "scope": true,
+            "start": {
+              "cpu": 12952627,
+              "dot": 95,
+              "frame": 436,
+              "scanline": 245
+            },
+            "writes": 256
+          }
+        },
+        {
+          "engine": 8,
+          "kind": "render-enable",
+          "menu": 0,
+          "oper": 1,
+          "ppu": {
+            "cpu": 12953148,
+            "dot": 294,
+            "frame": 436,
+            "scanline": 249
+          },
+          "safe": true,
+          "task": 3,
+          "value": 30
+        },
+        {
+          "address": 20995,
+          "kind": "IRQ-arm",
+          "nmi_depth": 1,
+          "ppu": {
+            "cpu": 12953420,
+            "dot": 87,
+            "frame": 436,
+            "scanline": 252
+          },
+          "value": 31
+        },
+        {
+          "address": 20996,
+          "kind": "IRQ-arm",
+          "nmi_depth": 1,
+          "ppu": {
+            "cpu": 12953426,
+            "dot": 105,
+            "frame": 436,
+            "scanline": 252
+          },
+          "value": 128
+        },
+        {
+          "kind": "IRQ31",
+          "nmi_depth": 1,
+          "ppu": {
+            "cpu": 12958063,
+            "dot": 36,
+            "frame": 436,
+            "scanline": 31
+          }
+        },
+        {
+          "depth": 1,
+          "kind": "NMI-return",
+          "ppu": {
+            "cpu": 12959035,
+            "dot": 224,
+            "frame": 436,
+            "scanline": 39
+          }
+        }
+      ],
+      "candidate": [
+        {
+          "kind": "input",
+          "mask": 1,
+          "poll": 435,
+          "ppu": {
+            "cpu": 12952140,
+            "dot": 0,
+            "frame": 436,
+            "scanline": 241
+          }
+        },
+        {
+          "depth": 1,
+          "kind": "NMI-entry",
+          "ppu": {
+            "cpu": 12952149,
+            "dot": 26,
+            "frame": 436,
+            "scanline": 241
+          },
+          "reload": 1,
+          "scope": true,
+          "sprite0": 1,
+          "wide": 0
+        },
+        {
+          "kind": "DMA-complete",
+          "DMA": {
+            "complete": {
+              "cpu": 12953144,
+              "dot": 283,
+              "frame": 436,
+              "scanline": 249
+            },
+            "completed_writes": 256,
+            "ctrl": 168,
+            "end_mask": 6,
+            "equal": true,
+            "first": {
+              "cpu": 12952630,
+              "dot": 104,
+              "frame": 436,
+              "scanline": 245
+            },
+            "id": 395,
+            "last": {
+              "cpu": 12953140,
+              "dot": 270,
+              "frame": 436,
+              "scanline": 249
+            },
+            "mask": 6,
+            "scope": true,
+            "start": {
+              "cpu": 12952627,
+              "dot": 95,
+              "frame": 436,
+              "scanline": 245
+            },
+            "writes": 256
+          }
+        },
+        {
+          "engine": 8,
+          "kind": "render-enable",
+          "menu": 0,
+          "oper": 1,
+          "ppu": {
+            "cpu": 12953148,
+            "dot": 294,
+            "frame": 436,
+            "scanline": 249
+          },
+          "safe": true,
+          "task": 3,
+          "value": 30
+        },
+        {
+          "address": 20995,
+          "kind": "IRQ-arm",
+          "nmi_depth": 1,
+          "ppu": {
+            "cpu": 12953420,
+            "dot": 87,
+            "frame": 436,
+            "scanline": 252
+          },
+          "value": 31
+        },
+        {
+          "address": 20996,
+          "kind": "IRQ-arm",
+          "nmi_depth": 1,
+          "ppu": {
+            "cpu": 12953426,
+            "dot": 105,
+            "frame": 436,
+            "scanline": 252
+          },
+          "value": 128
+        },
+        {
+          "kind": "IRQ31",
+          "nmi_depth": 1,
+          "ppu": {
+            "cpu": 12958063,
+            "dot": 36,
+            "frame": 436,
+            "scanline": 31
+          }
+        },
+        {
+          "depth": 1,
+          "kind": "NMI-return",
+          "ppu": {
+            "cpu": 12959035,
+            "dot": 224,
+            "frame": 436,
+            "scanline": 39
+          }
+        }
+      ]
+    },
+    {
+      "frame": 437,
+      "baseline": [
+        {
+          "kind": "input",
+          "mask": 1,
+          "poll": 436,
+          "ppu": {
+            "cpu": 12981921,
+            "dot": 0,
+            "frame": 437,
+            "scanline": 241
+          }
+        },
+        {
+          "depth": 1,
+          "kind": "NMI-entry",
+          "ppu": {
+            "cpu": 12981931,
+            "dot": 30,
+            "frame": 437,
+            "scanline": 241
+          },
+          "reload": 1,
+          "scope": true,
+          "sprite0": 1,
+          "wide": 0
+        },
+        {
+          "kind": "DMA-complete",
+          "DMA": {
+            "complete": {
+              "cpu": 12982926,
+              "dot": 287,
+              "frame": 437,
+              "scanline": 249
+            },
+            "completed_writes": 256,
+            "ctrl": 168,
+            "end_mask": 6,
+            "equal": true,
+            "first": {
+              "cpu": 12982412,
+              "dot": 108,
+              "frame": 437,
+              "scanline": 245
+            },
+            "id": 396,
+            "last": {
+              "cpu": 12982922,
+              "dot": 274,
+              "frame": 437,
+              "scanline": 249
+            },
+            "mask": 6,
+            "scope": true,
+            "start": {
+              "cpu": 12982409,
+              "dot": 99,
+              "frame": 437,
+              "scanline": 245
+            },
+            "writes": 256
+          }
+        },
+        {
+          "engine": 8,
+          "kind": "render-enable",
+          "menu": 0,
+          "oper": 1,
+          "ppu": {
+            "cpu": 12982930,
+            "dot": 298,
+            "frame": 437,
+            "scanline": 249
+          },
+          "safe": true,
+          "task": 3,
+          "value": 30
+        },
+        {
+          "address": 20995,
+          "kind": "IRQ-arm",
+          "nmi_depth": 1,
+          "ppu": {
+            "cpu": 12983202,
+            "dot": 91,
+            "frame": 437,
+            "scanline": 252
+          },
+          "value": 31
+        },
+        {
+          "address": 20996,
+          "kind": "IRQ-arm",
+          "nmi_depth": 1,
+          "ppu": {
+            "cpu": 12983208,
+            "dot": 109,
+            "frame": 437,
+            "scanline": 252
+          },
+          "value": 128
+        },
+        {
+          "kind": "IRQ31",
+          "nmi_depth": 1,
+          "ppu": {
+            "cpu": 12987842,
+            "dot": 32,
+            "frame": 437,
+            "scanline": 31
+          }
+        },
+        {
+          "depth": 1,
+          "kind": "NMI-return",
+          "ppu": {
+            "cpu": 12988779,
+            "dot": 115,
+            "frame": 437,
+            "scanline": 39
+          }
+        }
+      ],
+      "candidate": [
+        {
+          "kind": "input",
+          "mask": 1,
+          "poll": 436,
+          "ppu": {
+            "cpu": 12981921,
+            "dot": 0,
+            "frame": 437,
+            "scanline": 241
+          }
+        },
+        {
+          "depth": 1,
+          "kind": "NMI-entry",
+          "ppu": {
+            "cpu": 12981933,
+            "dot": 36,
+            "frame": 437,
+            "scanline": 241
+          },
+          "reload": 1,
+          "scope": true,
+          "sprite0": 1,
+          "wide": 0
+        },
+        {
+          "address": 20995,
+          "kind": "IRQ-arm",
+          "nmi_depth": 1,
+          "ppu": {
+            "cpu": 12981977,
+            "dot": 167,
+            "frame": 437,
+            "scanline": 241
+          },
+          "value": 31
+        },
+        {
+          "address": 20996,
+          "kind": "IRQ-arm",
+          "nmi_depth": 1,
+          "ppu": {
+            "cpu": 12981983,
+            "dot": 185,
+            "frame": 437,
+            "scanline": 241
+          },
+          "value": 128
+        },
+        {
+          "depth": 1,
+          "kind": "NMI-return",
+          "ppu": {
+            "cpu": 12987425,
+            "dot": 145,
+            "frame": 437,
+            "scanline": 27
+          }
+        },
+        {
+          "kind": "IRQ31",
+          "nmi_depth": 0,
+          "ppu": {
+            "cpu": 12987841,
+            "dot": 29,
+            "frame": 437,
+            "scanline": 31
+          }
+        }
+      ]
+    },
+    {
+      "frame": 438,
+      "baseline": [
+        {
+          "kind": "input",
+          "mask": 1,
+          "poll": 437,
+          "ppu": {
+            "cpu": 13011701,
+            "dot": 0,
+            "frame": 438,
+            "scanline": 241
+          }
+        },
+        {
+          "depth": 1,
+          "kind": "NMI-entry",
+          "ppu": {
+            "cpu": 13011712,
+            "dot": 32,
+            "frame": 438,
+            "scanline": 241
+          },
+          "reload": 1,
+          "scope": true,
+          "sprite0": 1,
+          "wide": 0
+        },
+        {
+          "kind": "DMA-complete",
+          "DMA": {
+            "complete": {
+              "cpu": 13012708,
+              "dot": 292,
+              "frame": 438,
+              "scanline": 249
+            },
+            "completed_writes": 256,
+            "ctrl": 168,
+            "end_mask": 6,
+            "equal": true,
+            "first": {
+              "cpu": 13012194,
+              "dot": 113,
+              "frame": 438,
+              "scanline": 245
+            },
+            "id": 397,
+            "last": {
+              "cpu": 13012704,
+              "dot": 279,
+              "frame": 438,
+              "scanline": 249
+            },
+            "mask": 6,
+            "scope": true,
+            "start": {
+              "cpu": 13012190,
+              "dot": 101,
+              "frame": 438,
+              "scanline": 245
+            },
+            "writes": 256
+          }
+        },
+        {
+          "engine": 8,
+          "kind": "render-enable",
+          "menu": 0,
+          "oper": 1,
+          "ppu": {
+            "cpu": 13012712,
+            "dot": 303,
+            "frame": 438,
+            "scanline": 249
+          },
+          "safe": true,
+          "task": 3,
+          "value": 30
+        },
+        {
+          "address": 20995,
+          "kind": "IRQ-arm",
+          "nmi_depth": 1,
+          "ppu": {
+            "cpu": 13012984,
+            "dot": 96,
+            "frame": 438,
+            "scanline": 252
+          },
+          "value": 31
+        },
+        {
+          "address": 20996,
+          "kind": "IRQ-arm",
+          "nmi_depth": 1,
+          "ppu": {
+            "cpu": 13012990,
+            "dot": 114,
+            "frame": 438,
+            "scanline": 252
+          },
+          "value": 128
+        },
+        {
+          "kind": "IRQ31",
+          "nmi_depth": 1,
+          "ppu": {
+            "cpu": 13017621,
+            "dot": 27,
+            "frame": 438,
+            "scanline": 31
+          }
+        },
+        {
+          "depth": 1,
+          "kind": "NMI-return",
+          "ppu": {
+            "cpu": 13019643,
+            "dot": 296,
+            "frame": 438,
+            "scanline": 48
+          }
+        }
+      ],
+      "candidate": [
+        {
+          "kind": "input",
+          "mask": 1,
+          "poll": 437,
+          "ppu": {
+            "cpu": 13011701,
+            "dot": 0,
+            "frame": 438,
+            "scanline": 241
+          }
+        },
+        {
+          "depth": 1,
+          "kind": "NMI-entry",
+          "ppu": {
+            "cpu": 13011712,
+            "dot": 32,
+            "frame": 438,
+            "scanline": 241
+          },
+          "reload": 1,
+          "scope": true,
+          "sprite0": 1,
+          "wide": 0
+        },
+        {
+          "kind": "DMA-complete",
+          "DMA": {
+            "complete": {
+              "cpu": 13012708,
+              "dot": 292,
+              "frame": 438,
+              "scanline": 249
+            },
+            "completed_writes": 256,
+            "ctrl": 168,
+            "end_mask": 6,
+            "equal": true,
+            "first": {
+              "cpu": 13012194,
+              "dot": 113,
+              "frame": 438,
+              "scanline": 245
+            },
+            "id": 396,
+            "last": {
+              "cpu": 13012704,
+              "dot": 279,
+              "frame": 438,
+              "scanline": 249
+            },
+            "mask": 6,
+            "scope": true,
+            "start": {
+              "cpu": 13012190,
+              "dot": 101,
+              "frame": 438,
+              "scanline": 245
+            },
+            "writes": 256
+          }
+        },
+        {
+          "engine": 8,
+          "kind": "render-enable",
+          "menu": 0,
+          "oper": 1,
+          "ppu": {
+            "cpu": 13012712,
+            "dot": 303,
+            "frame": 438,
+            "scanline": 249
+          },
+          "safe": true,
+          "task": 3,
+          "value": 30
+        },
+        {
+          "address": 20995,
+          "kind": "IRQ-arm",
+          "nmi_depth": 1,
+          "ppu": {
+            "cpu": 13012984,
+            "dot": 96,
+            "frame": 438,
+            "scanline": 252
+          },
+          "value": 31
+        },
+        {
+          "address": 20996,
+          "kind": "IRQ-arm",
+          "nmi_depth": 1,
+          "ppu": {
+            "cpu": 13012990,
+            "dot": 114,
+            "frame": 438,
+            "scanline": 252
+          },
+          "value": 128
+        },
+        {
+          "kind": "IRQ31",
+          "nmi_depth": 1,
+          "ppu": {
+            "cpu": 13017621,
+            "dot": 27,
+            "frame": 438,
+            "scanline": 31
+          }
+        },
+        {
+          "depth": 1,
+          "kind": "NMI-return",
+          "ppu": {
+            "cpu": 13019643,
+            "dot": 296,
+            "frame": 438,
+            "scanline": 48
+          }
+        }
+      ]
+    },
+    {
+      "frame": 444,
+      "baseline": [
+        {
+          "kind": "input",
+          "mask": 1,
+          "poll": 443,
+          "ppu": {
+            "cpu": 13190384,
+            "dot": 0,
+            "frame": 444,
+            "scanline": 241
+          }
+        },
+        {
+          "depth": 1,
+          "kind": "NMI-entry",
+          "ppu": {
+            "cpu": 13190395,
+            "dot": 32,
+            "frame": 444,
+            "scanline": 241
+          },
+          "reload": 0,
+          "scope": true,
+          "sprite0": 1,
+          "wide": 0
+        },
+        {
+          "kind": "DMA-complete",
+          "DMA": {
+            "complete": {
+              "cpu": 13191306,
+              "dot": 37,
+              "frame": 444,
+              "scanline": 249
+            },
+            "completed_writes": 256,
+            "ctrl": 168,
+            "end_mask": 6,
+            "equal": true,
+            "first": {
+              "cpu": 13190792,
+              "dot": 199,
+              "frame": 444,
+              "scanline": 244
+            },
+            "id": 400,
+            "last": {
+              "cpu": 13191302,
+              "dot": 24,
+              "frame": 444,
+              "scanline": 249
+            },
+            "mask": 6,
+            "scope": true,
+            "start": {
+              "cpu": 13190788,
+              "dot": 187,
+              "frame": 444,
+              "scanline": 244
+            },
+            "writes": 256
+          }
+        },
+        {
+          "engine": 8,
+          "kind": "render-enable",
+          "menu": 0,
+          "oper": 1,
+          "ppu": {
+            "cpu": 13191310,
+            "dot": 48,
+            "frame": 444,
+            "scanline": 249
+          },
+          "safe": true,
+          "task": 3,
+          "value": 30
+        },
+        {
+          "address": 20995,
+          "kind": "IRQ-arm",
+          "nmi_depth": 1,
+          "ppu": {
+            "cpu": 13191582,
+            "dot": 182,
+            "frame": 444,
+            "scanline": 251
+          },
+          "value": 31
+        },
+        {
+          "address": 20996,
+          "kind": "IRQ-arm",
+          "nmi_depth": 1,
+          "ppu": {
+            "cpu": 13191588,
+            "dot": 200,
+            "frame": 444,
+            "scanline": 251
+          },
+          "value": 128
+        },
+        {
+          "kind": "IRQ31",
+          "nmi_depth": 1,
+          "ppu": {
+            "cpu": 13196306,
+            "dot": 33,
+            "frame": 444,
+            "scanline": 31
+          }
+        },
+        {
+          "depth": 1,
+          "kind": "NMI-return",
+          "ppu": {
+            "cpu": 13197730,
+            "dot": 213,
+            "frame": 444,
+            "scanline": 43
+          }
+        }
+      ],
+      "candidate": [
+        {
+          "kind": "input",
+          "mask": 1,
+          "poll": 443,
+          "ppu": {
+            "cpu": 13190384,
+            "dot": 0,
+            "frame": 444,
+            "scanline": 241
+          }
+        },
+        {
+          "depth": 1,
+          "kind": "NMI-entry",
+          "ppu": {
+            "cpu": 13190395,
+            "dot": 32,
+            "frame": 444,
+            "scanline": 241
+          },
+          "reload": 0,
+          "scope": true,
+          "sprite0": 1,
+          "wide": 0
+        },
+        {
+          "address": 20995,
+          "kind": "IRQ-arm",
+          "nmi_depth": 1,
+          "ppu": {
+            "cpu": 13190439,
+            "dot": 163,
+            "frame": 444,
+            "scanline": 241
+          },
+          "value": 31
+        },
+        {
+          "address": 20996,
+          "kind": "IRQ-arm",
+          "nmi_depth": 1,
+          "ppu": {
+            "cpu": 13190445,
+            "dot": 181,
+            "frame": 444,
+            "scanline": 241
+          },
+          "value": 128
+        },
+        {
+          "kind": "IRQ31",
+          "nmi_depth": 1,
+          "ppu": {
+            "cpu": 13196306,
+            "dot": 33,
+            "frame": 444,
+            "scanline": 31
+          }
+        },
+        {
+          "depth": 1,
+          "kind": "NMI-return",
+          "ppu": {
+            "cpu": 13196578,
+            "dot": 167,
+            "frame": 444,
+            "scanline": 33
+          }
+        }
+      ]
+    },
+    {
+      "frame": 445,
+      "baseline": [
+        {
+          "kind": "input",
+          "mask": 1,
+          "poll": 444,
+          "ppu": {
+            "cpu": 13220165,
+            "dot": 0,
+            "frame": 445,
+            "scanline": 241
+          }
+        },
+        {
+          "depth": 1,
+          "kind": "NMI-entry",
+          "ppu": {
+            "cpu": 13220175,
+            "dot": 30,
+            "frame": 445,
+            "scanline": 241
+          },
+          "reload": 1,
+          "scope": true,
+          "sprite0": 1,
+          "wide": 0
+        },
+        {
+          "address": 20995,
+          "kind": "IRQ-arm",
+          "nmi_depth": 1,
+          "ppu": {
+            "cpu": 13220219,
+            "dot": 161,
+            "frame": 445,
+            "scanline": 241
+          },
+          "value": 31
+        },
+        {
+          "address": 20996,
+          "kind": "IRQ-arm",
+          "nmi_depth": 1,
+          "ppu": {
+            "cpu": 13220225,
+            "dot": 179,
+            "frame": 445,
+            "scanline": 241
+          },
+          "value": 128
+        },
+        {
+          "kind": "IRQ31",
+          "nmi_depth": 1,
+          "ppu": {
+            "cpu": 13226085,
+            "dot": 29,
+            "frame": 445,
+            "scanline": 31
+          }
+        },
+        {
+          "depth": 1,
+          "kind": "NMI-return",
+          "ppu": {
+            "cpu": 13226271,
+            "dot": 246,
+            "frame": 445,
+            "scanline": 32
+          }
+        }
+      ],
+      "candidate": [
+        {
+          "kind": "input",
+          "mask": 1,
+          "poll": 444,
+          "ppu": {
+            "cpu": 13220165,
+            "dot": 0,
+            "frame": 445,
+            "scanline": 241
+          }
+        },
+        {
+          "depth": 1,
+          "kind": "NMI-entry",
+          "ppu": {
+            "cpu": 13220176,
+            "dot": 33,
+            "frame": 445,
+            "scanline": 241
+          },
+          "reload": 0,
+          "scope": true,
+          "sprite0": 1,
+          "wide": 0
+        },
+        {
+          "kind": "DMA-complete",
+          "DMA": {
+            "complete": {
+              "cpu": 13221086,
+              "dot": 35,
+              "frame": 445,
+              "scanline": 249
+            },
+            "completed_writes": 256,
+            "ctrl": 168,
+            "end_mask": 6,
+            "equal": true,
+            "first": {
+              "cpu": 13220572,
+              "dot": 197,
+              "frame": 445,
+              "scanline": 244
+            },
+            "id": 399,
+            "last": {
+              "cpu": 13221082,
+              "dot": 22,
+              "frame": 445,
+              "scanline": 249
+            },
+            "mask": 6,
+            "scope": true,
+            "start": {
+              "cpu": 13220569,
+              "dot": 188,
+              "frame": 445,
+              "scanline": 244
+            },
+            "writes": 256
+          }
+        },
+        {
+          "engine": 8,
+          "kind": "render-enable",
+          "menu": 0,
+          "oper": 1,
+          "ppu": {
+            "cpu": 13221090,
+            "dot": 46,
+            "frame": 445,
+            "scanline": 249
+          },
+          "safe": true,
+          "task": 3,
+          "value": 30
+        },
+        {
+          "address": 20995,
+          "kind": "IRQ-arm",
+          "nmi_depth": 1,
+          "ppu": {
+            "cpu": 13221362,
+            "dot": 180,
+            "frame": 445,
+            "scanline": 251
+          },
+          "value": 31
+        },
+        {
+          "address": 20996,
+          "kind": "IRQ-arm",
+          "nmi_depth": 1,
+          "ppu": {
+            "cpu": 13221368,
+            "dot": 198,
+            "frame": 445,
+            "scanline": 251
+          },
+          "value": 128
+        },
+        {
+          "kind": "IRQ31",
+          "nmi_depth": 1,
+          "ppu": {
+            "cpu": 13226087,
+            "dot": 35,
+            "frame": 445,
+            "scanline": 31
+          }
+        },
+        {
+          "depth": 1,
+          "kind": "NMI-return",
+          "ppu": {
+            "cpu": 13227423,
+            "dot": 292,
+            "frame": 445,
+            "scanline": 42
+          }
+        }
+      ]
+    },
+    {
+      "frame": 446,
+      "baseline": [
+        {
+          "kind": "input",
+          "mask": 1,
+          "poll": 445,
+          "ppu": {
+            "cpu": 13249945,
+            "dot": 0,
+            "frame": 446,
+            "scanline": 241
+          }
+        },
+        {
+          "depth": 1,
+          "kind": "NMI-entry",
+          "ppu": {
+            "cpu": 13249954,
+            "dot": 26,
+            "frame": 446,
+            "scanline": 241
+          },
+          "reload": 1,
+          "scope": true,
+          "sprite0": 1,
+          "wide": 0
+        },
+        {
+          "kind": "DMA-complete",
+          "DMA": {
+            "complete": {
+              "cpu": 13251392,
+              "dot": 248,
+              "frame": 446,
+              "scanline": 253
+            },
+            "completed_writes": 256,
+            "ctrl": 172,
+            "end_mask": 6,
+            "equal": true,
+            "first": {
+              "cpu": 13250878,
+              "dot": 69,
+              "frame": 446,
+              "scanline": 249
+            },
+            "id": 401,
+            "last": {
+              "cpu": 13251388,
+              "dot": 235,
+              "frame": 446,
+              "scanline": 253
+            },
+            "mask": 6,
+            "scope": true,
+            "start": {
+              "cpu": 13250875,
+              "dot": 60,
+              "frame": 446,
+              "scanline": 249
+            },
+            "writes": 256
+          }
+        },
+        {
+          "engine": 8,
+          "kind": "render-enable",
+          "menu": 0,
+          "oper": 1,
+          "ppu": {
+            "cpu": 13251396,
+            "dot": 259,
+            "frame": 446,
+            "scanline": 253
+          },
+          "safe": true,
+          "task": 3,
+          "value": 30
+        },
+        {
+          "address": 20995,
+          "kind": "IRQ-arm",
+          "nmi_depth": 1,
+          "ppu": {
+            "cpu": 13251668,
+            "dot": 52,
+            "frame": 446,
+            "scanline": 256
+          },
+          "value": 31
+        },
+        {
+          "address": 20996,
+          "kind": "IRQ-arm",
+          "nmi_depth": 1,
+          "ppu": {
+            "cpu": 13251674,
+            "dot": 70,
+            "frame": 446,
+            "scanline": 256
+          },
+          "value": 128
+        },
+        {
+          "kind": "IRQ31",
+          "nmi_depth": 1,
+          "ppu": {
+            "cpu": 13255867,
+            "dot": 33,
+            "frame": 446,
+            "scanline": 31
+          }
+        },
+        {
+          "depth": 1,
+          "kind": "NMI-return",
+          "ppu": {
+            "cpu": 13257868,
+            "dot": 239,
+            "frame": 446,
+            "scanline": 48
+          }
+        }
+      ],
+      "candidate": [
+        {
+          "kind": "input",
+          "mask": 1,
+          "poll": 445,
+          "ppu": {
+            "cpu": 13249945,
+            "dot": 0,
+            "frame": 446,
+            "scanline": 241
+          }
+        },
+        {
+          "depth": 1,
+          "kind": "NMI-entry",
+          "ppu": {
+            "cpu": 13249955,
+            "dot": 29,
+            "frame": 446,
+            "scanline": 241
+          },
+          "reload": 1,
+          "scope": true,
+          "sprite0": 1,
+          "wide": 0
+        },
+        {
+          "address": 20995,
+          "kind": "IRQ-arm",
+          "nmi_depth": 1,
+          "ppu": {
+            "cpu": 13249999,
+            "dot": 160,
+            "frame": 446,
+            "scanline": 241
+          },
+          "value": 31
+        },
+        {
+          "address": 20996,
+          "kind": "IRQ-arm",
+          "nmi_depth": 1,
+          "ppu": {
+            "cpu": 13250005,
+            "dot": 178,
+            "frame": 446,
+            "scanline": 241
+          },
+          "value": 128
+        },
+        {
+          "kind": "IRQ31",
+          "nmi_depth": 1,
+          "ppu": {
+            "cpu": 13255865,
+            "dot": 27,
+            "frame": 446,
+            "scanline": 31
+          }
+        },
+        {
+          "depth": 1,
+          "kind": "NMI-return",
+          "ppu": {
+            "cpu": 13256189,
+            "dot": 317,
+            "frame": 446,
+            "scanline": 33
+          }
+        }
+      ]
+    },
+    {
+      "frame": 447,
+      "baseline": [
+        {
+          "kind": "input",
+          "mask": 1,
+          "poll": 446,
+          "ppu": {
+            "cpu": 13279726,
+            "dot": 0,
+            "frame": 447,
+            "scanline": 241
+          }
+        },
+        {
+          "depth": 1,
+          "kind": "NMI-entry",
+          "ppu": {
+            "cpu": 13279738,
+            "dot": 36,
+            "frame": 447,
+            "scanline": 241
+          },
+          "reload": 1,
+          "scope": true,
+          "sprite0": 1,
+          "wide": 0
+        },
+        {
+          "address": 20995,
+          "kind": "IRQ-arm",
+          "nmi_depth": 1,
+          "ppu": {
+            "cpu": 13279782,
+            "dot": 167,
+            "frame": 447,
+            "scanline": 241
+          },
+          "value": 31
+        },
+        {
+          "address": 20996,
+          "kind": "IRQ-arm",
+          "nmi_depth": 1,
+          "ppu": {
+            "cpu": 13279788,
+            "dot": 185,
+            "frame": 447,
+            "scanline": 241
+          },
+          "value": 128
+        },
+        {
+          "kind": "IRQ31",
+          "nmi_depth": 1,
+          "ppu": {
+            "cpu": 13285650,
+            "dot": 41,
+            "frame": 447,
+            "scanline": 31
+          }
+        },
+        {
+          "depth": 1,
+          "kind": "NMI-return",
+          "ppu": {
+            "cpu": 13286023,
+            "dot": 137,
+            "frame": 447,
+            "scanline": 34
+          }
+        }
+      ],
+      "candidate": [
+        {
+          "kind": "input",
+          "mask": 1,
+          "poll": 446,
+          "ppu": {
+            "cpu": 13279726,
+            "dot": 0,
+            "frame": 447,
+            "scanline": 241
+          }
+        },
+        {
+          "depth": 1,
+          "kind": "NMI-entry",
+          "ppu": {
+            "cpu": 13279735,
+            "dot": 27,
+            "frame": 447,
+            "scanline": 241
+          },
+          "reload": 1,
+          "scope": true,
+          "sprite0": 1,
+          "wide": 0
+        },
+        {
+          "kind": "DMA-complete",
+          "DMA": {
+            "complete": {
+              "cpu": 13281174,
+              "dot": 252,
+              "frame": 447,
+              "scanline": 253
+            },
+            "completed_writes": 256,
+            "ctrl": 172,
+            "end_mask": 6,
+            "equal": true,
+            "first": {
+              "cpu": 13280660,
+              "dot": 73,
+              "frame": 447,
+              "scanline": 249
+            },
+            "id": 400,
+            "last": {
+              "cpu": 13281170,
+              "dot": 239,
+              "frame": 447,
+              "scanline": 253
+            },
+            "mask": 6,
+            "scope": true,
+            "start": {
+              "cpu": 13280656,
+              "dot": 61,
+              "frame": 447,
+              "scanline": 249
+            },
+            "writes": 256
+          }
+        },
+        {
+          "engine": 8,
+          "kind": "render-enable",
+          "menu": 0,
+          "oper": 1,
+          "ppu": {
+            "cpu": 13281178,
+            "dot": 263,
+            "frame": 447,
+            "scanline": 253
+          },
+          "safe": true,
+          "task": 3,
+          "value": 30
+        },
+        {
+          "address": 20995,
+          "kind": "IRQ-arm",
+          "nmi_depth": 1,
+          "ppu": {
+            "cpu": 13281450,
+            "dot": 56,
+            "frame": 447,
+            "scanline": 256
+          },
+          "value": 31
+        },
+        {
+          "address": 20996,
+          "kind": "IRQ-arm",
+          "nmi_depth": 1,
+          "ppu": {
+            "cpu": 13281456,
+            "dot": 74,
+            "frame": 447,
+            "scanline": 256
+          },
+          "value": 128
+        },
+        {
+          "kind": "IRQ31",
+          "nmi_depth": 1,
+          "ppu": {
+            "cpu": 13285649,
+            "dot": 38,
+            "frame": 447,
+            "scanline": 31
+          }
+        },
+        {
+          "depth": 1,
+          "kind": "NMI-return",
+          "ppu": {
+            "cpu": 13287701,
+            "dot": 56,
+            "frame": 447,
+            "scanline": 49
+          }
+        }
+      ]
+    },
+    {
+      "frame": 448,
+      "baseline": [
+        {
+          "kind": "input",
+          "mask": 65,
+          "poll": 447,
+          "ppu": {
+            "cpu": 13309506,
+            "dot": 0,
+            "frame": 448,
+            "scanline": 241
+          }
+        },
+        {
+          "depth": 1,
+          "kind": "NMI-entry",
+          "ppu": {
+            "cpu": 13309517,
+            "dot": 32,
+            "frame": 448,
+            "scanline": 241
+          },
+          "reload": 1,
+          "scope": true,
+          "sprite0": 1,
+          "wide": 0
+        },
+        {
+          "kind": "DMA-complete",
+          "DMA": {
+            "complete": {
+              "cpu": 13310956,
+              "dot": 257,
+              "frame": 448,
+              "scanline": 253
+            },
+            "completed_writes": 256,
+            "ctrl": 172,
+            "end_mask": 6,
+            "equal": true,
+            "first": {
+              "cpu": 13310442,
+              "dot": 78,
+              "frame": 448,
+              "scanline": 249
+            },
+            "id": 402,
+            "last": {
+              "cpu": 13310952,
+              "dot": 244,
+              "frame": 448,
+              "scanline": 253
+            },
+            "mask": 6,
+            "scope": true,
+            "start": {
+              "cpu": 13310438,
+              "dot": 66,
+              "frame": 448,
+              "scanline": 249
+            },
+            "writes": 256
+          }
+        },
+        {
+          "engine": 8,
+          "kind": "render-enable",
+          "menu": 0,
+          "oper": 1,
+          "ppu": {
+            "cpu": 13310960,
+            "dot": 268,
+            "frame": 448,
+            "scanline": 253
+          },
+          "safe": true,
+          "task": 3,
+          "value": 30
+        },
+        {
+          "address": 20995,
+          "kind": "IRQ-arm",
+          "nmi_depth": 1,
+          "ppu": {
+            "cpu": 13311232,
+            "dot": 61,
+            "frame": 448,
+            "scanline": 256
+          },
+          "value": 31
+        },
+        {
+          "address": 20996,
+          "kind": "IRQ-arm",
+          "nmi_depth": 1,
+          "ppu": {
+            "cpu": 13311238,
+            "dot": 79,
+            "frame": 448,
+            "scanline": 256
+          },
+          "value": 128
+        },
+        {
+          "kind": "IRQ31",
+          "nmi_depth": 1,
+          "ppu": {
+            "cpu": 13315427,
+            "dot": 30,
+            "frame": 448,
+            "scanline": 31
+          }
+        },
+        {
+          "depth": 1,
+          "kind": "NMI-return",
+          "ppu": {
+            "cpu": 13317419,
+            "dot": 209,
+            "frame": 448,
+            "scanline": 48
+          }
+        }
+      ],
+      "candidate": [
+        {
+          "kind": "input",
+          "mask": 65,
+          "poll": 447,
+          "ppu": {
+            "cpu": 13309506,
+            "dot": 0,
+            "frame": 448,
+            "scanline": 241
+          }
+        },
+        {
+          "depth": 1,
+          "kind": "NMI-entry",
+          "ppu": {
+            "cpu": 13309516,
+            "dot": 29,
+            "frame": 448,
+            "scanline": 241
+          },
+          "reload": 1,
+          "scope": true,
+          "sprite0": 1,
+          "wide": 0
+        },
+        {
+          "address": 20995,
+          "kind": "IRQ-arm",
+          "nmi_depth": 1,
+          "ppu": {
+            "cpu": 13309560,
+            "dot": 160,
+            "frame": 448,
+            "scanline": 241
+          },
+          "value": 31
+        },
+        {
+          "address": 20996,
+          "kind": "IRQ-arm",
+          "nmi_depth": 1,
+          "ppu": {
+            "cpu": 13309566,
+            "dot": 178,
+            "frame": 448,
+            "scanline": 241
+          },
+          "value": 128
+        },
+        {
+          "kind": "IRQ31",
+          "nmi_depth": 1,
+          "ppu": {
+            "cpu": 13315429,
+            "dot": 36,
+            "frame": 448,
+            "scanline": 31
+          }
+        },
+        {
+          "depth": 1,
+          "kind": "NMI-return",
+          "ppu": {
+            "cpu": 13315737,
+            "dot": 278,
+            "frame": 448,
+            "scanline": 33
+          }
+        }
+      ]
+    },
+    {
+      "frame": 449,
+      "baseline": [
+        {
+          "kind": "input",
+          "mask": 65,
+          "poll": 448,
+          "ppu": {
+            "cpu": 13339287,
+            "dot": 0,
+            "frame": 449,
+            "scanline": 241
+          }
+        },
+        {
+          "depth": 1,
+          "kind": "NMI-entry",
+          "ppu": {
+            "cpu": 13339296,
+            "dot": 27,
+            "frame": 449,
+            "scanline": 241
+          },
+          "reload": 0,
+          "scope": true,
+          "sprite0": 1,
+          "wide": 0
+        },
+        {
+          "address": 20995,
+          "kind": "IRQ-arm",
+          "nmi_depth": 1,
+          "ppu": {
+            "cpu": 13339340,
+            "dot": 158,
+            "frame": 449,
+            "scanline": 241
+          },
+          "value": 31
+        },
+        {
+          "address": 20996,
+          "kind": "IRQ-arm",
+          "nmi_depth": 1,
+          "ppu": {
+            "cpu": 13339346,
+            "dot": 176,
+            "frame": 449,
+            "scanline": 241
+          },
+          "value": 128
+        },
+        {
+          "kind": "IRQ31",
+          "nmi_depth": 1,
+          "ppu": {
+            "cpu": 13345207,
+            "dot": 29,
+            "frame": 449,
+            "scanline": 31
+          }
+        },
+        {
+          "depth": 1,
+          "kind": "NMI-return",
+          "ppu": {
+            "cpu": 13347514,
+            "dot": 130,
+            "frame": 449,
+            "scanline": 51
+          }
+        }
+      ],
+      "candidate": [
+        {
+          "kind": "input",
+          "mask": 65,
+          "poll": 448,
+          "ppu": {
+            "cpu": 13339287,
+            "dot": 0,
+            "frame": 449,
+            "scanline": 241
+          }
+        },
+        {
+          "depth": 1,
+          "kind": "NMI-entry",
+          "ppu": {
+            "cpu": 13339298,
+            "dot": 33,
+            "frame": 449,
+            "scanline": 241
+          },
+          "reload": 1,
+          "scope": true,
+          "sprite0": 1,
+          "wide": 0
+        },
+        {
+          "kind": "DMA-complete",
+          "DMA": {
+            "complete": {
+              "cpu": 13340736,
+              "dot": 255,
+              "frame": 449,
+              "scanline": 253
+            },
+            "completed_writes": 256,
+            "ctrl": 172,
+            "end_mask": 6,
+            "equal": true,
+            "first": {
+              "cpu": 13340222,
+              "dot": 76,
+              "frame": 449,
+              "scanline": 249
+            },
+            "id": 401,
+            "last": {
+              "cpu": 13340732,
+              "dot": 242,
+              "frame": 449,
+              "scanline": 253
+            },
+            "mask": 6,
+            "scope": true,
+            "start": {
+              "cpu": 13340219,
+              "dot": 67,
+              "frame": 449,
+              "scanline": 249
+            },
+            "writes": 256
+          }
+        },
+        {
+          "engine": 8,
+          "kind": "render-enable",
+          "menu": 0,
+          "oper": 1,
+          "ppu": {
+            "cpu": 13340740,
+            "dot": 266,
+            "frame": 449,
+            "scanline": 253
+          },
+          "safe": true,
+          "task": 3,
+          "value": 30
+        },
+        {
+          "address": 20995,
+          "kind": "IRQ-arm",
+          "nmi_depth": 1,
+          "ppu": {
+            "cpu": 13341012,
+            "dot": 59,
+            "frame": 449,
+            "scanline": 256
+          },
+          "value": 31
+        },
+        {
+          "address": 20996,
+          "kind": "IRQ-arm",
+          "nmi_depth": 1,
+          "ppu": {
+            "cpu": 13341018,
+            "dot": 77,
+            "frame": 449,
+            "scanline": 256
+          },
+          "value": 128
+        },
+        {
+          "kind": "IRQ31",
+          "nmi_depth": 1,
+          "ppu": {
+            "cpu": 13345208,
+            "dot": 32,
+            "frame": 449,
+            "scanline": 31
+          }
+        },
+        {
+          "depth": 1,
+          "kind": "NMI-return",
+          "ppu": {
+            "cpu": 13348291,
+            "dot": 74,
+            "frame": 449,
+            "scanline": 58
+          }
+        }
+      ]
+    },
+    {
+      "frame": 450,
+      "baseline": [
+        {
+          "kind": "input",
+          "mask": 1,
+          "poll": 449,
+          "ppu": {
+            "cpu": 13369067,
+            "dot": 0,
+            "frame": 450,
+            "scanline": 241
+          }
+        },
+        {
+          "depth": 1,
+          "kind": "NMI-entry",
+          "ppu": {
+            "cpu": 13369078,
+            "dot": 32,
+            "frame": 450,
+            "scanline": 241
+          },
+          "reload": 1,
+          "scope": true,
+          "sprite0": 1,
+          "wide": 0
+        },
+        {
+          "address": 20995,
+          "kind": "IRQ-arm",
+          "nmi_depth": 1,
+          "ppu": {
+            "cpu": 13369122,
+            "dot": 163,
+            "frame": 450,
+            "scanline": 241
+          },
+          "value": 31
+        },
+        {
+          "address": 20996,
+          "kind": "IRQ-arm",
+          "nmi_depth": 1,
+          "ppu": {
+            "cpu": 13369128,
+            "dot": 181,
+            "frame": 450,
+            "scanline": 241
+          },
+          "value": 128
+        },
+        {
+          "kind": "IRQ31",
+          "nmi_depth": 1,
+          "ppu": {
+            "cpu": 13374990,
+            "dot": 36,
+            "frame": 450,
+            "scanline": 31
+          }
+        },
+        {
+          "depth": 1,
+          "kind": "NMI-return",
+          "ppu": {
+            "cpu": 13375222,
+            "dot": 50,
+            "frame": 450,
+            "scanline": 33
+          }
+        }
+      ],
+      "candidate": [
+        {
+          "kind": "input",
+          "mask": 1,
+          "poll": 449,
+          "ppu": {
+            "cpu": 13369067,
+            "dot": 0,
+            "frame": 450,
+            "scanline": 241
+          }
+        },
+        {
+          "depth": 1,
+          "kind": "NMI-entry",
+          "ppu": {
+            "cpu": 13369076,
+            "dot": 26,
+            "frame": 450,
+            "scanline": 241
+          },
+          "reload": 0,
+          "scope": true,
+          "sprite0": 1,
+          "wide": 0
+        },
+        {
+          "address": 20995,
+          "kind": "IRQ-arm",
+          "nmi_depth": 1,
+          "ppu": {
+            "cpu": 13369120,
+            "dot": 157,
+            "frame": 450,
+            "scanline": 241
+          },
+          "value": 31
+        },
+        {
+          "address": 20996,
+          "kind": "IRQ-arm",
+          "nmi_depth": 1,
+          "ppu": {
+            "cpu": 13369126,
+            "dot": 175,
+            "frame": 450,
+            "scanline": 241
+          },
+          "value": 128
+        },
+        {
+          "kind": "IRQ31",
+          "nmi_depth": 1,
+          "ppu": {
+            "cpu": 13374992,
+            "dot": 42,
+            "frame": 450,
+            "scanline": 31
+          }
+        },
+        {
+          "depth": 1,
+          "kind": "NMI-return",
+          "ppu": {
+            "cpu": 13376302,
+            "dot": 221,
+            "frame": 450,
+            "scanline": 42
+          }
+        }
+      ]
+    }
+  ],
+  "selected_actual_wholeframes": [
+    385,
+    387,
+    437,
+    444
+  ],
+  "source_owner_limit": "NmiDisable, stacked Main PC, Main release/publication and helper-entry counters were not serialized. No direct first-causal-Main instruction claim is available. Actual completed hardware pages/pixels and logged NMI/DMA timing remain authoritative; do not waive a physical prefix deficit as an endFrame source label.",
+  "checker_sha256": "5b01f0b70d0fcedb36cb52d5e782f6cca220f7833984583c5e9a32d2eaea16db"
+}

@@ -1,0 +1,59 @@
+{
+  "passed": true,
+  "source_only": true,
+  "native_run": false,
+  "parent_ROM_sha256": "731c918b0f448564587d90fca2979afc9fc0e5eb9b26616f4241801e2e73e16c",
+  "candidate_ROM_sha256": "00fb4a72ec9788f7b2878d6201f70a96ae6e47b4935ba186648c7edc04806a62",
+  "cases": 6324,
+  "grouped": {
+    "all27_actual_Proto_poses": {
+      "cases": 108,
+      "minimum_delta": 160,
+      "maximum_delta": 160
+    },
+    "all64_entry_flag_contexts": {
+      "cases": 256,
+      "minimum_delta": 159,
+      "maximum_delta": 160
+    },
+    "all64_foreign_flag_contexts": {
+      "cases": 2432,
+      "minimum_delta": -23,
+      "maximum_delta": 0
+    },
+    "crowded_capacity": {
+      "cases": 144,
+      "minimum_delta": 89,
+      "maximum_delta": 160
+    },
+    "crowded_firebar_bundle": {
+      "cases": 432,
+      "minimum_delta": 159,
+      "maximum_delta": 160
+    },
+    "lifecycle_literal_fallback": {
+      "cases": 72,
+      "minimum_delta": 68,
+      "maximum_delta": 160
+    },
+    "live_all_masks_phases_flags": {
+      "cases": 2560,
+      "minimum_delta": 159,
+      "maximum_delta": 160
+    },
+    "poses_facing_clip_outline": {
+      "cases": 320,
+      "minimum_delta": 159,
+      "maximum_delta": 160
+    }
+  },
+  "actual_IRQ_cases": 697,
+  "independent_partition_reference": "Independent allocation-first reference using unchanged clean731 emitters.\n\nThe reference is NOT the unmodified parent's contract: at its genuine pre-shot\nboundary it reserves R physical bytes, and at the genuine post-shot boundary\nit starts the unchanged world loop without adding R a second time. The rest\nof the compiled parent emitter/caller runs unchanged. Every reference mutation\nis logged; no candidate observations are used to calculate it.\n",
+  "complete_reference_AXYP_SP_RAM_banks_SMC_ordered_OAM_and_hardware_exact": true,
+  "ordinary_live_projectile_fields_preserved": true,
+  "body_prefix_never_written_by_nonbody_in_capacity_controls": true,
+  "unmodified_parent_ordered_OAM_values_count_exact_all_cases": true,
+  "own_unmodified_function_AXYP_SP_exact": true,
+  "limits": "Dense admission prioritizes body over world/shots; no hardware first8/opaque visibility/cadence/publication or natural reachability claim. The independent reference changes allocation and reconstructs original physical-X/final-SBC mathematically; every tested unmodified-parent register outcome is also separately exact.",
+  "checker_sha256": "c0b5638ab4dbfce2ac4e4c191aeacfa24e02193cb53876c25fd74c0a16cb9c1f"
+}

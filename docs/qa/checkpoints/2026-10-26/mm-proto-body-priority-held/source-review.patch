@@ -1,0 +1,242 @@
+--- clean731/smb1base-mmc5-expanded.cfg
++++ private/smb1base-mmc5-expanded.cfg
+@@ -348,6 +348,7 @@
+     WORLD_SPRITE_PALETTE: load=PRGA_03, type=ro, optional=yes, start=$bfc9;
+     PN_HUD_TEXT:load=PRGA_03,type=ro;
+     METASPRITE: load = PRGA_04, type = ro;
++    MM_BODY_PRIORITY_GATE: load=PRGA_04,type=ro,start=$bf33;
+     DARKWING_DRAW_GUARD: load=PRGA_04, type=ro, start=$BF8B, optional=yes; # Reclaimed unused guard plus legacy NOPs.
+     Z2_DRAW_GATE: load=PRGA_04,type=ro,start=$bfb9;
+     X5_DRAW_GATE: load=PRGA_04,type=ro,start=$bfcc;
+--- clean731/src/megaman_weapons.s
++++ private/src/megaman_weapons.s
+@@ -2117,7 +2117,43 @@
+   rts
+ LegacyReservation:
+   jmp PlayerOAMReservation
+-  .res 110,$ea
++::MmBodyPriorityBegin:
++  lda #1
++  sta GuestOamRotationActive
++  farcall KbOamPriority         ; Retain the genuine whole-ring phase update.
++  jsr MmBodyPriorityActive
++  bcc PriorityLegacy
++  lda #$80                    ; Existing boolean owner, explicit body-first mode.
++  sta GuestOamRotationActive
++  jsr ProtoOamReservation
++  tax                         ; Reserve40/44 before every nonbody admission.
++  lda #0
++  sta RgOamRotation
++  jmp MmBodyPriorityClearRing
++PriorityLegacy:
++  ldx #0
++  jmp MmBodyPriorityClearRing
++::MmBodyPriorityFinish:
++  lda CurrentOAMOffset
++  bit GuestOamRotationActive
++  bpl LegacyPlayerStart
++  sec
++  sbc #40
++  ldx ProtoVariant
++  beq LegacyPlayerStart
++  sbc #4
++LegacyPlayerStart:
++  sta RgOamPlayerStart
++::MegaManProjectileOamReady:
++  bit GuestOamRotationActive
++  bmi PriorityFinished
++  jsr ProtoOamReservation
++  clc
++  adc CurrentOAMOffset
++  sta CurrentOAMOffset
++PriorityFinished:
++  rts
++  .res 23,$ea
+   .assert *-MegaManDrawShots=139,error,"Shot wrapper original span"
+  .else
+   lda SelectedCharacter
+@@ -2433,3 +2469,52 @@
+ .endproc
+ .assert .bank(GrowthRadiusLo) = .bank(RgBILLWeaponsRightLo), lderror, "Bill mapped C000 scalar/art ABI"
+ .popseg
++
++.if ::ENABLE_MMC5_EXPANDED
++.pushseg
++.segment "MM_BODY_PRIORITY_GATE"
++.proc MmBodyPriorityActive
++  lda OperMode
++  eor #1
++  ora MmDeathFlag
++  bne No
++  lda OperMode_Task
++  cmp #3
++  bne No
++  lda GameEngineSubroutine
++  cmp #8
++  bne No
++  lda ObjectMetasprite
++  beq No
++  lda ObjectVerticalFlip
++  bmi No
++  sec
++  rts
++No:
++  clc
++  rts
++.endproc
++.proc MmBodyPriorityExit
++  ; Reproduce the original body's physical X and last SBC overflow flag.
++  ; The retained real shot count and phase suffice; allocate no new RAM.
++  lda CurrentOAMOffset
++  clc
++  adc RgOamPlayerStart
++  sta CurrentOAMOffset
++  sec
++  sbc RgOamFirst
++  tax
++  lda RgOamFirst
++  eor #$ff
++  clc
++  adc #1
++  sta RgOamRotation
++  txa
++  sec
++  sbc RgOamRotation
++  ldy #0
++  sty RgOamRotation
++  jmp MmBodyPriorityRosterTail
++.endproc
++.popseg
++.endif
+--- clean731/src/metasprite_engine.s
++++ private/src/metasprite_engine.s
+@@ -316,6 +316,20 @@
+   jsr HpGraphicsBankCopy
+ .endif
+  .if ::ENABLE_CROSSOVER
++.if ::ENABLE_MMC5_EXPANDED
++  ; Check the already-rotated foreign families first. Their saved four
++  ; cycles pay for the common-clear X setup below, retaining exact cost.
++  lda SelectedCharacter
++  cmp #CHARACTER_BILL
++  bcs RotateGuestOAM
++  lsr
++  bcc NonMegaPriority
++  jmp MmBodyPriorityBegin
++NonMegaPriority:
++  lsr                         ; Both Mario0 and Samus2 become zero.
++  sta GuestOamRotationActive
++  jmp ClearReservedPlayer
++.else
+   lda SelectedCharacter
+   cmp #CHARACTER_MEGAMAN
+   beq RotateGuestOAM
+@@ -324,6 +338,7 @@
+   lda #0
+   sta GuestOamRotationActive
+   jmp ClearReservedPlayer
++.endif
+ RotateGuestOAM:
+   lda #1
+   sta GuestOamRotationActive
+@@ -358,6 +373,10 @@
+   adc #1
+   sta RgOamRotation
+ .endif
++.if ::ENABLE_MMC5_EXPANDED
++  ldx #0
++::MmBodyPriorityClearRing:
++.endif
+   ; Give weapons the first OAM slots. Transparent portions of layered bodies
+   ; still consume the PPU's eight sprites per line and must not hide shots.
+   lda #$f8
+@@ -366,7 +385,12 @@
+  .repeat 64, I
+   sta Sprite_Y_Position+I*4
+  .endrepeat
++.if ::ENABLE_MMC5_EXPANDED
++  ; X already owns the reservation or foreign zero. The following farcall
++  ; replaces N/Z before either is consumed, so no flag-only instruction.
++.else
+   ldx #0
++.endif
+   stx CurrentOAMOffset
+ .if ::ENABLE_MMC5_EXPANDED
+   farcall RlSpecialDrawDispatch
+@@ -377,18 +401,20 @@
+   cmp #CHARACTER_MEGAMAN
+   bne RosterShots
+   jsr MegaManDrawShots
++.if ::ENABLE_MMC5_EXPANDED
++  jsr MmBodyPriorityFinish
++  jmp InitObjectLoop
++  .res 13,$ea                 ; Retain the following object-loop addresses.
++.else
+   lda CurrentOAMOffset
+   sta RgOamPlayerStart
+ ::MegaManProjectileOamReady:
+- .if ::ENABLE_MMC5_EXPANDED
+-  jsr ProtoOamReservation
+- .else
+   jsr PlayerOAMReservation
+- .endif
+   clc
+   adc CurrentOAMOffset
+   sta CurrentOAMOffset
+   jmp InitObjectLoop
++.endif
+ RosterShots:
+ .if ::ENABLE_MMC5_EXPANDED
+   jsr KbDrawDispatch
+@@ -419,8 +445,13 @@
+   dex
+   dex
+   sta Sprite_Y_Position,x
++.if !::ENABLE_MMC5_EXPANDED
+   cpx #0
++.endif
+   bne ClearPlayerOAM
++.if ::ENABLE_MMC5_EXPANDED
++  sec                         ; DEX/STA already provide CPX0's final N/Z.
++.endif
+ 
+ InitObjectLoop:
+   lda #24 - 1 ; size of the different object update list
+@@ -533,6 +564,9 @@
+ .if ::ENABLE_CROSSOVER
+     ldx GuestOamRotationActive
+     beq :+
++.if ::ENABLE_MMC5_EXPANDED
++    bmi :+
++.endif
+       lda RgOamPlayerStart
+     :
+ .endif
+@@ -608,8 +642,12 @@
+ .endif
+  .if ::ENABLE_CROSSOVER
+     lda GuestOamRotationActive
++.if ::ENABLE_MMC5_EXPANDED
++    bmi MmBodyPriorityExitBranch
++.endif
+     beq LegacyTailClear
+       ; The full ring was hidden at entry; no linear tail clear is needed.
++::MmBodyPriorityRosterTail:
+       pla
+       sta RgOamUsed
+       lda RgOamFirst
+@@ -655,10 +693,12 @@
+ ::WorldFirebarAdmission:
+  farcall Z2LateWorldAdmission
+  jmp WorldFirebarAdmissionDone
+- .res 17,$ea
++::MmBodyPriorityExitBranch:
++ jmp MmBodyPriorityExit
++ .res 10,$ea
+ ::WorldFirebarAdmissionDone:
+  rts
+- .assert *-WorldFirebarDrawAdmission=39,lderror,"Late world admission span"
++ .assert *-WorldFirebarDrawAdmission=35,lderror,"Private body-priority admission span"
+ .else
+ ::WorldFirebarAdmission:
+   ; No matching ID can produce a firebar. Keep the existing live-owner checks.

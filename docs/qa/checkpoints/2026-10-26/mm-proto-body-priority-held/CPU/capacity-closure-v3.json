@@ -1,0 +1,232 @@
+{
+  "passed": true,
+  "source_only": true,
+  "native_run": false,
+  "ROM_sha256": "00fb4a72ec9788f7b2878d6201f70a96ae6e47b4935ba186648c7edc04806a62",
+  "immutable_record_headers": 266,
+  "actual_generic_emitter_cases": 56392,
+  "actual_water_cases": 1696,
+  "actual_Finish_legitimate_cursor_cases": 6848,
+  "invariant": "Priority Proto starts44, alignment4, positive multiple4 generic headers reject sums>=256 before publishing; water ADC8 rejects before STA. Thus each prebody cursor remains44..252 and cannot0. No main gameplay/NMI/IRQ zero cursor owner exists on this live path; death resets are guarded out.",
+  "source_record_writer_closure": [
+    "ProtoLegacyDrawShotsCold\u2192MetaspriteRenderLoop",
+    "InventoryDrawPickups/SpecialDrawShots/MegaManHurtDraw\u2192MetaspriteRenderLoop",
+    "SpecialDrawWaterShot\u2192own ADC8/carry rejection",
+    "MegaManDrawDeath explicit0: only MmDeathFlag nonzero, priority predicate off"
+  ],
+  "arbitrary_direct_entry_counterexample": {
+    "staged_CurrentOAMOffset": 0,
+    "actual_shot_count": 211,
+    "modular_expected": 212,
+    "source_reachable": false,
+    "reason": "Every live prebody path starts44, then only positive multiple4 carry-reject advances; explicit zero reset belongs to death path excluded by priority predicate."
+  },
+  "real_prebody_stress": [
+    {
+      "kind": "Knuckle-art-superset",
+      "configured_stress_not_natural_acquisition": true,
+      "actual_prebody_cursor": 252,
+      "actual_p": 208,
+      "cursor_writes": [
+        {
+          "pc": 41202,
+          "value": 44
+        },
+        {
+          "pc": 42600,
+          "value": 68
+        },
+        {
+          "pc": 42600,
+          "value": 92
+        },
+        {
+          "pc": 42600,
+          "value": 116
+        },
+        {
+          "pc": 42600,
+          "value": 140
+        },
+        {
+          "pc": 42600,
+          "value": 164
+        },
+        {
+          "pc": 42600,
+          "value": 188
+        },
+        {
+          "pc": 42600,
+          "value": 212
+        },
+        {
+          "pc": 42600,
+          "value": 236
+        },
+        {
+          "pc": 42600,
+          "value": 244
+        },
+        {
+          "pc": 42600,
+          "value": 252
+        }
+      ]
+    },
+    {
+      "kind": "water-superset",
+      "configured_stress_not_natural_acquisition": true,
+      "actual_prebody_cursor": 156,
+      "actual_p": 112,
+      "cursor_writes": [
+        {
+          "pc": 41202,
+          "value": 44
+        },
+        {
+          "pc": 48823,
+          "value": 52
+        },
+        {
+          "pc": 48823,
+          "value": 60
+        },
+        {
+          "pc": 48823,
+          "value": 68
+        },
+        {
+          "pc": 48823,
+          "value": 76
+        },
+        {
+          "pc": 48823,
+          "value": 84
+        },
+        {
+          "pc": 48823,
+          "value": 92
+        },
+        {
+          "pc": 48823,
+          "value": 100
+        },
+        {
+          "pc": 48823,
+          "value": 108
+        },
+        {
+          "pc": 48823,
+          "value": 116
+        },
+        {
+          "pc": 48823,
+          "value": 124
+        },
+        {
+          "pc": 42600,
+          "value": 132
+        },
+        {
+          "pc": 42600,
+          "value": 140
+        },
+        {
+          "pc": 42600,
+          "value": 148
+        },
+        {
+          "pc": 42600,
+          "value": 156
+        }
+      ]
+    },
+    {
+      "kind": "native-bricks",
+      "configured_stress_not_natural_acquisition": true,
+      "actual_prebody_cursor": 188,
+      "actual_p": 144,
+      "cursor_writes": [
+        {
+          "pc": 41202,
+          "value": 44
+        },
+        {
+          "pc": 42600,
+          "value": 52
+        },
+        {
+          "pc": 42600,
+          "value": 60
+        },
+        {
+          "pc": 42600,
+          "value": 68
+        },
+        {
+          "pc": 42600,
+          "value": 76
+        },
+        {
+          "pc": 42600,
+          "value": 84
+        },
+        {
+          "pc": 42600,
+          "value": 92
+        },
+        {
+          "pc": 42600,
+          "value": 100
+        },
+        {
+          "pc": 42600,
+          "value": 108
+        },
+        {
+          "pc": 42600,
+          "value": 116
+        },
+        {
+          "pc": 42600,
+          "value": 124
+        },
+        {
+          "pc": 42600,
+          "value": 132
+        },
+        {
+          "pc": 42600,
+          "value": 140
+        },
+        {
+          "pc": 42600,
+          "value": 148
+        },
+        {
+          "pc": 42600,
+          "value": 156
+        },
+        {
+          "pc": 42600,
+          "value": 164
+        },
+        {
+          "pc": 42600,
+          "value": 172
+        },
+        {
+          "pc": 42600,
+          "value": 180
+        },
+        {
+          "pc": 42600,
+          "value": 188
+        }
+      ]
+    }
+  ],
+  "limits": "Actual prebody emitter closure: zero cursor cannot follow reserved R.\n\nConfigured saturated pools are a conservative stress superset, not evidence\nof naturally acquiring ten identical special weapons. Generic/Water controls\ncover every aligned reserved cursor, including the actual252 boundary.\n",
+  "checker_sha256": "c97e941a4cd0c36d6654370ff092e6d36ced0bde5d2e222c3a164a14c640134d"
+}

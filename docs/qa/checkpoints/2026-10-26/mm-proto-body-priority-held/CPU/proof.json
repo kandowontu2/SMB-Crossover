@@ -1,0 +1,146 @@
+{
+  "passed": true,
+  "source_only": true,
+  "native_run": false,
+  "installed": false,
+  "parent_ROM_sha256": "731c918b0f448564587d90fca2979afc9fc0e5eb9b26616f4241801e2e73e16c",
+  "ROM_sha256": "00fb4a72ec9788f7b2878d6201f70a96ae6e47b4935ba186648c7edc04806a62",
+  "changed_source": [
+    "smb1base-mmc5-expanded.cfg",
+    "src/megaman_weapons.s",
+    "src/metasprite_engine.s"
+  ],
+  "changed_PRG_bytes": {
+    "4": 494
+  },
+  "builds": [
+    {
+      "mode": "candidate",
+      "ROM_sha256": "00fb4a72ec9788f7b2878d6201f70a96ae6e47b4935ba186648c7edc04806a62"
+    },
+    {
+      "mode": "canonical",
+      "ROM_sha256": "00fb4a72ec9788f7b2878d6201f70a96ae6e47b4935ba186648c7edc04806a62"
+    },
+    {
+      "mode": "ordinary-mmc3",
+      "ROM_sha256": "d444cac88e13fa02b29ad16100b8f08fa565ba90f8cedde192de43fb2dc8f3eb"
+    },
+    {
+      "mode": "ordinary-mmc5",
+      "ROM_sha256": "f4ffd2483c51daa4d60bb575da2da8c4d817692cda407611c243031f67520833"
+    }
+  ],
+  "genuine_symbol_moves": [
+    {
+      "name": [
+        "WorldFirebarAdmission"
+      ],
+      "old": 41567,
+      "new": 41571
+    },
+    {
+      "name": [
+        "WorldFirebarDrawAdmission"
+      ],
+      "old": 41567,
+      "new": 41571
+    },
+    {
+      "name": [
+        "RosterOamReady"
+      ],
+      "old": 41544,
+      "new": 41548
+    },
+    {
+      "name": [
+        "DrawAllMetasprites",
+        "RosterPriorityInRange"
+      ],
+      "old": 41544,
+      "new": 41548
+    },
+    {
+      "name": [
+        "DrawAllMetasprites",
+        "LegacyTailClear"
+      ],
+      "old": 41545,
+      "new": 41549
+    },
+    {
+      "name": [
+        "DrawAllMetasprites",
+        "PlayerBankReady"
+      ],
+      "old": 41508,
+      "new": 41510
+    },
+    {
+      "name": [
+        "DrawAllMetasprites",
+        "DoneDrawingPlayer"
+      ],
+      "old": 41522,
+      "new": 41524
+    },
+    {
+      "name": [
+        "DrawAllMetasprites",
+        "ClearPlayerOAM"
+      ],
+      "old": 41290,
+      "new": 41291
+    },
+    {
+      "name": [
+        "RosterProjectileOamReady"
+      ],
+      "old": 41260,
+      "new": 41261
+    },
+    {
+      "name": [
+        "MegaManProjectileOamReady"
+      ],
+      "old": 41238,
+      "new": 47216
+    },
+    {
+      "name": [
+        "DrawAllMetasprites",
+        "RosterShots"
+      ],
+      "old": 41251,
+      "new": 41252
+    },
+    {
+      "name": [
+        "DrawAllMetasprites",
+        "ClearReservedPlayer"
+      ],
+      "old": 41284,
+      "new": 41285
+    },
+    {
+      "name": [
+        "DrawAllMetasprites",
+        "RotateGuestOAM"
+      ],
+      "old": 40982,
+      "new": 40983
+    },
+    {
+      "name": [
+        "_FARCALL_COUNT"
+      ],
+      "old": 1154,
+      "new": 1155
+    }
+  ],
+  "source_manifest_sha256": "a79847090e51192dadc22951a6dcf2c519e941f5d0402b88873602a3ba6a72b9",
+  "patch_sha256": "df31b652f5cd66100ec382c39852f9489bded0f1217e5a17de6b13ba0fd5c029",
+  "tool_sha256": "57203dbb1e786f7478ca0593758d43d2dc803991dd2c3bbe5bc17f3c34c1aa99",
+  "limits": "Build/layout only. GuestOamRotationActive2 and physical mappings are intentional Mega/Proto changes. CPU/fullcaller/foreign/IRQ/capacity/cost and native physical visibility still unqualified. Body-first priority can starve shots/world sprites."
+}

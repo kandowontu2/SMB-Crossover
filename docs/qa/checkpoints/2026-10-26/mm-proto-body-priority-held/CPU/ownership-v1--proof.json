@@ -1,0 +1,854 @@
+{
+  "passed": true,
+  "source_only": true,
+  "native_run": false,
+  "parent_ROM_sha256": "731c918b0f448564587d90fca2979afc9fc0e5eb9b26616f4241801e2e73e16c",
+  "candidate_ROM_sha256": "00fb4a72ec9788f7b2878d6201f70a96ae6e47b4935ba186648c7edc04806a62",
+  "whole_owned_RAM_cases": 128,
+  "only_intentional_guest_owner_and_rotation_fields_plus_physical_OAM": true,
+  "complete_AXYP_SP_banks_SMC_exact": true,
+  "arithmetic": {
+    "cases": 262144,
+    "domain": "All256 logical end bytes \u00d7all256 original phase bytes \u00d74physical flag contexts; p0 representative of the post-ADC logical sum. Nonzero p decompositions additionally covered by full callers.",
+    "helper_cycle_range": [
+      53,
+      53
+    ],
+    "original_final_SBC_V_physical_X_and_logical_cursor_exact": true,
+    "source_helper_C_N_Z_not_an_external_ABI": "Its continuation consumes no C/N/Z before original PLA/LDA/CMP overwrites them; full DrawAll AXYP is independently exact."
+  },
+  "actual_lag_NMI_cases": 72,
+  "NMI_no_allocation_reads_and_exact_register_stack_bank_5SMC_renderer_state_restore": true,
+  "source_geometry": [
+    {
+      "variant": 0,
+      "kind": "four-busters",
+      "cfg": {
+        "entry": "DrawAllMetasprites",
+        "variant": 0,
+        "types": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "first": 112,
+        "world": 0,
+        "fireowners": 0,
+        "fireparts": 12,
+        "flags": 32
+      },
+      "parent": {
+        "counts": {
+          "body_eligible_part_rows": 128,
+          "body_selected_part_rows": 44,
+          "ordinary_eligible_part_rows": 128,
+          "ordinary_selected_part_rows": 128,
+          "special_eligible_part_rows": 0,
+          "special_selected_part_rows": 0,
+          "world_eligible_part_rows": 0,
+          "world_selected_part_rows": 0
+        },
+        "maximum_body_parts_on_one_row": 6,
+        "overflow_rows": 16,
+        "example_rows": [
+          {
+            "line": 192,
+            "eligible": 12,
+            "body": 4,
+            "first8": [
+              {
+                "slot": 29,
+                "owner": "ordinary"
+              },
+              {
+                "slot": 30,
+                "owner": "ordinary"
+              },
+              {
+                "slot": 31,
+                "owner": "ordinary"
+              },
+              {
+                "slot": 32,
+                "owner": "ordinary"
+              },
+              {
+                "slot": 33,
+                "owner": "ordinary"
+              },
+              {
+                "slot": 34,
+                "owner": "ordinary"
+              },
+              {
+                "slot": 35,
+                "owner": "ordinary"
+              },
+              {
+                "slot": 36,
+                "owner": "ordinary"
+              }
+            ]
+          },
+          {
+            "line": 193,
+            "eligible": 13,
+            "body": 5,
+            "first8": [
+              {
+                "slot": 29,
+                "owner": "ordinary"
+              },
+              {
+                "slot": 30,
+                "owner": "ordinary"
+              },
+              {
+                "slot": 31,
+                "owner": "ordinary"
+              },
+              {
+                "slot": 32,
+                "owner": "ordinary"
+              },
+              {
+                "slot": 33,
+                "owner": "ordinary"
+              },
+              {
+                "slot": 34,
+                "owner": "ordinary"
+              },
+              {
+                "slot": 35,
+                "owner": "ordinary"
+              },
+              {
+                "slot": 36,
+                "owner": "ordinary"
+              }
+            ]
+          }
+        ]
+      },
+      "candidate": {
+        "counts": {
+          "body_eligible_part_rows": 128,
+          "body_selected_part_rows": 128,
+          "ordinary_eligible_part_rows": 128,
+          "ordinary_selected_part_rows": 44,
+          "special_eligible_part_rows": 0,
+          "special_selected_part_rows": 0,
+          "world_eligible_part_rows": 0,
+          "world_selected_part_rows": 0
+        },
+        "maximum_body_parts_on_one_row": 6,
+        "overflow_rows": 16,
+        "example_rows": [
+          {
+            "line": 192,
+            "eligible": 12,
+            "body": 4,
+            "first8": [
+              {
+                "slot": 0,
+                "owner": "body"
+              },
+              {
+                "slot": 1,
+                "owner": "body"
+              },
+              {
+                "slot": 6,
+                "owner": "body"
+              },
+              {
+                "slot": 7,
+                "owner": "body"
+              },
+              {
+                "slot": 10,
+                "owner": "ordinary"
+              },
+              {
+                "slot": 11,
+                "owner": "ordinary"
+              },
+              {
+                "slot": 12,
+                "owner": "ordinary"
+              },
+              {
+                "slot": 13,
+                "owner": "ordinary"
+              }
+            ]
+          },
+          {
+            "line": 193,
+            "eligible": 13,
+            "body": 5,
+            "first8": [
+              {
+                "slot": 0,
+                "owner": "body"
+              },
+              {
+                "slot": 1,
+                "owner": "body"
+              },
+              {
+                "slot": 2,
+                "owner": "body"
+              },
+              {
+                "slot": 6,
+                "owner": "body"
+              },
+              {
+                "slot": 7,
+                "owner": "body"
+              },
+              {
+                "slot": 10,
+                "owner": "ordinary"
+              },
+              {
+                "slot": 11,
+                "owner": "ordinary"
+              },
+              {
+                "slot": 12,
+                "owner": "ordinary"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "variant": 0,
+      "kind": "crowded-firebars",
+      "cfg": {
+        "entry": "DrawAllMetasprites",
+        "variant": 0,
+        "types": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "first": 112,
+        "world": 6,
+        "fireowners": 6,
+        "fireparts": 12,
+        "flags": 32
+      },
+      "parent": {
+        "counts": {
+          "body_eligible_part_rows": 128,
+          "body_selected_part_rows": 24,
+          "ordinary_eligible_part_rows": 128,
+          "ordinary_selected_part_rows": 128,
+          "special_eligible_part_rows": 0,
+          "special_selected_part_rows": 0,
+          "world_eligible_part_rows": 720,
+          "world_selected_part_rows": 128
+        },
+        "maximum_body_parts_on_one_row": 6,
+        "overflow_rows": 32,
+        "example_rows": [
+          {
+            "line": 173,
+            "eligible": 45,
+            "body": 0,
+            "first8": [
+              {
+                "slot": 0,
+                "owner": "world"
+              },
+              {
+                "slot": 1,
+                "owner": "world"
+              },
+              {
+                "slot": 2,
+                "owner": "world"
+              },
+              {
+                "slot": 3,
+                "owner": "world"
+              },
+              {
+                "slot": 4,
+                "owner": "world"
+              },
+              {
+                "slot": 5,
+                "owner": "world"
+              },
+              {
+                "slot": 6,
+                "owner": "world"
+              },
+              {
+                "slot": 7,
+                "owner": "world"
+              }
+            ]
+          },
+          {
+            "line": 174,
+            "eligible": 45,
+            "body": 0,
+            "first8": [
+              {
+                "slot": 0,
+                "owner": "world"
+              },
+              {
+                "slot": 1,
+                "owner": "world"
+              },
+              {
+                "slot": 2,
+                "owner": "world"
+              },
+              {
+                "slot": 3,
+                "owner": "world"
+              },
+              {
+                "slot": 4,
+                "owner": "world"
+              },
+              {
+                "slot": 5,
+                "owner": "world"
+              },
+              {
+                "slot": 6,
+                "owner": "world"
+              },
+              {
+                "slot": 7,
+                "owner": "world"
+              }
+            ]
+          }
+        ]
+      },
+      "candidate": {
+        "counts": {
+          "body_eligible_part_rows": 128,
+          "body_selected_part_rows": 128,
+          "ordinary_eligible_part_rows": 128,
+          "ordinary_selected_part_rows": 44,
+          "special_eligible_part_rows": 0,
+          "special_selected_part_rows": 0,
+          "world_eligible_part_rows": 720,
+          "world_selected_part_rows": 108
+        },
+        "maximum_body_parts_on_one_row": 6,
+        "overflow_rows": 32,
+        "example_rows": [
+          {
+            "line": 173,
+            "eligible": 45,
+            "body": 0,
+            "first8": [
+              {
+                "slot": 18,
+                "owner": "world"
+              },
+              {
+                "slot": 19,
+                "owner": "world"
+              },
+              {
+                "slot": 20,
+                "owner": "world"
+              },
+              {
+                "slot": 21,
+                "owner": "world"
+              },
+              {
+                "slot": 22,
+                "owner": "world"
+              },
+              {
+                "slot": 23,
+                "owner": "world"
+              },
+              {
+                "slot": 24,
+                "owner": "world"
+              },
+              {
+                "slot": 25,
+                "owner": "world"
+              }
+            ]
+          },
+          {
+            "line": 174,
+            "eligible": 45,
+            "body": 0,
+            "first8": [
+              {
+                "slot": 18,
+                "owner": "world"
+              },
+              {
+                "slot": 19,
+                "owner": "world"
+              },
+              {
+                "slot": 20,
+                "owner": "world"
+              },
+              {
+                "slot": 21,
+                "owner": "world"
+              },
+              {
+                "slot": 22,
+                "owner": "world"
+              },
+              {
+                "slot": 23,
+                "owner": "world"
+              },
+              {
+                "slot": 24,
+                "owner": "world"
+              },
+              {
+                "slot": 25,
+                "owner": "world"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "variant": 1,
+      "kind": "four-busters",
+      "cfg": {
+        "entry": "DrawAllMetasprites",
+        "variant": 1,
+        "types": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "first": 112,
+        "world": 0,
+        "fireowners": 0,
+        "fireparts": 12,
+        "flags": 32
+      },
+      "parent": {
+        "counts": {
+          "body_eligible_part_rows": 160,
+          "body_selected_part_rows": 74,
+          "ordinary_eligible_part_rows": 128,
+          "ordinary_selected_part_rows": 128,
+          "special_eligible_part_rows": 0,
+          "special_selected_part_rows": 0,
+          "world_eligible_part_rows": 0,
+          "world_selected_part_rows": 0
+        },
+        "maximum_body_parts_on_one_row": 6,
+        "overflow_rows": 16,
+        "example_rows": [
+          {
+            "line": 192,
+            "eligible": 13,
+            "body": 5,
+            "first8": [
+              {
+                "slot": 29,
+                "owner": "ordinary"
+              },
+              {
+                "slot": 30,
+                "owner": "ordinary"
+              },
+              {
+                "slot": 31,
+                "owner": "ordinary"
+              },
+              {
+                "slot": 32,
+                "owner": "ordinary"
+              },
+              {
+                "slot": 33,
+                "owner": "ordinary"
+              },
+              {
+                "slot": 34,
+                "owner": "ordinary"
+              },
+              {
+                "slot": 35,
+                "owner": "ordinary"
+              },
+              {
+                "slot": 36,
+                "owner": "ordinary"
+              }
+            ]
+          },
+          {
+            "line": 193,
+            "eligible": 13,
+            "body": 5,
+            "first8": [
+              {
+                "slot": 29,
+                "owner": "ordinary"
+              },
+              {
+                "slot": 30,
+                "owner": "ordinary"
+              },
+              {
+                "slot": 31,
+                "owner": "ordinary"
+              },
+              {
+                "slot": 32,
+                "owner": "ordinary"
+              },
+              {
+                "slot": 33,
+                "owner": "ordinary"
+              },
+              {
+                "slot": 34,
+                "owner": "ordinary"
+              },
+              {
+                "slot": 35,
+                "owner": "ordinary"
+              },
+              {
+                "slot": 36,
+                "owner": "ordinary"
+              }
+            ]
+          }
+        ]
+      },
+      "candidate": {
+        "counts": {
+          "body_eligible_part_rows": 160,
+          "body_selected_part_rows": 160,
+          "ordinary_eligible_part_rows": 128,
+          "ordinary_selected_part_rows": 42,
+          "special_eligible_part_rows": 0,
+          "special_selected_part_rows": 0,
+          "world_eligible_part_rows": 0,
+          "world_selected_part_rows": 0
+        },
+        "maximum_body_parts_on_one_row": 6,
+        "overflow_rows": 16,
+        "example_rows": [
+          {
+            "line": 192,
+            "eligible": 13,
+            "body": 5,
+            "first8": [
+              {
+                "slot": 2,
+                "owner": "body"
+              },
+              {
+                "slot": 3,
+                "owner": "body"
+              },
+              {
+                "slot": 7,
+                "owner": "body"
+              },
+              {
+                "slot": 8,
+                "owner": "body"
+              },
+              {
+                "slot": 9,
+                "owner": "body"
+              },
+              {
+                "slot": 11,
+                "owner": "ordinary"
+              },
+              {
+                "slot": 12,
+                "owner": "ordinary"
+              },
+              {
+                "slot": 13,
+                "owner": "ordinary"
+              }
+            ]
+          },
+          {
+            "line": 193,
+            "eligible": 13,
+            "body": 5,
+            "first8": [
+              {
+                "slot": 2,
+                "owner": "body"
+              },
+              {
+                "slot": 3,
+                "owner": "body"
+              },
+              {
+                "slot": 7,
+                "owner": "body"
+              },
+              {
+                "slot": 8,
+                "owner": "body"
+              },
+              {
+                "slot": 9,
+                "owner": "body"
+              },
+              {
+                "slot": 11,
+                "owner": "ordinary"
+              },
+              {
+                "slot": 12,
+                "owner": "ordinary"
+              },
+              {
+                "slot": 13,
+                "owner": "ordinary"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "variant": 1,
+      "kind": "crowded-firebars",
+      "cfg": {
+        "entry": "DrawAllMetasprites",
+        "variant": 1,
+        "types": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "first": 112,
+        "world": 6,
+        "fireowners": 6,
+        "fireparts": 12,
+        "flags": 32
+      },
+      "parent": {
+        "counts": {
+          "body_eligible_part_rows": 160,
+          "body_selected_part_rows": 54,
+          "ordinary_eligible_part_rows": 128,
+          "ordinary_selected_part_rows": 128,
+          "special_eligible_part_rows": 0,
+          "special_selected_part_rows": 0,
+          "world_eligible_part_rows": 704,
+          "world_selected_part_rows": 128
+        },
+        "maximum_body_parts_on_one_row": 6,
+        "overflow_rows": 32,
+        "example_rows": [
+          {
+            "line": 173,
+            "eligible": 44,
+            "body": 0,
+            "first8": [
+              {
+                "slot": 0,
+                "owner": "world"
+              },
+              {
+                "slot": 1,
+                "owner": "world"
+              },
+              {
+                "slot": 2,
+                "owner": "world"
+              },
+              {
+                "slot": 3,
+                "owner": "world"
+              },
+              {
+                "slot": 4,
+                "owner": "world"
+              },
+              {
+                "slot": 5,
+                "owner": "world"
+              },
+              {
+                "slot": 6,
+                "owner": "world"
+              },
+              {
+                "slot": 7,
+                "owner": "world"
+              }
+            ]
+          },
+          {
+            "line": 174,
+            "eligible": 44,
+            "body": 0,
+            "first8": [
+              {
+                "slot": 0,
+                "owner": "world"
+              },
+              {
+                "slot": 1,
+                "owner": "world"
+              },
+              {
+                "slot": 2,
+                "owner": "world"
+              },
+              {
+                "slot": 3,
+                "owner": "world"
+              },
+              {
+                "slot": 4,
+                "owner": "world"
+              },
+              {
+                "slot": 5,
+                "owner": "world"
+              },
+              {
+                "slot": 6,
+                "owner": "world"
+              },
+              {
+                "slot": 7,
+                "owner": "world"
+              }
+            ]
+          }
+        ]
+      },
+      "candidate": {
+        "counts": {
+          "body_eligible_part_rows": 160,
+          "body_selected_part_rows": 160,
+          "ordinary_eligible_part_rows": 128,
+          "ordinary_selected_part_rows": 42,
+          "special_eligible_part_rows": 0,
+          "special_selected_part_rows": 0,
+          "world_eligible_part_rows": 704,
+          "world_selected_part_rows": 108
+        },
+        "maximum_body_parts_on_one_row": 6,
+        "overflow_rows": 32,
+        "example_rows": [
+          {
+            "line": 173,
+            "eligible": 44,
+            "body": 0,
+            "first8": [
+              {
+                "slot": 19,
+                "owner": "world"
+              },
+              {
+                "slot": 20,
+                "owner": "world"
+              },
+              {
+                "slot": 21,
+                "owner": "world"
+              },
+              {
+                "slot": 22,
+                "owner": "world"
+              },
+              {
+                "slot": 23,
+                "owner": "world"
+              },
+              {
+                "slot": 24,
+                "owner": "world"
+              },
+              {
+                "slot": 25,
+                "owner": "world"
+              },
+              {
+                "slot": 26,
+                "owner": "world"
+              }
+            ]
+          },
+          {
+            "line": 174,
+            "eligible": 44,
+            "body": 0,
+            "first8": [
+              {
+                "slot": 19,
+                "owner": "world"
+              },
+              {
+                "slot": 20,
+                "owner": "world"
+              },
+              {
+                "slot": 21,
+                "owner": "world"
+              },
+              {
+                "slot": 22,
+                "owner": "world"
+              },
+              {
+                "slot": 23,
+                "owner": "world"
+              },
+              {
+                "slot": 24,
+                "owner": "world"
+              },
+              {
+                "slot": 25,
+                "owner": "world"
+              },
+              {
+                "slot": 26,
+                "owner": "world"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "limits": "Source geometric eight-sprite admission only. Body priority can starve world/projectile parts; no opaque RGB, actual publication fairness or native cadence claim. True lag-NMI CPU controls are not physical PPU validation.",
+  "checker_sha256": "16f24da4cf50490f87aabdd13a563cee88ac2f8fb2ef3ba1c47d74594490c675"
+}

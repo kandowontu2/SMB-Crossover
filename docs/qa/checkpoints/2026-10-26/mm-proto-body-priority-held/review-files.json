@@ -1,0 +1,41 @@
+{
+  "source": [
+    "source-overlay",
+    "source-review.patch",
+    "source-delta.json",
+    "genuine-symbol-movement.json"
+  ],
+  "source_controls": [
+    "CPU",
+    "external-source-freeze.json",
+    "tools"
+  ],
+  "actual_native": [
+    "native",
+    "actual-pixels",
+    "external-native-freeze.json"
+  ],
+  "preserved_failures": [
+    "negatives",
+    "reports"
+  ],
+  "reproducibility": [
+    "external-bindings.json",
+    "copy-origins.json",
+    "catalog.json",
+    "proof.json"
+  ],
+  "staging_map": [
+    "docs/qa/checkpoints/2026-10-26/mm-proto-body-priority-held",
+    "tools/audit/mm_proto_body_held_checkpoint_v1.py"
+  ],
+  "excludes": [
+    "ROM",
+    "audio/NSF",
+    "settings",
+    "ZIP/source archive",
+    "raw/lossless capture",
+    "staging/commit/push",
+    "new game patch or emulator run"
+  ]
+}

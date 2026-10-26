@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "source_only": true,
+  "native_run": false,
+  "parent_ROM_sha256": "731c918b0f448564587d90fca2979afc9fc0e5eb9b26616f4241801e2e73e16c",
+  "candidate_ROM_sha256": "00fb4a72ec9788f7b2878d6201f70a96ae6e47b4935ba186648c7edc04806a62",
+  "cases": 96,
+  "complete_actual_continuation_boundary_AXYP_SP_RAM_SMC_banks_and_ordered_application_writes_exact": true,
+  "actual_NMI_preserves_changed_return_X_V": true,
+  "independent_X_overwrite": "Unconditional GameLoop LDX0 after genuine inventory-UI farcall; full live-state boundary after original UpdateTopScore farcall.",
+  "intentional_fields": [
+    "RgOamRotation",
+    "GuestOamRotationActive"
+  ],
+  "dead_stack_and_physical_OAM_explicit": true,
+  "scope": "Actual post-draw GameCore/IdleLoop/NMI/next-GameLoop continuation.\n\nNo register normalization: X/V mapping deltas are carried through genuine\nsource continuation, interrupt save/restore and UI save/restore until the\nnext GameLoop's independent random/score work has overwritten them. A small\nexplicit set of persistent draw-allocation fields remains intentionally\ndifferent; those values are recorded rather than broadly masking RAM.\n",
+  "checker_sha256": "744d466b0fa7d54fdb5295b4bc19aaf34c894a9eeacbba1fd1cc99bacf1e2b48"
+}
