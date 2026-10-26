@@ -1,0 +1,296 @@
+{
+  "valid": true,
+  "source_only": true,
+  "native_run": false,
+  "ROM_sha256": "9a791d0e13015ff362ffc9e460aaac8c8a0a5b6f73e990959dee4e074da473fd",
+  "first_missed_publication_update": 406,
+  "actual_NMI_audio_span": {
+    "serial": "3047",
+    "name": "AudioUpdate",
+    "phase": "primary",
+    "update": "406",
+    "startFrame": "736",
+    "startScan": "241",
+    "startDot": "285",
+    "startCPU": "21886385",
+    "endFrame": "736",
+    "endScan": "3",
+    "endDot": "210",
+    "endCPU": "21889088",
+    "inclusiveCycles": "2703",
+    "IRQCycles": "0",
+    "CPUcycles": "2703",
+    "childCPUcycles": "1276",
+    "exclusiveCPUcycles": "1427"
+  },
+  "main_span": {
+    "name": "GameLoop",
+    "phase": "primary",
+    "startFrame": "734",
+    "endFrame": "735",
+    "cycles": "25456",
+    "isrCycles": "2832",
+    "cpuCycles": "22624",
+    "bullets": "0",
+    "enemies": "2"
+  },
+  "exact_compiled_NMI_prelude_cycles": 85,
+  "exact_compiled_NMI_postlude_cycles": 37,
+  "hardware_NMI_entry_cycles": 7,
+  "actual_lag_NMI_cycles": 2832,
+  "exact_match_to_entire_observed_main_ISR_cycles": true,
+  "actual_NmiDisable_read_completion_CPU": 21886324,
+  "clear_completion_without_intervening_lag_NMI_CPU": 21886733,
+  "publication_completion_lateness_CPU": 409,
+  "strict_before_same_flag_read_requires_saved_CPU_at_least": 410,
+  "baseline_publication_slack_to_actual_candidate_flag_read_CPU": 2556,
+  "renderer_empty_scan_gate_saving_in_this_primary_case": 0,
+  "limits": "The409cycle distance is source reconstruction from completed native instruction spans, not a recorded bus access or a new native run. Completion boundaries use matching final-cycle read/write offsets.410 is the strict-before target for this existing flag-read alignment; a new candidate can alter instruction/IRQ/DMC alignment and requires new native qualification. This does not authorize changing workload, publication policy or cadence assertions.",
+  "NMI_prelude": [
+    {
+      "pc": 58166,
+      "instruction": "PHA",
+      "start_CPU": 0,
+      "end_CPU": 3
+    },
+    {
+      "pc": 58167,
+      "instruction": "TXA",
+      "start_CPU": 3,
+      "end_CPU": 5
+    },
+    {
+      "pc": 58168,
+      "instruction": "PHA",
+      "start_CPU": 5,
+      "end_CPU": 8
+    },
+    {
+      "pc": 58169,
+      "instruction": "TYA",
+      "start_CPU": 8,
+      "end_CPU": 10
+    },
+    {
+      "pc": 58170,
+      "instruction": "PHA",
+      "start_CPU": 10,
+      "end_CPU": 13
+    },
+    {
+      "pc": 58171,
+      "instruction": "LDA $7da1",
+      "start_CPU": 13,
+      "end_CPU": 17
+    },
+    {
+      "pc": 58174,
+      "instruction": "PHA",
+      "start_CPU": 17,
+      "end_CPU": 20
+    },
+    {
+      "pc": 58175,
+      "instruction": "LDA $0139",
+      "start_CPU": 20,
+      "end_CPU": 24
+    },
+    {
+      "pc": 58178,
+      "instruction": "BPL $e375",
+      "start_CPU": 24,
+      "end_CPU": 26
+    },
+    {
+      "pc": 58180,
+      "instruction": "INC $013a",
+      "start_CPU": 26,
+      "end_CPU": 32
+    },
+    {
+      "pc": 58183,
+      "instruction": "LDA $0775",
+      "start_CPU": 32,
+      "end_CPU": 36
+    },
+    {
+      "pc": 58186,
+      "instruction": "BNE $e367",
+      "start_CPU": 36,
+      "end_CPU": 38
+    },
+    {
+      "pc": 58188,
+      "instruction": "LDA #$1f",
+      "start_CPU": 38,
+      "end_CPU": 40
+    },
+    {
+      "pc": 58190,
+      "instruction": "STA $5203",
+      "start_CPU": 40,
+      "end_CPU": 44
+    },
+    {
+      "pc": 58193,
+      "instruction": "LDA #$80",
+      "start_CPU": 44,
+      "end_CPU": 46
+    },
+    {
+      "pc": 58195,
+      "instruction": "STA $5204",
+      "start_CPU": 46,
+      "end_CPU": 50
+    },
+    {
+      "pc": 58198,
+      "instruction": "LDA $0779",
+      "start_CPU": 50,
+      "end_CPU": 54
+    },
+    {
+      "pc": 58201,
+      "instruction": "AND #$fe",
+      "start_CPU": 54,
+      "end_CPU": 56
+    },
+    {
+      "pc": 58203,
+      "instruction": "STA $2000",
+      "start_CPU": 56,
+      "end_CPU": 60
+    },
+    {
+      "pc": 58206,
+      "instruction": "LDA #$00",
+      "start_CPU": 60,
+      "end_CPU": 62
+    },
+    {
+      "pc": 58208,
+      "instruction": "STA $2005",
+      "start_CPU": 62,
+      "end_CPU": 66
+    },
+    {
+      "pc": 58211,
+      "instruction": "STA $2005",
+      "start_CPU": 66,
+      "end_CPU": 70
+    },
+    {
+      "pc": 58214,
+      "instruction": "CLI",
+      "start_CPU": 70,
+      "end_CPU": 72
+    },
+    {
+      "pc": 58215,
+      "instruction": "LDA $6002",
+      "start_CPU": 72,
+      "end_CPU": 76
+    },
+    {
+      "pc": 58218,
+      "instruction": "BNE $e36f",
+      "start_CPU": 76,
+      "end_CPU": 79
+    },
+    {
+      "pc": 58223,
+      "instruction": "JSR $f05d",
+      "start_CPU": 79,
+      "end_CPU": 85
+    }
+  ],
+  "NMI_postlude": [
+    {
+      "pc": 58226,
+      "instruction": "JMP $e403",
+      "start_CPU": 0,
+      "end_CPU": 3
+    },
+    {
+      "pc": 58371,
+      "instruction": "PLA",
+      "start_CPU": 3,
+      "end_CPU": 7
+    },
+    {
+      "pc": 58372,
+      "instruction": "STA $7da1",
+      "start_CPU": 7,
+      "end_CPU": 11
+    },
+    {
+      "pc": 58375,
+      "instruction": "STA $5116",
+      "start_CPU": 11,
+      "end_CPU": 15
+    },
+    {
+      "pc": 58378,
+      "instruction": "PLA",
+      "start_CPU": 15,
+      "end_CPU": 19
+    },
+    {
+      "pc": 58379,
+      "instruction": "TAY",
+      "start_CPU": 19,
+      "end_CPU": 21
+    },
+    {
+      "pc": 58380,
+      "instruction": "PLA",
+      "start_CPU": 21,
+      "end_CPU": 25
+    },
+    {
+      "pc": 58381,
+      "instruction": "TAX",
+      "start_CPU": 25,
+      "end_CPU": 27
+    },
+    {
+      "pc": 58382,
+      "instruction": "PLA",
+      "start_CPU": 27,
+      "end_CPU": 31
+    },
+    {
+      "pc": 58383,
+      "instruction": "RTI",
+      "start_CPU": 31,
+      "end_CPU": 37
+    }
+  ],
+  "GameLoop_publication_tail": [
+    {
+      "pc": 33616,
+      "instruction": "LDA #$00",
+      "start_CPU": 0,
+      "end_CPU": 2
+    },
+    {
+      "pc": 33618,
+      "instruction": "STA $0139",
+      "start_CPU": 2,
+      "end_CPU": 6
+    },
+    {
+      "pc": 33621,
+      "instruction": "RTS",
+      "start_CPU": 6,
+      "end_CPU": 12
+    }
+  ],
+  "bindings": {
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\tmnt-native-storage-current50b5-v1\\parser-ready-v1\\candidate.nes": "9a791d0e13015ff362ffc9e460aaac8c8a0a5b6f73e990959dee4e074da473fd",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\tmnt-native-storage-current50b5-v1\\parser-native-negative-ready-v1\\diagnosis.json": "aeb77d02e160c5fc11b3126ab3276ab4560602d17de827c374b5acb26a460baa",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\tmnt-native-storage-current50b5-v1\\parser-native-pilot-v1\\candidate-easy\\audio-components.csv": "38f109daebe218c7473224a9e6a38dad8078b69d7767b82414b4f23450f15e4e",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\tmnt-native-storage-current50b5-v1\\parser-native-pilot-v1\\candidate-easy\\tmnt-performance-calls.csv": "d7e6d4564e0d824223a59465d1d51e16f8d4e49f790556142c2022b5fe509bd3",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\tmnt_equipment_publication_deadline_v1.py": "04796a71143edbba462d33c2a2bf3a2862b397cce8744cae07c09f3d796335ab"
+  }
+}

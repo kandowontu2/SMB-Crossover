@@ -1,0 +1,862 @@
+{
+  "valid_source_profile": true,
+  "source_only": true,
+  "native_run": false,
+  "ROM_sha256": "9a791d0e13015ff362ffc9e460aaac8c8a0a5b6f73e990959dee4e074da473fd",
+  "exact_original188byte_native_states_all506calls": true,
+  "arranged_empty_owner_states": true,
+  "literal_full_native_mixer_snapshot": false,
+  "retained_native_source_states_sha256": "b48c9cdb21f352204b1fc87dfdc00f0dc4b1e73b35d0a132c60104bb4fb9776e",
+  "profiles": [
+    {
+      "tick": 407,
+      "CPUcycles": 5145,
+      "exclusive": {
+        "AudioUpdate": 137,
+        "TnAudioGlobalGate": 41,
+        "RemainingAudioBegin": 49,
+        "RemainingAudioSupported": 56,
+        "GuestAudioBegin": 69,
+        "BassAudioBegin": 90,
+        "ExpandedAudioUpdate": 124,
+        "TnAudioDispatch": 27,
+        "TnAudioUpdate": 133,
+        "TnMusicPlayCall": 32,
+        "TnNativePlay": 3436,
+        "SophiaLandAudioTick": 35,
+        "RemainingAudioTick": 17,
+        "GuestAudioFinish": 133,
+        "GuestSharedSfx::SFXSoundEngine": 130,
+        "GuestDmcStatus": 29,
+        "GuestExpansionFlush": 150,
+        "X5NativeNoiseMask": 12,
+        "GuestAudioNativeFlush": 445
+      },
+      "spans": [
+        {
+          "name": "TnAudioGlobalGate",
+          "return_bank": 127,
+          "sp": 253,
+          "start": 1221183,
+          "return": 61536,
+          "cycles": 41
+        },
+        {
+          "name": "RemainingAudioSupported",
+          "return_bank": 7,
+          "sp": 250,
+          "start": 1221277,
+          "return": 46041,
+          "cycles": 28
+        },
+        {
+          "name": "RemainingAudioBegin",
+          "return_bank": 127,
+          "sp": 252,
+          "start": 1221258,
+          "return": 61568,
+          "cycles": 77
+        },
+        {
+          "name": "BassAudioBegin",
+          "return_bank": 29,
+          "sp": 250,
+          "start": 1221361,
+          "return": 42031,
+          "cycles": 45
+        },
+        {
+          "name": "BassAudioBegin",
+          "return_bank": 29,
+          "sp": 250,
+          "start": 1221455,
+          "return": 42159,
+          "cycles": 45
+        },
+        {
+          "name": "GuestAudioBegin",
+          "return_bank": 127,
+          "sp": 252,
+          "start": 1221347,
+          "return": 61576,
+          "cycles": 159
+        },
+        {
+          "name": "TnNativePlay",
+          "return_bank": 127,
+          "sp": 246,
+          "start": 1221697,
+          "return": 59780,
+          "cycles": 3436
+        },
+        {
+          "name": "TnMusicPlayCall",
+          "return_bank": 125,
+          "sp": 248,
+          "start": 1221681,
+          "return": 55980,
+          "cycles": 3468
+        },
+        {
+          "name": "TnAudioUpdate",
+          "return_bank": 126,
+          "sp": 250,
+          "start": 1221592,
+          "return": 37228,
+          "cycles": 3601
+        },
+        {
+          "name": "TnAudioDispatch",
+          "return_bank": 126,
+          "sp": 250,
+          "start": 1221565,
+          "return": 37228,
+          "cycles": 3628
+        },
+        {
+          "name": "ExpandedAudioUpdate",
+          "return_bank": 127,
+          "sp": 253,
+          "start": 1221528,
+          "return": 61590,
+          "cycles": 3752
+        },
+        {
+          "name": "RemainingAudioSupported",
+          "return_bank": 7,
+          "sp": 248,
+          "start": 1225314,
+          "return": 46116,
+          "cycles": 28
+        },
+        {
+          "name": "RemainingAudioTick",
+          "return_bank": 7,
+          "sp": 250,
+          "start": 1225308,
+          "return": 49079,
+          "cycles": 45
+        },
+        {
+          "name": "SophiaLandAudioTick",
+          "return_bank": 127,
+          "sp": 252,
+          "start": 1225302,
+          "return": 61635,
+          "cycles": 80
+        },
+        {
+          "name": "GuestSharedSfx::SFXSoundEngine",
+          "return_bank": 29,
+          "sp": 250,
+          "start": 1225455,
+          "return": 42293,
+          "cycles": 130
+        },
+        {
+          "name": "GuestDmcStatus",
+          "return_bank": 29,
+          "sp": 250,
+          "start": 1225644,
+          "return": 42357,
+          "cycles": 29
+        },
+        {
+          "name": "GuestExpansionFlush",
+          "return_bank": 29,
+          "sp": 250,
+          "start": 1225686,
+          "return": 42371,
+          "cycles": 150
+        },
+        {
+          "name": "X5NativeNoiseMask",
+          "return_bank": 29,
+          "sp": 250,
+          "start": 1225846,
+          "return": 42377,
+          "cycles": 12
+        },
+        {
+          "name": "GuestAudioNativeFlush",
+          "return_bank": 127,
+          "sp": 252,
+          "start": 1225863,
+          "return": 61651,
+          "cycles": 445
+        },
+        {
+          "name": "GuestAudioFinish",
+          "return_bank": 127,
+          "sp": 252,
+          "start": 1225409,
+          "return": 61651,
+          "cycles": 899
+        },
+        {
+          "name": "AudioUpdate",
+          "return_bank": -1,
+          "sp": 255,
+          "start": 1221177,
+          "return": 32512,
+          "cycles": 5145
+        }
+      ],
+      "top_instructions": [
+        {
+          "owner": "TnNativePlay",
+          "PC": 43728,
+          "instruction": "ADC $e0",
+          "cycles": 39
+        },
+        {
+          "owner": "TnNativePlay",
+          "PC": 43733,
+          "instruction": "BNE $aacf",
+          "cycles": 38
+        },
+        {
+          "owner": "TnNativePlay",
+          "PC": 44274,
+          "instruction": "RTS",
+          "cycles": 36
+        },
+        {
+          "owner": "TnNativePlay",
+          "PC": 43937,
+          "instruction": "LSR $eb",
+          "cycles": 35
+        },
+        {
+          "owner": "TnNativePlay",
+          "PC": 43939,
+          "instruction": "ROR $ea",
+          "cycles": 35
+        },
+        {
+          "owner": "TnNativePlay",
+          "PC": 42615,
+          "instruction": "DEC $7404,X",
+          "cycles": 28
+        },
+        {
+          "owner": "TnNativePlay",
+          "PC": 43727,
+          "instruction": "CLC",
+          "cycles": 26
+        },
+        {
+          "owner": "TnNativePlay",
+          "PC": 43730,
+          "instruction": "BCS $aadb",
+          "cycles": 26
+        },
+        {
+          "owner": "TnNativePlay",
+          "PC": 43732,
+          "instruction": "DEX",
+          "cycles": 26
+        },
+        {
+          "owner": "TnNativePlay",
+          "PC": 43308,
+          "instruction": "LDA ($de),Y",
+          "cycles": 25
+        },
+        {
+          "owner": "TnNativePlay",
+          "PC": 42571,
+          "instruction": "STX $7492",
+          "cycles": 24
+        },
+        {
+          "owner": "TnNativePlay",
+          "PC": 42574,
+          "instruction": "STY $7493",
+          "cycles": 24
+        },
+        {
+          "owner": "TnNativePlay",
+          "PC": 42577,
+          "instruction": "LDA $740a,X",
+          "cycles": 24
+        },
+        {
+          "owner": "TnNativePlay",
+          "PC": 42582,
+          "instruction": "JSR $a671",
+          "cycles": 24
+        },
+        {
+          "owner": "TnNativePlay",
+          "PC": 42609,
+          "instruction": "JSR $af96",
+          "cycles": 24
+        },
+        {
+          "owner": "TnNativePlay",
+          "PC": 44962,
+          "instruction": "RTS",
+          "cycles": 24
+        },
+        {
+          "owner": "TnNativePlay",
+          "PC": 43301,
+          "instruction": "LDA $7492",
+          "cycles": 24
+        },
+        {
+          "owner": "TnNativePlay",
+          "PC": 44273,
+          "instruction": "PLA",
+          "cycles": 24
+        },
+        {
+          "owner": "TnNativePlay",
+          "PC": 44949,
+          "instruction": "RTS",
+          "cycles": 24
+        },
+        {
+          "owner": "TnNativePlay",
+          "PC": 43935,
+          "instruction": "BEQ $aba8",
+          "cycles": 23
+        },
+        {
+          "owner": "TnNativePlay",
+          "PC": 43942,
+          "instruction": "BNE $ab9d",
+          "cycles": 21
+        },
+        {
+          "owner": "TnNativePlay",
+          "PC": 41080,
+          "instruction": "INC $72ac,X",
+          "cycles": 21
+        },
+        {
+          "owner": "TnNativePlay",
+          "PC": 44145,
+          "instruction": "LDA ($de),Y",
+          "cycles": 20
+        },
+        {
+          "owner": "TnNativePlay",
+          "PC": 44169,
+          "instruction": "STA $7404,X",
+          "cycles": 20
+        },
+        {
+          "owner": "TnNativePlay",
+          "PC": 43933,
+          "instruction": "CPX #$05",
+          "cycles": 20
+        },
+        {
+          "owner": "TnNativePlay",
+          "PC": 44939,
+          "instruction": "STA $7422,X",
+          "cycles": 20
+        },
+        {
+          "owner": "TnNativePlay",
+          "PC": 44946,
+          "instruction": "STA $7428,X",
+          "cycles": 20
+        },
+        {
+          "owner": "TnNativePlay",
+          "PC": 43838,
+          "instruction": "JSR $ac71",
+          "cycles": 18
+        },
+        {
+          "owner": "TnNativePlay",
+          "PC": 44220,
+          "instruction": "RTS",
+          "cycles": 18
+        },
+        {
+          "owner": "TnNativePlay",
+          "PC": 44264,
+          "instruction": "PHA",
+          "cycles": 18
+        },
+        {
+          "owner": "TnNativePlay",
+          "PC": 43988,
+          "instruction": "JSR $abda",
+          "cycles": 18
+        },
+        {
+          "owner": "TnNativePlay",
+          "PC": 44056,
+          "instruction": "JSR $ace8",
+          "cycles": 18
+        },
+        {
+          "owner": "TnNativePlay",
+          "PC": 44061,
+          "instruction": "JSR $a074",
+          "cycles": 18
+        },
+        {
+          "owner": "TnNativePlay",
+          "PC": 41084,
+          "instruction": "RTS",
+          "cycles": 18
+        },
+        {
+          "owner": "TnNativePlay",
+          "PC": 44067,
+          "instruction": "RTS",
+          "cycles": 18
+        }
+      ],
+      "arranged_final_mixer": {
+        "BassDmcActive": 4,
+        "GuestMixMask": 0,
+        "GuestMixPreviousMask": 0,
+        "GuestWorldQueues": 0,
+        "Square1SoundBuffer": 0,
+        "Square2SoundBuffer": 0,
+        "NoiseSoundBuffer": 0,
+        "PauseModeFlag": 0,
+        "PauseSoundQueue": 0,
+        "AvAudioChar": 0,
+        "AvAudioId": 0,
+        "AvAudioRequest": 0,
+        "AvAudioOldMask": 0,
+        "GuestAudioCharacter": 19
+      },
+      "full188byte_original_native_state_exact": true
+    },
+    {
+      "tick": 505,
+      "CPUcycles": 7302,
+      "exclusive": {
+        "AudioUpdate": 137,
+        "TnAudioGlobalGate": 41,
+        "RemainingAudioBegin": 49,
+        "RemainingAudioSupported": 56,
+        "GuestAudioBegin": 69,
+        "BassAudioBegin": 90,
+        "ExpandedAudioUpdate": 124,
+        "TnAudioDispatch": 27,
+        "TnAudioUpdate": 133,
+        "TnMusicPlayCall": 32,
+        "TnNativePlay": 5597,
+        "SophiaLandAudioTick": 35,
+        "RemainingAudioTick": 17,
+        "GuestAudioFinish": 133,
+        "GuestSharedSfx::SFXSoundEngine": 130,
+        "GuestDmcStatus": 29,
+        "GuestExpansionFlush": 150,
+        "X5NativeNoiseMask": 12,
+        "GuestAudioNativeFlush": 441
+      },
+      "spans": [
+        {
+          "name": "TnAudioGlobalGate",
+          "return_bank": 127,
+          "sp": 253,
+          "start": 1532054,
+          "return": 61536,
+          "cycles": 41
+        },
+        {
+          "name": "RemainingAudioSupported",
+          "return_bank": 7,
+          "sp": 250,
+          "start": 1532148,
+          "return": 46041,
+          "cycles": 28
+        },
+        {
+          "name": "RemainingAudioBegin",
+          "return_bank": 127,
+          "sp": 252,
+          "start": 1532129,
+          "return": 61568,
+          "cycles": 77
+        },
+        {
+          "name": "BassAudioBegin",
+          "return_bank": 29,
+          "sp": 250,
+          "start": 1532232,
+          "return": 42031,
+          "cycles": 45
+        },
+        {
+          "name": "BassAudioBegin",
+          "return_bank": 29,
+          "sp": 250,
+          "start": 1532326,
+          "return": 42159,
+          "cycles": 45
+        },
+        {
+          "name": "GuestAudioBegin",
+          "return_bank": 127,
+          "sp": 252,
+          "start": 1532218,
+          "return": 61576,
+          "cycles": 159
+        },
+        {
+          "name": "TnNativePlay",
+          "return_bank": 127,
+          "sp": 246,
+          "start": 1532568,
+          "return": 59780,
+          "cycles": 5597
+        },
+        {
+          "name": "TnMusicPlayCall",
+          "return_bank": 125,
+          "sp": 248,
+          "start": 1532552,
+          "return": 55980,
+          "cycles": 5629
+        },
+        {
+          "name": "TnAudioUpdate",
+          "return_bank": 126,
+          "sp": 250,
+          "start": 1532463,
+          "return": 37228,
+          "cycles": 5762
+        },
+        {
+          "name": "TnAudioDispatch",
+          "return_bank": 126,
+          "sp": 250,
+          "start": 1532436,
+          "return": 37228,
+          "cycles": 5789
+        },
+        {
+          "name": "ExpandedAudioUpdate",
+          "return_bank": 127,
+          "sp": 253,
+          "start": 1532399,
+          "return": 61590,
+          "cycles": 5913
+        },
+        {
+          "name": "RemainingAudioSupported",
+          "return_bank": 7,
+          "sp": 248,
+          "start": 1538346,
+          "return": 46116,
+          "cycles": 28
+        },
+        {
+          "name": "RemainingAudioTick",
+          "return_bank": 7,
+          "sp": 250,
+          "start": 1538340,
+          "return": 49079,
+          "cycles": 45
+        },
+        {
+          "name": "SophiaLandAudioTick",
+          "return_bank": 127,
+          "sp": 252,
+          "start": 1538334,
+          "return": 61635,
+          "cycles": 80
+        },
+        {
+          "name": "GuestSharedSfx::SFXSoundEngine",
+          "return_bank": 29,
+          "sp": 250,
+          "start": 1538487,
+          "return": 42293,
+          "cycles": 130
+        },
+        {
+          "name": "GuestDmcStatus",
+          "return_bank": 29,
+          "sp": 250,
+          "start": 1538676,
+          "return": 42357,
+          "cycles": 29
+        },
+        {
+          "name": "GuestExpansionFlush",
+          "return_bank": 29,
+          "sp": 250,
+          "start": 1538718,
+          "return": 42371,
+          "cycles": 150
+        },
+        {
+          "name": "X5NativeNoiseMask",
+          "return_bank": 29,
+          "sp": 250,
+          "start": 1538878,
+          "return": 42377,
+          "cycles": 12
+        },
+        {
+          "name": "GuestAudioNativeFlush",
+          "return_bank": 127,
+          "sp": 252,
+          "start": 1538895,
+          "return": 61651,
+          "cycles": 441
+        },
+        {
+          "name": "GuestAudioFinish",
+          "return_bank": 127,
+          "sp": 252,
+          "start": 1538441,
+          "return": 61651,
+          "cycles": 895
+        },
+        {
+          "name": "AudioUpdate",
+          "return_bank": -1,
+          "sp": 255,
+          "start": 1532048,
+          "return": 32512,
+          "cycles": 7302
+        }
+      ],
+      "top_instructions": [
+        {
+          "owner": "TnNativePlay",
+          "PC": 43308,
+          "instruction": "LDA ($de),Y",
+          "cycles": 65
+        },
+        {
+          "owner": "TnNativePlay",
+          "PC": 43301,
+          "instruction": "LDA $7492",
+          "cycles": 64
+        },
+        {
+          "owner": "TnNativePlay",
+          "PC": 44274,
+          "instruction": "RTS",
+          "cycles": 54
+        },
+        {
+          "owner": "TnNativePlay",
+          "PC": 43335,
+          "instruction": "LDA ($de),Y",
+          "cycles": 50
+        },
+        {
+          "owner": "TnNativePlay",
+          "PC": 43340,
+          "instruction": "JMP ($00e0)",
+          "cycles": 50
+        },
+        {
+          "owner": "TnNativePlay",
+          "PC": 43728,
+          "instruction": "ADC $e0",
+          "cycles": 45
+        },
+        {
+          "owner": "TnNativePlay",
+          "PC": 43733,
+          "instruction": "BNE $aacf",
+          "cycles": 44
+        },
+        {
+          "owner": "TnNativePlay",
+          "PC": 43322,
+          "instruction": "LDA $a180,X",
+          "cycles": 40
+        },
+        {
+          "owner": "TnNativePlay",
+          "PC": 43327,
+          "instruction": "LDA $a181,X",
+          "cycles": 40
+        },
+        {
+          "owner": "TnNativePlay",
+          "PC": 43332,
+          "instruction": "LDX $7492",
+          "cycles": 40
+        },
+        {
+          "owner": "TnNativePlay",
+          "PC": 44962,
+          "instruction": "RTS",
+          "cycles": 36
+        },
+        {
+          "owner": "TnNativePlay",
+          "PC": 43314,
+          "instruction": "BCS $a937",
+          "cycles": 36
+        },
+        {
+          "owner": "TnNativePlay",
+          "PC": 44273,
+          "instruction": "PLA",
+          "cycles": 36
+        },
+        {
+          "owner": "TnNativePlay",
+          "PC": 42615,
+          "instruction": "DEC $7404,X",
+          "cycles": 35
+        },
+        {
+          "owner": "TnNativePlay",
+          "PC": 43306,
+          "instruction": "BEQ $a951",
+          "cycles": 35
+        },
+        {
+          "owner": "TnNativePlay",
+          "PC": 43937,
+          "instruction": "LSR $eb",
+          "cycles": 35
+        },
+        {
+          "owner": "TnNativePlay",
+          "PC": 43939,
+          "instruction": "ROR $ea",
+          "cycles": 35
+        },
+        {
+          "owner": "TnNativePlay",
+          "PC": 43304,
+          "instruction": "CMP #$03",
+          "cycles": 32
+        },
+        {
+          "owner": "TnNativePlay",
+          "PC": 42582,
+          "instruction": "JSR $a671",
+          "cycles": 30
+        },
+        {
+          "owner": "TnNativePlay",
+          "PC": 42609,
+          "instruction": "JSR $af96",
+          "cycles": 30
+        },
+        {
+          "owner": "TnNativePlay",
+          "PC": 43325,
+          "instruction": "STA $e0",
+          "cycles": 30
+        },
+        {
+          "owner": "TnNativePlay",
+          "PC": 43330,
+          "instruction": "STA $e1",
+          "cycles": 30
+        },
+        {
+          "owner": "TnNativePlay",
+          "PC": 44949,
+          "instruction": "RTS",
+          "cycles": 30
+        },
+        {
+          "owner": "TnNativePlay",
+          "PC": 43727,
+          "instruction": "CLC",
+          "cycles": 30
+        },
+        {
+          "owner": "TnNativePlay",
+          "PC": 43730,
+          "instruction": "BCS $aadb",
+          "cycles": 30
+        },
+        {
+          "owner": "TnNativePlay",
+          "PC": 43732,
+          "instruction": "DEX",
+          "cycles": 30
+        },
+        {
+          "owner": "TnNativePlay",
+          "PC": 41080,
+          "instruction": "INC $72ac,X",
+          "cycles": 28
+        },
+        {
+          "owner": "TnNativePlay",
+          "PC": 44269,
+          "instruction": "LDX $7493",
+          "cycles": 28
+        },
+        {
+          "owner": "TnNativePlay",
+          "PC": 44264,
+          "instruction": "PHA",
+          "cycles": 27
+        },
+        {
+          "owner": "TnNativePlay",
+          "PC": 43310,
+          "instruction": "AND #$f0",
+          "cycles": 26
+        },
+        {
+          "owner": "TnNativePlay",
+          "PC": 43312,
+          "instruction": "CMP #$c0",
+          "cycles": 26
+        },
+        {
+          "owner": "TnNativePlay",
+          "PC": 44939,
+          "instruction": "STA $7422,X",
+          "cycles": 25
+        },
+        {
+          "owner": "TnNativePlay",
+          "PC": 44946,
+          "instruction": "STA $7428,X",
+          "cycles": 25
+        },
+        {
+          "owner": "TnNativePlay",
+          "PC": 42571,
+          "instruction": "STX $7492",
+          "cycles": 24
+        },
+        {
+          "owner": "TnNativePlay",
+          "PC": 42574,
+          "instruction": "STY $7493",
+          "cycles": 24
+        }
+      ],
+      "arranged_final_mixer": {
+        "BassDmcActive": 4,
+        "GuestMixMask": 0,
+        "GuestMixPreviousMask": 0,
+        "GuestWorldQueues": 0,
+        "Square1SoundBuffer": 0,
+        "Square2SoundBuffer": 0,
+        "NoiseSoundBuffer": 0,
+        "PauseModeFlag": 0,
+        "PauseSoundQueue": 0,
+        "AvAudioChar": 0,
+        "AvAudioId": 0,
+        "AvAudioRequest": 0,
+        "AvAudioOldMask": 0,
+        "GuestAudioCharacter": 19
+      },
+      "full188byte_original_native_state_exact": true
+    }
+  ],
+  "checker_sha256": "e716e1546ec75fc0d78d065217e1026c780fd7c4b9b6f19a7a3f33cc6d610fe2",
+  "limits": "The complete original driver RAM is bound to actual native states. Mixer queues/buffers/physical DMC reads are explicitly arranged CPU state; this is not literal outer2056 reconstruction or a native timing/recovery proof. No implementation changes."
+}

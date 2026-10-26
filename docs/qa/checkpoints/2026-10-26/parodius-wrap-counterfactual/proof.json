@@ -1,0 +1,50 @@
+{
+  "analysis_complete": true,
+  "native_run": false,
+  "ROM_changed": false,
+  "actual_frames_retagged": false,
+  "counterfactual_is_model_only": true,
+  "matched_actual_epochs": 185,
+  "baseline_ROM_sha256": "df5154bc035ba2c392bb8d34068897a2bccf7a78a6f4554bd6790d31a586c357",
+  "candidate_ROM_sha256": "e11c64ec155fd90a55604ec4cc8f9f722f97fa79140eb861dd4ffec31601d5da",
+  "actual_negative_pixel_proof_sha256": "5123086c11f866471a057503f9ec492562882be5c64919adf216d4b4035ea158",
+  "actual_regression_classification": {
+    "body_regressions": {
+      "frames": 46,
+      "wrap": 46,
+      "nonwrap": 0,
+      "strict_fully_onscreen": 46,
+      "clipped": 0,
+      "changed_Y_sequence": 46,
+      "actual_other_loss_frames": 7
+    },
+    "core_regressions": {
+      "frames": 49,
+      "wrap": 49,
+      "nonwrap": 0,
+      "strict_fully_onscreen": 49,
+      "clipped": 0,
+      "changed_Y_sequence": 49,
+      "actual_other_loss_frames": 7
+    },
+    "body_pixels_nonwrap_regression_examples": [],
+    "primary_pixels_nonwrap_regression_examples": []
+  },
+  "counterfactual_summary": {
+    "fallback_frames": 77,
+    "sorted_frames": 108,
+    "body_regression_frames": 0,
+    "core_regression_frames": 0,
+    "body_improved_frames": 51,
+    "core_improved_frames": 66,
+    "other_loss_frames": 0,
+    "other_gain_frames": 0,
+    "other_value_change_frames": 0
+  },
+  "all_total_body_row_counts_preserved": true,
+  "model_counterfactual_no_regression": true,
+  "tool_sha256": "09a5ca5408a9d07c3532550163d7440db8fafe365a87ee0332b3c7125046fcfe",
+  "limits": "Counterfactual retains baseline order on actual physical OAM body-span wrap OR clipping; sorted only if every emitted part has x8..248 and visibleY32..239. Uses actual source-bound hardware/CHR/palette from ONE OctEasy640. Model is front-sprite admission, not new actual RGB/native evidence or exhaustive background composition. Changed per-row source Y sequence and body/other pixel winner causes are classified, not relabeled as CHR corruption. No implementation/adoption or other modes/lifecycle verdict.",
+  "manifest_sha256": "6eabd9f04ede9abdd42e4002018f5f1c4ff4c04621418f8dc987b3186c1858fd",
+  "binding_count": 461
+}

@@ -1,0 +1,23 @@
+{
+  "passed": true,
+  "implementation": false,
+  "native_run": false,
+  "ROM_sha256": "9a791d0e13015ff362ffc9e460aaac8c8a0a5b6f73e990959dee4e074da473fd",
+  "compiled_full_caller_prefix_cases": 129920,
+  "initial_unsigned13bit_period_range": [
+    18,
+    2047
+  ],
+  "all_physical_P_contexts": 64,
+  "clock_control99_divider0_reload0_only": true,
+  "exact_two_source_halfclocks_period_formula": "P1=(P0-1)>>1; finalDelta=(P1-1)>>1",
+  "complete_output_continuation_AXYP_SP_and_final_sweep_image_contract": true,
+  "actual_entry_to_output_CPUcycles": [
+    564,
+    578,
+    585
+  ],
+  "new_CPUcycle_savings_not_measured": true,
+  "checker_sha256": "3ff64a2a19305b1d1df844780e9095e2ab8922d1e04aeb6c9bf22be64eb7b065",
+  "limits": "No patch/helper/canonical build, changed caller routing or recovery timing is asserted. This proves only the guarded source arithmetic and final actual continuation contract. Other controls/divider/reload/periods must retain the original path. Storage, source implementation, full mixer/other identities and real IRQ/native/DMC controls remain required."
+}

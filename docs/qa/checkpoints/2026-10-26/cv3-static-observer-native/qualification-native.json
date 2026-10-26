@@ -1,0 +1,132 @@
+{
+  "passed": true,
+  "status": "EXACT_TWO_HISTORICAL_STATIC_NATIVE_REPLAYS_OBSERVATION_EQUIVALENT",
+  "native_runs": 2,
+  "native_retries": 0,
+  "worker_released": true,
+  "no0c45_execution": true,
+  "held0802_cadence_accepted": false,
+  "source_readiness_sha256": "c3c9fe38b70cf774e8426a6e9da17d5fdd80fbc1e4d0f5e2b3f0e8700331bf3c",
+  "equivalence_proof": {
+    "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-static-observer-v1\\native-equivalence-v1\\proof.json",
+    "sha256": "9e2cff9dfc55799380c8ec8f7a66ce854d7cf52f531b1341c41ff7c313300b77"
+  },
+  "launches": [
+    {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-static-observer-v1\\native-launch-v1\\baseline50b\\proof.json",
+      "sha256": "0fa3f6b4b4f8a711f6b927972b9e1aeb62dddb2a8e8cdf6d615994fc95b5b56e",
+      "case": "baseline50b",
+      "start_UTC": "2026-10-26T01:56:33.905297+00:00",
+      "end_UTC": "2026-10-26T01:56:37.970484+00:00",
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\kando\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\run_mesen_isolated.py",
+        "--output",
+        "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-static-observer-v1\\replay-packet-v1\\baseline50b",
+        "--emulator",
+        "C:/Mesen2/Mesen.exe",
+        "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-static-observer-v1\\replay-packet-v1\\baseline50b\\run.lua",
+        "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-current50b-v1\\baseline.nes",
+        "--timeout",
+        "180",
+        "--option=--doNotSaveSettings",
+        "--option=--nes.ramPowerOnState=AllZeros",
+        "--option=--nes.randomizeCpuPpuAlignment=false",
+        "--option=--nes.randomizeMapperPowerOnState=false"
+      ],
+      "ROM_sha256": "50b51c3c69f45ef137720c47f521574097f421056e3b73296d06ba70080d2363",
+      "script_sha256": "8e173f297b7d1da600c0d63a7b91858f455e0e5a3fa35ba31292ccff7416ba03",
+      "settings_before_sha256": "d10b4fbc3903cd1c71e2df28f6c33dfdb9dae4aacaf32426bbfc1224e748f5d4",
+      "settings_after_sha256": "d10b4fbc3903cd1c71e2df28f6c33dfdb9dae4aacaf32426bbfc1224e748f5d4",
+      "source_and_options_unchanged": true,
+      "retries": 0,
+      "passed": true,
+      "native_guard_passed": true,
+      "observation_mismatches": []
+    },
+    {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-static-observer-v1\\native-launch-v1\\held0802\\proof.json",
+      "sha256": "f6fcc7d9225a9f0c942a19e410a2724959c6d2e38adbd8b4add617b3895978a5",
+      "case": "held0802",
+      "start_UTC": "2026-10-26T01:56:46.497262+00:00",
+      "end_UTC": "2026-10-26T01:56:51.898995+00:00",
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\kando\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\run_mesen_isolated.py",
+        "--output",
+        "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-static-observer-v1\\replay-packet-v1\\held0802",
+        "--emulator",
+        "C:/Mesen2/Mesen.exe",
+        "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-static-observer-v1\\replay-packet-v1\\held0802\\run.lua",
+        "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-resident-v4\\candidate.nes",
+        "--timeout",
+        "180",
+        "--option=--doNotSaveSettings",
+        "--option=--nes.ramPowerOnState=AllZeros",
+        "--option=--nes.randomizeCpuPpuAlignment=false",
+        "--option=--nes.randomizeMapperPowerOnState=false"
+      ],
+      "ROM_sha256": "0802527d8a2e0cf8f9584e854d6dd263b72e330c3c89d30921abddc1b10c5790",
+      "script_sha256": "784f86a5d5cecd2a1d97934fc9f5e514f62abf820967e356da08d5dea9fd1148",
+      "settings_before_sha256": "d10b4fbc3903cd1c71e2df28f6c33dfdb9dae4aacaf32426bbfc1224e748f5d4",
+      "settings_after_sha256": "d10b4fbc3903cd1c71e2df28f6c33dfdb9dae4aacaf32426bbfc1224e748f5d4",
+      "source_and_options_unchanged": true,
+      "retries": 0,
+      "passed": true,
+      "native_guard_passed": true,
+      "observation_mismatches": []
+    }
+  ],
+  "all_native_artifacts": {
+    "baseline50b": {
+      "actors.csv": "201fe65eb55513e6bf84ffaab7c4f0091b684adf0c37054144bdff335a5f1065",
+      "apu.csv": "20205b3d9f36be5d34964cac673ec755052f402b1b15c4d6576ad4c39988891c",
+      "baseline-run.log": "51d34155549232ae17f491e624b4dbef3e446fa3fdf3628953ec3c0ca2edd309",
+      "cadence.csv": "0d043a907cd600fca128b376645ba5116b8b3abf121f951b3f7778a551053c97",
+      "candidate.lbl": "192b239a4dc33010af0e16b901a12b3c033534e51a372d55e22a65741a8f5157",
+      "case-end.argb": "2c7ae0bfa51e38216bae1242da1f9203573ad671e635650ce51e9266591d95e7",
+      "configuration.json": "b33b1bb6deb0d9db429ff4aba77ac049b78b9c7440fb360f75b9eea064fadee5",
+      "deadline-timing.csv": "e9df846adbbb64adec961fccb62e2429da3d1918d5e0688d074703c0f465a539",
+      "dma-bus.jsonl": "32d910edbe2aaacbb3ebe6219937213f7f61efb3e7e7be28b44d8af338dcbaf3",
+      "dmc-fetch.csv": "6aeb1c4f36c506872bee5326f85750a2eb99e5a8cf7978648e4ff0c18798e0b1",
+      "last-case.json": "c16da877644c07c4779fe95185816bb523df3e9cc649498315992e6b544b424a",
+      "native-cycles.csv": "f6bc8365a56e65d24104f54067196b0e865e44b0f20bf253a0dc999f9557407b",
+      "original-run.lua": "ce69f2ed1fcf10b3e9d27f5f983f165e95b00afb151d3a964b8834de74dbb371",
+      "proof.json": "9099c4080445f503b6334191db3dfe7a6c37facf866338e2adbdbe8b7f22aed0",
+      "requests.csv": "962d77449f728a10d2aed83e74dffc98f20930eb7cc0a6dfbfdc4a336a1a8e88",
+      "run.lua": "8e173f297b7d1da600c0d63a7b91858f455e0e5a3fa35ba31292ccff7416ba03",
+      "source-voices.csv": "b8ca1d6b2f668555e710feeaa5e6cc734395e5ccc197a390f8491a1ea0923bae"
+    },
+    "held0802": {
+      "actors.csv": "201fe65eb55513e6bf84ffaab7c4f0091b684adf0c37054144bdff335a5f1065",
+      "apu.csv": "7b5e927f2d009dbb1113a86a192e4226c060ebbf5e6621e6abe27b8305a00111",
+      "cadence.csv": "d189e5fbf1199a971027c427243040b7aed51995a7561b1061519f8bbd5333c3",
+      "candidate-run.log": "8356526e04b71b677ae2b6eb00b240c226a8d5a90813218e83e6c7f02f05f109",
+      "candidate.lbl": "4161045514b54eb920116d00c92af2f855cb4e2918f38426b9b8b7609ffa0c75",
+      "case-end.argb": "2c7ae0bfa51e38216bae1242da1f9203573ad671e635650ce51e9266591d95e7",
+      "configuration.json": "ae8c9f661535a9497fb3992acc23ab44937c5efbcc3ae0f15e2682b166b6dd32",
+      "deadline-timing.csv": "04ad69eb14dd4b20749142dd7913f35b86c5b9e57cb5438a1829cfa3d07f0416",
+      "dma-bus.jsonl": "cbbe82206e16f87f30ad1ed188eae81c11b3614767c1e4beffc319146607bc2f",
+      "dmc-fetch.csv": "6aeb1c4f36c506872bee5326f85750a2eb99e5a8cf7978648e4ff0c18798e0b1",
+      "last-case.json": "bddc917659216c35d1d6fdc72ddedc761329873c67a8a6ded448100367a88c9d",
+      "native-cycles.csv": "68037e9904ef0f79139c529db56a1d68f6d7bfa6c90c446ffb7e0dd433c8c2bf",
+      "original-run.lua": "fb5541503c54ff860b812d7ff6aff27f9de447d5f2647c7909c5df6811b2c140",
+      "proof.json": "3d60c836dbba1bb0766513f902c84c6705a413d7f6cea7d9d7823f8265d10b98",
+      "requests.csv": "b82f54e5207e00a0e33c5060d28c2d0ab2817c706e2249247be1e2719ea66b0d",
+      "run.lua": "784f86a5d5cecd2a1d97934fc9f5e514f62abf820967e356da08d5dea9fd1148",
+      "source-voices.csv": "1264a04629080b91e2099ff8439a2a410193c87c6c38fa15bce10e760986bb23"
+    }
+  },
+  "tools": {
+    "tools/audit/cv3_remaining_sfx_static_launch_v1.py": "41e5b4fbbc6f072bd46780db73529cc21c006aceab0d8628f5fa54cc598b4acf",
+    "tools/audit/cv3_remaining_sfx_static_verify_v1.py": "90217ea3244bdd99c2c81f59294bf3341ffb7cc88bb2986ac1ef53bbf0d2fb0c",
+    "tools/audit/cv3_remaining_sfx_static_native_packet_v1.py": "b5836826d06bf7d16bf566beeafec802355674d3ae6610b303a294c8b67a82b7"
+  },
+  "report": {
+    "path": "docs/qa/cv3-remaining-sfx-static-observer-native-2026-10-25.txt",
+    "sha256": "2eaf5dff1ef23b39212225a23a176ff8b3f04f7d26497fa03d79c05973fd4b8d"
+  },
+  "tool_sha256": "b5836826d06bf7d16bf566beeafec802355674d3ae6610b303a294c8b67a82b7"
+}
