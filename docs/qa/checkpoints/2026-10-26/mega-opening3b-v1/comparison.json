@@ -1,0 +1,57 @@
+{
+  "passed": true,
+  "native_run": true,
+  "ROM_sha256": "3b112e1d79ba7348f2f7a4c426f4675845a5781017ab74690feb235121a66287",
+  "reference_ROM_sha256": "731c918b0f448564587d90fca2979afc9fc0e5eb9b26616f4241801e2e73e16c",
+  "launches": 1,
+  "retries": 0,
+  "native_receipt_sha256": "2b5e5a756ac42954fef13d6370e3946d74988a7cc4a275db29e57b0d8a2cece3",
+  "actualWholePPUFrames": 275,
+  "wholeFrameBytesExactReference": true,
+  "sameInputPollMasksAndFrame": 449,
+  "complete256DMAImages": 402,
+  "allDMAImagesExactReference": true,
+  "safeScopedEnables": 72,
+  "late": 0,
+  "NMI_AXY_SP_bank_fiveSMC_checks": 442,
+  "IRQ31": 79,
+  "matchingVisibleFrameDMACompletionPrefixes": 275,
+  "samples": [
+    {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-presentation450-3b112-v1\\ROOT-review-v1\\wholeframes-1.png",
+      "sha256": "2456934307e9c55b4409eca965927cfa14044b5cc69f50b79366f4da2ff096bf",
+      "frames": [
+        372,
+        385,
+        403,
+        404,
+        437,
+        438,
+        439,
+        440,
+        441
+      ]
+    },
+    {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-presentation450-3b112-v1\\ROOT-review-v1\\wholeframes-2.png",
+      "sha256": "a0521475ee962ee3905a34a0236d668b0bbb4aaae1e231488a2859a99855bea4",
+      "frames": [
+        442,
+        443,
+        444,
+        445,
+        446,
+        447,
+        448,
+        449,
+        450
+      ]
+    }
+  ],
+  "limits": "Finite same-input MegaEasy opening. Exact image equality retains any baseline sprite loss. No fresh full1-1, every item, Proto/Hard or lag/flicker-free claim. No game/source/settings/default modification. Generic preparation missing proof.json naming is retained in preparation-adaptation.json; ROOT reconciles composition source receipt before native.",
+  "ROOT_visual_review": {
+    "wholeFramePlacements": 18,
+    "reviewed": true,
+    "findings": "Partial lower-body loss during ordinary firing remains visible at438/439/444/445/449/450, matching731 exactly. This is a baseline regression PASS with a known graphics defect still open."
+  }
+}
