@@ -586,9 +586,13 @@ MushroomIconData:
 
 ;-------------------------------------------------------------------------------------
 cproc WriteGameText
+.if ::ENABLE_MMC5_EXPANDED && ::MAPPER_MMC5
+  jmp PnHudTextCancel
+.else
   pha                      ;save text number to stack
     asl
-    tay                      ;multiply by 2 and use as offset
+    tay
+.endif                      ;multiply by 2 and use as offset
     cpy #$04                 ;if set to do top status bar or world/lives display,
     bcc LdGameText           ;branch to use current offset as-is
     cpy #$08                 ;if set to do time-up or game over,

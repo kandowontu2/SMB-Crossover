@@ -11,7 +11,11 @@ PnBombPaletteShadow=MmAudioRamStart+96 ; inactive audio overlay,32 owned bytes
  lda SelectedCharacter
  cmp #18
  bne Samus
+.if ::ENABLE_MMC5_EXPANDED && ::MAPPER_MMC5
+ jmp PnHudCommitAfterVram
+.else
  lda OperMode
+.endif
  cmp #1
  bne Samus
  lda VvVariant
@@ -30,7 +34,11 @@ PnBombPaletteShadow=MmAudioRamStart+96 ; inactive audio overlay,32 owned bytes
  sta PPUADDR
  tax
 Copy:
+.if ::ENABLE_MMC5_EXPANDED && ::MAPPER_MMC5
+ jmp FastNmiPaletteCapture
+.else
  lda PPUDATA
+.endif
  sta PnBombPaletteShadow,x
  inx
  cpx #32

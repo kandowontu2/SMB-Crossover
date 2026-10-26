@@ -457,7 +457,11 @@ Done:rts
 
  ; All seven original frame/label cells fit inside the TV-safe28-column row.
  ; Like the Gradius HUD, renew font ownership even while its cells are clean.
+.if ::ENABLE_MMC5_EXPANDED && ::MAPPER_MMC5
+ jmp PnHudGate
+.else
  lda DisableScreenFlag
+.endif
  jne GraphicalDone
  lda VvVariant
  clc

@@ -654,7 +654,8 @@ MouseStateMetasprite:
 .if ::ENABLE_MMC5_EXPANDED
 ::WorldFirebarAdmission:
  farcall Z2LateWorldAdmission
- .res 20,$ea
+ jmp WorldFirebarAdmissionDone
+ .res 17,$ea
 ::WorldFirebarAdmissionDone:
  rts
  .assert *-WorldFirebarDrawAdmission=39,lderror,"Late world admission span"

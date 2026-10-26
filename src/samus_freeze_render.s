@@ -22,7 +22,7 @@ SmFreezeLastBlue: .res 1
   ; restored by ExitNMI; do not touch foreground farcall code or its shadow.
   lda #.bank(PnPaletteScreenUpdate) | MMC5_PRG_ROM
   sta MMC5_PRG_BANK_C
-  jmp PnPaletteScreenUpdate
+  jmp PnHudPreUpdateScreen
   nop
 .else
   jsr UpdateScreen
@@ -56,7 +56,11 @@ Done:
 .endproc
 .segment "INVENTORY"
 .proc SamusFreezeInit
+.if ::ENABLE_MMC5_EXPANDED && ::MAPPER_MMC5
+  jsr PnHudInventoryInit
+.else
   inc InvDirty
+.endif
   php
   pha
   phx

@@ -592,7 +592,11 @@ PreviewX: .byte 120,121,118,116,120,120
 .endproc
 
 .proc QueueVariantHint
+.if ::ENABLE_MMC5_EXPANDED && ::MAPPER_MMC5
+  jmp PnMenuVariantHintGate
+.else
   ldx VRAM_Buffer1_Offset
+.endif
   lda #$23
   sta VRAM_Buffer1,x
 .if ::ENABLE_MMC5_EXPANDED
@@ -1151,5 +1155,82 @@ SelectNameTable:
 .pushseg
 .segment "PROTO_MENU"
 .include "x5_menu_layout.inc"
+.popseg
+.endif
+
+
+.if ::ENABLE_MMC5_EXPANDED && ::MAPPER_MMC5
+; Only an already-live ship Select-only toggle can reuse the published hint.
+; Initial/rebuilt pages keep DisableScreenFlag set through QueueSelection;
+; navigation with any direction retains the original complete hint writer.
+; All four ship variants have the identical native ProtoHint20 cells.
+.pushseg
+.segment "PN_MENU_HINT"
+.proc PnMenuVariantHintGate
+ jmp PnMenuInitialHintDispatch
+ cmp #Select_Button
+ bne Original
+ lda SelectedCharacter
+ cmp #18
+ bne Original
+ lda CrossoverMenuState
+ cmp #2
+ bne Original
+ lda DisableScreenFlag
+ bne Original
+ rts
+Original:
+ ldx VRAM_Buffer1_Offset
+ jmp QueueVariantHint+3
+.endproc
+.popseg
+.endif
+
+
+.if ::ENABLE_MMC5_EXPANDED && ::MAPPER_MMC5
+.pushseg
+.segment "PN_MENU_HINT"
+; BuildScreen owns direct PPUDATA while display is off and GameLoop's
+; NmiDisable is negative. Lag NMI skips PPU work with DisableScreenFlag!=0.
+; Mask IRQ only around the paired address/data transaction; retain NMI/audio.
+.proc PnMenuInitialHintDispatch
+ lda SelectedCharacter
+ cmp #18
+ bne Native
+ lda CrossoverMenuState
+ cmp #2
+ bne Native
+ lda DisableScreenFlag
+ beq Native
+ lda Mirror_PPUMASK
+ and #$18
+ bne Native
+ lda NmiDisable
+ bpl Native
+ php
+ sei
+ lda Mirror_PPUCTRL
+ and #$fb
+ sta PPUCTRL
+ bit PPUSTATUS
+ lda #$23
+ sta PPUADDR
+ lda #$46
+ sta PPUADDR
+ ldy #0
+Copy:
+ lda QueueVariantHint::ProtoHint,y
+ sta PPUDATA
+ iny
+ cpy #20
+ bne Copy
+ lda Mirror_PPUCTRL
+ sta PPUCTRL
+ plp
+ rts
+Native:
+ lda CrossoverMenuPressed
+ jmp PnMenuVariantHintGate+3
+.endproc
 .popseg
 .endif

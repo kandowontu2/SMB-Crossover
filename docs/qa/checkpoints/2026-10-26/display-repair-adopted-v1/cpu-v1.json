@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "source_only": true,
+  "native_run": false,
+  "adopted": false,
+  "parent_ROM_sha256": "4285d35db234ecdaf7c561f721c0aa8798545f9937e933acf5ab3e3f0b642682",
+  "candidate_ROM_sha256": "6c69e506b45c8420cf57a62b868f89c0fe86d308c0ee55655b48e8f44af9521a",
+  "actual_helper_cases": 256,
+  "actual_DrawAll_callers": 18,
+  "all_physical_flags": 64,
+  "actual_compiled_IRQ_injections": 111,
+  "exact_AXYP_SP_ordinary_RAM_SMC_OAM_ordered_writes_and_PRG_banks": true,
+  "genuine_old_Done_RTS_callback_once_per_call": true,
+  "complete_call_cycle_delta": -37,
+  "cases_sha256": "12a5497fc24986f693f0e5fb8db74f9283c10c1e74657f099ed781ef1cf6ba2c",
+  "tool_sha256": "a60935809e62844d1c90e3caa38284345bfabead62cfbdc75d942a3032440c94",
+  "limits": "Finite arranged CPU helper/complete caller states. Exact ordinary RAM/SMC; only discarded stack omitted. Actual compiled IRQ/vector/RTI is checked at every wrapper instruction boundary, including old NOPs, new JMP, genuine Done and farcall SMC/return instructions. Physical P flags exclude only emulator B/U representation. No PPU, DMA/DMC clocks, native cadence or recovered-draw claim."
+}

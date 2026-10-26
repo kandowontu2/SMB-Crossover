@@ -51,8 +51,12 @@ Yes:sec
  sta VvLife
  jmp Entry
 NewLife:
+.if ::ENABLE_MMC5_EXPANDED && ::MAPPER_MMC5
+ jsr PnHudNewLife
+.else
  lda #0
  tax
+.endif
 Clear:sta $5d00,x
  inx
  bne Clear
@@ -128,7 +132,11 @@ Caps:sta VvCapActive,x
  bpl Caps
 Cleanup:
  lda #0
+.if ::ENABLE_MMC5_EXPANDED && ::MAPPER_MMC5
+ jsr PnHudCancelLife
+.else
  sta InvHudActive
+.endif
  sta DisableCollisionDet
  lda #1
  sta VvNeedEntry
@@ -694,7 +702,12 @@ Fatal:ldx #0
  lda #0
  sta VvAlive
  sta VvDeathAge
+.if ::ENABLE_MMC5_EXPANDED && ::MAPPER_MMC5
+ jsr PnHudCancelLife
+::VvDeathHudCancelled:
+.else
  sta InvHudActive
+.endif
  sta DisableCollisionDet
  lda #$ff
  sta VvLife

@@ -484,5 +484,16 @@ Done:
 
 .if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
 .include "cv3_dmc_complete.s"
+.endif
+
+.if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
+.include "nmi_vram_fast.s"
+.endif
+
+.if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
+.include "parodius_hud_queue.s"
+.endif
+
+.if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
 .include "cv3_remaining_source_fx.s"
 .endif

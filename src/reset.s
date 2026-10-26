@@ -231,8 +231,12 @@ GetLength:
   lsr                       ;note that d1 will now be in carry
   tax
 OutputToVRAM:
+.if ::ENABLE_MMC5_EXPANDED && ::MAPPER_MMC5
+  jmp FastNmiVramCopy
+.else
   bcs RepeatByte            ;if carry set, repeat loading the same byte
     iny                       ;otherwise increment Y to load next byte
+.endif
 RepeatByte:
   lda (NmiR0), y               ;load more data from buffer and write to vram
   sta PPUDATA

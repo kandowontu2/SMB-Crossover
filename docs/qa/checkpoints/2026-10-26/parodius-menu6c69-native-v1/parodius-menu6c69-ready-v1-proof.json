@@ -1,0 +1,72 @@
+{
+  "prepared": true,
+  "source_checks_passed": true,
+  "native_run": false,
+  "native_granted": false,
+  "agent_visual_review": false,
+  "goal_complete": false,
+  "ROM_sha256": "6c69e506b45c8420cf57a62b868f89c0fe86d308c0ee55655b48e8f44af9521a",
+  "profiles": [
+    {
+      "kind": "menu",
+      "limit": 1800,
+      "actual_mode_required": 0,
+      "actual_variant_required": 1,
+      "packet": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\parodius-menu6c69-preparation-v1\\menu",
+      "preparation_sha256": "42b6298715e1d38c09fcd3912ccb0d0060ed28faf509eb47785e3073aab4adc4",
+      "script_sha256": "098d4ebc347814aefe3c87c87529ad3176eb34ed30085f60a161c2f4cae9be87"
+    }
+  ],
+  "padding_source_ready_sha256": "9225b3bafce11ac542d6d10725d7e2ca99757bf586d908ff469af943f045722f",
+  "parent_passed4285_menu_final_sha256": "d38731bb6618a7345af4f63255a9b8c76686b5b1736bb8570c8e992c842284bb",
+  "static_source_proof_sha256": "3c0348fdce3aaa3f0560356aeeef3e05bef99fc098f21ec6fe7fb7952f26e876",
+  "original_controller_all6guards_bodyrecords_finalizer_order_exact": true,
+  "ROM_delta_3bytes_only": true,
+  "public_RAM_label_file_exact": true,
+  "required_native_components": [
+    "native-result.json",
+    "hud-native-result.json",
+    "scroll-native-result.json",
+    "lifecycle-native-result.json",
+    "lifecycle-init-native-result.json",
+    "hud-lease-native-result.json"
+  ],
+  "environment": {
+    "emulator": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mmc3-flag-fix-v23\\script-budget-probe-v2\\emulator\\Mesen.exe",
+    "emulator_sha256": "8b92daa209ee5052845e02a663aeb1afd6194eca55d86e6628c51114c61da0a9",
+    "core": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mmc3-flag-fix-v23\\script-budget-probe-v2\\emulator\\MesenCore.dll",
+    "core_sha256": "4bd40dfc6512328d56d8ad0563263b52be57bac726d8804f0720e461e558cd41",
+    "worker_settings": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mmc3-flag-fix-v23\\script-budget-probe-v2\\emulator\\settings.json",
+    "worker_settings_sha256": "627cd9c71a2011b4cf5fb03a0712d4d77f7890bc269b174d5757776034aab715",
+    "user_settings": "C:\\Mesen2\\settings.json",
+    "user_settings_sha256": "8a439e0a5eeddc2d4776e516aacfc224c03048b9c7d23d9926a463460a7e748a",
+    "effective_worker_conditions": {
+      "Region": "Auto",
+      "DisableSprites": false,
+      "DisableBackground": false,
+      "RemoveSpriteLimit": false,
+      "AdaptiveSpriteLimit": false,
+      "RandomizeMapperPowerOnState": false,
+      "RandomizeCpuPpuAlignment": false,
+      "RamPowerOnState": "Random",
+      "PpuExtraScanlinesBeforeNmi": 0,
+      "PpuExtraScanlinesAfterNmi": 0,
+      "RunAheadFrames": 0
+    },
+    "deterministic_command_overrides": [
+      "--doNotSaveSettings",
+      "--nes.ramPowerOnState=AllZeros",
+      "--nes.randomizeCpuPpuAlignment=false",
+      "--nes.randomizeMapperPowerOnState=false",
+      "--nes.removeSpriteLimit=false"
+    ],
+    "settings_untouched": true,
+    "limits": "Fresh actual user settings copy and effective portable-worker settings bound independently. User current settings differ from historical snapshots; no old bytes or invented diff claimed. No extra scanlines, runahead0, hardware8sprites/adaptiveoff. RAM Random in persisted worker settings is overridden toAllZeros by the original command."
+  },
+  "manifest_bindings": 940,
+  "manifest_sha256": "01e5f1d61348c5c31c68880c0195c4717db0d88f6ede6765499af6ade830ebd7",
+  "report_sha256": "cabb21010f3f7f81ababbacf1093bafd7cd22227b57262eb8b163c16dfe4be66",
+  "review_files_sha256": "6f7b52cdfcd37887032c18817710500a0af4b664ce547ea9ee645ff2465e51a6",
+  "stable_command": "python -B tools/audit/parodius_visibility_menu6c69_run_v1.py --ready \"C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/parodius-menu6c69-ready-v1\" --profile menu --native-grant",
+  "limits": "SOURCE ONLY, exactsame focusedmenu1800 requires explicit newgrant. No sourceoptimization/controller/guard/body/art change, no launch/retry/death/area/Hardmatrix/adoption. OriginalareaFALSE/6missingoutputs/naturalBuffer2limitation and historical4285deadline negative stay separate. No globaltiming/wholegoal claim."
+}
