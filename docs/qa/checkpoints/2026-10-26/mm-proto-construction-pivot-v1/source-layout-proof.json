@@ -1,0 +1,244 @@
+{
+  "built": true,
+  "source_only": true,
+  "qualified": false,
+  "native_launches": 0,
+  "parent_ROM_sha256": "3b112e1d79ba7348f2f7a4c426f4675845a5781017ab74690feb235121a66287",
+  "ROM_sha256": "0a7dd88e6732bc189e432a9d55b18dd8f7ecf68a22e3b20f0a13ab7276241c09",
+  "source_files": 869,
+  "changed_source": [
+    "smb1base-mmc5-expanded.cfg",
+    "src/level_variants.s",
+    "src/megaman_weapons.s",
+    "src/metasprite_engine.s",
+    "src/sprite_render.s"
+  ],
+  "changed_ROM_bytes": 1336,
+  "changed_banks": [
+    0,
+    4,
+    26,
+    66
+  ],
+  "genuine_changed_old_labels": [
+    {
+      "name": [
+        "CrossoverDrawSmallPlatform",
+        "ExSPl"
+      ],
+      "old": 42359,
+      "new": 42350
+    },
+    {
+      "name": [
+        "CrossoverDrawSmallPlatform",
+        "SOfs2"
+      ],
+      "old": 42346,
+      "new": 42337
+    },
+    {
+      "name": [
+        "CrossoverDrawSmallPlatform",
+        "SOfs"
+      ],
+      "old": 42332,
+      "new": 42323
+    },
+    {
+      "name": [
+        "CrossoverDrawSmallPlatform",
+        "BotSP"
+      ],
+      "old": 42307,
+      "new": 42298
+    },
+    {
+      "name": [
+        "WorldFirebarAdmission"
+      ],
+      "old": 41567,
+      "new": 41571
+    },
+    {
+      "name": [
+        "WorldFirebarDrawAdmission"
+      ],
+      "old": 41567,
+      "new": 41571
+    },
+    {
+      "name": [
+        "RosterOamReady"
+      ],
+      "old": 41544,
+      "new": 41548
+    },
+    {
+      "name": [
+        "DrawAllMetasprites",
+        "RosterPriorityInRange"
+      ],
+      "old": 41544,
+      "new": 41548
+    },
+    {
+      "name": [
+        "DrawAllMetasprites",
+        "LegacyTailClear"
+      ],
+      "old": 41545,
+      "new": 41549
+    },
+    {
+      "name": [
+        "DrawAllMetasprites",
+        "PlayerBankReady"
+      ],
+      "old": 41508,
+      "new": 41509
+    },
+    {
+      "name": [
+        "DrawAllMetasprites",
+        "DoneDrawingPlayer"
+      ],
+      "old": 41522,
+      "new": 41523
+    },
+    {
+      "name": [
+        "DrawAllMetasprites",
+        "Skip"
+      ],
+      "old": 41455,
+      "new": 41456
+    },
+    {
+      "name": [
+        "DrawAllMetasprites",
+        "FloateyNumberLoop"
+      ],
+      "old": 41443,
+      "new": 41444
+    },
+    {
+      "name": [
+        "DrawAllMetasprites",
+        "NextLoop2"
+      ],
+      "old": 41400,
+      "new": 41401
+    },
+    {
+      "name": [
+        "DrawAllMetasprites",
+        "NegativeFirebars"
+      ],
+      "old": 41407,
+      "new": 41408
+    },
+    {
+      "name": [
+        "DrawAllMetasprites",
+        "HandleFloateyNumbers"
+      ],
+      "old": 41414,
+      "new": 41415
+    },
+    {
+      "name": [
+        "DrawAllMetasprites",
+        "NextLoop"
+      ],
+      "old": 41358,
+      "new": 41359
+    },
+    {
+      "name": [
+        "DrawAllMetasprites",
+        "PositiveFirebars"
+      ],
+      "old": 41365,
+      "new": 41366
+    },
+    {
+      "name": [
+        "DrawAllMetasprites",
+        "ObjectLoopPositive"
+      ],
+      "old": 41328,
+      "new": 41329
+    },
+    {
+      "name": [
+        "DrawAllMetasprites",
+        "ObjectLoopNegative"
+      ],
+      "old": 41372,
+      "new": 41373
+    },
+    {
+      "name": [
+        "DrawAllMetasprites",
+        "ClearPlayerOAM"
+      ],
+      "old": 41290,
+      "new": 41291
+    },
+    {
+      "name": [
+        "RosterProjectileOamReady"
+      ],
+      "old": 41260,
+      "new": 41261
+    },
+    {
+      "name": [
+        "DrawAllMetasprites",
+        "InitObjectLoop"
+      ],
+      "old": 41301,
+      "new": 41302
+    },
+    {
+      "name": [
+        "MegaManProjectileOamReady"
+      ],
+      "old": 41238,
+      "new": 41239
+    },
+    {
+      "name": [
+        "DrawAllMetasprites",
+        "RosterShots"
+      ],
+      "old": 41251,
+      "new": 41252
+    },
+    {
+      "name": [
+        "DrawAllMetasprites",
+        "ClearReservedPlayer"
+      ],
+      "old": 41284,
+      "new": 41285
+    },
+    {
+      "name": [
+        "DrawAllMetasprites",
+        "RotateGuestOAM"
+      ],
+      "old": 40982,
+      "new": 40983
+    }
+  ],
+  "new_RAM_allocations": 0,
+  "NMI_code_changed": false,
+  "MoveAll_foreground_code_cost": 16,
+  "regular_foreign_draw_cost_unproved": true,
+  "Vine_original_source_kept": true,
+  "original_clip_loop_unrolled_without_store_omission": true,
+  "notes": "Unqualified private candidate. Bool owner now encodes aligned whole-image delta|1; literal native turn and contiguity fallback. Normal original rotation restored at body exit. Vine copy translates source group addresses and restores logical cursor/R2/AXYP; full controls pending. No timing or fairness acceptance.",
+  "tool_sha256": "2c3f3239affb970f0ef95b58e7e59944816940751750d92791d7a95c80133486"
+}

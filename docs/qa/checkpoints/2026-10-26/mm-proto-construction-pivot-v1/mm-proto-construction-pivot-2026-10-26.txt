@@ -1,0 +1,80 @@
+Private Mega Man/Proto Man foreground OAM pivot; SOURCE ONLY, not installed.
+Parent: 3b112e1d79ba7348f2f7a4c426f4675845a5781017ab74690feb235121a66287.
+Candidate: 0a7dd88e6732bc189e432a9d55b18dd8f7ecf68a22e3b20f0a13ab7276241c09.
+External: C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/
+mm-proto-construction-pivot-candidate-v9.
+
+The existing DrawAll shuffle phase advances once per completed construction.
+On alternate eligible Mega/Proto constructions the unchanged emitter ring is
+pivoted using the preceding construction's shot count. Stable shot counts can
+put the player body at physical0; changing counts need not. The native turn,
+world-object traversal/shuffle, all projectile actors and every source part
+remain. No NMI code/work, new RAM, shot budget or source-clock change exists.
+This is fairer-construction intent, not guaranteed physical-DMA alternation.
+
+GuestOamRotationActive retains its existing zero/nonzero ownership semantics;
+the aligned image delta is encoded in its upper six bits. All21 old source
+readers immediately test zero/nonzero. The original global rotation, returned
+X, live flags and logical allocation fields are restored, including the real
+full-capacity player-header rejection. Genuine internal labels move as listed
+in candidate proof.json; no fake callable aliases preserve obsolete PCs.
+
+The real native Vine and small-platform producers write partial images before
+a possibly skipped DrawAll. Both now translate their OAM addresses by the
+retained image delta and restore logical cursor/scratch/AXYP/bank contracts.
+The small-platform producer's three literal dump calls are inlined with exact
+store values/order. Native partial capacity is bounded by reservation40 plus
+five24-byte lifts and two24-byte Vine groups:168 bytes, logical end208. Pivot
+admission requires mapped reservation<=88, so this complete window fits through
+physical byte255 without indexed spills. All other cases use native rotation.
+The source bound and actual mixed-call fixture preserve old partial overlaps;
+they do not assert that the parent always produces a pristine partial frame.
+
+MoveAll invalidates the encoded delta while retaining the original boolean.
+It preserves its entry/span and exact64 hidden-Y stores, all other old sprite
+bytes, AXYP/SP and the real clear entry. This costs16 foreground cycles. Menu,
+character initialization and reset retain their existing owner0 initialization.
+No-draw Main keeps the current image's tag. Direct native firebar and brick-
+chunk OAM paths are compiled out for Crossover; cached/metasprite emission is
+inside DrawAll. Hammers, large platforms, powerups, coins, blocks and flags
+write actor records. Wind leaves are disabled by USE_SMB2J_FEATURES0. Current
+fast emitters/flash/flip share the full draw mapping. Foreign-specific kernels
+retain old0/1. MMC3-only page sanitation is outside this expandedMMC5 target.
+
+Changed source is exactly the expanded cfg plus src/level_variants.s,
+src/megaman_weapons.s, src/metasprite_engine.s and src/sprite_render.s.
+1336 changed ROM bytes, only banks0/4/26/66. Bank4 uses verified BF33..BF8A
+slack; bank66 uses verified B9C0..BB4F slack. All other PRG, fixed mirrors,
+source audio, RAM layout and CHR bytes remain exact. Original helper code and
+genuine published entries remain, except documented internal draw-tail labels.
+
+Finite assembled controls, same exact candidate:
+- cpu-v5:45 complete render cases,12 actual Vine callers,6 MoveAll resets.
+- callers-v5:128 physical-flag render cases plus2 active full-capacity returns;
+  60 direct lift calls;8 real no-draw Main/Idle/NMI/next-GameLoop continuations;
+  369 actual IRQ/RTI boundaries, including rejected-body and translated writers.
+- mixed-v1:4 scenarios/8 repeated no-draw partial turns;40 lift calls and8 actual
+  two-group Vine handlers at mapped reservation88 through byte255. Original
+  caller state, exact translated stores, no new body overlap or page overflow.
+- readiness freeze also executes8 foreign Vine callers:38 cycles saved/group.
+- Fresh canonical rebuild exact; ordinary MMC3 d444cac8 and MMC5 f4ffd248 exact.
+Owned normal draw adds22..174 cycles; foreign full draw saves23..0. Owned Vine
+adds36 cycles/group. Direct small-lift wrapper saves156 cycles native/foreign
+and87 translated. MoveAll adds16. These are real source costs, not an FPS gain.
+
+Retained negatives: original untagged pivot newly overwrote body via Vine;
+v3 full-capacity prototype returned wrong X, now corrected; earlier builder
+failures were genuine gap/assembly/API/allowed-bank checks. Reset and lift
+oracle failures compared uninitialized non-Y bytes of already rotated prior
+images as if the entire unused page had a rotation contract. Corrected checks
+retain every real OAM store and all body-overlap/ABI assertions. One supplement
+passed an IRQ ordinal positionally as incoming X; corrected keyword dispatch
+now performs369 genuine interrupts. No game patch was justified by those
+fixture errors. All old failures remain external, with explicit classifications.
+
+Native is still unqualified. Parent3b450 is the actual same-controller reference.
+A single fresh450 may assess early-game cadence and actual pixels; it cannot
+prove full-route, all weapons, every overload phase or publication fairness.
+Body-priority turns can reduce hardware selection for shots/world sprites;
+16-high PPU sprites, including transparent halves, consume the first-eight
+hardware budget. No universal body/shot visibility or native no-harm claim.

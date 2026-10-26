@@ -1,0 +1,22 @@
+{
+  "owned_tools": [
+    "tools/audit/mm_proto_construction_pivot_candidate_v9.py",
+    "tools/audit/mm_proto_construction_pivot_cpu_v5.py",
+    "tools/audit/mm_proto_construction_pivot_callers_v4.py",
+    "tools/audit/mm_proto_construction_pivot_callers_v5.py",
+    "tools/audit/mm_proto_construction_pivot_mixed_v1.py",
+    "tools/audit/mm_proto_construction_pivot_build_controls_v1.py",
+    "tools/audit/mm_proto_construction_pivot_freeze_v1.py",
+    "tools/audit/mm_proto_construction_pivot_native_prepare_v1.py",
+    "tools/audit/mm_proto_construction_pivot_native_review_v1.py",
+    "tools/audit/mm_proto_construction_pivot_pixels_v1.py",
+    "tools/audit/mm_proto_construction_pivot_checkpoint_v1.py"
+  ],
+  "owned_reports": [
+    "docs/qa/mm-proto-construction-pivot-2026-10-26.txt",
+    "docs/qa/mm-proto-construction-pivot-native-2026-10-26.txt"
+  ],
+  "checkpoint": "docs/qa/checkpoints/2026-10-26/mm-proto-construction-pivot-v1",
+  "no_Git_mutation": true,
+  "limitations": "Explicit staging map only. QA depends on hash-bound local frozen sources, original assets, raw native outputs, compiler/emulator and some working prerequisites. This checkpoint is not turnkey fresh-clone full QA. Exact source patch plus old/new file hashes and frozen builder allow reviewable proposed reconstruction; no production adoption."
+}

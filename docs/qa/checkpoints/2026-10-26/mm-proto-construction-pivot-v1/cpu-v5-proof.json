@@ -1,0 +1,27 @@
+{
+  "passed": true,
+  "source_only": true,
+  "native_launches": 0,
+  "parent_ROM_sha256": "3b112e1d79ba7348f2f7a4c426f4675845a5781017ab74690feb235121a66287",
+  "candidate_ROM_sha256": "0a7dd88e6732bc189e432a9d55b18dd8f7ecf68a22e3b20f0a13ab7276241c09",
+  "complete_render_cases": 45,
+  "actual_Vine_caller_cases": 12,
+  "MoveAll_cases": 6,
+  "original_renderer_and_Vine_AXYP_SP_application_RAM_SMC_banks_exact": true,
+  "only_intentional_RAM_field": "GuestOamRotationActive aligned delta|1",
+  "all_source_render_parts_and_partial_Vine_store_values_order_preserved": true,
+  "no_new_Vine_body_overlap": true,
+  "renderer_cycle_range": [
+    -23,
+    174
+  ],
+  "Vine_cycle_range": [
+    36,
+    72
+  ],
+  "MoveAll_foreground_cycles": 16,
+  "NMI_code_and_work_unchanged": true,
+  "cases_sha256": "5d06b9fae77f8ea1d960bef877d2cc668482f4e0b282eb1759c7a30223ec705e",
+  "tool_sha256": "d1b9b809c9882471abf9c000c98cfe038181478e04bda21261bc5f9b4b8a78ae",
+  "limitations": "Finite compiled source fixtures, not native PPU/publication/cadence. Empty/death/flip/edge/full pool/crowded firebar inputs are staged. Foreign tests are selector contexts, not all roster identities naturally initialized. Actual GameCore no-draw continuation and true IRQ still pending; no acceptance or timing recovery claim."
+}

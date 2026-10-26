@@ -1,0 +1,157 @@
+{
+  "passed": true,
+  "reads": [
+    {
+      "file": "src/metasprite_engine.s",
+      "line": 534,
+      "read": "ldx GuestOamRotationActive",
+      "following": "beq :+",
+      "source_sha256": "e5d424f3f1ddc7411faa491789933d74bd0b43ea7714cccfa37e9a9c515caf63"
+    },
+    {
+      "file": "src/metasprite_engine.s",
+      "line": 610,
+      "read": "lda GuestOamRotationActive",
+      "following": "beq LegacyTailClear",
+      "source_sha256": "e5d424f3f1ddc7411faa491789933d74bd0b43ea7714cccfa37e9a9c515caf63"
+    },
+    {
+      "file": "src/metasprite_engine.s",
+      "line": 1135,
+      "read": "lda GuestOamRotationActive",
+      "following": "beq :+",
+      "source_sha256": "e5d424f3f1ddc7411faa491789933d74bd0b43ea7714cccfa37e9a9c515caf63"
+    },
+    {
+      "file": "src/metasprite_engine.s",
+      "line": 1254,
+      "read": "ldy GuestOamRotationActive",
+      "following": "beq :+",
+      "source_sha256": "e5d424f3f1ddc7411faa491789933d74bd0b43ea7714cccfa37e9a9c515caf63"
+    },
+    {
+      "file": "src/native_goomba_draw.s",
+      "line": 56,
+      "read": "lda GuestOamRotationActive",
+      "following": "beq RightPart",
+      "source_sha256": "5bf1375a0c57ff49dfa592723ce3f569b940f1a195b39cd9c38d838673a4a97f"
+    },
+    {
+      "file": "src/parodius_fast_render.s",
+      "line": 15,
+      "read": "lda GuestOamRotationActive",
+      "following": "beq Start",
+      "source_sha256": "d269fa197df20cdce5025b17f194d75ef16b23ece39830fb9b67161dce87e729"
+    },
+    {
+      "file": "src/parodius_fast_render.s",
+      "line": 60,
+      "read": "ldy GuestOamRotationActive",
+      "following": "beq Save",
+      "source_sha256": "d269fa197df20cdce5025b17f194d75ef16b23ece39830fb9b67161dce87e729"
+    },
+    {
+      "file": "src/parodius_fast_render.s",
+      "line": 79,
+      "read": "lda GuestOamRotationActive",
+      "following": "beq Start",
+      "source_sha256": "d269fa197df20cdce5025b17f194d75ef16b23ece39830fb9b67161dce87e729"
+    },
+    {
+      "file": "src/parodius_fast_render.s",
+      "line": 167,
+      "read": "ldy GuestOamRotationActive",
+      "following": "beq Save",
+      "source_sha256": "d269fa197df20cdce5025b17f194d75ef16b23ece39830fb9b67161dce87e729"
+    },
+    {
+      "file": "src/roll_fast_render.s",
+      "line": 61,
+      "read": "lda GuestOamRotationActive",
+      "following": "beq Start",
+      "source_sha256": "17a79859b4752d396a8e08375f5a3f37323477420da75be7ce9d7f7870dd7f3c"
+    },
+    {
+      "file": "src/roll_fast_render.s",
+      "line": 93,
+      "read": "ldy GuestOamRotationActive",
+      "following": "beq Save",
+      "source_sha256": "17a79859b4752d396a8e08375f5a3f37323477420da75be7ce9d7f7870dd7f3c"
+    },
+    {
+      "file": "src/tmnt_fast_render.s",
+      "line": 37,
+      "read": "lda GuestOamRotationActive",
+      "following": "beq Start",
+      "source_sha256": "c5a869267e87a922d90bbef41d160d835abfcc197e28e288d1074fa4074cd6d8"
+    },
+    {
+      "file": "src/tmnt_fast_render.s",
+      "line": 70,
+      "read": "ldy GuestOamRotationActive",
+      "following": "beq Save",
+      "source_sha256": "c5a869267e87a922d90bbef41d160d835abfcc197e28e288d1074fa4074cd6d8"
+    },
+    {
+      "file": "src/tmnt_health_render.s",
+      "line": 42,
+      "read": "lda GuestOamRotationActive",
+      "following": "beq Render",
+      "source_sha256": "74c1e881c0d50767bdac073863e90b8c94fa1910cd8f107243a5c660dd24b016"
+    },
+    {
+      "file": "src/tmnt_health_render.s",
+      "line": 65,
+      "read": "ldy GuestOamRotationActive",
+      "following": "beq Save",
+      "source_sha256": "74c1e881c0d50767bdac073863e90b8c94fa1910cd8f107243a5c660dd24b016"
+    },
+    {
+      "file": "src/tmnt_hud_world.s",
+      "line": 30,
+      "read": "lda GuestOamRotationActive",
+      "following": "beq Start",
+      "source_sha256": "d252273286d1703b8318d3d5a090999a69a512fcbceb2dc04f874e5fd08a47fb"
+    },
+    {
+      "file": "src/tmnt_hud_world.s",
+      "line": 64,
+      "read": "ldy GuestOamRotationActive",
+      "following": "beq Save",
+      "source_sha256": "d252273286d1703b8318d3d5a090999a69a512fcbceb2dc04f874e5fd08a47fb"
+    },
+    {
+      "file": "src/tmnt_primary_records.inc",
+      "line": 1823,
+      "read": "ldy GuestOamRotationActive",
+      "following": "beq TnPrimarySave",
+      "source_sha256": "d1f34b15dafd59882af38a0521418c8d7a1ee1b79f8982393b6cf57f16123449"
+    },
+    {
+      "file": "src/tmnt_primary_render.s",
+      "line": 57,
+      "read": "ldy GuestOamRotationActive",
+      "following": "beq Dispatch",
+      "source_sha256": "5fccd2e761081a6b1d764ab2c7b237b02841d9173529563b19ccff0765bfbe91"
+    },
+    {
+      "file": "src/water_draw_proposal.inc",
+      "line": 38,
+      "read": "ldy GuestOamRotationActive",
+      "following": "beq :+",
+      "source_sha256": "951f52a45a50e620e1c907a58d83e676d06c67b81358d83b1ca42fa37a5367da"
+    },
+    {
+      "file": "src/z2_platform_late_render.s",
+      "line": 19,
+      "read": "lda GuestOamRotationActive",
+      "following": "beq Absent",
+      "source_sha256": "c9c52cd9b282156799f696b1163ec86ba14c35628b72d5b43ebfabf555c579af"
+    }
+  ],
+  "no_new_RAM": true,
+  "lifecycle": "Existing owner0/1 remains boolean to every old reader. Owned image delta is4-aligned in bits2..7. Full Draw begins at1; phase/active/contiguity failures retain1. MoveAll clears only delta while retaining old boolean, +16foregroundcycles. Menu/character init writes0; reset RAM init clears it. No-draw Main retains the mapping; translated Vine/lift writers restore logical cursor and actual source ABI. No NMI work/state added.",
+  "partial_bound": "Native reservation40 + at most five24B lifts + two24B Vine groups =208 logical end. Mapped reservation<=88 admits all168B through last physical byte255. Every Main reobtains reservation40; partial offsets do not accumulate across no-draw Main turns.",
+  "direct_writer_audit": "Native Vine and small-lift writers translated. ENABLE_CROSSOVER removes direct brick chunks/firebar OAM; these emit through DrawAll cached/metasprite paths. Hammers/large platforms/powerups/blocks/coins/enemy/flagpole write actor records. SimulateWind is disabled by USE_SMB2J_FEATURES0. Reset/cold/menu use MoveAll or their existing owner0 initialization. Fast Goomba/water and flash/flip emit within complete DrawAll; foreign-specific kernels see old0/1. MMC3 page sanitation is compiled out; ordinary builds exact. This is source ownership/finite producer evidence, not universal static call reachability.",
+  "NMI_PRG125_127_all_other_banks_and_CHR_exact": true
+}

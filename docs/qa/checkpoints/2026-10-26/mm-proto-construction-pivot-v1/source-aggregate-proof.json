@@ -1,0 +1,69 @@
+{
+  "passed": true,
+  "source_only": true,
+  "native_run": false,
+  "native_grant": false,
+  "parent_ROM_sha256": "3b112e1d79ba7348f2f7a4c426f4675845a5781017ab74690feb235121a66287",
+  "candidate_ROM_sha256": "0a7dd88e6732bc189e432a9d55b18dd8f7ecf68a22e3b20f0a13ab7276241c09",
+  "changed_source": [
+    "smb1base-mmc5-expanded.cfg",
+    "src/level_variants.s",
+    "src/megaman_weapons.s",
+    "src/metasprite_engine.s",
+    "src/sprite_render.s"
+  ],
+  "changed_ROM_bytes": 1336,
+  "changed_banks": [
+    0,
+    4,
+    26,
+    66
+  ],
+  "proofs": {
+    "cpu-v5": {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mm-proto-construction-pivot-candidate-v9\\cpu-v5\\proof.json",
+      "sha256": "e114c7a8a38458655bcb684fdbd4f9818a67d8316ab76c090014d8d03281f52e"
+    },
+    "callers-v5": {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mm-proto-construction-pivot-candidate-v9\\callers-v5\\proof.json",
+      "sha256": "5535a0aef2a8fdd884a0e2a3114462e441ecfeb04115ebf5ffccff13ff4c1957"
+    },
+    "mixed-v1": {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mm-proto-construction-pivot-candidate-v9\\mixed-v1\\proof.json",
+      "sha256": "5cc276237a42ecaad255b6ded35abe36bee4d9f19a61616d82c884adf09c430b"
+    },
+    "build-controls-v1": {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mm-proto-construction-pivot-candidate-v9\\build-controls-v1\\proof.json",
+      "sha256": "21742b5f579d42264afda71e7391d7c3343992c2ffb73ef3910286ab2f27fe37"
+    }
+  },
+  "foreign_Vine_cases": 8,
+  "foreign_Vine_cycles": [
+    -38,
+    -76
+  ],
+  "existing_boolean_readers": 21,
+  "owned_draw_cycles": [
+    22,
+    174
+  ],
+  "foreign_draw_cycles": [
+    -23,
+    0
+  ],
+  "owned_Vine_cycles_per_group": 36,
+  "direct_lift_cycles": {
+    "foreign": -156,
+    "translated": -87
+  },
+  "MoveAll_foreground_cycles": 16,
+  "NMI_added_cycles": 0,
+  "new_RAM_bytes": 0,
+  "canonical_and_both_ordinary_exact": true,
+  "source_manifest_sha256": "e1af98c1cc58a3eeb461ea10cd7a5e23461d05a1958b2ff428543d326be6f91b",
+  "patch_sha256": "360ad3e6465fb085a96287956ef7896a06aef1b9e11ea1a60fccf37426d7bf6b",
+  "bindings_sha256": "c65ba92b8bbe03d016e9b9861737dba26eb9f353dbbde217b3d6e6e2277669f8",
+  "bindings": 1802,
+  "limits": "No native draw/cadence/pixel/publication qualification. Alternating constructions and contiguity fallback cannot guarantee displayed alternation. Stable shot count can put body first; changing shot counts may not. Shots/world retain original relative order but may lose hardware selection on body-priority constructions. +22..174owned Main and+16common MoveAll are real costs; source-only pass is not performance/adoption. B/U model bits and dead top stack are explicitly excluded only where the true IRQ/physical-flags oracle requires; no native DMA mask exists.",
+  "tool_sha256": "9e32a030ceeaa800e009182741d09d4c7bf39e9d401b08f449fc811f9dd030d2"
+}
