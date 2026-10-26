@@ -1,0 +1,58 @@
+Additive correction: Hard641 frame2056 loses most of Fire Luigi's lower body
+
+Exact641460e2646806c03fb98cf84f8a8c2e8de99c74dac8c5876c50f05ef1eb512c.
+Offline diagnosis only, ZERO new native launches or source/priority changes.
+Original two-mode item PASS and42-placement checkpoint remain byte-identical.
+The earlier broad no-obvious-body-corruption wording is corrected: this real
+displayed frame has substantial lower-body dropout. It is not blanket clean.
+
+Actual frame2056: power2,Player_State0/grounded,Y176,VY0,RgShootPose2. This is
+not an in-air pose. Committed CHR row2056 has four actual player parts, expected
+and actual physical window0 both132,0bad. Existing source/CHR/body generation
+does include the lower parts; no absent source arm/leg/tile is demonstrated.
+
+Precise old observer provenance
+-------------------------------
+Old audit.lua updates its internal frame number in harness endFrame. Its4014
+callback serializes the requested source OAM during the FOLLOWING physical
+frame, labeled with the PREVIOUS endFrame counter. Thus row2054 is the DMA for
+physical2055. Render2055 records1DMA; render2056 records0DMA/lagNmi1. Display2056
+retains the most recent row2054 rotation. Using oam.csv row2056 to explain this
+particular picture would select the next transfer and give the wrong ordering.
+This old run did not retain a complete post-transfer256hardware snapshot; that
+limit is explicit. Fresh full-route capture uses real E008complete256 instead.
+
+Retained row2054's exact player source parts (8x16 sprites):
+slot0:  Y177,tile38,attribute00,X114  (upper left)
+slot61: Y193,tile3C,attribute80,X122  (lower half)
+slot62: Y193,tile3C,attributeC0,X114  (lower half)
+slot63: Y177,tile3A,attribute40,X122  (upper right)
+
+Both lower parts overlap scanlines194..209. Under the actual enabled hardware
+eight-sprite limit, earlier Goomba/Koopa/shot parts take all first eight slots
+on194..208, so neither61 nor62 is selected on those15 lines. Examples:
+194/195 first8:1,2,3,4,7,8,59,60; lower61/62 follow.
+200 first8:1,2,3,4,7,8,57,58;59/60 and lower61/62 follow.
+202 first8:1,2,3,4,5,6,57,58;59/60 and lower61/62 follow.
+208 first8:1,2,3,4,5,6,57,58;lower61/62 follow.
+Terminal209 admits lower61/62 after5,6,57,58 and is explicitly NOT described
+as excluded or transparent. Full per-line lists are in component-evidence.json.
+
+Actual2056 image ROI X114..129/Y194..207 contains145sky,64hill-green and15black
+pixels, with ZERO Fire-palette white/red/orange pixels. Its upper ROI still
+contains the hat/face/throwing-arm colors. This agrees with missing lower15rows
+from the source-first-eight model; lag retains the unfortunate priority rotation.
+This is real hardware-contention visibility, not proof of CHR corruption or a
+wrong authored air pose. Source metasprite_engine.s explicitly draws weapons
+first and rotates the OAM ring; transparent sprite area still consumes a line
+slot. No priority tweak is made here; ROOT/A own the separate fairness work.
+
+Two failed offline assertions are retained. First overclaimed194..209 exclusion;
+second incorrectly assumed209's raw tile row transparent (actual bytes63/63
+reject that assumption). Final evidence only asserts proved194..208 exclusion,
+the observed194..207 color ROI and separate terminal209 admission. Neither
+failure is hidden, a game failure, or a native retry.
+
+Evidence: external luigi-profile641-Hard2056-contention-v3. Whole original2056
+and nearest-neighbor local enlargement reviewed. No every-frame or complete old
+hardware-DMA reconstruction claim. New native count0; production unchanged.

@@ -1,0 +1,80 @@
+Luigi641 Easy full1-1 discovery: actual FALSE; replay UNRUN; candidate HELD
+
+Exact private641460e2646806c03fb98cf84f8a8c2e8de99c74dac8c5876c50f05ef1eb512c.
+Exactly ONE of the maximum two granted launches ran. Stop-first-failure worked;
+the independent replay was never launched. Zero retry; worker released and
+process inventory empty. Production731/default/settings/Git remain untouched.
+
+First actual failure
+--------------------
+Frame1396: GameEngineSubroutine11/death atworldX1959/Y176. The original guard
+stops on entry to the death sequence, before lives decrement; result.deaths0 is
+the actual life-decrement counter, not a zero-death route pass. Lives remain2.
+Previous frame1395 wasX1956/Y175,Player_State1,positive nativeVY5,runVX40 and
+power0. New death bounce writesVY252/Xspeed0/state1. No ordinary stomp entry
+or return was observed; neither level1-2 nor the requested stomp gate was met.
+
+The same unchanged historical Mario adaptive policy reachedX1959. It remained
+small/power0 for the ENTIRE active route: no physical mushroom/flower claim.
+The source controller explicitly gives up its initial-upgrade phase onceX>420,
+even without pickup. The selected actual frame620 shows the first row still
+containing its question block while Luigi is already beyond it. This is a real
+controller pickup-coverage gap; the separate641 two-mode genuine item PASS
+remains valid and is not relabeled as this failed route.
+
+Actual saved trajectory (native video frames, not synthetic CPU steps):
+frame1200 X1521/Y130,1250 X1636/Y75,1300 X1744/Y36,1332 X1824/high0:Y214,
+1360 X1891/Y45,1384 X1936/Y135,1392 X1949/Y160,1395 X1956/Y175,
+1396 X1959/Y176 then engine11. Native pictures show Luigi descending from the
+high authored block row toward ground with a live Goomba ahead; this is not a
+pit/scroll displacement. Inputs from1334 to terminal are unchanged Right+B65,
+no A. The policy only requests a new obstacle/enemy jump when already grounded.
+Its previous long high jump finishes immediately in the approaching enemy's
+contact region, leaving no fresh grounded-input reaction between landing and
+the host enemy pass. This is consistent with controller exposure.
+
+Source call order supports that interpretation: actual PlayerCtrl executes in
+the normal player subroutine before the enemy-object loop; its landing clears
+vertical speed, and native enemy collision treats zero vertical speed through
+the ordinary side-contact injury branch unless other stomp criteria apply.
+However this observer did NOT capture the actor RAM or PlayerCtrl-return speed
+immediately before the injury write. Thus exact first contact slot/ID and the
+landing->speed0->injury chain are not claimed directly observed, and a candidate
+collision bug is not conclusively excluded by the route alone. No speculative
+ROM change, assertion relaxation, retuning or retry follows this failure.
+
+Smallest concrete next review direction, NOT a prepared/authorized retry:
+make the controller account for the enemy's landing horizon before the final
+descent (brake/countersteer early enough to land left of contact, then fresh
+grounded jump), using genuine live c.enemy() owner positions. The old reactive
+grounded-only rule cannot rescue a landing already inside contact. First bind
+that live owner/intermediate caller state if more attribution is required.
+
+Unrelated component evidence retained within overall FALSE
+---------------------------------------------------------
+Actual mode0/identity8/variant1.1396 complete256x240 PPU buffers retained.
+1300 actual E008 completed full256-byte DMA epochs,332800 data-write checks;
+1395 startFrame snapshots,zero pending starts;969 scoped safe render enables.
+All raw source/hardware bytes, destination ordinals, render-mask and genuine
+E005-versus-E008 assertions pass.1388 NMI and1330 IRQ entry/return checks pass
+AXY/SP/five live SMC/bank shadows; physical mapping is recorded separately.
+CHR975rows/0bad/947body constructions.1002 completed-loop motion checks maximum
+world/camera3; its overall boolean is FALSE because native endpoint failed.
+No source-audio waveform, original-art or every-frame visual qualification.
+
+Descriptive active-route cadence371..1396:1026 physical frames; counter deltas
+1003 update entries/1002 publications/947 draws; longest consecutive unchanged
+draw counter2frames, update counter1frame. NmiSkipped10->88. This is NOT matched
+work versus old731 and not proof of reduced lag or a free movement correction.
+Owned CPU source pairs already measure+411..1368cycles versus old native Luigi.
+
+Sixteen selected complete raw PPU frames reviewed on two sheets, including final
+descent/death. Full raw/index integrity and source/hardware results are separate
+from original pose/art/fairness. Hard2056 in the earlier item route has a real
+sprite-contention body dropout: see the separate additive correction report.
+
+Frozen failure: external luigi-profile641-route-ready-v4/failure-freeze-v3.
+Tool tools/audit/luigi_profile641_route_failure_v1.py. Earlier two offline model
+errors are retained: overbroad terminal209 exclusion, then an unsupported claim
+that its tile row was transparent. Correct source-first-eight proof covers
+194..208 and treats209 separately. Neither caused a native rerun/game change.
