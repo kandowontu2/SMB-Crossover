@@ -1,0 +1,128 @@
+Parodius HUD death/restart cancellation repair - private source readiness
+
+Production remains50b5. Private parent5354161f339548f2e12b955f5fc1481b9956fe83a63263a04f4b2816edbbdf30
+has separately qualified menu behavior but real death515/restart813 HUD glyph
+corruption. Its native negative remains false. No new native run/grant,
+worker reservation, game-source installation or adoption follows here.
+
+D = C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py.
+Candidate D/parodius-hud-cancel-candidate-v1/candidate.nes
+SHAf35f0ec2f70d5dcb6eb1bbfcbd84359d9f6da68c39719d75217aed149edb0631.
+Only293 ROM bytes differ from5354:29 in bank77 and264 in bank116. All72281
+old symbol addresses and all CHR bytes are exact. Changed source is limited
+to src/parodius_hud_queue.s, src/vic_adapter.s (new zero-byte death-return
+label only) and smb1base-mmc5-expanded.cfg. sourcepatch.patch and exact build
+receipt are beside the private ROM; no ROOT production files were edited.
+
+Actual defect and source repair
+
+Frozen native evidence:
+D/parodius-hud-death-restart-negative-final-v1/proof.json
+3dbf40e6f697cd299ceb037d2ed6b44f62608a68ebba921e53cc8612bc1df90b.
+At death514:46:30, PnHudCancelLife clears InvHudActive3->0 while the custom
+label tiles remain committed. NMI515 selects nativefont0; actual515 begins
+the visibly wrong glyph row. At restart811 a full42B label packet is queued
+before VvEnsure recognizes the new life. Cancellation clears Upper85->01
+without removing that owned packet. NMI813 flushes custom indices while the
+HUD lease is inactive. All original failures, raw captures and5354 menu
+success remain independent immutable receipts.
+
+The new rare foreground helper retains a committed variant-specific label/font
+lease through the genuine VvDeathStart caller. It does not promote a pending
+full packet to a committed lease. Reset/new-life cancellation first removes
+only an exactly identified owned42B full-label or11B attribute segment, keeping
+all native prefix/tail bytes and the terminator in order, then invalidates the
+pending owner. Removing an owned command re-dirties the HUD for a fresh publish.
+The existing capture-ready gate and post-flush commit protocol remain intact.
+
+The14-byte cancellation span retains its original public entry and following
+PnHudNewLife PC. A15-byte gateway fits the verified A77 tail and maps C116 with
+the existing shadow-before-hardware ordering. The helper returns through an
+A77 restore stub. It uses stack/registers, no new RAM and no farcall SMC. All
+three real call sites supply A0. A new zero-byte VvDeathHudCancelled label
+binds the actual death return word beneath savedY/X/P/oldC; reset/new-life
+callers take ordinary cancellation. This is explicit source caller ownership,
+not a guessed death flag or injected state. Actual NMI interference tests
+include both adjacent shadow-to5116 transitions and retain the existing
+documented pending-transition convention.
+
+Finite source and CPU evidence
+
+All folders below have separate proof.json and case bindings. These are
+heterogeneous isolated CPU/mock controls, not counts of native gameplay runs.
+
+- D/parodius-hud-cancel-cpu-v2:1194 cases. Full public caller AXYP/SP/banks,
+  nonstack application RAM/OAM fallback, owned queue removal, complete death
+  callers and actual UI->VvMovement(new-life)->VvDraw->capture NMI->fresh commit.
+- D/parodius-hud-cancel-interrupt-cpu-v2:892 actual compiled lag-NMI/IRQ
+  injections at every executed new gate/helper/restore instruction boundary
+  on five caller paths.20 pending C-shadow transitions, minSP222. Same AXYP,
+  stack, fiveSMC, bank shadows/physical continuation and exact live HUD queues.
+  Native audio/timer writes are ordinary interrupt effects, not claimed absent.
+  Lag NMI does not interleave a VRAM command; IRQ retains its real2006 scroll
+  writes and never writes2007 tile data. NmiDisable255 is the actual private
+  foreground owner condition being modeled, not a new game write.
+- D/parodius-hud-cancel-gateway-cpu-v1:2304 full SamusFreezeUpdateScreen
+  controls from5354 toF35. Full AXYP/SP/application RAM/ordered PPU writes and
+  reads/mapper banks AND CYCLES are exact with no pending HUD command. OperMode
+  is title/game flow, not Easy/Hard. No new global NMI/hot-frame cost is added.
+- D/parodius-hud-cancel-lifecycle-cpu-v1:72 full VvReset/VvEnsure/PnHudNewLife
+  caller comparisons and12 actual area-producer/Buffer2 NMI/catch-up cases.
+  Genuine29B columns emit their original26 PPUDATA values; ordinary pending
+  holds remain exact, cancellation preserves Buffer2, and a fresh later full
+  HUD commit selects the right physical font. This is a source-level state
+  combination, not proof of natural pipe/Buffer2 overlap.
+- D/parodius-hud-cancel-extent-cpu-v1:1579 syntactically valid encoded extents
+  through the existing83-byte maximum. Only the owned command is removed;
+  every native prefix/tail/terminator is preserved. These shapes are not all
+  claimed naturally reachable or vblank-safe.
+- D/parodius-hud-cancel-observer-cpu-v1:26 complete compiled death draws,
+  all131 original live-record controls and13 rejection controls re-bound to
+  F35.73 memory callbacks register before emulation; the full exec dispatcher
+  remains last and149 inactive mock frames register no runtime callbacks.
+- D/parodius-hud-cancel-lease-cpu-v1:31 source/mock checks for the added actual
+  displayed label/font pair guard, including real5354 frames514/515/812/813.
+  Wrong native glyph pairs are rejected. A retained correct hardware pair
+  remains honest even if later foreground RAM is already a different owner.
+  All original five observer layers remain literal unchanged text.
+
+CPU-v1's clone fixture accidentally read modeled2007 after all32 palette reads;
+its failure/tool snapshot is preserved. V2 clones backing RAM directly. The
+interrupt-v1 fixture incorrectly forbade native IRQ2006 scroll writes; its
+failure/tool snapshot also remains. V2 preserves those real writes while
+still forbidding VRAM data interleaving. Neither correction changed ROM bytes.
+
+Build and timing limits
+
+Fresh ordinary flag-off MMC3 and MMC5 parent/candidate builds are byte-exact:
+MMC3d444cac88e13fa02b29ad16100b8f08fa565ba90f8cedde192de43fb2dc8f3eb;
+MMC5f4ffd2483c51daa4d60bb575da2da8c4d817692cda407611c243031f67520833.
+Four build outputs/receipts are external D/parodius-hud-cancel-builds-v1.
+
+Rare nonpending cancellation adds91 foreground CPU cycles. Across all encoded
+extent controls PnHudNewLife totals219..1805 cycles; the observed empty-tail
+full42B cancellation takes234 cycles. These are rare lifecycle costs, not a
+lag improvement claim. Intended death-font preservation changes the existing
+NMI CHR publication branch: measured clean death -9 cycles, pending-attribute
+death +117 against the old incorrect inactive lease; actual native budget and
+same-controller draw cadence remain unqualified. No global60Hz/DMC guarantee.
+
+Prepared native scope, still unrun
+
+D/parodius-hud-cancel-preparation-v1/death/baseline-early/run.lua
+SHA222bfffc9456139ecab5992aa6ab6430932f5e5ac7f640386b35155c5386395f.
+One numericEasy0/Octopus1/death2200 fixture reuses the exact failed controller.
+All131 live and13 death records, hook bytes, hardware8sprite/NMI/IRQ/stack/
+bank/SMC/DMA/scroll/prelease/RGB/generation/terminal-phase guards are retained.
+One additional read-only startFrame check pairs actual nametable labels with
+the hardware font throughout gameplay, including death. It logs foreground
+lease and source generations but never substitutes those for displayed PPU.
+The runner requires all original five components AND the new HUD-pair result.
+No state/resources/queue/RNG/audio/outcome injection or runtime callback
+registration is added. No area profile is prepared by this packet.
+
+The previous area controller discovered a pipe too late; its separate250
+contact/60 movement CPU diagnosis remains valid, but a corrected natural
+controller and real transition/Buffer2 overlap remain pending. Dense tinyHUD
+readability, crowded body visibility and full original-fidelity/every-item
+completion remain open. No art is changed by this candidate.

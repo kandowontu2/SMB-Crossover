@@ -1,0 +1,187 @@
+--- a/src/parodius_hud_queue.s
++++ b/src/parodius_hud_queue.s
+@@ -38,14 +38,15 @@
+  rts
+ .endproc
+ .proc PnHudCancelLife
+- ; Original callers have A=0. Keep A/XY/C/V and original store's NZ.
+- sta InvHudActive
+- lda X5HudChrUpper
+- and #3
+- sta X5HudChrUpper
++ jmp PnHudCancelGateway
++::PnHudCancelRestore:
++ sta CurrentBankC
++ sta MMC5_PRG_BANK_C
+  lda #0
+  rts
+-.endproc
++ .byte $ea,$ea
++.endproc
++.assert *-PnHudCancelLife=14,error,"Keep every old entry PC"
+ .proc PnHudNewLife
+  lda #0
+  jsr PnHudCancelLife
+@@ -506,3 +507,134 @@
+  jmp Native
+ .endproc
+ .popseg
++
++; Rare foreground lifecycle work. The A77 stub owns a real C-window bracket;
++; no new RAM or farcall SMC is used. All three real callers supply A=0.
++.pushseg
++.segment "PN_HUD_LIFE_GATE"
++.proc PnHudCancelGateway
++ lda CurrentBankC
++ pha
++ lda #.bank(PnHudCancelWork) | MMC5_PRG_ROM
++ sta CurrentBankC
++ sta MMC5_PRG_BANK_C
++ jmp PnHudCancelWork
++.endproc
++.assert *-PnHudCancelGateway=15,error,"Verified A77 tail only"
++.popseg
++.pushseg
++.segment "PN_HUD_LIFE"
++.proc PnHudCancelWork
++ php
++ txa
++ pha
++ tya
++ pha
++ ; Real return word below Y/X/P/oldC identifies the explicit death caller.
++ ; Reset and new-life cancellation must not preserve a former label lease.
++ tsx
++ lda $0105,x
++ cmp #<(VvDeathHudCancelled-1)
++ jne Cancel
++ lda $0106,x
++ cmp #>(VvDeathHudCancelled-1)
++ jne Cancel
++ lda VvVariant
++ cmp #1
++ jcc Cancel
++ cmp #4
++ jcs Cancel
++ asl
++ ora #1
++ cmp InvHudActive
++ jne Cancel
++ lda VvVariant
++ clc
++ adc #.lobyte(395)
++ cmp InvHudPhysical
++ jne Cancel
++ lda X5HudChrUpper
++ and #3
++ cmp #1
++ jeq Restore ; committed labels keep their exact font through native death
++Cancel:
++ lda X5HudChrUpper
++ jpl Invalidate
++ lda InvHudActive
++ beq Full
++ ; Pending attribute ownership encodes its original offset0..31 in Upper.
++ lda X5HudChrUpper
++ and #$7c
++ lsr
++ lsr
++ tay
++ tax
++ lda VRAM_Buffer1,x
++ cmp #$23
++ jne Invalidate
++ lda VRAM_Buffer1+1,x
++ cmp #$c0
++ jne Invalidate
++ lda VRAM_Buffer1+2,x
++ cmp #8
++ jne Invalidate
++ txa
++ clc
++ adc #11
++ tax
++ jmp Extent
++Full:
++ lda InvHudPhysical
++ jne Invalidate
++ lda VRAM_Buffer1
++ cmp #$20
++ jne Invalidate
++ lda VRAM_Buffer1+1
++ cmp #$22
++ jne Invalidate
++ lda VRAM_Buffer1+2
++ cmp #28
++ jne Invalidate
++ lda VRAM_Buffer1+31
++ cmp #$23
++ jne Invalidate
++ lda VRAM_Buffer1+32
++ cmp #$c0
++ jne Invalidate
++ lda VRAM_Buffer1+33
++ cmp #8
++ jne Invalidate
++ ldy #0
++ ldx #42
++Extent:
++ cpx VRAM_Buffer1_Offset
++ bcc Copy
++ bne Invalidate
++Copy:
++ lda VRAM_Buffer1,x
++ sta VRAM_Buffer1,y
++ cpx VRAM_Buffer1_Offset
++ beq Copied
++ inx
++ iny
++ bne Copy
++Copied:
++ sty VRAM_Buffer1_Offset
++ lda #1
++ sta VvHudDirty
++Invalidate:
++ lda #0
++ sta InvHudActive
++ lda X5HudChrUpper
++ and #3
++ sta X5HudChrUpper
++Restore:
++ pla
++ tay
++ pla
++ tax
++ plp
++ pla ; original C bank; restore code is safely in the unchanged A window
++ jmp PnHudCancelRestore
++.endproc
++.popseg
+--- a/src/vic_adapter.s
++++ b/src/vic_adapter.s
+@@ -704,6 +704,7 @@
+  sta VvDeathAge
+ .if ::ENABLE_MMC5_EXPANDED && ::MAPPER_MMC5
+  jsr PnHudCancelLife
++::VvDeathHudCancelled:
+ .else
+  sta InvHudActive
+ .endif
+--- a/smb1base-mmc5-expanded.cfg
++++ b/smb1base-mmc5-expanded.cfg
+@@ -217,6 +217,7 @@
+     VIC_GFX:load=X5_NEW_4C,type=ro;
+     VIC_WORLD:load=X5_NEW_4D,type=ro;
+     PN_HUD_GATE:load=X5_NEW_4D,type=ro;
++    PN_HUD_LIFE_GATE:load=X5_NEW_4D,type=ro;
+     VIC_CHR:load=VIC_CHR_MEM,type=ro;
+     Z2_UI_CHR:load=VIC_CHR_MEM,type=ro,start=$62c00;
+     PN_HUD_CHR:load=VIC_CHR_MEM,type=ro,start=$63000; # Pages396..398; before Chip412.
+@@ -226,6 +227,7 @@
+     NMI_VRAM_FAST:load=X5_NEW_74,type=ro;
+     PN_HUD_QUEUE:load=X5_NEW_74,type=ro;
+     NMI_VRAM_SCROLL:load=X5_NEW_74,type=ro;
++    PN_HUD_LIFE:load=X5_NEW_74,type=ro;
+     PARODIUS_BELLS:load=X5_NEW_76,type=ro;
+     ROLL_CORE:load=X5_NEW_77,type=ro;
+     ROLL_WORLD:load=X5_NEW_78,type=ro;

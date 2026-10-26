@@ -1,0 +1,26 @@
+{
+  "passed": true,
+  "native_run": false,
+  "ROM_sha256": "f35f0ec2f70d5dcb6eb1bbfcbd84359d9f6da68c39719d75217aed149edb0631",
+  "baseline_ROM_sha256": "5354161f339548f2e12b955f5fc1481b9956fe83a63263a04f4b2816edbbdf30",
+  "cases": 84,
+  "whole_caller_controls": 72,
+  "actual_Buffer2_controls": 12,
+  "ordinary_flag_off_builds": {
+    "mmc3": {
+      "parent_sha256": "d444cac88e13fa02b29ad16100b8f08fa565ba90f8cedde192de43fb2dc8f3eb",
+      "candidate_sha256": "d444cac88e13fa02b29ad16100b8f08fa565ba90f8cedde192de43fb2dc8f3eb",
+      "bytes": 786448,
+      "flag_off_ROM_exact": true
+    },
+    "mmc5": {
+      "parent_sha256": "f4ffd2483c51daa4d60bb575da2da8c4d817692cda407611c243031f67520833",
+      "candidate_sha256": "f4ffd2483c51daa4d60bb575da2da8c4d817692cda407611c243031f67520833",
+      "bytes": 786448,
+      "flag_off_ROM_exact": true
+    }
+  },
+  "tool_sha256": "e0e64366e3d18d0fa7ddd432435eab70f5f1f6fcf93fdc010018ee173d309db6",
+  "cases_sha256": "84c8f1237ad08c0e0f8c7995e93b346c44b6c4596db8c7f4a83c5d202007c469",
+  "limits": "Actual compiled reset/new-life caller continuations, real area packet producer and two modeled regular NMI prefixes through OAM CPU/InitBuffer. Isolated state combinations, no controller-reachable Buffer2 overlap/hardware DMA/raster/native difficulty or adoption claim. Full IRQ/NMI interference is a separate receipt."
+}

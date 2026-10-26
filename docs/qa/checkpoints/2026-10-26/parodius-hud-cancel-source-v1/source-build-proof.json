@@ -1,0 +1,38 @@
+{
+  "prepared": true,
+  "native_run": false,
+  "adopted": false,
+  "CPU_passed": false,
+  "parent_ROM_sha256": "5354161f339548f2e12b955f5fc1481b9956fe83a63263a04f4b2816edbbdf30",
+  "candidate_ROM_sha256": "f35f0ec2f70d5dcb6eb1bbfcbd84359d9f6da68c39719d75217aed149edb0631",
+  "all_parent_symbols_exact": 72281,
+  "CHR_exact": true,
+  "delta_bytes": 293,
+  "delta_banks": {
+    "77": 29,
+    "116": 264
+  },
+  "changed_source": {
+    "src/parodius_hud_queue.s": "c34e52c8ae107c1900c08e4864143bfd35cebbad67bd494851b6312be5e64d84",
+    "src/vic_adapter.s": "1e80ef2fa578a7e7f332a7de5c50c218f7e28115e60887d79054c2c1dd9fc0ea",
+    "smb1base-mmc5-expanded.cfg": "24e42a14fc35f57f1229795c433c48e40ad55cada20764d2f98ecbce4f25d43a"
+  },
+  "ranges": [
+    [
+      638952,
+      638966
+    ],
+    [
+      638973,
+      638988
+    ],
+    [
+      953999,
+      954263
+    ]
+  ],
+  "new_death_return_label": 42491,
+  "tool_sha256": "1d93c06828865018300f9e13a7435b274ea249308fbfe95bfc3440264b5a05fb",
+  "patch_sha256": "7baf39c0238b0131daf7de00825dcef28b2940d7c150a97d530b8755c8f269f4",
+  "limits": "PRIVATE source build only. Foreground A=0 actual-three-caller contract, exact fullcallers/queue removal/PPU/Buffer2/real NMI+IRQ interference/budget and all build flags require qualification. Original5354 negatives and qualified menu remain historical; no native/adoption grant."
+}
