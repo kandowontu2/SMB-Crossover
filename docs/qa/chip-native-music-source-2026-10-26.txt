@@ -1,0 +1,58 @@
+Chip / Dale original music engine: bounded source analysis
+2026-10-26. No game patch, native worker, installed build or adoption.
+
+The current roster still routes Chip and Dale to borrowed music. This study
+starts their own original-game driver work; it does not add another character.
+
+Authenticated source:
+reference/new-roster-audio/chip/Chip 'n Dale Rescue Rangers [Chip to Dale no Daisakusen] (1990-06-08)(Capcom).nsf
+SHA256 6a8b3729742654a5cc59bf2a1be904086fdbbf53d51c3a1b40bf16c387298b3f
+NSF payload12,208 bytes, nonbanked, load8000/initAF99/play8000, NTSC16666us.
+The existing playlist selects11 unique source tracks:2,4,5,8,10..16.
+Its area/event assignment is a cross-game adaptation, not an original SMB map.
+
+External immutable source packet:
+C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/root-chip-native-music-source-v1
+proof.json SHA256
+0cc8f49f614fe5116338249153ef748481b2f22e4db6bf3f282bacfe6e5d8ae9
+Producer: tools/audit/root_chip_native_music_probe_v1.py
+
+All11 tracks completed original init plus18,000 play calls each:198,011 calls,
+904,219 ordered source APU stores. Every call returned with balanced SP. No
+observed source ROM write, PPU/controller/status read or DMC start occurred.
+This is a CPU source study, not native sound output or performance evidence.
+Silent tails of finite tracks were retained; no fabricated loop was introduced.
+
+The observed instruction footprint is952 instruction starts/1,906 code bytes;
+6,023 distinct data bytes were read. The union is7,929 source bytes. That count
+does NOT include writer wrappers, relocated addressing growth or the game
+adapter and is NOT a proof that the engine fits one8KiB bank. The full source
+payload also retains paths that this selected music-only execution did not take.
+
+Observed original state includes C0..D8 and0700..077F, with per-song subsets.
+It must be relocated/borrowed explicitly; those addresses belong to live SMB
+state in the port. The existing2KiB decoder history is a possible exclusive
+native-audio image, requiring owner/reset/interrupt proof before use.
+
+For active background tracks2/4/5/8/10/13/14, original mean play costs range
+2,303..3,180 CPU cycles. The worst observed play is9,468. These do not include
+the port adapter, writer routing, interrupts, DMC, rendering or real frame
+alignment. Existing source performance needs optimization and matched native
+testing; original-engine execution alone does not prove reduced lag.
+
+The simple pointer-origin logger retains8,866 unresolved indirect observations.
+Most arise after pointer arithmetic or reused scratch fields. Its191 recorded
+origin tuples are diagnostic leads, not a qualified relocation table. Never
+patch those tuples blindly or silently discard unresolved accesses. A linked
+driver must match original RAM/state and every ordered source store across
+the selected songs, with explicit pointer/caller/IRQ/NMI ownership controls.
+
+Next implementation work: use source-declared PRG storage, exact writer ABI,
+and an owner-gated native adapter for both alternates. Preserve all source
+music requests/frames; retain the shared world/player effects. Track source
+completion separately from background-role whole-tune restart and finite
+event stopping. Do not substitute a captured prefix, shorten tracks or change
+the tick rate to make storage or timing appear to pass.
+
+The installed/default/Downloads MMC5 is still50b51c3c. This report supplies no
+new physical item, route, visual, sound waveform or full-roster certificate.
