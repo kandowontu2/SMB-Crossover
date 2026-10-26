@@ -1,0 +1,77 @@
+{
+  "built": true,
+  "source_composition_exact": true,
+  "native_run": false,
+  "adopted": false,
+  "qualified": false,
+  "parent_ROM_sha256": "3b112e1d79ba7348f2f7a4c426f4675845a5781017ab74690feb235121a66287",
+  "ROM_sha256": "9c0c6c431c50d336e153537a9fbe33b0664994be0a450ea69c6029a09d5f7640",
+  "components": [
+    {
+      "component": "renderer",
+      "packet": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mm-proto-construction-pivot-candidate-v9",
+      "ROM_sha256": "0a7dd88e6732bc189e432a9d55b18dd8f7ecf68a22e3b20f0a13ab7276241c09",
+      "source_manifest_sha256": "e1af98c1cc58a3eeb461ea10cd7a5e23461d05a1958b2ff428543d326be6f91b",
+      "changed_source": [
+        "smb1base-mmc5-expanded.cfg",
+        "src/level_variants.s",
+        "src/megaman_weapons.s",
+        "src/metasprite_engine.s",
+        "src/sprite_render.s"
+      ],
+      "changed_ROM_bytes": 1336
+    },
+    {
+      "component": "mixer",
+      "packet": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\common-audio-mixer-current3b-v3",
+      "ROM_sha256": "f4efd9ccb222501877dfc77c5189841aa9dc500756736f15aaf02a6994ae8c0f",
+      "source_manifest_sha256": "b3a3678f1c7586afa739a74c47487ab97c0e65d7b346fe3e008de3330bdf50b6",
+      "changed_source": [
+        "src/guest_audio.s",
+        "src/mmc5_sfx.s"
+      ],
+      "changed_ROM_bytes": 186
+    },
+    {
+      "component": "palette",
+      "packet": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\robot-cold-palette-candidate-v2",
+      "ROM_sha256": "0ba628a76f02d4610c2608acd63cdd2a877e6e9a9eb667496a3efa1c655c1927",
+      "source_manifest_sha256": "3e159733f2cb970f03b04b2d6e388752a01bfcbe0e8689ca2e61a80e709d408c",
+      "changed_source": [
+        "smb1base-mmc5-expanded.cfg",
+        "src/entrypoint.s",
+        "src/robot_cold_palette_cache.s",
+        "src/x5_palette.s"
+      ],
+      "changed_ROM_bytes": 74
+    }
+  ],
+  "changed_source": [
+    "smb1base-mmc5-expanded.cfg",
+    "src/entrypoint.s",
+    "src/guest_audio.s",
+    "src/level_variants.s",
+    "src/megaman_weapons.s",
+    "src/metasprite_engine.s",
+    "src/mmc5_sfx.s",
+    "src/robot_cold_palette_cache.s",
+    "src/sprite_render.s",
+    "src/x5_palette.s"
+  ],
+  "complete_source_files": 870,
+  "changed_ROM_bytes": 1596,
+  "changed_banks": [
+    0,
+    4,
+    26,
+    29,
+    66,
+    78
+  ],
+  "header_CHR_and_other_banks_exact": true,
+  "new_RAM_bytes": 0,
+  "source_manifest_sha256": "e2023f120f400041f282ea4cd37ca8edd38bc5faecedc2ba6dfe557acb544f95",
+  "source_patch_sha256": "d36b687691129b304cac972e7cf6ca2721f62a87f20b14ea709950c20d2717b8",
+  "tool_sha256": "997e8ce8fce17a012ef6ca65b3d6b11c6bf3548585d99a8a218803406124704d",
+  "limits": "Private composition only. Component source/native results retain their original ROM scope. Palette component still has a strict PPU378 native deadline failure; no combined native recovery, all-roster, all-abilities, waveform, or installation claim."
+}

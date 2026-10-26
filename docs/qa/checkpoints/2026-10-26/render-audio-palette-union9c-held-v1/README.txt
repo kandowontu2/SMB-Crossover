@@ -1,0 +1,4 @@
+Private source composition 9c0c6c431c50d336e153537a9fbe33b0664994be0a450ea69c6029a09d5f7640. HELD, not installed or native-qualified.
+Fresh linked ROM is the exact nonoverlapping byte union of renderer0a7dd, mixerf4efd and coldpalette0ba628 over installed3b112:1596bytes,10sourcefiles, banks0/4/26/29/66/78; header/CHR/otherbanks unchanged. Full870-input source manifest and reviewable10file patch retained. No newRAM.
+Component proofs retain their original hashes and scopes. Mixer450 passes; renderer has long-route observations and residual eight-sprite contention. Coldpalette fixes original376 startup but strict378 enable still fails; its later diagnosis and successor remain separate. This composition does not waive that failure. No native launch/adoption/all-roster/all-abilities/waveform claim. Production3b and ordinary mapper builds remain untouched.
+Raw ROM/debug/captures and complete source snapshots remain in the external archive.

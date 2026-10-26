@@ -1,0 +1,593 @@
+--- 3b/smb1base-mmc5-expanded.cfg
++++ private/smb1base-mmc5-expanded.cfg
+@@ -263,6 +263,7 @@
+     DARKWING_GFX: load=X5_NEW_44, type=ro, optional=yes;
+     DARKWING_CHR: load=DARKWING_CHR_MEM, type=ro, optional=yes;
+     X5_PROFILES: load=X5_NEW_4E,type=ro;
++    ROBOT_COLD_PALETTE_CACHE: load=X5_NEW_4E,type=ro,start=$ab60,optional=yes;
+     PROTO_MM3_AUDIO: load=X5_NEW_40,type=ro,align=$100;
+     PROTO_GFX: load=X5_NEW_41,type=ro;
+     PROTO_COLD: load=X5_NEW_42,type=ro;
+@@ -274,6 +275,7 @@
+     INVENTORY_ITEM_RETURN: load=X5_NEW_42,type=ro,optional=yes;
+     PN_MENU_HINT: load=X5_NEW_42,type=ro,optional=yes;
+     MM_BASIC_REMAINDER: load=X5_NEW_42_TAIL,type=ro,start=$b9a8;
++    MM_CONSTRUCTION_VINE: load=X5_NEW_42_TAIL,type=ro,start=$b9c0;
+     MENU_VRAM_BUDGET: load=X5_NEW_42_TAIL,type=ro,start=$bb50,optional=yes;
+ 
+     X5_PUBLISH: load=X5_NEW_3E, type=ro;
+@@ -351,6 +353,7 @@
+     WORLD_SPRITE_PALETTE: load=PRGA_03, type=ro, optional=yes, start=$bfc9;
+     PN_HUD_TEXT:load=PRGA_03,type=ro;
+     METASPRITE: load = PRGA_04, type = ro;
++    MM_CONSTRUCTION_ACTIVE: load=PRGA_04,type=ro,start=$bf33;
+     DARKWING_DRAW_GUARD: load=PRGA_04, type=ro, start=$BF8B, optional=yes; # Reclaimed unused guard plus legacy NOPs.
+     Z2_DRAW_GATE: load=PRGA_04,type=ro,start=$bfb9;
+     X5_DRAW_GATE: load=PRGA_04,type=ro,start=$bfcc;
+--- 3b/src/entrypoint.s
++++ private/src/entrypoint.s
+@@ -501,3 +501,7 @@
+ .if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
+ .include "luigi_source_profile.s"
+ .endif
++
++.if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
++.include "robot_cold_palette_cache.s"
++.endif
+--- 3b/src/guest_audio.s
++++ private/src/guest_audio.s
+@@ -100,8 +100,13 @@
+ .include "build/generated/guest-audio/shared-sfx.inc"
+ .proc GuestAudioBegin
+   lda SelectedCharacter
++ .if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
++  cmp #CHARACTER_PIT
++  bcs :+
++ .else
+   cmp #CHARACTER_BASS
+   beq :+
++ .endif
+     jsr BassAudioBegin
+   :
+   lda SelectedCharacter
+--- 3b/src/level_variants.s
++++ private/src/level_variants.s
+@@ -457,10 +457,28 @@
+     AllocSpr 6
+        lda #PLATFORM_GIRDER        ;load tile number for small platforms
+        iny                         ;increment offset for tile numbers
++.if ::ENABLE_MMC5_EXPANDED
++       sta Sprite_Data+20,y
++       sta Sprite_Data+16,y
++       sta Sprite_Data+12,y
++       sta Sprite_Data+8,y
++       sta Sprite_Data+4,y
++       sta Sprite_Data+0,y
++.else
+        farcall DumpSixSpr              ;dump tile number into all six sprites
++.endif
+        iny                         ;increment offset for attributes
+        lda #$02                    ;load palette controls
++.if ::ENABLE_MMC5_EXPANDED
++       sta Sprite_Data+20,y
++       sta Sprite_Data+16,y
++       sta Sprite_Data+12,y
++       sta Sprite_Data+8,y
++       sta Sprite_Data+4,y
++       sta Sprite_Data+0,y
++.else
+        farcall DumpSixSpr              ;dump attributes into all six sprites
++.endif
+        dey                         ;decrement for original offset
+        dey
+        lda Enemy_Rel_XPos          ;get relative horizontal coordinate
+@@ -480,7 +498,14 @@
+        cpx #$20                    ;if vertical coordinate below status bar,
+        bcs TopSP                   ;do not mess with it
+        lda #$f8                    ;otherwise move first three sprites offscreen
+-TopSP: farcall DumpThreeSpr            ;dump vertical coordinate into Y coordinates
++TopSP:
++.if ::ENABLE_MMC5_EXPANDED
++       sta Sprite_Data+8,y
++       sta Sprite_Data+4,y
++       sta Sprite_Data+0,y
++.else
++farcall DumpThreeSpr            ;dump vertical coordinate into Y coordinates
++.endif
+        pla                         ;pull from stack
+        farcall CrossoverLiftSecondY
+        tax
+@@ -512,6 +537,9 @@
+        sta Sprite_Y_Position+20,y
+ ExSPl: ldx ObjectOffset            ;get enemy object offset and leave
+        rts
++.if ::ENABLE_MMC5_EXPANDED
++       .res 9,$ea                  ; Retain the genuine leaf end.
++.endif
+ 
+ .endproc
+ .assert *<=$a800,error,"Authored level code must preserve helper cold space atA800"
+--- 3b/src/megaman_weapons.s
++++ private/src/megaman_weapons.s
+@@ -2117,7 +2117,53 @@
+   rts
+ LegacyReservation:
+   jmp PlayerOAMReservation
+-  .res 110,$ea
++::MmConstructionPivotBegin:
++  lda #1
++  sta GuestOamRotationActive
++  farcall KbOamPriority
++  lda SpriteShuffleOffset
++  lsr
++  bcs PivotNative
++  jsr MmConstructionPivotActive
++  bcc PivotNative
++  lda RgOamFirst
++  sec
++  sbc RgOamPlayerStart         ; Delta from native rotation to previous body pivot.
++  beq PivotNative
++  tax
++  clc
++  adc #40                    ; Native partial writers start40; maximum is five lifts +two Vine groups.
++  cmp #89
++  bcs PivotNative            ; Keep the maximum168-byte native partial span contiguous.
++  txa
++  ora #1
++  sta GuestOamRotationActive ; Existing boolean owner: aligned delta in bits2..7.
++  lda RgOamPlayerStart
++  eor #$ff
++  clc
++  adc #1
++  sta RgOamRotation
++PivotNative:
++  jmp MmConstructionPivotClear
++::MmConstructionPivotExit:
++  lda CurrentOAMOffset
++  cmp RgOamPlayerStart
++  bne PivotBodyEmitted
++  jmp MmConstructionPivotRejected
++PivotBodyEmitted:
++  lda RgOamRotation
++  sec
++  sbc GuestOamRotationActive
++  clc
++  adc #1
++  sta RgOamRotation          ; Original rotation restored, encoded image tag stays.
++  lda CurrentOAMOffset
++  clc
++  adc RgOamRotation
++  tax                       ; A already equals exact original physical return X.
++  sec
++  sbc RgOamRotation          ; Exact original last SBC V, including128/0.
++  jmp MmConstructionPivotRosterTail
+   .assert *-MegaManDrawShots=139,error,"Shot wrapper original span"
+  .else
+   lda SelectedCharacter
+@@ -2433,3 +2479,193 @@
+ .endproc
+ .assert .bank(GrowthRadiusLo) = .bank(RgBILLWeaponsRightLo), lderror, "Bill mapped C000 scalar/art ABI"
+ .popseg
++
++.if ::ENABLE_MMC5_EXPANDED
++.pushseg
++.segment "MM_CONSTRUCTION_ACTIVE"
++.proc MmConstructionPivotActive
++  lda OperMode
++  eor #1
++  ora MmDeathFlag
++  bne No
++  lda OperMode_Task
++  cmp #3
++  bne No
++  lda GameEngineSubroutine
++  cmp #8
++  bne No
++  lda ObjectMetasprite
++  beq No
++  lda ObjectVerticalFlip
++  bmi No
++  sec
++  rts
++No:
++  clc
++  rts
++.endproc
++.proc MmConstructionPivotRejected
++  php                        ; Preserve original header rejection V and X.
++  lda RgOamRotation
++  sec
++  sbc GuestOamRotationActive
++  clc
++  adc #1
++  sta RgOamRotation
++  plp
++  jmp MmConstructionPivotRosterTail
++.endproc
++.proc MmConstructionPivotClearTag
++  ldy #0
++  sty CurrentOAMOffset
++  lda GuestOamRotationActive
++  and #1
++  sta GuestOamRotationActive
++  lda #$f8
++  jmp OAMClear
++.endproc
++.segment "MM_CONSTRUCTION_VINE"
++.proc MmConstructionVine
++  lda GuestOamRotationActive
++  and #$fc
++  beq Native
++  lda CurrentOAMOffset
++  clc
++  adc GuestOamRotationActive
++  sec
++  sbc #1
++  sta CurrentOAMOffset
++  jsr Body
++  php
++  pha
++  lda CurrentOAMOffset
++  sec
++  sbc GuestOamRotationActive
++  clc
++  adc #1
++  sta CurrentOAMOffset
++  lda R2
++  sec
++  sbc GuestOamRotationActive
++  clc
++  adc #1
++  sta R2
++  pla
++  plp
++  rts
++Native:
++  jmp Body
++Body:
++  sty R0                     ;save offset here
++  lda Enemy_Rel_YPos         ;get relative vertical coordinate
++  clc
++  adc VineYPosAdder,y        ;add value using offset in Y to get value
++  ReserveSpr 6
++  sty R2                    ;store sprite data offset here
++  ; jsr SixSpriteStacker       ;stack six sprites on top of each other vertically
++  ; inlined 
++  
++.repeat 6, I
++  sta Sprite_Data + (I*4),y ;store X or Y coordinate into OAM data
++.if I <> 5
++  clc
++  adc #$08           ;add eight pixels
++.endif
++.endrepeat
++
++  lda Enemy_Rel_XPos         ;get relative horizontal coordinate
++  sta Sprite_X_Position,y    ;store in first, third and fifth sprites
++  sta Sprite_X_Position+8,y
++  sta Sprite_X_Position+16,y
++  clc
++  adc #$06                   ;add six pixels to second, fourth and sixth sprites
++  sta Sprite_X_Position+4,y  ;to give characteristic staggered vine shape to
++  sta Sprite_X_Position+12,y ;our vertical stack of sprites
++  sta Sprite_X_Position+20,y
++  lda #%00100001             ;set bg priority and palette attribute bits
++  sta Sprite_Attributes,y    ;set in first, third and fifth sprites
++  sta Sprite_Attributes+8,y
++  sta Sprite_Attributes+16,y
++  ora #%01000000             ;additionally, set horizontal flip bit
++  sta Sprite_Attributes+4,y  ;for second, fourth and sixth sprites
++  sta Sprite_Attributes+12,y
++  sta Sprite_Attributes+20,y
++  ldx #$05                   ;set tiles for six sprites
++VineTL:
++  lda #VINE_TILE_2           ;set tile number for sprite
++  sta Sprite_Tilenumber,y
++  iny                        ;move offset to next sprite data
++  iny
++  iny
++  iny
++  dex                        ;move onto next sprite
++  bpl VineTL                 ;loop until all sprites are done
++UpdateOAMPosition
++  ldy R2                     ;get original offset
++  lda R0                     ;get offset to vine adding data
++  bne :+                ;if offset not zero, skip this part
++    lda #VINE_TILE_1
++    sta Sprite_Tilenumber,y    ;set other tile number for top of vine
++  :
++.repeat 6,I
++  lda Vine_Start_Y_Position
++  sec
++  sbc Sprite_Y_Position,y
++  cmp #$64
++  bcc :+
++    lda #$f8
++    sta Sprite_Y_Position,y
++  :
++  .if I<>5
++    iny
++    iny
++    iny
++    iny
++  .endif
++.endrepeat
++  ldx #6
++  sec                        ; Exact final CPX6 C; LDY R0 restores native NZ.
++  ldy R0                     ;return offset set earlier
++  rts
++
++VineYPosAdder:
++  .byte $00, $30
++
++.endproc
++.proc MmConstructionSmallLift
++  lda GuestOamRotationActive
++  and #$fc
++  beq Native
++  lda CurrentOAMOffset
++  clc
++  adc GuestOamRotationActive
++  sec
++  sbc #1
++  sta CurrentOAMOffset
++  farcall CrossoverDrawSmallPlatform
++  php
++  pha
++  tya
++  pha
++  lda CurrentOAMOffset
++  sec
++  sbc GuestOamRotationActive
++  clc
++  adc #1
++  sta CurrentOAMOffset
++  pla
++  sec
++  sbc GuestOamRotationActive
++  clc
++  adc #1
++  tay
++  pla
++  plp
++  rts
++Native:
++  farcall CrossoverDrawSmallPlatform
++  rts
++.endproc
++.assert *-MmConstructionVine<=$190,error,"Vine/lift copies exceed genuine66 gap"
++.popseg
++.endif
+--- 3b/src/metasprite_engine.s
++++ private/src/metasprite_engine.s
+@@ -316,6 +316,18 @@
+   jsr HpGraphicsBankCopy
+ .endif
+  .if ::ENABLE_CROSSOVER
++.if ::ENABLE_MMC5_EXPANDED
++  lda SelectedCharacter
++  cmp #CHARACTER_BILL
++  bcs RotateGuestOAM
++  lsr
++  bcc MmPivotNonMega
++  jmp MmConstructionPivotBegin
++MmPivotNonMega:
++  lsr
++  sta GuestOamRotationActive
++  jmp ClearReservedPlayer
++.else
+   lda SelectedCharacter
+   cmp #CHARACTER_MEGAMAN
+   beq RotateGuestOAM
+@@ -324,6 +336,7 @@
+   lda #0
+   sta GuestOamRotationActive
+   jmp ClearReservedPlayer
++.endif
+ RotateGuestOAM:
+   lda #1
+   sta GuestOamRotationActive
+@@ -358,6 +371,9 @@
+   adc #1
+   sta RgOamRotation
+ .endif
++.if ::ENABLE_MMC5_EXPANDED
++::MmConstructionPivotClear:
++.endif
+   ; Give weapons the first OAM slots. Transparent portions of layered bodies
+   ; still consume the PPU's eight sprites per line and must not hide shots.
+   lda #$f8
+@@ -419,8 +435,14 @@
+   dex
+   dex
+   sta Sprite_Y_Position,x
++.if !::ENABLE_MMC5_EXPANDED
+   cpx #0
++.endif
+   bne ClearPlayerOAM
++.if ::ENABLE_MMC5_EXPANDED
++  sec                         ; DEX already owns final NZ, original CPX0 owns C.
++  nop                         ; Preserve the following genuine resident PCs.
++.endif
+ 
+ InitObjectLoop:
+   lda #24 - 1 ; size of the different object update list
+@@ -609,7 +631,12 @@
+  .if ::ENABLE_CROSSOVER
+     lda GuestOamRotationActive
+     beq LegacyTailClear
++.if ::ENABLE_MMC5_EXPANDED
++    lsr                         ; Original1 ->0; encoded delta|1 remains nonzero.
++    bne MmConstructionPivotExitBranch
++.endif
+       ; The full ring was hidden at entry; no linear tail clear is needed.
++::MmConstructionPivotRosterTail:
+       pla
+       sta RgOamUsed
+       lda RgOamFirst
+@@ -655,10 +682,20 @@
+ ::WorldFirebarAdmission:
+  farcall Z2LateWorldAdmission
+  jmp WorldFirebarAdmissionDone
++.if ::ENABLE_MMC5_EXPANDED
++::MmConstructionPivotExitBranch:
++ jmp MmConstructionPivotExit
++ .res 10,$ea
++.else
+  .res 17,$ea
++.endif
+ ::WorldFirebarAdmissionDone:
+  rts
++.if ::ENABLE_MMC5_EXPANDED
++ .assert *-WorldFirebarDrawAdmission=35,lderror,"Pivot resident span"
++.else
+  .assert *-WorldFirebarDrawAdmission=39,lderror,"Late world admission span"
++.endif
+ .else
+ ::WorldFirebarAdmission:
+   ; No matching ID can produce a firebar. Keep the existing live-owner checks.
+@@ -774,8 +811,13 @@
+ .endif
+ 
+ MoveAllSpritesOffscreen:
++.if ::ENABLE_MMC5_EXPANDED
++  jmp MmConstructionPivotClearTag
++  .res 2,$ea
++.else
+   ldy #0
+   sty CurrentOAMOffset
++.endif
+   lda #$f8
+ OAMClear:
+ .repeat 64, I
+--- 3b/src/mmc5_sfx.s
++++ private/src/mmc5_sfx.s
+@@ -59,10 +59,24 @@
+  .repeat 8, I
+  .scope
+  .if I <> 1 && I <> 5             ; $5001/$5005 are unimplemented.
++ .if ::ENABLE_MMC5_EXPANDED
++ .if I = 0
++  lda #1
++  and GuestMixMask
++  beq ::X5ExpansionOutputChannel2
++ .elseif I = 4
++::X5ExpansionOutputChannel2:
++  lda #2
++  and GuestMixMask
++  beq ::X5ExpansionOutputDone
++ .endif
++  lda GuestExpansionApu+I
++ .else
+   lda #(1 << (I / 4))
+   and GuestMixMask
+   beq Next
+   lda GuestExpansionApu+I
++ .endif
+   cmp GuestExpansionLast+I
+   bne Write
+   lda #(1 << (I / 4))
+@@ -78,11 +92,18 @@
+  .endif
+  .endscope
+  .endrepeat
++ .if ::ENABLE_MMC5_EXPANDED
++::X5ExpansionOutputDone:
++ .endif
+   ; Match the old exhausted loop's A/X/Y and all flags, including carry.
+   ldx #8
+   ldy #1
+   cpx #8
+   rts
++  ; Unreachable capacity retains every following real function entry.
++ .if ::ENABLE_MMC5_EXPANDED
++  .res 371-(*-::GuestExpansionFlush),$ea
++ .endif
+ .endproc
+ 
+ .proc GuestExpansionSweepClock
+--- 3b/src/robot_cold_palette_cache.s
++++ private/src/robot_cold_palette_cache.s
+@@ -0,0 +1,45 @@
++; Tail is called only after the original legacy producer appended6+6+7 bytes.
++; No new RAM or NMI work. Retain the genuine resident RTS/caller registers.
++.pushseg
++.segment "ROBOT_COLD_PALETTE_CACHE"
++.proc RobotColdPaletteCommit
++  sta VRAM_Buffer1_Offset
++  php
++  pha
++  phx
++  lda GameEngineSubroutine
++  bne Done
++  lda SelectedCharacter
++  cmp #CHARACTER_MEGAMAN
++  beq Robot
++  cmp #CHARACTER_BASS
++  bne Done
++  lda RlVariant
++  bne Done
++Robot:
++  lda SelectedCharacter
++  tax
++  lda InvSelected,x
++  bne Done
++  lda GuestPowerupActive
++  ora StarInvincibleTimer
++  ora MmChargeFrames
++  ora MmCharging
++  bne Done
++  lda VRAM_Buffer1_Offset
++  cmp #19
++  bcc Done
++  cmp #84
++  bcs Done
++  ; Final19..83 implies initial0..64 and all19 command bytes plus terminator
++  ; fit the declared84-byte native buffer without arithmetic wrapping.
++  lda #1
++  sta SsLastPalette
++Done:
++  plx
++  pla
++  plp
++  rts
++.endproc
++.assert *-RobotColdPaletteCommit<=$a0,error,"Cold palette tail remains before AC00"
++.popseg
+--- 3b/src/sprite_render.s
++++ private/src/sprite_render.s
+@@ -9,7 +9,11 @@
+ ; DrawVine is a bank0 cold leaf; preserve its156-byte footprint and public PC.
+ RyuPlatformColdStart:
+ .proc DrawVine
++.if ::ENABLE_MMC5_EXPANDED
++  farcall MmConstructionVine
++.else
+   farcall RyuPlatformOriginalDrawVine
++.endif
+   ldy R0                     ; exact original final N/Z from Y (farcall reloads A).
+   rts
+ .endproc
+@@ -947,7 +951,11 @@
+ 
+ DrawSmallPlatform:
+ .if ::ENABLE_CROSSOVER
++.if ::ENABLE_MMC5_EXPANDED
++  farcall MmConstructionSmallLift
++.else
+   farcall CrossoverDrawSmallPlatform
++.endif
+   rts
+ TopSP=DrawSmallPlatform+61
+ BotSP=DrawSmallPlatform+75
+--- 3b/src/x5_palette.s
++++ private/src/x5_palette.s
+@@ -224,7 +224,7 @@
+   clc                      ;in case we want to write anything else later
+   adc #$07
+ SetVRAMOffset:
+-  sta VRAM_Buffer1_Offset  ;store as new vram buffer offset
++  jsr RobotColdPaletteCommit ; Performs the original store and qualified cold cache.
+   rts
+ 
+ BGColorCtrl_Addr:
