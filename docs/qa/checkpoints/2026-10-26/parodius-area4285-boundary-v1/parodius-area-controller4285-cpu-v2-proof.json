@@ -1,0 +1,33 @@
+{
+  "passed": true,
+  "native_run": false,
+  "ROM_sha256": "4285d35db234ecdaf7c561f721c0aa8798545f9937e933acf5ab3e3f0b642682",
+  "compiled_contact_cases": 250,
+  "actual_native_motion_pipe_cases": 54,
+  "compiled_motion_updates": 8916,
+  "controller_state_cases": 4,
+  "exact_entry_playerX": [
+    917,
+    922
+  ],
+  "exact_entry_playerY": [
+    136,
+    151
+  ],
+  "all_original_lifecycle_hook_and_terminal_guard_bodies_exact": true,
+  "no_area_loader_Buffer2_or_native_replay_claim": true,
+  "tool_sha256": "3579b3607931382f496f11601ba2352ba500a099502f7e7c8c29ab47daee9538",
+  "bindings": {
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-parodius-combined-f35-v1\\candidate.nes": "4285d35db234ecdaf7c561f721c0aa8798545f9937e933acf5ab3e3f0b642682",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-parodius-combined-f35-v1\\candidate.dbg": "58a6ab7ca0bae0f0685465f13d4941bf4514d6e481e00076453d52380a75267a",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\parodius_visibility_area_controller_v3.lua": "28be94062df93969a1f035570d724bec1a65663980090a8bf236530466312a64",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\parodius_visibility_hud_transition_v1.lua": "5e2ab42fde6c7e896dc0ec701bfd7669b670a8a540750a1c4a2ec059b435143e",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\parodius_visibility_hud_transition_v3.lua": "43dd427b72cfbe20acd04aba346cffefb04ea48adcd8e2f34d9e3187efa752f6"
+  },
+  "files": {
+    "contact-cases.json": "6b2de806eb58c8df2d83c7714101ef78fb0e31d370bb2df2ce31865c5a232a31",
+    "controller-state-cases.json": "bf9ddf6d09cb3d9dc7d65a372c70c193639643451c3672755f63b599fa3034bc",
+    "motion-cases.json": "d6210f7630eb431b095ac9d7f296a8c06fdce897e00707be5c635573c9705140"
+  },
+  "limits": "Source-only actual CPU with explicitly isolated empty world/two native pipe cells and legal source actor setup. Controller emits only ordinary buttons. Production motion/contact owners reach real engine3/ChangeAreaTimer48; this is not natural area reachability, physical PPU/NMI/DMA timing, area loader or pendingBuffer2catch-up qualification. A separately granted native run must still fail if those coverage assertions are not met."
+}
