@@ -1,0 +1,128 @@
+Bass controlled inventory gallery -- finite source readiness,2026-10-26
+
+SOURCE ONLY; no Mesen launch, native outcome, acquisition or production change.
+Exact ROM731c918b0f448564587d90fca2979afc9fc0e5eb9b26616f4241801e2e73e16c.
+Frozen source/debug: external D/mm-proto-clean-menu-candidates-v1/clean-menu-irq.
+D=C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py.
+
+Readiness: D/current731-bass-gallery-ready-v4/proof.json
+SHA a9aba5537077c32890504effd5507ad3d8a719d929db88270cf4d69f57a8e028.
+Manifest96305a15b7bd442a2fd055a082fb157d623826059560d1c9809d0d154e78bca4,
+930 bindings. Final/source-only freeze D/current731-bass-gallery-freeze-v1.
+
+Exactly2profiles: BassEasy actual numeric0 and BassHard actual numeric1.
+Each has16plans: BUSTER0,ARM1,METAL2,KNUCKLE3,PHARAOH4,KICK5,FLAME6,WATER7,
+each facing1/right and2/left. Passive BALANCE8 is a separate remaining item;
+it is NOT silently treated as a ninth shot or counted in these32plans.
+No other identity/mode/weapon family is prepared by this unit.
+
+Expected native subphases in every plan:
+1. Cold menu selection verifies SelectedCharacter9,RlVariant0,requested mode.
+   Live Select pulses must produce at least one real InventorySelectionCommit
+   before reaching the requested weapon, even if it was selected initially.
+   No raw InvSelected or mode writes. The whole actual cycle and native cleanup
+   remain required. Actual name tiles2023..2029/icon2037..38/2057..58 and icon
+   lease are checked after20native updates; full PPU/case images retained.
+2. Funded native controller use, source-specific effect, actual damage consumer
+   contact and natural pool cleanup. Exact seeded stock is exhausted by use.
+3. A new attempt at actual exhausted stock must refuse its paid effect. ARM
+   must leave its liftable block intact. Default BUSTER remains free.
+4. A separate explicitly controlled10-record pool checks the source allocation
+   and charging policy, followed by actual Select-owned native cleanup.
+
+Weapon-specific expectations, derived from actual compiled current source:
+BUSTER: primary type4/damage proxy31; powered source limit4; no special cost.
+ARM: real map51 block at the native front probe, free lift/hold, second B
+throw spends8; type9/proxy42. A held slot is not counted as a fired attack.
+METAL: cost4,type10/proxy43; source limit3, directional spawn/actual contact.
+KNUCKLE: cost8,type11/proxy44; source10-update startup before damage, limit1.
+PHARAOH: initial B spends4, visible small shot plus real held balloon; hold
+through63updates/release spends/clamps8 and emits big type14/proxy47. Seed12
+is exhausted by these actions. Balloon alone is not fake projectile credit.
+KICK: actual Down+A starts native Bass dash; spends4 and SsKick1 owns protected
+body contact/proxy52. Type19 is a graphic and does not itself attack.
+FLAME: cost4,type15 seed must actually ignite native terrain into type16;
+floor-flame contact proxy49 and45-update natural lifetime. No seed-shot-only
+credit for the flame effect. Rotated flame cases are outside this first plan.
+WATER: cost16,8 native balls with source hide/reveal/orbit; second B after
+reveal expands without another cost; type17/proxy50. Expansion cleanup and
+subsequent exhausted refusal remain required.
+Full-pool nuances are intentional current-source expectations: WATER spends16
+before finding free slots; KICK spends4 for its body attack even if no graphic
+slot fits; ARM checks slot availability before free lifting. Other ordinary
+specials/default refuse additional records without spending. No invented refund.
+
+B-only setup is explicit, not a physical-acquisition claim:
+At guarded real GameLoop entry after cold selection, PlayerStatus1 and owned
+mask255/Hi0 are seeded (default plus7specials, BALANCE absent). Arena reset
+initializes logical/visible floor, player position/motion/fractions/facing,
+protection and prior empty pools/SpecialRam. Funded stock equals one source
+cost (PHARAOH12); full-pool subphase112. Empty/refusal stock is NOT refilled;
+the preceding use really exhausted it. The full pool consists of10complete
+METAL records in safe air, with source direction/velocity; it is a controlled
+allocator stress state, not10naturally emitted simultaneous METAL shots.
+One complete native Goomba actor is placed at a native boundary relative to an
+actual eligible live effect; native gravity/contact/health/defeat remain real.
+KICK uses a native body-contact target. No defender result is written. This is
+controlled contact, not a natural encounter. No raw selection/damage/outcome
+writes. Explicit setup may reset inactive ability state between components;
+natural funded cleanup and Select cleanup are separately asserted first.
+
+Graphics/presentation observation:
+Fresh compiled hooks bind all16 genuine source owners plus actual finishes.
+SpecialDrawShots pointers/physical C bank and complete compiled record bytes
+are checked against115art entries/bothfacings/native brick+chunk. The default
+buster pointer is checked at the genuine ExpandedWeaponPointer return; WATER
+requires real emitter OAM admission. These are source draw-owner checks, not
+an assertion that hardware sprite-limit pixels are all visible. Actual whole
+PPU, case captures and full256physical OAM epochs are retained for subsequent
+independent HUD/icon/effect image review. No images have yet been observed.
+
+Unchanged guard bodies are extracted byte-for-byte from the qualified
+final_item_matrix_progressive.lua: NMI physical/shadow A/C, stack/register,
+5SMC restoration, lower stack guard, real IRQ31 stores, write-time MMC5 CHR
+latch model and publication-to-endFrame OAM equality. The new B mechanics
+replace old physical progression logic; no claim that the mechanics themselves
+are equivalent to the old A-only fixture. Tier seeding is deliberately allowed
+only in this B gallery. Current731 eight-byte AD7A078D0120A201 window is bound;
+E008 after LDA/before STA2001 is completion, obsolete E005 is explicitly NOT.
+Every DMA retains source/hardware256/all2004writes/stamps before assertions,
+actual destination ordinal, rendering-off, start/completion OAMADDR, bank/PC/SP,
+startFrame pending/completed IDs and mask-enable safe timing. Full PPU capture
+is before original endFrame stop. Static return dispatcher is last; all25memory
+callbacks are installed at startup, no runtime add/removeMemoryCallback.
+
+Source/CPU/mock results (not native):180 actual assembled complete routine cases:
+28funded,28underfunded,28fullpool,16chargedrelease,32selection+cleanup,
+16default-buster-pool and32typed damage-consumer controls. The damage controls
+test accepted native consumers with explicit1000HP, NOT spatial reachability.
+8qualified static-return negative/nested/order models and13strict DMA/timing
+models pass. Both complete generated scripts load under pinned Lua5.4 with
+6inactive mock frames total and runtime callback registration forbidden.
+No changed game code or new native IRQ claim; ROM731 already qualified, and
+the runtime IRQ/NMI guards are retained for any later granted execution.
+
+Preparation history is retained externally: v1 stopped on a CPU-test caller
+error (ReleaseBalloon entered with X0 instead of required active slot9), before
+any native work. Corrected fixture X9 produces actual big-release behavior.
+v2/v3 are superseded development source preparations; their generated files
+remain, but live tool dependencies evolved before finalv4. Do not use their
+old manifests as current readiness or retag them as native results. Original
+054d mature-item Bass/legacy receipts remain immutable historical evidence.
+
+Runtime copies are isolated; worker settings627cd9c7..., user context8a439e0a...
+are freshly bound without writes. Hardware8sprites/adaptiveoff, runahead0,
+noextraPPUlines,100%speed; actual AllZeros/nonrandom/no-save overrides retained.
+Existing OAM-row-corruption/sprite-eval accuracy flags remainFalse and are
+disclosed; this is not a physical-console fidelity claim. All artifacts external.
+
+Prepared one-shot commands -- REQUIRE a later explicit ROOT native grant:
+python -B tools/audit/final_inventory_bass731_run_v1.py --ready "C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/current731-bass-gallery-ready-v4" --profile bass-easy --native-grant
+python -B tools/audit/final_inventory_bass731_run_v1.py --ready "C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/current731-bass-gallery-ready-v4" --profile bass-hard --native-grant
+Each permits one launch only, no auto-next/retry; firstFALSE retained.22,000PPU
+frame bound/1,800second host timeout. No native grant inferred from this file.
+
+Remaining: actual2profile outcomes/images/audio still untested; natural Bass
+pickup/reveal/rise/transform is NOT covered by seeding. BALANCE/refills/star/1up,
+other directional aims/forms/targets/immunities, full source pixels/waveforms,
+every-item cell and campaign/flicker/performance completion remain open.

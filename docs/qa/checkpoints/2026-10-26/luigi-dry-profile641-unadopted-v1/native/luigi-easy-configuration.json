@@ -1,0 +1,224 @@
+{
+  "roster": {
+    "name": "luigi",
+    "slot": 0,
+    "character": 8,
+    "variant": 1,
+    "variantSymbol": "MarioVariant",
+    "menuName": "LUIGI",
+    "mapper": "mmc5",
+    "behavior": "easy",
+    "limit": 6500,
+    "out": "C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/luigi-profile641-native-ready-v2/luigi-easy/",
+    "record": false,
+    "allowDeaths": false,
+    "segmented": false,
+    "capture": 8,
+    "policy": "C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/luigi-profile641-native-ready-v2/luigi-easy/policy.lua",
+    "audit": "C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/luigi-profile641-native-ready-v2/luigi-easy/audit.lua",
+    "replay": null,
+    "prefix": null
+  },
+  "item": {
+    "character": 8,
+    "variant": 1,
+    "mode": 0,
+    "ROM_sha256": "641460e2646806c03fb98cf84f8a8c2e8de99c74dac8c5876c50f05ef1eb512c",
+    "blocks": [
+      336,
+      1248
+    ],
+    "hooks": {
+      "PwrUpJmp": {
+        "address": 36689,
+        "bank": 126,
+        "bytes": [
+          141,
+          106,
+          1
+        ]
+      },
+      "MarioSourcePowerupCollision": {
+        "address": 44913,
+        "bank": 3,
+        "bytes": [
+          32,
+          47,
+          141
+        ]
+      },
+      "GuestPowerupUpdate": {
+        "address": 45721,
+        "bank": 10,
+        "bytes": [
+          173,
+          253,
+          107
+        ]
+      },
+      "RgAllocationStore": {
+        "address": 42516,
+        "bank": 37,
+        "bytes": [
+          157,
+          107,
+          108
+        ]
+      },
+      "RgFireRequestStore": {
+        "address": 42983,
+        "bank": 37,
+        "bytes": [
+          141,
+          5,
+          1
+        ]
+      },
+      "ExpandedEnemyHit": {
+        "address": 44586,
+        "bank": 37,
+        "bytes": [
+          173,
+          31,
+          96
+        ]
+      }
+    },
+    "ram": {
+      "Enemy_Flag": 16,
+      "Player_PageLoc": 92,
+      "Enemy_Y_Position": 190,
+      "SelectedCharacter": 24578,
+      "PowerUpType": 52,
+      "GuestLegacyHurt": 32738,
+      "GuestPowerupAge": 27646,
+      "OperMode_Task": 1907,
+      "Enemy_X_Position": 118,
+      "Square2SoundQueue": 260,
+      "CrossoverBehaviorVersion": 32737,
+      "GuestPowerupActive": 27645,
+      "Fireball_Y_Position": 196,
+      "MarioVariant": 29450,
+      "Enemy_PageLoc": 93,
+      "Enemy_Y_HighPos": 165,
+      "Square1SoundQueue": 261,
+      "Fireball_X_Position": 124,
+      "Player_X_Position": 117,
+      "Fireball_State": 37,
+      "GuestPowerupTarget": 27648,
+      "GameEngineSubroutine": 15,
+      "Enemy_ID": 23,
+      "Fireball_PageLoc": 99,
+      "PlayerFacingDir": 1342,
+      "PlayerSize": 1881,
+      "OperMode": 1905,
+      "PlayerStatus": 1883,
+      "Enemy_State": 31,
+      "ObjectOffset": 13,
+      "Player_Y_Position": 189,
+      "RgShotType": 27755,
+      "RgSlot": 27744,
+      "MmSlot": 26775,
+      "MmBulletType": 24607
+    },
+    "sfx": {
+      "reveal": 2,
+      "pickup": 32,
+      "fire": 32
+    },
+    "growthOwner": "GuestPowerupUpdate",
+    "palettePoseMetadata": {
+      "palettes": [
+        {
+          "power": 0,
+          "actual_source_palette": [
+            26,
+            39,
+            23
+          ]
+        },
+        {
+          "power": 1,
+          "actual_source_palette": [
+            26,
+            39,
+            23
+          ]
+        },
+        {
+          "power": 2,
+          "actual_source_palette": [
+            48,
+            39,
+            22
+          ]
+        }
+      ],
+      "poses": [
+        {
+          "power": 0,
+          "name": "STAND",
+          "pose": 0,
+          "actual_record": 49233,
+          "actual_legacy_chr": 221
+        },
+        {
+          "power": 0,
+          "name": "JUMP",
+          "pose": 4,
+          "actual_record": 49305,
+          "actual_legacy_chr": 221
+        },
+        {
+          "power": 0,
+          "name": "CROUCH",
+          "pose": 5,
+          "actual_record": 49233,
+          "actual_legacy_chr": 221
+        },
+        {
+          "power": 1,
+          "name": "STAND",
+          "pose": 0,
+          "actual_record": 49421,
+          "actual_legacy_chr": 221
+        },
+        {
+          "power": 1,
+          "name": "JUMP",
+          "pose": 4,
+          "actual_record": 49557,
+          "actual_legacy_chr": 222
+        },
+        {
+          "power": 1,
+          "name": "CROUCH",
+          "pose": 5,
+          "actual_record": 49591,
+          "actual_legacy_chr": 222
+        },
+        {
+          "power": 2,
+          "name": "STAND",
+          "pose": 0,
+          "actual_record": 49421,
+          "actual_legacy_chr": 221
+        },
+        {
+          "power": 2,
+          "name": "JUMP",
+          "pose": 4,
+          "actual_record": 49557,
+          "actual_legacy_chr": 222
+        },
+        {
+          "power": 2,
+          "name": "CROUCH",
+          "pose": 5,
+          "actual_record": 49591,
+          "actual_legacy_chr": 222
+        }
+      ]
+    }
+  }
+}

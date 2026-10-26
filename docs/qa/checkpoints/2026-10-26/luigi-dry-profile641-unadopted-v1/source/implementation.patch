@@ -1,0 +1,732 @@
+--- a/src/player.s
++++ b/src/player.s
+@@ -982,8 +982,13 @@
+ CrossoverGuestDispatch:
+   cmp #CHARACTER_LUIGI
+   bne :+
++.if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
++    jmp LuigiSourceMovementBridge
++    .res 3,$ea
++.else
+     jsr LuigiNativePrepare
+     jmp CrossoverMarioMovement
++.endif
+   :
+   lda GuestHurtTicks
+   beq :+
+--- a/src/luigi_native.s
++++ b/src/luigi_native.s
+@@ -34,6 +34,20 @@
+   rts
+ .endproc
+ .proc LuigiNativeTraction
++.if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
++  ; Foreign callers execute the exact original prefix and original Done RTS.
++  lda SelectedCharacter
++  cmp #CHARACTER_LUIGI
++  bne Done
++  farcall LuigiSourceNativeTractionBody,jmp
++::LuigiSourceMovementBridge:
++  ; Genuine local entry, only called by Luigi's actual movement selector.
++  farcall LuigiSourceMovementDispatch,jmp
++  .res 83-(*-::LuigiNativeTraction),$ea
++Done:
++  rts
++  .assert *-LuigiNativeTraction=84,error,"Retained native traction public span"
++.else
+   lda SelectedCharacter
+   cmp #CHARACTER_LUIGI
+   bne Done
+@@ -73,6 +87,7 @@
+   sta FrictionAdderHigh
+ Done:
+   rts
++.endif
+ .endproc
+ .segment "EXPANDED"
+ .proc LuigiNativeVisuals
+--- a/src/entrypoint.s
++++ b/src/entrypoint.s
+@@ -497,3 +497,7 @@
+ .if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
+ .include "cv3_remaining_source_fx.s"
+ .endif
++
++.if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
++.include "luigi_source_profile.s"
++.endif
+--- a/src/luigi_source_profile.s
++++ b/src/luigi_source_profile.s
+@@ -0,0 +1,672 @@
++; Source-derived current Mario dry profile for Luigi; no new RAM.
++; Source producer binds every copied primitive to the exact731 input hashes.
++.pushseg
++.segment "X5_PROFILES"
++.proc LuigiSourceMovementDispatch
++  jsr LuigiNativePrepare
++  lda SwimmingFlag
++  beq Dry
++  lda GameEngineSubroutine
++  cmp #8
++  bne Native
++  farcall MarioWaterMovement,jmp
++Dry:
++  lda #0
++  sta MarioWaterActive
++  lda GameEngineSubroutine
++  cmp #8
++  bne Native
++  lda Player_State
++  cmp #3
++  beq Native
++  lda JumpspringAnimCtrl
++  bne Native
++  jmp LuigiSourceMovement
++Native:
++  farcall CrossoverVanillaMovement,jmp
++.endproc
++.proc LuigiSourceMovement
++  ; RgShootPose remains owned by the unchanged Luigi weapons/graphics path.
++  lda MarioSourceActive
++  bne Sync
++  inc MarioSourceActive
++  lda #0
++  sta MarioRunCap
++  sta MarioJustCrouched
++  sta MarioJumpRise
++  sta MmJumpReleased
++  sta MmFrictionYActive
++  ldx #2
++Init:
++  sta MmVX,x
++  sta MmVY,x
++  dex
++  bpl Init
++  sta MmXFraction
++  sta MmXFraction+1
++  sta MmYFraction
++  sta MmYFraction+1
++Sync:
++  lda Player_X_Speed
++  bne Vertical
++  lda MmLastXSpeed
++  beq Vertical
++  lda #0
++  sta MmVX
++  sta MmVX+1
++  sta MmVX+2
++  sta MmXFraction
++  sta MmXFraction+1
++Vertical:
++  lda Player_State
++  bne Air
++  lda #0
++  sta MmVY
++  sta MmVY+1
++  sta MmVY+2
++  sta MmYFraction
++  sta MmYFraction+1
++  sta MarioJumpRise
++  sta CrouchingFlag
++  lda PlayerSize
++  bne Input
++  lda SavedJoypadBits
++  and #Down_Dir
++  sta CrouchingFlag
++  beq Input
++  lda #1
++  sta MarioJustCrouched
++  bne Input
++Air:
++  lda Player_Y_Speed
++  cmp MmVY+2
++  beq Input
++  sta MmVY+2                    ; Actual native ceiling, stomp or spring contact.
++  lda #0
++  sta MmVY
++  sta MmVY+1
++  sta MarioJumpRise
++Input:
++  lda A_B_Buttons
++  eor PreviousA_B_Buttons
++  and A_B_Buttons
++  and #A_Button
++  beq Release
++  lda Player_State
++  bne Release
++  jsr LuigiSourceJump
++Release:
++  lda A_B_Buttons
++  and #A_Button
++  bne Rise
++  lda PreviousA_B_Buttons
++  and #A_Button
++  beq Rise
++  lda #1
++  sta MmJumpReleased
++  lda CrossoverBehaviorVersion
++  bne Rise
++  sta MarioJumpRise             ; Easy releases friction immediately, no min rise.
++  lda #1
++  sta MmFrictionYActive
++Rise:
++  farcall MarioSourceRise
++  lda CrouchingFlag
++  jne Coast
++  lda SavedJoypadBits
++  and #3
++  cmp #1
++  beq Right
++  cmp #2
++  jeq Left
++  cmp #3
++  beq Both
++  lda Player_State
++  jne Integrate                 ; No-input airborne velocity is retained.
++Coast:
++  lda #0
++  sta MarioWaterFrictionKind
++  jsr LuigiSourceFriction
++  jmp Cap
++Both:
++  lda CrossoverBehaviorVersion
++  jeq Coast                     ; Easy's both-direction branch precedes skid.
++  lda Player_State
++  jne Coast
++  farcall MarioSourceMagnitude
++  lda MmMul+2
++  jne Skid
++  lda MmMul+1
++  cmp #$55                      ; Source SKID_THRESHOLD=40 Flash px/s.
++  jcs Skid
++  bcc Coast
++Right:
++  lda Player_CollisionBits
++  and #1
++  jeq Cap
++  lda #1
++  ldx MarioJustCrouched
++  beq :+
++    dec MarioJustCrouched
++    jmp Integrate               ; Source skips first directional move after crouch.
++  :
++  ldx Player_State
++  bne :+
++    sta PlayerFacingDir
++  :
++  jsr Acceleration
++  clc
++  lda MmVX
++  adc MarioWaterAcceleration
++  sta MmVX
++  lda MmVX+1
++  adc MarioWaterAcceleration+1
++  sta MmVX+1
++  lda MmVX+2
++  adc #0
++  sta MmVX+2
++  bmi GroundSkid
++  jmp Cap
++Left:
++  lda Player_CollisionBits
++  and #2
++  jeq Cap
++  lda #2
++  ldx MarioJustCrouched
++  beq :+
++    dec MarioJustCrouched
++    jmp Integrate
++  :
++  ldx Player_State
++  bne :+
++    sta PlayerFacingDir
++  :
++  jsr Acceleration
++  sec
++  lda MmVX
++  sbc MarioWaterAcceleration
++  sta MmVX
++  lda MmVX+1
++  sbc MarioWaterAcceleration+1
++  sta MmVX+1
++  lda MmVX+2
++  sbc #0
++  sta MmVX+2
++  bmi Cap
++GroundSkid:
++  lda Player_State
++  bne Cap
++Skid:
++  lda #1
++  sta MarioWaterFrictionKind
++  jsr LuigiSourceFriction
++Cap:
++  jsr LuigiSourceClamp
++Integrate:
++  jsr LuigiSourceIntegrate
++  farcall MarioSourceAnimation
++  rts
++Acceleration:
++  lda #$39                      ; Easy400/7200, Q0.16 rounded once.
++  ldy #$0e
++  ldx CrossoverBehaviorVersion
++  beq :+
++    lda #$72                    ; Hard350/7200.
++    ldy #$0c
++  :
++  sta MarioWaterAcceleration
++  sty MarioWaterAcceleration+1
++  rts
++.endproc
++.proc LuigiSourceFriction
++  farcall MarioSourceMagnitude
++  lda MarioWaterFrictionKind
++  beq Coast
++  cmp #1
++  bne Run
++  farcall SamusFrictionY        ; 0.0001^(1/60), shared exact multiplier.
++  jmp Apply
++Run:
++  farcall LuigiRunFrictionX     ; 0.02^(1/60), not Luigi movement dispatch.
++  jmp Apply
++Coast:
++  farcall MarioWaterCoast       ; 0.05^(1/60).
++Apply:
++  jsr LuigiSourceBrakeBlend
++  lda MmMul
++  sta MmVX
++  lda MmMul+1
++  sta MmVX+1
++  lda MmMul+2
++  sta MmVX+2
++  bne Sign
++  lda MarioWaterFrictionKind
++  bne Sign
++  lda MmVX+1
++  cmp #$55
++  bcc Stop
++  bne Sign
++  lda MmVX
++  cmp #$55
++  bcs Sign
++Stop:
++  lda #0
++  sta MmVX
++  sta MmVX+1
++Sign:
++  lda MmSign
++  bpl :+
++    farcall MegaManMovement::NegateX
++  :
++  rts
++.endproc
++.proc LuigiSourceClamp
++  farcall MarioSourceMagnitude
++  jsr LoadWalk
++  jmp Buttons
++LoadWalk:
++  lda #0
++  sta XgSpeed
++  lda #$40                      ; Easy150/120=1.25 NES px/update.
++  ldy CrossoverBehaviorVersion
++  beq :+
++    lda #$55
++    sta XgSpeed
++    lda #$75                    ; Hard175/120=1.458333.
++  :
++  sta XgSpeed+1
++  lda #1
++  sta XgSpeed+2
++  rts
++Buttons:
++  lda SavedJoypadBits
++  and #B_Button
++  beq ReleasedRun
++  lda SwimmingFlag
++  ora CrouchingFlag
++  bne Ready
++  lda #1
++  sta MarioRunCap
++  bne Running
++ReleasedRun:
++  lda MarioRunCap
++  beq Ready
++  ; Source clamps against the previous vxMax before run-to-walk friction.
++  ; Ordinary acceleration past the walk cap is not a released run.
++  jsr LoadRun
++  jsr ApplyLimit
++  jsr LoadWalk
++  jsr Compare
++  bcc OverWalk
++  lda #0
++  sta MarioRunCap
++  beq Ready
++OverWalk:
++  lda SavedJoypadBits
++  and #3
++  beq Running
++  lda #2
++  sta MarioWaterFrictionKind
++  jsr LuigiSourceFriction
++  farcall MarioSourceMagnitude
++Running:
++  lda MarioRunCap
++  beq Ready
++  jsr LoadRun
++  jmp Ready
++LoadRun:
++  lda #0
++  sta XgSpeed
++  lda #$80
++  sta XgSpeed+1
++  lda #2
++  sta XgSpeed+2
++  rts
++Ready:
++  lda MmUnderwater
++  beq Limit
++  lda Player_State
++  bne Limit
++  lda #0
++  sta XgSpeed
++  sta XgSpeed+2
++  lda #$c0                      ; Shared source ground-water max90/120.
++  sta XgSpeed+1
++Limit:
++  jsr ApplyLimit
++  rts
++ApplyLimit:
++  jsr Compare
++  bcs Done
++  lda XgSpeed
++  sta MmVX
++  sta MmMul
++  lda XgSpeed+1
++  sta MmVX+1
++  sta MmMul+1
++  lda XgSpeed+2
++  sta MmVX+2
++  sta MmMul+2
++  lda MmSign
++  bpl Done
++  farcall MegaManMovement::NegateX
++Done:
++  rts
++Compare:
++  lda XgSpeed+2
++  cmp MmMul+2
++  bne Compared
++  lda XgSpeed+1
++  cmp MmMul+1
++  bne Compared
++  lda XgSpeed
++  cmp MmMul
++Compared:
++  rts
++.endproc
++.proc LuigiSourceJump
++  farcall MarioSourceMagnitude
++  ldx #0
++  lda MmMul+2
++  cmp #2
++  bcc Class
++  bne Run
++  lda MmMul+1
++  cmp #$80
++  bcc Class
++Run:
++  inx
++Class:
++  lda CrossoverBehaviorVersion
++  bne Hard
++  lda EasyJumpLo,x
++  sta MmVY
++  lda EasyJumpMid,x
++  sta MmVY+1
++  lda EasyJumpHigh,x
++  sta MmVY+2
++  jmp Launch
++Hard:
++  lda HardJumpLo,x
++  sta MmVY
++  lda HardJumpMid,x
++  sta MmVY+1
++  lda HardJumpHigh,x
++  sta MmVY+2
++  lda #1
++  sta MarioJumpRise
++  sec
++  lda Player_Y_Position
++  sbc Height,x                  ; Source pixels are twice NES world pixels.
++  sta MarioJumpEnd
++  lda Player_Y_HighPos
++  sbc #0
++  sta MarioJumpEndHigh
++  sec
++  lda Player_Y_Position
++  sbc #19                       ; JUMP_HEIGHT_MIN=38 Flash pixels.
++  sta MarioJumpMin
++  lda Player_Y_HighPos
++  sbc #0
++  sta MarioJumpMinHigh
++  lda MmYFraction
++  sta MarioJumpFraction
++  lda MmYFraction+1
++  sta MarioJumpFraction+1
++Launch:
++  ; Exactly51/256 extra upward velocity. Hard's existing rise targets remain.
++  sec
++  lda MmVY+1
++  sbc #$33
++  sta MmVY+1
++  lda MmVY+2
++  sbc #0
++  sta MmVY+2
++  lda MmVY+2
++  sta Player_Y_Speed
++  lda #1
++  sta Player_State
++  lda #0
++  sta MmJumpReleased
++  sta MmFrictionYActive
++  lda #$20
++  sta JumpSwimTimer
++  lda PlayerSize
++  beq Big
++  lda #Sfx_SmallJump
++  bne Sound
++Big:
++  lda #Sfx_BigJump
++Sound:
++  sta Square1SoundQueue
++  rts
++EasyJumpLo: .byte $55,$ab         ; -650/120, -700/120, rounded Q8.16.
++EasyJumpMid: .byte $95,$2a
++EasyJumpHigh: .byte $fa,$fa
++HardJumpLo: .byte $ab,$00         ; -400/120, -420/120.
++HardJumpMid: .byte $aa,$80
++HardJumpHigh: .byte $fc,$fc
++Height: .byte 42,56
++.endproc
++; Keep7/8 of Mario's actual grounded deceleration, rounding once.
++; MmProduct is already-clobbered multiplier scratch, not new owner RAM.
++.proc LuigiSourceBrakeBlend
++  php
++  lda Player_State
++  jne Done
++  lda SwimmingFlag
++  jne Done
++  txa
++  pha
++  lda MmSign
++  bmi Negative
++  ldx #2
++Copy:
++  lda MmVX,x
++  sta MmProduct,x
++  dex
++  bpl Copy
++  bmi Difference
++Negative:
++  sec
++  lda #0
++  sbc MmVX
++  sta MmProduct
++  lda #0
++  sbc MmVX+1
++  sta MmProduct+1
++  lda #0
++  sbc MmVX+2
++  sta MmProduct+2
++Difference:
++  sec
++  lda MmProduct
++  sbc MmMul
++  sta MmProduct
++  lda MmProduct+1
++  sbc MmMul+1
++  sta MmProduct+1
++  lda MmProduct+2
++  sbc MmMul+2
++  sta MmProduct+2
++  .repeat 3
++    lsr MmProduct+2
++    ror MmProduct+1
++    ror MmProduct
++  .endrepeat
++  clc
++  lda MmMul
++  adc MmProduct
++  sta MmMul
++  lda MmMul+1
++  adc MmProduct+1
++  sta MmMul+1
++  lda MmMul+2
++  adc MmProduct+2
++  sta MmMul+2
++  pla
++  tax
++Done:
++  plp
++  rts
++.endproc
++.proc LuigiSourceIntegrate
++  lda Player_X_Position
++  sta MmOldX
++
++  clc
++  lda MmXFraction
++  adc MmVX
++  sta MmXFraction
++  lda MmXFraction+1
++  adc MmVX+1
++  sta MmXFraction+1
++  lda Player_X_Position
++  adc MmVX+2
++  sta Player_X_Position
++  lda #0
++  ldx MmVX+2
++  bpl :+
++    lda #$ff
++  :
++  adc Player_PageLoc
++  sta Player_PageLoc
++  lda Player_X_Position
++  sec
++  sbc MmOldX
++  sta Player_X_Scroll
++  ; Keep SMB's camera, enemy reactions and collision direction informed.
++  lda MmVX+1
++  lsr
++  lsr
++  lsr
++  lsr
++  sta MmTemp
++  lda MmVX+2
++  asl
++  asl
++  asl
++  asl
++  ora MmTemp
++  sta Player_X_Speed
++  sta MmLastXSpeed
++  bpl :+
++    eor #$ff
++    clc
++    adc #1
++  :
++  sta Player_XSpeedAbsolute
++  lda Player_State
++  jne Air
++  jmp Finish
++Air:
++  lda MmFrictionYActive
++  jeq BeforeGravity
++  lda MmVY+2
++  bmi FrictionUpward
++    lda #0
++    sta MmFrictionYActive
++    jeq BeforeGravity
++FrictionUpward:
++  farcall MegaManMovement::NegateY
++  lda MmVY
++  sta MmMul
++  lda MmVY+1
++  sta MmMul+1
++  lda MmVY+2
++  sta MmMul+2
++  lda CrossoverBehaviorVersion
++  beq SamusFriction
++  farcall MmFrictionY
++  jmp AppliedFriction
++SamusFriction:
++  farcall SamusFrictionY
++AppliedFriction:
++  lda MmMul
++  sta MmVY
++  lda MmMul+1
++  sta MmVY+1
++  lda MmMul+2
++  sta MmVY+2
++  farcall MegaManMovement::NegateY
++BeforeGravity:
++  farcall MarioSourceGravity
++  clc
++  adc MmVY
++  sta MmVY
++  tya
++  adc MmVY+1
++  sta MmVY+1
++  lda MmVY+2
++  adc #0
++  sta MmVY+2
++  bmi Vertical
++  cmp #5
++  bcc Vertical
++  lda #0
++  sta MmVY
++  sta MmVY+1
++  lda #5
++  sta MmVY+2
++Vertical:
++  clc
++  lda MmYFraction
++  adc MmVY
++  sta MmYFraction
++  lda MmYFraction+1
++  adc MmVY+1
++  sta MmYFraction+1
++  lda Player_Y_Position
++  adc MmVY+2
++  sta Player_Y_Position
++  lda #0
++  ldx MmVY+2
++  bpl :+
++    lda #$ff
++  :
++  adc Player_Y_HighPos
++  sta Player_Y_HighPos
++  lda MmVY+2
++  sta Player_Y_Speed
++Finish:
++  farcall MegaManMovement::Done,jmp
++.endproc
++.proc LuigiSourceNativeTractionBody
++  lda SwimmingFlag
++  bne Done
++  lda GameEngineSubroutine
++  cmp #8
++  bne Done
++  lda Player_State
++  bne Done
++  lda Player_X_Speed
++  beq Done
++  bmi Leftward
++  lda Left_Right_Buttons
++  and #Right_Dir
++  bne Done                       ; Keep native acceleration/run speed.
++  beq Brake
++Leftward:
++  lda Left_Right_Buttons
++  and #Left_Dir
++  bne Done
++Brake:
++  lda FrictionAdderLow
++  sta R0
++  lda FrictionAdderHigh
++  sta R1
++  .repeat ::LUIGI_BRAKING_SHIFT
++    lsr R1
++    ror R0
++  .endrepeat
++  lda FrictionAdderLow
++  sec
++  sbc R0
++  sta FrictionAdderLow
++  lda FrictionAdderHigh
++  sbc R1
++  sta FrictionAdderHigh
++Done:
++  rts
++.endproc
++.popseg

@@ -1,0 +1,102 @@
+{
+  "preserved_original_FALSE": true,
+  "passed": false,
+  "source_integrity_passed": true,
+  "native_run": false,
+  "ROM_sha256": "731c918b0f448564587d90fca2979afc9fc0e5eb9b26616f4241801e2e73e16c",
+  "original_native_proof": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current731-bass-gallery-ready-v4\\profiles\\bass-easy\\native\\proof.json",
+  "original_native_proof_sha256": "d4919bc7966f39af9dc0ef886449d4d26e0ec2fe2ee2581160cb9f85b121fed5",
+  "ready_sha256": "a9aba5537077c32890504effd5507ad3d8a719d929db88270cf4d69f57a8e028",
+  "ready_bindings_verified": 930,
+  "actual_numeric_mode": 0,
+  "Hard_launched": false,
+  "complete_profile": false,
+  "planned_cases": 16,
+  "observed_case_indices": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "prior_component_prefix_cases": [
+    1,
+    2,
+    3
+  ],
+  "event_counts": {
+    "1": {
+      "B-only-native-boundary-seeds": 1,
+      "gallery-phase": 9,
+      "actual-controller-selection": 9,
+      "ppu-frame-captured": 10,
+      "actual-source-effect-draw": 1,
+      "controlled-falling-Goomba-target": 1,
+      "actual-source-contact": 1,
+      "actual-buster-full-pool-refusal": 1
+    },
+    "2": {
+      "gallery-phase": 10,
+      "ppu-frame-captured": 11,
+      "actual-controller-selection": 8,
+      "actual-source-effect-draw": 1,
+      "controlled-falling-Goomba-target": 1,
+      "actual-source-contact": 1,
+      "actual-buster-full-pool-refusal": 1
+    },
+    "3": {
+      "gallery-phase": 10,
+      "ppu-frame-captured": 18,
+      "actual-controller-selection": 9,
+      "actual-special-spawn": 5,
+      "actual-source-effect-draw": 2,
+      "actual-source-spend": 1,
+      "controlled-falling-Goomba-target": 1,
+      "actual-source-contact": 1,
+      "actual-full-pool-special": 1
+    },
+    "4": {
+      "gallery-phase": 2,
+      "ppu-frame-captured": 1,
+      "actual-controller-selection": 6
+    }
+  },
+  "complete256DMAs": 1136,
+  "actual_data_writes": 290816,
+  "startFrame_snapshots": 1307,
+  "pending_startFrames": 1,
+  "scoped_enables": 883,
+  "safe_scoped_enables": 882,
+  "unsafe_scoped_enables": 1,
+  "complete_PPU_frames": 1307,
+  "raw_bytes": 321208320,
+  "case_capture_events": 40,
+  "unique_original_case_filenames": 38,
+  "duplicate_case_names": {
+    "buster-face1-buster": [
+      401,
+      613
+    ],
+    "buster-face2-buster": [
+      711,
+      922
+    ]
+  },
+  "case_files_match_last_saved_raw_event": true,
+  "derived_actual_wholeframes": 53,
+  "sheets": 6,
+  "agent_visual_review": false,
+  "missing_success_components": [
+    "native-bass-gallery.json",
+    "ppu-capture-native-result.json"
+  ],
+  "native_worker_released": true,
+  "limits": [
+    "Original aggregateFALSE staysFALSE; this is independent saved-prefix analysis.",
+    "Three initial cases reached source component transitions; full16case native summary missing, no profile pass or all32plan coverage.",
+    "Two generic buster capture names were reused for funded/empty; originals remain unchanged, all40event occurrences are separately recovered from fullraw with exact ordinal map.",
+    "First-failure ARGB comes from live line0 before completedframe1308 and cannot prove a completed visible wrap. Last full raw frame1307 retained.",
+    "Every complete DMA exact while renderingoff does not make the late rendering enable safe.",
+    "No raw VRAM/parser/producer/NMI costs in original trace. Source/diagnostic follow-up requires separate readiness/grant.",
+    "Source draw-pointer match is not effect pixel fidelity; actual selected wholeframes require separate agent review."
+  ]
+}

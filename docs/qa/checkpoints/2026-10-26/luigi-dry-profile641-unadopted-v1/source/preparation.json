@@ -1,0 +1,49 @@
+{
+  "prepared": true,
+  "native_executed": false,
+  "adopted": false,
+  "parent_ROM_sha256": "731c918b0f448564587d90fca2979afc9fc0e5eb9b26616f4241801e2e73e16c",
+  "ROM_sha256": "641460e2646806c03fb98cf84f8a8c2e8de99c74dac8c5876c50f05ef1eb512c",
+  "changed_source": [
+    "src/player.s",
+    "src/luigi_native.s",
+    "src/entrypoint.s",
+    "src/luigi_source_profile.s"
+  ],
+  "changed_PRG_banks": {
+    "1": 81,
+    "78": 1766
+  },
+  "original_header_CHR_RAM_fixed_DMC_all_other_banks_exact": true,
+  "game_source_or_installed_mutation": false,
+  "new_RAM": false,
+  "boost": "51/256 extra upward speed, same mode-specific Mario rise/release/gravity",
+  "braking": "Mario base output + floor((original magnitude - base output)/8), only dry ground",
+  "source_derived_current_primitives": true,
+  "source_files": {
+    "src/player.s": "9a385048bb7177bf3e9c9c93efaab223d445711c38835fded745690c014690f3",
+    "src/luigi_native.s": "296815debf0922d4f4be74a7680de198eb4ec1afdc2afcab2aa733b04241c08e",
+    "src/entrypoint.s": "48aa8f9901161ed1837e1656b51a7badca67b3b2c2e79df40c20e3c8b29ccc7b",
+    "src/luigi_source_profile.s": "3c4e5e1809dd53d401c985c78e29542de9e9ff9da1145cdd948530860956d9b3"
+  },
+  "original_input_source_files": {
+    "src/mario_source.s": "d634f221acb00322480cd4cd45d5a6f724dc253a71b6a8dbe3c5621bbfb8cd3e",
+    "src/megaman_physics.s": "d6c7760a6be8fb4b0165d05e98e9da0e261b946e4daa6e079c4d97b30aa15603",
+    "src/luigi_native.s": "18dd4aa1781c913b3b7f607ec2e2fa9cc88021b4d651163d752712d148443139"
+  },
+  "patch_sha256": "89f8a20debf3cabc4b7cea80fab0dca6adca63567a0981c9bdaf4d67f9c01f8b",
+  "source_manifest_sha256": "60a18a9c7b8e3927562272dac923852bf7af8ebc59bc6860211967b81328a7b2",
+  "tool_sha256": "37558c04f7f2dbeee05243d102a98ace1beeb759925e420c061e9aecfcc97f3a",
+  "command": [
+    "C:\\Users\\kando\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+    "-B",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\luigi-mario-profile731-v3\\source\\tools\\build_mmc5_expanded.py",
+    "--workspace",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\luigi-mario-profile731-v3\\source",
+    "--compiler",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\Windows\\cc65\\bin\\cl65.exe",
+    "--output",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\luigi-mario-profile731-v3\\candidate.nes"
+  ],
+  "scope": "First private dry movement proposal. Full source/ABI/foreign/IRQ/pickup/graphics/terrain controls pending. Legacy water/climb/spring/stomp/gap dispatch intentionally unchanged; no native/art/hardware/lag qualification."
+}

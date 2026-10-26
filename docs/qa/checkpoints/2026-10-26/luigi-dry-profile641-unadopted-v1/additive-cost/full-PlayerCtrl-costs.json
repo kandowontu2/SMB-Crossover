@@ -1,0 +1,3653 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "mode": 0,
+      "kind": "cold",
+      "input": 0,
+      "old731": {
+        "cycles": 4844,
+        "minimum_SP": 229,
+        "complete_call_AXYP": [
+          1,
+          0,
+          6,
+          176
+        ],
+        "final_banks": [
+          126,
+          1,
+          88,
+          127
+        ],
+        "state": {
+          "update": 1,
+          "x": 352,
+          "y": 176,
+          "state": 0,
+          "vx": 0,
+          "vy": 0,
+          "camera": 256,
+          "crouch": 0,
+          "native_vx": 0,
+          "native_vy": 0,
+          "character": 8,
+          "power": 1
+        },
+        "bank_execution_cycles": {
+          "1": 668,
+          "127": 320,
+          "126": 2279,
+          "-1": 848,
+          "66": 137,
+          "72": 62,
+          "77": 105,
+          "93": 136,
+          "90": 106,
+          "89": 119,
+          "86": 34,
+          "96": 30
+        },
+        "actual_entry_return_costs": [
+          {
+            "name": "LuigiNativePrepare",
+            "entry_pc": 60921,
+            "bank": 127,
+            "entry_SP": 247,
+            "return_pc": 42505,
+            "return_SP": 249,
+            "inclusive_cycles": 19
+          },
+          {
+            "name": "LuigiNativeTraction",
+            "entry_pc": 47424,
+            "bank": 1,
+            "entry_SP": 245,
+            "return_pc": 43345,
+            "return_SP": 247,
+            "inclusive_cycles": 38
+          },
+          {
+            "name": "CrossoverMarioMovement",
+            "entry_pc": 42431,
+            "bank": 1,
+            "entry_SP": 249,
+            "return_pc": 41243,
+            "return_SP": 251,
+            "inclusive_cycles": 512
+          },
+          {
+            "name": "PlayerMovementSubs",
+            "entry_pc": 42426,
+            "bank": 1,
+            "entry_SP": 249,
+            "return_pc": 41243,
+            "return_SP": 251,
+            "inclusive_cycles": 552
+          },
+          {
+            "name": "PlayerCtrlRoutine",
+            "entry_pc": 41155,
+            "bank": 1,
+            "entry_SP": 251,
+            "return_pc": 23296,
+            "return_SP": 253,
+            "inclusive_cycles": 4844
+          }
+        ]
+      },
+      "new641": {
+        "cycles": 6096,
+        "minimum_SP": 229,
+        "complete_call_AXYP": [
+          1,
+          0,
+          6,
+          176
+        ],
+        "final_banks": [
+          126,
+          1,
+          88,
+          127
+        ],
+        "state": {
+          "update": 1,
+          "x": 352,
+          "y": 176,
+          "state": 0,
+          "vx": 0,
+          "vy": 0,
+          "camera": 256,
+          "crouch": 0,
+          "native_vx": 0,
+          "native_vy": 0,
+          "character": 8,
+          "power": 1
+        },
+        "bank_execution_cycles": {
+          "1": 327,
+          "-1": 1219,
+          "78": 971,
+          "127": 320,
+          "3": 47,
+          "59": 236,
+          "29": 124,
+          "126": 2123,
+          "66": 137,
+          "72": 62,
+          "77": 105,
+          "93": 136,
+          "90": 106,
+          "89": 119,
+          "86": 34,
+          "96": 30
+        },
+        "actual_entry_return_costs": [
+          {
+            "name": "LuigiNativePrepare",
+            "entry_pc": 60921,
+            "bank": 127,
+            "entry_SP": 244,
+            "return_pc": 42097,
+            "return_SP": 246,
+            "inclusive_cycles": 19
+          },
+          {
+            "name": "LuigiSourceMovementBridge",
+            "entry_pc": 47449,
+            "bank": 1,
+            "entry_SP": 249,
+            "return_pc": 41243,
+            "return_SP": 251,
+            "inclusive_cycles": 1789
+          },
+          {
+            "name": "PlayerMovementSubs",
+            "entry_pc": 42426,
+            "bank": 1,
+            "entry_SP": 249,
+            "return_pc": 41243,
+            "return_SP": 251,
+            "inclusive_cycles": 1804
+          },
+          {
+            "name": "PlayerCtrlRoutine",
+            "entry_pc": 41155,
+            "bank": 1,
+            "entry_SP": 251,
+            "return_pc": 23296,
+            "return_SP": 253,
+            "inclusive_cycles": 6096
+          }
+        ]
+      },
+      "new_minus_old_cycles": 1252
+    },
+    {
+      "mode": 0,
+      "kind": "idle",
+      "input": 0,
+      "old731": {
+        "cycles": 4844,
+        "minimum_SP": 229,
+        "complete_call_AXYP": [
+          1,
+          0,
+          6,
+          176
+        ],
+        "final_banks": [
+          126,
+          1,
+          88,
+          127
+        ],
+        "state": {
+          "update": 1,
+          "x": 352,
+          "y": 176,
+          "state": 0,
+          "vx": 0,
+          "vy": 0,
+          "camera": 256,
+          "crouch": 0,
+          "native_vx": 0,
+          "native_vy": 0,
+          "character": 8,
+          "power": 1
+        },
+        "bank_execution_cycles": {
+          "1": 668,
+          "127": 320,
+          "126": 2279,
+          "-1": 848,
+          "66": 137,
+          "72": 62,
+          "77": 105,
+          "93": 136,
+          "90": 106,
+          "89": 119,
+          "86": 34,
+          "96": 30
+        },
+        "actual_entry_return_costs": [
+          {
+            "name": "LuigiNativePrepare",
+            "entry_pc": 60921,
+            "bank": 127,
+            "entry_SP": 247,
+            "return_pc": 42505,
+            "return_SP": 249,
+            "inclusive_cycles": 19
+          },
+          {
+            "name": "LuigiNativeTraction",
+            "entry_pc": 47424,
+            "bank": 1,
+            "entry_SP": 245,
+            "return_pc": 43345,
+            "return_SP": 247,
+            "inclusive_cycles": 38
+          },
+          {
+            "name": "CrossoverMarioMovement",
+            "entry_pc": 42431,
+            "bank": 1,
+            "entry_SP": 249,
+            "return_pc": 41243,
+            "return_SP": 251,
+            "inclusive_cycles": 512
+          },
+          {
+            "name": "PlayerMovementSubs",
+            "entry_pc": 42426,
+            "bank": 1,
+            "entry_SP": 249,
+            "return_pc": 41243,
+            "return_SP": 251,
+            "inclusive_cycles": 552
+          },
+          {
+            "name": "PlayerCtrlRoutine",
+            "entry_pc": 41155,
+            "bank": 1,
+            "entry_SP": 251,
+            "return_pc": 23296,
+            "return_SP": 253,
+            "inclusive_cycles": 4844
+          }
+        ]
+      },
+      "new641": {
+        "cycles": 6007,
+        "minimum_SP": 229,
+        "complete_call_AXYP": [
+          1,
+          0,
+          6,
+          176
+        ],
+        "final_banks": [
+          126,
+          1,
+          88,
+          127
+        ],
+        "state": {
+          "update": 1,
+          "x": 352,
+          "y": 176,
+          "state": 0,
+          "vx": 0,
+          "vy": 0,
+          "camera": 256,
+          "crouch": 0,
+          "native_vx": 0,
+          "native_vy": 0,
+          "character": 8,
+          "power": 1
+        },
+        "bank_execution_cycles": {
+          "1": 327,
+          "-1": 1219,
+          "78": 882,
+          "127": 320,
+          "3": 47,
+          "59": 236,
+          "29": 124,
+          "126": 2123,
+          "66": 137,
+          "72": 62,
+          "77": 105,
+          "93": 136,
+          "90": 106,
+          "89": 119,
+          "86": 34,
+          "96": 30
+        },
+        "actual_entry_return_costs": [
+          {
+            "name": "LuigiNativePrepare",
+            "entry_pc": 60921,
+            "bank": 127,
+            "entry_SP": 244,
+            "return_pc": 42097,
+            "return_SP": 246,
+            "inclusive_cycles": 19
+          },
+          {
+            "name": "LuigiSourceMovementBridge",
+            "entry_pc": 47449,
+            "bank": 1,
+            "entry_SP": 249,
+            "return_pc": 41243,
+            "return_SP": 251,
+            "inclusive_cycles": 1700
+          },
+          {
+            "name": "PlayerMovementSubs",
+            "entry_pc": 42426,
+            "bank": 1,
+            "entry_SP": 249,
+            "return_pc": 41243,
+            "return_SP": 251,
+            "inclusive_cycles": 1715
+          },
+          {
+            "name": "PlayerCtrlRoutine",
+            "entry_pc": 41155,
+            "bank": 1,
+            "entry_SP": 251,
+            "return_pc": 23296,
+            "return_SP": 253,
+            "inclusive_cycles": 6007
+          }
+        ]
+      },
+      "new_minus_old_cycles": 1163
+    },
+    {
+      "mode": 0,
+      "kind": "walk",
+      "input": 1,
+      "old731": {
+        "cycles": 4923,
+        "minimum_SP": 229,
+        "complete_call_AXYP": [
+          1,
+          0,
+          6,
+          176
+        ],
+        "final_banks": [
+          126,
+          1,
+          88,
+          127
+        ],
+        "state": {
+          "update": 1,
+          "x": 353,
+          "y": 176,
+          "state": 0,
+          "vx": 0,
+          "vy": 0,
+          "camera": 256,
+          "crouch": 0,
+          "native_vx": 16,
+          "native_vy": 0,
+          "character": 8,
+          "power": 1
+        },
+        "bank_execution_cycles": {
+          "1": 747,
+          "127": 320,
+          "126": 2279,
+          "-1": 848,
+          "66": 137,
+          "72": 62,
+          "77": 105,
+          "93": 136,
+          "90": 106,
+          "89": 119,
+          "86": 34,
+          "96": 30
+        },
+        "actual_entry_return_costs": [
+          {
+            "name": "LuigiNativePrepare",
+            "entry_pc": 60921,
+            "bank": 127,
+            "entry_SP": 247,
+            "return_pc": 42505,
+            "return_SP": 249,
+            "inclusive_cycles": 19
+          },
+          {
+            "name": "LuigiNativeTraction",
+            "entry_pc": 47424,
+            "bank": 1,
+            "entry_SP": 245,
+            "return_pc": 43345,
+            "return_SP": 247,
+            "inclusive_cycles": 48
+          },
+          {
+            "name": "CrossoverMarioMovement",
+            "entry_pc": 42431,
+            "bank": 1,
+            "entry_SP": 249,
+            "return_pc": 41243,
+            "return_SP": 251,
+            "inclusive_cycles": 586
+          },
+          {
+            "name": "PlayerMovementSubs",
+            "entry_pc": 42426,
+            "bank": 1,
+            "entry_SP": 249,
+            "return_pc": 41243,
+            "return_SP": 251,
+            "inclusive_cycles": 626
+          },
+          {
+            "name": "PlayerCtrlRoutine",
+            "entry_pc": 41155,
+            "bank": 1,
+            "entry_SP": 251,
+            "return_pc": 23296,
+            "return_SP": 253,
+            "inclusive_cycles": 4923
+          }
+        ]
+      },
+      "new641": {
+        "cycles": 5623,
+        "minimum_SP": 229,
+        "complete_call_AXYP": [
+          1,
+          0,
+          6,
+          176
+        ],
+        "final_banks": [
+          126,
+          1,
+          88,
+          127
+        ],
+        "state": {
+          "update": 1,
+          "x": 353,
+          "y": 176,
+          "state": 0,
+          "vx": 69177,
+          "vy": 0,
+          "camera": 256,
+          "crouch": 0,
+          "native_vx": 16,
+          "native_vy": 0,
+          "character": 8,
+          "power": 1
+        },
+        "bank_execution_cycles": {
+          "1": 332,
+          "-1": 1113,
+          "78": 613,
+          "127": 320,
+          "3": 52,
+          "59": 341,
+          "126": 2123,
+          "66": 137,
+          "72": 62,
+          "77": 105,
+          "93": 136,
+          "90": 106,
+          "89": 119,
+          "86": 34,
+          "96": 30
+        },
+        "actual_entry_return_costs": [
+          {
+            "name": "LuigiNativePrepare",
+            "entry_pc": 60921,
+            "bank": 127,
+            "entry_SP": 244,
+            "return_pc": 42097,
+            "return_SP": 246,
+            "inclusive_cycles": 19
+          },
+          {
+            "name": "LuigiSourceMovementBridge",
+            "entry_pc": 47449,
+            "bank": 1,
+            "entry_SP": 249,
+            "return_pc": 41243,
+            "return_SP": 251,
+            "inclusive_cycles": 1311
+          },
+          {
+            "name": "PlayerMovementSubs",
+            "entry_pc": 42426,
+            "bank": 1,
+            "entry_SP": 249,
+            "return_pc": 41243,
+            "return_SP": 251,
+            "inclusive_cycles": 1326
+          },
+          {
+            "name": "PlayerCtrlRoutine",
+            "entry_pc": 41155,
+            "bank": 1,
+            "entry_SP": 251,
+            "return_pc": 23296,
+            "return_SP": 253,
+            "inclusive_cycles": 5623
+          }
+        ]
+      },
+      "new_minus_old_cycles": 700
+    },
+    {
+      "mode": 0,
+      "kind": "run",
+      "input": 65,
+      "old731": {
+        "cycles": 4883,
+        "minimum_SP": 229,
+        "complete_call_AXYP": [
+          1,
+          0,
+          6,
+          176
+        ],
+        "final_banks": [
+          126,
+          1,
+          88,
+          127
+        ],
+        "state": {
+          "update": 1,
+          "x": 354,
+          "y": 176,
+          "state": 0,
+          "vx": 0,
+          "vy": 0,
+          "camera": 256,
+          "crouch": 0,
+          "native_vx": 40,
+          "native_vy": 0,
+          "character": 8,
+          "power": 1
+        },
+        "bank_execution_cycles": {
+          "1": 707,
+          "127": 320,
+          "126": 2279,
+          "-1": 848,
+          "66": 137,
+          "72": 62,
+          "77": 105,
+          "93": 136,
+          "90": 106,
+          "89": 119,
+          "86": 34,
+          "96": 30
+        },
+        "actual_entry_return_costs": [
+          {
+            "name": "LuigiNativePrepare",
+            "entry_pc": 60921,
+            "bank": 127,
+            "entry_SP": 247,
+            "return_pc": 42505,
+            "return_SP": 249,
+            "inclusive_cycles": 19
+          },
+          {
+            "name": "LuigiNativeTraction",
+            "entry_pc": 47424,
+            "bank": 1,
+            "entry_SP": 245,
+            "return_pc": 43345,
+            "return_SP": 247,
+            "inclusive_cycles": 48
+          },
+          {
+            "name": "CrossoverMarioMovement",
+            "entry_pc": 42431,
+            "bank": 1,
+            "entry_SP": 249,
+            "return_pc": 41243,
+            "return_SP": 251,
+            "inclusive_cycles": 546
+          },
+          {
+            "name": "PlayerMovementSubs",
+            "entry_pc": 42426,
+            "bank": 1,
+            "entry_SP": 249,
+            "return_pc": 41243,
+            "return_SP": 251,
+            "inclusive_cycles": 586
+          },
+          {
+            "name": "PlayerCtrlRoutine",
+            "entry_pc": 41155,
+            "bank": 1,
+            "entry_SP": 251,
+            "return_pc": 23296,
+            "return_SP": 253,
+            "inclusive_cycles": 4883
+          }
+        ]
+      },
+      "new641": {
+        "cycles": 5746,
+        "minimum_SP": 229,
+        "complete_call_AXYP": [
+          1,
+          0,
+          6,
+          176
+        ],
+        "final_banks": [
+          126,
+          1,
+          88,
+          127
+        ],
+        "state": {
+          "update": 1,
+          "x": 354,
+          "y": 176,
+          "state": 0,
+          "vx": 163840,
+          "vy": 0,
+          "camera": 256,
+          "crouch": 0,
+          "native_vx": 40,
+          "native_vy": 0,
+          "character": 8,
+          "power": 1
+        },
+        "bank_execution_cycles": {
+          "1": 332,
+          "-1": 1113,
+          "78": 705,
+          "127": 320,
+          "3": 52,
+          "59": 372,
+          "126": 2123,
+          "66": 137,
+          "72": 62,
+          "77": 105,
+          "93": 136,
+          "90": 106,
+          "89": 119,
+          "86": 34,
+          "96": 30
+        },
+        "actual_entry_return_costs": [
+          {
+            "name": "LuigiNativePrepare",
+            "entry_pc": 60921,
+            "bank": 127,
+            "entry_SP": 244,
+            "return_pc": 42097,
+            "return_SP": 246,
+            "inclusive_cycles": 19
+          },
+          {
+            "name": "LuigiSourceMovementBridge",
+            "entry_pc": 47449,
+            "bank": 1,
+            "entry_SP": 249,
+            "return_pc": 41243,
+            "return_SP": 251,
+            "inclusive_cycles": 1434
+          },
+          {
+            "name": "PlayerMovementSubs",
+            "entry_pc": 42426,
+            "bank": 1,
+            "entry_SP": 249,
+            "return_pc": 41243,
+            "return_SP": 251,
+            "inclusive_cycles": 1449
+          },
+          {
+            "name": "PlayerCtrlRoutine",
+            "entry_pc": 41155,
+            "bank": 1,
+            "entry_SP": 251,
+            "return_pc": 23296,
+            "return_SP": 253,
+            "inclusive_cycles": 5746
+          }
+        ]
+      },
+      "new_minus_old_cycles": 863
+    },
+    {
+      "mode": 0,
+      "kind": "coast",
+      "input": 0,
+      "old731": {
+        "cycles": 4966,
+        "minimum_SP": 229,
+        "complete_call_AXYP": [
+          1,
+          0,
+          6,
+          176
+        ],
+        "final_banks": [
+          126,
+          1,
+          88,
+          127
+        ],
+        "state": {
+          "update": 1,
+          "x": 354,
+          "y": 176,
+          "state": 0,
+          "vx": 0,
+          "vy": 0,
+          "camera": 256,
+          "crouch": 0,
+          "native_vx": 39,
+          "native_vy": 0,
+          "character": 8,
+          "power": 1
+        },
+        "bank_execution_cycles": {
+          "1": 790,
+          "127": 320,
+          "126": 2279,
+          "-1": 848,
+          "66": 137,
+          "72": 62,
+          "77": 105,
+          "93": 136,
+          "90": 106,
+          "89": 119,
+          "86": 34,
+          "96": 30
+        },
+        "actual_entry_return_costs": [
+          {
+            "name": "LuigiNativePrepare",
+            "entry_pc": 60921,
+            "bank": 127,
+            "entry_SP": 247,
+            "return_pc": 42505,
+            "return_SP": 249,
+            "inclusive_cycles": 19
+          },
+          {
+            "name": "LuigiNativeTraction",
+            "entry_pc": 47424,
+            "bank": 1,
+            "entry_SP": 245,
+            "return_pc": 43345,
+            "return_SP": 247,
+            "inclusive_cycles": 118
+          },
+          {
+            "name": "CrossoverMarioMovement",
+            "entry_pc": 42431,
+            "bank": 1,
+            "entry_SP": 249,
+            "return_pc": 41243,
+            "return_SP": 251,
+            "inclusive_cycles": 629
+          },
+          {
+            "name": "PlayerMovementSubs",
+            "entry_pc": 42426,
+            "bank": 1,
+            "entry_SP": 249,
+            "return_pc": 41243,
+            "return_SP": 251,
+            "inclusive_cycles": 669
+          },
+          {
+            "name": "PlayerCtrlRoutine",
+            "entry_pc": 41155,
+            "bank": 1,
+            "entry_SP": 251,
+            "return_pc": 23296,
+            "return_SP": 253,
+            "inclusive_cycles": 4966
+          }
+        ]
+      },
+      "new641": {
+        "cycles": 6192,
+        "minimum_SP": 229,
+        "complete_call_AXYP": [
+          1,
+          0,
+          6,
+          176
+        ],
+        "final_banks": [
+          126,
+          1,
+          88,
+          127
+        ],
+        "state": {
+          "update": 1,
+          "x": 353,
+          "y": 176,
+          "state": 0,
+          "vx": 81920,
+          "vy": 0,
+          "camera": 256,
+          "crouch": 0,
+          "native_vx": 20,
+          "native_vy": 0,
+          "character": 8,
+          "power": 1
+        },
+        "bank_execution_cycles": {
+          "1": 332,
+          "-1": 1219,
+          "78": 894,
+          "127": 320,
+          "3": 52,
+          "59": 396,
+          "29": 127,
+          "126": 2123,
+          "66": 137,
+          "72": 62,
+          "77": 105,
+          "93": 136,
+          "90": 106,
+          "89": 119,
+          "86": 34,
+          "96": 30
+        },
+        "actual_entry_return_costs": [
+          {
+            "name": "LuigiNativePrepare",
+            "entry_pc": 60921,
+            "bank": 127,
+            "entry_SP": 244,
+            "return_pc": 42097,
+            "return_SP": 246,
+            "inclusive_cycles": 19
+          },
+          {
+            "name": "LuigiSourceMovementBridge",
+            "entry_pc": 47449,
+            "bank": 1,
+            "entry_SP": 249,
+            "return_pc": 41243,
+            "return_SP": 251,
+            "inclusive_cycles": 1880
+          },
+          {
+            "name": "PlayerMovementSubs",
+            "entry_pc": 42426,
+            "bank": 1,
+            "entry_SP": 249,
+            "return_pc": 41243,
+            "return_SP": 251,
+            "inclusive_cycles": 1895
+          },
+          {
+            "name": "PlayerCtrlRoutine",
+            "entry_pc": 41155,
+            "bank": 1,
+            "entry_SP": 251,
+            "return_pc": 23296,
+            "return_SP": 253,
+            "inclusive_cycles": 6192
+          }
+        ]
+      },
+      "new_minus_old_cycles": 1226
+    },
+    {
+      "mode": 0,
+      "kind": "reverse",
+      "input": 2,
+      "old731": {
+        "cycles": 4967,
+        "minimum_SP": 229,
+        "complete_call_AXYP": [
+          1,
+          0,
+          6,
+          176
+        ],
+        "final_banks": [
+          126,
+          1,
+          88,
+          127
+        ],
+        "state": {
+          "update": 1,
+          "x": 354,
+          "y": 176,
+          "state": 0,
+          "vx": 0,
+          "vy": 0,
+          "camera": 256,
+          "crouch": 0,
+          "native_vx": 39,
+          "native_vy": 0,
+          "character": 8,
+          "power": 1
+        },
+        "bank_execution_cycles": {
+          "1": 791,
+          "127": 320,
+          "126": 2279,
+          "-1": 848,
+          "66": 137,
+          "72": 62,
+          "77": 105,
+          "93": 136,
+          "90": 106,
+          "89": 119,
+          "86": 34,
+          "96": 30
+        },
+        "actual_entry_return_costs": [
+          {
+            "name": "LuigiNativePrepare",
+            "entry_pc": 60921,
+            "bank": 127,
+            "entry_SP": 247,
+            "return_pc": 42505,
+            "return_SP": 249,
+            "inclusive_cycles": 19
+          },
+          {
+            "name": "LuigiNativeTraction",
+            "entry_pc": 47424,
+            "bank": 1,
+            "entry_SP": 245,
+            "return_pc": 43345,
+            "return_SP": 247,
+            "inclusive_cycles": 118
+          },
+          {
+            "name": "CrossoverMarioMovement",
+            "entry_pc": 42431,
+            "bank": 1,
+            "entry_SP": 249,
+            "return_pc": 41243,
+            "return_SP": 251,
+            "inclusive_cycles": 630
+          },
+          {
+            "name": "PlayerMovementSubs",
+            "entry_pc": 42426,
+            "bank": 1,
+            "entry_SP": 249,
+            "return_pc": 41243,
+            "return_SP": 251,
+            "inclusive_cycles": 670
+          },
+          {
+            "name": "PlayerCtrlRoutine",
+            "entry_pc": 41155,
+            "bank": 1,
+            "entry_SP": 251,
+            "return_pc": 23296,
+            "return_SP": 253,
+            "inclusive_cycles": 4967
+          }
+        ]
+      },
+      "new641": {
+        "cycles": 6285,
+        "minimum_SP": 229,
+        "complete_call_AXYP": [
+          1,
+          0,
+          6,
+          176
+        ],
+        "final_banks": [
+          126,
+          1,
+          88,
+          127
+        ],
+        "state": {
+          "update": 1,
+          "x": 353,
+          "y": 176,
+          "state": 0,
+          "vx": 81920,
+          "vy": 0,
+          "camera": 256,
+          "crouch": 0,
+          "native_vx": 20,
+          "native_vy": 0,
+          "character": 8,
+          "power": 1
+        },
+        "bank_execution_cycles": {
+          "1": 456,
+          "-1": 1219,
+          "78": 990,
+          "127": 320,
+          "3": 52,
+          "59": 396,
+          "126": 2123,
+          "66": 137,
+          "72": 62,
+          "77": 105,
+          "93": 136,
+          "90": 106,
+          "89": 119,
+          "86": 34,
+          "96": 30
+        },
+        "actual_entry_return_costs": [
+          {
+            "name": "LuigiNativePrepare",
+            "entry_pc": 60921,
+            "bank": 127,
+            "entry_SP": 244,
+            "return_pc": 42097,
+            "return_SP": 246,
+            "inclusive_cycles": 19
+          },
+          {
+            "name": "LuigiSourceMovementBridge",
+            "entry_pc": 47449,
+            "bank": 1,
+            "entry_SP": 249,
+            "return_pc": 41243,
+            "return_SP": 251,
+            "inclusive_cycles": 1973
+          },
+          {
+            "name": "PlayerMovementSubs",
+            "entry_pc": 42426,
+            "bank": 1,
+            "entry_SP": 249,
+            "return_pc": 41243,
+            "return_SP": 251,
+            "inclusive_cycles": 1988
+          },
+          {
+            "name": "PlayerCtrlRoutine",
+            "entry_pc": 41155,
+            "bank": 1,
+            "entry_SP": 251,
+            "return_pc": 23296,
+            "return_SP": 253,
+            "inclusive_cycles": 6285
+          }
+        ]
+      },
+      "new_minus_old_cycles": 1318
+    },
+    {
+      "mode": 0,
+      "kind": "jump",
+      "input": 128,
+      "old731": {
+        "cycles": 4938,
+        "minimum_SP": 229,
+        "complete_call_AXYP": [
+          1,
+          0,
+          6,
+          176
+        ],
+        "final_banks": [
+          126,
+          1,
+          88,
+          127
+        ],
+        "state": {
+          "update": 1,
+          "x": 352,
+          "y": 171,
+          "state": 1,
+          "vx": 0,
+          "vy": 0,
+          "camera": 256,
+          "crouch": 0,
+          "native_vx": 0,
+          "native_vy": 251,
+          "character": 8,
+          "power": 1
+        },
+        "bank_execution_cycles": {
+          "1": 828,
+          "127": 291,
+          "126": 2242,
+          "-1": 848,
+          "66": 137,
+          "72": 62,
+          "77": 105,
+          "93": 136,
+          "90": 106,
+          "89": 119,
+          "86": 34,
+          "96": 30
+        },
+        "actual_entry_return_costs": [
+          {
+            "name": "LuigiNativePrepare",
+            "entry_pc": 60921,
+            "bank": 127,
+            "entry_SP": 247,
+            "return_pc": 42505,
+            "return_SP": 249,
+            "inclusive_cycles": 19
+          },
+          {
+            "name": "LuigiNativeTraction",
+            "entry_pc": 47424,
+            "bank": 1,
+            "entry_SP": 245,
+            "return_pc": 43345,
+            "return_SP": 247,
+            "inclusive_cycles": 33
+          },
+          {
+            "name": "CrossoverMarioMovement",
+            "entry_pc": 42431,
+            "bank": 1,
+            "entry_SP": 249,
+            "return_pc": 41243,
+            "return_SP": 251,
+            "inclusive_cycles": 775
+          },
+          {
+            "name": "PlayerMovementSubs",
+            "entry_pc": 42426,
+            "bank": 1,
+            "entry_SP": 249,
+            "return_pc": 41243,
+            "return_SP": 251,
+            "inclusive_cycles": 815
+          },
+          {
+            "name": "PlayerCtrlRoutine",
+            "entry_pc": 41155,
+            "bank": 1,
+            "entry_SP": 251,
+            "return_pc": 23296,
+            "return_SP": 253,
+            "inclusive_cycles": 4938
+          }
+        ]
+      },
+      "new641": {
+        "cycles": 5406,
+        "minimum_SP": 229,
+        "complete_call_AXYP": [
+          1,
+          0,
+          6,
+          176
+        ],
+        "final_banks": [
+          126,
+          1,
+          88,
+          127
+        ],
+        "state": {
+          "update": 1,
+          "x": 352,
+          "y": 170,
+          "state": 1,
+          "vx": 0,
+          "vy": -355300,
+          "camera": 256,
+          "crouch": 0,
+          "native_vx": 0,
+          "native_vy": 250,
+          "character": 8,
+          "power": 1
+        },
+        "bank_execution_cycles": {
+          "1": 327,
+          "-1": 1166,
+          "78": 652,
+          "127": 291,
+          "59": 211,
+          "3": 47,
+          "126": 1983,
+          "66": 137,
+          "72": 62,
+          "77": 105,
+          "93": 136,
+          "90": 106,
+          "89": 119,
+          "86": 34,
+          "96": 30
+        },
+        "actual_entry_return_costs": [
+          {
+            "name": "LuigiNativePrepare",
+            "entry_pc": 60921,
+            "bank": 127,
+            "entry_SP": 244,
+            "return_pc": 42097,
+            "return_SP": 246,
+            "inclusive_cycles": 19
+          },
+          {
+            "name": "LuigiSourceMovementBridge",
+            "entry_pc": 47449,
+            "bank": 1,
+            "entry_SP": 249,
+            "return_pc": 41243,
+            "return_SP": 251,
+            "inclusive_cycles": 1268
+          },
+          {
+            "name": "PlayerMovementSubs",
+            "entry_pc": 42426,
+            "bank": 1,
+            "entry_SP": 249,
+            "return_pc": 41243,
+            "return_SP": 251,
+            "inclusive_cycles": 1283
+          },
+          {
+            "name": "PlayerCtrlRoutine",
+            "entry_pc": 41155,
+            "bank": 1,
+            "entry_SP": 251,
+            "return_pc": 23296,
+            "return_SP": 253,
+            "inclusive_cycles": 5406
+          }
+        ]
+      },
+      "new_minus_old_cycles": 468
+    },
+    {
+      "mode": 0,
+      "kind": "run-jump",
+      "input": 193,
+      "old731": {
+        "cycles": 5003,
+        "minimum_SP": 229,
+        "complete_call_AXYP": [
+          1,
+          0,
+          6,
+          176
+        ],
+        "final_banks": [
+          126,
+          1,
+          88,
+          127
+        ],
+        "state": {
+          "update": 1,
+          "x": 354,
+          "y": 170,
+          "state": 1,
+          "vx": 0,
+          "vy": 0,
+          "camera": 256,
+          "crouch": 0,
+          "native_vx": 40,
+          "native_vy": 250,
+          "character": 8,
+          "power": 1
+        },
+        "bank_execution_cycles": {
+          "1": 893,
+          "127": 291,
+          "126": 2242,
+          "-1": 848,
+          "66": 137,
+          "72": 62,
+          "77": 105,
+          "93": 136,
+          "90": 106,
+          "89": 119,
+          "86": 34,
+          "96": 30
+        },
+        "actual_entry_return_costs": [
+          {
+            "name": "LuigiNativePrepare",
+            "entry_pc": 60921,
+            "bank": 127,
+            "entry_SP": 247,
+            "return_pc": 42505,
+            "return_SP": 249,
+            "inclusive_cycles": 19
+          },
+          {
+            "name": "LuigiNativeTraction",
+            "entry_pc": 47424,
+            "bank": 1,
+            "entry_SP": 245,
+            "return_pc": 43345,
+            "return_SP": 247,
+            "inclusive_cycles": 33
+          },
+          {
+            "name": "CrossoverMarioMovement",
+            "entry_pc": 42431,
+            "bank": 1,
+            "entry_SP": 249,
+            "return_pc": 41243,
+            "return_SP": 251,
+            "inclusive_cycles": 835
+          },
+          {
+            "name": "PlayerMovementSubs",
+            "entry_pc": 42426,
+            "bank": 1,
+            "entry_SP": 249,
+            "return_pc": 41243,
+            "return_SP": 251,
+            "inclusive_cycles": 875
+          },
+          {
+            "name": "PlayerCtrlRoutine",
+            "entry_pc": 41155,
+            "bank": 1,
+            "entry_SP": 251,
+            "return_pc": 23296,
+            "return_SP": 253,
+            "inclusive_cycles": 5003
+          }
+        ]
+      },
+      "new641": {
+        "cycles": 6025,
+        "minimum_SP": 229,
+        "complete_call_AXYP": [
+          1,
+          0,
+          6,
+          176
+        ],
+        "final_banks": [
+          126,
+          1,
+          88,
+          127
+        ],
+        "state": {
+          "update": 1,
+          "x": 354,
+          "y": 170,
+          "state": 1,
+          "vx": 163840,
+          "vy": -382606,
+          "camera": 256,
+          "crouch": 0,
+          "native_vx": 40,
+          "native_vy": 250,
+          "character": 8,
+          "power": 1
+        },
+        "bank_execution_cycles": {
+          "1": 332,
+          "-1": 1219,
+          "78": 976,
+          "127": 291,
+          "59": 443,
+          "3": 52,
+          "126": 1983,
+          "66": 137,
+          "72": 62,
+          "77": 105,
+          "93": 136,
+          "90": 106,
+          "89": 119,
+          "86": 34,
+          "96": 30
+        },
+        "actual_entry_return_costs": [
+          {
+            "name": "LuigiNativePrepare",
+            "entry_pc": 60921,
+            "bank": 127,
+            "entry_SP": 244,
+            "return_pc": 42097,
+            "return_SP": 246,
+            "inclusive_cycles": 19
+          },
+          {
+            "name": "LuigiSourceMovementBridge",
+            "entry_pc": 47449,
+            "bank": 1,
+            "entry_SP": 249,
+            "return_pc": 41243,
+            "return_SP": 251,
+            "inclusive_cycles": 1882
+          },
+          {
+            "name": "PlayerMovementSubs",
+            "entry_pc": 42426,
+            "bank": 1,
+            "entry_SP": 249,
+            "return_pc": 41243,
+            "return_SP": 251,
+            "inclusive_cycles": 1897
+          },
+          {
+            "name": "PlayerCtrlRoutine",
+            "entry_pc": 41155,
+            "bank": 1,
+            "entry_SP": 251,
+            "return_pc": 23296,
+            "return_SP": 253,
+            "inclusive_cycles": 6025
+          }
+        ]
+      },
+      "new_minus_old_cycles": 1022
+    },
+    {
+      "mode": 0,
+      "kind": "release",
+      "input": 0,
+      "old731": {
+        "cycles": 4758,
+        "minimum_SP": 229,
+        "complete_call_AXYP": [
+          1,
+          0,
+          6,
+          176
+        ],
+        "final_banks": [
+          126,
+          1,
+          88,
+          127
+        ],
+        "state": {
+          "update": 1,
+          "x": 352,
+          "y": 151,
+          "state": 1,
+          "vx": 0,
+          "vy": -229376,
+          "camera": 256,
+          "crouch": 0,
+          "native_vx": 0,
+          "native_vy": 252,
+          "character": 8,
+          "power": 1
+        },
+        "bank_execution_cycles": {
+          "1": 648,
+          "127": 291,
+          "126": 2242,
+          "-1": 848,
+          "66": 137,
+          "72": 62,
+          "77": 105,
+          "93": 136,
+          "90": 106,
+          "89": 119,
+          "86": 34,
+          "96": 30
+        },
+        "actual_entry_return_costs": [
+          {
+            "name": "LuigiNativePrepare",
+            "entry_pc": 60921,
+            "bank": 127,
+            "entry_SP": 247,
+            "return_pc": 42505,
+            "return_SP": 249,
+            "inclusive_cycles": 19
+          },
+          {
+            "name": "LuigiNativeTraction",
+            "entry_pc": 47424,
+            "bank": 1,
+            "entry_SP": 245,
+            "return_pc": 43345,
+            "return_SP": 247,
+            "inclusive_cycles": 33
+          },
+          {
+            "name": "CrossoverMarioMovement",
+            "entry_pc": 42431,
+            "bank": 1,
+            "entry_SP": 249,
+            "return_pc": 41243,
+            "return_SP": 251,
+            "inclusive_cycles": 595
+          },
+          {
+            "name": "PlayerMovementSubs",
+            "entry_pc": 42426,
+            "bank": 1,
+            "entry_SP": 249,
+            "return_pc": 41243,
+            "return_SP": 251,
+            "inclusive_cycles": 635
+          },
+          {
+            "name": "PlayerCtrlRoutine",
+            "entry_pc": 41155,
+            "bank": 1,
+            "entry_SP": 251,
+            "return_pc": 23296,
+            "return_SP": 253,
+            "inclusive_cycles": 4758
+          }
+        ]
+      },
+      "new641": {
+        "cycles": 5641,
+        "minimum_SP": 229,
+        "complete_call_AXYP": [
+          1,
+          0,
+          6,
+          176
+        ],
+        "final_banks": [
+          126,
+          1,
+          88,
+          127
+        ],
+        "state": {
+          "update": 1,
+          "x": 352,
+          "y": 152,
+          "state": 1,
+          "vx": 0,
+          "vy": -183992,
+          "camera": 256,
+          "crouch": 0,
+          "native_vx": 0,
+          "native_vy": 253,
+          "character": 8,
+          "power": 1
+        },
+        "bank_execution_cycles": {
+          "1": 451,
+          "-1": 1272,
+          "78": 629,
+          "127": 291,
+          "3": 123,
+          "59": 163,
+          "126": 1983,
+          "66": 137,
+          "72": 62,
+          "77": 105,
+          "93": 136,
+          "90": 106,
+          "89": 119,
+          "86": 34,
+          "96": 30
+        },
+        "actual_entry_return_costs": [
+          {
+            "name": "LuigiNativePrepare",
+            "entry_pc": 60921,
+            "bank": 127,
+            "entry_SP": 244,
+            "return_pc": 42097,
+            "return_SP": 246,
+            "inclusive_cycles": 19
+          },
+          {
+            "name": "LuigiSourceMovementBridge",
+            "entry_pc": 47449,
+            "bank": 1,
+            "entry_SP": 249,
+            "return_pc": 41243,
+            "return_SP": 251,
+            "inclusive_cycles": 1503
+          },
+          {
+            "name": "PlayerMovementSubs",
+            "entry_pc": 42426,
+            "bank": 1,
+            "entry_SP": 249,
+            "return_pc": 41243,
+            "return_SP": 251,
+            "inclusive_cycles": 1518
+          },
+          {
+            "name": "PlayerCtrlRoutine",
+            "entry_pc": 41155,
+            "bank": 1,
+            "entry_SP": 251,
+            "return_pc": 23296,
+            "return_SP": 253,
+            "inclusive_cycles": 5641
+          }
+        ]
+      },
+      "new_minus_old_cycles": 883
+    },
+    {
+      "mode": 0,
+      "kind": "landing",
+      "input": 0,
+      "old731": {
+        "cycles": 4937,
+        "minimum_SP": 229,
+        "complete_call_AXYP": [
+          1,
+          0,
+          6,
+          176
+        ],
+        "final_banks": [
+          126,
+          1,
+          88,
+          127
+        ],
+        "state": {
+          "update": 1,
+          "x": 352,
+          "y": 176,
+          "state": 0,
+          "vx": 0,
+          "vy": 131072,
+          "camera": 256,
+          "crouch": 0,
+          "native_vx": 0,
+          "native_vy": 0,
+          "character": 8,
+          "power": 1
+        },
+        "bank_execution_cycles": {
+          "1": 612,
+          "127": 320,
+          "126": 2380,
+          "-1": 848,
+          "66": 137,
+          "72": 62,
+          "77": 105,
+          "93": 136,
+          "90": 106,
+          "89": 119,
+          "86": 82,
+          "96": 30
+        },
+        "actual_entry_return_costs": [
+          {
+            "name": "LuigiNativePrepare",
+            "entry_pc": 60921,
+            "bank": 127,
+            "entry_SP": 247,
+            "return_pc": 42505,
+            "return_SP": 249,
+            "inclusive_cycles": 19
+          },
+          {
+            "name": "LuigiNativeTraction",
+            "entry_pc": 47424,
+            "bank": 1,
+            "entry_SP": 245,
+            "return_pc": 43345,
+            "return_SP": 247,
+            "inclusive_cycles": 33
+          },
+          {
+            "name": "CrossoverMarioMovement",
+            "entry_pc": 42431,
+            "bank": 1,
+            "entry_SP": 249,
+            "return_pc": 41243,
+            "return_SP": 251,
+            "inclusive_cycles": 558
+          },
+          {
+            "name": "PlayerMovementSubs",
+            "entry_pc": 42426,
+            "bank": 1,
+            "entry_SP": 249,
+            "return_pc": 41243,
+            "return_SP": 251,
+            "inclusive_cycles": 598
+          },
+          {
+            "name": "PlayerCtrlRoutine",
+            "entry_pc": 41155,
+            "bank": 1,
+            "entry_SP": 251,
+            "return_pc": 23296,
+            "return_SP": 253,
+            "inclusive_cycles": 4937
+          }
+        ]
+      },
+      "new641": {
+        "cycles": 5348,
+        "minimum_SP": 229,
+        "complete_call_AXYP": [
+          1,
+          0,
+          6,
+          176
+        ],
+        "final_banks": [
+          126,
+          1,
+          88,
+          127
+        ],
+        "state": {
+          "update": 1,
+          "x": 352,
+          "y": 176,
+          "state": 0,
+          "vx": 0,
+          "vy": 143815,
+          "camera": 256,
+          "crouch": 0,
+          "native_vx": 0,
+          "native_vy": 0,
+          "character": 8,
+          "power": 1
+        },
+        "bank_execution_cycles": {
+          "1": 327,
+          "-1": 1113,
+          "78": 479,
+          "127": 320,
+          "3": 47,
+          "59": 163,
+          "126": 2122,
+          "66": 137,
+          "72": 62,
+          "77": 105,
+          "93": 136,
+          "90": 106,
+          "89": 119,
+          "86": 82,
+          "96": 30
+        },
+        "actual_entry_return_costs": [
+          {
+            "name": "LuigiNativePrepare",
+            "entry_pc": 60921,
+            "bank": 127,
+            "entry_SP": 244,
+            "return_pc": 42097,
+            "return_SP": 246,
+            "inclusive_cycles": 19
+          },
+          {
+            "name": "LuigiSourceMovementBridge",
+            "entry_pc": 47449,
+            "bank": 1,
+            "entry_SP": 249,
+            "return_pc": 41243,
+            "return_SP": 251,
+            "inclusive_cycles": 994
+          },
+          {
+            "name": "PlayerMovementSubs",
+            "entry_pc": 42426,
+            "bank": 1,
+            "entry_SP": 249,
+            "return_pc": 41243,
+            "return_SP": 251,
+            "inclusive_cycles": 1009
+          },
+          {
+            "name": "PlayerCtrlRoutine",
+            "entry_pc": 41155,
+            "bank": 1,
+            "entry_SP": 251,
+            "return_pc": 23296,
+            "return_SP": 253,
+            "inclusive_cycles": 5348
+          }
+        ]
+      },
+      "new_minus_old_cycles": 411
+    },
+    {
+      "mode": 1,
+      "kind": "cold",
+      "input": 0,
+      "old731": {
+        "cycles": 4855,
+        "minimum_SP": 229,
+        "complete_call_AXYP": [
+          1,
+          0,
+          6,
+          176
+        ],
+        "final_banks": [
+          126,
+          1,
+          88,
+          127
+        ],
+        "state": {
+          "update": 1,
+          "x": 352,
+          "y": 176,
+          "state": 0,
+          "vx": 0,
+          "vy": 0,
+          "camera": 256,
+          "crouch": 0,
+          "native_vx": 0,
+          "native_vy": 0,
+          "character": 8,
+          "power": 1
+        },
+        "bank_execution_cycles": {
+          "1": 679,
+          "127": 320,
+          "126": 2279,
+          "-1": 848,
+          "66": 137,
+          "72": 62,
+          "77": 105,
+          "93": 136,
+          "90": 106,
+          "89": 119,
+          "86": 34,
+          "96": 30
+        },
+        "actual_entry_return_costs": [
+          {
+            "name": "LuigiNativePrepare",
+            "entry_pc": 60921,
+            "bank": 127,
+            "entry_SP": 247,
+            "return_pc": 42505,
+            "return_SP": 249,
+            "inclusive_cycles": 19
+          },
+          {
+            "name": "LuigiNativeTraction",
+            "entry_pc": 47424,
+            "bank": 1,
+            "entry_SP": 245,
+            "return_pc": 43345,
+            "return_SP": 247,
+            "inclusive_cycles": 38
+          },
+          {
+            "name": "CrossoverMarioMovement",
+            "entry_pc": 42431,
+            "bank": 1,
+            "entry_SP": 249,
+            "return_pc": 41243,
+            "return_SP": 251,
+            "inclusive_cycles": 512
+          },
+          {
+            "name": "PlayerMovementSubs",
+            "entry_pc": 42426,
+            "bank": 1,
+            "entry_SP": 249,
+            "return_pc": 41243,
+            "return_SP": 251,
+            "inclusive_cycles": 552
+          },
+          {
+            "name": "PlayerCtrlRoutine",
+            "entry_pc": 41155,
+            "bank": 1,
+            "entry_SP": 251,
+            "return_pc": 23296,
+            "return_SP": 253,
+            "inclusive_cycles": 4855
+          }
+        ]
+      },
+      "new641": {
+        "cycles": 6114,
+        "minimum_SP": 229,
+        "complete_call_AXYP": [
+          1,
+          0,
+          6,
+          176
+        ],
+        "final_banks": [
+          126,
+          1,
+          88,
+          127
+        ],
+        "state": {
+          "update": 1,
+          "x": 352,
+          "y": 176,
+          "state": 0,
+          "vx": 0,
+          "vy": 0,
+          "camera": 256,
+          "crouch": 0,
+          "native_vx": 0,
+          "native_vy": 0,
+          "character": 8,
+          "power": 1
+        },
+        "bank_execution_cycles": {
+          "1": 338,
+          "-1": 1219,
+          "78": 978,
+          "127": 320,
+          "3": 47,
+          "59": 236,
+          "29": 124,
+          "126": 2123,
+          "66": 137,
+          "72": 62,
+          "77": 105,
+          "93": 136,
+          "90": 106,
+          "89": 119,
+          "86": 34,
+          "96": 30
+        },
+        "actual_entry_return_costs": [
+          {
+            "name": "LuigiNativePrepare",
+            "entry_pc": 60921,
+            "bank": 127,
+            "entry_SP": 244,
+            "return_pc": 42097,
+            "return_SP": 246,
+            "inclusive_cycles": 19
+          },
+          {
+            "name": "LuigiSourceMovementBridge",
+            "entry_pc": 47449,
+            "bank": 1,
+            "entry_SP": 249,
+            "return_pc": 41243,
+            "return_SP": 251,
+            "inclusive_cycles": 1796
+          },
+          {
+            "name": "PlayerMovementSubs",
+            "entry_pc": 42426,
+            "bank": 1,
+            "entry_SP": 249,
+            "return_pc": 41243,
+            "return_SP": 251,
+            "inclusive_cycles": 1811
+          },
+          {
+            "name": "PlayerCtrlRoutine",
+            "entry_pc": 41155,
+            "bank": 1,
+            "entry_SP": 251,
+            "return_pc": 23296,
+            "return_SP": 253,
+            "inclusive_cycles": 6114
+          }
+        ]
+      },
+      "new_minus_old_cycles": 1259
+    },
+    {
+      "mode": 1,
+      "kind": "idle",
+      "input": 0,
+      "old731": {
+        "cycles": 4855,
+        "minimum_SP": 229,
+        "complete_call_AXYP": [
+          1,
+          0,
+          6,
+          176
+        ],
+        "final_banks": [
+          126,
+          1,
+          88,
+          127
+        ],
+        "state": {
+          "update": 1,
+          "x": 352,
+          "y": 176,
+          "state": 0,
+          "vx": 0,
+          "vy": 0,
+          "camera": 256,
+          "crouch": 0,
+          "native_vx": 0,
+          "native_vy": 0,
+          "character": 8,
+          "power": 1
+        },
+        "bank_execution_cycles": {
+          "1": 679,
+          "127": 320,
+          "126": 2279,
+          "-1": 848,
+          "66": 137,
+          "72": 62,
+          "77": 105,
+          "93": 136,
+          "90": 106,
+          "89": 119,
+          "86": 34,
+          "96": 30
+        },
+        "actual_entry_return_costs": [
+          {
+            "name": "LuigiNativePrepare",
+            "entry_pc": 60921,
+            "bank": 127,
+            "entry_SP": 247,
+            "return_pc": 42505,
+            "return_SP": 249,
+            "inclusive_cycles": 19
+          },
+          {
+            "name": "LuigiNativeTraction",
+            "entry_pc": 47424,
+            "bank": 1,
+            "entry_SP": 245,
+            "return_pc": 43345,
+            "return_SP": 247,
+            "inclusive_cycles": 38
+          },
+          {
+            "name": "CrossoverMarioMovement",
+            "entry_pc": 42431,
+            "bank": 1,
+            "entry_SP": 249,
+            "return_pc": 41243,
+            "return_SP": 251,
+            "inclusive_cycles": 512
+          },
+          {
+            "name": "PlayerMovementSubs",
+            "entry_pc": 42426,
+            "bank": 1,
+            "entry_SP": 249,
+            "return_pc": 41243,
+            "return_SP": 251,
+            "inclusive_cycles": 552
+          },
+          {
+            "name": "PlayerCtrlRoutine",
+            "entry_pc": 41155,
+            "bank": 1,
+            "entry_SP": 251,
+            "return_pc": 23296,
+            "return_SP": 253,
+            "inclusive_cycles": 4855
+          }
+        ]
+      },
+      "new641": {
+        "cycles": 6025,
+        "minimum_SP": 229,
+        "complete_call_AXYP": [
+          1,
+          0,
+          6,
+          176
+        ],
+        "final_banks": [
+          126,
+          1,
+          88,
+          127
+        ],
+        "state": {
+          "update": 1,
+          "x": 352,
+          "y": 176,
+          "state": 0,
+          "vx": 0,
+          "vy": 0,
+          "camera": 256,
+          "crouch": 0,
+          "native_vx": 0,
+          "native_vy": 0,
+          "character": 8,
+          "power": 1
+        },
+        "bank_execution_cycles": {
+          "1": 338,
+          "-1": 1219,
+          "78": 889,
+          "127": 320,
+          "3": 47,
+          "59": 236,
+          "29": 124,
+          "126": 2123,
+          "66": 137,
+          "72": 62,
+          "77": 105,
+          "93": 136,
+          "90": 106,
+          "89": 119,
+          "86": 34,
+          "96": 30
+        },
+        "actual_entry_return_costs": [
+          {
+            "name": "LuigiNativePrepare",
+            "entry_pc": 60921,
+            "bank": 127,
+            "entry_SP": 244,
+            "return_pc": 42097,
+            "return_SP": 246,
+            "inclusive_cycles": 19
+          },
+          {
+            "name": "LuigiSourceMovementBridge",
+            "entry_pc": 47449,
+            "bank": 1,
+            "entry_SP": 249,
+            "return_pc": 41243,
+            "return_SP": 251,
+            "inclusive_cycles": 1707
+          },
+          {
+            "name": "PlayerMovementSubs",
+            "entry_pc": 42426,
+            "bank": 1,
+            "entry_SP": 249,
+            "return_pc": 41243,
+            "return_SP": 251,
+            "inclusive_cycles": 1722
+          },
+          {
+            "name": "PlayerCtrlRoutine",
+            "entry_pc": 41155,
+            "bank": 1,
+            "entry_SP": 251,
+            "return_pc": 23296,
+            "return_SP": 253,
+            "inclusive_cycles": 6025
+          }
+        ]
+      },
+      "new_minus_old_cycles": 1170
+    },
+    {
+      "mode": 1,
+      "kind": "walk",
+      "input": 1,
+      "old731": {
+        "cycles": 4934,
+        "minimum_SP": 229,
+        "complete_call_AXYP": [
+          1,
+          0,
+          6,
+          176
+        ],
+        "final_banks": [
+          126,
+          1,
+          88,
+          127
+        ],
+        "state": {
+          "update": 1,
+          "x": 353,
+          "y": 176,
+          "state": 0,
+          "vx": 0,
+          "vy": 0,
+          "camera": 256,
+          "crouch": 0,
+          "native_vx": 16,
+          "native_vy": 0,
+          "character": 8,
+          "power": 1
+        },
+        "bank_execution_cycles": {
+          "1": 758,
+          "127": 320,
+          "126": 2279,
+          "-1": 848,
+          "66": 137,
+          "72": 62,
+          "77": 105,
+          "93": 136,
+          "90": 106,
+          "89": 119,
+          "86": 34,
+          "96": 30
+        },
+        "actual_entry_return_costs": [
+          {
+            "name": "LuigiNativePrepare",
+            "entry_pc": 60921,
+            "bank": 127,
+            "entry_SP": 247,
+            "return_pc": 42505,
+            "return_SP": 249,
+            "inclusive_cycles": 19
+          },
+          {
+            "name": "LuigiNativeTraction",
+            "entry_pc": 47424,
+            "bank": 1,
+            "entry_SP": 245,
+            "return_pc": 43345,
+            "return_SP": 247,
+            "inclusive_cycles": 48
+          },
+          {
+            "name": "CrossoverMarioMovement",
+            "entry_pc": 42431,
+            "bank": 1,
+            "entry_SP": 249,
+            "return_pc": 41243,
+            "return_SP": 251,
+            "inclusive_cycles": 586
+          },
+          {
+            "name": "PlayerMovementSubs",
+            "entry_pc": 42426,
+            "bank": 1,
+            "entry_SP": 249,
+            "return_pc": 41243,
+            "return_SP": 251,
+            "inclusive_cycles": 626
+          },
+          {
+            "name": "PlayerCtrlRoutine",
+            "entry_pc": 41155,
+            "bank": 1,
+            "entry_SP": 251,
+            "return_pc": 23296,
+            "return_SP": 253,
+            "inclusive_cycles": 4934
+          }
+        ]
+      },
+      "new641": {
+        "cycles": 5645,
+        "minimum_SP": 229,
+        "complete_call_AXYP": [
+          1,
+          0,
+          6,
+          176
+        ],
+        "final_banks": [
+          126,
+          1,
+          88,
+          127
+        ],
+        "state": {
+          "update": 1,
+          "x": 353,
+          "y": 176,
+          "state": 0,
+          "vx": 68722,
+          "vy": 0,
+          "camera": 256,
+          "crouch": 0,
+          "native_vx": 16,
+          "native_vy": 0,
+          "character": 8,
+          "power": 1
+        },
+        "bank_execution_cycles": {
+          "1": 343,
+          "-1": 1113,
+          "78": 623,
+          "127": 320,
+          "3": 52,
+          "59": 342,
+          "126": 2123,
+          "66": 137,
+          "72": 62,
+          "77": 105,
+          "93": 136,
+          "90": 106,
+          "89": 119,
+          "86": 34,
+          "96": 30
+        },
+        "actual_entry_return_costs": [
+          {
+            "name": "LuigiNativePrepare",
+            "entry_pc": 60921,
+            "bank": 127,
+            "entry_SP": 244,
+            "return_pc": 42097,
+            "return_SP": 246,
+            "inclusive_cycles": 19
+          },
+          {
+            "name": "LuigiSourceMovementBridge",
+            "entry_pc": 47449,
+            "bank": 1,
+            "entry_SP": 249,
+            "return_pc": 41243,
+            "return_SP": 251,
+            "inclusive_cycles": 1322
+          },
+          {
+            "name": "PlayerMovementSubs",
+            "entry_pc": 42426,
+            "bank": 1,
+            "entry_SP": 249,
+            "return_pc": 41243,
+            "return_SP": 251,
+            "inclusive_cycles": 1337
+          },
+          {
+            "name": "PlayerCtrlRoutine",
+            "entry_pc": 41155,
+            "bank": 1,
+            "entry_SP": 251,
+            "return_pc": 23296,
+            "return_SP": 253,
+            "inclusive_cycles": 5645
+          }
+        ]
+      },
+      "new_minus_old_cycles": 711
+    },
+    {
+      "mode": 1,
+      "kind": "run",
+      "input": 65,
+      "old731": {
+        "cycles": 4894,
+        "minimum_SP": 229,
+        "complete_call_AXYP": [
+          1,
+          0,
+          6,
+          176
+        ],
+        "final_banks": [
+          126,
+          1,
+          88,
+          127
+        ],
+        "state": {
+          "update": 1,
+          "x": 354,
+          "y": 176,
+          "state": 0,
+          "vx": 0,
+          "vy": 0,
+          "camera": 256,
+          "crouch": 0,
+          "native_vx": 40,
+          "native_vy": 0,
+          "character": 8,
+          "power": 1
+        },
+        "bank_execution_cycles": {
+          "1": 718,
+          "127": 320,
+          "126": 2279,
+          "-1": 848,
+          "66": 137,
+          "72": 62,
+          "77": 105,
+          "93": 136,
+          "90": 106,
+          "89": 119,
+          "86": 34,
+          "96": 30
+        },
+        "actual_entry_return_costs": [
+          {
+            "name": "LuigiNativePrepare",
+            "entry_pc": 60921,
+            "bank": 127,
+            "entry_SP": 247,
+            "return_pc": 42505,
+            "return_SP": 249,
+            "inclusive_cycles": 19
+          },
+          {
+            "name": "LuigiNativeTraction",
+            "entry_pc": 47424,
+            "bank": 1,
+            "entry_SP": 245,
+            "return_pc": 43345,
+            "return_SP": 247,
+            "inclusive_cycles": 48
+          },
+          {
+            "name": "CrossoverMarioMovement",
+            "entry_pc": 42431,
+            "bank": 1,
+            "entry_SP": 249,
+            "return_pc": 41243,
+            "return_SP": 251,
+            "inclusive_cycles": 546
+          },
+          {
+            "name": "PlayerMovementSubs",
+            "entry_pc": 42426,
+            "bank": 1,
+            "entry_SP": 249,
+            "return_pc": 41243,
+            "return_SP": 251,
+            "inclusive_cycles": 586
+          },
+          {
+            "name": "PlayerCtrlRoutine",
+            "entry_pc": 41155,
+            "bank": 1,
+            "entry_SP": 251,
+            "return_pc": 23296,
+            "return_SP": 253,
+            "inclusive_cycles": 4894
+          }
+        ]
+      },
+      "new641": {
+        "cycles": 5768,
+        "minimum_SP": 229,
+        "complete_call_AXYP": [
+          1,
+          0,
+          6,
+          176
+        ],
+        "final_banks": [
+          126,
+          1,
+          88,
+          127
+        ],
+        "state": {
+          "update": 1,
+          "x": 354,
+          "y": 176,
+          "state": 0,
+          "vx": 163840,
+          "vy": 0,
+          "camera": 256,
+          "crouch": 0,
+          "native_vx": 40,
+          "native_vy": 0,
+          "character": 8,
+          "power": 1
+        },
+        "bank_execution_cycles": {
+          "1": 343,
+          "-1": 1113,
+          "78": 715,
+          "127": 320,
+          "3": 52,
+          "59": 373,
+          "126": 2123,
+          "66": 137,
+          "72": 62,
+          "77": 105,
+          "93": 136,
+          "90": 106,
+          "89": 119,
+          "86": 34,
+          "96": 30
+        },
+        "actual_entry_return_costs": [
+          {
+            "name": "LuigiNativePrepare",
+            "entry_pc": 60921,
+            "bank": 127,
+            "entry_SP": 244,
+            "return_pc": 42097,
+            "return_SP": 246,
+            "inclusive_cycles": 19
+          },
+          {
+            "name": "LuigiSourceMovementBridge",
+            "entry_pc": 47449,
+            "bank": 1,
+            "entry_SP": 249,
+            "return_pc": 41243,
+            "return_SP": 251,
+            "inclusive_cycles": 1445
+          },
+          {
+            "name": "PlayerMovementSubs",
+            "entry_pc": 42426,
+            "bank": 1,
+            "entry_SP": 249,
+            "return_pc": 41243,
+            "return_SP": 251,
+            "inclusive_cycles": 1460
+          },
+          {
+            "name": "PlayerCtrlRoutine",
+            "entry_pc": 41155,
+            "bank": 1,
+            "entry_SP": 251,
+            "return_pc": 23296,
+            "return_SP": 253,
+            "inclusive_cycles": 5768
+          }
+        ]
+      },
+      "new_minus_old_cycles": 874
+    },
+    {
+      "mode": 1,
+      "kind": "coast",
+      "input": 0,
+      "old731": {
+        "cycles": 4977,
+        "minimum_SP": 229,
+        "complete_call_AXYP": [
+          1,
+          0,
+          6,
+          176
+        ],
+        "final_banks": [
+          126,
+          1,
+          88,
+          127
+        ],
+        "state": {
+          "update": 1,
+          "x": 354,
+          "y": 176,
+          "state": 0,
+          "vx": 0,
+          "vy": 0,
+          "camera": 256,
+          "crouch": 0,
+          "native_vx": 39,
+          "native_vy": 0,
+          "character": 8,
+          "power": 1
+        },
+        "bank_execution_cycles": {
+          "1": 801,
+          "127": 320,
+          "126": 2279,
+          "-1": 848,
+          "66": 137,
+          "72": 62,
+          "77": 105,
+          "93": 136,
+          "90": 106,
+          "89": 119,
+          "86": 34,
+          "96": 30
+        },
+        "actual_entry_return_costs": [
+          {
+            "name": "LuigiNativePrepare",
+            "entry_pc": 60921,
+            "bank": 127,
+            "entry_SP": 247,
+            "return_pc": 42505,
+            "return_SP": 249,
+            "inclusive_cycles": 19
+          },
+          {
+            "name": "LuigiNativeTraction",
+            "entry_pc": 47424,
+            "bank": 1,
+            "entry_SP": 245,
+            "return_pc": 43345,
+            "return_SP": 247,
+            "inclusive_cycles": 118
+          },
+          {
+            "name": "CrossoverMarioMovement",
+            "entry_pc": 42431,
+            "bank": 1,
+            "entry_SP": 249,
+            "return_pc": 41243,
+            "return_SP": 251,
+            "inclusive_cycles": 629
+          },
+          {
+            "name": "PlayerMovementSubs",
+            "entry_pc": 42426,
+            "bank": 1,
+            "entry_SP": 249,
+            "return_pc": 41243,
+            "return_SP": 251,
+            "inclusive_cycles": 669
+          },
+          {
+            "name": "PlayerCtrlRoutine",
+            "entry_pc": 41155,
+            "bank": 1,
+            "entry_SP": 251,
+            "return_pc": 23296,
+            "return_SP": 253,
+            "inclusive_cycles": 4977
+          }
+        ]
+      },
+      "new641": {
+        "cycles": 6250,
+        "minimum_SP": 229,
+        "complete_call_AXYP": [
+          1,
+          0,
+          6,
+          176
+        ],
+        "final_banks": [
+          126,
+          1,
+          88,
+          127
+        ],
+        "state": {
+          "update": 1,
+          "x": 353,
+          "y": 176,
+          "state": 0,
+          "vx": 95573,
+          "vy": 0,
+          "camera": 256,
+          "crouch": 0,
+          "native_vx": 23,
+          "native_vy": 0,
+          "character": 8,
+          "power": 1
+        },
+        "bank_execution_cycles": {
+          "1": 343,
+          "-1": 1219,
+          "78": 901,
+          "127": 320,
+          "3": 52,
+          "59": 436,
+          "29": 127,
+          "126": 2123,
+          "66": 137,
+          "72": 62,
+          "77": 105,
+          "93": 136,
+          "90": 106,
+          "89": 119,
+          "86": 34,
+          "96": 30
+        },
+        "actual_entry_return_costs": [
+          {
+            "name": "LuigiNativePrepare",
+            "entry_pc": 60921,
+            "bank": 127,
+            "entry_SP": 244,
+            "return_pc": 42097,
+            "return_SP": 246,
+            "inclusive_cycles": 19
+          },
+          {
+            "name": "LuigiSourceMovementBridge",
+            "entry_pc": 47449,
+            "bank": 1,
+            "entry_SP": 249,
+            "return_pc": 41243,
+            "return_SP": 251,
+            "inclusive_cycles": 1927
+          },
+          {
+            "name": "PlayerMovementSubs",
+            "entry_pc": 42426,
+            "bank": 1,
+            "entry_SP": 249,
+            "return_pc": 41243,
+            "return_SP": 251,
+            "inclusive_cycles": 1942
+          },
+          {
+            "name": "PlayerCtrlRoutine",
+            "entry_pc": 41155,
+            "bank": 1,
+            "entry_SP": 251,
+            "return_pc": 23296,
+            "return_SP": 253,
+            "inclusive_cycles": 6250
+          }
+        ]
+      },
+      "new_minus_old_cycles": 1273
+    },
+    {
+      "mode": 1,
+      "kind": "reverse",
+      "input": 2,
+      "old731": {
+        "cycles": 4978,
+        "minimum_SP": 229,
+        "complete_call_AXYP": [
+          1,
+          0,
+          6,
+          176
+        ],
+        "final_banks": [
+          126,
+          1,
+          88,
+          127
+        ],
+        "state": {
+          "update": 1,
+          "x": 354,
+          "y": 176,
+          "state": 0,
+          "vx": 0,
+          "vy": 0,
+          "camera": 256,
+          "crouch": 0,
+          "native_vx": 39,
+          "native_vy": 0,
+          "character": 8,
+          "power": 1
+        },
+        "bank_execution_cycles": {
+          "1": 802,
+          "127": 320,
+          "126": 2279,
+          "-1": 848,
+          "66": 137,
+          "72": 62,
+          "77": 105,
+          "93": 136,
+          "90": 106,
+          "89": 119,
+          "86": 34,
+          "96": 30
+        },
+        "actual_entry_return_costs": [
+          {
+            "name": "LuigiNativePrepare",
+            "entry_pc": 60921,
+            "bank": 127,
+            "entry_SP": 247,
+            "return_pc": 42505,
+            "return_SP": 249,
+            "inclusive_cycles": 19
+          },
+          {
+            "name": "LuigiNativeTraction",
+            "entry_pc": 47424,
+            "bank": 1,
+            "entry_SP": 245,
+            "return_pc": 43345,
+            "return_SP": 247,
+            "inclusive_cycles": 118
+          },
+          {
+            "name": "CrossoverMarioMovement",
+            "entry_pc": 42431,
+            "bank": 1,
+            "entry_SP": 249,
+            "return_pc": 41243,
+            "return_SP": 251,
+            "inclusive_cycles": 630
+          },
+          {
+            "name": "PlayerMovementSubs",
+            "entry_pc": 42426,
+            "bank": 1,
+            "entry_SP": 249,
+            "return_pc": 41243,
+            "return_SP": 251,
+            "inclusive_cycles": 670
+          },
+          {
+            "name": "PlayerCtrlRoutine",
+            "entry_pc": 41155,
+            "bank": 1,
+            "entry_SP": 251,
+            "return_pc": 23296,
+            "return_SP": 253,
+            "inclusive_cycles": 4978
+          }
+        ]
+      },
+      "new641": {
+        "cycles": 6346,
+        "minimum_SP": 229,
+        "complete_call_AXYP": [
+          1,
+          0,
+          6,
+          176
+        ],
+        "final_banks": [
+          126,
+          1,
+          88,
+          127
+        ],
+        "state": {
+          "update": 1,
+          "x": 353,
+          "y": 176,
+          "state": 0,
+          "vx": 95573,
+          "vy": 0,
+          "camera": 256,
+          "crouch": 0,
+          "native_vx": 23,
+          "native_vy": 0,
+          "character": 8,
+          "power": 1
+        },
+        "bank_execution_cycles": {
+          "1": 467,
+          "-1": 1219,
+          "78": 1000,
+          "127": 320,
+          "3": 52,
+          "59": 436,
+          "126": 2123,
+          "66": 137,
+          "72": 62,
+          "77": 105,
+          "93": 136,
+          "90": 106,
+          "89": 119,
+          "86": 34,
+          "96": 30
+        },
+        "actual_entry_return_costs": [
+          {
+            "name": "LuigiNativePrepare",
+            "entry_pc": 60921,
+            "bank": 127,
+            "entry_SP": 244,
+            "return_pc": 42097,
+            "return_SP": 246,
+            "inclusive_cycles": 19
+          },
+          {
+            "name": "LuigiSourceMovementBridge",
+            "entry_pc": 47449,
+            "bank": 1,
+            "entry_SP": 249,
+            "return_pc": 41243,
+            "return_SP": 251,
+            "inclusive_cycles": 2023
+          },
+          {
+            "name": "PlayerMovementSubs",
+            "entry_pc": 42426,
+            "bank": 1,
+            "entry_SP": 249,
+            "return_pc": 41243,
+            "return_SP": 251,
+            "inclusive_cycles": 2038
+          },
+          {
+            "name": "PlayerCtrlRoutine",
+            "entry_pc": 41155,
+            "bank": 1,
+            "entry_SP": 251,
+            "return_pc": 23296,
+            "return_SP": 253,
+            "inclusive_cycles": 6346
+          }
+        ]
+      },
+      "new_minus_old_cycles": 1368
+    },
+    {
+      "mode": 1,
+      "kind": "jump",
+      "input": 128,
+      "old731": {
+        "cycles": 4949,
+        "minimum_SP": 229,
+        "complete_call_AXYP": [
+          1,
+          0,
+          6,
+          176
+        ],
+        "final_banks": [
+          126,
+          1,
+          88,
+          127
+        ],
+        "state": {
+          "update": 1,
+          "x": 352,
+          "y": 171,
+          "state": 1,
+          "vx": 0,
+          "vy": 0,
+          "camera": 256,
+          "crouch": 0,
+          "native_vx": 0,
+          "native_vy": 251,
+          "character": 8,
+          "power": 1
+        },
+        "bank_execution_cycles": {
+          "1": 839,
+          "127": 291,
+          "126": 2242,
+          "-1": 848,
+          "66": 137,
+          "72": 62,
+          "77": 105,
+          "93": 136,
+          "90": 106,
+          "89": 119,
+          "86": 34,
+          "96": 30
+        },
+        "actual_entry_return_costs": [
+          {
+            "name": "LuigiNativePrepare",
+            "entry_pc": 60921,
+            "bank": 127,
+            "entry_SP": 247,
+            "return_pc": 42505,
+            "return_SP": 249,
+            "inclusive_cycles": 19
+          },
+          {
+            "name": "LuigiNativeTraction",
+            "entry_pc": 47424,
+            "bank": 1,
+            "entry_SP": 245,
+            "return_pc": 43345,
+            "return_SP": 247,
+            "inclusive_cycles": 33
+          },
+          {
+            "name": "CrossoverMarioMovement",
+            "entry_pc": 42431,
+            "bank": 1,
+            "entry_SP": 249,
+            "return_pc": 41243,
+            "return_SP": 251,
+            "inclusive_cycles": 775
+          },
+          {
+            "name": "PlayerMovementSubs",
+            "entry_pc": 42426,
+            "bank": 1,
+            "entry_SP": 249,
+            "return_pc": 41243,
+            "return_SP": 251,
+            "inclusive_cycles": 815
+          },
+          {
+            "name": "PlayerCtrlRoutine",
+            "entry_pc": 41155,
+            "bank": 1,
+            "entry_SP": 251,
+            "return_pc": 23296,
+            "return_SP": 253,
+            "inclusive_cycles": 4949
+          }
+        ]
+      },
+      "new641": {
+        "cycles": 5534,
+        "minimum_SP": 229,
+        "complete_call_AXYP": [
+          1,
+          0,
+          6,
+          176
+        ],
+        "final_banks": [
+          126,
+          1,
+          88,
+          127
+        ],
+        "state": {
+          "update": 1,
+          "x": 352,
+          "y": 172,
+          "state": 1,
+          "vx": 0,
+          "vy": -231509,
+          "camera": 256,
+          "crouch": 0,
+          "native_vx": 0,
+          "native_vy": 252,
+          "character": 8,
+          "power": 1
+        },
+        "bank_execution_cycles": {
+          "1": 338,
+          "-1": 1166,
+          "78": 714,
+          "127": 291,
+          "59": 205,
+          "3": 108,
+          "126": 1983,
+          "66": 137,
+          "72": 62,
+          "77": 105,
+          "93": 136,
+          "90": 106,
+          "89": 119,
+          "86": 34,
+          "96": 30
+        },
+        "actual_entry_return_costs": [
+          {
+            "name": "LuigiNativePrepare",
+            "entry_pc": 60921,
+            "bank": 127,
+            "entry_SP": 244,
+            "return_pc": 42097,
+            "return_SP": 246,
+            "inclusive_cycles": 19
+          },
+          {
+            "name": "LuigiSourceMovementBridge",
+            "entry_pc": 47449,
+            "bank": 1,
+            "entry_SP": 249,
+            "return_pc": 41243,
+            "return_SP": 251,
+            "inclusive_cycles": 1385
+          },
+          {
+            "name": "PlayerMovementSubs",
+            "entry_pc": 42426,
+            "bank": 1,
+            "entry_SP": 249,
+            "return_pc": 41243,
+            "return_SP": 251,
+            "inclusive_cycles": 1400
+          },
+          {
+            "name": "PlayerCtrlRoutine",
+            "entry_pc": 41155,
+            "bank": 1,
+            "entry_SP": 251,
+            "return_pc": 23296,
+            "return_SP": 253,
+            "inclusive_cycles": 5534
+          }
+        ]
+      },
+      "new_minus_old_cycles": 585
+    },
+    {
+      "mode": 1,
+      "kind": "run-jump",
+      "input": 193,
+      "old731": {
+        "cycles": 5014,
+        "minimum_SP": 229,
+        "complete_call_AXYP": [
+          1,
+          0,
+          6,
+          176
+        ],
+        "final_banks": [
+          126,
+          1,
+          88,
+          127
+        ],
+        "state": {
+          "update": 1,
+          "x": 354,
+          "y": 170,
+          "state": 1,
+          "vx": 0,
+          "vy": 0,
+          "camera": 256,
+          "crouch": 0,
+          "native_vx": 40,
+          "native_vy": 250,
+          "character": 8,
+          "power": 1
+        },
+        "bank_execution_cycles": {
+          "1": 904,
+          "127": 291,
+          "126": 2242,
+          "-1": 848,
+          "66": 137,
+          "72": 62,
+          "77": 105,
+          "93": 136,
+          "90": 106,
+          "89": 119,
+          "86": 34,
+          "96": 30
+        },
+        "actual_entry_return_costs": [
+          {
+            "name": "LuigiNativePrepare",
+            "entry_pc": 60921,
+            "bank": 127,
+            "entry_SP": 247,
+            "return_pc": 42505,
+            "return_SP": 249,
+            "inclusive_cycles": 19
+          },
+          {
+            "name": "LuigiNativeTraction",
+            "entry_pc": 47424,
+            "bank": 1,
+            "entry_SP": 245,
+            "return_pc": 43345,
+            "return_SP": 247,
+            "inclusive_cycles": 33
+          },
+          {
+            "name": "CrossoverMarioMovement",
+            "entry_pc": 42431,
+            "bank": 1,
+            "entry_SP": 249,
+            "return_pc": 41243,
+            "return_SP": 251,
+            "inclusive_cycles": 835
+          },
+          {
+            "name": "PlayerMovementSubs",
+            "entry_pc": 42426,
+            "bank": 1,
+            "entry_SP": 249,
+            "return_pc": 41243,
+            "return_SP": 251,
+            "inclusive_cycles": 875
+          },
+          {
+            "name": "PlayerCtrlRoutine",
+            "entry_pc": 41155,
+            "bank": 1,
+            "entry_SP": 251,
+            "return_pc": 23296,
+            "return_SP": 253,
+            "inclusive_cycles": 5014
+          }
+        ]
+      },
+      "new641": {
+        "cycles": 6164,
+        "minimum_SP": 229,
+        "complete_call_AXYP": [
+          1,
+          0,
+          6,
+          176
+        ],
+        "final_banks": [
+          126,
+          1,
+          88,
+          127
+        ],
+        "state": {
+          "update": 1,
+          "x": 354,
+          "y": 172,
+          "state": 1,
+          "vx": 163840,
+          "vy": -242432,
+          "camera": 256,
+          "crouch": 0,
+          "native_vx": 40,
+          "native_vy": 252,
+          "character": 8,
+          "power": 1
+        },
+        "bank_execution_cycles": {
+          "1": 343,
+          "-1": 1219,
+          "78": 1048,
+          "127": 291,
+          "59": 438,
+          "3": 113,
+          "126": 1983,
+          "66": 137,
+          "72": 62,
+          "77": 105,
+          "93": 136,
+          "90": 106,
+          "89": 119,
+          "86": 34,
+          "96": 30
+        },
+        "actual_entry_return_costs": [
+          {
+            "name": "LuigiNativePrepare",
+            "entry_pc": 60921,
+            "bank": 127,
+            "entry_SP": 244,
+            "return_pc": 42097,
+            "return_SP": 246,
+            "inclusive_cycles": 19
+          },
+          {
+            "name": "LuigiSourceMovementBridge",
+            "entry_pc": 47449,
+            "bank": 1,
+            "entry_SP": 249,
+            "return_pc": 41243,
+            "return_SP": 251,
+            "inclusive_cycles": 2010
+          },
+          {
+            "name": "PlayerMovementSubs",
+            "entry_pc": 42426,
+            "bank": 1,
+            "entry_SP": 249,
+            "return_pc": 41243,
+            "return_SP": 251,
+            "inclusive_cycles": 2025
+          },
+          {
+            "name": "PlayerCtrlRoutine",
+            "entry_pc": 41155,
+            "bank": 1,
+            "entry_SP": 251,
+            "return_pc": 23296,
+            "return_SP": 253,
+            "inclusive_cycles": 6164
+          }
+        ]
+      },
+      "new_minus_old_cycles": 1150
+    },
+    {
+      "mode": 1,
+      "kind": "release",
+      "input": 0,
+      "old731": {
+        "cycles": 4769,
+        "minimum_SP": 229,
+        "complete_call_AXYP": [
+          1,
+          0,
+          6,
+          176
+        ],
+        "final_banks": [
+          126,
+          1,
+          88,
+          127
+        ],
+        "state": {
+          "update": 1,
+          "x": 352,
+          "y": 151,
+          "state": 1,
+          "vx": 0,
+          "vy": -229376,
+          "camera": 256,
+          "crouch": 0,
+          "native_vx": 0,
+          "native_vy": 252,
+          "character": 8,
+          "power": 1
+        },
+        "bank_execution_cycles": {
+          "1": 659,
+          "127": 291,
+          "126": 2242,
+          "-1": 848,
+          "66": 137,
+          "72": 62,
+          "77": 105,
+          "93": 136,
+          "90": 106,
+          "89": 119,
+          "86": 34,
+          "96": 30
+        },
+        "actual_entry_return_costs": [
+          {
+            "name": "LuigiNativePrepare",
+            "entry_pc": 60921,
+            "bank": 127,
+            "entry_SP": 247,
+            "return_pc": 42505,
+            "return_SP": 249,
+            "inclusive_cycles": 19
+          },
+          {
+            "name": "LuigiNativeTraction",
+            "entry_pc": 47424,
+            "bank": 1,
+            "entry_SP": 245,
+            "return_pc": 43345,
+            "return_SP": 247,
+            "inclusive_cycles": 33
+          },
+          {
+            "name": "CrossoverMarioMovement",
+            "entry_pc": 42431,
+            "bank": 1,
+            "entry_SP": 249,
+            "return_pc": 41243,
+            "return_SP": 251,
+            "inclusive_cycles": 595
+          },
+          {
+            "name": "PlayerMovementSubs",
+            "entry_pc": 42426,
+            "bank": 1,
+            "entry_SP": 249,
+            "return_pc": 41243,
+            "return_SP": 251,
+            "inclusive_cycles": 635
+          },
+          {
+            "name": "PlayerCtrlRoutine",
+            "entry_pc": 41155,
+            "bank": 1,
+            "entry_SP": 251,
+            "return_pc": 23296,
+            "return_SP": 253,
+            "inclusive_cycles": 4769
+          }
+        ]
+      },
+      "new641": {
+        "cycles": 5651,
+        "minimum_SP": 229,
+        "complete_call_AXYP": [
+          1,
+          0,
+          6,
+          176
+        ],
+        "final_banks": [
+          126,
+          1,
+          88,
+          127
+        ],
+        "state": {
+          "update": 1,
+          "x": 352,
+          "y": 152,
+          "state": 1,
+          "vx": 0,
+          "vy": -168546,
+          "camera": 256,
+          "crouch": 0,
+          "native_vx": 0,
+          "native_vy": 253,
+          "character": 8,
+          "power": 1
+        },
+        "bank_execution_cycles": {
+          "1": 465,
+          "-1": 1272,
+          "78": 622,
+          "127": 291,
+          "3": 123,
+          "59": 166,
+          "126": 1983,
+          "66": 137,
+          "72": 62,
+          "77": 105,
+          "93": 136,
+          "90": 106,
+          "89": 119,
+          "86": 34,
+          "96": 30
+        },
+        "actual_entry_return_costs": [
+          {
+            "name": "LuigiNativePrepare",
+            "entry_pc": 60921,
+            "bank": 127,
+            "entry_SP": 244,
+            "return_pc": 42097,
+            "return_SP": 246,
+            "inclusive_cycles": 19
+          },
+          {
+            "name": "LuigiSourceMovementBridge",
+            "entry_pc": 47449,
+            "bank": 1,
+            "entry_SP": 249,
+            "return_pc": 41243,
+            "return_SP": 251,
+            "inclusive_cycles": 1502
+          },
+          {
+            "name": "PlayerMovementSubs",
+            "entry_pc": 42426,
+            "bank": 1,
+            "entry_SP": 249,
+            "return_pc": 41243,
+            "return_SP": 251,
+            "inclusive_cycles": 1517
+          },
+          {
+            "name": "PlayerCtrlRoutine",
+            "entry_pc": 41155,
+            "bank": 1,
+            "entry_SP": 251,
+            "return_pc": 23296,
+            "return_SP": 253,
+            "inclusive_cycles": 5651
+          }
+        ]
+      },
+      "new_minus_old_cycles": 882
+    },
+    {
+      "mode": 1,
+      "kind": "landing",
+      "input": 0,
+      "old731": {
+        "cycles": 4913,
+        "minimum_SP": 229,
+        "complete_call_AXYP": [
+          1,
+          0,
+          6,
+          176
+        ],
+        "final_banks": [
+          126,
+          1,
+          88,
+          127
+        ],
+        "state": {
+          "update": 1,
+          "x": 352,
+          "y": 176,
+          "state": 0,
+          "vx": 0,
+          "vy": 131072,
+          "camera": 256,
+          "crouch": 0,
+          "native_vx": 0,
+          "native_vy": 0,
+          "character": 8,
+          "power": 1
+        },
+        "bank_execution_cycles": {
+          "1": 623,
+          "127": 320,
+          "126": 2380,
+          "-1": 848,
+          "66": 137,
+          "72": 62,
+          "77": 105,
+          "93": 136,
+          "90": 106,
+          "89": 119,
+          "86": 47,
+          "96": 30
+        },
+        "actual_entry_return_costs": [
+          {
+            "name": "LuigiNativePrepare",
+            "entry_pc": 60921,
+            "bank": 127,
+            "entry_SP": 247,
+            "return_pc": 42505,
+            "return_SP": 249,
+            "inclusive_cycles": 19
+          },
+          {
+            "name": "LuigiNativeTraction",
+            "entry_pc": 47424,
+            "bank": 1,
+            "entry_SP": 245,
+            "return_pc": 43345,
+            "return_SP": 247,
+            "inclusive_cycles": 33
+          },
+          {
+            "name": "CrossoverMarioMovement",
+            "entry_pc": 42431,
+            "bank": 1,
+            "entry_SP": 249,
+            "return_pc": 41243,
+            "return_SP": 251,
+            "inclusive_cycles": 558
+          },
+          {
+            "name": "PlayerMovementSubs",
+            "entry_pc": 42426,
+            "bank": 1,
+            "entry_SP": 249,
+            "return_pc": 41243,
+            "return_SP": 251,
+            "inclusive_cycles": 598
+          },
+          {
+            "name": "PlayerCtrlRoutine",
+            "entry_pc": 41155,
+            "bank": 1,
+            "entry_SP": 251,
+            "return_pc": 23296,
+            "return_SP": 253,
+            "inclusive_cycles": 4913
+          }
+        ]
+      },
+      "new641": {
+        "cycles": 5327,
+        "minimum_SP": 229,
+        "complete_call_AXYP": [
+          1,
+          0,
+          6,
+          176
+        ],
+        "final_banks": [
+          126,
+          1,
+          88,
+          127
+        ],
+        "state": {
+          "update": 1,
+          "x": 352,
+          "y": 176,
+          "state": 0,
+          "vx": 0,
+          "vy": 144725,
+          "camera": 256,
+          "crouch": 0,
+          "native_vx": 0,
+          "native_vy": 0,
+          "character": 8,
+          "power": 1
+        },
+        "bank_execution_cycles": {
+          "1": 338,
+          "-1": 1113,
+          "78": 479,
+          "127": 320,
+          "3": 47,
+          "59": 166,
+          "126": 2122,
+          "66": 137,
+          "72": 62,
+          "77": 105,
+          "93": 136,
+          "90": 106,
+          "89": 119,
+          "86": 47,
+          "96": 30
+        },
+        "actual_entry_return_costs": [
+          {
+            "name": "LuigiNativePrepare",
+            "entry_pc": 60921,
+            "bank": 127,
+            "entry_SP": 244,
+            "return_pc": 42097,
+            "return_SP": 246,
+            "inclusive_cycles": 19
+          },
+          {
+            "name": "LuigiSourceMovementBridge",
+            "entry_pc": 47449,
+            "bank": 1,
+            "entry_SP": 249,
+            "return_pc": 41243,
+            "return_SP": 251,
+            "inclusive_cycles": 997
+          },
+          {
+            "name": "PlayerMovementSubs",
+            "entry_pc": 42426,
+            "bank": 1,
+            "entry_SP": 249,
+            "return_pc": 41243,
+            "return_SP": 251,
+            "inclusive_cycles": 1012
+          },
+          {
+            "name": "PlayerCtrlRoutine",
+            "entry_pc": 41155,
+            "bank": 1,
+            "entry_SP": 251,
+            "return_pc": 23296,
+            "return_SP": 253,
+            "inclusive_cycles": 5327
+          }
+        ]
+      },
+      "new_minus_old_cycles": 414
+    }
+  ],
+  "source_states": "Legal isolated assembled full-caller inputs: dry Super Luigi, synthetic legal flat floor and fixed camera; each warmed with its own actual empty caller except cold. Native/source velocities seeded in their genuine formats.",
+  "model": "Untimed CPU model, all actual called routines execute; no IRQ/NMI/PPU/DMC/native cadence. Cost differences include intended movement outcome/branch differences, not equal-state ABI assertions."
+}

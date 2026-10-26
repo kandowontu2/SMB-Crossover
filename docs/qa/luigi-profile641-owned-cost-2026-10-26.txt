@@ -1,0 +1,44 @@
+Luigi641 OWNED dry-movement costs: finite actual-CPU facts, not native cadence
+
+Parent731c918b0f448564587d90fca2979afc9fc0e5eb9b26616f4241801e2e73e16c.
+Private641460e2646806c03fb98cf84f8a8c2e8de99c74dac8c5876c50f05ef1eb512c.
+Twenty complete real PlayerCtrlRoutine pairs: ten legal dry Super Luigi states
+in each mode. Actual collision/bounding/camera calls execute on an explicitly
+synthetic legal flat floor/fixed camera. Each non-cold case first executes its
+own actual neutral caller; velocities use the engine's genuine native/source
+formats. Intended movement outcomes/branches differ, so these are measured
+cost pairs, not an old/new state-equality assertion. No interrupt/PPU/DMC/native
+clock model is present. Every call returns with real identity8/variant1/power1.
+
+State       Easy old731/new641/delta     Hard old731/new641/delta (CPU cycles)
+cold        4844 /6096 /+1252            4855 /6114 /+1259
+idle        4844 /6007 /+1163            4855 /6025 /+1170
+walk        4923 /5623 / +700            4934 /5645 / +711
+run         4883 /5746 / +863            4894 /5768 / +874
+coast       4966 /6192 /+1226            4977 /6250 /+1273
+reverse     4967 /6285 /+1318            4978 /6346 /+1368
+jump        4938 /5406 / +468            4949 /5534 / +585
+run-jump    5003 /6025 /+1022            5014 /6164 /+1150
+release     4758 /5641 / +883            4769 /5651 / +882
+landing     4937 /5348 / +411            4913 /5327 / +414
+
+Actual nested entry/return stamps and execution-bank cycles are saved for every
+call, without skipping routines or changing emulation. Easy idle movement span
+grows552->1715cycles, accounting the complete caller's+1163; new genuine bridge
+is1700cycles. Easy walk626->1326 accounts+700 of+700; Easy coast669->1895 accounts
++1226. Hard idle552->1722 accounts+1170. The source-derived 24-bit integration,
+friction and wrapper path costs more than the old native engine in these states.
+This is not hidden by the independent114foreign-call ZERO-cycle result.
+
+Both landing controls really return groundedY176/state0. Shared wrapper/code
+and intended higher-jump/braking facts are already source-qualified separately.
+The two new physical item routes PASS, but their different paths/updates are
+not matched-work cadence controls and do not establish that this cost is free.
+Fresh full1-1 discovery/replay with actual cadence and E008complete256/enable
+guards remains required before adoption. No optimization or new native launch
+was made by this cost tool; production/default/settings/Git are untouched.
+
+Tool: tools/audit/luigi_profile641_owned_cost_v1.py.
+Evidence: external luigi-profile641-owned-cost-v1/{proof.json,
+full-PlayerCtrl-costs.json}. Costs include full real caller execution; nested
+component totals are inclusive and must not be summed as independent work.

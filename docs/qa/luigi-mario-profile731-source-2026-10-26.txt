@@ -1,0 +1,99 @@
+Private Luigi dry-movement correction: SOURCE/CPU READY, NATIVE UNRUN
+
+Parent731c918b0f448564587d90fca2979afc9fc0e5eb9b26616f4241801e2e73e16c.
+Candidate641460e2646806c03fb98cf84f8a8c2e8de99c74dac8c5876c50f05ef1eb512c
+at external archive /luigi-mario-profile731-v3/candidate.nes.
+Canonical fresh rebuild matches. Ordinary flagoff MMC3d444cac8... and
+MMC5f4ffd248... remain exactly the original qualified hashes.
+No production/default/Downloads/Git/settings edit, native run or adoption.
+
+Intent and deliberate narrow changes
+------------------------------------
+Luigi now uses source-derived current Mario Easy/Hard dry movement, instead
+of the old native SMB engine, with only51/256 extra upward launch speed and
+ground braking reduced by one eighth of Mario's actual per-update loss.
+Walk/run acceleration and caps, mode-specific rise/release/gravity, integration,
+crouching and controller direction rules derive from actual current731 Mario.
+The producer extracts the actual source primitives and binds their input hashes.
+Luigi identity8/MarioVariant1, physical powerup and original Rg3 weapon/graphics
+owners remain real. No temporary character impersonation or new RAM is used.
+
+Mario/other identities' ordinary movement paths are untouched. The new Luigi
+selector uses a genuine local bridge in the retained84-byte native traction
+span. Its old selected-not8 prefix and original Done RTS are byte-identical.
+Only Luigi's native fallback body moves to new bank78 code; its two old private
+Leftward/Brake labels are genuinely retired, not retained inside data/operands.
+Every61,245 other qualified old symbol/address is exact; _FARCALL_COUNT changes
+only as truthful assembler metadata (+22). Existing Player/native public spans
+and all CHR/sample/vector bytes remain. No palettes are changed.
+
+Four deployable changes: src/player.s,src/luigi_native.s,src/entrypoint.s and
+new src/luigi_source_profile.s. Only81 PRG bytes in bank1 and1,766 in bank78
+differ; every other PRG bank, header and entire CHR image are exact731.
+Bank78's old1,134 bytes are unchanged; helpers append into its declared free
+X5_PROFILES tail. Existing source raw line endings are retained. Standard
+targets keep their original native Luigi dispatch via explicit feature guards.
+
+Measured desired dry traits (isolated assembled updates, not video frames)
+-------------------------------------------------------------------------
+Full hold, ordinary/rest jump: Easy Mario73px -> Luigi79px; Hard68 ->71px.
+Full run jump: Easy85 ->91px; Hard84 ->88px. All18 source jump comparisons
+also retain release-after1/8 cases. Same100-update walk/run acceleration curves
+and caps are exact in four mode/B cases:1.25 or1.458328 walk;2.5 run.
+Ground coast from2.5: Mario41updates/42pixels -> Luigi47updates/48pixels.
+96 signed/ground-air/friction-kind cases prove the exact formula
+  base=floor(abs(v)*MarioMultiplier/65536)
+  groundResult=base+floor((abs(v)-base)/8)
+then retain Mario's stop threshold/sign. Air friction remains Mario's exact
+profile.40 ordinary dry field comparisons excluding the specified jump/brake
+differences are exact. Two actual PlayerCtrl cold-entry controls retain source
+state/fraction reset behavior without changing the selected identity.
+
+Real wrapper and compatibility controls
+---------------------------------------
+114 complete foreign PlayerMovementSubs cases (19 base identities excluding
+Luigi x2 modes x3 inputs) preserve full AXYP/SP, application RAM, all copied
+SMC operands, final banks and exact cycle count. This is not37 native identities.
+60 actual PlayerCtrl input/power/mode cases check Down+direction preprocessing,
+small/big/crouch bodies, crouch-jump and identity/power retention.
+18 repeated complete PlayerCtrl chains cover held/released jump, reversal,
+head/solid side/pipe-metatile side contacts, landing, walking off a ledge and
+ordinary scrolling. The actual host collision/bounding/camera routines execute;
+synthetic legal block buffers are clearly component inputs. Both scroll cases
+keep a constant screen-relative X while world/camera advance; actual landings
+return toY176/state0 and clear source vertical motion. No native/PPU proof follows.
+Four actual original Rg weapon dispatcher calls and12 actual pose calls preserve
+complete old/new state and code/art outputs at identical input states. These do
+not transfer the old731 physical native result onto the new motion build.
+428 actual compiled IRQ/vector/RTI injections at reached new instructions preserve
+the resumed AXYP/SP/application RAM/five live SMC operands/banks. Only actual IRQ
+hardware stores are separate. No NMI/PPU/DMA/DMC timing or cadence claim is made.
+
+Unchanged external handoffs, with an explicit SMC distinction
+-----------------------------------------------------------
+Water/climb/active spring/non-normal engines still run their old shared/native
+movement owners.30 direct old/new handoff cases have equal ordinary RAM/AXYP/SP/
+banks. Swimming is fully equal in these cases; some other handoffs leave the
+new wrapper's five ordinary live farcall operands where the old direct path
+left stale operands. Their exact addresses/values are saved, not silently masked
+or claimed byte-identical. The new live operands pass separate actual IRQ tests;
+native NMI/continuation still needs qualification.
+Spring/stomp impulses and the optional Hard small-gap policy remain the previous
+Luigi handoffs. This is a dry movement correction, not blanket Mario parity.
+No spring/climb/water/control-impulse policy is retuned here.
+
+Retained development negatives
+-------------------------------
+First build failed on an unqualified .res scope name; second failed two newly
+introduced short-branch ranges. Both failed source/checker/log packets remain
+immutable at luigi-mario-profile731-v1 and-v2/assembly-error-freeze-v1; neither
+produced a candidate ROM. A first CPU matrix wrongly classified A+B+Right193
+as non-jump; that failed checker/output remains cpu-v1, with source-correct
+A-bit classification separately rerun in cpu-v2. No native retry occurred.
+
+Tools: luigi_mario_profile731_prepare_v1.py, _cpu_v1.py, _traits_v1.py,
+_handoffs_v1.py and _ready_v1.py in tools/audit. All frozen file/source/build/
+receipt hashes are in source-ready-v1/readiness.json. Full current-source and
+mode-specific source models are required before any native grant. Physical
+two-item controls and affected1-1 discovery/replay remain required before
+adoption; old731 successes remain exact731 evidence only.

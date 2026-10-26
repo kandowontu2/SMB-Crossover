@@ -1,0 +1,37 @@
+{
+  "passed": true,
+  "ROOT_UTC": "2026-10-26T17:06:09.659584+00:00",
+  "source_readiness_sha256": "518556a39e0045bca8edebf5298420d0fc8ca6ee236d5eacf0b95dfcf55f2680",
+  "source_bindings_verified": 1824,
+  "native_readiness_sha256": "a7cea8eac398ec7fb8df294fad7d6d6ed49c2677285414092f9e2329d7d3a21c",
+  "native_bindings_verified": 5323,
+  "extra_seal_bindings_verified": 5,
+  "fresh_builds": [
+    {
+      "name": "expanded-sequential",
+      "ROM_sha256": "641460e2646806c03fb98cf84f8a8c2e8de99c74dac8c5876c50f05ef1eb512c",
+      "build_receipt_sha256": "098bebcd7fd412eb02fcda5e435f173addc211bbfb0e74f99fa0b0c81115b9f5",
+      "build_log_sha256": "c8d344eaadf9cc515d34f7997b069bfa99f189356eee482b376611a85582399a"
+    },
+    {
+      "name": "ordinary-mmc3",
+      "ROM_sha256": "d444cac88e13fa02b29ad16100b8f08fa565ba90f8cedde192de43fb2dc8f3eb",
+      "build_receipt_sha256": "abebc202c8095948d5870f31eacd2f6fd341fa56388d991a6dbcd9f21dec29ed",
+      "build_log_sha256": "076f554a64e713ce610f1da2b6f10b8f418547af5e3d25a4e04d7cf26a93dec3"
+    },
+    {
+      "name": "ordinary-mmc5",
+      "ROM_sha256": "f4ffd2483c51daa4d60bb575da2da8c4d817692cda407611c243031f67520833",
+      "build_receipt_sha256": "dae9a885679ef6ef3d46388d620d7dc9cde0b9528ec1e0dfef1d2675d4a885ab",
+      "build_log_sha256": "35cfb021b86059fe46264a6bfcede7c217e83743c5e84645ca3d1eb4669ecf54"
+    }
+  ],
+  "retained_first_build_failure": {
+    "file": "expanded.build.log",
+    "sha256": "8f307069b3f5c2a47dbbf4e94044f7c606d57adb11ca1518b6ab55a1a61cf2dd",
+    "message": "Compiler could not stat extended-prefix main.c path in first concurrent expanded invocation; no candidate produced. File exists at subsequent inspection. Exact cause not established. Separate sequential output on same frozen sources succeeds; no gameplay/source defect inferred."
+  },
+  "production_or_default_changed": false,
+  "adoption": false,
+  "native_executed_by_this_review": false
+}
