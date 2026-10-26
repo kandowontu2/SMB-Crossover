@@ -1,0 +1,3 @@
+B0 MENU1800 HELD / OVERALL VISUAL FAILURE
+
+ONE granted Easy/all4variant menu run, no retry; worker released. Six programmed components pass;1000observed completed transfers exact;1258HUDpairs/2254336pixels exact;inputs/trace/completedmotion exact3cee. BUT sevenearlier other-character menu highlights verticallywrap/duplicate backgrounds. Actual184previewrestores. All8changed pairs independentlyagent-reviewed; directearlyDMA/enable stamps ABSENT, source-only exactcommand/tailmodel explicitlydisclosed. OriginalnativePASS bytes retained; additiveoverallFALSE. No adoption/newnative/source/default/settings/Git changes. Captures/settings/binaries external only.

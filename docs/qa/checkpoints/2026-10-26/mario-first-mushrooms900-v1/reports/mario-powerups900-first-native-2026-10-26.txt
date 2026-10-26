@@ -1,0 +1,25 @@
+Mario/Luigi first physical mushroom: bounded native result
+
+ROM900b669e212b878041c23e438f2fb26e310ce8f929f904681a9c4b17405b6968; private NMI candidate, no installation by this agent.
+Approved readiness c5394d962a482e1de38400bbbceb57273ab7346589f9136a9aa17316c75b0a96; ROOTgrant bb0b8edf8b5c5c4b607f05cc5d6b2dd4252eeb8c4619f87c02417ad41f70956a.
+Three one-shot launches, no retry, stopped at first failure; worker RELEASED. Entire batch remains FALSE; Luigi3 was not launched.
+
+profile | actual mode | native outcome | physical owner / transformation / powered controls
+Mario | Easy0 | PASS, endpoint1060,0deaths | reveal694, collect839; native type0 from realX336block, one actor/owner;60 sequential transform calls at fixed position;24crouch/54air frames and finalSuper atx422/y176.
+Luigi | Easy0,alternate1 | PASS, endpoint1748,0deaths | realX336block, one actor/owner;60 sequential transform calls at fixed position;24crouch/54air frames and finalSuper atx408/y176.
+SMB3Mario | Easy0,variant0 reached by actual menu | FAIL before collection completes | realX336block reveal563; mature actor state128/type0/stamp$d1 at616..717; failed test expected type1 at actual M3CollectPickup. No growth/crouch/jump/SFX completion pass.
+SMB3Luigi | notrun | no claim | grant stopped before this fourth profile.
+
+Source/saved evidence identifies the SMB3 failure as an incorrect fixture type expectation: M3RisePickup changes a mature$d1 reward to walking mushroom type0. Actual900 ROM bytes A9 00 95 34 at bank90:$A441/$A443 prove the zero store to PowerUpType=$34. The saved native powerup-state rows agree. The frozen assertion expected1, its emerging actor type, and fired before the actual collector body. No game-source defect or fix is established.
+The minimal future fixture correction is expecting0 for the mature$d1 collection, retaining stamp/owner/maturity/coldsmall/form/growth/body guards. No corrected script or rerun is included.
+Luigi native owner timestamps: actual-block-delivery=1381, actual-collect=1527.
+
+Mario/Luigi source/DMA-bodyCHR and completed-loop motion guards pass:652 and1316 checks respectively, maxworld/camera step3, zero CHR mismatches. The current framework has no complete fiveSMC/SP/entireNMI ownership oracle; none is invented here.
+Actual sound evidence: each passing profile has four reveal-request stores and two pickup-request stores observed at Square2SoundQueue. These raw stores are not four/two distinct audible sounds, and do not certify waveform/duration/priority/original audio. Existing audio hardware telemetry is retained separately.
+Each passing profile saved60 actual growthPPU PNGs. Periodic fullPPU captures and literal controller/trace/actor/audio/CHR logs remain external. Agent inspected28 selected wholePPU samples:12Mario,12Luigi,4SMB3. No obvious graphical corruption in those selected growth/crouch/jump/final/item samples; not exhaustive frames/pixels/source art.
+Existing all37 ordinary3cee clears remain separate historical-hash evidence; these900 component passes do not transfer every-item/Hard/full-route/final-ROM qualification. First mushroom only; flowers/stars/extra lives/SMB3suits/attacks remain open.
+
+External outcome packet: C:\Users\kando\Videos\SMB Crossover Archive\2026-10-24-native-rest-py\mario-powerups900-first-v2\native-result-freeze-v1
+Full native batch: C:\Users\kando\Videos\SMB Crossover Archive\2026-10-24-native-rest-py\mario-powerups900-first-v2\native-proof.json
+Frozen outcome proof SHA d28e07a9f66648fb1a9c075cd4456ecaf074c36dcb7f0117b7eccefdf9a15968,586 native/artifactbindings.
+All1006 source/readiness/runtime bindings remain exact. Original v1 startup mock negative and all native failures remain. No settings/state/outcome/RNG/resources/production/default/Downloads/Git writes or new source change.

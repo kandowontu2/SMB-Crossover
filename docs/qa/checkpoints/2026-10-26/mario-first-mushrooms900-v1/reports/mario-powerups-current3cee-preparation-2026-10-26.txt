@@ -1,0 +1,54 @@
+Mario/Luigi powerup coverage and first physical-item preparation
+
+Ordinary gameplay evidence ROM: 3cee18caa732b2e85e3bdb00faf719223324f9bf24e72dd30c56be355da33b99.
+Prepared future target, after ROOT's explicit direction: private NMI candidate900b669e212b878041c23e438f2fb26e310ce8f929f904681a9c4b17405b6968.
+Source: C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/current3cee-postdma-mask-v1/canonical-v2/source.
+The target's only source differences from3cee are reset.s and the linker configuration. Item/controller/graphics sources are the same; actual target hook bytes and labels are rebound independently. Production/adoption status belongs to ROOT. This packet installs nothing.
+
+Coverage meaning
+The current3cee ordinary routes are real cold-menu, zero-death1-1 clears with independent directPPU replays. They are not every-item tests. The four trace.csv files below contain generic PlayerStatus, not the physical item's private stamp, M3Form or all ability-owner state. The preparation separately verifies their literal ROM hashes and result/replay receipts; historical hashes are never relabeled as current.
+Current paths: .../current3cee-remaining27-routes-v1/native/{mario,luigi,mario3,luigi3}-easy.
+MarioEasy: no generic power transitions. LuigiEasy: no generic power transitions.
+SMB3MarioEasy:0->1 at765/x419/y169, then1->0 at971/x692/y165.
+SMB3LuigiEasy:0->1 at767/x423/y169, then1->0 at973/x694/y165.
+These SMB3 readbacks and native item windows are useful observations, but they do not certify mushroom ownership/full rise/transformation, or identify a fire/leaf/frog/tanooki/hammer suit. No Hard item coverage is supplied by those Easy traces.
+
+Compact implemented-item / pickup / use checklist
+Item | actual installed source path | current3cee native coverage | required remaining use evidence
+Mario mushroom | MarioSourcePowerupCollision -> MarioSourceBeginPowerup: Easy advances one tier; Hard mushroom target1 cannot replace higher status;60 source updates/frozen position | none | physical head bump/full rise/contact/growth, super crouch/head-brick, repeat/cap.
+Mario fireflower | same collision; Easy next tier; Hard authored flower target2; Fireball_State two-slot original firing | none | physical powered-block flower, fireform palette, B shot/bounce/enemy hit/slot cap/cleanup; no downgrade/cap. Hard fireballs pass authored brick families via MarioSourceFireballBrick; this differs fromEasy.
+Luigi mushroom/flower | MarioSourcePowerupCollision -> GuestBeginPowerup -> GuestPowerupUpdate; native PlayerStatus+1 through2 and60 updates | none | real mushroom/flower, correct growth/size/palette, B fire and collision/cleanup/cap. This is the actual source dispatch in BOTH modes; it is not falsely reported as Mario's Hard independent target policy.
+Mario/Luigi star | source common type2 sets StarInvincibleTimer=$23 and StarPowerMusic | unproved | reveal/bounce/contact, real enemy protection, color/music and expiry/restoration; keep hazards separately classified.
+Mario/Luigi1-up | common type3 creates FloateyNum_Control=$0b; native score actor awards life | unproved | hidden block emergence, physical pickup, eventual NumberofLives+1, score/effect/SFX, no accidental transform.
+SMB3 mushroom | M3PreparePickup stamp$d1 for small; M3RisePickup48 delivery ticks; collision refused until state$80; M3CollectPickup sets form1 and47 graphics-call growth | generic0->1/injury only | real source stamp/owner/reveal/rise/collect/growth/form/body; super crouch/head-brick and no forced inventory writes.
+SMB3 flower | form2/$d2, visible private actor and source collection | unproved | B fireball, native arc/bounce, enemy/Buzzy/Bowser admission/HP, two slots and cleanup.
+SMB3 super leaf | form3/$d3 | unproved | B tail/enemy/block activation, run/P-meter, A takeoff/flutter, landing/time reset.
+SMB3 frog suit | form4/$d4 | unproved | grounded hop/jump/body, directional swimming/animation; source own swimming requires a real water route beyond this first batch.
+SMB3 tanooki suit | form5/$d5 | unproved | leaf abilities plus Down+freshB statue, source release/timeout, poof/palette, immunity and valid descending hit; injury while queued/active cancels statue and all suit clocks via M3ClearSuitState.
+SMB3 hammer suit | form6/$d6 | unproved | freshB hammer arc/damage/cleanup/two-slot cap; actual crouch/reflection behavior must be observed, not inferred from suit art.
+SMB3 star/1-up | M3CollectPickup type>=2 delegates common native star/life owner | unproved | same native actor/lifetime/life assertions plus source star visual synchronization.
+SMB3 P-meter/HUD | M3Native::Player_Power/PMeterCnt source update; M3Hud six chevrons and two-tileP in row$202b..$2032 with dedicatedCHR545 | ordinary visible HUD only, not a source-state/HUD fill/use test | real run accumulation, full flash/flight consumption, queued VRAM bounds, physical font and post-suit HUD cleanup.
+SMB3 P-wing/Kuribo boot/map-only items | not supplied by current randomized block delivery; source bridge clears Player_Kuribo on each step | no claim | explicit missing gameplay features, not certified by the imported movement labels. No new implementation is included here.
+
+SMB3's randomized powered-block reward samples PseudoRandomBitReg+2 modulo5 once when prepared: forms2..6. It does not guarantee all suits, or exclude repeats. Small state always produces$d1. Future physical tests must record the actual reward and pursue it; they may not rewrite RNG, inventory, reward type, actor position or player state to manufacture a requested suit. A deterministic no-writes run may therefore have finite stochastic coverage. No unavailable suit is counted as tested.
+SMB3Mario/Luigi share the same native form/acquisition/ability paths inEasy/Hard. The inspected M3 item/motion/combat code contains no difficulty branch; this is source scope, not a claim that every shared host contact/hazard is identical. Luigi's base profile intentionally uses native Mario movement with modest extra dry jump and reduced ground braking (luigi_native.s); this packet changes neither physics nor controls.
+
+Existing physical-tool reuse
+prepare_mario_luigi49_pickup_b.py/review_mario_luigi49_pickups_b.py retain successful unseeded native mushroom detours on olda2a4533 MMC3. Their game outcomes are historical only; the detour is merely controller logic reused for the new first batch.
+easy49_pickup_native.lua and final_item_matrix_progressive.lua physically call native owners but explicitly stage terrain/enemies and/or place a mature actor. They cannot satisfy this task's no-game-state-writes condition and are not used to certify the new batch.
+The new component reuses each exact current3cee ordinary travel/first-block controller as its base, the current real menu selector, original completed-loop world/camera guard, original raster/audio observation and actual DMA-bodyCHR guards. For native Mario/Luigi only, the historical detour drops right of the row and returns under the real first block; there is no resource, map, actor, state or RNG injection.
+
+First finite batch (PREPARE_DO_NOT_RUN)
+FourEasy0 profiles:Mario,Luigi,SMB3Mario,SMB3Luigi. Cold menu selects the genuine alternate. Each has a fixed4000 physical-frame component timeout and one worker sequentially; the earlier full-route18000-frame task is distinct. Native requests are unexecuted assertions, not passed gameplay.
+Required endpoint: real1-1 block at worldX336 -> source powerup slot5 -> fully emerged actor -> actual native pickup owner -> retained super form -> source transformation duration -> powered Down crouch -> stationary A jump/landing. Mario/Luigi60 update calls; SMB3's47 graphics calls are explicitly different clocks. Observe reveal/pickup sound requests and growth images, without claiming waveform/source-audio fidelity.
+Mario/Luigi travel/controller copies and M3 controller bases remain hash-bound. The old full-stage success endpoint is intentionally replaced with a named component_complete result; no route-clear pass is asserted. Death, game-over, frame limit, actual numeric mode/alternate, completed-loop motion and CHR mismatch failures remain. Live CHR failure checking is enabled for discovery as well as replay.
+All setup is real cold boot/menu/controller input. Instrumentation only reads emulated state. No emu.write, setState, loadSavestate or reset is present in the generated module/controller/harness/audit. Runtime callback registration from the legacy CHR observer is replaced by a startup-installed Lua return dispatcher with the original returnPC/SP/body guard. Fresh mock checks compare exact old/static output and reject wrong-bank/wrong-SP/unrelated-PC return events. That synthetic instrumentation test does not constitute native PPU/DMA qualification.
+The generated Lua runs the new actual item-owner hooks; native rows and unmodified original observers remain separate evidence. This first batch has no flower, star,1-up, all suits, Hard, special attack, per-pixel source-art, full fiveSMC/SP ownership or full campaign claim. Growth screenshots and periodic wholePPU images are external for later real visual review. No appearance improvement or source bug is claimed from preparation.
+
+Concrete gaps / disposition
+No confirmed new ability/HUD bug was established solely from the ordinary traces. Source shows two compatibility differences worth qualifying:Luigi's generic-tier Hard pickups versus Mario's independent Hard target; SMB3 block delivery exposes only the five powered suits, not P-wing/boot/map items. Do not silently change either in this preparation.
+After this batch passes, the next small controller extension should pursue the second real powered block, capture the actual flower/random suit, and use that observed ability; then isolate real star/hidden1-up. Keep each result tied to its actual target hash. No broad matrix or native retry is authorized here.
+
+The first source-only mock rejected its own mistaken pre-return row expectation for SMB3: modern CHR prepares inside MetaspriteRenderLoop, whereas legacy CHR prepares after the matching body return. That failed v1 and its exact tools/generated fixtures remain in mario-powerups900-first-v1. Staticv2 retains both original contracts and compares their complete old/new synthetic outputs. No native result or game assertion was rewritten.
+External ready packet: C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/mario-powerups900-first-v2.
+readiness.json binds exact source/ROM/debug/runtime/settings/tool/generated fixtures and source/mock proofs. command.json holds one stable future one-shot invocation requiring an explicit ROOT native grant. The runner rechecks dependencies/settings, refuses retries and stops on the first failed profile. No Mesen process, production/default/Downloads/settings/Git change is made by preparation.

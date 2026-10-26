@@ -1,0 +1,11 @@
+--- frozen-first-v2-native
++++ corrected-two-SMB3-native
+@@ -47,7 +47,7 @@
+  assert(firstActor and revealed==1,'Native collection follows physical block reveal')
+  assert(r('Enemy_Flag',x)>0 and r('Enemy_State',x)>=128,'Native mushroom fully emerged before contact')
+  assert(collected==0,'One genuine pickup owner')
+- assert(r('PowerUpType',x)==(C.character==17 and 1 or 0),'Actual first mushroom delivery type')
++ assert(r('PowerUpType',x)==0,'Actual mature walking mushroom delivery type')
+  if C.character==17 then
+   assert(r('M3Form')==0 and r('InvPickup',x)==0xd1,'Source-owned small-to-super mushroom stamp')
+  else assert(r('PlayerStatus')==0,'Cold unpowered collection')end
