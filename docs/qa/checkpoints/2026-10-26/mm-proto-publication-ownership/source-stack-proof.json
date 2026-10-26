@@ -1,0 +1,42 @@
+{
+  "passed": true,
+  "source_only": true,
+  "native_run": false,
+  "implementation": false,
+  "ROM_sha256": "731c918b0f448564587d90fca2979afc9fc0e5eb9b26616f4241801e2e73e16c",
+  "actual_partial_NMI_paths": 512,
+  "variants": 2,
+  "incoming_physical_flag_contexts": 64,
+  "incoming_SP": [
+    253,
+    192
+  ],
+  "genuine_AudioUpdate_calls": [
+    58229,
+    58362
+  ],
+  "regular_stack_return": 58364,
+  "lag_stack_return": 58231,
+  "Proto_core_original_stack_offset": 5,
+  "after_proposed_PHP_PHX_stack_offset": 7,
+  "regular_path_already_completed_DMA_and_input": true,
+  "lag_path_no_DMA_or_input": true,
+  "no_foreign_branch_added": true,
+  "actual_driver_or_state_mutation": false,
+  "possible_design": "A savedP/X stack selector in the existing genuine Mega/Proto-only NMI core can distinguish the outer regular return before acknowledging the new pending byte. It must preserve all original source state/AXYP/stack and no-current-song dependence; no implementation exists here.",
+  "limits": "Finite actual compiled NMI arrival/stack/IO trace only. No new ack instructions, full-core or full-NMI differential/native timing proof. Physical DMA is not modeled by these CPU traces; actual original STA4014 and controller ordering is observed.",
+  "cases_sha256": "14aec6b6d2b6f39c91d90282b2fd7371c28f80d45810ee17ab1ac0b24d4ec2f6",
+  "bindings": {
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\mm_proto_publication_stack_contract_v1.py": "ff45322373904877583afb722756fc29c39ef0c15c0ec41bf80ea09b21f6942c",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mm-proto-clean-menu-candidates-v1\\clean-menu-irq\\candidate.nes": "731c918b0f448564587d90fca2979afc9fc0e5eb9b26616f4241801e2e73e16c",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mm-proto-clean-menu-candidates-v1\\clean-menu-irq\\candidate.dbg": "4c89d6301cd9fd7f5f816c5c005b456e676e3157c7484209e5f461006c98025d",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mm-proto-clean-menu-candidates-v1\\clean-menu-irq\\source\\src\\reset.s": "4e9af1d0455d62e7f1852406463c98fbc44ea0e1720a5a9dd9555e25870960aa",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mm-proto-clean-menu-candidates-v1\\clean-menu-irq\\source\\src\\music_drivers\\audio.s": "9e9ed08a15ff0f18d4408542fef97e28eab9fcd0cfb50c4a4d96ff193a3b6cc7",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mm-proto-clean-menu-candidates-v1\\clean-menu-irq\\source\\src\\megaman_audio.s": "f8ac9d24f911222b67ad3dbfae980d7441ca2e2f10a2221d179d365cac8e13d4",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mm-proto-clean-menu-candidates-v1\\clean-menu-irq\\source\\src\\protoman_cold.s": "b6dabf6e38bb647236abb7b1ddab4188454252d78868168a0372a32d3b682fa6",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\current3cee_postdma_mask_cpu_v4.py": "2b03917173810965035ea53fd3db9f74195178270eabdefc4744dd4cebe46977",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\check_tmnt_render_oa.py": "32033893e48055adc9a23c661238e9331dd1db856be51b753ba9b6781eb528e4",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\verify_native_relocation.py": "1bab7154bc2e5468e827087d14030a7e30c4d3676db5e775ef15de4d0c34ce11",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\link_pit_rygar_sophia_audit_cpu.py": "15ef348bc124a97d8ef2c8a56777180276271b44fb77c8ace7e62c2a50310113"
+  }
+}

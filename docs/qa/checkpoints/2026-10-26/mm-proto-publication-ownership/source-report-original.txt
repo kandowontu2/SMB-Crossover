@@ -1,0 +1,143 @@
+Mega/Proto displayed-priority design -- SOURCE ONLY, unimplemented
+
+00fb remains HELD. No source/default/settings/Git change, new RAM allocation
+or native launch. The small held checkpoint is separately frozen under
+checkpoints/2026-10-26/mm-proto-body-priority-held (341a8b28 proof).
+
+EXACT INPUT / SOURCE OWNERS
+Frozen installed731c918b0f448564587d90fca2979afc9fc0e5eb9b26616f4241801e2e73e16c
+D = C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py
+Source D/mm-proto-clean-menu-candidates-v1/clean-menu-irq/source.
+New evidence/preparation D/mm-proto-publication-ownership-v1.
+
+GameLoop first writes NmiDisable=$FF. Its real terminal bank126 release at
+8350 is A9 00 8D 39 01 60; the store callback sees the genuine8355 RTS.
+While negative, NMI increments NmiSkipped, retains hardware OAM/guest CHR,
+runs audio and performs no4014 transfer. Regular NMI DEC0->$FF takes private
+ownership before VRAM/CHR/DMA. Main cannot run during this consumption.
+RosterOamReady is only a completed DrawAll source image, not a DMA ack.
+Main still does work afterward before releasing0. IdleLoop may immediately
+run one catchup before NMI; it normally skips DrawAll, except the existing
+13-skipped-draw cap can force another construction. A tag must survive a
+no-DrawAll catchup, and multiple overwritten constructions must keep the
+same unconsumed desired phase. Source parity, SsDrawFirst, RgOamFirst,
+NmiSkipped and FramesSinceLastSpriteDraw do not encode a consumed image.
+
+Direct source writes complicate the ownership boundary. Lives/title/menu
+use MoveAllSpritesOffscreen and portrait drawing outside DrawAll. Native
+RyuPlatformOriginalDrawVine and DrawBrickChunks/Dump helpers can edit page2
+before the final DrawAll check. A skipped catchup therefore cannot simply
+be assumed to leave every source byte unchanged. These are genuine source
+paths; their actual reachability/record overlap in the450 controller route
+was not logged by the previous pilot. No blanket all-mode writer closure
+or intact-body claim is made from a DrawAll-only tag. This is why the ONE
+unlaunched read-only ownership diagnostic below is prepared before a patch.
+
+ONE-BYTE DESIGN / LIFECYCLE
+Propose ONE declared mode2 ExRAM byte at5FF8, not allocated here. SRAM is
+fully assigned6000..7FFF; no stack/SMC/audio state is borrowed.5FF0..5FF5
+belong to bounce,5FF6/5FF7 to NativeStatusPending/Cursor. No compiled named
+alias or literal source reference owns5FF8. The explicit variable/indexed
+ranges reviewed are variant save/restore5FE0..5FEF, bounce6bytes, Parodius
+persistent clear5F00..5FDF and full X5ProfilesNewGame clear5F00..5FFF. That
+is a declared-source/range audit, not universal arbitrary-pointer proof.
+X5ColdInit currently clears only5FE0..5FEF, so an explicit cold/reset clear
+is required. A future allocation must be reserved with ROOT and guarded.
+
+bit0 = desired/unconsumed priority (0body,1shots);bit7 = complete tagged
+source not yet consumed by a regular physical transfer. Other bits zero.
+DrawAll chooses bit0 while NmiDisable is negative. It clears pending while
+replacing the page and sets bit7 only after its genuine completion. If Main
+constructs again before any transfer, bit0 does not change. No-draw catchup
+keeps the prior pending image/tag, subject to real direct-writer provenance.
+After the regular DMA, an eligible ack EOR#$81 clears pending and requests
+the opposite priority. A stale repeated DMA with pending clear does nothing.
+An interrupted/incomplete Main uses the existing lag path and cannot ack.
+Any new lifecycle/direct replacement must invalidate pending before writing
+the replacement: cold/warm reset, new game/area/life, menu/lives/character
+change and death. Death/hidden/V-flipped body fallback cannot manufacture a
+visible-body completion. Whether hidden frames retain desired phase rather
+than reset it must be explicit; neither counts as an acknowledged body turn.
+Full source replacement/partial edits are observed separately; the design
+does not equate an allocation tag with an intact opaque player/shot image.
+
+Proposed two actual allocation modes retain all original live emitters/art:
+body turn reserves nativeR40/44 at physical0; shots followR, then world.
+shot turn puts all original special/ordinary shots at physical0, native
+body follows their real count, then world. Both preserve genuine world
++19/+-13 ordering and its phase. Whole source/ABI/capacity/foreign controls
+must be rebuilt; the old00fb proofs are not retagged for this new design.
+No split nonbody subring, shot deletion or source clock reduction is assumed.
+
+The finite24-state/136-edge design model proves alternation of acknowledged
+complete tagged images within an unreset lifecycle, including source image
+overwrites, lag/stale transfer and no-draw catchup. It is NOT compiled game
+or native proof. No transfer-rate bound is possible when Main does not
+publish. Even alternating actual transfers cannot guarantee every opaque
+body/shot/world pixel survives the hardware first8 limit. In a dense lane,
+body and shot turns deliberately trade priority; world can still lose and
+shots remain internally fixed-order unless later separately qualified.
+
+ACK PLACEMENT / COST, NO FOREIGN-ZERO FICTION
+Simple inline common regular-NMI ack after AudioUpdate is13bytes:
+ BIT state / BPL done / LDA state / EOR#$81 / STA state.
+It costs7cycles pending0/foreign,16cycles pending1, before any routing cost.
+It adds no preDMA/PPUMASK/HUD-arm work but can still change Main release
+cadence for every character. It therefore is not automatically acceptable.
+
+There is a source-proved narrower existing route: ProtoNmiAudioCore is
+called only from MegaManAudioUpdate, selected by AudioUpdate family1. The
+only two production AudioUpdate calls are in regular/lag NMI. Genuine
+compiled callsites E375/E3FA push return words E377/E3FC respectively.
+At the actual ProtoNmiAudioCore entry, the outer AudioUpdate return is the
+word at stackSP+5/+6 (after savedP/X it would be+7/+8). A gate can preserve
+P/X, compare this exact return and ack only regular E3FC. No foreground or
+foreign branch need be added. The512 original assembled NMI-arrival traces
+cover both variants, both regular/lag routes, all64 physical flag contexts
+and incomingSP FD/C0. Regular arrival has already executed one actual4014
+store and8/8 controller reads; lag arrival has neither. This is actual
+source/caller-stack evidence, not physical DMA modeling or new gate proof.
+The proof's 'actual_driver_or_state_mutation=false' denotes no production
+modification; its synthetic original CPU execution does alter fixture RAM.
+
+A PHP/BIT-pending/PHX/TSX/two-return-byte-check/ack/PLX/PLP layout estimates
+14cycles when no pending,52when regular pending,35when lag pending, plus
+any genuine bridge/routing and page-cross costs. These are unassembled
+budget estimates, not measured new code. It preserves A's required return
+bank only if placed before the original core's LDA CurrentBank or after the
+real resident STA5115 has used it. P must be restored because BIT changesV;
+X must be restored on paused/native branches. Actual source/APU/ABI/IRQ/
+nested-lag/bank ownership remains a future qualification requirement. No
+audio ticks/stores, channels, samples or other-family work may be omitted.
+
+ONE PREPARED DIAGNOSTIC / FINITE MOCK
+prepare-v2/readiness.json (923ce9fa...) records exact731 and the same450
+controller prefix, original hardware/settings/guard module and275raw PPU
+captures as D/root-presentation450-731-v1. There is no launch/grant. The
+additional observer records initial source256; every source write/address/
+literal callbackPC/physicalbank/PPU/Main/construction; genuine completion
+and Main release images; NMI hardware-stacked interruptPC/P/SP; live4ordinary
+and10special slots; full actual DMA source/destination/epoch ownership;
+and visible cutoffs. All callbacks install at startup, with no runtime
+add/remove. The original complete256hardware equality, mask, IRQ31/NMI/
+AXY/SP/5SMC/bank checks are unchanged. Raw provenance serializes before
+those assertions. A callbackPC is not invented as an instruction-startPC.
+Only host timeout is1200seconds for this denser observer; emulated450/
+inputs/guards/settings are unchanged. ROOT review and a separate explicit
+single-launch grant would still be required; no automatic retry is allowed.
+
+mock-v2/proof.json645d8578 exercises the actual additional Lua callbacks:
+6Main releases,5DMA pairs,129source writes, no-draw retained construction,
+stale DMA, repeated overwritten constructions, protected lag NMI, actual
+release-PC/bank predicate, partial postdraw edit and lifecycle replacement.
+All mock full256 images remain exact; callback count14 never grows. This
+finite mock is separate from native behavior/timing qualification and does
+not retest or relabel the unchanged original hardware guard module.
+prepare-v1's missing SprObject_SprAttrib alias and mock-v1's lexical or0
+error are preserved. Neither executed an emulator or yielded a game verdict.
+
+NEXT REVIEW DECISION
+Use this one731 ownership observation if ROOT needs actual writer/catchup
+evidence before choosing the ack/invalidation sites. Do not retry00fb or
+install a blind NMI/frame-counter toggle. The new byte and source algorithm
+remain a design; no functional fix or native acceptance is claimed here.
