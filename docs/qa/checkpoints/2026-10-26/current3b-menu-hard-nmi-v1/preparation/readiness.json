@@ -1,0 +1,107 @@
+{
+  "passed": true,
+  "source_only": true,
+  "native_run": false,
+  "native_granted": false,
+  "adopted": false,
+  "ROM_sha256": "3b112e1d79ba7348f2f7a4c426f4675845a5781017ab74690feb235121a66287",
+  "preparation": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3b-nmi-regression-prepared-v1\\preparation.json",
+  "preparation_sha256": "661cbbaf7a002970623ca379e8a5b681ba090a39a959e6e29edeea9eb1b604d5",
+  "profiles": [
+    {
+      "name": "menu",
+      "mode": 0,
+      "limit": 1800,
+      "output": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3b-nmi-regression-prepared-v1\\menu\\baseline-early",
+      "baseline": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\parodius-menu-clean731-native-final-v1\\proof.json",
+      "native_command": [
+        "C:\\Users\\kando\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+        "-B",
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\parodius_visibility_run.py",
+        "--packet",
+        "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3b-nmi-regression-prepared-v1\\menu",
+        "--emulator",
+        "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mmc3-flag-fix-v23\\script-budget-probe-v2\\emulator\\Mesen.exe",
+        "--timeout",
+        "900"
+      ]
+    },
+    {
+      "name": "hard1f",
+      "mode": 1,
+      "updates": 240,
+      "output": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3b-nmi-regression-prepared-v1\\hard1f",
+      "baseline": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-clean731-hard1f-v1\\fixture",
+      "native_command": [
+        "C:\\Users\\kando\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+        "-B",
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\run_mesen_isolated.py",
+        "--output",
+        "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3b-nmi-regression-prepared-v1\\hard1f",
+        "--emulator",
+        "C:/Mesen2/Mesen.exe",
+        "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3b-nmi-regression-prepared-v1\\hard1f\\run.lua",
+        "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-current-roster-composition-v1\\candidate.nes",
+        "--timeout",
+        "180",
+        "--option=--doNotSaveSettings",
+        "--option=--nes.ramPowerOnState=AllZeros",
+        "--option=--nes.randomizeCpuPpuAlignment=false",
+        "--option=--nes.randomizeMapperPowerOnState=false",
+        "--option=--nes.removeSpriteLimit=false"
+      ]
+    }
+  ],
+  "maximum_future_launches": 2,
+  "sequential": true,
+  "stop_first_failure": true,
+  "retry_allowed": false,
+  "original_controller_and_all_guard_bodies_exact": true,
+  "menu_original_components": [
+    "native-result.json",
+    "hud-native-result.json",
+    "scroll-native-result.json",
+    "lifecycle-native-result.json",
+    "lifecycle-init-native-result.json",
+    "hud-lease-native-result.json"
+  ],
+  "hard_original_validator": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\cv3_remaining_sfx_lifecycle_verify_v3.py",
+  "hard_baseline": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-clean731-hard1f-v1\\fixture",
+  "baseline_Menu_full256DMAs": 1300,
+  "baseline_Hard_draws": 168,
+  "environment": {
+    "emulator": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mmc3-flag-fix-v23\\script-budget-probe-v2\\emulator\\Mesen.exe",
+    "emulator_sha256": "8b92daa209ee5052845e02a663aeb1afd6194eca55d86e6628c51114c61da0a9",
+    "core": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mmc3-flag-fix-v23\\script-budget-probe-v2\\emulator\\MesenCore.dll",
+    "core_sha256": "4bd40dfc6512328d56d8ad0563263b52be57bac726d8804f0720e461e558cd41",
+    "worker_settings": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mmc3-flag-fix-v23\\script-budget-probe-v2\\emulator\\settings.json",
+    "worker_settings_sha256": "627cd9c71a2011b4cf5fb03a0712d4d77f7890bc269b174d5757776034aab715",
+    "user_settings": "C:\\Mesen2\\settings.json",
+    "user_settings_sha256": "8a439e0a5eeddc2d4776e516aacfc224c03048b9c7d23d9926a463460a7e748a",
+    "persisted_worker_conditions": {
+      "Region": "Auto",
+      "DisableSprites": false,
+      "DisableBackground": false,
+      "RemoveSpriteLimit": false,
+      "AdaptiveSpriteLimit": false,
+      "RandomizeMapperPowerOnState": false,
+      "RandomizeCpuPpuAlignment": false,
+      "RamPowerOnState": "Random",
+      "PpuExtraScanlinesBeforeNmi": 0,
+      "PpuExtraScanlinesAfterNmi": 0,
+      "RunAheadFrames": 0
+    },
+    "actual_command_overrides": [
+      "--doNotSaveSettings",
+      "--nes.removeSpriteLimit=false",
+      "--nes.ramPowerOnState=AllZeros",
+      "--nes.randomizeCpuPpuAlignment=false",
+      "--nes.randomizeMapperPowerOnState=false"
+    ]
+  },
+  "bindings": 1156,
+  "bindings_sha256": "d47e69266e3eaed38520445b210b1a7707838cb41edd84db9df08d4c19f22727",
+  "report": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\docs\\qa\\current3b-nmi-regression-readiness-2026-10-26.txt",
+  "report_sha256": "eaab878fa20803a5b4907451cea4ff075bfd4eea887cd6f0f368aa6f3b236853",
+  "scope": "Only unrun two-profile same-input shared-NMI regression preparation on3b. No native timing/visual/source outcome transfer or adoption."
+}
