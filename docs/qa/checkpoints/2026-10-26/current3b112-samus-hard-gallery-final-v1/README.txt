@@ -1,0 +1,1 @@
+Exact3b/numericHard1/Bcontrolleduse PASS for8cases27subphases. Noacquisition/Easy/campaign/globalfidelityclaim. All5previousFALSEs retained unchanged. Twelveactualsheets/151wholeframeplacements agent-reviewed; raw/runtime/source/captures remainexternal. Nativephysicalbodyguard plus independentlyreparsedfull256DMA; per-frameCHRoperanddump limitationexplicit.

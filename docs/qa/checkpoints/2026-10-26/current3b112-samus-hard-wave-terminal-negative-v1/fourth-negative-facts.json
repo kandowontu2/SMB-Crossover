@@ -1,0 +1,85 @@
+{
+  "native_aggregate_remains_FALSE": true,
+  "original_native_proof_sha256": "ddd3b354834a0d1013ec1ef0cd2bea8acdd0c4dba5635bf2ad18b83d7531fbc2",
+  "ROM_sha256": "3b112e1d79ba7348f2f7a4c426f4675845a5781017ab74690feb235121a66287",
+  "mode": 1,
+  "completed_cases": 5,
+  "completed_subphases": 17,
+  "uncompleted_case": 6,
+  "unrun_cases": [
+    7,
+    8
+  ],
+  "failure": {
+    "a": 0,
+    "y": 3,
+    "sp": 238,
+    "x": 2,
+    "bank": 10,
+    "message": "Actual upward Wave keeps complete world page",
+    "phase": {
+      "name": "Wave",
+      "phase": "run"
+    },
+    "pc": 43495
+  },
+  "complete256DMAs": 1861,
+  "startFrames": 1903,
+  "safe_scoped_enables": 1544,
+  "actual_PPU_frames": 1903,
+  "prefix_actual_frames_equal": 1596,
+  "prefix_raw_sha256": "fdaab2a0569d6e655a80d93a1858547f0a52e887020be583c87efd357de5ea87",
+  "prefix_events_equal_through_wall": 1595,
+  "actual_clock_boundaries": [
+    {
+      "wall": 1596,
+      "case": 5,
+      "kind": "actual-full-freeze-clock-boundary",
+      "phase": "run",
+      "pc": 43904,
+      "update": 1222,
+      "sp": 233,
+      "bank": 6,
+      "data": {
+        "before": 256,
+        "after": 255,
+        "steps": 105,
+        "leaf_partial": 0
+      }
+    },
+    {
+      "wall": 1851,
+      "case": 5,
+      "kind": "actual-full-freeze-clock-boundary",
+      "phase": "run",
+      "pc": 43904,
+      "update": 1477,
+      "sp": 233,
+      "bank": 6,
+      "data": {
+        "before": 1,
+        "after": 0,
+        "steps": 360,
+        "leaf_partial": 1
+      }
+    }
+  ],
+  "actual_thaw": [
+    {
+      "wall": 1851,
+      "case": 5,
+      "kind": "actual-Ice-thaw",
+      "phase": "run",
+      "pc": 43904,
+      "update": 1477,
+      "sp": 233,
+      "bank": 6,
+      "data": {
+        "steps": 360
+      }
+    }
+  ],
+  "source_only_reconstruction": "Full GameLoop with original logicalrow9 block clamps playerX before first shot. CPU reproduction yields world265/261 rather than configured254/258. Native firstMove position operands were not recorded and are not backfilled. Moving only the authored block to logicalrow7 removes that overlap in full-caller CPU controls.",
+  "scope": "B controlled ability use, not acquisition. First5cases observed; whole8case aggregate staysFALSE. No Wave/Varia/Screw native completion, audio waveform, wholepixel or global timing closure.",
+  "worker_released": true
+}

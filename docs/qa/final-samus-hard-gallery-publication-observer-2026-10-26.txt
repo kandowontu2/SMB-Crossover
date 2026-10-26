@@ -1,0 +1,10 @@
+Samus full draw/publication observer correction
+26 October2026. Source/static only; native grant not inferred. ROM 3b112e1d79ba7348f2f7a4c426f4675845a5781017ab74690feb235121a66287 unchanged.
+
+Original wave-ready native4508f6da staysFALSE after27actualmechanic completions. RosterOamReady isrotated-only; Samus2 useslegacytail JMP OAMClear→RTS. Legacy dmaChecks0 andbodyDisplayed neverbound even though2671rawE008full256/2354safe checks pass. Alloldfails retained.
+
+Newv6 observes genuineSamusFreezeDrawAllentry andfullinnerDrawAll/OAMClear return through fixedstartupdispatcher. State0 tailJMP sharesrealouterreturn; State1 innerJSR return precedesgenuineSamusFreezeRenderFinish rewritingOAM thenouterreturn. A two-endpointhandshake publishesexact256Sprite_Data/currentbodyPrepared ONLYatobservedouterreturnPC/SP/physicalbank afteractualinnercompletion. Innerentry clearspriorbodyPrepared; scope/update/character/nonrotation/endpointguards rejectstale/reentrant owners. Oldrotatedhook remainsuncountedforSamus; originalrawE008/order/renderoff/CHR/counter/bodyepochasserts retained. No perframe gamecodechange or emulatedwrites.
+
+44completecompiledGameLoopcells/88genuinereturns cover8ownedforms,bothfacings,standing pluscrouch/Morph/spin,uncached/repeatandbothwrapperbranches;44realFinish paths alterOAMafterinnerreturn. Existing96outlinepresentationcells remainseparate. Actualreturn-derived88Luamodels + finiteowner/return/NMI-stack/reusedreturn/stalebody/Finish/physicalepochnegatives pass. Two realmodeledcomplete256DMAs proveforegroundnewpublicationcannotreplaceoldvisiblebodybeforecompletion; wrongcompletedCHR rejects. These areSOURCE/mocks,notnativepublicationproof. All27setupRAM/writestreams/32phase models unchanged; reverse-normalizationkeepsothermechanics/inputs/caps/strictguards exactly.
+
+Same8cases/27subphases/numericHard1/Bseededuse; no acquisition/Easy/randompool/star1up/campaign/waveform/globalFPS/crowdedflickerclaim.12actualprior sheets151placements/193captureoccurrences reviewedseparatelywithoriginalterminalFALSE retained. No production/default/settings/Git edits.

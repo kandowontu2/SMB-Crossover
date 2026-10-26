@@ -1,0 +1,286 @@
+{
+  "native_aggregate_remains_FALSE": true,
+  "ROM_sha256": "3b112e1d79ba7348f2f7a4c426f4675845a5781017ab74690feb235121a66287",
+  "mode": 1,
+  "lane": "B controlled native-engine use, not acquisition",
+  "actual_completed_subphase_assertions": 27,
+  "actual_case_plan": [
+    {
+      "case": 1,
+      "name": "starting-short",
+      "owned": 0,
+      "status": 0,
+      "native_type": 1,
+      "tasks": [
+        {
+          "kind": "free",
+          "face": 1
+        },
+        {
+          "kind": "contact",
+          "face": 2
+        },
+        {
+          "kind": "up",
+          "face": 1
+        },
+        {
+          "kind": "pool",
+          "face": 2
+        }
+      ]
+    },
+    {
+      "case": 2,
+      "name": "long-beam",
+      "owned": 129,
+      "status": 1,
+      "native_type": 2,
+      "tasks": [
+        {
+          "kind": "free",
+          "face": 1
+        },
+        {
+          "kind": "contact",
+          "face": 2
+        },
+        {
+          "kind": "block",
+          "face": 1
+        },
+        {
+          "kind": "pool",
+          "face": 2
+        }
+      ]
+    },
+    {
+      "case": 3,
+      "name": "Morph-bombs",
+      "owned": 131,
+      "status": 1,
+      "tasks": [
+        {
+          "kind": "morph-deny",
+          "face": 1,
+          "owned": 129
+        },
+        {
+          "kind": "bombs",
+          "face": 2
+        }
+      ]
+    },
+    {
+      "case": 4,
+      "name": "missile-Special",
+      "owned": 133,
+      "status": 1,
+      "native_type": 2,
+      "tasks": [
+        {
+          "kind": "missile-select",
+          "face": 1,
+          "stock": 2
+        },
+        {
+          "kind": "free",
+          "face": 1,
+          "stock": 2,
+          "keepSelection": true
+        },
+        {
+          "kind": "missile-paid",
+          "face": 1,
+          "stock": 2,
+          "keepSelection": true
+        },
+        {
+          "kind": "missile-empty",
+          "face": 2,
+          "stock": 0,
+          "keepSelection": true
+        },
+        {
+          "kind": "missile-pool",
+          "face": 2,
+          "stock": 2,
+          "keepSelection": true
+        }
+      ]
+    },
+    {
+      "case": 5,
+      "name": "Ice",
+      "owned": 137,
+      "status": 1,
+      "tasks": [
+        {
+          "kind": "ice-thaw",
+          "face": 1
+        },
+        {
+          "kind": "ice-break",
+          "face": 2
+        }
+      ]
+    },
+    {
+      "case": 6,
+      "name": "Wave",
+      "owned": 145,
+      "status": 1,
+      "native_type": 3,
+      "tasks": [
+        {
+          "kind": "wave-up",
+          "face": 1,
+          "center": 254
+        },
+        {
+          "kind": "wave-up",
+          "face": 2,
+          "center": 258
+        },
+        {
+          "kind": "wave-contact",
+          "face": 1
+        },
+        {
+          "kind": "wave-block",
+          "face": 2
+        }
+      ]
+    },
+    {
+      "case": 7,
+      "name": "Varia",
+      "owned": 161,
+      "status": 1,
+      "tasks": [
+        {
+          "kind": "firebar",
+          "face": 1
+        },
+        {
+          "kind": "firebar",
+          "face": 2
+        },
+        {
+          "kind": "ordinary-hurt",
+          "face": 1
+        },
+        {
+          "kind": "firebar-no-varia",
+          "face": 2,
+          "owned": 129
+        }
+      ]
+    },
+    {
+      "case": 8,
+      "name": "Screw",
+      "owned": 193,
+      "status": 1,
+      "tasks": [
+        {
+          "kind": "screw",
+          "face": 1
+        },
+        {
+          "kind": "screw",
+          "face": 2
+        }
+      ]
+    }
+  ],
+  "terminal_failure": {
+    "sp": 253,
+    "y": 0,
+    "phase": {
+      "phase": "next",
+      "name": "Screw"
+    },
+    "x": 20,
+    "bank": 126,
+    "pc": 33461,
+    "a": 0,
+    "message": "Native IRQ/CHR/DMA exercised"
+  },
+  "full_actual_PPU_frames": 2718,
+  "complete256DMAs": 2671,
+  "startFrames": 2717,
+  "safe_scoped_enables": 2354,
+  "source_publication_matches": 0,
+  "unchanged_PPU_prefix": 1897,
+  "prefix_raw_sha256": "89fb2300c4ae89fd50b713d7a354f72b56179986e62c27898b20336d52a1fa2d",
+  "all_saved_capture_bytes_match_raw": true,
+  "capture_events": 193,
+  "saved_files": 192,
+  "selected_wholeframe_placements": 151,
+  "sheets": [
+    {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3b112-samus-hard-wave-observed-v1\\case1-page1.png",
+      "sha256": "fa7d64f86a88e7d28312eb7902d4c34eb4f7b24ed22f497f6b81dd11df8dfac1",
+      "placements": 14
+    },
+    {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3b112-samus-hard-wave-observed-v1\\case2-page1.png",
+      "sha256": "1c09ef052ab047cdbfafb9bd5e38940b07a2d1168324c82dfd0246d0c79b3ffb",
+      "placements": 16
+    },
+    {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3b112-samus-hard-wave-observed-v1\\case3-page1.png",
+      "sha256": "2083ea0de37c50d009c1c478ea9d6d5a96b18fa70d4d5de6df16a523ccea1e28",
+      "placements": 16
+    },
+    {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3b112-samus-hard-wave-observed-v1\\case3-page2.png",
+      "sha256": "7abec64c0102356756a0dd5e156532fbe0cb25860091139c09c3133a59831366",
+      "placements": 7
+    },
+    {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3b112-samus-hard-wave-observed-v1\\case4-page1.png",
+      "sha256": "81ba20d1671edd4ad85d367362c909fc4847ce279cabf054bfde69a824c09847",
+      "placements": 16
+    },
+    {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3b112-samus-hard-wave-observed-v1\\case4-page2.png",
+      "sha256": "f55f9244b2c2db16dfd104665184b5a01256f640177cf6e6fc885aba363bd9bf",
+      "placements": 5
+    },
+    {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3b112-samus-hard-wave-observed-v1\\case5-page1.png",
+      "sha256": "6696f058b48b48ff44ca0db6a14293ddb4bcdcedeedf8f3da83f34e23124ceae",
+      "placements": 15
+    },
+    {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3b112-samus-hard-wave-observed-v1\\case6-page1.png",
+      "sha256": "45212ae978bf964cfbb66b41f0611bd23a9b0f3065678378e69f2c20bfd6f73d",
+      "placements": 16
+    },
+    {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3b112-samus-hard-wave-observed-v1\\case6-page2.png",
+      "sha256": "5a54570637b868249912c6104b91010d351eeb9f46ed002ed791b5f272058de8",
+      "placements": 15
+    },
+    {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3b112-samus-hard-wave-observed-v1\\case7-page1.png",
+      "sha256": "54a1bbb1f7df3450172f96b4a8fdc5e62344a890a5d01061c624a2d62cc9532b",
+      "placements": 14
+    },
+    {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3b112-samus-hard-wave-observed-v1\\case8-page1.png",
+      "sha256": "2427d56c3695a0f3b45aaf73800cb15972fb5f9d142f1467de1f66c693fc1409",
+      "placements": 16
+    },
+    {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3b112-samus-hard-wave-observed-v1\\case8-page2.png",
+      "sha256": "3f09578653860c29fda12bfa7f5895359905bdbcd7d1faf033112bf1ef3faf68",
+      "placements": 1
+    }
+  ],
+  "missing_observer_scope": "Shared RosterOamReady is rotated-tail only. Samus selected2 uses legacy/nonrotated completion, so published remainsnil, legacy dmaChecks stays0, source-publication/bodyDisplayed-CHR chain is unexercised. Global mapper latch checks and strict E008 hardware protocol are separate. No missing per-case result JSON is invented.",
+  "worker_released": true
+}

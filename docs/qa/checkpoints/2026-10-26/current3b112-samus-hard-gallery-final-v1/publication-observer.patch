@@ -1,0 +1,54 @@
+--- native_v5.lua
++++ native_v6.lua
+@@ -4,6 +4,8 @@
+ local taskIndex=1
+ local bodyPrepared,bodyPublished,bodyDma,bodyDisplayed=nil,nil,nil,nil
+ local drawContext=nil
++local samusPublicationScope=nil
++local samusPublicationSerial=0
+ local function samusPool()
+  local n=0;for i=0,2 do if r('SmShotType',i)~=0 then n=n+1 end end
+  for i=0,9 do if r('RgShotType',i)==41 or r('RgShotType',i)==46 then n=n+1 end end
+@@ -243,7 +245,41 @@
+  assert(expected,'Actual selected body pointer is a bound Samus record')
+  return expected,false
+ end
+-hook('DrawAllMetasprites',function()bodyPrepared=nil end)
++local function publishSamusDraw(scope)
++ assert(scope==samusPublicationScope and scope.innerCompleted and scope.outerReturned,'Only the completed current Samus image owner publishes')
++ assert(scope.update==updates and r('SelectedCharacter')==2 and r('GuestOamRotationActive')==0,'Current nonrotated Samus publication owner')
++ local st=emu.getState()
++ assert(st['cpu.pc']==scope.returnPC and st['cpu.sp']==scope.returnSP and bank(st['cpu.pc'])==scope.returnBank,'Publication is at the actual outer caller PC/SP/bank')
++ published=bytes(L.Sprite_Data,emu.memType.nesDebug);bodyPublished=scope.body
++ samusPublicationSerial=samusPublicationSerial+1
++ local source={};for i=1,256 do source[i]=published:byte(i)end
++ event('actual-Samus-complete-publication',{id=samusPublicationSerial,source=source,body=bodyPublished,update=scope.update,postFinish=scope.postFinish,returnPC=scope.returnPC,returnSP=scope.returnSP,returnBank=scope.returnBank})
++ samusPublicationScope=nil
++end
++hook('SamusFreezeDrawAll',function()
++ if not entered or done then return end
++ assert(r('SelectedCharacter')==2 and not samusPublicationScope,'One actual Samus draw wrapper owns publication')
++ local st=emu.getState();local sp=st['cpu.sp']
++ local ret=(emu.read(256+(sp+1)%256,emu.memType.nesDebug)+256*emu.read(256+(sp+2)%256,emu.memType.nesDebug)+1)%65536
++ local scope={update=updates,returnPC=ret,returnSP=(sp+2)%256,returnBank=bank(ret),postFinish=r('SmFreezeRenderState')~=0}
++ samusPublicationScope=scope
++ onReturn('Samus-complete-draw-wrapper',function()
++  assert(scope==samusPublicationScope,'Actual outer return retains its draw owner')
++  scope.outerReturned=true
++  if scope.innerCompleted then publishSamusDraw(scope)end
++ end)
++end)
++hook('DrawAllMetasprites',function()
++ bodyPrepared=nil
++ if not entered or done then return end
++ local scope=assert(samusPublicationScope,'Samus DrawAll belongs to the observed native wrapper')
++ assert(scope.update==updates and r('SelectedCharacter')==2,'Actual current Samus DrawAll owner')
++ onReturn('Samus-native-DrawAll-completed',function()
++  assert(scope==samusPublicationScope and scope.update==updates,'Only this current DrawAll completion supplies body metadata')
++  scope.innerCompleted=true;scope.body=bodyPrepared
++  if scope.outerReturned then publishSamusDraw(scope)end
++ end)
++end)
+ hook('DrawMetasprite',function()
+  if not entered or emu.getState()['cpu.y']~=0 then return end
+  drawContext={kind='body'};onReturn('Samus-body-art-scope',function()drawContext=nil end)

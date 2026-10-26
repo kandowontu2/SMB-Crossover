@@ -1,0 +1,25 @@
+--- native_v3.lua
++++ native_v4.lua
+@@ -192,12 +192,21 @@
+   elseif f~=0 and after==0 then s.breaks=(s.breaks or 0)+1;event('actual-Ice-break',{previous_ticks=f,type=typ});capture('Ice-break-'..wall)end
+  end)
+ end)
++local freezeClockBefore=nil
++hook('RemainingWeapons::Freeze',function()
++ if not entered or phase~='run'or emu.getState()['cpu.x']~=0 then return end
++ freezeClockBefore={value=r('AvFrozen')+256*r('AvFrozenHi'),update=updates,stage=current.stage}
++end)
+ hook('SamusFrozenDecrement',function()
+  if not entered or phase~='run'or emu.getState()['cpu.x']~=0 then return end
+- local before=r('AvFrozen')+256*r('AvFrozenHi')
++ assert(freezeClockBefore and freezeClockBefore.update==updates and freezeClockBefore.stage==current.stage,'Exact full freeze-clock caller snapshot precedes its leaf')
++ local before=freezeClockBefore.value;freezeClockBefore=nil
++ local partial=r('AvFrozen')+256*r('AvFrozenHi')
++ assert(before>0 and partial==before-(before%256==0 and 256 or 0),'Native caller applies only the required high-byte borrow before leaf entry')
+  onReturn('Samus-real-thaw-clock',function()
+   local after=r('AvFrozen')+256*r('AvFrozenHi');assert(before>0 and after==before-1,'Every actual freeze update decrements exactly one')
+   current.stage.freezeSteps=current.stage.freezeSteps+1
++  if before%256==0 or after==0 then event('actual-full-freeze-clock-boundary',{before=before,leaf_partial=partial,after=after,steps=current.stage.freezeSteps})end
+   if after==0 then current.stage.thaws=current.stage.thaws+1;assert(r('RgEnemyStun')==0 and r('LsrFrozenPose')==0,'Source freeze releases STOP/pose');event('actual-Ice-thaw',{steps=current.stage.freezeSteps});capture('Ice-thaw-'..wall)end
+  end)
+ end)

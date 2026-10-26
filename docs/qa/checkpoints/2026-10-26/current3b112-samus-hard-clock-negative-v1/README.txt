@@ -1,0 +1,1 @@
+Original native aggregateFALSE retained.15subphases/sourceprefix only; fullunit not passed.12selected wholeframes+partialimage agent-reviewed. Borrow values are complete CPU reconstruction, not invented native operand dumps. Current successor is separately frozen; no production edit. Raw/source/runtime remain external.

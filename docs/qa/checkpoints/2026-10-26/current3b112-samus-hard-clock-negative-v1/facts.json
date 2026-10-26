@@ -1,0 +1,76 @@
+{
+  "native_aggregate_remains_FALSE": true,
+  "original_native_proof_sha256": "54cc2f83d1472d99ea1fb9cb727396aa50d8dad0535d1ed0941d6c35bec9c010",
+  "dependencies_unchanged": true,
+  "ROM_sha256": "3b112e1d79ba7348f2f7a4c426f4675845a5781017ab74690feb235121a66287",
+  "mode": 1,
+  "completed_cases": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "completed_subphases": 15,
+  "uncompleted_case": 5,
+  "unrun_cases": [
+    6,
+    7,
+    8
+  ],
+  "original_failure": {
+    "sp": 233,
+    "phase": {
+      "name": "Ice",
+      "phase": "run"
+    },
+    "bank": 6,
+    "message": "Every actual freeze update decrements exactly one",
+    "y": 64,
+    "pc": 43904,
+    "x": 0,
+    "a": 255
+  },
+  "actual_freeze": {
+    "phase": "run",
+    "pc": 366,
+    "data": {
+      "position": {
+        "page": 0,
+        "x": 139,
+        "y": 178
+      },
+      "beforeHP": 0,
+      "ticks": 360,
+      "afterHP": 0
+    },
+    "wall": 1491,
+    "update": 1117,
+    "kind": "actual-Ice-freeze",
+    "case": 5,
+    "sp": 223,
+    "bank": 0
+  },
+  "last_complete_PPU": {
+    "ordinal": "1596",
+    "ppu_frame": "1596",
+    "scanline": "240",
+    "dot": "0",
+    "cpu_cycle": "47527192",
+    "phase": "run",
+    "updates": "1221",
+    "mode": "1",
+    "tier": "1"
+  },
+  "failure_update_inferred_next": 1222,
+  "complete256DMAs": 1558,
+  "startFrames": 1596,
+  "safe_scoped_enables": 1241,
+  "prefix_actual_PPU_frames_equal": 1468,
+  "prefix_actual_bytes": 360775680,
+  "prefix_raw_sha256": "c29496ada5387f67d7c94833560df180f7ec7fb2510e1ce104af3675053a5c81",
+  "prefix_events_semantically_equal_through_wall": 1467,
+  "actual_timer_operands_dumped": false,
+  "source_conclusion": "CallerAB6A borrows high byte before leafBFD2. Separate complete CPU trace proves full256\u2192leafpartial0\u2192after255 at genuine returnAB80; native first failure atAB80/A255 after source-created360/update1117 and nextupdate1222 matches this boundary. Native low/high operands were not recorded and are not backfilled. No timer/game defect is proved.",
+  "scope": "B controlled seeds/use, not acquisition. Original exact360count/STOP/pose/thaw completion remains required. Native first4case prefix is observed, wholeunit remainsFALSE; no Ice fullthaw/break/Wave/Varia/Screw/wholepixel/FPS/audio pass.",
+  "worker_released": true
+}

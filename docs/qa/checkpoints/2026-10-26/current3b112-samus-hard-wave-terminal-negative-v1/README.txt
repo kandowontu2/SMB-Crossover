@@ -1,0 +1,1 @@
+Original fourth and terminal native aggregates remainFALSE.27actual stage-assertions are a narrow observed component, not whole-gallery qualification. Publication/bodyCHR observergap is explicit. All12sheets/151actualwholeframeplacements reviewed byagent, nothuman. Raw/source/runtime remainexternal; no acquisition/globalfidelity/timing claim.

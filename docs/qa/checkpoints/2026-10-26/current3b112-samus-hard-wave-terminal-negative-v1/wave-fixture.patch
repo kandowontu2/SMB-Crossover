@@ -1,0 +1,11 @@
+--- native_v4.lua
++++ native_v5.lua
+@@ -44,7 +44,7 @@
+   w('HorizontalScroll',133)
+   w('SmWavePolarity',t.face==1 and 0 or 1)
+   -- Complete authored question block on the upward path; Wave bypasses terrain.
+-  w('Block_Buffer_1',0xc1,9*16+15);tile(0,15,11,0xc1)
++  w('Block_Buffer_1',0xc1,7*16+15);tile(0,15,9,0xc1)
+  end
+  if t.kind=='block' or t.kind=='wave-block' then
+   local col=t.face==1 and 10 or 5;w('Block_Buffer_1',0xc1,9*16+col);tile(0,col,11,0xc1)

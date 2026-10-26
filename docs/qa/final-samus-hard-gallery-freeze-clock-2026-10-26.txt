@@ -1,0 +1,8 @@
+Samus Hard full-clock observer correction
+26 October 2026. Source/static only, no nativegrant/launch. ExactROM 3b112e1d79ba7348f2f7a4c426f4675845a5781017ab74690feb235121a66287 unchanged.
+
+Original pool-ready native54cc2f83d1472d99ea1fb9cb727396aa50d8dad0535d1ed0941d6c35bec9c010 staysFALSE; dependenciesunchangedTRUE. It completed all15subphases in first4cases, then froze a real Goomba at1491/update1117 for360. At next update1222 after last completePPU1596 it failed the leaf-only decrement assertion at actualreturnAB80, A255. Original low/high operands were not dumped and are not backfilled.
+
+Complete caller RemainingWeapons::FreezeAB6A captures16bitbefore; caller performs highDEC whenlow0 before invoking SamusFrozenDecrementBFD2. SourceCPU proves before256→leafpartial0→return255 at actualAB80, which invalidates old leaf-only before-1 oracle. One source-emitted/contact-created360 episode through360fullProc gateways plus11boundary cells prove exactdecrements/STOP-release.
+
+ONE added genuine pre-borrow hook/read-only Lua snapshot records full before; existing genuine leafreturn still asserts full before>0/after=before-1, plus new check that intermediate state is exact source borrow. Boundary/thaw event records before/partial/after; no timer/resource/input writes.5positive+10negative/defer Lua models cover256boundary, missing/wrongowner/update/stage/slot/partial/finalvalue/returnSP/bank. All27setup RAM/write streams and32phase models identical; allothercontroller/ability/cost/contact/cleanup/360duration/strictNMI/IRQ/DMA/E008/CHR/stack/bank/SMC checks unchanged. Runtime top-level-only. B seeded use never acquisition; nativewholeunit/unrunIcecompletion/Wave/Varia/Screw remainopen.
