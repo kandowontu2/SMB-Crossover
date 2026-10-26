@@ -1,0 +1,26 @@
+Mega Man body visibility, 2026-10-26
+
+Installed/current3cee ROM remains unchanged. The observed partial body is an
+open graphics issue, not a newly qualified fix.
+
+One bounded read-only exact-input replay completes1-1 and movable1-2 with
+zero deaths. The full original5,033-frame direct stream, all saved pixels,
+inputs, trace, render, physical DMA OAM, CHR, scrolling, audio queue-store,
+stomp and completed-loop logs remain byte-exact to the original direct replay.
+Additional callbacks read actual OAM, palette, CHR mapping and named RAM at
+2,501 actual PPU ends. The native worker is released. Readiness and observer
+hashes are retained; no game memory/settings/source writes occur.
+
+At actual PPU2475 and2871, MmSliding, GuestHurtTicks, GuestInvulTicks and
+InjuryTimer are all zero. Actual physical OAM plus linked CHR pattern bytes
+provide25 and48 nontransparent-body omission witnesses respectively: the
+first eight eligible sprites fill the scanline before lower-body parts.
+Earlier shots and face layers consume priority slots. This explains those two
+head-only-looking cases without substituting a slide/injury assumption.
+
+The independent body-CHR observer correctly passed mapping consistency; that
+check never certified sprite visibility. The original eight-route packet keeps
+its open visual finding. This additive attribution does not alter its receipt.
+No all-frame/all-pose attribution, audio fidelity or performance claim follows.
+A remedy still needs private source and native qualification with the NES
+eight-sprite hardware limit retained. Default/Downloads remain3cee18ca.
