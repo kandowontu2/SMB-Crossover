@@ -328,7 +328,11 @@ Find:lda Cv3ShotType,x
  clc
  rts
 Found:pla
+.if ::MAPPER_MMC5
+ jsr Cv3FxProducerFast
+.else
  jsr Cv3SpawnAudioType
+.endif
  lda #0
  sta Cv3ShotAge,x
  sta Cv3ShotFx,x

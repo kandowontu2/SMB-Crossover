@@ -10,6 +10,10 @@ Cv3NoiseMusicHigh=RgAudioZp+31
 .pushseg
 .segment "CV3_COMBAT"
 .proc Cv3SpawnAudioType
+.if ::MAPPER_MMC5
+ jmp Cv3FxSpawn
+ .res 15,$ea
+.else
  sta Cv3ShotType,x
  cmp #6
  bne Done
@@ -18,15 +22,20 @@ Cv3NoiseMusicHigh=RgAudioZp+31
  lda #26
  sta AvAudioRequest
 Done:rts
+.endif
 .endproc
 .segment "CV3_GRIP"
 .proc Cv3NoiseSceneReset
- php
 .if ::MAPPER_MMC5
+ php
  jsr Cv3DmcSceneRequest
+ plp
+ lda Cv3Variant
+ rts
+ .res 28-(*-::Cv3NoiseSceneReset),$ea
 .else
+ php
  lda AvAudioRequest
-.endif
  cmp #26
  bne Owner
  lda #0
@@ -38,17 +47,18 @@ Owner:lda Cv3NoiseActive
 Variant:plp
  lda Cv3Variant
  rts
+.endif
 .endproc
 .segment "CV_WRAP"
 .proc Cv3MusicAndNoiseTick
 .if ::MAPPER_MMC5
- jsr Cv3DmcBeforeCv1
+ jmp Cv3FxTick
 .else
  jsr CvAudioPlay
 .endif
  lda Cv3NoiseActive
  beq Request
- lda GuestNativeDirty+12
+KnownActive:lda GuestNativeDirty+12
  beq Period
  lda GuestNativeApu+12
  sta Cv3NoiseMusicVolume
@@ -72,8 +82,12 @@ High:lda GuestNativeDirty+15
  sta GuestNativeApu+15
  lda #0
  sta GuestNativeDirty+15
-Request:lda Cv3NoiseActive
+Request:
+ .if !::MAPPER_MMC5
+ lda Cv3NoiseActive
  bmi End
+ .endif
+ ; Both MMC5 Tick callers enter only with a nonnegative Active value.
  lda AvAudioRequest
  cmp #26
  bne Continue
@@ -90,8 +104,12 @@ Reset:lda #0
  sta Cv3NoiseIndex
  lda #1
  sta Cv3NoiseActive
-Continue:lda Cv3NoiseActive
+Continue:
+ .if !::MAPPER_MMC5
+ lda Cv3NoiseActive
  beq Done
+ .endif
+ ; Entry is positive, or cold Av26 has just set Active=1. No phase is omitted.
  ldy Cv3NoiseIndex
  cpy #28
  beq End
@@ -103,8 +121,13 @@ Continue:lda Cv3NoiseActive
  lda Cv3NoisePeriods,y
  sta Cv3NoiseApu+2
  sta GuestNativeApu+14
+ .if ::MAPPER_MMC5
+ jsr Cv3FxLegacyNoiseHigh
+ .res 2,$ea
+ .else
  lda #8
  sta Cv3NoiseApu+3
+ .endif
  sta GuestNativeApu+15
  lda #1
  sta GuestNativeDirty+14
@@ -128,6 +151,10 @@ RestoreMusic:lda Cv3NoiseMusicVolume
  sta GuestNativeDirty+14
  sta GuestNativeDirty+15
  rts
+ .if ::MAPPER_MMC5
+ .assert *-::Cv3MusicAndNoiseTick<=221,error,"Retained genuine public legacy span"
+ .res 221-(*-::Cv3MusicAndNoiseTick),$ea
+ .endif
 .endproc
 ; The imported driver's one unmarked direct volume store also participates
 ; in the private music cache. Preserve its original A/X/Y/status contract.

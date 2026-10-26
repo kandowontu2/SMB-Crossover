@@ -54,7 +54,11 @@ RgSfx: .res 1
 .proc Wrapper
   lda SelectedCharacter
   cmp RgAudioCharacter
+ .if Kind=2 .and ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
+  beq Save ; actual unrolled Save never reads inputY; hot LDY23 was dead
+ .else
   beq AlreadyInit
+ .endif
   sta RgAudioCharacter
   lda #0
   sta RgAudioSong
@@ -62,7 +66,11 @@ RgSfx: .res 1
   ldx #0
 ClearRam:
   sta RgAudioRam,x
+.if Kind=2 .and ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
+  jmp KeptUpper ; upper channel RAM is the committed FX queue, never CV1 state
+.else
   sta RgAudioRam+$100,x
+.endif
   inx
   bne ClearRam
   ldx #ZpCount-1
@@ -79,7 +87,12 @@ Save:
   ; memory operations and final A/X/Y/P; no shared mapper/SMC work is added.
   jsr Cv3SaveAudioZp
   jmp SavedPrivate
-  .res 12,$ea ; exact original18-byte Save body
+KeptUpper:
+  inx
+  bne ClearRam
+  ldx #ZpCount-1
+  jmp ClearZp
+  .res 4,$ea ; genuine8-byte cold continuation in old unreachable12-byte tail
 SavedPrivate:
 .else
   ldx ZpAddresses,y
@@ -159,7 +172,11 @@ PlayMusic:
 .elseif Kind=1
   sta ZeldaNative::musicRequest
 .else
+ .if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
+  jsr Cv3FxMusicInit
+ .else
   jsr CvAudioInit
+ .endif
 .endif
 Effects:
   lda RgSfx
@@ -211,15 +228,24 @@ Tick:
   jsr ZeldaNative::process_audio
 .else
 .if ::ENABLE_MMC5_EXPANDED
+ .if ::MAPPER_MMC5
+  jsr Cv3FxNativeTick ; real private caller; compatibility entry remains callable
+ .else
   jsr Cv3MusicAndNoiseTick
+ .endif
 .else
   jsr CvAudioPlay
 .endif
 .endif
   jmp Restore
 Mute:
+.if Kind=2 .and ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
+  jsr Cv3FxMuteGate
+  .res 2,$ea ; unchanged5-byte original mute owner span
+.else
   lda #0
   jsr GuestNativeStatusSTA
+.endif
 Restore:
 .if Kind=2 .and ::ENABLE_MMC5_EXPANDED
   jsr Cv3RestoreAudioZp

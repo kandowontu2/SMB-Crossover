@@ -6,6 +6,8 @@ This is a native NES adaptation of [Super Mario Bros. Crossover](https://www.smb
 
 **Status: playable, actively developed, and unfinished.** Character behavior, graphics, sound and performance are still being tested and corrected. MMC5 is the recommended target for the full roster.
 
+The October 26 development build includes the Castlevania sound repair and a fix for a missed frame during Alucard's fireball stress test. The full roster and every powerup still need current-build playthrough verification; see the [current testing status](docs/qa/current-roster-status-2026-10-26.txt).
+
 ## Features
 
 - A three-row character select screen, with alternate characters chosen using Select.

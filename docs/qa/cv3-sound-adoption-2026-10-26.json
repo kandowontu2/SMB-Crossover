@@ -1,0 +1,150 @@
+{
+  "passed": true,
+  "adopted": true,
+  "goal_complete": false,
+  "rom_sha256": "2cb5fca0757c3e347c264eab0bf3f22bd02d851787f38802a4af3cb0c3aa1fa5",
+  "parent_rom_sha256": "50b51c3c69f45ef137720c47f521574097f421056e3b73296d06ba70080d2363",
+  "source_files": [
+    {
+      "path": "src/cv3_abilities.s",
+      "sha256": "dae20bc574a72a9f764b7262d262c407f03d8aee547ff5ac41b7dcab4fd7b771",
+      "parent_sha256": "dae20bc574a72a9f764b7262d262c407f03d8aee547ff5ac41b7dcab4fd7b771",
+      "accepted50b_sha256": "0c1d6d3c04a78bdf33d40b4ec23ab188e7d5a73041300123012590b7b41148ae"
+    },
+    {
+      "path": "src/cv3_combat.s",
+      "sha256": "075ca22c58a5976d3fa4ab4ac21c09dcab08f245b17e6a1764b8370cd67a61d9",
+      "parent_sha256": "075ca22c58a5976d3fa4ab4ac21c09dcab08f245b17e6a1764b8370cd67a61d9",
+      "accepted50b_sha256": "c950089a56bc506789fa02801c641960c03c4f78d113765c74c615d1de145846"
+    },
+    {
+      "path": "src/cv3_dmc_complete.s",
+      "sha256": "106f1fdc4a17c17b3cb56ec763ae4984207cc5b9a2a80122466ca5db32ec7739",
+      "parent_sha256": "106f1fdc4a17c17b3cb56ec763ae4984207cc5b9a2a80122466ca5db32ec7739",
+      "accepted50b_sha256": "aee614d8ceb4f8f9a0135ab39119a50511908192c758d04a11a26a662853825d"
+    },
+    {
+      "path": "src/cv3_remaining_source_fx.s",
+      "sha256": "f396cd3ab14acba3a601ba01b37194b02e3a63b04c92caaaedd80b5a283d32a8",
+      "parent_sha256": "909c1db757db4409342d0a811d2522405c299351e8e56f0d46add2f8b9f3fad6",
+      "accepted50b_sha256": null
+    },
+    {
+      "path": "src/cv3_source_audio.s",
+      "sha256": "6b7ed5974fc848ca8c95e4d389052aa9ad95574dcdb1984ab9eaae34dc031e7f",
+      "parent_sha256": "fa7f64da0b18f6427dbfdc705a4ec73f91d2b024f0fb7fb9d296bdff4c7c5044",
+      "accepted50b_sha256": "d9ac53865adb9a834acf448995b30503cbb3829eb0c0751084df45b4e98bc98c"
+    },
+    {
+      "path": "src/entrypoint.s",
+      "sha256": "3283c771ce6517c52cef3800b0836ad4036bda5e6bfc08fcc3327affd3d70c33",
+      "parent_sha256": "3283c771ce6517c52cef3800b0836ad4036bda5e6bfc08fcc3327affd3d70c33",
+      "accepted50b_sha256": "d5276b02584213dbc1afa192f79f3e27e383587faea533c78e66a33b0b433137"
+    },
+    {
+      "path": "src/megaman_death.s",
+      "sha256": "f19a8acc3db5a77bf5dca76d6eee4a1e94744d1e5a0ffac18240a768f3de289c",
+      "parent_sha256": "f19a8acc3db5a77bf5dca76d6eee4a1e94744d1e5a0ffac18240a768f3de289c",
+      "accepted50b_sha256": "7c66cd759f438eaa2206e85113446790dc6253b500b72ca2e5d0004b1d995e88"
+    },
+    {
+      "path": "src/roster_audio.s",
+      "sha256": "1788caf9e2e8c00475456febd6c1ebd75ca4ff5b22e22c7b1da9e9502544b9f5",
+      "parent_sha256": "785f045f6858ae1f000c16a8be57fd467b2e9dbccdf3998285baa31b83951c37",
+      "accepted50b_sha256": "5458ff7072b16fed35133ef4febd5e4cf380decf2718add910ab8fb8080c6fcc"
+    }
+  ],
+  "checked_source_files": 636,
+  "verified_source_bindings": 2521,
+  "verified_native_bindings": 31,
+  "checks": [
+    {
+      "name": "cpu-v1",
+      "passed": true,
+      "receipt": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-legacy-wrapper-v2\\cpu-v1\\proof.json",
+      "sha256": "a5f425f3abf119bc0850b95661d68ff5e4200ebaa448b442e00da107e8822aae",
+      "layer": "source/CPU"
+    },
+    {
+      "name": "layout-v1",
+      "passed": true,
+      "receipt": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-legacy-wrapper-v2\\layout-v1\\proof.json",
+      "sha256": "ac5baaad9c794a88236cc7fa844cfc335b7b0874d120f9722756332c00cad854",
+      "layer": "source/CPU"
+    },
+    {
+      "name": "compat-v1",
+      "passed": true,
+      "receipt": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-legacy-wrapper-v2\\compat-v1\\proof.json",
+      "sha256": "51c9a81317cdc68e81cb61259d9fc6aa6e6dbe05dde122e8a7535106586ba0b2",
+      "layer": "source/CPU"
+    },
+    {
+      "name": "irq-v1",
+      "passed": true,
+      "receipt": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-legacy-wrapper-v2\\irq-v1\\proof.json",
+      "sha256": "72aea71b64e593405a3e575d133efaa288212ed8ef3f267153b0074ccf0247d7",
+      "layer": "source/CPU"
+    },
+    {
+      "name": "oracle-v1",
+      "passed": true,
+      "receipt": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-legacy-wrapper-v2\\oracle-v1\\proof.json",
+      "sha256": "61238d59cbebab31345f5b8460657a50eb9b063e9a33b4626dcce65d083ba276",
+      "layer": "source/CPU"
+    },
+    {
+      "name": "callers-v1",
+      "passed": true,
+      "receipt": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-legacy-wrapper-v2\\callers-v1\\proof.json",
+      "sha256": "7f2a10848d323cceacab5d5c6d885bb89c208db6d6430321cffd2b2cdce68749",
+      "layer": "source/CPU"
+    },
+    {
+      "name": "startup-v2",
+      "passed": true,
+      "receipt": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-legacy-wrapper-v2\\startup-v2\\proof.json",
+      "sha256": "97c8c70c3d10d11d990a39c2889bcae470403427eb9a9b0866d0dad1a573dac3",
+      "layer": "source/CPU"
+    },
+    {
+      "name": "observer-v2",
+      "passed": true,
+      "receipt": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-legacy-wrapper-v2\\observer-v2\\proof.json",
+      "sha256": "705640e37bc54cc4968213ddcf2a3b72ca02839a093c1a855589e9c9a15fb210",
+      "layer": "source/CPU"
+    },
+    {
+      "name": "same-input Hard1F240 native recovery",
+      "passed": true,
+      "receipt": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-legacy-wrapper-v2\\native-freeze-v1\\qualification-native.json",
+      "sha256": "27341f8a370064076b0712d06ce18106bca18dfaf5531cbd2e215f06ff39c4bf",
+      "layer": "native"
+    },
+    {
+      "name": "fresh canonical ROOT compile and all636 source bindings",
+      "passed": true
+    },
+    {
+      "name": "installed/default/dated ROM exact hash",
+      "passed": true
+    },
+    {
+      "name": "unchanged header/CHR and all non-CV3 banks",
+      "passed": true
+    }
+  ],
+  "installed": "C:\\Users\\kando\\Downloads\\SMB-Crossover-Current-MMC5.nes",
+  "dated_build": "C:\\Users\\kando\\Downloads\\SMB-Crossover-2026-10-26-CV3-MMC5.nes",
+  "rollback": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-legacy-wrapper-v2\\adoption-v1",
+  "changed_PRG_banks": [
+    2,
+    28,
+    29,
+    82,
+    84
+  ],
+  "CHR_header_exact": true,
+  "historical_eaa3_native_results_not_reused_as_current": true,
+  "scope": "Standalone CV3 sound repair and measured Hard1F draw recovery. Other eaa3 native cells remain historical. No combined4285/Parodius, Turtle70ba or Chip8b4 trial is installed. Full37-character1-1/item/campaign and constant60Hz claims remain unverified."
+}

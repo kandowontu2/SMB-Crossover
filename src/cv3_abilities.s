@@ -243,8 +243,13 @@ TryEnter:
  ldx #2
  lda Cv3Hearts,x
  jeq No
+ .if ::MAPPER_MMC5
+ jsr Cv3FxBatEnter
+ .res 2,$ea
+ .else
  lda #1
  sta Cv3Bat
+ .endif
  lda #36
  sta Cv3BatTransform
  jmp Still

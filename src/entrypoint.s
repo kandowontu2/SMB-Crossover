@@ -484,4 +484,5 @@ Done:
 
 .if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
 .include "cv3_dmc_complete.s"
+.include "cv3_remaining_source_fx.s"
 .endif

@@ -44,7 +44,11 @@ Done:
   lda #1
   sta MmDeathFlag
  .if ::ENABLE_MMC5_EXPANDED
+ .if ::MAPPER_MMC5
+  farcall Cv3FxDeathDispatch
+ .else
   farcall RlDeathStartDispatch
+ .endif
  .else
   farcall InventoryDeath
  .endif

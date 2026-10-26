@@ -40,8 +40,7 @@ Done:plp
  rts
 .endproc
 .proc Cv3DmcSceneRequest
- php
- lda #0
+ jmp Cv3FxSceneRequest ; original PHP/LDA0 relocated, following PCs exact
  sta Cv3DmcPending
  lda BassDmcActive
  cmp #3
@@ -90,7 +89,7 @@ Play:plp
 .segment "X5_AUDIO_MIX"
 .proc Cv3DmcResetOwner
  php
- sta Cv3DmcPending ; original two call sites both supply A=0
+ jsr Cv3FxOwnerInit ; fixed original3B span, original outer PHP owns status
  lda BassDmcActive
  cmp #3
  beq Owned
