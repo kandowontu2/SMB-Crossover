@@ -1,0 +1,54 @@
+--- a/smb1base-mmc5-expanded.cfg
++++ b/smb1base-mmc5-expanded.cfg
+@@ -147,8 +147,8 @@
+ 
+     PRGLow: start = $8000,  size = $2000, type = ro, file = %O, fill = yes, fillval = $ff, bank = $7e;
+     
+-    ALIGN:  start = $e000,  size = $60,   type = ro, file = %O, fill = yes, bank = $7f;
+-    PRGFix: start = $e060,  size = $2000 - $60, type = ro, file = %O, fill = yes, fillval = $ff, bank = $7f;
++    ALIGN:  start = $e000,  size = $66,   type = ro, file = %O, fill = yes, bank = $7f;
++    PRGFix: start = $e066,  size = $2000 - $66, type = ro, file = %O, fill = yes, fillval = $ff, bank = $7f;
+ 
+     CHR:    start = $0000,  size = $40000, type = ro, fill = yes, file = %O, fillval = $00;
+     X5_CHR_MORE: start=$40000, size=$5000, type=ro, fill=yes, file=%O, fillval=$00;
+--- a/src/reset.s
++++ b/src/reset.s
+@@ -376,8 +376,10 @@
+   and #%11111100
+   sta PPUCTRL
+ 
++.if !(::ENABLE_MMC5_EXPANDED && ::MAPPER_MMC5)
+   lda Mirror_PPUMASK       ;copy mirror of $2001 to register
+   sta PPUMASK
++.endif
+ 
+   ; If the main thread requested a CHR bank switch, do it before the timing window passes
+   jsr BankSwitchCHR
+@@ -758,6 +760,13 @@
+ 
+   LDA #OAM
+   STA OAM_DMA
++ .if ::ENABLE_MMC5_EXPANDED && ::MAPPER_MMC5
++  ; Keep rendering disabled until all256 DMA writes finish. The next input
++  ; load kills A/NZ; the pair preserves C/V and the controller GET/PUT parity.
++::PostDmaMaskEnable:
++  lda Mirror_PPUMASK
++  sta PPUMASK
++ .endif
+  
+   ; Desync cycles: 432, 576, 672, 848, 432*2-4 (860)
+ 
+@@ -884,6 +893,13 @@
+ .proc OAMandReadJoypad
+   lda #OAM
+   sta OAM_DMA          ; ------ OAM DMA ------
++ .if ::ENABLE_MMC5_EXPANDED && ::MAPPER_MMC5
++  ; Keep rendering disabled until all256 DMA writes finish. The next input
++  ; load kills A/NZ; the pair preserves C/V and the controller GET/PUT parity.
++::PostDmaMaskEnable:
++  lda Mirror_PPUMASK
++  sta PPUMASK
++ .endif
+   ldx #1             ; get put          <- strobe code must take an odd number of cycles total
+   stx SavedJoypad1Bits ; get put get
+   stx JOYPAD_PORT1   ; put get put get

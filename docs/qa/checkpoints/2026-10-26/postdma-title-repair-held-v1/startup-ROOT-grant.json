@@ -1,0 +1,44 @@
+{
+  "utc": "2026-10-26T12:34:59.830896+00:00",
+  "ROOT_review_passed": true,
+  "native_grant": true,
+  "maximum_launches": 2,
+  "sequential_one_worker": true,
+  "frames_each": 220,
+  "cases": [
+    "baseline",
+    "candidate"
+  ],
+  "bindings_verified": 1554,
+  "readiness_sha256": "477e65913bb485a2cf68a9e7fe87dbe0f95abf41190589e7aefb38a4fb5ec278",
+  "expected_baseline_complete_exit": 1,
+  "expected_baseline_fault_DMA": 171,
+  "candidate_expected_hardware_inequalities": 0,
+  "direct_console_window": [
+    176,
+    190
+  ],
+  "no_gameplay_or_adoption_grant": true,
+  "source": {
+    "passed": true,
+    "source_only": true,
+    "native_run": false,
+    "candidate_ROM_sha256": "900b669e212b878041c23e438f2fb26e310ce8f929f904681a9c4b17405b6968",
+    "baseline_ROM_sha256": "3cee18caa732b2e85e3bdb00faf719223324f9bf24e72dd30c56be355da33b99",
+    "complete_NMI_cases": 893,
+    "input_all_bytes_both_DMA_parities": 512,
+    "actual_IRQ_cases": 442,
+    "all_complete_return_AXYP_SP_application_RAM_5SMC_banks_input_and_other_IO_exact": true,
+    "IRQ_resume_physical_status_mask": 207,
+    "IRQ_status_note": "Only virtual B/U bits excluded from interrupt-resume comparison; N,V,D,I,Z,C all exact; no RAM/OAM masks.",
+    "intended_IO_delta": "Only the last regular-NMI PPUMASK write is moved from before CHR/DMA to immediately after DMA and before input strobe. Its value and all other ordered writes/reads are exact.",
+    "cycle_delta": [
+      0,
+      0
+    ],
+    "cases_sha256": "9d8bf735e5e80ff283a064c7aae1386bad5b4a06ebff7fbc00c6523228bd238f",
+    "IRQ_sha256": "ee8018959c09b448b678b03d9b2470de23783c635d8310b3789f9f4294115a3e",
+    "tool_sha256": "2b03917173810965035ea53fd3db9f74195178270eabdefc4744dd4cebe46977",
+    "limits": "Synthetic complete-NMI and source-produced HUD controls. No physical PPU/DMA/DMC scheduling, native IRQ31 or universal late-NMI verdict. Mouse source control is separate."
+  }
+}

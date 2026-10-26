@@ -1,0 +1,121 @@
+{
+  "passed": true,
+  "source_only": true,
+  "native_run": false,
+  "adopted": false,
+  "baseline_ROM_sha256": "3cee18caa732b2e85e3bdb00faf719223324f9bf24e72dd30c56be355da33b99",
+  "candidate_ROM_sha256": "900b669e212b878041c23e438f2fb26e310ce8f929f904681a9c4b17405b6968",
+  "fresh_baseline_exact": true,
+  "source_changes": [
+    "smb1base-mmc5-expanded.cfg",
+    "src/reset.s"
+  ],
+  "ordinary_flagoff_exact": {
+    "mmc3": "d444cac88e13fa02b29ad16100b8f08fa565ba90f8cedde192de43fb2dc8f3eb",
+    "mmc5": "f4ffd2483c51daa4d60bb575da2da8c4d817692cda407611c243031f67520833"
+  },
+  "different_ROM_bytes": 1923,
+  "different_banks": {
+    "4": 3,
+    "9": 5,
+    "10": 1,
+    "11": 1,
+    "37": 1,
+    "62": 1,
+    "71": 1,
+    "77": 8,
+    "89": 5,
+    "93": 1,
+    "116": 1,
+    "125": 942,
+    "126": 11,
+    "127": 942
+  },
+  "genuine_old_symbol_moves": 58,
+  "all_moves_plus6": true,
+  "PostDmaMaskEnable": 57349,
+  "input_after_enable_LDX": 57355,
+  "post_LDX_actual_hook": 57357,
+  "CHR_DPCM_crouch_payloads_exact": true,
+  "commands": [
+    [
+      "C:\\Users\\kando\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+      "-B",
+      "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-postdma-mask-v1\\canonical-v2\\source\\tools\\build_mmc5_expanded.py",
+      "--workspace",
+      "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-postdma-mask-v1\\canonical-v2\\source",
+      "--compiler",
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\Windows\\cc65\\bin\\cl65.exe",
+      "--output",
+      "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-postdma-mask-v1\\canonical-v2\\baseline.nes"
+    ],
+    [
+      "C:\\Users\\kando\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+      "-B",
+      "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-postdma-mask-v1\\canonical-v2\\source\\tools\\build_mmc5_expanded.py",
+      "--workspace",
+      "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-postdma-mask-v1\\canonical-v2\\source",
+      "--compiler",
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\Windows\\cc65\\bin\\cl65.exe",
+      "--output",
+      "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-postdma-mask-v1\\canonical-v2\\ordinary-before-mmc3.nes",
+      "--flag-off",
+      "mmc3"
+    ],
+    [
+      "C:\\Users\\kando\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+      "-B",
+      "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-postdma-mask-v1\\canonical-v2\\source\\tools\\build_mmc5_expanded.py",
+      "--workspace",
+      "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-postdma-mask-v1\\canonical-v2\\source",
+      "--compiler",
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\Windows\\cc65\\bin\\cl65.exe",
+      "--output",
+      "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-postdma-mask-v1\\canonical-v2\\ordinary-before-mmc5.nes",
+      "--flag-off",
+      "mmc5"
+    ],
+    [
+      "C:\\Users\\kando\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+      "-B",
+      "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-postdma-mask-v1\\canonical-v2\\source\\tools\\build_mmc5_expanded.py",
+      "--workspace",
+      "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-postdma-mask-v1\\canonical-v2\\source",
+      "--compiler",
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\Windows\\cc65\\bin\\cl65.exe",
+      "--output",
+      "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-postdma-mask-v1\\canonical-v2\\candidate.nes"
+    ],
+    [
+      "C:\\Users\\kando\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+      "-B",
+      "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-postdma-mask-v1\\canonical-v2\\source\\tools\\build_mmc5_expanded.py",
+      "--workspace",
+      "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-postdma-mask-v1\\canonical-v2\\source",
+      "--compiler",
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\Windows\\cc65\\bin\\cl65.exe",
+      "--output",
+      "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-postdma-mask-v1\\canonical-v2\\ordinary-after-mmc3.nes",
+      "--flag-off",
+      "mmc3"
+    ],
+    [
+      "C:\\Users\\kando\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+      "-B",
+      "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-postdma-mask-v1\\canonical-v2\\source\\tools\\build_mmc5_expanded.py",
+      "--workspace",
+      "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-postdma-mask-v1\\canonical-v2\\source",
+      "--compiler",
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\Windows\\cc65\\bin\\cl65.exe",
+      "--output",
+      "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-postdma-mask-v1\\canonical-v2\\ordinary-after-mmc5.nes",
+      "--flag-off",
+      "mmc5"
+    ]
+  ],
+  "layout_sha256": "ab64f1a49a860194cf5593a1c1dccc9d6ea6626e662bb6410c8f771cd53f77d0",
+  "moved_symbols_sha256": "4ce172a9809f0483381c5d7755f3ac2649e10bd8dd2f75754bdf1d1e6b1cee02",
+  "source_manifest_sha256": "3c68fd39640e0e52907ea71dc1b395189509635e1f94bde3598a45a9e14fa133",
+  "tool_sha256": "947e98908e1a28f190049780a9e2ba80d4b68728e374c193c92064ced1d603f0",
+  "limits": "Build/layout only. Complete NMI/input/interrupt and branch-page costs require separate actual assembled controls. No native launch, universal late-NMI or adoption claim."
+}

@@ -1,0 +1,67 @@
+{
+  "prepared": true,
+  "native_run": false,
+  "diagnostic_only": true,
+  "ROMs": {
+    "baseline": {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-hud-composed-v1\\candidate.nes",
+      "sha256": "3cee18caa732b2e85e3bdb00faf719223324f9bf24e72dd30c56be355da33b99"
+    },
+    "candidate": {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-postdma-mask-v1\\canonical-v2\\candidate.nes",
+      "sha256": "900b669e212b878041c23e438f2fb26e310ce8f929f904681a9c4b17405b6968"
+    }
+  },
+  "limit_PPU_endFrames": 220,
+  "maximum_proposed_native_launches": 2,
+  "sequential_one_worker": true,
+  "grant_required": true,
+  "bindings": 1554,
+  "bindings_sha256": "524856107178183d2afdc8933e0c78e023573d429dc1965debd8cb7dab7a37ae",
+  "fixed_original_prefix_sha256": "10c2eef59b4a046b822acaf636b6e428cdcdaa6a692b8afe519794c919d6db02",
+  "original_prefix_polls": 183,
+  "subsequent_inputs": "Neutral controller only; no further menu selection or gameplay requested",
+  "same_ram_and_controller_config_per_ROM": true,
+  "fresh_actual_hooks_per_ROM": true,
+  "direct_PPU_window_wallFrames": [
+    176,
+    190
+  ],
+  "build_proof_sha256": "55dae76b2dcdc9160dcaf7595b1d64805916ac9a9cda1af89a138fc53e2da8bc",
+  "source_proof_sha256": "d37295b136049ba3cffc951036ab41c490e7d44740cbff8b11cb7bea9cb05651",
+  "new_native_code_hits_must_be_reported": true,
+  "zero_expected_gameplay_coverage": true,
+  "raw_destination_serialized_before_every_equality_decision": true,
+  "all256_bytes_write_values_stamps_and_actual_OAMADDR_preserved": true,
+  "no_equality_masks": true,
+  "mismatches": "Every raw difference retained; diagnostic exits1 if ANY complete256 image differs. A completed diagnostic is not a pass.",
+  "routine_costs": "Inclusive actual UpdateScreen/SamusFreezeUpdateScreen/BankSwitchCHR/AudioUpdate/OAMandReadJoypad entry-return costs, nested work explicitly included.",
+  "packet_snapshots": "NMI metadata all bootstrap; actual UpdateScreen pointers/full1024 byte and both256-byte queues frames176..190; bounded PPU bus writes same epoch. Snapshots are observed memory windows, not a parser/universal read closure.",
+  "controller_state_writes": false,
+  "settings_files_untouched": true,
+  "recorded_commands": {
+    "baseline": [
+      "C:\\Users\\kando\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+      "-B",
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\current3cee_postdma_bootstrap_prepare_v1.py",
+      "--output",
+      "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-postdma-bootstrap-ready-v1",
+      "--run-granted",
+      "baseline"
+    ],
+    "candidate": [
+      "C:\\Users\\kando\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+      "-B",
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\current3cee_postdma_bootstrap_prepare_v1.py",
+      "--output",
+      "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-postdma-bootstrap-ready-v1",
+      "--run-granted",
+      "candidate"
+    ]
+  },
+  "old_negative_sha256": "b5d354c9e05516aece817ea11ce701f828074ae4111e4860f542f6c4c6386c18",
+  "old_failed_physical256_unlogged": true,
+  "primary_current_source_lead": "https://github.com/nesdev-org/MesenCE/blob/master/Core/NES/NesPpu.cpp",
+  "primary_source_binary_binding_unproved": true,
+  "limits": "Preparation/parser-only. Existing3cee startup fault remains preserved. Fresh candidate hook E00D after actualLDX, no stale E007 alias. Only original183 input prefix then neutral. One baseline plus one candidate220frame launch, diagnostic raw destination before guards, direct console pixels176..190. No gameplay, universal late-NMI or adoption claim."
+}
