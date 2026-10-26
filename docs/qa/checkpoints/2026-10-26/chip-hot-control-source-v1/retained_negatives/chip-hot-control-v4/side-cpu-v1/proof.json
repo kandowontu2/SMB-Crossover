@@ -1,0 +1,128 @@
+{
+  "passed": false,
+  "native_executed": false,
+  "ROM_sha256": "4e52ce11bbbdcafe47d35ff17c59f1e63a810fac42f324b4b35e119ffedaf203",
+  "parent_ROM_sha256": "8b4accd2672b4b85508a365f81f499fb786f25e5572932aafc21837d5e591824",
+  "scope": "Source/CPU side-component differential on four captured actual Chip query inputs, varying exact selector0..20 and Z2Variant0/1 only. This is not authentic foreign full-game movement/state coverage.",
+  "cases": 168,
+  "failures": [
+    {
+      "passed": false,
+      "RAM_differences": [
+        {
+          "address": 354,
+          "old": 218,
+          "new": 200
+        },
+        {
+          "address": 362,
+          "old": 176,
+          "new": 14
+        },
+        {
+          "address": 364,
+          "old": 121,
+          "new": 137
+        },
+        {
+          "address": 365,
+          "old": 174,
+          "new": 171
+        }
+      ],
+      "old_AXYPS": [
+        0,
+        0,
+        54,
+        51,
+        241
+      ],
+      "new_AXYPS": [
+        0,
+        0,
+        54,
+        51,
+        241
+      ],
+      "old_banks": [
+        126,
+        1,
+        80,
+        127
+      ],
+      "new_banks": [
+        126,
+        1,
+        80,
+        127
+      ],
+      "selected": 14,
+      "Z2Variant": 0,
+      "actual_side_input": 0,
+      "old_cycles": 365,
+      "new_cycles": 148,
+      "delta": -217
+    },
+    {
+      "passed": false,
+      "RAM_differences": [
+        {
+          "address": 354,
+          "old": 218,
+          "new": 200
+        },
+        {
+          "address": 362,
+          "old": 176,
+          "new": 14
+        },
+        {
+          "address": 364,
+          "old": 121,
+          "new": 137
+        },
+        {
+          "address": 365,
+          "old": 174,
+          "new": 171
+        }
+      ],
+      "old_AXYPS": [
+        0,
+        0,
+        54,
+        51,
+        241
+      ],
+      "new_AXYPS": [
+        0,
+        0,
+        54,
+        51,
+        241
+      ],
+      "old_banks": [
+        126,
+        1,
+        80,
+        127
+      ],
+      "new_banks": [
+        126,
+        1,
+        80,
+        127
+      ],
+      "selected": 14,
+      "Z2Variant": 1,
+      "actual_side_input": 0,
+      "old_cycles": 365,
+      "new_cycles": 148,
+      "delta": -217
+    }
+  ],
+  "foreign_all_pass": true,
+  "foreign_max_cycle_delta": -2,
+  "foreign_min_cycle_delta": -11,
+  "checker_sha256": "b2571cdd28e594744598b0c74f124898cc2f198b9cefeba7021eb681868a93c7"
+}

@@ -1,0 +1,193 @@
+--- a/src/x5_bounce.s
++++ b/src/x5_bounce.s
+@@ -609,7 +609,13 @@
+   pla
+ ::X5OwnMovementCall:
+   jsr X5OwnMovement
++ .if ::MAPPER_MMC5
++  jmp CameraResult
++  .res 12,$ea
++CameraResult:
++ .else
+   .res 15,$ea
++ .endif
+   php
+   pha
+   lda SelectedCharacter
+@@ -757,18 +763,23 @@
+ .pushseg
+ .segment "X5_BOUNCE"
+ .proc X5OwnMovement
+- php
+- pha
+- lda SelectedCharacter
+- cmp #19
+- bne Legacy
+- pla
+- plp
+- farcall TnMovement,jmp
++ .if ::MAPPER_MMC5
++  jmp CdCameraMovementAdmission
++  .res 46,$ea
++ .else
++  php
++  pha
++  lda SelectedCharacter
++  cmp #19
++  bne Legacy
++  pla
++  plp
++  farcall TnMovement,jmp
+ Legacy:
+- pla
+- plp
+- farcall LmMovementGate,jmp
++  pla
++  plp
++  farcall LmMovementGate,jmp
++ .endif
+ .endproc
+ .export X5OwnMovement
+ .popseg
+@@ -905,3 +916,32 @@
+ .endproc
+ 
+ .popseg
++
++; Exact Chip admission retains X5NewMovementFinish's pre-step camera sample.
++; Other owners retain their real movement leaf. Skipped old camera padding
++; pays for this admission on every foreign new-profile path.
++.if ::MAPPER_MMC5
++.pushseg
++.segment "X5_BOUNCE"
++.proc CdCameraMovementAdmission
++  php
++  pha
++  lda SelectedCharacter
++  cmp #14
++  beq Chip
++  cmp #19
++  bne Legacy
++  pla
++  plp
++  farcall TnMovement,jmp
++Legacy:
++  pla
++  plp
++  farcall LmMovementGate,jmp
++Chip:
++  pla
++  plp
++  farcall CdMovement,jmp
++.endproc
++.popseg
++.endif
+--- a/src/characters.s
++++ b/src/characters.s
+@@ -89,14 +89,14 @@
+   jmp BlockBufferColli_Head
+ OrdinaryHeadDispatch:
+   jmp BillHeadDispatch
+-::Z2NativeSideSelector:
+-  cmp #CHARACTER_LINK
+-  beq OwnZ2Side
+-  cmp #CHARACTER_SOPHIA
+-  rts
+-OwnZ2Side:sec
+-  rts
+-  .res 3,$ea
++::MmSideDispatchPrefix:
++   ; Former solecaller selector span: first ordered half of ordinary farcall.
++   ; A/P have been restored before this genuine JMP-only helper entry.
++   SMC_StoreValue SafecallA,a
++   lda #<TnFastSideGate
++   SMC_StoreLowByte FarcallJmpTarget,a
++   jmp MmSideDispatchTail
++   nop
+  .else
+   farcall TnFastSideGate,jmp
+   .res 10,$ea
+--- a/src/megaman_weapons.s
++++ b/src/megaman_weapons.s
+@@ -392,19 +392,28 @@
+   ; The native side query is also the final exact-ID fallback for legacy
+   ; selectors0..10. Sophia/Mac/SMB3/TMNT keep the complete original source
+   ; dispatch, with its original A/P and stack contract. No geometry changes.
+-  php
+-  pha
+-  lda SelectedCharacter
+-  jsr Z2NativeSideSelector
+-  bcs OtherSide
+-  pla
+-  plp
+-  jmp BlockBufferColli_Side
++   php
++   pha
++   lda SelectedCharacter
++   cmp #CHARACTER_LINK
++   beq OtherSide
++   cmp #14
++   beq OtherSide
++   cmp #CHARACTER_SOPHIA
++   bcs OtherSide
++NativeSide:
++   pla
++   plp
++   jmp BlockBufferColli_Side
+ OtherSide:
+-  pla
+-  plp
+-  farcall TnFastSideGate,jmp
+-  .res 2,$ea
++   pla
++   plp
++   jmp MmSideDispatchPrefix
++::MmSideDispatchTail:
++   lda #>TnFastSideGate
++   SMC_StoreHighByte FarcallJmpTarget,a
++   lda #.bank(TnFastSideGate)|MMC5_PRG_ROM
++   jmp FarCallCommon
+   .assert *-MegaManFullShotBank=55,error,"Original full-shot resident span"
+  .else
+   .res 37,$ea
+--- a/src/tmnt_probe_gates.s
++++ b/src/tmnt_probe_gates.s
+@@ -4,6 +4,30 @@
+ .pushseg
+ .segment "TMNT_COMBAT"
+ .macro TnProbeGate Name,Own,Mac,Other
++.if ::MAPPER_MMC5 .and .xmatch(Name,TnFastSideGate)
++.proc Name
++ ; The only compiled callers use the standard farcall, whose preserved
++ ; SafecallA is the incoming A. No intervening calls precede the reload.
++ ; Native turtle/Mac leaves load A before consuming it; keep original P.
++ php
++ lda SelectedCharacter
++ cmp #19
++ bne CheckMac
++ plp
++ jmp Own
++CheckMac:
++ cmp #15
++ beq IsMac
++ lda SafecallA_SMC+1
++ plp
++ farcall Other,jmp
++IsMac:
++ plp
++ jmp Mac
++ .res 1,$ea
++ .assert *-Name=43,error,"Original side-gate span"
++.endproc
++.else
+ .proc Name
+  php
+  pha
+@@ -24,6 +48,7 @@
+  plp
+  jmp Mac
+ .endproc
++.endif
+ .endmacro
+ TnProbeGate TnFastSideGate,TnSideDispatch,TnMacSideProbe,Z2SideAdmission
+ .proc TnFastHeadGate

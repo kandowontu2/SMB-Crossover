@@ -1,0 +1,5 @@
+CHIP MOVEMENT SOURCE PROPOSAL; NO PRODUCTION ADOPTION
+
+Four-file658cycle movement/collision dispatch improvement is independent of held Chip music. Donor ad925 is based on8b4; its256caller/168side/15360foreign-continuation/97IRQ controls pass and retain actual original registers/RAM/SMC/banks/camera behavior. ROOT verified872 frozen bindings plus8 final bindings. All genuine source entries and source EOL are retained; old private selectors are explicitly replaced, never aliased.
+
+Faster4e52 remains rejected for changed shared-call state; its original negative proofs and earlier preparation failures are included, with binary hashes only. The four raw preimages equal current6c69 and the exact rebase recipe is included. That current compilation/native qualification is a separate next step, NOT inferred from donor controls. No source/sample/clock/RAM/audio change is in these four files. Nothing installed; native lag not claimed fixed. All ROMs/debug/captured RAM/sample payloads remain external.
