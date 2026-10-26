@@ -1,0 +1,97 @@
+{
+  "frozen": true,
+  "accepted": false,
+  "source_CPU_qualified_only": true,
+  "native_run": false,
+  "production_parent_ROM_sha256": "50b51c3c69f45ef137720c47f521574097f421056e3b73296d06ba70080d2363",
+  "donor_ROM_sha256": "2f61cd0ce8d1fdef09185bdeaad3d5fcb1072f6a28cc54c05c0c1c39ca792523",
+  "candidate_ROM_sha256": "9a791d0e13015ff362ffc9e460aaac8c8a0a5b6f73e990959dee4e074da473fd",
+  "changed_PRG_bytes": {
+    "63": 36
+  },
+  "source_files": 658,
+  "changed_source_versus_donor": {
+    "src/tmnt-native.inc": {
+      "before_sha256": "3fbdf28c93e90a3d6de70f3d7eecada746a20ecd4aedb0598253bbabe53af8ad",
+      "after_sha256": "8ebb33edec94718fe472273e759f94b33446244dbf73bac9b833415d829103b9"
+    },
+    "src/tmnt_audio.s": {
+      "before_sha256": "83ca870b00c2fe2ae45006130a13dbf02db1969ef0c9eb1732fdea900acaa24b",
+      "after_sha256": "f52c13311c2d1f1c2de32b1b97b805f5c4141ae961874f3aab6f2a3296c529fa"
+    },
+    "src/tmnt_audio_parser.s": {
+      "before_sha256": null,
+      "after_sha256": "9e36f4d3b213e6fc0d284e6b07e3c1d1c63c21c9e831be2b14fcc3a3879575ce"
+    }
+  },
+  "existing_symbols_RAM_CHR_other_banks_samples_exact": true,
+  "no_new_RAM_hardware_ownership": true,
+  "domain_cases": 771776,
+  "original_calls": 192016,
+  "original_ordered_APU": 549602,
+  "writer_returns": 1099204,
+  "every_call_CPU_no_worse": true,
+  "source_total_before": 212987897,
+  "source_total_after": 212741395,
+  "source_peak_before": 6826,
+  "source_peak_after": 6746,
+  "actual_hot_CPU_saved": [
+    36,
+    72
+  ],
+  "warm602_total_saved": 1660,
+  "cold_peak_unchanged": 9166,
+  "canonical_build_exact": true,
+  "ordinary_flagoff_exact": true,
+  "proofs": {
+    "parser-domains-v2": {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\tmnt-native-storage-current50b5-v1\\parser-domains-v2\\proof.json",
+      "sha256": "5ac7a776d0549666d2121f15f336409dc9c231496240a18ea011a6971375f182"
+    },
+    "parser-songs-v2": {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\tmnt-native-storage-current50b5-v1\\parser-songs-v2\\proof.json",
+      "sha256": "ebf69df08ce52836e9b544f7df35fe0e04bdaa84e477f30803134cafdc4f7bb1"
+    },
+    "parser-all-outer-v2": {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\tmnt-native-storage-current50b5-v1\\parser-all-outer-v2\\proof.json",
+      "sha256": "8b57db0ce97f4c78b438bf662be591ca5c7feb7cf0bb98b51012318f88eef659"
+    },
+    "parser-shared-v1": {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\tmnt-native-storage-current50b5-v1\\parser-shared-v1\\proof.json",
+      "sha256": "3bf2adb10906fed7dccc30cc7aa9943c1540da8d43fd5df88ba9e3ce32ac1dfa"
+    },
+    "parser-owners-v1": {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\tmnt-native-storage-current50b5-v1\\parser-owners-v1\\proof.json",
+      "sha256": "281425429a73485b47077210878d1b642f1787e5d146517c4f062c2c568e98d8"
+    },
+    "parser-existing-IRQ-v1": {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\tmnt-native-storage-current50b5-v1\\parser-existing-IRQ-v1\\proof.json",
+      "sha256": "60ddf3a7aef41012bba8ad2d3862b55017e43efb233f7740ddb789f6f6deec38"
+    },
+    "parser-multiply-IRQ-v1": {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\tmnt-native-storage-current50b5-v1\\parser-multiply-IRQ-v1\\proof.json",
+      "sha256": "b63b59573e65abaedc603356053355e2229edd53abae58e3b1c6b15ce357689a"
+    },
+    "parser-IRQ-v1": {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\tmnt-native-storage-current50b5-v1\\parser-IRQ-v1\\proof.json",
+      "sha256": "59f832f2b103df495e0c309645d305495a0f29d0394f832c138ea86dc3492722"
+    },
+    "parser-actual-hot-v2": {
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\tmnt-native-storage-current50b5-v1\\parser-actual-hot-v2\\proof.json",
+      "sha256": "40648a13b29808901485aadb0aec297daeb0f660f6735b4192edfb39bb642fa5"
+    }
+  },
+  "tools": {
+    "tmnt_native_storage_parser.py": "6ee58753324cb6e34fc2c37e7c484fb8847fb2b70301997a93fb7832605f287f",
+    "tmnt_native_storage_parser_cpu.py": "9fbb17e979954a341073b844922751696f6670d1721a94006a3c2778490e5aa1",
+    "tmnt_native_storage_parser_finalize.py": "bea66be2daf5cca67d6abdfbb02a2c6d9933c1798b137121060c2341a93daa68",
+    "tmnt_native_storage_parser_irq.py": "55602064a219377319be5ab70fbeb0b37605e0610937806429ef50866e85d8ca",
+    "tmnt_native_storage_parser_profile.py": "efebc18a3d7bae58ca07ceaa33b654d00ebaad6dd228c114e7c7a4545366885a"
+  },
+  "reused_checkers_sha256": "8309f58b6be800c0c2f67a6c6a61240805d608814e1e5441c680ed5a25683c90",
+  "report_sha256": "baa19d94cc6eb0151594414d8ef411d395295d99c28713167ca9aa2e1a0e96de",
+  "source_zip_sha256": "c570331a2021cbf8792668af99a50f79f2572f3183b1470d3aa1df320f76bd0c",
+  "review_patch_sha256": "46937b996626121528a79c80022fecb845bd823e059fcdc4084ac1a49628f2cf",
+  "a983_eight_native_lost_draws_remain_open": true,
+  "production650inputs_unchanged": true
+}

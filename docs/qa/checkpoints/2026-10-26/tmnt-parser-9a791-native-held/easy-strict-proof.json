@@ -1,0 +1,2316 @@
+{
+  "passed": false,
+  "measurement_valid": true,
+  "both_native_guard_suites_passed": true,
+  "performance_gate_passed": false,
+  "behavior": 0,
+  "baseline_ROM_sha256": "50b51c3c69f45ef137720c47f521574097f421056e3b73296d06ba70080d2363",
+  "candidate_ROM_sha256": "9a791d0e13015ff362ffc9e460aaac8c8a0a5b6f73e990959dee4e074da473fd",
+  "gameplay_differences": [
+    {
+      "update": 532,
+      "fields": {
+        "input": [
+          "2",
+          "66"
+        ]
+      }
+    },
+    {
+      "update": 560,
+      "fields": {
+        "input": [
+          "65",
+          "1"
+        ]
+      }
+    }
+  ],
+  "phases": {
+    "idle": {
+      "baseline": {
+        "physical_frames": 120,
+        "lag_NMIs": 0,
+        "completed_frame_draw_constructions": 120,
+        "longest_consecutive_physical_frames_without_draw": 0,
+        "movement_updates": 120,
+        "GameLoop": {
+          "calls": 120,
+          "mean_foreground_cycles": 17087.166666666668,
+          "peak_foreground_cycles": 18249
+        },
+        "DrawAllMetasprites": {
+          "calls": 120,
+          "mean_foreground_cycles": 4641.866666666667,
+          "peak_foreground_cycles": 5022
+        },
+        "TnDrawEquipment": {
+          "calls": 120,
+          "mean_foreground_cycles": 178,
+          "peak_foreground_cycles": 178
+        }
+      },
+      "candidate": {
+        "physical_frames": 120,
+        "lag_NMIs": 0,
+        "completed_frame_draw_constructions": 120,
+        "longest_consecutive_physical_frames_without_draw": 0,
+        "movement_updates": 120,
+        "GameLoop": {
+          "calls": 120,
+          "mean_foreground_cycles": 17102.916666666668,
+          "peak_foreground_cycles": 18408
+        },
+        "DrawAllMetasprites": {
+          "calls": 120,
+          "mean_foreground_cycles": 4646.175,
+          "peak_foreground_cycles": 5022
+        },
+        "TnDrawEquipment": {
+          "calls": 120,
+          "mean_foreground_cycles": 178.16666666666666,
+          "peak_foreground_cycles": 182
+        }
+      },
+      "added_lag_NMIs": 0,
+      "longest_stall_change": 0
+    },
+    "walk": {
+      "baseline": {
+        "physical_frames": 120,
+        "lag_NMIs": 0,
+        "completed_frame_draw_constructions": 120,
+        "longest_consecutive_physical_frames_without_draw": 0,
+        "movement_updates": 120,
+        "GameLoop": {
+          "calls": 120,
+          "mean_foreground_cycles": 17165.808333333334,
+          "peak_foreground_cycles": 20786
+        },
+        "DrawAllMetasprites": {
+          "calls": 120,
+          "mean_foreground_cycles": 4688.808333333333,
+          "peak_foreground_cycles": 5022
+        },
+        "TnDrawEquipment": {
+          "calls": 120,
+          "mean_foreground_cycles": 178,
+          "peak_foreground_cycles": 178
+        }
+      },
+      "candidate": {
+        "physical_frames": 120,
+        "lag_NMIs": 0,
+        "completed_frame_draw_constructions": 120,
+        "longest_consecutive_physical_frames_without_draw": 0,
+        "movement_updates": 120,
+        "GameLoop": {
+          "calls": 120,
+          "mean_foreground_cycles": 17179.025,
+          "peak_foreground_cycles": 20786
+        },
+        "DrawAllMetasprites": {
+          "calls": 120,
+          "mean_foreground_cycles": 4692.391666666666,
+          "peak_foreground_cycles": 5022
+        },
+        "TnDrawEquipment": {
+          "calls": 120,
+          "mean_foreground_cycles": 178.2,
+          "peak_foreground_cycles": 182
+        }
+      },
+      "added_lag_NMIs": 0,
+      "longest_stall_change": 0
+    },
+    "enemies": {
+      "baseline": {
+        "physical_frames": 120,
+        "lag_NMIs": 0,
+        "completed_frame_draw_constructions": 120,
+        "longest_consecutive_physical_frames_without_draw": 0,
+        "movement_updates": 120,
+        "GameLoop": {
+          "calls": 120,
+          "mean_foreground_cycles": 20850.45,
+          "peak_foreground_cycles": 22237
+        },
+        "DrawAllMetasprites": {
+          "calls": 120,
+          "mean_foreground_cycles": 5632.541666666667,
+          "peak_foreground_cycles": 5960
+        },
+        "TnDrawEquipment": {
+          "calls": 120,
+          "mean_foreground_cycles": 178,
+          "peak_foreground_cycles": 178
+        }
+      },
+      "candidate": {
+        "physical_frames": 120,
+        "lag_NMIs": 0,
+        "completed_frame_draw_constructions": 120,
+        "longest_consecutive_physical_frames_without_draw": 0,
+        "movement_updates": 120,
+        "GameLoop": {
+          "calls": 120,
+          "mean_foreground_cycles": 20869.583333333332,
+          "peak_foreground_cycles": 22237
+        },
+        "DrawAllMetasprites": {
+          "calls": 120,
+          "mean_foreground_cycles": 5637.708333333333,
+          "peak_foreground_cycles": 5960
+        },
+        "TnDrawEquipment": {
+          "calls": 120,
+          "mean_foreground_cycles": 178.23333333333332,
+          "peak_foreground_cycles": 182
+        }
+      },
+      "added_lag_NMIs": 0,
+      "longest_stall_change": 0
+    },
+    "primary": {
+      "baseline": {
+        "physical_frames": 120,
+        "lag_NMIs": 0,
+        "completed_frame_draw_constructions": 120,
+        "longest_consecutive_physical_frames_without_draw": 0,
+        "movement_updates": 120,
+        "GameLoop": {
+          "calls": 120,
+          "mean_foreground_cycles": 21380.625,
+          "peak_foreground_cycles": 23400
+        },
+        "DrawAllMetasprites": {
+          "calls": 120,
+          "mean_foreground_cycles": 5912.358333333334,
+          "peak_foreground_cycles": 6367
+        },
+        "TnDrawEquipment": {
+          "calls": 120,
+          "mean_foreground_cycles": 178,
+          "peak_foreground_cycles": 178
+        }
+      },
+      "candidate": {
+        "physical_frames": 120,
+        "lag_NMIs": 1,
+        "completed_frame_draw_constructions": 119,
+        "longest_consecutive_physical_frames_without_draw": 1,
+        "movement_updates": 120,
+        "GameLoop": {
+          "calls": 120,
+          "mean_foreground_cycles": 21345.216666666667,
+          "peak_foreground_cycles": 23391
+        },
+        "DrawAllMetasprites": {
+          "calls": 119,
+          "mean_foreground_cycles": 5915.084033613445,
+          "peak_foreground_cycles": 6387
+        },
+        "TnDrawEquipment": {
+          "calls": 119,
+          "mean_foreground_cycles": 178.10084033613447,
+          "peak_foreground_cycles": 182
+        }
+      },
+      "added_lag_NMIs": 1,
+      "longest_stall_change": 1
+    },
+    "secondary": {
+      "baseline": {
+        "physical_frames": 120,
+        "lag_NMIs": 28,
+        "completed_frame_draw_constructions": 92,
+        "longest_consecutive_physical_frames_without_draw": 1,
+        "movement_updates": 120,
+        "GameLoop": {
+          "calls": 119,
+          "mean_foreground_cycles": 21527.655462184874,
+          "peak_foreground_cycles": 27499
+        },
+        "DrawAllMetasprites": {
+          "calls": 92,
+          "mean_foreground_cycles": 7466.217391304348,
+          "peak_foreground_cycles": 8336
+        },
+        "TnDrawEquipment": {
+          "calls": 92,
+          "mean_foreground_cycles": 1903.4673913043478,
+          "peak_foreground_cycles": 2537
+        }
+      },
+      "candidate": {
+        "physical_frames": 120,
+        "lag_NMIs": 33,
+        "completed_frame_draw_constructions": 87,
+        "longest_consecutive_physical_frames_without_draw": 1,
+        "movement_updates": 120,
+        "GameLoop": {
+          "calls": 119,
+          "mean_foreground_cycles": 21223.277310924368,
+          "peak_foreground_cycles": 27504
+        },
+        "DrawAllMetasprites": {
+          "calls": 87,
+          "mean_foreground_cycles": 7467.103448275862,
+          "peak_foreground_cycles": 8337
+        },
+        "TnDrawEquipment": {
+          "calls": 87,
+          "mean_foreground_cycles": 1913.057471264368,
+          "peak_foreground_cycles": 2537
+        }
+      },
+      "added_lag_NMIs": 5,
+      "longest_stall_change": 0
+    }
+  },
+  "all_completed_update_prefix_deficits": [
+    {
+      "update": 406,
+      "phase": "primary",
+      "added_physical_frames": 1,
+      "fewer_draw_constructions": 0
+    },
+    {
+      "update": 407,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 408,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 409,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 410,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 411,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 412,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 413,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 414,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 415,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 416,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 417,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 418,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 419,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 420,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 421,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 422,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 423,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 424,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 425,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 426,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 427,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 428,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 429,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 430,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 431,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 432,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 433,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 434,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 435,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 436,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 437,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 438,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 439,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 440,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 441,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 442,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 443,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 444,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 445,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 446,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 447,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 448,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 449,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 450,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 451,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 452,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 453,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 454,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 455,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 456,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 457,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 458,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 459,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 460,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 461,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 462,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 463,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 464,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 465,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 466,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 467,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 468,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 469,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 470,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 471,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 472,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 473,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 474,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 475,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 476,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 477,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 478,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 479,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 480,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 481,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 482,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 483,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 484,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 485,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 486,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 487,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 488,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 489,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 490,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 491,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 492,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 493,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 494,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 495,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 496,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 497,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 498,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 499,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 500,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 501,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 502,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 503,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 504,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 505,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 506,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 507,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 508,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 509,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 510,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 511,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 512,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 513,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 514,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 515,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 516,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 517,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 518,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 519,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 520,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 521,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 522,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 523,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 524,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 525,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 526,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 527,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 528,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 529,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 530,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 531,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 532,
+      "phase": "secondary",
+      "added_physical_frames": 1,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 533,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 2
+    },
+    {
+      "update": 534,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 2
+    },
+    {
+      "update": 535,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 2
+    },
+    {
+      "update": 536,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 2
+    },
+    {
+      "update": 537,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 2
+    },
+    {
+      "update": 538,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 2
+    },
+    {
+      "update": 539,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 2
+    },
+    {
+      "update": 540,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 2
+    },
+    {
+      "update": 541,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 2
+    },
+    {
+      "update": 542,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 2
+    },
+    {
+      "update": 543,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 2
+    },
+    {
+      "update": 544,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 2
+    },
+    {
+      "update": 545,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 2
+    },
+    {
+      "update": 546,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 2
+    },
+    {
+      "update": 547,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 2
+    },
+    {
+      "update": 548,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 2
+    },
+    {
+      "update": 549,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 2
+    },
+    {
+      "update": 550,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 2
+    },
+    {
+      "update": 551,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 2
+    },
+    {
+      "update": 552,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 2
+    },
+    {
+      "update": 553,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 2
+    },
+    {
+      "update": 554,
+      "phase": "secondary",
+      "added_physical_frames": 1,
+      "fewer_draw_constructions": 2
+    },
+    {
+      "update": 555,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 3
+    },
+    {
+      "update": 556,
+      "phase": "secondary",
+      "added_physical_frames": 1,
+      "fewer_draw_constructions": 3
+    },
+    {
+      "update": 557,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 3
+    },
+    {
+      "update": 558,
+      "phase": "secondary",
+      "added_physical_frames": 1,
+      "fewer_draw_constructions": 3
+    },
+    {
+      "update": 559,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 4
+    },
+    {
+      "update": 560,
+      "phase": "secondary",
+      "added_physical_frames": 1,
+      "fewer_draw_constructions": 4
+    },
+    {
+      "update": 561,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 5
+    },
+    {
+      "update": 562,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 5
+    },
+    {
+      "update": 563,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 5
+    },
+    {
+      "update": 564,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 5
+    },
+    {
+      "update": 565,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 5
+    },
+    {
+      "update": 566,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 5
+    },
+    {
+      "update": 567,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 5
+    },
+    {
+      "update": 568,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 5
+    },
+    {
+      "update": 569,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 5
+    },
+    {
+      "update": 570,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 5
+    },
+    {
+      "update": 571,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 5
+    },
+    {
+      "update": 572,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 5
+    },
+    {
+      "update": 573,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 5
+    },
+    {
+      "update": 574,
+      "phase": "secondary",
+      "added_physical_frames": 1,
+      "fewer_draw_constructions": 5
+    },
+    {
+      "update": 575,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 5
+    },
+    {
+      "update": 576,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 5
+    },
+    {
+      "update": 577,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 5
+    },
+    {
+      "update": 578,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 5
+    },
+    {
+      "update": 579,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 5
+    },
+    {
+      "update": 580,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 5
+    },
+    {
+      "update": 581,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 5
+    },
+    {
+      "update": 582,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 5
+    },
+    {
+      "update": 583,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 5
+    },
+    {
+      "update": 584,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 5
+    },
+    {
+      "update": 585,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 5
+    },
+    {
+      "update": 586,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 5
+    },
+    {
+      "update": 587,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 5
+    },
+    {
+      "update": 588,
+      "phase": "secondary",
+      "added_physical_frames": 1,
+      "fewer_draw_constructions": 5
+    },
+    {
+      "update": 589,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 6
+    },
+    {
+      "update": 590,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 6
+    },
+    {
+      "update": 591,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 6
+    },
+    {
+      "update": 592,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 6
+    },
+    {
+      "update": 593,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 6
+    },
+    {
+      "update": 594,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 6
+    },
+    {
+      "update": 595,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 6
+    },
+    {
+      "update": 596,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 6
+    },
+    {
+      "update": 597,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 6
+    },
+    {
+      "update": 598,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 6
+    },
+    {
+      "update": 599,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 6
+    },
+    {
+      "update": 600,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 6
+    }
+  ],
+  "all_phase_prefix_deficits": [
+    {
+      "update": 406,
+      "phase": "primary",
+      "added_physical_frames": 1,
+      "fewer_draw_constructions": 0
+    },
+    {
+      "update": 407,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 408,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 409,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 410,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 411,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 412,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 413,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 414,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 415,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 416,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 417,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 418,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 419,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 420,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 421,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 422,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 423,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 424,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 425,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 426,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 427,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 428,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 429,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 430,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 431,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 432,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 433,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 434,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 435,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 436,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 437,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 438,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 439,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 440,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 441,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 442,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 443,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 444,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 445,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 446,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 447,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 448,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 449,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 450,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 451,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 452,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 453,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 454,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 455,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 456,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 457,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 458,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 459,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 460,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 461,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 462,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 463,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 464,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 465,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 466,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 467,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 468,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 469,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 470,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 471,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 472,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 473,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 474,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 475,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 476,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 477,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 478,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 479,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 480,
+      "phase": "primary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 532,
+      "phase": "secondary",
+      "added_physical_frames": 1,
+      "fewer_draw_constructions": 0
+    },
+    {
+      "update": 533,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 534,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 535,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 536,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 537,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 538,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 539,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 540,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 541,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 542,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 543,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 544,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 545,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 546,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 547,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 548,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 549,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 550,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 551,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 552,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 553,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 554,
+      "phase": "secondary",
+      "added_physical_frames": 1,
+      "fewer_draw_constructions": 1
+    },
+    {
+      "update": 555,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 2
+    },
+    {
+      "update": 556,
+      "phase": "secondary",
+      "added_physical_frames": 1,
+      "fewer_draw_constructions": 2
+    },
+    {
+      "update": 557,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 2
+    },
+    {
+      "update": 558,
+      "phase": "secondary",
+      "added_physical_frames": 1,
+      "fewer_draw_constructions": 2
+    },
+    {
+      "update": 559,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 3
+    },
+    {
+      "update": 560,
+      "phase": "secondary",
+      "added_physical_frames": 1,
+      "fewer_draw_constructions": 3
+    },
+    {
+      "update": 561,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 4
+    },
+    {
+      "update": 562,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 4
+    },
+    {
+      "update": 563,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 4
+    },
+    {
+      "update": 564,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 4
+    },
+    {
+      "update": 565,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 4
+    },
+    {
+      "update": 566,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 4
+    },
+    {
+      "update": 567,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 4
+    },
+    {
+      "update": 568,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 4
+    },
+    {
+      "update": 569,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 4
+    },
+    {
+      "update": 570,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 4
+    },
+    {
+      "update": 571,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 4
+    },
+    {
+      "update": 572,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 4
+    },
+    {
+      "update": 573,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 4
+    },
+    {
+      "update": 574,
+      "phase": "secondary",
+      "added_physical_frames": 1,
+      "fewer_draw_constructions": 4
+    },
+    {
+      "update": 575,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 4
+    },
+    {
+      "update": 576,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 4
+    },
+    {
+      "update": 577,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 4
+    },
+    {
+      "update": 578,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 4
+    },
+    {
+      "update": 579,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 4
+    },
+    {
+      "update": 580,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 4
+    },
+    {
+      "update": 581,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 4
+    },
+    {
+      "update": 582,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 4
+    },
+    {
+      "update": 583,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 4
+    },
+    {
+      "update": 584,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 4
+    },
+    {
+      "update": 585,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 4
+    },
+    {
+      "update": 586,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 4
+    },
+    {
+      "update": 587,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 4
+    },
+    {
+      "update": 588,
+      "phase": "secondary",
+      "added_physical_frames": 1,
+      "fewer_draw_constructions": 4
+    },
+    {
+      "update": 589,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 5
+    },
+    {
+      "update": 590,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 5
+    },
+    {
+      "update": 591,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 5
+    },
+    {
+      "update": 592,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 5
+    },
+    {
+      "update": 593,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 5
+    },
+    {
+      "update": 594,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 5
+    },
+    {
+      "update": 595,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 5
+    },
+    {
+      "update": 596,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 5
+    },
+    {
+      "update": 597,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 5
+    },
+    {
+      "update": 598,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 5
+    },
+    {
+      "update": 599,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 5
+    },
+    {
+      "update": 600,
+      "phase": "secondary",
+      "added_physical_frames": 0,
+      "fewer_draw_constructions": 5
+    }
+  ],
+  "native_result_sha256": [
+    "e6d4c1b5bfbb0362b4d9c85f1d71aa28d71b55128e185f01fbdd847b914be110",
+    "193703a6c2c2238d17eba06b3a7ccb85a16a22d5bca01730c9c892eb98cad37e"
+  ],
+  "checker_sha256": "76fe196d8ac2f8dac686768e8383e5a18cf6a1783ab30c8a2b5e72a40e415395",
+  "accepted": false,
+  "limits": "One explicitly staged same-work600-update arena per actual cold numeric mode; foreground spans exclude ISR bodies and include real DMA stalls. All deficits retained, no universal cadence or natural gear acquisition claim."
+}

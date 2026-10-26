@@ -1,0 +1,109 @@
+Parodius palette-capture scroll restoration - private source/CPU readiness
+
+Installed production/default/Downloads remain50b5. Native worker is released.
+No native run or adoption of this additive successor is claimed.
+Archive D = C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py
+P = D/parodius-visibility-current50b5-v1
+
+Private parent v11:
+64f454a248785ff4c53bd0d52158fd2cf5389de38e5c35a888c3e6a6ed982362
+Additive successor P/hud-scroll-candidate-v1/candidate.nes:
+df5154bc035ba2c392bb8d34068897a2bccf7a78a6f4554bd6790d31a586c357
+
+The v11 guards completed seven cold640 controls: Octopus/Twinbee/Pentarou in
+both actual numeric modes and VicEasy. VicHard was not launched. OctopusHard's
+first process exited0xC0000005; its full-layer same-case retry passed. The
+original host failure remains retained, with25,650 identical flushed CPU/PPU
+events,87 identical actual captures and428 complete matching recorded inputs.
+The crash CSV ends in partial429,4; later unflushed inputs are unavailable.
+WindowsApplicationError identifies MesenCore.dll2.2.1/RVA12F820. Its underlying
+trigger is unproved. This is explicitly HOST_FAILURE_RETRY, not a relabeled pass.
+
+Actual frame review rejected v11 visual qualification despite the guard passes.
+OctopusEasy458, TwinbeeEasy479 and PentarouEasy479 show a misplaced ground strip
+across the HUD. These are separate profile paths, not Octopus479. At those
+active/display-on visible epochs temporaryPPUaddress=$3300, versus0 before/after,
+while completed256B DMA remains exact. Source-derived masks for published custom
+labels passed182/161/161 Easy frames; that assertion did not cover prelease blank
+HUD frames. The negative packet is P/hud-scroll-negative-v1/proof.json, with all
+raw images/trace hashes and direct PNG copies. Original v11 readiness/report and
+bank126 wording erratum remain immutable.
+
+Capture owner and intended native policy
+Baseline PnPaletteScreenUpdate has one source caller: the C116 regular-NMI
+SamusFreezeUpdateScreen gateway after actualVRAM_AddrTable selection. Capture
+requests originate only in PnEnsure initialization, PnReset and the Bell-flag
+rising edge in PnTakeKind. Its gate is Selected18/OperMode1/nonzeroVariant/Pending,
+so the proof does not assume every capture occurs in engine8 or with display on.
+The same gateway can flush ctrl2/4 fixed ROM palettes, ctrl6 Buffer2 and the other
+native selectors. OperMode here means menu/game, not Easy/Hard.
+
+Native UpdateScreen readsPPUSTATUS then always ends with two zeroPPUSCROLL writes.
+Each command applies MirrorPPUCTRL after its address header. Capture subsequently
+uses the necessaryPPUADDR3F00 pair and32 ordered palette reads, overwriting t.
+It then restores MirrorPPUCTRL, but never restores coarse/fine scroll. RegularNMI
+later applies its native PPUCTRL AND#FC HUD policy, leaving the unwanted$3300
+coarse/fine bits. A Samus secondary palette flush happens to restore scroll via
+its own UpdateScreen; without that flush the defect remains.
+
+The successor restores the same two native zeroScroll writes at the capture-only
+tail. It preserves the existing later MirrorPPUCTRL store: gateway t retains its
+shadow nametable bits, then the actual regularNMI AND#FC restores HUD nametable0.
+This explicitly covers nonzero shadow nametable/vertical-increment settings;
+it does not replace the host's shadow policy with a global unconditional reset.
+Capture ends with write-toggle0, so this pair addresses horizontal then vertical
+scroll. The CPU model separately checks initial latch states and final fineX.
+
+Minimal layout
+Only src/nmi_vram_fast.s and smb1base-mmc5-expanded.cfg differ from frozen v11.
+The original7B capture tail is replaced by JMP+4NOP at file953036..953042.
+A new15B NMI_VRAM_SCROLL tail occupies verified FF953984..953998 after the HUD
+segment in bank116: LDX0/STX2005/STX2005/LDX32/CPX32/JMP original continuation.
+All22 changed ROM bytes are in116. All72,275 v11 symbols, all installed50b5
+addresses, every CHR byte, noncapture code and sharedRAM remain exact. The extra
+JMP costs3 cycles; total added capture cost is13. This preserves even private
+v11 helper/HUD addresses. No new RAM, shared fiveSMC operand or stack frame.
+
+Fresh exact successor checks
+2,016 linked CPU/model cases compare baseline50b5, v11 and df515 gateway/whole
+regular-NMI prefixes through the real OAM entry. They use actual linked native
+selector pointers0..19, including ctrl2/4 ROM palettes and ctrl6 Buffer2; variants
+1..3, all shadowNT/vertical-increment bits, initial scroll/latch states, flags
+and secondary palette flush0/80. Final publicAXYP/SP, all nonstack application
+RAM, banks and palette reads match. The only ordered I/O delta is two zeroScroll
+writes immediately after the32nd capture read/shadow store. WholeNMI reaches t0,
+fineX0/toggle0 before OAM. Old50b5/v11 reproduce wrong modeled$3300 without the
+secondary flush. This is a register semantics model, not a hardware raster proof.
+
+2,304 full no-marker gateway controls compare actual state/RAM/banks/reads and
+the same intentional I/O delta; full deltas versus50b5 are-339..+43 cycles. The
+existing global no-marker guard adds9 cycles to other identities, unchanged.
+28,899 linked protocol and4,884 final-guard cases reran on exactdf515 and passed.
+638 compiled lag-NMI boundaries again preserve resumedAXYP/SP, fiveSMC/C state
+and private queue behavior without incomplete DMA.
+
+Whole actual compiled NMI-prefix counts through completedSTA4014 are1196 for
+cold capture (v11 was1183),1702 for following first full,1016 for deferred first
+full followed by actual ColorRotation, and1689 for the genuine heavy attribute
+packet deferral. First-full/ordinary costs are unchanged. These exclude hardware
+DMA513/514 cycles, NMI-entry latency/jitter, DMC stalls and physicalPPU/IRQ timing.
+Ordinary flag-off outputs were freshly proved on v11; this additive change touches
+only expanded-only source and its expanded cfg, so those receipts stay historical
+and are not relabeled new df515 executions. No broader CPU repetition is claimed.
+
+Retained checker mistakes
+The first scroll oracle failed preparse whitespace before executing any ROM.
+Its next two outputs retained a wrong expected shadowNT value after the Samus
+secondary packet; actual UpdateScreen rewrites MirrorPPUCTRL after that packet's
+address header. Fresh v3 checks the correct native policy. No source/candidate
+change was made in response to these oracle mistakes. All failed tools/receipts
+remain external and are bound by the finite readiness manifest.
+
+Next gate
+No df515 native result exists. ROOT will independently review exact22B/layout
+and this finite packet, then grant one initial OctopusEasy640 control. Its full
+original DMA/PPU/IRQ/bank/SMC/SP/CHR layers must remain, with a new actual prelease
+scroll/t and first-captureRGB assertion. Freeze/review actual frames before the
+remaining seven cold controls. Menu/area/death/Buffer2/heavy/DMC qualification
+and crowded body visibility remain open; no global60Hz/campaign/source-perfect
+or full-roster verdict. No body-record order, color, actor or sprite-limit change.

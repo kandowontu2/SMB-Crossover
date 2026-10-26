@@ -1,0 +1,84 @@
+--- a/src/tmnt-native.inc
++++ b/src/tmnt-native.inc
+@@ -246,7 +246,7 @@
+   .assert *=$a6a3,lderror,"Original instruction offset 86a3"
+   .byte $f0,$3e ; BEQ source$86e3
+   .assert *=$a6a5,lderror,"Original instruction offset 86a5"
+-  .byte $b0,$f9 ; BCS source$86a0
++  .byte $b0,$fa ; BCS source$86a1: carry already set on the taken edge
+   .assert *=$a6a7,lderror,"Original instruction offset 86a7"
+   LDA ::TnAudioRam+$16,x
+   .assert *=$a6aa,lderror,"Original instruction offset 86aa"
+@@ -833,30 +833,17 @@
+   JMP $ab3e
+   .assert *=$a937,lderror,"Original instruction offset 8937"
+   AND #$30
+-  .assert *=$a939,lderror,"Original instruction offset 8939"
+-  LSR A
+-  .assert *=$a93a,lderror,"Original instruction offset 893a"
+-  LSR A
+-  .assert *=$a93b,lderror,"Original instruction offset 893b"
+-  LSR A
+-  .assert *=$a93c,lderror,"Original instruction offset 893c"
+   TAX
+-  .assert *=$a93d,lderror,"Original instruction offset 893d"
+-  LDA $afc4,x
+-  .assert *=$a940,lderror,"Original instruction offset 8940"
++  LDA ::TnParserVectors,x
+   STA ::TnAudioZp+$02
+-  .assert *=$a942,lderror,"Original instruction offset 8942"
+-  LDA $afc5,x
+-  .assert *=$a945,lderror,"Original instruction offset 8945"
++  LDA ::TnParserVectors+1,x
+   STA ::TnAudioZp+$03
+-  .assert *=$a947,lderror,"Original instruction offset 8947"
+   LDX ::TnAudioRam+$92
+-  .assert *=$a94a,lderror,"Original instruction offset 894a"
+   LDA (::TnAudioZp+$00),y
+-  .assert *=$a94c,lderror,"Original instruction offset 894c"
+   AND #$0f
+-  .assert *=$a94e,lderror,"Original instruction offset 894e"
++  CLC ; The three original LSRs always shifted out zero bits.
+   JMP (::TnAudioZp+$02)
++  .byte $ff,$ff ; Unreachable tail; preserve following original PCs.
+   .assert *=$a951,lderror,"Original instruction offset 8951"
+   LDA (::TnAudioZp+$00),y
+   .assert *=$a953,lderror,"Original instruction offset 8953"
+@@ -1247,7 +1234,8 @@
+   .assert *=$aad2,lderror,"Original instruction offset 8ad2"
+   .byte $b0,$07 ; BCS source$8adb
+   .assert *=$aad4,lderror,"Original instruction offset 8ad4"
+-  JMP $aacc
++  DEX
++  .byte $d0,$f8 ; BNE source$8acf
+   .assert *=$aad7,lderror,"Original instruction offset 8ad7"
+   CMP #$80
+   .assert *=$aad9,lderror,"Original instruction offset 8ad9"
+--- a/src/tmnt_audio.s
++++ b/src/tmnt_audio.s
+@@ -24,6 +24,7 @@
+ .segment "TMNT_NATIVE_AUDIO_WRITERS"
+ .include "tmnt_audio_writers.s"
+ .include "tmnt_audio_multiply.s"
++.include "tmnt_audio_parser.s"
+ .segment "TMNT_SAMUS_AUDIO_COLD"
+ .proc TnAudioUpdate
+  lda #0
+--- a/src/tmnt_audio_parser.s
++++ b/src/tmnt_audio_parser.s
+@@ -0,0 +1,15 @@
++; Exact original command vectors with direct high-nibble indexing.
++; A180..A1B1 was linker-declared FF fill, outside all source data and helpers.
++.assert *=$a173,lderror,"Unchanged multiply helper end"
++.res 13,$ff
++TnParserVectors:
++ .byte $fb,$ac
++ .res 14,$ff
++ .byte $22,$ad
++ .res 14,$ff
++ .byte $70,$ad
++ .res 14,$ff
++ .byte $66,$ae
++.assert TnParserVectors=$a180,lderror,"Verified unused native writer tail"
++.assert *=$a1b2,lderror,"Complete four interleaved original vectors"
++.export TnParserVectors

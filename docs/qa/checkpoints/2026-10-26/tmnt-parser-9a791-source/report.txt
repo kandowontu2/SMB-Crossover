@@ -1,0 +1,67 @@
+TMNT parser: PRIVATE SOURCE/CPU-QUALIFIED; NO NATIVE QUALIFICATION
+2026-10-25. No production, Git or Downloads edits. No Mesen grant or launch.
+
+Accepted production parent 50b51c3c69f45ef137720c47f521574097f421056e3b73296d06ba70080d2363
+Immutable multiply donor 2f61cd0ce8d1fdef09185bdeaad3d5fcb1072f6a28cc54c05c0c1c39ca792523
+Separate parser candidate 9a791d0e13015ff362ffc9e460aaac8c8a0a5b6f73e990959dee4e074da473fd
+
+Minimal source and storage
+Only36 additional PRG bytes in bank63 differ from multiply2f61. Three source
+deltas are src/tmnt-native.inc, src/tmnt_audio.s and new src/tmnt_audio_parser.s.
+All retained qualified symbols/RAM/header/CHR, other127banks, shared125,
+existing multiplier helper and complete original songs/samples stay exact.
+The 50-byte interleaved table A180..A1B1 uses verified linker-declared FF fill.
+Only eight table bytes contain data, the literal four original handler words.
+Full658-file archive, independently enumerated3/16source deltas versus2f61/
+production50b5, review patch and fresh byte-exact canonical build are included.
+Ordinary flag-off MMC3/MMC5 builds retain their exact original hashes.
+
+Actual changes and flags
+A6A5's taken BCS re-enters A6A1 rather than A6A0: that edge already proves C1,
+so skip only the repeated SEC. Every actual SBC and its final flags remain.
+AACC's repeated triangle add moves DEX to the back edge. It removes repeated
+JMP/BEQ work, retaining literal ADC, first-carry exit X and final-ADC V.
+A937's command dispatcher uses an interleaved table indexed by AND30 directly.
+It preserves original E2/E3 handler pointers and restores the same X/A/Y/P.
+Explicit CLC reproduces the removed LSRs' C0; no incoming-carry assumption.
+Original1289-instruction/369-pointer closure has no external entry into the
+rewritten instruction interiors. Padding follows the unconditional JMP.
+No new RAM or hardware consumer, channel/rate/store/data removal or alias.
+
+Domain/source/interrupt checks
+771776 strict component cases pass: triangle all256coefficients x16notes x64P,
+remainder every terminating byte operand pair with all D/I combinations and
+full64P controls, dispatcher all256A x5stream controls x3channels x64P.
+Initial SEC/SBC kills incoming remainder C/N/Z/V; original A>0/divisor0
+nontermination is explicitly not advertised as a terminating test domain.
+Every tested terminating component costs no more; dispatcher saves4cycles.
+Fresh16songs192016calls/549602ordered original APUs/1099204writer returns:
+full188byte source state/proven-pointer translation, foregroundRAM/ZP/SMC,
+banks and public AXYP/SP match. Every call <=2f61; all16song totals improve.
+Total source cycles 212987897->212741395, saves246502; peak6826->6746.
+All37 full outer12256 calls (4816consecutive turtle calls), shared6264 and
+owner6040 cases pass; all foreign identities retain exact outcomes and cycles.
+Real vector/IRQ/RTI injection3506parser+424existing+1428multiply cases pass.
+No physical IRQ/DMA/PPU/OAM or nested-NMI safety claim follows from CPU tests.
+
+Bound actual hot states and limits
+Captured a983188byte before/after states at407/505 bind both full source calls.
+Isolated CPU407:3472->3436(-36);505:5669->5597(-72). Adapted parser exclusive
+1486->1450 and3093->3021; raw original1472/3078 attribution excluded original
+STA-to-JSR writer conversion, so those distinct absolute values are retained.
+Actual ADC and SBC counts match, preserving original sound operations.
+Complete602 warm AudioUpdates per turtle/mode:1830063->1828403(-1660).
+Cold peak9166 stays unchanged. These software CPU fixtures do not model actual
+DMC DMA cycles. No recovered-draw/60Hz/native-performance claim is made.
+
+Retained negatives
+parser-current-2f61-v1 keeps the first assembly failure: relocatable .res
+expression was invalid. Numeric13padding now has an explicit A173 assertion.
+Draft b424 in parser-current-2f61-v2 failed strict handler carry: originalP02
+versus draftP03 at A937 inputP21. checker-v2.py, parser-domains-v1/checker-v1.py,
+failure.txt, partial6song progress and complete b424outer/hot results remain.
+The CLC correction reran all domains/songs/outer/hot/IRQ from fresh folders;
+no comparison was weakened. A983's actual Easy8lost-draw negative and frozen
+multiply/hotlead/Parodius packets remain unchanged. New9a791 has no native
+result, cannot be adopted on this source-only packet, and requires a fresh
+bounded native grant and matched performance/visual/guard qualification.

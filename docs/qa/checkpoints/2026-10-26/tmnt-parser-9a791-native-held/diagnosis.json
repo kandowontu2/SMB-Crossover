@@ -1,0 +1,1241 @@
+{
+  "source_state_original_calls": 602,
+  "original_ordered_APU": 2125,
+  "actual_source_state_stream_byte_exact_frozen_a983": true,
+  "baseline_replay_CSVs_byte_exact": {
+    "gameplay.csv": true,
+    "tmnt-performance-calls.csv": true,
+    "tmnt-performance-frames.csv": true
+  },
+  "exact_before_phase_setup_commands": true,
+  "actual_mode_readbacks": {
+    "baseline": {
+      "requested": 0,
+      "actual": 0,
+      "selected": 19
+    },
+    "candidate": {
+      "requested": 0,
+      "actual": 0,
+      "selected": 19
+    }
+  },
+  "phase_costs": {
+    "baseline": {
+      "idle": {
+        "AudioUpdate_including_IRQ": {
+          "count": 120,
+          "mean": 2934.925,
+          "p95_nearest_rank": 4017,
+          "maximum": 4926
+        },
+        "AudioUpdate_excluding_IRQ": {
+          "count": 120,
+          "mean": 2932.925,
+          "p95_nearest_rank": 4017,
+          "maximum": 4806
+        },
+        "GameLoop_foreground_excluding_NMI_IRQ": {
+          "count": 120,
+          "mean": 17087.166666666668,
+          "p95_nearest_rank": 17714,
+          "maximum": 18249
+        }
+      },
+      "walk": {
+        "AudioUpdate_including_IRQ": {
+          "count": 120,
+          "mean": 3173.7833333333333,
+          "p95_nearest_rank": 4629,
+          "maximum": 5172
+        },
+        "AudioUpdate_excluding_IRQ": {
+          "count": 120,
+          "mean": 3165.7833333333333,
+          "p95_nearest_rank": 4509,
+          "maximum": 5052
+        },
+        "GameLoop_foreground_excluding_NMI_IRQ": {
+          "count": 120,
+          "mean": 17165.808333333334,
+          "p95_nearest_rank": 17815,
+          "maximum": 20786
+        }
+      },
+      "enemies": {
+        "AudioUpdate_including_IRQ": {
+          "count": 120,
+          "mean": 3086.0666666666666,
+          "p95_nearest_rank": 4065,
+          "maximum": 4970
+        },
+        "AudioUpdate_excluding_IRQ": {
+          "count": 120,
+          "mean": 3083.0666666666666,
+          "p95_nearest_rank": 4065,
+          "maximum": 4850
+        },
+        "GameLoop_foreground_excluding_NMI_IRQ": {
+          "count": 120,
+          "mean": 20850.45,
+          "p95_nearest_rank": 21678,
+          "maximum": 22237
+        }
+      },
+      "primary": {
+        "AudioUpdate_including_IRQ": {
+          "count": 120,
+          "mean": 3277.8,
+          "p95_nearest_rank": 4656,
+          "maximum": 5109
+        },
+        "AudioUpdate_excluding_IRQ": {
+          "count": 120,
+          "mean": 3268.8,
+          "p95_nearest_rank": 4536,
+          "maximum": 4989
+        },
+        "GameLoop_foreground_excluding_NMI_IRQ": {
+          "count": 120,
+          "mean": 21380.625,
+          "p95_nearest_rank": 22649,
+          "maximum": 23400
+        }
+      },
+      "secondary": {
+        "AudioUpdate_including_IRQ": {
+          "count": 119,
+          "mean": 3368.0420168067226,
+          "p95_nearest_rank": 4546,
+          "maximum": 5440
+        },
+        "AudioUpdate_excluding_IRQ": {
+          "count": 119,
+          "mean": 3363,
+          "p95_nearest_rank": 4455,
+          "maximum": 5440
+        },
+        "GameLoop_foreground_excluding_NMI_IRQ": {
+          "count": 119,
+          "mean": 21527.655462184874,
+          "p95_nearest_rank": 26734,
+          "maximum": 27499
+        }
+      }
+    },
+    "candidate": {
+      "idle": {
+        "AudioUpdate_including_IRQ": {
+          "count": 120,
+          "mean": 2915.3416666666667,
+          "p95_nearest_rank": 3993,
+          "maximum": 6438
+        },
+        "AudioUpdate_excluding_IRQ": {
+          "count": 120,
+          "mean": 2911.3416666666667,
+          "p95_nearest_rank": 3993,
+          "maximum": 6318
+        },
+        "GameLoop_foreground_excluding_NMI_IRQ": {
+          "count": 120,
+          "mean": 17102.916666666668,
+          "p95_nearest_rank": 17714,
+          "maximum": 18408
+        }
+      },
+      "walk": {
+        "AudioUpdate_including_IRQ": {
+          "count": 120,
+          "mean": 3023.8166666666666,
+          "p95_nearest_rank": 5111,
+          "maximum": 6199
+        },
+        "AudioUpdate_excluding_IRQ": {
+          "count": 120,
+          "mean": 3015.8166666666666,
+          "p95_nearest_rank": 4991,
+          "maximum": 6079
+        },
+        "GameLoop_foreground_excluding_NMI_IRQ": {
+          "count": 120,
+          "mean": 17179.025,
+          "p95_nearest_rank": 17815,
+          "maximum": 20786
+        }
+      },
+      "enemies": {
+        "AudioUpdate_including_IRQ": {
+          "count": 120,
+          "mean": 3008.2166666666667,
+          "p95_nearest_rank": 4292,
+          "maximum": 6295
+        },
+        "AudioUpdate_excluding_IRQ": {
+          "count": 120,
+          "mean": 3002.2166666666667,
+          "p95_nearest_rank": 4292,
+          "maximum": 6175
+        },
+        "GameLoop_foreground_excluding_NMI_IRQ": {
+          "count": 120,
+          "mean": 20869.583333333332,
+          "p95_nearest_rank": 21696,
+          "maximum": 22237
+        }
+      },
+      "primary": {
+        "AudioUpdate_including_IRQ": {
+          "count": 120,
+          "mean": 3218.2,
+          "p95_nearest_rank": 5111,
+          "maximum": 6056
+        },
+        "AudioUpdate_excluding_IRQ": {
+          "count": 120,
+          "mean": 3209.2,
+          "p95_nearest_rank": 4991,
+          "maximum": 5936
+        },
+        "GameLoop_foreground_excluding_NMI_IRQ": {
+          "count": 120,
+          "mean": 21345.216666666667,
+          "p95_nearest_rank": 22648,
+          "maximum": 23391
+        }
+      },
+      "secondary": {
+        "AudioUpdate_including_IRQ": {
+          "count": 119,
+          "mean": 3362.470588235294,
+          "p95_nearest_rank": 4780,
+          "maximum": 7407
+        },
+        "AudioUpdate_excluding_IRQ": {
+          "count": 119,
+          "mean": 3356.4201680672268,
+          "p95_nearest_rank": 4780,
+          "maximum": 7287
+        },
+        "GameLoop_foreground_excluding_NMI_IRQ": {
+          "count": 119,
+          "mean": 21223.277310924368,
+          "p95_nearest_rank": 26734,
+          "maximum": 27504
+        }
+      }
+    }
+  },
+  "disjoint_exclusive_components": {
+    "baseline": {
+      "idle": {
+        "ExpandedAudioUpdate": {
+          "count": 120,
+          "mean": 1616.4583333333333,
+          "p95_nearest_rank": 2683,
+          "maximum": 3470
+        },
+        "AudioUpdate": {
+          "count": 120,
+          "mean": 1316.4666666666667,
+          "p95_nearest_rank": 1334,
+          "maximum": 1336
+        }
+      },
+      "walk": {
+        "ExpandedAudioUpdate": {
+          "count": 120,
+          "mean": 1848.5166666666667,
+          "p95_nearest_rank": 3180,
+          "maximum": 3721
+        },
+        "AudioUpdate": {
+          "count": 120,
+          "mean": 1317.2666666666667,
+          "p95_nearest_rank": 1324,
+          "maximum": 1331
+        }
+      },
+      "enemies": {
+        "ExpandedAudioUpdate": {
+          "count": 120,
+          "mean": 1766.2,
+          "p95_nearest_rank": 2745,
+          "maximum": 3519
+        },
+        "AudioUpdate": {
+          "count": 120,
+          "mean": 1316.8666666666666,
+          "p95_nearest_rank": 1322,
+          "maximum": 1331
+        }
+      },
+      "primary": {
+        "ExpandedAudioUpdate": {
+          "count": 120,
+          "mean": 1858.4416666666666,
+          "p95_nearest_rank": 3191,
+          "maximum": 3658
+        },
+        "AudioUpdate": {
+          "count": 120,
+          "mean": 1410.3583333333333,
+          "p95_nearest_rank": 1955,
+          "maximum": 2139
+        }
+      },
+      "secondary": {
+        "ExpandedAudioUpdate": {
+          "count": 119,
+          "mean": 1793.9411764705883,
+          "p95_nearest_rank": 2872,
+          "maximum": 3380
+        },
+        "AudioUpdate": {
+          "count": 119,
+          "mean": 1569.0588235294117,
+          "p95_nearest_rank": 2112,
+          "maximum": 2228
+        }
+      }
+    },
+    "candidate": {
+      "idle": {
+        "TnSourceSTA00X": {
+          "count": 153,
+          "mean": 25,
+          "p95_nearest_rank": 25,
+          "maximum": 25
+        },
+        "TnSourceSTA01X": {
+          "count": 8,
+          "mean": 25,
+          "p95_nearest_rank": 25,
+          "maximum": 25
+        },
+        "TnSourceSTA03X": {
+          "count": 101,
+          "mean": 25.03960396039604,
+          "p95_nearest_rank": 25,
+          "maximum": 29
+        },
+        "TnSourceSTA02X": {
+          "count": 103,
+          "mean": 25.038834951456312,
+          "p95_nearest_rank": 25,
+          "maximum": 29
+        },
+        "TnNativePlay": {
+          "count": 120,
+          "mean": 1115.45,
+          "p95_nearest_rank": 2110,
+          "maximum": 3951
+        },
+        "TnAudioUpdate": {
+          "count": 120,
+          "mean": 165.11666666666667,
+          "p95_nearest_rank": 165,
+          "maximum": 169
+        },
+        "ExpandedAudioUpdate": {
+          "count": 120,
+          "mean": 151.13333333333333,
+          "p95_nearest_rank": 151,
+          "maximum": 155
+        },
+        "AudioUpdate": {
+          "count": 120,
+          "mean": 1373.35,
+          "p95_nearest_rank": 1411,
+          "maximum": 1444
+        },
+        "TnSourceSTA15": {
+          "count": 16,
+          "mean": 154,
+          "p95_nearest_rank": 164,
+          "maximum": 164
+        },
+        "TnSourceSTA10": {
+          "count": 6,
+          "mean": 14,
+          "p95_nearest_rank": 14,
+          "maximum": 14
+        },
+        "TnSourceSTA11": {
+          "count": 6,
+          "mean": 18,
+          "p95_nearest_rank": 18,
+          "maximum": 18
+        },
+        "TnSourceSTA12": {
+          "count": 6,
+          "mean": 32,
+          "p95_nearest_rank": 32,
+          "maximum": 32
+        },
+        "TnSourceSTA13": {
+          "count": 6,
+          "mean": 14,
+          "p95_nearest_rank": 14,
+          "maximum": 14
+        },
+        "TnSourceSTA08": {
+          "count": 30,
+          "mean": 23,
+          "p95_nearest_rank": 23,
+          "maximum": 23
+        }
+      },
+      "walk": {
+        "TnSourceSTA00X": {
+          "count": 211,
+          "mean": 25,
+          "p95_nearest_rank": 25,
+          "maximum": 25
+        },
+        "TnNativePlay": {
+          "count": 120,
+          "mean": 1232.6416666666667,
+          "p95_nearest_rank": 2988,
+          "maximum": 3748
+        },
+        "TnAudioUpdate": {
+          "count": 120,
+          "mean": 165.1,
+          "p95_nearest_rank": 165,
+          "maximum": 169
+        },
+        "ExpandedAudioUpdate": {
+          "count": 120,
+          "mean": 151.15833333333333,
+          "p95_nearest_rank": 151,
+          "maximum": 155
+        },
+        "AudioUpdate": {
+          "count": 120,
+          "mean": 1371.1083333333333,
+          "p95_nearest_rank": 1400,
+          "maximum": 1428
+        },
+        "TnSourceSTA01X": {
+          "count": 8,
+          "mean": 25,
+          "p95_nearest_rank": 25,
+          "maximum": 25
+        },
+        "TnSourceSTA03X": {
+          "count": 64,
+          "mean": 25,
+          "p95_nearest_rank": 25,
+          "maximum": 25
+        },
+        "TnSourceSTA02X": {
+          "count": 79,
+          "mean": 25,
+          "p95_nearest_rank": 25,
+          "maximum": 25
+        },
+        "TnSourceSTA08": {
+          "count": 9,
+          "mean": 23,
+          "p95_nearest_rank": 23,
+          "maximum": 23
+        },
+        "TnSourceSTA15": {
+          "count": 12,
+          "mean": 154.16666666666666,
+          "p95_nearest_rank": 160,
+          "maximum": 160
+        },
+        "TnSourceSTA10": {
+          "count": 5,
+          "mean": 14,
+          "p95_nearest_rank": 14,
+          "maximum": 14
+        },
+        "TnSourceSTA11": {
+          "count": 5,
+          "mean": 18,
+          "p95_nearest_rank": 18,
+          "maximum": 18
+        },
+        "TnSourceSTA12": {
+          "count": 5,
+          "mean": 32,
+          "p95_nearest_rank": 32,
+          "maximum": 32
+        },
+        "TnSourceSTA13": {
+          "count": 5,
+          "mean": 14,
+          "p95_nearest_rank": 14,
+          "maximum": 14
+        }
+      },
+      "enemies": {
+        "TnSourceSTA00X": {
+          "count": 187,
+          "mean": 25.02139037433155,
+          "p95_nearest_rank": 25,
+          "maximum": 29
+        },
+        "TnNativePlay": {
+          "count": 120,
+          "mean": 1214.7333333333333,
+          "p95_nearest_rank": 2283,
+          "maximum": 3836
+        },
+        "TnAudioUpdate": {
+          "count": 120,
+          "mean": 165.15833333333333,
+          "p95_nearest_rank": 165,
+          "maximum": 169
+        },
+        "ExpandedAudioUpdate": {
+          "count": 120,
+          "mean": 151.19166666666666,
+          "p95_nearest_rank": 151,
+          "maximum": 155
+        },
+        "AudioUpdate": {
+          "count": 120,
+          "mean": 1370.975,
+          "p95_nearest_rank": 1412,
+          "maximum": 1448
+        },
+        "TnSourceSTA08": {
+          "count": 11,
+          "mean": 23,
+          "p95_nearest_rank": 23,
+          "maximum": 23
+        },
+        "TnSourceSTA03X": {
+          "count": 77,
+          "mean": 25.051948051948052,
+          "p95_nearest_rank": 25,
+          "maximum": 29
+        },
+        "TnSourceSTA02X": {
+          "count": 82,
+          "mean": 25.048780487804876,
+          "p95_nearest_rank": 25,
+          "maximum": 29
+        },
+        "TnSourceSTA15": {
+          "count": 16,
+          "mean": 153.8125,
+          "p95_nearest_rank": 161,
+          "maximum": 161
+        },
+        "TnSourceSTA10": {
+          "count": 6,
+          "mean": 14,
+          "p95_nearest_rank": 14,
+          "maximum": 14
+        },
+        "TnSourceSTA11": {
+          "count": 6,
+          "mean": 18,
+          "p95_nearest_rank": 18,
+          "maximum": 18
+        },
+        "TnSourceSTA12": {
+          "count": 6,
+          "mean": 32,
+          "p95_nearest_rank": 32,
+          "maximum": 32
+        },
+        "TnSourceSTA13": {
+          "count": 6,
+          "mean": 14,
+          "p95_nearest_rank": 14,
+          "maximum": 14
+        },
+        "TnSourceSTA01X": {
+          "count": 7,
+          "mean": 25,
+          "p95_nearest_rank": 25,
+          "maximum": 25
+        }
+      },
+      "primary": {
+        "TnSourceSTA00X": {
+          "count": 185,
+          "mean": 25,
+          "p95_nearest_rank": 25,
+          "maximum": 25
+        },
+        "TnNativePlay": {
+          "count": 120,
+          "mean": 1327.2416666666666,
+          "p95_nearest_rank": 2988,
+          "maximum": 3992
+        },
+        "TnAudioUpdate": {
+          "count": 120,
+          "mean": 165.06666666666666,
+          "p95_nearest_rank": 165,
+          "maximum": 169
+        },
+        "ExpandedAudioUpdate": {
+          "count": 120,
+          "mean": 151.03333333333333,
+          "p95_nearest_rank": 151,
+          "maximum": 155
+        },
+        "AudioUpdate": {
+          "count": 120,
+          "mean": 1464.2333333333333,
+          "p95_nearest_rank": 2019,
+          "maximum": 2193
+        },
+        "TnSourceSTA03X": {
+          "count": 65,
+          "mean": 25,
+          "p95_nearest_rank": 25,
+          "maximum": 25
+        },
+        "TnSourceSTA02X": {
+          "count": 131,
+          "mean": 25,
+          "p95_nearest_rank": 25,
+          "maximum": 25
+        },
+        "TnSourceSTA08": {
+          "count": 10,
+          "mean": 23,
+          "p95_nearest_rank": 23,
+          "maximum": 23
+        },
+        "TnSourceSTA01X": {
+          "count": 8,
+          "mean": 25,
+          "p95_nearest_rank": 25,
+          "maximum": 25
+        },
+        "TnSourceSTA15": {
+          "count": 12,
+          "mean": 154.16666666666666,
+          "p95_nearest_rank": 160,
+          "maximum": 160
+        },
+        "TnSourceSTA10": {
+          "count": 5,
+          "mean": 14,
+          "p95_nearest_rank": 14,
+          "maximum": 14
+        },
+        "TnSourceSTA11": {
+          "count": 5,
+          "mean": 18,
+          "p95_nearest_rank": 18,
+          "maximum": 18
+        },
+        "TnSourceSTA12": {
+          "count": 5,
+          "mean": 32,
+          "p95_nearest_rank": 32,
+          "maximum": 32
+        },
+        "TnSourceSTA13": {
+          "count": 5,
+          "mean": 14,
+          "p95_nearest_rank": 14,
+          "maximum": 14
+        }
+      },
+      "secondary": {
+        "TnSourceSTA02X": {
+          "count": 155,
+          "mean": 25.025806451612905,
+          "p95_nearest_rank": 25,
+          "maximum": 29
+        },
+        "TnSourceSTA00X": {
+          "count": 126,
+          "mean": 25,
+          "p95_nearest_rank": 25,
+          "maximum": 25
+        },
+        "TnSourceSTA03X": {
+          "count": 70,
+          "mean": 25,
+          "p95_nearest_rank": 25,
+          "maximum": 25
+        },
+        "TnNativePlay": {
+          "count": 119,
+          "mean": 1318.3865546218487,
+          "p95_nearest_rank": 2841,
+          "maximum": 4928
+        },
+        "TnAudioUpdate": {
+          "count": 119,
+          "mean": 165.1344537815126,
+          "p95_nearest_rank": 165,
+          "maximum": 169
+        },
+        "ExpandedAudioUpdate": {
+          "count": 119,
+          "mean": 151.0672268907563,
+          "p95_nearest_rank": 151,
+          "maximum": 155
+        },
+        "AudioUpdate": {
+          "count": 119,
+          "mean": 1623.310924369748,
+          "p95_nearest_rank": 2166,
+          "maximum": 2306
+        },
+        "TnSourceSTA08": {
+          "count": 10,
+          "mean": 23,
+          "p95_nearest_rank": 23,
+          "maximum": 23
+        },
+        "TnSourceSTA01X": {
+          "count": 7,
+          "mean": 25,
+          "p95_nearest_rank": 25,
+          "maximum": 25
+        },
+        "TnSourceSTA15": {
+          "count": 14,
+          "mean": 153.57142857142858,
+          "p95_nearest_rank": 160,
+          "maximum": 160
+        },
+        "TnSourceSTA10": {
+          "count": 5,
+          "mean": 14,
+          "p95_nearest_rank": 14,
+          "maximum": 14
+        },
+        "TnSourceSTA11": {
+          "count": 5,
+          "mean": 18,
+          "p95_nearest_rank": 18,
+          "maximum": 18
+        },
+        "TnSourceSTA12": {
+          "count": 5,
+          "mean": 32,
+          "p95_nearest_rank": 32,
+          "maximum": 32
+        },
+        "TnSourceSTA13": {
+          "count": 5,
+          "mean": 14,
+          "p95_nearest_rank": 14,
+          "maximum": 14
+        }
+      }
+    }
+  },
+  "first_prefix_deficit": {
+    "update": 406,
+    "phase": "primary",
+    "added_physical_frames": 1,
+    "fewer_draw_constructions": 0
+  },
+  "first_causal_deadline": {
+    "baseline": {
+      "draw": {
+        "draws": 406,
+        "phase": "primary",
+        "stamp": {
+          "sp": 243,
+          "scanline": 162,
+          "pc": 40960,
+          "cpu": 21877416,
+          "cycle": 317,
+          "frame": 735
+        },
+        "kind": "draw-construction",
+        "index": 406,
+        "nmi_depth": 0
+      },
+      "complete": {
+        "draws": 406,
+        "skipped": 10,
+        "nmi_depth": 0,
+        "phase": "primary",
+        "stamp": {
+          "sp": 252,
+          "scanline": 218,
+          "pc": 33470,
+          "cpu": 21883774,
+          "cycle": 295,
+          "frame": 735
+        },
+        "kind": "completed-game-update",
+        "index": 406,
+        "completed": 406
+      },
+      "preceding_AudioUpdate": {
+        "serial": "811",
+        "name": "AudioUpdate",
+        "phase": "primary",
+        "update": "405",
+        "startFrame": "735",
+        "startScan": "255",
+        "startDot": "186",
+        "startCPU": "21858163",
+        "endFrame": "735",
+        "endScan": "20",
+        "endDot": "22",
+        "endCPU": "21861177",
+        "inclusiveCycles": "3014",
+        "IRQCycles": "0",
+        "CPUcycles": "3014",
+        "childCPUcycles": "1063",
+        "exclusiveCPUcycles": "1951"
+      },
+      "disjoint_components": [
+        {
+          "serial": "812",
+          "name": "ExpandedAudioUpdate",
+          "phase": "primary",
+          "update": "405",
+          "startFrame": "735",
+          "startScan": "258",
+          "startDot": "117",
+          "startCPU": "21858481",
+          "endFrame": "735",
+          "endScan": "5",
+          "endDot": "238",
+          "endCPU": "21859544",
+          "inclusiveCycles": "1063",
+          "IRQCycles": "0",
+          "CPUcycles": "1063",
+          "childCPUcycles": "0",
+          "exclusiveCPUcycles": "1063"
+        },
+        {
+          "serial": "811",
+          "name": "AudioUpdate",
+          "phase": "primary",
+          "update": "405",
+          "startFrame": "735",
+          "startScan": "255",
+          "startDot": "186",
+          "startCPU": "21858163",
+          "endFrame": "735",
+          "endScan": "20",
+          "endDot": "22",
+          "endCPU": "21861177",
+          "inclusiveCycles": "3014",
+          "IRQCycles": "0",
+          "CPUcycles": "3014",
+          "childCPUcycles": "1063",
+          "exclusiveCPUcycles": "1951"
+        }
+      ]
+    },
+    "candidate": {
+      "draw": {
+        "kind": "draw-construction",
+        "stamp": {
+          "pc": 40960,
+          "sp": 243,
+          "frame": 735,
+          "scanline": 188,
+          "cycle": 160,
+          "cpu": 21880319
+        },
+        "draws": 406,
+        "phase": "primary",
+        "nmi_depth": 0,
+        "index": 406
+      },
+      "complete": {
+        "kind": "completed-game-update",
+        "stamp": {
+          "pc": 33470,
+          "sp": 252,
+          "frame": 736,
+          "scanline": 7,
+          "cycle": 295,
+          "cpu": 21889571
+        },
+        "skipped": 11,
+        "draws": 406,
+        "nmi_depth": 0,
+        "phase": "primary",
+        "completed": 406,
+        "index": 406
+      },
+      "preceding_AudioUpdate": {
+        "serial": "3030",
+        "name": "AudioUpdate",
+        "phase": "primary",
+        "update": "405",
+        "startFrame": "735",
+        "startScan": "255",
+        "startDot": "186",
+        "startCPU": "21858163",
+        "endFrame": "735",
+        "endScan": "45",
+        "endDot": "116",
+        "endCPU": "21864050",
+        "inclusiveCycles": "5887",
+        "IRQCycles": "120",
+        "CPUcycles": "5767",
+        "childCPUcycles": "3711",
+        "exclusiveCPUcycles": "2056"
+      },
+      "disjoint_components": [
+        {
+          "serial": "3034",
+          "name": "TnSourceSTA00X",
+          "phase": "primary",
+          "update": "405",
+          "startFrame": "735",
+          "startScan": "2",
+          "startDot": "271",
+          "startCPU": "21859214",
+          "endFrame": "735",
+          "endScan": "3",
+          "endDot": "5",
+          "endCPU": "21859239",
+          "inclusiveCycles": "25",
+          "IRQCycles": "0",
+          "CPUcycles": "25",
+          "childCPUcycles": "0",
+          "exclusiveCPUcycles": "25"
+        },
+        {
+          "serial": "3035",
+          "name": "TnSourceSTA02X",
+          "phase": "primary",
+          "update": "405",
+          "startFrame": "735",
+          "startScan": "5",
+          "startDot": "181",
+          "startCPU": "21859525",
+          "endFrame": "735",
+          "endScan": "5",
+          "endDot": "256",
+          "endCPU": "21859550",
+          "inclusiveCycles": "25",
+          "IRQCycles": "0",
+          "CPUcycles": "25",
+          "childCPUcycles": "0",
+          "exclusiveCPUcycles": "25"
+        },
+        {
+          "serial": "3036",
+          "name": "TnSourceSTA00X",
+          "phase": "primary",
+          "update": "405",
+          "startFrame": "735",
+          "startScan": "10",
+          "startDot": "282",
+          "startCPU": "21860127",
+          "endFrame": "735",
+          "endScan": "11",
+          "endDot": "16",
+          "endCPU": "21860152",
+          "inclusiveCycles": "25",
+          "IRQCycles": "0",
+          "CPUcycles": "25",
+          "childCPUcycles": "0",
+          "exclusiveCPUcycles": "25"
+        },
+        {
+          "serial": "3037",
+          "name": "TnSourceSTA02X",
+          "phase": "primary",
+          "update": "405",
+          "startFrame": "735",
+          "startScan": "13",
+          "startDot": "237",
+          "startCPU": "21860453",
+          "endFrame": "735",
+          "endScan": "13",
+          "endDot": "312",
+          "endCPU": "21860478",
+          "inclusiveCycles": "25",
+          "IRQCycles": "0",
+          "CPUcycles": "25",
+          "childCPUcycles": "0",
+          "exclusiveCPUcycles": "25"
+        },
+        {
+          "serial": "3038",
+          "name": "TnSourceSTA08",
+          "phase": "primary",
+          "update": "405",
+          "startFrame": "735",
+          "startScan": "18",
+          "startDot": "5",
+          "startCPU": "21860944",
+          "endFrame": "735",
+          "endScan": "18",
+          "endDot": "74",
+          "endCPU": "21860967",
+          "inclusiveCycles": "23",
+          "IRQCycles": "0",
+          "CPUcycles": "23",
+          "childCPUcycles": "0",
+          "exclusiveCPUcycles": "23"
+        },
+        {
+          "serial": "3039",
+          "name": "TnSourceSTA03X",
+          "phase": "primary",
+          "update": "405",
+          "startFrame": "735",
+          "startScan": "19",
+          "startDot": "267",
+          "startCPU": "21861145",
+          "endFrame": "735",
+          "endScan": "20",
+          "endDot": "1",
+          "endCPU": "21861170",
+          "inclusiveCycles": "25",
+          "IRQCycles": "0",
+          "CPUcycles": "25",
+          "childCPUcycles": "0",
+          "exclusiveCPUcycles": "25"
+        },
+        {
+          "serial": "3040",
+          "name": "TnSourceSTA02X",
+          "phase": "primary",
+          "update": "405",
+          "startFrame": "735",
+          "startScan": "20",
+          "startDot": "148",
+          "startCPU": "21861219",
+          "endFrame": "735",
+          "endScan": "20",
+          "endDot": "223",
+          "endCPU": "21861244",
+          "inclusiveCycles": "25",
+          "IRQCycles": "0",
+          "CPUcycles": "25",
+          "childCPUcycles": "0",
+          "exclusiveCPUcycles": "25"
+        },
+        {
+          "serial": "3041",
+          "name": "TnSourceSTA15",
+          "phase": "primary",
+          "update": "405",
+          "startFrame": "735",
+          "startScan": "23",
+          "startDot": "127",
+          "startCPU": "21861553",
+          "endFrame": "735",
+          "endScan": "24",
+          "endDot": "236",
+          "endCPU": "21861703",
+          "inclusiveCycles": "150",
+          "IRQCycles": "0",
+          "CPUcycles": "150",
+          "childCPUcycles": "0",
+          "exclusiveCPUcycles": "150"
+        },
+        {
+          "serial": "3042",
+          "name": "TnSourceSTA10",
+          "phase": "primary",
+          "update": "405",
+          "startFrame": "735",
+          "startScan": "24",
+          "startDot": "266",
+          "startCPU": "21861713",
+          "endFrame": "735",
+          "endScan": "24",
+          "endDot": "308",
+          "endCPU": "21861727",
+          "inclusiveCycles": "14",
+          "IRQCycles": "0",
+          "CPUcycles": "14",
+          "childCPUcycles": "0",
+          "exclusiveCPUcycles": "14"
+        },
+        {
+          "serial": "3043",
+          "name": "TnSourceSTA11",
+          "phase": "primary",
+          "update": "405",
+          "startFrame": "735",
+          "startScan": "24",
+          "startDot": "338",
+          "startCPU": "21861737",
+          "endFrame": "735",
+          "endScan": "25",
+          "endDot": "51",
+          "endCPU": "21861755",
+          "inclusiveCycles": "18",
+          "IRQCycles": "0",
+          "CPUcycles": "18",
+          "childCPUcycles": "0",
+          "exclusiveCPUcycles": "18"
+        },
+        {
+          "serial": "3044",
+          "name": "TnSourceSTA12",
+          "phase": "primary",
+          "update": "405",
+          "startFrame": "735",
+          "startScan": "25",
+          "startDot": "81",
+          "startCPU": "21861765",
+          "endFrame": "735",
+          "endScan": "25",
+          "endDot": "177",
+          "endCPU": "21861797",
+          "inclusiveCycles": "32",
+          "IRQCycles": "0",
+          "CPUcycles": "32",
+          "childCPUcycles": "0",
+          "exclusiveCPUcycles": "32"
+        },
+        {
+          "serial": "3045",
+          "name": "TnSourceSTA13",
+          "phase": "primary",
+          "update": "405",
+          "startFrame": "735",
+          "startScan": "25",
+          "startDot": "207",
+          "startCPU": "21861807",
+          "endFrame": "735",
+          "endScan": "25",
+          "endDot": "249",
+          "endCPU": "21861821",
+          "inclusiveCycles": "14",
+          "IRQCycles": "0",
+          "CPUcycles": "14",
+          "childCPUcycles": "0",
+          "exclusiveCPUcycles": "14"
+        },
+        {
+          "serial": "3046",
+          "name": "TnSourceSTA15",
+          "phase": "primary",
+          "update": "405",
+          "startFrame": "735",
+          "startScan": "25",
+          "startDot": "273",
+          "startCPU": "21861829",
+          "endFrame": "735",
+          "endScan": "27",
+          "endDot": "71",
+          "endCPU": "21861989",
+          "inclusiveCycles": "160",
+          "IRQCycles": "0",
+          "CPUcycles": "160",
+          "childCPUcycles": "0",
+          "exclusiveCPUcycles": "160"
+        },
+        {
+          "serial": "3033",
+          "name": "TnNativePlay",
+          "phase": "primary",
+          "update": "405",
+          "startFrame": "735",
+          "startScan": "260",
+          "startDot": "71",
+          "startCPU": "21858693",
+          "endFrame": "735",
+          "endScan": "28",
+          "endDot": "27",
+          "endCPU": "21862088",
+          "inclusiveCycles": "3395",
+          "IRQCycles": "0",
+          "CPUcycles": "3395",
+          "childCPUcycles": "561",
+          "exclusiveCPUcycles": "2834"
+        },
+        {
+          "serial": "3032",
+          "name": "TnAudioUpdate",
+          "phase": "primary",
+          "update": "405",
+          "startFrame": "735",
+          "startScan": "259",
+          "startDot": "97",
+          "startCPU": "21858588",
+          "endFrame": "735",
+          "endScan": "28",
+          "endDot": "207",
+          "endCPU": "21862148",
+          "inclusiveCycles": "3560",
+          "IRQCycles": "0",
+          "CPUcycles": "3560",
+          "childCPUcycles": "3395",
+          "exclusiveCPUcycles": "165"
+        },
+        {
+          "serial": "3031",
+          "name": "ExpandedAudioUpdate",
+          "phase": "primary",
+          "update": "405",
+          "startFrame": "735",
+          "startScan": "258",
+          "startDot": "246",
+          "startCPU": "21858524",
+          "endFrame": "735",
+          "endScan": "29",
+          "endDot": "127",
+          "endCPU": "21862235",
+          "inclusiveCycles": "3711",
+          "IRQCycles": "0",
+          "CPUcycles": "3711",
+          "childCPUcycles": "3560",
+          "exclusiveCPUcycles": "151"
+        },
+        {
+          "serial": "3030",
+          "name": "AudioUpdate",
+          "phase": "primary",
+          "update": "405",
+          "startFrame": "735",
+          "startScan": "255",
+          "startDot": "186",
+          "startCPU": "21858163",
+          "endFrame": "735",
+          "endScan": "45",
+          "endDot": "116",
+          "endCPU": "21864050",
+          "inclusiveCycles": "5887",
+          "IRQCycles": "120",
+          "CPUcycles": "5767",
+          "childCPUcycles": "3711",
+          "exclusiveCPUcycles": "2056"
+        }
+      ]
+    }
+  },
+  "source_tick_first_miss": 407,
+  "draw_start_CPU_delay": 2903,
+  "preceding_AudioUpdate_return_CPU_delay": 2873,
+  "residual_post_audio_foreground_delay": 30,
+  "direct_DMC_STA_instruction_clocks": {
+    "baseline": {
+      "samples": 1200,
+      "actual_instruction_cycles": {
+        "4": 1200
+      },
+      "extra_cycles": {
+        "0": 1200
+      }
+    },
+    "candidate": {
+      "samples": 178,
+      "actual_instruction_cycles": {
+        "4": 177,
+        "8": 1
+      },
+      "extra_cycles": {
+        "0": 177,
+        "4": 1
+      }
+    }
+  },
+  "limits": "Residual read-halt/DMA attribution is not claimed complete; direct STA clocks are separate. No additional native case/retry/Hard or acceptance."
+}

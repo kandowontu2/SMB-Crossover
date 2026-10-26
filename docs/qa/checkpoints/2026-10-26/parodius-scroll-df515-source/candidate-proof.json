@@ -1,0 +1,32 @@
+{
+  "prepared": true,
+  "CPU_passed": false,
+  "native_run": false,
+  "adopted": false,
+  "goal_complete": false,
+  "parent_ROM_sha256": "64f454a248785ff4c53bd0d52158fd2cf5389de38e5c35a888c3e6a6ed982362",
+  "candidate_ROM_sha256": "df5154bc035ba2c392bb8d34068897a2bccf7a78a6f4554bd6790d31a586c357",
+  "all_v11_symbols_exact": true,
+  "v11_symbols": 72275,
+  "CHR_exact": true,
+  "ROM_delta_bytes": 22,
+  "delta_bank": 116,
+  "replaced_tail": {
+    "offset": 953036,
+    "bytes": 7,
+    "before": "a220e0204c3cc0",
+    "after": "4c70ceeaeaeaea"
+  },
+  "new_tail": {
+    "offset": 953984,
+    "bytes": 15
+  },
+  "capture_only_extra_cycles": 13,
+  "changed_source": {
+    "src/nmi_vram_fast.s": "ef3b69990a3f26b02c76f50b06661af2ba365aef15fae2411915f1a7e71503ab",
+    "smb1base-mmc5-expanded.cfg": "b9ac381b9b22b8d600b87a5a0ea14eaab8e6b3eefef0520296ea998dba13eb65"
+  },
+  "patch_sha256": "d7dea85006fd9cadedf16765505d2f30e5bea02f63c90aed61b344746e610d28",
+  "tool_sha256": "60244600f6d8e54c5198d111d5a19bff5cf7503c325a2120df87c8683b02371d",
+  "limits": "Private additive scroll restoration only. Intended two PPUSCROLL0 writes change capture I/O and t/fineX state; all old exact-I/O receipts remain historical. Native qualification remains required."
+}

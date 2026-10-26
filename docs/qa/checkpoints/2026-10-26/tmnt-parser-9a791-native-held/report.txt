@@ -1,0 +1,44 @@
+TMNT parser9a791: SINGLE EASY NATIVE PERFORMANCE GATE FAILED
+No adoption. One sequential native grant RELEASED after this pair. No retries,
+Hard, campaign, rate/state/store changes or within-phase outcome injection.
+
+Baseline 50b51c3c69f45ef137720c47f521574097f421056e3b73296d06ba70080d2363
+Candidate 9a791d0e13015ff362ffc9e460aaac8c8a0a5b6f73e990959dee4e074da473fd
+Raw pair C:\Users\kando\Videos\SMB Crossover Archive\2026-10-24-native-rest-py\tmnt-native-storage-current50b5-v1\parser-native-pilot-v1
+
+Both real cold numericEasy0 runs complete600updates and all original
+source/hardware/DMC/mixed4015/NMI/IRQ/5SMC/stack/bank/CHR/complete256B-DMA
+guards pass. Baseline572 completedDMA versus candidate566; every destination
+byte matches the entire source page inside vblank/disabled rendering.
+Both have921 observedNMIs/maxdepth1 and600activeIRQs. Candidate602source calls,
+2125orderedAPUs,8400hardware comparisons,54activeDMC/540heldDAC44frames.
+Fresh original executable comparison preserves every188B source state using
+only original-ROM-word pointer translation, and all602APU streams. Actual
+source-state CSV is byte-exact to priora983. Baseline gameplay/call/frame CSVs
+are byte-exact to its historical frozen control. All five BEFORE setup command
+lists are equal, actual stage/ground/actor guards pass; no natural gear claim.
+
+STRICT NEGATIVE
+Idle/walk/enemies0 added skips. Primary0->1 skipped draw and longeststall0->1.
+Secondary28->33 skipped draws; longeststall1unchanged. Six added lost draws,
+down from priora983eight but still a failure. All195absolute/144phase prefix
+deficits retained. Two input-only differences at532/560; every other recorded
+game field matches. Equal929totalframes does not override lost draws.
+
+FIRST CAUSAL DEADLINE
+Update406 baseline drawPPU735 scan162/dot317 and complete735 scan218/dot295;
+candidate draw735 scan188/dot160 and complete736 scan7/dot295 across realNMI.
+Update407 then uses the actual no-draw catch-up return. Draw starts2903
+CPUcycles later; precedingAudioUpdate returns2873cycles later,
+leaving30cycles of measured postaudio foreground residual.
+The preceding original music burst is actualsourceTick407, with matching
+captured source state and unchanged requested APUs. diagnosis.json records
+actual complete AudioUpdate/core/writer/adapter/mixer/IRQ intervals and disjoint
+exclusive costs, plus per-phase mean/P95/max AudioUpdate and foreground.
+The known isolatedCPU398saved at407 versus a983 does not imply native success.
+Direct DMC STA clocks remain separated from subsequent read-halt DMA residuals;
+no unsupported full-DMA attribution or native60Hz claim.
+
+Source-only parser and multiply ready packets and all earlier negative trials
+remain immutable. This native negative is a hold, not an accepted music build.
+No production, Git, Downloads or guide/video updates were made.

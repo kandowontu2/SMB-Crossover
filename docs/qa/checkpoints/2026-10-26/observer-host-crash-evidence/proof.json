@@ -1,0 +1,21 @@
+{
+  "created_UTC": "2026-10-26T00:40:32.171738+00:00",
+  "ROM_changed": false,
+  "native_test_run": false,
+  "host_fault_RVA": "0x12F820",
+  "DLL_path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mmc3-flag-fix-v23\\script-budget-probe-v2\\emulator\\MesenCore.dll",
+  "DLL_sha256": "4bd40dfc6512328d56d8ad0563263b52be57bac726d8804f0720e461e558cd41",
+  "sources": {
+    "ScriptingContext.cpp": {
+      "url": "https://raw.githubusercontent.com/SourMesen/Mesen2/master/Core/Debugger/ScriptingContext.cpp",
+      "bytes": 10794,
+      "sha256": "1e4645ab7783c179a2998e906b72a42bce98c340badb269c0506996229ba0157"
+    },
+    "ScriptingContext.h": {
+      "url": "https://raw.githubusercontent.com/SourMesen/Mesen2/master/Core/Debugger/ScriptingContext.h",
+      "bytes": 2495,
+      "sha256": "6f8e02152321406b80511fca38238f4623fcef28808260f19db3024e15c5386a"
+    }
+  },
+  "analysis": "Fault instruction reads Cpu byte+8 of a20-byte callback record; iterator advances by20 and cachedbegin/end survive Lua calls. This matches the public vector callback dispatcher and push_back registrar. Runtime vector growth from the observer is a strong causal hypothesis; the installed binary exact source revision is not yet authenticated. Separate static-registration diagnostics must preserve original guard semantics and compare emulated-event prefixes before concluding."
+}

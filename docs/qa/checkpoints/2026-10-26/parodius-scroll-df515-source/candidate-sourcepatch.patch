@@ -1,0 +1,36 @@
+--- a/src/nmi_vram_fast.s
++++ b/src/nmi_vram_fast.s
+@@ -49,8 +49,22 @@
+   lda PPUDATA
+   sta PnBombPaletteShadow+I
+  .endrepeat
++ jmp FastNmiPaletteScrollRestore
++ .res 4,$ea ; retain every existing private entry PC
++.endproc
++.popseg
++
++; Capture necessarily changes t with PPUADDR3F00. Restore the native
++; UpdateScreen coarse/fine scroll0. The following old MirrorPPUCTRL store
++; restores its nametable bits; the regular NMI later applies its HUD AND#FC.
++.pushseg
++.segment "NMI_VRAM_SCROLL"
++.proc FastNmiPaletteScrollRestore
++ ldx #0
++ stx PPUSCROLL
++ stx PPUSCROLL
+  ldx #32
+  cpx #32
+- jmp PnPaletteScreenUpdate::Copy+11 ; after the unchanged old BNE
++ jmp PnPaletteScreenUpdate::Copy+11
+ .endproc
+ .popseg
+--- a/smb1base-mmc5-expanded.cfg
++++ b/smb1base-mmc5-expanded.cfg
+@@ -225,6 +225,7 @@
+     PARODIUS_EXTRA_ART:load=X5_NEW_74,type=ro;
+     NMI_VRAM_FAST:load=X5_NEW_74,type=ro;
+     PN_HUD_QUEUE:load=X5_NEW_74,type=ro;
++    NMI_VRAM_SCROLL:load=X5_NEW_74,type=ro;
+     PARODIUS_BELLS:load=X5_NEW_76,type=ro;
+     ROLL_CORE:load=X5_NEW_77,type=ro;
+     ROLL_WORLD:load=X5_NEW_78,type=ro;
