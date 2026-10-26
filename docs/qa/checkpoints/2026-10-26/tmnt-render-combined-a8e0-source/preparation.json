@@ -1,0 +1,37 @@
+{
+  "prepared": true,
+  "source_only": true,
+  "native_run": false,
+  "accepted": false,
+  "input_ROMs": {
+    "parent": "9a791d0e13015ff362ffc9e460aaac8c8a0a5b6f73e990959dee4e074da473fd",
+    "scans": "eedf07f7c63f2a2ad286d389a2bfe855dafdd0529bc09f1588476ac5f70c0d47",
+    "ammo": "a2b58350d4b5a4765cd11e5d7e08b37d72f51abdbf1d6debc5b58dcef6c90820"
+  },
+  "candidate_ROM_sha256": "a8e0d391161f5e828c0790b691a002342e403d718aabab14596f44760f3feb2a",
+  "canonical_source_build_exact_disjoint_ROM_union": true,
+  "changed_bytes": 861,
+  "changed_bank": 87,
+  "all_three_parents_qualified_symbols_fixed": true,
+  "all_audio_other_banks_CHR_exact": true,
+  "source_changes": {
+    "src/entrypoint.s": {
+      "before_sha256": "615520c880e21fad9281c0adf6a3d2b408f416d77860dec56b0d1ca5d1cd37b4",
+      "after_sha256": "5f51438a11acd67620a21506e9e35f95c92999ed02aee601bc56d4c3790faf23"
+    },
+    "src/tmnt_equipment_draw.s": {
+      "before_sha256": "2a8a7d424332011ed3d9b451d23657fc84272316aebbade577e9d1ee44c0ea38",
+      "after_sha256": "e9bf9ca86b41d33202dc257262760d525d8f438f41b9b27e616511849e0a085b"
+    },
+    "src/tmnt_empty_equipment_scans.s": {
+      "before_sha256": null,
+      "after_sha256": "1f198ffeea1502a6921fb6400e1ead45b626a86c0adf9176cef98426e1b45d10"
+    },
+    "src/tmnt_ammo_decimal_lookup.s": {
+      "before_sha256": null,
+      "after_sha256": "0a16bc3d02d01882a1dde0ca260de62d7a704ed7c166cb12cfe6a66297194110"
+    }
+  },
+  "builder_sha256": "32d567d4621455e23c210d0360293df160e8a52c5d2663d3f5426bff153f4c36",
+  "limits": "Composition proof only. Parent source tests are not relabeled for this ROM. Fresh combined CPU/caller/IRQ, canonical/flagoff and native cadence remain separate gates; primary miss remains open."
+}

@@ -1,0 +1,172 @@
+--- a/src/entrypoint.s
++++ b/src/entrypoint.s
+@@ -490,3 +490,11 @@
+ .include "tmnt_audio_samus_cold.s"
+ .include "tmnt_audio.s"
+ .endif
++
++.if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
++.include "tmnt_empty_equipment_scans.s"
++.endif
++
++.if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
++.include "tmnt_ammo_decimal_lookup.s"
++.endif
+--- a/src/tmnt_equipment_draw.s
++++ b/src/tmnt_equipment_draw.s
+@@ -60,9 +60,16 @@
+  lda #0
+  sta R3
+  jsr TnWorldDraw
+-NextShot:ldx TnDrawSlot
++NextShot:
++.if ::MAPPER_MMC5
++ jmp ::TnSkipEmptyEquipmentScans
++ .res 3,$ea
++.else
++ ldx TnDrawSlot
+  dex
+  jpl Shot
++.endif
++::TnEquipmentScansResume:
+  ldx #3
+ Drop:stx TnDrawSlot
+  lda TnDropKind,x
+@@ -124,6 +131,7 @@
+ NextPickup:ldx TnDrawSlot
+  dex
+  bpl Pickup
++::TnEquipmentIconResume:
+  ; An icon and three background digits are visible only while secondary is active.
+  ; Existing four health sprites + at most four icon parts fit eight HUD sprites.
+  lda TnGearSelected
+@@ -220,8 +228,13 @@
+  sta VRAM_Buffer1+5,x
+  lda TnTemp
+  beq Commit
++.if ::MAPPER_MMC5
++ jmp ::TnAmmoDecimalLookup
++ .res 2,$ea ; original five-byte LDA/STA footprint
++.else
+  lda #0
+  sta TnTempX
++.endif
+  sta TnTempY
+  lda TnTemp2
+ Hundreds:cmp #100
+--- a/src/tmnt_empty_equipment_scans.s
++++ b/src/tmnt_empty_equipment_scans.s
+@@ -0,0 +1,35 @@
++; Guard only the provably empty BOTH-groups case. Every nonzero flag or
++; private stamp resumes literal original loops and their original visible work.
++; No RAM borrow or foreground hardware math. Icon/ammo code supplies final ABI.
++.if ::MAPPER_MMC5
++.pushseg
++.segment "TMNT_CORE"
++.proc TnSkipEmptyEquipmentScans
++ ldx TnDrawSlot
++ dex
++ bmi CheckEmpty
++ jmp ::TnDrawEquipment::Shot
++CheckEmpty:
++ lda TnDropKind
++ ora TnDropKind+1
++ ora TnDropKind+2
++ ora TnDropKind+3
++ bne Original
++ lda TnPickupStamp
++ ora TnPickupStamp+1
++ ora TnPickupStamp+2
++ ora TnPickupStamp+3
++ ora TnPickupStamp+4
++ ora TnPickupStamp+5
++ bne Original
++ lda #0
++ sta TnDrawSlot
++ ldx #$ff
++ jmp TnEquipmentIconResume
++Original:
++ jmp TnEquipmentScansResume
++.endproc
++.assert TnSkipEmptyEquipmentScans=$b020,lderror,"Append within unallocated TMNT_CORE tail"
++.export TnSkipEmptyEquipmentScans,TnEquipmentScansResume,TnEquipmentIconResume
++.popseg
++.endif
+--- a/src/tmnt_ammo_decimal_lookup.s
++++ b/src/tmnt_ammo_decimal_lookup.s
+@@ -0,0 +1,75 @@
++; Private MMC5 lookup. Keep the caller's X queue offset and Y intact.
++; The ones store is the literal first Digits store; return to the following
++; instruction. Original inner labels and the entire commit path stay fixed.
++.pushseg
++.segment "TMNT_CORE"
++.align $100,$ff ; scan helper ends atB058; next page isB100
++.proc TnAmmoDecimalLookup
++ tya
++ pha
++ ldy TnTemp2
++ lda Hundreds,y
++ sta TnTempX
++ lda Tens,y
++ sta TnTempY
++ lda Ones,y
++ sta VRAM_Buffer1+5,x
++ pla
++ tay
++ jmp ::TnAmmoHud::Digits+3
++.assert TnAmmoDecimalLookup=$b100,lderror,"Private unused tail only"
++.align $100,$ff
++Hundreds:
++ .byte 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
++ .byte 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
++ .byte 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
++ .byte 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
++ .byte 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
++ .byte 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
++ .byte 0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1
++ .byte 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
++ .byte 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
++ .byte 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
++ .byte 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
++ .byte 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
++ .byte 1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2
++ .byte 2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2
++ .byte 2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2
++ .byte 2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2
++Tens:
++ .byte 0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1
++ .byte 1,1,1,1,2,2,2,2,2,2,2,2,2,2,3,3
++ .byte 3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4
++ .byte 4,4,5,5,5,5,5,5,5,5,5,5,6,6,6,6
++ .byte 6,6,6,6,6,6,7,7,7,7,7,7,7,7,7,7
++ .byte 8,8,8,8,8,8,8,8,8,8,9,9,9,9,9,9
++ .byte 9,9,9,9,0,0,0,0,0,0,0,0,0,0,1,1
++ .byte 1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2
++ .byte 2,2,3,3,3,3,3,3,3,3,3,3,4,4,4,4
++ .byte 4,4,4,4,4,4,5,5,5,5,5,5,5,5,5,5
++ .byte 6,6,6,6,6,6,6,6,6,6,7,7,7,7,7,7
++ .byte 7,7,7,7,8,8,8,8,8,8,8,8,8,8,9,9
++ .byte 9,9,9,9,9,9,9,9,0,0,0,0,0,0,0,0
++ .byte 0,0,1,1,1,1,1,1,1,1,1,1,2,2,2,2
++ .byte 2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3
++ .byte 4,4,4,4,4,4,4,4,4,4,5,5,5,5,5,5
++Ones:
++ .byte 0,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5
++ .byte 6,7,8,9,0,1,2,3,4,5,6,7,8,9,0,1
++ .byte 2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7
++ .byte 8,9,0,1,2,3,4,5,6,7,8,9,0,1,2,3
++ .byte 4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9
++ .byte 0,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5
++ .byte 6,7,8,9,0,1,2,3,4,5,6,7,8,9,0,1
++ .byte 2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7
++ .byte 8,9,0,1,2,3,4,5,6,7,8,9,0,1,2,3
++ .byte 4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9
++ .byte 0,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5
++ .byte 6,7,8,9,0,1,2,3,4,5,6,7,8,9,0,1
++ .byte 2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7
++ .byte 8,9,0,1,2,3,4,5,6,7,8,9,0,1,2,3
++ .byte 4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9
++ .byte 0,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5
++.endproc
++.export TnAmmoDecimalLookup
++.popseg
