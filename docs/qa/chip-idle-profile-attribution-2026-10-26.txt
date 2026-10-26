@@ -1,0 +1,17 @@
+CHIP IDLE NATIVE COST ATTRIBUTION — 2026-10-26
+
+Scope: one authorized read-only1300-wall observation of frozen8b4. No optimization, new gameplay matrix or production mutation. Native worker RELEASED. Original audio/source/hardware/stack/SMC/CHR/controller guards pass; original cadence CSV is byte-identical,909 active updates/910 source calls/6429 ordered source stores/880 DMA. The28-extra-missed-draw defect remains.
+
+Native evidence: external chip-idle-profiler-v1/fixture-v4,2494 measured spans/832 boundary events/39 captured states439296B. Source readiness716 bindings remains unchanged. Attribution freeze-v1/proof.json SHA78153f05b85f25fc2640e832c2a53d8901b598439aabeb76f04b1abcd1170c00; bindings.json SHA338dc3d9f6d5d45d5d83f43c91f8f5b43c419c0f297725febb7841bd85e564fe,49 bindings.
+
+Measured69 Main updates: PlayerCtrlRoutine419313 exclusive CPU cycles (6077 mean) plus authentic CdMovement35136 (509 mean). DrawAllMetasprites368292/67 (5497 mean). SourcePlay269134/69 inclusive (3900 mean), AudioUpdate395988/69 inclusive (5739 mean). Nested inclusive totals must not be summed.
+
+First missed boundary: NMI CPU11671590, last possible foreground instruction boundary11671583, PPU393:241:34, interrupted bank4:A271 at WorldFirebarDrawAdmission first padding byte. Publication11679526. Intervening NMI5892 and IRQ120 give conditional1931-cycle lateness. Source-only reconstructed pre-NMI PC/P/SP tail reaches publication in1925cycles; the6-cycle difference remains explicit. The next AudioUpdate5763/sourcePlay3935 occurs inside the already-late NMI, so it cannot be called the preceding Main cause. First normal Main entry/prior sourceCall2 were not captured: active admission began when Engine became8. No complete first-frame counterfactual claim.
+
+Four subsequent PlayerCtrl CPU regions EXACTLY match native6805/6583/6583/6583. Normal region includes32 banked farcalls,1696 scaffold cycles (53 each). Movement dispatch chain1369 versus authentic CdMovement506:863 difference includes camera/dispatch work that must be retained. Four side gates305 each reach unchanged BlockBufferColli_Side118 each;187 difference per query before any new admission cost. Native head query123, BoundingBoxCore113. There are80 executed NOP cycles in a normal Main (30 movement-tail,40 world-admission,10 DrawMetasprite). Padding alone cannot close1931.
+
+Whole Main CPU model remains HELD24/48 cycles low: CdWeapons18, CdGraphics3, DrawAll24, outer3. Mapping actual captured PRG banks in v3/v4 did not resolve it. No guessed DMC/host cause, no masked oracle, no whole-frame CPU PASS. v1 strict assertion and v2/v3/v4 diagnostics are retained. Exact PlayerCtrl component match supports the finite hot-control proposal only.
+
+Next authorized source-only candidate: direct Chip movement admission inside retained X5 camera wrapper plus direct unchanged Chip side-query admission, preserving head/feet/pipes, complete caller AXYP/RAM/SMC/mapper contracts, authentic source music and all foreign identities. No native grant or adoption. Later parent merge must keep current CV3/menu/world-NOP fixes; frozen8b4 source remains historical.
+
+External prefix: C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/

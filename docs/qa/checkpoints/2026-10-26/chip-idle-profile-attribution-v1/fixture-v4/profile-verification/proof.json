@@ -1,0 +1,297 @@
+{
+  "passed": true,
+  "native_completed": true,
+  "optimization_accepted": false,
+  "production_mutated": false,
+  "ROM_sha256": "8b4accd2672b4b85508a365f81f499fb786f25e5572932aafc21837d5e591824",
+  "original_source_guard_and_native_counts_semantically_equal": true,
+  "original_cadence_byteexact": true,
+  "old_unfixed_DMA_starts": 880,
+  "baseline_historical_DMA_starts": 908,
+  "original28missed_draw_defect_retained": true,
+  "actual_lag_entries": [
+    {
+      "banks": [
+        126,
+        4,
+        80,
+        127
+      ],
+      "song": 2,
+      "skipDraw": 0,
+      "scanline": 241,
+      "kind": "NMI-entry",
+      "nmiSkipped": 10,
+      "p": 6,
+      "dot": 34,
+      "interruptedPC": 41585,
+      "last_foreground_instruction_boundary": 11671583,
+      "stackedP": 34,
+      "foregroundSP": 241,
+      "pc": 58166,
+      "y": 13,
+      "sourceCalls": 2,
+      "isrDepth": 1,
+      "parent": 9,
+      "currentBankC": 208,
+      "request": 0,
+      "framesSinceDraw": 0,
+      "cpuCycle": 11671590,
+      "a": 0,
+      "nmiDisable": 255,
+      "upcoming_endFrame_row": 393,
+      "wall_completed": 392,
+      "ppuFrame": 393,
+      "currentBank": 132,
+      "sp": 238,
+      "x": 255
+    },
+    {
+      "banks": [
+        126,
+        4,
+        80,
+        127
+      ],
+      "song": 2,
+      "skipDraw": 0,
+      "scanline": 241,
+      "kind": "NMI-entry",
+      "nmiSkipped": 11,
+      "p": 5,
+      "dot": 30,
+      "interruptedPC": 41443,
+      "last_foreground_instruction_boundary": 12594777,
+      "stackedP": 33,
+      "foregroundSP": 243,
+      "pc": 58166,
+      "y": 8,
+      "sourceCalls": 33,
+      "isrDepth": 1,
+      "parent": 1132,
+      "currentBankC": 208,
+      "request": 0,
+      "framesSinceDraw": 0,
+      "cpuCycle": 12594784,
+      "a": 0,
+      "nmiDisable": 255,
+      "upcoming_endFrame_row": 424,
+      "wall_completed": 423,
+      "ppuFrame": 424,
+      "currentBank": 132,
+      "sp": 240,
+      "x": 5
+    },
+    {
+      "banks": [
+        126,
+        0,
+        80,
+        127
+      ],
+      "song": 2,
+      "skipDraw": 0,
+      "scanline": 241,
+      "kind": "NMI-entry",
+      "nmiSkipped": 12,
+      "p": 132,
+      "dot": 33,
+      "interruptedPC": 353,
+      "last_foreground_instruction_boundary": 13488193,
+      "stackedP": 160,
+      "foregroundSP": 245,
+      "pc": 58166,
+      "y": 0,
+      "sourceCalls": 63,
+      "isrDepth": 1,
+      "parent": 2203,
+      "currentBankC": 208,
+      "request": 0,
+      "framesSinceDraw": 0,
+      "cpuCycle": 13488200,
+      "a": 128,
+      "nmiDisable": 255,
+      "upcoming_endFrame_row": 454,
+      "wall_completed": 453,
+      "ppuFrame": 454,
+      "currentBank": 128,
+      "sp": 242,
+      "x": 28
+    }
+  ],
+  "captured_function_spans": 2494,
+  "captured_snapshots": 39,
+  "entry_state_bytes": 439296,
+  "aggregate": {
+    "GameLoop": {
+      "max": 19925,
+      "cpu": 1313986,
+      "exclusive": 84831,
+      "calls": 69,
+      "min": 13615
+    },
+    "CdMovement": {
+      "max": 728,
+      "cpu": 35136,
+      "exclusive": 35136,
+      "calls": 69,
+      "min": 506
+    },
+    "EnemiesAndLoopsCore": {
+      "max": 258,
+      "cpu": 100870,
+      "exclusive": 100870,
+      "calls": 420,
+      "min": 151
+    },
+    "ChNativeMapC5High": {
+      "max": 31,
+      "cpu": 8556,
+      "exclusive": 8556,
+      "calls": 276,
+      "min": 31
+    },
+    "ChNativeBridge": {
+      "max": 7995,
+      "cpu": 271480,
+      "exclusive": 1656,
+      "calls": 69,
+      "min": 3125
+    },
+    "GuestAudioNativeFlush": {
+      "max": 460,
+      "cpu": 30392,
+      "exclusive": 30392,
+      "calls": 69,
+      "min": 421
+    },
+    "ChNativeAudioUpdate": {
+      "max": 8312,
+      "cpu": 293353,
+      "exclusive": 21873,
+      "calls": 69,
+      "min": 3442
+    },
+    "GuestAudioBegin": {
+      "max": 169,
+      "cpu": 11661,
+      "exclusive": 11661,
+      "calls": 69,
+      "min": 169
+    },
+    "ExpandedAudioUpdate": {
+      "max": 8451,
+      "cpu": 302944,
+      "exclusive": 7728,
+      "calls": 69,
+      "min": 3581
+    },
+    "SophiaLandAudioTick": {
+      "max": 80,
+      "cpu": 5520,
+      "exclusive": 5520,
+      "calls": 69,
+      "min": 80
+    },
+    "CdWeapons": {
+      "max": 218,
+      "cpu": 15247,
+      "exclusive": 15247,
+      "calls": 70,
+      "min": 205
+    },
+    "GameCoreRoutine": {
+      "max": 18601,
+      "cpu": 1221841,
+      "exclusive": 275016,
+      "calls": 69,
+      "min": 12292
+    },
+    "ChNativeService": {
+      "max": 7971,
+      "cpu": 269824,
+      "exclusive": 690,
+      "calls": 69,
+      "min": 3101
+    },
+    "PlayerCtrlRoutine": {
+      "max": 6805,
+      "cpu": 454449,
+      "exclusive": 419313,
+      "calls": 69,
+      "min": 6583
+    },
+    "RemainingAudioBegin": {
+      "max": 77,
+      "cpu": 5313,
+      "exclusive": 5313,
+      "calls": 69,
+      "min": 77
+    },
+    "ChNativeSourcePlay": {
+      "max": 7961,
+      "cpu": 269134,
+      "exclusive": 249759,
+      "calls": 69,
+      "min": 3091
+    },
+    "DrawAllMetasprites": {
+      "max": 5533,
+      "cpu": 368292,
+      "exclusive": 368292,
+      "calls": 67,
+      "min": 5078
+    },
+    "AudioUpdate": {
+      "max": 9783,
+      "cpu": 395988,
+      "exclusive": 9315,
+      "calls": 69,
+      "min": 4913
+    },
+    "ChNativeMapC1High": {
+      "max": 31,
+      "cpu": 10819,
+      "exclusive": 10819,
+      "calls": 349,
+      "min": 31
+    },
+    "OperModeExecutionTree": {
+      "max": 18707,
+      "cpu": 1229155,
+      "exclusive": 7314,
+      "calls": 69,
+      "min": 12398
+    },
+    "VgAudioDispatch": {
+      "max": 8339,
+      "cpu": 295216,
+      "exclusive": 828,
+      "calls": 69,
+      "min": 3469
+    },
+    "LmNativeMusicGate": {
+      "max": 8327,
+      "cpu": 294388,
+      "exclusive": 1035,
+      "calls": 69,
+      "min": 3457
+    },
+    "GuestAudioFinish": {
+      "max": 907,
+      "cpu": 61235,
+      "exclusive": 30843,
+      "calls": 69,
+      "min": 868
+    },
+    "CdGraphics": {
+      "max": 223,
+      "cpu": 14902,
+      "exclusive": 14902,
+      "calls": 70,
+      "min": 211
+    }
+  },
+  "scope": "One read-only capture qualifies instrumentation and supplies actual cost/entry-state evidence only. Original8b4 idle lag remains; no optimization, frame improvement, waveform or campaign result.",
+  "tool_sha256": "1d359f5c46234e02b996d1d13a5615ba2c0994c8a35fe245880c3ae3aade2f2e"
+}

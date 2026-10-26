@@ -1,0 +1,82 @@
+Chip8b4 idle lag: bounded read-only profiling readiness, 2026-10-26
+
+STATUS: SOURCE PREPARATION ONLY. No new native launch or optimization.
+Candidate8b4accd2672b4b85508a365f81f499fb786f25e5572932aafc21837d5e591824
+Frozen baseline50b51c3c69f45ef137720c47f521574097f421056e3b73296d06ba70080d2363
+All inputs use external frozen ROM/source paths. Current/default ROM is not
+read or required; standalone2cb5 promotion does not invalidate this packet.
+
+What the saved native evidence establishes
+The immutable original1300 cold-menu/idle recording completed909 updates,
+910 authentic source calls/6429 ordered source stores and880 DMA starts,
+versus908 baseline transfers. First new skip-counter changes are wall393 /
+source-call3,424/34 and454/64. The startup counter value10 is not a new active
+skip. These CSV rows contain no actual function durations, stacked Main PC,
+NMI cutoff or full entry state. They do not justify another pointer tweak.
+
+One prepared observation
+The exact original source-golden, menu/input policy,1300 stop, SMC/stack/bank/
+visible-PPU guards and hardware8-sprite settings are retained byte-for-byte
+around one inserted read-only module. No emulated state/resource/RNG/mapper/
+register writes, input changes, source tick cuts, altered samples or clocks.
+The preparer never launches; the one-shot command requires a separate grant.
+
+Measured-data plan
+During completed-wall380..460,29 actual Main/audio/character/source/mixer
+entries collect inclusive elapsed cycles, actual caller return PC/SP/bank,
+child costs and interruption costs. This logs function boundaries, not every
+instruction.57 precomputed real caller return addresses and one copied-SMC
+range are registered before runtime; no callback-vector mutation afterward.
+All114 full-script callbacks are startup-static. Unknown actual return fails
+closed. Actual routing gates are observed, not treated as fake callable aliases.
+
+First-deadline snapshots use windows390..395,421..426,451..456 and the first
+three lag NMI entries. Maximum64 snapshots,11264 bytes each (CPU RAM0..7FF plus
+MMC5 extended/SRAM5C00..7FFF), include real AXYP/SP/PC, CPU cycle, PPU frame/
+scanline/dot, physical8/A/C/E banks, shadows and draw/NMI state. First4 source
+Play entries are captured too. Data stays buffered until original1300 stop.
+Main entry snapshots are real entry state. NMI-entry snapshots are explicitly
+AFTER the three hardware stack pushes, with stacked PC/P and foregroundSP;
+they are never mislabeled full preinterrupt RAM snapshots.
+
+NMI entry and pre-RTI, IRQ entry/pre-RTI, NmiDisable publication, NmiSkipped,
+draw decisions and DMA starts are recorded. Seven hardware entry and six RTI
+cycles are accounted for. A nested IRQ is excluded from the interrupted audio
+span without subtracting it twice from a Main span already charged for NMI.
+The last possible Main boundary is NMI-entry cycle minus7, not a later ISR read.
+
+Source-only validation
+The complete generated script runs1300 inactive mocked frames and correctly
+retains the original missing-gameplay rejection. The profiler finalization
+runs before that old stop callback, preventing terminal callback data loss.
+Four real assembled AudioUpdate calls run through the exact observer with
+144 observed function spans; profiler totals equal actual CPU6764/14266/5757/
+5827 cycles. These are seeded CPU component calls, not measured native Main
+entry timings, and no performance conclusion is drawn from them.
+An independent nested IRQ/NMI mock proves500 elapsed Main cycles minus213
+interrupt cycles equals287; Audio130 minus43 equals87, exclusive60 after its
+27-cycle child. It rejects an unbound return. No runtime callback registration,
+removal or observer game-write API is available in either test.
+
+Retained preparation failures
+The first descriptor used a nonexistent scoped GameEngine::NoLagSoDraw; it
+failed before generation, and v2 binds the genuine global NoLagSoDraw.
+The broad1179-return prototype was reduced to bounded actual callee routing.
+The first assembled observer check rejected the genuine ExpandedAudioDecoded
+return916C because its Vg/Lm tail gates were missing from that narrow list.
+Finalv4 explicitly observes those real gates, with57 returns, and passes the
+whole Audio calls. No game source changed and no native retry occurred.
+
+Acceptance and limits
+The future verifier requires original source/ownership results and the entire
+old cadence CSV unchanged, including the880 transfers/unfixed28-draw deficit.
+It additionally requires bounded snapshots, actual Main/audio/source spans and
+the first lag boundary. This qualifies observation only, never a lag fix.
+Later deterministic CPU replay of captured entry state omits actual PPU/NMI,
+DMA steals and clock acceptance unless separately modeled and disclosed.
+No new optimization is proposed until actual cost/boundary evidence exists.
+
+Evidence
+C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/chip-idle-profiler-v1
+Final source fixture fixture-v4; static/assembled proof mock-v2; arithmetic
+proof interrupt-mock-v1; final readiness freeze-v1/readiness-source-only.json.

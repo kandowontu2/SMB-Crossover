@@ -1,0 +1,55 @@
+{
+  "passed": false,
+  "diagnostic_cpu_replays_completed": true,
+  "native_executed": false,
+  "ROM_sha256": "8b4accd2672b4b85508a365f81f499fb786f25e5572932aafc21837d5e591824",
+  "replayed_actual_Main_entry_states": [
+    {
+      "snapshot_index": 3,
+      "native_entry_cycle": 11679585,
+      "CPU_cycles": 13830,
+      "native_CPU_cycles": 13854,
+      "farcalls": 64,
+      "unclosed_farcalls": 0,
+      "NOP_cycles": 30,
+      "IO_reads": [],
+      "file_sha256": "b9583196e19702fa9f40fe644b72ab6d0f073354a97fe4b95ef55f1e66e5a8c1"
+    },
+    {
+      "snapshot_index": 6,
+      "native_entry_cycle": 11709171,
+      "CPU_cycles": 19348,
+      "native_CPU_cycles": 19396,
+      "farcalls": 83,
+      "unclosed_farcalls": 0,
+      "NOP_cycles": 80,
+      "IO_reads": [],
+      "file_sha256": "7310b1920a3e2ab44c1d69617ef51f234515f4804e27df28a57e3b3d6b356218"
+    },
+    {
+      "snapshot_index": 9,
+      "native_entry_cycle": 11738849,
+      "CPU_cycles": 19189,
+      "native_CPU_cycles": 19237,
+      "farcalls": 83,
+      "unclosed_farcalls": 0,
+      "NOP_cycles": 80,
+      "IO_reads": [],
+      "file_sha256": "8a6f59787fab518a74ae0a4ddcfcab3b4ca1fd2d5067f9a86e4c4c7de8ef7fd2"
+    },
+    {
+      "snapshot_index": 12,
+      "native_entry_cycle": 11768439,
+      "CPU_cycles": 19154,
+      "native_CPU_cycles": 19202,
+      "farcalls": 83,
+      "unclosed_farcalls": 0,
+      "NOP_cycles": 80,
+      "IO_reads": [],
+      "file_sha256": "4610329baafb836bbe26e907e761a8926c98683b5c3e49ffbf4424c08aec29b2"
+    }
+  ],
+  "all_no_interrupt_CPU_cycles_match_native_ISR_excluded_totals": false,
+  "scope": "Mapped all actual PRG windows before replay. Deterministic CPU-only diagnostics from actual captured Main entry RAM/AXYP/SP/physical banks. Original v1/v2 mapping-only shadow draft failures are retained; this version actually maps the captured banks. No emulated NMI/PPU/DMA/DMC timing is reproduced, no native guard weakened, and no optimization qualified. Per-function/farcall/NOP records are provisional attribution pending model cause.",
+  "tool_sha256": "a4efa3869254c64ce8e3cb7e35fd6f525527fe4fdda86c4ddc511a19056843e4"
+}

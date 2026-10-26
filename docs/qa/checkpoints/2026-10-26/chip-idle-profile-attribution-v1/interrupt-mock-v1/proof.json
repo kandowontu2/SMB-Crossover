@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "native_executed": false,
+  "ROM_sha256": "8b4accd2672b4b85508a365f81f499fb786f25e5572932aafc21837d5e591824",
+  "script_sha256": "1fb3db07c87aca149b207551d47ed377fe5288ae14a37373ad1c1f5c7adf62c3",
+  "synthetic_nested_hardware_entry7_RTI6_costs": {
+    "NMI": 213,
+    "IRQ": 43
+  },
+  "Main_elapsed500_minus_NMI213_equals287": true,
+  "nested_IRQ_not_double_subtracted_from_Main": true,
+  "Audio_elapsed130_minus_IRQ43_equals87": true,
+  "Audio_exclusive_after_child27_equals60": true,
+  "unknown_return_rejected": true,
+  "fixed_runtime_callbacks": 98,
+  "tool_sha256": "dd6b5c7d448b844afdfe9ce061f0e9f37db99d4d2875e38de871799fa8b2b52b",
+  "scope": "Synthetic chronological event injection into the exact Lua module, not emulated NMI/PPU timing or native cost evidence. Demonstrates arithmetic/ownership, real pinned entry/return hooks and fail-closed unknown-return handling only."
+}

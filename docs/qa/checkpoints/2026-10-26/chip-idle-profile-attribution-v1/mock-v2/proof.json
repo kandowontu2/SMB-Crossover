@@ -1,0 +1,23 @@
+{
+  "passed": true,
+  "native_executed": false,
+  "ROM_sha256": "8b4accd2672b4b85508a365f81f499fb786f25e5572932aafc21837d5e591824",
+  "script_sha256": "1fb3db07c87aca149b207551d47ed377fe5288ae14a37373ad1c1f5c7adf62c3",
+  "complete_generated_startup_callbacks": 114,
+  "complete_original1300_missing_gameplay_guard_retained": true,
+  "new_finalization_runs_before_original1300_stop": true,
+  "actual6502_whole_AudioUpdate_calls": 4,
+  "actual_Audio_cycles": [
+    6764,
+    14266,
+    5757,
+    5827
+  ],
+  "profile_Audio_cycles_exact": true,
+  "actual_source_returns": 4,
+  "actual_module_startup_callbacks": 98,
+  "actual_function_spans": 144,
+  "runtime_registration_removal_and_emulated_observer_writes": 0,
+  "tool_sha256": "4c6f36383850c71ae6c5f3f9c9cff2fc46ce597101f667ea5941cfce642b52be",
+  "scope": "Full generated inactive mock chronology plus four actual6502 whole Audio calls into the read-only static profiler. No native Main/NMI deadline, PPU, DMA, controller workload, real timing attribution or optimization acceptance; actual interrupt accounting is separately mocked/tested before readiness."
+}
