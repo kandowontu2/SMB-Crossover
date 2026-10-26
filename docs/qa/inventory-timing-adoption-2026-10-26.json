@@ -1,0 +1,208 @@
+{
+  "passed": true,
+  "adopted": true,
+  "goal_complete": false,
+  "UTC": "2026-10-26T20:41:19.852070+00:00",
+  "ROM_sha256": "3b112e1d79ba7348f2f7a4c426f4675845a5781017ab74690feb235121a66287",
+  "parent_ROM_sha256": "641460e2646806c03fb98cf84f8a8c2e8de99c74dac8c5876c50f05ef1eb512c",
+  "source_files": [
+    {
+      "path": "smb1base-mmc5-expanded.cfg",
+      "before_sha256": "62982d0e1d5d3f41cc5253f735a5442282b989624adc43922a3f9053acb88c64",
+      "after_sha256": "c945cbf32bdb9b6399233edca9c3840b16f93d1eadaf2422bc046663cc4cd64b"
+    },
+    {
+      "path": "src/inventory.s",
+      "before_sha256": "7475c0da9cd46e542ac3fc0ba0dcd8f6fa08f4cd441f8550e3b978801613b4bf",
+      "after_sha256": "933222478a1e4cafa9a049be7cb064e0cc95b1b328c9592da806ec9f7d342c2f"
+    },
+    {
+      "path": "src/nmi_vram_fast.s",
+      "before_sha256": "ef3b69990a3f26b02c76f50b06661af2ba365aef15fae2411915f1a7e71503ab",
+      "after_sha256": "073bdf81d081dd4a4bacf81297497cd91129ead0652bc763cf7646a6b5ca7ced"
+    },
+    {
+      "path": "src/protoman_legacy_shots.inc",
+      "before_sha256": "ad0241e8872468679f0cb33b7aa4c179e1bd185a3ae45905633f6d304027a73e",
+      "after_sha256": "666e32e22ce184c955501144706cc9936bb3127821ca03e5ddcbdd6f44230acb"
+    }
+  ],
+  "source_inputs_verified": 869,
+  "cfg_original_CRLF_preserved": true,
+  "changed_PRG_bank_bytes": {
+    "59": 105,
+    "66": 29,
+    "116": 12
+  },
+  "header_CHR_DMC_other_PRG_banks_exact": true,
+  "changes": [
+    "Retain the robot inventory HUD font until queued default-icon/meter blanking is displayed; avoid redundant reloads.",
+    "Encode a uniform seven-cell weapon meter with the existing VRAM repeat format.",
+    "Remove three dead carry instructions before the native SEC continuation, saving two CPU cycles per VRAM command.",
+    "Use a zero remainder directly for legal basic Mega Man/Proto Man bullet types; other positive types cost six additional cycles each."
+  ],
+  "ROOT_source_composition_controls": {
+    "complete_NMI_pairs": 152,
+    "complete_HUD_pairs": 68,
+    "source_readiness_path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-current-roster-composition-v1\\ROOT-source-readiness.json",
+    "source_readiness_sha256": "a332aec91cb2b16f8064c2423b2e0f3d5bbc9603325c0e06e4f0965d0386c220"
+  },
+  "fresh_primary_source_builds": [
+    {
+      "target": "expanded",
+      "ROM_sha256": "3b112e1d79ba7348f2f7a4c426f4675845a5781017ab74690feb235121a66287",
+      "passed": true
+    },
+    {
+      "target": "ordinaryMMC3",
+      "ROM_sha256": "d444cac88e13fa02b29ad16100b8f08fa565ba90f8cedde192de43fb2dc8f3eb",
+      "passed": true
+    },
+    {
+      "target": "ordinaryMMC5",
+      "ROM_sha256": "f4ffd2483c51daa4d60bb575da2da8c4d817692cda407611c243031f67520833",
+      "passed": true
+    }
+  ],
+  "exact_current_native_evidence": [
+    {
+      "name": "Bass Easy controlled use",
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3b112-bass-easy-final-v1\\proof.json",
+      "sha256": "85f344f08ac39233dddde57ca187ab7070367f09ddf0f882b15a17ea534ec6ce",
+      "ROOT_verified_bindings": 486,
+      "scope": null
+    },
+    {
+      "name": "Bass Hard controlled use",
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3b112-bass-hard-final-v1\\proof.json",
+      "sha256": "42f2cea03b5f56f24858a152fc5cf252b6f8e0ab9b60c7ed611bcbd1a809b0d4",
+      "ROOT_verified_bindings": 491,
+      "scope": null
+    },
+    {
+      "name": "Menu and Hard audio mechanical regressions",
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3b-nmi-regression-final-v1\\proof.json",
+      "sha256": "c4e92772493e92c2c1b49687ff71b790530d28f45fdb8ff3f6186c1dcf8d68f0",
+      "ROOT_verified_bindings": 4542,
+      "scope": "Final exact3b finite component evidence. Mechanical/source/hardware controls pass; all-frame byte-identity diagnosis remains FALSE on forced-blank transition375. No source change, new run or automatic visual/adoption verdict."
+    },
+    {
+      "name": "ARM question block",
+      "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\bass-arm-question-boundary-v1\\native-result-freeze-v1\\receipt.json",
+      "sha256": "15a7ec85f1e490bb3a8000880a6556f58eb226457ec3d804a2cab2d60748464d",
+      "ROOT_verified_bindings": 48,
+      "scope": "One explicitly initialized powered BassEasy/right-facing ARM versus native C1 question-block regression on private3b. Source-event screenshot labels may precede changed publication; actual consecutive images reviewed separately. No new game patch or global/whole-gallery/acquisition/audio-listening/performance claim."
+    }
+  ],
+  "Bass_scope": {
+    "identities": 1,
+    "cases": 32,
+    "Easy_numeric_mode": 0,
+    "Hard_numeric_mode": 1,
+    "complete_DMA_pages": 8918,
+    "scoped_safe_render_enables": 8330,
+    "actual_PPU_frames": 10937,
+    "agent_selected_wholeframe_placements": 297,
+    "ROOT_selected_wholeframe_placements": 87,
+    "each_mode_HUD_name_icon_checks": 16,
+    "Hard_native_earned_credit_units": 8,
+    "acquisition": false,
+    "BALANCE_star_oneup_full_item_coverage": false
+  },
+  "preserved_original_NEGATIVES": {
+    "original_Bass_collectors_passed": false,
+    "reason": "Raw serializer emits unquoted numeric object keys; pool setup resets the prior emptyChecked field. Separate reversible token parsing and actual refusal/phase event interpretation pass. No raw fields or original proofs changed; no native rerun for this formatting defect.",
+    "menu_all_frame_RGB_identity_passed": false,
+    "menu_difference": {
+      "pixels": 39,
+      "frame": 375,
+      "forced_blank": true,
+      "ROOT_whole_pair_viewed_and_transition_change_accepted": true,
+      "early_PPUDATA_first_store_cause_observed": false
+    },
+    "three_prior_3b_Bass_native_fixture_FALSEs_retained": true
+  },
+  "Hard_audio_scope": {
+    "checked_source_ticks": 280,
+    "identical_checked_APU_stores": 850,
+    "actual_DMC_starts": 0,
+    "active_DMC_or_waveform_claim": false
+  },
+  "component_evidence_not_retagged": {
+    "basic_shot_native_component_ROM": "9eeaf55435beb162fcd2332eb7e47ecfec089f6460b807adf718a4597a5e64b4",
+    "MegaEasy_frames": 450,
+    "all275_checked_RGB_frames_exact731": true,
+    "complete_DMA_pages": 402,
+    "new_native_FPS_gain_proved": false
+  },
+  "rollback": {
+    "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-current3b-adoption-preparation-v2\\rollback-641",
+    "manifest_sha256": "b17f4be6e466dadb09c7905744c65c5e5376a539559c76f58065e524f1fb61ef",
+    "previous_dated_download_preserved": true
+  },
+  "installation_records": [
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\smb-crossover-mmc5-expanded.nes",
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-current3b-adoption-preparation-v2\\primary-build\\expanded.nes",
+      "sha256": "3b112e1d79ba7348f2f7a4c426f4675845a5781017ab74690feb235121a66287"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\smb-crossover-mmc5-expanded.dbg",
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-current3b-adoption-preparation-v2\\primary-build\\expanded.dbg",
+      "sha256": "2b4d8736ed960f5d7be04b995c08e4abba6216e494b55c12d4d1806253976963"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\smb-crossover-mmc5-expanded.lbl",
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-current3b-adoption-preparation-v2\\primary-build\\expanded.lbl",
+      "sha256": "bc4ae33ba2eaee1bf296a0f746736582cb8c1316e636ca1d8c9a67e2c44fb898"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\smb-crossover-mmc5-expanded.map",
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-current3b-adoption-preparation-v2\\primary-build\\expanded.map",
+      "sha256": "0ddb5f4c37780365955de745f7a2de05152a02f3e9a4ed3187566d74e1c5f422"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\smb-crossover-mmc5-expanded.build.log",
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-current3b-adoption-preparation-v2\\primary-build\\expanded.build.log",
+      "sha256": "5e13fa026c6debf4076ca843ad7b4f84932fab0d4839fdaf14ef8642730f15a0"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\smb-crossover-mmc5-expanded.build.json",
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-current3b-adoption-preparation-v2\\primary-build\\expanded.build.json",
+      "sha256": "64f17bfd3ace40028293f13c2b1315406caa71a790d8bf9f57c7588d3c37d82b"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\smb-crossover-mmc5-expanded.cv3-mirror.json",
+      "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-current3b-adoption-preparation-v2\\primary-build\\expanded.cv3-mirror.json",
+      "sha256": "2833d107650ae199f00c4323bf3a0af0d74538c553ef809264e9a06d2e50299d"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\smb-crossover-mmc5-expanded.nes",
+      "sha256": "3b112e1d79ba7348f2f7a4c426f4675845a5781017ab74690feb235121a66287"
+    },
+    {
+      "path": "C:\\Users\\kando\\Downloads\\SMB-Crossover-Current-MMC5.nes",
+      "sha256": "3b112e1d79ba7348f2f7a4c426f4675845a5781017ab74690feb235121a66287"
+    },
+    {
+      "path": "C:\\Users\\kando\\Downloads\\SMB-Crossover-2026-10-26-3b112e1d-MMC5.nes",
+      "sha256": "3b112e1d79ba7348f2f7a4c426f4675845a5781017ab74690feb235121a66287"
+    }
+  ],
+  "installation_receipt_sha256": "915bb61433be8518e239353f5f6d9dac661a3e55f25849364a3c42b57c11cb6c",
+  "current_download": "C:/Users/kando/Downloads/SMB-Crossover-Current-MMC5.nes",
+  "dated_download": "C:/Users/kando/Downloads/SMB-Crossover-2026-10-26-3b112e1d-MMC5.nes",
+  "excluded": [
+    "Held publication/body-priority renderer",
+    "Nonzero OAMADDR DMA rotation",
+    "Unused SMB3 music reader core/asset relocation/old sample clones",
+    "Held authentic Chip/TMNT music adapters"
+  ],
+  "remaining": [
+    "Current37 every-item/ability and physical acquisition coverage",
+    "Crowded hardware sprite loss and fair overload flicker",
+    "Further lag reduction and distinct current-roster music",
+    "Full campaign/shortcut/other-mode routes and source-audio fidelity"
+  ],
+  "reproduction_preparation_negative": "Earlier partial source overlay omitted an unchanged include parent and reproduced7aad, not3b. Retained externally; full869-input and actual primary source builds reproduce3b exactly."
+}

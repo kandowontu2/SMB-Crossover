@@ -515,7 +515,30 @@ Native:
 .proc InventoryHurt
  .if ::ENABLE_MMC5_EXPANDED
   farcall Z2InventoryHurtGate,jmp
-  .res 32,$ea
+  ; Unreachable native tail padding: same-bank HUD helpers, no new RAM.
+HudLease:
+  ; InventoryIndex is stable throughout this source HUD producer. Valid
+  ; legacy robot defaults are indices10/90; native-family aliases bypassUI.
+  lda InvIndex
+  and #$7f
+  cmp #$10
+  beq HudKeep
+  inc ReloadCHRBank
+  lda #0
+  sta InvHudActive
+HudKeep:
+  lda #0
+  rts
+UniformMeter:
+  ; Post-loop X is base+7. First==last iff the monotone7-cell bar is uniform.
+  lda #$47
+  sta VRAM_Buffer1+5,x
+  txa
+  sec
+  sbc #6
+  tax
+  rts
+  .res 1,$ea
   .assert *-InventoryHurt=50,error,"Original leaf span preserved"
  .else
   jsr InventorySupported
@@ -857,7 +880,13 @@ Chosen:
   jcs Done                       ; Keep space for native producers later in this update.
   lda #0
   sta InvDirty
+ .if ::ENABLE_MMC5_EXPANDED
+  nop
+  nop
+  nop
+ .else
   inc ReloadCHRBank
+ .endif
   ldy SelectedCharacter
   lda InvSelected,y
   jsr InventoryIndex
@@ -953,8 +982,14 @@ End:
   lda #$24
   sta VRAM_Buffer1+8,x
   sta VRAM_Buffer1+9,x
+ .if ::ENABLE_MMC5_EXPANDED
+  jsr InventoryHurt::HudLease
+  nop
+  nop
+ .else
   lda #0
   sta InvHudActive
+ .endif
   ldy SelectedCharacter
   cpy #CHARACTER_BASS
   beq MegaIcon
@@ -995,7 +1030,9 @@ Meter:
   sta InvHudSegments
   ldy #0
 Bar:
+ .if !::ENABLE_MMC5_EXPANDED
   lda #$24
+ .endif
   lda InvHudSegments
   beq BlankBar
   cmp #1
@@ -1016,6 +1053,15 @@ EmptyBar:
   iny
   cpy #7
   bne Bar
+ .if ::ENABLE_MMC5_EXPANDED
+  lda VRAM_Buffer1+6,x
+  cmp VRAM_Buffer1+12,x
+  bne NotUniform
+  jsr InventoryHurt::UniformMeter
+NotUniform:
+  jmp InventoryHudColdTail
+  nop
+ .else
   txa
   clc
   adc #13
@@ -1023,8 +1069,26 @@ EmptyBar:
   lda #0
   sta VRAM_Buffer1,x
   stx VRAM_Buffer1_Offset
+ .endif
 Done:
   rts
 .endproc
 .include "inventory_data.inc"
 .popseg
+
+.if ::ENABLE_MMC5_EXPANDED
+.pushseg
+.segment "INVENTORY_FONT_LEASE"
+; Original complete native14B queue tail, relocated into verified bank59 FF.
+.proc InventoryHudColdTail
+  txa
+  clc
+  adc #13
+  tax
+  lda #0
+  sta VRAM_Buffer1,x
+  stx VRAM_Buffer1_Offset
+  rts
+.endproc
+.popseg
+.endif

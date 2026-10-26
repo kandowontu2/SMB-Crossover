@@ -1,0 +1,61 @@
+{
+  "passed": true,
+  "interpretation_passed": true,
+  "native_execution_passed": true,
+  "original_collector_passed": false,
+  "original_collector_proof_sha256": "2215e8288edcd11e66ee8f290abc620a18c37b8a3309c8982c810e82710ac22d",
+  "ROM_sha256": "3b112e1d79ba7348f2f7a4c426f4675845a5781017ab74690feb235121a66287",
+  "actual_numeric_mode": 1,
+  "original_raw_summary_sha256": "20addefec53343a804f39268f1be926ec1dd4424561a3258532b28bf0d08e895",
+  "normalized_summary_sha256": "a41ee15926e4d87542abdcd4e288f7738a4908c07de94c5a57a4d6bffa0bf2a1",
+  "token_edits_sha256": "804867182f456ca63fef7713a929ca42480c08940671c4dd3912ef908885d32c",
+  "numeric_key_tokens_quoted": 48,
+  "lossless_reversal_passed": true,
+  "event_reaggregation_sha256": "52e5c121d782b2f3d3e1b704dcd915abdcbe1572e33257678d219bfa81691594",
+  "models": [
+    {
+      "name": "integer_object",
+      "passed": true,
+      "edits": 1
+    },
+    {
+      "name": "array_numbers",
+      "passed": true,
+      "edits": 0
+    },
+    {
+      "name": "quoted_key",
+      "passed": true,
+      "edits": 0
+    },
+    {
+      "name": "nested_string",
+      "passed": true,
+      "edits": 2
+    },
+    {
+      "name": "negative_integer_key",
+      "passed": true,
+      "edits": 1
+    },
+    {
+      "name": "fraction_key",
+      "rejected": true
+    },
+    {
+      "name": "nan_value",
+      "rejected": true
+    },
+    {
+      "name": "broken_string",
+      "rejected": true
+    }
+  ],
+  "source_sha256": "f72f72e6e5737fb5711d74e8a34ed1c4818ae2c732ae622e945f782a77b9271e",
+  "native_worker_released": true,
+  "limits": [
+    "Original collectorFALSE remains immutable; formatting and cumulative-marker assumption are separately interpreted.",
+    "No field is silently changed to true; actual per-component emptyChecked false preserved in normalized summary.",
+    "Independent rawDMA/fullPPU/glyph/selectedimage analysis still required. No native retry/Hard/adoption."
+  ]
+}

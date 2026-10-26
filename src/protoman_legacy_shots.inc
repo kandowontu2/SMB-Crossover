@@ -20,8 +20,10 @@ Loop:
 Modulo:
   cmp MmDamage
   bcc PhaseReady
-  sbc MmDamage
-  jmp Modulo
+  ; Keep the zero-remainder admission and all original entry addresses.
+  ; Only positive remainders need the cold type-one specialization.
+  jmp MmBasicRemainderCold
+  .res 3,$ea
 PhaseReady:
   clc
   adc ShotStarts-1,y
@@ -74,3 +76,25 @@ ProtoShotRightLo:
 ProtoShotRightHi:
  .byte >MmMM_BULLET_1Right,>MmMM_BULLET_2Right,>MmMM_BULLET_3Right,>MmMM_BULLET_4Right,>MmMM_BULLET_5Right,>MmMM_BULLET_6Right,>MmMM_BULLET_7Right,>MmMM_BULLET_8Right,>MmMM_BULLET_9Right,>MmMM_BULLET_10Right,>MmMM_BULLET_11Right,>MmMM_BULLET_12Right,>MmMM_BULLET_13Right,>MmMM_BULLET_14Right,>MmMM_BULLET_15Right,>MmMM_BULLET_16Right
 .assert METASPRITE_MM_BULLET_16-METASPRITE_MM_BULLET_1=15,error,"Bullet IDs remain contiguous"
+
+; Source-exact basic-shot remainder shortcut; no projectile update is omitted.
+.pushseg
+.segment "MM_BASIC_REMAINDER"
+.proc MmBasicRemainderCold
+  ; Y is the legal live type1..6. The resident CMP has already set C=1.
+  cpy #1
+  beq Basic
+  ; CPY leaves C=1 for every other legal type, preserving the original SBC.
+  sbc MmDamage
+Loop:
+  cmp MmDamage
+  bcc Ready
+  sbc MmDamage
+  jmp Loop
+Basic:
+  lda #0
+Ready:
+  jmp ProtoLegacyDrawShotsCold::PhaseReady
+.endproc
+.assert *-MmBasicRemainderCold=23,error,"Basic remainder helper span"
+.popseg

@@ -6,9 +6,9 @@ This is a native NES adaptation of [Super Mario Bros. Crossover](https://www.smb
 
 **Status: playable, actively developed, and unfinished.** Character behavior, graphics, sound and performance are still being tested and corrected. MMC5 is the recommended target for the full roster.
 
-The October 26 development build (`641460e2`) gives Luigi Mario's mode-specific movement with a modestly higher jump and less traction. His full Easy 1-1 run and independent replay pass, along with Easy/Hard powerup and attack checks. This is a movement correction, with additional CPU cost; it does not establish a lag-free game. See the [Luigi change and test limits](docs/qa/luigi-profile-adoption-2026-10-26.json).
+The October 26 development build (`3b112e1d`) fixes Bass's weapon HUD when switching weapons and reduces graphics-update and ordinary Mega Man/Proto Man bullet overhead. All 32 controlled Bass weapon cases pass across Easy and Hard, including charged Pharaoh Shot, energy costs, switching and HUD graphics. A separate thrown-brick/question-block regression also passes. These checks do not establish every-item coverage or a lag-free game. See the [changes and test limits](docs/qa/inventory-timing-adoption-2026-10-26.json).
 
-It retains the character-select background and level-start HUD fixes from `731c918b`, earlier Castlevania sound repairs, reduced Chip/Dale movement overhead, and clearer Parodius power-bar lettering. See the [timing repair results](docs/qa/presentation-timing-adoption-2026-10-26.json).
+It retains Luigi's Mario-based movement with a modestly higher jump and less traction from `641460e2`, the character-select and level-start HUD fixes from `731c918b`, earlier Castlevania sound repairs, reduced Chip/Dale movement overhead, and clearer Parodius power-bar lettering. See the [Luigi results](docs/qa/luigi-profile-adoption-2026-10-26.json) and [earlier timing results](docs/qa/presentation-timing-adoption-2026-10-26.json).
 
 The last complete 37-character 1-1 suite ran on `3cee18ca`: 36 identities cleared in Easy and Bass in Hard, each with an independent replay. Those results remain specific to that build; further checks on the latest build are in progress. See the [1-1 results](docs/qa/current37-1-1-2026-10-26.txt).
 

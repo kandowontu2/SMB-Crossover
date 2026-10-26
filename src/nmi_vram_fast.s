@@ -23,8 +23,8 @@ Chunk:
  bcs Chunk
  cpx #0
  bne LiteralTail
- clc
  jmp OutputToVRAM+11
+ nop ; unreachable: destination SEC replaces incoming C
 LiteralTail:
  iny
  lda (NmiR0),y
@@ -32,16 +32,16 @@ LiteralTail:
  dex
  bne LiteralTail
 LiteralDone:
- clc
- jmp OutputToVRAM+11 ; native SEC and pointer/next-command continuation
+ jmp OutputToVRAM+11
+ nop ; unreachable: destination SEC replaces incoming C ; native SEC and pointer/next-command continuation
 Repeat:
  lda (NmiR0),y
 RepeatLoop:
  sta PPUDATA
  dex
  bne RepeatLoop
- sec
  jmp OutputToVRAM+11
+ nop ; unreachable: destination SEC replaces incoming C
 .endproc
  .res 3,$ea ; retain following genuine entry PCs
 .proc FastNmiPaletteCapture

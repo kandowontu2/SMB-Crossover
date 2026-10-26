@@ -1,0 +1,1 @@
+Actual final3b112 one-mode B-only gallery16plans. All previousFALSEs immutable. No acquisition/everyitem/globaltiming/sourcefidelity/adoption inference. Raw source/runtime/captures external. See exact mode/report/review bindings.

@@ -1,0 +1,141 @@
+--- frozen3b-gallery-original
++++ isolated-fixture-successor
+@@ -19,10 +19,76 @@
+  return z
+ end
+ local function change(p)phase=p;age=0;FINAL_ABILITY_PHASE={name=current and current.q.name,phase=p};event('gallery-phase',stateRow())end
++-- Fixture-only accounting: zero is witnessed at a real source debit, while
++-- later native earned capsule credits remain allowed and explicitly counted.
++local function fundedDebit(item,cost,before,after,paid)
++ if current.component~='funded' or current.q.item==0 then return end
++ assert(item==current.q.item,'Funded native spend belongs to selected seeded weapon')
++ if paid then
++  current.nativeSpent=current.nativeSpent+cost
++  if after==0 then
++   current.zeroWitness={item=item,before=before,cost=cost,after=after,wall=wall,update=updates}
++   event('actual-funded-debit-zero',current.zeroWitness);capture(current.q.name..'-actual-debit-zero')
++  end
++ end
++end
++local function fundedCredit(before,refill,tick,remain)
++ if current.component~='funded' or current.q.item==0 then return end
++ local after=stock()
++ if after==before then return end
++ assert(refill==144+current.q.item and tick==1 and remain>=4,'Credit begins at genuine selected native refill tick')
++ assert(after==math.min(112,before+4),'Native refill credit is exact four-unit capped increment')
++ assert(r('InvRefillRemain')==(remain-4)%256 and r('InvRefillTick')==3,'Native refill remaining/tick continuation')
++ local finished=after==112 or remain==4
++ assert(r('InvRefill')==(finished and 0 or refill),'Native refill completion/index continuation')
++ current.nativeCredits=current.nativeCredits+after-before
++ event('actual-funded-refill-credit',{before=before,after=after,amount=after-before,index=refill,remaining_before=remain,remaining_after=r('InvRefillRemain'),total_credits=current.nativeCredits,source='full actual InventoryUiTick return'})
++ capture(current.q.name..'-earned-credit-'..current.nativeCredits)
++end
++local function fundedBalance()
++ assert(current.zeroWitness and current.nativeSpent>=current.q.initial_stock,'Actual source debit exhausts at least seeded stock to zero')
++ assert(stock()==current.beforeStock-current.nativeSpent+current.nativeCredits,'Exact funded balance includes every native debit and earned refill credit')
++end
++hook('InventoryUiTick',function()
++ if not entered or not current or current.component~='funded' or current.q.item==0 then return end
++ local owner=current;local before=stock();local refill,tick,remain=r('InvRefill'),r('InvRefillTick'),r('InvRefillRemain')
++ onReturn('bass-funded-refill',function()
++  assert(current==owner,'Refill return retains actual current case owner')
++  fundedCredit(before,refill,tick,remain)
++ end)
++end)
++-- Read-only full real ReleaseBalloon owner. Native policy directly subtracts
++-- eight/clamps, bypassing InventorySpend; this is a separate source debit.
++local function pharaohDebit(before,shotAge,count,star,after)
++ local paidPath=shotAge>=45 and count<2 and star==0
++ local expected=paidPath and math.max(0,before-8)or before
++ assert(after==expected,'Full native Pharaoh release direct eight-unit/clamp policy')
++ local spent=before-after
++ if spent>0 then fundedDebit(4,spent,before,after,true)end
++ event('actual-pharaoh-direct-debit',{before=before,after=after,declared_cost=8,actual_spent=spent,shot_age=shotAge,active_shots=count,star=star,paid_path=paidPath,source='full actual SpecialWeapons::ReleaseBalloon return'})
++ capture(current.q.name..'-direct-pharaoh-debit')
++end
++hook('SpecialWeapons::ReleaseBalloon',function()
++ if not entered or not current or current.component~='funded' or current.q.item~=4 then return end
++ local owner=current;local s=emu.getState();local slot=s['cpu.x']
++ assert(r('InvSelected',9)==4 and r('SsSelected')==4 and slot==r('RgSlot'),'Real selected Pharaoh release owner/slot')
++ local before,shotAge,count,star=stock(),r('RgShotAge',slot),pool(),r('StarInvincibleTimer')
++ local entry={pc=s['cpu.pc'],sp=s['cpu.sp'],bank=bank(s['cpu.pc']),slot=slot,before=before,shot_age=shotAge,active_shots=count,star=star}
++ onReturn('bass-pharaoh-direct-release',function()
++  assert(current==owner and r('StarInvincibleTimer')==star,'Same finite release owner and stable seeded star state')
++  local t=emu.getState()
++  event('actual-pharaoh-release-full-return',{entry=entry,return_pc=t['cpu.pc'],return_sp=t['cpu.sp'],return_bank=bank(t['cpu.pc']),after=stock()})
++  pharaohDebit(before,shotAge,count,star,stock())
++ end)
++end)
++
+ local function clearArena()
+  arena(false)
+  for _,n in ipairs({'SpecialRamStart'})do for i=0,C.special_ram_bytes-1 do w(n,0,i)end end
+  for _,n in ipairs({'XgDash','XgJumpUsed','XgBassDashJump','MmSliding','MmSlideTravel','MmSlideStop','MmChargeFrames','MmCharging','AvStopwatch','AvSlash','SsFreeze','SsBodyStop','SsHeld','SsWaterExpand','Player_X_Scroll','GuestHurtTicks','GuestHurtKind','GamePauseStatus','InvRefill','InvRefillRemain'})do w(n,0)end
++ -- Complete B fixture setup only; no drops are removed during native funded play.
++ for _,n in ipairs(C.isolated_drop_arrays)do for i=0,3 do w(n,0,i)end end
++ for _,n in ipairs({'InvRefillTick','InvDropAmount','AvRefillItem','InvDropEnemy','InvDropSlot','TimerControl'})do w(n,0)end
+  w('Player_MovingDir',current.q.face);w('PlayerFacingDir',current.q.face);w('Player_CollisionBits',255)
+  w('PlayerStatus',1);w('InvDirty',1)
+  for i=0,5 do w('MmEnemyHealthLo',0,i);w('MmEnemyHealthHi',0,i);w('MmEnemyFlash',0,i);w('RgEnemyStun',0,i);w('Enemy_Y_MoveForce',0,i)end
+@@ -36,9 +102,14 @@
+  end
+ end
+ local function setup(kind)
++ local prior={kind=kind,ammo=current.q.item>0 and stock()or 0,refill=r('InvRefill'),remaining=r('InvRefillRemain'),drops={}}
++ for i=0,3 do prior.drops[#prior.drops+1]={kind=r('InvDropKind',i),x=r('InvDropX',i),page=r('InvDropPage',i),y=r('InvDropY',i)}end
++ event('isolated-native-boundary-component-reset',prior)
+  writeBoundary=true;clearArena()
+  if kind=='funded'then
+   if current.q.item>0 then w('InvAmmo',current.q.initial_stock,144+current.q.item)end
++ elseif kind=='empty'then
++  if current.q.item>0 then w('InvAmmo',0,144+current.q.item)end
+  elseif kind=='pool'then
+   if current.q.item>0 then w('InvAmmo',112,144+current.q.item)end
+   -- Ten complete ordinary METAL records: native motion remains active. This
+@@ -54,6 +125,7 @@
+  current.componentSpawnStart=#current.spawns;current.componentSpendStart=#current.spends
+  current.poolChecked=false;current.emptyChecked=false;current.componentChoiceStart=choiceCount
+  current.beforeStock=current.q.item>0 and stock()or 0
++ current.nativeSpent=0;current.nativeCredits=0;current.zeroWitness=nil
+  change(kind);capture(current.q.name..'-'..kind..'-setup')
+ end
+ local function target()
+@@ -79,8 +151,9 @@
+  writeBoundary=false;current.targetStaged=true
+  event('controlled-falling-Goomba-target',{x=x,y=y,shot_type=q.contact_type,body_contact=q.item==5,disclosure='Complete source-aligned actor at native boundary, aligned to actual live effect. Native gravity/collision/defeat remain real; this is B contact, not a natural encounter.'})
+ end
+-local function cleanReceipt()
+- assert(pool()==0 and r('SsHeld')==0 and r('SsKick')==0 and r('SsFreeze')==0 and r('SsBodyStop')==0,'Native selection clears robot effects')
++local function cleanReceipt(fullUpdate)
++ local cancelled=fullUpdate and r('SsKick')==2 and r('InvSelected',9)~=5 and (r('XgDash')~=0 or r('MmSliding')~=0)
++ assert(pool()==0 and r('SsHeld')==0 and (r('SsKick')==0 or cancelled) and r('SsFreeze')==0 and r('SsBodyStop')==0,'Native selection clears robot effects')
+  assert(r('MmBulletType')==0 and r('MmBulletType',1)==0 and r('MmBulletType',2)==0 and r('MmBulletType',3)==0,'Native selection clears primary pool')
+ end
+ hook('InventorySelectionCommit',function()
+@@ -100,7 +173,7 @@
+   assert(after==(paid and before-cost or before),'Actual source cost/refusal preserves exact stock')
+   local p=emu.getState()['cpu.ps']or emu.getState()['cpu.p'];if p then assert((p&1~=0)==paid,'Actual spend carry matches funded admission')end
+   current.spends[#current.spends+1]={item=item,cost=cost,before=before,after=after,accepted=paid,component=current.component,wall=wall,update=updates}
+-  event('actual-source-spend',current.spends[#current.spends]);capture(current.q.name..'-cost-'..#current.spends)
++  event('actual-source-spend',current.spends[#current.spends]);fundedDebit(item,cost,before,after,paid);capture(current.q.name..'-cost-'..#current.spends)
+  end)
+ end)
+ hook('SpecialWeapons::Spawn',function()
+@@ -249,7 +322,7 @@
+    assert(current.hits>0 and current.damageCalls>0,'Actual intended source effect contacts controlled target')
+    assert(current.visibleTypes[q.contact_type],'Actual effect reaches visible source-art state')
+    assert((current.draws[q.contact_type]or 0)>0,'Actual source effect reaches its real draw owner')
+-   if q.item>0 then assert(stock()==0,'Funded source actions exhaust exact seeded stock')end
++   if q.item>0 then fundedBalance()end
+    if q.item==1 then assert(current.lifted,'ARM actual lift before paid throw')end
+    if q.item==4 then assert(current.charged and current.visibleTypes[14],'PHARAOH full charge/release')end
+    if q.item==7 then assert(current.expanded,'WATER orbit then real second-B expansion')end
+@@ -268,7 +341,7 @@
+   if current.poolChecked then current.poolPassed=true;current.clearChoice=choiceCount;change('clear-after-pool')end
+   assert(age<15,'Full-pool source attempt is observed before seeded records leave viewport')
+  elseif phase=='clear-after-pool'then
+-  if choiceCount>current.clearChoice then cleanReceipt();current.selectionCleanup=true;capture(q.name..'-selection-cleanup');current.completed=wall;index=index+1;change('next')end
++  if choiceCount>current.clearChoice then cleanReceipt(true);current.selectionCleanup=true;capture(q.name..'-selection-cleanup');current.completed=wall;index=index+1;change('next')end
+   assert(age<30,'Actual controller selection owns cleanup')
+  end
+ end)
