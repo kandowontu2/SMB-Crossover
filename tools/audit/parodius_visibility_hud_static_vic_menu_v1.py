@@ -1,0 +1,24 @@
+"""Freeze VicHard menu-stall negative and change only its expected displayed name."""
+from pathlib import Path
+import argparse,hashlib,json,shutil,sys
+ROOT=Path(__file__).resolve().parents[2]
+sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
+
+def main():
+ p=argparse.ArgumentParser(description=__doc__);p.add_argument('--failed',type=Path,required=True);p.add_argument('--output',type=Path,required=True);p.add_argument('--source',type=Path,required=True);p.add_argument('--parser-root',type=Path,required=True);a=p.parse_args();a.output.mkdir(parents=True,exist_ok=False);z=json.loads((a.failed/'preparation.json').read_text());old=Path(z['script']).parent;assert z['mode']==1 and z['variant']==0 and z['ROM_sha256']=='df5154bc035ba2c392bb8d34068897a2bccf7a78a6f4554bd6790d31a586c357';assert not json.loads((old/'scroll-proof.json').read_text())['passed'];assert sha(old/'run.lua')==z['script_sha256']
+ negative=a.output/'retained-menu-negative';negative.mkdir();paths=[f for f in a.failed.rglob('*')if f.is_file()];manifest={str(f.resolve()):dict(sha256=sha(f),bytes=f.stat().st_size)for f in paths};(negative/'manifest.json').write_text(json.dumps(manifest,indent=2)+'\n',encoding='utf-8');h=[json.loads(s)for s in(old/'hud-frames.jsonl').read_text().splitlines()];assert h[-1]['start']['ram']['CrossoverBehaviorVersion']==1 and h[-1]['start']['ram']['OperMode']==0;assert not(old/'epochs.jsonl').read_text();assert len(list(old.glob('frame-*.argb')))==200;assert 'VIC VIPER' in a.source.read_text();n=dict(passed=False,native_coverage=False,classification='FIXTURE_EXPECTED_MENU_NAME_MISMATCH',expected='VIC',actual_displayed_source_name='VIC VIPER',observed_menu_frame639_sha256=sha(a.failed/'failed-menu-000639.png'),last_sampled_RAM=h[-1]['start']['ram'],failed_assertion='Meaningful actual displayed scroll evidence',first_wrong_predicate='Controller exact trimmed name comparison expects VIC, so returns empty inputs instead of confirming highlighted VIC VIPER.',first_wrong_predicate_actual_frame_not_logged=True,actual_RAW_frames=list(range(440,640)),source=str(a.source),source_sha256=sha(a.source),manifest_sha256=sha(negative/'manifest.json'),manifest_bindings=len(manifest),limits='Menu mode1 was selected, but no active gameplay/scroll/DMA-publication coverage occurred. No game defect or native pass inferred. Failed files untouched.')
+ (negative/'proof.json').write_text(json.dumps(n,indent=2)+'\n',encoding='utf-8')
+ out=a.output/'baseline-early';out.mkdir();controller=a.output/'controller';controller.mkdir();oldcontroller=a.failed/'controller'
+ for f in oldcontroller.iterdir():
+  if f.is_file():shutil.copy2(f,controller/f.name)
+ policy=controller/'policy.lua';policy.write_text(policy.read_text().replace(oldcontroller.as_posix(),controller.as_posix()),encoding='utf-8')
+ for ext in ['.nes','.dbg','.lbl','.map']:shutil.copy2(old/('candidate'+ext),out/('candidate'+ext))
+ text=(old/'run.lua').read_text();token='["menuName"]="VIC"';assert text.count(token)==1;text=text.replace(token,'["menuName"]="VIC VIPER"').replace(old.as_posix(),out.as_posix()).replace(oldcontroller.as_posix(),controller.as_posix());(out/'run.lua').write_text(text,encoding='utf-8');cfg=json.loads((old/'config.json').read_text());cfg['output']=out.as_posix()+'/';(out/'config.json').write_text(json.dumps(cfg,indent=2)+'\n',encoding='utf-8')
+ sys.path.insert(0,str(a.parser_root));from luaparser import ast;ast.parse(text)
+ deps=dict(z['dependencies']);deps[str(Path(__file__).resolve())]=sha(Path(__file__));snapshots=a.output/'dependency-snapshots';snapshots.mkdir();bindings={}
+ for name,digest in deps.items():dest=snapshots/Path(name).name;shutil.copy2(name,dest);assert sha(dest)==digest;bindings[name]=str(dest)
+ q=dict(z,script=str(out/'run.lua'),script_sha256=sha(out/'run.lua'),dependencies=deps,dependency_snapshots=bindings,controller={f.name:sha(f)for f in controller.iterdir()if f.is_file()},parent_preparation_sha256=sha(a.failed/'preparation.json'),fixture_expected_name_correction=dict(before='VIC',after='VIC VIPER'),scope='ONE approved corrected menu expected-name fixture. Only that configuration string and isolated paths change from retained static VicHard failure. Exact df515/observer/controller/guards/640 limit; no emulated writes or native outcome yet.')
+ (a.output/'preparation.json').write_text(json.dumps(q,indent=2)+'\n',encoding='utf-8');diff=dict(passed=True,native_run=False,field_diff={'ROSTER_CONFIG.menuName':['VIC','VIC VIPER']},only_other_changes='isolated output/controller absolute paths',ROM_sha256=sha(out/'candidate.nes'),old_script_sha256=sha(old/'run.lua'),new_script_sha256=sha(out/'run.lua'),preparation_sha256=sha(a.output/'preparation.json'),negative_proof_sha256=sha(negative/'proof.json'),tool_sha256=sha(Path(__file__)))
+ (a.output/'field-diff.json').write_text(json.dumps(diff,indent=2)+'\n',encoding='utf-8');print(json.dumps(diff))
+
+if __name__=='__main__':main()
