@@ -1,0 +1,82 @@
+{
+  "passed": true,
+  "ROM_sha256": "3cee18caa732b2e85e3bdb00faf719223324f9bf24e72dd30c56be355da33b99",
+  "owners": [
+    {
+      "source_path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-hud-composed-v1\\source\\src\\metasprite_engine.s",
+      "source_sha256": "e5d424f3f1ddc7411faa491789933d74bd0b43ea7714cccfa37e9a9c515caf63",
+      "source_line": 303,
+      "symbol": "DrawAllMetasprites",
+      "CPU_address": 40960,
+      "physical_bank": 4,
+      "first16_ROM_bytes": "206983ad0260c901f00cc903b008a900",
+      "observation": "Weapons and native actor sprites precede the logical body reservation; body is written into the reserved span later."
+    },
+    {
+      "source_path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-hud-composed-v1\\source\\src\\metasprite_engine.s",
+      "source_sha256": "e5d424f3f1ddc7411faa491789933d74bd0b43ea7714cccfa37e9a9c515caf63",
+      "source_line": 400,
+      "symbol": "RosterProjectileOamReady",
+      "CPU_address": 41260,
+      "physical_bank": 4,
+      "first16_ROM_bytes": "ad066b8503ad076b8504a000b103186d",
+      "observation": "The actual logical body start follows production projectile/native actor output."
+    },
+    {
+      "source_path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-hud-composed-v1\\source\\src\\metasprite_engine.s",
+      "source_sha256": "e5d424f3f1ddc7411faa491789933d74bd0b43ea7714cccfa37e9a9c515caf63",
+      "source_line": 1098,
+      "symbol": "MetaspriteRenderLoop",
+      "CPU_address": 42426,
+      "physical_bank": 4,
+      "first16_ROM_bytes": "aede06a000b103d0021860a82903f007",
+      "observation": "Compiled records emit parts in reverse source order into the rotated physical OAM ring."
+    },
+    {
+      "source_path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-hud-composed-v1\\source\\src\\meta_knight.s",
+      "source_sha256": "d36fdbf65342fda03b6c802b330dd8a48073ddb3c0cd4a7f3e9ef03990d3226d",
+      "source_line": 5,
+      "symbol": "KbOamPriority",
+      "CPU_address": 44279,
+      "physical_bank": 72,
+      "first16_ROM_bytes": "ad0a6cf0184a4aaabd34ad186d096cb0",
+      "observation": "Production rotates the whole used OAM ring. The body-layer pivot clamp is selected only for Meta Knight."
+    },
+    {
+      "source_path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-hud-composed-v1\\source\\src\\parodius_render.s",
+      "source_sha256": "a6f0d11ab8e4f1d1e8e9a92dfd54a47de0acca4383b3022965dea3f21a920330",
+      "source_line": 22,
+      "symbol": "PnRecordPointer",
+      "CPU_address": 47423,
+      "physical_bank": 77,
+      "first16_ROM_bytes": "8dd45daeea5fbd4fb18503bd52b18504",
+      "observation": "Octopus body and other native Parodius actors select original immutable record pointers."
+    },
+    {
+      "source_path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-hud-composed-v1\\source\\src\\parodius_render.s",
+      "source_sha256": "a6f0d11ab8e4f1d1e8e9a92dfd54a47de0acca4383b3022965dea3f21a920330",
+      "source_line": 59,
+      "symbol": "PnPublish",
+      "CPU_address": 47508,
+      "physical_bank": 77,
+      "first16_ROM_bytes": "a9008d057eacd15db9ffacbe11ada006",
+      "observation": "Body/weapon/pickup physical CHR pages are published with completed actor drawing."
+    },
+    {
+      "source_path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-chip-hud-composed-v1\\source\\src\\parodius_render.s",
+      "source_sha256": "a6f0d11ab8e4f1d1e8e9a92dfd54a47de0acca4383b3022965dea3f21a920330",
+      "source_line": 127,
+      "symbol": "PnDraw",
+      "CPU_address": 47706,
+      "physical_bank": 77,
+      "first16_ROM_bytes": "ad0760f0034c1bbf2094b9a50fc908f0",
+      "observation": "Production iterates native Parodius actors before the player body reservation."
+    }
+  ],
+  "compiled_outline_table": "00000100010100000001000000",
+  "Sophia_table_index11": 0,
+  "Octopus_outline_bypass": "Compiled X5PlayerOutlineFlag bypasses legacy outline processing for IDs >=13.",
+  "flag_scope": "GuestHurtVisible=0 is an unused shared field for these paths, not proof of a hidden body. Relevant actual body tuples and native hurt/invulnerability flags are recorded.",
+  "interpretation": "No first bad CPU/CHR/OAM write was found. The observed visibility loss occurs when valid opaque body parts are excluded by the physical first-eight scanline admission. The allocation/rotation owners are an actionable source lead, not a qualified repair.",
+  "future_boundary": "Any repair must retain source art/pose colors, projectile and enemy admission fairness, completed draw cadence and real hardware sprite limits. Old unguarded body-reorder rejection remains negative; no bytes are proposed or changed here."
+}

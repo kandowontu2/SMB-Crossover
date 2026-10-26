@@ -1,0 +1,31 @@
+{
+  "passed": true,
+  "utc": "2026-10-26T11:18:58.262961+00:00",
+  "ROM_sha256": "3cee18caa732b2e85e3bdb00faf719223324f9bf24e72dd30c56be355da33b99",
+  "readiness_sha256": "efc38009b2b4cdde6e4f7c7eb1a0f2cf1acb213611b1efc1026e60960f767d58",
+  "bindings": 1249,
+  "execution_sha256": "0ceaf5dae1adad947be73c4ce2c59bb5955e5dcd1e01f26a3ad79ecd9aadef94",
+  "rows": [
+    {
+      "name": "octopus",
+      "direct_frames": 4801,
+      "actual_start_end_rows": 7242,
+      "DMA_completes_in_observation_window": 2454,
+      "physical_pages": 11,
+      "raw_stream_sha256": "ad57329118ccfa68f5a4f0398b1a1c4381de3bff69f85ff1ecf907e93444c01b",
+      "replay_proof_sha256": "6746c96acae49e82e3d19e2419a666c0ce52ba4f7519d93b611babed0e8949ca",
+      "probe_proof_sha256": "c73259057e89cae9011a1674f864bffbb88b3cfc7ec23b5298a61af9b4724701"
+    },
+    {
+      "name": "sophia",
+      "direct_frames": 5088,
+      "actual_start_end_rows": 7242,
+      "DMA_completes_in_observation_window": 1388,
+      "physical_pages": 10,
+      "raw_stream_sha256": "9aeb25a9bc25ed782f2dc9c2745dd9f3ceb602717538642cb8c7facaa8f3fe33",
+      "replay_proof_sha256": "ec26d7061ae67c37a7702a96717e8cece25ada2dd272f11c38991e466c1f7ec0",
+      "probe_proof_sha256": "9e10c792f01976bc8a62c0e74b899be4ba8bad8cb42bb195a3ead822e4768e2c"
+    }
+  ],
+  "scope": "ROOT independent input/log/frameindex/raw-stream binding and physicalCHR, ordered actualPPU rows, completed256B hardware DMA integrity. Physical pixel/owner attribution and fixes remain separate; original all-frame RGB/lossless integrity receipts are reused only through the exact original stream/index identity."
+}
