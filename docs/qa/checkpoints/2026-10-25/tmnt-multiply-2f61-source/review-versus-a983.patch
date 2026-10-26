@@ -1,0 +1,79 @@
+--- a/src/tmnt-native.inc
++++ b/src/tmnt-native.inc
+@@ -1685,9 +1685,8 @@
+   .assert *=$acbc,lderror,"Original instruction offset 8cbc"
+   RTS
+   .assert *=$acbd,lderror,"Original instruction offset 8cbd"
+-  AND #$0f
+-  .assert *=$acbf,lderror,"Original instruction offset 8cbf"
+-  STA ::TnAudioZp+$02
++  JMP ::TnFastProduct
++  NOP ; Four-byte span; old internal counter store is no longer an entry.
+   .assert *=$acc1,lderror,"Original instruction offset 8cc1"
+   LDA #$00
+   .assert *=$acc3,lderror,"Original instruction offset 8cc3"
+--- a/src/tmnt_audio.s
++++ b/src/tmnt_audio.s
+@@ -23,6 +23,7 @@
+ .pushseg
+ .segment "TMNT_NATIVE_AUDIO_WRITERS"
+ .include "tmnt_audio_writers.s"
++.include "tmnt_audio_multiply.s"
+ .segment "TMNT_SAMUS_AUDIO_COLD"
+ .proc TnAudioUpdate
+  lda #0
+--- a/src/tmnt_audio_multiply.s
++++ b/src/tmnt_audio_multiply.s
+@@ -0,0 +1,52 @@
++; MMC5-only native TMNT music. No persistent multiplier operand owner.
++; AudioUpdate selects either char1 Proto or char19 TMNT inside one NMI; IRQ
++; touches neither product register. Both users write their operands before reads.
++; Preserve original E2/E4/E5, final-ADC V, D/I/X/Y, C=0 and final A/N/Z.
++.proc TnFastProduct
++ and #15
++ beq Zero
++ cmp #2
++ bcc One
++ sta $5205
++ lda a:TnAudioRam+4,x
++ sta $5206
++ lda $5205
++ sta z:TnAudioZp+4
++ ; Reproduce the ORIGINAL last repeated-add ADC overflow, including wrap.
++ sec
++ sbc a:TnAudioRam+4,x
++ clc
++ adc a:TnAudioRam+4,x
++ lda $5206
++ sta z:TnAudioZp+5
++ lda #$ff
++ sta z:TnAudioZp+2
++ lda z:TnAudioZp+4
++ jmp $acd9                  ; Authentic four ASL/ROL pairs and final LDA/RTS.
++One:
++ lda a:TnAudioRam+4,x
++ sta z:TnAudioZp+4
++ lsr a
++ lsr a
++ lsr a
++ lsr a
++ sta z:TnAudioZp+5
++ lda #$ff
++ sta z:TnAudioZp+2
++ clv                        ; Original last ADC is coefficient + zero.
++ clc
++ lda z:TnAudioZp+5
++ rts
++Zero:
++ lda #0
++ sta z:TnAudioZp+4
++ sta z:TnAudioZp+5
++ lda #$ff
++ sta z:TnAudioZp+2
++ clc                        ; Incoming V remains live for the zero case.
++ lda #0
++ rts
++.endproc
++.assert TnFastProduct=$a125,lderror,"Verified unused native writer tail"
++.assert *<=$a200,lderror,"Retain original duration helper and all later PCs"
++.export TnFastProduct
