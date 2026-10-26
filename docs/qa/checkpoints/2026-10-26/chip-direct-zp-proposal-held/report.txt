@@ -1,0 +1,23 @@
+Chip direct-ZP proposal: REJECTED BEFORE GAMEPLAY INTEGRATION, 2026-10-26
+
+No production/native/accepted-build change. Private componentc972 uses actual
+C0..D8 as original source scratch. All11tracks x513calls=5,643 source calls /
+30,564 ordered APU stores, physical source AXYP/SP and writtenRAM pass; every
+mapped indirect read is checked. This direct component OWNS those25bytes.
+It is not a safe gameplay adapter and does not preserve foreground state.
+
+Matched compiled V7/V8 component means improve only40.8..272.5cycles per play.
+A straightforward unrolled25byte borrow/restore requires700cycles: each byte
+has two LDAzp3+STAabs4 / LDAabs4+STAzp3 pairs (28cycles). That additional
+foreground/private-state roundtrip outweighs every tested average saving.
+This is an explicit instruction-cost proposal, not a compiled wrapper or
+native timing result. No new adapter, IRQ/foreground-restoration claim,
+native launch, full18,000-frame song qualification or performance acceptance
+is justified. A smaller liveness-based borrow would require its own proposal.
+
+The initial fixture wrongly seeded direct sourceC0..D8 with a foreground
+pattern instead of original zero private state, causing init mismatch.
+Its exact checker and failure are retained. Only the test initial state was
+corrected; component ROM bytes stayedc972. The paired successful source
+components and their costs remain separately bound. Installed stays50b5;
+8b4a remains the best integrated trial, still28extra missed idle draws.
