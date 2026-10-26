@@ -1,0 +1,1331 @@
+{
+  "native_completed": true,
+  "accepted": false,
+  "production_mutated": false,
+  "status": "HELD_ONE_GENUINE_HARD1F_PRESSURE_DMA_LOSS",
+  "native_launches": 20,
+  "retries": 0,
+  "worker_released": true,
+  "all20_native_hardware_goal_guards_passed": true,
+  "all10_source_hardware_oracles_passed": true,
+  "strict_cadence_passes": 9,
+  "strict_cadence_held": 1,
+  "actual_source_ticks": 1924,
+  "actual_complete_mixer_flushes": 1978,
+  "all_draw_prefix_deferrals": 0,
+  "source_ready": {
+    "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\freeze-v1\\readiness-source-only.json",
+    "sha256": "e7102d428cd5a872853094c2d2e3c2651afef092f70432aa8bbfc7d8ae1ebc42"
+  },
+  "boundary": {
+    "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\held-boundary-v1\\proof.json",
+    "sha256": "2aae3c761149894bb7f7693ea7c0db33817fbdb81501e9c4a36da16f91fcca28"
+  },
+  "report": {
+    "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\docs\\qa\\cv3-remaining-sfx-lifecycle-native-2026-10-26.txt",
+    "sha256": "e27486e9cd3f7c757c1f1b1275a110c1f399e87d2045660d6c41224fa9be0131"
+  },
+  "cells": [
+    {
+      "name": "baseline-death-easy",
+      "receipt": {
+        "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\baseline-death-easy\\proof.json",
+        "sha256": "23393b7a34849a1e34950e46550673e5532aa924dff55e287c66feacfe1fda55"
+      },
+      "GAMEproof": {
+        "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\death-easy\\proof.json",
+        "sha256": "46a61943e30f8e920bba00039f669785af29a139775aec5d9baa1a64a3a50cd2"
+      }
+    },
+    {
+      "name": "candidate-death-easy",
+      "receipt": {
+        "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-death-easy\\proof.json",
+        "sha256": "b1eb82f6e35c66432f7ea1e28f9d8cbdedcc1403d1770754efa4b018db6f1b89"
+      },
+      "GAMEproof": {
+        "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\death-easy\\proof.json",
+        "sha256": "f09f80c66d04ed101c0486222596a0bd5c63324debcb2089aa9fc6bf4e4ce449"
+      }
+    },
+    {
+      "name": "baseline-death-hard",
+      "receipt": {
+        "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\baseline-death-hard\\proof.json",
+        "sha256": "203a2599ee744f1b9e78c13c2caec2cc45236fc966964e12e6245c28ebe4d912"
+      },
+      "GAMEproof": {
+        "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\death-hard\\proof.json",
+        "sha256": "8e2cb88e795a619b92936ca90f4d78c75e2c71d889d3e85adcfc5b2a80c560bf"
+      }
+    },
+    {
+      "name": "candidate-death-hard",
+      "receipt": {
+        "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-death-hard\\proof.json",
+        "sha256": "d8c1ba9ed4350e62d4b74d5b67ac60ce2914cd48de1438cad6fc71f1aa1d5965"
+      },
+      "GAMEproof": {
+        "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\death-hard\\proof.json",
+        "sha256": "baf334a3e2e364869e00a08f3d51bee65850fca76d6e1e44c98db22df6862ef8"
+      }
+    },
+    {
+      "name": "baseline-mixed-easy",
+      "receipt": {
+        "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\baseline-mixed-easy\\proof.json",
+        "sha256": "ef123f3204c27afda6ab2347f7f8cb216df06445790439e5c8103fbe45122eec"
+      },
+      "GAMEproof": {
+        "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\mixed-easy\\proof.json",
+        "sha256": "9e22fb929087427b2d083fd06d2be34b4fc541465e09d5f7f98b82e1ad7e3e5b"
+      }
+    },
+    {
+      "name": "candidate-mixed-easy",
+      "receipt": {
+        "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-mixed-easy\\proof.json",
+        "sha256": "5259e766bd6771b6023b0f01d68efc33526fdea7e7cabac35af80f80d342d25d"
+      },
+      "GAMEproof": {
+        "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\mixed-easy\\proof.json",
+        "sha256": "7beabe6afc4bce7a38153a99b2ceb44355618269c0347d7209e18297dd7897b1"
+      }
+    },
+    {
+      "name": "baseline-mixed-hard",
+      "receipt": {
+        "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\baseline-mixed-hard\\proof.json",
+        "sha256": "f41f80942e1afdc18a1a5d3d4622cad59755138c796febb2a284b3913fd8e1c5"
+      },
+      "GAMEproof": {
+        "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\mixed-hard\\proof.json",
+        "sha256": "7337e409e118ca6afb24a2365b81cf1a1fc26fd8f5516a9e0d1b80ceefd36b45"
+      }
+    },
+    {
+      "name": "candidate-mixed-hard",
+      "receipt": {
+        "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-mixed-hard\\proof.json",
+        "sha256": "97f4e959c7063d059b1abfbe8fb2966726ce6be00b91dbe2b8fc88408e6cb8d1"
+      },
+      "GAMEproof": {
+        "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\mixed-hard\\proof.json",
+        "sha256": "21403f25b210021a725e3e99205c01c0516f29ae190047fe14230a47d969f5a6"
+      }
+    },
+    {
+      "name": "baseline-pause-hard",
+      "receipt": {
+        "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\baseline-pause-hard\\proof.json",
+        "sha256": "22063b2e4b84b5ded98c55472ccae5dc74e4bd6040efde86d273a705966e6d43"
+      },
+      "GAMEproof": {
+        "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\pause-hard\\proof.json",
+        "sha256": "46c963c1dabb0916eaebba0719e6145163551c4c3777cf60172a44fc6fa40f30"
+      }
+    },
+    {
+      "name": "candidate-pause-hard",
+      "receipt": {
+        "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-pause-hard\\proof.json",
+        "sha256": "9643e725c0b7c13b3dc0e434b0ea7c15518d52d85207014c50af0f2aad4a48f5"
+      },
+      "GAMEproof": {
+        "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pause-hard\\proof.json",
+        "sha256": "5660d8eafd14670d806af7705d3b41bc5620804a524573bf47108cb329de7852"
+      }
+    },
+    {
+      "name": "baseline-pressure-fireball-easy",
+      "receipt": {
+        "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\baseline-pressure-fireball-easy\\proof.json",
+        "sha256": "98d9723ec6d9488c6d40d03256a7350de0e1d3a5f30c5304c454569864606521"
+      },
+      "GAMEproof": {
+        "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\pressure-fireball-easy\\proof.json",
+        "sha256": "08945844b27ae5e1cb2711eef645411c64103a15508143d9c70b819f093bab34"
+      }
+    },
+    {
+      "name": "candidate-pressure-fireball-easy",
+      "receipt": {
+        "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-pressure-fireball-easy\\proof.json",
+        "sha256": "74c6da391a9dd147550b24da1630b1fc88ff67ed451b36c5953557ec8243df78"
+      },
+      "GAMEproof": {
+        "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pressure-fireball-easy\\proof.json",
+        "sha256": "9f9fa9e29fcb722be8a246237cef3d7f079221e43b79f5b4db1e1b83447712a8"
+      }
+    },
+    {
+      "name": "baseline-pressure-fireball-hard",
+      "receipt": {
+        "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\baseline-pressure-fireball-hard\\proof.json",
+        "sha256": "296933502fc8d2fdb1d9bdf1d56a1de3bc3f05375f0e1e5fdbd687e1c4f83e0e"
+      },
+      "GAMEproof": {
+        "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\pressure-fireball-hard\\proof.json",
+        "sha256": "d950dcc7bfa8b4355e8ce79bfab7da2ac67b360d92296da2cf5517baba853693"
+      }
+    },
+    {
+      "name": "candidate-pressure-fireball-hard",
+      "receipt": {
+        "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-pressure-fireball-hard\\proof.json",
+        "sha256": "954db9f9056040cef4161ec8132ece1e141524962818edae36dcf3da08290367"
+      },
+      "GAMEproof": {
+        "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pressure-fireball-hard\\proof.json",
+        "sha256": "7e35605d0d69881443d194996f1414879a0a6f5b15272d41e9d4ae4498ccf2d2"
+      }
+    },
+    {
+      "name": "baseline-pressure-idle-hard",
+      "receipt": {
+        "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\baseline-pressure-idle-hard\\proof.json",
+        "sha256": "57a42fd4934e30e2a37522420f96850758ddbb561803cc873df596dc78a1e7a3"
+      },
+      "GAMEproof": {
+        "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\pressure-idle-hard\\proof.json",
+        "sha256": "bb788405861d93d33ce245f365a46ddc885005cb4ab4ef776f3ca64f36ed70f4"
+      }
+    },
+    {
+      "name": "candidate-pressure-idle-hard",
+      "receipt": {
+        "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-pressure-idle-hard\\proof.json",
+        "sha256": "b5b282a84e9111189d0c9de6196b025012177e013bd69d8c719c21ba0d9160be"
+      },
+      "GAMEproof": {
+        "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pressure-idle-hard\\proof.json",
+        "sha256": "5e1313ebd871bdd4cebf18424337b6f73f97849755917b452d591685e22a4c24"
+      }
+    },
+    {
+      "name": "baseline-priority-hard",
+      "receipt": {
+        "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\baseline-priority-hard\\proof.json",
+        "sha256": "630718f6beb4d5a0f3fe063d60d849007fd280a7f35b6f713f92c9d4bd9fc3a0"
+      },
+      "GAMEproof": {
+        "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\priority-hard\\proof.json",
+        "sha256": "34eb690e6b69779e436ba7dfd39a08b1c8e394219990d34ef3429d2116b5b54e"
+      }
+    },
+    {
+      "name": "candidate-priority-hard",
+      "receipt": {
+        "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-priority-hard\\proof.json",
+        "sha256": "80a086f2d2158e8fcb93ee1757deb901547553279e699034c0a86cd1f266bdc4"
+      },
+      "GAMEproof": {
+        "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\priority-hard\\proof.json",
+        "sha256": "33593267f0aaa75dc6dbdfb8a18d0bf7dc9353ed31e455cbe115c0d4ba60509b"
+      }
+    },
+    {
+      "name": "baseline-scene-hard",
+      "receipt": {
+        "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\baseline-scene-hard\\proof.json",
+        "sha256": "60d4aa56ab660297ed06dbea3866c94c164eb4cf3148133a49c0ac5c75acde71"
+      },
+      "GAMEproof": {
+        "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\scene-hard\\proof.json",
+        "sha256": "1555d2ed1d261827add4d2c4be08ba3f98d080c6d01996483ac1dcaf641924d1"
+      }
+    },
+    {
+      "name": "candidate-scene-hard",
+      "receipt": {
+        "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-scene-hard\\proof.json",
+        "sha256": "9167c5b62a944b7e3e52148ceefc4c1b16ce17ca9c2c7d55c03d138378f07ebd"
+      },
+      "GAMEproof": {
+        "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\scene-hard\\proof.json",
+        "sha256": "b224aa87a1b73c52a33f255407f79201156924a8a78c6247b30fe83a222c2baf"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "name": "death-easy",
+      "mode": 0,
+      "passed": true,
+      "all_source_hardware_and_native_goals_passed": true,
+      "comparison": {
+        "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-death-easy\\comparison\\proof.json",
+        "sha256": "009d7b6f231a5763f20df581bd7b32dbf83447ada61153af310708b027307fb9"
+      },
+      "GAME_draws": {
+        "baseline": 159,
+        "candidate": 159
+      },
+      "actual_DMA_counts": {
+        "baseline": 159,
+        "candidate": 159
+      },
+      "native_updates": 20,
+      "source_ticks": 144,
+      "complete_mixer_flushes": 160,
+      "strict_per_case_cadence": {
+        "passed": true,
+        "candidate_updates": 20,
+        "baseline_updates": 20,
+        "candidate_skipped_draw_frames": 2,
+        "baseline_skipped_draw_frames": 2,
+        "candidate_frames": 161,
+        "baseline_frames": 161,
+        "candidate_draws": 159,
+        "baseline_draws": 159,
+        "candidate_max_no_draw": 1,
+        "baseline_max_no_draw": 1,
+        "candidate_max_no_update": 139,
+        "baseline_max_no_update": 140,
+        "all_draw_prefix_deferrals": []
+      },
+      "actual_lifecycle": {
+        "audioTicks": 160,
+        "musicResets": 1,
+        "dmcCount": 0,
+        "bonusNativeFrames": 0,
+        "areaLoads": 0,
+        "activeSceneCancel": 0,
+        "sceneResets": 0,
+        "pipeEntries": 0,
+        "pausedAudioTicks": 0,
+        "pickups": 0,
+        "sourceDmcOverlap": {}
+      },
+      "actual_DMC": []
+    },
+    {
+      "name": "death-hard",
+      "mode": 1,
+      "passed": true,
+      "all_source_hardware_and_native_goals_passed": true,
+      "comparison": {
+        "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-death-hard\\comparison\\proof.json",
+        "sha256": "06fd2667cbcbb6fb9367dfd562e854a56ff7ff10fe94629eb9c9b646eea839ff"
+      },
+      "GAME_draws": {
+        "baseline": 159,
+        "candidate": 159
+      },
+      "actual_DMA_counts": {
+        "baseline": 159,
+        "candidate": 159
+      },
+      "native_updates": 20,
+      "source_ticks": 144,
+      "complete_mixer_flushes": 160,
+      "strict_per_case_cadence": {
+        "passed": true,
+        "candidate_updates": 20,
+        "baseline_updates": 20,
+        "candidate_skipped_draw_frames": 2,
+        "baseline_skipped_draw_frames": 2,
+        "candidate_frames": 161,
+        "baseline_frames": 161,
+        "candidate_draws": 159,
+        "baseline_draws": 159,
+        "candidate_max_no_draw": 1,
+        "baseline_max_no_draw": 1,
+        "candidate_max_no_update": 140,
+        "baseline_max_no_update": 140,
+        "all_draw_prefix_deferrals": []
+      },
+      "actual_lifecycle": {
+        "musicResets": 1,
+        "sourceDmcOverlap": {},
+        "sceneResets": 0,
+        "activeSceneCancel": 0,
+        "bonusNativeFrames": 0,
+        "pipeEntries": 0,
+        "areaLoads": 0,
+        "pausedAudioTicks": 0,
+        "audioTicks": 160,
+        "dmcCount": 0,
+        "pickups": 0
+      },
+      "actual_DMC": []
+    },
+    {
+      "name": "mixed-easy",
+      "mode": 0,
+      "passed": true,
+      "all_source_hardware_and_native_goals_passed": true,
+      "comparison": {
+        "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-mixed-easy\\comparison\\proof.json",
+        "sha256": "7be23b5ff5501f4bab9817697e3cab3dc4c6aa3b7b5bb8aa17401b2bbe125bc9"
+      },
+      "GAME_draws": {
+        "baseline": 135,
+        "candidate": 135
+      },
+      "actual_DMA_counts": {
+        "baseline": 135,
+        "candidate": 135
+      },
+      "native_updates": 140,
+      "source_ticks": 140,
+      "complete_mixer_flushes": 140,
+      "strict_per_case_cadence": {
+        "passed": true,
+        "candidate_updates": 139,
+        "baseline_updates": 139,
+        "candidate_skipped_draw_frames": 6,
+        "baseline_skipped_draw_frames": 6,
+        "candidate_frames": 140,
+        "baseline_frames": 140,
+        "candidate_draws": 134,
+        "baseline_draws": 134,
+        "candidate_max_no_draw": 1,
+        "baseline_max_no_draw": 1,
+        "candidate_max_no_update": 1,
+        "baseline_max_no_update": 1,
+        "all_draw_prefix_deferrals": []
+      },
+      "actual_lifecycle": {
+        "pipeEntries": 0,
+        "dmcCount": 2,
+        "sceneResets": 0,
+        "activeSceneCancel": 0,
+        "pickups": 0,
+        "areaLoads": 0,
+        "sourceDmcOverlap": {
+          "116": true,
+          "114": true
+        },
+        "musicResets": 0,
+        "bonusNativeFrames": 0,
+        "audioTicks": 140,
+        "pausedAudioTicks": 0
+      },
+      "actual_DMC": [
+        {
+          "sound": 114,
+          "reads": 73,
+          "rate": 15,
+          "bank": 125,
+          "address": 61760
+        },
+        {
+          "sound": 116,
+          "reads": 193,
+          "rate": 14,
+          "bank": 125,
+          "address": 65280
+        }
+      ]
+    },
+    {
+      "name": "mixed-hard",
+      "mode": 1,
+      "passed": true,
+      "all_source_hardware_and_native_goals_passed": true,
+      "comparison": {
+        "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-mixed-hard\\comparison\\proof.json",
+        "sha256": "b14d508496d3ecc18ef336c5f57b56c09daafcdb60fcb1a0a1898f726c91166c"
+      },
+      "GAME_draws": {
+        "baseline": 135,
+        "candidate": 135
+      },
+      "actual_DMA_counts": {
+        "baseline": 135,
+        "candidate": 135
+      },
+      "native_updates": 140,
+      "source_ticks": 140,
+      "complete_mixer_flushes": 140,
+      "strict_per_case_cadence": {
+        "passed": true,
+        "candidate_updates": 139,
+        "baseline_updates": 139,
+        "candidate_skipped_draw_frames": 6,
+        "baseline_skipped_draw_frames": 6,
+        "candidate_frames": 140,
+        "baseline_frames": 140,
+        "candidate_draws": 134,
+        "baseline_draws": 134,
+        "candidate_max_no_draw": 1,
+        "baseline_max_no_draw": 1,
+        "candidate_max_no_update": 1,
+        "baseline_max_no_update": 1,
+        "all_draw_prefix_deferrals": []
+      },
+      "actual_lifecycle": {
+        "activeSceneCancel": 0,
+        "areaLoads": 0,
+        "pickups": 0,
+        "pausedAudioTicks": 0,
+        "sourceDmcOverlap": {
+          "116": true,
+          "114": true
+        },
+        "pipeEntries": 0,
+        "dmcCount": 2,
+        "bonusNativeFrames": 0,
+        "musicResets": 0,
+        "sceneResets": 0,
+        "audioTicks": 140
+      },
+      "actual_DMC": [
+        {
+          "sound": 114,
+          "reads": 73,
+          "rate": 15,
+          "bank": 125,
+          "address": 61760
+        },
+        {
+          "sound": 116,
+          "reads": 193,
+          "rate": 14,
+          "bank": 125,
+          "address": 65280
+        }
+      ]
+    },
+    {
+      "name": "pause-hard",
+      "mode": 1,
+      "passed": true,
+      "all_source_hardware_and_native_goals_passed": true,
+      "comparison": {
+        "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-pause-hard\\comparison\\proof.json",
+        "sha256": "b6eefda98e1fecc5260044377799c271b41a538a5b2b2906e39ed20aa92d5e5f"
+      },
+      "GAME_draws": {
+        "baseline": 89,
+        "candidate": 89
+      },
+      "actual_DMA_counts": {
+        "baseline": 138,
+        "candidate": 138
+      },
+      "native_updates": 140,
+      "source_ticks": 91,
+      "complete_mixer_flushes": 91,
+      "strict_per_case_cadence": {
+        "passed": true,
+        "candidate_updates": 139,
+        "baseline_updates": 139,
+        "candidate_skipped_draw_frames": 52,
+        "baseline_skipped_draw_frames": 52,
+        "candidate_frames": 140,
+        "baseline_frames": 140,
+        "candidate_draws": 88,
+        "baseline_draws": 88,
+        "candidate_max_no_draw": 49,
+        "baseline_max_no_draw": 49,
+        "candidate_max_no_update": 1,
+        "baseline_max_no_update": 1,
+        "all_draw_prefix_deferrals": []
+      },
+      "actual_lifecycle": {
+        "activeSceneCancel": 0,
+        "bonusNativeFrames": 0,
+        "musicResets": 0,
+        "sourceDmcOverlap": {},
+        "sceneResets": 0,
+        "audioTicks": 140,
+        "pickups": 0,
+        "pausedAudioTicks": 49,
+        "dmcCount": 0,
+        "areaLoads": 0,
+        "pipeEntries": 0
+      },
+      "actual_DMC": []
+    },
+    {
+      "name": "pressure-fireball-easy",
+      "mode": 0,
+      "passed": true,
+      "all_source_hardware_and_native_goals_passed": true,
+      "comparison": {
+        "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-pressure-fireball-easy\\comparison\\proof.json",
+        "sha256": "232099c68a8621d0003e6cb54d60430da92e27914b4b1d5ede36188f73ada9c1"
+      },
+      "GAME_draws": {
+        "baseline": 194,
+        "candidate": 194
+      },
+      "actual_DMA_counts": {
+        "baseline": 194,
+        "candidate": 194
+      },
+      "native_updates": 240,
+      "source_ticks": 273,
+      "complete_mixer_flushes": 273,
+      "strict_per_case_cadence": {
+        "passed": true,
+        "candidate_updates": 239,
+        "baseline_updates": 239,
+        "candidate_skipped_draw_frames": 80,
+        "baseline_skipped_draw_frames": 80,
+        "candidate_frames": 273,
+        "baseline_frames": 273,
+        "candidate_draws": 193,
+        "baseline_draws": 193,
+        "candidate_max_no_draw": 3,
+        "baseline_max_no_draw": 3,
+        "candidate_max_no_update": 2,
+        "baseline_max_no_update": 2,
+        "all_draw_prefix_deferrals": []
+      },
+      "actual_lifecycle": {
+        "dmcCount": 0,
+        "bonusNativeFrames": 0,
+        "pickups": 0,
+        "audioTicks": 273,
+        "sourceDmcOverlap": {},
+        "activeSceneCancel": 0,
+        "pausedAudioTicks": 0,
+        "musicResets": 0,
+        "sceneResets": 0,
+        "pipeEntries": 0,
+        "areaLoads": 0
+      },
+      "actual_DMC": []
+    },
+    {
+      "name": "pressure-fireball-hard",
+      "mode": 1,
+      "passed": false,
+      "all_source_hardware_and_native_goals_passed": true,
+      "comparison": {
+        "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-pressure-fireball-hard\\comparison\\proof.json",
+        "sha256": "f568ff2b7c50b0ed1772e1413791c1b63341ada73d013e56c8605dffc4da2a1c"
+      },
+      "GAME_draws": {
+        "baseline": 167,
+        "candidate": 166
+      },
+      "actual_DMA_counts": {
+        "baseline": 167,
+        "candidate": 166
+      },
+      "native_updates": 240,
+      "source_ticks": 280,
+      "complete_mixer_flushes": 280,
+      "strict_per_case_cadence": {
+        "passed": true,
+        "candidate_updates": 238,
+        "baseline_updates": 238,
+        "candidate_skipped_draw_frames": 114,
+        "baseline_skipped_draw_frames": 114,
+        "candidate_frames": 280,
+        "baseline_frames": 280,
+        "candidate_draws": 166,
+        "baseline_draws": 166,
+        "candidate_max_no_draw": 2,
+        "baseline_max_no_draw": 2,
+        "candidate_max_no_update": 2,
+        "baseline_max_no_update": 2,
+        "all_draw_prefix_deferrals": []
+      },
+      "actual_lifecycle": {
+        "bonusNativeFrames": 0,
+        "activeSceneCancel": 0,
+        "pipeEntries": 0,
+        "pickups": 0,
+        "sceneResets": 0,
+        "musicResets": 0,
+        "areaLoads": 0,
+        "dmcCount": 0,
+        "sourceDmcOverlap": {},
+        "pausedAudioTicks": 0,
+        "audioTicks": 280
+      },
+      "actual_DMC": []
+    },
+    {
+      "name": "pressure-idle-hard",
+      "mode": 1,
+      "passed": true,
+      "all_source_hardware_and_native_goals_passed": true,
+      "comparison": {
+        "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-pressure-idle-hard\\comparison\\proof.json",
+        "sha256": "627c889ca93ac87f97285c3946390e54ed70cc32e9f84bb289a8d186055e45fe"
+      },
+      "GAME_draws": {
+        "baseline": 120,
+        "candidate": 120
+      },
+      "actual_DMA_counts": {
+        "baseline": 120,
+        "candidate": 120
+      },
+      "native_updates": 240,
+      "source_ticks": 360,
+      "complete_mixer_flushes": 360,
+      "strict_per_case_cadence": {
+        "passed": true,
+        "candidate_updates": 239,
+        "baseline_updates": 239,
+        "candidate_skipped_draw_frames": 240,
+        "baseline_skipped_draw_frames": 240,
+        "candidate_frames": 360,
+        "baseline_frames": 360,
+        "candidate_draws": 120,
+        "baseline_draws": 120,
+        "candidate_max_no_draw": 2,
+        "baseline_max_no_draw": 2,
+        "candidate_max_no_update": 2,
+        "baseline_max_no_update": 2,
+        "all_draw_prefix_deferrals": []
+      },
+      "actual_lifecycle": {
+        "areaLoads": 0,
+        "pipeEntries": 0,
+        "bonusNativeFrames": 0,
+        "sourceDmcOverlap": {},
+        "sceneResets": 0,
+        "dmcCount": 0,
+        "pickups": 0,
+        "audioTicks": 360,
+        "musicResets": 0,
+        "pausedAudioTicks": 0,
+        "activeSceneCancel": 0
+      },
+      "actual_DMC": []
+    },
+    {
+      "name": "priority-hard",
+      "mode": 1,
+      "passed": true,
+      "all_source_hardware_and_native_goals_passed": true,
+      "comparison": {
+        "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-priority-hard\\comparison\\proof.json",
+        "sha256": "c59510117ea156445ea785fc3358da263a0f23c10a80b58800a3b10c5a7211d2"
+      },
+      "GAME_draws": {
+        "baseline": 127,
+        "candidate": 127
+      },
+      "actual_DMA_counts": {
+        "baseline": 127,
+        "candidate": 127
+      },
+      "native_updates": 140,
+      "source_ticks": 140,
+      "complete_mixer_flushes": 140,
+      "strict_per_case_cadence": {
+        "passed": true,
+        "candidate_updates": 139,
+        "baseline_updates": 139,
+        "candidate_skipped_draw_frames": 14,
+        "baseline_skipped_draw_frames": 14,
+        "candidate_frames": 140,
+        "baseline_frames": 140,
+        "candidate_draws": 126,
+        "baseline_draws": 126,
+        "candidate_max_no_draw": 1,
+        "baseline_max_no_draw": 1,
+        "candidate_max_no_update": 1,
+        "baseline_max_no_update": 1,
+        "all_draw_prefix_deferrals": []
+      },
+      "actual_lifecycle": {
+        "sceneResets": 0,
+        "musicResets": 0,
+        "pausedAudioTicks": 0,
+        "sourceDmcOverlap": {},
+        "pickups": 1,
+        "areaLoads": 0,
+        "bonusNativeFrames": 0,
+        "dmcCount": 0,
+        "pipeEntries": 0,
+        "activeSceneCancel": 0,
+        "audioTicks": 140
+      },
+      "actual_DMC": []
+    },
+    {
+      "name": "scene-hard",
+      "mode": 1,
+      "passed": true,
+      "all_source_hardware_and_native_goals_passed": true,
+      "comparison": {
+        "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-scene-hard\\comparison\\proof.json",
+        "sha256": "68179bb2c6d7fa28f1a47e43180197653c32e138efd47b5087557197a42c2a75"
+      },
+      "GAME_draws": {
+        "baseline": 205,
+        "candidate": 205
+      },
+      "actual_DMA_counts": {
+        "baseline": 229,
+        "candidate": 229
+      },
+      "native_updates": 140,
+      "source_ticks": 212,
+      "complete_mixer_flushes": 234,
+      "strict_per_case_cadence": {
+        "passed": true,
+        "candidate_updates": 139,
+        "baseline_updates": 139,
+        "candidate_skipped_draw_frames": 30,
+        "baseline_skipped_draw_frames": 30,
+        "candidate_frames": 234,
+        "baseline_frames": 234,
+        "candidate_draws": 204,
+        "baseline_draws": 204,
+        "candidate_max_no_draw": 29,
+        "baseline_max_no_draw": 29,
+        "candidate_max_no_update": 94,
+        "baseline_max_no_update": 94,
+        "all_draw_prefix_deferrals": []
+      },
+      "actual_lifecycle": {
+        "activeSceneCancel": 1,
+        "pickups": 0,
+        "bonusNativeFrames": 136,
+        "areaLoads": 2,
+        "pausedAudioTicks": 0,
+        "dmcCount": 0,
+        "pipeEntries": 1,
+        "audioTicks": 234,
+        "sourceDmcOverlap": {},
+        "musicResets": 1,
+        "sceneResets": 2
+      },
+      "actual_DMC": []
+    }
+  ],
+  "all_new_frozen_bindings": {
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\death-easy\\actors.csv": "957d020e8c9405c3ba1445c1a45beb44460e3c972331a7bdf6b46d63523d16d6",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\death-easy\\apu.csv": "9eae6b7d4b54f40bf75592145004cf3ed727a5c0ed8a907492a6cce3c0540575",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\death-easy\\baseline-run.log": "3510f1ea2ed22ca4cdc9c0e3e22439afa27bf5d2fd12de22284206bcd528f1b4",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\death-easy\\cadence.csv": "f0b0e97ab7094cc1ee45737dca0c829c0696e1d9709ac22b339947d4b490e56d",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\death-easy\\candidate.lbl": "192b239a4dc33010af0e16b901a12b3c033534e51a372d55e22a65741a8f5157",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\death-easy\\case-end.argb": "8bfaa7d6fb8209baf5d5e4b852c28da271933d5fcb141e2c502dc764d2de0d7a",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\death-easy\\configuration.json": "5232f22a78fb0de9749022f68d56171c580ec52ad5976bd595169e5072bea0ee",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\death-easy\\deadline-timing.csv": "f30db111487dc2177731148265d3415647a5b6c7193686b6c836ebe219f7b033",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\death-easy\\dma-bus.jsonl": "79398cf82bd0b11c4b8fe6cef7b8c91627f07faba6e7400666c529136340f49c",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\death-easy\\dmc-fetch.csv": "6aeb1c4f36c506872bee5326f85750a2eb99e5a8cf7978648e4ff0c18798e0b1",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\death-easy\\last-case.json": "450496733c6d4cc6d79de147884f5d8f8230866bb6d762cabfaaa2922b240a14",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\death-easy\\lifecycle.jsonl": "6fe130dc01ecd63ee5dfd4d1cb9e59aec642c476d6209a01b2b96d1141f42b5e",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\death-easy\\native-cycles.csv": "d493240626813791d0597583b48e317c8a22fde1d48ffc32b79749414df22bf0",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\death-easy\\preparation.json": "1582ae0e0196b13d7b0e3a4dfc83969cfd6aa599201001f9ee168af91f31b3a9",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\death-easy\\proof.json": "46a61943e30f8e920bba00039f669785af29a139775aec5d9baa1a64a3a50cd2",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\death-easy\\requests.csv": "962d77449f728a10d2aed83e74dffc98f20930eb7cc0a6dfbfdc4a336a1a8e88",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\death-easy\\run.lua": "b9cc962e1b9f0dd3ab720801669791dd0a8a98740bcb55f24402cf4553bb2c4d",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\death-easy\\source-voices.csv": "52879ccdacb13c1f9e1c7ee60bbd6caf95ca3caeb5c583e22bb1686f71e34886",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\baseline-death-easy\\host.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\baseline-death-easy\\host.stdout.txt": "7a77c5dfe7169b73fc0867c0000d72f57388daf8eaa835d73691e97f38935183",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\baseline-death-easy\\launch.json": "96fa78b191197f20f7abab35418ff09f25198e911b0bd612d81ed13a68d7ca45",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\baseline-death-easy\\proof.json": "23393b7a34849a1e34950e46550673e5532aa924dff55e287c66feacfe1fda55",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\death-easy\\actors.csv": "e01808de311fc3b1551c77e875029eb0bbd50052f704aee6d39f1b6d847a2a26",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\death-easy\\apu.csv": "9504e4e25c15acb6d0156c587f70893371de19e61c63de15aa9eae741290bf91",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\death-easy\\cadence.csv": "376c0e6e20b35c0fb701c60daed0ab4fd92970cda66efae3313f7d0bd48d4ce6",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\death-easy\\candidate-run.log": "eb68273da4f38ee709330e0994549928002f95b0dc11a6d6c94d7757727429fa",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\death-easy\\candidate.lbl": "0fc619a37c0d0e00804e236cc9d099755af323506545640eb1b2802e550e72d3",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\death-easy\\case-end.argb": "8bfaa7d6fb8209baf5d5e4b852c28da271933d5fcb141e2c502dc764d2de0d7a",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\death-easy\\configuration.json": "21ae33947e927ddf2310954791903d986f593746e0ffcd57ca517598201b2602",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\death-easy\\deadline-timing.csv": "089192cebfa8d145a362dc98bb085ef60166a9d2c8d0d0d81e8f51ef2c7df3cd",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\death-easy\\dma-bus.jsonl": "4cf7c139676fe798df0978b823a8bc2c38c8ac2021255e0056ddc6a45d80f2ab",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\death-easy\\dmc-fetch.csv": "6aeb1c4f36c506872bee5326f85750a2eb99e5a8cf7978648e4ff0c18798e0b1",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\death-easy\\last-case.json": "22041f5dc0dd0283fc4ba262e930277c8cfcef8f561a3217755878fc54e04cf0",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\death-easy\\lifecycle.jsonl": "80b142d971ba349e1c145c923204d25bfdbfe05f3f06f605a9e09efcd4cc5f12",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\death-easy\\native-cycles.csv": "1b4d35b9bc44496db95cbd65b04b4a03ec65feff23a4379775ade1d38836b90d",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\death-easy\\preparation.json": "5dba475022c221910835c118abd9360761a9f61fb5c998a2f9448204699a2a7e",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\death-easy\\proof.json": "f09f80c66d04ed101c0486222596a0bd5c63324debcb2089aa9fc6bf4e4ce449",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\death-easy\\queue-owners.jsonl": "dad9998cae819ceaea6ca0204b7597a47d0716abcdb8dabf19d606ea76a025ad",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\death-easy\\requests.csv": "50d9e7f754613fcb8ffbab15e3982be1403823f0b822860f8fa22086ed282ff0",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\death-easy\\run.lua": "ebcaf698c9ae6aa13128573aeff9c3c600a2f05b59043d73cd05eefb7f53d963",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\death-easy\\source-register-image.csv": "58e3c3b7ad0cac24cce33095350fb2d2332db39b9b5c87f808bb59ff9b307fc0",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\death-easy\\source-voices.csv": "0f844c750f4b19c4ffb13c4fadd620f1673266ad43fa8e005a72b3e4cfd06bee",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-death-easy\\host.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-death-easy\\host.stdout.txt": "83ff8ff39296bc696aabc0a5211b8550baa9b9a8b67c11e3f4a45b741dce4d1d",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-death-easy\\launch.json": "1e6aaed20bcd32fcd3690b337ffdd94954ad2ff1eb864c074d40a46a02104aa1",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-death-easy\\proof.json": "b1eb82f6e35c66432f7ea1e28f9d8cbdedcc1403d1770754efa4b018db6f1b89",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-death-easy\\verify.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-death-easy\\verify.stdout.txt": "009d7b6f231a5763f20df581bd7b32dbf83447ada61153af310708b027307fb9",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-death-easy\\comparison\\proof.json": "009d7b6f231a5763f20df581bd7b32dbf83447ada61153af310708b027307fb9",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-death-easy\\comparison\\source-model.json": "424d6f3bf474f7f451b5f0c463fce2f58cb78abd762b6b86d9c3fa3f0f2c7a9a",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\death-hard\\actors.csv": "19877ffaf560c08f9d09a4810dad313486f57a921a835d4084648fc9af396fd6",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\death-hard\\apu.csv": "f81f24613d91817f8b6e38940fca24c22712aa0d3ee89db78d3713ee1e63ef92",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\death-hard\\baseline-run.log": "1abe5fa71f9684dd53b79ea757a03639d5fe056c5cfb94b792e14ece0c184841",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\death-hard\\cadence.csv": "ea1390a0ee7cd9d58f64557efcda890714db4dcc4a87c4b18f4904fc0ec3c620",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\death-hard\\candidate.lbl": "192b239a4dc33010af0e16b901a12b3c033534e51a372d55e22a65741a8f5157",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\death-hard\\case-end.argb": "8bfaa7d6fb8209baf5d5e4b852c28da271933d5fcb141e2c502dc764d2de0d7a",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\death-hard\\configuration.json": "4ffb6a874d7edc0f1592d63987cf62f49b40074cad2863da385b1aceac7f6c30",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\death-hard\\deadline-timing.csv": "bcdb43270a0fb25040ce9dd69528ce6d68698dbd968fc1ff041b08980f0a1b3a",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\death-hard\\dma-bus.jsonl": "2d46640ad7488f1ca987eb1a2ad97c2a32e29259fb0b66fdee13c7d2db852ded",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\death-hard\\dmc-fetch.csv": "6aeb1c4f36c506872bee5326f85750a2eb99e5a8cf7978648e4ff0c18798e0b1",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\death-hard\\last-case.json": "5b55fcdc50bca314487032b29b49acbe7324daddfe0806c329e7d421bc70c902",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\death-hard\\lifecycle.jsonl": "71e66eddcbbcc47092bdbd0e0350fd6f399abb4f1c6576d956df6d96a8216914",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\death-hard\\native-cycles.csv": "e505e77f5b2a5b69b7c0f8c800f56b53e4a2ae81dc70a8960f6d21a0e745c4d4",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\death-hard\\preparation.json": "f17bb409cbfed0eb8298b0ff4be8809b836c19c7dde91cc3d19a531984ceb0d8",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\death-hard\\proof.json": "8e2cb88e795a619b92936ca90f4d78c75e2c71d889d3e85adcfc5b2a80c560bf",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\death-hard\\requests.csv": "962d77449f728a10d2aed83e74dffc98f20930eb7cc0a6dfbfdc4a336a1a8e88",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\death-hard\\run.lua": "34ac8bb6c4642e4a4b5cda63c80902574ff532a296090a8d6acee1654b82ac5b",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\death-hard\\source-voices.csv": "12f9eb5088764c17a5f27946d872199b44a86a3ed2f62b54d87a73f663a390f0",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\baseline-death-hard\\host.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\baseline-death-hard\\host.stdout.txt": "69ac66ed7254c5953eb1c7a324d32f6717eaea0eaeca11733e3e579889800666",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\baseline-death-hard\\launch.json": "eea9b80b0b1e40a9f24f06bd3dacbf476bee37c0a585a70728321501facf5daa",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\baseline-death-hard\\proof.json": "203a2599ee744f1b9e78c13c2caec2cc45236fc966964e12e6245c28ebe4d912",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\death-hard\\actors.csv": "19877ffaf560c08f9d09a4810dad313486f57a921a835d4084648fc9af396fd6",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\death-hard\\apu.csv": "c43bcc3901c5f311153841a6f10ca3861782504ca48e374eea4580a977723c96",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\death-hard\\cadence.csv": "ea1390a0ee7cd9d58f64557efcda890714db4dcc4a87c4b18f4904fc0ec3c620",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\death-hard\\candidate-run.log": "87f48b3e3c61469196798078e1f5fe61a546d4c7a87b96723ee1e95b035726e1",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\death-hard\\candidate.lbl": "0fc619a37c0d0e00804e236cc9d099755af323506545640eb1b2802e550e72d3",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\death-hard\\case-end.argb": "8bfaa7d6fb8209baf5d5e4b852c28da271933d5fcb141e2c502dc764d2de0d7a",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\death-hard\\configuration.json": "6abca2adf35adf4b1161beab582e3abcd594e06f6b47ee9e7b9649a368492fe8",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\death-hard\\deadline-timing.csv": "fc0fa908aa331643b6762cb5fcbbbafdd89e7c28fafe626099525fb2762f044f",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\death-hard\\dma-bus.jsonl": "6a142d4f7ff9df4d9440bf25fd9bd527559e203d2f14ec9586735a640a9aa59f",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\death-hard\\dmc-fetch.csv": "6aeb1c4f36c506872bee5326f85750a2eb99e5a8cf7978648e4ff0c18798e0b1",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\death-hard\\last-case.json": "c1669a331de4bf331e1ce5bad18736ca7f035ca70f44e16fb80912b237beff50",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\death-hard\\lifecycle.jsonl": "3a3001fd264f5e13d87a3f1ef9f11e259366795f0ca0e72f120118fc496e36d4",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\death-hard\\native-cycles.csv": "ef1474c1b0db14b0dad59b838d01cad2d89529a890c024fb34ec05533af07150",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\death-hard\\preparation.json": "c25b49b2ab78ffcf17d83f7910f5d4b5afde4b95cfd80fa4fb48d524c37bf780",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\death-hard\\proof.json": "baf334a3e2e364869e00a08f3d51bee65850fca76d6e1e44c98db22df6862ef8",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\death-hard\\queue-owners.jsonl": "e4a5d5fc212b146aca03ff062f41e93421ee07c2c77694f5b55fd9c2f56abcf0",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\death-hard\\requests.csv": "3edc520eef404bf2c6202020baef3590971d859941edc1ca8724cb7b1944a73d",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\death-hard\\run.lua": "40fd7d8f93df93770702bdded4bfcc39066109a50f2e2a2dc828130a9ef66bfd",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\death-hard\\source-register-image.csv": "316dc4592faa51b2c571a619abebb090669d4d9a5db1de0a159677d0a6947353",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\death-hard\\source-voices.csv": "2c9282f5e15661ea5cff64a77c3bf5ef4d484b8c831dd4854c56d9ed3e1f93ec",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-death-hard\\host.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-death-hard\\host.stdout.txt": "07526921b14ed8ea43f2307198793de545160d1c5ff4fd0d1147f159df5f20a4",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-death-hard\\launch.json": "c12f99acb3699c0d621ad4557932ed01f3299bea100047b21d198aa0fd1912cb",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-death-hard\\proof.json": "d8c1ba9ed4350e62d4b74d5b67ac60ce2914cd48de1438cad6fc71f1aa1d5965",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-death-hard\\verify.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-death-hard\\verify.stdout.txt": "06fd2667cbcbb6fb9367dfd562e854a56ff7ff10fe94629eb9c9b646eea839ff",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-death-hard\\comparison\\proof.json": "06fd2667cbcbb6fb9367dfd562e854a56ff7ff10fe94629eb9c9b646eea839ff",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-death-hard\\comparison\\source-model.json": "424d6f3bf474f7f451b5f0c463fce2f58cb78abd762b6b86d9c3fa3f0f2c7a9a",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\mixed-easy\\actors.csv": "a61ee5557f76d233a039acd8366cba8b1c61a7fca1a60601a5028dad02ef4589",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\mixed-easy\\apu.csv": "529e0abb4df8300fed5d4bd2dd7821cd57bf4aeeb7cda113c4c15f6458ac6cd7",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\mixed-easy\\baseline-run.log": "5ddc0f0b99164443252042c90e616da86c579c07ad8b2ea0a1a0933a3e33a0f7",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\mixed-easy\\cadence.csv": "6be6a2bc0c6ccad2d0239687c09ffc839a6e5728189b07e19bafa5424272a648",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\mixed-easy\\candidate.lbl": "192b239a4dc33010af0e16b901a12b3c033534e51a372d55e22a65741a8f5157",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\mixed-easy\\case-end.argb": "e65656918a41c6b71d67138bc963368bca13c7e548a605a2d0fe981f7135481f",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\mixed-easy\\configuration.json": "f17b793d41916c109b5a17190b692c5cd76ebb47fbd1f84a4ad7afc07698f291",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\mixed-easy\\deadline-timing.csv": "24efa7249d1e3c4f4b385de1e988f6abb01adf680535697c84a1d93001f4232d",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\mixed-easy\\dma-bus.jsonl": "e6f4cee53c2902ad87d3ef28ab5c14037ae334349c35750e22021bd439c7f607",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\mixed-easy\\dmc-fetch.csv": "d66b747a83d5384ffa03ec4bcf0f1b3e9683e8b477772c461db6fc76ecf63d69",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\mixed-easy\\last-case.json": "cec2adbab61efd7a31804f7bf01d1ddcb7610b2e421699dd9daf057743315a63",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\mixed-easy\\lifecycle.jsonl": "12e297fbbb9faa844d45fe5ded308f2fc4ee0ae3e5adca44aca33c3c5f85962b",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\mixed-easy\\native-cycles.csv": "64c776e7e4f8d040e000d73a36565d425f6e185afa28fe20b0d48b924a837f8d",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\mixed-easy\\preparation.json": "5b7648c5dd7042789a3d4e69a798171bccb77daab390f8cad3840e9a909eca67",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\mixed-easy\\proof.json": "9e22fb929087427b2d083fd06d2be34b4fc541465e09d5f7f98b82e1ad7e3e5b",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\mixed-easy\\requests.csv": "962d77449f728a10d2aed83e74dffc98f20930eb7cc0a6dfbfdc4a336a1a8e88",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\mixed-easy\\run.lua": "8f808f2c78fd6fc80eb24a076954f45bf6ce32b41e7bfbedca82609c374f4c85",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\mixed-easy\\source-voices.csv": "d57079c7f90b51a0143e21c564c2c9f06437c5d90ce87a745b827451032055b1",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\baseline-mixed-easy\\host.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\baseline-mixed-easy\\host.stdout.txt": "bd6bd29e0977dab75229ea3b3ad1efacb829442c8069ee522cf14d8bb22f6dad",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\baseline-mixed-easy\\launch.json": "23242c96c00c1afda0d46313e87e98b0fc2d73d7c33b06d6de29ba397ef46bbf",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\baseline-mixed-easy\\proof.json": "ef123f3204c27afda6ab2347f7f8cb216df06445790439e5c8103fbe45122eec",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\mixed-easy\\actors.csv": "a61ee5557f76d233a039acd8366cba8b1c61a7fca1a60601a5028dad02ef4589",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\mixed-easy\\apu.csv": "3ae5e5ca9763984365b9624a5e1d9ca9444c3c52cd06c9ef1376fbe709ccdd98",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\mixed-easy\\cadence.csv": "6be6a2bc0c6ccad2d0239687c09ffc839a6e5728189b07e19bafa5424272a648",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\mixed-easy\\candidate-run.log": "b5075a4477e1322b040c06eb6d5ad4c405563a6f323ec8d0a894a1cd9688cb44",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\mixed-easy\\candidate.lbl": "0fc619a37c0d0e00804e236cc9d099755af323506545640eb1b2802e550e72d3",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\mixed-easy\\case-end.argb": "e65656918a41c6b71d67138bc963368bca13c7e548a605a2d0fe981f7135481f",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\mixed-easy\\configuration.json": "7ff31e10b3104e4f2444c7d60f23b33cb5e0110620774f19956c8760cc59d8eb",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\mixed-easy\\deadline-timing.csv": "41fba01a0057b7590e192e64b62e248fd47e86e90e6a106efc179b822076eb39",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\mixed-easy\\dma-bus.jsonl": "6eb4afbe84ee80a7a1e4fa0b0d0c1ccf895ec81013960fe6b32fe45b06740006",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\mixed-easy\\dmc-fetch.csv": "8a20e6ed226c5f561cdcc7022629e3977d4b2e0b5982f0b10ea788c79ff879ae",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\mixed-easy\\last-case.json": "f65eedfd06d1f034e2539dce14b2f222eb83661c0b542c3bb898f4d15e89d97f",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\mixed-easy\\lifecycle.jsonl": "f787cd780cecd74339a67a8e03269866ea50c548ac8a065544f6ab02cc712def",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\mixed-easy\\native-cycles.csv": "e7dc436dda9c9d3cae0559e64185f18f40fbed576e765c13257a1cb393a128a9",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\mixed-easy\\preparation.json": "c096665b7e23d32d07bfe33f3a4d0e1a3690bfa9282aeb4add9fd009970c5484",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\mixed-easy\\proof.json": "7beabe6afc4bce7a38153a99b2ceb44355618269c0347d7209e18297dd7897b1",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\mixed-easy\\queue-owners.jsonl": "d1bf16d3e0042cd596857b2c4e12776a511c3c8199a05327824cfa70a57aeaf0",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\mixed-easy\\requests.csv": "469c3ec528a164a217f880d34546f28a0ff8541691ef1e7e6b8e454faeaf332e",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\mixed-easy\\run.lua": "fb9d1cc029edf65beb3ddd26d8cffa627529cb87cfc147f5dc9d88b61304a76c",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\mixed-easy\\source-register-image.csv": "1b6e13012366665a3d6c0407e33c4cf394e197dc3699bc21e2a977b81827371e",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\mixed-easy\\source-voices.csv": "8a35dac56c2881ec0e52a24f52bce1a7603c22f72d966778620f4c063fe2606e",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-mixed-easy\\host.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-mixed-easy\\host.stdout.txt": "c04bd6c6c8cc348d43ff579e782e75d03be283719293eeacfa05558d87e9fe2c",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-mixed-easy\\launch.json": "6ffee02a174389cd056d1ee6b89673315d6dde0497a248bf92eb9f7bb9baee1b",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-mixed-easy\\proof.json": "5259e766bd6771b6023b0f01d68efc33526fdea7e7cabac35af80f80d342d25d",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-mixed-easy\\verify.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-mixed-easy\\verify.stdout.txt": "7be23b5ff5501f4bab9817697e3cab3dc4c6aa3b7b5bb8aa17401b2bbe125bc9",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-mixed-easy\\comparison\\proof.json": "7be23b5ff5501f4bab9817697e3cab3dc4c6aa3b7b5bb8aa17401b2bbe125bc9",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-mixed-easy\\comparison\\source-model.json": "d6aec429f5f3d93221b25e8e78ee6a9748a402c80289fee3ffae421119de0418",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\mixed-hard\\actors.csv": "8f7d2a40e36779e0646dc91e47b96c5cc098bef12024b686d67da06b583be5f7",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\mixed-hard\\apu.csv": "8797f67474d776d9b7eb675e6d77fbb971e279b45973ed12d4988802fd46e075",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\mixed-hard\\baseline-run.log": "2366e4bacba4e195c9ec6f5346477acebcf2d04164b7bc3350f9b83e54da3332",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\mixed-hard\\cadence.csv": "f19bb294041aa60990bdb42de89340b65bd36853696737d44707c30a1ff39444",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\mixed-hard\\candidate.lbl": "192b239a4dc33010af0e16b901a12b3c033534e51a372d55e22a65741a8f5157",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\mixed-hard\\case-end.argb": "9850dfdccd8a1f391f8dbbcba67678253d49a8889f053bd625ded21023ac84fe",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\mixed-hard\\configuration.json": "0284a54e5bb290c8ba1f49dccb120805c3be3033fe1df5cdd58af9feecb4d66e",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\mixed-hard\\deadline-timing.csv": "69afb7e3c9762f60b36a42885d8311d92bcdcce8c54df36c611eba131ac5a528",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\mixed-hard\\dma-bus.jsonl": "8bc731eb77fc331a9c2857fc4c13fa51c4fa0ae3c8d22954bc797dce38dfb3ca",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\mixed-hard\\dmc-fetch.csv": "fac0eab405d6f7f157d841c8b0c62f48431d937d1937648cece7e5abfd8e5a6c",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\mixed-hard\\last-case.json": "42ad9adffd59859b923ea62b501c02202a1df34d2b75630f7a11acb94bed2a54",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\mixed-hard\\lifecycle.jsonl": "0f476ad7d30cfe27e976e0191fa842cb70fbf946d65638b65501a474f6beb607",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\mixed-hard\\native-cycles.csv": "1afb90e1d8abe222885d64cd5bfcf064370dc6c197861b1e8534480e2f4348d2",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\mixed-hard\\preparation.json": "7c8aa79bf3aad7db974564c52475da576386c274afe5b8e97697de7a5f3424c3",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\mixed-hard\\proof.json": "7337e409e118ca6afb24a2365b81cf1a1fc26fd8f5516a9e0d1b80ceefd36b45",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\mixed-hard\\requests.csv": "962d77449f728a10d2aed83e74dffc98f20930eb7cc0a6dfbfdc4a336a1a8e88",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\mixed-hard\\run.lua": "43949b27567bb58152a93682825b8dd03579d0e6a51c2f95f203794fdf61999d",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\mixed-hard\\source-voices.csv": "3b720015036a7f13a0183b593805cdc402d0250f5c825dff6450de5097e124ae",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\baseline-mixed-hard\\host.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\baseline-mixed-hard\\host.stdout.txt": "c9eb5cb9b5ac9281291b7283f821d59669bbf6f3152fbebfbe0cc34614aaa7bf",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\baseline-mixed-hard\\launch.json": "7b8138f0daccea969cb4fcb0221bc41215b5909c19125bffa5fc1efb52634e02",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\baseline-mixed-hard\\proof.json": "f41f80942e1afdc18a1a5d3d4622cad59755138c796febb2a284b3913fd8e1c5",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\mixed-hard\\actors.csv": "8f7d2a40e36779e0646dc91e47b96c5cc098bef12024b686d67da06b583be5f7",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\mixed-hard\\apu.csv": "9a32fac4c87ebc2ec2c3f79960dcb47b028ece6ddf8874f16a719255a7eb8621",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\mixed-hard\\cadence.csv": "f19bb294041aa60990bdb42de89340b65bd36853696737d44707c30a1ff39444",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\mixed-hard\\candidate-run.log": "6d5b138502f542894cba3a449e16c2ab5f5b1a923325c3e4e42e5fe4bcf6e113",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\mixed-hard\\candidate.lbl": "0fc619a37c0d0e00804e236cc9d099755af323506545640eb1b2802e550e72d3",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\mixed-hard\\case-end.argb": "9850dfdccd8a1f391f8dbbcba67678253d49a8889f053bd625ded21023ac84fe",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\mixed-hard\\configuration.json": "65ae75bd26cd1c8ac0762f08c2cbfd0d64122f82597a4df9158c3123d8654423",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\mixed-hard\\deadline-timing.csv": "43b2c8af34b537e4cc2594a742775f6a57a4535b04d92de99af615d4a49e5a7d",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\mixed-hard\\dma-bus.jsonl": "98d267c4a4f7bab0cea190561ba561643c54b7ffa75a46f020e313eb4fee3778",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\mixed-hard\\dmc-fetch.csv": "023dda451927558e7a8795d641c7ac216e23381a7905602071cf8c1de95d5dbd",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\mixed-hard\\last-case.json": "92f6a085ce2a5ac0d78d1a1d044dd1f3e04312e7f0e339d1b0f84632239ad6f4",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\mixed-hard\\lifecycle.jsonl": "0db68dd0fbba73c016a1a4cde57f8694373d5ffa80c73ad5ec866cee9bc37c7e",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\mixed-hard\\native-cycles.csv": "275ccf5294f7ee6e29b1a1591e988e2ce23a138866fcc930c1d9a71ad129129b",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\mixed-hard\\preparation.json": "af136735804464efbaed08b642167e1e1d94791c2ec1e893f7c533e641348607",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\mixed-hard\\proof.json": "21403f25b210021a725e3e99205c01c0516f29ae190047fe14230a47d969f5a6",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\mixed-hard\\queue-owners.jsonl": "992d65f8a9050aef999dda97d8aa63ffb8e5e9db520064b5db0b8d277ca3b930",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\mixed-hard\\requests.csv": "5fa0a65f33e34ced77149e6649942af238f1df59791bd623788a1f13cfca50de",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\mixed-hard\\run.lua": "94e0a3cc65999e1acbd7d7150078afa7aa45420b5ccd8110634b2a65c6489475",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\mixed-hard\\source-register-image.csv": "d342a513469abbd44e65437e78a16ffb0d1b2c8d36b2d8a137a3a21bbe80d2a2",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\mixed-hard\\source-voices.csv": "41e1c321dec5dcb43e1b2a2e157bdbb69945ed718034939e99507a73c613e36f",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-mixed-hard\\host.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-mixed-hard\\host.stdout.txt": "96a14abef93148cc38141ee7ee8863b57d5d4a61760ce04257a66c428eafbb8c",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-mixed-hard\\launch.json": "6a993511cfdd663269a5cc9dbd26304aecb6996f6ae8bae600d7a57781be92fb",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-mixed-hard\\proof.json": "97f4e959c7063d059b1abfbe8fb2966726ce6be00b91dbe2b8fc88408e6cb8d1",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-mixed-hard\\verify.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-mixed-hard\\verify.stdout.txt": "b14d508496d3ecc18ef336c5f57b56c09daafcdb60fcb1a0a1898f726c91166c",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-mixed-hard\\comparison\\proof.json": "b14d508496d3ecc18ef336c5f57b56c09daafcdb60fcb1a0a1898f726c91166c",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-mixed-hard\\comparison\\source-model.json": "d6aec429f5f3d93221b25e8e78ee6a9748a402c80289fee3ffae421119de0418",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\pause-hard\\actors.csv": "4dc3258a840c45c8378b93c154c2b5649e2918d81c20e5d1d9afb9fee7a1145d",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\pause-hard\\apu.csv": "08d98292338e818a0f958455497e04cc2d53c74c76a16df022f6e80687d51349",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\pause-hard\\baseline-run.log": "518f014e6992ff68a2f465f3c70b51cefe7eba681a34dba6a59b34e5d7f03bac",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\pause-hard\\cadence.csv": "f73faa5739afc7d8195273cf2d1a6d04d62d7039ff42f890d9f6668565ebfe5a",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\pause-hard\\candidate.lbl": "192b239a4dc33010af0e16b901a12b3c033534e51a372d55e22a65741a8f5157",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\pause-hard\\case-end.argb": "f306980ea0d24315240b294963f7904e7175db23fbc052220ddcd06c82ad51b0",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\pause-hard\\configuration.json": "cb621aefea8b320c547379dd04ae46e8a17bda259b7726d733e3e5f73edb5b54",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\pause-hard\\deadline-timing.csv": "c88a78a3ae04561092efc04b23cec7c1bba57fcb58d735372da230eed95d42c7",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\pause-hard\\dma-bus.jsonl": "e1eaaa0ce3e3b11ba0f810ec6f92fb54d782b582237729a88114e4d2797c6e55",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\pause-hard\\dmc-fetch.csv": "6aeb1c4f36c506872bee5326f85750a2eb99e5a8cf7978648e4ff0c18798e0b1",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\pause-hard\\last-case.json": "8de31f64b1b4e109853fd45ba26283db9f19a6ea9caa4efed918f5de56d75022",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\pause-hard\\lifecycle.jsonl": "6764ea86b16a8f692ef6b01b69f5515e7c0ca2687d056c751d6243dbbb3fe244",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\pause-hard\\native-cycles.csv": "56d885fa2a78b9feff236447f7393c50087ec0a65e508710a86a08df5fa66e46",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\pause-hard\\preparation.json": "dd7ddf390a577354324017b2f28d68f07518a5ba1d63eed443256991556311f9",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\pause-hard\\proof.json": "46c963c1dabb0916eaebba0719e6145163551c4c3777cf60172a44fc6fa40f30",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\pause-hard\\requests.csv": "962d77449f728a10d2aed83e74dffc98f20930eb7cc0a6dfbfdc4a336a1a8e88",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\pause-hard\\run.lua": "9659ea626060a9db5abb112ed5b2146477f34cc1479f649c080bf1623013c7ca",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\pause-hard\\source-voices.csv": "62fb4b99e3dbeb3c662c12cb6e9751840dc5bfbee881dd7e2e0e7e8d39f41393",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\baseline-pause-hard\\host.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\baseline-pause-hard\\host.stdout.txt": "aa12d67a9de3bf1bf320f23c3331d5ea6def64b2138d61bebfa415685fe08a34",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\baseline-pause-hard\\launch.json": "d0f2de539d432ab17d322d618b093ff7b9342e1ca93ff721c87ae772a473a2d0",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\baseline-pause-hard\\proof.json": "22063b2e4b84b5ded98c55472ccae5dc74e4bd6040efde86d273a705966e6d43",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pause-hard\\actors.csv": "83c5e138ae5d4a2d1a5400315615c95eee56b503d2cde2084f6ac856bd6794af",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pause-hard\\apu.csv": "2f078172f6da232333ed57dc823e2f87e33eb5ca06ce47afa5458f7b160571c9",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pause-hard\\cadence.csv": "b84d802b06182eda46d767fbf52ec4f3ec6edb6ce73ddce12a0bfafd20613a0c",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pause-hard\\candidate-run.log": "237ded7517fb10cbe64ec8961e04b05bf4cdf8ffac4f112b8f56079df762a17f",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pause-hard\\candidate.lbl": "0fc619a37c0d0e00804e236cc9d099755af323506545640eb1b2802e550e72d3",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pause-hard\\case-end.argb": "f306980ea0d24315240b294963f7904e7175db23fbc052220ddcd06c82ad51b0",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pause-hard\\configuration.json": "6bf336373d6f5b8a476637a4e02087e6cd86d2aeb57eef7883a1b59a33ae1efb",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pause-hard\\deadline-timing.csv": "3503108680df6c7f38de9fb72123aa5a99585f7fb850fbda4b276fac3612a5e9",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pause-hard\\dma-bus.jsonl": "56baa03abb115265182f5c23731d1841ba16725ee57dd6722628d80a2a62392e",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pause-hard\\dmc-fetch.csv": "6aeb1c4f36c506872bee5326f85750a2eb99e5a8cf7978648e4ff0c18798e0b1",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pause-hard\\last-case.json": "63420f626f376743c25ddbf5ed79d657189d02991644cf4a43343f4b6e258946",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pause-hard\\lifecycle.jsonl": "da8e838c29bd1ef883ec6bf75274b9c8bcaeefa9ea7dc69c72cf3a942dbc2207",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pause-hard\\native-cycles.csv": "5119c415014ed1a984ac1d7b483e792267ab8921aadc9be15381da7d37866857",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pause-hard\\preparation.json": "4b3785da53fd47c65a866bdb8bacb83fc9c3be41ea93210c42cb30e4e6233de0",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pause-hard\\proof.json": "5660d8eafd14670d806af7705d3b41bc5620804a524573bf47108cb329de7852",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pause-hard\\queue-owners.jsonl": "3fe06fe79bd524bdc1545236ecfeb6f7b84a5a35f4c415fbf13c1d2a9abec3ed",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pause-hard\\requests.csv": "9ebce696ea85ccc9c2a9cec5c2f58234fe3b19232ea7040c346df6885d14a8bc",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pause-hard\\run.lua": "1acc9575b30ed714eb862244c41342155c20edd88446e32c6e989e6cd9c6998b",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pause-hard\\source-register-image.csv": "4d0f1ea41210f7565749ce6f464a91f31291ff0b2e7373a107688391b138f7e0",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pause-hard\\source-voices.csv": "ebed18545b2d310ffb6548abe6d3630aa4dda714b763a5b62a329c0399b99f70",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-pause-hard\\host.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-pause-hard\\host.stdout.txt": "5fb72bf06cb36385d93d82600d61dcb6140b36c86a5ca3d70aa0aba06e7ae818",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-pause-hard\\launch.json": "76e13eac337ff8e858fd770d250f3b27c9f316fbb271395fe42012410fa4a2c8",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-pause-hard\\proof.json": "9643e725c0b7c13b3dc0e434b0ea7c15518d52d85207014c50af0f2aad4a48f5",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-pause-hard\\verify.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-pause-hard\\verify.stdout.txt": "b6eefda98e1fecc5260044377799c271b41a538a5b2b2906e39ed20aa92d5e5f",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-pause-hard\\comparison\\proof.json": "b6eefda98e1fecc5260044377799c271b41a538a5b2b2906e39ed20aa92d5e5f",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-pause-hard\\comparison\\source-model.json": "f2a9d634f7a830cce645d5b18b1da0f6ef44a59c8d668a5811c328612ce2d2ab",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\pressure-fireball-easy\\actors.csv": "acbfb58801fc6f6eeb2651ae8106efb864267fd085a858e105c77a4baab32def",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\pressure-fireball-easy\\apu.csv": "e91b32e4671d1878bf0472c9a40ee8e44c2ffc46e9b1a817d3ab43e203555b4d",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\pressure-fireball-easy\\baseline-run.log": "f108f80e27d282395ac0711521336576a1cd50e66d1ea3ec16fa8c1829f81680",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\pressure-fireball-easy\\cadence.csv": "a2708e45c401817c66456d76da7a88cfccdf0878b05fa21e07cad2cfcdbc3d16",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\pressure-fireball-easy\\candidate.lbl": "192b239a4dc33010af0e16b901a12b3c033534e51a372d55e22a65741a8f5157",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\pressure-fireball-easy\\case-end.argb": "aad22992d049d12f4e3b8ab383b87962569add6fce6098fcb4b81b89988bf095",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\pressure-fireball-easy\\configuration.json": "5d2e4489eeccf84095714bc3e1939699b5d984715c3491f9f3c9792c5062c3de",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\pressure-fireball-easy\\deadline-timing.csv": "e8b4eb621395337a923d37ccba5e19049be43835da8bde26e1d385fe1787348f",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\pressure-fireball-easy\\dma-bus.jsonl": "3edb39dc504fb7cb87743bcc5dce142f7e3a81167586995cd4e632318d2d6bc3",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\pressure-fireball-easy\\dmc-fetch.csv": "6aeb1c4f36c506872bee5326f85750a2eb99e5a8cf7978648e4ff0c18798e0b1",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\pressure-fireball-easy\\last-case.json": "30af0160b58038061de375efbcafed26c61e854e6cc23ca097693a2fe744e770",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\pressure-fireball-easy\\lifecycle.jsonl": "7f56c72b40349aef979744be575fd8aea8f0e92e151fd2d8c0950b426a9d28ff",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\pressure-fireball-easy\\native-cycles.csv": "c6b004eb2d64ac32153724ee24a293612b53d5c122c03ccaa5b8bef8bd1b4346",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\pressure-fireball-easy\\preparation.json": "f8c3549228c3a25db6ed3c702ce426ad4dc22754d45ff1da776f004d6c2a107d",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\pressure-fireball-easy\\proof.json": "08945844b27ae5e1cb2711eef645411c64103a15508143d9c70b819f093bab34",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\pressure-fireball-easy\\requests.csv": "c29c921cda38649d85aa2cf3f6a8e7e3d769393052f85a5ed647997b24638b4e",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\pressure-fireball-easy\\run.lua": "78cd8ce1923b64f7013ec933d5d38d07991b39ccca4f14b02708a0df28c3f2ec",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\pressure-fireball-easy\\source-voices.csv": "2e169c0cd08ba2d521940477fa9279a0d28b8bc080a3174d02d048a197a32297",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\baseline-pressure-fireball-easy\\host.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\baseline-pressure-fireball-easy\\host.stdout.txt": "b4baba3cb36087e75c8b9382585d56bce64da866a8ad1349eac42bd7bb31b22a",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\baseline-pressure-fireball-easy\\launch.json": "0148d2f27aa227c3a444a012185ef8a020921441ca4b519621f6abb16b4f54d8",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\baseline-pressure-fireball-easy\\proof.json": "98d9723ec6d9488c6d40d03256a7350de0e1d3a5f30c5304c454569864606521",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pressure-fireball-easy\\actors.csv": "419db54d138f90aa7acb884b071b87a7921ce0da1f52df40100a9a1bdcad7265",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pressure-fireball-easy\\apu.csv": "b7631f6a02783fb526bee4f560d619ede5f00787c280bf59a00382ac9585a5fc",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pressure-fireball-easy\\cadence.csv": "3457cf8213eeb986644e8de58246f10528ed13c7f11e78bad128a4df2390da25",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pressure-fireball-easy\\candidate-run.log": "df0b5f272886a65742ce20b5fa1654c47d607f12b7092acfd1ad2b925b9537bc",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pressure-fireball-easy\\candidate.lbl": "0fc619a37c0d0e00804e236cc9d099755af323506545640eb1b2802e550e72d3",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pressure-fireball-easy\\case-end.argb": "aad22992d049d12f4e3b8ab383b87962569add6fce6098fcb4b81b89988bf095",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pressure-fireball-easy\\configuration.json": "984ec81ee9b1303fd3faf4f0c18c9800938098ea4a856f60485fb1fe41a47323",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pressure-fireball-easy\\deadline-timing.csv": "5dd5271cadc1e674ab29c813ecb6b7c3efdac2eb6658b5a02da2879496acf28e",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pressure-fireball-easy\\dma-bus.jsonl": "7ff20942c4026099f7a6c843f7c02d3d93fb74b9ced1d89ed261b8bb0a41152f",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pressure-fireball-easy\\dmc-fetch.csv": "6aeb1c4f36c506872bee5326f85750a2eb99e5a8cf7978648e4ff0c18798e0b1",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pressure-fireball-easy\\last-case.json": "3906b70d4563f4a80fea6159bd455a7af99ba0659bb0718bbd1da62881db33a1",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pressure-fireball-easy\\lifecycle.jsonl": "9d14d26877d726425f8dbeff80d73e606f52366c69ada0bbbb4fa240d69ce0f2",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pressure-fireball-easy\\native-cycles.csv": "8d81bba14fcc096acaf5062b0ef2e616acc3a01a7a9c6aca5c8dec024a1f3e7c",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pressure-fireball-easy\\preparation.json": "5661e676fbcdc36ed58819889d5bc92576384600da0b12b4d4cf1d96868b74c4",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pressure-fireball-easy\\proof.json": "9f9fa9e29fcb722be8a246237cef3d7f079221e43b79f5b4db1e1b83447712a8",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pressure-fireball-easy\\queue-owners.jsonl": "835838efca93659eaf90e66737e6111e7ac8c840fed18bebd0ed4ad70fac5a26",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pressure-fireball-easy\\requests.csv": "7057b77439c64790f5f01a46269fd6fa40e1d4e95066b02486524b1cac1b7a60",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pressure-fireball-easy\\run.lua": "44f193dad2e3f9ff86d3238901d77e92b164fa12bc00fec2452c061c6e1d98db",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pressure-fireball-easy\\source-register-image.csv": "048ba21411be05a65499e2434253c4fe8058b19844f82598f70bfa9777199004",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pressure-fireball-easy\\source-voices.csv": "2e169c0cd08ba2d521940477fa9279a0d28b8bc080a3174d02d048a197a32297",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-pressure-fireball-easy\\host.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-pressure-fireball-easy\\host.stdout.txt": "a0fc3b093acd98dab8acb96e4b2bcc394158e14946fbee10f4441fd0502624d5",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-pressure-fireball-easy\\launch.json": "8e316f5eeb48e501b69d5141886d407c411f3f18364ab5daffb777da8656c093",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-pressure-fireball-easy\\proof.json": "74c6da391a9dd147550b24da1630b1fc88ff67ed451b36c5953557ec8243df78",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-pressure-fireball-easy\\verify.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-pressure-fireball-easy\\verify.stdout.txt": "232099c68a8621d0003e6cb54d60430da92e27914b4b1d5ede36188f73ada9c1",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-pressure-fireball-easy\\comparison\\proof.json": "232099c68a8621d0003e6cb54d60430da92e27914b4b1d5ede36188f73ada9c1",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-pressure-fireball-easy\\comparison\\source-model.json": "e87c0effccb0d669e8f71ff113d7b7811a47a812a504c66891a1390d6d76ef1f",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\pressure-fireball-hard\\actors.csv": "7bc0e0ce5cb4ae626a2bf1b5f96625ed837f085cf771c36b5e3fb0d03e7b956e",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\pressure-fireball-hard\\apu.csv": "a18500dff05a0be90ac0bcee481f015f296431e4d4000cac8de67026914ebb33",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\pressure-fireball-hard\\baseline-run.log": "f6247900d4c17667eae22b4b9634e59e72f3217979947b4301de17b3145d78d3",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\pressure-fireball-hard\\cadence.csv": "d08615bc797315b0796b1e23901f1bf7549825d541f4628df07f89181cf1d01e",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\pressure-fireball-hard\\candidate.lbl": "192b239a4dc33010af0e16b901a12b3c033534e51a372d55e22a65741a8f5157",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\pressure-fireball-hard\\case-end.argb": "4a0206d0b45456ff87e7c0bfb96b68ca164d68d57877cb08f9cd54192fa2db28",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\pressure-fireball-hard\\configuration.json": "de87238cf6cd36c96627e33aef89800ca85461bd01cf0388adef2bbb75157512",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\pressure-fireball-hard\\deadline-timing.csv": "12cc995fc6837cb8508c8ec8b099c3037ffa685cd4be96fc20f4402342e01fe3",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\pressure-fireball-hard\\dma-bus.jsonl": "f858ba43188d48fa0304c69a69e0e0567becc74c25387161599e9b4e99400d5a",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\pressure-fireball-hard\\dmc-fetch.csv": "6aeb1c4f36c506872bee5326f85750a2eb99e5a8cf7978648e4ff0c18798e0b1",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\pressure-fireball-hard\\last-case.json": "e9a49683794a62d91572a10249fd193711746dbdcc34eca5ddd5128ea9dbbbd0",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\pressure-fireball-hard\\lifecycle.jsonl": "ba13bfc7ff8b469e49bb00861a31369e15890438c1ca100225dbdbdc596235da",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\pressure-fireball-hard\\native-cycles.csv": "e46b7e83724f8dd75ebdc4258c3ba83db61f7adcfac1c27e1db839066a5b5257",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\pressure-fireball-hard\\preparation.json": "7500c6312eb692547b189a386bd1f3fe7eefb16571a66bc02edec5f024badb78",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\pressure-fireball-hard\\proof.json": "d950dcc7bfa8b4355e8ce79bfab7da2ac67b360d92296da2cf5517baba853693",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\pressure-fireball-hard\\requests.csv": "d67a7210861499cf6058b59d8eb942798824c1f27b9b988cceae30961a62d5cc",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\pressure-fireball-hard\\run.lua": "7c49957b23d4b428e3f4fbbe6f799abe21da0142898eb7a6f17ae35e2c5c10b6",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\pressure-fireball-hard\\source-voices.csv": "cb7cd2e0c05f6f3251b38bd43c9e5d56d571d5b312919905de1e7ec38f27312b",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\baseline-pressure-fireball-hard\\host.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\baseline-pressure-fireball-hard\\host.stdout.txt": "e328916c030ee32a96160746a11eba09fa2a704315d13d6f0a6c3dee1d1122ad",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\baseline-pressure-fireball-hard\\launch.json": "f2d238c3c1fdec5a8474e610e2b7e42790df0fe468dc7cc9ec04484ac0224f63",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\baseline-pressure-fireball-hard\\proof.json": "296933502fc8d2fdb1d9bdf1d56a1de3bc3f05375f0e1e5fdbd687e1c4f83e0e",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pressure-fireball-hard\\actors.csv": "647d3691234db3f2816b779e6cfadb5415ee2f46c04d759b7f628877ed11899d",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pressure-fireball-hard\\apu.csv": "c112b4b2db60d3140c6f4aebfa136d4323b55479ac459cae49047e125b63d1b5",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pressure-fireball-hard\\cadence.csv": "11ab8625724933892b41aa03f7fd4ef29f10b908ad017d71edf3bb68e86ac67f",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pressure-fireball-hard\\candidate-run.log": "96b7e2c26d74d065bd473ff46098121b5ff344df21f2ec2e5b57fb5200093910",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pressure-fireball-hard\\candidate.lbl": "0fc619a37c0d0e00804e236cc9d099755af323506545640eb1b2802e550e72d3",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pressure-fireball-hard\\case-end.argb": "071d810eca42b642ac46c0ddb95f5f5cbec5ec61e5affef30f5615a680abc259",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pressure-fireball-hard\\configuration.json": "d2a5d65b63ab64178e90cd59f0c7a161dc8301f7eb2fa27c5140f0164a7bc14a",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pressure-fireball-hard\\deadline-timing.csv": "11312f2a946975f8ddbfda94d4def303a9a6ddc8c2774c1b8703a5c8f38dedc4",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pressure-fireball-hard\\dma-bus.jsonl": "3351b5f5a8e82492d2bb8fcbab26ed4ac13cf7911c58bc384f1f44f072d33062",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pressure-fireball-hard\\dmc-fetch.csv": "6aeb1c4f36c506872bee5326f85750a2eb99e5a8cf7978648e4ff0c18798e0b1",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pressure-fireball-hard\\last-case.json": "759f5859dc7e991c9371c290a84f8fcc35c266e06c67775be239efdc906d5d48",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pressure-fireball-hard\\lifecycle.jsonl": "5140f2cbcb7380ab18616e3ca9ddb25bf662c134b74d233ad9833834a428870d",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pressure-fireball-hard\\native-cycles.csv": "eb460694ec3b41121d5ffe71b05656b9875438aa019bb9b3ed4d3cd8fb004f96",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pressure-fireball-hard\\preparation.json": "28214662d782ba5bda6b8acfdc9477b608238678812df9e034623f11fd1660d8",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pressure-fireball-hard\\proof.json": "7e35605d0d69881443d194996f1414879a0a6f5b15272d41e9d4ae4498ccf2d2",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pressure-fireball-hard\\queue-owners.jsonl": "cfc246823dd19996c7f0fb90bf11aaa6448d17e086ff2ff2b86c8266c53c6fa8",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pressure-fireball-hard\\requests.csv": "aa6499a5d2218ce40754bea4a439fc6668130f85720a8e2e91648931c0b331b1",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pressure-fireball-hard\\run.lua": "ccc90800061fc670d7627b0243c823e1e52c4e2c3c8cacab44959d132a623555",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pressure-fireball-hard\\source-register-image.csv": "67ebdf84e382796b5d47e1cf5df04283348f2c7cc95951dac3a67f3016583bcf",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pressure-fireball-hard\\source-voices.csv": "3a9286040aae729267f3b67da7d73a08e63e196fffeb02551c8328dbb2d0ea4f",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-pressure-fireball-hard\\host.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-pressure-fireball-hard\\host.stdout.txt": "cc5cb63ae9f9e6d4e027a5142636c78912e6b861dccb4ff9943911a22d0b25dd",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-pressure-fireball-hard\\launch.json": "db255f481184f9a64ab307484210ae0bdedd2824d97aaeaf6950d6d8a6d75ba2",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-pressure-fireball-hard\\proof.json": "954db9f9056040cef4161ec8132ece1e141524962818edae36dcf3da08290367",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-pressure-fireball-hard\\verify.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-pressure-fireball-hard\\verify.stdout.txt": "f568ff2b7c50b0ed1772e1413791c1b63341ada73d013e56c8605dffc4da2a1c",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-pressure-fireball-hard\\comparison\\proof.json": "f568ff2b7c50b0ed1772e1413791c1b63341ada73d013e56c8605dffc4da2a1c",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-pressure-fireball-hard\\comparison\\source-model.json": "d225f642236340623e4eb0e6c05137d4c6fe1c07286301f7870e57ad3543e37f",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\pressure-idle-hard\\actors.csv": "17bb2de4f7ed6d841b7b027a96ffe48aa0c6f8ce5dcda0cd4314bd53fc6c220e",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\pressure-idle-hard\\apu.csv": "c1b07ea09f6147ed268d75051750fea641505c730bf45838f6359e576f30d0e5",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\pressure-idle-hard\\baseline-run.log": "f835769a13df73312a6faa42315a8cdafd6b2478a11f332bd9632b82fc3c5318",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\pressure-idle-hard\\cadence.csv": "c13791e3463683d34b97ff31145dfc5634c51306e5b9f6ec07229232969e7fd9",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\pressure-idle-hard\\candidate.lbl": "192b239a4dc33010af0e16b901a12b3c033534e51a372d55e22a65741a8f5157",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\pressure-idle-hard\\case-end.argb": "fe39642737ece345e6f597621c6f3b21bcbc3bec9824c8c891846b97fe2b3479",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\pressure-idle-hard\\configuration.json": "0311db620bce4d8e4387595891799d5ee63b0e54eec917a68ddf8765d94808ef",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\pressure-idle-hard\\deadline-timing.csv": "bd845e82f66076af775c9f7c4069f1e2676da37afbdc988da60b4030eed2fdd6",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\pressure-idle-hard\\dma-bus.jsonl": "1cb975e11999ca269e1a8f93349280301a83556742efedaa422d692b7092c75b",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\pressure-idle-hard\\dmc-fetch.csv": "6aeb1c4f36c506872bee5326f85750a2eb99e5a8cf7978648e4ff0c18798e0b1",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\pressure-idle-hard\\last-case.json": "a1d0070b38e5baa6ab7303e15a4019cef41bccaa0238f6b10f48e38e6379d881",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\pressure-idle-hard\\lifecycle.jsonl": "59f210e9bf2dd4c49eb963f604eda8cfa545a8ceea6126a4fb76ff6bf88ea665",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\pressure-idle-hard\\native-cycles.csv": "768f82ca17b153283c8d26b2b4c1c619bc3ec7eaa779c136a645dfefde362136",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\pressure-idle-hard\\preparation.json": "eafb35944f23e0a4f03d6eebb5354c6fd05ab01b7a4ab6b4eec52a182f85e6d0",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\pressure-idle-hard\\proof.json": "bb788405861d93d33ce245f365a46ddc885005cb4ab4ef776f3ca64f36ed70f4",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\pressure-idle-hard\\requests.csv": "962d77449f728a10d2aed83e74dffc98f20930eb7cc0a6dfbfdc4a336a1a8e88",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\pressure-idle-hard\\run.lua": "19dac8b34f20e983974187d602cc52e62fc4e89f562da7448eb4edf19d41991c",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\pressure-idle-hard\\source-voices.csv": "87fb9e9db37d77429cba9c85d5c16ee7292640649f27199f6bcdfd9ec75bef93",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\baseline-pressure-idle-hard\\host.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\baseline-pressure-idle-hard\\host.stdout.txt": "5d2ac116c84c95b712b7afb5570650d405d2352dc74659d6847e613c8ee0e9a1",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\baseline-pressure-idle-hard\\launch.json": "51a1acb07a03911aba463f847d7c3b02d9bf06cdb0fd636a9834966c40de169c",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\baseline-pressure-idle-hard\\proof.json": "57a42fd4934e30e2a37522420f96850758ddbb561803cc873df596dc78a1e7a3",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pressure-idle-hard\\actors.csv": "17bb2de4f7ed6d841b7b027a96ffe48aa0c6f8ce5dcda0cd4314bd53fc6c220e",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pressure-idle-hard\\apu.csv": "6a46588d344530d1f017e2821bb5ab05c587782b5d73f59f43a1efa0d7727df9",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pressure-idle-hard\\cadence.csv": "c13791e3463683d34b97ff31145dfc5634c51306e5b9f6ec07229232969e7fd9",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pressure-idle-hard\\candidate-run.log": "2507d8f3e9d9c4b050b7a358aede8b7760b8d4f4fcc81dc00d334887066b970a",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pressure-idle-hard\\candidate.lbl": "0fc619a37c0d0e00804e236cc9d099755af323506545640eb1b2802e550e72d3",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pressure-idle-hard\\case-end.argb": "fe39642737ece345e6f597621c6f3b21bcbc3bec9824c8c891846b97fe2b3479",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pressure-idle-hard\\configuration.json": "8b89e7a2d13b5b70760eb5377d6ac6f01d22cff03cd706e9cbd54eb57cc6349b",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pressure-idle-hard\\deadline-timing.csv": "e438af2a3a66be8820a671dfd1339e2f4956a07cca36f291670e82fad716dc56",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pressure-idle-hard\\dma-bus.jsonl": "a87eef20ea6e6d2e89c53deebab870273d1dd9283496390d7ba19c4d0299b359",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pressure-idle-hard\\dmc-fetch.csv": "6aeb1c4f36c506872bee5326f85750a2eb99e5a8cf7978648e4ff0c18798e0b1",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pressure-idle-hard\\last-case.json": "1da4543e3f05785099169861c8e5885532f28ee055463877ca8b4547f0ed58ed",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pressure-idle-hard\\lifecycle.jsonl": "4f4a46316d97b6bbb3cb41337b579518f44d77bf1f5f46d58ebc0d41814cffcc",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pressure-idle-hard\\native-cycles.csv": "1a03f2913d99f76b90abb35712b11817524cc6f54908797cbff8f19e72e8f54a",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pressure-idle-hard\\preparation.json": "b1c7d651a8bffb1c57316dcbd8b9a9fcb7331e65ac484674f8ffe4750b74ca61",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pressure-idle-hard\\proof.json": "5e1313ebd871bdd4cebf18424337b6f73f97849755917b452d591685e22a4c24",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pressure-idle-hard\\queue-owners.jsonl": "bb87238e09ad6a1b70a48d90ce96b19749702391f9a0722d60ea47aa4f43aca8",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pressure-idle-hard\\requests.csv": "962d77449f728a10d2aed83e74dffc98f20930eb7cc0a6dfbfdc4a336a1a8e88",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pressure-idle-hard\\run.lua": "dbda7f08d24375f85ff17d60b4fee1b3c936dc327328898e90c7c131ce133fa4",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pressure-idle-hard\\source-register-image.csv": "1e374d1023b579f6875ea428d68207c9bdb808ce5566c7bbf4b6f9d980ca4d8b",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pressure-idle-hard\\source-voices.csv": "87fb9e9db37d77429cba9c85d5c16ee7292640649f27199f6bcdfd9ec75bef93",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-pressure-idle-hard\\host.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-pressure-idle-hard\\host.stdout.txt": "01a1726de6e73887385828c88a05535df4f7c9cf88ee9ad19dfe889877b0b782",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-pressure-idle-hard\\launch.json": "b79d659137bdd45dbc638424c4d563fa5dc93ca5b6f1b3e6cf146a7e1f953fce",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-pressure-idle-hard\\proof.json": "b5b282a84e9111189d0c9de6196b025012177e013bd69d8c719c21ba0d9160be",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-pressure-idle-hard\\verify.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-pressure-idle-hard\\verify.stdout.txt": "627c889ca93ac87f97285c3946390e54ed70cc32e9f84bb289a8d186055e45fe",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-pressure-idle-hard\\comparison\\proof.json": "627c889ca93ac87f97285c3946390e54ed70cc32e9f84bb289a8d186055e45fe",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-pressure-idle-hard\\comparison\\source-model.json": "d0b14dcb3dd3776c187c722241eae83f2b23e8ebf8b6f754b5596a522e7c607b",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\priority-hard\\actors.csv": "a1fdc41ffd75fa7a1600fa073f026b5a7473b3a6fa458b3f4447f395aa928ed3",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\priority-hard\\apu.csv": "fe4107ca61d0d1741d77acf39c721c4abe169bc3a83685f92556bd3ce2ce03e9",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\priority-hard\\baseline-run.log": "56ba35728d6426d384935ae37bcdd9e5b18d50738921e98d2654c2c8bc0d26c0",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\priority-hard\\cadence.csv": "a23df743799c104eb62798fcf4c992a4b31915d0479f1345cd01786348628e24",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\priority-hard\\candidate.lbl": "192b239a4dc33010af0e16b901a12b3c033534e51a372d55e22a65741a8f5157",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\priority-hard\\case-end.argb": "99c234cef9d28d9c9884847d70e7a9bfa9457dc3e3d7c399adcc484bd9194fc3",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\priority-hard\\configuration.json": "3abb9499a9705aa1e1b955533368985174669025cfdb06c766c88a22a78778fb",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\priority-hard\\deadline-timing.csv": "940ed44f68b6276984d5d2970e5901f68ac37d781fd7f899acc05a6f17ec7384",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\priority-hard\\dma-bus.jsonl": "4ad8b973bebaff8bee827795770d692e75599443a3601e886ad2dafb8f2d21ff",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\priority-hard\\dmc-fetch.csv": "6aeb1c4f36c506872bee5326f85750a2eb99e5a8cf7978648e4ff0c18798e0b1",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\priority-hard\\last-case.json": "2814d84d7b5156af5d5eedbe7023ca19dc5fb965822cda8052b2ffc1a2b17562",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\priority-hard\\lifecycle.jsonl": "0a8feacc285b2e5de588e70490b1fe401dd927b184dc89799867dce5a8ffc743",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\priority-hard\\native-cycles.csv": "4ec002396e9f8de06364cd6733f79624fb937826bcde88acaae8c5b7b24797a1",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\priority-hard\\preparation.json": "400052f0489f085660c5fc68d9e12fa8909a80e21361b5700ac8a74e94a5a22c",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\priority-hard\\proof.json": "34eb690e6b69779e436ba7dfd39a08b1c8e394219990d34ef3429d2116b5b54e",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\priority-hard\\requests.csv": "962d77449f728a10d2aed83e74dffc98f20930eb7cc0a6dfbfdc4a336a1a8e88",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\priority-hard\\run.lua": "ac9ea2983c3c308e56a342164f0179585c90bf9e4c993ccbfd2a671be487c7be",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\priority-hard\\source-voices.csv": "8ba7995aed0c1595a5227c2fb80a4582f3cbf5b139291be032fcd83e91c87322",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\baseline-priority-hard\\host.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\baseline-priority-hard\\host.stdout.txt": "a929737f6bf9be917f536e006f661f65503de8f4172eff84da4cb98b8456cd02",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\baseline-priority-hard\\launch.json": "e2399af16015b999c64e723ceefca64182492685392c105271994f25fec7043f",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\baseline-priority-hard\\proof.json": "630718f6beb4d5a0f3fe063d60d849007fd280a7f35b6f713f92c9d4bd9fc3a0",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\priority-hard\\actors.csv": "098bf1e02199d4bca61f9fde18e76345fa4f4a6ddc578f2d51a156471ff15bb5",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\priority-hard\\apu.csv": "242c2d95dc82d953943effe77089efcd5bdeafbe7e9e2712e17e2aa1a8b6fe08",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\priority-hard\\cadence.csv": "9c58e28e5862e6eaddfb9ca05b6b415ade761c10a0fcf93f58786e6b8ead8200",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\priority-hard\\candidate-run.log": "9ea06b55b09e9ca9670ce6c667cc2569c274cb30b89f359af851c4d33f20e4df",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\priority-hard\\candidate.lbl": "0fc619a37c0d0e00804e236cc9d099755af323506545640eb1b2802e550e72d3",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\priority-hard\\case-end.argb": "99c234cef9d28d9c9884847d70e7a9bfa9457dc3e3d7c399adcc484bd9194fc3",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\priority-hard\\configuration.json": "c6b11499424b619c9529e709a961c1c3c03a6b4f5351c406de556693e9e1b44f",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\priority-hard\\deadline-timing.csv": "56ccb53653d0bd356fa4a4aaf055d8a68e7deb9da78d59be0e68dcb8c4c539c4",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\priority-hard\\dma-bus.jsonl": "14f1740fcbbf1e1f74ccbd1f701156ae783bc6dee5484aad1f0dbdd1e88fd166",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\priority-hard\\dmc-fetch.csv": "6aeb1c4f36c506872bee5326f85750a2eb99e5a8cf7978648e4ff0c18798e0b1",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\priority-hard\\last-case.json": "4206fd6fadedd842a82a1553b012bfc28f2941af4742990b0372d536817f6083",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\priority-hard\\lifecycle.jsonl": "29202309df7b51fc8a852db7e93340dfe5ca89849843c900fb0108ff6717c2de",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\priority-hard\\native-cycles.csv": "75de1d4146da81deaddd9bd9a5ffa2f83b224d1671dc3cb08472bb5d3f032806",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\priority-hard\\preparation.json": "69620ed1cb4cb8a479a2a865a074ca86b6efd7e6cba215ba40238217bc70a523",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\priority-hard\\proof.json": "33593267f0aaa75dc6dbdfb8a18d0bf7dc9353ed31e455cbe115c0d4ba60509b",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\priority-hard\\queue-owners.jsonl": "5f732df2bf2b9258920d98fab9f59cf77908a5ccaa7f9ed6c6230aaddab4f6f2",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\priority-hard\\requests.csv": "f05ecbe89b8511c4f402ab520194d093c00804c225f4131aadacb48095315764",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\priority-hard\\run.lua": "1422c69135e2417b3095cc3018c578e4043e319b16198854661168c50638b0eb",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\priority-hard\\source-register-image.csv": "5842e348fe327d14abed7862dfb44a95cab568149c4fde78012b085f53980644",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\priority-hard\\source-voices.csv": "8568fb3ba946dbdb3bf2a8350ca9955b97ab8ef309a1ceb065e5353fec0dbfff",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-priority-hard\\host.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-priority-hard\\host.stdout.txt": "79b8dffc4b3431d032ab6a0489970484d22a1bfc88095151f18fa3cf0f6566a5",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-priority-hard\\launch.json": "65af47b58f206ab03fbdaba1467c03376770faa24f8f818f87ff01d0a77f8b3d",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-priority-hard\\proof.json": "80a086f2d2158e8fcb93ee1757deb901547553279e699034c0a86cd1f266bdc4",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-priority-hard\\verify.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-priority-hard\\verify.stdout.txt": "c59510117ea156445ea785fc3358da263a0f23c10a80b58800a3b10c5a7211d2",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-priority-hard\\comparison\\proof.json": "c59510117ea156445ea785fc3358da263a0f23c10a80b58800a3b10c5a7211d2",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-priority-hard\\comparison\\source-model.json": "7f23e7191c513b5b563a1f74bf9f5affce661dcc480b1942b50b8079848e1312",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\scene-hard\\actors.csv": "1abcf01a904018724b024de66dd7179cb496b12df6c91d3da148208a728970f0",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\scene-hard\\apu.csv": "725cfe690e2df098787908cd6142ac5ff7408f1f9d245fd1eb505d0a8de3e840",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\scene-hard\\baseline-run.log": "e760bf1adfcb6cc87e9094b8b20254cdef003330d902d7df98bd0674f241a003",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\scene-hard\\cadence.csv": "d06ef2f31707f6806b0498dbf0bf872031411902550c3c8db1fa1f16b9f79e87",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\scene-hard\\candidate.lbl": "192b239a4dc33010af0e16b901a12b3c033534e51a372d55e22a65741a8f5157",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\scene-hard\\case-end.argb": "b50811ef17eea46a4c6d83f99afdd6f89d5fa81e29b140fc0c7857ab1eea65c8",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\scene-hard\\configuration.json": "7aed857ab4b436a80be7717992782d3c18cdec65406e4c7d5fa7dd9ec1d6330a",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\scene-hard\\deadline-timing.csv": "339d0f1793c27308971e194278a9bae96fd41a71ce2a1af2aa85c61535377544",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\scene-hard\\dma-bus.jsonl": "2d260975abd79fe198020170dd9a56539106770de4bb632ffabdd74a605dd82d",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\scene-hard\\dmc-fetch.csv": "6aeb1c4f36c506872bee5326f85750a2eb99e5a8cf7978648e4ff0c18798e0b1",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\scene-hard\\last-case.json": "912ff97cbda4f4d9835b5f8760ef491a78ead027e2a8296fb7947e71953de149",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\scene-hard\\lifecycle.jsonl": "689e5fc34628b07bac28f1b076734111cad47a37c0aacba6378288494b15486a",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\scene-hard\\native-cycles.csv": "72e1dd95f6c5f609f0fefd02f42120565964c4e8ccc2006010043654ee15e0d3",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\scene-hard\\preparation.json": "e775ccef59e0bfa45dd85485f6894e40a3b6f340384b0c67ae7fa0097a3427b1",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\scene-hard\\proof.json": "1555d2ed1d261827add4d2c4be08ba3f98d080c6d01996483ac1dcaf641924d1",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\scene-hard\\requests.csv": "962d77449f728a10d2aed83e74dffc98f20930eb7cc0a6dfbfdc4a336a1a8e88",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\scene-hard\\run.lua": "cb84da356c298aa64b636ace94d7072e7617f1d0583e26cd270c485f9abc5586",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\scene-hard\\source-voices.csv": "d9f2ba5d8e2fd9213b447315786c889cc0d3b87a238db03b04f7b2eed80db676",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\baseline-scene-hard\\host.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\baseline-scene-hard\\host.stdout.txt": "44eebdd0962aa9e7af112c2ee3fb44a67e44b4b985f67623e4139c884472464a",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\baseline-scene-hard\\launch.json": "9c5a369a7d6f4b055b7dfda597d6c3278588664aca248fc3e1124ab4e4ff33a8",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\baseline-scene-hard\\proof.json": "60d4aa56ab660297ed06dbea3866c94c164eb4cf3148133a49c0ac5c75acde71",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\scene-hard\\actors.csv": "1abcf01a904018724b024de66dd7179cb496b12df6c91d3da148208a728970f0",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\scene-hard\\apu.csv": "3b903eab376e51672d2e9bed9e395ddee44ff1022019b86350b238313adc76f5",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\scene-hard\\cadence.csv": "d06ef2f31707f6806b0498dbf0bf872031411902550c3c8db1fa1f16b9f79e87",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\scene-hard\\candidate-run.log": "e2bbf77f5fb223002d377438dfcb2f8e332c27e0774554d81667998d102f72af",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\scene-hard\\candidate.lbl": "0fc619a37c0d0e00804e236cc9d099755af323506545640eb1b2802e550e72d3",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\scene-hard\\case-end.argb": "b50811ef17eea46a4c6d83f99afdd6f89d5fa81e29b140fc0c7857ab1eea65c8",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\scene-hard\\configuration.json": "dff73e11ee28e742a5ba553f0a38cc55feed651b4a675ade0779879e0f9f2542",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\scene-hard\\deadline-timing.csv": "3f24f682ad1e312863b6eccb8e82a3953bccec7ee6990086a8b22048851f5883",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\scene-hard\\dma-bus.jsonl": "2246892e5707aa93fc49a86e0dba57f12101b8e4c2176da82bca97c42095f1ee",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\scene-hard\\dmc-fetch.csv": "6aeb1c4f36c506872bee5326f85750a2eb99e5a8cf7978648e4ff0c18798e0b1",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\scene-hard\\last-case.json": "6257f381058d0e3c270ade23d68d0aa1f8aa569f2bac071682fde75367f74c8a",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\scene-hard\\lifecycle.jsonl": "5986a29e62d638a056b3e75e78c68ec82ba1bf829e1aa44e7dc301c9d3926218",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\scene-hard\\native-cycles.csv": "8138eb6afeab78517dd69ec84c52e86e467027d9cfd773ec1457dd9e698a30cd",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\scene-hard\\preparation.json": "a7cbd1f7a60c45d45524688c10e3b41b4b0ec4e015e420eac3a02020a53f71f4",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\scene-hard\\proof.json": "b224aa87a1b73c52a33f255407f79201156924a8a78c6247b30fe83a222c2baf",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\scene-hard\\queue-owners.jsonl": "44073eec498adef26081c9c3bdf6a5dbb4c8565d51cb0b1739039f17d51819a8",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\scene-hard\\requests.csv": "33c4cf0a73a69848dfcc38180c25ebc9a04cc82a343f0b006a8acc2b7d393f59",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\scene-hard\\run.lua": "5787f052f471d214f53cda902f36b9209a777137865e4a967b9674e15a783baa",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\scene-hard\\source-register-image.csv": "d4a26d75b554c7cdd9afccca6e2ad33563ce16249952c4388d733221fdf0eefc",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\scene-hard\\source-voices.csv": "23d831337ebd4a322e08d0f6d814e654ebcfafec6ccfc077ebc081a98649626c",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-scene-hard\\host.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-scene-hard\\host.stdout.txt": "72dde4936fd33362dc72843a37ddb91fd8919e96abe10937332fd12ea30d4dac",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-scene-hard\\launch.json": "2d6df790b234163c915c4c85fec8af08775e8ce3285b8a7228718c6896a9527d",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-scene-hard\\proof.json": "9167c5b62a944b7e3e52148ceefc4c1b16ce17ca9c2c7d55c03d138378f07ebd",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-scene-hard\\verify.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-scene-hard\\verify.stdout.txt": "68179bb2c6d7fa28f1a47e43180197653c32e138efd47b5087557197a42c2a75",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-scene-hard\\comparison\\proof.json": "68179bb2c6d7fa28f1a47e43180197653c32e138efd47b5087557197a42c2a75",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-scene-hard\\comparison\\source-model.json": "08b561d10814319ca0e271dba56c1a8c669eba1f3819a7cf795db6325bb93caf",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\docs\\qa\\cv3-remaining-sfx-lifecycle-native-2026-10-26.txt": "e27486e9cd3f7c757c1f1b1275a110c1f399e87d2045660d6c41224fa9be0131",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\held-boundary-v1\\proof.json": "2aae3c761149894bb7f7693ea7c0db33817fbdb81501e9c4a36da16f91fcca28",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\cv3_remaining_sfx_lifecycle_actors_cpu_v1.py": "2aae1c3b7c9e1df0ac931562823f29c80b08a80e0c987ca9f246060315a2c3b8",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\cv3_remaining_sfx_lifecycle_actors_cpu_v2.py": "fce0639f7f9f7f50cdd12f0e698aea7961ef01c6ac11ed28d192e1a1b5f46481",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\cv3_remaining_sfx_lifecycle_actors_cpu_v3.py": "e0be72b85606bd57304ea8ff4c2b81a9f69775f4c5b5c9b73b62e3f367487d40",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\cv3_remaining_sfx_lifecycle_actors_cpu_v4.py": "3f1c54a91f4476fb1026fb193b0c309daa5a459bc8f8a87c195cf74c8f44855b",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\cv3_remaining_sfx_lifecycle_actors_cpu_v5.py": "78119fa30167a94bf03008b93dd475165c47a37bb99efd4ed59d1267bf4612b4",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\cv3_remaining_sfx_lifecycle_batch_v1.py": "1f61ac35d097247e9436f4129f2293b90e9bc30bb40adb4514c7ef55a0d91bc8",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\cv3_remaining_sfx_lifecycle_common_v1.lua": "affbed015a5538e54ae0ce2e6cfa0b792ad50f7c1c46c0a15f0c0d83991768a4",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\cv3_remaining_sfx_lifecycle_common_v2.lua": "2ca6d49a05f511ed739dae7ac7e87985ba4c1ed490090ab3d8df62791f6072cd",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\cv3_remaining_sfx_lifecycle_feasibility_v1.py": "bb003a36df129b0b3e41aaa2374e6e1ab3edfc124968de564b0eef51417ff352",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\cv3_remaining_sfx_lifecycle_held_boundary_v1.py": "3d0c9e6e5a0334c3a96a69da9f5914ce49cbb061416f8b1e72dfe84e571203e2",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\cv3_remaining_sfx_lifecycle_launch_v1.py": "f0d372b41b06d953c34abbc23d0ce61421a1da2fc417eb232ad8e5bce7a57ca4",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\cv3_remaining_sfx_lifecycle_observer_cpu_v1.py": "30c4adc81282dff369262cc7bd85bea305af949f06123d0aac0264e9d793abf9",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\cv3_remaining_sfx_lifecycle_observer_cpu_v2.py": "8b47d5dfd1d074ade6889a489ce4e3daf4e9597216632565dfc841dc05d9c506",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\cv3_remaining_sfx_lifecycle_oracle_cpu_v1.py": "54ecd694d0d549a3b440a4ea008190f1b98ac78fc12f6112b3a0e385f1e1c088",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\cv3_remaining_sfx_lifecycle_oracle_cpu_v2.py": "c651985530865583e320aae86e8183511348a635d3d7432a0be06609ccce1c21",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\cv3_remaining_sfx_lifecycle_oracle_cpu_v3.py": "129f6e1a6ef450a4fce48c15d1057be365d1ab1ed2481138a82abec110713d14",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\cv3_remaining_sfx_lifecycle_pipe_cpu_v1.py": "9766bf70b50e25f8e0171c6766fcf33138c50abd5394c97a1b62adde2582c6e6",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\cv3_remaining_sfx_lifecycle_prepare_v1.py": "78bcb76075ed380df7092b3ec28a550e5f5af4f4b75bffc3b288d4f8ac843e6c",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\cv3_remaining_sfx_lifecycle_prepare_v2.py": "dd57ee86b71fc5b7762acb0bac0662e4cc9d960c1a60524187ff22a648153ec1",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\cv3_remaining_sfx_lifecycle_prepare_v3.py": "4392bc383294d71077eec9e4be5f8bb0efc293292231ba92f88e2377df2f74a7",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\cv3_remaining_sfx_lifecycle_prepare_v4.py": "0800c1f633266040fe8385a2def372103305f9dc42db4a11e3eb31f4ec39cace",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\cv3_remaining_sfx_lifecycle_queue_v1.lua": "f23580b1d23414d0bcd9bb23c6ac3cecbd19c79932795db774650e1a78c721d9",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\cv3_remaining_sfx_lifecycle_ready_v1.py": "9aea6bac1ee4349102c2755f24e66567bc7ba391f697c5f4e1eeb5f78c7c414c",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\cv3_remaining_sfx_lifecycle_result_v1.py": "f7d1d0022a04b0cb352321b1fcf78c9e07054c92bb044e9ec850d98b488b4c19",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\cv3_remaining_sfx_lifecycle_verify_v1.py": "27c595a1e68942c20ba504d417131280ce8573c0495602fb97c3835e7afcadea",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\cv3_remaining_sfx_lifecycle_verify_v2.py": "65a3374e97d30d60e5ede27fd7c9b38e4e441c0c094ec441623b7afbf6f55157",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\freeze-v1\\readiness-source-only.json": "e7102d428cd5a872853094c2d2e3c2651afef092f70432aa8bbfc7d8ae1ebc42"
+  },
+  "tool_sha256": "f7d1d0022a04b0cb352321b1fcf78c9e07054c92bb044e9ec850d98b488b4c19",
+  "scope": "Ten exact real lifecycle profiles, paired fresh baseline/candidate. All strict native/source/hardware goals pass but one actual lostDMA remains; no final-counter or CSV endpoint waiver, no production adoption, no waveform/fullcampaign claim. Earlier BASIC/source receipts remain independently valid within original scopes."
+}

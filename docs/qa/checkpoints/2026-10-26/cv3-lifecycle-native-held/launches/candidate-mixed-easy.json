@@ -1,0 +1,67 @@
+{
+  "start_UTC": "2026-10-26T05:13:48.110368+00:00",
+  "command": [
+    "C:\\Users\\kando\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\run_mesen_isolated.py",
+    "--output",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\mixed-easy",
+    "--emulator",
+    "C:/Mesen2/Mesen.exe",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\mixed-easy\\run.lua",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-steady-v3\\candidate.nes",
+    "--timeout",
+    "180",
+    "--option=--doNotSaveSettings",
+    "--option=--nes.ramPowerOnState=AllZeros",
+    "--option=--nes.randomizeCpuPpuAlignment=false",
+    "--option=--nes.randomizeMapperPowerOnState=false"
+  ],
+  "readiness_sha256": "e7102d428cd5a872853094c2d2e3c2651afef092f70432aa8bbfc7d8ae1ebc42",
+  "cell": "candidate-mixed-easy",
+  "ROM_sha256": "eaa36e56c09e87f58a85db312894f14bfd7fb5838be139fc508ae6121c9e0732",
+  "script_sha256": "fb9d1cc029edf65beb3ddd26d8cffa627529cb87cfc147f5dc9d88b61304a76c",
+  "settings_before_sha256": "8a439e0a5eeddc2d4776e516aacfc224c03048b9c7d23d9926a463460a7e748a",
+  "retries": 0,
+  "launcher_sha256": "f0d372b41b06d953c34abbc23d0ce61421a1da2fc417eb232ad8e5bce7a57ca4",
+  "end_UTC": "2026-10-26T05:13:52.823036+00:00",
+  "exit_code": 0,
+  "settings_after_sha256": "8a439e0a5eeddc2d4776e516aacfc224c03048b9c7d23d9926a463460a7e748a",
+  "native_guard_passed": true,
+  "accepted": false,
+  "complete_GAMEproof": {
+    "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\mixed-easy\\proof.json",
+    "sha256": "7beabe6afc4bce7a38153a99b2ceb44355618269c0347d7209e18297dd7897b1"
+  },
+  "verification_exit": 0,
+  "comparison": {
+    "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-mixed-easy\\comparison\\proof.json",
+    "sha256": "7be23b5ff5501f4bab9817697e3cab3dc4c6aa3b7b5bb8aa17401b2bbe125bc9",
+    "passed": true,
+    "cadence": {
+      "passed": true,
+      "candidate_updates": 139,
+      "baseline_updates": 139,
+      "candidate_skipped_draw_frames": 6,
+      "baseline_skipped_draw_frames": 6,
+      "candidate_frames": 140,
+      "baseline_frames": 140,
+      "candidate_draws": 134,
+      "baseline_draws": 134,
+      "candidate_max_no_draw": 1,
+      "baseline_max_no_draw": 1,
+      "candidate_max_no_update": 1,
+      "baseline_max_no_update": 1,
+      "all_draw_prefix_deferrals": [],
+      "complete_game_totals": {
+        "candidate": {
+          "updates": 140,
+          "draws": 135
+        },
+        "baseline": {
+          "updates": 140,
+          "draws": 135
+        }
+      }
+    }
+  }
+}

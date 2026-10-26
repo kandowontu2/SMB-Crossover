@@ -1,0 +1,40 @@
+{
+  "passed": true,
+  "native_executed": false,
+  "ROM_sha256": "eaa36e56c09e87f58a85db312894f14bfd7fb5838be139fc508ae6121c9e0732",
+  "actual_numeric_mode": 1,
+  "event": 33,
+  "script_sha256": "b87261773c75a261e89c32a46c3b3945d2220c70ea306ca78e5457ee478791a9",
+  "cases": [
+    {
+      "interference": "none",
+      "synthetic_RMW_dummy_writes": false,
+      "actual_native_casts": 3,
+      "actual_bat_entries": 0,
+      "actual_bat_gates": 0,
+      "actual_published": 3,
+      "actual_consumed": 3,
+      "actual_full_lag_NMIs": 140,
+      "ordered_original_source_frames": 140,
+      "source_image_writes": 129,
+      "callbacks": 28,
+      "logs": {
+        "queue-owners.jsonl": "985633cf9b0da304b1e4add4abdfa9b0818f18b523b36f7b9244ec82c0ecf0d2",
+        "source-register-image.csv": "4a116825ecfe1774689462b8c1e1899da9ed49122c9a7f4a0feb55e8309ec780",
+        "requests.csv": "e19e14dd256d711093dbc2373bc8607958fa1a674ecdc98b17a063a18705cad4",
+        "lifecycle.jsonl": "315250b6c59c9b1f9d0a70621a93defed0f2d8d240be75d0e3c7624efb83734b",
+        "assembled-apu.csv": "099cfb265316f8cd3a89bce692cbc19c4fe540b48bf1d64190f860144bdd0261"
+      }
+    }
+  ],
+  "actual_assembled_ability_entry": "Cv3WeaponsGate",
+  "actual_full_NMI_ISR": true,
+  "actual_genuine_caller_stack_writer_opcodes_banks_and_raw_source_image_hooks": true,
+  "all_raw_source_register_values_including400F_exact": true,
+  "new_effect_original_ordered_image_equal": true,
+  "legacy1F_declared_unchanged_adapter_order": null,
+  "no_game_source_modifications": true,
+  "Lua_runtime": "Lua5.4",
+  "tool_sha256": "8b47d5dfd1d074ade6889a489ce4e3daf4e9597216632565dfc841dc05d9c506",
+  "scope": "New lifecycle Lua callbacks/mixer oracle are exercised with an actual6502 main cast and complete lagNMI replay; pause is an explicit source-component flag schedule, not native Start evidence. Actual6502 main cast and complete lagNMI replay into the read-only new Lua module, with source values compared to original executable on actual consumer epochs. New effects preserve exact original image order; existing1F explicitly retains period/high/volume adapter image order with exact original raw values. No native qualification. Synthetic PPU/bus-free CPU layer and an optional simulated INC dummy event; no Mesen, controller140-update fixture execution, OAM/CHR/DMC bus or native deadline verdict."
+}

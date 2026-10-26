@@ -1,0 +1,208 @@
+{
+  "passed": true,
+  "accepted": false,
+  "status": "HELD_ONE_ACTUAL_MISSING_DMA_NOT_MERELY_FINAL_COUNTER",
+  "actual_NATIVE_scope": "Frozen Hard1F pressure240update pair only",
+  "all_actual_DMA_frame_count_differences": [
+    {
+      "ppuFrame": 717,
+      "baseline": 1,
+      "candidate": 0
+    }
+  ],
+  "baseline_actual_transfer_start": {
+    "scanline": 246,
+    "cycle": 311,
+    "frame": 717,
+    "mask": 30,
+    "wall": 716
+  },
+  "baseline_actual_transfer_complete": {
+    "scanline": 251,
+    "cycle": 155,
+    "frame": 717,
+    "mask": 30,
+    "wall": 716
+  },
+  "baseline_complete256bytes": true,
+  "baseline_NMI_entry": {
+    "kind": "NMI-entry",
+    "wall": "716",
+    "age": "239",
+    "audioEpoch": "279",
+    "cpuCycle": "21320477",
+    "ppuFrame": "717",
+    "scanline": "241",
+    "dot": "34",
+    "pc": "58166",
+    "bank": "127",
+    "sp": "247",
+    "interruptedPC": "33621",
+    "stackP": "34",
+    "nmiDisable": "0",
+    "nmiSkipped": "128",
+    "skipDraw": "0",
+    "framesSinceDraw": "0",
+    "newValue": "-1"
+  },
+  "candidate_NMI_entry": {
+    "kind": "NMI-entry",
+    "wall": "716",
+    "age": "238",
+    "audioEpoch": "279",
+    "cpuCycle": "21320474",
+    "ppuFrame": "717",
+    "scanline": "241",
+    "dot": "25",
+    "pc": "58166",
+    "bank": "127",
+    "sp": "245",
+    "interruptedPC": "33960",
+    "stackP": "160",
+    "nmiDisable": "255",
+    "nmiSkipped": "128",
+    "skipDraw": "0",
+    "framesSinceDraw": "0",
+    "newValue": "-1"
+  },
+  "baseline_publication": {
+    "kind": "publication-write",
+    "wall": "716",
+    "age": "239",
+    "audioEpoch": "279",
+    "cpuCycle": "21320470",
+    "ppuFrame": "717",
+    "scanline": "241",
+    "dot": "12",
+    "pc": "33621",
+    "bank": "126",
+    "sp": "250",
+    "interruptedPC": "-1",
+    "stackP": "-1",
+    "nmiDisable": "255",
+    "nmiSkipped": "128",
+    "skipDraw": "0",
+    "framesSinceDraw": "0",
+    "newValue": "0"
+  },
+  "candidate_publication_after_lag_ISR": {
+    "kind": "publication-write",
+    "wall": "716",
+    "age": "239",
+    "audioEpoch": "280",
+    "cpuCycle": "21324448",
+    "ppuFrame": "717",
+    "scanline": "14",
+    "dot": "12",
+    "pc": "33621",
+    "bank": "126",
+    "sp": "250",
+    "interruptedPC": "-1",
+    "stackP": "-1",
+    "nmiDisable": "255",
+    "nmiSkipped": "129",
+    "skipDraw": "0",
+    "framesSinceDraw": "0",
+    "newValue": "0"
+  },
+  "last_possible_foreground_boundary_cycle": 21320467,
+  "source_same_audio_epoch279_costs": {
+    "CvAudioPlay": {
+      "baseline": 2525,
+      "candidate": 2525,
+      "delta": 0
+    },
+    "Cv3MusicAndNoiseTick": {
+      "baseline": 2682,
+      "candidate": 2708,
+      "delta": 26
+    },
+    "AudioUpdate": {
+      "baseline": 5287,
+      "candidate": 5313,
+      "delta": 26
+    }
+  },
+  "actual_NoLag_draw_decisions": {
+    "baseline": {
+      "kind": "NoLagSoDraw",
+      "wall": "715",
+      "age": "238",
+      "audioEpoch": "279",
+      "cpuCycle": "21312328",
+      "ppuFrame": "716",
+      "scanline": "169",
+      "dot": "139",
+      "pc": "33830",
+      "bank": "126",
+      "sp": "248",
+      "interruptedPC": "-1",
+      "stackP": "-1",
+      "nmiDisable": "255",
+      "nmiSkipped": "128",
+      "skipDraw": "0",
+      "framesSinceDraw": "1",
+      "newValue": "-1"
+    },
+    "candidate": {
+      "kind": "NoLagSoDraw",
+      "wall": "715",
+      "age": "238",
+      "audioEpoch": "279",
+      "cpuCycle": "21312352",
+      "ppuFrame": "716",
+      "scanline": "169",
+      "dot": "211",
+      "pc": "33830",
+      "bank": "126",
+      "sp": "248",
+      "interruptedPC": "-1",
+      "stackP": "-1",
+      "nmiDisable": "255",
+      "nmiSkipped": "128",
+      "skipDraw": "0",
+      "framesSinceDraw": "1",
+      "newValue": "-1"
+    }
+  },
+  "NoLag_entry_delay_cycles": 24,
+  "uninterrupted_publication_estimate_if_same_main_tail": {
+    "baseline_plus_delay": 21320494,
+    "candidate_last_foreground_boundary": 21320467,
+    "conditional_gap_cycles": 27,
+    "qualification": "Conditional same-main-tail estimate only; no full interrupted RAM/register snapshot. Actual missed DMA/NmiDisable ownership is directly observed, not inferred from this estimate."
+  },
+  "complete_GAME_counts": {
+    "baseline": {
+      "updates": 240,
+      "draws": 167,
+      "strict_completed_DMA": 167,
+      "complete_dma_checks": 165,
+      "nmis": 280
+    },
+    "candidate": {
+      "updates": 240,
+      "draws": 166,
+      "strict_completed_DMA": 166,
+      "complete_dma_checks": 165,
+      "nmis": 280
+    }
+  },
+  "CSV_endpoint_omission": "Cadence ends at prior endFrame; final two native updates and baseline extra draw are absent from both CSV totals. Full GAME counter and independent actual DMA bus show the one real transfer loss at frame717. No CSV-only pass or masked endpoint.",
+  "frozen_inputs": {
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\pressure-fireball-hard\\proof.json": "d950dcc7bfa8b4355e8ce79bfab7da2ac67b360d92296da2cf5517baba853693",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\pressure-fireball-hard\\deadline-timing.csv": "12cc995fc6837cb8508c8ec8b099c3037ffa685cd4be96fc20f4402342e01fe3",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\pressure-fireball-hard\\native-cycles.csv": "e46b7e83724f8dd75ebdc4258c3ba83db61f7adcfac1c27e1db839066a5b5257",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\pressure-fireball-hard\\dma-bus.jsonl": "f858ba43188d48fa0304c69a69e0e0567becc74c25387161599e9b4e99400d5a",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\pressure-fireball-hard\\cadence.csv": "d08615bc797315b0796b1e23901f1bf7549825d541f4628df07f89181cf1d01e",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\baseline\\pressure-fireball-hard\\case-end.argb": "4a0206d0b45456ff87e7c0bfb96b68ca164d68d57877cb08f9cd54192fa2db28",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pressure-fireball-hard\\proof.json": "7e35605d0d69881443d194996f1414879a0a6f5b15272d41e9d4ae4498ccf2d2",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pressure-fireball-hard\\deadline-timing.csv": "11312f2a946975f8ddbfda94d4def303a9a6ddc8c2774c1b8703a5c8f38dedc4",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pressure-fireball-hard\\native-cycles.csv": "eb460694ec3b41121d5ffe71b05656b9875438aa019bb9b3ed4d3cd8fb004f96",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pressure-fireball-hard\\dma-bus.jsonl": "3351b5f5a8e82492d2bb8fcbab26ed4ac13cf7911c58bc384f1f44f072d33062",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pressure-fireball-hard\\cadence.csv": "11ab8625724933892b41aa03f7fd4ef29f10b908ad017d71edf3bb68e86ac67f",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pressure-fireball-hard\\case-end.argb": "071d810eca42b642ac46c0ddb95f5f5cbec5ec61e5affef30f5615a680abc259"
+  },
+  "tool_sha256": "3d0c9e6e5a0334c3a96a69da9f5914ce49cbb061416f8b1e72dfe84e571203e2",
+  "scope": "Read-only actual DMA timestamps/hardware complete256-byte proof, NMI stackedPC/disable/publication and exact wrapped audio duration attribution. No new emulator launch, state write, game code optimization, waveform or full-campaign claim."
+}

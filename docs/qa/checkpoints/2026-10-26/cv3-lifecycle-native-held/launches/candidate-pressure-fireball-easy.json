@@ -1,0 +1,67 @@
+{
+  "start_UTC": "2026-10-26T05:14:21.155987+00:00",
+  "command": [
+    "C:\\Users\\kando\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\run_mesen_isolated.py",
+    "--output",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pressure-fireball-easy",
+    "--emulator",
+    "C:/Mesen2/Mesen.exe",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pressure-fireball-easy\\run.lua",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-steady-v3\\candidate.nes",
+    "--timeout",
+    "180",
+    "--option=--doNotSaveSettings",
+    "--option=--nes.ramPowerOnState=AllZeros",
+    "--option=--nes.randomizeCpuPpuAlignment=false",
+    "--option=--nes.randomizeMapperPowerOnState=false"
+  ],
+  "readiness_sha256": "e7102d428cd5a872853094c2d2e3c2651afef092f70432aa8bbfc7d8ae1ebc42",
+  "cell": "candidate-pressure-fireball-easy",
+  "ROM_sha256": "eaa36e56c09e87f58a85db312894f14bfd7fb5838be139fc508ae6121c9e0732",
+  "script_sha256": "44f193dad2e3f9ff86d3238901d77e92b164fa12bc00fec2452c061c6e1d98db",
+  "settings_before_sha256": "8a439e0a5eeddc2d4776e516aacfc224c03048b9c7d23d9926a463460a7e748a",
+  "retries": 0,
+  "launcher_sha256": "f0d372b41b06d953c34abbc23d0ce61421a1da2fc417eb232ad8e5bce7a57ca4",
+  "end_UTC": "2026-10-26T05:14:27.863841+00:00",
+  "exit_code": 0,
+  "settings_after_sha256": "8a439e0a5eeddc2d4776e516aacfc224c03048b9c7d23d9926a463460a7e748a",
+  "native_guard_passed": true,
+  "accepted": false,
+  "complete_GAMEproof": {
+    "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\pressure-fireball-easy\\proof.json",
+    "sha256": "9f9fa9e29fcb722be8a246237cef3d7f079221e43b79f5b4db1e1b83447712a8"
+  },
+  "verification_exit": 0,
+  "comparison": {
+    "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-pressure-fireball-easy\\comparison\\proof.json",
+    "sha256": "232099c68a8621d0003e6cb54d60430da92e27914b4b1d5ede36188f73ada9c1",
+    "passed": true,
+    "cadence": {
+      "passed": true,
+      "candidate_updates": 239,
+      "baseline_updates": 239,
+      "candidate_skipped_draw_frames": 80,
+      "baseline_skipped_draw_frames": 80,
+      "candidate_frames": 273,
+      "baseline_frames": 273,
+      "candidate_draws": 193,
+      "baseline_draws": 193,
+      "candidate_max_no_draw": 3,
+      "baseline_max_no_draw": 3,
+      "candidate_max_no_update": 2,
+      "baseline_max_no_update": 2,
+      "all_draw_prefix_deferrals": [],
+      "complete_game_totals": {
+        "candidate": {
+          "updates": 240,
+          "draws": 194
+        },
+        "baseline": {
+          "updates": 240,
+          "draws": 194
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "start_UTC": "2026-10-26T05:12:56.298197+00:00",
+  "command": [
+    "C:\\Users\\kando\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\run_mesen_isolated.py",
+    "--output",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\death-easy",
+    "--emulator",
+    "C:/Mesen2/Mesen.exe",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\death-easy\\run.lua",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-steady-v3\\candidate.nes",
+    "--timeout",
+    "180",
+    "--option=--doNotSaveSettings",
+    "--option=--nes.ramPowerOnState=AllZeros",
+    "--option=--nes.randomizeCpuPpuAlignment=false",
+    "--option=--nes.randomizeMapperPowerOnState=false"
+  ],
+  "readiness_sha256": "e7102d428cd5a872853094c2d2e3c2651afef092f70432aa8bbfc7d8ae1ebc42",
+  "cell": "candidate-death-easy",
+  "ROM_sha256": "eaa36e56c09e87f58a85db312894f14bfd7fb5838be139fc508ae6121c9e0732",
+  "script_sha256": "ebcaf698c9ae6aa13128573aeff9c3c600a2f05b59043d73cd05eefb7f53d963",
+  "settings_before_sha256": "8a439e0a5eeddc2d4776e516aacfc224c03048b9c7d23d9926a463460a7e748a",
+  "retries": 0,
+  "launcher_sha256": "f0d372b41b06d953c34abbc23d0ce61421a1da2fc417eb232ad8e5bce7a57ca4",
+  "end_UTC": "2026-10-26T05:13:01.805878+00:00",
+  "exit_code": 0,
+  "settings_after_sha256": "8a439e0a5eeddc2d4776e516aacfc224c03048b9c7d23d9926a463460a7e748a",
+  "native_guard_passed": true,
+  "accepted": false,
+  "complete_GAMEproof": {
+    "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\fixtures-v4\\candidate\\death-easy\\proof.json",
+    "sha256": "f09f80c66d04ed101c0486222596a0bd5c63324debcb2089aa9fc6bf4e4ce449"
+  },
+  "verification_exit": 0,
+  "comparison": {
+    "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-lifecycle-native-v1\\native-v1\\candidate-death-easy\\comparison\\proof.json",
+    "sha256": "009d7b6f231a5763f20df581bd7b32dbf83447ada61153af310708b027307fb9",
+    "passed": true,
+    "cadence": {
+      "passed": true,
+      "candidate_updates": 20,
+      "baseline_updates": 20,
+      "candidate_skipped_draw_frames": 2,
+      "baseline_skipped_draw_frames": 2,
+      "candidate_frames": 161,
+      "baseline_frames": 161,
+      "candidate_draws": 159,
+      "baseline_draws": 159,
+      "candidate_max_no_draw": 1,
+      "baseline_max_no_draw": 1,
+      "candidate_max_no_update": 139,
+      "baseline_max_no_update": 140,
+      "all_draw_prefix_deferrals": [],
+      "complete_game_totals": {
+        "candidate": {
+          "updates": 20,
+          "draws": 159
+        },
+        "baseline": {
+          "updates": 20,
+          "draws": 159
+        }
+      }
+    }
+  }
+}
