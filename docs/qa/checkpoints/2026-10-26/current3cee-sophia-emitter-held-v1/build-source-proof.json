@@ -1,0 +1,108 @@
+{
+  "passed": true,
+  "source_only": true,
+  "native_run": false,
+  "adopted": false,
+  "baseline_ROM_sha256": "3cee18caa732b2e85e3bdb00faf719223324f9bf24e72dd30c56be355da33b99",
+  "candidate_ROM_sha256": "e105824dd89f3c99766d6de6311d6f3554ebdf21d16b9dd5c7e3f34ac840e591",
+  "fresh_baseline_exact": true,
+  "all_old_symbol_values_exact": 72800,
+  "changed_original_source_files": [
+    "smb1base-mmc5-expanded.cfg",
+    "src/entrypoint.s",
+    "src/expanded_weapons.s"
+  ],
+  "new_source_file": "src/sophia_wave_emitter.s",
+  "overlay_files": [
+    "smb1base-mmc5-expanded.cfg",
+    "src/entrypoint.s",
+    "src/expanded_weapons.s",
+    "src/sophia_wave_emitter.s"
+  ],
+  "different_ROM_bytes": 290,
+  "records_sha256": "d2922aa9b21a39bfaa14b452d49b09dec2523dfd39c161b615663ff069e90285",
+  "source_manifest_sha256": "a951e8d94293c1513b0053bd872bd4b3d37381701b835bdb108eb8b41b43355d",
+  "layout_sha256": "cfe863bf42aa5d6e0d6de952be2850c9b5f728b04717cefbe5b25af88ba404b7",
+  "ordinary_flagoff_exact": {
+    "mmc3": "d444cac88e13fa02b29ad16100b8f08fa565ba90f8cedde192de43fb2dc8f3eb",
+    "mmc5": "f4ffd2483c51daa4d60bb575da2da8c4d817692cda407611c243031f67520833"
+  },
+  "commands": [
+    [
+      "C:\\Users\\kando\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+      "-B",
+      "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-sophia-emitter-v1\\source\\tools\\build_mmc5_expanded.py",
+      "--workspace",
+      "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-sophia-emitter-v1\\source",
+      "--compiler",
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\Windows\\cc65\\bin\\cl65.exe",
+      "--output",
+      "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-sophia-emitter-v1\\baseline.nes"
+    ],
+    [
+      "C:\\Users\\kando\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+      "-B",
+      "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-sophia-emitter-v1\\source\\tools\\build_mmc5_expanded.py",
+      "--workspace",
+      "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-sophia-emitter-v1\\source",
+      "--compiler",
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\Windows\\cc65\\bin\\cl65.exe",
+      "--output",
+      "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-sophia-emitter-v1\\ordinary-before-mmc3.nes",
+      "--flag-off",
+      "mmc3"
+    ],
+    [
+      "C:\\Users\\kando\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+      "-B",
+      "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-sophia-emitter-v1\\source\\tools\\build_mmc5_expanded.py",
+      "--workspace",
+      "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-sophia-emitter-v1\\source",
+      "--compiler",
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\Windows\\cc65\\bin\\cl65.exe",
+      "--output",
+      "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-sophia-emitter-v1\\ordinary-before-mmc5.nes",
+      "--flag-off",
+      "mmc5"
+    ],
+    [
+      "C:\\Users\\kando\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+      "-B",
+      "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-sophia-emitter-v1\\source\\tools\\build_mmc5_expanded.py",
+      "--workspace",
+      "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-sophia-emitter-v1\\source",
+      "--compiler",
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\Windows\\cc65\\bin\\cl65.exe",
+      "--output",
+      "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-sophia-emitter-v1\\candidate.nes"
+    ],
+    [
+      "C:\\Users\\kando\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+      "-B",
+      "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-sophia-emitter-v1\\source\\tools\\build_mmc5_expanded.py",
+      "--workspace",
+      "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-sophia-emitter-v1\\source",
+      "--compiler",
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\Windows\\cc65\\bin\\cl65.exe",
+      "--output",
+      "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-sophia-emitter-v1\\ordinary-after-mmc3.nes",
+      "--flag-off",
+      "mmc3"
+    ],
+    [
+      "C:\\Users\\kando\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+      "-B",
+      "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-sophia-emitter-v1\\source\\tools\\build_mmc5_expanded.py",
+      "--workspace",
+      "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-sophia-emitter-v1\\source",
+      "--compiler",
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\Windows\\cc65\\bin\\cl65.exe",
+      "--output",
+      "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-sophia-emitter-v1\\ordinary-after-mmc5.nes",
+      "--flag-off",
+      "mmc5"
+    ]
+  ],
+  "tool_sha256": "6f70e3e5c3d40323653c157f91f6d9d95ec0a50f32c05ce590790be3cfe78a21",
+  "limits": "Build/layout/fill/old-address/ordinary source proof only. CPU equivalence, actual IRQ/NMI ownership and costs are separate. No starvation fix, cadence or native-gameplay qualification."
+}

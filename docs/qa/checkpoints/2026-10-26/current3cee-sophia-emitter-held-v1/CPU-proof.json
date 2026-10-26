@@ -1,0 +1,58 @@
+{
+  "passed": true,
+  "source_only": true,
+  "native_run": false,
+  "adopted": false,
+  "baseline_ROM_sha256": "3cee18caa732b2e85e3bdb00faf719223324f9bf24e72dd30c56be355da33b99",
+  "candidate_ROM_sha256": "e105824dd89f3c99766d6de6311d6f3554ebdf21d16b9dd5c7e3f34ac840e591",
+  "unique_original_Sophia_weapon_records": 39,
+  "original_table_entries": 106,
+  "actual_emitter_cases": 9378,
+  "categories": {
+    "all-flags": {
+      "cases": 2048,
+      "hot": 2048,
+      "min_delta": -131,
+      "max_delta": -126
+    },
+    "all-records": {
+      "cases": 7020,
+      "hot": 90,
+      "min_delta": -131,
+      "max_delta": 73
+    },
+    "foreign-original-record": {
+      "cases": 300,
+      "hot": 0,
+      "min_delta": 12,
+      "max_delta": 12
+    },
+    "nonzero-attr-fallback": {
+      "cases": 10,
+      "hot": 0,
+      "min_delta": 32,
+      "max_delta": 35
+    }
+  },
+  "hot_cycle_delta": {
+    "min": -131,
+    "max": -126
+  },
+  "full_ExpandedDrawShots_cases": 324,
+  "full_caller_cycle_delta": {
+    "min": -1310,
+    "max": 700
+  },
+  "interrupt_cases": 754,
+  "NMI_cases": 377,
+  "IRQ_cases": 377,
+  "all_AXYP_SP_nonstack_RAM_ordered_writes_banks_exact": true,
+  "resumed_foreground_AXYP_SP_5SMC_C_and_A_banks_exact": true,
+  "files": {
+    "emitter-cases.json": "fca09fb4b3f936e9a76d68e059e12f5ea0d32a9c7f0ecb15d4cc683c2a0cd8a2",
+    "caller-cases.json": "f14d18c60b127389a6fdfb84136979007c2ede6ff2561bf3e42df9516810f964",
+    "interrupt-cases.json": "9caac5936aef9ca77a77813f28ed8e6ec4c93dd42d79edb653cb0ce6554fb915"
+  },
+  "tool_sha256": "3340f250f94eb7deeee6c887b476d90e076e61b6703e76f52700418adafd378c",
+  "limits": "Finite synthetic assembled production emitter/caller states and compiled lag-NMI/IRQ boundaries only. No native timing, DMC worst-case, frame cadence, reduced scanline demand, starvation repair or visibility improvement claim. All OAM tuples and their fairness are intentionally identical."
+}

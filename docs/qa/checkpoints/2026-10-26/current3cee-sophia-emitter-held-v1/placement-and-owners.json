@@ -1,0 +1,66 @@
+{
+  "all_old_values_exact": 72800,
+  "old_ROM_symbol_locations_exact": 60674,
+  "current_bank36_segments": [
+    {
+      "segment": "XG_SOPHIA_GFX",
+      "CPU_start": 49152,
+      "size": 5411,
+      "physical_offset": 0
+    },
+    {
+      "segment": "SCORE_POPUP_COLD",
+      "CPU_start": 49088,
+      "size": 35,
+      "physical_offset": 8128
+    },
+    {
+      "segment": "WATER_ENEMY_COLD",
+      "CPU_start": 46592,
+      "size": 208,
+      "physical_offset": 5632
+    },
+    {
+      "segment": "RYU_SIDE_COLD",
+      "CPU_start": 46848,
+      "size": 765,
+      "physical_offset": 5888
+    }
+  ],
+  "gate": {
+    "bank": 4,
+    "start": 48947,
+    "end": 49034,
+    "bytes": 87
+  },
+  "emitter": {
+    "bank": 36,
+    "start": 54563,
+    "end": 54764,
+    "bytes": 201
+  },
+  "untouched_bank36_A_window_begin": 46592,
+  "untouched_bank36_physical_offset": 5632,
+  "guard_profile": {
+    "character": 11,
+    "C_window_owner": 36,
+    "immutable_pointers": [
+      49162,
+      49175
+    ],
+    "R3": 0,
+    "X_high": 0,
+    "Y_high": 1,
+    "X_low_inclusive": [
+      12,
+      251
+    ],
+    "Y_low_inclusive": [
+      3,
+      255
+    ],
+    "cursor_maximum": 243
+  },
+  "production_mapping_owner": "ExpandedWeaponPointer calls ExpandedGraphicsBank before pointer selection; real ExpandedDrawShots then writes R3=0 and reaches the sole patched JSR. The component guard also rejects nonzero R3. Actual compiled IRQ/NMI controls preserve the mapped bank/shadows.",
+  "state_writes": "Only original ordered OAM writes and CurrentOAMOffset. No shot, movement, inventory, lifetime, collision, upgrade, scratch or new RAM write is added."
+}
