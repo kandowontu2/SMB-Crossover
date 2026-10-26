@@ -1,0 +1,41 @@
+{
+  "passed": true,
+  "git_commit": "2a9fb93a957de03e6f95f9b104adfcc786dabd2c",
+  "clean_tracked_export": true,
+  "untracked_workspace_files_used": false,
+  "README_audio_then_build_steps": true,
+  "ROM_sha256": "731c918b0f448564587d90fca2979afc9fc0e5eb9b26616f4241801e2e73e16c",
+  "checks": [
+    {
+      "name": "prepare-audio",
+      "passed": true,
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\kando\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+        "-B",
+        "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\clean731-published-build-v1\\source\\tools\\prepare_guest_audio.py"
+      ],
+      "log_sha256": "87fe45f62ba91e2c271347b62133bcfd6d6c62ca0a8d24c921f7a541e031702b"
+    },
+    {
+      "name": "expanded-build",
+      "passed": true,
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\kando\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+        "-B",
+        "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\clean731-published-build-v1\\source\\tools\\build_mmc5_expanded.py",
+        "--workspace",
+        "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\clean731-published-build-v1\\source",
+        "--compiler",
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\Windows\\cc65\\bin\\cl65.exe",
+        "--output",
+        "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\clean731-published-build-v1\\candidate.nes"
+      ],
+      "log_sha256": "ef7ba36a7bebffe343cce382ba209cd89a058377fb13bd297f05656cf3b090c7"
+    }
+  ],
+  "compiler_sha256": "ff2e9c628ef209f034200168872c74b6c7ceddbdb9717b92e03bc6e9b13a5641",
+  "source_export_sha256": "1ea91f6439349af8903ba9edaebe4f25792d9569bcf58896f26022d5b01fc2e9",
+  "limits": "Fresh local build from exact publishedGit tracked export. Windows compiler path is explicit. No original ROM/reference archive lookup, native gameplay or hardware qualification is inferred."
+}
