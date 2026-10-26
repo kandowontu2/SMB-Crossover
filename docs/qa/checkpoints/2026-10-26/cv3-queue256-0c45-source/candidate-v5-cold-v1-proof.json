@@ -1,0 +1,24 @@
+{
+  "passed": true,
+  "accepted": false,
+  "ROM_sha256": "0c45ce16fa189debc2303f4df664a0e75f326a807a64bf23280797734615339c",
+  "unsafe_ROM_sha256": "a04e7cf28038ec4264ded47963e564a6345eb850fbdfb6b4f40fc418d4304480",
+  "actual_cold_NMI_producer_boundaries": 1728,
+  "first_wrong_negative": {
+    "PC": 56344,
+    "physical_banks": [
+      126,
+      27,
+      28,
+      127
+    ],
+    "address": 28988,
+    "before": 5,
+    "value": 0,
+    "cycles_after_entry": 5193
+  },
+  "all_nonstack_RAM_next_audio_AXYP_SP_fiveSMC_mapper_exact": true,
+  "all_safe_cold_upper_queue_writes": 0,
+  "scope": "Assembled actual cold lag-NMI and next real AudioUpdate. Head-before-slot/after-slot/publication/reset/paused/new-music states; full byte counters and all imported cold owner writes. No native CPU/PPU/DMA deadline or source storage adoption claim.",
+  "tool_sha256": "49e67326d95eca3f057cc97e6d898c22acd5b85ed5667ac9b22a791ebcb8e204"
+}

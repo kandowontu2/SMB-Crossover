@@ -1,0 +1,151 @@
+{
+  "passed": true,
+  "accepted": false,
+  "ROM_sha256": "0c45ce16fa189debc2303f4df664a0e75f326a807a64bf23280797734615339c",
+  "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-queue256-v1\\candidate-v5\\source",
+  "callgraph_bound": {
+    "passed": true,
+    "fast_callers": [
+      {
+        "path": "src/cv3_combat.s",
+        "line": 332,
+        "text": "jsr Cv3FxProducerFast"
+      }
+    ],
+    "head_writers": [
+      {
+        "path": "src/cv3_remaining_source_fx.s",
+        "line": 1681,
+        "text": "inc Cv3FxQueueHead"
+      },
+      {
+        "path": "src/cv3_remaining_source_fx.s",
+        "line": 1714,
+        "text": "inc Cv3FxQueueHead"
+      },
+      {
+        "path": "src/cv3_remaining_source_fx.s",
+        "line": 1770,
+        "text": "inc Cv3FxQueueHead"
+      }
+    ],
+    "movement_gate_sites": [
+      {
+        "path": "src/megaman_environment.s",
+        "line": 337,
+        "text": "farcall Cv3MovementGate"
+      },
+      {
+        "path": "src/player.s",
+        "line": 1024,
+        "text": "farcall Cv3MovementGate"
+      }
+    ],
+    "weapon_gate_sites": [
+      {
+        "path": "src/object.s",
+        "line": 1655,
+        "text": "farcall Cv3WeaponsGate"
+      }
+    ],
+    "max_GameLoops_between_audio_NMIs": 2,
+    "max_shots_per_weapon_gate": 3,
+    "max_bat_entry_calls_per_movement_gate": 1,
+    "conservative_movement_gate_sites_per_GameLoop": 2,
+    "overapprox_source_cues_per_interval": 10,
+    "max_consecutive_cancel_runs": 11,
+    "max_pending_valid_ingress": 21,
+    "logical_capacity": 64,
+    "checked_public_entry_keeps_full_guard": true,
+    "explanation": "Every nonzero-OperMode selected-CV1 AudioUpdate takes either active Tick or MuteGate; both drain committed requests. Each GameLoop executes the one weapon dispatch at most once; release branches emit at most3. Both static movement dispatch sites are conservatively counted (2 possible bat requests; normal mutual exclusion ignored). At most2 GameLoops occur per audio NMI because IdleLoop permits one catch-up then yields. Consecutive CANCEL dedup permits at most one CANCEL run around each source cue, hence10+11=21. Off-game menu permits portraits/scene cancel only; repeated pending cancels dedup to1. Cold owner flushes old committed head and preserves a new uncommitted slot. External checked compatibility invocations are outside this bounded private caller and retain full detection.",
+    "new_qualification_needed_for_future_other_producers": true
+  },
+  "original_pending_mute_resume_cases": 112,
+  "full_original_raw_resume_frames": 448,
+  "max21_ingress_pressure_intervals": 1024,
+  "pressure": [
+    {
+      "mode": 0,
+      "kind": "pause",
+      "counter": 0,
+      "intervals": 128,
+      "source_cues_per_interval": 10,
+      "cancel_runs_per_interval": 11,
+      "actual_max_occupancy": 21,
+      "all_source_phase_frozen": true
+    },
+    {
+      "mode": 0,
+      "kind": "pause",
+      "counter": 255,
+      "intervals": 128,
+      "source_cues_per_interval": 10,
+      "cancel_runs_per_interval": 11,
+      "actual_max_occupancy": 21,
+      "all_source_phase_frozen": true
+    },
+    {
+      "mode": 0,
+      "kind": "silence",
+      "counter": 0,
+      "intervals": 128,
+      "source_cues_per_interval": 10,
+      "cancel_runs_per_interval": 11,
+      "actual_max_occupancy": 21,
+      "all_source_phase_frozen": true
+    },
+    {
+      "mode": 0,
+      "kind": "silence",
+      "counter": 255,
+      "intervals": 128,
+      "source_cues_per_interval": 10,
+      "cancel_runs_per_interval": 11,
+      "actual_max_occupancy": 21,
+      "all_source_phase_frozen": true
+    },
+    {
+      "mode": 1,
+      "kind": "pause",
+      "counter": 0,
+      "intervals": 128,
+      "source_cues_per_interval": 10,
+      "cancel_runs_per_interval": 11,
+      "actual_max_occupancy": 21,
+      "all_source_phase_frozen": true
+    },
+    {
+      "mode": 1,
+      "kind": "pause",
+      "counter": 255,
+      "intervals": 128,
+      "source_cues_per_interval": 10,
+      "cancel_runs_per_interval": 11,
+      "actual_max_occupancy": 21,
+      "all_source_phase_frozen": true
+    },
+    {
+      "mode": 1,
+      "kind": "silence",
+      "counter": 0,
+      "intervals": 128,
+      "source_cues_per_interval": 10,
+      "cancel_runs_per_interval": 11,
+      "actual_max_occupancy": 21,
+      "all_source_phase_frozen": true
+    },
+    {
+      "mode": 1,
+      "kind": "silence",
+      "counter": 255,
+      "intervals": 128,
+      "source_cues_per_interval": 10,
+      "cancel_runs_per_interval": 11,
+      "actual_max_occupancy": 21,
+      "all_source_phase_frozen": true
+    }
+  ],
+  "source_priorities_and400F_without_masks": true,
+  "scope": "Bounded actual source callgraph plus assembled mute/active owner controls. Every ordered source frame store is compared to original executable; every complete resume hardware stream is compared to the pure flush replay from the actual preflush image/dirty/last/mask plus original status-owner calls. Muting invalidates last toFF and legitimately restores otherwise unchanged hardware registers. Stress emissions overapproximate legal per-GameLoop events, not controller gameplay. Direct silenced-flag resume exercises preserved pending semantics; genuine new-song resume cancels via existing MusicInit. No native budget/adoption claim.",
+  "tool_sha256": "aad048a628bf1c88cd8dae00c54819636faf0ec8afb8ba51b15ce5fa6cf5ba75"
+}

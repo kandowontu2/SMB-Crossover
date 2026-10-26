@@ -1,0 +1,28 @@
+{
+  "passed": true,
+  "launch_safe": false,
+  "startup_static": false,
+  "native_executed": false,
+  "historical_script": {
+    "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-remaining-resident-v4\\timing-v2-preflight-v1\\run.lua",
+    "sha256": "773f8405d945c70f8c2090eb469d9f5e09dd2e401a41fd78b23dfda87e94f312"
+  },
+  "findings": [
+    {
+      "owner": "DMA completion registration inside4014 callback",
+      "line": 141,
+      "excerpt": " if not strictDmaHooks[key]then\n  strictDmaHooks[key]=true\n  emu.addMemoryCallback(function()\n   if not strictDmaPending or bank(finish)~=owner then return end\n   local q=strictDmaPending;strictDmaPending=nil;local hardware=bytes(0,emu.memType.nesSpriteRam);local endState=stamp()\n   dmaBus:write(json({kind='DMA-complete',stamp=endState,source_exact=hardware==q.source,data_writes=q.writes,hardware_hex=(hardware:gsub('.',function(x)return string.format('%02x',x:byte())end))})..'\\n');dmaBus:flush()\n   assert(q.writes==256,'Actual completed DMA has256 data writes')\n   assert(hardware==q.source,'Actual completed DMA hardware equals complete source page')\n   assert(safeOam(endState),'Actual DMA completes inside vblank or disabled rendering')\n   strictDMA=strictDMA+1\n  end,emu.callbackType.exec,finish)\n end\nend,emu.callbackType.write,0x4014)\n"
+    },
+    {
+      "owner": "onReturn called inside source/audio/performance callbacks",
+      "line": 155,
+      "excerpt": "local function onReturn(name,fn)\n local st=emu.getState();local sp=st['cpu.sp']\n local ret=(emu.read(0x100+(sp+1)%256,emu.memType.nesDebug)+256*emu.read(0x100+(sp+2)%256,emu.memType.nesDebug)+1)%65536\n local key=name..':'..ret\n pendingReturns[key]={sp=(sp+2)%256,bank=bank(ret),fn=fn}\n if not installedReturns[key]then\n  installedReturns[key]=true\n  emu.addMemoryCallback(function()\n   local v=pendingReturns[key]\n   if v and emu.getState()['cpu.sp']==v.sp and alias(ret,bank(ret),v.bank)then pendingReturns[key]=nil;v.fn()end\n  end,emu.callbackType.exec,ret)\n end\nend\n"
+    }
+  ],
+  "bound_builders": {
+    "tools\\audit\\cv3_remaining_sfx_native_v7.py": "44ea78a317c6f5da2d2c3601a7938c94a90923822124967c069c6d321f2bddd3",
+    "tools\\audit\\cv3_remaining_sfx_resident_native_v2.py": "8ba3c98faae21f89f38e14b191f19c4c63a5b73accb2fbcd321e0bbc6a02ccc3"
+  },
+  "required_successor": "New startup-registered dispatcher, exact old/new synthetic return/DMA observation equivalence, frozen generated scripts/inputs and native same-input equivalence before budget qualification. Existing native negatives remain immutable; no retry or cadence claim.",
+  "tool_sha256": "99cb3a52a7b15fa0aeadaa1e50ff7b63819d214f756e758d9e14171800f90760"
+}

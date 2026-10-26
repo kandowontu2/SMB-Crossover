@@ -1,0 +1,307 @@
+--- a/src/cv3_combat.s
++++ b/src/cv3_combat.s
+@@ -329,7 +329,7 @@
+  rts
+ Found:pla
+ .if ::MAPPER_MMC5
+- jsr Cv3FxProducer
++ jsr Cv3FxProducerFast
+ .else
+  jsr Cv3SpawnAudioType
+ .endif
+--- a/src/cv3_remaining_source_fx.s
++++ b/src/cv3_remaining_source_fx.s
+@@ -13,12 +13,12 @@
+ Cv3FxPendingPulse=RgAudioZp+54
+ Cv3FxSourceHigh=RgAudioZp+55 ; original shared source frequency-high image
+ ; Main is the sole head/slot producer; NMI is the sole tail consumer.
+-; Counters are full bytes; only the slot address is masked. Neither reset nor
++; Counters and physical slot indexes are full bytes. Neither reset nor
+ ; an interrupted NMI rewrites producer head. Tail=head discards a cold epoch.
+ Cv3FxQueueHead=RgAudioZp+56
+ Cv3FxQueueTail=RgAudioZp+57
+ Cv3FxQueueOverflow=RgAudioZp+58 ; impossible in the bounded gameplay producer graph
+-Cv3FxQueue=RgAudioZp+64 ;64 committed cue bytes, within the existing160-byte lane
++Cv3FxQueue=RgAudioRam+$100 ;256 physical slots, logical capacity64; CV1 upper RAM unused
+ .pushseg
+ .segment "CV_AUDIO"
+ .proc Cv3FxTick
+@@ -180,18 +180,17 @@
+ .segment "X5_AUDIO_MIX"
+ .proc Cv3FxOwnerInit
+  sta Cv3DmcPending
+- ldx SelectedCharacter
+- cpx #CHARACTER_SIMON
++ lda SelectedCharacter
++ cmp #CHARACTER_SIMON
+  bne Clear
+  lda GamePauseStatus
+  and OperMode
+  and #1
+  bne Done
+-Clear:sta Cv3NoiseActive
+- ldx #19
+-Loop:sta Cv3FxNoiseID,x
+- dex
+- bpl Loop
++Clear:lda #0
++ sta Cv3NoiseActive
++ sta Cv3FxOwned
++ sta Cv3FxSourceHigh
+  lda Cv3FxQueueHead
+  sta Cv3FxQueueTail
+ Done:rts
+@@ -201,10 +200,12 @@
+ .assert *<=$c000,lderror,"Only remaining38B X5 mixer tail"
+ .segment "CV3_COMBAT"
+ .proc Cv3FxSpawn
++ sta Cv3ShotType,x
+  php
+  pha
+  tya
+  pha
++ lda Cv3ShotType,x
+  jsr Cv3FxProducer
+  pla
+  tay
+@@ -1539,52 +1540,49 @@
+ ; NMI is the only consumer. It is never preempted by another audio owner.
+ ; Process all committed commands before advancing either source voice once.
+ .proc Cv3FxDrain
+- lda AvAudioRequest
++ lda Cv3FxOwned
++ and #8
++ bne NoiseKnown
++ lda #0
++ sta Cv3FxNoiseID
++NoiseKnown:lda Cv3FxOwned
++ and #1
++ bne PulseKnown
++ lda #0
++ sta Cv3FxPulseID
++PulseKnown:lda AvAudioRequest
+  cmp #26
+- bne Loop
++ bne Begin
+  lda Cv3FxPendingNoise
+  cmp #$1f
+- bcs Loop
++ bcs Begin
+  lda #$1f
+  sta Cv3FxPendingNoise
+-Loop:lda Cv3FxQueueTail
+- cmp Cv3FxQueueHead
+- jeq Done
+- and #63
+- tay
+- lda Cv3FxQueue,y
++Begin:ldy Cv3FxQueueTail
++ cpy Cv3FxQueueHead
++ beq Done
++Loop:lda Cv3FxQueue,y
+  cmp #8
+- jeq Cancel
+- cmp #1
+- jcc Consumed
+- cmp #8
+- jcs Consumed
+- cmp #6
+- bne Index
+- lda #0
+- beq Mapped
+-Index:cmp #7
+- bne Mapped
+- lda #6
+-Mapped:tay
+-Admit:lda Cv3FxMasks,y
+- and #8
+- beq Pulse
+- lda Cv3FxIDs,y
++ beq Cancel
++ tax
++ ; Every authenticated source cue1..7 owns noise. Pulse is table bit0.
++ lda Cv3FxRawIDs,x
+  cmp Cv3FxPendingNoise
+  bcc Pulse
+  sta Cv3FxPendingNoise
+-Pulse:lda Cv3FxMasks,y
+- and #1
+- beq Mark
+- lda Cv3FxIDs,y
++Pulse:lda Cv3FxRawMasks,x
++ lsr
++ bcc Consumed
++ lda Cv3FxRawIDs,x
+  cmp Cv3FxPendingPulse
+- bcc Mark
++ bcc Consumed
+  sta Cv3FxPendingPulse
+-Mark:jmp Consumed
++ jmp Consumed
+ Cancel:jsr Cv3FxCancelConsumer
+-Consumed:inc Cv3FxQueueTail
+- jmp Loop
++Consumed:iny
++ cpy Cv3FxQueueHead
++ bne Loop
++ sty Cv3FxQueueTail
+ Done:lda Cv3FxPendingNoise
+  ora Cv3FxPendingPulse
+  beq Return
+@@ -1596,11 +1594,20 @@
+  lda Cv3FxOwned
+  and #9
+  bne Full
++ ; Paused/muted requests are folded but never ticked or exposed as Av26
++ ; to the common decoder. Their original pending priority survives resume.
++ lda GamePauseStatus
++ and #1
++ bne Full
++ lda RgAudioSilenced
++ bne Full
+  lda AvAudioRequest
+  beq Legacy
+  cmp #26
+- beq Legacy
+- lda #0
++ bcc DiscardLegacy
++ cmp #33
++ bcc Legacy
++DiscardLegacy:lda #0
+  sta Cv3FxPendingNoise
+  rts
+ Legacy:lda #0
+@@ -1655,7 +1662,7 @@
+  beq Room
+  sec
+  sbc #1
+- and #63
++
+  tay
+  lda Cv3FxQueue,y
+  cmp #8
+@@ -1667,7 +1674,7 @@
+  cmp #64
+  bcs Full
+  lda Cv3FxQueueHead
+- and #63
++
+  tay
+  pla
+  sta Cv3FxQueue,y
+@@ -1689,25 +1696,25 @@
+  bcc Done
+  cmp #7
+  bcs Done
+- lda AvAudioRequest
++ ldy AvAudioRequest
+  beq WorldClear
+- cmp #26
++ cpy #26
+  bcc Done
+- cmp #33
++ cpy #33
+  bcs Done
+-WorldClear:lda Cv3FxQueueHead
++WorldClear:pha
++ lda Cv3FxQueueHead
+  sec
+  sbc Cv3FxQueueTail
+  cmp #64
+  bcs Full
+- lda Cv3FxQueueHead
+- and #63
+- tay
+- lda Cv3ShotType,x
++ ldy Cv3FxQueueHead
++ pla
+  sta Cv3FxQueue,y
+  inc Cv3FxQueueHead
+ Done:rts
+-Full:inc Cv3FxQueueOverflow
++Full:pla
++ inc Cv3FxQueueOverflow
+  rts
+ .endproc
+ .segment "CV_AUDIO"
+@@ -1745,3 +1752,38 @@
+  sta AvAudioRequest
+ Done:rts
+ .endproc
++
++.pushseg
++.segment "CV3_COMBAT"
++; Sole actual caller has constant1..6 and at most21 outstanding commands after
++; the NMI mute consumer/cancel-run proof. Checked public entry remains above.
++.proc Cv3FxProducerFast
++ sta Cv3ShotType,x
++ ldy AvAudioRequest
++ beq WorldClear
++ cpy #26
++ bcc Done
++ cpy #33
++ bcs Done
++WorldClear:ldy Cv3FxQueueHead
++ sta Cv3FxQueue,y
++ inc Cv3FxQueueHead
++Done:rts
++.endproc
++.segment "CV3_GRIP"
++Cv3FxRawIDs:.byte 0,$13,$15,$24,$21,$1e,$1f,$2f
++Cv3FxRawMasks:.byte 0,8,8,9,9,9,8,9
++.assert *<=$c000,lderror,"Declared remaining A82 source space"
++.segment "CV_AUDIO"
++.proc Cv3FxMuteGate
++ php
++ lda Cv3FxQueueHead
++ cmp Cv3FxQueueTail
++ beq Empty
++ jsr Cv3FxDrainGate
++Empty:plp
++ lda #0
++ jmp GuestNativeStatusSTA
++.endproc
++.assert *<=$dc00,lderror,"Declared remaining C28 source space"
++.popseg
+--- a/src/roster_audio.s
++++ b/src/roster_audio.s
+@@ -62,7 +62,11 @@
+   ldx #0
+ ClearRam:
+   sta RgAudioRam,x
++.if Kind=2 .and ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
++  jmp KeptUpper ; upper channel RAM is the committed FX queue, never CV1 state
++.else
+   sta RgAudioRam+$100,x
++.endif
+   inx
+   bne ClearRam
+   ldx #ZpCount-1
+@@ -79,7 +83,12 @@
+   ; memory operations and final A/X/Y/P; no shared mapper/SMC work is added.
+   jsr Cv3SaveAudioZp
+   jmp SavedPrivate
+-  .res 12,$ea ; exact original18-byte Save body
++KeptUpper:
++  inx
++  bne ClearRam
++  ldx #ZpCount-1
++  jmp ClearZp
++  .res 4,$ea ; genuine8-byte cold continuation in old unreachable12-byte tail
+ SavedPrivate:
+ .else
+   ldx ZpAddresses,y
+@@ -222,8 +231,13 @@
+ .endif
+   jmp Restore
+ Mute:
++.if Kind=2 .and ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
++  jsr Cv3FxMuteGate
++  .res 2,$ea ; unchanged5-byte original mute owner span
++.else
+   lda #0
+   jsr GuestNativeStatusSTA
++.endif
+ Restore:
+ .if Kind=2 .and ::ENABLE_MMC5_EXPANDED
+   jsr Cv3RestoreAudioZp
