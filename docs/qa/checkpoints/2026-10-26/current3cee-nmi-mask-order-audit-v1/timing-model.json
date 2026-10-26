@@ -1,0 +1,37 @@
+{
+  "reported_start": {
+    "cpu": 5449240,
+    "scanline": 256,
+    "dot": 255,
+    "frame": 184
+  },
+  "actual_comparison_sha256": "96ada48eecfa0f185de016d1d36e80ee60945295c82b355890965b5a2fc060ad",
+  "immediate_after_DMA_pair_end_no_stall_model": [
+    {
+      "relative_scanline": -1,
+      "dot": 89,
+      "convention": "Upcoming pre-render=-1, first visible=0; 341-dot/no-stall arithmetic, not a native observation."
+    },
+    {
+      "relative_scanline": -1,
+      "dot": 92,
+      "convention": "Upcoming pre-render=-1, first visible=0; 341-dot/no-stall arithmetic, not a native observation."
+    }
+  ],
+  "after_controller_pair_end_no_stall_model": [
+    {
+      "relative_scanline": 1,
+      "dot": 187,
+      "convention": "Upcoming pre-render=-1, first visible=0; 341-dot/no-stall arithmetic, not a native observation."
+    },
+    {
+      "relative_scanline": 1,
+      "dot": 190,
+      "convention": "Upcoming pre-render=-1, first visible=0; 341-dot/no-stall arithmetic, not a native observation."
+    }
+  ],
+  "moved_pair_instruction_cycles": 8,
+  "normal_DMA_start_delta": -8,
+  "straight_line_instruction_total_delta": 0,
+  "caveat": "No candidate executed. DMA callback/write/completion phase, mask response delay, odd-dot skip, DMC and IRQ can change exact dots. This is a feasibility bound; actual same184 frame semantics are retained."
+}

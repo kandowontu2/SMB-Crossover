@@ -1,0 +1,38 @@
+Current3cee title/character-select DMA diagnosis - 2026-10-26
+
+Two matched, sequential 220-frame native diagnostics completed: installed3cee
+and the private c5 Mega/Proto shot experiment. Both hardware-equality results
+remain FALSE. All61,209 ordered raw observations are semantically identical;
+no new shot helper executes. This identifies an existing startup defect rather
+a gameplay verdict about the unexecuted shot experiment. Both workers exited.
+
+Each run records207 transfers and all52,992 individual input writes. Every
+input value matches its source. Transfer171 begins at actual PPU184:256:255
+with rendering enabled, crosses into pre-render, and alone has a different
+physical destination. Ordinal242 observes OAMADDR244 instead of241. Five
+first-row bytes differ, including source Y168 becoming248. All64 source
+attributes are zero, excluding unused-attribute-bit masking alone. These are
+actual raw observations; no destination masks, invented image or frame label
+increment is used. There is no title RGB capture in this bootstrap diagnostic.
+
+ROOT independently compares all raw rows, recomputes every256-byte hardware
+comparison and checks every input value/count. ROOT integrity passes while
+hardware equality remains FALSE. Prior loading-observer and title-assertion
+failures remain separate, preserved negatives. The original preparation report
+is retained unchanged as a historical pre-launch document.
+
+The actual failing NMI flushes its queued screen updates, enables rendering,
+publishes CHR, then performs DMA and controller reads. A source audit rejects
+enabling only after the whole input routine because that would be too late
+for this captured pre-render interval. A separate private candidate is testing
+enabling immediately after DMA, before controller reads. Genuine fixed-code
+address movement requires fresh hooks and full source/native qualification.
+No repair is installed and3cee remains the published build. All37 ordinary
+1-1 clears remain exact3cee evidence; every-powerup, full audio/graphics, both
+modes and campaign qualification remain unfinished.
+
+Checkpoint: checkpoints/2026-10-26/current3cee-title-dma-negative-v1/
+ROOT proof SHA256 ee96e8c0e1fa469a673f865868228083f5dac4180aa86e6e55d82691de63e8dc
+Native comparison SHA256 96ada48eecfa0f185de016d1d36e80ee60945295c82b355890965b5a2fc060ad
+Complete raw captures and private binaries remain externally bound. No ROM,
+NSF, DMC, settings or lossless payload is added to the public repository.

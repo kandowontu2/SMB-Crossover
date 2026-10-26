@@ -1,0 +1,1 @@
+Both220-frame bootstrap diagnostics completed with the SAME hardware inequality. Both results remain FALSE. ROOT integrity/semantic comparison passes; no game fix is claimed. Complete raw source/hardware2004 timing logs remain externally bound. No ROM/NSF/DMC/settings payload copied here.

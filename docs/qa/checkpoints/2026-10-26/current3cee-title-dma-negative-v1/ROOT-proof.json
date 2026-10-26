@@ -1,0 +1,174 @@
+{
+  "utc": "2026-10-26T12:18:47.261896+00:00",
+  "integrity_passed": true,
+  "diagnostic_analysis_complete": true,
+  "hardware_equality_passed": false,
+  "installed_fix": false,
+  "all_ordered_raw_observations_semantically_exact": true,
+  "rows_by_kind": {
+    "initial-OAM-source": 1,
+    "wall-frame": 220,
+    "source-write": 392,
+    "PPUMASK-write": 415,
+    "NMI-entry": 212,
+    "OAMADDR-write": 207,
+    "routine-entry": 1233,
+    "routine-return": 1045,
+    "DMA-start": 207,
+    "DMA2004": 52992,
+    "DMA-complete": 207,
+    "NMI-return": 212,
+    "Main-entry": 209,
+    "Main-release": 209,
+    "Main-return": 209,
+    "bounded-PPU-write": 3239
+  },
+  "frames_each": 220,
+  "DMAs_each": 207,
+  "all_52992_input_values_each_match_source": true,
+  "hardware_inequalities_each": 1,
+  "new_shot_code_hits_each": 0,
+  "first_bad_DMA": 171,
+  "source_stamp": {
+    "cpu": 5449240,
+    "scanline": 256,
+    "dot": 255,
+    "frame": 184
+  },
+  "complete_stamp": {
+    "cpu": 5449756,
+    "scanline": -1,
+    "dot": 99,
+    "frame": 184
+  },
+  "actual_first_OAMADDR_divergence": {
+    "DMA": 171,
+    "ordinal": 242,
+    "kind": "DMA2004",
+    "writerBank": 127,
+    "software2003": 0,
+    "writerPC": 57349,
+    "PPUMASK": 30,
+    "ppu": {
+      "cpu": 5449726,
+      "scanline": -1,
+      "dot": 8,
+      "frame": 184
+    },
+    "actual_OAMADDR": 244,
+    "value": 0
+  },
+  "actual_hardware_differences": [
+    {
+      "offset": 0,
+      "source": 168,
+      "hardware": 248
+    },
+    {
+      "offset": 1,
+      "source": 2,
+      "hardware": 0
+    },
+    {
+      "offset": 3,
+      "source": 128,
+      "hardware": 0
+    },
+    {
+      "offset": 4,
+      "source": 168,
+      "hardware": 248
+    },
+    {
+      "offset": 7,
+      "source": 120,
+      "hardware": 0
+    }
+  ],
+  "actual_NMI184_inclusive_costs": [
+    {
+      "name": "UpdateScreen",
+      "entry": {
+        "cpu": 5448877,
+        "scanline": 253,
+        "dot": 190,
+        "frame": 184
+      },
+      "ppu": {
+        "cpu": 5448904,
+        "scanline": 253,
+        "dot": 271,
+        "frame": 184
+      },
+      "inclusive_CPU_cycles": 27
+    },
+    {
+      "name": "SamusFreezeUpdateScreen",
+      "entry": {
+        "cpu": 5447567,
+        "scanline": 242,
+        "dot": 11,
+        "frame": 184
+      },
+      "ppu": {
+        "cpu": 5448931,
+        "scanline": 254,
+        "dot": 11,
+        "frame": 184
+      },
+      "inclusive_CPU_cycles": 1364
+    },
+    {
+      "name": "BankSwitchCHR",
+      "entry": {
+        "cpu": 5448974,
+        "scanline": 254,
+        "dot": 140,
+        "frame": 184
+      },
+      "ppu": {
+        "cpu": 5449228,
+        "scanline": 256,
+        "dot": 220,
+        "frame": 184
+      },
+      "inclusive_CPU_cycles": 254
+    },
+    {
+      "name": "OAMandReadJoypad",
+      "entry": {
+        "cpu": 5449234,
+        "scanline": 256,
+        "dot": 238,
+        "frame": 184
+      },
+      "ppu": {
+        "cpu": 5450014,
+        "scanline": 1,
+        "dot": 191,
+        "frame": 184
+      },
+      "inclusive_CPU_cycles": 780
+    },
+    {
+      "name": "AudioUpdate",
+      "entry": {
+        "cpu": 5450051,
+        "scanline": 1,
+        "dot": 302,
+        "frame": 184
+      },
+      "ppu": {
+        "cpu": 5450115,
+        "scanline": 2,
+        "dot": 153,
+        "frame": 184
+      },
+      "inclusive_CPU_cycles": 64
+    }
+  ],
+  "comparison_proof_sha256": "96ada48eecfa0f185de016d1d36e80ee60945295c82b355890965b5a2fc060ad",
+  "native_workers_released": true,
+  "representation_note": "Empty Lua difference tables serialize as{}; actual all256 byte comparisons are independently recomputed, and nonempty lists remain exact. No byte masks.",
+  "limits": "Matched bootstrap diagnosis only. Both hardware equality results remain FALSE. Five-byte destination corruption predates the unexecuted shot helper. No inferred unlogged images, title-image RGB, gameplay, universal timing, fix or adoption claim."
+}
