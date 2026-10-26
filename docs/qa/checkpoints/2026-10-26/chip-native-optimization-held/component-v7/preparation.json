@@ -1,0 +1,338 @@
+{
+  "source_sha256": "6a8b3729742654a5cc59bf2a1be904086fdbbf53d51c3a1b40bf16c387298b3f",
+  "baseline_ROM_sha256": "50b51c3c69f45ef137720c47f521574097f421056e3b73296d06ba70080d2363",
+  "original_ROM_data_bytes_preserved": 11952,
+  "pure_code_page_compiled_separately": [
+    32768,
+    33024
+  ],
+  "runtime_indirect_data_lower_bound_still_requires_qualification": true,
+  "source_indirect_tables": [
+    [
+      33132,
+      33148
+    ],
+    [
+      33504,
+      33514
+    ],
+    [
+      33896,
+      33946
+    ],
+    [
+      34468,
+      34478
+    ]
+  ],
+  "source_instruction_count": 1087,
+  "source_jump_targets": [
+    33148,
+    33151,
+    33179,
+    33240,
+    33248,
+    33255,
+    33262,
+    33284,
+    33946,
+    33950,
+    33954,
+    33961,
+    33970,
+    33984,
+    33990,
+    34001,
+    34006,
+    34012,
+    34016,
+    34020,
+    34024,
+    34075,
+    34102,
+    34113,
+    34359,
+    34380,
+    34430,
+    34436,
+    34442,
+    34478,
+    34499,
+    34527,
+    34557,
+    35058
+  ],
+  "pointer_liveness": {
+    "abstract_control_states": 2436,
+    "source_instruction_states": 1087,
+    "original_abort_return_consumers": [
+      34113,
+      34114
+    ],
+    "max_abstract_call_depth": 4,
+    "all_conditional_paths_included": true,
+    "all_original_dispatch_destinations": 34,
+    "exits": [
+      32930,
+      32976
+    ],
+    "live_low_writers": [
+      33000,
+      33129,
+      33501,
+      33893,
+      34137,
+      34465
+    ],
+    "live_high_writers": [
+      33005,
+      33129,
+      33501,
+      33893,
+      34139,
+      34465
+    ],
+    "dead_low_writers": [
+      32782,
+      32797,
+      32821,
+      32899,
+      32904,
+      33050,
+      33396,
+      33748,
+      34209,
+      34599,
+      34658,
+      34733,
+      34787,
+      34816,
+      34851,
+      34864,
+      34876,
+      34885,
+      34912
+    ],
+    "dead_high_writers": [
+      32776,
+      32780,
+      32791,
+      32818,
+      33058,
+      34026,
+      34741,
+      34744,
+      34747,
+      34750,
+      34768,
+      34782,
+      34797,
+      34828,
+      34847,
+      34887,
+      34907
+    ],
+    "read_predecessors": {
+      "802c": {
+        "low": [
+          33129,
+          33501,
+          33893,
+          34465
+        ],
+        "high": [
+          33129,
+          33501,
+          33893,
+          34465
+        ]
+      },
+      "8030": {
+        "low": [
+          33129,
+          33501,
+          33893,
+          34465
+        ],
+        "high": [
+          33129,
+          33501,
+          33893,
+          34465
+        ]
+      },
+      "80f5": {
+        "low": [
+          33000
+        ],
+        "high": [
+          33005
+        ]
+      },
+      "8155": {
+        "low": [
+          33000
+        ],
+        "high": [
+          33005
+        ]
+      },
+      "815b": {
+        "low": [
+          33000
+        ],
+        "high": [
+          33005
+        ]
+      },
+      "855f": {
+        "low": [
+          34137
+        ],
+        "high": [
+          34139
+        ]
+      }
+    },
+    "limits": "Conservative call/abort-graph analysis of pinned source Init/Play and each original inline dispatcher table. All conditional paths are included. Ordinary PHA/PLA/PHP/PLP data-stack contents and numeric branch feasibility are not simulated here; actual physical stacks/data-dependent execution are separately compared against original source traces."
+  },
+  "expanded_branches": [],
+  "intercepts": [
+    [
+      32812,
+      "LDA",
+      "iny",
+      193
+    ],
+    [
+      32816,
+      "LDA",
+      "iny",
+      193
+    ],
+    [
+      32947,
+      "STA",
+      "aby",
+      16384
+    ],
+    [
+      32965,
+      "STA",
+      "aby",
+      16384
+    ],
+    [
+      33013,
+      "LDA",
+      "iny",
+      193
+    ],
+    [
+      33109,
+      "LDA",
+      "iny",
+      193
+    ],
+    [
+      33115,
+      "LDA",
+      "iny",
+      193
+    ],
+    [
+      33228,
+      "STA",
+      "abs",
+      16385
+    ],
+    [
+      33231,
+      "STA",
+      "abs",
+      16389
+    ],
+    [
+      33236,
+      "STA",
+      "abs",
+      16405
+    ],
+    [
+      33599,
+      "LDA",
+      "iny",
+      208
+    ],
+    [
+      34143,
+      "LDA",
+      "iny",
+      193
+    ],
+    [
+      34333,
+      "LDA",
+      "iny",
+      197
+    ],
+    [
+      34480,
+      "LDA",
+      "iny",
+      197
+    ],
+    [
+      34501,
+      "LDA",
+      "iny",
+      197
+    ],
+    [
+      34516,
+      "CMP",
+      "iny",
+      197
+    ],
+    [
+      34522,
+      "LDA",
+      "iny",
+      197
+    ],
+    [
+      34536,
+      "LDA",
+      "iny",
+      197
+    ],
+    [
+      34635,
+      "LDA",
+      "iny",
+      197
+    ],
+    [
+      34712,
+      "LDA",
+      "iny",
+      197
+    ],
+    [
+      34845,
+      "ORA",
+      "iny",
+      197
+    ],
+    [
+      35034,
+      "LDA",
+      "iny",
+      197
+    ]
+  ],
+  "gameplay_dispatch_added": false,
+  "native_run": false,
+  "accepted": false,
+  "generator_sha256": "c2eccc2ca906b8819e86100ecd0a489d8c7c2082492303857f9d1df8fcbed154"
+}
