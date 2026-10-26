@@ -1,0 +1,671 @@
+{
+  "prepared": true,
+  "native_run": false,
+  "native_granted": false,
+  "ROM_sha256": "0a7dd88e6732bc189e432a9d55b18dd8f7ecf68a22e3b20f0a13ab7276241c09",
+  "profile_count": 2,
+  "per_profile_cases": 6,
+  "profiles": [
+    {
+      "variant": 0,
+      "profile": "mega-hard-primary-support",
+      "readiness": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mm-proto-weapon-boundary0a-v1\\mega-hard-ready-v2\\readiness.json",
+      "readiness_sha256": "b9dc0b9a94f2aec94a155085e7e1698cfa12f783cde9935352d5749c82fbdfd1",
+      "command": [
+        "C:\\Users\\kando\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+        "-B",
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\run_mesen_isolated.py",
+        "--output",
+        "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mm-proto-weapon-boundary0a-v1\\mega-hard-ready-v2\\native",
+        "--emulator",
+        "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3b112-bass-semantic-cleanup-ready-v1\\emulator\\Mesen.exe",
+        "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mm-proto-weapon-boundary0a-v1\\mega-hard-ready-v2\\native\\run.lua",
+        "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mm-proto-construction-pivot-candidate-v9\\candidate.nes",
+        "--timeout",
+        "1200",
+        "--option=--doNotSaveSettings",
+        "--option=--nes.removeSpriteLimit=false",
+        "--option=--nes.ramPowerOnState=AllZeros",
+        "--option=--nes.randomizeCpuPpuAlignment=false",
+        "--option=--nes.randomizeMapperPowerOnState=false"
+      ],
+      "unchanged_actual_six_component_guard_body": true,
+      "unchanged_cases_thresholds_costs_art_records_and_hardware_guards": true,
+      "true_hook_checks": [
+        {
+          "hook": "GameLoop",
+          "real_symbol": "GameLoop",
+          "offset": 0,
+          "address": 33497,
+          "physical_bank": 126,
+          "bytes": [
+            169,
+            255,
+            141
+          ]
+        },
+        {
+          "hook": "NonMaskableInterrupt",
+          "real_symbol": "NonMaskableInterrupt",
+          "offset": 0,
+          "address": 58172,
+          "physical_bank": 127,
+          "bytes": [
+            72,
+            138,
+            72
+          ]
+        },
+        {
+          "hook": "IrqScrollSplit",
+          "real_symbol": "IrqScrollSplit",
+          "offset": 0,
+          "address": 32768,
+          "physical_bank": 126,
+          "bytes": [
+            72,
+            138,
+            72
+          ]
+        },
+        {
+          "hook": "RosterOamReady",
+          "real_symbol": "RosterOamReady",
+          "offset": 0,
+          "address": 41548,
+          "physical_bank": 4,
+          "bytes": [
+            96,
+            104,
+            74
+          ]
+        },
+        {
+          "hook": "InventorySelectionCommit",
+          "real_symbol": "InventorySelectionCommit",
+          "offset": 0,
+          "address": 49103,
+          "physical_bank": 59,
+          "bytes": [
+            224,
+            1,
+            240
+          ]
+        },
+        {
+          "hook": "InventorySpend",
+          "real_symbol": "InventorySpend",
+          "offset": 0,
+          "address": 41680,
+          "physical_bank": 59,
+          "bytes": [
+            32,
+            48,
+            162
+          ]
+        },
+        {
+          "hook": "InventoryCycle",
+          "real_symbol": "InventoryCycle",
+          "offset": 0,
+          "address": 42936,
+          "physical_bank": 59,
+          "bytes": [
+            174,
+            2,
+            96
+          ]
+        },
+        {
+          "hook": "SpecialWeapons",
+          "real_symbol": "SpecialWeapons",
+          "offset": 0,
+          "address": 41137,
+          "physical_bank": 60,
+          "bytes": [
+            173,
+            2,
+            96
+          ]
+        },
+        {
+          "hook": "SpecialWeapons::Spawn",
+          "real_symbol": "SpecialWeapons::Spawn",
+          "offset": 0,
+          "address": 42712,
+          "physical_bank": 60,
+          "bytes": [
+            174,
+            96,
+            108
+          ]
+        },
+        {
+          "hook": "SpecialWeapons::MegaAttack",
+          "real_symbol": "SpecialWeapons::MegaAttack",
+          "offset": 0,
+          "address": 41996,
+          "physical_bank": 60,
+          "bytes": [
+            173,
+            226,
+            125
+          ]
+        },
+        {
+          "hook": "ExpandedWeapons::FireShot",
+          "real_symbol": "ExpandedWeapons::FireShot",
+          "offset": 0,
+          "address": 42290,
+          "physical_bank": 37,
+          "bytes": [
+            173,
+            2,
+            96
+          ]
+        },
+        {
+          "hook": "MegaManWeapons::DamageEnemy",
+          "real_symbol": "MegaManWeapons::DamageEnemy",
+          "offset": 0,
+          "address": 43412,
+          "physical_bank": 8,
+          "bytes": [
+            32,
+            252,
+            187
+          ]
+        },
+        {
+          "hook": "MegaKickBodyDamage",
+          "real_symbol": "MegaKickBodyDamage",
+          "offset": 0,
+          "address": 46682,
+          "physical_bank": 60,
+          "bytes": [
+            181,
+            23,
+            201
+          ]
+        },
+        {
+          "hook": "SpecialDrawShots::Coordinates",
+          "real_symbol": "SpecialDrawShots::Coordinates",
+          "offset": 0,
+          "address": 47218,
+          "physical_bank": 60,
+          "bytes": [
+            174,
+            96,
+            108
+          ]
+        },
+        {
+          "hook": "SpecialDrawWaterShot",
+          "real_symbol": "SpecialDrawWaterShot",
+          "offset": 0,
+          "address": 48753,
+          "physical_bank": 60,
+          "bytes": [
+            189,
+            202,
+            125
+          ]
+        },
+        {
+          "hook": "ExpandedWeaponPointer",
+          "real_symbol": "ExpandedWeaponPointer",
+          "offset": 0,
+          "address": 45096,
+          "physical_bank": 37,
+          "bytes": [
+            32,
+            39,
+            237
+          ]
+        },
+        {
+          "hook": "finish",
+          "real_symbol": "GameLoop",
+          "offset": 124,
+          "address": 33621,
+          "physical_bank": 126,
+          "bytes": [
+            96
+          ]
+        },
+        {
+          "hook": "NmiReturn",
+          "real_symbol": "NonMaskableInterrupt",
+          "offset": 211,
+          "address": 58383,
+          "physical_bank": 127,
+          "bytes": [
+            64
+          ]
+        },
+        {
+          "hook": "InventoryUiTick",
+          "real_symbol": "InventoryUiTick",
+          "offset": 0,
+          "address": 42619,
+          "physical_bank": 59,
+          "bytes": [
+            173,
+            29,
+            111
+          ]
+        },
+        {
+          "hook": "SpecialWeapons::ReleaseBalloon",
+          "real_symbol": "SpecialWeapons::ReleaseBalloon",
+          "offset": 0,
+          "address": 43670,
+          "physical_bank": 60,
+          "bytes": [
+            189,
+            217,
+            108
+          ]
+        },
+        {
+          "hook": "MegaManWeapons::Spawn",
+          "real_symbol": "MegaManWeapons::Spawn",
+          "offset": 0,
+          "address": 41430,
+          "physical_bank": 8,
+          "bytes": [
+            141,
+            154,
+            104
+          ]
+        },
+        {
+          "hook": "MegaManRushAttack",
+          "real_symbol": "MegaManRushAttack",
+          "offset": 0,
+          "address": 48817,
+          "physical_bank": 61,
+          "bytes": [
+            173,
+            156,
+            7
+          ]
+        },
+        {
+          "hook": "MegaManRushBounce",
+          "real_symbol": "MegaManRushBounce",
+          "offset": 0,
+          "address": 49034,
+          "physical_bank": 61,
+          "bytes": [
+            173,
+            156,
+            7
+          ]
+        },
+        {
+          "hook": "InventoryRefillAmount",
+          "real_symbol": "InventoryRefillAmount",
+          "offset": 0,
+          "address": 42460,
+          "physical_bank": 59,
+          "bytes": [
+            141,
+            22,
+            111
+          ]
+        },
+        {
+          "hook": "PrimaryArtReady",
+          "real_symbol": "ProtoLegacyDrawShotsCold::Pointer",
+          "offset": 2,
+          "address": 42021,
+          "physical_bank": 66,
+          "bytes": [
+            189,
+            35,
+            96
+          ]
+        }
+      ],
+      "full_art_caller_cases": 9,
+      "actual_art_callback_models": 36,
+      "actual_component_callback_models": 9
+    },
+    {
+      "variant": 1,
+      "profile": "proto-hard-primary-support",
+      "readiness": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mm-proto-weapon-boundary0a-v1\\proto-hard-ready-v1\\readiness.json",
+      "readiness_sha256": "369045f48eed80482b971f1bf155bafd121323c567ac9616007be87c26530469",
+      "command": [
+        "C:\\Users\\kando\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+        "-B",
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\run_mesen_isolated.py",
+        "--output",
+        "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mm-proto-weapon-boundary0a-v1\\proto-hard-ready-v1\\native",
+        "--emulator",
+        "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3b112-bass-semantic-cleanup-ready-v1\\emulator\\Mesen.exe",
+        "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mm-proto-weapon-boundary0a-v1\\proto-hard-ready-v1\\native\\run.lua",
+        "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mm-proto-construction-pivot-candidate-v9\\candidate.nes",
+        "--timeout",
+        "1200",
+        "--option=--doNotSaveSettings",
+        "--option=--nes.removeSpriteLimit=false",
+        "--option=--nes.ramPowerOnState=AllZeros",
+        "--option=--nes.randomizeCpuPpuAlignment=false",
+        "--option=--nes.randomizeMapperPowerOnState=false"
+      ],
+      "unchanged_actual_six_component_guard_body": true,
+      "unchanged_cases_thresholds_costs_art_records_and_hardware_guards": true,
+      "true_hook_checks": [
+        {
+          "hook": "GameLoop",
+          "real_symbol": "GameLoop",
+          "offset": 0,
+          "address": 33497,
+          "physical_bank": 126,
+          "bytes": [
+            169,
+            255,
+            141
+          ]
+        },
+        {
+          "hook": "NonMaskableInterrupt",
+          "real_symbol": "NonMaskableInterrupt",
+          "offset": 0,
+          "address": 58172,
+          "physical_bank": 127,
+          "bytes": [
+            72,
+            138,
+            72
+          ]
+        },
+        {
+          "hook": "IrqScrollSplit",
+          "real_symbol": "IrqScrollSplit",
+          "offset": 0,
+          "address": 32768,
+          "physical_bank": 126,
+          "bytes": [
+            72,
+            138,
+            72
+          ]
+        },
+        {
+          "hook": "RosterOamReady",
+          "real_symbol": "RosterOamReady",
+          "offset": 0,
+          "address": 41548,
+          "physical_bank": 4,
+          "bytes": [
+            96,
+            104,
+            74
+          ]
+        },
+        {
+          "hook": "InventorySelectionCommit",
+          "real_symbol": "InventorySelectionCommit",
+          "offset": 0,
+          "address": 49103,
+          "physical_bank": 59,
+          "bytes": [
+            224,
+            1,
+            240
+          ]
+        },
+        {
+          "hook": "InventorySpend",
+          "real_symbol": "InventorySpend",
+          "offset": 0,
+          "address": 41680,
+          "physical_bank": 59,
+          "bytes": [
+            32,
+            48,
+            162
+          ]
+        },
+        {
+          "hook": "InventoryCycle",
+          "real_symbol": "InventoryCycle",
+          "offset": 0,
+          "address": 42936,
+          "physical_bank": 59,
+          "bytes": [
+            174,
+            2,
+            96
+          ]
+        },
+        {
+          "hook": "SpecialWeapons",
+          "real_symbol": "SpecialWeapons",
+          "offset": 0,
+          "address": 41137,
+          "physical_bank": 60,
+          "bytes": [
+            173,
+            2,
+            96
+          ]
+        },
+        {
+          "hook": "SpecialWeapons::Spawn",
+          "real_symbol": "SpecialWeapons::Spawn",
+          "offset": 0,
+          "address": 42712,
+          "physical_bank": 60,
+          "bytes": [
+            174,
+            96,
+            108
+          ]
+        },
+        {
+          "hook": "SpecialWeapons::MegaAttack",
+          "real_symbol": "SpecialWeapons::MegaAttack",
+          "offset": 0,
+          "address": 41996,
+          "physical_bank": 60,
+          "bytes": [
+            173,
+            226,
+            125
+          ]
+        },
+        {
+          "hook": "ExpandedWeapons::FireShot",
+          "real_symbol": "ExpandedWeapons::FireShot",
+          "offset": 0,
+          "address": 42290,
+          "physical_bank": 37,
+          "bytes": [
+            173,
+            2,
+            96
+          ]
+        },
+        {
+          "hook": "MegaManWeapons::DamageEnemy",
+          "real_symbol": "MegaManWeapons::DamageEnemy",
+          "offset": 0,
+          "address": 43412,
+          "physical_bank": 8,
+          "bytes": [
+            32,
+            252,
+            187
+          ]
+        },
+        {
+          "hook": "MegaKickBodyDamage",
+          "real_symbol": "MegaKickBodyDamage",
+          "offset": 0,
+          "address": 46682,
+          "physical_bank": 60,
+          "bytes": [
+            181,
+            23,
+            201
+          ]
+        },
+        {
+          "hook": "SpecialDrawShots::Coordinates",
+          "real_symbol": "SpecialDrawShots::Coordinates",
+          "offset": 0,
+          "address": 47218,
+          "physical_bank": 60,
+          "bytes": [
+            174,
+            96,
+            108
+          ]
+        },
+        {
+          "hook": "SpecialDrawWaterShot",
+          "real_symbol": "SpecialDrawWaterShot",
+          "offset": 0,
+          "address": 48753,
+          "physical_bank": 60,
+          "bytes": [
+            189,
+            202,
+            125
+          ]
+        },
+        {
+          "hook": "ExpandedWeaponPointer",
+          "real_symbol": "ExpandedWeaponPointer",
+          "offset": 0,
+          "address": 45096,
+          "physical_bank": 37,
+          "bytes": [
+            32,
+            39,
+            237
+          ]
+        },
+        {
+          "hook": "finish",
+          "real_symbol": "GameLoop",
+          "offset": 124,
+          "address": 33621,
+          "physical_bank": 126,
+          "bytes": [
+            96
+          ]
+        },
+        {
+          "hook": "NmiReturn",
+          "real_symbol": "NonMaskableInterrupt",
+          "offset": 211,
+          "address": 58383,
+          "physical_bank": 127,
+          "bytes": [
+            64
+          ]
+        },
+        {
+          "hook": "InventoryUiTick",
+          "real_symbol": "InventoryUiTick",
+          "offset": 0,
+          "address": 42619,
+          "physical_bank": 59,
+          "bytes": [
+            173,
+            29,
+            111
+          ]
+        },
+        {
+          "hook": "SpecialWeapons::ReleaseBalloon",
+          "real_symbol": "SpecialWeapons::ReleaseBalloon",
+          "offset": 0,
+          "address": 43670,
+          "physical_bank": 60,
+          "bytes": [
+            189,
+            217,
+            108
+          ]
+        },
+        {
+          "hook": "MegaManWeapons::Spawn",
+          "real_symbol": "MegaManWeapons::Spawn",
+          "offset": 0,
+          "address": 41430,
+          "physical_bank": 8,
+          "bytes": [
+            141,
+            154,
+            104
+          ]
+        },
+        {
+          "hook": "MegaManRushAttack",
+          "real_symbol": "MegaManRushAttack",
+          "offset": 0,
+          "address": 48817,
+          "physical_bank": 61,
+          "bytes": [
+            173,
+            156,
+            7
+          ]
+        },
+        {
+          "hook": "MegaManRushBounce",
+          "real_symbol": "MegaManRushBounce",
+          "offset": 0,
+          "address": 49034,
+          "physical_bank": 61,
+          "bytes": [
+            173,
+            156,
+            7
+          ]
+        },
+        {
+          "hook": "InventoryRefillAmount",
+          "real_symbol": "InventoryRefillAmount",
+          "offset": 0,
+          "address": 42460,
+          "physical_bank": 59,
+          "bytes": [
+            141,
+            22,
+            111
+          ]
+        },
+        {
+          "hook": "PrimaryArtReady",
+          "real_symbol": "ProtoLegacyDrawShotsCold::Pointer",
+          "offset": 2,
+          "address": 42021,
+          "physical_bank": 66,
+          "bytes": [
+            189,
+            35,
+            96
+          ]
+        }
+      ],
+      "full_art_caller_cases": 9,
+      "actual_art_callback_models": 36,
+      "actual_component_callback_models": 9
+    }
+  ],
+  "bindings": 927,
+  "bindings_sha256": "91b61198123a09aa4f89e0bda10ad3cbe6a3e441435f1fbd6cc5e2161e3d421d",
+  "source_delta_sha256": "14067acb57671e4cdb9a2445d1b481e98be9bb3e7cc03eec1d30751fc765c6cd",
+  "tool_sha256": "cdd5c18efb5229d46dc75f831e0e098d2dcc89727de3e22ff6714ab8047f5d78",
+  "first_failure_retained": "V4 incorrectly classified the genuine code alias RosterOamReady in the historically named ram config as RAM; V5 refreshes code aliases, asserts actual below8000 RAM unchanged. No native launch or game failure.",
+  "maximum_native_launches_authorized": 0,
+  "limits": "Both profiles source/CPU/mock prepared only, fresh grant required. Same declared powered tier/resources/arena/contact staging as prior3b fixture. No natural acquisition, allweapon, audible SFX or native Proto/charge/Rush visibility/cadence claim."
+}

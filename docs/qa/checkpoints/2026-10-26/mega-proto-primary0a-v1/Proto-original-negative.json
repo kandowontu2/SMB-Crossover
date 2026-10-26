@@ -1,0 +1,116 @@
+{
+  "native_pass": false,
+  "strict_deadline_pass": false,
+  "first_failure": {
+    "y": 7,
+    "a": 30,
+    "x": 0,
+    "message": "Scoped render enable precedes native pre-render vertical reload",
+    "pc": 57355,
+    "sp": 244,
+    "bank": 127
+  },
+  "earliest_bad_enable": {
+    "scoped": true,
+    "stamp": {
+      "cpu": 11167904,
+      "frame": 376,
+      "oamaddr": 0,
+      "sp": 244,
+      "cycle": 263,
+      "scanline": 1,
+      "bankA": 0,
+      "pc": 57355,
+      "mask": 30,
+      "bankC": 116
+    },
+    "kind": "actual-PPUMASK-write",
+    "safe": false,
+    "value": 30,
+    "old": 6,
+    "enabling": true
+  },
+  "completed_full256DMAs": 351,
+  "independently_verified_writes": 89856,
+  "last_complete_DMA": {
+    "complete": {
+      "cpu": 11167900,
+      "frame": 376,
+      "oamaddr": 0,
+      "sp": 244,
+      "cycle": 252,
+      "scanline": 1,
+      "bankA": 0,
+      "pc": 57352,
+      "mask": 6,
+      "bankC": 116
+    },
+    "kind": "completed-DMA-before-render-enable",
+    "start": {
+      "cpu": 11167383,
+      "frame": 376,
+      "oamaddr": 0,
+      "sp": 244,
+      "cycle": 64,
+      "scanline": 259,
+      "bankA": 0,
+      "pc": 57349,
+      "mask": 6,
+      "bankC": 116
+    },
+    "id": 351,
+    "differences": {},
+    "source_publication_match": false,
+    "page": 2
+  },
+  "last_DMA_first_write": {
+    "stamp": {
+      "cpu": 11167386,
+      "frame": 376,
+      "oamaddr": 0,
+      "sp": 244,
+      "cycle": 73,
+      "scanline": 259,
+      "bankA": 0,
+      "pc": 57349,
+      "mask": 6,
+      "bankC": 116
+    },
+    "value": 192
+  },
+  "last_DMA_last_write": {
+    "stamp": {
+      "cpu": 11167896,
+      "frame": 376,
+      "oamaddr": 255,
+      "sp": 244,
+      "cycle": 239,
+      "scanline": 1,
+      "bankA": 0,
+      "pc": 57349,
+      "mask": 6,
+      "bankC": 116
+    },
+    "value": 0
+  },
+  "captured_completed_PPU_frames": 375,
+  "last_completed_PPU_index": {
+    "ordinal": "375",
+    "ppu_frame": "375",
+    "scanline": "240",
+    "dot": "0",
+    "cpu_cycle": "11165201",
+    "phase": "menu",
+    "updates": "0",
+    "mode": "1",
+    "tier": "0"
+  },
+  "observed_component_events": 0,
+  "observed_completed_cases": 0,
+  "no_B_component_setup_reached": true,
+  "native_worker_released": true,
+  "no_retry": true,
+  "ROM_sha256": "0a7dd88e6732bc189e432a9d55b18dd8f7ecf68a22e3b20f0a13ab7276241c09",
+  "limits": "Actual first scoped enabling write atPPU376 line1dot263; native serialized record is before strict assert. None of six components admitted; before controlled setup. No title/initial-gameplay budget ownership/candidate causation established from this observer. First-failure image is an assertion-time screen buffer at line1, not a completed PPU376 image. No baseline ProtoHard run existed. Full source/hardware bytes pass351transfers, deadline remainsFALSE.",
+  "manifest_sha256": "c036cec6f4f3b05f74af70a49d064468cd8b6faa54d10f3617ec8436c2708b20"
+}
