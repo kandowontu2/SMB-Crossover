@@ -1,0 +1,1 @@
+One exact3b Easy physical-delivery profile. Actual outcome retained; no game/ROM/reference/settings payload. RawPPU/inputs/runtime/source/earlierFALSEs remain external, with hashes. Staged scene and post-rise actor alignment explicit. No Hard/BALANCE/allitems/fullgoal claim.
