@@ -1,0 +1,50 @@
+{
+  "passed": true,
+  "source_only": true,
+  "native_run": false,
+  "installed": false,
+  "parent_ROM_sha256": "b0c152fa0c588a7df28171e1c673a8db31e2769c5e9114768742e328f1134a99",
+  "candidate_ROM_sha256": "c9b1e0c10698cee3b86c153cc27c0748b28ebe83b1df714fce4235ea4503807f",
+  "changed_source": [
+    "smb1base-mmc5-expanded.cfg",
+    "src/character_select.s",
+    "src/menu_vram_budget.s"
+  ],
+  "changed_ROM_bytes": 774,
+  "changed_banks": {
+    "66": 774
+  },
+  "new_tail": {
+    "bank": 66,
+    "address": 47952,
+    "size": 738,
+    "actual_parent_FF_proved": true,
+    "end": 48690
+  },
+  "all_parent_qualified_symbol_values_exact": 61216,
+  "ambiguous_flat_local_aliases_not_public_ABI": true,
+  "all_RAM_CHR_audio_NMI_gameplay_and_shot_helper_bytes_exact": true,
+  "new_RAM_bytes": 0,
+  "builds": [
+    {
+      "name": "candidate",
+      "sha256": "c9b1e0c10698cee3b86c153cc27c0748b28ebe83b1df714fce4235ea4503807f"
+    },
+    {
+      "name": "canonical",
+      "sha256": "c9b1e0c10698cee3b86c153cc27c0748b28ebe83b1df714fce4235ea4503807f"
+    },
+    {
+      "name": "mmc3",
+      "sha256": "d444cac88e13fa02b29ad16100b8f08fa565ba90f8cedde192de43fb2dc8f3eb"
+    },
+    {
+      "name": "mmc5",
+      "sha256": "f4ffd2483c51daa4d60bb575da2da8c4d817692cda407611c243031f67520833"
+    }
+  ],
+  "source_manifest_sha256": "6add7588ca9be21c57d3a614643f3a280bb4bba71f83b616c1432e2422273168",
+  "patch_sha256": "70be00374a76afa39f53e9bc2128384c61df434af58f53b72a85aa3559cacf8a",
+  "tool_sha256": "810fb1ac4bff91dfdf33ed2cde67aa1b3221a9f4b60b1fc2f79d7f5aa6a328e8",
+  "limits": "Build/layout only. Intentional static20cell SELECT ALTERNATES legend replaces dynamic blank/fullhelp text. Menu queue compaction/wholecallerPPUfineX/stack/CPU/IRQ guards require actual assembled source controls. No native launch or globalpostDMAadoption."
+}

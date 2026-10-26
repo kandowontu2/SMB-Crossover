@@ -1,0 +1,76 @@
+{
+  "prepared": true,
+  "source_checks_passed": true,
+  "native_run": false,
+  "native_granted": false,
+  "goal_complete": false,
+  "ROM_sha256": "731c918b0f448564587d90fca2979afc9fc0e5eb9b26616f4241801e2e73e16c",
+  "clean_original_shots_required": true,
+  "profiles": [
+    {
+      "kind": "menu",
+      "limit": 1800,
+      "actual_mode_required": 0,
+      "actual_variant_required": 1,
+      "packet": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\parodius-menu-clean731-preparation-v1\\menu",
+      "preparation_sha256": "5bbbf93a3694586ef22ca74567382f5b78a587bdf82487b24fecc201713d4e72",
+      "script_sha256": "df20d7da9e8cd5c631018144fe561caf5ed08891866c4aab0c66a18869582094"
+    }
+  ],
+  "required_native_components": [
+    "native-result.json",
+    "hud-native-result.json",
+    "scroll-native-result.json",
+    "lifecycle-native-result.json",
+    "lifecycle-init-native-result.json",
+    "hud-lease-native-result.json"
+  ],
+  "additional_required_native_components": [
+    "menu-timing-native-result.json"
+  ],
+  "original_controller_and_six_guards_exact": true,
+  "all131_bodies_RAM_HUDfont5376references_exact": true,
+  "ungated_early_timing_and_actual_menu_owner_snapshots": true,
+  "whole_BG_pixel_oracle_exists": false,
+  "source_readiness_sha256": "c09ef626784647442221799efc8449944a32825bdb85ae30a4fd415d07c51040",
+  "static_proof_sha256": "56b152e2a7753b7002a9c08cebca0a4ae9605fc12dca95c46a91b3d516f229d4",
+  "DMA_mock_sha256": "12c70e139316e8a00ecd70c11e37d306c28f23f809950fc18f352c0818f4003b",
+  "timing_mock_sha256": "5af751df6fe972af12f8a99443601c542b859125ee64f76dee1b3af873f0a13e",
+  "clean_native_preflight_sha256": "e75ff1844ea02b16104466cee26de7432813ef615795bd940e88cefc8cf34ec0",
+  "environment": {
+    "emulator": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mmc3-flag-fix-v23\\script-budget-probe-v2\\emulator\\Mesen.exe",
+    "emulator_sha256": "8b92daa209ee5052845e02a663aeb1afd6194eca55d86e6628c51114c61da0a9",
+    "core": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mmc3-flag-fix-v23\\script-budget-probe-v2\\emulator\\MesenCore.dll",
+    "core_sha256": "4bd40dfc6512328d56d8ad0563263b52be57bac726d8804f0720e461e558cd41",
+    "worker_settings": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mmc3-flag-fix-v23\\script-budget-probe-v2\\emulator\\settings.json",
+    "worker_settings_sha256": "627cd9c71a2011b4cf5fb03a0712d4d77f7890bc269b174d5757776034aab715",
+    "user_settings": "C:\\Mesen2\\settings.json",
+    "user_settings_sha256": "8a439e0a5eeddc2d4776e516aacfc224c03048b9c7d23d9926a463460a7e748a",
+    "persisted_worker_conditions": {
+      "Region": "Auto",
+      "DisableSprites": false,
+      "DisableBackground": false,
+      "RemoveSpriteLimit": false,
+      "AdaptiveSpriteLimit": false,
+      "RandomizeMapperPowerOnState": false,
+      "RandomizeCpuPpuAlignment": false,
+      "RamPowerOnState": "Random",
+      "PpuExtraScanlinesBeforeNmi": 0,
+      "PpuExtraScanlinesAfterNmi": 0,
+      "RunAheadFrames": 0
+    },
+    "actual_command_overrides": [
+      "--doNotSaveSettings",
+      "--nes.removeSpriteLimit=false",
+      "--nes.ramPowerOnState=AllZeros",
+      "--nes.randomizeCpuPpuAlignment=false",
+      "--nes.randomizeMapperPowerOnState=false"
+    ]
+  },
+  "manifest_bindings": 2064,
+  "manifest_sha256": "95571f8432b4953da047b76375268f54b2d31096195750fd3e994bc6232e9f59",
+  "report_sha256": "6e103e8b86dfbaf56bfb7d31bb48355f44748708e000121c4e4bac3c295d44fe",
+  "review_files_sha256": "2e3cd65dfbda7d158e07437d439fa095af688e840495878aba0f0e688ca642fc",
+  "stable_command": "python -B tools/audit/parodius_visibility_menu_clean_run_v1.py --ready \"C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/parodius-menu-clean731-ready-v1\" --profile menu --native-grant",
+  "limits": "Source readiness ONLY. No native grant/run, retry, profile/mode/area/death/campaign or adoption. Mechanical components alone cannot clear wholeBG visualFAIL; actual owner-bound wholemenu image review required. OriginalareaFALSE/Buffer2 overlap, mixed bodyvisibility/tinyfont/globalDMC limits retained."
+}

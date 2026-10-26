@@ -1,0 +1,77 @@
+MarioEasy flower component: FIRST FAILURE PRESERVED
+
+Exact private ROM900b669e212b878041c23e438f2fb26e310ce8f929f904681a9c4b17405b6968.
+One authorized native launch, no retry. Exit1; the worker was released. Original
+readiness/grant/scripts/native-proof.json and failed outcome remain unchanged.
+No game source, production, Downloads, settings or Git changes were made.
+
+Actual completed component evidence: Easy0/Mario0/variant0 cold selection;
+real first block336 revealed694; physical mushroom collection839;60 sequential
+source growth calls840..899 with fixed position413/176; retainedSuper900.
+The second authored block1248 is genuinely revealed1346 while stillSuper.
+Its physical flower remains in native slot5, type1, rising from the block.
+There is no second collection, completed Fire transform, fireball allocation or
+fireball target contact. The requested flower/use component therefore FAILS.
+
+First failure: MarioSourcePowerupUpdate observes nonzero GuestLegacyHurt and
+correctly fails "Retain power; no injury masquerading as progression".
+At1394 Mario is1209/176, Super, engine8, still countersteeringRight after walking
+left; vxRaw251. At1395 he remains1209/176, engine9, GuestPowerupActive1, age0.
+The flower is independently still slot5/state14/type1/world1248/y123. This is
+native injury initialization, not a second pickup being misclassified. The
+native Square1 injury request16 appears in the1394 callback interval and the
+injury state is visible at endFrame1395. Source MarioSourceInjuryStart sets
+GuestLegacyHurt1 and calls the same freeze owner; the assertion distinguishes it.
+
+Saved actual PPU images1368,1384,1392 and1395 show a walking Goomba leaving the
+left edge of the lower row and descending into Mario while the replay aligns
+for its flower jump. Actual OAM's left Goomba pair moves from world1218/y141
+at1384 to1213/y173 at1394. Mario's rendered body is1209/176 at that endpoint,
+so the pair overlaps it. The other Goomba remains on the row near1251/y128.
+Coordinates here are camera+actual OAM left edge/rawOAMY, not sampled enemy RAM
+Y or a captured collision-X register. No engine collision defect is established.
+
+Enemy slot attribution is a bounded source/OAM inference, explicitly not a
+direct collision-register capture. For all33 fresh-DMA/no-lag frames1363..1395,
+the known physical flower is slot5/ObjectMetasprite6. Enumerating960 possible
+assignments of two enemy slots, shuffle phase and FrameCounter parity gives one
+match: falling Goomba slot0/ObjectMetasprite1; other Goomba slot1/index2.
+The complete actual compiled bank4 shuffle loop atA155..A1C5 is then replayed
+for each of those33 orders. Only draw bodies/empty firebar body are trapped;
+this CPU component proves allocation order, not collision/IRQ/PPU execution.
+The observed33frames have DMA1 each, no lagNmi, unchanged NmiSkipped7 and one
+input poll each; inference assumes their normal one-update nonrotatedMario path.
+
+The demonstrated controller defect is local: flower-mount/back calls aim1208,
+then waits for vx0 without inspecting c.enemy(). The ordinary travel controller
+does inspect live enemies. Here the custom branch brakes directly under the
+descending Goomba; the intended jump has not begun before injury.
+
+Smallest justified next step is a controller-only enemy-clearance guard in
+that existing back/mount branch. Before countersteering to a stop or starting
+the vertical jump, inspect the live nearest enemy; when a descending/nearby
+Goomba threatens the proposed launch body, continue retreating left until the
+player's16px body is at least8px left of that enemy, recheck clearance, then use
+the existing rise/onto jump phases. Do not merely jump at1394: contact is already
+imminent. Retain the no-injury assertion, physical flower owner/emergence and
+pickup checks, growth/Fire/use/cleanup, source hook/opcode, real mode, death,
+motion and CHR guards. No enemy deletion, resource/invulnerability injection,
+gamecode change or automatic retry is justified. A separately frozen/source-
+reviewed controller revision and new ROOT grant are needed for one new attempt.
+
+Partial observation limits:986 CHR-commit rows have zero bad rows. The original
+completed-loop-motion.json is still FALSE at fail-stop; it is not relabeled a
+completed success. Final success/CHR receipts do not exist. The61 growth PNGs
+comprise60 first-power growth frames plus one injury-start frame, not61 valid
+powerup frames. No crouch exercise was requested by this new flower component;
+prior four first-mushroom component results retain their own exact900 scope.
+Raw audio queue stores show reveal/pickup/injury requests only; driver shifts
+are not separate audible effects. No source-waveform, fullroute, everyitem,
+Hard-mode or exhaustive graphical certification is made.
+
+Saved-data freeze: mario-flower900-first-v1/failure-freeze-v1/proof.json and
+contact-evidence.json. The postprocessor verifies all929 original readiness
+bindings before deriving evidence; it never launches an emulator. The12-image
+sheet samples actual early progression, growth, second-block reveal and contact.
+Image review is sampling, not an everyframe inspection. Original raw telemetry,
+logs, screenshots and failure remain hash-bound in that additive packet.

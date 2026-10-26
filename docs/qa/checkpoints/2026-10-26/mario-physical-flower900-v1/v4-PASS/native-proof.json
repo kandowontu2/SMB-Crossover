@@ -1,0 +1,55 @@
+{
+  "passed": true,
+  "ROM_sha256": "900b669e212b878041c23e438f2fb26e310ce8f929f904681a9c4b17405b6968",
+  "profiles_run": 1,
+  "profiles": [
+    {
+      "name": "mario-easy",
+      "passed": true,
+      "exit": 0,
+      "result": {
+        "component_complete": true,
+        "world_1_1_seen": true,
+        "frames": 1945,
+        "polls": 1944,
+        "deaths": 0,
+        "failure": null,
+        "stage_entries": {
+          "0-0": 347
+        }
+      },
+      "component": {
+        "ROM_sha256": "900b669e212b878041c23e438f2fb26e310ce8f929f904681a9c4b17405b6968",
+        "actual_mode": 0,
+        "character": 0,
+        "collections": 2,
+        "enemy_contacts": 1,
+        "final_power": 2,
+        "fire_request_stores": 20,
+        "first_transform_updates": 60,
+        "native_executed": true,
+        "no_fixture_game_state_writes": true,
+        "passed": true,
+        "pickup_request_stores": 4,
+        "reveal_request_stores": 8,
+        "reveals": 2,
+        "scope": "One genuine MarioEasy mushroom then later flower and actual fireball enemy/brick contact; no fullroute/Hard/sourcewaveform/allitems claim",
+        "second_transform_updates": 60,
+        "shots": 20,
+        "target_contacts": 10,
+        "variant": 0
+      },
+      "CHR": {
+        "passed": true,
+        "frames": 1396,
+        "mismatched_frames": 0,
+        "body_constructions": 1478,
+        "scope": "Read-only MMC5 physical/legacy mapping versus matching actual DMA player parts on every observed active video frame. Source pose art, body visibility and full campaign are separate."
+      },
+      "retries": 0,
+      "scope": "One current-ROM real mushroom/laterflower and fireball target contact, not fullroute/item roster"
+    }
+  ],
+  "native_worker_released": true,
+  "every_item_or_route_claim": false
+}

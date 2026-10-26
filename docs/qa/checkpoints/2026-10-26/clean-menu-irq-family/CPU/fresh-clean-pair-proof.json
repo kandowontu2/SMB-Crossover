@@ -1,0 +1,51 @@
+{
+  "passed": true,
+  "source_only": true,
+  "native_run": false,
+  "adopted": false,
+  "baseline_ROM_sha256": "43f84bb4544d2d8ca6be43886857bedd36adb23744ddad5b0a2d650ff14e1bc6",
+  "candidate_ROM_sha256": "731c918b0f448564587d90fca2979afc9fc0e5eb9b26616f4241801e2e73e16c",
+  "parent_menu_native_acceptance_claim": false,
+  "earlier_2f_menu_owner_negative_preserved": true,
+  "complete_NMI_cases": 1786,
+  "direct_input_parity_cases": 512,
+  "actual_IRQ_cases": 1042,
+  "IRQ_profile": "Both linked routines x char0/18 x regular/lag x Sprite0Flag0/1; every enabled preAudio boundary except actual first physical CLI-defer instruction.",
+  "IRQ_deferred_instruction_boundaries": 12,
+  "complete_AXYP_SP_app_RAM_5SMC_banks_input_and_other_ordered_IO_exact": true,
+  "IO_order_delta": "Only5203/5204 writes intentionally move. Their complete values/order compare separately; every remaining ordered nonstack write, including every2001, is exact. All IO read values/order exact.",
+  "total_complete_NMI_cycle_delta": [
+    -1,
+    1
+  ],
+  "code_only_complete_NMI_cycle_delta": [
+    0,
+    0
+  ],
+  "DMA_parity_oracle": "Sum((new_preSTAclock+4+stall)&1)-((old_preSTAclock+4+stall)&1), one realSTA4014 or0 on lag. Not a broad tolerance.",
+  "exact_regular_mask_code_advance": {
+    "flag1": 20,
+    "flag0": 7
+  },
+  "preserved_v1_failure": "External mm-proto-irq-arm-cpu-v1/failure.json: first odd flag0 shift flips513/514; no source defect inferred.",
+  "IRQ_physical_status_mask": "0xcf: only py65 virtualB/U; all realN,V,D,I,Z,C exact",
+  "unchanged_256_DMA_assertion": true,
+  "limits": "Synthetic CPU only; bus models DMA parity stalls and serial/palette reads. No physical256DMA/PPU31/deadline/menu ownership/native acceptance. Native CLI hardware deferral is acknowledged, not modeled by an immediate py65 irq call.",
+  "artifacts": {
+    "cases.json": "2f34e0b098405e9fac108b76b646008fa09217c078ec9366fafdcece3a26a911",
+    "inputs.json": "30982e3ceb54c3bab6d5196b104765155b67074503bcb26ef5fd7b08880bf4d0",
+    "IRQ-cases.json": "953195309a99483df3e7fff84faad784798f6b49a6f79977414dc0592303f227",
+    "schedule.json": "c76a6924dec75ef1834297611fe1675399fa0304b607d8f8d977c9bece50d747",
+    "CLI-deferred.json": "5b309e58b7e254d5516f11c90c98012b831ef6b55618024b31a20a938c043119"
+  },
+  "bindings": {
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\mm_proto_irq_arm_cpu_v3.py": "483ad802c4f64ae00c99040ac4d875466b5dde7234940bcde44cc1289daece5d",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\current3cee_postdma_mask_cpu_v4.py": "2b03917173810965035ea53fd3db9f74195178270eabdefc4744dd4cebe46977",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mm-proto-clean-menu-candidates-v1\\clean-menu\\candidate.nes": "43f84bb4544d2d8ca6be43886857bedd36adb23744ddad5b0a2d650ff14e1bc6",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mm-proto-clean-menu-candidates-v1\\clean-menu\\candidate.dbg": "4601aa0a6002595f7993c15b34aa54e804b39e01a83faa3ebee2ea9427ef2b61",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mm-proto-clean-menu-candidates-v1\\clean-menu-irq\\candidate.nes": "731c918b0f448564587d90fca2979afc9fc0e5eb9b26616f4241801e2e73e16c",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mm-proto-clean-menu-candidates-v1\\clean-menu-irq\\candidate.dbg": "4c89d6301cd9fd7f5f816c5c005b456e676e3157c7484209e5f461006c98025d",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mm-proto-clean-menu-candidates-v1\\clean-menu-irq\\proof.json": "c35f0b18a7afc158e4cd9b412df343bddce52ca97988c1d1501c9502b3467aa2",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mm-proto-clean-menu-candidates-v1\\clean-menu-irq\\source-manifest.json": "1aa026f2d85134f28d88b2613c26c46a281b8e90602af723748a887baa3c26e8"
+  }
+}

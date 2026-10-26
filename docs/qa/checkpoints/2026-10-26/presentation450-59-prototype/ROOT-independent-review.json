@@ -1,0 +1,97 @@
+{
+  "passed": true,
+  "ROM_sha256": "59a6088e2449401bc1ca47bffc15914ea79af5b36b0544a5f875bc43ff1d4ac6",
+  "native_run": true,
+  "adopted": false,
+  "independent_full256_DMA_checks": 403,
+  "independent_all_disabled": true,
+  "scoped_enable_checks": 73,
+  "conservative_deadline_failures": 0,
+  "IRQ31_checks": 79,
+  "NMI_AXY_SP_5SMC_checks": 442,
+  "actual_lossless_frames": 275,
+  "actual_frame_range": [
+    176,
+    450
+  ],
+  "selected_actual_wholeframes": [
+    184,
+    194,
+    204,
+    371,
+    372,
+    373,
+    403,
+    404
+  ],
+  "frame372_enable": [
+    {
+      "engine": 8,
+      "kind": "render-enable",
+      "menu": 0,
+      "oper": 1,
+      "ppu": {
+        "cpu": 11048376,
+        "dot": 83,
+        "frame": 372,
+        "scanline": 260
+      },
+      "safe": true,
+      "task": 3,
+      "value": 30
+    }
+  ],
+  "frame372_DMA": [
+    {
+      "complete": {
+        "cpu": 11048372,
+        "dot": 72,
+        "frame": 372,
+        "scanline": 260
+      },
+      "completed_writes": 256,
+      "ctrl": 168,
+      "end_mask": 6,
+      "equal": true,
+      "first": {
+        "cpu": 11047858,
+        "dot": 234,
+        "frame": 372,
+        "scanline": 255
+      },
+      "id": 353,
+      "last": {
+        "cpu": 11048368,
+        "dot": 59,
+        "frame": 372,
+        "scanline": 260
+      },
+      "mask": 6,
+      "scope": true,
+      "start": {
+        "cpu": 11047854,
+        "dot": 222,
+        "frame": 372,
+        "scanline": 255
+      },
+      "writes": 256
+    }
+  ],
+  "bindings": {
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-presentation450-59-v1\\direct.argb": "1fb742d88e0c96b01c85d6554dd17a0f5ded65b453507e3e59fbfa1c7bc661cb",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-presentation450-59-v1\\direct-index.csv": "9bef2d26416cae3a39209aa206148153dcc0be694786ca85357a952690674a42",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-presentation450-59-v1\\timing.jsonl": "9277516ac331e76592720fe86ac8a5c27c34b86063c08d970a5010efde50acad",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-presentation450-59-v1\\native-receipt.json": "2b35663bd5d4df14a15ae064fa8046bfa7af3c1c77b08760911f5e2420a0cd01",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-presentation450-59-v1\\result.json": "d5c9c65aa2b7c66ef20a1a89581f1ceacf82537388c18fb61d85a182dd677a35",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-presentation450-59-v1\\ROOT-review-v1\\frame-000184.png": "33cf9e07481188e2cf00df4120bef9521d0a6b7b1824508b8bd00e66ef89b557",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-presentation450-59-v1\\ROOT-review-v1\\frame-000194.png": "eeeb0a2e99c9385995595866d38dc3cbe94ecd93175c06bf31384de5403dda61",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-presentation450-59-v1\\ROOT-review-v1\\frame-000204.png": "eeeb0a2e99c9385995595866d38dc3cbe94ecd93175c06bf31384de5403dda61",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-presentation450-59-v1\\ROOT-review-v1\\frame-000371.png": "ce32f734d94b1d56fde220a324ef3c143a6e90feee63c9c8669cfb760fbe9d41",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-presentation450-59-v1\\ROOT-review-v1\\frame-000372.png": "454a393659d95f66d2507b7a821a35daccb2683fcf1f88e6485c0ae1ebdf2785",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-presentation450-59-v1\\ROOT-review-v1\\frame-000373.png": "c22ed881ca6e4c678d56584b2e26078e6a67dcd2904c2809086f6e757075b1dd",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-presentation450-59-v1\\ROOT-review-v1\\frame-000403.png": "c3f7f2b9d729219a9c3205373e23511b1f8ef5f891179b38ec88006ab96ebb27",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-presentation450-59-v1\\ROOT-review-v1\\frame-000404.png": "180bbc32fa43742c9cae2bf76304d0afd3112d83c444268e42a9555fe6a82df8",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-presentation450-59-v1\\ROOT-review-v1\\selected-actual-frames.png": "7f9eaf0d69cbe125da1768c4fd6eaada03eaf3d3943131059b291eb0459de3a3"
+  },
+  "limits": "ROOT independently verifies full OAM/disabled bits and capture structure; selected actual image review is separate. One MegaEasy450 only, not all menu highlights/Proto/Hard pressure/full route or adoption."
+}

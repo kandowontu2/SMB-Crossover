@@ -1,0 +1,65 @@
+Clean menu / IRQ timing candidates -- original ordinary shots restored
+
+SOURCE/CPU QUALIFIED ONLY. No native test, installation or adoption by this
+agent. The held shot-budget experiment is absent from both clean candidates;
+Mega/Proto physical visibility remains open with the original shot behavior.
+
+D = C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py
+Packet D/mm-proto-clean-menu-candidates-v1
+
+clean-menu/candidate.nes
+43f84bb4544d2d8ca6be43886857bedd36adb23744ddad5b0a2d650ff14e1bc6
+Parent frozen c9b1e0c10698cee3b86c153cc27c0748b28ebe83b1df714fce4235ea4503807f.
+
+clean-menu-irq/candidate.nes
+731c918b0f448564587d90fca2979afc9fc0e5eb9b26616f4241801e2e73e16c
+Parent frozen59a6088e2449401bc1ca47bffc15914ea79af5b36b0544a5f875bc43ff1d4ac6.
+
+Each variant restores src/protoman_legacy_shots.inc from frozen900 canonical
+source, SHAad0241e8872468679f0cb33b7aa4c179e1bd185a3ae45905633f6d304027a73e.
+It is byte-identical to frozen published3cee and the actual default source
+at verification time. Exactly one MM_PROTO_SHOT_MUX cfg declaration is
+removed. MENU_VRAM_BUDGET remains explicitly pinnedBB50, and its actual
+bytes plus every other bank66 byte outside the removed experiment are exact.
+
+Fresh canonical reproduction and ordinary MMC3/MMC5 build controls PASS on
+BOTH variants. Ordinary hashes remain d444cac8... and f4ffd248... (full
+values recorded in proofs). Versus each respective prototype, exactly144
+bytes in PRG66 change: original BD3B60 LDA atA3EA restored,141-byte B9A8..BA34
+helper/table restoredFF. No other bank/header/CHR/RAM/retained qualified
+symbol changes. Exactly6 genuine private MmProtoShotMuxAdmission labels are
+removed, listed individually;61,248 genuine qualified labels remain exact.
+No fake aliases or blanket symbol exclusions were introduced.
+
+The clean pair differs ONLY in the same30 fixed-mirror bytes in125 and127
+as the IRQ-arm component. Source tree manifests and exact raw ROM delta
+lists are separate for each variant, with source patches and full build logs.
+Only the two intended text input files differ from each frozen prototype.
+
+Fresh SAME CLEAN HASH CPU run, unchanged generic v3 tool/oracles:
+1786 completeNMI cases,512 all-byte input/DMA-parity cases,1042 actual IRQ
+injections,12 explicitly deferred first-postCLI boundaries PASS. Full return
+AXYP/SP/applicationRAM/5SMC/banks/input/I/O reads and remaining ordered writes
+are exact. Only5203/5204 relative position changes; values/order separately
+exact. Code-only cost0, PPUMASK advance20/7 cycles for flag1/0, total modeled
+DMA-parity delta-1..+1 equals the literal preSTA4014+4 oracle in every case.
+See detailed prior component reports for exact scope and synthetic limits;
+older08/59 results/failures are not retagged as this clean pair.
+
+Reproduce source/builds with NEW empty external output:
+python -B tools/audit/mm_proto_clean_menu_candidates_v1.py --output NEW
+
+Fresh clean CPU command:
+python -B tools/audit/mm_proto_irq_arm_cpu_v3.py
+ --parent "D/mm-proto-clean-menu-candidates-v1/clean-menu"
+ --candidate "D/mm-proto-clean-menu-candidates-v1/clean-menu-irq"
+ --parent-sha256 43f84bb4544d2d8ca6be43886857bedd36adb23744ddad5b0a2d650ff14e1bc6
+ --candidate-sha256 731c918b0f448564587d90fca2979afc9fc0e5eb9b26616f4241801e2e73e16c
+ --output NEW-EMPTY-DIRECTORY
+
+freeze-v1 binds full private sourceZIPs/manifests, tools/imports, old/new
+build metadata, all actual proofs, source patches, commands and this report.
+No ROM/audio/settings/lossless capture was copied into the public workspace.
+ROOT/B own subsequent native menu1800/timing450 preparation/qualification.
+This packet supplies no native grant or physical PPU/DMA/deadline assurance.
+No production/default/Git/settings mutation or Mesen process was performed.

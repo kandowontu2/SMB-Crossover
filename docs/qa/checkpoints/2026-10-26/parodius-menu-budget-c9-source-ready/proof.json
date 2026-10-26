@@ -1,0 +1,51 @@
+{
+  "passed": true,
+  "source_only": true,
+  "native_run": false,
+  "installed": false,
+  "candidate_ROM_sha256": "c9b1e0c10698cee3b86c153cc27c0748b28ebe83b1df714fce4235ea4503807f",
+  "parent_ROM_sha256": "b0c152fa0c588a7df28171e1c673a8db31e2769c5e9114768742e328f1134a99",
+  "manifest_sha256": "4c76df633b1514a491ca3a0eb2eaeee2c211e6120fa6d2b16e7c9e5dc5d15185",
+  "bindings": 1899,
+  "receipts": {
+    "build": {
+      "path": "C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/parodius-menu-budget-candidate-v5/proof.json",
+      "sha256": "1f6752f614a3975cd7205dd6eab1c62622ea203eb3742ff99be5df19cfda0419"
+    },
+    "caller_PPU": {
+      "path": "C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/parodius-menu-budget-cpu-v5/proof.json",
+      "sha256": "5607d65fd4d055f5c153555df7e906b91f66813eacf0987349a1a8d7ee40e7e2"
+    },
+    "interrupt": {
+      "path": "C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/parodius-menu-budget-interrupt-v2/proof.json",
+      "sha256": "d6acb47782f227b1df927406f7b800f787c24e1b7bf2a7050c1d9b8e618b7079"
+    }
+  },
+  "review_files_sha256": "cdabd46ce667cac5a4e3a4950e2412b5c676f17f5439172358bd71f299ab943c",
+  "source_overlay_sha256": {
+    "smb1base-mmc5-expanded.cfg": "931adebde8cb73b1ff08ecce2ebd0a1a136d875331de5e6f738eb90754aa2d42",
+    "src/character_select.s": "1aed522afcdb674adf09abe83f08ed1f8491b6b569e3118ebd026afd463200cd",
+    "src/menu_vram_budget.s": "b5ffa2f59e0e5c417e5e7d4a270dfa62f53edcd18f202418eacd0a655d8fd237"
+  },
+  "minimum_required_model_savings_CPU": {
+    "vertical_reload": 499,
+    "horizontal_reload": 507
+  },
+  "costs": {
+    "navigation_cases": 1368,
+    "foreground_CPU_delta": [
+      0,
+      4197
+    ],
+    "NMI_CPU_savings": [
+      0,
+      619
+    ],
+    "maximum_modeled_enable_CPU": 2264,
+    "modeled_DMA_CPU": 514,
+    "DMC_modeled": false,
+    "repeated_gameplay_or_NMI_instruction_changes": false
+  },
+  "actual_early_mask_stamps": false,
+  "limits": "Finite source/CPU/build/interrupt qualification only. c9 has no native result. Separate59a composition/global timing not certified. Earlier b0 overallFALSE and every saved failure retained."
+}

@@ -1,0 +1,60 @@
+Parodius menu VRAM budget c9 - finite source-only qualification, 2026-10-26
+
+Candidate c9b1e0c10698cee3b86c153cc27c0748b28ebe83b1df714fce4235ea4503807f
+Parent b0c152fa0c588a7df28171e1c673a8db31e2769c5e9114768742e328f1134a99
+Installed production remains 3cee. No emulator was launched for c9; no adoption.
+
+Three source files only: smb1base-mmc5-expanded.cfg, src/character_select.s,
+src/menu_vram_budget.s. Exactly 774 ROM bytes differ, all bank66. The new
+738-byte BB50..BE31 helper uses actual parent FF fill. Reserved B9A8..BB4F
+shot space is unchanged. All 61,216 parent qualified symbol values, CHR, RAM,
+audio, NMI/gameplay instructions and shot bytes remain exact. No new RAM.
+Fresh canonical build equals c9; ordinary MMC3/MMC5 reproduce their pinned
+d444cac8/f4ffd248 hashes. Overlay and patch are supplied separately.
+
+The authorized product change is a static 20-cell SELECT ALTERNATES legend,
+using existing tiles, drawn once by the genuine blanked BuildScreen owner.
+The original transient hint is still generated before native preview: removing
+it earlier was a real defect in the rejected private 2f candidate because it
+changed palette admission/cache ownership. c9 compacts only AFTER that native
+preview decision, then preserves full caller A/X/Y/P/SP and existing R0/R1.
+It removes live hint publication; removes only fully shadowed 3F11/3 writes or
+trims their overwritten suffix from 3F10/4; merges actual adjacent 3F10/1 +
+3F11/3; merges 3F19/3 and 3F1D/3 through a source-proven existing 0F at 3F1C.
+All menu palette producers were catalogued: none mutates 3F0C/1C, and initial
+ScreenPalette sets BG0C=0F. Unknown/repeated/hole shapes reject compaction.
+No untouched sprite-palette hole is reset, and no new glyph/art is introduced.
+
+Complete assembled controls PASS: 1,368 finite navigation/Select cases across
+all37 identities, both numeric Easy0/Hard1, cold/warm source states; plus74
+actual complete BuildScreen cases. Actual menu BackgroundColorCtrl2 is used.
+Warm cases execute the prior real NMI flush. Foreground return registers,
+SP, banks, nonqueue application RAM and OAM are exact; complete NMI return,
+five SMC bytes, final full PPU memory/fineX/scroll/control are exact except the
+explicit static legend. No all-inventory-state or universal SRAM-state claim.
+2,962 actual compiled helper interrupt cases (1,481 NMI and1,481 forced IRQ)
+preserve full returned state, physical banks/shadows, five SMC, pending queue
+and OAM, minSP226. Five unknown packet shapes reject. Forced menu IRQs are
+synthetic boundary controls, not naturally armed menu/IRQ31 observations.
+
+Cost: unchanged input paths add0 CPU; highlight foreground adds0..4,197 CPU.
+The subsequent NMI saves0..619 CPU. This is a material foreground cost and
+is not a demonstrated cadence improvement. Maximum source-modeled enable is
+2,264 CPU from NMI entry using fixed514 DMA, no DMC/physical rendering.
+The seven prior b0 wrap frames require up to499 cycles for enable before
+pre-render280, or507 before257, from the source-anchored latest estimates.
+Those early native enable stamps were not logged, so these are models, not
+measured c9 deadlines. Actual matched native menu/scroll/background review
+is still required. Root's separate global IRQ relocation/59a composition is
+NOT qualified by these c9 receipts, and the Mega372 first-active wrap remains
+outside this menu-only repair.
+
+Preserved negatives: b0 seven actual menu wraps and its overallFALSE final
+packet are immutable. 2f build/layout passed but real full-caller CPU failed
+because palette admission changed; it is rejected. Earlier tool/build/fixture
+failures remain in the additive ledger. CPUv3's unflushed warm fixture was
+corrected by actual prior NMI; v4 generic backdrop fixture is retained, while
+v5 binds actual menu BackgroundColorCtrl2. No old receipt is retagged.
+
+Source-only scope ends here. No native launch, production/default/settings/Git
+edit, universal no-lag claim, physical DMC/IRQ timing proof or flicker fix.

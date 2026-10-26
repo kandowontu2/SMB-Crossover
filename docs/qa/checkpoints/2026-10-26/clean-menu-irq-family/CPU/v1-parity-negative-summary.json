@@ -1,0 +1,10 @@
+{
+  "passed": false,
+  "classification": "v1 checker parity-oracle failure retained, not a game failure or relaxed state assertion",
+  "error": "AssertionError(('complete-NMI-DMA-parity', [0, 0, 0, 0, 0], 'Total cycles', 1466, 1467))",
+  "completed_NMI": 1536,
+  "original_failure": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mm-proto-irq-arm-cpu-v1\\failure.json",
+  "original_failure_sha256": "436ac87104042b591eb296941c039a11787d3452b85126902c6154c3b28a44b4",
+  "correction": "Separatev2 requires exact literal preSTA4014+4 parity equation per case; no broad\u00b11 tolerance. Every no-stall code delta0 and all original state/IO guards remain.",
+  "first_failed_case": "SpriteFlag0 char0/title/regular/reload0, modeled1466->1467 because7odd preDMA cycles move, flipping513/514."
+}

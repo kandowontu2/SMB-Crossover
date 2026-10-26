@@ -1,0 +1,43 @@
+--- mario_flower900_native_v3.lua
++++ mario_flower900_native_v4.lua
+@@ -4,6 +4,7 @@
+ local revealed,collected=0,0
+ local updates,freezePos={0,0},{}
+ local revealRequests,pickupRequests,fireRequests,shots,contacts=0,0,0,0,0
++local enemyContacts=0
+ local log=assert(io.open(ROSTER_CONFIG.out..'flower-owner.jsonl','w'))
+ local trace=assert(io.open(ROSTER_CONFIG.out..'flower-state.csv','w'))
+ trace:write('frame,phase,x,y,power,size,engine,growing,age,revealed,collected,shot0,shot1,actors\n')
+@@ -63,7 +64,7 @@
+  if collected<2 or r('PlayerStatus')~=2 then return end
+  local x=s['cpu.x'];local id=r('Enemy_ID',x)
+  if x<6 and(id==0 or id==1 or id==6)and r('Enemy_Flag',x)>0 then
+-  contacts=contacts+1;event('actual-fireball-enemy-contact',{enemySlot=x,enemyID=id,state=r('Enemy_State',x)})
++  contacts=contacts+1;enemyContacts=enemyContacts+1;event('actual-fireball-enemy-contact',{enemySlot=x,enemyID=id,state=r('Enemy_State',x)})
+  end
+ end)
+ emu.addMemoryCallback(function(_,v)
+@@ -199,8 +200,8 @@
+   end
+   return aim(c,1244)
+  elseif phase=='fire'then
+-  if contacts>0 then phase='drain';age=0;return{}end
+-  return{b=age%16<4}
++  if enemyContacts>0 then phase='drain';age=0;return{}end
++  local b=base(c);b.b=age%16<4;return b
+  else
+   if age>=45 and r('Fireball_State')==0 and r('Fireball_State',1)==0 then MARIO_FLOWER_DONE=true end
+   return{}
+@@ -221,9 +222,10 @@
+  if finished then return end;finished=true
+  local ok=MARIO_FLOWER_DONE==true
+  if ok then
++  assert(enemyContacts>0,'Actual live Goomba/Koopa fireball contact before release')
+   assert(revealed==2 and collected==2 and updates[1]==60 and updates[2]==60,'Actual two physical tiers and source transforms')
+   assert(shots>0 and contacts>0 and fireRequests>0,'Actual B allocation, source target contact and fire request')
+   assert(revealRequests>0 and pickupRequests>0 and r('PlayerStatus')==2,'Actual pickup cues and retained Fire')
+  end
+- local f=assert(io.open(ROSTER_CONFIG.out..'flower-component.json','w'));f:write(json({passed=ok,native_executed=true,ROM_sha256=C.ROM_sha256,actual_mode=r('CrossoverBehaviorVersion'),character=0,variant=r('MarioVariant'),reveals=revealed,collections=collected,first_transform_updates=updates[1],second_transform_updates=updates[2],shots=shots,target_contacts=contacts,fire_request_stores=fireRequests,reveal_request_stores=revealRequests,pickup_request_stores=pickupRequests,final_power=r('PlayerStatus'),no_fixture_game_state_writes=true,scope='One genuine MarioEasy mushroom then later flower and actual fireball enemy/brick contact; no fullroute/Hard/sourcewaveform/allitems claim'})..'\n');f:close();trace:close();log:close()
+-end
++ local f=assert(io.open(ROSTER_CONFIG.out..'flower-component.json','w'));f:write(json({passed=ok,native_executed=true,ROM_sha256=C.ROM_sha256,actual_mode=r('CrossoverBehaviorVersion'),character=0,variant=r('MarioVariant'),reveals=revealed,collections=collected,first_transform_updates=updates[1],second_transform_updates=updates[2],shots=shots,target_contacts=contacts,enemy_contacts=enemyContacts,fire_request_stores=fireRequests,reveal_request_stores=revealRequests,pickup_request_stores=pickupRequests,final_power=r('PlayerStatus'),no_fixture_game_state_writes=true,scope='One genuine MarioEasy mushroom then later flower and actual fireball enemy/brick contact; no fullroute/Hard/sourcewaveform/allitems claim'})..'\n');f:close();trace:close();log:close()
++end

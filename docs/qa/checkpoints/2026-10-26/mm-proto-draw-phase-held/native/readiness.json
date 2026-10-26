@@ -1,0 +1,91 @@
+{
+  "prepared": true,
+  "native_run": false,
+  "installed": false,
+  "ROM_sha256": "b0c152fa0c588a7df28171e1c673a8db31e2769c5e9114768742e328f1134a99",
+  "parent_ROM_sha256": "900b669e212b878041c23e438f2fb26e310ce8f929f904681a9c4b17405b6968",
+  "source_CPU_packet": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mm-proto-postdma-composed-v1\\ready-v1\\receipt.json",
+  "source_CPU_packet_sha256": "36d1bff5f8b8f74beca4122fd8de70ef609b0fc686728b306a7a3a8b4de9c3d6",
+  "binding_files": 668,
+  "bindings_sha256": "0959f48ca416ff212481038bf3efa61fe82a53d833f0c4ec11a9bcc437339522",
+  "previews": [
+    {
+      "identity": "megaman",
+      "mode": 0,
+      "source_policy": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\native-probes-qa-v2\\routes-v1\\megaman-easy\\policy.lua",
+      "source_policy_sha256": "dff1233164e95db912be9e39d95ffb310bbed1b44cc073c82141c0e21d092175",
+      "preview_run_sha256": "41feeac4ce1d6fd8707f534289b55ec7c9ce40f9eaeaf0d21449689521aaa77f",
+      "preview_harness_sha256": "7bc6dce28151eabdb5ccac99b17a49b708a5d1e849056fd07f4bbc4c52069ac9",
+      "native_run": false
+    },
+    {
+      "identity": "proto",
+      "mode": 0,
+      "source_policy": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\native-probes-qa-v2\\routes-v1\\proto-easy\\policy.lua",
+      "source_policy_sha256": "dff1233164e95db912be9e39d95ffb310bbed1b44cc073c82141c0e21d092175",
+      "preview_run_sha256": "405a278ad7b8197dd287957800323f277c573fa46cad281a2a8295fe43125190",
+      "preview_harness_sha256": "7bc6dce28151eabdb5ccac99b17a49b708a5d1e849056fd07f4bbc4c52069ac9",
+      "native_run": false
+    }
+  ],
+  "native_command": [
+    "C:\\Users\\kando\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+    "-B",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\mm_proto_postdma_native_prepare_v3.py",
+    "--output",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mm-proto-postdma-native-ready-v3",
+    "--run-granted"
+  ],
+  "native_workers": 1,
+  "maximum_launches": 4,
+  "cases": [
+    "megaman:easy discovery",
+    "megaman:easy independent-directPPU",
+    "proto:easy discovery",
+    "proto:easy independent-directPPU"
+  ],
+  "host_wall_timeout_seconds": 1200,
+  "emulated_frame_bound": 18000,
+  "mode_numeric": 0,
+  "actual_cold_menu_readback_required": true,
+  "source_phase": "SsDrawFirst balanced physical-start wheel; bound5 constructions only",
+  "DmaComplete_observation": "E00D after genuine postDMA mask-enable and LDX; first/last actual2004 stamps are recorded separately",
+  "raw_complete256_before_assertions": true,
+  "environment": {
+    "emulator": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mmc3-flag-fix-v23\\script-budget-probe-v2\\emulator\\Mesen.exe",
+    "emulator_sha256": "8b92daa209ee5052845e02a663aeb1afd6194eca55d86e6628c51114c61da0a9",
+    "core": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mmc3-flag-fix-v23\\script-budget-probe-v2\\emulator\\MesenCore.dll",
+    "core_sha256": "4bd40dfc6512328d56d8ad0563263b52be57bac726d8804f0720e461e558cd41",
+    "worker_settings": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mmc3-flag-fix-v23\\script-budget-probe-v2\\emulator\\settings.json",
+    "worker_settings_sha256": "627cd9c71a2011b4cf5fb03a0712d4d77f7890bc269b174d5757776034aab715",
+    "user_settings": "C:\\Mesen2\\settings.json",
+    "user_settings_sha256": "8a439e0a5eeddc2d4776e516aacfc224c03048b9c7d23d9926a463460a7e748a",
+    "persisted_worker_conditions": {
+      "Region": "Auto",
+      "DisableSprites": false,
+      "DisableBackground": false,
+      "RemoveSpriteLimit": false,
+      "AdaptiveSpriteLimit": false,
+      "RandomizeMapperPowerOnState": false,
+      "RandomizeCpuPpuAlignment": false,
+      "RamPowerOnState": "Random",
+      "PpuExtraScanlinesBeforeNmi": 0,
+      "PpuExtraScanlinesAfterNmi": 0,
+      "RunAheadFrames": 0
+    },
+    "actual_overrides": [
+      "--doNotSaveSettings",
+      "--nes.removeSpriteLimit=false",
+      "--nes.ramPowerOnState=AllZeros",
+      "--nes.randomizeCpuPpuAlignment=false",
+      "--nes.randomizeMapperPowerOnState=false"
+    ]
+  },
+  "source_sole_shot_cost_regression_max_cycles": 137,
+  "source_clipped_two_shot_regression_max_cycles": 40,
+  "static_dispatcher_qualification": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\tmnt-static-observer-native-ready-v1\\receipt.json",
+  "dynamic_observer_difference": "Existing CHR return registrations remain ordered Lua slots behind one startup host exec callback; no runtime host registration. This observer change is explicit and not relabeled as original route pixels/qualification.",
+  "native_grant_required": true,
+  "coverage": "Fresh controller-only1-1 and independent full actualPPU lossless capture. Live slot/type/age and real selected emitter/publication/DMA/physicalOAM/CHR/NMI/IRQ/5SMC/stack evidence; all observed original game logs compared exactly between discovery and replay.",
+  "limits": "No native execution yet. Source-construction fairness is not physical visibility fairness; actual per-live-shot visibility/age and all body omissions must be reviewed after runs. These policies do not promise full charge/death/both-facing coverage or every powerup. Candidate-only, no matched performance no-harm claim. No state/resource/physics/cadence injections or settings edits."
+}

@@ -1,0 +1,53 @@
+{
+  "passed": true,
+  "formatting_only": true,
+  "source": "src/reset.s",
+  "before_sha256": "4e9af1d0455d62e7f1852406463c98fbc44ea0e1720a5a9dd9555e25870960aa",
+  "after_sha256": "e108562a322dfe93c95caec209dd44329bee5ecedc6bd08083f80497f05172f5",
+  "LF_to_existing_repository_CRLF_only": true,
+  "all_logical_lines_and_final_newline_identical": true,
+  "builds": [
+    {
+      "target": "expanded",
+      "passed": true,
+      "ROM_sha256": "731c918b0f448564587d90fca2979afc9fc0e5eb9b26616f4241801e2e73e16c",
+      "command": [
+        "C:\\Users\\kando\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+        "-B",
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\build_mmc5_expanded.py",
+        "--output",
+        "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\clean731-source-EOL-v1\\expanded.nes"
+      ]
+    },
+    {
+      "target": "mmc3",
+      "passed": true,
+      "ROM_sha256": "d444cac88e13fa02b29ad16100b8f08fa565ba90f8cedde192de43fb2dc8f3eb",
+      "command": [
+        "C:\\Users\\kando\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+        "-B",
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\build_mmc5_expanded.py",
+        "--output",
+        "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\clean731-source-EOL-v1\\mmc3.nes",
+        "--flag-off",
+        "mmc3"
+      ]
+    },
+    {
+      "target": "mmc5",
+      "passed": true,
+      "ROM_sha256": "f4ffd2483c51daa4d60bb575da2da8c4d817692cda407611c243031f67520833",
+      "command": [
+        "C:\\Users\\kando\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+        "-B",
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\build_mmc5_expanded.py",
+        "--output",
+        "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\clean731-source-EOL-v1\\mmc5.nes",
+        "--flag-off",
+        "mmc5"
+      ]
+    }
+  ],
+  "installed_and_default_ROM_unchanged": true,
+  "limits": "Follows the separate731 adoption. Only reset.s line endings return to the repository existing CRLF convention. No instruction/comment/line/order changes; fresh expanded and both ordinary ROMs are byte-exact qualified outputs. Original adoption raw source hash remains its historical pre-normalization value."
+}

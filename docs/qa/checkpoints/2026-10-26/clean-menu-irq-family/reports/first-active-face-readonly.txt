@@ -1,0 +1,50 @@
+First-active green-face impression -- finite read-only finding
+
+No source change, native probe, retry or inferred731 runtime palette values.
+Existing actual b0 and published3cee captures only, plus compiled731 data.
+
+The baseline3cee frame372 torso is already the correct blue/cyan. At the
+348 b0-owned opaque body coordinates inspected in the actual372 images,
+all107blue/49cyan/153black/14white pixels match3cee exactly. Only25 b0
+skin-tone pixels differ:22 are baseline greenRGB(12,147,0),3black. All25
+baseline pixels exactly equal the same coordinates in baseline371's prior
+background. At373 the corresponding103blue/40cyan/155black/14white/25skin
+pixels match exactly. Actual nearest-neighbor body neighborhoods were viewed.
+
+This is a background-shaped face hole, not a green torso. A simple uniform
+wrong skin color cannot by itself explain the green/black background pattern.
+Missing/transparent face overlay is the strongest consistent interpretation;
+the exact old source/OAM/CHR/priority cause is unproved. The old baseline
+hardware snapshot logs start501, so372 ownership must not be invented.
+
+Existing b0 visible-state records371..375 have identical correct palettes:
+body3F11..13=0F,11,2C; face3F1D..1F=0F,37,17. Actual372 hardware OAM uses
+the bound first nine body parts, CHR[53,16,17,18,19,20,21,21,0,1,2,3],
+full256DMA353 exact. The RGB decoder's skin37 isRGB(247,216,165).
+These are b0 observations, not731 values, and endFrame snapshots alone
+do not establish every possible mid-scanline palette state universally.
+
+Source ordering and actual compiled tables:
+player.s463 Entrance_GameTimerSetup calls GetPlayerColors. screen_render.s
+382 dispatches to X5GetPlayerColors. For Mega/ProtoVariant0 it reaches
+X5LegacyGetPlayerColors, which queues face first, weapon palette second,
+then four body colors22,0F,11,2C. QueueMegaManFacePalette's actual bank3
+B18F table bytes are3F,1D,03,0F,37,17. The actual bank78 A3CA PlayerColors
+Mega row is22,0F,11,2C. MegaManPaletteState later refreshes only3F11..13;
+its actual bank59 A0E0 first row is0F,11,2C.
+
+Area setup selects full GroundPaletteData through VRAM_Buffer_AddrCtrl2,
+then GetBackgroundColor/GetPlayerColors queues the guest palette. Fullground
+data would replace face3F1D..1F with0F,36,17 (pink), not green1A. Thus these
+source data/order paths do not intentionally request a green face. They are
+static executable/data evidence, not a captured731 palette-write timeline.
+
+External finite findings:
+D = C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py
+D/mm-proto-postdma-native-ready-v3/first-active-palette-inspection-v1/
+ opaque-coordinate-colors.json (literal pixel coordinates and old/new RGB)
+ compiled-palette-tables.json (actual offsets/bytes,731 hash, static-only)
+ image-bindings.json and baseline-b0-body-neighborhoods.png.
+No current731 full palette values were logged by its450 observer, so none
+are stated here. ROOT's731 first-face visual impression resembles the old
+baseline and is not asserted as a new regression. No repair is proposed.

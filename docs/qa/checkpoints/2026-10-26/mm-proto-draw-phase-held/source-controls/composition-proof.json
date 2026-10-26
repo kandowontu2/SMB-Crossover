@@ -1,0 +1,41 @@
+{
+  "passed": true,
+  "source_only": true,
+  "native_run": false,
+  "installed": false,
+  "parent_ROM_sha256": "900b669e212b878041c23e438f2fb26e310ce8f929f904681a9c4b17405b6968",
+  "shot_donor_ROM_sha256": "54ee7e53012edc43a29e3cba275794016d66b10ca3144b358ec2c2653ca3ad1d",
+  "ROM_sha256": "b0c152fa0c588a7df28171e1c673a8db31e2769c5e9114768742e328f1134a99",
+  "changed_source": [
+    "smb1base-mmc5-expanded.cfg",
+    "src/protoman_legacy_shots.inc"
+  ],
+  "changed_PRG_bytes": {
+    "66": 144
+  },
+  "preserved_parent_qualified_symbols": 61210,
+  "all_parent_old_symbols_RAM_CHR_other_PRG_exact": true,
+  "postDMA_source_exact": true,
+  "shot_bank66_exact": true,
+  "new_RAM_bytes": 0,
+  "builds": [
+    {
+      "mode": "candidate",
+      "sha256": "b0c152fa0c588a7df28171e1c673a8db31e2769c5e9114768742e328f1134a99"
+    },
+    {
+      "mode": "canonical",
+      "sha256": "b0c152fa0c588a7df28171e1c673a8db31e2769c5e9114768742e328f1134a99"
+    },
+    {
+      "mode": "mmc3",
+      "sha256": "d444cac88e13fa02b29ad16100b8f08fa565ba90f8cedde192de43fb2dc8f3eb"
+    },
+    {
+      "mode": "mmc5",
+      "sha256": "f4ffd2483c51daa4d60bb575da2da8c4d817692cda407611c243031f67520833"
+    }
+  ],
+  "tool_sha256": "888bdcec3eabaa448c60c8711ec9f4554ab082e40c4e49d7ddc14ccea9b763b3",
+  "limits": "Build/layout composition only; CPU controls must be rerun on this exact composed hash. No source-adoption/native-publication/fairness claim."
+}

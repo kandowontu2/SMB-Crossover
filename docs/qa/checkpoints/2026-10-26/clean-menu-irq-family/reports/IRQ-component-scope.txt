@@ -1,0 +1,74 @@
+Independent IRQ-arm component CPU qualification -- 2026-10-26
+
+PASS for finite source/CPU controls only. Not installed or native-qualified.
+The parent menu's separate palette/owner/visual failure remains FALSE; this
+component cannot qualify that menu or retroactively accept the held b0 shots.
+
+D = C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py
+Parent D/parodius-menu-budget-candidate-v4, ROM
+2f0d02050cb855b85ca299bb3f5fb7044b6deaf7406412edf27fd0d2bf173afc.
+Candidate D/root-postdma-irq-arm-v2, ROM
+08c1b5032a0e1009e3c103eec0a4e27739a82b645310aeb85e83307b9d6ffa4f.
+ROOT's candidate builder moves only the expandedMMC5 Sprite0 flag/IRQ31-arm/
+CLI block from before CHR/DMA to after OAMandReadJoypad. Horizontal scroll
+and IrqPPUCTRL remain before. Source/build/layout proof remains ROOT-owned.
+The new independent test mutates no source, ROOT files, settings or ROM.
+
+Existing current3cee_postdma_mask_cpu_v4.py Bus/run/seed are reused. A separate
+Bus subclass records all I/O read values/order and actual IRQ insertion writes.
+Its full original application RAM and five mutable SMC guards are retained.
+It compares each complete ordered nonstack write, including every PPUMASK,
+except the two INTENTIONALLY moved5203/5204 register writes. Those complete
+values/order are checked separately. No RAM/OAM bytes or renderer guards are
+masked. Actual IRQ-resume comparison excludes only py65's virtualB/U bits;
+physicalN,V,D,I,Z,C, AXY/SP/PC, bank shadows/actual mappings and five SMC fields
+restore exactly. The IRQ's inserted complete write subsequence is removed
+only for comparing its resumed NMI stream against that routine's own control.
+
+Finite fresh coverage on the exact two linked routines:
+-All893 existing NMI fixture profiles times Sprite0Flag0/1:1786 completeNMIs.
+  This includes1536 broad24-family/title/game/lag/blank/reload/packet cases,
+  160 realDMA parity profiles, and90 source-produced Parodius HUD lifecycle
+  cases (full/attr/newlife/death/capture and buffer controls0/6/4).
+-512 direct OAMandReadJoypad cases:all256 controller masks, inverse second
+  controller, both explicit513/514 parity phases. Complete register/state/
+  input/orderedIO/cycle equality passes between parent and candidate.
+-1042 actual compiled IRQ injections:744 parent/298 candidate, chars0/18,
+  regular/lag, both Sprite0 flag values, reload1 and nonempty palette/VRAM
+  packet. Every enabled instruction boundary before first real AudioUpdate
+  in these profiles is tested, except12 genuine first-postCLI deferred
+  instruction boundaries, which are explicitly cataloged. Immediate py65
+  irq() there would not model physical6502 CLI deferral. No such false pass
+  is claimed. Flag0 regular has no enabled preAudio boundary.
+
+Scheduling evidence:
+-Regular flag1 arm values are exactly5203=31 then5204=128. Parent arms before
+  input; candidate arms after final controller strobe and before AudioUpdate.
+-No-stall completeNMI code cost is exactly equal. PPUMASK reenable advances
+  exactly20 codecycles with flag1 and7 with flag0.
+-The first v1 tool stopped after1536 passes on an invalid total0 assertion
+  for a real513/514 stall:flag0 char0 regular measured1466->1467. That
+  original failure.json/failed-tool.py remain in D/mm-proto-irq-arm-cpu-v1.
+  v2 separately implements ROOT's specific source-derived parity oracle:
+  sum((new_preSTA4014clock+4+stall)&1)-((old_preSTA4014clock+4+stall)&1).
+  There is at most one literalSTA4014; lag has none. Every modeled total
+  cycle delta is EXACTLY this computed difference, not a broad tolerance.
+  Modeled totalrange is-1..+1; actual maskadvance is codeadvance-paritydelta.
+
+Reproduction (use a NEW empty output; existing evidence is immutable):
+python -B tools/audit/mm_proto_irq_arm_cpu_v2.py --parent
+ "D/parodius-menu-budget-candidate-v4" --candidate
+ "D/root-postdma-irq-arm-v2" --output "NEW-EMPTY-DIRECTORY"
+Expand D to the archive path above. Proof and all complete case/schedule/
+CLI-defer records are D/mm-proto-irq-arm-cpu-v2. The additive freeze-v1
+catalog binds source tools, imported modules, build/source metadata, the
+retained failure and exact result files; no ROM/audio/settings are copied.
+
+Limits: explicitly staged synthetic CPU contexts. The bus models DMA parity
+stall and deterministic palette/controller reads; it does not transfer a
+physical PPU OAM page, simulate MMC5 scanline31 acceptance or prove a native
+render-enable deadline. The unchanged256DMA assertion belongs to existing
+native observers; this source packet neither weakens nor executes it. IRQ
+hardware acceptance/deferredpoll/physicalframe scheduling require native
+qualification on a freshly composed exact source with the corrected menu.
+No Mesen process, native grant, installation, Git or settings change occurred.

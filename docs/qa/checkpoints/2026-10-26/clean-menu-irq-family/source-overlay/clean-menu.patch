@@ -1,0 +1,507 @@
+--- published3cee/smb1base-mmc5-expanded.cfg
++++ clean-menu/smb1base-mmc5-expanded.cfg
+@@ -147,8 +147,8 @@
+ 
+     PRGLow: start = $8000,  size = $2000, type = ro, file = %O, fill = yes, fillval = $ff, bank = $7e;
+     
+-    ALIGN:  start = $e000,  size = $60,   type = ro, file = %O, fill = yes, bank = $7f;
+-    PRGFix: start = $e060,  size = $2000 - $60, type = ro, file = %O, fill = yes, fillval = $ff, bank = $7f;
++    ALIGN:  start = $e000,  size = $66,   type = ro, file = %O, fill = yes, bank = $7f;
++    PRGFix: start = $e066,  size = $2000 - $66, type = ro, file = %O, fill = yes, fillval = $ff, bank = $7f;
+ 
+     CHR:    start = $0000,  size = $40000, type = ro, fill = yes, file = %O, fillval = $00;
+     X5_CHR_MORE: start=$40000, size=$5000, type=ro, fill=yes, file=%O, fillval=$00;
+@@ -272,6 +272,7 @@
+     HOT_RENDER_GATE: load=X5_NEW_42,type=ro;
+     INVENTORY_ITEM_RETURN: load=X5_NEW_42,type=ro,optional=yes;
+     PN_MENU_HINT: load=X5_NEW_42,type=ro,optional=yes;
++    MENU_VRAM_BUDGET: load=X5_NEW_42,type=ro,start=$bb50,optional=yes;
+ 
+     X5_PUBLISH: load=X5_NEW_3E, type=ro;
+     X5_CHR_MORE: load=X5_CHR_MORE, type=ro, optional=yes;
+--- published3cee/src/character_select.s
++++ clean-menu/src/character_select.s
+@@ -553,7 +553,11 @@
+   lda #$3f
+ .endif
+   jsr QueueCursor
++.if ::ENABLE_MMC5_EXPANDED && ::MAPPER_MMC5
++  jmp MenuPreviewBudget
++.else
+   jmp DrawSelectionPreview
++.endif
+ .endproc
+ 
+ .proc DrawSelectionPreview
+@@ -1168,17 +1172,8 @@
+ .segment "PN_MENU_HINT"
+ .proc PnMenuVariantHintGate
+  jmp PnMenuInitialHintDispatch
+- cmp #Select_Button
+- bne Original
+- lda SelectedCharacter
+- cmp #18
+- bne Original
+- lda CrossoverMenuState
+- cmp #2
+- bne Original
+- lda DisableScreenFlag
+- bne Original
+- rts
++ jmp MenuHintQueuePolicy
++ .res 21,$ea
+ Original:
+  ldx VRAM_Buffer1_Offset
+  jmp QueueVariantHint+3
+@@ -1194,9 +1189,7 @@
+ ; NmiDisable is negative. Lag NMI skips PPU work with DisableScreenFlag!=0.
+ ; Mask IRQ only around the paired address/data transaction; retain NMI/audio.
+ .proc PnMenuInitialHintDispatch
+- lda SelectedCharacter
+- cmp #18
+- bne Native
++ .res 7,$ea ; Existing entry/copy/native addresses remain genuine.
+  lda CrossoverMenuState
+  cmp #2
+  bne Native
+@@ -1219,7 +1212,7 @@
+  sta PPUADDR
+  ldy #0
+ Copy:
+- lda QueueVariantHint::ProtoHint,y
++ lda MenuStaticLegend,y
+  sta PPUDATA
+  iny
+  cpy #20
+@@ -1227,10 +1220,12 @@
+  lda Mirror_PPUCTRL
+  sta PPUCTRL
+  plp
+- rts
++ nop
+ Native:
+  lda CrossoverMenuPressed
+  jmp PnMenuVariantHintGate+3
+ .endproc
+ .popseg
+ .endif
++
++.include "menu_vram_budget.s"
+--- published3cee/src/menu_vram_budget.s
++++ clean-menu/src/menu_vram_budget.s
+@@ -0,0 +1,374 @@
++; PRIVATE template: foreground character-selection queue only.
++; No new RAM. R0/R1 and complete caller registers/status are restored.
++.if ::ENABLE_MMC5_EXPANDED && ::MAPPER_MMC5
++.pushseg
++.segment "MENU_VRAM_BUDGET"
++.proc MenuPreviewBudget
++ jsr DrawSelectionPreview
++ php
++ pha
++ txa
++ pha
++ tya
++ pha
++ lda R0
++ pha
++ lda R1
++ pha
++ lda OperMode
++ jne Restore
++ lda CrossoverMenuState
++ cmp #2
++ jne Restore
++ lda VRAM_Buffer_AddrCtrl
++ jne Restore
++ jsr MenuQueueValidate
++ jcc Restore
++ jsr MenuRemoveHint
++ jsr MenuDropShadowPalette
++ jsr MenuMergePaletteRuns
++Restore:
++ pla
++ sta R1
++ pla
++ sta R0
++ pla
++ tay
++ pla
++ tax
++ pla
++ plp
++ rts
++.endproc
++
++; Exact supported native menu command shapes. Reject unknown palette owners,
++; especially0C/1C, rather than filling an unproved palette hole.
++.proc MenuQueueValidate
++ lda VRAM_Buffer1_Offset
++ cmp #84
++ jcs Invalid
++ ldx #0
++Loop:
++ cpx VRAM_Buffer1_Offset
++ jeq End
++ jcs Invalid
++ lda VRAM_Buffer1,x
++ jeq Invalid
++ cmp #$3f
++ bne NonPalette
++ lda VRAM_Buffer1+1,x
++ cmp #$10
++ beq Body
++ cmp #$11
++ beq Three
++ cmp #$19
++ beq Three
++ cmp #$1d
++ jne Invalid
++Three:
++ lda VRAM_Buffer1+2,x
++ cmp #3
++ jne Invalid
++ beq Advance
++Body:
++ lda VRAM_Buffer1+2,x
++ cmp #1
++ beq Advance
++ cmp #4
++ jne Invalid
++ beq Advance
++NonPalette:
++ cmp #$20
++ beq Cursor
++ cmp #$21
++ beq Cursor
++ cmp #$23
++ jne Invalid
++ lda VRAM_Buffer1+1,x
++ cmp #$28
++ bne Hint
++ lda VRAM_Buffer1+2,x
++ cmp #16
++ jne Invalid
++ beq Advance
++Hint:
++ cmp #$46
++ jne Invalid
++ lda VRAM_Buffer1+2,x
++ cmp #20
++ jne Invalid
++ beq Advance
++Cursor:
++ lda VRAM_Buffer1+2,x
++ cmp #1
++ jne Invalid
++Advance:
++ tay
++ inx
++ inx
++ inx
++Bytes:
++ inx
++ dey
++ bne Bytes
++ jmp Loop
++End:
++ lda VRAM_Buffer1,x
++ bne Invalid
++ sec
++ rts
++Invalid:
++ clc
++ rts
++.endproc
++
++; Final native preview3F11/3 overwrites all earlier11..13 writes. Remove
++; an earlier full3F11/3 or trim only shadowed colors from3F10/4, keeping10.
++.proc MenuDropShadowPalette
++ lda VRAM_Buffer1_Offset
++ cmp #6
++ bcc Done
++ sec
++ sbc #6
++ sta R0
++ tax
++ lda VRAM_Buffer1,x
++ cmp #$3f
++ bne Done
++ lda VRAM_Buffer1+1,x
++ cmp #$11
++ bne Done
++ lda VRAM_Buffer1+2,x
++ cmp #3
++ bne Done
++ ldx #0
++Loop:
++ cpx R0
++ bcs Done
++ lda VRAM_Buffer1,x
++ cmp #$3f
++ bne Next
++ lda VRAM_Buffer1+1,x
++ cmp #$11
++ bne Partial
++ lda VRAM_Buffer1+2,x
++ cmp #3
++ bne Next
++ lda #6
++ sta R1
++ jmp MenuDeleteBytes
++Partial:
++ cmp #$10
++ bne Next
++ lda VRAM_Buffer1+2,x
++ cmp #4
++ bne Next
++ lda #1
++ sta VRAM_Buffer1+2,x
++ inx
++ inx
++ inx
++ inx
++ lda #3
++ sta R1
++ jmp MenuDeleteBytes
++Next:
++ lda VRAM_Buffer1+2,x
++ tay
++ inx
++ inx
++ inx
++Bytes:
++ inx
++ dey
++ bne Bytes
++ jmp Loop
++Done:rts
++.endproc
++
++; Source selection page owns BG0C=$0F and validated menu palette writers never
++; touch0C/1C. Fold1D/3 +19/3 to19/7 with that exact already-owned gap. Also
++; fold truly adjacent10/1 +11/3 without filling any gap.
++.proc MenuMergePaletteRuns
++ ldx #0
++Loop:
++ cpx VRAM_Buffer1_Offset
++ jcs Done
++ lda VRAM_Buffer1,x
++ cmp #$3f
++ jne Next
++ lda VRAM_Buffer1+1,x
++ cmp #$10
++ bne Gap
++ lda VRAM_Buffer1+2,x
++ cmp #1
++ jne Next
++ lda VRAM_Buffer1+4,x
++ cmp #$3f
++ jne Next
++ lda VRAM_Buffer1+5,x
++ cmp #$11
++ jne Next
++ lda VRAM_Buffer1+6,x
++ cmp #3
++ jne Next
++ lda #4
++ sta VRAM_Buffer1+2,x
++ lda VRAM_Buffer1+7,x
++ sta VRAM_Buffer1+4,x
++ lda VRAM_Buffer1+8,x
++ sta VRAM_Buffer1+5,x
++ lda VRAM_Buffer1+9,x
++ sta VRAM_Buffer1+6,x
++ txa
++ clc
++ adc #7
++ tax
++ lda #3
++ sta R1
++ jsr MenuDeleteBytes
++ ldx #0
++ jmp Loop
++Gap:
++ cmp #$1d
++ jne Next
++ lda VRAM_Buffer1+2,x
++ cmp #3
++ jne Next
++ lda VRAM_Buffer1+6,x
++ cmp #$3f
++ jne Next
++ lda VRAM_Buffer1+7,x
++ cmp #$19
++ jne Next
++ lda VRAM_Buffer1+8,x
++ cmp #3
++ jne Next
++ lda VRAM_Buffer1+3,x
++ pha
++ lda VRAM_Buffer1+4,x
++ pha
++ lda VRAM_Buffer1+5,x
++ pha
++ lda #$19
++ sta VRAM_Buffer1+1,x
++ lda #7
++ sta VRAM_Buffer1+2,x
++ lda VRAM_Buffer1+9,x
++ sta VRAM_Buffer1+3,x
++ lda VRAM_Buffer1+10,x
++ sta VRAM_Buffer1+4,x
++ lda VRAM_Buffer1+11,x
++ sta VRAM_Buffer1+5,x
++ lda #$0f
++ sta VRAM_Buffer1+6,x
++ pla
++ sta VRAM_Buffer1+9,x
++ pla
++ sta VRAM_Buffer1+8,x
++ pla
++ sta VRAM_Buffer1+7,x
++ txa
++ clc
++ adc #10
++ tax
++ lda #2
++ sta R1
++ jsr MenuDeleteBytes
++ ldx #0
++ jmp Loop
++Next:
++ lda VRAM_Buffer1+2,x
++ tay
++ inx
++ inx
++ inx
++Bytes:
++ inx
++ dey
++ bne Bytes
++ jmp Loop
++Done:rts
++.endproc
++
++; Delete R1bytes at valid queue cursorX, including moving the real terminator.
++.proc MenuDeleteBytes
++ lda VRAM_Buffer1_Offset
++ sec
++ sbc R1
++ sta VRAM_Buffer1_Offset
++ txa
++ clc
++ adc R1
++ tay
++Loop:
++ lda VRAM_Buffer1,y
++ sta VRAM_Buffer1,x
++ cpx VRAM_Buffer1_Offset
++ beq Done
++ inx
++ iny
++ jmp Loop
++Done:rts
++.endproc
++.proc MenuRemoveHint
++ ldx #0
++Loop:
++ cpx VRAM_Buffer1_Offset
++ bcs Done
++ lda VRAM_Buffer1,x
++ cmp #$23
++ bne Next
++ lda VRAM_Buffer1+1,x
++ cmp #$46
++ bne Next
++ lda VRAM_Buffer1+2,x
++ cmp #20
++ bne Next
++ lda #23
++ sta R1
++ jmp MenuDeleteBytes
++Next:
++ lda VRAM_Buffer1+2,x
++ tay
++ inx
++ inx
++ inx
++Bytes:
++ inx
++ dey
++ bne Bytes
++ jmp Loop
++Done:rts
++.endproc
++
++; Retain the parent's transient queue/capacity decisions before preview.
++; Only its originalshipinitial/direct and liveSelect-only cases skip writing.
++.proc MenuHintQueuePolicy
++ lda CrossoverMenuState
++ cmp #2
++ bne Original
++ lda SelectedCharacter
++ cmp #18
++ bne Original
++ lda DisableScreenFlag
++ beq Live
++ lda Mirror_PPUMASK
++ and #$18
++ bne Original
++ lda NmiDisable
++ bpl Original
++ rts
++Live:
++ lda CrossoverMenuPressed
++ cmp #Select_Button
++ beq Done
++Original:
++ jmp PnMenuVariantHintGate::Original
++Done:rts
++.endproc
++
++MenuStaticLegend:
++ .byte "SELECT ALTERNATES   "
++.popseg
++.endif
+--- published3cee/src/reset.s
++++ clean-menu/src/reset.s
+@@ -376,8 +376,10 @@
+   and #%11111100
+   sta PPUCTRL
+ 
++.if !(::ENABLE_MMC5_EXPANDED && ::MAPPER_MMC5)
+   lda Mirror_PPUMASK       ;copy mirror of $2001 to register
+   sta PPUMASK
++.endif
+ 
+   ; If the main thread requested a CHR bank switch, do it before the timing window passes
+   jsr BankSwitchCHR
+@@ -758,6 +760,13 @@
+ 
+   LDA #OAM
+   STA OAM_DMA
++ .if ::ENABLE_MMC5_EXPANDED && ::MAPPER_MMC5
++  ; Keep rendering disabled until all256 DMA writes finish. The next input
++  ; load kills A/NZ; the pair preserves C/V and the controller GET/PUT parity.
++::PostDmaMaskEnable:
++  lda Mirror_PPUMASK
++  sta PPUMASK
++ .endif
+  
+   ; Desync cycles: 432, 576, 672, 848, 432*2-4 (860)
+ 
+@@ -884,6 +893,13 @@
+ .proc OAMandReadJoypad
+   lda #OAM
+   sta OAM_DMA          ; ------ OAM DMA ------
++ .if ::ENABLE_MMC5_EXPANDED && ::MAPPER_MMC5
++  ; Keep rendering disabled until all256 DMA writes finish. The next input
++  ; load kills A/NZ; the pair preserves C/V and the controller GET/PUT parity.
++::PostDmaMaskEnable:
++  lda Mirror_PPUMASK
++  sta PPUMASK
++ .endif
+   ldx #1             ; get put          <- strobe code must take an odd number of cycles total
+   stx SavedJoypad1Bits ; get put get
+   stx JOYPAD_PORT1   ; put get put get

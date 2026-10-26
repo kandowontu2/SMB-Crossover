@@ -1,0 +1,47 @@
+--- exact900/policy.lua
++++ clean731/policy.lua
+@@ -1,4 +1,4 @@
+-dofile("C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/current3cee-remaining27-routes-v1/native/native-guard.lua")
++dofile("C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/mario-flower731-east-v1/native-guard.lua")
+ local base=(function()
+ local restored=(function()
+ -- Controller-only discovery. No emulated memory, equipment or physics writes.
+--- exact900/configuration.json
++++ clean731/configuration.json
+@@ -9,13 +9,13 @@
+     "mapper": "mmc5",
+     "behavior": "easy",
+     "limit": 6500,
+-    "out": "C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/mario-flower900-east-v4-ready-v2/mario-easy/",
++    "out": "C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/mario-flower731-east-v1/mario-easy/",
+     "record": false,
+     "allowDeaths": false,
+     "segmented": false,
+     "capture": 8,
+-    "policy": "C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/mario-flower900-east-v4-ready-v2/mario-easy/policy.lua",
+-    "audit": "C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/mario-flower900-east-v4-ready-v2/mario-easy/audit.lua",
++    "policy": "C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/mario-flower731-east-v1/mario-easy/policy.lua",
++    "audit": "C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/mario-flower731-east-v1/mario-easy/audit.lua",
+     "replay": null,
+     "prefix": null
+   },
+@@ -23,7 +23,7 @@
+     "character": 0,
+     "variant": 0,
+     "mode": 0,
+-    "ROM_sha256": "900b669e212b878041c23e438f2fb26e310ce8f929f904681a9c4b17405b6968",
++    "ROM_sha256": "731c918b0f448564587d90fca2979afc9fc0e5eb9b26616f4241801e2e73e16c",
+     "blocks": [
+       336,
+       1248
+--- exact900/run.lua
++++ clean731/run.lua
+@@ -1,5 +1,5 @@
+-ROSTER_CONFIG={["name"]="mario",["slot"]=0,["character"]=0,["variant"]=0,["variantSymbol"]="MarioVariant",["menuName"]="MARIO",["mapper"]="mmc5",["behavior"]="easy",["limit"]=6500,["out"]="C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/mario-flower900-east-v4-ready-v2/mario-easy/",["record"]=false,["allowDeaths"]=false,["segmented"]=false,["capture"]=8,["policy"]="C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/mario-flower900-east-v4-ready-v2/mario-easy/policy.lua",["audit"]="C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/mario-flower900-east-v4-ready-v2/mario-easy/audit.lua",["replay"]=nil,["prefix"]=nil}
+-MARIO_FLOWER_CONFIG={["character"]=0,["variant"]=0,["mode"]=0,["ROM_sha256"]="900b669e212b878041c23e438f2fb26e310ce8f929f904681a9c4b17405b6968",["blocks"]={336,1248},["hooks"]={["PwrUpJmp"]={["address"]=36689,["bank"]=126,["bytes"]={141,106,1}},["MarioSourcePowerupCollision"]={["address"]=44913,["bank"]=3,["bytes"]={32,47,141}},["MarioSourcePowerupUpdate"]={["address"]=48590,["bank"]=59,["bytes"]={173,253,107}},["MarioSourceFireballBrick"]={["address"]=48417,["bank"]=59,["bytes"]={72,173,2}},["HandleEnemyFBallCol"]={["address"]=39567,["bank"]=126,["bytes"]={32,160,138}}},["ram"]={["Enemy_Flag"]=16,["Player_PageLoc"]=92,["Enemy_Y_Position"]=190,["SelectedCharacter"]=24578,["PowerUpType"]=52,["GuestLegacyHurt"]=32738,["GuestPowerupAge"]=27646,["OperMode_Task"]=1907,["Enemy_X_Position"]=118,["Square2SoundQueue"]=260,["CrossoverBehaviorVersion"]=32737,["GuestPowerupActive"]=27645,["Fireball_Y_Position"]=196,["MarioVariant"]=29450,["Enemy_PageLoc"]=93,["Enemy_Y_HighPos"]=165,["Square1SoundQueue"]=261,["Fireball_X_Position"]=124,["Player_X_Position"]=117,["Fireball_State"]=37,["GuestPowerupTarget"]=27648,["GameEngineSubroutine"]=15,["Enemy_ID"]=23,["Fireball_PageLoc"]=99,["PlayerFacingDir"]=1342,["PlayerSize"]=1881,["OperMode"]=1905,["PlayerStatus"]=1883,["Enemy_State"]=31,["ObjectOffset"]=13,["Player_Y_Position"]=189},["sfx"]={["reveal"]=2,["pickup"]=32,["fire"]=32}}
++ROSTER_CONFIG={["name"]="mario",["slot"]=0,["character"]=0,["variant"]=0,["variantSymbol"]="MarioVariant",["menuName"]="MARIO",["mapper"]="mmc5",["behavior"]="easy",["limit"]=6500,["out"]="C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/mario-flower731-east-v1/mario-easy/",["record"]=false,["allowDeaths"]=false,["segmented"]=false,["capture"]=8,["policy"]="C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/mario-flower731-east-v1/mario-easy/policy.lua",["audit"]="C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/mario-flower731-east-v1/mario-easy/audit.lua",["replay"]=nil,["prefix"]=nil}
++MARIO_FLOWER_CONFIG={["character"]=0,["variant"]=0,["mode"]=0,["ROM_sha256"]="731c918b0f448564587d90fca2979afc9fc0e5eb9b26616f4241801e2e73e16c",["blocks"]={336,1248},["hooks"]={["PwrUpJmp"]={["address"]=36689,["bank"]=126,["bytes"]={141,106,1}},["MarioSourcePowerupCollision"]={["address"]=44913,["bank"]=3,["bytes"]={32,47,141}},["MarioSourcePowerupUpdate"]={["address"]=48590,["bank"]=59,["bytes"]={173,253,107}},["MarioSourceFireballBrick"]={["address"]=48417,["bank"]=59,["bytes"]={72,173,2}},["HandleEnemyFBallCol"]={["address"]=39567,["bank"]=126,["bytes"]={32,160,138}}},["ram"]={["Enemy_Flag"]=16,["Player_PageLoc"]=92,["Enemy_Y_Position"]=190,["SelectedCharacter"]=24578,["PowerUpType"]=52,["GuestLegacyHurt"]=32738,["GuestPowerupAge"]=27646,["OperMode_Task"]=1907,["Enemy_X_Position"]=118,["Square2SoundQueue"]=260,["CrossoverBehaviorVersion"]=32737,["GuestPowerupActive"]=27645,["Fireball_Y_Position"]=196,["MarioVariant"]=29450,["Enemy_PageLoc"]=93,["Enemy_Y_HighPos"]=165,["Square1SoundQueue"]=261,["Fireball_X_Position"]=124,["Player_X_Position"]=117,["Fireball_State"]=37,["GuestPowerupTarget"]=27648,["GameEngineSubroutine"]=15,["Enemy_ID"]=23,["Fireball_PageLoc"]=99,["PlayerFacingDir"]=1342,["PlayerSize"]=1881,["OperMode"]=1905,["PlayerStatus"]=1883,["Enemy_State"]=31,["ObjectOffset"]=13,["Player_Y_Position"]=189},["sfx"]={["reveal"]=2,["pickup"]=32,["fire"]=32}}
+ dofile("C:/Users/kando/Documents/ChatGPT/SMB Crossover/tools/audit/mario_flower900_native_v4.lua")
+-dofile("C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/mario-flower900-east-v4-ready-v2/mario-easy/harness.lua")
++dofile("C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/mario-flower731-east-v1/mario-easy/harness.lua")
+ assert(MARIO_POWERUP_INSTALL_CHR_DISPATCHER)()

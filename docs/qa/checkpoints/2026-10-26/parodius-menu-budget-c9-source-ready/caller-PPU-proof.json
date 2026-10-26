@@ -1,0 +1,27 @@
+{
+  "passed": true,
+  "source_only": true,
+  "native_run": false,
+  "candidate_ROM_sha256": "c9b1e0c10698cee3b86c153cc27c0748b28ebe83b1df714fce4235ea4503807f",
+  "baseline_ROM_sha256": "b0c152fa0c588a7df28171e1c673a8db31e2769c5e9114768742e328f1134a99",
+  "navigation_cases": 1368,
+  "initial_whole_BuildScreen_cases": 74,
+  "all37_identities_both_numeric_modes": true,
+  "full_foreground_AXYP_SP_banks_nonqueue_RAM_OAM_exact": true,
+  "full_NMI_AXYP_SP_banks_and5SMC_exact": true,
+  "final_full_PPU_fineX_scroll_control_and_values_except_static_legend_exact": true,
+  "untouched_palette_holes_preserved": true,
+  "foreground_CPU_delta": [
+    0,
+    4197
+  ],
+  "NMI_CPU_savings": [
+    0,
+    619
+  ],
+  "max_candidate_modeled_enable_CPU": 2264,
+  "navigation_sha256": "09db30f0e67497f51ed00e0dccf93a325b16e15eae7fbdcd0f334f788bebe468",
+  "initial_sha256": "cd01f44e773f7c442ce825c3190f470db2fb07163b5c5d799359fe4b3e56491f",
+  "tool_sha256": "368360cd5778c4c76a33a21c183c398eecdae7162f9db63a58ef43550f54d5a8",
+  "limits": "Synthetic source-generated complete caller/PPU models,514DMAstall,noDMC/physicalrendering. Warm models execute actual prior fullNMI including buffer clear; prior NmiR0/1 naturally differ with packet length, but foregroundmustleaveeachunchanged andfreshNMIoverwritespointer beforeuse. Dynamic BackgroundColorCtrl2 matches actualBuildScreen; older catalogueAreaType0 backdrop22 corrected to menu0F only at3F10. Dynamic models explicitly require already-built selection page/staticlegend; initial74actualBuildScreen controls establish publication. No native/flicker/globalpostDMApass. Interrupt-boundary controls separate."
+}

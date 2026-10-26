@@ -1,0 +1,69 @@
+MarioEasy corrected flower component: SECOND FALSE PRESERVED
+
+Exact900b669e212b878041c23e438f2fb26e310ce8f929f904681a9c4b17405b6968.
+One granted corrected launch, exit1, no retry, worker released. Original v1
+failure1395, corrected readiness/grant/observer and native-proofFALSE remain
+unchanged. No game source/default/settings/Git mutation; no new native attempt.
+
+The first physical mushroom collection839 and60 sequential growth calls840..899
+remain valid component evidence. RetainedSuper opens actual later block1248
+at1346. The physical flower reaches mature state128 in slot5/type1/world1248/
+y119 and remains uncollected. Fire growth, fireballs and their target use are
+unreached. No failure is relabeled as a completed item, route or CHR pass.
+
+The corrected live log directly confirms Goomba slot0, ID6, flag1, state0 then1;
+the earlier original-failure slot inference is no longer the only evidence of
+this actor. There are21 real retreat decisions1348..1387. Their targets move
+from1188 to1168 while this enemy remains nearby. The original contact1395 is
+avoided, but Mario then jumps too far left and too late horizontally.
+
+Actual saved trajectory (worldX, native PlayerY):
+  rest1414:1165/176, vx0; freshA1415; firstRight/B1436.
+  ascent y1081434:1165; apex y103 at1440..1444, X1166..1167.
+  descending y1121451:X1172; y1141452:X1173; y1161453:X1174.
+  ground landing1469:1198/176; injury1472:1202/176, engine9/growing1/age0.
+MaxX during the airborne jump is1198. The standing jump rises73pixels.
+The first21 jump updates have no horizontal input. A remains held32updates.
+
+Actual compiled level objects: lower brick-row pair11 isD7,22 at1232/y144,
+length2+1=3tiles covering1232..1279. Pair12 E7,00 overwrites its middle1248
+with the real flower block. Upper row starts1280/y80. Native big-Mario feet
+are PlayerY+32, foot probesX+3/X+12; the row thus needs rightfoot>=1232 while
+descending feet enter144..148 (PlayerY112..116). Actual X1172..1174 at that
+window is at least46pixels short of the first required probeX1220.
+
+Original source arithmetic is consistent with this failure: Easy acceleration
+Q0.16=$0E39=.055557px/update squared; standing jump Q8.16=$FA9555=-5.416672;
+gravity=$31C7=.194443, added before vertical integration; B run cap2.5px/update.
+The saved-data fixed-point reconstruction matches54 airborne Y values exactly.
+The55th free-flight prediction177 versus actual176 is the native ground clamp.
+The34 Right/B X observations constrain the unobserved initial Xfraction to
+21838..29071/65536; no exact initial RAM fraction capture is fabricated.
+
+Merely pressing A+Right/B immediately from REST1165 also falls short: analytical
+X1204..1208 during the row landing window. A14-update positive run-up before
+diagonal launch analytically reaches row atX1237..1242, with early ascent still
+left of its underside. That is source arithmetic only, not a new controller,
+enemy/collision/IRQ/NMI simulation or a native success. A right-side approach
+is being considered separately before choosing one future route. No additional
+native preparation or retry is authorized by these calculations.
+
+Saved OAM shows the first Goomba safely on the ground behind the later jump,
+and the OTHER Goomba walking off the lower row. At1471/1472 that other pair is
+world1213/rawOAMY173, overlapping Mario1201..1202/176. This is the second injury
+contact. That other enemy's collision-X/RAM slot was not directly logged.
+The flower remains separately visible at1248/y119. Sampled pixels show the
+short jump and normal scenery; no concrete engine collision/art defect is
+established. All original no-injury and physical-use checks correctly remain.
+
+Partial guards:1063 CHR-commit rows, zero bad. Original motion final JSON remains
+FALSE,1063checks/maxworldstep3/maxcamerastep3 at fail-stop. Final successful
+component/CHR receipts do not exist. Raw queue request stores demonstrate cues,
+not waveform fidelity or distinct audible event counts.12 actual PPU samples
+were reviewed; no everyframe visual, fullroute/Hard/allitem or Fire/use claim.
+
+External additive freeze: mario-flower900-corrected-v2/failure-freeze-v1.
+trajectory.json and actual-launch.csv bind the source/observations/arithmetic;
+selected-images.json maps the12 samples and sheet. proof.json binds original
+native logs/telemetry/images, all1191 unchanged preparation dependencies, this
+report and the new saved-data-only analysis. Original failure paths stay exact.
