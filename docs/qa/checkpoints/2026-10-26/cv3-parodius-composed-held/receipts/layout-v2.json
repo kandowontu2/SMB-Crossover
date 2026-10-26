@@ -1,0 +1,160 @@
+{
+  "passed": true,
+  "native_executed": false,
+  "adopted": false,
+  "status": "PRIVATE_F35_PLUS_CV3_LAYOUT_SOURCE_MATCHED_CPU_PENDING",
+  "ROM_sha256": "4285d35db234ecdaf7c561f721c0aa8798545f9937e933acf5ab3e3f0b642682",
+  "parent_ROM_sha256": "f35f0ec2f70d5dcb6eb1bbfcbd84359d9f6da68c39719d75217aed149edb0631",
+  "CV3_donor_sha256": "2cb5fca0757c3e347c264eab0bf3f22bd02d851787f38802a4af3cb0c3aa1fa5",
+  "source": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\cv3-parodius-combined-f35-v1\\source",
+  "all_deployable_files": 809,
+  "manifest_sha256": "486cfc4268a25e87fe57ff99b14193a2a63eac57e2b811cf3bab1fd0a298cc08",
+  "changed_source": [
+    "src/cv3_abilities.s",
+    "src/cv3_combat.s",
+    "src/cv3_dmc_complete.s",
+    "src/cv3_remaining_source_fx.s",
+    "src/cv3_source_audio.s",
+    "src/entrypoint.s",
+    "src/megaman_death.s",
+    "src/roster_audio.s"
+  ],
+  "changed_banks_vs_f35": [
+    {
+      "bank": 2,
+      "changed_bytes": 3
+    },
+    {
+      "bank": 28,
+      "changed_bytes": 854
+    },
+    {
+      "bank": 29,
+      "changed_bytes": 41
+    },
+    {
+      "bank": 82,
+      "changed_bytes": 2887
+    },
+    {
+      "bank": 84,
+      "changed_bytes": 303
+    }
+  ],
+  "all_other_banks_header_CHR_exact_f35": true,
+  "all_CV3_banks_exact2cb5": true,
+  "f35_queue_vic_config_nmi_files_raw_exact": true,
+  "entrypoint_all_f35_raw_bytes_retained_as_prefix": true,
+  "retained_qualified_symbols": 60743,
+  "legitimate_symbol_exceptions": [
+    {
+      "scope": [
+        "Cv3MusicAndNoiseTick",
+        "Continue"
+      ],
+      "old": 56755,
+      "new": 56750,
+      "reason": "Actual internal legacy branch movement"
+    },
+    {
+      "scope": [
+        "Cv3MusicAndNoiseTick",
+        "Done"
+      ],
+      "old": 56818,
+      "new": 56808,
+      "reason": "Actual internal legacy branch movement"
+    },
+    {
+      "scope": [
+        "Cv3MusicAndNoiseTick",
+        "End"
+      ],
+      "old": 56819,
+      "new": 56809,
+      "reason": "Actual internal legacy branch movement"
+    },
+    {
+      "scope": [
+        "Cv3MusicAndNoiseTick",
+        "Reset"
+      ],
+      "old": 56742,
+      "new": 56737,
+      "reason": "Actual internal legacy branch movement"
+    },
+    {
+      "scope": [
+        "Cv3MusicAndNoiseTick",
+        "RestoreMusic"
+      ],
+      "old": 56824,
+      "new": 56814,
+      "reason": "Actual internal legacy branch movement"
+    },
+    {
+      "scope": [
+        "Cv3MusicAndNoiseTick",
+        "Volume"
+      ],
+      "old": 56804,
+      "new": 56794,
+      "reason": "Actual internal legacy branch movement"
+    },
+    {
+      "scope": [
+        "Cv3NoiseSceneReset",
+        "Owner"
+      ],
+      "old": 45245,
+      "new": null,
+      "reason": "Genuine removed old branch; no external references or fake aliases"
+    },
+    {
+      "scope": [
+        "Cv3NoiseSceneReset",
+        "Variant"
+      ],
+      "old": 45255,
+      "new": null,
+      "reason": "Genuine removed old branch; no external references or fake aliases"
+    },
+    {
+      "scope": [
+        "Cv3SpawnAudioType",
+        "Done"
+      ],
+      "old": 46059,
+      "new": null,
+      "reason": "Genuine removed old branch; no external references or fake aliases"
+    },
+    {
+      "scope": [
+        "_FARCALL_COUNT"
+      ],
+      "old": 1153,
+      "new": 1154,
+      "reason": "Build-only count +1 for actual existing cold death-owner farcall; no PC/RAM allocation"
+    }
+  ],
+  "source_pairs": [
+    {
+      "name": "cv3-donor-pair-v1",
+      "baseline_sha256": "2cb5fca0757c3e347c264eab0bf3f22bd02d851787f38802a4af3cb0c3aa1fa5",
+      "candidate_sha256": "4285d35db234ecdaf7c561f721c0aa8798545f9937e933acf5ab3e3f0b642682"
+    },
+    {
+      "name": "hot-source-pair-v1",
+      "baseline_sha256": "eaa36e56c09e87f58a85db312894f14bfd7fb5838be139fc508ae6121c9e0732",
+      "candidate_sha256": "4285d35db234ecdaf7c561f721c0aa8798545f9937e933acf5ab3e3f0b642682"
+    },
+    {
+      "name": "ordinary-f35-pair-v1",
+      "baseline_sha256": "f35f0ec2f70d5dcb6eb1bbfcbd84359d9f6da68c39719d75217aed149edb0631",
+      "candidate_sha256": "4285d35db234ecdaf7c561f721c0aa8798545f9937e933acf5ab3e3f0b642682"
+    }
+  ],
+  "first_failure": "9e5d73ca42b7c782cee7800c21c210c72f3e689804459453b4c018863feb6ded",
+  "tool_sha256": "0a17b1401143db9c9b0d86d8f951869ca7ae8e338d8eb6b47b5873dc0b37ebcd",
+  "scope": "Full current-f35 source correspondence and exact per-bank composition, genuine old symbols and raw source ownership only. Three old private removals and build-only farcall count already part of full CV3 delta are disclosed rather than faked. No native grant/adoption or transfer of parent/eaa3 native claims."
+}

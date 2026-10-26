@@ -1,148 +1,105 @@
-Current roster status, 2026-10-26T06:04:00+00:00
+Current roster status, 2026-10-26T07:10:24.740745+00:00
 
-Goal active. Finish the current 37 playable identities / 19 menu slots,
-then verify 1-1 clears and every physically delivered powerup. Additional
-characters remain deferred. Videos are deferred. No completion is claimed.
+Current work covers 37 playable identities in 19 menu slots. Additional
+characters and promotional videos remain deferred. The complete current-ROM
+1-1 clear / physically delivered powerup matrix is NOT finished.
 
 Installed/default/Downloads MMC5 remains
 50b51c3c69f45ef137720c47f521574097f421056e3b73296d06ba70080d2363.
 Download: C:/Users/kando/Downloads/SMB-Crossover-Current-MMC5.nes.
-No production adoption occurred in this round. Private ROMs below are trials.
+No production adoption in this round; the ROMs below are private trials.
 
-Display work
-The df515 HUD queue/VRAM-copy and capture-scroll repair passed all eight
-initial vehicle/mode controls: 1,608 full PPU frames and 726 HUD source masks,
-zero mismatches. ROOT verified 2,316 bindings and viewed 61 selected frames.
-The dynamic observer's host crash was diagnosed; a static successor preserves
-all original guards and reproduces saved RGB/observation streams exactly.
+CASTLEVANIA SOUND
+The eaa3 candidate passed all 14 BASIC attack/mode cells and 9 of 10
+lifecycle cadence comparisons. Original source output and physical APU
+comparisons passed all 10 lifecycle cells. Hard legacy1F pressure missed
+one actual transfer at PPU717; the failure is retained.
 
-Native menu testing then caught two real late initial OAM transfers. The
-636f live same-family hint reuse repairs the first toggle. The 5354 extension
-publishes the original hint during the real exclusive blanked initial build,
-repairing the second reentry transfer. The independent terminal font check
-also needed the real HUD-start / line31 IRQ phases; its original wrong-phase
-negative is retained. The source predicates still reject partial DMA, wrong
-owners, wrong generation and wrong font timing.
+The 2cb5 wrapper repair saves up to27 cycles without changing original
+source events, registers, flags, RAM or physical APU order. Its one fresh
+Hard1F240 run recovers PPU717: 167 complete DMAs, equal the baseline, with
+no cumulative draw deficit. All280 original source ticks and850 physical
+legacy1F stores match. The observed publication is at its last recorded
+Main boundary; do not infer spare deadline margin. Other14 BASIC/9 lifecycle
+native results remain eaa3-only, not relabeled2cb5. Source, IRQ, DMC, other
+identity and build-flag controls qualify2cb5 independently. Checkpoint17176d8.
 
-One actual 5354 menu1800 run now passes all five components. All four ship
-alternatives, title cancellation and reentry are covered. There are 1,122
-fresh current-generation gameplay updates, 219 init DMAs, 171 visible init
-checks and zero partial-visible / source-DMA / body-row mismatches. Both
-previous failing transfers complete exact256/OAMADDR0 before pre-render.
-All 1,650 shared RGB frames and 286,184 original bus events match the same-ROM
-preserved terminal-phase negative. ROOT verified all 4,221 final bindings and
-viewed 18 selected whole PPU frames. Menu success does not cover death,
-actual area catch-up / Buffer2 hold, worst-case timing or crowded visibility.
-B completed two genuine lifecycle attempts. Death514 and area1560 both stop
-at the original immutable-record alias guard; neither achieves all five
-terminal components. All 6,855 bindings and 30 selected whole PPU images were
-reviewed. These negatives remain unchanged. Source analysis qualifies 13
-separate original death records/CHR pages while retaining all 131 live guards.
-ROOT verified all 6,913 new readiness bindings and granted ONE death2200
-observer successor. It passed the old alias failure, actual120death updates,
-life2->1 and restart, then failed813 at the unchanged prelease blank-tile
-guard. Actual whole-PPU frames reveal a real HUD/font defect: death clears
-the font owner while custom tiles remain; restart cancels its marker while
-the queued42B labels remain pending. ROOT reviewed the20-frame sheet and
-verified all7,609 final bindings. A separately built f35f source repair keeps
-the valid death font and removes only proven owned queued commands on reset;
-source/queue/full-caller/IRQ/NMI qualification is pending. No retry or adoption.
-The old area controller
-found its pipe after passing the real entry window, so no pipe/loaded-area
-coverage is claimed. Character18 has no reachable DMC scenario in this test;
-synthetic DMC timing controls remain separate.
+PARODIUS DISPLAY
+5354 passed the actual menu1800 case for all four ship alternatives, title
+cancellation and reentry. Its later death and area negatives remain saved.
+Actual death/restart footage exposed a genuine font-owner/queued-label bug.
+f35 retains the committed death font and cancels only proven owned queued
+HUD commands on reset. Source/queue/full-caller/NMI/IRQ controls pass.
 
-Fixed body-order e11 remains rejected: 46 body / 49 core regression frames
-cross OAM wrap. The separate conservative selector 2dca has 32 supported poses
-and 99 original fallbacks, with exact compiled pixels/IRQ controls, but adds
-308..309 cycles. No native visibility verdict or adoption. Dense HUD labels,
-Octopus/Sophia crowded-body visibility and Roll full-pool visibility remain.
+One actual f35 death2200 run passed its original five native components.
+The sixth terminal file was not produced because its finalizer followed
+an earlier stop callback; the original aggregate remains FALSE. Independent
+review of1574 saved actual frames checks2,820,608 HUD glyph pixels with zero
+mismatches. All1923 recorded full256-byte DMA epochs agree with their source.
+ROOT viewed the actual before/after frames515 and813. Offline evidence does
+not backfill the missing native receipt. Checkpoint7779209 preserves both.
 
-Sound work
-CV3 eaa36e56 retains original sound output and fixes the one missed Hard Sypha
-ice draw in 0c45. All 14 BASIC attack/mode cells now pass strict cumulative
-cadence and original source / physical APU comparisons. The completed matrix
-used 15 bounded launches: one pilot, 13 remaining candidates, one fresh baseline.
-ROOT independently checked all 14 cumulative draw prefixes and 443 new native
-artifact bindings. Hard ice has 140 updates / 138 draws, equal the baseline;
-its publication is 7 CPU cycles before actual NMI entry. The 35-cycle local
-saving is real; no extra deadline margin is inferred from that entry gap.
-Legacy1F retains its declared buffered image order; original raw values,
-lifetime and complete physical APU order are separately checked.
+The private4285 composition has exactly2cb5's five CV3 banks, and exactly
+f35's other banks/header/CHR. All638 primary source/tool/assets,167 unchanged
+references and4 stale derived outputs are separately cataloged. Fresh source,
+queue, original audio, IRQ/NMI, gateway, canonical and flag-off controls pass.
+ROOT independently verified3475 bindings. The composed checkpoint contains
+18 exact changed source files relative to installed50b, without binaries.
 
-C completed all 20 baseline/candidate lifecycle launches without retries.
-All ten original-source / physical hardware comparisons pass: actual Grant
-axe-noise plus primary/injury DMC, real Start pause, physical Sypha pickup,
-natural fatal contacts and actual Down+A / pipe / bonus-area entry. ROOT
-verified 1,367 readiness and 529 final native bindings. Nine strict cadence
-comparisons pass. Hard legacy1F pressure genuinely misses one transfer at
-physical PPU717: baseline publishes seven CPU cycles before NMI entry;
-candidate publishes after its skipped-draw ISR. This is not an endpoint label
-artifact. Its whole AudioUpdate costs 26 more cycles. A finite source-only
-wrapper optimization is underway; no native rerun or performance pass yet.
-Current-parent composition and independent qualification remain required.
+Its single actual area2600 run DID enter the pipe and load the bonus area:
+request1363, VerticalPipeEntry1364, loader1416, active new area1458. It reached
+1951 gameplay updates and149 genuine Buffer2 flushes. The required pending
+full-HUD/nonempty-Buffer2 overlap was not observed; the terminal coverage
+assertion failed before all six result finalizers. The aggregate remains
+FALSE. No replay or coverage relaxation is authorized by that result. Source
+reachability and the saved chronological evidence are being reviewed.
+Dense labels, crowded Octopus/Sophia bodies and Roll full-pool visibility
+remain open. The rejected fixed body-order renderer is not installed.
 
-TMNT original-driver 9a output is exact but its original fresh stress run
-added six skipped draws. Combined source 5373 reduces this to four, all in
-secondary attacks. All 602 original state/APU updates and physical hardware
-controls pass. The first 508 actual complete DMA images AND physical PPU
-transfer epochs are exact; an earlier endFrame label mismatch at source406
-is not an actual delayed transfer. First missing physical transfer is at
-source533, baseline frame862 versus candidate863. The original strict negative
-remains unchanged, with additive actual-hardware epoch evidence.
+TURTLE SOUND / RENDERING
+70ba keeps the original 16-song driver, source events, sample streams and
+APU store order. Its channel-owner and equipment renderer pass their source,
+full-caller, IRQ, OAM-order and ordinary-identity controls. ROOT verified all
+670 frozen source files,17 tools,9 proof bindings and the native readiness.
 
-The earlier primary deadline estimate of410 was wrong. A separate erratum
-subtracts the compiled 85-cycle prelude AND 7-cycle hardware NMI entry: the
-reconstructed strict-before target is441 cycles. 5373 saves449 on that source
-hot call and its actual primary DMA now matches. This reconstruction is not
-an unrecorded NMI-entry measurement. Secondary533 needs approximately735 more
-cycles in the old5373 timing model. The qualified 1346/66b arithmetic/lookup,
-5057 six-channel unroll and 1d741 tail writers save 317 total on that hot call.
-All16-song 192,016-call / 549,602-APU / 1,099,204-writer-return streams remain
-exact; direct whole-call comparisons have no positive cost regressions. The
-remaining approximately418 is a model, not a measured native margin. A new
-source-only equipment renderer keeps the literal uncommon-case fallback and
-original OAM store order. Its admission and four-icon paths pass 5,262 cases
-each; the actual constrained caller falls1255->1203->1001 cycles. A finite
-two-layer projectile emitter is being qualified next. No fresh native grant
-or performance pass. Authentic source events, samples and clocks are retained.
+The one matched Easy600 pair passes602 original source calls,2125 ordered
+APU writes, hardware CHR/DMC/stack/ownership guards and complete DMA checks.
+Candidate performs575 DMAs versus baseline572; cumulative physical DMA counts
+never fall behind. However, the strict source-update comparison has three
+prefix deficits. Updates532/588 are endFrame-label drift with same-epoch
+construction DMA. Update560's construction reaches hardware one epoch late.
+Full paired OAM images differ; no unlogged sprite ownership or RGB conclusion
+is inferred. Performance remains HELD, with the strict negative preserved.
+ROOT checked all78 final native artifact bindings. No further native retry.
 
-Chip/Dale's original player component is linked privately in existing A62/C94
-free tails with original numeric score pointers and all source data retained.
-The v5 component passes 11 tracks / 198,011 calls / 904,219 ordered APU stores,
-plus 74,040 compiled pointer-read and 44,424 high-setter cases. All source state
-and physical CPU flags/registers match. Worst component update is17,973 cycles.
-Its a537 gameplay adapter exposed an actual cold-boot black screen despite
-passing direct component tests. It overwrote the foreground bank shadow; f7cf
-repairs that real outer-caller contract. The old failed run is retained. The
-repair passes 192 whole AudioUpdate returns, 4,176 unchanged-character calls,
-1,103 compiled IRQ interruption cases, canonical and ordinary flag-off builds.
-One real cold-boot1300 comparison now passes 910 original source calls / 6,429
-ordered raw source APU stores, stack/bank/PPU guards and eight exact whole-PPU
-snapshots. However, idle completed DMA falls908->871:37 extra missed draws.
-Source music correctness does not excuse this performance regression; f7cf is
-HELD and not installed. New uniform score data/cached-pointer component V7
-passes198,011 source calls/904,219 original APU stores and checks every actual
-mapped read; its worst15,949 cycles improves the previous17,973. Genuine Mac
-metadata moves with all21records/CHR and actual typed operands verified.
-Adapter8b4a passes5,643 source calls,4,176 other-identity calls,1,098 reached
-IRQ boundaries,480 complete Mac draws,192 outer returns and canonical/flagoff
-builds. ONE fresh native1300 run passes original910calls/6,429stores and
-ownership guards; DMA improves871->880 versus baseline908. The remaining28
-extra missed idle draws keep it HELD. All eight selected whole-PPU snapshots
-match. The slower all-writes cache trial and partial158-IRQ coverage result
-are preserved. No further ROOT native worker is reserved.
-Missing current-roster music also includes SMB3 Mario/Luigi and three Parodius
-alternatives. No additional character slot is being added.
+CHIP / DALE MUSIC
+The private8b4 adapter retains every original source event and all11 tracks.
+Its uniform relocated score component passes198011 calls/904219 APU stores,
+original state, registers/flags and every mapped pointer read. The full
+adapter passes5643 source calls,4176 other-identity calls,1098 reached IRQ
+boundaries,480 complete Mac draws and192 whole AudioUpdate returns.
 
-Git checkpoints pushed through2566a75 preserve source implementations, retained
-failures, actual menu success, all14 BASIC CV3 passes, the full20 lifecycle
-matrix, the held Chip adapter and the complete TMNT parser chain. See checkpoint
-folders for exact bindings. Full current37-character 1-1 and all-item delivery /
-use verification remain incomplete. Oversized MMC3 remains unqualified; MMC5
-is the current focus. The older guide is not a current verification receipt.
+Its one cold-boot1300 run passes910 source calls/6429 original APU stores,
+bank/stack/PPU/ownership guards and eight exact whole-PPU snapshots. Complete
+DMA improves871->880 compared with the previous trial, but baseline has908:
+28 extra missed idle draws remain. The adapter is HELD and not installed.
+Checkpoint3aeedb6 preserves it. A proposed direct25-ZP implementation saves
+less in measured driver calls than its required foreground roundtrip would
+cost; it was rejected before gameplay integration (checkpoint1fcfaf7).
+A bounded read-only native cost/entry-state profiler is being prepared; no
+new native grant or claim of a performance fix yet.
 
-Latest storage measurement:29,806,646,582 bytes, under30,000,000,000.
-Lossless recordings, raw settings and large private artifacts stay external.
-No footage was deleted. No native worker is currently reserved or running.
-The two-worker project limit remains.
+OTHER OUTSTANDING WORK
+Missing distinct current-roster music includes SMB3 Mario/Luigi and three
+Parodius alternatives. The guide is not a current verification receipt.
+Oversized MMC3 remains unqualified; MMC5 is the focus. Full campaign, all
+37 current-ROM 1-1 clears and all physical item delivery/use remain unfinished.
+
+PERSISTENCE / STORAGE
+Changes and retained failures are pushed through7779209. The composed source
+and new Turtle result are being checkpointed next. No ROM/NSF/settings or
+lossless recordings are copied into public evidence packets.
+Latest workspace measurement:29,824,528,942 bytes, under30,000,000,000.
+Large private artifacts and lossless captures remain external. Nothing was
+deleted to make the figure pass. Project-native-worker limit remains two;
+no worker is currently running.

@@ -1,0 +1,64 @@
+{
+  "passed": true,
+  "native_executed": false,
+  "ROM_sha256": "4285d35db234ecdaf7c561f721c0aa8798545f9937e933acf5ab3e3f0b642682",
+  "cases": [
+    {
+      "name": "axe-retrigger",
+      "trace_sha256": "cd052fb77d8f051b6912370755f728dfb9fd0c9322369ff19bbe559924252e5b",
+      "source_frames": 140,
+      "mixer_flushes": 140
+    },
+    {
+      "name": "ice-to-lightning",
+      "trace_sha256": "eba0a8d23e61382c0268bfe3d616a69919009c8dcb448662c9f493b2ba17cc28",
+      "source_frames": 140,
+      "mixer_flushes": 140
+    },
+    {
+      "name": "pause-resume",
+      "trace_sha256": "40551b09dfde7a8dd55d4a1cec9ae9ad0b366a7d96606043a9b856ff511a2495",
+      "source_frames": 91,
+      "mixer_flushes": 91
+    },
+    {
+      "name": "death-cancel",
+      "trace_sha256": "0593f4ad839819972e689bfa8a5707005bd4288e651f41cd7efc0addc77ddd52",
+      "source_frames": 20,
+      "mixer_flushes": 140
+    },
+    {
+      "name": "scene-cancel",
+      "trace_sha256": "76495ad6f5ff0cc6f560319291f032308f2214098a55e2f9f69d5ed085c9936b",
+      "source_frames": 140,
+      "mixer_flushes": 140
+    },
+    {
+      "name": "ordinary-noise-overlap",
+      "trace_sha256": "fedc9d585c8f1663ceac5bcfb67f4f515c7fc719cd51725dc7989c7e81ccec15",
+      "source_frames": 140,
+      "mixer_flushes": 140
+    },
+    {
+      "name": "legacy-retrigger",
+      "trace_sha256": "2e67d121dd87858cca49bdbabce599248d24315204344e15ea9e83aac0ee5704",
+      "source_frames": 240,
+      "mixer_flushes": 240
+    },
+    {
+      "name": "idle",
+      "trace_sha256": "362c35cc602ec448a4edd7c8bd95060e2a122b57fd45be2da7b4a1f297a7bcfd",
+      "source_frames": 140,
+      "mixer_flushes": 140
+    }
+  ],
+  "rejected_controls": [
+    "ice-to-lightning-raw400F-corruption",
+    "pause-resume-raw400F-corruption",
+    "missing-resume-hardware-store"
+  ],
+  "original_ROM_sha256": "085ec6395681c7ebfda19c2986069c21a3d27738cc61ada76249de70a07ed7d3",
+  "tool_sha256": "e1495bafcfb51b49c90c30f7f31ed52d5f5ccf4a91d23e82e8736780b97849bd",
+  "oracle_sha256": "65a3374e97d30d60e5ede27fd7c9b38e4e441c0c094ec441623b7afbf6f55157",
+  "scope": "Actual assembled AudioUpdate and authentic effect producers, controlled source-component pause/death/scene/shared-noise schedules. Exact original source requests and all complete hardware mixer flushes incl restore/resume and raw400F. No native bus/controller/PPU/deadline verdict; natural controller/actor feasibility is separately bound."
+}

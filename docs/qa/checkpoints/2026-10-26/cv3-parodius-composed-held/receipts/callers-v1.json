@@ -1,0 +1,86 @@
+{
+  "passed": true,
+  "native_executed": false,
+  "ROM_sha256": "4285d35db234ecdaf7c561f721c0aa8798545f9937e933acf5ab3e3f0b642682",
+  "parent_ROM_sha256": "eaa36e56c09e87f58a85db312894f14bfd7fb5838be139fc508ae6121c9e0732",
+  "actual_hot_branch": {
+    "PC": 56326,
+    "old_target": 56360,
+    "new_target": 56362,
+    "skipped_instruction": "LDY #23",
+    "real_Save_entry": 55351
+  },
+  "actual_roster_Tick_call": {
+    "PC": 56540,
+    "new_real_target": 55889,
+    "old_public_entry_still_callable": 56633
+  },
+  "all_compiled_Save_readsY_dominated_by_LDY": true,
+  "Save_incoming_Y_cases": [
+    {
+      "flags": 32,
+      "inputsY": [
+        0,
+        23,
+        255
+      ],
+      "output": [
+        19,
+        186,
+        255,
+        3,
+        253
+      ]
+    },
+    {
+      "flags": 105,
+      "inputsY": [
+        0,
+        23,
+        255
+      ],
+      "output": [
+        19,
+        186,
+        255,
+        75,
+        253
+      ]
+    }
+  ],
+  "sole_actual_source_callers": {
+    "Cv3SaveAudioZp": [
+      {
+        "path": "src/roster_audio.s",
+        "line": 88,
+        "text": "jsr Cv3SaveAudioZp"
+      }
+    ],
+    "Cv3FxNativeTick": [
+      {
+        "path": "src/roster_audio.s",
+        "line": 232,
+        "text": "jsr Cv3FxNativeTick ; real private caller; compatibility entry remains callable"
+      }
+    ],
+    "Cv3DmcBeforeCv1::Work": [
+      {
+        "path": "src/cv3_remaining_source_fx.s",
+        "line": 185,
+        "text": "jsr Cv3DmcBeforeCv1::Work ; identical nonzero guard already executed"
+      }
+    ]
+  },
+  "old_public_Tick67B_byteexact": true,
+  "legacy_source_phase_loop_byteexact": true,
+  "nonzero_DMC_guard_first6bytes_identical": true,
+  "genuine_original_Work_entry": 57212,
+  "whole_DMC_AudioUpdate_cases": 420,
+  "whole_DMC_cost_range": [
+    -27,
+    0
+  ],
+  "all_state_APU_AXYP_SP_and_banks_exact": true,
+  "tool_sha256": "4f48d95082297a75cda2a8896933249d71ebe642dc77d25b9a9828ced5b4a49f",
+  "scope": "Actual compiled callers/Save liveness and full software audio/DMC controls. Work receives the identical original nonzero A/NZ and preserved CV/D/I plus liveXY; only the already-tested guard is omitted. No new RAM or phase assumptions; source/APU sample bytes stay exact. Physical fetching/native deadlines remain unproved on this new hash."
+}
