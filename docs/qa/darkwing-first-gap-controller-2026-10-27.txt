@@ -1,0 +1,63 @@
+Darkwing first-gap input successor — ab221e Easy, prepared only
+
+Preserved native v2 FALSE
+  build/verification/compact-ab221e-darkwing-easy-v2 stays unchanged. Exit1,
+  frame2448, player1133/245, engine11, zero-death guard;1311 complete DMAs.
+  The completed log DOES record native Arrow state: acquireX721/gas1/adaptor0;
+  collectionX713/gas11/adaptor2; Select mode1; attached shot gas11->8; actual
+  landing161/160 and pipe112; second shot gas8->5; route resumes787/139.
+  That is real toolkit progress, not a full clear. The earlier unlogged
+  adaptor/gas/helper limitation applies to v1, not those v2 phase snapshots.
+
+Actual first-gap observations
+  Full PPU frames2390 and2448 are extracted together in one owned PNG:
+  build/current-ab221e-darkwing-gap-actual-v1.png (left2390, right2448).
+  Empty floor at sampled scanlines208/216/224/232 spans32 horizontal pixels
+  in each image. At2448 it is screen94..125; current camera1010 aligns with
+  world1104..1135 (two16px cells), not the earlier inferred48px gap.
+  At2390 the visible scroll is2px behind the current foreground camera;
+  these images are not a Block_Buffer snapshot. The controller uses actual
+  live block/support reads, never hardcodes these world coordinates.
+  Trace afterX970 contains NO recorded rising state1/negativeVY. At2396/X1074
+  onward the policy repeatedly alternates A, but Y stays176/state0 until
+  falling state2 at2419/X1102. Thus an early consumed jump is not established.
+  DwPrevious/ScFresh were not logged in native; a missed consumer release is
+  a source-consistent hypothesis, not a newly observed native RAM fact.
+
+Narrow controller
+  tools/playthroughs/current_roster_darkwing_gap_v1.lua wraps the unchanged
+  Arrow controller and its original base. Only the first actual floor gap
+  overrides inputs: detect support/first empty tile/landing from live cells,
+  release A until actual DwPrevious clears, suppress B while taking off,
+  press near edge-14, hold until actual rise and native landing. If release
+  remains unconsumed near the edge, release Right while waiting; no state or
+  position is written. All menus, Arrow pickup/use, other policies and game
+  code remain unchanged. The original v1/v2 outputs remain FALSE.
+
+Finite full-source controls
+  tools/audit/current_darkwing_gap_route_source_v1.py runs319 real complete
+  GameLoops, actual movement/physics/hang owners, SP-return checks and existing
+  VRAM consumption. The typed scene has normal initialized clock399 and a
+ 32px empty floor gap1104..1135 matching actual RGB geometry; it is not an
+  exact reconstruction of unlogged native RAM. Four cases:
+    Fresh held takeoff1072 also clears: physics can cover this gap.
+    A real earlier jump/landing followed by held A without a new release
+      falls at1133/245/engine11. This endpoint match is a model, not causality.
+    New controller from neutral consumer state lands safely at1151/176.
+    New controller after a real prior held jump lands safely at1153/176.
+  The two new-controller cases derive edge1104/landing1136 and consume a real
+  freshA jump near1091. No DwPrevious/ScFresh/outcome/resource values are
+  initialized after source scene setup. Python mirrors the Lua controller;
+  Lua-VM execution, native lag/PPU/collision state and campaign clear are not
+  claimed. Output build/current-ab221e-darkwing-gap-source-v1.json.
+
+Prepared boundary
+  build/verification/compact-ab221e-darkwing-easy-v3/ready.json binds14 actual
+  files including all3 policies, unchanged shared harness/producer and true
+  ab221e ROM/DBG/LBL. All controller RAM reads are source-reconciled. Native
+  command is its command field, ROOT owns launch. Same actualEasy0/variant1,
+ 8000wall bound, stationary/zero-death/cheat/NMI/IRQ/stack/5SMC/bank/CHR/full256
+  DMA/deadline guards, one bounded lossless container and <=8 selections.
+  No emulator was launched, and no production/default/settings/Git edit made.
+
+Kirby/Meta source preparation is paused until this priority route handoff.

@@ -1,0 +1,63 @@
+EXACT REWARD ACCOUNTING V4; FOUR SOURCE PASS, THREE REAL PRODUCT NEGATIVES
+
+ROM ab221e81821dd10690ad3a1068d91c9efae6c7406230d9bd7fc4a729fdc433d2.
+All existing v3 files/readies and the three earlier native pilots stay unchanged.
+No new native run or game changes occurred in this work.
+
+Source proof build/current_shared_star_life_rewards_v4.json
+SHA c0f368805db0295350d010145efaf90f46a448e52f626b68bfdabe6a10bb1379.
+Four complete assembled CPU campaigns, each806 GameLoops:
+- ZeldaII: actual accepted Goomba defeat queues2 EXP, weak defeat counter0->1;
+  real ExpTick transfers pending2->0 and EXP0->2. It is a direct defeat reward,
+  not a claim that any physical item was collected. Queue/transfer writer order,
+  both low/high bytes and the actual counter writer are individually checked.
+- Simon: actual native spawn, final publication, passed physical collision,
+  refill call and exact bank61:$B526 writer earn hearts5->6 (item0/amount1).
+- Darkwing: actual private item$25 spawned, published and physically collected;
+  bank67:$AEEE grants gas0->1. A spawn alone never credits inventory.
+- Ryu: same real collection/refill pipeline, bank61:$B526 ammo20->25
+  (item0/amount5), with actual source caps and owned-upgrade semantics.
+
+Each accepted resource write has real writer PC/physical bank, actual old/new,
+item kind, award count/amount and prerequisite provenance. Only that exact
+conserved expected element changes after the genuine write. Full remaining
+health/tier/ownership/inventory conservation stays strict; arbitrary resource
+writers, wrong amounts and uncollected spawns are not accepted.
+
+Grant/Sypha/Alucard still FAIL: genuine collected heart10->11 is credited, then
+actual 1-Up gain causes Cv3Ensure bank82:$A078 to write11->10. This is a real
+product reset, never a credit or a broad baseline refresh. Additional actual
+Grant/Sypha counterexamples physically earn non-default subweapon1/hearts16
+before real1-Up and prove weapon1->0/hearts16->10 in that same GameLoop.
+See cv3-earned-equipment-life-gain-2026-10-27.txt and its exact proof.
+
+Only the four source-qualified identities have new native-unrun preparations:
+build/current-ab221-shared-star-life-rewards-v4/prepared-batch.json
+SHA 9bb8ba3f036f10976a0c298f128577b6980bfc3fa48b20f608b7d1cab87698d2.
+Each ready has50 immutable bindings and its own command.json. Existing guard,
+controller, actor scene, exact complete256 DMA, source/physical OAM/CHR, strict
+render deadline, NMI/IRQ/bank/SMC/stack checks and all caps remain literal.
+The v4 fixture reverses exactly to the v3 fixture after removing the single
+lexically included reward helper and its final receipt/finish additions.
+Extra hooks/writer callbacks are all registered at startup. No runtime callback
+registration/removal, scene outcome seeds or source/runtime/ROM copies.
+
+LUA_VM_EXECUTED=false: historical Lua/lupa dependencies were deleted; neither
+downloaded nor recreated. Literal Lua helper implements the same source-derived
+rules, but its actual write-callback PC/old-value semantics require a separately
+authorized native pilot. These readies are not native qualification or results.
+Default complete native scope remains4 meaningful whole PNGs,3500 physical
+frames/1800 updates/1200 host seconds/64files/2GB, with no perframe trees.
+
+Owned publication paths:
+tools/audit/current_shared_star_reward_model_v4.py
+tools/audit/current_shared_star_life_reward_prepare_v4.py
+tools/audit/current_shared_star_rewards_v4.lua
+tools/audit/current_shared_star_life_reward_native_prepare_v4.py
+tests/current-shared-star-life-rewards-v4.lua
+docs/qa/shared-star-life-reward-accounting-2026-10-27.txt
+tools/audit/current_cv3_life_gain_counterexample_v1.py
+docs/qa/cv3-earned-equipment-life-gain-2026-10-27.txt
+
+No stage/commit/push/install authority is exercised by this agent. ROOT owns
+native lease and publication. Existing negative and CV3 repair remain separate.

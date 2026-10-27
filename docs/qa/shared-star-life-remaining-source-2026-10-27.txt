@@ -1,0 +1,88 @@
+Remaining34 Star / 1-Up source preparation, 2026-10-27
+
+Exact private ROM ab221e81821dd10690ad3a1068d91c9efae6c7406230d9bd7fc4a729fdc433d2.
+No native launches, product/default/settings changes, source/runtime/ROM copies
+or per-frame files. Original Mario/Mac/Vic pilot fixtures/readies/proofs remain
+unchanged. Their actual native results are bound as method provenance only.
+
+RESULT:27 complete actual-CPU campaigns pass (21808 full GameLoop calls).
+Seven fail the original strict initial-inventory conservation oracle. There
+are27 small unlaunched readies, none for the seven failures. Neither this
+source result nor inherited pilot guards establishes native37-identity coverage.
+
+One producer, explicit34-identity whitelist, one shared fixture. The fixture
+is byte-identical to qualified Vic-v2, including the typed actor position from
+VvObjX/current camera; this applies to Octopus, TwinBee and Pentarou too.
+PnMovement exports its actual native PnX/PnY into VvObjX/Y before the normal
+VvExportPosition. It is not necessary to seed private Parodius coordinates.
+Actual per-identity native positions/physics/collection still require native.
+
+All original Star2/1Up3 collision, star-protected live Goomba defeat, natural
+expiry/level-music request, delayed popup life increment and cleanup checks
+remain. The actual compiled19-node menu BFS, alternate Select and numericHard1
+readback are retained. Every bare/literal/dynamic RAM name resolves before
+callback registration. The all256DMA/E008/deadline/NMI/5SMC/IRQ31/CHR/stack guard
+block and caps are byte-identical; all callbacks register at startup.
+Per profile:3500physical frames/1800updates/1200host seconds/64files/2GB/4PNG.
+
+Additional health/inventory ownership is explicit: Roll health/energy; Darkwing
+health/gas/adaptor; Kirby/Meta health/copy; Chip/Dale health; Mike health/max
+hearts/tier/selected/10ammo; CV3 three health/hearts/subweapon/power records;
+four independent TMNT health/equipment/ammo records; Parodius bell/punch/aux,
+skin and player type. Common tier/size/12-family inventory remains strict.
+Cold-only scope does not establish preservation of later earned equipment.
+
+Prepared source-pass identities:
+Luigi, Mega, Proto, Samus, Bill, Lance, Link, Pit, Rygar, Scrooge, Bass, Roll,
+Sophia, Kirby, Meta Knight, Chip, Dale, Mike, SMB3 Mario/Luigi, Octopus,
+TwinBee, Pentarou, Leonardo, Raphael, Michelangelo, Donatello.
+Most need806 CPU calls; Luigi816; Link/Sophia/Kirby/Meta/SMB3 variants812.
+These are fresh source results on ab221e, not renamed historical native tests.
+
+Retained source negatives (no readiness / no product bug asserted)
+---------------------------------------------------------------
+ZeldaII, contact/Main32:
+  InvAmmo[10]0->1 = actual Z2DropCounters weak-enemy counter.
+  InvAmmo[14]0->2 = actual Z2ExpPendingLo queued reward.
+  These are not containers: an earlier quick message's label was corrected.
+Simon, expiry/Main33: InvAmmo[80]5->6 (owner5 ammo slot0).
+Grant/Sypha/Alucard, expiry/Main33: Cv3Hearts[0/1/2]10->11.
+Darkwing, expiry/Main33: DwGas0->1.
+Ryu, expiry/Main33: InvAmmo[160]20->25 (owner10 ammo slot0).
+
+The exact fields/values and first failing source phase/call are retained in
+decoded-source-negatives.json and the aggregate, with no source assertion
+weakening. Source paths support legitimate reward causes: Z2DropRoll and
+Z2QueueExp in zelda2_link_rpg.s; Cv3UpdateDrops' physical collection and heart
+cap99 in cv3_drops.s; DwDropMade -> DwRefill -> DwGiveItem gas in
+darkwing_pickups.s; generic InventoryDropHook/InventoryRefillAmount dispatch
+for other classic refill families. These differences establish a limitation
+of the unchanged-inventory test, not a health-loss/product regression.
+
+Next finite source step for those seven: bind actual reward producer/collector
+ABI and exact amount/cap, then conserve the awarded resources explicitly while
+keeping health/owned-state/no-seed and all physical guards strict. Do not simply
+mask changing bytes, prevent source drops, force RNG, or rename these negatives
+as passes. Native random drops may expose additional expected-reward cases even
+among source-pass identities; no universal RNG-path proof is claimed.
+
+Artifacts / review map
+----------------------
+Owned source:
+  tests/current-shared-star-life-remaining-v3.lua
+  tools/audit/current_shared_star_life_remaining_prepare_v3.py
+  docs/qa/shared-star-life-remaining-source-2026-10-27.txt
+Preparation:
+  Python -B tools/audit/current_shared_star_life_remaining_prepare_v3.py
+    --output-root build/<new small metadata batch>
+
+Frozen batch build/current-ab221-shared-star-life-remaining-v3/prepared-batch.json
+SHAfe8754ed9042a3e659337801f9b9c1383c71178893e876d87df18888fdc6ede4.
+Each identity child has exact unlaunched command.json and prepared-not-run.json;
+all27x51 =1377 bindings independently rehashed after preparation.
+source-controls-aggregate.json:
+  f0358463dddc5c5201fb40e826a7d25ac8931debdee4dbd715ac9a7e54853165
+decoded-source-negatives.json:
+  e88ca8812ef4433680db4a34f8a668637d145ab3c4dd498d6708d55aee6b8277
+No ROM/audio/PNG/ZIP/source tree was copied into these metadata readies.
+ROOT exclusively owns future native admission and launch sequencing.

@@ -1,0 +1,38 @@
+Darkwing repeated live-terrain gap controller — ab221e Easy, source-only
+
+Native v3 FALSE remains unchanged: frame2670/X1408/Y245/engine11;1425 full
+DMAs. Its logs prove first-gap fresh press1090, actual rise1093/171 and actual
+landing1153/176. The v3 wrapper then permanently stopped handling gaps. Trace
+after1296 again stays grounded while A alternates until falling at the next
+gap; no rising state is recorded. Native DwPrevious/ScFresh remain unlogged.
+
+One actual whole frame2670 is retained as
+build/current-ab221e-darkwing-second-gap-actual-v1.png. The selected record's
+source word checksum was independently checked; no per-frame files created.
+Empty floor scanlines208/216/224/232 span screen81..128:48px. Camera1296 is
+one pixel ahead of the visible carry, so the typed native-cell model uses
+1376..1423. This is RGB geometry, not an exact Block_Buffer dump. Native code
+always reads live cells and never hardcodes these positions.
+
+The only new controller behavior is re-arm after a witnessed actual landing
+and >=landing+8 forward progress. This avoids detecting the just-cleared gap
+again. It retains the same actual DwPrevious release acknowledgement, edge-14
+takeoff, held A until actual rise/landing, and all Arrow/base route behavior.
+No game physics, movement state, resources, or guards are modified.
+
+Source proof executes255 complete GameLoops through typed32px and48px gaps.
+It observes exactly two freshA jumps and native floor landings1150/176 and
+1424/176, then further safe ground progress. A normal following viewport is
+supplied only in this CPU environment so its initial fixed screen edge does
+not become a fake wall. No player/velocity/consumer/jump/resource values are
+changed after source scene initialization. This is a Python controller mirror,
+not Lua/native input lag, actual unlogged RAM, PPU/camera or campaign proof.
+Proof: build/current-ab221e-darkwing-gap-repeat-source-v1.json.
+
+Fresh ready: build/verification/compact-ab221e-darkwing-easy-v4/ready.json.
+Its command field is the ROOT-only one-shot launch. All14bindings verified;
+all3policies, unchanged shared harness/producer, actual ab221e ROM/DBG/LBL and
+all source RAM reads are bound. Same8000cap/zero-death/stationary/cheat/NMI/IRQ/
+stack/5SMC/bank/CHR/full256DMA/render deadline guards. One bounded lossless
+container and <=8 selections, no source/runtime trees or game/settings edits.
+No emulator launched by this agent. Earlier v1/v2/v3 native negatives stay.

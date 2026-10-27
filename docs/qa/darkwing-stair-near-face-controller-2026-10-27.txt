@@ -1,0 +1,29 @@
+Darkwing whole v5 FALSE preserved; near-face source-only v6
+
+Nativev5 finite8000, zero-death guard intact, no Arrow branch at stair. Same
+110 real ground-to-rising jumps/minY125 asv4. There are126 completed-ground
+samples atX2225 and126 controller polls labeled those same frames, but actual
+input-callback context/terrain/private state were not independently logged;
+therefore no proven missed-ground-poll or new edge failure is asserted.
+
+Concrete geometry: actual selected8000RGB has a one-column64px step at
+world2240..2255/top144, then2256..2271/top160 (foregroundcamera2114; source16px
+alignment). Old farprobeX+32/Y-20 atplayer2225/176 samples2257/156: above the
+SECOND step. NearprobeX+16 samples2241/156: inside first face. Thusv5's far
+probe can miss the actual descending staircase despite a consumed ground jump.
+Originalv5 source model had TWO64px columns; it proved that wider authored wall
+only. That evidence/readiness/native negative remain unchanged and unretagged.
+No native Block_Buffer snapshot is claimed from RGB or this typed model.
+
+v6 changes only the earned-toolkit tall-face test to accept the live16px OR32px
+probe. Original typed-pipe32px test and native game recovery remain unchanged.
+Actual earned Arrow2/Gas>=3, grounded andVX0 are still required. A bounded phase
+print records actual near/far tiles/grounded/DwPrevious if a nonpipe triggers.
+No game-state/physics/resource writes, cap increase, guard or menu changes.
+
+Fresh complete257-GameLoop model uses exactly one-column descending64/48/32/16
+steps. It proves old32px sample0 vs new16px sample61, carries genuinely acquired
+Arrow inventory from the real recovery pipeline, spends3gas, attaches the real
+actor, naturally lands above ground, and makes forward progress. No resources,
+input consumers, health, shot or outcomes are seeded at second scene boundary.
+Model is not Lua/native/cadence/art/fullroute proof. Existing exact cap8000.

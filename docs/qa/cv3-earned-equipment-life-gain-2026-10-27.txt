@@ -1,0 +1,41 @@
+CONFIRMED SOURCE CPU PRODUCT COUNTEREXAMPLE; NO NATIVE EXECUTION
+
+Exact ROM ab221e81821dd10690ad3a1068d91c9efae6c7406230d9bd7fc4a729fdc433d2
+build/mega_proto_body_palette_9ea.nes plus actual DBG/LBL.
+Reproducer: tools/audit/current_cv3_life_gain_counterexample_v1.py
+Proof: build/current_cv3_life_gain_counterexample_v1.json
+Proof SHA256 4496b4dd2960a9be21c306b5e36e612bc7b533ee6b37bc92840ca5aea275d964
+Run Python -B tools/audit/current_cv3_life_gain_counterexample_v1.py only into
+an absent proof path; it intentionally refuses to overwrite this counterexample.
+
+Grant and Sypha each execute 764 complete assembled GameLoop calls. Actual
+Star pickup, Star-protected Goomba defeat and physical private-heart collection
+earn hearts10->11; Star expires naturally. A typed mature flower is prepared by
+the genuine Cv3PreparePickupGate (D1, matching owner/variant), then actual full
+GameLoop collision grants subweapon0->1 and hearts11->16 at call758. Actual
+writers are physical bank82 $ADAC (subweapon) and $ADBE (hearts).
+
+The real mature 1-Up reaches delayed native popup INC NumberofLives at physical
+bank126 $8987, call764. Immediately after this instruction lives0->1 while
+hearts16/subweapon1 remain intact. Later in THE SAME GameLoop, Cv3Ensure enters
+its life-reset branch: bank82 $A078 (9D A3 5E) writes hearts16->10, then $A07D
+(9D A6 5E) clears earned subweapon1->0. Cv3LastLife is then stamped1.
+The source compares NumberofLives to Cv3LastLife and sends any inequality to
+Life, without distinguishing gain from death. This is a real product failure,
+not an allowed Star-kill resource credit and not a test baseline refresh.
+
+Scene scope: standalone zero-RAM cold source initialization, flat typed map,
+mature actors, neutral input. No life, subweapon, hearts, health, Star timer,
+RNG, injury or defeat outcomes are seeded. Initial lives0 is the standalone
+zero-RAM baseline; this is not a native cold-menu or rollover proof. Actual
+physical collection/source execution is proved, natural actor reveal is not.
+The source CPU test does not qualify PPU, interrupts, audio or native timing.
+
+An initial observer timing assumption expected the reset after the gain's
+GameLoop returned. Actual execution disproved that: reset occurs in that same
+GameLoop. build/current_cv3_life_gain_counterexample_timing_negative.json retains
+the failed assumption and former tool hash; the final proof samples immediately
+after the actual life INC and keeps the exact reset invariant strict.
+
+ROOT and the CV3 agent were sent the confirmed cause. No game/source patch,
+native run, Git mutation or existing frozen preparation was changed here.

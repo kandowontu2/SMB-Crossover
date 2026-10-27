@@ -1,0 +1,263 @@
+{
+  "read_only_review": true,
+  "new_native_run": false,
+  "source_or_fixture_mutations": false,
+  "ROM_sha256": "ab221e81821dd10690ad3a1068d91c9efae6c7406230d9bd7fc4a729fdc433d2",
+  "current_chr_asset_sha256": "7ea064cd1b20665e2bd1a5893b4b699ad6d476d04545b079c3ae5a4f757b8706",
+  "focused_witnesses": [
+    {
+      "kind": 4,
+      "case": "actual-baseball-bat",
+      "current_capture_ordinal": 388,
+      "current_ppu_frame": 1049,
+      "actual_draw": 206,
+      "actual_record": 49816,
+      "actual_PRG_owner": 97,
+      "actual_DMA_epoch": 631,
+      "current_OAM_parts": [
+        [
+          192,
+          27,
+          194,
+          98
+        ]
+      ],
+      "actual_DMA_full_source_retained": true,
+      "physical_sprite_CHR": [
+        710,
+        711
+      ],
+      "original_byte_match": {
+        "CHR_bank": 251,
+        "tilepair": 54,
+        "sha256": "56b46118f3114bb7620bb07c235ac074b48f0181b2b174ea4ae973f0a33161f7"
+      },
+      "retained_original_OAM": {
+        "frame": 905,
+        "parts": [
+          [
+            119,
+            55,
+            130,
+            115
+          ]
+        ],
+        "source_case_id": 4
+      },
+      "original_visible_mapping_limit": "Historical endFrame OAM/pattern snapshots and original-ROM byte association; no complete per-visible-scanline CHR/palette timeline for these three original cases."
+    },
+    {
+      "kind": 11,
+      "case": "actual-baseball",
+      "current_capture_ordinal": 1298,
+      "current_ppu_frame": 2029,
+      "actual_draw": 585,
+      "actual_record": 49878,
+      "actual_PRG_owner": 97,
+      "actual_DMA_epoch": 1608,
+      "current_OAM_parts": [
+        [
+          193,
+          31,
+          66,
+          97
+        ]
+      ],
+      "actual_DMA_full_source_retained": true,
+      "physical_sprite_CHR": [
+        710,
+        711
+      ],
+      "original_byte_match": {
+        "CHR_bank": 248,
+        "tilepair": 30,
+        "sha256": "1aee0005ba4baae24129b9f7897fbb8c393851a03f50119015a73216edd5c0c9"
+      },
+      "retained_original_OAM": {
+        "frame": 1532,
+        "parts": [
+          [
+            103,
+            95,
+            2,
+            136
+          ]
+        ],
+        "source_case_id": 11
+      },
+      "original_visible_mapping_limit": "Historical endFrame OAM/pattern snapshots and original-ROM byte association; no complete per-visible-scanline CHR/palette timeline for these three original cases."
+    },
+    {
+      "kind": 13,
+      "case": "actual-mega-laser",
+      "current_capture_ordinal": 1558,
+      "current_ppu_frame": 2309,
+      "actual_draw": 673,
+      "actual_record": 49591,
+      "actual_PRG_owner": 97,
+      "actual_DMA_epoch": 1888,
+      "current_OAM_parts": [
+        [
+          199,
+          45,
+          2,
+          140
+        ],
+        [
+          185,
+          45,
+          2,
+          140
+        ]
+      ],
+      "actual_DMA_full_source_retained": true,
+      "physical_sprite_CHR": [
+        710,
+        711
+      ],
+      "original_byte_match": {
+        "CHR_bank": 248,
+        "tilepair": 52,
+        "sha256": "d7012b699968cc3b0147e2bf5797f8558c3b3453993efc3fc1e011e1398e6cc0"
+      },
+      "retained_original_OAM": {
+        "frame": 1704,
+        "parts": [
+          [
+            110,
+            117,
+            2,
+            132
+          ],
+          [
+            96,
+            117,
+            2,
+            132
+          ]
+        ],
+        "source_case_id": 13
+      },
+      "original_visible_mapping_limit": "Historical endFrame OAM/pattern snapshots and original-ROM byte association; no complete per-visible-scanline CHR/palette timeline for these three original cases."
+    }
+  ],
+  "conclusion": "No runtime wrong-CHR-owner/index fault is established for these three live witnesses. Actual source records, emitted OAM, physical DMA and sprite CHR pages match the authored asset. Small red/orange symbols follow current source palette/art choices; full original-game art fidelity remains unqualified.",
+  "intentional_or_explicit_adaptations": [
+    "build_art.py packs exact extracted32-byte pairs but selects only first and last by-kind bat tiles; current age&4 chooses two phases. Original OAM case4 exhibits four distinct tile shapes plus H/V rotations, so animation is simplified.",
+    "Baseball11 and SuperLaser12 deliberately reuse the same two/one source-extraction pair IDs as Bola5. MegaLaser13 reuses ShootingStar9 pair, composed as two parts14px apart; the retained original13 OAM shows that same two-part spacing.",
+    "All shot records use shared sprite palette2. GroundPaletteData source palette2 is0F/16/30/27; JnPalette only dedicates player0 at3F11..13. Stable shared item/projectile hues are an explicit documented adaptation, not original hue parity."
+  ],
+  "fidelity_not_closed": [
+    "No original-visible CHR/palette schedule proof for these three historical component cases; endFrame snapshots can capture later HUD mappings.",
+    "No full native bat4-shape/HV animation sequence parity; port intentionally uses two sampled phases.",
+    "Twelve actual current whole-frame placements visually reviewed; no all1668-frame visual/art/FPS/fairness verdict."
+  ],
+  "next_finite_evidence": "Before any art correction, compare original cartridge kinds4/11/13 at actual visible scanlines using real OAM/PPUCTRL/CHR/palette timelines plus consecutive whole frames; distinguish missing animation phases and intentional shared hues from wrong source-bank extraction. Reuse existing captures if sufficient; no new native run is authorized by this report.",
+  "bindings": [
+    {
+      "path": "C:\\NES\\StarTropics (USA).nes",
+      "bytes": 524304,
+      "sha256": "ff20d5e9600565ae61e4eae6594c9f1e55e2a748a46bba0c88285140420a219a"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\mega_proto_body_palette_9ea.nes",
+      "bytes": 2097168,
+      "sha256": "ab221e81821dd10690ad3a1068d91c9efae6c7406230d9bd7fc4a729fdc433d2"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\chr\\characters\\mike-jones.chr",
+      "bytes": 4096,
+      "sha256": "7ea064cd1b20665e2bd1a5893b4b699ad6d476d04545b079c3ae5a4f757b8706"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\mike_jones_art.inc",
+      "bytes": 6618,
+      "sha256": "74b3f745b5772eb07c230ef9f0fe2804eaa7eac4b1a575c2f0fcefe6127810ce"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\mike_jones_render.s",
+      "bytes": 3850,
+      "sha256": "fd54a5e0df07a69cd64f9989374328fb722fe3c5fa0fdd2174c3e6a7d06c49b9"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\mike_jones_core.s",
+      "bytes": 4589,
+      "sha256": "00170180271629f632f931b9c338fa77b6b468d818dd2a8c11880bcfba81f5b8"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\reset.s",
+      "bytes": 26367,
+      "sha256": "e108562a322dfe93c95caec209dd44329bee5ecedc6bd08083f80497f05172f5"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\mike-kd-private\\build_art.py",
+      "bytes": 4708,
+      "sha256": "f0243e34bc794a993aab1548a5997ad82b0ce339e0bf99a4811f89dbd7a2d8c2"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\mike-kd-private\\source-weapon-pixels.json",
+      "bytes": 5773,
+      "sha256": "f168948e2260a4d9de0c02ec5d7f276282052196fc4d6b77bb8e958436fbf02c"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\mike-kd-private\\art\\orientation-provenance.json",
+      "bytes": 4313,
+      "sha256": "5fd2a094423ffbc6bd9254861c9ff5716a5d06909481630d1d4c8e6420f6dc41"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\mike-kd-private\\original-weapons-c.csv.gz",
+      "bytes": 82646,
+      "sha256": "f14257c6e5331059f1073e6a2c4177ea8c54ee4cce5292c45c66e8a4c34989b8"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\mike-kd-private\\original-weapons-c.lua",
+      "bytes": 2326,
+      "sha256": "7b052ce8fa190ab78c7b5a0a2818bc13c1637d03da9147008b55b2fa10d77fe3"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\mike-kd-private\\original-weapons-d-4.png",
+      "bytes": 7998,
+      "sha256": "bb3af258643ce10bcce3623ff65d8af3e59951d71e8a3b741478d3f42a3ce1cf"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\mike-kd-private\\original-weapons-d-11.png",
+      "bytes": 8072,
+      "sha256": "963429e4137b79c34e933021a16a965acd5c7ec3f458cd4dd49e928f159d3e99"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\mike-kd-private\\original-weapons-d-13.png",
+      "bytes": 8110,
+      "sha256": "cb0403dd3b8c635decbbca94cad6ed29e2918e481a99a18467dab99ceaf1a1a6"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\docs\\qa\\mike-source-art-2026-10-24.md",
+      "bytes": 6744,
+      "sha256": "8ad797241e618e0ec17b969c15e88e0ed657d58c285946525fe7e161266742e0"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-ab221-mike-live-render-diagnostic-v1\\live-render-offline-review.json",
+      "bytes": 12900,
+      "sha256": "c9ccc69243ef5bd4b15c52eb9bcf87088f0e7b9be15b003ce65cd643b096d42f"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-ab221-mike-live-render-diagnostic-v1\\native\\live-render.jsonl",
+      "bytes": 5247907,
+      "sha256": "a35ff7c572c408ea4473259636810b26dab8c7796f60cfe5bee4680124ba505d"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-ab221-mike-live-render-diagnostic-v1\\native\\result.json",
+      "bytes": 17445,
+      "sha256": "7719f96f0cc477e81c90924966ddee44c985b36df79b04c246c039cf5eb3eba7"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-ab221-mike-live-render-diagnostic-v1\\live-weapons-sheet-1.png",
+      "bytes": 8060,
+      "sha256": "3d7ac61fba3f26a70f630ba4952cdc0ac3aa453d5ca6c0557f317a16998df4bc"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-ab221-mike-live-render-diagnostic-v1\\live-weapons-sheet-2.png",
+      "bytes": 8335,
+      "sha256": "cb503a75faa3cfa628f6f74a702e73714e672bbcece9355f023d1f7021ae25bb"
+    }
+  ]
+}
