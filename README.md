@@ -6,7 +6,7 @@ This is a native NES adaptation of [Super Mario Bros. Crossover](https://www.smb
 
 **Status: playable, actively developed, and unfinished.** Character behavior, graphics, sound and performance are still being tested and corrected. MMC5 is the recommended target for the full roster.
 
-The October 27 development build (`6be48337`) keeps Samus's missile icon visible while her weapon graphics change. Her item checks and a jump near the HUD passed, alongside fresh Bass item checks in both modes and a Hard Link 1-1 clear. See the [checks and limits](docs/qa/samus-fixed-hud-adoption-2026-10-27.json).
+The October 27 development build (`6be48337`) keeps Samus's missile icon visible while her weapon graphics change. Current-build checks cover Samus's items and HUD jump, Bass's items in both modes, Pit's upgrades and flight in both modes, and 1-1 clears for Link, Simon and Rygar. See the [build checks](docs/qa/samus-fixed-hud-adoption-2026-10-27.json), [Pit checks](docs/qa/pit-current6be-components-native-2026-10-27.json) and [roster progress](docs/qa/current-roster-progress-2026-10-27.json) for the tested modes and limits.
 
 It also includes `4a0394b0`'s alternating body-sprite priority for Mega Man and Proto Man, and its fix for a scrolling jump caused by repeated palette updates running past the rendering deadline. Both cleared Hard 1-1 without a death and reached playable 1-2 on that build. See the [rendering checks and limits](docs/qa/mm-body-palette-adoption-2026-10-27.json).
 
@@ -22,7 +22,7 @@ It retains Luigi's Mario-based movement with a modestly higher jump and less tra
 
 The last complete 37-character 1-1 suite ran on `3cee18ca`: 36 identities cleared in Easy and Bass in Hard, each with an independent replay. Those results remain specific to that build; further checks on the latest build are in progress. See the [1-1 results](docs/qa/current37-1-1-2026-10-26.txt).
 
-Crowded scenes still cause partial player sprites, including Mega Man, Sophia and Octopus. Graphics, every powerup, the other mode and shortcut routes, sound and performance still need further work; see the [current testing status](docs/qa/current-roster-status-2026-10-26.txt).
+Crowded scenes still cause partial player sprites, including Mega Man, Sophia and Octopus. Graphics, every powerup, the other mode and shortcut routes, sound and performance still need further work; see the [current roster checks](docs/qa/current-roster-progress-2026-10-27.json). Results from earlier builds remain labelled separately.
 
 ## Features
 
