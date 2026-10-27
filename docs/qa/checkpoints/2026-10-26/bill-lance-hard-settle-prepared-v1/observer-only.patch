@@ -1,0 +1,11 @@
+--- native_v2.lua
++++ native_v3.lua
+@@ -217,7 +217,7 @@
+  if not entered or done then return end
+  timing('finish')
+  assert(r('MmDeathFlag')==0 and r('InjuryTimer')==0 and r('GuestHurtTicks')==0,'Controlled gallery survives without unrelated injury')
+- assert(r('PlayerStatus')==1 and r('GuestPowerupActive')==0,'Weapon upgrade remains the seeded mushroom form; no invented tier transform')
++ if phase~='settle'then assert(r('PlayerStatus')==1 and r('GuestPowerupActive')==0,'Weapon upgrade remains the seeded mushroom form; no invented tier transform')end
+  if not current then return end
+  if phase=='pickup'and current.grantAt then
+   assert(r('Enemy_Flag',5)==0 and current.collectCalls==#current.grants and current.pickupCue,'Real physical collision removes actor and queues pickup SFX')

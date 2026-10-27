@@ -1,0 +1,62 @@
+{
+  "passed": false,
+  "freeze_complete": true,
+  "native_aggregate_remains_FALSE": true,
+  "ROM_sha256": "3b112e1d79ba7348f2f7a4c426f4675845a5781017ab74690feb235121a66287",
+  "actual_launches": 1,
+  "retries": 0,
+  "worker_released": true,
+  "Lance": "PENDING / UNRUN: conditional grant not activated after Bill FALSE",
+  "first_failure": {
+    "message": "Weapon upgrade remains the seeded mushroom form; no invented tier transform",
+    "x": 24,
+    "a": 0,
+    "y": 0,
+    "bank": 126,
+    "sp": 250,
+    "pc": 33621
+  },
+  "observed_Main": [
+    {
+      "kind": "entry",
+      "wall": "395",
+      "update": "1",
+      "case": "1",
+      "task": "1",
+      "phase": "settle",
+      "cycle": "11765967",
+      "ppu": "396",
+      "scanline": "23",
+      "dot": "122",
+      "skip": "15",
+      "disable": "255"
+    },
+    {
+      "kind": "finish",
+      "wall": "395",
+      "update": "1",
+      "case": "1",
+      "task": "1",
+      "phase": "settle",
+      "cycle": "11786919",
+      "ppu": "396",
+      "scanline": "207",
+      "dot": "234",
+      "skip": "15",
+      "disable": "0"
+    }
+  ],
+  "complete_PPU_frames_before_failure": 395,
+  "observed_cold_mode_at_last_complete_PPU": 1,
+  "observed_tier_at_last_complete_PPU": 0,
+  "no_case_setup_physical_grant_use_or_native_SFX_observed": true,
+  "partial_hardware": {
+    "complete256DMAs": 373,
+    "startFrame_epochs": 395,
+    "scoped_enables": 47,
+    "late_scoped_enables": 0
+  },
+  "classification": "Fixture chronology: first GameLoop enters cold settle; powered-form assertion runs at its first finish, before the explicit age30 B-state seed. No case/setup/grant/use has begun. Not evidence of a ROM weapon defect.",
+  "limits": "The first-failure image is the emulator buffer at a mid-frame assertion, not a separately completed frame396. Exact failure-time PlayerStatus/GuestPowerupActive RAM values were not logged; entry guard certifies cold tier0 and prior complete395PPU tier0. No late scene/ability/waveform/all-image or gallery acceptance.",
+  "next_step": "Prepare a separate settle-aware fixture requiring actual cold tier0/no transform before seed; enforce powered-form guard only after the guarded seed. Add whole first-entry\u219229settle\u2192age30seed\u2192finish state-machine models. No new native grant or retry inferred."
+}

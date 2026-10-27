@@ -1,0 +1,144 @@
+--- qualified-Bass-semantic-mechanics.lua
++++ Mega-common-owner-mechanics.lua
+@@ -1,6 +1,8 @@
+ -- Controlled B-only gallery. Inventory/resources/arena/actors are declared seeds,
+ -- never acquisitions. Selection, use, costs, contacts and cleanup are native.
+ local current=nil
++local function owner()return C.identity.owner end
++local function ammoIndex(item)return C.identity.ammo_indices[item+1]end
+ local selectionStart=0
+ local choiceCount=0
+ local function recordArt(q,kind,t)
+@@ -9,12 +11,12 @@
+  current.draws[t]=(current.draws[t]or 0)+1
+  if current.draws[t]==1 then event('actual-source-effect-draw',{kind=kind,type=t,address=q.address,bank=q.bank,bytes=q.bytes,face=current.q.face});capture(current.q.name..'-art-'..t)end
+ end
+-local function stock()return r('InvAmmo',144+current.q.item)end
++local function stock()return r('InvAmmo',ammoIndex(current.q.item))end
+ local function pool()
+  local n=0;for i=0,9 do if r('RgShotType',i)~=0 then n=n+1 end end;return n
+ end
+ local function stateRow()
+- local z={selected=r('InvSelected',9),ammo=current and stock(),held=r('SsHeld'),kick=r('SsKick'),dash=r('XgDash'),radius=r('SsWaterRadius'),expanding=r('SsWaterExpand'),shots={}}
++ local z={selected=r('InvSelected',owner()),ammo=current and stock(),held=r('SsHeld'),kick=r('SsKick'),slide=r('MmSliding'),radius=r('SsWaterRadius'),expanding=r('SsWaterExpand'),shots={}}
+  for i=0,9 do z.shots[#z.shots+1]={slot=i,type=r('RgShotType',i),age=r('RgShotAge',i),x=r('RgShotX',i),page=r('RgShotPage',i),y=r('RgShotY',i),high=r('RgShotYHigh',i),mode=r('SsMode',i),hidden=r('SsHidden',i),art=r('SsArt',i)}end
+  return z
+ end
+@@ -36,7 +38,7 @@
+  if current.component~='funded' or current.q.item==0 then return end
+  local after=stock()
+  if after==before then return end
+- assert(refill==144+current.q.item and tick==1 and remain>=4,'Credit begins at genuine selected native refill tick')
++ assert(refill==ammoIndex(current.q.item) and tick==1 and remain>=4,'Credit begins at genuine selected native refill tick')
+  assert(after==math.min(112,before+4),'Native refill credit is exact four-unit capped increment')
+  assert(r('InvRefillRemain')==(remain-4)%256 and r('InvRefillTick')==3,'Native refill remaining/tick continuation')
+  local finished=after==112 or remain==4
+@@ -71,7 +73,7 @@
+ hook('SpecialWeapons::ReleaseBalloon',function()
+  if not entered or not current or current.component~='funded' or current.q.item~=4 then return end
+  local owner=current;local s=emu.getState();local slot=s['cpu.x']
+- assert(r('InvSelected',9)==4 and r('SsSelected')==4 and slot==r('RgSlot'),'Real selected Pharaoh release owner/slot')
++ assert(r('InvSelected',owner())==4 and r('SsSelected')==4 and slot==r('RgSlot'),'Real selected Pharaoh release owner/slot')
+  local before,shotAge,count,star=stock(),r('RgShotAge',slot),pool(),r('StarInvincibleTimer')
+  local entry={pc=s['cpu.pc'],sp=s['cpu.sp'],bank=bank(s['cpu.pc']),slot=slot,before=before,shot_age=shotAge,active_shots=count,star=star}
+  onReturn('bass-pharaoh-direct-release',function()
+@@ -107,11 +109,11 @@
+  event('isolated-native-boundary-component-reset',prior)
+  writeBoundary=true;clearArena()
+  if kind=='funded'then
+-  if current.q.item>0 then w('InvAmmo',current.q.initial_stock,144+current.q.item)end
++  if current.q.item>0 then w('InvAmmo',current.q.initial_stock,ammoIndex(current.q.item))end
+  elseif kind=='empty'then
+-  if current.q.item>0 then w('InvAmmo',0,144+current.q.item)end
++  if current.q.item>0 then w('InvAmmo',0,ammoIndex(current.q.item))end
+  elseif kind=='pool'then
+-  if current.q.item>0 then w('InvAmmo',112,144+current.q.item)end
++  if current.q.item>0 then w('InvAmmo',112,ammoIndex(current.q.item))end
+   -- Ten complete ordinary METAL records: native motion remains active. This
+   -- is controlled full-pool input, not ten naturally acquired simultaneous shots.
+   for i=0,9 do
+@@ -132,7 +134,7 @@
+  if current.targetStaged then return end
+  local q=current.q;local x,y
+  if q.item==5 then
+-  if r('SsKick')~=1 or r('XgDash')==0 then return end
++  if r('SsKick')~=1 or r('MmSliding')==0 then return end
+   x=r('Player_X_Position')+(q.face==1 and 22 or-10);y=r('Player_Y_Position')+8
+  else
+   local slot=nil
+@@ -152,24 +154,24 @@
+  event('controlled-falling-Goomba-target',{x=x,y=y,shot_type=q.contact_type,body_contact=q.item==5,disclosure='Complete source-aligned actor at native boundary, aligned to actual live effect. Native gravity/collision/defeat remain real; this is B contact, not a natural encounter.'})
+ end
+ local function cleanReceipt(fullUpdate)
+- local cancelled=fullUpdate and r('SsKick')==2 and r('InvSelected',9)~=5 and (r('XgDash')~=0 or r('MmSliding')~=0)
++ local cancelled=fullUpdate and r('SsKick')==2 and r('InvSelected',owner())~=5 and (r('XgDash')~=0 or r('MmSliding')~=0)
+  assert(pool()==0 and r('SsHeld')==0 and (r('SsKick')==0 or cancelled) and r('SsFreeze')==0 and r('SsBodyStop')==0,'Native selection clears robot effects')
+  assert(r('MmBulletType')==0 and r('MmBulletType',1)==0 and r('MmBulletType',2)==0 and r('MmBulletType',3)==0,'Native selection clears primary pool')
+ end
+ hook('InventorySelectionCommit',function()
+  if not entered then return end
+- local wanted=emu.getState()['cpu.a'];local old=r('InvSelected',9)
+- assert(emu.getState()['cpu.x']==9,'Real Bass selection owner')
++ local wanted=emu.getState()['cpu.a'];local old=r('InvSelected',owner())
++ assert(emu.getState()['cpu.x']==owner(),'Real Bass selection owner')
+  onReturn('bass-selection',function()
+-  assert(r('InvSelected',9)==wanted,'Actual controller selection commits requested item')
++  assert(r('InvSelected',owner())==wanted,'Actual controller selection commits requested item')
+   if old~=wanted then choiceCount=choiceCount+1;cleanReceipt();event('actual-controller-selection',{before=old,after=wanted})end
+  end)
+ end)
+ hook('InventorySpend',function()
+  if not entered or not current then return end
+- local s=emu.getState();local item=s['cpu.a'];local cost=s['cpu.y'];local before=r('InvAmmo',144+item)
++ local s=emu.getState();local item=s['cpu.a'];local cost=s['cpu.y'];local before=r('InvAmmo',ammoIndex(item))
+  onReturn('bass-spend',function()
+-  local after=r('InvAmmo',144+item);local paid=before>=cost
++  local after=r('InvAmmo',ammoIndex(item));local paid=before>=cost
+   assert(after==(paid and before-cost or before),'Actual source cost/refusal preserves exact stock')
+   local p=emu.getState()['cpu.ps']or emu.getState()['cpu.p'];if p then assert((p&1~=0)==paid,'Actual spend carry matches funded admission')end
+   current.spends[#current.spends+1]={item=item,cost=cost,before=before,after=after,accepted=paid,component=current.component,wall=wall,update=updates}
+@@ -246,7 +248,7 @@
+ hook('SpecialWeapons',function()
+  if not entered or not current or phase~='pool'or current.q.item~=1 and current.q.item~=5 then return end
+  if current.q.item==1 and r('SavedJoypadBits')&64==0 then return end
+- if current.q.item==5 and(r('XgDash')==0 or r('SsKick')~=0)then return end
++ if current.q.item==5 and(r('MmSliding')==0 or r('SsKick')~=0)then return end
+  local n=pool();local ammo=stock()
+  onReturn('bass-pool-special',function()
+   assert(n==10,'ARM/KICK full-pool attempt sees ten records')
+@@ -258,12 +260,12 @@
+ hook('GameLoop',function()
+  if r('OperMode')~=1 or r('OperMode_Task')~=3 or r('GameEngineSubroutine')~=8 then return end
+  if not entered then
+-  assert(r('SelectedCharacter')==9 and r('RlVariant')==0 and r('CrossoverBehaviorVersion')==C.mode_value,'Cold-selected Bass and actual numeric mode')
+-  entered=true;writeBoundary=true;w('PlayerStatus',1);w('InvOwnedLo',255,9);w('InvOwnedHi',0,9);writeBoundary=false
++  assert(r('SelectedCharacter')==owner() and r(C.identity.variant_ram)==C.identity.variant and r('CrossoverBehaviorVersion')==C.mode_value,'Cold-selected Bass and actual numeric mode')
++  entered=true;writeBoundary=true;w('PlayerStatus',1);w('InvOwnedLo',255,owner());w('InvOwnedHi',0,owner());writeBoundary=false
+   phase='next';event('B-only-native-boundary-seeds',{tier=1,owned=255,mode=C.mode_value,acquisition=false})
+  end
+  updates=updates+1;age=age+1
+- assert(r('CrossoverBehaviorVersion')==C.mode_value and r('SelectedCharacter')==9 and r('RlVariant')==0,'Requested owner/mode remains real')
++ assert(r('CrossoverBehaviorVersion')==C.mode_value and r('SelectedCharacter')==owner() and r(C.identity.variant_ram)==C.identity.variant,'Requested owner/mode remains real')
+  if phase=='next'then
+   if index>#C.cases then done=true;return end
+   current={q=C.cases[index],spawns={},spends={},hits=0,damageCalls=0,visibleTypes={},draws={},started=wall};records[#records+1]=current
+@@ -292,7 +294,7 @@
+  assert(r('MmDeathFlag')==0 and r('InjuryTimer')==0 and r('GuestHurtTicks')==0,'Isolated controlled ability scene survives without unrelated damage')
+  local q=current.q
+  if phase=='select'then
+-  if choiceCount>selectionStart and r('InvSelected',9)==q.item then change('hud')end
++  if choiceCount>selectionStart and r('InvSelected',owner())==q.item then change('hud')end
+   assert(age<240,'Real Select cycle reaches requested weapon')
+  elseif phase=='hud'then
+   if age>=20 then
+@@ -317,8 +319,8 @@
+   if q.item==1 and r('SsHeld')>0 then assert(stock()==q.initial_stock,'ARM lift/hold is free');if not current.lifted then current.lifted=true;capture(q.name..'-held')end end
+   if q.item==4 then for i=0,9 do if r('RgShotType',i)==18 and r('RgShotAge',i)>=63 then current.charged=true end end end
+   if q.item==7 and r('SsWaterExpand')~=0 then current.expanded=true end
+-  if q.item==5 and r('SsKick')==1 and r('XgDash')~=0 then current.paidKick=true end
+-  if age>=210 and pool()==0 and r('SsHeld')==0 and r('XgDash')==0 then
++  if q.item==5 and r('SsKick')==1 and r('MmSliding')~=0 then current.paidKick=true end
++  if age>=210 and pool()==0 and r('SsHeld')==0 and r('MmSliding')==0 then
+    assert(current.hits>0 and current.damageCalls>0,'Actual intended source effect contacts controlled target')
+    assert(current.visibleTypes[q.contact_type],'Actual effect reaches visible source-art state')
+    assert((current.draws[q.contact_type]or 0)>0,'Actual source effect reaches its real draw owner')

@@ -1,0 +1,148 @@
+{
+  "passed": true,
+  "source_only": true,
+  "rotation": 1,
+  "calls": [
+    {
+      "gateway": "PlayerGfxHandler",
+      "cycles": 1499,
+      "entries": [
+        {
+          "owner": "PlayerGfxHandler",
+          "entry_pc": 41660,
+          "entry_bank": 1,
+          "entry_sp": 251,
+          "return_pc": 23296,
+          "return_bank": -1,
+          "return_sp": 253
+        },
+        {
+          "owner": "GuestVisualStatus",
+          "entry_pc": 60264,
+          "entry_bank": 127,
+          "entry_sp": 249,
+          "return_pc": 44106,
+          "return_bank": 1,
+          "return_sp": 251
+        },
+        {
+          "owner": "RemainingPower",
+          "entry_pc": 42699,
+          "entry_bank": 6,
+          "entry_sp": 244,
+          "return_pc": 366,
+          "return_bank": -1,
+          "return_sp": 246
+        }
+      ],
+      "returns": [
+        {
+          "owner": "RemainingPower",
+          "entry_pc": 42699,
+          "entry_bank": 6,
+          "entry_sp": 244,
+          "return_pc": 366,
+          "return_bank": -1,
+          "return_sp": 246,
+          "returned_a": 1,
+          "returned_x": 6,
+          "returned_y": 0,
+          "returned_p": 48
+        },
+        {
+          "owner": "GuestVisualStatus",
+          "entry_pc": 60264,
+          "entry_bank": 127,
+          "entry_sp": 249,
+          "return_pc": 44106,
+          "return_bank": 1,
+          "return_sp": 251,
+          "returned_a": 1,
+          "returned_x": 6,
+          "returned_y": 0,
+          "returned_p": 48
+        },
+        {
+          "owner": "PlayerGfxHandler",
+          "entry_pc": 41660,
+          "entry_bank": 1,
+          "entry_sp": 251,
+          "return_pc": 23296,
+          "return_bank": -1,
+          "return_sp": 253,
+          "returned_a": 96,
+          "returned_x": 6,
+          "returned_y": 0,
+          "returned_p": 48
+        }
+      ],
+      "returned": {
+        "a": 96,
+        "x": 6,
+        "y": 0,
+        "p": 48,
+        "sp": 253
+      }
+    },
+    {
+      "gateway": "SamusFreezeDrawAll",
+      "cycles": 4934,
+      "entries": [
+        {
+          "owner": "SamusDrawShots",
+          "entry_pc": 44700,
+          "entry_bank": 10,
+          "entry_sp": 246,
+          "return_pc": 366,
+          "return_bank": -1,
+          "return_sp": 248
+        },
+        {
+          "owner": "RosterOamReady",
+          "entry_pc": 41548,
+          "entry_bank": 4,
+          "entry_sp": 251,
+          "return_pc": 23296,
+          "return_bank": -1,
+          "return_sp": 253
+        }
+      ],
+      "returns": [
+        {
+          "owner": "SamusDrawShots",
+          "entry_pc": 44700,
+          "entry_bank": 10,
+          "entry_sp": 246,
+          "return_pc": 366,
+          "return_bank": -1,
+          "return_sp": 248,
+          "returned_a": 1,
+          "returned_x": 0,
+          "returned_y": 19,
+          "returned_p": 176
+        },
+        {
+          "owner": "RosterOamReady",
+          "entry_pc": 41548,
+          "entry_bank": 4,
+          "entry_sp": 251,
+          "return_pc": 23296,
+          "return_bank": -1,
+          "return_sp": 253,
+          "returned_a": 0,
+          "returned_x": 28,
+          "returned_y": 0,
+          "returned_p": 176
+        }
+      ],
+      "returned": {
+        "a": 0,
+        "x": 28,
+        "y": 0,
+        "p": 176,
+        "sp": 253
+      }
+    }
+  ],
+  "scope": "Mega selected1 uses genuine rotated-tail RosterOamReady. This is not Samus legacy-tail observer reuse or native publication proof."
+}

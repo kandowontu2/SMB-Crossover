@@ -1,0 +1,80 @@
+{
+  "passed": true,
+  "exact_reverse_to_qualified_Bass_mechanics": true,
+  "substitutions": [
+    {
+      "before": "local current=nil",
+      "after": "local current=nil\nlocal function owner()return C.identity.owner end\nlocal function ammoIndex(item)return C.identity.ammo_indices[item+1]end",
+      "occurrences": 1
+    },
+    {
+      "before": "144+current.q.item",
+      "after": "ammoIndex(current.q.item)",
+      "occurrences": 5
+    },
+    {
+      "before": "144+item",
+      "after": "ammoIndex(item)",
+      "occurrences": 2
+    },
+    {
+      "before": "r('InvSelected',9)",
+      "after": "r('InvSelected',owner())",
+      "occurrences": 6
+    },
+    {
+      "before": "w('InvOwnedLo',255,9)",
+      "after": "w('InvOwnedLo',255,owner())",
+      "occurrences": 1
+    },
+    {
+      "before": "w('InvOwnedHi',0,9)",
+      "after": "w('InvOwnedHi',0,owner())",
+      "occurrences": 1
+    },
+    {
+      "before": "['cpu.x']==9",
+      "after": "['cpu.x']==owner()",
+      "occurrences": 1
+    },
+    {
+      "before": "r('SelectedCharacter')==9 and r('RlVariant')==0",
+      "after": "r('SelectedCharacter')==owner() and r(C.identity.variant_ram)==C.identity.variant",
+      "occurrences": 2
+    },
+    {
+      "before": "if r('SsKick')~=1 or r('XgDash')==0 then return end",
+      "after": "if r('SsKick')~=1 or r('MmSliding')==0 then return end",
+      "occurrences": 1
+    },
+    {
+      "before": "current.q.item==5 and(r('XgDash')==0 or r('SsKick')~=0)",
+      "after": "current.q.item==5 and(r('MmSliding')==0 or r('SsKick')~=0)",
+      "occurrences": 1
+    },
+    {
+      "before": "r('SsHeld')==0 and r('XgDash')==0 then",
+      "after": "r('SsHeld')==0 and r('MmSliding')==0 then",
+      "occurrences": 1
+    },
+    {
+      "before": "q.item==5 and r('SsKick')==1 and r('XgDash')~=0",
+      "after": "q.item==5 and r('SsKick')==1 and r('MmSliding')~=0",
+      "occurrences": 1
+    },
+    {
+      "before": "dash=r('XgDash')",
+      "after": "slide=r('MmSliding')",
+      "occurrences": 1
+    }
+  ],
+  "unchanged": [
+    "Direct fullReleaseBalloon8/clamp observer",
+    "Funded0witness/exactnativecredits",
+    "Complete4drop/refill isolation eachdeclaredcomponent",
+    "Semantic cancelledSsKick2 predicate",
+    "WATERfreshBage125",
+    "Allfunded420/empty25/pool15/selection/cleanupcaps and strictguards"
+  ],
+  "changed": "Owner1/ammo17..23/ProtoVariant0 and sourceMmSliding KICK; no defaultbusterplans; actual linked hook/address/name/icon metadata refreshed."
+}
