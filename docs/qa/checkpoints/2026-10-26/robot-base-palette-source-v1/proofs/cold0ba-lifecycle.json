@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "native_run": false,
+  "actual_selection_and_reset_cases": 9,
+  "actual_IRQ_cases": 43,
+  "actual_lag_NMI_cases": 43,
+  "cold_and_warm_actual_helper_instruction_boundaries": true,
+  "all_return_AXY_physicalP_SP_application_RAM_banks_five_SMC_exact": true,
+  "physical_status_mask": 207,
+  "status_note": "Only virtual B/U excluded after actual interrupt RTI; N,V,D,I,Z,C exact. No RAM/OAM masks.",
+  "IRQ_model": "Reference also executes one genuineIRQ before producer, including its realPPUADDR/scroll IO; no comparison to a nonexistent noIRQ hardware state.",
+  "NMI_model": "Real lag NMI withNmiDisable255. Full final state compared to sameproducer with one genuine lag NMI before entry; no omitted audio effects or synthetic empty ISR.",
+  "lifecycle_sha256": "415caaa4f63b9e222f30e556217d032963916b8ad0879d465c91b7bbcc011a9e",
+  "interrupts_sha256": "07643725a0ce386264d7ca39b84c1d6aab1636f703d8e6471f61a2b3e077e1cf",
+  "tool_sha256": "675623d3fd1fb6b04a9f0df8cf06169f70560a6a2e264e25e4d5beceb1bab974",
+  "limits": "Source CPU only, no native scheduling/visual recovery claim. Configured actual selection/reset/producer routes, not a full death/area playthrough."
+}

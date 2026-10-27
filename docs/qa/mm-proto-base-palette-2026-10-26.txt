@@ -1,0 +1,52 @@
+Completed base-palette cache successor: source-qualified, native UNRUN
+2026-10-26. Production/default remains3b112. No source/settings/Git mutation.
+
+Candidate: dfbdca24019776262c4388e3ea782fb989e24b8fc0e3cf0bfe0bbb84a9f480ad
+External source: D/robot-base-palette-candidate-v2.
+Parent0ba628a76f02d4610c2608acd63cdd2a877e6e9a9eb667496a3efa1c655c1927 is HELD after the strict six-case gallery failed378. D is the external2026-10-24-native-rest-py archive.
+
+Actual diagnostic, not an estimated cause:
+  D/robot-cold-palette-budget-review-v1/proof.json fb9cf4bd37932ac40170b650c4eb9f4e151fba064f93fc2c60a77021ccad0181.
+  One separately granted metadata-only diagnostic, original strict378FALSE unchanged. Worker released/no retry.
+  All353full256DMA records,377completedPPU+index,events and374..377diagnostic rows exactly match the first0ba attempt (parsed JSON equality where key order can differ).
+  NMI378 entry buffer1 offset53/control0/reload1: HUD28 then one complete palette25.
+  HUD command parser costs256+136+136+171=699cycles.
+  Palette parser costs152+152+168+152=624cycles.
+  Palette gateway1401cycles includes those commands plus original terminator/wrapper work; CHR435; remaining disable-toDMA75. Inclusive disable-toDMA1911, DMA517, completion-toenable4.
+  Exact enable PPU3781:38 / CPU11227390/E00B/127 remains FALSE.
+  Setup cleared124SpecialRam bytes includingSsLastPalette; actualSpecialPalette then requested the correct default palette. This is declared staged setup, not natural acquisition.
+  A whole25-byte duplicate no longer exists. The final6-byte3F11 command repeats the exact three colors already in the preceding3F10 four-color row.
+
+Minimal successor:
+  Only src/robot_cold_palette_cache.s changes versus0ba; totalfour source changes vs3b remain cfg/entrypoint/x5_palette plus this helper.
+  Same actual hook/genuine residentRTS, no newRAM/NMI code.
+  Complete defaultGetColors producer publishes MmLastPalette1/2 only for Mega/Proto owner1, default weapon, no star/transform, chargeFrames<33, complete19-byte append ending19..83 within84Bbuffer.
+  MmCharging may be1: frames1/32 still use the original normal body colors.
+  Original stricter coldSs publication is retained independently; Bass does not gain the warmMm rule.
+  PlayerStatus2 maps cache2; other statuses use cache1, exactly matching the source palette selector.
+  ProtoFixQueuedPalette still converts original blue colors to actual Proto red/gray after the producer and during graphics. No separate event/voice/sample is removed.
+
+Assembled ownership:
+  Exact122B helper AB60..<ABDA in verified160B physical78/$4E pool; remaining38B.
+  Parent0ba's89B unused remainder verifiedFF before edits; original3b fullpool160FF checked again.
+  125totalROMbytes versus3b, only78. All61326old3b qualifiedlabels/RAM/CHR/otherPRG exact.
+  Two genuine new-donor private labels move: RobotColdPaletteCommit::Robot AB7B->ABAE, ::Done ABA2->ABD5. EntryAB60 stays real. No fake aliases.
+  Builderv1 already built identicalROM but its postbuild review treated tuple-qualified symbols as strings; retainedTypeError. Builderv2 fixes only qualifier serialization/ownership handling.
+
+Source/CPU evidence:
+  cpu-v2:1090 complete publicX5GetPlayerColors controls including all64physical flags/EasyHard/Proto/tiers/offsetbounds/status/charge/star/transform/hurt/default-special. FullproducerAXYP/SP/livecallerstack/applicationRAM/orderedwrites/banks exact except explicitMm cache publication. Additional producer cost0..60cycles vs0ba.
+ 36 actualHUD->SpecialPalette->PlayerGfx->wholeNMI flows produce53->47byte queues and exactly equal finalPPU values, regs/banks/input/reads/all orderedAPU+mapper stores. WholeNMI saves152cycles each. No native deadline recovery claim.
+ Every remaining fullNMI applicationRAM difference is explicitly bound by value/owner: six removed-command stale bytes, native parser terminal-pointer lowbyte, preserved ProtoFix command cursor, and the one scratch result below. No broadRAMmask.
+  lifecycle-v2:24 completePlayerGfx+realGameCoretail comparisons against the explicitly published valid oldcache state; fullAXYP/SP/applicationRAM/orderedwrites/banks exact. Tail is actual83EE afterPlayerGfx, with the real farOBJECT savedbank stack contract; it runs to the actualGameCore return.
+ 28 real selection/default/invalidation/star/transform/charge/death-reentry source chains preserve the refresh/finalPPU values.
+ 86actualIRQ+86actual lagNMI injections cover cold/warm helper instruction boundaries, fullAXY/physicalP/SP/application state/banks/5SMC restored. RTI virtualB/U only excluded; noRAM/OAM masks.
+ 60 scratch-poison controls converge from0/255 before actual output. All source readers of MmPaletteIndex are the three operands within MegaManPaletteState; each is dominated by its own earlySTY. No external source reader exists. Tier2 first uncached append leaves2; skipped oldcache path leaves1. This precise dead result is disclosed, not asserted unchanged. Actual caller comparison uses the already valid oldcachehit contract.
+  lifecycle-v1 completed allcontrols then failed only final slash-style source-reference comparison on Windows; retained before v2 uses Path.as_posix with the same exact two expected source files.
+ Canonical rebuild exactdf; ordinaryMMC3d444cac8/MMC5f4ffd248 exact. No native launch is implied.
+
+Next finite native preparation:
+  Same original ProtoHard six components,4000wall/1200host, exact six-case/controller/post-configLua/static callback/strictDMA/deadline/CHR/art guards. Only ROMsha changes from the last0ba diagnostic profile; hooks/art entry addresses remain genuine and unchanged.
+  Diagnostic focus374..380 retained, so a next strict deadline includes its actual packet/producers without changing observer code.
+  Separate ROOTreview/grant required. No automatic retry or subsequent identity/profile.
+
+Limits: source qualification is not native performance acceptance. The prior0ba startup376 was fixed, but its gallery remainsFALSE at378 with zero completed cases. Candidate df is uninstalled and cannot be called graphically clean, timing-safe or fully weapon-qualified until its actual native result is reviewed. Current3b and all historical negatives remain untouched.

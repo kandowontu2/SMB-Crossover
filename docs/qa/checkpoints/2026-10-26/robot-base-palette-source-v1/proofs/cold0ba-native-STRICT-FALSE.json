@@ -1,0 +1,124 @@
+{
+  "review_completed": true,
+  "native_pass": false,
+  "native_launches": 1,
+  "retries": 0,
+  "candidate_ROM_sha256": "0ba628a76f02d4610c2608acd63cdd2a877e6e9a9eb667496a3efa1c655c1927",
+  "source_manifest_sha256": "3e159733f2cb970f03b04b2d6e388752a01bfcbe0e8689ca2e61a80e709d408c",
+  "startup_duplicate_removed": true,
+  "actual_mode_readback": 1,
+  "actual_variant_readback": 1,
+  "startup_376_old_queue_offset": 56,
+  "startup_376_new_queue_offset": 38,
+  "startup_old_duplicate_25_byte_group": true,
+  "startup_new_single_25_byte_group": true,
+  "actual_new_additional_3F0C_command_bytes": 7,
+  "actual_376_palette_gateway_cycles": 1022,
+  "old_376_palette_gateway_cycles": 1478,
+  "actual_376_CHR_cycles": 435,
+  "actual_startup_376_enable": {
+    "scoped": true,
+    "stamp": {
+      "cpu": 11167450,
+      "bankC": 116,
+      "frame": 376,
+      "sp": 244,
+      "bankA": 0,
+      "pc": 57355,
+      "scanline": 259,
+      "oamaddr": 0,
+      "cycle": 265,
+      "mask": 30
+    },
+    "safe": true,
+    "enabling": true,
+    "value": 30,
+    "old": 6,
+    "kind": "actual-PPUMASK-write"
+  },
+  "first_bad_enable": {
+    "scoped": true,
+    "stamp": {
+      "cpu": 11227390,
+      "bankC": 116,
+      "frame": 378,
+      "sp": 244,
+      "bankA": 0,
+      "pc": 57355,
+      "scanline": 1,
+      "oamaddr": 0,
+      "cycle": 38,
+      "mask": 30
+    },
+    "safe": false,
+    "enabling": true,
+    "value": 30,
+    "old": 6,
+    "kind": "actual-PPUMASK-write"
+  },
+  "first_failure": {
+    "pc": 57355,
+    "message": "Scoped render enable precedes native pre-render vertical reload",
+    "y": 7,
+    "phase": {
+      "name": "basic-tier1",
+      "phase": "use"
+    },
+    "x": 0,
+    "sp": 244,
+    "bank": 127,
+    "a": 30
+  },
+  "completed_DMA_pages": 353,
+  "full_DMA_writes_checked": 90368,
+  "all_completed_DMA_sources_physical_bytes_order_masks_and_addresses_exact": true,
+  "scoped_safe_enables": 36,
+  "scoped_bad_enables": 1,
+  "completed_mechanics_cases": 0,
+  "source_updates_before_failure": 2,
+  "phase_reset_event": {
+    "data": {
+      "prior_drops": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "prior_ammo": [
+        112,
+        112,
+        112,
+        112,
+        112,
+        112,
+        112,
+        112
+      ],
+      "name": "basic-tier1",
+      "prior_refill": 0
+    },
+    "kind": "declared-component-reset",
+    "pc": 33497,
+    "update": 2,
+    "phase": "setup",
+    "sp": 250,
+    "case": 1,
+    "wall": 376,
+    "bank": 126
+  },
+  "completed_PPU_frames": 377,
+  "completed_PPU_bytes": 92651520,
+  "actual_378_queue_or_parser_recorded": false,
+  "diagnostic_frame_range": [
+    374,
+    377
+  ],
+  "source_CHR_or_NMI_final_aggregate_summary_available": false,
+  "native_worker_released": true,
+  "external_manifest_sha256": "4cade044c23d2007f0fe79fe3eaa77e4c6f1e02e47a37289eade77c41784514a",
+  "evidence_sha256": "9b4c4b30c86be4fac562bc50fb349885ce45ffea183b6e3b5d60d911aabad1f2",
+  "samples_sha256": "553c48c6534622862a857e9a1584c35afe188ee60e2c72cd5cd4cadb4624ad6d",
+  "sheet_sha256": "2be214b3a0e0b0a1988b0fd9c4ff0f68b97db193807068efbe54cc1dc357794a",
+  "tool_sha256": "b4480756a1bef33306e3d099809372923e82783d211a572387b88f3663707974",
+  "limits": "Strict profile FALSE retained. First startup fixed; later378 too-late enable not qualified. No mechanics completed, no acquisition or all-graphics claim. Original six-case guards stopped after actual setup/use atupdate2. No final source/CHR/NMI aggregate emitted.353 fullDMA pages independently reparsed exactly, including failed-enable page. Actual378 preDMA VRAM/CHR packet unlogged because original diagnostic ends377. First-failure screenshot is incomplete scanline1, not a completed378 image. Additional3F0C packet differs from old stopped baseline; do not present measured gateway saving456 as pure624 model or matched whole-workload gain."
+}

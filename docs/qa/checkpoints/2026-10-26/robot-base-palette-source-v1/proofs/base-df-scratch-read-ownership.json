@@ -1,0 +1,36 @@
+{
+  "src/megaman_palette.s": {
+    "sha256": "38a441c0a94347015187044a17181b5bb06f454ccb8d994a9dd6b38223fae397",
+    "lines": [
+      {
+        "line": 26,
+        "text": "sty MmPaletteIndex"
+      },
+      {
+        "line": 56,
+        "text": "lda MmPaletteIndex"
+      },
+      {
+        "line": 71,
+        "text": "ldx MmPaletteIndex"
+      },
+      {
+        "line": 88,
+        "text": "sta MmPaletteIndex"
+      },
+      {
+        "line": 91,
+        "text": "adc MmPaletteIndex"
+      }
+    ]
+  },
+  "src/megaman_weapons.s": {
+    "sha256": "2369a22321672b64575811a06e57bf1fd834ecb4b338657bf7bdfb94138d4fbf",
+    "lines": [
+      {
+        "line": 26,
+        "text": "MmPaletteIndex: .res 1"
+      }
+    ]
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "source_only": true,
+  "native_run": false,
+  "baseline_ROM_sha256": "0ba628a76f02d4610c2608acd63cdd2a877e6e9a9eb667496a3efa1c655c1927",
+  "candidate_ROM_sha256": "dfbdca24019776262c4388e3ea782fb989e24b8fc0e3cf0bfe0bbb84a9f480ad",
+  "actual_existingcache_reference_PlayerGfx_GameCore_tail_cases": 24,
+  "actual_selection_invalidation_reset_leave_cases": 28,
+  "scratchpoison_nextcall_cases": 60,
+  "actual_IRQ_cases": 86,
+  "actual_lagNMI_cases": 86,
+  "physicalflags_mask": 207,
+  "flags_note": "ActualinterruptRTI virtualB/U only; all physicalstatus/AXY/SP/application/banks/5SMC exact.",
+  "complete_realcaller_AXYP_SP_RAM_banks_orderedwrites_match_explicit_validoldcache_reference": true,
+  "scratch_only_readers": "Only3readoperands inMegaManPaletteState, afterearlySTYMmPaletteIndex; no externalreaders. Poison0/255 converges before everyactualoutput.",
+  "intentional_scratch_result": "Onlyfirst uncachedtier2append returnsindex2vs newlyskippedoldcachehitindex1; deadbefore nextread, not a broad mask.",
+  "cases_sha256": "0b31de883c3de3b3692d9983809b1af3baeb3ea0b407b306991880184e0a63e7",
+  "ownership_sha256": "1882ca7e59900a0ea4f55dc03305db4742a06315b387c2dce18555c606df7944",
+  "tool_sha256": "1216eaa79393725185ec71bdd4d93d39da3737e723770920b3f8eadefb4062bf",
+  "limits": "Finite assembledsourcecontrols. Existingcache reference intentionallypublishes the newlyqualifiedproducerstate, not an unchangeduncached trace claim. CompleteGameCore tail startsactual83ee with documentedfarOBJECTsavedbank; stagedactorsnotnaturalacquisition. LagNMI model is actualNmiDisable255 ISR, not native scheduling. No native recovery or actualnew378deadline pass."
+}

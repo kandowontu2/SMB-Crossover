@@ -1,0 +1,26 @@
+{
+  "passed": true,
+  "source_only": true,
+  "native_run": false,
+  "baseline_ROM_sha256": "0ba628a76f02d4610c2608acd63cdd2a877e6e9a9eb667496a3efa1c655c1927",
+  "candidate_ROM_sha256": "dfbdca24019776262c4388e3ea782fb989e24b8fc0e3cf0bfe0bbb84a9f480ad",
+  "full_public_producer_cases": 1090,
+  "all64physicalflagpatterns_EasyHard_Proto_tiers": true,
+  "full_producer_AXYP_SP_livecallerstack_application_RAM_banks_orderedwrites_exact_except_MmLastPalette": true,
+  "whole_actual_HUD_SpecialPalette_PlayerGfx_and_NMI_cases": 36,
+  "NMI_deltas": [
+    -152
+  ],
+  "producer_delta": [
+    0,
+    60
+  ],
+  "final_completeNMI_regs_banks_input_reads_and_PPU_values_exact": true,
+  "ordered_all_APU_mapper_IO_exact": true,
+  "all_completeNMI_application_RAM_differences_explicit_values_and_sourceowners": true,
+  "exact_scoped_dead_MmPaletteIndex_difference": "For tier2 firstskippedqueue finalindex1vsoldappend2; nextcall earlySTY overwrites it before every source read. Separate caller/reader proof required; no broad RAM mask.",
+  "direct_sha256": "b5f9909a36fb2f6ee6e24585361352afe6f007df28a2cc6bdfb7c3338872dc81",
+  "flows_sha256": "e4d4ffe2639d31072a9b927372e878331020927260849634a76051cec4f21d09",
+  "tool_sha256": "8fc1493ba224b04ebc2dfdccbb3b53d126010c844728e45a3885068221872938",
+  "limits": "Source configured producers/graphics and completeNMI, not fullMain/native recovery. Intentional6-byte redundantqueue removal changes deadqueue contents/offset and parserpointer; no hidden ordered-APU/channel/state relaxation. IRQ/lifecycle/realcaller/ordinary controls separate."
+}
