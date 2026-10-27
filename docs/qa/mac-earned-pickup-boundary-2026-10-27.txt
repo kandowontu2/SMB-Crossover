@@ -1,0 +1,42 @@
+MAC V1 NATIVE NEGATIVE / V2 OBSERVER BOUNDARY CORRECTION; NO GAME CHANGE
+
+ROM ab221e81821dd10690ad3a1068d91c9efae6c7406230d9bd7fc4a729fdc433d2.
+Original v1 fixture/preparer/44 bindings/readiness/native outputs stay unchanged.
+Original native failure: wall905/update511, first mushroom after six actual
+contacts created HP48. Strict assertion 'Actual physical mature pickup before
+source grant' at LmCollectGate expected live Enemy_Flag/ID/State.
+
+Actual source ordering: MarioSourcePowerupCollision first JSR EraseEnemyObject
+clears Flag/ID/State, then awards popup and routes RlCollectDispatch->LmCollectGate.
+The family grant therefore correctly sees an already-erased actor. Original
+CPU suite checked phase/X there, not the stronger native live-actor assumption.
+This is an observer error, not evidence of a game pickup bug.
+
+V2 requires three exact, source-bound events in the SAME actual GameLoop:
+1. MarioSourcePowerupCollision entry: real live mature actor5, exact current
+   type/owner/E0-or-E1 stamps and no pending grant.
+2. Genuine return after its exact first JSR EraseEnemyObject: the same actor's
+   Flag/ID/State are now all0; capture that return, not a fabricated receipt.
+3. LmCollectGate: same-update source collision+erase receipt, same item/owner,
+   exact erased state, then original native heal24/star+1/cap96/3 assertions.
+No scene outcome, resource, health, life, attack or protection seeds are added.
+
+Fresh complete assembled CPU source suite PASS13cases/1142GameLoops. Both
+mushrooms, four flowers and final heal all traverse actual live collision,
+erase return and grant once each. Original controllers/mechanics/caps and
+literal all256DMA/OAM/CHR/NMI/IRQ/SMC/stack/deadline guards are unchanged.
+No native launch occurred. Lua_VM_executed=false (deleted runtime not restored).
+
+Ready build/current-ab221-mac-hard-items-v2/prepared-not-run.json
+SHA 3bf0a5e9b1eebf6b11bfb02058f9f3f11d13d1990912d10bdc83b9df591fe4c1
+53 bindings, freshly rehashed. Exact launch is its command.json; ROOT owns lease.
+observer-correction.json binds original failure files and exact reversible delta.
+
+Owned publication:
+tests/current-mac-powerups-v2.lua
+tools/audit/current_mac_pickup_boundary_prepare_v2.py
+docs/qa/mac-earned-pickup-boundary-2026-10-27.txt
+
+This remains a typed mature-actor earned-component profile. Natural reveal,
+RNG/drop eligibility, full campaign, all-pixel fidelity and every capacity
+condition are not claimed. No production, source ROM, settings or Git changes.
