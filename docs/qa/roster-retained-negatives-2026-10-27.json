@@ -1,0 +1,33 @@
+{
+  "rows": [
+    {
+      "run": "compact-next-mario-hard-v1",
+      "ROM_sha256": "8487c439ded9bc6274e1dc8f8e051494fa96ee518553d9c2f382eccf2e71d0e6",
+      "reason": "Zero-death 1-1 route",
+      "frames": 2157,
+      "zero_deaths": false,
+      "result_sha256": "0bfd8deb331fd761551b99da3b3128c3ebb82cf881a8e19492ef6b6c43276573",
+      "attribution": "Owned controller jumped too early across the stair gap; retained no-clear, no automatic physics bug claim."
+    },
+    {
+      "run": "compact-next-sypha-hard-v2",
+      "ROM_sha256": "8487c439ded9bc6274e1dc8f8e051494fa96ee518553d9c2f382eccf2e71d0e6",
+      "reason": "Prior DMA has reached genuine completion",
+      "frames": 316,
+      "zero_deaths": true,
+      "result_sha256": "289c5735f69801e3199b87a83f407f0eadc89ad3cfdd5ac4d75c39d48c2652b7",
+      "attribution": "Observer omitted the genuine fixed125 copied owner at E008; corrected observer verifies both whole copied routines before recognizing125/127 endpoints."
+    },
+    {
+      "run": "compact-next-sypha-hard-v3",
+      "ROM_sha256": "2082c19a7364920f828e97f70040d37f1f7059bde1ea136b5c2c4532324abf36",
+      "reason": "finite frame bound",
+      "frames": 8000,
+      "zero_deaths": true,
+      "result_sha256": "be3206f42851e4182cfeaec53f74feb3f79afe39a9fe6c6c1eb9d9095f7daed0",
+      "attribution": "Native hardware/interrupt guards continued through8000, but indiscriminate scriptedB retriggers16-update Sypha staff freezes. Actualx1821 showed progress; no stationary collision softlock proved. New controller only attacks within real staff contact reach."
+    }
+  ],
+  "all_complete_route_claims": false,
+  "goal_complete": false
+}

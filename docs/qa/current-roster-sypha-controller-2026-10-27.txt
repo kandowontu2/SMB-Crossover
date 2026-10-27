@@ -1,0 +1,42 @@
+Sypha Hard v3 finite-cap diagnosis and controller-only v4 preparation
+2026-10-27
+
+Original build/verification/compact-next-sypha-hard-v3 remains FALSE at
+frame8000: finite frame bound, X1821/Y176, zero deaths. It completed7855
+GameLoops,7308 full DMA checks,7689 NMI and7689 IRQ checks. The fixed-E
+observer correction therefore passed this finite native scope. No clear,
+universal timing, full visual or gameplay-softlock claim follows.
+
+The apparent stop around X1232 was slow progress: X1230 at5210, X1231 at5225
+and X1232 next. Early frames311..2000 only advanced X40..153, all Y176.
+Inputs repeatedly alternate Right(1) and Right+B(65), because the generic
+controller pulses B two of every eight polls even without a nearby enemy.
+Actual Cv3WeaponsGate starts a16-update primary animation on a fresh B;
+Cv3MovementGate decrements it, and Cv3GroundVelocity explicitly sets VX0
+while Cv3AttackAge is nonzero. Repeated attacks leave roughly one walking
+update per16 in the recorded grounded sections. This explains the cap
+without attributing an engine collision fault or increasing the bound.
+
+Owned wrapper tools/playthroughs/current_roster_sypha_11_v1.lua calls the
+unchanged generic controller, then changes only its B decision for Sypha
+in1-1. It keeps the pulse only for a real forward/in-view eligible enemy
+within actual staff reach. Source Cv3Melee attacks at ages3..11, places the
+right-facing rectangle at X+14,width20,Y+12,height8; Cv3Overlap's enemy
+expansion gives forward origin dx1..33 and relativeY -11..19. The wrapper
+excludes source immune Buzzy/Bullet and ineligible Podoboo. It never stops
+to attack an offscreen/behind target or a merely distant target. Other
+base directions, A/jump, physical-item pursuit, stairs and all game state
+are unchanged. No movement/resource/outcome writes or emulator calls.
+
+Fresh current2082 preparation:
+ build/verification/compact-next-sypha-hard-v4/ready.json
+ SHA256 aeeec7cc331e694d44d3b86fd56ef3150e51ed7b12c0ff98d32480760aa7ce92
+ run.lua SHA256 19d6f2002e4a41ffa17a34f697a42ea0e001ddc57a56ca4b76f3a50dd2f26b39
+ policy SHA256 9945022891fda4458a9b218b3348406cd637f0e394be1afee68a02290821377e
+13 bindings rehashed, numeric Hard1/Cv3Variant2, same8000frame/600s bounds.
+Config matches failed v3 except output paths/policy. The ready.command is
+the launch command for ROOT. No native launch by B; actual clear, item
+success and visual behavior remain unrun for this controller.
+
+Only owned policy and this report are new. Shared harness/producer, current
+2082 ROM/builds, settings, production source and v3 evidence are untouched.
