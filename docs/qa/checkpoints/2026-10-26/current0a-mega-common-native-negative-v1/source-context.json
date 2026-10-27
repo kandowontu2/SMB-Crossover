@@ -1,0 +1,44 @@
+{
+  "emulator_source": {
+    "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\current3cee-nmi-mask-order-audit-v1\\NesPpu.cpp",
+    "bytes": 56524,
+    "sha256": "c71a58459a5e49ab1359f082bbc96e942f82da72a1f97dba7543ec163d36452f"
+  },
+  "emulator_source_lines_436_443": [
+    "\t\t\tif((_scanline >= 240 && (_region != ConsoleRegion::Pal || _scanline < _palSpriteEvalScanline)) || !IsRenderingEnabled()) {",
+    "\t\t\t\tif((_spriteRamAddr & 0x03) == 0x02) {",
+    "\t\t\t\t\t//\"The three unimplemented bits of each sprite's byte 2 do not exist in the PPU and always read back as 0 on PPU revisions that allow reading PPU OAM through OAMDATA ($2004)\"",
+    "\t\t\t\t\tvalue &= 0xE3;",
+    "\t\t\t\t}",
+    "\t\t\t\tWriteSpriteRam(_spriteRamAddr, value);",
+    "\t\t\t\t_emu->ProcessPpuWrite<CpuType::Nes>(_spriteRamAddr, value, MemoryType::NesSpriteRam);",
+    "\t\t\t\t_spriteRamAddr = (_spriteRamAddr + 1) & 0xFF;"
+  ],
+  "game_source": {
+    "path": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mm-proto-construction-pivot-candidate-v9\\source\\src\\metasprite_engine.s",
+    "bytes": 34548,
+    "sha256": "dc581a2d275a3de49296d0723974f8f2b2052d5c73b5ae9d837b8d278fdfe53a"
+  },
+  "game_source_lines_1250_1267": [
+    "    ; the palette from changing.",
+    "    lda (Ptr),y",
+    "    bit NoPaletteBitMask",
+    "    beq AllowPaletteChange",
+    "      ; No palette change bit set, so pull the byte and",
+    "      ; mask off the palette from the attribute byte",
+    "      lda Atr",
+    "      and #%11111100",
+    "      ora (Ptr),y",
+    "      bne WritePalette ; unconditional",
+    "AllowPaletteChange:",
+    "    ora Atr",
+    "WritePalette:",
+    ".if ::ENABLE_CROSSOVER",
+    "    and #$f3                    ; Bits2/3 tag software-only outline/FLASH.",
+    ".endif",
+    "    sta Sprite_Attributes,x",
+    "    dey"
+  ],
+  "caveat": "This archived Mesen source explains the observed write mask; it is not asserted to be the exact binary build source revision. The raw native write/physical difference independently demonstrates bit4 removal.",
+  "source_RAM_attribute_writer": "Not logged at instruction granularity. No exact foreground writer or record identity is inferred from this native capture. Game renderer AND F3 permits bit4; physical PPU write storage clears bits2..4."
+}

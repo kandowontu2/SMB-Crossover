@@ -1,0 +1,1 @@
+Original native FALSE, zero complete cases. One unimplemented OAM attribute bit discarded by real PPU storage; read-only physical-model classification does not change original result. No retry, game fix or future readiness. Raw original data remain external. Nine whole frames are selected agent review, not exhaustive visual proof.

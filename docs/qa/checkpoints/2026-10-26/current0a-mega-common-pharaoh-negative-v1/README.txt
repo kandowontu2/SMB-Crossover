@@ -1,0 +1,1 @@
+Original nativeaggregateFALSE retained. Lua owner() helper shadowed by captured case table during PHARAOH. Six earlier case paths witnessed; all14 incomplete. E3hardware semantics match all2201DMAs. No gamepatch/retry/adoption.49selectedwholeframes, not exhaustivepixelproof. Rawexternal.

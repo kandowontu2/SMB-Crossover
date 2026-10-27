@@ -1,0 +1,29 @@
+--- run_v1.py
++++ run_v2.py
+@@ -1,6 +1,6 @@
+-"""Run exactly one separately granted legal Bill/Lance Hard profile."""
++"""Run one separately granted profile; interpret only NORMAL two empty Lua arrays."""
+ from pathlib import Path
+-import argparse,csv,datetime,json,subprocess,sys
++import argparse,copy,csv,datetime,json,subprocess,sys
+ from final_bill_lance_hard_gallery_source_v1 import SHA,ROOT,sha
+ from final_item_abilities_remaining731_run_v1 import verify_manifest
+ 
+@@ -12,8 +12,15 @@
+         assert n['passed'] and n['actual_mode_readback']==1 and not n['acquisition']
+         assert n['actual_variant_readback']==n['variant']==cfg['variant']
+         assert len(n['cases'])==7
+-        for q,p in zip(n['cases'],cfg['cases']):
+-            assert q['q']==p and q['completed'] and len(q['stages'])==len(p['tasks'])
++        for case_index,(q,p) in enumerate(zip(n['cases'],cfg['cases'])):
++            observed_plan=copy.deepcopy(q['q'])
++            if case_index==0:
++                assert p['name']=='normal' and observed_plan['name']=='normal'
++                for key in ['grant_sequence','incremental_grants']:
++                    assert type(observed_plan[key]) is dict and observed_plan[key]=={}
++                    assert type(p[key]) is list and p[key]==[]
++                    observed_plan[key]=[]
++            assert observed_plan==p and q['completed'] and len(q['stages'])==len(p['tasks'])
+             assert [z['item']for z in q['grants']]==p['incremental_grants']
+             assert q['collectCalls']==len(q['grants'])
+             for s,t in zip(q['stages'],p['tasks']):

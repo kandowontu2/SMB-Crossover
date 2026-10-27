@@ -1,0 +1,58 @@
+--- frozen-original-native-FALSE
++++ profile-local-physical-encoding
+@@ -165,6 +165,11 @@
+ end,emu.eventType.startFrame)
+ emu.addEventCallback(function()dRow('actual-completed-endFrame-font-hardware',{hardware=dBytes(0,256,emu.memType.nesSpriteRam)},true)end,emu.eventType.endFrame)
+ 
++-- Profile-local successor: physical OAM has no attribute bits2/3/4.
++-- Foreground publication/source and every DMA input remain unmasked exact.
++local function oamPhysical(source)
++ local out={};for i=1,#source do local v=source:byte(i);if(i-1)%4==2 then v=v&0xe3 end;out[i]=string.char(v)end;return table.concat(out)
++end
+ -- Observe actual DMA completion after the real LDA, before STA PPUMASK.
+ -- E005 EXEC is pre-transfer in the pinned emulator and is NOT completion.
+ local dmaProtocol=assert(C.dma_protocol)
+@@ -205,8 +210,14 @@
+  for i,v in ipairs(dmaProtocol.window_bytes)do assert(emu.read(dmaProtocol.window_start+i-1,emu.memType.nesDebug)==v,'Actual eight-byte postDMA protocol')end
+  local q=assert(dmaPending,'Genuine completion belongs to an observed DMA')
+  q.complete=dmaStamp();q.hardware=bytes(0,emu.memType.nesSpriteRam)
+- local row={kind='completed-DMA-before-render-enable',id=q.id,page=q.page,start=q.start,complete=q.complete,source=dmaArray(q.source),hardware=dmaArray(q.hardware),writes=q.writes,source_publication_match=q.source_publication_match,differences={}}
+- for i=1,256 do if q.source:byte(i)~=q.hardware:byte(i)then row.differences[#row.differences+1]={offset=i-1,source=q.source:byte(i),hardware=q.hardware:byte(i)}end end
++ local row={kind='completed-DMA-before-render-enable',id=q.id,page=q.page,start=q.start,complete=q.complete,source=dmaArray(q.source),hardware=dmaArray(q.hardware),writes=q.writes,source_publication_match=q.source_publication_match,differences={},implemented_differences={},ignored_attribute_differences={}}
++ local physical=oamPhysical(q.source)
++ for i=1,256 do
++  if q.source:byte(i)~=q.hardware:byte(i)then
++   local d={offset=i-1,source=q.source:byte(i),hardware=q.hardware:byte(i)};row.differences[#row.differences+1]=d
++   if physical:byte(i)==q.hardware:byte(i)then row.ignored_attribute_differences[#row.ignored_attribute_differences+1]=d else row.implemented_differences[#row.implemented_differences+1]=d end
++  end
++ end
+  -- Full raw source/destination and every write precede ALL equality guards.
+  dmaRow(row)
+  assert(#q.writes==256,'Actual DMA has256 data writes before E008 completion')
+@@ -218,7 +229,7 @@
+   assert(wq.stamp.oamaddr==i-1,'Actual DMA destination ordinal is unmodified')
+   assert(wq.value==q.source:byte(i),'Actual DMA reads its exact frozen source byte')
+  end
+- assert(q.hardware==q.source,'All256 physical OAM bytes equal the actual DMA source')
++ assert(q.hardware==physical,'All256 physical OAM bytes equal exact PPU encoding of the actual DMA source')
+  dmaCompleted=q;dmaPending=nil
+ end,emu.callbackType.exec,dmaProtocol.complete_pc)
+ emu.addEventCallback(function()
+@@ -226,7 +237,7 @@
+  -- pending transfer is logged separately, never relabeled as completed.
+  local hardware=bytes(0,emu.memType.nesSpriteRam)
+  dmaRow({kind='startFrame-hardware',stamp=dmaStamp(),completed_dma_id=dmaCompleted and dmaCompleted.id,pending_dma_id=dmaPending and dmaPending.id,hardware=dmaArray(hardware)})
+- if dmaCompleted and not dmaPending then assert(hardware==dmaCompleted.source,'startFrame hardware retains last completed DMA')end
++ if dmaCompleted and not dmaPending then assert(hardware==oamPhysical(dmaCompleted.source),'startFrame hardware retains last completed DMA with exact PPU attribute encoding')end
+ end,emu.eventType.startFrame)
+ 
+ for _,pc in ipairs(C.irq_scroll_stores)do
+@@ -706,7 +717,7 @@
+  if entered and not done then
+   local st=emu.getState()
+   for i=0,11 do assert(st['mapper.chrBanks'..i]==physical[i],'Hardware CHR agrees with write-time latch model');chrChecks=chrChecks+1 end
+-  if dma then assert(bytes(0,emu.memType.nesSpriteRam)==dma,'Committed native publication reaches OAM DMA');dmaChecks=dmaChecks+1;dma=nil end
++  if dma then assert(bytes(0,emu.memType.nesSpriteRam)==oamPhysical(dma),'Committed native publication reaches OAM DMA with exact PPU attribute encoding');dmaChecks=dmaChecks+1;dma=nil end
+  end
+  for _,q in ipairs(queue)do
+   local screen=emu.getScreenBuffer();assert(#screen==256*240,'Real PPU screen dimensions')

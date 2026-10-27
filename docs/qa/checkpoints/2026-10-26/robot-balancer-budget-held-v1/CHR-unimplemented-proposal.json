@@ -1,0 +1,53 @@
+{
+  "implementation": false,
+  "allocation": false,
+  "unguarded_selectedMega_only_invariant_closed": false,
+  "required_admission": "SelectedCharacter==1 AND no negative bit inX5ChrMode1..11. Mode0 remains fulloriginaldirect/legacylogic; special4/HUD8 keep overrideupper andphysicalvalues.",
+  "guarded_sameA_tail_gate": {
+    "physical_bank": 62,
+    "start": "A2B7",
+    "end_exclusive": "A300",
+    "available_verifiedFF_bytes": 73,
+    "proposal_opcode_bytes": {
+      "owner_and11modeguard": 42,
+      "Cmap_restore_bridge": 25,
+      "literalfallback_LDAmode0_JMPresume": 6
+    },
+    "proposed_total_bytes": 73,
+    "hook": "Replace onlyoriginal3B LDAmode0 withJMPgate; fallbackexecutesgenuineLDAmode0 thenJMPoldnextinstruction, avoiding recursion/fakealias.",
+    "reserved_held_Chip_from_A300_untouched": true
+  },
+  "proposed_fast_body": {
+    "physical_load_bank": 78,
+    "load_address": "AC00",
+    "true_C_run_alias": "CC00",
+    "verified_currentFF_bytes": 256,
+    "estimated_body_bytes_at_most": 224,
+    "current_linker_has_no_overlap": true,
+    "external_future_reservation_closure_verified": false,
+    "proposed_linker_route": "Source-declaredsplit ofbank78 memory atAC00/AD00 plusrun-onlyC alias; not implemented/allocated. Existing62/94Chip data and78A500..A698 adapter reservation remainuntouched."
+  },
+  "finite_instruction_budget_not_assembled": {
+    "actual_original_core_cycles": 373,
+    "actual_original_full_CHR_cycles": 426,
+    "estimated_fast_body": 213,
+    "unchanged_outer_entry": 9,
+    "tail_jump": 3,
+    "owner_mode_admission": 54,
+    "Cbridge": 45,
+    "estimated_new_core": 324,
+    "estimated_net_saving": 49,
+    "original_other_owner_wide_overhead": 15,
+    "original_legacy_wide0_overhead": 0,
+    "guarded_rejected_Mega_stale_modes_overhead": 61,
+    "note": "Manualopcodebudgetonly; exactnewlayout/pagepenalties/ABI needfutureassembledproof. Not a measurednewcandidate ornativegain."
+  },
+  "ABI_and_interrupt_requirements": [
+    "GuardusesEOR/ORA soC/V/D/I retained; finalA/Y/P andall512xvalues/order matchoriginal, intentionalredundant5130zero stores omitted only.",
+    "CbridgepublishesCurrentBankC/hardwaretogether andrestoresboth. Cfastbodyexecution cannotuseA-bank self-switch. No sharedfarcallSMC orRAMborrow.",
+    "BridgeusesXtemporarily; actualresidentSwitchAreaCHR immediatelyTAX andBankSwitch clearsX0, soverifywholecaller ratherthanfalseX5helperXidentity.",
+    "RegularNMIexecutesCHRbeforepostDMA CLI incurrent3b; lagguestNMIkeepsCHR. TrueNMI/IRQ/DMCandwriteboundary qualification stillrequired.",
+    "Modeguard avoidsfalsecrossfamilyinvariant. Main privatelyupdates beforepublication; no hardcodedlegacyCurrentCHRBank constants permitted."
+  ],
+  "suitability": "Not sufficientalone: estimated49<actual993155cycledeadline distance, adds15foreignwidecycles and61staleMega fallbackcycles. No implementationrecommendedasstandalone993repair. Realqueuebackpressure oranotherprovencheapersameeventwork path needed."
+}

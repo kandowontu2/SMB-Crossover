@@ -1,0 +1,4256 @@
+{
+  "passed": true,
+  "native_run": false,
+  "new_emulator_launches": 0,
+  "ROM_sha256": "3b112e1d79ba7348f2f7a4c426f4675845a5781017ab74690feb235121a66287",
+  "original_erroneous_review_preserved": true,
+  "prior_ready_sha256": "8e2f31fc6282435a973e8030ee9e18049ee8bc00489e88dcc0ad46861d7c971b",
+  "correction": "Bill is visible in standalone2133. Its full body crop is byte-identical at2131/2132/2133/2134. Earlier reduced-sheet missing-body statement was an agent visual-review error, not a ROM defect.",
+  "shot_timing_correction": "Laser lane is empty2131..2133; new DMA1867 precedes2134. Flare lane changes with new DMA2268. This tiny interval includes publication repetition/lag and alone does not prove periodic flicker or establish a CHR defect. Preserve native/source/hardware facts without an invented graphics failure.",
+  "actual_alignment": "Captured endFrame CPU cycle determines last physically completed DMA, not equality of PPU callback frame labels. All48 candidate body scanlines retain the body inside the actual first8 eligible sprites.",
+  "CHR_palette_limits": "Historical observer checked write-time CHR latch consistency but did not save each capture-time CHR or palette image. Do not invent those values or infer a CHR/palette cause. No body defect remains in these actual images.",
+  "confirmed_unrelated_issue": "Selected Bill capsule overlapping WORLD/TIME remains source/OAM/pixel-proved; this correction does not dismiss it.",
+  "frames": [
+    {
+      "ordinal": 2131,
+      "capture": {
+        "ordinal": "2131",
+        "ppu_frame": "2131",
+        "scanline": "240",
+        "dot": "0",
+        "cpu_cycle": "63459759",
+        "phase": "run",
+        "updates": "1718",
+        "mode": "1",
+        "tier": "1"
+      },
+      "raw_frame_sha256": "8a2cbe727d3396a04b9c362bb5755d4d62d9ffda4f70c492e91338d9ffa5d9fc",
+      "last_completed_DMA_id": 1866,
+      "last_completed_DMA_stamp": {
+        "bankC": 116,
+        "cpu": 63431100,
+        "scanline": 249,
+        "bankA": 0,
+        "cycle": 294,
+        "mask": 6,
+        "sp": 244,
+        "frame": 2131,
+        "oamaddr": 0,
+        "pc": 57352
+      },
+      "last_PPUMASK_write": {
+        "value": 30,
+        "safe": true,
+        "scoped": true,
+        "old": 6,
+        "enabling": true,
+        "kind": "actual-PPUMASK-write",
+        "stamp": {
+          "bankC": 116,
+          "cpu": 63431104,
+          "scanline": 249,
+          "bankA": 0,
+          "cycle": 305,
+          "mask": 30,
+          "sp": 244,
+          "frame": 2131,
+          "oamaddr": 0,
+          "pc": 57355
+        }
+      },
+      "right_of_player_projectile_lane_nonbackground_pixels": 0,
+      "body_RGBA_crop_sha256": "70104c4e5a31c765f928c4bbcc1f2009b90669f06c5ed78ea0f0f995c9a2c9c1",
+      "body_crop_nonbackground_pixels": 320,
+      "all_48_body_scanlines": [
+        {
+          "scanline": 175,
+          "actual_eligible_OAM_order": [
+            59,
+            60,
+            61
+          ],
+          "first8": [
+            59,
+            60,
+            61
+          ],
+          "candidate_body_slots": [
+            59,
+            60,
+            61
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 176,
+          "actual_eligible_OAM_order": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "first8": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "candidate_body_slots": [
+            59,
+            60,
+            61
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 177,
+          "actual_eligible_OAM_order": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "first8": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "candidate_body_slots": [
+            59,
+            60,
+            61
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 178,
+          "actual_eligible_OAM_order": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "first8": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "candidate_body_slots": [
+            59,
+            60,
+            61
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 179,
+          "actual_eligible_OAM_order": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "first8": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "candidate_body_slots": [
+            59,
+            60,
+            61
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 180,
+          "actual_eligible_OAM_order": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "first8": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "candidate_body_slots": [
+            59,
+            60,
+            61
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 181,
+          "actual_eligible_OAM_order": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "first8": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "candidate_body_slots": [
+            59,
+            60,
+            61
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 182,
+          "actual_eligible_OAM_order": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "first8": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "candidate_body_slots": [
+            59,
+            60,
+            61
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 183,
+          "actual_eligible_OAM_order": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "first8": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "candidate_body_slots": [
+            59,
+            60,
+            61
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 184,
+          "actual_eligible_OAM_order": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "first8": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "candidate_body_slots": [
+            59,
+            60,
+            61
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 185,
+          "actual_eligible_OAM_order": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "first8": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "candidate_body_slots": [
+            59,
+            60,
+            61
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 186,
+          "actual_eligible_OAM_order": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "first8": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "candidate_body_slots": [
+            59,
+            60,
+            61
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 187,
+          "actual_eligible_OAM_order": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "first8": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "candidate_body_slots": [
+            59,
+            60,
+            61
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 188,
+          "actual_eligible_OAM_order": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "first8": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "candidate_body_slots": [
+            59,
+            60,
+            61
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 189,
+          "actual_eligible_OAM_order": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "first8": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "candidate_body_slots": [
+            59,
+            60,
+            61
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 190,
+          "actual_eligible_OAM_order": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "first8": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "candidate_body_slots": [
+            59,
+            60,
+            61
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 191,
+          "actual_eligible_OAM_order": [
+            52,
+            53,
+            54,
+            57,
+            58
+          ],
+          "first8": [
+            52,
+            53,
+            54,
+            57,
+            58
+          ],
+          "candidate_body_slots": [
+            57,
+            58
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 192,
+          "actual_eligible_OAM_order": [
+            57,
+            58
+          ],
+          "first8": [
+            57,
+            58
+          ],
+          "candidate_body_slots": [
+            57,
+            58
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 193,
+          "actual_eligible_OAM_order": [
+            57,
+            58
+          ],
+          "first8": [
+            57,
+            58
+          ],
+          "candidate_body_slots": [
+            57,
+            58
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 194,
+          "actual_eligible_OAM_order": [
+            57,
+            58
+          ],
+          "first8": [
+            57,
+            58
+          ],
+          "candidate_body_slots": [
+            57,
+            58
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 195,
+          "actual_eligible_OAM_order": [
+            57,
+            58
+          ],
+          "first8": [
+            57,
+            58
+          ],
+          "candidate_body_slots": [
+            57,
+            58
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 196,
+          "actual_eligible_OAM_order": [
+            57,
+            58
+          ],
+          "first8": [
+            57,
+            58
+          ],
+          "candidate_body_slots": [
+            57,
+            58
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 197,
+          "actual_eligible_OAM_order": [
+            57,
+            58
+          ],
+          "first8": [
+            57,
+            58
+          ],
+          "candidate_body_slots": [
+            57,
+            58
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 198,
+          "actual_eligible_OAM_order": [
+            57,
+            58
+          ],
+          "first8": [
+            57,
+            58
+          ],
+          "candidate_body_slots": [
+            57,
+            58
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 199,
+          "actual_eligible_OAM_order": [
+            57,
+            58
+          ],
+          "first8": [
+            57,
+            58
+          ],
+          "candidate_body_slots": [
+            57,
+            58
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 200,
+          "actual_eligible_OAM_order": [
+            57,
+            58
+          ],
+          "first8": [
+            57,
+            58
+          ],
+          "candidate_body_slots": [
+            57,
+            58
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 201,
+          "actual_eligible_OAM_order": [
+            57,
+            58
+          ],
+          "first8": [
+            57,
+            58
+          ],
+          "candidate_body_slots": [
+            57,
+            58
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 202,
+          "actual_eligible_OAM_order": [
+            57,
+            58
+          ],
+          "first8": [
+            57,
+            58
+          ],
+          "candidate_body_slots": [
+            57,
+            58
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 203,
+          "actual_eligible_OAM_order": [
+            57,
+            58
+          ],
+          "first8": [
+            57,
+            58
+          ],
+          "candidate_body_slots": [
+            57,
+            58
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 204,
+          "actual_eligible_OAM_order": [
+            57,
+            58
+          ],
+          "first8": [
+            57,
+            58
+          ],
+          "candidate_body_slots": [
+            57,
+            58
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 205,
+          "actual_eligible_OAM_order": [
+            57,
+            58
+          ],
+          "first8": [
+            57,
+            58
+          ],
+          "candidate_body_slots": [
+            57,
+            58
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 206,
+          "actual_eligible_OAM_order": [
+            57,
+            58
+          ],
+          "first8": [
+            57,
+            58
+          ],
+          "candidate_body_slots": [
+            57,
+            58
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 207,
+          "actual_eligible_OAM_order": [
+            55,
+            56
+          ],
+          "first8": [
+            55,
+            56
+          ],
+          "candidate_body_slots": [
+            55,
+            56
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 208,
+          "actual_eligible_OAM_order": [
+            55,
+            56
+          ],
+          "first8": [
+            55,
+            56
+          ],
+          "candidate_body_slots": [
+            55,
+            56
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 209,
+          "actual_eligible_OAM_order": [
+            55,
+            56
+          ],
+          "first8": [
+            55,
+            56
+          ],
+          "candidate_body_slots": [
+            55,
+            56
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 210,
+          "actual_eligible_OAM_order": [
+            55,
+            56
+          ],
+          "first8": [
+            55,
+            56
+          ],
+          "candidate_body_slots": [
+            55,
+            56
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 211,
+          "actual_eligible_OAM_order": [
+            55,
+            56
+          ],
+          "first8": [
+            55,
+            56
+          ],
+          "candidate_body_slots": [
+            55,
+            56
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 212,
+          "actual_eligible_OAM_order": [
+            55,
+            56
+          ],
+          "first8": [
+            55,
+            56
+          ],
+          "candidate_body_slots": [
+            55,
+            56
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 213,
+          "actual_eligible_OAM_order": [
+            55,
+            56
+          ],
+          "first8": [
+            55,
+            56
+          ],
+          "candidate_body_slots": [
+            55,
+            56
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 214,
+          "actual_eligible_OAM_order": [
+            55,
+            56
+          ],
+          "first8": [
+            55,
+            56
+          ],
+          "candidate_body_slots": [
+            55,
+            56
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 215,
+          "actual_eligible_OAM_order": [
+            55,
+            56
+          ],
+          "first8": [
+            55,
+            56
+          ],
+          "candidate_body_slots": [
+            55,
+            56
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 216,
+          "actual_eligible_OAM_order": [
+            55,
+            56
+          ],
+          "first8": [
+            55,
+            56
+          ],
+          "candidate_body_slots": [
+            55,
+            56
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 217,
+          "actual_eligible_OAM_order": [
+            55,
+            56
+          ],
+          "first8": [
+            55,
+            56
+          ],
+          "candidate_body_slots": [
+            55,
+            56
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 218,
+          "actual_eligible_OAM_order": [
+            55,
+            56
+          ],
+          "first8": [
+            55,
+            56
+          ],
+          "candidate_body_slots": [
+            55,
+            56
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 219,
+          "actual_eligible_OAM_order": [
+            55,
+            56
+          ],
+          "first8": [
+            55,
+            56
+          ],
+          "candidate_body_slots": [
+            55,
+            56
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 220,
+          "actual_eligible_OAM_order": [
+            55,
+            56
+          ],
+          "first8": [
+            55,
+            56
+          ],
+          "candidate_body_slots": [
+            55,
+            56
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 221,
+          "actual_eligible_OAM_order": [
+            55,
+            56
+          ],
+          "first8": [
+            55,
+            56
+          ],
+          "candidate_body_slots": [
+            55,
+            56
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 222,
+          "actual_eligible_OAM_order": [
+            55,
+            56
+          ],
+          "first8": [
+            55,
+            56
+          ],
+          "candidate_body_slots": [
+            55,
+            56
+          ],
+          "candidate_body_rejected": []
+        }
+      ]
+    },
+    {
+      "ordinal": 2132,
+      "capture": {
+        "ordinal": "2132",
+        "ppu_frame": "2132",
+        "scanline": "240",
+        "dot": "0",
+        "cpu_cycle": "63489540",
+        "phase": "run",
+        "updates": "1719",
+        "mode": "1",
+        "tier": "1"
+      },
+      "raw_frame_sha256": "8a2cbe727d3396a04b9c362bb5755d4d62d9ffda4f70c492e91338d9ffa5d9fc",
+      "last_completed_DMA_id": 1866,
+      "last_completed_DMA_stamp": {
+        "bankC": 116,
+        "cpu": 63431100,
+        "scanline": 249,
+        "bankA": 0,
+        "cycle": 294,
+        "mask": 6,
+        "sp": 244,
+        "frame": 2131,
+        "oamaddr": 0,
+        "pc": 57352
+      },
+      "last_PPUMASK_write": {
+        "value": 30,
+        "safe": true,
+        "scoped": true,
+        "old": 6,
+        "enabling": true,
+        "kind": "actual-PPUMASK-write",
+        "stamp": {
+          "bankC": 116,
+          "cpu": 63431104,
+          "scanline": 249,
+          "bankA": 0,
+          "cycle": 305,
+          "mask": 30,
+          "sp": 244,
+          "frame": 2131,
+          "oamaddr": 0,
+          "pc": 57355
+        }
+      },
+      "right_of_player_projectile_lane_nonbackground_pixels": 0,
+      "body_RGBA_crop_sha256": "70104c4e5a31c765f928c4bbcc1f2009b90669f06c5ed78ea0f0f995c9a2c9c1",
+      "body_crop_nonbackground_pixels": 320,
+      "all_48_body_scanlines": [
+        {
+          "scanline": 175,
+          "actual_eligible_OAM_order": [
+            59,
+            60,
+            61
+          ],
+          "first8": [
+            59,
+            60,
+            61
+          ],
+          "candidate_body_slots": [
+            59,
+            60,
+            61
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 176,
+          "actual_eligible_OAM_order": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "first8": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "candidate_body_slots": [
+            59,
+            60,
+            61
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 177,
+          "actual_eligible_OAM_order": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "first8": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "candidate_body_slots": [
+            59,
+            60,
+            61
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 178,
+          "actual_eligible_OAM_order": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "first8": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "candidate_body_slots": [
+            59,
+            60,
+            61
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 179,
+          "actual_eligible_OAM_order": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "first8": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "candidate_body_slots": [
+            59,
+            60,
+            61
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 180,
+          "actual_eligible_OAM_order": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "first8": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "candidate_body_slots": [
+            59,
+            60,
+            61
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 181,
+          "actual_eligible_OAM_order": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "first8": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "candidate_body_slots": [
+            59,
+            60,
+            61
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 182,
+          "actual_eligible_OAM_order": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "first8": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "candidate_body_slots": [
+            59,
+            60,
+            61
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 183,
+          "actual_eligible_OAM_order": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "first8": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "candidate_body_slots": [
+            59,
+            60,
+            61
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 184,
+          "actual_eligible_OAM_order": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "first8": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "candidate_body_slots": [
+            59,
+            60,
+            61
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 185,
+          "actual_eligible_OAM_order": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "first8": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "candidate_body_slots": [
+            59,
+            60,
+            61
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 186,
+          "actual_eligible_OAM_order": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "first8": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "candidate_body_slots": [
+            59,
+            60,
+            61
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 187,
+          "actual_eligible_OAM_order": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "first8": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "candidate_body_slots": [
+            59,
+            60,
+            61
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 188,
+          "actual_eligible_OAM_order": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "first8": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "candidate_body_slots": [
+            59,
+            60,
+            61
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 189,
+          "actual_eligible_OAM_order": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "first8": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "candidate_body_slots": [
+            59,
+            60,
+            61
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 190,
+          "actual_eligible_OAM_order": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "first8": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "candidate_body_slots": [
+            59,
+            60,
+            61
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 191,
+          "actual_eligible_OAM_order": [
+            52,
+            53,
+            54,
+            57,
+            58
+          ],
+          "first8": [
+            52,
+            53,
+            54,
+            57,
+            58
+          ],
+          "candidate_body_slots": [
+            57,
+            58
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 192,
+          "actual_eligible_OAM_order": [
+            57,
+            58
+          ],
+          "first8": [
+            57,
+            58
+          ],
+          "candidate_body_slots": [
+            57,
+            58
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 193,
+          "actual_eligible_OAM_order": [
+            57,
+            58
+          ],
+          "first8": [
+            57,
+            58
+          ],
+          "candidate_body_slots": [
+            57,
+            58
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 194,
+          "actual_eligible_OAM_order": [
+            57,
+            58
+          ],
+          "first8": [
+            57,
+            58
+          ],
+          "candidate_body_slots": [
+            57,
+            58
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 195,
+          "actual_eligible_OAM_order": [
+            57,
+            58
+          ],
+          "first8": [
+            57,
+            58
+          ],
+          "candidate_body_slots": [
+            57,
+            58
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 196,
+          "actual_eligible_OAM_order": [
+            57,
+            58
+          ],
+          "first8": [
+            57,
+            58
+          ],
+          "candidate_body_slots": [
+            57,
+            58
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 197,
+          "actual_eligible_OAM_order": [
+            57,
+            58
+          ],
+          "first8": [
+            57,
+            58
+          ],
+          "candidate_body_slots": [
+            57,
+            58
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 198,
+          "actual_eligible_OAM_order": [
+            57,
+            58
+          ],
+          "first8": [
+            57,
+            58
+          ],
+          "candidate_body_slots": [
+            57,
+            58
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 199,
+          "actual_eligible_OAM_order": [
+            57,
+            58
+          ],
+          "first8": [
+            57,
+            58
+          ],
+          "candidate_body_slots": [
+            57,
+            58
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 200,
+          "actual_eligible_OAM_order": [
+            57,
+            58
+          ],
+          "first8": [
+            57,
+            58
+          ],
+          "candidate_body_slots": [
+            57,
+            58
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 201,
+          "actual_eligible_OAM_order": [
+            57,
+            58
+          ],
+          "first8": [
+            57,
+            58
+          ],
+          "candidate_body_slots": [
+            57,
+            58
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 202,
+          "actual_eligible_OAM_order": [
+            57,
+            58
+          ],
+          "first8": [
+            57,
+            58
+          ],
+          "candidate_body_slots": [
+            57,
+            58
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 203,
+          "actual_eligible_OAM_order": [
+            57,
+            58
+          ],
+          "first8": [
+            57,
+            58
+          ],
+          "candidate_body_slots": [
+            57,
+            58
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 204,
+          "actual_eligible_OAM_order": [
+            57,
+            58
+          ],
+          "first8": [
+            57,
+            58
+          ],
+          "candidate_body_slots": [
+            57,
+            58
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 205,
+          "actual_eligible_OAM_order": [
+            57,
+            58
+          ],
+          "first8": [
+            57,
+            58
+          ],
+          "candidate_body_slots": [
+            57,
+            58
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 206,
+          "actual_eligible_OAM_order": [
+            57,
+            58
+          ],
+          "first8": [
+            57,
+            58
+          ],
+          "candidate_body_slots": [
+            57,
+            58
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 207,
+          "actual_eligible_OAM_order": [
+            55,
+            56
+          ],
+          "first8": [
+            55,
+            56
+          ],
+          "candidate_body_slots": [
+            55,
+            56
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 208,
+          "actual_eligible_OAM_order": [
+            55,
+            56
+          ],
+          "first8": [
+            55,
+            56
+          ],
+          "candidate_body_slots": [
+            55,
+            56
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 209,
+          "actual_eligible_OAM_order": [
+            55,
+            56
+          ],
+          "first8": [
+            55,
+            56
+          ],
+          "candidate_body_slots": [
+            55,
+            56
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 210,
+          "actual_eligible_OAM_order": [
+            55,
+            56
+          ],
+          "first8": [
+            55,
+            56
+          ],
+          "candidate_body_slots": [
+            55,
+            56
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 211,
+          "actual_eligible_OAM_order": [
+            55,
+            56
+          ],
+          "first8": [
+            55,
+            56
+          ],
+          "candidate_body_slots": [
+            55,
+            56
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 212,
+          "actual_eligible_OAM_order": [
+            55,
+            56
+          ],
+          "first8": [
+            55,
+            56
+          ],
+          "candidate_body_slots": [
+            55,
+            56
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 213,
+          "actual_eligible_OAM_order": [
+            55,
+            56
+          ],
+          "first8": [
+            55,
+            56
+          ],
+          "candidate_body_slots": [
+            55,
+            56
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 214,
+          "actual_eligible_OAM_order": [
+            55,
+            56
+          ],
+          "first8": [
+            55,
+            56
+          ],
+          "candidate_body_slots": [
+            55,
+            56
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 215,
+          "actual_eligible_OAM_order": [
+            55,
+            56
+          ],
+          "first8": [
+            55,
+            56
+          ],
+          "candidate_body_slots": [
+            55,
+            56
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 216,
+          "actual_eligible_OAM_order": [
+            55,
+            56
+          ],
+          "first8": [
+            55,
+            56
+          ],
+          "candidate_body_slots": [
+            55,
+            56
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 217,
+          "actual_eligible_OAM_order": [
+            55,
+            56
+          ],
+          "first8": [
+            55,
+            56
+          ],
+          "candidate_body_slots": [
+            55,
+            56
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 218,
+          "actual_eligible_OAM_order": [
+            55,
+            56
+          ],
+          "first8": [
+            55,
+            56
+          ],
+          "candidate_body_slots": [
+            55,
+            56
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 219,
+          "actual_eligible_OAM_order": [
+            55,
+            56
+          ],
+          "first8": [
+            55,
+            56
+          ],
+          "candidate_body_slots": [
+            55,
+            56
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 220,
+          "actual_eligible_OAM_order": [
+            55,
+            56
+          ],
+          "first8": [
+            55,
+            56
+          ],
+          "candidate_body_slots": [
+            55,
+            56
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 221,
+          "actual_eligible_OAM_order": [
+            55,
+            56
+          ],
+          "first8": [
+            55,
+            56
+          ],
+          "candidate_body_slots": [
+            55,
+            56
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 222,
+          "actual_eligible_OAM_order": [
+            55,
+            56
+          ],
+          "first8": [
+            55,
+            56
+          ],
+          "candidate_body_slots": [
+            55,
+            56
+          ],
+          "candidate_body_rejected": []
+        }
+      ]
+    },
+    {
+      "ordinal": 2133,
+      "capture": {
+        "ordinal": "2133",
+        "ppu_frame": "2133",
+        "scanline": "240",
+        "dot": "0",
+        "cpu_cycle": "63519320",
+        "phase": "run",
+        "updates": "1719",
+        "mode": "1",
+        "tier": "1"
+      },
+      "raw_frame_sha256": "8a2cbe727d3396a04b9c362bb5755d4d62d9ffda4f70c492e91338d9ffa5d9fc",
+      "last_completed_DMA_id": 1866,
+      "last_completed_DMA_stamp": {
+        "bankC": 116,
+        "cpu": 63431100,
+        "scanline": 249,
+        "bankA": 0,
+        "cycle": 294,
+        "mask": 6,
+        "sp": 244,
+        "frame": 2131,
+        "oamaddr": 0,
+        "pc": 57352
+      },
+      "last_PPUMASK_write": {
+        "value": 30,
+        "safe": true,
+        "scoped": true,
+        "old": 6,
+        "enabling": true,
+        "kind": "actual-PPUMASK-write",
+        "stamp": {
+          "bankC": 116,
+          "cpu": 63431104,
+          "scanline": 249,
+          "bankA": 0,
+          "cycle": 305,
+          "mask": 30,
+          "sp": 244,
+          "frame": 2131,
+          "oamaddr": 0,
+          "pc": 57355
+        }
+      },
+      "right_of_player_projectile_lane_nonbackground_pixels": 0,
+      "body_RGBA_crop_sha256": "70104c4e5a31c765f928c4bbcc1f2009b90669f06c5ed78ea0f0f995c9a2c9c1",
+      "body_crop_nonbackground_pixels": 320,
+      "all_48_body_scanlines": [
+        {
+          "scanline": 175,
+          "actual_eligible_OAM_order": [
+            59,
+            60,
+            61
+          ],
+          "first8": [
+            59,
+            60,
+            61
+          ],
+          "candidate_body_slots": [
+            59,
+            60,
+            61
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 176,
+          "actual_eligible_OAM_order": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "first8": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "candidate_body_slots": [
+            59,
+            60,
+            61
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 177,
+          "actual_eligible_OAM_order": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "first8": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "candidate_body_slots": [
+            59,
+            60,
+            61
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 178,
+          "actual_eligible_OAM_order": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "first8": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "candidate_body_slots": [
+            59,
+            60,
+            61
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 179,
+          "actual_eligible_OAM_order": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "first8": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "candidate_body_slots": [
+            59,
+            60,
+            61
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 180,
+          "actual_eligible_OAM_order": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "first8": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "candidate_body_slots": [
+            59,
+            60,
+            61
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 181,
+          "actual_eligible_OAM_order": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "first8": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "candidate_body_slots": [
+            59,
+            60,
+            61
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 182,
+          "actual_eligible_OAM_order": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "first8": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "candidate_body_slots": [
+            59,
+            60,
+            61
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 183,
+          "actual_eligible_OAM_order": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "first8": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "candidate_body_slots": [
+            59,
+            60,
+            61
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 184,
+          "actual_eligible_OAM_order": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "first8": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "candidate_body_slots": [
+            59,
+            60,
+            61
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 185,
+          "actual_eligible_OAM_order": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "first8": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "candidate_body_slots": [
+            59,
+            60,
+            61
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 186,
+          "actual_eligible_OAM_order": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "first8": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "candidate_body_slots": [
+            59,
+            60,
+            61
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 187,
+          "actual_eligible_OAM_order": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "first8": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "candidate_body_slots": [
+            59,
+            60,
+            61
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 188,
+          "actual_eligible_OAM_order": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "first8": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "candidate_body_slots": [
+            59,
+            60,
+            61
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 189,
+          "actual_eligible_OAM_order": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "first8": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "candidate_body_slots": [
+            59,
+            60,
+            61
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 190,
+          "actual_eligible_OAM_order": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "first8": [
+            52,
+            53,
+            54,
+            59,
+            60,
+            61
+          ],
+          "candidate_body_slots": [
+            59,
+            60,
+            61
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 191,
+          "actual_eligible_OAM_order": [
+            52,
+            53,
+            54,
+            57,
+            58
+          ],
+          "first8": [
+            52,
+            53,
+            54,
+            57,
+            58
+          ],
+          "candidate_body_slots": [
+            57,
+            58
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 192,
+          "actual_eligible_OAM_order": [
+            57,
+            58
+          ],
+          "first8": [
+            57,
+            58
+          ],
+          "candidate_body_slots": [
+            57,
+            58
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 193,
+          "actual_eligible_OAM_order": [
+            57,
+            58
+          ],
+          "first8": [
+            57,
+            58
+          ],
+          "candidate_body_slots": [
+            57,
+            58
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 194,
+          "actual_eligible_OAM_order": [
+            57,
+            58
+          ],
+          "first8": [
+            57,
+            58
+          ],
+          "candidate_body_slots": [
+            57,
+            58
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 195,
+          "actual_eligible_OAM_order": [
+            57,
+            58
+          ],
+          "first8": [
+            57,
+            58
+          ],
+          "candidate_body_slots": [
+            57,
+            58
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 196,
+          "actual_eligible_OAM_order": [
+            57,
+            58
+          ],
+          "first8": [
+            57,
+            58
+          ],
+          "candidate_body_slots": [
+            57,
+            58
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 197,
+          "actual_eligible_OAM_order": [
+            57,
+            58
+          ],
+          "first8": [
+            57,
+            58
+          ],
+          "candidate_body_slots": [
+            57,
+            58
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 198,
+          "actual_eligible_OAM_order": [
+            57,
+            58
+          ],
+          "first8": [
+            57,
+            58
+          ],
+          "candidate_body_slots": [
+            57,
+            58
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 199,
+          "actual_eligible_OAM_order": [
+            57,
+            58
+          ],
+          "first8": [
+            57,
+            58
+          ],
+          "candidate_body_slots": [
+            57,
+            58
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 200,
+          "actual_eligible_OAM_order": [
+            57,
+            58
+          ],
+          "first8": [
+            57,
+            58
+          ],
+          "candidate_body_slots": [
+            57,
+            58
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 201,
+          "actual_eligible_OAM_order": [
+            57,
+            58
+          ],
+          "first8": [
+            57,
+            58
+          ],
+          "candidate_body_slots": [
+            57,
+            58
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 202,
+          "actual_eligible_OAM_order": [
+            57,
+            58
+          ],
+          "first8": [
+            57,
+            58
+          ],
+          "candidate_body_slots": [
+            57,
+            58
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 203,
+          "actual_eligible_OAM_order": [
+            57,
+            58
+          ],
+          "first8": [
+            57,
+            58
+          ],
+          "candidate_body_slots": [
+            57,
+            58
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 204,
+          "actual_eligible_OAM_order": [
+            57,
+            58
+          ],
+          "first8": [
+            57,
+            58
+          ],
+          "candidate_body_slots": [
+            57,
+            58
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 205,
+          "actual_eligible_OAM_order": [
+            57,
+            58
+          ],
+          "first8": [
+            57,
+            58
+          ],
+          "candidate_body_slots": [
+            57,
+            58
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 206,
+          "actual_eligible_OAM_order": [
+            57,
+            58
+          ],
+          "first8": [
+            57,
+            58
+          ],
+          "candidate_body_slots": [
+            57,
+            58
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 207,
+          "actual_eligible_OAM_order": [
+            55,
+            56
+          ],
+          "first8": [
+            55,
+            56
+          ],
+          "candidate_body_slots": [
+            55,
+            56
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 208,
+          "actual_eligible_OAM_order": [
+            55,
+            56
+          ],
+          "first8": [
+            55,
+            56
+          ],
+          "candidate_body_slots": [
+            55,
+            56
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 209,
+          "actual_eligible_OAM_order": [
+            55,
+            56
+          ],
+          "first8": [
+            55,
+            56
+          ],
+          "candidate_body_slots": [
+            55,
+            56
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 210,
+          "actual_eligible_OAM_order": [
+            55,
+            56
+          ],
+          "first8": [
+            55,
+            56
+          ],
+          "candidate_body_slots": [
+            55,
+            56
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 211,
+          "actual_eligible_OAM_order": [
+            55,
+            56
+          ],
+          "first8": [
+            55,
+            56
+          ],
+          "candidate_body_slots": [
+            55,
+            56
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 212,
+          "actual_eligible_OAM_order": [
+            55,
+            56
+          ],
+          "first8": [
+            55,
+            56
+          ],
+          "candidate_body_slots": [
+            55,
+            56
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 213,
+          "actual_eligible_OAM_order": [
+            55,
+            56
+          ],
+          "first8": [
+            55,
+            56
+          ],
+          "candidate_body_slots": [
+            55,
+            56
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 214,
+          "actual_eligible_OAM_order": [
+            55,
+            56
+          ],
+          "first8": [
+            55,
+            56
+          ],
+          "candidate_body_slots": [
+            55,
+            56
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 215,
+          "actual_eligible_OAM_order": [
+            55,
+            56
+          ],
+          "first8": [
+            55,
+            56
+          ],
+          "candidate_body_slots": [
+            55,
+            56
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 216,
+          "actual_eligible_OAM_order": [
+            55,
+            56
+          ],
+          "first8": [
+            55,
+            56
+          ],
+          "candidate_body_slots": [
+            55,
+            56
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 217,
+          "actual_eligible_OAM_order": [
+            55,
+            56
+          ],
+          "first8": [
+            55,
+            56
+          ],
+          "candidate_body_slots": [
+            55,
+            56
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 218,
+          "actual_eligible_OAM_order": [
+            55,
+            56
+          ],
+          "first8": [
+            55,
+            56
+          ],
+          "candidate_body_slots": [
+            55,
+            56
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 219,
+          "actual_eligible_OAM_order": [
+            55,
+            56
+          ],
+          "first8": [
+            55,
+            56
+          ],
+          "candidate_body_slots": [
+            55,
+            56
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 220,
+          "actual_eligible_OAM_order": [
+            55,
+            56
+          ],
+          "first8": [
+            55,
+            56
+          ],
+          "candidate_body_slots": [
+            55,
+            56
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 221,
+          "actual_eligible_OAM_order": [
+            55,
+            56
+          ],
+          "first8": [
+            55,
+            56
+          ],
+          "candidate_body_slots": [
+            55,
+            56
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 222,
+          "actual_eligible_OAM_order": [
+            55,
+            56
+          ],
+          "first8": [
+            55,
+            56
+          ],
+          "candidate_body_slots": [
+            55,
+            56
+          ],
+          "candidate_body_rejected": []
+        }
+      ]
+    },
+    {
+      "ordinal": 2134,
+      "capture": {
+        "ordinal": "2134",
+        "ppu_frame": "2134",
+        "scanline": "240",
+        "dot": "0",
+        "cpu_cycle": "63549101",
+        "phase": "run",
+        "updates": "1720",
+        "mode": "1",
+        "tier": "1"
+      },
+      "raw_frame_sha256": "193ab293728acc3da7588474b7a0b7eabe65c640cc5902d767fdf59b19b057a0",
+      "last_completed_DMA_id": 1867,
+      "last_completed_DMA_stamp": {
+        "bankC": 116,
+        "cpu": 63520612,
+        "scanline": 251,
+        "bankA": 0,
+        "cycle": 124,
+        "mask": 6,
+        "sp": 244,
+        "frame": 2134,
+        "oamaddr": 0,
+        "pc": 57352
+      },
+      "last_PPUMASK_write": {
+        "value": 30,
+        "safe": true,
+        "scoped": true,
+        "old": 6,
+        "enabling": true,
+        "kind": "actual-PPUMASK-write",
+        "stamp": {
+          "bankC": 116,
+          "cpu": 63520616,
+          "scanline": 251,
+          "bankA": 0,
+          "cycle": 135,
+          "mask": 30,
+          "sp": 244,
+          "frame": 2134,
+          "oamaddr": 0,
+          "pc": 57355
+        }
+      },
+      "right_of_player_projectile_lane_nonbackground_pixels": 43,
+      "body_RGBA_crop_sha256": "70104c4e5a31c765f928c4bbcc1f2009b90669f06c5ed78ea0f0f995c9a2c9c1",
+      "body_crop_nonbackground_pixels": 320,
+      "all_48_body_scanlines": [
+        {
+          "scanline": 175,
+          "actual_eligible_OAM_order": [
+            8,
+            9,
+            10
+          ],
+          "first8": [
+            8,
+            9,
+            10
+          ],
+          "candidate_body_slots": [
+            8,
+            9,
+            10
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 176,
+          "actual_eligible_OAM_order": [
+            1,
+            2,
+            3,
+            8,
+            9,
+            10
+          ],
+          "first8": [
+            1,
+            2,
+            3,
+            8,
+            9,
+            10
+          ],
+          "candidate_body_slots": [
+            8,
+            9,
+            10
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 177,
+          "actual_eligible_OAM_order": [
+            1,
+            2,
+            3,
+            8,
+            9,
+            10
+          ],
+          "first8": [
+            1,
+            2,
+            3,
+            8,
+            9,
+            10
+          ],
+          "candidate_body_slots": [
+            8,
+            9,
+            10
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 178,
+          "actual_eligible_OAM_order": [
+            1,
+            2,
+            3,
+            8,
+            9,
+            10
+          ],
+          "first8": [
+            1,
+            2,
+            3,
+            8,
+            9,
+            10
+          ],
+          "candidate_body_slots": [
+            8,
+            9,
+            10
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 179,
+          "actual_eligible_OAM_order": [
+            1,
+            2,
+            3,
+            8,
+            9,
+            10
+          ],
+          "first8": [
+            1,
+            2,
+            3,
+            8,
+            9,
+            10
+          ],
+          "candidate_body_slots": [
+            8,
+            9,
+            10
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 180,
+          "actual_eligible_OAM_order": [
+            1,
+            2,
+            3,
+            8,
+            9,
+            10
+          ],
+          "first8": [
+            1,
+            2,
+            3,
+            8,
+            9,
+            10
+          ],
+          "candidate_body_slots": [
+            8,
+            9,
+            10
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 181,
+          "actual_eligible_OAM_order": [
+            1,
+            2,
+            3,
+            8,
+            9,
+            10
+          ],
+          "first8": [
+            1,
+            2,
+            3,
+            8,
+            9,
+            10
+          ],
+          "candidate_body_slots": [
+            8,
+            9,
+            10
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 182,
+          "actual_eligible_OAM_order": [
+            0,
+            1,
+            2,
+            3,
+            8,
+            9,
+            10,
+            57,
+            58,
+            59,
+            60,
+            61,
+            62,
+            63
+          ],
+          "first8": [
+            0,
+            1,
+            2,
+            3,
+            8,
+            9,
+            10,
+            57
+          ],
+          "candidate_body_slots": [
+            8,
+            9,
+            10
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 183,
+          "actual_eligible_OAM_order": [
+            0,
+            1,
+            2,
+            3,
+            8,
+            9,
+            10,
+            57,
+            58,
+            59,
+            60,
+            61,
+            62,
+            63
+          ],
+          "first8": [
+            0,
+            1,
+            2,
+            3,
+            8,
+            9,
+            10,
+            57
+          ],
+          "candidate_body_slots": [
+            8,
+            9,
+            10
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 184,
+          "actual_eligible_OAM_order": [
+            0,
+            1,
+            2,
+            3,
+            8,
+            9,
+            10,
+            57,
+            58,
+            59,
+            60,
+            61,
+            62,
+            63
+          ],
+          "first8": [
+            0,
+            1,
+            2,
+            3,
+            8,
+            9,
+            10,
+            57
+          ],
+          "candidate_body_slots": [
+            8,
+            9,
+            10
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 185,
+          "actual_eligible_OAM_order": [
+            0,
+            1,
+            2,
+            3,
+            8,
+            9,
+            10,
+            57,
+            58,
+            59,
+            60,
+            61,
+            62,
+            63
+          ],
+          "first8": [
+            0,
+            1,
+            2,
+            3,
+            8,
+            9,
+            10,
+            57
+          ],
+          "candidate_body_slots": [
+            8,
+            9,
+            10
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 186,
+          "actual_eligible_OAM_order": [
+            0,
+            1,
+            2,
+            3,
+            8,
+            9,
+            10,
+            57,
+            58,
+            59,
+            60,
+            61,
+            62,
+            63
+          ],
+          "first8": [
+            0,
+            1,
+            2,
+            3,
+            8,
+            9,
+            10,
+            57
+          ],
+          "candidate_body_slots": [
+            8,
+            9,
+            10
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 187,
+          "actual_eligible_OAM_order": [
+            0,
+            1,
+            2,
+            3,
+            8,
+            9,
+            10,
+            57,
+            58,
+            59,
+            60,
+            61,
+            62,
+            63
+          ],
+          "first8": [
+            0,
+            1,
+            2,
+            3,
+            8,
+            9,
+            10,
+            57
+          ],
+          "candidate_body_slots": [
+            8,
+            9,
+            10
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 188,
+          "actual_eligible_OAM_order": [
+            0,
+            1,
+            2,
+            3,
+            8,
+            9,
+            10,
+            57,
+            58,
+            59,
+            60,
+            61,
+            62,
+            63
+          ],
+          "first8": [
+            0,
+            1,
+            2,
+            3,
+            8,
+            9,
+            10,
+            57
+          ],
+          "candidate_body_slots": [
+            8,
+            9,
+            10
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 189,
+          "actual_eligible_OAM_order": [
+            0,
+            1,
+            2,
+            3,
+            8,
+            9,
+            10,
+            57,
+            58,
+            59,
+            60,
+            61,
+            62,
+            63
+          ],
+          "first8": [
+            0,
+            1,
+            2,
+            3,
+            8,
+            9,
+            10,
+            57
+          ],
+          "candidate_body_slots": [
+            8,
+            9,
+            10
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 190,
+          "actual_eligible_OAM_order": [
+            0,
+            1,
+            2,
+            3,
+            8,
+            9,
+            10,
+            57,
+            58,
+            59,
+            60,
+            61,
+            62,
+            63
+          ],
+          "first8": [
+            0,
+            1,
+            2,
+            3,
+            8,
+            9,
+            10,
+            57
+          ],
+          "candidate_body_slots": [
+            8,
+            9,
+            10
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 191,
+          "actual_eligible_OAM_order": [
+            0,
+            1,
+            2,
+            3,
+            6,
+            7,
+            57,
+            58,
+            59,
+            60,
+            61,
+            62,
+            63
+          ],
+          "first8": [
+            0,
+            1,
+            2,
+            3,
+            6,
+            7,
+            57,
+            58
+          ],
+          "candidate_body_slots": [
+            6,
+            7
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 192,
+          "actual_eligible_OAM_order": [
+            0,
+            6,
+            7,
+            57,
+            58,
+            59,
+            60,
+            61,
+            62,
+            63
+          ],
+          "first8": [
+            0,
+            6,
+            7,
+            57,
+            58,
+            59,
+            60,
+            61
+          ],
+          "candidate_body_slots": [
+            6,
+            7
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 193,
+          "actual_eligible_OAM_order": [
+            0,
+            6,
+            7,
+            57,
+            58,
+            59,
+            60,
+            61,
+            62,
+            63
+          ],
+          "first8": [
+            0,
+            6,
+            7,
+            57,
+            58,
+            59,
+            60,
+            61
+          ],
+          "candidate_body_slots": [
+            6,
+            7
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 194,
+          "actual_eligible_OAM_order": [
+            0,
+            6,
+            7,
+            57,
+            58,
+            59,
+            60,
+            61,
+            62,
+            63
+          ],
+          "first8": [
+            0,
+            6,
+            7,
+            57,
+            58,
+            59,
+            60,
+            61
+          ],
+          "candidate_body_slots": [
+            6,
+            7
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 195,
+          "actual_eligible_OAM_order": [
+            0,
+            6,
+            7,
+            57,
+            58,
+            59,
+            60,
+            61,
+            62,
+            63
+          ],
+          "first8": [
+            0,
+            6,
+            7,
+            57,
+            58,
+            59,
+            60,
+            61
+          ],
+          "candidate_body_slots": [
+            6,
+            7
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 196,
+          "actual_eligible_OAM_order": [
+            0,
+            6,
+            7,
+            57,
+            58,
+            59,
+            60,
+            61,
+            62,
+            63
+          ],
+          "first8": [
+            0,
+            6,
+            7,
+            57,
+            58,
+            59,
+            60,
+            61
+          ],
+          "candidate_body_slots": [
+            6,
+            7
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 197,
+          "actual_eligible_OAM_order": [
+            0,
+            6,
+            7,
+            57,
+            58,
+            59,
+            60,
+            61,
+            62,
+            63
+          ],
+          "first8": [
+            0,
+            6,
+            7,
+            57,
+            58,
+            59,
+            60,
+            61
+          ],
+          "candidate_body_slots": [
+            6,
+            7
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 198,
+          "actual_eligible_OAM_order": [
+            6,
+            7
+          ],
+          "first8": [
+            6,
+            7
+          ],
+          "candidate_body_slots": [
+            6,
+            7
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 199,
+          "actual_eligible_OAM_order": [
+            6,
+            7
+          ],
+          "first8": [
+            6,
+            7
+          ],
+          "candidate_body_slots": [
+            6,
+            7
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 200,
+          "actual_eligible_OAM_order": [
+            6,
+            7
+          ],
+          "first8": [
+            6,
+            7
+          ],
+          "candidate_body_slots": [
+            6,
+            7
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 201,
+          "actual_eligible_OAM_order": [
+            6,
+            7
+          ],
+          "first8": [
+            6,
+            7
+          ],
+          "candidate_body_slots": [
+            6,
+            7
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 202,
+          "actual_eligible_OAM_order": [
+            6,
+            7
+          ],
+          "first8": [
+            6,
+            7
+          ],
+          "candidate_body_slots": [
+            6,
+            7
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 203,
+          "actual_eligible_OAM_order": [
+            6,
+            7
+          ],
+          "first8": [
+            6,
+            7
+          ],
+          "candidate_body_slots": [
+            6,
+            7
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 204,
+          "actual_eligible_OAM_order": [
+            6,
+            7
+          ],
+          "first8": [
+            6,
+            7
+          ],
+          "candidate_body_slots": [
+            6,
+            7
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 205,
+          "actual_eligible_OAM_order": [
+            6,
+            7
+          ],
+          "first8": [
+            6,
+            7
+          ],
+          "candidate_body_slots": [
+            6,
+            7
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 206,
+          "actual_eligible_OAM_order": [
+            6,
+            7
+          ],
+          "first8": [
+            6,
+            7
+          ],
+          "candidate_body_slots": [
+            6,
+            7
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 207,
+          "actual_eligible_OAM_order": [
+            4,
+            5
+          ],
+          "first8": [
+            4,
+            5
+          ],
+          "candidate_body_slots": [
+            4,
+            5
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 208,
+          "actual_eligible_OAM_order": [
+            4,
+            5
+          ],
+          "first8": [
+            4,
+            5
+          ],
+          "candidate_body_slots": [
+            4,
+            5
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 209,
+          "actual_eligible_OAM_order": [
+            4,
+            5
+          ],
+          "first8": [
+            4,
+            5
+          ],
+          "candidate_body_slots": [
+            4,
+            5
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 210,
+          "actual_eligible_OAM_order": [
+            4,
+            5
+          ],
+          "first8": [
+            4,
+            5
+          ],
+          "candidate_body_slots": [
+            4,
+            5
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 211,
+          "actual_eligible_OAM_order": [
+            4,
+            5
+          ],
+          "first8": [
+            4,
+            5
+          ],
+          "candidate_body_slots": [
+            4,
+            5
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 212,
+          "actual_eligible_OAM_order": [
+            4,
+            5
+          ],
+          "first8": [
+            4,
+            5
+          ],
+          "candidate_body_slots": [
+            4,
+            5
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 213,
+          "actual_eligible_OAM_order": [
+            4,
+            5
+          ],
+          "first8": [
+            4,
+            5
+          ],
+          "candidate_body_slots": [
+            4,
+            5
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 214,
+          "actual_eligible_OAM_order": [
+            4,
+            5
+          ],
+          "first8": [
+            4,
+            5
+          ],
+          "candidate_body_slots": [
+            4,
+            5
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 215,
+          "actual_eligible_OAM_order": [
+            4,
+            5
+          ],
+          "first8": [
+            4,
+            5
+          ],
+          "candidate_body_slots": [
+            4,
+            5
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 216,
+          "actual_eligible_OAM_order": [
+            4,
+            5
+          ],
+          "first8": [
+            4,
+            5
+          ],
+          "candidate_body_slots": [
+            4,
+            5
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 217,
+          "actual_eligible_OAM_order": [
+            4,
+            5
+          ],
+          "first8": [
+            4,
+            5
+          ],
+          "candidate_body_slots": [
+            4,
+            5
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 218,
+          "actual_eligible_OAM_order": [
+            4,
+            5
+          ],
+          "first8": [
+            4,
+            5
+          ],
+          "candidate_body_slots": [
+            4,
+            5
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 219,
+          "actual_eligible_OAM_order": [
+            4,
+            5
+          ],
+          "first8": [
+            4,
+            5
+          ],
+          "candidate_body_slots": [
+            4,
+            5
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 220,
+          "actual_eligible_OAM_order": [
+            4,
+            5
+          ],
+          "first8": [
+            4,
+            5
+          ],
+          "candidate_body_slots": [
+            4,
+            5
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 221,
+          "actual_eligible_OAM_order": [
+            4,
+            5
+          ],
+          "first8": [
+            4,
+            5
+          ],
+          "candidate_body_slots": [
+            4,
+            5
+          ],
+          "candidate_body_rejected": []
+        },
+        {
+          "scanline": 222,
+          "actual_eligible_OAM_order": [
+            4,
+            5
+          ],
+          "first8": [
+            4,
+            5
+          ],
+          "candidate_body_slots": [
+            4,
+            5
+          ],
+          "candidate_body_rejected": []
+        }
+      ]
+    },
+    {
+      "ordinal": 2746,
+      "capture": {
+        "ordinal": "2746",
+        "ppu_frame": "2746",
+        "scanline": "240",
+        "dot": "0",
+        "cpu_cycle": "81774767",
+        "phase": "run",
+        "updates": "2269",
+        "mode": "1",
+        "tier": "1"
+      },
+      "raw_frame_sha256": "1bbeeb2cc47f8c01ff5669114b0f8920e9d150f051b27c2ea8d94e949ab5679a",
+      "last_completed_DMA_id": 2267,
+      "last_completed_DMA_stamp": {
+        "bankC": 116,
+        "cpu": 81746108,
+        "scanline": 249,
+        "bankA": 0,
+        "cycle": 296,
+        "mask": 6,
+        "sp": 244,
+        "frame": 2746,
+        "oamaddr": 0,
+        "pc": 57352
+      },
+      "last_PPUMASK_write": {
+        "value": 30,
+        "safe": true,
+        "scoped": true,
+        "old": 6,
+        "enabling": true,
+        "kind": "actual-PPUMASK-write",
+        "stamp": {
+          "bankC": 116,
+          "cpu": 81746112,
+          "scanline": 249,
+          "bankA": 0,
+          "cycle": 307,
+          "mask": 30,
+          "sp": 244,
+          "frame": 2746,
+          "oamaddr": 0,
+          "pc": 57355
+        }
+      },
+      "right_of_player_projectile_lane_nonbackground_pixels": 0
+    },
+    {
+      "ordinal": 2747,
+      "capture": {
+        "ordinal": "2747",
+        "ppu_frame": "2747",
+        "scanline": "240",
+        "dot": "0",
+        "cpu_cycle": "81804547",
+        "phase": "run",
+        "updates": "2270",
+        "mode": "1",
+        "tier": "1"
+      },
+      "raw_frame_sha256": "1bbeeb2cc47f8c01ff5669114b0f8920e9d150f051b27c2ea8d94e949ab5679a",
+      "last_completed_DMA_id": 2267,
+      "last_completed_DMA_stamp": {
+        "bankC": 116,
+        "cpu": 81746108,
+        "scanline": 249,
+        "bankA": 0,
+        "cycle": 296,
+        "mask": 6,
+        "sp": 244,
+        "frame": 2746,
+        "oamaddr": 0,
+        "pc": 57352
+      },
+      "last_PPUMASK_write": {
+        "value": 30,
+        "safe": true,
+        "scoped": true,
+        "old": 6,
+        "enabling": true,
+        "kind": "actual-PPUMASK-write",
+        "stamp": {
+          "bankC": 116,
+          "cpu": 81746112,
+          "scanline": 249,
+          "bankA": 0,
+          "cycle": 307,
+          "mask": 30,
+          "sp": 244,
+          "frame": 2746,
+          "oamaddr": 0,
+          "pc": 57355
+        }
+      },
+      "right_of_player_projectile_lane_nonbackground_pixels": 0
+    },
+    {
+      "ordinal": 2748,
+      "capture": {
+        "ordinal": "2748",
+        "ppu_frame": "2748",
+        "scanline": "240",
+        "dot": "0",
+        "cpu_cycle": "81834328",
+        "phase": "run",
+        "updates": "2271",
+        "mode": "1",
+        "tier": "1"
+      },
+      "raw_frame_sha256": "634d5e5b453fc3cbc4d5cb9b855614b7a58de142fb40c465ef307eb736696c56",
+      "last_completed_DMA_id": 2268,
+      "last_completed_DMA_stamp": {
+        "bankC": 116,
+        "cpu": 81805672,
+        "scanline": 249,
+        "bankA": 0,
+        "cycle": 305,
+        "mask": 6,
+        "sp": 244,
+        "frame": 2748,
+        "oamaddr": 0,
+        "pc": 57352
+      },
+      "last_PPUMASK_write": {
+        "value": 30,
+        "safe": true,
+        "scoped": true,
+        "old": 6,
+        "enabling": true,
+        "kind": "actual-PPUMASK-write",
+        "stamp": {
+          "bankC": 116,
+          "cpu": 81805676,
+          "scanline": 249,
+          "bankA": 0,
+          "cycle": 316,
+          "mask": 30,
+          "sp": 244,
+          "frame": 2748,
+          "oamaddr": 0,
+          "pc": 57355
+        }
+      },
+      "right_of_player_projectile_lane_nonbackground_pixels": 44
+    },
+    {
+      "ordinal": 2749,
+      "capture": {
+        "ordinal": "2749",
+        "ppu_frame": "2749",
+        "scanline": "240",
+        "dot": "0",
+        "cpu_cycle": "81864108",
+        "phase": "run",
+        "updates": "2272",
+        "mode": "1",
+        "tier": "1"
+      },
+      "raw_frame_sha256": "634d5e5b453fc3cbc4d5cb9b855614b7a58de142fb40c465ef307eb736696c56",
+      "last_completed_DMA_id": 2268,
+      "last_completed_DMA_stamp": {
+        "bankC": 116,
+        "cpu": 81805672,
+        "scanline": 249,
+        "bankA": 0,
+        "cycle": 305,
+        "mask": 6,
+        "sp": 244,
+        "frame": 2748,
+        "oamaddr": 0,
+        "pc": 57352
+      },
+      "last_PPUMASK_write": {
+        "value": 30,
+        "safe": true,
+        "scoped": true,
+        "old": 6,
+        "enabling": true,
+        "kind": "actual-PPUMASK-write",
+        "stamp": {
+          "bankC": 116,
+          "cpu": 81805676,
+          "scanline": 249,
+          "bankA": 0,
+          "cycle": 316,
+          "mask": 30,
+          "sp": 244,
+          "frame": 2748,
+          "oamaddr": 0,
+          "pc": 57355
+        }
+      },
+      "right_of_player_projectile_lane_nonbackground_pixels": 44
+    }
+  ]
+}

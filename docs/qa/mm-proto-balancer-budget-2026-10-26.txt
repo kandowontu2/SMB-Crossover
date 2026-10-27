@@ -1,0 +1,91 @@
+Actual ProtoHard993 failure and read-only CHR publication feasibility
+2026-10-26. ROM dfbdca24019776262c4388e3ea782fb989e24b8fc0e3cf0bfe0bbb84a9f480ad.
+No production/default/settings/Git changes; no next product implementation/allocation.
+
+One separately granted metadata-only diagnostic:
+  D/robot-balancer-budget-ready-v1/readiness.json
+ 7a85c202a6304f8689a7069840cf5ba1b517e1fedcbebe2bea30e2c7f94d0786.
+ 2763bindings; only diagnostic focus374..380->990..996.
+ Exact same ROM/controller/six-case mechanics/full post-configLua/staticcallbacks/strictguards.
+ ROOTgrant3c2d3c391491a2633f3b7b115a851b195a491d8c6b0847a24c55486e7edbadd5.
+ Exit1, original strictFALSE993 unchanged, no retry, worker RELEASED.
+ Independent comparison: all962full256DMA records/events/firstfailure semanticallyexact;
+ all992completedPPU+index byteexact versus the originaldf launch.
+
+Actual cause, source-backed native records:
+ NMI991 processes an empty buffer. Declared case6 setup clearedSpecialRam/SsLastPalette.
+ Actual InventoryHud991 appends defaultHUD28; SpecialPalette calls completeGetColors19, yielding47B.
+ No redundant body3F11 command and no duplicated whole palette quartet remain.
+ ColorRotation begins in991 with offset47. Its original source admits offsets<49.
+ It writes the genuine world palette header, then NMI992 arrives during that producer.
+ NMI992 incomingNmiDisable255 chooses the lag branch and does not parse the incomplete packet.
+ Foreground resumes and commits47->54 with3F0C length4 colors[0F,17,17,0F].
+ NMI993 incomingNmiDisable0 parses the complete54B packet:
+   2023 len11 name+ammo;2037 len2 iconclear;2057 len2 iconclear;204A RLE7 blankbar.
+   3F1D len3 face;3F19 len3 weapon;3F10 len4 body/backdrop.
+   3F0C len4 worldColorRotation; terminator.
+ All original colors/events are legitimate in this packet.
+
+Actual per-command parser costs:256,136,136,171,152,152,168,168 CPUcycles.
+ HUD28 total699; GetColors19 total472; ColorRotation7 total168; wrappers/terminator78.
+ SamusFreezeUpdateScreen gateway1417 inclusivecycles. NestedPn wrappers are not added again.
+ BankSwitchCHR426 inclusivecycles, not435: actualInvHudActive1/physical243/upper0.
+ Other disable-toDMA75; totaldisable-toDMA1918; actualDMA517; completion-toenable4.
+ Actual enable993line1dot57, CPU29542404, E00B/physical127.
+ Literal preceding pre-render cutoff-1dot274 is465PPUdots=155CPU earlier.
+ This is a one-epoch deficit, not guaranteed future phase margin or recovered timing.
+ ColorRotation's logged7499inclusive return spans the actual lagNMI; it is not7499exclusive foreground cycles.
+
+Frozen diagnostic proof:
+ D/robot-balancer-budget-review-v1/proof.json
+ e1617780f39701278b10916f226936a8d6375cc66ddabb2d40fecf06d7d698c7.
+ actual993-evidence.json preserves entry/queues/producer/lag/parser/returns/failedmask.
+ All raw capture/settings/ROM are external, referenced by hashes only.
+
+Read-only X5PublishChr feasibility (no prototype assembled):
+ D/robot-chr-publication-feasibility-v1/proof.json
+ 72a2135ea1d3993c11aa7948f5fc0d792489b7426fbd1a6e2abdfc012645de5d.
+ Sixteen calls of existing compiled source reproduce435inactiveHUD and426activeHUD.
+ Current X5_PUBLISH physical62 A000..<A2B7 (695B); actual prefixA2B7..<A300 has73FF bytes.
+ The larger62A300+ tail remains heldChip-owned.62/94 reservations are not consumed.
+ Current physical78AC00..<AD00 has256FF bytes and no compiled loadsegment overlap.
+ Any future use still requires ROOT's external prepared-component ownership reconciliation.
+ No free capacity is inferred only from remembered highwater or repeatedFF bytes.
+
+Important admissibility counterexample:
+ Compiled realRlPublish sets direct mode0/6/7. With cachedProtoVariant1, real
+ MenuResolveCharacter(index1)->Z2MenuPrepare->DrawPlayer_Intermediate switches toProto
+ but retains direct modes6/7. ProtoMenuPrepare intentionally skipsClear forProto1.
+ Therefore selectedMega/Proto does NOT prove only mode0 is direct across all menu transitions.
+ This is a legal-shaped source counterexample to the optimization premise, not a new native corruption verdict.
+
+A safe proposal would need a runtime owner+mode1..11-bit7 guard or a separately proved lifecycle repair.
+ It must preserve all legacy lookups (no guessed fixed logical banks), special4/HUD8 overrides,
+ every5120..512B value/order, and final5130zero, while omitting only redundant high-zero writes.
+ A source-declared C alias of physical78AC00 atCC00 could avoid switching the executingA window.
+ Manual opcode budget:73B gate/bridge/fallback fits62prefix exactly, plus roughly224B fastbody in78.
+ That bridge must save/publish/restore actualCurrentBankC and hardware, use no sharedSMC/RAM,
+ and prove the caller's immediately-overwrittenX rather than falsely claim directhelperX unchanged.
+ RegularNMI currently reachesCHR before postDMA CLI; guestlagNMI keepsCHR. Actual interrupt,
+ nested-domain andDMC hardware effects would still need new qualification before any implementation acceptance.
+
+This guarded/C-bridge route is not a useful standalone993 fix:
+ Manual, UNASSEMBLED estimate:373currentcore ->324, net49cycles; full426 ->about377.
+ It adds15cycles to other wide-owner fallback calls and61 to rejected staleMega modes; wide0 legacy unchanged.
+49 is far below the actual155 deficit. Layout/page/ABI costs remain unproved; no native improvement is claimed.
+ No implementation/allocation was made. Further character-specific hardcoded modes would be unsound.
+ The actual existing ColorRotation offset<49 admission and the precise47->54 packet are a more direct
+ next timing/backpressure target for ROOT review, with source color order/dirty-state semantics preserved.
+
+Current status: df remains HELD after five completed staged cases and strictfailure duringcase6.
+ Original source/native checkpoint maps remain immutable and ready for ROOT's explicit staging/push:
+ docs/qa/checkpoints/2026-10-26/robot-base-palette-source-v1/review-files.json
+93c57b58f0ef1aa924d60bbd08ca6084c72d038b4ebe18219c677a2c02da46ee
+ docs/qa/checkpoints/2026-10-26/robot-base-palette-native-v1/review-files.json
+c9935e638ab2d2bc10b5648ad02284e726c8301e1c375d4bd4a129ce608c0527.
+
+New owned files only:
+ tools/audit/mm_proto_balancer_budget_prepare_v1.py
+ tools/audit/mm_proto_balancer_budget_review_v1.py
+ tools/audit/mm_proto_chr_publication_feasibility_v1.py
+ this report. Existing generic diagnostic launcher was used unchanged.

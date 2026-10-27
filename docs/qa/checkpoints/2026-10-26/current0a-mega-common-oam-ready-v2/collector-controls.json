@@ -1,0 +1,39 @@
+{
+  "passed": true,
+  "reverse_normalization_exact": true,
+  "substitutions": [
+    {
+      "current": "\"\"\"Profile-local E3 hardware-oracle successor; one granted native attempt only.\"\"\"",
+      "previous": "\"\"\"One separately granted exact0a MegaHard common-special gallery; no retries.\"\"\""
+    },
+    {
+      "current": "\nphysical=lambda s:[v&0xe3 if i%4==2 else v for i,v in enumerate(s)]",
+      "previous": ""
+    },
+    {
+      "current": "completed=starts=enables=literal=ignored=0;last=None;",
+      "previous": "completed=starts=enables=0;last=None;"
+    },
+    {
+      "current": "physical(q['source'])==q['hardware']and not q['implemented_differences']",
+      "previous": "q['source']==q['hardware']and not q['differences']"
+    },
+    {
+      "current": "    rawdiff=[dict(offset=i,source=x,hardware=y)for i,(x,y)in enumerate(zip(q['source'],q['hardware']))if x!=y];assert rawdiff==list(q['differences'])==list(q['ignored_attribute_differences']);literal+=int(not rawdiff);ignored+=len(rawdiff)\n",
+      "previous": ""
+    },
+    {
+      "current": "q['hardware']==physical(last['source'])",
+      "previous": "q['hardware']==last['source']"
+    },
+    {
+      "current": "safe_enables=enables,literal_byte_equal_DMA=literal,ignored_attribute_differences=ignored,physical_encoding_exact_DMA=completed,raw_sha256=",
+      "previous": "safe_enables=enables,raw_sha256="
+    },
+    {
+      "current": ";assert ready['profile_local_OAM_encoding']=='attributeE3-v2'",
+      "previous": ""
+    }
+  ],
+  "all_nonhardware_component_assertions_and_launch_caps_exact": true
+}

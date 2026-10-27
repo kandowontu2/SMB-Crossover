@@ -1,0 +1,107 @@
+{
+  "native_aggregate_remains_FALSE": true,
+  "ROM_sha256": "0a7dd88e6732bc189e432a9d55b18dd8f7ecf68a22e3b20f0a13ab7276241c09",
+  "actual_numeric_mode": 1,
+  "variant": 0,
+  "completed_cases": 0,
+  "entered_case": 1,
+  "first_failure": {
+    "x": 128,
+    "y": 0,
+    "message": "All256 physical OAM bytes equal the actual DMA source",
+    "phase": {
+      "name": "arm-face1",
+      "phase": "funded"
+    },
+    "a": 30,
+    "sp": 244,
+    "bank": 127,
+    "pc": 57352
+  },
+  "source_debit": [
+    {
+      "update": 41,
+      "bank": 0,
+      "wall": 414,
+      "kind": "actual-source-spend",
+      "data": {
+        "wall": 414,
+        "cost": 8,
+        "update": 41,
+        "component": "funded",
+        "accepted": true,
+        "item": 1,
+        "after": 0,
+        "before": 8
+      },
+      "case": 1,
+      "phase": "funded",
+      "sp": 228,
+      "pc": 366
+    }
+  ],
+  "zero_witness": [
+    {
+      "update": 41,
+      "bank": 0,
+      "wall": 414,
+      "kind": "actual-funded-debit-zero",
+      "data": {
+        "cost": 8,
+        "update": 41,
+        "wall": 414,
+        "item": 1,
+        "after": 0,
+        "before": 8
+      },
+      "case": 1,
+      "phase": "funded",
+      "sp": 228,
+      "pc": 366
+    }
+  ],
+  "source_art": [
+    {
+      "update": 30,
+      "bank": 60,
+      "wall": 403,
+      "kind": "actual-source-effect-draw",
+      "data": {
+        "bytes": [
+          8,
+          98,
+          0,
+          248,
+          248,
+          98,
+          0,
+          248,
+          0
+        ],
+        "type": 9,
+        "bank": 13,
+        "face": 1,
+        "address": 57269,
+        "kind": "SpecialDrawShots actual pre-emitter"
+      },
+      "case": 1,
+      "phase": "funded",
+      "sp": 223,
+      "pc": 47218
+    }
+  ],
+  "completed_PPU_frames": 415,
+  "complete_DMA_observations": 392,
+  "literal_byte_equal_DMAs": 391,
+  "physical_storage_model_equal_DMAs": 392,
+  "startFrame_rows": 414,
+  "scoped_safe_enables": 63,
+  "missing_terminal_components": [
+    "native-megaproto-common.json",
+    "ppu-capture-native-result.json"
+  ],
+  "native_worker_released": true,
+  "no_retry": true,
+  "classification": "Invalid hardware oracle: one unimplemented OAM attribute bit4 is discarded by PPU storage. No timing/OAM corruption or game defect is established. All raw data and original assertion FALSE remain unchanged.",
+  "scope": "Only first ARM right partial funded use. Free lift, real throw debit8 to0 and source-art observation occurred. No target/contact, cleanup, refusal, pool, second facing, other six weapons, acquisition, full timing or visual verdict is claimed. Complete native PPU ends415; failure occurs during VBlank416 before render enable. First-failure snapshot is not a completed416 image."
+}

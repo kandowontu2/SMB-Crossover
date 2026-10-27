@@ -1,0 +1,941 @@
+{
+  "agent_reviewed": true,
+  "all_frames_graphically_clean": false,
+  "reviewed_placements": 50,
+  "whole_frame_sheets": [
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-bill-hard-v5-postrun-v2\\whole-frame-review-1.png",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-bill-hard-v5-postrun-v2\\whole-frame-review-2.png",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-bill-hard-v5-actual-flight-v1\\whole-flight-frames.png",
+    "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\final-bill-hard-v5-actual-flight-v1\\advanced-adjacent-full-frames.png"
+  ],
+  "positive_scope": "35 HUD/emission/contact/terrain/fresh-edge placements plus7 free-flight samples plus8 consecutive advanced-effect frames viewed as full actual PPU images. Normal/Machine/Spread shots and firing poses visible; advanced effect art appears in neighbouring frames. No sampled terrain/block displacement or scene CHR corruption observed.",
+  "HUD_issue": {
+    "status": "CONFIRMED existing source layout",
+    "source": "RemainingDraw::Hud uses source pickup art at anchor192,24. Native WORLD is x144..183 and TIME x200..231 on row16. The24px icon spans180..203 and visibly overwrites six white header pixels in this comparison.",
+    "records": [
+      {
+        "item": 2,
+        "art": 52,
+        "bank": 21,
+        "pointer": 52120,
+        "bytes": [
+          12,
+          1,
+          131,
+          241,
+          244,
+          27,
+          195,
+          241,
+          252,
+          1,
+          195,
+          241,
+          4
+        ],
+        "anchor": [
+          192,
+          24
+        ],
+        "signed_record_offsets": [
+          [
+            -12,
+            -15
+          ],
+          [
+            -4,
+            -15
+          ],
+          [
+            4,
+            -15
+          ]
+        ],
+        "eight_by_sixteen_sprite_bounds": [
+          180,
+          10,
+          203,
+          25
+        ]
+      },
+      {
+        "item": 3,
+        "art": 53,
+        "bank": 21,
+        "pointer": 52146,
+        "bytes": [
+          12,
+          1,
+          131,
+          241,
+          244,
+          29,
+          195,
+          241,
+          252,
+          1,
+          195,
+          241,
+          4
+        ],
+        "anchor": [
+          192,
+          24
+        ],
+        "signed_record_offsets": [
+          [
+            -12,
+            -15
+          ],
+          [
+            -4,
+            -15
+          ],
+          [
+            4,
+            -15
+          ]
+        ],
+        "eight_by_sixteen_sprite_bounds": [
+          180,
+          10,
+          203,
+          25
+        ]
+      },
+      {
+        "item": 4,
+        "art": 49,
+        "bank": 21,
+        "pointer": 52042,
+        "bytes": [
+          12,
+          59,
+          131,
+          241,
+          244,
+          61,
+          131,
+          241,
+          252,
+          59,
+          195,
+          241,
+          4
+        ],
+        "anchor": [
+          192,
+          24
+        ],
+        "signed_record_offsets": [
+          [
+            -12,
+            -15
+          ],
+          [
+            -4,
+            -15
+          ],
+          [
+            4,
+            -15
+          ]
+        ],
+        "eight_by_sixteen_sprite_bounds": [
+          180,
+          10,
+          203,
+          25
+        ]
+      },
+      {
+        "item": 5,
+        "art": 51,
+        "bank": 21,
+        "pointer": 52094,
+        "bytes": [
+          12,
+          1,
+          131,
+          241,
+          244,
+          3,
+          131,
+          241,
+          252,
+          1,
+          195,
+          241,
+          4
+        ],
+        "anchor": [
+          192,
+          24
+        ],
+        "signed_record_offsets": [
+          [
+            -12,
+            -15
+          ],
+          [
+            -4,
+            -15
+          ],
+          [
+            4,
+            -15
+          ]
+        ],
+        "eight_by_sixteen_sprite_bounds": [
+          180,
+          10,
+          203,
+          25
+        ]
+      }
+    ],
+    "actual_dma": [
+      {
+        "id": 951,
+        "stamp": {
+          "bankC": 116,
+          "cpu": 29659770,
+          "scanline": 247,
+          "bankA": 0,
+          "cycle": 247,
+          "mask": 6,
+          "sp": 244,
+          "frame": 997,
+          "oamaddr": 0,
+          "pc": 57352
+        },
+        "actual_hardware_sprite_bytes": [
+          {
+            "slot": 55,
+            "bytes": [
+              9,
+              59,
+              195,
+              196
+            ]
+          },
+          {
+            "slot": 56,
+            "bytes": [
+              9,
+              61,
+              131,
+              188
+            ]
+          },
+          {
+            "slot": 57,
+            "bytes": [
+              9,
+              59,
+              131,
+              180
+            ]
+          }
+        ]
+      },
+      {
+        "id": 952,
+        "stamp": {
+          "bankC": 116,
+          "cpu": 29689552,
+          "scanline": 247,
+          "bankA": 0,
+          "cycle": 252,
+          "mask": 6,
+          "sp": 244,
+          "frame": 998,
+          "oamaddr": 0,
+          "pc": 57352
+        },
+        "actual_hardware_sprite_bytes": [
+          {
+            "slot": 61,
+            "bytes": [
+              9,
+              59,
+              195,
+              196
+            ]
+          },
+          {
+            "slot": 62,
+            "bytes": [
+              9,
+              61,
+              131,
+              188
+            ]
+          },
+          {
+            "slot": 63,
+            "bytes": [
+              9,
+              59,
+              131,
+              180
+            ]
+          }
+        ]
+      },
+      {
+        "id": 953,
+        "stamp": {
+          "bankC": 116,
+          "cpu": 29719334,
+          "scanline": 247,
+          "bankA": 0,
+          "cycle": 256,
+          "mask": 6,
+          "sp": 244,
+          "frame": 999,
+          "oamaddr": 0,
+          "pc": 57352
+        },
+        "actual_hardware_sprite_bytes": [
+          {
+            "slot": 54,
+            "bytes": [
+              9,
+              59,
+              195,
+              196
+            ]
+          },
+          {
+            "slot": 55,
+            "bytes": [
+              9,
+              61,
+              131,
+              188
+            ]
+          },
+          {
+            "slot": 56,
+            "bytes": [
+              9,
+              59,
+              131,
+              180
+            ]
+          }
+        ]
+      }
+    ],
+    "overwritten_native_header_pixels": [
+      {
+        "x": 180,
+        "y": 16,
+        "before": [
+          255,
+          254,
+          255
+        ],
+        "after": [
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "x": 201,
+        "y": 16,
+        "before": [
+          255,
+          254,
+          255
+        ],
+        "after": [
+          153,
+          78,
+          0
+        ]
+      },
+      {
+        "x": 202,
+        "y": 16,
+        "before": [
+          255,
+          254,
+          255
+        ],
+        "after": [
+          247,
+          216,
+          165
+        ]
+      },
+      {
+        "x": 203,
+        "y": 16,
+        "before": [
+          255,
+          254,
+          255
+        ],
+        "after": [
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "x": 181,
+        "y": 17,
+        "before": [
+          255,
+          254,
+          255
+        ],
+        "after": [
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "x": 182,
+        "y": 18,
+        "before": [
+          255,
+          254,
+          255
+        ],
+        "after": [
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    "source_sha256": {
+      "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-current-roster-composition-v1\\source\\src\\remaining_weapons.s": "49b3f843f85827814639caefdfba0d6fd2bf3cbe95aa28b7ad5475bffca3a0f9",
+      "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\root-current-roster-composition-v1\\source\\src\\screen_render.s": "b8498b948de9be1f85a525c982864f9d1743a8471e03a4022aabb13d7e9aa06f"
+    }
+  },
+  "advanced_flicker": {
+    "status": "OBSERVED; cause only partially attributed",
+    "laser_frames": [
+      2131,
+      2132,
+      2133,
+      2134
+    ],
+    "flare_frames": [
+      2746,
+      2747,
+      2748,
+      2749
+    ],
+    "observation": "Laser absent2131/2132 then visible2133/2134; Flare absent2746/2747 then visible2748/2749. Source has explicit selected-HUD/effect physical-CHR arbitration. Bill body absent in image2133 while adjacent2132/2134 show it; hardware OAM still contains body entries. Exact cause is not established by available endFrame CHR assertions; do not label it clean or blame eight-sprite contention without further evidence.",
+    "actual_startFrame_OAM": [
+      {
+        "stamp": {
+          "bankC": 24,
+          "cpu": 63432366,
+          "scanline": -1,
+          "bankA": 23,
+          "cycle": 0,
+          "mask": 30,
+          "sp": 239,
+          "frame": 2131,
+          "oamaddr": 0,
+          "pc": 56367
+        },
+        "completed_dma_id": 1866,
+        "actual_hardware_sprites": [
+          {
+            "slot": 52,
+            "bytes": [
+              175,
+              28,
+              2,
+              130
+            ]
+          },
+          {
+            "slot": 53,
+            "bytes": [
+              175,
+              26,
+              66,
+              122
+            ]
+          },
+          {
+            "slot": 54,
+            "bytes": [
+              175,
+              24,
+              130,
+              114
+            ]
+          },
+          {
+            "slot": 55,
+            "bytes": [
+              206,
+              22,
+              192,
+              121
+            ]
+          },
+          {
+            "slot": 56,
+            "bytes": [
+              206,
+              22,
+              128,
+              113
+            ]
+          },
+          {
+            "slot": 57,
+            "bytes": [
+              190,
+              20,
+              64,
+              121
+            ]
+          },
+          {
+            "slot": 58,
+            "bytes": [
+              190,
+              18,
+              128,
+              113
+            ]
+          },
+          {
+            "slot": 59,
+            "bytes": [
+              174,
+              16,
+              0,
+              129
+            ]
+          },
+          {
+            "slot": 60,
+            "bytes": [
+              174,
+              14,
+              64,
+              121
+            ]
+          },
+          {
+            "slot": 61,
+            "bytes": [
+              174,
+              12,
+              0,
+              113
+            ]
+          }
+        ]
+      },
+      {
+        "stamp": {
+          "bankC": 24,
+          "cpu": 63462146,
+          "scanline": -1,
+          "bankA": 23,
+          "cycle": 0,
+          "mask": 30,
+          "sp": 202,
+          "frame": 2132,
+          "oamaddr": 0,
+          "pc": 56568
+        },
+        "completed_dma_id": 1866,
+        "actual_hardware_sprites": [
+          {
+            "slot": 52,
+            "bytes": [
+              175,
+              28,
+              2,
+              130
+            ]
+          },
+          {
+            "slot": 53,
+            "bytes": [
+              175,
+              26,
+              66,
+              122
+            ]
+          },
+          {
+            "slot": 54,
+            "bytes": [
+              175,
+              24,
+              130,
+              114
+            ]
+          },
+          {
+            "slot": 55,
+            "bytes": [
+              206,
+              22,
+              192,
+              121
+            ]
+          },
+          {
+            "slot": 56,
+            "bytes": [
+              206,
+              22,
+              128,
+              113
+            ]
+          },
+          {
+            "slot": 57,
+            "bytes": [
+              190,
+              20,
+              64,
+              121
+            ]
+          },
+          {
+            "slot": 58,
+            "bytes": [
+              190,
+              18,
+              128,
+              113
+            ]
+          },
+          {
+            "slot": 59,
+            "bytes": [
+              174,
+              16,
+              0,
+              129
+            ]
+          },
+          {
+            "slot": 60,
+            "bytes": [
+              174,
+              14,
+              64,
+              121
+            ]
+          },
+          {
+            "slot": 61,
+            "bytes": [
+              174,
+              12,
+              0,
+              113
+            ]
+          }
+        ]
+      },
+      {
+        "stamp": {
+          "bankC": 24,
+          "cpu": 63491927,
+          "scanline": -1,
+          "bankA": 23,
+          "cycle": 0,
+          "mask": 30,
+          "sp": 233,
+          "frame": 2133,
+          "oamaddr": 0,
+          "pc": 56580
+        },
+        "completed_dma_id": 1866,
+        "actual_hardware_sprites": [
+          {
+            "slot": 52,
+            "bytes": [
+              175,
+              28,
+              2,
+              130
+            ]
+          },
+          {
+            "slot": 53,
+            "bytes": [
+              175,
+              26,
+              66,
+              122
+            ]
+          },
+          {
+            "slot": 54,
+            "bytes": [
+              175,
+              24,
+              130,
+              114
+            ]
+          },
+          {
+            "slot": 55,
+            "bytes": [
+              206,
+              22,
+              192,
+              121
+            ]
+          },
+          {
+            "slot": 56,
+            "bytes": [
+              206,
+              22,
+              128,
+              113
+            ]
+          },
+          {
+            "slot": 57,
+            "bytes": [
+              190,
+              20,
+              64,
+              121
+            ]
+          },
+          {
+            "slot": 58,
+            "bytes": [
+              190,
+              18,
+              128,
+              113
+            ]
+          },
+          {
+            "slot": 59,
+            "bytes": [
+              174,
+              16,
+              0,
+              129
+            ]
+          },
+          {
+            "slot": 60,
+            "bytes": [
+              174,
+              14,
+              64,
+              121
+            ]
+          },
+          {
+            "slot": 61,
+            "bytes": [
+              174,
+              12,
+              0,
+              113
+            ]
+          }
+        ]
+      },
+      {
+        "stamp": {
+          "bankC": 24,
+          "cpu": 63521707,
+          "scanline": -1,
+          "bankA": 23,
+          "cycle": 0,
+          "mask": 30,
+          "sp": 239,
+          "frame": 2134,
+          "oamaddr": 0,
+          "pc": 56365
+        },
+        "completed_dma_id": 1867,
+        "actual_hardware_sprites": [
+          {
+            "slot": 0,
+            "bytes": [
+              181,
+              3,
+              194,
+              157
+            ]
+          },
+          {
+            "slot": 1,
+            "bytes": [
+              175,
+              28,
+              2,
+              130
+            ]
+          },
+          {
+            "slot": 2,
+            "bytes": [
+              175,
+              26,
+              66,
+              122
+            ]
+          },
+          {
+            "slot": 3,
+            "bytes": [
+              175,
+              24,
+              130,
+              114
+            ]
+          },
+          {
+            "slot": 4,
+            "bytes": [
+              206,
+              22,
+              192,
+              121
+            ]
+          },
+          {
+            "slot": 5,
+            "bytes": [
+              206,
+              22,
+              128,
+              113
+            ]
+          },
+          {
+            "slot": 6,
+            "bytes": [
+              190,
+              20,
+              64,
+              121
+            ]
+          },
+          {
+            "slot": 7,
+            "bytes": [
+              190,
+              18,
+              128,
+              113
+            ]
+          },
+          {
+            "slot": 8,
+            "bytes": [
+              174,
+              16,
+              0,
+              129
+            ]
+          },
+          {
+            "slot": 9,
+            "bytes": [
+              174,
+              14,
+              64,
+              121
+            ]
+          },
+          {
+            "slot": 10,
+            "bytes": [
+              174,
+              12,
+              0,
+              113
+            ]
+          },
+          {
+            "slot": 57,
+            "bytes": [
+              181,
+              27,
+              194,
+              178
+            ]
+          },
+          {
+            "slot": 58,
+            "bytes": [
+              181,
+              3,
+              194,
+              170
+            ]
+          },
+          {
+            "slot": 59,
+            "bytes": [
+              181,
+              27,
+              194,
+              139
+            ]
+          },
+          {
+            "slot": 60,
+            "bytes": [
+              181,
+              3,
+              194,
+              131
+            ]
+          },
+          {
+            "slot": 61,
+            "bytes": [
+              181,
+              27,
+              194,
+              152
+            ]
+          },
+          {
+            "slot": 62,
+            "bytes": [
+              181,
+              3,
+              194,
+              144
+            ]
+          },
+          {
+            "slot": 63,
+            "bytes": [
+              181,
+              27,
+              194,
+              165
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "limits": "No new native launch; this does not establish all4344frames graphics clean, waveform fidelity, native acquisition/rise/random drops, matched baseline cadence or universal lag reduction. No game patch made."
+}
