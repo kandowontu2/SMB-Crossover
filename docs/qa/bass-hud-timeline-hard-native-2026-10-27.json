@@ -1,0 +1,76 @@
+{
+  "status": "Functional components passed; HUD delivery observed; screenshot presentation timing remains unqualified",
+  "ROM_sha256": "6be48337ffee66a22b22de9ce134d5db323649fb4de620c43bad4ca98b80f193",
+  "native_run": true,
+  "passed": true,
+  "goal_complete": false,
+  "passive": true,
+  "original_result_inventory_and_all_eight_PNGs_byte_identical": true,
+  "prior_PNG_checkpoint": "bass-missing-effects-hard-native",
+  "frame_window": [
+    980,
+    1040
+  ],
+  "actual_PPU_frames": 61,
+  "rows": 808,
+  "CSV_actual_bytes": 173934,
+  "CSV_summary_pre_newline_translation_bytes": 173125,
+  "InventoryHud_entries": 61,
+  "owned_returns": 61,
+  "window_DMAs": 44,
+  "ammo_spend": {
+    "before": 112,
+    "after": 104,
+    "PPU_frame": 1005,
+    "cycle": 29910321,
+    "dirty_write_cycle": 29910327
+  },
+  "queue": {
+    "frame_1006": "Buffer offset6: dirty update deferred",
+    "frame_1007": "Fresh104 queued and dirty cleared;34bytes published"
+  },
+  "PPU_writes": [
+    {
+      "address": "202B",
+      "value": 1,
+      "cycle": 30016710
+    },
+    {
+      "address": "202C",
+      "value": 0,
+      "cycle": 30016726
+    },
+    {
+      "address": "202D",
+      "value": 4,
+      "cycle": 30016742
+    }
+  ],
+  "screenshot": {
+    "PPU_frame": 1009,
+    "cycle": 30046038,
+    "current_NT_digits": [
+      1,
+      0,
+      4
+    ],
+    "current_ammo": 104,
+    "dirty": 0,
+    "queue_offset": 0,
+    "PNG_displays": 112
+  },
+  "conclusion": "The native debit, queue and graphics-memory writes are correct in this bounded trace. The screenshot and committed state represent different presentation epochs. Exact raster-fetch or framebuffer-swap timing was not logged, so no fixed latency rule, missed-refresh fix or all-images-perfect claim follows.",
+  "product_change": false,
+  "limits": "One Hard staged-component replay and61-frame passive observer window. Not a full-route, natural-emergence, waveform or full-raster-history test.",
+  "checkpoint_files": {
+    "bass-hud-timeline-summary.json": "4052f1117d41c89f4ab6d1b265f458f9550ec8c63973cb7f456398812005f7d8",
+    "bass-hud-timeline.csv": "4a2835fac23a49c120f6c8995a362cc58e57a99fcd06281629b3d733349c4bed",
+    "capture-budget.json": "9763737f8c9d51a82b616b79017356f703ecf7cdc7b6cc728946f3a33b358114",
+    "command.json": "63a9d8224e16c6d84f5a730531964108aa2b4653c61ea66c2a93f321f1920558",
+    "launch.json": "4e97372daa40ca7f9149748ec2e51f423ff4897331fce9fe34eb75a1735830f2",
+    "observer-config.json": "b3e857cb45ea5c189f9927b9f687226f0f15df779d399d732d5e93353cb6d7a8",
+    "prepared-not-run.json": "f06b98bfaa9240b4498fac8bd4843a91839205754f99089e6c7555044f4853fc",
+    "result.json": "d88695145f15394f36752cbaca076c4de1bdea4541fa57a17f7ecadf585ae361",
+    "source-review.json": "a498f703edb28f078ece30b6a4684b7a67a21e0c0ec89cf25be9060ab00f2718"
+  }
+}
