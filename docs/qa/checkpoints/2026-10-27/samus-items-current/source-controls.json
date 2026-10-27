@@ -1,0 +1,137 @@
+{
+  "passed": true,
+  "source_CPU_only": true,
+  "ROM_sha256": "8487c439ded9bc6274e1dc8f8e051494fa96ee518553d9c2f382eccf2e71d0e6",
+  "bare_RAM_addresses": {
+    "AvAudioRequest": 32679,
+    "CurrentBank": 325,
+    "CurrentBankC": 32161,
+    "InvAmmo": 31906,
+    "InvDropKind": 28390,
+    "MmEnemyHealthHi": 24645,
+    "MmEnemyHealthLo": 24639,
+    "RgShotType": 27755,
+    "SmBombAge": 27445,
+    "SmSfx": 27412,
+    "SmShotType": 27415,
+    "Square2SoundQueue": 260
+  },
+  "callback_addresses_checked_before_fixture_load": true,
+  "fixture_change": "v4 explicitly clears only Lua drop provenance alongside the unchanged staged native slot reset, since nesDebug writes bypass CPU callbacks; logs all spawn boundary fields before assertions. v3 earned-refill conservation and all mechanics/hardware assertions retained.",
+  "controller_and_setup_game_writes_unchanged": true,
+  "hardware_guard_block_byte_exact": true,
+  "actual_collect_rows": [
+    {
+      "item": 0,
+      "owned": 129,
+      "missiles": 5,
+      "property": "source reward"
+    },
+    {
+      "item": 1,
+      "owned": 131,
+      "missiles": 5,
+      "property": "source reward"
+    },
+    {
+      "item": 2,
+      "owned": 135,
+      "missiles": 4,
+      "property": "source reward"
+    },
+    {
+      "item": 7,
+      "owned": 135,
+      "missiles": 4,
+      "property": "Long auto/idempotent"
+    },
+    {
+      "item": 3,
+      "owned": 143,
+      "missiles": 4,
+      "property": "source reward"
+    },
+    {
+      "item": 4,
+      "owned": 151,
+      "missiles": 4,
+      "property": "source reward"
+    },
+    {
+      "item": 5,
+      "owned": 183,
+      "missiles": 4,
+      "property": "source reward"
+    },
+    {
+      "item": 6,
+      "owned": 247,
+      "missiles": 4,
+      "property": "source reward"
+    }
+  ],
+  "real_missile_spend": 1,
+  "actual_refill": 2,
+  "result_missiles": 6,
+  "actual_enemy_drop_refill_cases": [
+    {
+      "kind": 1,
+      "before": 0,
+      "after": 2,
+      "native_clear": true
+    },
+    {
+      "kind": 1,
+      "before": 4,
+      "after": 6,
+      "native_clear": true
+    },
+    {
+      "kind": 1,
+      "before": 19,
+      "after": 20,
+      "native_clear": true
+    },
+    {
+      "kind": 1,
+      "before": 20,
+      "after": 20,
+      "native_clear": true
+    },
+    {
+      "kind": 2,
+      "before": 0,
+      "after": 2,
+      "native_clear": true
+    },
+    {
+      "kind": 2,
+      "before": 4,
+      "after": 6,
+      "native_clear": true
+    },
+    {
+      "kind": 2,
+      "before": 19,
+      "after": 20,
+      "native_clear": true
+    },
+    {
+      "kind": 2,
+      "before": 20,
+      "after": 20,
+      "native_clear": true
+    }
+  ],
+  "actual_drop_geometry_miss_retains_ammo": true,
+  "actual_Ice_spawn": 46,
+  "Wave_clears_Ice": true,
+  "Long_mushroom_auto": true,
+  "Varia_visual_tier": 2,
+  "Screw_contact_protection": true,
+  "no_native_claim": true,
+  "prior_v2_natural_refill_provenance": "Unlogged: CSV4-to6 alone does not prove an actual drop chain. Fresh native hooks are required.",
+  "prior_v3_failure": "Actual earlier spawn wall731 survived only in Lua drops[] after subsequent staged native clear; Screw spawn wall1889 rejected. Individual failing-conjunct values were not serialized, so exact native kind/item at failure remains unlogged.",
+  "sample_metadata": "One bounded JSON array at the existing at-most8 screenshot events: NT2000 HUD2x2/attributes/pattern/palette/physicalOAM256/source256/CHR latches. No new images.",
+  "limits": "Hard1 mature physical item components only. No full block reveal/rise, natural reward lottery/drop, Easy tiers, opposite facing/aim, pool-cap/exhaustion, whole-waveform or all-graphical-fidelity claim. Long7 is mushroom-autoowned before its one explicit idempotent mature reward. Freeze expiry/AI resume and Varia firebar contact remain untested natively; later staged scene removes the frozen target. Source-only Varia branch and passive-property controls are not native hazard evidence. PNGs are2-DMA-delayed selected samples requiring separate visual review."
+}

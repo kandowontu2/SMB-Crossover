@@ -30,7 +30,23 @@
       },
       "log_sha256": "55f6324286d6553b5928db6347d9301be09572bafbe1dc24631412b67dd276ae",
       "csv_sha256": "a0838bf9607e503ce350ecc2c3e5eb09db964b69951150fd7f33744635094ec4"
+    },
+    {
+      "run": "current-8487-samus-items-v3",
+      "status": "retained observer-negative, not a ROM rejection",
+      "reason": "A previous staged scene discarded an uncollected native drop in emulated state; debugger staging did not trigger CPU callbacks, leaving its Lua provenance stale. V4 clears only that observer provenance at the already-disclosed scene reset and retains conservation/source assertions.",
+      "launch": {
+        "ROM_sha256": "8487c439ded9bc6274e1dc8f8e051494fa96ee518553d9c2f382eccf2e71d0e6",
+        "prepared_sha256": "e029d37e4ec36f009c5260d79fe6599b3c3de316f15227c8b8a275a0a706bbd0",
+        "exit": 1,
+        "settings_before": "a5f76b4c4d33cd1fb6d66a8725e7c6636b19e59c03a7dae5e15e1c512a3f4fbf",
+        "settings_after": "a5f76b4c4d33cd1fb6d66a8725e7c6636b19e59c03a7dae5e15e1c512a3f4fbf",
+        "changed_inputs": []
+      },
+      "log_sha256": "5796ab4ce22534b027f178af903bb4fb78ecdeda808f01ab9a0cf20282b2d688",
+      "csv_sha256": "3e592327b04ed85a7567e5fc3e497d937dca81033340fc01610d3fd62233d3d9"
     }
   ],
-  "goal_complete": false
+  "goal_complete": false,
+  "successor_native_pass": "docs/qa/samus-current-powerups-2026-10-27.json"
 }

@@ -1,0 +1,58 @@
+Current compact 1-1 observer: explicit fixed-E copies, source-only
+2026-10-27
+
+Sypha Hard v2 remains FALSE at frame316, before a route-clear claim. Its
+request was in actual bank125/E005, but the old observer admitted only127
+at completed-DMA E008 and NMI entry/RTI. This left a genuine prior request
+pending in observer state. This evidence does not establish ROM corruption.
+
+CV3 DMC deliberately maps a copied fixed-E bank125. The correction admits
+125/127 only at NMI entry, genuine final RTI and E008 DMA completion. The
+producer compares the complete actual NonMaskableInterrupt (E33C,212B)
+and OAMandReadJoypad (E000,43B) bodies, plus each hook's actual three bytes,
+before emitting those explicit bank lists. Both owners are identical in
+8487 and current2082:
+ NMI SHA256 2206c8675917b6ce9099919f19cd2236eaaf6db702e35747bc73c91f8cbc6233
+ OAM SHA256 92e3ab82a5ac222ecbd612eb7204f2e8108dc3e2434c80ff7ca0250cff37eb1f
+Whole banks125/127 are not identical and no general bank waiver is added.
+IRQ remains bank126. The DMA request bank must belong to the proven owner
+list too. Existing actual three-byte, full256write/physical-E3, rendering,
+NMI/IRQ AXY/SP/stacked-P/A-C/five-SMC and controller assertions are retained.
+
+The small source check executes the producer's actual ownership-check
+block and rejects six altered-owner/endpoint/bank/size cases. Removing
+only these observer edits reconstructs both original raw source hashes
+exactly, including pre-existing mixed Lua line endings. It did not execute
+Lua/Mesen or test native continuation. Its proof is historical8487; fresh
+2082 preparation separately verified the same owner bodies and hook bytes.
+ Source check: tools/audit/current_roster_compact_fixed_alias_check_v1.py
+ Proof: build/verification/compact-fixed-alias-controls-v1.json
+ SHA256 e479f00c560c46bcbc5c124d455a4cd6fe0006fbad1fcc2294a723a911deb928
+
+Only the six authorized UNRUN folders (Raphael/Michelangelo/Donatello,
+Grant/Alucard Hard v1 and Mario Hard v2) were refreshed in place after
+checking that each contained exactly ready.json and run.lua. Each retains
+its exact prior controller, numeric Hard1, variant, 8000frame bound and
+all other config. Deliberate changes are the current2082 ROM/debug/label
+inputs, corrected shared observer, and three explicit copied-bank lists.
+All prepared bindings were rehashed. Old ready/run digests are preserved
+in one migration receipt; no native evidence/readiness was overwritten.
+ Migration: build/verification/compact-fixed-alias-migration-v1.json
+ SHA256 392b35f368d8c5daccee1d0e885f556f33f1c18d992c566fc20149be377ae626
+
+New Sypha Hard v3 is unrun, same controller as failed v2, current2082:
+ build/verification/compact-next-sypha-hard-v3/ready.json
+ SHA256 68733f5ecf7595f596f3c2f57f695630878faeb72e8ccac97d40d89b6b48a553
+Its ready.command is the exact ROOT launch command. No launch by B.
+Current2082 SHA256:
+ 2082c19a7364920f828e97f70040d37f1f7059bde1ea136b5c2c4532324abf36
+Completed8487 routes remain historical; no new native count is inferred.
+
+Owned source/publication list for this finite change:
+ tools/audit/current_roster_compact_11_v1.py
+ tools/audit/current_roster_compact_11_v1.lua
+ tools/audit/current_roster_compact_fixed_alias_check_v1.py
+ tools/audit/current_roster_compact_fixed_alias_proposal.patch
+ docs/qa/current-roster-compact-fixed-alias-2026-10-27.txt
+The patch is the preserved pre-application proposal, not a second harness.
+No production, default, ROM, settings, controller, Git or emulator mutation.

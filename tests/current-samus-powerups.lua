@@ -10,6 +10,9 @@ local minSP,dmas,enables,late,irqCount,nmis,images=255,0,0,0,0,0,0
 local mask,pending=0,nil
 local upper,physical,chrChecks=0,{},0
 local screenshot,spend=nil,nil
+local refill,dropCall,awaitDropClear=nil,nil,nil
+local drops,samples={},{}
+local ctrl=0
 local csv=assert(io.open(OUTPUT..'samus-inventory.csv','w'))
 csv:write('event,wall,update,item,phase,age,ownedLo,ownedHi,selected,missiles,status,shots,ball,crouch,flip,x,y,value,pc,bank,cycle\n')
 local function r(n,i)return emu.read(assert(C.ram[n],n)+(i or 0),emu.memType.nesDebug)end
@@ -55,7 +58,14 @@ local function arena()
  for p=0,1 do for row=11,12 do for col=0,15 do w('Block_Buffer_1',0x54,p*208+row*16+col)end end end
  -- Subsequent staged scenes remove old target/drop/freeze actors; no expiry or natural drop claim.
  for i=0,5 do w('Enemy_Flag',0,i);w('Enemy_CollisionBits',0,i);w('AvFrozen',0,i);w('AvFrozenHi',0,i);w('RgEnemyStun',0,i);w('LsrFrozenPose',0,i)end
- for i=0,3 do w('InvDropKind',0,i)end
+ assert(not refill and not dropCall and not awaitDropClear,'No native pickup/refill call is discarded by staged scene reset')
+ for i=0,3 do
+  if drops[i]then drops[i].staged_removal_update=updates;event('disclosed-uncollected-drop-removal',i)end
+  w('InvDropKind',0,i)
+  -- nesDebug setup writes bypass CPU memory callbacks. Invalidate only the
+  -- observer's old provenance here, alongside its disclosed native-slot reset.
+  drops[i]=nil
+ end
  for _,n in ipairs({'Player_X_Speed','Player_Y_Speed','Player_X_MoveForce','Player_Y_MoveForce','ScrollThirtyTwo','AreaParserTaskNum'})do w(n,0)end
  for i=0,2 do w('MmVX',0,i);w('MmVY',0,i)end
  w('ScrollLock',1);w('ScreenLeft_X_Pos',0);w('ScreenLeft_PageLoc',0);w('ScreenRight_X_Pos',255);w('ScreenRight_PageLoc',0)
@@ -71,7 +81,7 @@ local function change(p)phase=p;age=0;event('phase')end
 local function seedItem()
  caseIndex=caseIndex+1;index=assert(C.order[caseIndex]);local spec=C.items[index]
  if index~=0 and index~=7 and index~=254 then assert(not has(index),'Reward genuinely unowned before acquisition')end
- rec={item=index,collections=0,grants=0,transforms=0,spends=0,cost=0,damageCalls=0,hpWrites=0,spawns=0,target=false,source_types={},source_sfx={},missiles_before=stock(),owned_before=r('InvOwnedLo',2)};records[#records+1]=rec
+ rec={item=index,collections=0,grants=0,transforms=0,spends=0,cost=0,earned_refill=0,refills={},native_drops={},damageCalls=0,hpWrites=0,spawns=0,target=false,source_types={},source_sfx={},missiles_before=stock(),owned_before=r('InvOwnedLo',2)};records[#records+1]=rec
  if index==7 then assert(has(7),'Mushroom authentically already granted Long; explicit mature reward is idempotent')end
  transaction(function()arena();mature(index)end);change('collect')
 end
@@ -145,6 +155,79 @@ end)
 hook('InventorySpendDone',function(s)
  if not spend then return end;assert(s['cpu.sp']==spend.sp and stock()==spend.before-C.missile_cost,'Actual missile decrement in same call');rec.spends=rec.spends+1;rec.cost=rec.cost+C.missile_cost;spend=nil;event('actual-spend-accepted')
 end)
+-- Source provenance, not an allowance for unexplained ammo changes. Enemy
+-- drops are produced by the native RNG, collide through its actual gates,
+-- and must execute the source refill/store/return/clear sequence.
+hook('EnemyDrop',function(s)
+ if not entered or writing then return end
+ assert(not dropCall and rec and phase=='use'and rec.target and s['cpu.x']==0,'Actual controlled enemy death owns native drop attempt')
+ dropCall={enemy=s['cpu.x'],sp=s['cpu.sp'],update=updates}
+end)
+hook('DropPhysics',function(s)
+ if not entered or writing then return end
+ local d=assert(dropCall,'Native enemy drop origin');local i=s['cpu.x'];local kind=r('InvDropKind',i)
+ event('native-drop-boundary',string.format('slot:%d;kind:%d;item:%d;enemy:%d;prior:%d',i,kind,r('AvDropItem',i),r('InvDropEnemy'),drops[i]and 1 or 0))
+ assert(i>=0 and i<4 and not drops[i]and r('InvDropEnemy')==d.enemy and(kind==1 or kind==2)and r('AvDropItem',i)==2,'Actual new Samus missile drop slot/kind/item')
+ local world=r('Enemy_X_Position',d.enemy)+256*r('Enemy_PageLoc',d.enemy)+8
+ assert(r('InvDropX',i)+256*r('InvDropPage',i)==world and r('InvDropY',i)==(r('Enemy_Y_Position',d.enemy)+8)%256,'Native drop origin is actual defeated enemy center')
+ drops[i]={slot=i,kind=kind,item=2,enemy=d.enemy,spawn_update=updates,x=r('InvDropX',i),page=r('InvDropPage',i),y=r('InvDropY',i)}
+ rec.native_drops[#rec.native_drops+1]=drops[i];event('native-enemy-drop-spawn',kind)
+end)
+hook('EnemyDropReturn',function(s)
+ if not entered or writing then return end
+ assert(dropCall and s['cpu.sp']==dropCall.sp,'Native drop attempt restores stack');dropCall=nil
+end)
+hook('DropCollectAccepted',function(s)
+ if not entered or writing then return end
+ local i=s['cpu.x'];local d=assert(drops[i],'Accepted collision must have native spawn provenance')
+ local dx=(r('Player_X_Position')+256*r('Player_PageLoc')+8-r('InvDropX',i)-256*r('InvDropPage',i)+11)%65536
+ local dy=((r('Player_Y_Position')+16)%256-r('InvDropY',i)+18)%256
+ assert(not refill and not awaitDropClear and r('Player_Y_HighPos')==1 and dx<23 and dy<37 and r('InvDropKind',i)==d.kind and r('AvDropItem',i)==2 and has(2),'Actual native world-drop collision geometry/ownership')
+ refill={origin='enemy-drop',slot=i,kind=d.kind,item=2,request=d.kind==2 and 40 or 8,before=stock(),update=updates,dx=dx,dy=dy}
+ d.collect_update=updates;event('native-drop-collision',i)
+end)
+hook('RefillPickup',function()
+ if not entered then return end
+ assert(not refill and phase=='collect'and index==254 and rec.collections==1 and r('AvRefillItem')==2,'Only physically collected mature FE actor owns refill pickup')
+ refill={origin='typed-mature-FE',item=2,request=40,before=stock(),update=updates};event('actual-refill-pickup',40)
+end)
+hook('RefillAmount',function(s)
+ if not entered then return end
+ assert(refill and s['cpu.a']==refill.request and r('AvRefillItem')==2 and has(2),'Exact source refill request has earned pickup provenance');refill.amount_seen=true;event('actual-refill-amount',s['cpu.a'])
+end)
+hook('RemainingRefill',function(s)
+ if not entered then return end
+ assert(refill and refill.amount_seen and r('InvDropAmount')==refill.request and r('AvRefillItem')==2,'Actual Samus refill dispatch preserves request/item')
+ refill.sp=s['cpu.sp'];event('actual-Samus-refill-entry',stock())
+end)
+emu.addMemoryCallback(function(_,v)
+ if not entered or writing then return end
+ if spend then assert(v==spend.before-C.missile_cost,'Only source missile debit is permitted');return end
+ local f=assert(refill,'No unproven missile write is accepted');local s=emu.getState();local h=C.refill_store
+ assert(bank(s['cpu.pc'])==h.bank and(s['cpu.pc']==h.pc or s['cpu.pc']==h.after)and s['cpu.x']==34 and f.sp and not f.write,'Actual native Samus refill owns ammo store')
+ for i,b in ipairs(h.bytes)do assert(emu.read(h.pc+i-1,emu.memType.nesDebug)==b,'Actual refill store opcode')end
+ f.expected=math.min(C.max_missiles,f.before+C.refill_amount);assert(v==f.expected,'Exact Samus earned +2 refill/cap, never a fabricated amount');f.write=true;event('native-earned-missile-store',v)
+end,emu.callbackType.write,C.ram.InvAmmo+34)
+hook('RemainingRefillDone',function(s)
+ if not entered then return end
+ local f=assert(refill,'Native refill return has pickup provenance')
+ assert(f.write and s['cpu.sp']==f.sp and stock()==f.expected,'Same real refill call completed exact source store/cap')
+ f.after=stock();f.delta=f.after-f.before;rec.earned_refill=rec.earned_refill+f.delta;rec.refills[#rec.refills+1]=f
+ if f.origin=='enemy-drop'then awaitDropClear={slot=f.slot,update=updates}end
+ refill=nil;event('native-earned-refill-complete',f.delta)
+end)
+emu.addMemoryCallback(function(a,v)
+ local i=a-C.ram.InvDropKind
+ if writing then if v==0 then drops[i]=nil end;return end
+ if not entered or v~=0 or not drops[i]then return end
+ if awaitDropClear and awaitDropClear.slot==i then
+  local s=emu.getState();local h=C.drop_clear_store
+  assert(updates==awaitDropClear.update and bank(s['cpu.pc'])==h.bank and(s['cpu.pc']==h.pc or s['cpu.pc']==h.after),'Actual collected drop cleared by same native caller')
+  drops[i].cleared_update=updates;awaitDropClear=nil;event('native-collected-drop-cleared',i)
+ else drops[i].expired_update=updates;event('native-uncollected-drop-removed',i)end
+ drops[i]=nil
+end,emu.callbackType.write,C.ram.InvDropKind,C.ram.InvDropKind+3)
+emu.addMemoryCallback(function(_,v)ctrl=v end,emu.callbackType.write,0x2000)
 hook('DamageEnemy',function(s)
  if entered and phase=='use'and rec.target and s['cpu.x']==0 then assert(r('MmBulletType')==C.items[index].damage_type,'Source intended weapon/body owns actual target contact');rec.damageCalls=rec.damageCalls+1;event('actual-contact-owner',r('MmBulletType'))end
 end)
@@ -185,7 +268,7 @@ hook('GameLoopFinish',function()
   if index==5 and r('SmCrouch')~=0 then rec.crouched=true;if rec.form_dma==nil then rec.form_dma=dmas end end
   if index==6 and r('SmFlip')~=0 and r('Player_State')~=0 then rec.flipped=true;if rec.form_dma==nil then rec.form_dma=dmas end end
   if age>=210 and pool()==0 and r('SmBall')==0 and r('Player_State')==0 then
-   assert(stock()==rec.missiles_before-(index==2 and C.missile_cost or 0),'Exact total ammo delta, never fixture refill')
+   assert(not refill and not awaitDropClear and stock()==rec.missiles_before-rec.cost+rec.earned_refill,'Exact conserved ammo: actual source spends plus proven earned refills; no fixture refill')
    if index~=5 then assert(rec.target and rec.damageCalls>0,'Actual intended target contact')end
    if index~=3 and index~=5 then assert(rec.hpWrites>0,'Actual damaging source target effect')end
    if index==1 then assert(rec.crouched and rec.morphed and rec.exploded and rec.bomb_boost and(rec.samus_sfx or 0)&12==12,'Native crouch/morph/bomb explosion/boost and cues')
@@ -278,7 +361,16 @@ emu.addEventCallback(function()
   elseif index==6 then anchor=rec.form_dma;active=r('SmFlip')~=0 and r('Player_State')~=0 and r('SmJumpStartY')-r('Player_Y_Position')>=34 end
   if active and anchor~=nil and dmas>=anchor+2 then rec.sampled=true;rec.sample_wall=wall;rec.sample_dma=dmas;screenshot=string.format('samus-item-%02d.png',index)end
  end
- if screenshot then assert(images<8,'Eight selected PNGs max');local f=assert(io.open(OUTPUT..screenshot,'wb'));f:write(emu.takeScreenshot());f:close();images=images+1;screenshot=nil end
+ if screenshot then
+  assert(images<8,'Eight selected PNGs max');local s=emu.getState();local sample={image=screenshot,wall=wall,update=updates,item=index,phase=phase,age=age,complete_DMAs=dmas,PPUCTRL=ctrl,ppu_scanline=s['ppu.scanline'],ppu_cycle=s['ppu.cycle'],nt_2000={},attributes={},pattern={},palette={},physical_OAM256=bytes(0,emu.memType.nesSpriteRam),source_OAM256=bytes(512),CHR_latches={},CHR_hardware={}}
+  -- Actual HUD x184..199/y8..23: columns23/24 and rows1/2 in nametable2000.
+  for row=1,2 do for col=23,24 do local a=0x2000+row*32+col;local t=emu.read(a,emu.memType.nesPpuDebug);sample.nt_2000[tostring(a)]=t;local attr=0x23c0+(row//4)*8+col//4;sample.attributes[tostring(attr)]=emu.read(attr,emu.memType.nesPpuDebug);local p=(ctrl&16~=0 and 0x1000 or 0)+t*16;local data={};for j=0,15 do data[#data+1]=emu.read(p+j,emu.memType.nesPpuDebug)end;sample.pattern[tostring(a)]=data end end
+  for i=0,31 do sample.palette[#sample.palette+1]=emu.read(0x3f00+i,emu.memType.nesPpuDebug)end
+  for i=0,11 do sample.CHR_latches[tostring(i)]=physical[i];sample.CHR_hardware[tostring(i)]=s['mapper.chrBanks'..i]end
+  samples[#samples+1]=sample
+  local f=assert(io.open(OUTPUT..'sample-metadata.json','w'));f:write(json(samples));f:close()
+  f=assert(io.open(OUTPUT..screenshot,'wb'));f:write(emu.takeScreenshot());f:close();images=images+1;screenshot=nil
+ end
  assert(wall<C.frame_limit,'16000 physical frame cap')
  if done then
   assert(not pending and not spend and dmas>100 and irqCount>100 and nmis>100 and enables>100 and late==0,'Actual full hardware/source guards exercised')

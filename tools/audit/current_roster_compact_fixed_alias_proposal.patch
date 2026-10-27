@@ -1,0 +1,66 @@
+--- a/tools/audit/current_roster_compact_11_v1.py
++++ b/tools/audit/current_roster_compact_11_v1.py
+@@ -158,6 +158,26 @@
+                  nmi=hook('NonMaskableInterrupt'), nmi_return=hook('NonMaskableInterrupt', tail=True),
+                  irq=hook('IrqScrollSplit'), irq_return=hook('IrqScrollSplit', tail=True),
+                  dma_complete=hook('PostDmaMaskEnable', offset=len(load)))
++    # CV3 DMC owns an explicit E-window clone, not a general bank alias.
++    # Compare whole actual owner bodies and every endpoint's three bytes.
++    hook_copy_owners = {}
++    for owner, keys in [('NonMaskableInterrupt', ('nmi', 'nmi_return')),
++                        ('OAMandReadJoypad', ('dma_complete',))]:
++        size = int(syms[owner]['size'], 0)
++        source = location(owner)
++        start = address(owner)
++        clone = 16+125*8192+(start & 8191)
++        assert (source-16)//8192 == 127 and 0xe000 <= start < start+size <= 0x10000
++        body = raw[source:source+size]
++        assert raw[clone:clone+size] == body, ('Declared fixed clone body differs', owner)
++        hook_copy_owners[owner] = dict(start=start, size=size, banks=[125, 127],
++                                      body_sha256=hashlib.sha256(body).hexdigest())
++        for key in keys:
++            h = hooks[key]
++            assert h['bank'] == 127
++            at = clone+h['pc']-start
++            assert raw[at:at+3] == bytes(h['bytes']), ('Clone endpoint differs', key)
++            h['banks'] = [125, 127]
+     cfg = dict(name=a.identity, character=character, menu_index=menu_index,
+                variant_symbol=variant_symbol, variant=variant, mode_value=0 if a.mode=='easy' else 1,
+                root=ROOT.as_posix(), out=out.as_posix()+'/', prefix=out.as_posix()+'/',
+@@ -219,6 +239,7 @@
+     receipt = dict(prepared=True, native_run=False, ROM_sha256=sha(rom), config=cfg, command=command,
+                    bindings={str(q): sha(q) for q in sorted(dependencies)},
+                    required_ram_reads={name: dict(address=address(name), origin='compiled_RAM_equate' if name in extra_ram else 'driver_VICE_label') for name in sorted(refs)},
++                   hook_copy_owners=hook_copy_owners,
+                    current_policy_status='Surviving tracked discovery policy, NOT a current-ROM clear proof',
+                    max_total_frames=8000, container_cap_bytes=cfg['capture_bytes'], central_run_cap_bytes=2_000_000_000,
+                    screenshot_files_during_native=0, maximum_offline_selected_frames=8,
+--- a/tools/audit/current_roster_compact_11_v1.lua
++++ b/tools/audit/current_roster_compact_11_v1.lua
+@@ -120,9 +120,16 @@
+  end
+  return{}
+ end
++local function hookBank(h,physical)
++ if h.banks then
++  for _,b in ipairs(h.banks)do if physical==b then return true end end
++  return false
++ end
++ return physical==h.bank
++end
+ local function hook(h,fn)
+  emu.addMemoryCallback(function(pc)
+-  if done or bank(pc)~=h.bank then return end
++  if done or not hookBank(h,bank(pc))then return end
+   for i,v in ipairs(h.bytes)do assert(emu.read(h.pc+i-1,emu.memType.nesDebug)==v,'Actual hook bytes: '..h.name)end
+   fn(emu.getState())
+  end,emu.callbackType.exec,h.pc)
+@@ -222,7 +229,7 @@
+  if not check(dma~=nil,'Actual post-DMA completion has a request')then return end
+  local q=dma;dma=nil;local hw=bytes(0,emu.memType.nesSpriteRam);dmas=dmas+1
+  local same=true;for i=1,256 do local want=q.source:byte(i);if (i-1)%4==2 then want=want&0xe3 end;if hw:byte(i)~=want then same=false end end
+- check(q.page==2 and q.start.pc==C.dma_store_return and q.count==256 and q.oamaddr==0 and emu.getState()['ppu.spriteRamAddr']==0 and q.mask&24==0 and maskValue&24==0 and same,
++ check(q.page==2 and q.start.pc==C.dma_store_return and hookBank(C.hooks.dma_complete,q.start.bank)and q.count==256 and q.oamaddr==0 and emu.getState()['ppu.spriteRamAddr']==0 and q.mask&24==0 and maskValue&24==0 and same,
+   'Completed 256-byte physical DMA (hardware attributes E3 only)',{count=q.count,start=q.start,complete=stamp(),source=hex(q.source),physical=hex(hw)})
+  sourceBytes=sourceBytes+256;if same then physicalBytes=physicalBytes+256 end
+ end)

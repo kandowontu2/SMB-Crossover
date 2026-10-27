@@ -120,9 +120,16 @@ local function menu()
  end
  return{}
 end
+local function hookBank(h,physical)
+ if h.banks then
+  for _,b in ipairs(h.banks)do if physical==b then return true end end
+  return false
+ end
+ return physical==h.bank
+end
 local function hook(h,fn)
  emu.addMemoryCallback(function(pc)
-  if done or bank(pc)~=h.bank then return end
+  if done or not hookBank(h,bank(pc))then return end
   for i,v in ipairs(h.bytes)do assert(emu.read(h.pc+i-1,emu.memType.nesDebug)==v,'Actual hook bytes: '..h.name)end
   fn(emu.getState())
  end,emu.callbackType.exec,h.pc)
@@ -222,7 +229,7 @@ hook(C.hooks.dma_complete,function()
  if not check(dma~=nil,'Actual post-DMA completion has a request')then return end
  local q=dma;dma=nil;local hw=bytes(0,emu.memType.nesSpriteRam);dmas=dmas+1
  local same=true;for i=1,256 do local want=q.source:byte(i);if (i-1)%4==2 then want=want&0xe3 end;if hw:byte(i)~=want then same=false end end
- check(q.page==2 and q.start.pc==C.dma_store_return and q.count==256 and q.oamaddr==0 and emu.getState()['ppu.spriteRamAddr']==0 and q.mask&24==0 and maskValue&24==0 and same,
+ check(q.page==2 and q.start.pc==C.dma_store_return and hookBank(C.hooks.dma_complete,q.start.bank)and q.count==256 and q.oamaddr==0 and emu.getState()['ppu.spriteRamAddr']==0 and q.mask&24==0 and maskValue&24==0 and same,
   'Completed 256-byte physical DMA (hardware attributes E3 only)',{count=q.count,start=q.start,complete=stamp(),source=hex(q.source),physical=hex(hw)})
  sourceBytes=sourceBytes+256;if same then physicalBytes=physicalBytes+256 end
 end)

@@ -158,6 +158,26 @@ def prepare(a):
                  nmi=hook('NonMaskableInterrupt'), nmi_return=hook('NonMaskableInterrupt', tail=True),
                  irq=hook('IrqScrollSplit'), irq_return=hook('IrqScrollSplit', tail=True),
                  dma_complete=hook('PostDmaMaskEnable', offset=len(load)))
+    # CV3 DMC owns an explicit E-window clone, not a general bank alias.
+    # Compare whole actual owner bodies and every endpoint's three bytes.
+    hook_copy_owners = {}
+    for owner, keys in [('NonMaskableInterrupt', ('nmi', 'nmi_return')),
+                        ('OAMandReadJoypad', ('dma_complete',))]:
+        size = int(syms[owner]['size'], 0)
+        source = location(owner)
+        start = address(owner)
+        clone = 16+125*8192+(start & 8191)
+        assert (source-16)//8192 == 127 and 0xe000 <= start < start+size <= 0x10000
+        body = raw[source:source+size]
+        assert raw[clone:clone+size] == body, ('Declared fixed clone body differs', owner)
+        hook_copy_owners[owner] = dict(start=start, size=size, banks=[125, 127],
+                                      body_sha256=hashlib.sha256(body).hexdigest())
+        for key in keys:
+            h = hooks[key]
+            assert h['bank'] == 127
+            at = clone+h['pc']-start
+            assert raw[at:at+3] == bytes(h['bytes']), ('Clone endpoint differs', key)
+            h['banks'] = [125, 127]
     cfg = dict(name=a.identity, character=character, menu_index=menu_index,
                variant_symbol=variant_symbol, variant=variant, mode_value=0 if a.mode=='easy' else 1,
                root=ROOT.as_posix(), out=out.as_posix()+'/', prefix=out.as_posix()+'/',
@@ -219,6 +239,7 @@ def prepare(a):
     receipt = dict(prepared=True, native_run=False, ROM_sha256=sha(rom), config=cfg, command=command,
                    bindings={str(q): sha(q) for q in sorted(dependencies)},
                    required_ram_reads={name: dict(address=address(name), origin='compiled_RAM_equate' if name in extra_ram else 'driver_VICE_label') for name in sorted(refs)},
+                   hook_copy_owners=hook_copy_owners,
                    current_policy_status='Surviving tracked discovery policy, NOT a current-ROM clear proof',
                    max_total_frames=8000, container_cap_bytes=cfg['capture_bytes'], central_run_cap_bytes=2_000_000_000,
                    screenshot_files_during_native=0, maximum_offline_selected_frames=8,
