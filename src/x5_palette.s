@@ -18,7 +18,7 @@ RlLegacyColors:
   lda ProtoVariant
   beq LegacyMegaMan
   jsr X5LegacyGetPlayerColors
-  farcall ProtoFixQueuedPalette,jmp
+  farcall ProtoFixAndAcknowledgePalette,jmp
 LegacyMegaMan:
   jmp X5LegacyGetPlayerColors
 :

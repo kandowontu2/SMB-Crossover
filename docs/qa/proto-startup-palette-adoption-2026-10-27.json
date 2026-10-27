@@ -1,0 +1,178 @@
+{
+  "status": "adopted after canonical source rebuild equals native-tested candidate",
+  "ROM_sha256": "2082c19a7364920f828e97f70040d37f1f7059bde1ea136b5c2c4532324abf36",
+  "parent_sha256": "8487c439ded9bc6274e1dc8f8e051494fa96ee518553d9c2f382eccf2e71d0e6",
+  "bytes": 2097168,
+  "changed_PRG_bytes": 115,
+  "changed_banks": {
+    "66": 114,
+    "78": 1
+  },
+  "header_CHR_and_other_PRG_exact": true,
+  "new_RAM_bytes": 0,
+  "old_qualified_labels_preserved": 73355,
+  "native_result": {
+    "ROM_sha256": "2082c19a7364920f828e97f70040d37f1f7059bde1ea136b5c2c4532324abf36",
+    "actual_mode": 1,
+    "adapter": {
+      "container_bytes": 56055320,
+      "format": "NESPPU01",
+      "full_closed": true,
+      "full_frames": 3694,
+      "open_virtual_files": 0,
+      "per_frame_files": 0,
+      "records": 3694,
+      "screenshots": 0
+    },
+    "bass_collision": {
+      "startup_vram": {
+        "NMI_entries": 592,
+        "clipped_DMA": false,
+        "clipped_NMI": false,
+        "cutoff_frame": 600,
+        "limits": "CPU entry-to-opcode/caller-return timings only; packet snapshot uses real nativeY wrap and header bits. Existing shared route observer retains all256 DMA/CHR/SMC/stack/render-enable assertions. No emulated state or input writes.",
+        "passive": true,
+        "recording_stopped": true,
+        "rows": 6719
+      }
+    },
+    "cheats_off": true,
+    "chr_window_checks": 51240,
+    "completed_DMAS": 3562,
+    "completed_loops": 4159,
+    "frames": 4560,
+    "full_frames": 3694,
+    "identity": "proto",
+    "irq_checks": 4212,
+    "lives": {
+      "death_state_seen": false,
+      "decreased": 0,
+      "ending": 2,
+      "gained": 0,
+      "maximum": 2,
+      "start": 2
+    },
+    "markers": {
+      "corner-332": {
+        "frame": 564,
+        "full_ordinal": 274,
+        "stamp": {
+          "bank": 71,
+          "cpu_cycle": 16793717,
+          "dot": 0,
+          "pc": 44299,
+          "ppu_frame": 564,
+          "scanline": 240,
+          "sp": 234
+        }
+      },
+      "corner-345": {
+        "frame": 578,
+        "full_ordinal": 288,
+        "stamp": {
+          "bank": 4,
+          "cpu_cycle": 17210644,
+          "dot": 0,
+          "pc": 41329,
+          "ppu_frame": 578,
+          "scanline": 240,
+          "sp": 243
+        }
+      },
+      "corner-360": {
+        "frame": 591,
+        "full_ordinal": 301,
+        "stamp": {
+          "bank": 126,
+          "cpu_cycle": 17597790,
+          "dot": 0,
+          "pc": 33463,
+          "ppu_frame": 591,
+          "scanline": 240,
+          "sp": 253
+        }
+      },
+      "endpoint": {
+        "frame": 4560,
+        "full_ordinal": 3694,
+        "stamp": {
+          "bank": 126,
+          "cpu_cycle": 135796604,
+          "dot": 0,
+          "pc": 33460,
+          "ppu_frame": 4560,
+          "scanline": 240,
+          "sp": 253
+        }
+      },
+      "first-active": {
+        "frame": 291,
+        "full_ordinal": 1,
+        "stamp": {
+          "bank": 126,
+          "cpu_cycle": 8663640,
+          "dot": 0,
+          "pc": 33460,
+          "ppu_frame": 291,
+          "scanline": 240,
+          "sp": 253
+        }
+      },
+      "flagpole": {
+        "frame": 3364,
+        "full_ordinal": 3074,
+        "stamp": {
+          "bank": 2,
+          "cpu_cycle": 100179117,
+          "dot": 0,
+          "pc": 41762,
+          "ppu_frame": 3364,
+          "scanline": 240,
+          "sp": 233
+        }
+      }
+    },
+    "min_SP": 188,
+    "nmi_checks": 4269,
+    "passed": true,
+    "physical_E3_bytes_checked": 911872,
+    "polls": 4559,
+    "real_1_1_seen": true,
+    "real_1_2_control_updates": 26,
+    "reason": "cleared 1-1 and controlled 1-2",
+    "scope": "Controller-only current 1-1 to controlled 1-2. Selected PPU review remains separate; no every-item/ability/source-fidelity/FPS claim.",
+    "stationary_watchdog": {
+      "consecutive": 0,
+      "limit": 300,
+      "maximum": 46,
+      "unit": "genuinely active completed updates; pause/transform/refill excluded"
+    },
+    "unmasked_source_writes_checked": 911872,
+    "zero_deaths": true
+  },
+  "review_sha256": "16f3163472bdb7bf53345587a8dd62bda7b0267738260bc52850cb1e01474084",
+  "PPU_stream_sha256": "ba717636cc59374cb7d9f5c80c84c17b89289091f8e260d052bfe9da2122359d",
+  "selected_whole_frames_reviewed": 6,
+  "all_frame_visual_review": false,
+  "independent_replay": false,
+  "measured_first_active_NMI": {
+    "frame": 292,
+    "old_render_line": 1,
+    "old_dot": 267,
+    "new_render_line": 259,
+    "new_dot": 263,
+    "old_cycles": 2580,
+    "new_cycles": 2124,
+    "recovered_CPU_cycles": 456,
+    "old_VRAM_bytes": 56,
+    "new_VRAM_bytes": 38,
+    "old_PPU_data_writes": 29,
+    "new_PPU_data_writes": 20,
+    "strict_render_deadline_retained": true,
+    "required_CHR_work_retained": true,
+    "extra_native_ColorRotation_cost": 168
+  },
+  "source_controls": "72 full GetColors caller cases and8 foreign callers; special/star/transform/charge/equipment/capacity paths preserved; all existing PCs fixed; ordinary flag-off source candidate/reference builds exact",
+  "scope": "Prevents a duplicate normal Proto palette refresh after a successful queued palette. Native normal Hard1-1 to controlled1-2. Does not adopt the held Mega/Proto OAM proposal or claim every powerup, dense sprites, Easy/shortcut routes or a full performance audit.",
+  "goal_complete": false
+}

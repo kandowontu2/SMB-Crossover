@@ -1,0 +1,996 @@
+{
+  "passed": true,
+  "source_CPU_only": true,
+  "native_run": false,
+  "baseline_sha256": "8487c439ded9bc6274e1dc8f8e051494fa96ee518553d9c2f382eccf2e71d0e6",
+  "candidate_sha256": "2082c19a7364920f828e97f70040d37f1f7059bde1ea136b5c2c4532324abf36",
+  "all_old_public_labels": 42885,
+  "actual_GetColors_caller_cases": 72,
+  "caller_state_contract": "FullAXYP/SP, mapper state and every nonstack RAM byte identical except intentional normal-palette SsLastPalette acknowledgement. Added helper leaves dead stack residue; no live stack or caller state claim is masked.",
+  "queue_capacity": "VRAM_Buffer1 actualDBG sizeof84; sourceLegacyGetColors appends6+6+7=19. Safe final offset19..83 means originaloffset0..64; wrap cases cannot enter that range. Header/colors/terminator verified before acknowledgment.",
+  "cases": [
+    {
+      "state": {
+        "offset": 0,
+        "PlayerStatus": 0,
+        "SsLastPalette": 0
+      },
+      "ack": true,
+      "old_cycles": 1187,
+      "new_cycles": 1349
+    },
+    {
+      "state": {
+        "offset": 0,
+        "PlayerStatus": 0,
+        "SsLastPalette": 1
+      },
+      "ack": true,
+      "old_cycles": 1187,
+      "new_cycles": 1349
+    },
+    {
+      "state": {
+        "offset": 0,
+        "PlayerStatus": 0,
+        "SsLastPalette": 5
+      },
+      "ack": true,
+      "old_cycles": 1187,
+      "new_cycles": 1349
+    },
+    {
+      "state": {
+        "offset": 0,
+        "PlayerStatus": 1,
+        "SsLastPalette": 0
+      },
+      "ack": true,
+      "old_cycles": 1187,
+      "new_cycles": 1349
+    },
+    {
+      "state": {
+        "offset": 0,
+        "PlayerStatus": 1,
+        "SsLastPalette": 1
+      },
+      "ack": true,
+      "old_cycles": 1187,
+      "new_cycles": 1349
+    },
+    {
+      "state": {
+        "offset": 0,
+        "PlayerStatus": 1,
+        "SsLastPalette": 5
+      },
+      "ack": true,
+      "old_cycles": 1187,
+      "new_cycles": 1349
+    },
+    {
+      "state": {
+        "offset": 20,
+        "PlayerStatus": 0,
+        "SsLastPalette": 0
+      },
+      "ack": true,
+      "old_cycles": 1255,
+      "new_cycles": 1417
+    },
+    {
+      "state": {
+        "offset": 20,
+        "PlayerStatus": 0,
+        "SsLastPalette": 1
+      },
+      "ack": true,
+      "old_cycles": 1255,
+      "new_cycles": 1417
+    },
+    {
+      "state": {
+        "offset": 20,
+        "PlayerStatus": 0,
+        "SsLastPalette": 5
+      },
+      "ack": true,
+      "old_cycles": 1255,
+      "new_cycles": 1417
+    },
+    {
+      "state": {
+        "offset": 20,
+        "PlayerStatus": 1,
+        "SsLastPalette": 0
+      },
+      "ack": true,
+      "old_cycles": 1255,
+      "new_cycles": 1417
+    },
+    {
+      "state": {
+        "offset": 20,
+        "PlayerStatus": 1,
+        "SsLastPalette": 1
+      },
+      "ack": true,
+      "old_cycles": 1255,
+      "new_cycles": 1417
+    },
+    {
+      "state": {
+        "offset": 20,
+        "PlayerStatus": 1,
+        "SsLastPalette": 5
+      },
+      "ack": true,
+      "old_cycles": 1255,
+      "new_cycles": 1417
+    },
+    {
+      "state": {
+        "offset": 64,
+        "PlayerStatus": 0,
+        "SsLastPalette": 0
+      },
+      "ack": true,
+      "old_cycles": 1257,
+      "new_cycles": 1422
+    },
+    {
+      "state": {
+        "offset": 64,
+        "PlayerStatus": 0,
+        "SsLastPalette": 1
+      },
+      "ack": true,
+      "old_cycles": 1257,
+      "new_cycles": 1422
+    },
+    {
+      "state": {
+        "offset": 64,
+        "PlayerStatus": 0,
+        "SsLastPalette": 5
+      },
+      "ack": true,
+      "old_cycles": 1257,
+      "new_cycles": 1422
+    },
+    {
+      "state": {
+        "offset": 64,
+        "PlayerStatus": 1,
+        "SsLastPalette": 0
+      },
+      "ack": true,
+      "old_cycles": 1257,
+      "new_cycles": 1422
+    },
+    {
+      "state": {
+        "offset": 64,
+        "PlayerStatus": 1,
+        "SsLastPalette": 1
+      },
+      "ack": true,
+      "old_cycles": 1257,
+      "new_cycles": 1422
+    },
+    {
+      "state": {
+        "offset": 64,
+        "PlayerStatus": 1,
+        "SsLastPalette": 5
+      },
+      "ack": true,
+      "old_cycles": 1257,
+      "new_cycles": 1422
+    },
+    {
+      "state": {
+        "offset": 65,
+        "PlayerStatus": 0,
+        "SsLastPalette": 0
+      },
+      "ack": false,
+      "old_cycles": 1258,
+      "new_cycles": 1361
+    },
+    {
+      "state": {
+        "offset": 65,
+        "PlayerStatus": 0,
+        "SsLastPalette": 1
+      },
+      "ack": false,
+      "old_cycles": 1258,
+      "new_cycles": 1361
+    },
+    {
+      "state": {
+        "offset": 65,
+        "PlayerStatus": 0,
+        "SsLastPalette": 5
+      },
+      "ack": false,
+      "old_cycles": 1258,
+      "new_cycles": 1361
+    },
+    {
+      "state": {
+        "offset": 65,
+        "PlayerStatus": 1,
+        "SsLastPalette": 0
+      },
+      "ack": false,
+      "old_cycles": 1258,
+      "new_cycles": 1361
+    },
+    {
+      "state": {
+        "offset": 65,
+        "PlayerStatus": 1,
+        "SsLastPalette": 1
+      },
+      "ack": false,
+      "old_cycles": 1258,
+      "new_cycles": 1361
+    },
+    {
+      "state": {
+        "offset": 65,
+        "PlayerStatus": 1,
+        "SsLastPalette": 5
+      },
+      "ack": false,
+      "old_cycles": 1258,
+      "new_cycles": 1361
+    },
+    {
+      "state": {
+        "offset": 83,
+        "PlayerStatus": 0,
+        "SsLastPalette": 0
+      },
+      "ack": false,
+      "old_cycles": 1342,
+      "new_cycles": 1445
+    },
+    {
+      "state": {
+        "offset": 83,
+        "PlayerStatus": 0,
+        "SsLastPalette": 1
+      },
+      "ack": false,
+      "old_cycles": 1342,
+      "new_cycles": 1445
+    },
+    {
+      "state": {
+        "offset": 83,
+        "PlayerStatus": 0,
+        "SsLastPalette": 5
+      },
+      "ack": false,
+      "old_cycles": 1342,
+      "new_cycles": 1445
+    },
+    {
+      "state": {
+        "offset": 83,
+        "PlayerStatus": 1,
+        "SsLastPalette": 0
+      },
+      "ack": false,
+      "old_cycles": 1342,
+      "new_cycles": 1445
+    },
+    {
+      "state": {
+        "offset": 83,
+        "PlayerStatus": 1,
+        "SsLastPalette": 1
+      },
+      "ack": false,
+      "old_cycles": 1342,
+      "new_cycles": 1445
+    },
+    {
+      "state": {
+        "offset": 83,
+        "PlayerStatus": 1,
+        "SsLastPalette": 5
+      },
+      "ack": false,
+      "old_cycles": 1342,
+      "new_cycles": 1445
+    },
+    {
+      "state": {
+        "offset": 238,
+        "PlayerStatus": 0,
+        "SsLastPalette": 0
+      },
+      "ack": false,
+      "old_cycles": 895,
+      "new_cycles": 994
+    },
+    {
+      "state": {
+        "offset": 238,
+        "PlayerStatus": 0,
+        "SsLastPalette": 1
+      },
+      "ack": false,
+      "old_cycles": 895,
+      "new_cycles": 994
+    },
+    {
+      "state": {
+        "offset": 238,
+        "PlayerStatus": 0,
+        "SsLastPalette": 5
+      },
+      "ack": false,
+      "old_cycles": 895,
+      "new_cycles": 994
+    },
+    {
+      "state": {
+        "offset": 238,
+        "PlayerStatus": 1,
+        "SsLastPalette": 0
+      },
+      "ack": false,
+      "old_cycles": 895,
+      "new_cycles": 994
+    },
+    {
+      "state": {
+        "offset": 238,
+        "PlayerStatus": 1,
+        "SsLastPalette": 1
+      },
+      "ack": false,
+      "old_cycles": 895,
+      "new_cycles": 994
+    },
+    {
+      "state": {
+        "offset": 238,
+        "PlayerStatus": 1,
+        "SsLastPalette": 5
+      },
+      "ack": false,
+      "old_cycles": 895,
+      "new_cycles": 994
+    },
+    {
+      "state": {
+        "offset": 250,
+        "PlayerStatus": 0,
+        "SsLastPalette": 0
+      },
+      "ack": false,
+      "old_cycles": 1107,
+      "new_cycles": 1206
+    },
+    {
+      "state": {
+        "offset": 250,
+        "PlayerStatus": 0,
+        "SsLastPalette": 1
+      },
+      "ack": false,
+      "old_cycles": 1107,
+      "new_cycles": 1206
+    },
+    {
+      "state": {
+        "offset": 250,
+        "PlayerStatus": 0,
+        "SsLastPalette": 5
+      },
+      "ack": false,
+      "old_cycles": 1107,
+      "new_cycles": 1206
+    },
+    {
+      "state": {
+        "offset": 250,
+        "PlayerStatus": 1,
+        "SsLastPalette": 0
+      },
+      "ack": false,
+      "old_cycles": 1107,
+      "new_cycles": 1206
+    },
+    {
+      "state": {
+        "offset": 250,
+        "PlayerStatus": 1,
+        "SsLastPalette": 1
+      },
+      "ack": false,
+      "old_cycles": 1107,
+      "new_cycles": 1206
+    },
+    {
+      "state": {
+        "offset": 250,
+        "PlayerStatus": 1,
+        "SsLastPalette": 5
+      },
+      "ack": false,
+      "old_cycles": 1107,
+      "new_cycles": 1206
+    },
+    {
+      "state": {
+        "offset": 255,
+        "PlayerStatus": 0,
+        "SsLastPalette": 0
+      },
+      "ack": false,
+      "old_cycles": 916,
+      "new_cycles": 1015
+    },
+    {
+      "state": {
+        "offset": 255,
+        "PlayerStatus": 0,
+        "SsLastPalette": 1
+      },
+      "ack": false,
+      "old_cycles": 916,
+      "new_cycles": 1015
+    },
+    {
+      "state": {
+        "offset": 255,
+        "PlayerStatus": 0,
+        "SsLastPalette": 5
+      },
+      "ack": false,
+      "old_cycles": 916,
+      "new_cycles": 1015
+    },
+    {
+      "state": {
+        "offset": 255,
+        "PlayerStatus": 1,
+        "SsLastPalette": 0
+      },
+      "ack": false,
+      "old_cycles": 916,
+      "new_cycles": 1015
+    },
+    {
+      "state": {
+        "offset": 255,
+        "PlayerStatus": 1,
+        "SsLastPalette": 1
+      },
+      "ack": false,
+      "old_cycles": 916,
+      "new_cycles": 1015
+    },
+    {
+      "state": {
+        "offset": 255,
+        "PlayerStatus": 1,
+        "SsLastPalette": 5
+      },
+      "ack": false,
+      "old_cycles": 916,
+      "new_cycles": 1015
+    },
+    {
+      "state": {
+        "offset": 0,
+        "StarInvincibleTimer": 1
+      },
+      "ack": false,
+      "old_cycles": 1187,
+      "new_cycles": 1270
+    },
+    {
+      "state": {
+        "offset": 20,
+        "StarInvincibleTimer": 1
+      },
+      "ack": false,
+      "old_cycles": 1255,
+      "new_cycles": 1338
+    },
+    {
+      "state": {
+        "offset": 64,
+        "StarInvincibleTimer": 1
+      },
+      "ack": false,
+      "old_cycles": 1257,
+      "new_cycles": 1340
+    },
+    {
+      "state": {
+        "offset": 0,
+        "GuestPowerupActive": 1
+      },
+      "ack": false,
+      "old_cycles": 1187,
+      "new_cycles": 1270
+    },
+    {
+      "state": {
+        "offset": 20,
+        "GuestPowerupActive": 1
+      },
+      "ack": false,
+      "old_cycles": 1255,
+      "new_cycles": 1338
+    },
+    {
+      "state": {
+        "offset": 64,
+        "GuestPowerupActive": 1
+      },
+      "ack": false,
+      "old_cycles": 1257,
+      "new_cycles": 1340
+    },
+    {
+      "state": {
+        "offset": 0,
+        "MmChargeFrames": 1
+      },
+      "ack": false,
+      "old_cycles": 1187,
+      "new_cycles": 1270
+    },
+    {
+      "state": {
+        "offset": 20,
+        "MmChargeFrames": 1
+      },
+      "ack": false,
+      "old_cycles": 1255,
+      "new_cycles": 1338
+    },
+    {
+      "state": {
+        "offset": 64,
+        "MmChargeFrames": 1
+      },
+      "ack": false,
+      "old_cycles": 1257,
+      "new_cycles": 1340
+    },
+    {
+      "state": {
+        "offset": 0,
+        "MmChargeFrames": 33
+      },
+      "ack": false,
+      "old_cycles": 1187,
+      "new_cycles": 1270
+    },
+    {
+      "state": {
+        "offset": 20,
+        "MmChargeFrames": 33
+      },
+      "ack": false,
+      "old_cycles": 1255,
+      "new_cycles": 1338
+    },
+    {
+      "state": {
+        "offset": 64,
+        "MmChargeFrames": 33
+      },
+      "ack": false,
+      "old_cycles": 1257,
+      "new_cycles": 1340
+    },
+    {
+      "state": {
+        "offset": 0,
+        "MmChargeFrames": 87
+      },
+      "ack": false,
+      "old_cycles": 1187,
+      "new_cycles": 1270
+    },
+    {
+      "state": {
+        "offset": 20,
+        "MmChargeFrames": 87
+      },
+      "ack": false,
+      "old_cycles": 1255,
+      "new_cycles": 1338
+    },
+    {
+      "state": {
+        "offset": 64,
+        "MmChargeFrames": 87
+      },
+      "ack": false,
+      "old_cycles": 1257,
+      "new_cycles": 1340
+    },
+    {
+      "state": {
+        "offset": 0,
+        "InvSelected": 1
+      },
+      "ack": false,
+      "old_cycles": 848,
+      "new_cycles": 917
+    },
+    {
+      "state": {
+        "offset": 20,
+        "InvSelected": 1
+      },
+      "ack": false,
+      "old_cycles": 848,
+      "new_cycles": 917
+    },
+    {
+      "state": {
+        "offset": 64,
+        "InvSelected": 1
+      },
+      "ack": false,
+      "old_cycles": 848,
+      "new_cycles": 917
+    },
+    {
+      "state": {
+        "offset": 0,
+        "PlayerStatus": 2
+      },
+      "ack": false,
+      "old_cycles": 1187,
+      "new_cycles": 1278
+    },
+    {
+      "state": {
+        "offset": 20,
+        "PlayerStatus": 2
+      },
+      "ack": false,
+      "old_cycles": 1255,
+      "new_cycles": 1346
+    },
+    {
+      "state": {
+        "offset": 64,
+        "PlayerStatus": 2
+      },
+      "ack": false,
+      "old_cycles": 1257,
+      "new_cycles": 1348
+    },
+    {
+      "state": {
+        "offset": 0,
+        "ProtoVariant": 0
+      },
+      "ack": false,
+      "old_cycles": 749,
+      "new_cycles": 749
+    },
+    {
+      "state": {
+        "offset": 20,
+        "ProtoVariant": 0
+      },
+      "ack": false,
+      "old_cycles": 749,
+      "new_cycles": 749
+    },
+    {
+      "state": {
+        "offset": 64,
+        "ProtoVariant": 0
+      },
+      "ack": false,
+      "old_cycles": 749,
+      "new_cycles": 749
+    }
+  ],
+  "foreign_actual_calls": [
+    [
+      0,
+      0,
+      792
+    ],
+    [
+      1,
+      0,
+      749
+    ],
+    [
+      2,
+      0,
+      960
+    ],
+    [
+      3,
+      0,
+      992
+    ],
+    [
+      4,
+      0,
+      965
+    ],
+    [
+      5,
+      0,
+      953
+    ],
+    [
+      9,
+      0,
+      996
+    ],
+    [
+      12,
+      0,
+      944
+    ]
+  ],
+  "actual_source_route": [
+    {
+      "entrance_bytes": 25,
+      "queued_bytes": 56,
+      "queue_hex": "3f1d030f37173f19031630273f1004220f16103f11030f16103f1d030f37173f19031630273f1004220f16103f11030f1610207a0304000000",
+      "UpdateScreen_body_cycles": 1421,
+      "ppu_bus": [
+        [
+          16157,
+          15
+        ],
+        [
+          16158,
+          55
+        ],
+        [
+          16159,
+          23
+        ],
+        [
+          16153,
+          22
+        ],
+        [
+          16154,
+          48
+        ],
+        [
+          16155,
+          39
+        ],
+        [
+          16144,
+          34
+        ],
+        [
+          16145,
+          15
+        ],
+        [
+          16146,
+          22
+        ],
+        [
+          16147,
+          16
+        ],
+        [
+          16145,
+          15
+        ],
+        [
+          16146,
+          22
+        ],
+        [
+          16147,
+          16
+        ],
+        [
+          16157,
+          15
+        ],
+        [
+          16158,
+          55
+        ],
+        [
+          16159,
+          23
+        ],
+        [
+          16153,
+          22
+        ],
+        [
+          16154,
+          48
+        ],
+        [
+          16155,
+          39
+        ],
+        [
+          16144,
+          34
+        ],
+        [
+          16145,
+          15
+        ],
+        [
+          16146,
+          22
+        ],
+        [
+          16147,
+          16
+        ],
+        [
+          16145,
+          15
+        ],
+        [
+          16146,
+          22
+        ],
+        [
+          16147,
+          16
+        ],
+        [
+          8314,
+          4
+        ],
+        [
+          8315,
+          0
+        ],
+        [
+          8316,
+          0
+        ]
+      ],
+      "palette_image": {
+        "16157": 15,
+        "16158": 55,
+        "16159": 23,
+        "16153": 22,
+        "16154": 48,
+        "16155": 39,
+        "16128": 34,
+        "16145": 15,
+        "16146": 22,
+        "16147": 16,
+        "8314": 4,
+        "8315": 0,
+        "8316": 0
+      }
+    },
+    {
+      "entrance_bytes": 25,
+      "queued_bytes": 31,
+      "queue_hex": "3f1d030f37173f19031630273f1004220f16103f11030f1610207a0304000000",
+      "UpdateScreen_body_cycles": 797,
+      "ppu_bus": [
+        [
+          16157,
+          15
+        ],
+        [
+          16158,
+          55
+        ],
+        [
+          16159,
+          23
+        ],
+        [
+          16153,
+          22
+        ],
+        [
+          16154,
+          48
+        ],
+        [
+          16155,
+          39
+        ],
+        [
+          16144,
+          34
+        ],
+        [
+          16145,
+          15
+        ],
+        [
+          16146,
+          22
+        ],
+        [
+          16147,
+          16
+        ],
+        [
+          16145,
+          15
+        ],
+        [
+          16146,
+          22
+        ],
+        [
+          16147,
+          16
+        ],
+        [
+          8314,
+          4
+        ],
+        [
+          8315,
+          0
+        ],
+        [
+          8316,
+          0
+        ]
+      ],
+      "palette_image": {
+        "16157": 15,
+        "16158": 55,
+        "16159": 23,
+        "16153": 22,
+        "16154": 48,
+        "16155": 39,
+        "16128": 34,
+        "16145": 15,
+        "16146": 22,
+        "16147": 16,
+        "8314": 4,
+        "8315": 0,
+        "8316": 0
+      }
+    }
+  ],
+  "recorded_native_attribution": {
+    "NMI_entry": 8663764,
+    "render_enable": 8666344,
+    "elapsed": 2580,
+    "Gateway": 1478,
+    "CHR": 429,
+    "DMA_request_elapsed": 2059,
+    "actual29writes": true,
+    "audio_after_enable": true
+  },
+  "projected_recovery": {
+    "UpdateScreen_cycles_saved": 624,
+    "PPUDATA_old": 29,
+    "PPUDATA_new": 16,
+    "native_remeasurement_required": true
+  },
+  "limitations": "Finite component/queue/caller controls, not a new fullNMI/IRQ hardware run. Star/transform/charge and foreign paths retained. No installed source/build writes. No all-level performance claim."
+}

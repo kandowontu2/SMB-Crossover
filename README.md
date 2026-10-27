@@ -6,7 +6,9 @@ This is a native NES adaptation of [Super Mario Bros. Crossover](https://www.smb
 
 **Status: playable, actively developed, and unfinished.** Character behavior, graphics, sound and performance are still being tested and corrected. MMC5 is the recommended target for the full roster.
 
-The October 27 development build (`8487c439`) corrects Bass's airborne head collision and block separation. Bass cleared 1-1 in Hard with zero deaths and no cheats, and an independent replay matched the inputs, trace and all 4,340 captured PPU frames. See the [Bass checks and limits](docs/qa/bass-corner-adoption-2026-10-27.json).
+The October 27 development build (`2082c19a`) fixes Proto Man's level-start palette overrun. His Hard 1-1 run passed with zero deaths and reached playable 1-2; the first active graphics update now finishes before rendering resumes. See the [Proto Man checks and limits](docs/qa/proto-startup-palette-adoption-2026-10-27.json).
+
+It retains `8487c439`'s correction to Bass's airborne head collision and block separation. Bass cleared 1-1 in Hard with zero deaths and no cheats, and an independent replay matched the inputs, trace and all 4,340 captured PPU frames. See the [Bass checks and limits](docs/qa/bass-corner-adoption-2026-10-27.json).
 
 It retains `fb2a608e`'s fixes for the audio test's stretched note timing and screen flicker. Sustained overworld playback was checked for all 37 identities, including stable menu pixels; Mario's note timing matches normal gameplay playback. See the [audio checks and limits](docs/qa/music-test-timing-adoption-2026-10-27.json).
 
