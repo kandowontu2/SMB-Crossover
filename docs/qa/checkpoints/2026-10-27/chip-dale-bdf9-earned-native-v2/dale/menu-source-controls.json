@@ -1,0 +1,194 @@
+{
+  "passed": true,
+  "native_run": false,
+  "old_unrun_ready_preserved": true,
+  "old_ready_sha256": "bed1e03bdc25e09c45fd7520588d61006c0b91d016faba592eddb6e0cb5e6fef",
+  "cause": "Raw character14 was mistaken for menu index14. Actual compiled table index13 resolvesChip14, index14 resolvesLittleMac15. Original v1 not launched.",
+  "exact_lua_delta": {
+    "from": "if i~=14 then",
+    "to": "if i~=C.menu then"
+  },
+  "all_other_gameplay_controller_setup_guards_caps_sourceproof_bytes_unchanged": true,
+  "source_GameLoop_proof_reused_unchanged": true,
+  "menu_index": 13,
+  "actual_character": 14,
+  "nineteen_compiled_BFS_and_actual_resolver_cases": [
+    {
+      "start": 0,
+      "nodes": [
+        0,
+        1,
+        13
+      ],
+      "resolved": 14
+    },
+    {
+      "start": 1,
+      "nodes": [
+        1,
+        13
+      ],
+      "resolved": 14
+    },
+    {
+      "start": 2,
+      "nodes": [
+        2,
+        1,
+        13
+      ],
+      "resolved": 14
+    },
+    {
+      "start": 3,
+      "nodes": [
+        3,
+        2,
+        1,
+        13
+      ],
+      "resolved": 14
+    },
+    {
+      "start": 4,
+      "nodes": [
+        4,
+        3,
+        2,
+        1,
+        13
+      ],
+      "resolved": 14
+    },
+    {
+      "start": 5,
+      "nodes": [
+        5,
+        0,
+        1,
+        13
+      ],
+      "resolved": 14
+    },
+    {
+      "start": 6,
+      "nodes": [
+        6,
+        7,
+        13
+      ],
+      "resolved": 14
+    },
+    {
+      "start": 7,
+      "nodes": [
+        7,
+        13
+      ],
+      "resolved": 14
+    },
+    {
+      "start": 8,
+      "nodes": [
+        8,
+        7,
+        13
+      ],
+      "resolved": 14
+    },
+    {
+      "start": 9,
+      "nodes": [
+        9,
+        8,
+        7,
+        13
+      ],
+      "resolved": 14
+    },
+    {
+      "start": 10,
+      "nodes": [
+        10,
+        9,
+        8,
+        7,
+        13
+      ],
+      "resolved": 14
+    },
+    {
+      "start": 11,
+      "nodes": [
+        11,
+        6,
+        7,
+        13
+      ],
+      "resolved": 14
+    },
+    {
+      "start": 12,
+      "nodes": [
+        12,
+        13
+      ],
+      "resolved": 14
+    },
+    {
+      "start": 13,
+      "nodes": [
+        13
+      ],
+      "resolved": 14
+    },
+    {
+      "start": 14,
+      "nodes": [
+        14,
+        13
+      ],
+      "resolved": 14
+    },
+    {
+      "start": 15,
+      "nodes": [
+        15,
+        14,
+        13
+      ],
+      "resolved": 14
+    },
+    {
+      "start": 16,
+      "nodes": [
+        16,
+        15,
+        14,
+        13
+      ],
+      "resolved": 14
+    },
+    {
+      "start": 17,
+      "nodes": [
+        17,
+        18,
+        12,
+        13
+      ],
+      "resolved": 14
+    },
+    {
+      "start": 18,
+      "nodes": [
+        18,
+        12,
+        13
+      ],
+      "resolved": 14
+    }
+  ],
+  "negative_wrong_index14_resolves15": true,
+  "source_food_wording_correction": "Mushroom2->3 means one missingHP. Flower1->3 means two missingHP. Original Lua/source assertions already exact."
+}

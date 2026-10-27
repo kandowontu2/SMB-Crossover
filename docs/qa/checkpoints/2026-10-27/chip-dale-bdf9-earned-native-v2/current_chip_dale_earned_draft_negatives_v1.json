@@ -1,0 +1,14 @@
+{
+  "native_run": false,
+  "entries": [
+    {
+      "phase": "Draft parse",
+      "error": "Missing whitespace at keyword/numeric boundaries; no CPU calls executed."
+    },
+    {
+      "phase": "Source observer owner",
+      "error": "Food health2->3 and actual CdCollectPickup succeeded, but guessed generic MarioSourcePowerupCollision not entered. Chip/Dale intercept foods through HandlePowerUpCollision->CdPickupDispatch first.",
+      "correction": "Observe genuine HandlePowerUpCollision for both foods and1Up; no game or expected health change."
+    }
+  ]
+}

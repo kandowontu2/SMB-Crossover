@@ -1,0 +1,2562 @@
+{
+  "passed": true,
+  "native_run": false,
+  "campaigns": [
+    {
+      "passed": true,
+      "source_CPU_only": true,
+      "native_run": false,
+      "ROM_sha256": "bdf9ca2bfe69ee93ca85f1b5e5319e474d9f01aa641c79a58cd9bd602253c40e",
+      "variant": 0,
+      "mode": 0,
+      "cold": {
+        "CdHealth": 3,
+        "CdHeld": 0,
+        "CdHide": 0,
+        "CdThrowAge": 0,
+        "CdFlowers": 0,
+        "CdStars": 0,
+        "PlayerStatus": 0,
+        "NumberofLives": 2
+      },
+      "GameLoop_calls": 761,
+      "plan": [
+        {
+          "name": "native-entrance-crate-pickup",
+          "kind": "entrance",
+          "limit": 70,
+          "image": false
+        },
+        {
+          "name": "hide-behind-real-crate",
+          "kind": "hide",
+          "limit": 120,
+          "image": true
+        },
+        {
+          "name": "real-contact-before-mushroom",
+          "kind": "hurt",
+          "limit": 160
+        },
+        {
+          "name": "mushroom-replenishes-one-HP",
+          "kind": "food",
+          "pickup": 0,
+          "limit": 80,
+          "image": true
+        },
+        {
+          "name": "lift-authored-brick",
+          "kind": "lift",
+          "limit": 70,
+          "image": true
+        },
+        {
+          "name": "physical1Up-keeps-HP-food-held",
+          "kind": "life",
+          "limit": 120,
+          "image": true
+        },
+        {
+          "name": "retained-horizontal-throw-contact",
+          "kind": "throw",
+          "up": false,
+          "limit": 180,
+          "image": true
+        },
+        {
+          "name": "first-contact-before-flower",
+          "kind": "hurt",
+          "limit": 160
+        },
+        {
+          "name": "second-contact-before-flower",
+          "kind": "hurt",
+          "limit": 160,
+          "image": true
+        },
+        {
+          "name": "flower-restores-real-two-HP-deficit",
+          "kind": "food",
+          "pickup": 1,
+          "limit": 80,
+          "image": true
+        },
+        {
+          "name": "lift-second-authored-brick",
+          "kind": "lift",
+          "limit": 70
+        },
+        {
+          "name": "upward-throw-contact",
+          "kind": "throw",
+          "up": true,
+          "limit": 180,
+          "image": true
+        }
+      ],
+      "cases": [
+        {
+          "owners": [
+            "GameLoop",
+            "CdEnsureInit",
+            "CdSpawnEntrance",
+            "FloateyNumbersCore",
+            "CdPickResting"
+          ],
+          "collisions": 0,
+          "food_entries": 0,
+          "defeats": 0,
+          "injury_entries": 0,
+          "releases": 0,
+          "health_writes": [],
+          "name": "native-entrance-crate-pickup",
+          "kind": "entrance",
+          "before": {
+            "CdHealth": 3,
+            "CdHeld": 0,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 0,
+            "NumberofLives": 2
+          },
+          "updates": 17,
+          "after": {
+            "CdHealth": 3,
+            "CdHeld": 1,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 0,
+            "NumberofLives": 2
+          }
+        },
+        {
+          "owners": [
+            "GameLoop",
+            "CdEnsureInit",
+            "CdSpawnEntrance",
+            "FloateyNumbersCore",
+            "CdBodyContact",
+            "CdDefeatEnemy"
+          ],
+          "collisions": 0,
+          "food_entries": 0,
+          "defeats": 1,
+          "injury_entries": 0,
+          "releases": 0,
+          "health_writes": [],
+          "name": "hide-behind-real-crate",
+          "kind": "hide",
+          "before": {
+            "CdHealth": 3,
+            "CdHeld": 1,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 0,
+            "NumberofLives": 2
+          },
+          "updates": 41,
+          "after": {
+            "CdHealth": 3,
+            "CdHeld": 0,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 0,
+            "NumberofLives": 2
+          }
+        },
+        {
+          "owners": [
+            "GameLoop",
+            "CdEnsureInit",
+            "CdSpawnEntrance",
+            "CdBodyContact",
+            "CdInjury",
+            "FloateyNumbersCore"
+          ],
+          "collisions": 0,
+          "food_entries": 0,
+          "defeats": 0,
+          "injury_entries": 1,
+          "releases": 0,
+          "health_writes": [
+            {
+              "age": 0,
+              "pc": 42535,
+              "bank": 79,
+              "address": 24336,
+              "value": 2
+            }
+          ],
+          "name": "real-contact-before-mushroom",
+          "kind": "hurt",
+          "before": {
+            "CdHealth": 3,
+            "CdHeld": 0,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 0,
+            "NumberofLives": 2
+          },
+          "updates": 81,
+          "after": {
+            "CdHealth": 2,
+            "CdHeld": 0,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 0,
+            "NumberofLives": 2
+          }
+        },
+        {
+          "owners": [
+            "GameLoop",
+            "CdEnsureInit",
+            "CdSpawnEntrance",
+            "FloateyNumbersCore",
+            "HandlePowerUpCollision",
+            "CdCollectPickup"
+          ],
+          "collisions": 1,
+          "food_entries": 1,
+          "defeats": 0,
+          "injury_entries": 0,
+          "releases": 0,
+          "health_writes": [
+            {
+              "age": 0,
+              "pc": 42707,
+              "bank": 79,
+              "address": 24336,
+              "value": 3
+            }
+          ],
+          "name": "mushroom-replenishes-one-HP",
+          "kind": "food",
+          "before": {
+            "CdHealth": 2,
+            "CdHeld": 0,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 0,
+            "NumberofLives": 2
+          },
+          "updates": 25,
+          "after": {
+            "CdHealth": 3,
+            "CdHeld": 0,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 1,
+            "NumberofLives": 2
+          }
+        },
+        {
+          "owners": [
+            "GameLoop",
+            "CdEnsureInit",
+            "CdSpawnEntrance",
+            "FloateyNumbersCore",
+            "CdPickResting",
+            "CdLiftBrick"
+          ],
+          "collisions": 0,
+          "food_entries": 0,
+          "defeats": 0,
+          "injury_entries": 0,
+          "releases": 0,
+          "health_writes": [],
+          "name": "lift-authored-brick",
+          "kind": "lift",
+          "before": {
+            "CdHealth": 3,
+            "CdHeld": 0,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 1,
+            "NumberofLives": 2
+          },
+          "updates": 17,
+          "after": {
+            "CdHealth": 3,
+            "CdHeld": 6,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 1,
+            "NumberofLives": 2
+          }
+        },
+        {
+          "owners": [
+            "GameLoop",
+            "CdEnsureInit",
+            "CdSpawnEntrance",
+            "FloateyNumbersCore",
+            "HandlePowerUpCollision",
+            "CdCollectPickup"
+          ],
+          "collisions": 1,
+          "food_entries": 0,
+          "defeats": 0,
+          "injury_entries": 0,
+          "releases": 0,
+          "health_writes": [],
+          "name": "physical1Up-keeps-HP-food-held",
+          "kind": "life",
+          "before": {
+            "CdHealth": 3,
+            "CdHeld": 6,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 1,
+            "NumberofLives": 2
+          },
+          "updates": 49,
+          "after": {
+            "CdHealth": 3,
+            "CdHeld": 6,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 1,
+            "NumberofLives": 3
+          }
+        },
+        {
+          "owners": [
+            "GameLoop",
+            "CdEnsureInit",
+            "CdSpawnEntrance",
+            "FloateyNumbersCore",
+            "CdRelease",
+            "CdDefeatEnemy"
+          ],
+          "collisions": 0,
+          "food_entries": 0,
+          "defeats": 1,
+          "injury_entries": 0,
+          "releases": 1,
+          "health_writes": [],
+          "name": "retained-horizontal-throw-contact",
+          "kind": "throw",
+          "before": {
+            "CdHealth": 3,
+            "CdHeld": 6,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 1,
+            "NumberofLives": 3
+          },
+          "first_throw": 10,
+          "updates": 151,
+          "after": {
+            "CdHealth": 3,
+            "CdHeld": 0,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 1,
+            "NumberofLives": 3
+          }
+        },
+        {
+          "owners": [
+            "GameLoop",
+            "CdEnsureInit",
+            "CdSpawnEntrance",
+            "CdBodyContact",
+            "CdInjury",
+            "FloateyNumbersCore"
+          ],
+          "collisions": 0,
+          "food_entries": 0,
+          "defeats": 0,
+          "injury_entries": 1,
+          "releases": 0,
+          "health_writes": [
+            {
+              "age": 0,
+              "pc": 42535,
+              "bank": 79,
+              "address": 24336,
+              "value": 2
+            }
+          ],
+          "name": "first-contact-before-flower",
+          "kind": "hurt",
+          "before": {
+            "CdHealth": 3,
+            "CdHeld": 0,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 1,
+            "NumberofLives": 3
+          },
+          "updates": 73,
+          "after": {
+            "CdHealth": 2,
+            "CdHeld": 0,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 1,
+            "NumberofLives": 3
+          }
+        },
+        {
+          "owners": [
+            "GameLoop",
+            "CdEnsureInit",
+            "CdSpawnEntrance",
+            "CdBodyContact",
+            "CdInjury",
+            "FloateyNumbersCore"
+          ],
+          "collisions": 0,
+          "food_entries": 0,
+          "defeats": 0,
+          "injury_entries": 1,
+          "releases": 0,
+          "health_writes": [
+            {
+              "age": 0,
+              "pc": 42535,
+              "bank": 79,
+              "address": 24336,
+              "value": 1
+            }
+          ],
+          "name": "second-contact-before-flower",
+          "kind": "hurt",
+          "before": {
+            "CdHealth": 2,
+            "CdHeld": 0,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 1,
+            "NumberofLives": 3
+          },
+          "updates": 84,
+          "after": {
+            "CdHealth": 1,
+            "CdHeld": 0,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 1,
+            "NumberofLives": 3
+          }
+        },
+        {
+          "owners": [
+            "GameLoop",
+            "CdEnsureInit",
+            "CdSpawnEntrance",
+            "FloateyNumbersCore",
+            "HandlePowerUpCollision",
+            "CdCollectPickup"
+          ],
+          "collisions": 1,
+          "food_entries": 1,
+          "defeats": 0,
+          "injury_entries": 0,
+          "releases": 0,
+          "health_writes": [
+            {
+              "age": 0,
+              "pc": 42715,
+              "bank": 79,
+              "address": 24336,
+              "value": 3
+            }
+          ],
+          "name": "flower-restores-real-two-HP-deficit",
+          "kind": "food",
+          "before": {
+            "CdHealth": 1,
+            "CdHeld": 0,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 1,
+            "NumberofLives": 3
+          },
+          "updates": 25,
+          "after": {
+            "CdHealth": 3,
+            "CdHeld": 0,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 0,
+            "NumberofLives": 3
+          }
+        },
+        {
+          "owners": [
+            "GameLoop",
+            "CdEnsureInit",
+            "CdSpawnEntrance",
+            "FloateyNumbersCore",
+            "CdPickResting",
+            "CdLiftBrick"
+          ],
+          "collisions": 0,
+          "food_entries": 0,
+          "defeats": 0,
+          "injury_entries": 0,
+          "releases": 0,
+          "health_writes": [],
+          "name": "lift-second-authored-brick",
+          "kind": "lift",
+          "before": {
+            "CdHealth": 3,
+            "CdHeld": 0,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 0,
+            "NumberofLives": 3
+          },
+          "updates": 17,
+          "after": {
+            "CdHealth": 3,
+            "CdHeld": 6,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 0,
+            "NumberofLives": 3
+          }
+        },
+        {
+          "owners": [
+            "GameLoop",
+            "CdEnsureInit",
+            "CdSpawnEntrance",
+            "FloateyNumbersCore",
+            "CdRelease",
+            "CdDefeatEnemy"
+          ],
+          "collisions": 0,
+          "food_entries": 0,
+          "defeats": 1,
+          "injury_entries": 0,
+          "releases": 1,
+          "health_writes": [],
+          "name": "upward-throw-contact",
+          "kind": "throw",
+          "before": {
+            "CdHealth": 3,
+            "CdHeld": 6,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 0,
+            "NumberofLives": 3
+          },
+          "first_throw": 6,
+          "updates": 151,
+          "after": {
+            "CdHealth": 3,
+            "CdHeld": 0,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 0,
+            "NumberofLives": 3
+          }
+        }
+      ],
+      "health_writers": [
+        {
+          "pc": 42535,
+          "bank": 79,
+          "bytes": [
+            206,
+            16,
+            95
+          ],
+          "kind": "injury"
+        },
+        {
+          "pc": 42707,
+          "bank": 79,
+          "bytes": [
+            238,
+            16,
+            95
+          ],
+          "kind": "small-food"
+        },
+        {
+          "pc": 42715,
+          "bank": 79,
+          "bytes": [
+            141,
+            16,
+            95
+          ],
+          "kind": "full-food"
+        }
+      ],
+      "source_context": "Standalone cold PlayerStatus0/lives2/timer399 context is explicitly staged. No subsequent acquired health, food status, held object, life, ammo, immunity or outcomes seeded. Real source cold initialization creates3HP and entrancecrate. Logical actor/map/position staging and real PPU queue consumer between Main calls are disclosed; no native timing/image proof.",
+      "limits": "Hard native planned for both identities. Easy source only; Star2/random drop/full natural emergence, general climbing/death/life rollover/foreign family, waveform and blanket art remain open."
+    },
+    {
+      "passed": true,
+      "source_CPU_only": true,
+      "native_run": false,
+      "ROM_sha256": "bdf9ca2bfe69ee93ca85f1b5e5319e474d9f01aa641c79a58cd9bd602253c40e",
+      "variant": 0,
+      "mode": 1,
+      "cold": {
+        "CdHealth": 3,
+        "CdHeld": 0,
+        "CdHide": 0,
+        "CdThrowAge": 0,
+        "CdFlowers": 0,
+        "CdStars": 0,
+        "PlayerStatus": 0,
+        "NumberofLives": 2
+      },
+      "GameLoop_calls": 761,
+      "plan": [
+        {
+          "name": "native-entrance-crate-pickup",
+          "kind": "entrance",
+          "limit": 70,
+          "image": false
+        },
+        {
+          "name": "hide-behind-real-crate",
+          "kind": "hide",
+          "limit": 120,
+          "image": true
+        },
+        {
+          "name": "real-contact-before-mushroom",
+          "kind": "hurt",
+          "limit": 160
+        },
+        {
+          "name": "mushroom-replenishes-one-HP",
+          "kind": "food",
+          "pickup": 0,
+          "limit": 80,
+          "image": true
+        },
+        {
+          "name": "lift-authored-brick",
+          "kind": "lift",
+          "limit": 70,
+          "image": true
+        },
+        {
+          "name": "physical1Up-keeps-HP-food-held",
+          "kind": "life",
+          "limit": 120,
+          "image": true
+        },
+        {
+          "name": "retained-horizontal-throw-contact",
+          "kind": "throw",
+          "up": false,
+          "limit": 180,
+          "image": true
+        },
+        {
+          "name": "first-contact-before-flower",
+          "kind": "hurt",
+          "limit": 160
+        },
+        {
+          "name": "second-contact-before-flower",
+          "kind": "hurt",
+          "limit": 160,
+          "image": true
+        },
+        {
+          "name": "flower-restores-real-two-HP-deficit",
+          "kind": "food",
+          "pickup": 1,
+          "limit": 80,
+          "image": true
+        },
+        {
+          "name": "lift-second-authored-brick",
+          "kind": "lift",
+          "limit": 70
+        },
+        {
+          "name": "upward-throw-contact",
+          "kind": "throw",
+          "up": true,
+          "limit": 180,
+          "image": true
+        }
+      ],
+      "cases": [
+        {
+          "owners": [
+            "GameLoop",
+            "CdEnsureInit",
+            "CdSpawnEntrance",
+            "FloateyNumbersCore",
+            "CdPickResting"
+          ],
+          "collisions": 0,
+          "food_entries": 0,
+          "defeats": 0,
+          "injury_entries": 0,
+          "releases": 0,
+          "health_writes": [],
+          "name": "native-entrance-crate-pickup",
+          "kind": "entrance",
+          "before": {
+            "CdHealth": 3,
+            "CdHeld": 0,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 0,
+            "NumberofLives": 2
+          },
+          "updates": 17,
+          "after": {
+            "CdHealth": 3,
+            "CdHeld": 1,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 0,
+            "NumberofLives": 2
+          }
+        },
+        {
+          "owners": [
+            "GameLoop",
+            "CdEnsureInit",
+            "CdSpawnEntrance",
+            "FloateyNumbersCore",
+            "CdBodyContact",
+            "CdDefeatEnemy"
+          ],
+          "collisions": 0,
+          "food_entries": 0,
+          "defeats": 1,
+          "injury_entries": 0,
+          "releases": 0,
+          "health_writes": [],
+          "name": "hide-behind-real-crate",
+          "kind": "hide",
+          "before": {
+            "CdHealth": 3,
+            "CdHeld": 1,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 0,
+            "NumberofLives": 2
+          },
+          "updates": 41,
+          "after": {
+            "CdHealth": 3,
+            "CdHeld": 0,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 0,
+            "NumberofLives": 2
+          }
+        },
+        {
+          "owners": [
+            "GameLoop",
+            "CdEnsureInit",
+            "CdSpawnEntrance",
+            "CdBodyContact",
+            "CdInjury",
+            "FloateyNumbersCore"
+          ],
+          "collisions": 0,
+          "food_entries": 0,
+          "defeats": 0,
+          "injury_entries": 1,
+          "releases": 0,
+          "health_writes": [
+            {
+              "age": 0,
+              "pc": 42535,
+              "bank": 79,
+              "address": 24336,
+              "value": 2
+            }
+          ],
+          "name": "real-contact-before-mushroom",
+          "kind": "hurt",
+          "before": {
+            "CdHealth": 3,
+            "CdHeld": 0,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 0,
+            "NumberofLives": 2
+          },
+          "updates": 81,
+          "after": {
+            "CdHealth": 2,
+            "CdHeld": 0,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 0,
+            "NumberofLives": 2
+          }
+        },
+        {
+          "owners": [
+            "GameLoop",
+            "CdEnsureInit",
+            "CdSpawnEntrance",
+            "FloateyNumbersCore",
+            "HandlePowerUpCollision",
+            "CdCollectPickup"
+          ],
+          "collisions": 1,
+          "food_entries": 1,
+          "defeats": 0,
+          "injury_entries": 0,
+          "releases": 0,
+          "health_writes": [
+            {
+              "age": 0,
+              "pc": 42707,
+              "bank": 79,
+              "address": 24336,
+              "value": 3
+            }
+          ],
+          "name": "mushroom-replenishes-one-HP",
+          "kind": "food",
+          "before": {
+            "CdHealth": 2,
+            "CdHeld": 0,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 0,
+            "NumberofLives": 2
+          },
+          "updates": 25,
+          "after": {
+            "CdHealth": 3,
+            "CdHeld": 0,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 1,
+            "NumberofLives": 2
+          }
+        },
+        {
+          "owners": [
+            "GameLoop",
+            "CdEnsureInit",
+            "CdSpawnEntrance",
+            "FloateyNumbersCore",
+            "CdPickResting",
+            "CdLiftBrick"
+          ],
+          "collisions": 0,
+          "food_entries": 0,
+          "defeats": 0,
+          "injury_entries": 0,
+          "releases": 0,
+          "health_writes": [],
+          "name": "lift-authored-brick",
+          "kind": "lift",
+          "before": {
+            "CdHealth": 3,
+            "CdHeld": 0,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 1,
+            "NumberofLives": 2
+          },
+          "updates": 17,
+          "after": {
+            "CdHealth": 3,
+            "CdHeld": 6,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 1,
+            "NumberofLives": 2
+          }
+        },
+        {
+          "owners": [
+            "GameLoop",
+            "CdEnsureInit",
+            "CdSpawnEntrance",
+            "FloateyNumbersCore",
+            "HandlePowerUpCollision",
+            "CdCollectPickup"
+          ],
+          "collisions": 1,
+          "food_entries": 0,
+          "defeats": 0,
+          "injury_entries": 0,
+          "releases": 0,
+          "health_writes": [],
+          "name": "physical1Up-keeps-HP-food-held",
+          "kind": "life",
+          "before": {
+            "CdHealth": 3,
+            "CdHeld": 6,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 1,
+            "NumberofLives": 2
+          },
+          "updates": 49,
+          "after": {
+            "CdHealth": 3,
+            "CdHeld": 6,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 1,
+            "NumberofLives": 3
+          }
+        },
+        {
+          "owners": [
+            "GameLoop",
+            "CdEnsureInit",
+            "CdSpawnEntrance",
+            "FloateyNumbersCore",
+            "CdRelease",
+            "CdDefeatEnemy"
+          ],
+          "collisions": 0,
+          "food_entries": 0,
+          "defeats": 1,
+          "injury_entries": 0,
+          "releases": 1,
+          "health_writes": [],
+          "name": "retained-horizontal-throw-contact",
+          "kind": "throw",
+          "before": {
+            "CdHealth": 3,
+            "CdHeld": 6,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 1,
+            "NumberofLives": 3
+          },
+          "first_throw": 10,
+          "updates": 151,
+          "after": {
+            "CdHealth": 3,
+            "CdHeld": 0,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 1,
+            "NumberofLives": 3
+          }
+        },
+        {
+          "owners": [
+            "GameLoop",
+            "CdEnsureInit",
+            "CdSpawnEntrance",
+            "CdBodyContact",
+            "CdInjury",
+            "FloateyNumbersCore"
+          ],
+          "collisions": 0,
+          "food_entries": 0,
+          "defeats": 0,
+          "injury_entries": 1,
+          "releases": 0,
+          "health_writes": [
+            {
+              "age": 0,
+              "pc": 42535,
+              "bank": 79,
+              "address": 24336,
+              "value": 2
+            }
+          ],
+          "name": "first-contact-before-flower",
+          "kind": "hurt",
+          "before": {
+            "CdHealth": 3,
+            "CdHeld": 0,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 1,
+            "NumberofLives": 3
+          },
+          "updates": 73,
+          "after": {
+            "CdHealth": 2,
+            "CdHeld": 0,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 1,
+            "NumberofLives": 3
+          }
+        },
+        {
+          "owners": [
+            "GameLoop",
+            "CdEnsureInit",
+            "CdSpawnEntrance",
+            "CdBodyContact",
+            "CdInjury",
+            "FloateyNumbersCore"
+          ],
+          "collisions": 0,
+          "food_entries": 0,
+          "defeats": 0,
+          "injury_entries": 1,
+          "releases": 0,
+          "health_writes": [
+            {
+              "age": 0,
+              "pc": 42535,
+              "bank": 79,
+              "address": 24336,
+              "value": 1
+            }
+          ],
+          "name": "second-contact-before-flower",
+          "kind": "hurt",
+          "before": {
+            "CdHealth": 2,
+            "CdHeld": 0,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 1,
+            "NumberofLives": 3
+          },
+          "updates": 84,
+          "after": {
+            "CdHealth": 1,
+            "CdHeld": 0,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 1,
+            "NumberofLives": 3
+          }
+        },
+        {
+          "owners": [
+            "GameLoop",
+            "CdEnsureInit",
+            "CdSpawnEntrance",
+            "FloateyNumbersCore",
+            "HandlePowerUpCollision",
+            "CdCollectPickup"
+          ],
+          "collisions": 1,
+          "food_entries": 1,
+          "defeats": 0,
+          "injury_entries": 0,
+          "releases": 0,
+          "health_writes": [
+            {
+              "age": 0,
+              "pc": 42715,
+              "bank": 79,
+              "address": 24336,
+              "value": 3
+            }
+          ],
+          "name": "flower-restores-real-two-HP-deficit",
+          "kind": "food",
+          "before": {
+            "CdHealth": 1,
+            "CdHeld": 0,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 1,
+            "NumberofLives": 3
+          },
+          "updates": 25,
+          "after": {
+            "CdHealth": 3,
+            "CdHeld": 0,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 0,
+            "NumberofLives": 3
+          }
+        },
+        {
+          "owners": [
+            "GameLoop",
+            "CdEnsureInit",
+            "CdSpawnEntrance",
+            "FloateyNumbersCore",
+            "CdPickResting",
+            "CdLiftBrick"
+          ],
+          "collisions": 0,
+          "food_entries": 0,
+          "defeats": 0,
+          "injury_entries": 0,
+          "releases": 0,
+          "health_writes": [],
+          "name": "lift-second-authored-brick",
+          "kind": "lift",
+          "before": {
+            "CdHealth": 3,
+            "CdHeld": 0,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 0,
+            "NumberofLives": 3
+          },
+          "updates": 17,
+          "after": {
+            "CdHealth": 3,
+            "CdHeld": 6,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 0,
+            "NumberofLives": 3
+          }
+        },
+        {
+          "owners": [
+            "GameLoop",
+            "CdEnsureInit",
+            "CdSpawnEntrance",
+            "FloateyNumbersCore",
+            "CdRelease",
+            "CdDefeatEnemy"
+          ],
+          "collisions": 0,
+          "food_entries": 0,
+          "defeats": 1,
+          "injury_entries": 0,
+          "releases": 1,
+          "health_writes": [],
+          "name": "upward-throw-contact",
+          "kind": "throw",
+          "before": {
+            "CdHealth": 3,
+            "CdHeld": 6,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 0,
+            "NumberofLives": 3
+          },
+          "first_throw": 6,
+          "updates": 151,
+          "after": {
+            "CdHealth": 3,
+            "CdHeld": 0,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 0,
+            "NumberofLives": 3
+          }
+        }
+      ],
+      "health_writers": [
+        {
+          "pc": 42535,
+          "bank": 79,
+          "bytes": [
+            206,
+            16,
+            95
+          ],
+          "kind": "injury"
+        },
+        {
+          "pc": 42707,
+          "bank": 79,
+          "bytes": [
+            238,
+            16,
+            95
+          ],
+          "kind": "small-food"
+        },
+        {
+          "pc": 42715,
+          "bank": 79,
+          "bytes": [
+            141,
+            16,
+            95
+          ],
+          "kind": "full-food"
+        }
+      ],
+      "source_context": "Standalone cold PlayerStatus0/lives2/timer399 context is explicitly staged. No subsequent acquired health, food status, held object, life, ammo, immunity or outcomes seeded. Real source cold initialization creates3HP and entrancecrate. Logical actor/map/position staging and real PPU queue consumer between Main calls are disclosed; no native timing/image proof.",
+      "limits": "Hard native planned for both identities. Easy source only; Star2/random drop/full natural emergence, general climbing/death/life rollover/foreign family, waveform and blanket art remain open."
+    },
+    {
+      "passed": true,
+      "source_CPU_only": true,
+      "native_run": false,
+      "ROM_sha256": "bdf9ca2bfe69ee93ca85f1b5e5319e474d9f01aa641c79a58cd9bd602253c40e",
+      "variant": 1,
+      "mode": 0,
+      "cold": {
+        "CdHealth": 3,
+        "CdHeld": 0,
+        "CdHide": 0,
+        "CdThrowAge": 0,
+        "CdFlowers": 0,
+        "CdStars": 0,
+        "PlayerStatus": 0,
+        "NumberofLives": 2
+      },
+      "GameLoop_calls": 761,
+      "plan": [
+        {
+          "name": "native-entrance-crate-pickup",
+          "kind": "entrance",
+          "limit": 70,
+          "image": false
+        },
+        {
+          "name": "hide-behind-real-crate",
+          "kind": "hide",
+          "limit": 120,
+          "image": true
+        },
+        {
+          "name": "real-contact-before-mushroom",
+          "kind": "hurt",
+          "limit": 160
+        },
+        {
+          "name": "mushroom-replenishes-one-HP",
+          "kind": "food",
+          "pickup": 0,
+          "limit": 80,
+          "image": true
+        },
+        {
+          "name": "lift-authored-brick",
+          "kind": "lift",
+          "limit": 70,
+          "image": true
+        },
+        {
+          "name": "physical1Up-keeps-HP-food-held",
+          "kind": "life",
+          "limit": 120,
+          "image": true
+        },
+        {
+          "name": "retained-horizontal-throw-contact",
+          "kind": "throw",
+          "up": false,
+          "limit": 180,
+          "image": true
+        },
+        {
+          "name": "first-contact-before-flower",
+          "kind": "hurt",
+          "limit": 160
+        },
+        {
+          "name": "second-contact-before-flower",
+          "kind": "hurt",
+          "limit": 160,
+          "image": true
+        },
+        {
+          "name": "flower-restores-real-two-HP-deficit",
+          "kind": "food",
+          "pickup": 1,
+          "limit": 80,
+          "image": true
+        },
+        {
+          "name": "lift-second-authored-brick",
+          "kind": "lift",
+          "limit": 70
+        },
+        {
+          "name": "upward-throw-contact",
+          "kind": "throw",
+          "up": true,
+          "limit": 180,
+          "image": true
+        }
+      ],
+      "cases": [
+        {
+          "owners": [
+            "GameLoop",
+            "CdEnsureInit",
+            "CdSpawnEntrance",
+            "FloateyNumbersCore",
+            "CdPickResting"
+          ],
+          "collisions": 0,
+          "food_entries": 0,
+          "defeats": 0,
+          "injury_entries": 0,
+          "releases": 0,
+          "health_writes": [],
+          "name": "native-entrance-crate-pickup",
+          "kind": "entrance",
+          "before": {
+            "CdHealth": 3,
+            "CdHeld": 0,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 0,
+            "NumberofLives": 2
+          },
+          "updates": 17,
+          "after": {
+            "CdHealth": 3,
+            "CdHeld": 1,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 0,
+            "NumberofLives": 2
+          }
+        },
+        {
+          "owners": [
+            "GameLoop",
+            "CdEnsureInit",
+            "CdSpawnEntrance",
+            "FloateyNumbersCore",
+            "CdBodyContact",
+            "CdDefeatEnemy"
+          ],
+          "collisions": 0,
+          "food_entries": 0,
+          "defeats": 1,
+          "injury_entries": 0,
+          "releases": 0,
+          "health_writes": [],
+          "name": "hide-behind-real-crate",
+          "kind": "hide",
+          "before": {
+            "CdHealth": 3,
+            "CdHeld": 1,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 0,
+            "NumberofLives": 2
+          },
+          "updates": 41,
+          "after": {
+            "CdHealth": 3,
+            "CdHeld": 0,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 0,
+            "NumberofLives": 2
+          }
+        },
+        {
+          "owners": [
+            "GameLoop",
+            "CdEnsureInit",
+            "CdSpawnEntrance",
+            "CdBodyContact",
+            "CdInjury",
+            "FloateyNumbersCore"
+          ],
+          "collisions": 0,
+          "food_entries": 0,
+          "defeats": 0,
+          "injury_entries": 1,
+          "releases": 0,
+          "health_writes": [
+            {
+              "age": 0,
+              "pc": 42535,
+              "bank": 79,
+              "address": 24336,
+              "value": 2
+            }
+          ],
+          "name": "real-contact-before-mushroom",
+          "kind": "hurt",
+          "before": {
+            "CdHealth": 3,
+            "CdHeld": 0,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 0,
+            "NumberofLives": 2
+          },
+          "updates": 81,
+          "after": {
+            "CdHealth": 2,
+            "CdHeld": 0,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 0,
+            "NumberofLives": 2
+          }
+        },
+        {
+          "owners": [
+            "GameLoop",
+            "CdEnsureInit",
+            "CdSpawnEntrance",
+            "FloateyNumbersCore",
+            "HandlePowerUpCollision",
+            "CdCollectPickup"
+          ],
+          "collisions": 1,
+          "food_entries": 1,
+          "defeats": 0,
+          "injury_entries": 0,
+          "releases": 0,
+          "health_writes": [
+            {
+              "age": 0,
+              "pc": 42707,
+              "bank": 79,
+              "address": 24336,
+              "value": 3
+            }
+          ],
+          "name": "mushroom-replenishes-one-HP",
+          "kind": "food",
+          "before": {
+            "CdHealth": 2,
+            "CdHeld": 0,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 0,
+            "NumberofLives": 2
+          },
+          "updates": 25,
+          "after": {
+            "CdHealth": 3,
+            "CdHeld": 0,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 1,
+            "NumberofLives": 2
+          }
+        },
+        {
+          "owners": [
+            "GameLoop",
+            "CdEnsureInit",
+            "CdSpawnEntrance",
+            "FloateyNumbersCore",
+            "CdPickResting",
+            "CdLiftBrick"
+          ],
+          "collisions": 0,
+          "food_entries": 0,
+          "defeats": 0,
+          "injury_entries": 0,
+          "releases": 0,
+          "health_writes": [],
+          "name": "lift-authored-brick",
+          "kind": "lift",
+          "before": {
+            "CdHealth": 3,
+            "CdHeld": 0,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 1,
+            "NumberofLives": 2
+          },
+          "updates": 17,
+          "after": {
+            "CdHealth": 3,
+            "CdHeld": 6,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 1,
+            "NumberofLives": 2
+          }
+        },
+        {
+          "owners": [
+            "GameLoop",
+            "CdEnsureInit",
+            "CdSpawnEntrance",
+            "FloateyNumbersCore",
+            "HandlePowerUpCollision",
+            "CdCollectPickup"
+          ],
+          "collisions": 1,
+          "food_entries": 0,
+          "defeats": 0,
+          "injury_entries": 0,
+          "releases": 0,
+          "health_writes": [],
+          "name": "physical1Up-keeps-HP-food-held",
+          "kind": "life",
+          "before": {
+            "CdHealth": 3,
+            "CdHeld": 6,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 1,
+            "NumberofLives": 2
+          },
+          "updates": 49,
+          "after": {
+            "CdHealth": 3,
+            "CdHeld": 6,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 1,
+            "NumberofLives": 3
+          }
+        },
+        {
+          "owners": [
+            "GameLoop",
+            "CdEnsureInit",
+            "CdSpawnEntrance",
+            "FloateyNumbersCore",
+            "CdRelease",
+            "CdDefeatEnemy"
+          ],
+          "collisions": 0,
+          "food_entries": 0,
+          "defeats": 1,
+          "injury_entries": 0,
+          "releases": 1,
+          "health_writes": [],
+          "name": "retained-horizontal-throw-contact",
+          "kind": "throw",
+          "before": {
+            "CdHealth": 3,
+            "CdHeld": 6,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 1,
+            "NumberofLives": 3
+          },
+          "first_throw": 10,
+          "updates": 151,
+          "after": {
+            "CdHealth": 3,
+            "CdHeld": 0,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 1,
+            "NumberofLives": 3
+          }
+        },
+        {
+          "owners": [
+            "GameLoop",
+            "CdEnsureInit",
+            "CdSpawnEntrance",
+            "CdBodyContact",
+            "CdInjury",
+            "FloateyNumbersCore"
+          ],
+          "collisions": 0,
+          "food_entries": 0,
+          "defeats": 0,
+          "injury_entries": 1,
+          "releases": 0,
+          "health_writes": [
+            {
+              "age": 0,
+              "pc": 42535,
+              "bank": 79,
+              "address": 24336,
+              "value": 2
+            }
+          ],
+          "name": "first-contact-before-flower",
+          "kind": "hurt",
+          "before": {
+            "CdHealth": 3,
+            "CdHeld": 0,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 1,
+            "NumberofLives": 3
+          },
+          "updates": 73,
+          "after": {
+            "CdHealth": 2,
+            "CdHeld": 0,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 1,
+            "NumberofLives": 3
+          }
+        },
+        {
+          "owners": [
+            "GameLoop",
+            "CdEnsureInit",
+            "CdSpawnEntrance",
+            "CdBodyContact",
+            "CdInjury",
+            "FloateyNumbersCore"
+          ],
+          "collisions": 0,
+          "food_entries": 0,
+          "defeats": 0,
+          "injury_entries": 1,
+          "releases": 0,
+          "health_writes": [
+            {
+              "age": 0,
+              "pc": 42535,
+              "bank": 79,
+              "address": 24336,
+              "value": 1
+            }
+          ],
+          "name": "second-contact-before-flower",
+          "kind": "hurt",
+          "before": {
+            "CdHealth": 2,
+            "CdHeld": 0,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 1,
+            "NumberofLives": 3
+          },
+          "updates": 84,
+          "after": {
+            "CdHealth": 1,
+            "CdHeld": 0,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 1,
+            "NumberofLives": 3
+          }
+        },
+        {
+          "owners": [
+            "GameLoop",
+            "CdEnsureInit",
+            "CdSpawnEntrance",
+            "FloateyNumbersCore",
+            "HandlePowerUpCollision",
+            "CdCollectPickup"
+          ],
+          "collisions": 1,
+          "food_entries": 1,
+          "defeats": 0,
+          "injury_entries": 0,
+          "releases": 0,
+          "health_writes": [
+            {
+              "age": 0,
+              "pc": 42715,
+              "bank": 79,
+              "address": 24336,
+              "value": 3
+            }
+          ],
+          "name": "flower-restores-real-two-HP-deficit",
+          "kind": "food",
+          "before": {
+            "CdHealth": 1,
+            "CdHeld": 0,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 1,
+            "NumberofLives": 3
+          },
+          "updates": 25,
+          "after": {
+            "CdHealth": 3,
+            "CdHeld": 0,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 0,
+            "NumberofLives": 3
+          }
+        },
+        {
+          "owners": [
+            "GameLoop",
+            "CdEnsureInit",
+            "CdSpawnEntrance",
+            "FloateyNumbersCore",
+            "CdPickResting",
+            "CdLiftBrick"
+          ],
+          "collisions": 0,
+          "food_entries": 0,
+          "defeats": 0,
+          "injury_entries": 0,
+          "releases": 0,
+          "health_writes": [],
+          "name": "lift-second-authored-brick",
+          "kind": "lift",
+          "before": {
+            "CdHealth": 3,
+            "CdHeld": 0,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 0,
+            "NumberofLives": 3
+          },
+          "updates": 17,
+          "after": {
+            "CdHealth": 3,
+            "CdHeld": 6,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 0,
+            "NumberofLives": 3
+          }
+        },
+        {
+          "owners": [
+            "GameLoop",
+            "CdEnsureInit",
+            "CdSpawnEntrance",
+            "FloateyNumbersCore",
+            "CdRelease",
+            "CdDefeatEnemy"
+          ],
+          "collisions": 0,
+          "food_entries": 0,
+          "defeats": 1,
+          "injury_entries": 0,
+          "releases": 1,
+          "health_writes": [],
+          "name": "upward-throw-contact",
+          "kind": "throw",
+          "before": {
+            "CdHealth": 3,
+            "CdHeld": 6,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 0,
+            "NumberofLives": 3
+          },
+          "first_throw": 6,
+          "updates": 151,
+          "after": {
+            "CdHealth": 3,
+            "CdHeld": 0,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 0,
+            "NumberofLives": 3
+          }
+        }
+      ],
+      "health_writers": [
+        {
+          "pc": 42535,
+          "bank": 79,
+          "bytes": [
+            206,
+            16,
+            95
+          ],
+          "kind": "injury"
+        },
+        {
+          "pc": 42707,
+          "bank": 79,
+          "bytes": [
+            238,
+            16,
+            95
+          ],
+          "kind": "small-food"
+        },
+        {
+          "pc": 42715,
+          "bank": 79,
+          "bytes": [
+            141,
+            16,
+            95
+          ],
+          "kind": "full-food"
+        }
+      ],
+      "source_context": "Standalone cold PlayerStatus0/lives2/timer399 context is explicitly staged. No subsequent acquired health, food status, held object, life, ammo, immunity or outcomes seeded. Real source cold initialization creates3HP and entrancecrate. Logical actor/map/position staging and real PPU queue consumer between Main calls are disclosed; no native timing/image proof.",
+      "limits": "Hard native planned for both identities. Easy source only; Star2/random drop/full natural emergence, general climbing/death/life rollover/foreign family, waveform and blanket art remain open."
+    },
+    {
+      "passed": true,
+      "source_CPU_only": true,
+      "native_run": false,
+      "ROM_sha256": "bdf9ca2bfe69ee93ca85f1b5e5319e474d9f01aa641c79a58cd9bd602253c40e",
+      "variant": 1,
+      "mode": 1,
+      "cold": {
+        "CdHealth": 3,
+        "CdHeld": 0,
+        "CdHide": 0,
+        "CdThrowAge": 0,
+        "CdFlowers": 0,
+        "CdStars": 0,
+        "PlayerStatus": 0,
+        "NumberofLives": 2
+      },
+      "GameLoop_calls": 761,
+      "plan": [
+        {
+          "name": "native-entrance-crate-pickup",
+          "kind": "entrance",
+          "limit": 70,
+          "image": false
+        },
+        {
+          "name": "hide-behind-real-crate",
+          "kind": "hide",
+          "limit": 120,
+          "image": true
+        },
+        {
+          "name": "real-contact-before-mushroom",
+          "kind": "hurt",
+          "limit": 160
+        },
+        {
+          "name": "mushroom-replenishes-one-HP",
+          "kind": "food",
+          "pickup": 0,
+          "limit": 80,
+          "image": true
+        },
+        {
+          "name": "lift-authored-brick",
+          "kind": "lift",
+          "limit": 70,
+          "image": true
+        },
+        {
+          "name": "physical1Up-keeps-HP-food-held",
+          "kind": "life",
+          "limit": 120,
+          "image": true
+        },
+        {
+          "name": "retained-horizontal-throw-contact",
+          "kind": "throw",
+          "up": false,
+          "limit": 180,
+          "image": true
+        },
+        {
+          "name": "first-contact-before-flower",
+          "kind": "hurt",
+          "limit": 160
+        },
+        {
+          "name": "second-contact-before-flower",
+          "kind": "hurt",
+          "limit": 160,
+          "image": true
+        },
+        {
+          "name": "flower-restores-real-two-HP-deficit",
+          "kind": "food",
+          "pickup": 1,
+          "limit": 80,
+          "image": true
+        },
+        {
+          "name": "lift-second-authored-brick",
+          "kind": "lift",
+          "limit": 70
+        },
+        {
+          "name": "upward-throw-contact",
+          "kind": "throw",
+          "up": true,
+          "limit": 180,
+          "image": true
+        }
+      ],
+      "cases": [
+        {
+          "owners": [
+            "GameLoop",
+            "CdEnsureInit",
+            "CdSpawnEntrance",
+            "FloateyNumbersCore",
+            "CdPickResting"
+          ],
+          "collisions": 0,
+          "food_entries": 0,
+          "defeats": 0,
+          "injury_entries": 0,
+          "releases": 0,
+          "health_writes": [],
+          "name": "native-entrance-crate-pickup",
+          "kind": "entrance",
+          "before": {
+            "CdHealth": 3,
+            "CdHeld": 0,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 0,
+            "NumberofLives": 2
+          },
+          "updates": 17,
+          "after": {
+            "CdHealth": 3,
+            "CdHeld": 1,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 0,
+            "NumberofLives": 2
+          }
+        },
+        {
+          "owners": [
+            "GameLoop",
+            "CdEnsureInit",
+            "CdSpawnEntrance",
+            "FloateyNumbersCore",
+            "CdBodyContact",
+            "CdDefeatEnemy"
+          ],
+          "collisions": 0,
+          "food_entries": 0,
+          "defeats": 1,
+          "injury_entries": 0,
+          "releases": 0,
+          "health_writes": [],
+          "name": "hide-behind-real-crate",
+          "kind": "hide",
+          "before": {
+            "CdHealth": 3,
+            "CdHeld": 1,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 0,
+            "NumberofLives": 2
+          },
+          "updates": 41,
+          "after": {
+            "CdHealth": 3,
+            "CdHeld": 0,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 0,
+            "NumberofLives": 2
+          }
+        },
+        {
+          "owners": [
+            "GameLoop",
+            "CdEnsureInit",
+            "CdSpawnEntrance",
+            "CdBodyContact",
+            "CdInjury",
+            "FloateyNumbersCore"
+          ],
+          "collisions": 0,
+          "food_entries": 0,
+          "defeats": 0,
+          "injury_entries": 1,
+          "releases": 0,
+          "health_writes": [
+            {
+              "age": 0,
+              "pc": 42535,
+              "bank": 79,
+              "address": 24336,
+              "value": 2
+            }
+          ],
+          "name": "real-contact-before-mushroom",
+          "kind": "hurt",
+          "before": {
+            "CdHealth": 3,
+            "CdHeld": 0,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 0,
+            "NumberofLives": 2
+          },
+          "updates": 81,
+          "after": {
+            "CdHealth": 2,
+            "CdHeld": 0,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 0,
+            "NumberofLives": 2
+          }
+        },
+        {
+          "owners": [
+            "GameLoop",
+            "CdEnsureInit",
+            "CdSpawnEntrance",
+            "FloateyNumbersCore",
+            "HandlePowerUpCollision",
+            "CdCollectPickup"
+          ],
+          "collisions": 1,
+          "food_entries": 1,
+          "defeats": 0,
+          "injury_entries": 0,
+          "releases": 0,
+          "health_writes": [
+            {
+              "age": 0,
+              "pc": 42707,
+              "bank": 79,
+              "address": 24336,
+              "value": 3
+            }
+          ],
+          "name": "mushroom-replenishes-one-HP",
+          "kind": "food",
+          "before": {
+            "CdHealth": 2,
+            "CdHeld": 0,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 0,
+            "NumberofLives": 2
+          },
+          "updates": 25,
+          "after": {
+            "CdHealth": 3,
+            "CdHeld": 0,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 1,
+            "NumberofLives": 2
+          }
+        },
+        {
+          "owners": [
+            "GameLoop",
+            "CdEnsureInit",
+            "CdSpawnEntrance",
+            "FloateyNumbersCore",
+            "CdPickResting",
+            "CdLiftBrick"
+          ],
+          "collisions": 0,
+          "food_entries": 0,
+          "defeats": 0,
+          "injury_entries": 0,
+          "releases": 0,
+          "health_writes": [],
+          "name": "lift-authored-brick",
+          "kind": "lift",
+          "before": {
+            "CdHealth": 3,
+            "CdHeld": 0,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 1,
+            "NumberofLives": 2
+          },
+          "updates": 17,
+          "after": {
+            "CdHealth": 3,
+            "CdHeld": 6,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 1,
+            "NumberofLives": 2
+          }
+        },
+        {
+          "owners": [
+            "GameLoop",
+            "CdEnsureInit",
+            "CdSpawnEntrance",
+            "FloateyNumbersCore",
+            "HandlePowerUpCollision",
+            "CdCollectPickup"
+          ],
+          "collisions": 1,
+          "food_entries": 0,
+          "defeats": 0,
+          "injury_entries": 0,
+          "releases": 0,
+          "health_writes": [],
+          "name": "physical1Up-keeps-HP-food-held",
+          "kind": "life",
+          "before": {
+            "CdHealth": 3,
+            "CdHeld": 6,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 1,
+            "NumberofLives": 2
+          },
+          "updates": 49,
+          "after": {
+            "CdHealth": 3,
+            "CdHeld": 6,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 1,
+            "NumberofLives": 3
+          }
+        },
+        {
+          "owners": [
+            "GameLoop",
+            "CdEnsureInit",
+            "CdSpawnEntrance",
+            "FloateyNumbersCore",
+            "CdRelease",
+            "CdDefeatEnemy"
+          ],
+          "collisions": 0,
+          "food_entries": 0,
+          "defeats": 1,
+          "injury_entries": 0,
+          "releases": 1,
+          "health_writes": [],
+          "name": "retained-horizontal-throw-contact",
+          "kind": "throw",
+          "before": {
+            "CdHealth": 3,
+            "CdHeld": 6,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 1,
+            "NumberofLives": 3
+          },
+          "first_throw": 10,
+          "updates": 151,
+          "after": {
+            "CdHealth": 3,
+            "CdHeld": 0,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 1,
+            "NumberofLives": 3
+          }
+        },
+        {
+          "owners": [
+            "GameLoop",
+            "CdEnsureInit",
+            "CdSpawnEntrance",
+            "CdBodyContact",
+            "CdInjury",
+            "FloateyNumbersCore"
+          ],
+          "collisions": 0,
+          "food_entries": 0,
+          "defeats": 0,
+          "injury_entries": 1,
+          "releases": 0,
+          "health_writes": [
+            {
+              "age": 0,
+              "pc": 42535,
+              "bank": 79,
+              "address": 24336,
+              "value": 2
+            }
+          ],
+          "name": "first-contact-before-flower",
+          "kind": "hurt",
+          "before": {
+            "CdHealth": 3,
+            "CdHeld": 0,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 1,
+            "NumberofLives": 3
+          },
+          "updates": 73,
+          "after": {
+            "CdHealth": 2,
+            "CdHeld": 0,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 1,
+            "NumberofLives": 3
+          }
+        },
+        {
+          "owners": [
+            "GameLoop",
+            "CdEnsureInit",
+            "CdSpawnEntrance",
+            "CdBodyContact",
+            "CdInjury",
+            "FloateyNumbersCore"
+          ],
+          "collisions": 0,
+          "food_entries": 0,
+          "defeats": 0,
+          "injury_entries": 1,
+          "releases": 0,
+          "health_writes": [
+            {
+              "age": 0,
+              "pc": 42535,
+              "bank": 79,
+              "address": 24336,
+              "value": 1
+            }
+          ],
+          "name": "second-contact-before-flower",
+          "kind": "hurt",
+          "before": {
+            "CdHealth": 2,
+            "CdHeld": 0,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 1,
+            "NumberofLives": 3
+          },
+          "updates": 84,
+          "after": {
+            "CdHealth": 1,
+            "CdHeld": 0,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 1,
+            "NumberofLives": 3
+          }
+        },
+        {
+          "owners": [
+            "GameLoop",
+            "CdEnsureInit",
+            "CdSpawnEntrance",
+            "FloateyNumbersCore",
+            "HandlePowerUpCollision",
+            "CdCollectPickup"
+          ],
+          "collisions": 1,
+          "food_entries": 1,
+          "defeats": 0,
+          "injury_entries": 0,
+          "releases": 0,
+          "health_writes": [
+            {
+              "age": 0,
+              "pc": 42715,
+              "bank": 79,
+              "address": 24336,
+              "value": 3
+            }
+          ],
+          "name": "flower-restores-real-two-HP-deficit",
+          "kind": "food",
+          "before": {
+            "CdHealth": 1,
+            "CdHeld": 0,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 1,
+            "NumberofLives": 3
+          },
+          "updates": 25,
+          "after": {
+            "CdHealth": 3,
+            "CdHeld": 0,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 0,
+            "NumberofLives": 3
+          }
+        },
+        {
+          "owners": [
+            "GameLoop",
+            "CdEnsureInit",
+            "CdSpawnEntrance",
+            "FloateyNumbersCore",
+            "CdPickResting",
+            "CdLiftBrick"
+          ],
+          "collisions": 0,
+          "food_entries": 0,
+          "defeats": 0,
+          "injury_entries": 0,
+          "releases": 0,
+          "health_writes": [],
+          "name": "lift-second-authored-brick",
+          "kind": "lift",
+          "before": {
+            "CdHealth": 3,
+            "CdHeld": 0,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 0,
+            "NumberofLives": 3
+          },
+          "updates": 17,
+          "after": {
+            "CdHealth": 3,
+            "CdHeld": 6,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 0,
+            "NumberofLives": 3
+          }
+        },
+        {
+          "owners": [
+            "GameLoop",
+            "CdEnsureInit",
+            "CdSpawnEntrance",
+            "FloateyNumbersCore",
+            "CdRelease",
+            "CdDefeatEnemy"
+          ],
+          "collisions": 0,
+          "food_entries": 0,
+          "defeats": 1,
+          "injury_entries": 0,
+          "releases": 1,
+          "health_writes": [],
+          "name": "upward-throw-contact",
+          "kind": "throw",
+          "before": {
+            "CdHealth": 3,
+            "CdHeld": 6,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 0,
+            "NumberofLives": 3
+          },
+          "first_throw": 6,
+          "updates": 151,
+          "after": {
+            "CdHealth": 3,
+            "CdHeld": 0,
+            "CdHide": 0,
+            "CdThrowAge": 0,
+            "CdFlowers": 0,
+            "CdStars": 0,
+            "PlayerStatus": 0,
+            "NumberofLives": 3
+          }
+        }
+      ],
+      "health_writers": [
+        {
+          "pc": 42535,
+          "bank": 79,
+          "bytes": [
+            206,
+            16,
+            95
+          ],
+          "kind": "injury"
+        },
+        {
+          "pc": 42707,
+          "bank": 79,
+          "bytes": [
+            238,
+            16,
+            95
+          ],
+          "kind": "small-food"
+        },
+        {
+          "pc": 42715,
+          "bank": 79,
+          "bytes": [
+            141,
+            16,
+            95
+          ],
+          "kind": "full-food"
+        }
+      ],
+      "source_context": "Standalone cold PlayerStatus0/lives2/timer399 context is explicitly staged. No subsequent acquired health, food status, held object, life, ammo, immunity or outcomes seeded. Real source cold initialization creates3HP and entrancecrate. Logical actor/map/position staging and real PPU queue consumer between Main calls are disclosed; no native timing/image proof.",
+      "limits": "Hard native planned for both identities. Easy source only; Star2/random drop/full natural emergence, general climbing/death/life rollover/foreign family, waveform and blanket art remain open."
+    }
+  ]
+}

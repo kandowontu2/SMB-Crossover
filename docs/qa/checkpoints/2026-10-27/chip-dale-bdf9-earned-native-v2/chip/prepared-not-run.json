@@ -1,0 +1,456 @@
+{
+  "status": "PREPARED_DO_NOT_RUN",
+  "native_run": false,
+  "passed": false,
+  "goal_complete": false,
+  "ROM_sha256": "bdf9ca2bfe69ee93ca85f1b5e5319e474d9f01aa641c79a58cd9bd602253c40e",
+  "identity": "chip",
+  "variant": 0,
+  "mode": 1,
+  "source_campaign_passed": true,
+  "source_GameLoops": 761,
+  "source_both_modes_also_in_combined_receipt": true,
+  "cases": 12,
+  "real_collectibles": [
+    {
+      "type": 0,
+      "benefit": "+1HP from actual2HP deficit"
+    },
+    {
+      "type": 1,
+      "benefit": "full3HP from actual1HP"
+    },
+    {
+      "type": 3,
+      "benefit": "native delayed1Up; earnedHP/status/held preserved"
+    }
+  ],
+  "caps": {
+    "wall_frames": 16000,
+    "updates": 6500,
+    "host_seconds": 1800,
+    "bytes": 2000000000,
+    "files": 64,
+    "PNGs": 8,
+    "containers": 0
+  },
+  "scope": "Mushroom+1HP/cap3; flowerfull3HP; actual source entrance crate pickup, hiding defense, authored brick lift, horizontal/upward release/real enemy defeat/cleanup. Native1Up after mushroom while carrying a real brick preserves HP/food-status/held object. No ammo/permanent weapon upgrade system exists for Chip/Dale; unusedFlowers/Stars counters asserted unchanged.",
+  "limits": "Prepared only, no native/LuaVM/audio/render/cadence result. Hard/native one identity per profile; both modes source-only. Mature actors not full reveal/rise/drop lottery. No Star2, generalized climb/jump/death/wrap or all-roster/all-art claim.",
+  "bindings": [
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\current_chip_dale_earned_prepare_v1.py",
+      "bytes": 9878,
+      "sha256": "be0795ee12d330ff23293a0c5d7f55ee18071c57df2315441e2dbfbc9133f6b6"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\current_chip_dale_earned_v1.lua",
+      "bytes": 19286,
+      "sha256": "038b54a84f3da0a8dbe1767410ec8c5d4a7c7d9d9d0da639b29035ceeb9f87c1"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tests\\current-inventory-powerups.lua",
+      "bytes": 23810,
+      "sha256": "bcc2419a25ecc0d465dddd3f08b96a212d57c38703c61bbd2c2fddbdd5f24fa2"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\current_chip_dale_earned_cpu_v1.py",
+      "bytes": 10010,
+      "sha256": "da11b7008fd5b5534ec60f2e15ff911b8522ec2522ec4bd1ea8f7af62e91be79"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\current_rygar_powerups_prepare_v1.py",
+      "bytes": 17183,
+      "sha256": "6988f2a5d7371b6d2340e248e6fbb1e7722778110c6a061045e7eabae2a6f512"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\current_shared_star_life_prepare_v1.py",
+      "bytes": 17207,
+      "sha256": "3be0314a1c8411abde5baa4fcc12de05b1f3305d72bb6d5e577efe35f95acc56"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\current_roster_compact_11_v1.py",
+      "bytes": 18340,
+      "sha256": "fe2b6c43ae273269ed40f18e62cfcb3ba1d45cde6d0463d748ba72ccc25ebd6f"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\observe_chip_committed_write.py",
+      "bytes": 7619,
+      "sha256": "0922efc482e8a72b72d243ada7629f157c51afd779cee09e0f7bf35fa6235de2"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\link_pit_rygar_sophia_audit_cpu.py",
+      "bytes": 14010,
+      "sha256": "15ef348bc124a97d8ef2c8a56777180276271b44fb77c8ace7e62c2a50310113"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\check_tmnt_render_oa.py",
+      "bytes": 7778,
+      "sha256": "32033893e48055adc9a23c661238e9331dd1db856be51b753ba9b6781eb528e4"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\verify_native_relocation.py",
+      "bytes": 8395,
+      "sha256": "1bab7154bc2e5468e827087d14030a7e30c4d3676db5e775ef15de4d0c34ce11"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\run_mesen_isolated.py",
+      "bytes": 1370,
+      "sha256": "976f197a3712511e821f545e655eaa3f9bcfe95e42a3c6c76b2adca288d2aad3"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\capture_budget.py",
+      "bytes": 9112,
+      "sha256": "b9985e2e6db5c801a47454d8761adaf5f40e5254e8f599aeeddf412c1b7e8db9"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\run_mesen.py",
+      "bytes": 16490,
+      "sha256": "5d71507b99a100a10b48ad84e1bb3e7db92c470e6215315c9d962551a4222c67"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\cv3_life_gain_watch.nes",
+      "bytes": 2097168,
+      "sha256": "bdf9ca2bfe69ee93ca85f1b5e5319e474d9f01aa641c79a58cd9bd602253c40e"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\cv3_life_gain_watch.dbg",
+      "bytes": 26902877,
+      "sha256": "63f632b1406c04fce7f5f7c7439ca486ea60585a59b11aaa1178358b092ef348"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\cv3_life_gain_watch.lbl",
+      "bytes": 1068089,
+      "sha256": "f5ab1f3e0cd0f4256e212497fe5ec0d8f481ea7ac88acc940087707a0e88b6b1"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-bdf9-chip-dale-earned-source-v1.json",
+      "bytes": 65809,
+      "sha256": "eeade8c8850224183834cb0a0f7178b8a8a93d56b640c66a5947b5bf0540984c"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current_chip_dale_earned_draft_negatives_v1.json",
+      "bytes": 579,
+      "sha256": "1cadc40aa26d0d18b7a1a1c53b56facb7bea4cf74b85771c209bfe9921da94d1"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\docs\\qa\\cv3-life-watch-adoption-2026-10-27.json",
+      "bytes": 3182,
+      "sha256": "36bcf47238023a1cbe7b6c8bd844ad6e72ff9b0063cf656c3c326789c75b199f"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\chip_dale_core.s",
+      "bytes": 1192,
+      "sha256": "871c45a8d99843b70d6b2131d42d3064d53352835239cc5d5d0c48679661a9e3"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\chip_dale_health.s",
+      "bytes": 2210,
+      "sha256": "51fb0a0fd7d556ef117fd0fc56a011e348e3dc6514609a7e865c4227549df0f5"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\chip_dale_boxes.s",
+      "bytes": 5052,
+      "sha256": "96df0a9dc0a5508ce2ddcb99cee12a666d7d1fa4e0b09dbff1c20337d2887ccc"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\chip_dale_motion.s",
+      "bytes": 3758,
+      "sha256": "4a8511435ce5faea5ee7d2122d8488d8c6da5d70642277d6bc41b1ad3e8806ec"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\chip_dale_dispatch.s",
+      "bytes": 2722,
+      "sha256": "4f9d43178852b14925fe45e622c006e090eae72d3ec86497567616f7ffa7b673"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\chip_dale_render.s",
+      "bytes": 4040,
+      "sha256": "1a4b48a1e9973fcfdb3d5906a6cb498aadd6a37f7afd04c979d57f653e527f7d"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\chip_dale_state.inc",
+      "bytes": 1066,
+      "sha256": "a2bad04b25f0f0fbab1b03a958e7b60aad7a360dca480058da07d274f7e0ec2b"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\chip_dale_native_motion.inc",
+      "bytes": 1458,
+      "sha256": "4bb7294d562849b8fccde3602a38f3e8de8fc18cef68e718abe20ec8bc328470"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\collision.s",
+      "bytes": 109191,
+      "sha256": "6f65f30b6056ce527696f37d5793b899db633bca57d3cbac93af86f87b1409b5"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\mario_source.s",
+      "bytes": 19923,
+      "sha256": "d634f221acb00322480cd4cd45d5a6f724dc253a71b6a8dbe3c5621bbfb8cd3e"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\game.s",
+      "bytes": 62008,
+      "sha256": "328bae039dbce7ae75e78bb552ef653fb0333dbb02146dee72888b70651a0f94"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-bdf9-chip-earned-hard-v1\\config.json",
+      "bytes": 10691,
+      "sha256": "178308bbec66d0206391c11ab375a1f5aacf1465c90c0d0eda8f5b4fd6e56b01"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-bdf9-chip-earned-hard-v1\\source-controls.json",
+      "bytes": 13879,
+      "sha256": "260a3d5d3c39fb4ef162d34c467c4ed7b4e262e2b85796d3bf353b940088e96b"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-bdf9-chip-earned-hard-v1\\source-layout.json",
+      "bytes": 1950,
+      "sha256": "9fbce8b3eb6f66b886222e2b2113637e2b05425baacf2df3a95053ccef8dde95"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-bdf9-chip-earned-hard-v1\\run.lua",
+      "bytes": 14130,
+      "sha256": "c026076b23ecd43e14edb4a1238fd789b6a9db80149e3ff9aba4ec2ec98a2b6d"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-bdf9-chip-earned-hard-v1\\fixture.lua",
+      "bytes": 23295,
+      "sha256": "3140db75de1204493ec87bb0dd53707e6c7d98fd7206f581be921f639d73dd49"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-bdf9-chip-earned-hard-v1\\command.json",
+      "bytes": 909,
+      "sha256": "fc8c26598eceeaa6135838e369d82c42230c446f4a042bbeb39cdbd814d6b0e7"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-bdf9-chip-earned-hard-v1\\prepared-not-run.json",
+      "bytes": 9846,
+      "sha256": "b2ddc1aa8c80c74133a228df870d338fd240e42812d51bd7925662d9d0edc52d"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\current_chip_dale_earned_prepare_v2.py",
+      "bytes": 4293,
+      "sha256": "ab63b59450e90d7380be342fb39302f643dea391ee1f81a5cf3b81f7e02716a9"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-bdf9-chip-earned-hard-v2\\config.json",
+      "bytes": 10705,
+      "sha256": "072136d6a554decba3d599cdae51ef40bc79c9b5785854b928b0dc77af7853f1"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-bdf9-chip-earned-hard-v2\\fixture.lua",
+      "bytes": 23299,
+      "sha256": "1da935c4b5eddf5e1a4b113e69d97be6e9784c997fda54e07a4419c4925a1122"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-bdf9-chip-earned-hard-v2\\run.lua",
+      "bytes": 14177,
+      "sha256": "7f2b7c539c8c981024e782225d94d5a61e4938e2be6bbc2ade86fccba7c0f069"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-bdf9-chip-earned-hard-v2\\command.json",
+      "bytes": 909,
+      "sha256": "7608af74ef26520a72b5100247ff03396cc893ab7d1d6a8d68bec74108042405"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-bdf9-chip-earned-hard-v2\\menu-source-controls.json",
+      "bytes": 3034,
+      "sha256": "194dc1fa3a8d4dfeee3e4dd756a117a4cb14c08821483b5c1b3a5fda6bd2492a"
+    }
+  ],
+  "menu_index": 13,
+  "menu_index_correction": {
+    "passed": true,
+    "native_run": false,
+    "old_unrun_ready_preserved": true,
+    "old_ready_sha256": "b2ddc1aa8c80c74133a228df870d338fd240e42812d51bd7925662d9d0edc52d",
+    "cause": "Raw character14 was mistaken for menu index14. Actual compiled table index13 resolvesChip14, index14 resolvesLittleMac15. Original v1 not launched.",
+    "exact_lua_delta": {
+      "from": "if i~=14 then",
+      "to": "if i~=C.menu then"
+    },
+    "all_other_gameplay_controller_setup_guards_caps_sourceproof_bytes_unchanged": true,
+    "source_GameLoop_proof_reused_unchanged": true,
+    "menu_index": 13,
+    "actual_character": 14,
+    "nineteen_compiled_BFS_and_actual_resolver_cases": [
+      {
+        "start": 0,
+        "nodes": [
+          0,
+          1,
+          13
+        ],
+        "resolved": 14
+      },
+      {
+        "start": 1,
+        "nodes": [
+          1,
+          13
+        ],
+        "resolved": 14
+      },
+      {
+        "start": 2,
+        "nodes": [
+          2,
+          1,
+          13
+        ],
+        "resolved": 14
+      },
+      {
+        "start": 3,
+        "nodes": [
+          3,
+          2,
+          1,
+          13
+        ],
+        "resolved": 14
+      },
+      {
+        "start": 4,
+        "nodes": [
+          4,
+          3,
+          2,
+          1,
+          13
+        ],
+        "resolved": 14
+      },
+      {
+        "start": 5,
+        "nodes": [
+          5,
+          0,
+          1,
+          13
+        ],
+        "resolved": 14
+      },
+      {
+        "start": 6,
+        "nodes": [
+          6,
+          7,
+          13
+        ],
+        "resolved": 14
+      },
+      {
+        "start": 7,
+        "nodes": [
+          7,
+          13
+        ],
+        "resolved": 14
+      },
+      {
+        "start": 8,
+        "nodes": [
+          8,
+          7,
+          13
+        ],
+        "resolved": 14
+      },
+      {
+        "start": 9,
+        "nodes": [
+          9,
+          8,
+          7,
+          13
+        ],
+        "resolved": 14
+      },
+      {
+        "start": 10,
+        "nodes": [
+          10,
+          9,
+          8,
+          7,
+          13
+        ],
+        "resolved": 14
+      },
+      {
+        "start": 11,
+        "nodes": [
+          11,
+          6,
+          7,
+          13
+        ],
+        "resolved": 14
+      },
+      {
+        "start": 12,
+        "nodes": [
+          12,
+          13
+        ],
+        "resolved": 14
+      },
+      {
+        "start": 13,
+        "nodes": [
+          13
+        ],
+        "resolved": 14
+      },
+      {
+        "start": 14,
+        "nodes": [
+          14,
+          13
+        ],
+        "resolved": 14
+      },
+      {
+        "start": 15,
+        "nodes": [
+          15,
+          14,
+          13
+        ],
+        "resolved": 14
+      },
+      {
+        "start": 16,
+        "nodes": [
+          16,
+          15,
+          14,
+          13
+        ],
+        "resolved": 14
+      },
+      {
+        "start": 17,
+        "nodes": [
+          17,
+          18,
+          12,
+          13
+        ],
+        "resolved": 14
+      },
+      {
+        "start": 18,
+        "nodes": [
+          18,
+          12,
+          13
+        ],
+        "resolved": 14
+      }
+    ],
+    "negative_wrong_index14_resolves15": true,
+    "source_food_wording_correction": "Mushroom2->3 means one missingHP. Flower1->3 means two missingHP. Original Lua/source assertions already exact."
+  }
+}
