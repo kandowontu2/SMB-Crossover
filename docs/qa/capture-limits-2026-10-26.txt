@@ -1,0 +1,32 @@
+Capture storage correction -- 2026-10-26
+
+The user's report of millions of loose files and more than280 GB supersedes
+earlier permission to retain every lossless capture or raise storage limits.
+
+tools/run_mesen.py now uses the central capture_budget gate. It reserves space
+before starting its owned process, refuses a second capture process, watches
+output growth and rejects excess output even if the process exits quickly.
+Only its own process may be terminated. The final receipt records violations.
+Limits and output rules are in capture-storage-policy.txt.
+
+Verification: six real subprocess/admission/locking tests passed. Three
+compaction tests passed: exact recoverable member bytes, retained active/video/
+ROM inputs, verification failure preserving sources, and output-size refusal.
+These are tooling checks; no new gameplay verification is claimed.
+
+The archive still exceeded20,000 loose files at the bounded inventory check;
+capture therefore remains held. A separate completed workspace inventory
+observed18,255,445,709 bytes,281,836 files and471 skipped reparse links.
+These are point-in-time observations, not totals for a changing filesystem.
+
+The compaction helper preserves active dependencies and all ROM/video files,
+verifies each ZIP member's SHA-256 before removing any loose generated copy,
+then rechecks the source itself. Missing/deleted files are never restored.
+No real archive was compacted in this checkpoint: the requested historical
+group had already disappeared and the operation refused before creating output.
+Other old evidence/source directories also disappeared independently. They
+must not be silently substituted in old verification results.
+
+Installed/default MMC5 remains:
+3b112e1d79ba7348f2f7a4c426f4675845a5781017ab74690feb235121a66287
+No product ROM or tracked game source is changed by this tooling checkpoint.

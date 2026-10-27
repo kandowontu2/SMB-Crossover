@@ -11,8 +11,8 @@ import os
 from pathlib import Path
 import re
 import shutil
-import subprocess
 import tempfile
+from audit.capture_budget import run_capped
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -99,11 +99,11 @@ def run(script: Path, rom: Path, emulator: str | None = None, timeout: int = 30,
         failure_path = Path(directory) / 'failures.txt'
         wrapper.insert(0, f'TEST_FAILURE_PATH=[=[{failure_path.as_posix()}]=]')
         path.write_text('\n'.join(wrapper), encoding='utf-8')
-        result = subprocess.run(
+        result = run_capped(
             [executable, '--testRunner', '--enableStdout', f'--timeout={timeout}',
              *(emulator_options or []),
              str(path), str(rom.resolve())],
-            capture_output=True, text=True, timeout=timeout + 15,
+            output=output, timeout=timeout + 15,
         )
         if failure_path.exists():
             result.stderr += '\nFAIL latched Lua assertions:\n' + failure_path.read_text()
