@@ -7,6 +7,10 @@ CheatStartLevel: .res 1             ; Low5: world*4+stage. Bit5: user changed it
 
 .segment "CHEATS_MENU_COLD"
 .proc CheatsMenuInput
+.if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
+  farcall CheatsSixInput,jmp
+  .res 94-18,$ea
+.else
   lda CrossoverMenuPressed
   and #B_Button
   beq Navigate
@@ -52,9 +56,14 @@ Changed:
   jsr QueueCheats
 Done:
   rts
+.endif
 .endproc
 
 .proc QueueCheats
+.if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
+  farcall CheatsSixQueue,jmp
+  .res 174-18,$ea
+.else
   lda #$21
   sta R1
   lda #$65
@@ -113,9 +122,14 @@ Text:
   .byte "INVINCIBLE       OFF  "
   .byte "INVINCIBLE       ON   "
   .byte "START LEVEL      1-1  "
+.endif
 .endproc
 
 .proc CheatsPatchPage
+.if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
+  farcall CheatsSixPage,jmp
+  .res 54-18,$ea
+.else
   lda PPUSTATUS
   lda #$20
   sta PPUADDR
@@ -140,6 +154,7 @@ Blank:
   bne Blank
   rts
 Title: .byte "CHEATS "
+.endif
 .endproc
 
 .proc CheatsApplyStartingLevel
@@ -202,5 +217,5 @@ Loop:
 .endif
   rts
 .endproc
-.assert * <= $c000,error,"Cheats menu exceeds its reserved bank14 A tail"
+.assert * <= $c000,error,"Cheats menu exceeds its reserved bank20/$14 A tail"
 .popseg

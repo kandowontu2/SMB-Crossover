@@ -75,8 +75,13 @@ RESERVE AltRegContentFlag, 1
 .proc SoundEngine
          lda OperMode              ;are we in title screen mode?
          bne SndOn
+.if ::ENABLE_MMC5_EXPANDED
+         jmp SoundTestAudioGate
+         nop
+.else
          sta SND_MASTERCTRL_REG    ;if so, disable sound and leave
          rts
+.endif
 SndOn:   lda #$ff
          sta JOYPAD_PORT2          ;disable irqs and set frame counter mode???
          lda #$0f

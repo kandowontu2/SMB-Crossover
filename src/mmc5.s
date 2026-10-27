@@ -233,6 +233,11 @@ Cv3AdderLegacy:
  bne Cv3AdderOther
  jmp Cv3LegacyAdderBill
 Cv3AdderOther:jmp Cv3LegacyAdderOther
+::CheatsInjuryMask:
+  lda CheatInvincible
+  and #1
+  ora InjuryTimer
+  rts
   .res 136-(*-StartPublication),$ea ; old unrolled publication footprint
 EndPublication:
 

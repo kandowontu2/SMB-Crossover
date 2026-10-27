@@ -227,10 +227,20 @@ Solid:
  lda MTileAttribute,y
  and #MTILE_SOLID
  jeq Done
+ .if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
+ lda CheatInvincible
+ and #1
+ beq CheatSolidDeath
+ rts
+CheatSolidDeath:
+ ldx #0
+ jmp KillPlayer
+ .else
  lda CheatInvincible
  jne Done
  ldx #0
  jmp KillPlayer
+ .endif
 Flag:
  lda #0
  sta DisableCollisionDet

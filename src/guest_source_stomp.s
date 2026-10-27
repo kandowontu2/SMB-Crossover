@@ -3,11 +3,17 @@
 .pushseg
 .segment "SRAM"
 GuestBodyStompAllowed: .res 1
+.if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
+.segment "LOWCODE"
+.else
 .segment "OAMALIGNED"
+.endif
+.if .not (::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5)
 .proc GuestWaterStompPolicy
   lda GuestBodyStompAllowed
   rts
 .endproc
+.endif
 .segment "SAMUS"
 .proc GuestSourceStompPolicy
   lda AreaType

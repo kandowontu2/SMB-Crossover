@@ -57,7 +57,10 @@ def inventory(root: Path, byte_limit: int, file_limit: int) -> Inventory:
         result.directories += 1
         with os.scandir(folder) as entries:
             for entry in entries:
-                if entry.is_symlink() or getattr(entry, 'is_junction', lambda: False)():
+                junction = getattr(entry, 'is_junction', None)
+                reparse = junction() if junction else bool(
+                    getattr(entry.stat(follow_symlinks=False), 'st_file_attributes', 0) & 0x400)
+                if entry.is_symlink() or reparse:
                     result.links_skipped += 1
                     continue
                 if entry.is_dir(follow_symlinks=False):

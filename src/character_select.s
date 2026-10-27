@@ -39,6 +39,12 @@ CrossoverContinue: .res 1
   jeq BuildOptions
   cmp #6
   jeq CheatsInput
+.if ::ENABLE_MMC5_EXPANDED
+  cmp #7
+  jeq BuildOptions
+  cmp #8
+  jeq SoundInput
+.endif
   lda CrossoverTitleDrawn
   bne TitleInput
   inc CrossoverTitleDrawn
@@ -72,6 +78,10 @@ FreshGame:
   sta CrossoverContinue
   lda #1
 OpenPage:
+.if ::ENABLE_MMC5_EXPANDED
+  ldx #0
+  stx CrossoverOptionsFocus
+.endif
   sta CrossoverMenuState
   sta DisableScreenFlag
 NotReady:
@@ -110,7 +120,20 @@ BuildOptions:
   and #$18
   jne NotReady
   farcall InitializeNameTables
+.if ::ENABLE_MMC5_EXPANDED
+  farcall DrawOptionsPage
+.else
   jsr DrawOptionsPage
+.endif
+.if ::ENABLE_MMC5_EXPANDED
+  lda CrossoverMenuState
+  cmp #7
+  bne :+
+  farcall SoundTestBuildPage
+  lda #8
+  jmp OptionsBuilt
+:
+.endif
   lda CrossoverMenuState
   cmp #5
   bne NormalOptions
@@ -152,7 +175,9 @@ CopyPalette:
   sta PlayerStatus
   sta RgOamRotation
   sta GuestOamRotationActive
+.if !::ENABLE_MMC5_EXPANDED
   sta CrossoverOptionsFocus
+.endif
   sta ScreenLeft_PageLoc
   sta ScreenLeft_X_Pos
   sta HorizontalScroll
@@ -171,6 +196,13 @@ OptionsReady:
   lda CrossoverMenuState
   cmp #6
   beq CheatsReady
+.if ::ENABLE_MMC5_EXPANDED
+  cmp #8
+  bne :+
+  farcall SoundTestQueue
+  jmp ScreenReady
+:
+.endif
   farcall QueueOptions
   jmp ScreenReady
 CheatsReady:
@@ -192,7 +224,11 @@ OptionsInput:
   beq OptionsUp
   clc
   adc #1
+.if ::ENABLE_MMC5_EXPANDED
+  cmp #4
+.else
   cmp #3
+.endif
   bcc OptionsFocusReady
   lda #0
   beq OptionsFocusReady
@@ -200,7 +236,11 @@ OptionsUp:
   sec
   sbc #1
   bpl OptionsFocusReady
+.if ::ENABLE_MMC5_EXPANDED
+  lda #3
+.else
   lda #2
+.endif
 OptionsFocusReady:
   sta CrossoverOptionsFocus
   jmp OptionsChanged
@@ -209,6 +249,10 @@ OptionsToggle:
   and #A_Button | Start_Button | Select_Button | Left_Dir | Right_Dir
   beq MenuIdle
   lda CrossoverOptionsFocus
+.if ::ENABLE_MMC5_EXPANDED
+  cmp #3
+  beq OpenSoundTest
+.endif
   cmp #2
   beq OpenCheats
   cmp #0
@@ -228,7 +272,19 @@ OptionsChanged:
 MenuIdle:
   lda #0
   rts
+.if ::ENABLE_MMC5_EXPANDED
+OpenSoundTest:
+  farcall SoundTestEnter
+  jmp MenuIdle
+SoundInput:
+  farcall SoundTestInput
+  jmp MenuIdle
+.endif
 OpenCheats:
+.if ::ENABLE_MMC5_EXPANDED
+  lda #0
+  sta CrossoverOptionsFocus
+.endif
   lda #5
   sta CrossoverMenuState
   lda #1
@@ -537,7 +593,9 @@ Changed:
 Done:
   sta SelectedCharacter
   rts
+.if !::ENABLE_MMC5_EXPANDED
 MenuCharacters: .byte 0,1,2,3,4,5,6,7,12,9,10,11
+.endif
 .endproc
 
 .proc QueueSelection
@@ -916,6 +974,10 @@ CursorHigh:.byte $21,$21,$21,$21,$21,$21,$22,$22,$22,$22,$22,$22
 .endproc
 
  ; Options are a dedicated title page; the character grid has no option row.
+.if ::ENABLE_MMC5_EXPANDED
+.pushseg
+.segment "X5_MENU_UI"
+.endif
 .proc DrawOptionsPage
   lda PPUSTATUS
   lda #$20
@@ -965,9 +1027,17 @@ Done:
 Text:
   .byte $20,$cb,7,"OPTIONS"
   .byte $22,$65,22,"CHEATS                "
+.if ::ENABLE_MMC5_EXPANDED
+  .byte $22,$c5,22,"AUDIO TEST            "
+  .byte $23,$4a,8,"B - BACK"
+.else
   .byte $22,$ca,8,"B - BACK"
+.endif
   .byte 0
 .endproc
+.if ::ENABLE_MMC5_EXPANDED
+.popseg
+.endif
 
 .pushseg
 .segment "CHEATS_MENU_COLD"
@@ -992,7 +1062,11 @@ Shadows:
   ldy #66
 Behavior:
   jsr QueueOptionLine
+.if ::ENABLE_MMC5_EXPANDED
+  lda #4
+.else
   lda #3
+.endif
   sta R4
   jmp QueueOptionCursor
 .endproc
@@ -1044,7 +1118,13 @@ AdvanceCursor:
   sta VRAM_Buffer1,x
   rts
 CursorHi:.byte $21,$22,$22
+.if ::ENABLE_MMC5_EXPANDED
+  .byte $22
+.endif
 CursorLo:.byte $63,$03,$63
+.if ::ENABLE_MMC5_EXPANDED
+  .byte $c3
+.endif
 .endproc
 
 .proc QueueOptionLine

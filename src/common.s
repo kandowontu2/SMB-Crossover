@@ -585,9 +585,16 @@ InitVStf:
 .endif
   jmp BillRareCallCommon
 ::CheatsInjuryTimer:
+ .if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
+  jmp CheatsInjuryMask
+::GuestWaterStompPolicy:
+  lda GuestBodyStompAllowed
+  rts
+ .else
   lda InjuryTimer
   ora CheatInvincible
   rts
+ .endif
   .assert *-KillEnemies=24,error,"Keep the original resident KillEnemies span"
 .else
   sta R0            ;store identifier here

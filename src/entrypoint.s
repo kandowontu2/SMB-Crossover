@@ -501,3 +501,11 @@ Done:
 .if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
 .include "luigi_source_profile.s"
 .endif
+
+.if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
+.include "sound_test.s"
+.endif
+
+.if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
+.include "cheats_four.s"
+.endif

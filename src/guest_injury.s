@@ -6,10 +6,19 @@
 .segment "OAMALIGNED"
 .proc GuestGameRoutinesBridge
   lda GuestHurtKind
+.if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
+  ora CheatInvincible
   beq Run
-  farcall GuestInjuryGameRoutines, jmp
+  farcall CheatsGameRoutinesGate,jmp
 Run:
-  farcall GameRoutines, jmp
+  farcall GameRoutines,jmp
+  .byte $ea
+.else
+  beq Run
+  farcall GuestInjuryGameRoutines,jmp
+Run:
+  farcall GameRoutines,jmp
+.endif
 .endproc
 .segment "FIXED"
 .proc GuestInjuryMovementBridge

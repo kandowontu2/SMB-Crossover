@@ -6,7 +6,9 @@ This is a native NES adaptation of [Super Mario Bros. Crossover](https://www.smb
 
 **Status: playable, actively developed, and unfinished.** Character behavior, graphics, sound and performance are still being tested and corrected. MMC5 is the recommended target for the full roster.
 
-The October 26 development build (`3b112e1d`) fixes Bass's weapon HUD when switching weapons and reduces graphics-update and ordinary Mega Man/Proto Man bullet overhead. All 32 controlled Bass weapon cases pass across Easy and Hard, including charged Pharaoh Shot, energy costs, switching and HUD graphics. A separate thrown-brick/question-block regression also passes. These checks do not establish every-item coverage or a lag-free game. See the [changes and test limits](docs/qa/inventory-timing-adoption-2026-10-26.json).
+The October 27 development build (`dc21a79c`) adds a character-labelled music/SFX test and four more cheats: mid-air jumps, screen wrapping, a frozen timer and full power. Menu navigation and playback were checked for all 37 identities; Mario's new cheat behavior was also exercised in gameplay. The broader roster audit is still in progress. See the [checks and limits](docs/qa/frontend-adoption-2026-10-27.json).
+
+It includes the Bass weapon-HUD and graphics/bullet-overhead repairs from `3b112e1d`. That earlier build passed 32 controlled Bass weapon cases across Easy and Hard, plus a thrown-brick/question-block regression. Those checks remain specific to their recorded build; see the [results](docs/qa/inventory-timing-adoption-2026-10-26.json).
 
 It retains Luigi's Mario-based movement with a modestly higher jump and less traction from `641460e2`, the character-select and level-start HUD fixes from `731c918b`, earlier Castlevania sound repairs, reduced Chip/Dale movement overhead, and clearer Parodius power-bar lettering. See the [Luigi results](docs/qa/luigi-profile-adoption-2026-10-26.json) and [earlier timing results](docs/qa/presentation-timing-adoption-2026-10-26.json).
 
@@ -18,7 +20,8 @@ Crowded scenes still cause partial player sprites, including Mega Man, Sophia an
 
 - A three-row character select screen, with alternate characters chosen using Select.
 - Character-specific movement, attacks, equipment, health and resource systems.
-- Easy and Hard behavior settings, plus optional player outlines, invincibility and starting-level selection.
+- Easy and Hard behavior settings, optional player outlines and six cheat options.
+- A character-labelled music and SFX browser in expanded MMC5.
 - SMB levels with Crossover-inspired changes and the original platform actors to help different movement styles traverse them.
 - Native character music and sound support, with additional audio work still in progress.
 - Full graphical Gradius and Parodius upgrade bars in the expanded MMC5 build.
@@ -93,6 +96,7 @@ The experimental oversized builder is `tools/build_mmc3_oversized.py`; it requir
 | --- | --- |
 | Main menu | Up/Down chooses START or OPTIONS; A or Start confirms. |
 | Character selection | D-pad moves; Select cycles alternates; A or Start begins; B returns. |
+| Audio test (expanded MMC5) | Up/Down character; Left/Right cue; Select music/SFX; A plays; Start stops; B returns. |
 | Movement | D-pad moves or aims. |
 | Jump / primary attack | A jumps; B attacks or runs, depending on the character. |
 | Pause | Start pauses and resumes. |
@@ -113,7 +117,8 @@ New additions also have adaptations for SMB's levels and NES controls. The proje
 
 - **PLAYER OUTLINES:** off by default. Turning this on adds black outline sprites; crowded scenes can flicker more.
 - **MODE:** Easy or Hard.
-- **CHEATS:** invincibility and a starting level from 1-1 through 8-4. A selected starting level applies when confirming a character. Invincibility does not prevent pit or time-out deaths.
+- **CHEATS:** invincibility, starting level (1-1 through 8-4), mid-air jumps, screen wrap, freeze timer and full power. A selected starting level applies when confirming a character. Invincibility does not prevent pit or time-out deaths. Full power restores health/ammo and grants compatible character upgrades; existing suit and weapon choices are retained where possible.
+- **AUDIO TEST** (expanded MMC5): choose a character and its music or SFX. Track labels describe the scene or event that uses the cue; some cues share the same underlying music.
 
 Settings last until reset. Use B to return from a submenu.
 
