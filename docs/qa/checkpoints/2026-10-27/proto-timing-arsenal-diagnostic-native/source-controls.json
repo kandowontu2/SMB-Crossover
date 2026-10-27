@@ -1,0 +1,374 @@
+{
+  "passed": true,
+  "native_run": false,
+  "observer_only": true,
+  "original39bindings_reverified": true,
+  "original_run_suffix_exact": true,
+  "original_config_exact": true,
+  "all_RAM_reads_verified": [
+    "CurrentBank",
+    "CurrentBankC",
+    "InvDirty",
+    "InvHudActive",
+    "InvHudPhysical",
+    "InvOwnedHi",
+    "InvOwnedLo",
+    "InvSelected",
+    "NmiR0",
+    "NmiR1",
+    "ReloadCHRBank",
+    "VRAM_Buffer1_Offset",
+    "VRAM_Buffer2_Offset",
+    "VRAM_Buffer_AddrCtrl"
+  ],
+  "all_direct_bases_verified": [
+    "CurrentCHRBank",
+    "ReloadCHRBank",
+    "VRAM_Buffer1",
+    "VRAM_Buffer1_Offset",
+    "VRAM_Buffer2",
+    "X5ChrMode"
+  ],
+  "all_dynamic_hook_names_verified": [
+    "InventoryHud",
+    "ProtoQueueBasePalette",
+    "ProtoFixQueuedPalette",
+    "SamusFreezeUpdateScreen"
+  ],
+  "observer_v1_bytes_exact": true,
+  "old_diagnostic_v1_FALSE": "Logger requested real InvDirty but config omitted it plus InvHudActive/Physical; no original deadline reached, output0bytes",
+  "original_mechanics_controller_seeds_guard_order_caps": true,
+  "new_emulated_state_writes": 0,
+  "extra_screenshots": 0,
+  "all_registrations_startup_static": true,
+  "genuine_hooks": {
+    "PhysicalPickup": {
+      "pc": 44913,
+      "banks": [
+        3
+      ],
+      "bytes": [
+        32,
+        47,
+        141
+      ],
+      "source_symbol": "MarioSourcePowerupCollision",
+      "source_delta": 0
+    },
+    "InventoryCollect": {
+      "pc": 42078,
+      "banks": [
+        59
+      ],
+      "bytes": [
+        142,
+        145,
+        125
+      ],
+      "source_symbol": "InventoryCollect",
+      "source_delta": 0
+    },
+    "InventoryGrant": {
+      "pc": 42273,
+      "banks": [
+        59
+      ],
+      "bytes": [
+        32,
+        189,
+        162
+      ],
+      "source_symbol": "InventoryGrant",
+      "source_delta": 0
+    },
+    "InventorySpend": {
+      "pc": 41680,
+      "banks": [
+        59
+      ],
+      "bytes": [
+        32,
+        48,
+        162
+      ],
+      "source_symbol": "InventorySpend",
+      "source_delta": 0
+    },
+    "GuestPowerupUpdate": {
+      "pc": 45721,
+      "banks": [
+        10
+      ],
+      "bytes": [
+        173,
+        253,
+        107
+      ],
+      "source_symbol": "GuestPowerupUpdate",
+      "source_delta": 0
+    },
+    "DamageEnemy": {
+      "pc": 43412,
+      "banks": [
+        8
+      ],
+      "bytes": [
+        32,
+        252,
+        187
+      ],
+      "source_symbol": "MegaManWeapons::DamageEnemy",
+      "source_delta": 0
+    },
+    "PrimarySpawn": {
+      "pc": 41430,
+      "banks": [
+        8
+      ],
+      "bytes": [
+        141,
+        154,
+        104
+      ],
+      "source_symbol": "MegaManWeapons::Spawn",
+      "source_delta": 0
+    },
+    "RushAttack": {
+      "pc": 48817,
+      "banks": [
+        61
+      ],
+      "bytes": [
+        173,
+        156,
+        7
+      ],
+      "source_symbol": "MegaManRushAttack",
+      "source_delta": 0
+    },
+    "RushBounce": {
+      "pc": 49034,
+      "banks": [
+        61
+      ],
+      "bytes": [
+        173,
+        156,
+        7
+      ],
+      "source_symbol": "MegaManRushBounce",
+      "source_delta": 0
+    },
+    "NmiEntry": {
+      "pc": 58172,
+      "banks": [
+        125,
+        127
+      ],
+      "bytes": [
+        72,
+        138,
+        72
+      ],
+      "source_symbol": "NonMaskableInterrupt",
+      "source_delta": 0
+    },
+    "IrqEntry": {
+      "pc": 32768,
+      "banks": [
+        126
+      ],
+      "bytes": [
+        72,
+        138,
+        72
+      ],
+      "source_symbol": "IrqScrollSplit",
+      "source_delta": 0
+    },
+    "GameLoopOwned": {
+      "pc": 33502,
+      "banks": [
+        126
+      ],
+      "bytes": [
+        32,
+        86,
+        131
+      ],
+      "source_symbol": "GameLoop",
+      "source_delta": 5
+    },
+    "GameLoopFinish": {
+      "pc": 33621,
+      "banks": [
+        126
+      ],
+      "bytes": [
+        96
+      ],
+      "source_symbol": "GameLoop",
+      "source_delta": 124
+    },
+    "NmiReturn": {
+      "pc": 58383,
+      "banks": [
+        125,
+        127
+      ],
+      "bytes": [
+        64
+      ],
+      "source_symbol": "NonMaskableInterrupt",
+      "source_delta": 211
+    },
+    "IrqReturn": {
+      "pc": 32835,
+      "banks": [
+        126
+      ],
+      "bytes": [
+        64
+      ],
+      "source_symbol": "IrqScrollSplit",
+      "source_delta": 67
+    },
+    "InventorySpendDone": {
+      "pc": 41725,
+      "banks": [
+        59
+      ],
+      "bytes": [
+        96
+      ],
+      "source_symbol": "InventorySpend::Done",
+      "source_delta": 0
+    },
+    "DmaComplete": {
+      "pc": 57352,
+      "banks": [
+        125,
+        127
+      ],
+      "bytes": [
+        141,
+        1,
+        32
+      ],
+      "source_symbol": "PostDmaMaskEnable",
+      "source_delta": 3
+    },
+    "UpdateScreen": {
+      "pc": 32898,
+      "banks": [
+        126
+      ],
+      "bytes": [
+        174,
+        2,
+        32
+      ],
+      "symbol": "UpdateScreen",
+      "delta": 0
+    },
+    "BankSwitchCHR": {
+      "pc": 32914,
+      "banks": [
+        126
+      ],
+      "bytes": [
+        173,
+        70,
+        1
+      ],
+      "symbol": "BankSwitchCHR",
+      "delta": 0
+    },
+    "InventoryHud": {
+      "pc": 43040,
+      "banks": [
+        59
+      ],
+      "bytes": [
+        173,
+        142,
+        125
+      ],
+      "symbol": "InventoryHud",
+      "delta": 0
+    },
+    "ProtoQueueBasePalette": {
+      "pc": 41476,
+      "banks": [
+        66
+      ],
+      "bytes": [
+        174,
+        174,
+        4
+      ],
+      "symbol": "ProtoQueueBasePalette",
+      "delta": 0
+    },
+    "ProtoFixQueuedPalette": {
+      "pc": 41536,
+      "banks": [
+        66
+      ],
+      "bytes": [
+        173,
+        151,
+        124
+      ],
+      "symbol": "ProtoFixQueuedPalette",
+      "delta": 0
+    },
+    "SamusFreezeUpdateScreen": {
+      "pc": 40950,
+      "banks": [
+        126
+      ],
+      "bytes": [
+        169,
+        244,
+        141
+      ],
+      "symbol": "SamusFreezeUpdateScreen",
+      "delta": 0
+    },
+    "BankSwitchCHRReturn": {
+      "pc": 33063,
+      "banks": [
+        126
+      ],
+      "bytes": [
+        96
+      ],
+      "symbol": "BankSwitchCHR",
+      "delta": 149
+    }
+  },
+  "actual_original_last_event": [
+    "update",
+    "2593",
+    "2190",
+    "9",
+    "hud",
+    "1",
+    "255",
+    "7",
+    "0",
+    "0",
+    "1",
+    "0",
+    "64",
+    "176",
+    "0",
+    "33621",
+    "126",
+    "77236940"
+  ],
+  "original_deadline_FALSE": true,
+  "expected": "Same original firstFALSE and semantically exact CSV/PNG prefix; diagnostic records actual PPUMASK/parser/CHR events before unchanged failure assertion. Compare saved outputs offline; no native clearance from preparation.",
+  "limitation": "Static source/linked hook qualification only, not Lua VM/native timing proof; current native snapshot lacked exact unsafe line/dot and raw packet."
+}

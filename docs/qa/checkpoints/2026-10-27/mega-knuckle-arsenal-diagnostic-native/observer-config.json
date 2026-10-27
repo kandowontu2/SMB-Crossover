@@ -1,0 +1,214 @@
+{
+  "ROM_sha256": "9ea11eab2fc5c373a3795b013f6ed9e0d5e9781891b2ae3bf40ad2556c27b85e",
+  "ram": {
+    "SsBodyStop": 32222,
+    "RgShotType": 27755,
+    "CurrentBank": 325,
+    "PlayerChrBank": 327,
+    "GuestHurtTicks": 28445,
+    "SsHeld": 32224,
+    "SmChrBank": 27400,
+    "CurrentBankC": 32161,
+    "PlayerOutlinesOff": 32440,
+    "InjuryTimer": 1947,
+    "MegaManShotPose": 24581,
+    "HpNativeDrawHi": 29633,
+    "SsFreeze": 32223,
+    "SpriteShuffleOffset": 1760,
+    "SmPosePtr": 27398,
+    "PlayerStatus": 1883,
+    "CurrentOAMOffset": 1758,
+    "MmDeathFlag": 24583,
+    "InvSelected": 31894,
+    "R1": 4,
+    "RgOamRotation": 27656,
+    "RgOamUsed": 27658,
+    "RgOamPlayerStart": 27655,
+    "ObjectMetasprite": 1761,
+    "GuestOamRotationActive": 27659,
+    "MmRenderPose": 26771,
+    "RgShotAge": 27865,
+    "Sprite_Data": 512,
+    "GuestHurtVisible": 28448,
+    "R0": 3,
+    "HpNativeDrawLo": 29626
+  },
+  "fields": [
+    "CurrentBank",
+    "CurrentBankC",
+    "PlayerStatus",
+    "PlayerOutlinesOff",
+    "ObjectMetasprite",
+    "SmChrBank",
+    "PlayerChrBank",
+    "CurrentOAMOffset",
+    "GuestOamRotationActive",
+    "RgOamPlayerStart",
+    "RgOamUsed",
+    "RgOamRotation",
+    "SpriteShuffleOffset",
+    "MegaManShotPose",
+    "SsHeld",
+    "SsFreeze",
+    "SsBodyStop",
+    "MmRenderPose",
+    "GuestHurtTicks",
+    "GuestHurtVisible",
+    "InjuryTimer",
+    "MmDeathFlag",
+    "HpNativeDrawLo",
+    "HpNativeDrawHi"
+  ],
+  "body_id": 233,
+  "expected": {
+    "bank": 33,
+    "pc": 53405
+  },
+  "draw_returns": [
+    {
+      "pc": 41355,
+      "bank": 4,
+      "callsite": 41352,
+      "target": 41969,
+      "callbytes": [
+        32,
+        241,
+        163
+      ]
+    },
+    {
+      "pc": 41397,
+      "bank": 4,
+      "callsite": 41394,
+      "target": 41969,
+      "callbytes": [
+        32,
+        241,
+        163
+      ]
+    },
+    {
+      "pc": 41522,
+      "bank": 4,
+      "callsite": 41519,
+      "target": 41969,
+      "callbytes": [
+        32,
+        241,
+        163
+      ]
+    }
+  ],
+  "render_returns": [
+    {
+      "pc": 42225,
+      "bank": 4,
+      "callsite": 42222,
+      "target": 49035,
+      "callbytes": [
+        32,
+        139,
+        191
+      ]
+    }
+  ],
+  "return_dispatch": [
+    {
+      "pc": 41355,
+      "bank": 4,
+      "callsite": 41352,
+      "target": 41969,
+      "callbytes": [
+        32,
+        241,
+        163
+      ]
+    },
+    {
+      "pc": 41397,
+      "bank": 4,
+      "callsite": 41394,
+      "target": 41969,
+      "callbytes": [
+        32,
+        241,
+        163
+      ]
+    },
+    {
+      "pc": 41522,
+      "bank": 4,
+      "callsite": 41519,
+      "target": 41969,
+      "callbytes": [
+        32,
+        241,
+        163
+      ]
+    },
+    {
+      "pc": 42225,
+      "bank": 4,
+      "callsite": 42222,
+      "target": 49035,
+      "callbytes": [
+        32,
+        139,
+        191
+      ]
+    }
+  ],
+  "hooks": {
+    "DrawMetasprite": {
+      "pc": 41969,
+      "banks": [
+        4
+      ],
+      "bytes": [
+        185,
+        62,
+        5
+      ],
+      "symbol": "DrawMetasprite",
+      "delta": 0
+    },
+    "MetaspriteRenderLoop": {
+      "pc": 42426,
+      "banks": [
+        4
+      ],
+      "bytes": [
+        174,
+        222,
+        6
+      ],
+      "symbol": "MetaspriteRenderLoop",
+      "delta": 0
+    },
+    "DmaComplete": {
+      "pc": 57352,
+      "banks": [
+        125,
+        127
+      ],
+      "bytes": [
+        141,
+        1,
+        32
+      ],
+      "source_symbol": "PostDmaMaskEnable",
+      "source_delta": 3
+    },
+    "GameLoopFinish": {
+      "pc": 33621,
+      "banks": [
+        126
+      ],
+      "bytes": [
+        96
+      ],
+      "symbol": "GameLoop",
+      "delta": 124
+    }
+  }
+}
