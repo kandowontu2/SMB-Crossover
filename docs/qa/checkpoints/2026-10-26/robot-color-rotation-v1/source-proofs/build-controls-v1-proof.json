@@ -1,0 +1,71 @@
+{
+  "passed": true,
+  "source_only": true,
+  "native_launches": 0,
+  "candidate_ROM_sha256": "ca9a1c13e4f25a834ac665c4c9a6d67cf0be3c19ee7dc2af284a432e359be1fe",
+  "canonical_exact": true,
+  "ordinary_MMC3_exact": true,
+  "ordinary_MMC5_exact": true,
+  "builds": [
+    {
+      "name": "canonical",
+      "command": [
+        "C:\\Users\\kando\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+        "-B",
+        "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\robot-color-rotation-candidate-v3\\source\\tools\\build_mmc5_expanded.py",
+        "--workspace",
+        "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\robot-color-rotation-candidate-v3\\source",
+        "--compiler",
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\Windows\\cc65\\bin\\cl65.exe",
+        "--output",
+        "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\robot-color-rotation-candidate-v3\\build-controls-v1\\canonical.nes"
+      ],
+      "exit": 0,
+      "stdout": "{\"output\": \"C:\\\\Users\\\\kando\\\\Videos\\\\SMB Crossover Archive\\\\2026-10-24-native-rest-py\\\\robot-color-rotation-candidate-v3\\\\build-controls-v1\\\\canonical.nes\", \"sha256\": \"ca9a1c13e4f25a834ac665c4c9a6d67cf0be3c19ee7dc2af284a432e359be1fe\", \"bytes\": 2097168, \"mapper\": 5, \"expanded\": true, \"extra_chr_sha256\": null}\n",
+      "stderr": "",
+      "ROM_sha256": "ca9a1c13e4f25a834ac665c4c9a6d67cf0be3c19ee7dc2af284a432e359be1fe"
+    },
+    {
+      "name": "ordinary-mmc3",
+      "command": [
+        "C:\\Users\\kando\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+        "-B",
+        "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\robot-color-rotation-candidate-v3\\source\\tools\\build_mmc5_expanded.py",
+        "--workspace",
+        "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\robot-color-rotation-candidate-v3\\source",
+        "--compiler",
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\Windows\\cc65\\bin\\cl65.exe",
+        "--output",
+        "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\robot-color-rotation-candidate-v3\\build-controls-v1\\ordinary-mmc3.nes",
+        "--flag-off",
+        "mmc3"
+      ],
+      "exit": 0,
+      "stdout": "{\"output\": \"C:\\\\Users\\\\kando\\\\Videos\\\\SMB Crossover Archive\\\\2026-10-24-native-rest-py\\\\robot-color-rotation-candidate-v3\\\\build-controls-v1\\\\ordinary-mmc3.nes\", \"sha256\": \"d444cac88e13fa02b29ad16100b8f08fa565ba90f8cedde192de43fb2dc8f3eb\", \"bytes\": 786448, \"mapper\": 4, \"expanded\": false, \"extra_chr_sha256\": null}\n",
+      "stderr": "",
+      "ROM_sha256": "d444cac88e13fa02b29ad16100b8f08fa565ba90f8cedde192de43fb2dc8f3eb"
+    },
+    {
+      "name": "ordinary-mmc5",
+      "command": [
+        "C:\\Users\\kando\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+        "-B",
+        "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\robot-color-rotation-candidate-v3\\source\\tools\\build_mmc5_expanded.py",
+        "--workspace",
+        "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\robot-color-rotation-candidate-v3\\source",
+        "--compiler",
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\Windows\\cc65\\bin\\cl65.exe",
+        "--output",
+        "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\robot-color-rotation-candidate-v3\\build-controls-v1\\ordinary-mmc5.nes",
+        "--flag-off",
+        "mmc5"
+      ],
+      "exit": 0,
+      "stdout": "{\"output\": \"C:\\\\Users\\\\kando\\\\Videos\\\\SMB Crossover Archive\\\\2026-10-24-native-rest-py\\\\robot-color-rotation-candidate-v3\\\\build-controls-v1\\\\ordinary-mmc5.nes\", \"sha256\": \"f4ffd2483c51daa4d60bb575da2da8c4d817692cda407611c243031f67520833\", \"bytes\": 786448, \"mapper\": 5, \"expanded\": false, \"extra_chr_sha256\": null}\n",
+      "stderr": "",
+      "ROM_sha256": "f4ffd2483c51daa4d60bb575da2da8c4d817692cda407611c243031f67520833"
+    }
+  ],
+  "source_manifest_sha256": "867effcb52c8e44d89213292cbd2a057e2f1be3acb8eb02ad584f69adf2d3e0a",
+  "tool_sha256": "6d11d39ad03b6da28611f024d8b6fb17b737b9704c05a10f835be5d7ceb9090e"
+}

@@ -1,0 +1,66 @@
+--- a/src/remaining_weapons.s
++++ b/src/remaining_weapons.s
+@@ -2608,6 +2608,17 @@
+   jsr PickupArt
+   jeq Next
+   sta AvDrawArt
++.if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
++  ; Same14-byte slot. Y is dead before ArtPointer's TAY; X/P survive
++  ; the helper. LDA#1 below restores the original live N/Z state.
++  jsr BillHudAnchor
++  sta R4
++  lda #0
++  sta R5
++  sta R3
++  sty R6
++  nop
++.else
+   lda #192
+   sta R4
+   lda #0
+@@ -2615,6 +2626,7 @@
+   sta R3
+   lda #24
+   sta R6
++.endif
+   lda #1
+   sta R7
+   sta AvDrawDirection
+--- a/src/entrypoint.s
++++ b/src/entrypoint.s
+@@ -501,3 +501,8 @@
+ .if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
+ .include "luigi_source_profile.s"
+ .endif
++
++; Append in verified SPECIAL_ROSTER FF tail; all prior entries stay fixed.
++.if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
++.include "bill_hud_anchor.s"
++.endif
+--- /dev/null
++++ b/src/bill_hud_anchor.s
+@@ -0,0 +1,24 @@
++; Bill and Lance share character3. Their24px capsule belongs in the
++; free name-row gap; all other characters retain their original anchor.
++; Genuine private ABI: returns A=x,Y=y; preserves X and all input P.
++; Actual HUD caller's Y is dead before RemainingDraw::ArtPointer TAY.
++.pushseg
++.segment "SPECIAL_ROSTER"
++.proc BillHudAnchor
++  php
++  lda SelectedCharacter
++  cmp #CHARACTER_BILL
++  beq Bill
++  lda #192
++  ldy #24
++  plp
++  rts
++Bill:
++  lda #112
++  ldy #16
++  plp
++  rts
++.endproc
++.assert BillHudAnchor = $bfae, error, "Bill HUD append moved"
++.assert *-BillHudAnchor = 20, error, "Bill HUD helper size changed"
++.popseg

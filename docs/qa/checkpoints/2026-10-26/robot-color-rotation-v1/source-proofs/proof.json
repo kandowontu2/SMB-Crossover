@@ -1,0 +1,28 @@
+{
+  "passed": true,
+  "source_only": true,
+  "native_run": false,
+  "baseline_ROM_sha256": "dfbdca24019776262c4388e3ea782fb989e24b8fc0e3cf0bfe0bbb84a9f480ad",
+  "candidate_ROM_sha256": "ca9a1c13e4f25a834ac665c4c9a6d67cf0be3c19ee7dc2af284a432e359be1fe",
+  "source_count": 870,
+  "changed_source": [
+    "src/game.s"
+  ],
+  "exact_ROM_delta": [
+    {
+      "file_offset": 1033978,
+      "physical_bank": 126,
+      "CPU_address": "0x86EA",
+      "old": 49,
+      "new": 41
+    }
+  ],
+  "all_qualified_labels_RAM_CHR_NMI_other_PRG_exact": true,
+  "qualified_symbols": 61331,
+  "new_RAM_bytes": 0,
+  "source_manifest_sha256": "867effcb52c8e44d89213292cbd2a057e2f1be3acb8eb02ad584f69adf2d3e0a",
+  "patch_sha256": "c5ded62c519867480eac64d0b6eab7d564396ec50c229224e39ef92810a7b418",
+  "tool_sha256": "c010a7382653d84acd04dc6c1b5eed5c5b4e4d927146b3b5be75dd6b594ae004",
+  "behavior": "Expanded MMC5 only: existing busy/defer path now applies to offsets41..48 too. Counter does not advance on defer; no source clock or caller changes.",
+  "limits": "Build/layout only. Original df native993 strict failure is retained. No native recovery claim."
+}

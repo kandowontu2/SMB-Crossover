@@ -1,0 +1,36 @@
+--- frozen-run-v1.py
++++ context-role-run-v2.py
+@@ -96,6 +96,12 @@
+     return result
+ 
+ 
++def informational_GUI_context(path):
++    # Unrelated running human GUI is not a private-worker input.
++    try:return dict(path=str(path),sha256=sha(path),functional_worker_input=False)
++    except Exception as e:return dict(path=str(path),observation_error=str(e),functional_worker_input=False)
++
++
+ def main():
+     p=argparse.ArgumentParser(description=__doc__)
+     p.add_argument('--ready',type=Path,required=True);p.add_argument('--profile',choices=['bill-hard','lance-hard'],required=True)
+@@ -107,8 +113,8 @@
+     grant=a.ready/('ROOT-grant-'+a.profile+'.json');g=json.loads(grant.read_text())
+     assert g['native_grant_explicit'] and g['ready_sha256']==sha(a.ready/'proof.json')and g['maximum_launches']==1 and g['profile']==a.profile
+     live=int(subprocess.check_output(['powershell','-NoProfile','-Command',"@(Get-CimInstance Win32_Process | Where-Object { $_.Name -like '*Mesen*' -and $_.CommandLine -like '*--testRunner*' }).Count"],text=True).strip());assert live<2
+-    env=ready['environment']
+-    for n in ['emulator','core','worker_settings','user_settings']:assert sha(env[n])==env[n+'_sha256']
++    env=ready['environment'];gui_context_before=informational_GUI_context(env.get('user_settings'))
++    for n in ['emulator','core','worker_settings']:assert sha(env[n])==env[n+'_sha256']
+     rom=Path(ready['ROM']);assert sha(rom)==SHA
+     cmd=[sys.executable,'-B',str(ROOT/'tools/audit/run_mesen_isolated.py'),'--output',str(out),'--emulator',env['emulator'],str(out/'run.lua'),str(rom),'--timeout','1800']+['--option='+s for s in env['actual_command_overrides']]
+     with(out/'launch.json').open('x',encoding='utf-8')as f:json.dump(dict(ROM_sha256=SHA,profile=a.profile,UTC=datetime.datetime.now(datetime.timezone.utc).isoformat(),ready_sha256=sha(a.ready/'proof.json'),manifest_sha256=sha(manifest),grant_sha256=sha(grant),bindings_verified=verified,command=cmd,maximum_launches=1,maximum_owned_workers=1),f,indent=2)
+@@ -116,7 +122,8 @@
+     cfg=json.loads((out/'config.json').read_text());analysis=collect(out,cfg);unchanged=True
+     try:verify_manifest(manifest)
+     except Exception:unchanged=False
+-    result=dict(passed=z.returncode==0 and analysis['passed']and unchanged,native_run=True,ROM_sha256=SHA,profile=a.profile,runner_exit=z.returncode,analysis=analysis,dependencies_unchanged=unchanged,worker_released=True,launches=1,retries=0,ready_sha256=sha(a.ready/'proof.json'),bindings={str(f):dict(sha256=sha(f),bytes=f.stat().st_size)for f in out.iterdir()if f.is_file()and f.name!='proof.json'})
++    gui_context_after=informational_GUI_context(env.get('user_settings'))
++    result=dict(human_GUI_context_before=gui_context_before,human_GUI_context_after=gui_context_after,human_GUI_changes_are_informational_only=True,passed=z.returncode==0 and analysis['passed']and unchanged,native_run=True,ROM_sha256=SHA,profile=a.profile,runner_exit=z.returncode,analysis=analysis,dependencies_unchanged=unchanged,worker_released=True,launches=1,retries=0,ready_sha256=sha(a.ready/'proof.json'),bindings={str(f):dict(sha256=sha(f),bytes=f.stat().st_size)for f in out.iterdir()if f.is_file()and f.name!='proof.json'})
+     (out/'proof.json').write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8')
+     print(json.dumps(dict(passed=result['passed'],worker_released=True,proof_sha256=sha(out/'proof.json'))));raise SystemExit(0 if result['passed']else 1)
+ 

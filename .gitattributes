@@ -8,3 +8,5 @@ tools/* linguist-vendored
 * whitespace=cr-at-eol
 # Unified patch context lines carry a significant leading space.
 *.patch whitespace=-blank-at-eol,cr-at-eol
+# Frozen .diff receipts also retain significant blank context records.
+*.diff whitespace=-blank-at-eol,-blank-at-eof,cr-at-eol

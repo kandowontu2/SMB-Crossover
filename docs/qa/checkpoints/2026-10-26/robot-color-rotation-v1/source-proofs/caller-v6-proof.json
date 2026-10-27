@@ -1,0 +1,29 @@
+{
+  "passed": true,
+  "source_only": true,
+  "native_run": false,
+  "baseline_ROM_sha256": "dfbdca24019776262c4388e3ea782fb989e24b8fc0e3cf0bfe0bbb84a9f480ad",
+  "candidate_ROM_sha256": "ca9a1c13e4f25a834ac665c4c9a6d67cf0be3c19ee7dc2af284a432e359be1fe",
+  "actual_admitted_vs_deferred_GameCore_tail_cases": 144,
+  "actual_next_GameLoop_Y_V_poison_pairs": 264,
+  "full_return_AX_SP_NZDIC_exact": true,
+  "intentional_dead_Y_V_return": "Y oldcolorindex vs incomingrendererY onstar0; V oldADC-cleared0 vs retainedincoming. Named ABI prologues may preserveY/V, with no gameplay Y use or V branch before fullAXYP/SP/application/live-stack convergence. No broad flag mask.",
+  "explicit_queue_R0_counter_differences_only": true,
+  "actual_tail_orderedwrites_banks_exact": true,
+  "actual_release_pause_PC": 33616,
+  "actual_release_bytes": [
+    169,
+    0,
+    141,
+    57,
+    1,
+    96
+  ],
+  "source_single_ColorRotation_call": true,
+  "caller_dispatch": "GameMode/OperModeExecutionTree tail JumpEngine return to GameLoop::PauseSkip. IdleLoop has no Y-consuming instruction; named pause/UI ABI prologues may PHY-preserveY. No semantic use before a genuine convergent LDY/TAY.",
+  "stack_scope": "Genuine named PHP/PHA/PHX/PHY ABI prologues preserve Y/V before overwrite. All application bytes and PCs exact at every instruction; all live stacked bytes exact at convergence. Only explicitly listed dead stack bytes/writes differ; no live-stack mask.",
+  "actual_tail_sha256": "d229912418179e67bcaaea1b1784c1c631fba77908519b115acc8a3936223d61",
+  "prefixes_sha256": "1f9a41652ba6261a1a84a550eb0e30811727c1f18e3f14a2a30edd1cc6384741",
+  "tool_sha256": "b6a256b5ca0aab30b12a82f6649f5d4bdf4c1ee9d7620d2382ddae80848b7f4d",
+  "limits": "Finite configured source contexts, not full native scheduler or all identity state cross-product. Explicit dead Y contract, no blanket register mask or unchanged-helper claim."
+}

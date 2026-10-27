@@ -1,0 +1,1114 @@
+{
+  "passed": false,
+  "native_run": true,
+  "ROM_sha256": "0a7dd88e6732bc189e432a9d55b18dd8f7ecf68a22e3b20f0a13ab7276241c09",
+  "runner_exit": 0,
+  "analysis": {
+    "passed": false,
+    "errors": [
+      "Native14common components: "
+    ],
+    "components": {
+      "full_actual_PPU": {
+        "passed": true,
+        "frames": 4759,
+        "bytes": 1169571840,
+        "raw_sha256": "3412007a77e5944e054d0df637b0cc7ad6d92eed7fa938e8a4a8294f0bb565d0",
+        "index_sha256": "5d7b3e19a522e27cffb31ec707507f5cb3f0941670d89b23c482483afaadcc0a"
+      },
+      "actual_hardware": {
+        "passed": true,
+        "complete256DMA": 4255,
+        "startFrames": 4758,
+        "safe_enables": 3927,
+        "literal_byte_equal_DMA": 3932,
+        "ignored_attribute_differences": 406,
+        "physical_encoding_exact_DMA": 4255,
+        "raw_sha256": "cd20477f490d766c151688b37b14acc85258905dde31fc451342f47ad40ef80b"
+      }
+    },
+    "agent_visual_review": false,
+    "scope": "B controlled use only. Native mechanics/raw integrity, not independent effect/HUD pixel or audio/fairness verdict."
+  },
+  "dependencies_unchanged": true,
+  "native_worker_released": true,
+  "ready_sha256": "76ae40020a9cadc0217b3c0df03251f25c6efa2f8dfea475bfa5e8501a5e6a70",
+  "bindings": {
+    "ability-dma-epochs.jsonl": {
+      "bytes": 171393241,
+      "sha256": "cd20477f490d766c151688b37b14acc85258905dde31fc451342f47ad40ef80b"
+    },
+    "actual-ppu-index.csv": {
+      "bytes": 194788,
+      "sha256": "5d7b3e19a522e27cffb31ec707507f5cb3f0941670d89b23c482483afaadcc0a"
+    },
+    "actual-ppu.argb": {
+      "bytes": 1169571840,
+      "sha256": "3412007a77e5944e054d0df637b0cc7ad6d92eed7fa938e8a4a8294f0bb565d0"
+    },
+    "apu.csv": {
+      "bytes": 2165718,
+      "sha256": "ad44fca9abe5ec0967cdd754c42f4a49f9b3a0cbc3f5b8a47851686bc5fdd0f0"
+    },
+    "arm-face1-actual-debit-zero.argb": {
+      "bytes": 245760,
+      "sha256": "99df1c802a6790500367315b4ae2c471b94e3517e1e4bf19b43b91b2951eb5fa"
+    },
+    "arm-face1-art-21.argb": {
+      "bytes": 245760,
+      "sha256": "3364520619060e48e33ee5ca1744ceb6b7d90bb45343b1b4e2031f05c2927952"
+    },
+    "arm-face1-art-9.argb": {
+      "bytes": 245760,
+      "sha256": "a25e88e39b62b02ed097a7c020d4441ffd6f6d0d1541a2c36931fbdb0f30072d"
+    },
+    "arm-face1-contact.argb": {
+      "bytes": 245760,
+      "sha256": "3364520619060e48e33ee5ca1744ceb6b7d90bb45343b1b4e2031f05c2927952"
+    },
+    "arm-face1-cost-1.argb": {
+      "bytes": 245760,
+      "sha256": "99df1c802a6790500367315b4ae2c471b94e3517e1e4bf19b43b91b2951eb5fa"
+    },
+    "arm-face1-empty-setup.argb": {
+      "bytes": 245760,
+      "sha256": "529f689e1250a502ac2c6d58bccc1521d07b6aed6e871818bab5335b62a1b929"
+    },
+    "arm-face1-exhaust-refusal.argb": {
+      "bytes": 245760,
+      "sha256": "a68e8c366974dbf367ec29cd3c2fc45d1d95d938b4e8f33624011fe9ec27fd48"
+    },
+    "arm-face1-funded-setup.argb": {
+      "bytes": 245760,
+      "sha256": "7357528390806b53b97ee5d9491403b049541c475c0be4fa0601bff9a0c49385"
+    },
+    "arm-face1-held.argb": {
+      "bytes": 245760,
+      "sha256": "a25e88e39b62b02ed097a7c020d4441ffd6f6d0d1541a2c36931fbdb0f30072d"
+    },
+    "arm-face1-natural-cleanup.argb": {
+      "bytes": 245760,
+      "sha256": "bf6bf0a2a76e03a20d307132e55892e081671253ddc032e39437bd9f39d01e92"
+    },
+    "arm-face1-pool-refusal.argb": {
+      "bytes": 245760,
+      "sha256": "4a2d597a5a898c2d75d17abab7c41d49b7f6a1fb63b059c5106c24e9247d8fe9"
+    },
+    "arm-face1-pool-setup.argb": {
+      "bytes": 245760,
+      "sha256": "a68e8c366974dbf367ec29cd3c2fc45d1d95d938b4e8f33624011fe9ec27fd48"
+    },
+    "arm-face1-selected-HUD.argb": {
+      "bytes": 245760,
+      "sha256": "42b836aff74f77295ee23a337413ff35bcebf35f38726c14dff9f7ea01388be0"
+    },
+    "arm-face1-selection-cleanup.argb": {
+      "bytes": 245760,
+      "sha256": "ebe7d06d86a42f9010eb208f28eab3facd29cb142544c97564b76bd1987d0aab"
+    },
+    "arm-face1-spawn-1.argb": {
+      "bytes": 245760,
+      "sha256": "a25e88e39b62b02ed097a7c020d4441ffd6f6d0d1541a2c36931fbdb0f30072d"
+    },
+    "arm-face1-spawn-2.argb": {
+      "bytes": 245760,
+      "sha256": "3364520619060e48e33ee5ca1744ceb6b7d90bb45343b1b4e2031f05c2927952"
+    },
+    "arm-face1-spawn-3.argb": {
+      "bytes": 245760,
+      "sha256": "3364520619060e48e33ee5ca1744ceb6b7d90bb45343b1b4e2031f05c2927952"
+    },
+    "arm-face1-spawn-4.argb": {
+      "bytes": 245760,
+      "sha256": "3364520619060e48e33ee5ca1744ceb6b7d90bb45343b1b4e2031f05c2927952"
+    },
+    "arm-face1-spawn-5.argb": {
+      "bytes": 245760,
+      "sha256": "3364520619060e48e33ee5ca1744ceb6b7d90bb45343b1b4e2031f05c2927952"
+    },
+    "arm-face2-actual-debit-zero.argb": {
+      "bytes": 245760,
+      "sha256": "6b49c402a4e0c6135f0efac48662c3d77bebb1f0156b7797fca5efb2ee4db3e1"
+    },
+    "arm-face2-art-21.argb": {
+      "bytes": 245760,
+      "sha256": "3818eb015ac5459c87c5301fac65774c8e6664e90f88296076b54b27d798a5d6"
+    },
+    "arm-face2-art-9.argb": {
+      "bytes": 245760,
+      "sha256": "dc29eafcad998cc8492bfe5e165248fa47265be8f7991f17797686da69e8ebd7"
+    },
+    "arm-face2-contact.argb": {
+      "bytes": 245760,
+      "sha256": "3818eb015ac5459c87c5301fac65774c8e6664e90f88296076b54b27d798a5d6"
+    },
+    "arm-face2-cost-1.argb": {
+      "bytes": 245760,
+      "sha256": "6b49c402a4e0c6135f0efac48662c3d77bebb1f0156b7797fca5efb2ee4db3e1"
+    },
+    "arm-face2-empty-setup.argb": {
+      "bytes": 245760,
+      "sha256": "aa3be7a639b481fcfae7c3f2c7da9c7f6ffd54584b6751f4184173756867bfb7"
+    },
+    "arm-face2-exhaust-refusal.argb": {
+      "bytes": 245760,
+      "sha256": "040956c0eaa804812b5f8100dce1a8e4363a27f262a9c9e984cb7bc7e16c0332"
+    },
+    "arm-face2-funded-setup.argb": {
+      "bytes": 245760,
+      "sha256": "99373476e20f0faa4a962cdd6f2ee694dcfb827de050a0ae27f8284b06d3ab08"
+    },
+    "arm-face2-held.argb": {
+      "bytes": 245760,
+      "sha256": "dc29eafcad998cc8492bfe5e165248fa47265be8f7991f17797686da69e8ebd7"
+    },
+    "arm-face2-natural-cleanup.argb": {
+      "bytes": 245760,
+      "sha256": "b6c0b1880c0b8b382f62af350d7a2d5ec7c69da42ff8509b140d298eec5e5a8b"
+    },
+    "arm-face2-pool-refusal.argb": {
+      "bytes": 245760,
+      "sha256": "62cdd27b9105dd7cec4c7229ad49192ac332dc21edbde90918c47ed20ebad967"
+    },
+    "arm-face2-pool-setup.argb": {
+      "bytes": 245760,
+      "sha256": "040956c0eaa804812b5f8100dce1a8e4363a27f262a9c9e984cb7bc7e16c0332"
+    },
+    "arm-face2-selected-HUD.argb": {
+      "bytes": 245760,
+      "sha256": "cb68fdde538769e64328579497a81551b9983f0361999b59c95425534e4f52ce"
+    },
+    "arm-face2-selection-cleanup.argb": {
+      "bytes": 245760,
+      "sha256": "d3417e17b3bea259301ebb04c051de785c3267e2effcec8b15bfbe26c01d1168"
+    },
+    "arm-face2-spawn-1.argb": {
+      "bytes": 245760,
+      "sha256": "dc29eafcad998cc8492bfe5e165248fa47265be8f7991f17797686da69e8ebd7"
+    },
+    "arm-face2-spawn-2.argb": {
+      "bytes": 245760,
+      "sha256": "3818eb015ac5459c87c5301fac65774c8e6664e90f88296076b54b27d798a5d6"
+    },
+    "arm-face2-spawn-3.argb": {
+      "bytes": 245760,
+      "sha256": "3818eb015ac5459c87c5301fac65774c8e6664e90f88296076b54b27d798a5d6"
+    },
+    "arm-face2-spawn-4.argb": {
+      "bytes": 245760,
+      "sha256": "3818eb015ac5459c87c5301fac65774c8e6664e90f88296076b54b27d798a5d6"
+    },
+    "arm-face2-spawn-5.argb": {
+      "bytes": 245760,
+      "sha256": "3818eb015ac5459c87c5301fac65774c8e6664e90f88296076b54b27d798a5d6"
+    },
+    "bass-diagnostic.jsonl": {
+      "bytes": 13016516,
+      "sha256": "673abe01e338d9cd3381e3cbe6a4b348c98c64b3c7cee8b7e038f65f1771c51c"
+    },
+    "candidate-run.log": {
+      "bytes": 4202,
+      "sha256": "b79a86ddaf5f5fcf5005d6f1690bb6c84a07977bb05b37c4e5916824e74db366"
+    },
+    "candidate.dbg": {
+      "bytes": 26658629,
+      "sha256": "2ca3e25b855cb63f50c86531a28e78c96b7fddbafc4f825b5d94a187fd3c0992"
+    },
+    "candidate.lbl": {
+      "bytes": 1060224,
+      "sha256": "59c9ce692268707ddc491298b6a9f9f6ca700375c2c937c6642db5ae67d493e6"
+    },
+    "candidate.map": {
+      "bytes": 133510,
+      "sha256": "12a70fca0b1b2a38d1db7cdd993108bae895d09b8214a9171365c4d5911e47ae"
+    },
+    "candidate.nes": {
+      "bytes": 2097168,
+      "sha256": "0a7dd88e6732bc189e432a9d55b18dd8f7ecf68a22e3b20f0a13ab7276241c09"
+    },
+    "config.json": {
+      "bytes": 95368,
+      "sha256": "48f274af1b39ab35126e477f2880c0c0824dc4d7192e29e997feab8ee39ada5c"
+    },
+    "diagnostic-CHR-0000.bin": {
+      "bytes": 1024,
+      "sha256": "275ff7fb837629ec43321dcc4167453e0a176fb62a86ae55733b826a601e67cb"
+    },
+    "diagnostic-CHR-0001.bin": {
+      "bytes": 1024,
+      "sha256": "358afc479fe9207f11bf1436e58e1d8ff26cf71ed6aed7530569e607998a4d1c"
+    },
+    "diagnostic-CHR-0002.bin": {
+      "bytes": 1024,
+      "sha256": "efccdef7770977105d4a8cad48965ebeb8eeda25d27a37e4624795601373e5ba"
+    },
+    "diagnostic-CHR-0003.bin": {
+      "bytes": 1024,
+      "sha256": "76ff6946781ee1effea16ad3cdf378f340eb26c1919359ca87cd7440a8fc873e"
+    },
+    "diagnostic-CHR-0016.bin": {
+      "bytes": 1024,
+      "sha256": "fbdfcb689bab3c74a0f5ad235ab24dea6625378658f3e70fbbe0144200c6709d"
+    },
+    "diagnostic-CHR-0017.bin": {
+      "bytes": 1024,
+      "sha256": "006c3d8e9cf3760a610ab3a8f89519d464e6d25fac12f26ab204eb538680269e"
+    },
+    "diagnostic-CHR-0018.bin": {
+      "bytes": 1024,
+      "sha256": "2d6b5b5278fc526cbd3fcad6e1f0209cf5348160c1227af958f7ebc41fbbd41c"
+    },
+    "diagnostic-CHR-0019.bin": {
+      "bytes": 1024,
+      "sha256": "56a55b55972bd1f463b34ee6eb58491971115acf99e789c469cd9447a9229292"
+    },
+    "diagnostic-CHR-0020.bin": {
+      "bytes": 1024,
+      "sha256": "de8aac5c2b8e85aa64404a2a175f6893bbe2dacc9c4b9d2dc4dc2effc156259f"
+    },
+    "diagnostic-CHR-0021.bin": {
+      "bytes": 1024,
+      "sha256": "5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef"
+    },
+    "diagnostic-CHR-0063.bin": {
+      "bytes": 1024,
+      "sha256": "74e9235edc6b6d9c7710363011a81673446a6feaa5efc3a82bb8c109a9596c41"
+    },
+    "diagnostic-CHR-0169.bin": {
+      "bytes": 1024,
+      "sha256": "e27dee3b53405de91ae2f77902c37d174441c0495430837017d672c66bea9979"
+    },
+    "diagnostic-CHR-0236.bin": {
+      "bytes": 1024,
+      "sha256": "25d29a9f4d7194b46524d73c7c32a84e539057ff1b48ecfb005b0570cf5a5498"
+    },
+    "events.jsonl": {
+      "bytes": 275885,
+      "sha256": "7aa53c67e5173e4f15efa2e8f6840c82caa7724220931518e5636dfe238836fd"
+    },
+    "flame-face1-actual-debit-zero.argb": {
+      "bytes": 245760,
+      "sha256": "85d04201cfe2c9e43ed5778b3054f0b0c2bda0009b7c4c0dc1e74f449ad60560"
+    },
+    "flame-face1-art-15.argb": {
+      "bytes": 245760,
+      "sha256": "85d04201cfe2c9e43ed5778b3054f0b0c2bda0009b7c4c0dc1e74f449ad60560"
+    },
+    "flame-face1-art-16.argb": {
+      "bytes": 245760,
+      "sha256": "91c1dc39fb8ae71cb6aa105381977ccc249b4d378d83dc571e9230f2846a9bc0"
+    },
+    "flame-face1-contact.argb": {
+      "bytes": 245760,
+      "sha256": "12f3cbfad65507af5c0471b415a5ab925f439cf9f804c189bbd5f38049877c1d"
+    },
+    "flame-face1-cost-1.argb": {
+      "bytes": 245760,
+      "sha256": "85d04201cfe2c9e43ed5778b3054f0b0c2bda0009b7c4c0dc1e74f449ad60560"
+    },
+    "flame-face1-cost-2.argb": {
+      "bytes": 245760,
+      "sha256": "ae254674415a9a775e9ebad04b54967e61ebf83eccd9aa450c89f9f1d9663ee5"
+    },
+    "flame-face1-empty-setup.argb": {
+      "bytes": 245760,
+      "sha256": "871c6d8d4f89f837c2055756b5d1f7f55dd38162a0ff91aa55ffddb5b1065eea"
+    },
+    "flame-face1-exhaust-refusal.argb": {
+      "bytes": 245760,
+      "sha256": "ceb4fd9580886deed832cfda70fdb48e95fff8a161db2d25f530cf640627a82b"
+    },
+    "flame-face1-funded-setup.argb": {
+      "bytes": 245760,
+      "sha256": "eb017c96f125da1cfca1194798b8332e9797d2e24a99a76bcfd65dc242af79df"
+    },
+    "flame-face1-natural-cleanup.argb": {
+      "bytes": 245760,
+      "sha256": "871c6d8d4f89f837c2055756b5d1f7f55dd38162a0ff91aa55ffddb5b1065eea"
+    },
+    "flame-face1-pool-refusal.argb": {
+      "bytes": 245760,
+      "sha256": "2af09d1e76e62149bdd0ab3839e2a782fed7b401a70a406467429144f910b7fa"
+    },
+    "flame-face1-pool-setup.argb": {
+      "bytes": 245760,
+      "sha256": "ceb4fd9580886deed832cfda70fdb48e95fff8a161db2d25f530cf640627a82b"
+    },
+    "flame-face1-selected-HUD.argb": {
+      "bytes": 245760,
+      "sha256": "eb017c96f125da1cfca1194798b8332e9797d2e24a99a76bcfd65dc242af79df"
+    },
+    "flame-face1-selection-cleanup.argb": {
+      "bytes": 245760,
+      "sha256": "d1deb132d687e755af9a788f28347bd634413b3b41749de403a529c3d7f64e16"
+    },
+    "flame-face1-spawn-1.argb": {
+      "bytes": 245760,
+      "sha256": "85d04201cfe2c9e43ed5778b3054f0b0c2bda0009b7c4c0dc1e74f449ad60560"
+    },
+    "flame-face2-actual-debit-zero.argb": {
+      "bytes": 245760,
+      "sha256": "60f9a4f33de7738430d0c588af8717b62bcf74049f854e56210a544115805d53"
+    },
+    "flame-face2-art-15.argb": {
+      "bytes": 245760,
+      "sha256": "60f9a4f33de7738430d0c588af8717b62bcf74049f854e56210a544115805d53"
+    },
+    "flame-face2-art-16.argb": {
+      "bytes": 245760,
+      "sha256": "b3ac0ceff93645d88c2eba3c468ab6fdfaeba122664f4705c93d0d6e77d749c5"
+    },
+    "flame-face2-contact.argb": {
+      "bytes": 245760,
+      "sha256": "90a73c5f7f01a2753349cdfcd2176eb61567a5760ddd5d064b3efea7904a6694"
+    },
+    "flame-face2-cost-1.argb": {
+      "bytes": 245760,
+      "sha256": "60f9a4f33de7738430d0c588af8717b62bcf74049f854e56210a544115805d53"
+    },
+    "flame-face2-cost-2.argb": {
+      "bytes": 245760,
+      "sha256": "1910e533d3c2fcc887ad89e27425b7ea07cf6b93ed1124844e5b60506bd5ae57"
+    },
+    "flame-face2-empty-setup.argb": {
+      "bytes": 245760,
+      "sha256": "1910e533d3c2fcc887ad89e27425b7ea07cf6b93ed1124844e5b60506bd5ae57"
+    },
+    "flame-face2-exhaust-refusal.argb": {
+      "bytes": 245760,
+      "sha256": "b1d0b1ad9434042112b6e6ec840d37bea68405a9a1e8337ec7a9f615bd843b5d"
+    },
+    "flame-face2-funded-setup.argb": {
+      "bytes": 245760,
+      "sha256": "d91265f1d807ca5b43b55274fe9639598989643c633ba5169b779d5f875e105c"
+    },
+    "flame-face2-natural-cleanup.argb": {
+      "bytes": 245760,
+      "sha256": "1910e533d3c2fcc887ad89e27425b7ea07cf6b93ed1124844e5b60506bd5ae57"
+    },
+    "flame-face2-pool-refusal.argb": {
+      "bytes": 245760,
+      "sha256": "958e8bb7133feae6812d621f6222c006ff0d3a46f6504ba125324461bcedcabd"
+    },
+    "flame-face2-pool-setup.argb": {
+      "bytes": 245760,
+      "sha256": "b1d0b1ad9434042112b6e6ec840d37bea68405a9a1e8337ec7a9f615bd843b5d"
+    },
+    "flame-face2-selected-HUD.argb": {
+      "bytes": 245760,
+      "sha256": "d91265f1d807ca5b43b55274fe9639598989643c633ba5169b779d5f875e105c"
+    },
+    "flame-face2-selection-cleanup.argb": {
+      "bytes": 245760,
+      "sha256": "6885897c29e2c0bb531418929b3923bf1b81a81a263ad1b59001de4492019490"
+    },
+    "flame-face2-spawn-1.argb": {
+      "bytes": 245760,
+      "sha256": "60f9a4f33de7738430d0c588af8717b62bcf74049f854e56210a544115805d53"
+    },
+    "host.log": {
+      "bytes": 169,
+      "sha256": "f636399cc62a050c5ddeadae8ee019666e14c0058f60fef19dd213e19a5e74a8"
+    },
+    "inherited-NMI-stack-APU-guards.lua": {
+      "bytes": 2057,
+      "sha256": "6ab7cd71f41f441f4d4d752e2412f83c2b16da06b9e10d3cdf05180c63bf5fdf"
+    },
+    "kick-face1-actual-debit-zero.argb": {
+      "bytes": 245760,
+      "sha256": "c4ba76880fb7d826f94bf61866d9fab21eb85f553422ca5cd82668a28c2466ad"
+    },
+    "kick-face1-art-19.argb": {
+      "bytes": 245760,
+      "sha256": "c4ba76880fb7d826f94bf61866d9fab21eb85f553422ca5cd82668a28c2466ad"
+    },
+    "kick-face1-contact.argb": {
+      "bytes": 245760,
+      "sha256": "978dd50a14b3638e16d87f458b418cfba12496a55e01e0fc714e7763b3ccee1f"
+    },
+    "kick-face1-cost-1.argb": {
+      "bytes": 245760,
+      "sha256": "c4ba76880fb7d826f94bf61866d9fab21eb85f553422ca5cd82668a28c2466ad"
+    },
+    "kick-face1-cost-2.argb": {
+      "bytes": 245760,
+      "sha256": "3622911b62510f4eafd927869dae69119c6107645c2df8705b830c16bf6577ed"
+    },
+    "kick-face1-cost-3.argb": {
+      "bytes": 245760,
+      "sha256": "e369ed9d338ebbb11a12e74bdbcdcddd83947e1f58923931880b3d81ab22bd58"
+    },
+    "kick-face1-earned-credit-4.argb": {
+      "bytes": 245760,
+      "sha256": "5f6f8d50d2076b7e798ddcff528ef343acb86a1e35fc9f70665353491c501cf2"
+    },
+    "kick-face1-earned-credit-8.argb": {
+      "bytes": 245760,
+      "sha256": "8172aa339b299a7ea3ac89ddda16dbe59e49be0e84e9b5ae0ec8aa2fbc02f359"
+    },
+    "kick-face1-empty-setup.argb": {
+      "bytes": 245760,
+      "sha256": "3c7fc3abe449618809606c85a4833e7aefb15ca490c0e6a5a549e7900c26c5ea"
+    },
+    "kick-face1-exhaust-refusal.argb": {
+      "bytes": 245760,
+      "sha256": "e87c1e8d6aa55ea24167419ff36c032bc783b1c8568142209699577c6ecc6b9a"
+    },
+    "kick-face1-funded-setup.argb": {
+      "bytes": 245760,
+      "sha256": "1bccf64aa456b3155f48e2e7180477e247aa04f0ad4c41039079a04e154034ad"
+    },
+    "kick-face1-natural-cleanup.argb": {
+      "bytes": 245760,
+      "sha256": "3c7fc3abe449618809606c85a4833e7aefb15ca490c0e6a5a549e7900c26c5ea"
+    },
+    "kick-face1-pool-refusal.argb": {
+      "bytes": 245760,
+      "sha256": "e369ed9d338ebbb11a12e74bdbcdcddd83947e1f58923931880b3d81ab22bd58"
+    },
+    "kick-face1-pool-setup.argb": {
+      "bytes": 245760,
+      "sha256": "e848d9aff69848116bcb37544d38aa411e78ca892ff9e2cec6884b3461b8e76b"
+    },
+    "kick-face1-selected-HUD.argb": {
+      "bytes": 245760,
+      "sha256": "1bccf64aa456b3155f48e2e7180477e247aa04f0ad4c41039079a04e154034ad"
+    },
+    "kick-face1-selection-cleanup.argb": {
+      "bytes": 245760,
+      "sha256": "5b1669dcd27bcab7eb08132b4c8b60b4558e11b785bc9593407961d7b901a43e"
+    },
+    "kick-face1-spawn-1.argb": {
+      "bytes": 245760,
+      "sha256": "c4ba76880fb7d826f94bf61866d9fab21eb85f553422ca5cd82668a28c2466ad"
+    },
+    "kick-face2-actual-debit-zero.argb": {
+      "bytes": 245760,
+      "sha256": "f04c7df3fa614cf855561354f1d04dd837fa2949948d7d840720bd74b6bcfc57"
+    },
+    "kick-face2-art-19.argb": {
+      "bytes": 245760,
+      "sha256": "f04c7df3fa614cf855561354f1d04dd837fa2949948d7d840720bd74b6bcfc57"
+    },
+    "kick-face2-contact.argb": {
+      "bytes": 245760,
+      "sha256": "64bc95feff8295531d52aa1cab30de8075ad55965baec7be96d843075c3add18"
+    },
+    "kick-face2-cost-1.argb": {
+      "bytes": 245760,
+      "sha256": "f04c7df3fa614cf855561354f1d04dd837fa2949948d7d840720bd74b6bcfc57"
+    },
+    "kick-face2-cost-2.argb": {
+      "bytes": 245760,
+      "sha256": "8ed7173584d23726384958caaa81c09f2ffcfb6997c058645252f1f8ed07b737"
+    },
+    "kick-face2-cost-3.argb": {
+      "bytes": 245760,
+      "sha256": "adc573ebd1242746c4d01b9d334bf4d66c56036b28f43970f74a1d6114ba54b7"
+    },
+    "kick-face2-empty-setup.argb": {
+      "bytes": 245760,
+      "sha256": "bd961005c4a9c27f1d48789af281fd10f4f30461068541c69b63895bd38dbff3"
+    },
+    "kick-face2-exhaust-refusal.argb": {
+      "bytes": 245760,
+      "sha256": "51fe6edc9443a02c4262923a004af1406feaff7cd8d4779373051386e616ee66"
+    },
+    "kick-face2-funded-setup.argb": {
+      "bytes": 245760,
+      "sha256": "5a9cca8cb0012f739ab114ab1d8c995e5d23128890d815f8a8b3dbe6c113d865"
+    },
+    "kick-face2-natural-cleanup.argb": {
+      "bytes": 245760,
+      "sha256": "bd961005c4a9c27f1d48789af281fd10f4f30461068541c69b63895bd38dbff3"
+    },
+    "kick-face2-pool-refusal.argb": {
+      "bytes": 245760,
+      "sha256": "adc573ebd1242746c4d01b9d334bf4d66c56036b28f43970f74a1d6114ba54b7"
+    },
+    "kick-face2-pool-setup.argb": {
+      "bytes": 245760,
+      "sha256": "3601522f3ab340259796a69405fb0b85f1fd82ec096a78ff8184c3557e0b3de9"
+    },
+    "kick-face2-selected-HUD.argb": {
+      "bytes": 245760,
+      "sha256": "5a9cca8cb0012f739ab114ab1d8c995e5d23128890d815f8a8b3dbe6c113d865"
+    },
+    "kick-face2-selection-cleanup.argb": {
+      "bytes": 245760,
+      "sha256": "620e8ce7347fc6b80d063330ba557d7b90f777dab3b9e2e7b8dca010d91d56d8"
+    },
+    "kick-face2-spawn-1.argb": {
+      "bytes": 245760,
+      "sha256": "f04c7df3fa614cf855561354f1d04dd837fa2949948d7d840720bd74b6bcfc57"
+    },
+    "knuckle-face1-actual-debit-zero.argb": {
+      "bytes": 245760,
+      "sha256": "db4d1998396473971b4b8477579772dd3b2f4b0dbdcc9692f9abe6451696a972"
+    },
+    "knuckle-face1-art-11.argb": {
+      "bytes": 245760,
+      "sha256": "db4d1998396473971b4b8477579772dd3b2f4b0dbdcc9692f9abe6451696a972"
+    },
+    "knuckle-face1-contact.argb": {
+      "bytes": 245760,
+      "sha256": "b7a235a4283808213aa0bf7c2abbb2c858ea6ea93054b361deec82ba9762a541"
+    },
+    "knuckle-face1-cost-1.argb": {
+      "bytes": 245760,
+      "sha256": "db4d1998396473971b4b8477579772dd3b2f4b0dbdcc9692f9abe6451696a972"
+    },
+    "knuckle-face1-cost-2.argb": {
+      "bytes": 245760,
+      "sha256": "3e897373a7ae78656140c5d93390cd0cf17830ddf2f152413c05a6726a37aff0"
+    },
+    "knuckle-face1-empty-setup.argb": {
+      "bytes": 245760,
+      "sha256": "e5ffe1721b6bcb7732f318d7aab6d0acc87888c2327b086be2f46ddeb007f981"
+    },
+    "knuckle-face1-exhaust-refusal.argb": {
+      "bytes": 245760,
+      "sha256": "f108d7b51e8ae832e874c68ecf460f7747c5e5d18f6332f30a493ef7c372a3d7"
+    },
+    "knuckle-face1-funded-setup.argb": {
+      "bytes": 245760,
+      "sha256": "2403dadc3f6056c3414bf3cb18a8de3b3e1831fe7e9f8685c89acd4606491e9b"
+    },
+    "knuckle-face1-natural-cleanup.argb": {
+      "bytes": 245760,
+      "sha256": "e5ffe1721b6bcb7732f318d7aab6d0acc87888c2327b086be2f46ddeb007f981"
+    },
+    "knuckle-face1-pool-refusal.argb": {
+      "bytes": 245760,
+      "sha256": "2cf361b5a44e8252c4cade5db3eafa14ddf998933d1b57c502f9ea01e2bb642c"
+    },
+    "knuckle-face1-pool-setup.argb": {
+      "bytes": 245760,
+      "sha256": "34b81716dc3e7f97fdeb779f3fad5db2e9e740b70d40b783d18ae15510998ea0"
+    },
+    "knuckle-face1-selected-HUD.argb": {
+      "bytes": 245760,
+      "sha256": "2403dadc3f6056c3414bf3cb18a8de3b3e1831fe7e9f8685c89acd4606491e9b"
+    },
+    "knuckle-face1-selection-cleanup.argb": {
+      "bytes": 245760,
+      "sha256": "de08793c84d56449c10a6796f79919197509aff2f31f7dc69409d82be32e09d9"
+    },
+    "knuckle-face1-spawn-1.argb": {
+      "bytes": 245760,
+      "sha256": "db4d1998396473971b4b8477579772dd3b2f4b0dbdcc9692f9abe6451696a972"
+    },
+    "knuckle-face2-actual-debit-zero.argb": {
+      "bytes": 245760,
+      "sha256": "dc22adf07378fb9e41d166d954f256601d7d8e9121965f8d6f705fa9526b105a"
+    },
+    "knuckle-face2-art-11.argb": {
+      "bytes": 245760,
+      "sha256": "dc22adf07378fb9e41d166d954f256601d7d8e9121965f8d6f705fa9526b105a"
+    },
+    "knuckle-face2-contact.argb": {
+      "bytes": 245760,
+      "sha256": "354cc1d58b5a74a97c0f2a5c453c0e3e1a0faac726c23750c552b1e7f7f23c6f"
+    },
+    "knuckle-face2-cost-1.argb": {
+      "bytes": 245760,
+      "sha256": "dc22adf07378fb9e41d166d954f256601d7d8e9121965f8d6f705fa9526b105a"
+    },
+    "knuckle-face2-cost-2.argb": {
+      "bytes": 245760,
+      "sha256": "ee0e3b2eb28a7dbd2dfbcf57051b6c2403dc9dd39aa1169795774ae2117cc185"
+    },
+    "knuckle-face2-empty-setup.argb": {
+      "bytes": 245760,
+      "sha256": "b64d2bc7a25f0c93fae0d5e7e03177c6d045b966c8b78c3bfb381ec3ae2c72b5"
+    },
+    "knuckle-face2-exhaust-refusal.argb": {
+      "bytes": 245760,
+      "sha256": "df1761d433f1b323b5bf07b0d6e0f5b270278c3e216eb9ec66967e9bbf84c571"
+    },
+    "knuckle-face2-funded-setup.argb": {
+      "bytes": 245760,
+      "sha256": "8a8f629a333b699cc8a5648f4fed594191441945d9b089aec1f02e7168134663"
+    },
+    "knuckle-face2-natural-cleanup.argb": {
+      "bytes": 245760,
+      "sha256": "b64d2bc7a25f0c93fae0d5e7e03177c6d045b966c8b78c3bfb381ec3ae2c72b5"
+    },
+    "knuckle-face2-pool-refusal.argb": {
+      "bytes": 245760,
+      "sha256": "28f163cf244b002a50e5542b15cce4f6eabfeb90d2966ff7632a9d148efe0572"
+    },
+    "knuckle-face2-pool-setup.argb": {
+      "bytes": 245760,
+      "sha256": "df1761d433f1b323b5bf07b0d6e0f5b270278c3e216eb9ec66967e9bbf84c571"
+    },
+    "knuckle-face2-selected-HUD.argb": {
+      "bytes": 245760,
+      "sha256": "ed7bb3ebe36c75c9b37458f953cec0e0568e5b6256528266f15b4d87db5f9387"
+    },
+    "knuckle-face2-selection-cleanup.argb": {
+      "bytes": 245760,
+      "sha256": "7eb22de910e7db054a7f04a7ead08129b06a79a76a4881b3f525932eb364ff79"
+    },
+    "knuckle-face2-spawn-1.argb": {
+      "bytes": 245760,
+      "sha256": "dc22adf07378fb9e41d166d954f256601d7d8e9121965f8d6f705fa9526b105a"
+    },
+    "launch.json": {
+      "bytes": 1643,
+      "sha256": "0193806b0865474ff80fcfc6c8373360b6a7f58bca955752995d291fc3f5f47f"
+    },
+    "metal-face1-actual-debit-zero.argb": {
+      "bytes": 245760,
+      "sha256": "785e7c819d68973dbbe5919e761f028f2641dd55c81362314fe9a67b11126a7c"
+    },
+    "metal-face1-art-10.argb": {
+      "bytes": 245760,
+      "sha256": "785e7c819d68973dbbe5919e761f028f2641dd55c81362314fe9a67b11126a7c"
+    },
+    "metal-face1-contact.argb": {
+      "bytes": 245760,
+      "sha256": "d52ab8bd775c4fdcdb1d0b0633c3ab63000de93951a8b433a294c4342a869b66"
+    },
+    "metal-face1-cost-1.argb": {
+      "bytes": 245760,
+      "sha256": "785e7c819d68973dbbe5919e761f028f2641dd55c81362314fe9a67b11126a7c"
+    },
+    "metal-face1-cost-2.argb": {
+      "bytes": 245760,
+      "sha256": "64dbbace00ac7491788194c828566aed64d99847d36ef6d3c40c1127363cb681"
+    },
+    "metal-face1-empty-setup.argb": {
+      "bytes": 245760,
+      "sha256": "215eca53434e7505900a0585f6835c28494db8a87e13bf9753a967b7f106a5c0"
+    },
+    "metal-face1-exhaust-refusal.argb": {
+      "bytes": 245760,
+      "sha256": "0f740efd6effb45c830ea977974b134d5964e6da446e2c60359771ea694789b2"
+    },
+    "metal-face1-funded-setup.argb": {
+      "bytes": 245760,
+      "sha256": "c699e5cee9b345240d54d7ff76de86282f3d8437f1ab46060df45df53e9dc9b0"
+    },
+    "metal-face1-natural-cleanup.argb": {
+      "bytes": 245760,
+      "sha256": "215eca53434e7505900a0585f6835c28494db8a87e13bf9753a967b7f106a5c0"
+    },
+    "metal-face1-pool-refusal.argb": {
+      "bytes": 245760,
+      "sha256": "a45b693ae86222b8c724f1725126afd5c5fca08c23b7cd2e2b2df04131dd8aea"
+    },
+    "metal-face1-pool-setup.argb": {
+      "bytes": 245760,
+      "sha256": "0f740efd6effb45c830ea977974b134d5964e6da446e2c60359771ea694789b2"
+    },
+    "metal-face1-selected-HUD.argb": {
+      "bytes": 245760,
+      "sha256": "7f2043a1890ab9c8a0666a6b0bbb67caea48dde22a805c2dab9252ce10577ca2"
+    },
+    "metal-face1-selection-cleanup.argb": {
+      "bytes": 245760,
+      "sha256": "0dbb2999bdb4bc52c66d17780348538763b7f14209aef5f861bbdfece8d2690e"
+    },
+    "metal-face1-spawn-1.argb": {
+      "bytes": 245760,
+      "sha256": "785e7c819d68973dbbe5919e761f028f2641dd55c81362314fe9a67b11126a7c"
+    },
+    "metal-face2-actual-debit-zero.argb": {
+      "bytes": 245760,
+      "sha256": "00e4bcf735e3243a296c4f4bd3935ad8d8b71df144ea8ea8cd3d22ef59733b4f"
+    },
+    "metal-face2-art-10.argb": {
+      "bytes": 245760,
+      "sha256": "00e4bcf735e3243a296c4f4bd3935ad8d8b71df144ea8ea8cd3d22ef59733b4f"
+    },
+    "metal-face2-contact.argb": {
+      "bytes": 245760,
+      "sha256": "d1aa9fa839faa140ad3956c91bd1dd9d580cdf31b6ac5c8b7e553c5dc1448779"
+    },
+    "metal-face2-cost-1.argb": {
+      "bytes": 245760,
+      "sha256": "00e4bcf735e3243a296c4f4bd3935ad8d8b71df144ea8ea8cd3d22ef59733b4f"
+    },
+    "metal-face2-cost-2.argb": {
+      "bytes": 245760,
+      "sha256": "dc4e7ad9762f9f878e47775610ce50b4f84715adb2f498d7998316ddf9b3b81b"
+    },
+    "metal-face2-empty-setup.argb": {
+      "bytes": 245760,
+      "sha256": "ecf5771b11e0226da167ddc59069e833e6df415d30419b29a48457a4e2cd0264"
+    },
+    "metal-face2-exhaust-refusal.argb": {
+      "bytes": 245760,
+      "sha256": "8f164c3bc2b07624c8e1ec4f8de2d204e85b80cabfbbc764bf094bbb86d64787"
+    },
+    "metal-face2-funded-setup.argb": {
+      "bytes": 245760,
+      "sha256": "57101354d291f633ecda62a1ea067f8713a6e3f1cfbba6085e623d42d48c0ed9"
+    },
+    "metal-face2-natural-cleanup.argb": {
+      "bytes": 245760,
+      "sha256": "ecf5771b11e0226da167ddc59069e833e6df415d30419b29a48457a4e2cd0264"
+    },
+    "metal-face2-pool-refusal.argb": {
+      "bytes": 245760,
+      "sha256": "71ee71338e7f1bdbe8985455a16e59a91c7870fc7c25465b29136e8652a4396e"
+    },
+    "metal-face2-pool-setup.argb": {
+      "bytes": 245760,
+      "sha256": "8f164c3bc2b07624c8e1ec4f8de2d204e85b80cabfbbc764bf094bbb86d64787"
+    },
+    "metal-face2-selected-HUD.argb": {
+      "bytes": 245760,
+      "sha256": "57101354d291f633ecda62a1ea067f8713a6e3f1cfbba6085e623d42d48c0ed9"
+    },
+    "metal-face2-selection-cleanup.argb": {
+      "bytes": 245760,
+      "sha256": "6b96c81100f1cdb8869bb002c1fbd8ba0bcc5f5fef7fdb08a93ac6125f832009"
+    },
+    "metal-face2-spawn-1.argb": {
+      "bytes": 245760,
+      "sha256": "00e4bcf735e3243a296c4f4bd3935ad8d8b71df144ea8ea8cd3d22ef59733b4f"
+    },
+    "native-megaproto-common.json": {
+      "bytes": 20778,
+      "sha256": "8f3d6bc7d3e8fabbd563e2a85382d681d1d682ba48ff4aee4c5501d1b96a9fae"
+    },
+    "pharaoh-face1-actual-debit-zero.argb": {
+      "bytes": 245760,
+      "sha256": "d1087fefd9cc78b247ad6c9a978a32486b26661ac5eddb418f44a482977066c0"
+    },
+    "pharaoh-face1-art-12.argb": {
+      "bytes": 245760,
+      "sha256": "fdff1c2f865c02d2e69f3504f4bc011a9d85639f12fe3e961ca9ccd725c14d30"
+    },
+    "pharaoh-face1-art-14.argb": {
+      "bytes": 245760,
+      "sha256": "d1087fefd9cc78b247ad6c9a978a32486b26661ac5eddb418f44a482977066c0"
+    },
+    "pharaoh-face1-art-18.argb": {
+      "bytes": 245760,
+      "sha256": "ce337b1758c40093d4fe4a9ce079c2bc8a64715d4f1dd0b270776afcd1add8f1"
+    },
+    "pharaoh-face1-contact.argb": {
+      "bytes": 245760,
+      "sha256": "d1205dcf5cfd32460b0570cc5d975680f24cfba47b11effea47fb6a9e149dc58"
+    },
+    "pharaoh-face1-cost-1.argb": {
+      "bytes": 245760,
+      "sha256": "fdff1c2f865c02d2e69f3504f4bc011a9d85639f12fe3e961ca9ccd725c14d30"
+    },
+    "pharaoh-face1-cost-2.argb": {
+      "bytes": 245760,
+      "sha256": "028a31f79e6dcf19cd33f02a000861e6a4b8a8606b368aabee98f44859237a62"
+    },
+    "pharaoh-face1-direct-pharaoh-debit.argb": {
+      "bytes": 245760,
+      "sha256": "d1087fefd9cc78b247ad6c9a978a32486b26661ac5eddb418f44a482977066c0"
+    },
+    "pharaoh-face1-empty-setup.argb": {
+      "bytes": 245760,
+      "sha256": "4a3b7b7a576bb99b36e6df4479a0345b3059a54119fbf600b8227a673a543bb1"
+    },
+    "pharaoh-face1-exhaust-refusal.argb": {
+      "bytes": 245760,
+      "sha256": "7eac120e375f0f81b97f8a20fd320c0cc12bfb2e69ca9d05682a5f100c3098c8"
+    },
+    "pharaoh-face1-funded-setup.argb": {
+      "bytes": 245760,
+      "sha256": "a0e7737f51d03c13a53e3e97f3ea481d7a914b89f3e59e7740faff5ab4c2a4fe"
+    },
+    "pharaoh-face1-natural-cleanup.argb": {
+      "bytes": 245760,
+      "sha256": "4a3b7b7a576bb99b36e6df4479a0345b3059a54119fbf600b8227a673a543bb1"
+    },
+    "pharaoh-face1-pool-refusal.argb": {
+      "bytes": 245760,
+      "sha256": "cdf6290d6fe85c54cbda54412cbaa48dee8d287457eb7f3bc8b211ddecbd996e"
+    },
+    "pharaoh-face1-pool-setup.argb": {
+      "bytes": 245760,
+      "sha256": "5eb600c79bb79cdf2adc743c29b05e9230f9191f526b53ba0f17a0ff53eeeb61"
+    },
+    "pharaoh-face1-selected-HUD.argb": {
+      "bytes": 245760,
+      "sha256": "a0e7737f51d03c13a53e3e97f3ea481d7a914b89f3e59e7740faff5ab4c2a4fe"
+    },
+    "pharaoh-face1-selection-cleanup.argb": {
+      "bytes": 245760,
+      "sha256": "d9dec104df3a527f220b3d583519d4acefd8831d7bc055b073510aebc834742d"
+    },
+    "pharaoh-face1-spawn-1.argb": {
+      "bytes": 245760,
+      "sha256": "fdff1c2f865c02d2e69f3504f4bc011a9d85639f12fe3e961ca9ccd725c14d30"
+    },
+    "pharaoh-face1-spawn-2.argb": {
+      "bytes": 245760,
+      "sha256": "fdff1c2f865c02d2e69f3504f4bc011a9d85639f12fe3e961ca9ccd725c14d30"
+    },
+    "pharaoh-face1-spawn-3.argb": {
+      "bytes": 245760,
+      "sha256": "d1087fefd9cc78b247ad6c9a978a32486b26661ac5eddb418f44a482977066c0"
+    },
+    "pharaoh-face2-actual-debit-zero.argb": {
+      "bytes": 245760,
+      "sha256": "202545153b3f1b9746eb4fe824adf047ff694dbc67d31fd0d208f51ee0ea0e78"
+    },
+    "pharaoh-face2-art-12.argb": {
+      "bytes": 245760,
+      "sha256": "b2cd1f231e0c845b7f1f8759a9d68f26a61783420ef32fdf812d3eae10df4f2b"
+    },
+    "pharaoh-face2-art-14.argb": {
+      "bytes": 245760,
+      "sha256": "202545153b3f1b9746eb4fe824adf047ff694dbc67d31fd0d208f51ee0ea0e78"
+    },
+    "pharaoh-face2-art-18.argb": {
+      "bytes": 245760,
+      "sha256": "fcc2b9bf54f7f5ebae08e054ac7b973f9c10b945fe3f0f1f3654860fbaff7bed"
+    },
+    "pharaoh-face2-contact.argb": {
+      "bytes": 245760,
+      "sha256": "993fb2e2d6a9835bda20025d4e08f76bda93fc3b561c3bbfaa339483837638d3"
+    },
+    "pharaoh-face2-cost-1.argb": {
+      "bytes": 245760,
+      "sha256": "b2cd1f231e0c845b7f1f8759a9d68f26a61783420ef32fdf812d3eae10df4f2b"
+    },
+    "pharaoh-face2-cost-2.argb": {
+      "bytes": 245760,
+      "sha256": "7f533d5a9a296db99ad7e281cb15f6d2bac80f9474eb99b4625337a77926e446"
+    },
+    "pharaoh-face2-direct-pharaoh-debit.argb": {
+      "bytes": 245760,
+      "sha256": "202545153b3f1b9746eb4fe824adf047ff694dbc67d31fd0d208f51ee0ea0e78"
+    },
+    "pharaoh-face2-empty-setup.argb": {
+      "bytes": 245760,
+      "sha256": "f4f1d56321fb5ae7c3a0618c9cd75548aebdec84f9ecad8c1838e011655e4eaa"
+    },
+    "pharaoh-face2-exhaust-refusal.argb": {
+      "bytes": 245760,
+      "sha256": "1cf19ef91dcf97f6df0b39c5513dd3114c8cef9fb5d4f6a6d958720baeaa6e7f"
+    },
+    "pharaoh-face2-funded-setup.argb": {
+      "bytes": 245760,
+      "sha256": "ff5660ef5499252051993bcdcb57f4ef87229bb6a93e2f6d3cfb84cb702c0da8"
+    },
+    "pharaoh-face2-natural-cleanup.argb": {
+      "bytes": 245760,
+      "sha256": "f4f1d56321fb5ae7c3a0618c9cd75548aebdec84f9ecad8c1838e011655e4eaa"
+    },
+    "pharaoh-face2-pool-refusal.argb": {
+      "bytes": 245760,
+      "sha256": "935b5fdde5af714537083bb1c65015adc093a1c2729f4288ddc758341ea50f0f"
+    },
+    "pharaoh-face2-pool-setup.argb": {
+      "bytes": 245760,
+      "sha256": "1cf19ef91dcf97f6df0b39c5513dd3114c8cef9fb5d4f6a6d958720baeaa6e7f"
+    },
+    "pharaoh-face2-selected-HUD.argb": {
+      "bytes": 245760,
+      "sha256": "ff5660ef5499252051993bcdcb57f4ef87229bb6a93e2f6d3cfb84cb702c0da8"
+    },
+    "pharaoh-face2-selection-cleanup.argb": {
+      "bytes": 245760,
+      "sha256": "c8d4e631265cf5e2f624bff6a93f90d87a5f28f0e1bfbd838bc1c16bf6de4f15"
+    },
+    "pharaoh-face2-spawn-1.argb": {
+      "bytes": 245760,
+      "sha256": "b2cd1f231e0c845b7f1f8759a9d68f26a61783420ef32fdf812d3eae10df4f2b"
+    },
+    "pharaoh-face2-spawn-2.argb": {
+      "bytes": 245760,
+      "sha256": "b2cd1f231e0c845b7f1f8759a9d68f26a61783420ef32fdf812d3eae10df4f2b"
+    },
+    "pharaoh-face2-spawn-3.argb": {
+      "bytes": 245760,
+      "sha256": "202545153b3f1b9746eb4fe824adf047ff694dbc67d31fd0d208f51ee0ea0e78"
+    },
+    "ppu-capture-native-result.json": {
+      "bytes": 262,
+      "sha256": "215bbc15d4ee18c6db0108e6b4376d4297f2a44956f04c1763bea969d7ee1ccf"
+    },
+    "run.lua": {
+      "bytes": 88876,
+      "sha256": "a55ff497c3eb98f6eeab0c495cc274bab5a5db2094bc8261f8a7a6b917f1d0ca"
+    },
+    "water-face1-actual-debit-zero.argb": {
+      "bytes": 245760,
+      "sha256": "d334a2a8c594cf4decfdce0df667bb59f41b64a9cfebd2c4cd549d3c93c78788"
+    },
+    "water-face1-contact.argb": {
+      "bytes": 245760,
+      "sha256": "b302e66316482daf0da5d71f958876982db9b200ed78ba52672578b371535c23"
+    },
+    "water-face1-cost-1.argb": {
+      "bytes": 245760,
+      "sha256": "d334a2a8c594cf4decfdce0df667bb59f41b64a9cfebd2c4cd549d3c93c78788"
+    },
+    "water-face1-cost-2.argb": {
+      "bytes": 245760,
+      "sha256": "c98780f7e93a203e48b3d2b0a42638eced3f26f4ddf6920c892700b587de1d32"
+    },
+    "water-face1-cost-3.argb": {
+      "bytes": 245760,
+      "sha256": "2fb521fe3f4b1871d1e8fefd1285c98a88be4aa217e9846286453c4c8924cc28"
+    },
+    "water-face1-empty-setup.argb": {
+      "bytes": 245760,
+      "sha256": "9f51b41c0c80905906f6fc6ce7cdff25b80a4cbd033c420246ead4964783a839"
+    },
+    "water-face1-exhaust-refusal.argb": {
+      "bytes": 245760,
+      "sha256": "12bc76ec60707cdc0a680786920cf84c9726229f3da625abd60b62128bf1f328"
+    },
+    "water-face1-funded-setup.argb": {
+      "bytes": 245760,
+      "sha256": "fc9572f92e5fe9ff039f270ecc4bd8987744b61ac9a87009d6f95578a1b577dd"
+    },
+    "water-face1-natural-cleanup.argb": {
+      "bytes": 245760,
+      "sha256": "9f51b41c0c80905906f6fc6ce7cdff25b80a4cbd033c420246ead4964783a839"
+    },
+    "water-face1-pool-refusal.argb": {
+      "bytes": 245760,
+      "sha256": "2fb521fe3f4b1871d1e8fefd1285c98a88be4aa217e9846286453c4c8924cc28"
+    },
+    "water-face1-pool-setup.argb": {
+      "bytes": 245760,
+      "sha256": "12bc76ec60707cdc0a680786920cf84c9726229f3da625abd60b62128bf1f328"
+    },
+    "water-face1-selected-HUD.argb": {
+      "bytes": 245760,
+      "sha256": "fc9572f92e5fe9ff039f270ecc4bd8987744b61ac9a87009d6f95578a1b577dd"
+    },
+    "water-face1-selection-cleanup.argb": {
+      "bytes": 245760,
+      "sha256": "0ea105e93d4fbed525972da003e9bb4f849a3ccfb209cfa1820cd0deafec95a6"
+    },
+    "water-face1-spawn-1.argb": {
+      "bytes": 245760,
+      "sha256": "d334a2a8c594cf4decfdce0df667bb59f41b64a9cfebd2c4cd549d3c93c78788"
+    },
+    "water-face1-spawn-2.argb": {
+      "bytes": 245760,
+      "sha256": "d334a2a8c594cf4decfdce0df667bb59f41b64a9cfebd2c4cd549d3c93c78788"
+    },
+    "water-face1-spawn-3.argb": {
+      "bytes": 245760,
+      "sha256": "d334a2a8c594cf4decfdce0df667bb59f41b64a9cfebd2c4cd549d3c93c78788"
+    },
+    "water-face1-spawn-4.argb": {
+      "bytes": 245760,
+      "sha256": "d334a2a8c594cf4decfdce0df667bb59f41b64a9cfebd2c4cd549d3c93c78788"
+    },
+    "water-face1-spawn-5.argb": {
+      "bytes": 245760,
+      "sha256": "d334a2a8c594cf4decfdce0df667bb59f41b64a9cfebd2c4cd549d3c93c78788"
+    },
+    "water-face1-spawn-6.argb": {
+      "bytes": 245760,
+      "sha256": "d334a2a8c594cf4decfdce0df667bb59f41b64a9cfebd2c4cd549d3c93c78788"
+    },
+    "water-face1-spawn-7.argb": {
+      "bytes": 245760,
+      "sha256": "d334a2a8c594cf4decfdce0df667bb59f41b64a9cfebd2c4cd549d3c93c78788"
+    },
+    "water-face1-spawn-8.argb": {
+      "bytes": 245760,
+      "sha256": "d334a2a8c594cf4decfdce0df667bb59f41b64a9cfebd2c4cd549d3c93c78788"
+    },
+    "water-face1-water-art.argb": {
+      "bytes": 245760,
+      "sha256": "d334a2a8c594cf4decfdce0df667bb59f41b64a9cfebd2c4cd549d3c93c78788"
+    },
+    "water-face2-actual-debit-zero.argb": {
+      "bytes": 245760,
+      "sha256": "e4a3351bf0bf354d100555e51aed10581c500ad39326e7c856e308e4a3dc31b7"
+    },
+    "water-face2-contact.argb": {
+      "bytes": 245760,
+      "sha256": "660b2df4f3cf7f9f8484a8cc6491b315cc1d7ad97572fc7a8ddf13ecfd5e8794"
+    },
+    "water-face2-cost-1.argb": {
+      "bytes": 245760,
+      "sha256": "e4a3351bf0bf354d100555e51aed10581c500ad39326e7c856e308e4a3dc31b7"
+    },
+    "water-face2-cost-2.argb": {
+      "bytes": 245760,
+      "sha256": "19994a685bb0e8013c169341edfb049f428032050f689e145258cfeec9d27edc"
+    },
+    "water-face2-cost-3.argb": {
+      "bytes": 245760,
+      "sha256": "72fd1b037555eec0f5567b71e7db8aea101516d62bc88975d7c5e68240c0604d"
+    },
+    "water-face2-empty-setup.argb": {
+      "bytes": 245760,
+      "sha256": "6cb9c259a8acc33b3d6ecdf8ff30151eced80048f87533f8387d15877f799cff"
+    },
+    "water-face2-exhaust-refusal.argb": {
+      "bytes": 245760,
+      "sha256": "05b5f6241166ce60f906427799b19e7356e5f732e3b13bba8f53c91b27eecfee"
+    },
+    "water-face2-funded-setup.argb": {
+      "bytes": 245760,
+      "sha256": "bc6d8dc06da68396a17c40bb233556d3eeff554d85d1f1cab69222824ab86940"
+    },
+    "water-face2-natural-cleanup.argb": {
+      "bytes": 245760,
+      "sha256": "6cb9c259a8acc33b3d6ecdf8ff30151eced80048f87533f8387d15877f799cff"
+    },
+    "water-face2-pool-refusal.argb": {
+      "bytes": 245760,
+      "sha256": "72fd1b037555eec0f5567b71e7db8aea101516d62bc88975d7c5e68240c0604d"
+    },
+    "water-face2-pool-setup.argb": {
+      "bytes": 245760,
+      "sha256": "05b5f6241166ce60f906427799b19e7356e5f732e3b13bba8f53c91b27eecfee"
+    },
+    "water-face2-selected-HUD.argb": {
+      "bytes": 245760,
+      "sha256": "bc6d8dc06da68396a17c40bb233556d3eeff554d85d1f1cab69222824ab86940"
+    },
+    "water-face2-selection-cleanup.argb": {
+      "bytes": 245760,
+      "sha256": "94d02910ecc8ff004be9c6c2fc0a09ff1ead46ea0fb77b4ab2debe637a0854da"
+    },
+    "water-face2-spawn-1.argb": {
+      "bytes": 245760,
+      "sha256": "e4a3351bf0bf354d100555e51aed10581c500ad39326e7c856e308e4a3dc31b7"
+    },
+    "water-face2-spawn-2.argb": {
+      "bytes": 245760,
+      "sha256": "e4a3351bf0bf354d100555e51aed10581c500ad39326e7c856e308e4a3dc31b7"
+    },
+    "water-face2-spawn-3.argb": {
+      "bytes": 245760,
+      "sha256": "e4a3351bf0bf354d100555e51aed10581c500ad39326e7c856e308e4a3dc31b7"
+    },
+    "water-face2-spawn-4.argb": {
+      "bytes": 245760,
+      "sha256": "e4a3351bf0bf354d100555e51aed10581c500ad39326e7c856e308e4a3dc31b7"
+    },
+    "water-face2-spawn-5.argb": {
+      "bytes": 245760,
+      "sha256": "e4a3351bf0bf354d100555e51aed10581c500ad39326e7c856e308e4a3dc31b7"
+    },
+    "water-face2-spawn-6.argb": {
+      "bytes": 245760,
+      "sha256": "e4a3351bf0bf354d100555e51aed10581c500ad39326e7c856e308e4a3dc31b7"
+    },
+    "water-face2-spawn-7.argb": {
+      "bytes": 245760,
+      "sha256": "e4a3351bf0bf354d100555e51aed10581c500ad39326e7c856e308e4a3dc31b7"
+    },
+    "water-face2-spawn-8.argb": {
+      "bytes": 245760,
+      "sha256": "e4a3351bf0bf354d100555e51aed10581c500ad39326e7c856e308e4a3dc31b7"
+    },
+    "water-face2-water-art.argb": {
+      "bytes": 245760,
+      "sha256": "e4a3351bf0bf354d100555e51aed10581c500ad39326e7c856e308e4a3dc31b7"
+    }
+  }
+}

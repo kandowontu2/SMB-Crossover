@@ -1,0 +1,188 @@
+{
+  "passed": true,
+  "native_run": false,
+  "ROM_sha256": "ce635f6e8793d096ba50adec9cdf1fc2dd41fd487e4acd4d0972af03af9ea111",
+  "rows": [
+    {
+      "variant": 0,
+      "actual_chain": [
+        {
+          "owner": "BillHudAnchor",
+          "pc": 49070,
+          "bank": 61,
+          "sp": 249,
+          "return_pc": 47343,
+          "source_stack": [
+            238,
+            184,
+            255,
+            90,
+            0
+          ],
+          "R": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "AvDrawIndex": 20,
+          "art": 49
+        },
+        {
+          "owner": "RemainingDraw::ArtPointer",
+          "pc": 47511,
+          "bank": 61,
+          "sp": 249,
+          "return_pc": 47367,
+          "source_stack": [
+            6,
+            185,
+            255,
+            90,
+            0
+          ],
+          "R": [
+            0,
+            0,
+            0,
+            0,
+            112,
+            0,
+            16,
+            1
+          ],
+          "AvDrawIndex": 20,
+          "art": 49
+        },
+        {
+          "owner": "MetaspriteRenderLoop",
+          "pc": 42426,
+          "bank": 4,
+          "sp": 246,
+          "return_pc": 366,
+          "source_stack": [
+            109,
+            1,
+            189,
+            33,
+            185
+          ],
+          "R": [
+            74,
+            203,
+            0,
+            0,
+            112,
+            0,
+            16,
+            1
+          ],
+          "AvDrawIndex": 20,
+          "art": 49
+        }
+      ],
+      "counts": [
+        1,
+        1,
+        false,
+        false,
+        0
+      ]
+    },
+    {
+      "variant": 1,
+      "actual_chain": [
+        {
+          "owner": "BillHudAnchor",
+          "pc": 49070,
+          "bank": 61,
+          "sp": 249,
+          "return_pc": 47343,
+          "source_stack": [
+            238,
+            184,
+            255,
+            90,
+            0
+          ],
+          "R": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "AvDrawIndex": 20,
+          "art": 49
+        },
+        {
+          "owner": "RemainingDraw::ArtPointer",
+          "pc": 47511,
+          "bank": 61,
+          "sp": 249,
+          "return_pc": 47367,
+          "source_stack": [
+            6,
+            185,
+            255,
+            90,
+            0
+          ],
+          "R": [
+            0,
+            0,
+            0,
+            0,
+            112,
+            0,
+            16,
+            1
+          ],
+          "AvDrawIndex": 20,
+          "art": 49
+        },
+        {
+          "owner": "MetaspriteRenderLoop",
+          "pc": 42426,
+          "bank": 4,
+          "sp": 246,
+          "return_pc": 366,
+          "source_stack": [
+            109,
+            1,
+            189,
+            33,
+            185
+          ],
+          "R": [
+            74,
+            203,
+            0,
+            0,
+            112,
+            0,
+            16,
+            1
+          ],
+          "AvDrawIndex": 20,
+          "art": 49
+        }
+      ],
+      "counts": [
+        1,
+        1,
+        false,
+        false,
+        0
+      ]
+    }
+  ],
+  "source_chain": "helper $BFAE/bank61 return $B8EF; ArtPointer $B997/bank61 return $B907; renderer $A5BA/bank4, source-SP minus3/helper-SP minus3, stacked $016E / saved189 / outer $B922; real renderer return observed before future render."
+}

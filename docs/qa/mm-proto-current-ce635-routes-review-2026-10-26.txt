@@ -1,0 +1,28 @@
+Read-only Mega Man / Proto Man Easy 1-1 review, combined ce635
+2026-10-26. No native launch, product/controller/default/settings/Git mutation.
+
+Exact ROM: ce635f6e8793d096ba50adec9cdf1fc2dd41fd487e4acd4d0972af03af9ea111.
+Input: D/ROOT-ce635-robot-routes-native-v1 (D = C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py).
+ROOT's two independent discovery/direct replays clear1-1, reach movable1-2, zero deaths. Mega endpoint5167 /4967 actual PPU frames; Proto5098 /4898. Ten CSVs byte-exact discovery/replay; full events.csv is NOT equal: three original pregame menu SFX rows are absent in the replay logger. Both active-gameplay suffixes compare literally. Preserve that logging limit; no full-event-equality claim.
+
+Full-frame computation, distinct from selected visual review
+All9865 lossless records decoded; actual frame/PPU/cycle headers, RGB hashes and complete raw-stream hashes/byte counts agree with original capture proofs. This is complete capture verification, NOT visual inspection of9865 images.
+Conservative outdoor candidate scan checks3366 Mega +3368 Proto active1-1 frames with bound IRQ scroll and source OAM;1,278,878 eligible16x16 same-world-cell observations. Requires at least128 unmasked pixels/cell. World X uses actual IRQ low9bits nearest endFrame Main camera. Y32..239 is native world screen coordinate. Masks both adjacent logged DMA SOURCE images as8x16 rectangles, including transparent halves; physical OAM destinations/PPUCTRL are not captured per frame in this route fixture. Source reset/IRQ contract supplies8x16; no invented per-frame register telemetry. Loading/growth/other levels/unbound pre500 frames are excluded from this criterion.
+26 temporal green-fraction flags, all world row12(y192..207), none discordant between routes. Exact max/min common-unmasked pixels show ZERO green-class or RGB differences for all26. Difference is which natural grass pixels the conservative moving sprite masks exclude. Candidate whole-frame sheet also shows normal grass/bush/hill edges; no new green-block defect is established. This finder does not test every shape/color, masked pixels, persistent corruption shared by both routes, or elevated non-green corruption. Zero confirmed flags is not a universal scenery verdict.
+
+Scroll/camera/source review
+Mega18656 total visible scroll writes,13572 active writes/3393 groups; Proto18372 total,13580 active/3395 groups. Every active visible group consists of the four bank126 scanline31 writes at genuine IRQ PCs8010/801A/8035/8038: PPUADDR nametable0/4, PPUSCROLL32, PPUSCROLL horizontal, PPUADDR128|(horizontal>>3). No unexpected active writer/group. Other logged groups retain their loading/end-stage scope in the scan JSON; no blanket claim that all visible writes are active gameplay.
+Adjacent eligible physical IRQ-camera samples never move backwards; steps0..5, with3 greater-than3 Mega samples and6 Proto samples. These are physical-frame samples, NOT a per-source-update speed assertion. Genuine completed-loop motion guard separately passes2694/2728 checks, max player world step2 and max camera step3. IRQ camera can trail endFrame Main by0..5 due scheduling; scan uses IRQ, not an invented synchronous Main-camera assumption.
+Frozen source player.s ScrollHandler consumes GuestCameraCatchUp at screenX112 then advances screen/page/PPUCTRL together. collision.s saves authoritative block-buffer row and uses it for guest bounce Y; level_tiles.s InitBlock_XY_Pos/SetupPowerUp derive block/item coordinates, not a moving screen anchor. Selected first-block windows show a vertical bump with stable horizontal anchor and later visible mushroom emergence in both identities. Those images do not expose block RAM or prove every collision.
+
+Actual selected whole-image review
+Viewed both12-image overview sheets, Mega12 +Proto6 status-window images, and both20-image first-block/rise sheets:82 placements. Overview includes ground-level enemies/projectiles, pipes, stairs, flagpole and1-2 controls. No obvious terrain/tile/scroll corruption in these samples. Also viewed48 max/min candidate placements (24of26 flags); all26 flags have exact common-pixel checks, not all26 pairs manually inspected at full size.
+Mega first block: recorded x337,camera225; upward speed251 stops0 at trace674/y154, actual PPU670..685 then690/700/710/720 shows bump/return/mushroom rise. Proto analogous trace690, actual686..701 then706/716/726/736. Whole images show growth palette flashes and Mega later injury; not reclassified as unexplained palette corruption.
+Existing body/projectile overload flicker remains visible in route samples. No claim of each live shot's displayed fairness, every weapon, every pixel, audible original music, exact source physics, all-world repair or60Hz. Current installed/default3b remains unchanged; ce635 is private pending ROOT's remaining qualification/adoption.
+
+Outputs / reproduction
+D/ce635-robot-routes-review-v1/{megaman-easy,proto-easy}: unchanged existing current3cee_eight_routes_review_v2.py results and four selected sheets.
+D/ce635-robot-routes-terrain-v2: full lossless scan, per-cell data, literal scroll signatures,26 flags and actual candidate sheet.
+D/ce635-robot-routes-witnesses-v1: all26 common-pixel comparisons,40 bound current-frame samples and two sheets.
+D/ce635-robot-routes-final-v1: exact catalog/source/tool/import bindings and final proof/review map.
+Owned new tools: mm_proto_current_routes_terrain_v1.py (retained prelaunch SyntaxError only; no scan), mm_proto_current_routes_terrain_v2.py (one-parenthesis correction, successful), mm_proto_current_routes_witnesses_v1.py. Existing current3cee_eight_routes_review_v2.py is unchanged prerequisite. Source/pixel data remain external, no new captures.

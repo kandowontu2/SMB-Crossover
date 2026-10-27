@@ -1,0 +1,64 @@
+Bill/Lance capsule HUD source component, private9d296d, 2026-10-26
+
+Parent exact adopted3b112e1d79ba7348f2f7a4c426f4675845a5781017ab74690feb235121a66287.
+Candidate9d296d337fc24e9b09b17043babec911c3134f60256636a7a285b39d56afd6e3.
+No native run, installation, production/settings or Git operation.
+
+Existing selected capsule at192,24 overlaps WORLD/TIME in actual Bill/Lance
+gallery images. Six white header pixels are source/OAM/pixel-proved. New
+Bill/Lance-only anchor112,16 places all six actual Bill pickup art records
+at OAM x100..123/y1..16 (visible y2..17), away from the longest gun name
+endingx79, coinsrow24 and WORLD beginningx144. Normal selected0 draws no
+capsule. Other characters keep192,24.
+
+Three-file source overlay: remaining_weapons.s same14-byte coordinate
+slot; entrypoint.s guarded final include; new bill_hud_anchor.s20-byte
+genuine helper appended at bank61 $BFAE. Verified old SPECIAL_ROSTER ends
+there with82FF bytes, leaving62 after. All old symbols/entry PCs/spans,
+header/CHR/every other bank/RAM allocation stay fixed. Only34ROM bytes in
+bank61 differ. Original source raw line endings preserved.
+
+Helper returns A=x/Y=y, preserves X/all architectural P. Actual caller Y
+is dead before ArtPointer's TAY; the following LDA#1 restores original NZ.
+Full caller output is compared, not merely the primitive:640 actual compiled
+RemainingDraw calls,80paired Bill/Lance cells/four turns/both facings,
+active Laser/Flare plus physical-world-pickup/CHR rejection and rotation.
+144actual HUD renderer entries and256HUD coordinate producers observed.
+All final AXYP/SP/banks/entire flat non-ROM RAM including stack/five SMC
+bytes match except expected capsule x-80/y-8 OAM writes and final coordinate
+scratch. Ordered OAM stores, pointers, tile/attributes and non-HUD entries
+remain exact. Previous translated OAM slots are tracked by last actual
+writer across turns; untouched live slots are not masked.
+
+140 foreign calls across35 other identities compare full output unchanged.
+Selected1 admission is intentionally synthetic for identities that cannot
+legally select item1; this is no legal-acquisition claim. Default no-HUD
+paths are also compared.96helperABI cases cover C/N/Z/V/D/I combinations.
+66actual hardware-vector IRQ/RTI instruction-boundary injections preserve
+the full caller continuation and exact five original IRQ PPU stores,
+adding120cycles each. This is CPU/model proof, not physical PPU/IRQ timing.
+
+Measured cost is NOT zero: each Bill HUD producer adds30CPU, foreign selected
+HUD producer29CPU; max whole sampled call+30, mean+24 across Bill cells.
+No HUD path has0delta. This extra cost needs actual composed-hash native
+cadence review; no claim that common-audio savings compensate automatically.
+
+Fresh canonical reproduces9d; ordinary flagoffs remain exact:
+MMC3 d444cac88e13fa02b29ad16100b8f08fa565ba90f8cedde192de43fb2dc8f3eb
+MMC5 f4ffd2483c51daa4d60bb575da2da8c4d817692cda407611c243031f67520833.
+
+Retained preparation negatives: initial Python closing-parenthesis parse
+error (no build ran); controls-v1 reused a list variable as a render dict;
+controls-v2 failed strict full RAM because its oracle forgot prior-turn
+HUD OAM contents; controls-v3 used invalid unaligned rotation11. V4 tracks
+every prior OAM last writer and uses aligned44. Exact source rotation
+producer advances in4-byte steps, so11 splits sprite fields. Candidate ROM
+was unchanged throughout these control-oracle corrections. These are not
+ROM failures, blanket memory masks or removed native assertions.
+
+Independent source packet only. ROOT privately composed this byte-disjoint
+component with renderer/audio/palette into ce635; none of9d CPU/native
+claims transfer to that union without exact-hash review. Next prepared
+seven-case galleries will use fresh combined ROM/hook metadata and proven
+native_v3/typed host collector, with explicit HUD coordinate observations.
+No standalone9d native duplication or automatic emulator launch.

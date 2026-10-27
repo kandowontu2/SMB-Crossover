@@ -1,0 +1,1 @@
+Source/context only, zero native launches. Original GUI-watch prelaunch FALSE retained. Captured GUI settings are non-runtime provenance; live hashes informational. All actual private-worker627/runtime/ROM/game/controller/guard inputs remain strict and unchanged. No raw settings or game/capture binaries are included.

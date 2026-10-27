@@ -1,0 +1,60 @@
+Fresh ce635 MegaHard6 native — 2026-10-26
+
+PASS, one authorized attempt, exit0; worker released. No other profile ran.
+ROM ce635f6e8793d096ba50adec9cdf1fc2dd41fd487e4acd4d0972af03af9ea111.
+Ready7935e0ea4573319bd281043579e3042f16fa802d34e2cb1990dc22e552e0711e.
+Grant0173f02546a350fb76991aecfbfb6c39e723ecae6fa41edb977efcb2ea74d5b2.
+Review0cd218f60cf71014270b0ef5af147dd108c10718e7c4808d8cfd4639c588c6d9.
+External: usual archive/robot-primary-combined-mega-review-v1.
+
+Actual owner1/ProtoVariant0/Hard1 readback is captured, independently of
+Proto's separate result. All6 original components complete at656 updates:
+normal[1], weak[1,2] and full[1,3] primary types with charges0/56/87, each
+preserving special ammo; Rush summon/land479/existing free buster/bounce499
+consumes exactly12 (20→8),122 draw calls; stock3 refusal preserves3; Balancer
+chooses index18 and credits4→8→12, preserving index17=60 and Rush24=8.
+Same declared B-only actors/resources/descending-contact setup and guards,
+not natural acquisition. No test cap or assertion was relaxed.
+
+Independent physical checks:997 all-mode complete256-byte DMA pages,
+255,232 independently verified source/destination values/write positions,
+OAMADDR0→0 and disabled rendering for every write.669 scoped enables are
+safe,0late; all-mode logged enables also have0unsafe.645 original active
+complete-DMA checks,655 NMI returns/IRQ31 store groups,7,860 CHR checks,
+minimumSP223. Every programmed SMC/bank/stack/input/deadline guard completes.
+1,030 full actual PPU images (253,132,800B) remain losslessly external.
+
+Passive comparison with older qualified0a Mega is explicit, not retagged:
+all6 case records and all34 source-time stage images are byte-exact;
+1,029/1,030 whole PPU frames are exact. The sole difference is menu/loading
+frame183,71pixels within x15..245,y45..47. The actual paired image shows
+both mostly blank transitions with a thin existing edge; no render enable
+occurs182/183, no unsafe enable is logged. This retained difference is not
+claimed to be full-frame identity or a newly proven terrain defect. All6,686
+APU rows match ordered wall/update/case/phase/register/value/PC/bank fields;
+CPU cycle stamps differ. No waveform/subframe-audio or matched-FPS claim.
+
+Human selected-image review:6 sheets/88 whole-image placements:20primary,
+14support,8startup,8passive,36consecutiveRush and2menu183 comparisons. The
+sampled HUD/scenery/charge/support sequence is coherent. Real crowded
+charge/Rush/body sprite omissions remain, especially the overlapping charge
+719/721/723 and Rush865..872 images. The white Rush streak/cloud is the
+previously source-bound teleport/transform sequence; this test does not
+declare all artwork/palettes or every sprite part continuously visible.
+All selected images bind exact completed full PPU pixels, not recreated art.
+
+The990..996 read-only diagnostic also captures normal ColorRotation994 at
+FrameCounter16 with empty queue, a genuine317-cycle append of7B3F0C; NMI995
+receives the same command. This is a normal empty-queue path, not the Proto
+47B deferral or a native readback of the unbound ColorRotateOffset counter.
+No source-scope merger or additional probe is inferred.
+
+Preparation v1 lacked only a runtime-database hash; retained unlaunched.
+v2 binds it without any config/script/controller change. The review proof's
+limits text contains a stray non-numeric "Actual107?" prose fragment; it is
+not a measurement or coverage claim. Its actual numeric fields, capture byte
+size, frame index and this report consistently bind1,030 completed PPU frames.
+
+No game/ROM/default/settings/Git mutation, native retry, all-weapons/full-roster,
+perfect body/shot fairness or adoption claim. Current source/art/component
+results are new Mega evidence on ce635; old native failures remain immutable.

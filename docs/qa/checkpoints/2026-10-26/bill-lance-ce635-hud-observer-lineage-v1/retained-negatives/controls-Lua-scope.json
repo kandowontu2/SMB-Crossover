@@ -1,0 +1,6 @@
+{
+  "passed": false,
+  "native_run": false,
+  "error": "[string \"<python>\"]:1: attempt to index a nil value (global 'C')\nstack traceback:\n\t[string \"<python>\"]:1: in main chunk",
+  "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\final_bill_lance_combined_hud_controls_v1.py\", line 39, in main\n    rt.execute(f\"index={case};current={{q=C.cases[{case}],stage={{draws=0}}}}\")\n    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"lupa/lua54.pyx\", line 466, in lupa.lua54.LuaRuntime.execute\n  File \"lupa/lua54.pyx\", line 1897, in lupa.lua54.run_lua\n  File \"lupa/lua54.pyx\", line 1911, in lupa.lua54.call_lua\n  File \"lupa/lua54.pyx\", line 1938, in lupa.lua54.execute_lua_call\n  File \"lupa/lua54.pyx\", line 1819, in lupa.lua54.raise_lua_error\nlupa.lua54.LuaError: [string \"<python>\"]:1: attempt to index a nil value (global 'C')\nstack traceback:\n\t[string \"<python>\"]:1: in main chunk\n"
+}

@@ -1,0 +1,1 @@
+SOURCE and mocks only. Exact ce635 ProtoHard14; only native config identity.variant changes from passing MegaHard14. Original body/controller/guards and ordered collector remain. No launch/grant/adoption/acquisition claim. Raw source/runtime/models remain externally hash-bound; prior results unchanged.

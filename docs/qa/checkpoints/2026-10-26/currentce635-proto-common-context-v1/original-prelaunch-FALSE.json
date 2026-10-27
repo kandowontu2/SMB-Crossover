@@ -1,0 +1,29 @@
+{
+  "passed": false,
+  "classification": "PRELAUNCH_DEPENDENCY_DRIFT",
+  "native_launch_attempted": false,
+  "native_worker_acquired": false,
+  "native_worker_released": true,
+  "UTC": "2026-10-27T01:35:00.731999+00:00",
+  "ROM_sha256": "ce635f6e8793d096ba50adec9cdf1fc2dd41fd487e4acd4d0972af03af9ea111",
+  "ready_sha256": "81b25bb24a900b0c5f5ecaa129b86fb62e09dd603e0af55ada2c55a808a685b7",
+  "grant_sha256": "c1a11272da9b4a6b2f7e935cb537ba7db75c4223955a3f86adf09c3592a957d7",
+  "stable_command": "python -B tools/audit/final_megaproto_common_proto_ce635_run_v1.py --ready \"C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/currentce635-proto-common-ready-v5\" --native-grant",
+  "failure": "verify_manifest: C:/mesen2/settings.json differs from frozen binding",
+  "expected_user_context": {
+    "path": "C:\\mesen2\\settings.json",
+    "bytes": 253026,
+    "sha256": "8a439e0a5eeddc2d4776e516aacfc224c03048b9c7d23d9926a463460a7e748a"
+  },
+  "current_user_context": {
+    "path": "C:\\mesen2\\settings.json",
+    "bytes": 253006,
+    "sha256": "ace939a892f08d12f6a2d6aecf680a1016e59bf2e846c2500a609fc0abf87fcb",
+    "snapshot": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\currentce635-proto-common-prelaunch-v1\\actual-user-settings.json"
+  },
+  "settings_modified": false,
+  "retry": false,
+  "launch_json_absent": true,
+  "native_proof_absent": true,
+  "original_ready_unchanged": true
+}

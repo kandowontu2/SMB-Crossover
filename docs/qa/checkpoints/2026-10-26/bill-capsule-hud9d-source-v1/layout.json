@@ -1,0 +1,45 @@
+{
+  "passed": true,
+  "source_only": true,
+  "native_run": false,
+  "ROM_sha256": "9d296d337fc24e9b09b17043babec911c3134f60256636a7a285b39d56afd6e3",
+  "parent_ROM_sha256": "3b112e1d79ba7348f2f7a4c426f4675845a5781017ab74690feb235121a66287",
+  "changed_banks": [
+    {
+      "bank": 61,
+      "bytes": 34
+    }
+  ],
+  "changes": [
+    {
+      "path": "src/remaining_weapons.s",
+      "before": "49b3f843f85827814639caefdfba0d6fd2bf3cbe95aa28b7ad5475bffca3a0f9",
+      "after": "37184a0ec1f50ab340767cc0523fa476cbe3716f0ef4eb81a126d6f863befb23",
+      "old_CRLF": 3163,
+      "new_CRLF": 3175
+    },
+    {
+      "path": "src/entrypoint.s",
+      "before": "48aa8f9901161ed1837e1656b51a7badca67b3b2c2e79df40c20e3c8b29ccc7b",
+      "after": "22aa27d01b5d7082fd3d914231ddc16d4946eaaa3c2016ce4647878c0aeabea3",
+      "old_CRLF": 499,
+      "new_CRLF": 504
+    },
+    {
+      "path": "src/bill_hud_anchor.s",
+      "before": null,
+      "after": "a141672549614fd9f302f286574458ffb909e29106a61b8019165086a778f5c2",
+      "new_file": true
+    }
+  ],
+  "all_old_symbol_addresses_exact": true,
+  "old_symbols": 72925,
+  "helper_entry": 49070,
+  "helper_bytes": 20,
+  "previous_FF_capacity": 82,
+  "remaining_FF_capacity": 62,
+  "header_CHR_other_banks_exact": true,
+  "new_RAM_bytes": 0,
+  "all_previous_entrypoints_and_spans_preserved": true,
+  "limits": "Assembled layout only. Full RemainingDraw caller/state/output/IRQ and cost controls still required; no native image or cadence qualification."
+}

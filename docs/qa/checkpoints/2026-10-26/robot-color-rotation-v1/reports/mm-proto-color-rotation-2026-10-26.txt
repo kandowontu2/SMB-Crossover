@@ -1,0 +1,68 @@
+ColorRotation busy-queue repair — source-only, 2026-10-26
+
+Private ca9a1c13e4f25a834ac665c4c9a6d67cf0be3c19ee7dc2af284a432e359be1fe
+Parent dfbdca24019776262c4388e3ea782fb989e24b8fc0e3cf0bfe0bbb84a9f480ad
+External directory: C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/robot-color-rotation-candidate-v3
+Installed/default remains3b112; no native ca9a launch or recovery claim.
+
+The expanded MMC5 source changes only ColorRotation's existing CPX admission
+operand49 to41. The two-byte instruction stays at86E9, operand86EA in physical
+PRG126 (file offset1033978). All61,331 qualified symbols, all RAM/CHR/NMI and
+every other ROM byte stay exact. Complete870-input source copy is pinned.
+Ordinary MMC3/MMC5 compile the original49, with exact d444/f4ffd hashes.
+
+ColorRotation's native busy branch precedes every queue/counter write. An
+eligible update with queue offset41..48 now leaves the pending packet and
+ColorRotateOffset unchanged. It retries that same color on a later eligible
+eighth update after the native NMI has cleared the busy queue. World palette
+animation can therefore pause on busy updates. This is intentional existing
+backpressure, not an omitted animation event, invented counter advancement,
+source clock change, palette compaction or deadline waiver.
+
+The prior literal ProtoHard993 failure is preserved. Its real packet was
+28 bytes default HUD +19 complete GetColors +7 world rotation =54 bytes.
+Source-produced tier1/Proto packets reproduce the exact first47 captured bytes.
+The changed admission leaves47. Complete linked NMI CPU controls save exactly
+168 cycles in both modeled DMA parities; robot/HUD final PPU writes, all source
+APU/mapper writes, input reads, banks and interrupt return registers are exact.
+Only the delayed3F0C world palette command is absent on that busy NMI. The
+counter remains3, and subsequent eligible native queue/retry/NMI sequences emit
+23,7,23,39,39,39,23, including wrap. No fixture writes that counter between
+attempts.168 exceeds the one observed993155-cycle distance, but proves neither
+native recovery nor safety for arbitrary packets or later frames.
+
+Finite source proofs:
+- cpu-v3:12,768 direct cases, offsets0..83/all64 physical flags on eligible and
+  ineligible updates; six counter values/four area palettes;80 literal-CPX
+  flag-liveness tail cases;12 actual HUD/palette/graphics→NMI/retry sequences;
+  276 actual IRQ/lag-NMI instruction-boundary injections. No counter or R0
+  write on defer; accepted0..40 and ineligible paths retain exact cycles/state.
+- caller-v6:144 actual admitted-versus-deferred GameCore tails;264 actual
+  next-GameLoop prefix poison pairs spanning20 base IDs and13 variant setups,
+  both modes/pause timer/start contexts. Newly deferred path returns incomingY
+  rather than color-indexY and preserves incomingV rather than old ADC#7's
+  clearedV. These are explicit dead return differences, not full-helper AXYP
+  equality. CPX NZC also changes as literally required by#41. GameCore's next
+  LDA/CMP overwrites NZC. Named UI PHP/PHY prologues may preserve Y/V; every
+  executed PC and application byte matches, no semantic Y use or V branch
+  occurs before complete AXYP/SP/live-stack convergence. Only enumerated dead
+  stack contents differ. All real caller bank/SMC/return ownership is retained.
+- build-controls-v1: fresh canonical ca9a and ordinary d444/f4ffd exact.
+
+Retained qualification negatives, no product changes from them:
+candidate-v1 wrongly demanded a49 comment absent from the real CPX line;
+candidate-v2 had a Python bytes escape typo. Both stopped before compilation.
+cpu-v1 expected absolute instead of actual zero-page LDA in the caller;
+cpu-v2 staged tier2 instead of the captured tier1 palette. cpu-v3 corrects those
+oracles and retains the failed files. Caller-v1 demanded exact incomingV;
+v2/v3 overconstrained genuine PHY preservation reads; v4 demanded identical
+dead stack stores after preserving different incoming Y/V. v5 passed but its
+prose "no Y reads" was imprecise; v6 explicitly permits named ABI preservation
+and asserts no semantic Y use. No live RAM, status, OAM or deadline mask was
+introduced to make a failing gameplay assertion pass.
+
+Source-only scope: configured linked routines/actors and complete modeled NMI;
+no natural-acquisition, native cadence, full-roster or all-graphics claim. The
+original df993 native FALSE and all earlier palette FALSEs stay immutable.
+ROOT's separate ce635 composition may use this one-byte component, but it has
+its own hash and requires its own exact runtime/hook binding/native result.

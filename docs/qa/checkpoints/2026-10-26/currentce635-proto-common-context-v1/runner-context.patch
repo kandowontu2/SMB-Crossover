@@ -1,0 +1,35 @@
+--- frozen-Proto14-runner
++++ same-runner-additive-GUI-context-watch
+@@ -1,4 +1,4 @@
+-"""Exact combined ce635 ProtoHard14 one-shot with ordered refusal witnesses."""
++"""Context-qualified ProtoHard14: strict runtime, informational human GUI watch."""
+ from pathlib import Path
+ import argparse,csv,datetime,hashlib,json,subprocess,sys
+ from final_item_abilities_remaining731_run_v1 import verify_manifest
+@@ -7,6 +7,12 @@
+ SHA='ce635f6e8793d096ba50adec9cdf1fc2dd41fd487e4acd4d0972af03af9ea111'
+ sha=lambda p:hashlib.sha256(Path(p).read_bytes()).hexdigest()
+ physical=lambda s:[v&0xe3 if i%4==2 else v for i,v in enumerate(s)]
++def human_context_watch(path):
++ try:
++  raw=Path(path).read_bytes()
++  return dict(available=True,path=str(path),bytes=len(raw),sha256=hashlib.sha256(raw).hexdigest(),runtime_input=False,informational=True)
++ except OSError as error:
++  return dict(available=False,path=str(path),error=type(error).__name__,runtime_input=False,informational=True)
+ def collect(out,cfg):
+  errors=[];parts={}
+  try:
+@@ -37,10 +43,11 @@
+  return dict(passed=not errors,errors=errors,components=parts,agent_visual_review=False,scope='B controlled use only. Native mechanics/raw integrity, not independent effect/HUD pixel or audio/fairness verdict.')
+ def main():
+  p=argparse.ArgumentParser(description=__doc__);p.add_argument('--ready',required=True,type=Path);p.add_argument('--native-grant',required=True,action='store_true');a=p.parse_args();ready=json.loads((a.ready/'proof.json').read_text());assert ready['profile_local_OAM_encoding']=='attributeE3-v2';assert ready['prepared']and not ready['native_run']and ready['ROM_sha256']==SHA and ready['profile']=='proto-hard-common'and ready['maximum_cases']==14;assert sha(a.ready/'manifest.json')==ready['manifest_sha256'];count=verify_manifest(a.ready/'manifest.json');grant=a.ready/'ROOT-grant.json';g=json.loads(grant.read_text());assert g['ready_sha256']==sha(a.ready/'proof.json')and g['maximum_launches']==1 and g['profile']=='proto-hard-common';out=Path(ready['output']);cfg=json.loads((out/'config.json').read_text());assert cfg['identity']['owner']==1 and cfg['identity']['variant']==1 and cfg['mode_value']==1 and len(cfg['cases'])==14;assert sha(out/'candidate.nes')==SHA and sha(out/'run.lua')==ready['script_sha256']and not(out/'launch.json').exists()and not(out/'proof.json').exists()
+- live=int(subprocess.check_output(['powershell','-NoProfile','-Command',"@(Get-CimInstance Win32_Process | Where-Object { $_.Name -like '*Mesen*' -and $_.CommandLine -like '*--testRunner*' }).Count"],text=True).strip());assert live<2;env=ready['environment'];exe=Path(env['emulator']);assert sha(exe)==env['emulator_sha256'];cmd=[sys.executable,'-B',str(R/'tools/audit/run_mesen_isolated.py'),'--output',str(out),'--emulator',str(exe),str(out/'run.lua'),str(out/'candidate.nes'),'--timeout','1800']+['--option='+s for s in env['actual_command_overrides']];(out/'launch.json').write_text(json.dumps(dict(UTC=datetime.datetime.now(datetime.timezone.utc).isoformat(),ROM_sha256=SHA,ready_sha256=sha(a.ready/'proof.json'),manifest_sha256=sha(a.ready/'manifest.json'),grant_sha256=sha(grant),bindings_verified=count,command=cmd,maximum_launches=1,maximum_owned_workers=1,profile='proto-hard-common',lane='B',acquisition=False),indent=2)+'\n')
++ human_pre=human_context_watch(ready['environment']['human_context_watch_path'])
++ live=int(subprocess.check_output(['powershell','-NoProfile','-Command',"@(Get-CimInstance Win32_Process | Where-Object { $_.Name -like '*Mesen*' -and $_.CommandLine -like '*--testRunner*' }).Count"],text=True).strip());assert live<2;env=ready['environment'];exe=Path(env['emulator']);assert sha(exe)==env['emulator_sha256'];cmd=[sys.executable,'-B',str(R/'tools/audit/run_mesen_isolated.py'),'--output',str(out),'--emulator',str(exe),str(out/'run.lua'),str(out/'candidate.nes'),'--timeout','1800']+['--option='+s for s in env['actual_command_overrides']];(out/'launch.json').write_text(json.dumps(dict(UTC=datetime.datetime.now(datetime.timezone.utc).isoformat(),ROM_sha256=SHA,ready_sha256=sha(a.ready/'proof.json'),manifest_sha256=sha(a.ready/'manifest.json'),grant_sha256=sha(grant),bindings_verified=count,command=cmd,maximum_launches=1,maximum_owned_workers=1,profile='proto-hard-common',lane='B',acquisition=False,human_context_pre=human_pre,human_context_runtime_input=False),indent=2)+'\n')
+  with(out/'host.log').open('w',encoding='utf-8')as f:run=subprocess.run(cmd,stdout=f,stderr=subprocess.STDOUT)
+  analyzed=collect(out,cfg);unchanged=True
+  try:verify_manifest(a.ready/'manifest.json')
+  except Exception:unchanged=False
+- proof=dict(passed=run.returncode==0 and analyzed['passed']and unchanged,native_run=True,ROM_sha256=SHA,runner_exit=run.returncode,analysis=analyzed,dependencies_unchanged=unchanged,native_worker_released=True,ready_sha256=sha(a.ready/'proof.json'),bindings={q.name:dict(bytes=q.stat().st_size,sha256=sha(q))for q in out.iterdir()if q.is_file()and q.name!='proof.json'});(out/'proof.json').write_text(json.dumps(proof,indent=2)+'\n');print(json.dumps(dict(passed=proof['passed'],proof_sha256=sha(out/'proof.json'))));raise SystemExit(0 if proof['passed']else 1)
++ proof=dict(passed=run.returncode==0 and analyzed['passed']and unchanged,native_run=True,ROM_sha256=SHA,runner_exit=run.returncode,analysis=analyzed,dependencies_unchanged=unchanged,native_worker_released=True,human_context_pre=human_pre,human_context_post=human_context_watch(env['human_context_watch_path']),human_context_runtime_input=False,ready_sha256=sha(a.ready/'proof.json'),bindings={q.name:dict(bytes=q.stat().st_size,sha256=sha(q))for q in out.iterdir()if q.is_file()and q.name!='proof.json'});(out/'proof.json').write_text(json.dumps(proof,indent=2)+'\n');print(json.dumps(dict(passed=proof['passed'],proof_sha256=sha(out/'proof.json'))));raise SystemExit(0 if proof['passed']else 1)
+ if __name__=='__main__':main()

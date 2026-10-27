@@ -1,0 +1,20 @@
+ProtoHard14 ce635: protected GUI context role correction
+26 October 2026. Exact private ROM ce635f6e8793d096ba50adec9cdf1fc2dd41fd487e4acd4d0972af03af9ea111.
+
+SOURCE/CONTEXT only. No new native grant or launch. Original readiness 81b25bb24a900b0c5f5ecaa129b86fb62e09dd603e0af55ada2c55a808a685b7 and prelaunch FALSE 63927470f7124ddd2e26197042e230f74d1a721589d586b74cb8103901de03a0 remain unchanged. The command stopped in manifest verification before launch.json, emulator execution or any game assertion. This was not a game failure; no worker was acquired.
+
+Original GUI watch expected 253026 bytes / 8a439e0a5eeddc2d4776e516aacfc224c03048b9c7d23d9926a463460a7e748a. The actual saved prelaunch snapshot is 253006 bytes / ace939a892f08d12f6a2d6aecf680a1016e59bf2e846c2500a609fc0abf87fcb. Later legitimate GUI saves are separate snapshots; no unavailable full old-file diff is invented.
+Fresh captured GUI snapshot: ad6b5d8b59bd29e133e7640812478c683bc77b165d52bd9a05b8f13399c3a6c3. It is immutable external provenance, bound in the new manifest. Current Nes dictionary differences versus the old frozen environment: 0; Emulation differences: 0. Full human settings bytes remain external and are never copied into the public checkpoint.
+
+Actual dependency role: the profile runner always supplies the explicit private emulator path. run_mesen_isolated forwards it unchanged to tools/run_mesen.py; its environment/PATH/C:/mesen2/Mesen.exe fallback cannot win. Neither Python driver opens or passes C:/Mesen2/settings.json. The historical same-binary private-setting probe records the same host-only callback rejected with a one-second budget and completed with five seconds, demonstrating adjacent private settings consumption. It is reused at its original hash, not rerun or labeled current gameplay evidence. C independently froze this role proof. No OS-wide file-read trace is claimed.
+
+Runtime remains strict: adjacent private settings SHA627cd9c71a2011b4cf5fb03a0712d4d77f7890bc269b174d5757776034aab715, all emulator/core/support files, original deterministic CLI overrides, eight-sprite hardware limit, adaptive-off, runahead0, AllZeros/nonrandom/no-save, Python/Lua tools, all871 source inputs, ROM/debug/data, native Lua/config/controller/seeds/mechanics/guards/74callbacks/ordered collector. All1931 other original bindings were freshly rehashed exact. No unchanged CPU suites were rerun or awarded new case counts.
+
+Only functional path rebinding is to a fresh identical private emulator folder and empty evidence output folder. Native Lua and configuration files are copied byte-for-byte. New host runner differs only by docstring and read-only live GUI hash logging before/after execution. Missing/changed live GUI context is informational and cannot alter pass/fail; captured provenance remains strict. Reverse-normalization proves every old collector, native guard, cap, command, runtime dependency predicate and game result condition unchanged. Finite available/missing watch controls pass without settings writes.
+
+No human settings file was written or restored. The external GUI may legitimately continue saving; its live pre/post hashes are informational. Fresh source-only readiness requires a new ROOT grant before a single attempt. No retry, Hard/Easy/other profile expansion, ROM change or adoption is authorized.
+
+Readiness: C:\Users\kando\Videos\SMB Crossover Archive\2026-10-24-native-rest-py\currentce635-proto-common-context-ready-v1\proof.json
+Stable command (NOT GRANTED):
+python -B tools/audit/final_megaproto_common_proto_ce635_context_run_v1.py --ready "C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/currentce635-proto-common-context-ready-v1" --native-grant
+Original Mega14 proof and all prior source/native/negative packets remain immutable.

@@ -1,0 +1,1 @@
+Fresh exact ce635 MegaHard14 controlled-use native PASS plus independent actual raw/glyph/witness/selected-image review. All raw reset flags are retained; historical 0a FALSEs remain unchanged. No acquisition, Proto, global FPS, waveform, all-pixel, source-fidelity or adoption claim. Raw captures, source and runtime remain external; exact hashes and placements are listed.

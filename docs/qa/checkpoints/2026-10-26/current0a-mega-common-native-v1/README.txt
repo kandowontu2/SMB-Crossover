@@ -1,0 +1,1 @@
+Exactprivate0a HardMega14B-only common-special use. Emulator exit0/all14native assertions; originalcollectorFALSE/rawflags preserved. Independent ordered typedrefusal/debit/contact/pool/cleanup witnesses certify observedscope; allpriorFALSEsimmutable.132selectedwholeframes; no acquisition/globalperformance/waveform/allpixel/adoption. Rawruntime/captures external.

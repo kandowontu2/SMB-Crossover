@@ -1,0 +1,43 @@
+Independent final-roster static preparation review — 2026-10-26
+
+PASS, source/mock only. No emulator launches, controller-generation reruns,
+game/default/settings edits or mutation of ROOT's prepared packet.
+Target ce635f6e8793d096ba50adec9cdf1fc2dd41fd487e4acd4d0972af03af9ea111.
+Input: final-roster-static-preparation-ce635-v2, usual external archive.
+Output: final-roster-static-independent-review-v1/proof.json
+SHA99dc6dc19d3df4c9185f01c6d1bbb2affbdb10b889dd41b2e55b6e124606467e.
+
+Independently reproduced exact reverse normalization of the runner and
+coordinator edits. The capture driver remains byte-exact. Changes are only
+the startup static-dispatcher prefix/final install, prepare-only early exit,
+local dependency paths and stop-on-first-failure handling. The37 policy
+bodies remain exact against ROOT's original prepared policies; their literal
+linked-symbol bindings agree with the current ROM. No controller behavior,
+staircase policy, replay criteria, caps or original guard body was changed.
+
+Compiled187 Lua files (148 generated per-route plus37 top-level policies,
+native guard and dispatcher). Ran all37 actual generated startup scripts for
+439 inactive mocked frames each. Every script registers exactly one final
+full-range host exec dispatcher; host callback counts remain unchanged.
+Nine generic controls cover registration/range/order/new callback next-event,
+one installation and rejected runtime nonexec APIs/invalid exec range.
+Twelve original-observer scenarios compare all output files and ordered reads
+and state calls with the old dynamic version: normal/reused returns, wrong
+PC/SP, stack/return wrap, wrong entry bank, literal missing return-bank guard,
+and stale DMA. Both actual legacy and explicit-CHR observer modules are exact.
+The original return closures do not check return bank; no new guard was
+invented to strengthen the oracle or hide a behavior difference.
+
+1,345 immutable dependency hashes bind all871 complete source inputs, the
+candidate/debug/map/labels, policies/observers/generated scripts, local Python
+imports and Lua54 binaries, the actual emulator selected by both launchers,
+its MesenCore/DLLs/database/portable settings and user-settings context. CLI
+overrides remain8sprites, zero RAM, fixed CPU/PPU/mapper startup and no settings
+save. User-settings application is explicitly unproved; it is a context hash,
+not a claim that a neighboring configuration controls the portable worker.
+Discovery/direct host240 limits and18000 emulated frames remain unchanged.
+
+This is finite synthetic callback/source preparation, not Mesen scheduling or
+37 native clears. All current actual failures must remain failures; no retry
+or launch grant follows from this proof. ROOT's original packet hash catalog
+is byte-exact after the review. Final execution readiness/grant is ROOT-owned.

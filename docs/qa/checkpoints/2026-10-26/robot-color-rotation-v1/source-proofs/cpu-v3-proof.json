@@ -1,0 +1,29 @@
+{
+  "passed": true,
+  "source_only": true,
+  "native_run": false,
+  "baseline_ROM_sha256": "dfbdca24019776262c4388e3ea782fb989e24b8fc0e3cf0bfe0bbb84a9f480ad",
+  "candidate_ROM_sha256": "ca9a1c13e4f25a834ac665c4c9a6d67cf0be3c19ee7dc2af284a432e359be1fe",
+  "counts": {
+    "direct": 12768,
+    "unchanged": 8984,
+    "deferred": 3784,
+    "callers": 80,
+    "flow": 12,
+    "interrupts": 276
+  },
+  "offsets_0_through83_all64_physical_flag_patterns_eligible_and_ineligible": true,
+  "all6counter_values_all4areas": true,
+  "direct_accepted_and_ineligible_full_state_and_cycles_exact": true,
+  "intentional_busy_contract": "Offsets41..48 now take existing no-write early return. No R0 or color-counter advance. CPX NZC is literal#41; real sole caller overwrites flags before use, full caller checked.",
+  "all_complete_NMI_APU_mapper_regs_banks_input_reads_exact": true,
+  "exact_delayed_world_command": "3F0C len4 remains pending as unchanged ColorRotateOffset, not a retained VRAM command. Next eligible update recreates it in order after NMI clears busy packet.",
+  "removed_parser_cycles": 168,
+  "previous_actual993_literal_deficit_CPU": 155,
+  "no_native_recovery_or_generic_all_packet_safety_claim": true,
+  "flows_sha256": "ef8ba2e7337109720dc1dddf2a117ba1802570ecc602e58d2eb2ee9183c96569",
+  "callers_sha256": "cfba50d0a2e4ed677de7487aeffe341aedb26b10bba7a835172860d4553ecddb",
+  "interrupts_sha256": "1d0a13ec7ab6f9b6c512b2a5cb1041c409666f587a9d3e54eb9b5d0be8c2d76d",
+  "tool_sha256": "9c5ebd57158dbb65e98d35268a7b1bae05f9928a01c29d56ae3c1ef7404d9e0f",
+  "limits": "Finite assembled source controls and modeled full NMI. Configured legal actors/packets, not natural acquisition. Busy-frame world palette animation delay is intentional; no frame/input/source-audio rate change. Original native993 false retained. No native launch."
+}
