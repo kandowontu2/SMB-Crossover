@@ -1,0 +1,205 @@
+{
+  "passed": true,
+  "source_only": true,
+  "native_run": false,
+  "encoder_execution": "UNRUN",
+  "one_startup_event_callback": true,
+  "one_test_per_endFrame": true,
+  "output_files": [
+    "captures.nesppuv1",
+    "captures-index.jsonl",
+    "lua-encoder-native.json"
+  ],
+  "capture_max_bytes": 2000000,
+  "total_max_bytes": 10000000,
+  "total_max_files": 8,
+  "screenshots": 0,
+  "emulated_writes": 0,
+  "input_calls": 0,
+  "runtime_callback_mutations": 0,
+  "scope": "Only actual adapter encoder/container I/O. No old native74-callback/gameplay proof.",
+  "independent_decoder_controls": [
+    {
+      "name": "bad-mode",
+      "rejected": true
+    },
+    {
+      "name": "truncated-repeat",
+      "rejected": true
+    },
+    {
+      "name": "truncated-literal",
+      "rejected": true
+    },
+    {
+      "name": "overlong-run",
+      "rejected": true
+    },
+    {
+      "name": "wrong-raw-size",
+      "rejected": true
+    },
+    {
+      "name": "missing-xor-predecessor",
+      "rejected": true
+    },
+    {
+      "name": "wrong-xor-size",
+      "rejected": true
+    }
+  ],
+  "independent_reader_reference_controls": {
+    "passed": true,
+    "full_reader_positive": true,
+    "full_reader_corruption_controls": [
+      {
+        "name": "truncated-record",
+        "rejected": true
+      },
+      {
+        "name": "changed-decoded-pixel",
+        "rejected": true
+      },
+      {
+        "name": "wrong-record-sequence",
+        "rejected": true
+      },
+      {
+        "name": "changed-word-checksum",
+        "rejected": true
+      },
+      {
+        "name": "missing-physical-index",
+        "rejected": true
+      },
+      {
+        "name": "wrong-alias-target",
+        "rejected": true
+      },
+      {
+        "name": "changed-index-stamp",
+        "rejected": true
+      },
+      {
+        "name": "changed-micro-payload",
+        "rejected": true
+      },
+      {
+        "name": "two-tests-same-endFrame",
+        "rejected": true
+      }
+    ],
+    "synthetic_encoded_bytes": 1268508,
+    "decoded_full_sha256": "1b83e6488c53a3edf07ea3e2ac3633193377fcc67e3e9ba03cdd20c17ae163fe",
+    "disk_files_created": 0,
+    "Lua_executed": false,
+    "scope": "Independent in-memory format fixture qualifies this reader, not the actual Lua encoder."
+  },
+  "bindings": [
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\final_inventory_compact_capture_lua_qual_v1.lua",
+      "bytes": 6402,
+      "sha256": "fbb7d61dba41c3322f060f50f68b771813c367e0f47ba8a51f3a2ccb181dd103"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\final_inventory_compact_capture_v1.lua",
+      "bytes": 6348,
+      "sha256": "1aa9e049764584841be0c590c15427225863bcf7bc64aca8c93a609c2cadd40d"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\final_inventory_compact_capture_lua_qual_review_v1.py",
+      "bytes": 21183,
+      "sha256": "5fafbd9a80328a363ab5b153e87ccd7cb65179ba96af29f4371cbf341ccee20b"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\run_mesen_isolated.py",
+      "bytes": 1370,
+      "sha256": "976f197a3712511e821f545e655eaa3f9bcfe95e42a3c6c76b2adca288d2aad3"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\run_mesen.py",
+      "bytes": 16490,
+      "sha256": "5d71507b99a100a10b48ad84e1bb3e7db92c470e6215315c9d962551a4222c67"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\capture_budget.py",
+      "bytes": 8931,
+      "sha256": "29c9e5ea5f2cc72cc1402e39fdb0ee602f10ff4c66e730df4f1d1d004fc6298a"
+    }
+  ],
+  "runtime_context_observed": {
+    "bindings": [
+      {
+        "path": "C:\\mesen2\\Mesen.exe",
+        "bytes": 61449216,
+        "sha256": "8b92daa209ee5052845e02a663aeb1afd6194eca55d86e6628c51114c61da0a9"
+      },
+      {
+        "path": "C:\\mesen2\\MesenCore.dll",
+        "bytes": 7300096,
+        "sha256": "4bd40dfc6512328d56d8ad0563263b52be57bac726d8804f0720e461e558cd41"
+      },
+      {
+        "path": "C:\\mesen2\\settings.json",
+        "bytes": 252772,
+        "sha256": "675c1f734a23d895a60a90dbdac6a02c513dfe5dc1949743b3aa8c23259cae23"
+      },
+      {
+        "path": "C:\\Users\\kando\\Downloads\\SMB-Crossover-Current-MMC5.nes",
+        "bytes": 2097168,
+        "sha256": "3b112e1d79ba7348f2f7a4c426f4675845a5781017ab74690feb235121a66287"
+      }
+    ],
+    "critical_profile": {
+      "Nes": {
+        "Region": "Auto",
+        "DisableSprites": false,
+        "DisableBackground": false,
+        "RemoveSpriteLimit": false,
+        "AdaptiveSpriteLimit": false,
+        "RandomizeMapperPowerOnState": false,
+        "RandomizeCpuPpuAlignment": false,
+        "PpuExtraScanlinesBeforeNmi": 0,
+        "PpuExtraScanlinesAfterNmi": 0
+      },
+      "Emulation": {
+        "RunAheadFrames": 0,
+        "EmulationSpeed": 100
+      }
+    },
+    "human_settings_written": false,
+    "note": "Observed only, no runtime copied/launched. ROOT must verify actual critical profile/settings pre/post; command uses doNotSaveSettings and AllZeros override."
+  },
+  "prepared_commands_not_executed": {
+    "native": [
+      "python",
+      "-B",
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\run_mesen_isolated.py",
+      "--output",
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\compact-lua-encoder-run-v1",
+      "--emulator",
+      "C:/Mesen2/Mesen.exe",
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\final_inventory_compact_capture_lua_qual_v1.lua",
+      "C:/Users/kando/Downloads/SMB-Crossover-Current-MMC5.nes",
+      "--timeout",
+      "30",
+      "--option=--doNotSaveSettings",
+      "--option=--nes.removeSpriteLimit=false",
+      "--option=--nes.ramPowerOnState=AllZeros",
+      "--option=--nes.randomizeCpuPpuAlignment=false",
+      "--option=--nes.randomizeMapperPowerOnState=false"
+    ],
+    "review": [
+      "python",
+      "-B",
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\final_inventory_compact_capture_lua_qual_review_v1.py",
+      "--review",
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\compact-lua-encoder-run-v1"
+    ],
+    "expected_run_files": 6,
+    "maximum_run_files": 8,
+    "maximum_run_bytes": 10000000,
+    "no_run_output_directory_created": true,
+    "no_native_grant_inferred": true
+  }
+}

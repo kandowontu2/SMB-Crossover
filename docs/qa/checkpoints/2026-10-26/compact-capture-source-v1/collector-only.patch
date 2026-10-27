@@ -1,0 +1,19 @@
+--- qualified-Proto-context-runner
++++ only-full-PPU-container-reader
+@@ -3,6 +3,7 @@
+ import argparse,csv,datetime,hashlib,json,subprocess,sys
+ from final_item_abilities_remaining731_run_v1 import verify_manifest
+ from final_megaproto_common_collector_witness_v1 import ordered_case_witnesses
++from final_inventory_compact_capture_v1 import collect_full_ppu
+ R=Path(__file__).resolve().parents[2]
+ SHA='ce635f6e8793d096ba50adec9cdf1fc2dd41fd487e4acd4d0972af03af9ea111'
+ sha=lambda p:hashlib.sha256(Path(p).read_bytes()).hexdigest()
+@@ -22,7 +23,7 @@
+   assert z['nmis']>100 and z['irq_scroll_stores']>100 and z['hardware_chr_checks']>1200 and z['complete_dma_checks']>100 and z['minSP']>=128;parts['native_gallery']=z
+  except Exception as e:errors.append('Native14common components: '+str(e))
+  try:
+-  z=json.loads((out/'ppu-capture-native-result.json').read_text());rows=list(csv.DictReader((out/'actual-ppu-index.csv').open(newline='')));assert z['passed']and z['actual_mode_readback']==1 and z['original_done_seen']and z['frames']==len(rows)and z['bytes']==(out/'actual-ppu.argb').stat().st_size==len(rows)*245760;assert[int(q['ordinal'])for q in rows]==list(range(1,len(rows)+1))and all(int(b['ppu_frame'])>int(a['ppu_frame'])for a,b in zip(rows,rows[1:]));assert all(int(q['mode'])==1 for q in rows if int(q['updates'])>0);parts['full_actual_PPU']=dict(passed=True,frames=len(rows),bytes=len(rows)*245760,raw_sha256=sha(out/'actual-ppu.argb'),index_sha256=sha(out/'actual-ppu-index.csv'))
++  parts['full_actual_PPU']=collect_full_ppu(out)
+  except Exception as e:errors.append('FullPPU: '+str(e))
+  try:
+   completed=starts=enables=literal=ignored=0;last=None;protocol=cfg['dma_protocol']

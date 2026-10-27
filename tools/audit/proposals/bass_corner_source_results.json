@@ -1,0 +1,342 @@
+{
+  "source_qualification": {
+    "passed": true,
+    "source_only": true,
+    "native_run": false,
+    "adopted": false,
+    "source_copies": 0,
+    "new_output_trees": 0,
+    "baseline_ROM": "3b112e1d79ba7348f2f7a4c426f4675845a5781017ab74690feb235121a66287",
+    "candidate_ROM": "877d0b5e33810568af2dc6410b4f081cc3e5badc2ee9128e283c859ba08395c9",
+    "actual_changed_banks": {
+      "71": 120,
+      "72": 179,
+      "78": 615,
+      "89": 74
+    },
+    "CHR_header_other_PRG_exact": true,
+    "old_qualified_symbols": 61326,
+    "unchanged_qualified_symbols": 61312,
+    "genuine_private_symbol_changes": {
+      "Z2PostBGBodyBridge::Done": [
+        44012,
+        null
+      ],
+      "Z2PostBGBodyBridge::Handle": [
+        43986,
+        null
+      ],
+      "KbLegacyExpandedCollisionBox::Short": [
+        44223,
+        44228
+      ],
+      "KbLegacyExpandedCollisionBox::Crouch": [
+        44218,
+        44223
+      ],
+      "KbLegacyExpandedCollisionBox::Medium": [
+        44226,
+        44221
+      ],
+      "KbLegacyExpandedCollisionBox::Done": [
+        44234,
+        44230
+      ],
+      "KbLegacyExpandedCollisionBox::Scrooge": [
+        44235,
+        44231
+      ],
+      "KbLegacyExpandedCollisionAdder::Short": [
+        44170,
+        44175
+      ],
+      "KbLegacyExpandedCollisionAdder::Yes": [
+        44181,
+        44177
+      ],
+      "KbLegacyExpandedCollisionAdder::Crouch": [
+        44165,
+        44170
+      ],
+      "KbLegacyExpandedCollisionAdder::Medium": [
+        44174,
+        44168
+      ],
+      "KbLegacyExpandedCollisionAdder::Luigi": [
+        44183,
+        44179
+      ],
+      "KbLegacyExpandedCollisionAdder::Scrooge": [
+        44185,
+        44181
+      ],
+      "_FARCALL_COUNT": [
+        1176,
+        1178
+      ]
+    },
+    "all_old_RAM_addresses_unchanged": true,
+    "primary_changed_file_base_hashes": {
+      "src/kirby_legacy.s": "33fb53bea2424c3a6f77f14cb27676adecebb23883e0c723006edbc4c2c42428",
+      "src/tmnt_probe_gates.s": "7bb2f92349ee1e890ae0ce83fcf290c9b47cdd7f1c2313ea4ee4cceb9c5c4aa1",
+      "src/zelda2_link_platform.s": "f1c4413b65fafa8ffe9e0bd6c5bf269e0f61d82f358cb44cc4877d33274cea4d",
+      "smb1base-mmc5-expanded.cfg": "c945cbf32bdb9b6399233edca9c3840b16f93d1eadaf2422bc046663cc4cd64b",
+      "src/entrypoint.s": "48aa8f9901161ed1837e1656b51a7badca67b3b2c2e79df40c20e3c8b29ccc7b"
+    },
+    "source_overlay_files": [
+      "src/kirby_legacy.s",
+      "src/tmnt_probe_gates.s",
+      "src/zelda2_link_platform.s",
+      "smb1base-mmc5-expanded.cfg",
+      "src/entrypoint.s",
+      "src/bass_corner_profile.inc"
+    ],
+    "counts": {
+      "public_getters": 10240,
+      "raw_selectors_all64_flags": 7168,
+      "actual_published_body_BG_head_prefixes": 36,
+      "foreign_complete_empty_BG": 1248,
+      "full_BG_post_effect_pipelines": 288,
+      "air_aim24px_full_pipelines": 48,
+      "valid_wall_exact_controls": 1280,
+      "actual_IRQ_head_boundaries": 337,
+      "actual_complete_NMI_head_boundaries": 43
+    },
+    "getter_foreign_costs": {
+      "public_foreign_getters": [
+        -4,
+        2
+      ],
+      "public_Bass_getters": [
+        28,
+        65
+      ],
+      "foreign_complete_empty_BG": [
+        0,
+        17
+      ]
+    },
+    "whole_Bass_empty_BG_costs": [
+      {
+        "state": 0,
+        "source_vy_Q16": 0,
+        "body": 12,
+        "baseline": 2160,
+        "candidate": 2263,
+        "delta": 103
+      },
+      {
+        "state": 1,
+        "source_vy_Q16": 65536,
+        "body": 13,
+        "baseline": 2159,
+        "candidate": 2258,
+        "delta": 99
+      },
+      {
+        "state": 1,
+        "source_vy_Q16": -327680,
+        "body": 13,
+        "baseline": 2159,
+        "candidate": 2591,
+        "delta": 432
+      }
+    ],
+    "ordinary_target_hashes": {
+      "mmc5": "f4ffd2483c51daa4d60bb575da2da8c4d817692cda407611c243031f67520833",
+      "mmc3": "d444cac88e13fa02b29ad16100b8f08fa565ba90f8cedde192de43fb2dc8f3eb"
+    },
+    "scope": "Source repair for Bass9/variant0 ordinary rising, previous-horizontal-overlap ceiling contacts; live Q16 separation through actual native block effects. Genuine wall code remains exact.",
+    "limits": [
+      "No native/PPU/cadence qualification; extra foreground cost is material.",
+      "Simultaneous diagonal calcAxis corners retain conservative side behavior; this does not implement the full original collision solver.",
+      "Hurt/sliding ceiling response retains legacy ownership; authenticated pose profiles are tested separately.",
+      "Under-HUD half-pixel head admission remains the existing outer integer cutoff.",
+      "Old ce635 raw/snapshots were deleted independently; no deleted evidence was reconstructed. Selected original geometry/failure JSON survives.",
+      "Private source was compiled from explicit3b primary inputs. Reproduce later from the3b adoption revision plus sparse patch; future primary menus are a separate composition."
+    ],
+    "bindings": {
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\proposals\\bass_corner_source.patch": "62ccffeb51413d6abdbb8f1daedba430534e9cab1bbdb6ebffb8b18bbf5dae10",
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\proposals\\bass_corner_profile.inc": "15cd1db2ea0a2c5d3e8a60d9fa5ad24cb102238d984a000b8b55eb64c07519ca",
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bass_corner_working_result.json": "da96822e9e322b6c8ba0077fa5732fa91850ec5ec79583109fe563cb99e6390c",
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bass_corner_source_controls.json": "cb6de89744dd9c91b94a256b3d203dbd9f66eb34290992f9b4bd297a65256ea4",
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bass_corner_flagoff_controls.json": "f020bf87b81c49b99bcd66a1509a45f33bf3ccf6802a0f459319b8cf4a30721b",
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bass_corner_history.jsonl": "08a58d8dc76bbae064bad4f16d49de7fa777ffb18a42abc932abe7456d2e43db",
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bass_corner_private.nes": "877d0b5e33810568af2dc6410b4f081cc3e5badc2ee9128e283c859ba08395c9",
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bass_corner_private.dbg": "1a09079e76cfc0ef106520258b9b3058a541557a0d8dd2540f8a522656670942",
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bass_corner_private.lbl": "203278128303df2931d2dac2df2b7e15d544bf73b981d87300c55c338cb070d2",
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bass_corner_private.map": "08952c060d51e24d980e93fe47d7273cd0e70ead12b0e622ae4eb574df01c7b4",
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\bass_corner_sparse_build_v1.py": "0d85d901961b5567b015eb26e4d3fa00dfc88f33d9fe19310a3ad6fde5ba50e8",
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\bass_corner_source_cpu_v1.py": "5dbe402d05ab0e3884c5751f68bf2e06ae8ad63c3235f60e10a8b42eb979ee35",
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\bass_corner_flagoff_v1.py": "13bb59174c344fbc68d066eedcf41e99eda44dffedf8e9c62b4a6c5d669e6d89",
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\bass_corner_freeze_v1.py": "15cddd368c71c33340bb978f5d06ce5539be86e845b7ff845896caa8b4765e69",
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\docs\\qa\\inventory-timing-adoption-2026-10-26.json": "a03db0e0dd3a3f0cfd6b4c7a82e1df474bcffa430fae847602be961bf6166cfb",
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\reference\\crossover2\\source.swf": "6374c72426556bfc3cc16f7594ce4443a5867fe2d367514136c99cc8458b70af",
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\reference\\crossover2\\extracted\\scripts\\com\\smbc\\characters\\Bass.as": "aee0a8d9606b59c52fbff88c82023a206360f2ab93b6ce5164f15b519b7e8ffa",
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\reference\\crossover2\\extracted\\scripts\\com\\smbc\\characters\\Character.as": "248c72c742a181a4ac73374343e44dda7837a80773552162b0262a07ae8f0029",
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\reference\\crossover2\\extracted\\scripts\\com\\smbc\\data\\HitTester.as": "c4228c0ae0d30308ba9bd57d592c436d554a058f4031c7a02f6abce55ea3d2e2",
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bass_corner_kirby_legacy.s": "e6f74eeeca886bdf068516501f68e783176d86521cf7db073369aceb143d8966",
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bass_corner_kirby.s": "f85142c368713e7aed60333608d1ceca49c4c027a3249e2013189013c7004c5f",
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bass_corner_profile.inc": "15cd1db2ea0a2c5d3e8a60d9fa5ad24cb102238d984a000b8b55eb64c07519ca",
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bass_corner_tmnt_probe_gates.s": "01943465504a812044bc3b8db65bda881de5d8c58b7dd9178b0150cdb76aede2",
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bass_corner_tmnt.s": "bcaf0be43c1c6acdd727c6722ea62506e90a53ecaec8169b7c450daddfca07b5",
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bass_corner_zelda2_link_platform.s": "311298b1b5f0b0d4f5360ae11ca39037b63e8c992a9561f907dab95f7d2c4298",
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bass_corner_entrypoint.s": "0aeb21695178ba5f1b6d71634cfbc86308c15b6cfd12a277be4685d02283536e",
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bass_corner.cfg": "3552058d5639d6444f3fde84312281dc4e69c0cbea5566a747b13aadaf4ec405",
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bass_corner_main.c": "cb915413cb3491c73f87b27ad80056c32c4e9987716b2f661130c81f479af5c5"
+    }
+  },
+  "assembled_source_controls": {
+    "passed": true,
+    "native_run": false,
+    "base_sha256": "3b112e1d79ba7348f2f7a4c426f4675845a5781017ab74690feb235121a66287",
+    "candidate_sha256": "877d0b5e33810568af2dc6410b4f081cc3e5badc2ee9128e283c859ba08395c9",
+    "counts": {
+      "public_getters": 10240,
+      "raw_selectors_all64_flags": 7168,
+      "actual_published_body_BG_head_prefixes": 36,
+      "foreign_complete_empty_BG": 1248,
+      "full_BG_post_effect_pipelines": 288,
+      "air_aim24px_full_pipelines": 48,
+      "valid_wall_exact_controls": 1280,
+      "actual_IRQ_head_boundaries": 337,
+      "actual_complete_NMI_head_boundaries": 43
+    },
+    "costs": {
+      "public_foreign_getters": [
+        -4,
+        2
+      ],
+      "public_Bass_getters": [
+        28,
+        65
+      ],
+      "foreign_complete_empty_BG": [
+        0,
+        17
+      ]
+    },
+    "actual_first_contact_reconstruction": {
+      "explicit_reconstructed_fields_only": true,
+      "head_cell": 1030,
+      "after_BG": {
+        "y": 91,
+        "fraction": 32848,
+        "pending": 2,
+        "target": 91,
+        "speed": 1
+      },
+      "post_anchor": 91.501220703125,
+      "velocity_Q16": 54613,
+      "source_only": true
+    },
+    "limits": "Finite assembled source controls only; no native/cadence/PPU or executed originalSWF proof. Real simultaneous corner calcAxis, hurt/sliding ceiling lifecycle and music/foreign performance remain separate limits.",
+    "tool_sha256": "5dbe402d05ab0e3884c5751f68bf2e06ae8ad63c3235f60e10a8b42eb979ee35"
+  },
+  "assertion_coverage_note": {
+    "public_getter_calls": 10240,
+    "public_owned_Bass_assertions_with_four_status_patterns": 256,
+    "public_foreign_getter_assertions": 9984,
+    "raw_foreign_selector_assertions_all64_physical_status_inputs": 6656,
+    "additional_owned_raw_executions_not_separately_asserted": 512,
+    "no_full64_owned_flag_matrix_claim": true
+  },
+  "negative_trial_notes": [
+    {
+      "stage": "sparse include resolution",
+      "passed": false,
+      "error": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bass_corner_entrypoint.s:378: Error: Cannot open include file 'C:/Users/kando/Documents/ChatGPT/SMB Crossover/build/bass_corner_kirby.s': Invalid argument\nC:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bass_corner_entrypoint.s:506: Error: Cannot open include file 'C:/Users/kando/Documents/ChatGPT/SMB Crossover/build/bass_corner_profile.inc': Invalid argument\n",
+      "correction": "Use unique flat filenames and explicit build asm include directory; Windows ca65 rejected absolute include literals."
+    },
+    {
+      "stage": "profile span expression",
+      "passed": false,
+      "error": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build/bass_corner_kirby_legacy.s:37: Error: Constant expression expected\nC:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build/bass_corner_kirby_legacy.s:71: Error: Constant expression expected\n",
+      "correction": "Use explicit global proc qualification in ca65 span arithmetic."
+    },
+    {
+      "stage": "head gate branch reach",
+      "passed": false,
+      "error": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src/megaman_weapons.s:154: Warning: No reference to unnamed label\nC:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src/megaman_weapons.s:222: Warning: No reference to unnamed label\nC:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build/bass_corner_profile.inc:81: Error: Range error (215 not in [-128..127])\nC:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build/bass_corner_profile.inc:84: Error: Range error (209 not in [-128..127])\nC:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build/bass_corner_profile.inc:86: Error: Range error (205 not in [-128..127])\nC:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build/bass_corner_profile.inc:88: Error: Range error (200 not in [-128..127])\nC:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build/bass_corner_profile.inc:92: Error: Range error (195 not in [-128..127])\n",
+      "correction": "Use genuine long conditional jumps to the native fallback; no changed condition."
+    },
+    {
+      "stage": "new segment declaration ordering",
+      "passed": false,
+      "candidate_sha256": "3849b9f1d8e357e9adc8ed6e6e691cdd1ad50f083442275a745bceefcbe57653",
+      "correction": "Declare fixed-start new tail segments after all existing segments, so their load-memory high water cannot relocate existing segments."
+    },
+    {
+      "stage": "segment section insertion",
+      "passed": false,
+      "error": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src/megaman_weapons.s:154: Warning: No reference to unnamed label\nC:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src/megaman_weapons.s:222: Warning: No reference to unnamed label\nld65: Error: C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bass_corner.cfg:440: Attribute expected, got 'LOAD'\n",
+      "correction": "Insert before the SEGMENTS closing brace, not final SYMBOLS brace."
+    },
+    {
+      "stage": "assembled source controls",
+      "passed": false,
+      "candidate": "8a36880c0bd4b08db0fe0c75ef948e65817ee9b14c17181af5e81f02c4ac4674",
+      "error": "AssertionError((1, 0, 2, 0, 0, 196, 0))"
+    },
+    {
+      "stage": "head helper return Z",
+      "passed": false,
+      "candidate": "8a36880c0bd4b08db0fe0c75ef948e65817ee9b14c17181af5e81f02c4ac4674",
+      "case": "x2/page0 solidC4: first/left probes admitted but LDX0 left Z=1 before caller BNE",
+      "correction": "Reload genuine returned R3 after setting X0, so the caller branches on actual tile A."
+    },
+    {
+      "stage": "first finite source pass before cold admission reduction",
+      "passed": true,
+      "candidate": "8dca42b4115aba952f3687c2a285a146080fdc2d22495af738ecc2bb36a63739",
+      "successor_change": "Move literal eligibility checks into already-mapped gate to avoid extra bank roundtrip for walking/falling/hurt/slide."
+    },
+    {
+      "stage": "assembled source controls",
+      "passed": false,
+      "candidate": "ee7bbd52cbc60d716ceaccaf659966631bf644a2de624dd7458eed6bf2e85908",
+      "error": "AssertionError(('NMI live owner/5SMC', 0))"
+    },
+    {
+      "stage": "NMI fixture physical-bank/shadow mismatch",
+      "passed": false,
+      "candidate": "ee7bbd52cbc60d716ceaccaf659966631bf644a2de624dd7458eed6bf2e85908",
+      "error": "AssertionError(('NMI live owner/5SMC', 0, [126, 87, 13, 127], [126, 87, 88, 127], [66, 66, 66, 222, 250], [66, 66, 66, 222, 250], []))",
+      "correction": "Bus defaults C13 but copied Arena CurrentBankC216 represents88; restore physical windows to the genuine copied Arena mapping before executing."
+    },
+    {
+      "stage": "ordinary reference artifact",
+      "passed": false,
+      "correction": "Use the already-published exact3b adoption receipt ordinary target hashes; retain loose artifact mismatch and do not overwrite it."
+    },
+    {
+      "stage": "actual grounded caller profile review",
+      "passed": false,
+      "candidate": "ee7bbd52cbc60d716ceaccaf659966631bf644a2de624dd7458eed6bf2e85908",
+      "finding": "PlayerBGCollision writes Player_State0->2 before the adder, so a state-only new Bass profile would wrongly make walking27.5px. The real caller publishes Player_BoundBoxCtrl12 just before BG; air publishes13.",
+      "correction": "Only terrain-adder Y3/state2/body12 retains standing; box getter and jump state1 keep real source profile."
+    },
+    {
+      "stage": "assembled source controls",
+      "passed": false,
+      "candidate": "7995152081f865495ebb831ab673a89eea68a94ade89c9670479184f35190cdb",
+      "error": "AssertionError()"
+    },
+    {
+      "stage": "standing admission carry liveness",
+      "passed": false,
+      "candidate": "7995152081f865495ebb831ab673a89eea68a94ade89c9670479184f35190cdb",
+      "case": "Bass box/state1: new CMP#2 changed C; original matched CMP#BASS leaves C1",
+      "correction": "Explicit SEC at owned BassTerrainBox return, matching the genuine original box C without changing A/X/Y/N/V/D/I/Z."
+    }
+  ],
+  "external_frozen_history": {
+    "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bass_corner_history.jsonl",
+    "sha256": "08a58d8dc76bbae064bad4f16d49de7fa777ffb18a42abc932abe7456d2e43db"
+  },
+  "external_final_proof": {
+    "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bass_corner_final_source.json",
+    "sha256": "04863f102bee7416b67d2e0ef88b9ff8cd4bf1ad773d173fc4c774aec692c499"
+  },
+  "published_payload_scope": "Sparse source patch/new helper, compact source/ordinary/negative summaries and reproducible owned tools only; no ROM, raw capture, audio, settings or copied source tree."
+}

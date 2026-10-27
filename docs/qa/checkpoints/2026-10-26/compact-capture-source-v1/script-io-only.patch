@@ -1,0 +1,138 @@
+--- unchanged-source-fragments
++++ I-O-only-prefix-adapter
+@@ -1,4 +1,135 @@
+ FINAL_ITEM_PROGRESSIVE={}
++-- BEGIN FINAL_COMPACT_CAPTURE_IO_ONLY_V1
++local FINAL_COMPACT_CAPTURE=(function()
++-- Host-side I/O adapter only. No callbacks, emulated writes or input changes.
++local M={}
++local FRAME_BYTES=256*240*4
++local function need(ok,message)if not ok then error('Compact capture: '..message,2)end end
++local function json(v)
++ if type(v)=='string'then
++  return '"'..v:gsub('[%z\1-\31\\"]',function(c)
++   local escapes={['"']='\\"',['\\']='\\\\',['\n']='\\n',['\r']='\\r',['\t']='\\t'}
++   return escapes[c]or string.format('\\u%04x',c:byte())
++  end)..'"'
++ elseif type(v)=='table'then
++  local keys={};for k in pairs(v)do keys[#keys+1]=k end;table.sort(keys)
++  local out={};for _,k in ipairs(keys)do out[#out+1]=json(tostring(k))..':'..json(v[k])end
++  return '{'..table.concat(out,',')..'}'
++ elseif v==nil then return 'null'else return tostring(v)end
++end
++local function words(raw)
++ need(#raw%4==0,'unaligned ARGB/blob bytes');local out={};local hash=2166136261
++ for i=1,#raw,4 do local v=string.unpack('<I4',raw,i);out[#out+1]=v;hash=((hash~v)*16777619)&0xffffffff end
++ return out,hash
++end
++local function rle(w)
++ local out={};local i,n=1,#w
++ while i<=n do
++  local run=1;while run<128 and i+run<=n and w[i+run]==w[i]do run=run+1 end
++  if run>=2 then out[#out+1]=string.char(127+run)..string.pack('<I4',w[i]);i=i+run
++  else
++   local first=i;i=i+1
++   while i<=n and i-first<128 do
++    if i<n and w[i]==w[i+1]then break end;i=i+1
++   end
++   local block={string.char(i-first-1)};for k=first,i-1 do block[#block+1]=string.pack('<I4',w[k])end
++   out[#out+1]=table.concat(block)
++  end
++ end
++ return table.concat(out)
++end
++function M.encode(raw,previous,keyframe)
++ local w,hash=words(raw);local mode,payload=0,raw;local packed=rle(w)
++ if #packed<#payload then mode,payload=1,packed end
++ if previous and not keyframe then
++  need(#previous==#raw,'previous frame length');local delta={}
++  for i,v in ipairs(w)do delta[i]=v~string.unpack('<I4',previous,1+(i-1)*4)end
++  packed=rle(delta);if #packed<#payload then mode,payload=2,packed end
++ end
++ return mode,payload,hash
++end
++function M.install(output,limits,stamp)
++ limits=limits or{};local maximum=limits.container_bytes or 1500000000
++ need(maximum>0 and maximum<=1500000000,'container budget exceeds reserved 1.5GB')
++ local maximum_records=limits.records or 25000;need(maximum_records>0 and maximum_records<=25000,'record cap')
++ local original=io.open;local file=original(output..'captures.nesppuv1','wb')
++ need(file~=nil,'cannot open single container');local index=original(output..'captures-index.jsonl','w');need(index~=nil,'cannot open index')
++ local header='NESPPU01'..string.pack('<I2I2I4',256,240,32);file:write(header);file:flush()
++ local stored,sequence,fullframes,images,entries=16,0,0,0,0
++ local previous,last_full,last_full_record=nil,nil,nil
++ local full_closed=false;local pending=0;local closed=false
++ local function entry(row)
++  local text=json(row)..'\n';need(entries<50000 and #text<=4096,'bounded index row budget')
++  index:write(text);index:flush();entries=entries+1
++ end
++ local function snapshot()return stamp and stamp()or{}end
++ local function record(kind,raw,name)
++  need(not closed,'write after adapter close');need(sequence<maximum_records,'record count exceeded')
++  need(kind==3 or #raw==FRAME_BYTES,'full ARGB dimensions')
++  local mode,payload,hash
++  if kind==3 then local w;w,hash=words(raw);mode,payload=0,raw
++  else mode,payload,hash=M.encode(raw,previous,images%64==0)end
++  local meta=json({name=name,stamp=snapshot(),decoded_bytes=#raw,full_ordinal=kind==1 and fullframes+1 or 0})
++  local size=20+#meta+#payload;need(stored+size<=maximum,'container byte reservation exceeded')
++  sequence=sequence+1
++  file:write(string.pack('<BBI2I4I4I4I4',kind,mode,0,sequence,#meta,#payload,hash),meta,payload);file:flush()
++  entry({type='record',record=sequence,offset=stored,bytes=size,kind=kind,mode=mode,name=name,decoded_bytes=#raw,stamp=snapshot(),full_ordinal=kind==1 and fullframes+1 or 0,word_fnv1a32=hash})
++  stored=stored+size
++  if kind~=3 then previous=raw;images=images+1 end
++  if kind==1 then fullframes=fullframes+1;last_full,last_full_record=raw,sequence end
++  return sequence
++ end
++ local api={}
++ function api.stats()return{container_bytes=stored,records=sequence,full_frames=fullframes,open_virtual_files=pending,full_closed=full_closed,format='NESPPU01',per_frame_files=0,screenshots=0}end
++ function api.close()
++  need(pending==0,'unclosed virtual capture');if not closed then file:flush();index:flush();file:close();index:close();closed=true end
++ end
++ io.open=function(path,mode)
++  local name=type(path)=='string'and path:sub(1,#output)==output and path:sub(#output+1)or nil
++  local full=name=='actual-ppu.argb'
++  local argb=name and name:match('^[%w_-]+%.argb$')
++  local blob=name and name:match('^diagnostic%-CHR%-%d+%.bin$')
++  if not(full or argb or blob)then return original(path,mode)end
++  need(mode=='wb','unsupported virtual capture mode');need(not closed,'capture opened after close')
++  if full then need(not full_closed,'full stream reopened')end
++  local chunks,size,handle_closed={},0,false;pending=pending+1
++  local handle={}
++  function handle:write(...)
++   need(not handle_closed,'virtual write after close')
++   for i=1,select('#',...)do local value=select(i,...);need(type(value)=='string','binary write must be string');chunks[#chunks+1]=value;size=size+#value end
++   if full then
++    need(size<=FRAME_BYTES,'full capture write exceeds one frame')
++    if size==FRAME_BYTES then record(1,table.concat(chunks),name);chunks,size={},0 end
++   else need(size<=FRAME_BYTES,'named capture exceeds one frame')end
++   return self
++  end
++  function handle:flush()file:flush();index:flush();return self end
++  function handle:close()
++   need(not handle_closed,'virtual double close')
++   if full then need(size==0,'truncated full frame');full_closed=true
++   else
++    local raw=table.concat(chunks)
++    if blob then need(#raw>0 and #raw<=1024,'CHR diagnostic size');record(3,raw,name)
++    else
++     need(#raw==FRAME_BYTES,'named ARGB dimensions')
++     if raw==last_full then entry({type='alias',name=name,record=last_full_record,decoded_bytes=#raw,stamp=snapshot()})
++     else record(2,raw,name)end
++    end
++   end
++   pending=pending-1;handle_closed=true;chunks={};return true
++  end
++  return handle
++ end
++ -- The real emulator exit closes files too. Every physical record/index row
++ -- is already flushed, so an assertion preserves a valid bounded prefix.
++ return api
++end
++return M
++
++end)().install(OUTPUT,{container_bytes=1500000000,records=25000},function()
++ local s=emu.getState();return{ppu_frame=s['ppu.frameCount'],scanline=s['ppu.scanline'],dot=s['ppu.cycle'],cpu_cycle=s['cpu.cycleCount']}
++end)
++-- END FINAL_COMPACT_CAPTURE_IO_ONLY_V1
+ local inheritedAbilityAssert=assert
+ local function failureJson(v)
+  if type(v)=='table'then local t={};for k,x in pairs(v)do t[#t+1]=string.format('%q',tostring(k))..':'..failureJson(x)end;return'{'..table.concat(t,',')..'}'

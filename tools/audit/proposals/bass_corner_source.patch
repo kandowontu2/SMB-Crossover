@@ -1,0 +1,611 @@
+--- parent3b/src/kirby_legacy.s
++++ private/src/kirby_legacy.s
+@@ -9,62 +9,57 @@
+   cmp #CHARACTER_PIT
+   beq Medium
+   cmp #CHARACTER_BASS
+-  beq Medium
++  jeq BassTerrainAdder
+   cmp #CHARACTER_SOPHIA
+   beq Medium
+   lda GuestHurtTicks
+   beq Crouch
+-  iny                          ; Ryu's25NESpx recoil head/feet profile.
++  iny
+   sec
+   rts
++Medium:
++  ldy #3
+ Crouch:
+   lda RgCrouch
+   beq Yes
+ Short:
+   ldy #8
+-  bne Yes
+-Medium:
+-  ldy #3
+-  lda RgCrouch
+-  bne Short
+ Yes:
+   sec
+   rts
+ Luigi:
+-  clc                          ; Use native PlayerSize/CrouchingFlag adders.
++  clc
+   rts
+ Scrooge:
+   ldy #10
+   sec
+   rts
++  .res 57-(*-::KbLegacyExpandedCollisionAdder),$ea
++  .assert *-KbLegacyExpandedCollisionAdder=57,error,"Original adder span"
+ .endproc
+ .proc KbLegacyExpandedCollisionBox
+   cmp #CHARACTER_SCROOGE
+   beq Scrooge
+   cmp #CHARACTER_LUIGI
+-  beq Done                     ; Preserve native small/big/crouched Y.
++  beq Done
+   ldy #15
+   cmp #CHARACTER_PIT
+   beq Medium
+   cmp #CHARACTER_BASS
+-  beq Medium
++  jeq BassTerrainBox
+   cmp #CHARACTER_SOPHIA
+   beq Medium
+   lda GuestHurtTicks
+   beq Crouch
+-  iny                          ; Ryu source recoil uses the25NESpx box.
++  iny
+   rts
++Medium:
++  ldy #12
+ Crouch:
+   lda RgCrouch
+   beq Done
+ Short:
+   ldy #17
+-  rts
+-Medium:
+-  ldy #12
+-  lda RgCrouch
+-  bne Short
+-  rts
+ Done:
+   rts
+ Scrooge:
+@@ -73,6 +68,8 @@
+   beq Done
+   iny
+   rts
++  .res 55-(*-::KbLegacyExpandedCollisionBox),$ea
++  .assert *-KbLegacyExpandedCollisionBox=55,error,"Original box span"
+ .endproc
+ .proc KbAdderDispatch
+  cmp #CHARACTER_KIRBY
+--- parent3b/src/tmnt_probe_gates.s
++++ private/src/tmnt_probe_gates.s
+@@ -66,8 +66,11 @@
+  ; Transfer the existing saved A/P to the CV3 selector. The turtle and
+  ; Mac branches are byte/cycle exact; other guests add only this JMP and
+  ; a comparison before their original bank call.
++ cmp #CHARACTER_BASS
++ beq Bass
+  jmp Z2HeadAdmission
+- .res 17,$ea
++Bass:jmp BassHeadAdmission
++ .res 10,$ea
+ IsMac:
+  pla
+  plp
+--- parent3b/src/zelda2_link_platform.s
++++ private/src/zelda2_link_platform.s
+@@ -248,22 +248,9 @@
+ .endproc
+ 
+ .proc Z2PostBGBodyBridge
+- lda SelectedCharacter
+- cmp #CHARACTER_SAMUS
+- beq Handle
+- cmp #CHARACTER_LINK
+- bne Done
+-Handle:jsr Z2AfterBGDispatch
+- jsr RelativePlayerPosition
+- ldx #0
+- jsr BoundingBoxCore
+- lda SelectedCharacter
+- cmp #CHARACTER_LINK
+- bne Done
+- lda Z2Variant
+- beq Done
+- jmp Z2OriginalBodyBox
+-Done:rts
++ jmp BassPostBGDispatch
++ .res 35,$ea
++ .assert *-::Z2PostBGBodyBridge=38,error,"Original post-BG span"
+ .endproc
+ 
+ ; A is the native platform ordinate. Small lifts arrive after their original
+--- parent3b/smb1base-mmc5-expanded.cfg
++++ private/smb1base-mmc5-expanded.cfg
+@@ -433,7 +433,11 @@
+     DATA:     load = PRGLow, run = RAM, type = rw,  define   = yes;
+ 
+     # Share the memory in the ZP temp values with famistudio
+-    MUSIC_ZEROPAGE_OVERLAY:   load = ZP, start=$00, type = overwrite, optional = yes;
++    MUSIC_ZEROPAGE_OVERLAY:   load = ZP, start=$00, type = overwrite, optional = yes;    BASS_PROFILE: load=X5_NEW_48,type=ro,start=$afb0;
++    BASS_HEAD_GATE: load=X5_NEW_59,type=ro,start=$bf70;
++    BASS_CEILING: load=X5_NEW_4E,type=ro,start=$ac00;
++    BASS_POST: load=X5_NEW_47,type=ro,start=$af00;
++
+ }
+ SYMBOLS {
+     __STACKSIZE__: type = weak, value = $20; # 32 bytes of stack
+--- parent3b/src/entrypoint.s
++++ private/src/entrypoint.s
+@@ -501,3 +501,7 @@
+ .if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
+ .include "luigi_source_profile.s"
+ .endif
++
++.if ::ENABLE_MMC5_EXPANDED
++.include "bass_corner_profile.inc"
++.endif
+--- parent3b/src/bass_corner_profile.inc
++++ private/src/bass_corner_profile.inc
+@@ -0,0 +1,454 @@
++; PRIVATE draft. The two public legacy entries keep their original spans.
++; Current air/slide rows match the authenticated MegaMan timeline dimensions;
++; the full ceiling sampler must still handle the half-pixel air head position.
++.pushseg
++.segment "BASS_PROFILE"
++.proc BassTerrainAdder
++  lda SelectedCharacter
++  cmp #CHARACTER_BASS
++  bne Legacy
++  lda RlVariant
++  bne Legacy
++  ldy #3
++  jsr BassTerrainForm
++  sec
++  rts
++Legacy:
++  sec                          ; The original entering CMP #BASS matched.
++  jmp KbLegacyExpandedCollisionAdder::Medium
++.endproc
++.proc BassTerrainBox
++  lda SelectedCharacter
++  cmp #CHARACTER_BASS
++  bne Legacy
++  lda RlVariant
++  bne Legacy
++  ldy #12
++  jsr BassTerrainForm
++  sec
++  rts
++Legacy:
++  sec
++  jmp KbLegacyExpandedCollisionBox::Medium
++.endproc
++.proc BassTerrainForm
++  lda GuestHurtTicks
++  bne RestoreA                 ; takeDamage keeps the standing HRect.
++  lda RgCrouch
++  bne Slide
++  lda Player_State
++  beq RestoreA
++  cmp #2
++  bne Aim
++  cpy #3
++  bne Aim
++  lda Player_BoundBoxCtrl
++  cmp #12
++  beq RestoreA                 ; real pre-BG published standing body.
++Aim:
++  lda RgShootPose
++  beq Air
++  lda SavedJoypadBits
++  and #Up_Dir|Down_Dir
++  bne RestoreA                 ; Air up/diagonal aim uses the24px HRect.
++Air:
++  iny                          ; Air/jumpShoot: row4/13, nominal28px.
++RestoreA:
++  lda RgCrouch                 ; Preserve the legacy A/N/Z and incoming V.
++  rts
++Slide:
++  iny
++  iny                          ; Authored slide: row5/14, nominal15px.
++  lda RgCrouch
++  rts
++.endproc
++.assert *-BassTerrainAdder<=160,error,"Bass profile sparse pool overflow"
++.popseg
++
++; Bass only. The existing saved A/P belongs to TnFastHeadGate.
++.pushseg
++.segment "BASS_HEAD_GATE"
++ .proc BassHeadAdmission
++ lda RlVariant
++ bne Legacy
++ lda #0
++ sta SmCeilingHit
++ lda GameEngineSubroutine
++ cmp #8
++ bne Legacy
++ lda Player_Y_HighPos
++ cmp #1
++ bne Legacy
++ lda Player_Y_Speed
++ bpl Legacy
++ lda MmVY+2
++ bpl Legacy
++ lda GuestHurtTicks
++ ora RgCrouch
++ bne Legacy
++ pla
++ plp
++ farcall BassHeadProbe,jmp
++Legacy:
++ lda #CHARACTER_BASS
++ jmp Z2HeadAdmission
++.endproc
++.popseg
++
++.pushseg
++.segment "BASS_CEILING"
++.proc BassHeadProbe
++ ; Sole real caller has already checked owner/lifecycle/upward eligibility.
++ sty SmTemp
++ lda Player_X_Position
++ sta SmTempX
++ lda Player_PageLoc
++ sta SmTempPage
++ jsr Probe
++ bne Restore
++ ; Exact authored head interval starts at X+1.25. Select its integer cell.
++ lda #7
++ ldx MmXFraction+1
++ cpx #$c0
++ bcc :+
++ lda #6
++:sta SmSlot
++ sec
++ lda SmTempX
++ sbc SmSlot
++ sta Player_X_Position
++ lda SmTempPage
++ sbc #0
++ sta Player_PageLoc
++ jsr Probe
++ bne Restore
++ ; Right edge is X+14.7499388 (stand) /14.749878 (air).
++ lda #6
++ ldx MmXFraction+1
++ cpx #$40
++ bcc Right
++ bne Extra
++ ldx MmXFraction
++ ldy SmTemp
++ cpy #37
++ bne StandRight
++ cpx #8
++ bcc Right
++ bcs Extra
++StandRight:cpx #4
++ bcc Right
++Extra:lda #7
++Right:clc
++ adc SmTempX
++ sta Player_X_Position
++ lda SmTempPage
++ adc #0
++ sta Player_PageLoc
++ jsr Probe
++Restore:
++ pha
++ lda SmTempX
++ sta Player_X_Position
++ lda SmTempPage
++ sta Player_PageLoc
++ pla
++ beq Done
++ bcc Done
++ pha
++ ldy SmTemp
++ sty SmSourceJumped
++ ; Cell/effect R2/R3/R5/R6/R7 remains the actual successful sample.
++ lda R2
++ clc
++ adc #48
++ ldy SmTemp
++ sec
++ sbc BlockBuffer_Y_Adder,y
++ sta SmTempY
++ cpy #37
++ bne Integer
++ dec SmTempY
++ lda #$50
++ sta MmYFraction
++ lda #$80
++ bne Fine
++Integer:
++ lda #12
++ cpy #44
++ bne :+
++ lda #48
++:sta MmYFraction
++ lda #0
++Fine:sta MmYFraction+1
++ lda SmTempY
++ sta Player_Y_Position
++ lda #2
++ sta SmCeilingHit
++ lda #4
++ sta R4
++ ldx #0
++ pla
++Done:
++ pha
++ ldy SmTemp
++ pla
++ rts
++Probe:
++ ; 27.5px authored head uses origin+4.5, not rounded origin+4.
++ lda #0
++ sta SmSlot
++ ldy SmTemp
++ cpy #37
++ bne Sample
++ lda MmYFraction+1
++ bpl Sample
++ inc SmSlot
++ inc Player_Y_Position
++Sample:
++ clc
++ lda Player_X_Position
++ adc #8
++ and #$f0
++ sta SmHeadX
++ lda Player_PageLoc
++ adc #0
++ sta SmHeadPage
++ jsr BlockBufferColli_Head
++ pha
++ lda SmSlot
++ beq :+
++ dec Player_Y_Position
++:pla
++ beq ProbeDone
++ ; Coins/climbables preserve native pickup/transition ownership.
++ cmp #$26
++ beq Keep
++ cmp #$c2
++ beq Keep
++ cmp #$c3
++ beq Keep
++ tax
++ lda MTileAttribute,x
++ and #MTILE_CLIMB
++ bne Reload
++ jsr BassPreviousHead
++ bcc Reject
++ ; Admit the proved vertical branch only if the previous horizontal HRect
++ ; already overlaps this cell. True simultaneous corners retain side work.
++ jsr BassPreviousSpan
++ bcc Reject
++ ldx #0
++ lda R3
++ sec
++ rts
++Reload:
++Keep:ldx #0
++ lda R3
++ clc
++ProbeDone:rts
++Reject:
++ lda #0
++ ldx #0
++ clc
++ rts
++.endproc
++
++.proc BassPreviousHead
++ sec
++ lda MmYFraction
++ sbc MmVY
++ lda MmYFraction+1
++ sbc MmVY+1
++ pha
++ lda Player_Y_Position
++ sbc MmVY+2
++ sta SmClearance
++ bcs Crossed
++ pla
++ ldy SmTemp
++ cpy #37
++ bne :+
++ cmp #$80
++ bcc :+
++ inc SmClearance
++:lda SmClearance
++ clc
++ adc BlockBuffer_Y_Adder,y
++ bcs Allow
++ sta SmClearance
++ lda R2
++ clc
++ adc #48
++ bcs No
++ cmp SmClearance
++ bcc Allow
++ beq Allow
++No:clc
++ rts
++Crossed:pla
++Allow:sec
++ rts
++.endproc
++
++.proc BassPreviousSpan
++ ; Q16 subtraction keeps the true fraction borrow before world comparison.
++ sec
++ lda MmXFraction
++ sbc MmVX
++ sta SmSourceJumped
++ lda MmXFraction+1
++ sbc MmVX+1
++ sta SmClearance
++ lda SmTempX
++ sbc MmVX+2
++ sta SmSlot
++ ldx MmVX+2
++ bmi Negative
++ lda SmTempPage
++ sbc #0
++ jmp Page
++Negative:lda SmTempPage
++ sbc #$ff
++Page:sta SmTempY
++ ; Compute ceil(previous right edge), including the authored tiny epsilon.
++ lda SmTemp
++ cmp #37
++ beq Air
++ ldx #$fc
++ bne AddFine
++Air:ldx #$f8
++AddFine:txa
++ clc
++ adc SmSourceJumped
++ tay
++ lda SmClearance
++ adc #$bf
++ tax
++ lda #14
++ adc SmSlot
++ pha
++ lda SmTempY
++ adc #0
++ sta SmSourceJumped
++ ; Nonzero fractional result rounds the edge upward for strict comparison.
++ txa
++ bne Round
++ tya
++ beq Compare
++Round:pla
++ clc
++ adc #1
++ pha
++ bcc Compare
++ inc SmSourceJumped
++Compare:pla
++ tax
++ lda SmSourceJumped
++ cmp SmHeadPage
++ bcc No
++ bne Left
++ cpx SmHeadX
++ bcc No
++ beq No
++Left:
++ ; floor(previous left edge) < integer cell right is the exact strict test.
++ lda #1
++ ldx SmClearance
++ cpx #$c0
++ bcc :+
++ lda #2
++:clc
++ adc SmSlot
++ tax
++ lda SmTempY
++ adc #0
++ sta SmClearance
++ lda SmHeadX
++ clc
++ adc #16
++ sta SmSlot
++ lda SmHeadPage
++ adc #0
++ cmp SmClearance
++ bcc No
++ bne Yes
++ cpx SmSlot
++ bcs No
++Yes:sec
++ rts
++No:clc
++ rts
++.endproc
++
++.proc BassAfterBG
++ lda SmCeilingHit
++ cmp #2
++ bne Done
++ lda #0
++ sta SmCeilingHit
++ sta MmVY+2
++ sta Player_Y_Speed
++ lda #$55
++ sta MmVY
++ lda #$d5
++ sta MmVY+1
++ ; Native brick/question effects may have overwritten the scalar velocity
++ ; and fractional Y; groundAbove owns final separation and the source Q16.
++ lda SmTempY
++ sta Player_Y_Position
++ ldy SmSourceJumped
++ lda #12
++ cpy #44
++ bne :+
++ lda #48
++:cpy #37
++ bne IntegerFine
++ lda #$50
++ sta MmYFraction
++ lda #$80
++ bne Fine
++IntegerFine:sta MmYFraction
++ lda #0
++Fine:sta MmYFraction+1
++ lda Square1SoundQueue
++ ora #Sfx_Bump
++ sta Square1SoundQueue
++Done:rts
++.endproc
++.assert *-BassHeadProbe<=1024,error,"Bass ceiling pool overflow"
++.popseg
++
++.pushseg
++.segment "BASS_POST"
++.proc BassPostBGDispatch
++ lda SelectedCharacter
++ cmp #CHARACTER_BASS
++ bne Legacy
++ lda RlVariant
++ bne Legacy
++ lda SmCeilingHit
++ cmp #2
++ bne Legacy
++ farcall BassAfterBG
++ jsr RelativePlayerPosition
++ ldx #0
++ jmp BoundingBoxCore
++Legacy:
++ lda SelectedCharacter
++ cmp #CHARACTER_SAMUS
++ beq Handle
++ cmp #CHARACTER_LINK
++ bne Done
++Handle:jsr Z2AfterBGDispatch
++ jsr RelativePlayerPosition
++ ldx #0
++ jsr BoundingBoxCore
++ lda SelectedCharacter
++ cmp #CHARACTER_LINK
++ bne Done
++ lda Z2Variant
++ beq Done
++ jmp Z2OriginalBodyBox
++Done:rts
++.endproc
++.popseg

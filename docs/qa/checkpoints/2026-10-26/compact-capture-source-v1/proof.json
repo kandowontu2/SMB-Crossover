@@ -1,0 +1,86 @@
+{
+  "passed": false,
+  "source_review_complete": true,
+  "source_only": true,
+  "native_run": false,
+  "Python_decoder_and_collector_controls_passed": true,
+  "synthetic": {
+    "raw_decoded_bytes": 737280,
+    "raw_SHA256": "17c9e3dd20a963ad34f735f64748b27a77b09b185e8ca44b4f9e528754f717e5",
+    "container_bytes": 252266,
+    "container_SHA256": "41e0d597b851351c9abe50d3379400579a1f6161fed92e196b6cbc5a0e8b7c34",
+    "aliases": 301,
+    "record_modes": [
+      1,
+      0,
+      2,
+      0
+    ],
+    "temporary_files_only": true,
+    "retained_binary_files": 0
+  },
+  "codec_cases": [
+    {
+      "mode": 0,
+      "raw_bytes": 245760,
+      "encoded_bytes": 245760
+    },
+    {
+      "mode": 1,
+      "raw_bytes": 245760,
+      "encoded_bytes": 2400
+    },
+    {
+      "mode": 2,
+      "raw_bytes": 245760,
+      "encoded_bytes": 2400
+    }
+  ],
+  "negative_controls": [
+    {
+      "name": "truncated-record",
+      "rejected": true
+    },
+    {
+      "name": "changed-pixel-bit",
+      "rejected": true
+    },
+    {
+      "name": "wrong-record-sequence",
+      "rejected": true
+    },
+    {
+      "name": "missing-physical-index",
+      "rejected": true
+    },
+    {
+      "name": "wrong-alias-target",
+      "rejected": true
+    },
+    {
+      "name": "wrong-source-stamp",
+      "rejected": true
+    },
+    {
+      "name": "missing-named-alias",
+      "rejected": true
+    },
+    {
+      "name": "missing-native-capture-event",
+      "rejected": true
+    }
+  ],
+  "static_script_reverse_exact": true,
+  "static_collector_other_predicates_exact": true,
+  "Lua_encoder_and_74callback_execution": "UNRUN: pinned Lua/lupa dependency and original prepared fixture are absent",
+  "no_inputs_restored": true,
+  "no_source_runtime_clones": true,
+  "one_lossless_container_planned": true,
+  "maximum_run_files": 64,
+  "maximum_run_bytes": 2000000000,
+  "maximum_screenshots": 8,
+  "screenshots_created": 0,
+  "manifest_sha256": "8db60a4914457624107ecf6ad763970b67d8e819906a6fb77cac86f37bb2064b",
+  "native_readiness": false,
+  "native_grant": false
+}
