@@ -1,0 +1,47 @@
+Current TMNT earned components — SOURCE PREPARATION ONLY — 2026-10-27
+
+Prepared four Hard profiles on immutable build/bill_early_cache.nes/.dbg/.lbl, ROM9ea11eab2fc5c373a3795b013f6ed9e0d5e9781891b2ae3bf40ad2556c27b85e. No emulator launched, production changed, runtime/source/ROM copied, or capture created. ROOT owns any future native launch and central storage lease. Top-level native readiness passed=false is intentional; source-controls passed=true is only assembled CPU qualification.
+
+Owned files
+tests/current-tmnt-powerups.lua SHA3369ab5509a5ed95c9c35fff5d21be146838419fca8748a917cb33028ebf6f59
+tools/audit/current_tmnt_powerups_prepare_v1.py SHA891d5be31ea2983e240b72b18bd163cb940b81d7f195cbddd27e37e7802fbe55
+this report
+
+Profiles (41 exact bindings each; prepared-not-run.json / source-controls.json)
+build/current-9ea-leonardo-hard-items-v1:
+  readiness dcd3cbdd574e55e5fb8c190d60a9684f78b5643abedbdc5b6f49ada48b8e1e53
+  source16005bc12b9251fe143a73eab59b7fa1e6100a502d1d60fddf443e99bdb06da6
+build/current-9ea-raphael-hard-items-v1:
+  readiness9b41a6062559e0646e31cbd0694f2eac1d968fc2d7bebf320499b808a8c6728a
+  source b2a9210909227c4013ee9559904ba73de9e5c1859b1c6c34177db2131a0006cc
+build/current-9ea-michelangelo-hard-items-v1:
+  readiness f78ecf73ae2b25adb3c6f1dad68d821888ac4aabdf6b8eb5235c4dea8f85600d
+  source c39c97905227aabef979797f456008a3812034d92a4e7fc1f38c147aa3801797
+build/current-9ea-donatello-hard-items-v1:
+  readiness dd637d750ed0a8d6dbe4347c62061e29794db6a0d458c8ad04478c93eb27f4d7
+  source6b6d52c3ebb2dece3e4c132081c686a3ab24c82b0ba72ae5358986eac7aefe15
+
+All164 binding entries were rehashed after preparation. No native directory exists. Commands are in each command.json, explicitly PREPARED_DO_NOT_RUN; source preparer accepts --identity leonardo|raphael|michelangelo|donatello --mode hard --output <fresh build directory>. It does not launch commands. Native caps8000 physical frames/3500 actual updates/1200 host seconds/2GB/64files/8meaningful PNGs/one CSV/no per-frame files; central run_capped remains mandatory. The eight images would show primary, mushroom restoration, flower restoration, Kiai pickup, single/triple shots, boomerang outward and catch. No runtime/source forest or duplicate full-route capture is requested.
+
+Actual source contract
+TMNT owner19 has four independent TnHealth/Equipment/Ammo cells indexed by TnVariant0..3. The profiles reach identity/mode through the real cold menu; alternates use actual Select. No live SelectedCharacter/TnVariant write exists in the Lua fixture. These turtles do not receive guessed shared InvSelected/InvAmmo IDs.
+
+tmnt_core.s TnEnsure performs real cold initialization: all four health128, equipment/ammo0. tmnt_combat.s TnHeal handles mushroom+32/flower+64, cap128, native food toggle. TnInjuryStart supplies actual16HP contact loss, Hurt120, native InjuryTimer8 and recoil. The fixture permits real Goomba contacts, removes the disclosed contact actor at the next owned boundary, and waits for BOTH source hurt and InjuryTimer expiry plus grounded separation before the next contact; neither timer nor health is rewritten.
+
+tmnt_equipment.s TnPreparePickupDispatch classifies a full-health flower as private B4/stamp4 Kiai. Deficit flowers remain FC food. TnGiveEquipment replaces with20/autoselect or adds20 to the same gear with99 cap. Ordinary kinds1/2/3 use the actual private TnDropKind/X/Page/Y/Timer physical actors and TnUpdateDrops overlap/collection. Kiai uses a mature physically colliding classified flower. These are disclosed typed pickup scenes, not proof of the original25kill/RNG drop eligibility or full block emergence. The preparer also calls actual TnPreparePickupDispatch in the CPU campaign at the already-earned health values to validate that classification.
+
+Native TnTrySecondary creates one single shuriken, three triple actors, one boomerang or one Kiai; only one ammo is debited per successful volley. TnShotEnemies/primary TnWeapons produce real source contact and ShellOrBlockDefeat; no enemy HP, hurt, attack, projectile, result or receipt is seeded. Returning boomerang uses actual TnRestoreBoomerang to refund exactly one actor. This profile starts it at40 stock; source permits legitimate catch values100..102 elsewhere, and the fixture does not impose a fabricated99 catch cap. Select is checked twice with unchanged gear/stock.
+
+Finite assembled campaign
+All four variants pass the same15 complete-GameLoop logical source components: cold primary right; full-health mushroom cap; two real contacts then mushroom restore96->128; four contacts then flower restore64->128; full-health flower grants Kiai20; Kiai actual hit/cost/cleanup20->19; six physical single pickups20,40,60,80,99,99; two Select toggles; single-left99->98; triple replacement/refill20->40, actual three-shot volley/one debit40->39; boomerang replacement/refill20->40, actual left hit/outward/return/catch40->39->40. Other three turtles retain128/0/0 throughout each profile.
+
+Leonardo/Raphael/Michelangelo each1414 full GameLoop calls including30 cold settle; Donatello1436 because its genuine primary sequence finishes later. Total5678 source calls,60 component records,24 actual injuries,20 weapon-target defeats,16 ammo debits and4 catch refunds. These are source-CPU counts, not native reachability/frame/cadence/PPU/audio/interrupt proof. The CPU supplies an explicit external FrameCounter clock once per simulated Main; that does not model physical NMI/catchup publication timing.
+
+Guard and metadata reuse
+The literal startup-static all256-DMA/E008/physical attributeE3/NMI AXY-SP/five SMC/bank-publication/IRQ31/lower-stack/12CHR-latch/strict render deadline block is byte-exact to current_pit_powerups_v3.lua. All real PCs, banks and opcode bytes are freshly derived from9ea DBG. Actual physical pickup hook is TnPickupDispatch, before TnHeal/gear/erase, not the bypassed legacy MarioSourcePowerupCollision. RAM extraction unions every literal r/w name and bare C.ram.IDENT reference; every callback address resolves before Lua generation. Only two emu.write sites exist: boundary-owned whitelisted scene RAM and matching visible metatiles. No dynamic callback registration/removal exists. No installed Lua parser was available, and no Lua execution/native result is claimed.
+
+Retained source-observer negatives
+The Leonardo draft keeps three small source-first-failure*.json files. First expected the legacy Mario pickup hook, which TMNT legitimately bypasses: the source had already healed/erased correctly. Second was an unlabelled terminal-state assertion; the next richer counterexample identified the boomerang case. Third records actual successful hit/refund at130 updates, after the defeated Goomba had naturally left and been erased. Final checks require the earlier recorded native defeated state AND later cleanup instead of demanding that dead actor remain until the catch. No game fix, health reset, outcome substitution, or relaxed contact requirement was made.
+
+Remaining source/native gaps
+Hard native/Lua execution is unrun for all four; Easy has no new preparation or equivalence claim. Full natural reveal/drop RNG, star/1up/death/respawn, empty/full projectile refusal, last-ammo fallback, repeated catches100..102, every facing/pose, water/edge/solid terrain, crowded flicker/HUD/palette/source-music fidelity and full1-1 remain separate. Existing source table semantics are retained, not presented as new native passes. ROOT should pilot Leonardo first, preserve any first FALSE, then decide whether variant launches are warranted.
