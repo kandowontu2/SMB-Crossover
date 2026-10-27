@@ -1,0 +1,3303 @@
+{
+  "prepared": true,
+  "native_run": false,
+  "ROM_sha256": "2082c19a7364920f828e97f70040d37f1f7059bde1ea136b5c2c4532324abf36",
+  "config": {
+    "name": "bill",
+    "character": 3,
+    "menu_index": 3,
+    "variant_symbol": "BillVariant",
+    "variant": 0,
+    "mode_value": 1,
+    "root": "C:/Users/kando/Documents/ChatGPT/SMB Crossover",
+    "out": "C:/Users/kando/Documents/ChatGPT/SMB Crossover/build/verification/bill-passive-timing2082-ready-v3/",
+    "prefix": "C:/Users/kando/Documents/ChatGPT/SMB Crossover/build/verification/bill-passive-timing2082-ready-v3/",
+    "policy": "C:/Users/kando/Documents/ChatGPT/SMB Crossover/tools/playthroughs/roster_samus_contra.lua",
+    "limit": 3560,
+    "capture_bytes": 134217728,
+    "ROM_sha256": "2082c19a7364920f828e97f70040d37f1f7059bde1ea136b5c2c4532324abf36",
+    "navigation": [
+      "left",
+      "right",
+      "right",
+      "",
+      "left",
+      "left",
+      "left",
+      "right",
+      "right",
+      "up",
+      "left",
+      "left",
+      "left",
+      "right",
+      "down",
+      "right",
+      "down",
+      "left",
+      "left"
+    ],
+    "marker_names": [
+      "first-active",
+      "corner-332",
+      "corner-345",
+      "corner-360",
+      "power-change",
+      "flagpole",
+      "endpoint",
+      "failure"
+    ],
+    "hooks": {
+      "loop": {
+        "name": "GameLoop",
+        "pc": 33497,
+        "bank": 126,
+        "bytes": [
+          169,
+          255,
+          141
+        ]
+      },
+      "loop_return": {
+        "name": "GameLoop",
+        "pc": 33621,
+        "bank": 126,
+        "bytes": [
+          96,
+          141,
+          106
+        ]
+      },
+      "nmi": {
+        "name": "NonMaskableInterrupt",
+        "pc": 58172,
+        "bank": 127,
+        "bytes": [
+          72,
+          138,
+          72
+        ],
+        "banks": [
+          125,
+          127
+        ]
+      },
+      "nmi_return": {
+        "name": "NonMaskableInterrupt",
+        "pc": 58383,
+        "bank": 127,
+        "bytes": [
+          64,
+          162,
+          7
+        ],
+        "banks": [
+          125,
+          127
+        ]
+      },
+      "irq": {
+        "name": "IrqScrollSplit",
+        "pc": 32768,
+        "bank": 126,
+        "bytes": [
+          72,
+          138,
+          72
+        ]
+      },
+      "irq_return": {
+        "name": "IrqScrollSplit",
+        "pc": 32835,
+        "bank": 126,
+        "bytes": [
+          64,
+          141,
+          6
+        ]
+      },
+      "dma_complete": {
+        "name": "PostDmaMaskEnable",
+        "pc": 57352,
+        "bank": 127,
+        "bytes": [
+          141,
+          1,
+          32
+        ],
+        "banks": [
+          125,
+          127
+        ]
+      }
+    },
+    "dma_store_return": 57349,
+    "smc_fields": [
+      354,
+      362,
+      377,
+      364,
+      365
+    ],
+    "replay": "C:/Users/kando/Documents/ChatGPT/SMB Crossover/build/verification/compact-next-bill-hard-v1/inputs.csv",
+    "extra_ram": {}
+  },
+  "command": [
+    "python",
+    "-B",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\run_mesen_isolated.py",
+    "--output",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\bill-passive-timing2082-ready-v3",
+    "--emulator",
+    "C:/Mesen2/Mesen.exe",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\bill-passive-timing2082-ready-v3\\run.lua",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\proto_palette_ack.nes",
+    "--timeout",
+    "600",
+    "--option=--doNotSaveSettings",
+    "--option=--nes.removeSpriteLimit=false",
+    "--option=--nes.ramPowerOnState=AllZeros",
+    "--option=--nes.randomizeCpuPpuAlignment=false",
+    "--option=--nes.randomizeMapperPowerOnState=false"
+  ],
+  "bindings": {
+    "C:\\Mesen2\\Mesen.exe": "8b92daa209ee5052845e02a663aeb1afd6194eca55d86e6628c51114c61da0a9",
+    "C:\\Mesen2\\MesenCore.dll": "4bd40dfc6512328d56d8ad0563263b52be57bac726d8804f0720e461e558cd41",
+    "C:\\Users\\kando\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\site-packages\\py65\\devices\\mpu6502.py": "15d93835b4f279b702270d9a0b417938291347ec57cc12d9e0307cd344d381fe",
+    "C:\\Users\\kando\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\site-packages\\py65\\utils\\conversions.py": "448b8aa2cc59aa71a6a644a5dd93051ab4b2def2ae720c4991c0e54f31a4eaa9",
+    "C:\\Users\\kando\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\site-packages\\py65\\utils\\devices.py": "fca3864bebcf1db7dbc13014487ad7091499d85c8cb14ca7288c5fdc63de6a0e",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\proto_palette_ack.dbg": "8be606841a5ae8e0df48d256045e1f8bc9c1f8d8dbbda671c6f9c481beb2c33b",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\proto_palette_ack.lbl": "81ccf93a389bbf7e770780eb8c9fc1d654ed48f8f3af0930d4cee61deefa6811",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\proto_palette_ack.nes": "2082c19a7364920f828e97f70040d37f1f7059bde1ea136b5c2c4532324abf36",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\bill-passive-timing2082-ready-v3\\command.json": "521a57d52aa6573d077b06052a7d68336e5d4bb516469b2c5ea8a9991b6a7d07",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\bill-passive-timing2082-ready-v3\\profile-config.json": "f7c4764328a61654555c925a96d03a2cf5257cfd2d1e2b21727f5aaa305e5ca9",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\bill-passive-timing2082-ready-v3\\run.lua": "763e0a952a11e04de628b5ef02a9def0aff87329e19561316a46d18dadd44afd",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\compact-next-bill-hard-v1\\events.jsonl": "c2c9cf359cb8682c153a4e5cb409b21af03e9564a6334f83ae9b63ba671243ae",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\compact-next-bill-hard-v1\\inputs.csv": "cc40d6efbace0ddfcd435f95348bfd6534affffc5da8e1614caa12c0d3043912",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\compact-next-bill-hard-v1\\ready.json": "734d4a3199e8ba181ca95c2011a01b99f6b7baf7ad05113d1af5d6f3dcc43b2c",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\compact-next-bill-hard-v1\\result.json": "d1dd61f1a35b78c738e9e49e589c55ad667846447c2f0803ade4fc43dd819a04",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\compact-next-bill-hard-v1\\trace.csv": "66d93f300bb4d441230b8078f83f2c62f4cc58c57e33b7c0fcabeb089f528370",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\capture_budget.py": "b9985e2e6db5c801a47454d8761adaf5f40e5254e8f599aeeddf412c1b7e8db9",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\current_bill_passive_timing_prepare_v1.py": "96825a1419459bdb8c17f6741612c0ed2fcfbbff55727426639e4130c3f44d77",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\current_bill_passive_timing_v1.lua": "686e08d0c0b52f54807422befb43a0e96c335a302b50dd41983d87b28a90b86f",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\current_roster_compact_11_v1.lua": "aba8f2418690dbf9c3fcb0709dba6ec46c3c16c12b91b62fd108e9e9082e2f0c",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\current_roster_compact_11_v1.py": "fe2b6c43ae273269ed40f18e62cfcb3ba1d45cde6d0463d748ba72ccc25ebd6f",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\final_inventory_compact_capture_v1.lua": "1aa9e049764584841be0c590c15427225863bcf7bc64aca8c93a609c2cadd40d",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\final_inventory_compact_capture_v1.py": "fd5585f4f5ccb4217a25270703784193e336c580ba71c65aa53fda0a70068b2a",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\run_mesen_isolated.py": "976f197a3712511e821f545e655eaa3f9bcfe95e42a3c6c76b2adca288d2aad3",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\playthroughs\\roster_samus_contra.lua": "17b0683a72af2046c7a17f9d16ccf3b0a8322eca7a55a8c0000b9f4a22208847",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\playthroughs\\roster_samus_contra_nav.lua": "b80b164e8583565f14e9ac6145c7aa2d314c55b253325630d9438a13e17514b0",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\run_mesen.py": "5d71507b99a100a10b48ad84e1bb3e7db92c470e6215315c9d962551a4222c67"
+  },
+  "required_ram_reads": {
+    "AreaPointer": {
+      "address": 1877,
+      "origin": "driver_VICE_label"
+    },
+    "AreaType": {
+      "address": 1875,
+      "origin": "driver_VICE_label"
+    },
+    "BillVariant": {
+      "address": 27653,
+      "origin": "driver_VICE_label"
+    },
+    "Block_Buffer_1": {
+      "address": 768,
+      "origin": "driver_VICE_label"
+    },
+    "CheatInvincible": {
+      "address": 32763,
+      "origin": "driver_VICE_label"
+    },
+    "CheatStartLevel": {
+      "address": 32764,
+      "origin": "driver_VICE_label"
+    },
+    "CrossoverBehaviorVersion": {
+      "address": 32737,
+      "origin": "driver_VICE_label"
+    },
+    "CrossoverMenuIndex": {
+      "address": 29449,
+      "origin": "driver_VICE_label"
+    },
+    "CrossoverMenuState": {
+      "address": 29447,
+      "origin": "driver_VICE_label"
+    },
+    "CrossoverOptionsFocus": {
+      "address": 32441,
+      "origin": "driver_VICE_label"
+    },
+    "CrossoverTitleDrawn": {
+      "address": 24580,
+      "origin": "driver_VICE_label"
+    },
+    "CurrentBank": {
+      "address": 325,
+      "origin": "driver_VICE_label"
+    },
+    "CurrentBankC": {
+      "address": 32161,
+      "origin": "driver_VICE_label"
+    },
+    "DisableScreenFlag": {
+      "address": 1909,
+      "origin": "driver_VICE_label"
+    },
+    "Enemy_Flag": {
+      "address": 16,
+      "origin": "driver_VICE_label"
+    },
+    "Enemy_ID": {
+      "address": 23,
+      "origin": "driver_VICE_label"
+    },
+    "Enemy_PageLoc": {
+      "address": 93,
+      "origin": "driver_VICE_label"
+    },
+    "Enemy_State": {
+      "address": 31,
+      "origin": "driver_VICE_label"
+    },
+    "Enemy_X_Position": {
+      "address": 118,
+      "origin": "driver_VICE_label"
+    },
+    "Enemy_Y_Position": {
+      "address": 190,
+      "origin": "driver_VICE_label"
+    },
+    "GameEngineSubroutine": {
+      "address": 15,
+      "origin": "driver_VICE_label"
+    },
+    "InvOwnedHi": {
+      "address": 31810,
+      "origin": "driver_VICE_label"
+    },
+    "InvOwnedLo": {
+      "address": 31798,
+      "origin": "driver_VICE_label"
+    },
+    "LevelNumber": {
+      "address": 1889,
+      "origin": "driver_VICE_label"
+    },
+    "NumberofLives": {
+      "address": 1887,
+      "origin": "driver_VICE_label"
+    },
+    "OperMode": {
+      "address": 1905,
+      "origin": "driver_VICE_label"
+    },
+    "OperMode_Task": {
+      "address": 1907,
+      "origin": "driver_VICE_label"
+    },
+    "PlayerFacingDir": {
+      "address": 1342,
+      "origin": "driver_VICE_label"
+    },
+    "PlayerStatus": {
+      "address": 1883,
+      "origin": "driver_VICE_label"
+    },
+    "Player_State": {
+      "address": 30,
+      "origin": "driver_VICE_label"
+    },
+    "Player_X_Speed": {
+      "address": 70,
+      "origin": "driver_VICE_label"
+    },
+    "Player_Y_HighPos": {
+      "address": 164,
+      "origin": "driver_VICE_label"
+    },
+    "Player_Y_Position": {
+      "address": 189,
+      "origin": "driver_VICE_label"
+    },
+    "Player_Y_Speed": {
+      "address": 142,
+      "origin": "driver_VICE_label"
+    },
+    "R2": {
+      "address": 5,
+      "origin": "driver_VICE_label"
+    },
+    "R3": {
+      "address": 6,
+      "origin": "driver_VICE_label"
+    },
+    "SelectedCharacter": {
+      "address": 24578,
+      "origin": "driver_VICE_label"
+    },
+    "SmBall": {
+      "address": 27392,
+      "origin": "driver_VICE_label"
+    },
+    "TimerControl": {
+      "address": 1866,
+      "origin": "driver_VICE_label"
+    },
+    "WorldNumber": {
+      "address": 1892,
+      "origin": "driver_VICE_label"
+    }
+  },
+  "hook_copy_owners": {
+    "NonMaskableInterrupt": {
+      "start": 58172,
+      "size": 212,
+      "banks": [
+        125,
+        127
+      ],
+      "body_sha256": "2206c8675917b6ce9099919f19cd2236eaaf6db702e35747bc73c91f8cbc6233"
+    },
+    "OAMandReadJoypad": {
+      "start": 57344,
+      "size": 43,
+      "banks": [
+        125,
+        127
+      ],
+      "body_sha256": "92e3ab82a5ac222ecbd612eb7204f2e8108dc3e2434c80ff7ca0250cff37eb1f"
+    }
+  },
+  "current_policy_status": "Surviving tracked discovery policy, NOT a current-ROM clear proof",
+  "max_total_frames": 3560,
+  "container_cap_bytes": 134217728,
+  "central_run_cap_bytes": 2000000000,
+  "screenshot_files_during_native": 0,
+  "maximum_offline_selected_frames": 8,
+  "no_source_runtime_clones": true,
+  "no_emulated_writes": true,
+  "no_cheats": true,
+  "explicit_endpoint": "World0/Level0 seen; natural World0/Level1 entry; >=25 completed active updates and >5px control there; zero deaths",
+  "remaining_dependencies": "Only listed current build/debug/labels, tracked scripts/controllers and existing C:/Mesen2 runtime/settings. No deleted archive inputs, Lua/Python package downloads or capture bridge.",
+  "passive_timing": {
+    "functions": 17,
+    "startup_static_return_PCs": 675,
+    "warmup_first_frame": 3499,
+    "detailed_window": [
+      3500,
+      3560
+    ],
+    "CSV_max_rows": 200,
+    "CSV_max_bytes": 1048576,
+    "expected_CSV_rows": 62,
+    "no_runtime_callback_registration": true,
+    "no_state_or_input_writes": true,
+    "spans": "Completed at real callerPC/SP/physical bank. Inclusive minus ISR; exclusive additionally minus same-context childCPU. Completion buckets are not physical-frame CPU integrals. Open spans atcutoff censored.",
+    "expected_native_terminal": "Original unmodified harness FALSE/exit1: finite frame bound at3560. Any earlier or other guard failure remains a failure, never normalized.",
+    "exact_saved_inputs": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\compact-next-bill-hard-v1\\inputs.csv",
+    "identity": "Bill Hard variant0",
+    "capture": "One128MiB NESPPU01 container,3568 record cap (<4000), zero native PNG/per-frame files.",
+    "ordinary_game_or_driver_changes": false,
+    "original_harness_sha256": "aba8f2418690dbf9c3fcb0709dba6ec46c3c16c12b91b62fd108e9e9082e2f0c",
+    "host_runner_reverse_removes_only_observer_insertion": true,
+    "source_scope": "Metadata derived only from immutable build/proto_palette_ack.nes/.dbg/.lbl; no canonical source dependencies.",
+    "historical_scope": "Original BillHardv1 full6076-frame clear remains separate; this prefix is diagnostic, not a new clear or60fps claim.",
+    "source_proven_tail_return": {
+      "return_pc": 39877,
+      "call": {
+        "name": "PlayerHeadProbe",
+        "symbol": "PlayerHeadProbe",
+        "pc": 39874,
+        "banks": [
+          126
+        ],
+        "bytes": [
+          32,
+          19,
+          241
+        ]
+      },
+      "selector": {
+        "name": "BillBGHeadConsumer",
+        "symbol": "BillBGHeadConsumer",
+        "pc": 61715,
+        "banks": [
+          127,
+          125
+        ],
+        "bytes": [
+          8,
+          72,
+          173
+        ]
+      },
+      "selector_bytes": [
+        8,
+        72,
+        173,
+        2,
+        96,
+        201,
+        3,
+        240,
+        5,
+        104,
+        40,
+        76,
+        12,
+        145,
+        104,
+        40,
+        76,
+        176,
+        148
+      ],
+      "measured_tail_entry": {
+        "name": "BillBGEmptyEnvelope",
+        "symbol": "BillBGEmptyEnvelope",
+        "pc": 38064,
+        "banks": [
+          126
+        ],
+        "bytes": [
+          174,
+          229,
+          127
+        ]
+      },
+      "legacy_tail_entry": {
+        "name": "BillHeadConsumer",
+        "symbol": "BillHeadConsumer",
+        "pc": 37132,
+        "banks": [
+          126
+        ],
+        "bytes": [
+          32,
+          88,
+          228
+        ]
+      },
+      "source_path": "JSR selector; PHP/PHA; LDA SelectedCharacter/CMP3/BEQ owned; PLA/PLP; JMP measured entry. No extra return address is pushed.",
+      "metadata_controls": {
+        "original_missing_return": true,
+        "exact_owner_accepts": true,
+        "wrong_bank_rejected": true,
+        "JMP_in_place_of_JSR_rejected": true,
+        "wrong_JSR_target_rejected": true
+      },
+      "scope": "Compiled control-flow and caller-metadata controls only; not a new native timing result."
+    },
+    "all17_source_caller_closure": {
+      "algorithm": "All17 compiled entries; backwards decoded instruction flow, direct branches/JMPs, stack-neutral paths, and explicit JumpEngine typed-word dispatch. JSR callees are separate owners; only their post-return continuation is a local edge.",
+      "decoded_source_instructions": 113600,
+      "verified_mirror_instructions": 1631,
+      "jump_engine_dispatches": [
+        {
+          "bank": 2,
+          "pc": 41153,
+          "arms": [
+            [
+              2,
+              41190
+            ],
+            [
+              2,
+              41172
+            ],
+            [
+              2,
+              41172
+            ],
+            [
+              2,
+              41479
+            ],
+            [
+              2,
+              41190
+            ],
+            [
+              2,
+              41172
+            ],
+            [
+              2,
+              41172
+            ],
+            [
+              2,
+              41479
+            ]
+          ]
+        },
+        {
+          "bank": 2,
+          "pc": 42096,
+          "arms": [
+            [
+              2,
+              48567
+            ],
+            [
+              2,
+              47641
+            ],
+            [
+              2,
+              47829
+            ],
+            [
+              2,
+              47845
+            ],
+            [
+              2,
+              48207
+            ],
+            [
+              2,
+              47863
+            ],
+            [
+              2,
+              47872
+            ],
+            [
+              2,
+              48567
+            ],
+            [
+              2,
+              48299
+            ],
+            [
+              2,
+              48699
+            ],
+            [
+              2,
+              47944
+            ],
+            [
+              2,
+              47947
+            ],
+            [
+              2,
+              47950
+            ],
+            [
+              2,
+              48278
+            ],
+            [
+              2,
+              48720
+            ],
+            [
+              2,
+              48723
+            ],
+            [
+              2,
+              48737
+            ],
+            [
+              2,
+              48744
+            ],
+            [
+              2,
+              48026
+            ],
+            [
+              2,
+              48785
+            ],
+            [
+              2,
+              48509
+            ],
+            [
+              2,
+              48216
+            ],
+            [
+              2,
+              47901
+            ],
+            [
+              2,
+              47901
+            ],
+            [
+              2,
+              47901
+            ],
+            [
+              2,
+              47888
+            ],
+            [
+              2,
+              47912
+            ],
+            [
+              2,
+              47912
+            ],
+            [
+              2,
+              47912
+            ],
+            [
+              2,
+              47907
+            ],
+            [
+              2,
+              47912
+            ],
+            [
+              2,
+              48452
+            ],
+            [
+              2,
+              48191
+            ],
+            [
+              2,
+              48406
+            ],
+            [
+              2,
+              48468
+            ],
+            [
+              2,
+              48216
+            ],
+            [
+              2,
+              48175
+            ],
+            [
+              2,
+              48180
+            ],
+            [
+              2,
+              48167
+            ],
+            [
+              2,
+              42238
+            ],
+            [
+              2,
+              42280
+            ],
+            [
+              2,
+              42280
+            ],
+            [
+              2,
+              42292
+            ],
+            [
+              2,
+              42292
+            ],
+            [
+              2,
+              42292
+            ],
+            [
+              2,
+              42065
+            ],
+            [
+              2,
+              42193
+            ]
+          ]
+        },
+        {
+          "bank": 2,
+          "pc": 47644,
+          "arms": [
+            [
+              2,
+              47653
+            ],
+            [
+              2,
+              47697
+            ],
+            [
+              2,
+              47760
+            ]
+          ]
+        },
+        {
+          "bank": 126,
+          "pc": 36315,
+          "arms": [
+            [
+              126,
+              36336
+            ],
+            [
+              126,
+              36550
+            ],
+            [
+              126,
+              36550
+            ],
+            [
+              126,
+              36342
+            ],
+            [
+              126,
+              36336
+            ],
+            [
+              126,
+              36355
+            ],
+            [
+              126,
+              36339
+            ],
+            [
+              126,
+              36550
+            ],
+            [
+              126,
+              36342
+            ]
+          ]
+        },
+        {
+          "bank": 126,
+          "pc": 34619,
+          "arms": [
+            [
+              126,
+              34770
+            ],
+            [
+              126,
+              34630
+            ],
+            [
+              126,
+              34664
+            ],
+            [
+              126,
+              33690
+            ]
+          ]
+        },
+        {
+          "bank": 126,
+          "pc": 34715,
+          "arms": [
+            [
+              126,
+              34726
+            ],
+            [
+              126,
+              34616
+            ],
+            [
+              126,
+              35050
+            ],
+            [
+              126,
+              34940
+            ]
+          ]
+        },
+        {
+          "bank": 126,
+          "pc": 34729,
+          "arms": [
+            [
+              126,
+              34740
+            ],
+            [
+              126,
+              34630
+            ],
+            [
+              126,
+              34648
+            ],
+            [
+              126,
+              35008
+            ]
+          ]
+        },
+        {
+          "bank": 126,
+          "pc": 34943,
+          "arms": [
+            [
+              126,
+              34952
+            ],
+            [
+              126,
+              34630
+            ],
+            [
+              126,
+              34972
+            ]
+          ]
+        },
+        {
+          "bank": 126,
+          "pc": 35071,
+          "arms": [
+            [
+              126,
+              35084
+            ],
+            [
+              126,
+              35102
+            ],
+            [
+              126,
+              35118
+            ],
+            [
+              126,
+              35136
+            ],
+            [
+              126,
+              35154
+            ]
+          ]
+        },
+        {
+          "bank": 1,
+          "pc": 40995,
+          "arms": [
+            [
+              1,
+              41642
+            ],
+            [
+              1,
+              41443
+            ],
+            [
+              1,
+              41506
+            ],
+            [
+              1,
+              41473
+            ],
+            [
+              1,
+              42296
+            ],
+            [
+              1,
+              42326
+            ],
+            [
+              1,
+              41566
+            ],
+            [
+              1,
+              41024
+            ],
+            [
+              1,
+              41155
+            ],
+            [
+              1,
+              42005
+            ],
+            [
+              1,
+              42066
+            ],
+            [
+              1,
+              42110
+            ],
+            [
+              1,
+              42234
+            ]
+          ]
+        },
+        {
+          "bank": 1,
+          "pc": 42747,
+          "arms": [
+            [
+              1,
+              42759
+            ],
+            [
+              1,
+              42789
+            ],
+            [
+              1,
+              42780
+            ],
+            [
+              1,
+              42883
+            ]
+          ]
+        },
+        {
+          "bank": 0,
+          "pc": 41676,
+          "arms": [
+            [
+              0,
+              42072
+            ],
+            [
+              0,
+              42688
+            ],
+            [
+              0,
+              45677
+            ],
+            [
+              0,
+              42243
+            ],
+            [
+              0,
+              42243
+            ],
+            [
+              0,
+              42243
+            ],
+            [
+              0,
+              42243
+            ],
+            [
+              0,
+              45087
+            ],
+            [
+              0,
+              45087
+            ],
+            [
+              0,
+              45087
+            ],
+            [
+              0,
+              45087
+            ],
+            [
+              0,
+              45087
+            ],
+            [
+              0,
+              45087
+            ],
+            [
+              0,
+              45087
+            ],
+            [
+              0,
+              45087
+            ],
+            [
+              0,
+              42243
+            ],
+            [
+              0,
+              46165
+            ],
+            [
+              0,
+              46165
+            ],
+            [
+              0,
+              46165
+            ],
+            [
+              0,
+              46165
+            ],
+            [
+              0,
+              46165
+            ],
+            [
+              0,
+              46165
+            ],
+            [
+              0,
+              46165
+            ],
+            [
+              0,
+              46141
+            ],
+            [
+              0,
+              46141
+            ],
+            [
+              0,
+              42893
+            ],
+            [
+              0,
+              47004
+            ],
+            [
+              0,
+              47150
+            ],
+            [
+              0,
+              42243
+            ],
+            [
+              0,
+              45727
+            ],
+            [
+              0,
+              45929
+            ],
+            [
+              0,
+              42243
+            ],
+            [
+              0,
+              47261
+            ],
+            [
+              0,
+              42034
+            ]
+          ]
+        },
+        {
+          "bank": 0,
+          "pc": 42198,
+          "arms": [
+            [
+              0,
+              43581
+            ],
+            [
+              0,
+              43581
+            ],
+            [
+              0,
+              43581
+            ],
+            [
+              0,
+              43581
+            ],
+            [
+              0,
+              43581
+            ],
+            [
+              0,
+              43418
+            ],
+            [
+              0,
+              43581
+            ],
+            [
+              0,
+              42510
+            ],
+            [
+              0,
+              43901
+            ],
+            [
+              0,
+              42243
+            ],
+            [
+              0,
+              44130
+            ],
+            [
+              0,
+              44130
+            ],
+            [
+              0,
+              46959
+            ],
+            [
+              0,
+              46050
+            ],
+            [
+              126,
+              40919
+            ],
+            [
+              0,
+              46897
+            ],
+            [
+              0,
+              42406
+            ],
+            [
+              0,
+              43716
+            ],
+            [
+              0,
+              43581
+            ],
+            [
+              0,
+              42243
+            ],
+            [
+              0,
+              44271
+            ]
+          ]
+        },
+        {
+          "bank": 0,
+          "pc": 45739,
+          "arms": [
+            [
+              0,
+              45783
+            ],
+            [
+              0,
+              45752
+            ],
+            [
+              0,
+              45784
+            ],
+            [
+              0,
+              45864
+            ],
+            [
+              0,
+              45915
+            ]
+          ]
+        },
+        {
+          "bank": 7,
+          "pc": 46779,
+          "arms": [
+            [
+              7,
+              46894
+            ],
+            [
+              7,
+              46894
+            ],
+            [
+              7,
+              46894
+            ],
+            [
+              7,
+              46916
+            ],
+            [
+              7,
+              46923
+            ],
+            [
+              7,
+              46926
+            ],
+            [
+              7,
+              46910
+            ],
+            [
+              7,
+              46947
+            ],
+            [
+              7,
+              47000
+            ],
+            [
+              7,
+              46923
+            ],
+            [
+              7,
+              47011
+            ],
+            [
+              7,
+              47011
+            ],
+            [
+              7,
+              46984
+            ],
+            [
+              7,
+              47027
+            ],
+            [
+              7,
+              47057
+            ],
+            [
+              7,
+              46955
+            ],
+            [
+              7,
+              47052
+            ],
+            [
+              7,
+              47072
+            ],
+            [
+              7,
+              47242
+            ],
+            [
+              7,
+              46923
+            ],
+            [
+              7,
+              47242
+            ],
+            [
+              7,
+              47242
+            ],
+            [
+              7,
+              47242
+            ],
+            [
+              7,
+              47242
+            ],
+            [
+              7,
+              47802
+            ],
+            [
+              7,
+              46923
+            ],
+            [
+              7,
+              46923
+            ],
+            [
+              7,
+              47840
+            ],
+            [
+              7,
+              47840
+            ],
+            [
+              7,
+              47840
+            ],
+            [
+              7,
+              47840
+            ],
+            [
+              7,
+              47837
+            ],
+            [
+              7,
+              46923
+            ],
+            [
+              7,
+              46923
+            ],
+            [
+              7,
+              46923
+            ],
+            [
+              7,
+              46923
+            ],
+            [
+              7,
+              47888
+            ],
+            [
+              7,
+              47940
+            ],
+            [
+              7,
+              47985
+            ],
+            [
+              7,
+              47991
+            ],
+            [
+              7,
+              47933
+            ],
+            [
+              7,
+              47925
+            ],
+            [
+              7,
+              47933
+            ],
+            [
+              7,
+              47997
+            ],
+            [
+              7,
+              48009
+            ],
+            [
+              7,
+              48051
+            ],
+            [
+              7,
+              46923
+            ],
+            [
+              7,
+              48096
+            ],
+            [
+              7,
+              46923
+            ],
+            [
+              7,
+              46923
+            ],
+            [
+              7,
+              46923
+            ],
+            [
+              7,
+              46923
+            ],
+            [
+              7,
+              46923
+            ],
+            [
+              7,
+              48140
+            ],
+            [
+              7,
+              46923
+            ]
+          ]
+        },
+        {
+          "bank": 7,
+          "pc": 47250,
+          "arms": [
+            [
+              7,
+              47278
+            ],
+            [
+              7,
+              47265
+            ],
+            [
+              7,
+              47500
+            ],
+            [
+              7,
+              47098
+            ],
+            [
+              7,
+              48157
+            ],
+            [
+              7,
+              47673
+            ]
+          ]
+        },
+        {
+          "bank": 3,
+          "pc": 45601,
+          "arms": [
+            [
+              3,
+              45634
+            ],
+            [
+              3,
+              45767
+            ],
+            [
+              3,
+              45759
+            ],
+            [
+              3,
+              45804
+            ],
+            [
+              3,
+              46169
+            ],
+            [
+              3,
+              45861
+            ],
+            [
+              3,
+              46064
+            ],
+            [
+              3,
+              45861
+            ],
+            [
+              3,
+              46190
+            ],
+            [
+              3,
+              45673
+            ],
+            [
+              3,
+              46238
+            ],
+            [
+              3,
+              46636
+            ],
+            [
+              3,
+              46651
+            ],
+            [
+              3,
+              46670
+            ],
+            [
+              3,
+              46661
+            ]
+          ]
+        },
+        {
+          "bank": 0,
+          "pc": 47870,
+          "arms": [
+            [
+              0,
+              48006
+            ],
+            [
+              0,
+              47996
+            ],
+            [
+              0,
+              48157
+            ],
+            [
+              0,
+              47996
+            ],
+            [
+              0,
+              47915
+            ],
+            [
+              0,
+              48298
+            ],
+            [
+              0,
+              47952
+            ],
+            [
+              0,
+              48258
+            ],
+            [
+              0,
+              48111
+            ],
+            [
+              0,
+              47915
+            ],
+            [
+              0,
+              48216
+            ],
+            [
+              0,
+              48216
+            ],
+            [
+              0,
+              48131
+            ],
+            [
+              0,
+              47918
+            ],
+            [
+              0,
+              48080
+            ],
+            [
+              0,
+              48070
+            ],
+            [
+              0,
+              48080
+            ],
+            [
+              0,
+              48343
+            ],
+            [
+              0,
+              48376
+            ],
+            [
+              0,
+              47915
+            ],
+            [
+              0,
+              48219
+            ]
+          ]
+        },
+        {
+          "bank": 26,
+          "pc": 44636,
+          "arms": [
+            [
+              26,
+              44653
+            ],
+            [
+              26,
+              44671
+            ],
+            [
+              26,
+              44689
+            ],
+            [
+              26,
+              44689
+            ],
+            [
+              26,
+              44707
+            ],
+            [
+              26,
+              44725
+            ],
+            [
+              26,
+              44743
+            ]
+          ]
+        }
+      ],
+      "indirect_JMP_inventory": [
+        {
+          "bank": 4,
+          "pc": 41564,
+          "bytes": [
+            108,
+            11,
+            0
+          ]
+        },
+        {
+          "bank": 126,
+          "pc": 35355,
+          "bytes": [
+            108,
+            9,
+            0
+          ]
+        },
+        {
+          "bank": 9,
+          "pc": 42346,
+          "bytes": [
+            108,
+            244,
+            0
+          ]
+        },
+        {
+          "bank": 11,
+          "pc": 41015,
+          "bytes": [
+            108,
+            193,
+            0
+          ]
+        },
+        {
+          "bank": 23,
+          "pc": 41605,
+          "bytes": [
+            108,
+            228,
+            0
+          ]
+        },
+        {
+          "bank": 23,
+          "pc": 42143,
+          "bytes": [
+            108,
+            228,
+            0
+          ]
+        },
+        {
+          "bank": 64,
+          "pc": 41015,
+          "bytes": [
+            108,
+            193,
+            0
+          ]
+        },
+        {
+          "bank": 115,
+          "pc": 43303,
+          "bytes": [
+            108,
+            240,
+            0
+          ]
+        },
+        {
+          "bank": 92,
+          "pc": 42534,
+          "bytes": [
+            108,
+            8,
+            92
+          ]
+        },
+        {
+          "bank": 82,
+          "pc": 46129,
+          "bytes": [
+            108,
+            3,
+            0
+          ]
+        }
+      ],
+      "functions": [
+        {
+          "function": "GameLoop",
+          "actual_entry": {
+            "name": "GameLoop",
+            "symbol": "GameLoop",
+            "pc": 33497,
+            "banks": [
+              126
+            ],
+            "bytes": [
+              169,
+              255,
+              141
+            ]
+          },
+          "neutral_entry_nodes": 1,
+          "source_JSR_callers": [
+            {
+              "bank": 126,
+              "pc": 33467,
+              "target": 33497,
+              "return_pc": 33470
+            },
+            {
+              "bank": 126,
+              "pc": 33485,
+              "target": 33497,
+              "return_pc": 33488
+            }
+          ],
+          "allowed_SMC_target_PCs": [
+            33497
+          ]
+        },
+        {
+          "function": "PlayerCtrlRoutine",
+          "actual_entry": {
+            "name": "PlayerCtrlRoutine",
+            "symbol": "PlayerCtrlRoutine",
+            "pc": 41155,
+            "banks": [
+              1
+            ],
+            "bytes": [
+              165,
+              15,
+              201
+            ]
+          },
+          "neutral_entry_nodes": 75,
+          "source_JSR_callers": [
+            {
+              "bank": 1,
+              "pc": 41060,
+              "target": 41531,
+              "return_pc": 41063
+            },
+            {
+              "bank": 1,
+              "pc": 41124,
+              "target": 41153,
+              "return_pc": 41127
+            },
+            {
+              "bank": 1,
+              "pc": 41506,
+              "target": 41531,
+              "return_pc": 41509
+            },
+            {
+              "bank": 1,
+              "pc": 42328,
+              "target": 41153,
+              "return_pc": 42331
+            }
+          ],
+          "allowed_SMC_target_PCs": [
+            40993,
+            40995,
+            41024,
+            41027,
+            41029,
+            41031,
+            41033,
+            41035,
+            41037,
+            41039,
+            41042,
+            41044,
+            41046,
+            41048,
+            41050,
+            41053,
+            41055,
+            41057,
+            41153,
+            41155,
+            41443,
+            41445,
+            41447,
+            41449,
+            41451,
+            41453,
+            41455,
+            41458,
+            41460,
+            41462,
+            41531,
+            41533,
+            41535,
+            41537,
+            41539,
+            41541,
+            41543,
+            41545,
+            41546,
+            41547,
+            42066,
+            42069,
+            42071,
+            42073,
+            42075,
+            42080,
+            42110,
+            42113,
+            42115,
+            42117,
+            42119,
+            42140,
+            42142,
+            42163,
+            42165,
+            42186,
+            42188,
+            42209,
+            42212,
+            42214,
+            42216,
+            42296,
+            42299,
+            42302,
+            42304,
+            42307,
+            42309,
+            42311,
+            42313,
+            42315,
+            49118,
+            49121,
+            49123,
+            49125,
+            49145
+          ]
+        },
+        {
+          "function": "PlayerMovementSubs",
+          "actual_entry": {
+            "name": "PlayerMovementSubs",
+            "symbol": "PlayerMovementSubs",
+            "pc": 42426,
+            "banks": [
+              1
+            ],
+            "bytes": [
+              173,
+              2,
+              96
+            ]
+          },
+          "neutral_entry_nodes": 1,
+          "source_JSR_callers": [
+            {
+              "bank": 1,
+              "pc": 41240,
+              "target": 42426,
+              "return_pc": 41243
+            }
+          ],
+          "allowed_SMC_target_PCs": [
+            42426
+          ]
+        },
+        {
+          "function": "RosterMovement",
+          "actual_entry": {
+            "name": "RosterMovement",
+            "symbol": "RosterMovement",
+            "pc": 43126,
+            "banks": [
+              3
+            ],
+            "bytes": [
+              173,
+              2,
+              96
+            ]
+          },
+          "neutral_entry_nodes": 1,
+          "source_JSR_callers": [],
+          "allowed_SMC_target_PCs": [
+            43126
+          ]
+        },
+        {
+          "function": "PlayerBGCollision",
+          "actual_entry": {
+            "name": "PlayerBGCollision",
+            "symbol": "PlayerBGCollision",
+            "pc": 39771,
+            "banks": [
+              126
+            ],
+            "bytes": [
+              173,
+              25,
+              7
+            ]
+          },
+          "neutral_entry_nodes": 1,
+          "source_JSR_callers": [
+            {
+              "bank": 1,
+              "pc": 41305,
+              "target": 39771,
+              "return_pc": 41308
+            }
+          ],
+          "allowed_SMC_target_PCs": [
+            39771
+          ]
+        },
+        {
+          "function": "BillHotProject",
+          "actual_entry": {
+            "name": "BillHotProject",
+            "symbol": "BillHotProject",
+            "pc": 37431,
+            "banks": [
+              126
+            ],
+            "bytes": [
+              8,
+              72,
+              138
+            ]
+          },
+          "neutral_entry_nodes": 8,
+          "source_JSR_callers": [
+            {
+              "bank": 125,
+              "pc": 58871,
+              "target": 37431,
+              "return_pc": 58874
+            },
+            {
+              "bank": 127,
+              "pc": 58871,
+              "target": 37431,
+              "return_pc": 58874
+            }
+          ],
+          "allowed_SMC_target_PCs": [
+            37431,
+            47473,
+            47475,
+            47480,
+            47482,
+            47487,
+            47489,
+            47491
+          ]
+        },
+        {
+          "function": "BillBGEmptyEnvelope",
+          "actual_entry": {
+            "name": "BillBGEmptyEnvelope",
+            "symbol": "BillBGEmptyEnvelope",
+            "pc": 38064,
+            "banks": [
+              126
+            ],
+            "bytes": [
+              174,
+              229,
+              127
+            ]
+          },
+          "neutral_entry_nodes": 5,
+          "source_JSR_callers": [
+            {
+              "bank": 126,
+              "pc": 39874,
+              "target": 61715,
+              "return_pc": 39877
+            }
+          ],
+          "allowed_SMC_target_PCs": [
+            38064,
+            61715,
+            61731
+          ]
+        },
+        {
+          "function": "RosterWeapons",
+          "actual_entry": {
+            "name": "RosterWeapons",
+            "symbol": "RosterWeapons",
+            "pc": 44888,
+            "banks": [
+              8
+            ],
+            "bytes": [
+              169,
+              0,
+              133
+            ]
+          },
+          "neutral_entry_nodes": 1,
+          "source_JSR_callers": [],
+          "allowed_SMC_target_PCs": [
+            44888
+          ]
+        },
+        {
+          "function": "RemainingWeapons",
+          "actual_entry": {
+            "name": "RemainingWeapons",
+            "symbol": "RemainingWeapons",
+            "pc": 43164,
+            "banks": [
+              6
+            ],
+            "bytes": [
+              173,
+              2,
+              96
+            ]
+          },
+          "neutral_entry_nodes": 1,
+          "source_JSR_callers": [],
+          "allowed_SMC_target_PCs": [
+            43164
+          ]
+        },
+        {
+          "function": "GuestPrepareEnemies",
+          "actual_entry": {
+            "name": "GuestPrepareEnemies",
+            "symbol": "GuestPrepareEnemies",
+            "pc": 40960,
+            "banks": [
+              8
+            ],
+            "bytes": [
+              169,
+              0,
+              141
+            ]
+          },
+          "neutral_entry_nodes": 1,
+          "source_JSR_callers": [
+            {
+              "bank": 8,
+              "pc": 45432,
+              "target": 40960,
+              "return_pc": 45435
+            }
+          ],
+          "allowed_SMC_target_PCs": [
+            40960
+          ]
+        },
+        {
+          "function": "RemainingDraw",
+          "actual_entry": {
+            "name": "RemainingDraw",
+            "symbol": "RemainingDraw",
+            "pc": 46742,
+            "banks": [
+              61
+            ],
+            "bytes": [
+              173,
+              2,
+              96
+            ]
+          },
+          "neutral_entry_nodes": 1,
+          "source_JSR_callers": [],
+          "allowed_SMC_target_PCs": [
+            46742
+          ]
+        },
+        {
+          "function": "RosterDrawShots",
+          "actual_entry": {
+            "name": "RosterDrawShots",
+            "symbol": "RosterDrawShots",
+            "pc": 48009,
+            "banks": [
+              4
+            ],
+            "bytes": [
+              173,
+              2,
+              96
+            ]
+          },
+          "neutral_entry_nodes": 1,
+          "source_JSR_callers": [],
+          "allowed_SMC_target_PCs": [
+            48009
+          ]
+        },
+        {
+          "function": "DrawAllMetasprites",
+          "actual_entry": {
+            "name": "DrawAllMetasprites",
+            "symbol": "DrawAllMetasprites",
+            "pc": 40960,
+            "banks": [
+              4
+            ],
+            "bytes": [
+              32,
+              105,
+              131
+            ]
+          },
+          "neutral_entry_nodes": 4,
+          "source_JSR_callers": [
+            {
+              "bank": 4,
+              "pc": 41654,
+              "target": 40960,
+              "return_pc": 41657
+            }
+          ],
+          "allowed_SMC_target_PCs": [
+            40960,
+            41649,
+            41652,
+            41675
+          ]
+        },
+        {
+          "function": "MetaspriteRenderLoop",
+          "actual_entry": {
+            "name": "MetaspriteRenderLoop",
+            "symbol": "MetaspriteRenderLoop",
+            "pc": 42426,
+            "banks": [
+              4
+            ],
+            "bytes": [
+              174,
+              222,
+              6
+            ]
+          },
+          "neutral_entry_nodes": 63,
+          "source_JSR_callers": [
+            {
+              "bank": 4,
+              "pc": 41450,
+              "target": 42608,
+              "return_pc": 41453
+            },
+            {
+              "bank": 4,
+              "pc": 41738,
+              "target": 42426,
+              "return_pc": 41741
+            },
+            {
+              "bank": 4,
+              "pc": 42222,
+              "target": 49035,
+              "return_pc": 42225
+            },
+            {
+              "bank": 4,
+              "pc": 47461,
+              "target": 42426,
+              "return_pc": 47464
+            },
+            {
+              "bank": 4,
+              "pc": 48195,
+              "target": 42426,
+              "return_pc": 48198
+            },
+            {
+              "bank": 4,
+              "pc": 48364,
+              "target": 42426,
+              "return_pc": 48367
+            },
+            {
+              "bank": 4,
+              "pc": 48542,
+              "target": 42426,
+              "return_pc": 48545
+            },
+            {
+              "bank": 4,
+              "pc": 48740,
+              "target": 42426,
+              "return_pc": 48743
+            }
+          ],
+          "allowed_SMC_target_PCs": [
+            42426,
+            42608,
+            42611,
+            42613,
+            42615,
+            42617,
+            42620,
+            42622,
+            42624,
+            42626,
+            42628,
+            42630,
+            42632,
+            42635,
+            42637,
+            42640,
+            42643,
+            42646,
+            42648,
+            42651,
+            42653,
+            48786,
+            48788,
+            48790,
+            48792,
+            48795,
+            48797,
+            48799,
+            48801,
+            48803,
+            48805,
+            48807,
+            48809,
+            48811,
+            48813,
+            48815,
+            48817,
+            48819,
+            48821,
+            48823,
+            48825,
+            48827,
+            48829,
+            48831,
+            48833,
+            48835,
+            48838,
+            48840,
+            48842,
+            48844,
+            48846,
+            49035,
+            49038,
+            49040,
+            49042,
+            49044,
+            49046,
+            49048,
+            49051,
+            49053,
+            49055,
+            49058,
+            49078
+          ]
+        },
+        {
+          "function": "AudioUpdate",
+          "actual_entry": {
+            "name": "AudioUpdate",
+            "symbol": "AudioUpdate",
+            "pc": 61533,
+            "banks": [
+              127,
+              125
+            ],
+            "bytes": [
+              173,
+              113,
+              7
+            ]
+          },
+          "neutral_entry_nodes": 2,
+          "source_JSR_callers": [
+            {
+              "bank": 5,
+              "pc": 47195,
+              "target": 61533,
+              "return_pc": 47198
+            },
+            {
+              "bank": 125,
+              "pc": 58229,
+              "target": 61533,
+              "return_pc": 58232
+            },
+            {
+              "bank": 125,
+              "pc": 58362,
+              "target": 61533,
+              "return_pc": 58365
+            },
+            {
+              "bank": 127,
+              "pc": 58229,
+              "target": 61533,
+              "return_pc": 58232
+            },
+            {
+              "bank": 127,
+              "pc": 58362,
+              "target": 61533,
+              "return_pc": 58365
+            }
+          ],
+          "allowed_SMC_target_PCs": [
+            61533
+          ]
+        },
+        {
+          "function": "BulletBlocks",
+          "actual_entry": {
+            "name": "BulletBlocks",
+            "symbol": "MegaManWeapons::Blocks",
+            "pc": 41670,
+            "banks": [
+              8
+            ],
+            "bytes": [
+              169,
+              0,
+              141
+            ]
+          },
+          "neutral_entry_nodes": 1,
+          "source_JSR_callers": [
+            {
+              "bank": 8,
+              "pc": 41233,
+              "target": 41670,
+              "return_pc": 41236
+            },
+            {
+              "bank": 8,
+              "pc": 45502,
+              "target": 41670,
+              "return_pc": 45505
+            },
+            {
+              "bank": 8,
+              "pc": 47214,
+              "target": 41670,
+              "return_pc": 47217
+            }
+          ],
+          "allowed_SMC_target_PCs": [
+            41670
+          ]
+        },
+        {
+          "function": "BulletEnemies",
+          "actual_entry": {
+            "name": "BulletEnemies",
+            "symbol": "MegaManWeapons::Enemies",
+            "pc": 42824,
+            "banks": [
+              8
+            ],
+            "bytes": [
+              173,
+              2,
+              96
+            ]
+          },
+          "neutral_entry_nodes": 1,
+          "source_JSR_callers": [
+            {
+              "bank": 8,
+              "pc": 41244,
+              "target": 42824,
+              "return_pc": 41247
+            },
+            {
+              "bank": 8,
+              "pc": 45561,
+              "target": 42824,
+              "return_pc": 45564
+            },
+            {
+              "bank": 8,
+              "pc": 47291,
+              "target": 42824,
+              "return_pc": 47294
+            }
+          ],
+          "allowed_SMC_target_PCs": [
+            42824
+          ]
+        }
+      ],
+      "non_direct_caller_witnesses": [
+        {
+          "function": "PlayerCtrlRoutine",
+          "caller": {
+            "bank": 1,
+            "pc": 41060,
+            "target": 41531,
+            "return_pc": 41063
+          },
+          "stack_neutral_instruction_path": [
+            {
+              "bank": 1,
+              "pc": 41531,
+              "bytes": [
+                169,
+                8
+              ],
+              "span": "17644",
+              "mirror_of_bank": null
+            },
+            {
+              "bank": 1,
+              "pc": 41533,
+              "bytes": [
+                133,
+                70
+              ],
+              "span": "17645",
+              "mirror_of_bank": null
+            },
+            {
+              "bank": 1,
+              "pc": 41535,
+              "bytes": [
+                160,
+                1
+              ],
+              "span": "17646",
+              "mirror_of_bank": null
+            },
+            {
+              "bank": 1,
+              "pc": 41537,
+              "bytes": [
+                165,
+                117
+              ],
+              "span": "17647",
+              "mirror_of_bank": null
+            },
+            {
+              "bank": 1,
+              "pc": 41539,
+              "bytes": [
+                41,
+                15
+              ],
+              "span": "17648",
+              "mirror_of_bank": null
+            },
+            {
+              "bank": 1,
+              "pc": 41541,
+              "bytes": [
+                208,
+                3
+              ],
+              "span": "17649",
+              "mirror_of_bank": null
+            },
+            {
+              "bank": 1,
+              "pc": 41546,
+              "bytes": [
+                152
+              ],
+              "span": "17652",
+              "mirror_of_bank": null
+            },
+            {
+              "bank": 1,
+              "pc": 41547,
+              "bytes": [
+                76,
+                193,
+                160
+              ],
+              "span": "17653",
+              "mirror_of_bank": null
+            },
+            {
+              "bank": 1,
+              "pc": 41153,
+              "bytes": [
+                133,
+                220
+              ],
+              "span": "17475",
+              "mirror_of_bank": null
+            },
+            {
+              "bank": 1,
+              "pc": 41155,
+              "bytes": [
+                165,
+                15
+              ],
+              "span": "17476",
+              "mirror_of_bank": null
+            }
+          ]
+        },
+        {
+          "function": "PlayerCtrlRoutine",
+          "caller": {
+            "bank": 1,
+            "pc": 41124,
+            "target": 41153,
+            "return_pc": 41127
+          },
+          "stack_neutral_instruction_path": [
+            {
+              "bank": 1,
+              "pc": 41153,
+              "bytes": [
+                133,
+                220
+              ],
+              "span": "17475",
+              "mirror_of_bank": null
+            },
+            {
+              "bank": 1,
+              "pc": 41155,
+              "bytes": [
+                165,
+                15
+              ],
+              "span": "17476",
+              "mirror_of_bank": null
+            }
+          ]
+        },
+        {
+          "function": "PlayerCtrlRoutine",
+          "caller": {
+            "bank": 1,
+            "pc": 41506,
+            "target": 41531,
+            "return_pc": 41509
+          },
+          "stack_neutral_instruction_path": [
+            {
+              "bank": 1,
+              "pc": 41531,
+              "bytes": [
+                169,
+                8
+              ],
+              "span": "17644",
+              "mirror_of_bank": null
+            },
+            {
+              "bank": 1,
+              "pc": 41533,
+              "bytes": [
+                133,
+                70
+              ],
+              "span": "17645",
+              "mirror_of_bank": null
+            },
+            {
+              "bank": 1,
+              "pc": 41535,
+              "bytes": [
+                160,
+                1
+              ],
+              "span": "17646",
+              "mirror_of_bank": null
+            },
+            {
+              "bank": 1,
+              "pc": 41537,
+              "bytes": [
+                165,
+                117
+              ],
+              "span": "17647",
+              "mirror_of_bank": null
+            },
+            {
+              "bank": 1,
+              "pc": 41539,
+              "bytes": [
+                41,
+                15
+              ],
+              "span": "17648",
+              "mirror_of_bank": null
+            },
+            {
+              "bank": 1,
+              "pc": 41541,
+              "bytes": [
+                208,
+                3
+              ],
+              "span": "17649",
+              "mirror_of_bank": null
+            },
+            {
+              "bank": 1,
+              "pc": 41546,
+              "bytes": [
+                152
+              ],
+              "span": "17652",
+              "mirror_of_bank": null
+            },
+            {
+              "bank": 1,
+              "pc": 41547,
+              "bytes": [
+                76,
+                193,
+                160
+              ],
+              "span": "17653",
+              "mirror_of_bank": null
+            },
+            {
+              "bank": 1,
+              "pc": 41153,
+              "bytes": [
+                133,
+                220
+              ],
+              "span": "17475",
+              "mirror_of_bank": null
+            },
+            {
+              "bank": 1,
+              "pc": 41155,
+              "bytes": [
+                165,
+                15
+              ],
+              "span": "17476",
+              "mirror_of_bank": null
+            }
+          ]
+        },
+        {
+          "function": "PlayerCtrlRoutine",
+          "caller": {
+            "bank": 1,
+            "pc": 42328,
+            "target": 41153,
+            "return_pc": 42331
+          },
+          "stack_neutral_instruction_path": [
+            {
+              "bank": 1,
+              "pc": 41153,
+              "bytes": [
+                133,
+                220
+              ],
+              "span": "17475",
+              "mirror_of_bank": null
+            },
+            {
+              "bank": 1,
+              "pc": 41155,
+              "bytes": [
+                165,
+                15
+              ],
+              "span": "17476",
+              "mirror_of_bank": null
+            }
+          ]
+        },
+        {
+          "function": "BillBGEmptyEnvelope",
+          "caller": {
+            "bank": 126,
+            "pc": 39874,
+            "target": 61715,
+            "return_pc": 39877
+          },
+          "stack_neutral_instruction_path": [
+            {
+              "bank": 127,
+              "pc": 61715,
+              "bytes": [
+                8
+              ],
+              "span": "124248",
+              "mirror_of_bank": null
+            },
+            {
+              "bank": 127,
+              "pc": 61716,
+              "bytes": [
+                72
+              ],
+              "span": "124249",
+              "mirror_of_bank": null
+            },
+            {
+              "bank": 127,
+              "pc": 61717,
+              "bytes": [
+                173,
+                2,
+                96
+              ],
+              "span": "124250",
+              "mirror_of_bank": null
+            },
+            {
+              "bank": 127,
+              "pc": 61720,
+              "bytes": [
+                201,
+                3
+              ],
+              "span": "124251",
+              "mirror_of_bank": null
+            },
+            {
+              "bank": 127,
+              "pc": 61722,
+              "bytes": [
+                240,
+                5
+              ],
+              "span": "124252",
+              "mirror_of_bank": null
+            },
+            {
+              "bank": 127,
+              "pc": 61729,
+              "bytes": [
+                104
+              ],
+              "span": "124256",
+              "mirror_of_bank": null
+            },
+            {
+              "bank": 127,
+              "pc": 61730,
+              "bytes": [
+                40
+              ],
+              "span": "124257",
+              "mirror_of_bank": null
+            },
+            {
+              "bank": 127,
+              "pc": 61731,
+              "bytes": [
+                76,
+                176,
+                148
+              ],
+              "span": "124258",
+              "mirror_of_bank": null
+            },
+            {
+              "bank": 126,
+              "pc": 38064,
+              "bytes": [
+                174,
+                229,
+                127
+              ],
+              "span": "124194",
+              "mirror_of_bank": null
+            }
+          ]
+        },
+        {
+          "function": "MetaspriteRenderLoop",
+          "caller": {
+            "bank": 4,
+            "pc": 41450,
+            "target": 42608,
+            "return_pc": 41453
+          },
+          "stack_neutral_instruction_path": [
+            {
+              "bank": 4,
+              "pc": 42608,
+              "bytes": [
+                189,
+                27,
+                1
+              ],
+              "span": "1218",
+              "mirror_of_bank": null
+            },
+            {
+              "bank": 4,
+              "pc": 42611,
+              "bytes": [
+                201,
+                24
+              ],
+              "span": "1219",
+              "mirror_of_bank": null
+            },
+            {
+              "bank": 4,
+              "pc": 42613,
+              "bytes": [
+                144,
+                5
+              ],
+              "span": "1220",
+              "mirror_of_bank": null
+            },
+            {
+              "bank": 4,
+              "pc": 42620,
+              "bytes": [
+                133,
+                9
+              ],
+              "span": "1223",
+              "mirror_of_bank": null
+            },
+            {
+              "bank": 4,
+              "pc": 42622,
+              "bytes": [
+                169,
+                1
+              ],
+              "span": "1224",
+              "mirror_of_bank": null
+            },
+            {
+              "bank": 4,
+              "pc": 42624,
+              "bytes": [
+                133,
+                10
+              ],
+              "span": "1225",
+              "mirror_of_bank": null
+            },
+            {
+              "bank": 4,
+              "pc": 42626,
+              "bytes": [
+                169,
+                0
+              ],
+              "span": "1226",
+              "mirror_of_bank": null
+            },
+            {
+              "bank": 4,
+              "pc": 42628,
+              "bytes": [
+                133,
+                6
+              ],
+              "span": "1227",
+              "mirror_of_bank": null
+            },
+            {
+              "bank": 4,
+              "pc": 42630,
+              "bytes": [
+                133,
+                8
+              ],
+              "span": "1228",
+              "mirror_of_bank": null
+            },
+            {
+              "bank": 4,
+              "pc": 42632,
+              "bytes": [
+                189,
+                20,
+                1
+              ],
+              "span": "1229",
+              "mirror_of_bank": null
+            },
+            {
+              "bank": 4,
+              "pc": 42635,
+              "bytes": [
+                133,
+                7
+              ],
+              "span": "1230",
+              "mirror_of_bank": null
+            },
+            {
+              "bank": 4,
+              "pc": 42637,
+              "bytes": [
+                188,
+                13,
+                1
+              ],
+              "span": "1231",
+              "mirror_of_bank": null
+            },
+            {
+              "bank": 4,
+              "pc": 42640,
+              "bytes": [
+                190,
+                159,
+                166
+              ],
+              "span": "1232",
+              "mirror_of_bank": null
+            },
+            {
+              "bank": 4,
+              "pc": 42643,
+              "bytes": [
+                189,
+                214,
+                181
+              ],
+              "span": "1233",
+              "mirror_of_bank": null
+            },
+            {
+              "bank": 4,
+              "pc": 42646,
+              "bytes": [
+                133,
+                3
+              ],
+              "span": "1234",
+              "mirror_of_bank": null
+            },
+            {
+              "bank": 4,
+              "pc": 42648,
+              "bytes": [
+                189,
+                210,
+                182
+              ],
+              "span": "1235",
+              "mirror_of_bank": null
+            },
+            {
+              "bank": 4,
+              "pc": 42651,
+              "bytes": [
+                133,
+                4
+              ],
+              "span": "1236",
+              "mirror_of_bank": null
+            },
+            {
+              "bank": 4,
+              "pc": 42653,
+              "bytes": [
+                76,
+                186,
+                165
+              ],
+              "span": "1237",
+              "mirror_of_bank": null
+            },
+            {
+              "bank": 4,
+              "pc": 42426,
+              "bytes": [
+                174,
+                222,
+                6
+              ],
+              "span": "1116",
+              "mirror_of_bank": null
+            }
+          ]
+        },
+        {
+          "function": "MetaspriteRenderLoop",
+          "caller": {
+            "bank": 4,
+            "pc": 42222,
+            "target": 49035,
+            "return_pc": 42225
+          },
+          "stack_neutral_instruction_path": [
+            {
+              "bank": 4,
+              "pc": 49035,
+              "bytes": [
+                173,
+                255,
+                127
+              ],
+              "span": "203208",
+              "mirror_of_bank": null
+            },
+            {
+              "bank": 4,
+              "pc": 49038,
+              "bytes": [
+                240,
+                38
+              ],
+              "span": "203209",
+              "mirror_of_bank": null
+            },
+            {
+              "bank": 4,
+              "pc": 49078,
+              "bytes": [
+                76,
+                146,
+                190
+              ],
+              "span": "203227",
+              "mirror_of_bank": null
+            },
+            {
+              "bank": 4,
+              "pc": 48786,
+              "bytes": [
+                165,
+                4
+              ],
+              "span": "117216",
+              "mirror_of_bank": null
+            },
+            {
+              "bank": 4,
+              "pc": 48788,
+              "bytes": [
+                201,
+                175
+              ],
+              "span": "117217",
+              "mirror_of_bank": null
+            },
+            {
+              "bank": 4,
+              "pc": 48790,
+              "bytes": [
+                240,
+                3
+              ],
+              "span": "117218",
+              "mirror_of_bank": null
+            },
+            {
+              "bank": 4,
+              "pc": 48792,
+              "bytes": [
+                76,
+                186,
+                165
+              ],
+              "span": "117219",
+              "mirror_of_bank": null
+            },
+            {
+              "bank": 4,
+              "pc": 42426,
+              "bytes": [
+                174,
+                222,
+                6
+              ],
+              "span": "1116",
+              "mirror_of_bank": null
+            }
+          ]
+        }
+      ],
+      "boundary": "This closes source-declared direct/tail/JumpEngine caller ownership. Genuine RAM farcall JSR targets must belong to the same stack-neutral closure. Arbitrary indirect targets are never accepted; an unlisted live caller still fails.",
+      "JumpEngine_exact_body": {
+        "name": "JumpEngine",
+        "symbol": "JumpEngine",
+        "pc": 35337,
+        "banks": [
+          126
+        ],
+        "bytes": [
+          10,
+          168,
+          104
+        ],
+        "full_bytes": [
+          10,
+          168,
+          104,
+          133,
+          7,
+          104,
+          133,
+          8,
+          200,
+          177,
+          7,
+          133,
+          9,
+          200,
+          177,
+          7,
+          133,
+          10,
+          108,
+          9,
+          0
+        ],
+        "stack_contract": "JSR pushes2; JumpEngine PLA/PLA removes exactly those2 and JMPs through typed inline words. The target inherits the dispatch caller return."
+      },
+      "source_proven_additions_beyond_v2": [
+        {
+          "function": "PlayerCtrlRoutine",
+          "return_pc": 41063,
+          "owner": {
+            "bank": 1,
+            "bytes": [
+              32,
+              59,
+              162
+            ]
+          }
+        },
+        {
+          "function": "PlayerCtrlRoutine",
+          "return_pc": 41127,
+          "owner": {
+            "bank": 1,
+            "bytes": [
+              32,
+              193,
+              160
+            ]
+          }
+        },
+        {
+          "function": "PlayerCtrlRoutine",
+          "return_pc": 41509,
+          "owner": {
+            "bank": 1,
+            "bytes": [
+              32,
+              59,
+              162
+            ]
+          }
+        },
+        {
+          "function": "PlayerCtrlRoutine",
+          "return_pc": 42331,
+          "owner": {
+            "bank": 1,
+            "bytes": [
+              32,
+              193,
+              160
+            ]
+          }
+        },
+        {
+          "function": "MetaspriteRenderLoop",
+          "return_pc": 41453,
+          "owner": {
+            "bank": 4,
+            "bytes": [
+              32,
+              112,
+              166
+            ]
+          }
+        },
+        {
+          "function": "MetaspriteRenderLoop",
+          "return_pc": 42225,
+          "owner": {
+            "bank": 4,
+            "bytes": [
+              32,
+              139,
+              191
+            ]
+          }
+        }
+      ],
+      "metadata_positive_negative_controls": {
+        "source_JSR_owners": 32,
+        "each_exact_owner_accepts": true,
+        "each_wrong_bank_rejected": true,
+        "each_JMP_in_place_of_JSR_rejected": true,
+        "each_changed_JSR_target_rejected": true,
+        "unlisted_return_and_wrong_function_return_rejected": true,
+        "scope": "Source/metadata controls, not a Lua/native timing qualification."
+      }
+    }
+  }
+}

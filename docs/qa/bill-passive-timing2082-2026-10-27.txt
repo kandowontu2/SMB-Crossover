@@ -1,0 +1,105 @@
+Bill Hard passive native timing: fixed2082 prefix, 2026-10-27
+
+Exact scope
+ROM2082c19a7364920f828e97f70040d37f1f7059bde1ea136b5c2c4532324abf36;
+existing build/proto_palette_ack.*. Actual replay stops at physical3560 with
+passed=false / reason="finite frame bound" / exit1. This is the intended
+bounded diagnostic cutoff, NOT a new route clear. All27 bindings/settings
+unchanged. V1 and V2 still have zero timing data rows and no qualification.
+No game/source/settings changes or native launch were made in this review.
+
+Replay identity and guards
+Inputs and trace are byte-exact prefixes of the original BillHardv1 clear.
+All883 prior event rows and3255 prior capture-index rows are exact; the only
+extra trailing rows are the intended failure/finite-cutoff marker. All
+30,711,300 container bytes are a byte-exact original-capture prefix.
+Through3560:2793 completed loops,1848 full256-byte physical DMAs,473088
+source/destination bytes checked,39000 CHR checks, minSP201, zero deaths.
+This review does not newly inspect every image or validate music fidelity.
+
+Bounded actual timings
+61 data rows cover physical3500..3560 (62 rows including header).
+The aggregate also includes completions in warmup3499. Counts below are
+complete observed spans; they exclude their observed ISR time.
+
+Function                 calls   mean cycles   maximum
+GameLoop                    40      30500.85      39080
+PlayerCtrlRoutine           40       4806.95       5141
+RemainingWeapons            40       1181.85       1286
+RosterWeapons               40       5836.90       9524
+DrawAllMetasprites          24       8948.79      10297
+AudioUpdate                 62       4054.42       6630
+BulletBlocks               145        503.03        627
+BulletEnemies              105        640.37       3342
+GuestPrepareEnemies         80        253.03        347
+
+The disjoint main-loop partition is exact:
+1,220,034 =532,235 unprofiled/main-exclusive +192,278 player tree
++47,274 RemainingWeapons +233,476 RosterWeapons +214,771 drawing.
+All foreground-exclusive totals also sum exactly to1,220,034. Thus the
+large remainder (13,305.88 cycles/update,43.6%) is unprofiled main work;
+these measurements do not assign it to a particular actor/world routine.
+Drawing averages5,369.28 cycles per main update when amortized over its
+24 real constructions; its per-draw mean is8,948.79 above.
+
+The61 video-frame buckets contain40 completed main-loop spans,23 DMA
+completions and38 actual NmiSkipped increments. Those are real missed
+regular-transfer opportunities, not merely slow controller advancement.
+State snapshots show default weapon0,3..4 ordinary shots, no advanced/other
+shots, and TimerControl/powerup/refill all0; ground/air and Right/Down/B
+inputs remain real. These are not pause/transform/refill delays. No claim
+of active60fps follows from captured PPU frames or this short prefix.
+
+Accounting limits
+Audio is observed inside NMI (depth1); all other measured spans are depth0.
+Audio excludes IRQ time; gross NMI includes any nestedIRQ. Do NOT add
+Audio to NMI or blindly add totalIRQ to grossNMI. In the61 buckets, gross
+NMI=286,067 cycles/61, IRQ=7,320/61 and Audio=247,417/61. The aggregate
+has one additional warmup Audio call3,957 cycles. Inclusive parents must
+not be added to children. CSV is completion-bucketed, not a physical-frame
+execution integral: a long loop can close after its child rows, and two
+loops can close in one row. CSV foreground-exclusive totals are10,595
+below the complete aggregate solely because those child completions fell
+in warmup3499. One GameLoop, one draw, one shot pass and one generic
+render span cross into3500 from the prewindow; no tracked calls or ISRs
+remain open at cutoff. No censored intervals were silently counted.
+Reported CSV byte count22,551 is pre-CRT newline output; actual22,613B
+includes62 CRLF expansion bytes. Both remain far below the1MiB limit.
+
+ONE small product proposal, not an implemented optimization
+Narrow only Bill's early RemainingWeapons cache admission: preserve the
+existing fresh-Select path, and otherwise call GuestPrepareEnemies only
+if the real ten-slot pool contains a type32..46 consumer. Ordinary1..8
+shots are skipped by RemainingWeapons::Shots, while the later RosterWeapons
+batch refreshes its own cache before ordinary collision. Keep all freeze
+counters, source input, movement, bullet birth, collisions and later refresh.
+BillAdvancedBirth has its own fresh preparation before immediate collision.
+Do not skip the whole RemainingWeapons function or all cache refreshes.
+
+Both observed preparations occur40 times. Exact nested arithmetic isolates
+10,121 core cycles in the early preparation and10,121 in the later one:
+RemainingWeapons inclusive-exclusive=10,121; RosterWeapons residual after
+BulletBlocks/BulletEnemies=10,121; cache total=20,242. Avoiding the early
+core would remove253.025 cycles/update in this workload, plus its farcall
+routing cost, MINUS the new classification scan. Net saving is unmeasured;
+this small change alone cannot be called a lag fix.
+
+Required before any candidate acceptance: actual assembled branch/space/
+label ownership and net whole-caller cycles; source all10-slot class/Select
+controls (including live advanced shots retained after selection changes);
+full timer/freeze/shot state, flags/stack/bank/SMC outcomes and unrelated
+family invariants; prove skipped cache/scratch writes have no reader before
+the next retained refresh, including NMI/IRQ and birth paths; full producer
+pipeline equality after that refresh; then a bounded same-input native
+comparison with original timing/hardware guards. No clock/sample/event cuts.
+
+Source applicability
+Relevant source: remaining_weapons.s RemainingWeapons::PrepareEnemies/
+Shots, roster_weapons.s RosterWeapons::NativeProjectileBatch, megaman_weapons.s
+GuestPrepareEnemies, and object.s RemainingBatch before RosterWeapons.
+The actual current6be ROM's complete physical banks6 and8 were byte-exact
+to2082 at this read-only review. This is compatibility evidence for this
+proposal, not timing qualification of current6be or permission to install.
+
+Exact raw hashes/arithmetic are in the sibling native packet
+build/verification/bill-passive-timing2082-ready-v3/read-only-review.json.

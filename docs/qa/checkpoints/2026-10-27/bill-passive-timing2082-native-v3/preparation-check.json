@@ -1,0 +1,49 @@
+{
+  "prepared": true,
+  "native_run": false,
+  "ready_sha256": "a7479f25fdebaf607935d16a97916113634f063609a7ed0bab13ee1de0d37bcf",
+  "strict_bindings_rehashed": 27,
+  "immutable_ROM_sha256": "2082c19a7364920f828e97f70040d37f1f7059bde1ea136b5c2c4532324abf36",
+  "prior_native_negatives_unchanged": {
+    "1": {
+      "failure_proof_sha256": "ba851303c4a62a1fdaea0e6058d2af53db29f41d455c4286e7741eb5dc8488aa",
+      "timing_rows": 0,
+      "timing_qualification": false
+    },
+    "2": {
+      "failure_proof_sha256": "a2c402b79dc8ff13ff306eec8267c0833f9c828b7bc48d446714af6ca4a5c049",
+      "timing_rows": 0,
+      "timing_qualification": false
+    }
+  },
+  "all17_systematic_source_analysis": {
+    "decoded_instructions": 113600,
+    "literal_verified_fixed_mirror_instructions": 1631,
+    "explicit_JumpEngine_tables": 19,
+    "stack_neutral_non_direct_JSR_witnesses": 7,
+    "source_JSR_owner_alternatives": 32,
+    "new_genuine_return_PCs": [
+      "0xa067",
+      "0xa0a7",
+      "0xa225",
+      "0xa55b",
+      "0xa1ed",
+      "0xa4f1"
+    ],
+    "all_old669_callback_return_lists_unchanged": true,
+    "all711_callback_JSR_candidates_verified_against_ROM": true,
+    "runtime_ROM_owners_narrowed_to_per_function_decoded_source_JSRs": true,
+    "RAM_farcall_operand_now_requires_function_specific_source_neutral_path": true
+  },
+  "observer_delta_reverse_exact": true,
+  "original_controller_hardware_guards_input_window_caps_and_command_unchanged_except_output": true,
+  "unknown_owner_wrong_bank_wrong_JSR_target_returnSP_depth_checks_remain_strict": true,
+  "no_state_or_input_writes_runtime_registrations_native_launch_or_game_changes": true,
+  "Lua_scope": "Source review/metadata controls only; no Lua/native execution claimed. Every callback remains registered once at startup.",
+  "source_analysis_negative": "The first offline graph pass expected one2B span per JumpEngine arm; a genuine grouped14B .word span caused a strict pre-output assertion. Fixed by decoding the compiled typed array into its seven literal words. No native or game mutation.",
+  "semantic_limits": "Decoded direct/tail/JumpEngine source ownership is finite and reproducible; arbitrary indirect targets are not licensed. Other indirect JMP sites are inventoried inready. A genuinely unlisted live owner still fails. Completion buckets are not per-frame execution integrals. No timing qualification from either old failed run or this unrunready.",
+  "owned_tools": {
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\current_bill_passive_timing_v1.lua": "686e08d0c0b52f54807422befb43a0e96c335a302b50dd41983d87b28a90b86f",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\current_bill_passive_timing_prepare_v1.py": "96825a1419459bdb8c17f6741612c0ed2fcfbbff55727426639e4130c3f44d77"
+  }
+}

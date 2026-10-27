@@ -1,0 +1,76 @@
+{
+  "native_result": "FALSE: Unbound actual timing return 39877 (0x9BC5)",
+  "timing_rows": 0,
+  "timing_qualification": false,
+  "last_serialized_physical_frame": 3498,
+  "unchanged_native_files": {
+    "ready.json": {
+      "sha256": "2fe115ff650e3912fc853e81318bccb97cc208027eed26a50027828ba7900daf",
+      "bytes": 14553
+    },
+    "preparation-check.json": {
+      "sha256": "257f272fcfc0901816f529d38e7524c7aa8c9e156908416ea0bbad94702a51f4",
+      "bytes": 2807
+    },
+    "launch.json": {
+      "sha256": "87c7e2a8a86abeb93b5b598551c3938dab29f0363af95eafa84e0456b23fb4d6",
+      "bytes": 387
+    },
+    "bill-timing.csv": {
+      "sha256": "ace6241de026ae4852481a38ff15dcac9c990610dbc7aa1e006432d67e1609d3",
+      "bytes": 2307
+    },
+    "proto_palette_ack-run.log": {
+      "sha256": "f31aa6605e7a095eb1feca86925926b6f9304239c91d3420def314fbb3d235e6",
+      "bytes": 4562
+    },
+    "inputs.csv": {
+      "sha256": "1fbc70e89c73ef89141c1b3f9e7396560ec75fd724a454c74632662974c4d433",
+      "bytes": 45439
+    },
+    "trace.csv": {
+      "sha256": "65f112de79e29585d4cc5e1d4a37b6d712f922bd9b0e43a35a2a3b0d4b6e6e57",
+      "bytes": 308222
+    },
+    "events.jsonl": {
+      "sha256": "8f76d61964075bfe49107df80da8240ea72e21c9cf4c749aa97becabda3eb8e5",
+      "bytes": 227529
+    },
+    "captures-index.jsonl": {
+      "sha256": "791c24ff92e7d887f4a96d292e2c090d2e96088f8c9fa3ef4ed63d4a77f27efa",
+      "bytes": 880463
+    },
+    "captures.nesppuv1": {
+      "sha256": "e391fb11abdc5c08c708f450bec724026bdb87b741ec104ea156c02677a8b340",
+      "bytes": 29992157
+    }
+  },
+  "original_tool_archive": {
+    "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\bill-passive-timing2082-ready-v1\\original-timing-tools-v1.zip",
+    "sha256": "38d218a0c933104e07a0f9a9ef21769a04f1b893b969ba4b4025bb9384f2f046",
+    "members": {
+      "current_bill_passive_timing_v1.lua": "cb4ed63a7256754dc511413cbbe74aff4fb2ef5927f372305bc33e0f219e0c1d",
+      "current_bill_passive_timing_prepare_v1.py": "bfcfd39379fac95afd635dc7886345843f284af50f5d9770e7772517e9abb264"
+    },
+    "CRC_and_member_hashes_verified": true
+  },
+  "original_route_prefixes": {
+    "inputs.csv": {
+      "actual_byte_exact_prefix": true,
+      "baseline_sha256": "cc40d6efbace0ddfcd435f95348bfd6534affffc5da8e1614caa12c0d3043912"
+    },
+    "trace.csv": {
+      "actual_byte_exact_prefix": true,
+      "baseline_sha256": "66d93f300bb4d441230b8078f83f2c62f4cc58c57e33b7c0fcabeb089f528370"
+    },
+    "events.jsonl": {
+      "actual_byte_exact_prefix": true,
+      "baseline_sha256": "c2c9cf359cb8682c153a4e5cb409b21af03e9564a6334f83ae9b63ba671243ae"
+    },
+    "captures-index.jsonl": {
+      "actual_byte_exact_prefix": true,
+      "baseline_sha256": "4636b821d344a0c1daa6090429b7792ecf135a5bec66fd70374fea1c411b015d"
+    }
+  },
+  "source_attribution": "Compiled bank126 PlayerHeadProbe9BC2 JSR F113 (bank127 BillBGHeadConsumer), tail JMP bank126 BillBGEmptyEnvelope94B0 inherits return9BC5. The failed log records only returnPC; component attribution derives from immutable assembled code, not missing live telemetry."
+}

@@ -1,0 +1,436 @@
+{
+  "review_only": true,
+  "native_launches_this_review": 0,
+  "ROM_sha256": "2082c19a7364920f828e97f70040d37f1f7059bde1ea136b5c2c4532324abf36",
+  "ready_sha256": "a7479f25fdebaf607935d16a97916113634f063609a7ed0bab13ee1de0d37bcf",
+  "launch": {
+    "ready_sha256": "a7479f25fdebaf607935d16a97916113634f063609a7ed0bab13ee1de0d37bcf",
+    "ROM_sha256": "2082c19a7364920f828e97f70040d37f1f7059bde1ea136b5c2c4532324abf36",
+    "exit_code": 1,
+    "settings_before": "a5f76b4c4d33cd1fb6d66a8725e7c6636b19e59c03a7dae5e15e1c512a3f4fbf",
+    "settings_after": "a5f76b4c4d33cd1fb6d66a8725e7c6636b19e59c03a7dae5e15e1c512a3f4fbf",
+    "changed_inputs": []
+  },
+  "terminal_actual_passed": false,
+  "terminal_reason": "finite frame bound",
+  "bounded_timing_observation_complete": true,
+  "prefix_controls": {
+    "inputs.csv": {
+      "byte_exact_original_prefix": true,
+      "bytes": 46257,
+      "sha256": "c9927604c926bfc6c7d831c29871094ae37e8430857f30f7034035ce22b4f099"
+    },
+    "trace.csv": {
+      "byte_exact_original_prefix": true,
+      "bytes": 313939,
+      "sha256": "6e6f2cc9f4723b1bba18739e02438fc43414eff549279c84afe9a995f5ce9dd5"
+    },
+    "events.jsonl": {
+      "byte_exact_rows_before_terminal_marker": 883,
+      "terminal_marker": {
+        "data": {
+          "full_ordinal": 3250,
+          "name": "failure"
+        },
+        "frame": 3560,
+        "kind": "capture-marker",
+        "poll": 3559,
+        "stamp": {
+          "bank": 126,
+          "cpu_cycle": 106016094,
+          "dot": 0,
+          "pc": 33461,
+          "ppu_frame": 3560,
+          "scanline": 240,
+          "sp": 253
+        }
+      },
+      "sha256": "b6c6d5d4f318dc813e58ccefc08fcca201f69a14279daeba5d2b7688d51ce34d"
+    },
+    "captures-index.jsonl": {
+      "byte_exact_rows_before_terminal_marker": 3255,
+      "terminal_marker": {
+        "decoded_bytes": 245760,
+        "name": "failure.argb",
+        "record": 3250,
+        "stamp": {
+          "bank": 126,
+          "cpu_cycle": 106016094,
+          "dot": 0,
+          "pc": 33461,
+          "ppu_frame": 3560,
+          "scanline": 240,
+          "sp": 253
+        },
+        "type": "alias"
+      },
+      "sha256": "c419950c85a6fa0e5c80c25f6db1ac159612fc5db804d8b14d1f00e354582e1c"
+    },
+    "captures.nesppuv1": {
+      "byte_exact_original_prefix": true,
+      "bytes": 30711300,
+      "sha256": "a0f9cd723ffe174ad66dcc4a1f584e6321b1b5f6e9634a5da97ea5f630787ddb"
+    }
+  },
+  "all27_bindings_rehashed": true,
+  "complete_function_stats": {
+    "AudioUpdate": {
+      "calls": 62,
+      "inclusive_total": 251374,
+      "exclusive_total": 251374,
+      "mean_inclusive": 4054.4193548387098,
+      "max_inclusive": 6630,
+      "CSV_totals": {
+        "calls": 61,
+        "inclusive": 247417,
+        "exclusive": 247417,
+        "prewindow": 0
+      }
+    },
+    "BillBGEmptyEnvelope": {
+      "calls": 40,
+      "inclusive_total": 5160,
+      "exclusive_total": 5160,
+      "mean_inclusive": 129.0,
+      "max_inclusive": 129,
+      "CSV_totals": {
+        "calls": 39,
+        "inclusive": 5031,
+        "exclusive": 5031,
+        "prewindow": 0
+      }
+    },
+    "BillHotProject": {
+      "calls": 40,
+      "inclusive_total": 10724,
+      "exclusive_total": 10724,
+      "mean_inclusive": 268.1,
+      "max_inclusive": 285,
+      "CSV_totals": {
+        "calls": 39,
+        "inclusive": 10453,
+        "exclusive": 10453,
+        "prewindow": 0
+      }
+    },
+    "BulletBlocks": {
+      "calls": 145,
+      "inclusive_total": 72940,
+      "exclusive_total": 72940,
+      "mean_inclusive": 503.0344827586207,
+      "max_inclusive": 627,
+      "CSV_totals": {
+        "calls": 141,
+        "inclusive": 70909,
+        "exclusive": 70909,
+        "prewindow": 0
+      }
+    },
+    "BulletEnemies": {
+      "calls": 105,
+      "inclusive_total": 67239,
+      "exclusive_total": 67239,
+      "mean_inclusive": 640.3714285714286,
+      "max_inclusive": 3342,
+      "CSV_totals": {
+        "calls": 105,
+        "inclusive": 67239,
+        "exclusive": 67239,
+        "prewindow": 0
+      }
+    },
+    "DrawAllMetasprites": {
+      "calls": 24,
+      "inclusive_total": 214771,
+      "exclusive_total": 123321,
+      "mean_inclusive": 8948.791666666666,
+      "max_inclusive": 10297,
+      "CSV_totals": {
+        "calls": 24,
+        "inclusive": 214771,
+        "exclusive": 123321,
+        "prewindow": 1
+      }
+    },
+    "GameLoop": {
+      "calls": 40,
+      "inclusive_total": 1220034,
+      "exclusive_total": 532235,
+      "mean_inclusive": 30500.85,
+      "max_inclusive": 39080,
+      "CSV_totals": {
+        "calls": 40,
+        "inclusive": 1220034,
+        "exclusive": 532235,
+        "prewindow": 1
+      }
+    },
+    "GuestPrepareEnemies": {
+      "calls": 80,
+      "inclusive_total": 20242,
+      "exclusive_total": 20242,
+      "mean_inclusive": 253.025,
+      "max_inclusive": 347,
+      "CSV_totals": {
+        "calls": 78,
+        "inclusive": 19942,
+        "exclusive": 19942,
+        "prewindow": 0
+      }
+    },
+    "MetaspriteRenderLoop": {
+      "calls": 214,
+      "inclusive_total": 60912,
+      "exclusive_total": 60912,
+      "mean_inclusive": 284.6355140186916,
+      "max_inclusive": 1226,
+      "CSV_totals": {
+        "calls": 213,
+        "inclusive": 60726,
+        "exclusive": 60726,
+        "prewindow": 1
+      }
+    },
+    "PlayerBGCollision": {
+      "calls": 40,
+      "inclusive_total": 61127,
+      "exclusive_total": 55967,
+      "mean_inclusive": 1528.175,
+      "max_inclusive": 1769,
+      "CSV_totals": {
+        "calls": 39,
+        "inclusive": 59696,
+        "exclusive": 54665,
+        "prewindow": 0
+      }
+    },
+    "PlayerCtrlRoutine": {
+      "calls": 40,
+      "inclusive_total": 192278,
+      "exclusive_total": 82742,
+      "mean_inclusive": 4806.95,
+      "max_inclusive": 5141,
+      "CSV_totals": {
+        "calls": 39,
+        "inclusive": 187489,
+        "exclusive": 80670,
+        "prewindow": 0
+      }
+    },
+    "PlayerMovementSubs": {
+      "calls": 40,
+      "inclusive_total": 37685,
+      "exclusive_total": 13880,
+      "mean_inclusive": 942.125,
+      "max_inclusive": 1030,
+      "CSV_totals": {
+        "calls": 39,
+        "inclusive": 36670,
+        "exclusive": 13533,
+        "prewindow": 0
+      }
+    },
+    "RemainingDraw": {
+      "calls": 24,
+      "inclusive_total": 10914,
+      "exclusive_total": 10914,
+      "mean_inclusive": 454.75,
+      "max_inclusive": 461,
+      "CSV_totals": {
+        "calls": 23,
+        "inclusive": 10473,
+        "exclusive": 10473,
+        "prewindow": 0
+      }
+    },
+    "RemainingWeapons": {
+      "calls": 40,
+      "inclusive_total": 47274,
+      "exclusive_total": 37153,
+      "mean_inclusive": 1181.85,
+      "max_inclusive": 1286,
+      "CSV_totals": {
+        "calls": 39,
+        "inclusive": 46196,
+        "exclusive": 36225,
+        "prewindow": 0
+      }
+    },
+    "RosterDrawShots": {
+      "calls": 24,
+      "inclusive_total": 36736,
+      "exclusive_total": 19624,
+      "mean_inclusive": 1530.6666666666667,
+      "max_inclusive": 1586,
+      "CSV_totals": {
+        "calls": 24,
+        "inclusive": 36736,
+        "exclusive": 19624,
+        "prewindow": 1
+      }
+    },
+    "RosterMovement": {
+      "calls": 40,
+      "inclusive_total": 23805,
+      "exclusive_total": 23805,
+      "mean_inclusive": 595.125,
+      "max_inclusive": 683,
+      "CSV_totals": {
+        "calls": 39,
+        "inclusive": 23137,
+        "exclusive": 23137,
+        "prewindow": 0
+      }
+    },
+    "RosterWeapons": {
+      "calls": 40,
+      "inclusive_total": 233476,
+      "exclusive_total": 83176,
+      "mean_inclusive": 5836.9,
+      "max_inclusive": 9524,
+      "CSV_totals": {
+        "calls": 39,
+        "inclusive": 229375,
+        "exclusive": 81256,
+        "prewindow": 0
+      }
+    }
+  },
+  "warmup_aggregate_minus_CSV": {
+    "AudioUpdate": {
+      "calls": 1,
+      "inclusive": 3957,
+      "exclusive": 3957
+    },
+    "BillBGEmptyEnvelope": {
+      "calls": 1,
+      "inclusive": 129,
+      "exclusive": 129
+    },
+    "BillHotProject": {
+      "calls": 1,
+      "inclusive": 271,
+      "exclusive": 271
+    },
+    "BulletBlocks": {
+      "calls": 4,
+      "inclusive": 2031,
+      "exclusive": 2031
+    },
+    "BulletEnemies": {
+      "calls": 0,
+      "inclusive": 0,
+      "exclusive": 0
+    },
+    "DrawAllMetasprites": {
+      "calls": 0,
+      "inclusive": 0,
+      "exclusive": 0
+    },
+    "GameLoop": {
+      "calls": 0,
+      "inclusive": 0,
+      "exclusive": 0
+    },
+    "GuestPrepareEnemies": {
+      "calls": 2,
+      "inclusive": 300,
+      "exclusive": 300
+    },
+    "MetaspriteRenderLoop": {
+      "calls": 1,
+      "inclusive": 186,
+      "exclusive": 186
+    },
+    "PlayerBGCollision": {
+      "calls": 1,
+      "inclusive": 1431,
+      "exclusive": 1302
+    },
+    "PlayerCtrlRoutine": {
+      "calls": 1,
+      "inclusive": 4789,
+      "exclusive": 2072
+    },
+    "PlayerMovementSubs": {
+      "calls": 1,
+      "inclusive": 1015,
+      "exclusive": 347
+    },
+    "RemainingDraw": {
+      "calls": 1,
+      "inclusive": 441,
+      "exclusive": 441
+    },
+    "RemainingWeapons": {
+      "calls": 1,
+      "inclusive": 1078,
+      "exclusive": 928
+    },
+    "RosterDrawShots": {
+      "calls": 0,
+      "inclusive": 0,
+      "exclusive": 0
+    },
+    "RosterMovement": {
+      "calls": 1,
+      "inclusive": 668,
+      "exclusive": 668
+    },
+    "RosterWeapons": {
+      "calls": 1,
+      "inclusive": 4101,
+      "exclusive": 1920
+    }
+  },
+  "CSV_counts": {
+    "loops_closed": 40,
+    "nmi_closed": 61,
+    "nmi_elapsed": 286067,
+    "irq_closed": 61,
+    "irq_elapsed": 7320,
+    "dmas": 23,
+    "lag_counter_delta": 38
+  },
+  "aggregate_foreground_partition_exact": true,
+  "no_censored_spans_or_open_interrupts": true,
+  "CSV_bytes": {
+    "reported_before_CRT_expansion": 22551,
+    "actual": 22613,
+    "CRLF_lines": 62
+  },
+  "earlier_negatives_unchanged": {
+    "1": {
+      "timing_rows": 0,
+      "preservation_proof_sha256": "ba851303c4a62a1fdaea0e6058d2af53db29f41d455c4286e7741eb5dc8488aa"
+    },
+    "2": {
+      "timing_rows": 0,
+      "preservation_proof_sha256": "a2c402b79dc8ff13ff306eec8267c0833f9c828b7bc48d446714af6ca4a5c049"
+    }
+  },
+  "source_compatibility_informational": {
+    "canonical_sha256_at_review": "6be48337ffee66a22b22de9ce134d5db323649fb4de620c43bad4ca98b80f193",
+    "physical_banks_equal_to2082": {
+      "6": true,
+      "8": true
+    },
+    "not_current_native_qualification": true
+  },
+  "report": {
+    "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\docs\\qa\\bill-passive-timing2082-2026-10-27.txt",
+    "sha256": "c230275e25d822b774d00976c41c2137dfd5bc904a3e077d94131b3393740d7a"
+  },
+  "raw_bindings": {
+    "launch.json": "9f3b145db68fd0ee23c6bb5ef3ef519b19978442460dba4b7d32c60d1a396aa7",
+    "result.json": "4c0a92a6bd7d8076405ce52ec70820eefb5c3cf040b8230a99aaf8a7d57a59c5",
+    "bill-timing.csv": "8bf41772d40cdfd922d827cfd320374f6c75182378bd7b8db40bf798b7120da3",
+    "bill-timing-summary.json": "bb845e0b85c01bd987b421563aa01d81ec40aed2abdaecca677de07ffdc542c2",
+    "proto_palette_ack-run.log": "0d4d38a78f2de8b09cf96f2ce45139038bb089cffcd7b5be0708653fe208c3cf",
+    "inputs.csv": "c9927604c926bfc6c7d831c29871094ae37e8430857f30f7034035ce22b4f099",
+    "trace.csv": "6e6f2cc9f4723b1bba18739e02438fc43414eff549279c84afe9a995f5ce9dd5",
+    "events.jsonl": "b6c6d5d4f318dc813e58ccefc08fcca201f69a14279daeba5d2b7688d51ce34d",
+    "captures-index.jsonl": "c419950c85a6fa0e5c80c25f6db1ac159612fc5db804d8b14d1f00e354582e1c",
+    "captures.nesppuv1": "a0f9cd723ffe174ad66dcc4a1f584e6321b1b5f6e9634a5da97ea5f630787ddb"
+  }
+}
