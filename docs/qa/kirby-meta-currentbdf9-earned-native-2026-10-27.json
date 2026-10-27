@@ -1,0 +1,81 @@
+{
+  "status": "HARD_EARNED_NATIVE_COMPONENT_PASS_VISUAL_FOLLOWUP_OPEN",
+  "actual_ROM_sha256": "bdf9ca2bfe69ee93ca85f1b5e5319e474d9f01aa641c79a58cd9bd602253c40e",
+  "rows": [
+    {
+      "unit": "basics",
+      "identity": "kirby",
+      "actual_ROM_sha256": "bdf9ca2bfe69ee93ca85f1b5e5319e474d9f01aa641c79a58cd9bd602253c40e",
+      "native_pass": true,
+      "cases": 9,
+      "wall_frames": 1464,
+      "actual_updates": 1090,
+      "full256_byte_DMAs": 1440,
+      "minimum_stack_pointer": 204,
+      "selected_whole_frames_visually_reviewed": 5,
+      "ready_sha256": "721372472ed24323ef63165771290f29bf6ef584d0435d1db6ecbfc21f48a68c",
+      "native_result_sha256": "ef63856666e200689aa25475851938f13b408958cfdef76da25a80ae59e11303",
+      "checkpoint": "docs/qa/checkpoints/2026-10-27/kirby-meta-bdf9-earned-native-v2/basics"
+    },
+    {
+      "unit": "copies-low",
+      "identity": "kirby",
+      "actual_ROM_sha256": "bdf9ca2bfe69ee93ca85f1b5e5319e474d9f01aa641c79a58cd9bd602253c40e",
+      "native_pass": true,
+      "cases": 7,
+      "wall_frames": 3266,
+      "actual_updates": 2892,
+      "full256_byte_DMAs": 3237,
+      "minimum_stack_pointer": 204,
+      "selected_whole_frames_visually_reviewed": 7,
+      "ready_sha256": "3e47c90aaaed7d06c902db26a13dde42397fc3bd332a70b4fda3431fbf04a410",
+      "native_result_sha256": "65710d49517e18511758ce73590af28885cc1657ab47bf63ec76623f0632552e",
+      "checkpoint": "docs/qa/checkpoints/2026-10-27/kirby-meta-bdf9-earned-native-v2/copies-low"
+    },
+    {
+      "unit": "copies-high",
+      "identity": "kirby",
+      "actual_ROM_sha256": "bdf9ca2bfe69ee93ca85f1b5e5319e474d9f01aa641c79a58cd9bd602253c40e",
+      "native_pass": true,
+      "cases": 7,
+      "wall_frames": 3277,
+      "actual_updates": 2902,
+      "full256_byte_DMAs": 3236,
+      "minimum_stack_pointer": 204,
+      "selected_whole_frames_visually_reviewed": 7,
+      "ready_sha256": "6a72aad20dbc671776de4b150ed82024a8670b72862550d2a52f9ecee557d1bd",
+      "native_result_sha256": "19c959bd0abaf0c81a87090b50824b3ef27f430eb880e698865ef39d972c1fbe",
+      "checkpoint": "docs/qa/checkpoints/2026-10-27/kirby-meta-bdf9-earned-native-v2/copies-high"
+    },
+    {
+      "unit": "meta",
+      "identity": "meta",
+      "actual_ROM_sha256": "bdf9ca2bfe69ee93ca85f1b5e5319e474d9f01aa641c79a58cd9bd602253c40e",
+      "native_pass": true,
+      "cases": 13,
+      "wall_frames": 1893,
+      "actual_updates": 1519,
+      "full256_byte_DMAs": 1859,
+      "minimum_stack_pointer": 204,
+      "selected_whole_frames_visually_reviewed": 8,
+      "ready_sha256": "d951a55104684966cf898997ff40b1c618069f3bd1aa22a1cdeb00a05168a296",
+      "native_result_sha256": "86150fe6f7c10b3757c8b81a2e6dda925554d08ca41d110cdcc436599aca4948",
+      "checkpoint": "docs/qa/checkpoints/2026-10-27/kirby-meta-bdf9-earned-native-v2/meta"
+    }
+  ],
+  "verified": "Kirby actual warmed enemy inhale/spit, Down earns all14 copy families, actual attacks/defeats or guarded contact, Select discards and natural copy-star expiration; real damage and physical mushroom/flower heal2 capped6; actual inflation/air-puff and Down+A slide. Meta native slash/up-triple/lunge/air-spin/air-plunge/direction-charge and real damage/food heals; Up/secondA do not inflate or fly.",
+  "source_scope": {
+    "original_CPU_campaign_ROM_sha256": "ab221e81821dd10690ad3a1068d91c9efae6c7406230d9bd7fc4a729fdc433d2",
+    "original_CPU_campaigns_relabelled_current": false,
+    "current_compiled_RAM_hooks_spans_preflight": true,
+    "current_native_behavior": true
+  },
+  "visual_findings": [
+    "Several selected stills show idle body/HUD after an effect; full live attack visibility and animation remain unproven.",
+    "Green Koopa/green Paratroopa/grey Cheep copied icons use Kirby palette0 and appear pink; source-authenticated palette1 attribute repair is being prepared privately.",
+    "Meta selected sword/air-spin frames were inspected, but the complete moving attack cycles remain open."
+  ],
+  "limits": "Staged native-boundary mature actors and arena; no acquired copy/HP/mouth/projectile/outcome seeds. Natural block reveal, randomized drops, Star/1Up, Easy mode, underwater, all facings, audible SFX, every moving frame and whole1-1 are not established by this component packet.",
+  "checkpoint": "docs/qa/checkpoints/2026-10-27/kirby-meta-bdf9-earned-native-v2",
+  "goal_complete": false
+}
