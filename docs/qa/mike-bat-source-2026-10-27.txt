@@ -1,0 +1,118 @@
+Mike bat source/animation repair — PRIVATE, NATIVE UNRUN
+2026-10-27
+
+Parent/current ROM bdf9ca2bfe69ee93ca85f1b5e5319e474d9f01aa641c79a58cd9bd602253c40e.
+Private build/mike_bat.nes:
+da633492cc71b4dbf6e7b270f46b592a0f0e7ceb164ddfdfdb7afa9b6bc211ac.
+No canonical source, installed ROM, settings, Git or native worker changed.
+
+Confirmed cause and authenticated contract
+The authored current art already contains all four original bat tile pairs, but
+JnDraw selected only the first/last shapes through age bit4. The source asset
+producer explicitly chose ids[0],ids[-1], so this was authored simplification,
+not a runtime CHR-owner fault. The retained ab221e live-render diagnostic agrees.
+
+Original C:/NES/StarTropics (USA).nes SHA256:
+ff20d5e9600565ae61e4eae6594c9f1e55e2a748a46bba0c88285140420a219a.
+Actual original PRG27 A348 maps Right bit1 to direction2 and Left bit2 to3;
+A324 neighbor deltas independently agree (+1/-1). PRG26 ACA4 interprets PRG18
+C006/CD8C scripts D1AD/D214. Execute the actual original A079 admission,
+A55F body script and ACA4 weapon interpreter: ticks0..7 windup; damaging
+ticks8..15; non-damaging motion16..18; hold19..29; weapon clears30; body
+attack lock clears31. A fresh attack is consequently admitted from tick32.
+The isolated interpreter's 30 visible tile/HV entries also match EVERY retained
+native original OAM row893..922, including repeated windup/hold (right direction2).
+Only the source bank-selection leaf FF30 is stubbed to RTS in the isolated
+CPU proof; the required original data bank18 is already mapped. No original
+native clock, IRQ, PPU or mapper-timing claim follows from that stub.
+
+Original CHR251 pairs48/50/52/54 are byte-exact current CHR710 pairs20/22/24/26
+(tiles21/23/25/27). All four complete32-byte pair hashes are in the CPU receipt.
+The source uses one 8x16 OAM part, not an inferred multi-part bat.
+
+Implementation
+Three logical leaves only: mike_jones_weapons.s, mike_jones_render.s,
+mike_jones_art.inc. Immediate bat visual allocation/one-stock debit; bat-only
+source lifetime, recovery lock, damaging window; exact source tile/HV lookup.
+Other12 weapon events/timing/state remain unchanged. Existing Mike reach,
+SMB collision geometry, body attack pose, live-facing rule and zero record
+origin remain explicit cross-game adaptations. This does not transplant the
+overhead game's bat positions or assert that every aspect of bat behavior is
+source-identical. Original palette/visible-line hue/CHR mapping fidelity remains
+unproved and was not guessed or modified.
+
+Exactly379 changed ROM bytes: physical97=170 data,98=209 (179 new helper bytes
+plus30 hook bytes). New linker-declared additions occupy verified FF/unowned
+tails C35F..<C409 in97 and ABDE..<AC91 in98. All old Jn entry/private labels
+retain their genuine original PCs; no fake aliases. All unrelated banks,
+RAM definitions, header and entire CHR payload are byte-exact. Real tail-JMP
+continuations avoid executing padding. No cfg or production entrypoint change.
+Fresh private and fresh original flag-off builds match: MMC3 d444cac8...f3eb,
+MMC5 f4ffd248...0833. Preexisting build/smb-crossover-mmc3/5.nes were older
+outputs97913a/7982ae and were not rewritten or used as the fresh controls.
+
+Finite source qualification
+4,464 full JnDraw cases including both directions, all64 real flag contexts,
+entire30-update bat lookup, clip/capacity offsets0/248/252 and ring rotation.
+Reference supplies only the intended new bat pointer/record at the genuine
+old draw call; the original compiled renderer executes unchanged. Exact whole
+caller AX/Y, six real NV-DIZC flags, SP, application RAM/SMC/banks and ordered
+OAM writes; only dead stack100..1FD is excluded, caller-live1FE/1FF exact.
+5,376 complete other12 JnWeapons cases include all64 real flags and six-slot
+full pools. 19 foreign base-ID cold/empty RosterWeapons callers are state,
+write and cycle-exact; this is not a37-alternate gameplay qualification.
+Both fresh full53 earned source campaigns pass (2,213 actual GameLoops each).
+Bat clocks are checked from an actual edge/debit through complete cleanup in
+both directions, without observed-phase age/attack/stock/shot writes.
+73 actual IRQ injections preserve caller registers/real flags/SP/application
+state/SMC/banks at new helper boundaries. Legitimate IRQ2005/2006/5128/5130
+hardware-latch effects are retained separately, not mislabeled RAM corruption.
+
+Measured SOURCE CPU costs, no native FPS/no-harm claim:
+JnDraw +22..77 cycles in finite cases; other12 JnWeapons +15..171 including
+populated six-slot pools. Full53 campaign CPU sum43,246,076 ->43,310,618;
+mean19,541.83 ->19,571.00 (+29.16), peak24,884 ->24,995. The changed bat
+lifetime intentionally changes work; this is a fidelity fix, not lag reduction.
+
+Retained corrections/negatives
+build/mike_bat_layout_negative.json: first helpers placed before later combat
+contributors moved genuine labels; final append placement fixes this.
+build/mike_bat_status_model_negative.json: py65 synthetic B image changed
+after PHP/PLP; final compares all six physical flags, explicitly excludes B/U.
+build/mike_bat_irq_model_negative.json: real IRQ hardware-latch effects were
+initially included in whole RAM equality; final narrowly records actual effects.
+build/mike_bat_preoptimization.json retains the executed-padding intermediate.
+build/mike_bat_direction_negative.json retains provisional reversed direction
+table/counterexample; actual input decoder establishes corrected final order.
+build/mike_bat_action_lock_negative.json retains the isolated-only recovery
+model which admitted a fresh attack one update early; full source caller fixes it.
+build/mike_bat_preparation_negative.json: a cold flower genuinely grants tier2,
+not a bat. Native successor earns tier2 and3 before the actual bat flower.
+No native negative/pass was fabricated for any source-only correction.
+
+One ROOT-owned native proposal, unlaunched
+build/current-bdf9-mike-bat-render-v1/prepared-not-run.json
+SHA781d1a6bfe68ad3b23ae77bff734e43aec988673564e30e7f886534eca375d82,
+42 strict bindings. Its command.json authorizes no run by itself. Five finite
+cases: genuine mature tier2/tier3/bat flower collections, right and left native
+B attacks, exact stock debit/target defeat/cleanup. New source campaign234
+GameLoops passes. Original typed-scene/strict native hardware/lifecycle guards
+are unchanged; only passive bat-record metadata selection differs. Every bare
+and literal RAM address resolves. Callbacks are startup-static; Lua VM has not
+been executed during preparation. No ownership/health/ammo/outcome seeds.
+Original palette fidelity and natural acquisition/reveal/RNG are not claimed.
+One capped NESPPU01 stream and bounded draw->completed Main->physical256DMA
+journal; <=3PNG,64files,2GB,128MiB compact stream,3000 records; no frame forest.
+Actual native pixels/publication, full-cycle animation visibility and deadline
+acceptance remain for ROOT. Existing historical ab221e native results remain
+bound to their original hash and are not retagged as this candidate.
+
+Repro tools and review files
+tools/audit/current_mike_bat_candidate_v1.py builds sparse flat leaves only.
+tools/audit/current_mike_bat_cpu_v1.py qualifies the exact source candidate.
+tools/audit/current_mike_bat_render_prepare_v1.py prepares the single native case.
+docs/qa/mike-bat-source-2026-10-27.patch is the complete three-leaf rollback diff.
+build/mike_bat_handoff.json catalogs exact current hashes/owned publication files.
+build/mike_bat_build.json SHAbe24a1d079628e61ab6daba829903f39c49e94971e1031f2b0bd49e819243407.
+build/mike_bat_controls.json SHA91e7580306ecc32336fce1d47fadfb4a4c6be4f6f6547dae935ccf56d5f3d002.
+build/mike_bat.patch SHA782b889153ceaae1e8cdd0f79cca8d77c7f532599b8d2fd2ffcf5d5f8722abb6.

@@ -53,19 +53,18 @@ NoSplit:
  sta JnWeapon
  jmp Begin
 Primary:jsr JnSelectPrimary
-Begin:lda #1
- sta JnAttack
- lda #0
- sta JnHitMask
+Begin:jmp JnBatBeginAttack
+ .res 7,$ea
 Active:
  lda JnAttack
  jeq Update
  cmp #6 ; native5-frame windup.
  jne Age
- jsr JnRelease
+ jsr JnBatReleaseIfDue
 Age:inc JnAttack
- lda JnAttack
- cmp #19
+ jmp JnBatAttackLimit
+ .res 2,$ea
+::JnBatAttackLimitContinue:
  jcc Update
  lda #0
  sta JnAttack
@@ -80,7 +79,7 @@ Loop:
  ldx JnSlot
  lda JnShotKind,x
  jeq Next
- jsr JnShotEnemies
+ jsr JnBatContactIfActive
 Next:dec JnSlot
  jpl Loop
 Done:rts
@@ -238,7 +237,7 @@ Yoyo:
  jmp Hand
 Bat:
  lda JnShotAge,x
- cmp #12
+ cmp #31
  jcs Kill
  lda #22
  jmp Hand

@@ -1,0 +1,198 @@
+; Extracted StarTropics USA original OAM/pixels, not redrawn frames.
+.pushseg
+.segment "MIKE_GFX"
+JnArtStart:
+JnBodyRLo:.byte <JnPose0R,<JnPose1R,<JnPose2R,<JnPose3R,<JnPose4R,<JnPose5R,<JnPose6R
+JnBodyRHi:.byte >JnPose0R,>JnPose1R,>JnPose2R,>JnPose3R,>JnPose4R,>JnPose5R,>JnPose6R
+JnPose0R:.byte 16
+ .byte 0,0,0,0
+ .byte 2,0,0,8
+ .byte 4,0,16,0
+ .byte 6,0,16,8
+JnPose1R:.byte 16
+ .byte 8,0,0,0
+ .byte 10,0,0,8
+ .byte 12,0,16,0
+ .byte 14,0,16,8
+JnPose2R:.byte 16
+ .byte 16,0,0,0
+ .byte 18,0,0,8
+ .byte 20,0,16,0
+ .byte 22,0,16,8
+JnPose3R:.byte 16
+ .byte 16,0,0,0
+ .byte 18,0,0,8
+ .byte 20,0,16,0
+ .byte 22,0,16,8
+JnPose4R:.byte 16
+ .byte 24,0,0,0
+ .byte 26,0,0,8
+ .byte 28,0,16,0
+ .byte 30,0,16,8
+JnPose5R:.byte 16
+ .byte 32,0,0,0
+ .byte 34,0,0,8
+ .byte 36,0,16,0
+ .byte 38,0,16,8
+JnPose6R:.byte 16
+ .byte 8,0,0,0
+ .byte 40,0,0,8
+ .byte 42,0,16,0
+ .byte 40,0,16,8
+JnBodyLLo:.byte <JnPose0L,<JnPose1L,<JnPose2L,<JnPose3L,<JnPose4L,<JnPose5L,<JnPose6L
+JnBodyLHi:.byte >JnPose0L,>JnPose1L,>JnPose2L,>JnPose3L,>JnPose4L,>JnPose5L,>JnPose6L
+JnPose0L:.byte 16
+ .byte 0,64,0,8
+ .byte 2,64,0,0
+ .byte 4,64,16,8
+ .byte 6,64,16,0
+JnPose1L:.byte 16
+ .byte 8,64,0,8
+ .byte 10,64,0,0
+ .byte 12,64,16,8
+ .byte 14,64,16,0
+JnPose2L:.byte 16
+ .byte 16,64,0,8
+ .byte 18,64,0,0
+ .byte 20,64,16,8
+ .byte 22,64,16,0
+JnPose3L:.byte 16
+ .byte 16,64,0,8
+ .byte 18,64,0,0
+ .byte 20,64,16,8
+ .byte 22,64,16,0
+JnPose4L:.byte 16
+ .byte 24,64,0,8
+ .byte 26,64,0,0
+ .byte 28,64,16,8
+ .byte 30,64,16,0
+JnPose5L:.byte 16
+ .byte 32,64,0,8
+ .byte 34,64,0,0
+ .byte 36,64,16,8
+ .byte 38,64,16,0
+JnPose6L:.byte 16
+ .byte 8,64,0,8
+ .byte 40,64,0,0
+ .byte 42,64,16,8
+ .byte 40,64,16,0
+JnShot0Lo:.byte <JnShot1_0,<JnShot2_0,<JnShot3_0,<JnShot4_0,<JnShot5_0,<JnShot6_0,<JnShot7_0,<JnShot8_0,<JnShot9_0,<JnShot10_0,<JnShot11_0,<JnShot12_0,<JnShot13_0
+JnShot0Hi:.byte >JnShot1_0,>JnShot2_0,>JnShot3_0,>JnShot4_0,>JnShot5_0,>JnShot6_0,>JnShot7_0,>JnShot8_0,>JnShot9_0,>JnShot10_0,>JnShot11_0,>JnShot12_0,>JnShot13_0
+JnShot1_0:.byte 4,1,2,0,0
+JnShot2_0:.byte 4,9,2,0,0
+JnShot3_0:.byte 4,17,2,0,0
+JnShot4_0:.byte 4,21,66,0,0
+JnShot5_0:.byte 4,29,2,0,0
+JnShot6_0:.byte 4,33,2,0,0
+JnShot7_0:.byte 4,37,2,0,0
+JnShot8_0:.byte 4,41,2,0,0
+JnShot9_0:.byte 4,45,2,0,0
+JnShot10_0:.byte 0
+JnShot11_0:.byte 4,29,2,0,0
+JnShot12_0:.byte 4,29,2,0,0
+JnShot13_0:.byte 8,45,2,249,0,45,2,7,0
+JnShot1Lo:.byte <JnShot1_1,<JnShot2_1,<JnShot3_1,<JnShot4_1,<JnShot5_1,<JnShot6_1,<JnShot7_1,<JnShot8_1,<JnShot9_1,<JnShot10_1,<JnShot11_1,<JnShot12_1,<JnShot13_1
+JnShot1Hi:.byte >JnShot1_1,>JnShot2_1,>JnShot3_1,>JnShot4_1,>JnShot5_1,>JnShot6_1,>JnShot7_1,>JnShot8_1,>JnShot9_1,>JnShot10_1,>JnShot11_1,>JnShot12_1,>JnShot13_1
+JnShot1_1:.byte 4,3,2,0,0
+JnShot2_1:.byte 4,11,2,0,0
+JnShot3_1:.byte 4,19,2,0,0
+JnShot4_1:.byte 4,27,130,0,0
+JnShot5_1:.byte 4,31,2,0,0
+JnShot6_1:.byte 4,35,2,0,0
+JnShot7_1:.byte 4,39,2,0,0
+JnShot8_1:.byte 4,43,2,0,0
+JnShot9_1:.byte 4,47,2,0,0
+JnShot10_1:.byte 0
+JnShot11_1:.byte 4,31,2,0,0
+JnShot12_1:.byte 4,29,2,0,0
+JnShot13_1:.byte 8,45,2,249,0,45,2,7,0
+JnItemLo:.byte <JnItem0,<JnItem1,<JnItem2,<JnItem3,<JnItem4,<JnItem5,<JnItem6,<JnItem7,<JnItem8,<JnItem9,<JnItem10,<JnItem11,<JnItem12,<JnItem13
+JnItemHi:.byte >JnItem0,>JnItem1,>JnItem2,>JnItem3,>JnItem4,>JnItem5,>JnItem6,>JnItem7,>JnItem8,>JnItem9,>JnItem10,>JnItem11,>JnItem12,>JnItem13
+JnItem0:.byte 8
+ .byte 65,2,0,0
+ .byte 65,2,0,8
+JnItem1:.byte 8
+ .byte 67,2,0,0
+ .byte 69,2,0,8
+JnItem2:.byte 8
+ .byte 71,2,0,0
+ .byte 73,2,0,8
+JnItem3:.byte 8
+ .byte 75,2,0,0
+ .byte 77,2,0,8
+JnItem4:.byte 8
+ .byte 79,2,0,0
+ .byte 81,2,0,8
+JnItem5:.byte 8
+ .byte 83,2,0,0
+ .byte 85,2,0,8
+JnItem6:.byte 8
+ .byte 79,2,0,0
+ .byte 81,2,0,8
+JnItem7:.byte 8
+ .byte 87,2,0,0
+ .byte 89,2,0,8
+JnItem8:.byte 8
+ .byte 91,2,0,0
+ .byte 93,2,0,8
+JnItem9:.byte 8
+ .byte 95,2,0,0
+ .byte 97,2,0,8
+JnItem10:.byte 8
+ .byte 99,2,0,0
+ .byte 101,2,0,8
+JnItem11:.byte 8
+ .byte 83,2,0,0
+ .byte 85,2,0,8
+JnItem12:.byte 8
+ .byte 83,2,0,0
+ .byte 85,2,0,8
+JnItem13:.byte 8
+ .byte 95,2,0,0
+ .byte 97,2,0,8
+JnHeart:.byte 8,103,2,0,0,103,66,0,8
+JnStar:.byte 8,109,2,0,0,109,66,0,8
+JnBigHeart:.byte 8,105,2,0,0,107,2,0,8
+; Native source H/V attributes plus an actual mirrored left orientation.
+JnShot1_0Left:.byte 4,1,66,0,0
+JnShot1_1Left:.byte 4,3,66,0,0
+JnShot2_0Left:.byte 4,9,66,0,0
+JnShot2_1Left:.byte 4,11,66,0,0
+JnShot3_0Left:.byte 4,17,66,0,0
+JnShot3_1Left:.byte 4,19,66,0,0
+JnShot4_0Left:.byte 4,21,2,0,0
+JnShot4_1Left:.byte 4,27,194,0,0
+JnShot5_0Left:.byte 4,29,66,0,0
+JnShot5_1Left:.byte 4,31,66,0,0
+JnShot6_0Left:.byte 4,33,66,0,0
+JnShot6_1Left:.byte 4,35,66,0,0
+JnShot7_0Left:.byte 4,37,66,0,0
+JnShot7_1Left:.byte 4,39,66,0,0
+JnShot8_0Left:.byte 4,41,66,0,0
+JnShot8_1Left:.byte 4,43,66,0,0
+JnShot9_0Left:.byte 4,45,66,0,0
+JnShot9_1Left:.byte 4,47,66,0,0
+JnShot10_0Left:.byte 0
+JnShot10_1Left:.byte 0
+JnShot11_0Left:.byte 4,29,66,0,0
+JnShot11_1Left:.byte 4,31,66,0,0
+JnShot12_0Left:.byte 4,29,66,0,0
+JnShot12_1Left:.byte 4,29,66,0,0
+JnShot13_0Left:.byte 8,45,66,249,0,45,66,7,0
+JnShot13_1Left:.byte 8,45,66,249,0,45,66,7,0
+JnShotAllLo:.byte <JnShot1_0,<JnShot2_0,<JnShot3_0,<JnShot4_0,<JnShot5_0,<JnShot6_0,<JnShot7_0,<JnShot8_0,<JnShot9_0,<JnShot10_0,<JnShot11_0,<JnShot12_0,<JnShot13_0,<JnShot1_0Left,<JnShot2_0Left,<JnShot3_0Left,<JnShot4_0Left,<JnShot5_0Left,<JnShot6_0Left,<JnShot7_0Left,<JnShot8_0Left,<JnShot9_0Left,<JnShot10_0Left,<JnShot11_0Left,<JnShot12_0Left,<JnShot13_0Left,<JnShot1_1,<JnShot2_1,<JnShot3_1,<JnShot4_1,<JnShot5_1,<JnShot6_1,<JnShot7_1,<JnShot8_1,<JnShot9_1,<JnShot10_1,<JnShot11_1,<JnShot12_1,<JnShot13_1,<JnShot1_1Left,<JnShot2_1Left,<JnShot3_1Left,<JnShot4_1Left,<JnShot5_1Left,<JnShot6_1Left,<JnShot7_1Left,<JnShot8_1Left,<JnShot9_1Left,<JnShot10_1Left,<JnShot11_1Left,<JnShot12_1Left,<JnShot13_1Left
+JnShotAllHi:.byte >JnShot1_0,>JnShot2_0,>JnShot3_0,>JnShot4_0,>JnShot5_0,>JnShot6_0,>JnShot7_0,>JnShot8_0,>JnShot9_0,>JnShot10_0,>JnShot11_0,>JnShot12_0,>JnShot13_0,>JnShot1_0Left,>JnShot2_0Left,>JnShot3_0Left,>JnShot4_0Left,>JnShot5_0Left,>JnShot6_0Left,>JnShot7_0Left,>JnShot8_0Left,>JnShot9_0Left,>JnShot10_0Left,>JnShot11_0Left,>JnShot12_0Left,>JnShot13_0Left,>JnShot1_1,>JnShot2_1,>JnShot3_1,>JnShot4_1,>JnShot5_1,>JnShot6_1,>JnShot7_1,>JnShot8_1,>JnShot9_1,>JnShot10_1,>JnShot11_1,>JnShot12_1,>JnShot13_1,>JnShot1_1Left,>JnShot2_1Left,>JnShot3_1Left,>JnShot4_1Left,>JnShot5_1Left,>JnShot6_1Left,>JnShot7_1Left,>JnShot8_1Left,>JnShot9_1Left,>JnShot10_1Left,>JnShot11_1Left,>JnShot12_1Left,>JnShot13_1Left
+; Exact source tiles/HV, existing SMB-relative record origin.
+JnBatNativeRecord0:.byte 4,21,66,0,0
+JnBatNativeRecord1:.byte 4,21,2,0,0
+JnBatNativeRecord2:.byte 4,23,66,0,0
+JnBatNativeRecord3:.byte 4,25,66,0,0
+JnBatNativeRecord4:.byte 4,21,130,0,0
+JnBatNativeRecord5:.byte 4,27,130,0,0
+JnBatNativeRecord6:.byte 4,21,194,0,0
+JnBatNativeRecord7:.byte 4,23,2,0,0
+JnBatNativeRecord8:.byte 4,25,2,0,0
+JnBatNativeRecord9:.byte 4,27,2,0,0
+JnBatRecordLo:.byte <JnBatNativeRecord0,<JnBatNativeRecord0,<JnBatNativeRecord0,<JnBatNativeRecord0,<JnBatNativeRecord0,<JnBatNativeRecord0,<JnBatNativeRecord0,<JnBatNativeRecord0,<JnBatNativeRecord1,<JnBatNativeRecord2,<JnBatNativeRecord3,<JnBatNativeRecord4,<JnBatNativeRecord5,<JnBatNativeRecord6,<JnBatNativeRecord7,<JnBatNativeRecord8,<JnBatNativeRecord0,<JnBatNativeRecord9,<JnBatNativeRecord1,<JnBatNativeRecord1,<JnBatNativeRecord1,<JnBatNativeRecord1,<JnBatNativeRecord1,<JnBatNativeRecord1,<JnBatNativeRecord1,<JnBatNativeRecord1,<JnBatNativeRecord1,<JnBatNativeRecord1,<JnBatNativeRecord1,<JnBatNativeRecord1,<JnBatNativeRecord1,<JnBatNativeRecord1,<JnBatNativeRecord1,<JnBatNativeRecord1,<JnBatNativeRecord1,<JnBatNativeRecord1,<JnBatNativeRecord1,<JnBatNativeRecord1,<JnBatNativeRecord0,<JnBatNativeRecord7,<JnBatNativeRecord8,<JnBatNativeRecord6,<JnBatNativeRecord5,<JnBatNativeRecord4,<JnBatNativeRecord2,<JnBatNativeRecord3,<JnBatNativeRecord1,<JnBatNativeRecord9,<JnBatNativeRecord0,<JnBatNativeRecord0,<JnBatNativeRecord0,<JnBatNativeRecord0,<JnBatNativeRecord0,<JnBatNativeRecord0,<JnBatNativeRecord0,<JnBatNativeRecord0,<JnBatNativeRecord0,<JnBatNativeRecord0,<JnBatNativeRecord0,<JnBatNativeRecord0
+JnBatRecordHi:.byte >JnBatNativeRecord0,>JnBatNativeRecord0,>JnBatNativeRecord0,>JnBatNativeRecord0,>JnBatNativeRecord0,>JnBatNativeRecord0,>JnBatNativeRecord0,>JnBatNativeRecord0,>JnBatNativeRecord1,>JnBatNativeRecord2,>JnBatNativeRecord3,>JnBatNativeRecord4,>JnBatNativeRecord5,>JnBatNativeRecord6,>JnBatNativeRecord7,>JnBatNativeRecord8,>JnBatNativeRecord0,>JnBatNativeRecord9,>JnBatNativeRecord1,>JnBatNativeRecord1,>JnBatNativeRecord1,>JnBatNativeRecord1,>JnBatNativeRecord1,>JnBatNativeRecord1,>JnBatNativeRecord1,>JnBatNativeRecord1,>JnBatNativeRecord1,>JnBatNativeRecord1,>JnBatNativeRecord1,>JnBatNativeRecord1,>JnBatNativeRecord1,>JnBatNativeRecord1,>JnBatNativeRecord1,>JnBatNativeRecord1,>JnBatNativeRecord1,>JnBatNativeRecord1,>JnBatNativeRecord1,>JnBatNativeRecord1,>JnBatNativeRecord0,>JnBatNativeRecord7,>JnBatNativeRecord8,>JnBatNativeRecord6,>JnBatNativeRecord5,>JnBatNativeRecord4,>JnBatNativeRecord2,>JnBatNativeRecord3,>JnBatNativeRecord1,>JnBatNativeRecord9,>JnBatNativeRecord0,>JnBatNativeRecord0,>JnBatNativeRecord0,>JnBatNativeRecord0,>JnBatNativeRecord0,>JnBatNativeRecord0,>JnBatNativeRecord0,>JnBatNativeRecord0,>JnBatNativeRecord0,>JnBatNativeRecord0,>JnBatNativeRecord0,>JnBatNativeRecord0
+.popseg

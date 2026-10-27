@@ -52,10 +52,9 @@ FacingReady:
  adc #26
  tay
 PhaseReady:
- lda JnShotAllLo,y
- sta R0
- lda JnShotAllHi,y
- sta R1
+ jmp JnBatSelectRecord
+ .res 7,$ea
+::JnBatRecordSelected:
  lda JnShotX,x
  sec
  sbc ScreenLeft_X_Pos
@@ -248,4 +247,120 @@ Ball:.byte "BALL "
 Laser:.byte "LASER"
 Mega:.byte "MEGA "
 .endproc
+
+; Authenticated source interpreter:8 windup,8 damaging,3 recovery motion,
+; 11 recovery hold; clear on tick30. ShotAge1 corresponds to source tick0.
+; SMB reach/terrain and body-relative coordinates remain existing adaptations.
+.proc JnBatBeginAttack
+ lda #1
+ sta JnAttack
+ lda #0
+ sta JnHitMask
+ php
+ pha
+ lda JnWeapon
+ cmp #4
+ bne Normal
+ pla
+ plp
+ jsr JnRelease
+ jmp JnWeapons::Active
+Normal:
+ pla
+ plp
+ jmp JnWeapons::Active
+.endproc
+.proc JnBatReleaseIfDue
+ php
+ pha
+ lda JnWeapon
+ cmp #4
+ beq AlreadyVisible
+ pla
+ plp
+ jmp JnRelease
+AlreadyVisible:
+ pla
+ plp
+ rts
+.endproc
+.proc JnBatAttackLimit
+ lda JnWeapon
+ cmp #4
+ bne Normal
+ lda JnAttack
+ cmp #33
+ jmp JnBatAttackLimitContinue
+Normal:
+ lda JnAttack
+ cmp #19
+ jmp JnBatAttackLimitContinue
+.endproc
+.proc JnBatContactIfActive
+ php
+ pha
+ lda JnShotKind,x
+ cmp #4
+ bne Normal
+ lda JnShotAge,x
+ cmp #9
+ bcc Inactive
+ cmp #17
+ bcs Inactive
+Normal:
+ pla
+ plp
+ jmp JnShotEnemies
+Inactive:
+ pla
+ plp
+ rts
+.endproc
+.proc JnBatSelectRecord
+ php
+ lda JnShotKind,x
+ cmp #4
+ bne Legacy
+ lda JnShotAge,x
+ beq Legacy
+ cmp #31
+ bcs Legacy
+ tya
+ pha
+ lda JnShotAge,x
+ sec
+ sbc #1
+ tay
+ lda JnShotVX,x
+ bne Velocity
+ lda PlayerFacingDir
+ cmp #2
+ beq Left
+ bne Lookup
+Velocity:
+ bpl Lookup
+Left:
+ tya
+ clc
+ adc #30
+ tay
+Lookup:
+ lda JnBatRecordLo,y
+ sta R0
+ lda JnBatRecordHi,y
+ sta R1
+ pla
+ tay
+ plp
+ lda R1
+ jmp JnBatRecordSelected
+Legacy:
+ plp
+ lda JnShotAllLo,y
+ sta R0
+ lda JnShotAllHi,y
+ sta R1
+ jmp JnBatRecordSelected
+.endproc
+
 .popseg

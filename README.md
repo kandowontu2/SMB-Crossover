@@ -6,7 +6,9 @@ This is a native NES adaptation of [Super Mario Bros. Crossover](https://www.smb
 
 **Status: playable, actively developed, and unfinished.** Character behavior, graphics, sound and performance are still being tested and corrected. MMC5 is the recommended target for the full roster.
 
-The October 27 development build (`bdf9ca2b`) preserves earned Castlevania equipment and hearts when gaining a 1-Up, and removes a second stopwatch countdown. Source checks cover Grant, Sypha and Alucard in both modes; a native Grant test confirms a real 1-Up preserves his earned dagger and hearts. Full-roster testing remains open. See the [repair checks and limits](docs/qa/cv3-life-watch-adoption-2026-10-27.json).
+The October 27 development build (`5a0a37a9`) corrects Kirby’s copied-enemy icon and green-shell colors, and restores Mike’s original bat swing shapes and timing. The individual repairs passed focused native tests; the combined build preserves every other ROM byte and is still undergoing the full roster audit. See the [repair checks and limits](docs/qa/kirby-mike-polish-adoption-2026-10-27.json).
+
+The preceding build (`bdf9ca2b`) preserves earned Castlevania equipment and hearts when gaining a 1-Up, and removes a second stopwatch countdown. Source checks cover Grant, Sypha and Alucard in both modes; a native Grant test confirms a real 1-Up preserves his earned dagger and hearts. Full-roster testing remains open. See the [repair checks and limits](docs/qa/cv3-life-watch-adoption-2026-10-27.json).
 
 The preceding build (`ab221e81`) fixes missing Mega Man/Proto Man body sprites during weapon attacks and a redundant Proto Man palette update that ran past the rendering deadline. Both passed their Hard-mode earned-weapon tests and cleared 1-1 with no deaths or cheats, reaching playable 1-2. See the [repair checks and limits](docs/qa/mega-proto-body-palette-adoption-2026-10-27.json).
 

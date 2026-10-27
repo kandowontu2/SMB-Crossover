@@ -1,0 +1,86 @@
+{
+  "status": "ADOPTED_QUALIFIED_SPARSE_COMPOSITION",
+  "current_ROM_sha256": "5a0a37a97e95ce3c1086f91f6000ad0157bb477f923027d39f0342d9389e6db2",
+  "parent_ROM_sha256": "bdf9ca2bfe69ee93ca85f1b5e5319e474d9f01aa641c79a58cd9bd602253c40e",
+  "changes": [
+    "Correct native-area palette ownership for Kirby green-shell/greenParatroopa/greyCheep icons and green-shell projectile:8 attributes only.",
+    "Restore all four original Mike bat shapes/flips,30 visible updates, correct damaging window and full recovery lock; other12 weapon behavior unchanged in source controls."
+  ],
+  "composition": {
+    "changed_bytes": 387,
+    "banks": {
+      "73": 8,
+      "97": 170,
+      "98": 209
+    },
+    "all_other_ROM_header_CHR_exact": true,
+    "old_qualified_addresses_exact": 61710,
+    "ordinary_MMC3_MMC5_byte_exact": true
+  },
+  "native_repairs_on_individual_candidates": [
+    {
+      "identity": "kirby",
+      "native_ROM_sha256": "3d597ffaf0409ff7b611c968e31818d276eda5e01ae647a3ba6234b9f88d1130",
+      "native_pass": true,
+      "cases": 3,
+      "wall_frames": 1640,
+      "actual_updates": 1266,
+      "complete256_DMAs": 1614,
+      "minimum_SP": 204,
+      "selected_whole_frames_root_viewed": 3
+    },
+    {
+      "identity": "mike",
+      "native_ROM_sha256": "da633492cc71b4dbf6e7b270f46b592a0f0e7ceb164ddfdfdb7afa9b6bc211ac",
+      "native_pass": true,
+      "cases": 5,
+      "wall_frames": 654,
+      "actual_updates": 238,
+      "complete256_DMAs": 631,
+      "minimum_SP": 204,
+      "selected_whole_frames_root_viewed": 23
+    }
+  ],
+  "visual_notes": "Root viewed3 Kirby frames and23 Mike frames (20 unique record/direction states plus3 original stills). Mike stills named terminal are early attack samples; the full live trace, not those filenames, proves later ages and9/8 ammo. All30 ages in both directions reached captured actual DMA. Original palette hue fidelity and SMB spatial/body adaptations remain open.",
+  "timing": "Kirby attribute fix adds no CPU/OAM work. Bat fidelity change adds measured source mean29.16CPU in the full53-case campaign, not a lag improvement. No combined native full-route/FPS claim.",
+  "not_included": "Chip singleton HUD candidate is HELD: it fixes the1289 failure but full route finds another render overrun1476. Its3source leaves were withdrawn; broader diagnosis continues.",
+  "limits": "Individual native proofs retain their actual3d59/da63 ROMs. New5a whole-roster routes, complete every-powerup coverage, all-frame/underwater/facing/audio review and final performance remain open.",
+  "source_changes": [
+    {
+      "path": "src/kirby_copy_icons.inc",
+      "before_sha256": "97ed842ee6c5a479f7189880e280e32beb9032394d94e1b6a555b708314cbc3a",
+      "after_sha256": "89761f944125151316f3fffdd119eddde837d888ad83744dbb3bf1a0a5890c14",
+      "snapshot_encoding": "raw",
+      "preimage_snapshot": "docs/qa/checkpoints/2026-10-27/kirby-mike-polish-adoption/preimages/src/kirby_copy_icons.inc",
+      "postimage_snapshot": "docs/qa/checkpoints/2026-10-27/kirby-mike-polish-adoption/postimages/src/kirby_copy_icons.inc"
+    },
+    {
+      "path": "src/mike_jones_weapons.s",
+      "before_sha256": "6fdb547ff8bae1bccb01cf430efa9a2313f32778fb38752fcfc2f1cab40fc8a1",
+      "after_sha256": "d15d774b3ca15a278fc2f7152a03c611bbe32c41e668f6ed7f5b2453f581038b",
+      "snapshot_encoding": "gzip",
+      "preimage_snapshot": "docs/qa/checkpoints/2026-10-27/kirby-mike-polish-adoption/preimages/src/mike_jones_weapons.s.gz",
+      "postimage_snapshot": "docs/qa/checkpoints/2026-10-27/kirby-mike-polish-adoption/postimages/src/mike_jones_weapons.s.gz"
+    },
+    {
+      "path": "src/mike_jones_render.s",
+      "before_sha256": "fd54a5e0df07a69cd64f9989374328fb722fe3c5fa0fdd2174c3e6a7d06c49b9",
+      "after_sha256": "8dfdcbc9e707bdf97e52271832f41fdb0a9208242c5312df0ada446e3bed1ae1",
+      "snapshot_encoding": "raw",
+      "preimage_snapshot": "docs/qa/checkpoints/2026-10-27/kirby-mike-polish-adoption/preimages/src/mike_jones_render.s",
+      "postimage_snapshot": "docs/qa/checkpoints/2026-10-27/kirby-mike-polish-adoption/postimages/src/mike_jones_render.s"
+    },
+    {
+      "path": "src/mike_jones_art.inc",
+      "before_sha256": "74b3f745b5772eb07c230ef9f0fe2804eaa7eac4b1a575c2f0fcefe6127810ce",
+      "after_sha256": "809c275e6e91d3ee92312dc7872721301349c438ed7e45705231fc217618b2d6",
+      "snapshot_encoding": "raw",
+      "preimage_snapshot": "docs/qa/checkpoints/2026-10-27/kirby-mike-polish-adoption/preimages/src/mike_jones_art.inc",
+      "postimage_snapshot": "docs/qa/checkpoints/2026-10-27/kirby-mike-polish-adoption/postimages/src/mike_jones_art.inc"
+    }
+  ],
+  "checkpoint": "docs/qa/checkpoints/2026-10-27/kirby-mike-polish-adoption",
+  "goal_complete": false,
+  "source_line_endings": "Existing unchanged lines retain their exact original endings; added/replaced lines use the original dominant style. Source instruction text and compiled ROM are unchanged.",
+  "source_snapshot_note": "Weapon snapshots are lossless gzip to preserve the existing blank EOF without introducing text-only whitespace changes. Decompressed SHA256 equals source_changes before/after hashes."
+}

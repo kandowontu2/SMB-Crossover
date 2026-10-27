@@ -1,0 +1,203 @@
+--- bdf9/src/mike_jones_weapons.s
++++ private/src/mike_jones_weapons.s
+@@ -53,19 +53,18 @@
+  sta JnWeapon
+  jmp Begin
+ Primary:jsr JnSelectPrimary
+-Begin:lda #1
+- sta JnAttack
+- lda #0
+- sta JnHitMask
++Begin:jmp JnBatBeginAttack
++ .res 7,$ea
+ Active:
+  lda JnAttack
+  jeq Update
+  cmp #6 ; native5-frame windup.
+  jne Age
+- jsr JnRelease
++ jsr JnBatReleaseIfDue
+ Age:inc JnAttack
+- lda JnAttack
+- cmp #19
++ jmp JnBatAttackLimit
++ .res 2,$ea
++::JnBatAttackLimitContinue:
+  jcc Update
+  lda #0
+  sta JnAttack
+@@ -80,7 +79,7 @@
+  ldx JnSlot
+  lda JnShotKind,x
+  jeq Next
+- jsr JnShotEnemies
++ jsr JnBatContactIfActive
+ Next:dec JnSlot
+  jpl Loop
+ Done:rts
+@@ -238,7 +237,7 @@
+  jmp Hand
+ Bat:
+  lda JnShotAge,x
+- cmp #12
++ cmp #31
+  jcs Kill
+  lda #22
+  jmp Hand
+--- bdf9/src/mike_jones_render.s
++++ private/src/mike_jones_render.s
+@@ -52,10 +52,9 @@
+  adc #26
+  tay
+ PhaseReady:
+- lda JnShotAllLo,y
+- sta R0
+- lda JnShotAllHi,y
+- sta R1
++ jmp JnBatSelectRecord
++ .res 7,$ea
++::JnBatRecordSelected:
+  lda JnShotX,x
+  sec
+  sbc ScreenLeft_X_Pos
+@@ -248,4 +247,120 @@
+ Laser:.byte "LASER"
+ Mega:.byte "MEGA "
+ .endproc
++
++; Authenticated source interpreter:8 windup,8 damaging,3 recovery motion,
++; 11 recovery hold; clear on tick30. ShotAge1 corresponds to source tick0.
++; SMB reach/terrain and body-relative coordinates remain existing adaptations.
++.proc JnBatBeginAttack
++ lda #1
++ sta JnAttack
++ lda #0
++ sta JnHitMask
++ php
++ pha
++ lda JnWeapon
++ cmp #4
++ bne Normal
++ pla
++ plp
++ jsr JnRelease
++ jmp JnWeapons::Active
++Normal:
++ pla
++ plp
++ jmp JnWeapons::Active
++.endproc
++.proc JnBatReleaseIfDue
++ php
++ pha
++ lda JnWeapon
++ cmp #4
++ beq AlreadyVisible
++ pla
++ plp
++ jmp JnRelease
++AlreadyVisible:
++ pla
++ plp
++ rts
++.endproc
++.proc JnBatAttackLimit
++ lda JnWeapon
++ cmp #4
++ bne Normal
++ lda JnAttack
++ cmp #33
++ jmp JnBatAttackLimitContinue
++Normal:
++ lda JnAttack
++ cmp #19
++ jmp JnBatAttackLimitContinue
++.endproc
++.proc JnBatContactIfActive
++ php
++ pha
++ lda JnShotKind,x
++ cmp #4
++ bne Normal
++ lda JnShotAge,x
++ cmp #9
++ bcc Inactive
++ cmp #17
++ bcs Inactive
++Normal:
++ pla
++ plp
++ jmp JnShotEnemies
++Inactive:
++ pla
++ plp
++ rts
++.endproc
++.proc JnBatSelectRecord
++ php
++ lda JnShotKind,x
++ cmp #4
++ bne Legacy
++ lda JnShotAge,x
++ beq Legacy
++ cmp #31
++ bcs Legacy
++ tya
++ pha
++ lda JnShotAge,x
++ sec
++ sbc #1
++ tay
++ lda JnShotVX,x
++ bne Velocity
++ lda PlayerFacingDir
++ cmp #2
++ beq Left
++ bne Lookup
++Velocity:
++ bpl Lookup
++Left:
++ tya
++ clc
++ adc #30
++ tay
++Lookup:
++ lda JnBatRecordLo,y
++ sta R0
++ lda JnBatRecordHi,y
++ sta R1
++ pla
++ tay
++ plp
++ lda R1
++ jmp JnBatRecordSelected
++Legacy:
++ plp
++ lda JnShotAllLo,y
++ sta R0
++ lda JnShotAllHi,y
++ sta R1
++ jmp JnBatRecordSelected
++.endproc
++
+ .popseg
+--- bdf9/src/mike_jones_art.inc
++++ private/src/mike_jones_art.inc
+@@ -182,4 +182,17 @@
+ JnShot13_1Left:.byte 8,45,66,249,0,45,66,7,0
+ JnShotAllLo:.byte <JnShot1_0,<JnShot2_0,<JnShot3_0,<JnShot4_0,<JnShot5_0,<JnShot6_0,<JnShot7_0,<JnShot8_0,<JnShot9_0,<JnShot10_0,<JnShot11_0,<JnShot12_0,<JnShot13_0,<JnShot1_0Left,<JnShot2_0Left,<JnShot3_0Left,<JnShot4_0Left,<JnShot5_0Left,<JnShot6_0Left,<JnShot7_0Left,<JnShot8_0Left,<JnShot9_0Left,<JnShot10_0Left,<JnShot11_0Left,<JnShot12_0Left,<JnShot13_0Left,<JnShot1_1,<JnShot2_1,<JnShot3_1,<JnShot4_1,<JnShot5_1,<JnShot6_1,<JnShot7_1,<JnShot8_1,<JnShot9_1,<JnShot10_1,<JnShot11_1,<JnShot12_1,<JnShot13_1,<JnShot1_1Left,<JnShot2_1Left,<JnShot3_1Left,<JnShot4_1Left,<JnShot5_1Left,<JnShot6_1Left,<JnShot7_1Left,<JnShot8_1Left,<JnShot9_1Left,<JnShot10_1Left,<JnShot11_1Left,<JnShot12_1Left,<JnShot13_1Left
+ JnShotAllHi:.byte >JnShot1_0,>JnShot2_0,>JnShot3_0,>JnShot4_0,>JnShot5_0,>JnShot6_0,>JnShot7_0,>JnShot8_0,>JnShot9_0,>JnShot10_0,>JnShot11_0,>JnShot12_0,>JnShot13_0,>JnShot1_0Left,>JnShot2_0Left,>JnShot3_0Left,>JnShot4_0Left,>JnShot5_0Left,>JnShot6_0Left,>JnShot7_0Left,>JnShot8_0Left,>JnShot9_0Left,>JnShot10_0Left,>JnShot11_0Left,>JnShot12_0Left,>JnShot13_0Left,>JnShot1_1,>JnShot2_1,>JnShot3_1,>JnShot4_1,>JnShot5_1,>JnShot6_1,>JnShot7_1,>JnShot8_1,>JnShot9_1,>JnShot10_1,>JnShot11_1,>JnShot12_1,>JnShot13_1,>JnShot1_1Left,>JnShot2_1Left,>JnShot3_1Left,>JnShot4_1Left,>JnShot5_1Left,>JnShot6_1Left,>JnShot7_1Left,>JnShot8_1Left,>JnShot9_1Left,>JnShot10_1Left,>JnShot11_1Left,>JnShot12_1Left,>JnShot13_1Left
++; Exact source tiles/HV, existing SMB-relative record origin.
++JnBatNativeRecord0:.byte 4,21,66,0,0
++JnBatNativeRecord1:.byte 4,21,2,0,0
++JnBatNativeRecord2:.byte 4,23,66,0,0
++JnBatNativeRecord3:.byte 4,25,66,0,0
++JnBatNativeRecord4:.byte 4,21,130,0,0
++JnBatNativeRecord5:.byte 4,27,130,0,0
++JnBatNativeRecord6:.byte 4,21,194,0,0
++JnBatNativeRecord7:.byte 4,23,2,0,0
++JnBatNativeRecord8:.byte 4,25,2,0,0
++JnBatNativeRecord9:.byte 4,27,2,0,0
++JnBatRecordLo:.byte <JnBatNativeRecord0,<JnBatNativeRecord0,<JnBatNativeRecord0,<JnBatNativeRecord0,<JnBatNativeRecord0,<JnBatNativeRecord0,<JnBatNativeRecord0,<JnBatNativeRecord0,<JnBatNativeRecord1,<JnBatNativeRecord2,<JnBatNativeRecord3,<JnBatNativeRecord4,<JnBatNativeRecord5,<JnBatNativeRecord6,<JnBatNativeRecord7,<JnBatNativeRecord8,<JnBatNativeRecord0,<JnBatNativeRecord9,<JnBatNativeRecord1,<JnBatNativeRecord1,<JnBatNativeRecord1,<JnBatNativeRecord1,<JnBatNativeRecord1,<JnBatNativeRecord1,<JnBatNativeRecord1,<JnBatNativeRecord1,<JnBatNativeRecord1,<JnBatNativeRecord1,<JnBatNativeRecord1,<JnBatNativeRecord1,<JnBatNativeRecord1,<JnBatNativeRecord1,<JnBatNativeRecord1,<JnBatNativeRecord1,<JnBatNativeRecord1,<JnBatNativeRecord1,<JnBatNativeRecord1,<JnBatNativeRecord1,<JnBatNativeRecord0,<JnBatNativeRecord7,<JnBatNativeRecord8,<JnBatNativeRecord6,<JnBatNativeRecord5,<JnBatNativeRecord4,<JnBatNativeRecord2,<JnBatNativeRecord3,<JnBatNativeRecord1,<JnBatNativeRecord9,<JnBatNativeRecord0,<JnBatNativeRecord0,<JnBatNativeRecord0,<JnBatNativeRecord0,<JnBatNativeRecord0,<JnBatNativeRecord0,<JnBatNativeRecord0,<JnBatNativeRecord0,<JnBatNativeRecord0,<JnBatNativeRecord0,<JnBatNativeRecord0,<JnBatNativeRecord0
++JnBatRecordHi:.byte >JnBatNativeRecord0,>JnBatNativeRecord0,>JnBatNativeRecord0,>JnBatNativeRecord0,>JnBatNativeRecord0,>JnBatNativeRecord0,>JnBatNativeRecord0,>JnBatNativeRecord0,>JnBatNativeRecord1,>JnBatNativeRecord2,>JnBatNativeRecord3,>JnBatNativeRecord4,>JnBatNativeRecord5,>JnBatNativeRecord6,>JnBatNativeRecord7,>JnBatNativeRecord8,>JnBatNativeRecord0,>JnBatNativeRecord9,>JnBatNativeRecord1,>JnBatNativeRecord1,>JnBatNativeRecord1,>JnBatNativeRecord1,>JnBatNativeRecord1,>JnBatNativeRecord1,>JnBatNativeRecord1,>JnBatNativeRecord1,>JnBatNativeRecord1,>JnBatNativeRecord1,>JnBatNativeRecord1,>JnBatNativeRecord1,>JnBatNativeRecord1,>JnBatNativeRecord1,>JnBatNativeRecord1,>JnBatNativeRecord1,>JnBatNativeRecord1,>JnBatNativeRecord1,>JnBatNativeRecord1,>JnBatNativeRecord1,>JnBatNativeRecord0,>JnBatNativeRecord7,>JnBatNativeRecord8,>JnBatNativeRecord6,>JnBatNativeRecord5,>JnBatNativeRecord4,>JnBatNativeRecord2,>JnBatNativeRecord3,>JnBatNativeRecord1,>JnBatNativeRecord9,>JnBatNativeRecord0,>JnBatNativeRecord0,>JnBatNativeRecord0,>JnBatNativeRecord0,>JnBatNativeRecord0,>JnBatNativeRecord0,>JnBatNativeRecord0,>JnBatNativeRecord0,>JnBatNativeRecord0,>JnBatNativeRecord0,>JnBatNativeRecord0,>JnBatNativeRecord0
+ .popseg
