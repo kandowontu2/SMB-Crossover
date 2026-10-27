@@ -1,0 +1,43 @@
+Bill ordinary-enemy/background timing — 2026-10-27
+
+Read-only result: the additional 21-span observer completed without changing the recorded 9ea Bill Hard route. ROOT's native result PASS remains 6,091 wall frames, 5,142 completed Main updates, 3,823 complete DMAs, 5,206 whole PPU images, zero deaths, and 25 controlled 1-2 updates. This review launched nothing and changed no product, controller, fixture, readiness, settings, or native artifact. Current folder: build/verification/bill-enemy-timing9ea-ready-v1. Exact ROM: 9ea11eab2fc5c373a3795b013f6ed9e0d5e9781891b2ae3bf40ad2556c27b85e.
+
+The five complete files below are byte-exact to the existing candidate9ea parent. Therefore ROOT can reuse the parent's already verified container and seven selected pictures; this review did not decode/copy another capture or claim a new visual inspection.
+inputs.csv b03024aac18a7e224e00bb2f6aa15fe08f1e821457f06d50068c113bb214eb35
+trace.csv b6e60aba4ae1dfba71ec3cecbd1daaa8e1521f0750b143c7f8b463869d378fca
+captures.nesppuv1 ade63f0954d1eb88bc2d14cc897f6c99516c7536cfceac77c4014f49b64cc155
+captures-index.jsonl f006c3bf1d1291c581aa95f476f4a7b6bf89c16d51847ac8361cc5a3b0d16611
+result.json 0fbbea756bfa0084aa6ad63bbbb1c5016964d6f4011cfeb3b7a5f1e394a73a01
+
+Finite timing scope
+The CSV has exactly 61 actual-PPU data rows, frames 3500..3560 at line240/dot0. First/last clocks104229264/106016094 span60 PPU periods (1,786,830 cycles), not61 complete per-frame execution integrals. Completion buckets contain39 closed Main calls,61 NMI/IRQ returns,23 DMAs,38 NmiSkipped increments. Timer/powerup/refill and advanced/other shot counts stay0; selected inventory index0. Ordinary shots3/4 occur8/53 rows, active enemy-slot counts1/2/3 occur8/34/19. PlayerX1874..1923;2 grounded/59 airborne rows. Individual enemy IDs, per-call actor states, shot types/ages, and ammo amounts were not logged.
+
+All previous 111 CSV columns are identical except GameLoop_exclusive in38 rows: the new child probes intentionally remove those measured children from Main exclusive. All old aggregate function values remain exact except Main exclusive. Runtime caller provenance remains genuine bank/JSR/stack checked; no aliases, unknown-return exemptions, or runtime callback registration were introduced. All34 readiness bindings/settings stayed unchanged per ROOT launch.json.
+
+New completed-span totals (cycles exclude interruptions)
+Routine                       calls inclusive exclusive maximum
+EnemiesAndLoopsCore             234    159728    143207    2206
+  Mmc5GroundGoombaTerrain         83      9628      9628     556
+  PlayerEnemyCollision           83      6893      6893     182
+AreaParserTaskHandler            11     20551     20551    4467
+
+EnemyCore inclusive equals143207+9628+6893 exactly. Native terrain and player contact are only16,521 of159,728 measured enemy cycles. The143,207 remainder still includes enemy loading, AI, graphics, offscreen/bounding-box work, enemy-pair collision and movement. It is not all Goomba movement, and no per-ID cost can be inferred from the function name or endFrame enemy count. Strict61 CSV buckets contain all234 enemy/83 terrain/83 contact completions, but only10 parser calls/18,832 cycles; one parser1,719-cycle completion is prewindow3499.
+
+Previously unlabelled Main exclusive483,963 falls to305,403 exactly by159,728+18,832=178,560 newly attributed cycles. This is additional instrumentation coverage, not an optimization. Main inclusive remains1,105,998 across39 completed calls (maximum39,494). The largest newly named untouched foreground owner is EnemyCore. Existing other sizeable exclusive totals remain DrawAll130,636, PlayerCtrl80,499, RosterWeapons77,115, BulletBlocks76,584 and MetaspriteRenderLoop69,798. Those totals cover different counts and nested intervals; do not add inclusive parents to their children or divide all descendants by39.
+
+Censoring and interrupts
+At cutoff Main is open from106000454, with entrySP250 and real bank126 caller82CD/return82D0. EnemyCore is also open from106015360, entrySP245, real bank126 caller83CB/return83CE. Their elapsed wall times15,640/734 cycles at the endFrame stamp are not completed foreground costs: saved pending records omit accumulated interrupt/child time. Zero open ISRs remain. No closed EnemyCore return may be fabricated for that last slot.
+
+The sum of completed foreground exclusives1,129,071 exceeds completed Main inclusive1,105,998 by23,073. The old residual21,354 grows by exactly the prewindow parser1,719. This boundary residual includes warmup/outside/censored-parent coverage; it cannot be assigned wholesale to the open Main. Warmup aggregates additionally include one Audio, one DrawAll, one RemainingDraw, one RosterDrawShots and11 MetaspriteRenderLoop calls absent from strict CSV buckets. CSV prewindow flags0 do not mean aggregates have no3499 warmup completions.
+
+Strict CSV NMI elapsed284,756 is gross ISR time including any nested IRQ; IRQ elapsed7,320 is separately reported and must not be added to NMI as disjoint time. Strict AudioUpdate61 calls246,480 excludes its interrupt time. Aggregate Audio62 calls250,956 includes warmup. No per-frame FPS ratio follows from completion-bucket timing. Disk CSV26,288 bytes versus Lua logical26,226 is exactly62 CRLF extra bytes, not missing rows.
+
+Source attribution / next practical step
+src/game.s GameCoreRoutine runs all six native slots, including inactive loader paths, before player graphics, block/misc/cannon/timer work. src/object.s EnemiesAndLoopsCore dispatches inactive slots through ProcLoopCommand and active ordinary enemies through RunNormalEnemies. The latter performs offscreen/relative/graphics/box work, terrain, pair collision, player contact and movement. src/level_tiles.s AreaParserTaskHandler remains a separate farcall tail after scrolling. Parser is bursty (strict maximum4,467), but18,832 strict-window cycles is much smaller than EnemyCore159,728.
+
+No specific new game patch is justified by these aggregates alone. The smallest useful next measurement would add only EnemyGraphicsEngine, EnemyMovementSubs and ProcLoopCommand child spans to this existing bounded static observer; this separates active graphics/motion from inactive-slot loading before choosing a repair. A blind Goomba dispatch shortcut is not ABI-free: src/common.s JumpEngine publishes R4..R7 and manipulates the return stack. A source optimization must preserve those real scratch/caller outputs or prove their next readers, retain all actor clocks/collisions/emissions, and measure net complete-caller cycles plus foreign/cold costs. This report does not authorize/prepare another launch or claim universal60Hz, faster whole-route, or all-weapon coverage.
+
+Preserved lineage
+Original timing v1/v2 unknown-return failures and their zero-row limits remain unchanged. Parent early-cache native timing report retains the unequal-workload6be comparison and isolated RemainingWeapons V-negative. This follow-up replays the exact existing9ea inputs and proves observation equality; it does not change that earlier performance claim.
+
+Owned publication files: tools/audit/current_bill_enemy_timing_prepare_v1.py (already frozen) and this report only. Native/input/capture files remain in place; no new evidence tree or duplicate image payload was created.

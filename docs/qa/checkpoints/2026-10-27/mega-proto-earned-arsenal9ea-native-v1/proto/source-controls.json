@@ -1,0 +1,714 @@
+{
+  "passed": true,
+  "ROM_sha256": "9ea11eab2fc5c373a3795b013f6ed9e0d5e9781891b2ae3bf40ad2556c27b85e",
+  "variant": 1,
+  "mode": 1,
+  "complete_GameLoop_calls": 2195,
+  "actual_collections": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    254
+  ],
+  "auto_Charge10": true,
+  "source_CPU_only": true,
+  "consumer_environment": "Between complete GameLoops, actual SamusFreezeUpdateScreen consumes Buffer1, followed by the same two InitBuffer zero stores. This avoids a fictitious forever-full VRAM queue in the CPU arena; no NMI/timing claim.",
+  "cases": [
+    {
+      "item": 0,
+      "owners": [
+        "GameLoop",
+        "X5BounceUiDispatch",
+        "InventoryUiTick",
+        "SpecialWeapons",
+        "MarioSourcePowerupCollision",
+        "InventoryCollect",
+        "GuestPowerupUpdate",
+        "MegaManWeapons::Spawn"
+      ],
+      "collision": 1,
+      "collect": 1,
+      "grants": [],
+      "growth": 60,
+      "debits": [],
+      "contacts": 0,
+      "hp_writes": 0,
+      "types": [],
+      "sounds": [],
+      "primary": [
+        {
+          "type": 1,
+          "charge": 0,
+          "age": 4
+        },
+        {
+          "type": 3,
+          "charge": 87,
+          "age": 113
+        }
+      ],
+      "bounce": [],
+      "earned_collection": {
+        "item": 0,
+        "collision": 1,
+        "collect": 1,
+        "ownedLo": 1,
+        "ownedHi": 4,
+        "ammo_unchanged": [
+          112,
+          112,
+          112,
+          112,
+          112,
+          112,
+          112,
+          112
+        ]
+      }
+    },
+    {
+      "item": 1,
+      "owners": [
+        "GameLoop",
+        "X5BounceUiDispatch",
+        "InventoryUiTick",
+        "SpecialWeapons",
+        "MarioSourcePowerupCollision",
+        "InventoryCollect",
+        "InventoryGrant",
+        "InventoryCycle",
+        "SpecialWeapons::MegaAttack",
+        "MegaManSuperArmThrow",
+        "InventorySpend",
+        "InventorySpend::Done",
+        "MegaManWeapons::DamageEnemy"
+      ],
+      "collision": 1,
+      "collect": 1,
+      "grants": [
+        1
+      ],
+      "growth": 0,
+      "debits": [
+        {
+          "before": 112,
+          "cost": 8,
+          "after": 104,
+          "age": 16
+        }
+      ],
+      "contacts": 1,
+      "hp_writes": 8,
+      "types": [
+        9,
+        21
+      ],
+      "sounds": [
+        0
+      ],
+      "primary": [],
+      "bounce": [],
+      "earned_collection": {
+        "item": 1,
+        "collision": 1,
+        "collect": 1,
+        "ownedLo": 3,
+        "ownedHi": 4,
+        "ammo_unchanged": [
+          112,
+          112,
+          112,
+          112,
+          112,
+          112,
+          112,
+          112
+        ]
+      },
+      "cost": 8,
+      "proxy": 42,
+      "updates": 211,
+      "actual_target": true,
+      "held": true,
+      "paid_slide": false,
+      "expanded": false
+    },
+    {
+      "item": 2,
+      "owners": [
+        "GameLoop",
+        "X5BounceUiDispatch",
+        "InventoryUiTick",
+        "SpecialWeapons",
+        "MarioSourcePowerupCollision",
+        "InventoryCollect",
+        "InventoryGrant",
+        "InventoryCycle",
+        "SpecialWeapons::MegaAttack",
+        "InventorySpend",
+        "InventorySpend::Done",
+        "MegaManWeapons::DamageEnemy"
+      ],
+      "collision": 1,
+      "collect": 1,
+      "grants": [
+        2
+      ],
+      "growth": 0,
+      "debits": [
+        {
+          "before": 112,
+          "cost": 4,
+          "after": 108,
+          "age": 5
+        }
+      ],
+      "contacts": 1,
+      "hp_writes": 4,
+      "types": [
+        10
+      ],
+      "sounds": [
+        0,
+        64
+      ],
+      "primary": [],
+      "bounce": [],
+      "earned_collection": {
+        "item": 2,
+        "collision": 1,
+        "collect": 1,
+        "ownedLo": 7,
+        "ownedHi": 4,
+        "ammo_unchanged": [
+          104,
+          112,
+          112,
+          112,
+          112,
+          112,
+          112,
+          112
+        ]
+      },
+      "cost": 4,
+      "proxy": 43,
+      "updates": 211,
+      "actual_target": true,
+      "held": false,
+      "paid_slide": false,
+      "expanded": false
+    },
+    {
+      "item": 3,
+      "owners": [
+        "GameLoop",
+        "X5BounceUiDispatch",
+        "InventoryUiTick",
+        "SpecialWeapons",
+        "MarioSourcePowerupCollision",
+        "InventoryCollect",
+        "InventoryGrant",
+        "InventoryCycle",
+        "SpecialWeapons::MegaAttack",
+        "InventorySpend",
+        "InventorySpend::Done",
+        "MegaManWeapons::DamageEnemy"
+      ],
+      "collision": 1,
+      "collect": 1,
+      "grants": [
+        3
+      ],
+      "growth": 0,
+      "debits": [
+        {
+          "before": 112,
+          "cost": 8,
+          "after": 104,
+          "age": 5
+        }
+      ],
+      "contacts": 1,
+      "hp_writes": 6,
+      "types": [
+        11
+      ],
+      "sounds": [
+        0,
+        22
+      ],
+      "primary": [],
+      "bounce": [],
+      "earned_collection": {
+        "item": 3,
+        "collision": 1,
+        "collect": 1,
+        "ownedLo": 15,
+        "ownedHi": 4,
+        "ammo_unchanged": [
+          104,
+          108,
+          112,
+          112,
+          112,
+          112,
+          112,
+          112
+        ]
+      },
+      "cost": 8,
+      "proxy": 44,
+      "updates": 211,
+      "actual_target": true,
+      "held": false,
+      "paid_slide": false,
+      "expanded": false
+    },
+    {
+      "item": 4,
+      "owners": [
+        "GameLoop",
+        "X5BounceUiDispatch",
+        "InventoryUiTick",
+        "SpecialWeapons",
+        "MarioSourcePowerupCollision",
+        "InventoryCollect",
+        "InventoryGrant",
+        "InventoryCycle",
+        "SpecialWeapons::MegaAttack",
+        "InventorySpend",
+        "InventorySpend::Done",
+        "MegaManWeapons::DamageEnemy"
+      ],
+      "collision": 1,
+      "collect": 1,
+      "grants": [
+        4
+      ],
+      "growth": 0,
+      "debits": [
+        {
+          "before": 112,
+          "cost": 4,
+          "after": 108,
+          "age": 5
+        }
+      ],
+      "contacts": 1,
+      "hp_writes": 4,
+      "types": [
+        12,
+        18
+      ],
+      "sounds": [
+        0,
+        61
+      ],
+      "primary": [],
+      "bounce": [],
+      "earned_collection": {
+        "item": 4,
+        "collision": 1,
+        "collect": 1,
+        "ownedLo": 31,
+        "ownedHi": 4,
+        "ammo_unchanged": [
+          104,
+          108,
+          104,
+          112,
+          112,
+          112,
+          112,
+          112
+        ]
+      },
+      "cost": 4,
+      "proxy": 45,
+      "updates": 211,
+      "actual_target": true,
+      "held": false,
+      "paid_slide": false,
+      "expanded": false
+    },
+    {
+      "item": 5,
+      "owners": [
+        "GameLoop",
+        "X5BounceUiDispatch",
+        "InventoryUiTick",
+        "SpecialWeapons",
+        "MarioSourcePowerupCollision",
+        "InventoryCollect",
+        "InventoryGrant",
+        "InventoryCycle",
+        "InventorySpend",
+        "InventorySpend::Done",
+        "MegaManWeapons::DamageEnemy"
+      ],
+      "collision": 1,
+      "collect": 1,
+      "grants": [
+        5
+      ],
+      "growth": 0,
+      "debits": [
+        {
+          "before": 112,
+          "cost": 4,
+          "after": 108,
+          "age": 5
+        }
+      ],
+      "contacts": 1,
+      "hp_writes": 6,
+      "types": [
+        19
+      ],
+      "sounds": [
+        0,
+        65,
+        29
+      ],
+      "primary": [],
+      "bounce": [],
+      "earned_collection": {
+        "item": 5,
+        "collision": 1,
+        "collect": 1,
+        "ownedLo": 63,
+        "ownedHi": 4,
+        "ammo_unchanged": [
+          104,
+          108,
+          104,
+          108,
+          112,
+          112,
+          112,
+          112
+        ]
+      },
+      "cost": 4,
+      "proxy": 52,
+      "updates": 211,
+      "actual_target": true,
+      "held": false,
+      "paid_slide": true,
+      "expanded": false
+    },
+    {
+      "item": 6,
+      "owners": [
+        "GameLoop",
+        "X5BounceUiDispatch",
+        "InventoryUiTick",
+        "SpecialWeapons",
+        "MarioSourcePowerupCollision",
+        "InventoryCollect",
+        "InventoryGrant",
+        "InventoryCycle",
+        "SpecialWeapons::MegaAttack",
+        "InventorySpend",
+        "InventorySpend::Done",
+        "MegaManWeapons::DamageEnemy"
+      ],
+      "collision": 1,
+      "collect": 1,
+      "grants": [
+        6
+      ],
+      "growth": 0,
+      "debits": [
+        {
+          "before": 112,
+          "cost": 4,
+          "after": 108,
+          "age": 5
+        }
+      ],
+      "contacts": 1,
+      "hp_writes": 6,
+      "types": [
+        15,
+        16
+      ],
+      "sounds": [
+        0,
+        22
+      ],
+      "primary": [],
+      "bounce": [],
+      "earned_collection": {
+        "item": 6,
+        "collision": 1,
+        "collect": 1,
+        "ownedLo": 127,
+        "ownedHi": 4,
+        "ammo_unchanged": [
+          104,
+          108,
+          104,
+          108,
+          112,
+          112,
+          112,
+          112
+        ]
+      },
+      "cost": 4,
+      "proxy": 49,
+      "updates": 211,
+      "actual_target": true,
+      "held": false,
+      "paid_slide": false,
+      "expanded": false
+    },
+    {
+      "item": 7,
+      "owners": [
+        "GameLoop",
+        "X5BounceUiDispatch",
+        "InventoryUiTick",
+        "SpecialWeapons",
+        "MarioSourcePowerupCollision",
+        "InventoryCollect",
+        "InventoryGrant",
+        "InventoryCycle",
+        "SpecialWeapons::MegaAttack",
+        "InventorySpend",
+        "InventorySpend::Done",
+        "MegaManWeapons::DamageEnemy"
+      ],
+      "collision": 1,
+      "collect": 1,
+      "grants": [
+        7
+      ],
+      "growth": 0,
+      "debits": [
+        {
+          "before": 112,
+          "cost": 16,
+          "after": 96,
+          "age": 5
+        }
+      ],
+      "contacts": 1,
+      "hp_writes": 4,
+      "types": [
+        17
+      ],
+      "sounds": [
+        0,
+        67,
+        66
+      ],
+      "primary": [],
+      "bounce": [],
+      "earned_collection": {
+        "item": 7,
+        "collision": 1,
+        "collect": 1,
+        "ownedLo": 255,
+        "ownedHi": 4,
+        "ammo_unchanged": [
+          104,
+          108,
+          104,
+          108,
+          112,
+          108,
+          112,
+          112
+        ]
+      },
+      "cost": 16,
+      "proxy": 50,
+      "updates": 211,
+      "actual_target": true,
+      "held": false,
+      "paid_slide": false,
+      "expanded": true
+    },
+    {
+      "item": 8,
+      "owners": [
+        "GameLoop",
+        "X5BounceUiDispatch",
+        "InventoryUiTick",
+        "SpecialWeapons",
+        "MarioSourcePowerupCollision",
+        "InventoryCollect",
+        "InventoryGrant",
+        "InventoryCycle",
+        "SpecialWeapons::MegaAttack",
+        "MegaManRushAttack",
+        "MegaManWeapons::Spawn",
+        "MegaManRushBounce"
+      ],
+      "collision": 1,
+      "collect": 1,
+      "grants": [
+        8
+      ],
+      "growth": 0,
+      "debits": [],
+      "contacts": 0,
+      "hp_writes": 0,
+      "types": [
+        20
+      ],
+      "sounds": [
+        0
+      ],
+      "primary": [
+        {
+          "type": 1,
+          "charge": 0,
+          "age": 5
+        }
+      ],
+      "bounce": [
+        112
+      ],
+      "earned_collection": {
+        "item": 8,
+        "collision": 1,
+        "collect": 1,
+        "ownedLo": 255,
+        "ownedHi": 5,
+        "ammo_unchanged": [
+          104,
+          108,
+          104,
+          108,
+          112,
+          108,
+          96,
+          112
+        ]
+      },
+      "rush_modes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "free_summon_stock": 112,
+      "bounce_after": 100,
+      "launch": true
+    },
+    {
+      "item": 9,
+      "owners": [
+        "GameLoop",
+        "X5BounceUiDispatch",
+        "InventoryUiTick",
+        "SpecialWeapons",
+        "MarioSourcePowerupCollision",
+        "InventoryCollect",
+        "InventoryGrant",
+        "InventoryCycle"
+      ],
+      "collision": 1,
+      "collect": 1,
+      "grants": [
+        9
+      ],
+      "growth": 0,
+      "debits": [],
+      "contacts": 0,
+      "hp_writes": 0,
+      "types": [],
+      "sounds": [
+        0,
+        63,
+        242
+      ],
+      "primary": [],
+      "bounce": [],
+      "earned_collection": {
+        "item": 9,
+        "collision": 1,
+        "collect": 1,
+        "ownedLo": 255,
+        "ownedHi": 7,
+        "ammo_unchanged": [
+          104,
+          108,
+          104,
+          108,
+          112,
+          108,
+          96,
+          100
+        ]
+      },
+      "refill_before": [
+        104,
+        108,
+        104,
+        108,
+        112,
+        108,
+        96,
+        100
+      ],
+      "refill_after": [
+        104,
+        108,
+        104,
+        108,
+        112,
+        108,
+        112,
+        100
+      ],
+      "chosen_index": 23,
+      "amount": 40
+    }
+  ],
+  "limits": "No native menu, PPU/timing, screenshots, Lua execution, acquisition emergence/RNG or sound waveform proof.",
+  "static_hardware_guard_sha256": "2b3aa5da62ebdd76723bc3ad87991e63695f15ac151213718f58b55f0211d70c",
+  "whole_mirrored_interrupt_input_owners": [
+    {
+      "symbol": "NonMaskableInterrupt",
+      "PC": 58172,
+      "banks": [
+        125,
+        127
+      ],
+      "bytes": 212,
+      "sha256": "2206c8675917b6ce9099919f19cd2236eaaf6db702e35747bc73c91f8cbc6233"
+    },
+    {
+      "symbol": "IrqScrollSplit",
+      "PC": 32768,
+      "banks": [
+        126
+      ],
+      "bytes": 68,
+      "sha256": "8af1e8156ac2ae750a69466fd0437f18d089645a0df552b01f02345b8a3e55b9"
+    },
+    {
+      "symbol": "OAMandReadJoypad",
+      "PC": 57344,
+      "banks": [
+        125,
+        127
+      ],
+      "bytes": 43,
+      "sha256": "92e3ab82a5ac222ecbd612eb7204f2e8108dc3e2434c80ff7ca0250cff37eb1f"
+    }
+  ]
+}
