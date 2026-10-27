@@ -1,0 +1,43 @@
+Mike earned-component remainder oracle successor, 2026-10-27
+
+Original Mike v1 readiness/44bindings, fixture, tool, handoff and source proof
+remain unchanged and native-UNRUN. No game/default/settings changes.
+Exact target ab221e81821dd10690ad3a1068d91c9efae6c7406230d9bd7fc4a729fdc433d2.
+
+Source gap: JnEnemyDrop in src/mike_jones_pickups.s chooses a real heart for
+RNG&3==0 and a real private star otherwise. The still-active primary yoyo can
+collect the latter through JnUpdateDrops. Therefore the first cold target kill
+can legitimately leave a nonzero star remainder before the restoration cases.
+The zero-RAM CPU campaign's RNG selected hearts; its literal remainder0 oracle
+did not cover this. No native failure or observed native RNG outcome is invented.
+
+V2 changes only observer conservation: record actual pre-case JnStars&7 and
+require its canonical range0..4. Heart collection preserves that remainder.
+Exactly five physical private stars require (before+5)%5 == before and exactly
+one native2HP restoration from the real4HP deficit to6, preserving maxHearts3.
+The original five-collection count, health/ammo/spend/cap checks, controller,
+typed scenes, full256DMA/E008/deadline/NMI/IRQ/CHR guards and caps remain exact.
+No health, star remainder, ownership or outcome state is seeded or normalized.
+
+Finite source controls: ten actual complete-CPU pipelines. For each prefix
+0,1,2,3,4, a real native Goomba contact lowers6->4; native hurt/landing timers
+expire; prefix stars are collected by the real private physical-drop collector.
+Then either one real heart or five real stars restore4->6. All ten conserve
+the actual remainder; the old literal0 assertion fails in eight valid cases.
+These are source-owned typed physical pickups, not proof of RNG drop eligibility.
+The corrected full53-component campaign also passes2213 real GameLoop calls.
+
+Owned additive files:
+  tests/current-mike-powerups-v2.lua
+  tools/audit/current_mike_earned_remainder_prepare_v2.py
+  docs/qa/mike-earned-remainder-v2-2026-10-27.txt
+The preparer reuses frozen v1 through narrow explicit substitutions, and reverse
+normalizes the new fixture exactly to v1. No source/runtime/ROM copies.
+
+Frozen unlaunched readiness:
+  build/current-ab221-mike-hard-items-v2/prepared-not-run.json
+  SHAbf6183a7a160023e7d9c87b2f1078bc4a0e05941c5cc02c339af91ef704c1132
+49bindings including original v1, the exact-kind source proof and new prefix
+controls. Exact ROOT-owned argv in command.json. No native launch by this agent.
+The additional native per-case birth-kind review from the original handoff
+remains required before calling all ten specials native-qualified.

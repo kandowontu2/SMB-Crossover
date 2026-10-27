@@ -1,0 +1,115 @@
+Mac / Mike earned components on combined ab221e, 2026-10-27
+
+STATUS: SOURCE CPU PASS; BOTH NATIVE PROFILES UNRUN. No game/default/settings,
+canonical source, existing fixture or previously bound readiness was changed.
+Target build/mega_proto_body_palette_9ea.nes:
+ab221e81821dd10690ad3a1068d91c9efae6c7406230d9bd7fc4a729fdc433d2.
+
+Owned shared fixture/preparer:
+  tests/current-mac-mike-powerups.lua
+  tools/audit/current_mac_mike_powerups_prepare_v1.py
+One implementation for both, no source/runtime/ROM copies. Each small ready
+binds actual ROM/DBG/LBL, linked real hooks, source inputs and current runtime.
+
+Mac:13 components /1142 complete actual GameLoop calls
+----------------------------------------------------
+Cold96HP/20stamina/0stars. Normal right punch defeats a real target. Six
+separated Goomba contacts subtract8HP each to48, remove3stamina each, and
+honestly wait the real hurt/protection counters without resetting them. Two
+mature mushrooms heal24 each to72 then96. Four mature flowers stock0->1->2->3
+and cap3. Three actual Up+B uppercuts spend3->2->1->0 with right/left target
+kills. These are three uses of the one supported super animation, not three
+invented moves. Up+B with no stars cannot invent an attack or stamina cost.
+One further contact produces88HP/zero stamina; a mushroom heals to cap96.
+Holding Down actually restores20 empty stamina through LmRest's30-update
+crouch-rest path, then a normal left punch kills the final target.
+
+Every punch source entry/kill, exact star debit and one-stamina debit / one-hit
+refund is checked. Mac's real injury contract is private LmInvul64/LmHurt16;
+the generic InjuryTimer remains0. Both the generic timer and private counters
+must be expired before another staged contact. No protection clock is seeded.
+
+Two retained CPU negatives are oracle/precondition failures, not product bugs:
+1) incorrectly demanding generic InjuryTimer>0 despite the private64/16 path;
+2) trying the final normal punch with genuinely empty stamina. The corrected
+profile performs actual crouch-rest; it does not write a stamina refill.
+Original source-negative-1/2.json remain in the small Mac preparation folder.
+
+Mike:53 components /2213 complete actual GameLoop calls
+------------------------------------------------------
+Cold6HP/3max hearts/owned primary1/selected0/all10 special stocks0. Real yoyo
+needs two actual releases against the source2HP Goomba; no HP outcome is
+seeded. Real contact lowers6->4, then a private physical heart restores2.
+A second contact lowers6->4; five separately collected private stars convert
+through the native remainder logic to a2HP heal with remainder0.
+
+Physical heart-container mushrooms grow capacity and fully heal. Owned tier2
+is actually collected at8HP but its source health gate keeps primary1; after
+two more heart containers,12HP admits primary2. Five further real containers
+reach22HP; a real tier3 flower admits primary3. Source-only verifies actual
+release kinds1/2/3, not merely a pointer or similarly shaped attack.
+
+After genuine owned tier3, ten source-classified mature flowers collect the
+first unstocked special in source order. Every special is actually used:
+  Native kind 4 bat       stock10; kind5 bola10; kind6 fire10;
+  kind7 Miracle Mirror5; kind8 Asterisk5; kind9 shooting star10;
+  kind10 spikes3; kind11 baseball10; kind12 super laser99; kind13 mega laser20.
+Each actual release consumes exactly one owned stock. Bat/baseball also use
+left facing. Mirror reflects a real typed cannon Bullet Bill (actual linked
+ID51), erases it, creates the free outbound kind12 and defeats a separate real
+Goomba. This is the existing SMB-target adaptation, not a source-game target
+fidelity claim. Asterisk releases two kind8 blades; a fresh second B splits
+their existing tracks with no second debit. Spikes uses its native whole-target
+damage path. Actual Select input visits each owned slot; ten more physical
+flowers refill the selected weapon to the source absolute stock value above.
+
+The independent kind-source-controls.json repeats the unchanged real CPU
+campaign with passive JnRelease/JnReflectMagic entry observation:16 releases
+are exactly[1,1,1,1,2,3,4,5,6,7,8,9,10,11,12,13], and one actual reflection of
+ID51. It is additive source evidence, not a native retag. The native CSV records
+every birth value; ROOT must also check its per-case exact kind sequence before
+calling all weapons native-qualified (Mirror[7,12], Asterisk[8,8], primary1
+two births in each yoyo case, every other use one expected kind).
+
+Scene / hardware / fidelity limits
+----------------------------------
+The mature map/player/actor scene is written only at actual GameLoop+5 with
+NmiDisableFF, outside IRQ/NMI. Mature Mac stampsE0/E1 and Mike81..8D are typed
+delivery metadata, not ownership. The CPU campaign calls the real producer
+LmPrepareGate/JnPreparePickup and proves every typed stamp matches its actual
+current-state classification. Native does not bypass collection: it must
+physically collide, execute the real grant, erase the actor and carry the
+result into later spending. Private Mike hearts/stars are actual source-owned
+drop actors; their native collection runs, but natural drop RNG/eligibility is
+not established. Uncollected scene actors may be replaced at the next explicit
+scene; tested health/owned stock, hurt timers and projectile outcomes are never
+cleared/refilled by the fixture.
+
+Forbidden writes include health/maxhealth, tier, selected inventory, ammo,
+stars/stamina, attack/projectile/kill state, hurt/injury/protection timers,
+RNG/drop receipt, lives, cheats and global timers. Ordinary actor initial state0
+or mature powerup128 is typed setup, never a defeated32 state. Cold resources
+come from the actual menu/initializer; Hard numeric1 and owner readbacks persist.
+Both menu targets use the actual compiled19-node BFS, not assumed Down-only.
+All literal/bare/dynamic RAM names and callback ranges are bound before launch.
+
+The existing Pit-v3 guard block is byte-identical: full raw256-byte DMA source
+and physical OAM with actual attribute E3 semantics, rendering-off DMA, genuine
+E008 completion, strict render deadline, NMI AXY/SP/5SMC/bank restore including
+verified publication windows, IRQ31, lower stack and all12 CHR latches.
+Startup-static callbacks only; no callbacks register/remove callbacks at runtime.
+Caps/profile:8000physical frames/4000updates/1200host seconds/64files/2GB/8PNGs;
+Mac requests7 whole pictures, Mike8, and no per-frame capture files.
+
+This is a complete logical source campaign, not native PPU/audio/interrupt or
+Lua/menu execution. Native visual/art, charge-empty/fullpool/exhaustion,
+death/reentry/area restoration, maximum22 heart containers, full-campaign and
+original-music/art fidelity remain outside these component claims. These new
+profiles do not inherit a native result from earlier historical Mac/Mike tests.
+
+Frozen unlaunched readies (exact commands in their command.json):
+  build/current-ab221-mac-hard-items-v1/prepared-not-run.json
+  SHA27a479ab5dc5ea80b09f5701e2cdcb00714a9e6a60354eb94c992b55622961e2
+  build/current-ab221-mike-hard-items-v1/prepared-not-run.json
+  SHA069b6f39e381f4da142eea2d311fd356a7d1a9e92a30b27aa18e394ccd7c52c1
+ROOT owns all native launches. No emulator was launched in this preparation.
