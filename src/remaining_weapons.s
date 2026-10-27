@@ -2617,11 +2617,16 @@ Hud:
   sta R6
   lda #1
   sta R7
+.if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
+  jmp SamusFixedMissileHud
+.else
   sta AvDrawDirection
+.endif
 Draw:
   lda AvDrawArt
   jsr ArtPointer
   jcc Next
+FixedHudRender:
   lda #0
   sta R3
   farcall MetaspriteRenderLoop

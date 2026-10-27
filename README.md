@@ -6,7 +6,9 @@ This is a native NES adaptation of [Super Mario Bros. Crossover](https://www.smb
 
 **Status: playable, actively developed, and unfinished.** Character behavior, graphics, sound and performance are still being tested and corrected. MMC5 is the recommended target for the full roster.
 
-The October 27 development build (`4a0394b0`) gives Mega Man and Proto Man alternating priority for their body sprites, and fixes a scrolling jump caused by repeated palette updates running past the rendering deadline. Both cleared Hard 1-1 without a death and reached playable 1-2. See the [rendering checks and limits](docs/qa/mm-body-palette-adoption-2026-10-27.json).
+The October 27 development build (`6be48337`) keeps Samus's missile icon visible while her weapon graphics change. Her item checks and a jump near the HUD passed, alongside fresh Bass item checks in both modes and a Hard Link 1-1 clear. See the [checks and limits](docs/qa/samus-fixed-hud-adoption-2026-10-27.json).
+
+It also includes `4a0394b0`'s alternating body-sprite priority for Mega Man and Proto Man, and its fix for a scrolling jump caused by repeated palette updates running past the rendering deadline. Both cleared Hard 1-1 without a death and reached playable 1-2 on that build. See the [rendering checks and limits](docs/qa/mm-body-palette-adoption-2026-10-27.json).
 
 It retains `2082c19a`'s Proto Man level-start palette fix and `8487c439`'s correction to Bass's airborne head collision and block separation. Bass cleared 1-1 in Hard with zero deaths and no cheats, and an independent replay matched the inputs, trace and all 4,340 captured PPU frames. See the [Bass checks and limits](docs/qa/bass-corner-adoption-2026-10-27.json).
 

@@ -157,6 +157,9 @@ def main():
         report[mapper]=dict(original_banks=len(logical),deduplicated_banks=original,
                             special_families=len(special),used_banks=len(physical),capacity=256)
     (ROOT/'build/chr-packing.json').write_text(json.dumps(report,indent=2)+'\n')
+    # Optional expanded-only overlay; both ordinary outputs/assets stay exact.
+    from patch_samus_fixed_hud_v2 import apply_expanded_assets
+    apply_expanded_assets(folder)
 
 
 if __name__=='__main__':main()

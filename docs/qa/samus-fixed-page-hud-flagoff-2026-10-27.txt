@@ -1,0 +1,19 @@
+Additive ordinary flagoff verification for held6be Samus HUD composition
+
+Both sparse-overlay source builds PASS, with the complete786,448-byte ROMs exact to ROOT's current canonical ordinary baselines:
+MMC3 d444cac88e13fa02b29ad16100b8f08fa565ba90f8cedde192de43fb2dc8f3eb
+MMC5 f4ffd2483c51daa4d60bb575da2da8c4d817692cda407611c243031f67520833
+
+Outputs use only build/samus_fixed_hud_current4a_mmc3_flagoff.* and build/samus_fixed_hud_current4a_mmc5_flagoff.*. Each has genuine compiler/linker DBG/LBL/MAP, build log and canonical-shaped build metadata. Exact frozen sparse main.c/entrypoint.s and explicit remaining_weapons/helper includes were reused; no source tree was copied. ENABLE_MMC5_EXPANDED was omitted to exercise the real default0, matching tools/build_mmc5_expanded.py --flag-off. The new expanded helper/record are absent from both genuine label sets.
+
+The canonical flagoff build intentionally does not call prepare_cv3_dmc_mirror.py: that expanded-only postprocessor asserts a2MiB image and is guarded by the actual builder's if flag branch. Ordinary header/size/mapper validation and final metadata were applied exactly. No postprocessor was faked or forced onto an ordinary ROM. No packer main or emulator was run.
+
+Separate receipt: build/samus_fixed_hud_current4a_flagoff.json
+SHA256 8d16e768a2724387ff756a9d870fa0d2665a4ec05a9df06c7e7ec162c9d20f77
+It binds18 tool/builder/cfg/handoff/output files, actual full commands and both baseline identities. The current6be candidate and frozen19-binding current4a handoff remain unchanged. Canonical source/assets/builds, ordinary packed files and original ordinary enemies asset are rehashed unchanged. This closes only the earlier report's ordinary binary build plan; its historical source/native limitations remain intact.
+
+New owned tracked files for this addendum:
+tools/audit/samus_fixed_hud_flagoff_v1.py
+docs/qa/samus-fixed-page-hud-flagoff-2026-10-27.txt
+
+No production edit, native launch, install, staging or commit. One pre-execution Python syntax typo was corrected before either compiler ran; no ROM or native failure resulted.

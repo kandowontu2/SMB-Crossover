@@ -1,0 +1,169 @@
+{
+  "passed": true,
+  "source_CPU_only": true,
+  "ROM_sha256": "6be48337ffee66a22b22de9ce134d5db323649fb4de620c43bad4ca98b80f193",
+  "actual_InventoryCollect_cases": [
+    {
+      "item": 0,
+      "ownedLo": 1,
+      "ownedHi": 0,
+      "status": 1,
+      "ammo": [
+        0,
+        112,
+        112,
+        112,
+        112,
+        112,
+        112,
+        112,
+        0
+      ]
+    },
+    {
+      "item": 1,
+      "ownedLo": 3,
+      "ownedHi": 0,
+      "status": 1,
+      "ammo": [
+        0,
+        104,
+        112,
+        112,
+        112,
+        112,
+        112,
+        112,
+        0
+      ]
+    },
+    {
+      "item": 2,
+      "ownedLo": 7,
+      "ownedHi": 0,
+      "status": 1,
+      "ammo": [
+        0,
+        104,
+        108,
+        112,
+        112,
+        112,
+        112,
+        112,
+        0
+      ]
+    },
+    {
+      "item": 3,
+      "ownedLo": 15,
+      "ownedHi": 0,
+      "status": 1,
+      "ammo": [
+        0,
+        104,
+        108,
+        104,
+        112,
+        112,
+        112,
+        112,
+        0
+      ]
+    },
+    {
+      "item": 4,
+      "ownedLo": 31,
+      "ownedHi": 0,
+      "status": 1,
+      "ammo": [
+        0,
+        104,
+        108,
+        104,
+        108,
+        112,
+        112,
+        112,
+        0
+      ]
+    },
+    {
+      "item": 5,
+      "ownedLo": 63,
+      "ownedHi": 0,
+      "status": 1,
+      "ammo": [
+        0,
+        104,
+        108,
+        104,
+        108,
+        108,
+        112,
+        112,
+        0
+      ]
+    },
+    {
+      "item": 6,
+      "ownedLo": 127,
+      "ownedHi": 0,
+      "status": 1,
+      "ammo": [
+        0,
+        104,
+        108,
+        104,
+        108,
+        108,
+        108,
+        112,
+        0
+      ]
+    },
+    {
+      "item": 7,
+      "ownedLo": 255,
+      "ownedHi": 0,
+      "status": 1,
+      "ammo": [
+        0,
+        104,
+        108,
+        104,
+        108,
+        108,
+        108,
+        96,
+        0
+      ]
+    },
+    {
+      "item": 8,
+      "ownedLo": 255,
+      "ownedHi": 1,
+      "status": 1,
+      "ammo": [
+        0,
+        104,
+        108,
+        104,
+        108,
+        108,
+        108,
+        96,
+        0
+      ]
+    }
+  ],
+  "actual_balancer_refill": {
+    "source_amount": 40,
+    "chosen_index": 151,
+    "result": 112
+  },
+  "no_item_ammo_grant_seed": true,
+  "static_setup_allowlist": true,
+  "source_preerase_order": "MarioSourcePowerupCollision -> EraseEnemyObject -> queue pickup SFX -> actual InventoryCollect; observer scopes both real boundaries.",
+  "limits": "Leaf CPU calls do not establish Lua execution, spatial collisions, native cadence/PPU/SFX/audio fidelity."
+}

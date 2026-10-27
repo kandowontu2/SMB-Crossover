@@ -521,3 +521,7 @@ Done:
 .if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
 .include "proto_palette_coalesce.s"
 .endif
+
+.if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
+.include "samus_fixed_hud.s"
+.endif

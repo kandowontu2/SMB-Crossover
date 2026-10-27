@@ -1,0 +1,54 @@
+{
+  "original_outcome": false,
+  "game_failure": false,
+  "originals_unchanged": true,
+  "first_failure": "wall463/update90, first mushroom: generated fixture line267 C.items[index].expected_owned has numeric index0 but launcher emitted only string key0.",
+  "cause": "JSON-load stringifies item keys; v1 current_roster serializer also forced all dictionary keys to strings. Both must be corrected.",
+  "correction": "Only normalize cfg.items keys0..7 to integers and use existing numeric-key/bool-aware serializer. Execute strict item record/type/values/HUD-glyph checks before fixture load.",
+  "new_native_run": false,
+  "emitted_preflight_assertions": 146,
+  "source_configuration_equal": true,
+  "generated_fixture_byte_identical": true,
+  "retained": [
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\current_samus_hud_jump_prepare_v1.py",
+      "sha256": "9aab3ed53a8e2179754e24212c7189f9fc1c6b782d482c4336c029c47805c75f",
+      "bytes": 12174
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-6be-samus-hud-jump-v1\\prepared-not-run.json",
+      "sha256": "a20221199a429507cf357e291b1279a1e04a30d86c1b54ef99e3b941603957bf",
+      "bytes": 8093
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-6be-samus-hud-jump-v1\\config.json",
+      "sha256": "9f7061c7bca1f52c9cec726e9e7a4b377db1ee8dbefce39b3e6f6fd29f2d8aee",
+      "bytes": 14483
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-6be-samus-hud-jump-v1\\run.lua",
+      "sha256": "0ceba7fd573b516418ae9dc44455fe4b10cd6f580c9bc22cae306c753f3bc532",
+      "bytes": 10508
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-6be-samus-hud-jump-v1\\current-samus-hud-jump.lua",
+      "sha256": "9b7b9424ad1c9ce020213a6ec150d827502ac6ed09f8e494acd4713714fdf34e",
+      "bytes": 35003
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-6be-samus-hud-jump-v1\\launch.json",
+      "sha256": "71ab6e0ef888ad931ac2c2236a59fc4d4e1d7f2f478e26084fe55b4d64ed33c8",
+      "bytes": 1234
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-6be-samus-hud-jump-v1\\native\\samus_fixed_hud_current4a-run.log",
+      "sha256": "e74708fa02998df21ac05c27550391581367d94377bda6199cd78a94e9f8debf",
+      "bytes": 4389
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-6be-samus-hud-jump-v1\\native\\samus-inventory.csv",
+      "sha256": "c09e6a0ef23887c08ce8d82c51093ada850007565407a45e6afb42e047e7aaa5",
+      "bytes": 7251
+    }
+  ]
+}

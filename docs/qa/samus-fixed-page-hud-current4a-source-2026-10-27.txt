@@ -1,0 +1,32 @@
+Expanded-only Samus fixed-page HUD on current4a: private SOURCE PASS, no native
+
+Parent4a0394b0892e6c54940856791e44bcbe9fe4e469047aca3982c3f59112a61b8b is published Git ccbe677. Private build/samus_fixed_hud_current4a.nes is6be48337ffee66a22b22de9ce134d5db323649fb4de620c43bad4ca98b80f193. The assembled result is the exact disjoint union of4a and9d1's46changedPRG bytes in bank61 plus24changedCHR bytes inside physical20/pairs6,7. All preexisting4a symbols remain at their genuine addresses/segments. No canonical source, asset, build, settings or Git index was written. No emulator was launched.
+
+The prior9d1 ROM/tools/handoff/source receipts remain unchanged. ROOT reported its native2090wall/1716updates/2027DMAs PASS with all seven missile-selected PNGs containing42real icon pixels. Those observations remain9d1 evidence, not new6be native coverage. The source helper/record is unchanged:61:BFAE, fixed data alias61:DFD0, tiles4D/4F,palette2, original42pixel authentic missile geometry. No world capsule/projectile mechanics, NMI, runtime mapper code or foreign art changed in this composition.
+
+Version2 corrects the durable asset scope. The ordinary chr/mmc5/sprites_enemies.chr is NOT overlaid. Instead the recipe prepares chr/characters/samus-fixed-hud-enemies-mmc5-expanded.chr, exactly4096bytes. It equals the native ordinary enemies source except for the authenticated64B missile copy into its last1KB/pairs6,7. The recipe validates originalzero destination space, unchanged mouse pairs0..5, actual art44 record/family6/page215, source pair hashes, and source remaining-weapons-mmc5.chr bytes. It strictly rejects a modified mouse part, wrong missile copy, nonzero ordinary gap or unexpected expanded owner. Applying it twice is byte-idempotent.
+
+The pack_chr.py proposal adds only a three-line tail hook after both unchanged ordinary outputs finish. The hook is conditional on the expanded-only variant existing. It validates the variant and replaces only physical20 in packed-mmc5-expanded.chr. It never writes ordinary enemies or packed-mmc3.chr/packed-mmc5.chr. The actual hook was executed with controlled virtual sinks for variant absent/present: respectively zero writes or one write to the expanded packed path. All ordinary producer source is reverse-exact after removing the three new lines. The broad packer main was not run, so no atlas or ordinary assets were regenerated.
+
+The following ordinary inputs remain exact:
+chr/mmc5/sprites_enemies.chr 38037eb3271328690af75f4003957a1ec0f6fafa574f7bc55475fe177de4c376
+chr/characters/packed-mmc3.chr 28c49604ce929f427994c436871261e58cc3dd85e52fc23f2a2daf744952402a
+chr/characters/packed-mmc5.chr 4f5a5ab872da08014142f11afa67b5d25df771cfb926087cd7c6d680fce7e236
+
+The finite old80draw/frame-scan,10SamusDrawShots-family and6window5 source conclusions are reused with their original receipt/hash, not retagged. Actual linked RemainingDraw, MetaspriteRenderLoop, fixed helper, SamusDrawShots, SamusFreezeRenderFinish, full X5publisher span, CrossoverGraphicsBank and IRQ body are byte-exact to9d1, and the involved RAM aliases are fixed. Fresh current4a comparisons additionally execute8complete SamusFreezeDrawAll cases and13actual helper-boundary IRQ injections. All complete returnedAXYP/SP/physicalbanks match; foreign tested OAM remains exact. IRQ scope retains the old explicit virtualB/U, dead-upper64stack and IRQ-owned PPU register distinctions.
+
+Current full outer normal case is6537=>6208(-329), frozen8953=>8568(-385), mixed cases-623/-736; foreign admittedHUD+15, absentHUD0. The prior near-full positive costs remain applicable in the byte-exact renderer paths: the two-part HUD can fit where a five-part record was rejected, increasing work/occupancy. No universal lag or eight-sprite visibility improvement is claimed. Source art, palette2, gameplay behavior and per-family ownership stay genuine; native current-composition epochs/cadence and high-HUD-jump crowding remain separate ROOT gates.
+
+Ordinary byte-equivalence adoption plan (not claimed run here): compile the sparse proposed entrypoint on smb1base.cfg with ENABLE_MMC5_EXPANDED=0 for each MMC3/MMC5 mapper, without running a broad asset regeneration. The new runtime helper include is then excluded, the oldSTA path is selected, and ordinary packed inputs above remain original. Compare the complete binaries to d444cac88e13fa02b29ad16100b8f08fa565ba90f8cedde192de43fb2dc8f3eb and f4ffd2483c51daa4d60bb575da2da8c4d817692cda407611c243031f67520833. ROOT may perform those fresh source builds before adoption. Source code and controlled sink proof already establish that the new packer hook cannot modify those ordinary outputs.
+
+Review the additive normalized source patch, not the raw CRLF/LF build diff:
+build/samus_fixed_hud_current4a_normalized.patch
+The source/asset overlay is enumerated in build/samus_fixed_hud_current4a_build.json; each desired canonical destination has a compact private source/asset path. The4KB expanded variant is in build/samus_fixed_hud_current4a_samus-fixed-hud-enemies-mmc5-expanded.chr. The packed expanded overlay is build/samus_fixed_hud_current4a_packed-mmc5-expanded.chr. No ROM/runtime/source tree was cloned.
+
+Owned new tracked files for this version only:
+tools/reference/patch_samus_fixed_hud_v2.py
+tools/audit/samus_fixed_hud_current4a_v2.py
+tools/audit/samus_fixed_hud_current4a_controls_v2.py
+docs/qa/samus-fixed-page-hud-current4a-source-2026-10-27.txt
+
+Proposed production overlay, not applied: src/remaining_weapons.s; new src/samus_fixed_hud.s; src/entrypoint.s; tools/reference/pack_chr.py; new tools/reference/patch_samus_fixed_hud_v2.py; new chr/characters/samus-fixed-hud-enemies-mmc5-expanded.chr; chr/characters/packed-mmc5-expanded.chr. Native ordinary enemies and both ordinary packed assets are excluded. Frozenv1tools/recipes/proofs are historical evidence and must not be edited.

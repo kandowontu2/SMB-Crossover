@@ -1,0 +1,41 @@
+{
+  "passed": true,
+  "SOURCE_ONLY": true,
+  "native_run": false,
+  "ROM_sha256": "6be48337ffee66a22b22de9ce134d5db323649fb4de620c43bad4ca98b80f193",
+  "original_fixture": {
+    "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tests\\current-samus-powerups.lua",
+    "sha256": "9b59124594326f179d76fb9898333e1a49d1c41ba86d7a1b200ee83179fadfff"
+  },
+  "generated_fixture_sha256": "9b7b9424ad1c9ce020213a6ec150d827502ac6ed09f8e494acd4713714fdf34e",
+  "exact_reverse_to_original": true,
+  "full_hardware_guard_bytes_equal": true,
+  "full_hardware_guard_sha256": "2b3aa5da62ebdd76723bc3ad87991e63695f15ac151213718f58b55f0211d70c",
+  "forbidden_and_safe_transaction_bytes_equal": true,
+  "original_nine_action_controller_inputs_unchanged": true,
+  "original_nine_pickup_property_ammo_assertions_retained": true,
+  "new_jump_INPUT_ONLY": true,
+  "staged_scene": "Only actualGameLoop+5/NmiDisableFF/noIRQ/NMI transaction: existingarena then nine0x54 visible+logical tiles at row7/logical5 cols6..14; position184/80 and originalarena initial zero motion. No ownership/ammo/form/outcome/invulnerability writes.",
+  "expected_native": "All9 original real components; stock8/owned247/selected2;10settle->A18->minY<=28->nativeground80,160updates; three selected images with actual2DMA delay, no stale substitute.",
+  "new_RAM_resolved": [
+    "A_B_Buttons",
+    "SavedJoypadBits"
+  ],
+  "emitted_numeric_item_keys": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "emitted_preflight_before_fixture": true,
+  "emitted_preflight_assertions": 146,
+  "all_item_record_scalar_and_seven_glyph_values_checked": true,
+  "generated_fixture_byte_identical_to_failed_v1": true,
+  "CPU_jump_or_native_claim": false,
+  "substitution_count": 8,
+  "limitations": "Source generator and original source components only. No native jump/timing/image qualification until ROOT runs. Exact18 actual A updates intentionally asserted; lag-induced extra A update is not silently accepted."
+}
