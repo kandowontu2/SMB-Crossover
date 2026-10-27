@@ -1,0 +1,14 @@
+{
+  "status": "retained native negative; no gameplay acceptance",
+  "ROM_sha256": "8487c439ded9bc6274e1dc8f8e051494fa96ee518553d9c2f382eccf2e71d0e6",
+  "exit": 1,
+  "first_failure": "All256 actual OAM DMA bytes match",
+  "phase": "startup, before controller item collection",
+  "prepared_manifest_sha256": "784d9f19b1597794857f33e93353d6a94ee8a6327c3068d41fd4781328797653",
+  "fixture_sha256": "7455ea19ad2c80f4ef7ac49271f0064ae379a665fc461a2115c839a533174492",
+  "log_sha256": "961aa462fa71028766b5c2577670b4dced9e2e384095f081010bf02a55a83193",
+  "settings_unchanged": true,
+  "changed_inputs": [],
+  "investigation": "Compare actual OAMADDR and physical DMA destination with the proven route observer; do not treat an unqualified source-to-OAM index0 comparison as evidence of a game bug.",
+  "no_gameplay_pass": true
+}

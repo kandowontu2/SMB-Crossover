@@ -23,6 +23,9 @@ local firstArea,firstLives,first12X,control12,menuReadyAt=nil,nil,nil,0,nil
 local sourceBytes,physicalBytes,dmas,chrChecks,nmis,irqs,minSP=0,0,0,0,0,0,255
 local maskValue,chrUpper,chrBanks=0,0,{}
 local activeLoop,previousLoop,nmiSaved,irqSaved
+-- BEGIN STATIONARY_WATCHDOG_LOCAL_V3
+local stationaryCount,maxStationary=0,0
+-- END STATIONARY_WATCHDOG_LOCAL_V3
 local captureStamp={}
 local files={}
 local function file(name,header)
@@ -132,7 +135,9 @@ local function interruptEntry(s)
  local sp=s['cpu.sp'];minSP=math.min(minSP,sp)
  local pc=emu.read(0x100+(sp+2)%256,emu.memType.nesDebug)+256*emu.read(0x100+(sp+3)%256,emu.memType.nesDebug)
  local q={sp=sp,a=s['cpu.a'],x=s['cpu.x'],y=s['cpu.y'],p=emu.read(0x100+(sp+1)%256,emu.memType.nesDebug),start=s['cpu.cycleCount'],
-  ba=bank(0xa000),bc=bank(0xc000),sa=r('CurrentBank')&127,sc=r('CurrentBankC')&127,fields={}}
+  ba=bank(0xa000),bc=bank(0xc000),sa=r('CurrentBank')&127,sc=r('CurrentBankC')&127,
+  interrupted_pc=pc,interrupted_opcode={},fields={}}
+ for i=0,3 do q.interrupted_opcode[#q.interrupted_opcode+1]=emu.read(pc+i,emu.memType.nesDebug)end
  q.wa=q.ba~=q.sa and shadowWindow(pc,0x5115,L.CurrentBank)
  q.wc=q.bc~=q.sc and shadowWindow(pc,0x5116,L.CurrentBankC)
  for _,a in ipairs(C.smc_fields)do q.fields[#q.fields+1]=emu.read(a,emu.memType.nesDebug)end
@@ -142,7 +147,13 @@ local function interruptReturn(s,q,kind)
  if not q then return end
  check(s['cpu.sp']==q.sp and s['cpu.a']==q.a and s['cpu.x']==q.x and s['cpu.y']==q.y,kind..' restores AXY/SP')
  check(emu.read(0x100+(q.sp+1)%256,emu.memType.nesDebug)==q.p,kind..' preserves the real stacked P')
- check(bank(0xa000)==(q.wa and q.sa or q.ba)and bank(0xc000)==(q.wc and q.sc or q.bc),kind..' restores actual A/C banks')
+ -- NMI AudioUpdate may finish a genuine interrupted shadow->mapper gap.
+ -- The native68-byte IRQ never writes PRG banks and must keep physical entry banks.
+ local expectedA=kind=='NMI'and q.wa and q.sa or q.ba
+ local expectedC=kind=='NMI'and q.wc and q.sc or q.bc
+ check(bank(0xa000)==expectedA and bank(0xc000)==expectedC,kind..' restores actual A/C banks',
+  {entry=q,actual_A=bank(0xa000),actual_C=bank(0xc000),shadow_A=r('CurrentBank')&127,
+   shadow_C=r('CurrentBankC')&127,expected_A=expectedA,expected_C=expectedC,nmi_gap_normalization=kind=='NMI'})
  check((r('CurrentBank')&127)==q.sa and(r('CurrentBankC')&127)==q.sc,kind..' restores bank shadows')
  for i,a in ipairs(C.smc_fields)do check(emu.read(a,emu.memType.nesDebug)==q.fields[i],kind..' restores five SMC operands')end
  if activeLoop and kind=='NMI' then activeLoop.interrupt=activeLoop.interrupt+s['cpu.cycleCount']-q.start end
@@ -160,6 +171,14 @@ hook(C.hooks.loop_return,function(s)
  loops=loops+1;lastCycles=s['cpu.cycleCount']-a.start;lastInterrupt=a.interrupt;activeLoop=nil
  if not scope()then previousLoop=nil;return end
  local c=context();identity()
+ -- BEGIN STATIONARY_WATCHDOG_UPDATE_V3
+ local clocking=entered and r('TimerControl')==0 and opt('GamePauseStatus')==0 and opt('InvRefill')==0
+ if clocking and previousLoop and previousLoop.world==c.world and previousLoop.level==c.level and previousLoop.area==c.area
+  and previousLoop.x==c.x and previousLoop.y==c.y then stationaryCount=stationaryCount+1 else stationaryCount=0 end
+ maxStationary=math.max(maxStationary,stationaryCount)
+ check(stationaryCount<300,'Controller stationary for 300 genuinely active completed updates',
+  {updates=stationaryCount,x=c.x,y=c.y,state=c.state,buttons=mask,enemy=c.enemy(),policy=C.policy})
+ -- END STATIONARY_WATCHDOG_UPDATE_V3
  if previousLoop and previousLoop.world==c.world and previousLoop.level==c.level and previousLoop.area==c.area then
   local dx=c.x-previousLoop.x;local dc=c.camera-previousLoop.camera
   check(math.abs(dx)<=8 and dc>=0 and dc<=4,'Completed native world/camera step bound',{previous=previousLoop,current={x=c.x,y=c.y,camera=c.camera},dx=dx,camera_step=dc})
@@ -230,6 +249,9 @@ local function finish(passed,reason)
   completed_DMAS=dmas,unmasked_source_writes_checked=sourceBytes,physical_E3_bytes_checked=physicalBytes,
   chr_window_checks=chrChecks,adapter=capture.stats(),bass_collision=bass,
   scope='Controller-only current 1-1 to controlled 1-2. Selected PPU review remains separate; no every-item/ability/source-fidelity/FPS claim.'}
+ -- BEGIN STATIONARY_WATCHDOG_RESULT_V3
+ result.stationary_watchdog={limit=300,consecutive=stationaryCount,maximum=maxStationary,unit='genuinely active completed updates; pause/transform/refill excluded'}
+ -- END STATIONARY_WATCHDOG_RESULT_V3
  local f=assert(io.open(C.prefix..'result.json','w'));f:write(json(result)..'\n');f:close()
  for _,q in ipairs(files)do q:close()end
  print('ROSTER1-1 '..C.name..' mode='..C.mode_value..' passed='..tostring(passed)..' reason='..tostring(reason)..' frame='..frame)
