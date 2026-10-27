@@ -1,7 +1,7 @@
 {
   "ROM_sha256": "9ea11eab2fc5c373a3795b013f6ed9e0d5e9781891b2ae3bf40ad2556c27b85e",
   "status": "latest build audit in progress; predecessor native runs retained with explicit ROM bindings",
-  "clear_identity_count": 18,
+  "clear_identity_count": 20,
   "identities": 37,
   "rows": [
     {
@@ -302,7 +302,19 @@
     {
       "identity": "scrooge",
       "easy": {
-        "status": "pending current route"
+        "status": "cleared 1-1 and controlled1-2",
+        "native_ROM_sha256": "9ea11eab2fc5c373a3795b013f6ed9e0d5e9781891b2ae3bf40ad2556c27b85e",
+        "frames": 4246,
+        "completed_updates": 3715,
+        "captured_full_PPU_frames": 3428,
+        "PPU_stream_sha256": "35a09f59e862eb069c51d7811b4e44a4b541b5bbb0145e3d090457edc09eb8f4",
+        "zero_deaths": true,
+        "cheats_off": true,
+        "selected_whole_frames_visually_reviewed": true,
+        "all_frame_visual_review": false,
+        "independent_replay": false,
+        "native_result_sha256": "bae381d2766c618a69a8c06fa096ea4d463d1e470a11f2aeedbe93bc465f4387",
+        "review_sha256": "6d82106b7dd72d93bf4bb9d0655b3e624cf36ac015c7ecc3c2b34685a2cdb5bd"
       },
       "hard": {
         "status": "pending current route"
@@ -366,7 +378,19 @@
     {
       "identity": "sophia",
       "easy": {
-        "status": "pending current route"
+        "status": "cleared 1-1 and controlled1-2",
+        "native_ROM_sha256": "9ea11eab2fc5c373a3795b013f6ed9e0d5e9781891b2ae3bf40ad2556c27b85e",
+        "frames": 5127,
+        "completed_updates": 3769,
+        "captured_full_PPU_frames": 4298,
+        "PPU_stream_sha256": "03b65652ff73c020252ba83c40586eb8ae4ecba687c3e3aa7188d83d9cd463cf",
+        "zero_deaths": true,
+        "cheats_off": true,
+        "selected_whole_frames_visually_reviewed": true,
+        "all_frame_visual_review": false,
+        "independent_replay": false,
+        "native_result_sha256": "c9163a685e58ee236a1735432d5bfde2788c19fd2a9bc5078b65c7dd803457be",
+        "review_sha256": "6f4b125e1512e204bc2276fc65f8ed236179cfcdc9d99b431533f66a039410cf"
       },
       "hard": {
         "status": "pending current route"
@@ -582,10 +606,10 @@
       }
     }
   ],
-  "limits": "Every route row binds its actual ROM. One9ea11eab BillHard native route is current; seventeen predecessor identities remain explicit and were not rerun. Earlier37-identity3cee results are historical. Samus, Bass and Pit item/jump components belong to6be, not freshly tested9ea. Remaining identities, modes, shortcut routes, every powerup, full-frame visual review, sound fidelity and performance remain open.",
+  "limits": "Every route row binds its actual ROM. Three9ea11eab identities now have current native clears; seventeen predecessor identities remain explicit and were not rerun. Earlier37-identity3cee results are historical. Rygar component checks are current9ea; Samus, Bass and Pit components remain6be. Remaining identities, modes, shortcut routes, every powerup, full-frame visual review, sound fidelity and performance remain open.",
   "goal_complete": false,
   "previous_ROM_sha256": "6be48337ffee66a22b22de9ce134d5db323649fb4de620c43bad4ca98b80f193",
-  "exact_current_ROM_clear_identity_count": 1,
+  "exact_current_ROM_clear_identity_count": 3,
   "predecessor_native_identity_count": 17,
   "predecessor_ROM_native_identity_counts": {
     "2082c19a7364920f828e97f70040d37f1f7059bde1ea136b5c2c4532324abf36": 5,
@@ -599,5 +623,7 @@
     "bass-current6be-items-native-2026-10-27.json",
     "pit-current6be-components-native-2026-10-27.json"
   ],
-  "current_component_checks": []
+  "current_component_checks": [
+    "rygar-current9ea-components-native-2026-10-27.json"
+  ]
 }

@@ -1,0 +1,60 @@
+{
+  "status": "NATIVE_FALSE",
+  "ROM_sha256": "6be48337ffee66a22b22de9ce134d5db323649fb4de620c43bad4ca98b80f193",
+  "actual_numeric_mode": 0,
+  "identity": "luigi",
+  "frame": 1250,
+  "whole_PPU_frames_valid": 1027,
+  "actual256_DMAs": 1149,
+  "completed_GameLoops": 1211,
+  "zero_death": false,
+  "route_clear": false,
+  "selected_frames_ROOT_viewed": 5,
+  "trajectory": "1247 X1951/Y165/vy5;1248 X1954/Y170/vy5;1249 X1956/Y175/vy5;1250 X1959/Y176 with death changing velocity toFC. Final screenshot is adjacent to three ground Goombas; exact actor and first injury branch are not logged.",
+  "source_cause_limit": "PlayerCtrl calls PlayerBGCollision before the enemy pass. The native enemy path admits positive Y velocity to stomp; landing can change the actual velocity before that test. EndFrame velocity and image alone cannot prove whether this was a valid descending overlap or a grounded side contact.",
+  "next_step": "One passive exact1249-input replay; no policy or game change. If no failure recurs, original replay-exhaustion guard stops without inventing a tail.",
+  "ledger_entry": {
+    "identity": "luigi",
+    "mode": 0,
+    "ROM_sha256": "6be48337ffee66a22b22de9ce134d5db323649fb4de620c43bad4ca98b80f193",
+    "component": "controller-only1-1",
+    "outcome": "FALSE",
+    "frame": 1250,
+    "x": 1959,
+    "y": 176,
+    "failure": "Zero-death guard near three ground Goombas after descent",
+    "remaining": "Exact source injury/stomp owner and pre/post-floor velocity require passive fixed-input diagnostic; no source hitbox defect established."
+  },
+  "external_evidence": [
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\compact-next-luigi-6be-easy-v1\\ready.json",
+      "sha256": "da8caf9ac233c512ed223a509a1c7a791ccd88722fd700e1a8d15d9272a6ae2c",
+      "bytes": 11151
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\compact-next-luigi-6be-easy-v1\\result.json",
+      "sha256": "5b724293e8f1819ead7e2be34530de3ffde5ac1c910789da855cca66ea9656c4",
+      "bytes": 1788
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\compact-next-luigi-6be-easy-v1\\review.json",
+      "sha256": "5fc46279ff60ac3ce8857cc4df16107949b99780e14e5521e07ea1b9a0c3a811",
+      "bytes": 93386
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\compact-next-luigi-6be-easy-v1\\trace.csv",
+      "sha256": "50460fb592a782b7d51076548df7e486f2be7840a23dc8fd3bc75ed9c22ff7a9",
+      "bytes": 105171
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\compact-next-luigi-6be-easy-v1\\inputs.csv",
+      "sha256": "91ebf8350062b9486b594bebf4de063e600cb7ebb11826bbce5812aa0116fa1b",
+      "bytes": 15448
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\compact-next-luigi-6be-easy-v1\\selected-whole-frames.png",
+      "sha256": "e00ac4c755ba88b96e17977963d7c103ec9a17e79338044659dfedc62899fbff",
+      "bytes": 10379
+    }
+  ]
+}

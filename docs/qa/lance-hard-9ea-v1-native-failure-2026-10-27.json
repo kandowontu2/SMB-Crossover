@@ -1,0 +1,87 @@
+{
+  "status": "NATIVE_FALSE",
+  "ROM_sha256": "9ea11eab2fc5c373a3795b013f6ed9e0d5e9781891b2ae3bf40ad2556c27b85e",
+  "actual_numeric_mode": 1,
+  "frame": 3371,
+  "route_clear": false,
+  "zero_death": false,
+  "whole_PPU_frames_valid": 3061,
+  "completed_GameLoops": 2720,
+  "complete256_DMAs": 1803,
+  "selected_frames_ROOT_viewed": 6,
+  "final_trace": {
+    "frame": "3371",
+    "poll": "3370",
+    "ppu_frame": "3371",
+    "loops": "2720",
+    "captured": "3061",
+    "world": "0",
+    "level": "0",
+    "area": "194",
+    "x": "1783",
+    "y": "167",
+    "yHigh": "1",
+    "state": "1",
+    "vx": "0",
+    "vy": "252",
+    "power": "0",
+    "engine": "11",
+    "mode": "1",
+    "task": "3",
+    "lives": "3",
+    "camera": "1671",
+    "mask": "5",
+    "ceiling": "0",
+    "dash": "0",
+    "jumpUsed": "1",
+    "loopCycles": "36552",
+    "interruptCycles": "4814",
+    "foregroundCycles": "31738"
+  },
+  "actual_controller": "Final46 masks are only5/69: Right+Down with ordinary12physical-poll B pulses. Descent continues fromY102/vy0 toY163/vy4, then death atY167; this is not absent B input.",
+  "source": "Hard Bill/Lance cannot ordinary-stomp. BillMove invokes ImmediateInput in air: Left immediately sets negative1.25; neutral retains current airborne VX. Existing ground controller can turn then stop/prone-fire; its muzzle/branch is preserved. Exact hostile slot and all shot states/hits are unlogged, so no absolute collision-owner, gun-cadence malfunction or hitbox bug is inferred.",
+  "ledger_entry": {
+    "identity": "lance",
+    "mode": 1,
+    "ROM_sha256": "9ea11eab2fc5c373a3795b013f6ed9e0d5e9781891b2ae3bf40ad2556c27b85e",
+    "component": "controller-only1-1",
+    "outcome": "FALSE",
+    "frame": 3371,
+    "x": 1783,
+    "y": 167,
+    "failure": "Zero-death guard on descent directly above ROOT-viewed ground Goomba",
+    "remaining": "Fresh source-qualified air-retreat controller route/replay. Exact injury slot/shot allocation/contact branch not recorded; no product bug demonstrated."
+  },
+  "external_evidence": [
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\compact-next-lance-9ea-hard-v1\\ready.json",
+      "sha256": "4f7d8297ddb451fabef62afc392c5967ee721d810abc4a6785223979dd303d50",
+      "bytes": 11031
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\compact-next-lance-9ea-hard-v1\\result.json",
+      "sha256": "9d508f07459f5ff6bdcd837e72c5c36b674002d360a7f4bd2e221b8590998975",
+      "bytes": 1941
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\compact-next-lance-9ea-hard-v1\\review.json",
+      "sha256": "3742e0be934795bc4a91c158fffc960bffe58debd7ddffb15449cf66e7d9e9b9",
+      "bytes": 263304
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\compact-next-lance-9ea-hard-v1\\trace.csv",
+      "sha256": "3d5661dbd498dfeeec96bf3d1986881790da16d53d420ab2905fcbb865fdb1df",
+      "bytes": 295460
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\compact-next-lance-9ea-hard-v1\\inputs.csv",
+      "sha256": "66a407280b208153c45c401b65c5a4a73febd7eb62e1fb3d18419f8821536222",
+      "bytes": 43616
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\compact-next-lance-9ea-hard-v1\\selected-whole-frames.png",
+      "sha256": "b9d5bfa1495db983047e61fb9d9f9a5288a2833e82eb2e51811794f18c628895",
+      "bytes": 11527
+    }
+  ]
+}

@@ -1,0 +1,215 @@
+{
+  "PREPARED_DO_NOT_RUN": true,
+  "native_run": false,
+  "ROM_sha256": "6be48337ffee66a22b22de9ce134d5db323649fb4de620c43bad4ca98b80f193",
+  "physical_window": [
+    1171,
+    1250
+  ],
+  "window_frames": 80,
+  "source_hooks": {
+    "bg": {
+      "symbol": "PlayerBGCollision",
+      "delta": 0,
+      "pc": 39771,
+      "banks": [
+        126
+      ],
+      "bytes": [
+        173,
+        25,
+        7
+      ]
+    },
+    "after_bg": {
+      "symbol": "PlayerCtrlRoutine",
+      "delta": 153,
+      "pc": 41308,
+      "banks": [
+        1
+      ],
+      "bytes": [
+        173,
+        204,
+        127
+      ]
+    },
+    "core": {
+      "symbol": "PlayerCollisionCore",
+      "delta": 0,
+      "pc": 38162,
+      "banks": [
+        126
+      ],
+      "bytes": [
+        162,
+        0,
+        132
+      ]
+    },
+    "after_core": {
+      "symbol": "PlayerEnemyCollision",
+      "delta": 42,
+      "pc": 38531,
+      "banks": [
+        126
+      ],
+      "bytes": [
+        166,
+        13,
+        176
+      ]
+    },
+    "player_enemy": {
+      "symbol": "PlayerEnemyCollision",
+      "delta": 0,
+      "pc": 38489,
+      "banks": [
+        126
+      ],
+      "bytes": [
+        173,
+        2,
+        96
+      ]
+    },
+    "contact": {
+      "symbol": "CheckForPUpCollision",
+      "delta": 0,
+      "pc": 38544,
+      "banks": [
+        126
+      ],
+      "bytes": [
+        180,
+        23,
+        192
+      ]
+    },
+    "handle": {
+      "symbol": "HandlePECollisions",
+      "delta": 0,
+      "pc": 38585,
+      "banks": [
+        126
+      ],
+      "bytes": [
+        32,
+        177,
+        237
+      ]
+    },
+    "body_after": {
+      "symbol": "HandlePECollisions",
+      "delta": 3,
+      "pc": 38588,
+      "banks": [
+        126
+      ],
+      "bytes": [
+        144,
+        1,
+        96
+      ]
+    },
+    "water": {
+      "symbol": "GuestWaterStompPolicy",
+      "delta": 0,
+      "pc": 36139,
+      "banks": [
+        126
+      ],
+      "bytes": [
+        173,
+        227,
+        127
+      ]
+    },
+    "injury_check": {
+      "symbol": "ChkForPlayerInjury",
+      "delta": 0,
+      "pc": 38695,
+      "banks": [
+        126
+      ],
+      "bytes": [
+        173,
+        24,
+        111
+      ]
+    },
+    "injury": {
+      "symbol": "InjurePlayer",
+      "delta": 0,
+      "pc": 38764,
+      "banks": [
+        126
+      ],
+      "bytes": [
+        32,
+        40,
+        141
+      ]
+    },
+    "force_injury": {
+      "symbol": "ForceInjury",
+      "delta": 0,
+      "pc": 38769,
+      "banks": [
+        126
+      ],
+      "bytes": [
+        32,
+        212,
+        237
+      ]
+    },
+    "kill": {
+      "symbol": "KillPlayer",
+      "delta": 0,
+      "pc": 38870,
+      "banks": [
+        126
+      ],
+      "bytes": [
+        173,
+        2,
+        96
+      ]
+    },
+    "stomp": {
+      "symbol": "EnemyStomped",
+      "delta": 0,
+      "pc": 38918,
+      "banks": [
+        126
+      ],
+      "bytes": [
+        181,
+        23,
+        201
+      ]
+    },
+    "set_engine": {
+      "symbol": "SetPRout",
+      "delta": 0,
+      "pc": 38854,
+      "banks": [
+        126
+      ],
+      "bytes": [
+        133,
+        15,
+        132
+      ]
+    }
+  },
+  "only_added_outputs": "One bounded CSV2500rows/1MiB; close statistics merge into existing result. No added screenshots or container.",
+  "all_callbacks_registered_at_startup": true,
+  "shared_harness_and_controller_unchanged": true,
+  "exact_original1249_inputs": true,
+  "owner_contract": "Each real hook checks physical bank+compiled3bytes. Pre/postBG and PlayerCollisionCore verify the actual return PC and SP only for these specific compiled callers; collision result carry is captured before LDX. No runtime callback registration or return-address synthesis.",
+  "data_contract": "Actual ObjectOffset, six live enemy slots with flags/IDs/states/world positions/directions/collision/offscreen bits, actual player/enemy bounding boxes, PlayerSize/crouch/control and velocities; branch PC/AXYP/SP and velocity/state/engine bus stores.",
+  "remaining_limits": "Read-only prospective diagnostic, not a route retry or hitbox fix. Internal stackReturn is only a raw word, not a claimed caller. No no-contact/pass decision is synthesized. All original mode/zero-death/input/motion/NMI/IRQ/SMC/CHR/E008/full256DMA/render-enable guards remain literal.",
+  "public_failure_receipt": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\docs\\qa\\luigi-easy-6be-native-failure-2026-10-27.json"
+}

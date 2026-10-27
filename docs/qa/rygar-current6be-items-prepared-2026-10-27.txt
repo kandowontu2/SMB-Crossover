@@ -1,0 +1,114 @@
+Rygar mature tiers and disk actions: SOURCE PREPARED, NO NATIVE LAUNCH
+
+Frozen ROM build/samus_fixed_hud_current4a.nes
+SHA256 6be48337ffee66a22b22de9ce134d5db323649fb4de620c43bad4ca98b80f193
+with its real DBG/LBL. No Pit file/readiness/output, game source, current build,
+settings, shared fixture or roster ledger was modified. No emulator, runtime/
+source/ROM clone or deleted Archive tree was created. ROOT owns native runs.
+
+Easy0 build/current-6be-rygar-easy-items-v1/prepared-not-run.json
+SHA256 bf46ed098eda02bdf23b1572fee69a0030f5fea3dc86253ea61906f6c4b0190f
+Hard1 build/current-6be-rygar-hard-items-v1/prepared-not-run.json
+SHA256 7027f4eb2b40999abd3143362a44c10e692664b978d252bfeb6cb3ea0d5f6162
+Each26 bindings rehashed after preparation. Both native directories absent.
+The configs differ only in requested numeric mode; actual cold-menu/readback
+assertions require Rygar7/slot7, requested mode, cold tier0 and default cheats.
+
+Source inventory finding: InvItemCount[7]=0, all16 Rygar selectable/initial/
+maximum-ammo table cells are0, and full InventorySupported returns carry0 in
+each mode. This custom profile has mushroom/flower status0->1->2 and adapted
+disk ranges40/64/88, not additional adventure/rope weapon inventory. No IDs
+or ammunition effects were invented. Star/1up remain explicit shared gaps.
+
+Eight cases per mode, one reusable module:
+1 cold right-facing free disk, exact40px maximum then retraction/catch.
+2 cold left-facing real raised-Goomba contact, same40px sequence/catch.
+3 actual mature mushroom contact/erase and complete60-call transform0->1.
+4 acquired tier1 left-facing free disk, exact64px sequence/catch.
+5 acquired tier1 right-facing raised-Goomba contact and64px sequence/catch.
+6 actual mature flower contact/erase and complete60-call transform1->2.
+7 acquired tier2 right-facing free disk, exact88px sequence/catch.
+8 acquired tier2 left-facing raised-Goomba contact and88px sequence/catch.
+All six throws include a separate fresh B after actual source cooldown reaches0
+while the disk is active. That attempt must take the true single-disk refusal
+owner and emit no second disk. This uses controller reads, not cooldown writes.
+
+Complete source controls passed separately per mode:8 cases/668 full compiled
+GameLoop calls,16 cases/1,336 total. CPU begins cold0; tiers change only through
+the actual mature actor collision and60 genuine GuestPowerupUpdate calls.
+The entire weapon dispatch (Roll/Mac/Mike/SMB3/Vic/TMNT/Chip/Kirby fallthrough)
+is observed into ExpandedWeapons; no damage leaf is invoked to force contact.
+Both supporting platform columns at nativeY192 are authored for default-health
+Goomba at canonicalY168/feet192. Target X160 right or88 left stays separate from
+grounded player112/176. Full caller controls keep player grounded, healthy and
+at112/176; each intended disk makes one genuine type29 contact with real HP
+writes. Empty-arena throws have no damage entry/HP writes. No target HP/frozen/
+weapon/tier/return outcome is injected during an action.
+
+Exact native-source disk contract tested by CPU and required by the Lua:
+two windup updates (reach20, no hit), then24..maximum in4px steps and
+maximum-4..20 in4px steps:10/22/34 active samples. Hand center is playerX+8+
+reach right, playerX+10-reach left, Y=playerY+8. Returning flips at the maximum.
+Catch entry is real bank37:AB52 while reach16/returning1/type2; shot ages are
+13/25/37 respectively. Source then clears disk type/reach/shooting pose but
+deliberately leaves returning1. The fixture preserves that sentinel, rather
+than inventing a zero-returning cleanup rule. Three real target contacts use
+bank8:A994 and the original one-hit bitmap/health/native defeat path.
+
+The actual full-pool owner is the early Rygar return JMP at37:A5AE, derived
+as genuine ExpandedWeapons::Many-6. Its whole11B prefix is verified as
+LDA RgCount / BEQ skip / JMP realReturn / JSR realClearMeleeMap. It is NOT the
+later generic PoolFull label. Source preflight caught both that owner mismatch
+and an attempted second B before cooldown expiry before either preparation
+directory was created. The final controller waits for the real cooldown0;
+all six complete callers then witness exactly one refusal and one spawn.
+No native failure was erased or claimed from those source-preparation attempts.
+
+Setup is synchronously limited to actual private GameLoop+5/NmiDisableFF,
+no active NMI/IRQ: logical+visible scene, position/motion/facing, complete mature
+actor5 and default-health target0. No writes to tested PlayerStatus/PlayerSize,
+owned/selected/ammo, disk reach/returning, projectile/attack state, player health,
+injury/immunity or outcomes. Other world actors/drops are cleared only between
+these declared independent scenes. This is mature-actor component collection,
+not natural block reveal/rise, RNG delivery or a controller-only campaign.
+
+The complete static hardware observer block is byte-exact from frozen Pitv3:
+E005 request/E008 genuine completion,256 unmasked source/write/destination
+values, E3 only physical OAM attributes, rendering-off DMA, PPUMASK deadline,
+NMI AXY/SP/five-SMC/physical/shadow-bank ownership, IRQ31, lower stack and CHR
+write-latch checks. No callback is registered/removed during another callback.
+Old historical dynamic-return acquired-tier tools are read as source guidance
+only and are not executed. No new NMI/IRQ CPU qualification is claimed from
+the foreground GameLoop models; the unchanged guards will run in native.
+
+At most8 selected whole-frame PNGs: three free-extension samples, three live
+contact samples and two transform samples. EndFrame metadata records actual
+256B hardware OAM and all12 physical CHR latches with each image. Copies are
+frozen arrays, not references to later mutable latches. A source reach/record
+or an endFrame snapshot alone does not prove that RGB displays the exact same
+publication. ROOT must inspect actual disk/chain/target/body pixels; absent
+effects remain incomplete visual sampling. No art, universal visibility, FPS
+or waveform-fidelity pass is inferred from these source tests. Square1 source
+cue requests are recorded as activity only. No Lua VM/Mesen execution claimed.
+
+Caps per profile:3000 actual updates/8000 wall frames/1200 host seconds,
+2,000,000,000bytes/64files/8PNGs; one CSV/small resultJSON, no per-frame files.
+Each preparation contains only5 small metadata files. Exact argv is in
+command.json. ROOT-only prepared commands (DO NOT RUN without ROOT's lease):
+python -B tools/audit/run_mesen_isolated.py --output build/current-6be-rygar-easy-items-v1/native build/current-6be-rygar-easy-items-v1/run.lua build/samus_fixed_hud_current4a.nes --timeout 1200 --option=--doNotSaveSettings --option=--nes.ramPowerOnState=AllZeros --option=--nes.randomizeCpuPpuAlignment=false --option=--nes.randomizeMapperPowerOnState=false
+python -B tools/audit/run_mesen_isolated.py --output build/current-6be-rygar-hard-items-v1/native build/current-6be-rygar-hard-items-v1/run.lua build/samus_fixed_hud_current4a.nes --timeout 1200 --option=--doNotSaveSettings --option=--nes.ramPowerOnState=AllZeros --option=--nes.randomizeCpuPpuAlignment=false --option=--nes.randomizeMapperPowerOnState=false
+
+Source-controls hashes Easybd0db77892b8155d9b541a1bf00a499fb8db85ef4687088665039e8ffa49b45f,
+Harddfbbd455a3e7d0d412ab672fbe1ceac2076e1cf4c7e3e357dd7af7f593698cab.
+Command hashes Easybc88b5588c9ac9f10d63b161339b5c087f769bf5e6612388fcc090a99d0be036,
+Hard739e86ae1d0180f0a58c3b0dbb5a27667f62b575094965090b6613c979f460b3.
+
+Still missing: all current native outcomes, emergence/RNG/cap refusal/star/1up,
+air/crouch/blocked-terrain disk behavior, damage downgrade/reacquire, campaign,
+full original-art/audio fidelity and broad lag/flicker qualification. Source
+equivalence across requested modes is not native mode coverage.
+
+Exact new owned tracked files only:
+tools/audit/current_rygar_powerups_v1.lua
+tools/audit/current_rygar_powerups_prepare_v1.py
+docs/qa/rygar-current6be-items-prepared-2026-10-27.txt

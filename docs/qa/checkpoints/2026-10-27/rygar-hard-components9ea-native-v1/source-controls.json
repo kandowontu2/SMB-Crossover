@@ -1,0 +1,1138 @@
+{
+  "passed": true,
+  "mode": 1,
+  "complete_caller": true,
+  "no_inventory_IDs": true,
+  "no_tier_fuel_disk_or_projectile_writes_after_cold_initial_state": true,
+  "actual_cpu_setup": "Same complete logical map/position/actor setup; real nametable art/PPU/timing remains native work.",
+  "cases": [
+    {
+      "name": "cold-disk-right",
+      "tier": 0,
+      "face": 1,
+      "owners": [
+        "GameLoop",
+        "HpProcessFireballsBridge",
+        "ProcFireball_Bubble",
+        "RlWeaponsDispatch",
+        "LmWeaponsGate",
+        "JnWeaponsDispatch",
+        "M3WeaponsDispatch",
+        "VvWeaponsDispatch",
+        "TnWeaponsDispatch",
+        "CdWeaponsDispatch",
+        "KbWeaponsDispatch",
+        "ExpandedWeapons",
+        "RygarActiveDiskRefusal",
+        "ExpandedWeapons::CatchDisk"
+      ],
+      "sequences": [
+        24,
+        28,
+        32,
+        36,
+        40,
+        36,
+        32,
+        28,
+        24,
+        20
+      ],
+      "anchors": [
+        [
+          144,
+          184
+        ],
+        [
+          148,
+          184
+        ],
+        [
+          152,
+          184
+        ],
+        [
+          156,
+          184
+        ],
+        [
+          160,
+          184
+        ],
+        [
+          156,
+          184
+        ],
+        [
+          152,
+          184
+        ],
+        [
+          148,
+          184
+        ],
+        [
+          144,
+          184
+        ],
+        [
+          140,
+          184
+        ]
+      ],
+      "refusals": 1,
+      "contacts": [],
+      "collections": 0,
+      "growth_calls": 0,
+      "hp_writes": [],
+      "spawn_writes": 1,
+      "refusal_PC_bank": [
+        42414,
+        37
+      ],
+      "catch_age": 18,
+      "catch_shot_age": 13,
+      "full_GameLoop_calls": 91
+    },
+    {
+      "name": "cold-hit-left",
+      "tier": 0,
+      "face": 2,
+      "owners": [
+        "GameLoop",
+        "HpProcessFireballsBridge",
+        "ProcFireball_Bubble",
+        "RlWeaponsDispatch",
+        "LmWeaponsGate",
+        "JnWeaponsDispatch",
+        "M3WeaponsDispatch",
+        "VvWeaponsDispatch",
+        "TnWeaponsDispatch",
+        "CdWeaponsDispatch",
+        "KbWeaponsDispatch",
+        "ExpandedWeapons",
+        "MegaManWeapons::DamageEnemy",
+        "RygarActiveDiskRefusal",
+        "ExpandedWeapons::CatchDisk"
+      ],
+      "sequences": [
+        24,
+        28,
+        32,
+        36,
+        40,
+        36,
+        32,
+        28,
+        24,
+        20
+      ],
+      "anchors": [
+        [
+          98,
+          184
+        ],
+        [
+          94,
+          184
+        ],
+        [
+          90,
+          184
+        ],
+        [
+          86,
+          184
+        ],
+        [
+          82,
+          184
+        ],
+        [
+          86,
+          184
+        ],
+        [
+          90,
+          184
+        ],
+        [
+          94,
+          184
+        ],
+        [
+          98,
+          184
+        ],
+        [
+          102,
+          184
+        ]
+      ],
+      "refusals": 1,
+      "contacts": [
+        {
+          "age": 8,
+          "PC": 43412,
+          "bank": 8,
+          "proxy": 29,
+          "disk": [
+            98,
+            184
+          ],
+          "target": [
+            88,
+            168
+          ]
+        }
+      ],
+      "collections": 0,
+      "growth_calls": 0,
+      "hp_writes": [
+        {
+          "age": 8,
+          "pc": 43686,
+          "bank": 8,
+          "address": 24639,
+          "value": 100
+        },
+        {
+          "age": 8,
+          "pc": 43690,
+          "bank": 8,
+          "address": 24645,
+          "value": 0
+        },
+        {
+          "age": 8,
+          "pc": 43743,
+          "bank": 8,
+          "address": 24639,
+          "value": 0
+        },
+        {
+          "age": 8,
+          "pc": 43751,
+          "bank": 8,
+          "address": 24645,
+          "value": 0
+        },
+        {
+          "age": 74,
+          "pc": 36172,
+          "bank": 126,
+          "address": 24639,
+          "value": 0
+        },
+        {
+          "age": 74,
+          "pc": 36175,
+          "bank": 126,
+          "address": 24645,
+          "value": 0
+        }
+      ],
+      "spawn_writes": 1,
+      "refusal_PC_bank": [
+        42414,
+        37
+      ],
+      "catch_age": 18,
+      "catch_shot_age": 13,
+      "full_GameLoop_calls": 91
+    },
+    {
+      "name": "mushroom-transform",
+      "tier": 0,
+      "face": 1,
+      "owners": [
+        "GameLoop",
+        "HpProcessFireballsBridge",
+        "ProcFireball_Bubble",
+        "RlWeaponsDispatch",
+        "LmWeaponsGate",
+        "JnWeaponsDispatch",
+        "M3WeaponsDispatch",
+        "VvWeaponsDispatch",
+        "TnWeaponsDispatch",
+        "CdWeaponsDispatch",
+        "KbWeaponsDispatch",
+        "ExpandedWeapons",
+        "MarioSourcePowerupCollision",
+        "GuestBeginPowerup",
+        "GuestPowerupUpdate"
+      ],
+      "sequences": [],
+      "anchors": [],
+      "refusals": 0,
+      "contacts": [],
+      "collections": 1,
+      "growth_calls": 60,
+      "hp_writes": [],
+      "spawn_writes": 0,
+      "full_GameLoop_calls": 61
+    },
+    {
+      "name": "tier1-disk-left",
+      "tier": 1,
+      "face": 2,
+      "owners": [
+        "GameLoop",
+        "HpProcessFireballsBridge",
+        "ProcFireball_Bubble",
+        "RlWeaponsDispatch",
+        "LmWeaponsGate",
+        "JnWeaponsDispatch",
+        "M3WeaponsDispatch",
+        "VvWeaponsDispatch",
+        "TnWeaponsDispatch",
+        "CdWeaponsDispatch",
+        "KbWeaponsDispatch",
+        "ExpandedWeapons",
+        "RygarActiveDiskRefusal",
+        "ExpandedWeapons::CatchDisk"
+      ],
+      "sequences": [
+        24,
+        28,
+        32,
+        36,
+        40,
+        44,
+        48,
+        52,
+        56,
+        60,
+        64,
+        60,
+        56,
+        52,
+        48,
+        44,
+        40,
+        36,
+        32,
+        28,
+        24,
+        20
+      ],
+      "anchors": [
+        [
+          98,
+          184
+        ],
+        [
+          94,
+          184
+        ],
+        [
+          90,
+          184
+        ],
+        [
+          86,
+          184
+        ],
+        [
+          82,
+          184
+        ],
+        [
+          78,
+          184
+        ],
+        [
+          74,
+          184
+        ],
+        [
+          70,
+          184
+        ],
+        [
+          66,
+          184
+        ],
+        [
+          62,
+          184
+        ],
+        [
+          58,
+          184
+        ],
+        [
+          62,
+          184
+        ],
+        [
+          66,
+          184
+        ],
+        [
+          70,
+          184
+        ],
+        [
+          74,
+          184
+        ],
+        [
+          78,
+          184
+        ],
+        [
+          82,
+          184
+        ],
+        [
+          86,
+          184
+        ],
+        [
+          90,
+          184
+        ],
+        [
+          94,
+          184
+        ],
+        [
+          98,
+          184
+        ],
+        [
+          102,
+          184
+        ]
+      ],
+      "refusals": 1,
+      "contacts": [],
+      "collections": 0,
+      "growth_calls": 0,
+      "hp_writes": [],
+      "spawn_writes": 1,
+      "refusal_PC_bank": [
+        42414,
+        37
+      ],
+      "catch_age": 30,
+      "catch_shot_age": 25,
+      "full_GameLoop_calls": 91
+    },
+    {
+      "name": "tier1-hit-right",
+      "tier": 1,
+      "face": 1,
+      "owners": [
+        "GameLoop",
+        "HpProcessFireballsBridge",
+        "ProcFireball_Bubble",
+        "RlWeaponsDispatch",
+        "LmWeaponsGate",
+        "JnWeaponsDispatch",
+        "M3WeaponsDispatch",
+        "VvWeaponsDispatch",
+        "TnWeaponsDispatch",
+        "CdWeaponsDispatch",
+        "KbWeaponsDispatch",
+        "ExpandedWeapons",
+        "MegaManWeapons::DamageEnemy",
+        "RygarActiveDiskRefusal",
+        "ExpandedWeapons::CatchDisk"
+      ],
+      "sequences": [
+        24,
+        28,
+        32,
+        36,
+        40,
+        44,
+        48,
+        52,
+        56,
+        60,
+        64,
+        60,
+        56,
+        52,
+        48,
+        44,
+        40,
+        36,
+        32,
+        28,
+        24,
+        20
+      ],
+      "anchors": [
+        [
+          144,
+          184
+        ],
+        [
+          148,
+          184
+        ],
+        [
+          152,
+          184
+        ],
+        [
+          156,
+          184
+        ],
+        [
+          160,
+          184
+        ],
+        [
+          164,
+          184
+        ],
+        [
+          168,
+          184
+        ],
+        [
+          172,
+          184
+        ],
+        [
+          176,
+          184
+        ],
+        [
+          180,
+          184
+        ],
+        [
+          184,
+          184
+        ],
+        [
+          180,
+          184
+        ],
+        [
+          176,
+          184
+        ],
+        [
+          172,
+          184
+        ],
+        [
+          168,
+          184
+        ],
+        [
+          164,
+          184
+        ],
+        [
+          160,
+          184
+        ],
+        [
+          156,
+          184
+        ],
+        [
+          152,
+          184
+        ],
+        [
+          148,
+          184
+        ],
+        [
+          144,
+          184
+        ],
+        [
+          140,
+          184
+        ]
+      ],
+      "refusals": 1,
+      "contacts": [
+        {
+          "age": 11,
+          "PC": 43412,
+          "bank": 8,
+          "proxy": 29,
+          "disk": [
+            156,
+            184
+          ],
+          "target": [
+            160,
+            168
+          ]
+        }
+      ],
+      "collections": 0,
+      "growth_calls": 0,
+      "hp_writes": [
+        {
+          "age": 11,
+          "pc": 43686,
+          "bank": 8,
+          "address": 24639,
+          "value": 100
+        },
+        {
+          "age": 11,
+          "pc": 43690,
+          "bank": 8,
+          "address": 24645,
+          "value": 0
+        },
+        {
+          "age": 11,
+          "pc": 43743,
+          "bank": 8,
+          "address": 24639,
+          "value": 0
+        },
+        {
+          "age": 11,
+          "pc": 43751,
+          "bank": 8,
+          "address": 24645,
+          "value": 0
+        },
+        {
+          "age": 77,
+          "pc": 36172,
+          "bank": 126,
+          "address": 24639,
+          "value": 0
+        },
+        {
+          "age": 77,
+          "pc": 36175,
+          "bank": 126,
+          "address": 24645,
+          "value": 0
+        }
+      ],
+      "spawn_writes": 1,
+      "refusal_PC_bank": [
+        42414,
+        37
+      ],
+      "catch_age": 30,
+      "catch_shot_age": 25,
+      "full_GameLoop_calls": 91
+    },
+    {
+      "name": "flower-transform",
+      "tier": 1,
+      "face": 1,
+      "owners": [
+        "GameLoop",
+        "HpProcessFireballsBridge",
+        "ProcFireball_Bubble",
+        "RlWeaponsDispatch",
+        "LmWeaponsGate",
+        "JnWeaponsDispatch",
+        "M3WeaponsDispatch",
+        "VvWeaponsDispatch",
+        "TnWeaponsDispatch",
+        "CdWeaponsDispatch",
+        "KbWeaponsDispatch",
+        "ExpandedWeapons",
+        "MarioSourcePowerupCollision",
+        "GuestBeginPowerup",
+        "GuestPowerupUpdate"
+      ],
+      "sequences": [],
+      "anchors": [],
+      "refusals": 0,
+      "contacts": [],
+      "collections": 1,
+      "growth_calls": 60,
+      "hp_writes": [],
+      "spawn_writes": 0,
+      "full_GameLoop_calls": 61
+    },
+    {
+      "name": "tier2-disk-right",
+      "tier": 2,
+      "face": 1,
+      "owners": [
+        "GameLoop",
+        "HpProcessFireballsBridge",
+        "ProcFireball_Bubble",
+        "RlWeaponsDispatch",
+        "LmWeaponsGate",
+        "JnWeaponsDispatch",
+        "M3WeaponsDispatch",
+        "VvWeaponsDispatch",
+        "TnWeaponsDispatch",
+        "CdWeaponsDispatch",
+        "KbWeaponsDispatch",
+        "ExpandedWeapons",
+        "RygarActiveDiskRefusal",
+        "ExpandedWeapons::CatchDisk"
+      ],
+      "sequences": [
+        24,
+        28,
+        32,
+        36,
+        40,
+        44,
+        48,
+        52,
+        56,
+        60,
+        64,
+        68,
+        72,
+        76,
+        80,
+        84,
+        88,
+        84,
+        80,
+        76,
+        72,
+        68,
+        64,
+        60,
+        56,
+        52,
+        48,
+        44,
+        40,
+        36,
+        32,
+        28,
+        24,
+        20
+      ],
+      "anchors": [
+        [
+          144,
+          184
+        ],
+        [
+          148,
+          184
+        ],
+        [
+          152,
+          184
+        ],
+        [
+          156,
+          184
+        ],
+        [
+          160,
+          184
+        ],
+        [
+          164,
+          184
+        ],
+        [
+          168,
+          184
+        ],
+        [
+          172,
+          184
+        ],
+        [
+          176,
+          184
+        ],
+        [
+          180,
+          184
+        ],
+        [
+          184,
+          184
+        ],
+        [
+          188,
+          184
+        ],
+        [
+          192,
+          184
+        ],
+        [
+          196,
+          184
+        ],
+        [
+          200,
+          184
+        ],
+        [
+          204,
+          184
+        ],
+        [
+          208,
+          184
+        ],
+        [
+          204,
+          184
+        ],
+        [
+          200,
+          184
+        ],
+        [
+          196,
+          184
+        ],
+        [
+          192,
+          184
+        ],
+        [
+          188,
+          184
+        ],
+        [
+          184,
+          184
+        ],
+        [
+          180,
+          184
+        ],
+        [
+          176,
+          184
+        ],
+        [
+          172,
+          184
+        ],
+        [
+          168,
+          184
+        ],
+        [
+          164,
+          184
+        ],
+        [
+          160,
+          184
+        ],
+        [
+          156,
+          184
+        ],
+        [
+          152,
+          184
+        ],
+        [
+          148,
+          184
+        ],
+        [
+          144,
+          184
+        ],
+        [
+          140,
+          184
+        ]
+      ],
+      "refusals": 1,
+      "contacts": [],
+      "collections": 0,
+      "growth_calls": 0,
+      "hp_writes": [],
+      "spawn_writes": 1,
+      "refusal_PC_bank": [
+        42414,
+        37
+      ],
+      "catch_age": 42,
+      "catch_shot_age": 37,
+      "full_GameLoop_calls": 91
+    },
+    {
+      "name": "tier2-hit-left",
+      "tier": 2,
+      "face": 2,
+      "owners": [
+        "GameLoop",
+        "HpProcessFireballsBridge",
+        "ProcFireball_Bubble",
+        "RlWeaponsDispatch",
+        "LmWeaponsGate",
+        "JnWeaponsDispatch",
+        "M3WeaponsDispatch",
+        "VvWeaponsDispatch",
+        "TnWeaponsDispatch",
+        "CdWeaponsDispatch",
+        "KbWeaponsDispatch",
+        "ExpandedWeapons",
+        "MegaManWeapons::DamageEnemy",
+        "RygarActiveDiskRefusal",
+        "ExpandedWeapons::CatchDisk"
+      ],
+      "sequences": [
+        24,
+        28,
+        32,
+        36,
+        40,
+        44,
+        48,
+        52,
+        56,
+        60,
+        64,
+        68,
+        72,
+        76,
+        80,
+        84,
+        88,
+        84,
+        80,
+        76,
+        72,
+        68,
+        64,
+        60,
+        56,
+        52,
+        48,
+        44,
+        40,
+        36,
+        32,
+        28,
+        24,
+        20
+      ],
+      "anchors": [
+        [
+          98,
+          184
+        ],
+        [
+          94,
+          184
+        ],
+        [
+          90,
+          184
+        ],
+        [
+          86,
+          184
+        ],
+        [
+          82,
+          184
+        ],
+        [
+          78,
+          184
+        ],
+        [
+          74,
+          184
+        ],
+        [
+          70,
+          184
+        ],
+        [
+          66,
+          184
+        ],
+        [
+          62,
+          184
+        ],
+        [
+          58,
+          184
+        ],
+        [
+          54,
+          184
+        ],
+        [
+          50,
+          184
+        ],
+        [
+          46,
+          184
+        ],
+        [
+          42,
+          184
+        ],
+        [
+          38,
+          184
+        ],
+        [
+          34,
+          184
+        ],
+        [
+          38,
+          184
+        ],
+        [
+          42,
+          184
+        ],
+        [
+          46,
+          184
+        ],
+        [
+          50,
+          184
+        ],
+        [
+          54,
+          184
+        ],
+        [
+          58,
+          184
+        ],
+        [
+          62,
+          184
+        ],
+        [
+          66,
+          184
+        ],
+        [
+          70,
+          184
+        ],
+        [
+          74,
+          184
+        ],
+        [
+          78,
+          184
+        ],
+        [
+          82,
+          184
+        ],
+        [
+          86,
+          184
+        ],
+        [
+          90,
+          184
+        ],
+        [
+          94,
+          184
+        ],
+        [
+          98,
+          184
+        ],
+        [
+          102,
+          184
+        ]
+      ],
+      "refusals": 1,
+      "contacts": [
+        {
+          "age": 8,
+          "PC": 43412,
+          "bank": 8,
+          "proxy": 29,
+          "disk": [
+            98,
+            184
+          ],
+          "target": [
+            88,
+            168
+          ]
+        }
+      ],
+      "collections": 0,
+      "growth_calls": 0,
+      "hp_writes": [
+        {
+          "age": 8,
+          "pc": 43686,
+          "bank": 8,
+          "address": 24639,
+          "value": 100
+        },
+        {
+          "age": 8,
+          "pc": 43690,
+          "bank": 8,
+          "address": 24645,
+          "value": 0
+        },
+        {
+          "age": 8,
+          "pc": 43743,
+          "bank": 8,
+          "address": 24639,
+          "value": 0
+        },
+        {
+          "age": 8,
+          "pc": 43751,
+          "bank": 8,
+          "address": 24645,
+          "value": 0
+        },
+        {
+          "age": 74,
+          "pc": 36172,
+          "bank": 126,
+          "address": 24639,
+          "value": 0
+        },
+        {
+          "age": 74,
+          "pc": 36175,
+          "bank": 126,
+          "address": 24645,
+          "value": 0
+        }
+      ],
+      "spawn_writes": 1,
+      "refusal_PC_bank": [
+        42414,
+        37
+      ],
+      "catch_age": 42,
+      "catch_shot_age": 37,
+      "full_GameLoop_calls": 91
+    }
+  ],
+  "GameLoop_calls": 668
+}

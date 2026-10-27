@@ -1,0 +1,240 @@
+{
+  "ROM_sha256": "6be48337ffee66a22b22de9ce134d5db323649fb4de620c43bad4ca98b80f193",
+  "first": 1171,
+  "last": 1250,
+  "ram": {
+    "ObjectOffset": 13,
+    "SelectedCharacter": 24578,
+    "MarioVariant": 29450,
+    "CrossoverBehaviorVersion": 32737,
+    "GameEngineSubroutine": 15,
+    "Player_X_Position": 117,
+    "Player_PageLoc": 92,
+    "Player_Y_Position": 189,
+    "Player_Y_HighPos": 164,
+    "Player_State": 30,
+    "Player_X_Speed": 70,
+    "Player_Y_Speed": 142,
+    "PlayerSize": 1881,
+    "CrouchingFlag": 1815,
+    "Player_BoundBoxCtrl": 1605,
+    "PlayerStatus": 1883,
+    "StompTimer": 1934,
+    "InjuryTimer": 1947,
+    "GuestBodyNoStomp": 28440,
+    "GuestBodyStompAllowed": 32739,
+    "FrameCounter": 14,
+    "Player_Rel_XPos": 1393,
+    "Enemy_Rel_XPos": 1394,
+    "BoundingBox_UL_Corner": 1624,
+    "Enemy_Flag": 16,
+    "Enemy_ID": 23,
+    "Enemy_State": 31,
+    "Enemy_X_Position": 118,
+    "Enemy_PageLoc": 93,
+    "Enemy_Y_Position": 190,
+    "Enemy_Y_HighPos": 165,
+    "Enemy_X_Speed": 71,
+    "Enemy_Y_Speed": 143,
+    "Enemy_MovingDir": 1343,
+    "Enemy_CollisionBits": 1597,
+    "EnemyOffscrBitsMasked": 1448
+  },
+  "hooks": {
+    "bg": {
+      "symbol": "PlayerBGCollision",
+      "delta": 0,
+      "pc": 39771,
+      "banks": [
+        126
+      ],
+      "bytes": [
+        173,
+        25,
+        7
+      ]
+    },
+    "after_bg": {
+      "symbol": "PlayerCtrlRoutine",
+      "delta": 153,
+      "pc": 41308,
+      "banks": [
+        1
+      ],
+      "bytes": [
+        173,
+        204,
+        127
+      ]
+    },
+    "core": {
+      "symbol": "PlayerCollisionCore",
+      "delta": 0,
+      "pc": 38162,
+      "banks": [
+        126
+      ],
+      "bytes": [
+        162,
+        0,
+        132
+      ]
+    },
+    "after_core": {
+      "symbol": "PlayerEnemyCollision",
+      "delta": 42,
+      "pc": 38531,
+      "banks": [
+        126
+      ],
+      "bytes": [
+        166,
+        13,
+        176
+      ]
+    },
+    "player_enemy": {
+      "symbol": "PlayerEnemyCollision",
+      "delta": 0,
+      "pc": 38489,
+      "banks": [
+        126
+      ],
+      "bytes": [
+        173,
+        2,
+        96
+      ]
+    },
+    "contact": {
+      "symbol": "CheckForPUpCollision",
+      "delta": 0,
+      "pc": 38544,
+      "banks": [
+        126
+      ],
+      "bytes": [
+        180,
+        23,
+        192
+      ]
+    },
+    "handle": {
+      "symbol": "HandlePECollisions",
+      "delta": 0,
+      "pc": 38585,
+      "banks": [
+        126
+      ],
+      "bytes": [
+        32,
+        177,
+        237
+      ]
+    },
+    "body_after": {
+      "symbol": "HandlePECollisions",
+      "delta": 3,
+      "pc": 38588,
+      "banks": [
+        126
+      ],
+      "bytes": [
+        144,
+        1,
+        96
+      ]
+    },
+    "water": {
+      "symbol": "GuestWaterStompPolicy",
+      "delta": 0,
+      "pc": 36139,
+      "banks": [
+        126
+      ],
+      "bytes": [
+        173,
+        227,
+        127
+      ]
+    },
+    "injury_check": {
+      "symbol": "ChkForPlayerInjury",
+      "delta": 0,
+      "pc": 38695,
+      "banks": [
+        126
+      ],
+      "bytes": [
+        173,
+        24,
+        111
+      ]
+    },
+    "injury": {
+      "symbol": "InjurePlayer",
+      "delta": 0,
+      "pc": 38764,
+      "banks": [
+        126
+      ],
+      "bytes": [
+        32,
+        40,
+        141
+      ]
+    },
+    "force_injury": {
+      "symbol": "ForceInjury",
+      "delta": 0,
+      "pc": 38769,
+      "banks": [
+        126
+      ],
+      "bytes": [
+        32,
+        212,
+        237
+      ]
+    },
+    "kill": {
+      "symbol": "KillPlayer",
+      "delta": 0,
+      "pc": 38870,
+      "banks": [
+        126
+      ],
+      "bytes": [
+        173,
+        2,
+        96
+      ]
+    },
+    "stomp": {
+      "symbol": "EnemyStomped",
+      "delta": 0,
+      "pc": 38918,
+      "banks": [
+        126
+      ],
+      "bytes": [
+        181,
+        23,
+        201
+      ]
+    },
+    "set_engine": {
+      "symbol": "SetPRout",
+      "delta": 0,
+      "pc": 38854,
+      "banks": [
+        126
+      ],
+      "bytes": [
+        133,
+        15,
+        132
+      ]
+    }
+  }
+}
