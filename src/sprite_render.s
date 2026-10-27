@@ -9,7 +9,11 @@
 ; DrawVine is a bank0 cold leaf; preserve its156-byte footprint and public PC.
 RyuPlatformColdStart:
 .proc DrawVine
+.if ::ENABLE_MMC5_EXPANDED
+  farcall MmReserveVine
+.else
   farcall RyuPlatformOriginalDrawVine
+.endif
   ldy R0                     ; exact original final N/Z from Y (farcall reloads A).
   rts
 .endproc
@@ -947,7 +951,11 @@ FireA:
 
 DrawSmallPlatform:
 .if ::ENABLE_CROSSOVER
+.if ::ENABLE_MMC5_EXPANDED
+  farcall MmReserveLift
+.else
   farcall CrossoverDrawSmallPlatform
+.endif
   rts
 TopSP=DrawSmallPlatform+61
 BotSP=DrawSmallPlatform+75

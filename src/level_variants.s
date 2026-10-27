@@ -457,10 +457,28 @@ CoinCellBufferHi:
     AllocSpr 6
        lda #PLATFORM_GIRDER        ;load tile number for small platforms
        iny                         ;increment offset for tile numbers
+.if ::ENABLE_MMC5_EXPANDED
+       sta Sprite_Data+20,y
+       sta Sprite_Data+16,y
+       sta Sprite_Data+12,y
+       sta Sprite_Data+8,y
+       sta Sprite_Data+4,y
+       sta Sprite_Data+0,y
+.else
        farcall DumpSixSpr              ;dump tile number into all six sprites
+.endif
        iny                         ;increment offset for attributes
        lda #$02                    ;load palette controls
+.if ::ENABLE_MMC5_EXPANDED
+       sta Sprite_Data+20,y
+       sta Sprite_Data+16,y
+       sta Sprite_Data+12,y
+       sta Sprite_Data+8,y
+       sta Sprite_Data+4,y
+       sta Sprite_Data+0,y
+.else
        farcall DumpSixSpr              ;dump attributes into all six sprites
+.endif
        dey                         ;decrement for original offset
        dey
        lda Enemy_Rel_XPos          ;get relative horizontal coordinate
@@ -480,7 +498,14 @@ CoinCellBufferHi:
        cpx #$20                    ;if vertical coordinate below status bar,
        bcs TopSP                   ;do not mess with it
        lda #$f8                    ;otherwise move first three sprites offscreen
-TopSP: farcall DumpThreeSpr            ;dump vertical coordinate into Y coordinates
+TopSP:
+.if ::ENABLE_MMC5_EXPANDED
+       sta Sprite_Data+8,y
+       sta Sprite_Data+4,y
+       sta Sprite_Data+0,y
+.else
+farcall DumpThreeSpr            ;dump vertical coordinate into Y coordinates
+.endif
        pla                         ;pull from stack
        farcall CrossoverLiftSecondY
        tax
@@ -512,6 +537,9 @@ SOfs2: pla                         ;get from stack
        sta Sprite_Y_Position+20,y
 ExSPl: ldx ObjectOffset            ;get enemy object offset and leave
        rts
+.if ::ENABLE_MMC5_EXPANDED
+       .res 9,$ea
+.endif
 
 .endproc
 .assert *<=$a800,error,"Authored level code must preserve helper cold space atA800"

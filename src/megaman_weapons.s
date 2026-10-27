@@ -2117,7 +2117,53 @@ HeadXMaxEx: .byte 163,168,123,128,160,169,120,129
   rts
 LegacyReservation:
   jmp PlayerOAMReservation
-  .res 110,$ea
+::MmReserveBegin:
+  lda #1
+  sta GuestOamRotationActive
+  farcall KbOamPriority
+  lda SpriteShuffleOffset
+  lsr
+  bcs Native
+  lda MmDeathFlag
+  bne Native
+  lda ObjectMetasprite
+  beq Native
+  ldx #40
+  lda ProtoVariant
+  beq :+
+  ldx #44
+:
+  ora #$80                    ; 80Mega /81Proto; old readers are boolean.
+  sta GuestOamRotationActive
+  lda #0
+  sta RgOamRotation
+  jmp MmReserveClear
+Native:
+  ldx #0
+  jmp MmReserveClear
+::MmReserveFinish:
+  bit GuestOamRotationActive
+  bpl Legacy
+  lda CurrentOAMOffset
+  sec
+  sbc #40
+  ldx ProtoVariant
+  beq :+
+  sbc #4
+:
+  sta RgOamUsed                ; Previous used count is dead after KbOamPriority.
+  lda #0
+  sta RgOamPlayerStart
+  rts
+Legacy:
+  lda CurrentOAMOffset
+  sta RgOamPlayerStart
+::MegaManProjectileOamReady:
+  jsr ProtoOamReservation
+  clc
+  adc CurrentOAMOffset
+  sta CurrentOAMOffset
+  rts
   .assert *-MegaManDrawShots=139,error,"Shot wrapper original span"
  .else
   lda SelectedCharacter
@@ -2433,3 +2479,136 @@ Bottom:  .byte 24,10,24,10,24,10,24,10
 .endproc
 .assert .bank(GrowthRadiusLo) = .bank(RgBILLWeaponsRightLo), lderror, "Bill mapped C000 scalar/art ABI"
 .popseg
+
+.if ::ENABLE_MMC5_EXPANDED
+.pushseg
+.segment "MM_BODY_RESERVE"
+.proc MmReserveExit
+  ; Reproduce the old body's logical cursor, physical return X and final SBC V.
+  ; Keep physical rotation0 for the retained body-first image/partial writers.
+  lda CurrentOAMOffset
+  clc
+  adc RgOamUsed
+  sta CurrentOAMOffset
+  sec
+  sbc RgOamFirst
+  tax
+  lda RgOamFirst
+  eor #$ff
+  clc
+  adc #1
+  sta RgOamRotation
+  txa
+  sec
+  sbc RgOamRotation
+  ldy #0
+  sty RgOamRotation
+  jmp MmReserveRosterTail
+.endproc
+.assert *-MmReserveExit<=88,error,"Actual bank4 pool"
+.segment "MM_BODY_PARTIAL"
+.proc MmReservePartial
+  ; Only a retained Proto body-first image has tag81. A new native Main
+  ; resets its cursor40; shift this first partial group past all44body bytes.
+  ; Native and Mega40 turns retain their exact original allocation.
+  lda SelectedCharacter
+  cmp #CHARACTER_MEGAMAN
+  bne Done
+  lda GuestOamRotationActive
+  cmp #$81
+  bne Done
+  lda CurrentOAMOffset
+  cmp #40
+  bne Done
+  lda #44
+  sta CurrentOAMOffset
+Done:
+  rts
+.endproc
+.proc MmReserveVine
+  jsr MmReservePartial
+  sty R0                     ;save offset here
+  lda Enemy_Rel_YPos         ;get relative vertical coordinate
+  clc
+  adc VineYPosAdder,y        ;add value using offset in Y to get value
+  ReserveSpr 6
+  sty R2                    ;store sprite data offset here
+  ; jsr SixSpriteStacker       ;stack six sprites on top of each other vertically
+  ; inlined
+
+.repeat 6, I
+  sta Sprite_Data + (I*4),y ;store X or Y coordinate into OAM data
+.if I <> 5
+  clc
+  adc #$08           ;add eight pixels
+.endif
+.endrepeat
+
+  lda Enemy_Rel_XPos         ;get relative horizontal coordinate
+  sta Sprite_X_Position,y    ;store in first, third and fifth sprites
+  sta Sprite_X_Position+8,y
+  sta Sprite_X_Position+16,y
+  clc
+  adc #$06                   ;add six pixels to second, fourth and sixth sprites
+  sta Sprite_X_Position+4,y  ;to give characteristic staggered vine shape to
+  sta Sprite_X_Position+12,y ;our vertical stack of sprites
+  sta Sprite_X_Position+20,y
+  lda #%00100001             ;set bg priority and palette attribute bits
+  sta Sprite_Attributes,y    ;set in first, third and fifth sprites
+  sta Sprite_Attributes+8,y
+  sta Sprite_Attributes+16,y
+  ora #%01000000             ;additionally, set horizontal flip bit
+  sta Sprite_Attributes+4,y  ;for second, fourth and sixth sprites
+  sta Sprite_Attributes+12,y
+  sta Sprite_Attributes+20,y
+  ldx #$05                   ;set tiles for six sprites
+VineTL:
+  lda #VINE_TILE_2           ;set tile number for sprite
+  sta Sprite_Tilenumber,y
+  iny                        ;move offset to next sprite data
+  iny
+  iny
+  iny
+  dex                        ;move onto next sprite
+  bpl VineTL                 ;loop until all sprites are done
+UpdateOAMPosition
+  ldy R2                     ;get original offset
+  lda R0                     ;get offset to vine adding data
+  bne :+                ;if offset not zero, skip this part
+    lda #VINE_TILE_1
+    sta Sprite_Tilenumber,y    ;set other tile number for top of vine
+  :
+.repeat 6,I
+  lda Vine_Start_Y_Position
+  sec
+  sbc Sprite_Y_Position,y
+  cmp #$64
+  bcc :+
+  lda #$f8
+  sta Sprite_Y_Position,y
+:
+  .if I<>5
+  iny
+  iny
+  iny
+  iny
+  .endif
+.endrepeat
+  ; Last CPX6 always returned X6/C1; LDY R0 below owns final NZ.
+  ldx #6
+  sec
+  ldy R0                     ;return offset set earlier
+  rts
+
+VineYPosAdder:
+  .byte $00, $30
+
+.endproc
+.proc MmReserveLift
+  jsr MmReservePartial
+  farcall CrossoverDrawSmallPlatform
+  rts
+.endproc
+.assert *-MmReservePartial<=400,error,"Actual bank66 pool"
+.popseg
+.endif

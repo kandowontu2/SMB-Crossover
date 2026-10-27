@@ -367,7 +367,11 @@ OtherCharacter:
 .endproc
 
 .proc MegaManGraphics
+.if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
+  farcall CompactMegaManPaletteState
+.else
   farcall MegaManPaletteState
+.endif
   lda Player_SprAttrib
   and #$fc
   sta Player_SprAttrib

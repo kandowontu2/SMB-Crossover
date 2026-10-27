@@ -316,6 +316,18 @@ LoopCount = M0
   jsr HpGraphicsBankCopy
 .endif
  .if ::ENABLE_CROSSOVER
+.if ::ENABLE_MMC5_EXPANDED
+  lda SelectedCharacter
+  cmp #CHARACTER_BILL
+  bcs RotateGuestOAM
+  lsr
+  bcc MmReserveNonMega
+  jmp MmReserveBegin
+MmReserveNonMega:
+  lsr
+  sta GuestOamRotationActive
+  jmp ClearReservedPlayer
+.else
   lda SelectedCharacter
   cmp #CHARACTER_MEGAMAN
   beq RotateGuestOAM
@@ -324,6 +336,7 @@ LoopCount = M0
   lda #0
   sta GuestOamRotationActive
   jmp ClearReservedPlayer
+.endif
 RotateGuestOAM:
   lda #1
   sta GuestOamRotationActive
@@ -358,6 +371,10 @@ RosterPriorityReady:
   adc #1
   sta RgOamRotation
 .endif
+.if ::ENABLE_MMC5_EXPANDED
+  ldx #0
+::MmReserveClear:
+.endif
   ; Give weapons the first OAM slots. Transparent portions of layered bodies
   ; still consume the PPU's eight sprites per line and must not hide shots.
   lda #$f8
@@ -366,7 +383,9 @@ RosterPriorityReady:
  .repeat 64, I
   sta Sprite_Y_Position+I*4
  .endrepeat
+.if !::ENABLE_MMC5_EXPANDED
   ldx #0
+.endif
   stx CurrentOAMOffset
 .if ::ENABLE_MMC5_EXPANDED
   farcall RlSpecialDrawDispatch
@@ -377,18 +396,20 @@ RosterPriorityReady:
   cmp #CHARACTER_MEGAMAN
   bne RosterShots
   jsr MegaManDrawShots
+.if ::ENABLE_MMC5_EXPANDED
+  jsr MmReserveFinish
+  jmp InitObjectLoop
+  .res 13,$ea
+.else
   lda CurrentOAMOffset
   sta RgOamPlayerStart
 ::MegaManProjectileOamReady:
- .if ::ENABLE_MMC5_EXPANDED
-  jsr ProtoOamReservation
- .else
   jsr PlayerOAMReservation
- .endif
   clc
   adc CurrentOAMOffset
   sta CurrentOAMOffset
   jmp InitObjectLoop
+.endif
 RosterShots:
 .if ::ENABLE_MMC5_EXPANDED
   jsr KbDrawDispatch
@@ -419,8 +440,13 @@ ClearPlayerOAM:
   dex
   dex
   sta Sprite_Y_Position,x
+.if !::ENABLE_MMC5_EXPANDED
   cpx #0
+.endif
   bne ClearPlayerOAM
+.if ::ENABLE_MMC5_EXPANDED
+  sec
+.endif
 
 InitObjectLoop:
   lda #24 - 1 ; size of the different object update list
@@ -608,8 +634,12 @@ PlayerBankReady:
 .endif
  .if ::ENABLE_CROSSOVER
     lda GuestOamRotationActive
+.if ::ENABLE_MMC5_EXPANDED
+    bmi MmReserveExitBranch
+.endif
     beq LegacyTailClear
       ; The full ring was hidden at entry; no linear tail clear is needed.
+::MmReserveRosterTail:
       pla
       sta RgOamUsed
       lda RgOamFirst
@@ -655,10 +685,12 @@ MouseStateMetasprite:
 ::WorldFirebarAdmission:
  farcall Z2LateWorldAdmission
  jmp WorldFirebarAdmissionDone
- .res 17,$ea
+::MmReserveExitBranch:
+ jmp MmReserveExit
+ .res 12,$ea
 ::WorldFirebarAdmissionDone:
  rts
- .assert *-WorldFirebarDrawAdmission=39,lderror,"Late world admission span"
+ .assert *-WorldFirebarDrawAdmission=37,lderror,"Body-reservation resident span"
 .else
 ::WorldFirebarAdmission:
   ; No matching ID can produce a firebar. Keep the existing live-owner checks.

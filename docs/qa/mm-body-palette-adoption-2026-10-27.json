@@ -1,0 +1,77 @@
+{
+  "status": "source adopted; canonical build equals native candidate",
+  "ROM_sha256": "4a0394b0892e6c54940856791e44bcbe9fe4e469047aca3982c3f59112a61b8b",
+  "parent_ROM_sha256": "2082c19a7364920f828e97f70040d37f1f7059bde1ea136b5c2c4532324abf36",
+  "canonical_bytes": 2097168,
+  "actual_changed_PRG_bytes_by_bank": {
+    "0": 6,
+    "1": 2,
+    "4": 422,
+    "26": 131,
+    "63": 584,
+    "66": 297
+  },
+  "header_and_CHR_byte_exact_to_parent": true,
+  "ordinary_flag_off_builds": {
+    "mmc3": {
+      "before": "d444cac88e13fa02b29ad16100b8f08fa565ba90f8cedde192de43fb2dc8f3eb",
+      "after": "d444cac88e13fa02b29ad16100b8f08fa565ba90f8cedde192de43fb2dc8f3eb",
+      "byte_exact": true
+    },
+    "mmc5": {
+      "before": "f4ffd2483c51daa4d60bb575da2da8c4d817692cda407611c243031f67520833",
+      "after": "f4ffd2483c51daa4d60bb575da2da8c4d817692cda407611c243031f67520833",
+      "byte_exact": true
+    }
+  },
+  "canonical_equals_native_candidate": true,
+  "source_parent_git": "92b1542",
+  "source_files": {
+    "src/metasprite_engine.s": "75e5ac2c108fbded53a1948f001d9606255f528545ec6d336bf223b381e07d78",
+    "src/megaman_weapons.s": "22d820743f9b08293df73dce1f24d0d143bda91cbbda69fafa7c6d098bd24580",
+    "src/sprite_render.s": "d4fd732b70216d679cc9ef4a37d7aba67ec48407e761ac73589d9494ed059bda",
+    "src/level_variants.s": "e9488752e98215f61cf1cbfe943a59a60c3728538c294dabdc432185df654856",
+    "src/characters.s": "cde8296d2b54651e6ecfceaee60ea06ee676123bdd985edd5eac2925bcf853a0",
+    "src/entrypoint.s": "4439263d14efca0dc43fc4e9a36a4eb08c8c0e53dc927a4893feb43ae6b537a9",
+    "src/proto_palette_coalesce.s": "eff0c701e88d80fc89fcf82510f71a69fcc432402e2153d429b71f0b497f1ac9",
+    "smb1base-mmc5-expanded.cfg": "9ea627416817f627130e4de9137d5d9ceff6fa64be5ecdab9627ac40cb9fd5ca"
+  },
+  "native_checks_reference": "proto-palette-coalesce-native-diagnostic-2026-10-27.json",
+  "Mega_Hard": {
+    "physical_frames": 4614,
+    "completed_updates": 4138,
+    "full_PPU_frames": 3751,
+    "zero_deaths": true
+  },
+  "Proto_Hard": {
+    "physical_frames": 4838,
+    "completed_updates": 4387,
+    "full_PPU_frames": 3972,
+    "zero_deaths": true
+  },
+  "both_whole_streams_verified_and_selected_sheets_reviewed": true,
+  "independent_replay": false,
+  "render_deadline_reproduction": {
+    "frame": 1940,
+    "old_line": 1,
+    "old_dot": 195,
+    "new_line": 260,
+    "new_dot": 306,
+    "NMI_cycles_saved": 304
+  },
+  "limitations": [
+    "Palette compaction adds foreground work:1261CPU across the three captured source calls,1315 on its rare final call. No overall lag reduction claim.",
+    "Alternating body priority improves admission; sprite scanline limits, projectile fairness and full crowded-world coverage remain open.",
+    "Staged dense integration evidence was recorded on predecessor3e7; it is not a fresh4a crowded-cadence result.",
+    "Other character clears keep their actual ROM bindings; source equivalence does not turn predecessor recordings into current native runs.",
+    "The entire roster, every powerup, remaining modes/routes and full graphical/audio parity are unfinished. Samus HUD proposals remain held."
+  ],
+  "goal_complete": false,
+  "Grant_Hard": {
+    "frames": 4829,
+    "completed_loops": 4663,
+    "full_frames": 3966,
+    "zero_deaths": true
+  },
+  "Grant_review_sha256": "37807bcaba128fb4e8aca021cfb6876bc3b53c67abadc79b7d5feef9f6aa8670"
+}
