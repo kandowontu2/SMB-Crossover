@@ -1,0 +1,28 @@
+{
+  "scope_correction_only": true,
+  "candidate_unchanged": true,
+  "candidate_sha256": "bdf9ca2bfe69ee93ca85f1b5e5319e474d9f01aa641c79a58cd9bd602253c40e",
+  "native_ready_unchanged_sha256": "14bd5131f89580933dffb4590af8f23499f05685227854737b8bd550e1cfff39",
+  "correction": "Standalone earned_life source CPU campaigns inherit fresh(), whose initial cold source setup explicitly writes NumberofLives=2. Their no_earned_field_or_life_or_outcome_seeds=True field and report no life seed phrasing are overbroad for source initialization. Correct scope: no tested earned fields, acquired-life increment or attack/damage outcomes are seeded during the campaign; the initial2-life cold context is staged. Actual candidate INC2->3, successful preservation and subsequent use are executed. Native fixture obtains actual cold-menu lives and contains no life/resource/popup seeds.",
+  "source_context": {
+    "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\cv3_watch_single_owner_controls_v1.py",
+    "sha256": "6ccfaa1545a1e67ee2465ad7047354a166b68fc380438228b978f7d7d88d66f9",
+    "exact_initialization": "q.put(...NumberofLives=2,AreaPointer=194,WorldNumber=0,LevelNumber=0)"
+  },
+  "native_configuration_preflight": "Forbidden includes NumberofLives, Cv3LastLife, health/hearts/power/carried, popup control/timer; none in setup allowlist and no w() calls for these fields.",
+  "preserved_receipts": [
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\cv3_life_gain_watch_controls.json",
+      "sha256": "1b342748350cc49681933df769b0a4e60d712f7f2650d3217f56ffdc2a8608bd"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\cv3_life_gain_watch_handoff.json",
+      "sha256": "828e4379d612985b940619c3192b5957a66530086524a7b0885257b5ef4b975f"
+    }
+  ],
+  "native_ready": {
+    "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-bdf9-grant-life-preservation-hard-v1\\prepared-not-run.json",
+    "sha256": "14bd5131f89580933dffb4590af8f23499f05685227854737b8bd550e1cfff39"
+  },
+  "product_or_native_outcome_change": false
+}

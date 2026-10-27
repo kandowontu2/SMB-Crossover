@@ -1,0 +1,1126 @@
+{
+  "ROM_sha256": "ab221e81821dd10690ad3a1068d91c9efae6c7406230d9bd7fc4a729fdc433d2",
+  "native_run": false,
+  "tool": {
+    "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\current_cv3_life_gain_counterexample_v1.py",
+    "sha256": "bd95864c3f95b8e51f2e03c05acd182dc14764942fdc0d7919414769ed92c3df"
+  },
+  "inputs": [
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\mega_proto_body_palette_9ea.nes",
+      "sha256": "ab221e81821dd10690ad3a1068d91c9efae6c7406230d9bd7fc4a729fdc433d2"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\mega_proto_body_palette_9ea.dbg",
+      "sha256": "23501bd5a529923435f5baa90da8f59495a98420f457a139ff185bffda57d600"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\mega_proto_body_palette_9ea.lbl",
+      "sha256": "fcf62a8378e4e092c7b21b74a56415a44ae0b4e23d5c7d183ff6de33eb67e651"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\cv3_core.s",
+      "sha256": "0599de73b5f0600d5e0c3509f678ebb3ef1ecd48a28ad7a96fdb697f8baeb821"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\cv3_pickups.s",
+      "sha256": "00026e6b84377c18d45afc9f10e39367cc482ce380863fd203ceb41b2d2686c4"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\cv3_drops.s",
+      "sha256": "c6a0410535a9cb2da1e8bd4602236ca3d8172485593c7ef5b1a513adffd5a46c"
+    }
+  ],
+  "cases": [
+    {
+      "counterexample_confirmed": true,
+      "product_invariant_passed": false,
+      "variant": 1,
+      "identity": "grant",
+      "full_GameLoop_calls": 764,
+      "native_run": false,
+      "initial": {
+        "Cv3Health": 64,
+        "Cv3Hearts": 10,
+        "Cv3Subweapon": 0,
+        "Cv3Power": 0,
+        "NumberofLives": 0,
+        "Cv3LastLife": 0,
+        "StarInvincibleTimer": 0
+      },
+      "star_earned_collection": [
+        {
+          "phase": "expiry",
+          "call": 33,
+          "writer_pc": 43818,
+          "physical_bank": 84,
+          "opcode": [
+            153,
+            163,
+            94
+          ],
+          "source_owners": [
+            "Cv3UpdateDrops"
+          ],
+          "field": "Cv3Hearts",
+          "address": 24227,
+          "old": 10,
+          "new": 11
+        }
+      ],
+      "events": [
+        {
+          "event": "genuinely-earned-before-1Up",
+          "call": 758,
+          "fields": {
+            "Cv3Health": 64,
+            "Cv3Hearts": 16,
+            "Cv3Subweapon": 1,
+            "Cv3Power": 0,
+            "NumberofLives": 0,
+            "Cv3LastLife": 0,
+            "StarInvincibleTimer": 0
+          },
+          "pickup_stamp": {
+            "InvPickup": 209,
+            "InvPickupOwner": 5,
+            "Cv3PickupVariant": 1,
+            "PowerUpType": 1
+          },
+          "writers": [
+            {
+              "phase": "equipment-physical-collect",
+              "call": 758,
+              "writer_pc": 44460,
+              "physical_bank": 82,
+              "opcode": [
+                153,
+                166,
+                94
+              ],
+              "source_owners": [
+                "Cv3CollectPickupGate"
+              ],
+              "field": "Cv3Subweapon",
+              "address": 24230,
+              "old": 0,
+              "new": 1
+            },
+            {
+              "phase": "equipment-physical-collect",
+              "call": 758,
+              "writer_pc": 44478,
+              "physical_bank": 82,
+              "opcode": [
+                153,
+                163,
+                94
+              ],
+              "source_owners": [
+                "Cv3CollectPickupGate"
+              ],
+              "field": "Cv3Hearts",
+              "address": 24227,
+              "old": 11,
+              "new": 16
+            }
+          ]
+        },
+        {
+          "event": "real-1Up-followed-by-unintended-reset",
+          "gain_call": 764,
+          "first_reset_call": 764,
+          "before": {
+            "Cv3Health": 64,
+            "Cv3Hearts": 16,
+            "Cv3Subweapon": 1,
+            "Cv3Power": 0,
+            "NumberofLives": 0,
+            "Cv3LastLife": 0,
+            "StarInvincibleTimer": 0
+          },
+          "immediately_after_gain": {
+            "Cv3Health": 64,
+            "Cv3Hearts": 16,
+            "Cv3Subweapon": 1,
+            "Cv3Power": 0,
+            "NumberofLives": 1,
+            "Cv3LastLife": 0,
+            "StarInvincibleTimer": 0
+          },
+          "after": {
+            "Cv3Health": 64,
+            "Cv3Hearts": 10,
+            "Cv3Subweapon": 0,
+            "Cv3Power": 0,
+            "NumberofLives": 1,
+            "Cv3LastLife": 1,
+            "StarInvincibleTimer": 0
+          },
+          "first_wrong_write": {
+            "phase": "life",
+            "call": 764,
+            "writer_pc": 41080,
+            "physical_bank": 82,
+            "opcode": [
+              157,
+              163,
+              94
+            ],
+            "source_owners": [
+              "Cv3Ensure"
+            ],
+            "field": "Cv3Hearts",
+            "address": 24227,
+            "old": 16,
+            "new": 10
+          },
+          "reset_writers": [
+            {
+              "phase": "life",
+              "call": 764,
+              "writer_pc": 41080,
+              "physical_bank": 82,
+              "opcode": [
+                157,
+                163,
+                94
+              ],
+              "source_owners": [
+                "Cv3Ensure"
+              ],
+              "field": "Cv3Hearts",
+              "address": 24227,
+              "old": 16,
+              "new": 10
+            },
+            {
+              "phase": "life",
+              "call": 764,
+              "writer_pc": 41085,
+              "physical_bank": 82,
+              "opcode": [
+                157,
+                166,
+                94
+              ],
+              "source_owners": [
+                "Cv3Ensure"
+              ],
+              "field": "Cv3Subweapon",
+              "address": 24230,
+              "old": 1,
+              "new": 0
+            }
+          ],
+          "actual_native_popup_increment": {
+            "phase": "life",
+            "call": 764,
+            "writer_pc": 35207,
+            "physical_bank": 126,
+            "opcode": [
+              238,
+              95,
+              7
+            ],
+            "source_owners": [
+              "FloateyNumbersCore"
+            ],
+            "field": "NumberofLives",
+            "address": 1887,
+            "old": 0,
+            "new": 1
+          }
+        }
+      ],
+      "actual_physical_hooks": [
+        {
+          "event": "PhysicalPickup",
+          "phase": "star",
+          "call": 31,
+          "pc": 44913,
+          "bank": 3,
+          "x": 5,
+          "pickup": 2,
+          "before": {
+            "Cv3Health": 64,
+            "Cv3Hearts": 10,
+            "Cv3Subweapon": 0,
+            "Cv3Power": 0,
+            "NumberofLives": 0,
+            "Cv3LastLife": 0,
+            "StarInvincibleTimer": 0
+          }
+        },
+        {
+          "event": "StarContact",
+          "phase": "star-contact",
+          "call": 32,
+          "pc": 38579,
+          "bank": 126,
+          "x": 0,
+          "pickup": 2,
+          "before": {
+            "Cv3Health": 64,
+            "Cv3Hearts": 10,
+            "Cv3Subweapon": 0,
+            "Cv3Power": 0,
+            "NumberofLives": 0,
+            "Cv3LastLife": 0,
+            "StarInvincibleTimer": 35
+          }
+        },
+        {
+          "event": "PhysicalPickup",
+          "phase": "equipment-physical-collect",
+          "call": 758,
+          "pc": 44913,
+          "bank": 3,
+          "x": 5,
+          "pickup": 1,
+          "before": {
+            "Cv3Health": 64,
+            "Cv3Hearts": 11,
+            "Cv3Subweapon": 0,
+            "Cv3Power": 0,
+            "NumberofLives": 0,
+            "Cv3LastLife": 0,
+            "StarInvincibleTimer": 0
+          }
+        },
+        {
+          "event": "PhysicalPickup",
+          "phase": "life",
+          "call": 759,
+          "pc": 44913,
+          "bank": 3,
+          "x": 5,
+          "pickup": 3,
+          "before": {
+            "Cv3Health": 64,
+            "Cv3Hearts": 16,
+            "Cv3Subweapon": 1,
+            "Cv3Power": 0,
+            "NumberofLives": 0,
+            "Cv3LastLife": 0,
+            "StarInvincibleTimer": 0
+          }
+        },
+        {
+          "event": "LifeIncrement",
+          "phase": "life",
+          "call": 764,
+          "pc": 35207,
+          "bank": 126,
+          "x": 5,
+          "pickup": 3,
+          "before": {
+            "Cv3Health": 64,
+            "Cv3Hearts": 16,
+            "Cv3Subweapon": 1,
+            "Cv3Power": 0,
+            "NumberofLives": 0,
+            "Cv3LastLife": 0,
+            "StarInvincibleTimer": 0
+          }
+        }
+      ],
+      "tracked_writers": [
+        {
+          "phase": "settle",
+          "call": 1,
+          "writer_pc": 41003,
+          "physical_bank": 82,
+          "opcode": [
+            157,
+            160,
+            94
+          ],
+          "source_owners": [
+            "Cv3Ensure"
+          ],
+          "field": "Cv3Health",
+          "address": 24224,
+          "old": 0,
+          "new": 64
+        },
+        {
+          "phase": "settle",
+          "call": 1,
+          "writer_pc": 41008,
+          "physical_bank": 82,
+          "opcode": [
+            157,
+            163,
+            94
+          ],
+          "source_owners": [
+            "Cv3Ensure"
+          ],
+          "field": "Cv3Hearts",
+          "address": 24227,
+          "old": 0,
+          "new": 10
+        },
+        {
+          "phase": "settle",
+          "call": 1,
+          "writer_pc": 41013,
+          "physical_bank": 82,
+          "opcode": [
+            157,
+            166,
+            94
+          ],
+          "source_owners": [
+            "Cv3Ensure"
+          ],
+          "field": "Cv3Subweapon",
+          "address": 24230,
+          "old": 0,
+          "new": 0
+        },
+        {
+          "phase": "settle",
+          "call": 1,
+          "writer_pc": 41016,
+          "physical_bank": 82,
+          "opcode": [
+            157,
+            169,
+            94
+          ],
+          "source_owners": [
+            "Cv3Ensure"
+          ],
+          "field": "Cv3Power",
+          "address": 24233,
+          "old": 0,
+          "new": 0
+        },
+        {
+          "phase": "settle",
+          "call": 1,
+          "writer_pc": 41114,
+          "physical_bank": 82,
+          "opcode": [
+            141,
+            176,
+            94
+          ],
+          "source_owners": [],
+          "field": "Cv3LastLife",
+          "address": 24240,
+          "old": 0,
+          "new": 0
+        },
+        {
+          "phase": "expiry",
+          "call": 33,
+          "writer_pc": 43818,
+          "physical_bank": 84,
+          "opcode": [
+            153,
+            163,
+            94
+          ],
+          "source_owners": [
+            "Cv3UpdateDrops"
+          ],
+          "field": "Cv3Hearts",
+          "address": 24227,
+          "old": 10,
+          "new": 11
+        },
+        {
+          "phase": "equipment-physical-collect",
+          "call": 758,
+          "writer_pc": 44460,
+          "physical_bank": 82,
+          "opcode": [
+            153,
+            166,
+            94
+          ],
+          "source_owners": [
+            "Cv3CollectPickupGate"
+          ],
+          "field": "Cv3Subweapon",
+          "address": 24230,
+          "old": 0,
+          "new": 1
+        },
+        {
+          "phase": "equipment-physical-collect",
+          "call": 758,
+          "writer_pc": 44478,
+          "physical_bank": 82,
+          "opcode": [
+            153,
+            163,
+            94
+          ],
+          "source_owners": [
+            "Cv3CollectPickupGate"
+          ],
+          "field": "Cv3Hearts",
+          "address": 24227,
+          "old": 11,
+          "new": 16
+        },
+        {
+          "phase": "life",
+          "call": 764,
+          "writer_pc": 35207,
+          "physical_bank": 126,
+          "opcode": [
+            238,
+            95,
+            7
+          ],
+          "source_owners": [
+            "FloateyNumbersCore"
+          ],
+          "field": "NumberofLives",
+          "address": 1887,
+          "old": 0,
+          "new": 1
+        },
+        {
+          "phase": "life",
+          "call": 764,
+          "writer_pc": 41075,
+          "physical_bank": 82,
+          "opcode": [
+            157,
+            160,
+            94
+          ],
+          "source_owners": [
+            "Cv3Ensure"
+          ],
+          "field": "Cv3Health",
+          "address": 24224,
+          "old": 64,
+          "new": 64
+        },
+        {
+          "phase": "life",
+          "call": 764,
+          "writer_pc": 41080,
+          "physical_bank": 82,
+          "opcode": [
+            157,
+            163,
+            94
+          ],
+          "source_owners": [
+            "Cv3Ensure"
+          ],
+          "field": "Cv3Hearts",
+          "address": 24227,
+          "old": 16,
+          "new": 10
+        },
+        {
+          "phase": "life",
+          "call": 764,
+          "writer_pc": 41085,
+          "physical_bank": 82,
+          "opcode": [
+            157,
+            166,
+            94
+          ],
+          "source_owners": [
+            "Cv3Ensure"
+          ],
+          "field": "Cv3Subweapon",
+          "address": 24230,
+          "old": 1,
+          "new": 0
+        },
+        {
+          "phase": "life",
+          "call": 764,
+          "writer_pc": 41088,
+          "physical_bank": 82,
+          "opcode": [
+            157,
+            169,
+            94
+          ],
+          "source_owners": [
+            "Cv3Ensure"
+          ],
+          "field": "Cv3Power",
+          "address": 24233,
+          "old": 0,
+          "new": 0
+        },
+        {
+          "phase": "life",
+          "call": 764,
+          "writer_pc": 41114,
+          "physical_bank": 82,
+          "opcode": [
+            141,
+            176,
+            94
+          ],
+          "source_owners": [],
+          "field": "Cv3LastLife",
+          "address": 24240,
+          "old": 0,
+          "new": 1
+        }
+      ],
+      "setup_scope": "Zero-RAM standalone source cold initialization, flat typed map/mature actors and neutral input. No seeded life, health, subweapon, hearts, Star timer, RNG or defeat outcome; flower metadata prepared by actual Cv3PreparePickupGate. Life0 is zero-RAM cold baseline, not actual menu life count."
+    },
+    {
+      "counterexample_confirmed": true,
+      "product_invariant_passed": false,
+      "variant": 2,
+      "identity": "sypha",
+      "full_GameLoop_calls": 764,
+      "native_run": false,
+      "initial": {
+        "Cv3Health": 64,
+        "Cv3Hearts": 10,
+        "Cv3Subweapon": 0,
+        "Cv3Power": 0,
+        "NumberofLives": 0,
+        "Cv3LastLife": 0,
+        "StarInvincibleTimer": 0
+      },
+      "star_earned_collection": [
+        {
+          "phase": "expiry",
+          "call": 33,
+          "writer_pc": 43818,
+          "physical_bank": 84,
+          "opcode": [
+            153,
+            163,
+            94
+          ],
+          "source_owners": [
+            "Cv3UpdateDrops"
+          ],
+          "field": "Cv3Hearts",
+          "address": 24228,
+          "old": 10,
+          "new": 11
+        }
+      ],
+      "events": [
+        {
+          "event": "genuinely-earned-before-1Up",
+          "call": 758,
+          "fields": {
+            "Cv3Health": 64,
+            "Cv3Hearts": 16,
+            "Cv3Subweapon": 1,
+            "Cv3Power": 0,
+            "NumberofLives": 0,
+            "Cv3LastLife": 0,
+            "StarInvincibleTimer": 0
+          },
+          "pickup_stamp": {
+            "InvPickup": 209,
+            "InvPickupOwner": 5,
+            "Cv3PickupVariant": 2,
+            "PowerUpType": 1
+          },
+          "writers": [
+            {
+              "phase": "equipment-physical-collect",
+              "call": 758,
+              "writer_pc": 44460,
+              "physical_bank": 82,
+              "opcode": [
+                153,
+                166,
+                94
+              ],
+              "source_owners": [
+                "Cv3CollectPickupGate"
+              ],
+              "field": "Cv3Subweapon",
+              "address": 24231,
+              "old": 0,
+              "new": 1
+            },
+            {
+              "phase": "equipment-physical-collect",
+              "call": 758,
+              "writer_pc": 44478,
+              "physical_bank": 82,
+              "opcode": [
+                153,
+                163,
+                94
+              ],
+              "source_owners": [
+                "Cv3CollectPickupGate"
+              ],
+              "field": "Cv3Hearts",
+              "address": 24228,
+              "old": 11,
+              "new": 16
+            }
+          ]
+        },
+        {
+          "event": "real-1Up-followed-by-unintended-reset",
+          "gain_call": 764,
+          "first_reset_call": 764,
+          "before": {
+            "Cv3Health": 64,
+            "Cv3Hearts": 16,
+            "Cv3Subweapon": 1,
+            "Cv3Power": 0,
+            "NumberofLives": 0,
+            "Cv3LastLife": 0,
+            "StarInvincibleTimer": 0
+          },
+          "immediately_after_gain": {
+            "Cv3Health": 64,
+            "Cv3Hearts": 16,
+            "Cv3Subweapon": 1,
+            "Cv3Power": 0,
+            "NumberofLives": 1,
+            "Cv3LastLife": 0,
+            "StarInvincibleTimer": 0
+          },
+          "after": {
+            "Cv3Health": 64,
+            "Cv3Hearts": 10,
+            "Cv3Subweapon": 0,
+            "Cv3Power": 0,
+            "NumberofLives": 1,
+            "Cv3LastLife": 1,
+            "StarInvincibleTimer": 0
+          },
+          "first_wrong_write": {
+            "phase": "life",
+            "call": 764,
+            "writer_pc": 41080,
+            "physical_bank": 82,
+            "opcode": [
+              157,
+              163,
+              94
+            ],
+            "source_owners": [
+              "Cv3Ensure"
+            ],
+            "field": "Cv3Hearts",
+            "address": 24228,
+            "old": 16,
+            "new": 10
+          },
+          "reset_writers": [
+            {
+              "phase": "life",
+              "call": 764,
+              "writer_pc": 41080,
+              "physical_bank": 82,
+              "opcode": [
+                157,
+                163,
+                94
+              ],
+              "source_owners": [
+                "Cv3Ensure"
+              ],
+              "field": "Cv3Hearts",
+              "address": 24228,
+              "old": 16,
+              "new": 10
+            },
+            {
+              "phase": "life",
+              "call": 764,
+              "writer_pc": 41085,
+              "physical_bank": 82,
+              "opcode": [
+                157,
+                166,
+                94
+              ],
+              "source_owners": [
+                "Cv3Ensure"
+              ],
+              "field": "Cv3Subweapon",
+              "address": 24231,
+              "old": 1,
+              "new": 0
+            }
+          ],
+          "actual_native_popup_increment": {
+            "phase": "life",
+            "call": 764,
+            "writer_pc": 35207,
+            "physical_bank": 126,
+            "opcode": [
+              238,
+              95,
+              7
+            ],
+            "source_owners": [
+              "FloateyNumbersCore"
+            ],
+            "field": "NumberofLives",
+            "address": 1887,
+            "old": 0,
+            "new": 1
+          }
+        }
+      ],
+      "actual_physical_hooks": [
+        {
+          "event": "PhysicalPickup",
+          "phase": "star",
+          "call": 31,
+          "pc": 44913,
+          "bank": 3,
+          "x": 5,
+          "pickup": 2,
+          "before": {
+            "Cv3Health": 64,
+            "Cv3Hearts": 10,
+            "Cv3Subweapon": 0,
+            "Cv3Power": 0,
+            "NumberofLives": 0,
+            "Cv3LastLife": 0,
+            "StarInvincibleTimer": 0
+          }
+        },
+        {
+          "event": "StarContact",
+          "phase": "star-contact",
+          "call": 32,
+          "pc": 38579,
+          "bank": 126,
+          "x": 0,
+          "pickup": 2,
+          "before": {
+            "Cv3Health": 64,
+            "Cv3Hearts": 10,
+            "Cv3Subweapon": 0,
+            "Cv3Power": 0,
+            "NumberofLives": 0,
+            "Cv3LastLife": 0,
+            "StarInvincibleTimer": 35
+          }
+        },
+        {
+          "event": "PhysicalPickup",
+          "phase": "equipment-physical-collect",
+          "call": 758,
+          "pc": 44913,
+          "bank": 3,
+          "x": 5,
+          "pickup": 1,
+          "before": {
+            "Cv3Health": 64,
+            "Cv3Hearts": 11,
+            "Cv3Subweapon": 0,
+            "Cv3Power": 0,
+            "NumberofLives": 0,
+            "Cv3LastLife": 0,
+            "StarInvincibleTimer": 0
+          }
+        },
+        {
+          "event": "PhysicalPickup",
+          "phase": "life",
+          "call": 759,
+          "pc": 44913,
+          "bank": 3,
+          "x": 5,
+          "pickup": 3,
+          "before": {
+            "Cv3Health": 64,
+            "Cv3Hearts": 16,
+            "Cv3Subweapon": 1,
+            "Cv3Power": 0,
+            "NumberofLives": 0,
+            "Cv3LastLife": 0,
+            "StarInvincibleTimer": 0
+          }
+        },
+        {
+          "event": "LifeIncrement",
+          "phase": "life",
+          "call": 764,
+          "pc": 35207,
+          "bank": 126,
+          "x": 5,
+          "pickup": 3,
+          "before": {
+            "Cv3Health": 64,
+            "Cv3Hearts": 16,
+            "Cv3Subweapon": 1,
+            "Cv3Power": 0,
+            "NumberofLives": 0,
+            "Cv3LastLife": 0,
+            "StarInvincibleTimer": 0
+          }
+        }
+      ],
+      "tracked_writers": [
+        {
+          "phase": "settle",
+          "call": 1,
+          "writer_pc": 41003,
+          "physical_bank": 82,
+          "opcode": [
+            157,
+            160,
+            94
+          ],
+          "source_owners": [
+            "Cv3Ensure"
+          ],
+          "field": "Cv3Health",
+          "address": 24225,
+          "old": 0,
+          "new": 64
+        },
+        {
+          "phase": "settle",
+          "call": 1,
+          "writer_pc": 41008,
+          "physical_bank": 82,
+          "opcode": [
+            157,
+            163,
+            94
+          ],
+          "source_owners": [
+            "Cv3Ensure"
+          ],
+          "field": "Cv3Hearts",
+          "address": 24228,
+          "old": 0,
+          "new": 10
+        },
+        {
+          "phase": "settle",
+          "call": 1,
+          "writer_pc": 41013,
+          "physical_bank": 82,
+          "opcode": [
+            157,
+            166,
+            94
+          ],
+          "source_owners": [
+            "Cv3Ensure"
+          ],
+          "field": "Cv3Subweapon",
+          "address": 24231,
+          "old": 0,
+          "new": 0
+        },
+        {
+          "phase": "settle",
+          "call": 1,
+          "writer_pc": 41016,
+          "physical_bank": 82,
+          "opcode": [
+            157,
+            169,
+            94
+          ],
+          "source_owners": [
+            "Cv3Ensure"
+          ],
+          "field": "Cv3Power",
+          "address": 24234,
+          "old": 0,
+          "new": 0
+        },
+        {
+          "phase": "settle",
+          "call": 1,
+          "writer_pc": 41114,
+          "physical_bank": 82,
+          "opcode": [
+            141,
+            176,
+            94
+          ],
+          "source_owners": [],
+          "field": "Cv3LastLife",
+          "address": 24240,
+          "old": 0,
+          "new": 0
+        },
+        {
+          "phase": "expiry",
+          "call": 33,
+          "writer_pc": 43818,
+          "physical_bank": 84,
+          "opcode": [
+            153,
+            163,
+            94
+          ],
+          "source_owners": [
+            "Cv3UpdateDrops"
+          ],
+          "field": "Cv3Hearts",
+          "address": 24228,
+          "old": 10,
+          "new": 11
+        },
+        {
+          "phase": "equipment-physical-collect",
+          "call": 758,
+          "writer_pc": 44460,
+          "physical_bank": 82,
+          "opcode": [
+            153,
+            166,
+            94
+          ],
+          "source_owners": [
+            "Cv3CollectPickupGate"
+          ],
+          "field": "Cv3Subweapon",
+          "address": 24231,
+          "old": 0,
+          "new": 1
+        },
+        {
+          "phase": "equipment-physical-collect",
+          "call": 758,
+          "writer_pc": 44478,
+          "physical_bank": 82,
+          "opcode": [
+            153,
+            163,
+            94
+          ],
+          "source_owners": [
+            "Cv3CollectPickupGate"
+          ],
+          "field": "Cv3Hearts",
+          "address": 24228,
+          "old": 11,
+          "new": 16
+        },
+        {
+          "phase": "life",
+          "call": 764,
+          "writer_pc": 35207,
+          "physical_bank": 126,
+          "opcode": [
+            238,
+            95,
+            7
+          ],
+          "source_owners": [
+            "FloateyNumbersCore"
+          ],
+          "field": "NumberofLives",
+          "address": 1887,
+          "old": 0,
+          "new": 1
+        },
+        {
+          "phase": "life",
+          "call": 764,
+          "writer_pc": 41075,
+          "physical_bank": 82,
+          "opcode": [
+            157,
+            160,
+            94
+          ],
+          "source_owners": [
+            "Cv3Ensure"
+          ],
+          "field": "Cv3Health",
+          "address": 24225,
+          "old": 64,
+          "new": 64
+        },
+        {
+          "phase": "life",
+          "call": 764,
+          "writer_pc": 41080,
+          "physical_bank": 82,
+          "opcode": [
+            157,
+            163,
+            94
+          ],
+          "source_owners": [
+            "Cv3Ensure"
+          ],
+          "field": "Cv3Hearts",
+          "address": 24228,
+          "old": 16,
+          "new": 10
+        },
+        {
+          "phase": "life",
+          "call": 764,
+          "writer_pc": 41085,
+          "physical_bank": 82,
+          "opcode": [
+            157,
+            166,
+            94
+          ],
+          "source_owners": [
+            "Cv3Ensure"
+          ],
+          "field": "Cv3Subweapon",
+          "address": 24231,
+          "old": 1,
+          "new": 0
+        },
+        {
+          "phase": "life",
+          "call": 764,
+          "writer_pc": 41088,
+          "physical_bank": 82,
+          "opcode": [
+            157,
+            169,
+            94
+          ],
+          "source_owners": [
+            "Cv3Ensure"
+          ],
+          "field": "Cv3Power",
+          "address": 24234,
+          "old": 0,
+          "new": 0
+        },
+        {
+          "phase": "life",
+          "call": 764,
+          "writer_pc": 41114,
+          "physical_bank": 82,
+          "opcode": [
+            141,
+            176,
+            94
+          ],
+          "source_owners": [],
+          "field": "Cv3LastLife",
+          "address": 24240,
+          "old": 0,
+          "new": 1
+        }
+      ],
+      "setup_scope": "Zero-RAM standalone source cold initialization, flat typed map/mature actors and neutral input. No seeded life, health, subweapon, hearts, Star timer, RNG or defeat outcome; flower metadata prepared by actual Cv3PreparePickupGate. Life0 is zero-RAM cold baseline, not actual menu life count."
+    }
+  ]
+}

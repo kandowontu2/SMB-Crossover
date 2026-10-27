@@ -525,3 +525,7 @@ Done:
 .if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
 .include "samus_fixed_hud.s"
 .endif
+
+.if ::ENABLE_MMC5_EXPANDED
+.include "cv3_life_gain.s"
+.endif

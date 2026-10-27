@@ -1,0 +1,62 @@
+{
+  "status": "ADOPTED_REPRODUCIBLE_PRODUCTION_BUILD",
+  "ROM_sha256": "bdf9ca2bfe69ee93ca85f1b5e5319e474d9f01aa641c79a58cd9bd602253c40e",
+  "previous_ROM_sha256": "ab221e81821dd10690ad3a1068d91c9efae6c7406230d9bd7fc4a729fdc433d2",
+  "production_source_leaves": [
+    "src/cv3_core.s",
+    "src/cv3_combat.s",
+    "src/cv3_life_gain.s",
+    "src/entrypoint.s"
+  ],
+  "fixes": [
+    "Gaining lives preserves earned CV3 health/hearts/subweapon/power; original death reset and area/world transitions retained.",
+    "Shared stopwatch counts once per update; independent CV3 ice-enemy countdown retained."
+  ],
+  "byte_delta": {
+    "bank82": 23,
+    "bank84": 8,
+    "all_other_ROM_header_CHR_bytes": "exact previous build",
+    "new_RAM": 0,
+    "existing_qualified_addresses_unchanged": 61706
+  },
+  "source_checks": {
+    "Ensure_boundary_cases": 1008,
+    "all37_identities_both_modes_loss_equal_gain_GameLoops": 222,
+    "earned_three_variants_both_modes_GameLoops": 2232,
+    "strict180_Grant_watch_GameLoops": 1753,
+    "actual_IRQ_boundaries": 28,
+    "seven_INC_full_Main_cases": 36,
+    "real_PlayerLoseLife_DEC_cases": 36,
+    "cold_variant_area_world_cases": 30,
+    "cold_source_context": "Source earned campaigns initialize lives2; no subsequent life/earned-field/outcome staging. Native uses real cold-menu lives. See source-scope-erratum.json."
+  },
+  "native_current_candidate": {
+    "identity": "Grant",
+    "mode": "Hard",
+    "passed": true,
+    "cases": 3,
+    "wall_frames": 774,
+    "completed_updates": 400,
+    "complete256_DMAs": 748,
+    "minimum_SP": 204,
+    "binding_count": 38,
+    "all_bound_inputs_and_settings_unchanged": true,
+    "observed": "Physical D1 grants dagger and hearts10->15. Actual mature1Up collision, native delayed INC lives2->3 and popup cleanup preserve dagger1/hearts15. Genuine dagger throw costs1heart and defeats target.",
+    "selected_full_native_PNGs_visually_reviewed": 2
+  },
+  "stopwatch_native_scope": "Exact180 countdown/resume was measured on private9a predecessor. This bdf9 union passed the full earned source180 campaign; native current-candidate stopwatch and other variants are not claimed.",
+  "ordinary_flag_off_whole_binaries": {
+    "MMC3": "d444cac88e13fa02b29ad16100b8f08fa565ba90f8cedde192de43fb2dc8f3eb",
+    "MMC5": "f4ffd2483c51daa4d60bb575da2da8c4d817692cda407611c243031f67520833"
+  },
+  "source_build_matches_qualified_candidate": true,
+  "genuine_fresh_debug_and_labels": true,
+  "downloads": {
+    "current": "C:\\Users\\kando\\Downloads\\SMB-Crossover-Current-MMC5.nes",
+    "dated": "C:\\Users\\kando\\Downloads\\SMB-Crossover-2026-10-27-bdf9ca2b-MMC5.nes",
+    "previous_retained": "C:\\Users\\kando\\Downloads\\SMB-Crossover-2026-10-27-ab221e81-MMC5.nes"
+  },
+  "limits": "No current-candidate full1-1, other-variant native life acquisition, native death/wrap, natural item emergence/drop lottery, all-frame animation, sound waveforms or all-roster performance claim. Prior route/component receipts retain their actual ROMs.",
+  "checkpoint": "docs/qa/checkpoints/2026-10-27/cv3-life-watch-bdf9-adoption",
+  "goal_complete": false
+}

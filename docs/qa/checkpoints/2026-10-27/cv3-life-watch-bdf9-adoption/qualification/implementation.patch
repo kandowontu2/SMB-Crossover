@@ -1,0 +1,65 @@
+--- src/cv3_core.s
++++ src/cv3_core.s
+@@ -49,7 +49,8 @@
+   jne Reset
+   lda NumberofLives
+   cmp Cv3LastLife
+-  jne Life
++  jne Cv3LifeChanged
++CheckArea:
+   lda AreaPointer
+   cmp Cv3LastArea
+   jne Reset
+--- src/cv3_combat.s
++++ src/cv3_combat.s
+@@ -726,10 +726,11 @@
+  rts
+ .endproc
+ .proc Cv3FreezeTick
+- lda AvStopwatch
+- beq :+
+- dec AvStopwatch
+-: ldx #5
++ ; Shared RemainingWeapons::AdvanceFreeze is the sole stopwatch owner.
++ ; Preserve all later PCs and the independent CV3 frozen-enemy loop.
++ jmp FrozenActors
++ .res 5,$ea ; unreachable former second stopwatch decrement
++FrozenActors: ldx #5
+ Loop:
+  lda Cv3FrozenTimer,x
+  jeq Next
+--- src/entrypoint.s
++++ src/entrypoint.s
+@@ -525,3 +525,7 @@
+ .if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
+ .include "samus_fixed_hud.s"
+ .endif
++
++.if ::ENABLE_MMC5_EXPANDED
++.include "cv3_life_gain.s"
++.endif
+--- src/cv3_life_gain.s
++++ src/cv3_life_gain.s
+@@ -0,0 +1,22 @@
++; CV3 lives are a byte: native INC grants a life; native DEC loses one.
++; Enter only on a changed count, with A=current. Active native gains between
++; Ensure calls are bounded to fewer than128 INCs (six popup slots + coins).
++; Signed modulo difference supports simultaneous gains and FF->00 rollover;
++; native DEC losses, including00->FF, stay negative. Preserve original V/D/I.
++; Keep the unchanged-life movement path and every old PC byte-for-byte.
++.pushseg
++.segment "CV3_GRIP"
++.proc Cv3LifeChanged
++ php
++ sec
++ sbc Cv3LastLife
++ bmi Loss
++ plp
++ lda NumberofLives
++ sta Cv3LastLife
++ jmp Cv3Ensure::CheckArea
++Loss:
++ plp
++ jmp Cv3Ensure::Life
++.endproc
++.popseg

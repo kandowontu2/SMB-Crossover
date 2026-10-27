@@ -49,7 +49,8 @@ Area:
   jne Reset
   lda NumberofLives
   cmp Cv3LastLife
-  jne Life
+  jne Cv3LifeChanged
+CheckArea:
   lda AreaPointer
   cmp Cv3LastArea
   jne Reset

@@ -6,7 +6,9 @@ This is a native NES adaptation of [Super Mario Bros. Crossover](https://www.smb
 
 **Status: playable, actively developed, and unfinished.** Character behavior, graphics, sound and performance are still being tested and corrected. MMC5 is the recommended target for the full roster.
 
-The October 27 development build (`ab221e81`) fixes missing Mega Man/Proto Man body sprites during weapon attacks and a redundant Proto Man palette update that ran past the rendering deadline. Both passed their Hard-mode earned-weapon tests and cleared 1-1 with no deaths or cheats, reaching playable 1-2. See the [repair checks and limits](docs/qa/mega-proto-body-palette-adoption-2026-10-27.json).
+The October 27 development build (`bdf9ca2b`) preserves earned Castlevania equipment and hearts when gaining a 1-Up, and removes a second stopwatch countdown. Source checks cover Grant, Sypha and Alucard in both modes; a native Grant test confirms a real 1-Up preserves his earned dagger and hearts. Full-roster testing remains open. See the [repair checks and limits](docs/qa/cv3-life-watch-adoption-2026-10-27.json).
+
+The preceding build (`ab221e81`) fixes missing Mega Man/Proto Man body sprites during weapon attacks and a redundant Proto Man palette update that ran past the rendering deadline. Both passed their Hard-mode earned-weapon tests and cleared 1-1 with no deaths or cheats, reaching playable 1-2. See the [repair checks and limits](docs/qa/mega-proto-body-palette-adoption-2026-10-27.json).
 
 It retains `9ea11eab`'s removal of a repeated enemy scan during Bill/Lance's ordinary gunfire. Bill cleared 1-1 in Hard mode with the rendering guards enabled. This reduces unnecessary CPU work; the recorded comparison does not establish a faster route or constant frame rate. See the [build checks and limits](docs/qa/bill-early-cache-adoption-2026-10-27.json).
 
