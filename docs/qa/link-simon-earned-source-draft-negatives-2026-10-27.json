@@ -1,0 +1,32 @@
+{
+  "status": "SOURCE_PREPARATION_DRAFT_NEGATIVES_RETAINED",
+  "native_run": false,
+  "ROM_sha256": "9ea11eab2fc5c373a3795b013f6ed9e0d5e9781891b2ae3bf40ad2556c27b85e",
+  "scope": "Compact account of actual failing source-CPU draft invocations. These are fixture/model failures, not native gameplay failures or evidence of a ROM defect.",
+  "drafts": [
+    {
+      "failure": "Link use-01 allocated types33,34 and spent item1/cost1 but no target/contact passed the generic X gate.",
+      "actual_first_positions": [[33,72,208,0,1],[34,72,206,0,1]],
+      "cause": "Bomb is stationary at heroX+8. The initial generic projectile target gate required X>=100, then80.",
+      "correction": "Use real explosion34 at X72; stage default Goomba at live explosionX+12/Y<=184 after the real effect is visible. Earn Blue Ring before testing actual self-blast overlap. Preserve contact, cost and no-injury assertions."
+    },
+    {
+      "failure": "Simon stopwatch freeze/expiry passed, but the source control's resumed-motion assertion failed.",
+      "cause": "The staged NPC had X speed0 before, during and after the watch; position alone could not prove resumption.",
+      "correction": "Stage the actual Goomba at X192 with ordinary native X speed248. Require180 unchanged-position watch updates and native movement after expiry. No timer/resource/effect writes."
+    },
+    {
+      "failure": "Later Simon dagger selection alternated only6 and0 while item2 was requested.",
+      "actual_prefix": [[16,6,129,43],[0,6,129,42],[1,0,129,41],[0,0,129,40],[1,6,129,39]],
+      "cause": "Genuine InvSingle masks replaced earlier subweapons when axe6 was earned; the earlier dagger was no longer owned. Extending the paused UI bound also rejected this unreachable assumption.",
+      "correction": "After earning DOUBLE, physically reacquire dagger2 once, then exercise its real DOUBLE and TRIPLE admission. Preserve source exclusivity, auto-equip and all shared-heart deductions."
+    }
+  ],
+  "unfrozen_draft_outputs": [
+    "build/current-9ea-link-source-draft-v1",
+    "build/current-9ea-link-earned-hard-v1",
+    "build/current-9ea-simon-source-draft-v1",
+    "build/current-9ea-simon-source-draft-v2"
+  ],
+  "warning": "The earlier Link earned-hard-v1 preparation was not frozen or submitted for native execution and is superseded by the final version2 readiness. Its producer changed during ongoing source preparation; do not execute that draft command or treat it as a current binding. No native evidence was overwritten."
+}
