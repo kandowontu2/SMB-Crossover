@@ -1,0 +1,143 @@
+{
+  "passed": true,
+  "native_run": false,
+  "Lua_VM_executed": false,
+  "original_fixture_sha256": "0a9b511def75fe0c2e6c5ff0a3a86e74994bc9d9fb5bf656e840b24e2bab920b",
+  "helper_sha256": "5510eef1677515f8a05754fc8d9470d682ffad76f8da7b3055a260e9ce9959e7",
+  "new_fixture_sha256": "6c0013052b11a057b60dbbf06f28f8378bee7c6472bebd19b754a982de32ea17",
+  "reverse_removal_exact": true,
+  "original_config_reverse_exact": true,
+  "actual_new_hooks": {
+    "LiveBodyCall": {
+      "pc": 41519,
+      "banks": [
+        4
+      ],
+      "bytes": [
+        32,
+        241,
+        163
+      ],
+      "source_symbol": "DrawAllMetasprites::DoneDrawingPlayer",
+      "source_delta": -3
+    },
+    "LiveBodyReturn": {
+      "pc": 41522,
+      "banks": [
+        4
+      ],
+      "bytes": [
+        173,
+        11,
+        108
+      ],
+      "source_symbol": "DrawAllMetasprites::DoneDrawingPlayer",
+      "source_delta": 0
+    },
+    "LiveShotCall": {
+      "pc": 44384,
+      "banks": [
+        74
+      ],
+      "bytes": [
+        32,
+        56,
+        174
+      ],
+      "source_symbol": "KbDrawShots::ShotReady",
+      "source_delta": 0
+    },
+    "LiveShotReturn": {
+      "pc": 44387,
+      "banks": [
+        74
+      ],
+      "bytes": [
+        206,
+        135,
+        92
+      ],
+      "source_symbol": "KbDrawShots::Next",
+      "source_delta": 0
+    },
+    "LiveRenderer": {
+      "pc": 42426,
+      "banks": [
+        4
+      ],
+      "bytes": [
+        174,
+        222,
+        6
+      ],
+      "source_symbol": "MetaspriteRenderLoop",
+      "source_delta": 0
+    }
+  },
+  "actual_added_RAM": {
+    "KbSavedSlot": 23586,
+    "RgOamRotation": 27656,
+    "R4": 7,
+    "GuestOamRotationActive": 27659,
+    "KbPose": 23565,
+    "SmPosePtr": 27398,
+    "R3": 6,
+    "R1": 4,
+    "R6": 9,
+    "KbShotAge": 23646,
+    "R5": 8,
+    "CurrentOAMOffset": 1758,
+    "KbPoseGroup": 23566,
+    "R0": 3
+  },
+  "current_unchanged_compiled_owners": {
+    "DrawAllMetasprites": {
+      "bytes": 609,
+      "pc": 40960,
+      "bank": 4,
+      "sha256": "13ff0253afc25769b72506876c00d6d4a5b0e20c1317ee1cab403874a43026e3"
+    },
+    "DrawMetasprite": {
+      "bytes": 457,
+      "pc": 41969,
+      "bank": 4,
+      "sha256": "b1555778c8ba96ce9b48c968de6134eb88813fb30d6b6f89370dd7a0e9ddd094"
+    },
+    "MetaspriteRenderLoop": {
+      "bytes": 182,
+      "pc": 42426,
+      "bank": 4,
+      "sha256": "d2ed6bbbf3a5931886fe92ed385fa1b2fcc92bf6a0d9d37a33d369c53926d327"
+    },
+    "KbDrawShots": {
+      "bytes": 567,
+      "pc": 44060,
+      "bank": 74,
+      "sha256": "b2c1a56ac913ec85b0a3e598c04b779bb635cad96b396dbc41c19661be3255e0"
+    },
+    "KbSetPose": {
+      "bytes": 70,
+      "pc": 43466,
+      "bank": 72,
+      "sha256": "6b4fc205dd65225616edd1ecf3947623fa537e889f98d090cf5a912b46e3dc75"
+    },
+    "MkSetPose": {
+      "bytes": 42,
+      "pc": 44869,
+      "bank": 72,
+      "sha256": "896a17a950619773b37b90afa77b8fe001d392be686ebf0dee8460a3314c5645"
+    },
+    "PlayerRemoveOutlines": {
+      "bytes": 376,
+      "pc": 48660,
+      "bank": 10,
+      "sha256": "99054c3f020966eda5c610c34c06f29aefa796e40d81f35d4feb5a9cc12005ba"
+    }
+  },
+  "parent_source_controls": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-ab221e-kirby-meta-live-source-v1.json",
+  "parent_source_controls_sha256": "3f50aca59c90a17fb52fccb787229c0e03ca856beb6523a6cbb91be141707e86",
+  "source_CPU_ROM_sha256": "ab221e81821dd10690ad3a1068d91c9efae6c7406230d9bd7fc4a729fdc433d2",
+  "actual_native_target_sha256": "bdf9ca2bfe69ee93ca85f1b5e5319e474d9f01aa641c79a58cd9bd602253c40e",
+  "original_controller_seed_mechanics_guard_cap_unchanged": true,
+  "limits": "Passive capture selection is content linkage, not unique construction ownership, sprite opacity or art-fidelity proof. Original screenshots untouched; native rerun must preserve every guard and failed originals."
+}

@@ -1,0 +1,569 @@
+{
+  "status": "PASSIVE_LIVE_RENDER_PREPARED_DO_NOT_RUN",
+  "native_run": false,
+  "passed": false,
+  "goal_complete": false,
+  "ROM_sha256": "bdf9ca2bfe69ee93ca85f1b5e5319e474d9f01aa641c79a58cd9bd602253c40e",
+  "identity": "kirby",
+  "unit": "copies-low",
+  "variant": 0,
+  "actual_numeric_mode": 1,
+  "source_CPU_passed": false,
+  "source_GameLoop_calls": 2856,
+  "plan": [
+    {
+      "name": "ground-charge",
+      "kind": "copy",
+      "family": 1,
+      "enemy": 6,
+      "limit": 430,
+      "image": true
+    },
+    {
+      "name": "bouncing-shell",
+      "kind": "copy",
+      "family": 2,
+      "enemy": 0,
+      "limit": 430,
+      "image": true
+    },
+    {
+      "name": "returning-shell",
+      "kind": "copy",
+      "family": 3,
+      "enemy": 3,
+      "limit": 430,
+      "image": true
+    },
+    {
+      "name": "guard",
+      "kind": "copy",
+      "family": 4,
+      "enemy": 2,
+      "limit": 430,
+      "image": true
+    },
+    {
+      "name": "hammer-arc",
+      "kind": "copy",
+      "family": 5,
+      "enemy": 5,
+      "limit": 430,
+      "image": true
+    },
+    {
+      "name": "upward-jet",
+      "kind": "copy",
+      "family": 6,
+      "enemy": 7,
+      "limit": 430,
+      "image": true
+    },
+    {
+      "name": "bubble",
+      "kind": "copy",
+      "family": 7,
+      "enemy": 10,
+      "limit": 430,
+      "image": true
+    }
+  ],
+  "all_literal_dynamic_RAM_names_reconciled": true,
+  "Lua_VM_executed": false,
+  "literal_hardware_guard_bytes": 4058,
+  "literal_hardware_guard_sha256": "2b3aa5da62ebdd76723bc3ad87991e63695f15ac151213718f58b55f0211d70c",
+  "caps": {
+    "updates": 3000,
+    "wall_frames": 8000,
+    "host_seconds": 1200,
+    "bytes": 2000000000,
+    "files": 64,
+    "PNGs": 8
+  },
+  "setup": "Complete native-boundary logical+visible map/player position/default-health NPCs/mature food actors. Copy acquisition actual warmed inhale/capture/Down; health deficits actual injury. No tested HP, copy, mouth, ability, input-edge, form, tier, shot, resources, timer or outcomes written. No frame tree/copies.",
+  "limitations": "No native/Lua VM/PPU/cadence/audio-fidelity claim. Mature collection rather than physical reveal/rise. Authored SMB enemy-copy adaptations; Meta has grounded/real-jump sword actions, no inflation/flight. No underwater/drop-star reacquisition/fullpool/star/1up/allfacings/allpixel/fullroute claim.",
+  "bindings": [
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\mega_proto_body_palette_9ea.nes",
+      "bytes": 2097168,
+      "sha256": "ab221e81821dd10690ad3a1068d91c9efae6c7406230d9bd7fc4a729fdc433d2"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\mega_proto_body_palette_9ea.dbg",
+      "bytes": 26903009,
+      "sha256": "23501bd5a529923435f5baa90da8f59495a98420f457a139ff185bffda57d600"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\mega_proto_body_palette_9ea.lbl",
+      "bytes": 1067998,
+      "sha256": "fcf62a8378e4e092c7b21b74a56415a44ae0b4e23d5c7d183ff6de33eb67e651"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\current_kirby_meta_earned_v1.lua",
+      "bytes": 24480,
+      "sha256": "0a9b511def75fe0c2e6c5ff0a3a86e74994bc9d9fb5bf656e840b24e2bab920b"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\current_kirby_meta_earned_prepare_v1.py",
+      "bytes": 11178,
+      "sha256": "146d3d9ce3c6d8f3d3bede5d8f9874a680024a79ff1ccf3190c425b0ad8490de"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\current_rygar_powerups_v1.lua",
+      "bytes": 19197,
+      "sha256": "14ccdcfd388e3fdf65697d5d0d4dee3d1c26daeeec192522462007c759e1e5a8"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\run_mesen.py",
+      "bytes": 16490,
+      "sha256": "5d71507b99a100a10b48ad84e1bb3e7db92c470e6215315c9d962551a4222c67"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\chr\\characters\\kirby.chr",
+      "bytes": 24576,
+      "sha256": "f83f86893c03ee71ce18f8cb559ca5c718968f05444879b7d69f092e890b501c"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-ab221e-kirby-copies-low-source-v2.json",
+      "bytes": 11037,
+      "sha256": "178dbbe8af7fae4947474ac930ece9bdc46acdf06e287e45661d9cafc2f03d9c"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\current_kirby_meta_earned_cpu_v1.py",
+      "bytes": 15796,
+      "sha256": "66cd7d40d83ce8a0765768cb5f9f12831d6c7b9f8f1ae1f749bd03e71b895ecc"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\current_rygar_powerups_prepare_v1.py",
+      "bytes": 17183,
+      "sha256": "6988f2a5d7371b6d2340e248e6fbb1e7722778110c6a061045e7eabae2a6f512"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\current_roster_compact_11_v1.py",
+      "bytes": 18340,
+      "sha256": "fe2b6c43ae273269ed40f18e62cfcb3ba1d45cde6d0463d748ba72ccc25ebd6f"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\link_pit_rygar_sophia_audit_cpu.py",
+      "bytes": 14010,
+      "sha256": "15ef348bc124a97d8ef2c8a56777180276271b44fb77c8ace7e62c2a50310113"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\check_tmnt_render_oa.py",
+      "bytes": 7778,
+      "sha256": "32033893e48055adc9a23c661238e9331dd1db856be51b753ba9b6781eb528e4"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\verify_native_relocation.py",
+      "bytes": 8395,
+      "sha256": "1bab7154bc2e5468e827087d14030a7e30c4d3676db5e775ef15de4d0c34ce11"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\observe_chip_committed_write.py",
+      "bytes": 7619,
+      "sha256": "0922efc482e8a72b72d243ada7629f157c51afd779cee09e0f7bf35fa6235de2"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\run_mesen_isolated.py",
+      "bytes": 1370,
+      "sha256": "976f197a3712511e821f545e655eaa3f9bcfe95e42a3c6c76b2adca288d2aad3"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\capture_budget.py",
+      "bytes": 9112,
+      "sha256": "b9985e2e6db5c801a47454d8761adaf5f40e5254e8f599aeeddf412c1b7e8db9"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\kirby.s",
+      "bytes": 598,
+      "sha256": "46021488cd74317d4c875de41a6b0d738ff7a73f9c362b6ca753475930fc0d5d"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\kirby_art.inc",
+      "bytes": 23327,
+      "sha256": "67f9fcd6b4e71ccbd24887bb69ae6decb6c92ca948fe539389895d057a0a7a8a"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\kirby_copy_icons.inc",
+      "bytes": 1295,
+      "sha256": "97ed842ee6c5a479f7189880e280e32beb9032394d94e1b6a555b708314cbc3a"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\kirby_core.s",
+      "bytes": 16342,
+      "sha256": "b2bba0a05dd419af605d50e90da2084aaebe7677a2e66fc28aae6ccaf395c4a3"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\kirby_dispatch.s",
+      "bytes": 4131,
+      "sha256": "3ca10fd8607a0aef203bb4dd50b603d0406576c1e913f4475530c998a79d9e1a"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\kirby_draw.s",
+      "bytes": 3776,
+      "sha256": "81fda3c969c740b85866d686f7931f5888754728fedef91fb0173d4152073c8f"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\kirby_legacy.s",
+      "bytes": 1540,
+      "sha256": "e6f74eeeca886bdf068516501f68e783176d86521cf7db073369aceb143d8966"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\kirby_state.inc",
+      "bytes": 2077,
+      "sha256": "a157fcd356d42b0d059494554a6b0ad92b7b0d4820371bd88c0b58f9aba0698d"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\kirby_weapons.s",
+      "bytes": 17716,
+      "sha256": "42b97901060dcddf43a2a90d98a577ccca3528606fa4cd10674096ec58467a5d"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\kirby_world_palette.s",
+      "bytes": 593,
+      "sha256": "877d701382e29bcc6f67c2a21f51930a5ca498e4f3bd60275ddaa5d879cebe52"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\meta_knight.s",
+      "bytes": 9071,
+      "sha256": "d36fdbf65342fda03b6c802b330dd8a48073ddb3c0cd4a7f3e9ef03990d3226d"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\meta_knight_art.inc",
+      "bytes": 13821,
+      "sha256": "4263919abf3672cb900a26ad13bb524f8c6168d3fb2f5f7db5203a5c4f1162e7"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\roster.s",
+      "bytes": 25071,
+      "sha256": "17a3e4753cd9c9171c38e39f2d6e0621e32c9d49ec03fc654aeb12a64b654bf3"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\game.s",
+      "bytes": 62008,
+      "sha256": "328bae039dbce7ae75e78bb552ef653fb0333dbb02146dee72888b70651a0f94"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\object.s",
+      "bytes": 185706,
+      "sha256": "48984c1253fa13d4fd14d90e268a9afdfa42c60130086542b6aebcc58653ee7e"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\mario_source.s",
+      "bytes": 19923,
+      "sha256": "d634f221acb00322480cd4cd45d5a6f724dc253a71b6a8dbe3c5621bbfb8cd3e"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-ab221e-kirby-hard-copies-low-v1\\config.json",
+      "bytes": 11679,
+      "sha256": "e56fe53c2994bdcaa8a8b75be2ab68ef842a13b956799a15e7a628dfddeff865"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-ab221e-kirby-hard-copies-low-v1\\source-controls.json",
+      "bytes": 3504,
+      "sha256": "4272c4f21d14b3e93e71d043a4b698bc997e792354d63553bc667c3fd4f341f4"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-ab221e-kirby-hard-copies-low-v1\\run.lua",
+      "bytes": 8476,
+      "sha256": "21e34c2c58d078a6ed237f7221ad1f189e298be5422e21119d8de7563b78f7ac"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-ab221e-kirby-hard-copies-low-v1\\command.json",
+      "bytes": 929,
+      "sha256": "45f87d4a8657d902cb9bbaddcfb2a2054da8d9924e97ab0b4078debe539fcc60"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\mm_player_prg_owner_metasprite_engine.s",
+      "bytes": 32705,
+      "sha256": "127fcd425b67b45e3594870a86b77dd7a14d899dd214f1b67920a1d58d6f63d8"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\mm_player_prg_owner_megaman_weapons.s",
+      "bytes": 50305,
+      "sha256": "da05482898a8fe9db12f5834ab2a2335321325d8c52ea068cee0ae5c561270ad"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\proto_normal_palette_ack_9ea_source.s",
+      "bytes": 1388,
+      "sha256": "c7107c2e12feece6d8521f972638c8e945aef32cc07f4ae90007a76ebaf7a61f"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\mega_proto_body_palette_9ea_build.json",
+      "bytes": 21886,
+      "sha256": "990878a5ae52485dc09120c7c9e2122782677e34becf07606842a4bb17dc1f46"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-ab221e-kirby-hard-copies-low-v1\\prepared-not-run.json",
+      "bytes": 11747,
+      "sha256": "012cd767ee88ea2a6fc33eaf9cce58dfa858a6d52ac57699b9667b7210579c62"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-ab221e-kirby-meta-earned-handoff-v1.json",
+      "bytes": 9097,
+      "sha256": "8f068636399cb7f0f5fd240566d5f0a2a3ae58f5563c587f67c81b02a04a814c"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\current_kirby_meta_bdf9_prepare_v2.py",
+      "bytes": 6081,
+      "sha256": "29de8c5b90ade5e160ad8e8276acf0939f2a20f68f5d8219cf040d2b10dea787"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\cv3-life-watch-bdf9-production.nes",
+      "bytes": 2097168,
+      "sha256": "bdf9ca2bfe69ee93ca85f1b5e5319e474d9f01aa641c79a58cd9bd602253c40e"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\cv3-life-watch-bdf9-production.dbg",
+      "bytes": 26905267,
+      "sha256": "bb02c0d6d5a368394f9888162d1b7678fed1eadad1ad7bcec978fc13d84f6e24"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\cv3-life-watch-bdf9-production.lbl",
+      "bytes": 1068089,
+      "sha256": "f5ab1f3e0cd0f4256e212497fe5ec0d8f481ea7ac88acc940087707a0e88b6b1"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-bdf9-kirby-hard-copies-low-v2\\config.json",
+      "bytes": 11679,
+      "sha256": "25fd16bb427767955bc38267c5c374f77f4eebdecbbe78c264ecf0be4a62370f"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-bdf9-kirby-hard-copies-low-v2\\run.lua",
+      "bytes": 8476,
+      "sha256": "e1dde2da3e8c439e72bc99fcfb414c8b5284db25d506c41ff6d5ad46801b50c4"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-bdf9-kirby-hard-copies-low-v2\\command.json",
+      "bytes": 928,
+      "sha256": "b0ee9b48ca171c49de51d083c6b72b65cb99399fe1633d74d1b5430bbff2d8ca"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-bdf9-kirby-hard-copies-low-v2\\candidate-preflight.json",
+      "bytes": 969,
+      "sha256": "c4b477431847b4c5a94807a32467e4802d0faaa188846e79570f4a75f54603ee"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-bdf9-kirby-hard-copies-low-v2\\prepared-not-run.json",
+      "bytes": 14642,
+      "sha256": "3e47c90aaaed7d06c902db26a13dde42397fc3bd332a70b4fda3431fbf04a410"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\current_kirby_meta_live_v1.lua",
+      "bytes": 9831,
+      "sha256": "5510eef1677515f8a05754fc8d9470d682ffad76f8da7b3055a260e9ce9959e7"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\current_kirby_meta_live_fixture_v1.lua",
+      "bytes": 34312,
+      "sha256": "6c0013052b11a057b60dbbf06f28f8378bee7c6472bebd19b754a982de32ea17"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\final_inventory_compact_capture_v1.lua",
+      "bytes": 6348,
+      "sha256": "1aa9e049764584841be0c590c15427225863bcf7bc64aca8c93a609c2cadd40d"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\current_kirby_meta_live_prepare_v1.py",
+      "bytes": 7324,
+      "sha256": "9e01965db330b4ecb1310dbad9d1026432477487cc0677b661844aff1de65ef0"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\current_kirby_meta_live_source_v1.py",
+      "bytes": 6416,
+      "sha256": "79fcb466a5187135b1fed0dc1957f795626130dc8e0e9c6eea9bb388733e7f4e"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\final_inventory_compact_capture_v1.py",
+      "bytes": 8346,
+      "sha256": "fd5585f4f5ccb4217a25270703784193e336c580ba71c65aa53fda0a70068b2a"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-ab221e-kirby-meta-live-source-v1.json",
+      "bytes": 5624,
+      "sha256": "3f50aca59c90a17fb52fccb787229c0e03ca856beb6523a6cbb91be141707e86"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-bdf9-kirby-hard-copies-low-live-v1\\config.json",
+      "bytes": 13538,
+      "sha256": "e5ddc692b22761e53084c543fa244a12c404d3add6e1ba5081d96ae768a35850"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-bdf9-kirby-hard-copies-low-live-v1\\run.lua",
+      "bytes": 9772,
+      "sha256": "e78a7d115ae7ab77d03a5269da4c10b95ba7e01f2e11d4751f8ffebffb049efb"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-bdf9-kirby-hard-copies-low-live-v1\\command.json",
+      "bytes": 938,
+      "sha256": "7c589a2c776ea98a318681b310f87aeb8920e82c98315f97d3912bd1e92bef2e"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-bdf9-kirby-hard-copies-low-live-v1\\passive-delta.json",
+      "bytes": 3869,
+      "sha256": "1b5ce2913d942984f0f533be04f4fc2c0d60fb7fede41143f7e9273d36f0e37d"
+    }
+  ],
+  "parent_source_CPU_passed": true,
+  "parent_source_CPU_ROM_sha256": "ab221e81821dd10690ad3a1068d91c9efae6c7406230d9bd7fc4a729fdc433d2",
+  "current_compiled_preflight_passed": true,
+  "source_CPU_campaign_rerun": false,
+  "predecessor_ready": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-ab221e-kirby-hard-copies-low-v1\\prepared-not-run.json",
+  "predecessor_ready_sha256": "012cd767ee88ea2a6fc33eaf9cce58dfa858a6d52ac57699b9667b7210579c62",
+  "parent_ready": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-bdf9-kirby-hard-copies-low-v2\\prepared-not-run.json",
+  "parent_ready_sha256": "3e47c90aaaed7d06c902db26a13dde42397fc3bd332a70b4fda3431fbf04a410",
+  "passive_delta": {
+    "passed": true,
+    "native_run": false,
+    "Lua_VM_executed": false,
+    "original_fixture_sha256": "0a9b511def75fe0c2e6c5ff0a3a86e74994bc9d9fb5bf656e840b24e2bab920b",
+    "helper_sha256": "5510eef1677515f8a05754fc8d9470d682ffad76f8da7b3055a260e9ce9959e7",
+    "new_fixture_sha256": "6c0013052b11a057b60dbbf06f28f8378bee7c6472bebd19b754a982de32ea17",
+    "reverse_removal_exact": true,
+    "original_config_reverse_exact": true,
+    "actual_new_hooks": {
+      "LiveBodyCall": {
+        "pc": 41519,
+        "banks": [
+          4
+        ],
+        "bytes": [
+          32,
+          241,
+          163
+        ],
+        "source_symbol": "DrawAllMetasprites::DoneDrawingPlayer",
+        "source_delta": -3
+      },
+      "LiveBodyReturn": {
+        "pc": 41522,
+        "banks": [
+          4
+        ],
+        "bytes": [
+          173,
+          11,
+          108
+        ],
+        "source_symbol": "DrawAllMetasprites::DoneDrawingPlayer",
+        "source_delta": 0
+      },
+      "LiveShotCall": {
+        "pc": 44384,
+        "banks": [
+          74
+        ],
+        "bytes": [
+          32,
+          56,
+          174
+        ],
+        "source_symbol": "KbDrawShots::ShotReady",
+        "source_delta": 0
+      },
+      "LiveShotReturn": {
+        "pc": 44387,
+        "banks": [
+          74
+        ],
+        "bytes": [
+          206,
+          135,
+          92
+        ],
+        "source_symbol": "KbDrawShots::Next",
+        "source_delta": 0
+      },
+      "LiveRenderer": {
+        "pc": 42426,
+        "banks": [
+          4
+        ],
+        "bytes": [
+          174,
+          222,
+          6
+        ],
+        "source_symbol": "MetaspriteRenderLoop",
+        "source_delta": 0
+      }
+    },
+    "actual_added_RAM": {
+      "KbSavedSlot": 23586,
+      "RgOamRotation": 27656,
+      "R4": 7,
+      "GuestOamRotationActive": 27659,
+      "KbPose": 23565,
+      "SmPosePtr": 27398,
+      "R3": 6,
+      "R1": 4,
+      "R6": 9,
+      "KbShotAge": 23646,
+      "R5": 8,
+      "CurrentOAMOffset": 1758,
+      "KbPoseGroup": 23566,
+      "R0": 3
+    },
+    "current_unchanged_compiled_owners": {
+      "DrawAllMetasprites": {
+        "bytes": 609,
+        "pc": 40960,
+        "bank": 4,
+        "sha256": "13ff0253afc25769b72506876c00d6d4a5b0e20c1317ee1cab403874a43026e3"
+      },
+      "DrawMetasprite": {
+        "bytes": 457,
+        "pc": 41969,
+        "bank": 4,
+        "sha256": "b1555778c8ba96ce9b48c968de6134eb88813fb30d6b6f89370dd7a0e9ddd094"
+      },
+      "MetaspriteRenderLoop": {
+        "bytes": 182,
+        "pc": 42426,
+        "bank": 4,
+        "sha256": "d2ed6bbbf3a5931886fe92ed385fa1b2fcc92bf6a0d9d37a33d369c53926d327"
+      },
+      "KbDrawShots": {
+        "bytes": 567,
+        "pc": 44060,
+        "bank": 74,
+        "sha256": "b2c1a56ac913ec85b0a3e598c04b779bb635cad96b396dbc41c19661be3255e0"
+      },
+      "KbSetPose": {
+        "bytes": 70,
+        "pc": 43466,
+        "bank": 72,
+        "sha256": "6b4fc205dd65225616edd1ecf3947623fa537e889f98d090cf5a912b46e3dc75"
+      },
+      "MkSetPose": {
+        "bytes": 42,
+        "pc": 44869,
+        "bank": 72,
+        "sha256": "896a17a950619773b37b90afa77b8fe001d392be686ebf0dee8460a3314c5645"
+      },
+      "PlayerRemoveOutlines": {
+        "bytes": 376,
+        "pc": 48660,
+        "bank": 10,
+        "sha256": "99054c3f020966eda5c610c34c06f29aefa796e40d81f35d4feb5a9cc12005ba"
+      }
+    },
+    "parent_source_controls": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-ab221e-kirby-meta-live-source-v1.json",
+    "parent_source_controls_sha256": "3f50aca59c90a17fb52fccb787229c0e03ca856beb6523a6cbb91be141707e86",
+    "source_CPU_ROM_sha256": "ab221e81821dd10690ad3a1068d91c9efae6c7406230d9bd7fc4a729fdc433d2",
+    "actual_native_target_sha256": "bdf9ca2bfe69ee93ca85f1b5e5319e474d9f01aa641c79a58cd9bd602253c40e",
+    "original_controller_seed_mechanics_guard_cap_unchanged": true,
+    "limits": "Passive capture selection is content linkage, not unique construction ownership, sprite opacity or art-fidelity proof. Original screenshots untouched; native rerun must preserve every guard and failed originals."
+  },
+  "additional_caps": {
+    "container_bytes": 134217728,
+    "container_records": 3000,
+    "journal_bytes": 67108864,
+    "journal_rows": 20000,
+    "unmatched_scoped_DMAs": 32,
+    "captures_per_DMA": 8,
+    "extra_native_PNGs": 0
+  },
+  "same_original_PNGs": true,
+  "no_input_or_state_writes_in_additive_module": true
+}
