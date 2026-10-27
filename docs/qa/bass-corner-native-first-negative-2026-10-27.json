@@ -1,0 +1,99 @@
+{
+  "status": "negative retained; no product acceptance",
+  "result": {
+    "ROM_sha256": "8487c439ded9bc6274e1dc8f8e051494fa96ee518553d9c2f382eccf2e71d0e6",
+    "actual_mode": 1,
+    "adapter": {
+      "container_bytes": 811658,
+      "format": "NESPPU01",
+      "full_closed": true,
+      "full_frames": 64,
+      "open_virtual_files": 0,
+      "per_frame_files": 0,
+      "records": 64,
+      "screenshots": 0
+    },
+    "bass_collision": {
+      "bg_calls": 63,
+      "heads": 0,
+      "max_bg_cycles": 2507,
+      "post_ceiling": 0,
+      "walls": 0
+    },
+    "cheats_off": true,
+    "chr_window_checks": 768,
+    "completed_DMAS": 350,
+    "completed_loops": 356,
+    "frames": 374,
+    "full_frames": 64,
+    "identity": "bass",
+    "irq_checks": 63,
+    "markers": {
+      "failure": {
+        "frame": 374,
+        "full_ordinal": 64,
+        "stamp": {
+          "bank": 126,
+          "cpu_cycle": 11135421,
+          "dot": 0,
+          "pc": 33463,
+          "ppu_frame": 374,
+          "scanline": 240,
+          "sp": 253
+        }
+      },
+      "first-active": {
+        "frame": 311,
+        "full_ordinal": 1,
+        "stamp": {
+          "bank": 126,
+          "cpu_cycle": 9259250,
+          "dot": 0,
+          "pc": 33461,
+          "ppu_frame": 311,
+          "scanline": 240,
+          "sp": 253
+        }
+      }
+    },
+    "min_SP": 204,
+    "nmi_checks": 63,
+    "passed": false,
+    "physical_E3_bytes_checked": 89600,
+    "polls": 373,
+    "real_1_1_seen": true,
+    "real_1_2_control_updates": 0,
+    "reason": "IRQ restores actual A/C banks",
+    "scope": "Controller-only current 1-1 to controlled 1-2. Selected PPU review remains separate; no every-item/ability/source-fidelity/FPS claim.",
+    "unmasked_source_writes_checked": 89600,
+    "zero_deaths": true
+  },
+  "launch": {
+    "ROM_sha256": "8487c439ded9bc6274e1dc8f8e051494fa96ee518553d9c2f382eccf2e71d0e6",
+    "ready_sha256": "99be97e8ab8028e3778cee66c117127486eb8e538772799600ef90aa88d584de",
+    "exit": 1,
+    "settings_before": "a5f76b4c4d33cd1fb6d66a8725e7c6636b19e59c03a7dae5e15e1c512a3f4fbf",
+    "settings_after": "a5f76b4c4d33cd1fb6d66a8725e7c6636b19e59c03a7dae5e15e1c512a3f4fbf",
+    "changed_inputs": []
+  },
+  "first_failure": {
+    "data": {
+      "reason": "IRQ restores actual A/C banks"
+    },
+    "frame": 373,
+    "kind": "first-failure",
+    "poll": 373,
+    "stamp": {
+      "bank": 126,
+      "cpu_cycle": 11111783,
+      "dot": 12,
+      "pc": 32835,
+      "ppu_frame": 374,
+      "scanline": 32,
+      "sp": 236
+    }
+  },
+  "review_sha256": "d81a1b27127ef09d53fe6f720ca8e7f1b1f246d45160a021f198046ada530503",
+  "next_action": "Inspect IRQ versus NMI mapper-gap expectations; add captured bank detail before retrying.",
+  "scope": "Run stopped at X120 before rising-head repro. No Bass collision failure is inferred."
+}

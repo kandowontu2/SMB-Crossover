@@ -1,0 +1,399 @@
+{
+  "passed": true,
+  "native_run": false,
+  "installed": false,
+  "new_directories": 0,
+  "source_tree_copies": 0,
+  "baseline_ROM": "fb2a608e4670788c0a170d6a17e7802b226e9e6933cd44103cb1b9212db54eed",
+  "frozen_donor_ROM": "877d0b5e33810568af2dc6410b4f081cc3e5badc2ee9128e283c859ba08395c9",
+  "counts": {
+    "actual_body_to_BG_prefixes": 36,
+    "foreign_full_empty_BG": 78,
+    "unchanged_valid_wall_calls": 192
+  },
+  "build_command": [
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\Windows\\cc65\\bin\\cl65.exe",
+    "--cpu",
+    "6502x",
+    "-t",
+    "nes",
+    "-g",
+    "-Oisr",
+    "-vm",
+    "-T",
+    "-C",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bass_corner_current.cfg",
+    "--ld-args",
+    "--dbgfile,C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bass_corner_current.dbg",
+    "--include-dir",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover",
+    "--asm-include-dir",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build",
+    "--asm-include-dir",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src",
+    "--asm-include-dir",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover",
+    "--bin-include-dir",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover",
+    "-m",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bass_corner_current.map",
+    "-Ln",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bass_corner_current.lbl",
+    "-o",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bass_corner_current.nes",
+    "--asm-define",
+    "ENABLE_CROSSOVER=1",
+    "-D",
+    "ENABLE_CROSSOVER=1",
+    "--asm-define",
+    "USE_SMB2J_FEATURES=0",
+    "-D",
+    "USE_SMB2J_FEATURES=0",
+    "--asm-define",
+    "MAPPER_MMC5=1",
+    "-D",
+    "MAPPER_MMC5=1",
+    "--asm-define",
+    "MAPPER_MMC3=0",
+    "-D",
+    "MAPPER_MMC3=0",
+    "--asm-define",
+    "ENABLE_C_CODE=0",
+    "-D",
+    "ENABLE_C_CODE=0",
+    "--asm-define",
+    "USE_CUSTOM_TITLESCREEN=0",
+    "-D",
+    "USE_CUSTOM_TITLESCREEN=0",
+    "--asm-define",
+    "MULTIPLE_POWERUPS_ON_SCREEN=1",
+    "-D",
+    "MULTIPLE_POWERUPS_ON_SCREEN=1",
+    "--asm-define",
+    "USE_LOOPING_ANIM_CYCLE=0",
+    "-D",
+    "USE_LOOPING_ANIM_CYCLE=0",
+    "--asm-define",
+    "USE_VANILLA_MUSIC=1",
+    "-D",
+    "USE_VANILLA_MUSIC=1",
+    "--asm-define",
+    "USE_FAMISTUDIO_MUSIC=0",
+    "-D",
+    "USE_FAMISTUDIO_MUSIC=0",
+    "--asm-define",
+    "USE_BHOP_MUSIC=0",
+    "-D",
+    "USE_BHOP_MUSIC=0",
+    "--asm-define",
+    "DPCM_BANK_COUNT=0",
+    "-D",
+    "DPCM_BANK_COUNT=0",
+    "--asm-define",
+    "USE_VANILLA_SFX=1",
+    "-D",
+    "USE_VANILLA_SFX=1",
+    "--asm-define",
+    "USE_CUSTOM_ENGINE_SFX=0",
+    "-D",
+    "USE_CUSTOM_ENGINE_SFX=0",
+    "--asm-define",
+    "FAMISTUDIO_USE_FAMITRACKER_TEMPO=1",
+    "-D",
+    "FAMISTUDIO_USE_FAMITRACKER_TEMPO=1",
+    "--asm-define",
+    "FAMISTUDIO_USE_VOLUME_TRACK=1",
+    "-D",
+    "FAMISTUDIO_USE_VOLUME_TRACK=1",
+    "--asm-define",
+    "FAMISTUDIO_CFG_DPCM_SUPPORT=1",
+    "-D",
+    "FAMISTUDIO_CFG_DPCM_SUPPORT=1",
+    "--asm-define",
+    "BHOP_PATTERN_BANKING=1",
+    "-D",
+    "BHOP_PATTERN_BANKING=1",
+    "--asm-define",
+    "USE_MOUSE_SUPPORT=0",
+    "-D",
+    "USE_MOUSE_SUPPORT=0",
+    "--asm-define",
+    "MOUSE_DISPLAY_CURSOR=0",
+    "-D",
+    "MOUSE_DISPLAY_CURSOR=0",
+    "--asm-define",
+    "MOUSE_READ_FROM_PORT=1",
+    "-D",
+    "MOUSE_READ_FROM_PORT=1",
+    "--asm-define",
+    "MOUSE_CONFIG_CONTROLLER_SIZE=1",
+    "-D",
+    "MOUSE_CONFIG_CONTROLLER_SIZE=1",
+    "--asm-define",
+    "MOUSE_CONFIG_SENSITIVITY=0",
+    "-D",
+    "MOUSE_CONFIG_SENSITIVITY=0",
+    "--asm-define",
+    "MOUSE_X_MINIMUM=1",
+    "-D",
+    "MOUSE_X_MINIMUM=1",
+    "--asm-define",
+    "MOUSE_X_MAXIMUM=255",
+    "-D",
+    "MOUSE_X_MAXIMUM=255",
+    "--asm-define",
+    "MOUSE_Y_MINIMUM=1",
+    "-D",
+    "MOUSE_Y_MINIMUM=1",
+    "--asm-define",
+    "MOUSE_Y_MAXIMUM=239",
+    "-D",
+    "MOUSE_Y_MAXIMUM=239",
+    "--asm-define",
+    "DEBUG_WORLD_SELECT=0",
+    "-D",
+    "DEBUG_WORLD_SELECT=0",
+    "--asm-define",
+    "PRINT_METASPRITE_IDS=0",
+    "-D",
+    "PRINT_METASPRITE_IDS=0",
+    "--asm-define",
+    "DEBUG_ADD_EXTRA_LAG=0",
+    "-D",
+    "DEBUG_ADD_EXTRA_LAG=0",
+    "--asm-define",
+    "DEBUG_DISPLAY_VISUAL_FRAMETIME=0",
+    "-D",
+    "DEBUG_DISPLAY_VISUAL_FRAMETIME=0",
+    "--asm-define",
+    "ENABLE_MMC5_EXPANDED=1",
+    "-D",
+    "ENABLE_MMC5_EXPANDED=1",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bass_corner_current_main.c",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bass_corner_current_entrypoint.s"
+  ],
+  "build_exit": 0,
+  "candidate_ROM": "8487c439ded9bc6274e1dc8f8e051494fa96ee518553d9c2f382eccf2e71d0e6",
+  "changed_banks": {
+    "71": 120,
+    "72": 179,
+    "78": 615,
+    "89": 74
+  },
+  "changed_bytes": 988,
+  "exact_current_plus_frozen_donor_byte_union": true,
+  "CHR_header_all_other_PRG_exact": true,
+  "current_qualified_symbol_exceptions": {
+    "Z2PostBGBodyBridge::Done": [
+      44012,
+      null
+    ],
+    "Z2PostBGBodyBridge::Handle": [
+      43986,
+      null
+    ],
+    "KbLegacyExpandedCollisionBox::Short": [
+      44223,
+      44228
+    ],
+    "KbLegacyExpandedCollisionBox::Crouch": [
+      44218,
+      44223
+    ],
+    "KbLegacyExpandedCollisionBox::Medium": [
+      44226,
+      44221
+    ],
+    "KbLegacyExpandedCollisionBox::Done": [
+      44234,
+      44230
+    ],
+    "KbLegacyExpandedCollisionBox::Scrooge": [
+      44235,
+      44231
+    ],
+    "KbLegacyExpandedCollisionAdder::Short": [
+      44170,
+      44175
+    ],
+    "KbLegacyExpandedCollisionAdder::Yes": [
+      44181,
+      44177
+    ],
+    "KbLegacyExpandedCollisionAdder::Crouch": [
+      44165,
+      44170
+    ],
+    "KbLegacyExpandedCollisionAdder::Medium": [
+      44174,
+      44168
+    ],
+    "KbLegacyExpandedCollisionAdder::Luigi": [
+      44183,
+      44179
+    ],
+    "KbLegacyExpandedCollisionAdder::Scrooge": [
+      44185,
+      44181
+    ],
+    "_FARCALL_COUNT": [
+      1198,
+      1200
+    ]
+  },
+  "unchanged_current_qualified_symbols": 61592,
+  "actual_current_hook_addresses": {
+    "PlayerBGCollision": {
+      "old3b": 39771,
+      "current": 39771,
+      "composed": 39771
+    },
+    "PlayerCtrlRoutine": {
+      "old3b": 41155,
+      "current": 41155,
+      "composed": 41155
+    },
+    "MegaMan202AfterBG": {
+      "old3b": 41319,
+      "current": 41319,
+      "composed": 41319
+    },
+    "BillBGHeadConsumer": {
+      "old3b": 61715,
+      "current": 61715,
+      "composed": 61715
+    },
+    "BlockBufferColli_Head": {
+      "old3b": 38279,
+      "current": 38279,
+      "composed": 38279
+    },
+    "SamusAfterBGCollisionBridge": {
+      "old3b": 59432,
+      "current": 59432,
+      "composed": 59432
+    },
+    "SamusStopAtWallBanked": {
+      "old3b": 41616,
+      "current": 41616,
+      "composed": 41616
+    },
+    "KbLegacyExpandedCollisionAdder": {
+      "old3b": 44132,
+      "current": 44132,
+      "composed": 44132
+    },
+    "KbLegacyExpandedCollisionBox": {
+      "old3b": 44189,
+      "current": 44189,
+      "composed": 44189
+    },
+    "TnFastHeadGate": {
+      "old3b": 48259,
+      "current": 48259,
+      "composed": 48259
+    },
+    "Z2PostBGBodyBridge": {
+      "old3b": 43975,
+      "current": 43975,
+      "composed": 43975
+    },
+    "RosterOamReady": {
+      "old3b": 41544,
+      "current": 41544,
+      "composed": 41544
+    }
+  },
+  "first_contact_pipeline": {
+    "reconstructed_source_scene": true,
+    "current_misses": true,
+    "candidate_separates": true,
+    "cell": 1030,
+    "target_anchor_Q16": 5996624,
+    "exported_velocity_Q16": 54613
+  },
+  "foreign_BG_cycle_delta": [
+    0,
+    17
+  ],
+  "verified_FF_unowned_pools": [
+    {
+      "name": "BASS_PROFILE",
+      "bank": 72,
+      "start": 44976,
+      "maximum_bytes": 160,
+      "actual_old_FF_verified": true
+    },
+    {
+      "name": "BASS_HEAD_GATE",
+      "bank": 89,
+      "start": 49008,
+      "maximum_bytes": 144,
+      "actual_old_FF_verified": true
+    },
+    {
+      "name": "BASS_CEILING",
+      "bank": 78,
+      "start": 44032,
+      "maximum_bytes": 1024,
+      "actual_old_FF_verified": true
+    },
+    {
+      "name": "BASS_POST",
+      "bank": 71,
+      "start": 44800,
+      "maximum_bytes": 256,
+      "actual_old_FF_verified": true
+    }
+  ],
+  "current_primary_source_hashes": {
+    "src/kirby_legacy.s": "33fb53bea2424c3a6f77f14cb27676adecebb23883e0c723006edbc4c2c42428",
+    "src/tmnt_probe_gates.s": "7bb2f92349ee1e890ae0ce83fcf290c9b47cdd7f1c2313ea4ee4cceb9c5c4aa1",
+    "src/zelda2_link_platform.s": "f1c4413b65fafa8ffe9e0bd6c5bf269e0f61d82f358cb44cc4877d33274cea4d",
+    "src/entrypoint.s": "fed1a5348447c03913493ed74c291b74e662e20f0fa3736ee71ce896ace44ee4",
+    "smb1base-mmc5-expanded.cfg": "c95bae44cdc8cad2613da6575ef0b8e2c3551c9ce07ca9a225ac0da75a7b8283",
+    "src/kirby.s": "46021488cd74317d4c875de41a6b0d738ff7a73f9c362b6ca753475930fc0d5d",
+    "src/tmnt.s": "2a2678e9de1c9de4d2c03f7c4ced0e9486799fc1a8eed02aca390bc12003822d",
+    "src/main.c": "cb915413cb3491c73f87b27ad80056c32c4e9987716b2f661130c81f479af5c5",
+    "build_options.ini": "59feaa74be76e7c9622c66e1b5b2d091f485385d40dc38725321caed6a2d60f7"
+  },
+  "final_source_leaves": {
+    "src/kirby_legacy.s": {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bass_corner_kirby_legacy.s",
+      "sha256": "e6f74eeeca886bdf068516501f68e783176d86521cf7db073369aceb143d8966"
+    },
+    "src/tmnt_probe_gates.s": {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bass_corner_tmnt_probe_gates.s",
+      "sha256": "01943465504a812044bc3b8db65bda881de5d8c58b7dd9178b0150cdb76aede2"
+    },
+    "src/zelda2_link_platform.s": {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bass_corner_zelda2_link_platform.s",
+      "sha256": "311298b1b5f0b0d4f5360ae11ca39037b63e8c992a9561f907dab95f7d2c4298"
+    }
+  },
+  "new_helper": {
+    "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bass_corner_profile.inc",
+    "sha256": "15cd1db2ea0a2c5d3e8a60d9fa5ad24cb102238d984a000b8b55eb64c07519ca"
+  },
+  "current_cfg_overlay": {
+    "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bass_corner_current.cfg",
+    "sha256": "41b2731506dfb9492a36f94ba958197be164fa16e1ff55bc3d44a0f717908120"
+  },
+  "current_entry_overlay": {
+    "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bass_corner_current_entrypoint.s",
+    "sha256": "9b3e4eaa8194f4290498649c29cf142cabab57ca7a98925025be3991d1af8a9a"
+  },
+  "current_source_patch": {
+    "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bass_corner_current_source.patch",
+    "sha256": "1db70d46c5fd15250ab1fca31e4ffb1d12b2ac45241452962f487e6e7ef45d02"
+  },
+  "no_original_generator_executed": true,
+  "all_frozen_donor_bindings_unchanged": true,
+  "install_after_native_acceptance": "Copy the three named src leaves and new helper; apply ONLY the four BASS segment additions to current cfg and the guarded helper include to current entrypoint. Build-time flat include substitutions must NOT be copied into production entrypoint. Preserve menu/music source and native acceptance remains ROOT-owned.",
+  "limits": "Targeted fresh source/CPU composition only. Original source-safe/cost/diagonal/hurt/slide/HUD-cutoff limits persist; no native/cadence acceptance. Original877d full qualification is referenced without retagging it as current.",
+  "frozen_donor_receipt": {
+    "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bass_corner_final_source.json",
+    "sha256": "04863f102bee7416b67d2e0ef88b9ff8cd4bf1ad773d173fc4c774aec692c499"
+  },
+  "tool_sha256": "4ae0eccc93127187a732f88f13a3b25296ce04043e848d5e30fda391362673cf"
+}
