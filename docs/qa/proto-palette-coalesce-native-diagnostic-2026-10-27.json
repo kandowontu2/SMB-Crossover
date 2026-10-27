@@ -1,0 +1,136 @@
+{
+  "status": "private native deadline repair reproduced; Proto and Mega full routes passed; not adopted",
+  "ROM_sha256": "4a0394b0892e6c54940856791e44bcbe9fe4e469047aca3982c3f59112a61b8b",
+  "parent_sha256": "3e7c53d82eb949b8527d837861d95ed6051966056ca3f336fafd66e514e055ea",
+  "main_download_sha256": "2082c19a7364920f828e97f70040d37f1f7059bde1ea136b5c2c4532324abf36",
+  "exact_input_diagnostic": {
+    "original_polls": 1939,
+    "tail_added": false,
+    "wrapper_exit": 1,
+    "stop_reason": "Fixed replay stream exhausted",
+    "native_result_file": false,
+    "repaired_NMI": 1932,
+    "physical_frame": 1940,
+    "queue_bytes": 43,
+    "PPUDATA": 22,
+    "UpdateScreen_cycles": 1101,
+    "render_enable_line": 260,
+    "render_enable_dot": 306,
+    "elapsed_cycles": 2252,
+    "old_elapsed_cycles": 2556,
+    "NMI_cycles_saved": 304
+  },
+  "Proto_native": {
+    "ROM_sha256": "4a0394b0892e6c54940856791e44bcbe9fe4e469047aca3982c3f59112a61b8b",
+    "actual_mode": 1,
+    "adapter": {
+      "container_bytes": 57613849,
+      "format": "NESPPU01",
+      "full_closed": true,
+      "full_frames": 3972,
+      "open_virtual_files": 0,
+      "per_frame_files": 0,
+      "records": 3972,
+      "screenshots": 0
+    },
+    "cheats_off": true,
+    "chr_window_checks": 54576,
+    "completed_DMAS": 3751,
+    "completed_loops": 4387,
+    "frames": 4838,
+    "full_frames": 3972,
+    "identity": "proto",
+    "irq_checks": 4490,
+    "lives": {
+      "death_state_seen": false,
+      "decreased": 0,
+      "ending": 2,
+      "gained": 0,
+      "maximum": 2,
+      "start": 2
+    },
+    "min_SP": 183,
+    "nmi_checks": 4547,
+    "passed": true,
+    "physical_E3_bytes_checked": 960256,
+    "polls": 4837,
+    "real_1_1_seen": true,
+    "real_1_2_control_updates": 26,
+    "reason": "cleared 1-1 and controlled 1-2",
+    "scope": "Controller-only current 1-1 to controlled 1-2. Selected PPU review remains separate; no every-item/ability/source-fidelity/FPS claim.",
+    "stationary_watchdog": {
+      "consecutive": 0,
+      "limit": 300,
+      "maximum": 46,
+      "unit": "genuinely active completed updates; pause/transform/refill excluded"
+    },
+    "unmasked_source_writes_checked": 960256,
+    "zero_deaths": true
+  },
+  "source_counts": {
+    "graphics": 252,
+    "queue_format": 69,
+    "color_flags": 140,
+    "IRQ": 160,
+    "continuations": 10
+  },
+  "foreground_cost": {
+    "three_original_calls": [
+      992,
+      1163,
+      1754
+    ],
+    "three_candidate_calls": [
+      1023,
+      1078,
+      3069
+    ],
+    "total_increase": 1261,
+    "rare_final_increase": 1315
+  },
+  "limits": [
+    "Diagnostic exit1 is strict input exhaustion; it proves the logged1940 deadline repair, not a complete or cleanly closed route.",
+    "Full Proto native route and whole-stream verification passed; seven selected whole frames visually reviewed. This is not all-frame visual review.",
+    "Material foreground cost; no overall lag improvement or crowded per-shot fairness claim.",
+    "Canonical source adoption and public download update remain pending. All other roster/current-build retests remain open."
+  ],
+  "goal_complete": false,
+  "evidence": {
+    "diagnostic-late-NMI.csv": "8231a31b5d44b21ae7b72fb6a60273cb88b58914ef64eea075a6b5cfc027c858",
+    "diagnostic-launch.json": "9035dba22e060053f53442fa9cf02fafa146c2e06ccd3b587480f547c20e3ba3",
+    "fullroute-late-NMI.csv": "8231a31b5d44b21ae7b72fb6a60273cb88b58914ef64eea075a6b5cfc027c858",
+    "mega-hard-inputs.csv": "d2c3584293a96c92ffdef990c8e4cce0411cb42e3a7ecf6b52df1d1551df7e88",
+    "mega-hard-native-result.json": "e6dc8fb89d0da63717dfec02f7aa87c011dc6c3ae5cdf60fd560f7bd31e44dfc",
+    "mega-hard-selected-whole-frames.png": "2b1f4004612d51959d7aae33b832e49d19e59a4a723636ca21eaedfb1b3d1a27",
+    "proto-hard-inputs.csv": "3e80a6f0d75afd4dfd586f7e03177b0c358cbaf0ee28ad42104ceb9a8869b47a",
+    "proto-hard-native-result.json": "3503edc7197dac23e0e186ca5c4d883b9314bc7acfd06e20acd1da47d2035cbe",
+    "proto-hard-selected-whole-frames.png": "83bb4175c8acd192195cfb8b34451e9f2d6848e50fe8b78caab2754c9c0fb869",
+    "source-controls.json": "1b11493253990bed9e95ba907fac8d76f12fcfe10bce4701a8806acb3582af79"
+  },
+  "Proto_offline_review": {
+    "passed": true,
+    "review_sha256": "f60569b4213b56d5ea6653ce31aa59f98c4452ab512cbda0559363ddbbc224c4",
+    "full_frames": 3972,
+    "PPU_stream_sha256": "fef4af882de9bf655a3ef92f022889320450c74f89a74d4fe864b60371360d27",
+    "selected_whole_frames_visually_reviewed": true,
+    "all_frame_visual_review": false,
+    "independent_replay": false
+  },
+  "Mega_native": {
+    "frames": 4614,
+    "completed_loops": 4138,
+    "full_frames": 3751,
+    "zero_deaths": true,
+    "cheats_off": true,
+    "real_1_2_control_updates": 26,
+    "completed_DMAS": 3481
+  },
+  "Mega_offline_review": {
+    "passed": true,
+    "review_sha256": "bb7848462913836a6f04816f9d83930644f83eda0325b2147aca495760c0e4f0",
+    "PPU_stream_sha256": "b52b3abb22d631966764721dfe7e26721f82aef1ce01035c9da6721ce2d48c84",
+    "selected_whole_frames_visually_reviewed": true,
+    "all_frame_visual_review": false,
+    "independent_replay": false
+  }
+}

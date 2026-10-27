@@ -1,0 +1,5573 @@
+{
+  "passed": true,
+  "source_CPU_only": true,
+  "native_run": false,
+  "installed": false,
+  "parent_sha256": "3e7c53d82eb949b8527d837861d95ed6051966056ca3f336fafd66e514e055ea",
+  "candidate_sha256": "4a0394b0892e6c54940856791e44bcbe9fe4e469047aca3982c3f59112a61b8b",
+  "full_Graphics_callers": 252,
+  "full_caller_state": "Exact live A/NV-DIZC/SP, complete nonstack RAM/SMC/mapper at genuineGraphics return. Only deliberately repacked84B queue/offset and proven dead Proto terminalX/Y/R0 permitted in folding cases. Dead stack residues excluded; no live-frame/caller state excluded.",
+  "caller_cost_summary": {
+    "min": 8,
+    "max": 85,
+    "histogram": {
+      "32": 83,
+      "85": 40,
+      "34": 55,
+      "8": 46,
+      "33": 8,
+      "31": 20
+    }
+  },
+  "queue_cases": 69,
+  "queue_controls": [
+    {
+      "name": "empty",
+      "prefix_bytes": 0,
+      "folded": false,
+      "old_queue": "3f11030a163000",
+      "new_queue": "3f11030a163000",
+      "foreground_cycles": [
+        992,
+        1023
+      ],
+      "UpdateScreen_cycles": [
+        173,
+        173
+      ]
+    },
+    {
+      "name": "two-fast",
+      "prefix_bytes": 6,
+      "folded": true,
+      "old_queue": "3f11030c24343f11030a163000",
+      "new_queue": "3f11030a163000",
+      "foreground_cycles": [
+        1163,
+        1078
+      ],
+      "UpdateScreen_cycles": [
+        325,
+        173
+      ]
+    },
+    {
+      "name": "short-no-scan",
+      "prefix_bytes": 36,
+      "folded": false,
+      "old_queue": "3f11030c243422201b2424242424242424242424242424242424242424242424242424243f11030a163000",
+      "new_queue": "3f11030c243422201b2424242424242424242424242424242424242424242424242424243f11030a163000",
+      "foreground_cycles": [
+        1231,
+        1262
+      ],
+      "UpdateScreen_cycles": [
+        783,
+        783
+      ]
+    },
+    {
+      "name": "actual-tail-prefix",
+      "prefix_bytes": 49,
+      "folded": true,
+      "old_queue": "3f11030c24343f110306273822540224242274022424206d020004206206240000020500207a030304003f0c040f27170f3f11030a163000",
+      "new_queue": "3f11030c243422540224242274022424206d020004206206240000020500207a030304003f0c040f27170f3f11030a163000",
+      "foreground_cycles": [
+        1754,
+        3336
+      ],
+      "UpdateScreen_cycles": [
+        1405,
+        1253
+      ]
+    },
+    {
+      "name": "ordinary-near-budget",
+      "prefix_bytes": 43,
+      "folded": false,
+      "old_queue": "222021242424242424242424242424242424242424242424242424242424242424242424222004242424243f11030a163000",
+      "new_queue": "222021242424242424242424242424242424242424242424242424242424242424242424222004242424243f11030a163000",
+      "foreground_cycles": [
+        1128,
+        1416
+      ],
+      "UpdateScreen_cycles": [
+        868,
+        868
+      ]
+    },
+    {
+      "name": "disjoint-rotation",
+      "prefix_bytes": 43,
+      "folded": true,
+      "old_queue": "3f11030c24343f0c040f27170f22201b2424242424242424242424242424242424242424242424242424243f11030a163000",
+      "new_queue": "3f0c040f27170f22201b2424242424242424242424242424242424242424242424242424243f11030a163000",
+      "foreground_cycles": [
+        1311,
+        2481
+      ],
+      "UpdateScreen_cycles": [
+        951,
+        799
+      ]
+    },
+    {
+      "name": "overlap-partial",
+      "prefix_bytes": 46,
+      "folded": false,
+      "old_queue": "3f11030c24343f1201092220212424242424242424242424242424242424242424242424242424242424242424243f11030a163000",
+      "new_queue": "3f11030c24343f1201092220212424242424242424242424242424242424242424242424242424242424242424243f11030a163000",
+      "foreground_cycles": [
+        1311,
+        1725
+      ],
+      "UpdateScreen_cycles": [
+        972,
+        972
+      ]
+    },
+    {
+      "name": "overlap-full",
+      "prefix_bytes": 46,
+      "folded": false,
+      "old_queue": "3f11030c24343f0020000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f22200224243f11030a163000",
+      "new_queue": "3f11030c24343f0020000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f22200224243f11030a163000",
+      "foreground_cycles": [
+        1311,
+        2014
+      ],
+      "UpdateScreen_cycles": [
+        972,
+        972
+      ]
+    },
+    {
+      "name": "overlap-3f31-alias",
+      "prefix_bytes": 48,
+      "folded": false,
+      "old_queue": "3f11030c24343f31030304052220212424242424242424242424242424242424242424242424242424242424242424243f11030a163000",
+      "new_queue": "3f11030c24343f31030304052220212424242424242424242424242424242424242424242424242424242424242424243f11030a163000",
+      "foreground_cycles": [
+        1311,
+        1725
+      ],
+      "UpdateScreen_cycles": [
+        1004,
+        1004
+      ]
+    },
+    {
+      "name": "after-overlap-new-candidate",
+      "prefix_bytes": 46,
+      "folded": true,
+      "old_queue": "3f1201093f11030c24342220212424242424242424242424242424242424242424242424242424242424242424243f11030a163000",
+      "new_queue": "3f1201092220212424242424242424242424242424242424242424242424242424242424242424243f11030a163000",
+      "foreground_cycles": [
+        1311,
+        2411
+      ],
+      "UpdateScreen_cycles": [
+        972,
+        820
+      ]
+    },
+    {
+      "name": "universal-alias-disjoint",
+      "prefix_bytes": 46,
+      "folded": true,
+      "old_queue": "3f11030c24343f3001092220212424242424242424242424242424242424242424242424242424242424242424243f11030a163000",
+      "new_queue": "3f3001092220212424242424242424242424242424242424242424242424242424242424242424243f11030a163000",
+      "foreground_cycles": [
+        1311,
+        2490
+      ],
+      "UpdateScreen_cycles": [
+        972,
+        820
+      ]
+    },
+    {
+      "name": "mirrored-lowrange-overlap",
+      "prefix_bytes": 50,
+      "folded": false,
+      "old_queue": "3f11030c24343f2f0501020304052220212424242424242424242424242424242424242424242424242424242424242424243f11030a163000",
+      "new_queue": "3f11030c24343f2f0501020304052220212424242424242424242424242424242424242424242424242424242424242424243f11030a163000",
+      "foreground_cycles": [
+        1311,
+        1759
+      ],
+      "UpdateScreen_cycles": [
+        1036,
+        1036
+      ]
+    },
+    {
+      "name": "RLE-decline",
+      "prefix_bytes": 46,
+      "folded": false,
+      "old_queue": "3f11030c2434222047242220212424242424242424242424242424242424242424242424242424242424242424243f11030a163000",
+      "new_queue": "3f11030c2434222047242220212424242424242424242424242424242424242424242424242424242424242424243f11030a163000",
+      "foreground_cycles": [
+        1297,
+        1539
+      ],
+      "UpdateScreen_cycles": [
+        1023,
+        1023
+      ]
+    },
+    {
+      "name": "vertical-decline",
+      "prefix_bytes": 47,
+      "folded": false,
+      "old_queue": "3f11030c243422208224242220212424242424242424242424242424242424242424242424242424242424242424243f11030a163000",
+      "new_queue": "3f11030c243422208224242220212424242424242424242424242424242424242424242424242424242424242424243f11030a163000",
+      "foreground_cycles": [
+        1299,
+        1541
+      ],
+      "UpdateScreen_cycles": [
+        987,
+        987
+      ]
+    },
+    {
+      "name": "zero-count256-decline",
+      "prefix_bytes": 45,
+      "folded": false,
+      "old_queue": "3f11030c24342220002220212424242424242424242424242424242424242424242424242424242424242424243f11030a163000",
+      "new_queue": "3f11030c24342220002220212424242424242424242424242424242424242424242424242424242424242424243f11030a163000",
+      "foreground_cycles": [
+        1299,
+        1536
+      ],
+      "UpdateScreen_cycles": null
+    },
+    {
+      "name": "high-alias-decline",
+      "prefix_bytes": 48,
+      "folded": false,
+      "old_queue": "3f11030c24347f11030304052220212424242424242424242424242424242424242424242424242424242424242424243f11030a163000",
+      "new_queue": "3f11030c24347f11030304052220212424242424242424242424242424242424242424242424242424242424242424243f11030a163000",
+      "foreground_cycles": [
+        1299,
+        1576
+      ],
+      "UpdateScreen_cycles": [
+        1004,
+        1004
+      ]
+    },
+    {
+      "name": "cross-3e-into-palette",
+      "prefix_bytes": 42,
+      "folded": false,
+      "old_queue": "3f11030c24343eff14070707070707070707070707070707070707070722200a242424242424242424243f11030a163000",
+      "new_queue": "3f11030c24343eff14070707070707070707070707070707070707070722200a242424242424242424243f11030a163000",
+      "foreground_cycles": [
+        1299,
+        1596
+      ],
+      "UpdateScreen_cycles": [
+        938,
+        938
+      ]
+    },
+    {
+      "name": "fake-header-in-payload",
+      "prefix_bytes": 43,
+      "folded": false,
+      "old_queue": "2220283f11030c2434242424242424242424242424242424242424242424242424242424242424242424243f11030a163000",
+      "new_queue": "2220283f11030c2434242424242424242424242424242424242424242424242424242424242424242424243f11030a163000",
+      "foreground_cycles": [
+        1060,
+        1269
+      ],
+      "UpdateScreen_cycles": [
+        785,
+        785
+      ]
+    },
+    {
+      "name": "missing-terminator-decline",
+      "prefix_bytes": 42,
+      "folded": false,
+      "old_queue": "3f11030c24340000000000000000000000000000000000000000000000000000000000000000000000003f11030a163000",
+      "new_queue": "3f11030c24340000000000000000000000000000000000000000000000000000000000000000000000003f11030a163000",
+      "foreground_cycles": [
+        997,
+        1227
+      ],
+      "UpdateScreen_cycles": null
+    },
+    {
+      "name": "truncated-prefix-decline",
+      "prefix_bytes": 42,
+      "folded": false,
+      "old_queue": "3f11030c243422203f2424242424242424242424242424242424242424242424242424242424242424243f11030a163000",
+      "new_queue": "3f11030c243422203f2424242424242424242424242424242424242424242424242424242424242424243f11030a163000",
+      "foreground_cycles": [
+        1039,
+        1304
+      ],
+      "UpdateScreen_cycles": null
+    },
+    {
+      "name": "capacity64-refusal",
+      "prefix_bytes": 64,
+      "folded": false,
+      "old_queue": "22203d2424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242400",
+      "new_queue": "22203d2424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242400",
+      "foreground_cycles": [
+        782,
+        790
+      ],
+      "UpdateScreen_cycles": [
+        915,
+        915
+      ]
+    },
+    {
+      "name": "capacity65-refusal",
+      "prefix_bytes": 65,
+      "folded": false,
+      "old_queue": "22203e242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242400",
+      "new_queue": "22203e242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242400",
+      "foreground_cycles": [
+        782,
+        790
+      ],
+      "UpdateScreen_cycles": [
+        931,
+        931
+      ]
+    },
+    {
+      "name": "literal-1",
+      "prefix_bytes": 10,
+      "folded": false,
+      "old_queue": "3f11030c2434222001033f11030a163000",
+      "new_queue": "3f11030c2434222001033f11030a163000",
+      "foreground_cycles": [
+        1231,
+        1262
+      ],
+      "UpdateScreen_cycles": [
+        445,
+        445
+      ]
+    },
+    {
+      "name": "literal-2",
+      "prefix_bytes": 11,
+      "folded": false,
+      "old_queue": "3f11030c243422200203143f11030a163000",
+      "new_queue": "3f11030c243422200203143f11030a163000",
+      "foreground_cycles": [
+        1231,
+        1262
+      ],
+      "UpdateScreen_cycles": [
+        461,
+        461
+      ]
+    },
+    {
+      "name": "literal-3",
+      "prefix_bytes": 12,
+      "folded": false,
+      "old_queue": "3f11030c24342220030314253f11030a163000",
+      "new_queue": "3f11030c24342220030314253f11030a163000",
+      "foreground_cycles": [
+        1231,
+        1262
+      ],
+      "UpdateScreen_cycles": [
+        477,
+        477
+      ]
+    },
+    {
+      "name": "literal-4",
+      "prefix_bytes": 13,
+      "folded": false,
+      "old_queue": "3f11030c2434222004031425363f11030a163000",
+      "new_queue": "3f11030c2434222004031425363f11030a163000",
+      "foreground_cycles": [
+        1231,
+        1262
+      ],
+      "UpdateScreen_cycles": [
+        493,
+        493
+      ]
+    },
+    {
+      "name": "literal-5",
+      "prefix_bytes": 14,
+      "folded": false,
+      "old_queue": "3f11030c243422200503142536473f11030a163000",
+      "new_queue": "3f11030c243422200503142536473f11030a163000",
+      "foreground_cycles": [
+        1231,
+        1262
+      ],
+      "UpdateScreen_cycles": [
+        509,
+        509
+      ]
+    },
+    {
+      "name": "literal-6",
+      "prefix_bytes": 15,
+      "folded": false,
+      "old_queue": "3f11030c24342220060314253647583f11030a163000",
+      "new_queue": "3f11030c24342220060314253647583f11030a163000",
+      "foreground_cycles": [
+        1231,
+        1262
+      ],
+      "UpdateScreen_cycles": [
+        525,
+        525
+      ]
+    },
+    {
+      "name": "literal-7",
+      "prefix_bytes": 16,
+      "folded": false,
+      "old_queue": "3f11030c2434222007031425364758693f11030a163000",
+      "new_queue": "3f11030c2434222007031425364758693f11030a163000",
+      "foreground_cycles": [
+        1231,
+        1262
+      ],
+      "UpdateScreen_cycles": [
+        541,
+        541
+      ]
+    },
+    {
+      "name": "literal-8",
+      "prefix_bytes": 17,
+      "folded": false,
+      "old_queue": "3f11030c2434222008031425364758697a3f11030a163000",
+      "new_queue": "3f11030c2434222008031425364758697a3f11030a163000",
+      "foreground_cycles": [
+        1231,
+        1262
+      ],
+      "UpdateScreen_cycles": [
+        533,
+        533
+      ]
+    },
+    {
+      "name": "literal-9",
+      "prefix_bytes": 18,
+      "folded": false,
+      "old_queue": "3f11030c2434222009031425364758697a8b3f11030a163000",
+      "new_queue": "3f11030c2434222009031425364758697a8b3f11030a163000",
+      "foreground_cycles": [
+        1231,
+        1262
+      ],
+      "UpdateScreen_cycles": [
+        549,
+        549
+      ]
+    },
+    {
+      "name": "literal-10",
+      "prefix_bytes": 19,
+      "folded": false,
+      "old_queue": "3f11030c243422200a031425364758697a8b9c3f11030a163000",
+      "new_queue": "3f11030c243422200a031425364758697a8b9c3f11030a163000",
+      "foreground_cycles": [
+        1231,
+        1262
+      ],
+      "UpdateScreen_cycles": [
+        565,
+        565
+      ]
+    },
+    {
+      "name": "literal-11",
+      "prefix_bytes": 20,
+      "folded": false,
+      "old_queue": "3f11030c243422200b031425364758697a8b9cad3f11030a163000",
+      "new_queue": "3f11030c243422200b031425364758697a8b9cad3f11030a163000",
+      "foreground_cycles": [
+        1231,
+        1262
+      ],
+      "UpdateScreen_cycles": [
+        581,
+        581
+      ]
+    },
+    {
+      "name": "literal-12",
+      "prefix_bytes": 21,
+      "folded": false,
+      "old_queue": "3f11030c243422200c031425364758697a8b9cadbe3f11030a163000",
+      "new_queue": "3f11030c243422200c031425364758697a8b9cadbe3f11030a163000",
+      "foreground_cycles": [
+        1231,
+        1262
+      ],
+      "UpdateScreen_cycles": [
+        597,
+        597
+      ]
+    },
+    {
+      "name": "literal-13",
+      "prefix_bytes": 22,
+      "folded": false,
+      "old_queue": "3f11030c243422200d031425364758697a8b9cadbecf3f11030a163000",
+      "new_queue": "3f11030c243422200d031425364758697a8b9cadbecf3f11030a163000",
+      "foreground_cycles": [
+        1231,
+        1262
+      ],
+      "UpdateScreen_cycles": [
+        613,
+        613
+      ]
+    },
+    {
+      "name": "literal-14",
+      "prefix_bytes": 23,
+      "folded": false,
+      "old_queue": "3f11030c243422200e031425364758697a8b9cadbecfe03f11030a163000",
+      "new_queue": "3f11030c243422200e031425364758697a8b9cadbecfe03f11030a163000",
+      "foreground_cycles": [
+        1231,
+        1262
+      ],
+      "UpdateScreen_cycles": [
+        629,
+        629
+      ]
+    },
+    {
+      "name": "literal-15",
+      "prefix_bytes": 24,
+      "folded": false,
+      "old_queue": "3f11030c243422200f031425364758697a8b9cadbecfe0f13f11030a163000",
+      "new_queue": "3f11030c243422200f031425364758697a8b9cadbecfe0f13f11030a163000",
+      "foreground_cycles": [
+        1231,
+        1262
+      ],
+      "UpdateScreen_cycles": [
+        645,
+        645
+      ]
+    },
+    {
+      "name": "literal-16",
+      "prefix_bytes": 25,
+      "folded": false,
+      "old_queue": "3f11030c2434222010031425364758697a8b9cadbecfe0f1023f11030a163000",
+      "new_queue": "3f11030c2434222010031425364758697a8b9cadbecfe0f1023f11030a163000",
+      "foreground_cycles": [
+        1231,
+        1262
+      ],
+      "UpdateScreen_cycles": [
+        634,
+        634
+      ]
+    },
+    {
+      "name": "literal-17",
+      "prefix_bytes": 26,
+      "folded": false,
+      "old_queue": "3f11030c2434222011031425364758697a8b9cadbecfe0f102133f11030a163000",
+      "new_queue": "3f11030c2434222011031425364758697a8b9cadbecfe0f102133f11030a163000",
+      "foreground_cycles": [
+        1231,
+        1262
+      ],
+      "UpdateScreen_cycles": [
+        650,
+        650
+      ]
+    },
+    {
+      "name": "literal-18",
+      "prefix_bytes": 27,
+      "folded": false,
+      "old_queue": "3f11030c2434222012031425364758697a8b9cadbecfe0f10213243f11030a163000",
+      "new_queue": "3f11030c2434222012031425364758697a8b9cadbecfe0f10213243f11030a163000",
+      "foreground_cycles": [
+        1231,
+        1262
+      ],
+      "UpdateScreen_cycles": [
+        666,
+        666
+      ]
+    },
+    {
+      "name": "literal-19",
+      "prefix_bytes": 28,
+      "folded": false,
+      "old_queue": "3f11030c2434222013031425364758697a8b9cadbecfe0f1021324353f11030a163000",
+      "new_queue": "3f11030c2434222013031425364758697a8b9cadbecfe0f1021324353f11030a163000",
+      "foreground_cycles": [
+        1231,
+        1262
+      ],
+      "UpdateScreen_cycles": [
+        682,
+        682
+      ]
+    },
+    {
+      "name": "literal-20",
+      "prefix_bytes": 29,
+      "folded": false,
+      "old_queue": "3f11030c2434222014031425364758697a8b9cadbecfe0f102132435463f11030a163000",
+      "new_queue": "3f11030c2434222014031425364758697a8b9cadbecfe0f102132435463f11030a163000",
+      "foreground_cycles": [
+        1231,
+        1262
+      ],
+      "UpdateScreen_cycles": [
+        698,
+        698
+      ]
+    },
+    {
+      "name": "literal-21",
+      "prefix_bytes": 30,
+      "folded": false,
+      "old_queue": "3f11030c2434222015031425364758697a8b9cadbecfe0f10213243546573f11030a163000",
+      "new_queue": "3f11030c2434222015031425364758697a8b9cadbecfe0f10213243546573f11030a163000",
+      "foreground_cycles": [
+        1231,
+        1262
+      ],
+      "UpdateScreen_cycles": [
+        714,
+        714
+      ]
+    },
+    {
+      "name": "literal-22",
+      "prefix_bytes": 31,
+      "folded": false,
+      "old_queue": "3f11030c2434222016031425364758697a8b9cadbecfe0f1021324354657683f11030a163000",
+      "new_queue": "3f11030c2434222016031425364758697a8b9cadbecfe0f1021324354657683f11030a163000",
+      "foreground_cycles": [
+        1231,
+        1262
+      ],
+      "UpdateScreen_cycles": [
+        730,
+        730
+      ]
+    },
+    {
+      "name": "literal-23",
+      "prefix_bytes": 32,
+      "folded": false,
+      "old_queue": "3f11030c2434222017031425364758697a8b9cadbecfe0f102132435465768793f11030a163000",
+      "new_queue": "3f11030c2434222017031425364758697a8b9cadbecfe0f102132435465768793f11030a163000",
+      "foreground_cycles": [
+        1231,
+        1262
+      ],
+      "UpdateScreen_cycles": [
+        746,
+        746
+      ]
+    },
+    {
+      "name": "literal-24",
+      "prefix_bytes": 33,
+      "folded": false,
+      "old_queue": "3f11030c2434222018031425364758697a8b9cadbecfe0f102132435465768798a3f11030a163000",
+      "new_queue": "3f11030c2434222018031425364758697a8b9cadbecfe0f102132435465768798a3f11030a163000",
+      "foreground_cycles": [
+        1231,
+        1262
+      ],
+      "UpdateScreen_cycles": [
+        735,
+        735
+      ]
+    },
+    {
+      "name": "literal-25",
+      "prefix_bytes": 34,
+      "folded": false,
+      "old_queue": "3f11030c2434222019031425364758697a8b9cadbecfe0f102132435465768798a9b3f11030a163000",
+      "new_queue": "3f11030c2434222019031425364758697a8b9cadbecfe0f102132435465768798a9b3f11030a163000",
+      "foreground_cycles": [
+        1231,
+        1262
+      ],
+      "UpdateScreen_cycles": [
+        751,
+        751
+      ]
+    },
+    {
+      "name": "literal-26",
+      "prefix_bytes": 35,
+      "folded": false,
+      "old_queue": "3f11030c243422201a031425364758697a8b9cadbecfe0f102132435465768798a9bac3f11030a163000",
+      "new_queue": "3f11030c243422201a031425364758697a8b9cadbecfe0f102132435465768798a9bac3f11030a163000",
+      "foreground_cycles": [
+        1231,
+        1262
+      ],
+      "UpdateScreen_cycles": [
+        767,
+        767
+      ]
+    },
+    {
+      "name": "literal-27",
+      "prefix_bytes": 36,
+      "folded": false,
+      "old_queue": "3f11030c243422201b031425364758697a8b9cadbecfe0f102132435465768798a9bacbd3f11030a163000",
+      "new_queue": "3f11030c243422201b031425364758697a8b9cadbecfe0f102132435465768798a9bacbd3f11030a163000",
+      "foreground_cycles": [
+        1231,
+        1262
+      ],
+      "UpdateScreen_cycles": [
+        783,
+        783
+      ]
+    },
+    {
+      "name": "literal-28",
+      "prefix_bytes": 37,
+      "folded": false,
+      "old_queue": "3f11030c243422201c031425364758697a8b9cadbecfe0f102132435465768798a9bacbdce3f11030a163000",
+      "new_queue": "3f11030c243422201c031425364758697a8b9cadbecfe0f102132435465768798a9bacbdce3f11030a163000",
+      "foreground_cycles": [
+        1231,
+        1262
+      ],
+      "UpdateScreen_cycles": [
+        799,
+        799
+      ]
+    },
+    {
+      "name": "literal-29",
+      "prefix_bytes": 38,
+      "folded": false,
+      "old_queue": "3f11030c243422201d031425364758697a8b9cadbecfe0f102132435465768798a9bacbdcedf3f11030a163000",
+      "new_queue": "3f11030c243422201d031425364758697a8b9cadbecfe0f102132435465768798a9bacbdcedf3f11030a163000",
+      "foreground_cycles": [
+        1231,
+        1262
+      ],
+      "UpdateScreen_cycles": [
+        815,
+        815
+      ]
+    },
+    {
+      "name": "literal-30",
+      "prefix_bytes": 39,
+      "folded": false,
+      "old_queue": "3f11030c243422201e031425364758697a8b9cadbecfe0f102132435465768798a9bacbdcedff03f11030a163000",
+      "new_queue": "3f11030c243422201e031425364758697a8b9cadbecfe0f102132435465768798a9bacbdcedff03f11030a163000",
+      "foreground_cycles": [
+        1231,
+        1262
+      ],
+      "UpdateScreen_cycles": [
+        831,
+        831
+      ]
+    },
+    {
+      "name": "literal-31",
+      "prefix_bytes": 40,
+      "folded": false,
+      "old_queue": "3f11030c243422201f031425364758697a8b9cadbecfe0f102132435465768798a9bacbdcedff0013f11030a163000",
+      "new_queue": "3f11030c243422201f031425364758697a8b9cadbecfe0f102132435465768798a9bacbdcedff0013f11030a163000",
+      "foreground_cycles": [
+        1231,
+        1262
+      ],
+      "UpdateScreen_cycles": [
+        847,
+        847
+      ]
+    },
+    {
+      "name": "literal-32",
+      "prefix_bytes": 41,
+      "folded": false,
+      "old_queue": "3f11030c2434222020031425364758697a8b9cadbecfe0f102132435465768798a9bacbdcedff001123f11030a163000",
+      "new_queue": "3f11030c2434222020031425364758697a8b9cadbecfe0f102132435465768798a9bacbdcedff001123f11030a163000",
+      "foreground_cycles": [
+        1231,
+        1262
+      ],
+      "UpdateScreen_cycles": [
+        836,
+        836
+      ]
+    },
+    {
+      "name": "literal-33",
+      "prefix_bytes": 42,
+      "folded": true,
+      "old_queue": "3f11030c2434222021031425364758697a8b9cadbecfe0f102132435465768798a9bacbdcedff00112233f11030a163000",
+      "new_queue": "222021031425364758697a8b9cadbecfe0f102132435465768798a9bacbdcedff00112233f11030a163000",
+      "foreground_cycles": [
+        1231,
+        2222
+      ],
+      "UpdateScreen_cycles": [
+        852,
+        700
+      ]
+    },
+    {
+      "name": "literal-34",
+      "prefix_bytes": 43,
+      "folded": true,
+      "old_queue": "3f11030c2434222022031425364758697a8b9cadbecfe0f102132435465768798a9bacbdcedff0011223343f11030a163000",
+      "new_queue": "222022031425364758697a8b9cadbecfe0f102132435465768798a9bacbdcedff0011223343f11030a163000",
+      "foreground_cycles": [
+        1231,
+        2242
+      ],
+      "UpdateScreen_cycles": [
+        868,
+        716
+      ]
+    },
+    {
+      "name": "literal-35",
+      "prefix_bytes": 44,
+      "folded": true,
+      "old_queue": "3f11030c2434222023031425364758697a8b9cadbecfe0f102132435465768798a9bacbdcedff001122334453f11030a163000",
+      "new_queue": "222023031425364758697a8b9cadbecfe0f102132435465768798a9bacbdcedff001122334453f11030a163000",
+      "foreground_cycles": [
+        1231,
+        2262
+      ],
+      "UpdateScreen_cycles": [
+        884,
+        732
+      ]
+    },
+    {
+      "name": "literal-36",
+      "prefix_bytes": 45,
+      "folded": true,
+      "old_queue": "3f11030c2434222024031425364758697a8b9cadbecfe0f102132435465768798a9bacbdcedff00112233445563f11030a163000",
+      "new_queue": "222024031425364758697a8b9cadbecfe0f102132435465768798a9bacbdcedff00112233445563f11030a163000",
+      "foreground_cycles": [
+        1231,
+        2282
+      ],
+      "UpdateScreen_cycles": [
+        900,
+        748
+      ]
+    },
+    {
+      "name": "literal-37",
+      "prefix_bytes": 46,
+      "folded": true,
+      "old_queue": "3f11030c2434222025031425364758697a8b9cadbecfe0f102132435465768798a9bacbdcedff0011223344556673f11030a163000",
+      "new_queue": "222025031425364758697a8b9cadbecfe0f102132435465768798a9bacbdcedff0011223344556673f11030a163000",
+      "foreground_cycles": [
+        1231,
+        2302
+      ],
+      "UpdateScreen_cycles": [
+        916,
+        764
+      ]
+    },
+    {
+      "name": "literal-38",
+      "prefix_bytes": 47,
+      "folded": true,
+      "old_queue": "3f11030c2434222026031425364758697a8b9cadbecfe0f102132435465768798a9bacbdcedff001122334455667783f11030a163000",
+      "new_queue": "222026031425364758697a8b9cadbecfe0f102132435465768798a9bacbdcedff001122334455667783f11030a163000",
+      "foreground_cycles": [
+        1231,
+        2322
+      ],
+      "UpdateScreen_cycles": [
+        932,
+        780
+      ]
+    },
+    {
+      "name": "literal-39",
+      "prefix_bytes": 48,
+      "folded": true,
+      "old_queue": "3f11030c2434222027031425364758697a8b9cadbecfe0f102132435465768798a9bacbdcedff00112233445566778893f11030a163000",
+      "new_queue": "222027031425364758697a8b9cadbecfe0f102132435465768798a9bacbdcedff00112233445566778893f11030a163000",
+      "foreground_cycles": [
+        1231,
+        2342
+      ],
+      "UpdateScreen_cycles": [
+        948,
+        796
+      ]
+    },
+    {
+      "name": "literal-40",
+      "prefix_bytes": 49,
+      "folded": true,
+      "old_queue": "3f11030c2434222028031425364758697a8b9cadbecfe0f102132435465768798a9bacbdcedff00112233445566778899a3f11030a163000",
+      "new_queue": "222028031425364758697a8b9cadbecfe0f102132435465768798a9bacbdcedff00112233445566778899a3f11030a163000",
+      "foreground_cycles": [
+        1231,
+        2362
+      ],
+      "UpdateScreen_cycles": [
+        937,
+        785
+      ]
+    },
+    {
+      "name": "literal-41",
+      "prefix_bytes": 50,
+      "folded": true,
+      "old_queue": "3f11030c2434222029031425364758697a8b9cadbecfe0f102132435465768798a9bacbdcedff00112233445566778899aab3f11030a163000",
+      "new_queue": "222029031425364758697a8b9cadbecfe0f102132435465768798a9bacbdcedff00112233445566778899aab3f11030a163000",
+      "foreground_cycles": [
+        1231,
+        2382
+      ],
+      "UpdateScreen_cycles": [
+        953,
+        801
+      ]
+    },
+    {
+      "name": "literal-42",
+      "prefix_bytes": 51,
+      "folded": true,
+      "old_queue": "3f11030c243422202a031425364758697a8b9cadbecfe0f102132435465768798a9bacbdcedff00112233445566778899aabbc3f11030a163000",
+      "new_queue": "22202a031425364758697a8b9cadbecfe0f102132435465768798a9bacbdcedff00112233445566778899aabbc3f11030a163000",
+      "foreground_cycles": [
+        1231,
+        2402
+      ],
+      "UpdateScreen_cycles": [
+        969,
+        817
+      ]
+    },
+    {
+      "name": "literal-43",
+      "prefix_bytes": 52,
+      "folded": true,
+      "old_queue": "3f11030c243422202b031425364758697a8b9cadbecfe0f102132435465768798a9bacbdcedff00112233445566778899aabbccd3f11030a163000",
+      "new_queue": "22202b031425364758697a8b9cadbecfe0f102132435465768798a9bacbdcedff00112233445566778899aabbccd3f11030a163000",
+      "foreground_cycles": [
+        1231,
+        2422
+      ],
+      "UpdateScreen_cycles": [
+        985,
+        833
+      ]
+    },
+    {
+      "name": "literal-44",
+      "prefix_bytes": 53,
+      "folded": true,
+      "old_queue": "3f11030c243422202c031425364758697a8b9cadbecfe0f102132435465768798a9bacbdcedff00112233445566778899aabbccdde3f11030a163000",
+      "new_queue": "22202c031425364758697a8b9cadbecfe0f102132435465768798a9bacbdcedff00112233445566778899aabbccdde3f11030a163000",
+      "foreground_cycles": [
+        1231,
+        2442
+      ],
+      "UpdateScreen_cycles": [
+        1001,
+        849
+      ]
+    },
+    {
+      "name": "literal-45",
+      "prefix_bytes": 54,
+      "folded": true,
+      "old_queue": "3f11030c243422202d031425364758697a8b9cadbecfe0f102132435465768798a9bacbdcedff00112233445566778899aabbccddeef3f11030a163000",
+      "new_queue": "22202d031425364758697a8b9cadbecfe0f102132435465768798a9bacbdcedff00112233445566778899aabbccddeef3f11030a163000",
+      "foreground_cycles": [
+        1231,
+        2462
+      ],
+      "UpdateScreen_cycles": [
+        1017,
+        865
+      ]
+    },
+    {
+      "name": "literal-46",
+      "prefix_bytes": 55,
+      "folded": true,
+      "old_queue": "3f11030c243422202e031425364758697a8b9cadbecfe0f102132435465768798a9bacbdcedff00112233445566778899aabbccddeef003f11030a163000",
+      "new_queue": "22202e031425364758697a8b9cadbecfe0f102132435465768798a9bacbdcedff00112233445566778899aabbccddeef003f11030a163000",
+      "foreground_cycles": [
+        1231,
+        2482
+      ],
+      "UpdateScreen_cycles": [
+        1033,
+        881
+      ]
+    },
+    {
+      "name": "literal-47",
+      "prefix_bytes": 56,
+      "folded": true,
+      "old_queue": "3f11030c243422202f031425364758697a8b9cadbecfe0f102132435465768798a9bacbdcedff00112233445566778899aabbccddeef00113f11030a163000",
+      "new_queue": "22202f031425364758697a8b9cadbecfe0f102132435465768798a9bacbdcedff00112233445566778899aabbccddeef00113f11030a163000",
+      "foreground_cycles": [
+        1231,
+        2502
+      ],
+      "UpdateScreen_cycles": [
+        1049,
+        897
+      ]
+    }
+  ],
+  "actual_observed_packet": {
+    "calls": [
+      {
+        "phase": 2,
+        "foreground_cycles": [
+          992,
+          1023
+        ],
+        "queued_bytes": [
+          6,
+          6
+        ]
+      },
+      {
+        "phase": 0,
+        "foreground_cycles": [
+          1163,
+          1078
+        ],
+        "queued_bytes": [
+          12,
+          6
+        ]
+      },
+      {
+        "phase": 1,
+        "foreground_cycles": [
+          1754,
+          3069
+        ],
+        "queued_bytes": [
+          55,
+          43
+        ]
+      }
+    ],
+    "queue_hex": [
+      "3f11030c24343f110306273822540224242274022424206d020004206206240000020500207a030304003f0c040f27170f3f11030a163000",
+      "22540224242274022424206d020004206206240000020500207a030304003f0c040f27170f3f11030a163000"
+    ],
+    "final_offsets": [
+      55,
+      43
+    ],
+    "PPUDATA_writes": [
+      28,
+      22
+    ],
+    "UpdateScreen_cycles": [
+      1405,
+      1101
+    ],
+    "NMI_component_saved": 304,
+    "total_foreground_delta": 1261,
+    "final_PPU_image_equal": true,
+    "ordered_non_target_equal": true
+  },
+  "IRQ": {
+    "actual_reached_instruction_boundaries": 160,
+    "IRQ_cycles": [
+      120
+    ],
+    "AXYP_SP_all_nonstack_RAM_SMC_banks_and_nonIRQ_bus_exact": true,
+    "hardware_vector_and_actual_RTI": true,
+    "scope": "MMC5 scanline IRQ at every reached clone/parser instruction in the actual final star-prefix call. NMI excluded by genuine main producer NmiDisableFF in gameplay; no native timing certification."
+  },
+  "downstream_liveness": {
+    "actual_source_call_sites": 3,
+    "executed_full_continuations": 10,
+    "cases": [
+      {
+        "actual_caller": "GameCoreRoutine",
+        "task": 3,
+        "prefix_bytes": 6,
+        "baseline_return_registers": [
+          0,
+          12,
+          12,
+          3
+        ],
+        "candidate_return_registers": [
+          0,
+          6,
+          6,
+          3
+        ],
+        "baseline_first_definitions": {
+          "X": {
+            "kind": "definition",
+            "pc": [
+              34004,
+              126
+            ],
+            "opcode": "LDX",
+            "mode": "imm"
+          },
+          "Y": {
+            "kind": "definition",
+            "pc": [
+              45189,
+              26
+            ],
+            "opcode": "LDY",
+            "mode": "imm"
+          },
+          "R0": {
+            "kind": "definition",
+            "pc": [
+              41978,
+              4
+            ]
+          }
+        },
+        "candidate_first_definitions": {
+          "X": {
+            "kind": "definition",
+            "pc": [
+              34004,
+              126
+            ],
+            "opcode": "LDX",
+            "mode": "imm"
+          },
+          "Y": {
+            "kind": "definition",
+            "pc": [
+              45189,
+              26
+            ],
+            "opcode": "LDY",
+            "mode": "imm"
+          },
+          "R0": {
+            "kind": "definition",
+            "pc": [
+              41978,
+              4
+            ]
+          }
+        },
+        "full_caller_cycles": [
+          15787,
+          15702
+        ],
+        "queue_bytes": [
+          19,
+          13
+        ]
+      },
+      {
+        "actual_caller": "GameCoreRoutine",
+        "task": 3,
+        "prefix_bytes": 49,
+        "baseline_return_registers": [
+          0,
+          55,
+          55,
+          3
+        ],
+        "candidate_return_registers": [
+          0,
+          49,
+          49,
+          3
+        ],
+        "baseline_first_definitions": {
+          "X": {
+            "kind": "definition",
+            "pc": [
+              34004,
+              126
+            ],
+            "opcode": "LDX",
+            "mode": "imm"
+          },
+          "Y": {
+            "kind": "definition",
+            "pc": [
+              45189,
+              26
+            ],
+            "opcode": "LDY",
+            "mode": "imm"
+          },
+          "R0": {
+            "kind": "definition",
+            "pc": [
+              41978,
+              4
+            ]
+          }
+        },
+        "candidate_first_definitions": {
+          "X": {
+            "kind": "definition",
+            "pc": [
+              34004,
+              126
+            ],
+            "opcode": "LDX",
+            "mode": "imm"
+          },
+          "Y": {
+            "kind": "definition",
+            "pc": [
+              45189,
+              26
+            ],
+            "opcode": "LDY",
+            "mode": "imm"
+          },
+          "R0": {
+            "kind": "definition",
+            "pc": [
+              41978,
+              4
+            ]
+          }
+        },
+        "full_caller_cycles": [
+          16089,
+          17671
+        ],
+        "queue_bytes": [
+          55,
+          49
+        ]
+      },
+      {
+        "actual_caller": "VictoryMode",
+        "task": 0,
+        "prefix_bytes": 6,
+        "baseline_return_registers": [
+          96,
+          12,
+          12,
+          1
+        ],
+        "candidate_return_registers": [
+          96,
+          6,
+          6,
+          1
+        ],
+        "baseline_first_definitions": {
+          "X": {
+            "kind": "definition",
+            "pc": [
+              45160,
+              26
+            ],
+            "opcode": "LDX",
+            "mode": "imm"
+          },
+          "Y": {
+            "kind": "definition",
+            "pc": [
+              45189,
+              26
+            ],
+            "opcode": "LDY",
+            "mode": "imm"
+          },
+          "R0": {
+            "kind": "definition",
+            "pc": [
+              41978,
+              4
+            ]
+          }
+        },
+        "candidate_first_definitions": {
+          "X": {
+            "kind": "definition",
+            "pc": [
+              45160,
+              26
+            ],
+            "opcode": "LDX",
+            "mode": "imm"
+          },
+          "Y": {
+            "kind": "definition",
+            "pc": [
+              45189,
+              26
+            ],
+            "opcode": "LDY",
+            "mode": "imm"
+          },
+          "R0": {
+            "kind": "definition",
+            "pc": [
+              41978,
+              4
+            ]
+          }
+        },
+        "full_caller_cycles": [
+          9584,
+          9499
+        ],
+        "queue_bytes": [
+          12,
+          6
+        ]
+      },
+      {
+        "actual_caller": "VictoryMode",
+        "task": 3,
+        "prefix_bytes": 6,
+        "baseline_return_registers": [
+          96,
+          12,
+          12,
+          1
+        ],
+        "candidate_return_registers": [
+          96,
+          6,
+          6,
+          1
+        ],
+        "baseline_first_definitions": {
+          "X": {
+            "kind": "definition",
+            "pc": [
+              45160,
+              26
+            ],
+            "opcode": "LDX",
+            "mode": "imm"
+          },
+          "Y": {
+            "kind": "definition",
+            "pc": [
+              45189,
+              26
+            ],
+            "opcode": "LDY",
+            "mode": "imm"
+          },
+          "R0": {
+            "kind": "definition",
+            "pc": [
+              41978,
+              4
+            ]
+          }
+        },
+        "candidate_first_definitions": {
+          "X": {
+            "kind": "definition",
+            "pc": [
+              45160,
+              26
+            ],
+            "opcode": "LDX",
+            "mode": "imm"
+          },
+          "Y": {
+            "kind": "definition",
+            "pc": [
+              45189,
+              26
+            ],
+            "opcode": "LDY",
+            "mode": "imm"
+          },
+          "R0": {
+            "kind": "definition",
+            "pc": [
+              41978,
+              4
+            ]
+          }
+        },
+        "full_caller_cycles": [
+          8673,
+          8588
+        ],
+        "queue_bytes": [
+          12,
+          6
+        ]
+      },
+      {
+        "actual_caller": "VictoryMode",
+        "task": 0,
+        "prefix_bytes": 49,
+        "baseline_return_registers": [
+          96,
+          55,
+          55,
+          1
+        ],
+        "candidate_return_registers": [
+          96,
+          49,
+          49,
+          1
+        ],
+        "baseline_first_definitions": {
+          "X": {
+            "kind": "definition",
+            "pc": [
+              45160,
+              26
+            ],
+            "opcode": "LDX",
+            "mode": "imm"
+          },
+          "Y": {
+            "kind": "definition",
+            "pc": [
+              45189,
+              26
+            ],
+            "opcode": "LDY",
+            "mode": "imm"
+          },
+          "R0": {
+            "kind": "definition",
+            "pc": [
+              41978,
+              4
+            ]
+          }
+        },
+        "candidate_first_definitions": {
+          "X": {
+            "kind": "definition",
+            "pc": [
+              45160,
+              26
+            ],
+            "opcode": "LDX",
+            "mode": "imm"
+          },
+          "Y": {
+            "kind": "definition",
+            "pc": [
+              45189,
+              26
+            ],
+            "opcode": "LDY",
+            "mode": "imm"
+          },
+          "R0": {
+            "kind": "definition",
+            "pc": [
+              41978,
+              4
+            ]
+          }
+        },
+        "full_caller_cycles": [
+          10175,
+          11757
+        ],
+        "queue_bytes": [
+          55,
+          49
+        ]
+      },
+      {
+        "actual_caller": "VictoryMode",
+        "task": 3,
+        "prefix_bytes": 49,
+        "baseline_return_registers": [
+          96,
+          55,
+          55,
+          1
+        ],
+        "candidate_return_registers": [
+          96,
+          49,
+          49,
+          1
+        ],
+        "baseline_first_definitions": {
+          "X": {
+            "kind": "definition",
+            "pc": [
+              45160,
+              26
+            ],
+            "opcode": "LDX",
+            "mode": "imm"
+          },
+          "Y": {
+            "kind": "definition",
+            "pc": [
+              45189,
+              26
+            ],
+            "opcode": "LDY",
+            "mode": "imm"
+          },
+          "R0": {
+            "kind": "definition",
+            "pc": [
+              41978,
+              4
+            ]
+          }
+        },
+        "candidate_first_definitions": {
+          "X": {
+            "kind": "definition",
+            "pc": [
+              45160,
+              26
+            ],
+            "opcode": "LDX",
+            "mode": "imm"
+          },
+          "Y": {
+            "kind": "definition",
+            "pc": [
+              45189,
+              26
+            ],
+            "opcode": "LDY",
+            "mode": "imm"
+          },
+          "R0": {
+            "kind": "definition",
+            "pc": [
+              41978,
+              4
+            ]
+          }
+        },
+        "full_caller_cycles": [
+          9264,
+          10846
+        ],
+        "queue_bytes": [
+          55,
+          49
+        ]
+      },
+      {
+        "actual_caller": "NativeRareVictoryModeCore",
+        "task": 0,
+        "prefix_bytes": 6,
+        "baseline_return_registers": [
+          96,
+          12,
+          12,
+          1
+        ],
+        "candidate_return_registers": [
+          96,
+          6,
+          6,
+          1
+        ],
+        "baseline_first_definitions": {
+          "X": {
+            "kind": "definition",
+            "pc": [
+              45160,
+              26
+            ],
+            "opcode": "LDX",
+            "mode": "imm"
+          },
+          "Y": {
+            "kind": "definition",
+            "pc": [
+              45189,
+              26
+            ],
+            "opcode": "LDY",
+            "mode": "imm"
+          },
+          "R0": {
+            "kind": "definition",
+            "pc": [
+              41978,
+              4
+            ]
+          }
+        },
+        "candidate_first_definitions": {
+          "X": {
+            "kind": "definition",
+            "pc": [
+              45160,
+              26
+            ],
+            "opcode": "LDX",
+            "mode": "imm"
+          },
+          "Y": {
+            "kind": "definition",
+            "pc": [
+              45189,
+              26
+            ],
+            "opcode": "LDY",
+            "mode": "imm"
+          },
+          "R0": {
+            "kind": "definition",
+            "pc": [
+              41978,
+              4
+            ]
+          }
+        },
+        "full_caller_cycles": [
+          9431,
+          9346
+        ],
+        "queue_bytes": [
+          12,
+          6
+        ]
+      },
+      {
+        "actual_caller": "NativeRareVictoryModeCore",
+        "task": 3,
+        "prefix_bytes": 6,
+        "baseline_return_registers": [
+          96,
+          12,
+          12,
+          1
+        ],
+        "candidate_return_registers": [
+          96,
+          6,
+          6,
+          1
+        ],
+        "baseline_first_definitions": {
+          "X": {
+            "kind": "definition",
+            "pc": [
+              45160,
+              26
+            ],
+            "opcode": "LDX",
+            "mode": "imm"
+          },
+          "Y": {
+            "kind": "definition",
+            "pc": [
+              45189,
+              26
+            ],
+            "opcode": "LDY",
+            "mode": "imm"
+          },
+          "R0": {
+            "kind": "definition",
+            "pc": [
+              41978,
+              4
+            ]
+          }
+        },
+        "candidate_first_definitions": {
+          "X": {
+            "kind": "definition",
+            "pc": [
+              45160,
+              26
+            ],
+            "opcode": "LDX",
+            "mode": "imm"
+          },
+          "Y": {
+            "kind": "definition",
+            "pc": [
+              45189,
+              26
+            ],
+            "opcode": "LDY",
+            "mode": "imm"
+          },
+          "R0": {
+            "kind": "definition",
+            "pc": [
+              41978,
+              4
+            ]
+          }
+        },
+        "full_caller_cycles": [
+          8520,
+          8435
+        ],
+        "queue_bytes": [
+          12,
+          6
+        ]
+      },
+      {
+        "actual_caller": "NativeRareVictoryModeCore",
+        "task": 0,
+        "prefix_bytes": 49,
+        "baseline_return_registers": [
+          96,
+          55,
+          55,
+          1
+        ],
+        "candidate_return_registers": [
+          96,
+          49,
+          49,
+          1
+        ],
+        "baseline_first_definitions": {
+          "X": {
+            "kind": "definition",
+            "pc": [
+              45160,
+              26
+            ],
+            "opcode": "LDX",
+            "mode": "imm"
+          },
+          "Y": {
+            "kind": "definition",
+            "pc": [
+              45189,
+              26
+            ],
+            "opcode": "LDY",
+            "mode": "imm"
+          },
+          "R0": {
+            "kind": "definition",
+            "pc": [
+              41978,
+              4
+            ]
+          }
+        },
+        "candidate_first_definitions": {
+          "X": {
+            "kind": "definition",
+            "pc": [
+              45160,
+              26
+            ],
+            "opcode": "LDX",
+            "mode": "imm"
+          },
+          "Y": {
+            "kind": "definition",
+            "pc": [
+              45189,
+              26
+            ],
+            "opcode": "LDY",
+            "mode": "imm"
+          },
+          "R0": {
+            "kind": "definition",
+            "pc": [
+              41978,
+              4
+            ]
+          }
+        },
+        "full_caller_cycles": [
+          10022,
+          11604
+        ],
+        "queue_bytes": [
+          55,
+          49
+        ]
+      },
+      {
+        "actual_caller": "NativeRareVictoryModeCore",
+        "task": 3,
+        "prefix_bytes": 49,
+        "baseline_return_registers": [
+          96,
+          55,
+          55,
+          1
+        ],
+        "candidate_return_registers": [
+          96,
+          49,
+          49,
+          1
+        ],
+        "baseline_first_definitions": {
+          "X": {
+            "kind": "definition",
+            "pc": [
+              45160,
+              26
+            ],
+            "opcode": "LDX",
+            "mode": "imm"
+          },
+          "Y": {
+            "kind": "definition",
+            "pc": [
+              45189,
+              26
+            ],
+            "opcode": "LDY",
+            "mode": "imm"
+          },
+          "R0": {
+            "kind": "definition",
+            "pc": [
+              41978,
+              4
+            ]
+          }
+        },
+        "candidate_first_definitions": {
+          "X": {
+            "kind": "definition",
+            "pc": [
+              45160,
+              26
+            ],
+            "opcode": "LDX",
+            "mode": "imm"
+          },
+          "Y": {
+            "kind": "definition",
+            "pc": [
+              45189,
+              26
+            ],
+            "opcode": "LDY",
+            "mode": "imm"
+          },
+          "R0": {
+            "kind": "definition",
+            "pc": [
+              41978,
+              4
+            ]
+          }
+        },
+        "full_caller_cycles": [
+          9111,
+          10693
+        ],
+        "queue_bytes": [
+          55,
+          49
+        ]
+      }
+    ],
+    "IRQ_R0_read": "Expanded IrqScrollSplit BIT R0 is a fixed timing pad; no conditional branch/store consumes its N/V/Z before overwritten or RTI. Full hardware-vector157-boundary equality independently proves the actual IRQ output/register/bank behavior.",
+    "contract": "Changed queue representation legitimately changes dead terminal X/Y/R0 from ProtoFixQueuedPalette. Every actual compiled caller continuation above defines these before any read, or does not access them before returning; live A/P/SP/SMC/mapper and gameplay/presentation outputs remain exact. This explicit downstream proof replaces the failed overbroad terminal-scratch equality assertion; no SMC difference is masked."
+  },
+  "source_states": [
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "PlayerStatus": 0,
+        "CrossoverBehaviorVersion": 0,
+        "GameEngineSubroutine": 8,
+        "Player_State": 0,
+        "Player_X_Speed": 0,
+        "MegaManShotPose": 0,
+        "PlayerFacingDir": 1
+      },
+      "old_cycles": 768,
+      "new_cycles": 800,
+      "delta": 32
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "PlayerStatus": 0,
+        "CrossoverBehaviorVersion": 0,
+        "GameEngineSubroutine": 8,
+        "Player_State": 1,
+        "Player_X_Speed": 24,
+        "MegaManShotPose": 0,
+        "PlayerFacingDir": 2
+      },
+      "old_cycles": 764,
+      "new_cycles": 796,
+      "delta": 32
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "PlayerStatus": 0,
+        "CrossoverBehaviorVersion": 0,
+        "GameEngineSubroutine": 10,
+        "Player_State": 0,
+        "Player_X_Speed": 0,
+        "MegaManShotPose": 1,
+        "PlayerFacingDir": 1
+      },
+      "old_cycles": 707,
+      "new_cycles": 739,
+      "delta": 32
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "PlayerStatus": 0,
+        "CrossoverBehaviorVersion": 0,
+        "GameEngineSubroutine": 10,
+        "Player_State": 1,
+        "Player_X_Speed": 24,
+        "MegaManShotPose": 1,
+        "PlayerFacingDir": 2
+      },
+      "old_cycles": 719,
+      "new_cycles": 751,
+      "delta": 32
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "PlayerStatus": 0,
+        "CrossoverBehaviorVersion": 0,
+        "GameEngineSubroutine": 11,
+        "Player_State": 0,
+        "Player_X_Speed": 0,
+        "MegaManShotPose": 1,
+        "PlayerFacingDir": 2
+      },
+      "old_cycles": 279,
+      "new_cycles": 364,
+      "delta": 85
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "PlayerStatus": 0,
+        "CrossoverBehaviorVersion": 0,
+        "GameEngineSubroutine": 11,
+        "Player_State": 0,
+        "Player_X_Speed": 24,
+        "MegaManShotPose": 0,
+        "PlayerFacingDir": 1
+      },
+      "old_cycles": 279,
+      "new_cycles": 364,
+      "delta": 85
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "PlayerStatus": 0,
+        "CrossoverBehaviorVersion": 0,
+        "GameEngineSubroutine": 11,
+        "Player_State": 3,
+        "Player_X_Speed": 0,
+        "MegaManShotPose": 0,
+        "PlayerFacingDir": 2
+      },
+      "old_cycles": 279,
+      "new_cycles": 364,
+      "delta": 85
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "PlayerStatus": 0,
+        "CrossoverBehaviorVersion": 0,
+        "GameEngineSubroutine": 11,
+        "Player_State": 3,
+        "Player_X_Speed": 24,
+        "MegaManShotPose": 0,
+        "PlayerFacingDir": 1
+      },
+      "old_cycles": 279,
+      "new_cycles": 364,
+      "delta": 85
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "PlayerStatus": 0,
+        "CrossoverBehaviorVersion": 1,
+        "GameEngineSubroutine": 8,
+        "Player_State": 0,
+        "Player_X_Speed": 24,
+        "MegaManShotPose": 1,
+        "PlayerFacingDir": 1
+      },
+      "old_cycles": 791,
+      "new_cycles": 823,
+      "delta": 32
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "PlayerStatus": 0,
+        "CrossoverBehaviorVersion": 1,
+        "GameEngineSubroutine": 8,
+        "Player_State": 3,
+        "Player_X_Speed": 0,
+        "MegaManShotPose": 1,
+        "PlayerFacingDir": 2
+      },
+      "old_cycles": 783,
+      "new_cycles": 815,
+      "delta": 32
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "PlayerStatus": 0,
+        "CrossoverBehaviorVersion": 1,
+        "GameEngineSubroutine": 10,
+        "Player_State": 1,
+        "Player_X_Speed": 0,
+        "MegaManShotPose": 0,
+        "PlayerFacingDir": 1
+      },
+      "old_cycles": 720,
+      "new_cycles": 752,
+      "delta": 32
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "PlayerStatus": 0,
+        "CrossoverBehaviorVersion": 1,
+        "GameEngineSubroutine": 10,
+        "Player_State": 3,
+        "Player_X_Speed": 24,
+        "MegaManShotPose": 0,
+        "PlayerFacingDir": 2
+      },
+      "old_cycles": 720,
+      "new_cycles": 752,
+      "delta": 32
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "PlayerStatus": 0,
+        "CrossoverBehaviorVersion": 1,
+        "GameEngineSubroutine": 11,
+        "Player_State": 1,
+        "Player_X_Speed": 0,
+        "MegaManShotPose": 1,
+        "PlayerFacingDir": 1
+      },
+      "old_cycles": 285,
+      "new_cycles": 370,
+      "delta": 85
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "PlayerStatus": 0,
+        "CrossoverBehaviorVersion": 1,
+        "GameEngineSubroutine": 11,
+        "Player_State": 3,
+        "Player_X_Speed": 0,
+        "MegaManShotPose": 0,
+        "PlayerFacingDir": 1
+      },
+      "old_cycles": 285,
+      "new_cycles": 370,
+      "delta": 85
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "PlayerStatus": 0,
+        "CrossoverBehaviorVersion": 1,
+        "GameEngineSubroutine": 11,
+        "Player_State": 3,
+        "Player_X_Speed": 24,
+        "MegaManShotPose": 1,
+        "PlayerFacingDir": 2
+      },
+      "old_cycles": 285,
+      "new_cycles": 370,
+      "delta": 85
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "PlayerStatus": 1,
+        "CrossoverBehaviorVersion": 0,
+        "GameEngineSubroutine": 8,
+        "Player_State": 1,
+        "Player_X_Speed": 24,
+        "MegaManShotPose": 0,
+        "PlayerFacingDir": 1
+      },
+      "old_cycles": 745,
+      "new_cycles": 777,
+      "delta": 32
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "PlayerStatus": 1,
+        "CrossoverBehaviorVersion": 0,
+        "GameEngineSubroutine": 10,
+        "Player_State": 0,
+        "Player_X_Speed": 0,
+        "MegaManShotPose": 0,
+        "PlayerFacingDir": 2
+      },
+      "old_cycles": 700,
+      "new_cycles": 732,
+      "delta": 32
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "PlayerStatus": 1,
+        "CrossoverBehaviorVersion": 0,
+        "GameEngineSubroutine": 10,
+        "Player_State": 1,
+        "Player_X_Speed": 24,
+        "MegaManShotPose": 1,
+        "PlayerFacingDir": 1
+      },
+      "old_cycles": 700,
+      "new_cycles": 732,
+      "delta": 32
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "PlayerStatus": 1,
+        "CrossoverBehaviorVersion": 0,
+        "GameEngineSubroutine": 11,
+        "Player_State": 0,
+        "Player_X_Speed": 0,
+        "MegaManShotPose": 1,
+        "PlayerFacingDir": 2
+      },
+      "old_cycles": 279,
+      "new_cycles": 364,
+      "delta": 85
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "PlayerStatus": 1,
+        "CrossoverBehaviorVersion": 0,
+        "GameEngineSubroutine": 11,
+        "Player_State": 1,
+        "Player_X_Speed": 24,
+        "MegaManShotPose": 0,
+        "PlayerFacingDir": 1
+      },
+      "old_cycles": 279,
+      "new_cycles": 364,
+      "delta": 85
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "PlayerStatus": 1,
+        "CrossoverBehaviorVersion": 0,
+        "GameEngineSubroutine": 11,
+        "Player_State": 3,
+        "Player_X_Speed": 0,
+        "MegaManShotPose": 0,
+        "PlayerFacingDir": 1
+      },
+      "old_cycles": 279,
+      "new_cycles": 364,
+      "delta": 85
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "PlayerStatus": 1,
+        "CrossoverBehaviorVersion": 1,
+        "GameEngineSubroutine": 8,
+        "Player_State": 0,
+        "Player_X_Speed": 24,
+        "MegaManShotPose": 0,
+        "PlayerFacingDir": 2
+      },
+      "old_cycles": 759,
+      "new_cycles": 791,
+      "delta": 32
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "PlayerStatus": 1,
+        "CrossoverBehaviorVersion": 1,
+        "GameEngineSubroutine": 8,
+        "Player_State": 3,
+        "Player_X_Speed": 0,
+        "MegaManShotPose": 1,
+        "PlayerFacingDir": 1
+      },
+      "old_cycles": 764,
+      "new_cycles": 796,
+      "delta": 32
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "PlayerStatus": 1,
+        "CrossoverBehaviorVersion": 1,
+        "GameEngineSubroutine": 10,
+        "Player_State": 0,
+        "Player_X_Speed": 24,
+        "MegaManShotPose": 1,
+        "PlayerFacingDir": 2
+      },
+      "old_cycles": 701,
+      "new_cycles": 733,
+      "delta": 32
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "PlayerStatus": 1,
+        "CrossoverBehaviorVersion": 1,
+        "GameEngineSubroutine": 10,
+        "Player_State": 3,
+        "Player_X_Speed": 24,
+        "MegaManShotPose": 0,
+        "PlayerFacingDir": 1
+      },
+      "old_cycles": 701,
+      "new_cycles": 733,
+      "delta": 32
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "PlayerStatus": 1,
+        "CrossoverBehaviorVersion": 1,
+        "GameEngineSubroutine": 11,
+        "Player_State": 1,
+        "Player_X_Speed": 0,
+        "MegaManShotPose": 0,
+        "PlayerFacingDir": 1
+      },
+      "old_cycles": 285,
+      "new_cycles": 370,
+      "delta": 85
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "PlayerStatus": 1,
+        "CrossoverBehaviorVersion": 1,
+        "GameEngineSubroutine": 11,
+        "Player_State": 1,
+        "Player_X_Speed": 0,
+        "MegaManShotPose": 0,
+        "PlayerFacingDir": 2
+      },
+      "old_cycles": 285,
+      "new_cycles": 370,
+      "delta": 85
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "PlayerStatus": 1,
+        "CrossoverBehaviorVersion": 1,
+        "GameEngineSubroutine": 11,
+        "Player_State": 3,
+        "Player_X_Speed": 24,
+        "MegaManShotPose": 1,
+        "PlayerFacingDir": 1
+      },
+      "old_cycles": 285,
+      "new_cycles": 370,
+      "delta": 85
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "PlayerStatus": 2,
+        "CrossoverBehaviorVersion": 0,
+        "GameEngineSubroutine": 8,
+        "Player_State": 1,
+        "Player_X_Speed": 0,
+        "MegaManShotPose": 1,
+        "PlayerFacingDir": 2
+      },
+      "old_cycles": 760,
+      "new_cycles": 794,
+      "delta": 34
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "PlayerStatus": 2,
+        "CrossoverBehaviorVersion": 0,
+        "GameEngineSubroutine": 10,
+        "Player_State": 0,
+        "Player_X_Speed": 0,
+        "MegaManShotPose": 0,
+        "PlayerFacingDir": 1
+      },
+      "old_cycles": 704,
+      "new_cycles": 738,
+      "delta": 34
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "PlayerStatus": 2,
+        "CrossoverBehaviorVersion": 0,
+        "GameEngineSubroutine": 10,
+        "Player_State": 1,
+        "Player_X_Speed": 24,
+        "MegaManShotPose": 0,
+        "PlayerFacingDir": 2
+      },
+      "old_cycles": 704,
+      "new_cycles": 738,
+      "delta": 34
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "PlayerStatus": 2,
+        "CrossoverBehaviorVersion": 0,
+        "GameEngineSubroutine": 11,
+        "Player_State": 0,
+        "Player_X_Speed": 0,
+        "MegaManShotPose": 1,
+        "PlayerFacingDir": 1
+      },
+      "old_cycles": 280,
+      "new_cycles": 365,
+      "delta": 85
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "PlayerStatus": 2,
+        "CrossoverBehaviorVersion": 0,
+        "GameEngineSubroutine": 11,
+        "Player_State": 0,
+        "Player_X_Speed": 24,
+        "MegaManShotPose": 0,
+        "PlayerFacingDir": 1
+      },
+      "old_cycles": 280,
+      "new_cycles": 365,
+      "delta": 85
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "PlayerStatus": 2,
+        "CrossoverBehaviorVersion": 0,
+        "GameEngineSubroutine": 11,
+        "Player_State": 1,
+        "Player_X_Speed": 24,
+        "MegaManShotPose": 1,
+        "PlayerFacingDir": 2
+      },
+      "old_cycles": 280,
+      "new_cycles": 365,
+      "delta": 85
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "PlayerStatus": 2,
+        "CrossoverBehaviorVersion": 0,
+        "GameEngineSubroutine": 11,
+        "Player_State": 3,
+        "Player_X_Speed": 24,
+        "MegaManShotPose": 0,
+        "PlayerFacingDir": 2
+      },
+      "old_cycles": 280,
+      "new_cycles": 365,
+      "delta": 85
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "PlayerStatus": 2,
+        "CrossoverBehaviorVersion": 1,
+        "GameEngineSubroutine": 8,
+        "Player_State": 0,
+        "Player_X_Speed": 24,
+        "MegaManShotPose": 0,
+        "PlayerFacingDir": 1
+      },
+      "old_cycles": 763,
+      "new_cycles": 797,
+      "delta": 34
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "PlayerStatus": 2,
+        "CrossoverBehaviorVersion": 1,
+        "GameEngineSubroutine": 8,
+        "Player_State": 3,
+        "Player_X_Speed": 0,
+        "MegaManShotPose": 0,
+        "PlayerFacingDir": 2
+      },
+      "old_cycles": 761,
+      "new_cycles": 795,
+      "delta": 34
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "PlayerStatus": 2,
+        "CrossoverBehaviorVersion": 1,
+        "GameEngineSubroutine": 10,
+        "Player_State": 0,
+        "Player_X_Speed": 24,
+        "MegaManShotPose": 1,
+        "PlayerFacingDir": 1
+      },
+      "old_cycles": 705,
+      "new_cycles": 739,
+      "delta": 34
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "PlayerStatus": 2,
+        "CrossoverBehaviorVersion": 1,
+        "GameEngineSubroutine": 10,
+        "Player_State": 3,
+        "Player_X_Speed": 0,
+        "MegaManShotPose": 1,
+        "PlayerFacingDir": 2
+      },
+      "old_cycles": 705,
+      "new_cycles": 739,
+      "delta": 34
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "PlayerStatus": 2,
+        "CrossoverBehaviorVersion": 1,
+        "GameEngineSubroutine": 11,
+        "Player_State": 0,
+        "Player_X_Speed": 0,
+        "MegaManShotPose": 0,
+        "PlayerFacingDir": 1
+      },
+      "old_cycles": 286,
+      "new_cycles": 371,
+      "delta": 85
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "PlayerStatus": 2,
+        "CrossoverBehaviorVersion": 1,
+        "GameEngineSubroutine": 11,
+        "Player_State": 1,
+        "Player_X_Speed": 0,
+        "MegaManShotPose": 0,
+        "PlayerFacingDir": 1
+      },
+      "old_cycles": 286,
+      "new_cycles": 371,
+      "delta": 85
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "PlayerStatus": 2,
+        "CrossoverBehaviorVersion": 1,
+        "GameEngineSubroutine": 11,
+        "Player_State": 3,
+        "Player_X_Speed": 0,
+        "MegaManShotPose": 0,
+        "PlayerFacingDir": 2
+      },
+      "old_cycles": 286,
+      "new_cycles": 371,
+      "delta": 85
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "PlayerStatus": 2,
+        "CrossoverBehaviorVersion": 1,
+        "GameEngineSubroutine": 11,
+        "Player_State": 3,
+        "Player_X_Speed": 24,
+        "MegaManShotPose": 0,
+        "PlayerFacingDir": 2
+      },
+      "old_cycles": 286,
+      "new_cycles": 371,
+      "delta": 85
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "PlayerStatus": 0,
+        "CrossoverBehaviorVersion": 0,
+        "GameEngineSubroutine": 8,
+        "Player_State": 1,
+        "Player_X_Speed": 0,
+        "MegaManShotPose": 1,
+        "PlayerFacingDir": 1
+      },
+      "old_cycles": 989,
+      "new_cycles": 1021,
+      "delta": 32
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "PlayerStatus": 0,
+        "CrossoverBehaviorVersion": 0,
+        "GameEngineSubroutine": 8,
+        "Player_State": 3,
+        "Player_X_Speed": 24,
+        "MegaManShotPose": 1,
+        "PlayerFacingDir": 2
+      },
+      "old_cycles": 994,
+      "new_cycles": 1026,
+      "delta": 32
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "PlayerStatus": 0,
+        "CrossoverBehaviorVersion": 0,
+        "GameEngineSubroutine": 10,
+        "Player_State": 1,
+        "Player_X_Speed": 24,
+        "MegaManShotPose": 0,
+        "PlayerFacingDir": 1
+      },
+      "old_cycles": 932,
+      "new_cycles": 964,
+      "delta": 32
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "PlayerStatus": 0,
+        "CrossoverBehaviorVersion": 0,
+        "GameEngineSubroutine": 11,
+        "Player_State": 0,
+        "Player_X_Speed": 0,
+        "MegaManShotPose": 0,
+        "PlayerFacingDir": 2
+      },
+      "old_cycles": 279,
+      "new_cycles": 364,
+      "delta": 85
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "PlayerStatus": 0,
+        "CrossoverBehaviorVersion": 0,
+        "GameEngineSubroutine": 11,
+        "Player_State": 1,
+        "Player_X_Speed": 24,
+        "MegaManShotPose": 0,
+        "PlayerFacingDir": 2
+      },
+      "old_cycles": 279,
+      "new_cycles": 364,
+      "delta": 85
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "PlayerStatus": 0,
+        "CrossoverBehaviorVersion": 0,
+        "GameEngineSubroutine": 11,
+        "Player_State": 1,
+        "Player_X_Speed": 24,
+        "MegaManShotPose": 1,
+        "PlayerFacingDir": 1
+      },
+      "old_cycles": 279,
+      "new_cycles": 364,
+      "delta": 85
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "PlayerStatus": 0,
+        "CrossoverBehaviorVersion": 1,
+        "GameEngineSubroutine": 8,
+        "Player_State": 0,
+        "Player_X_Speed": 0,
+        "MegaManShotPose": 1,
+        "PlayerFacingDir": 2
+      },
+      "old_cycles": 977,
+      "new_cycles": 1009,
+      "delta": 32
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "PlayerStatus": 0,
+        "CrossoverBehaviorVersion": 1,
+        "GameEngineSubroutine": 8,
+        "Player_State": 3,
+        "Player_X_Speed": 0,
+        "MegaManShotPose": 0,
+        "PlayerFacingDir": 1
+      },
+      "old_cycles": 991,
+      "new_cycles": 1023,
+      "delta": 32
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "PlayerStatus": 0,
+        "CrossoverBehaviorVersion": 1,
+        "GameEngineSubroutine": 10,
+        "Player_State": 0,
+        "Player_X_Speed": 24,
+        "MegaManShotPose": 0,
+        "PlayerFacingDir": 2
+      },
+      "old_cycles": 935,
+      "new_cycles": 967,
+      "delta": 32
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "PlayerStatus": 0,
+        "CrossoverBehaviorVersion": 1,
+        "GameEngineSubroutine": 10,
+        "Player_State": 3,
+        "Player_X_Speed": 0,
+        "MegaManShotPose": 1,
+        "PlayerFacingDir": 1
+      },
+      "old_cycles": 933,
+      "new_cycles": 965,
+      "delta": 32
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "PlayerStatus": 0,
+        "CrossoverBehaviorVersion": 1,
+        "GameEngineSubroutine": 11,
+        "Player_State": 0,
+        "Player_X_Speed": 24,
+        "MegaManShotPose": 1,
+        "PlayerFacingDir": 2
+      },
+      "old_cycles": 285,
+      "new_cycles": 370,
+      "delta": 85
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "PlayerStatus": 0,
+        "CrossoverBehaviorVersion": 1,
+        "GameEngineSubroutine": 11,
+        "Player_State": 1,
+        "Player_X_Speed": 0,
+        "MegaManShotPose": 0,
+        "PlayerFacingDir": 2
+      },
+      "old_cycles": 285,
+      "new_cycles": 370,
+      "delta": 85
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "PlayerStatus": 0,
+        "CrossoverBehaviorVersion": 1,
+        "GameEngineSubroutine": 11,
+        "Player_State": 3,
+        "Player_X_Speed": 24,
+        "MegaManShotPose": 0,
+        "PlayerFacingDir": 1
+      },
+      "old_cycles": 285,
+      "new_cycles": 370,
+      "delta": 85
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "PlayerStatus": 1,
+        "CrossoverBehaviorVersion": 0,
+        "GameEngineSubroutine": 8,
+        "Player_State": 1,
+        "Player_X_Speed": 0,
+        "MegaManShotPose": 0,
+        "PlayerFacingDir": 2
+      },
+      "old_cycles": 958,
+      "new_cycles": 990,
+      "delta": 32
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "PlayerStatus": 1,
+        "CrossoverBehaviorVersion": 0,
+        "GameEngineSubroutine": 8,
+        "Player_State": 3,
+        "Player_X_Speed": 24,
+        "MegaManShotPose": 1,
+        "PlayerFacingDir": 1
+      },
+      "old_cycles": 977,
+      "new_cycles": 1009,
+      "delta": 32
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "PlayerStatus": 1,
+        "CrossoverBehaviorVersion": 0,
+        "GameEngineSubroutine": 10,
+        "Player_State": 1,
+        "Player_X_Speed": 0,
+        "MegaManShotPose": 1,
+        "PlayerFacingDir": 2
+      },
+      "old_cycles": 911,
+      "new_cycles": 943,
+      "delta": 32
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "PlayerStatus": 1,
+        "CrossoverBehaviorVersion": 0,
+        "GameEngineSubroutine": 11,
+        "Player_State": 0,
+        "Player_X_Speed": 0,
+        "MegaManShotPose": 0,
+        "PlayerFacingDir": 1
+      },
+      "old_cycles": 279,
+      "new_cycles": 364,
+      "delta": 85
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "PlayerStatus": 1,
+        "CrossoverBehaviorVersion": 0,
+        "GameEngineSubroutine": 11,
+        "Player_State": 0,
+        "Player_X_Speed": 24,
+        "MegaManShotPose": 0,
+        "PlayerFacingDir": 2
+      },
+      "old_cycles": 279,
+      "new_cycles": 364,
+      "delta": 85
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "PlayerStatus": 1,
+        "CrossoverBehaviorVersion": 0,
+        "GameEngineSubroutine": 11,
+        "Player_State": 1,
+        "Player_X_Speed": 24,
+        "MegaManShotPose": 0,
+        "PlayerFacingDir": 2
+      },
+      "old_cycles": 279,
+      "new_cycles": 364,
+      "delta": 85
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "PlayerStatus": 1,
+        "CrossoverBehaviorVersion": 0,
+        "GameEngineSubroutine": 11,
+        "Player_State": 3,
+        "Player_X_Speed": 24,
+        "MegaManShotPose": 1,
+        "PlayerFacingDir": 1
+      },
+      "old_cycles": 279,
+      "new_cycles": 364,
+      "delta": 85
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "PlayerStatus": 1,
+        "CrossoverBehaviorVersion": 1,
+        "GameEngineSubroutine": 8,
+        "Player_State": 0,
+        "Player_X_Speed": 0,
+        "MegaManShotPose": 1,
+        "PlayerFacingDir": 1
+      },
+      "old_cycles": 972,
+      "new_cycles": 1004,
+      "delta": 32
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "PlayerStatus": 1,
+        "CrossoverBehaviorVersion": 1,
+        "GameEngineSubroutine": 8,
+        "Player_State": 1,
+        "Player_X_Speed": 24,
+        "MegaManShotPose": 1,
+        "PlayerFacingDir": 2
+      },
+      "old_cycles": 969,
+      "new_cycles": 1001,
+      "delta": 32
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "PlayerStatus": 1,
+        "CrossoverBehaviorVersion": 1,
+        "GameEngineSubroutine": 10,
+        "Player_State": 0,
+        "Player_X_Speed": 24,
+        "MegaManShotPose": 0,
+        "PlayerFacingDir": 1
+      },
+      "old_cycles": 914,
+      "new_cycles": 946,
+      "delta": 32
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "PlayerStatus": 1,
+        "CrossoverBehaviorVersion": 1,
+        "GameEngineSubroutine": 10,
+        "Player_State": 3,
+        "Player_X_Speed": 0,
+        "MegaManShotPose": 0,
+        "PlayerFacingDir": 2
+      },
+      "old_cycles": 912,
+      "new_cycles": 944,
+      "delta": 32
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "PlayerStatus": 1,
+        "CrossoverBehaviorVersion": 1,
+        "GameEngineSubroutine": 11,
+        "Player_State": 0,
+        "Player_X_Speed": 0,
+        "MegaManShotPose": 0,
+        "PlayerFacingDir": 2
+      },
+      "old_cycles": 285,
+      "new_cycles": 370,
+      "delta": 85
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "PlayerStatus": 1,
+        "CrossoverBehaviorVersion": 1,
+        "GameEngineSubroutine": 11,
+        "Player_State": 0,
+        "Player_X_Speed": 24,
+        "MegaManShotPose": 1,
+        "PlayerFacingDir": 1
+      },
+      "old_cycles": 285,
+      "new_cycles": 370,
+      "delta": 85
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "PlayerStatus": 1,
+        "CrossoverBehaviorVersion": 1,
+        "GameEngineSubroutine": 11,
+        "Player_State": 3,
+        "Player_X_Speed": 0,
+        "MegaManShotPose": 1,
+        "PlayerFacingDir": 1
+      },
+      "old_cycles": 285,
+      "new_cycles": 370,
+      "delta": 85
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "PlayerStatus": 1,
+        "CrossoverBehaviorVersion": 1,
+        "GameEngineSubroutine": 11,
+        "Player_State": 3,
+        "Player_X_Speed": 0,
+        "MegaManShotPose": 1,
+        "PlayerFacingDir": 2
+      },
+      "old_cycles": 285,
+      "new_cycles": 370,
+      "delta": 85
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "PlayerStatus": 2,
+        "CrossoverBehaviorVersion": 0,
+        "GameEngineSubroutine": 8,
+        "Player_State": 1,
+        "Player_X_Speed": 0,
+        "MegaManShotPose": 0,
+        "PlayerFacingDir": 1
+      },
+      "old_cycles": 962,
+      "new_cycles": 996,
+      "delta": 34
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "PlayerStatus": 2,
+        "CrossoverBehaviorVersion": 0,
+        "GameEngineSubroutine": 8,
+        "Player_State": 3,
+        "Player_X_Speed": 24,
+        "MegaManShotPose": 0,
+        "PlayerFacingDir": 2
+      },
+      "old_cycles": 971,
+      "new_cycles": 1005,
+      "delta": 34
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "PlayerStatus": 2,
+        "CrossoverBehaviorVersion": 0,
+        "GameEngineSubroutine": 10,
+        "Player_State": 1,
+        "Player_X_Speed": 0,
+        "MegaManShotPose": 1,
+        "PlayerFacingDir": 1
+      },
+      "old_cycles": 915,
+      "new_cycles": 949,
+      "delta": 34
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "PlayerStatus": 2,
+        "CrossoverBehaviorVersion": 0,
+        "GameEngineSubroutine": 10,
+        "Player_State": 3,
+        "Player_X_Speed": 24,
+        "MegaManShotPose": 1,
+        "PlayerFacingDir": 2
+      },
+      "old_cycles": 913,
+      "new_cycles": 947,
+      "delta": 34
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "PlayerStatus": 2,
+        "CrossoverBehaviorVersion": 0,
+        "GameEngineSubroutine": 11,
+        "Player_State": 1,
+        "Player_X_Speed": 24,
+        "MegaManShotPose": 0,
+        "PlayerFacingDir": 1
+      },
+      "old_cycles": 280,
+      "new_cycles": 365,
+      "delta": 85
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "PlayerStatus": 2,
+        "CrossoverBehaviorVersion": 0,
+        "GameEngineSubroutine": 11,
+        "Player_State": 1,
+        "Player_X_Speed": 24,
+        "MegaManShotPose": 1,
+        "PlayerFacingDir": 1
+      },
+      "old_cycles": 280,
+      "new_cycles": 365,
+      "delta": 85
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "PlayerStatus": 2,
+        "CrossoverBehaviorVersion": 1,
+        "GameEngineSubroutine": 8,
+        "Player_State": 0,
+        "Player_X_Speed": 0,
+        "MegaManShotPose": 0,
+        "PlayerFacingDir": 2
+      },
+      "old_cycles": 983,
+      "new_cycles": 1017,
+      "delta": 34
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "PlayerStatus": 2,
+        "CrossoverBehaviorVersion": 1,
+        "GameEngineSubroutine": 8,
+        "Player_State": 1,
+        "Player_X_Speed": 24,
+        "MegaManShotPose": 1,
+        "PlayerFacingDir": 1
+      },
+      "old_cycles": 973,
+      "new_cycles": 1007,
+      "delta": 34
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "PlayerStatus": 2,
+        "CrossoverBehaviorVersion": 1,
+        "GameEngineSubroutine": 10,
+        "Player_State": 0,
+        "Player_X_Speed": 0,
+        "MegaManShotPose": 1,
+        "PlayerFacingDir": 2
+      },
+      "old_cycles": 914,
+      "new_cycles": 948,
+      "delta": 34
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "PlayerStatus": 2,
+        "CrossoverBehaviorVersion": 1,
+        "GameEngineSubroutine": 10,
+        "Player_State": 3,
+        "Player_X_Speed": 0,
+        "MegaManShotPose": 0,
+        "PlayerFacingDir": 1
+      },
+      "old_cycles": 916,
+      "new_cycles": 950,
+      "delta": 34
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "PlayerStatus": 2,
+        "CrossoverBehaviorVersion": 1,
+        "GameEngineSubroutine": 11,
+        "Player_State": 0,
+        "Player_X_Speed": 24,
+        "MegaManShotPose": 0,
+        "PlayerFacingDir": 2
+      },
+      "old_cycles": 286,
+      "new_cycles": 371,
+      "delta": 85
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "PlayerStatus": 2,
+        "CrossoverBehaviorVersion": 1,
+        "GameEngineSubroutine": 11,
+        "Player_State": 1,
+        "Player_X_Speed": 0,
+        "MegaManShotPose": 1,
+        "PlayerFacingDir": 1
+      },
+      "old_cycles": 286,
+      "new_cycles": 371,
+      "delta": 85
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "PlayerStatus": 2,
+        "CrossoverBehaviorVersion": 1,
+        "GameEngineSubroutine": 11,
+        "Player_State": 3,
+        "Player_X_Speed": 0,
+        "MegaManShotPose": 1,
+        "PlayerFacingDir": 1
+      },
+      "old_cycles": 286,
+      "new_cycles": 371,
+      "delta": 85
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 0,
+        "MmFlashPhase": 0,
+        "MmLastPalette": 0
+      },
+      "old_cycles": 762,
+      "new_cycles": 794,
+      "delta": 32
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 0,
+        "MmFlashPhase": 0,
+        "MmLastPalette": 1
+      },
+      "old_cycles": 670,
+      "new_cycles": 678,
+      "delta": 8
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 0,
+        "MmFlashPhase": 0,
+        "MmLastPalette": 15
+      },
+      "old_cycles": 762,
+      "new_cycles": 794,
+      "delta": 32
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 0,
+        "MmFlashPhase": 0,
+        "MmLastPalette": 17
+      },
+      "old_cycles": 762,
+      "new_cycles": 794,
+      "delta": 32
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 0,
+        "MmFlashPhase": 1,
+        "MmLastPalette": 0
+      },
+      "old_cycles": 762,
+      "new_cycles": 794,
+      "delta": 32
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 0,
+        "MmFlashPhase": 1,
+        "MmLastPalette": 1
+      },
+      "old_cycles": 670,
+      "new_cycles": 678,
+      "delta": 8
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 0,
+        "MmFlashPhase": 1,
+        "MmLastPalette": 15
+      },
+      "old_cycles": 762,
+      "new_cycles": 794,
+      "delta": 32
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 0,
+        "MmFlashPhase": 1,
+        "MmLastPalette": 17
+      },
+      "old_cycles": 762,
+      "new_cycles": 794,
+      "delta": 32
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 0,
+        "MmFlashPhase": 2,
+        "MmLastPalette": 0
+      },
+      "old_cycles": 762,
+      "new_cycles": 794,
+      "delta": 32
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 0,
+        "MmFlashPhase": 2,
+        "MmLastPalette": 1
+      },
+      "old_cycles": 670,
+      "new_cycles": 678,
+      "delta": 8
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 0,
+        "MmFlashPhase": 2,
+        "MmLastPalette": 15
+      },
+      "old_cycles": 762,
+      "new_cycles": 794,
+      "delta": 32
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 0,
+        "MmFlashPhase": 2,
+        "MmLastPalette": 17
+      },
+      "old_cycles": 762,
+      "new_cycles": 794,
+      "delta": 32
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 33,
+        "MmFlashPhase": 0,
+        "MmLastPalette": 0
+      },
+      "old_cycles": 774,
+      "new_cycles": 806,
+      "delta": 32
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 33,
+        "MmFlashPhase": 0,
+        "MmLastPalette": 1
+      },
+      "old_cycles": 682,
+      "new_cycles": 690,
+      "delta": 8
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 33,
+        "MmFlashPhase": 0,
+        "MmLastPalette": 15
+      },
+      "old_cycles": 774,
+      "new_cycles": 806,
+      "delta": 32
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 33,
+        "MmFlashPhase": 0,
+        "MmLastPalette": 17
+      },
+      "old_cycles": 774,
+      "new_cycles": 806,
+      "delta": 32
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 33,
+        "MmFlashPhase": 1,
+        "MmLastPalette": 0
+      },
+      "old_cycles": 791,
+      "new_cycles": 825,
+      "delta": 34
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 33,
+        "MmFlashPhase": 1,
+        "MmLastPalette": 1
+      },
+      "old_cycles": 791,
+      "new_cycles": 825,
+      "delta": 34
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 33,
+        "MmFlashPhase": 1,
+        "MmLastPalette": 15
+      },
+      "old_cycles": 791,
+      "new_cycles": 825,
+      "delta": 34
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 33,
+        "MmFlashPhase": 1,
+        "MmLastPalette": 17
+      },
+      "old_cycles": 791,
+      "new_cycles": 825,
+      "delta": 34
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 33,
+        "MmFlashPhase": 2,
+        "MmLastPalette": 0
+      },
+      "old_cycles": 774,
+      "new_cycles": 806,
+      "delta": 32
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 33,
+        "MmFlashPhase": 2,
+        "MmLastPalette": 1
+      },
+      "old_cycles": 682,
+      "new_cycles": 690,
+      "delta": 8
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 33,
+        "MmFlashPhase": 2,
+        "MmLastPalette": 15
+      },
+      "old_cycles": 774,
+      "new_cycles": 806,
+      "delta": 32
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 33,
+        "MmFlashPhase": 2,
+        "MmLastPalette": 17
+      },
+      "old_cycles": 774,
+      "new_cycles": 806,
+      "delta": 32
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 48,
+        "MmFlashPhase": 0,
+        "MmLastPalette": 0
+      },
+      "old_cycles": 774,
+      "new_cycles": 806,
+      "delta": 32
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 48,
+        "MmFlashPhase": 0,
+        "MmLastPalette": 1
+      },
+      "old_cycles": 682,
+      "new_cycles": 690,
+      "delta": 8
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 48,
+        "MmFlashPhase": 0,
+        "MmLastPalette": 15
+      },
+      "old_cycles": 774,
+      "new_cycles": 806,
+      "delta": 32
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 48,
+        "MmFlashPhase": 0,
+        "MmLastPalette": 17
+      },
+      "old_cycles": 774,
+      "new_cycles": 806,
+      "delta": 32
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 48,
+        "MmFlashPhase": 1,
+        "MmLastPalette": 0
+      },
+      "old_cycles": 797,
+      "new_cycles": 831,
+      "delta": 34
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 48,
+        "MmFlashPhase": 1,
+        "MmLastPalette": 1
+      },
+      "old_cycles": 797,
+      "new_cycles": 831,
+      "delta": 34
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 48,
+        "MmFlashPhase": 1,
+        "MmLastPalette": 15
+      },
+      "old_cycles": 797,
+      "new_cycles": 831,
+      "delta": 34
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 48,
+        "MmFlashPhase": 1,
+        "MmLastPalette": 17
+      },
+      "old_cycles": 797,
+      "new_cycles": 831,
+      "delta": 34
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 48,
+        "MmFlashPhase": 2,
+        "MmLastPalette": 0
+      },
+      "old_cycles": 774,
+      "new_cycles": 806,
+      "delta": 32
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 48,
+        "MmFlashPhase": 2,
+        "MmLastPalette": 1
+      },
+      "old_cycles": 682,
+      "new_cycles": 690,
+      "delta": 8
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 48,
+        "MmFlashPhase": 2,
+        "MmLastPalette": 15
+      },
+      "old_cycles": 774,
+      "new_cycles": 806,
+      "delta": 32
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 48,
+        "MmFlashPhase": 2,
+        "MmLastPalette": 17
+      },
+      "old_cycles": 774,
+      "new_cycles": 806,
+      "delta": 32
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 66,
+        "MmFlashPhase": 0,
+        "MmLastPalette": 0
+      },
+      "old_cycles": 774,
+      "new_cycles": 806,
+      "delta": 32
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 66,
+        "MmFlashPhase": 0,
+        "MmLastPalette": 1
+      },
+      "old_cycles": 682,
+      "new_cycles": 690,
+      "delta": 8
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 66,
+        "MmFlashPhase": 0,
+        "MmLastPalette": 15
+      },
+      "old_cycles": 774,
+      "new_cycles": 806,
+      "delta": 32
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 66,
+        "MmFlashPhase": 0,
+        "MmLastPalette": 17
+      },
+      "old_cycles": 774,
+      "new_cycles": 806,
+      "delta": 32
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 66,
+        "MmFlashPhase": 1,
+        "MmLastPalette": 0
+      },
+      "old_cycles": 798,
+      "new_cycles": 832,
+      "delta": 34
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 66,
+        "MmFlashPhase": 1,
+        "MmLastPalette": 1
+      },
+      "old_cycles": 798,
+      "new_cycles": 832,
+      "delta": 34
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 66,
+        "MmFlashPhase": 1,
+        "MmLastPalette": 15
+      },
+      "old_cycles": 798,
+      "new_cycles": 832,
+      "delta": 34
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 66,
+        "MmFlashPhase": 1,
+        "MmLastPalette": 17
+      },
+      "old_cycles": 798,
+      "new_cycles": 832,
+      "delta": 34
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 66,
+        "MmFlashPhase": 2,
+        "MmLastPalette": 0
+      },
+      "old_cycles": 774,
+      "new_cycles": 806,
+      "delta": 32
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 66,
+        "MmFlashPhase": 2,
+        "MmLastPalette": 1
+      },
+      "old_cycles": 682,
+      "new_cycles": 690,
+      "delta": 8
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 66,
+        "MmFlashPhase": 2,
+        "MmLastPalette": 15
+      },
+      "old_cycles": 774,
+      "new_cycles": 806,
+      "delta": 32
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 66,
+        "MmFlashPhase": 2,
+        "MmLastPalette": 17
+      },
+      "old_cycles": 774,
+      "new_cycles": 806,
+      "delta": 32
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 87,
+        "MmFlashPhase": 0,
+        "MmLastPalette": 0
+      },
+      "old_cycles": 788,
+      "new_cycles": 822,
+      "delta": 34
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 87,
+        "MmFlashPhase": 0,
+        "MmLastPalette": 1
+      },
+      "old_cycles": 788,
+      "new_cycles": 822,
+      "delta": 34
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 87,
+        "MmFlashPhase": 0,
+        "MmLastPalette": 15
+      },
+      "old_cycles": 788,
+      "new_cycles": 822,
+      "delta": 34
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 87,
+        "MmFlashPhase": 0,
+        "MmLastPalette": 17
+      },
+      "old_cycles": 788,
+      "new_cycles": 822,
+      "delta": 34
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 87,
+        "MmFlashPhase": 1,
+        "MmLastPalette": 0
+      },
+      "old_cycles": 788,
+      "new_cycles": 822,
+      "delta": 34
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 87,
+        "MmFlashPhase": 1,
+        "MmLastPalette": 1
+      },
+      "old_cycles": 788,
+      "new_cycles": 822,
+      "delta": 34
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 87,
+        "MmFlashPhase": 1,
+        "MmLastPalette": 15
+      },
+      "old_cycles": 788,
+      "new_cycles": 822,
+      "delta": 34
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 87,
+        "MmFlashPhase": 1,
+        "MmLastPalette": 17
+      },
+      "old_cycles": 788,
+      "new_cycles": 822,
+      "delta": 34
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 87,
+        "MmFlashPhase": 2,
+        "MmLastPalette": 0
+      },
+      "old_cycles": 789,
+      "new_cycles": 822,
+      "delta": 33
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 87,
+        "MmFlashPhase": 2,
+        "MmLastPalette": 1
+      },
+      "old_cycles": 789,
+      "new_cycles": 822,
+      "delta": 33
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 87,
+        "MmFlashPhase": 2,
+        "MmLastPalette": 15
+      },
+      "old_cycles": 789,
+      "new_cycles": 822,
+      "delta": 33
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 87,
+        "MmFlashPhase": 2,
+        "MmLastPalette": 17
+      },
+      "old_cycles": 789,
+      "new_cycles": 822,
+      "delta": 33
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 1,
+        "MmChargeFrames": 0,
+        "MmFlashPhase": 0,
+        "MmLastPalette": 0
+      },
+      "old_cycles": 773,
+      "new_cycles": 804,
+      "delta": 31
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 1,
+        "MmChargeFrames": 0,
+        "MmFlashPhase": 0,
+        "MmLastPalette": 1
+      },
+      "old_cycles": 773,
+      "new_cycles": 804,
+      "delta": 31
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 1,
+        "MmChargeFrames": 0,
+        "MmFlashPhase": 0,
+        "MmLastPalette": 15
+      },
+      "old_cycles": 678,
+      "new_cycles": 686,
+      "delta": 8
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 1,
+        "MmChargeFrames": 0,
+        "MmFlashPhase": 0,
+        "MmLastPalette": 17
+      },
+      "old_cycles": 773,
+      "new_cycles": 804,
+      "delta": 31
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 1,
+        "MmChargeFrames": 0,
+        "MmFlashPhase": 1,
+        "MmLastPalette": 0
+      },
+      "old_cycles": 773,
+      "new_cycles": 804,
+      "delta": 31
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 1,
+        "MmChargeFrames": 0,
+        "MmFlashPhase": 1,
+        "MmLastPalette": 1
+      },
+      "old_cycles": 773,
+      "new_cycles": 804,
+      "delta": 31
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 1,
+        "MmChargeFrames": 0,
+        "MmFlashPhase": 1,
+        "MmLastPalette": 15
+      },
+      "old_cycles": 773,
+      "new_cycles": 804,
+      "delta": 31
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 1,
+        "MmChargeFrames": 0,
+        "MmFlashPhase": 1,
+        "MmLastPalette": 17
+      },
+      "old_cycles": 773,
+      "new_cycles": 804,
+      "delta": 31
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 1,
+        "MmChargeFrames": 0,
+        "MmFlashPhase": 2,
+        "MmLastPalette": 0
+      },
+      "old_cycles": 773,
+      "new_cycles": 804,
+      "delta": 31
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 1,
+        "MmChargeFrames": 0,
+        "MmFlashPhase": 2,
+        "MmLastPalette": 1
+      },
+      "old_cycles": 773,
+      "new_cycles": 804,
+      "delta": 31
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 1,
+        "MmChargeFrames": 0,
+        "MmFlashPhase": 2,
+        "MmLastPalette": 15
+      },
+      "old_cycles": 773,
+      "new_cycles": 804,
+      "delta": 31
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 1,
+        "MmChargeFrames": 0,
+        "MmFlashPhase": 2,
+        "MmLastPalette": 17
+      },
+      "old_cycles": 678,
+      "new_cycles": 686,
+      "delta": 8
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "GuestPowerupActive": 1,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 0,
+        "MmFlashPhase": 0,
+        "MmLastPalette": 0
+      },
+      "old_cycles": 624,
+      "new_cycles": 632,
+      "delta": 8
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "GuestPowerupActive": 1,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 0,
+        "MmFlashPhase": 0,
+        "MmLastPalette": 1
+      },
+      "old_cycles": 624,
+      "new_cycles": 632,
+      "delta": 8
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "GuestPowerupActive": 1,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 0,
+        "MmFlashPhase": 0,
+        "MmLastPalette": 15
+      },
+      "old_cycles": 624,
+      "new_cycles": 632,
+      "delta": 8
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "GuestPowerupActive": 1,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 0,
+        "MmFlashPhase": 0,
+        "MmLastPalette": 17
+      },
+      "old_cycles": 624,
+      "new_cycles": 632,
+      "delta": 8
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "GuestPowerupActive": 1,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 0,
+        "MmFlashPhase": 1,
+        "MmLastPalette": 0
+      },
+      "old_cycles": 624,
+      "new_cycles": 632,
+      "delta": 8
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "GuestPowerupActive": 1,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 0,
+        "MmFlashPhase": 1,
+        "MmLastPalette": 1
+      },
+      "old_cycles": 624,
+      "new_cycles": 632,
+      "delta": 8
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "GuestPowerupActive": 1,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 0,
+        "MmFlashPhase": 1,
+        "MmLastPalette": 15
+      },
+      "old_cycles": 624,
+      "new_cycles": 632,
+      "delta": 8
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "GuestPowerupActive": 1,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 0,
+        "MmFlashPhase": 1,
+        "MmLastPalette": 17
+      },
+      "old_cycles": 624,
+      "new_cycles": 632,
+      "delta": 8
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "GuestPowerupActive": 1,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 0,
+        "MmFlashPhase": 2,
+        "MmLastPalette": 0
+      },
+      "old_cycles": 624,
+      "new_cycles": 632,
+      "delta": 8
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "GuestPowerupActive": 1,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 0,
+        "MmFlashPhase": 2,
+        "MmLastPalette": 1
+      },
+      "old_cycles": 624,
+      "new_cycles": 632,
+      "delta": 8
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "GuestPowerupActive": 1,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 0,
+        "MmFlashPhase": 2,
+        "MmLastPalette": 15
+      },
+      "old_cycles": 624,
+      "new_cycles": 632,
+      "delta": 8
+    },
+    {
+      "state": {
+        "ProtoVariant": 0,
+        "GuestPowerupActive": 1,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 0,
+        "MmFlashPhase": 2,
+        "MmLastPalette": 17
+      },
+      "old_cycles": 624,
+      "new_cycles": 632,
+      "delta": 8
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 0,
+        "MmFlashPhase": 0,
+        "MmLastPalette": 0
+      },
+      "old_cycles": 983,
+      "new_cycles": 1015,
+      "delta": 32
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 0,
+        "MmFlashPhase": 0,
+        "MmLastPalette": 1
+      },
+      "old_cycles": 717,
+      "new_cycles": 725,
+      "delta": 8
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 0,
+        "MmFlashPhase": 0,
+        "MmLastPalette": 15
+      },
+      "old_cycles": 983,
+      "new_cycles": 1015,
+      "delta": 32
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 0,
+        "MmFlashPhase": 0,
+        "MmLastPalette": 17
+      },
+      "old_cycles": 983,
+      "new_cycles": 1015,
+      "delta": 32
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 0,
+        "MmFlashPhase": 1,
+        "MmLastPalette": 0
+      },
+      "old_cycles": 983,
+      "new_cycles": 1015,
+      "delta": 32
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 0,
+        "MmFlashPhase": 1,
+        "MmLastPalette": 1
+      },
+      "old_cycles": 717,
+      "new_cycles": 725,
+      "delta": 8
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 0,
+        "MmFlashPhase": 1,
+        "MmLastPalette": 15
+      },
+      "old_cycles": 983,
+      "new_cycles": 1015,
+      "delta": 32
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 0,
+        "MmFlashPhase": 1,
+        "MmLastPalette": 17
+      },
+      "old_cycles": 983,
+      "new_cycles": 1015,
+      "delta": 32
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 0,
+        "MmFlashPhase": 2,
+        "MmLastPalette": 0
+      },
+      "old_cycles": 983,
+      "new_cycles": 1015,
+      "delta": 32
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 0,
+        "MmFlashPhase": 2,
+        "MmLastPalette": 1
+      },
+      "old_cycles": 717,
+      "new_cycles": 725,
+      "delta": 8
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 0,
+        "MmFlashPhase": 2,
+        "MmLastPalette": 15
+      },
+      "old_cycles": 983,
+      "new_cycles": 1015,
+      "delta": 32
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 0,
+        "MmFlashPhase": 2,
+        "MmLastPalette": 17
+      },
+      "old_cycles": 983,
+      "new_cycles": 1015,
+      "delta": 32
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 33,
+        "MmFlashPhase": 0,
+        "MmLastPalette": 0
+      },
+      "old_cycles": 995,
+      "new_cycles": 1027,
+      "delta": 32
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 33,
+        "MmFlashPhase": 0,
+        "MmLastPalette": 1
+      },
+      "old_cycles": 729,
+      "new_cycles": 737,
+      "delta": 8
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 33,
+        "MmFlashPhase": 0,
+        "MmLastPalette": 15
+      },
+      "old_cycles": 995,
+      "new_cycles": 1027,
+      "delta": 32
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 33,
+        "MmFlashPhase": 0,
+        "MmLastPalette": 17
+      },
+      "old_cycles": 995,
+      "new_cycles": 1027,
+      "delta": 32
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 33,
+        "MmFlashPhase": 1,
+        "MmLastPalette": 0
+      },
+      "old_cycles": 1012,
+      "new_cycles": 1046,
+      "delta": 34
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 33,
+        "MmFlashPhase": 1,
+        "MmLastPalette": 1
+      },
+      "old_cycles": 1012,
+      "new_cycles": 1046,
+      "delta": 34
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 33,
+        "MmFlashPhase": 1,
+        "MmLastPalette": 15
+      },
+      "old_cycles": 1012,
+      "new_cycles": 1046,
+      "delta": 34
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 33,
+        "MmFlashPhase": 1,
+        "MmLastPalette": 17
+      },
+      "old_cycles": 1012,
+      "new_cycles": 1046,
+      "delta": 34
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 33,
+        "MmFlashPhase": 2,
+        "MmLastPalette": 0
+      },
+      "old_cycles": 995,
+      "new_cycles": 1027,
+      "delta": 32
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 33,
+        "MmFlashPhase": 2,
+        "MmLastPalette": 1
+      },
+      "old_cycles": 729,
+      "new_cycles": 737,
+      "delta": 8
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 33,
+        "MmFlashPhase": 2,
+        "MmLastPalette": 15
+      },
+      "old_cycles": 995,
+      "new_cycles": 1027,
+      "delta": 32
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 33,
+        "MmFlashPhase": 2,
+        "MmLastPalette": 17
+      },
+      "old_cycles": 995,
+      "new_cycles": 1027,
+      "delta": 32
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 48,
+        "MmFlashPhase": 0,
+        "MmLastPalette": 0
+      },
+      "old_cycles": 995,
+      "new_cycles": 1027,
+      "delta": 32
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 48,
+        "MmFlashPhase": 0,
+        "MmLastPalette": 1
+      },
+      "old_cycles": 729,
+      "new_cycles": 737,
+      "delta": 8
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 48,
+        "MmFlashPhase": 0,
+        "MmLastPalette": 15
+      },
+      "old_cycles": 995,
+      "new_cycles": 1027,
+      "delta": 32
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 48,
+        "MmFlashPhase": 0,
+        "MmLastPalette": 17
+      },
+      "old_cycles": 995,
+      "new_cycles": 1027,
+      "delta": 32
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 48,
+        "MmFlashPhase": 1,
+        "MmLastPalette": 0
+      },
+      "old_cycles": 1018,
+      "new_cycles": 1052,
+      "delta": 34
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 48,
+        "MmFlashPhase": 1,
+        "MmLastPalette": 1
+      },
+      "old_cycles": 1018,
+      "new_cycles": 1052,
+      "delta": 34
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 48,
+        "MmFlashPhase": 1,
+        "MmLastPalette": 15
+      },
+      "old_cycles": 1018,
+      "new_cycles": 1052,
+      "delta": 34
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 48,
+        "MmFlashPhase": 1,
+        "MmLastPalette": 17
+      },
+      "old_cycles": 1018,
+      "new_cycles": 1052,
+      "delta": 34
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 48,
+        "MmFlashPhase": 2,
+        "MmLastPalette": 0
+      },
+      "old_cycles": 995,
+      "new_cycles": 1027,
+      "delta": 32
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 48,
+        "MmFlashPhase": 2,
+        "MmLastPalette": 1
+      },
+      "old_cycles": 729,
+      "new_cycles": 737,
+      "delta": 8
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 48,
+        "MmFlashPhase": 2,
+        "MmLastPalette": 15
+      },
+      "old_cycles": 995,
+      "new_cycles": 1027,
+      "delta": 32
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 48,
+        "MmFlashPhase": 2,
+        "MmLastPalette": 17
+      },
+      "old_cycles": 995,
+      "new_cycles": 1027,
+      "delta": 32
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 66,
+        "MmFlashPhase": 0,
+        "MmLastPalette": 0
+      },
+      "old_cycles": 995,
+      "new_cycles": 1027,
+      "delta": 32
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 66,
+        "MmFlashPhase": 0,
+        "MmLastPalette": 1
+      },
+      "old_cycles": 729,
+      "new_cycles": 737,
+      "delta": 8
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 66,
+        "MmFlashPhase": 0,
+        "MmLastPalette": 15
+      },
+      "old_cycles": 995,
+      "new_cycles": 1027,
+      "delta": 32
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 66,
+        "MmFlashPhase": 0,
+        "MmLastPalette": 17
+      },
+      "old_cycles": 995,
+      "new_cycles": 1027,
+      "delta": 32
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 66,
+        "MmFlashPhase": 1,
+        "MmLastPalette": 0
+      },
+      "old_cycles": 1019,
+      "new_cycles": 1053,
+      "delta": 34
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 66,
+        "MmFlashPhase": 1,
+        "MmLastPalette": 1
+      },
+      "old_cycles": 1019,
+      "new_cycles": 1053,
+      "delta": 34
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 66,
+        "MmFlashPhase": 1,
+        "MmLastPalette": 15
+      },
+      "old_cycles": 1019,
+      "new_cycles": 1053,
+      "delta": 34
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 66,
+        "MmFlashPhase": 1,
+        "MmLastPalette": 17
+      },
+      "old_cycles": 1019,
+      "new_cycles": 1053,
+      "delta": 34
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 66,
+        "MmFlashPhase": 2,
+        "MmLastPalette": 0
+      },
+      "old_cycles": 995,
+      "new_cycles": 1027,
+      "delta": 32
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 66,
+        "MmFlashPhase": 2,
+        "MmLastPalette": 1
+      },
+      "old_cycles": 729,
+      "new_cycles": 737,
+      "delta": 8
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 66,
+        "MmFlashPhase": 2,
+        "MmLastPalette": 15
+      },
+      "old_cycles": 995,
+      "new_cycles": 1027,
+      "delta": 32
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 66,
+        "MmFlashPhase": 2,
+        "MmLastPalette": 17
+      },
+      "old_cycles": 995,
+      "new_cycles": 1027,
+      "delta": 32
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 87,
+        "MmFlashPhase": 0,
+        "MmLastPalette": 0
+      },
+      "old_cycles": 1009,
+      "new_cycles": 1043,
+      "delta": 34
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 87,
+        "MmFlashPhase": 0,
+        "MmLastPalette": 1
+      },
+      "old_cycles": 1009,
+      "new_cycles": 1043,
+      "delta": 34
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 87,
+        "MmFlashPhase": 0,
+        "MmLastPalette": 15
+      },
+      "old_cycles": 1009,
+      "new_cycles": 1043,
+      "delta": 34
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 87,
+        "MmFlashPhase": 0,
+        "MmLastPalette": 17
+      },
+      "old_cycles": 1009,
+      "new_cycles": 1043,
+      "delta": 34
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 87,
+        "MmFlashPhase": 1,
+        "MmLastPalette": 0
+      },
+      "old_cycles": 1009,
+      "new_cycles": 1043,
+      "delta": 34
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 87,
+        "MmFlashPhase": 1,
+        "MmLastPalette": 1
+      },
+      "old_cycles": 1009,
+      "new_cycles": 1043,
+      "delta": 34
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 87,
+        "MmFlashPhase": 1,
+        "MmLastPalette": 15
+      },
+      "old_cycles": 1009,
+      "new_cycles": 1043,
+      "delta": 34
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 87,
+        "MmFlashPhase": 1,
+        "MmLastPalette": 17
+      },
+      "old_cycles": 1009,
+      "new_cycles": 1043,
+      "delta": 34
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 87,
+        "MmFlashPhase": 2,
+        "MmLastPalette": 0
+      },
+      "old_cycles": 1010,
+      "new_cycles": 1043,
+      "delta": 33
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 87,
+        "MmFlashPhase": 2,
+        "MmLastPalette": 1
+      },
+      "old_cycles": 1010,
+      "new_cycles": 1043,
+      "delta": 33
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 87,
+        "MmFlashPhase": 2,
+        "MmLastPalette": 15
+      },
+      "old_cycles": 1010,
+      "new_cycles": 1043,
+      "delta": 33
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 87,
+        "MmFlashPhase": 2,
+        "MmLastPalette": 17
+      },
+      "old_cycles": 1010,
+      "new_cycles": 1043,
+      "delta": 33
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 1,
+        "MmChargeFrames": 0,
+        "MmFlashPhase": 0,
+        "MmLastPalette": 0
+      },
+      "old_cycles": 992,
+      "new_cycles": 1023,
+      "delta": 31
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 1,
+        "MmChargeFrames": 0,
+        "MmFlashPhase": 0,
+        "MmLastPalette": 1
+      },
+      "old_cycles": 992,
+      "new_cycles": 1023,
+      "delta": 31
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 1,
+        "MmChargeFrames": 0,
+        "MmFlashPhase": 0,
+        "MmLastPalette": 15
+      },
+      "old_cycles": 725,
+      "new_cycles": 733,
+      "delta": 8
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 1,
+        "MmChargeFrames": 0,
+        "MmFlashPhase": 0,
+        "MmLastPalette": 17
+      },
+      "old_cycles": 992,
+      "new_cycles": 1023,
+      "delta": 31
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 1,
+        "MmChargeFrames": 0,
+        "MmFlashPhase": 1,
+        "MmLastPalette": 0
+      },
+      "old_cycles": 992,
+      "new_cycles": 1023,
+      "delta": 31
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 1,
+        "MmChargeFrames": 0,
+        "MmFlashPhase": 1,
+        "MmLastPalette": 1
+      },
+      "old_cycles": 992,
+      "new_cycles": 1023,
+      "delta": 31
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 1,
+        "MmChargeFrames": 0,
+        "MmFlashPhase": 1,
+        "MmLastPalette": 15
+      },
+      "old_cycles": 992,
+      "new_cycles": 1023,
+      "delta": 31
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 1,
+        "MmChargeFrames": 0,
+        "MmFlashPhase": 1,
+        "MmLastPalette": 17
+      },
+      "old_cycles": 992,
+      "new_cycles": 1023,
+      "delta": 31
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 1,
+        "MmChargeFrames": 0,
+        "MmFlashPhase": 2,
+        "MmLastPalette": 0
+      },
+      "old_cycles": 992,
+      "new_cycles": 1023,
+      "delta": 31
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 1,
+        "MmChargeFrames": 0,
+        "MmFlashPhase": 2,
+        "MmLastPalette": 1
+      },
+      "old_cycles": 992,
+      "new_cycles": 1023,
+      "delta": 31
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 1,
+        "MmChargeFrames": 0,
+        "MmFlashPhase": 2,
+        "MmLastPalette": 15
+      },
+      "old_cycles": 992,
+      "new_cycles": 1023,
+      "delta": 31
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "GuestPowerupActive": 0,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 1,
+        "MmChargeFrames": 0,
+        "MmFlashPhase": 2,
+        "MmLastPalette": 17
+      },
+      "old_cycles": 725,
+      "new_cycles": 733,
+      "delta": 8
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "GuestPowerupActive": 1,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 0,
+        "MmFlashPhase": 0,
+        "MmLastPalette": 0
+      },
+      "old_cycles": 830,
+      "new_cycles": 838,
+      "delta": 8
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "GuestPowerupActive": 1,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 0,
+        "MmFlashPhase": 0,
+        "MmLastPalette": 1
+      },
+      "old_cycles": 830,
+      "new_cycles": 838,
+      "delta": 8
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "GuestPowerupActive": 1,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 0,
+        "MmFlashPhase": 0,
+        "MmLastPalette": 15
+      },
+      "old_cycles": 830,
+      "new_cycles": 838,
+      "delta": 8
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "GuestPowerupActive": 1,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 0,
+        "MmFlashPhase": 0,
+        "MmLastPalette": 17
+      },
+      "old_cycles": 830,
+      "new_cycles": 838,
+      "delta": 8
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "GuestPowerupActive": 1,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 0,
+        "MmFlashPhase": 1,
+        "MmLastPalette": 0
+      },
+      "old_cycles": 830,
+      "new_cycles": 838,
+      "delta": 8
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "GuestPowerupActive": 1,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 0,
+        "MmFlashPhase": 1,
+        "MmLastPalette": 1
+      },
+      "old_cycles": 830,
+      "new_cycles": 838,
+      "delta": 8
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "GuestPowerupActive": 1,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 0,
+        "MmFlashPhase": 1,
+        "MmLastPalette": 15
+      },
+      "old_cycles": 830,
+      "new_cycles": 838,
+      "delta": 8
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "GuestPowerupActive": 1,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 0,
+        "MmFlashPhase": 1,
+        "MmLastPalette": 17
+      },
+      "old_cycles": 830,
+      "new_cycles": 838,
+      "delta": 8
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "GuestPowerupActive": 1,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 0,
+        "MmFlashPhase": 2,
+        "MmLastPalette": 0
+      },
+      "old_cycles": 830,
+      "new_cycles": 838,
+      "delta": 8
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "GuestPowerupActive": 1,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 0,
+        "MmFlashPhase": 2,
+        "MmLastPalette": 1
+      },
+      "old_cycles": 830,
+      "new_cycles": 838,
+      "delta": 8
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "GuestPowerupActive": 1,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 0,
+        "MmFlashPhase": 2,
+        "MmLastPalette": 15
+      },
+      "old_cycles": 830,
+      "new_cycles": 838,
+      "delta": 8
+    },
+    {
+      "state": {
+        "ProtoVariant": 1,
+        "GuestPowerupActive": 1,
+        "GuestPowerupPose": 2,
+        "StarInvincibleTimer": 0,
+        "MmChargeFrames": 0,
+        "MmFlashPhase": 2,
+        "MmLastPalette": 17
+      },
+      "old_cycles": 830,
+      "new_cycles": 838,
+      "delta": 8
+    }
+  ],
+  "limits": "Final physical PPU image equal; intermediate superseded palette stores intentionally differ. No NMI work/newRAM or audio changes. CPU costs include real bank mapping/fullGraphics caller, not a paid-call zero-cost assumption. Native exact1940 replay then whole route still required.",
+  "bindings": [
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\proto_palette_coalesce_controls_v1.py",
+      "bytes": 18960,
+      "sha256": "0a3c3e070a120715836fd34d876d9f6f3b74f81b0f55c01279ae97b635a34294"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\mm_body_current.nes",
+      "bytes": 2097168,
+      "sha256": "3e7c53d82eb949b8527d837861d95ed6051966056ca3f336fafd66e514e055ea"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\mm_body_current.dbg",
+      "bytes": 26864029,
+      "sha256": "00fa029bad9a20e59db14911dd50840994bff2ec67fae99235c9d3187d62bc7a"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\proto_palette_coalesce.nes",
+      "bytes": 2097168,
+      "sha256": "4a0394b0892e6c54940856791e44bcbe9fe4e469047aca3982c3f59112a61b8b"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\proto_palette_coalesce.dbg",
+      "bytes": 26893869,
+      "sha256": "52c9b28a189969bf95b32f1385a1707fd8ca73d90b2aa02d3d103680b5405136"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\proto_palette_coalesce_build.json",
+      "bytes": 8331,
+      "sha256": "90593be41f20e4ccbd49a7f76fab5f2ad7894785775f1442342ee2c27bf335be"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\proto-oam3e7-vram-probe-v1\\proto-startup-vram.csv",
+      "bytes": 2458202,
+      "sha256": "8fc47825c9dbad10d008dbf582827af19d4376a33e9ac9245db6bff34a5930be"
+    }
+  ],
+  "authentic_colors_and_flags": {
+    "cases": 140,
+    "original_51_color_bytes_exact": true,
+    "AXYP_or_proven_dead_terminal_indices_and_all_live_RAM_SMC_banks_exact": true,
+    "final_PPU_map_and_ordered_non_target_writes_exact": true
+  }
+}
