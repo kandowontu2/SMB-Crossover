@@ -248,22 +248,9 @@ Top:sta BoundingBox_UL_YPos
 .endproc
 
 .proc Z2PostBGBodyBridge
- lda SelectedCharacter
- cmp #CHARACTER_SAMUS
- beq Handle
- cmp #CHARACTER_LINK
- bne Done
-Handle:jsr Z2AfterBGDispatch
- jsr RelativePlayerPosition
- ldx #0
- jsr BoundingBoxCore
- lda SelectedCharacter
- cmp #CHARACTER_LINK
- bne Done
- lda Z2Variant
- beq Done
- jmp Z2OriginalBodyBox
-Done:rts
+ jmp BassPostBGDispatch
+ .res 35,$ea
+ .assert *-::Z2PostBGBodyBridge=38,error,"Original post-BG span"
 .endproc
 
 ; A is the native platform ordinate. Small lifts arrive after their original

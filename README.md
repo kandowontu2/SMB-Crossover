@@ -6,7 +6,9 @@ This is a native NES adaptation of [Super Mario Bros. Crossover](https://www.smb
 
 **Status: playable, actively developed, and unfinished.** Character behavior, graphics, sound and performance are still being tested and corrected. MMC5 is the recommended target for the full roster.
 
-The October 27 development build (`fb2a608e`) fixes the audio test's stretched note timing and screen flicker. Sustained overworld playback was checked for all 37 identities, including stable menu pixels; Mario's note timing matches normal gameplay playback. See the [checks and limits](docs/qa/music-test-timing-adoption-2026-10-27.json).
+The October 27 development build (`8487c439`) corrects Bass's airborne head collision and block separation. Bass cleared 1-1 in Hard with zero deaths and no cheats, and an independent replay matched the inputs, trace and all 4,340 captured PPU frames. See the [Bass checks and limits](docs/qa/bass-corner-adoption-2026-10-27.json).
+
+It retains `fb2a608e`'s fixes for the audio test's stretched note timing and screen flicker. Sustained overworld playback was checked for all 37 identities, including stable menu pixels; Mario's note timing matches normal gameplay playback. See the [audio checks and limits](docs/qa/music-test-timing-adoption-2026-10-27.json).
 
 It includes the character-labelled music/SFX browser and four additional cheats: mid-air jumps, screen wrapping, a frozen timer and full power. The [earlier menu checks](docs/qa/frontend-adoption-2026-10-27.json) also exercise Mario's new cheat behavior in gameplay. The broader roster audit is still in progress.
 

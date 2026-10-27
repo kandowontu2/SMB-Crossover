@@ -1,0 +1,142 @@
+{
+  "status": "adopted",
+  "ROM_sha256": "8487c439ded9bc6274e1dc8f8e051494fa96ee518553d9c2f382eccf2e71d0e6",
+  "previous_ROM_sha256": "fb2a608e4670788c0a170d6a17e7802b226e9e6933cd44103cb1b9212db54eed",
+  "changes": [
+    "Bass terrain profile follows standing, airborne and sliding body dimensions.",
+    "Rising head probes use the source horizontal interval and previous fractional position to admit ceiling contact, then preserve native block effects and apply source separation/fall velocity.",
+    "Valid wall clamps remain active; Roll and other characters retain their existing collision path."
+  ],
+  "canonical_rebuild_matches_private_ROM_and_labels": true,
+  "changed_ROM_bytes": 988,
+  "changed_banks": [
+    71,
+    72,
+    78,
+    89
+  ],
+  "CHR_header_and_other_PRG_unchanged": true,
+  "source_hashes": {
+    "src/kirby_legacy.s": "e6f74eeeca886bdf068516501f68e783176d86521cf7db073369aceb143d8966",
+    "src/tmnt_probe_gates.s": "01943465504a812044bc3b8db65bda881de5d8c58b7dd9178b0150cdb76aede2",
+    "src/zelda2_link_platform.s": "311298b1b5f0b0d4f5360ae11ca39037b63e8c992a9561f907dab95f7d2c4298",
+    "src/bass_corner_profile.inc": "15cd1db2ea0a2c5d3e8a60d9fa5ad24cb102238d984a000b8b55eb64c07519ca",
+    "src/entrypoint.s": "64e55cf15ce3a59527dea642ad7545e0165db79285ba2b50bd116b1748810537",
+    "smb1base-mmc5-expanded.cfg": "834aefd748c3691ba3f0513cc0cf0a85b223d85d06fbca474cdf083a2ae8cc91"
+  },
+  "downloads": [
+    "C:\\Users\\kando\\Downloads\\SMB-Crossover-Current-MMC5.nes",
+    "C:\\Users\\kando\\Downloads\\SMB-Crossover-2026-10-27-8487c439-MMC5.nes"
+  ],
+  "native": {
+    "identity": "bass",
+    "mode": "Hard (numeric1)",
+    "frames": 5223,
+    "real_1_2_control_updates": 25,
+    "zero_deaths": true,
+    "cheats_off": true,
+    "completed_loops": 4467,
+    "complete_DMA_checks": 3637,
+    "NMI_checks": 4912,
+    "IRQ_checks": 4857,
+    "physical_CHR_checks": 58956,
+    "minimum_SP": 178,
+    "collision_observations": {
+      "bg_calls": 2828,
+      "heads": 877,
+      "max_bg_cycles": 9533,
+      "post_ceiling": 8,
+      "walls": 83
+    },
+    "mushroom_collected_at_physical_frame": 845
+  },
+  "independent_replay": {
+    "inputs_exact": true,
+    "trace_exact": true,
+    "PPU_stream_exact": true
+  },
+  "full_PPU_frames_compared": 4340,
+  "decoded_PPU_stream_SHA256": "92285a485b4f63f7228d9ec7cce4a6479e370176db6be99fac0dc8aeb89f2192",
+  "selected_frame_visual_review": {
+    "reviewed": true,
+    "count": 7,
+    "scope": "Actual first spawn, block-head contacts, mushroom emergence/pickup, flagpole and controlled1-2 images; not a visual verdict on every frame."
+  },
+  "audio_measurement": {
+    "ROM_sha256": "8487c439ded9bc6274e1dc8f8e051494fa96ee518553d9c2f382eccf2e71d0e6",
+    "limits": "No game/input/state writes or instruction-wide callbacks. Terminal6/hardware7 are explicit architecture additions, not observed post-return edges; a DMC-active RTI tail may add stalls. Existing route observer owns restoration guards. Native endpoint can clip one final in-flight scope.",
+    "passive": true,
+    "scope": "Actual entry-to-RTS/RTI opcode cycles, SP and physical-bank qualified. Full nominal totals add terminal6; NMI also adds hardware7. Nested scopes overlap: do not sum them.",
+    "scopes": {
+      "AudioUpdate": {
+        "body_cycles": 19013819,
+        "count": 4719,
+        "dmc_active_calls": 0,
+        "max_body": 9454,
+        "mean_body": 4029.2051282051,
+        "min_body": 1979,
+        "nominal_full_cycles": 19042133,
+        "p50_body": 3974,
+        "p95_body": 5881
+      },
+      "BassSourceAudioTick": {
+        "body_cycles": 2600742,
+        "count": 4719,
+        "dmc_active_calls": 0,
+        "max_body": 2089,
+        "mean_body": 551.12142403051,
+        "min_body": 260,
+        "nominal_full_cycles": 2629056,
+        "p50_body": 260,
+        "p95_body": 1353
+      },
+      "ExpandedAudioTick": {
+        "body_cycles": 8481596,
+        "count": 4719,
+        "dmc_active_calls": 0,
+        "max_body": 6258,
+        "mean_body": 1797.3290951473,
+        "min_body": 202,
+        "nominal_full_cycles": 8509910,
+        "p50_body": 1797,
+        "p95_body": 3186
+      },
+      "NMI": {
+        "body_cycles": 23347355,
+        "count": 4719,
+        "dmc_active_calls": 0,
+        "max_body": 10331,
+        "mean_body": 4947.5217207035,
+        "min_body": 2123,
+        "nominal_full_cycles": 23408702,
+        "p50_body": 4886,
+        "p95_body": 6892
+      }
+    },
+    "unfinished_at_harness_close": {}
+  },
+  "retained_checkpoint": {
+    "inputs.csv": "e807a930abfb52b0e503b86fbbb337cdfbde78d93ed347129ef3a983b79985e6",
+    "trace.csv": "b4687fc972242e0a9b2f708b9b73b6c57f4b218b5eb0e15d039ea46cac929c95",
+    "first-review.json": "d49351739d7635d9cd86aeaeefc54e17cf5a32ff1d3ee909f6e51985391c0b63",
+    "replay-review.json": "a0a344f9a8e16234154af94e4fcd2116d08c9a013ea5512346a4d1ba81e1e896",
+    "selected-whole-frames.png": "ecc81e7a430c10986351b942ea1d62cd31fd256773717591e6a194a2759f906c",
+    "bass-collision.csv": "e654a851e12024450c885fe0e30ae27e74087f7e5cde33bf7c53d8a2081cfa2c",
+    "bass-audio-timing.csv": "fbdb7f3c6f7791f95a001cf201e9fd4a445ea88395e0248becfb54594a8c465c",
+    "replay-launch.json": "58f7d2797597c0fb0e8c07bbbad5b54becbfb9dc6c1920f7983cb68eb2dee355"
+  },
+  "storage": {
+    "lossless_containers": 2,
+    "bytes_per_container": 55477112,
+    "per_frame_files": 0,
+    "source_or_runtime_clones": 0,
+    "run_caps": "2GB/64files central,512MiB compressed capture,8000physicalframes"
+  },
+  "limits": [
+    "Targeted Bass Hard1-1 and independent replay only; no current37-character route claim.",
+    "Other mode, shortcut routes, every powerup, hurt/slide/diagonal simultaneous-corner and HUD-cutoff cases remain separate work.",
+    "Collision repair does not close lag or crowded-sprite issues. Measured audio costs are diagnostic, not a performance fix.",
+    "Inventory profile startup guard failed before collection; retained negative is separate from this accepted natural route."
+  ],
+  "goal_complete": false
+}

@@ -509,3 +509,7 @@ Done:
 .if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
 .include "cheats_four.s"
 .endif
+
+.if ::ENABLE_MMC5_EXPANDED
+.include "bass_corner_profile.inc"
+.endif

@@ -66,8 +66,11 @@ CheckMac:
  ; Transfer the existing saved A/P to the CV3 selector. The turtle and
  ; Mac branches are byte/cycle exact; other guests add only this JMP and
  ; a comparison before their original bank call.
+ cmp #CHARACTER_BASS
+ beq Bass
  jmp Z2HeadAdmission
- .res 17,$ea
+Bass:jmp BassHeadAdmission
+ .res 10,$ea
 IsMac:
  pla
  plp

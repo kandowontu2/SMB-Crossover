@@ -9,62 +9,57 @@
   cmp #CHARACTER_PIT
   beq Medium
   cmp #CHARACTER_BASS
-  beq Medium
+  jeq BassTerrainAdder
   cmp #CHARACTER_SOPHIA
   beq Medium
   lda GuestHurtTicks
   beq Crouch
-  iny                          ; Ryu's25NESpx recoil head/feet profile.
+  iny
   sec
   rts
+Medium:
+  ldy #3
 Crouch:
   lda RgCrouch
   beq Yes
 Short:
   ldy #8
-  bne Yes
-Medium:
-  ldy #3
-  lda RgCrouch
-  bne Short
 Yes:
   sec
   rts
 Luigi:
-  clc                          ; Use native PlayerSize/CrouchingFlag adders.
+  clc
   rts
 Scrooge:
   ldy #10
   sec
   rts
+  .res 57-(*-::KbLegacyExpandedCollisionAdder),$ea
+  .assert *-KbLegacyExpandedCollisionAdder=57,error,"Original adder span"
 .endproc
 .proc KbLegacyExpandedCollisionBox
   cmp #CHARACTER_SCROOGE
   beq Scrooge
   cmp #CHARACTER_LUIGI
-  beq Done                     ; Preserve native small/big/crouched Y.
+  beq Done
   ldy #15
   cmp #CHARACTER_PIT
   beq Medium
   cmp #CHARACTER_BASS
-  beq Medium
+  jeq BassTerrainBox
   cmp #CHARACTER_SOPHIA
   beq Medium
   lda GuestHurtTicks
   beq Crouch
-  iny                          ; Ryu source recoil uses the25NESpx box.
+  iny
   rts
+Medium:
+  ldy #12
 Crouch:
   lda RgCrouch
   beq Done
 Short:
   ldy #17
-  rts
-Medium:
-  ldy #12
-  lda RgCrouch
-  bne Short
-  rts
 Done:
   rts
 Scrooge:
@@ -73,6 +68,8 @@ Scrooge:
   beq Done
   iny
   rts
+  .res 55-(*-::KbLegacyExpandedCollisionBox),$ea
+  .assert *-KbLegacyExpandedCollisionBox=55,error,"Original box span"
 .endproc
 .proc KbAdderDispatch
  cmp #CHARACTER_KIRBY
