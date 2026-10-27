@@ -1,0 +1,96 @@
+{
+  "passed": true,
+  "native_run": false,
+  "identity": "mac",
+  "full_GameLoop_calls": 806,
+  "real_source_hooks": {
+    "PhysicalPickup": 2,
+    "StarContact": 1,
+    "LifeIncrement": 1,
+    "AreaMusic": 1
+  },
+  "events": [
+    {
+      "event": "actual-Star-grant",
+      "call": 31,
+      "timer": 35,
+      "music_requests": [
+        64
+      ]
+    },
+    {
+      "event": "actual-star-contact-defeat",
+      "call": 32,
+      "enemy_state": 34
+    },
+    {
+      "event": "natural-expiry-after-real-area-restore",
+      "call": 757,
+      "restore_requests": [
+        1
+      ]
+    },
+    {
+      "event": "physical1-Up-delayed-gain-and-cleanup",
+      "gain_call": 763,
+      "cleanup_call": 806,
+      "initial_lives": 0,
+      "final_lives": 1,
+      "sound_requests": [
+        32,
+        64
+      ]
+    }
+  ],
+  "resource_fields": [
+    {
+      "name": "PlayerStatus",
+      "index": 0,
+      "count": 1
+    },
+    {
+      "name": "PlayerSize",
+      "index": 0,
+      "count": 1
+    },
+    {
+      "name": "InvOwnedLo",
+      "index": 0,
+      "count": 12
+    },
+    {
+      "name": "InvOwnedHi",
+      "index": 0,
+      "count": 12
+    },
+    {
+      "name": "InvSelected",
+      "index": 0,
+      "count": 12
+    },
+    {
+      "name": "InvAmmo",
+      "index": 0,
+      "count": 192
+    },
+    {
+      "name": "LmHealth",
+      "index": 0,
+      "count": 1
+    },
+    {
+      "name": "LmHearts",
+      "index": 0,
+      "count": 1
+    },
+    {
+      "name": "LmStars",
+      "index": 0,
+      "count": 1
+    }
+  ],
+  "scope": "Standalone real CPU cold source initialization, full collision/Main/popup/timer calls; logical typed mature actors, flat map and neutral input. No native menu/PPU/audio/interrupt claim; life baseline0 comes from zero-RAM source harness, never fixture life seeds. Native profile must use genuine cold-menu lives.",
+  "hardware_guard_literal_exact": true,
+  "all_bare_dynamic_literal_RAM_bound": true,
+  "all37_not_admitted": true
+}

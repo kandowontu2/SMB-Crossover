@@ -1,0 +1,435 @@
+{
+  "ROM_sha256": "ab221e81821dd10690ad3a1068d91c9efae6c7406230d9bd7fc4a729fdc433d2",
+  "identity": "vic",
+  "character": 18,
+  "menu": 17,
+  "variant_name": "VvVariant",
+  "variant": 0,
+  "mode": 1,
+  "hooks": {
+    "PhysicalPickup": {
+      "pc": 44913,
+      "banks": [
+        3
+      ],
+      "bytes": [
+        32,
+        47,
+        141
+      ],
+      "source_symbol": "MarioSourcePowerupCollision",
+      "source_delta": 0
+    },
+    "AreaMusic": {
+      "pc": 36235,
+      "banks": [
+        126
+      ],
+      "bytes": [
+        141,
+        106,
+        1
+      ],
+      "source_symbol": "GetAreaMusic",
+      "source_delta": 0
+    },
+    "NmiEntry": {
+      "pc": 58172,
+      "banks": [
+        125,
+        127
+      ],
+      "bytes": [
+        72,
+        138,
+        72
+      ],
+      "source_symbol": "NonMaskableInterrupt",
+      "source_delta": 0
+    },
+    "IrqEntry": {
+      "pc": 32768,
+      "banks": [
+        126
+      ],
+      "bytes": [
+        72,
+        138,
+        72
+      ],
+      "source_symbol": "IrqScrollSplit",
+      "source_delta": 0
+    },
+    "GameLoopOwned": {
+      "pc": 33502,
+      "banks": [
+        126
+      ],
+      "bytes": [
+        32,
+        86,
+        131
+      ],
+      "source_symbol": "GameLoop",
+      "source_delta": 5
+    },
+    "GameLoopFinish": {
+      "pc": 33621,
+      "banks": [
+        126
+      ],
+      "bytes": [
+        96
+      ],
+      "source_symbol": "GameLoop",
+      "source_delta": 124
+    },
+    "NmiReturn": {
+      "pc": 58383,
+      "banks": [
+        125,
+        127
+      ],
+      "bytes": [
+        64
+      ],
+      "source_symbol": "NonMaskableInterrupt",
+      "source_delta": 211
+    },
+    "IrqReturn": {
+      "pc": 32835,
+      "banks": [
+        126
+      ],
+      "bytes": [
+        64
+      ],
+      "source_symbol": "IrqScrollSplit",
+      "source_delta": 67
+    },
+    "StarContact": {
+      "pc": 38579,
+      "banks": [
+        126
+      ],
+      "bytes": [
+        76,
+        245,
+        154
+      ],
+      "source_symbol": "PlayerEnemyCollision",
+      "source_delta": 90
+    },
+    "LifeIncrement": {
+      "pc": 35207,
+      "banks": [
+        126
+      ],
+      "bytes": [
+        238,
+        95,
+        7
+      ],
+      "source_symbol": "FloateyNumbersCore",
+      "source_delta": 35
+    },
+    "DmaComplete": {
+      "pc": 57352,
+      "banks": [
+        125,
+        127
+      ],
+      "bytes": [
+        141,
+        1,
+        32
+      ],
+      "source_symbol": "PostDmaMaskEnable",
+      "source_delta": 3
+    }
+  },
+  "ram": {
+    "MmBrickHealth": 24657,
+    "MTileBotLeft": 48023,
+    "InjuryTimer": 1947,
+    "PowerUpType": 52,
+    "VvMissile": 24025,
+    "StarInvincibleTimer": 1948,
+    "Square2SoundQueue": 260,
+    "MTileBotRight": 48535,
+    "PlayerSize": 1881,
+    "Player_X_Position": 117,
+    "Enemy_X_Position": 118,
+    "Player_X_Speed": 70,
+    "Enemy_Y_MoveForce": 1539,
+    "CrossoverOptionsFocus": 32441,
+    "Enemy_ID": 23,
+    "SelectedCharacter": 24578,
+    "Enemy_Y_Speed": 143,
+    "EnemyOffscrBitsMasked": 1448,
+    "Enemy_SprAttrib": 1416,
+    "Player_State": 30,
+    "Enemy_MovingDir": 1343,
+    "LmHealth": 24352,
+    "VvShield": 24029,
+    "MmDeathFlag": 24583,
+    "Player_MovingDir": 69,
+    "GameEngineSubroutine": 15,
+    "InvAmmo": 31906,
+    "ScrollLock": 1830,
+    "FloateyNum_Control": 269,
+    "InvSelected": 31894,
+    "InvOwnedHi": 31810,
+    "Enemy_Y_HighPos": 165,
+    "Player_Y_Speed": 142,
+    "CurrentBank": 325,
+    "Enemy_CollisionBits": 1597,
+    "ScreenLeft_X_Pos": 1823,
+    "PseudoRandomBitReg": 1952,
+    "CurrentBankC": 32161,
+    "CrossoverMenuState": 29447,
+    "OperMode": 1905,
+    "Sprite0HitDetectFlag": 1829,
+    "AreaMusicQueue": 257,
+    "Player_PageLoc": 92,
+    "MTileTopRight": 48279,
+    "MTileTopLeft": 47767,
+    "PlayerStatus": 1883,
+    "NumberofLives": 1887,
+    "Player_CollisionBits": 1596,
+    "Enemy_PageLoc": 93,
+    "GuestPowerupActive": 27645,
+    "VvVariant": 24554,
+    "VvSpeed": 24024,
+    "VvMeter": 24026,
+    "InvPickupOwner": 32110,
+    "Enemy_Flag": 16,
+    "Player_Y_Position": 189,
+    "ScreenLeft_PageLoc": 1821,
+    "MTileAttribute": 61238,
+    "CheatInvincible": 32763,
+    "PlayerFacingDir": 1342,
+    "Block_Buffer_1": 768,
+    "InvPickup": 32098,
+    "ScrollThirtyTwo": 1856,
+    "VvOptions": 24028,
+    "VvGun": 24027,
+    "AreaParserTaskNum": 1826,
+    "ScreenRight_PageLoc": 1822,
+    "Enemy_Y_Position": 190,
+    "Player_X_MoveForce": 1799,
+    "InvOwnedLo": 31798,
+    "LmHearts": 24354,
+    "Player_Y_MoveForce": 1538,
+    "Enemy_State": 31,
+    "GuestHurtTicks": 28445,
+    "Player_Y_HighPos": 164,
+    "NmiDisable": 313,
+    "ScreenRight_X_Pos": 1824,
+    "IntervalTimerControl": 1916,
+    "CrossoverBehaviorVersion": 32737,
+    "FloateyNum_Timer": 297,
+    "CrossoverMenuIndex": 29449,
+    "Enemy_BoundBoxCtrl": 1606,
+    "MmSolidTerrain": 26321,
+    "OperMode_Task": 1907,
+    "LmStars": 24353,
+    "GuestPowerupTarget": 27648,
+    "VvObjX": 23872,
+    "Enemy_X_Speed": 71
+  },
+  "navigation": [
+    "left",
+    "left",
+    "right",
+    "right",
+    "up",
+    "left",
+    "left",
+    "left",
+    "right",
+    "right",
+    "down",
+    "left",
+    "left",
+    "left",
+    "right",
+    "right",
+    "right",
+    "",
+    "left"
+  ],
+  "resources": [
+    {
+      "name": "PlayerStatus",
+      "index": 0,
+      "count": 1
+    },
+    {
+      "name": "PlayerSize",
+      "index": 0,
+      "count": 1
+    },
+    {
+      "name": "InvOwnedLo",
+      "index": 0,
+      "count": 12
+    },
+    {
+      "name": "InvOwnedHi",
+      "index": 0,
+      "count": 12
+    },
+    {
+      "name": "InvSelected",
+      "index": 0,
+      "count": 12
+    },
+    {
+      "name": "InvAmmo",
+      "index": 0,
+      "count": 192
+    },
+    {
+      "name": "VvShield",
+      "index": 0,
+      "count": 1
+    },
+    {
+      "name": "VvGun",
+      "index": 0,
+      "count": 1
+    },
+    {
+      "name": "VvMissile",
+      "index": 0,
+      "count": 1
+    },
+    {
+      "name": "VvOptions",
+      "index": 0,
+      "count": 1
+    },
+    {
+      "name": "VvSpeed",
+      "index": 0,
+      "count": 1
+    },
+    {
+      "name": "VvMeter",
+      "index": 0,
+      "count": 1
+    }
+  ],
+  "motion": [
+    "Player_X_Speed",
+    "Player_Y_Speed",
+    "Player_X_MoveForce",
+    "Player_Y_MoveForce"
+  ],
+  "setup_allowed": {
+    "Block_Buffer_1": true,
+    "MmSolidTerrain": true,
+    "MmBrickHealth": true,
+    "Enemy_Flag": true,
+    "Enemy_CollisionBits": true,
+    "Player_X_Speed": true,
+    "Player_Y_Speed": true,
+    "Player_X_MoveForce": true,
+    "Player_Y_MoveForce": true,
+    "ScrollThirtyTwo": true,
+    "AreaParserTaskNum": true,
+    "ScrollLock": true,
+    "ScreenLeft_X_Pos": true,
+    "ScreenLeft_PageLoc": true,
+    "ScreenRight_X_Pos": true,
+    "ScreenRight_PageLoc": true,
+    "Player_X_Position": true,
+    "Player_PageLoc": true,
+    "Player_Y_Position": true,
+    "Player_Y_HighPos": true,
+    "Player_State": true,
+    "PlayerFacingDir": true,
+    "Player_MovingDir": true,
+    "Player_CollisionBits": true,
+    "Enemy_ID": true,
+    "Enemy_State": true,
+    "Enemy_BoundBoxCtrl": true,
+    "Enemy_X_Position": true,
+    "Enemy_PageLoc": true,
+    "Enemy_Y_Position": true,
+    "Enemy_Y_HighPos": true,
+    "Enemy_X_Speed": true,
+    "Enemy_Y_Speed": true,
+    "Enemy_Y_MoveForce": true,
+    "Enemy_MovingDir": true,
+    "Enemy_SprAttrib": true,
+    "EnemyOffscrBitsMasked": true,
+    "PowerUpType": true,
+    "InvPickupOwner": true,
+    "InvPickup": true
+  },
+  "resource_bans": {
+    "StarInvincibleTimer": true,
+    "NumberofLives": true,
+    "PlayerStatus": true,
+    "PlayerSize": true,
+    "InvOwnedLo": true,
+    "InvOwnedHi": true,
+    "InvAmmo": true,
+    "InvSelected": true,
+    "LmHealth": true,
+    "LmHearts": true,
+    "LmStars": true,
+    "VvShield": true,
+    "VvGun": true,
+    "VvMissile": true,
+    "VvOptions": true,
+    "VvSpeed": true,
+    "VvMeter": true,
+    "InjuryTimer": true,
+    "GuestHurtTicks": true,
+    "MmDeathFlag": true,
+    "CheatInvincible": true,
+    "PseudoRandomBitReg": true,
+    "GuestPowerupActive": true,
+    "GuestPowerupTarget": true,
+    "AreaMusicQueue": true,
+    "Square2SoundQueue": true,
+    "FloateyNum_Control": true,
+    "FloateyNum_Timer": true
+  },
+  "star_music": 64,
+  "extra_life_sfx": 64,
+  "scope": "One Star2 and1-Up3 physical mature pickup; actual protected Goomba contact/defeat, natural Star expiry and native level-music request, delayed popup life gain/cleanup. Typed map/actor scenes only; no natural reveal/RNG/drop eligibility, original melody/fidelity, later vulnerability, death/life rollover, every-pixel or full-roster claim.",
+  "dma_store_return": 57349,
+  "smc": [
+    354,
+    362,
+    377,
+    364,
+    365
+  ],
+  "metatiles": {
+    "MTileTopLeft": {
+      "bank": 3,
+      "offset": 6807
+    },
+    "MTileTopRight": {
+      "bank": 3,
+      "offset": 7319
+    },
+    "MTileBotLeft": {
+      "bank": 3,
+      "offset": 7063
+    },
+    "MTileBotRight": {
+      "bank": 3,
+      "offset": 7575
+    },
+    "MTileAttribute": {
+      "bank": 127,
+      "offset": 3894
+    }
+  }
+}

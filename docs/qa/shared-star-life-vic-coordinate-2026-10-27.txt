@@ -1,0 +1,53 @@
+Vic Star / 1-Up v1 native FALSE and v2 fixture correction, 2026-10-27
+
+Exact ROM ab221e81821dd10690ad3a1068d91c9efae6c7406230d9bd7fc4a729fdc433d2.
+Original v1 fixture, tool, readiness, source proof and native failure unchanged.
+This is a typed-scene coordinate repair, not a product source or ROM patch.
+
+Actual native CSV: build/current-ab221-vic-hard-star-life-v1/native/star-life.csv
+SHA35eba3c08ea3ef8c77b8bd40b3bac5de7692d3506f08eca96c637cd36e3d01ba.
+Setup: wall424/update30, exported player69/Y176. Same Main finish: X40/Y176.
+All1000 serialized update rows remain X40, StarTimer0, phaseStar; no pickup
+hook event or screenshot. Native stops at the unchanged component age limit.
+Do not label v1 a Star/life pass or infer historical private RAM absent its log.
+
+Cause: the shared arena resets ScreenLeft_X_Pos/Page to0, deliberately retains
+the ship's native object position, then stages the actor using the OLD exported
+Player_X_Position. src/vic_adapter.s VvMovement subsequently calls
+VvExportPosition: PlayerWorldX = VvObjX -8 + ScreenLeftWorldX. The new camera
+therefore changes the exported player coordinate while the staged pickup stays
+at its old world coordinate. Native ObjX/camera were not serialized: values
+48/29 below are an explicit legal source counterexample, not backfilled native
+observations. The old source pilot started at camera0 and missed this setup bug.
+
+Finite actual-CPU counterexample on the same compiled ROM:
+  Source-consistent pre-scene Player69, VvObjX48, camera29.
+  Original scene resets camera0, stages actor69; first Main exports player40.
+  Actor remains69 and no Star grant occurs in40 full Main calls.
+  Corrected scene stages actor40 from nativeObjX/currentcamera; first Main still
+  exports player40, and real physical Star collision grants timer35 at call8.
+  Then the complete corrected Vic campaign passes812 actual full GameLoops:
+  Star38, protected contact46, natural expiry757/real area request1, life769,
+  popup cleanup812. No Star/life/health/owned state is seeded.
+
+V2 delta: actor setup derives only its staged X/page from VvObjX/current camera
+for character18. It never writes private ship/player outcome state. No cap,
+controller, hardware guard, phase/health/life assertion or engine-write rule
+changes. Exact reverse substitution recovers the frozen v1 fixture. All new
+literal/bare/dynamic addresses, including VvObjX, resolve before registration.
+All callbacks remain startup-static. Existing3500frame/1800update/4PNG caps
+and every256-byte E008 DMA/strict deadline/NMI/IRQ/CHR/SMC check remain exact.
+
+Owned files:
+  tests/current-shared-star-life-vic-v2.lua
+  tools/audit/current_shared_star_life_vic_prepare_v2.py
+  docs/qa/shared-star-life-vic-coordinate-2026-10-27.txt
+The preparer reuses the exact frozen v1 implementation through explicit small
+reverse-checked substitutions; no source/runtime/ROM copies or global edits.
+
+Unlaunched v2 readiness:
+  build/current-ab221-vic-hard-star-life-v2/prepared-not-run.json
+  SHA2495dc3a73086d14e37358b28bf745721c2efae4cda7148de179028f03b5a720
+45 bindings; coordinate-controls.json includes retained v1 CSV binding and the
+source counterexample. command.json is the exact ROOT-owned one-shot command.
+No native v2 run or game defect/fix verdict is claimed.

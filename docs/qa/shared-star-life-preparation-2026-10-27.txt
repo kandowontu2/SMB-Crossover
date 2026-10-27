@@ -1,0 +1,107 @@
+Shared Star / 1-Up component preparation, 2026-10-27
+
+STATUS: SOURCE-QUALIFIED THREE-PROFILE PILOT; NO NATIVE LAUNCH. No product,
+settings, default ROM, shared producer or existing evidence was changed.
+
+Target is the private combined ab221e81821dd10690ad3a1068d91c9efae6c7406230d9bd7fc4a729fdc433d2
+at build/mega_proto_body_palette_9ea.nes, with its actual DBG/LBL. This is
+the 58-byte Mega player-bank / Proto palette union, not an adopted build.
+
+Owned implementation:
+  tests/current-shared-star-life.lua
+  tools/audit/current_shared_star_life_prepare_v1.py
+One shared fixture and preparer; no37 source/runtime copies. Initial admitted
+identities are Mario, Little Mac, Vic Viper, all Hard. Other34 remain UNRUN /
+UNPREPARED pending stable native pilots, as ROOT requested.
+
+Real source behavior and checks
+-------------------------------
+HandlePowerUpCollision -> JnPickupDispatch -> M3CollectPickup -> VvPickupDispatch
+-> TnPickupDispatch -> CdPickupDispatch -> KbPickupDispatch ->
+MarioSourcePowerupCollision is the expanded legacy fallback chain. Custom
+food/gear handlers do not prove Star behavior: Mac only owns stamps E0/E1;
+Kirby healing explicitly rejects type>=2; TMNT food rejects type>=2 and gear
+requires B4/stamp4; Mike/CV3/Z2/Darkwing private typed items occupy other
+ranges. SMB3 and Vic also forward native Star/1-Up. These are source routing
+facts, not native per-family pickup results. Only the three pilots below have
+executed their complete assembled CPU collision/counter sequence here.
+
+The actual MarioSourcePowerupCollision erases the mature actor, requests the
+pickup SFX and sets timer35 / StarMusic64 for type2. Type3 selects popup11;
+FloateyNumbersCore increments lives later when its predecrement timer43 becomes
+42, then requests ExtraLife64. The fixture hooks the genuine INC, rather than
+assuming the physical collision immediately grants a life.
+
+The star contact hook is the actual JMP ShellOrBlockDefeat after the nonzero
+StarInvincibleTimer test in PlayerEnemyCollision. It requires live Goomba6,
+slot0, then observes actual defeat bit32. This precedes the family body-damage
+dispatcher, including ships. Vic weapons scan source-owned objects3..11 and
+Parodius world contacts6..27, so staging the Goomba at player contact does not
+pretend the player is a friendly projectile. Parodius alternatives are not yet
+admitted by this profile.
+
+Expiry is natural: no timer writes. At timer4 / IntervalTimerControl0 the real
+GetAreaMusic entry is observed, and the source CPU writes the ground request1.
+The test then waits for timer0 and the full1-Up popup cleanup. This establishes
+the request contract; it does NOT establish the played melody, source-game
+music fidelity, or post-expiry vulnerability.
+
+Actual source CPU campaigns (Hard; neutral controls; real full GameLoop calls)
+  Mario: 806 calls, Star31, protected defeat32, expired757, life763, cleanup806.
+  Mac:   806 calls, Star31, protected defeat32, expired757, life763, cleanup806.
+  Vic:   812 calls, Star38, protected defeat46, expired757, life769, cleanup812.
+Each has exactly two physical mature collisions, one star-only defeat branch,
+one actual life INC and one area-music restore entry. Timer grant35, star
+request64, area restore1, life0->1 in the standalone zero-RAM source harness.
+That zero life baseline is not a fixture seed: the native profile must obtain
+its real initial lives from the actual cold menu and preserve/increment them.
+Health/status/inventory snapshots remain unchanged; Mac additionally checks
+health/hearts/stars and Vic shield/gun/missile/options/speed/meter.
+
+The cold source harness supplies owner/mode/alternate and a standalone game
+timer context before initialization. Native does neither: it uses the actual
+compiled19-node BFS menu, real Select alternate and numeric-mode readback.
+No native menu/Lua/PPU/audio/interrupt execution is claimed by CPU results.
+
+Scene / guards / limits
+-----------------------
+Only GameLoop+5, with NmiDisableFF and outside actual NMI/IRQ, can set typed
+logical actors, flat map, and ordinary player motion/placement. Mature Star2
+then1-Up3, slot5 ID46/state128, FC inventory tag and actual pickup owner are
+disclosed staged scenes. They do not establish block reveal, RNG or natural
+drop eligibility. Goomba6 is staged live with state0, never a defeated state.
+Ships keep their actual native player-object position; contact actors align
+to the current exported player position. No ship movement state is seeded.
+
+No StarTimer, lives, health, tier, ammo, ownership, injury, kill, sound or music
+outcome writes. All setup fields are whitelisted; resource fields are banned.
+All literal r/w names, dynamic resource/alternate names and bare C.ram.NAME
+callback addresses resolve against the actual combined DBG before callbacks.
+
+The hardware block is byte-identical to current_pit_powerups_v3.lua: all256
+DMA inputs/physical bytes with actual attribute E3 semantics; rendering off at
+DMA; real E008 completion; strict render-enable deadline; NMI AXY/SP/5SMC,
+shadow/physical bank publication windows; IRQ31; lower stack; all12 CHR latches.
+All callbacks register at startup; none add/remove callbacks while running.
+Caps:3500physical frames/1800updates/1200host seconds/64files/2GB/4whole PNGs.
+No per-frame capture files or source/runtime/ROM copies were generated.
+
+One retained pre-CPU metadata negative: the first oracle assumed BEQ+3 before
+the star JMP; the linked source has BEQ+6. Literal source/opcode binding was
+corrected, with no game change. Unused nonexistent motion names were removed
+from the unused whitelist before the successful campaigns.
+
+Readies / ROOT-owned launch
+---------------------------
+build/current-ab221-mario-hard-star-life-v1/prepared-not-run.json
+  c0c5d422d6b05917322213833de456716ca6520c8d88f745c2dc8aa8b83c25a8
+build/current-ab221-mac-hard-star-life-v1/prepared-not-run.json
+  6881b495bbd7c31540aa1bba49d4f127e6c51b8bf04e43fc9a1b6273ab8ba844
+build/current-ab221-vic-hard-star-life-v1/prepared-not-run.json
+  b1d234e6c37f3777efa409f3b4f684923ccbb5785f590fd1056db5036ba37ed1
+Each command.json has the exact unlaunched argv; ROOT owns native admission.
+Preparation command: Python -B tools/audit/current_shared_star_life_prepare_v1.py
+  --identity mario|mac|vic --output build/<a new small preparation directory>
+
+No Star/1-Up native PASS, full37 coverage, every-pixel, original music fidelity,
+life rollover/game-over, later injury, death/reentry or campaign claim.

@@ -1,0 +1,80 @@
+{
+  "passed": true,
+  "native_run": false,
+  "scope": "Real compiled source CPU legal nonzero-camera coordinate context. Does not invent or backfill historical native ObjX/camera values.",
+  "cases": [
+    {
+      "label": "original-export-stale",
+      "before": {
+        "player": 69,
+        "actor": 69,
+        "native_x": 48,
+        "camera": 0
+      },
+      "calls": 40,
+      "observations": [
+        {
+          "call": 1,
+          "player": 40,
+          "actor": 69,
+          "timer": 0,
+          "live": 1
+        },
+        {
+          "call": 2,
+          "player": 40,
+          "actor": 69,
+          "timer": 0,
+          "live": 1
+        }
+      ],
+      "final_timer": 0
+    },
+    {
+      "label": "native-coordinate-actor",
+      "before": {
+        "player": 69,
+        "actor": 40,
+        "native_x": 48,
+        "camera": 0
+      },
+      "calls": 8,
+      "observations": [
+        {
+          "call": 1,
+          "player": 40,
+          "actor": 40,
+          "timer": 0,
+          "live": 1
+        },
+        {
+          "call": 2,
+          "player": 40,
+          "actor": 40,
+          "timer": 0,
+          "live": 1
+        },
+        {
+          "call": 8,
+          "player": 40,
+          "actor": 40,
+          "timer": 35,
+          "live": 0
+        }
+      ],
+      "final_timer": 35
+    }
+  ],
+  "original_native_negative": {
+    "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-ab221-vic-hard-star-life-v1\\native\\star-life.csv",
+    "sha256": "35eba3c08ea3ef8c77b8bd40b3bac5de7692d3506f08eca96c637cd36e3d01ba",
+    "update_rows": 1000,
+    "setup_x": 69,
+    "all_update_x": 40,
+    "all_update_star": 0,
+    "physical_pickup_events": 0
+  },
+  "exact_fixture_reverse": true,
+  "unchanged_engine_writes": true,
+  "unchanged_caps_guards_and_controller": true
+}
