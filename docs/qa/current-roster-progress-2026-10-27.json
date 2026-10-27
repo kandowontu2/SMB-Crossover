@@ -1,7 +1,7 @@
 {
   "ROM_sha256": "6be48337ffee66a22b22de9ce134d5db323649fb4de620c43bad4ca98b80f193",
   "status": "latest build audit in progress; predecessor native runs retained with explicit ROM bindings",
-  "clear_identity_count": 17,
+  "clear_identity_count": 18,
   "identities": 37,
   "rows": [
     {
@@ -195,7 +195,19 @@
         "status": "pending current route"
       },
       "hard": {
-        "status": "pending current route"
+        "status": "cleared 1-1 and controlled1-2",
+        "native_ROM_sha256": "6be48337ffee66a22b22de9ce134d5db323649fb4de620c43bad4ca98b80f193",
+        "frames": 5081,
+        "completed_updates": 4789,
+        "captured_full_PPU_frames": 4218,
+        "PPU_stream_sha256": "0f02f940057becc9817379cc8b871f455a7a7c980d15ce623fcfd5d97515cd41",
+        "zero_deaths": true,
+        "cheats_off": true,
+        "selected_whole_frames_visually_reviewed": true,
+        "all_frame_visual_review": false,
+        "independent_replay": false,
+        "native_result_sha256": "8b5d80de0fedf65215b1a3dc17af71dfd6a8adafbbd1fc24434a370c1273bb73",
+        "review_sha256": "99e9d81a2e6568619cd5d0f9f69c895d062ff1743592b323e550b728a82bb3aa"
       }
     },
     {
@@ -564,10 +576,10 @@
       }
     }
   ],
-  "limits": "Every route row binds its actual ROM. Two6be48337 native routes are current; fifteen predecessor identities remain explicit and were not rerun. Earlier37-identity3cee results are historical. Current6be Samus and Bass item/jump components are separate from whole-route clears. Remaining identities, modes, shortcut routes, every powerup, full-frame visual review, sound fidelity and performance remain open.",
+  "limits": "Every route row binds its actual ROM. Three6be48337 native routes are current; fifteen predecessor identities remain explicit and were not rerun. Earlier37-identity3cee results are historical. Current6be Samus and Bass item/jump components are separate from whole-route clears. Remaining identities, modes, shortcut routes, every powerup, full-frame visual review, sound fidelity and performance remain open.",
   "goal_complete": false,
   "previous_ROM_sha256": "4a0394b0892e6c54940856791e44bcbe9fe4e469047aca3982c3f59112a61b8b",
-  "exact_current_ROM_clear_identity_count": 2,
+  "exact_current_ROM_clear_identity_count": 3,
   "predecessor_native_identity_count": 15,
   "predecessor_ROM_native_identity_counts": {
     "2082c19a7364920f828e97f70040d37f1f7059bde1ea136b5c2c4532324abf36": 6,
@@ -576,7 +588,8 @@
   },
   "current_component_checks": [
     "samus-fixed-hud-current6be-native-2026-10-27.json",
-    "bass-current6be-items-native-2026-10-27.json"
+    "bass-current6be-items-native-2026-10-27.json",
+    "pit-current6be-components-native-2026-10-27.json"
   ],
   "identity_count_rule": "An identity counts once if at least one mode has a verified route clear; Easy and Hard remain separate row records."
 }

@@ -1,0 +1,96 @@
+Pit v2 retained FALSE; v3 source-only collision/recharge observer repair
+
+No game, settings, shared tool, old fixture/readiness or original output was
+changed. No native process was launched. ROOT retains the sole capture lease.
+Hard v1/v2/v3 remain unrun. ROM is frozen6be48337ffee66a22b22de9ce134d5db323649fb4de620c43bad4ca98b80f193,
+build/samus_fixed_hud_current4a.nes with its genuine DBG/LBL.
+
+Original v2 Easy ready7550b280010b18f7e710cbd94540a907fafd7b7a1dd8fd46a79b92394d5ab114
+and all26 inputs remain exact. ROOT's launch exited1 at "Real landing
+restored fuel"; settings before/after a5f76b4c4d33cd1fb6d66a8725e7c6636b19e59c03a7dae5e15e1c512a3f4fbf.
+Seven cases completed, including actual mature mushroom/flower contacts and
+60-call transforms0->1->2, bow proxy26/27 contact, hammer38 contact and tier0/1
+wing refusal. Case8 saved rows show60->0 actual fuel transitions and an
+airborne arrow; it did NOT complete. Cases9/10 did not run. Overall FALSE
+stays. There is no terminal result.json/minSP/hardware-count/SFX summary.
+No later components or full native hardware/timing pass are inferred.
+
+The last saved native row is wall1279/update993/case8/age136, x112/y174,
+state1/fuel0/flight0. The failure branch requires state0 and fuel!=60 but
+does not save its terminal RAM/PPU stamp. Source reconstruction predicts the
+next age137; that source endpoint is not mislabeled as a saved native snapshot.
+The six existing whole-frame PNGs were inspected by this agent: cold bow,
+mushroom transform, tier1 hammer, flower transform, first flutter, flutter bow.
+These selected images show coherent body/arrow/hammer/transform presentation
+in the authored scene, with existing source wing poses. No all-pixel or
+universal visibility/audio claim follows. Original PNGs/CSV/log stay in place;
+the compact public FALSE receipt binds them without copying their payloads.
+
+Precise source order: ExpandedMovement (bank30:AD68) calls PitFlightUpdate
+(37:A13F), then integrates motion. PlayerCtrlRoutine subsequently calls
+PlayerBGCollision (126:9B5B), which establishes landing; the real continuation
+MegaMan202AfterBG (1:A167) occurs after that collision. At reconstructed age137,
+the ability entry sees airborne1/y174/fuel0; collision sees integrated y177
+and clamps to grounded0/y176. No source fuel owner runs again in that update.
+At age138 ExpandedMovement's Ground path writes60 before processing new input;
+PitFlightUpdate's actual grounded return also guarantees60/flight0. The old
+end-of-GameLoop assertion incorrectly required recharge retroactively in the
+previous airborne movement call. This is an observer phase error, not evidence
+of a game recharge defect.
+
+Finite complete-GameLoop source controls:6 cases/1,886 updates across both
+numeric modes. CPU tiers are earned through actual MarioSourcePowerupCollision
+and60GuestPowerupUpdate calls, then the scene is initialized; fuel is never
+written by the control. Every eligible debit and genuine Pit leaf RTS/SP/stack
+word are observed through the compiled caller; the real continuation is016E.
+- Full controller:60debits, collision landing137 fuel0, recharge138 fuel60,
+  existing controller relaunch140 with60/flight0, eventual grounded cleanup.
+- Partial release:19debits, collision landing80 fuel41, recharge81 fuel60,
+  actual cancellation and eventual grounded cleanup.
+- Additional source-only immediate next-ground A: recharge138 still precedes
+  the genuine same-update jump. This does not change the native controller.
+The Easy full case exactly matches all137 saved case8 rows for x/y/state/fuel/
+flight. This is a numeric prefix comparison and full CPU caller, not exact
+full RAM/PPU/audio timing equivalence. A narrow recharge predicate model accepts
+the correct owner/age/60/flight0 and rejects missing owner, stale age, fuel59,
+active flight and delayed update (five negatives); no Lua VM execution claimed.
+
+Additive source/negative receipt:
+build/current-6be-pit-easy-items-v2/landing-negative.json
+SHA256 1690b47755792e2080b9d6c0858eaa0cc62c33b3009f6ace07209b3a00ee0352
+21 bindings. The first bow FALSE remains separately at v1/first-negative.json,
+SHAe1f4c7e5657c4bea606769c7b9de6e0997272d369bf440b6cbcb9f0d6dc1594d.
+
+v3 changes only two observer blocks beyond v2. Collision landing records its
+age/fuel without pretending a recharge already occurred. The first following
+actual grounded PitFlightUpdate return must set recharged at exactly landing+1;
+the same GameLoop completion must see that owner at that age and exactly60fuel/
+flight0. The landed screenshot is taken at that confirmed recharge. Original
+full60debits/exhaustion/landing/rejump, partial-release, all pickups/actions,
+input/seeds/caps and complete hardware guard blocks stay byte-exact. Reverse
+normalization of the two blocks reproduces v2; no runtime callbacks are added.
+
+Fresh unrun readies (30 verified bindings each):
+build/current-6be-pit-easy-items-v3/prepared-not-run.json
+SHA256 2099bd93e65234cec10429f5fe4385cb70a9cec4bdb0ef46bd23659afe62f0ea
+build/current-6be-pit-hard-items-v3/prepared-not-run.json
+SHA256 c3b71349b2e6fe791ebfb51a31a4433117df67bbc636bd6e5ac23133a0214654
+Both native directories were absent at preparation. ROOT subsequently created
+Easy-v3/native under its own lease while this public handoff was being written;
+that separate run is outside these original FALSE/source-only receipts.
+The configs differ only in numeric mode.
+Exact argv is in each command.json. ROOT-only DO NOT RUN commands:
+python -B tools/audit/run_mesen_isolated.py --output build/current-6be-pit-easy-items-v3/native build/current-6be-pit-easy-items-v3/run.lua build/samus_fixed_hud_current4a.nes --timeout 1200 --option=--doNotSaveSettings --option=--nes.ramPowerOnState=AllZeros --option=--nes.randomizeCpuPpuAlignment=false --option=--nes.randomizeMapperPowerOnState=false
+python -B tools/audit/run_mesen_isolated.py --output build/current-6be-pit-hard-items-v3/native build/current-6be-pit-hard-items-v3/run.lua build/samus_fixed_hud_current4a.nes --timeout 1200 --option=--doNotSaveSettings --option=--nes.ramPowerOnState=AllZeros --option=--nes.randomizeCpuPpuAlignment=false --option=--nes.randomizeMapperPowerOnState=false
+Caps remain3000actual updates/8000wall/1200host seconds/2GB/64files/8PNGs.
+No source/runtime/ROM clones, per-frame files or native lease are created.
+
+New owned tracked files for this unit only:
+tools/audit/current_pit_landing_negative_v1.py
+tools/audit/current_pit_powerups_v3.lua
+tools/audit/current_pit_powerups_prepare_v3.py
+docs/qa/pit-current6be-landing-v3-prepared-2026-10-27.txt
+docs/qa/pit-current6be-negatives-2026-10-27.json
+The last JSON gives the exact complete13-file owned publication list, both
+public FALSE summaries, source/readiness/output hashes and existing snapshots.
+All v1/v2 files remain separately preserved; no shared roster ledger changes.

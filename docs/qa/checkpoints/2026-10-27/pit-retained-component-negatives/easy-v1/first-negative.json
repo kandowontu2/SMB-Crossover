@@ -1,0 +1,1916 @@
+{
+  "passed": false,
+  "native_passed": false,
+  "diagnosis_source_controls_passed": true,
+  "ROM_sha256": "6be48337ffee66a22b22de9ce134d5db323649fb4de620c43bad4ca98b80f193",
+  "original_ready_sha256": "2f87e9de3a4b404ae4f11febebf50d4b44d74c49dafdd5fbf5c1d502009d9fa0",
+  "native_launches": 1,
+  "first_failure": "One real bow shot/contact/native damage",
+  "native_facts": {
+    "completed_cases": 0,
+    "recorded_spawn": {
+      "event": "actual-bow-spawn",
+      "wall": "322",
+      "update": "36",
+      "case": "1",
+      "age": "6",
+      "tier": "0",
+      "x": "112",
+      "y": "176",
+      "state": "0",
+      "fuel": "60",
+      "flight": "0",
+      "pose": "0",
+      "shots": "0",
+      "value": "0"
+    },
+    "recorded_contact_count": 0,
+    "recorded_health_write_count": 0,
+    "last_CSV": {
+      "event": "update",
+      "wall": "425",
+      "update": "139",
+      "case": "1",
+      "age": "109",
+      "tier": "0",
+      "x": "112",
+      "y": "176",
+      "state": "0",
+      "fuel": "60",
+      "flight": "0",
+      "pose": "0",
+      "shots": "0",
+      "value": "0"
+    },
+    "shot_present_wall": [
+      322,
+      333
+    ],
+    "shot_absent_from_wall": 334,
+    "Hard": "UNRUN",
+    "settings_unchanged": true
+  },
+  "source_cause": {
+    "classification": "Invalid target distance in the component fixture",
+    "cold_centers": [
+      124,
+      128,
+      132,
+      136,
+      140,
+      145,
+      149,
+      153,
+      157,
+      161,
+      165,
+      170
+    ],
+    "radius_x": 4,
+    "radius_y": 3,
+    "max_right": 174,
+    "target_left": 176,
+    "expiry_age": 13,
+    "expiry_before_movement_or_collision": true,
+    "expected_safe_target_x": 160,
+    "future_oracle_correction": "Bow proxy is 26+PlayerStatus, not constant26; cold failure is not caused by this later-tier observer error."
+  },
+  "source_CPU_controls": [
+    {
+      "mode": 0,
+      "tier": 0,
+      "kind": "bow",
+      "target": [
+        176,
+        184
+      ],
+      "complete_GameLoop_calls": 110,
+      "path": [
+        "GameLoop",
+        "HpProcessFireballsBridge",
+        "ProcFireball_Bubble",
+        "RlWeaponsDispatch",
+        "LmWeaponsGate",
+        "JnWeaponsDispatch",
+        "M3WeaponsDispatch",
+        "VvWeaponsDispatch",
+        "TnWeaponsDispatch",
+        "CdWeaponsDispatch",
+        "KbWeaponsDispatch",
+        "ExpandedWeapons",
+        "EnemiesAndLoopsCore",
+        "ExpandedWeapons::MoveKill"
+      ],
+      "calls": {
+        "GameLoop": 110,
+        "HpProcessFireballsBridge": 110,
+        "ProcFireball_Bubble": 110,
+        "RlWeaponsDispatch": 110,
+        "LmWeaponsGate": 110,
+        "JnWeaponsDispatch": 110,
+        "M3WeaponsDispatch": 110,
+        "VvWeaponsDispatch": 110,
+        "TnWeaponsDispatch": 110,
+        "CdWeaponsDispatch": 110,
+        "KbWeaponsDispatch": 110,
+        "ExpandedWeapons": 110,
+        "EnemiesAndLoopsCore": 660,
+        "ExpandedWeapons::MoveKill": 1
+      },
+      "shots": [
+        {
+          "update": 6,
+          "slot": 9,
+          "age": 1,
+          "x": 124,
+          "y": 194
+        },
+        {
+          "update": 7,
+          "slot": 9,
+          "age": 2,
+          "x": 128,
+          "y": 194
+        },
+        {
+          "update": 8,
+          "slot": 9,
+          "age": 3,
+          "x": 132,
+          "y": 194
+        },
+        {
+          "update": 9,
+          "slot": 9,
+          "age": 4,
+          "x": 136,
+          "y": 194
+        },
+        {
+          "update": 10,
+          "slot": 9,
+          "age": 5,
+          "x": 140,
+          "y": 194
+        },
+        {
+          "update": 11,
+          "slot": 9,
+          "age": 6,
+          "x": 145,
+          "y": 194
+        },
+        {
+          "update": 12,
+          "slot": 9,
+          "age": 7,
+          "x": 149,
+          "y": 194
+        },
+        {
+          "update": 13,
+          "slot": 9,
+          "age": 8,
+          "x": 153,
+          "y": 194
+        },
+        {
+          "update": 14,
+          "slot": 9,
+          "age": 9,
+          "x": 157,
+          "y": 194
+        },
+        {
+          "update": 15,
+          "slot": 9,
+          "age": 10,
+          "x": 161,
+          "y": 194
+        },
+        {
+          "update": 16,
+          "slot": 9,
+          "age": 11,
+          "x": 165,
+          "y": 194
+        },
+        {
+          "update": 17,
+          "slot": 9,
+          "age": 12,
+          "x": 170,
+          "y": 194
+        }
+      ],
+      "contacts": [],
+      "MoveKill": [
+        {
+          "update": 18,
+          "shot_age": 13,
+          "x": 170,
+          "y": 194
+        }
+      ],
+      "health_writes": [],
+      "final_enemy": {
+        "flag": 1,
+        "state": 0,
+        "x": 176,
+        "y": 184,
+        "health": 0
+      },
+      "cleanup": true,
+      "no_damage_or_player_movement": true
+    },
+    {
+      "mode": 0,
+      "tier": 0,
+      "kind": "bow",
+      "target": [
+        160,
+        184
+      ],
+      "complete_GameLoop_calls": 110,
+      "path": [
+        "GameLoop",
+        "HpProcessFireballsBridge",
+        "ProcFireball_Bubble",
+        "RlWeaponsDispatch",
+        "LmWeaponsGate",
+        "JnWeaponsDispatch",
+        "M3WeaponsDispatch",
+        "VvWeaponsDispatch",
+        "TnWeaponsDispatch",
+        "CdWeaponsDispatch",
+        "KbWeaponsDispatch",
+        "ExpandedWeapons",
+        "EnemiesAndLoopsCore",
+        "MegaManWeapons::DamageEnemy"
+      ],
+      "calls": {
+        "GameLoop": 110,
+        "HpProcessFireballsBridge": 110,
+        "ProcFireball_Bubble": 110,
+        "RlWeaponsDispatch": 110,
+        "LmWeaponsGate": 110,
+        "JnWeaponsDispatch": 110,
+        "M3WeaponsDispatch": 110,
+        "VvWeaponsDispatch": 110,
+        "TnWeaponsDispatch": 110,
+        "CdWeaponsDispatch": 110,
+        "KbWeaponsDispatch": 110,
+        "ExpandedWeapons": 110,
+        "EnemiesAndLoopsCore": 660,
+        "MegaManWeapons::DamageEnemy": 1
+      },
+      "shots": [
+        {
+          "update": 6,
+          "slot": 9,
+          "age": 1,
+          "x": 124,
+          "y": 194
+        },
+        {
+          "update": 7,
+          "slot": 9,
+          "age": 2,
+          "x": 128,
+          "y": 194
+        },
+        {
+          "update": 8,
+          "slot": 9,
+          "age": 3,
+          "x": 132,
+          "y": 194
+        },
+        {
+          "update": 9,
+          "slot": 9,
+          "age": 4,
+          "x": 136,
+          "y": 194
+        },
+        {
+          "update": 10,
+          "slot": 9,
+          "age": 5,
+          "x": 140,
+          "y": 194
+        },
+        {
+          "update": 11,
+          "slot": 9,
+          "age": 6,
+          "x": 145,
+          "y": 194
+        },
+        {
+          "update": 12,
+          "slot": 9,
+          "age": 7,
+          "x": 149,
+          "y": 194
+        },
+        {
+          "update": 13,
+          "slot": 9,
+          "age": 8,
+          "x": 153,
+          "y": 194
+        }
+      ],
+      "contacts": [
+        {
+          "update": 14,
+          "bank": 8,
+          "PC": 43412,
+          "bullet_type": 26,
+          "x": 157,
+          "y": 194,
+          "enemy_x": 160,
+          "enemy_y": 184
+        }
+      ],
+      "MoveKill": [],
+      "health_writes": [
+        {
+          "update": 14,
+          "pc": 43686,
+          "bank": 8,
+          "address": 24639,
+          "value": 100
+        },
+        {
+          "update": 14,
+          "pc": 43690,
+          "bank": 8,
+          "address": 24645,
+          "value": 0
+        },
+        {
+          "update": 14,
+          "pc": 43743,
+          "bank": 8,
+          "address": 24639,
+          "value": 75
+        },
+        {
+          "update": 14,
+          "pc": 43751,
+          "bank": 8,
+          "address": 24645,
+          "value": 0
+        }
+      ],
+      "final_enemy": {
+        "flag": 1,
+        "state": 0,
+        "x": 160,
+        "y": 184,
+        "health": 75
+      },
+      "cleanup": true,
+      "no_damage_or_player_movement": true
+    },
+    {
+      "mode": 0,
+      "tier": 1,
+      "kind": "bow",
+      "target": [
+        176,
+        184
+      ],
+      "complete_GameLoop_calls": 110,
+      "path": [
+        "GameLoop",
+        "HpProcessFireballsBridge",
+        "ProcFireball_Bubble",
+        "RlWeaponsDispatch",
+        "LmWeaponsGate",
+        "JnWeaponsDispatch",
+        "M3WeaponsDispatch",
+        "VvWeaponsDispatch",
+        "TnWeaponsDispatch",
+        "CdWeaponsDispatch",
+        "KbWeaponsDispatch",
+        "ExpandedWeapons",
+        "EnemiesAndLoopsCore",
+        "MegaManWeapons::DamageEnemy"
+      ],
+      "calls": {
+        "GameLoop": 110,
+        "HpProcessFireballsBridge": 110,
+        "ProcFireball_Bubble": 110,
+        "RlWeaponsDispatch": 110,
+        "LmWeaponsGate": 110,
+        "JnWeaponsDispatch": 110,
+        "M3WeaponsDispatch": 110,
+        "VvWeaponsDispatch": 110,
+        "TnWeaponsDispatch": 110,
+        "CdWeaponsDispatch": 110,
+        "KbWeaponsDispatch": 110,
+        "ExpandedWeapons": 110,
+        "EnemiesAndLoopsCore": 660,
+        "MegaManWeapons::DamageEnemy": 1
+      },
+      "shots": [
+        {
+          "update": 6,
+          "slot": 9,
+          "age": 1,
+          "x": 124,
+          "y": 194
+        },
+        {
+          "update": 7,
+          "slot": 9,
+          "age": 2,
+          "x": 128,
+          "y": 194
+        },
+        {
+          "update": 8,
+          "slot": 9,
+          "age": 3,
+          "x": 132,
+          "y": 194
+        },
+        {
+          "update": 9,
+          "slot": 9,
+          "age": 4,
+          "x": 136,
+          "y": 194
+        },
+        {
+          "update": 10,
+          "slot": 9,
+          "age": 5,
+          "x": 140,
+          "y": 194
+        },
+        {
+          "update": 11,
+          "slot": 9,
+          "age": 6,
+          "x": 145,
+          "y": 194
+        },
+        {
+          "update": 12,
+          "slot": 9,
+          "age": 7,
+          "x": 149,
+          "y": 194
+        },
+        {
+          "update": 13,
+          "slot": 9,
+          "age": 8,
+          "x": 153,
+          "y": 194
+        },
+        {
+          "update": 14,
+          "slot": 9,
+          "age": 9,
+          "x": 157,
+          "y": 194
+        },
+        {
+          "update": 15,
+          "slot": 9,
+          "age": 10,
+          "x": 161,
+          "y": 194
+        },
+        {
+          "update": 16,
+          "slot": 9,
+          "age": 11,
+          "x": 165,
+          "y": 194
+        }
+      ],
+      "contacts": [
+        {
+          "update": 17,
+          "bank": 8,
+          "PC": 43412,
+          "bullet_type": 27,
+          "x": 170,
+          "y": 194,
+          "enemy_x": 176,
+          "enemy_y": 184
+        }
+      ],
+      "MoveKill": [],
+      "health_writes": [
+        {
+          "update": 17,
+          "pc": 43686,
+          "bank": 8,
+          "address": 24639,
+          "value": 100
+        },
+        {
+          "update": 17,
+          "pc": 43690,
+          "bank": 8,
+          "address": 24645,
+          "value": 0
+        },
+        {
+          "update": 17,
+          "pc": 43743,
+          "bank": 8,
+          "address": 24639,
+          "value": 60
+        },
+        {
+          "update": 17,
+          "pc": 43751,
+          "bank": 8,
+          "address": 24645,
+          "value": 0
+        }
+      ],
+      "final_enemy": {
+        "flag": 1,
+        "state": 0,
+        "x": 176,
+        "y": 184,
+        "health": 60
+      },
+      "cleanup": true,
+      "no_damage_or_player_movement": true
+    },
+    {
+      "mode": 0,
+      "tier": 1,
+      "kind": "hammer",
+      "target": [
+        136,
+        168
+      ],
+      "complete_GameLoop_calls": 110,
+      "path": [
+        "GameLoop",
+        "HpProcessFireballsBridge",
+        "ProcFireball_Bubble",
+        "RlWeaponsDispatch",
+        "LmWeaponsGate",
+        "JnWeaponsDispatch",
+        "M3WeaponsDispatch",
+        "VvWeaponsDispatch",
+        "TnWeaponsDispatch",
+        "CdWeaponsDispatch",
+        "KbWeaponsDispatch",
+        "ExpandedWeapons",
+        "EnemiesAndLoopsCore",
+        "MegaManWeapons::DamageEnemy"
+      ],
+      "calls": {
+        "GameLoop": 110,
+        "HpProcessFireballsBridge": 110,
+        "ProcFireball_Bubble": 110,
+        "RlWeaponsDispatch": 110,
+        "LmWeaponsGate": 110,
+        "JnWeaponsDispatch": 110,
+        "M3WeaponsDispatch": 110,
+        "VvWeaponsDispatch": 110,
+        "TnWeaponsDispatch": 110,
+        "CdWeaponsDispatch": 110,
+        "KbWeaponsDispatch": 110,
+        "ExpandedWeapons": 110,
+        "EnemiesAndLoopsCore": 660,
+        "MegaManWeapons::DamageEnemy": 1
+      },
+      "shots": [],
+      "contacts": [
+        {
+          "update": 10,
+          "bank": 8,
+          "PC": 43412,
+          "bullet_type": 38,
+          "x": 138,
+          "y": 193,
+          "enemy_x": 136,
+          "enemy_y": 176
+        }
+      ],
+      "MoveKill": [],
+      "health_writes": [
+        {
+          "update": 10,
+          "pc": 43686,
+          "bank": 8,
+          "address": 24639,
+          "value": 100
+        },
+        {
+          "update": 10,
+          "pc": 43690,
+          "bank": 8,
+          "address": 24645,
+          "value": 0
+        },
+        {
+          "update": 10,
+          "pc": 43743,
+          "bank": 8,
+          "address": 24639,
+          "value": 0
+        },
+        {
+          "update": 10,
+          "pc": 43751,
+          "bank": 8,
+          "address": 24645,
+          "value": 0
+        },
+        {
+          "update": 73,
+          "pc": 36172,
+          "bank": 126,
+          "address": 24639,
+          "value": 0
+        },
+        {
+          "update": 73,
+          "pc": 36175,
+          "bank": 126,
+          "address": 24645,
+          "value": 0
+        }
+      ],
+      "final_enemy": {
+        "flag": 0,
+        "state": 0,
+        "x": 80,
+        "y": 2,
+        "health": 0
+      },
+      "cleanup": true,
+      "no_damage_or_player_movement": true
+    },
+    {
+      "mode": 0,
+      "tier": 2,
+      "kind": "bow",
+      "target": [
+        176,
+        184
+      ],
+      "complete_GameLoop_calls": 110,
+      "path": [
+        "GameLoop",
+        "HpProcessFireballsBridge",
+        "ProcFireball_Bubble",
+        "RlWeaponsDispatch",
+        "LmWeaponsGate",
+        "JnWeaponsDispatch",
+        "M3WeaponsDispatch",
+        "VvWeaponsDispatch",
+        "TnWeaponsDispatch",
+        "CdWeaponsDispatch",
+        "KbWeaponsDispatch",
+        "ExpandedWeapons",
+        "EnemiesAndLoopsCore",
+        "MegaManWeapons::DamageEnemy"
+      ],
+      "calls": {
+        "GameLoop": 110,
+        "HpProcessFireballsBridge": 110,
+        "ProcFireball_Bubble": 110,
+        "RlWeaponsDispatch": 110,
+        "LmWeaponsGate": 110,
+        "JnWeaponsDispatch": 110,
+        "M3WeaponsDispatch": 110,
+        "VvWeaponsDispatch": 110,
+        "TnWeaponsDispatch": 110,
+        "CdWeaponsDispatch": 110,
+        "KbWeaponsDispatch": 110,
+        "ExpandedWeapons": 110,
+        "EnemiesAndLoopsCore": 660,
+        "MegaManWeapons::DamageEnemy": 1
+      },
+      "shots": [
+        {
+          "update": 6,
+          "slot": 9,
+          "age": 1,
+          "x": 124,
+          "y": 194
+        },
+        {
+          "update": 7,
+          "slot": 9,
+          "age": 2,
+          "x": 128,
+          "y": 194
+        },
+        {
+          "update": 8,
+          "slot": 9,
+          "age": 3,
+          "x": 132,
+          "y": 194
+        },
+        {
+          "update": 9,
+          "slot": 9,
+          "age": 4,
+          "x": 136,
+          "y": 194
+        },
+        {
+          "update": 10,
+          "slot": 9,
+          "age": 5,
+          "x": 140,
+          "y": 194
+        },
+        {
+          "update": 11,
+          "slot": 9,
+          "age": 6,
+          "x": 145,
+          "y": 194
+        },
+        {
+          "update": 12,
+          "slot": 9,
+          "age": 7,
+          "x": 149,
+          "y": 194
+        },
+        {
+          "update": 13,
+          "slot": 9,
+          "age": 8,
+          "x": 153,
+          "y": 194
+        },
+        {
+          "update": 14,
+          "slot": 9,
+          "age": 9,
+          "x": 157,
+          "y": 194
+        },
+        {
+          "update": 15,
+          "slot": 9,
+          "age": 10,
+          "x": 161,
+          "y": 194
+        },
+        {
+          "update": 16,
+          "slot": 9,
+          "age": 11,
+          "x": 165,
+          "y": 194
+        }
+      ],
+      "contacts": [
+        {
+          "update": 17,
+          "bank": 8,
+          "PC": 43412,
+          "bullet_type": 28,
+          "x": 170,
+          "y": 194,
+          "enemy_x": 176,
+          "enemy_y": 184
+        }
+      ],
+      "MoveKill": [],
+      "health_writes": [
+        {
+          "update": 17,
+          "pc": 43686,
+          "bank": 8,
+          "address": 24639,
+          "value": 100
+        },
+        {
+          "update": 17,
+          "pc": 43690,
+          "bank": 8,
+          "address": 24645,
+          "value": 0
+        },
+        {
+          "update": 17,
+          "pc": 43743,
+          "bank": 8,
+          "address": 24639,
+          "value": 35
+        },
+        {
+          "update": 17,
+          "pc": 43751,
+          "bank": 8,
+          "address": 24645,
+          "value": 0
+        }
+      ],
+      "final_enemy": {
+        "flag": 1,
+        "state": 0,
+        "x": 176,
+        "y": 184,
+        "health": 35
+      },
+      "cleanup": true,
+      "no_damage_or_player_movement": true
+    },
+    {
+      "mode": 0,
+      "tier": 2,
+      "kind": "hammer",
+      "target": [
+        136,
+        168
+      ],
+      "complete_GameLoop_calls": 110,
+      "path": [
+        "GameLoop",
+        "HpProcessFireballsBridge",
+        "ProcFireball_Bubble",
+        "RlWeaponsDispatch",
+        "LmWeaponsGate",
+        "JnWeaponsDispatch",
+        "M3WeaponsDispatch",
+        "VvWeaponsDispatch",
+        "TnWeaponsDispatch",
+        "CdWeaponsDispatch",
+        "KbWeaponsDispatch",
+        "ExpandedWeapons",
+        "EnemiesAndLoopsCore",
+        "MegaManWeapons::DamageEnemy"
+      ],
+      "calls": {
+        "GameLoop": 110,
+        "HpProcessFireballsBridge": 110,
+        "ProcFireball_Bubble": 110,
+        "RlWeaponsDispatch": 110,
+        "LmWeaponsGate": 110,
+        "JnWeaponsDispatch": 110,
+        "M3WeaponsDispatch": 110,
+        "VvWeaponsDispatch": 110,
+        "TnWeaponsDispatch": 110,
+        "CdWeaponsDispatch": 110,
+        "KbWeaponsDispatch": 110,
+        "ExpandedWeapons": 110,
+        "EnemiesAndLoopsCore": 660,
+        "MegaManWeapons::DamageEnemy": 1
+      },
+      "shots": [],
+      "contacts": [
+        {
+          "update": 10,
+          "bank": 8,
+          "PC": 43412,
+          "bullet_type": 38,
+          "x": 138,
+          "y": 193,
+          "enemy_x": 136,
+          "enemy_y": 176
+        }
+      ],
+      "MoveKill": [],
+      "health_writes": [
+        {
+          "update": 10,
+          "pc": 43686,
+          "bank": 8,
+          "address": 24639,
+          "value": 100
+        },
+        {
+          "update": 10,
+          "pc": 43690,
+          "bank": 8,
+          "address": 24645,
+          "value": 0
+        },
+        {
+          "update": 10,
+          "pc": 43743,
+          "bank": 8,
+          "address": 24639,
+          "value": 0
+        },
+        {
+          "update": 10,
+          "pc": 43751,
+          "bank": 8,
+          "address": 24645,
+          "value": 0
+        },
+        {
+          "update": 73,
+          "pc": 36172,
+          "bank": 126,
+          "address": 24639,
+          "value": 0
+        },
+        {
+          "update": 73,
+          "pc": 36175,
+          "bank": 126,
+          "address": 24645,
+          "value": 0
+        }
+      ],
+      "final_enemy": {
+        "flag": 0,
+        "state": 0,
+        "x": 80,
+        "y": 2,
+        "health": 0
+      },
+      "cleanup": true,
+      "no_damage_or_player_movement": true
+    },
+    {
+      "mode": 1,
+      "tier": 0,
+      "kind": "bow",
+      "target": [
+        176,
+        184
+      ],
+      "complete_GameLoop_calls": 110,
+      "path": [
+        "GameLoop",
+        "HpProcessFireballsBridge",
+        "ProcFireball_Bubble",
+        "RlWeaponsDispatch",
+        "LmWeaponsGate",
+        "JnWeaponsDispatch",
+        "M3WeaponsDispatch",
+        "VvWeaponsDispatch",
+        "TnWeaponsDispatch",
+        "CdWeaponsDispatch",
+        "KbWeaponsDispatch",
+        "ExpandedWeapons",
+        "EnemiesAndLoopsCore",
+        "ExpandedWeapons::MoveKill"
+      ],
+      "calls": {
+        "GameLoop": 110,
+        "HpProcessFireballsBridge": 110,
+        "ProcFireball_Bubble": 110,
+        "RlWeaponsDispatch": 110,
+        "LmWeaponsGate": 110,
+        "JnWeaponsDispatch": 110,
+        "M3WeaponsDispatch": 110,
+        "VvWeaponsDispatch": 110,
+        "TnWeaponsDispatch": 110,
+        "CdWeaponsDispatch": 110,
+        "KbWeaponsDispatch": 110,
+        "ExpandedWeapons": 110,
+        "EnemiesAndLoopsCore": 660,
+        "ExpandedWeapons::MoveKill": 1
+      },
+      "shots": [
+        {
+          "update": 6,
+          "slot": 9,
+          "age": 1,
+          "x": 124,
+          "y": 194
+        },
+        {
+          "update": 7,
+          "slot": 9,
+          "age": 2,
+          "x": 128,
+          "y": 194
+        },
+        {
+          "update": 8,
+          "slot": 9,
+          "age": 3,
+          "x": 132,
+          "y": 194
+        },
+        {
+          "update": 9,
+          "slot": 9,
+          "age": 4,
+          "x": 136,
+          "y": 194
+        },
+        {
+          "update": 10,
+          "slot": 9,
+          "age": 5,
+          "x": 140,
+          "y": 194
+        },
+        {
+          "update": 11,
+          "slot": 9,
+          "age": 6,
+          "x": 145,
+          "y": 194
+        },
+        {
+          "update": 12,
+          "slot": 9,
+          "age": 7,
+          "x": 149,
+          "y": 194
+        },
+        {
+          "update": 13,
+          "slot": 9,
+          "age": 8,
+          "x": 153,
+          "y": 194
+        },
+        {
+          "update": 14,
+          "slot": 9,
+          "age": 9,
+          "x": 157,
+          "y": 194
+        },
+        {
+          "update": 15,
+          "slot": 9,
+          "age": 10,
+          "x": 161,
+          "y": 194
+        },
+        {
+          "update": 16,
+          "slot": 9,
+          "age": 11,
+          "x": 165,
+          "y": 194
+        },
+        {
+          "update": 17,
+          "slot": 9,
+          "age": 12,
+          "x": 170,
+          "y": 194
+        }
+      ],
+      "contacts": [],
+      "MoveKill": [
+        {
+          "update": 18,
+          "shot_age": 13,
+          "x": 170,
+          "y": 194
+        }
+      ],
+      "health_writes": [],
+      "final_enemy": {
+        "flag": 1,
+        "state": 0,
+        "x": 176,
+        "y": 184,
+        "health": 0
+      },
+      "cleanup": true,
+      "no_damage_or_player_movement": true
+    },
+    {
+      "mode": 1,
+      "tier": 0,
+      "kind": "bow",
+      "target": [
+        160,
+        184
+      ],
+      "complete_GameLoop_calls": 110,
+      "path": [
+        "GameLoop",
+        "HpProcessFireballsBridge",
+        "ProcFireball_Bubble",
+        "RlWeaponsDispatch",
+        "LmWeaponsGate",
+        "JnWeaponsDispatch",
+        "M3WeaponsDispatch",
+        "VvWeaponsDispatch",
+        "TnWeaponsDispatch",
+        "CdWeaponsDispatch",
+        "KbWeaponsDispatch",
+        "ExpandedWeapons",
+        "EnemiesAndLoopsCore",
+        "MegaManWeapons::DamageEnemy"
+      ],
+      "calls": {
+        "GameLoop": 110,
+        "HpProcessFireballsBridge": 110,
+        "ProcFireball_Bubble": 110,
+        "RlWeaponsDispatch": 110,
+        "LmWeaponsGate": 110,
+        "JnWeaponsDispatch": 110,
+        "M3WeaponsDispatch": 110,
+        "VvWeaponsDispatch": 110,
+        "TnWeaponsDispatch": 110,
+        "CdWeaponsDispatch": 110,
+        "KbWeaponsDispatch": 110,
+        "ExpandedWeapons": 110,
+        "EnemiesAndLoopsCore": 660,
+        "MegaManWeapons::DamageEnemy": 1
+      },
+      "shots": [
+        {
+          "update": 6,
+          "slot": 9,
+          "age": 1,
+          "x": 124,
+          "y": 194
+        },
+        {
+          "update": 7,
+          "slot": 9,
+          "age": 2,
+          "x": 128,
+          "y": 194
+        },
+        {
+          "update": 8,
+          "slot": 9,
+          "age": 3,
+          "x": 132,
+          "y": 194
+        },
+        {
+          "update": 9,
+          "slot": 9,
+          "age": 4,
+          "x": 136,
+          "y": 194
+        },
+        {
+          "update": 10,
+          "slot": 9,
+          "age": 5,
+          "x": 140,
+          "y": 194
+        },
+        {
+          "update": 11,
+          "slot": 9,
+          "age": 6,
+          "x": 145,
+          "y": 194
+        },
+        {
+          "update": 12,
+          "slot": 9,
+          "age": 7,
+          "x": 149,
+          "y": 194
+        },
+        {
+          "update": 13,
+          "slot": 9,
+          "age": 8,
+          "x": 153,
+          "y": 194
+        }
+      ],
+      "contacts": [
+        {
+          "update": 14,
+          "bank": 8,
+          "PC": 43412,
+          "bullet_type": 26,
+          "x": 157,
+          "y": 194,
+          "enemy_x": 160,
+          "enemy_y": 184
+        }
+      ],
+      "MoveKill": [],
+      "health_writes": [
+        {
+          "update": 14,
+          "pc": 43686,
+          "bank": 8,
+          "address": 24639,
+          "value": 100
+        },
+        {
+          "update": 14,
+          "pc": 43690,
+          "bank": 8,
+          "address": 24645,
+          "value": 0
+        },
+        {
+          "update": 14,
+          "pc": 43743,
+          "bank": 8,
+          "address": 24639,
+          "value": 75
+        },
+        {
+          "update": 14,
+          "pc": 43751,
+          "bank": 8,
+          "address": 24645,
+          "value": 0
+        }
+      ],
+      "final_enemy": {
+        "flag": 1,
+        "state": 0,
+        "x": 160,
+        "y": 184,
+        "health": 75
+      },
+      "cleanup": true,
+      "no_damage_or_player_movement": true
+    },
+    {
+      "mode": 1,
+      "tier": 1,
+      "kind": "bow",
+      "target": [
+        176,
+        184
+      ],
+      "complete_GameLoop_calls": 110,
+      "path": [
+        "GameLoop",
+        "HpProcessFireballsBridge",
+        "ProcFireball_Bubble",
+        "RlWeaponsDispatch",
+        "LmWeaponsGate",
+        "JnWeaponsDispatch",
+        "M3WeaponsDispatch",
+        "VvWeaponsDispatch",
+        "TnWeaponsDispatch",
+        "CdWeaponsDispatch",
+        "KbWeaponsDispatch",
+        "ExpandedWeapons",
+        "EnemiesAndLoopsCore",
+        "MegaManWeapons::DamageEnemy"
+      ],
+      "calls": {
+        "GameLoop": 110,
+        "HpProcessFireballsBridge": 110,
+        "ProcFireball_Bubble": 110,
+        "RlWeaponsDispatch": 110,
+        "LmWeaponsGate": 110,
+        "JnWeaponsDispatch": 110,
+        "M3WeaponsDispatch": 110,
+        "VvWeaponsDispatch": 110,
+        "TnWeaponsDispatch": 110,
+        "CdWeaponsDispatch": 110,
+        "KbWeaponsDispatch": 110,
+        "ExpandedWeapons": 110,
+        "EnemiesAndLoopsCore": 660,
+        "MegaManWeapons::DamageEnemy": 1
+      },
+      "shots": [
+        {
+          "update": 6,
+          "slot": 9,
+          "age": 1,
+          "x": 124,
+          "y": 194
+        },
+        {
+          "update": 7,
+          "slot": 9,
+          "age": 2,
+          "x": 128,
+          "y": 194
+        },
+        {
+          "update": 8,
+          "slot": 9,
+          "age": 3,
+          "x": 132,
+          "y": 194
+        },
+        {
+          "update": 9,
+          "slot": 9,
+          "age": 4,
+          "x": 136,
+          "y": 194
+        },
+        {
+          "update": 10,
+          "slot": 9,
+          "age": 5,
+          "x": 140,
+          "y": 194
+        },
+        {
+          "update": 11,
+          "slot": 9,
+          "age": 6,
+          "x": 145,
+          "y": 194
+        },
+        {
+          "update": 12,
+          "slot": 9,
+          "age": 7,
+          "x": 149,
+          "y": 194
+        },
+        {
+          "update": 13,
+          "slot": 9,
+          "age": 8,
+          "x": 153,
+          "y": 194
+        },
+        {
+          "update": 14,
+          "slot": 9,
+          "age": 9,
+          "x": 157,
+          "y": 194
+        },
+        {
+          "update": 15,
+          "slot": 9,
+          "age": 10,
+          "x": 161,
+          "y": 194
+        },
+        {
+          "update": 16,
+          "slot": 9,
+          "age": 11,
+          "x": 165,
+          "y": 194
+        }
+      ],
+      "contacts": [
+        {
+          "update": 17,
+          "bank": 8,
+          "PC": 43412,
+          "bullet_type": 27,
+          "x": 170,
+          "y": 194,
+          "enemy_x": 176,
+          "enemy_y": 184
+        }
+      ],
+      "MoveKill": [],
+      "health_writes": [
+        {
+          "update": 17,
+          "pc": 43686,
+          "bank": 8,
+          "address": 24639,
+          "value": 100
+        },
+        {
+          "update": 17,
+          "pc": 43690,
+          "bank": 8,
+          "address": 24645,
+          "value": 0
+        },
+        {
+          "update": 17,
+          "pc": 43743,
+          "bank": 8,
+          "address": 24639,
+          "value": 60
+        },
+        {
+          "update": 17,
+          "pc": 43751,
+          "bank": 8,
+          "address": 24645,
+          "value": 0
+        }
+      ],
+      "final_enemy": {
+        "flag": 1,
+        "state": 0,
+        "x": 176,
+        "y": 184,
+        "health": 60
+      },
+      "cleanup": true,
+      "no_damage_or_player_movement": true
+    },
+    {
+      "mode": 1,
+      "tier": 1,
+      "kind": "hammer",
+      "target": [
+        136,
+        168
+      ],
+      "complete_GameLoop_calls": 110,
+      "path": [
+        "GameLoop",
+        "HpProcessFireballsBridge",
+        "ProcFireball_Bubble",
+        "RlWeaponsDispatch",
+        "LmWeaponsGate",
+        "JnWeaponsDispatch",
+        "M3WeaponsDispatch",
+        "VvWeaponsDispatch",
+        "TnWeaponsDispatch",
+        "CdWeaponsDispatch",
+        "KbWeaponsDispatch",
+        "ExpandedWeapons",
+        "EnemiesAndLoopsCore",
+        "MegaManWeapons::DamageEnemy"
+      ],
+      "calls": {
+        "GameLoop": 110,
+        "HpProcessFireballsBridge": 110,
+        "ProcFireball_Bubble": 110,
+        "RlWeaponsDispatch": 110,
+        "LmWeaponsGate": 110,
+        "JnWeaponsDispatch": 110,
+        "M3WeaponsDispatch": 110,
+        "VvWeaponsDispatch": 110,
+        "TnWeaponsDispatch": 110,
+        "CdWeaponsDispatch": 110,
+        "KbWeaponsDispatch": 110,
+        "ExpandedWeapons": 110,
+        "EnemiesAndLoopsCore": 660,
+        "MegaManWeapons::DamageEnemy": 1
+      },
+      "shots": [],
+      "contacts": [
+        {
+          "update": 10,
+          "bank": 8,
+          "PC": 43412,
+          "bullet_type": 38,
+          "x": 138,
+          "y": 193,
+          "enemy_x": 136,
+          "enemy_y": 176
+        }
+      ],
+      "MoveKill": [],
+      "health_writes": [
+        {
+          "update": 10,
+          "pc": 43686,
+          "bank": 8,
+          "address": 24639,
+          "value": 100
+        },
+        {
+          "update": 10,
+          "pc": 43690,
+          "bank": 8,
+          "address": 24645,
+          "value": 0
+        },
+        {
+          "update": 10,
+          "pc": 43743,
+          "bank": 8,
+          "address": 24639,
+          "value": 0
+        },
+        {
+          "update": 10,
+          "pc": 43751,
+          "bank": 8,
+          "address": 24645,
+          "value": 0
+        },
+        {
+          "update": 73,
+          "pc": 36172,
+          "bank": 126,
+          "address": 24639,
+          "value": 0
+        },
+        {
+          "update": 73,
+          "pc": 36175,
+          "bank": 126,
+          "address": 24645,
+          "value": 0
+        }
+      ],
+      "final_enemy": {
+        "flag": 0,
+        "state": 0,
+        "x": 80,
+        "y": 2,
+        "health": 0
+      },
+      "cleanup": true,
+      "no_damage_or_player_movement": true
+    },
+    {
+      "mode": 1,
+      "tier": 2,
+      "kind": "bow",
+      "target": [
+        176,
+        184
+      ],
+      "complete_GameLoop_calls": 110,
+      "path": [
+        "GameLoop",
+        "HpProcessFireballsBridge",
+        "ProcFireball_Bubble",
+        "RlWeaponsDispatch",
+        "LmWeaponsGate",
+        "JnWeaponsDispatch",
+        "M3WeaponsDispatch",
+        "VvWeaponsDispatch",
+        "TnWeaponsDispatch",
+        "CdWeaponsDispatch",
+        "KbWeaponsDispatch",
+        "ExpandedWeapons",
+        "EnemiesAndLoopsCore",
+        "MegaManWeapons::DamageEnemy"
+      ],
+      "calls": {
+        "GameLoop": 110,
+        "HpProcessFireballsBridge": 110,
+        "ProcFireball_Bubble": 110,
+        "RlWeaponsDispatch": 110,
+        "LmWeaponsGate": 110,
+        "JnWeaponsDispatch": 110,
+        "M3WeaponsDispatch": 110,
+        "VvWeaponsDispatch": 110,
+        "TnWeaponsDispatch": 110,
+        "CdWeaponsDispatch": 110,
+        "KbWeaponsDispatch": 110,
+        "ExpandedWeapons": 110,
+        "EnemiesAndLoopsCore": 660,
+        "MegaManWeapons::DamageEnemy": 1
+      },
+      "shots": [
+        {
+          "update": 6,
+          "slot": 9,
+          "age": 1,
+          "x": 124,
+          "y": 194
+        },
+        {
+          "update": 7,
+          "slot": 9,
+          "age": 2,
+          "x": 128,
+          "y": 194
+        },
+        {
+          "update": 8,
+          "slot": 9,
+          "age": 3,
+          "x": 132,
+          "y": 194
+        },
+        {
+          "update": 9,
+          "slot": 9,
+          "age": 4,
+          "x": 136,
+          "y": 194
+        },
+        {
+          "update": 10,
+          "slot": 9,
+          "age": 5,
+          "x": 140,
+          "y": 194
+        },
+        {
+          "update": 11,
+          "slot": 9,
+          "age": 6,
+          "x": 145,
+          "y": 194
+        },
+        {
+          "update": 12,
+          "slot": 9,
+          "age": 7,
+          "x": 149,
+          "y": 194
+        },
+        {
+          "update": 13,
+          "slot": 9,
+          "age": 8,
+          "x": 153,
+          "y": 194
+        },
+        {
+          "update": 14,
+          "slot": 9,
+          "age": 9,
+          "x": 157,
+          "y": 194
+        },
+        {
+          "update": 15,
+          "slot": 9,
+          "age": 10,
+          "x": 161,
+          "y": 194
+        },
+        {
+          "update": 16,
+          "slot": 9,
+          "age": 11,
+          "x": 165,
+          "y": 194
+        }
+      ],
+      "contacts": [
+        {
+          "update": 17,
+          "bank": 8,
+          "PC": 43412,
+          "bullet_type": 28,
+          "x": 170,
+          "y": 194,
+          "enemy_x": 176,
+          "enemy_y": 184
+        }
+      ],
+      "MoveKill": [],
+      "health_writes": [
+        {
+          "update": 17,
+          "pc": 43686,
+          "bank": 8,
+          "address": 24639,
+          "value": 100
+        },
+        {
+          "update": 17,
+          "pc": 43690,
+          "bank": 8,
+          "address": 24645,
+          "value": 0
+        },
+        {
+          "update": 17,
+          "pc": 43743,
+          "bank": 8,
+          "address": 24639,
+          "value": 35
+        },
+        {
+          "update": 17,
+          "pc": 43751,
+          "bank": 8,
+          "address": 24645,
+          "value": 0
+        }
+      ],
+      "final_enemy": {
+        "flag": 1,
+        "state": 0,
+        "x": 176,
+        "y": 184,
+        "health": 35
+      },
+      "cleanup": true,
+      "no_damage_or_player_movement": true
+    },
+    {
+      "mode": 1,
+      "tier": 2,
+      "kind": "hammer",
+      "target": [
+        136,
+        168
+      ],
+      "complete_GameLoop_calls": 110,
+      "path": [
+        "GameLoop",
+        "HpProcessFireballsBridge",
+        "ProcFireball_Bubble",
+        "RlWeaponsDispatch",
+        "LmWeaponsGate",
+        "JnWeaponsDispatch",
+        "M3WeaponsDispatch",
+        "VvWeaponsDispatch",
+        "TnWeaponsDispatch",
+        "CdWeaponsDispatch",
+        "KbWeaponsDispatch",
+        "ExpandedWeapons",
+        "EnemiesAndLoopsCore",
+        "MegaManWeapons::DamageEnemy"
+      ],
+      "calls": {
+        "GameLoop": 110,
+        "HpProcessFireballsBridge": 110,
+        "ProcFireball_Bubble": 110,
+        "RlWeaponsDispatch": 110,
+        "LmWeaponsGate": 110,
+        "JnWeaponsDispatch": 110,
+        "M3WeaponsDispatch": 110,
+        "VvWeaponsDispatch": 110,
+        "TnWeaponsDispatch": 110,
+        "CdWeaponsDispatch": 110,
+        "KbWeaponsDispatch": 110,
+        "ExpandedWeapons": 110,
+        "EnemiesAndLoopsCore": 660,
+        "MegaManWeapons::DamageEnemy": 1
+      },
+      "shots": [],
+      "contacts": [
+        {
+          "update": 10,
+          "bank": 8,
+          "PC": 43412,
+          "bullet_type": 38,
+          "x": 138,
+          "y": 193,
+          "enemy_x": 136,
+          "enemy_y": 176
+        }
+      ],
+      "MoveKill": [],
+      "health_writes": [
+        {
+          "update": 10,
+          "pc": 43686,
+          "bank": 8,
+          "address": 24639,
+          "value": 100
+        },
+        {
+          "update": 10,
+          "pc": 43690,
+          "bank": 8,
+          "address": 24645,
+          "value": 0
+        },
+        {
+          "update": 10,
+          "pc": 43743,
+          "bank": 8,
+          "address": 24639,
+          "value": 0
+        },
+        {
+          "update": 10,
+          "pc": 43751,
+          "bank": 8,
+          "address": 24645,
+          "value": 0
+        },
+        {
+          "update": 73,
+          "pc": 36172,
+          "bank": 126,
+          "address": 24639,
+          "value": 0
+        },
+        {
+          "update": 73,
+          "pc": 36175,
+          "bank": 126,
+          "address": 24645,
+          "value": 0
+        }
+      ],
+      "final_enemy": {
+        "flag": 0,
+        "state": 0,
+        "x": 80,
+        "y": 2,
+        "health": 0
+      },
+      "cleanup": true,
+      "no_damage_or_player_movement": true
+    }
+  ],
+  "limits": "Reconstructed complete GameLoop CPU arenas; not exact saved native RAM, PPU timing, Lua execution or new native proof. Actual CSV lacks target/shot coordinate provenance. Existing failure/inputs/assertions remain immutable. No game defect or successful acquisition/use unit claimed.",
+  "agent_visual_review": {
+    "passed_scope": true,
+    "images": [
+      "native/cold-bow.png"
+    ],
+    "scope": "One actual whole-frame sample; separated Pit/arrow/Goomba and ordinary floor visible, no terrain displacement evident in this sample. Not all-frame/pixel fidelity."
+  },
+  "bindings": [
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\current_pit_bow_negative_v1.py",
+      "bytes": 12347,
+      "sha256": "081e2ca0b1ecfbbd019534e94088c1f5f188e5ec19a9ab6d405b61119d634815"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-6be-pit-easy-items-v1\\prepared-not-run.json",
+      "bytes": 6704,
+      "sha256": "2f87e9de3a4b404ae4f11febebf50d4b44d74c49dafdd5fbf5c1d502009d9fa0"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-6be-pit-easy-items-v1\\launch.json",
+      "bytes": 1234,
+      "sha256": "55879f4b2866025fdb08f64e65323278a07aabb3de90c424af8aaf97c2967408"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-6be-pit-easy-items-v1\\native\\capture-budget.json",
+      "bytes": 1316,
+      "sha256": "2f2776eeafd25c9e2cfc85881414b2a96ecee25ccfcaa8c933fa3667c1ef0142"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-6be-pit-easy-items-v1\\native\\cold-bow.png",
+      "bytes": 1731,
+      "sha256": "40832161517ee1a63f586ac4c857cb532c527f5ba4d98e498c27d5d169923aa5"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-6be-pit-easy-items-v1\\native\\pit-components.csv",
+      "bytes": 5005,
+      "sha256": "85f4342f605788d90bac9d5951eb02fc220a1a838196abdf868ff8b6e61442c8"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-6be-pit-easy-items-v1\\native\\samus_fixed_hud_current4a-run.log",
+      "bytes": 4110,
+      "sha256": "49bf02432ecff1fd10f2ed38c14dc8272683b1771ad0e898f52d120012f12c05"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\current_pit_powerups_v1.lua",
+      "bytes": 21133,
+      "sha256": "c39d32ab4c301c8fd386e02102748e8025ea5f37ca84507abb6d6666322260c5"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\current_pit_powerups_prepare_v1.py",
+      "bytes": 11110,
+      "sha256": "1b0643adb95d1f130692098e057b29ff98c2e61b99576078ce60515dc095d006"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\samus_fixed_hud_current4a.nes",
+      "bytes": 2097168,
+      "sha256": "6be48337ffee66a22b22de9ce134d5db323649fb4de620c43bad4ca98b80f193"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\samus_fixed_hud_current4a.dbg",
+      "bytes": 26897401,
+      "sha256": "61762ec9a154b73753fd33bdaa6915b7ee2872946f49c26da5e42ad6edd2f62b"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\samus_fixed_hud_current4a.lbl",
+      "bytes": 1067703,
+      "sha256": "c992e1cc81953c13784cf3960e3b2534b8b3ab3f23b26f62216381ebdabde126"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\game.s",
+      "bytes": 62008,
+      "sha256": "328bae039dbce7ae75e78bb552ef653fb0333dbb02146dee72888b70651a0f94"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\object.s",
+      "bytes": 185706,
+      "sha256": "48984c1253fa13d4fd14d90e268a9afdfa42c60130086542b6aebcc58653ee7e"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\expanded_weapons.s",
+      "bytes": 34520,
+      "sha256": "f963685b369f153e77e99248009124f00bdceb57d3b3ab07a3aa2a30345dd7d1"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\megaman_weapons.s",
+      "bytes": 52384,
+      "sha256": "22d820743f9b08293df73dce1f24d0d143bda91cbbda69fafa7c6d098bd24580"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\roster_weapons.s",
+      "bytes": 63635,
+      "sha256": "80802effe69250a3ffd3eca31ec40a71aacd33d9fa6925a6fdbaf0d646e62e82"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\link_pit_rygar_sophia_audit_cpu.py",
+      "bytes": 14010,
+      "sha256": "15ef348bc124a97d8ef2c8a56777180276271b44fb77c8ace7e62c2a50310113"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\check_tmnt_render_oa.py",
+      "bytes": 7778,
+      "sha256": "32033893e48055adc9a23c661238e9331dd1db856be51b753ba9b6781eb528e4"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\verify_native_relocation.py",
+      "bytes": 8395,
+      "sha256": "1bab7154bc2e5468e827087d14030a7e30c4d3676db5e775ef15de4d0c34ce11"
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+Pit Easy first bow: retained native FALSE; source-proved fixture distance error
+
+No emulator was launched by this diagnosis. No game, original fixture, prepared
+input, settings or original output was edited. Hard remains UNRUN.
+
+Original ready:
+build/current-6be-pit-easy-items-v1/prepared-not-run.json
+SHA256 2f87e9de3a4b404ae4f11febebf50d4b44d74c49dafdd5fbf5c1d502009d9fa0
+ROM build/samus_fixed_hud_current4a.nes
+SHA256 6be48337ffee66a22b22de9ce134d5db323649fb4de620c43bad4ca98b80f193
+
+Additive compact negative/source receipt:
+build/current-6be-pit-easy-items-v1/first-negative.json
+SHA256 e1f4c7e5657c4bea606769c7b9de6e0997272d369bf440b6cbcb9f0d6dc1594d
+20 bindings, including all four original native files and launch.json.
+
+ROOT's single run exited1 at "One real bow shot/contact/native damage" in
+case1; zero cases completed. launch.json records every bound input unchanged,
+settings before/after a5f76b4c4d33cd1fb6d66a8725e7c6636b19e59c03a7dae5e15e1c512a3f4fbf.
+The CSV records one actual RgShotType1 spawn at wall322/update36/age6,
+shot-present updates through wall333/age17, then no active shot from334.
+There are zero DamageEnemy entry events and zero target-health-write events.
+The last saved CSV row is wall425/update139/age109. There is no terminal
+result.json or saved failure-state snapshot; that last row is not relabeled
+as the exact assertion's CPU/PPU stamp. The cleanup assertion immediately
+before the failed conjunct completed. No pickup/transform/flight case ran.
+
+Source cause: the authored target x176 is outside the cold bow's real range.
+ExpandedWeapons::FireShot starts the right arrow at player112+8 and gives it
+Q8.8 horizontal velocity $042B. MoveShot increments age, then kills tier0
+type1 at age>=13 BEFORE integration, block tests, or enemy tests. The twelve
+surviving centers are124,128,132,136,140,145,149,153,157,161,165,170.
+The linked RadiusX entry for proxy26 is4; maximum right edge174 never reaches
+target176. RadiusY is3; arrow center194 and target body192..208 do overlap
+vertically. This is a range/setup error, not evidence that the bow is broken.
+
+The new read-only tool executes the COMPLETE actual compiled GameLoop110
+times per reconstruction, including its real Roll/Mac/Mike/SMB3/Vic/TMNT/
+Chip/Kirby dispatch chain into ExpandedWeapons, the genuine DamageEnemy
+owner bank8:A994, actual native Goomba terrain/motion, and full return. It
+does not bypass the gateway or invoke a damage leaf to manufacture contact.
+Twelve finite controls (both numeric modes,1,320 whole GameLoop calls) pass:
+- Original cold target176 remains alive at176/184, no contact/HP write,
+  source MoveKill at shot age13, and complete cleanup by110.
+- Same legal target at160 remains safely separated from player112. One
+  genuine contact occurs at update14/shot age9/center157, proxy26. Four real
+  target-health writes initialize100 and subtract25, ending75; cleanup holds.
+- Tier1/2 bow controls at176 contact through the same actual hook with
+  proxy27/28 and real health writes. The original native observer's constant
+  proxy26 is therefore another future fixture error. It did not cause the
+  current cold failure, which is already proxy26.
+- Original raised hammer target136/168 contacts with proxy38 at tiers1/2
+  and produces real health writes and cleanup in each mode.
+All controls preserve grounded player112/176, tier, live engine8 and no
+injury/death. CPU setup reconstructs the disclosed map/target and ordinary
+room/timer399 context; powered tiers are CPU test inputs. This is not a saved
+native RAM replay, Lua execution, acquisition, interrupt/PPU timing or a new
+native pass. Earlier incomplete ad-hoc CPU setups (zero clock/right viewport)
+were corrected before the finite receipt; they are not native evidence.
+
+One actual whole-frame cold-bow.png was inspected by this agent. Separated
+Pit/arrow/Goomba and the ordinary floor appear coherent; no displaced terrain
+is evident in this one sample. This does not certify all pixels or poses.
+
+Smallest proposed fixture-only successor: target x176->160 for bow (hammer
+unchanged); expected bow proxy26->26+task.tier. Keep original one-shot,
+contact/HP-write/cleanup conjunct, input policy, scene permissions, caps and
+all static DMA/NMI/IRQ/CHR/deadline guards. No range/lifetime/game patch or
+native retry is authorized by this report. The v1 module/preparer/readies and
+four original native files remain byte-exact.
+
+New owned publication files only:
+tools/audit/current_pit_bow_negative_v1.py
+docs/qa/pit-current6be-first-bow-negative-2026-10-27.txt
+Compact generated receipt: build/current-6be-pit-easy-items-v1/first-negative.json
+Existing first preparation's three owned files remain separately required:
+tools/audit/current_pit_powerups_v1.lua
+tools/audit/current_pit_powerups_prepare_v1.py
+docs/qa/pit-current6be-items-prepared-2026-10-27.txt

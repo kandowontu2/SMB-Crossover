@@ -1,0 +1,2382 @@
+{
+  "passed": false,
+  "native_passed": false,
+  "source_diagnosis_passed": true,
+  "ROM_sha256": "6be48337ffee66a22b22de9ce134d5db323649fb4de620c43bad4ca98b80f193",
+  "original_ready_sha256": "7550b280010b18f7e710cbd94540a907fafd7b7a1dd8fd46a79b92394d5ab114",
+  "original_failure": "Real landing restored fuel",
+  "completed_native_cases": 7,
+  "last_saved_native_row": {
+    "event": "update",
+    "wall": "1279",
+    "update": "993",
+    "case": "8",
+    "age": "136",
+    "tier": "2",
+    "x": "112",
+    "y": "174",
+    "state": "1",
+    "fuel": "0",
+    "flight": "0",
+    "pose": "4",
+    "shots": "0",
+    "value": "0"
+  },
+  "Hard": "UNRUN",
+  "native_terminal_snapshot": false,
+  "diagnosis": "Fixture checks at collision-established landing; source recharges at next grounded movement, not retroactively in the prior movement call.",
+  "controls": [
+    {
+      "mode": 0,
+      "partial_release": false,
+      "immediate_next_grounded_A": false,
+      "GameLoop_calls": 351,
+      "saved_native_rows_matched": 137,
+      "burn_count": 60,
+      "burn_ages": [
+        17,
+        76
+      ],
+      "landing_age": 137,
+      "collision_update_fuel": 0,
+      "recharge_age": 138,
+      "recharge_fuel": 60,
+      "relaunch_age": 140,
+      "real_ground_return": {
+        "age": 138,
+        "PC": 41296,
+        "bank": 37,
+        "sp": 206,
+        "return_word": 365,
+        "entry": {
+          "age": 138,
+          "owner": "PitFlightUpdate",
+          "PC": 41279,
+          "bank": 37,
+          "state": 0,
+          "y": 176,
+          "fuel": 60,
+          "flight": 0,
+          "sp": 206,
+          "return_word": 365
+        },
+        "fuel": 60,
+        "state": 0,
+        "flight": 0
+      },
+      "owner_window": [
+        {
+          "age": 136,
+          "owner": "GameLoop",
+          "PC": 33497,
+          "bank": 126,
+          "state": 1,
+          "y": 170,
+          "fuel": 0,
+          "flight": 0
+        },
+        {
+          "age": 136,
+          "owner": "ExpandedMovement",
+          "PC": 44392,
+          "bank": 30,
+          "state": 1,
+          "y": 170,
+          "fuel": 0,
+          "flight": 0
+        },
+        {
+          "age": 136,
+          "owner": "PitFlightUpdate",
+          "PC": 41279,
+          "bank": 37,
+          "state": 1,
+          "y": 170,
+          "fuel": 0,
+          "flight": 0
+        },
+        {
+          "age": 136,
+          "owner": "PitFlightUpdate::Stop",
+          "PC": 41288,
+          "bank": 37,
+          "state": 1,
+          "y": 170,
+          "fuel": 0,
+          "flight": 0
+        },
+        {
+          "age": 136,
+          "owner": "PlayerBGCollision",
+          "PC": 39771,
+          "bank": 126,
+          "state": 1,
+          "y": 174,
+          "fuel": 0,
+          "flight": 0
+        },
+        {
+          "age": 136,
+          "owner": "MegaMan202AfterBG",
+          "PC": 41319,
+          "bank": 1,
+          "state": 1,
+          "y": 174,
+          "fuel": 0,
+          "flight": 0
+        },
+        {
+          "age": 137,
+          "owner": "GameLoop",
+          "PC": 33497,
+          "bank": 126,
+          "state": 1,
+          "y": 174,
+          "fuel": 0,
+          "flight": 0
+        },
+        {
+          "age": 137,
+          "owner": "ExpandedMovement",
+          "PC": 44392,
+          "bank": 30,
+          "state": 1,
+          "y": 174,
+          "fuel": 0,
+          "flight": 0
+        },
+        {
+          "age": 137,
+          "owner": "PitFlightUpdate",
+          "PC": 41279,
+          "bank": 37,
+          "state": 1,
+          "y": 174,
+          "fuel": 0,
+          "flight": 0
+        },
+        {
+          "age": 137,
+          "owner": "PitFlightUpdate::Stop",
+          "PC": 41288,
+          "bank": 37,
+          "state": 1,
+          "y": 174,
+          "fuel": 0,
+          "flight": 0
+        },
+        {
+          "age": 137,
+          "owner": "PlayerBGCollision",
+          "PC": 39771,
+          "bank": 126,
+          "state": 1,
+          "y": 177,
+          "fuel": 0,
+          "flight": 0
+        },
+        {
+          "age": 137,
+          "owner": "MegaMan202AfterBG",
+          "PC": 41319,
+          "bank": 1,
+          "state": 0,
+          "y": 176,
+          "fuel": 0,
+          "flight": 0
+        },
+        {
+          "age": 138,
+          "owner": "GameLoop",
+          "PC": 33497,
+          "bank": 126,
+          "state": 0,
+          "y": 176,
+          "fuel": 0,
+          "flight": 0
+        },
+        {
+          "age": 138,
+          "owner": "ExpandedMovement",
+          "PC": 44392,
+          "bank": 30,
+          "state": 0,
+          "y": 176,
+          "fuel": 0,
+          "flight": 0
+        },
+        {
+          "age": 138,
+          "owner": "PitFlightUpdate",
+          "PC": 41279,
+          "bank": 37,
+          "state": 0,
+          "y": 176,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 138,
+          "owner": "PitFlightUpdate::Stop",
+          "PC": 41288,
+          "bank": 37,
+          "state": 0,
+          "y": 176,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 138,
+          "owner": "PlayerBGCollision",
+          "PC": 39771,
+          "bank": 126,
+          "state": 0,
+          "y": 176,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 138,
+          "owner": "MegaMan202AfterBG",
+          "PC": 41319,
+          "bank": 1,
+          "state": 0,
+          "y": 176,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 139,
+          "owner": "GameLoop",
+          "PC": 33497,
+          "bank": 126,
+          "state": 0,
+          "y": 176,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 139,
+          "owner": "ExpandedMovement",
+          "PC": 44392,
+          "bank": 30,
+          "state": 0,
+          "y": 176,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 139,
+          "owner": "PitFlightUpdate",
+          "PC": 41279,
+          "bank": 37,
+          "state": 0,
+          "y": 176,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 139,
+          "owner": "PitFlightUpdate::Stop",
+          "PC": 41288,
+          "bank": 37,
+          "state": 0,
+          "y": 176,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 139,
+          "owner": "PlayerBGCollision",
+          "PC": 39771,
+          "bank": 126,
+          "state": 0,
+          "y": 176,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 139,
+          "owner": "MegaMan202AfterBG",
+          "PC": 41319,
+          "bank": 1,
+          "state": 0,
+          "y": 176,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 140,
+          "owner": "GameLoop",
+          "PC": 33497,
+          "bank": 126,
+          "state": 0,
+          "y": 176,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 140,
+          "owner": "ExpandedMovement",
+          "PC": 44392,
+          "bank": 30,
+          "state": 0,
+          "y": 176,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 140,
+          "owner": "PitFlightUpdate",
+          "PC": 41279,
+          "bank": 37,
+          "state": 1,
+          "y": 176,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 140,
+          "owner": "PitFlightUpdate::Done",
+          "PC": 41390,
+          "bank": 37,
+          "state": 1,
+          "y": 176,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 140,
+          "owner": "PlayerBGCollision",
+          "PC": 39771,
+          "bank": 126,
+          "state": 1,
+          "y": 171,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 140,
+          "owner": "MegaMan202AfterBG",
+          "PC": 41319,
+          "bank": 1,
+          "state": 1,
+          "y": 171,
+          "fuel": 60,
+          "flight": 0
+        }
+      ],
+      "fuel_writes": [
+        {
+          "age": 138,
+          "pc": 44880,
+          "bank": 30,
+          "address": 28375,
+          "value": 60
+        },
+        {
+          "age": 138,
+          "pc": 41285,
+          "bank": 37,
+          "address": 28375,
+          "value": 60
+        },
+        {
+          "age": 139,
+          "pc": 44880,
+          "bank": 30,
+          "address": 28375,
+          "value": 60
+        },
+        {
+          "age": 139,
+          "pc": 41285,
+          "bank": 37,
+          "address": 28375,
+          "value": 60
+        },
+        {
+          "age": 140,
+          "pc": 44880,
+          "bank": 30,
+          "address": 28375,
+          "value": 60
+        }
+      ],
+      "final_cleanup": true,
+      "source_owned_tier_and_fuel": true
+    },
+    {
+      "mode": 0,
+      "partial_release": true,
+      "immediate_next_grounded_A": false,
+      "GameLoop_calls": 241,
+      "saved_native_rows_matched": 0,
+      "burn_count": 19,
+      "burn_ages": [
+        17,
+        35
+      ],
+      "landing_age": 80,
+      "collision_update_fuel": 41,
+      "recharge_age": 81,
+      "recharge_fuel": 60,
+      "relaunch_age": null,
+      "real_ground_return": {
+        "age": 81,
+        "PC": 41296,
+        "bank": 37,
+        "sp": 206,
+        "return_word": 365,
+        "entry": {
+          "age": 81,
+          "owner": "PitFlightUpdate",
+          "PC": 41279,
+          "bank": 37,
+          "state": 0,
+          "y": 176,
+          "fuel": 60,
+          "flight": 0,
+          "sp": 206,
+          "return_word": 365
+        },
+        "fuel": 60,
+        "state": 0,
+        "flight": 0
+      },
+      "owner_window": [
+        {
+          "age": 79,
+          "owner": "GameLoop",
+          "PC": 33497,
+          "bank": 126,
+          "state": 1,
+          "y": 172,
+          "fuel": 41,
+          "flight": 0
+        },
+        {
+          "age": 79,
+          "owner": "ExpandedMovement",
+          "PC": 44392,
+          "bank": 30,
+          "state": 1,
+          "y": 172,
+          "fuel": 41,
+          "flight": 0
+        },
+        {
+          "age": 79,
+          "owner": "PitFlightUpdate",
+          "PC": 41279,
+          "bank": 37,
+          "state": 1,
+          "y": 172,
+          "fuel": 41,
+          "flight": 0
+        },
+        {
+          "age": 79,
+          "owner": "PitFlightUpdate::Stop",
+          "PC": 41288,
+          "bank": 37,
+          "state": 1,
+          "y": 172,
+          "fuel": 41,
+          "flight": 0
+        },
+        {
+          "age": 79,
+          "owner": "PlayerBGCollision",
+          "PC": 39771,
+          "bank": 126,
+          "state": 1,
+          "y": 175,
+          "fuel": 41,
+          "flight": 0
+        },
+        {
+          "age": 79,
+          "owner": "MegaMan202AfterBG",
+          "PC": 41319,
+          "bank": 1,
+          "state": 1,
+          "y": 175,
+          "fuel": 41,
+          "flight": 0
+        },
+        {
+          "age": 80,
+          "owner": "GameLoop",
+          "PC": 33497,
+          "bank": 126,
+          "state": 1,
+          "y": 175,
+          "fuel": 41,
+          "flight": 0
+        },
+        {
+          "age": 80,
+          "owner": "ExpandedMovement",
+          "PC": 44392,
+          "bank": 30,
+          "state": 1,
+          "y": 175,
+          "fuel": 41,
+          "flight": 0
+        },
+        {
+          "age": 80,
+          "owner": "PitFlightUpdate",
+          "PC": 41279,
+          "bank": 37,
+          "state": 1,
+          "y": 175,
+          "fuel": 41,
+          "flight": 0
+        },
+        {
+          "age": 80,
+          "owner": "PitFlightUpdate::Stop",
+          "PC": 41288,
+          "bank": 37,
+          "state": 1,
+          "y": 175,
+          "fuel": 41,
+          "flight": 0
+        },
+        {
+          "age": 80,
+          "owner": "PlayerBGCollision",
+          "PC": 39771,
+          "bank": 126,
+          "state": 1,
+          "y": 179,
+          "fuel": 41,
+          "flight": 0
+        },
+        {
+          "age": 80,
+          "owner": "MegaMan202AfterBG",
+          "PC": 41319,
+          "bank": 1,
+          "state": 0,
+          "y": 176,
+          "fuel": 41,
+          "flight": 0
+        },
+        {
+          "age": 81,
+          "owner": "GameLoop",
+          "PC": 33497,
+          "bank": 126,
+          "state": 0,
+          "y": 176,
+          "fuel": 41,
+          "flight": 0
+        },
+        {
+          "age": 81,
+          "owner": "ExpandedMovement",
+          "PC": 44392,
+          "bank": 30,
+          "state": 0,
+          "y": 176,
+          "fuel": 41,
+          "flight": 0
+        },
+        {
+          "age": 81,
+          "owner": "PitFlightUpdate",
+          "PC": 41279,
+          "bank": 37,
+          "state": 0,
+          "y": 176,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 81,
+          "owner": "PitFlightUpdate::Stop",
+          "PC": 41288,
+          "bank": 37,
+          "state": 0,
+          "y": 176,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 81,
+          "owner": "PlayerBGCollision",
+          "PC": 39771,
+          "bank": 126,
+          "state": 0,
+          "y": 176,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 81,
+          "owner": "MegaMan202AfterBG",
+          "PC": 41319,
+          "bank": 1,
+          "state": 0,
+          "y": 176,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 82,
+          "owner": "GameLoop",
+          "PC": 33497,
+          "bank": 126,
+          "state": 0,
+          "y": 176,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 82,
+          "owner": "ExpandedMovement",
+          "PC": 44392,
+          "bank": 30,
+          "state": 0,
+          "y": 176,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 82,
+          "owner": "PitFlightUpdate",
+          "PC": 41279,
+          "bank": 37,
+          "state": 0,
+          "y": 176,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 82,
+          "owner": "PitFlightUpdate::Stop",
+          "PC": 41288,
+          "bank": 37,
+          "state": 0,
+          "y": 176,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 82,
+          "owner": "PlayerBGCollision",
+          "PC": 39771,
+          "bank": 126,
+          "state": 0,
+          "y": 176,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 82,
+          "owner": "MegaMan202AfterBG",
+          "PC": 41319,
+          "bank": 1,
+          "state": 0,
+          "y": 176,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 83,
+          "owner": "GameLoop",
+          "PC": 33497,
+          "bank": 126,
+          "state": 0,
+          "y": 176,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 83,
+          "owner": "ExpandedMovement",
+          "PC": 44392,
+          "bank": 30,
+          "state": 0,
+          "y": 176,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 83,
+          "owner": "PitFlightUpdate",
+          "PC": 41279,
+          "bank": 37,
+          "state": 0,
+          "y": 176,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 83,
+          "owner": "PitFlightUpdate::Stop",
+          "PC": 41288,
+          "bank": 37,
+          "state": 0,
+          "y": 176,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 83,
+          "owner": "PlayerBGCollision",
+          "PC": 39771,
+          "bank": 126,
+          "state": 0,
+          "y": 176,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 83,
+          "owner": "MegaMan202AfterBG",
+          "PC": 41319,
+          "bank": 1,
+          "state": 0,
+          "y": 176,
+          "fuel": 60,
+          "flight": 0
+        }
+      ],
+      "fuel_writes": [
+        {
+          "age": 81,
+          "pc": 44880,
+          "bank": 30,
+          "address": 28375,
+          "value": 60
+        },
+        {
+          "age": 81,
+          "pc": 41285,
+          "bank": 37,
+          "address": 28375,
+          "value": 60
+        },
+        {
+          "age": 82,
+          "pc": 44880,
+          "bank": 30,
+          "address": 28375,
+          "value": 60
+        },
+        {
+          "age": 82,
+          "pc": 41285,
+          "bank": 37,
+          "address": 28375,
+          "value": 60
+        },
+        {
+          "age": 83,
+          "pc": 44880,
+          "bank": 30,
+          "address": 28375,
+          "value": 60
+        },
+        {
+          "age": 83,
+          "pc": 41285,
+          "bank": 37,
+          "address": 28375,
+          "value": 60
+        }
+      ],
+      "final_cleanup": true,
+      "source_owned_tier_and_fuel": true
+    },
+    {
+      "mode": 0,
+      "partial_release": false,
+      "immediate_next_grounded_A": true,
+      "GameLoop_calls": 351,
+      "saved_native_rows_matched": 0,
+      "burn_count": 60,
+      "burn_ages": [
+        17,
+        76
+      ],
+      "landing_age": 137,
+      "collision_update_fuel": 0,
+      "recharge_age": 138,
+      "recharge_fuel": 60,
+      "relaunch_age": 138,
+      "real_ground_return": {
+        "age": 138,
+        "PC": 41390,
+        "bank": 37,
+        "sp": 206,
+        "return_word": 365,
+        "entry": {
+          "age": 138,
+          "owner": "PitFlightUpdate",
+          "PC": 41279,
+          "bank": 37,
+          "state": 1,
+          "y": 176,
+          "fuel": 60,
+          "flight": 0,
+          "sp": 206,
+          "return_word": 365
+        },
+        "fuel": 60,
+        "state": 1,
+        "flight": 0
+      },
+      "owner_window": [
+        {
+          "age": 136,
+          "owner": "GameLoop",
+          "PC": 33497,
+          "bank": 126,
+          "state": 1,
+          "y": 170,
+          "fuel": 0,
+          "flight": 0
+        },
+        {
+          "age": 136,
+          "owner": "ExpandedMovement",
+          "PC": 44392,
+          "bank": 30,
+          "state": 1,
+          "y": 170,
+          "fuel": 0,
+          "flight": 0
+        },
+        {
+          "age": 136,
+          "owner": "PitFlightUpdate",
+          "PC": 41279,
+          "bank": 37,
+          "state": 1,
+          "y": 170,
+          "fuel": 0,
+          "flight": 0
+        },
+        {
+          "age": 136,
+          "owner": "PitFlightUpdate::Stop",
+          "PC": 41288,
+          "bank": 37,
+          "state": 1,
+          "y": 170,
+          "fuel": 0,
+          "flight": 0
+        },
+        {
+          "age": 136,
+          "owner": "PlayerBGCollision",
+          "PC": 39771,
+          "bank": 126,
+          "state": 1,
+          "y": 174,
+          "fuel": 0,
+          "flight": 0
+        },
+        {
+          "age": 136,
+          "owner": "MegaMan202AfterBG",
+          "PC": 41319,
+          "bank": 1,
+          "state": 1,
+          "y": 174,
+          "fuel": 0,
+          "flight": 0
+        },
+        {
+          "age": 137,
+          "owner": "GameLoop",
+          "PC": 33497,
+          "bank": 126,
+          "state": 1,
+          "y": 174,
+          "fuel": 0,
+          "flight": 0
+        },
+        {
+          "age": 137,
+          "owner": "ExpandedMovement",
+          "PC": 44392,
+          "bank": 30,
+          "state": 1,
+          "y": 174,
+          "fuel": 0,
+          "flight": 0
+        },
+        {
+          "age": 137,
+          "owner": "PitFlightUpdate",
+          "PC": 41279,
+          "bank": 37,
+          "state": 1,
+          "y": 174,
+          "fuel": 0,
+          "flight": 0
+        },
+        {
+          "age": 137,
+          "owner": "PitFlightUpdate::Stop",
+          "PC": 41288,
+          "bank": 37,
+          "state": 1,
+          "y": 174,
+          "fuel": 0,
+          "flight": 0
+        },
+        {
+          "age": 137,
+          "owner": "PlayerBGCollision",
+          "PC": 39771,
+          "bank": 126,
+          "state": 1,
+          "y": 177,
+          "fuel": 0,
+          "flight": 0
+        },
+        {
+          "age": 137,
+          "owner": "MegaMan202AfterBG",
+          "PC": 41319,
+          "bank": 1,
+          "state": 0,
+          "y": 176,
+          "fuel": 0,
+          "flight": 0
+        },
+        {
+          "age": 138,
+          "owner": "GameLoop",
+          "PC": 33497,
+          "bank": 126,
+          "state": 0,
+          "y": 176,
+          "fuel": 0,
+          "flight": 0
+        },
+        {
+          "age": 138,
+          "owner": "ExpandedMovement",
+          "PC": 44392,
+          "bank": 30,
+          "state": 0,
+          "y": 176,
+          "fuel": 0,
+          "flight": 0
+        },
+        {
+          "age": 138,
+          "owner": "PitFlightUpdate",
+          "PC": 41279,
+          "bank": 37,
+          "state": 1,
+          "y": 176,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 138,
+          "owner": "PitFlightUpdate::Done",
+          "PC": 41390,
+          "bank": 37,
+          "state": 1,
+          "y": 176,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 138,
+          "owner": "PlayerBGCollision",
+          "PC": 39771,
+          "bank": 126,
+          "state": 1,
+          "y": 171,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 138,
+          "owner": "MegaMan202AfterBG",
+          "PC": 41319,
+          "bank": 1,
+          "state": 1,
+          "y": 171,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 139,
+          "owner": "GameLoop",
+          "PC": 33497,
+          "bank": 126,
+          "state": 1,
+          "y": 171,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 139,
+          "owner": "ExpandedMovement",
+          "PC": 44392,
+          "bank": 30,
+          "state": 1,
+          "y": 171,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 139,
+          "owner": "PitFlightUpdate",
+          "PC": 41279,
+          "bank": 37,
+          "state": 1,
+          "y": 171,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 139,
+          "owner": "PitFlightUpdate::Done",
+          "PC": 41390,
+          "bank": 37,
+          "state": 1,
+          "y": 171,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 139,
+          "owner": "PlayerBGCollision",
+          "PC": 39771,
+          "bank": 126,
+          "state": 1,
+          "y": 167,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 139,
+          "owner": "MegaMan202AfterBG",
+          "PC": 41319,
+          "bank": 1,
+          "state": 1,
+          "y": 167,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 140,
+          "owner": "GameLoop",
+          "PC": 33497,
+          "bank": 126,
+          "state": 1,
+          "y": 167,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 140,
+          "owner": "ExpandedMovement",
+          "PC": 44392,
+          "bank": 30,
+          "state": 1,
+          "y": 167,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 140,
+          "owner": "PitFlightUpdate",
+          "PC": 41279,
+          "bank": 37,
+          "state": 1,
+          "y": 167,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 140,
+          "owner": "PitFlightUpdate::Done",
+          "PC": 41390,
+          "bank": 37,
+          "state": 1,
+          "y": 167,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 140,
+          "owner": "PlayerBGCollision",
+          "PC": 39771,
+          "bank": 126,
+          "state": 1,
+          "y": 164,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 140,
+          "owner": "MegaMan202AfterBG",
+          "PC": 41319,
+          "bank": 1,
+          "state": 1,
+          "y": 164,
+          "fuel": 60,
+          "flight": 0
+        }
+      ],
+      "fuel_writes": [
+        {
+          "age": 138,
+          "pc": 44880,
+          "bank": 30,
+          "address": 28375,
+          "value": 60
+        }
+      ],
+      "final_cleanup": true,
+      "source_owned_tier_and_fuel": true
+    },
+    {
+      "mode": 1,
+      "partial_release": false,
+      "immediate_next_grounded_A": false,
+      "GameLoop_calls": 351,
+      "saved_native_rows_matched": 0,
+      "burn_count": 60,
+      "burn_ages": [
+        17,
+        76
+      ],
+      "landing_age": 137,
+      "collision_update_fuel": 0,
+      "recharge_age": 138,
+      "recharge_fuel": 60,
+      "relaunch_age": 140,
+      "real_ground_return": {
+        "age": 138,
+        "PC": 41296,
+        "bank": 37,
+        "sp": 206,
+        "return_word": 365,
+        "entry": {
+          "age": 138,
+          "owner": "PitFlightUpdate",
+          "PC": 41279,
+          "bank": 37,
+          "state": 0,
+          "y": 176,
+          "fuel": 60,
+          "flight": 0,
+          "sp": 206,
+          "return_word": 365
+        },
+        "fuel": 60,
+        "state": 0,
+        "flight": 0
+      },
+      "owner_window": [
+        {
+          "age": 136,
+          "owner": "GameLoop",
+          "PC": 33497,
+          "bank": 126,
+          "state": 1,
+          "y": 170,
+          "fuel": 0,
+          "flight": 0
+        },
+        {
+          "age": 136,
+          "owner": "ExpandedMovement",
+          "PC": 44392,
+          "bank": 30,
+          "state": 1,
+          "y": 170,
+          "fuel": 0,
+          "flight": 0
+        },
+        {
+          "age": 136,
+          "owner": "PitFlightUpdate",
+          "PC": 41279,
+          "bank": 37,
+          "state": 1,
+          "y": 170,
+          "fuel": 0,
+          "flight": 0
+        },
+        {
+          "age": 136,
+          "owner": "PitFlightUpdate::Stop",
+          "PC": 41288,
+          "bank": 37,
+          "state": 1,
+          "y": 170,
+          "fuel": 0,
+          "flight": 0
+        },
+        {
+          "age": 136,
+          "owner": "PlayerBGCollision",
+          "PC": 39771,
+          "bank": 126,
+          "state": 1,
+          "y": 174,
+          "fuel": 0,
+          "flight": 0
+        },
+        {
+          "age": 136,
+          "owner": "MegaMan202AfterBG",
+          "PC": 41319,
+          "bank": 1,
+          "state": 1,
+          "y": 174,
+          "fuel": 0,
+          "flight": 0
+        },
+        {
+          "age": 137,
+          "owner": "GameLoop",
+          "PC": 33497,
+          "bank": 126,
+          "state": 1,
+          "y": 174,
+          "fuel": 0,
+          "flight": 0
+        },
+        {
+          "age": 137,
+          "owner": "ExpandedMovement",
+          "PC": 44392,
+          "bank": 30,
+          "state": 1,
+          "y": 174,
+          "fuel": 0,
+          "flight": 0
+        },
+        {
+          "age": 137,
+          "owner": "PitFlightUpdate",
+          "PC": 41279,
+          "bank": 37,
+          "state": 1,
+          "y": 174,
+          "fuel": 0,
+          "flight": 0
+        },
+        {
+          "age": 137,
+          "owner": "PitFlightUpdate::Stop",
+          "PC": 41288,
+          "bank": 37,
+          "state": 1,
+          "y": 174,
+          "fuel": 0,
+          "flight": 0
+        },
+        {
+          "age": 137,
+          "owner": "PlayerBGCollision",
+          "PC": 39771,
+          "bank": 126,
+          "state": 1,
+          "y": 177,
+          "fuel": 0,
+          "flight": 0
+        },
+        {
+          "age": 137,
+          "owner": "MegaMan202AfterBG",
+          "PC": 41319,
+          "bank": 1,
+          "state": 0,
+          "y": 176,
+          "fuel": 0,
+          "flight": 0
+        },
+        {
+          "age": 138,
+          "owner": "GameLoop",
+          "PC": 33497,
+          "bank": 126,
+          "state": 0,
+          "y": 176,
+          "fuel": 0,
+          "flight": 0
+        },
+        {
+          "age": 138,
+          "owner": "ExpandedMovement",
+          "PC": 44392,
+          "bank": 30,
+          "state": 0,
+          "y": 176,
+          "fuel": 0,
+          "flight": 0
+        },
+        {
+          "age": 138,
+          "owner": "PitFlightUpdate",
+          "PC": 41279,
+          "bank": 37,
+          "state": 0,
+          "y": 176,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 138,
+          "owner": "PitFlightUpdate::Stop",
+          "PC": 41288,
+          "bank": 37,
+          "state": 0,
+          "y": 176,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 138,
+          "owner": "PlayerBGCollision",
+          "PC": 39771,
+          "bank": 126,
+          "state": 0,
+          "y": 176,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 138,
+          "owner": "MegaMan202AfterBG",
+          "PC": 41319,
+          "bank": 1,
+          "state": 0,
+          "y": 176,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 139,
+          "owner": "GameLoop",
+          "PC": 33497,
+          "bank": 126,
+          "state": 0,
+          "y": 176,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 139,
+          "owner": "ExpandedMovement",
+          "PC": 44392,
+          "bank": 30,
+          "state": 0,
+          "y": 176,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 139,
+          "owner": "PitFlightUpdate",
+          "PC": 41279,
+          "bank": 37,
+          "state": 0,
+          "y": 176,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 139,
+          "owner": "PitFlightUpdate::Stop",
+          "PC": 41288,
+          "bank": 37,
+          "state": 0,
+          "y": 176,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 139,
+          "owner": "PlayerBGCollision",
+          "PC": 39771,
+          "bank": 126,
+          "state": 0,
+          "y": 176,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 139,
+          "owner": "MegaMan202AfterBG",
+          "PC": 41319,
+          "bank": 1,
+          "state": 0,
+          "y": 176,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 140,
+          "owner": "GameLoop",
+          "PC": 33497,
+          "bank": 126,
+          "state": 0,
+          "y": 176,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 140,
+          "owner": "ExpandedMovement",
+          "PC": 44392,
+          "bank": 30,
+          "state": 0,
+          "y": 176,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 140,
+          "owner": "PitFlightUpdate",
+          "PC": 41279,
+          "bank": 37,
+          "state": 1,
+          "y": 176,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 140,
+          "owner": "PitFlightUpdate::Done",
+          "PC": 41390,
+          "bank": 37,
+          "state": 1,
+          "y": 176,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 140,
+          "owner": "PlayerBGCollision",
+          "PC": 39771,
+          "bank": 126,
+          "state": 1,
+          "y": 171,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 140,
+          "owner": "MegaMan202AfterBG",
+          "PC": 41319,
+          "bank": 1,
+          "state": 1,
+          "y": 171,
+          "fuel": 60,
+          "flight": 0
+        }
+      ],
+      "fuel_writes": [
+        {
+          "age": 138,
+          "pc": 44880,
+          "bank": 30,
+          "address": 28375,
+          "value": 60
+        },
+        {
+          "age": 138,
+          "pc": 41285,
+          "bank": 37,
+          "address": 28375,
+          "value": 60
+        },
+        {
+          "age": 139,
+          "pc": 44880,
+          "bank": 30,
+          "address": 28375,
+          "value": 60
+        },
+        {
+          "age": 139,
+          "pc": 41285,
+          "bank": 37,
+          "address": 28375,
+          "value": 60
+        },
+        {
+          "age": 140,
+          "pc": 44880,
+          "bank": 30,
+          "address": 28375,
+          "value": 60
+        }
+      ],
+      "final_cleanup": true,
+      "source_owned_tier_and_fuel": true
+    },
+    {
+      "mode": 1,
+      "partial_release": true,
+      "immediate_next_grounded_A": false,
+      "GameLoop_calls": 241,
+      "saved_native_rows_matched": 0,
+      "burn_count": 19,
+      "burn_ages": [
+        17,
+        35
+      ],
+      "landing_age": 80,
+      "collision_update_fuel": 41,
+      "recharge_age": 81,
+      "recharge_fuel": 60,
+      "relaunch_age": null,
+      "real_ground_return": {
+        "age": 81,
+        "PC": 41296,
+        "bank": 37,
+        "sp": 206,
+        "return_word": 365,
+        "entry": {
+          "age": 81,
+          "owner": "PitFlightUpdate",
+          "PC": 41279,
+          "bank": 37,
+          "state": 0,
+          "y": 176,
+          "fuel": 60,
+          "flight": 0,
+          "sp": 206,
+          "return_word": 365
+        },
+        "fuel": 60,
+        "state": 0,
+        "flight": 0
+      },
+      "owner_window": [
+        {
+          "age": 79,
+          "owner": "GameLoop",
+          "PC": 33497,
+          "bank": 126,
+          "state": 1,
+          "y": 172,
+          "fuel": 41,
+          "flight": 0
+        },
+        {
+          "age": 79,
+          "owner": "ExpandedMovement",
+          "PC": 44392,
+          "bank": 30,
+          "state": 1,
+          "y": 172,
+          "fuel": 41,
+          "flight": 0
+        },
+        {
+          "age": 79,
+          "owner": "PitFlightUpdate",
+          "PC": 41279,
+          "bank": 37,
+          "state": 1,
+          "y": 172,
+          "fuel": 41,
+          "flight": 0
+        },
+        {
+          "age": 79,
+          "owner": "PitFlightUpdate::Stop",
+          "PC": 41288,
+          "bank": 37,
+          "state": 1,
+          "y": 172,
+          "fuel": 41,
+          "flight": 0
+        },
+        {
+          "age": 79,
+          "owner": "PlayerBGCollision",
+          "PC": 39771,
+          "bank": 126,
+          "state": 1,
+          "y": 175,
+          "fuel": 41,
+          "flight": 0
+        },
+        {
+          "age": 79,
+          "owner": "MegaMan202AfterBG",
+          "PC": 41319,
+          "bank": 1,
+          "state": 1,
+          "y": 175,
+          "fuel": 41,
+          "flight": 0
+        },
+        {
+          "age": 80,
+          "owner": "GameLoop",
+          "PC": 33497,
+          "bank": 126,
+          "state": 1,
+          "y": 175,
+          "fuel": 41,
+          "flight": 0
+        },
+        {
+          "age": 80,
+          "owner": "ExpandedMovement",
+          "PC": 44392,
+          "bank": 30,
+          "state": 1,
+          "y": 175,
+          "fuel": 41,
+          "flight": 0
+        },
+        {
+          "age": 80,
+          "owner": "PitFlightUpdate",
+          "PC": 41279,
+          "bank": 37,
+          "state": 1,
+          "y": 175,
+          "fuel": 41,
+          "flight": 0
+        },
+        {
+          "age": 80,
+          "owner": "PitFlightUpdate::Stop",
+          "PC": 41288,
+          "bank": 37,
+          "state": 1,
+          "y": 175,
+          "fuel": 41,
+          "flight": 0
+        },
+        {
+          "age": 80,
+          "owner": "PlayerBGCollision",
+          "PC": 39771,
+          "bank": 126,
+          "state": 1,
+          "y": 179,
+          "fuel": 41,
+          "flight": 0
+        },
+        {
+          "age": 80,
+          "owner": "MegaMan202AfterBG",
+          "PC": 41319,
+          "bank": 1,
+          "state": 0,
+          "y": 176,
+          "fuel": 41,
+          "flight": 0
+        },
+        {
+          "age": 81,
+          "owner": "GameLoop",
+          "PC": 33497,
+          "bank": 126,
+          "state": 0,
+          "y": 176,
+          "fuel": 41,
+          "flight": 0
+        },
+        {
+          "age": 81,
+          "owner": "ExpandedMovement",
+          "PC": 44392,
+          "bank": 30,
+          "state": 0,
+          "y": 176,
+          "fuel": 41,
+          "flight": 0
+        },
+        {
+          "age": 81,
+          "owner": "PitFlightUpdate",
+          "PC": 41279,
+          "bank": 37,
+          "state": 0,
+          "y": 176,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 81,
+          "owner": "PitFlightUpdate::Stop",
+          "PC": 41288,
+          "bank": 37,
+          "state": 0,
+          "y": 176,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 81,
+          "owner": "PlayerBGCollision",
+          "PC": 39771,
+          "bank": 126,
+          "state": 0,
+          "y": 176,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 81,
+          "owner": "MegaMan202AfterBG",
+          "PC": 41319,
+          "bank": 1,
+          "state": 0,
+          "y": 176,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 82,
+          "owner": "GameLoop",
+          "PC": 33497,
+          "bank": 126,
+          "state": 0,
+          "y": 176,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 82,
+          "owner": "ExpandedMovement",
+          "PC": 44392,
+          "bank": 30,
+          "state": 0,
+          "y": 176,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 82,
+          "owner": "PitFlightUpdate",
+          "PC": 41279,
+          "bank": 37,
+          "state": 0,
+          "y": 176,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 82,
+          "owner": "PitFlightUpdate::Stop",
+          "PC": 41288,
+          "bank": 37,
+          "state": 0,
+          "y": 176,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 82,
+          "owner": "PlayerBGCollision",
+          "PC": 39771,
+          "bank": 126,
+          "state": 0,
+          "y": 176,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 82,
+          "owner": "MegaMan202AfterBG",
+          "PC": 41319,
+          "bank": 1,
+          "state": 0,
+          "y": 176,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 83,
+          "owner": "GameLoop",
+          "PC": 33497,
+          "bank": 126,
+          "state": 0,
+          "y": 176,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 83,
+          "owner": "ExpandedMovement",
+          "PC": 44392,
+          "bank": 30,
+          "state": 0,
+          "y": 176,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 83,
+          "owner": "PitFlightUpdate",
+          "PC": 41279,
+          "bank": 37,
+          "state": 0,
+          "y": 176,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 83,
+          "owner": "PitFlightUpdate::Stop",
+          "PC": 41288,
+          "bank": 37,
+          "state": 0,
+          "y": 176,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 83,
+          "owner": "PlayerBGCollision",
+          "PC": 39771,
+          "bank": 126,
+          "state": 0,
+          "y": 176,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 83,
+          "owner": "MegaMan202AfterBG",
+          "PC": 41319,
+          "bank": 1,
+          "state": 0,
+          "y": 176,
+          "fuel": 60,
+          "flight": 0
+        }
+      ],
+      "fuel_writes": [
+        {
+          "age": 81,
+          "pc": 44880,
+          "bank": 30,
+          "address": 28375,
+          "value": 60
+        },
+        {
+          "age": 81,
+          "pc": 41285,
+          "bank": 37,
+          "address": 28375,
+          "value": 60
+        },
+        {
+          "age": 82,
+          "pc": 44880,
+          "bank": 30,
+          "address": 28375,
+          "value": 60
+        },
+        {
+          "age": 82,
+          "pc": 41285,
+          "bank": 37,
+          "address": 28375,
+          "value": 60
+        },
+        {
+          "age": 83,
+          "pc": 44880,
+          "bank": 30,
+          "address": 28375,
+          "value": 60
+        },
+        {
+          "age": 83,
+          "pc": 41285,
+          "bank": 37,
+          "address": 28375,
+          "value": 60
+        }
+      ],
+      "final_cleanup": true,
+      "source_owned_tier_and_fuel": true
+    },
+    {
+      "mode": 1,
+      "partial_release": false,
+      "immediate_next_grounded_A": true,
+      "GameLoop_calls": 351,
+      "saved_native_rows_matched": 0,
+      "burn_count": 60,
+      "burn_ages": [
+        17,
+        76
+      ],
+      "landing_age": 137,
+      "collision_update_fuel": 0,
+      "recharge_age": 138,
+      "recharge_fuel": 60,
+      "relaunch_age": 138,
+      "real_ground_return": {
+        "age": 138,
+        "PC": 41390,
+        "bank": 37,
+        "sp": 206,
+        "return_word": 365,
+        "entry": {
+          "age": 138,
+          "owner": "PitFlightUpdate",
+          "PC": 41279,
+          "bank": 37,
+          "state": 1,
+          "y": 176,
+          "fuel": 60,
+          "flight": 0,
+          "sp": 206,
+          "return_word": 365
+        },
+        "fuel": 60,
+        "state": 1,
+        "flight": 0
+      },
+      "owner_window": [
+        {
+          "age": 136,
+          "owner": "GameLoop",
+          "PC": 33497,
+          "bank": 126,
+          "state": 1,
+          "y": 170,
+          "fuel": 0,
+          "flight": 0
+        },
+        {
+          "age": 136,
+          "owner": "ExpandedMovement",
+          "PC": 44392,
+          "bank": 30,
+          "state": 1,
+          "y": 170,
+          "fuel": 0,
+          "flight": 0
+        },
+        {
+          "age": 136,
+          "owner": "PitFlightUpdate",
+          "PC": 41279,
+          "bank": 37,
+          "state": 1,
+          "y": 170,
+          "fuel": 0,
+          "flight": 0
+        },
+        {
+          "age": 136,
+          "owner": "PitFlightUpdate::Stop",
+          "PC": 41288,
+          "bank": 37,
+          "state": 1,
+          "y": 170,
+          "fuel": 0,
+          "flight": 0
+        },
+        {
+          "age": 136,
+          "owner": "PlayerBGCollision",
+          "PC": 39771,
+          "bank": 126,
+          "state": 1,
+          "y": 174,
+          "fuel": 0,
+          "flight": 0
+        },
+        {
+          "age": 136,
+          "owner": "MegaMan202AfterBG",
+          "PC": 41319,
+          "bank": 1,
+          "state": 1,
+          "y": 174,
+          "fuel": 0,
+          "flight": 0
+        },
+        {
+          "age": 137,
+          "owner": "GameLoop",
+          "PC": 33497,
+          "bank": 126,
+          "state": 1,
+          "y": 174,
+          "fuel": 0,
+          "flight": 0
+        },
+        {
+          "age": 137,
+          "owner": "ExpandedMovement",
+          "PC": 44392,
+          "bank": 30,
+          "state": 1,
+          "y": 174,
+          "fuel": 0,
+          "flight": 0
+        },
+        {
+          "age": 137,
+          "owner": "PitFlightUpdate",
+          "PC": 41279,
+          "bank": 37,
+          "state": 1,
+          "y": 174,
+          "fuel": 0,
+          "flight": 0
+        },
+        {
+          "age": 137,
+          "owner": "PitFlightUpdate::Stop",
+          "PC": 41288,
+          "bank": 37,
+          "state": 1,
+          "y": 174,
+          "fuel": 0,
+          "flight": 0
+        },
+        {
+          "age": 137,
+          "owner": "PlayerBGCollision",
+          "PC": 39771,
+          "bank": 126,
+          "state": 1,
+          "y": 177,
+          "fuel": 0,
+          "flight": 0
+        },
+        {
+          "age": 137,
+          "owner": "MegaMan202AfterBG",
+          "PC": 41319,
+          "bank": 1,
+          "state": 0,
+          "y": 176,
+          "fuel": 0,
+          "flight": 0
+        },
+        {
+          "age": 138,
+          "owner": "GameLoop",
+          "PC": 33497,
+          "bank": 126,
+          "state": 0,
+          "y": 176,
+          "fuel": 0,
+          "flight": 0
+        },
+        {
+          "age": 138,
+          "owner": "ExpandedMovement",
+          "PC": 44392,
+          "bank": 30,
+          "state": 0,
+          "y": 176,
+          "fuel": 0,
+          "flight": 0
+        },
+        {
+          "age": 138,
+          "owner": "PitFlightUpdate",
+          "PC": 41279,
+          "bank": 37,
+          "state": 1,
+          "y": 176,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 138,
+          "owner": "PitFlightUpdate::Done",
+          "PC": 41390,
+          "bank": 37,
+          "state": 1,
+          "y": 176,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 138,
+          "owner": "PlayerBGCollision",
+          "PC": 39771,
+          "bank": 126,
+          "state": 1,
+          "y": 171,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 138,
+          "owner": "MegaMan202AfterBG",
+          "PC": 41319,
+          "bank": 1,
+          "state": 1,
+          "y": 171,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 139,
+          "owner": "GameLoop",
+          "PC": 33497,
+          "bank": 126,
+          "state": 1,
+          "y": 171,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 139,
+          "owner": "ExpandedMovement",
+          "PC": 44392,
+          "bank": 30,
+          "state": 1,
+          "y": 171,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 139,
+          "owner": "PitFlightUpdate",
+          "PC": 41279,
+          "bank": 37,
+          "state": 1,
+          "y": 171,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 139,
+          "owner": "PitFlightUpdate::Done",
+          "PC": 41390,
+          "bank": 37,
+          "state": 1,
+          "y": 171,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 139,
+          "owner": "PlayerBGCollision",
+          "PC": 39771,
+          "bank": 126,
+          "state": 1,
+          "y": 167,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 139,
+          "owner": "MegaMan202AfterBG",
+          "PC": 41319,
+          "bank": 1,
+          "state": 1,
+          "y": 167,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 140,
+          "owner": "GameLoop",
+          "PC": 33497,
+          "bank": 126,
+          "state": 1,
+          "y": 167,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 140,
+          "owner": "ExpandedMovement",
+          "PC": 44392,
+          "bank": 30,
+          "state": 1,
+          "y": 167,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 140,
+          "owner": "PitFlightUpdate",
+          "PC": 41279,
+          "bank": 37,
+          "state": 1,
+          "y": 167,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 140,
+          "owner": "PitFlightUpdate::Done",
+          "PC": 41390,
+          "bank": 37,
+          "state": 1,
+          "y": 167,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 140,
+          "owner": "PlayerBGCollision",
+          "PC": 39771,
+          "bank": 126,
+          "state": 1,
+          "y": 164,
+          "fuel": 60,
+          "flight": 0
+        },
+        {
+          "age": 140,
+          "owner": "MegaMan202AfterBG",
+          "PC": 41319,
+          "bank": 1,
+          "state": 1,
+          "y": 164,
+          "fuel": 60,
+          "flight": 0
+        }
+      ],
+      "fuel_writes": [
+        {
+          "age": 138,
+          "pc": 44880,
+          "bank": 30,
+          "address": 28375,
+          "value": 60
+        }
+      ],
+      "final_cleanup": true,
+      "source_owned_tier_and_fuel": true
+    }
+  ],
+  "complete_GameLoop_calls": 1886,
+  "model_positive": 1,
+  "model_negative_rejections": 5,
+  "agent_visual_review": true,
+  "selected_existing_images": 6,
+  "visual_scope": "Six existing whole-frame PNGs: bow/hammer/transform/flutter body and arrow coherent in samples; wing poses use existing source art. No all-frame or pixel/audio fidelity claim.",
+  "limits": "No emulator launch. Complete CPU callers and saved137-row numeric match; not a saved full RAM replay, actual failed-frame pixels or PPU timing. No resource/outcome writes introduced in native fixture. Controls earn CPU tiers via actual collision/transform and fuel through actual ground source.",
+  "bindings": [
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\current_pit_landing_negative_v1.py",
+      "bytes": 11116,
+      "sha256": "4d179878b4f5969d971e1211da96a53a5f9559147edf5eac77c431dc68834262"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-6be-pit-easy-items-v2\\prepared-not-run.json",
+      "bytes": 8137,
+      "sha256": "7550b280010b18f7e710cbd94540a907fafd7b7a1dd8fd46a79b92394d5ab114"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-6be-pit-easy-items-v2\\launch.json",
+      "bytes": 1234,
+      "sha256": "51ee0150ce80a53607793f0c68dca3d02a501158596e476e719b2d049c541577"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-6be-pit-easy-items-v2\\native\\capture-budget.json",
+      "bytes": 1317,
+      "sha256": "9356f35186e020ed916bbb4310618da4593b5d5f848a92ab22f64b68817b2df6"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-6be-pit-easy-items-v2\\native\\cold-bow.png",
+      "bytes": 1729,
+      "sha256": "8a5458a0eff71ea04e5cca346245399198a1f81107aca7fee2ae227fdb15717b"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-6be-pit-easy-items-v2\\native\\flower-transform.png",
+      "bytes": 1698,
+      "sha256": "fba37a9eceba3ea00d7ab6a4918ac6c55ec72050c6155245e9ff691bafebf356"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-6be-pit-easy-items-v2\\native\\flutter-bow.png",
+      "bytes": 1638,
+      "sha256": "e92cadb555edd8a2b155c63e08f4201242127e1d8431c499470f5ae764556b42"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-6be-pit-easy-items-v2\\native\\flutter-first.png",
+      "bytes": 1618,
+      "sha256": "26cdc4e5cdff15aabc781a17ff250d07fc01d8d360ae5532b735039390f101c7"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-6be-pit-easy-items-v2\\native\\mushroom-transform.png",
+      "bytes": 1678,
+      "sha256": "a9c9f5bd0767d7beddc3a9889a255978931c35db1c817084c737b5420b3afab9"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-6be-pit-easy-items-v2\\native\\pit-components.csv",
+      "bytes": 45484,
+      "sha256": "3d7a61ef8d1752887ff4c1209300bf5738be7260f98b1a7b50df9a675c551e9c"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-6be-pit-easy-items-v2\\native\\samus_fixed_hud_current4a-run.log",
+      "bytes": 4058,
+      "sha256": "54382175318dca1dc040ab4c873e35e1dd30d5b49630eb9c7aa85672198c3900"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-6be-pit-easy-items-v2\\native\\tier1-hammer.png",
+      "bytes": 1877,
+      "sha256": "ca258eace4591681900bcbd1f11ddd9c4515a25ae4944f0c1a327349a805a903"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\samus_fixed_hud_current4a.nes",
+      "bytes": 2097168,
+      "sha256": "6be48337ffee66a22b22de9ce134d5db323649fb4de620c43bad4ca98b80f193"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\samus_fixed_hud_current4a.dbg",
+      "bytes": 26897401,
+      "sha256": "61762ec9a154b73753fd33bdaa6915b7ee2872946f49c26da5e42ad6edd2f62b"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\current_pit_powerups_v2.lua",
+      "bytes": 21152,
+      "sha256": "b4c5f155a7dc1fa1ca2eba85e2cb736c25047db46f81f6f3cee554e2210a5738"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\current_pit_powerups_prepare_v2.py",
+      "bytes": 4364,
+      "sha256": "5bf086737ac57a61e5f98fa01f1abc46cbdfe60eec64c9888b43ca0c00d3876c"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\expanded.s",
+      "bytes": 34607,
+      "sha256": "1cadce22870e899b8e3d107612fd464d9e7295d53ed269aaca4348a3609b9421"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\expanded_weapons.s",
+      "bytes": 34520,
+      "sha256": "f963685b369f153e77e99248009124f00bdceb57d3b3ab07a3aa2a30345dd7d1"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\player.s",
+      "bytes": 73845,
+      "sha256": "9a385048bb7177bf3e9c9c93efaab223d445711c38835fded745690c014690f3"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\collision.s",
+      "bytes": 109191,
+      "sha256": "6f65f30b6056ce527696f37d5793b899db633bca57d3cbac93af86f87b1409b5"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\roster.s",
+      "bytes": 25071,
+      "sha256": "17a3e4753cd9c9171c38e39f2d6e0621e32c9d49ec03fc654aeb12a64b654bf3"
+    }
+  ]
+}

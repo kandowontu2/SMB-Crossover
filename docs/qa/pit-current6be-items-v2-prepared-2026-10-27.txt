@@ -1,0 +1,64 @@
+Pit Easy/Hard v2: two fixture corrections, PREPARED ONLY
+
+ROM build/samus_fixed_hud_current4a.nes remains
+6be48337ffee66a22b22de9ce134d5db323649fb4de620c43bad4ca98b80f193.
+No game/production/shared fixture/settings edit, native launch, source/runtime
+clone or old-archive restoration occurred. ROOT owns the capture lease.
+
+Easy0 build/current-6be-pit-easy-items-v2/prepared-not-run.json
+SHA256 7550b280010b18f7e710cbd94540a907fafd7b7a1dd8fd46a79b92394d5ab114
+Hard1 build/current-6be-pit-hard-items-v2/prepared-not-run.json
+SHA256 d3b73101d2571c783c04b918427b7507b35ed36d34973f9c99fd757f9bb66890
+Each26 bindings rehashed after preparation; both native directories absent.
+Configs differ only in requested numeric mode. Every original10-plan,
+controller/scene/fuel/mechanics/strict hardware assertion and cap is retained.
+
+The separate v2 Lua has exactly two single-occurrence replacements:
+1 bow target x176->160; raised hammer x136/y168 unchanged.
+2 contact expected proxy26->26+the task's actually acquired tier (26/27/28).
+Reversing just these two replacements reproduces every byte of v1. No
+new callback, input rule, case limit, outcome/resource write or guard exception
+was added. Existing per-update native PlayerStatus==task.tier assertions stay.
+The static hardware block, full256 raw DMA writes/E3 physical attributes,
+E008 completion, NMI/IRQ/bank/5SMC/CHR/deadline guards remain literal.
+
+The small new preparer reuses the immutable v1 preparer implementation with
+only its fixture filename changed. It first verifies exact v1 source hashes
+and the20-bound first-negative receipt, checks forward and reverse two-line
+equivalence, then binds both old sources, new sources and the original
+source/negative receipt in each fresh readiness. It does not alter v1 files.
+
+Source reuse is explicit: first-negative.json SHA
+e1f4c7e5657c4bea606769c7b9de6e0997272d369bf440b6cbcb9f0d6dc1594d
+contains12 complete compiled GameLoop controls/1,320 updates across modes.
+Cold age13 expiration precedes movement/contact. The original last center170
+plus linked4px radius only reaches174, so target176 is never contacted. New
+target160 gets real bank8:A994 contact at age9/center157 and four HP writes,
+100->75, with cleanup. Powered bow types27/28 and existing hammer targets
+are also executed through the full caller. These are CPU scene reconstructions,
+not native acquisition, Lua execution, PPU/audio timing or new run results.
+The inherited finite pickup/movement source controls were freshly executed
+while generating each config; no Mesen process or external Lua VM was used.
+
+The first Easy native FALSE/zero completed cases and all4 native files remain
+at current-6be-pit-easy-items-v1; v1 Hard remains unrun. Its original assertion,
+readies and tools are unchanged. No new native success is inferred.
+
+Caps unchanged per profile:3000actual updates/8000wall frames/1200host seconds,
+2,000,000,000bytes/64files/8PNGs; no per-frame lossless file forest.
+Exact absolute argv is in each command.json. ROOT-only commands (DO NOT RUN):
+python -B tools/audit/run_mesen_isolated.py --output build/current-6be-pit-easy-items-v2/native build/current-6be-pit-easy-items-v2/run.lua build/samus_fixed_hud_current4a.nes --timeout 1200 --option=--doNotSaveSettings --option=--nes.ramPowerOnState=AllZeros --option=--nes.randomizeCpuPpuAlignment=false --option=--nes.randomizeMapperPowerOnState=false
+python -B tools/audit/run_mesen_isolated.py --output build/current-6be-pit-hard-items-v2/native build/current-6be-pit-hard-items-v2/run.lua build/samus_fixed_hud_current4a.nes --timeout 1200 --option=--doNotSaveSettings --option=--nes.ramPowerOnState=AllZeros --option=--nes.randomizeCpuPpuAlignment=false --option=--nes.randomizeMapperPowerOnState=false
+
+This is still the scoped mature mushroom/flower/action component, not block
+emergence/RNG/star/1up/all-item/campaign or universal pixel/audio fidelity.
+Actual button edges, collection/contact, fuel/render chronology and8 selected
+whole-frame samples remain native work. New profile directories contain only
+six small metadata files each, with no copied source, ROM or runtime.
+
+New v2 owned tracked files:
+tools/audit/current_pit_powerups_v2.lua
+tools/audit/current_pit_powerups_prepare_v2.py
+docs/qa/pit-current6be-items-v2-prepared-2026-10-27.txt
+The separate first-negative tool/report and original three preparation files
+remain the publication lineage; no old file is replaced.

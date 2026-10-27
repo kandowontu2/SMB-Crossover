@@ -1,0 +1,82 @@
+{
+  "passed": true,
+  "source_CPU_only": true,
+  "mode": 1,
+  "physical_owner_collects": [
+    {
+      "pickup": 0,
+      "actual_tier": 1,
+      "full_physical_owner": true,
+      "real_transform_calls": 60
+    },
+    {
+      "pickup": 1,
+      "actual_tier": 2,
+      "full_physical_owner": true,
+      "real_transform_calls": 60
+    }
+  ],
+  "complete_ExpandedMovement_call_controls": [
+    {
+      "tier": 0,
+      "actual_full_movement_call": {
+        "entry_pc": 41279,
+        "bank": 37,
+        "sp": 246,
+        "return_pc": 366,
+        "JSR_bytes": [
+          32,
+          63,
+          161
+        ],
+        "actual_exit": 41296
+      },
+      "airborne_fuel_after_first": 60,
+      "source_ground_recharge": 60,
+      "no_CPU_fuel_seed": true
+    },
+    {
+      "tier": 1,
+      "actual_full_movement_call": {
+        "entry_pc": 41279,
+        "bank": 37,
+        "sp": 246,
+        "return_pc": 366,
+        "JSR_bytes": [
+          32,
+          63,
+          161
+        ],
+        "actual_exit": 41296
+      },
+      "airborne_fuel_after_first": 60,
+      "source_ground_recharge": 60,
+      "no_CPU_fuel_seed": true
+    },
+    {
+      "tier": 2,
+      "actual_full_movement_call": {
+        "entry_pc": 41279,
+        "bank": 37,
+        "sp": 246,
+        "return_pc": 366,
+        "JSR_bytes": [
+          32,
+          63,
+          161
+        ],
+        "actual_exit": 41390
+      },
+      "airborne_fuel_after_first": 59,
+      "source_ground_recharge": 60,
+      "no_CPU_fuel_seed": true
+    }
+  ],
+  "real_leaf_RTS_PCs": [
+    41296,
+    41390
+  ],
+  "static_callbacks_only": true,
+  "hardware_guard_block_byte_exact": true,
+  "limits": "CPU source controls, not Lua/native reachability or PPU/audio/collision proof. Native fixture has no tier/fuel/form/ownership/health/outcome writes."
+}

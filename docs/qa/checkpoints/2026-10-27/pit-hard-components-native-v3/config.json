@@ -1,0 +1,429 @@
+{
+  "ROM_sha256": "6be48337ffee66a22b22de9ce134d5db323649fb4de620c43bad4ca98b80f193",
+  "character": 6,
+  "slot": 6,
+  "mode": 1,
+  "hooks": {
+    "PhysicalPickup": {
+      "pc": 44913,
+      "banks": [
+        3
+      ],
+      "bytes": [
+        32,
+        47,
+        141
+      ],
+      "source_symbol": "MarioSourcePowerupCollision",
+      "source_delta": 0
+    },
+    "GuestBeginPowerup": {
+      "pc": 45632,
+      "banks": [
+        10
+      ],
+      "bytes": [
+        173,
+        91,
+        7
+      ],
+      "source_symbol": "GuestBeginPowerup",
+      "source_delta": 0
+    },
+    "GuestPowerupUpdate": {
+      "pc": 45721,
+      "banks": [
+        10
+      ],
+      "bytes": [
+        173,
+        253,
+        107
+      ],
+      "source_symbol": "GuestPowerupUpdate",
+      "source_delta": 0
+    },
+    "DamageEnemy": {
+      "pc": 43412,
+      "banks": [
+        8
+      ],
+      "bytes": [
+        32,
+        252,
+        187
+      ],
+      "source_symbol": "MegaManWeapons::DamageEnemy",
+      "source_delta": 0
+    },
+    "PitFlightEntry": {
+      "pc": 41279,
+      "banks": [
+        37
+      ],
+      "bytes": [
+        165,
+        30,
+        208
+      ],
+      "source_symbol": "PitFlightUpdate",
+      "source_delta": 0
+    },
+    "NmiEntry": {
+      "pc": 58172,
+      "banks": [
+        125,
+        127
+      ],
+      "bytes": [
+        72,
+        138,
+        72
+      ],
+      "source_symbol": "NonMaskableInterrupt",
+      "source_delta": 0
+    },
+    "IrqEntry": {
+      "pc": 32768,
+      "banks": [
+        126
+      ],
+      "bytes": [
+        72,
+        138,
+        72
+      ],
+      "source_symbol": "IrqScrollSplit",
+      "source_delta": 0
+    },
+    "GameLoopOwned": {
+      "pc": 33502,
+      "banks": [
+        126
+      ],
+      "bytes": [
+        32,
+        86,
+        131
+      ],
+      "source_symbol": "GameLoop",
+      "source_delta": 5
+    },
+    "GameLoopFinish": {
+      "pc": 33621,
+      "banks": [
+        126
+      ],
+      "bytes": [
+        96
+      ],
+      "source_symbol": "GameLoop",
+      "source_delta": 124
+    },
+    "NmiReturn": {
+      "pc": 58383,
+      "banks": [
+        125,
+        127
+      ],
+      "bytes": [
+        64
+      ],
+      "source_symbol": "NonMaskableInterrupt",
+      "source_delta": 211
+    },
+    "IrqReturn": {
+      "pc": 32835,
+      "banks": [
+        126
+      ],
+      "bytes": [
+        64
+      ],
+      "source_symbol": "IrqScrollSplit",
+      "source_delta": 67
+    },
+    "PitFlightStopReturn": {
+      "pc": 41296,
+      "banks": [
+        37
+      ],
+      "bytes": [
+        96
+      ],
+      "source_symbol": "PitFlightUpdate::Stop",
+      "source_delta": 8
+    },
+    "PitFlightDoneReturn": {
+      "pc": 41390,
+      "banks": [
+        37
+      ],
+      "bytes": [
+        96
+      ],
+      "source_symbol": "PitFlightUpdate::Done",
+      "source_delta": 0
+    },
+    "DmaComplete": {
+      "pc": 57352,
+      "banks": [
+        125,
+        127
+      ],
+      "bytes": [
+        141,
+        1,
+        32
+      ],
+      "source_symbol": "PostDmaMaskEnable",
+      "source_delta": 3
+    }
+  },
+  "ram": {
+    "Enemy_Y_Position": 190,
+    "MmSolidTerrain": 26321,
+    "Player_Y_HighPos": 164,
+    "Enemy_Y_Speed": 143,
+    "InvPickupOwner": 32110,
+    "Player_X_Speed": 70,
+    "EnemyOffscrBitsMasked": 1448,
+    "CheatInvincible": 32763,
+    "MTileTopRight": 48279,
+    "RgShotType": 27755,
+    "MmDeathFlag": 24583,
+    "SelectedCharacter": 24578,
+    "NmiDisable": 313,
+    "PlayerFacingDir": 1342,
+    "CurrentBank": 325,
+    "MmBrickHealth": 24657,
+    "MTileAttribute": 61238,
+    "GameEngineSubroutine": 15,
+    "Player_Y_Speed": 142,
+    "Enemy_BoundBoxCtrl": 1606,
+    "AreaParserTaskNum": 1826,
+    "Enemy_SprAttrib": 1416,
+    "ScreenRight_PageLoc": 1822,
+    "XgFresh": 28339,
+    "DamageEnemy": 43412,
+    "MmUnderwater": 26817,
+    "InvDropKind": 28390,
+    "MmYFraction": 26797,
+    "GuestBeginPowerup": 45632,
+    "MmBulletType": 24607,
+    "RgAttack": 27664,
+    "Enemy_Y_MoveForce": 1539,
+    "Player_Y_MoveForce": 1538,
+    "MmXFraction": 26795,
+    "CrossoverBehaviorVersion": 32737,
+    "PlayerStatus": 1883,
+    "CrossoverMenuIndex": 29449,
+    "Player_CollisionBits": 1596,
+    "Player_PageLoc": 92,
+    "InjuryTimer": 1947,
+    "Player_X_Position": 117,
+    "Square1SoundQueue": 261,
+    "SavedJoypadBits": 220,
+    "CurrentBankC": 32161,
+    "Player_State": 30,
+    "CrossoverOptionsFocus": 32441,
+    "MmEnemyHealthLo": 24639,
+    "RgShootPose": 27669,
+    "MmVX": 26789,
+    "Player_X_MoveForce": 1799,
+    "Sprite0HitDetectFlag": 1829,
+    "Enemy_ID": 23,
+    "Block_Buffer_1": 768,
+    "OperMode": 1905,
+    "Enemy_State": 31,
+    "XgPitBlocked": 28376,
+    "Enemy_PageLoc": 93,
+    "MmVY": 26792,
+    "MTileBotRight": 48535,
+    "Enemy_X_Speed": 71,
+    "XgPitFlight": 28374,
+    "MmEnemyFlash": 24651,
+    "OperMode_Task": 1907,
+    "ScreenLeft_X_Pos": 1823,
+    "GuestPowerupActive": 27645,
+    "GuestPowerupUpdate": 45721,
+    "Enemy_Y_HighPos": 165,
+    "MmEnemyHealthHi": 24645,
+    "GuestHurtTicks": 28445,
+    "RgPose": 27654,
+    "ScrollThirtyTwo": 1856,
+    "Enemy_MovingDir": 1343,
+    "ScrollLock": 1830,
+    "XgPitFuel": 28375,
+    "ScreenLeft_PageLoc": 1821,
+    "TimerControl": 1866,
+    "A_B_Buttons": 1368,
+    "Player_MovingDir": 69,
+    "MmOldX": 26805,
+    "RgEnemyStun": 27916,
+    "Enemy_X_Position": 118,
+    "Player_Y_Position": 189,
+    "MTileBotLeft": 48023,
+    "InvPickup": 32098,
+    "ScreenRight_X_Pos": 1824,
+    "Enemy_CollisionBits": 1597,
+    "CrossoverMenuState": 29447,
+    "MTileTopLeft": 47767,
+    "RgAttackAge": 27665,
+    "Enemy_Flag": 16,
+    "PowerUpType": 52
+  },
+  "setup_allowed": {
+    "Block_Buffer_1": true,
+    "MmSolidTerrain": true,
+    "MmBrickHealth": true,
+    "Enemy_Flag": true,
+    "Enemy_CollisionBits": true,
+    "InvDropKind": true,
+    "Player_X_Speed": true,
+    "Player_Y_Speed": true,
+    "Player_X_MoveForce": true,
+    "Player_Y_MoveForce": true,
+    "ScrollThirtyTwo": true,
+    "AreaParserTaskNum": true,
+    "MmVX": true,
+    "MmVY": true,
+    "MmXFraction": true,
+    "MmYFraction": true,
+    "ScrollLock": true,
+    "ScreenLeft_X_Pos": true,
+    "ScreenLeft_PageLoc": true,
+    "ScreenRight_X_Pos": true,
+    "ScreenRight_PageLoc": true,
+    "Player_X_Position": true,
+    "Player_PageLoc": true,
+    "MmOldX": true,
+    "Player_Y_Position": true,
+    "Player_Y_HighPos": true,
+    "Player_State": true,
+    "PlayerFacingDir": true,
+    "Player_MovingDir": true,
+    "Player_CollisionBits": true,
+    "Enemy_ID": true,
+    "Enemy_State": true,
+    "Enemy_BoundBoxCtrl": true,
+    "Enemy_X_Position": true,
+    "Enemy_PageLoc": true,
+    "Enemy_Y_Position": true,
+    "Enemy_Y_HighPos": true,
+    "Enemy_X_Speed": true,
+    "Enemy_Y_Speed": true,
+    "Enemy_SprAttrib": true,
+    "PowerUpType": true,
+    "InvPickupOwner": true,
+    "InvPickup": true,
+    "Enemy_Y_MoveForce": true,
+    "Enemy_MovingDir": true,
+    "EnemyOffscrBitsMasked": true,
+    "MmEnemyHealthLo": true,
+    "MmEnemyHealthHi": true,
+    "MmEnemyFlash": true,
+    "RgEnemyStun": true
+  },
+  "flight_return_PC": 366,
+  "dma_store_return": 57349,
+  "smc": [
+    354,
+    362,
+    377,
+    364,
+    365
+  ],
+  "metatiles": {
+    "MTileTopLeft": {
+      "bank": 3,
+      "offset": 6807
+    },
+    "MTileTopRight": {
+      "bank": 3,
+      "offset": 7319
+    },
+    "MTileBotLeft": {
+      "bank": 3,
+      "offset": 7063
+    },
+    "MTileBotRight": {
+      "bank": 3,
+      "offset": 7575
+    },
+    "MTileAttribute": {
+      "bank": 127,
+      "offset": 3894
+    }
+  },
+  "poses": {
+    "flap1": 78,
+    "flap2": 79,
+    "shot1": 80,
+    "shot2": 81
+  },
+  "plan": [
+    {
+      "name": "cold-bow",
+      "kind": "bow",
+      "tier": 0,
+      "limit": 110
+    },
+    {
+      "name": "cold-jump-gate",
+      "kind": "gate",
+      "tier": 0,
+      "limit": 190
+    },
+    {
+      "name": "mushroom-transform",
+      "kind": "collect",
+      "tier": 0,
+      "pickup": 0,
+      "limit": 120
+    },
+    {
+      "name": "tier1-bow",
+      "kind": "bow",
+      "tier": 1,
+      "limit": 110
+    },
+    {
+      "name": "tier1-hammer",
+      "kind": "hammer",
+      "tier": 1,
+      "limit": 100
+    },
+    {
+      "name": "tier1-jump-gate",
+      "kind": "gate",
+      "tier": 1,
+      "limit": 190
+    },
+    {
+      "name": "flower-transform",
+      "kind": "collect",
+      "tier": 1,
+      "pickup": 1,
+      "limit": 120
+    },
+    {
+      "name": "tier2-flutter-exhaust",
+      "kind": "fullflight",
+      "tier": 2,
+      "limit": 350
+    },
+    {
+      "name": "tier2-flutter-release",
+      "kind": "releaseflight",
+      "tier": 2,
+      "limit": 240
+    },
+    {
+      "name": "tier2-hammer",
+      "kind": "hammer",
+      "tier": 2,
+      "limit": 100
+    }
+  ]
+}

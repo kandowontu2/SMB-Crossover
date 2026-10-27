@@ -1,0 +1,46 @@
+Narrow Pit powerup/action components: SOURCE PREPARED, NO NATIVE LAUNCH
+
+ROM is the immutable build/samus_fixed_hud_current4a.nes, SHA6be48337ffee66a22b22de9ce134d5db323649fb4de620c43bad4ca98b80f193 with its real DBG/LBL. Canonical/source/shared fixtures and the19-binding composition handoff remain unchanged. No source/runtime/ROM tree was copied, no old Archive tree was restored, and no emulator was launched.
+
+Easy0 readiness build/current-6be-pit-easy-items-v1/prepared-not-run.json
+SHA256 2f87e9de3a4b404ae4f11febebf50d4b44d74c49dafdd5fbf5c1d502009d9fa0
+Hard1 readiness build/current-6be-pit-hard-items-v1/prepared-not-run.json
+SHA256 4b00a0fcfbb0e471240d3507a1da7e01ff659c7d6bcce8c39f17f8b99a77d768
+Each has21reverified input/generated bindings and five small preparation files. Both native directories are absent. The actual configs differ only in numericmode0/1; cold menu inputs and active readbacks enforce character6/slot6/default cheats. The ten-record plan totals1630nominal case updates plus startup/setup; hard stops remain3000actual updates and8000wall frames.
+
+Surviving reuse: final_item_abilities_native.lua supplies the already-established Pit source fuel/gating/recharge expectations, and static_return_v1.lua documents its later callback-vector repair. The old generated runner needs its progression lexical chunk and old runtime/readiness dependencies, so it was not revived. tests/pit-flight.lua directly seeds power/fuel/flight and writes many PNGs; none of that fixture was used. The new small owned component instead copies the current Bass hardware block byte-for-byte and reuses its same private GameLoop setup/menu pattern. Shared files are untouched. No broad gallery/roster framework was added.
+
+Planned ten components:
+1 cold tier0 bow: one freshB arrow, real type26 target contact/HP writes and native shot cleanup.
+2 cold real jump/fresh airborneA: no wing activation or fuel consumption at tier0.
+3 actual mature mushroom actor collision/erase, GuestBeginPowerup and60real transform calls0=>1.
+4 earned tier1 bow/contact/cleanup.
+5 earned tier1 Select hammer, real type38 active-window contact/HP writes and cleanup.
+6 earned tier1 jump/airborneA wing refusal.
+7 actual mature flower actor collision/erase and60real transform calls1=>2.
+8 earned tier2 real jump/fresh airborneA, exactly60actual flutter fuel debits, real exhaustion, landing recharge, next grounded jump, and one real airborne bow shot.
+9 real earlyA release cancels partial flutter; actual landing restores60fuel.
+10 earned tier2 hammer/contact/cleanup.
+
+No native setup writes PlayerStatus/PlayerSize, tier target, XgPitFuel/XgPitFlight/XgPitBlocked, inventory/ammo/selection, projectiles, player health, injury/immunity, or tested outcomes. Only complete logical+visible map, position/motion, mature actor5 and real Goomba/default-health target geometry are staged synchronously at actual GameLoop+5 after STANmiDisableFF, with no active NMI/IRQ. Previous world actors/drops are explicitly cleared between these separate component scenes. This is mature-actor spatial collection, not physical emergence, block reveal/fullrise, natural RNG or a controller-only campaign.
+
+Actual compiled source controls PASS in each mode:
+- Both complete MarioSourcePowerupCollision owners through native erase, inventory fallthrough and GuestBeginPowerup, then exactly60GuestPowerupUpdate calls per tier. This is full owner execution, not just an InventoryCollect leaf; spatial admission remains native work.
+- Three full ExpandedMovement calls through genuine PitFlightUpdate. Ground source logic itself supplies60fuel; fresh airborneA consumes nothing at tiers0/1 and naturally enables/debits tier2. The model then drains all60, cancels on actual empty source gate and uses genuine ground movement to restore60. Even these CPU controls never write fuel.
+- The actual common farcall JSR is captured at its real RAM continuation016E. Pit leaf entry is bank37:A13F; genuine StopRTS=A150 and DoneRTS=A1AE. The new static observer compares entry/exit SP, unchanged real stacked return word and current case owner at those exact bank-qualified endpoints. It never adds/removes callbacks during an active callback. These are actual source leaf-completion checks, not invented public return PCs.
+- Source byte comparison retains the current4058-byte Bass hardware block exactly. DMA request ownerE005 is distinguished from genuine completionE008 before STA2001; full256raw source/write/destination values remain exact, with E3 semantics only for physical hardware attributes. NMI AXY/SP/5SMC/bank restoration, actual IRQ31, CHR latch, lower-stack and render-enable deadline assertions are unchanged.
+
+The original source-defined wing body poses78/79 and flapping bow poses80/81 are required while the actual ability is active; no art or flight animation is invented. Selected whole-frame screenshots will let ROOT inspect those source poses, transformations, hammer, bow and landing. At most8PNGs are allowed; no per-frame capture container/PNG forest is generated. Hardware eight-sprite visibility and source-pose identity are distinct; no all-pixel/original-game-fidelity claim is made from a pose byte.
+
+Source/Lua qualification boundary: source/manual review, complete compiled owner/return tests and exact unchanged hardware-module comparison are complete. No Lua VM or Mesen execution is claimed in this task. Actual button edges, spatial collection/contact, full-loop leaf observations, framebuffer pixels, cadence and audio remain unrun. Square1 source cue requests are logged as activity, not waveform fidelity. Easy/Hard use the same source wing contract under separately required actual mode readbacks; no native equivalence is inferred.
+
+Per-run caps:3000updates/8000wall frames/1200host seconds/2,000,000,000bytes/64files/8PNGs, oneCSV+small resultJSON. No runtime is selected/copied; ROOT owns the sole native lease and must apply the existing central runtime/settings/capture guard. Exact absolute argv is in each command.json. ROOT-only relative commands:
+python -B tools/audit/run_mesen_isolated.py --output build/current-6be-pit-easy-items-v1/native build/current-6be-pit-easy-items-v1/run.lua build/samus_fixed_hud_current4a.nes --timeout 1200 --option=--doNotSaveSettings --option=--nes.ramPowerOnState=AllZeros --option=--nes.randomizeCpuPpuAlignment=false --option=--nes.randomizeMapperPowerOnState=false
+python -B tools/audit/run_mesen_isolated.py --output build/current-6be-pit-hard-items-v1/native build/current-6be-pit-hard-items-v1/run.lua build/samus_fixed_hud_current4a.nes --timeout 1200 --option=--doNotSaveSettings --option=--nes.ramPowerOnState=AllZeros --option=--nes.randomizeCpuPpuAlignment=false --option=--nes.randomizeMapperPowerOnState=false
+
+Missing: all current native outcomes; full reveal/rise/RNG delivery; tier cap refusal/shrink/damage; star/1up; opposite facing/upward bow, pool/refusal matrix, roof/water/vine gates; full original-game art/audio fidelity; route clear and broad lag/flicker coverage. Historical acquired-tier receipts retain their ROM/mode hashes. This is a bounded two-tier acquisition/action unit, not completion of every Pit/shared item.
+
+Only new owned tracked files:
+tools/audit/current_pit_powerups_v1.lua
+tools/audit/current_pit_powerups_prepare_v1.py
+docs/qa/pit-current6be-items-prepared-2026-10-27.txt
