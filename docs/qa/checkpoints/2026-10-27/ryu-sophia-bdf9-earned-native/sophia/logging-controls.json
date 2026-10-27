@@ -1,0 +1,95 @@
+{
+  "passed": true,
+  "native_run": false,
+  "exact_one_expression_reverse": true,
+  "gameplay_controller_setup_plan_caps_guards_unchanged": true,
+  "cases": [
+    {
+      "case_index": 1,
+      "item": 0,
+      "actual_stock_index": 0
+    },
+    {
+      "case_index": 2,
+      "item": 7,
+      "actual_stock_index": 7
+    },
+    {
+      "case_index": 3,
+      "item": 7,
+      "actual_stock_index": 7
+    },
+    {
+      "case_index": 4,
+      "item": 1,
+      "actual_stock_index": 1
+    },
+    {
+      "case_index": 5,
+      "item": 1,
+      "actual_stock_index": 1
+    },
+    {
+      "case_index": 6,
+      "item": 2,
+      "actual_stock_index": 2
+    },
+    {
+      "case_index": 7,
+      "item": 2,
+      "actual_stock_index": 2
+    },
+    {
+      "case_index": 8,
+      "item": 254,
+      "actual_stock_index": 1
+    },
+    {
+      "case_index": 9,
+      "item": 254,
+      "actual_stock_index": 2
+    },
+    {
+      "case_index": 10,
+      "item": 3,
+      "actual_stock_index": 3
+    },
+    {
+      "case_index": 11,
+      "item": 3,
+      "actual_stock_index": 3
+    },
+    {
+      "case_index": 12,
+      "item": 4,
+      "actual_stock_index": 4
+    },
+    {
+      "case_index": 13,
+      "item": 4,
+      "actual_stock_index": 4
+    },
+    {
+      "case_index": 14,
+      "item": 5,
+      "actual_stock_index": 5
+    },
+    {
+      "case_index": 15,
+      "item": 5,
+      "actual_stock_index": 5
+    },
+    {
+      "case_index": 16,
+      "item": 6,
+      "actual_stock_index": 6
+    },
+    {
+      "case_index": 17,
+      "item": 6,
+      "actual_stock_index": 6
+    }
+  ],
+  "original_negative": "After native case9 genuine Homing refill4->6, phase logging used next-case metadata and raised nil arithmetic. Retain original CSV/log/launch.",
+  "correction": "Read the ammunition index from the record being logged, including transitions; never mutate gameplay state."
+}

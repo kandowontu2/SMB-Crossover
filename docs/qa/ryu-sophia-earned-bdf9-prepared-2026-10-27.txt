@@ -1,0 +1,68 @@
+Ryu/Sophia earned Hard components — source-qualified, NOT NATIVE RUN
+
+Frozen ROM: build/cv3-life-watch-bdf9-production.nes
+bdf9ca2bfe69ee93ca85f1b5e5319e474d9f01aa641c79a58cd9bd602253c40e.
+Matching DBG bb02c0d6d5a368394f9888162d1b7678fed1eadad1ad7bcec978fc13d84f6e24;
+LBL f5ab1f3e0cd0f4256e212497fe5ec0d8f481ea7ac88acc940087707a0e88b6b1.
+No dependency on mutable default ROM or a copied source/runtime tree.
+
+Reused unchanged tools/audit/current_ryu_sophia_powerups_prepare_v1.py and
+current_ryu_sophia_powerups_v1.lua. Fresh explicit --rom/--expected-sha256
+execution generated genuine current RAM/table/opcode/bank/clone metadata and
+reran complete source GameLoop campaigns, rather than relabelling9ea results.
+Old9ea v2 readies remain immutable:39/40 bindings still authenticate, while
+their megaman_weapons.s binding has genuine later source drift. New generated
+fixtures are byte-identical to those old source-qualified fixtures. Current
+fresh resolver/compiled-menu transition controls reach Ryu10 and Sophia11;
+their actual cold paths are0->6->7->8->9->10[->11]. All19 source menu nodes
+are reachable. Numeric0..7 item-key/value preflight precedes fixture load.
+
+Ryu:16 cases,1876 actual full source Main calls PASS.
+Mature IDs0 mushroom,1 Star,2 Wheel,3 Wind,4 Dragon,5 Jump Slash,6 Sword,
+7 Scroll. Real mushroom60-call transformation; Sword actual source power1
+and free melee proxy33; paid Star3/Wheel5/Wind5/air Dragon5/air Slash5 with
+real effect/contact/health writes and natural shot/pose/body cleanup. Actual
+refill actors254 give10 energy; actual Scroll raises source maximum to99.
+Only independently observed real source drop-refill entry/return credit may
+offset a payment: e.g. source Slash12->7 then real refill7->12 is accounted
+as two events, never mistaken for a free attack or fixture refill.
+Weapon IDs1..5 use genuine mutually exclusive source ownership masks.
+
+Sophia:17 cases,2217 actual full source Main calls PASS.
+Mature IDs0 mushroom,1 Missile,2 Homing,3 Hover,4 Crusher,5 Wall,6 Ceiling,
+7 Hyper. Hyper7 is also genuinely granted by the mushroom; its explicit7
+actor case is idempotent collection, not a naturally rolled delivery claim.
+Actual Hyper/Crusher primary modes1/2 and damage proxies37/76; one paid
+missile triplet costs3, homing costs1, refill actors give6/2 respectively.
+Real acquired Hover burns fuel8->6 then naturally recharges/lands; Wall
+actually climbs and drops; Ceiling actually attaches/traverses/jumps/drops.
+No fixture ownership/tier/stock/hover/shot/slash/attachment/outcome grants.
+
+Both retain the original strict complete hardware guard block: genuine
+GameLoop+5/STA NmiDisableFF scene setup excluding NMI/IRQ; actual E008 full
+256-byte DMA/E3 transaction, real physical banks/CHR, five SMC operands,
+stack/NMI/IRQ31 restoration, write-time render-enable deadline and finite
+cadence/action caps. Maps/positions/motion and mature pickup5/default-health
+target0 are disclosed stage setup, never acquired resources or damage wins.
+Each profile allows16000 physical frames,6500 updates,1800host seconds,
+2GB/64files, <=8 meaningful PNGs, one CSV and no video/per-frame files.
+Original effects must remain live through two complete DMAs for sampling;
+assertions are not waived if this fails in native execution.
+
+Readies (prepared only; ROOT alone launches command.json after review):
+build/current-bdf9-ryu-earned-hard-v1/prepared-not-run.json
+SHA80efe8cdb66740802bfac45210a46ea000cf3f06b27a658671614202f495323e
+build/current-bdf9-sophia-earned-hard-v1/prepared-not-run.json
+SHA8280a12e47df71a49ae75e59d621026066dac5992be6a257a14dc3da33da6a09
+Each40 exact bindings rehashed. Separate source-controls/source-layout,
+typed run.lua/config/fixture and command.json are alongside each readiness.
+build/current-bdf9-ryu-sophia-earned-handoff-v1.json
+SHA8d8e669f9980a54495bba7b09b020f7977985cd98d6e7b89a6fafd56c8f90334.
+
+Remaining scope: Hard/right/mature actors only. No Easy, natural reveal/rise,
+random item/drop delivery, whole campaign, actual deficit healing/armor,
+sharedStar/1-Up inventory conservation, arbitrary saturation/full-stock,
+all primary stances, opposite-facing blocking/terrain, general water/climb,
+original waveform or blanket graphics/cadence claim. Native evidence is
+absent for these newly prepared bdf9 profiles. No canonical/Git/settings/
+Downloads changes or emulator launches by this agent.

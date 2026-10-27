@@ -1,0 +1,42 @@
+{
+  "status": "HARD_EARNED_NATIVE_COMPONENT_PASS",
+  "rows": [
+    {
+      "identity": "ryu",
+      "mode": 1,
+      "actual_ROM_sha256": "bdf9ca2bfe69ee93ca85f1b5e5319e474d9f01aa641c79a58cd9bd602253c40e",
+      "native_pass": true,
+      "cases": 16,
+      "wall_frames": 2389,
+      "actual_updates": 1917,
+      "full256_DMAs": 1934,
+      "minimum_stack_pointer": 204,
+      "selected_whole_frames_ROOT_visually_reviewed": 8,
+      "ready_sha256": "80efe8cdb66740802bfac45210a46ea000cf3f06b27a658671614202f495323e",
+      "native_result_sha256": "f6f2df55ad56917dfa75d76b93e8de3067a58a171ca8892005fc80c6101ba69c",
+      "checkpoint": "docs/qa/checkpoints/2026-10-27/ryu-sophia-bdf9-earned-native/ryu"
+    },
+    {
+      "identity": "sophia",
+      "mode": 1,
+      "actual_ROM_sha256": "bdf9ca2bfe69ee93ca85f1b5e5319e474d9f01aa641c79a58cd9bd602253c40e",
+      "native_pass": true,
+      "cases": 17,
+      "wall_frames": 2920,
+      "actual_updates": 2247,
+      "full256_DMAs": 1581,
+      "minimum_stack_pointer": 191,
+      "selected_whole_frames_ROOT_visually_reviewed": 8,
+      "ready_sha256": "b6cc3f03ce149bc14bf6ef63d4d9336629e496232a952eca09b85a7841bcac42",
+      "native_result_sha256": "2eef093de1e2380f52b50a992babd4f0ef5f00e3fff592f1ccc668a0a2227cba",
+      "checkpoint": "docs/qa/checkpoints/2026-10-27/ryu-sophia-bdf9-earned-native/sophia"
+    }
+  ],
+  "verified": "Ryu: all8 mature item IDs, free sword and five paid attacks, exact3/5 costs with independently observed real refill credits, real Scroll maximum99. Sophia: all8 mature IDs, Hyper/Crusher primary proxies, missile triplet3/homing1, actual6/2 refills, hover burn/recharge/landing, wall climb/drop, ceiling attach/traverse/jump/drop.",
+  "setup": "Genuine cold menu followed by disclosed GameLoop-boundary map/position and mature-actor/target setup. No acquired resources, ownership, power tier, action or health outcome seeds.",
+  "guards": "Full256-byte DMA, actual CHR/banks and IRQ/NMI restoration, stack, render-enable deadlines and finite cadence assertions retained.",
+  "original_negative": "Sophia v1 executed through genuine second refill4->6, then failed in logging because record9 used next-case10 metadata. v2 changes only that logging lookup to use the record case index. Original launch, CSV, log and readiness are preserved and bound by v2.",
+  "limits": "Actual native bdf9 predecessor, not a new5a run. Hard/right-facing/mature actors only. Full reveal/rise/drop lottery, Easy, general terrain/water, deficit healing/armor, Star1Up conservation, saturation, every animation phase and audible waveform fidelity remain open.",
+  "checkpoint": "docs/qa/checkpoints/2026-10-27/ryu-sophia-bdf9-earned-native",
+  "goal_complete": false
+}
