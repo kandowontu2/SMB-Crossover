@@ -1,0 +1,421 @@
+{
+  "prepared": true,
+  "native_run": false,
+  "ROM_sha256": "9ea11eab2fc5c373a3795b013f6ed9e0d5e9781891b2ae3bf40ad2556c27b85e",
+  "config": {
+    "name": "bill",
+    "character": 3,
+    "menu_index": 3,
+    "variant_symbol": "BillVariant",
+    "variant": 0,
+    "mode_value": 1,
+    "root": "C:/Users/kando/Documents/ChatGPT/SMB Crossover",
+    "out": "C:/Users/kando/Documents/ChatGPT/SMB Crossover/build/verification/bill-enemy-timing9ea-ready-v1/",
+    "prefix": "C:/Users/kando/Documents/ChatGPT/SMB Crossover/build/verification/bill-enemy-timing9ea-ready-v1/",
+    "policy": "C:/Users/kando/Documents/ChatGPT/SMB Crossover/tools/playthroughs/roster_samus_contra.lua",
+    "limit": 8000,
+    "capture_bytes": 536870912,
+    "ROM_sha256": "9ea11eab2fc5c373a3795b013f6ed9e0d5e9781891b2ae3bf40ad2556c27b85e",
+    "navigation": [
+      "left",
+      "right",
+      "right",
+      "",
+      "left",
+      "left",
+      "left",
+      "right",
+      "right",
+      "up",
+      "left",
+      "left",
+      "left",
+      "right",
+      "down",
+      "right",
+      "down",
+      "left",
+      "left"
+    ],
+    "marker_names": [
+      "first-active",
+      "corner-332",
+      "corner-345",
+      "corner-360",
+      "power-change",
+      "flagpole",
+      "endpoint",
+      "failure"
+    ],
+    "hooks": {
+      "loop": {
+        "name": "GameLoop",
+        "pc": 33497,
+        "bank": 126,
+        "bytes": [
+          169,
+          255,
+          141
+        ]
+      },
+      "loop_return": {
+        "name": "GameLoop",
+        "pc": 33621,
+        "bank": 126,
+        "bytes": [
+          96,
+          141,
+          106
+        ]
+      },
+      "nmi": {
+        "name": "NonMaskableInterrupt",
+        "pc": 58172,
+        "bank": 127,
+        "bytes": [
+          72,
+          138,
+          72
+        ],
+        "banks": [
+          125,
+          127
+        ]
+      },
+      "nmi_return": {
+        "name": "NonMaskableInterrupt",
+        "pc": 58383,
+        "bank": 127,
+        "bytes": [
+          64,
+          162,
+          7
+        ],
+        "banks": [
+          125,
+          127
+        ]
+      },
+      "irq": {
+        "name": "IrqScrollSplit",
+        "pc": 32768,
+        "bank": 126,
+        "bytes": [
+          72,
+          138,
+          72
+        ]
+      },
+      "irq_return": {
+        "name": "IrqScrollSplit",
+        "pc": 32835,
+        "bank": 126,
+        "bytes": [
+          64,
+          141,
+          6
+        ]
+      },
+      "dma_complete": {
+        "name": "PostDmaMaskEnable",
+        "pc": 57352,
+        "bank": 127,
+        "bytes": [
+          141,
+          1,
+          32
+        ],
+        "banks": [
+          125,
+          127
+        ]
+      }
+    },
+    "dma_store_return": 57349,
+    "smc_fields": [
+      354,
+      362,
+      377,
+      364,
+      365
+    ],
+    "replay": "C:/Users/kando/Documents/ChatGPT/SMB Crossover/build/verification/bill-early-cache-pair-ready-v1/candidate9ea/inputs.csv",
+    "extra_ram": {}
+  },
+  "command": [
+    "python",
+    "-B",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\run_mesen_isolated.py",
+    "--output",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\bill-enemy-timing9ea-ready-v1",
+    "--emulator",
+    "C:/Mesen2/Mesen.exe",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\bill-enemy-timing9ea-ready-v1\\run.lua",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bill_early_cache.nes",
+    "--timeout",
+    "600",
+    "--option=--doNotSaveSettings",
+    "--option=--nes.removeSpriteLimit=false",
+    "--option=--nes.ramPowerOnState=AllZeros",
+    "--option=--nes.randomizeCpuPpuAlignment=false",
+    "--option=--nes.randomizeMapperPowerOnState=false"
+  ],
+  "bindings": {
+    "C:\\Mesen2\\Mesen.exe": "8b92daa209ee5052845e02a663aeb1afd6194eca55d86e6628c51114c61da0a9",
+    "C:\\Mesen2\\MesenCore.dll": "4bd40dfc6512328d56d8ad0563263b52be57bac726d8804f0720e461e558cd41",
+    "C:\\Mesen2\\settings.json": "a5f76b4c4d33cd1fb6d66a8725e7c6636b19e59c03a7dae5e15e1c512a3f4fbf",
+    "C:\\Users\\kando\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\site-packages\\py65\\__init__.py": "4f6a41c619e2f0d6fc48eaf9fbc9ca31729365888c26df8c7750cf4c571ee8fc",
+    "C:\\Users\\kando\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\site-packages\\py65\\devices\\__init__.py": "4f6a41c619e2f0d6fc48eaf9fbc9ca31729365888c26df8c7750cf4c571ee8fc",
+    "C:\\Users\\kando\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\site-packages\\py65\\devices\\mpu6502.py": "15d93835b4f279b702270d9a0b417938291347ec57cc12d9e0307cd344d381fe",
+    "C:\\Users\\kando\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\site-packages\\py65\\utils\\__init__.py": "4f6a41c619e2f0d6fc48eaf9fbc9ca31729365888c26df8c7750cf4c571ee8fc",
+    "C:\\Users\\kando\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\site-packages\\py65\\utils\\conversions.py": "448b8aa2cc59aa71a6a644a5dd93051ab4b2def2ae720c4991c0e54f31a4eaa9",
+    "C:\\Users\\kando\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\site-packages\\py65\\utils\\devices.py": "fca3864bebcf1db7dbc13014487ad7091499d85c8cb14ca7288c5fdc63de6a0e",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bill_early_cache.dbg": "f352b9b0925782764bca97b5feae9eeaee618e979cd4cbfced8d326c95078383",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bill_early_cache.lbl": "e0f6a31216981e6266c939f536bdbdcd7aacbc476203c2154f0c814e42f7a5e1",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bill_early_cache.nes": "9ea11eab2fc5c373a3795b013f6ed9e0d5e9781891b2ae3bf40ad2556c27b85e",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bill_early_cache_timing_full.lua": "d36933a205b7118abf5df6c3bc707e15b1044a05c2b33cc47bd65e5491edb15d",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\bill-early-cache-pair-ready-v1\\candidate9ea\\inputs.csv": "b03024aac18a7e224e00bb2f6aa15fe08f1e821457f06d50068c113bb214eb35",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\bill-early-cache-pair-ready-v1\\candidate9ea\\profile-config.json": "b29c4ec6ed8eca6f8fddf087c04b0dd5335b7e8ac590eb334f177a019092a5e7",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\bill-early-cache-pair-ready-v1\\candidate9ea\\ready.json": "d58d3f78e29ee6e3238089084237e656350e1020c027be0caa8f9a4fbf21bc55",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\bill-early-cache-pair-ready-v1\\candidate9ea\\result.json": "0fbbea756bfa0084aa6ad63bbbb1c5016964d6f4011cfeb3b7a5f1e394a73a01",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\bill-early-cache-pair-ready-v1\\candidate9ea\\review.json": "27d7776f20284e08352ea5c0360419d21fb072d654d51cfe1fbe12af2ffa6d9e",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\bill-early-cache-pair-ready-v1\\timing-review.json": "defa64f98dbac241058cdda8f017d6b45927d8ad1219b8df3521bd39b82a8b6e",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\bill-enemy-timing9ea-ready-v1\\command.json": "6202c43728741b0bf2d2ebc1a06432e8c6a580f36f255c6836c5514296dd4525",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\bill-enemy-timing9ea-ready-v1\\prepare-controls.json": "cd2b9e14624c6030f8e598ff7022f3e6fd4f5da2b396e72e5c20f694c1bca0eb",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\bill-enemy-timing9ea-ready-v1\\profile-config.json": "20139ab28be3625dc784f360ef8b271a1ca20b39ff5ad7f04184587d074d7c47",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\bill-enemy-timing9ea-ready-v1\\run.lua": "002f90a500edef1d6b521ae2857b34d04fce6af2dd78daed41d59529ac6ad894",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\capture_budget.py": "b9985e2e6db5c801a47454d8761adaf5f40e5254e8f599aeeddf412c1b7e8db9",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\current_bill_enemy_timing_prepare_v1.py": "ca6bdffa8763c405377a8c16cf97f6708d2511acd6732d92aa3a4db9ac5e4d98",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\current_bill_passive_timing_prepare_v1.py": "96825a1419459bdb8c17f6741612c0ed2fcfbbff55727426639e4130c3f44d77",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\current_roster_compact_11_v1.lua": "aba8f2418690dbf9c3fcb0709dba6ec46c3c16c12b91b62fd108e9e9082e2f0c",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\current_roster_compact_11_v1.py": "fe2b6c43ae273269ed40f18e62cfcb3ba1d45cde6d0463d748ba72ccc25ebd6f",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\final_inventory_compact_capture_v1.lua": "1aa9e049764584841be0c590c15427225863bcf7bc64aca8c93a609c2cadd40d",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\final_inventory_compact_capture_v1.py": "fd5585f4f5ccb4217a25270703784193e336c580ba71c65aa53fda0a70068b2a",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\run_mesen_isolated.py": "976f197a3712511e821f545e655eaa3f9bcfe95e42a3c6c76b2adca288d2aad3",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\playthroughs\\roster_samus_contra.lua": "17b0683a72af2046c7a17f9d16ccf3b0a8322eca7a55a8c0000b9f4a22208847",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\playthroughs\\roster_samus_contra_nav.lua": "b80b164e8583565f14e9ac6145c7aa2d314c55b253325630d9438a13e17514b0",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\run_mesen.py": "5d71507b99a100a10b48ad84e1bb3e7db92c470e6215315c9d962551a4222c67"
+  },
+  "required_ram_reads": {
+    "AreaPointer": {
+      "address": 1877,
+      "origin": "driver_VICE_label"
+    },
+    "AreaType": {
+      "address": 1875,
+      "origin": "driver_VICE_label"
+    },
+    "BillVariant": {
+      "address": 27653,
+      "origin": "driver_VICE_label"
+    },
+    "Block_Buffer_1": {
+      "address": 768,
+      "origin": "driver_VICE_label"
+    },
+    "CheatInvincible": {
+      "address": 32763,
+      "origin": "driver_VICE_label"
+    },
+    "CheatStartLevel": {
+      "address": 32764,
+      "origin": "driver_VICE_label"
+    },
+    "CrossoverBehaviorVersion": {
+      "address": 32737,
+      "origin": "driver_VICE_label"
+    },
+    "CrossoverMenuIndex": {
+      "address": 29449,
+      "origin": "driver_VICE_label"
+    },
+    "CrossoverMenuState": {
+      "address": 29447,
+      "origin": "driver_VICE_label"
+    },
+    "CrossoverOptionsFocus": {
+      "address": 32441,
+      "origin": "driver_VICE_label"
+    },
+    "CrossoverTitleDrawn": {
+      "address": 24580,
+      "origin": "driver_VICE_label"
+    },
+    "CurrentBank": {
+      "address": 325,
+      "origin": "driver_VICE_label"
+    },
+    "CurrentBankC": {
+      "address": 32161,
+      "origin": "driver_VICE_label"
+    },
+    "DisableScreenFlag": {
+      "address": 1909,
+      "origin": "driver_VICE_label"
+    },
+    "Enemy_Flag": {
+      "address": 16,
+      "origin": "driver_VICE_label"
+    },
+    "Enemy_ID": {
+      "address": 23,
+      "origin": "driver_VICE_label"
+    },
+    "Enemy_PageLoc": {
+      "address": 93,
+      "origin": "driver_VICE_label"
+    },
+    "Enemy_State": {
+      "address": 31,
+      "origin": "driver_VICE_label"
+    },
+    "Enemy_X_Position": {
+      "address": 118,
+      "origin": "driver_VICE_label"
+    },
+    "Enemy_Y_Position": {
+      "address": 190,
+      "origin": "driver_VICE_label"
+    },
+    "GameEngineSubroutine": {
+      "address": 15,
+      "origin": "driver_VICE_label"
+    },
+    "InvOwnedHi": {
+      "address": 31810,
+      "origin": "driver_VICE_label"
+    },
+    "InvOwnedLo": {
+      "address": 31798,
+      "origin": "driver_VICE_label"
+    },
+    "LevelNumber": {
+      "address": 1889,
+      "origin": "driver_VICE_label"
+    },
+    "NumberofLives": {
+      "address": 1887,
+      "origin": "driver_VICE_label"
+    },
+    "OperMode": {
+      "address": 1905,
+      "origin": "driver_VICE_label"
+    },
+    "OperMode_Task": {
+      "address": 1907,
+      "origin": "driver_VICE_label"
+    },
+    "PlayerFacingDir": {
+      "address": 1342,
+      "origin": "driver_VICE_label"
+    },
+    "PlayerStatus": {
+      "address": 1883,
+      "origin": "driver_VICE_label"
+    },
+    "Player_State": {
+      "address": 30,
+      "origin": "driver_VICE_label"
+    },
+    "Player_X_Speed": {
+      "address": 70,
+      "origin": "driver_VICE_label"
+    },
+    "Player_Y_HighPos": {
+      "address": 164,
+      "origin": "driver_VICE_label"
+    },
+    "Player_Y_Position": {
+      "address": 189,
+      "origin": "driver_VICE_label"
+    },
+    "Player_Y_Speed": {
+      "address": 142,
+      "origin": "driver_VICE_label"
+    },
+    "R2": {
+      "address": 5,
+      "origin": "driver_VICE_label"
+    },
+    "R3": {
+      "address": 6,
+      "origin": "driver_VICE_label"
+    },
+    "SelectedCharacter": {
+      "address": 24578,
+      "origin": "driver_VICE_label"
+    },
+    "SmBall": {
+      "address": 27392,
+      "origin": "driver_VICE_label"
+    },
+    "TimerControl": {
+      "address": 1866,
+      "origin": "driver_VICE_label"
+    },
+    "WorldNumber": {
+      "address": 1892,
+      "origin": "driver_VICE_label"
+    }
+  },
+  "hook_copy_owners": {
+    "NonMaskableInterrupt": {
+      "start": 58172,
+      "size": 212,
+      "banks": [
+        125,
+        127
+      ],
+      "body_sha256": "2206c8675917b6ce9099919f19cd2236eaaf6db702e35747bc73c91f8cbc6233"
+    },
+    "OAMandReadJoypad": {
+      "start": 57344,
+      "size": 43,
+      "banks": [
+        125,
+        127
+      ],
+      "body_sha256": "92e3ab82a5ac222ecbd612eb7204f2e8108dc3e2434c80ff7ca0250cff37eb1f"
+    }
+  },
+  "current_policy_status": "Surviving tracked discovery policy, NOT a current-ROM clear proof",
+  "max_total_frames": 8000,
+  "container_cap_bytes": 536870912,
+  "central_run_cap_bytes": 2000000000,
+  "screenshot_files_during_native": 0,
+  "maximum_offline_selected_frames": 8,
+  "no_source_runtime_clones": true,
+  "no_emulated_writes": true,
+  "no_cheats": true,
+  "explicit_endpoint": "World0/Level0 seen; natural World0/Level1 entry; >=25 completed active updates and >5px control there; zero deaths",
+  "remaining_dependencies": "Only listed current build/debug/labels, tracked scripts/controllers and existing C:/Mesen2 runtime/settings. No deleted archive inputs, Lua/Python package downloads or capture bridge.",
+  "passive_enemy_timing": {
+    "new_functions": [
+      "EnemiesAndLoopsCore",
+      "Mmc5GroundGoombaTerrain",
+      "PlayerEnemyCollision",
+      "AreaParserTaskHandler"
+    ],
+    "window": [
+      3500,
+      3560
+    ],
+    "expected_data_rows": 61,
+    "CSV_max_rows": 200,
+    "CSV_max_bytes": 1048576,
+    "spans": 21,
+    "startup_static": true,
+    "source_controls": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\bill-enemy-timing9ea-ready-v1\\prepare-controls.json",
+    "parent_recorded_result_sha256": "0fbbea756bfa0084aa6ad63bbbb1c5016964d6f4011cfeb3b7a5f1e394a73a01",
+    "parent_window_review_sha256": "defa64f98dbac241058cdda8f017d6b45927d8ad1219b8df3521bd39b82a8b6e",
+    "exact_saved6090polls": true,
+    "expected_route": "Same9ea6091wall/5142updates/3823DMA/controlled1-2; actualtrace/input/PPUequalitymustbereviewed,notassumed.",
+    "labels": "Fullroute replaywithboundedtiming,notdeliberate3560cutoff. Summaryaloneisnotroutepass. Samecensoring/warmup/ISR-nestinglimitsremain.",
+    "analysis_goal": "Split existingMainexclusive43percent intonativeenemy/load/AI/terrain/playercontact/backgroundparser work. Staticcalltree alone cannotassignitscycles.",
+    "limitations": "No individualEnemyID/per-callstate record; classifytiming byrealroutineonly. NetMainexclusive coverage needscensored/warmupaccounting. NoFPSclaim.",
+    "no_new_observer_module": true,
+    "no_dynamic_callback_registration": true,
+    "no_native_grant": true,
+    "owned_new_file": "tools/audit/current_bill_enemy_timing_prepare_v1.py"
+  }
+}

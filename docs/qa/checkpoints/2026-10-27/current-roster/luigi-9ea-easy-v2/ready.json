@@ -1,0 +1,418 @@
+{
+  "prepared": true,
+  "native_run": false,
+  "ROM_sha256": "9ea11eab2fc5c373a3795b013f6ed9e0d5e9781891b2ae3bf40ad2556c27b85e",
+  "config": {
+    "name": "luigi",
+    "character": 8,
+    "menu_index": 0,
+    "variant_symbol": "MarioVariant",
+    "variant": 1,
+    "mode_value": 0,
+    "root": "C:/Users/kando/Documents/ChatGPT/SMB Crossover",
+    "out": "C:/Users/kando/Documents/ChatGPT/SMB Crossover/build/verification/compact-next-luigi-9ea-easy-v2/",
+    "prefix": "C:/Users/kando/Documents/ChatGPT/SMB Crossover/build/verification/compact-next-luigi-9ea-easy-v2/",
+    "policy": "C:/Users/kando/Documents/ChatGPT/SMB Crossover/tools/playthroughs/current_roster_luigi_landing_brake_v2.lua",
+    "limit": 8000,
+    "capture_bytes": 536870912,
+    "ROM_sha256": "9ea11eab2fc5c373a3795b013f6ed9e0d5e9781891b2ae3bf40ad2556c27b85e",
+    "navigation": [
+      "",
+      "left",
+      "left",
+      "left",
+      "right",
+      "right",
+      "up",
+      "left",
+      "left",
+      "left",
+      "right",
+      "right",
+      "down",
+      "left",
+      "left",
+      "down",
+      "left",
+      "right",
+      "right"
+    ],
+    "marker_names": [
+      "first-active",
+      "corner-332",
+      "corner-345",
+      "corner-360",
+      "power-change",
+      "flagpole",
+      "endpoint",
+      "failure"
+    ],
+    "hooks": {
+      "loop": {
+        "name": "GameLoop",
+        "pc": 33497,
+        "bank": 126,
+        "bytes": [
+          169,
+          255,
+          141
+        ]
+      },
+      "loop_return": {
+        "name": "GameLoop",
+        "pc": 33621,
+        "bank": 126,
+        "bytes": [
+          96,
+          141,
+          106
+        ]
+      },
+      "nmi": {
+        "name": "NonMaskableInterrupt",
+        "pc": 58172,
+        "bank": 127,
+        "bytes": [
+          72,
+          138,
+          72
+        ],
+        "banks": [
+          125,
+          127
+        ]
+      },
+      "nmi_return": {
+        "name": "NonMaskableInterrupt",
+        "pc": 58383,
+        "bank": 127,
+        "bytes": [
+          64,
+          162,
+          7
+        ],
+        "banks": [
+          125,
+          127
+        ]
+      },
+      "irq": {
+        "name": "IrqScrollSplit",
+        "pc": 32768,
+        "bank": 126,
+        "bytes": [
+          72,
+          138,
+          72
+        ]
+      },
+      "irq_return": {
+        "name": "IrqScrollSplit",
+        "pc": 32835,
+        "bank": 126,
+        "bytes": [
+          64,
+          141,
+          6
+        ]
+      },
+      "dma_complete": {
+        "name": "PostDmaMaskEnable",
+        "pc": 57352,
+        "bank": 127,
+        "bytes": [
+          141,
+          1,
+          32
+        ],
+        "banks": [
+          125,
+          127
+        ]
+      }
+    },
+    "dma_store_return": 57349,
+    "smc_fields": [
+      354,
+      362,
+      377,
+      364,
+      365
+    ],
+    "replay": null,
+    "extra_ram": {}
+  },
+  "command": [
+    "python",
+    "-B",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\run_mesen_isolated.py",
+    "--output",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\compact-next-luigi-9ea-easy-v2",
+    "--emulator",
+    "C:/Mesen2/Mesen.exe",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\compact-next-luigi-9ea-easy-v2\\run.lua",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bill_early_cache.nes",
+    "--timeout",
+    "600",
+    "--option=--doNotSaveSettings",
+    "--option=--nes.removeSpriteLimit=false",
+    "--option=--nes.ramPowerOnState=AllZeros",
+    "--option=--nes.randomizeCpuPpuAlignment=false",
+    "--option=--nes.randomizeMapperPowerOnState=false"
+  ],
+  "bindings": {
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bill_early_cache.dbg": "f352b9b0925782764bca97b5feae9eeaee618e979cd4cbfced8d326c95078383",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bill_early_cache.lbl": "e0f6a31216981e6266c939f536bdbdcd7aacbc476203c2154f0c814e42f7a5e1",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bill_early_cache.nes": "9ea11eab2fc5c373a3795b013f6ed9e0d5e9781891b2ae3bf40ad2556c27b85e",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\compact-next-luigi-9ea-easy-v2\\run.lua": "dbe9694283dd4221336844cf8ed2be121c0bb7c2496c0785ab79961f95310a8d",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\capture_budget.py": "b9985e2e6db5c801a47454d8761adaf5f40e5254e8f599aeeddf412c1b7e8db9",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\current_roster_compact_11_v1.lua": "aba8f2418690dbf9c3fcb0709dba6ec46c3c16c12b91b62fd108e9e9082e2f0c",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\current_roster_compact_11_v1.py": "fe2b6c43ae273269ed40f18e62cfcb3ba1d45cde6d0463d748ba72ccc25ebd6f",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\final_inventory_compact_capture_v1.lua": "1aa9e049764584841be0c590c15427225863bcf7bc64aca8c93a609c2cadd40d",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\final_inventory_compact_capture_v1.py": "fd5585f4f5ccb4217a25270703784193e336c580ba71c65aa53fda0a70068b2a",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\run_mesen_isolated.py": "976f197a3712511e821f545e655eaa3f9bcfe95e42a3c6c76b2adca288d2aad3",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\playthroughs\\current_roster_luigi_landing_brake_v2.lua": "fe4f06ab09e1ee40efecf87f0be9abe136f23b39cb96ffdf3591416bac5b630e",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\playthroughs\\mario_luigi_scrooge_nav.lua": "d51c479da4e6bb0256fec5411a6e61cd4174977cfa76447655bdb18d88d3c3f4",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\playthroughs\\mario_luigi_scrooge_policy.lua": "feca813dc2d28328a2c75c746fe838ec52159abfc8a415e3ec7a6d44dda65574",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\run_mesen.py": "5d71507b99a100a10b48ad84e1bb3e7db92c470e6215315c9d962551a4222c67",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\current_luigi_landing_brake_prepare_v1.py": "fef4ddbcc1f55b69a4654078b1e2283bd4a55e8b0f695a7bcde307a42407fa23",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\docs\\qa\\luigi-easy-6be-landing-contact-diagnostic-2026-10-27.json": "f101516939ab49a4b6a92d155ffa4ee89689218f675ab4284b51bb992fd4a4b6",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\compact-next-luigi-9ea-easy-v2\\source-controller-controls.json": "749464c2121bd756936f434275b0ffcbe9da5cf9e56e5bc115581322ee33e67e",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\compact-next-luigi-9ea-easy-v2\\controller-review.json": "135ecb7cb6a35756aec45de23ea770520fbb4eff10b99a54d70a6d3537dc3866",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\luigi_profile641_route_control_v7.lua": "f3ab8a88e7875a2ad768e8843e7febc1aa9df382dfb3b3a7cbb1537ff151ac57",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\luigi_mario_profile731_cpu_v1.py": "3d86eb8771374d0ececd82e99ec0303e729308793a204c805ad9f987eb787bae",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\mario_luigi731_coefficients_v1.py": "304eca88016061d7c5899db9253712febb59d715a000e48b6a2174fa349adf75",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\collision.s": "6f65f30b6056ce527696f37d5793b899db633bca57d3cbac93af86f87b1409b5",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\player.s": "9a385048bb7177bf3e9c9c93efaab223d445711c38835fded745690c014690f3",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\compact-next-luigi-6be-easy-v1\\ready.json": "da8caf9ac233c512ed223a509a1c7a791ccd88722fd700e1a8d15d9272a6ae2c",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\compact-next-luigi-6be-easy-v1\\result.json": "5b724293e8f1819ead7e2be34530de3ffde5ac1c910789da855cca66ea9656c4",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\compact-next-luigi-6be-easy-v1\\trace.csv": "50460fb592a782b7d51076548df7e486f2be7840a23dc8fd3bc75ed9c22ff7a9",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\compact-next-luigi-6be-easy-v1\\inputs.csv": "91ebf8350062b9486b594bebf4de063e600cb7ebb11826bbce5812aa0116fa1b",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\compact-next-luigi-6be-easy-contact-v1\\ready.json": "a6b127f18c8f9984832995a7c2b16f17a3ab96a22b922de830ce148936cb6095",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\compact-next-luigi-6be-easy-contact-v1\\result.json": "2ac31871804e806f940e22ec86f5c344df8da7b6a03b955af5b6d65b467be7e3",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\compact-next-luigi-6be-easy-contact-v1\\launch.json": "8f46bad579d68c61880620a3c121714eabc9e9dcbc7bedc6ca6be2303d889f02",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\compact-next-luigi-6be-easy-contact-v1\\luigi-landing-contact.csv": "219da160f16464c4928926469d973fbaddda2146d2af42ce13b9b78ab9bf7852",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\compact-next-luigi-9ea-easy-v2\\command.json": "0b2819eccaa189b4c9c90092d623c72f16f0299c91a55fc5b423a29714aa43c8"
+  },
+  "required_ram_reads": {
+    "AreaPointer": {
+      "address": 1877,
+      "origin": "driver_VICE_label"
+    },
+    "AreaType": {
+      "address": 1875,
+      "origin": "driver_VICE_label"
+    },
+    "Block_Buffer_1": {
+      "address": 768,
+      "origin": "driver_VICE_label"
+    },
+    "CheatInvincible": {
+      "address": 32763,
+      "origin": "driver_VICE_label"
+    },
+    "CheatStartLevel": {
+      "address": 32764,
+      "origin": "driver_VICE_label"
+    },
+    "CrossoverBehaviorVersion": {
+      "address": 32737,
+      "origin": "driver_VICE_label"
+    },
+    "CrossoverMenuIndex": {
+      "address": 29449,
+      "origin": "driver_VICE_label"
+    },
+    "CrossoverMenuState": {
+      "address": 29447,
+      "origin": "driver_VICE_label"
+    },
+    "CrossoverOptionsFocus": {
+      "address": 32441,
+      "origin": "driver_VICE_label"
+    },
+    "CrossoverTitleDrawn": {
+      "address": 24580,
+      "origin": "driver_VICE_label"
+    },
+    "CurrentBank": {
+      "address": 325,
+      "origin": "driver_VICE_label"
+    },
+    "CurrentBankC": {
+      "address": 32161,
+      "origin": "driver_VICE_label"
+    },
+    "DisableScreenFlag": {
+      "address": 1909,
+      "origin": "driver_VICE_label"
+    },
+    "Enemy_BoundBoxCtrl": {
+      "address": 1606,
+      "origin": "driver_VICE_label"
+    },
+    "Enemy_Flag": {
+      "address": 16,
+      "origin": "driver_VICE_label"
+    },
+    "Enemy_ID": {
+      "address": 23,
+      "origin": "driver_VICE_label"
+    },
+    "Enemy_PageLoc": {
+      "address": 93,
+      "origin": "driver_VICE_label"
+    },
+    "Enemy_State": {
+      "address": 31,
+      "origin": "driver_VICE_label"
+    },
+    "Enemy_X_Position": {
+      "address": 118,
+      "origin": "driver_VICE_label"
+    },
+    "Enemy_Y_HighPos": {
+      "address": 165,
+      "origin": "driver_VICE_label"
+    },
+    "Enemy_Y_Position": {
+      "address": 190,
+      "origin": "driver_VICE_label"
+    },
+    "GameEngineSubroutine": {
+      "address": 15,
+      "origin": "driver_VICE_label"
+    },
+    "InvOwnedHi": {
+      "address": 31810,
+      "origin": "driver_VICE_label"
+    },
+    "InvOwnedLo": {
+      "address": 31798,
+      "origin": "driver_VICE_label"
+    },
+    "LevelNumber": {
+      "address": 1889,
+      "origin": "driver_VICE_label"
+    },
+    "MarioVariant": {
+      "address": 29450,
+      "origin": "driver_VICE_label"
+    },
+    "NumberofLives": {
+      "address": 1887,
+      "origin": "driver_VICE_label"
+    },
+    "OperMode": {
+      "address": 1905,
+      "origin": "driver_VICE_label"
+    },
+    "OperMode_Task": {
+      "address": 1907,
+      "origin": "driver_VICE_label"
+    },
+    "PlayerFacingDir": {
+      "address": 1342,
+      "origin": "driver_VICE_label"
+    },
+    "PlayerStatus": {
+      "address": 1883,
+      "origin": "driver_VICE_label"
+    },
+    "Player_SprAttrib": {
+      "address": 1415,
+      "origin": "driver_VICE_label"
+    },
+    "Player_State": {
+      "address": 30,
+      "origin": "driver_VICE_label"
+    },
+    "Player_X_Speed": {
+      "address": 70,
+      "origin": "driver_VICE_label"
+    },
+    "Player_Y_HighPos": {
+      "address": 164,
+      "origin": "driver_VICE_label"
+    },
+    "Player_Y_Position": {
+      "address": 189,
+      "origin": "driver_VICE_label"
+    },
+    "Player_Y_Speed": {
+      "address": 142,
+      "origin": "driver_VICE_label"
+    },
+    "R2": {
+      "address": 5,
+      "origin": "driver_VICE_label"
+    },
+    "R3": {
+      "address": 6,
+      "origin": "driver_VICE_label"
+    },
+    "SelectedCharacter": {
+      "address": 24578,
+      "origin": "driver_VICE_label"
+    },
+    "SmBall": {
+      "address": 27392,
+      "origin": "driver_VICE_label"
+    },
+    "TimerControl": {
+      "address": 1866,
+      "origin": "driver_VICE_label"
+    },
+    "WorldNumber": {
+      "address": 1892,
+      "origin": "driver_VICE_label"
+    }
+  },
+  "hook_copy_owners": {
+    "NonMaskableInterrupt": {
+      "start": 58172,
+      "size": 212,
+      "banks": [
+        125,
+        127
+      ],
+      "body_sha256": "2206c8675917b6ce9099919f19cd2236eaaf6db702e35747bc73c91f8cbc6233"
+    },
+    "OAMandReadJoypad": {
+      "start": 57344,
+      "size": 43,
+      "banks": [
+        125,
+        127
+      ],
+      "body_sha256": "92e3ab82a5ac222ecbd612eb7204f2e8108dc3e2434c80ff7ca0250cff37eb1f"
+    }
+  },
+  "current_policy_status": "Surviving tracked discovery policy, NOT a current-ROM clear proof",
+  "max_total_frames": 8000,
+  "container_cap_bytes": 536870912,
+  "central_run_cap_bytes": 2000000000,
+  "screenshot_files_during_native": 0,
+  "maximum_offline_selected_frames": 8,
+  "no_source_runtime_clones": true,
+  "no_emulated_writes": true,
+  "no_cheats": true,
+  "explicit_endpoint": "World0/Level0 seen; natural World0/Level1 entry; >=25 completed active updates and >5px control there; zero deaths",
+  "remaining_dependencies": "Only listed current build/debug/labels, tracked scripts/controllers and existing C:/Mesen2 runtime/settings. No deleted archive inputs, Lua/Python package downloads or capture bridge.",
+  "PREPARED_DO_NOT_RUN": true,
+  "controller_revision": {
+    "PREPARED_DO_NOT_RUN": true,
+    "native_run": false,
+    "ROM_sha256": "9ea11eab2fc5c373a3795b013f6ed9e0d5e9781891b2ae3bf40ad2556c27b85e",
+    "controller_only": true,
+    "source_game_unchanged": true,
+    "policy": "Unchanged current base called exactly once per poll. Only returned A/B/Left/Right change on selected LuigiEasy outdoor1-1, downward motion, live ahead ordinary Goomba with actual bbox9, and complete clear supported corridor. No latch, state/outcome write or cap increase.",
+    "scope": "20<dx<100; native descent0<vy<128; enemy canonicalY184; playerY>=104/sole<enemyTop198. Every8px corridor column plus endpoint checks Y112..200 empty and ordinary solid support216. Blocking terrain, grounded/rising/near/foreign actors return original policy result.",
+    "previous_qualified_pattern": "Same real landing-brake idea exists in surviving luigi_profile641_route_control_v7.lua. This is only a small current-base wrapper, not restored archived source or transfer of641 native result.",
+    "source_model": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\compact-next-luigi-9ea-easy-v2\\source-controller-controls.json",
+    "remaining_limits": "Fresh9ea native route/replay and runtime lane admission remain unproved. No guaranteed stomp/fulllevel/pickup or universal collision fix is claimed.",
+    "draft_preflight": "First source-only call rejected an incorrect expected small bbox [2,20,12,32] before executing CPU instructions or writing outputs. Actual linked bbox1 [3,20,13,32] and Goomba9 [3,14,13,20] are now asserted; safe gap threshold derives from their inclusive edges.",
+    "original6be_native_FALSE_preserved": true,
+    "diagnostic_receipt": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\docs\\qa\\luigi-easy-6be-landing-contact-diagnostic-2026-10-27.json"
+  }
+}

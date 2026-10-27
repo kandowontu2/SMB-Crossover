@@ -1,0 +1,324 @@
+{
+  "movement": {
+    "passed": true,
+    "cases": [
+      {
+        "initial_gap": 25,
+        "horizontal_fraction": 0,
+        "paired": [
+          {
+            "retreat": false,
+            "active_retreat_updates": 0,
+            "updates": 14,
+            "final": {
+              "update": 14,
+              "input": 5,
+              "x": 1785,
+              "y": 168,
+              "state": 1,
+              "vy": 3,
+              "enemy_x": 1786,
+              "actual_player_box": [
+                131,
+                185,
+                144,
+                200
+              ],
+              "Goomba_proxy_box": [
+                133,
+                198,
+                143,
+                204
+              ],
+              "overlap": true
+            }
+          },
+          {
+            "retreat": true,
+            "active_retreat_updates": 14,
+            "updates": 16,
+            "final": {
+              "update": 16,
+              "input": 5,
+              "x": 1753,
+              "y": 176,
+              "state": 0,
+              "vy": 0,
+              "enemy_x": 1785,
+              "actual_player_box": [
+                99,
+                193,
+                111,
+                208
+              ],
+              "Goomba_proxy_box": [
+                132,
+                198,
+                142,
+                204
+              ],
+              "overlap": false
+            }
+          }
+        ]
+      },
+      {
+        "initial_gap": 25,
+        "horizontal_fraction": 65535,
+        "paired": [
+          {
+            "retreat": false,
+            "active_retreat_updates": 0,
+            "updates": 14,
+            "final": {
+              "update": 14,
+              "input": 5,
+              "x": 1786,
+              "y": 168,
+              "state": 1,
+              "vy": 3,
+              "enemy_x": 1786,
+              "actual_player_box": [
+                132,
+                185,
+                145,
+                200
+              ],
+              "Goomba_proxy_box": [
+                133,
+                198,
+                143,
+                204
+              ],
+              "overlap": true
+            }
+          },
+          {
+            "retreat": true,
+            "active_retreat_updates": 14,
+            "updates": 16,
+            "final": {
+              "update": 16,
+              "input": 5,
+              "x": 1753,
+              "y": 176,
+              "state": 0,
+              "vy": 0,
+              "enemy_x": 1785,
+              "actual_player_box": [
+                100,
+                193,
+                112,
+                208
+              ],
+              "Goomba_proxy_box": [
+                132,
+                198,
+                142,
+                204
+              ],
+              "overlap": false
+            }
+          }
+        ]
+      },
+      {
+        "initial_gap": 33,
+        "horizontal_fraction": 0,
+        "paired": [
+          {
+            "retreat": false,
+            "active_retreat_updates": 0,
+            "updates": 14,
+            "final": {
+              "update": 14,
+              "input": 5,
+              "x": 1785,
+              "y": 168,
+              "state": 1,
+              "vy": 3,
+              "enemy_x": 1794,
+              "actual_player_box": [
+                131,
+                185,
+                144,
+                200
+              ],
+              "Goomba_proxy_box": [
+                141,
+                198,
+                151,
+                204
+              ],
+              "overlap": true
+            }
+          },
+          {
+            "retreat": true,
+            "active_retreat_updates": 14,
+            "updates": 16,
+            "final": {
+              "update": 16,
+              "input": 5,
+              "x": 1753,
+              "y": 176,
+              "state": 0,
+              "vy": 0,
+              "enemy_x": 1793,
+              "actual_player_box": [
+                99,
+                193,
+                111,
+                208
+              ],
+              "Goomba_proxy_box": [
+                140,
+                198,
+                150,
+                204
+              ],
+              "overlap": false
+            }
+          }
+        ]
+      },
+      {
+        "initial_gap": 33,
+        "horizontal_fraction": 65535,
+        "paired": [
+          {
+            "retreat": false,
+            "active_retreat_updates": 0,
+            "updates": 14,
+            "final": {
+              "update": 14,
+              "input": 5,
+              "x": 1786,
+              "y": 168,
+              "state": 1,
+              "vy": 3,
+              "enemy_x": 1794,
+              "actual_player_box": [
+                132,
+                185,
+                145,
+                200
+              ],
+              "Goomba_proxy_box": [
+                141,
+                198,
+                151,
+                204
+              ],
+              "overlap": true
+            }
+          },
+          {
+            "retreat": true,
+            "active_retreat_updates": 14,
+            "updates": 16,
+            "final": {
+              "update": 16,
+              "input": 5,
+              "x": 1753,
+              "y": 176,
+              "state": 0,
+              "vy": 0,
+              "enemy_x": 1793,
+              "actual_player_box": [
+                100,
+                193,
+                112,
+                208
+              ],
+              "Goomba_proxy_box": [
+                140,
+                198,
+                150,
+                204
+              ],
+              "overlap": false
+            }
+          }
+        ]
+      }
+    ],
+    "model": "Actual full PlayerCtrl/Bill source body/movement/background caller and native InitGoomba/MoveNormalEnemy in four paired legal flat-floor arenas. Player1768/126/+1.25/+2 and groundGoomba gaps25/33, both Xfraction endpoints. No source tick/event changes.",
+    "limits": "Literal input-branch translation, not executed Lua or exact full failed RAM. Goomba proxy is its linked bbox9 with current source position; actual native enemy damage, projectiles/cadence/contact, NMI/IRQ/PPU and full route are not simulated. Baseline can reach an overlapping descending body; retreat reaches floor with >=24px world gap."
+  },
+  "scope": {
+    "scope": "Literal boundary/foreign controller model, not Lua execution",
+    "cases": [
+      {
+        "changes": {},
+        "admitted": true
+      },
+      {
+        "changes": {
+          "name": "bill"
+        },
+        "admitted": false
+      },
+      {
+        "changes": {
+          "mode": 0
+        },
+        "admitted": false
+      },
+      {
+        "changes": {
+          "variant": 0
+        },
+        "admitted": false
+      },
+      {
+        "changes": {
+          "ground": true
+        },
+        "admitted": false
+      },
+      {
+        "changes": {
+          "vy": 252
+        },
+        "admitted": false
+      },
+      {
+        "changes": {
+          "id": 13
+        },
+        "admitted": false
+      },
+      {
+        "changes": {
+          "dx": 20
+        },
+        "admitted": false
+      },
+      {
+        "changes": {
+          "dx": 96
+        },
+        "admitted": false
+      },
+      {
+        "changes": {
+          "owner": false
+        },
+        "admitted": false
+      },
+      {
+        "changes": {
+          "lane": false
+        },
+        "admitted": false
+      },
+      {
+        "changes": {
+          "behind": true
+        },
+        "admitted": false
+      }
+    ]
+  }
+}
