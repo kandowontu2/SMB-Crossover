@@ -1,0 +1,60 @@
+MIKE LIVE RENDER DIAGNOSTIC PREPARED; NO NEW NATIVE OR VISUAL VERDICT
+
+Exact ROM ab221e81821dd10690ad3a1068d91c9efae6c7406230d9bd7fc4a729fdc433d2.
+Original Mike v2 all53 native mechanics PASS remains unchanged. Its8 selected
+images often show popup after shot cleanup, so they do not prove live weapon art.
+
+Ready build/current-ab221-mike-live-render-diagnostic-v1/prepared-not-run.json
+SHA e031fb16c1fd668b6c4de6c85ebfddb7fe8e306214b9f1df749f3b694988f933
+56 bindings, all freshly rehashed. command.json is prepared only; ROOT launches.
+
+One additive startup-static passive module records:
+- Actual JnDraw shot JSR at bank98:$A9D8 and its real next label$A9DB;
+  live slot/kind/age, actual facing/phase table index, R0/R1, physical C owner97,
+  actual record header, coordinates, logical cursor/rotation and exact OAM writes.
+- Completed Main source256 with the list of actual shot draw IDs.
+- Actual complete256 DMA source and physical destination, live slots and physical
+  CHR latches. Match exact full source-page content to the most recent matching
+  shot-containing completed Main image retained in a bounded8-image history.
+  This is content linkage, not proof of unique construction ownership when
+  identical pages repeat. Unmatched epochs remain explicitly unmatched.
+- Full actual PPU frames for weapon intervals/shot-containing DMA images, into
+  ONE existing NESPPU01 container. Each frame records actual PPU/cycle/DMA and
+  most recent matching source-update metadata for offline visual review.
+
+Source control: fresh complete53-case GameLoop campaign,751 genuine source
+shot-draw calls covering all13 kinds. Every call checks actual C-bank/record,
+pose/facing lookup and source emission count. Spikes(kind10) has19 calls but
+zero OAM writes because BOTH actual source phase records deliberately have
+header0. JnSpikes instead applies immediate room-wide native enemy damage.
+That source behavior is recorded, not falsely claimed to be visible projectile
+art or original-game visual fidelity. Other12 kinds have nonempty emissions;
+kind13 writes8 OAM bytes, the others at most4 in this finite source campaign.
+Source proof live-render-source-controls.json SHA
+c376f2682ff583eddd98ae4802a270c00cfe99fd4ad42c52736495cd292d1a54.
+
+The initial source preparation falsely assumed every visit to JnDraw::Next was
+a shot return. Real empty slots branch directly there; the first cold source
+settle disproved the assumption before native. The negative helper/source
+hash and exact cause are preserved in
+build/current_mike_live_render_preparation_negative_v1.json and the ready's
+source-negative-1.json. Only an actual preceding draw-call receipt is logged as
+a return; empty-slot Next does not invent an emission. Unknown pending/call
+state and actual pointer/owner/header guards remain strict.
+
+Original v2 mechanics/controller/seeds/thresholds, caps and literal all256 DMA,
+OAM/CHR/NMI/IRQ/banks/SMC/stack/render deadline assertions remain unchanged.
+No new emulated write, input, source/game/settings/default change. Old8 PNGs
+remain the only native PNGs; no additional screenshots or per-frame files.
+Added container<=128MiB/3000records; JSONL<=64MiB/12000rows/16KiB each. Original
+total<=2GB/64files/8000physicalframes/4000updates/1200hostseconds stays in force.
+Existing qualified codec is reused without modification or runtime cloning.
+Lua_VM_executed=false; no surviving deleted Lua dependencies were recreated.
+Real callback/API semantics and pixels require ROOT's separately authorized
+native diagnostic. No full visual, per-shot fairness or art-fidelity pass yet.
+
+Owned publication:
+tools/audit/current_mike_live_render_diagnostic_v1.lua
+tools/audit/current_mike_live_render_prepare_v1.py
+tests/current-mike-render-diagnostic-v3.lua
+docs/qa/mike-live-render-diagnostic-preparation-2026-10-27.txt
