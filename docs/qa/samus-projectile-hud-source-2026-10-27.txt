@@ -1,0 +1,72 @@
+Private Samus selected-missile projectile HUD, current2082
+2026-10-27 -- SOURCE/CPU READY, NATIVE UNRUN
+
+Parent2082 SHA256 2082c19a7364920f828e97f70040d37f1f7059bde1ea136b5c2c4532324abf36
+Candidate build/samus_projectile_hud.nes SHA256
+4e5cbb99014ef5735b45da3301e6dd6982646ec798fc7e07b15f59b18801f88e
+
+This is a separate alternative to held b403, not a revision of its receipts.
+The original exact310-pixel capsule is18x18. Its top occupied row spans10
+pixels (at least2 sprites), bottom row18 (at least3),17rows apart; an8x16
+sprite cannot cover both. Thus5parts is an exact-shape lower bound. The
+original HUD showed3parts by clipping the upper2rows/24opaque pixels.
+
+The alternative uses the already-authenticated SAMUSSHOT7 actual missile
+projectile (art44),2parts/42opaque pixels/11x8, at original R4=192/R6=24.
+Its actual palette2 uses red16 and orange27; current native samples also
+bind palette2[0F,16,30,27]. Opaque bounds are X187..197,Y21..28 including
+the PPU sprite-Y offset. This is smaller source projectile art, not new
+artwork or a preservation claim for the capsule silhouette.
+
+Exact14ROM-byte delta, only bank61: HUD JSR B8E1 now targets BFAE instead
+of original PickupArt BA9C (two operand bytes);12 verifiedFF bytes atBFAE
+hold the helper. It calls real PickupArt, maps result84 to44, then ORA0
+preserves the genuine zero-art rejection. All73357 original symbols and
+segments, header, CHR, palettes and all original art records are exact.
+World pickup still requests capsule84; no world physics or actor edit.
+The sparse overlay has only remaining_weapons.s, entrypoint.s and the new
+samus_projectile_hud.s. No new RAM/config/CHR/art allocation.
+
+Intentional admission change: HUD requests family6/page215 (actual missile
+projectile) instead of family13/page229 (capsule). The unchanged family
+arbiter can now admit a live missile with its HUD, while rejecting capsule
+or other-family producers on that turn. World capsule SOURCE is unchanged;
+per-frame world rendering and terminal renderer scratch are not identical.
+No first-eight/pixel visibility or universally improved cadence claim.
+
+Compiled controls:80 RemainingDraw+SamusFreezeRenderFinish boundary cases,
+8 genuine complete SamusFreezeDrawAll callers,6 real helper IRQ boundaries.
+Representative unrotated HUD-only RemainingDraw+Finish costs:
+ parent2537+2303=4840; b4032604+2340=4944; candidate2286+2284=4570.
+Complete outer caller ordinary:6560 ->6321 (-239); freeze:8976 ->8681(-295).
+All8 tested complete outer caller AXYP/SP returns match the parent. Foreign
+selected HUD outputs/RAM/live lower stack match, with+19cycles; no selected
+HUD adds0. Passive/unselectable item controls are synthetic zero-art checks.
+
+Positive work limits matter: offset244 now fits2parts where5parts rejected,
+adding287cycles in nonrotated HUD-only scene. Mixed offset236 can also admit
+an actual missile and adds553. Rotated synthetic stress max+581 (Samus's
+actual outer DrawAll disables rotation). These are source boundary costs,
+not claims that those exact dense states occurred natively. Full80-case
+range -640..+581. Whole-caller IRQ checks use the existing vector oracle's
+listed RAM/bus scope; not a new whole-NMI or arbitrary-IRQ timing proof.
+ build/samus_projectile_hud_controls.json
+ SHA256 535cb8bf46ad7b37bb49c5a5a681dad69a629ad78ea516ff76a3e31ddb9c4152
+
+Existing Samus physical mature-actor/use component prepared unchanged:
+ build/current-4e5c-samus-hud-items-v1/prepared-not-run.json
+ SHA256 2ef7c426bab6466b4860fc10e6f26a44ea3339e8de8c9b1b46c5cd2b14b14ae5
+29 bindings verified. Exact command in adjacent command.json. Same real
+Hard1 menu, staged legal arenas/mature actors, unseeded owned/ammo/form/
+player-health outcomes,8PNG/16000frame/2GB/64file caps. No launch by B.
+All existing component limitations remain: no block emergence/RNG lottery,
+high HUD jump/crowding, full waveform or campaign claim. EndFrame metadata
+is not universally a visible epoch; whole PNGs require actual source/CHR
+and publication interpretation. Ordinary flagoff paths retain native call
+by source guard; no fresh ordinary binaries built in this packet.
+
+Owned tools: samus_projectile_hud_candidate_v1.py and
+samus_projectile_hud_controls_v1.py under tools/audit, plus this report.
+Recipe/patch and exact sparse input hashes are in build/samus_projectile_hud_build.json
+and build/samus_projectile_hud.patch. No product/source/default/settings/Git
+or shared fixture/preparer edits. Held b403 and all prior proofs unchanged.

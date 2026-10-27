@@ -1,0 +1,52 @@
+{
+  "status": "functional component passed; visual HUD failure remains; held",
+  "ROM_sha256": "4e5cbb99014ef5735b45da3301e6dd6982646ec798fc7e07b15f59b18801f88e",
+  "native_summary": {
+    "wall": 2090,
+    "updates": 1716,
+    "complete256_DMAs": 2027,
+    "NMI_checks": 2082,
+    "IRQ31_checks": 1716,
+    "NMI_safe_enables": 1675,
+    "CHR_checks": 20592,
+    "late": 0,
+    "screenshots": 8
+  },
+  "parent8487_DMAS": 1995,
+  "prior_b403_DMAS": 1958,
+  "actual_mature_components": 9,
+  "all_eight_images_visually_reviewed": true,
+  "missile_icon_visible_in": [
+    "samus-item-02.png",
+    "samus-item-05.png",
+    "samus-refill.png"
+  ],
+  "missile_icon_absent_in": [
+    "samus-item-03.png",
+    "samus-item-04.png",
+    "samus-item-06.png",
+    "samus-item-07.png"
+  ],
+  "no_icon_expected_before_missile": "samus-item-01.png",
+  "visual_result": "Authenticated projectile icon remains absent during Long Beam, Ice, Wave and Screw samples. Reduced part count improved this finite DMA cadence; it did not fix reliable icon visibility.",
+  "limits": [
+    "End-frame sample OAM/CHR state is not a reconstruction of every earlier visible scanline.",
+    "Late native beam/body CHR ownership is under read-only investigation; no proven native cause yet.",
+    "No high-HUD jump, natural block reveal, full pool, Easy tiers or all-frame artwork qualification.",
+    "Main download remains2082;4e5c andb403 unadopted."
+  ],
+  "goal_complete": false,
+  "evidence": {
+    "result.json": "fbc7fb9fc1cd72c6160654ef7c753f2a97ddce6a290c601601315abbbd855081",
+    "sample-metadata.json": "de4e2a07e46c87ed307f018e9910ea7a4fe26bb87bb442ee1a0c0124a1a41c89",
+    "samus-inventory.csv": "043945b8ff92930bb357ce0f37f97f0b9697055792e7aa6608deae43ec118c07",
+    "samus-item-01.png": "0904b3690a50ed7b617504b2a4eef4742f3dda7213c03234a60c68ee67842f8c",
+    "samus-item-02.png": "e8e9c5709b341b4a8d80d5561a2ecad5fd4ef9725f10f8dd1812682ede62b463",
+    "samus-item-03.png": "e556984fe65c6016fb2f5c13f3c901375229a536305fb801ea62bb5a48678886",
+    "samus-item-04.png": "af9b7f22f0ea9a06540545d291e068612f4d1989c5c9811facef31687f9f4b78",
+    "samus-item-05.png": "b8e3cc0ab340f03e4316c6b110df19a132f94c1c9c27112baec4cbd6fb20d3a6",
+    "samus-item-06.png": "45bbfb05dc4f5e5a8c9efa52dcd38bfd8ccb7842d3864fc19cfbb7f7efa0656c",
+    "samus-item-07.png": "90d65f6a5d26103b748cb7633d186a53bbc58d1c66d3dd48122f1312f6917257",
+    "samus-refill.png": "4d6f87ad65a7f426b2687342b06f00cb94b7a93dbf6896d840e8de90a399e24d"
+  }
+}
