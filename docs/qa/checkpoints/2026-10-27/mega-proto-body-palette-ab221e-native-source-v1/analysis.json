@@ -1,0 +1,1827 @@
+{
+  "passed": true,
+  "native_confirmation": true,
+  "ROM_sha256": "ab221e81821dd10690ad3a1068d91c9efae6c7406230d9bd7fc4a729fdc433d2",
+  "agent_visual_review": true,
+  "viewed_wholeframes": [
+    "megaman/native/item-03.png",
+    "proto/native/item-03.png"
+  ],
+  "visual_scope": "Both actual selected Knuckle wholeframes show the player body plus ring/HUD. ROOT separately viewed all6 per character. No exhaustiveart/all9visible/pixel improvement claim. Metal/Pharaoh brief-effect samples remain skipped.",
+  "same_candidate_byte_exact": {
+    "proto": [
+      {
+        "name": "inventory.csv",
+        "sha256": "afd2a470d18ec7ebf927cffefa670ccaa2d5c3a5363d0d34ec8461b7d20e93a8",
+        "bytes": 177010
+      },
+      {
+        "name": "result.json",
+        "sha256": "98d60cc36d592bcc8598513e469448a9b74f562f93857ca1756b3525c38f079f",
+        "bytes": 5687
+      },
+      {
+        "name": "item-01.png",
+        "sha256": "703d7d553bcd59b91b34976c1041cdb077ac24c25bc530dbbf409d32071e2176",
+        "bytes": 2034
+      },
+      {
+        "name": "item-03.png",
+        "sha256": "2d3be716609b0c3f65fe46a5c1fd964125930e4121ed5021591186e1b46a7bdc",
+        "bytes": 2177
+      },
+      {
+        "name": "item-05.png",
+        "sha256": "14b4baa6c7f485d2dd5f44d20b2bc61dcef080965fd1d54de326acfab6348597",
+        "bytes": 2036
+      },
+      {
+        "name": "item-06.png",
+        "sha256": "22b824e2d627482df673c03e1de4a7ed93ffab8e598992a8cf3bf9636f17251e",
+        "bytes": 2071
+      },
+      {
+        "name": "item-07.png",
+        "sha256": "7d17eb3fb2a3f818c5d65f582e3f16e86d4c4a03a24c415ba4da5f67e305875a",
+        "bytes": 2256
+      },
+      {
+        "name": "item-08-rush.png",
+        "sha256": "662f72021eccf59ae02340e05bca2a48c18d021debc97c56a4dfa0168e009dc1",
+        "bytes": 2239
+      }
+    ],
+    "megaman": [
+      {
+        "name": "inventory.csv",
+        "sha256": "04ff5fd6aa50ed64b38085a187335efba44384613ac1235db5a2b12e909c7b59",
+        "bytes": 177009
+      },
+      {
+        "name": "result.json",
+        "sha256": "7453b59647b6e02e597700f2f017882eede07914f440fcdd70362a92def2e05c",
+        "bytes": 5689
+      },
+      {
+        "name": "item-01.png",
+        "sha256": "6da65460a8070454e6fb5f998fe179506a32579fa5fc2962fa6ba992aaa9a843",
+        "bytes": 2065
+      },
+      {
+        "name": "item-03.png",
+        "sha256": "7ddbb5c766edc87a29d96e93e3192e601dd7f8e30bfab5e2f7b37ae1158a843a",
+        "bytes": 2183
+      },
+      {
+        "name": "item-05.png",
+        "sha256": "d41a6ea4ad446541605884f621153daddb35a434a23c3896b70a7df93b5281c3",
+        "bytes": 2078
+      },
+      {
+        "name": "item-06.png",
+        "sha256": "05c4d54213f07f4b6b5e98b3c5be576023c2d51e0712d4421aed37d28db9394f",
+        "bytes": 2122
+      },
+      {
+        "name": "item-07.png",
+        "sha256": "f707ee9c875ae7588e1e43834f9bd5c46a9c48ec90cf11f2e6f63c28a64f23e8",
+        "bytes": 2270
+      },
+      {
+        "name": "item-08-rush.png",
+        "sha256": "b964f22e049ca756a58eef42aee055f77837f2faf6a7b698a14c1b67dfa94716",
+        "bytes": 2262
+      }
+    ]
+  },
+  "actual_results": {
+    "proto": {
+      "passed": true,
+      "wall": 2626,
+      "updates": 2222,
+      "complete256_DMAs": 2413,
+      "NMI_safe_enables": 2062,
+      "NMI_checks": 2618,
+      "IRQ31_checks": 2250,
+      "CHR_checks": 27012,
+      "minSP": 204,
+      "mode": 1,
+      "variant": 1,
+      "late": 0,
+      "screenshots": 6
+    },
+    "megaman": {
+      "passed": true,
+      "wall": 2623,
+      "updates": 2222,
+      "complete256_DMAs": 2426,
+      "NMI_safe_enables": 2075,
+      "NMI_checks": 2615,
+      "IRQ31_checks": 2248,
+      "CHR_checks": 26988,
+      "minSP": 204,
+      "mode": 1,
+      "variant": 0,
+      "late": 0,
+      "screenshots": 6
+    }
+  },
+  "timing": {
+    "actual_native": true,
+    "sequence": 2587,
+    "entry": {
+      "cycle": 77248257,
+      "PPU": 2595,
+      "line": 241,
+      "dot": 36,
+      "PC": 58172,
+      "bank": 127
+    },
+    "packet_bytes": 47,
+    "packet_hex": "20230b0b1e1c1d0e1b242424242420370224242057022424204a47243f1d030f37173f19031630273f1004220f161000",
+    "command_destinations": [
+      "0x2023",
+      "0x2037",
+      "0x2057",
+      "0x204a",
+      "0x3f1d",
+      "0x3f19",
+      "0x3f10"
+    ],
+    "parser_cycles": 1171,
+    "old_parser_cycles": 1323,
+    "actual_parser_saving_CPU": 152,
+    "CHR_entry": {
+      "cycle": 77249640,
+      "PPU": 2595,
+      "line": 253,
+      "dot": 93,
+      "PC": 32914,
+      "bank": 126
+    },
+    "CHR_real_RTS_entry": {
+      "cycle": 77250060,
+      "PPU": 2595,
+      "line": 256,
+      "dot": 330,
+      "PC": 33063,
+      "bank": 126
+    },
+    "actual_CHR_cycles": 420,
+    "completed_DMA": {
+      "cycle": 77250596,
+      "PPU": 2595,
+      "line": -1,
+      "dot": 233,
+      "PC": 57352,
+      "bank": 127
+    },
+    "actual_enable": {
+      "cycle": 77250600,
+      "PPU": 2595,
+      "line": -1,
+      "dot": 244,
+      "PC": 57355,
+      "bank": 127
+    },
+    "actual_NMI_to_enable_CPU": 2343,
+    "original_guard_margin_PPU_dots": 30,
+    "original_guard_margin_CPU": 10,
+    "model14CPU_replaced_by_actual10CPU": true,
+    "scoped_DMA_checks": [
+      {
+        "sequence": 2585,
+        "completion": {
+          "cycle": 77190608,
+          "PPU": 2593,
+          "line": 257,
+          "dot": 316,
+          "PC": 57352,
+          "bank": 127
+        },
+        "writes": 256,
+        "literal_source_hardware": true,
+        "ignored_attribute_differences": []
+      },
+      {
+        "sequence": 2587,
+        "completion": {
+          "cycle": 77250596,
+          "PPU": 2595,
+          "line": -1,
+          "dot": 233,
+          "PC": 57352,
+          "bank": 127
+        },
+        "writes": 256,
+        "literal_source_hardware": true,
+        "ignored_attribute_differences": []
+      },
+      {
+        "sequence": 2588,
+        "completion": {
+          "cycle": 77279202,
+          "PPU": 2596,
+          "line": 251,
+          "dot": 120,
+          "PC": 57352,
+          "bank": 127
+        },
+        "writes": 256,
+        "literal_source_hardware": true,
+        "ignored_attribute_differences": []
+      },
+      {
+        "sequence": 2589,
+        "completion": {
+          "cycle": 77309488,
+          "PPU": 2597,
+          "line": 255,
+          "dot": 272,
+          "PC": 57352,
+          "bank": 127
+        },
+        "writes": 256,
+        "literal_source_hardware": true,
+        "ignored_attribute_differences": []
+      },
+      {
+        "sequence": 2590,
+        "completion": {
+          "cycle": 77338764,
+          "PPU": 2598,
+          "line": 251,
+          "dot": 123,
+          "PC": 57352,
+          "bank": 127
+        },
+        "writes": 256,
+        "literal_source_hardware": true,
+        "ignored_attribute_differences": []
+      },
+      {
+        "sequence": 2591,
+        "completion": {
+          "cycle": 77368544,
+          "PPU": 2599,
+          "line": 251,
+          "dot": 121,
+          "PC": 57352,
+          "bank": 127
+        },
+        "writes": 256,
+        "literal_source_hardware": true,
+        "ignored_attribute_differences": []
+      },
+      {
+        "sequence": 2592,
+        "completion": {
+          "cycle": 77398324,
+          "PPU": 2600,
+          "line": 251,
+          "dot": 120,
+          "PC": 57352,
+          "bank": 127
+        },
+        "writes": 256,
+        "literal_source_hardware": true,
+        "ignored_attribute_differences": []
+      },
+      {
+        "sequence": 2593,
+        "completion": {
+          "cycle": 77428106,
+          "PPU": 2601,
+          "line": 251,
+          "dot": 124,
+          "PC": 57352,
+          "bank": 127
+        },
+        "writes": 256,
+        "literal_source_hardware": true,
+        "ignored_attribute_differences": []
+      },
+      {
+        "sequence": 2594,
+        "completion": {
+          "cycle": 77457884,
+          "PPU": 2602,
+          "line": 251,
+          "dot": 117,
+          "PC": 57352,
+          "bank": 127
+        },
+        "writes": 256,
+        "literal_source_hardware": true,
+        "ignored_attribute_differences": []
+      },
+      {
+        "sequence": 2595,
+        "completion": {
+          "cycle": 77487820,
+          "PPU": 2603,
+          "line": 252,
+          "dot": 242,
+          "PC": 57352,
+          "bank": 127
+        },
+        "writes": 256,
+        "literal_source_hardware": true,
+        "ignored_attribute_differences": []
+      },
+      {
+        "sequence": 2596,
+        "completion": {
+          "cycle": 77517448,
+          "PPU": 2604,
+          "line": 251,
+          "dot": 126,
+          "PC": 57352,
+          "bank": 127
+        },
+        "writes": 256,
+        "literal_source_hardware": true,
+        "ignored_attribute_differences": []
+      },
+      {
+        "sequence": 2597,
+        "completion": {
+          "cycle": 77547398,
+          "PPU": 2605,
+          "line": 252,
+          "dot": 293,
+          "PC": 57352,
+          "bank": 127
+        },
+        "writes": 256,
+        "literal_source_hardware": true,
+        "ignored_attribute_differences": []
+      },
+      {
+        "sequence": 2598,
+        "completion": {
+          "cycle": 77577006,
+          "PPU": 2606,
+          "line": 251,
+          "dot": 117,
+          "PC": 57352,
+          "bank": 127
+        },
+        "writes": 256,
+        "literal_source_hardware": true,
+        "ignored_attribute_differences": []
+      },
+      {
+        "sequence": 2599,
+        "completion": {
+          "cycle": 77606790,
+          "PPU": 2607,
+          "line": 251,
+          "dot": 127,
+          "PC": 57352,
+          "bank": 127
+        },
+        "writes": 256,
+        "literal_source_hardware": true,
+        "ignored_attribute_differences": []
+      },
+      {
+        "sequence": 2600,
+        "completion": {
+          "cycle": 77636570,
+          "PPU": 2608,
+          "line": 251,
+          "dot": 126,
+          "PC": 57352,
+          "bank": 127
+        },
+        "writes": 256,
+        "literal_source_hardware": true,
+        "ignored_attribute_differences": []
+      },
+      {
+        "sequence": 2601,
+        "completion": {
+          "cycle": 77666350,
+          "PPU": 2609,
+          "line": 251,
+          "dot": 124,
+          "PC": 57352,
+          "bank": 127
+        },
+        "writes": 256,
+        "literal_source_hardware": true,
+        "ignored_attribute_differences": []
+      },
+      {
+        "sequence": 2602,
+        "completion": {
+          "cycle": 77696128,
+          "PPU": 2610,
+          "line": 251,
+          "dot": 117,
+          "PC": 57352,
+          "bank": 127
+        },
+        "writes": 256,
+        "literal_source_hardware": true,
+        "ignored_attribute_differences": []
+      },
+      {
+        "sequence": 2603,
+        "completion": {
+          "cycle": 77725910,
+          "PPU": 2611,
+          "line": 251,
+          "dot": 121,
+          "PC": 57352,
+          "bank": 127
+        },
+        "writes": 256,
+        "literal_source_hardware": true,
+        "ignored_attribute_differences": []
+      },
+      {
+        "sequence": 2604,
+        "completion": {
+          "cycle": 77755692,
+          "PPU": 2612,
+          "line": 251,
+          "dot": 126,
+          "PC": 57352,
+          "bank": 127
+        },
+        "writes": 256,
+        "literal_source_hardware": true,
+        "ignored_attribute_differences": []
+      },
+      {
+        "sequence": 2605,
+        "completion": {
+          "cycle": 77785640,
+          "PPU": 2613,
+          "line": 252,
+          "dot": 287,
+          "PC": 57352,
+          "bank": 127
+        },
+        "writes": 256,
+        "literal_source_hardware": true,
+        "ignored_attribute_differences": []
+      },
+      {
+        "sequence": 2606,
+        "completion": {
+          "cycle": 77815252,
+          "PPU": 2614,
+          "line": 251,
+          "dot": 123,
+          "PC": 57352,
+          "bank": 127
+        },
+        "writes": 256,
+        "literal_source_hardware": true,
+        "ignored_attribute_differences": []
+      },
+      {
+        "sequence": 2608,
+        "completion": {
+          "cycle": 77875510,
+          "PPU": 2616,
+          "line": 257,
+          "dot": 168,
+          "PC": 57352,
+          "bank": 127
+        },
+        "writes": 256,
+        "literal_source_hardware": true,
+        "ignored_attribute_differences": []
+      },
+      {
+        "sequence": 2609,
+        "completion": {
+          "cycle": 77904596,
+          "PPU": 2617,
+          "line": 251,
+          "dot": 130,
+          "PC": 57352,
+          "bank": 127
+        },
+        "writes": 256,
+        "literal_source_hardware": true,
+        "ignored_attribute_differences": []
+      },
+      {
+        "sequence": 2610,
+        "completion": {
+          "cycle": 77935074,
+          "PPU": 2618,
+          "line": 257,
+          "dot": 177,
+          "PC": 57352,
+          "bank": 127
+        },
+        "writes": 256,
+        "literal_source_hardware": true,
+        "ignored_attribute_differences": []
+      },
+      {
+        "sequence": 2611,
+        "completion": {
+          "cycle": 77964156,
+          "PPU": 2619,
+          "line": 251,
+          "dot": 127,
+          "PC": 57352,
+          "bank": 127
+        },
+        "writes": 256,
+        "literal_source_hardware": true,
+        "ignored_attribute_differences": []
+      },
+      {
+        "sequence": 2612,
+        "completion": {
+          "cycle": 77994270,
+          "PPU": 2620,
+          "line": 254,
+          "dot": 105,
+          "PC": 57352,
+          "bank": 127
+        },
+        "writes": 256,
+        "literal_source_hardware": true,
+        "ignored_attribute_differences": []
+      },
+      {
+        "sequence": 2613,
+        "completion": {
+          "cycle": 78024584,
+          "PPU": 2621,
+          "line": 259,
+          "dot": 0,
+          "PC": 57352,
+          "bank": 127
+        },
+        "writes": 256,
+        "literal_source_hardware": true,
+        "ignored_attribute_differences": []
+      },
+      {
+        "sequence": 2614,
+        "completion": {
+          "cycle": 78053494,
+          "PPU": 2622,
+          "line": 251,
+          "dot": 117,
+          "PC": 57352,
+          "bank": 127
+        },
+        "writes": 256,
+        "literal_source_hardware": true,
+        "ignored_attribute_differences": []
+      },
+      {
+        "sequence": 2615,
+        "completion": {
+          "cycle": 78083276,
+          "PPU": 2623,
+          "line": 251,
+          "dot": 121,
+          "PC": 57352,
+          "bank": 127
+        },
+        "writes": 256,
+        "literal_source_hardware": true,
+        "ignored_attribute_differences": []
+      },
+      {
+        "sequence": 2616,
+        "completion": {
+          "cycle": 78113756,
+          "PPU": 2624,
+          "line": 257,
+          "dot": 174,
+          "PC": 57352,
+          "bank": 127
+        },
+        "writes": 256,
+        "literal_source_hardware": true,
+        "ignored_attribute_differences": []
+      },
+      {
+        "sequence": 2617,
+        "completion": {
+          "cycle": 78142838,
+          "PPU": 2625,
+          "line": 251,
+          "dot": 124,
+          "PC": 57352,
+          "bank": 127
+        },
+        "writes": 256,
+        "literal_source_hardware": true,
+        "ignored_attribute_differences": []
+      },
+      {
+        "sequence": 2618,
+        "completion": {
+          "cycle": 78172618,
+          "PPU": 2626,
+          "line": 251,
+          "dot": 123,
+          "PC": 57352,
+          "bank": 127
+        },
+        "writes": 256,
+        "literal_source_hardware": true,
+        "ignored_attribute_differences": []
+      }
+    ],
+    "scoped_render_enables": [
+      {
+        "sequence": 2585,
+        "enable": {
+          "cycle": 77190612,
+          "PPU": 2593,
+          "line": 257,
+          "dot": 327,
+          "PC": 57355,
+          "bank": 127
+        },
+        "deadline_margin_PPU_dots": 1311,
+        "NMI_CPU": 1916
+      },
+      {
+        "sequence": 2587,
+        "enable": {
+          "cycle": 77250600,
+          "PPU": 2595,
+          "line": -1,
+          "dot": 244,
+          "PC": 57355,
+          "bank": 127
+        },
+        "deadline_margin_PPU_dots": 30,
+        "NMI_CPU": 2343
+      },
+      {
+        "sequence": 2588,
+        "enable": {
+          "cycle": 77279206,
+          "PPU": 2596,
+          "line": 251,
+          "dot": 131,
+          "PC": 57355,
+          "bank": 127
+        },
+        "deadline_margin_PPU_dots": 3553,
+        "NMI_CPU": 1172
+      },
+      {
+        "sequence": 2589,
+        "enable": {
+          "cycle": 77309492,
+          "PPU": 2597,
+          "line": 255,
+          "dot": 283,
+          "PC": 57355,
+          "bank": 127
+        },
+        "deadline_margin_PPU_dots": 2037,
+        "NMI_CPU": 1676
+      },
+      {
+        "sequence": 2590,
+        "enable": {
+          "cycle": 77338768,
+          "PPU": 2598,
+          "line": 251,
+          "dot": 134,
+          "PC": 57355,
+          "bank": 127
+        },
+        "deadline_margin_PPU_dots": 3550,
+        "NMI_CPU": 1172
+      },
+      {
+        "sequence": 2591,
+        "enable": {
+          "cycle": 77368548,
+          "PPU": 2599,
+          "line": 251,
+          "dot": 132,
+          "PC": 57355,
+          "bank": 127
+        },
+        "deadline_margin_PPU_dots": 3552,
+        "NMI_CPU": 1172
+      },
+      {
+        "sequence": 2592,
+        "enable": {
+          "cycle": 77398328,
+          "PPU": 2600,
+          "line": 251,
+          "dot": 131,
+          "PC": 57355,
+          "bank": 127
+        },
+        "deadline_margin_PPU_dots": 3553,
+        "NMI_CPU": 1171
+      },
+      {
+        "sequence": 2593,
+        "enable": {
+          "cycle": 77428110,
+          "PPU": 2601,
+          "line": 251,
+          "dot": 135,
+          "PC": 57355,
+          "bank": 127
+        },
+        "deadline_margin_PPU_dots": 3549,
+        "NMI_CPU": 1171
+      },
+      {
+        "sequence": 2594,
+        "enable": {
+          "cycle": 77457888,
+          "PPU": 2602,
+          "line": 251,
+          "dot": 128,
+          "PC": 57355,
+          "bank": 127
+        },
+        "deadline_margin_PPU_dots": 3556,
+        "NMI_CPU": 1171
+      },
+      {
+        "sequence": 2595,
+        "enable": {
+          "cycle": 77487824,
+          "PPU": 2603,
+          "line": 252,
+          "dot": 253,
+          "PC": 57355,
+          "bank": 127
+        },
+        "deadline_margin_PPU_dots": 3090,
+        "NMI_CPU": 1324
+      },
+      {
+        "sequence": 2596,
+        "enable": {
+          "cycle": 77517452,
+          "PPU": 2604,
+          "line": 251,
+          "dot": 137,
+          "PC": 57355,
+          "bank": 127
+        },
+        "deadline_margin_PPU_dots": 3547,
+        "NMI_CPU": 1171
+      },
+      {
+        "sequence": 2597,
+        "enable": {
+          "cycle": 77547402,
+          "PPU": 2605,
+          "line": 252,
+          "dot": 304,
+          "PC": 57355,
+          "bank": 127
+        },
+        "deadline_margin_PPU_dots": 3039,
+        "NMI_CPU": 1340
+      },
+      {
+        "sequence": 2598,
+        "enable": {
+          "cycle": 77577010,
+          "PPU": 2606,
+          "line": 251,
+          "dot": 128,
+          "PC": 57355,
+          "bank": 127
+        },
+        "deadline_margin_PPU_dots": 3556,
+        "NMI_CPU": 1171
+      },
+      {
+        "sequence": 2599,
+        "enable": {
+          "cycle": 77606794,
+          "PPU": 2607,
+          "line": 251,
+          "dot": 138,
+          "PC": 57355,
+          "bank": 127
+        },
+        "deadline_margin_PPU_dots": 3546,
+        "NMI_CPU": 1172
+      },
+      {
+        "sequence": 2600,
+        "enable": {
+          "cycle": 77636574,
+          "PPU": 2608,
+          "line": 251,
+          "dot": 137,
+          "PC": 57355,
+          "bank": 127
+        },
+        "deadline_margin_PPU_dots": 3547,
+        "NMI_CPU": 1172
+      },
+      {
+        "sequence": 2601,
+        "enable": {
+          "cycle": 77666354,
+          "PPU": 2609,
+          "line": 251,
+          "dot": 135,
+          "PC": 57355,
+          "bank": 127
+        },
+        "deadline_margin_PPU_dots": 3549,
+        "NMI_CPU": 1171
+      },
+      {
+        "sequence": 2602,
+        "enable": {
+          "cycle": 77696132,
+          "PPU": 2610,
+          "line": 251,
+          "dot": 128,
+          "PC": 57355,
+          "bank": 127
+        },
+        "deadline_margin_PPU_dots": 3556,
+        "NMI_CPU": 1171
+      },
+      {
+        "sequence": 2603,
+        "enable": {
+          "cycle": 77725914,
+          "PPU": 2611,
+          "line": 251,
+          "dot": 132,
+          "PC": 57355,
+          "bank": 127
+        },
+        "deadline_margin_PPU_dots": 3552,
+        "NMI_CPU": 1172
+      },
+      {
+        "sequence": 2604,
+        "enable": {
+          "cycle": 77755696,
+          "PPU": 2612,
+          "line": 251,
+          "dot": 137,
+          "PC": 57355,
+          "bank": 127
+        },
+        "deadline_margin_PPU_dots": 3547,
+        "NMI_CPU": 1172
+      },
+      {
+        "sequence": 2605,
+        "enable": {
+          "cycle": 77785644,
+          "PPU": 2613,
+          "line": 252,
+          "dot": 298,
+          "PC": 57355,
+          "bank": 127
+        },
+        "deadline_margin_PPU_dots": 3045,
+        "NMI_CPU": 1340
+      },
+      {
+        "sequence": 2606,
+        "enable": {
+          "cycle": 77815256,
+          "PPU": 2614,
+          "line": 251,
+          "dot": 134,
+          "PC": 57355,
+          "bank": 127
+        },
+        "deadline_margin_PPU_dots": 3550,
+        "NMI_CPU": 1171
+      },
+      {
+        "sequence": 2608,
+        "enable": {
+          "cycle": 77875514,
+          "PPU": 2616,
+          "line": 257,
+          "dot": 179,
+          "PC": 57355,
+          "bank": 127
+        },
+        "deadline_margin_PPU_dots": 1459,
+        "NMI_CPU": 1870
+      },
+      {
+        "sequence": 2609,
+        "enable": {
+          "cycle": 77904600,
+          "PPU": 2617,
+          "line": 251,
+          "dot": 141,
+          "PC": 57355,
+          "bank": 127
+        },
+        "deadline_margin_PPU_dots": 3543,
+        "NMI_CPU": 1172
+      },
+      {
+        "sequence": 2610,
+        "enable": {
+          "cycle": 77935078,
+          "PPU": 2618,
+          "line": 257,
+          "dot": 188,
+          "PC": 57355,
+          "bank": 127
+        },
+        "deadline_margin_PPU_dots": 1450,
+        "NMI_CPU": 1871
+      },
+      {
+        "sequence": 2611,
+        "enable": {
+          "cycle": 77964160,
+          "PPU": 2619,
+          "line": 251,
+          "dot": 138,
+          "PC": 57355,
+          "bank": 127
+        },
+        "deadline_margin_PPU_dots": 3546,
+        "NMI_CPU": 1172
+      },
+      {
+        "sequence": 2612,
+        "enable": {
+          "cycle": 77994274,
+          "PPU": 2620,
+          "line": 254,
+          "dot": 116,
+          "PC": 57355,
+          "bank": 127
+        },
+        "deadline_margin_PPU_dots": 2545,
+        "NMI_CPU": 1508
+      },
+      {
+        "sequence": 2613,
+        "enable": {
+          "cycle": 78024588,
+          "PPU": 2621,
+          "line": 259,
+          "dot": 11,
+          "PC": 57355,
+          "bank": 127
+        },
+        "deadline_margin_PPU_dots": 945,
+        "NMI_CPU": 2039
+      },
+      {
+        "sequence": 2614,
+        "enable": {
+          "cycle": 78053498,
+          "PPU": 2622,
+          "line": 251,
+          "dot": 128,
+          "PC": 57355,
+          "bank": 127
+        },
+        "deadline_margin_PPU_dots": 3556,
+        "NMI_CPU": 1171
+      },
+      {
+        "sequence": 2615,
+        "enable": {
+          "cycle": 78083280,
+          "PPU": 2623,
+          "line": 251,
+          "dot": 132,
+          "PC": 57355,
+          "bank": 127
+        },
+        "deadline_margin_PPU_dots": 3552,
+        "NMI_CPU": 1171
+      },
+      {
+        "sequence": 2616,
+        "enable": {
+          "cycle": 78113760,
+          "PPU": 2624,
+          "line": 257,
+          "dot": 185,
+          "PC": 57355,
+          "bank": 127
+        },
+        "deadline_margin_PPU_dots": 1453,
+        "NMI_CPU": 1870
+      },
+      {
+        "sequence": 2617,
+        "enable": {
+          "cycle": 78142842,
+          "PPU": 2625,
+          "line": 251,
+          "dot": 135,
+          "PC": 57355,
+          "bank": 127
+        },
+        "deadline_margin_PPU_dots": 3549,
+        "NMI_CPU": 1171
+      },
+      {
+        "sequence": 2618,
+        "enable": {
+          "cycle": 78172622,
+          "PPU": 2626,
+          "line": 251,
+          "dot": 134,
+          "PC": 57355,
+          "bank": 127
+        },
+        "deadline_margin_PPU_dots": 3550,
+        "NMI_CPU": 1171
+      }
+    ],
+    "window_PPU": [
+      2591,
+      2626
+    ],
+    "rows": 967,
+    "all_scope_DMA_raw_to_E3_hardware": true,
+    "old9ea_original_FALSE_preserved": true,
+    "scope": "32 actual scoped DMAs; global2413/2062safe are original native guards/results, not a claim that this journal contains every DMA. PreviousNMI2586 retained47B/reload1 withoutDMA, followed by real2587 delivery.",
+    "limits": "Actual30dot/10CPU margin is narrow. No universalDMC/globalbudget/allroute/nativeframe-rate guarantee. NMI elapsed saves151CPU versus old2494, while parser saves152; request->E008 is518CPU here versus old517, consistent with DMA phase difference, without an isolated wholeNMI causal claim."
+  },
+  "body": {
+    "actual_renderer_calls": [
+      {
+        "serial": 1,
+        "entry": {
+          "cycle": 34898057,
+          "PPU": 1172,
+          "line": 220,
+          "dot": 211,
+          "PC": 42426,
+          "bank": 4
+        },
+        "return_stamp": {
+          "cycle": 34899075,
+          "PPU": 1172,
+          "line": 229,
+          "dot": 196,
+          "PC": 42225,
+          "bank": 4
+        },
+        "physicalC": 33,
+        "header": 36,
+        "source_parts": 9,
+        "logical_offset_before": 0,
+        "logical_offset_after": 36,
+        "physical_start": 0,
+        "changed_byte_count": 34,
+        "exact_original_record_emission": true,
+        "all9_tuples_retained_in_final_GameLoop_source": true
+      },
+      {
+        "serial": 2,
+        "entry": {
+          "cycle": 34930020,
+          "PPU": 1173,
+          "line": 239,
+          "dot": 280,
+          "PC": 42426,
+          "bank": 4
+        },
+        "return_stamp": {
+          "cycle": 34937719,
+          "PPU": 1174,
+          "line": 45,
+          "dot": 189,
+          "PC": 42225,
+          "bank": 4
+        },
+        "physicalC": 33,
+        "header": 36,
+        "source_parts": 9,
+        "logical_offset_before": 8,
+        "logical_offset_after": 44,
+        "physical_start": 200,
+        "changed_byte_count": 34,
+        "exact_original_record_emission": true,
+        "all9_tuples_retained_in_final_GameLoop_source": true
+      },
+      {
+        "serial": 3,
+        "entry": {
+          "cycle": 34988020,
+          "PPU": 1175,
+          "line": 226,
+          "dot": 30,
+          "PC": 42426,
+          "bank": 4
+        },
+        "return_stamp": {
+          "cycle": 34989038,
+          "PPU": 1175,
+          "line": 235,
+          "dot": 15,
+          "PC": 42225,
+          "bank": 4
+        },
+        "physicalC": 33,
+        "header": 36,
+        "source_parts": 9,
+        "logical_offset_before": 0,
+        "logical_offset_after": 36,
+        "physical_start": 0,
+        "changed_byte_count": 9,
+        "exact_original_record_emission": true,
+        "all9_tuples_retained_in_final_GameLoop_source": true
+      },
+      {
+        "serial": 4,
+        "entry": {
+          "cycle": 35016380,
+          "PPU": 1176,
+          "line": 213,
+          "dot": 201,
+          "PC": 42426,
+          "bank": 4
+        },
+        "return_stamp": {
+          "cycle": 35017398,
+          "PPU": 1176,
+          "line": 222,
+          "dot": 186,
+          "PC": 42225,
+          "bank": 4
+        },
+        "physicalC": 33,
+        "header": 36,
+        "source_parts": 9,
+        "logical_offset_before": 12,
+        "logical_offset_after": 48,
+        "physical_start": 212,
+        "changed_byte_count": 35,
+        "exact_original_record_emission": true,
+        "all9_tuples_retained_in_final_GameLoop_source": true
+      },
+      {
+        "serial": 5,
+        "entry": {
+          "cycle": 35045931,
+          "PPU": 1177,
+          "line": 211,
+          "dot": 195,
+          "PC": 42426,
+          "bank": 4
+        },
+        "return_stamp": {
+          "cycle": 35046949,
+          "PPU": 1177,
+          "line": 220,
+          "dot": 180,
+          "PC": 42225,
+          "bank": 4
+        },
+        "physicalC": 33,
+        "header": 36,
+        "source_parts": 9,
+        "logical_offset_before": 0,
+        "logical_offset_after": 36,
+        "physical_start": 0,
+        "changed_byte_count": 16,
+        "exact_original_record_emission": true,
+        "all9_tuples_retained_in_final_GameLoop_source": true
+      },
+      {
+        "serial": 6,
+        "entry": {
+          "cycle": 35076398,
+          "PPU": 1178,
+          "line": 217,
+          "dot": 208,
+          "PC": 42426,
+          "bank": 4
+        },
+        "return_stamp": {
+          "cycle": 35077416,
+          "PPU": 1178,
+          "line": 226,
+          "dot": 193,
+          "PC": 42225,
+          "bank": 4
+        },
+        "physicalC": 33,
+        "header": 36,
+        "source_parts": 9,
+        "logical_offset_before": 12,
+        "logical_offset_after": 48,
+        "physical_start": 224,
+        "changed_byte_count": 35,
+        "exact_original_record_emission": true,
+        "all9_tuples_retained_in_final_GameLoop_source": true
+      },
+      {
+        "serial": 7,
+        "entry": {
+          "cycle": 35105640,
+          "PPU": 1179,
+          "line": 212,
+          "dot": 298,
+          "PC": 42426,
+          "bank": 4
+        },
+        "return_stamp": {
+          "cycle": 35106658,
+          "PPU": 1179,
+          "line": 221,
+          "dot": 283,
+          "PC": 42225,
+          "bank": 4
+        },
+        "physicalC": 33,
+        "header": 36,
+        "source_parts": 9,
+        "logical_offset_before": 0,
+        "logical_offset_after": 36,
+        "physical_start": 0,
+        "changed_byte_count": 20,
+        "exact_original_record_emission": true,
+        "all9_tuples_retained_in_final_GameLoop_source": true
+      },
+      {
+        "serial": 8,
+        "entry": {
+          "cycle": 35135031,
+          "PPU": 1180,
+          "line": 209,
+          "dot": 152,
+          "PC": 42426,
+          "bank": 4
+        },
+        "return_stamp": {
+          "cycle": 35136049,
+          "PPU": 1180,
+          "line": 218,
+          "dot": 137,
+          "PC": 42225,
+          "bank": 4
+        },
+        "physicalC": 33,
+        "header": 36,
+        "source_parts": 9,
+        "logical_offset_before": 4,
+        "logical_offset_after": 40,
+        "physical_start": 228,
+        "changed_byte_count": 36,
+        "exact_original_record_emission": true,
+        "all9_tuples_retained_in_final_GameLoop_source": true
+      },
+      {
+        "serial": 9,
+        "entry": {
+          "cycle": 35167448,
+          "PPU": 1181,
+          "line": 232,
+          "dot": 219,
+          "PC": 42426,
+          "bank": 4
+        },
+        "return_stamp": {
+          "cycle": 35175238,
+          "PPU": 1182,
+          "line": 39,
+          "dot": 60,
+          "PC": 42225,
+          "bank": 4
+        },
+        "physicalC": 33,
+        "header": 36,
+        "source_parts": 9,
+        "logical_offset_before": 0,
+        "logical_offset_after": 36,
+        "physical_start": 0,
+        "changed_byte_count": 23,
+        "exact_original_record_emission": true,
+        "all9_tuples_retained_in_final_GameLoop_source": true
+      }
+    ],
+    "source_record_hex": "24200008fd220008052440080d2600081528c018fd2a8018052cc0180d0cc20e0a0ec30e09",
+    "actual_completed_DMA": [
+      {
+        "completion": {
+          "cycle": 34901386,
+          "PPU": 1173,
+          "line": 249,
+          "dot": 309,
+          "PC": 57352,
+          "bank": 127
+        },
+        "actual_writes": 256,
+        "latest_GameLoop_source_exact": true,
+        "literal": true
+      },
+      {
+        "completion": {
+          "cycle": 34961688,
+          "PPU": 1175,
+          "line": 256,
+          "dot": 145,
+          "PC": 57352,
+          "bank": 127
+        },
+        "actual_writes": 256,
+        "latest_GameLoop_source_exact": true,
+        "literal": true
+      },
+      {
+        "completion": {
+          "cycle": 34990726,
+          "PPU": 1176,
+          "line": 249,
+          "dot": 305,
+          "PC": 57352,
+          "bank": 127
+        },
+        "actual_writes": 256,
+        "latest_GameLoop_source_exact": true,
+        "literal": true
+      },
+      {
+        "completion": {
+          "cycle": 35020264,
+          "PPU": 1177,
+          "line": 247,
+          "dot": 259,
+          "PC": 57352,
+          "bank": 127
+        },
+        "actual_writes": 256,
+        "latest_GameLoop_source_exact": true,
+        "literal": true
+      },
+      {
+        "completion": {
+          "cycle": 35050044,
+          "PPU": 1178,
+          "line": 247,
+          "dot": 258,
+          "PC": 57352,
+          "bank": 127
+        },
+        "actual_writes": 256,
+        "latest_GameLoop_source_exact": true,
+        "literal": true
+      },
+      {
+        "completion": {
+          "cycle": 35080142,
+          "PPU": 1179,
+          "line": 250,
+          "dot": 187,
+          "PC": 57352,
+          "bank": 127
+        },
+        "actual_writes": 256,
+        "latest_GameLoop_source_exact": true,
+        "literal": true
+      },
+      {
+        "completion": {
+          "cycle": 35109602,
+          "PPU": 1180,
+          "line": 247,
+          "dot": 249,
+          "PC": 57352,
+          "bank": 127
+        },
+        "actual_writes": 256,
+        "latest_GameLoop_source_exact": true,
+        "literal": true
+      },
+      {
+        "completion": {
+          "cycle": 35139384,
+          "PPU": 1181,
+          "line": 247,
+          "dot": 253,
+          "PC": 57352,
+          "bank": 127
+        },
+        "actual_writes": 256,
+        "latest_GameLoop_source_exact": true,
+        "literal": true
+      },
+      {
+        "completion": {
+          "cycle": 35198946,
+          "PPU": 1183,
+          "line": 247,
+          "dot": 256,
+          "PC": 57352,
+          "bank": 127
+        },
+        "actual_writes": 256,
+        "latest_GameLoop_source_exact": true,
+        "literal": true
+      },
+      {
+        "completion": {
+          "cycle": 35228972,
+          "PPU": 1184,
+          "line": 249,
+          "dot": 311,
+          "PC": 57352,
+          "bank": 127
+        },
+        "actual_writes": 256,
+        "latest_GameLoop_source_exact": true,
+        "literal": true
+      },
+      {
+        "completion": {
+          "cycle": 35288286,
+          "PPU": 1186,
+          "line": 247,
+          "dot": 252,
+          "PC": 57352,
+          "bank": 127
+        },
+        "actual_writes": 256,
+        "latest_GameLoop_source_exact": true,
+        "literal": true
+      },
+      {
+        "completion": {
+          "cycle": 35318234,
+          "PPU": 1187,
+          "line": 249,
+          "dot": 72,
+          "PC": 57352,
+          "bank": 127
+        },
+        "actual_writes": 256,
+        "latest_GameLoop_source_exact": true,
+        "literal": true
+      },
+      {
+        "completion": {
+          "cycle": 35347850,
+          "PPU": 1188,
+          "line": 247,
+          "dot": 261,
+          "PC": 57352,
+          "bank": 127
+        },
+        "actual_writes": 256,
+        "latest_GameLoop_source_exact": true,
+        "literal": true
+      }
+    ],
+    "actual_endFrame_CHR_ROM_exact": [
+      {
+        "PPU": 1172,
+        "pages": [
+          63,
+          16
+        ]
+      },
+      {
+        "PPU": 1173,
+        "pages": [
+          117,
+          16
+        ]
+      },
+      {
+        "PPU": 1174,
+        "pages": [
+          117,
+          16
+        ]
+      },
+      {
+        "PPU": 1175,
+        "pages": [
+          117,
+          16
+        ]
+      },
+      {
+        "PPU": 1176,
+        "pages": [
+          117,
+          16
+        ]
+      },
+      {
+        "PPU": 1177,
+        "pages": [
+          117,
+          16
+        ]
+      },
+      {
+        "PPU": 1178,
+        "pages": [
+          117,
+          16
+        ]
+      },
+      {
+        "PPU": 1179,
+        "pages": [
+          117,
+          16
+        ]
+      },
+      {
+        "PPU": 1180,
+        "pages": [
+          117,
+          16
+        ]
+      },
+      {
+        "PPU": 1181,
+        "pages": [
+          117,
+          16
+        ]
+      },
+      {
+        "PPU": 1182,
+        "pages": [
+          117,
+          16
+        ]
+      },
+      {
+        "PPU": 1183,
+        "pages": [
+          117,
+          16
+        ]
+      },
+      {
+        "PPU": 1184,
+        "pages": [
+          63,
+          16
+        ]
+      },
+      {
+        "PPU": 1185,
+        "pages": [
+          63,
+          16
+        ]
+      },
+      {
+        "PPU": 1186,
+        "pages": [
+          63,
+          16
+        ]
+      },
+      {
+        "PPU": 1187,
+        "pages": [
+          63,
+          16
+        ]
+      }
+    ],
+    "limits": "FirstendFrame1172 is prior visible carry/page63; first laterDMA1173 follows actual new publication/page117. Source body writes and completeDMA are proved; first-eight opaque visibility is not simulated or universally certified. Nine actualcalls in this repaired window vs ten old calls must not be equated as identical crossROM cadence."
+  },
+  "original_causes": {
+    "Proto": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-9ea-proto-arsenal-diagnostic-v2\\native\\handoff-diagnostic.jsonl",
+    "Proto_sha256": "a373bea2d8b02fb2adf7386d23e4e731fa9b53496ace327723d1f4c61bd188c3",
+    "Mega": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-9ea-mega-knuckle-diagnostic-v1\\native\\knuckle-owner.jsonl",
+    "Mega_sha256": "c4739161b9284b223a1e810ab6ebad50bff166129736e38106b319420f9e82af",
+    "original_FALSE_not_retagged": true
+  },
+  "limits": "Finite matureactor Hardonefacing10components each; notEasy/naturalreveal/RNG/empty/fullpool/exhaustion/oppositeface/audio-waveform/whole1-1/allroster/timinggeneralization. No productionadoption performed.",
+  "input_bindings": [
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\mega_proto_body_palette_9ea.nes",
+      "bytes": 2097168,
+      "sha256": "ab221e81821dd10690ad3a1068d91c9efae6c7406230d9bd7fc4a729fdc433d2"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\current_ab221e_passive_analysis_v1.py",
+      "bytes": 18196,
+      "sha256": "21d9212a22c68144c85fc85c531145cc36f481eb30ee06599c816011c22cc06d"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-ab221e-proto-handoff-timing-v1\\native\\inventory.csv",
+      "bytes": 177010,
+      "sha256": "afd2a470d18ec7ebf927cffefa670ccaa2d5c3a5363d0d34ec8461b7d20e93a8"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-ab221e-proto-hard-arsenal-v1\\native\\inventory.csv",
+      "bytes": 177010,
+      "sha256": "afd2a470d18ec7ebf927cffefa670ccaa2d5c3a5363d0d34ec8461b7d20e93a8"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-ab221e-proto-handoff-timing-v1\\native\\result.json",
+      "bytes": 5687,
+      "sha256": "98d60cc36d592bcc8598513e469448a9b74f562f93857ca1756b3525c38f079f"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-ab221e-proto-hard-arsenal-v1\\native\\result.json",
+      "bytes": 5687,
+      "sha256": "98d60cc36d592bcc8598513e469448a9b74f562f93857ca1756b3525c38f079f"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-ab221e-proto-handoff-timing-v1\\native\\item-01.png",
+      "bytes": 2034,
+      "sha256": "703d7d553bcd59b91b34976c1041cdb077ac24c25bc530dbbf409d32071e2176"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-ab221e-proto-hard-arsenal-v1\\native\\item-01.png",
+      "bytes": 2034,
+      "sha256": "703d7d553bcd59b91b34976c1041cdb077ac24c25bc530dbbf409d32071e2176"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-ab221e-proto-handoff-timing-v1\\native\\item-03.png",
+      "bytes": 2177,
+      "sha256": "2d3be716609b0c3f65fe46a5c1fd964125930e4121ed5021591186e1b46a7bdc"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-ab221e-proto-hard-arsenal-v1\\native\\item-03.png",
+      "bytes": 2177,
+      "sha256": "2d3be716609b0c3f65fe46a5c1fd964125930e4121ed5021591186e1b46a7bdc"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-ab221e-proto-handoff-timing-v1\\native\\item-05.png",
+      "bytes": 2036,
+      "sha256": "14b4baa6c7f485d2dd5f44d20b2bc61dcef080965fd1d54de326acfab6348597"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-ab221e-proto-hard-arsenal-v1\\native\\item-05.png",
+      "bytes": 2036,
+      "sha256": "14b4baa6c7f485d2dd5f44d20b2bc61dcef080965fd1d54de326acfab6348597"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-ab221e-proto-handoff-timing-v1\\native\\item-06.png",
+      "bytes": 2071,
+      "sha256": "22b824e2d627482df673c03e1de4a7ed93ffab8e598992a8cf3bf9636f17251e"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-ab221e-proto-hard-arsenal-v1\\native\\item-06.png",
+      "bytes": 2071,
+      "sha256": "22b824e2d627482df673c03e1de4a7ed93ffab8e598992a8cf3bf9636f17251e"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-ab221e-proto-handoff-timing-v1\\native\\item-07.png",
+      "bytes": 2256,
+      "sha256": "7d17eb3fb2a3f818c5d65f582e3f16e86d4c4a03a24c415ba4da5f67e305875a"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-ab221e-proto-hard-arsenal-v1\\native\\item-07.png",
+      "bytes": 2256,
+      "sha256": "7d17eb3fb2a3f818c5d65f582e3f16e86d4c4a03a24c415ba4da5f67e305875a"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-ab221e-proto-handoff-timing-v1\\native\\item-08-rush.png",
+      "bytes": 2239,
+      "sha256": "662f72021eccf59ae02340e05bca2a48c18d021debc97c56a4dfa0168e009dc1"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-ab221e-proto-hard-arsenal-v1\\native\\item-08-rush.png",
+      "bytes": 2239,
+      "sha256": "662f72021eccf59ae02340e05bca2a48c18d021debc97c56a4dfa0168e009dc1"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-ab221e-proto-handoff-timing-v1\\prepared-not-run.json",
+      "bytes": 15901,
+      "sha256": "46a6049cfec0da0f56a49704d984a06f3dc133b06ff862c0716823a3a7a3bb80"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-ab221e-proto-handoff-timing-v1\\launch.json",
+      "bytes": 1284,
+      "sha256": "9c9594f741c87e01d85591ba8b9821510af6bdcc788547f6a7e8b3d29a1cc21f"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-ab221e-proto-handoff-timing-v1\\native\\handoff-diagnostic.jsonl",
+      "bytes": 901314,
+      "sha256": "5be0dd660de185140851bedbf8f736bded3df352180dbd9c1a32d31d697e2f82"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-ab221e-mega-knuckle-owner-v1\\native\\inventory.csv",
+      "bytes": 177009,
+      "sha256": "04ff5fd6aa50ed64b38085a187335efba44384613ac1235db5a2b12e909c7b59"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-ab221e-megaman-hard-arsenal-v1\\native\\inventory.csv",
+      "bytes": 177009,
+      "sha256": "04ff5fd6aa50ed64b38085a187335efba44384613ac1235db5a2b12e909c7b59"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-ab221e-mega-knuckle-owner-v1\\native\\result.json",
+      "bytes": 5689,
+      "sha256": "7453b59647b6e02e597700f2f017882eede07914f440fcdd70362a92def2e05c"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-ab221e-megaman-hard-arsenal-v1\\native\\result.json",
+      "bytes": 5689,
+      "sha256": "7453b59647b6e02e597700f2f017882eede07914f440fcdd70362a92def2e05c"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-ab221e-mega-knuckle-owner-v1\\native\\item-01.png",
+      "bytes": 2065,
+      "sha256": "6da65460a8070454e6fb5f998fe179506a32579fa5fc2962fa6ba992aaa9a843"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-ab221e-megaman-hard-arsenal-v1\\native\\item-01.png",
+      "bytes": 2065,
+      "sha256": "6da65460a8070454e6fb5f998fe179506a32579fa5fc2962fa6ba992aaa9a843"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-ab221e-mega-knuckle-owner-v1\\native\\item-03.png",
+      "bytes": 2183,
+      "sha256": "7ddbb5c766edc87a29d96e93e3192e601dd7f8e30bfab5e2f7b37ae1158a843a"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-ab221e-megaman-hard-arsenal-v1\\native\\item-03.png",
+      "bytes": 2183,
+      "sha256": "7ddbb5c766edc87a29d96e93e3192e601dd7f8e30bfab5e2f7b37ae1158a843a"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-ab221e-mega-knuckle-owner-v1\\native\\item-05.png",
+      "bytes": 2078,
+      "sha256": "d41a6ea4ad446541605884f621153daddb35a434a23c3896b70a7df93b5281c3"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-ab221e-megaman-hard-arsenal-v1\\native\\item-05.png",
+      "bytes": 2078,
+      "sha256": "d41a6ea4ad446541605884f621153daddb35a434a23c3896b70a7df93b5281c3"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-ab221e-mega-knuckle-owner-v1\\native\\item-06.png",
+      "bytes": 2122,
+      "sha256": "05c4d54213f07f4b6b5e98b3c5be576023c2d51e0712d4421aed37d28db9394f"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-ab221e-megaman-hard-arsenal-v1\\native\\item-06.png",
+      "bytes": 2122,
+      "sha256": "05c4d54213f07f4b6b5e98b3c5be576023c2d51e0712d4421aed37d28db9394f"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-ab221e-mega-knuckle-owner-v1\\native\\item-07.png",
+      "bytes": 2270,
+      "sha256": "f707ee9c875ae7588e1e43834f9bd5c46a9c48ec90cf11f2e6f63c28a64f23e8"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-ab221e-megaman-hard-arsenal-v1\\native\\item-07.png",
+      "bytes": 2270,
+      "sha256": "f707ee9c875ae7588e1e43834f9bd5c46a9c48ec90cf11f2e6f63c28a64f23e8"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-ab221e-mega-knuckle-owner-v1\\native\\item-08-rush.png",
+      "bytes": 2262,
+      "sha256": "b964f22e049ca756a58eef42aee055f77837f2faf6a7b698a14c1b67dfa94716"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-ab221e-megaman-hard-arsenal-v1\\native\\item-08-rush.png",
+      "bytes": 2262,
+      "sha256": "b964f22e049ca756a58eef42aee055f77837f2faf6a7b698a14c1b67dfa94716"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-ab221e-mega-knuckle-owner-v1\\prepared-not-run.json",
+      "bytes": 15662,
+      "sha256": "226021c77b73df88d53e3225b07b773a947def6784b6f234f7d24e0ad9623544"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-ab221e-mega-knuckle-owner-v1\\launch.json",
+      "bytes": 1280,
+      "sha256": "75a77cd12bf906635e03596b1bb891e4f326b298b8fecb86de7b0591990a5ca0"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-ab221e-mega-knuckle-owner-v1\\native\\knuckle-owner.jsonl",
+      "bytes": 206633,
+      "sha256": "e70b346461301680f7cb40e7212636e87d7bbbc0f2db8431f8c2e31fda6cb75e"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-9ea-proto-arsenal-diagnostic-v2\\native\\handoff-diagnostic.jsonl",
+      "bytes": 1401526,
+      "sha256": "a373bea2d8b02fb2adf7386d23e4e731fa9b53496ace327723d1f4c61bd188c3"
+    }
+  ]
+}

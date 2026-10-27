@@ -1,0 +1,97 @@
+{
+  "ROM_sha256": "ab221e81821dd10690ad3a1068d91c9efae6c7406230d9bd7fc4a729fdc433d2",
+  "parent_sha256": "9ea11eab2fc5c373a3795b013f6ed9e0d5e9781891b2ae3bf40ad2556c27b85e",
+  "passed": true,
+  "goal_complete": false,
+  "changes": [
+    "Restore the selected Mega/Proto player record PRG bank immediately before the renderer consumes its dynamic pointer, fixing missing body parts.",
+    "Acknowledge Proto normal-body colors for both palette owners after the existing complete palette command, preventing a duplicate command and late rendering enable."
+  ],
+  "changed_ROM_bytes": 58,
+  "changed_physical_banks": [
+    4,
+    66
+  ],
+  "header_CHR_audio_unchanged": true,
+  "RAM_layout_unchanged": true,
+  "source_files": [
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\metasprite_engine.s",
+      "before_sha256": "75e5ac2c108fbded53a1948f001d9606255f528545ec6d336bf223b381e07d78",
+      "overlay_path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\mm_player_prg_owner_metasprite_engine.s",
+      "overlay_sha256": "127fcd425b67b45e3594870a86b77dd7a14d899dd214f1b67920a1d58d6f63d8",
+      "installed_sha256": "f328cab1c2a649317e0dbebe6c6dc892b27e105046acc0207e1c6a3ceaf00ebe",
+      "only_original_line_endings_preserved": true
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\megaman_weapons.s",
+      "before_sha256": "22d820743f9b08293df73dce1f24d0d143bda91cbbda69fafa7c6d098bd24580",
+      "overlay_path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\mm_player_prg_owner_megaman_weapons.s",
+      "overlay_sha256": "da05482898a8fe9db12f5834ab2a2335321325d8c52ea068cee0ae5c561270ad",
+      "installed_sha256": "c583cec8ad032ed2bf6c63cd73e2035b7806928ff913b68d5985ad347f3ab688",
+      "only_original_line_endings_preserved": true
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\proto_palette_ack.s",
+      "before_sha256": "a14e27e1edca730d0a943dd426bb6877b97eff7626c97bc8161d6030908bdf3d",
+      "overlay_path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\proto_normal_palette_ack_9ea_source.s",
+      "overlay_sha256": "c7107c2e12feece6d8521f972638c8e945aef32cc07f4ae90007a76ebaf7a61f",
+      "installed_sha256": "c7107c2e12feece6d8521f972638c8e945aef32cc07f4ae90007a76ebaf7a61f",
+      "only_original_line_endings_preserved": true
+    }
+  ],
+  "native_Hard_weapon_profiles": {
+    "megaman": {
+      "passed": true,
+      "updates": 2222,
+      "wall": 2623,
+      "complete256_DMA": 2426,
+      "ROOT_selected_images_reviewed": 6
+    },
+    "proto": {
+      "passed": true,
+      "updates": 2222,
+      "wall": 2626,
+      "complete256_DMA": 2413,
+      "ROOT_selected_images_reviewed": 6
+    }
+  },
+  "actual_timing": {
+    "duplicate_packet_bytes_removed": 6,
+    "parser_CPU_saved": 152,
+    "genuine_CHR_CPU_retained": 420,
+    "actual_enable_PPU_scanline": -1,
+    "actual_enable_PPU_dot": 244,
+    "actual_strict_guard_margin_PPU_dots": 30,
+    "actual_strict_guard_margin_CPU": 10,
+    "projected_margin_superseded": true,
+    "general_DMC_or_global_timing_proof": false
+  },
+  "actual_body": {
+    "observed_qualified_calls": 9,
+    "actual_C_bank": 33,
+    "actual_header": 36,
+    "original_record_tuples": 9,
+    "OAM_bytes_written_per_call": 36,
+    "scope": "Knuckle effect window; original record inside reserved/rotated span, outside bytes unchanged. No all-crowded-scene sprite or every-animation proof."
+  },
+  "source_and_native_checkpoint": "checkpoints/2026-10-27/mega-proto-body-palette-ab221e-native-source-v1",
+  "release_checkpoint": "checkpoints/2026-10-27/mega-proto-body-palette-adoption-ab221e",
+  "checks": {
+    "source_normalized_overlay_equal": true,
+    "canonical_binary_exact_candidate": true,
+    "ordinary_MMC3_binary_exact": true,
+    "ordinary_MMC5_binary_exact": true,
+    "both_Hard_arsenal_native_passed": true,
+    "actual_body_PRG_owner_and_OAM_emission": true,
+    "actual_palette_DMA_CHR_deadline_passed": true,
+    "both_Hard_full_11_zero_death_cheats_off_clears": true,
+    "whole_PPU_integrity_plus12_selected_ROOT_reviewed": true,
+    "current_and_dated_Downloads_verified_previous_retained": true
+  },
+  "installed": "C:\\Users\\kando\\Downloads\\SMB-Crossover-Current-MMC5.nes",
+  "dated_download": "C:\\Users\\kando\\Downloads\\SMB-Crossover-2026-10-27-ab221e81-MMC5.nes",
+  "previous_dated_download": "C:\\Users\\kando\\Downloads\\SMB-Crossover-2026-10-27-9ea11eab-MMC5.nes",
+  "limits": "Selected whole images plus full-stream integrity, not every-frame visual review. Metal/Pharaoh brief-effect screenshots did not meet the original sample condition. Mature earned arsenal collections do not prove natural block emergence/drop lottery. Tight observed10CPU Proto guard margin is specific to this recorded handoff; no global/DMC/constant-FPS claim. Other roster/modes/items/shortcut routes and sound fidelity remain open.",
+  "release_manifest_sha256": "f2a1a3521408657f3d306c165df9a82ab5242d88d1a3feff25797f8a9c9b07a9"
+}

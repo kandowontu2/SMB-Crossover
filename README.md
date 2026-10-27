@@ -6,7 +6,9 @@ This is a native NES adaptation of [Super Mario Bros. Crossover](https://www.smb
 
 **Status: playable, actively developed, and unfinished.** Character behavior, graphics, sound and performance are still being tested and corrected. MMC5 is the recommended target for the full roster.
 
-The October 27 development build (`9ea11eab`) removes a repeated enemy scan during Bill/Lance's ordinary gunfire. Bill cleared 1-1 in Hard mode with the rendering guards enabled. This reduces unnecessary CPU work; the recorded comparison does not establish a faster route or constant frame rate. See the [build checks and limits](docs/qa/bill-early-cache-adoption-2026-10-27.json).
+The October 27 development build (`ab221e81`) fixes missing Mega Man/Proto Man body sprites during weapon attacks and a redundant Proto Man palette update that ran past the rendering deadline. Both passed their Hard-mode earned-weapon tests and cleared 1-1 with no deaths or cheats, reaching playable 1-2. See the [repair checks and limits](docs/qa/mega-proto-body-palette-adoption-2026-10-27.json).
+
+It retains `9ea11eab`'s removal of a repeated enemy scan during Bill/Lance's ordinary gunfire. Bill cleared 1-1 in Hard mode with the rendering guards enabled. This reduces unnecessary CPU work; the recorded comparison does not establish a faster route or constant frame rate. See the [build checks and limits](docs/qa/bill-early-cache-adoption-2026-10-27.json).
 
 It retains the preceding `6be48337` Samus missile-icon fix. Checks recorded on that earlier build cover Samus's items and HUD jump, Bass's items in both modes, Pit's upgrades and flight in both modes, and 1-1 clears for Link, Simon and Rygar. See the [Samus checks](docs/qa/samus-fixed-hud-adoption-2026-10-27.json), [Pit checks](docs/qa/pit-current6be-components-native-2026-10-27.json) and [roster progress](docs/qa/current-roster-progress-2026-10-27.json) for each tested ROM and mode.
 

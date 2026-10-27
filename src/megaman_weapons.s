@@ -2505,6 +2505,26 @@ Bottom:  .byte 24,10,24,10,24,10,24,10
   sty RgOamRotation
   jmp MmReserveRosterTail
 .endproc
+.proc MmDynamicPlayerPrgOwner
+  ; Taken indirect-pointer path only. Repair the actual player before its
+  ; first record consumer (including outline filtering), never world actors.
+  ; JMP entry/continuation adds no return-stack writes or new RAM ownership.
+  cpy #0
+  bne Done
+  lda SelectedCharacter
+  cmp #CHARACTER_MEGAMAN
+  bne Done
+  lda ProtoVariant
+  beq Mega
+  lda #.bank(ProtoArtBegin)|MMC5_PRG_ROM
+  bne Publish
+Mega:
+  lda #.bank(SsMegaTHROWRight)|MMC5_PRG_ROM
+Publish:
+  BankPRGC a
+Done:
+  jmp HpNativePointerEnd
+.endproc
 .assert *-MmReserveExit<=88,error,"Actual bank4 pool"
 .segment "MM_BODY_PARTIAL"
 .proc MmReservePartial

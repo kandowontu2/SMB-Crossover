@@ -1,0 +1,127 @@
+{
+  "passed": true,
+  "native_run": false,
+  "observer_only": true,
+  "kind": "mega-body",
+  "checks": {
+    "frozen_observer_byte_exact": true,
+    "actual_compiled_JSR_returns": [
+      {
+        "pc": 41355,
+        "bank": 4,
+        "callsite": 41352,
+        "target": 41969,
+        "callbytes": [
+          32,
+          241,
+          163
+        ]
+      },
+      {
+        "pc": 41397,
+        "bank": 4,
+        "callsite": 41394,
+        "target": 41969,
+        "callbytes": [
+          32,
+          241,
+          163
+        ]
+      },
+      {
+        "pc": 41522,
+        "bank": 4,
+        "callsite": 41519,
+        "target": 41969,
+        "callbytes": [
+          32,
+          241,
+          163
+        ]
+      },
+      {
+        "pc": 42225,
+        "bank": 4,
+        "callsite": 42222,
+        "target": 49035,
+        "callbytes": [
+          32,
+          139,
+          191
+        ]
+      }
+    ],
+    "expected": "Observe actual bank33/header36, body-record admission/sourceOAM and completedDMA/CHR through the original Knuckle window. No requirement that all nine body parts survive hardware eight-sprite evaluation.",
+    "journal_scope": "Frozen observer500row/4MB hard bound; old actual87rows/214868bytes. No extra screenshots; central original64file/2GB cap unchanged."
+  },
+  "all_RAM_reads_and_bases_validated": [
+    "InvSelected",
+    "ObjectMetasprite",
+    "R0",
+    "R1",
+    "RgShotAge",
+    "RgShotType",
+    "SmPosePtr",
+    "Sprite_Data"
+  ],
+  "all_original53_reverified": true,
+  "original_run_suffix_config_controller_mechanics_guards_seed_caps_literal": true,
+  "all_registration_startup_static": true,
+  "new_emulated_or_input_writes": 0,
+  "extra_RGB_files": 0,
+  "actual_linked_hooks": {
+    "DrawMetasprite": {
+      "pc": 41969,
+      "banks": [
+        4
+      ],
+      "bytes": [
+        185,
+        62,
+        5
+      ],
+      "symbol": "DrawMetasprite",
+      "delta": 0
+    },
+    "MetaspriteRenderLoop": {
+      "pc": 42426,
+      "banks": [
+        4
+      ],
+      "bytes": [
+        174,
+        222,
+        6
+      ],
+      "symbol": "MetaspriteRenderLoop",
+      "delta": 0
+    },
+    "DmaComplete": {
+      "pc": 57352,
+      "banks": [
+        125,
+        127
+      ],
+      "bytes": [
+        141,
+        1,
+        32
+      ],
+      "symbol": "PostDmaMaskEnable",
+      "delta": 3
+    },
+    "GameLoopFinish": {
+      "pc": 33621,
+      "banks": [
+        126
+      ],
+      "bytes": [
+        96
+      ],
+      "symbol": "GameLoop",
+      "delta": 124
+    }
+  },
+  "observation_layer_patch": "",
+  "limitation": "Source/compiled metadata and finite trigger model only, not Lua VM/native output or a candidate pass. Native capture requires ROOT grant."
+}

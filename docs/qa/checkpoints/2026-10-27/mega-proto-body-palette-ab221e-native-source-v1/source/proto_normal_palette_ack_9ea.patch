@@ -1,0 +1,10 @@
+--- current9ea/src/proto_palette_ack.s
++++ private/src/proto_palette_ack.s
+@@ -54,6 +54,7 @@
+  bne Restore
+  lda #1
+  sta SsLastPalette
++ sta MmLastPalette             ; Same successfully queued normal body colors.
+ Restore:
+  pla
+  tay

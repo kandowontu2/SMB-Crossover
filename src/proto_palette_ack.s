@@ -54,6 +54,7 @@
  bne Restore
  lda #1
  sta SsLastPalette
+ sta MmLastPalette             ; Same successfully queued normal body colors.
 Restore:
  pla
  tay

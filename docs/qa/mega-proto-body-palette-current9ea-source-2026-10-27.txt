@@ -1,0 +1,115 @@
+Mega/Proto body-bank + normal Proto palette acknowledgment: source-only union
+
+Private candidate build/mega_proto_body_palette_9ea.nes
+SHA ab221e81821dd10690ad3a1068d91c9efae6c7406230d9bd7fc4a729fdc433d2
+Parent build/bill_early_cache.nes, accepted9ea11eab2fc5c373a3795b013f6ed9e0d5e9781891b2ae3bf40ad2556c27b85e.
+No native launch, production/default/settings/Git changes or source/runtime tree
+copies were made. ROOT alone owns the native lease. All original native failures,
+readies, six PNGs and original controller/guard files remain unchanged.
+
+Actual Proto timing cause
+The corrected read-only diagnostic-v2 reproduced the complete original Proto
+CSV and six PNGs byte-exact. Original diagnostic-v1 failed on missing InvDirty
+config metadata before the original deadline and remains an observer negative.
+The v2 actual failing NMI is sequence2587, PPU2595. Entry CPU77248254 at241:27;
+BankSwitchCHR77249789..77250209 legitimately costs420CPU; DMA request77250227,
+all256 completed at77250744/line0:336; actualSTA2001 CPU77250748/line1:6,
+PC E00B physical127, mask30, elapsed2494CPU. Last wall counter2594 follows the
+completed Select8->0/default BUSTER HUD update. Terminal pixels are unobserved.
+
+Actual53B queue contains28B default HUD (including nativeRLE blank meter), then
+3F1D/3,3F19/3,3F10/4 colors22,0F,16,10, then duplicate3F11/3 colors0F,16,10.
+There is NO TIME command in this actual failing packet. Complete assembled
+X5GetPlayerColors->MegaManGraphics reconstructs exactly that recorded packet.
+Existing ProtoFixAndAcknowledgePalette guards a successful complete normal
+Proto default palette and acknowledges SsLastPalette1, but not MmLastPalette.
+The later normal palette updater therefore appends the already superseded3F11
+command. The existing generic coalescer legitimately declines this RLE/full-
+body-overlap prefix. This repair acknowledges the actual complete owner rather
+than discarding required CHR, weakening a deadline or editing NMI work.
+
+One added STA MmLastPalette after the existing LDA1/STA SsLastPalette only on
+that already guarded success path is the palette source change. The helper
+adds3B at genuine66:BE40,114->117B inside existing192B reservation; the next3
+parent bytes are verifiedFF. Only genuine private Restore moves BEAB->BEAE.
+The linked palette component changes24ROM bytes in bank66. No new RAM, NMI,
+queue format, global clean-frame work, input or output guard is introduced.
+Successful GetColors adds4foregroundCPU; every rejected owner/state is exact.
+The complete consumer removes six queue bytes/three superseded PPU writes,
+leaves every final PPU value equal, and saves152CPU on the actual recorded case.
+The original guard required at least138CPU saving, projecting only14CPU margin.
+That is a narrow model estimate: native/DMC/phase/cadence closure is NOT claimed.
+
+Palette source controls
+350 complete GetColors AXYP/SP/allRAM/bank/ordered-write cases;7 malformed
+header/color/terminator rejects;56 actual hardware-vector IRQ seam injections;
+4 exact BankSwitchCHR cases; two fresh2195GameLoop earned-arsenal campaigns.
+Additional74 all37 identities x both numeric modes GetColors calls and9 complete
+GetColors->GameLoop->UpdateScreen states cover normal/cold/tier2/timer/pause/
+star/charge/freeze/finish. CompleteGameLoop AXYP/SP/banks/all application memory,
+lower live stack and five SMC operands agree except declared queue/cache; final
+PPU values agree. A paused caller may intentionally retain the acknowledged
+cache until later graphics. No source equivalence is called native coverage.
+An initial IRQ checker compared the genuine IRQ's PPUADDR port residue against
+no IRQ; the final test checks the exact native ordered split IO separately and
+keeps all other live state/write checks. The source case count is350, correcting
+an earlier progress message's620; no frozen receipt claims620.
+
+Body source component and combined build
+Sibling-owned8fd3f3766486c9d6093c1ebe0cff92b6ff3a35c84829f448c5cbc32b93abbffc
+restores the actual Mega33/Proto65 dynamic body PRG-C bank before the first
+record consumer. Actual original native ten Knuckle returns used C12/header50
+instead of C33/header36 and emitted no body bytes. See sibling's immutable
+build/mm_player_prg_owner_handoff.json and source report, not a retagged native
+fix result. Only3B JMP at4:A41D and31B helper4:BF5A..BF78 are added within the
+verified existing body reservation. Body caller overhead vs correct-bank parent:
++25Mega/+27Proto; foreign indirect player+9/world+1; ordinary foreign0. Actually
+rendering the previously absent body performs additional essential work, so no
+zero-cost/lag/cadence/all-pixel claim follows from the repair.
+
+The combined real assembler/linker build is the EXACT disjoint58B ROM union:
+34B bank4 from body8fd3 plus24B bank66 from palettecb8f. All other bytes/header/
+CHR/audio/kernel remain exact9ea. Actual DBG/LBL/MAP are fresh, not copied or
+manually aliased. Qualified real old symbols stay exact except Ack::Restore+3;
+convenience unscoped/anonymous DBG names are not callable address identities.
+Three sparse leaf overlays only: metasprite_engine.s,megaman_weapons.s,
+proto_palette_ack.s. CFG unchanged. Both actual ordinary source-overlay builds
+are whole-exact original MMC3d444cac88e13fa02b29ad16100b8f08fa565ba90f8cedde192de43fb2dc8f3eb
+and MMC5f4ffd2483c51daa4d60bb575da2da8c4d817692cda407611c243031f67520833.
+
+Fresh combined native readiness, NOT RUN
+Mega build/current-ab221e-megaman-hard-arsenal-v1/prepared-not-run.json
+SHA fc07b2d67eac3f212996b8c64420ad9bac39df5c9ccb411f5b6e5db2dd36990b
+Proto build/current-ab221e-proto-hard-arsenal-v1/prepared-not-run.json
+SHA 5f9486f0acf32bb8d27d3f27cd52eab4a2dbfc9c1410df0ec8c86383c76cc686
+Each53 exact bindings verified; each fresh combined source campaign2195 complete
+GameLoops, total4390. Configs normalize exactly to their original same-identity
+9ea configs after only target ROM hash replacement. Real hook bytes/addresses
+are reparsed and unchanged. Runtime argv normalizes exactly after ROM/output
+path replacement; no controller, target/seed, mechanics, assertion, hardware,
+mode, frame/update/host/storage cap or shared Lua file was changed. Actual
+Hard1/ProtoVariant0 or1. The new wrapper rebinds the inherited Python EXPECTED
+parameter in its own process for fresh execution; it never relabels old proofs.
+
+Exact stable native commands are the argv arrays in each command.json; ROOT
+must review/grant and execute separately. One profile per command, no automatic
+other profile/retry. Caps5000updates/12000frames/1800seconds/64files/2GB/8PNGs.
+Source instruction-budget changes can intentionally alter lag/PPU timing, so
+whole-PPU prefix equality is NOT promised across the repaired candidate.
+Original selected one-facing mature-actor acquisition/use scope stays: real
+mushroom60transform/charge, seven specials, Rush, BALANCE+actualFE refill. Metal
+and Pharaoh effect PNGs may still miss their brief windows; a source pointer,
+mechanic pass or completed DMA does not establish visible art. Nine-part FIST
+can still suffer the hardware eight-sprite limit. Easy/classic, natural reveal/
+rise/RNG, opposite facing, pool/exhaustion/star/1up, waveform and all-roster
+frame-rate/pixel completeness remain outside this finite unit.
+
+Owned files
+New tools: proto_normal_palette_ack_9ea_{build,cpu,caller,flagoff}_v1.py and
+mega_proto_body_palette_9ea_{build,prepare}_v1.py under tools/audit; this report.
+Our small build/proto_normal_palette_ack_9ea*.s/.patch/*_build.json/*_cpu.json/
+*_caller.json/*_flagoff.json and build/mega_proto_body_palette_9ea_entrypoint.s,
+*_build.json, plus five metadata files in each fresh readiness folder are
+listed with exact paths/hashes by build/mega_proto_body_palette_9ea_handoff.json.
+No ROM/debug/map/native/settings/raw capture payload is proposed for publication.
+Sibling body leaves/tools/handoff remain sibling-owned; reuse by reference.

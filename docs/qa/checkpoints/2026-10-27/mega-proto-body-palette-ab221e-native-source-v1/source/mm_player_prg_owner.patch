@@ -1,0 +1,45 @@
+--- current9ea/src/metasprite_engine.s
++++ private/src/metasprite_engine.s
+@@ -854,7 +854,12 @@
+     sta Ptr+1
+     lda HpNativeDrawLo,y
+     sta Ptr
+-  .res 5,$ea
++ .if ::ENABLE_MMC5_EXPANDED
++    jmp MmDynamicPlayerPrgOwner
++    .res 2,$ea
++ .else
++    .res 5,$ea
++ .endif
+   :
+ ::HpNativePointerEnd:
+   .assert HpNativePointerEnd-HpNativePointerBegin=21,error,"Original pointer span"
+--- current9ea/src/megaman_weapons.s
++++ private/src/megaman_weapons.s
+@@ -2505,6 +2505,26 @@
+   sty RgOamRotation
+   jmp MmReserveRosterTail
+ .endproc
++.proc MmDynamicPlayerPrgOwner
++  ; Taken indirect-pointer path only. Repair the actual player before its
++  ; first record consumer (including outline filtering), never world actors.
++  ; JMP entry/continuation adds no return-stack writes or new RAM ownership.
++  cpy #0
++  bne Done
++  lda SelectedCharacter
++  cmp #CHARACTER_MEGAMAN
++  bne Done
++  lda ProtoVariant
++  beq Mega
++  lda #.bank(ProtoArtBegin)|MMC5_PRG_ROM
++  bne Publish
++Mega:
++  lda #.bank(SsMegaTHROWRight)|MMC5_PRG_ROM
++Publish:
++  BankPRGC a
++Done:
++  jmp HpNativePointerEnd
++.endproc
+ .assert *-MmReserveExit<=88,error,"Actual bank4 pool"
+ .segment "MM_BODY_PARTIAL"
+ .proc MmReservePartial

@@ -1,0 +1,389 @@
+{
+  "passed": true,
+  "native_run": false,
+  "observer_only": true,
+  "kind": "proto-timing",
+  "checks": {
+    "reverse_normalization_to_frozen_v2_exact": true,
+    "trigger_source": "Actual compiled InventoryGrant entry, incomingA9/BALANCE; no fixed frame assumptions",
+    "PPU_span_maximum": 200,
+    "journal_maximum_bytes": 2000000,
+    "rows_maximum": 3000,
+    "trigger_model": [
+      {
+        "PPU": 90,
+        "item": 1,
+        "first": null,
+        "log": false
+      },
+      {
+        "PPU": 99,
+        "item": 8,
+        "first": null,
+        "log": false
+      },
+      {
+        "PPU": 100,
+        "item": 9,
+        "first": 100,
+        "log": true
+      },
+      {
+        "PPU": 101,
+        "item": 9,
+        "first": 100,
+        "log": true
+      },
+      {
+        "PPU": 299,
+        "item": 9,
+        "first": 100,
+        "log": true
+      },
+      {
+        "PPU": 300,
+        "item": 9,
+        "first": 100,
+        "log": false
+      }
+    ],
+    "source_grant_witness": [
+      9
+    ],
+    "expected": "Record actual corrected default-HUD queue, parser/CHR publication+cost, fullDMA, real2001 stamps. Only duplicate final3F11/3 may be absent versus old recorded packet; legal phase/cadence changes preclude whole-PPU prefix equality across ROMs."
+  },
+  "all_RAM_reads_and_bases_validated": [
+    "CurrentBank",
+    "CurrentBankC",
+    "CurrentCHRBank",
+    "InvDirty",
+    "InvHudActive",
+    "InvHudPhysical",
+    "InvOwnedHi",
+    "InvOwnedLo",
+    "InvSelected",
+    "NmiR0",
+    "NmiR1",
+    "ReloadCHRBank",
+    "VRAM_Buffer1",
+    "VRAM_Buffer1_Offset",
+    "VRAM_Buffer2",
+    "VRAM_Buffer2_Offset",
+    "VRAM_Buffer_AddrCtrl",
+    "X5ChrMode"
+  ],
+  "all_original53_reverified": true,
+  "original_run_suffix_config_controller_mechanics_guards_seed_caps_literal": true,
+  "all_registration_startup_static": true,
+  "new_emulated_or_input_writes": 0,
+  "extra_RGB_files": 0,
+  "actual_linked_hooks": {
+    "PhysicalPickup": {
+      "pc": 44913,
+      "banks": [
+        3
+      ],
+      "bytes": [
+        32,
+        47,
+        141
+      ],
+      "symbol": "MarioSourcePowerupCollision",
+      "delta": 0
+    },
+    "InventoryCollect": {
+      "pc": 42078,
+      "banks": [
+        59
+      ],
+      "bytes": [
+        142,
+        145,
+        125
+      ],
+      "symbol": "InventoryCollect",
+      "delta": 0
+    },
+    "InventoryGrant": {
+      "pc": 42273,
+      "banks": [
+        59
+      ],
+      "bytes": [
+        32,
+        189,
+        162
+      ],
+      "symbol": "InventoryGrant",
+      "delta": 0
+    },
+    "InventorySpend": {
+      "pc": 41680,
+      "banks": [
+        59
+      ],
+      "bytes": [
+        32,
+        48,
+        162
+      ],
+      "symbol": "InventorySpend",
+      "delta": 0
+    },
+    "GuestPowerupUpdate": {
+      "pc": 45721,
+      "banks": [
+        10
+      ],
+      "bytes": [
+        173,
+        253,
+        107
+      ],
+      "symbol": "GuestPowerupUpdate",
+      "delta": 0
+    },
+    "DamageEnemy": {
+      "pc": 43412,
+      "banks": [
+        8
+      ],
+      "bytes": [
+        32,
+        252,
+        187
+      ],
+      "symbol": "MegaManWeapons::DamageEnemy",
+      "delta": 0
+    },
+    "PrimarySpawn": {
+      "pc": 41430,
+      "banks": [
+        8
+      ],
+      "bytes": [
+        141,
+        154,
+        104
+      ],
+      "symbol": "MegaManWeapons::Spawn",
+      "delta": 0
+    },
+    "RushAttack": {
+      "pc": 48817,
+      "banks": [
+        61
+      ],
+      "bytes": [
+        173,
+        156,
+        7
+      ],
+      "symbol": "MegaManRushAttack",
+      "delta": 0
+    },
+    "RushBounce": {
+      "pc": 49034,
+      "banks": [
+        61
+      ],
+      "bytes": [
+        173,
+        156,
+        7
+      ],
+      "symbol": "MegaManRushBounce",
+      "delta": 0
+    },
+    "NmiEntry": {
+      "pc": 58172,
+      "banks": [
+        125,
+        127
+      ],
+      "bytes": [
+        72,
+        138,
+        72
+      ],
+      "symbol": "NonMaskableInterrupt",
+      "delta": 0
+    },
+    "IrqEntry": {
+      "pc": 32768,
+      "banks": [
+        126
+      ],
+      "bytes": [
+        72,
+        138,
+        72
+      ],
+      "symbol": "IrqScrollSplit",
+      "delta": 0
+    },
+    "GameLoopOwned": {
+      "pc": 33502,
+      "banks": [
+        126
+      ],
+      "bytes": [
+        32,
+        86,
+        131
+      ],
+      "symbol": "GameLoop",
+      "delta": 5
+    },
+    "GameLoopFinish": {
+      "pc": 33621,
+      "banks": [
+        126
+      ],
+      "bytes": [
+        96
+      ],
+      "symbol": "GameLoop",
+      "delta": 124
+    },
+    "NmiReturn": {
+      "pc": 58383,
+      "banks": [
+        125,
+        127
+      ],
+      "bytes": [
+        64
+      ],
+      "symbol": "NonMaskableInterrupt",
+      "delta": 211
+    },
+    "IrqReturn": {
+      "pc": 32835,
+      "banks": [
+        126
+      ],
+      "bytes": [
+        64
+      ],
+      "symbol": "IrqScrollSplit",
+      "delta": 67
+    },
+    "InventorySpendDone": {
+      "pc": 41725,
+      "banks": [
+        59
+      ],
+      "bytes": [
+        96
+      ],
+      "symbol": "InventorySpend::Done",
+      "delta": 0
+    },
+    "DmaComplete": {
+      "pc": 57352,
+      "banks": [
+        125,
+        127
+      ],
+      "bytes": [
+        141,
+        1,
+        32
+      ],
+      "symbol": "PostDmaMaskEnable",
+      "delta": 3
+    },
+    "UpdateScreen": {
+      "pc": 32898,
+      "banks": [
+        126
+      ],
+      "bytes": [
+        174,
+        2,
+        32
+      ],
+      "symbol": "UpdateScreen",
+      "delta": 0
+    },
+    "BankSwitchCHR": {
+      "pc": 32914,
+      "banks": [
+        126
+      ],
+      "bytes": [
+        173,
+        70,
+        1
+      ],
+      "symbol": "BankSwitchCHR",
+      "delta": 0
+    },
+    "InventoryHud": {
+      "pc": 43040,
+      "banks": [
+        59
+      ],
+      "bytes": [
+        173,
+        142,
+        125
+      ],
+      "symbol": "InventoryHud",
+      "delta": 0
+    },
+    "ProtoQueueBasePalette": {
+      "pc": 41476,
+      "banks": [
+        66
+      ],
+      "bytes": [
+        174,
+        174,
+        4
+      ],
+      "symbol": "ProtoQueueBasePalette",
+      "delta": 0
+    },
+    "ProtoFixQueuedPalette": {
+      "pc": 41536,
+      "banks": [
+        66
+      ],
+      "bytes": [
+        173,
+        151,
+        124
+      ],
+      "symbol": "ProtoFixQueuedPalette",
+      "delta": 0
+    },
+    "SamusFreezeUpdateScreen": {
+      "pc": 40950,
+      "banks": [
+        126
+      ],
+      "bytes": [
+        169,
+        244,
+        141
+      ],
+      "symbol": "SamusFreezeUpdateScreen",
+      "delta": 0
+    },
+    "BankSwitchCHRReturn": {
+      "pc": 33063,
+      "banks": [
+        126
+      ],
+      "bytes": [
+        96
+      ],
+      "symbol": "BankSwitchCHR",
+      "delta": 149
+    }
+  },
+  "observation_layer_patch": "--- current_mega_arsenal_timing_observer_v2.lua\n+++ current_ab221e_handoff_timing_v1.lua\n@@ -1,6 +1,7 @@\n -- Additive read-only diagnostics. Installed before the frozen mechanics/guards.\n return function(C)\n  local frame,sequence,active,rows,written=0,0,nil,0,0\n+ local trace_first,trace_last=nil,nil\n  local f=assert(io.open(OUTPUT..'handoff-diagnostic.jsonl','w'));f:setvbuf('no')\n  local function r(n,i)return emu.read(assert(C.ram[n],n)+(i or 0),emu.memType.nesDebug)end\n  local function bank(at)local p=emu.convertAddress(at);return p and p.address//8192 or-1 end\n@@ -9,7 +10,7 @@\n   if type(v)=='table'then local a={};for k,x in pairs(v)do a[#a+1]=string.format('%q',tostring(k))..':'..json(x)end;table.sort(a);return'{'..table.concat(a,',')..'}'\n   elseif type(v)=='string'then return string.format('%q',v)elseif v==nil then return'null'else return tostring(v)end\n  end\n- local function window()return frame>=C.first and frame<=C.last end\n+ local function window()local p=emu.getState()['ppu.frameCount'];return trace_first~=nil and p>=trace_first and p<=trace_last end\n  local function log(event,extra)\n   if not window()then return end\n   local s=emu.getState();local v=extra or{}\n@@ -23,7 +24,7 @@\n   v.queue1=hex(C.ram.VRAM_Buffer1,84);v.queue2=hex(C.ram.VRAM_Buffer2,84)\n   v.opcodes=hex(s['cpu.pc'],8)\n   local str=json(v)..'\\n';rows=rows+1;written=written+#str\n-  assert(rows<=10000 and written<=8000000,'Bounded additive diagnostic output')\n+  assert(rows<=3000 and written<=2000000,'Bounded additive diagnostic output')\n   f:write(str)\n  end\n  local function hook(name,fn)\n@@ -35,6 +36,12 @@\n    fn(emu.getState())\n   end,emu.callbackType.exec,h.pc)\n  end\n+ hook('InventoryGrant',function(s)\n+  if s['cpu.a']==C.trigger_item and trace_first==nil then\n+   trace_first=s['ppu.frameCount'];trace_last=trace_first+C.PPU_limit-1\n+   log('diagnostic-window-armed',{trigger_item=C.trigger_item,first_PPU=trace_first,last_PPU=trace_last})\n+  end\n+ end)\n  hook('NmiEntry',function(s)sequence=sequence+1;active={cycle=s['cpu.cycleCount'],writes=0};log('nmi-entry')end)\n  hook('NmiReturn',function(s)log('nmi-real-RTI-entry',{nmi_CPU=s['cpu.cycleCount']-assert(active).cycle});active=nil end)\n  hook('UpdateScreen',function()\n",
+  "limitation": "Source/compiled metadata and finite trigger model only, not Lua VM/native output or a candidate pass. Native capture requires ROOT grant."
+}

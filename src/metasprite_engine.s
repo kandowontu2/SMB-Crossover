@@ -854,7 +854,12 @@ DrawSprite:
     sta Ptr+1
     lda HpNativeDrawLo,y
     sta Ptr
-  .res 5,$ea
+ .if ::ENABLE_MMC5_EXPANDED
+    jmp MmDynamicPlayerPrgOwner
+    .res 2,$ea
+ .else
+    .res 5,$ea
+ .endif
   :
 ::HpNativePointerEnd:
   .assert HpNativePointerEnd-HpNativePointerBegin=21,error,"Original pointer span"

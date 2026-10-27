@@ -1,0 +1,375 @@
+{
+  "passed": true,
+  "source_only": true,
+  "native_run": false,
+  "installed": false,
+  "parent_sha256": "9ea11eab2fc5c373a3795b013f6ed9e0d5e9781891b2ae3bf40ad2556c27b85e",
+  "candidate_sha256": "8fd3f3766486c9d6093c1ebe0cff92b6ff3a35c84829f448c5cbc32b93abbffc",
+  "candidate": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\mm_player_prg_owner.nes",
+  "changed_bytes": 34,
+  "changed_banks": [
+    4
+  ],
+  "helper": {
+    "pc": 48986,
+    "bytes": 31,
+    "verified_FF_capacity": 49
+  },
+  "old_true_symbols_exact": true,
+  "debug_macro_changes": {},
+  "header_CHR_NMI_audio_RAM_other_banks_exact": true,
+  "source_leaves": {
+    "metasprite_engine.s": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\mm_player_prg_owner_metasprite_engine.s",
+    "megaman_weapons.s": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\mm_player_prg_owner_megaman_weapons.s"
+  },
+  "build_command": [
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\Windows\\cc65\\bin\\cl65.exe",
+    "--cpu",
+    "6502x",
+    "-t",
+    "nes",
+    "-g",
+    "-Oisr",
+    "-vm",
+    "-T",
+    "-C",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\smb1base-mmc5-expanded.cfg",
+    "--ld-args",
+    "--dbgfile,C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\mm_player_prg_owner.dbg",
+    "--include-dir",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover",
+    "--asm-include-dir",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build",
+    "--asm-include-dir",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src",
+    "--asm-include-dir",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover",
+    "--bin-include-dir",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover",
+    "-m",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\mm_player_prg_owner.map",
+    "-Ln",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\mm_player_prg_owner.lbl",
+    "-o",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\mm_player_prg_owner.nes",
+    "--asm-define",
+    "ENABLE_CROSSOVER=1",
+    "-D",
+    "ENABLE_CROSSOVER=1",
+    "--asm-define",
+    "USE_SMB2J_FEATURES=0",
+    "-D",
+    "USE_SMB2J_FEATURES=0",
+    "--asm-define",
+    "MAPPER_MMC5=1",
+    "-D",
+    "MAPPER_MMC5=1",
+    "--asm-define",
+    "MAPPER_MMC3=0",
+    "-D",
+    "MAPPER_MMC3=0",
+    "--asm-define",
+    "ENABLE_C_CODE=0",
+    "-D",
+    "ENABLE_C_CODE=0",
+    "--asm-define",
+    "USE_CUSTOM_TITLESCREEN=0",
+    "-D",
+    "USE_CUSTOM_TITLESCREEN=0",
+    "--asm-define",
+    "MULTIPLE_POWERUPS_ON_SCREEN=1",
+    "-D",
+    "MULTIPLE_POWERUPS_ON_SCREEN=1",
+    "--asm-define",
+    "USE_LOOPING_ANIM_CYCLE=0",
+    "-D",
+    "USE_LOOPING_ANIM_CYCLE=0",
+    "--asm-define",
+    "USE_VANILLA_MUSIC=1",
+    "-D",
+    "USE_VANILLA_MUSIC=1",
+    "--asm-define",
+    "USE_FAMISTUDIO_MUSIC=0",
+    "-D",
+    "USE_FAMISTUDIO_MUSIC=0",
+    "--asm-define",
+    "USE_BHOP_MUSIC=0",
+    "-D",
+    "USE_BHOP_MUSIC=0",
+    "--asm-define",
+    "DPCM_BANK_COUNT=0",
+    "-D",
+    "DPCM_BANK_COUNT=0",
+    "--asm-define",
+    "USE_VANILLA_SFX=1",
+    "-D",
+    "USE_VANILLA_SFX=1",
+    "--asm-define",
+    "USE_CUSTOM_ENGINE_SFX=0",
+    "-D",
+    "USE_CUSTOM_ENGINE_SFX=0",
+    "--asm-define",
+    "FAMISTUDIO_USE_FAMITRACKER_TEMPO=1",
+    "-D",
+    "FAMISTUDIO_USE_FAMITRACKER_TEMPO=1",
+    "--asm-define",
+    "FAMISTUDIO_USE_VOLUME_TRACK=1",
+    "-D",
+    "FAMISTUDIO_USE_VOLUME_TRACK=1",
+    "--asm-define",
+    "FAMISTUDIO_CFG_DPCM_SUPPORT=1",
+    "-D",
+    "FAMISTUDIO_CFG_DPCM_SUPPORT=1",
+    "--asm-define",
+    "BHOP_PATTERN_BANKING=1",
+    "-D",
+    "BHOP_PATTERN_BANKING=1",
+    "--asm-define",
+    "USE_MOUSE_SUPPORT=0",
+    "-D",
+    "USE_MOUSE_SUPPORT=0",
+    "--asm-define",
+    "MOUSE_DISPLAY_CURSOR=0",
+    "-D",
+    "MOUSE_DISPLAY_CURSOR=0",
+    "--asm-define",
+    "MOUSE_READ_FROM_PORT=1",
+    "-D",
+    "MOUSE_READ_FROM_PORT=1",
+    "--asm-define",
+    "MOUSE_CONFIG_CONTROLLER_SIZE=1",
+    "-D",
+    "MOUSE_CONFIG_CONTROLLER_SIZE=1",
+    "--asm-define",
+    "MOUSE_CONFIG_SENSITIVITY=0",
+    "-D",
+    "MOUSE_CONFIG_SENSITIVITY=0",
+    "--asm-define",
+    "MOUSE_X_MINIMUM=1",
+    "-D",
+    "MOUSE_X_MINIMUM=1",
+    "--asm-define",
+    "MOUSE_X_MAXIMUM=255",
+    "-D",
+    "MOUSE_X_MAXIMUM=255",
+    "--asm-define",
+    "MOUSE_Y_MINIMUM=1",
+    "-D",
+    "MOUSE_Y_MINIMUM=1",
+    "--asm-define",
+    "MOUSE_Y_MAXIMUM=239",
+    "-D",
+    "MOUSE_Y_MAXIMUM=239",
+    "--asm-define",
+    "DEBUG_WORLD_SELECT=0",
+    "-D",
+    "DEBUG_WORLD_SELECT=0",
+    "--asm-define",
+    "PRINT_METASPRITE_IDS=0",
+    "-D",
+    "PRINT_METASPRITE_IDS=0",
+    "--asm-define",
+    "DEBUG_ADD_EXTRA_LAG=0",
+    "-D",
+    "DEBUG_ADD_EXTRA_LAG=0",
+    "--asm-define",
+    "DEBUG_DISPLAY_VISUAL_FRAMETIME=0",
+    "-D",
+    "DEBUG_DISPLAY_VISUAL_FRAMETIME=0",
+    "--asm-define",
+    "ENABLE_MMC5_EXPANDED=1",
+    "-D",
+    "ENABLE_MMC5_EXPANDED=1",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\mm_player_prg_owner_main.c",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\mm_player_prg_owner_entrypoint.s"
+  ],
+  "ROM_deltas": [
+    {
+      "offset": 33837,
+      "before": 234,
+      "after": 76
+    },
+    {
+      "offset": 33838,
+      "before": 234,
+      "after": 90
+    },
+    {
+      "offset": 33839,
+      "before": 234,
+      "after": 191
+    },
+    {
+      "offset": 40810,
+      "before": 255,
+      "after": 192
+    },
+    {
+      "offset": 40811,
+      "before": 255,
+      "after": 0
+    },
+    {
+      "offset": 40812,
+      "before": 255,
+      "after": 208
+    },
+    {
+      "offset": 40813,
+      "before": 255,
+      "after": 24
+    },
+    {
+      "offset": 40814,
+      "before": 255,
+      "after": 173
+    },
+    {
+      "offset": 40815,
+      "before": 255,
+      "after": 2
+    },
+    {
+      "offset": 40816,
+      "before": 255,
+      "after": 96
+    },
+    {
+      "offset": 40817,
+      "before": 255,
+      "after": 201
+    },
+    {
+      "offset": 40818,
+      "before": 255,
+      "after": 1
+    },
+    {
+      "offset": 40819,
+      "before": 255,
+      "after": 208
+    },
+    {
+      "offset": 40820,
+      "before": 255,
+      "after": 17
+    },
+    {
+      "offset": 40821,
+      "before": 255,
+      "after": 173
+    },
+    {
+      "offset": 40822,
+      "before": 255,
+      "after": 221
+    },
+    {
+      "offset": 40823,
+      "before": 255,
+      "after": 115
+    },
+    {
+      "offset": 40824,
+      "before": 255,
+      "after": 240
+    },
+    {
+      "offset": 40825,
+      "before": 255,
+      "after": 4
+    },
+    {
+      "offset": 40826,
+      "before": 255,
+      "after": 169
+    },
+    {
+      "offset": 40827,
+      "before": 255,
+      "after": 193
+    },
+    {
+      "offset": 40828,
+      "before": 255,
+      "after": 208
+    },
+    {
+      "offset": 40829,
+      "before": 255,
+      "after": 2
+    },
+    {
+      "offset": 40830,
+      "before": 255,
+      "after": 169
+    },
+    {
+      "offset": 40831,
+      "before": 255,
+      "after": 161
+    },
+    {
+      "offset": 40832,
+      "before": 255,
+      "after": 141
+    },
+    {
+      "offset": 40833,
+      "before": 255,
+      "after": 161
+    },
+    {
+      "offset": 40834,
+      "before": 255,
+      "after": 125
+    },
+    {
+      "offset": 40835,
+      "before": 255,
+      "after": 141
+    },
+    {
+      "offset": 40836,
+      "before": 255,
+      "after": 22
+    },
+    {
+      "offset": 40837,
+      "before": 255,
+      "after": 81
+    },
+    {
+      "offset": 40838,
+      "before": 255,
+      "after": 76
+    },
+    {
+      "offset": 40839,
+      "before": 255,
+      "after": 34
+    },
+    {
+      "offset": 40840,
+      "before": 255,
+      "after": 164
+    }
+  ],
+  "bindings": {
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\mm_player_prg_owner_sparse_v1.py": "dcd3224f2e5cb952d96e87f96002379580fe345992db4e6474c748c0d904ba44",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bill_early_cache.nes": "9ea11eab2fc5c373a3795b013f6ed9e0d5e9781891b2ae3bf40ad2556c27b85e",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bill_early_cache.dbg": "f352b9b0925782764bca97b5feae9eeaee618e979cd4cbfced8d326c95078383",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bill_early_cache.lbl": "e0f6a31216981e6266c939f536bdbdcd7aacbc476203c2154f0c814e42f7a5e1",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\entrypoint.s": "fd745cbf9185a17dfb127e1c587841b75d664b976546623399bbca7f9a18d0bf",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\main.c": "cb915413cb3491c73f87b27ad80056c32c4e9987716b2f661130c81f479af5c5",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\smb1base-mmc5-expanded.cfg": "9ea627416817f627130e4de9137d5d9ceff6fa64be5ecdab9627ac40cb9fd5ca",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build_options.ini": "59feaa74be76e7c9622c66e1b5b2d091f485385d40dc38725321caed6a2d60f7",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\mm_player_prg_owner_entrypoint.s": "287b0d7af3b0ab6e8ee996d3552baf00cf21386fd7e427b94c2e2a4d0c9297db",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\mm_player_prg_owner_main.c": "cb915413cb3491c73f87b27ad80056c32c4e9987716b2f661130c81f479af5c5",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\mm_player_prg_owner.patch": "16b31c01f07f701743f13915ae2d27f0267ab8dcd6d9026168938f2e4731b426",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\mm_player_prg_owner_metasprite_engine.s": "127fcd425b67b45e3594870a86b77dd7a14d899dd214f1b67920a1d58d6f63d8",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\mm_player_prg_owner_megaman_weapons.s": "da05482898a8fe9db12f5834ab2a2335321325d8c52ea068cee0ae5c561270ad",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\metasprite_engine.s": "75e5ac2c108fbded53a1948f001d9606255f528545ec6d336bf223b381e07d78",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\megaman_weapons.s": "22d820743f9b08293df73dce1f24d0d143bda91cbbda69fafa7c6d098bd24580"
+  }
+}
