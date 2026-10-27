@@ -174,6 +174,22 @@ def prepare(a):
     if variant_symbol:
         refs.add(variant_symbol)
     assert not(refs-syms.keys()), ('Required actual labels unavailable', sorted(refs-syms.keys()))
+    # The driver exports VICE labels, not every DBG RAM equate. Reconcile
+    # every literal read before launch; add only genuine missing RAM aliases.
+    driver_labels = {}
+    for line in rom.with_suffix('.lbl').read_text().splitlines():
+        match = re.fullmatch(r'al ([0-9A-Fa-f]+) \.([\w]+)', line)
+        if match:
+            driver_labels[match[2]] = int(match[1], 16)
+    extra_ram = {}
+    for name in sorted(refs):
+        value = address(name)
+        if name in driver_labels:
+            assert driver_labels[name] == value, ('Driver/DBG address differs', name)
+        else:
+            assert syms[name]['type'] == 'equ' and (value < 0x2000 or 0x5c00 <= value < 0x8000), ('Not a compiled RAM alias', name)
+            extra_ram[name] = value
+    cfg['extra_ram'] = extra_ram
     assert not re.search(r'emu\.(?:write\w*|setState|loadSavestate|reset)\s*\(', text)
     assert 'menu-bootstrap' not in text.replace('-- No menu-bootstrap,', '')
     bass_observer = ROOT/'tools/audit/bass_corner_native_observer_v1.lua'
@@ -191,6 +207,7 @@ def prepare(a):
     out.mkdir(parents=True, exist_ok=True)
     run = out/'run.lua'
     run.write_text('ROSTER_CONFIG='+lua(cfg)+'\n'+
+        'for name,value in pairs(ROSTER_CONFIG.extra_ram)do assert(L[name]==nil or L[name]==value,"RAM alias conflict: "..name);L[name]=value end\n'+
         ('ROSTER_CONFIG.bass_close=dofile('+lua(bass_observer.as_posix())+')(ROSTER_CONFIG.prefix)\n' if bass else '')+
         'dofile('+lua(SCRIPT.as_posix())+')\n', encoding='utf-8')
     dependencies.add(run)
@@ -201,6 +218,7 @@ def prepare(a):
                '--option=--nes.randomizeMapperPowerOnState=false']
     receipt = dict(prepared=True, native_run=False, ROM_sha256=sha(rom), config=cfg, command=command,
                    bindings={str(q): sha(q) for q in sorted(dependencies)},
+                   required_ram_reads={name: dict(address=address(name), origin='compiled_RAM_equate' if name in extra_ram else 'driver_VICE_label') for name in sorted(refs)},
                    current_policy_status='Surviving tracked discovery policy, NOT a current-ROM clear proof',
                    max_total_frames=8000, container_cap_bytes=cfg['capture_bytes'], central_run_cap_bytes=2_000_000_000,
                    screenshot_files_during_native=0, maximum_offline_selected_frames=8,
