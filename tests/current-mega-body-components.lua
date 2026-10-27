@@ -13,6 +13,14 @@ local screenshot=nil
 local spend=nil
 local events={}
 local rushSlot=nil
+local denseActive,denseStart,denseFrames,denseDrawSeq=false,0,0,0
+local denseLog,denseFull,denseRows,denseBytes=nil,nil,0,0
+local denseConstruction,densePublished,densePending,denseVine,denseLastVine=nil,nil,nil,nil,nil
+local denseOwner,denseGroup,denseShots=nil,nil,false
+if C.profile=='dense'then
+ denseLog=assert(io.open(OUTPUT..'dense-provenance.jsonl','w'));denseLog:setvbuf('no')
+ denseFull=assert(io.open(OUTPUT..'actual-ppu.argb','wb'))
+end
 local function r(n,i)return emu.read(assert(C.ram[n],n)+(i or 0),emu.memType.nesDebug)end
 local function bank(at)local p=emu.convertAddress(at);return p and p.address//8192 or-1 end
 local function pool()local n=0;for i=0,9 do if r('RgShotType',i)~=0 then n=n+1 end end;return n end
@@ -70,6 +78,17 @@ local function arena()
  for i=0,1 do w('MmXFraction',0,i);w('MmYFraction',0,i)end
  w('ScrollLock',1);w('ScreenLeft_X_Pos',0);w('ScreenLeft_PageLoc',0);w('ScreenRight_X_Pos',255);w('ScreenRight_PageLoc',0)
  w('Player_X_Position',64);w('Player_PageLoc',0);w('MmOldX',64);w('Player_Y_Position',176);w('Player_Y_HighPos',1);w('Player_State',0);w('PlayerFacingDir',1);w('Player_MovingDir',1);w('Player_CollisionBits',255)
+end
+local function denseActors()
+ assert(C.profile=='dense'and r('PrimaryHardMode')==0,'Bounded first-quest native enemy-speed profile')
+ w('Player_X_Position',112);w('MmOldX',112)
+ for i=0,4 do
+  local x=192+i*16
+  for _,v in ipairs({{'Enemy_Flag',1},{'Enemy_ID',6},{'Enemy_State',0},{'Enemy_BoundBoxCtrl',9},{'Enemy_X_Position',x%256},{'Enemy_PageLoc',x//256},{'Enemy_Y_Position',176},{'Enemy_Y_HighPos',1},{'Enemy_X_Speed',C.dense.goomba_speed},{'Enemy_Y_Speed',0},{'Enemy_Y_MoveForce',0},{'Enemy_MovingDir',2},{'Enemy_SprAttrib',0},{'EnemyOffscrBitsMasked',0}})do w(v[1],v[2],i)end
+ end
+ -- Exactly the Setup_Vine actor/map geometry; growth remains native from0.
+ for _,v in ipairs({{'Enemy_Flag',1},{'Enemy_ID',C.dense.vine_id},{'Enemy_State',0},{'Enemy_X_Position',160},{'Enemy_PageLoc',0},{'Enemy_Y_Position',208},{'Enemy_Y_HighPos',1},{'Enemy_X_Speed',0},{'Enemy_Y_Speed',0},{'EnemyOffscrBitsMasked',0}})do w(v[1],v[2],5)end
+ w('Vine_FlagOffset',1);w('Vine_ObjOffset',5);w('Vine_Start_Y_Position',208);w('Vine_Height',0)
 end
 local function mature(item)
  assert(item==0 or item==8,'Only typed mushroom/Coil actor metadata in this profile')
@@ -129,6 +148,9 @@ hook('GameLoopOwned',function()
  end
  updates=updates+1;age=age+1;identity()
  if phase=='settle'and age>=30 then stagePickup(0)
+ elseif phase=='dense-setup'then
+  transaction(function()arena();denseActors()end);nextPhase('dense-use');denseActive=true;denseStart=updates
+  rec.dense={allocations=0,max_live=0,slide=false,jump=false,vine_calls=0,vine_shifted=0,vine_height=0,partial_DMAs=0,body_first_partial_DMAs=0};event('disclosed-dense-scene')
  elseif phase=='coil-setup'then stagePickup(8)
  elseif phase=='rush-contact-setup'then
   assert(rushSlot and r('RgShotType',rushSlot)==20 and r('SsMode',rushSlot)==1 and r('RgShotY',rushSlot)==208,'Actual Rush landed before disclosed falling-player placement')
@@ -162,7 +184,7 @@ hook('GuestPowerupUpdate',function()
  if entered and phase=='mushroom'and r('GuestPowerupActive')~=0 then rec.transforms=rec.transforms+1 end
 end)
 hook('PrimarySpawn',function(s)
- if not entered or phase~='weak'and phase~='full'and phase~='rush-existing'then return end
+ if not entered or phase~='weak'and phase~='full'and phase~='rush-existing'and phase~='dense-use'then return end
  local t=s['cpu.a'];local charge=r('MmChargeFrames')
  if t==2 then assert(phase=='weak'and charge>=C.charge.weak and charge<C.charge.full,'Actual weak threshold')
  elseif t==3 then assert(phase=='full'and charge==C.charge.full,'Actual full charge cap')
@@ -174,12 +196,13 @@ emu.addMemoryCallback(function(a,v)
  local s=emu.getState();local h=C.primary_store
  if bank(s['cpu.pc'])~=h.bank or(s['cpu.pc']~=h.pc and s['cpu.pc']~=h.after)then return end
  for i,x in ipairs(h.bytes)do assert(emu.read(h.pc+i-1,emu.memType.nesDebug)==x,'Actual primary allocation store opcode')end
- if phase=='weak'or phase=='full'or phase=='rush-existing'then
+ if phase=='weak'or phase=='full'or phase=='rush-existing'or phase=='dense-use'then
   local q=assert(rec.pendingPrimary,'Real primary source entry before type write')
   assert(v==q.type,'Native primary type matches actual source call')
   q.slot=a-C.ram.MmBulletType;rec.primary[#rec.primary+1]=q;rec.charge[v]=true;rec.pendingPrimary=nil
   rec.allocation_dma[v]=dmas
   if q.phase=='rush-existing'then rec.existingBuster=true end
+  if q.phase=='dense-use'then assert(v==1,'Dense profile uses real basic B taps only');rec.dense.allocations=rec.dense.allocations+1 end
   event('native-primary-allocation',v)
  end
 end,emu.callbackType.write,C.ram.MmBulletType,C.ram.MmBulletType+3)
@@ -210,11 +233,21 @@ hook('GameLoopFinish',function()
    assert(rec.collections[index]==1 and has(index)and r('PlayerStatus')==1,'Native earned ownership/tier, one collection')
    if index==0 then
     assert(rec.transforms==60 and has(10),'Actual60-call mushroom transform grants passive charge')
-    rec.powered_dma=dmas;nextPhase('weak')
+    rec.powered_dma=dmas;nextPhase(C.profile=='dense'and'dense-setup'or'weak')
    else
     assert(rec.grants[8]==1 and stock(8)==C.rush.initial_ammo,'Actual Coil grant preserves native initialized stock')
     rec.rushStock=stock(8);nextPhase('select-coil')
    end
+  end
+ elseif phase=='dense-use'then
+  assert(r('PlayerStatus')==1 and r('InjuryTimer')==0 and r('GuestHurtTicks')==0,'No accidental dense-scene hurt/tier loss or injected immunity')
+  rec.dense.max_live=math.max(rec.dense.max_live,primaryCount());rec.dense.vine_height=r('Vine_Height')
+  rec.dense.slide=rec.dense.slide or r('MmSliding')~=0
+  rec.dense.jump=rec.dense.jump or r('Player_State')==1 and r('MmVY',2)>=128
+  if updates-denseStart+1>=C.dense.updates then
+   assert(rec.dense.allocations==3 and rec.dense.max_live>=2 and rec.dense.slide and rec.dense.jump,'Three real B taps, overlapping live shots and real slide/jump')
+   assert(rec.dense.vine_calls>0 and rec.dense.vine_shifted>0 and rec.dense.vine_height>=8,'Actual native Vine growth and first40-to44 partial admission exercised')
+   rec.dense.completed_updates=updates-denseStart+1;done=true;nextPhase('complete')
   end
  elseif phase=='weak'or phase=='full'then
   assert(r('InvSelected',C.character)==0,'Charge uses actual default buster')
@@ -324,10 +357,68 @@ emu.addMemoryCallback(function()if entered then assert(emu.getState()['cpu.sp']>
 emu.addMemoryCallback(function(_,v)upper=v&3 end,emu.callbackType.write,0x5130)
 emu.addMemoryCallback(function(a,v)physical[a-0x5120]=v+256*upper end,emu.callbackType.write,0x5120,0x512b)
 
+-- Dense-only passive source ownership, genuine Vine boundaries and actualDMA.
+-- All these callbacks are registered now, never from another callback.
+local function denseEvent(kind,data)
+ if not denseActive then return end
+ local s=emu.getState();local line=json({kind=kind,wall=wall,update=updates,dense_update=updates-denseStart,pc=s['cpu.pc'],bank=bank(s['cpu.pc']),sp=s['cpu.sp'],cpu=s['cpu.cycleCount'],ppu_frame=s['ppu.frameCount'],line=s['ppu.scanline'],dot=s['ppu.cycle'],data=data})..'\n'
+ assert(denseRows<C.dense.event_rows and denseBytes+#line<C.dense.event_bytes,'Bounded dense provenance log')
+ denseLog:write(line);denseRows=denseRows+1;denseBytes=denseBytes+#line
+end
+local function densePrefix(n)local t={};for i=0,n-1 do t[#t+1]=emu.read(512+i,emu.memType.nesDebug)end;return t end
+if C.profile=='dense'then
+ hook('DenseDraw',function()if denseActive then denseDrawSeq=denseDrawSeq+1;denseConstruction={seq=denseDrawSeq};denseOwner=nil;denseGroup=nil;denseShots=true end end)
+ hook('DenseShotsFinished',function()denseShots=false;denseOwner=nil end)
+ hook('DenseObject',function(s)if denseActive then denseOwner=s['cpu.y']end end)
+ hook('DenseHeader',function(s)
+  if not denseActive then return end
+  local start=r('CurrentOAMOffset');local count=s['cpu.y'];local rotation=r('GuestOamRotationActive')~=0 and r('RgOamRotation')or 0
+  denseGroup={construction=denseDrawSeq,kind=denseShots and'shot'or(denseOwner==0 and'body'or(denseOwner and'world'or'other')),owner=denseShots and r('MmSlot')or denseOwner,logical=start,physical=(start+rotation)%256,bytes=count,tag=r('GuestOamRotationActive'),pointer=r('R0')+256*r('R1'),admitted=start+count<256}
+  denseOwner=nil;denseEvent('renderer-header',denseGroup);if not denseGroup.admitted then denseGroup=nil end
+ end)
+ hook('DenseLoopEnd',function(s)if denseActive and denseGroup then denseGroup.final_x=s['cpu.x'];denseEvent('renderer-return',denseGroup);denseGroup=nil end end)
+ hook('DensePublish',function()if denseActive then densePublished={seq=denseDrawSeq,cycle=emu.getState()['cpu.cycleCount'],image=bytes(512)};denseEvent('published',{construction=denseDrawSeq,tag=r('GuestOamRotationActive')})end end)
+ hook('DenseVineEntry',function(s)
+  if not denseActive then return end
+  assert(not denseVine,'No nested native Vine caller')
+  denseVine={before=r('CurrentOAMOffset'),tag=r('GuestOamRotationActive'),sp=s['cpu.sp'],draw=denseDrawSeq,prefix=densePrefix(44)};denseEvent('vine-entry',denseVine)
+ end)
+ hook('DenseVineAdmitted',function(s)
+  if not denseActive then return end
+  local v=assert(denseVine,'Actual Vine entry before admission');local expected=v.tag==129 and v.before==40 and 44 or v.before
+  v.admitted=r('CurrentOAMOffset');denseEvent('vine-admitted',v)
+  assert(v.admitted==expected and s['cpu.sp']==v.sp,'Actual Proto native partial40-to44 mapping and stack')
+ end)
+ hook('DenseVineReturn',function(s)
+  if not denseActive then return end
+  local v=assert(denseVine,'Actual Vine entry before return');v.after=r('CurrentOAMOffset');v.prefix_unchanged=true
+  local p=densePrefix(44);for i,x in ipairs(v.prefix)do if x~=p[i]then v.prefix_unchanged=false end end
+  v.cycle=s['cpu.cycleCount'];v.draw_return=denseDrawSeq;denseEvent('vine-return',v)
+  assert(s['cpu.sp']==v.sp and v.after==(v.admitted+24)%256,'Native six-part Vine returns actual cursor/stack')
+  if v.tag==129 then assert(v.prefix_unchanged,'No new partial overwrite of reserved Proto body44')end
+  rec.dense.vine_calls=rec.dense.vine_calls+1;if v.before==40 and v.admitted==44 then rec.dense.vine_shifted=rec.dense.vine_shifted+1 end
+  denseLastVine=v;denseVine=nil
+ end)
+ emu.addMemoryCallback(function(_,page)if denseActive then densePending=bytes(page*256)end end,emu.callbackType.write,0x4014)
+ hook('DmaComplete',function()
+  if not denseActive or not densePending then return end
+  local actors,shots={},{}
+  for i=0,5 do actors[#actors+1]={slot=i,flag=r('Enemy_Flag',i),id=r('Enemy_ID',i),state=r('Enemy_State',i),x=r('Enemy_X_Position',i)+256*r('Enemy_PageLoc',i),y=r('Enemy_Y_Position',i)}end
+  for i=0,3 do shots[#shots+1]={slot=i,type=r('MmBulletType',i),age=r('MmBulletAge',i),x=r('MmBulletX',i)+256*r('MmBulletPage',i),y=r('MmBulletY',i)}end
+  local partial=denseLastVine and densePublished and denseLastVine.cycle>densePublished.cycle or false
+  if partial then rec.dense.partial_DMAs=rec.dense.partial_DMAs+1;if denseLastVine.tag==129 then rec.dense.body_first_partial_DMAs=rec.dense.body_first_partial_DMAs+1 end end
+  local chr,palette={},{};local s=emu.getState();for i=0,11 do chr[tostring(i)]=s['mapper.chrBanks'..i]end;for i=0,15 do palette[#palette+1]=emu.read(0x3f10+i,emu.memType.nesPpuDebug)end
+  denseEvent('actual-DMA',{construction=denseDrawSeq,published=densePublished and densePublished.seq or 0,source=densePending,physical=bytes(0,emu.memType.nesSpriteRam),whole_published_source=densePublished and equal(densePending,densePublished.image)or false,last_vine=denseLastVine,partial_after_publish=partial,actors=actors,shots=shots,vine_height=r('Vine_Height'),tag=r('GuestOamRotationActive'),CHR_hardware=chr,sprite_palette=palette});densePending=nil
+ end)
+end
+
 emu.addEventCallback(function()
  if not entered then emu.setInput(menu(),0);return end
  local b={}
- if phase=='weak'then b.b=age>=4 and age<63
+ if phase=='dense-use'then
+  b.b=age>=6 and age<9 or age>=13 and age<16 or age>=20 and age<23
+  b.left=age>=38 and age<46;b.down=age>=41 and age<47;b.a=age>=42 and age<45 or age>=110 and age<122
+ elseif phase=='weak'then b.b=age>=4 and age<63
  elseif phase=='full'then b.b=age>=4 and age<113
  elseif phase=='slide'then b.down=age>=5 and age<12;b.a=age>=6 and age<10
  elseif phase=='jump'then b.a=age>=5 and age<16
@@ -338,10 +429,16 @@ end,emu.eventType.inputPolled)
 emu.addEventCallback(function()
  wall=wall+1;minSP=math.min(minSP,emu.getState()['cpu.sp'])
  if entered then local s=emu.getState();for i=0,11 do assert(s['mapper.chrBanks'..i]==physical[i],'Actual CHR hardware agrees with write-time latch model');chrChecks=chrChecks+1 end end
+ if denseActive then
+  local s=emu.getState();CURRENT_MEGA_DENSE_STAMP={wall=wall,update=updates,dense_update=updates-denseStart,ppu=s['ppu.frameCount'],phase=phase}
+  local screen=emu.getScreenBuffer();assert(#screen==61440,'Actual dense whole-PPU dimensions');local words={};for i,x in ipairs(screen)do words[i]=string.pack('<I4',x)end
+  denseFull:write(table.concat(words));denseFrames=denseFrames+1;assert(denseFrames<=C.dense.frame_records,'Bounded dense visible capture')
+ end
  if screenshot then assert(images<8,'Eight actual whole-PPU PNGs maximum');local f=assert(io.open(OUTPUT..screenshot,'wb'));f:write(emu.takeScreenshot());f:close();images=images+1;screenshot=nil end
  assert(wall<C.frame_limit,'Finite component frame bound')
  if done then
   assert(not pending and dmas>100 and irqCount>100 and nmis>100 and enables>100 and late==0,'Strict native hardware guards exercised')
-  local f=assert(io.open(OUTPUT..'result.json','w'));f:write(json({passed=true,native_run=true,ROM_sha256=C.ROM_sha256,identity=C.identity,variant=C.variant,mode=C.mode,actor_metadata_staged=true,ownership_tier_ammo_projectile_seeded=false,block_reveal_rise_RNG=false,RushJet_supported=false,record=rec,events=events,wall=wall,updates=updates,complete256_DMAs=dmas,NMI_checks=nmis,IRQ31_checks=irqCount,safe_enables=enables,CHR_checks=chrChecks,screenshots=images,minSP=minSP,limits='Powered primary/support and body poses only. Right-facing/default non-star/nonempty pool. No natural lottery/reveal, zeroammo/fullpool, dense-world/per-shot fairness or original palette/audio-fidelity claim.'}));f:close();emu.stop(0)
+  local adapter=nil;if C.profile=='dense'then denseFull:close();CURRENT_MEGA_DENSE_CAPTURE.close();adapter=CURRENT_MEGA_DENSE_CAPTURE.stats();denseLog:close()end
+  local f=assert(io.open(OUTPUT..'result.json','w'));f:write(json({passed=true,native_run=true,ROM_sha256=C.ROM_sha256,identity=C.identity,variant=C.variant,mode=C.mode,profile=C.profile,actor_metadata_staged=true,ownership_tier_ammo_projectile_seeded=false,block_reveal_rise_RNG=false,RushJet_supported=false,record=rec,events=events,wall=wall,updates=updates,complete256_DMAs=dmas,NMI_checks=nmis,IRQ31_checks=irqCount,safe_enables=enables,CHR_checks=chrChecks,screenshots=images,minSP=minSP,dense_frames=denseFrames,adapter=adapter,limits='Finite staged primary/support or dense-body component only; no natural lottery/reveal, zeroammo/fullpool, per-shot fairness, global cadence or original palette/audio-fidelity claim.'}));f:close();emu.stop(0)
  end
 end,emu.eventType.endFrame)

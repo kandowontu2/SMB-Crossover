@@ -1,0 +1,290 @@
+{
+  "review_only": true,
+  "native_relaunched": false,
+  "game_or_fixture_modified": false,
+  "native_programmed_pass": true,
+  "release_suitable": false,
+  "release_blocker": "Existing same3e7 ProtoHard full-route strict deadline failure at1940 PPU1:195 remains; this component does not override it.",
+  "ROM_sha256": "3e7c53d82eb949b8527d837861d95ed6051966056ca3f336fafd66e514e055ea",
+  "ready_sha256": "af8fdacc8f162a946d20097154df3452807f00cc44c84ccfd1ebbb7d65349e00",
+  "strict_bindings_rehashed": 39,
+  "container_validation": {
+    "passed": true,
+    "format": "NESPPU01",
+    "full_frames": 233,
+    "decoded_full_bytes": 57262080,
+    "decoded_full_sha256": "7eedf9d03cae24b791a4990d0d5df103c74be192747ece91ff7ae4b7180f1d86",
+    "physical_records": 233,
+    "named_aliases": 0,
+    "container_bytes": 857326,
+    "container_sha256": "2b5f109c021965e1e69e8a051f6c7ec8b38006b8b9977c6962062bcd09686331",
+    "index_sha256": "fa3a5daea88fc2e6f9ac24a1a08397f43c5c625e512bfc6db31a5b48cd33c59c",
+    "screenshots_created": 0,
+    "per_frame_files": 0
+  },
+  "native_reported_counts": {
+    "wall": 698,
+    "updates": 270,
+    "complete256_DMAs": 529,
+    "safe_enables": 178,
+    "NMI_checks": 690,
+    "IRQ31_checks": 322,
+    "CHR_checks": 3876,
+    "minSP": 204,
+    "screenshots": 0
+  },
+  "dense_reported": {
+    "allocations": 3,
+    "body_first_partial_DMAs": 41,
+    "completed_updates": 180,
+    "jump": true,
+    "max_live": 2,
+    "partial_DMAs": 82,
+    "slide": true,
+    "vine_calls": 264,
+    "vine_height": 90,
+    "vine_shifted": 82
+  },
+  "independent_provenance": {
+    "rows": 1247,
+    "kinds": {
+      "renderer-header": 138,
+      "renderer-return": 138,
+      "published": 90,
+      "actual-DMA": 89,
+      "vine-entry": 264,
+      "vine-admitted": 264,
+      "vine-return": 264
+    },
+    "raw256_dense_DMA_pairs_exact": 89,
+    "dense_body_P_rows": 90,
+    "dense_body_D_rows": 90,
+    "dense_body_D_regions_exact_and_emitted": 90,
+    "D_tags": {
+      "1": 45,
+      "129": 45
+    },
+    "actual_Vine_returns": 264,
+    "shift40to44": 82,
+    "shifted_prefix44_unchanged": 82,
+    "all_returns_stack_and_draw_equal": true,
+    "all_Vine_cursor_advances24": true,
+    "body_first_postpublish_partial_DMAs": 41,
+    "native_turn_postpublish_partial_DMAs": 41,
+    "postpublish_partial_DMAs_intentionally_not_whole_P_images": 82,
+    "raw_dense_DMA_equals_published_image": 7,
+    "maximum_actual_live_primary_slots": 2,
+    "body_record_counts_bytes": {
+      "36": 57,
+      "44": 13,
+      "32": 20
+    },
+    "actual_control_on_dense_D_rows": [
+      168
+    ],
+    "immediate_prefix_retention_evidence": "82 serialized true prefix_unchanged results from the strict native before/after44-byte assertion; new immediateprefix array is not separately serialized. Independent raw256 DMA and published-body checks establish subsequent physical retention."
+  },
+  "unexpected_scene_change": {
+    "actual_actor0_changes": [
+      {
+        "wall": 468,
+        "update": 92,
+        "ppu_frame": 469,
+        "vine_height": 1,
+        "actor": {
+          "flag": 1,
+          "id": 6,
+          "slot": 0,
+          "state": 1,
+          "x": 191,
+          "y": 176
+        }
+      },
+      {
+        "wall": 588,
+        "update": 172,
+        "ppu_frame": 589,
+        "vine_height": 41,
+        "actor": {
+          "flag": 1,
+          "id": 47,
+          "slot": 0,
+          "state": 0,
+          "x": 0,
+          "y": 0
+        }
+      }
+    ],
+    "observed_height48_at_wall605_then49_at607": true,
+    "final_reported_height": 90,
+    "classification": "Unplanned native actor/bookkeeping transition within a staged scene. ID47 atslot0 and continuedheight beyond48 are observed; Vine_FlagOffset and initiating writer were not logged, so exact cause is unproved. Do not call this the intended fixed five-Goomba/one-Vine composition throughout or a proven OAM-caused game bug."
+  },
+  "source_explanation": {
+    "object.s": "VineObjectHandler compares Vine_Height to VineHeightData[$30,$60] indexed byVine_FlagOffset-1 and loops DrawVine for Vine_FlagOffset entries; Setup_Vine can append a vine object. These explain possible multiple draws/height96, but do not prove actual transition owner.",
+    "mm_body_megaman_weapons.s": "MmReserveVine calls MmReservePartial before original six-sprite emission; actual40/tag129 is admitted44. DrawVine then restoresY fromR0. Hooks bound to actualbank66 and compiledRTS; all39 readiness inputs hash-exact."
+  },
+  "actual_selected_whole_images": [
+    {
+      "record": 4,
+      "stamp": {
+        "dense_update": 2,
+        "phase": "dense-use",
+        "ppu": 469,
+        "update": 93,
+        "wall": 469
+      },
+      "decoded_sha256": "f4ebdd2f283dba6a19f9eb0673104ff58b92d8737bfb9ec3a870307a4e068025",
+      "review": "Typed scene / growing vine"
+    },
+    {
+      "record": 28,
+      "stamp": {
+        "dense_update": 18,
+        "phase": "dense-use",
+        "ppu": 493,
+        "update": 109,
+        "wall": 493
+      },
+      "decoded_sha256": "353d87f4483d8635d65d784ece682199765bee1d86d7da449289eb60d55e9169",
+      "review": "Two live Buster slots (logical source, not both necessarily opaque)"
+    },
+    {
+      "record": 31,
+      "stamp": {
+        "dense_update": 20,
+        "phase": "dense-use",
+        "ppu": 496,
+        "update": 111,
+        "wall": 496
+      },
+      "decoded_sha256": "acd4b98b12c3d8fb197cf455557292ed51c51ffca1017a32f790c41d5eeb6759",
+      "review": "Adjacent construction turn; player body visibly omitted"
+    },
+    {
+      "record": 61,
+      "stamp": {
+        "dense_update": 40,
+        "phase": "dense-use",
+        "ppu": 526,
+        "update": 131,
+        "wall": 526
+      },
+      "decoded_sha256": "aa704058dfe294ed24c4ff887cd02a81206ed6b251e4b6af3a1a64cbfaa00da7",
+      "review": "Slide/jump input window"
+    },
+    {
+      "record": 91,
+      "stamp": {
+        "dense_update": 60,
+        "phase": "dense-use",
+        "ppu": 556,
+        "update": 151,
+        "wall": 556
+      },
+      "decoded_sha256": "4449709f7b3e5aa90d13ba30a53a8ca33956555a7dc2212ccd9d6a8bb3955945",
+      "review": "Late partial writer active"
+    },
+    {
+      "record": 127,
+      "stamp": {
+        "dense_update": 85,
+        "phase": "dense-use",
+        "ppu": 592,
+        "update": 176,
+        "wall": 592
+      },
+      "decoded_sha256": "887c1fc7e925383a1f5224eb7aa73b66e3fe5545e4090a0c648d329fddc9d7db",
+      "review": "Actor0 is now Vine; player body visibly omitted"
+    },
+    {
+      "record": 166,
+      "stamp": {
+        "dense_update": 119,
+        "phase": "dense-use",
+        "ppu": 631,
+        "update": 210,
+        "wall": 631
+      },
+      "decoded_sha256": "f44c6b63557d686471b16faaf521d5cefff3c74176e3d070752e3231cb29730c",
+      "review": "Jump window"
+    },
+    {
+      "record": 233,
+      "stamp": {
+        "dense_update": 179,
+        "phase": "complete",
+        "ppu": 698,
+        "update": 270,
+        "wall": 698
+      },
+      "decoded_sha256": "8641951b7cd21b340b8aade243fc141a38aae5a20a136ed6490a467d00aa7bd7",
+      "review": "Final dense update"
+    }
+  ],
+  "sheet": {
+    "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\mm-body-proto-dense-ready-v1\\offline-selected-whole-frames.png",
+    "sha256": "c18a74502ff483e2c6713df0ff14fcf5291687e8127a758478dec2bee63d7527",
+    "bytes": 43490,
+    "whole_frame_placements": 8,
+    "review": "Full Proto body visible in selectedbody-first/slide/jump/final samples; genuine head-only residuals remain atrecord31/PPU496 andrecord127/PPU592. Enemies also fragment under hardware8-sprite limits. No sampled HUD or stagedground tile corruption. Eight selected wholeframes reviewed; all233 decoded/checksummed, not all233 manually judged."
+  },
+  "limits": [
+    "Mature mushroom0 and scene actors/map/player positions were disclosed setup; actual pickup/60transform and B inputs were native. No health, immunity, inventory ownership, resource or projectile outcome was seeded.",
+    "529 completeDMAs and other strict hardware counts are native assertions; independent serialized full256 source/destination reparse covers89 denseDMAs only. Ninety dense-era bodyCSV D rows cover exactbody subregions, including one outside the denseJSONL terminalwindow.",
+    "The41 body-first partialDMAs retain emitted bodybytes. Tag alone doesnot prove wholepage ownership:82 rawdenseDMAs intentionally differ from latest full publishedimage following native partialwriter.",
+    "Sourcecursor40\u219244 and first44bytesretention prove reservation integration, not allopaque bodypixels or shot/world fairness. Actualcontrol168 means16-high sprites; no8-high visibility calculation used.",
+    "No matchedbaseline denseprofile/cadence comparison, no fullpool, death/area/menu partiallifecycle or allshots/facings proof. No new native grant/run requested.",
+    "Native log retains uninitializedRAM read warnings; the program reported no assertion failure. Unexpected actor0/Vine transition remains unexplained.",
+    "Immediate Vine first44-byte equality relies on the native strict comparison plus recorded boolean; only the pre-call prefix array is serialized. Do not present it as two independently serialized immediate arrays."
+  ],
+  "raw_bindings": {
+    "native\\body-epochs.csv": "c84e281493d452359349568b147426b84356c3dc894ae71cd2efcf528405dbf3",
+    "native\\capture-budget.json": "a37674cc1933b5e4914d8972efefbb11c1ae91c81f497235d2c12e5d47f9a2ad",
+    "native\\captures-index.jsonl": "fa3a5daea88fc2e6f9ac24a1a08397f43c5c625e512bfc6db31a5b48cd33c59c",
+    "native\\captures.nesppuv1": "2b5f109c021965e1e69e8a051f6c7ec8b38006b8b9977c6962062bcd09686331",
+    "native\\dense-provenance.jsonl": "bb2c1fe37788c1df7e6e15852dd4f70f8e56a48622d08c3e0c9e64564d872257",
+    "native\\mm_body_current-run.log": "dacf81dbbe78f214e96b820c934b0e00f6c7a445f4a663b7b99b68205d6e6307",
+    "native\\result.json": "b9842822e3275d9e3b2a5db7999bcf01433db10136dbb9bb35a925d510fde7af"
+  },
+  "source_bindings": {
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\mm_body_current.nes": "3e7c53d82eb949b8527d837861d95ed6051966056ca3f336fafd66e514e055ea",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\mm_body_current.dbg": "00fa029bad9a20e59db14911dd50840994bff2ec67fae99235c9d3187d62bc7a",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\mm_body_current.lbl": "4e57b3276b77fe2eb893c2381a575fd4c5931369af98da077459060db23e76f8",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tests\\current-mega-body-components.lua": "6d3a55f985e3502b161f10c0c17746619f7055e6ae3f890d945f97cf3fff70fa",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tests\\current-inventory-powerups.lua": "bcc2419a25ecc0d465dddd3f08b96a212d57c38703c61bbd2c2fddbdd5f24fa2",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\current_mega_body_components_prepare_v1.py": "fbf4c2dff50555b5e273d95384fc76628a7bab92f2d7af0b598950e98199ee40",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\mm_proto_body_reserve_passive_v1.lua": "9c98644241f296e13c985373f4bdf1e307aea55991ec80b98c8cd11ef2ae0ebe",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\mm_body_reserve_observer_config.lua": "176cfc1e04fa8c0ec25add91c4eb28ae5a5572b0e1a3a504890e3ef1c84de7eb",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\mm_body_reserve_observer_config.json": "5ba30807e7634a6bac293f2ad69586d21c05b9a9a5f5f822ad0cd8f865d213a7",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\current_roster_compact_11_v1.py": "fe2b6c43ae273269ed40f18e62cfcb3ba1d45cde6d0463d748ba72ccc25ebd6f",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\robots_weapon_cpu_v1.py": "6e72527324dec4926898039228408d96f1ba646971d390ff601b6cc4ea777257",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\run_mesen_isolated.py": "976f197a3712511e821f545e655eaa3f9bcfe95e42a3c6c76b2adca288d2aad3",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\run_mesen.py": "5d71507b99a100a10b48ad84e1bb3e7db92c470e6215315c9d962551a4222c67",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\capture_budget.py": "b9985e2e6db5c801a47454d8761adaf5f40e5254e8f599aeeddf412c1b7e8db9",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\inventory.s": "933222478a1e4cafa9a049be7cb064e0cc95b1b328c9592da806ec9f7d342c2f",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\inventory_data.inc": "b4175e6c036559b568f8ce973402c0eb18af7bdebc69a73c9f890f4bdd9b5d1a",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\megaman_weapons.s": "2369a22321672b64575811a06e57bf1fd834ecb4b338657bf7bdfb94138d4fbf",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\megaman_physics.s": "d6c7760a6be8fb4b0165d05e98e9da0e261b946e4daa6e079c4d97b30aa15603",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\megaman_rush.s": "85ccde471e3fe93d93edf708e50725cd52e822eeabeca6635f831acc93f8c309",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\special_weapons.s": "aec3859cda9b98b7c5b79ab37cbc3c09f3a1a6b9f1f1bf83622d7e1014d7ea9e",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\protoman_cold.s": "b6dabf6e38bb647236abb7b1ddab4188454252d78868168a0372a32d3b682fa6",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\mario_source.s": "d634f221acb00322480cd4cd45d5a6f724dc253a71b6a8dbe3c5621bbfb8cd3e",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\mm-body-proto-dense-ready-v1\\config.json": "58a5e4c82eeae1abc57083b615cc4d24497f7219c5c226b1a6732c91a5afa322",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\mm-body-proto-dense-ready-v1\\run.lua": "b7acf6e38d1de7d903d45c12a8c50a68e90ddabda68471c9a2e5c9d766aa6a77",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\mm-body-proto-dense-ready-v1\\source-controls.json": "d42a96e078699dffce1d5754f2432fd9263b48001b460679f99f3110245318fb",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\mm-body-proto-dense-ready-v1\\command.json": "650b7ef41dc1d6021f23feb7a4d7f7968be2bf0973a801b76cbbaacd9a19aece",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\mm_body_current_result.json": "a6f5691c41649e32ad575bde41a5cb30c193a3f109bd80d0318190d90544863f",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\mm_proto_body_current_compose_v1.py": "a957d346aec1146aa16c2e2c0ed8256616e22a73244da58ac85fe64603c4cdb4",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\x5_palette.s": "a81f995a8b87d3db70c5e9be63191ccd750b5ddadef020842eac258646ce0197",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\proto_palette_ack.s": "a14e27e1edca730d0a943dd426bb6877b97eff7626c97bc8161d6030908bdf3d",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\final_inventory_compact_capture_v1.lua": "1aa9e049764584841be0c590c15427225863bcf7bc64aca8c93a609c2cadd40d",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\final_inventory_compact_capture_v1.py": "fd5585f4f5ccb4217a25270703784193e336c580ba71c65aa53fda0a70068b2a",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\object.s": "48984c1253fa13d4fd14d90e268a9afdfa42c60130086542b6aebcc58653ee7e",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\inc\\constants.inc": "c6d6942eeb732def835b78394f47628a4e56b9d925cde79533bc296a704a1fa4",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\inc\\common.inc": "57ab5e83cc92e4cc00d98f99aa8e67c8e21e01e96aa83e2d6454c197958475c3",
+    "C:\\mesen2\\Mesen.exe": "8b92daa209ee5052845e02a663aeb1afd6194eca55d86e6628c51114c61da0a9",
+    "C:\\mesen2\\MesenCore.dll": "4bd40dfc6512328d56d8ad0563263b52be57bac726d8804f0720e461e558cd41",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\mm-body-proto-dense-ready-v1\\fixture-preparer.patch": "4b90810314b624754f9bf9f50e3ccfcd73ac68d202475800bff86ae777680e39",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\mm-body-proto-dense-ready-v1\\preparation-check.json": "8a1d118e52895d3c1055b2855a6fb402214c91969911956509add32c437d368b"
+  }
+}
