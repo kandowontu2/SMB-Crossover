@@ -38,11 +38,14 @@ def main():
   delta=int(b['syms'][n]['size'],0)-1;assert raw(n,delta)==opcode;hooks[key]=hook(n,delta,1)
  assert raw('InventorySpend::Done')==0x60;hooks['InventorySpendDone']=hook('InventorySpend::Done',0,1)
  size=int(b['syms']['OAMandReadJoypad']['size'],0);data=b['raw'][location(b,'OAMandReadJoypad'):location(b,'OAMandReadJoypad')+size];assert data.count(b'\x8d\x14\x40')==1
- hooks['DmaComplete']=hook('OAMandReadJoypad',data.index(b'\x8d\x14\x40')+3)
+ post=location(b,'PostDmaMaskEnable');assert post==location(b,'OAMandReadJoypad')+data.index(b'\x8d\x14\x40')+3
+ mirror=address(b,'Mirror_PPUMASK');load=bytes([0xa5,mirror])if mirror<256 else bytes([0xad,mirror&255,mirror>>8])
+ assert b['raw'][post-3:post]==b'\x8d\x14\x40'and b['raw'][post:post+len(load)+3]==load+b'\x8d\x01\x20','Actual post-DMA CPU read and render-enable store'
+ hooks['DmaComplete']=hook('PostDmaMaskEnable',len(load))
  names=set(re.findall(r"'([A-Za-z_][A-Za-z_0-9]*)'",text))
  setup_allowed=['Block_Buffer_1','MmSolidTerrain','MmBrickHealth','Enemy_Flag','Enemy_CollisionBits','InvDropKind','Player_X_Speed','Player_Y_Speed','Player_X_MoveForce','Player_Y_MoveForce','ScrollThirtyTwo','AreaParserTaskNum','MmVX','MmVY','ScrollLock','ScreenLeft_X_Pos','ScreenLeft_PageLoc','ScreenRight_X_Pos','ScreenRight_PageLoc','Player_X_Position','Player_PageLoc','MmOldX','Player_Y_Position','Player_Y_HighPos','Player_State','PlayerFacingDir','Player_MovingDir','Player_CollisionBits','Enemy_ID','Enemy_State','Enemy_BoundBoxCtrl','Enemy_X_Position','Enemy_PageLoc','Enemy_Y_Position','Enemy_Y_HighPos','Enemy_X_Speed','Enemy_Y_Speed','Enemy_SprAttrib','PowerUpType','InvPickupOwner','InvPickup','AvPickupAmmoItem','Enemy_Y_MoveForce','Enemy_MovingDir','EnemyOffscrBitsMasked','MmEnemyHealthLo','MmEnemyHealthHi','MmEnemyFlash','RgEnemyStun']
  names.update(setup_allowed);names.update(['CurrentBank','CurrentBankC','SsAudioRequest','Square2SoundQueue','Sprite0HitDetectFlag'])
- cfg=dict(ROM_sha256=expected,character=9,slot=9,mode=int(a.mode=='hard'),frame_limit=16000,hooks=hooks,ram={n:address(b,n)for n in names if n in b['syms']},setup_allowed={n:True for n in setup_allowed},powerup_sfx=address(b,'Sfx_PowerUpGrab'),metatiles={n:dict(bank=(location(b,n)-16)//8192,offset=(location(b,n)-16)%8192)for n in['MTileTopLeft','MTileTopRight','MTileBotLeft','MTileBotRight','MTileAttribute']},smc=[address(b,n)+1 for n in['NextBank_SMC','SafecallA_SMC','SafereturnA_SMC','FarcallJmpTarget_SMC']]+[address(b,'FarcallJmpTarget_SMC')+2],items={})
+ cfg=dict(ROM_sha256=expected,dma_store_return=address(b,'PostDmaMaskEnable'),character=9,slot=9,mode=int(a.mode=='hard'),frame_limit=16000,hooks=hooks,ram={n:address(b,n)for n in names if n in b['syms']},setup_allowed={n:True for n in setup_allowed},powerup_sfx=address(b,'Sfx_PowerUpGrab'),metatiles={n:dict(bank=(location(b,n)-16)//8192,offset=(location(b,n)-16)%8192)for n in['MTileTopLeft','MTileTopRight','MTileBotLeft','MTileBotRight','MTileAttribute']},smc=[address(b,n)+1 for n in['NextBank_SMC','SafecallA_SMC','SafereturnA_SMC','FarcallJmpTarget_SMC']]+[address(b,'FarcallJmpTarget_SMC')+2],items={})
  # Source-derived IDs/costs; ARM lift/throw, short PHARAOH, paid KICK,
  # FLAME's actual ignited phase and WATER's native orbit/second-B expansion.
  contact=[0,9,10,11,12,19,16,17,0];sfx=[0,0,64,22,61,65,22,67,0]

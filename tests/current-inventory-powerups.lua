@@ -270,7 +270,7 @@ hook('IrqReturn',function()irq=false end)
 emu.addMemoryCallback(function(_,v)mask=v end,emu.callbackType.write,0x2001)
 emu.addMemoryCallback(function(_,v)
  assert(not pending and mask&24==0,'Rendering disabled at actual DMA start')
- local s=emu.getState();assert(v==2 and s['cpu.pc']==C.hooks.DmaComplete.pc,'Actual native page2 DMA owner')
+ local s=emu.getState();assert(v==2 and s['cpu.pc']==C.dma_store_return,'Actual native page2 DMA owner')
  assert(s['ppu.spriteRamAddr']==0,'Actual native DMA begins at OAM address zero')
  pending={source=bytes(v*256),writes=0}
 end,emu.callbackType.write,0x4014)

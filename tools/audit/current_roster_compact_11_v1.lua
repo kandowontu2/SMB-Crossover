@@ -20,6 +20,7 @@ end
 local frame,polls,mask,loops,captures=0,0,0,0,0
 local done,entered,failure=false,false,nil
 local firstArea,firstLives,first12X,control12,menuReadyAt=nil,nil,nil,0,nil
+local previousLives,maxLives,lifeGains,lifeDecreases,deathStateSeen=nil,nil,0,0,false
 local sourceBytes,physicalBytes,dmas,chrChecks,nmis,irqs,minSP=0,0,0,0,0,0,255
 local maskValue,chrUpper,chrBanks=0,0,{}
 local activeLoop,previousLoop,nmiSaved,irqSaved
@@ -244,7 +245,8 @@ local function finish(passed,reason)
  local bass=C.bass_close and C.bass_close()or nil
  local result={passed=passed,reason=reason,ROM_sha256=C.ROM_sha256,identity=C.name,actual_mode=r('CrossoverBehaviorVersion'),
   frames=frame,polls=polls,completed_loops=loops,full_frames=captures,markers=markers,real_1_1_seen=entered,
-  real_1_2_control_updates=control12,zero_deaths=firstLives~=nil and r('NumberofLives')==firstLives,
+  real_1_2_control_updates=control12,zero_deaths=firstLives~=nil and lifeDecreases==0 and not deathStateSeen,
+  lives={start=firstLives,ending=r('NumberofLives'),maximum=maxLives,gained=lifeGains,decreased=lifeDecreases,death_state_seen=deathStateSeen},
   cheats_off=r('CheatInvincible')==0 and r('CheatStartLevel')==0,nmi_checks=nmis,irq_checks=irqs,min_SP=minSP,
   completed_DMAS=dmas,unmasked_source_writes_checked=sourceBytes,physical_E3_bytes_checked=physicalBytes,
   chr_window_checks=chrChecks,adapter=capture.stats(),bass_collision=bass,
@@ -263,9 +265,19 @@ emu.addEventCallback(function()
  if not entered and scope()then
   identity();check(c.world==0 and c.level==0,'Natural start is World 1-1')
   entered=true;menuReadyAt=frame;firstArea=c.area;firstLives=r('NumberofLives');event('first-active',{x=c.x,y=c.y,mode=r('CrossoverBehaviorVersion')})
+  previousLives=firstLives;maxLives=firstLives
  end
  if entered then
-  check(r('NumberofLives')==firstLives and c.engine~=11 and r('OperMode')~=3,'Zero-death 1-1 route')
+  local lives=r('NumberofLives')
+  if lives<previousLives then lifeDecreases=lifeDecreases+previousLives-lives end
+  if lives>previousLives then
+   lifeGains=lifeGains+lives-previousLives;event('earned-life-gain',{before=previousLives,after=lives,amount=lives-previousLives})
+  end
+  maxLives=math.max(maxLives,lives)
+  deathStateSeen=deathStateSeen or c.engine==11 or r('OperMode')==3
+  check(lifeDecreases==0 and not deathStateSeen,'Zero-death 1-1 route',
+   {previous=previousLives,current=lives,decreases=lifeDecreases,death_state_seen=deathStateSeen})
+  previousLives=lives
   check(c.world==0 and(c.level==0 or c.level==1),'Only genuine 1-1 then 1-2 progression')
   for i=0,11 do if chrBanks[i]~=nil then
    check(s['mapper.chrBanks'..i]==chrBanks[i],'Physical CHR write-time latch window '..i);chrChecks=chrChecks+1
