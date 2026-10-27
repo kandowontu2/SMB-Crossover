@@ -160,11 +160,24 @@ def pack(root):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--group', required=True)
+    choice = parser.add_mutually_exclusive_group(required=True)
+    choice.add_argument('--group')
+    choice.add_argument('--all-closed', action='store_true',
+                        help='Pack existing generated groups, respecting all active keepers.')
     args = parser.parse_args()
-    assert Path(args.group).name == args.group
+    if args.group:
+        assert Path(args.group).name == args.group
+        groups = [ARCHIVE/args.group]
+    else:
+        groups = sorted(p for p in ARCHIVE.iterdir() if p.is_dir() and re.fullmatch(
+            r'2026-10-(24|26)-[a-zA-Z0-9-]+|play-vic-turtles-nd', p.name))
     with capture_lease():
-        pack(ARCHIVE/args.group)
+        for group in groups:
+            if not group.exists():
+                continue
+            if (PACKED/(group.name+'.json')).exists():
+                continue  # An immutable completed receipt is never overwritten.
+            pack(group)
 
 
 if __name__ == '__main__':

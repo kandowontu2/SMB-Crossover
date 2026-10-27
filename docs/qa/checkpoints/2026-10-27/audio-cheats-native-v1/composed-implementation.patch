@@ -1,0 +1,2259 @@
+--- a/smb1base-mmc5-expanded.cfg
++++ b/smb1base-mmc5-expanded.cfg
+@@ -191,6 +191,7 @@
+     X5_FULL_MUSIC_02:load=X5_NEW_66,type=ro;
+     X5_FULL_MUSIC_01:load=X5_NEW_65,type=ro;
+     X5_FULL_MUSIC_00:load=X5_NEW_64,type=ro;
++    CHEATS_FOUR:load=X5_NEW_3F,type=ro; # decimal63/$3F; isolated cold Cheats
+     X5_MENU_UI:load=X5_NEW_63,type=ro;
+     LM_CORE:load=X5_NEW_5D,type=ro;
+     LM_GFX:load=X5_NEW_5E,type=ro;
+--- a/src/character_select.s
++++ b/src/character_select.s
+@@ -39,6 +39,12 @@
+   jeq BuildOptions
+   cmp #6
+   jeq CheatsInput
++.if ::ENABLE_MMC5_EXPANDED
++  cmp #7
++  jeq BuildOptions
++  cmp #8
++  jeq SoundInput
++.endif
+   lda CrossoverTitleDrawn
+   bne TitleInput
+   inc CrossoverTitleDrawn
+@@ -72,6 +78,10 @@
+   sta CrossoverContinue
+   lda #1
+ OpenPage:
++.if ::ENABLE_MMC5_EXPANDED
++  ldx #0
++  stx CrossoverOptionsFocus
++.endif
+   sta CrossoverMenuState
+   sta DisableScreenFlag
+ NotReady:
+@@ -110,7 +120,20 @@
+   and #$18
+   jne NotReady
+   farcall InitializeNameTables
++.if ::ENABLE_MMC5_EXPANDED
++  farcall DrawOptionsPage
++.else
+   jsr DrawOptionsPage
++.endif
++.if ::ENABLE_MMC5_EXPANDED
++  lda CrossoverMenuState
++  cmp #7
++  bne :+
++  farcall SoundTestBuildPage
++  lda #8
++  jmp OptionsBuilt
++:
++.endif
+   lda CrossoverMenuState
+   cmp #5
+   bne NormalOptions
+@@ -152,7 +175,9 @@
+   sta PlayerStatus
+   sta RgOamRotation
+   sta GuestOamRotationActive
++.if !::ENABLE_MMC5_EXPANDED
+   sta CrossoverOptionsFocus
++.endif
+   sta ScreenLeft_PageLoc
+   sta ScreenLeft_X_Pos
+   sta HorizontalScroll
+@@ -171,6 +196,13 @@
+   lda CrossoverMenuState
+   cmp #6
+   beq CheatsReady
++.if ::ENABLE_MMC5_EXPANDED
++  cmp #8
++  bne :+
++  farcall SoundTestQueue
++  jmp ScreenReady
++:
++.endif
+   farcall QueueOptions
+   jmp ScreenReady
+ CheatsReady:
+@@ -192,7 +224,11 @@
+   beq OptionsUp
+   clc
+   adc #1
++.if ::ENABLE_MMC5_EXPANDED
++  cmp #4
++.else
+   cmp #3
++.endif
+   bcc OptionsFocusReady
+   lda #0
+   beq OptionsFocusReady
+@@ -200,7 +236,11 @@
+   sec
+   sbc #1
+   bpl OptionsFocusReady
++.if ::ENABLE_MMC5_EXPANDED
++  lda #3
++.else
+   lda #2
++.endif
+ OptionsFocusReady:
+   sta CrossoverOptionsFocus
+   jmp OptionsChanged
+@@ -209,6 +249,10 @@
+   and #A_Button | Start_Button | Select_Button | Left_Dir | Right_Dir
+   beq MenuIdle
+   lda CrossoverOptionsFocus
++.if ::ENABLE_MMC5_EXPANDED
++  cmp #3
++  beq OpenSoundTest
++.endif
+   cmp #2
+   beq OpenCheats
+   cmp #0
+@@ -228,7 +272,19 @@
+ MenuIdle:
+   lda #0
+   rts
++.if ::ENABLE_MMC5_EXPANDED
++OpenSoundTest:
++  farcall SoundTestEnter
++  jmp MenuIdle
++SoundInput:
++  farcall SoundTestInput
++  jmp MenuIdle
++.endif
+ OpenCheats:
++.if ::ENABLE_MMC5_EXPANDED
++  lda #0
++  sta CrossoverOptionsFocus
++.endif
+   lda #5
+   sta CrossoverMenuState
+   lda #1
+@@ -537,7 +593,9 @@
+ Done:
+   sta SelectedCharacter
+   rts
++.if !::ENABLE_MMC5_EXPANDED
+ MenuCharacters: .byte 0,1,2,3,4,5,6,7,12,9,10,11
++.endif
+ .endproc
+ 
+ .proc QueueSelection
+@@ -916,6 +974,10 @@
+ .endproc
+ 
+  ; Options are a dedicated title page; the character grid has no option row.
++.if ::ENABLE_MMC5_EXPANDED
++.pushseg
++.segment "X5_MENU_UI"
++.endif
+ .proc DrawOptionsPage
+   lda PPUSTATUS
+   lda #$20
+@@ -965,9 +1027,17 @@
+ Text:
+   .byte $20,$cb,7,"OPTIONS"
+   .byte $22,$65,22,"CHEATS                "
++.if ::ENABLE_MMC5_EXPANDED
++  .byte $22,$c5,22,"AUDIO TEST            "
++  .byte $23,$4a,8,"B - BACK"
++.else
+   .byte $22,$ca,8,"B - BACK"
++.endif
+   .byte 0
+ .endproc
++.if ::ENABLE_MMC5_EXPANDED
++.popseg
++.endif
+ 
+ .pushseg
+ .segment "CHEATS_MENU_COLD"
+@@ -992,7 +1062,11 @@
+   ldy #66
+ Behavior:
+   jsr QueueOptionLine
++.if ::ENABLE_MMC5_EXPANDED
++  lda #4
++.else
+   lda #3
++.endif
+   sta R4
+   jmp QueueOptionCursor
+ .endproc
+@@ -1044,7 +1118,13 @@
+   sta VRAM_Buffer1,x
+   rts
+ CursorHi:.byte $21,$22,$22
++.if ::ENABLE_MMC5_EXPANDED
++  .byte $22
++.endif
+ CursorLo:.byte $63,$03,$63
++.if ::ENABLE_MMC5_EXPANDED
++  .byte $c3
++.endif
+ .endproc
+ 
+ .proc QueueOptionLine
+--- a/src/cheats.s
++++ b/src/cheats.s
+@@ -7,6 +7,10 @@
+ 
+ .segment "CHEATS_MENU_COLD"
+ .proc CheatsMenuInput
++.if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
++  farcall CheatsSixInput,jmp
++  .res 94-18,$ea
++.else
+   lda CrossoverMenuPressed
+   and #B_Button
+   beq Navigate
+@@ -52,9 +56,14 @@
+   jsr QueueCheats
+ Done:
+   rts
++.endif
+ .endproc
+ 
+ .proc QueueCheats
++.if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
++  farcall CheatsSixQueue,jmp
++  .res 174-18,$ea
++.else
+   lda #$21
+   sta R1
+   lda #$65
+@@ -113,9 +122,14 @@
+   .byte "INVINCIBLE       OFF  "
+   .byte "INVINCIBLE       ON   "
+   .byte "START LEVEL      1-1  "
++.endif
+ .endproc
+ 
+ .proc CheatsPatchPage
++.if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
++  farcall CheatsSixPage,jmp
++  .res 54-18,$ea
++.else
+   lda PPUSTATUS
+   lda #$20
+   sta PPUADDR
+@@ -140,6 +154,7 @@
+   bne Blank
+   rts
+ Title: .byte "CHEATS "
++.endif
+ .endproc
+ 
+ .proc CheatsApplyStartingLevel
+@@ -202,5 +217,5 @@
+ .endif
+   rts
+ .endproc
+-.assert * <= $c000,error,"Cheats menu exceeds its reserved bank14 A tail"
++.assert * <= $c000,error,"Cheats menu exceeds its reserved bank20/$14 A tail"
+ .popseg
+--- a/src/cheats_four.s
++++ b/src/cheats_four.s
+@@ -0,0 +1,988 @@
++; Expanded MMC5 only. Decimal63/$3F cold page, not decimal99/$63 UI.
++; Persistent flags reuse CheatInvincible: bit0 injury,1 air jump,2 wrap,
++; 3 countdown hold,4 full power. No new WRAM/ExRAM allocation.
++.pushseg
++.segment "CHEATS_FOUR"
++CheatAir=$02
++CheatWrap=$04
++CheatTimer=$08
++CheatPower=$10
++.proc CheatsSixInput
++ lda CrossoverMenuPressed
++ and #B_Button
++ beq Navigate
++ lda #2
++ sta CrossoverOptionsFocus
++ lda #3
++ sta CrossoverMenuState
++ lda #1
++ sta DisableScreenFlag
++ rts
++Navigate:
++ lda CrossoverMenuPressed
++ and #Up_Dir|Down_Dir
++ beq Change
++ and #Up_Dir
++ beq Down
++ dec CrossoverOptionsFocus
++ bpl Changed
++ lda #5
++ bne Focus
++Down:inc CrossoverOptionsFocus
++ lda CrossoverOptionsFocus
++ cmp #6
++ bcc Changed
++ lda #0
++Focus:sta CrossoverOptionsFocus
++ jmp Changed
++Change:
++ lda CrossoverMenuPressed
++ and #A_Button|Start_Button|Select_Button|Left_Dir|Right_Dir
++ beq Done
++ ldx CrossoverOptionsFocus
++ cpx #1
++ beq Level
++ lda CheatInvincible
++ eor Bits,x
++ sta CheatInvincible
++ jmp Changed
++Level:
++ lda CrossoverMenuPressed
++ and #Left_Dir
++ beq Forward
++ dec CheatStartLevel
++ jmp Wrap
++Forward:inc CheatStartLevel
++Wrap:lda CheatStartLevel
++ and #31
++ ora #$20
++ sta CheatStartLevel
++Changed:
++ lda #Sfx_CoinGrab
++ sta Square2SoundQueue
++ jsr CheatsSixQueue
++Done:rts
++Bits:.byte $01,$00,$02,$04,$08,$10
++.endproc
++.proc CheatsSixQueue
++ ; Six3-cell values36B +4B vertical RLE cursor erase +4B cursor =44B.
++ ldy #0
++Row:
++ tya
++ pha
++ ldx VRAM_Buffer1_Offset
++ lda AddrHi,y
++ sta VRAM_Buffer1,x
++ lda AddrLo,y
++ clc
++ adc #17
++ sta VRAM_Buffer1+1,x
++ lda #3
++ sta VRAM_Buffer1+2,x
++ cpy #1
++ beq Level
++ lda CheatInvincible
++ and CheatsSixInput::Bits,y
++ beq Off
++ lda #$24
++ sta VRAM_Buffer1+5,x
++ lda #'O'
++ sta VRAM_Buffer1+3,x
++ lda #'N'
++ bne Middle
++Off:lda #'F'
++ sta VRAM_Buffer1+5,x
++ sta VRAM_Buffer1+4,x
++ lda #'O'
++ sta VRAM_Buffer1+3,x
++ jmp Next
++Level:
++ lda CheatStartLevel
++ and #31
++ lsr
++ lsr
++ clc
++ adc #1
++ sta VRAM_Buffer1+3,x
++ lda CheatStartLevel
++ and #3
++ clc
++ adc #1
++ sta VRAM_Buffer1+5,x
++ lda #'-'
++Middle:sta VRAM_Buffer1+4,x
++Next:txa
++ clc
++ adc #6
++ sta VRAM_Buffer1_Offset
++ pla
++ tay
++ iny
++ cpy #6
++ bcc Row
++ ldx VRAM_Buffer1_Offset
++ lda #$21
++ sta VRAM_Buffer1,x
++ lda #$23
++ sta VRAM_Buffer1+1,x
++ lda #$cb
++ sta VRAM_Buffer1+2,x
++ lda #$24
++ sta VRAM_Buffer1+3,x
++ lda #0
++ sta VRAM_Buffer1+4,x
++ inx
++ inx
++ inx
++ inx
++ ldy CrossoverOptionsFocus
++ lda AddrHi,y
++ sta VRAM_Buffer1,x
++ lda AddrLo,y
++ sec
++ sbc #2
++ sta VRAM_Buffer1+1,x
++ lda #1
++ sta VRAM_Buffer1+2,x
++ lda #$3f
++ sta VRAM_Buffer1+3,x
++ lda #0
++ sta VRAM_Buffer1+4,x
++ txa
++ clc
++ adc #4
++ sta VRAM_Buffer1_Offset
++ rts
++AddrHi:.byte $21,$21,$21,$21,$22,$22
++AddrLo:.byte $25,$65,$a5,$e5,$25,$65
++.endproc
++.proc CheatsSixPage
++ php
++ sei ; serialize direct PPU address/data pairs against visible-split IRQ
++ ; BuildOptions owns forced blank. Clearrows8..26, including parent
++ ; AUDIO TEST row22/footer; paint this page's own B-back atrow23.
++ bit PPUSTATUS
++ lda #$20
++ sta PPUADDR
++ lda #$cb
++ sta PPUADDR
++ ldx #0
++Header:lda Title,x
++ sta PPUDATA
++ inx
++ cpx #7
++ bne Header
++ lda #$21
++ sta PPUADDR
++ lda #0
++ sta PPUADDR
++ lda #$24
++ ldx #0
++ ldy #2
++BlankPage:sta PPUDATA
++ inx
++ bne BlankPage
++ dey
++ bne BlankPage
++ ldx #96
++BlankTail:sta PPUDATA
++ dex
++ bne BlankTail
++ ldy #0
++ ldx #0
++Row:lda CheatsSixQueue::AddrHi,y
++ sta PPUADDR
++ lda CheatsSixQueue::AddrLo,y
++ sta PPUADDR
++ lda #22
++ sta R0
++Copy:lda Text,x
++ sta PPUDATA
++ inx
++ dec R0
++ bne Copy
++ iny
++ cpy #6
++ bcc Row
++ lda #$22
++ sta PPUADDR
++ lda #$ea
++ sta PPUADDR
++ ldx #0
++BackCopy:lda Back,x
++ sta PPUDATA
++ inx
++ cpx #8
++ bcc BackCopy
++ plp
++ rts
++Back:.byte "B - BACK"
++Title:.byte "CHEATS "
++Text:
++ .byte "INVINCIBLE            "
++ .byte "START LEVEL           "
++ .byte "MID-AIR JUMPS         "
++ .byte "SCREEN WRAP           "
++ .byte "FREEZE TIMER          "
++ .byte "FULL POWER            "
++ .assert *-Text=132,error,"six22-cell cheat labels"
++.endproc
++
++.proc CheatsGameRoutinesGate
++ ; Only the cheat-enabled or source-injury path enters. All-off retains the
++ ; original farcall path, with one ORA admission instruction added resident.
++ php
++ pha
++ phx
++ phy
++ ldx #7
++Save:lda R0,x
++ pha
++ dex
++ bpl Save
++ jsr CheatsActive
++ bcc Restore
++ lda CheatInvincible
++ and #CheatTimer
++ beq :+
++ lda #2
++ sta GameTimerCtrlTimer
++:
++ lda GuestPowerupActive
++ ora GuestHurtKind
++ ora GuestHurtTicks
++ bne Restore
++ lda CheatInvincible
++ and #CheatWrap
++ beq :+
++ jsr CheatsWrapPlayer
++:
++ lda CheatInvincible
++ and #CheatAir
++ beq :+
++ jsr CheatsAirJump
++:
++ lda CheatInvincible
++ and #CheatPower
++ beq Restore
++ jsr CheatsFullPower
++Restore:
++ ldx #0
++Pop:pla
++ sta R0,x
++ inx
++ cpx #8
++ bcc Pop
++ ply
++ plx
++ pla
++ plp
++ lda GuestHurtKind
++ beq Native
++ farcall GuestInjuryGameRoutines,jmp
++Native:farcall GameRoutines,jmp
++.endproc
++.proc CheatsActive
++ lda OperMode
++ cmp #MODE_GAMEPLAY
++ bne No
++ lda OperMode_Task
++ cmp #3
++ bne No
++ lda GameEngineSubroutine
++ cmp #8
++ bne No
++ lda GamePauseStatus
++ and #1
++
++ bne No
++ sec
++ rts
++No:clc
++ rts
++.endproc
++.proc CheatsAirJump
++ lda JumpspringAnimCtrl
++ bne Done
++ lda SelectedCharacter
++ cmp #18
++ beq Done
++ lda SwimmingFlag
++ bne Done
++ lda Player_State
++ beq Done
++ cmp #3
++ bcs Done
++ lda SelectedCharacter
++ cmp #CHARACTER_TMNT
++ beq Turtle
++ lda SavedJoypadBits
++ and #A_Button
++ beq Done
++ lda PreviousA_B_Buttons
++ and #A_Button
++ bne Done
++Rearm:
++ ; Ground admission only; real hero wrappers compute jump impulse, native
++ ; fractional motion, animation and jump SFX. Do not synthesize a velocity.
++ lda #0
++ sta Player_State
++ lda SelectedCharacter
++ cmp #CHARACTER_SIMON
++ bne Done
++ lda Cv3Variant
++ beq Done
++ lda #0
++ sta Cv3JumpActive
++ sta Cv3JumpPhase
++Done:rts
++Turtle:
++ ; The real two-update TMNT producer queues a fresh A on the skipped tick.
++ ; Re-arm only at its consuming tick, otherwise BG collision erases the
++ ; fabricated grounded admission before the genuine initializer executes.
++ lda TnClock
++ and #1
++ beq Done
++ lda PreviousA_B_Buttons
++ eor #$ff
++ and SavedJoypadBits
++ ora TnPendingFresh
++ and #A_Button
++ beq Done
++ jmp Rearm
++.endproc
++
++.proc CheatsWrapPlayer
++ lda JumpspringAnimCtrl
++ jne Done
++ lda Player_State
++ cmp #3
++ jcs Done
++ lda SelectedCharacter
++ cmp #18
++ beq Ship
++ ; Largest retained dry step is TMNT native cap9 pixels. Check
++ ; before native motion:232 catches a falling body before guest pit241.
++ lda Player_Y_HighPos
++ cmp #1
++ bcc Top
++ bne Bottom
++ lda SelectedCharacter
++ cmp #CHARACTER_TMNT
++ bne CommonTop
++ lda Player_State
++ beq CommonTop
++ lda Player_Y_Position
++ cmp #41
++ bcc Top
++CommonTop:lda Player_Y_Position
++ cmp #32
++ bcc Top
++ cmp #232
++ jcc Done
++Bottom:lda #32
++ ldx #16
++ bne Search
++Top:lda #192
++ ldx #$f0
++Search:sta R2
++ stx R3
++ lda #11
++ sta R4
++Candidate:
++ jsr CheatsWrapClear
++ bcs Move
++ lda R2
++ clc
++ adc R3
++ sta R2
++ dec R4
++ bne Candidate
++ rts ; No free32x32 landing volume: retain native body, no hidden terrain edit.
++Move:lda R2
++ sta Player_Y_Position
++ lda #1
++ sta Player_Y_HighPos
++ ; Canonical world position is the native input for every platform adapter;
++ ; fractional velocity remains unchanged. Actual enemy/background runs next.
++ rts
++Ship:
++ ; Native Gradius/Parodius clamp before crossing the screen. Admit held
++ ; direction at their real clamp, update both real owner images before tick.
++ lda SavedJoypadBits
++ and #Down_Dir
++ beq ShipUp
++ lda VvObjY
++ cmp #192
++ bcc Done
++ lda #8
++ bne ShipMove
++ShipUp:lda SavedJoypadBits
++ and #Up_Dir
++ beq Done
++ lda VvObjY
++ cmp #17
++ bcs Done
++ lda #168
++ShipMove:clc
++ adc #24
++ sta R2
++ lda #16
++ ldx R2
++ cpx #100
++ bcc ShipSearch
++ lda #$f0
++ShipSearch:sta R3
++ lda #11
++ sta R4
++ShipCandidate:jsr CheatsWrapClear
++ bcs ShipClear
++ lda R2
++ clc
++ adc R3
++ sta R2
++ dec R4
++ bne ShipCandidate
++ rts
++ShipClear:lda R2
++ sec
++ sbc #24
++ sta VvObjY
++ sta PnY
++ lda #0
++ sta VvObjYF
++ sta PnYF
++ lda VvObjY
++ clc
++ adc #24
++ sta Player_Y_Position
++ lda #1
++ sta Player_Y_HighPos
++Done:rts
++.endproc
++.proc CheatsWrapClear
++ ; Six actual tile queries cover a conservative32x32 volume at sameworldX.
++ ; The real buffer pointer and current native MTileAttribute own solidity.
++ lda #0
++ sta R5
++Column:
++ ldx R5
++ lda Player_X_Position
++ clc
++ adc Deltas,x
++ sta R0
++ lda Player_PageLoc
++ adc #0
++ and #1
++ asl
++ asl
++ asl
++ asl
++ sta R1
++ lda R0
++ lsr
++ lsr
++ lsr
++ lsr
++ ora R1
++ jsr GetBlockBufferAddr
++ lda R2
++ sec
++ sbc #32
++ sta R0
++ tay
++ lda (R6),y
++ tay
++ lda MTileAttribute,y
++ and #MTILE_SOLID
++ bne Blocked
++ lda R0
++ clc
++ adc #16
++ tay
++ lda (R6),y
++ tay
++ lda MTileAttribute,y
++ and #MTILE_SOLID
++ bne Blocked
++ inc R5
++ lda R5
++ cmp #3
++ bcc Column
++ sec
++ rts
++Blocked:clc
++ rts
++Deltas:.byte 0,16,31
++.endproc
++
++.proc CheatsFullPower
++ ; Native private owners first; never index12-entry legacy arrays by13..19.
++ ldx SelectedCharacter
++ cpx #CHARACTER_LINK
++ bne Cv3
++ lda Z2Variant
++ jeq Legacy
++ farcall Z2EnsureInit
++ lda #$ff
++ sta Z2LevelsLo
++ sta Z2LearnedSpells
++ lda #$81
++ sta Z2LevelsHi
++ lda #$77
++ sta Z2Containers
++ lda #3
++ sta Z2Tech
++ lda #255
++ sta Z2Hp
++ sta Z2Mp
++ rts
++Cv3:cpx #CHARACTER_SIMON
++ bne Roll
++ lda Cv3Variant
++ jeq Legacy
++ tay
++ dey
++ lda #64
++ sta Cv3Health,y
++ lda #99
++ sta Cv3Hearts,y
++ lda #2
++ sta Cv3Power,y
++ lda Cv3Variant
++ cmp #3
++ bcs Cv3Equipped
++ lda Cv3Subweapon,y
++ bne Cv3Equipped
++ lda #1 ; legal first carried dagger/flame; preserve any current choice.
++ sta Cv3Subweapon,y
++Cv3Equipped:lda #1
++ sta PlayerStatus
++ rts
++Roll:cpx #CHARACTER_BASS
++ bne Duck
++ lda RlVariant
++ jeq Legacy
++ lda RlHealth
++ cmp #28
++ bne RollFill
++ lda RlEnergy
++ cmp #28
++ jeq Done
++RollFill:lda #28
++ sta RlHealth
++ sta RlEnergy
++ lda #1
++ sta RlDirty
++ rts
++Duck:cpx #CHARACTER_SCROOGE
++ bne Kirby
++ lda DarkwingVariant
++ jeq Tier
++ lda DwAdaptor
++ bne DuckStocked
++ lda #$26 ; source first-upgrade Arrow; exactly one current adaptor.
++ farcall DwGiveItem
++DuckStocked:lda #4
++ sta DwHealth
++ lda #99
++ sta DwGas
++ rts
++Kirby:cpx #CHARACTER_KIRBY
++ bne Chip
++ lda #6
++ sta KbHealth
++ rts
++Chip:cpx #14
++ bne Mac
++ lda #3
++ sta CdHealth
++ rts
++Mac:cpx #15
++ bne Mike
++ lda LmHealth
++ cmp #96
++ bne MacFill
++ lda LmHearts
++ cmp #20
++ bne MacFill
++ lda LmStars
++ cmp #3
++ jeq Done
++MacFill:lda #96
++ sta LmHealth
++ lda #20
++ sta LmHearts
++ lda #3
++ sta LmStars
++ lda #1
++ sta LmDirty
++ rts
++Mike:cpx #CHARACTER_MIKE
++ bne M3
++ lda #0
++ sta R0
++ lda JnMaxHearts
++ cmp #22
++ beq :+
++ inc R0
++:lda JnHealth
++ cmp #44
++ beq :+
++ inc R0
++:lda JnOwnedTier
++ cmp #3
++ beq :+
++ inc R0
++:lda #22
++ sta JnMaxHearts
++ lda #44
++ sta JnHealth
++ lda #3
++ sta JnOwnedTier
++ ldx #9
++MikeAmmo:lda MikeAmmoMax,x
++ cmp JnAmmo,x
++ beq :+
++ sta JnAmmo,x
++ inc R0
++:
++ dex
++ bpl MikeAmmo
++ lda R0
++ beq :+
++ lda #1
++ sta JnUiDirty
++:rts
++M3:cpx #17
++ bne Viper
++ lda M3Form
++ cmp #2
++ jcs Done
++ farcall M3ClearSuitState
++ lda #2
++ sta M3Form
++ lda #0
++ sta M3PaletteValid
++ rts
++Viper:cpx #18
++ jeq Ship
++ cpx #CHARACTER_TMNT
++ bne Legacy
++ ldx #3
++Turtles:lda #128
++ sta TnHealth,x
++ lda TnEquipment,x
++ bne :+
++ lda #4
++ sta TnEquipment,x
++:
++ lda #99
++ sta TnAmmo,x
++ dex
++ bpl Turtles
++ rts
++Legacy:
++ ldx SelectedCharacter
++ beq Mario
++ cpx #CHARACTER_LUIGI
++ beq Tier
++ cpx #CHARACTER_PIT
++ beq Tier
++ cpx #CHARACTER_RYGAR
++ beq Tier
++ lda CrossoverBehaviorVersion
++ bne Modern
++ cpx #CHARACTER_SIMON+1
++ bcc Tier
++Modern:jsr CheatsInventoryMax
++ lda PlayerStatus
++ bne Done
++ farcall GuestBeginPowerup
++ rts
++Mario:lda PlayerStatus
++ cmp #2
++ bcs Done
++ sta GuestPowerupOld
++ sta GuestPowerupDisplay
++ lda #2
++ sta GuestPowerupTarget
++ lda #0
++ sta GuestLegacyHurt
++ farcall MarioSourceBeginFreeze,jmp
++Tier:lda PlayerStatus
++ cmp #2
++ bcs Done
++ farcall GuestBeginPowerup
++Done:rts
++Ship:jmp CheatsShipPower
++MikeAmmoMax:.byte 10,10,10,5,5,10,3,10,99,20
++.endproc
++.proc CheatsInventoryMax
++ ldx SelectedCharacter
++ lda RequiredLo,x
++ sta R0
++ lda RequiredHi,x
++ sta R1
++ lda Exclusive,x
++ and InvOwnedLo,x
++ bne HaveGun
++ lda DefaultGun,x
++HaveGun:ora R0
++ sta R0
++ lda #0
++ sta R2
++ ; API owns exclusivity, equip and RemainingGrant side effects. Only call
++ ; for actual missing requireditems; retain every alreadylegalexclusivegun.
++Grant:
++ ldy R2
++ lda R0
++ and BitsLo,y
++ bne Need
++ lda R1
++ and BitsHi,y
++ beq Next
++Need:
++ ldx SelectedCharacter
++ lda InvOwnedLo,x
++ and BitsLo,y
++ bne Next
++ lda InvOwnedHi,x
++ and BitsHi,y
++ bne Next
++ tya
++ farcall InventoryGrant
++Next:inc R2
++ ldx SelectedCharacter
++ lda Counts,x
++ cmp R2
++ bcs Grant
++ ; Refill only this12-owner record. Actual maxima are copied byte-exact
++ ; from source-generated InvMaxAmmo, including shared Simon/Ryu heartslots.
++ txa
++ asl
++ asl
++ asl
++ asl
++ tax
++ lda #16
++ sta R2
++Ammo:cpx #160
++ bne NativeMaximum
++ lda #99 ; source SCROLL owns Ryu shared pool; never refill50 then99.
++ bne HaveMaximum
++NativeMaximum:lda AmmoMax,x
++HaveMaximum:beq Skip
++ cmp InvAmmo,x
++ beq Skip
++ sta InvAmmo,x
++ inc InvDirty
++Skip:inx
++ dec R2
++ bne Ammo
++ rts
++RequiredLo:.byte 0,$ff,$e7,$43,$7f,$83,0,0,0,$ff,$c1,$ff
++RequiredHi:.byte 0,$07,0,0,0,$03,0,0,0,$01,0,0
++Exclusive:.byte 0,0,$18,$3c,0,$7c,0,0,0,0,$3e,0
++DefaultGun:.byte 0,0,$10,$10,0,$04,0,0,0,0,$02,0
++Counts:.byte 0,10,7,6,6,9,0,0,0,8,7,7
++BitsLo:.byte 1,2,4,8,16,32,64,128,0,0,0
++BitsHi:.byte 0,0,0,0,0,0,0,0,1,2,4
++AmmoMax:
++  .byte 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
++  .byte 0,112,112,112,112,112,112,112,112,0,0,0,0,0,0,0
++  .byte 0,0,20,0,0,0,0,0,0,0,0,0,0,0,0,0
++  .byte 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
++  .byte 0,20,20,0,0,0,0,0,0,0,0,0,0,0,0,0
++  .byte 99,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
++  .byte 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
++  .byte 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
++  .byte 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
++  .byte 0,112,112,112,112,112,112,112,0,0,0,0,0,0,0,0
++  .byte 50,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
++  .byte 0,60,20,8,0,0,0,0,0,0,0,0,0,0,0,0
++.endproc
++.proc CheatsShipPower
++ ; Let the real owners initialize first; fullpower must not be overwritten
++ ; by the first native movement tick. At most20 genuine purchases fit all
++ ; native caps, with no unbounded retry if a source purchase refuses.
++ farcall VvEnsure
++ lda VvVariant
++ beq Ready
++ farcall PnEnsure
++Ready:jsr Full
++ bcs Done
++ lda #20
++Buy:pha
++ jsr CheatsShipMax
++ pla
++ tax
++ dex
++ txa
++ bne Buy
++Done:rts
++Full:lda VvVariant
++ bne Pn
++ lda VvSpeed
++ cmp #14
++ bcc No
++ lda VvMissile
++ beq No
++ lda VvGun
++ beq No
++ lda VvOptions
++ cmp #2
++ bcc No
++ lda VvShield
++ cmp #5
++ rts
++Pn:lda VvSpeed
++ cmp #4
++ bcc No
++ lda VvGun
++ and #8
++ beq No
++ lda VvGun
++ and #$c0
++ beq No
++ lda VvGun
++ and #7
++ ldx VvVariant
++ cpx #2
++ bcc Four
++ cmp #3
++ rts
++Four:cmp #4
++ rts
++No:clc
++ rts
++.endproc
++.proc CheatsShipMax
++ lda VvVariant
++ jne Parodius
++ lda VvSpeed
++ cmp #14 ; native motion cap: (speed+2)/2, capped at8pixels.
++ bcs Missile
++ lda #1
++ jsr Buy
++ rts
++Missile:lda VvMissile
++ bne Gun
++ lda #2
++ jsr Buy
++ rts
++Gun:lda VvGun
++ bne Options
++ lda #4 ; native laser default; preserve a currentlyselectedDOUBLE.
++ jsr Buy
++ rts
++Options:lda VvOptions
++ cmp #2
++ bcs Shield
++ lda #5
++ jsr Buy
++ rts
++Shield:lda VvShield
++ cmp #5
++ bcs Done
++ ; The real purchase refuses a nonzero shield. A partlyused shield remains
++ ; sourcelegal and is refilled to its sourcemaximum by the cheat directly.
++ lda VvShield
++ beq NewShield
++ lda #5
++ sta VvShield
++ lda #1
++ sta VvHudDirty
++ rts
++NewShield:lda #6
++ jsr Buy
++Done:rts
++Buy:
++ pha
++ lda VvHeld
++ pha
++ lda VvMeter
++ pha
++ tsx
++ lda $0103,x
++ sta VvMeter
++ lda VvHeld
++ ora #B_Button
++ sta VvHeld
++ farcall VvBuyUpgrade
++ pla
++ sta VvMeter
++ pla
++ sta VvHeld
++ pla
++ rts
++Parodius:
++ ; Original bar bits1speed/2missile/4double/8laser/16options. Bit32 is
++ ; RESET, never a grant. Bellpowers are temporary choices, not stacked.
++ lda VvSpeed
++ cmp #4
++ bcs PnMissile
++ lda #1
++ jsr PnBuy
++ rts
++PnMissile:lda VvGun
++ and #8
++ bne PnBeam
++ lda #2
++ jsr PnBuy
++ rts
++PnBeam:lda VvGun
++ and #$c0
++ bne PnOptions
++ lda #8
++ jsr PnBuy
++ rts
++PnOptions:lda VvGun
++ and #7
++ ldx VvVariant
++ cpx #2
++ bcc Four
++ cmp #3
++ bcs Done
++ lda #16
++ jsr PnBuy
++ rts
++Four:cmp #4
++ bcs Done
++ lda #16
++ jsr PnBuy
++ rts
++PnBuy:
++ pha
++ lda VvMeter
++ pha
++ lda VvFresh
++ pha
++ lda PnAutoMode
++ pha
++ lda CurrentBankC
++ pha
++ BankPRGC #.bank(PnAnimationTable)
++ lda #0
++ sta PnAutoMode
++ lda #$80
++ sta VvFresh
++ tsx
++ lda $0105,x
++ sta VvMeter
++ farcall PnNativeGear
++ pla
++ BankPRGC a
++ pla
++ sta PnAutoMode
++ pla
++ sta VvFresh
++ pla
++ sta VvMeter
++ pla
++ lda #1
++ sta VvHudDirty
++ rts
++.endproc
++.assert * <= $b800,error,"Cheats cold module exceeds declared6KiB extent"
++.popseg
+--- a/src/common.s
++++ b/src/common.s
+@@ -585,9 +585,16 @@
+ .endif
+   jmp BillRareCallCommon
+ ::CheatsInjuryTimer:
++ .if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
++  jmp CheatsInjuryMask
++::GuestWaterStompPolicy:
++  lda GuestBodyStompAllowed
++  rts
++ .else
+   lda InjuryTimer
+   ora CheatInvincible
+   rts
++ .endif
+   .assert *-KillEnemies=24,error,"Keep the original resident KillEnemies span"
+ .else
+   sta R0            ;store identifier here
+--- a/src/entrypoint.s
++++ b/src/entrypoint.s
+@@ -501,3 +501,11 @@
+ .if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
+ .include "luigi_source_profile.s"
+ .endif
++
++.if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
++.include "sound_test.s"
++.endif
++
++.if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
++.include "cheats_four.s"
++.endif
+--- a/src/guest_injury.s
++++ b/src/guest_injury.s
+@@ -6,10 +6,19 @@
+ .segment "OAMALIGNED"
+ .proc GuestGameRoutinesBridge
+   lda GuestHurtKind
++.if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
++  ora CheatInvincible
+   beq Run
+-  farcall GuestInjuryGameRoutines, jmp
++  farcall CheatsGameRoutinesGate,jmp
+ Run:
+-  farcall GameRoutines, jmp
++  farcall GameRoutines,jmp
++  .byte $ea
++.else
++  beq Run
++  farcall GuestInjuryGameRoutines,jmp
++Run:
++  farcall GameRoutines,jmp
++.endif
+ .endproc
+ .segment "FIXED"
+ .proc GuestInjuryMovementBridge
+--- a/src/guest_source_stomp.s
++++ b/src/guest_source_stomp.s
+@@ -3,11 +3,17 @@
+ .pushseg
+ .segment "SRAM"
+ GuestBodyStompAllowed: .res 1
++.if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
++.segment "LOWCODE"
++.else
+ .segment "OAMALIGNED"
++.endif
++.if .not (::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5)
+ .proc GuestWaterStompPolicy
+   lda GuestBodyStompAllowed
+   rts
+ .endproc
++.endif
+ .segment "SAMUS"
+ .proc GuestSourceStompPolicy
+   lda AreaType
+--- a/src/mmc5.s
++++ b/src/mmc5.s
+@@ -233,6 +233,11 @@
+  bne Cv3AdderOther
+  jmp Cv3LegacyAdderBill
+ Cv3AdderOther:jmp Cv3LegacyAdderOther
++::CheatsInjuryMask:
++  lda CheatInvincible
++  and #1
++  ora InjuryTimer
++  rts
+   .res 136-(*-StartPublication),$ea ; old unrolled publication footprint
+ EndPublication:
+ 
+--- a/src/music_drivers/vanilla_music.s
++++ b/src/music_drivers/vanilla_music.s
+@@ -75,8 +75,13 @@
+ .proc SoundEngine
+          lda OperMode              ;are we in title screen mode?
+          bne SndOn
++.if ::ENABLE_MMC5_EXPANDED
++         jmp SoundTestAudioGate
++         nop
++.else
+          sta SND_MASTERCTRL_REG    ;if so, disable sound and leave
+          rts
++.endif
+ SndOn:   lda #$ff
+          sta JOYPAD_PORT2          ;disable irqs and set frame counter mode???
+          lda #$0f
+--- a/src/sound_test.s
++++ b/src/sound_test.s
+@@ -0,0 +1,677 @@
++; Expanded MMC5 title-only sound browser. No gameplay RAM allocation.
++; The native platform draw buffer is inactive on this page and is invalidated
++; before entering/leaving. Audio never uses the shared foreground farcall SMC.
++SoundTestVariantActive=HpDrawBuffer+11
++SoundTestSavedVariantLo=HpDrawBuffer+12
++SoundTestSavedVariantHi=HpDrawBuffer+13
++SoundTestSavedVariantValue=HpDrawBuffer+14
++SoundTestHero=HpDrawBuffer+15
++SoundTestKind=HpDrawBuffer+16
++SoundTestIndex=HpDrawBuffer+17
++SoundTestPlaying=HpDrawBuffer+18
++SoundTestCommand=HpDrawBuffer+19
++SoundTestCueKind=HpDrawBuffer+20
++SoundTestCueValue=HpDrawBuffer+21
++SoundTestReserved=HpDrawBuffer+22
++.export SoundTestHero,SoundTestKind,SoundTestIndex,SoundTestPlaying,SoundTestCommand
++.pushseg
++.segment "X5_MENU_UI"
++
++.proc SoundTestEnter
++ lda #0
++ sta HpValid
++ ldx #11
++Clear:
++ sta SoundTestVariantActive,x
++ dex
++ bpl Clear
++ lda #7
++ sta CrossoverMenuState
++ lda #1
++ sta DisableScreenFlag
++ rts
++.endproc
++
++.proc SoundTestInput
++ lda CrossoverMenuPressed
++ and #B_Button
++ beq Navigate
++ lda #0
++ sta SoundTestPlaying
++ sta SoundTestCommand
++ sta HpValid
++ jsr SoundTestRestoreVariant
++ jsr SoundTestReset
++ lda #3
++ sta CrossoverOptionsFocus
++ sta CrossoverMenuState
++ lda #1
++ sta DisableScreenFlag
++ rts
++Navigate:
++ lda CrossoverMenuPressed
++ and #Up_Dir|Down_Dir
++ beq Category
++ ldx SoundTestHero
++ and #Up_Dir
++ beq NextHero
++ dex
++ bpl HeroReady
++ ldx #SoundTestHeroCount-1
++ bne HeroReady
++NextHero:
++ inx
++ cpx #SoundTestHeroCount
++ bcc HeroReady
++ ldx #0
++HeroReady:
++ stx SoundTestHero
++ lda #0
++ sta SoundTestIndex
++ jmp Stop
++Category:
++ lda CrossoverMenuPressed
++ and #Select_Button
++ beq Track
++ lda SoundTestKind
++ eor #1
++ sta SoundTestKind
++ lda #0
++ sta SoundTestIndex
++ jmp Stop
++Track:
++ lda CrossoverMenuPressed
++ and #Left_Dir|Right_Dir
++ beq Playback
++ jsr Count
++ stx R2
++ ldx SoundTestIndex
++ lda CrossoverMenuPressed
++ and #Left_Dir
++ beq NextTrack
++ dex
++ bpl TrackReady
++ ldx R2
++ dex
++ bpl TrackReady
++NextTrack:
++ inx
++ cpx R2
++ bcc TrackReady
++ ldx #0
++TrackReady:
++ stx SoundTestIndex
++ jmp Stop
++Playback:
++ lda CrossoverMenuPressed
++ and #Start_Button
++ jne Stop
++ lda CrossoverMenuPressed
++ and #A_Button
++ jeq Done
++ lda #0
++ sta SoundTestPlaying
++ sta SoundTestCommand
++ jsr SoundTestRestoreVariant
++ jsr SoundTestReset
++ ldx SoundTestHero
++ lda SoundTestHeroIds,x
++ sta SoundTestReserved
++ lda SoundTestVariantHi,x
++ beq VariantReady
++ sta SoundTestSavedVariantHi
++ sta R1
++ lda SoundTestVariantLo,x
++ sta SoundTestSavedVariantLo
++ sta R0
++ ldy #0
++ lda (R0),y
++ sta SoundTestSavedVariantValue
++ lda SoundTestVariantValue,x
++ sta (R0),y
++ lda #1
++ sta SoundTestVariantActive
++VariantReady:
++ lda SoundTestKind
++ beq MusicCue
++ cmp #1
++ bne MusicCue
++ lda SoundTestReserved
++ cmp #CHARACTER_PIT
++ bcc EffectCue
++ cmp #CHARACTER_BASS
++ beq EffectCue
++ cmp #CHARACTER_RYU
++ beq EffectCue
++ cmp #CHARACTER_SOPHIA
++ beq EffectCue
++ lda #CHARACTER_PIT
++ sta SoundTestReserved
++EffectCue:
++ lda SelectedCharacter
++ pha
++ lda SoundTestReserved
++ sta SelectedCharacter
++ farcall GuestAudioBegin
++ pla
++ sta SelectedCharacter
++ jsr SoundTestEffectPointer
++ ldy #0
++ lda (R0),y
++ sta SoundTestCueKind
++ iny
++ lda (R0),y
++ sta SoundTestCueValue
++ jsr SoundTestCue
++ jmp Play
++MusicCue:
++ ldx SoundTestIndex
++ lda SoundTestMusicBits,x
++ sta SoundTestCueValue
++Play:
++ lda #1
++ sta SoundTestPlaying
++ sta SoundTestCommand
++ jmp Changed
++Stop:
++ lda #0
++ sta SoundTestPlaying
++ sta SoundTestCommand
++ jsr SoundTestRestoreVariant
++ lda #2
++ sta SoundTestCommand
++Changed:
++ jmp SoundTestQueue
++Done:
++ rts
++Count:
++ ldx #SoundTestMusicCount
++ lda SoundTestKind
++ beq Counted
++ ldx SoundTestHero
++ lda SoundTestSfxCounts,x
++ tax
++Counted:rts
++.endproc
++
++.proc SoundTestRestoreVariant
++ lda SoundTestVariantActive
++ beq Done
++ lda SoundTestSavedVariantLo
++ sta R0
++ lda SoundTestSavedVariantHi
++ sta R1
++ ldy #0
++ lda SoundTestSavedVariantValue
++ sta (R0),y
++ lda #0
++ sta SoundTestVariantActive
++Done:rts
++.endproc
++
++.proc SoundTestBuildPage
++ lda PPUSTATUS
++ lda #$20
++ sta PPUADDR
++ lda #0
++ sta PPUADDR
++ lda #$24
++ ldx #4
++ ldy #0
++Blank:
++ sta PPUDATA
++ iny
++ bne Blank
++ dex
++ bne Blank
++ lda #$23
++ sta PPUADDR
++ lda #$c0
++ sta PPUADDR
++ lda #$aa
++ ldx #64
++Attributes:
++ sta PPUDATA
++ dex
++ bne Attributes
++ ldy #0
++Next:
++ lda Text,y
++ beq Done
++ sta PPUADDR
++ iny
++ lda Text,y
++ sta PPUADDR
++ iny
++ lda Text,y
++ tax
++ iny
++Copy:
++ lda Text,y
++ sta PPUDATA
++ iny
++ dex
++ bne Copy
++ beq Next
++Done:rts
++Text:
++ .byte $20,$8b,T0End-T0
++T0:.byte "SOUND TEST"
++T0End:
++ .byte $21,$05,T1End-T1
++T1:.byte "CHARACTER"
++T1End:
++ .byte $21,$e5,T2End-T2
++T2:.byte "TRACK"
++T2End:
++ .byte $22,$65,T3End-T3
++T3:.byte "STATUS - "
++T3End:
++ .byte $22,$a3,H0End-H0
++H0:.byte "UP DOWN - CHARACTER"
++H0End:
++ .byte $22,$e3,H1End-H1
++H1:.byte "LEFT RIGHT - TRACK"
++H1End:
++ .byte $23,$23,H2End-H2
++H2:.byte "SELECT - MUSIC OR SFX"
++H2End:
++ .byte $23,$63,H3End-H3
++H3:.byte "A PLAY  START STOP  B BACK"
++H3End:
++ .byte 0
++ .assert *-Text<256,error,"Sound test static text uses one Y page"
++.endproc
++
++.proc SoundTestQueue
++ ldx SoundTestHero
++ lda SoundTestNameLo,x
++ sta R0
++ lda SoundTestNameHi,x
++ sta R1
++ lda #22
++ sta R2
++ lda #$21
++ sta R3
++ lda #$45
++ sta R4
++ jsr Line
++ lda #<MusicType
++ sta R0
++ lda #>MusicType
++ sta R1
++ lda SoundTestKind
++ beq TypeReady
++ lda #<SfxType
++ sta R0
++ lda #>SfxType
++ sta R1
++TypeReady:
++ lda #12
++ sta R2
++ lda #$a5
++ sta R4
++ jsr Line
++ lda SoundTestKind
++ bne EffectName
++ lda #<SoundTestMusicNames
++ sta R0
++ lda #>SoundTestMusicNames
++ sta R1
++ ldx SoundTestIndex
++MusicOffset:
++ cpx #0
++ beq NameReady
++ clc
++ lda R0
++ adc #24
++ sta R0
++ bcc :+
++ inc R1
++:
++ dex
++ bne MusicOffset
++ beq NameReady
++EffectName:
++ jsr SoundTestEffectPointer
++ clc
++ lda R0
++ adc #2
++ sta R0
++ bcc NameReady
++ inc R1
++NameReady:
++ lda #24
++ sta R2
++ lda #$22
++ sta R3
++ lda #$24
++ sta R4
++ jsr Line
++ lda #<Stopped
++ sta R0
++ lda #>Stopped
++ sta R1
++ lda SoundTestPlaying
++ beq StatusReady
++ lda #<Playing
++ sta R0
++ lda #>Playing
++ sta R1
++StatusReady:
++ lda #8
++ sta R2
++ lda #$6e
++ sta R4
++ jmp Line
++Line:
++ ldx VRAM_Buffer1_Offset
++ lda R3
++ sta VRAM_Buffer1,x
++ lda R4
++ sta VRAM_Buffer1+1,x
++ lda R2
++ sta VRAM_Buffer1+2,x
++ ldy #0
++Bytes:
++ lda (R0),y
++ sta VRAM_Buffer1+3,x
++ inx
++ iny
++ cpy R2
++ bne Bytes
++ inx
++ inx
++ inx
++ stx VRAM_Buffer1_Offset
++ lda #0
++ sta VRAM_Buffer1,x
++ rts
++MusicType:.byte "TYPE - MUSIC"
++SfxType:  .byte "TYPE - SFX  "
++Stopped:  .byte "STOPPED "
++Playing:  .byte "PLAYING "
++.endproc
++
++.proc SoundTestEffectPointer
++ ldx SoundTestHero
++ lda SoundTestCommonCounts,x
++ sta R2
++ lda SoundTestIndex
++ cmp R2
++ bcs Native
++ lda SoundTestCommonLo,x
++ sta R0
++ lda SoundTestCommonHi,x
++ sta R1
++ ldx SoundTestIndex
++ jmp Offset
++Native:
++ sec
++ sbc R2
++ pha
++ lda SoundTestSfxLo,x
++ sta R0
++ lda SoundTestSfxHi,x
++ sta R1
++ pla
++ tax
++Offset:
++ cpx #0
++ beq Done
++ clc
++ lda R0
++ adc #26
++ sta R0
++ bcc :+
++ inc R1
++:
++ dex
++ jmp Offset
++Done:rts
++.endproc
++
++; The original vanilla playback call already owns music bank5 and preserves
++; its caller's A mapping. Append in its unused tail; preserve every old song
++; address and the original gameplay SoundEngine entry/branch span.
++.segment "MUSIC"
++.proc SoundTestAudioGate
++ lda CrossoverMenuState
++ cmp #8
++ beq SoundTestAudioTick
++ lda #0
++ sta SND_MASTERCTRL_REG
++ rts
++.endproc
++
++; Normal AudioUpdate restores bank5 before returning. NMI uses this direct
++; route and never changes the main thread's five live farcall SMC operands.
++.proc SoundTestAudioTick
++ lda CurrentBank
++ pha
++ lda #.bank(SoundTestAudioTick)|MMC5_PRG_ROM
++ sta CurrentBank
++ lda OperMode
++ pha
++ lda SelectedCharacter
++ pha
++ lda GamePauseStatus
++ pha
++ lda PlayerStatus
++ pha
++ lda Player_State
++ pha
++ lda GameEngineSubroutine
++ pha
++ lda MmDeathFlag
++ pha
++ lda MmChargeFrames
++ pha
++ lda #1
++ sta OperMode
++ sta Player_State
++ lda #0
++ sta GamePauseStatus
++ sta PlayerStatus
++ sta GameEngineSubroutine
++ sta MmDeathFlag
++ sta MmChargeFrames
++ ldx SoundTestHero
++ lda SoundTestReserved
++ sta SelectedCharacter
++ lda SoundTestCommand
++ beq Continue
++ cmp #3
++ beq SendEvent
++ cmp #1
++ bne Stopped
++ lda SoundTestKind
++ bne Continue
++ ldx SoundTestIndex
++ lda SoundTestCueValue
++ cpx #7
++ bcs PrimeEvent
++ sta AreaMusicQueue
++ jmp Continue
++PrimeEvent:
++ lda #GroundMusic
++ sta AreaMusicQueue
++ lda #3
++ sta SoundTestCommand
++ jmp Tick
++SendEvent:
++ lda SoundTestCueValue
++ sta EventMusicQueue
++Continue:
++ lda SoundTestPlaying
++ beq Stopped
++ lda SoundTestKind
++ beq Update
++ lda SoundTestCueKind
++ cmp #8
++ bne :+
++ lda SoundTestCueValue
++ sta PlayerStatus
++:
++ ; The UI selected the exact shared SFX family for common-only heroes.
++ lda SelectedCharacter
++ cmp #CHARACTER_PIT
++ bcc Update
++ sta XgAudioCharacter
++ lda #3
++ sta XgAudioEvent
++Update:
++ lda #0
++ sta SoundTestCommand
++Tick:
++ jsr AudioUpdate
++ jmp Restore
++Stopped:
++ lda #0
++ sta SoundTestCommand
++ sta $4015
++ sta $5015
++ sta $4011
++Restore:
++ pla
++ sta MmChargeFrames
++ pla
++ sta MmDeathFlag
++ pla
++ sta GameEngineSubroutine
++ pla
++ sta Player_State
++ pla
++ sta PlayerStatus
++ pla
++ sta GamePauseStatus
++ pla
++ sta SelectedCharacter
++ pla
++ sta OperMode
++ pla
++ sta CurrentBank
++ rts
++.endproc
++
++.assert * <= $c000,error,"Sound audio wrapper exceeds bank5 tail"
++.segment "X5_MENU_UI"
++.proc SoundTestReset
++ lda #0
++ sta $4015
++ sta $5015
++ sta $4011
++ sta AreaMusicQueue
++ sta EventMusicQueue
++ sta Square1SoundQueue
++ sta Square2SoundQueue
++ sta NoiseSoundQueue
++ sta PauseSoundQueue
++ sta GuestMixMask
++ sta GuestMixPreviousMask
++ sta GuestNativeEnable
++ sta GuestCombinedEnable
++ sta BassDmcActive
++ sta BassSourceId
++ sta BassSourcePriority
++ sta BassSourceKill
++ sta BassAudioPreviousMask
++ sta BassAudioLastDeath
++ sta BassAudioLastGround
++ sta AvAudioId
++ sta AvAudioMask
++ sta AvAudioOldMask
++ sta AvAudioRequest
++ sta SsAudioRequest
++ sta SmSfx
++ sta RgSfx
++ sta ProtoAudioState
++ ldx #15
++ClearImages:
++ sta GuestNativeApu,x
++ sta GuestFxApu,x
++ sta XgMusicApu,x
++ sta GuestNativeDirty,x
++ sta GuestFxDirty,x
++ dex
++ bpl ClearImages
++ ldx #0
++ClearRoster:
++ sta RgAudioRam,x
++ sta RgAudioRam+$100,x
++ inx
++ bne ClearRoster
++ ldx #159
++ClearZp:
++ sta RgAudioZp,x
++ dex
++ bpl ClearZp
++ jsr AudioInit
++ jsr MegaManAudioInit
++ jsr SamusAudioInit
++ lda #0
++ sta MmAudioCurrentSong
++ sta MmAudioDesiredSong
++ lda #$ff
++ sta GuestAudioCharacter
++ sta RgAudioCharacter
++ sta XgAudioCharacter
++ sta BassAudioRequest
++ ldx #15
++Invalidate:
++ sta GuestApuLast,x
++ dex
++ bpl Invalidate
++ ldx #7
++InvalidateExpansion:
++ sta GuestExpansionLast,x
++ dex
++ bpl InvalidateExpansion
++ rts
++.endproc
++
++.proc SoundTestCue
++ ldx SoundTestCueKind
++ lda SoundTestCueValue
++ cpx #1
++ beq Square1
++ cpx #2
++ beq Square2
++ cpx #3
++ beq Noise
++ cpx #4
++ beq Typed
++ cpx #5
++ beq Robot
++ cpx #6
++ beq Metroid
++ cpx #9
++ beq Cv3
++ ; The primary source wrappers consume their ordinary, real shot requests.
++ lda #1
++ sta RgSfx
++ lda #Sfx_Fireball
++Square1:sta Square1SoundQueue
++ rts
++Square2:sta Square2SoundQueue
++ rts
++Noise:sta NoiseSoundQueue
++ rts
++Typed:sta AvAudioRequest
++ ldx SoundTestHero
++ lda SoundTestHeroIds,x
++ sta AvAudioChar
++ rts
++Robot:sta SsAudioRequest
++ rts
++Metroid:sta SmSfx
++ rts
++Cv3:ldy Cv3FxQueueHead
++ sta Cv3FxQueue,y
++ inc Cv3FxQueueHead
++ rts
++.endproc
++
++.include "sound_test_tables.inc"
++.assert * <= $c000,error,"Sound browser exceeds its existing bank99 A-window tail"
++.popseg
+--- a/src/sound_test_tables.inc
++++ b/src/sound_test_tables.inc
+@@ -0,0 +1,196 @@
++; Generated from actual host audio cue APIs; labels describe usage, not invented song titles.
++SoundTestHeroCount=37
++SoundTestHeroIds: .byte 0,8,1,1,2,3,3,4,4,5,5,5,5,6,7,12,12,9,9,10,11,13,13,14,14,15,16,17,17,18,18,18,18,19,19,19,19
++SoundTestMusicBits: .byte 1,2,4,8,16,32,64,1,2,4,8,16,32,64
++SoundTestVariantLo: .byte <MarioVariant,<MarioVariant,<ProtoVariant,<ProtoVariant,0,<BillVariant,<BillVariant,<Z2Variant,<Z2Variant,<Cv3Variant,<Cv3Variant,<Cv3Variant,<Cv3Variant,0,0,<DarkwingVariant,<DarkwingVariant,<RlVariant,<RlVariant,0,0,<KbVariant,<KbVariant,<CdVariant,<CdVariant,0,0,<M3Variant,<M3Variant,<VvVariant,<VvVariant,<VvVariant,<VvVariant,<TnVariant,<TnVariant,<TnVariant,<TnVariant
++SoundTestVariantHi: .byte >MarioVariant,>MarioVariant,>ProtoVariant,>ProtoVariant,0,>BillVariant,>BillVariant,>Z2Variant,>Z2Variant,>Cv3Variant,>Cv3Variant,>Cv3Variant,>Cv3Variant,0,0,>DarkwingVariant,>DarkwingVariant,>RlVariant,>RlVariant,0,0,>KbVariant,>KbVariant,>CdVariant,>CdVariant,0,0,>M3Variant,>M3Variant,>VvVariant,>VvVariant,>VvVariant,>VvVariant,>TnVariant,>TnVariant,>TnVariant,>TnVariant
++SoundTestVariantValue: .byte 0,1,0,1,0,0,1,0,1,0,1,2,3,0,0,0,1,0,1,0,0,0,1,0,1,0,0,0,1,0,1,2,3,0,1,2,3
++SoundTestNameLo: .byte <SoundTestName0,<SoundTestName1,<SoundTestName2,<SoundTestName3,<SoundTestName4,<SoundTestName5,<SoundTestName6,<SoundTestName7,<SoundTestName8,<SoundTestName9,<SoundTestName10,<SoundTestName11,<SoundTestName12,<SoundTestName13,<SoundTestName14,<SoundTestName15,<SoundTestName16,<SoundTestName17,<SoundTestName18,<SoundTestName19,<SoundTestName20,<SoundTestName21,<SoundTestName22,<SoundTestName23,<SoundTestName24,<SoundTestName25,<SoundTestName26,<SoundTestName27,<SoundTestName28,<SoundTestName29,<SoundTestName30,<SoundTestName31,<SoundTestName32,<SoundTestName33,<SoundTestName34,<SoundTestName35,<SoundTestName36
++SoundTestNameHi: .byte >SoundTestName0,>SoundTestName1,>SoundTestName2,>SoundTestName3,>SoundTestName4,>SoundTestName5,>SoundTestName6,>SoundTestName7,>SoundTestName8,>SoundTestName9,>SoundTestName10,>SoundTestName11,>SoundTestName12,>SoundTestName13,>SoundTestName14,>SoundTestName15,>SoundTestName16,>SoundTestName17,>SoundTestName18,>SoundTestName19,>SoundTestName20,>SoundTestName21,>SoundTestName22,>SoundTestName23,>SoundTestName24,>SoundTestName25,>SoundTestName26,>SoundTestName27,>SoundTestName28,>SoundTestName29,>SoundTestName30,>SoundTestName31,>SoundTestName32,>SoundTestName33,>SoundTestName34,>SoundTestName35,>SoundTestName36
++SoundTestName0: .byte "MARIO                 "
++SoundTestName1: .byte "LUIGI                 "
++SoundTestName2: .byte "MEGA MAN              "
++SoundTestName3: .byte "PROTO MAN             "
++SoundTestName4: .byte "SAMUS                 "
++SoundTestName5: .byte "BILL                  "
++SoundTestName6: .byte "LANCE                 "
++SoundTestName7: .byte "LINK                  "
++SoundTestName8: .byte "ZELDA II LINK         "
++SoundTestName9: .byte "SIMON                 "
++SoundTestName10: .byte "GRANT                 "
++SoundTestName11: .byte "SYPHA                 "
++SoundTestName12: .byte "ALUCARD               "
++SoundTestName13: .byte "PIT                   "
++SoundTestName14: .byte "RYGAR                 "
++SoundTestName15: .byte "SCROOGE               "
++SoundTestName16: .byte "DARKWING DUCK         "
++SoundTestName17: .byte "BASS                  "
++SoundTestName18: .byte "ROLL                  "
++SoundTestName19: .byte "RYU                   "
++SoundTestName20: .byte "SOPHIA                "
++SoundTestName21: .byte "KIRBY                 "
++SoundTestName22: .byte "META KNIGHT           "
++SoundTestName23: .byte "CHIP                  "
++SoundTestName24: .byte "DALE                  "
++SoundTestName25: .byte "LITTLE MAC            "
++SoundTestName26: .byte "MIKE JONES            "
++SoundTestName27: .byte "SMB3 MARIO            "
++SoundTestName28: .byte "SMB3 LUIGI            "
++SoundTestName29: .byte "VIC VIPER             "
++SoundTestName30: .byte "OCTOPUS               "
++SoundTestName31: .byte "TWINBEE               "
++SoundTestName32: .byte "PENTAROU              "
++SoundTestName33: .byte "LEONARDO              "
++SoundTestName34: .byte "RAPHAEL               "
++SoundTestName35: .byte "MICHELANGELO          "
++SoundTestName36: .byte "DONATELLO             "
++SoundTestMusicCount=14
++SoundTestMusicNames:
++ .byte "OVERWORLD               "
++ .byte "UNDERWATER              "
++ .byte "UNDERGROUND             "
++ .byte "CASTLE                  "
++ .byte "SKY BONUS               "
++ .byte "PIPE INTRO              "
++ .byte "STAR POWER              "
++ .byte "DEATH                   "
++ .byte "GAME OVER               "
++ .byte "VICTORY                 "
++ .byte "CASTLE CLEAR            "
++ .byte "ALT GAME OVER           "
++ .byte "LEVEL CLEAR             "
++ .byte "TIME LOW                "
++SoundTestCueGroup0:
++ .byte 1,Sfx_SmallJump,"JUMP                    "
++ .byte 7,1,"PRIMARY ATTACK          "
++ .byte 1,Sfx_EnemySmack,"ENEMY HIT               "
++ .byte 1,Sfx_PipeDown_Injury,"TAKE DAMAGE             "
++ .byte 1,Sfx_Bump,"BUMP BLOCK              "
++ .byte 3,Sfx_BrickShatter,"BREAK BRICK             "
++ .byte 2,Sfx_CoinGrab,"COIN                    "
++ .byte 2,Sfx_GrowPowerUp,"ITEM REVEAL             "
++ .byte 2,Sfx_ExtraLife,"EXTRA LIFE              "
++SoundTestCueGroup1:
++SoundTestCueGroup2:
++ .byte 5,20,"LAND                    "
++ .byte 7,1,"PRIMARY ATTACK          "
++ .byte 1,Sfx_EnemySmack,"ENEMY HIT               "
++ .byte 1,Sfx_PipeDown_Injury,"TAKE DAMAGE             "
++ .byte 1,Sfx_Bump,"BUMP BLOCK              "
++ .byte 3,Sfx_BrickShatter,"BREAK BRICK             "
++ .byte 2,Sfx_CoinGrab,"COIN                    "
++ .byte 2,Sfx_GrowPowerUp,"ITEM REVEAL             "
++ .byte 2,Sfx_ExtraLife,"EXTRA LIFE              "
++SoundTestCueGroup3:
++ .byte 5,58,"CHARGE START            "
++ .byte 5,59,"CHARGE LOOP             "
++ .byte 5,60,"CHARGED SHOT            "
++ .byte 5,24,"DEATH                   "
++ .byte 5,64,"METAL BLADE             "
++ .byte 5,22,"HARD KNUCKLE            "
++ .byte 5,61,"PHARAOH SHOT            "
++ .byte 5,62,"CHARGED PHARAOH         "
++ .byte 5,65,"CHARGE KICK             "
++ .byte 5,22,"FLAME SHOT              "
++ .byte 5,66,"SHIELD EXPAND           "
++ .byte 5,67,"WATER SHIELD            "
++SoundTestCueGroup4:
++ .byte 6,1,"JUMP                    "
++ .byte 7,1,"PRIMARY ATTACK          "
++ .byte 1,Sfx_EnemySmack,"ENEMY HIT               "
++ .byte 1,Sfx_PipeDown_Injury,"TAKE DAMAGE             "
++ .byte 1,Sfx_Bump,"BUMP BLOCK              "
++ .byte 3,Sfx_BrickShatter,"BREAK BRICK             "
++ .byte 2,Sfx_CoinGrab,"COIN                    "
++ .byte 2,Sfx_GrowPowerUp,"ITEM REVEAL             "
++ .byte 2,Sfx_ExtraLife,"EXTRA LIFE              "
++SoundTestCueGroup5:
++ .byte 6,2,"MORPH BALL              "
++ .byte 6,4,"BOMB SET                "
++ .byte 6,8,"BOMB EXPLOSION          "
++ .byte 6,16,"WALK                    "
++ .byte 6,32,"DEFLECT                 "
++ .byte 6,64,"DEATH                   "
++ .byte 4,AV_SFX_SAMUSSHOOTMISSILE,"MISSILE                 "
++ .byte 4,AV_SFX_SAMUSSCREWATTACK,"SCREW ATTACK            "
++ .byte 2,Sfx_PowerUpGrab,"PICKUP                  "
++SoundTestCueGroup6:
++ .byte 7,1,"PRIMARY ATTACK          "
++ .byte 1,Sfx_EnemySmack,"ENEMY HIT               "
++ .byte 1,Sfx_PipeDown_Injury,"TAKE DAMAGE             "
++ .byte 1,Sfx_Bump,"BUMP BLOCK              "
++ .byte 3,Sfx_BrickShatter,"BREAK BRICK             "
++ .byte 2,Sfx_CoinGrab,"COIN                    "
++ .byte 2,Sfx_GrowPowerUp,"ITEM REVEAL             "
++ .byte 2,Sfx_ExtraLife,"EXTRA LIFE              "
++SoundTestCueGroup7:
++ .byte 8,1,"MACHINE GUN             "
++ .byte 8,2,"SPREAD                  "
++ .byte 4,AV_SFX_BILLLASER,"LASER                   "
++ .byte 4,AV_SFX_BILLFLARE,"FLAME                   "
++ .byte 2,Sfx_PowerUpGrab,"PICKUP                  "
++SoundTestCueGroup8:
++ .byte 4,AV_SFX_LINKSHOOTARROW,"ARROW                   "
++ .byte 4,AV_SFX_LINKSETBOMB,"SET BOMB                "
++ .byte 4,AV_SFX_LINKBOMBEXPLODE,"BOMB EXPLOSION          "
++SoundTestCueGroup9:
++ .byte 4,AV_SFX_SIMONTHROWDAGGER,"DAGGER                  "
++ .byte 4,AV_SFX_SIMONHOLYWATEREXPLODE,"HOLY WATER              "
++ .byte 4,AV_SFX_SIMONCROSS,"CROSS                   "
++ .byte 4,AV_SFX_SIMONSTOPWATCH,"STOPWATCH               "
++SoundTestCueGroup10:
++ .byte 9,1,"DAGGER                  "
++ .byte 9,2,"AXE                     "
++SoundTestCueGroup11:
++ .byte 9,4,"FIRE                    "
++ .byte 9,5,"ICE                     "
++ .byte 9,6,"LIGHTNING               "
++SoundTestCueGroup12:
++ .byte 9,6,"FIREBALL                "
++ .byte 9,7,"BAT CHANGE              "
++SoundTestCueGroup13:
++ .byte 5,20,"LAND                    "
++ .byte 5,21,"LIFE OR POWERUP         "
++ .byte 5,22,"BUSTER                  "
++ .byte 5,23,"HURT                    "
++ .byte 5,24,"DEATH                   "
++ .byte 5,25,"HIT ENEMY               "
++ .byte 5,26,"DEFLECT                 "
++ .byte 5,29,"ENERGY                  "
++ .byte 5,61,"PHARAOH SHOT            "
++ .byte 5,62,"CHARGED PHARAOH         "
++ .byte 5,63,"ENERGY REFILL LOOP      "
++ .byte 5,64,"METAL OR KNUCKLE        "
++ .byte 5,65,"CHARGE KICK             "
++ .byte 5,66,"SHIELD EXPAND           "
++ .byte 5,67,"WATER SHIELD            "
++ .byte 5,68,"TELEPORT                "
++SoundTestCueGroup14:
++ .byte 4,AV_SFX_RYUJUMP,"JUMP                    "
++ .byte 7,1,"PRIMARY ATTACK          "
++ .byte 1,Sfx_EnemySmack,"ENEMY HIT               "
++ .byte 1,Sfx_PipeDown_Injury,"TAKE DAMAGE             "
++ .byte 1,Sfx_Bump,"BUMP BLOCK              "
++ .byte 3,Sfx_BrickShatter,"BREAK BRICK             "
++ .byte 2,Sfx_CoinGrab,"COIN                    "
++ .byte 2,Sfx_GrowPowerUp,"ITEM REVEAL             "
++ .byte 2,Sfx_ExtraLife,"EXTRA LIFE              "
++SoundTestCueGroup15:
++ .byte 4,AV_SFX_RYUARTOFFIREWHEEL,"FIRE WHEEL              "
++ .byte 4,AV_SFX_RYUFIREDRGONBALL,"FIRE DRAGON             "
++ .byte 4,AV_SFX_RYUJUMPSLASH,"JUMP SLASH              "
++ .byte 4,AV_SFX_RYUTHROWSMALLSTAR,"SMALL STAR              "
++ .byte 4,AV_SFX_RYUTHROWBIGSTAR,"BIG STAR                "
++ .byte 4,AV_SFX_RYUTAKEDAMAGE,"NINJA HURT              "
++SoundTestCueGroup16:
++ .byte 4,AV_SFX_SOPHIAMISSILE,"MISSILE                 "
++ .byte 4,AV_SFX_SOPHIABULLETEXPLODE,"SHOT EXPLOSION          "
++ .byte 4,AV_SFX_SOPHIAHITENEMY,"HIT ENEMY               "
++ .byte 4,AV_SFX_SOPHIAKILLENEMY,"KILL ENEMY              "
++ .byte 4,AV_SFX_SOPHIALAND,"LAND                    "
++SoundTestSfxCounts: .byte 9,9,21,21,18,13,13,11,11,12,10,11,10,9,9,9,9,24,24,15,14,9,9,9,9,9,9,9,9,8,8,8,8,9,9,9,9
++SoundTestCommonCounts: .byte 9,9,9,9,9,8,8,8,8,8,8,8,8,9,9,9,9,8,8,9,9,9,9,9,9,9,9,9,9,8,8,8,8,9,9,9,9
++SoundTestCommonLo: .byte <SoundTestCueGroup0,<SoundTestCueGroup0,<SoundTestCueGroup2,<SoundTestCueGroup2,<SoundTestCueGroup4,<SoundTestCueGroup6,<SoundTestCueGroup6,<SoundTestCueGroup6,<SoundTestCueGroup6,<SoundTestCueGroup6,<SoundTestCueGroup6,<SoundTestCueGroup6,<SoundTestCueGroup6,<SoundTestCueGroup0,<SoundTestCueGroup0,<SoundTestCueGroup0,<SoundTestCueGroup0,<SoundTestCueGroup6,<SoundTestCueGroup6,<SoundTestCueGroup14,<SoundTestCueGroup0,<SoundTestCueGroup0,<SoundTestCueGroup0,<SoundTestCueGroup0,<SoundTestCueGroup0,<SoundTestCueGroup0,<SoundTestCueGroup0,<SoundTestCueGroup0,<SoundTestCueGroup0,<SoundTestCueGroup6,<SoundTestCueGroup6,<SoundTestCueGroup6,<SoundTestCueGroup6,<SoundTestCueGroup0,<SoundTestCueGroup0,<SoundTestCueGroup0,<SoundTestCueGroup0
++SoundTestCommonHi: .byte >SoundTestCueGroup0,>SoundTestCueGroup0,>SoundTestCueGroup2,>SoundTestCueGroup2,>SoundTestCueGroup4,>SoundTestCueGroup6,>SoundTestCueGroup6,>SoundTestCueGroup6,>SoundTestCueGroup6,>SoundTestCueGroup6,>SoundTestCueGroup6,>SoundTestCueGroup6,>SoundTestCueGroup6,>SoundTestCueGroup0,>SoundTestCueGroup0,>SoundTestCueGroup0,>SoundTestCueGroup0,>SoundTestCueGroup6,>SoundTestCueGroup6,>SoundTestCueGroup14,>SoundTestCueGroup0,>SoundTestCueGroup0,>SoundTestCueGroup0,>SoundTestCueGroup0,>SoundTestCueGroup0,>SoundTestCueGroup0,>SoundTestCueGroup0,>SoundTestCueGroup0,>SoundTestCueGroup0,>SoundTestCueGroup6,>SoundTestCueGroup6,>SoundTestCueGroup6,>SoundTestCueGroup6,>SoundTestCueGroup0,>SoundTestCueGroup0,>SoundTestCueGroup0,>SoundTestCueGroup0
++SoundTestSfxLo: .byte <SoundTestCueGroup1,<SoundTestCueGroup1,<SoundTestCueGroup3,<SoundTestCueGroup3,<SoundTestCueGroup5,<SoundTestCueGroup7,<SoundTestCueGroup7,<SoundTestCueGroup8,<SoundTestCueGroup8,<SoundTestCueGroup9,<SoundTestCueGroup10,<SoundTestCueGroup11,<SoundTestCueGroup12,<SoundTestCueGroup1,<SoundTestCueGroup1,<SoundTestCueGroup1,<SoundTestCueGroup1,<SoundTestCueGroup13,<SoundTestCueGroup13,<SoundTestCueGroup15,<SoundTestCueGroup16,<SoundTestCueGroup1,<SoundTestCueGroup1,<SoundTestCueGroup1,<SoundTestCueGroup1,<SoundTestCueGroup1,<SoundTestCueGroup1,<SoundTestCueGroup1,<SoundTestCueGroup1,<SoundTestCueGroup1,<SoundTestCueGroup1,<SoundTestCueGroup1,<SoundTestCueGroup1,<SoundTestCueGroup1,<SoundTestCueGroup1,<SoundTestCueGroup1,<SoundTestCueGroup1
++SoundTestSfxHi: .byte >SoundTestCueGroup1,>SoundTestCueGroup1,>SoundTestCueGroup3,>SoundTestCueGroup3,>SoundTestCueGroup5,>SoundTestCueGroup7,>SoundTestCueGroup7,>SoundTestCueGroup8,>SoundTestCueGroup8,>SoundTestCueGroup9,>SoundTestCueGroup10,>SoundTestCueGroup11,>SoundTestCueGroup12,>SoundTestCueGroup1,>SoundTestCueGroup1,>SoundTestCueGroup1,>SoundTestCueGroup1,>SoundTestCueGroup13,>SoundTestCueGroup13,>SoundTestCueGroup15,>SoundTestCueGroup16,>SoundTestCueGroup1,>SoundTestCueGroup1,>SoundTestCueGroup1,>SoundTestCueGroup1,>SoundTestCueGroup1,>SoundTestCueGroup1,>SoundTestCueGroup1,>SoundTestCueGroup1,>SoundTestCueGroup1,>SoundTestCueGroup1,>SoundTestCueGroup1,>SoundTestCueGroup1,>SoundTestCueGroup1,>SoundTestCueGroup1,>SoundTestCueGroup1,>SoundTestCueGroup1
+--- a/src/vic_adapter.s
++++ b/src/vic_adapter.s
+@@ -227,10 +227,20 @@
+  lda MTileAttribute,y
+  and #MTILE_SOLID
+  jeq Done
++ .if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
++ lda CheatInvincible
++ and #1
++ beq CheatSolidDeath
++ rts
++CheatSolidDeath:
++ ldx #0
++ jmp KillPlayer
++ .else
+  lda CheatInvincible
+  jne Done
+  ldx #0
+  jmp KillPlayer
++ .endif
+ Flag:
+  lda #0
+  sta DisableCollisionDet

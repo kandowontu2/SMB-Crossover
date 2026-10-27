@@ -1,0 +1,95 @@
+FOUR CHEATS — PRIVATE SOURCE COMPONENT, NOT INSTALLED
+
+Current installed parent remains 3b112e1d79ba7348f2f7a4c426f4675845a5781017ab74690feb235121a66287.
+Private final ROM: 1a20a086e049f3173c1cbc6c8a227d27516245b8671e8c966487df6ef23a5e90.
+Existing working tree only:
+C:/Users/kando/Videos/SMB Crossover Archive/2026-10-24-native-rest-py/current3b-cheats-four-draft-v8
+
+Implemented for expanded MMC5:
+- Six Cheats rows: INVINCIBLE, START LEVEL, MID-AIR JUMPS, SCREEN WRAP,
+  FREEZE TIMER, FULL POWER. All four new toggles default off.
+- Reuses existing CheatInvincible $7FFB bits0..4. No new persistent RAM.
+  Flags survive area resets; genuine power/reset initializer clears them.
+- New A edges re-admit the real character jump initializer during dry air
+  movement. Preserves real impulse/animation/SFX and TMNT pending-input tick.
+  Climb/spring/water stay native; air-jump is inapplicable to flying ships.
+- Wrap is active-play only. Searches bounded genuine terrain buffers for a
+  free conservative body volume, then changes real canonical/native-owner Y.
+  No destination means no move; no terrain mutation or hidden platform.
+- Timer hold prevents native countdown, including the 000 timeout path.
+- Full power uses real grant/gear APIs and owner-specific maxima: compatible
+  equipment plus one legal exclusive gun, source health/energy/tier pools.
+  Retains carried CV3/Darkwing/TMNT choices and higher current SMB3 suits.
+  Kirby/Meta retain copy identity. Temporary Parodius bell powers are not
+  fabricated or stacked; native RESET is never purchased.
+- Native InventoryGrant may auto-equip newly granted compatible gear; e.g.
+  Samus retains owned ICE exclusively but may equip newly granted Missile.
+  This is the actual grant policy, not a claim that active selection never
+  changes. Ryu refills directly to SCROLL's99 cap without repeated50→99 HUD
+  invalidation. No repeated unchanged dirty writes in tested full states.
+
+Integration and layout:
+Nine exact deployable files are listed in source-freeze-v1/changed-sources.json.
+The new cold module is2,553B in decimal63/$3F, A000..A9F8, bounded belowB800.
+Other worker's held BF00..BFFF reservation is disjoint.
+Public old spans/PCs remain except genuine4B GuestWaterStompPolicy relocation
+E054→8D2B in resident bank126. Sole source call resolves to the genuine code;
+no fake callable alias. New9B injury mask uses approved8119..8121 padding.
+61,310 preexisting qualified symbols remain exact;16 legitimate private/menu,
+policy, bridge-local and farcall-count differences are disclosed in ABI proof.
+Changed ROM banks20/63/77/125/126/127 only; header and all CHR are byte-exact.
+E125 is regenerated from final127; original sample/manager spans remain exact.
+Original EOL preserved; archived base cfg was LF while current ROOT is CRLF,
+normalized content exact. The candidate preserves current ROOT cfg CRLF.
+
+Parent shared-menu composition is REQUIRED before adoption:
+Its character_select.s owns the new fourth AUDIO TEST Options row and must
+preserve Options CHEATS focus2 on B return. Standalone v8 still has original
+ScreenPalette focus reset. Cheats page itself clears rows8..26 (including
+parent AUDIO row22/footer), paints six rows and its own B-back atrow23.
+No shared character_select.s edit is included in this nine-file component.
+
+Exact final1a20 source-CPU controls PASS:
+-74 full-power owner/mode/variant cases;1,728 input and1,152 queue cases.
+-74 air-jump→real PlayerCtrl cases;148 wrap→real PlayerCtrl plus2 blocked.
+-222 actual default-off bridge callers: AXYP/SP/nonstack RAM/banks exact,
+  exactly4 extra cycles each.65,536 injury-bit/flags cases;8 native timer cases.
+-8 complete ordered direct page bus streams,755 PPUDATA+18 PPUADDR stores;
+  every direct store IRQ-masked, parent row22 cleared, caller P restored.
+-16 legal-exclusive/native-auto-equip controls;19 CV3/Darkwing/form cases;
+ 32 genuine CrossoverInit and192 area-reset persistence calls;36 active gates.
+-450 unique new helper instruction boundaries:396 actual IRQ and450
+  screen-off lag-NMI returns. AXYP/SP/R0..7/five SMC/shadows exact; IRQ leaves
+  physical banks; NMI restores committed A/C shadows. Minimum observedSP220.
+-Final same-source ordinary builds unchanged: MMC3 d444cac88e13fa02b29ad16100b8f08fa565ba90f8cedde192de43fb2dc8f3eb;
+ MMC5 f4ffd2483c51daa4d60bb575da2da8c4d817692cda407611c243031f67520833.
+
+Cost and limits:
+Default bridge+4 cycles; injury predicate+5; Vic fatal terrain path+2,
+protected return−1. First full-power helper max17,073 cycles (native Parodius
+purchases), measured second helper max1,161; costs exclude outer/main/render.
+Direct page paint8,391 source-CPU cycles occurs under forced-blank caller
+contract. No native render/timing, waveform, active DMC fetch, full campaign,
+all-flags cadence or physical cheat menu use claim. This source component is
+ready for parent's current-menu composition/review, NOT native/adoption-ready.
+
+Preserved failures, never retagged:
+-Removed external baseline debug path caused setup failure before assertions.
+ Existing ROOT exact3b ROM/debug/label alias verified at actual compiled hooks
+ and NMI vector instead; no removed user data/tree was recreated.
+-Extra owner v1 expected invariant active selection too broadly.
+-Extra owner v2 found genuine Ryu repeated dirty writes, fixed in final.
+-First refill draft had CPX/Z zero-max bug; actual CPU negative retained,
+ then corrected and explicitly covered without changing the192-byte table.
+-Interrupt v1 incorrectly expected IRQ physical C to equal a pending shadow.
+ v2 proves IRQ and NMI's distinct real restore contracts without masking SMC.
+Older480/9725 component results remain historical; final proofs name1a20.
+
+Frozen small packet:
+source-freeze-v1/readiness.json SHA256
+5cbb60e29465b6461a607f1fccd38505533c7371de41103225e233be49406540
+Eight compact outputs total246,847B,68 direct bindings plus870 source hashes.
+implementation.patch covers all nine files; manifests retain raw source EOL.
+No ROM/NSF/settings/capture payload duplicated in this packet.
+No native worker owned; none launched. No fresh complete source tree/runtime
+copy, per-frame screenshot, source restoration, installation or Git operation.

@@ -264,24 +264,21 @@ T1End:
  .byte $21,$e5,T2End-T2
 T2:.byte "TRACK"
 T2End:
- .byte $22,$85,T3End-T3
+ .byte $22,$65,T3End-T3
 T3:.byte "STATUS - "
 T3End:
- .byte $22,$e3,H0End-H0
+ .byte $22,$a3,H0End-H0
 H0:.byte "UP DOWN - CHARACTER"
 H0End:
- .byte $23,$03,H1End-H1
+ .byte $22,$e3,H1End-H1
 H1:.byte "LEFT RIGHT - TRACK"
 H1End:
  .byte $23,$23,H2End-H2
 H2:.byte "SELECT - MUSIC OR SFX"
 H2End:
- .byte $23,$43,H3End-H3
-H3:.byte "A - PLAY  START - STOP"
+ .byte $23,$63,H3End-H3
+H3:.byte "A PLAY  START STOP  B BACK"
 H3End:
- .byte $23,$63,H4End-H4
-H4:.byte "B - OPTIONS"
-H4End:
  .byte 0
  .assert *-Text<256,error,"Sound test static text uses one Y page"
 .endproc
@@ -364,7 +361,7 @@ NameReady:
 StatusReady:
  lda #8
  sta R2
- lda #$8e
+ lda #$6e
  sta R4
  jmp Line
 Line:
@@ -450,6 +447,8 @@ Done:rts
 ; Normal AudioUpdate restores bank5 before returning. NMI uses this direct
 ; route and never changes the main thread's five live farcall SMC operands.
 .proc SoundTestAudioTick
+ lda CurrentBank
+ pha
  lda #.bank(SoundTestAudioTick)|MMC5_PRG_ROM
  sta CurrentBank
  lda OperMode
@@ -550,6 +549,8 @@ Restore:
  sta SelectedCharacter
  pla
  sta OperMode
+ pla
+ sta CurrentBank
  rts
 .endproc
 
