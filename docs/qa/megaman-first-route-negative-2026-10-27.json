@@ -1,0 +1,19 @@
+{
+  "status": "retained native test-guard negative",
+  "ROM_sha256": "8487c439ded9bc6274e1dc8f8e051494fa96ee518553d9c2f382eccf2e71d0e6",
+  "identity": "megaman",
+  "mode": 1,
+  "frame": 1283,
+  "original_failure": "Zero-death 1-1 route",
+  "observed_transition": {
+    "previous_lives": 2,
+    "current_lives": 3,
+    "x": 1074,
+    "y": 176,
+    "engine": 8
+  },
+  "attribution": "Guard required lives remain equal to initial count. An actual gained life caused a false zero-death failure; native player remained alive. Replace equality with per-frame no-decrease plus genuine death-state guards.",
+  "result_sha256": "6aeae1b02f81e0cfe074155a07f27dc934fe859034cdccf604ae07edc82aec7a",
+  "trace_sha256": "b950952e6c4dd48b4426a59243eba1ab0c491e07c3037480e2ee156a6006295e",
+  "gameplay_clear_claim": false
+}

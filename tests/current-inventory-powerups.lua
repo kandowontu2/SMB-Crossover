@@ -271,12 +271,20 @@ emu.addMemoryCallback(function(_,v)mask=v end,emu.callbackType.write,0x2001)
 emu.addMemoryCallback(function(_,v)
  assert(not pending and mask&24==0,'Rendering disabled at actual DMA start')
  local s=emu.getState();assert(v==2 and s['cpu.pc']==C.hooks.DmaComplete.pc,'Actual native page2 DMA owner')
+ assert(s['ppu.spriteRamAddr']==0,'Actual native DMA begins at OAM address zero')
  pending={source=bytes(v*256),writes=0}
 end,emu.callbackType.write,0x4014)
-emu.addMemoryCallback(function()assert(pending and mask&24==0,'Actual DMA byte while rendering disabled');pending.writes=pending.writes+1 end,emu.callbackType.write,0x2004)
+emu.addMemoryCallback(function(_,v)
+ assert(pending and mask&24==0,'Actual DMA byte while rendering disabled')
+ local i=pending.writes+1
+ assert(i<=256 and v==pending.source[i]and emu.getState()['ppu.spriteRamAddr']==i-1,'All256 raw DMA source/value/destination bytes match')
+ pending.writes=i
+end,emu.callbackType.write,0x2004)
 hook('DmaComplete',function()
  if not pending then return end
- assert(pending.writes==256 and mask&24==0 and equal(pending.source,bytes(0,emu.memType.nesSpriteRam)),'All256 actual OAM DMA bytes match')
+ local hw=bytes(0,emu.memType.nesSpriteRam);local same=true
+ for i=1,256 do local want=pending.source[i];if(i-1)%4==2 then want=want&0xe3 end;if hw[i]~=want then same=false end end
+ assert(pending.writes==256 and mask&24==0 and emu.getState()['ppu.spriteRamAddr']==0 and same,'All256 physical OAM bytes match hardware attribute E3 semantics')
  pending=nil;dmas=dmas+1
 end)
 emu.addMemoryCallback(function(_,v)

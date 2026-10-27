@@ -1,0 +1,12 @@
+{
+  "status": "retained native negative; before item testing",
+  "ROM_sha256": "8487c439ded9bc6274e1dc8f8e051494fa96ee518553d9c2f382eccf2e71d0e6",
+  "first_failure": "All256 physical OAM bytes match hardware attribute E3 semantics",
+  "fixture_sha256": "366023f263ef15aa53967b9a4b381d0576d15fd1b03ee5e58a8e80b8b90faeca",
+  "prepared_sha256": "0d73d304d1fbbade17ba436965bac7a682e118cfc122de90ae2f5b50a30189a6",
+  "log_sha256": "d13e41712ce998fdc8ea208591ab0eb2bc769a55b538902f9b6b708ec0f95be9",
+  "attribution": "Producer hooked the opcode immediately after STA4014, before its next CPU read begins DMA. Must observe genuine later PostDmaMaskEnable after mask load, while keeping immediate write PC a separate field. Hardware attribute masking alone cannot correct the observation time.",
+  "settings_unchanged": true,
+  "changed_inputs": [],
+  "gameplay_exercised": false
+}
