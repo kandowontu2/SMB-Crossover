@@ -102,6 +102,30 @@
       "whole_container_validated": true,
       "selected_whole_frames_ROOT_reviewed": true,
       "attribution": "Controller lost the first uncollected mushroom after scrolling, then repeatedly retried an impossible bump from atop the row. X330 from about1008 to8000, repeated jumping20..112, no B after1000. No demonstrated whip/physics defect; exact pickup loss cause lacks serialized slot coordinates. A scoped lost-pickup retry escape is prepared, not yet qualified."
+    },
+    {
+      "run": "compact-next-simon-6be-hard-v2",
+      "ROM_sha256": "6be48337ffee66a22b22de9ce134d5db323649fb4de620c43bad4ca98b80f193",
+      "reason": "Zero-death 1-1 route",
+      "frames": 1315,
+      "zero_deaths": false,
+      "result_sha256": "872cd431086c0cc6e7a3888c2b58f25090a0a0340fea6627664ea22f0f970803",
+      "review_sha256": "1b833e4eca9c0c7903d51b9c87804a1179fec144c4f25aafba9fdac347689b03",
+      "whole_container_validated": true,
+      "selected_whole_frames_ROOT_reviewed": true,
+      "attribution": "Lost-first-power retry escape advanced beyond the old X330 loop. At1315/X693/Y170 the selected failure frame shows Simon directly above a Goomba; Hard ordinary falling contact is unsafe. Actual collision-owner callback was not logged, so image/trace support contact without uniquely identifying the native damage branch. Controller jump/whip timing investigation pending."
+    },
+    {
+      "run": "compact-next-simon-6be-hard-v3",
+      "ROM_sha256": "6be48337ffee66a22b22de9ce134d5db323649fb4de620c43bad4ca98b80f193",
+      "reason": "Zero-death 1-1 route",
+      "frames": 3561,
+      "zero_deaths": false,
+      "result_sha256": "96b230b312d3f35614b1526c41ef127a68eab70815fb63cda4cdc4f6f2d62448",
+      "review_sha256": "26b6c418a782a0af2b227d97e2936a8cff7668edd427b7d0507b03b4943e2be0",
+      "whole_container_validated": true,
+      "selected_whole_frames_ROOT_reviewed": true,
+      "attribution": "Controller still counter included deliberate stationary whips under a brick roof, then requested an unnecessary recovery jump. Native head obstruction and nearby enemy contact followed; exact enemy-owner branch was not captured. Scoped counter correction prepared; no game-physics defect proved."
     }
   ],
   "all_complete_route_claims": false,
