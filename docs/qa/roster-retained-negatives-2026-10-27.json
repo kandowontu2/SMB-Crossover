@@ -210,6 +210,38 @@
       "last_completed_update": 2190,
       "scope": "After Balance9 acquisition and Select8->0; exact unsafe raster/first owner pending diagnosis. No full profile result.json.",
       "checkpoint": "docs/qa/checkpoints/2026-10-27/mega-proto-earned-arsenal9ea-native-v1/proto"
+    },
+    {
+      "identity": "pit",
+      "mode": "easy",
+      "ROM_sha256": "9ea11eab2fc5c373a3795b013f6ed9e0d5e9781891b2ae3bf40ad2556c27b85e",
+      "profile": "compact-next-pit-9ea-easy-v1",
+      "passed": false,
+      "frames": 770,
+      "classification": "Generic controller jumped onto the first item block before the reveal attempt, then waited motionless for a pickup actor that was never spawned. Actual finalX333/Y112/grounded; 300-active-update guard retained.",
+      "checkpoint": "docs/qa/checkpoints/2026-10-27/roster-controller-negatives/pit-9ea-easy-v1",
+      "no_product_defect_inferred": true
+    },
+    {
+      "identity": "alucard",
+      "mode": "easy",
+      "ROM_sha256": "9ea11eab2fc5c373a3795b013f6ed9e0d5e9781891b2ae3bf40ad2556c27b85e",
+      "profile": "compact-next-alucard-9ea-easy-v1",
+      "passed": false,
+      "frames": 2667,
+      "classification": "Controller left the lower stair too early, reachedX2465 below the far ledge, then died in the gap. A new input-only final-stair landing wrapper is prepared; no game physics change or completed repair claimed.",
+      "checkpoint": "docs/qa/checkpoints/2026-10-27/roster-controller-negatives/alucard-9ea-easy-v1",
+      "no_product_defect_inferred": true
+    },
+    {
+      "identity": "proto",
+      "mode": "hard",
+      "component": "passive timing diagnosticv1",
+      "ROM_sha256": "9ea11eab2fc5c373a3795b013f6ed9e0d5e9781891b2ae3bf40ad2556c27b85e",
+      "passed": false,
+      "classification": "Fixture missing RAM name, not reproduced product timing cause",
+      "actual_error": "InvDirty",
+      "checkpoint": "docs/qa/checkpoints/2026-10-27/proto-arsenal-timing-diagnostic-negative-v1"
     }
   ],
   "all_complete_route_claims": false,
