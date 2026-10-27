@@ -1,0 +1,1521 @@
+{
+  "analysis_completed": true,
+  "UTC": "2026-10-27T11:20:06.597290+00:00",
+  "native_launched_by_reviewer": false,
+  "initial_review_candidate_running": true,
+  "final_update_from_actual_completed_results": true,
+  "arithmetic_checks": true,
+  "ROOT_7_selected_images_reviewed_each_as_reported": true,
+  "reviewer_new_visual_inspection": false,
+  "matched_performance_or_FPS_claim": false,
+  "new_product_or_ready_changes": false,
+  "cases": {
+    "baseline6be": {
+      "ROM_sha256": "6be48337ffee66a22b22de9ce134d5db323649fb4de620c43bad4ca98b80f193",
+      "all33_bound_inputs_current": true,
+      "native": {
+        "passed": true,
+        "frames": 6076,
+        "polls": 6075,
+        "completed_loops": 5079,
+        "completed_DMAS": 3765,
+        "full_frames": 5189,
+        "real_1_2_control_updates": 25,
+        "zero_deaths": true,
+        "actual_mode": 1,
+        "cheats_off": true,
+        "min_SP": 202,
+        "nmi_checks": 5765,
+        "irq_checks": 5710,
+        "physical_E3_bytes_checked": 963840,
+        "chr_window_checks": 69192,
+        "stationary_watchdog": {
+          "consecutive": 0,
+          "limit": 300,
+          "maximum": 98,
+          "unit": "genuinely active completed updates; pause/transform/refill excluded"
+        }
+      },
+      "launch": {
+        "ready_sha256": "5fada979bca5f6a1a8a17d68cdd200f8d6c023623dfd223aab4cc70d1214b0cf",
+        "ROM_sha256": "6be48337ffee66a22b22de9ce134d5db323649fb4de620c43bad4ca98b80f193",
+        "exit_code": 0,
+        "settings_before": "a5f76b4c4d33cd1fb6d66a8725e7c6636b19e59c03a7dae5e15e1c512a3f4fbf",
+        "settings_after": "a5f76b4c4d33cd1fb6d66a8725e7c6636b19e59c03a7dae5e15e1c512a3f4fbf",
+        "changed_inputs": []
+      },
+      "central_review_sha256": "6004a1795f37b9b582c0233956a01e4ba99728ba0e12feacb2354affea5642fe",
+      "selected_sheet_sha256": "fba8d80926fa44d341084e7ac5601ef0467fa5d60e71a70cfd283feaecd39548",
+      "CSV_bytes": {
+        "actual_disk": 22613,
+        "logical_LF": 22551,
+        "CRLF_pairs": 62
+      },
+      "window": {
+        "frames": [
+          3500,
+          3560
+        ],
+        "first_last_CPU": [
+          104229264,
+          106016094
+        ],
+        "first_last_x": [
+          1900,
+          1948
+        ],
+        "first_last_y": [
+          134,
+          176
+        ],
+        "histograms": {
+          "weapon": {
+            "0": 61
+          },
+          "ordinary_shots": {
+            "3": 15,
+            "4": 46
+          },
+          "advanced_shots": {
+            "0": 61
+          },
+          "other_shots": {
+            "0": 61
+          },
+          "enemy_slots": {
+            "1": 9,
+            "2": 18,
+            "3": 34
+          },
+          "state": {
+            "0": 35,
+            "1": 26
+          },
+          "buttons": {
+            "1": 22,
+            "5": 13,
+            "65": 21,
+            "69": 5
+          },
+          "timer": {
+            "0": 61
+          },
+          "powerup": {
+            "0": 61
+          },
+          "refill": {
+            "0": 61
+          },
+          "skip_draw": {
+            "0": 47,
+            "1": 14
+          }
+        },
+        "sums": {
+          "loops_closed": 40,
+          "dmas": 23,
+          "lag_counter_delta": 38,
+          "nmi_closed": 61,
+          "nmi_elapsed": 286064,
+          "irq_closed": 61,
+          "irq_elapsed": 7320
+        },
+        "functions": {
+          "AudioUpdate": {
+            "aggregate_including3499": {
+              "calls": 62,
+              "inclusive": 251374,
+              "exclusive": 251374,
+              "max": 6630
+            },
+            "detailed61": {
+              "calls": 61,
+              "inclusive": 247417,
+              "exclusive": 247417,
+              "prewindow": 0,
+              "max": 6630
+            },
+            "warmup_completed_difference": {
+              "calls": 1,
+              "inclusive": 3957,
+              "exclusive": 3957
+            },
+            "aggregate_mean_inclusive": 4054.4193548387098,
+            "actual_call_owners": {
+              "pinned_ROM_JSR:127:58229:61533": 38,
+              "pinned_ROM_JSR:127:58362:61533": 24
+            }
+          },
+          "BillBGEmptyEnvelope": {
+            "aggregate_including3499": {
+              "calls": 40,
+              "inclusive": 5160,
+              "exclusive": 5160,
+              "max": 129
+            },
+            "detailed61": {
+              "calls": 39,
+              "inclusive": 5031,
+              "exclusive": 5031,
+              "prewindow": 0,
+              "max": 129
+            },
+            "warmup_completed_difference": {
+              "calls": 1,
+              "inclusive": 129,
+              "exclusive": 129
+            },
+            "aggregate_mean_inclusive": 129.0,
+            "actual_call_owners": {
+              "pinned_ROM_JSR:126:39874:61715": 40
+            }
+          },
+          "BillHotProject": {
+            "aggregate_including3499": {
+              "calls": 40,
+              "inclusive": 10724,
+              "exclusive": 10724,
+              "max": 285
+            },
+            "detailed61": {
+              "calls": 39,
+              "inclusive": 10453,
+              "exclusive": 10453,
+              "prewindow": 0,
+              "max": 285
+            },
+            "warmup_completed_difference": {
+              "calls": 1,
+              "inclusive": 271,
+              "exclusive": 271
+            },
+            "aggregate_mean_inclusive": 268.1,
+            "actual_call_owners": {
+              "pinned_ROM_JSR:127:58871:37431": 40
+            }
+          },
+          "BulletBlocks": {
+            "aggregate_including3499": {
+              "calls": 145,
+              "inclusive": 72940,
+              "exclusive": 72940,
+              "max": 627
+            },
+            "detailed61": {
+              "calls": 141,
+              "inclusive": 70909,
+              "exclusive": 70909,
+              "prewindow": 0,
+              "max": 627
+            },
+            "warmup_completed_difference": {
+              "calls": 4,
+              "inclusive": 2031,
+              "exclusive": 2031
+            },
+            "aggregate_mean_inclusive": 503.0344827586207,
+            "actual_call_owners": {
+              "pinned_ROM_JSR:8:45502:41670": 145
+            }
+          },
+          "BulletEnemies": {
+            "aggregate_including3499": {
+              "calls": 105,
+              "inclusive": 67239,
+              "exclusive": 67239,
+              "max": 3342
+            },
+            "detailed61": {
+              "calls": 105,
+              "inclusive": 67239,
+              "exclusive": 67239,
+              "prewindow": 0,
+              "max": 3342
+            },
+            "warmup_completed_difference": {
+              "calls": 0,
+              "inclusive": 0,
+              "exclusive": 0
+            },
+            "aggregate_mean_inclusive": 640.3714285714286,
+            "actual_call_owners": {
+              "pinned_ROM_JSR:8:45561:42824": 105
+            }
+          },
+          "DrawAllMetasprites": {
+            "aggregate_including3499": {
+              "calls": 24,
+              "inclusive": 214723,
+              "exclusive": 123273,
+              "max": 10295
+            },
+            "detailed61": {
+              "calls": 24,
+              "inclusive": 214723,
+              "exclusive": 123273,
+              "prewindow": 1,
+              "max": 10295
+            },
+            "warmup_completed_difference": {
+              "calls": 0,
+              "inclusive": 0,
+              "exclusive": 0
+            },
+            "aggregate_mean_inclusive": 8946.791666666666,
+            "actual_call_owners": {
+              "actual_SMC_JSR:-1:363:41649": 24
+            }
+          },
+          "GameLoop": {
+            "aggregate_including3499": {
+              "calls": 40,
+              "inclusive": 1219986,
+              "exclusive": 532235,
+              "max": 39078
+            },
+            "detailed61": {
+              "calls": 40,
+              "inclusive": 1219986,
+              "exclusive": 532235,
+              "prewindow": 1,
+              "max": 39078
+            },
+            "warmup_completed_difference": {
+              "calls": 0,
+              "inclusive": 0,
+              "exclusive": 0
+            },
+            "aggregate_mean_inclusive": 30499.65,
+            "actual_call_owners": {
+              "pinned_ROM_JSR:126:33467:33497": 24,
+              "pinned_ROM_JSR:126:33485:33497": 16
+            }
+          },
+          "GuestPrepareEnemies": {
+            "aggregate_including3499": {
+              "calls": 80,
+              "inclusive": 20242,
+              "exclusive": 20242,
+              "max": 347
+            },
+            "detailed61": {
+              "calls": 78,
+              "inclusive": 19942,
+              "exclusive": 19942,
+              "prewindow": 0,
+              "max": 347
+            },
+            "warmup_completed_difference": {
+              "calls": 2,
+              "inclusive": 300,
+              "exclusive": 300
+            },
+            "aggregate_mean_inclusive": 253.025,
+            "actual_call_owners": {
+              "actual_SMC_JSR:-1:363:40960": 40,
+              "pinned_ROM_JSR:8:45432:40960": 40
+            }
+          },
+          "MetaspriteRenderLoop": {
+            "aggregate_including3499": {
+              "calls": 214,
+              "inclusive": 60912,
+              "exclusive": 60912,
+              "max": 1226
+            },
+            "detailed61": {
+              "calls": 213,
+              "inclusive": 60726,
+              "exclusive": 60726,
+              "prewindow": 1,
+              "max": 1226
+            },
+            "warmup_completed_difference": {
+              "calls": 1,
+              "inclusive": 186,
+              "exclusive": 186
+            },
+            "aggregate_mean_inclusive": 284.6355140186916,
+            "actual_call_owners": {
+              "pinned_ROM_JSR:4:41450:42608": 17,
+              "pinned_ROM_JSR:4:41738:42426": 64,
+              "pinned_ROM_JSR:4:42222:49035": 41,
+              "pinned_ROM_JSR:4:48195:42426": 92
+            }
+          },
+          "PlayerBGCollision": {
+            "aggregate_including3499": {
+              "calls": 40,
+              "inclusive": 61127,
+              "exclusive": 55967,
+              "max": 1769
+            },
+            "detailed61": {
+              "calls": 39,
+              "inclusive": 59696,
+              "exclusive": 54665,
+              "prewindow": 0,
+              "max": 1769
+            },
+            "warmup_completed_difference": {
+              "calls": 1,
+              "inclusive": 1431,
+              "exclusive": 1302
+            },
+            "aggregate_mean_inclusive": 1528.175,
+            "actual_call_owners": {
+              "pinned_ROM_JSR:1:41305:39771": 40
+            }
+          },
+          "PlayerCtrlRoutine": {
+            "aggregate_including3499": {
+              "calls": 40,
+              "inclusive": 192278,
+              "exclusive": 82742,
+              "max": 5141
+            },
+            "detailed61": {
+              "calls": 39,
+              "inclusive": 187489,
+              "exclusive": 80670,
+              "prewindow": 0,
+              "max": 5141
+            },
+            "warmup_completed_difference": {
+              "calls": 1,
+              "inclusive": 4789,
+              "exclusive": 2072
+            },
+            "aggregate_mean_inclusive": 4806.95,
+            "actual_call_owners": {
+              "actual_SMC_JSR:-1:363:40993": 40
+            }
+          },
+          "PlayerMovementSubs": {
+            "aggregate_including3499": {
+              "calls": 40,
+              "inclusive": 37685,
+              "exclusive": 13880,
+              "max": 1030
+            },
+            "detailed61": {
+              "calls": 39,
+              "inclusive": 36670,
+              "exclusive": 13533,
+              "prewindow": 0,
+              "max": 1030
+            },
+            "warmup_completed_difference": {
+              "calls": 1,
+              "inclusive": 1015,
+              "exclusive": 347
+            },
+            "aggregate_mean_inclusive": 942.125,
+            "actual_call_owners": {
+              "pinned_ROM_JSR:1:41240:42426": 40
+            }
+          },
+          "RemainingDraw": {
+            "aggregate_including3499": {
+              "calls": 24,
+              "inclusive": 10914,
+              "exclusive": 10914,
+              "max": 461
+            },
+            "detailed61": {
+              "calls": 23,
+              "inclusive": 10473,
+              "exclusive": 10473,
+              "prewindow": 0,
+              "max": 461
+            },
+            "warmup_completed_difference": {
+              "calls": 1,
+              "inclusive": 441,
+              "exclusive": 441
+            },
+            "aggregate_mean_inclusive": 454.75,
+            "actual_call_owners": {
+              "actual_SMC_JSR:-1:363:46742": 24
+            }
+          },
+          "RemainingWeapons": {
+            "aggregate_including3499": {
+              "calls": 40,
+              "inclusive": 47274,
+              "exclusive": 37153,
+              "max": 1286
+            },
+            "detailed61": {
+              "calls": 39,
+              "inclusive": 46196,
+              "exclusive": 36225,
+              "prewindow": 0,
+              "max": 1286
+            },
+            "warmup_completed_difference": {
+              "calls": 1,
+              "inclusive": 1078,
+              "exclusive": 928
+            },
+            "aggregate_mean_inclusive": 1181.85,
+            "actual_call_owners": {
+              "actual_SMC_JSR:-1:363:43164": 40
+            }
+          },
+          "RosterDrawShots": {
+            "aggregate_including3499": {
+              "calls": 24,
+              "inclusive": 36736,
+              "exclusive": 19624,
+              "max": 1586
+            },
+            "detailed61": {
+              "calls": 24,
+              "inclusive": 36736,
+              "exclusive": 19624,
+              "prewindow": 1,
+              "max": 1586
+            },
+            "warmup_completed_difference": {
+              "calls": 0,
+              "inclusive": 0,
+              "exclusive": 0
+            },
+            "aggregate_mean_inclusive": 1530.6666666666667,
+            "actual_call_owners": {
+              "actual_SMC_JSR:-1:363:48009": 24
+            }
+          },
+          "RosterMovement": {
+            "aggregate_including3499": {
+              "calls": 40,
+              "inclusive": 23805,
+              "exclusive": 23805,
+              "max": 683
+            },
+            "detailed61": {
+              "calls": 39,
+              "inclusive": 23137,
+              "exclusive": 23137,
+              "prewindow": 0,
+              "max": 683
+            },
+            "warmup_completed_difference": {
+              "calls": 1,
+              "inclusive": 668,
+              "exclusive": 668
+            },
+            "aggregate_mean_inclusive": 595.125,
+            "actual_call_owners": {
+              "actual_SMC_JSR:-1:363:43126": 40
+            }
+          },
+          "RosterWeapons": {
+            "aggregate_including3499": {
+              "calls": 40,
+              "inclusive": 233476,
+              "exclusive": 83176,
+              "max": 9524
+            },
+            "detailed61": {
+              "calls": 39,
+              "inclusive": 229375,
+              "exclusive": 81256,
+              "prewindow": 0,
+              "max": 9524
+            },
+            "warmup_completed_difference": {
+              "calls": 1,
+              "inclusive": 4101,
+              "exclusive": 1920
+            },
+            "aggregate_mean_inclusive": 5836.9,
+            "actual_call_owners": {
+              "actual_SMC_JSR:-1:363:44888": 40
+            }
+          }
+        },
+        "DMA_frames": [
+          3502,
+          3504,
+          3506,
+          3509,
+          3511,
+          3514,
+          3516,
+          3518,
+          3520,
+          3523,
+          3526,
+          3529,
+          3532,
+          3535,
+          3538,
+          3541,
+          3544,
+          3547,
+          3549,
+          3552,
+          3554,
+          3556,
+          3558
+        ],
+        "foreground_completed_exclusive_sum": 1219986,
+        "minus_closed_Main_inclusive": 0,
+        "open_interrupts": 0,
+        "censored_spans": {},
+        "SavedJoypadBits_vs_host_mask_differences": [
+          {
+            "frame": 3505,
+            "native_SavedJoypadBits": 1,
+            "latest_host_mask": 65
+          },
+          {
+            "frame": 3510,
+            "native_SavedJoypadBits": 65,
+            "latest_host_mask": 5
+          },
+          {
+            "frame": 3517,
+            "native_SavedJoypadBits": 5,
+            "latest_host_mask": 69
+          },
+          {
+            "frame": 3522,
+            "native_SavedJoypadBits": 69,
+            "latest_host_mask": 5
+          },
+          {
+            "frame": 3527,
+            "native_SavedJoypadBits": 5,
+            "latest_host_mask": 1
+          },
+          {
+            "frame": 3528,
+            "native_SavedJoypadBits": 5,
+            "latest_host_mask": 1
+          },
+          {
+            "frame": 3534,
+            "native_SavedJoypadBits": 65,
+            "latest_host_mask": 1
+          },
+          {
+            "frame": 3546,
+            "native_SavedJoypadBits": 65,
+            "latest_host_mask": 1
+          },
+          {
+            "frame": 3553,
+            "native_SavedJoypadBits": 1,
+            "latest_host_mask": 65
+          }
+        ],
+        "slow_existing_head_rows": []
+      }
+    },
+    "candidate9ea": {
+      "ROM_sha256": "9ea11eab2fc5c373a3795b013f6ed9e0d5e9781891b2ae3bf40ad2556c27b85e",
+      "all33_bound_inputs_current": true,
+      "native": {
+        "passed": true,
+        "frames": 6091,
+        "polls": 6090,
+        "completed_loops": 5142,
+        "completed_DMAS": 3823,
+        "full_frames": 5206,
+        "real_1_2_control_updates": 25,
+        "zero_deaths": true,
+        "actual_mode": 1,
+        "cheats_off": true,
+        "min_SP": 199,
+        "nmi_checks": 5780,
+        "irq_checks": 5725,
+        "physical_E3_bytes_checked": 978688,
+        "chr_window_checks": 69372,
+        "stationary_watchdog": {
+          "consecutive": 0,
+          "limit": 300,
+          "maximum": 189,
+          "unit": "genuinely active completed updates; pause/transform/refill excluded"
+        }
+      },
+      "launch": {
+        "ready_sha256": "d58d3f78e29ee6e3238089084237e656350e1020c027be0caa8f9a4fbf21bc55",
+        "ROM_sha256": "9ea11eab2fc5c373a3795b013f6ed9e0d5e9781891b2ae3bf40ad2556c27b85e",
+        "exit_code": 0,
+        "settings_before": "a5f76b4c4d33cd1fb6d66a8725e7c6636b19e59c03a7dae5e15e1c512a3f4fbf",
+        "settings_after": "a5f76b4c4d33cd1fb6d66a8725e7c6636b19e59c03a7dae5e15e1c512a3f4fbf",
+        "changed_inputs": []
+      },
+      "central_review_sha256": "27d7776f20284e08352ea5c0360419d21fb072d654d51cfe1fbe12af2ffa6d9e",
+      "selected_sheet_sha256": "61706fd200ebb99f64b13a1f6629fb226b02b31143345e7394e2738d9d857da6",
+      "CSV_bytes": {
+        "actual_disk": 22486,
+        "logical_LF": 22424,
+        "CRLF_pairs": 62
+      },
+      "window": {
+        "frames": [
+          3500,
+          3560
+        ],
+        "first_last_CPU": [
+          104229264,
+          106016094
+        ],
+        "first_last_x": [
+          1874,
+          1923
+        ],
+        "first_last_y": [
+          135,
+          176
+        ],
+        "histograms": {
+          "weapon": {
+            "0": 61
+          },
+          "ordinary_shots": {
+            "3": 8,
+            "4": 53
+          },
+          "advanced_shots": {
+            "0": 61
+          },
+          "other_shots": {
+            "0": 61
+          },
+          "enemy_slots": {
+            "1": 8,
+            "2": 34,
+            "3": 19
+          },
+          "state": {
+            "0": 2,
+            "1": 59
+          },
+          "buttons": {
+            "1": 20,
+            "5": 8,
+            "65": 8,
+            "69": 9,
+            "129": 13,
+            "193": 3
+          },
+          "timer": {
+            "0": 61
+          },
+          "powerup": {
+            "0": 61
+          },
+          "refill": {
+            "0": 61
+          },
+          "skip_draw": {
+            "0": 45,
+            "1": 16
+          }
+        },
+        "sums": {
+          "loops_closed": 39,
+          "dmas": 23,
+          "lag_counter_delta": 38,
+          "nmi_closed": 61,
+          "nmi_elapsed": 284756,
+          "irq_closed": 61,
+          "irq_elapsed": 7320
+        },
+        "functions": {
+          "AudioUpdate": {
+            "aggregate_including3499": {
+              "calls": 62,
+              "inclusive": 250956,
+              "exclusive": 250956,
+              "max": 6921
+            },
+            "detailed61": {
+              "calls": 61,
+              "inclusive": 246480,
+              "exclusive": 246480,
+              "prewindow": 0,
+              "max": 6921
+            },
+            "warmup_completed_difference": {
+              "calls": 1,
+              "inclusive": 4476,
+              "exclusive": 4476
+            },
+            "aggregate_mean_inclusive": 4047.6774193548385,
+            "actual_call_owners": {
+              "pinned_ROM_JSR:127:58229:61533": 39,
+              "pinned_ROM_JSR:127:58362:61533": 23
+            }
+          },
+          "BillBGEmptyEnvelope": {
+            "aggregate_including3499": {
+              "calls": 40,
+              "inclusive": 7040,
+              "exclusive": 7040,
+              "max": 608
+            },
+            "detailed61": {
+              "calls": 40,
+              "inclusive": 7040,
+              "exclusive": 7040,
+              "prewindow": 0,
+              "max": 608
+            },
+            "warmup_completed_difference": {
+              "calls": 0,
+              "inclusive": 0,
+              "exclusive": 0
+            },
+            "aggregate_mean_inclusive": 176.0,
+            "actual_call_owners": {
+              "pinned_ROM_JSR:126:39874:61715": 40
+            }
+          },
+          "BillHotProject": {
+            "aggregate_including3499": {
+              "calls": 40,
+              "inclusive": 10849,
+              "exclusive": 10849,
+              "max": 292
+            },
+            "detailed61": {
+              "calls": 40,
+              "inclusive": 10849,
+              "exclusive": 10849,
+              "prewindow": 0,
+              "max": 292
+            },
+            "warmup_completed_difference": {
+              "calls": 0,
+              "inclusive": 0,
+              "exclusive": 0
+            },
+            "aggregate_mean_inclusive": 271.225,
+            "actual_call_owners": {
+              "pinned_ROM_JSR:127:58871:37431": 40
+            }
+          },
+          "BulletBlocks": {
+            "aggregate_including3499": {
+              "calls": 152,
+              "inclusive": 76584,
+              "exclusive": 76584,
+              "max": 684
+            },
+            "detailed61": {
+              "calls": 152,
+              "inclusive": 76584,
+              "exclusive": 76584,
+              "prewindow": 0,
+              "max": 684
+            },
+            "warmup_completed_difference": {
+              "calls": 0,
+              "inclusive": 0,
+              "exclusive": 0
+            },
+            "aggregate_mean_inclusive": 503.8421052631579,
+            "actual_call_owners": {
+              "pinned_ROM_JSR:8:45502:41670": 152
+            }
+          },
+          "BulletEnemies": {
+            "aggregate_including3499": {
+              "calls": 32,
+              "inclusive": 20653,
+              "exclusive": 20653,
+              "max": 2035
+            },
+            "detailed61": {
+              "calls": 32,
+              "inclusive": 20653,
+              "exclusive": 20653,
+              "prewindow": 0,
+              "max": 2035
+            },
+            "warmup_completed_difference": {
+              "calls": 0,
+              "inclusive": 0,
+              "exclusive": 0
+            },
+            "aggregate_mean_inclusive": 645.40625,
+            "actual_call_owners": {
+              "pinned_ROM_JSR:8:45561:42824": 32
+            }
+          },
+          "DrawAllMetasprites": {
+            "aggregate_including3499": {
+              "calls": 24,
+              "inclusive": 231068,
+              "exclusive": 130636,
+              "max": 10311
+            },
+            "detailed61": {
+              "calls": 23,
+              "inclusive": 221018,
+              "exclusive": 125065,
+              "prewindow": 0,
+              "max": 10311
+            },
+            "warmup_completed_difference": {
+              "calls": 1,
+              "inclusive": 10050,
+              "exclusive": 5571
+            },
+            "aggregate_mean_inclusive": 9627.833333333334,
+            "actual_call_owners": {
+              "actual_SMC_JSR:-1:363:41649": 24
+            }
+          },
+          "GameLoop": {
+            "aggregate_including3499": {
+              "calls": 39,
+              "inclusive": 1105998,
+              "exclusive": 483963,
+              "max": 39494
+            },
+            "detailed61": {
+              "calls": 39,
+              "inclusive": 1105998,
+              "exclusive": 483963,
+              "prewindow": 0,
+              "max": 39494
+            },
+            "warmup_completed_difference": {
+              "calls": 0,
+              "inclusive": 0,
+              "exclusive": 0
+            },
+            "aggregate_mean_inclusive": 28358.923076923078,
+            "actual_call_owners": {
+              "pinned_ROM_JSR:126:33467:33497": 23,
+              "pinned_ROM_JSR:126:33485:33497": 16
+            }
+          },
+          "GuestPrepareEnemies": {
+            "aggregate_including3499": {
+              "calls": 40,
+              "inclusive": 7324,
+              "exclusive": 7324,
+              "max": 282
+            },
+            "detailed61": {
+              "calls": 40,
+              "inclusive": 7324,
+              "exclusive": 7324,
+              "prewindow": 0,
+              "max": 282
+            },
+            "warmup_completed_difference": {
+              "calls": 0,
+              "inclusive": 0,
+              "exclusive": 0
+            },
+            "aggregate_mean_inclusive": 183.1,
+            "actual_call_owners": {
+              "pinned_ROM_JSR:8:45432:40960": 40
+            }
+          },
+          "MetaspriteRenderLoop": {
+            "aggregate_including3499": {
+              "calls": 255,
+              "inclusive": 69798,
+              "exclusive": 69798,
+              "max": 1226
+            },
+            "detailed61": {
+              "calls": 244,
+              "inclusive": 66608,
+              "exclusive": 66608,
+              "prewindow": 0,
+              "max": 1226
+            },
+            "warmup_completed_difference": {
+              "calls": 11,
+              "inclusive": 3190,
+              "exclusive": 3190
+            },
+            "aggregate_mean_inclusive": 273.7176470588235,
+            "actual_call_owners": {
+              "pinned_ROM_JSR:4:41450:42608": 29,
+              "pinned_ROM_JSR:4:41738:42426": 96,
+              "pinned_ROM_JSR:4:42222:49035": 37,
+              "pinned_ROM_JSR:4:48195:42426": 93
+            }
+          },
+          "PlayerBGCollision": {
+            "aggregate_including3499": {
+              "calls": 40,
+              "inclusive": 59627,
+              "exclusive": 52587,
+              "max": 1910
+            },
+            "detailed61": {
+              "calls": 40,
+              "inclusive": 59627,
+              "exclusive": 52587,
+              "prewindow": 0,
+              "max": 1910
+            },
+            "warmup_completed_difference": {
+              "calls": 0,
+              "inclusive": 0,
+              "exclusive": 0
+            },
+            "aggregate_mean_inclusive": 1490.675,
+            "actual_call_owners": {
+              "pinned_ROM_JSR:1:41305:39771": 40
+            }
+          },
+          "PlayerCtrlRoutine": {
+            "aggregate_including3499": {
+              "calls": 40,
+              "inclusive": 191195,
+              "exclusive": 80499,
+              "max": 5249
+            },
+            "detailed61": {
+              "calls": 40,
+              "inclusive": 191195,
+              "exclusive": 80499,
+              "prewindow": 0,
+              "max": 5249
+            },
+            "warmup_completed_difference": {
+              "calls": 0,
+              "inclusive": 0,
+              "exclusive": 0
+            },
+            "aggregate_mean_inclusive": 4779.875,
+            "actual_call_owners": {
+              "actual_SMC_JSR:-1:363:40993": 40
+            }
+          },
+          "PlayerMovementSubs": {
+            "aggregate_including3499": {
+              "calls": 40,
+              "inclusive": 40220,
+              "exclusive": 13880,
+              "max": 1030
+            },
+            "detailed61": {
+              "calls": 40,
+              "inclusive": 40220,
+              "exclusive": 13880,
+              "prewindow": 0,
+              "max": 1030
+            },
+            "warmup_completed_difference": {
+              "calls": 0,
+              "inclusive": 0,
+              "exclusive": 0
+            },
+            "aggregate_mean_inclusive": 1005.5,
+            "actual_call_owners": {
+              "pinned_ROM_JSR:1:41240:42426": 40
+            }
+          },
+          "RemainingDraw": {
+            "aggregate_including3499": {
+              "calls": 24,
+              "inclusive": 10874,
+              "exclusive": 10874,
+              "max": 461
+            },
+            "detailed61": {
+              "calls": 23,
+              "inclusive": 10423,
+              "exclusive": 10423,
+              "prewindow": 0,
+              "max": 461
+            },
+            "warmup_completed_difference": {
+              "calls": 1,
+              "inclusive": 451,
+              "exclusive": 451
+            },
+            "aggregate_mean_inclusive": 453.0833333333333,
+            "actual_call_owners": {
+              "actual_SMC_JSR:-1:363:46742": 24
+            }
+          },
+          "RemainingWeapons": {
+            "aggregate_including3499": {
+              "calls": 40,
+              "inclusive": 39450,
+              "exclusive": 39450,
+              "max": 987
+            },
+            "detailed61": {
+              "calls": 40,
+              "inclusive": 39450,
+              "exclusive": 39450,
+              "prewindow": 0,
+              "max": 987
+            },
+            "warmup_completed_difference": {
+              "calls": 0,
+              "inclusive": 0,
+              "exclusive": 0
+            },
+            "aggregate_mean_inclusive": 986.25,
+            "actual_call_owners": {
+              "actual_SMC_JSR:-1:363:43164": 40
+            }
+          },
+          "RosterDrawShots": {
+            "aggregate_including3499": {
+              "calls": 24,
+              "inclusive": 37058,
+              "exclusive": 19760,
+              "max": 1586
+            },
+            "detailed61": {
+              "calls": 23,
+              "inclusive": 35476,
+              "exclusive": 18922,
+              "prewindow": 0,
+              "max": 1586
+            },
+            "warmup_completed_difference": {
+              "calls": 1,
+              "inclusive": 1582,
+              "exclusive": 838
+            },
+            "aggregate_mean_inclusive": 1544.0833333333333,
+            "actual_call_owners": {
+              "actual_SMC_JSR:-1:363:48009": 24
+            }
+          },
+          "RosterMovement": {
+            "aggregate_including3499": {
+              "calls": 40,
+              "inclusive": 26340,
+              "exclusive": 26340,
+              "max": 683
+            },
+            "detailed61": {
+              "calls": 40,
+              "inclusive": 26340,
+              "exclusive": 26340,
+              "prewindow": 0,
+              "max": 683
+            },
+            "warmup_completed_difference": {
+              "calls": 0,
+              "inclusive": 0,
+              "exclusive": 0
+            },
+            "aggregate_mean_inclusive": 658.5,
+            "actual_call_owners": {
+              "actual_SMC_JSR:-1:363:43126": 40
+            }
+          },
+          "RosterWeapons": {
+            "aggregate_including3499": {
+              "calls": 40,
+              "inclusive": 181676,
+              "exclusive": 77115,
+              "max": 7994
+            },
+            "detailed61": {
+              "calls": 40,
+              "inclusive": 181676,
+              "exclusive": 77115,
+              "prewindow": 0,
+              "max": 7994
+            },
+            "warmup_completed_difference": {
+              "calls": 0,
+              "inclusive": 0,
+              "exclusive": 0
+            },
+            "aggregate_mean_inclusive": 4541.9,
+            "actual_call_owners": {
+              "actual_SMC_JSR:-1:363:44888": 40
+            }
+          }
+        },
+        "DMA_frames": [
+          3500,
+          3502,
+          3504,
+          3507,
+          3510,
+          3513,
+          3516,
+          3519,
+          3522,
+          3525,
+          3528,
+          3531,
+          3534,
+          3537,
+          3539,
+          3542,
+          3544,
+          3547,
+          3549,
+          3551,
+          3553,
+          3556,
+          3559
+        ],
+        "foreground_completed_exclusive_sum": 1127352,
+        "minus_closed_Main_inclusive": 21354,
+        "open_interrupts": 0,
+        "censored_spans": [
+          {
+            "depth": 0,
+            "entry_sp": 250,
+            "frame": 3560,
+            "name": "GameLoop",
+            "owner": {
+              "bank": 126,
+              "call_pc": 33485,
+              "kind": "pinned_ROM_JSR",
+              "operand": 33497,
+              "pc": 33488
+            },
+            "return_pc": 33488,
+            "start": 106000454
+          }
+        ],
+        "SavedJoypadBits_vs_host_mask_differences": [
+          {
+            "frame": 3505,
+            "native_SavedJoypadBits": 129,
+            "latest_host_mask": 193
+          },
+          {
+            "frame": 3506,
+            "native_SavedJoypadBits": 129,
+            "latest_host_mask": 193
+          },
+          {
+            "frame": 3514,
+            "native_SavedJoypadBits": 129,
+            "latest_host_mask": 1
+          },
+          {
+            "frame": 3515,
+            "native_SavedJoypadBits": 129,
+            "latest_host_mask": 1
+          },
+          {
+            "frame": 3517,
+            "native_SavedJoypadBits": 1,
+            "latest_host_mask": 65
+          },
+          {
+            "frame": 3518,
+            "native_SavedJoypadBits": 1,
+            "latest_host_mask": 65
+          },
+          {
+            "frame": 3529,
+            "native_SavedJoypadBits": 1,
+            "latest_host_mask": 65
+          },
+          {
+            "frame": 3530,
+            "native_SavedJoypadBits": 1,
+            "latest_host_mask": 65
+          },
+          {
+            "frame": 3541,
+            "native_SavedJoypadBits": 1,
+            "latest_host_mask": 65
+          },
+          {
+            "frame": 3543,
+            "native_SavedJoypadBits": 65,
+            "latest_host_mask": 69
+          },
+          {
+            "frame": 3546,
+            "native_SavedJoypadBits": 69,
+            "latest_host_mask": 5
+          },
+          {
+            "frame": 3558,
+            "native_SavedJoypadBits": 69,
+            "latest_host_mask": 5
+          },
+          {
+            "frame": 3560,
+            "native_SavedJoypadBits": 5,
+            "latest_host_mask": 1
+          }
+        ],
+        "slow_existing_head_rows": [
+          {
+            "ppu_frame": 3511,
+            "x": 1883,
+            "y": 128,
+            "state": 1,
+            "BillBGEmptyEnvelope_max": 596
+          },
+          {
+            "ppu_frame": 3513,
+            "x": 1884,
+            "y": 128,
+            "state": 1,
+            "BillBGEmptyEnvelope_max": 596
+          },
+          {
+            "ppu_frame": 3522,
+            "x": 1891,
+            "y": 128,
+            "state": 1,
+            "BillBGEmptyEnvelope_max": 608
+          },
+          {
+            "ppu_frame": 3523,
+            "x": 1893,
+            "y": 128,
+            "state": 1,
+            "BillBGEmptyEnvelope_max": 596
+          }
+        ]
+      }
+    }
+  },
+  "raw61_CPU_stamps_exact": true,
+  "relative_window_prefix": {
+    "dmas": {
+      "min": -1,
+      "max": 1,
+      "final": 0,
+      "scope": "Relative starts of unequal-workload windows; not matched-gameplay performance qualification."
+    },
+    "loops_closed": {
+      "min": -3,
+      "max": 0,
+      "final": -1,
+      "scope": "Relative starts of unequal-workload windows; not matched-gameplay performance qualification."
+    },
+    "lag_counter_delta": {
+      "min": -1,
+      "max": 1,
+      "final": 0,
+      "scope": "Relative starts of unequal-workload windows; not matched-gameplay performance qualification."
+    }
+  },
+  "first_input_divergence": {
+    "baseline": {
+      "poll": "469",
+      "frame": "469",
+      "mask": "65"
+    },
+    "candidate": {
+      "poll": "469",
+      "frame": "469",
+      "mask": "68"
+    }
+  },
+  "observations": {
+    "Remaining_including_warmup": {
+      "old_calls": 40,
+      "new_calls": 40,
+      "old_inclusive": 47274,
+      "new_inclusive": 39450,
+      "delta": -7824,
+      "old_exclusive": 37153,
+      "new_exclusive": 39450,
+      "exclusive_delta": 2297
+    },
+    "GuestPrepareEnemies_actual_owner_counts": {
+      "old_early_SMC": 40,
+      "new_early_SMC": 0,
+      "old_later_direct": 40,
+      "new_later_direct": 40,
+      "old_early_cycles": 10121,
+      "old_later_cycles": 10121,
+      "new_later_cycles": 7324
+    },
+    "caution": "Net sampled Remaining cost decreased. Sourceearlycall deletion is directly evidenced, but differingstate/enemywork prevents equating allcachetime difference to that change.",
+    "isolated_source_cost": "Separate typedCPUcontrols: basic completecaller35..803cycles saved,advancedadmission+5..172. Not native-state counterfactuals."
+  },
+  "censored_boundary": {
+    "wall_cycles_since_open_Main_entry": 15640,
+    "completed_foreground_exclusive_minus_closed_Main": 21354,
+    "conclusion": "Completeddescendants canbelong to openMain and warmup-onlycoverage. Do not assign21354to thatMain or divideallchildrenby39; storedcensoredrecord lacksISR/childCPU needed for unique reconstruction."
+  },
+  "analysis_oracle_corrections": [
+    {
+      "initial_unwritten_analysis_assertion": "DiskCSV bytes equal Lua logicalcsv_bytes",
+      "actual": "Disk has exactly62CRLF pairs; strict normalizedLF count matcheslogicalbudget,actualdisk=logical+62.",
+      "native_negative": false
+    },
+    {
+      "rejected_comparison": "timing.buttons equals sharedtrace.mask",
+      "actual": "Differentownership: nativeSavedJoypadBits vs latesthostrequestedmask;9/13rowdifferences. x/y/state andMainclosurecounts exact.",
+      "native_negative": false
+    }
+  ],
+  "limits": [
+    "Window selectedindex0,ordinarycategory1..8counts3..4; actualammo balances/per-slottypes/ages not logged.",
+    "Fullroute6091vs6076wall; inputstreams divergeatpoll469 despite identicalcontroller source. No fasterroute or all-weapons claim.",
+    "Inclusive functions nest; exclusive sums require identical completedspan coverage. NMIgross can includeIRQ,AudioCPU excludesIRQ.",
+    "Candidateheadfallback4samplesatY128 are unchangedsourcecode. Actualbodyform/tilebranch was not logged, so exact cause remains unproved.",
+    "SourceisolatedVnegative andadvancedpositiveoverhead retained; thisreview doesnot replace finiteABI proofs or ROOTadoptionverification."
+  ],
+  "catalog": {
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\bill-early-cache-pair-ready-v1\\baseline6be\\ready.json": {
+      "sha256": "5fada979bca5f6a1a8a17d68cdd200f8d6c023623dfd223aab4cc70d1214b0cf",
+      "bytes": 86231
+    },
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\bill-early-cache-pair-ready-v1\\baseline6be\\profile-config.json": {
+      "sha256": "2214e82aab7c4808370b0c70f6161b2258abe8c2256714c347f816728d5fa469",
+      "bytes": 112984
+    },
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\bill-early-cache-pair-ready-v1\\baseline6be\\run.lua": {
+      "sha256": "125faae90ca34061e008ba2379f2bd4eaf43c7192860f29b9fb3c18da0702f21",
+      "bytes": 43354
+    },
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\bill-early-cache-pair-ready-v1\\baseline6be\\result.json": {
+      "sha256": "c17d7c712a5c5b2d664a3d0bf5518cb469eb966a48e0c0b726028a28e8dd7cfd",
+      "bytes": 2100
+    },
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\bill-early-cache-pair-ready-v1\\baseline6be\\launch.json": {
+      "sha256": "98928fb53ab81e1ccbaca3d029c41d3ffa1dbdd8e79234774133b685231f5246",
+      "bytes": 392
+    },
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\bill-early-cache-pair-ready-v1\\baseline6be\\review.json": {
+      "sha256": "6004a1795f37b9b582c0233956a01e4ba99728ba0e12feacb2354affea5642fe",
+      "bytes": 441437
+    },
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\bill-early-cache-pair-ready-v1\\baseline6be\\selected-whole-frames.png": {
+      "sha256": "fba8d80926fa44d341084e7ac5601ef0467fa5d60e71a70cfd283feaecd39548",
+      "bytes": 14941
+    },
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\bill-early-cache-pair-ready-v1\\baseline6be\\inputs.csv": {
+      "sha256": "cc40d6efbace0ddfcd435f95348bfd6534affffc5da8e1614caa12c0d3043912",
+      "bytes": 80220
+    },
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\bill-early-cache-pair-ready-v1\\baseline6be\\trace.csv": {
+      "sha256": "d21b71bf1faef90f666f3f888cba07b918d69c2f352a9804f64550ac5fb9884f",
+      "bytes": 539479
+    },
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\bill-early-cache-pair-ready-v1\\baseline6be\\events.jsonl": {
+      "sha256": "1e95dc112f3f69a2dfa9ac559ae647e6b56ae8d46636cffe9c253a57bcf02780",
+      "bytes": 227936
+    },
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\bill-early-cache-pair-ready-v1\\baseline6be\\bill-timing.csv": {
+      "sha256": "7801195d50699076ace77adf8c0a63a8ea199aa38de924f78ff856bca8f2e812",
+      "bytes": 22613
+    },
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\bill-early-cache-pair-ready-v1\\baseline6be\\bill-timing-summary.json": {
+      "sha256": "9c787d7543022cc4cd81fd0ae2e843db2b9f64be4a8409f79226b3c66156bad0",
+      "bytes": 3627
+    },
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\bill-early-cache-pair-ready-v1\\baseline6be\\capture-budget.json": {
+      "sha256": "cd04fb2ee097c7b24f544e0201cd0d50e787cba5f3434521ed7be7a8d177e4d5",
+      "bytes": 1321
+    },
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\bill-early-cache-pair-ready-v1\\baseline6be\\captures-index.jsonl": {
+      "sha256": "577ffac7f17a302ac740d14ac2284620c2b0fbac91034990fae80b539c64b595",
+      "bytes": 1438358
+    },
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\bill-early-cache-pair-ready-v1\\baseline6be\\captures.nesppuv1": {
+      "sha256": "8153c2f574d7d76ccbf5c8d5f65700ce4cc272c5e5c1b786032131dd09549df9",
+      "bytes": 55587090
+    },
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\bill-early-cache-pair-ready-v1\\candidate9ea\\ready.json": {
+      "sha256": "d58d3f78e29ee6e3238089084237e656350e1020c027be0caa8f9a4fbf21bc55",
+      "bytes": 86202
+    },
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\bill-early-cache-pair-ready-v1\\candidate9ea\\profile-config.json": {
+      "sha256": "b29c4ec6ed8eca6f8fddf087c04b0dd5335b7e8ac590eb334f177a019092a5e7",
+      "bytes": 112985
+    },
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\bill-early-cache-pair-ready-v1\\candidate9ea\\run.lua": {
+      "sha256": "fc800a1a159a9db7356c74c534b1046f92cb926e0f6cf5e16c0c5fd5ede21c86",
+      "bytes": 43357
+    },
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\bill-early-cache-pair-ready-v1\\candidate9ea\\result.json": {
+      "sha256": "0fbbea756bfa0084aa6ad63bbbb1c5016964d6f4011cfeb3b7a5f1e394a73a01",
+      "bytes": 2101
+    },
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\bill-early-cache-pair-ready-v1\\candidate9ea\\launch.json": {
+      "sha256": "0e72c83981bdd852d6110386ed335054a5916f512e3eb40009ccd0df323a9b55",
+      "bytes": 392
+    },
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\bill-early-cache-pair-ready-v1\\candidate9ea\\review.json": {
+      "sha256": "27d7776f20284e08352ea5c0360419d21fb072d654d51cfe1fbe12af2ffa6d9e",
+      "bytes": 442841
+    },
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\bill-early-cache-pair-ready-v1\\candidate9ea\\selected-whole-frames.png": {
+      "sha256": "61706fd200ebb99f64b13a1f6629fb226b02b31143345e7394e2738d9d857da6",
+      "bytes": 14995
+    },
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\bill-early-cache-pair-ready-v1\\candidate9ea\\inputs.csv": {
+      "sha256": "b03024aac18a7e224e00bb2f6aa15fe08f1e821457f06d50068c113bb214eb35",
+      "bytes": 80366
+    },
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\bill-early-cache-pair-ready-v1\\candidate9ea\\trace.csv": {
+      "sha256": "b6e60aba4ae1dfba71ec3cecbd1daaa8e1521f0750b143c7f8b463869d378fca",
+      "bytes": 540190
+    },
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\bill-early-cache-pair-ready-v1\\candidate9ea\\events.jsonl": {
+      "sha256": "52bd69629c48619b92fc1878844095caffd3e958b776936fdea03b56cc7b52ca",
+      "bytes": 222508
+    },
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\bill-early-cache-pair-ready-v1\\candidate9ea\\bill-timing.csv": {
+      "sha256": "9e8c389cceeedde421d440b984b22362c6c0eb4e097605b9a6eeb76a5be71abc",
+      "bytes": 22486
+    },
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\bill-early-cache-pair-ready-v1\\candidate9ea\\bill-timing-summary.json": {
+      "sha256": "413e67a7c671727579c1d6a4c56d66d538d1867ada917716b08c1f0001fff212",
+      "bytes": 3769
+    },
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\bill-early-cache-pair-ready-v1\\candidate9ea\\capture-budget.json": {
+      "sha256": "7f6bd66e0082cfa804a62f7efb18273322eb9aae5999bddb9729fa4cb3a9b658",
+      "bytes": 1312
+    },
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\bill-early-cache-pair-ready-v1\\candidate9ea\\captures-index.jsonl": {
+      "sha256": "f006c3bf1d1291c581aa95f476f4a7b6bf89c16d51847ac8361cc5a3b0d16611",
+      "bytes": 1443121
+    },
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\bill-early-cache-pair-ready-v1\\candidate9ea\\captures.nesppuv1": {
+      "sha256": "ade63f0954d1eb88bc2d14cc897f6c99516c7536cfceac77c4014f49b64cc155",
+      "bytes": 56701763
+    },
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bill_early_cache_controls.json": {
+      "sha256": "7d2e2f2ceaebf73d306aeee40b32330d791cdf66de878d42ab07d4548f25398d",
+      "bytes": 18012
+    },
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bill_early_cache_handoff.json": {
+      "sha256": "f40746c60026b9381edf3e855e3bd3fd8b0c34d3e1091f7f9b3be53d5e9fac1f",
+      "bytes": 21553
+    },
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\current_bill_passive_timing_v1.lua": {
+      "sha256": "686e08d0c0b52f54807422befb43a0e96c335a302b50dd41983d87b28a90b86f",
+      "bytes": 9959
+    },
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bill_early_cache_timing_full.lua": {
+      "sha256": "d36933a205b7118abf5df6c3bc707e15b1044a05c2b33cc47bd65e5491edb15d",
+      "bytes": 10014
+    },
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\bill_early_cache_native_prepare_v1.py": {
+      "sha256": "e7ac1d3a74301490f064f189260a84453970a47bdbc32e93b63d84345fd72e5b",
+      "bytes": 11805
+    },
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\bill_bg_empty.s": {
+      "sha256": "025fa7224e612abe34f3c3d6209bef265d774128a6f0d25d6d456f42ccfb00b5",
+      "bytes": 2120
+    }
+  },
+  "report": {
+    "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\docs\\qa\\bill-early-cache-native-timing-2026-10-27.txt",
+    "sha256": "bb232e4f24140c72a3739f6862fbf9f6a05d7a92784c83b7aef80d29348f89d0",
+    "bytes": 5028
+  }
+}

@@ -524,7 +524,11 @@ Supported:
   cmp #CHARACTER_SAMUS
   beq PrepareEnemies
   cmp #CHARACTER_BILL
+.if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
+  beq BillEarlyCacheJump
+.else
   beq PrepareEnemies
+.endif
   cmp #CHARACTER_SOPHIA
   bne EnemiesReady
 PrepareEnemies:
@@ -540,10 +544,19 @@ CheckActivePool:
   bne PrepareActiveEnemies
   dex
   bpl CheckActivePool
+.if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
+  lda SelectedCharacter
+  cmp #CHARACTER_SAMUS
+  bne EnemiesReady
+  jmp SamusEmpty
+BillEarlyCacheJump:
+  jmp ::BillEarlyCacheGate
+.else
   lda SelectedCharacter
   cmp #CHARACTER_SAMUS
   jeq SamusEmpty
   jmp EnemiesReady
+.endif
 PrepareActiveEnemies:
   farcall GuestPrepareEnemies
 EnemiesReady:
@@ -801,7 +814,19 @@ SamusInput:
   ; Default nonclassic2.02 Special fires even while Down is held.
   ; Preserve the former classic-mode toggle span and every later PC.
   jmp Missile
+.if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
+::BillEarlyCacheGate:
+  lda InvFresh
+  and #Select_Button
+  beq BillEarlyNoSelect
+  jmp RemainingWeapons::PrepareActiveEnemies
+BillEarlyNoSelect:
+  ldx #9
+  jmp ::BillEarlyCachePool
+  .assert *-::BillEarlyCacheGate=15,error,"Existing unreachable15B pad"
+.else
   .res 15,$ea
+.endif
 Missile:
   jsr RemainingSamusPool
   jcs Return
@@ -1668,7 +1693,26 @@ KnownZero:
   lda ProductHi,x
   sta MmProduct+3
   jmp HighByte
+.if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
+::BillEarlyCachePool:
+  lda RgShotType,x
+  bne BillEarlyRange
+BillEarlyNext:
+  dex
+  bpl ::BillEarlyCachePool
+  jmp RemainingWeapons::EnemiesReady
+BillEarlyRange:
+  cmp #32
+  bcc BillEarlyNext
+  cmp #47
+  bcc BillEarlyPrepare
+  bcs BillEarlyNext
+BillEarlyPrepare:
+  jmp RemainingWeapons::PrepareActiveEnemies
+  .assert *-::BillEarlyCachePool=24,error,"Existing unreachable24B pad"
+.else
   .res 24, $ea
+.endif
 HighByte:
   .assert HighByte-::AvHomeFriction=58, lderror, "Original high-byte offset"
   ldx MmMul+2

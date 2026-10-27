@@ -6,7 +6,9 @@ This is a native NES adaptation of [Super Mario Bros. Crossover](https://www.smb
 
 **Status: playable, actively developed, and unfinished.** Character behavior, graphics, sound and performance are still being tested and corrected. MMC5 is the recommended target for the full roster.
 
-The October 27 development build (`6be48337`) keeps Samus's missile icon visible while her weapon graphics change. Current-build checks cover Samus's items and HUD jump, Bass's items in both modes, Pit's upgrades and flight in both modes, and 1-1 clears for Link, Simon and Rygar. See the [build checks](docs/qa/samus-fixed-hud-adoption-2026-10-27.json), [Pit checks](docs/qa/pit-current6be-components-native-2026-10-27.json) and [roster progress](docs/qa/current-roster-progress-2026-10-27.json) for the tested modes and limits.
+The October 27 development build (`9ea11eab`) removes a repeated enemy scan during Bill/Lance's ordinary gunfire. Bill cleared 1-1 in Hard mode with the rendering guards enabled. This reduces unnecessary CPU work; the recorded comparison does not establish a faster route or constant frame rate. See the [build checks and limits](docs/qa/bill-early-cache-adoption-2026-10-27.json).
+
+It retains the preceding `6be48337` Samus missile-icon fix. Checks recorded on that earlier build cover Samus's items and HUD jump, Bass's items in both modes, Pit's upgrades and flight in both modes, and 1-1 clears for Link, Simon and Rygar. See the [Samus checks](docs/qa/samus-fixed-hud-adoption-2026-10-27.json), [Pit checks](docs/qa/pit-current6be-components-native-2026-10-27.json) and [roster progress](docs/qa/current-roster-progress-2026-10-27.json) for each tested ROM and mode.
 
 It also includes `4a0394b0`'s alternating body-sprite priority for Mega Man and Proto Man, and its fix for a scrolling jump caused by repeated palette updates running past the rendering deadline. Both cleared Hard 1-1 without a death and reached playable 1-2 on that build. See the [rendering checks and limits](docs/qa/mm-body-palette-adoption-2026-10-27.json).
 

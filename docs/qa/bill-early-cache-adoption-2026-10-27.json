@@ -1,0 +1,170 @@
+{
+  "rom_sha256": "9ea11eab2fc5c373a3795b013f6ed9e0d5e9781891b2ae3bf40ad2556c27b85e",
+  "ROM_sha256": "9ea11eab2fc5c373a3795b013f6ed9e0d5e9781891b2ae3bf40ad2556c27b85e",
+  "base_sha256": "6be48337ffee66a22b22de9ce134d5db323649fb4de620c43bad4ca98b80f193",
+  "passed": true,
+  "goal_complete": false,
+  "checks": [
+    {
+      "name": "Exact43-bytebank6-onlydelta;headerandCHRunchanged",
+      "passed": true
+    },
+    {
+      "name": "FinitewholecallerRAMflagsSMCandIRQsourcecontrols",
+      "passed": true
+    },
+    {
+      "name": "ActualBillHardrouteintocontrolled1-2;zerodeaths",
+      "passed": true
+    },
+    {
+      "name": "NativeDMA_NMI_IRQ_CHR_stack_and_renderdeadlineguards",
+      "passed": true
+    },
+    {
+      "name": "All33boundinputsandhumansettingsunchangedinbothruns",
+      "passed": true
+    },
+    {
+      "name": "WholePPUstreamsvalidatedand14selectedwholeframesreviewed",
+      "passed": true
+    },
+    {
+      "name": "Main-sourcecanonicalrebuildmatchesnativecandidate",
+      "passed": true
+    },
+    {
+      "name": "OrdinaryMMC3andMMC5freshbuildsbyte-exact",
+      "passed": true
+    },
+    {
+      "name": "CurrentanddatedDownloadsverified;previousdated6beretained",
+      "passed": true
+    }
+  ],
+  "source_change": "Skip the redundant early enemy-cache refresh for Bill/Lance ordinary projectiles; retain Select, advanced and later mandatory preparations.",
+  "source_only_file": "src/remaining_weapons.s",
+  "source_after_sha256": "63789904a5e617967fa4d0e7a126444e7e0a71ce8cf2c47a01e5806d2a44bc66",
+  "changed_ROM_bytes": 43,
+  "changed_physical_banks": [
+    6
+  ],
+  "CHR_changed_bytes": 0,
+  "RAM_layout_changed": false,
+  "runs": [
+    {
+      "name": "baseline6be",
+      "ROM_sha256": "6be48337ffee66a22b22de9ce134d5db323649fb4de620c43bad4ca98b80f193",
+      "passed": true,
+      "wall": 6076,
+      "completed_updates": 5079,
+      "complete256_DMAs": 3765,
+      "full_PPU_frames": 5189,
+      "zero_deaths": true,
+      "controlled_1_2_updates": 25,
+      "ROOT_selected_frame_review": 7,
+      "all_frame_visual_review": false,
+      "result_sha256": "c17d7c712a5c5b2d664a3d0bf5518cb469eb966a48e0c0b726028a28e8dd7cfd",
+      "review_sha256": "6004a1795f37b9b582c0233956a01e4ba99728ba0e12feacb2354affea5642fe",
+      "checkpoint_files": {
+        "bill-timing-summary.json": "9c787d7543022cc4cd81fd0ae2e843db2b9f64be4a8409f79226b3c66156bad0",
+        "bill-timing.csv": "7801195d50699076ace77adf8c0a63a8ea199aa38de924f78ff856bca8f2e812",
+        "capture-budget.json": "cd04fb2ee097c7b24f544e0201cd0d50e787cba5f3434521ed7be7a8d177e4d5",
+        "inputs.csv": "cc40d6efbace0ddfcd435f95348bfd6534affffc5da8e1614caa12c0d3043912",
+        "launch.json": "98928fb53ab81e1ccbaca3d029c41d3ffa1dbdd8e79234774133b685231f5246",
+        "ready.json": "5fada979bca5f6a1a8a17d68cdd200f8d6c023623dfd223aab4cc70d1214b0cf",
+        "result.json": "c17d7c712a5c5b2d664a3d0bf5518cb469eb966a48e0c0b726028a28e8dd7cfd",
+        "review-binding.json": "3694cab52fcf4f00be4136305afc371fc76fc783317e66b732745a73f1d7ab02",
+        "selected-whole-frames.png": "fba8d80926fa44d341084e7ac5601ef0467fa5d60e71a70cfd283feaecd39548"
+      }
+    },
+    {
+      "name": "candidate9ea",
+      "ROM_sha256": "9ea11eab2fc5c373a3795b013f6ed9e0d5e9781891b2ae3bf40ad2556c27b85e",
+      "passed": true,
+      "wall": 6091,
+      "completed_updates": 5142,
+      "complete256_DMAs": 3823,
+      "full_PPU_frames": 5206,
+      "zero_deaths": true,
+      "controlled_1_2_updates": 25,
+      "ROOT_selected_frame_review": 7,
+      "all_frame_visual_review": false,
+      "result_sha256": "0fbbea756bfa0084aa6ad63bbbb1c5016964d6f4011cfeb3b7a5f1e394a73a01",
+      "review_sha256": "27d7776f20284e08352ea5c0360419d21fb072d654d51cfe1fbe12af2ffa6d9e",
+      "checkpoint_files": {
+        "bill-timing-summary.json": "413e67a7c671727579c1d6a4c56d66d538d1867ada917716b08c1f0001fff212",
+        "bill-timing.csv": "9e8c389cceeedde421d440b984b22362c6c0eb4e097605b9a6eeb76a5be71abc",
+        "capture-budget.json": "7f6bd66e0082cfa804a62f7efb18273322eb9aae5999bddb9729fa4cb3a9b658",
+        "inputs.csv": "b03024aac18a7e224e00bb2f6aa15fe08f1e821457f06d50068c113bb214eb35",
+        "launch.json": "0e72c83981bdd852d6110386ed335054a5916f512e3eb40009ccd0df323a9b55",
+        "ready.json": "d58d3f78e29ee6e3238089084237e656350e1020c027be0caa8f9a4fbf21bc55",
+        "result.json": "0fbbea756bfa0084aa6ad63bbbb1c5016964d6f4011cfeb3b7a5f1e394a73a01",
+        "review-binding.json": "c4e673cb4f2a0aa078edd1ec857aa673924d29901640ab57c110a11463bf2e52",
+        "selected-whole-frames.png": "61706fd200ebb99f64b13a1f6629fb226b02b31143345e7394e2738d9d857da6"
+      }
+    }
+  ],
+  "performance": {
+    "scope": "One61-physical-PPU-frame window3500..3560 per run; different trajectories/enemy workloads and one candidate censored GameLoop.",
+    "early_cache_calls": [
+      40,
+      0
+    ],
+    "total_cache_calls": [
+      80,
+      40
+    ],
+    "RemainingWeapons_calls": [
+      40,
+      40
+    ],
+    "RemainingWeapons_inclusive_CPU": [
+      47274,
+      39450
+    ],
+    "window_DMAs": [
+      23,
+      23
+    ],
+    "window_NmiSkipped_increments": [
+      38,
+      38
+    ],
+    "closed_GameLoop_calls": [
+      40,
+      39
+    ],
+    "faster_route_proved": false,
+    "constant_60Hz_proved": false,
+    "claim": "Redundant work removed. No whole-game/FPS/route-speed improvement established by the unmatched windows.",
+    "span_aggregate_warmup_starts_at_PPU_frame": 3499,
+    "strict_61_frame_CSV_total_cache_calls": [
+      78,
+      40
+    ],
+    "strict_61_frame_CSV_RemainingWeapons_calls": [
+      39,
+      40
+    ],
+    "aggregate_and_CSV_scopes_differ": true
+  },
+  "isolated_ABI_negative": "Skipping cache arithmetic changes V in isolatedRemainingWeapons; preserved as a negative. Complete actual caller fullP and fiveSMC liveness controls pass. No standaloneAXYP-equivalence claim.",
+  "limits": "BillHard ordinary-gunfire route only on9ea. Lance, other characters, allarsenal, shortcut routes, full-animation/pixel review, audible fidelity and broad performance still need coverage. Earlier6be/4a/2082/8487native results retain their actual ROMs.",
+  "installed": "C:\\Users\\kando\\Downloads\\SMB-Crossover-Current-MMC5.nes",
+  "dated_download": "C:\\Users\\kando\\Downloads\\SMB-Crossover-2026-10-27-9ea11eab-MMC5.nes",
+  "previous_dated_download": "C:/Users/kando/Downloads/SMB-Crossover-2026-10-27-6be48337-MMC5.nes",
+  "release_checkpoint_files": {
+    "before.json": "a52123dfc75c026b07fed78f2f57ce72b21647007abbbed004cd0ca943bbfba8",
+    "manifest.json": "870d6efc073ac185d4b7e66cf43b2c7edbd2bb8b28110e2fb7577a734ad1b015",
+    "primary-flagoff.json": "3ee079c47dc3d923f2adcc29b1ede886ab366e0e3a8380e745a19846cc78047d",
+    "private-flagoff.json": "6644ebffbaf4df9050919ed3ec031050e9acc8dad0cc44ca50f46de812516567",
+    "source-controls.json": "7d2e2f2ceaebf73d306aeee40b32330d791cdf66de878d42ab07d4548f25398d",
+    "source-handoff.json": "f40746c60026b9381edf3e855e3bd3fd8b0c34d3e1091f7f9b3be53d5e9fac1f"
+  },
+  "timing_review": {
+    "path": "checkpoints/2026-10-27/bill-early-cache-native-pair/timing-review.json",
+    "sha256": "defa64f98dbac241058cdda8f017d6b45927d8ad1219b8df3521bd39b82a8b6e",
+    "report": "bill-early-cache-native-timing-2026-10-27.txt"
+  }
+}

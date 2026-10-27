@@ -1,0 +1,25 @@
+Bill early-cache native timing — 2026-10-27
+
+Both controller-only Bill Hard routes and ROOT compact-container reviews PASS. Baseline6be:6076wall frames/5079Mainupdates/3765DMAs/5189wholePPUimages. Candidate9ea:6091wall/5142updates/3823DMAs/5206images. Both zero deaths,cheats off,25controlled1-2updates,all33bindings/settings unchanged. ROOT reviewed all7selectedwholeframes in each; this reviewer rechecked logs/arithmetic without new pixelinspection. Candidate took15morewallframes: no faster-full-route/FPS claim. Analysis began during candidate run; this frozen report incorporates actualcompletedPASS.
+
+Files remain in build/verification/bill-early-cache-pair-ready-v1/{baseline6be,candidate9ea}. ROMs6be48337ffee66a22b22de9ce134d5db323649fb4de620c43bad4ca98b80f193 and9ea11eab2fc5c373a3795b013f6ed9e0d5e9781891b2ae3bf40ad2556c27b85e. No game/source/readiness/profile/controller/settings changes or native launch by this review. Adoption is ROOT's separate process; no requirement that liveprimary source remain6be after adoption.
+
+61 actualPPU rows3500..3560
+All61CPU/endFrame clockstamps exactlymatch betweenruns, line240/dot0,cycles104229264..106016094 (1786830cycles between first/last). Both23DMAs,38NmiSkipped increments,61closedNMI/IRQspans,7320IRQcycles. Relative-window DMAprefix difference-1..+1 ends0; Mainprefix-3..0 ends-1. These are unequal-workload windows, not matched-gameplay no-harm qualification. Sampled ShouldSkipDrawSprites flags14vs16 are not missedDMAcounts.
+
+BaselineX1900->1948 has35grounded/26airborne rows; candidateX1874->1923 has2grounded/59airborne. Ordinaryshotcategory1..8 counts3/4:baseline15/46rows,candidate8/53. Advanced/other shots0 throughout. Enemy-slotcounts1/2/3:baseline9/18/34rows,candidate8/34/19. SelectedInvSelected index0,TimerControl/powerup/refill0 all61rows. Actualammo balances andper-slotshottypes/ages were notlogged. Inputstreams differ frompoll469 (65vs68), despite the same unchanged discoverypolicy; there was no identical-input independent replay for this optimization.
+
+Rawlocal costs
+Tracked aggregates include3499warmup. RemainingWeapons40calls:47274old inclusive cycles vs39450new (observed-7824;means1181.85->986.25), while exclusive37153->39450 (+2297). ActualearlySMCGuestPrepareEnemies40calls/10121cycles disappear. RetaineddirectGuestPrepareEnemies40calls remain. Totalcache80calls20242->40calls7324; retainedcachework itself changes10121->7324, so the full12918difference cannot be credited to removing the earlycall. Strict61CSVbuckets instead contain39vs40Remaining calls and78vs40cachecalls. Native localcost reduction is directly observed, but not a matched per-call state counterfactual.
+
+Other warmup aggregates demonstrate differentwork: RosterWeapons233476->181676cycles/40calls; BulletBlocks145->152calls; BulletEnemies105->32; DrawAll214723->231068cycles/24calls; MetaspriteRenderLoop214->255calls. RawGameLoopmax39078->39494. Fourcandidate existinghead-envelope calls atY128 cost596/596/608/596 versus oldall129. Unchanged BillBGEmptyEnvelope has literalzero/seam/domainfallbacks; actualbodyform/tilebranch was notlogged, so exactfallbackcause is unproved. Audio251374->250956/62calls is also an unmatched schedule, not an audiooptimization.
+
+Boundary/censoring
+ClosedMain40old vs39new. Candidate hasone openMain at3560,start106000454,realcallerbank126/return82D0,depth0,entrySP250;15640wallcycles have elapsed atcutoff. Its savedrecord omits accumulatedISR/childCPU, so finalforegroundtime cannotbe reconstructed. ZeroopenIRQs. Completedforegroundexclusive sum1127352 exceeds closedMaininclusive1105998 by21354 (old1219986==1219986). Closeddescendants can belong to censoredMain andwarmup-onlycoverage. Do not assign21354to thatMain, divideallchildrenby39, or treat nestedinclusive totals as additive.
+
+Offline-oracle corrections retained
+An initial unwritten analysis asserted diskCSVbytes==Lua csv_bytes; WindowsCRLF makesactual22613/22486 vslogical22551/22424,exactly+62. Strict62CRLF/normalizedLF accounting passes. Timing.buttons reads nativeSavedJoypadBits; trace.mask islatesthostrequest anddiffers in9/13rows. Thoseare differentowner boundaries, not equivalentfields or gamefaults. Timingx/y/state andper-frameMainclosurecounts match sharedtrace exactly. No nativeassertion or fixturebody was changed.
+
+Separate finiteCPUarenas prove35..803cycle basicfullcaller savings inclscan/routing andretainedcache. They are not source-statecounterfactuals of these nativecalls. IsolatedRemainingWeapons V-negative remains retained; full realcaller flags/state qualified. Advancedadmission can add5..172cycles and was not exercised by this default-indexwindow. No universal60Hz/allweapon claim.
+
+Exacttables/arithmetic/callerowners/prefixes and36filehashes are in sibling timing-review.json. ROOTcentralreview hashes6004a1795f37b9b582c0233956a01e4ba99728ba0e12feacb2354affea5642fe and27d7776f20284e08352ea5c0360419d21fb072d654d51cfe1fbe12af2ffa6d9e. Originalsinglecontainers stay in place; no copiedcaptures/screenshots/source/runtimeforest.

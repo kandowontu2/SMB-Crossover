@@ -1,0 +1,927 @@
+{
+  "passed": true,
+  "source_CPU_only": true,
+  "native_run": false,
+  "parent_sha256": "6be48337ffee66a22b22de9ce134d5db323649fb4de620c43bad4ca98b80f193",
+  "candidate_sha256": "9ea11eab2fc5c373a3795b013f6ed9e0d5e9781891b2ae3bf40ad2556c27b85e",
+  "counts": {
+    "admission_all256_types_three_slots_Select": 1536,
+    "complete_remaining_basic_all64flags": 16128,
+    "isolated_return_V_differences_NOT_standalone_ABI_claim": 6912,
+    "retained_advanced_prefix_all64flags": 5760,
+    "actual_complete_ProcFireball_Bubble": 480,
+    "actual_complete_caller_all64flags_V_liveness": 3072,
+    "foreign_complete_remaining": 1176,
+    "actual_IRQ_helper_boundaries": 174
+  },
+  "costs": {
+    "empty": {
+      "min": -2,
+      "max": -2,
+      "cases": 2304
+    },
+    "basic_nonempty": {
+      "min": -803,
+      "max": -35,
+      "cases": 13824
+    },
+    "retained_advanced_prefix": {
+      "min": 5,
+      "max": 172
+    },
+    "actual_complete_caller": {
+      "min": -803,
+      "max": -2,
+      "examples": [
+        {
+          "pool": [],
+          "enemies": 0,
+          "old_cycles": 2712,
+          "new_cycles": 2710,
+          "old_preparations": 0,
+          "new_preparations": 0
+        },
+        {
+          "pool": [],
+          "enemies": 3,
+          "old_cycles": 2712,
+          "new_cycles": 2710,
+          "old_preparations": 0,
+          "new_preparations": 0
+        },
+        {
+          "pool": [],
+          "enemies": 6,
+          "old_cycles": 2712,
+          "new_cycles": 2710,
+          "old_preparations": 0,
+          "new_preparations": 0
+        },
+        {
+          "pool": [
+            1
+          ],
+          "enemies": 0,
+          "old_cycles": 3840,
+          "new_cycles": 3652,
+          "old_preparations": 2,
+          "new_preparations": 1
+        },
+        {
+          "pool": [
+            1
+          ],
+          "enemies": 3,
+          "old_cycles": 5240,
+          "new_cycles": 4743,
+          "old_preparations": 2,
+          "new_preparations": 1
+        },
+        {
+          "pool": [
+            1
+          ],
+          "enemies": 6,
+          "old_cycles": 6029,
+          "new_cycles": 5226,
+          "old_preparations": 2,
+          "new_preparations": 1
+        },
+        {
+          "pool": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1
+          ],
+          "enemies": 0,
+          "old_cycles": 6060,
+          "new_cycles": 5989,
+          "old_preparations": 2,
+          "new_preparations": 1
+        },
+        {
+          "pool": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1
+          ],
+          "enemies": 3,
+          "old_cycles": 9806,
+          "new_cycles": 9426,
+          "old_preparations": 2,
+          "new_preparations": 1
+        },
+        {
+          "pool": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1
+          ],
+          "enemies": 6,
+          "old_cycles": 11126,
+          "new_cycles": 10440,
+          "old_preparations": 2,
+          "new_preparations": 1
+        },
+        {
+          "pool": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "enemies": 0,
+          "old_cycles": 7952,
+          "new_cycles": 7849,
+          "old_preparations": 2,
+          "new_preparations": 1
+        },
+        {
+          "pool": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "enemies": 3,
+          "old_cycles": 13262,
+          "new_cycles": 12850,
+          "old_preparations": 2,
+          "new_preparations": 1
+        },
+        {
+          "pool": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "enemies": 6,
+          "old_cycles": 14936,
+          "new_cycles": 14218,
+          "old_preparations": 2,
+          "new_preparations": 1
+        },
+        {
+          "pool": [
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3
+          ],
+          "enemies": 0,
+          "old_cycles": 11530,
+          "new_cycles": 11495,
+          "old_preparations": 2,
+          "new_preparations": 1
+        },
+        {
+          "pool": [
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3
+          ],
+          "enemies": 3,
+          "old_cycles": 20148,
+          "new_cycles": 19804,
+          "old_preparations": 2,
+          "new_preparations": 1
+        },
+        {
+          "pool": [
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3
+          ],
+          "enemies": 6,
+          "old_cycles": 22530,
+          "new_cycles": 21880,
+          "old_preparations": 2,
+          "new_preparations": 1
+        }
+      ]
+    },
+    "foreign_complete_remaining": {
+      "min": -2,
+      "max": 0
+    }
+  },
+  "actual_V_overwrite_instructions": [
+    [
+      41031,
+      8,
+      237
+    ]
+  ],
+  "tool_sha256": "5c08430c98bcb0456daaf538ce7586338e387243ba3dc47d71e13ff6e72a9105",
+  "inherited_successfully_completed_sections": {
+    "prior_FALSE_sha256": "df672d3a8523f75ff84224bcae616dd5629588fe697251c0d470014d220d44e5",
+    "prior_tool_sha256": "cdf6b20e92d55d8a7397d53383de86a0ec59ecfaef947907e360d13fbf922901",
+    "same_ROMs_and_CPU_helpers_AST_exact": true,
+    "scope": "Only completed sections before foreign cost assertion are inherited. Original overallFALSE retained; new foreign/IRQ/boundary/liveness controls execute below."
+  },
+  "actual_SMC_overwrite_liveness": {
+    "cases": 16,
+    "source_reads_before_overwrite": 0,
+    "exact_five_operand_addresses": [
+      354,
+      362,
+      364,
+      365,
+      377
+    ],
+    "examples": [
+      {
+        "pool": [
+          1
+        ],
+        "buttons": 0,
+        "mode": 0,
+        "first_overwrites": [
+          [
+            377,
+            367,
+            0
+          ],
+          [
+            362,
+            44513,
+            3
+          ],
+          [
+            364,
+            44518,
+            0
+          ],
+          [
+            365,
+            44523,
+            160
+          ],
+          [
+            354,
+            347,
+            212
+          ]
+        ]
+      },
+      {
+        "pool": [
+          1
+        ],
+        "buttons": 0,
+        "mode": 1,
+        "first_overwrites": [
+          [
+            377,
+            367,
+            0
+          ],
+          [
+            362,
+            44513,
+            3
+          ],
+          [
+            364,
+            44518,
+            0
+          ],
+          [
+            365,
+            44523,
+            160
+          ],
+          [
+            354,
+            347,
+            212
+          ]
+        ]
+      },
+      {
+        "pool": [
+          1
+        ],
+        "buttons": 65,
+        "mode": 0,
+        "first_overwrites": [
+          [
+            377,
+            367,
+            0
+          ],
+          [
+            362,
+            44513,
+            3
+          ],
+          [
+            364,
+            44518,
+            0
+          ],
+          [
+            365,
+            44523,
+            160
+          ],
+          [
+            354,
+            347,
+            212
+          ]
+        ]
+      },
+      {
+        "pool": [
+          1
+        ],
+        "buttons": 65,
+        "mode": 1,
+        "first_overwrites": [
+          [
+            377,
+            367,
+            0
+          ],
+          [
+            362,
+            44513,
+            3
+          ],
+          [
+            364,
+            44518,
+            0
+          ],
+          [
+            365,
+            44523,
+            160
+          ],
+          [
+            354,
+            347,
+            212
+          ]
+        ]
+      },
+      {
+        "pool": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1
+        ],
+        "buttons": 0,
+        "mode": 0,
+        "first_overwrites": [
+          [
+            377,
+            367,
+            0
+          ],
+          [
+            362,
+            44513,
+            3
+          ],
+          [
+            364,
+            44518,
+            0
+          ],
+          [
+            365,
+            44523,
+            160
+          ],
+          [
+            354,
+            347,
+            212
+          ]
+        ]
+      },
+      {
+        "pool": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1
+        ],
+        "buttons": 0,
+        "mode": 1,
+        "first_overwrites": [
+          [
+            377,
+            367,
+            0
+          ],
+          [
+            362,
+            44513,
+            3
+          ],
+          [
+            364,
+            44518,
+            0
+          ],
+          [
+            365,
+            44523,
+            160
+          ],
+          [
+            354,
+            347,
+            212
+          ]
+        ]
+      },
+      {
+        "pool": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1
+        ],
+        "buttons": 65,
+        "mode": 0,
+        "first_overwrites": [
+          [
+            377,
+            367,
+            0
+          ],
+          [
+            362,
+            44513,
+            3
+          ],
+          [
+            364,
+            44518,
+            0
+          ],
+          [
+            365,
+            44523,
+            160
+          ],
+          [
+            354,
+            347,
+            212
+          ]
+        ]
+      },
+      {
+        "pool": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1
+        ],
+        "buttons": 65,
+        "mode": 1,
+        "first_overwrites": [
+          [
+            377,
+            367,
+            0
+          ],
+          [
+            362,
+            44513,
+            3
+          ],
+          [
+            364,
+            44518,
+            0
+          ],
+          [
+            365,
+            44523,
+            160
+          ],
+          [
+            354,
+            347,
+            212
+          ]
+        ]
+      },
+      {
+        "pool": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "buttons": 0,
+        "mode": 0,
+        "first_overwrites": [
+          [
+            377,
+            367,
+            0
+          ],
+          [
+            362,
+            44513,
+            3
+          ],
+          [
+            364,
+            44518,
+            0
+          ],
+          [
+            365,
+            44523,
+            160
+          ],
+          [
+            354,
+            347,
+            212
+          ]
+        ]
+      },
+      {
+        "pool": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "buttons": 0,
+        "mode": 1,
+        "first_overwrites": [
+          [
+            377,
+            367,
+            0
+          ],
+          [
+            362,
+            44513,
+            3
+          ],
+          [
+            364,
+            44518,
+            0
+          ],
+          [
+            365,
+            44523,
+            160
+          ],
+          [
+            354,
+            347,
+            212
+          ]
+        ]
+      },
+      {
+        "pool": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "buttons": 65,
+        "mode": 0,
+        "first_overwrites": [
+          [
+            377,
+            367,
+            0
+          ],
+          [
+            362,
+            44513,
+            3
+          ],
+          [
+            364,
+            44518,
+            0
+          ],
+          [
+            365,
+            44523,
+            160
+          ],
+          [
+            354,
+            347,
+            212
+          ]
+        ]
+      },
+      {
+        "pool": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "buttons": 65,
+        "mode": 1,
+        "first_overwrites": [
+          [
+            377,
+            367,
+            0
+          ],
+          [
+            362,
+            44513,
+            3
+          ],
+          [
+            364,
+            44518,
+            0
+          ],
+          [
+            365,
+            44523,
+            160
+          ],
+          [
+            354,
+            347,
+            212
+          ]
+        ]
+      },
+      {
+        "pool": [
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "buttons": 0,
+        "mode": 0,
+        "first_overwrites": [
+          [
+            377,
+            367,
+            0
+          ],
+          [
+            362,
+            44513,
+            3
+          ],
+          [
+            364,
+            44518,
+            0
+          ],
+          [
+            365,
+            44523,
+            160
+          ],
+          [
+            354,
+            347,
+            212
+          ]
+        ]
+      },
+      {
+        "pool": [
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "buttons": 0,
+        "mode": 1,
+        "first_overwrites": [
+          [
+            377,
+            367,
+            0
+          ],
+          [
+            362,
+            44513,
+            3
+          ],
+          [
+            364,
+            44518,
+            0
+          ],
+          [
+            365,
+            44523,
+            160
+          ],
+          [
+            354,
+            347,
+            212
+          ]
+        ]
+      },
+      {
+        "pool": [
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "buttons": 65,
+        "mode": 0,
+        "first_overwrites": [
+          [
+            377,
+            367,
+            0
+          ],
+          [
+            362,
+            44513,
+            3
+          ],
+          [
+            364,
+            44518,
+            0
+          ],
+          [
+            365,
+            44523,
+            160
+          ],
+          [
+            354,
+            347,
+            212
+          ]
+        ]
+      },
+      {
+        "pool": [
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "buttons": 65,
+        "mode": 1,
+        "first_overwrites": [
+          [
+            377,
+            367,
+            0
+          ],
+          [
+            362,
+            44513,
+            3
+          ],
+          [
+            364,
+            44518,
+            0
+          ],
+          [
+            365,
+            44523,
+            160
+          ],
+          [
+            354,
+            347,
+            212
+          ]
+        ]
+      }
+    ]
+  },
+  "contracts": {
+    "state": "All full caller application RAM includes SHORTRAM and allSMCCODE, not merely zero-page/SRAM. FullAXYP/SP/banks exact. Dead hardware CPU-stack bytes below returnedSP are not caller state.",
+    "intermediate": "Only17 enumerated cache bytes plus precisely5 farcall operands may differ after isolated RemainingWeapons. Complete ProcFireball_Bubble requires every application byte and all5SMC exact again. No blanket SRAM/SMC mask.",
+    "flags": "Standalone RemainingWeapons may return different V from omitted Bill SEC/SBC8. This real negative is retained; no standalone fullAXYP equivalence claim. All64flags complete native caller require FULLP exact and V provenance retired; taintedV may only PHP/PLP-save/restore, never BVS/BVC or PLA into A before an independent ADC/SBC/BIT/CLV overwrite. No global V mask.",
+    "cache": "No source reads of17 cache fields between skipped earlier admission and first retained preparation in every complete caller case. GuestPrepareEnemies is147B and has noJSR/health initialization; native health fields compare exact.",
+    "cost": "Whole actual callers include both scan/helper routing and retained later preparation. SourceCPU arenas are explicit typed setups, not natural native acquisition or60Hz evidence.",
+    "scope": "Bill owner3 includes BillVariant0/1; no other owner pays new overhead. FreshSelect/advanced cases have an explicit measured positive routing cost; no universal speedup claim."
+  }
+}

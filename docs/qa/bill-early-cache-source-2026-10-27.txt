@@ -1,0 +1,31 @@
+Bill early enemy-cache admission: private source/CPU candidate, 2026-10-27
+
+Status: finite source/caller qualification PASS; native timing UNRUN. Do not adopt before a separately authorized native comparison. No emulator, primary source/default, settings, or Git writes were made for this experiment.
+
+Parent build/samus_fixed_hud_current4a.nes: 6be48337ffee66a22b22de9ce134d5db323649fb4de620c43bad4ca98b80f193
+Candidate build/bill_early_cache.nes: 9ea11eab2fc5c373a3795b013f6ed9e0d5e9781891b2ae3bf40ad2556c27b85e
+Exactly 43 changed ROM bytes, physical bank6 only. Header/CHR/all other banks exact; all 73,409 old scoped symbol values and segments exact. No new RAM/segment, moved public/private old labels, NMI/audio changes, or linker edits. Uses verified unreachable 15+24-byte NOP pads following unconditional JMPs; nearby same-span trampoline supplies Bill entry.
+
+Only eventual installable source leaf: src/remaining_weapons.s. Exact sparse leaf build/bill_early_cache_remaining_weapons.s and normalized build/bill_early_cache.patch. Preserve primary CRLF when applying the logical patch; regenerate canonical ROM and require the candidate identity against the unchanged6be parent. Generated private main/entrypoint are build inputs, not installable production changes.
+
+Source contract
+Bill/Lance owner3 keeps fresh Select preparation and every 32..46 advanced consumer on the original preparation path. A pool containing only basic1..8 can skip the early preparation; mandatory later RosterWeapons refresh remains after earlier mutations and before ordinary collisions. Actual advanced Laser/Flare birth has its own preparation, retained. GuestPrepareEnemies is147 bytes, has no calls/health initialization, and writes exactly17 enumerated cache fields. Whole actual ProcFireball_Bubble controls observed zero cache reads between the skipped early call and retained refresh; final application RAM (including native health), all five farcall SMC operands, AXYP/SP and banks match. The two cache images are intentionally different in that proven dead interval. This is not an ordered-write-identical transformation.
+
+ABI negative and qualification boundary
+Standalone RemainingWeapons can return a different V flag from omitting original cache arithmetic: 6,912 observed differences retained, with the original FALSE. It is NOT claimed full-AXYP-equivalent in isolation. The actual complete caller is full-P exact in 3,072 all64-flag cases plus480 other caller cases: status provenance follows genuine PHP/PLP/IRQ/RTI, rejects live BVS/BVC or status escaping to A, and must retire at independent ADC/SBC/BIT/CLV before caller return. The recorded first overwrite is bank8:A047 opcodeED, SBC ScreenLeft_X_Pos in retained GuestPrepareEnemies, not SBC#8. Five transient farcall operands may also differ at the isolated boundary;16 actual caller controls require each overwritten before any CPU read, final exact, no blanket SMC mask. Their Memory-write PC records point one byte after the STA opcode, not the instruction start. Dead hardware stack below returnedSP is excluded; declared SHORTRAM/SMCCODE and application RAM are included. No new NMI-work claim or native interrupt-scheduling qualification.
+
+Finite control counts
+1,536 admission cases (all256 types,3 positions, Select off/on);16,128 complete Remaining basic cases across all64 flags;5,760 retained advanced-prefix cases;480 whole native ProcFireball_Bubble cases;3,072 whole caller all64-flags/V-liveness cases;1,176 foreign Remaining cases;174 actual IRQ injections at visited helper/trampoline boundaries;16 precise SMC liveness cases. Supplemental result:448 timer/engine early-return cases and144 whole caller advanced-input/birth-mutation cases,32 with multiple retained preparations. Supplemental invocation used frozen helpers; its exact case product is recorded but it is not a separate replayable CLI. Explicit CPU arenas are typed state setups, not natural item acquisition or recorded native snapshots. This finite domain does not prove all runtime combinations.
+
+Measured NEW minus OLD CPU cycles, including actual scans/routing/retained refresh
+Basic nonempty full callers: -803..-35; empty -2. One basic with0/3/6 enemies: -188/-497/-803. Ten spread with0/3/6 enemies: -35/-344/-650. Advanced-prefix routing can add+5..+172; fresh Select is retained and pays gate cost. Supplemental advanced-input full callers: -446..-344. Foreign -2..0: Sophia empty saves2 because the replacement branch crosses a page; other tested foreign paths unchanged. No universal speedup, recovered native draw, or60Hz claim.
+
+Build controls
+Private source compile matches the43-byte candidate. Ordinary MMC3 d444cac88e13fa02b29ad16100b8f08fa565ba90f8cedde192de43fb2dc8f3eb and ordinary MMC5 f4ffd2483c51daa4d60bb575da2da8c4d817692cda407611c243031f67520833 are byte-exact. One reused ordinary output/log; no source/runtime clone or captures.
+
+Retained negatives and receipt inheritance
+The first generic CPU arena selected TMNT C88 instead of genuine Bill C19; that setup failure is retained, no game-bug claim. The isolated-return V failure is retained. A later foreign cycle expectation incorrectly predicted Sophia -3 rather than actual -2; original FALSE and old tool snapshots are retained. Final CPU receipt explicitly inherits only completed pre-failure sections, requiring identical ROMs/helper ASTs; foreign/IRQ/SMC completion is fresh. No overall FALSE was relabeled PASS.
+
+Review files
+Owned new tools: tools/audit/bill_early_cache_sparse_v1.py and bill_early_cache_cpu_v1.py; this report. Compact build/bill_early_cache_handoff.json binds ROM/debug/map, exact43-byte changes, sparse patch/leaf, tools/imports, relevant source and all result/negative hashes.
+Replay command: Python -B tools/audit/bill_early_cache_cpu_v1.py in a review work area with its required frozen inputs and no existing output receipt. Original completed invocation used --finish-partial under the explicitly bound prior FALSE; do not overwrite immutable receipts. Build tool likewise refuses overwriting its existing proof. No new native-ready packet is implied. ROOT may reuse the existing passive timing replay for an authorized same-input parent/candidate comparison; until then this remains private.
