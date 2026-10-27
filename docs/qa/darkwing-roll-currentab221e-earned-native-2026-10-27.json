@@ -1,0 +1,35 @@
+{
+  "status": "HARD_EARNED_NATIVE_COMPONENT_PASS",
+  "rows": [
+    {
+      "identity": "darkwing",
+      "Hard_mode": 1,
+      "actual_ROM_sha256": "ab221e81821dd10690ad3a1068d91c9efae6c7406230d9bd7fc4a729fdc433d2",
+      "native_pass": true,
+      "cases": 14,
+      "wall_frames": 1941,
+      "completed_updates": 1525,
+      "full256_byte_DMAs": 1690,
+      "minimum_stack_pointer": 204,
+      "selected_native_full_PNGs_visually_reviewed": 8,
+      "visual_observations": "Actual basic/heavy/Arrow/thunder shots visible in the respective Darkwing stills; actual pellet and charged beam visible for Roll. Refills and selected HUD states inspected. These are selected whole frames only, not an exhaustive animation, per-shot visibility or fidelity verdict."
+    },
+    {
+      "identity": "roll",
+      "Hard_mode": 1,
+      "actual_ROM_sha256": "ab221e81821dd10690ad3a1068d91c9efae6c7406230d9bd7fc4a729fdc433d2",
+      "native_pass": true,
+      "cases": 16,
+      "wall_frames": 1798,
+      "completed_updates": 1382,
+      "full256_byte_DMAs": 1770,
+      "minimum_stack_pointer": 204,
+      "selected_native_full_PNGs_visually_reviewed": 8,
+      "visual_observations": "Actual basic/heavy/Arrow/thunder shots visible in the respective Darkwing stills; actual pellet and charged beam visible for Roll. Refills and selected HUD states inspected. These are selected whole frames only, not an exhaustive animation, per-shot visibility or fidelity verdict."
+    }
+  ],
+  "verified": "Darkwing: four-health system genuine damage/heals, gas small/large credits, physical Arrow/Heavy/Thunder adaptors, actual paid uses/targets/cleanup, Select back to free basic. Roll: genuine health deficits, physical Mushroom/Flower full HP/energy restore, free basic, held-B automatic charge cost4, small/large health and energy, Select does not open Bass inventory.",
+  "test_correction": "Old post-completion deadline accidentally compared elapsed age with the NEXT case limit. One expression now uses the original current task limit. Same cases, original per-case caps, native guards, inputs and game ROM; original Darkwing failure preserved.",
+  "limits": "Typed native-boundary terrain/actor scenes and mature pickups. No acquired inventory/health/ammo/tier/outcome seeds. Natural block emergence, drop lottery, Star/1Up, Easy mode, full routes, all-frame visual and audible SFX fidelity remain open.",
+  "goal_complete": false
+}

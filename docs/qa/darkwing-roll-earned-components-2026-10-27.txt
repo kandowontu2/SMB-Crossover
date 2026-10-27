@@ -1,0 +1,86 @@
+Darkwing/Roll Hard earned components — source prepared, no native launch
+
+ROM: build/mega_proto_body_palette_9ea.nes
+ab221e81821dd10690ad3a1068d91c9efae6c7406230d9bd7fc4a729fdc433d2
+
+The actual complete compiled GameLoop paths own movement, pickup contact,
+erase/collection dispatch, injury, weapon debit/effect/contact, native NPC HP,
+refill writers and cleanup. The source-only campaigns are not emulation,
+Lua-VM, PPU art, NMI timing, sound fidelity, natural emergence or route proof.
+The public current37 ledger is not changed here.
+
+Actual lineup and finite plans
+  Darkwing is actual owner12/menu8/variant1, not an inventory family8/12-table
+  substitution. Four health points and initially zero gas are native-owned.
+  Fourteen stages: free basic shot; real hurt then small aid22(+1); real hurt
+  then full aid23; small gas25(+1); large gas24(+10); earn Arrow26(+10gas,
+  carried adaptor2), Select and Arrow use(cost3); earn Heavy27(+10gas,
+  adaptor1), Heavy use(cost2); earn Thunder28(+10gas, adaptor3), Thunder
+  use(cost2); actual Select back to free basic. The single carried adaptor is
+  replaced, not accumulated as a fictional generic inventory. Native charge8
+  ->Arrow5->attached6, Heavy3->shockwave4 and charge8->Thunder7 are required.
+  Actual source-specific damage proxies are respectively1/3/2/1. All use
+  stages require real enemy damage writes and complete native pool cleanup.
+
+  Roll is actual owner9/menu9/RlVariant1. Sixteen stages: free buster; held
+  autocharge; real hurt then mushroom; three real autocharges; small/large
+  energy; real hurt then small health; two real hurts then large health;
+  real hurt and charge then flower; actual Select-no-Bass-inventory check.
+  Source Ensure owns initial28HP/28EN. A Goomba contact causes real4HP damage;
+  no health deficit is seeded. Holding B reaches60 and the next update fires
+  automatically for4EN (not release-to-fire). Mature mushroom and flower both
+  restore28/28 and FoodKind/status1; there are no invented three classic tiers
+  or seven Bass specials. Mature native capsules request8/40 and the actual
+  Roll writer scales to2/10, clamps28. Source cases observe EN16->18->28 and
+  HP24->26, then18->28. Each native debit is checked atomically; any genuine
+  later capsule credit is independently bound to its real writer and included
+  in the energy ledger, rather than requiring depleted stock remain unchanged.
+
+Complete legal scene disclosure
+  Native GameLoop+5 (after genuine NmiDisable=255) stages matching logical and
+  visible floor/map, position/facing/velocity, mature typed pickup actors and
+  complete default-health Goombas. Targets are placed ahead of an existing
+  actual shot; Thunder uses the upward native split. Roll capsule metadata
+  includes type, health/energy flag, position, velocity/fractions and age.
+  Test health/gas/energy/tier/ownership/selection/charge/shot/outcome fields are
+  forbidden and never seeded. Prior uncollected world actors may be removed
+  at the next declared independent scene; collected resources remain native.
+  After real hurt, its NPC is removed at a subsequent private boundary and
+  the actual native invulnerability/hurt timers must finish before reuse.
+  The CPU model initializes a normal399 clock only as an environment input;
+  the native fixture explicitly forbids clock writes.
+
+Source controls and observation
+  Fresh Darkwing1499 and Roll1355 complete GameLoops pass on exactab221e.
+  Actual pickup chain includes MarioSourcePowerupCollision followed by native
+  erase and DwCollectPickup/RlCollect through the real dispatch. Roll autocharge
+  and refill hooks use genuine compiled source entry/writer labels, not an
+  assumed shared leaf or slot0 proxy. Case clocks wait for actual Darkwing
+  selected-mode acknowledgement before starting the firing window.
+  Both modules copy the original4058B hardware block byte-for-byte:
+  SHA2b3aa5da62ebdd76723bc3ad87991e63695f15ac151213718f58b55f0211d70c.
+  This retains all raw256 DMA writes, physical attributeE3, E008 completion,
+  rendering-off, strict enable deadline, NMI AXYS/5SMC/banks, IRQ31, lower-stack
+  and CHR latch checks. All callbacks register at startup only. Whole fixed
+  bank125/127 owner copies and each hook's actual bytes are qualified. All
+  literal/dynamic RAM names and both actual Hard1/variant1 menu readbacks are
+  reconciled before launch. No global/shared fixture or game source was edited.
+
+Prepared commands and caps
+  build/current-ab221e-darkwing-hard-earned-v1/command.json
+  build/current-ab221e-roll-hard-earned-v1/command.json
+  Each points to one explicit isolated worker and existing C:/Mesen2 runtime,
+  doNotSaveSettings and hardware sprite limits. ROOT owns launch. At most3000
+  actual updates/8000wall frames/1200host seconds/64files/2GB, eight PNGs each;
+  no source/runtime/ROM copies, per-frame trees, or new external dependencies.
+  Each folder has only config, command,run,source-controls and prepared receipt.
+
+Remaining limits
+  Both native units are unrun; passed:false/goal_complete:false remain in the
+  ready receipts. Lua VM execution was unavailable and is not claimed. Actual
+  effect/body/HUD/contact/cleanup images need review after native completion;
+  an endFrame OAM/CHR snapshot does not establish exact visible pixel epoch.
+  Neither unit covers emergence/rise/RNG delivery, star/1up, both facings,
+  empty/full pools/exhaustion, every frame or waveform audio fidelity. Darkwing
+  cape reflection/hanging/platform traversal are outside this component unit;
+  its natural Arrow route has its own separate source-only readiness.

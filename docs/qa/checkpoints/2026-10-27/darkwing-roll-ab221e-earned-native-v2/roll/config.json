@@ -1,0 +1,580 @@
+{
+  "ROM_sha256": "ab221e81821dd10690ad3a1068d91c9efae6c7406230d9bd7fc4a729fdc433d2",
+  "identity": "roll",
+  "character": 9,
+  "mode": 1,
+  "variant_ram": "RlVariant",
+  "ram": {
+    "Player_State": 30,
+    "InvOwnedLo": 31798,
+    "Enemy_X_Position": 118,
+    "CheatInvincible": 32763,
+    "GuestHurtTicks": 28445,
+    "Enemy_Flag": 16,
+    "SelectedCharacter": 24578,
+    "Enemy_ID": 23,
+    "InvAmmo": 31906,
+    "InvDropX": 28394,
+    "MmYFraction": 26797,
+    "Player_CollisionBits": 1596,
+    "Enemy_MovingDir": 1343,
+    "CrossoverMenuState": 29447,
+    "MmBrickHealth": 24657,
+    "Player_Y_HighPos": 164,
+    "Enemy_Y_HighPos": 165,
+    "MmBulletX": 24611,
+    "MmBulletPage": 24615,
+    "Enemy_PageLoc": 93,
+    "CurrentBank": 325,
+    "Enemy_SprAttrib": 1416,
+    "CurrentBankC": 32161,
+    "PlayerFacingDir": 1342,
+    "GuestPowerupTarget": 27648,
+    "MmOldX": 26805,
+    "MmSolidTerrain": 26321,
+    "RgShotX": 27765,
+    "MmEnemyHealthLo": 24639,
+    "GameTimerDisplay": 1983,
+    "DwHealth": 29679,
+    "InvDropVY": 28406,
+    "Enemy_Y_Speed": 143,
+    "AreaParserTaskNum": 1826,
+    "RlCharge": 23557,
+    "Player_X_Position": 117,
+    "Enemy_Y_MoveForce": 1539,
+    "InvPickup": 32098,
+    "InvDropVYMid": 28410,
+    "RgEnemyStun": 27916,
+    "InvDropFractionHi": 28422,
+    "InvSelected": 31894,
+    "ScreenLeft_PageLoc": 1821,
+    "RlEnergy": 24369,
+    "InvDropAge": 28426,
+    "Square2SoundQueue": 260,
+    "OperMode_Task": 1907,
+    "RgBillBurstDelay": 27673,
+    "CrossoverOptionsFocus": 32441,
+    "Sprite0HitDetectFlag": 1829,
+    "Enemy_BoundBoxCtrl": 1606,
+    "MmEnemyHealthHi": 24645,
+    "InvDropFraction": 28418,
+    "MmEnemyFlash": 24651,
+    "DwAdaptor": 29681,
+    "RgShotY": 27785,
+    "CrossoverBehaviorVersion": 32737,
+    "PowerUpType": 52,
+    "RlChargeFired": 23570,
+    "RgShotPage": 27775,
+    "GameEngineSubroutine": 15,
+    "RlHealth": 24368,
+    "RlVariant": 24555,
+    "InvDropKind": 28390,
+    "MmVY": 26792,
+    "ScrollThirtyTwo": 1856,
+    "RlInvul": 23559,
+    "NmiDisable": 313,
+    "InjuryTimer": 1947,
+    "DwGas": 29680,
+    "InvOwnedHi": 31810,
+    "MmBulletY": 24619,
+    "InvDropAgeHi": 28430,
+    "RlReady": 24370,
+    "MmDeathFlag": 24583,
+    "MmXFraction": 26795,
+    "MmBulletType": 24607,
+    "InvDropVYHi": 28414,
+    "InvPickupOwner": 32110,
+    "Enemy_State": 31,
+    "Square1SoundQueue": 261,
+    "GuestPowerupActive": 27645,
+    "Player_MovingDir": 69,
+    "Player_Y_Speed": 142,
+    "ScreenLeft_X_Pos": 1823,
+    "ScrollLock": 1830,
+    "PlayerSize": 1881,
+    "Block_Buffer_1": 768,
+    "Enemy_Y_Position": 190,
+    "DarkwingVariant": 29663,
+    "RlFoodKind": 24374,
+    "AvDropItem": 32608,
+    "InvDropSlot": 28435,
+    "InvDropPage": 28398,
+    "CrossoverMenuIndex": 29449,
+    "Enemy_X_Speed": 71,
+    "PlayerStatus": 1883,
+    "RgTemp": 27746,
+    "PseudoRandomBitReg": 1952,
+    "InvDropY": 28402,
+    "Player_X_Speed": 70,
+    "OperMode": 1905,
+    "ScreenRight_X_Pos": 1824,
+    "MmSlot": 26775,
+    "ScreenRight_PageLoc": 1822,
+    "RgShotType": 27755,
+    "RgShotVYHi": 27835,
+    "DwMode": 29682,
+    "RgBillBurst": 27672,
+    "EnemyOffscrBitsMasked": 1448,
+    "Player_PageLoc": 92,
+    "MmVX": 26789,
+    "Player_Y_Position": 189,
+    "NoiseSoundQueue": 259,
+    "Player_X_MoveForce": 1799,
+    "Player_Y_MoveForce": 1538,
+    "Enemy_CollisionBits": 1597,
+    "RlHurt": 23558
+  },
+  "hooks": {
+    "PhysicalPickup": {
+      "pc": 44913,
+      "banks": [
+        3
+      ],
+      "bytes": [
+        32,
+        47,
+        141
+      ],
+      "source_symbol": "MarioSourcePowerupCollision",
+      "source_delta": 0
+    },
+    "DamageEnemy": {
+      "pc": 43412,
+      "banks": [
+        8
+      ],
+      "bytes": [
+        32,
+        252,
+        187
+      ],
+      "source_symbol": "MegaManWeapons::DamageEnemy",
+      "source_delta": 0
+    },
+    "NmiEntry": {
+      "pc": 58172,
+      "banks": [
+        125,
+        127
+      ],
+      "bytes": [
+        72,
+        138,
+        72
+      ],
+      "source_symbol": "NonMaskableInterrupt",
+      "source_delta": 0
+    },
+    "IrqEntry": {
+      "pc": 32768,
+      "banks": [
+        126
+      ],
+      "bytes": [
+        72,
+        138,
+        72
+      ],
+      "source_symbol": "IrqScrollSplit",
+      "source_delta": 0
+    },
+    "CollectOwner": {
+      "pc": 41751,
+      "banks": [
+        119
+      ],
+      "bytes": [
+        138,
+        72,
+        32
+      ],
+      "source_symbol": "RlCollect",
+      "source_delta": 0
+    },
+    "ChargeSpawn": {
+      "pc": 43602,
+      "banks": [
+        119
+      ],
+      "bytes": [
+        141,
+        14,
+        92
+      ],
+      "source_symbol": "RlWeapons::Spawn",
+      "source_delta": 0
+    },
+    "ChargeReset": {
+      "pc": 43509,
+      "banks": [
+        119
+      ],
+      "bytes": [
+        169,
+        0,
+        141
+      ],
+      "source_symbol": "RlWeapons::ResetCharge",
+      "source_delta": 0
+    },
+    "Refill": {
+      "pc": 44092,
+      "banks": [
+        120
+      ],
+      "bytes": [
+        72,
+        32,
+        8
+      ],
+      "source_symbol": "RlRefillDispatch",
+      "source_delta": 0
+    },
+    "RefillEnergySave": {
+      "pc": 44144,
+      "banks": [
+        120
+      ],
+      "bytes": [
+        141,
+        49,
+        95
+      ],
+      "source_symbol": "RlRefillDispatch::EnergySave",
+      "source_delta": 0
+    },
+    "RefillHealthSave": {
+      "pc": 44162,
+      "banks": [
+        120
+      ],
+      "bytes": [
+        141,
+        48,
+        95
+      ],
+      "source_symbol": "RlRefillDispatch::HealthSave",
+      "source_delta": 0
+    },
+    "GameLoopOwned": {
+      "pc": 33502,
+      "banks": [
+        126
+      ],
+      "bytes": [
+        32,
+        86,
+        131
+      ],
+      "source_symbol": "GameLoop",
+      "source_delta": 5
+    },
+    "GameLoopFinish": {
+      "pc": 33621,
+      "banks": [
+        126
+      ],
+      "bytes": [
+        96
+      ],
+      "source_symbol": "GameLoop",
+      "source_delta": 124
+    },
+    "NmiReturn": {
+      "pc": 58383,
+      "banks": [
+        125,
+        127
+      ],
+      "bytes": [
+        64
+      ],
+      "source_symbol": "NonMaskableInterrupt",
+      "source_delta": 211
+    },
+    "IrqReturn": {
+      "pc": 32835,
+      "banks": [
+        126
+      ],
+      "bytes": [
+        64
+      ],
+      "source_symbol": "IrqScrollSplit",
+      "source_delta": 67
+    },
+    "DmaComplete": {
+      "pc": 57352,
+      "banks": [
+        125,
+        127
+      ],
+      "bytes": [
+        141,
+        1,
+        32
+      ],
+      "source_symbol": "PostDmaMaskEnable",
+      "source_delta": 3
+    }
+  },
+  "setup_allowed": {
+    "Block_Buffer_1": true,
+    "MmSolidTerrain": true,
+    "MmBrickHealth": true,
+    "Enemy_Flag": true,
+    "Enemy_CollisionBits": true,
+    "InvDropKind": true,
+    "Player_X_Speed": true,
+    "Player_Y_Speed": true,
+    "Player_X_MoveForce": true,
+    "Player_Y_MoveForce": true,
+    "ScrollThirtyTwo": true,
+    "AreaParserTaskNum": true,
+    "MmVX": true,
+    "MmVY": true,
+    "MmXFraction": true,
+    "MmYFraction": true,
+    "ScrollLock": true,
+    "ScreenLeft_X_Pos": true,
+    "ScreenLeft_PageLoc": true,
+    "ScreenRight_X_Pos": true,
+    "ScreenRight_PageLoc": true,
+    "Player_X_Position": true,
+    "Player_PageLoc": true,
+    "MmOldX": true,
+    "Player_Y_Position": true,
+    "Player_Y_HighPos": true,
+    "Player_State": true,
+    "PlayerFacingDir": true,
+    "Player_MovingDir": true,
+    "Player_CollisionBits": true,
+    "Enemy_ID": true,
+    "Enemy_State": true,
+    "Enemy_BoundBoxCtrl": true,
+    "Enemy_X_Position": true,
+    "Enemy_PageLoc": true,
+    "Enemy_Y_Position": true,
+    "Enemy_Y_HighPos": true,
+    "Enemy_X_Speed": true,
+    "Enemy_Y_Speed": true,
+    "Enemy_SprAttrib": true,
+    "PowerUpType": true,
+    "InvPickupOwner": true,
+    "InvPickup": true,
+    "Enemy_Y_MoveForce": true,
+    "Enemy_MovingDir": true,
+    "EnemyOffscrBitsMasked": true,
+    "MmEnemyHealthLo": true,
+    "MmEnemyHealthHi": true,
+    "MmEnemyFlash": true,
+    "RgEnemyStun": true,
+    "InvDropX": true,
+    "InvDropPage": true,
+    "InvDropY": true,
+    "InvDropVY": true,
+    "InvDropVYMid": true,
+    "InvDropVYHi": true,
+    "InvDropFraction": true,
+    "InvDropFractionHi": true,
+    "InvDropAge": true,
+    "InvDropAgeHi": true,
+    "AvDropItem": true
+  },
+  "forbidden": [
+    "DwHealth",
+    "DwGas",
+    "DwAdaptor",
+    "DwMode",
+    "RlHealth",
+    "RlEnergy",
+    "RlReady",
+    "RlFoodKind",
+    "RlCharge",
+    "RlChargeFired",
+    "RlInvul",
+    "RlHurt",
+    "InvOwnedLo",
+    "InvOwnedHi",
+    "InvSelected",
+    "InvAmmo",
+    "PlayerStatus",
+    "PlayerSize",
+    "GuestPowerupActive",
+    "GuestPowerupTarget",
+    "RgShotType",
+    "MmBulletType",
+    "InjuryTimer",
+    "GuestHurtTicks",
+    "MmDeathFlag",
+    "CheatInvincible",
+    "GameTimerDisplay",
+    "PseudoRandomBitReg"
+  ],
+  "plan": [
+    {
+      "name": "cold-buster",
+      "kind": "use",
+      "charges": 0,
+      "proxy": 1,
+      "contact": 1,
+      "limit": 250,
+      "image": true
+    },
+    {
+      "name": "autocharge",
+      "kind": "use",
+      "charges": 1,
+      "proxy": 3,
+      "contact": 3,
+      "limit": 320,
+      "image": true
+    },
+    {
+      "name": "hurt-before-mushroom",
+      "kind": "hurt",
+      "limit": 140
+    },
+    {
+      "name": "mushroom-full-restore",
+      "kind": "collect",
+      "item": 252,
+      "power": 0,
+      "limit": 80,
+      "image": true
+    },
+    {
+      "name": "three-earned-energy-debits",
+      "kind": "use",
+      "charges": 3,
+      "proxy": 3,
+      "contact": 3,
+      "limit": 420
+    },
+    {
+      "name": "small-energy",
+      "kind": "capsule",
+      "drop": 1,
+      "health": false,
+      "limit": 80,
+      "image": true
+    },
+    {
+      "name": "large-energy",
+      "kind": "capsule",
+      "drop": 2,
+      "health": false,
+      "limit": 80,
+      "image": true
+    },
+    {
+      "name": "hurt-before-small-health",
+      "kind": "hurt",
+      "limit": 140
+    },
+    {
+      "name": "small-health",
+      "kind": "capsule",
+      "drop": 1,
+      "health": true,
+      "limit": 80,
+      "image": true
+    },
+    {
+      "name": "hurt-for-large-health-1",
+      "kind": "hurt",
+      "limit": 140
+    },
+    {
+      "name": "hurt-for-large-health-2",
+      "kind": "hurt",
+      "limit": 140
+    },
+    {
+      "name": "large-health",
+      "kind": "capsule",
+      "drop": 2,
+      "health": true,
+      "limit": 80,
+      "image": true
+    },
+    {
+      "name": "hurt-before-flower",
+      "kind": "hurt",
+      "limit": 140
+    },
+    {
+      "name": "spend-before-flower",
+      "kind": "use",
+      "charges": 1,
+      "proxy": 3,
+      "contact": 3,
+      "limit": 320
+    },
+    {
+      "name": "flower-full-restore",
+      "kind": "collect",
+      "item": 252,
+      "power": 1,
+      "limit": 80,
+      "image": true
+    },
+    {
+      "name": "select-is-not-Bass-inventory",
+      "kind": "select-no-inventory",
+      "limit": 40
+    }
+  ],
+  "hardware_guard_sha256": "2b3aa5da62ebdd76723bc3ad87991e63695f15ac151213718f58b55f0211d70c",
+  "dma_store_return": 57349,
+  "navigation": [
+    "left",
+    "right",
+    "right",
+    "down",
+    "left",
+    "left",
+    "left",
+    "right",
+    "right",
+    "",
+    "left",
+    "left",
+    "left",
+    "right",
+    "up",
+    "right",
+    "up",
+    "left",
+    "left"
+  ],
+  "smc": [
+    354,
+    362,
+    377,
+    364,
+    365
+  ],
+  "metatiles": {
+    "MTileTopLeft": {
+      "bank": 3,
+      "offset": 6807
+    },
+    "MTileTopRight": {
+      "bank": 3,
+      "offset": 7319
+    },
+    "MTileBotLeft": {
+      "bank": 3,
+      "offset": 7063
+    },
+    "MTileBotRight": {
+      "bank": 3,
+      "offset": 7575
+    },
+    "MTileAttribute": {
+      "bank": 127,
+      "offset": 3894
+    }
+  }
+}

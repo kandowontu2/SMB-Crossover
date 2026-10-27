@@ -1,0 +1,956 @@
+{
+  "passed": true,
+  "source_CPU_only": true,
+  "native_run": false,
+  "ROM_sha256": "ab221e81821dd10690ad3a1068d91c9efae6c7406230d9bd7fc4a729fdc433d2",
+  "identity": "darkwing",
+  "character": 12,
+  "mode": 1,
+  "initial_actual": {
+    "DwHealth": 4,
+    "DwGas": 0,
+    "DwAdaptor": 0,
+    "DwMode": 0,
+    "RlHealth": 0,
+    "RlEnergy": 0,
+    "RlFoodKind": 0,
+    "RlChargeFired": 0,
+    "PlayerStatus": 0
+  },
+  "initial_GameLoop_owners": [
+    "GameLoop",
+    "DwScroogeMovement",
+    "HpProcessFireballsBridge",
+    "ProcFireball_Bubble",
+    "InventoryUpdateDrops",
+    "RlWeaponsDispatch",
+    "DwScroogeWeapons",
+    "DwHud"
+  ],
+  "GameLoop_calls": 1499,
+  "plan": [
+    {
+      "name": "cold-basic",
+      "kind": "use",
+      "weapon": 0,
+      "mode": 0,
+      "proxy": 1,
+      "contact": 1,
+      "limit": 420,
+      "image": true
+    },
+    {
+      "name": "hurt-for-small-aid",
+      "kind": "hurt",
+      "limit": 140
+    },
+    {
+      "name": "small-aid",
+      "kind": "collect",
+      "item": 34,
+      "limit": 80,
+      "image": true
+    },
+    {
+      "name": "hurt-for-full-aid",
+      "kind": "hurt",
+      "limit": 140
+    },
+    {
+      "name": "full-aid",
+      "kind": "collect",
+      "item": 35,
+      "limit": 80,
+      "image": true
+    },
+    {
+      "name": "small-gas",
+      "kind": "collect",
+      "item": 37,
+      "limit": 80
+    },
+    {
+      "name": "large-gas",
+      "kind": "collect",
+      "item": 36,
+      "limit": 80,
+      "image": true
+    },
+    {
+      "name": "earn-arrow",
+      "kind": "collect",
+      "item": 38,
+      "limit": 80
+    },
+    {
+      "name": "arrow",
+      "kind": "use",
+      "weapon": 2,
+      "mode": 1,
+      "proxy": 3,
+      "contact": 5,
+      "limit": 420,
+      "image": true
+    },
+    {
+      "name": "earn-heavy",
+      "kind": "collect",
+      "item": 39,
+      "limit": 80
+    },
+    {
+      "name": "heavy",
+      "kind": "use",
+      "weapon": 1,
+      "mode": 1,
+      "proxy": 2,
+      "contact": 4,
+      "limit": 420,
+      "image": true
+    },
+    {
+      "name": "earn-thunder",
+      "kind": "collect",
+      "item": 40,
+      "limit": 80
+    },
+    {
+      "name": "thunder",
+      "kind": "use",
+      "weapon": 3,
+      "mode": 1,
+      "proxy": 1,
+      "contact": 7,
+      "limit": 420,
+      "image": true
+    },
+    {
+      "name": "select-back-to-basic",
+      "kind": "use",
+      "weapon": 0,
+      "mode": 0,
+      "proxy": 1,
+      "contact": 1,
+      "limit": 420,
+      "image": true
+    }
+  ],
+  "cases": [
+    {
+      "name": "cold-basic",
+      "kind": "use",
+      "before": {
+        "DwHealth": 4,
+        "DwGas": 0,
+        "DwAdaptor": 0,
+        "DwMode": 0,
+        "RlHealth": 0,
+        "RlEnergy": 0,
+        "RlFoodKind": 0,
+        "RlChargeFired": 0,
+        "PlayerStatus": 0
+      },
+      "owners": [
+        "GameLoop",
+        "DwScroogeMovement",
+        "HpProcessFireballsBridge",
+        "ProcFireball_Bubble",
+        "InventoryUpdateDrops",
+        "RlWeaponsDispatch",
+        "DwScroogeWeapons",
+        "DwHud",
+        "DwLaunch",
+        "DwShotInit",
+        "MegaManWeapons::DamageEnemy",
+        "DwExpandedEnemyHit"
+      ],
+      "physical_collision": 0,
+      "collect_owner": 0,
+      "reward": 0,
+      "debits": [
+        {
+          "before": 0,
+          "cost": 0,
+          "after": 0,
+          "age": 5
+        }
+      ],
+      "credits": [],
+      "contacts": 1,
+      "refills": 0,
+      "HP_writes": 6,
+      "shot_types": [
+        1
+      ],
+      "bullet_types": [
+        1
+      ],
+      "target": true,
+      "updates": 211,
+      "after": {
+        "DwHealth": 4,
+        "DwGas": 0,
+        "DwAdaptor": 0,
+        "DwMode": 0,
+        "RlHealth": 0,
+        "RlEnergy": 0,
+        "RlFoodKind": 0,
+        "RlChargeFired": 0,
+        "PlayerStatus": 0
+      }
+    },
+    {
+      "name": "hurt-for-small-aid",
+      "kind": "hurt",
+      "before": {
+        "DwHealth": 4,
+        "DwGas": 0,
+        "DwAdaptor": 0,
+        "DwMode": 0,
+        "RlHealth": 0,
+        "RlEnergy": 0,
+        "RlFoodKind": 0,
+        "RlChargeFired": 0,
+        "PlayerStatus": 0
+      },
+      "owners": [
+        "GameLoop",
+        "DwScroogeMovement",
+        "HpProcessFireballsBridge",
+        "ProcFireball_Bubble",
+        "InventoryUpdateDrops",
+        "RlWeaponsDispatch",
+        "DwScroogeWeapons",
+        "GuestInjuryStatus",
+        "DwInjuryStatus",
+        "RlInjuryDispatch",
+        "DwInjuryStart",
+        "DwHud"
+      ],
+      "physical_collision": 0,
+      "collect_owner": 0,
+      "reward": 0,
+      "debits": [],
+      "credits": [],
+      "contacts": 0,
+      "refills": 0,
+      "HP_writes": 0,
+      "shot_types": [],
+      "bullet_types": [],
+      "target": false,
+      "updates": 81,
+      "after": {
+        "DwHealth": 3,
+        "DwGas": 0,
+        "DwAdaptor": 0,
+        "DwMode": 0,
+        "RlHealth": 0,
+        "RlEnergy": 0,
+        "RlFoodKind": 0,
+        "RlChargeFired": 0,
+        "PlayerStatus": 0
+      }
+    },
+    {
+      "name": "small-aid",
+      "kind": "collect",
+      "before": {
+        "DwHealth": 3,
+        "DwGas": 0,
+        "DwAdaptor": 0,
+        "DwMode": 0,
+        "RlHealth": 0,
+        "RlEnergy": 0,
+        "RlFoodKind": 0,
+        "RlChargeFired": 0,
+        "PlayerStatus": 0
+      },
+      "owners": [
+        "GameLoop",
+        "DwScroogeMovement",
+        "HpProcessFireballsBridge",
+        "ProcFireball_Bubble",
+        "InventoryUpdateDrops",
+        "RlWeaponsDispatch",
+        "DwScroogeWeapons",
+        "MarioSourcePowerupCollision",
+        "RlCollectDispatch",
+        "LmCollectGate",
+        "Cv3CollectPickupGate",
+        "Z2CollectPickupGate",
+        "DwCollectPickup",
+        "DwGiveItem",
+        "DwHud"
+      ],
+      "physical_collision": 1,
+      "collect_owner": 1,
+      "reward": 1,
+      "debits": [],
+      "credits": [],
+      "contacts": 0,
+      "refills": 0,
+      "HP_writes": 0,
+      "shot_types": [],
+      "bullet_types": [],
+      "target": false,
+      "updates": 25,
+      "after": {
+        "DwHealth": 4,
+        "DwGas": 0,
+        "DwAdaptor": 0,
+        "DwMode": 0,
+        "RlHealth": 0,
+        "RlEnergy": 0,
+        "RlFoodKind": 0,
+        "RlChargeFired": 0,
+        "PlayerStatus": 0
+      }
+    },
+    {
+      "name": "hurt-for-full-aid",
+      "kind": "hurt",
+      "before": {
+        "DwHealth": 4,
+        "DwGas": 0,
+        "DwAdaptor": 0,
+        "DwMode": 0,
+        "RlHealth": 0,
+        "RlEnergy": 0,
+        "RlFoodKind": 0,
+        "RlChargeFired": 0,
+        "PlayerStatus": 0
+      },
+      "owners": [
+        "GameLoop",
+        "DwScroogeMovement",
+        "HpProcessFireballsBridge",
+        "ProcFireball_Bubble",
+        "InventoryUpdateDrops",
+        "RlWeaponsDispatch",
+        "DwScroogeWeapons",
+        "GuestInjuryStatus",
+        "DwInjuryStatus",
+        "RlInjuryDispatch",
+        "DwInjuryStart",
+        "DwHud"
+      ],
+      "physical_collision": 0,
+      "collect_owner": 0,
+      "reward": 0,
+      "debits": [],
+      "credits": [],
+      "contacts": 0,
+      "refills": 0,
+      "HP_writes": 0,
+      "shot_types": [],
+      "bullet_types": [],
+      "target": false,
+      "updates": 80,
+      "after": {
+        "DwHealth": 3,
+        "DwGas": 0,
+        "DwAdaptor": 0,
+        "DwMode": 0,
+        "RlHealth": 0,
+        "RlEnergy": 0,
+        "RlFoodKind": 0,
+        "RlChargeFired": 0,
+        "PlayerStatus": 0
+      }
+    },
+    {
+      "name": "full-aid",
+      "kind": "collect",
+      "before": {
+        "DwHealth": 3,
+        "DwGas": 0,
+        "DwAdaptor": 0,
+        "DwMode": 0,
+        "RlHealth": 0,
+        "RlEnergy": 0,
+        "RlFoodKind": 0,
+        "RlChargeFired": 0,
+        "PlayerStatus": 0
+      },
+      "owners": [
+        "GameLoop",
+        "DwScroogeMovement",
+        "HpProcessFireballsBridge",
+        "ProcFireball_Bubble",
+        "InventoryUpdateDrops",
+        "RlWeaponsDispatch",
+        "DwScroogeWeapons",
+        "MarioSourcePowerupCollision",
+        "RlCollectDispatch",
+        "LmCollectGate",
+        "Cv3CollectPickupGate",
+        "Z2CollectPickupGate",
+        "DwCollectPickup",
+        "DwGiveItem",
+        "DwHud"
+      ],
+      "physical_collision": 1,
+      "collect_owner": 1,
+      "reward": 1,
+      "debits": [],
+      "credits": [],
+      "contacts": 0,
+      "refills": 0,
+      "HP_writes": 0,
+      "shot_types": [],
+      "bullet_types": [],
+      "target": false,
+      "updates": 25,
+      "after": {
+        "DwHealth": 4,
+        "DwGas": 0,
+        "DwAdaptor": 0,
+        "DwMode": 0,
+        "RlHealth": 0,
+        "RlEnergy": 0,
+        "RlFoodKind": 0,
+        "RlChargeFired": 0,
+        "PlayerStatus": 0
+      }
+    },
+    {
+      "name": "small-gas",
+      "kind": "collect",
+      "before": {
+        "DwHealth": 4,
+        "DwGas": 0,
+        "DwAdaptor": 0,
+        "DwMode": 0,
+        "RlHealth": 0,
+        "RlEnergy": 0,
+        "RlFoodKind": 0,
+        "RlChargeFired": 0,
+        "PlayerStatus": 0
+      },
+      "owners": [
+        "GameLoop",
+        "DwScroogeMovement",
+        "HpProcessFireballsBridge",
+        "ProcFireball_Bubble",
+        "InventoryUpdateDrops",
+        "RlWeaponsDispatch",
+        "DwScroogeWeapons",
+        "MarioSourcePowerupCollision",
+        "RlCollectDispatch",
+        "LmCollectGate",
+        "Cv3CollectPickupGate",
+        "Z2CollectPickupGate",
+        "DwCollectPickup",
+        "DwGiveItem",
+        "DwHud"
+      ],
+      "physical_collision": 1,
+      "collect_owner": 1,
+      "reward": 1,
+      "debits": [],
+      "credits": [],
+      "contacts": 0,
+      "refills": 0,
+      "HP_writes": 0,
+      "shot_types": [],
+      "bullet_types": [],
+      "target": false,
+      "updates": 25,
+      "after": {
+        "DwHealth": 4,
+        "DwGas": 1,
+        "DwAdaptor": 0,
+        "DwMode": 0,
+        "RlHealth": 0,
+        "RlEnergy": 0,
+        "RlFoodKind": 0,
+        "RlChargeFired": 0,
+        "PlayerStatus": 0
+      }
+    },
+    {
+      "name": "large-gas",
+      "kind": "collect",
+      "before": {
+        "DwHealth": 4,
+        "DwGas": 1,
+        "DwAdaptor": 0,
+        "DwMode": 0,
+        "RlHealth": 0,
+        "RlEnergy": 0,
+        "RlFoodKind": 0,
+        "RlChargeFired": 0,
+        "PlayerStatus": 0
+      },
+      "owners": [
+        "GameLoop",
+        "DwScroogeMovement",
+        "HpProcessFireballsBridge",
+        "ProcFireball_Bubble",
+        "InventoryUpdateDrops",
+        "RlWeaponsDispatch",
+        "DwScroogeWeapons",
+        "MarioSourcePowerupCollision",
+        "RlCollectDispatch",
+        "LmCollectGate",
+        "Cv3CollectPickupGate",
+        "Z2CollectPickupGate",
+        "DwCollectPickup",
+        "DwGiveItem",
+        "DwHud"
+      ],
+      "physical_collision": 1,
+      "collect_owner": 1,
+      "reward": 1,
+      "debits": [],
+      "credits": [],
+      "contacts": 0,
+      "refills": 0,
+      "HP_writes": 0,
+      "shot_types": [],
+      "bullet_types": [],
+      "target": false,
+      "updates": 25,
+      "after": {
+        "DwHealth": 4,
+        "DwGas": 11,
+        "DwAdaptor": 0,
+        "DwMode": 0,
+        "RlHealth": 0,
+        "RlEnergy": 0,
+        "RlFoodKind": 0,
+        "RlChargeFired": 0,
+        "PlayerStatus": 0
+      }
+    },
+    {
+      "name": "earn-arrow",
+      "kind": "collect",
+      "before": {
+        "DwHealth": 4,
+        "DwGas": 11,
+        "DwAdaptor": 0,
+        "DwMode": 0,
+        "RlHealth": 0,
+        "RlEnergy": 0,
+        "RlFoodKind": 0,
+        "RlChargeFired": 0,
+        "PlayerStatus": 0
+      },
+      "owners": [
+        "GameLoop",
+        "DwScroogeMovement",
+        "HpProcessFireballsBridge",
+        "ProcFireball_Bubble",
+        "InventoryUpdateDrops",
+        "RlWeaponsDispatch",
+        "DwScroogeWeapons",
+        "MarioSourcePowerupCollision",
+        "RlCollectDispatch",
+        "LmCollectGate",
+        "Cv3CollectPickupGate",
+        "Z2CollectPickupGate",
+        "DwCollectPickup",
+        "DwGiveItem",
+        "DwHud"
+      ],
+      "physical_collision": 1,
+      "collect_owner": 1,
+      "reward": 1,
+      "debits": [],
+      "credits": [],
+      "contacts": 0,
+      "refills": 0,
+      "HP_writes": 0,
+      "shot_types": [],
+      "bullet_types": [],
+      "target": false,
+      "updates": 25,
+      "after": {
+        "DwHealth": 4,
+        "DwGas": 21,
+        "DwAdaptor": 2,
+        "DwMode": 0,
+        "RlHealth": 0,
+        "RlEnergy": 0,
+        "RlFoodKind": 0,
+        "RlChargeFired": 0,
+        "PlayerStatus": 0
+      }
+    },
+    {
+      "name": "arrow",
+      "kind": "use",
+      "before": {
+        "DwHealth": 4,
+        "DwGas": 21,
+        "DwAdaptor": 2,
+        "DwMode": 0,
+        "RlHealth": 0,
+        "RlEnergy": 0,
+        "RlFoodKind": 0,
+        "RlChargeFired": 0,
+        "PlayerStatus": 0
+      },
+      "owners": [
+        "GameLoop",
+        "DwScroogeMovement",
+        "HpProcessFireballsBridge",
+        "ProcFireball_Bubble",
+        "InventoryUpdateDrops",
+        "RlWeaponsDispatch",
+        "DwScroogeWeapons",
+        "DwHud",
+        "DwLaunch",
+        "DwShotInit",
+        "MegaManWeapons::DamageEnemy",
+        "DwExpandedEnemyHit",
+        "DwAttachArrow",
+        "DwArrowActor"
+      ],
+      "physical_collision": 0,
+      "collect_owner": 0,
+      "reward": 0,
+      "debits": [
+        {
+          "before": 21,
+          "cost": 3,
+          "after": 18,
+          "age": 5
+        }
+      ],
+      "credits": [],
+      "contacts": 1,
+      "refills": 0,
+      "HP_writes": 6,
+      "shot_types": [
+        5,
+        6,
+        8
+      ],
+      "bullet_types": [
+        3
+      ],
+      "target": true,
+      "updates": 307,
+      "after": {
+        "DwHealth": 4,
+        "DwGas": 18,
+        "DwAdaptor": 2,
+        "DwMode": 1,
+        "RlHealth": 0,
+        "RlEnergy": 0,
+        "RlFoodKind": 0,
+        "RlChargeFired": 0,
+        "PlayerStatus": 0
+      }
+    },
+    {
+      "name": "earn-heavy",
+      "kind": "collect",
+      "before": {
+        "DwHealth": 4,
+        "DwGas": 18,
+        "DwAdaptor": 2,
+        "DwMode": 1,
+        "RlHealth": 0,
+        "RlEnergy": 0,
+        "RlFoodKind": 0,
+        "RlChargeFired": 0,
+        "PlayerStatus": 0
+      },
+      "owners": [
+        "GameLoop",
+        "DwScroogeMovement",
+        "HpProcessFireballsBridge",
+        "ProcFireball_Bubble",
+        "InventoryUpdateDrops",
+        "RlWeaponsDispatch",
+        "DwScroogeWeapons",
+        "MarioSourcePowerupCollision",
+        "RlCollectDispatch",
+        "LmCollectGate",
+        "Cv3CollectPickupGate",
+        "Z2CollectPickupGate",
+        "DwCollectPickup",
+        "DwGiveItem",
+        "DwHud"
+      ],
+      "physical_collision": 1,
+      "collect_owner": 1,
+      "reward": 1,
+      "debits": [],
+      "credits": [],
+      "contacts": 0,
+      "refills": 0,
+      "HP_writes": 0,
+      "shot_types": [],
+      "bullet_types": [],
+      "target": false,
+      "updates": 25,
+      "after": {
+        "DwHealth": 4,
+        "DwGas": 28,
+        "DwAdaptor": 1,
+        "DwMode": 1,
+        "RlHealth": 0,
+        "RlEnergy": 0,
+        "RlFoodKind": 0,
+        "RlChargeFired": 0,
+        "PlayerStatus": 0
+      }
+    },
+    {
+      "name": "heavy",
+      "kind": "use",
+      "before": {
+        "DwHealth": 4,
+        "DwGas": 28,
+        "DwAdaptor": 1,
+        "DwMode": 1,
+        "RlHealth": 0,
+        "RlEnergy": 0,
+        "RlFoodKind": 0,
+        "RlChargeFired": 0,
+        "PlayerStatus": 0
+      },
+      "owners": [
+        "GameLoop",
+        "DwScroogeMovement",
+        "HpProcessFireballsBridge",
+        "ProcFireball_Bubble",
+        "InventoryUpdateDrops",
+        "RlWeaponsDispatch",
+        "DwScroogeWeapons",
+        "DwHud",
+        "DwLaunch",
+        "DwShotInit",
+        "DwHeavyBurst",
+        "MegaManWeapons::DamageEnemy",
+        "DwExpandedEnemyHit"
+      ],
+      "physical_collision": 0,
+      "collect_owner": 0,
+      "reward": 0,
+      "debits": [
+        {
+          "before": 28,
+          "cost": 2,
+          "after": 26,
+          "age": 5
+        }
+      ],
+      "credits": [],
+      "contacts": 3,
+      "refills": 0,
+      "HP_writes": 8,
+      "shot_types": [
+        2,
+        3,
+        4
+      ],
+      "bullet_types": [
+        1,
+        2
+      ],
+      "target": true,
+      "updates": 214,
+      "after": {
+        "DwHealth": 4,
+        "DwGas": 26,
+        "DwAdaptor": 1,
+        "DwMode": 1,
+        "RlHealth": 0,
+        "RlEnergy": 0,
+        "RlFoodKind": 0,
+        "RlChargeFired": 0,
+        "PlayerStatus": 0
+      }
+    },
+    {
+      "name": "earn-thunder",
+      "kind": "collect",
+      "before": {
+        "DwHealth": 4,
+        "DwGas": 26,
+        "DwAdaptor": 1,
+        "DwMode": 1,
+        "RlHealth": 0,
+        "RlEnergy": 0,
+        "RlFoodKind": 0,
+        "RlChargeFired": 0,
+        "PlayerStatus": 0
+      },
+      "owners": [
+        "GameLoop",
+        "DwScroogeMovement",
+        "HpProcessFireballsBridge",
+        "ProcFireball_Bubble",
+        "InventoryUpdateDrops",
+        "RlWeaponsDispatch",
+        "DwScroogeWeapons",
+        "MarioSourcePowerupCollision",
+        "RlCollectDispatch",
+        "LmCollectGate",
+        "Cv3CollectPickupGate",
+        "Z2CollectPickupGate",
+        "DwCollectPickup",
+        "DwGiveItem",
+        "DwHud"
+      ],
+      "physical_collision": 1,
+      "collect_owner": 1,
+      "reward": 1,
+      "debits": [],
+      "credits": [],
+      "contacts": 0,
+      "refills": 0,
+      "HP_writes": 0,
+      "shot_types": [],
+      "bullet_types": [],
+      "target": false,
+      "updates": 25,
+      "after": {
+        "DwHealth": 4,
+        "DwGas": 36,
+        "DwAdaptor": 3,
+        "DwMode": 1,
+        "RlHealth": 0,
+        "RlEnergy": 0,
+        "RlFoodKind": 0,
+        "RlChargeFired": 0,
+        "PlayerStatus": 0
+      }
+    },
+    {
+      "name": "thunder",
+      "kind": "use",
+      "before": {
+        "DwHealth": 4,
+        "DwGas": 36,
+        "DwAdaptor": 3,
+        "DwMode": 1,
+        "RlHealth": 0,
+        "RlEnergy": 0,
+        "RlFoodKind": 0,
+        "RlChargeFired": 0,
+        "PlayerStatus": 0
+      },
+      "owners": [
+        "GameLoop",
+        "DwScroogeMovement",
+        "HpProcessFireballsBridge",
+        "ProcFireball_Bubble",
+        "InventoryUpdateDrops",
+        "RlWeaponsDispatch",
+        "DwScroogeWeapons",
+        "DwHud",
+        "DwLaunch",
+        "DwShotInit",
+        "MegaManWeapons::DamageEnemy",
+        "DwExpandedEnemyHit"
+      ],
+      "physical_collision": 0,
+      "collect_owner": 0,
+      "reward": 0,
+      "debits": [
+        {
+          "before": 36,
+          "cost": 2,
+          "after": 34,
+          "age": 5
+        }
+      ],
+      "credits": [],
+      "contacts": 2,
+      "refills": 0,
+      "HP_writes": 4,
+      "shot_types": [
+        7,
+        8
+      ],
+      "bullet_types": [
+        1
+      ],
+      "target": true,
+      "updates": 211,
+      "after": {
+        "DwHealth": 4,
+        "DwGas": 34,
+        "DwAdaptor": 3,
+        "DwMode": 1,
+        "RlHealth": 0,
+        "RlEnergy": 0,
+        "RlFoodKind": 0,
+        "RlChargeFired": 0,
+        "PlayerStatus": 0
+      }
+    },
+    {
+      "name": "select-back-to-basic",
+      "kind": "use",
+      "before": {
+        "DwHealth": 4,
+        "DwGas": 34,
+        "DwAdaptor": 3,
+        "DwMode": 1,
+        "RlHealth": 0,
+        "RlEnergy": 0,
+        "RlFoodKind": 0,
+        "RlChargeFired": 0,
+        "PlayerStatus": 0
+      },
+      "owners": [
+        "GameLoop",
+        "DwScroogeMovement",
+        "HpProcessFireballsBridge",
+        "ProcFireball_Bubble",
+        "InventoryUpdateDrops",
+        "RlWeaponsDispatch",
+        "DwScroogeWeapons",
+        "DwHud",
+        "DwLaunch",
+        "DwShotInit",
+        "MegaManWeapons::DamageEnemy",
+        "DwExpandedEnemyHit"
+      ],
+      "physical_collision": 0,
+      "collect_owner": 0,
+      "reward": 0,
+      "debits": [
+        {
+          "before": 34,
+          "cost": 0,
+          "after": 34,
+          "age": 5
+        }
+      ],
+      "credits": [],
+      "contacts": 1,
+      "refills": 0,
+      "HP_writes": 4,
+      "shot_types": [
+        1
+      ],
+      "bullet_types": [
+        1
+      ],
+      "target": true,
+      "updates": 211,
+      "after": {
+        "DwHealth": 4,
+        "DwGas": 34,
+        "DwAdaptor": 3,
+        "DwMode": 0,
+        "RlHealth": 0,
+        "RlEnergy": 0,
+        "RlFoodKind": 0,
+        "RlChargeFired": 0,
+        "PlayerStatus": 0
+      }
+    }
+  ],
+  "setup": "CPU arena normal initializedclock399 only; native module must not write clock. Same legal logical/visible scene, mature typedactors or complete Rollcapsule metadata; only real source hurt/debit produces tested health/energy deficits.",
+  "consumer": "Actual SamusFreezeUpdateScreen between completeGameLoops followed by two originalInitBuffer zero stores; source CPU environment, not NMI/budget proof.",
+  "limits": "Not native/Lua execution/art/PPU/cadence/audio proof. Mature actor contact, not reveal/rise/RNG; no health/ammo/ownership/adaptor/selection/outcome seeds."
+}

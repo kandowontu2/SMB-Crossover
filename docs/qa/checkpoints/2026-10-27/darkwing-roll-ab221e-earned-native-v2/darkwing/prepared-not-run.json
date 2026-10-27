@@ -1,0 +1,455 @@
+{
+  "status": "PREPARED_DO_NOT_RUN",
+  "native_run": false,
+  "passed": false,
+  "goal_complete": false,
+  "ROM_sha256": "ab221e81821dd10690ad3a1068d91c9efae6c7406230d9bd7fc4a729fdc433d2",
+  "identity": "darkwing",
+  "character": 12,
+  "actual_numeric_mode": 1,
+  "plan": [
+    {
+      "name": "cold-basic",
+      "kind": "use",
+      "weapon": 0,
+      "mode": 0,
+      "proxy": 1,
+      "contact": 1,
+      "limit": 420,
+      "image": true
+    },
+    {
+      "name": "hurt-for-small-aid",
+      "kind": "hurt",
+      "limit": 140
+    },
+    {
+      "name": "small-aid",
+      "kind": "collect",
+      "item": 34,
+      "limit": 80,
+      "image": true
+    },
+    {
+      "name": "hurt-for-full-aid",
+      "kind": "hurt",
+      "limit": 140
+    },
+    {
+      "name": "full-aid",
+      "kind": "collect",
+      "item": 35,
+      "limit": 80,
+      "image": true
+    },
+    {
+      "name": "small-gas",
+      "kind": "collect",
+      "item": 37,
+      "limit": 80
+    },
+    {
+      "name": "large-gas",
+      "kind": "collect",
+      "item": 36,
+      "limit": 80,
+      "image": true
+    },
+    {
+      "name": "earn-arrow",
+      "kind": "collect",
+      "item": 38,
+      "limit": 80
+    },
+    {
+      "name": "arrow",
+      "kind": "use",
+      "weapon": 2,
+      "mode": 1,
+      "proxy": 3,
+      "contact": 5,
+      "limit": 420,
+      "image": true
+    },
+    {
+      "name": "earn-heavy",
+      "kind": "collect",
+      "item": 39,
+      "limit": 80
+    },
+    {
+      "name": "heavy",
+      "kind": "use",
+      "weapon": 1,
+      "mode": 1,
+      "proxy": 2,
+      "contact": 4,
+      "limit": 420,
+      "image": true
+    },
+    {
+      "name": "earn-thunder",
+      "kind": "collect",
+      "item": 40,
+      "limit": 80
+    },
+    {
+      "name": "thunder",
+      "kind": "use",
+      "weapon": 3,
+      "mode": 1,
+      "proxy": 1,
+      "contact": 7,
+      "limit": 420,
+      "image": true
+    },
+    {
+      "name": "select-back-to-basic",
+      "kind": "use",
+      "weapon": 0,
+      "mode": 0,
+      "proxy": 1,
+      "contact": 1,
+      "limit": 420,
+      "image": true
+    }
+  ],
+  "source_CPU_passed": true,
+  "source_GameLoop_calls": 1499,
+  "literal_hardware_guard_bytes": 4058,
+  "literal_hardware_guard_sha256": "2b3aa5da62ebdd76723bc3ad87991e63695f15ac151213718f58b55f0211d70c",
+  "whole_clone_owners": {
+    "NonMaskableInterrupt": {
+      "bytes": 212,
+      "banks": [
+        125,
+        127
+      ],
+      "sha256": "2206c8675917b6ce9099919f19cd2236eaaf6db702e35747bc73c91f8cbc6233"
+    },
+    "OAMandReadJoypad": {
+      "bytes": 43,
+      "banks": [
+        125,
+        127
+      ],
+      "sha256": "92e3ab82a5ac222ecbd612eb7204f2e8108dc3e2434c80ff7ca0250cff37eb1f"
+    }
+  },
+  "all_literal_dynamic_RAM_names_reconciled": true,
+  "Lua_VM_executed": false,
+  "caps": {
+    "updates": 3000,
+    "wall_frames": 8000,
+    "host_seconds": 1200,
+    "bytes": 2000000000,
+    "files": 64,
+    "PNGs": 8
+  },
+  "setup": "Complete logical+visible scene/mature native actors/default-health NPCs at GameLoop+5. Roll capsules have complete declared type/health-vs-energy/position/velocity/age fields. Real source injury/debit creates deficits. No health/ammo/adaptor/owned/tier/selection/projectile/result writes.",
+  "limitations": "Source CPU and static Lua preparation only, no Lua VM/native/render/audio/cadence claim. Mature collection, not reveal/rise/RNG. No star/1up/allfacings/fullpool/exhaust/cape/hang/campaign claim. All effects/wholeframes require actual native review.",
+  "bindings": [
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\mega_proto_body_palette_9ea.nes",
+      "bytes": 2097168,
+      "sha256": "ab221e81821dd10690ad3a1068d91c9efae6c7406230d9bd7fc4a729fdc433d2"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\mega_proto_body_palette_9ea.dbg",
+      "bytes": 26903009,
+      "sha256": "23501bd5a529923435f5baa90da8f59495a98420f457a139ff185bffda57d600"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\mega_proto_body_palette_9ea.lbl",
+      "bytes": 1067998,
+      "sha256": "fcf62a8378e4e092c7b21b74a56415a44ae0b4e23d5c7d183ff6de33eb67e651"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\current_darkwing_roll_earned_v1.lua",
+      "bytes": 24239,
+      "sha256": "30dccb73625232a5e7ae23e3c11873b5d6966b7161a682bed4a4b394df650d69"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\current_darkwing_roll_earned_prepare_v1.py",
+      "bytes": 9760,
+      "sha256": "041798de23ba4ee6420b5b1b0e30f7ac0ae4d1144fc528607308e82a12c93563"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\current_rygar_powerups_v1.lua",
+      "bytes": 19197,
+      "sha256": "14ccdcfd388e3fdf65697d5d0d4dee3d1c26daeeec192522462007c759e1e5a8"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\run_mesen.py",
+      "bytes": 16490,
+      "sha256": "5d71507b99a100a10b48ad84e1bb3e7db92c470e6215315c9d962551a4222c67"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\current_darkwing_roll_earned_cpu_v1.py",
+      "bytes": 17548,
+      "sha256": "4e6b963cbcdf12d54ba442e3aa4a9c089ed70d7418322f61eebe1cc4846d0aaa"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\current_rygar_powerups_prepare_v1.py",
+      "bytes": 17183,
+      "sha256": "6988f2a5d7371b6d2340e248e6fbb1e7722778110c6a061045e7eabae2a6f512"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\current_roster_compact_11_v1.py",
+      "bytes": 18340,
+      "sha256": "fe2b6c43ae273269ed40f18e62cfcb3ba1d45cde6d0463d748ba72ccc25ebd6f"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\link_pit_rygar_sophia_audit_cpu.py",
+      "bytes": 14010,
+      "sha256": "15ef348bc124a97d8ef2c8a56777180276271b44fb77c8ace7e62c2a50310113"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\check_tmnt_render_oa.py",
+      "bytes": 7778,
+      "sha256": "32033893e48055adc9a23c661238e9331dd1db856be51b753ba9b6781eb528e4"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\verify_native_relocation.py",
+      "bytes": 8395,
+      "sha256": "1bab7154bc2e5468e827087d14030a7e30c4d3676db5e775ef15de4d0c34ce11"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\observe_chip_committed_write.py",
+      "bytes": 7619,
+      "sha256": "0922efc482e8a72b72d243ada7629f157c51afd779cee09e0f7bf35fa6235de2"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\run_mesen_isolated.py",
+      "bytes": 1370,
+      "sha256": "976f197a3712511e821f545e655eaa3f9bcfe95e42a3c6c76b2adca288d2aad3"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\capture_budget.py",
+      "bytes": 9112,
+      "sha256": "b9985e2e6db5c801a47454d8761adaf5f40e5254e8f599aeeddf412c1b7e8db9"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\darkwing.s",
+      "bytes": 529,
+      "sha256": "0eaed8730818d06a14f1074191a2f6fbb57930d07b6a05da1e728b7be8b004df"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\darkwing_core.s",
+      "bytes": 11057,
+      "sha256": "ca07ea5ecc059a7bf9029e3922369f464df9a26cf37a4f2e7dd2e04039263e89"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\darkwing_weapons.s",
+      "bytes": 12261,
+      "sha256": "269311d3d475170e37ab9263b2f4fe2a1b97c7ab4fc40c4b5ea94e637fcfc0eb"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\darkwing_pickups.s",
+      "bytes": 6250,
+      "sha256": "2ba27224d2e9be94d6ba3e593f484eb3fb164e452fdf23f866f0db5698011e7a"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\darkwing_recovery.s",
+      "bytes": 3226,
+      "sha256": "ba63c5583450fa527d21e4c4d66458d0ab237789c6ba8f7075d8542e837ca9bf"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\roll.s",
+      "bytes": 828,
+      "sha256": "9cbf4f2afc5b6a964cc8452e79ed3e5f966c802fa4aaccd97964547c25f6727e"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\roll_core.s",
+      "bytes": 5225,
+      "sha256": "ca06623b63009375f8daa0770d57480d1c13a91d67b7c261140659b83d186d77"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\roll_weapons.s",
+      "bytes": 2030,
+      "sha256": "260ecfe64b7baa529205aabeb6cc74cec08283d007403bd88b2faa6a33e256c1"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\roll_dispatch.s",
+      "bytes": 3306,
+      "sha256": "a7acee4cee355aedf9c6c0396d09b9ec5d211bc2c202e088e3488128463af3f2"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\roll_state.inc",
+      "bytes": 706,
+      "sha256": "d90b2e32a1f10371d430919c0c4189fd37f0553c36dc2d60ee81e804fb784529"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\roll_motion.inc",
+      "bytes": 16033,
+      "sha256": "5023855794330da31cec72864fb3a86f2f0874c001d6884f99f8ef294aa85950"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\inventory.s",
+      "bytes": 20401,
+      "sha256": "933222478a1e4cafa9a049be7cb064e0cc95b1b328c9592da806ec9f7d342c2f"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\inventory_drops.s",
+      "bytes": 9196,
+      "sha256": "22a23c790889b2e59927ddeda1c04693d13b03685d9c8bc651fcc6695096ddc5"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\roster.s",
+      "bytes": 25071,
+      "sha256": "17a3e4753cd9c9171c38e39f2d6e0621e32c9d49ec03fc654aeb12a64b654bf3"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\game.s",
+      "bytes": 62008,
+      "sha256": "328bae039dbce7ae75e78bb552ef653fb0333dbb02146dee72888b70651a0f94"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\object.s",
+      "bytes": 185706,
+      "sha256": "48984c1253fa13d4fd14d90e268a9afdfa42c60130086542b6aebcc58653ee7e"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\mario_source.s",
+      "bytes": 19923,
+      "sha256": "d634f221acb00322480cd4cd45d5a6f724dc253a71b6a8dbe3c5621bbfb8cd3e"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-ab221e-darkwing-hard-earned-v1\\config.json",
+      "bytes": 10998,
+      "sha256": "ba526bc110c2bfadf6ed33855c319d72b087fc964249cd94727d829121ef2ee8"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-ab221e-darkwing-hard-earned-v1\\source-controls.json",
+      "bytes": 21122,
+      "sha256": "9948a30eecc92c5a81971d099db7366f8e8279b219733fccdfd7c54bcbe58dcb"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-ab221e-darkwing-hard-earned-v1\\run.lua",
+      "bytes": 8268,
+      "sha256": "f9eb0158e84a69de5248bc09fc08934ec5124fcfebf0a3079fdd0ed46d2474a4"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-ab221e-darkwing-hard-earned-v1\\command.json",
+      "bytes": 927,
+      "sha256": "a88059ee429c26485c3f86088443fa549b5c79a08ae5f6b2c3b4bad21fe4f9d4"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\mm_player_prg_owner_metasprite_engine.s",
+      "bytes": 32705,
+      "sha256": "127fcd425b67b45e3594870a86b77dd7a14d899dd214f1b67920a1d58d6f63d8"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\mm_player_prg_owner_megaman_weapons.s",
+      "bytes": 50305,
+      "sha256": "da05482898a8fe9db12f5834ab2a2335321325d8c52ea068cee0ae5c561270ad"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\proto_normal_palette_ack_9ea_source.s",
+      "bytes": 1388,
+      "sha256": "c7107c2e12feece6d8521f972638c8e945aef32cc07f4ae90007a76ebaf7a61f"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\mega_proto_body_palette_9ea_build.json",
+      "bytes": 21886,
+      "sha256": "990878a5ae52485dc09120c7c9e2122782677e34becf07606842a4bb17dc1f46"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\current_darkwing_roll_earned_v2.lua",
+      "bytes": 24212,
+      "sha256": "80bd7c405541d16fc7cf99820b7320f00ddb48bd759c6078b60e6610a0d4e747"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\current_darkwing_roll_earned_prepare_v2.py",
+      "bytes": 3653,
+      "sha256": "7aa6c141a7bcce747551070acce2e49bc31c986f3ea3ceb4007e58665396ef69"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-ab221e-darkwing-hard-earned-v1\\prepared-not-run.json",
+      "bytes": 12659,
+      "sha256": "9da7ecb0a9149910650fe3ddfa9ae9b7b6438d26f8bd338409711fdfe0f57e1f"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-ab221e-darkwing-hard-earned-v2\\config.json",
+      "bytes": 10998,
+      "sha256": "ba526bc110c2bfadf6ed33855c319d72b087fc964249cd94727d829121ef2ee8"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-ab221e-darkwing-hard-earned-v2\\source-controls.json",
+      "bytes": 21122,
+      "sha256": "9948a30eecc92c5a81971d099db7366f8e8279b219733fccdfd7c54bcbe58dcb"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-ab221e-darkwing-hard-earned-v2\\run.lua",
+      "bytes": 8268,
+      "sha256": "7242a3df0c1e6b10f7a758492f5b5249ffa16c8d39485a4c5909b1947e2d4186"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-ab221e-darkwing-hard-earned-v2\\command.json",
+      "bytes": 927,
+      "sha256": "e64dcc929a4ec499d1be54c84f77f61b8d892e026a6cc0e5007fa38c4e70c19f"
+    }
+  ],
+  "deadline_correction": {
+    "source_only": true,
+    "old_ready_sha256": "9da7ecb0a9149910650fe3ddfa9ae9b7b6438d26f8bd338409711fdfe0f57e1f",
+    "original_FALSE_preserved": true,
+    "exact_expression_from": "C.plan[math.min(index,#C.plan)].limit",
+    "exact_expression_to": "task.limit",
+    "all_other_module_text_exact": true,
+    "all_other_native_controller_mechanics_seeds_guards_caps_exact": true,
+    "source_CPU_proof_reused_unchanged": true,
+    "source_controls_sha256": "9948a30eecc92c5a81971d099db7366f8e8279b219733fccdfd7c54bcbe58dcb",
+    "Lua_VM_executed": false,
+    "finite_controls": [
+      {
+        "name": "actual-arrow-complete",
+        "age": 307,
+        "current_limit": 420,
+        "next_limit": 80,
+        "correct": true,
+        "old_next_index": false
+      },
+      {
+        "name": "arrow-boundary",
+        "age": 540,
+        "current_limit": 420,
+        "next_limit": 80,
+        "correct": false,
+        "old_next_index": false
+      },
+      {
+        "name": "arrow-overrun",
+        "age": 541,
+        "current_limit": 420,
+        "next_limit": 80,
+        "correct": false,
+        "old_next_index": false
+      },
+      {
+        "name": "short-case-within",
+        "age": 199,
+        "current_limit": 80,
+        "next_limit": 420,
+        "correct": true,
+        "old_next_index": true
+      },
+      {
+        "name": "short-case-boundary",
+        "age": 200,
+        "current_limit": 80,
+        "next_limit": 420,
+        "correct": false,
+        "old_next_index": true
+      },
+      {
+        "name": "final-case-within",
+        "age": 25,
+        "current_limit": 40,
+        "next_limit": 40,
+        "correct": true,
+        "old_next_index": true
+      }
+    ]
+  }
+}
