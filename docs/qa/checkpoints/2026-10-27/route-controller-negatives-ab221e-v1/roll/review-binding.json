@@ -1,0 +1,26 @@
+{
+  "identity": "roll",
+  "mode": "easy",
+  "native_ROM_sha256": "ab221e81821dd10690ad3a1068d91c9efae6c7406230d9bd7fc4a729fdc433d2",
+  "passed": false,
+  "reason": "Zero-death 1-1 route",
+  "frames": 1334,
+  "completed_updates": 1244,
+  "zero_deaths": false,
+  "ROOT_selected_whole_images_reviewed": 6,
+  "all_frame_visual_review": false,
+  "full_stream_integrity_verified": true,
+  "decoded_full_stream_sha256": "2893a9c945145d35271dbc8baec335ca1fe47cfde31430c06c458fd14ff95323",
+  "review_sha256": "d094c809961ba15e08278da795478d7ba0c14cad97d50606691214b87ea115af",
+  "checkpoint_files": {
+    "capture-budget.json": "43ad1f808f37e5a1ef7be419e7026b93f870406d884e3b2cd50713a79f886d88",
+    "inputs.csv": "d89a0e559d1755de49e0a3717d8ca199ce980f3e2a05dd0d5e731f5574be3e25",
+    "launch.json": "be8e811b30cc148633ac7ece2ae0b6a99a063a4620ba7a37747635b0ff9ba296",
+    "ready.json": "0eea574b3d049801d5a672c118c0ed813d509af807b0be59ac59aa2a665917db",
+    "result.json": "f9c932baba7e27df6d311a39fc037f6c53de72f7918be91a61139a5220f5b352",
+    "selected-whole-frames.png": "f432605b4947a709f64f4e6ef81fa87ffea735db2835a4d916c33832ef0fa878",
+    "trace.csv": "e424751a80f9aabb7564304adb7719a1c1139707fa8161928de2678b8fbf8780"
+  },
+  "observed": "No jump before the first gap despite physical A pulses. Fell at1334/X1128/Y242. Consumed A/previous-A fields were not logged in v1, so exact old input-latch cause is inferred.",
+  "native_followup": "v2 waits for actual A release/airborne readback and clears1-1 into controlled1-2 on the same ROM with no deaths/cheats. Only test-controller input changes; movement/resource code unchanged."
+}

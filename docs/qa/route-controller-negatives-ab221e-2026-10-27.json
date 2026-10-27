@@ -1,0 +1,58 @@
+{
+  "native_ROM_sha256": "ab221e81821dd10690ad3a1068d91c9efae6c7406230d9bd7fc4a729fdc433d2",
+  "goal_complete": false,
+  "attempts": [
+    {
+      "identity": "darkwing",
+      "mode": "easy",
+      "native_ROM_sha256": "ab221e81821dd10690ad3a1068d91c9efae6c7406230d9bd7fc4a729fdc433d2",
+      "passed": false,
+      "reason": "finite frame bound",
+      "frames": 8000,
+      "completed_updates": 6884,
+      "zero_deaths": true,
+      "ROOT_selected_whole_images_reviewed": 5,
+      "all_frame_visual_review": false,
+      "full_stream_integrity_verified": true,
+      "decoded_full_stream_sha256": "72ce1a8dcdcf66694eccdceb6414ec4b70c362ff4cdecee9037f31362e1779bf",
+      "review_sha256": "ebe1491e12b8bb4b7b68e4d49940f94467f60403ca1b9bb5620b5ea9ceb92bf2",
+      "checkpoint_files": {
+        "capture-budget.json": "c5dbb49c71cabfad3e923882452e2c3d07c4b4ae55e939f49aee93e6b08d57b9",
+        "inputs.csv": "8d5986ea89d9a052c1a80b1cb008a376fb4ea0e4f11bd791d67440ca14466d06",
+        "launch.json": "f78750757a68ee5ea6c490b3bb1c0a0740e8240470c2f83cc3cf2d6e8e9c0993",
+        "ready.json": "5c539eba7416c5b37af2b4d186150b64142f73e4998bfd2f14c23204c7b1fcfd",
+        "result.json": "13657e198338d56c0b914bafb989c44b0501ea54445d990255b8312a03c738c2",
+        "selected-whole-frames.png": "5fe7d3e5d9b5415287a7ad785e8ae5320a226da8135c268eea22be859a19c8fd",
+        "trace.csv": "a29fb63c17ba7e213673cf93636500a3f14eb72ac72049a73a0d8c0d803b33bf"
+      },
+      "observed": "HeldX721 for6243 frames,107 actual rising arcs with minimumY125/126 in106. Ordinary jump is consumed repeatedly but cannot clear the64pxpipe. No missing-A-edge conclusion.",
+      "source_followup": "A disclosed typed-source scene clears with real recovery Arrow26 pickup, Select,3gas use, attached arrow platform and two real jumps. New native v2 is pending; no physics or resource patch."
+    },
+    {
+      "identity": "roll",
+      "mode": "easy",
+      "native_ROM_sha256": "ab221e81821dd10690ad3a1068d91c9efae6c7406230d9bd7fc4a729fdc433d2",
+      "passed": false,
+      "reason": "Zero-death 1-1 route",
+      "frames": 1334,
+      "completed_updates": 1244,
+      "zero_deaths": false,
+      "ROOT_selected_whole_images_reviewed": 6,
+      "all_frame_visual_review": false,
+      "full_stream_integrity_verified": true,
+      "decoded_full_stream_sha256": "2893a9c945145d35271dbc8baec335ca1fe47cfde31430c06c458fd14ff95323",
+      "review_sha256": "d094c809961ba15e08278da795478d7ba0c14cad97d50606691214b87ea115af",
+      "checkpoint_files": {
+        "capture-budget.json": "43ad1f808f37e5a1ef7be419e7026b93f870406d884e3b2cd50713a79f886d88",
+        "inputs.csv": "d89a0e559d1755de49e0a3717d8ca199ce980f3e2a05dd0d5e731f5574be3e25",
+        "launch.json": "be8e811b30cc148633ac7ece2ae0b6a99a063a4620ba7a37747635b0ff9ba296",
+        "ready.json": "0eea574b3d049801d5a672c118c0ed813d509af807b0be59ac59aa2a665917db",
+        "result.json": "f9c932baba7e27df6d311a39fc037f6c53de72f7918be91a61139a5220f5b352",
+        "selected-whole-frames.png": "f432605b4947a709f64f4e6ef81fa87ffea735db2835a4d916c33832ef0fa878",
+        "trace.csv": "e424751a80f9aabb7564304adb7719a1c1139707fa8161928de2678b8fbf8780"
+      },
+      "observed": "No jump before the first gap despite physical A pulses. Fell at1334/X1128/Y242. Consumed A/previous-A fields were not logged in v1, so exact old input-latch cause is inferred.",
+      "native_followup": "v2 waits for actual A release/airborne readback and clears1-1 into controlled1-2 on the same ROM with no deaths/cheats. Only test-controller input changes; movement/resource code unchanged."
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 {
   "ROM_sha256": "ab221e81821dd10690ad3a1068d91c9efae6c7406230d9bd7fc4a729fdc433d2",
   "status": "ab221e current build adopted; full current-roster audit in progress",
-  "clear_identity_count": 23,
+  "clear_identity_count": 24,
   "identities": 37,
   "rows": [
     {
@@ -402,7 +402,17 @@
       },
       "hard": {
         "status": "pending current route"
-      }
+      },
+      "failed_native_attempts": [
+        {
+          "mode": "easy",
+          "native_ROM_sha256": "ab221e81821dd10690ad3a1068d91c9efae6c7406230d9bd7fc4a729fdc433d2",
+          "frames": 8000,
+          "reason": "finite frame bound",
+          "native_result_sha256": "13657e198338d56c0b914bafb989c44b0501ea54445d990255b8312a03c738c2",
+          "report": "route-controller-negatives-ab221e-2026-10-27.json"
+        }
+      ]
     },
     {
       "identity": "bass",
@@ -435,11 +445,34 @@
     {
       "identity": "roll",
       "easy": {
-        "status": "pending current route"
+        "status": "cleared 1-1 and controlled1-2",
+        "native_ROM_sha256": "ab221e81821dd10690ad3a1068d91c9efae6c7406230d9bd7fc4a729fdc433d2",
+        "frames": 4405,
+        "completed_updates": 4074,
+        "captured_full_PPU_frames": 3567,
+        "PPU_stream_sha256": "5d7c330e6f530341038eb574b6a46554406dd491409fcf760453b972c6e09736",
+        "zero_deaths": true,
+        "cheats_off": true,
+        "selected_whole_frames_visually_reviewed": true,
+        "all_frame_visual_review": false,
+        "independent_replay": false,
+        "native_result_sha256": "690ce88d712b4a2641524b5c9b9b939d279ef3b326bf47f0dd2154c61a4692fc",
+        "review_sha256": "e205c1970124cf5fb62864efcbf1cd3f893ccedbf8477e60d5c2b1675a3fb4c3",
+        "controller": "Controller waits for actual consumed A release and native airborne readback. Game movement/resources unchanged; fixes the previous one-poll jump attempts that reached the first gap without jumping."
       },
       "hard": {
         "status": "pending current route"
-      }
+      },
+      "failed_native_attempts": [
+        {
+          "mode": "easy",
+          "native_ROM_sha256": "ab221e81821dd10690ad3a1068d91c9efae6c7406230d9bd7fc4a729fdc433d2",
+          "frames": 1334,
+          "reason": "Zero-death 1-1 route",
+          "native_result_sha256": "f9c932baba7e27df6d311a39fc037f6c53de72f7918be91a61139a5220f5b352",
+          "report": "route-controller-negatives-ab221e-2026-10-27.json"
+        }
+      ]
     },
     {
       "identity": "ryu",
@@ -681,10 +714,10 @@
       }
     }
   ],
-  "limits": "Every route row retains its actual ROM. Three identities have exactab221e full routes;20 other recent-lineage clears remain labelled predecessors. Earlier37-identity3cee results are historical. Both Hard Mega/Proto arsenals passed onab221e; all other component reports retain their stated ROMs/outcomes. Remaining identities, modes, shortcut routes, every powerup, full-frame visual review, sound fidelity and performance remain open.",
+  "limits": "Every route row retains its actual ROM. 4 identities have exactab221e full routes; 20 other recent-lineage clears remain labelled predecessors. Earlier37-identity3cee results are historical. All component reports retain their actual ROMs/outcomes. Remaining identities, modes, shortcut routes, every powerup, full-frame visual review, sound fidelity and performance remain open.",
   "goal_complete": false,
   "previous_ROM_sha256": "9ea11eab2fc5c373a3795b013f6ed9e0d5e9781891b2ae3bf40ad2556c27b85e",
-  "exact_current_ROM_clear_identity_count": 3,
+  "exact_current_ROM_clear_identity_count": 4,
   "predecessor_native_identity_count": 20,
   "predecessor_ROM_native_identity_counts": {
     "2082c19a7364920f828e97f70040d37f1f7059bde1ea136b5c2c4532324abf36": 5,
