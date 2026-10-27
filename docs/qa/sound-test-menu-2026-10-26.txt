@@ -1,0 +1,23 @@
+Sound browser working draft -- not installed
+
+Music/SFX browser prototype:37 character identities,14 existing scene/event
+music cues per identity, actual shared/native SFX queues. Select changes
+music/SFX; Up/Down character; Left/Right cue; A play; Start stop; B Options.
+Labels identify character and use readable stock-font text.
+
+Private f8b54fcc906c763f2ec99ebbd181072ca8be10e6d55aa5033345eaa2d6aacdea
+builds reproducibly. Ordinary MMC3 and MMC5 flag-off builds remain exactly
+d444cac88e13fa02b29ad16100b8f08fa565ba90f8cedde192de43fb2dc8f3eb and
+f4ffd2483c51daa4d60bb575da2da8c4d817692cda407611c243031f67520833.
+
+First assembled-CPU NMI control found a real prototype bug: the audio wrapper
+overwrites the foreground CurrentBank shadow with bank5, so final NMI mapping
+returns to5 rather than the interrupted bank. AX/Y/SP and menu/player flags
+return correctly, but this is not a passing result. Save/restore that shadow
+before native qualification. No native capture or product installation claimed.
+
+Storage: preparation now requires an existing unbound draft, reuses its files
+and forbids fresh source clones. The old baseline was removed independently;
+an explicit existing ROOT source alias was checked:814 unchanged files exact,
+one config differs only in line endings. Five proposal-owned files regenerate
+from that alias.820 non-pyc inputs are recorded; no deleted snapshot restored.
