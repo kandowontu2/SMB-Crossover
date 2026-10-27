@@ -1,0 +1,80 @@
+{
+  "status": "NATIVE_FALSE_PRESERVED",
+  "ROM_sha256": "9ea11eab2fc5c373a3795b013f6ed9e0d5e9781891b2ae3bf40ad2556c27b85e",
+  "frame": 3070,
+  "reason": "Controller stationary for 300 genuinely active completed updates",
+  "zero_deaths": true,
+  "route_clear": false,
+  "actual": {
+    "final_trace": {
+      "frame": "3070",
+      "poll": "3069",
+      "ppu_frame": "3070",
+      "loops": "2780",
+      "captured": "2826",
+      "world": "0",
+      "level": "0",
+      "area": "194",
+      "x": "2538",
+      "y": "62",
+      "yHigh": "1",
+      "state": "1",
+      "vx": "0",
+      "vy": "0",
+      "power": "1",
+      "engine": "8",
+      "mode": "1",
+      "task": "3",
+      "lives": "2",
+      "camera": "2426",
+      "mask": "0",
+      "ceiling": "0",
+      "dash": "0",
+      "jumpUsed": "1",
+      "loopCycles": "18820",
+      "interruptCycles": "107",
+      "foregroundCycles": "18713"
+    },
+    "complete256_DMAs": 2251,
+    "completed_loops": 2780,
+    "whole_PPU_frames": 2826
+  },
+  "cause": "Original policy changed to neutral land phase on issuing one physical Down+A request, without waiting for actual Cv3Bat transition. Actual trace crosses the gap but later becomes stationary2538/Y62 with mask0. Bat/previous-A RAM was not logged, so exact native missed consumption remains inferred; the paired actual-CPU source model reproduces lost one-poll requests without altering ability state.",
+  "correction": "Keep restore pending until actual Cv3Bat3/0 readback. While bat2, hold Down+A until consumed; if native previousA is already set, release before the next genuine fresh edge. All flight/landing/scoping, original8000cap, shared assertions and native resource rules unchanged.",
+  "ledger_fields": {
+    "identity": "alucard",
+    "mode": 0,
+    "ROM_sha256": "9ea11eab2fc5c373a3795b013f6ed9e0d5e9781891b2ae3bf40ad2556c27b85e",
+    "outcome": "FALSE",
+    "frame": 3070,
+    "zero_death": true,
+    "route_clear": false,
+    "remaining": "Fresh readback-driven controller route, then independent replay."
+  },
+  "bindings": [
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\compact-next-alucard-9ea-easy-v3\\ready.json",
+      "sha256": "73367e82cfbe6b1885c0499515297ca5b6ecc60920ea9d99f11dd5d24c1548c2"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\compact-next-alucard-9ea-easy-v3\\result.json",
+      "sha256": "38581b2f8f5a27416e3575e443090f7de2e0efce697024e451f1fe89dbde8b3d"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\compact-next-alucard-9ea-easy-v3\\trace.csv",
+      "sha256": "f79564310e91d5019fedbfd6a425dc8f77dde94090e66d37cd9c708fdbf4e946"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\compact-next-alucard-9ea-easy-v3\\inputs.csv",
+      "sha256": "76dc02771afc1b040c8c88b4b0539078aa0ae1ad549482780fb2b9debbdb97dc"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\compact-next-alucard-9ea-easy-v3\\captures.nesppuv1",
+      "sha256": "2a8cf69361c802f190a25df1538986848fd21a065dd537f930c825bfb779880c"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\compact-next-alucard-9ea-easy-v3\\captures-index.jsonl",
+      "sha256": "5d1b07c7a24c1832dbac09ffe93370823109538d9cb193cefe5bd5fbc557cc2d"
+    }
+  ]
+}

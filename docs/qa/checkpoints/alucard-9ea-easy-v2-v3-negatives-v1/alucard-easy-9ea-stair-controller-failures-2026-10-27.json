@@ -1,0 +1,143 @@
+{
+  "status": "NATIVE_FALSES_PRESERVED",
+  "ROM_sha256": "9ea11eab2fc5c373a3795b013f6ed9e0d5e9781891b2ae3bf40ad2556c27b85e",
+  "v1": {
+    "frame": 2667,
+    "final_trace": {
+      "frame": "2667",
+      "poll": "2666",
+      "ppu_frame": "2667",
+      "loops": "2377",
+      "captured": "2423",
+      "world": "0",
+      "level": "0",
+      "area": "194",
+      "x": "2465",
+      "y": "250",
+      "yHigh": "1",
+      "state": "2",
+      "vx": "0",
+      "vy": "12",
+      "power": "0",
+      "engine": "11",
+      "mode": "1",
+      "task": "3",
+      "lives": "2",
+      "camera": "2355",
+      "mask": "1",
+      "ceiling": "0",
+      "dash": "0",
+      "jumpUsed": "1",
+      "loopCycles": "18902",
+      "interruptCycles": "107",
+      "foregroundCycles": "18795"
+    },
+    "reason": "Zero-death 1-1 route"
+  },
+  "v2": {
+    "frame": 2629,
+    "final_trace": {
+      "frame": "2629",
+      "poll": "2628",
+      "ppu_frame": "2629",
+      "loops": "2339",
+      "captured": "2385",
+      "world": "0",
+      "level": "0",
+      "area": "194",
+      "x": "2464",
+      "y": "244",
+      "yHigh": "1",
+      "state": "2",
+      "vx": "0",
+      "vy": "10",
+      "power": "0",
+      "engine": "11",
+      "mode": "1",
+      "task": "3",
+      "lives": "2",
+      "camera": "2355",
+      "mask": "2",
+      "ceiling": "0",
+      "dash": "0",
+      "jumpUsed": "1",
+      "loopCycles": "18921",
+      "interruptCycles": "107",
+      "foregroundCycles": "18814"
+    },
+    "reason": "Zero-death 1-1 route",
+    "countersteer_input_masks": [
+      0,
+      1,
+      2,
+      193
+    ],
+    "actual": "X2411\u21922465 continues+2/update after Right/A release and later Left. Near-stair top is passed before descendingY112; fixed source air velocity makes the Roll landing maneuver ineffective."
+  },
+  "source": "Cv3StartJump stores direction in Cv3AirVX; FixedAir reuses it until landing. Alucard bat is Down+freshA, not Select; Cv3AttackAge/HurtAge must be0 and actual hearts>0. Cold source Ensure initializes10; actual2594 HUD also displays HEART10. Native transform takes36 updates each way, flight drains1 heart per60 updates.",
+  "selected_image": {
+    "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\alucard-stair-source-v1\\actual2594.png",
+    "sha256": "3f95b5392413d5770f7a6a6d947040a49668dfe7fc4f98d9dc3b51fb7598853d",
+    "ppu_frame": 2594,
+    "scope": "One decoded original whole PPU frame, not a new native capture or whole-container review. Near stair,32px gap and far descending stair visible; exact hidden RAM/NT not recovered."
+  },
+  "ledger_fields": {
+    "identity": "alucard",
+    "mode": 0,
+    "ROM_sha256": "9ea11eab2fc5c373a3795b013f6ed9e0d5e9781891b2ae3bf40ad2556c27b85e",
+    "outcome": "FALSE",
+    "frame": 2629,
+    "route_clear": false,
+    "remaining": "New source-qualified native bat-gap controller clear and independent replay; no ROM defect demonstrated."
+  },
+  "external_evidence": [
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\compact-next-alucard-9ea-easy-v1\\ready.json",
+      "sha256": "6cd0c5a42195df0e8a8c8234821343677d858045633ddeb7a2e81409978a10ad"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\compact-next-alucard-9ea-easy-v1\\result.json",
+      "sha256": "b6e5f8f60f1e00ab6069fb29c3a93673773cb86f9f2d57987606dc2076c492bb"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\compact-next-alucard-9ea-easy-v1\\trace.csv",
+      "sha256": "14613774222ea615d5e05c45234666f509b9228ff573d68827752065b01f6a71"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\compact-next-alucard-9ea-easy-v1\\inputs.csv",
+      "sha256": "6a6cd5a9388efa6cfd2d7f65b1641009624b5a2959bc53d3e21c0fbb150f1e47"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\compact-next-alucard-9ea-easy-v1\\captures.nesppuv1",
+      "sha256": "b3d319b64df2de2473e7626e37b1a4c2b0e81fda557e171bb9d29567a7f6869b"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\compact-next-alucard-9ea-easy-v1\\captures-index.jsonl",
+      "sha256": "fc8230098472eba6ba4b4725dd66e062a49511016b44e85d60cb32c4a87c157e"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\compact-next-alucard-9ea-easy-v2\\ready.json",
+      "sha256": "d53ba98bf9d2c1975bd0895d7226f4589a90ffa211746e037309644e3bf4611e"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\compact-next-alucard-9ea-easy-v2\\result.json",
+      "sha256": "034f35d8271e8802bfb277be332f659bcc15ca7e095b219165bc4cb296162c55"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\compact-next-alucard-9ea-easy-v2\\trace.csv",
+      "sha256": "84f69163106a5348950bb9e0ed608e9e1818afbc9900d180ef3954009fcb817f"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\compact-next-alucard-9ea-easy-v2\\inputs.csv",
+      "sha256": "a1e9aed745f36ec6a29d39a9cb443e6c4305ab11a8afe738738f2b4a70e75239"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\compact-next-alucard-9ea-easy-v2\\captures.nesppuv1",
+      "sha256": "10c5d7209f6ef84143744c11f6ab249a621743d00164409dad9852700c2a4dde"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\compact-next-alucard-9ea-easy-v2\\captures-index.jsonl",
+      "sha256": "256abfe9ad0b2d15d05fc6dce00de3559883b04a1ca9cbd4cd4f6a7aea494e75"
+    }
+  ]
+}
