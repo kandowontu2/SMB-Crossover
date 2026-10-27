@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "helpers": [
+    "owner",
+    "ammoIndex"
+  ],
+  "original_conflict": "PHARAOH local owner table shadows introduced owner() helper",
+  "corrected_capture": "caseOwner",
+  "remaining_owner_capture": "InventoryUiTick closure contains no owner() call; fundedCredit is lexically defined outside that capture.",
+  "source_contexts": {
+    "refill": "hook('InventoryUiTick',function()\n if not entered or not current or current.component~='funded' or current.q.item==0 then return end\n local owner=current;local before=stock();local refill,tick,remain=r('InvRefill'),r('InvRefillTick'),r('InvRefillRemain')\n onReturn('bass-funded-refill',function()\n  assert(current==owner,'Refill return retains actual current case owner')\n  fundedCredit(before,refill,tick,remain)\n end)\nend)\n",
+    "release": "hook('SpecialWeapons::ReleaseBalloon',function()\n if not entered or not current or current.component~='funded' or current.q.item~=4 then return end\n local caseOwner=current;local s=emu.getState();local slot=s['cpu.x']\n assert(r('InvSelected',owner())==4 and r('SsSelected')==4 and slot==r('RgSlot'),'Real selected Pharaoh release owner/slot')\n local before,shotAge,count,star=stock(),r('RgShotAge',slot),pool(),r('StarInvincibleTimer')\n local entry={pc=s['cpu.pc'],sp=s['cpu.sp'],bank=bank(s['cpu.pc']),slot=slot,before=before,shot_age=shotAge,active_shots=count,star=star}\n onReturn('bass-pharaoh-direct-release',function()\n  assert(current==caseOwner and r('StarInvincibleTimer')==star,'Same finite release owner and stable seeded star state')\n  local t=emu.getState()\n  event('actual-pharaoh-release-full-return',{entry=entry,return_pc=t['cpu.pc'],return_sp=t['cpu.sp'],return_bank=bank(t['cpu.pc']),after=stock()})\n  pharaohDebit(before,shotAge,count,star,stock())\n end)\nend)\n"
+  },
+  "scope": "Exact two introduced helper names and their literal binding/reference sites in this frozen script, plus compiled Lua models; not universal lexical analysis."
+}

@@ -1,0 +1,95 @@
+{
+  "built": true,
+  "source_composition_exact": true,
+  "native_run": false,
+  "adopted": false,
+  "qualified": false,
+  "parent_ROM_sha256": "3b112e1d79ba7348f2f7a4c426f4675845a5781017ab74690feb235121a66287",
+  "ROM_sha256": "ce635f6e8793d096ba50adec9cdf1fc2dd41fd487e4acd4d0972af03af9ea111",
+  "components": [
+    {
+      "component": "renderer",
+      "packet": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\mm-proto-construction-pivot-candidate-v9",
+      "ROM_sha256": "0a7dd88e6732bc189e432a9d55b18dd8f7ecf68a22e3b20f0a13ab7276241c09",
+      "source_manifest_sha256": "e1af98c1cc58a3eeb461ea10cd7a5e23461d05a1958b2ff428543d326be6f91b",
+      "changed_source": [
+        "smb1base-mmc5-expanded.cfg",
+        "src/level_variants.s",
+        "src/megaman_weapons.s",
+        "src/metasprite_engine.s",
+        "src/sprite_render.s"
+      ],
+      "changed_ROM_bytes": 1336
+    },
+    {
+      "component": "mixer",
+      "packet": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\common-audio-mixer-current3b-v3",
+      "ROM_sha256": "f4efd9ccb222501877dfc77c5189841aa9dc500756736f15aaf02a6994ae8c0f",
+      "source_manifest_sha256": "b3a3678f1c7586afa739a74c47487ab97c0e65d7b346fe3e008de3330bdf50b6",
+      "changed_source": [
+        "src/guest_audio.s",
+        "src/mmc5_sfx.s"
+      ],
+      "changed_ROM_bytes": 186
+    },
+    {
+      "component": "palette",
+      "packet": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\robot-color-rotation-candidate-v3",
+      "ROM_sha256": "ca9a1c13e4f25a834ac665c4c9a6d67cf0be3c19ee7dc2af284a432e359be1fe",
+      "source_manifest_sha256": "867effcb52c8e44d89213292cbd2a057e2f1be3acb8eb02ad584f69adf2d3e0a",
+      "changed_source": [
+        "smb1base-mmc5-expanded.cfg",
+        "src/entrypoint.s",
+        "src/game.s",
+        "src/robot_cold_palette_cache.s",
+        "src/x5_palette.s"
+      ],
+      "changed_ROM_bytes": 126
+    },
+    {
+      "component": "Bill-Lance-HUD",
+      "packet": "C:\\Users\\kando\\Videos\\SMB Crossover Archive\\2026-10-24-native-rest-py\\bill-capsule-hud-current3b-v1",
+      "ROM_sha256": "9d296d337fc24e9b09b17043babec911c3134f60256636a7a285b39d56afd6e3",
+      "source_manifest_sha256": "15be0625073cf0d7047f51b08cc5bcd19a58f0cde00bed5a64ef78e0aa1648df",
+      "changed_source": [
+        "src/bill_hud_anchor.s",
+        "src/entrypoint.s",
+        "src/remaining_weapons.s"
+      ],
+      "changed_ROM_bytes": 34
+    }
+  ],
+  "changed_source": [
+    "smb1base-mmc5-expanded.cfg",
+    "src/bill_hud_anchor.s",
+    "src/entrypoint.s",
+    "src/game.s",
+    "src/guest_audio.s",
+    "src/level_variants.s",
+    "src/megaman_weapons.s",
+    "src/metasprite_engine.s",
+    "src/mmc5_sfx.s",
+    "src/remaining_weapons.s",
+    "src/robot_cold_palette_cache.s",
+    "src/sprite_render.s",
+    "src/x5_palette.s"
+  ],
+  "complete_source_files": 871,
+  "changed_ROM_bytes": 1682,
+  "changed_banks": [
+    0,
+    4,
+    26,
+    29,
+    61,
+    66,
+    78,
+    126
+  ],
+  "header_CHR_and_other_banks_exact": true,
+  "new_RAM_bytes": 0,
+  "source_manifest_sha256": "b6735efcd67fd94ebdf5e2b5eeaca6e4322d8642b57ed8aa52b6d6f6eb754711",
+  "source_patch_sha256": "5f16e7646d3f5f7c8f28af2a4d4f65f751782d1cab0cfce04ba69f21b10d4515",
+  "tool_sha256": "23b731ea22f99fd50bd91e5b9c67f28dd3ba0f5c1e8c81a3d17d2957c7e89f4c",
+  "limits": "Private exact byte composition only. Component results keep their original ROM scopes. No combined native, all-roster, all-abilities, waveform or installation claim; production/default remain unchanged."
+}

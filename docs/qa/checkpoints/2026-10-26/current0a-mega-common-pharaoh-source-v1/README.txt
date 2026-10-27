@@ -1,0 +1,1 @@
+SOURCE/MOCK only. Two-line PHARAOH local-table rename preserves allnative mechanics/guards/controller.20actual fullcompiled source cases/31actual generated callbackmodels; oldLua fault reproduced. Prior2nativeFALSEs immutable. No nativegrant/run/ROMchange/adoption. Raw source/captures external.

@@ -1,0 +1,20 @@
+{
+  "original_aggregate_passed": true,
+  "differences": [
+    {
+      "path": "case/0/q/grant_sequence",
+      "native_type": "dict",
+      "native": {},
+      "plan_type": "list",
+      "plan": []
+    },
+    {
+      "path": "case/0/q/incremental_grants",
+      "native_type": "dict",
+      "native": {},
+      "plan_type": "list",
+      "plan": []
+    }
+  ],
+  "explanation": "The two source-proven NORMAL empty arrays are Lua empty tables. The unchanged JSON emitter has no array type tag and emits {}. Only these two exact schema paths are interpreted as empty arrays offline. Original proof/runner/JSON remain byte-exact."
+}

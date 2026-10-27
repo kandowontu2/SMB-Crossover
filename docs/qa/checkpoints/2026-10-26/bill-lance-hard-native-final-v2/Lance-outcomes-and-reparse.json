@@ -1,0 +1,511 @@
+{
+  "freeze_complete": true,
+  "offline_schema_local_comparison_passed": true,
+  "original_host_aggregate_passed": true,
+  "original_host_proof_sha256": "afc53f44b536ec8d9521f698237be5c22c9dd5e8f8352926cd32dd318f2df60b",
+  "original_host_error": [],
+  "native_run": false,
+  "new_native_launches": 0,
+  "original_native_launches": 1,
+  "worker_released": true,
+  "ROM_sha256": "3b112e1d79ba7348f2f7a4c426f4675845a5781017ab74690feb235121a66287",
+  "profile": "lance-hard",
+  "ready_bindings_verified": 1198,
+  "exact_two_empty_array_paths": [
+    {
+      "path": "case/0/q/grant_sequence",
+      "native_type": "dict",
+      "native": {},
+      "plan_type": "list",
+      "plan": []
+    },
+    {
+      "path": "case/0/q/incremental_grants",
+      "native_type": "dict",
+      "native": {},
+      "plan_type": "list",
+      "plan": []
+    }
+  ],
+  "negative_controls": 7,
+  "native_cases": [
+    {
+      "name": "normal",
+      "completed": 915,
+      "collect_calls": 0,
+      "grants": {},
+      "stages": [
+        {
+          "kind": "free",
+          "face": 1,
+          "started": 472,
+          "completed": 582,
+          "draws": 49,
+          "hits": 0,
+          "damageCalls": 0,
+          "blockCalls": 49,
+          "impacts": 0,
+          "naturalPoolEmpty": true
+        },
+        {
+          "kind": "contact",
+          "face": 2,
+          "started": 583,
+          "completed": 693,
+          "draws": 11,
+          "hits": 1,
+          "damageCalls": 1,
+          "blockCalls": 10,
+          "impacts": 3,
+          "naturalPoolEmpty": true
+        },
+        {
+          "kind": "terrain",
+          "face": 1,
+          "started": 694,
+          "completed": 804,
+          "draws": 10,
+          "hits": 0,
+          "damageCalls": 0,
+          "blockCalls": 9,
+          "impacts": 3,
+          "naturalPoolEmpty": true
+        },
+        {
+          "kind": "second-edge",
+          "face": 2,
+          "started": 805,
+          "completed": 915,
+          "draws": 80,
+          "hits": 0,
+          "damageCalls": 0,
+          "blockCalls": 84,
+          "impacts": 0,
+          "naturalPoolEmpty": true
+        }
+      ]
+    },
+    {
+      "name": "machine",
+      "completed": 1467,
+      "collect_calls": 1,
+      "grants": [
+        {
+          "update": 528,
+          "wall": 943,
+          "item": 4,
+          "selected": 4,
+          "after": 17,
+          "before": 1
+        }
+      ],
+      "stages": [
+        {
+          "kind": "free",
+          "face": 1,
+          "started": 1019,
+          "completed": 1129,
+          "draws": 39,
+          "hits": 0,
+          "damageCalls": 0,
+          "blockCalls": 45,
+          "impacts": 0,
+          "naturalPoolEmpty": true
+        },
+        {
+          "kind": "contact",
+          "face": 2,
+          "started": 1130,
+          "completed": 1240,
+          "draws": 8,
+          "hits": 1,
+          "damageCalls": 1,
+          "blockCalls": 9,
+          "impacts": 3,
+          "naturalPoolEmpty": true
+        },
+        {
+          "kind": "terrain",
+          "face": 1,
+          "started": 1241,
+          "completed": 1351,
+          "draws": 7,
+          "hits": 0,
+          "damageCalls": 0,
+          "blockCalls": 8,
+          "impacts": 3,
+          "naturalPoolEmpty": true
+        },
+        {
+          "kind": "auto-cadence",
+          "face": 2,
+          "started": 1352,
+          "completed": 1467,
+          "draws": 143,
+          "hits": 0,
+          "damageCalls": 0,
+          "blockCalls": 273,
+          "impacts": 0,
+          "naturalPoolEmpty": true
+        }
+      ]
+    },
+    {
+      "name": "spread",
+      "completed": 2025,
+      "collect_calls": 1,
+      "grants": [
+        {
+          "update": 1075,
+          "wall": 1495,
+          "item": 5,
+          "selected": 5,
+          "after": 33,
+          "before": 17
+        }
+      ],
+      "stages": [
+        {
+          "kind": "free",
+          "face": 1,
+          "started": 1571,
+          "completed": 1682,
+          "draws": 99,
+          "hits": 0,
+          "damageCalls": 0,
+          "blockCalls": 194,
+          "impacts": 3,
+          "naturalPoolEmpty": true
+        },
+        {
+          "kind": "contact",
+          "face": 2,
+          "started": 1683,
+          "completed": 1796,
+          "draws": 57,
+          "hits": 3,
+          "damageCalls": 3,
+          "blockCalls": 104,
+          "impacts": 9,
+          "naturalPoolEmpty": true
+        },
+        {
+          "kind": "terrain",
+          "face": 1,
+          "started": 1797,
+          "completed": 1909,
+          "draws": 38,
+          "hits": 0,
+          "damageCalls": 0,
+          "blockCalls": 58,
+          "impacts": 15,
+          "naturalPoolEmpty": true
+        },
+        {
+          "kind": "second-edge",
+          "face": 2,
+          "started": 1910,
+          "completed": 2025,
+          "draws": 176,
+          "hits": 0,
+          "damageCalls": 0,
+          "blockCalls": 346,
+          "impacts": 6,
+          "naturalPoolEmpty": true
+        }
+      ]
+    },
+    {
+      "name": "laser",
+      "completed": 2641,
+      "collect_calls": 1,
+      "grants": [
+        {
+          "update": 1622,
+          "wall": 2053,
+          "item": 2,
+          "selected": 2,
+          "after": 5,
+          "before": 33
+        }
+      ],
+      "stages": [
+        {
+          "kind": "free",
+          "face": 1,
+          "started": 2129,
+          "completed": 2256,
+          "draws": 46,
+          "hits": 0,
+          "damageCalls": 0,
+          "blockCalls": 187,
+          "impacts": 0,
+          "naturalPoolEmpty": true
+        },
+        {
+          "kind": "contact",
+          "face": 2,
+          "started": 2257,
+          "completed": 2372,
+          "draws": 17,
+          "hits": 3,
+          "damageCalls": 3,
+          "blockCalls": 63,
+          "impacts": 9,
+          "naturalPoolEmpty": true
+        },
+        {
+          "kind": "terrain",
+          "face": 1,
+          "started": 2373,
+          "completed": 2502,
+          "draws": 46,
+          "hits": 0,
+          "damageCalls": 0,
+          "blockCalls": 187,
+          "impacts": 0,
+          "naturalPoolEmpty": true
+        },
+        {
+          "kind": "second-edge",
+          "face": 2,
+          "started": 2503,
+          "completed": 2641,
+          "draws": 62,
+          "hits": 0,
+          "damageCalls": 0,
+          "blockCalls": 263,
+          "impacts": 0,
+          "naturalPoolEmpty": true
+        }
+      ]
+    },
+    {
+      "name": "flare",
+      "completed": 3189,
+      "collect_calls": 1,
+      "grants": [
+        {
+          "update": 2169,
+          "wall": 2669,
+          "item": 3,
+          "selected": 3,
+          "after": 9,
+          "before": 5
+        }
+      ],
+      "stages": [
+        {
+          "kind": "free",
+          "face": 1,
+          "started": 2745,
+          "completed": 2855,
+          "draws": 21,
+          "hits": 0,
+          "damageCalls": 0,
+          "blockCalls": 70,
+          "impacts": 0,
+          "naturalPoolEmpty": true
+        },
+        {
+          "kind": "contact",
+          "face": 2,
+          "started": 2856,
+          "completed": 2966,
+          "draws": 2,
+          "hits": 1,
+          "damageCalls": 1,
+          "blockCalls": 6,
+          "impacts": 3,
+          "naturalPoolEmpty": true
+        },
+        {
+          "kind": "terrain",
+          "face": 1,
+          "started": 2967,
+          "completed": 3077,
+          "draws": 21,
+          "hits": 0,
+          "damageCalls": 0,
+          "blockCalls": 70,
+          "impacts": 0,
+          "naturalPoolEmpty": true
+        },
+        {
+          "kind": "second-edge",
+          "face": 2,
+          "started": 3078,
+          "completed": 3189,
+          "draws": 29,
+          "hits": 0,
+          "damageCalls": 0,
+          "blockCalls": 112,
+          "impacts": 0,
+          "naturalPoolEmpty": true
+        }
+      ]
+    },
+    {
+      "name": "machine-rapid1",
+      "completed": 3817,
+      "collect_calls": 2,
+      "grants": [
+        {
+          "update": 2716,
+          "wall": 3217,
+          "item": 4,
+          "selected": 4,
+          "after": 17,
+          "before": 9
+        },
+        {
+          "update": 2793,
+          "wall": 3294,
+          "item": 1,
+          "selected": 4,
+          "after": 19,
+          "before": 17
+        }
+      ],
+      "stages": [
+        {
+          "kind": "free",
+          "face": 1,
+          "started": 3370,
+          "completed": 3480,
+          "draws": 33,
+          "hits": 0,
+          "damageCalls": 0,
+          "blockCalls": 41,
+          "impacts": 0,
+          "naturalPoolEmpty": true
+        },
+        {
+          "kind": "contact",
+          "face": 2,
+          "started": 3481,
+          "completed": 3591,
+          "draws": 7,
+          "hits": 1,
+          "damageCalls": 1,
+          "blockCalls": 8,
+          "impacts": 3,
+          "naturalPoolEmpty": true
+        },
+        {
+          "kind": "terrain",
+          "face": 1,
+          "started": 3592,
+          "completed": 3702,
+          "draws": 6,
+          "hits": 0,
+          "damageCalls": 0,
+          "blockCalls": 8,
+          "impacts": 3,
+          "naturalPoolEmpty": true
+        },
+        {
+          "kind": "auto-cadence",
+          "face": 2,
+          "started": 3703,
+          "completed": 3817,
+          "draws": 126,
+          "hits": 0,
+          "damageCalls": 0,
+          "blockCalls": 245,
+          "impacts": 0,
+          "naturalPoolEmpty": true
+        }
+      ]
+    },
+    {
+      "name": "machine-rapid2",
+      "completed": 4365,
+      "collect_calls": 1,
+      "grants": [
+        {
+          "update": 3340,
+          "wall": 3845,
+          "item": 6,
+          "selected": 4,
+          "after": 83,
+          "before": 19
+        }
+      ],
+      "stages": [
+        {
+          "kind": "free",
+          "face": 1,
+          "started": 3921,
+          "completed": 4031,
+          "draws": 29,
+          "hits": 0,
+          "damageCalls": 0,
+          "blockCalls": 37,
+          "impacts": 0,
+          "naturalPoolEmpty": true
+        },
+        {
+          "kind": "contact",
+          "face": 2,
+          "started": 4032,
+          "completed": 4142,
+          "draws": 7,
+          "hits": 1,
+          "damageCalls": 1,
+          "blockCalls": 8,
+          "impacts": 3,
+          "naturalPoolEmpty": true
+        },
+        {
+          "kind": "terrain",
+          "face": 1,
+          "started": 4143,
+          "completed": 4253,
+          "draws": 6,
+          "hits": 0,
+          "damageCalls": 0,
+          "blockCalls": 7,
+          "impacts": 3,
+          "naturalPoolEmpty": true
+        },
+        {
+          "kind": "auto-cadence",
+          "face": 2,
+          "started": 4254,
+          "completed": 4365,
+          "draws": 119,
+          "hits": 0,
+          "damageCalls": 0,
+          "blockCalls": 224,
+          "impacts": 0,
+          "naturalPoolEmpty": true
+        }
+      ]
+    }
+  ],
+  "native_speeds_and_cadence_compared": 28,
+  "hardware": {
+    "complete256DMAs": 3540,
+    "startFrame_epochs": 4366,
+    "scoped_enables": 3205,
+    "late_scoped_enables": 0
+  },
+  "PPU": {
+    "passed": true,
+    "frames": 4367,
+    "bytes": 1073233920,
+    "raw_sha256": "5be94fc601637514a4ca4caf2dfc71e608f85cc0b96a269ac4339c2c4afda846",
+    "index_sha256": "1a7f17f0435f3fea40de1fde3c835ad7a1b9ba2a826d6e7aa2b6380d1c76df90"
+  },
+  "cadence": {
+    "passed": true,
+    "entries": 3860,
+    "finishes": 3859,
+    "raw_sha256": "6c917770c4311ffabef4feea7a034a87e76f25a46601bc32633d0a559446c3ab",
+    "scope": "Actual current workload stamps; no different-ROM timing comparison or universal no-lag claim."
+  },
+  "native_source_requests": "Actual original native assertion certified source fire/pickup requests; no waveform claim.",
+  "profile_native_status": "One separately granted native launch completed and released; original host result retained.",
+  "limits": "B controlled already-mature-item physical collision/grant/use. No block reveal/rise/random drop campaign, native waveform or all-frame visual qualification. Original aggregate FALSE remains immutable."
+}
