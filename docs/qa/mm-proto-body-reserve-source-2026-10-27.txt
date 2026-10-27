@@ -1,0 +1,98 @@
+Mega/Proto body reservation -- private source candidate, 2026-10-27
+
+Parent: adopted8487c439ded9bc6274e1dc8f8e051494fa96ee518553d9c2f382eccf2e71d0e6.
+Candidate: f1dd0c2390d4f27c373797b695e44b56b94cd12c74d47c2a14d36bc8f34f470f.
+ROM/debug/labels are frozen for ROOT's separate native diagnostic. No native
+worker, installation, settings change, new directory or source/runtime clone
+was performed here. The rejected00fb native extra missed DMA remains valid.
+
+Implementation
+- Keep every native player record/plane in its original order. On alternating
+  completed constructions, reserve actual Mega40/Proto44 BEFORE all prebody
+  emitters; draw the unchanged body at physical0 last. The other construction
+  keeps the original whole-ring priority/world traversal. Both modes retain
+  every live projectile's physics and original emitted art.
+- SpriteShuffleOffset is the existing +19 modulo24 construction phase. It can
+  alias skipped publications. This is no per-DMA fairness guarantee; body-first
+  turns can hide shots/world records and native turns can still lose body parts.
+- RgOamUsed is temporary shot-count storage only after KbOamPriority consumed
+  the old count; the real tail overwrites it with final usage. No new RAM or NMI
+  bookkeeping. Body return reconstructs original logical cursor/physical X/V.
+- Existing boolean owner becomes128Mega/129Proto on body-first turns. Existing
+  readers are zero/nonzero. RgOamPlayerStart=0 and RgOamRotation=0 deliberately
+  represent the retained physical body. Ordinary Mega capacity remains40.
+- Proto's native Main reservation is still40. Only char1/tag129/cursor40 first
+  partial-group admission moves to44. Genuine Vine/lift caller controls retain
+  all six records, coordinates, clipping and return flags at that shifted
+  source cursor. All other paths keep the original cursor. The Vine clip loop
+  is source-equivalent unrolled; lift Dump stores are inlined to pay the guard.
+- With the native single-Vine/two-group plus five-lift bound, partial writes
+  start44 then advance24 to212; they do not wrap or touch body0..43. Both Vine
+  groups and each successive offset44/68/92/116/140/164/188 were exercised.
+  This is not a promise for arbitrary impossible duplicate-Vine actor states.
+- Full replacement/MoveAll does not gain a costly reset hook: it hides all
+  body Y bytes. A stale owned tag may conservatively shift a later Proto first
+  partial group4bytes until the next full draw; it does not claim page ownership.
+
+Exact layout
+Only bank0:6, bank4:422, bank26:131, bank66:297 bytes differ (856 total).
+All Bass71/72/78/89 bytes, header, CHR and every other bank remain exact8487.
+New actual source-declared verified-FF spans:4:BF33..BF59 (39 bytes) and
+66:B9C0..BAE8 (297 bytes). They precede current menu BB50 and do not touch it.
+Five proposed source leaves: metasprite_engine.s, megaman_weapons.s,
+sprite_render.s, level_variants.s, expanded cfg (two segment insertions).
+The flat build entrypoint/main are build-only; never copy them into production.
+16 genuine qualified symbol changes are enumerated in the build receipt,
+including real RosterOamReady+2 and the relocated native post-shot helper.
+No fake callable aliases. Old post-shot label is the native lane only; the
+body-first lane is MmReserveFinish. Fresh metadata must use actual addresses.
+
+Finite assembled evidence
+152 foreign complete DrawAll cases: A/X/Y/flags/SP/application RAM/SMC/final
+banks/ordered I/O exact; only dead upper64 caller-stack bytes excluded.
+516 owned original-emitter partition-reference cases include48 Mega poses both
+facings,16 Proto poses both facings, all64 incoming flags, all six shot kinds,
+ages0/1/31/255, death/hidden/vertical-flip and saturated six-owner/12-part
+firebar + world/projectile/drop/score pools. No nonbody writes inside the
+reserved body; body writes remain inside40/44. Bullet fields remain exact.
+396 real native partial-caller controls: complete returned registers/flags,
+non-stack/non-SMC RAM, final banks and ordered OAM exact versus original
+caller at the explicit cursor40->44 shift; other contexts no cursor shift.
+Partial mapper-write sequences intentionally differ because genuine helpers
+were relocated/inlined. No claim of complete partial-call IRQ/NMI coverage.
+57 actual IRQ/RTI helper-boundary controls retain complete draw outcomes.
+Canonical link exactly reproduces candidate. Ordinary MMC5 f4ffd248... and
+MMC3 d444cac8... are byte-exact, using one separate reused control output.
+
+Measured whole-call CPU cost versus8487
+Foreign full draw: -23..-2. Owned native-order turn:+39. Active body-first:
++81..112. Native Vine/lift callers:-145..-9. These are positive ordinary
+renderer costs, not FPS/cadence recovery; source correctness does not qualify
+native timing, opaque visibility, every live shot, or world starvation.
+
+Retained negatives
+First assembly tail was3bytes too large; first linker declarations came after
+later fixed sections; first layout assertion caught a2-byte renderer shift.
+Padding/ordering corrected before frozenf1. First CPU also caught that shift.
+One reference checker accidentally applied body-reservation assertions to raw
+unmodified native baseline; that checker error is retained separately.
+Control invocations first omitted mirror metadata lbl/debug (and a prelaunch
+Path expression was corrected); no game assertion was weakened.
+
+Passive observation
+One startup-only module/config was delivered for ROOT, not executed here.
+It logs genuine body header/LoopEnded/Roster publication and actual4014/E008
+source/physical bytes, live shot types/ages and whole256 source-owner equality.
+Unmatched/partial/stale sources remain explicitly unmatched. Raw bytes are not
+masked. Existing strict route hardware guard remains responsible for full256
+and hardwareE3 attributes. Limit20,000 data rows/8,000,000 data bytes plus one
+header/CAP trailer (under8.01MB total), one CSV, no screenshots. Syntax was
+reviewed, not locally Lua/native-qualified (Lupa unavailable).
+
+Reproduction (no native):
+python -B tools/audit/mm_proto_body_reserve_cpu_v1.py
+python -B tools/audit/mm_proto_body_reserve_flat_v1.py --build-controls
+Do NOT run the builder default while ROOT's native input is bound; it writes
+those same three flat output files. Exact current bindings are in
+build/mm_body_reserve_handoff.json. No turnkey fresh-clone tool dependency
+claim: CPU setup reuses surviving historical local audit modules.

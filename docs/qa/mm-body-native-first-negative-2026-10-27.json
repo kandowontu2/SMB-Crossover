@@ -1,0 +1,48 @@
+{
+  "status": "retained test-bound negative; no adoption",
+  "ROM_sha256": "f1dd0c2390d4f27c373797b695e44b56b94cd12c74d47c2a14d36bc8f34f470f",
+  "frame": 2406,
+  "reason": "Completed native world/camera step bound",
+  "observed": {
+    "dx": 4,
+    "camera_step": 5,
+    "relative_before": 126,
+    "relative_after": 125
+  },
+  "source": "src/player.s::GuestCameraCatchUp",
+  "compiled_leaf_controls": [
+    {
+      "character": 1,
+      "relative_x": 126,
+      "input_y": 4,
+      "result_y": 5
+    },
+    {
+      "character": 1,
+      "relative_x": 112,
+      "input_y": 4,
+      "result_y": 4
+    },
+    {
+      "character": 0,
+      "relative_x": 126,
+      "input_y": 4,
+      "result_y": 4
+    },
+    {
+      "character": 8,
+      "relative_x": 126,
+      "input_y": 4,
+      "result_y": 4
+    },
+    {
+      "character": 1,
+      "relative_x": 126,
+      "input_y": 5,
+      "result_y": 5
+    }
+  ],
+  "correction": "Allow source-backed guest camera step5 while retaining native Mario/Luigi max4 and world-position step8. This does not accept the OAM candidate or close jitter/cadence work.",
+  "result_sha256": "5b2d34c03322c7f0504c1e5a7277ff7c077fcd9df0a18b9b21db2954a533f54b",
+  "goal_complete": false
+}

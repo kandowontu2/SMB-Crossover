@@ -182,7 +182,9 @@ hook(C.hooks.loop_return,function(s)
  -- END STATIONARY_WATCHDOG_UPDATE_V3
  if previousLoop and previousLoop.world==c.world and previousLoop.level==c.level and previousLoop.area==c.area then
   local dx=c.x-previousLoop.x;local dc=c.camera-previousLoop.camera
-  check(math.abs(dx)<=8 and dc>=0 and dc<=4,'Completed native world/camera step bound',{previous=previousLoop,current={x=c.x,y=c.y,camera=c.camera},dx=dx,camera_step=dc})
+  -- GuestCameraCatchUp permits a five-pixel moving catch-up step.
+  local cameraLimit=(C.character~=0 and C.character~=8)and 5 or 4
+  check(math.abs(dx)<=8 and dc>=0 and dc<=cameraLimit,'Completed native world/camera step bound',{previous=previousLoop,current={x=c.x,y=c.y,camera=c.camera},dx=dx,camera_step=dc})
  end
  previousLoop={world=c.world,level=c.level,area=c.area,x=c.x,y=c.y,camera=c.camera}
  if entered and c.world==0 and c.level==1 then

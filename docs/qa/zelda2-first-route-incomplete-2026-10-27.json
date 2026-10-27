@@ -1,0 +1,23 @@
+{
+  "status": "incomplete native route stopped after repeated pipe jumps",
+  "ROM_sha256": "8487c439ded9bc6274e1dc8f8e051494fa96ee518553d9c2f382eccf2e71d0e6",
+  "identity": "zelda2",
+  "mode": 1,
+  "stop": {
+    "owned_pid": 194732,
+    "reason": "Repeated ineffective jumps at second pipe: X592/camera481 and Y141..176 for more than3000 active updates. Cause under source/controller investigation; no game softlock verdict.",
+    "command": "C:/Mesen2/Mesen.exe --testRunner --enableStdout --timeout=600 --doNotSaveSettings --nes.removeSpriteLimit=false --nes.ramPowerOnState=AllZeros --nes.randomizeCpuPpuAlignment=false --nes.randomizeMapperPowerOnState=false C:\\Users\\kando\\AppData\\Local\\Temp\\smb-crossover-mesen-uw9q_t5r\\test.lua \"C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bass_corner_current.nes\"",
+    "endpoint_pass": false
+  },
+  "launch": {
+    "ROM_sha256": "8487c439ded9bc6274e1dc8f8e051494fa96ee518553d9c2f382eccf2e71d0e6",
+    "ready_sha256": "31301e1c9646d4c69cb9e888cdf84e109741abf91f3e337744505b5fb66859ae",
+    "exit": 4294967295,
+    "settings_before": "a5f76b4c4d33cd1fb6d66a8725e7c6636b19e59c03a7dae5e15e1c512a3f4fbf",
+    "settings_after": "a5f76b4c4d33cd1fb6d66a8725e7c6636b19e59c03a7dae5e15e1c512a3f4fbf",
+    "changed_inputs": []
+  },
+  "source_controller_diagnosis": "Exact native unboosted held-jump trajectory rises35px (running44). Jump spell rises68/82px. The discovery policy sent one Select during powerup freeze, so its learnedJump was never paid/cast. Retry uses real inputs after animation and stops on actual activeJump flag; no engine change.",
+  "not_a_gameplay_clear": true,
+  "goal_complete": false
+}
