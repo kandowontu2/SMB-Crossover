@@ -1,0 +1,67 @@
+{
+  "status": "adopted",
+  "ROM_sha256": "fb2a608e4670788c0a170d6a17e7802b226e9e6933cd44103cb1b9212db54eed",
+  "previous_ROM_sha256": "dc21a79cee232933bcf7a846ae15c04d337dbc7b75562ced403a48246335402a",
+  "changes": [
+    "Explicitly zero vanilla music state after the title-bank AudioInit call.",
+    "Disable and acknowledge the stale MMC5 gameplay scanline IRQ during title audio."
+  ],
+  "source": "src/sound_test.s",
+  "source_sha256": "9ddf8dc1b1fb29cbc4a0ccf5e5643775979192b4d667e40a1cfaee1e96d5d7d3",
+  "canonical_rebuild_and_labels_match_private": true,
+  "downloads": [
+    "C:\\Users\\kando\\Downloads\\SMB-Crossover-Current-MMC5.nes",
+    "C:\\Users\\kando\\Downloads\\SMB-Crossover-2026-10-27-fb2a608e-MMC5.nes"
+  ],
+  "tests": {
+    "passed": true,
+    "ROM_sha256": "fb2a608e4670788c0a170d6a17e7802b226e9e6933cd44103cb1b9212db54eed",
+    "compared_normal_gameplay_Mario_ticks": 312,
+    "compared_fields": [
+      "Squ1_NoteLenCounter",
+      "Squ2_NoteLenCounter",
+      "Tri_NoteLenCounter",
+      "MusicOffset_Square1",
+      "MusicOffset_Square2",
+      "MusicOffset_Triangle",
+      "MusicOffset_Noise",
+      "NoteLenLookupTblOfs",
+      "NoteLengthTblAdder",
+      "MusicDataLow",
+      "MusicDataHigh"
+    ],
+    "sustained_characters": 37,
+    "actual_audio_ticks": 11581,
+    "static_pixel_samples_per_character": 30,
+    "gameplay_split_calls": 0,
+    "visible_scroll_writes": 0,
+    "maximum_actual_NMI_cycles": 18278,
+    "retained_negative_first_note_frames": 115,
+    "corrected_first_note_frames": 9,
+    "retained_negative_visible_scroll_writes": 7536,
+    "scope": "Actual menu cadence and pixels for 37 overworld selections; Mario note state equals ordinary assembled AudioUpdate each tick. No all-song waveform-fidelity or full gameplay claim.",
+    "screenshots": 4,
+    "per_frame_files": 0
+  },
+  "frontend_regression": {
+    "passed": true,
+    "characters": 37,
+    "playbacks": 111,
+    "nmis": 6607,
+    "safe_render_enables": 6607,
+    "minSP": 250,
+    "physical_frames": 8358,
+    "screenshots": 6,
+    "per_frame_files": 0,
+    "Mario_top_wraps": 9,
+    "Mario_air_jump_power_timer_native": true,
+    "scope": "Controller/menu and MMIO activity plus Mario cheat integration; no audible waveform identity claim"
+  },
+  "checkpoint": "docs/qa/checkpoints/2026-10-27/music-test-timing-v1",
+  "storage": {
+    "per_frame_files": 0,
+    "sustained_capture_files": 11,
+    "sustained_capture_bytes": 30522
+  },
+  "scope": "Music-menu timing/flicker fix. Full current-roster gameplay/powerup audit remains incomplete."
+}

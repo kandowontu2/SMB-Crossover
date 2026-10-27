@@ -436,6 +436,13 @@ Done:rts
 ; address and the original gameplay SoundEngine entry/branch span.
 .segment "MUSIC"
 .proc SoundTestAudioGate
+ ; A title-screen lag NMI can arm the gameplay HUD split. MMC5 keeps that
+ ; scanline IRQ enabled across frames; long native music ticks then defer
+ ; the split into the middle of this static menu. Cancel the stale split
+ ; before playback. Gameplay takes SoundEngine's original SndOn branch.
+ lda #0
+ sta IRQ_STATUS
+ bit IRQ_STATUS
  lda CrossoverMenuState
  cmp #8
  beq SoundTestAudioTick
@@ -607,6 +614,12 @@ ClearZp:
  dex
  bpl ClearZp
  jsr AudioInit
+ ; AudioInit saves CurrentBank in A before expanding vanilla MusicInit.
+ ; Its legacy macro therefore fills music state with that bank value.
+ ; The browser lives in bank99, so explicitly clear the vanilla state with
+ ; A=0 after initialization rather than retaining a bogus note-length adder.
+ lda #0
+ jsr AudioClear
  jsr MegaManAudioInit
  jsr SamusAudioInit
  lda #0
