@@ -1,0 +1,46 @@
+Sypha Hard v4 neutral-item-wait FALSE; controller-only v5 preparation
+2026-10-27
+
+Preserved v4: build/verification/compact-next-sypha-hard-v4, stationary300
+FALSE at935/X332/Y112/power0, zero deaths. All899 completed DMA checks,
+624NMI/IRQ checks and the original guards passed this finite prefix.
+
+Actual trace: Sypha jumped toward the lower first-block row at530/X259,
+landed on its top at565/X329/Y112, reached332 at568, then the generic
+first-block bump jumped from that top:585..635, apexY37, landedY112.
+From635 through935 inputs were neutral. The generic pickup branch waits
+600frames if no reward actor has been seen, exceeding stationary300.
+Actual PPU frames565/585/610/635/700/935 show question cells still present
+and no visible pickup. No raw actor-RAM history was recorded, so this
+does not claim actor erase, successful reveal or acquisition.
+One six-frame whole-PPU diagnosis sheet, original v4 container only:
+ build/verification/compact-next-sypha-hard-v4/sypha-pickup-diagnosis.png
+ SHA256 ddca13639c28708d5c67992018f1a975ecf9b389a4c9929c58eccf0087712359
+ placements row-major two columns:565,585,610,635,700,935.
+
+Owned v2 policy wraps the frozen staff-reach v1. In the first-block zone
+only,64 grounded neutral polls with no live2E actor, no timer and no guest
+powerup transition start ordinary Right/obstacle-danger jump controls
+while the original wait expires. A real item immediately restores base
+emergence/pursuit. Once the base resumes Right, the adapter retires.
+Staff range/eligible-enemy filter retained; no float, double jump, seeded
+state, fabricated pickup or changed physics. All shared tools stay exact.
+
+Fresh v5 preparation current2082, numeric Hard1/variant2,8000frames:
+ build/verification/compact-next-sypha-hard-v5/ready.json
+ SHA256 8227a2db729e6eb590235d8bd3c16cf4b1e5df7959995c62b1f4b1cec2c7b804
+Use its exact ready.command; no launch by B.14 dependencies freshly bound.
+Config differs from v4 only output paths and policy; all guard/cap/mode/
+ROM/hook/body metadata unchanged. Actual clear/pickup/visual outcome unrun.
+
+Owned additions only:
+ tools/playthroughs/current_roster_sypha_11_v2.lua
+ docs/qa/current-roster-sypha-pickup-controller-2026-10-27.txt
+V4 evidence/ready, v1 policy, shared harness/preparer and product untouched.
+
+ROOT native continuation: v5 completed4300 physicalframes/4146updates,
+3366 fullPPUframes, zero deaths, cheats off and76 actual1-2 controlled
+updates. Offline whole-container verification passed; six selected full
+frames visually reviewed. No mushroom acquisition claimed (no power-change
+marker). Public roster ledger binds the actual2082 ROM and result.
+Review SHA256 499d174e0dc3a081fcd1225fa0ead433fe16c22307c3b320ced105bb497a0447

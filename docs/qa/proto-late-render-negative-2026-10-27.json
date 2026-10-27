@@ -1,0 +1,66 @@
+{
+  "status": "private candidate failed native timing; held",
+  "candidate_ROM_sha256": "3e7c53d82eb949b8527d837861d95ed6051966056ca3f336fafd66e514e055ea",
+  "current_download_ROM_sha256": "2082c19a7364920f828e97f70040d37f1f7059bde1ea136b5c2c4532324abf36",
+  "identity": "proto",
+  "mode": "Hard1",
+  "failure": {
+    "physical_frame": 1940,
+    "reason": "Active render enable precedes pre-render vertical reload",
+    "pc": "E00B",
+    "bank": 127,
+    "scanline": 1,
+    "dot": 195,
+    "cpu_cycle": 57744584
+  },
+  "exact_input_probe_comparisons": {
+    "inputs.csv": true,
+    "trace.csv": true,
+    "captures.nesppuv1": true
+  },
+  "native_timing": {
+    "NMI": 1932,
+    "entry_cycle": 57742028,
+    "queue_bytes": 55,
+    "PPUDATA_writes": 28,
+    "UpdateScreen_cycles": 1405,
+    "CHR_upload_cycles": 420,
+    "DMA_cycles": 518,
+    "render_enable_elapsed_cycles": 2556
+  },
+  "queue": [
+    "3f11030c2434",
+    "3f1103062738",
+    "2254022424",
+    "2274022424",
+    "206d020004",
+    "206206240000020500",
+    "207a03030400",
+    "3f0c040f27170f",
+    "3f11030a1630",
+    "00"
+  ],
+  "cause": "Three complete writes to the same3F11..3F13 palette cells survive until one NMI. Later writes replace earlier values; the extra commands consume the blanking window.",
+  "source_inference": "Payloads match Mega Man star-flash palette rows14..16; phase/timer RAM and producer entry were not directly captured.",
+  "projection_only": {
+    "remove_two_dead_packets_bytes": 12,
+    "projected_PPUDATA_writes": 22,
+    "projected_render_elapsed_cycles": 2252,
+    "measured_native_fix": false
+  },
+  "limits": [
+    "This is the private OAM proposal, not the public2082 download.",
+    "No guard was relaxed and no private fix has been adopted.",
+    "Whole-stream CRC review and selected visual review are separate; this checkpoint preserves the original negative.",
+    "No global lag improvement, full campaign, all-frame visual or powerup fidelity claim."
+  ],
+  "goal_complete": false,
+  "evidence": {
+    "late-NMI-rows.csv": "0ecaed0dad8df312e02dc8886e15a8c73cd8be726b0210eb563990bb923c140c",
+    "probe-result.json": "bba36e70c7583d5c65ee92b520eb0330be4c29d7edd039d9b067892613638234",
+    "route-events.jsonl": "41f34879e6a95473badb7c4712ccdda81e3ee073afcd3f60278df45a3d18b888",
+    "route-inputs.csv": "0f35c33a552f7e03d98bfd294d080a35ef2802b16c38457852d3a652e0042405",
+    "route-result.json": "41dfdd20ed262d1eda7dc29e0546d53ab8b5d6f22931eeb29d2783a57363f0cb",
+    "selected-whole-frames.png": "39aa2c7dc7a155d869ef4c99d7b28ae1f3a27bf6e5cbcccd7abc7f7e280eedc9"
+  }
+}
