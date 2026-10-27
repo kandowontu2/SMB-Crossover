@@ -1,0 +1,18 @@
+--- src/cv3_combat.s
++++ src/cv3_combat.s
+@@ -726,10 +726,11 @@
+  rts
+ .endproc
+ .proc Cv3FreezeTick
+- lda AvStopwatch
+- beq :+
+- dec AvStopwatch
+-: ldx #5
++ ; Shared RemainingWeapons::AdvanceFreeze is the sole stopwatch owner.
++ ; Preserve all later PCs and the independent CV3 frozen-enemy loop.
++ jmp FrozenActors
++ .res 5,$ea ; unreachable former second stopwatch decrement
++FrozenActors: ldx #5
+ Loop:
+  lda Cv3FrozenTimer,x
+  jeq Next

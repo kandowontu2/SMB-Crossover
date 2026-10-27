@@ -1,0 +1,55 @@
+{
+  "status": "STRICT180_SOURCE_FALSE_PRESERVED",
+  "native_run": false,
+  "ROM_sha256": "ab221e81821dd10690ad3a1068d91c9efae6c7406230d9bd7fc4a729fdc433d2",
+  "actual_earned_pickups": [
+    208,
+    209,
+    210,
+    211
+  ],
+  "initial_hearts": 23,
+  "final_hearts": 18,
+  "actual_cost": 5,
+  "spawn_write": [
+    14,
+    180,
+    41682,
+    84
+  ],
+  "first_decrements": [
+    [
+      15,
+      179,
+      43877,
+      6
+    ],
+    [
+      15,
+      178,
+      42838,
+      84
+    ],
+    [
+      16,
+      177,
+      43877,
+      6
+    ],
+    [
+      16,
+      176,
+      42838,
+      84
+    ]
+  ],
+  "expected_positive_end_states": 180,
+  "observed_positive_end_states": 90,
+  "first_wrong_owner": "Cv3FreezeTick bank84 PC$A756 decrements179->178 in the same complete GameLoop after RemainingWeapons::AdvanceFreeze bank6 PC$AB65 decremented180->179.",
+  "cause": "game.s calls weapons before native enemy loop. object.s first invokes RemainingWeapons through its real gate, then Cv3WeaponsGate invokes another shared stopwatch decrement. The independent Cv3 frozen-enemy/platform loop must remain.",
+  "limits": "Actual finite source CPU only; no native issue recorded yet. No source-current edit, native run or old receipt relabel.",
+  "binding": {
+    "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-ab221e-grant-source-draft-v1\\source-controls.json",
+    "sha256": "e505e845aec2069e587822a31b940cc97999d25b71ee2c0358d89e1d1bc9cdae"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "passed": false,
+  "stage": "Initial linked image before mandatory postlink clone producer",
+  "linked_sha256": "d5fcaa70247652577db78a08d7c5f153feb77924a8c2ee2dd4e8d879e9426987",
+  "unexpected_changes": {
+    "bank125": 7686,
+    "intended_bank84": 8
+  },
+  "cause": "Builder omitted the existing deterministic fixed-E clone postlink producer; no game instructions tested and no native launched. Preserved here before completing the same unbound working candidate."
+}

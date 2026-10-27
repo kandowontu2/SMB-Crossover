@@ -1,0 +1,11 @@
+Private CV3 stopwatch single-owner repair -- source-only
+
+Parent ab221e81821dd10690ad3a1068d91c9efae6c7406230d9bd7fc4a729fdc433d2. Candidate9a1b68c0a26ea86ff8c4712af66b8de8cd5ed2de13c74db1bfaf15eb9e2ba333. Exactly8PRGbytes in bank84, all prior qualified publicPCs and every other ROM/header/CHR byte exact. No RAM/NMI changes. Current/default untouched.
+
+Real Grant D1/D2/D3 mature collections and Up+B debit5 correctly; strict180 lifetime fails on parent: shared AdvanceFreeze and Cv3FreezeTick both decrement AvStopwatch. The parent source FALSE remains frozen. Replace the8-byte CV3 prefix by JMP to its existing frozen-actor loop+5 unreachable bytes. Shared RemainingWeapons owns the one tick for Simon, CV3 variants and other supported users. The independent CV3 ice/platform processing is retained byte-for-byte.
+
+Fresh controls:444 complete GameLoop differentials (all37 identities, both modes, timer0/1/2/179/180/255);15 owner guard calls for TimerControl1/255, engine9/10 and death;90 complete helper cases including frozen-actor work, flags and counts;32 real hardware-vector IRQ injection boundaries preserve full live RAM/SMC/banks/AXYP/SP and native ordered split I/O. Fresh earned Grant campaign1,753 completeGameLoops now passes strict180, real costs/contact/wall/ceiling/hearts. Timer180 is retained on birth, followed by180 decrements at one actual owner. Actual engine calls weapons before NPC AI: birth+next179updates freeze AI; the next update180 reaches0 and resumes NPCs in that same engine phase.
+
+Timing: foreign callers exact, CV3 saves4 idle/9 active cycles. A private copied CPU timing table corrects the existing py65 DECabs CE=3 entry to its hardware6; no shared class/file changed. Original raw-model observation is disclosed in controls, and native timing remains unqualified. Fresh ordinary MMC3 d444cac8.../MMC5 f4ffd248... builds are whole-binary exact.
+
+Initial link-only draft omitted the existing fixed-E clone postlink producer; its preproducer hash/difference is preserved in setup-negative.json. The final candidate uses the existing producer and differs only in bank84. Unbound draft encoding and AI-phase assumptions are disclosed, not gameplay failures. No native/render/audio waveform/campaign/cadence claim. ROOT must review and run before adoption.
