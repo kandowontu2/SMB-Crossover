@@ -189,6 +189,7 @@ end,emu.callbackType.write,C.ram.MmEnemyHealthLo,C.ram.MmEnemyHealthHi)
 emu.addMemoryCallback(function(a,v)
  if entered and phase=='use'and v~=0 and not writing then
   rec.source_types[v]=true;rec.spawns=rec.spawns+1;event('native-shot-type',v)
+  if v==C.items[index].contact_type and rec.allocation_dma==nil then rec.allocation_dma=dmas;rec.allocation_wall=wall;rec.allocation_slot=a-C.ram.RgShotType end
  end
 end,emu.callbackType.write,C.ram.RgShotType,C.ram.RgShotType+9)
 emu.addMemoryCallback(function(_,v)
@@ -231,6 +232,7 @@ hook('GameLoopFinish',function()
    assert(index~=1 or rec.held,'Actual ARM lift before throw')
    assert(index~=5 or rec.paidKick,'Actual paid KICK native dash')
    assert(index~=7 or rec.expanded,'Actual WATER orbit and second-B expansion')
+   if not rec.sampled then rec.sample_skipped='No intended visible live effect met the two-completed-DMA pose window before genuine cleanup' end
    rec.native_cleanup=true;rec.completed=wall;index=index+1;change('next')
   end
   assert(age<480,'Native acquired effect/contact/cleanup is bounded')
@@ -312,8 +314,25 @@ end,emu.eventType.inputPolled)
 emu.addEventCallback(function()
  wall=wall+1;minSP=math.min(minSP,emu.getState()['cpu.sp'])
  if entered then local s=emu.getState();for i=0,11 do assert(s['mapper.chrBanks'..i]==physical[i],'Actual CHR hardware agrees with write-time latch model');chrChecks=chrChecks+1 end end
- if entered and phase=='use'and index<8 and not rec.sampled and rec.spawns>0 and pool()>0 then
-  rec.sampled=true;rec.sample_wall=wall;screenshot=string.format('item-%02d.png',index)
+ if entered and phase=='use'and index<8 and not rec.sampled and rec.allocation_dma~=nil then
+  local slot=nil
+  for i=0,9 do
+   if r('RgShotType',i)==C.items[index].contact_type and r('SsHidden',i)==0 and r('RgShotPage',i)==0 and r('RgShotYHigh',i)==1 and r('RgShotX',i)>=8 and r('RgShotX',i)<=248 and r('RgShotY',i)>=32 and r('RgShotY',i)<=224 and(index~=1 or r('SsHeld')==0 and r('SsMode',i)==0)and(index~=5 or r('SsKick')==1 and r('XgDash')~=0)then slot=i;break end
+  end
+  local after=rec.allocation_dma
+  if slot~=nil and index==1 then
+   if rec.sample_release_dma==nil then rec.sample_release_dma=dmas end;after=rec.sample_release_dma
+  elseif slot~=nil and index==7 then
+   if r('SsWaterExpand')==0 and dmas>=rec.allocation_dma+2 then rec.sample_orbit_seen=true end
+   if r('SsWaterExpand')~=0 and rec.sample_expand_dma==nil then rec.sample_expand_dma=dmas end
+   after=rec.sample_expand_dma
+  end
+  if slot~=nil and after~=nil and dmas>=after+2 and(index~=7 or rec.sample_orbit_seen and r('SsWaterExpand')~=0 and r('SsWaterRadius')>=42)then
+   rec.sampled=true;rec.sample_wall=wall;rec.sample_dma=dmas;rec.sample_slot=slot;rec.sample_type=r('RgShotType',slot);rec.sample_shot_age=r('RgShotAge',slot);rec.sample_x=r('RgShotX',slot);rec.sample_y=r('RgShotY',slot)
+   if index==5 then rec.sample_paid_kick=r('SsKick')==1 and r('XgDash')~=0 end
+   if index==7 then rec.sample_water_expand=r('SsWaterExpand');rec.sample_water_radius=r('SsWaterRadius')end
+   screenshot=string.format('item-%02d.png',index)
+  end
  end
  if screenshot then assert(images<8,'Eight selected screenshots maximum');local f=assert(io.open(OUTPUT..screenshot,'wb'));f:write(emu.takeScreenshot());f:close();images=images+1;screenshot=nil end
  assert(wall<C.frame_limit,'Finite native profile frame cap')
