@@ -44,6 +44,31 @@
       "zero_deaths": true,
       "result_sha256": "41dfdd20ed262d1eda7dc29e0546d53ab8b5d6f22931eeb29d2783a57363f0cb",
       "attribution": "Private3e7 OAM candidate: real render-enable deadline failure at1940/E00B scanline1 dot195. Exact input-prefix VRAM probe reproduced it; repeated palette packets consumed the blanking budget. Candidate remains held; current2082 unchanged."
+    },
+    {
+      "run": "compact-next-michelangelo-hard-v1",
+      "ROM_sha256": "2082c19a7364920f828e97f70040d37f1f7059bde1ea136b5c2c4532324abf36",
+      "reason": "Zero-death 1-1 route",
+      "frames": 1722,
+      "zero_deaths": false,
+      "result_sha256": "2cefbd9cb9b4cff1d1754619e252a9440c1c2f69ed2a0206d4277493a96a0119",
+      "attribution": "Early scripted jump beneath the long brick row; repeated native attacks suppress stage8 somersault. Six actual PPU frames show the head/brick approach and pit fall. Controller-only delayed jump/noB trial is prepared; no automatic product physics attribution."
+    },
+    {
+      "run": "compact-next-grant-hard-v1",
+      "ROM_sha256": "2082c19a7364920f828e97f70040d37f1f7059bde1ea136b5c2c4532324abf36",
+      "status": "ROOT stopped owned test early; incomplete",
+      "last_complete_trace_row": {
+        "frame": "5392",
+        "loops": "5349",
+        "x": "735",
+        "y": "112",
+        "lives": "2"
+      },
+      "owned_stop_receipt_sha256": "99db79ef3c36d636130d211a5e3f08c2444ce302b0de5d9ffb0aae40076bd59a",
+      "native_result_present": false,
+      "full_container_validation_claimed": false,
+      "attribution": "Generic two-of-eight B polls repeatedly trigger grounded16-update attacks, which zero horizontal speed. Slow forward progress continued; stopped only the verified owned testRunner PID195888. No stationary ROM softlock or clear claimed. Original partial evidence retained."
     }
   ],
   "all_complete_route_claims": false,
