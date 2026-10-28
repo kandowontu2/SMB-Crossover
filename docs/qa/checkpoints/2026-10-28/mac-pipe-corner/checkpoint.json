@@ -1,0 +1,165 @@
+{
+  "status": "Verified private Mac pipe-corner fix; full expanded-roster goal remains incomplete",
+  "ROM_sha256": "33d2c7a7bf58aa040f2911d44f1d59dddb4c9b40b3e8727334cf46db74915f97",
+  "canonical_unchanged": "85afad507fa7abac29603c65bf5f7d9cadd224a24fd13ff2fd22f541b65729aa",
+  "root_cause": "Full native run stalled at worldX722. A broad head edge entered a pipe SIDE and the head response pushed the player down as if hitting a ceiling.",
+  "fix": "Require an exposed lower cell face and an actual upward crossing before ceiling separation. Real vertical walls retain horizontal contact ownership. Foreign selectors unchanged.",
+  "predecessor": "Cea41c87 native Mac v3 reaches mushroom then remains at third pipe until finite8000 frame limit; no deaths. Literal CPU trajectory reproduces the first incorrectY157->172 correction.",
+  "interim_negative": "Plane-only b4968d02 fixed right movement but failed left ascent at a continuous wall row boundary; retained exact source and trace.",
+  "controls": {
+    "ordered_trajectories": 48,
+    "ordered_updates": 5760,
+    "real_ceiling_crossings": 54,
+    "prior_terrain_cases": 267,
+    "IRQ_NMI_seams": 24
+  },
+  "native": {
+    "MacEasy": "Frame4899: real mushroom at661, zero-death1-1 through controlled26updates1-2; 4082 lossless PPU records, seven selected whole frames viewed clean. No every-frame/FPS/all-powerups claim.",
+    "SunnyEasy55e": "Frame3407: real mushroom at755 and zero-death1-1 through controlled25updates1-2; seven selected whole frames viewed clean.",
+    "TysonHard": "First controller falls from lower final stair atworldX2468. Negative retained; revised real-input controller landing on top stair is in progress, no clear claim."
+  },
+  "storage": "Bounded lossless streams retained locally; no per-frame file forest or capture streams committed.",
+  "bindings": [
+    {
+      "original": "build/mac-roster-pipe-plane-only-negative.json",
+      "saved": "build__mac-roster-pipe-plane-only-negative.json",
+      "bytes": 26014,
+      "sha256": "0d104dbb486077706082e6c7e2e835dfa7c4eb642219ae2ecdbed83aba760e7e"
+    },
+    {
+      "original": "build/mac-roster-pipe-plane-only-negative.s",
+      "saved": "build__mac-roster-pipe-plane-only-negative.s",
+      "bytes": 7799,
+      "sha256": "60f5da6a62b2b474750d094e186f0dc410e18a31a4e079463a963707cd06ee5c"
+    },
+    {
+      "original": "build/mac-roster-pipe-corner-controls-v2.json",
+      "saved": "build__mac-roster-pipe-corner-controls-v2.json.gz",
+      "bytes": 1400996,
+      "sha256": "78a58e2d851f4742937e7c7b8953b050d307f86fdb5b9d8b51d29f54fac4876b",
+      "encoding": "gzip",
+      "stored_bytes": 33258,
+      "stored_sha256": "9dd55aa9c22ed2e3f54bd9902d116d81435a0a15c67a2500d4ff141b3b8c14cf"
+    },
+    {
+      "original": "build/mac-roster-pipe-terrain-regressions-v2.json",
+      "saved": "build__mac-roster-pipe-terrain-regressions-v2.json",
+      "bytes": 61439,
+      "sha256": "e74673cd9ee95adff3d83168e9c22df8a5fe1ecd84a34e0d737d53bdfd31a992"
+    },
+    {
+      "original": "build/roster-expansion-mac-pipe-corner-v3.build.json",
+      "saved": "build__roster-expansion-mac-pipe-corner-v3.build.json",
+      "bytes": 289,
+      "sha256": "5f667049527a7625db66a9c910c7194bd243453b1efeadfc2e403da21437d7ba"
+    },
+    {
+      "original": "build\\verification\\roster-expansion-mac-easy-route-v3\\ready.json",
+      "saved": "build__verification__roster-expansion-mac-easy-route-v3__ready.json",
+      "bytes": 10993,
+      "sha256": "f72e84a4062e132dc1e222f2bfcfd00e6c2b6c8f32d0798dc52724bc097171fc"
+    },
+    {
+      "original": "build\\verification\\roster-expansion-mac-easy-route-v3\\result.json",
+      "saved": "build__verification__roster-expansion-mac-easy-route-v3__result.json",
+      "bytes": 1935,
+      "sha256": "51b44d953eaa8da86f80525725b93fcbe3a97feab223b2c455e19f3b31ae32c4"
+    },
+    {
+      "original": "build\\verification\\roster-expansion-mac-easy-route-v3\\launch.json",
+      "saved": "build__verification__roster-expansion-mac-easy-route-v3__launch.json",
+      "bytes": 1306,
+      "sha256": "2782fff2996c415812301ba52c4d917f080d6a7ae59921d64666dfed81bf5209"
+    },
+    {
+      "original": "build\\verification\\roster-expansion-mac-easy-route-v4\\ready.json",
+      "saved": "build__verification__roster-expansion-mac-easy-route-v4__ready.json",
+      "bytes": 10981,
+      "sha256": "d69e260d67c347abb28cf043bca87dca85151e1a6c3d553e1967a0b3564964ed"
+    },
+    {
+      "original": "build\\verification\\roster-expansion-mac-easy-route-v4\\result.json",
+      "saved": "build__verification__roster-expansion-mac-easy-route-v4__result.json",
+      "bytes": 2097,
+      "sha256": "89ab61cbaf9db093cac6f7efc95a8bb235ed410f555004eee5027d882a682ac1"
+    },
+    {
+      "original": "build\\verification\\roster-expansion-mac-easy-route-v4\\launch.json",
+      "saved": "build__verification__roster-expansion-mac-easy-route-v4__launch.json",
+      "bytes": 1303,
+      "sha256": "82ba02a3cb2131d6eb4ed4c7635718b7d3e21dd07dc0f066e38ca213e93236a9"
+    },
+    {
+      "original": "build\\verification\\roster-expansion-mac-easy-route-v4\\review.json",
+      "saved": "build__verification__roster-expansion-mac-easy-route-v4__review.json",
+      "bytes": 349171,
+      "sha256": "61f0bac58585a33a5989ab918d4015f64fab8ad16441d0d88cf3819c66cc7dbc"
+    },
+    {
+      "original": "build\\verification\\roster-expansion-sunny-easy-route-v3\\ready.json",
+      "saved": "build__verification__roster-expansion-sunny-easy-route-v3__ready.json",
+      "bytes": 12015,
+      "sha256": "ef6b3b1e874aec143ebcdf6376f2287534b7f90e57aec42ac3fd6274147fc075"
+    },
+    {
+      "original": "build\\verification\\roster-expansion-sunny-easy-route-v3\\result.json",
+      "saved": "build__verification__roster-expansion-sunny-easy-route-v3__result.json",
+      "bytes": 2096,
+      "sha256": "ab35f33037a560f3935f13dd365165c84421dd354a717a4801d91a17730ccf24"
+    },
+    {
+      "original": "build\\verification\\roster-expansion-sunny-easy-route-v3\\launch.json",
+      "saved": "build__verification__roster-expansion-sunny-easy-route-v3__launch.json",
+      "bytes": 1294,
+      "sha256": "77851fc6a509a9aca551f23f37099a5781a051250a690d2952c48400727f2fdf"
+    },
+    {
+      "original": "build\\verification\\roster-expansion-sunny-easy-route-v3\\review.json",
+      "saved": "build__verification__roster-expansion-sunny-easy-route-v3__review.json",
+      "bytes": 227146,
+      "sha256": "62899caeb2db4aab59f822390426d669dab6401637688d45ffd392af69fed56a"
+    },
+    {
+      "original": "build\\verification\\roster-expansion-tyson-hard-route-v1\\ready.json",
+      "saved": "build__verification__roster-expansion-tyson-hard-route-v1__ready.json",
+      "bytes": 10993,
+      "sha256": "40b272555f36612b10bf5541f53d27e9c095b41bb3a6e9de3cee4e3ac3f5c9a4"
+    },
+    {
+      "original": "build\\verification\\roster-expansion-tyson-hard-route-v1\\result.json",
+      "saved": "build__verification__roster-expansion-tyson-hard-route-v1__result.json",
+      "bytes": 1934,
+      "sha256": "f5cba241d3a0ccb3067e3344074488015d764b34904b36ac64a2f1a7478fee5d"
+    },
+    {
+      "original": "build\\verification\\roster-expansion-tyson-hard-route-v1\\launch.json",
+      "saved": "build__verification__roster-expansion-tyson-hard-route-v1__launch.json",
+      "bytes": 1307,
+      "sha256": "1d09cf811150d42ddd299c07cc0e0f8675cf922b78935f8d3c0ac4b1ff1835d9"
+    },
+    {
+      "original": "build\\verification\\roster-expansion-mac-easy-route-v4\\selected-whole-frames.png",
+      "saved": "build__verification__roster-expansion-mac-easy-route-v4__selected-whole-frames.png",
+      "bytes": 15432,
+      "sha256": "fd8455218d76d73b1a8c744d51cdf61404e44520dde380e026c50942bb797c4c"
+    },
+    {
+      "original": "build\\verification\\roster-expansion-sunny-easy-route-v3\\selected-whole-frames.png",
+      "saved": "build__verification__roster-expansion-sunny-easy-route-v3__selected-whole-frames.png",
+      "bytes": 14805,
+      "sha256": "4aeec3fa7cc6ef17168dfc6575657b5ba23f910e64fce2f4d6222181c1109556"
+    },
+    {
+      "original": "build\\verification\\roster-expansion-mac-easy-route-v3\\wall-apex-whole-frame.png",
+      "saved": "build__verification__roster-expansion-mac-easy-route-v3__wall-apex-whole-frame.png",
+      "bytes": 6627,
+      "sha256": "15d2c336dfec4364fae1a61188cfef3fe47c3175483a0e47041597aa6273dfb4"
+    },
+    {
+      "original": "build\\verification\\roster-expansion-mac-easy-route-v3\\wall-apex-selection.json",
+      "saved": "build__verification__roster-expansion-mac-easy-route-v3__wall-apex-selection.json",
+      "bytes": 619,
+      "sha256": "b52c52535f2199afea760716fcbce89c0a547ffdc85d10150f80e1ca7b1417d3"
+    }
+  ]
+}

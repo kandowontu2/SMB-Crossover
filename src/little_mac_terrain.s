@@ -113,6 +113,37 @@ Sampled:pha
  cmp #MTILE_SOLID
  bne EndY
  jsr MacRosterTerrainProfile
+ ; A continuous solid column below the queried cell is a wall, not an
+ ; exposed ceiling underside. Crossing a vertical row while entering that
+ ; column horizontally must stay with the side-contact owner.
+ ldy R2
+ cpy #$c0
+ bcs ExposedUnderside
+ tya
+ clc
+ adc #16
+ tay
+ lda (R6),y
+ tay
+ lda MTileAttribute,y
+ and #MTILE_SOLID
+ bne SideOnly
+ExposedUnderside:
+ ; A broad head edge can enter a pipe from its SIDE while rising. Only a
+ ; crossed lower cell plane is a ceiling; otherwise the side owner separates
+ ; horizontally. Quantized upward speed conservatively includes fractional
+ ; movement, retaining real corner/ceiling contacts within that last step.
+ lda R2
+ clc
+ adc #48
+ sta LmTemp
+ lda LmOldY
+ clc
+ adc MacTerrainHead,x
+ sec
+ sbc Player_Y_Speed
+ cmp LmTemp
+ bcc SideOnly
  lda R2
  clc
  adc #48
@@ -130,6 +161,13 @@ Sampled:pha
 EndY:ply
 Finish:ldx #0
  pla
+ rts
+SideOnly:
+ ply
+ pla
+ lda #0
+ sta R3
+ ldx #0
  rts
 .endproc
 .proc LmSideGate
