@@ -1,0 +1,60 @@
+Bill current326 additive enemy-child timing preparation
+
+Prepared only; ROOT owns any native launch. No game, controller, source,
+default, settings or old9ea/profile artifacts changed. No ROM/debug/runtime
+copies or frame files created by this preparation.
+
+Current input: build/zelda2_easy_glove.nes/.dbg/.lbl, ROM
+32694243361bb1366f6fd64c054ea2451f86b2517fc020d9c2b5d66bbf07bfa0.
+Reference: actual successful BillHard9ea profile3500..3560, native ROM
+9ea11eab2fc5c373a3795b013f6ed9e0d5e9781891b2ae3bf40ad2556c27b85e.
+The reference logs timer/powerup/refill0, only3–4 basic shots,1–3 enemy slots,
+true complete Main maximum39494 CPU cycles. EnemyCore residual exclusive
+143207 across234 closed calls is the next measurement target, not an already
+identified instruction optimization. Its graphics/movement/loader shares
+remain unknown; no enemy IDs or same-call FPS ratio may be invented.
+
+Whole current physical banks0,2,126 are byte-exact to9ea. Thus the six-slot
+GameCore actor loop and these actual current children preserve their source
+owners: EnemyGraphicsEngine0:BADF, EnemyMovementSubs0:A4BA, ProcLoopCommand2:A5E6.
+The actual RunNormalEnemies0:A458..A4B9 span and movement-dispatch0:A4BA..A502
+also match. This is source applicability, not a retagged current native result.
+
+One new preparer adds only those three child spans to the same literal
+qualified build/bill_early_cache_timing_full.lua observer. All old21 entry and
+ISR metadata remains exact. Fresh current compiled tail/branch/JumpEngine
+closure covers all24 entries;343 real-JSR positive/wrong-bank/wrong-target/
+non-JSR controls pass,190 return PCs register only at startup. Real runtime
+SP/depth/physical-bank/JSR/SMC-target checks and unknown-owner rejection remain.
+No synthetic aliases, runtime callback registration or game writes.
+
+The old saved6090 per-poll inputs are reused without duplication. Original
+8000-frame full1-1/control1-2 replay guards remain; only timing collection ends
+at3560.61 data rows3500..3560,200-row/1MiB CSV limits; original one512MiB
+compact PPU container/2GB central cap/64-file limit, zero native PNG files.
+Current route/timing/input/PPU equality must be actually reviewed after launch;
+old9ea6091wall/5142Main is a reference, not an expected current result.
+
+One unlaunched metadata failure over-required ROM JSR callers for three
+inherited SMC-only entries (RosterMovement/RosterWeapons/RemainingDraw).
+Each already had no ROM callers and only its genuine entry as allowed SMC
+target in the qualified reference. The correction verifies that exact fact;
+it does not exempt an unknown return. The shared producer's fresh-directory
+rejection and an equivalent mirror-owner list order comparison were also
+retained. Final metadata keeps original127/125 declaration order while proving
+the actual current owner set and bytes. No shared producer freshness or
+runtime guard was changed. Partial negative metadata stays in the smallv1
+preparation folder; final valid readiness is separatev2.
+
+Ready: build/verification/bill-enemy-children326-ready-v2/ready.json
+SHA17e998be6ddd22add32856ac3c96dbec57e78aa8a80be4fe30a2f81109c8e0e1.
+44 strict bindings; command.json/profile-config.json/prepare-controls.json
+alongside. The command uses existing run_mesen_isolated.py and genuine current
+ROM with original policy, all strict hardware guards and unchanged runtime CLI.
+Summary alone is not a route pass. Preserve warmup/completed/censored span and
+NMI/IRQ nesting accounting; do not add parent/child inclusive totals.
+
+Owned publication file:
+tools/audit/current_bill_enemy_children326_prepare_v1.py
+This report. Existing observer/shared producer/controller are dependencies,
+not changed owned files. Old native and profile evidence remains historical.

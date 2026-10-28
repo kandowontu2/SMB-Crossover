@@ -1,0 +1,56 @@
+Existing native full-route CPU audit, 2026-10-28
+
+35 tracker-selected actual result hashes; trackerSHA 0d088f40f5d50081e25acf9f724103e67f36f417a19fdda39abd2a3f975c0f62. Read-only: no native, game/default/settings edits, source/runtime copies, capture decoding or frame files. Only bounded one-level build/verification/result.json lookup plus its35 known trace.csv(.gz) files. Historical results retain exact ROM/mode; no fresh current326942 performance claim.
+
+Duration and scope
+Deduplicated completed Main IDs, keeping first endFrame observation. Repeated last-cycle rows are not new work; unobserved IDs when several calls complete between endFrames stay missing. The route foreground field subtracts ISR bodies but retains13-cycle hardware entry/RTI boundary per interrupt and omits final Main RTS6. It is not exact pure Main CPU. The independent Bill profiler correctly includes those boundaries. The actual same-phase native Bill timestamps give29780/29781 cycles per frame; threshold29781 is conservative. No FPS or missed-NMI count follows from these sampled durations.
+
+Ordinary-motion candidate filter: active1-1 engine8/task3/OperMode1/Ypage1; consecutive observed IDs on both sides, positiveX advance1..8, x480..3000, unchanged power, outside64 Main IDs of observed power changes. Grounded subset requires previous/current state0. CSV lacks TimerControl/refill/pause/actual shot/actor state and may contain in-flight nextMain coordinates, so those are explicit limits, not silently filled zeroes. Difficulty comes from native actual_mode; CSV mode is OperMode. Guest transformations use engine9 and are separated; engine8 refill cannot be perfectly classified without extra fields.
+
+Identity  mode ROM       movingN median p95   maximum >29781  groundN groundP95 groundMax
+mario        hard 2082c19a   951   18790  22891   26442      0     101     22349     22778
+luigi        easy 9ea11eab   815   23633  27424   32839      8      80     26111     27912
+megaman      hard ab221e81   961   20582  28537   35534     23     185     28919     32186
+proto        hard ab221e81   971   20458  28931   35813     28     180     28891     33313
+samus        hard 8487c439  1189   21315  29007   37875     50     198     30101     34288
+bill         hard 9ea11eab   788 29255.5  34847   39527    356     323     36271     39398
+lance        hard 4a0394b0   753   29788  35428   39357    377     301     36877     39357
+link         hard 6be48337   957   23604  32522   46133    145     370     34863     40922
+zelda2       hard 8487c439  1052 22204.0  28787   32857     22      42     26289     27757
+simon        hard 6be48337  1190 22300.0  26872   34997     29     419     27152     32927
+grant        hard 4a0394b0  1550 20571.0  24562   33239      6     729     24656     30771
+sypha        hard 2082c19a  1139   21156  25697   35564     11     640     24467     29408
+alucard      easy ab221e81   623   22492  31889   37882     66      69     31634     33932
+pit          easy 9ea11eab   725   25201  34354   40610    169     153     32710     34641
+rygar        easy 6be48337   680 27932.5  34895   41373    255     160     34517     36706
+scrooge      easy 9ea11eab   834 26230.0  35907   40404    325       0      None      None
+darkwing     easy ee1152a4   742 24229.0  33835   37928    184     266     34096     37809
+bass         hard 8487c439   904 23628.0  45460   52158    268     176     31287     37657
+roll         easy ab221e81  1050 21133.5  30554   35872     87     278     32601     35872
+ryu          easy bdf9ca2b   605   26652  32927   37598     95     164     35334     37598
+sophia       easy 9ea11eab   937   34895  42922   48209    853     454     42570     47454
+kirby        hard 8487c439  1584 22193.0  26362   32162     23     434     28599     32162
+meta         easy bdf9ca2b  1271   21783  27767   32473     27     327     27697     31425
+chip         easy ee1152a4  1013   20929  26886   33231     25     350     25297     32880
+dale         easy ee1152a4  1019   20941  26824   33277     25     350     25282     32960
+mac          easy 5a0a37a9  1283   21925  27270   32304     15     495     28051     32304
+mike         easy ee1152a4  1007   20923  28418   36544     34     461     23958     30309
+mario3       easy ee1152a4   671   22382  27320   32528     14     140     25157     26896
+luigi3       easy ee1152a4   693   22216  27258   32333     15     137     25631     27721
+vic          easy ee1152a4  2269   20708  24614   28949      0       0      None      None
+octopus      easy 32694243   966 23677.5  32555   37491    168       0      None      None
+leonardo     hard 8487c439   958 21213.5  24406   33625      2     361     24614     27621
+raphael      hard 2082c19a   931   21872  25065   32851      5     281     25516     32851
+michelangelo hard 2082c19a   955   21299  24718   34523      4     346     24658     29257
+donatello    hard 2082c19a  1016 20526.5  24422   32768      3     331     24663     31378
+
+Concrete observations / source leads
+Contra remains a broad ordinary-gameplay cost problem after the adopted early-cache optimization. BillHard9ea and LanceHard4a have moving medians near28–29k and p95 above34k. Exact witnesses/grounded samples are in the JSON; do not equate retained A/B mask with an actual weapon birth. The independent same9ea Bill61-frame window logs timer/powerup/refill0, only3–4 basic shots,1–3 active enemy slots, and max complete Main39494 true CPU cycles. This exceeds the whole frame budget by9713 cycles before any unrelated outside-Main work. That concrete ordinary case rules out explaining all apparent lag as intentional movement freezes.
+Existing Bill child attribution makes a shared engine lead actionable: strict window EnemyCore234 completions/159728 inclusive CPU,143207 exclusive after terrain/contact children. Parser10 calls18832 CPU (max4467) is bursty but smaller. GameCore visits all6 slots; inactive paths enter ProcLoopCommand, active RunNormalEnemies includes graphics, bbox, terrain, pair/player collision and movement. Smallest next passive refinement is existing static Bill observer + EnemyGraphicsEngine, EnemyMovementSubs and ProcLoopCommand spans, rather than inventing a family/audio rewrite. The aggregate EnemyCore remainder is not all movement or Goomba work, and source does not prove each actual actor ID.
+SamusHard8487 has substantial ordinary-motion spikes despite lower median. SamusWeapons already gates empty/noB cache work; live beams still bridge into native block/enemy collision, and bombs add block/enemy/boost work. Trace has no beam/bomb/upgrade state, so projectile or wave blame is not proven. Shared world/enemy/drawing plus that live projectile path are concrete spans to separate using the existing bounded static pattern if ROOT later measures.
+All four turtle routes have lower moving p95, with rare large32–35k recorded spikes. Their normal sub-frame Main does not prove smooth publication: NMI/audio/CHR and scheduling consume additional frame budget. TnDrawEquipment already has guarded empty scans/current native actor loops; do not re-propose that optimization from old held code. Source-ground Down+attack intentionally selects zero horizontal velocity, but these traces lack TnAttack and cannot classify every pause as that mechanic. No new turtle music/renderer regression claim follows.
+Many identities have their highest motion costs near world1870–1970; the128px histogram is retained. This cross-family location pattern plus actual Bill enemy profiling supports shared enemy/background/render work as a priority, but the traces do not bind enemy IDs or prove the common cause. Sophia and Bass also show large ordinary costs and deserve attention; different modes/controllers/ROMs prevent controlled ranking claims.
+Native successful route scope and selected visual review are inherited unchanged. No product optimization or new native packet was prepared. Existing Bill censored Main/EnemyCore and warmup limits remain: do not add nested inclusive totals, assign completion-bucket costs to every PPU frame, or divide these totals into FPS.
+
+Compact evidence: build/current_roster_route_cpu_review_v1.json SHA d35ed7f7678dd8fd85b6b179696e76d96d7808f5760a0e0e19e7c3e30faa41f4.
+Owned tool: tools/audit/current_roster_route_cpu_review_v1.py SHA f1f4593070396e0a511b0acda33e623416ca5401395f597d859a932f1b38d994.

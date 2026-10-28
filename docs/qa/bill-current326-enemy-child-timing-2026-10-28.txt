@@ -1,0 +1,153 @@
+Bill current326 enemy-child timing — 2026-10-28
+
+The bounded timing observation completed. The whole route did NOT pass:
+ROOT's one native launch exited1 with "Fixed replay stream exhausted".
+No result.json was produced. All44 readiness bindings and settings stayed
+unchanged. This read-only review launched nothing, changed no bound inputs
+or product files, and decoded/copied no captures.
+
+Actual ROM32694243361bb1366f6fd64c054ea2451f86b2517fc020d9c2b5d66bbf07bfa0.
+Native folder: build/verification/bill-enemy-children326-ready-v2.
+Ready17e998be6ddd22add32856ac3c96dbec57e78aa8a80be4fe30a2f81109c8e0e1.
+Arithmetic receipt: build/bill_enemy_children326_review_v1.json,
+SHA529b5e121cc6623dd1feb85330b6c4eaaabe7bd9db228a611d2189f24942731d.
+
+Sealed observation and ordinary-play scope
+There are61 data rows at actual PPU3500..3560, all line240/dot0, clocks
+104229264..106016094. The60 intervals alternate29780/29781 CPU cycles.
+Disk CSV29290B versus Lua29228B is exactly62 CRLF extra bytes.
+Selected inventory0, timer/powerup/refill0, advanced/other shots0 in every
+sample. Basic shots4 in53 rows and3 in8; active enemy slots1/2/3 in7/35/19.
+X1873..1923,59 airborne and2 grounded samples. Thus this is moving normal
+1-1 play with live basic bullets, not a refill/transform/menu benchmark.
+These are endFrame samples, not per-call EnemyID/pose/cache/shot-age records;
+do not silently extend their predicates to every instruction of every span.
+
+Forty complete Main spans total1141647 CPU cycles after ISR subtraction:
+mean28541.175, median30640.5, maximum39503;24 exceed29781 cycles. One began
+in3499. Individual costs are recoverable from each bucket's count/sum/max
+(only one bucket contains two Main completions). They have no per-call serial
+IDs, so a Main's entire cost cannot be paired with its same-row descendants.
+The longest completion is bucket3548, but that row has no EnemyCore returns;
+it would be wrong to conclude this Main did no enemy work.
+
+Strict61 rows contain61 NMI returns/gross285429 cycles,61 IRQ returns/7320,
+23 actual DMAs and38 NmiSkipped increments. NMI gross includes nested IRQ:
+do not add those ISR totals as disjoint costs. AudioUpdate separately costs
+247389 cycles/61 calls, max6969, excluding interruptions; its62-call aggregate
+includes4610 warmup cycles. Audio is outside foreground and is not one of the
+Main-exclusive owner ranks below. Counts are not an FPS ratio.
+
+All foreground owner ranks
+These are exclusive CPU totals of genuinely completed measured spans; no
+inclusive parent is added to its child. The completion cohorts differ.
+Routine                       calls inclusive exclusive maximum
+GameLoop                         40   1141647    313583   39503
+DrawAllMetasprites                24    231284    130852   10320
+EnemiesAndLoopsCore              234    159728     83717    2206
+PlayerCtrlRoutine                40    191195     80499    5249
+RosterWeapons                    40    181676     77115    7994
+BulletBlocks                    152     76584     76584     684
+MetaspriteRenderLoop             255     69798     69798    1226
+PlayerBGCollision                40     59627     52587    1910
+RemainingWeapons                 40     39450     39450     987
+EnemyMovementSubs                83     26810     26810     375
+RosterMovement                   40     26340     26340     683
+ProcLoopCommand                 146     21813     21813    1313
+BulletEnemies                    32     20653     20653    2035
+AreaParserTaskHandler            11     20551     20551    4467
+RosterDrawShots                  24     37058     19760    1586
+PlayerMovementSubs               40     40220     13880    1030
+EnemyGraphicsEngine              84     11001     11001     246
+RemainingDraw                    24     10874     10874     461
+BillHotProject                   40     10849     10849     292
+Mmc5GroundGoombaTerrain           83      9628      9628     556
+GuestPrepareEnemies              40      7324      7324     282
+BillBGEmptyEnvelope              40      7040      7040     608
+PlayerEnemyCollision             83      6893      6893     182
+
+Main's313583 exclusive cycles remain unlabelled internal work, not proved
+avoidable overhead. Its source includes unprobed player graphics, six-slot
+floatey-number work, fireball/bubble bridge, block/misc/cannon/timer work,
+palette/scroll work and dispatch overhead. DrawAll's130852 exclusive includes
+its own preparation, object enumeration, DrawMetasprite setup/family routing,
+clears and other unmeasured descendants. The full231284 drawing total already
+includes nested shot/meta work: do not add69798 or37058 to it again.
+The new small graphics/loader children are not the dominant Main owner.
+
+New child attribution and cutoff accounting
+The three new children identify59624 completion-bucket cycles. Of those,
+134 graphics cycles belong to the final OPEN EnemyCore, not a closed parent:
+at3560 one graphics return is logged while zero EnemyCore returns occur.
+For the234 completed EnemyCore spans the exact partition is:
+  residual83717 + movement26810 + loader21813 + graphics10867
+  + terrain9628 + player contact6893 =159728.
+Thus59490 cycles,41.54% of the old143207 remainder, are newly attributed;
+83717 remains. Do not call this all Goomba AI or enemy-pair collision.
+No actual EnemyID or per-slot state was captured.
+
+At cutoff Main starts106000464, EnemyCore106015370; both remain censored.
+Zero ISRs are open. Summed strict foreground exclusives1137601 are4046 below
+closed Main inclusive1141647. The aggregate adds15484 warmup exclusives and
+then exceeds Main by11438. These boundary residues combine warmup children,
+the Main that began3499 and descendants of still-open parents. They are not
+missing CPU, one extra complete Main, or an amount to assign wholesale to
+the final censored Main. No mean over40 may be represented as a matched
+all-child per-update result.
+
+Same input does not mean same current timing/workload
+The6090 actual input rows are byte-exact to the old successful9ea replay.
+Whole relevant banks0/2/126 are also byte-exact, with genuine current
+entry/caller/SMC/stack metadata. Nevertheless old/current timing-window
+endFrame rows differ in X24, Y17, buttons11, enemy count1, DMA26 and Main
+completion27 rows. Basic/advanced/other shot counts and timer/powerup/refill
+are identical samples. The old proof is historical, not retagged current.
+
+Exhaustion diagnosis
+The shared harness requires25 genuinely active completed1-2 updates plus
+rightward movement before declaring the controlled endpoint. It asserts the
+next replay row exists; it does not extrapolate saved inputs. Current first
+sampled active1-2 Main is5118 at frame6067, ending5139 at6091/x67/y127. Old9ea
+starts that same Main ID at6065 and ends5142/x70/y137, with its actual saved
+result reporting25 control updates. Current's contiguous sampled Main ID
+interval spans22 versus25; the terminal has not reached that same source
+progress. The internal Lua control12 value was not serialized on exception,
+so22 is a trace/source-derived interval, not a fabricated native result field.
+This is a finite fixed-stream mismatch, not proof of a new movement/terrain
+bug. An explicit additive continuation or fresh policy run would need a new
+packet/grant; this review does neither and does not waive exhaustion.
+
+One concrete source lead, not an implemented or measured saving
+The existing BillEarlyCachePool already scans all ten entries for32..46,
+unless fresh Select takes the full preparation path. With no advanced entry,
+RemainingWeapons still runs AdvanceFreeze and then a second ten-slot Shots
+loop. Even empty/basic slots repeatedly publish AvSlot/RgSlot and execute
+the Bill/Flare/Laser tests in Next. This is a plausible bounded source-only
+experiment against the measured39450-cycle RemainingWeapons owner, rather
+than choosing a tiny enemy arithmetic optimization merely because it was
+the latest probe. Exact saving and actual eligible-call count are unproved.
+
+A valid shortcut must keep AdvanceFreeze and all timer/actor effects, fresh
+Select/cache preparation and all32..46 paths, mandatory later Roster refresh,
+all bullet/block/enemy collision ordering, live art/OAM/CHR ordering and the
+full final AXYP/SP/bank/SMC/application state. It must prove no mutation of
+the pool between admission and the omitted traversal, and actual IRQ/NMI
+readers of intermediate AvSlot/RgSlot. It must reproduce final slot scratch,
+MmBulletType and carry/overflow for empty/basic AND every fallback/foreign
+type, with no blanket dead-RAM/flag mask. Current endFrame zero-advanced
+samples do not themselves establish that complete source invariant. The
+larger unprobed Main/draw owners remain unresolved; no code change or
+hundreds-of-cycles saving is claimed from this analysis.
+
+Exact finite raw bindings
+bill-timing-summary.json a6370c5de868314a74968b6beb7f883887e6b74c1edc03aad05ac01128b92cf5
+bill-timing.csv435596368361e1130f43634ad899fb80af4154f7cc23b8bfa7cb8c6591a32211
+trace.csv3ad3e992c52bb7ca1991b6fe14fa2cb1cd088e41554738e67ed7982387a3ef6a
+inputs.csvb03024aac18a7e224e00bb2f6aa15fe08f1e821457f06d50068c113bb214eb35
+launch.jsonbb20eb21f8a61b9575775c876953128eaaa866021397caa8b3d5467929a90980
+native loga4f64a8736fdea8fd4afc7ac468f371ca498b9129373ad2627b90179bee7c225
+
+Owned publication files: this report and
+tools/audit/current_bill_enemy_children326_review_v1.py.
+The small build receipt binds raw artifacts and relevant source by hash;
+all captures/native/readiness files remain in their original location.

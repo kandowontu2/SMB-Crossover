@@ -1,5 +1,5 @@
 {
-  "status": "Current native powerup audit in progress",
+  "status": "All39 logical native profiles PASS; final-ROM regression/performance/exact display-epoch review remain open",
   "goal_complete": false,
   "ROM_sha256": "32694243361bb1366f6fd64c054ea2451f86b2517fc020d9c2b5d66bbf07bfa0",
   "planned_profiles": 39,
@@ -1862,6 +1862,1938 @@
       "reward_credits": {},
       "reward_provenance": {},
       "exact_phase_body_DMA_epoch_verified": false
+    },
+    {
+      "profile": "star-life-michelangelo",
+      "kind": "star-life",
+      "identity": "michelangelo",
+      "numeric_mode": 1,
+      "ROM_sha256": "32694243361bb1366f6fd64c054ea2451f86b2517fc020d9c2b5d66bbf07bfa0",
+      "passed": true,
+      "ready_sha256": "8bd2dd5ba095851a0367fd21d295d6fd1ca28bc02cfb1b5c9666a0000133c021",
+      "native_result_sha256": "b03310da2d818fb6d4ba28a6b69cd8aacf7f36d5114c91e34fa5be59735db7a6",
+      "wall_frames": 1223,
+      "completed_Main_updates": 807,
+      "completed_DMAS": 1199,
+      "case_records": null,
+      "case_names": [],
+      "selected_native_whole_frames_visually_reviewed": [
+        "03-star-expired.png",
+        "04-extra-life.png"
+      ],
+      "all_frame_or_all_pose_review": false,
+      "native_scope": "Fresh current-ROM native preparation: mature Star2 actual collection, protected Goomba contact/defeat, natural expiry/music restoration; physical1Up3 and delayed actual life increment/popup cleanup, inventory conservation.",
+      "checkpoint": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-michelangelo",
+      "files": [
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-michelangelo/launch.json",
+          "bytes": 1304,
+          "sha256": "726e2594bd9c4cdf487c8f52eeefbc025d2501084336c76a30cd3da94d20a29d"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-michelangelo/result.json",
+          "bytes": 857,
+          "sha256": "b03310da2d818fb6d4ba28a6b69cd8aacf7f36d5114c91e34fa5be59735db7a6"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-michelangelo/star-life.csv.gz",
+          "bytes": 6199,
+          "sha256": "577659a7b7972dfed5b637c67639763cd59b01000709c48572fcb2282107ecc1"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-michelangelo/zelda2_easy_glove-run.log.gz",
+          "bytes": 488,
+          "sha256": "5cf3fe8964debfa87078ddfd66362c432849e08c1d6eb4bcfd6c355eae6473f6"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-michelangelo/01-star-pickup.png",
+          "bytes": 2368,
+          "sha256": "2f6fd490f5d2dbc0485d8dbf96db3905a9c8ada2e93f319e7c80fa327d019671"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-michelangelo/02-protected-contact.png",
+          "bytes": 1753,
+          "sha256": "108b33614aa5a69d5ccb792b94b7d310973b81f74e625154e626d11487e45b50"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-michelangelo/03-star-expired.png",
+          "bytes": 1744,
+          "sha256": "a1a1bac257a4c4841f89988c01abc0af2299eb033c19ead29987bf48d8448ce9"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-michelangelo/04-extra-life.png",
+          "bytes": 1793,
+          "sha256": "6805591dafca41bd0e55c5c2a502bf825935db780490d5cd65dd8e8c7aa612ba"
+        }
+      ],
+      "native_assertion_counts": {
+        "areaRestore": 1,
+        "lifeCollision": 1,
+        "lifeIncrement": 1,
+        "lifeSound": 3,
+        "starCollision": 1,
+        "starContact": 1,
+        "starMusic": 1
+      },
+      "star_granted_update": 30,
+      "star_expired_update": 758,
+      "life_granted_update": 764,
+      "initial_lives": 2,
+      "final_lives": 3,
+      "reward_credits": {},
+      "reward_provenance": {},
+      "exact_phase_body_DMA_epoch_verified": false
+    },
+    {
+      "profile": "star-life-mike",
+      "kind": "star-life",
+      "identity": "mike",
+      "numeric_mode": 1,
+      "ROM_sha256": "32694243361bb1366f6fd64c054ea2451f86b2517fc020d9c2b5d66bbf07bfa0",
+      "passed": true,
+      "ready_sha256": "b6db365bd088a100264b85ffa69560b0165c257e1831ab2772131972a8102c17",
+      "native_result_sha256": "dbfa20a8fe4f6ceb07c701a00f97cec82f57451b59f0f522d9ce5d683eeb4c10",
+      "wall_frames": 1223,
+      "completed_Main_updates": 807,
+      "completed_DMAS": 1200,
+      "case_records": null,
+      "case_names": [],
+      "selected_native_whole_frames_visually_reviewed": [
+        "03-star-expired.png",
+        "04-extra-life.png"
+      ],
+      "all_frame_or_all_pose_review": false,
+      "native_scope": "Fresh current-ROM native preparation: mature Star2 actual collection, protected Goomba contact/defeat, natural expiry/music restoration; physical1Up3 and delayed actual life increment/popup cleanup, inventory conservation.",
+      "checkpoint": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-mike",
+      "files": [
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-mike/launch.json",
+          "bytes": 1288,
+          "sha256": "20ab7dd2d144522febd181e308cd2e582e468e283343ea34c435a699a78c0b00"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-mike/result.json",
+          "bytes": 849,
+          "sha256": "dbfa20a8fe4f6ceb07c701a00f97cec82f57451b59f0f522d9ce5d683eeb4c10"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-mike/star-life.csv.gz",
+          "bytes": 6199,
+          "sha256": "fe80fdfa3aeaf88e39d50bc9a5110dc4b8f4b628e2f573ecbcd9d4fb4c814fc7"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-mike/zelda2_easy_glove-run.log.gz",
+          "bytes": 488,
+          "sha256": "5cf3fe8964debfa87078ddfd66362c432849e08c1d6eb4bcfd6c355eae6473f6"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-mike/01-star-pickup.png",
+          "bytes": 2461,
+          "sha256": "1a15441745f7ab401a220f62a467ad5e19e38f8f8d82dabbac11097d859f5d09"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-mike/02-protected-contact.png",
+          "bytes": 1805,
+          "sha256": "5ea298876fc6731113d695bfcab7664082e0d4d047ec7fcdd535e364a38199c0"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-mike/03-star-expired.png",
+          "bytes": 1862,
+          "sha256": "9810a4b4856ac380fb575c625eb8efcd1a881028532e7bd0a93c2efc909cce72"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-mike/04-extra-life.png",
+          "bytes": 1909,
+          "sha256": "b0e6d94b03782590f6f228a60ced96d6ba02081a094ce1c8f47d290b59a47838"
+        }
+      ],
+      "native_assertion_counts": {
+        "areaRestore": 1,
+        "lifeCollision": 1,
+        "lifeIncrement": 1,
+        "lifeSound": 3,
+        "starCollision": 1,
+        "starContact": 1,
+        "starMusic": 1
+      },
+      "star_granted_update": 30,
+      "star_expired_update": 758,
+      "life_granted_update": 764,
+      "initial_lives": 2,
+      "final_lives": 3,
+      "reward_credits": {},
+      "reward_provenance": {},
+      "exact_phase_body_DMA_epoch_verified": false
+    },
+    {
+      "profile": "star-life-octopus",
+      "kind": "star-life",
+      "identity": "octopus",
+      "numeric_mode": 1,
+      "ROM_sha256": "32694243361bb1366f6fd64c054ea2451f86b2517fc020d9c2b5d66bbf07bfa0",
+      "passed": true,
+      "ready_sha256": "87adf42c30dc54aa76cb6a20133bb7df762b57b7d2dc1d22f669b06ecfad4f25",
+      "native_result_sha256": "f776e6ecb3f1ca1251f31e38a41b5f612aab16047fc29b6cac981b4a1b2485d5",
+      "wall_frames": 1223,
+      "completed_Main_updates": 807,
+      "completed_DMAS": 1198,
+      "case_records": null,
+      "case_names": [],
+      "selected_native_whole_frames_visually_reviewed": [
+        "03-star-expired.png",
+        "04-extra-life.png"
+      ],
+      "all_frame_or_all_pose_review": false,
+      "native_scope": "Fresh current-ROM native preparation: mature Star2 actual collection, protected Goomba contact/defeat, natural expiry/music restoration; physical1Up3 and delayed actual life increment/popup cleanup, inventory conservation.",
+      "checkpoint": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-octopus",
+      "files": [
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-octopus/launch.json",
+          "bytes": 1294,
+          "sha256": "f40677863e5b1ca30a7207729b1ff15c2775b7f5779898f8878e39f616e568f5"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-octopus/result.json",
+          "bytes": 852,
+          "sha256": "f776e6ecb3f1ca1251f31e38a41b5f612aab16047fc29b6cac981b4a1b2485d5"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-octopus/star-life.csv.gz",
+          "bytes": 6233,
+          "sha256": "f4f467fd3981ff0e9cc7d751b7200541b5f49bae16d7a83b78d3f95f4c2ce8ac"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-octopus/zelda2_easy_glove-run.log.gz",
+          "bytes": 488,
+          "sha256": "5cf3fe8964debfa87078ddfd66362c432849e08c1d6eb4bcfd6c355eae6473f6"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-octopus/01-star-pickup.png",
+          "bytes": 2680,
+          "sha256": "647d792e83fac7fd7ca3691aca408285f70431646cab096bd794acde8c7dbfa3"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-octopus/02-protected-contact.png",
+          "bytes": 1954,
+          "sha256": "a6edf4e105d174c8b22f5426de229013fa11c712e7cf8fe929eccef536296552"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-octopus/03-star-expired.png",
+          "bytes": 1953,
+          "sha256": "cf15d36108e037159a083dd6f478a83203dc65eae21d84a7bce0e487dfab9ac8"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-octopus/04-extra-life.png",
+          "bytes": 1992,
+          "sha256": "0dc6d34ebf2bec6f4e6321895b11b1380b091ec9fce8c27d732598f08acb16f8"
+        }
+      ],
+      "native_assertion_counts": {
+        "areaRestore": 1,
+        "lifeCollision": 1,
+        "lifeIncrement": 1,
+        "lifeSound": 3,
+        "starCollision": 1,
+        "starContact": 1,
+        "starMusic": 1
+      },
+      "star_granted_update": 30,
+      "star_expired_update": 758,
+      "life_granted_update": 764,
+      "initial_lives": 2,
+      "final_lives": 3,
+      "reward_credits": {},
+      "reward_provenance": {},
+      "exact_phase_body_DMA_epoch_verified": false
+    },
+    {
+      "profile": "star-life-pentarou",
+      "kind": "star-life",
+      "identity": "pentarou",
+      "numeric_mode": 1,
+      "ROM_sha256": "32694243361bb1366f6fd64c054ea2451f86b2517fc020d9c2b5d66bbf07bfa0",
+      "passed": true,
+      "ready_sha256": "c4888a6e70511c3e46cd26d3c1fcf04ebf7b519ba257b46755c20437b8dec482",
+      "native_result_sha256": "1fdc0045ddad240df78b94737f43f9d8a6150b734a658700ee7280ef4bdd2c26",
+      "wall_frames": 1244,
+      "completed_Main_updates": 807,
+      "completed_DMAS": 1219,
+      "case_records": null,
+      "case_names": [],
+      "selected_native_whole_frames_visually_reviewed": [
+        "03-star-expired.png",
+        "04-extra-life.png"
+      ],
+      "all_frame_or_all_pose_review": false,
+      "native_scope": "Fresh current-ROM native preparation: mature Star2 actual collection, protected Goomba contact/defeat, natural expiry/music restoration; physical1Up3 and delayed actual life increment/popup cleanup, inventory conservation.",
+      "checkpoint": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-pentarou",
+      "files": [
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-pentarou/launch.json",
+          "bytes": 1296,
+          "sha256": "a55f0159539a135e67bcef3307c789420e23dd4c92f44c70df91c0823cda2bcf"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-pentarou/result.json",
+          "bytes": 853,
+          "sha256": "1fdc0045ddad240df78b94737f43f9d8a6150b734a658700ee7280ef4bdd2c26"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-pentarou/star-life.csv.gz",
+          "bytes": 6208,
+          "sha256": "ddf1ebae0efb94ec0f58f12d083febc12ebcd0050bb2df16aabd314e4ddd96ff"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-pentarou/zelda2_easy_glove-run.log.gz",
+          "bytes": 488,
+          "sha256": "5cf3fe8964debfa87078ddfd66362c432849e08c1d6eb4bcfd6c355eae6473f6"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-pentarou/01-star-pickup.png",
+          "bytes": 2625,
+          "sha256": "c6f2ed9dab28e2d1fac1f29f4693ef032d2b4d62deec736da61f5f057b1da457"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-pentarou/02-protected-contact.png",
+          "bytes": 1916,
+          "sha256": "0d96e97daeea5533d04fb06148f877c59721ece23715d611a6e5dad11aac0477"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-pentarou/03-star-expired.png",
+          "bytes": 1912,
+          "sha256": "dffb3b358a4ec80fe539355cc6ae1b8f6bad4f09cc36750939075f269b3ebb27"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-pentarou/04-extra-life.png",
+          "bytes": 1968,
+          "sha256": "7923932254c08f099f191255d1a752637249ded045ee3a2793647c1de6f987cd"
+        }
+      ],
+      "native_assertion_counts": {
+        "areaRestore": 1,
+        "lifeCollision": 1,
+        "lifeIncrement": 1,
+        "lifeSound": 3,
+        "starCollision": 1,
+        "starContact": 1,
+        "starMusic": 1
+      },
+      "star_granted_update": 30,
+      "star_expired_update": 758,
+      "life_granted_update": 764,
+      "initial_lives": 2,
+      "final_lives": 3,
+      "reward_credits": {},
+      "reward_provenance": {},
+      "exact_phase_body_DMA_epoch_verified": false
+    },
+    {
+      "profile": "star-life-pit",
+      "kind": "star-life",
+      "identity": "pit",
+      "numeric_mode": 1,
+      "ROM_sha256": "32694243361bb1366f6fd64c054ea2451f86b2517fc020d9c2b5d66bbf07bfa0",
+      "passed": true,
+      "ready_sha256": "01aee14bb1c799a24e1e24cbda2d55f51dd876b97e94ab16169cfb777d276b4d",
+      "native_result_sha256": "e2f0b7510b95d1d31e6ebbb7b91db626e89be0e0ce625bf4b66ff0cc44164c05",
+      "wall_frames": 1181,
+      "completed_Main_updates": 807,
+      "completed_DMAS": 1156,
+      "case_records": null,
+      "case_names": [],
+      "selected_native_whole_frames_visually_reviewed": [
+        "03-star-expired.png",
+        "04-extra-life.png"
+      ],
+      "all_frame_or_all_pose_review": false,
+      "native_scope": "Fresh current-ROM native preparation: mature Star2 actual collection, protected Goomba contact/defeat, natural expiry/music restoration; physical1Up3 and delayed actual life increment/popup cleanup, inventory conservation.",
+      "checkpoint": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-pit",
+      "files": [
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-pit/launch.json",
+          "bytes": 1286,
+          "sha256": "8264c973417a41602760659df03d173f782977d6d03cbb6d65b7d17d79b4e6f6"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-pit/result.json",
+          "bytes": 848,
+          "sha256": "e2f0b7510b95d1d31e6ebbb7b91db626e89be0e0ce625bf4b66ff0cc44164c05"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-pit/star-life.csv.gz",
+          "bytes": 6164,
+          "sha256": "4c2fa8d6e48aa4703efa21586faae9e9f7fa0e69c4cfa92fee54739ba288e788"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-pit/zelda2_easy_glove-run.log.gz",
+          "bytes": 488,
+          "sha256": "5cf3fe8964debfa87078ddfd66362c432849e08c1d6eb4bcfd6c355eae6473f6"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-pit/02-protected-contact.png",
+          "bytes": 1590,
+          "sha256": "ba605ea5aac5fd7d5dab657601c0188abfb072afacc36d2a3e7fa1b05608ff85"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-pit/03-star-expired.png",
+          "bytes": 1632,
+          "sha256": "e19a664c13aa68899105cad5b0837ad784449d0608cf71647871fdd741a04ae4"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-pit/04-extra-life.png",
+          "bytes": 1675,
+          "sha256": "d036530183f732792b790d47218cc4e11a5b2ac6912a52c04e4f44f42460915e"
+        }
+      ],
+      "native_assertion_counts": {
+        "areaRestore": 1,
+        "lifeCollision": 1,
+        "lifeIncrement": 1,
+        "lifeSound": 3,
+        "starCollision": 1,
+        "starContact": 1,
+        "starMusic": 1
+      },
+      "star_granted_update": 30,
+      "star_expired_update": 758,
+      "life_granted_update": 764,
+      "initial_lives": 2,
+      "final_lives": 3,
+      "reward_credits": {},
+      "reward_provenance": {},
+      "exact_phase_body_DMA_epoch_verified": false
+    },
+    {
+      "profile": "star-life-proto",
+      "kind": "star-life",
+      "identity": "proto",
+      "numeric_mode": 1,
+      "ROM_sha256": "32694243361bb1366f6fd64c054ea2451f86b2517fc020d9c2b5d66bbf07bfa0",
+      "passed": true,
+      "ready_sha256": "da8500c550eab50579b90f0554a0fc881dfd2ee3c0d39d8fa1875d6484a91837",
+      "native_result_sha256": "7bf370a075c386093a67a8e376bb51c257fbfaf25e33caf455b363f5ed82d021",
+      "wall_frames": 1183,
+      "completed_Main_updates": 807,
+      "completed_DMAS": 1155,
+      "case_records": null,
+      "case_names": [],
+      "selected_native_whole_frames_visually_reviewed": [
+        "03-star-expired.png",
+        "04-extra-life.png"
+      ],
+      "all_frame_or_all_pose_review": false,
+      "native_scope": "Fresh current-ROM native preparation: mature Star2 actual collection, protected Goomba contact/defeat, natural expiry/music restoration; physical1Up3 and delayed actual life increment/popup cleanup, inventory conservation.",
+      "checkpoint": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-proto",
+      "files": [
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-proto/launch.json",
+          "bytes": 1290,
+          "sha256": "82523a134847637de7193d0ad33031e92b4ca9f8a2a693a39a60819ffd4f7d05"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-proto/result.json",
+          "bytes": 850,
+          "sha256": "7bf370a075c386093a67a8e376bb51c257fbfaf25e33caf455b363f5ed82d021"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-proto/star-life.csv.gz",
+          "bytes": 6155,
+          "sha256": "a8c1f1d5f9114a8565e106f957be5354f485b46b52464c3df2092b30afa5a1e4"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-proto/zelda2_easy_glove-run.log.gz",
+          "bytes": 514,
+          "sha256": "c696f802a0169485281c0acacba5ca4e552958ef4bb5c9f12f6222fb9480701b"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-proto/01-star-pickup.png",
+          "bytes": 1732,
+          "sha256": "5884b840eb763deba9ae1cd5e0cac3493d07c9538d136302c197abfa9b45dae1"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-proto/02-protected-contact.png",
+          "bytes": 1732,
+          "sha256": "5884b840eb763deba9ae1cd5e0cac3493d07c9538d136302c197abfa9b45dae1"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-proto/03-star-expired.png",
+          "bytes": 1789,
+          "sha256": "b7f13f589e563ea386c21f6ed6667ebb9ad89e467973aa0cd7541c07c4e51466"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-proto/04-extra-life.png",
+          "bytes": 1865,
+          "sha256": "598b09322225eea1c79aa4f42026a46aa00670701a65a3b19972bdfa65b45295"
+        }
+      ],
+      "native_assertion_counts": {
+        "areaRestore": 1,
+        "lifeCollision": 1,
+        "lifeIncrement": 1,
+        "lifeSound": 2,
+        "starCollision": 1,
+        "starContact": 1,
+        "starMusic": 1
+      },
+      "star_granted_update": 30,
+      "star_expired_update": 758,
+      "life_granted_update": 764,
+      "initial_lives": 2,
+      "final_lives": 3,
+      "reward_credits": {},
+      "reward_provenance": {},
+      "exact_phase_body_DMA_epoch_verified": false
+    },
+    {
+      "profile": "star-life-raphael",
+      "kind": "star-life",
+      "identity": "raphael",
+      "numeric_mode": 1,
+      "ROM_sha256": "32694243361bb1366f6fd64c054ea2451f86b2517fc020d9c2b5d66bbf07bfa0",
+      "passed": true,
+      "ready_sha256": "242ebbd67d2333f1c1fad6134232a6a38cd12c0df4ee147135d4ae3159639569",
+      "native_result_sha256": "4206b4c2f7d89bb24ef6486a52421bcc4b03349e1800bc57e2372b4544ae1cb6",
+      "wall_frames": 1202,
+      "completed_Main_updates": 807,
+      "completed_DMAS": 1178,
+      "case_records": null,
+      "case_names": [],
+      "selected_native_whole_frames_visually_reviewed": [
+        "03-star-expired.png",
+        "04-extra-life.png"
+      ],
+      "all_frame_or_all_pose_review": false,
+      "native_scope": "Fresh current-ROM native preparation: mature Star2 actual collection, protected Goomba contact/defeat, natural expiry/music restoration; physical1Up3 and delayed actual life increment/popup cleanup, inventory conservation.",
+      "checkpoint": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-raphael",
+      "files": [
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-raphael/launch.json",
+          "bytes": 1294,
+          "sha256": "ca1ead9166d71971c9439f9ddcbc70080c7a32125c387f71c9c78f02ad680ea7"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-raphael/result.json",
+          "bytes": 852,
+          "sha256": "4206b4c2f7d89bb24ef6486a52421bcc4b03349e1800bc57e2372b4544ae1cb6"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-raphael/star-life.csv.gz",
+          "bytes": 6158,
+          "sha256": "73c6608b6041a7ad1217205810a61e0b251937f902d8c3d597fcca37aeda44ae"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-raphael/zelda2_easy_glove-run.log.gz",
+          "bytes": 488,
+          "sha256": "5cf3fe8964debfa87078ddfd66362c432849e08c1d6eb4bcfd6c355eae6473f6"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-raphael/01-star-pickup.png",
+          "bytes": 2360,
+          "sha256": "6ba2157f0afeb79e466fe85470732630d800957d2282db1f353c89840eb97207"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-raphael/02-protected-contact.png",
+          "bytes": 1754,
+          "sha256": "5b61e61f60431e77c1e6987b9f4977a73a38e183a2f166e6a155a5862f68b2c6"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-raphael/03-star-expired.png",
+          "bytes": 1748,
+          "sha256": "a30280746baa5e0a1cad9ab39e41fa2341b973bb31978b117ac4887b7973a5ad"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-raphael/04-extra-life.png",
+          "bytes": 1788,
+          "sha256": "b5396d8b1a98d508ed89246c93c1cb7a40aed6c13471985903bb95823f4d2697"
+        }
+      ],
+      "native_assertion_counts": {
+        "areaRestore": 1,
+        "lifeCollision": 1,
+        "lifeIncrement": 1,
+        "lifeSound": 3,
+        "starCollision": 1,
+        "starContact": 1,
+        "starMusic": 1
+      },
+      "star_granted_update": 30,
+      "star_expired_update": 758,
+      "life_granted_update": 764,
+      "initial_lives": 2,
+      "final_lives": 3,
+      "reward_credits": {},
+      "reward_provenance": {},
+      "exact_phase_body_DMA_epoch_verified": false
+    },
+    {
+      "profile": "star-life-rygar",
+      "kind": "star-life",
+      "identity": "rygar",
+      "numeric_mode": 1,
+      "ROM_sha256": "32694243361bb1366f6fd64c054ea2451f86b2517fc020d9c2b5d66bbf07bfa0",
+      "passed": true,
+      "ready_sha256": "b83cbb245d59fb220492b2e442d7a8dfb66a2e9d45cf3a68645289fe41307ef9",
+      "native_result_sha256": "0810a7e850ce365856194191422d2e7e205ec8c7d5113103f9b660c82d0db1d4",
+      "wall_frames": 1181,
+      "completed_Main_updates": 807,
+      "completed_DMAS": 1155,
+      "case_records": null,
+      "case_names": [],
+      "selected_native_whole_frames_visually_reviewed": [
+        "03-star-expired.png",
+        "04-extra-life.png"
+      ],
+      "all_frame_or_all_pose_review": false,
+      "native_scope": "Fresh current-ROM native preparation: mature Star2 actual collection, protected Goomba contact/defeat, natural expiry/music restoration; physical1Up3 and delayed actual life increment/popup cleanup, inventory conservation.",
+      "checkpoint": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-rygar",
+      "files": [
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-rygar/launch.json",
+          "bytes": 1290,
+          "sha256": "f226b9ba2809794e29fbfd2baafad915d5a4d8760faada5e6fc3ddaa16321936"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-rygar/result.json",
+          "bytes": 850,
+          "sha256": "0810a7e850ce365856194191422d2e7e205ec8c7d5113103f9b660c82d0db1d4"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-rygar/star-life.csv.gz",
+          "bytes": 6162,
+          "sha256": "c3df5c594006946fe0dfa13320550b8b5aa3b751ad91296daaca254e0b7b5a7d"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-rygar/zelda2_easy_glove-run.log.gz",
+          "bytes": 488,
+          "sha256": "5cf3fe8964debfa87078ddfd66362c432849e08c1d6eb4bcfd6c355eae6473f6"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-rygar/01-star-pickup.png",
+          "bytes": 2326,
+          "sha256": "7822d92b222b008ea9b2ce02f882b3fedc91c50173b7b964e62564e3fd03cd1d"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-rygar/02-protected-contact.png",
+          "bytes": 1767,
+          "sha256": "834e399771b955523405dfee413c9175d89faf6509ffafbc9f6f58c019b80886"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-rygar/03-star-expired.png",
+          "bytes": 1763,
+          "sha256": "c1e7e9420b69b68a3f0cd4733b95b94e6486b14580016e850fccc6e1da271001"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-rygar/04-extra-life.png",
+          "bytes": 1802,
+          "sha256": "d4b587d41aac174b6e63f702f6e6f9e5a2ff2a63f880fdeeb9c2d6604b33fe81"
+        }
+      ],
+      "native_assertion_counts": {
+        "areaRestore": 1,
+        "lifeCollision": 1,
+        "lifeIncrement": 1,
+        "lifeSound": 3,
+        "starCollision": 1,
+        "starContact": 1,
+        "starMusic": 1
+      },
+      "star_granted_update": 30,
+      "star_expired_update": 758,
+      "life_granted_update": 764,
+      "initial_lives": 2,
+      "final_lives": 3,
+      "reward_credits": {},
+      "reward_provenance": {},
+      "exact_phase_body_DMA_epoch_verified": false
+    },
+    {
+      "profile": "star-life-ryu",
+      "kind": "star-life",
+      "identity": "ryu",
+      "numeric_mode": 1,
+      "ROM_sha256": "32694243361bb1366f6fd64c054ea2451f86b2517fc020d9c2b5d66bbf07bfa0",
+      "passed": true,
+      "ready_sha256": "6b36d0520ddbbfcd720b86961174f8f78921ed8259dd34eb08e27c9602713d26",
+      "native_result_sha256": "bb0ce138e13510250745abd1e48c501fe12aecd1a7a1683c682c1a7f46470461",
+      "wall_frames": 1202,
+      "completed_Main_updates": 807,
+      "completed_DMAS": 1174,
+      "case_records": null,
+      "case_names": [],
+      "selected_native_whole_frames_visually_reviewed": [
+        "03-star-expired.png",
+        "04-extra-life.png"
+      ],
+      "all_frame_or_all_pose_review": false,
+      "native_scope": "Fresh current-ROM native preparation: mature Star2 actual collection, protected Goomba contact/defeat, natural expiry/music restoration; physical1Up3 and delayed actual life increment/popup cleanup, inventory conservation.",
+      "checkpoint": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-ryu",
+      "files": [
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-ryu/launch.json",
+          "bytes": 1286,
+          "sha256": "368b1ba0c6a6b105c4be96d2c318df7b9cf5b98199ae15e73759b0e07ca09625"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-ryu/result.json",
+          "bytes": 848,
+          "sha256": "bb0ce138e13510250745abd1e48c501fe12aecd1a7a1683c682c1a7f46470461"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-ryu/star-life.csv.gz",
+          "bytes": 6161,
+          "sha256": "3b877aefb9c9325dfd76c093f23fb23b95361f1eb108d2a434eaaec9735c561f"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-ryu/zelda2_easy_glove-run.log.gz",
+          "bytes": 488,
+          "sha256": "5cf3fe8964debfa87078ddfd66362c432849e08c1d6eb4bcfd6c355eae6473f6"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-ryu/02-protected-contact.png",
+          "bytes": 1738,
+          "sha256": "eeda454278ec6921d91f2322250a24f881261899e45651b80934a6df760c4a93"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-ryu/03-star-expired.png",
+          "bytes": 1791,
+          "sha256": "5f9133850b12760d9ff1c83d240db6f9acabab06bbb16f7af7f11756a917f1cd"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-ryu/04-extra-life.png",
+          "bytes": 1836,
+          "sha256": "ac69e9a23cd0c36f3d56a001c634ccca326ee19534b246e1f2f20304c4d1db0d"
+        }
+      ],
+      "native_assertion_counts": {
+        "areaRestore": 1,
+        "lifeCollision": 1,
+        "lifeIncrement": 1,
+        "lifeSound": 3,
+        "starCollision": 1,
+        "starContact": 1,
+        "starMusic": 1
+      },
+      "star_granted_update": 30,
+      "star_expired_update": 758,
+      "life_granted_update": 764,
+      "initial_lives": 2,
+      "final_lives": 3,
+      "reward_credits": {},
+      "reward_provenance": {},
+      "exact_phase_body_DMA_epoch_verified": false
+    },
+    {
+      "profile": "star-life-samus",
+      "kind": "star-life",
+      "identity": "samus",
+      "numeric_mode": 1,
+      "ROM_sha256": "32694243361bb1366f6fd64c054ea2451f86b2517fc020d9c2b5d66bbf07bfa0",
+      "passed": true,
+      "ready_sha256": "b4a04a854fc4521ea91a0c06fefb580b42262771a0eb5ba86d4cfd7f3f6f8261",
+      "native_result_sha256": "de153667cbceab60aec8d9df3cf6cab144d1e1ccb84108cb03df95c464b32e68",
+      "wall_frames": 1181,
+      "completed_Main_updates": 807,
+      "completed_DMAS": 1158,
+      "case_records": null,
+      "case_names": [],
+      "selected_native_whole_frames_visually_reviewed": [
+        "03-star-expired.png",
+        "04-extra-life.png"
+      ],
+      "all_frame_or_all_pose_review": false,
+      "native_scope": "Fresh current-ROM native preparation: mature Star2 actual collection, protected Goomba contact/defeat, natural expiry/music restoration; physical1Up3 and delayed actual life increment/popup cleanup, inventory conservation.",
+      "checkpoint": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-samus",
+      "files": [
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-samus/launch.json",
+          "bytes": 1290,
+          "sha256": "194b9901c40138d6816fcbccd15965ebd27837dff4062e2cb46db14d3a1b3385"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-samus/result.json",
+          "bytes": 850,
+          "sha256": "de153667cbceab60aec8d9df3cf6cab144d1e1ccb84108cb03df95c464b32e68"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-samus/star-life.csv.gz",
+          "bytes": 6161,
+          "sha256": "e1c1c3f81c2c462384867096edc77913b5b83fad751585dd812fd6efc1f0ff24"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-samus/zelda2_easy_glove-run.log.gz",
+          "bytes": 507,
+          "sha256": "29f43d7e7c55e9561069815c7b83fff4805ace78a2bbe9769173c111cac28fe4"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-samus/01-star-pickup.png",
+          "bytes": 2392,
+          "sha256": "9163be9d69bf68257174a971c77f89fe38a7894e4bfb16776262164f0f054349"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-samus/02-protected-contact.png",
+          "bytes": 1749,
+          "sha256": "a9774d60dcaf694374f498944a5e2141ed5509dc9737daba76f7bbe259a44df7"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-samus/03-star-expired.png",
+          "bytes": 1815,
+          "sha256": "38549a603ecba4d4c46b5a4d64c5f28a7288fe151e1922be4c67838c93a0aa54"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-samus/04-extra-life.png",
+          "bytes": 1858,
+          "sha256": "936d18c444d17fbcbddcf87e26b915f12c032fdfeefc92d23b20f2706857a5eb"
+        }
+      ],
+      "native_assertion_counts": {
+        "areaRestore": 1,
+        "lifeCollision": 1,
+        "lifeIncrement": 1,
+        "lifeSound": 3,
+        "starCollision": 1,
+        "starContact": 1,
+        "starMusic": 1
+      },
+      "star_granted_update": 30,
+      "star_expired_update": 758,
+      "life_granted_update": 764,
+      "initial_lives": 2,
+      "final_lives": 3,
+      "reward_credits": {},
+      "reward_provenance": {},
+      "exact_phase_body_DMA_epoch_verified": false
+    },
+    {
+      "profile": "star-life-scrooge",
+      "kind": "star-life",
+      "identity": "scrooge",
+      "numeric_mode": 1,
+      "ROM_sha256": "32694243361bb1366f6fd64c054ea2451f86b2517fc020d9c2b5d66bbf07bfa0",
+      "passed": true,
+      "ready_sha256": "e64902ca279a1c5ffd72487f0e90bec1ec15746a097f93ac3df90811bc5014b9",
+      "native_result_sha256": "a8b95bfaf1ec5dfa5954a62af6415607609331a3ad80bda1f48feb2f7f4cc60d",
+      "wall_frames": 1202,
+      "completed_Main_updates": 807,
+      "completed_DMAS": 1174,
+      "case_records": null,
+      "case_names": [],
+      "selected_native_whole_frames_visually_reviewed": [
+        "03-star-expired.png",
+        "04-extra-life.png"
+      ],
+      "all_frame_or_all_pose_review": false,
+      "native_scope": "Fresh current-ROM native preparation: mature Star2 actual collection, protected Goomba contact/defeat, natural expiry/music restoration; physical1Up3 and delayed actual life increment/popup cleanup, inventory conservation.",
+      "checkpoint": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-scrooge",
+      "files": [
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-scrooge/launch.json",
+          "bytes": 1294,
+          "sha256": "e275ca124188b8071041486760e7ac5ba49450ce10080d2d2a277830356b4dca"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-scrooge/result.json",
+          "bytes": 852,
+          "sha256": "a8b95bfaf1ec5dfa5954a62af6415607609331a3ad80bda1f48feb2f7f4cc60d"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-scrooge/star-life.csv.gz",
+          "bytes": 6157,
+          "sha256": "5b6560033d97524a5e30040802545debcb7ef01655cd825417a8a4ce5c0bc59c"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-scrooge/zelda2_easy_glove-run.log.gz",
+          "bytes": 494,
+          "sha256": "ceffd14bc0d4e785fe35039c1aa736625b354d9939e99d1bc818558dac130042"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-scrooge/02-protected-contact.png",
+          "bytes": 1751,
+          "sha256": "da11ebffbdf328e93b7464449e9e4161d2edbdbbf0eaf8341ee51f6dfbf54982"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-scrooge/03-star-expired.png",
+          "bytes": 1771,
+          "sha256": "54320fb5877884d9df17a6c9da53e73f3b69d1a59e4a0e22cccfff82435f591f"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-scrooge/04-extra-life.png",
+          "bytes": 1884,
+          "sha256": "ca2fc96ec62f3b0f36f58fb626bf27c58cdd9b0273ae0100471deccd455df182"
+        }
+      ],
+      "native_assertion_counts": {
+        "areaRestore": 1,
+        "lifeCollision": 1,
+        "lifeIncrement": 1,
+        "lifeSound": 3,
+        "starCollision": 1,
+        "starContact": 1,
+        "starMusic": 1
+      },
+      "star_granted_update": 30,
+      "star_expired_update": 758,
+      "life_granted_update": 764,
+      "initial_lives": 2,
+      "final_lives": 3,
+      "reward_credits": {},
+      "reward_provenance": {},
+      "exact_phase_body_DMA_epoch_verified": false
+    },
+    {
+      "profile": "star-life-simon",
+      "kind": "star-life",
+      "identity": "simon",
+      "numeric_mode": 1,
+      "ROM_sha256": "32694243361bb1366f6fd64c054ea2451f86b2517fc020d9c2b5d66bbf07bfa0",
+      "passed": true,
+      "ready_sha256": "c63ff76999464b6cf741f4fe68ed735084063267d4227bfa7abee0af85ce084d",
+      "native_result_sha256": "a40df2af5366cbac0e0af87199a430fae4ef8a094106442e94fc2c916cd53e94",
+      "wall_frames": 1181,
+      "completed_Main_updates": 807,
+      "completed_DMAS": 1157,
+      "case_records": null,
+      "case_names": [],
+      "selected_native_whole_frames_visually_reviewed": [
+        "03-star-expired.png",
+        "04-extra-life.png"
+      ],
+      "all_frame_or_all_pose_review": false,
+      "native_scope": "Fresh current-ROM native preparation: mature Star2 actual collection, protected Goomba contact/defeat, natural expiry/music restoration; physical1Up3 and delayed actual life increment/popup cleanup, inventory conservation.",
+      "checkpoint": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-simon",
+      "files": [
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-simon/launch.json",
+          "bytes": 1290,
+          "sha256": "812200152a388bdfb2c2ffa0751d1d87bc6a8fdb4a731eef44dc9ffce864cf5f"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-simon/result.json",
+          "bytes": 1590,
+          "sha256": "a40df2af5366cbac0e0af87199a430fae4ef8a094106442e94fc2c916cd53e94"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-simon/star-life.csv.gz",
+          "bytes": 6162,
+          "sha256": "b79db4c0d938cff6c79bc26b93fa5e337b2183f62b782ab8d3820129f4c98dc2"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-simon/zelda2_easy_glove-run.log.gz",
+          "bytes": 509,
+          "sha256": "2afb1bd1c8133ec9fba6ac5ed7abf89b5c9b2310d266267a8c7a206f8f77ca77"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-simon/02-protected-contact.png",
+          "bytes": 1731,
+          "sha256": "d0340a2ec75e95df1817c494f3a3c32b16faf06556fa13f447fe567e8889dd06"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-simon/03-star-expired.png",
+          "bytes": 1788,
+          "sha256": "94e705a11b1e9b0f7e0c018484301e2bcdcb0f972655211f8655fc2229b44471"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-simon/04-extra-life.png",
+          "bytes": 1832,
+          "sha256": "267e75ba765d844a7cc341c3ee5bbf67b2008fe8c05647c9a6db8abde048109b"
+        }
+      ],
+      "native_assertion_counts": {
+        "areaRestore": 1,
+        "lifeCollision": 1,
+        "lifeIncrement": 1,
+        "lifeSound": 2,
+        "starCollision": 1,
+        "starContact": 1,
+        "starMusic": 1
+      },
+      "star_granted_update": 30,
+      "star_expired_update": 758,
+      "life_granted_update": 764,
+      "initial_lives": 2,
+      "final_lives": 3,
+      "reward_credits": [
+        {
+          "address": 31986,
+          "award_amount": 1,
+          "award_count": 1,
+          "field": "InvAmmo",
+          "index": 80,
+          "item_kind": 0,
+          "new": 6,
+          "observed_write_callback_pc": 46377,
+          "old": 5,
+          "phase": "expiry",
+          "physical_bank": 61,
+          "rule": "RewardGenericAmmo",
+          "update": 32,
+          "wall": 405,
+          "writer_pc": 46374
+        }
+      ],
+      "reward_provenance": [
+        {
+          "award_count": 0,
+          "event": "RewardGenericSpawn",
+          "item_kind": 1,
+          "new": 1,
+          "old": 0,
+          "phase": "contact",
+          "physical_bank": 59,
+          "slot": 3,
+          "update": 31,
+          "wall": 404,
+          "writer_pc": 46121
+        },
+        {
+          "award_count": 0,
+          "drop_size": 1,
+          "event": "RewardGenericPublished",
+          "item_kind": 0,
+          "phase": "contact",
+          "physical_bank": 59,
+          "slot": 3,
+          "update": 31,
+          "wall": 404,
+          "writer_pc": 46153
+        },
+        {
+          "award_count": 1,
+          "drop_size": 1,
+          "event": "RewardGenericCollect",
+          "item_kind": 0,
+          "phase": "expiry",
+          "physical_bank": 59,
+          "slot": 3,
+          "update": 32,
+          "wall": 405,
+          "writer_pc": 46542
+        }
+      ],
+      "exact_phase_body_DMA_epoch_verified": false
+    },
+    {
+      "profile": "star-life-sophia",
+      "kind": "star-life",
+      "identity": "sophia",
+      "numeric_mode": 1,
+      "ROM_sha256": "32694243361bb1366f6fd64c054ea2451f86b2517fc020d9c2b5d66bbf07bfa0",
+      "passed": true,
+      "ready_sha256": "7749a295093655c9f2ea7de22fbbeeecf3f290e4696c879c110f191f8df8d1f8",
+      "native_result_sha256": "bda7b58401188a10914d5e3fe05da87db1ee612da00229f621117e0e9986afb2",
+      "wall_frames": 1203,
+      "completed_Main_updates": 813,
+      "completed_DMAS": 795,
+      "case_records": null,
+      "case_names": [],
+      "selected_native_whole_frames_visually_reviewed": [
+        "03-star-expired.png",
+        "04-extra-life.png"
+      ],
+      "all_frame_or_all_pose_review": false,
+      "native_scope": "Fresh current-ROM native preparation: mature Star2 actual collection, protected Goomba contact/defeat, natural expiry/music restoration; physical1Up3 and delayed actual life increment/popup cleanup, inventory conservation.",
+      "checkpoint": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-sophia",
+      "files": [
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-sophia/launch.json",
+          "bytes": 1292,
+          "sha256": "19c9ebeb9f88f9845ec8973b830dbc3d2b6599bfdfa7714034bd5ab5e922c5ac"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-sophia/result.json",
+          "bytes": 850,
+          "sha256": "bda7b58401188a10914d5e3fe05da87db1ee612da00229f621117e0e9986afb2"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-sophia/star-life.csv.gz",
+          "bytes": 5575,
+          "sha256": "de5c15d3f7bbfae055a1bcae852b41d56c1f2c25bcd77f0ba34c434ea8425f21"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-sophia/zelda2_easy_glove-run.log.gz",
+          "bytes": 488,
+          "sha256": "5cf3fe8964debfa87078ddfd66362c432849e08c1d6eb4bcfd6c355eae6473f6"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-sophia/01-star-pickup.png",
+          "bytes": 1845,
+          "sha256": "a774388333f1a40a59f4b844ba62a68dbb39041a611c8b34ec60da619d6047d5"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-sophia/02-protected-contact.png",
+          "bytes": 1968,
+          "sha256": "3c22c8f0684c5c2af7d845c420658275a9e0b11ccc7f6c7ff4d3f0cc667b6e57"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-sophia/03-star-expired.png",
+          "bytes": 1797,
+          "sha256": "30912c21f90d21184916720f2c2ad0fd1f84a408161b08406da46f72f5ee6af9"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-sophia/04-extra-life.png",
+          "bytes": 1849,
+          "sha256": "d5ad9aab8d795a5831432bf22db739a1cd9b69eb6aabc8848c71ab959be2711a"
+        }
+      ],
+      "native_assertion_counts": {
+        "areaRestore": 1,
+        "lifeCollision": 1,
+        "lifeIncrement": 1,
+        "lifeSound": 3,
+        "starCollision": 1,
+        "starContact": 1,
+        "starMusic": 1
+      },
+      "star_granted_update": 39,
+      "star_expired_update": 758,
+      "life_granted_update": 770,
+      "initial_lives": 2,
+      "final_lives": 3,
+      "reward_credits": {},
+      "reward_provenance": {},
+      "exact_phase_body_DMA_epoch_verified": false
+    },
+    {
+      "profile": "star-life-twinbee",
+      "kind": "star-life",
+      "identity": "twinbee",
+      "numeric_mode": 1,
+      "ROM_sha256": "32694243361bb1366f6fd64c054ea2451f86b2517fc020d9c2b5d66bbf07bfa0",
+      "passed": true,
+      "ready_sha256": "49610e1dc5db492d4abee44f073aece19ef87b933f680048fd5f012eaf50537c",
+      "native_result_sha256": "ac5cd59311db040ca42672e70dfab346639254de161012a673a690fc48100739",
+      "wall_frames": 1223,
+      "completed_Main_updates": 807,
+      "completed_DMAS": 1198,
+      "case_records": null,
+      "case_names": [],
+      "selected_native_whole_frames_visually_reviewed": [
+        "03-star-expired.png",
+        "04-extra-life.png"
+      ],
+      "all_frame_or_all_pose_review": false,
+      "native_scope": "Fresh current-ROM native preparation: mature Star2 actual collection, protected Goomba contact/defeat, natural expiry/music restoration; physical1Up3 and delayed actual life increment/popup cleanup, inventory conservation.",
+      "checkpoint": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-twinbee",
+      "files": [
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-twinbee/launch.json",
+          "bytes": 1294,
+          "sha256": "3a328d702229f949bb7166a67866d46530f04b0acccc12c2afd7375e7afb3e6e"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-twinbee/result.json",
+          "bytes": 852,
+          "sha256": "ac5cd59311db040ca42672e70dfab346639254de161012a673a690fc48100739"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-twinbee/star-life.csv.gz",
+          "bytes": 6233,
+          "sha256": "f4f467fd3981ff0e9cc7d751b7200541b5f49bae16d7a83b78d3f95f4c2ce8ac"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-twinbee/zelda2_easy_glove-run.log.gz",
+          "bytes": 488,
+          "sha256": "5cf3fe8964debfa87078ddfd66362c432849e08c1d6eb4bcfd6c355eae6473f6"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-twinbee/01-star-pickup.png",
+          "bytes": 2674,
+          "sha256": "38e50c821f03163c27f4dd596a98f3afc52542a41db012902399364794867010"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-twinbee/02-protected-contact.png",
+          "bytes": 1964,
+          "sha256": "a957b0c0058fdfc5f3a340298eb771bf41d1ef2870a41dbbb29e8b548e006457"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-twinbee/03-star-expired.png",
+          "bytes": 1963,
+          "sha256": "68b989690e3e49b64ed4811cd41c768b360c5211738f55e58a92f345110d1f6c"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-twinbee/04-extra-life.png",
+          "bytes": 2011,
+          "sha256": "42ab46339b2766d3e408cfd5bf6a4d9784873d6bb1de40459df46c49766583d7"
+        }
+      ],
+      "native_assertion_counts": {
+        "areaRestore": 1,
+        "lifeCollision": 1,
+        "lifeIncrement": 1,
+        "lifeSound": 3,
+        "starCollision": 1,
+        "starContact": 1,
+        "starMusic": 1
+      },
+      "star_granted_update": 30,
+      "star_expired_update": 758,
+      "life_granted_update": 764,
+      "initial_lives": 2,
+      "final_lives": 3,
+      "reward_credits": {},
+      "reward_provenance": {},
+      "exact_phase_body_DMA_epoch_verified": false
+    },
+    {
+      "profile": "star-life-zelda2",
+      "kind": "star-life",
+      "identity": "zelda2",
+      "numeric_mode": 1,
+      "ROM_sha256": "32694243361bb1366f6fd64c054ea2451f86b2517fc020d9c2b5d66bbf07bfa0",
+      "passed": true,
+      "ready_sha256": "a78601c99b1aa38ea3af9242ed9f4069d407d44df769b83f75da7ea297fa51a3",
+      "native_result_sha256": "83a9957c929c3368dbdc95fee7c220aed4a6c7e5aac216f7cca77d73ccdce747",
+      "wall_frames": 1202,
+      "completed_Main_updates": 807,
+      "completed_DMAS": 1177,
+      "case_records": null,
+      "case_names": [],
+      "selected_native_whole_frames_visually_reviewed": [
+        "03-star-expired.png",
+        "04-extra-life.png"
+      ],
+      "all_frame_or_all_pose_review": false,
+      "native_scope": "Fresh current-ROM native preparation: mature Star2 actual collection, protected Goomba contact/defeat, natural expiry/music restoration; physical1Up3 and delayed actual life increment/popup cleanup, inventory conservation.",
+      "checkpoint": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-zelda2",
+      "files": [
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-zelda2/launch.json",
+          "bytes": 1292,
+          "sha256": "b267b1f57c53c26fad6d4b5aa6094f0bd3f97c3a3e386e12134e424a540cdf1c"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-zelda2/result.json",
+          "bytes": 3968,
+          "sha256": "83a9957c929c3368dbdc95fee7c220aed4a6c7e5aac216f7cca77d73ccdce747"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-zelda2/star-life.csv.gz",
+          "bytes": 6157,
+          "sha256": "17a1daa1b29c550fe5b422e68315a8efe956122c72b31928deb3fc5909e43dd1"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-zelda2/zelda2_easy_glove-run.log.gz",
+          "bytes": 485,
+          "sha256": "08285249645bf46cbcf95b96265719a39a1521a47c2186a8c6e2e72b6c02cb30"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-zelda2/02-protected-contact.png",
+          "bytes": 1812,
+          "sha256": "44064638e6b044d6bd399152fe76c37e861d8f0fcc36c9aabad3823269a20aa6"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-zelda2/03-star-expired.png",
+          "bytes": 1854,
+          "sha256": "b1fddfaa32bd92d4dda07151eac7acde0b2cc1a343c71bd6af126977aa1b6fce"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-zelda2/04-extra-life.png",
+          "bytes": 1894,
+          "sha256": "c1455877bf46da138e0d9332e608f1ac5f0819c538eb028102fcf9b7bddb308c"
+        }
+      ],
+      "native_assertion_counts": {
+        "areaRestore": 1,
+        "lifeCollision": 1,
+        "lifeIncrement": 1,
+        "lifeSound": 2,
+        "starCollision": 1,
+        "starContact": 1,
+        "starMusic": 1
+      },
+      "star_granted_update": 30,
+      "star_expired_update": 758,
+      "life_granted_update": 764,
+      "initial_lives": 2,
+      "final_lives": 3,
+      "reward_credits": [
+        {
+          "address": 31920,
+          "award_amount": 2,
+          "award_count": 1,
+          "field": "Z2ExpPendingLo",
+          "index": 0,
+          "item_kind": "EXP2",
+          "new": 2,
+          "observed_write_callback_pc": 41575,
+          "old": 0,
+          "phase": "contact",
+          "physical_bank": 69,
+          "rule": "RewardZ2QueueLo",
+          "update": 31,
+          "wall": 425,
+          "writer_pc": 41572
+        },
+        {
+          "address": 31921,
+          "award_amount": 0,
+          "award_count": 0,
+          "field": "Z2ExpPendingHi",
+          "index": 0,
+          "item_kind": "EXP2",
+          "new": 0,
+          "observed_write_callback_pc": 41582,
+          "old": 0,
+          "phase": "contact",
+          "physical_bank": 69,
+          "rule": "RewardZ2QueueHi",
+          "update": 31,
+          "wall": 425,
+          "writer_pc": 41579
+        },
+        {
+          "address": 31916,
+          "award_amount": 1,
+          "award_count": 0,
+          "field": "Z2DropCounters",
+          "index": 0,
+          "item_kind": "weak-defeat-counter",
+          "new": 1,
+          "observed_write_callback_pc": 41512,
+          "old": 0,
+          "phase": "contact",
+          "physical_bank": 69,
+          "rule": "RewardZ2Counter",
+          "update": 31,
+          "wall": 425,
+          "writer_pc": 41509
+        },
+        {
+          "address": 31920,
+          "award_amount": 1,
+          "award_count": 0,
+          "field": "Z2ExpPendingLo",
+          "index": 0,
+          "item_kind": "EXP-transfer",
+          "new": 1,
+          "observed_write_callback_pc": 41628,
+          "old": 2,
+          "phase": "expiry",
+          "physical_bank": 69,
+          "rule": "RewardZ2TickPendingLo",
+          "update": 32,
+          "wall": 426,
+          "writer_pc": 41625
+        },
+        {
+          "address": 31921,
+          "award_amount": 1,
+          "award_count": 0,
+          "field": "Z2ExpPendingHi",
+          "index": 0,
+          "item_kind": "EXP-transfer",
+          "new": 0,
+          "observed_write_callback_pc": 41636,
+          "old": 0,
+          "phase": "expiry",
+          "physical_bank": 69,
+          "rule": "RewardZ2TickPendingHi",
+          "update": 32,
+          "wall": 426,
+          "writer_pc": 41633
+        },
+        {
+          "address": 31908,
+          "award_amount": 1,
+          "award_count": 0,
+          "field": "Z2ExpLo",
+          "index": 0,
+          "item_kind": "EXP-transfer",
+          "new": 1,
+          "observed_write_callback_pc": 41645,
+          "old": 0,
+          "phase": "expiry",
+          "physical_bank": 69,
+          "rule": "RewardZ2TickExpLo",
+          "update": 32,
+          "wall": 426,
+          "writer_pc": 41642
+        },
+        {
+          "address": 31909,
+          "award_amount": 1,
+          "award_count": 0,
+          "field": "Z2ExpHi",
+          "index": 0,
+          "item_kind": "EXP-transfer",
+          "new": 0,
+          "observed_write_callback_pc": 41653,
+          "old": 0,
+          "phase": "expiry",
+          "physical_bank": 69,
+          "rule": "RewardZ2TickExpHi",
+          "update": 32,
+          "wall": 426,
+          "writer_pc": 41650
+        },
+        {
+          "address": 31920,
+          "award_amount": 1,
+          "award_count": 0,
+          "field": "Z2ExpPendingLo",
+          "index": 0,
+          "item_kind": "EXP-transfer",
+          "new": 0,
+          "observed_write_callback_pc": 41628,
+          "old": 1,
+          "phase": "expiry",
+          "physical_bank": 69,
+          "rule": "RewardZ2TickPendingLo",
+          "update": 33,
+          "wall": 427,
+          "writer_pc": 41625
+        },
+        {
+          "address": 31921,
+          "award_amount": 1,
+          "award_count": 0,
+          "field": "Z2ExpPendingHi",
+          "index": 0,
+          "item_kind": "EXP-transfer",
+          "new": 0,
+          "observed_write_callback_pc": 41636,
+          "old": 0,
+          "phase": "expiry",
+          "physical_bank": 69,
+          "rule": "RewardZ2TickPendingHi",
+          "update": 33,
+          "wall": 427,
+          "writer_pc": 41633
+        },
+        {
+          "address": 31908,
+          "award_amount": 1,
+          "award_count": 0,
+          "field": "Z2ExpLo",
+          "index": 0,
+          "item_kind": "EXP-transfer",
+          "new": 2,
+          "observed_write_callback_pc": 41645,
+          "old": 1,
+          "phase": "expiry",
+          "physical_bank": 69,
+          "rule": "RewardZ2TickExpLo",
+          "update": 33,
+          "wall": 427,
+          "writer_pc": 41642
+        },
+        {
+          "address": 31909,
+          "award_amount": 1,
+          "award_count": 0,
+          "field": "Z2ExpHi",
+          "index": 0,
+          "item_kind": "EXP-transfer",
+          "new": 0,
+          "observed_write_callback_pc": 41653,
+          "old": 0,
+          "phase": "expiry",
+          "physical_bank": 69,
+          "rule": "RewardZ2TickExpHi",
+          "update": 33,
+          "wall": 427,
+          "writer_pc": 41650
+        }
+      ],
+      "reward_provenance": [
+        {
+          "award_count": 0,
+          "enemy_slot": 0,
+          "event": "RewardZ2Accepted",
+          "item_kind": "Goomba-EXP2/weak-counter",
+          "new": 128,
+          "old": 0,
+          "phase": "contact",
+          "physical_bank": 69,
+          "update": 31,
+          "wall": 425,
+          "writer_pc": 47012
+        }
+      ],
+      "exact_phase_body_DMA_epoch_verified": false
+    },
+    {
+      "profile": "star-life-alucard",
+      "kind": "star-life",
+      "identity": "alucard",
+      "numeric_mode": 1,
+      "ROM_sha256": "32694243361bb1366f6fd64c054ea2451f86b2517fc020d9c2b5d66bbf07bfa0",
+      "passed": true,
+      "ready_sha256": "06865b573d44b1350763f94801a36644368430f5c0facef5785e497acce9dead",
+      "native_result_sha256": "d1f8caa60e8dcd18b9f27ba096a0d2a790128ca1631e5d463871bddb12945bda",
+      "wall_frames": 1174,
+      "completed_Main_updates": 758,
+      "completed_DMAS": 1150,
+      "case_records": null,
+      "case_names": [],
+      "selected_native_whole_frames_visually_reviewed": [
+        "01-star-pickup.png",
+        "02-protected-contact.png",
+        "03-star-expired.png"
+      ],
+      "all_frame_or_all_pose_review": false,
+      "native_scope": "Fresh current-ROM native preparation: mature Star2 actual collection, protected Goomba contact/defeat, natural expiry/music restoration; Star only: prior native life evidence is separate and not retagged.",
+      "checkpoint": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-alucard",
+      "files": [
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-alucard/launch.json",
+          "bytes": 1276,
+          "sha256": "95879b017e8ee8fa99785d171c83edaa76af0260760eec65295b8d711e7ec7e2"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-alucard/result.json",
+          "bytes": 1509,
+          "sha256": "d1f8caa60e8dcd18b9f27ba096a0d2a790128ca1631e5d463871bddb12945bda"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-alucard/star-life.csv.gz",
+          "bytes": 5691,
+          "sha256": "d85fb40c01d602d95ea53c51e753d134e01a277e37ae03728de4e4f02ee198da"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-alucard/zelda2_easy_glove-run.log.gz",
+          "bytes": 515,
+          "sha256": "23307046d52a1b248606feac3f5a5ad6f68d93e5a8dda003fdeca41d15b606a7"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-alucard/01-star-pickup.png",
+          "bytes": 2545,
+          "sha256": "c40d1df0d5b73d00bc2cc8e82ab40631e07735bd3fd0a2ef6368fcacf40832cb"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-alucard/02-protected-contact.png",
+          "bytes": 2006,
+          "sha256": "fabd31dc837826d55196de6a31b2f2df12d85222da146997fedf7792b995bdeb"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-alucard/03-star-expired.png",
+          "bytes": 1991,
+          "sha256": "511050c58c08b23607f4e4569911f0638c09bd15e8bf9731d077727552058702"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-alucard/prepared-not-run.json",
+          "bytes": 15047,
+          "sha256": "06865b573d44b1350763f94801a36644368430f5c0facef5785e497acce9dead"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-alucard/command.json",
+          "bytes": 828,
+          "sha256": "9e1b3be5dd1b711870a02ff206e05269c5745c74a11513608a4854e8c1ecf880"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-alucard/config.json",
+          "bytes": 23695,
+          "sha256": "793cf7fda7daeae5194f922c5f44dd2c2b728f16c77142f986082478f55a4c75"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-alucard/run.lua",
+          "bytes": 18082,
+          "sha256": "71ba6cff152d4384a12c397c5140a3da646e2f042f42a01e12fcbe8072135943"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-alucard/source-controls.json",
+          "bytes": 3622,
+          "sha256": "eb34f37e458bb05e3255330982d73529698479b98c933235ecd4426fecd37329"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-alucard/source-proof/handoff.json",
+          "bytes": 4123,
+          "sha256": "544a6eba83974ff836ce0001a9553f2445c9e0b16ad5e3a6bb60e308d7335d39"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-alucard/source-proof/root-native-progress.json",
+          "bytes": 1435,
+          "sha256": "c74014852086b3631e3f2e84ddea2f3e836594e942318e681045c2984e1da0f9"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-alucard/original-negative/launch.json",
+          "bytes": 1294,
+          "sha256": "6ffb733f00ff053f97ee74adb06d80c9ccb6e22868ebce7f8d2a853bf5ce880f"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-alucard/original-negative/prepared-not-run.json",
+          "bytes": 11572,
+          "sha256": "dff230291ca855c1d0a604f938d77cb25412350b6311384f6587c40ccb1b0a64"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-alucard/original-negative/star-life.csv.gz",
+          "bytes": 205,
+          "sha256": "293c28731c9b526714ab9cfb2043e99168818afca7ef5221f1f072e25e8a8799"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-alucard/original-negative/zelda2_easy_glove-run.log.gz",
+          "bytes": 625,
+          "sha256": "0961130fa3e8f108a4f5169d421597613600f03e708d2cf43ea0ca87e0eb923d"
+        }
+      ],
+      "native_assertion_counts": {
+        "areaRestore": 1,
+        "lifeCollision": 0,
+        "lifeIncrement": 0,
+        "lifeSound": 0,
+        "starCollision": 1,
+        "starContact": 1,
+        "starMusic": 1
+      },
+      "star_granted_update": 30,
+      "star_expired_update": 758,
+      "initial_lives": 2,
+      "final_lives": 2,
+      "reward_credits": [
+        {
+          "address": 24229,
+          "award_amount": 1,
+          "award_count": 1,
+          "field": "Cv3Hearts",
+          "index": 2,
+          "item_kind": 1,
+          "new": 11,
+          "observed_write_callback_pc": 43821,
+          "old": 10,
+          "phase": "expiry",
+          "physical_bank": 84,
+          "rule": "RewardCvCredit",
+          "update": 32,
+          "wall": 447,
+          "writer_pc": 43818
+        }
+      ],
+      "reward_provenance": [
+        {
+          "award_count": 0,
+          "event": "RewardCvSpawn",
+          "item_kind": 1,
+          "new": 1,
+          "old": 0,
+          "phase": "contact",
+          "physical_bank": 84,
+          "slot": 1,
+          "update": 31,
+          "wall": 446,
+          "writer_pc": 43541
+        },
+        {
+          "award_count": 1,
+          "event": "physical-CV3-collection",
+          "item_kind": 1,
+          "phase": "expiry",
+          "physical_bank": 84,
+          "slot": 1,
+          "update": 32,
+          "wall": 447,
+          "writer_pc": 43818
+        },
+        {
+          "award_count": 0,
+          "event": "RewardCvKill",
+          "new": 0,
+          "old": 1,
+          "phase": "expiry",
+          "physical_bank": 84,
+          "slot": 1,
+          "update": 32,
+          "wall": 447,
+          "writer_pc": 43828
+        }
+      ],
+      "replaces_old_preparation": {
+        "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current326-shared-powerups-v1\\star-life-alucard\\prepared-not-run.json",
+        "bytes": 11572,
+        "sha256": "dff230291ca855c1d0a604f938d77cb25412350b6311384f6587c40ccb1b0a64"
+      },
+      "actual_successor_fixture": "current326-cv3-star-rewards-v2/alucard",
+      "observer_only_correction": "Three actual CV3 source-equivalent spawn/physical-collection/committed-heart-credit/erase rules plus three compiled read aliases. Original resources, inputs, scene restrictions, caps and complete hardware guard remain intact.",
+      "exact_phase_body_DMA_epoch_verified": false
+    },
+    {
+      "profile": "star-life-grant",
+      "kind": "star-life",
+      "identity": "grant",
+      "numeric_mode": 1,
+      "ROM_sha256": "32694243361bb1366f6fd64c054ea2451f86b2517fc020d9c2b5d66bbf07bfa0",
+      "passed": true,
+      "ready_sha256": "e229d066e974f6292cb2710f23f9359a6ec04198bdc8918e8add125b9dd60549",
+      "native_result_sha256": "8cb2ff32c2c8f41a4aa684928cbc2c0849e34e4d1f7a9bae005f449c43cb6de5",
+      "wall_frames": 1132,
+      "completed_Main_updates": 758,
+      "completed_DMAS": 1108,
+      "case_records": null,
+      "case_names": [],
+      "selected_native_whole_frames_visually_reviewed": [
+        "01-star-pickup.png",
+        "02-protected-contact.png",
+        "03-star-expired.png"
+      ],
+      "all_frame_or_all_pose_review": false,
+      "native_scope": "Fresh current-ROM native preparation: mature Star2 actual collection, protected Goomba contact/defeat, natural expiry/music restoration; Star only: prior native life evidence is separate and not retagged.",
+      "checkpoint": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-grant",
+      "files": [
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-grant/launch.json",
+          "bytes": 1272,
+          "sha256": "777b3958cf4b889b293570140fdfe287c08d0197a5674186bf36fdf0c088fcab"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-grant/result.json",
+          "bytes": 1507,
+          "sha256": "8cb2ff32c2c8f41a4aa684928cbc2c0849e34e4d1f7a9bae005f449c43cb6de5"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-grant/star-life.csv.gz",
+          "bytes": 5645,
+          "sha256": "fd5bdc6975aff50c2b7c37bdd5f3414cb7d49e5d932efe1700a17fadb925738a"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-grant/zelda2_easy_glove-run.log.gz",
+          "bytes": 515,
+          "sha256": "23307046d52a1b248606feac3f5a5ad6f68d93e5a8dda003fdeca41d15b606a7"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-grant/01-star-pickup.png",
+          "bytes": 2504,
+          "sha256": "a3d182d4f6103821a9d9c5204a732a83d6a1d1cdcb66226afd016e43cb0b07b6"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-grant/02-protected-contact.png",
+          "bytes": 1927,
+          "sha256": "08a040be882924d6854eb2b1694c3920fa8740c3940e3cb2b8171023c8f46769"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-grant/03-star-expired.png",
+          "bytes": 1905,
+          "sha256": "b88a77a2284cf6907e0ffa7ee70b1a37a55f20075d10b664a8bcca290cc9343b"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-grant/prepared-not-run.json",
+          "bytes": 15280,
+          "sha256": "e229d066e974f6292cb2710f23f9359a6ec04198bdc8918e8add125b9dd60549"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-grant/command.json",
+          "bytes": 824,
+          "sha256": "03950ca72bf85ddf48217969310e17b493ec83c660389fbc3049524ba39304ea"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-grant/config.json",
+          "bytes": 23693,
+          "sha256": "e8c7e5b1d9bed943e9cb265f3eceb0f5415c8f6e8ec71f46ddac254842b099e8"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-grant/run.lua",
+          "bytes": 18080,
+          "sha256": "f222ad7665091ee1ff20573b9e47a67fda93a05b3809e6657a779157fbb37a43"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-grant/source-controls.json",
+          "bytes": 3620,
+          "sha256": "c028361717075397c0c2833f0a8a5ce28ea4fda5d9a4df5f9134f748a5dd3260"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-grant/source-proof/handoff.json",
+          "bytes": 4123,
+          "sha256": "544a6eba83974ff836ce0001a9553f2445c9e0b16ad5e3a6bb60e308d7335d39"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-grant/source-proof/root-native-progress.json",
+          "bytes": 1435,
+          "sha256": "c74014852086b3631e3f2e84ddea2f3e836594e942318e681045c2984e1da0f9"
+        }
+      ],
+      "native_assertion_counts": {
+        "areaRestore": 1,
+        "lifeCollision": 0,
+        "lifeIncrement": 0,
+        "lifeSound": 0,
+        "starCollision": 1,
+        "starContact": 1,
+        "starMusic": 1
+      },
+      "star_granted_update": 30,
+      "star_expired_update": 758,
+      "initial_lives": 2,
+      "final_lives": 2,
+      "reward_credits": [
+        {
+          "address": 24227,
+          "award_amount": 1,
+          "award_count": 1,
+          "field": "Cv3Hearts",
+          "index": 0,
+          "item_kind": 1,
+          "new": 11,
+          "observed_write_callback_pc": 43821,
+          "old": 10,
+          "phase": "expiry",
+          "physical_bank": 84,
+          "rule": "RewardCvCredit",
+          "update": 32,
+          "wall": 405,
+          "writer_pc": 43818
+        }
+      ],
+      "reward_provenance": [
+        {
+          "award_count": 0,
+          "event": "RewardCvSpawn",
+          "item_kind": 1,
+          "new": 1,
+          "old": 0,
+          "phase": "contact",
+          "physical_bank": 84,
+          "slot": 1,
+          "update": 31,
+          "wall": 404,
+          "writer_pc": 43541
+        },
+        {
+          "award_count": 1,
+          "event": "physical-CV3-collection",
+          "item_kind": 1,
+          "phase": "expiry",
+          "physical_bank": 84,
+          "slot": 1,
+          "update": 32,
+          "wall": 405,
+          "writer_pc": 43818
+        },
+        {
+          "award_count": 0,
+          "event": "RewardCvKill",
+          "new": 0,
+          "old": 1,
+          "phase": "expiry",
+          "physical_bank": 84,
+          "slot": 1,
+          "update": 32,
+          "wall": 405,
+          "writer_pc": 43828
+        }
+      ],
+      "replaces_old_preparation": {
+        "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current326-shared-powerups-v1\\star-life-grant\\prepared-not-run.json",
+        "bytes": 11548,
+        "sha256": "ea4111a81d882ff2e4ee30463beef1391365d45c4002372e92ee7d8a10c76dfc"
+      },
+      "actual_successor_fixture": "current326-cv3-star-rewards-v2/grant",
+      "observer_only_correction": "Three actual CV3 source-equivalent spawn/physical-collection/committed-heart-credit/erase rules plus three compiled read aliases. Original resources, inputs, scene restrictions, caps and complete hardware guard remain intact.",
+      "exact_phase_body_DMA_epoch_verified": false
+    },
+    {
+      "profile": "star-life-sypha",
+      "kind": "star-life",
+      "identity": "sypha",
+      "numeric_mode": 1,
+      "ROM_sha256": "32694243361bb1366f6fd64c054ea2451f86b2517fc020d9c2b5d66bbf07bfa0",
+      "passed": true,
+      "ready_sha256": "dca231ba4662d90e0c9cabcb56934952e78cf20b2ed6692c640f52d26c24d9aa",
+      "native_result_sha256": "cffe5996c392a542b8d50cf4bd6f6fea0c44fff36e9bbed0ea3346be7fa1d6da",
+      "wall_frames": 1153,
+      "completed_Main_updates": 758,
+      "completed_DMAS": 1129,
+      "case_records": null,
+      "case_names": [],
+      "selected_native_whole_frames_visually_reviewed": [
+        "01-star-pickup.png",
+        "02-protected-contact.png",
+        "03-star-expired.png"
+      ],
+      "all_frame_or_all_pose_review": false,
+      "native_scope": "Fresh current-ROM native preparation: mature Star2 actual collection, protected Goomba contact/defeat, natural expiry/music restoration; Star only: prior native life evidence is separate and not retagged.",
+      "checkpoint": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-sypha",
+      "files": [
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-sypha/launch.json",
+          "bytes": 1272,
+          "sha256": "aa21afa9602a677f5ae1137d0268e0806c7a23148feafced736a73f258947dca"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-sypha/result.json",
+          "bytes": 806,
+          "sha256": "cffe5996c392a542b8d50cf4bd6f6fea0c44fff36e9bbed0ea3346be7fa1d6da"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-sypha/star-life.csv.gz",
+          "bytes": 5647,
+          "sha256": "658083634bfb8dbc8f60826ccdc9ffea5d79b4ceeb86ee7ec2aa94c08b54a333"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-sypha/zelda2_easy_glove-run.log.gz",
+          "bytes": 515,
+          "sha256": "23307046d52a1b248606feac3f5a5ad6f68d93e5a8dda003fdeca41d15b606a7"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-sypha/01-star-pickup.png",
+          "bytes": 2515,
+          "sha256": "02d9d9894327d3fff59b459588e03ebd61909bbd2e01571dd3e11618bca97ab4"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-sypha/02-protected-contact.png",
+          "bytes": 1917,
+          "sha256": "9e34222b67383a5d85bf85afb6137233706757d5333feb41b4f94093c1875caa"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-sypha/03-star-expired.png",
+          "bytes": 1906,
+          "sha256": "f98630da17b398b6b3af62119159fdfab2b2e5aaa11ee7e08697a6ee0fc0f142"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-sypha/prepared-not-run.json",
+          "bytes": 15280,
+          "sha256": "dca231ba4662d90e0c9cabcb56934952e78cf20b2ed6692c640f52d26c24d9aa"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-sypha/command.json",
+          "bytes": 824,
+          "sha256": "254789c8b5b73baafe3d3886c746c8c4216f3a3b11d67977a3f19645f637773d"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-sypha/config.json",
+          "bytes": 23693,
+          "sha256": "eaf1b166d5bfd08d38ed392f8df15ac8bc91e2354418f6731d89449966e148c8"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-sypha/run.lua",
+          "bytes": 18080,
+          "sha256": "fed13fad60bc849eee897845c20381bfdf337d00e5c610651e27007d7a02df57"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-sypha/source-controls.json",
+          "bytes": 3620,
+          "sha256": "40451a7498062436bf5be3d46237f68d60de1d819f28e244ae918e0a5adcdb1a"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-sypha/source-proof/handoff.json",
+          "bytes": 4123,
+          "sha256": "544a6eba83974ff836ce0001a9553f2445c9e0b16ad5e3a6bb60e308d7335d39"
+        },
+        {
+          "path": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/native/star-life-sypha/source-proof/root-native-progress.json",
+          "bytes": 1435,
+          "sha256": "c74014852086b3631e3f2e84ddea2f3e836594e942318e681045c2984e1da0f9"
+        }
+      ],
+      "native_assertion_counts": {
+        "areaRestore": 1,
+        "lifeCollision": 0,
+        "lifeIncrement": 0,
+        "lifeSound": 0,
+        "starCollision": 1,
+        "starContact": 1,
+        "starMusic": 1
+      },
+      "star_granted_update": 30,
+      "star_expired_update": 758,
+      "initial_lives": 2,
+      "final_lives": 2,
+      "reward_credits": {},
+      "reward_provenance": {},
+      "replaces_old_preparation": {
+        "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current326-shared-powerups-v1\\star-life-sypha\\prepared-not-run.json",
+        "bytes": 11548,
+        "sha256": "2b9b74623257fb84bb8391f068bd7340ca2b817c1e714bf81ecfb0118629ab15"
+      },
+      "actual_successor_fixture": "current326-cv3-star-rewards-v2/sypha",
+      "observer_only_correction": "Three actual CV3 source-equivalent spawn/physical-collection/committed-heart-credit/erase rules plus three compiled read aliases. Original resources, inputs, scene restrictions, caps and complete hardware guard remain intact.",
+      "exact_phase_body_DMA_epoch_verified": false
     }
   ],
   "preparation": [
@@ -1897,29 +3829,11 @@
     "Historical inventory witnesses retain their actual ROM identities.",
     "Selected native images are reviewed only when explicitly listed. No all-animation, waveform, or general FPS claim."
   ],
-  "native_pass_count": 21,
-  "remaining_prepared_profiles": [
-    "star-life-alucard",
-    "star-life-grant",
-    "star-life-michelangelo",
-    "star-life-mike",
-    "star-life-octopus",
-    "star-life-pentarou",
-    "star-life-pit",
-    "star-life-proto",
-    "star-life-raphael",
-    "star-life-rygar",
-    "star-life-ryu",
-    "star-life-samus",
-    "star-life-scrooge",
-    "star-life-simon",
-    "star-life-sophia",
-    "star-life-sypha",
-    "star-life-twinbee",
-    "star-life-zelda2"
-  ],
+  "native_pass_count": 39,
+  "remaining_prepared_profiles": [],
   "Star_image_timing_followup": {
     "report": "docs/qa/checkpoints/2026-10-28/shared-powerups-326942/star-capture-review.json",
     "scope": "Images are actual native snapshots, but phase filenames are request labels rather than display-completion witnesses. Bass firsttwo images are byte-identical and show the oldbody atX38..58; there is no body-disappearance proof. Bill has two phase requests in one physical frame, so01 was overwritten by02. Exact staged-contact body/DMA epochs remain visually unqualified."
-  }
+  },
+  "all39_logical_profiles_native_passed": true
 }

@@ -1,0 +1,7229 @@
+{
+  "passed": true,
+  "native_run": false,
+  "current_ROM_sha256": "32694243361bb1366f6fd64c054ea2451f86b2517fc020d9c2b5d66bbf07bfa0",
+  "baseline_actual_ROM_sha256": "9ea11eab2fc5c373a3795b013f6ed9e0d5e9781891b2ae3bf40ad2556c27b85e",
+  "whole_relevant_banks_equal": {
+    "0": {
+      "all8192_bytes_equal": true,
+      "sha256": "e9029086694386785f492abeb4b2a2c32f2a6ca41b2085cf6546f258387190c5"
+    },
+    "2": {
+      "all8192_bytes_equal": true,
+      "sha256": "122fa24d3cf7c78ffb31f021b3e992165f9a232c41a09e2f87ab2b210034df0c"
+    },
+    "126": {
+      "all8192_bytes_equal": true,
+      "sha256": "22e487f0f5285dd346a216adf94c5166e4367738b2d42029430b255c3773bce2"
+    }
+  },
+  "new_functions": [
+    {
+      "name": "EnemyGraphicsEngine",
+      "symbol": "EnemyGraphicsEngine",
+      "pc": 47839,
+      "banks": [
+        0
+      ],
+      "bytes": [
+        32,
+        252,
+        186
+      ]
+    },
+    {
+      "name": "EnemyMovementSubs",
+      "symbol": "EnemyMovementSubs",
+      "pc": 42170,
+      "banks": [
+        0
+      ],
+      "bytes": [
+        189,
+        12,
+        109
+      ]
+    },
+    {
+      "name": "ProcLoopCommand",
+      "symbol": "ProcLoopCommand",
+      "pc": 42470,
+      "banks": [
+        2
+      ],
+      "bytes": [
+        173,
+        72,
+        7
+      ]
+    }
+  ],
+  "old21_entry_and_ISR_metadata_exact": true,
+  "fresh_current_source_closure": {
+    "algorithm": "All17 compiled entries; backwards decoded instruction flow, direct branches/JMPs, stack-neutral paths, and explicit JumpEngine typed-word dispatch. JSR callees are separate owners; only their post-return continuation is a local edge.",
+    "decoded_source_instructions": 114351,
+    "verified_mirror_instructions": 1631,
+    "jump_engine_dispatches": [
+      {
+        "bank": 2,
+        "pc": 41153,
+        "arms": [
+          [
+            2,
+            41190
+          ],
+          [
+            2,
+            41172
+          ],
+          [
+            2,
+            41172
+          ],
+          [
+            2,
+            41479
+          ],
+          [
+            2,
+            41190
+          ],
+          [
+            2,
+            41172
+          ],
+          [
+            2,
+            41172
+          ],
+          [
+            2,
+            41479
+          ]
+        ]
+      },
+      {
+        "bank": 2,
+        "pc": 42096,
+        "arms": [
+          [
+            2,
+            48567
+          ],
+          [
+            2,
+            47641
+          ],
+          [
+            2,
+            47829
+          ],
+          [
+            2,
+            47845
+          ],
+          [
+            2,
+            48207
+          ],
+          [
+            2,
+            47863
+          ],
+          [
+            2,
+            47872
+          ],
+          [
+            2,
+            48567
+          ],
+          [
+            2,
+            48299
+          ],
+          [
+            2,
+            48699
+          ],
+          [
+            2,
+            47944
+          ],
+          [
+            2,
+            47947
+          ],
+          [
+            2,
+            47950
+          ],
+          [
+            2,
+            48278
+          ],
+          [
+            2,
+            48720
+          ],
+          [
+            2,
+            48723
+          ],
+          [
+            2,
+            48737
+          ],
+          [
+            2,
+            48744
+          ],
+          [
+            2,
+            48026
+          ],
+          [
+            2,
+            48785
+          ],
+          [
+            2,
+            48509
+          ],
+          [
+            2,
+            48216
+          ],
+          [
+            2,
+            47901
+          ],
+          [
+            2,
+            47901
+          ],
+          [
+            2,
+            47901
+          ],
+          [
+            2,
+            47888
+          ],
+          [
+            2,
+            47912
+          ],
+          [
+            2,
+            47912
+          ],
+          [
+            2,
+            47912
+          ],
+          [
+            2,
+            47907
+          ],
+          [
+            2,
+            47912
+          ],
+          [
+            2,
+            48452
+          ],
+          [
+            2,
+            48191
+          ],
+          [
+            2,
+            48406
+          ],
+          [
+            2,
+            48468
+          ],
+          [
+            2,
+            48216
+          ],
+          [
+            2,
+            48175
+          ],
+          [
+            2,
+            48180
+          ],
+          [
+            2,
+            48167
+          ],
+          [
+            2,
+            42238
+          ],
+          [
+            2,
+            42280
+          ],
+          [
+            2,
+            42280
+          ],
+          [
+            2,
+            42292
+          ],
+          [
+            2,
+            42292
+          ],
+          [
+            2,
+            42292
+          ],
+          [
+            2,
+            42065
+          ],
+          [
+            2,
+            42193
+          ]
+        ]
+      },
+      {
+        "bank": 2,
+        "pc": 47644,
+        "arms": [
+          [
+            2,
+            47653
+          ],
+          [
+            2,
+            47697
+          ],
+          [
+            2,
+            47760
+          ]
+        ]
+      },
+      {
+        "bank": 126,
+        "pc": 36315,
+        "arms": [
+          [
+            126,
+            36336
+          ],
+          [
+            126,
+            36550
+          ],
+          [
+            126,
+            36550
+          ],
+          [
+            126,
+            36342
+          ],
+          [
+            126,
+            36336
+          ],
+          [
+            126,
+            36355
+          ],
+          [
+            126,
+            36339
+          ],
+          [
+            126,
+            36550
+          ],
+          [
+            126,
+            36342
+          ]
+        ]
+      },
+      {
+        "bank": 126,
+        "pc": 34619,
+        "arms": [
+          [
+            126,
+            34770
+          ],
+          [
+            126,
+            34630
+          ],
+          [
+            126,
+            34664
+          ],
+          [
+            126,
+            33690
+          ]
+        ]
+      },
+      {
+        "bank": 126,
+        "pc": 34715,
+        "arms": [
+          [
+            126,
+            34726
+          ],
+          [
+            126,
+            34616
+          ],
+          [
+            126,
+            35050
+          ],
+          [
+            126,
+            34940
+          ]
+        ]
+      },
+      {
+        "bank": 126,
+        "pc": 34729,
+        "arms": [
+          [
+            126,
+            34740
+          ],
+          [
+            126,
+            34630
+          ],
+          [
+            126,
+            34648
+          ],
+          [
+            126,
+            35008
+          ]
+        ]
+      },
+      {
+        "bank": 126,
+        "pc": 34943,
+        "arms": [
+          [
+            126,
+            34952
+          ],
+          [
+            126,
+            34630
+          ],
+          [
+            126,
+            34972
+          ]
+        ]
+      },
+      {
+        "bank": 126,
+        "pc": 35071,
+        "arms": [
+          [
+            126,
+            35084
+          ],
+          [
+            126,
+            35102
+          ],
+          [
+            126,
+            35118
+          ],
+          [
+            126,
+            35136
+          ],
+          [
+            126,
+            35154
+          ]
+        ]
+      },
+      {
+        "bank": 1,
+        "pc": 40995,
+        "arms": [
+          [
+            1,
+            41642
+          ],
+          [
+            1,
+            41443
+          ],
+          [
+            1,
+            41506
+          ],
+          [
+            1,
+            41473
+          ],
+          [
+            1,
+            42296
+          ],
+          [
+            1,
+            42326
+          ],
+          [
+            1,
+            41566
+          ],
+          [
+            1,
+            41024
+          ],
+          [
+            1,
+            41155
+          ],
+          [
+            1,
+            42005
+          ],
+          [
+            1,
+            42066
+          ],
+          [
+            1,
+            42110
+          ],
+          [
+            1,
+            42234
+          ]
+        ]
+      },
+      {
+        "bank": 1,
+        "pc": 42747,
+        "arms": [
+          [
+            1,
+            42759
+          ],
+          [
+            1,
+            42789
+          ],
+          [
+            1,
+            42780
+          ],
+          [
+            1,
+            42883
+          ]
+        ]
+      },
+      {
+        "bank": 0,
+        "pc": 41676,
+        "arms": [
+          [
+            0,
+            42072
+          ],
+          [
+            0,
+            42688
+          ],
+          [
+            0,
+            45677
+          ],
+          [
+            0,
+            42243
+          ],
+          [
+            0,
+            42243
+          ],
+          [
+            0,
+            42243
+          ],
+          [
+            0,
+            42243
+          ],
+          [
+            0,
+            45087
+          ],
+          [
+            0,
+            45087
+          ],
+          [
+            0,
+            45087
+          ],
+          [
+            0,
+            45087
+          ],
+          [
+            0,
+            45087
+          ],
+          [
+            0,
+            45087
+          ],
+          [
+            0,
+            45087
+          ],
+          [
+            0,
+            45087
+          ],
+          [
+            0,
+            42243
+          ],
+          [
+            0,
+            46165
+          ],
+          [
+            0,
+            46165
+          ],
+          [
+            0,
+            46165
+          ],
+          [
+            0,
+            46165
+          ],
+          [
+            0,
+            46165
+          ],
+          [
+            0,
+            46165
+          ],
+          [
+            0,
+            46165
+          ],
+          [
+            0,
+            46141
+          ],
+          [
+            0,
+            46141
+          ],
+          [
+            0,
+            42893
+          ],
+          [
+            0,
+            47004
+          ],
+          [
+            0,
+            47150
+          ],
+          [
+            0,
+            42243
+          ],
+          [
+            0,
+            45727
+          ],
+          [
+            0,
+            45929
+          ],
+          [
+            0,
+            42243
+          ],
+          [
+            0,
+            47261
+          ],
+          [
+            0,
+            42034
+          ]
+        ]
+      },
+      {
+        "bank": 0,
+        "pc": 42198,
+        "arms": [
+          [
+            0,
+            43581
+          ],
+          [
+            0,
+            43581
+          ],
+          [
+            0,
+            43581
+          ],
+          [
+            0,
+            43581
+          ],
+          [
+            0,
+            43581
+          ],
+          [
+            0,
+            43418
+          ],
+          [
+            0,
+            43581
+          ],
+          [
+            0,
+            42510
+          ],
+          [
+            0,
+            43901
+          ],
+          [
+            0,
+            42243
+          ],
+          [
+            0,
+            44130
+          ],
+          [
+            0,
+            44130
+          ],
+          [
+            0,
+            46959
+          ],
+          [
+            0,
+            46050
+          ],
+          [
+            126,
+            40919
+          ],
+          [
+            0,
+            46897
+          ],
+          [
+            0,
+            42406
+          ],
+          [
+            0,
+            43716
+          ],
+          [
+            0,
+            43581
+          ],
+          [
+            0,
+            42243
+          ],
+          [
+            0,
+            44271
+          ]
+        ]
+      },
+      {
+        "bank": 0,
+        "pc": 45739,
+        "arms": [
+          [
+            0,
+            45783
+          ],
+          [
+            0,
+            45752
+          ],
+          [
+            0,
+            45784
+          ],
+          [
+            0,
+            45864
+          ],
+          [
+            0,
+            45915
+          ]
+        ]
+      },
+      {
+        "bank": 7,
+        "pc": 46779,
+        "arms": [
+          [
+            7,
+            46894
+          ],
+          [
+            7,
+            46894
+          ],
+          [
+            7,
+            46894
+          ],
+          [
+            7,
+            46916
+          ],
+          [
+            7,
+            46923
+          ],
+          [
+            7,
+            46926
+          ],
+          [
+            7,
+            46910
+          ],
+          [
+            7,
+            46947
+          ],
+          [
+            7,
+            47000
+          ],
+          [
+            7,
+            46923
+          ],
+          [
+            7,
+            47011
+          ],
+          [
+            7,
+            47011
+          ],
+          [
+            7,
+            46984
+          ],
+          [
+            7,
+            47027
+          ],
+          [
+            7,
+            47057
+          ],
+          [
+            7,
+            46955
+          ],
+          [
+            7,
+            47052
+          ],
+          [
+            7,
+            47072
+          ],
+          [
+            7,
+            47242
+          ],
+          [
+            7,
+            46923
+          ],
+          [
+            7,
+            47242
+          ],
+          [
+            7,
+            47242
+          ],
+          [
+            7,
+            47242
+          ],
+          [
+            7,
+            47242
+          ],
+          [
+            7,
+            47802
+          ],
+          [
+            7,
+            46923
+          ],
+          [
+            7,
+            46923
+          ],
+          [
+            7,
+            47840
+          ],
+          [
+            7,
+            47840
+          ],
+          [
+            7,
+            47840
+          ],
+          [
+            7,
+            47840
+          ],
+          [
+            7,
+            47837
+          ],
+          [
+            7,
+            46923
+          ],
+          [
+            7,
+            46923
+          ],
+          [
+            7,
+            46923
+          ],
+          [
+            7,
+            46923
+          ],
+          [
+            7,
+            47888
+          ],
+          [
+            7,
+            47940
+          ],
+          [
+            7,
+            47985
+          ],
+          [
+            7,
+            47991
+          ],
+          [
+            7,
+            47933
+          ],
+          [
+            7,
+            47925
+          ],
+          [
+            7,
+            47933
+          ],
+          [
+            7,
+            47997
+          ],
+          [
+            7,
+            48009
+          ],
+          [
+            7,
+            48051
+          ],
+          [
+            7,
+            46923
+          ],
+          [
+            7,
+            48096
+          ],
+          [
+            7,
+            46923
+          ],
+          [
+            7,
+            46923
+          ],
+          [
+            7,
+            46923
+          ],
+          [
+            7,
+            46923
+          ],
+          [
+            7,
+            46923
+          ],
+          [
+            7,
+            48140
+          ],
+          [
+            7,
+            46923
+          ]
+        ]
+      },
+      {
+        "bank": 7,
+        "pc": 47250,
+        "arms": [
+          [
+            7,
+            47278
+          ],
+          [
+            7,
+            47265
+          ],
+          [
+            7,
+            47500
+          ],
+          [
+            7,
+            47098
+          ],
+          [
+            7,
+            48157
+          ],
+          [
+            7,
+            47673
+          ]
+        ]
+      },
+      {
+        "bank": 3,
+        "pc": 45601,
+        "arms": [
+          [
+            3,
+            45634
+          ],
+          [
+            3,
+            45767
+          ],
+          [
+            3,
+            45759
+          ],
+          [
+            3,
+            45804
+          ],
+          [
+            3,
+            46169
+          ],
+          [
+            3,
+            45861
+          ],
+          [
+            3,
+            46064
+          ],
+          [
+            3,
+            45861
+          ],
+          [
+            3,
+            46190
+          ],
+          [
+            3,
+            45673
+          ],
+          [
+            3,
+            46238
+          ],
+          [
+            3,
+            46636
+          ],
+          [
+            3,
+            46651
+          ],
+          [
+            3,
+            46670
+          ],
+          [
+            3,
+            46661
+          ]
+        ]
+      },
+      {
+        "bank": 0,
+        "pc": 47870,
+        "arms": [
+          [
+            0,
+            48006
+          ],
+          [
+            0,
+            47996
+          ],
+          [
+            0,
+            48157
+          ],
+          [
+            0,
+            47996
+          ],
+          [
+            0,
+            47915
+          ],
+          [
+            0,
+            48298
+          ],
+          [
+            0,
+            47952
+          ],
+          [
+            0,
+            48258
+          ],
+          [
+            0,
+            48111
+          ],
+          [
+            0,
+            47915
+          ],
+          [
+            0,
+            48216
+          ],
+          [
+            0,
+            48216
+          ],
+          [
+            0,
+            48131
+          ],
+          [
+            0,
+            47918
+          ],
+          [
+            0,
+            48080
+          ],
+          [
+            0,
+            48070
+          ],
+          [
+            0,
+            48080
+          ],
+          [
+            0,
+            48343
+          ],
+          [
+            0,
+            48376
+          ],
+          [
+            0,
+            47915
+          ],
+          [
+            0,
+            48219
+          ]
+        ]
+      },
+      {
+        "bank": 26,
+        "pc": 44636,
+        "arms": [
+          [
+            26,
+            44653
+          ],
+          [
+            26,
+            44671
+          ],
+          [
+            26,
+            44689
+          ],
+          [
+            26,
+            44689
+          ],
+          [
+            26,
+            44707
+          ],
+          [
+            26,
+            44725
+          ],
+          [
+            26,
+            44743
+          ]
+        ]
+      }
+    ],
+    "indirect_JMP_inventory": [
+      {
+        "bank": 4,
+        "pc": 41566,
+        "bytes": [
+          108,
+          11,
+          0
+        ]
+      },
+      {
+        "bank": 126,
+        "pc": 35355,
+        "bytes": [
+          108,
+          9,
+          0
+        ]
+      },
+      {
+        "bank": 9,
+        "pc": 42346,
+        "bytes": [
+          108,
+          244,
+          0
+        ]
+      },
+      {
+        "bank": 11,
+        "pc": 41015,
+        "bytes": [
+          108,
+          193,
+          0
+        ]
+      },
+      {
+        "bank": 23,
+        "pc": 41605,
+        "bytes": [
+          108,
+          228,
+          0
+        ]
+      },
+      {
+        "bank": 23,
+        "pc": 42143,
+        "bytes": [
+          108,
+          228,
+          0
+        ]
+      },
+      {
+        "bank": 64,
+        "pc": 41015,
+        "bytes": [
+          108,
+          193,
+          0
+        ]
+      },
+      {
+        "bank": 115,
+        "pc": 43303,
+        "bytes": [
+          108,
+          240,
+          0
+        ]
+      },
+      {
+        "bank": 92,
+        "pc": 42534,
+        "bytes": [
+          108,
+          8,
+          92
+        ]
+      },
+      {
+        "bank": 82,
+        "pc": 46129,
+        "bytes": [
+          108,
+          3,
+          0
+        ]
+      }
+    ],
+    "functions": [
+      {
+        "function": "GameLoop",
+        "actual_entry": {
+          "name": "GameLoop",
+          "symbol": "GameLoop",
+          "pc": 33497,
+          "banks": [
+            126
+          ],
+          "bytes": [
+            169,
+            255,
+            141
+          ]
+        },
+        "neutral_entry_nodes": 1,
+        "source_JSR_callers": [
+          {
+            "bank": 126,
+            "pc": 33467,
+            "target": 33497,
+            "return_pc": 33470
+          },
+          {
+            "bank": 126,
+            "pc": 33485,
+            "target": 33497,
+            "return_pc": 33488
+          }
+        ],
+        "allowed_SMC_target_PCs": [
+          33497
+        ]
+      },
+      {
+        "function": "PlayerCtrlRoutine",
+        "actual_entry": {
+          "name": "PlayerCtrlRoutine",
+          "symbol": "PlayerCtrlRoutine",
+          "pc": 41155,
+          "banks": [
+            1
+          ],
+          "bytes": [
+            165,
+            15,
+            201
+          ]
+        },
+        "neutral_entry_nodes": 75,
+        "source_JSR_callers": [
+          {
+            "bank": 1,
+            "pc": 41060,
+            "target": 41531,
+            "return_pc": 41063
+          },
+          {
+            "bank": 1,
+            "pc": 41124,
+            "target": 41153,
+            "return_pc": 41127
+          },
+          {
+            "bank": 1,
+            "pc": 41506,
+            "target": 41531,
+            "return_pc": 41509
+          },
+          {
+            "bank": 1,
+            "pc": 42328,
+            "target": 41153,
+            "return_pc": 42331
+          }
+        ],
+        "allowed_SMC_target_PCs": [
+          40993,
+          40995,
+          41024,
+          41027,
+          41029,
+          41031,
+          41033,
+          41035,
+          41037,
+          41039,
+          41042,
+          41044,
+          41046,
+          41048,
+          41050,
+          41053,
+          41055,
+          41057,
+          41153,
+          41155,
+          41443,
+          41445,
+          41447,
+          41449,
+          41451,
+          41453,
+          41455,
+          41458,
+          41460,
+          41462,
+          41531,
+          41533,
+          41535,
+          41537,
+          41539,
+          41541,
+          41543,
+          41545,
+          41546,
+          41547,
+          42066,
+          42069,
+          42071,
+          42073,
+          42075,
+          42080,
+          42110,
+          42113,
+          42115,
+          42117,
+          42119,
+          42140,
+          42142,
+          42163,
+          42165,
+          42186,
+          42188,
+          42209,
+          42212,
+          42214,
+          42216,
+          42296,
+          42299,
+          42302,
+          42304,
+          42307,
+          42309,
+          42311,
+          42313,
+          42315,
+          49118,
+          49121,
+          49123,
+          49125,
+          49145
+        ]
+      },
+      {
+        "function": "PlayerMovementSubs",
+        "actual_entry": {
+          "name": "PlayerMovementSubs",
+          "symbol": "PlayerMovementSubs",
+          "pc": 42426,
+          "banks": [
+            1
+          ],
+          "bytes": [
+            173,
+            2,
+            96
+          ]
+        },
+        "neutral_entry_nodes": 1,
+        "source_JSR_callers": [
+          {
+            "bank": 1,
+            "pc": 41240,
+            "target": 42426,
+            "return_pc": 41243
+          }
+        ],
+        "allowed_SMC_target_PCs": [
+          42426
+        ]
+      },
+      {
+        "function": "RosterMovement",
+        "actual_entry": {
+          "name": "RosterMovement",
+          "symbol": "RosterMovement",
+          "pc": 43126,
+          "banks": [
+            3
+          ],
+          "bytes": [
+            173,
+            2,
+            96
+          ]
+        },
+        "neutral_entry_nodes": 1,
+        "source_JSR_callers": [],
+        "allowed_SMC_target_PCs": [
+          43126
+        ]
+      },
+      {
+        "function": "PlayerBGCollision",
+        "actual_entry": {
+          "name": "PlayerBGCollision",
+          "symbol": "PlayerBGCollision",
+          "pc": 39771,
+          "banks": [
+            126
+          ],
+          "bytes": [
+            173,
+            25,
+            7
+          ]
+        },
+        "neutral_entry_nodes": 1,
+        "source_JSR_callers": [
+          {
+            "bank": 1,
+            "pc": 41305,
+            "target": 39771,
+            "return_pc": 41308
+          }
+        ],
+        "allowed_SMC_target_PCs": [
+          39771
+        ]
+      },
+      {
+        "function": "BillHotProject",
+        "actual_entry": {
+          "name": "BillHotProject",
+          "symbol": "BillHotProject",
+          "pc": 37431,
+          "banks": [
+            126
+          ],
+          "bytes": [
+            8,
+            72,
+            138
+          ]
+        },
+        "neutral_entry_nodes": 8,
+        "source_JSR_callers": [
+          {
+            "bank": 125,
+            "pc": 58871,
+            "target": 37431,
+            "return_pc": 58874
+          },
+          {
+            "bank": 127,
+            "pc": 58871,
+            "target": 37431,
+            "return_pc": 58874
+          }
+        ],
+        "allowed_SMC_target_PCs": [
+          37431,
+          47473,
+          47475,
+          47480,
+          47482,
+          47487,
+          47489,
+          47491
+        ]
+      },
+      {
+        "function": "BillBGEmptyEnvelope",
+        "actual_entry": {
+          "name": "BillBGEmptyEnvelope",
+          "symbol": "BillBGEmptyEnvelope",
+          "pc": 38064,
+          "banks": [
+            126
+          ],
+          "bytes": [
+            174,
+            229,
+            127
+          ]
+        },
+        "neutral_entry_nodes": 5,
+        "source_JSR_callers": [
+          {
+            "bank": 126,
+            "pc": 39874,
+            "target": 61715,
+            "return_pc": 39877
+          }
+        ],
+        "allowed_SMC_target_PCs": [
+          38064,
+          61715,
+          61731
+        ]
+      },
+      {
+        "function": "RosterWeapons",
+        "actual_entry": {
+          "name": "RosterWeapons",
+          "symbol": "RosterWeapons",
+          "pc": 44888,
+          "banks": [
+            8
+          ],
+          "bytes": [
+            169,
+            0,
+            133
+          ]
+        },
+        "neutral_entry_nodes": 1,
+        "source_JSR_callers": [],
+        "allowed_SMC_target_PCs": [
+          44888
+        ]
+      },
+      {
+        "function": "RemainingWeapons",
+        "actual_entry": {
+          "name": "RemainingWeapons",
+          "symbol": "RemainingWeapons",
+          "pc": 43164,
+          "banks": [
+            6
+          ],
+          "bytes": [
+            173,
+            2,
+            96
+          ]
+        },
+        "neutral_entry_nodes": 1,
+        "source_JSR_callers": [],
+        "allowed_SMC_target_PCs": [
+          43164
+        ]
+      },
+      {
+        "function": "GuestPrepareEnemies",
+        "actual_entry": {
+          "name": "GuestPrepareEnemies",
+          "symbol": "GuestPrepareEnemies",
+          "pc": 40960,
+          "banks": [
+            8
+          ],
+          "bytes": [
+            169,
+            0,
+            141
+          ]
+        },
+        "neutral_entry_nodes": 1,
+        "source_JSR_callers": [
+          {
+            "bank": 8,
+            "pc": 45432,
+            "target": 40960,
+            "return_pc": 45435
+          }
+        ],
+        "allowed_SMC_target_PCs": [
+          40960
+        ]
+      },
+      {
+        "function": "RemainingDraw",
+        "actual_entry": {
+          "name": "RemainingDraw",
+          "symbol": "RemainingDraw",
+          "pc": 46742,
+          "banks": [
+            61
+          ],
+          "bytes": [
+            173,
+            2,
+            96
+          ]
+        },
+        "neutral_entry_nodes": 1,
+        "source_JSR_callers": [],
+        "allowed_SMC_target_PCs": [
+          46742
+        ]
+      },
+      {
+        "function": "RosterDrawShots",
+        "actual_entry": {
+          "name": "RosterDrawShots",
+          "symbol": "RosterDrawShots",
+          "pc": 48009,
+          "banks": [
+            4
+          ],
+          "bytes": [
+            173,
+            2,
+            96
+          ]
+        },
+        "neutral_entry_nodes": 1,
+        "source_JSR_callers": [],
+        "allowed_SMC_target_PCs": [
+          48009
+        ]
+      },
+      {
+        "function": "DrawAllMetasprites",
+        "actual_entry": {
+          "name": "DrawAllMetasprites",
+          "symbol": "DrawAllMetasprites",
+          "pc": 40960,
+          "banks": [
+            4
+          ],
+          "bytes": [
+            32,
+            105,
+            131
+          ]
+        },
+        "neutral_entry_nodes": 4,
+        "source_JSR_callers": [
+          {
+            "bank": 4,
+            "pc": 41654,
+            "target": 40960,
+            "return_pc": 41657
+          }
+        ],
+        "allowed_SMC_target_PCs": [
+          40960,
+          41649,
+          41652,
+          41675
+        ]
+      },
+      {
+        "function": "MetaspriteRenderLoop",
+        "actual_entry": {
+          "name": "MetaspriteRenderLoop",
+          "symbol": "MetaspriteRenderLoop",
+          "pc": 42426,
+          "banks": [
+            4
+          ],
+          "bytes": [
+            174,
+            222,
+            6
+          ]
+        },
+        "neutral_entry_nodes": 63,
+        "source_JSR_callers": [
+          {
+            "bank": 4,
+            "pc": 41450,
+            "target": 42608,
+            "return_pc": 41453
+          },
+          {
+            "bank": 4,
+            "pc": 41738,
+            "target": 42426,
+            "return_pc": 41741
+          },
+          {
+            "bank": 4,
+            "pc": 42222,
+            "target": 49035,
+            "return_pc": 42225
+          },
+          {
+            "bank": 4,
+            "pc": 47461,
+            "target": 42426,
+            "return_pc": 47464
+          },
+          {
+            "bank": 4,
+            "pc": 48195,
+            "target": 42426,
+            "return_pc": 48198
+          },
+          {
+            "bank": 4,
+            "pc": 48364,
+            "target": 42426,
+            "return_pc": 48367
+          },
+          {
+            "bank": 4,
+            "pc": 48542,
+            "target": 42426,
+            "return_pc": 48545
+          },
+          {
+            "bank": 4,
+            "pc": 48740,
+            "target": 42426,
+            "return_pc": 48743
+          }
+        ],
+        "allowed_SMC_target_PCs": [
+          42426,
+          42608,
+          42611,
+          42613,
+          42615,
+          42617,
+          42620,
+          42622,
+          42624,
+          42626,
+          42628,
+          42630,
+          42632,
+          42635,
+          42637,
+          42640,
+          42643,
+          42646,
+          42648,
+          42651,
+          42653,
+          48786,
+          48788,
+          48790,
+          48792,
+          48795,
+          48797,
+          48799,
+          48801,
+          48803,
+          48805,
+          48807,
+          48809,
+          48811,
+          48813,
+          48815,
+          48817,
+          48819,
+          48821,
+          48823,
+          48825,
+          48827,
+          48829,
+          48831,
+          48833,
+          48835,
+          48838,
+          48840,
+          48842,
+          48844,
+          48846,
+          49035,
+          49038,
+          49040,
+          49042,
+          49044,
+          49046,
+          49048,
+          49051,
+          49053,
+          49055,
+          49058,
+          49078
+        ]
+      },
+      {
+        "function": "AudioUpdate",
+        "actual_entry": {
+          "name": "AudioUpdate",
+          "symbol": "AudioUpdate",
+          "pc": 61533,
+          "banks": [
+            127,
+            125
+          ],
+          "bytes": [
+            173,
+            113,
+            7
+          ]
+        },
+        "neutral_entry_nodes": 2,
+        "source_JSR_callers": [
+          {
+            "bank": 5,
+            "pc": 47195,
+            "target": 61533,
+            "return_pc": 47198
+          },
+          {
+            "bank": 125,
+            "pc": 58229,
+            "target": 61533,
+            "return_pc": 58232
+          },
+          {
+            "bank": 125,
+            "pc": 58362,
+            "target": 61533,
+            "return_pc": 58365
+          },
+          {
+            "bank": 127,
+            "pc": 58229,
+            "target": 61533,
+            "return_pc": 58232
+          },
+          {
+            "bank": 127,
+            "pc": 58362,
+            "target": 61533,
+            "return_pc": 58365
+          }
+        ],
+        "allowed_SMC_target_PCs": [
+          61533
+        ]
+      },
+      {
+        "function": "BulletBlocks",
+        "actual_entry": {
+          "name": "BulletBlocks",
+          "symbol": "MegaManWeapons::Blocks",
+          "pc": 41670,
+          "banks": [
+            8
+          ],
+          "bytes": [
+            169,
+            0,
+            141
+          ]
+        },
+        "neutral_entry_nodes": 1,
+        "source_JSR_callers": [
+          {
+            "bank": 8,
+            "pc": 41233,
+            "target": 41670,
+            "return_pc": 41236
+          },
+          {
+            "bank": 8,
+            "pc": 45502,
+            "target": 41670,
+            "return_pc": 45505
+          },
+          {
+            "bank": 8,
+            "pc": 47214,
+            "target": 41670,
+            "return_pc": 47217
+          }
+        ],
+        "allowed_SMC_target_PCs": [
+          41670
+        ]
+      },
+      {
+        "function": "BulletEnemies",
+        "actual_entry": {
+          "name": "BulletEnemies",
+          "symbol": "MegaManWeapons::Enemies",
+          "pc": 42824,
+          "banks": [
+            8
+          ],
+          "bytes": [
+            173,
+            2,
+            96
+          ]
+        },
+        "neutral_entry_nodes": 1,
+        "source_JSR_callers": [
+          {
+            "bank": 8,
+            "pc": 41244,
+            "target": 42824,
+            "return_pc": 41247
+          },
+          {
+            "bank": 8,
+            "pc": 45561,
+            "target": 42824,
+            "return_pc": 45564
+          },
+          {
+            "bank": 8,
+            "pc": 47291,
+            "target": 42824,
+            "return_pc": 47294
+          }
+        ],
+        "allowed_SMC_target_PCs": [
+          42824
+        ]
+      },
+      {
+        "function": "EnemiesAndLoopsCore",
+        "actual_entry": {
+          "name": "EnemiesAndLoopsCore",
+          "symbol": "EnemiesAndLoopsCore",
+          "pc": 41568,
+          "banks": [
+            0
+          ],
+          "bytes": [
+            181,
+            16,
+            48
+          ]
+        },
+        "neutral_entry_nodes": 1,
+        "source_JSR_callers": [],
+        "allowed_SMC_target_PCs": [
+          41568
+        ]
+      },
+      {
+        "function": "Mmc5GroundGoombaTerrain",
+        "actual_entry": {
+          "name": "Mmc5GroundGoombaTerrain",
+          "symbol": "Mmc5GroundGoombaTerrain",
+          "pc": 48957,
+          "banks": [
+            0
+          ],
+          "bytes": [
+            181,
+            31,
+            240
+          ]
+        },
+        "neutral_entry_nodes": 1,
+        "source_JSR_callers": [
+          {
+            "bank": 0,
+            "pc": 42114,
+            "target": 48957,
+            "return_pc": 42117
+          }
+        ],
+        "allowed_SMC_target_PCs": [
+          48957
+        ]
+      },
+      {
+        "function": "PlayerEnemyCollision",
+        "actual_entry": {
+          "name": "PlayerEnemyCollision",
+          "symbol": "PlayerEnemyCollision",
+          "pc": 38489,
+          "banks": [
+            126
+          ],
+          "bytes": [
+            173,
+            2,
+            96
+          ]
+        },
+        "neutral_entry_nodes": 19,
+        "source_JSR_callers": [
+          {
+            "bank": 0,
+            "pc": 42120,
+            "target": 42134,
+            "return_pc": 42123
+          },
+          {
+            "bank": 0,
+            "pc": 42700,
+            "target": 42134,
+            "return_pc": 42703
+          },
+          {
+            "bank": 0,
+            "pc": 43177,
+            "target": 43245,
+            "return_pc": 43180
+          },
+          {
+            "bank": 0,
+            "pc": 43231,
+            "target": 43245,
+            "return_pc": 43234
+          },
+          {
+            "bank": 0,
+            "pc": 44117,
+            "target": 42134,
+            "return_pc": 44120
+          },
+          {
+            "bank": 0,
+            "pc": 47141,
+            "target": 42134,
+            "return_pc": 47144
+          }
+        ],
+        "allowed_SMC_target_PCs": [
+          38489,
+          42134,
+          42136,
+          42138,
+          42140,
+          42143,
+          42146,
+          42167,
+          43245,
+          43248,
+          43251,
+          43254,
+          43257,
+          43260,
+          43262,
+          43264,
+          43266,
+          43269,
+          43272
+        ]
+      },
+      {
+        "function": "AreaParserTaskHandler",
+        "actual_entry": {
+          "name": "AreaParserTaskHandler",
+          "symbol": "AreaParserTaskHandler",
+          "pc": 41115,
+          "banks": [
+            2
+          ],
+          "bytes": [
+            172,
+            34,
+            7
+          ]
+        },
+        "neutral_entry_nodes": 1,
+        "source_JSR_callers": [
+          {
+            "bank": 2,
+            "pc": 41106,
+            "target": 41115,
+            "return_pc": 41109
+          }
+        ],
+        "allowed_SMC_target_PCs": [
+          41115
+        ]
+      },
+      {
+        "function": "EnemyGraphicsEngine",
+        "actual_entry": {
+          "name": "EnemyGraphicsEngine",
+          "symbol": "EnemyGraphicsEngine",
+          "pc": 47839,
+          "banks": [
+            0
+          ],
+          "bytes": [
+            32,
+            252,
+            186
+          ]
+        },
+        "neutral_entry_nodes": 1,
+        "source_JSR_callers": [
+          {
+            "bank": 0,
+            "pc": 42083,
+            "target": 47839,
+            "return_pc": 42086
+          }
+        ],
+        "allowed_SMC_target_PCs": [
+          47839
+        ]
+      },
+      {
+        "function": "EnemyMovementSubs",
+        "actual_entry": {
+          "name": "EnemyMovementSubs",
+          "symbol": "EnemyMovementSubs",
+          "pc": 42170,
+          "banks": [
+            0
+          ],
+          "bytes": [
+            189,
+            12,
+            109
+          ]
+        },
+        "neutral_entry_nodes": 1,
+        "source_JSR_callers": [
+          {
+            "bank": 0,
+            "pc": 42128,
+            "target": 42170,
+            "return_pc": 42131
+          }
+        ],
+        "allowed_SMC_target_PCs": [
+          42170
+        ]
+      },
+      {
+        "function": "ProcLoopCommand",
+        "actual_entry": {
+          "name": "ProcLoopCommand",
+          "symbol": "ProcLoopCommand",
+          "pc": 42470,
+          "banks": [
+            2
+          ],
+          "bytes": [
+            173,
+            72,
+            7
+          ]
+        },
+        "neutral_entry_nodes": 95,
+        "source_JSR_callers": [],
+        "allowed_SMC_target_PCs": [
+          42470,
+          42473,
+          42475,
+          42478,
+          42480,
+          42482,
+          42483,
+          42485,
+          42488,
+          42491,
+          42493,
+          42496,
+          42499,
+          42501,
+          42503,
+          42506,
+          42508,
+          42510,
+          42512,
+          42514,
+          42517,
+          42519,
+          42521,
+          42524,
+          42527,
+          42530,
+          42532,
+          42534,
+          42537,
+          42539,
+          42541,
+          42543,
+          42546,
+          42548,
+          42550,
+          42553,
+          42556,
+          42558,
+          42561,
+          42563,
+          42566,
+          42568,
+          42571,
+          42573,
+          42576,
+          42579,
+          42581,
+          42584,
+          42587,
+          42605,
+          42608,
+          42610,
+          42612,
+          42617,
+          42619,
+          42621,
+          42623,
+          42625,
+          42627,
+          42628,
+          42630,
+          42632,
+          42634,
+          42637,
+          42640,
+          42641,
+          42643,
+          42645,
+          42647,
+          42650,
+          42652,
+          42654,
+          42657,
+          42658,
+          42660,
+          42661,
+          42663,
+          42666,
+          42668,
+          42671,
+          42674,
+          42675,
+          42677,
+          42679,
+          42681,
+          42683,
+          42686,
+          42688,
+          42689,
+          42691,
+          42693,
+          42696,
+          42699,
+          42702,
+          42705
+        ]
+      }
+    ],
+    "non_direct_caller_witnesses": [
+      {
+        "function": "PlayerCtrlRoutine",
+        "caller": {
+          "bank": 1,
+          "pc": 41060,
+          "target": 41531,
+          "return_pc": 41063
+        },
+        "stack_neutral_instruction_path": [
+          {
+            "bank": 1,
+            "pc": 41531,
+            "bytes": [
+              169,
+              8
+            ],
+            "span": "17644",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 1,
+            "pc": 41533,
+            "bytes": [
+              133,
+              70
+            ],
+            "span": "17645",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 1,
+            "pc": 41535,
+            "bytes": [
+              160,
+              1
+            ],
+            "span": "17646",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 1,
+            "pc": 41537,
+            "bytes": [
+              165,
+              117
+            ],
+            "span": "17647",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 1,
+            "pc": 41539,
+            "bytes": [
+              41,
+              15
+            ],
+            "span": "17648",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 1,
+            "pc": 41541,
+            "bytes": [
+              208,
+              3
+            ],
+            "span": "17649",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 1,
+            "pc": 41546,
+            "bytes": [
+              152
+            ],
+            "span": "17652",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 1,
+            "pc": 41547,
+            "bytes": [
+              76,
+              193,
+              160
+            ],
+            "span": "17653",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 1,
+            "pc": 41153,
+            "bytes": [
+              133,
+              220
+            ],
+            "span": "17475",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 1,
+            "pc": 41155,
+            "bytes": [
+              165,
+              15
+            ],
+            "span": "17476",
+            "mirror_of_bank": null
+          }
+        ]
+      },
+      {
+        "function": "PlayerCtrlRoutine",
+        "caller": {
+          "bank": 1,
+          "pc": 41124,
+          "target": 41153,
+          "return_pc": 41127
+        },
+        "stack_neutral_instruction_path": [
+          {
+            "bank": 1,
+            "pc": 41153,
+            "bytes": [
+              133,
+              220
+            ],
+            "span": "17475",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 1,
+            "pc": 41155,
+            "bytes": [
+              165,
+              15
+            ],
+            "span": "17476",
+            "mirror_of_bank": null
+          }
+        ]
+      },
+      {
+        "function": "PlayerCtrlRoutine",
+        "caller": {
+          "bank": 1,
+          "pc": 41506,
+          "target": 41531,
+          "return_pc": 41509
+        },
+        "stack_neutral_instruction_path": [
+          {
+            "bank": 1,
+            "pc": 41531,
+            "bytes": [
+              169,
+              8
+            ],
+            "span": "17644",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 1,
+            "pc": 41533,
+            "bytes": [
+              133,
+              70
+            ],
+            "span": "17645",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 1,
+            "pc": 41535,
+            "bytes": [
+              160,
+              1
+            ],
+            "span": "17646",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 1,
+            "pc": 41537,
+            "bytes": [
+              165,
+              117
+            ],
+            "span": "17647",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 1,
+            "pc": 41539,
+            "bytes": [
+              41,
+              15
+            ],
+            "span": "17648",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 1,
+            "pc": 41541,
+            "bytes": [
+              208,
+              3
+            ],
+            "span": "17649",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 1,
+            "pc": 41546,
+            "bytes": [
+              152
+            ],
+            "span": "17652",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 1,
+            "pc": 41547,
+            "bytes": [
+              76,
+              193,
+              160
+            ],
+            "span": "17653",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 1,
+            "pc": 41153,
+            "bytes": [
+              133,
+              220
+            ],
+            "span": "17475",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 1,
+            "pc": 41155,
+            "bytes": [
+              165,
+              15
+            ],
+            "span": "17476",
+            "mirror_of_bank": null
+          }
+        ]
+      },
+      {
+        "function": "PlayerCtrlRoutine",
+        "caller": {
+          "bank": 1,
+          "pc": 42328,
+          "target": 41153,
+          "return_pc": 42331
+        },
+        "stack_neutral_instruction_path": [
+          {
+            "bank": 1,
+            "pc": 41153,
+            "bytes": [
+              133,
+              220
+            ],
+            "span": "17475",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 1,
+            "pc": 41155,
+            "bytes": [
+              165,
+              15
+            ],
+            "span": "17476",
+            "mirror_of_bank": null
+          }
+        ]
+      },
+      {
+        "function": "BillBGEmptyEnvelope",
+        "caller": {
+          "bank": 126,
+          "pc": 39874,
+          "target": 61715,
+          "return_pc": 39877
+        },
+        "stack_neutral_instruction_path": [
+          {
+            "bank": 127,
+            "pc": 61715,
+            "bytes": [
+              8
+            ],
+            "span": "124499",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 127,
+            "pc": 61716,
+            "bytes": [
+              72
+            ],
+            "span": "124500",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 127,
+            "pc": 61717,
+            "bytes": [
+              173,
+              2,
+              96
+            ],
+            "span": "124501",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 127,
+            "pc": 61720,
+            "bytes": [
+              201,
+              3
+            ],
+            "span": "124502",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 127,
+            "pc": 61722,
+            "bytes": [
+              240,
+              5
+            ],
+            "span": "124503",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 127,
+            "pc": 61729,
+            "bytes": [
+              104
+            ],
+            "span": "124507",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 127,
+            "pc": 61730,
+            "bytes": [
+              40
+            ],
+            "span": "124508",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 127,
+            "pc": 61731,
+            "bytes": [
+              76,
+              176,
+              148
+            ],
+            "span": "124509",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 126,
+            "pc": 38064,
+            "bytes": [
+              174,
+              229,
+              127
+            ],
+            "span": "124445",
+            "mirror_of_bank": null
+          }
+        ]
+      },
+      {
+        "function": "MetaspriteRenderLoop",
+        "caller": {
+          "bank": 4,
+          "pc": 41450,
+          "target": 42608,
+          "return_pc": 41453
+        },
+        "stack_neutral_instruction_path": [
+          {
+            "bank": 4,
+            "pc": 42608,
+            "bytes": [
+              189,
+              27,
+              1
+            ],
+            "span": "1218",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 4,
+            "pc": 42611,
+            "bytes": [
+              201,
+              24
+            ],
+            "span": "1219",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 4,
+            "pc": 42613,
+            "bytes": [
+              144,
+              5
+            ],
+            "span": "1220",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 4,
+            "pc": 42620,
+            "bytes": [
+              133,
+              9
+            ],
+            "span": "1223",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 4,
+            "pc": 42622,
+            "bytes": [
+              169,
+              1
+            ],
+            "span": "1224",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 4,
+            "pc": 42624,
+            "bytes": [
+              133,
+              10
+            ],
+            "span": "1225",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 4,
+            "pc": 42626,
+            "bytes": [
+              169,
+              0
+            ],
+            "span": "1226",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 4,
+            "pc": 42628,
+            "bytes": [
+              133,
+              6
+            ],
+            "span": "1227",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 4,
+            "pc": 42630,
+            "bytes": [
+              133,
+              8
+            ],
+            "span": "1228",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 4,
+            "pc": 42632,
+            "bytes": [
+              189,
+              20,
+              1
+            ],
+            "span": "1229",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 4,
+            "pc": 42635,
+            "bytes": [
+              133,
+              7
+            ],
+            "span": "1230",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 4,
+            "pc": 42637,
+            "bytes": [
+              188,
+              13,
+              1
+            ],
+            "span": "1231",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 4,
+            "pc": 42640,
+            "bytes": [
+              190,
+              159,
+              166
+            ],
+            "span": "1232",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 4,
+            "pc": 42643,
+            "bytes": [
+              189,
+              214,
+              181
+            ],
+            "span": "1233",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 4,
+            "pc": 42646,
+            "bytes": [
+              133,
+              3
+            ],
+            "span": "1234",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 4,
+            "pc": 42648,
+            "bytes": [
+              189,
+              210,
+              182
+            ],
+            "span": "1235",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 4,
+            "pc": 42651,
+            "bytes": [
+              133,
+              4
+            ],
+            "span": "1236",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 4,
+            "pc": 42653,
+            "bytes": [
+              76,
+              186,
+              165
+            ],
+            "span": "1237",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 4,
+            "pc": 42426,
+            "bytes": [
+              174,
+              222,
+              6
+            ],
+            "span": "1116",
+            "mirror_of_bank": null
+          }
+        ]
+      },
+      {
+        "function": "MetaspriteRenderLoop",
+        "caller": {
+          "bank": 4,
+          "pc": 42222,
+          "target": 49035,
+          "return_pc": 42225
+        },
+        "stack_neutral_instruction_path": [
+          {
+            "bank": 4,
+            "pc": 49035,
+            "bytes": [
+              173,
+              255,
+              127
+            ],
+            "span": "203548",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 4,
+            "pc": 49038,
+            "bytes": [
+              240,
+              38
+            ],
+            "span": "203549",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 4,
+            "pc": 49078,
+            "bytes": [
+              76,
+              146,
+              190
+            ],
+            "span": "203567",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 4,
+            "pc": 48786,
+            "bytes": [
+              165,
+              4
+            ],
+            "span": "117460",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 4,
+            "pc": 48788,
+            "bytes": [
+              201,
+              175
+            ],
+            "span": "117461",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 4,
+            "pc": 48790,
+            "bytes": [
+              240,
+              3
+            ],
+            "span": "117462",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 4,
+            "pc": 48792,
+            "bytes": [
+              76,
+              186,
+              165
+            ],
+            "span": "117463",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 4,
+            "pc": 42426,
+            "bytes": [
+              174,
+              222,
+              6
+            ],
+            "span": "1116",
+            "mirror_of_bank": null
+          }
+        ]
+      },
+      {
+        "function": "PlayerEnemyCollision",
+        "caller": {
+          "bank": 0,
+          "pc": 42120,
+          "target": 42134,
+          "return_pc": 42123
+        },
+        "stack_neutral_instruction_path": [
+          {
+            "bank": 0,
+            "pc": 42134,
+            "bytes": [
+              181,
+              23
+            ],
+            "span": "102537",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 0,
+            "pc": 42136,
+            "bytes": [
+              201,
+              46
+            ],
+            "span": "102538",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 0,
+            "pc": 42138,
+            "bytes": [
+              240,
+              27
+            ],
+            "span": "102539",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 0,
+            "pc": 42167,
+            "bytes": [
+              76,
+              89,
+              150
+            ],
+            "span": "102552",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 126,
+            "pc": 38489,
+            "bytes": [
+              173,
+              2,
+              96
+            ],
+            "span": "12266",
+            "mirror_of_bank": null
+          }
+        ]
+      },
+      {
+        "function": "PlayerEnemyCollision",
+        "caller": {
+          "bank": 0,
+          "pc": 42700,
+          "target": 42134,
+          "return_pc": 42703
+        },
+        "stack_neutral_instruction_path": [
+          {
+            "bank": 0,
+            "pc": 42134,
+            "bytes": [
+              181,
+              23
+            ],
+            "span": "102537",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 0,
+            "pc": 42136,
+            "bytes": [
+              201,
+              46
+            ],
+            "span": "102538",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 0,
+            "pc": 42138,
+            "bytes": [
+              240,
+              27
+            ],
+            "span": "102539",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 0,
+            "pc": 42167,
+            "bytes": [
+              76,
+              89,
+              150
+            ],
+            "span": "102552",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 126,
+            "pc": 38489,
+            "bytes": [
+              173,
+              2,
+              96
+            ],
+            "span": "12266",
+            "mirror_of_bank": null
+          }
+        ]
+      },
+      {
+        "function": "PlayerEnemyCollision",
+        "caller": {
+          "bank": 0,
+          "pc": 43177,
+          "target": 43245,
+          "return_pc": 43180
+        },
+        "stack_neutral_instruction_path": [
+          {
+            "bank": 0,
+            "pc": 43245,
+            "bytes": [
+              238,
+              45,
+              5
+            ],
+            "span": "103058",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 0,
+            "pc": 43248,
+            "bytes": [
+              32,
+              11,
+              169
+            ],
+            "span": "103059",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 0,
+            "pc": 43251,
+            "bytes": [
+              32,
+              217,
+              185
+            ],
+            "span": "103060",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 0,
+            "pc": 43254,
+            "bytes": [
+              32,
+              233,
+              138
+            ],
+            "span": "103061",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 0,
+            "pc": 43257,
+            "bytes": [
+              32,
+              160,
+              138
+            ],
+            "span": "103062",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 0,
+            "pc": 43260,
+            "bytes": [
+              181,
+              31
+            ],
+            "span": "103063",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 0,
+            "pc": 43262,
+            "bytes": [
+              208,
+              236
+            ],
+            "span": "103064",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 0,
+            "pc": 43264,
+            "bytes": [
+              169,
+              10
+            ],
+            "span": "103065",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 0,
+            "pc": 43266,
+            "bytes": [
+              157,
+              70,
+              6
+            ],
+            "span": "103066",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 0,
+            "pc": 43269,
+            "bytes": [
+              32,
+              194,
+              161
+            ],
+            "span": "103067",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 0,
+            "pc": 43272,
+            "bytes": [
+              76,
+              89,
+              150
+            ],
+            "span": "103068",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 126,
+            "pc": 38489,
+            "bytes": [
+              173,
+              2,
+              96
+            ],
+            "span": "12266",
+            "mirror_of_bank": null
+          }
+        ]
+      },
+      {
+        "function": "PlayerEnemyCollision",
+        "caller": {
+          "bank": 0,
+          "pc": 43231,
+          "target": 43245,
+          "return_pc": 43234
+        },
+        "stack_neutral_instruction_path": [
+          {
+            "bank": 0,
+            "pc": 43245,
+            "bytes": [
+              238,
+              45,
+              5
+            ],
+            "span": "103058",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 0,
+            "pc": 43248,
+            "bytes": [
+              32,
+              11,
+              169
+            ],
+            "span": "103059",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 0,
+            "pc": 43251,
+            "bytes": [
+              32,
+              217,
+              185
+            ],
+            "span": "103060",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 0,
+            "pc": 43254,
+            "bytes": [
+              32,
+              233,
+              138
+            ],
+            "span": "103061",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 0,
+            "pc": 43257,
+            "bytes": [
+              32,
+              160,
+              138
+            ],
+            "span": "103062",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 0,
+            "pc": 43260,
+            "bytes": [
+              181,
+              31
+            ],
+            "span": "103063",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 0,
+            "pc": 43262,
+            "bytes": [
+              208,
+              236
+            ],
+            "span": "103064",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 0,
+            "pc": 43264,
+            "bytes": [
+              169,
+              10
+            ],
+            "span": "103065",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 0,
+            "pc": 43266,
+            "bytes": [
+              157,
+              70,
+              6
+            ],
+            "span": "103066",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 0,
+            "pc": 43269,
+            "bytes": [
+              32,
+              194,
+              161
+            ],
+            "span": "103067",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 0,
+            "pc": 43272,
+            "bytes": [
+              76,
+              89,
+              150
+            ],
+            "span": "103068",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 126,
+            "pc": 38489,
+            "bytes": [
+              173,
+              2,
+              96
+            ],
+            "span": "12266",
+            "mirror_of_bank": null
+          }
+        ]
+      },
+      {
+        "function": "PlayerEnemyCollision",
+        "caller": {
+          "bank": 0,
+          "pc": 44117,
+          "target": 42134,
+          "return_pc": 44120
+        },
+        "stack_neutral_instruction_path": [
+          {
+            "bank": 0,
+            "pc": 42134,
+            "bytes": [
+              181,
+              23
+            ],
+            "span": "102537",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 0,
+            "pc": 42136,
+            "bytes": [
+              201,
+              46
+            ],
+            "span": "102538",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 0,
+            "pc": 42138,
+            "bytes": [
+              240,
+              27
+            ],
+            "span": "102539",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 0,
+            "pc": 42167,
+            "bytes": [
+              76,
+              89,
+              150
+            ],
+            "span": "102552",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 126,
+            "pc": 38489,
+            "bytes": [
+              173,
+              2,
+              96
+            ],
+            "span": "12266",
+            "mirror_of_bank": null
+          }
+        ]
+      },
+      {
+        "function": "PlayerEnemyCollision",
+        "caller": {
+          "bank": 0,
+          "pc": 47141,
+          "target": 42134,
+          "return_pc": 47144
+        },
+        "stack_neutral_instruction_path": [
+          {
+            "bank": 0,
+            "pc": 42134,
+            "bytes": [
+              181,
+              23
+            ],
+            "span": "102537",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 0,
+            "pc": 42136,
+            "bytes": [
+              201,
+              46
+            ],
+            "span": "102538",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 0,
+            "pc": 42138,
+            "bytes": [
+              240,
+              27
+            ],
+            "span": "102539",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 0,
+            "pc": 42167,
+            "bytes": [
+              76,
+              89,
+              150
+            ],
+            "span": "102552",
+            "mirror_of_bank": null
+          },
+          {
+            "bank": 126,
+            "pc": 38489,
+            "bytes": [
+              173,
+              2,
+              96
+            ],
+            "span": "12266",
+            "mirror_of_bank": null
+          }
+        ]
+      }
+    ],
+    "boundary": "This closes source-declared direct/tail/JumpEngine caller ownership. Genuine RAM farcall JSR targets must belong to the same stack-neutral closure. Arbitrary indirect targets are never accepted; an unlisted live caller still fails."
+  },
+  "direct_cross_window_owners": [
+    {
+      "function": "PlayerCtrlRoutine",
+      "return_pc": 42894,
+      "owner": {
+        "bank": 11,
+        "bytes": [
+          32,
+          195,
+          160
+        ]
+      }
+    },
+    {
+      "function": "PlayerCtrlRoutine",
+      "return_pc": 42894,
+      "owner": {
+        "bank": 64,
+        "bytes": [
+          32,
+          195,
+          160
+        ]
+      }
+    },
+    {
+      "function": "PlayerCtrlRoutine",
+      "return_pc": 43114,
+      "owner": {
+        "bank": 11,
+        "bytes": [
+          32,
+          195,
+          160
+        ]
+      }
+    },
+    {
+      "function": "PlayerCtrlRoutine",
+      "return_pc": 43114,
+      "owner": {
+        "bank": 64,
+        "bytes": [
+          32,
+          195,
+          160
+        ]
+      }
+    },
+    {
+      "function": "PlayerCtrlRoutine",
+      "return_pc": 43135,
+      "owner": {
+        "bank": 11,
+        "bytes": [
+          32,
+          195,
+          160
+        ]
+      }
+    },
+    {
+      "function": "PlayerCtrlRoutine",
+      "return_pc": 43135,
+      "owner": {
+        "bank": 64,
+        "bytes": [
+          32,
+          195,
+          160
+        ]
+      }
+    },
+    {
+      "function": "PlayerMovementSubs",
+      "return_pc": 41741,
+      "owner": {
+        "bank": 4,
+        "bytes": [
+          32,
+          186,
+          165
+        ]
+      }
+    },
+    {
+      "function": "PlayerMovementSubs",
+      "return_pc": 47464,
+      "owner": {
+        "bank": 4,
+        "bytes": [
+          32,
+          186,
+          165
+        ]
+      }
+    },
+    {
+      "function": "PlayerMovementSubs",
+      "return_pc": 48198,
+      "owner": {
+        "bank": 4,
+        "bytes": [
+          32,
+          186,
+          165
+        ]
+      }
+    },
+    {
+      "function": "PlayerMovementSubs",
+      "return_pc": 48367,
+      "owner": {
+        "bank": 4,
+        "bytes": [
+          32,
+          186,
+          165
+        ]
+      }
+    },
+    {
+      "function": "PlayerMovementSubs",
+      "return_pc": 48545,
+      "owner": {
+        "bank": 4,
+        "bytes": [
+          32,
+          186,
+          165
+        ]
+      }
+    },
+    {
+      "function": "PlayerMovementSubs",
+      "return_pc": 48743,
+      "owner": {
+        "bank": 4,
+        "bytes": [
+          32,
+          186,
+          165
+        ]
+      }
+    },
+    {
+      "function": "RemainingWeapons",
+      "return_pc": 42570,
+      "owner": {
+        "bank": 92,
+        "bytes": [
+          32,
+          156,
+          168
+        ]
+      }
+    },
+    {
+      "function": "RemainingWeapons",
+      "return_pc": 42627,
+      "owner": {
+        "bank": 92,
+        "bytes": [
+          32,
+          156,
+          168
+        ]
+      }
+    },
+    {
+      "function": "RemainingWeapons",
+      "return_pc": 42638,
+      "owner": {
+        "bank": 92,
+        "bytes": [
+          32,
+          156,
+          168
+        ]
+      }
+    },
+    {
+      "function": "RemainingWeapons",
+      "return_pc": 42664,
+      "owner": {
+        "bank": 92,
+        "bytes": [
+          32,
+          156,
+          168
+        ]
+      }
+    },
+    {
+      "function": "RemainingWeapons",
+      "return_pc": 42678,
+      "owner": {
+        "bank": 92,
+        "bytes": [
+          32,
+          156,
+          168
+        ]
+      }
+    },
+    {
+      "function": "RemainingWeapons",
+      "return_pc": 43027,
+      "owner": {
+        "bank": 92,
+        "bytes": [
+          32,
+          156,
+          168
+        ]
+      }
+    },
+    {
+      "function": "RemainingWeapons",
+      "return_pc": 43053,
+      "owner": {
+        "bank": 92,
+        "bytes": [
+          32,
+          156,
+          168
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 57529,
+      "owner": {
+        "bank": 127,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 41657,
+      "owner": {
+        "bank": 4,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 38670,
+      "owner": {
+        "bank": 126,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 39027,
+      "owner": {
+        "bank": 126,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 54858,
+      "owner": {
+        "bank": 12,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 55175,
+      "owner": {
+        "bank": 12,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 42293,
+      "owner": {
+        "bank": 29,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 46656,
+      "owner": {
+        "bank": 30,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 54861,
+      "owner": {
+        "bank": 65,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 55215,
+      "owner": {
+        "bank": 65,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 41437,
+      "owner": {
+        "bank": 67,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 41800,
+      "owner": {
+        "bank": 67,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 41875,
+      "owner": {
+        "bank": 67,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 41916,
+      "owner": {
+        "bank": 67,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 41984,
+      "owner": {
+        "bank": 67,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 42384,
+      "owner": {
+        "bank": 67,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 44409,
+      "owner": {
+        "bank": 67,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 44513,
+      "owner": {
+        "bank": 67,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 44657,
+      "owner": {
+        "bank": 67,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 44799,
+      "owner": {
+        "bank": 67,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 44830,
+      "owner": {
+        "bank": 67,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 44880,
+      "owner": {
+        "bank": 67,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 40997,
+      "owner": {
+        "bank": 69,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 41780,
+      "owner": {
+        "bank": 74,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 43076,
+      "owner": {
+        "bank": 74,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 43400,
+      "owner": {
+        "bank": 74,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 43728,
+      "owner": {
+        "bank": 74,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 45211,
+      "owner": {
+        "bank": 74,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 40974,
+      "owner": {
+        "bank": 79,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 40974,
+      "owner": {
+        "bank": 90,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 41007,
+      "owner": {
+        "bank": 79,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 41057,
+      "owner": {
+        "bank": 79,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 41084,
+      "owner": {
+        "bank": 79,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 41098,
+      "owner": {
+        "bank": 79,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 41398,
+      "owner": {
+        "bank": 81,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 41147,
+      "owner": {
+        "bank": 79,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 41360,
+      "owner": {
+        "bank": 79,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 41478,
+      "owner": {
+        "bank": 79,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 41723,
+      "owner": {
+        "bank": 79,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 42523,
+      "owner": {
+        "bank": 79,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 42595,
+      "owner": {
+        "bank": 79,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 42672,
+      "owner": {
+        "bank": 79,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 42688,
+      "owner": {
+        "bank": 79,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 42735,
+      "owner": {
+        "bank": 79,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 42843,
+      "owner": {
+        "bank": 79,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 42884,
+      "owner": {
+        "bank": 79,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 42910,
+      "owner": {
+        "bank": 79,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 42936,
+      "owner": {
+        "bank": 79,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 42962,
+      "owner": {
+        "bank": 79,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 42988,
+      "owner": {
+        "bank": 79,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 43035,
+      "owner": {
+        "bank": 79,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 43078,
+      "owner": {
+        "bank": 79,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 43141,
+      "owner": {
+        "bank": 79,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 43251,
+      "owner": {
+        "bank": 79,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 43281,
+      "owner": {
+        "bank": 79,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 42198,
+      "owner": {
+        "bank": 87,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 41107,
+      "owner": {
+        "bank": 96,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 41118,
+      "owner": {
+        "bank": 77,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 41609,
+      "owner": {
+        "bank": 77,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 43432,
+      "owner": {
+        "bank": 77,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 43458,
+      "owner": {
+        "bank": 77,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 43484,
+      "owner": {
+        "bank": 77,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 43510,
+      "owner": {
+        "bank": 77,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 43536,
+      "owner": {
+        "bank": 77,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 43562,
+      "owner": {
+        "bank": 77,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 43588,
+      "owner": {
+        "bank": 77,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 43614,
+      "owner": {
+        "bank": 77,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 43640,
+      "owner": {
+        "bank": 77,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 43666,
+      "owner": {
+        "bank": 77,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 43727,
+      "owner": {
+        "bank": 77,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 43781,
+      "owner": {
+        "bank": 77,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 43781,
+      "owner": {
+        "bank": 90,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 43949,
+      "owner": {
+        "bank": 77,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 43995,
+      "owner": {
+        "bank": 77,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 44045,
+      "owner": {
+        "bank": 77,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 41159,
+      "owner": {
+        "bank": 82,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 41173,
+      "owner": {
+        "bank": 82,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 43199,
+      "owner": {
+        "bank": 82,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 43809,
+      "owner": {
+        "bank": 82,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 44220,
+      "owner": {
+        "bank": 82,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 44367,
+      "owner": {
+        "bank": 82,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 44550,
+      "owner": {
+        "bank": 82,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 44633,
+      "owner": {
+        "bank": 82,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 44712,
+      "owner": {
+        "bank": 82,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 44748,
+      "owner": {
+        "bank": 82,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 44782,
+      "owner": {
+        "bank": 82,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 44823,
+      "owner": {
+        "bank": 82,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 44857,
+      "owner": {
+        "bank": 82,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 45038,
+      "owner": {
+        "bank": 82,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 41115,
+      "owner": {
+        "bank": 93,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 41160,
+      "owner": {
+        "bank": 93,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 41442,
+      "owner": {
+        "bank": 93,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 41585,
+      "owner": {
+        "bank": 93,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 41684,
+      "owner": {
+        "bank": 93,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 41732,
+      "owner": {
+        "bank": 93,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 41781,
+      "owner": {
+        "bank": 93,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 41975,
+      "owner": {
+        "bank": 93,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 42021,
+      "owner": {
+        "bank": 93,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 42114,
+      "owner": {
+        "bank": 93,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 42272,
+      "owner": {
+        "bank": 93,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 42470,
+      "owner": {
+        "bank": 93,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 42662,
+      "owner": {
+        "bank": 93,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 42861,
+      "owner": {
+        "bank": 93,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 43006,
+      "owner": {
+        "bank": 93,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 43247,
+      "owner": {
+        "bank": 93,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 43637,
+      "owner": {
+        "bank": 93,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 43838,
+      "owner": {
+        "bank": 93,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 43922,
+      "owner": {
+        "bank": 93,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 44058,
+      "owner": {
+        "bank": 93,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 44093,
+      "owner": {
+        "bank": 93,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 44166,
+      "owner": {
+        "bank": 93,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 44200,
+      "owner": {
+        "bank": 93,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 41002,
+      "owner": {
+        "bank": 90,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 41085,
+      "owner": {
+        "bank": 90,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 41262,
+      "owner": {
+        "bank": 90,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 41835,
+      "owner": {
+        "bank": 90,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 41925,
+      "owner": {
+        "bank": 90,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 41976,
+      "owner": {
+        "bank": 90,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 42067,
+      "owner": {
+        "bank": 90,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 42105,
+      "owner": {
+        "bank": 90,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 43599,
+      "owner": {
+        "bank": 90,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 43625,
+      "owner": {
+        "bank": 90,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 43651,
+      "owner": {
+        "bank": 90,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 43677,
+      "owner": {
+        "bank": 90,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 43703,
+      "owner": {
+        "bank": 90,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 43729,
+      "owner": {
+        "bank": 90,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 43755,
+      "owner": {
+        "bank": 90,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 43825,
+      "owner": {
+        "bank": 90,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 43923,
+      "owner": {
+        "bank": 90,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 44028,
+      "owner": {
+        "bank": 90,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 44053,
+      "owner": {
+        "bank": 90,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 44167,
+      "owner": {
+        "bank": 90,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 44191,
+      "owner": {
+        "bank": 90,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 44493,
+      "owner": {
+        "bank": 90,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 44587,
+      "owner": {
+        "bank": 90,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "GuestPrepareEnemies",
+      "return_pc": 43867,
+      "owner": {
+        "bank": 78,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "RosterDrawShots",
+      "return_pc": 47994,
+      "owner": {
+        "bank": 7,
+        "bytes": [
+          32,
+          137,
+          187
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 57529,
+      "owner": {
+        "bank": 127,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 38670,
+      "owner": {
+        "bank": 126,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 39027,
+      "owner": {
+        "bank": 126,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 54858,
+      "owner": {
+        "bank": 12,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 55175,
+      "owner": {
+        "bank": 12,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 45435,
+      "owner": {
+        "bank": 8,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 42293,
+      "owner": {
+        "bank": 29,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 46656,
+      "owner": {
+        "bank": 30,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 54861,
+      "owner": {
+        "bank": 65,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 55215,
+      "owner": {
+        "bank": 65,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 41437,
+      "owner": {
+        "bank": 67,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 41800,
+      "owner": {
+        "bank": 67,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 41875,
+      "owner": {
+        "bank": 67,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 41916,
+      "owner": {
+        "bank": 67,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 41984,
+      "owner": {
+        "bank": 67,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 42384,
+      "owner": {
+        "bank": 67,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 44409,
+      "owner": {
+        "bank": 67,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 44513,
+      "owner": {
+        "bank": 67,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 44657,
+      "owner": {
+        "bank": 67,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 44799,
+      "owner": {
+        "bank": 67,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 44830,
+      "owner": {
+        "bank": 67,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 44880,
+      "owner": {
+        "bank": 67,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 40997,
+      "owner": {
+        "bank": 69,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 41780,
+      "owner": {
+        "bank": 74,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 43076,
+      "owner": {
+        "bank": 74,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 43400,
+      "owner": {
+        "bank": 74,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 43728,
+      "owner": {
+        "bank": 74,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 45211,
+      "owner": {
+        "bank": 74,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 40974,
+      "owner": {
+        "bank": 79,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 40974,
+      "owner": {
+        "bank": 90,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 41007,
+      "owner": {
+        "bank": 79,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 41057,
+      "owner": {
+        "bank": 79,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 41084,
+      "owner": {
+        "bank": 79,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 41098,
+      "owner": {
+        "bank": 79,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 41398,
+      "owner": {
+        "bank": 81,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 41147,
+      "owner": {
+        "bank": 79,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 41360,
+      "owner": {
+        "bank": 79,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 41478,
+      "owner": {
+        "bank": 79,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 41723,
+      "owner": {
+        "bank": 79,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 42523,
+      "owner": {
+        "bank": 79,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 42595,
+      "owner": {
+        "bank": 79,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 42672,
+      "owner": {
+        "bank": 79,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 42688,
+      "owner": {
+        "bank": 79,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 42735,
+      "owner": {
+        "bank": 79,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 42843,
+      "owner": {
+        "bank": 79,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 42884,
+      "owner": {
+        "bank": 79,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 42910,
+      "owner": {
+        "bank": 79,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 42936,
+      "owner": {
+        "bank": 79,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 42962,
+      "owner": {
+        "bank": 79,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 42988,
+      "owner": {
+        "bank": 79,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 43035,
+      "owner": {
+        "bank": 79,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 43078,
+      "owner": {
+        "bank": 79,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 43141,
+      "owner": {
+        "bank": 79,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 43251,
+      "owner": {
+        "bank": 79,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 43281,
+      "owner": {
+        "bank": 79,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 42198,
+      "owner": {
+        "bank": 87,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 41107,
+      "owner": {
+        "bank": 96,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 41118,
+      "owner": {
+        "bank": 77,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 41609,
+      "owner": {
+        "bank": 77,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 43432,
+      "owner": {
+        "bank": 77,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 43458,
+      "owner": {
+        "bank": 77,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 43484,
+      "owner": {
+        "bank": 77,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 43510,
+      "owner": {
+        "bank": 77,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 43536,
+      "owner": {
+        "bank": 77,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 43562,
+      "owner": {
+        "bank": 77,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 43588,
+      "owner": {
+        "bank": 77,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 43614,
+      "owner": {
+        "bank": 77,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 43640,
+      "owner": {
+        "bank": 77,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 43666,
+      "owner": {
+        "bank": 77,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 43727,
+      "owner": {
+        "bank": 77,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 43781,
+      "owner": {
+        "bank": 77,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 43781,
+      "owner": {
+        "bank": 90,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 43949,
+      "owner": {
+        "bank": 77,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 43995,
+      "owner": {
+        "bank": 77,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 44045,
+      "owner": {
+        "bank": 77,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 41159,
+      "owner": {
+        "bank": 82,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 41173,
+      "owner": {
+        "bank": 82,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 43199,
+      "owner": {
+        "bank": 82,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 43809,
+      "owner": {
+        "bank": 82,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 44220,
+      "owner": {
+        "bank": 82,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 44367,
+      "owner": {
+        "bank": 82,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 44550,
+      "owner": {
+        "bank": 82,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 44633,
+      "owner": {
+        "bank": 82,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 44712,
+      "owner": {
+        "bank": 82,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 44748,
+      "owner": {
+        "bank": 82,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 44782,
+      "owner": {
+        "bank": 82,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 44823,
+      "owner": {
+        "bank": 82,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 44857,
+      "owner": {
+        "bank": 82,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 45038,
+      "owner": {
+        "bank": 82,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 41115,
+      "owner": {
+        "bank": 93,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 41160,
+      "owner": {
+        "bank": 93,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 41442,
+      "owner": {
+        "bank": 93,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 41585,
+      "owner": {
+        "bank": 93,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 41684,
+      "owner": {
+        "bank": 93,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 41732,
+      "owner": {
+        "bank": 93,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 41781,
+      "owner": {
+        "bank": 93,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 41975,
+      "owner": {
+        "bank": 93,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 42021,
+      "owner": {
+        "bank": 93,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 42114,
+      "owner": {
+        "bank": 93,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 42272,
+      "owner": {
+        "bank": 93,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 42470,
+      "owner": {
+        "bank": 93,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 42662,
+      "owner": {
+        "bank": 93,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 42861,
+      "owner": {
+        "bank": 93,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 43006,
+      "owner": {
+        "bank": 93,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 43247,
+      "owner": {
+        "bank": 93,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 43637,
+      "owner": {
+        "bank": 93,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 43838,
+      "owner": {
+        "bank": 93,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 43922,
+      "owner": {
+        "bank": 93,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 44058,
+      "owner": {
+        "bank": 93,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 44093,
+      "owner": {
+        "bank": 93,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 44166,
+      "owner": {
+        "bank": 93,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 44200,
+      "owner": {
+        "bank": 93,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 41002,
+      "owner": {
+        "bank": 90,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 41085,
+      "owner": {
+        "bank": 90,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 41262,
+      "owner": {
+        "bank": 90,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 41835,
+      "owner": {
+        "bank": 90,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 41925,
+      "owner": {
+        "bank": 90,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 41976,
+      "owner": {
+        "bank": 90,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 42067,
+      "owner": {
+        "bank": 90,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 42105,
+      "owner": {
+        "bank": 90,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 43599,
+      "owner": {
+        "bank": 90,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 43625,
+      "owner": {
+        "bank": 90,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 43651,
+      "owner": {
+        "bank": 90,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 43677,
+      "owner": {
+        "bank": 90,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 43703,
+      "owner": {
+        "bank": 90,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 43729,
+      "owner": {
+        "bank": 90,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 43755,
+      "owner": {
+        "bank": 90,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 43825,
+      "owner": {
+        "bank": 90,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 43923,
+      "owner": {
+        "bank": 90,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 44028,
+      "owner": {
+        "bank": 90,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 44053,
+      "owner": {
+        "bank": 90,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 44167,
+      "owner": {
+        "bank": 90,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 44191,
+      "owner": {
+        "bank": 90,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 44493,
+      "owner": {
+        "bank": 90,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 44587,
+      "owner": {
+        "bank": 90,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "DrawAllMetasprites",
+      "return_pc": 43867,
+      "owner": {
+        "bank": 78,
+        "bytes": [
+          32,
+          0,
+          160
+        ]
+      }
+    },
+    {
+      "function": "MetaspriteRenderLoop",
+      "return_pc": 41243,
+      "owner": {
+        "bank": 1,
+        "bytes": [
+          32,
+          186,
+          165
+        ]
+      }
+    },
+    {
+      "function": "EnemiesAndLoopsCore",
+      "return_pc": 33742,
+      "owner": {
+        "bank": 126,
+        "bytes": [
+          32,
+          96,
+          162
+        ]
+      }
+    },
+    {
+      "function": "EnemiesAndLoopsCore",
+      "return_pc": 47028,
+      "owner": {
+        "bank": 69,
+        "bytes": [
+          32,
+          96,
+          162
+        ]
+      }
+    },
+    {
+      "function": "EnemiesAndLoopsCore",
+      "return_pc": 48846,
+      "owner": {
+        "bank": 69,
+        "bytes": [
+          32,
+          96,
+          162
+        ]
+      }
+    },
+    {
+      "function": "EnemyMovementSubs",
+      "return_pc": 40974,
+      "owner": {
+        "bank": 123,
+        "bytes": [
+          32,
+          186,
+          164
+        ]
+      }
+    },
+    {
+      "function": "ProcLoopCommand",
+      "return_pc": 41438,
+      "owner": {
+        "bank": 72,
+        "bytes": [
+          32,
+          230,
+          165
+        ]
+      }
+    },
+    {
+      "function": "ProcLoopCommand",
+      "return_pc": 42243,
+      "owner": {
+        "bank": 72,
+        "bytes": [
+          32,
+          230,
+          165
+        ]
+      }
+    },
+    {
+      "function": "ProcLoopCommand",
+      "return_pc": 42399,
+      "owner": {
+        "bank": 72,
+        "bytes": [
+          32,
+          230,
+          165
+        ]
+      }
+    },
+    {
+      "function": "ProcLoopCommand",
+      "return_pc": 42768,
+      "owner": {
+        "bank": 72,
+        "bytes": [
+          32,
+          230,
+          165
+        ]
+      }
+    }
+  ],
+  "source_JSR_positive_wrongbank_wrongtarget_nonJSR_controls": 343,
+  "total_function_spans": 24,
+  "return_PCs": 190,
+  "observer_body_unchanged_sha256": "d36933a205b7118abf5df6c3bc707e15b1044a05c2b33cc47bd65e5491edb15d",
+  "shared_route_body_unchanged_sha256": "aba8f2418690dbf9c3fcb0709dba6ec46c3c16c12b91b62fd108e9e9082e2f0c",
+  "saved_input_sha256": "b03024aac18a7e224e00bb2f6aa15fe08f1e821457f06d50068c113bb214eb35",
+  "saved_polls": 6090,
+  "limits": "Actual old9ea profile remains historical. Fresh current326 source metadata only; native trace/input/PPU equality and hotspot attribution pending. SP/depth/bank/JSR/SMC/runtime checks unchanged. Normal61 timing rows are completion buckets; warmup/openMain/ISR nesting limits remain. No EnemyID/per-call shot state inference.",
+  "execution_scope": "Same original8000 full1-1 to controlled1-2 saved-input replay; timing collection only3500..3560/61data rows. One compact512MiB container/2GB centralcap/64files; no native screenshot tree, no source/runtime/ROM copies."
+}

@@ -1,0 +1,38 @@
+{
+  "passed": false,
+  "native_run": false,
+  "error": "ISR metadata exact-list comparison rejected equivalent declared mirror owner order: original[127,125], route[125,127]. ActualPC/opcodes/owner sets and DMA hook are exact.",
+  "old": {
+    "name": "NonMaskableInterrupt",
+    "symbol": "NonMaskableInterrupt",
+    "pc": 58172,
+    "banks": [
+      127,
+      125
+    ],
+    "bytes": [
+      72,
+      138,
+      72
+    ]
+  },
+  "new_route": {
+    "name": "NonMaskableInterrupt",
+    "pc": 58172,
+    "bank": 127,
+    "bytes": [
+      72,
+      138,
+      72
+    ],
+    "banks": [
+      125,
+      127
+    ]
+  },
+  "old_line": "assert profile['interrupts']==old['interrupts']and cfg['hooks']['dma_complete']==old['dma_complete']",
+  "resolution": "Bind actual current owner set, retain original profile declared order for identical metadata. No runtime owner/guard change.",
+  "generic_ready_sha256": "ae43c4ff51a3860feb40a3acb3c8cf000bf756df1a671ee020644c6de1e273ad",
+  "generic_run_sha256": "10278b04d1a6f10412778ba3efe6817d1d83c441092a8b18ae3fcd46eca7689f",
+  "tool_before_sha256": "622846a4e40eea6c3c890e5eca4584f7c58f5ca7f0acfca3fd18b68782a26caf"
+}

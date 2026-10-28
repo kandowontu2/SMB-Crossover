@@ -34,7 +34,9 @@ It retains Luigi's Mario-based movement with a modestly higher jump and less tra
 
 The last complete 37-character 1-1 suite ran on `3cee18ca`: 36 identities cleared in Easy and Bass in Hard, each with an independent replay. Those results remain specific to that build; further checks on the latest build are in progress. See the [1-1 results](docs/qa/current37-1-1-2026-10-26.txt).
 
-Crowded scenes still cause partial player sprites, including Mega Man, Sophia and Octopus. Graphics, every powerup, the other mode and shortcut routes, sound and performance still need further work; see the [current roster checks](docs/qa/current-roster-progress-2026-10-27.json). Results from earlier builds remain labelled separately.
+All 37 identities now have a recorded 1-1 clear in the recent build lineage, and every implemented powerup has a native collection-and-effect witness at least once. These checks span several ROM versions; they do not certify the whole roster on the latest build. See the [item coverage and limits](docs/qa/all37-powerup-once-coverage-2026-10-28.json).
+
+Crowded scenes still cause partial player sprites, including Mega Man, Sophia and Octopus. Final-build playthroughs, graphics, the other mode and shortcut routes, sound and performance still need further work; see the [current roster checks](docs/qa/current-roster-progress-2026-10-27.json). Results from earlier builds remain labelled separately.
 
 ## Features
 
