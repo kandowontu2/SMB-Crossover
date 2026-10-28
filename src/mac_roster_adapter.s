@@ -14,6 +14,7 @@
 .proc MacRosterStatusName
  cmp #0
  bne Done
+ phx
  phy
  jsr MacRosterVariant
  tax
@@ -28,6 +29,7 @@ Copy:
  cpy #7
  bcc Copy
  ply
+ plx
  lda #0
 Done:rts
 Offsets:.byte 0,7,14
