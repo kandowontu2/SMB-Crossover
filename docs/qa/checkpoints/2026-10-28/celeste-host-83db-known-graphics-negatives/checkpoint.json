@@ -1,0 +1,195 @@
+{
+  "status": "Source/CPU host integration checkpoint; KNOWN GRAPHICS DEFECTS prevent adoption",
+  "ROM_sha256": "83db8bdf74dddc4055a52f5ec12526dcddc7a2fe418f24c3e9e1d5252fb6c9e0",
+  "handoff_sha256": "2f3d3b85880c0493042269913773b4db5dde68b9ae6f984ee503f0dc1902b5c2",
+  "source_scope": "Frozen source controls do not cover every cold caller or visible PPU frame.",
+  "native": {
+    "negative_v1": "Finite8000frame bound; realMush744, plain jumps cannot clear third pipe; no deaths.",
+    "positive_v2": "Frame3591: realMush744, actual earned walljump, flag2388, zero-death1-1 into25controlled1-2updates. Root viewed seven selected whole frames.",
+    "negative_upgrades": "Controller lost mushroom to enemy while mounting flower atframe1360; Luaassert correctly failed; noflower/dash claim."
+  },
+  "known_defects": [
+    "Overworld sky black fromfirst active scene; source backdrop composition needs repair.",
+    "Cold DrawPlayer_Intermediate portrait/lives caller bypasses Celeste pose/CHR setup.",
+    "Unpowered51px jump/tier0noGrip can strand players at64px pipes; complete read-only accommodation audit required."
+  ],
+  "canonical_unchanged": "85afad507fa7abac29603c65bf5f7d9cadd224a24fd13ff2fd22f541b65729aa",
+  "stored": [
+    {
+      "original": "build\\celeste_host.patch",
+      "saved": "celeste_host.patch",
+      "original_sha256": "d73536943cad51bb8f8e98a9fe0bfb3a6fec8b6cc18501d3703d8a41b2e5b5f9",
+      "original_bytes": 14529,
+      "stored_sha256": "d73536943cad51bb8f8e98a9fe0bfb3a6fec8b6cc18501d3703d8a41b2e5b5f9",
+      "stored_bytes": 14529
+    },
+    {
+      "original": "build\\celeste_host_final_controls.json",
+      "saved": "celeste_host_final_controls.json",
+      "original_sha256": "9bff20cd395dddfd8609d9707e9379aa83a0d3ffcdaa4ed90dfbe091b2d21d9b",
+      "original_bytes": 14484,
+      "stored_sha256": "9bff20cd395dddfd8609d9707e9379aa83a0d3ffcdaa4ed90dfbe091b2d21d9b",
+      "stored_bytes": 14484
+    },
+    {
+      "original": "build\\celeste_host_final_callers_v4.json",
+      "saved": "celeste_host_final_callers_v4.json",
+      "original_sha256": "684f7f968b006430922bb4665a32c741c2c21747042ff2f7df99bd8f54626fa5",
+      "original_bytes": 26658,
+      "stored_sha256": "684f7f968b006430922bb4665a32c741c2c21747042ff2f7df99bd8f54626fa5",
+      "stored_bytes": 26658
+    },
+    {
+      "original": "build\\celeste_host_final_kernel.json",
+      "saved": "celeste_host_final_kernel.json",
+      "original_sha256": "0b02c20f58cabaeb1e0644e39f3298e093abbf6ad24b39e723174e9d67e06304",
+      "original_bytes": 4626,
+      "stored_sha256": "0b02c20f58cabaeb1e0644e39f3298e093abbf6ad24b39e723174e9d67e06304",
+      "stored_bytes": 4626
+    },
+    {
+      "original": "build\\celeste_host_final_art.json",
+      "saved": "celeste_host_final_art.json",
+      "original_sha256": "32d8e301b0d387cf7220b98a3fe3b7153152f64fe855b2e2417e81fb280a4c1e",
+      "original_bytes": 34819,
+      "stored_sha256": "32d8e301b0d387cf7220b98a3fe3b7153152f64fe855b2e2417e81fb280a4c1e",
+      "stored_bytes": 34819
+    },
+    {
+      "original": "build\\celeste_host_final_pickup.json",
+      "saved": "celeste_host_final_pickup.json",
+      "original_sha256": "07235fd421be4e14910870cb22b92a4abc83e54f368aa88fa70c60b2c72bb3ea",
+      "original_bytes": 28563,
+      "stored_sha256": "07235fd421be4e14910870cb22b92a4abc83e54f368aa88fa70c60b2c72bb3ea",
+      "stored_bytes": 28563
+    },
+    {
+      "original": "build\\celeste_host_handoff_export_negative.json",
+      "saved": "celeste_host_handoff_export_negative.json",
+      "original_sha256": "5cb0d20f58ca8fff6596ba30b6f28281550e859d596913c94d74b00fff36faeb",
+      "original_bytes": 6905,
+      "stored_sha256": "5cb0d20f58ca8fff6596ba30b6f28281550e859d596913c94d74b00fff36faeb",
+      "stored_bytes": 6905
+    },
+    {
+      "original": "build\\verification\\roster-expansion-celeste-easy-route-v1\\ready.json",
+      "saved": "roster-expansion-celeste-easy-route-v1/ready.json",
+      "original_sha256": "6b8c19fd08df176590fb3454dcc9108810ba944bd7bee6198f00b1cb95490e9f",
+      "original_bytes": 12298,
+      "stored_sha256": "6b8c19fd08df176590fb3454dcc9108810ba944bd7bee6198f00b1cb95490e9f",
+      "stored_bytes": 12298
+    },
+    {
+      "original": "build\\verification\\roster-expansion-celeste-easy-route-v1\\result.json",
+      "saved": "roster-expansion-celeste-easy-route-v1/result.json",
+      "original_sha256": "e5dbe72ce19a1bdb8a8780dd076445b6e2b7eb0dea632c12ce5c0dd329fde53f",
+      "original_bytes": 1940,
+      "stored_sha256": "e5dbe72ce19a1bdb8a8780dd076445b6e2b7eb0dea632c12ce5c0dd329fde53f",
+      "stored_bytes": 1940
+    },
+    {
+      "original": "build\\verification\\roster-expansion-celeste-easy-route-v1\\launch.json",
+      "saved": "roster-expansion-celeste-easy-route-v1/launch.json",
+      "original_sha256": "9e4eb29234cdd05cebe9e142e86ea75a1817aaa120e26baa5ba06d6c5120277b",
+      "original_bytes": 1294,
+      "stored_sha256": "9e4eb29234cdd05cebe9e142e86ea75a1817aaa120e26baa5ba06d6c5120277b",
+      "stored_bytes": 1294
+    },
+    {
+      "original": "build\\verification\\roster-expansion-celeste-easy-route-v1\\review.json",
+      "saved": "roster-expansion-celeste-easy-route-v1/review.json.gz",
+      "original_sha256": "e8f9b77dcb355c113a8acf8331f15f04eed3c4668b25bc2f6cda7cbe512d327d",
+      "original_bytes": 653249,
+      "stored_sha256": "f45b744a784db1a57850dd6293b8ef5b0066aad2d5b2833f3539a34fd4589145",
+      "stored_bytes": 319885
+    },
+    {
+      "original": "build\\verification\\roster-expansion-celeste-easy-route-v1\\selected-whole-frames.png",
+      "saved": "roster-expansion-celeste-easy-route-v1/selected-whole-frames.png",
+      "original_sha256": "f76bcba005e59ca71389ba9721e0eed7bcfdb9e99635ca9dce38e3d09019c992",
+      "original_bytes": 10022,
+      "stored_sha256": "f76bcba005e59ca71389ba9721e0eed7bcfdb9e99635ca9dce38e3d09019c992",
+      "stored_bytes": 10022
+    },
+    {
+      "original": "build\\verification\\roster-expansion-celeste-easy-route-v1\\celeste-host-final-run.log",
+      "saved": "roster-expansion-celeste-easy-route-v1/celeste-host-final-run.log",
+      "original_sha256": "c23996f9099cc1357ec55e673759c7cf519e5a54546086af4159d70d19edd202",
+      "original_bytes": 3607,
+      "stored_sha256": "c23996f9099cc1357ec55e673759c7cf519e5a54546086af4159d70d19edd202",
+      "stored_bytes": 3607
+    },
+    {
+      "original": "build\\verification\\roster-expansion-celeste-easy-route-v2\\ready.json",
+      "saved": "roster-expansion-celeste-easy-route-v2/ready.json",
+      "original_sha256": "558eddb8a045479b846a1a060b76cdae58fd6d182e456e038ebed5b0c287302e",
+      "original_bytes": 12840,
+      "stored_sha256": "558eddb8a045479b846a1a060b76cdae58fd6d182e456e038ebed5b0c287302e",
+      "stored_bytes": 12840
+    },
+    {
+      "original": "build\\verification\\roster-expansion-celeste-easy-route-v2\\result.json",
+      "saved": "roster-expansion-celeste-easy-route-v2/result.json",
+      "original_sha256": "2f3a23961d38950b1df6c0d16e0af3393b8a880bbd827aeea3210137561ba5e4",
+      "original_bytes": 2099,
+      "stored_sha256": "2f3a23961d38950b1df6c0d16e0af3393b8a880bbd827aeea3210137561ba5e4",
+      "stored_bytes": 2099
+    },
+    {
+      "original": "build\\verification\\roster-expansion-celeste-easy-route-v2\\launch.json",
+      "saved": "roster-expansion-celeste-easy-route-v2/launch.json",
+      "original_sha256": "968a98a776b0db1189e155e1229f3e475a6f4ed72ea06cefa0d54269d7bc8823",
+      "original_bytes": 1294,
+      "stored_sha256": "968a98a776b0db1189e155e1229f3e475a6f4ed72ea06cefa0d54269d7bc8823",
+      "stored_bytes": 1294
+    },
+    {
+      "original": "build\\verification\\roster-expansion-celeste-easy-route-v2\\review.json",
+      "saved": "roster-expansion-celeste-easy-route-v2/review.json",
+      "original_sha256": "792fc1dfd970d332c39b0a970b6c46bac90e73b7c4c39ae0e9c58568a431826a",
+      "original_bytes": 241427,
+      "stored_sha256": "792fc1dfd970d332c39b0a970b6c46bac90e73b7c4c39ae0e9c58568a431826a",
+      "stored_bytes": 241427
+    },
+    {
+      "original": "build\\verification\\roster-expansion-celeste-easy-route-v2\\selected-whole-frames.png",
+      "saved": "roster-expansion-celeste-easy-route-v2/selected-whole-frames.png",
+      "original_sha256": "db0aa66340e8bbfd17d2afa7d723deebc84252895e5df1d6205f2144c3a0613e",
+      "original_bytes": 12686,
+      "stored_sha256": "db0aa66340e8bbfd17d2afa7d723deebc84252895e5df1d6205f2144c3a0613e",
+      "stored_bytes": 12686
+    },
+    {
+      "original": "build\\verification\\roster-expansion-celeste-easy-route-v2\\celeste-host-final-run.log",
+      "saved": "roster-expansion-celeste-easy-route-v2/celeste-host-final-run.log",
+      "original_sha256": "75c026721a73bc3197727b3ed273d8630582086d73f605a92cfbcb895b3600d4",
+      "original_bytes": 3618,
+      "stored_sha256": "75c026721a73bc3197727b3ed273d8630582086d73f605a92cfbcb895b3600d4",
+      "stored_bytes": 3618
+    },
+    {
+      "original": "build\\verification\\roster-expansion-celeste-all-upgrades-v1\\ready.json",
+      "saved": "roster-expansion-celeste-all-upgrades-v1/ready.json",
+      "original_sha256": "b169ee65b7d451679b6f57a745bbbfd10527264eba25ac5d683d2f0d5a9b53ae",
+      "original_bytes": 12974,
+      "stored_sha256": "b169ee65b7d451679b6f57a745bbbfd10527264eba25ac5d683d2f0d5a9b53ae",
+      "stored_bytes": 12974
+    },
+    {
+      "original": "build\\verification\\roster-expansion-celeste-all-upgrades-v1\\launch.json",
+      "saved": "roster-expansion-celeste-all-upgrades-v1/launch.json",
+      "original_sha256": "32607d8e141be5608081af2478326213c1071ecd9e1d68deaa7288036d65631a",
+      "original_bytes": 1298,
+      "stored_sha256": "32607d8e141be5608081af2478326213c1071ecd9e1d68deaa7288036d65631a",
+      "stored_bytes": 1298
+    },
+    {
+      "original": "build\\verification\\roster-expansion-celeste-all-upgrades-v1\\celeste-host-final-run.log",
+      "saved": "roster-expansion-celeste-all-upgrades-v1/celeste-host-final-run.log",
+      "original_sha256": "ffea25e76fe1d69bc4e44148b31530dec435bcd0b8907e1d8b95f9f89a0e13dd",
+      "original_bytes": 4057,
+      "stored_sha256": "ffea25e76fe1d69bc4e44148b31530dec435bcd0b8907e1d8b95f9f89a0e13dd",
+      "stored_bytes": 4057
+    }
+  ]
+}

@@ -472,7 +472,11 @@ ForceInjury:
 .if ::ENABLE_CROSSOVER
           lda SelectedCharacter
           bne :+
+ .if ::ENABLE_MMC5_EXPANDED
+            farcall CmHostMarioInjury
+ .else
             farcall MarioSourceInjuryStart
+ .endif
             jmp ExInjColRoutines
           :
 .if ::ENABLE_MMC5_EXPANDED

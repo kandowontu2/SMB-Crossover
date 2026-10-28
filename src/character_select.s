@@ -566,6 +566,10 @@ Changed:
 .endproc
 
 .proc MenuResolveCharacter
+.if ::ENABLE_MMC5_EXPANDED
+  farcall CmHostResolveCharacter,jmp
+  .res 16,$ea
+.else
   ldx CrossoverMenuIndex
 .if ::ENABLE_MMC5_EXPANDED
   farcall NrMenuCharacter
@@ -581,6 +585,7 @@ Done:
   rts
 .if !::ENABLE_MMC5_EXPANDED
 MenuCharacters: .byte 0,1,2,3,4,5,6,7,12,9,10,11
+.endif
 .endif
 .endproc
 

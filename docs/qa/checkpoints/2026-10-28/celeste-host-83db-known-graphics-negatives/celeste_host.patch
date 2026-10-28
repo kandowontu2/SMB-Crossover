@@ -1,0 +1,616 @@
+--- a/src/entrypoint.s
++++ b/src/entrypoint.s
+@@ -545,4 +545,6 @@
+ .include "new_roster_dispatch.s"
+ .include "sunny.s"
+ .include "sunny_integration.s"
+-.endif
++.include "celeste_mario_host_entry.s"
++.include "celeste_mario_host.s"
++.endif
+--- a/smb1base-mmc5-expanded.cfg
++++ b/smb1base-mmc5-expanded.cfg
+@@ -169,7 +169,7 @@
+     ICE_CLIMBERS_CHR_MEM: start=$b2000,size=$1000,type=ro,fill=yes,file=%O,fillval=$00;
+     RIVER_CITY_CHR_MEM: start=$b3000,size=$2000,type=ro,fill=yes,file=%O,fillval=$00;
+     SUNNY_CHR_MEM: start=$b5000,size=$4000,type=ro,fill=yes,file=%O,fillval=$00;
+-    CELESTE_UNUSED_CHR_MEM: start=$b9000,size=$4000,type=ro,fill=yes,file=%O,fillval=$00;
++    CELESTE_MARIO_CHR_MEM: start=$b9000,size=$4000,type=ro,fill=yes,file=%O,fillval=$00;
+     TMNT_CHR_TAIL: start=$bd000,size=$13000,type=ro,fill=yes,file=%O,fillval=$00;
+     PARODIUS_CHR_MEM: start=$d0000,size=$30000,type=ro,fill=yes,file=%O,fillval=$00;
+ }
+@@ -463,6 +463,9 @@
+     SUNNY_ART: load=X5_NEW_5E,type=ro,start=$ce00,optional=yes;
+     SUNNY_CHR: load=SUNNY_CHR_MEM,type=ro,optional=yes;
+     NEW_ROSTER_NAMES: load=X5_NEW_51,type=ro,start=$b700,optional=yes;
++    CELESTE_MARIO_HOST: load=X5_NEW_51,type=ro,start=$bb10,optional=yes;
++    CELESTE_MARIO_CORE: load=X5_NEW_62,type=ro,start=$b000,optional=yes;
++    CELESTE_MARIO_CHR: load=CELESTE_MARIO_CHR_MEM,type=ro,optional=yes;
+ }
+ SYMBOLS {
+     __STACKSIZE__: type = weak, value = $20; # 32 bytes of stack
+--- a/src/samus.s
++++ b/src/samus.s
+@@ -63,6 +63,47 @@
+ .endproc
+ .segment "FIXED"
+ .proc CrossoverGraphicsBank
++.if ::ENABLE_MMC5_EXPANDED
++  ; Same resident68B capsule, no shared SMC/bank-A trip in IRQ/NMI.
++  lda SelectedCharacter
++  cmp #CHARACTER_PIT
++  bcc Small
++  jmp ExpandedGraphicsBank
++Small:
++  cmp #CHARACTER_BILL
++  bcc First
++  jmp RosterGraphicsBank
++First:
++  cmp #CHARACTER_SAMUS
++  beq Samus
++  cmp #CHARACTER_MEGAMAN
++  beq Mega
++  lda MarioVariant
++  cmp #4
++  beq Celeste
++Native:
++  clc                         ; old default's CMP#SAMUS returns carry0
++  lda #.bank(MmMM_HAIR_STANDRight)|MMC5_PRG_ROM
++  bne Publish
++Samus:
++  lda #.bank(SmP0_STANDRight)|MMC5_PRG_ROM
++  bne Publish
++Celeste:
++  lda #.bank(CmArtStart)|MMC5_PRG_ROM
++  bne Publish
++Mega:
++  lda ObjectMetasprite
++  cmp #METASPRITE_SAMUS_BODY
++  beq MegaBody
++  bne Native
++MegaBody:
++  lda #.bank(SsMegaTHROWRight)|MMC5_PRG_ROM
++Publish:
++  BankPRGC a
++  rts
++  .res 5,$ea
++  .assert *-CrossoverGraphicsBank=68,error,"Resident graphics ABI capsule"
++.else
+   lda SelectedCharacter
+   cmp #CHARACTER_MEGAMAN
+   bne :+
+@@ -88,6 +129,7 @@
+ Samus:
+   BankPRGC #.bank(SmP0_STANDRight)
+   rts
++.endif
+ .endproc
+ 
+ .proc SamusStopAtWall
+--- a/src/megaman_weapons.s
++++ b/src/megaman_weapons.s
+@@ -2512,6 +2512,7 @@
+   cpy #0
+   bne Done
+   lda SelectedCharacter
++  beq Celeste
+   cmp #CHARACTER_MEGAMAN
+   bne Done
+   lda ProtoVariant
+@@ -2524,6 +2525,12 @@
+   BankPRGC a
+ Done:
+   jmp HpNativePointerEnd
++Celeste:
++  lda MarioVariant
++  cmp #4
++  bne Done
++  lda #.bank(CmArtStart)|MMC5_PRG_ROM
++  bne Publish
+ .endproc
+ .assert *-MmReserveExit<=88,error,"Actual bank4 pool"
+ .segment "MM_BODY_PARTIAL"
+--- a/src/new_roster_dispatch.s
++++ b/src/new_roster_dispatch.s
+@@ -3,6 +3,20 @@
+ ; Each adapter restores incoming A/P before entering its actual owner.
+ .pushseg
+ .segment "NEW_ROSTER_GATE"
++.macro NrCeleste Target
++ php
++ pha
++ lda SelectedCharacter
++ bne :+
++ lda MarioVariant
++ cmp #4
++ bne :+
++ pla
++ plp
++ farcall Target,jmp
++:pla
++ plp
++.endmacro
+ .macro NrGate Name,Ice,City,Sunny,Legacy
+ .proc Name
+  php
+@@ -37,7 +51,11 @@
+ NrGate NrPortrait,IcPortrait,RcPortrait,SunnyPortrait,JnPortraitDispatch
+ NrGate NrWeapons,IcWeapons,RcWeapons,SunnyWeapons,JnWeaponsDispatch
+ NrGate NrInjury,IcInjuryStart,RcInjuryStart,SunnyInjuryIntegrated,JnInjuryStartDispatch
+-NrGate NrInjuryStatus,IcInjuryStatus,RcInjuryStatus,SunnyInjuryStatus,JnInjuryStatusDispatch
++.proc NrInjuryStatus
++ NrCeleste CmHostInjuryStatus
++ jmp NrLegacyInjuryStatus
++.endproc
++NrGate NrLegacyInjuryStatus,IcInjuryStatus,RcInjuryStatus,SunnyInjuryStatus,JnInjuryStatusDispatch
+ NrGate NrDeathStart,IcDeathStart,RcDeathStart,SunnyDeathStart,JnInventoryDeathDispatch
+ NrGate NrDeath,IcDeathUpdate,RcDeath,SunnyNativeDeath,JnDeathDispatch
+ NrGate NrVisible,IcVisible,RcVisible,SunnyVisible,JnVisibleDispatch
+@@ -47,6 +65,12 @@
+  php
+  pha
+  lda SelectedCharacter
++ bne :+
++ lda MarioVariant
++ cmp #4
++ beq Own
++:
++ lda SelectedCharacter
+  cmp #CHARACTER_ICE_CLIMBERS
+  beq Own
+  cmp #CHARACTER_RIVER_CITY
+@@ -61,6 +85,10 @@
+  plp
+  lda #0
+  farcall SpecialRosterClear    ; clear shared legacy weapon/CHR overrides too
++ lda SelectedCharacter
++ bne :+
++ farcall CmHostEnsure,jmp
++:
+  lda SelectedCharacter
+  cmp #CHARACTER_SUNNY
+  beq Sunny
+@@ -157,6 +185,12 @@
+  php
+  pha
+  lda SelectedCharacter
++ bne :+
++ lda MarioVariant
++ cmp #4
++ beq Own
++:
++ lda SelectedCharacter
+  cmp #CHARACTER_ICE_CLIMBERS
+  beq Own
+  cmp #CHARACTER_RIVER_CITY
+@@ -167,6 +201,7 @@
+  plp
+  farcall JnPrepareDispatch,jmp
+ Own:
++ lda SelectedCharacter
+  sta InvPickupOwner,x
+  lda #$fc
+  sta InvPickup,x
+@@ -182,6 +217,12 @@
+  php
+  pha
+  lda SelectedCharacter
++ bne :+
++ lda MarioVariant
++ cmp #4
++ beq Native
++:
++ lda SelectedCharacter
+  cmp #CHARACTER_ICE_CLIMBERS
+  beq Native
+  cmp #CHARACTER_RIVER_CITY
+@@ -201,6 +242,12 @@
+  php
+  pha
+  lda SelectedCharacter
++ bne :+
++ lda MarioVariant
++ cmp #4
++ beq Native
++:
++ lda SelectedCharacter
+  cmp #CHARACTER_ICE_CLIMBERS
+  beq Native
+  cmp #CHARACTER_RIVER_CITY
+@@ -219,6 +266,12 @@
+ .proc NrPickupCollision
+  php
+  pha
++ lda SelectedCharacter
++ bne :+
++ lda MarioVariant
++ cmp #4
++ beq Own
++:
+  lda SelectedCharacter
+  cmp #CHARACTER_ICE_CLIMBERS
+  beq Own
+@@ -243,6 +296,7 @@
+  rts
+ .endproc
+ .proc NrPickup
++ NrCeleste CmHostPickup
+  lda SelectedCharacter
+  cmp #CHARACTER_SUNNY
+  beq Sunny
+@@ -272,6 +326,7 @@
+  farcall SunnyCollectIntegrated,jmp
+ .endproc
+ .proc NrUi
++ NrCeleste CmHostUi
+  php
+  pha
+  lda SelectedCharacter
+@@ -299,6 +354,7 @@
+  farcall SunnyUi,jmp
+ .endproc
+ .proc NrStatusName
++ NrCeleste CmHostStatusName
+  php
+  pha
+  lda SelectedCharacter
+@@ -354,6 +410,8 @@
+  sta RcVariant
+  sta MacVariant
+  sta RcMarker                 ; initialize lazily, preserve selected owner's RAM
++ sta CmMarker
++ sta CmActive
+  farcall IcGlobalInit
+  farcall SunnyGlobalInit,jmp
+ .endproc
+@@ -367,7 +425,7 @@
+  lda #0
+  sta RcMarker
+  farcall SunnyGlobalInit
+- rts
++ farcall CmHostFresh,jmp
+ .endproc
+ .proc NrFullPower
+  lda SelectedCharacter
+@@ -412,6 +470,7 @@
+  jmp BlockBufferColli_Side
+ .endproc
+ .proc NrColors
++ NrCeleste CmHostColors
+  php
+  pha
+  lda SelectedCharacter
+@@ -440,6 +499,24 @@
+ Sunny:farcall SunnyColorsIntegrated,jmp
+ .endproc
+ .proc NrMenuToggle
++ lda CrossoverMenuIndex
++ bne NrOtherToggle
++ lda CrossoverMenuPressed
++ and #Select_Button
++ beq NrOtherToggle
++ lda MarioVariant
++ beq NrToLuigi
++ cmp #1
++ beq NrToCeleste
++ lda #0
++ beq NrMarioPublish
++NrToLuigi:lda #1
++ bne NrMarioPublish
++NrToCeleste:lda #4
++NrMarioPublish:sta MarioVariant
++ sec
++ rts
++NrOtherToggle:
+  lda CrossoverMenuPressed
+  and #Select_Button
+  beq No
+@@ -607,6 +684,14 @@
+ .segment "NEW_ROSTER_NAMES"
+ .proc NrQueueSelectName
+   lda SelectedCharacter
++  bne CmOtherName
++  lda MarioVariant
++  cmp #4
++  bne CmMarioName
++  lda #44
++  jmp NameIndex
++CmMarioName:lda #0
++CmOtherName:
+ .if ::ENABLE_MMC5_EXPANDED
+   cmp #CHARACTER_SUNNY
+   bne SunnyOtherName
+@@ -718,7 +803,7 @@
+   txa
+   clc
+   adc #24
+-  jmp NameIndex
++  bne NameIndex
+ Cv3OriginalName:
+   lda SelectedCharacter
+   cmp #CHARACTER_SCROOGE
+@@ -802,9 +887,9 @@
+   .byte "     ROLL       "
+   .byte "      POPO      ","      NANA      "
+   .byte "      ALEX      ","      RYAN      "
+-  .byte "   DOC LOUIS    ","   MIKE TYSON   ","     SUNNY      "
++  .byte "   DOC LOUIS    ","   MIKE TYSON   ","     SUNNY      "," CELESTE MARIO  "
+  .endif
+ .endproc
+ .segment "NEW_ROSTER_GATE"
+-.assert * <= $b000,lderror,"Roster dispatcher overlaps Rogue Dawn reservation"
++.assert * <= $ae00,lderror,"Roster dispatcher overlaps Rogue auxiliary reservation"
+ .popseg
+--- a/src/player.s
++++ b/src/player.s
+@@ -531,6 +531,15 @@
+   sta ObjectMetasprite         ; Do not restore a live pose on the life-loss frame.
+   rts
+ GuestDeathGraphicsReady:
++.if ::ENABLE_MMC5_EXPANDED
++  lda SelectedCharacter
++  bne :+
++  lda MarioVariant
++  cmp #4
++  bne :+
++  farcall CmHostGraphics,jmp
++:
++.endif
+   lda SelectedCharacter
+   cmp #CHARACTER_PIT
+   bcc :+
+@@ -740,6 +749,9 @@
+ .endif
+     rts
+ .endif
++.if ::ENABLE_MMC5_EXPANDED
++.pushseg
++.segment "CELESTE_MARIO_HOST"
+   lda TimerControl    ;check master timer control
+   cmp #$f8            ;for specific moment in time
+   bne EndChgSize      ;branch if before or after that point
+@@ -750,6 +762,21 @@
+   jmp DonePlayerTask  ;otherwise do sub to init timer control and set routine
+ ExitChgSize:
+   rts ; TODO check this RTS can be removed                 ;and then leave
++
++.popseg
++.else
++  lda TimerControl    ;check master timer control
++  cmp #$f8            ;for specific moment in time
++  bne EndChgSize      ;branch if before or after that point
++  jmp InitChangeSize  ;otherwise run code to get growing/shrinking going
++EndChgSize:
++  cmp #$c4            ;check again for another specific moment
++  bne ExitChgSize     ;and branch to leave if before or after that point
++  jmp DonePlayerTask  ;otherwise do sub to init timer control and set routine
++ExitChgSize:
++  rts ; TODO check this RTS can be removed                 ;and then leave
++
++.endif
+ 
+ ;-------------------------------------------------------------------------------------
+ 
+@@ -962,6 +989,10 @@
+ .if ::ENABLE_CROSSOVER
+   lda SelectedCharacter
+   bne CrossoverGuestDispatch
++.if ::ENABLE_MMC5_EXPANDED
++CrossoverMarioMovement:
++  farcall CmHostMarioMovement,jmp
++.else
+ CrossoverMarioMovement:
+   lda SwimmingFlag
+   beq CrossoverDryMario
+@@ -987,6 +1018,7 @@
+   rts
+ CrossoverNativeDryMario:
+   jmp CrossoverVanillaMovement
++.endif
+ CrossoverGuestDispatch:
+   cmp #CHARACTER_LUIGI
+   bne :+
+--- a/src/megaman_physics.s
++++ b/src/megaman_physics.s
+@@ -875,18 +875,43 @@
+ ; update instead of allowing a visible fall/jump state for an extra frame.
+ .segment "PLAYER"
+ .proc MegaManSlideSmallGap
++.if ::ENABLE_MMC5_EXPANDED
++  lda SelectedCharacter
++  bne :+
++  lda MarioVariant
++  cmp #4
++  bne :+
++  farcall CmHostAfterBG,jmp
++:
++.endif
+   lda CrossoverBehaviorVersion
++ .if ::ENABLE_MMC5_EXPANDED
++  beq Done
++ .else
+   jeq Done
++ .endif
+   lda SelectedCharacter
+   beq MarioGap
+   cmp #CHARACTER_MEGAMAN
++ .if ::ENABLE_MMC5_EXPANDED
++  bne Done
++ .else
+   jne Done
++ .endif
+   lda MmSliding
++ .if ::ENABLE_MMC5_EXPANDED
++  beq Done
++ .else
+   jeq Done
++ .endif
+   bne Common
+ MarioGap:
+   farcall MarioSourceGapEligible
++ .if ::ENABLE_MMC5_EXPANDED
++  bcc Done
++ .else
+   jcc Done
++ .endif
+ Common:
+   farcall MarioSourceCrossSmallGap
+ Done:
+--- a/src/object.s
++++ b/src/object.s
+@@ -1699,9 +1699,60 @@
+     jmp ProcAirBubbles
+   :
+ .endif
++.if ::ENABLE_MMC5_EXPANDED
++  lda SelectedCharacter
++  bne :+
++  lda MarioVariant
++  cmp #4
++  bne :+
++  farcall CmHostDashTail,jmp
++:
++.endif
+   lda PlayerStatus           ;check player's status
+   cmp #$02
+   bcc ProcAirBubbles         ;if not fiery, branch
++.if ::ENABLE_MMC5_EXPANDED
++CheckAttackButton:
++  farcall CmHostFireballAttack,jmp
++.pushseg
++.segment "CELESTE_MARIO_HOST"
++CmHostFireballAttack:
++  lda A_B_Buttons
++  and #B_Button              ;check for b button pressed
++  beq CmHostFireballs          ;branch if not pressed
++  and PreviousA_B_Buttons
++  bne CmHostFireballs          ;if button pressed in previous frame, branch
++  lda FireballCounter        ;load fireball counter
++  and #%00000001             ;get LSB and use as offset for buffer
++  tax
++  lda Fireball_State,x       ;load fireball state
++  bne CmHostFireballs          ;if not inactive, branch
++  ldy Player_Y_HighPos       ;if player too high or too low, branch
++  dey
++  bne CmHostFireballs
++  lda CrouchingFlag          ;if player crouching, branch
++  bne CmHostFireballs
++  lda Player_State           ;if player's state = climbing, branch
++  cmp #$03
++  beq CmHostFireballs
++  lda #Sfx_Fireball          ;play fireball sound effect
++  sta Square1SoundQueue
++  lda #$02                   ;load state
++  sta Fireball_State,x
++.if ::ENABLE_CROSSOVER
++  lda #8
++  sta MegaManShotPose
++.endif
++  ldy PlayerAnimTimerSet     ;copy animation frame timer setting
++  sty FireballThrowingTimer  ;into fireball throwing timer
++  dey
++  sty PlayerAnimTimer        ;decrement and store in player's animation timer
++  inc FireballCounter        ;increment fireball counter
++
++CmHostFireballs:
++  farcall ProcFireballs,jmp
++.popseg
++.else
+ CheckAttackButton:
+   lda A_B_Buttons
+   and #B_Button              ;check for b button pressed
+@@ -1734,6 +1785,8 @@
+   dey
+   sty PlayerAnimTimer        ;decrement and store in player's animation timer
+   inc FireballCounter        ;increment fireball counter
++
++.endif
+ 
+ ProcFireballs:
+   ldx #$00
+--- a/src/character_select.s
++++ b/src/character_select.s
+@@ -566,6 +566,10 @@
+ .endproc
+ 
+ .proc MenuResolveCharacter
++.if ::ENABLE_MMC5_EXPANDED
++  farcall CmHostResolveCharacter,jmp
++  .res 16,$ea
++.else
+   ldx CrossoverMenuIndex
+ .if ::ENABLE_MMC5_EXPANDED
+   farcall NrMenuCharacter
+@@ -581,6 +585,7 @@
+   rts
+ .if !::ENABLE_MMC5_EXPANDED
+ MenuCharacters: .byte 0,1,2,3,4,5,6,7,12,9,10,11
++.endif
+ .endif
+ .endproc
+ 
+--- a/src/collision.s
++++ b/src/collision.s
+@@ -472,7 +472,11 @@
+ .if ::ENABLE_CROSSOVER
+           lda SelectedCharacter
+           bne :+
++ .if ::ENABLE_MMC5_EXPANDED
++            farcall CmHostMarioInjury
++ .else
+             farcall MarioSourceInjuryStart
++ .endif
+             jmp ExInjColRoutines
+           :
+ .if ::ENABLE_MMC5_EXPANDED
+--- a/src/x5_bounce.s
++++ b/src/x5_bounce.s
+@@ -119,6 +119,15 @@
+ .proc X5SpringDispatch
+   php
+   pha
++  lda SelectedCharacter
++  bne :+
++  lda MarioVariant
++  cmp #4
++  bne :+
++  pla
++  plp
++  farcall CmHostSpring,jmp
++:
+   jsr X5BounceProfile
+   bcs New
+   lda SelectedCharacter
+@@ -153,6 +162,15 @@
+ .proc X5StompDispatch
+   php
+   pha
++  lda SelectedCharacter
++  bne :+
++  lda MarioVariant
++  cmp #4
++  bne :+
++  pla
++  plp
++  farcall CmHostStomp,jmp
++:
+   jsr X5BounceProfile
+   bcs New
+   lda SelectedCharacter
+--- a/src/cheats_four.s
++++ b/src/cheats_four.s
+@@ -700,7 +700,13 @@
+  bne Done
+  farcall GuestBeginPowerup
+  rts
+-Mario:lda PlayerStatus
++Mario:
++ lda MarioVariant
++ cmp #4
++ bne :+
++ farcall CmHostFullPower,jmp
++:
++ lda PlayerStatus
+  cmp #2
+  bcs Done
+  sta GuestPowerupOld

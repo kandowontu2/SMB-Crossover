@@ -531,6 +531,15 @@ CntPl:
   sta ObjectMetasprite         ; Do not restore a live pose on the life-loss frame.
   rts
 GuestDeathGraphicsReady:
+.if ::ENABLE_MMC5_EXPANDED
+  lda SelectedCharacter
+  bne :+
+  lda MarioVariant
+  cmp #4
+  bne :+
+  farcall CmHostGraphics,jmp
+:
+.endif
   lda SelectedCharacter
   cmp #CHARACTER_PIT
   bcc :+
@@ -740,6 +749,9 @@ PlayerChangeSize:
 .endif
     rts
 .endif
+.if ::ENABLE_MMC5_EXPANDED
+.pushseg
+.segment "CELESTE_MARIO_HOST"
   lda TimerControl    ;check master timer control
   cmp #$f8            ;for specific moment in time
   bne EndChgSize      ;branch if before or after that point
@@ -750,6 +762,21 @@ EndChgSize:
   jmp DonePlayerTask  ;otherwise do sub to init timer control and set routine
 ExitChgSize:
   rts ; TODO check this RTS can be removed                 ;and then leave
+
+.popseg
+.else
+  lda TimerControl    ;check master timer control
+  cmp #$f8            ;for specific moment in time
+  bne EndChgSize      ;branch if before or after that point
+  jmp InitChangeSize  ;otherwise run code to get growing/shrinking going
+EndChgSize:
+  cmp #$c4            ;check again for another specific moment
+  bne ExitChgSize     ;and branch to leave if before or after that point
+  jmp DonePlayerTask  ;otherwise do sub to init timer control and set routine
+ExitChgSize:
+  rts ; TODO check this RTS can be removed                 ;and then leave
+
+.endif
 
 ;-------------------------------------------------------------------------------------
 
@@ -962,6 +989,10 @@ PlayerMovementSubs:
 .if ::ENABLE_CROSSOVER
   lda SelectedCharacter
   bne CrossoverGuestDispatch
+.if ::ENABLE_MMC5_EXPANDED
+CrossoverMarioMovement:
+  farcall CmHostMarioMovement,jmp
+.else
 CrossoverMarioMovement:
   lda SwimmingFlag
   beq CrossoverDryMario
@@ -987,6 +1018,7 @@ CrossoverDryMario:
   rts
 CrossoverNativeDryMario:
   jmp CrossoverVanillaMovement
+.endif
 CrossoverGuestDispatch:
   cmp #CHARACTER_LUIGI
   bne :+

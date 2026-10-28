@@ -1699,9 +1699,60 @@ RemainingBatchDone:
     jmp ProcAirBubbles
   :
 .endif
+.if ::ENABLE_MMC5_EXPANDED
+  lda SelectedCharacter
+  bne :+
+  lda MarioVariant
+  cmp #4
+  bne :+
+  farcall CmHostDashTail,jmp
+:
+.endif
   lda PlayerStatus           ;check player's status
   cmp #$02
   bcc ProcAirBubbles         ;if not fiery, branch
+.if ::ENABLE_MMC5_EXPANDED
+CheckAttackButton:
+  farcall CmHostFireballAttack,jmp
+.pushseg
+.segment "CELESTE_MARIO_HOST"
+CmHostFireballAttack:
+  lda A_B_Buttons
+  and #B_Button              ;check for b button pressed
+  beq CmHostFireballs          ;branch if not pressed
+  and PreviousA_B_Buttons
+  bne CmHostFireballs          ;if button pressed in previous frame, branch
+  lda FireballCounter        ;load fireball counter
+  and #%00000001             ;get LSB and use as offset for buffer
+  tax
+  lda Fireball_State,x       ;load fireball state
+  bne CmHostFireballs          ;if not inactive, branch
+  ldy Player_Y_HighPos       ;if player too high or too low, branch
+  dey
+  bne CmHostFireballs
+  lda CrouchingFlag          ;if player crouching, branch
+  bne CmHostFireballs
+  lda Player_State           ;if player's state = climbing, branch
+  cmp #$03
+  beq CmHostFireballs
+  lda #Sfx_Fireball          ;play fireball sound effect
+  sta Square1SoundQueue
+  lda #$02                   ;load state
+  sta Fireball_State,x
+.if ::ENABLE_CROSSOVER
+  lda #8
+  sta MegaManShotPose
+.endif
+  ldy PlayerAnimTimerSet     ;copy animation frame timer setting
+  sty FireballThrowingTimer  ;into fireball throwing timer
+  dey
+  sty PlayerAnimTimer        ;decrement and store in player's animation timer
+  inc FireballCounter        ;increment fireball counter
+
+CmHostFireballs:
+  farcall ProcFireballs,jmp
+.popseg
+.else
 CheckAttackButton:
   lda A_B_Buttons
   and #B_Button              ;check for b button pressed
@@ -1734,6 +1785,8 @@ CheckAttackButton:
   dey
   sty PlayerAnimTimer        ;decrement and store in player's animation timer
   inc FireballCounter        ;increment fireball counter
+
+.endif
 
 ProcFireballs:
   ldx #$00

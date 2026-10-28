@@ -2512,6 +2512,7 @@ Bottom:  .byte 24,10,24,10,24,10,24,10
   cpy #0
   bne Done
   lda SelectedCharacter
+  beq Celeste
   cmp #CHARACTER_MEGAMAN
   bne Done
   lda ProtoVariant
@@ -2524,6 +2525,12 @@ Publish:
   BankPRGC a
 Done:
   jmp HpNativePointerEnd
+Celeste:
+  lda MarioVariant
+  cmp #4
+  bne Done
+  lda #.bank(CmArtStart)|MMC5_PRG_ROM
+  bne Publish
 .endproc
 .assert *-MmReserveExit<=88,error,"Actual bank4 pool"
 .segment "MM_BODY_PARTIAL"

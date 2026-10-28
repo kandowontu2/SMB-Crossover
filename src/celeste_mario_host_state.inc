@@ -1,0 +1,52 @@
+; Host allocator correction: 5F98..9D overlaps authentic PnHistory.
+; Private host build reserves5FF8..FD; global new-game clear is intentional.
+; SelectedCharacter0 / MarioVariant4 only. Root reserves this identity overlay.
+CM_FIRST_CHR = 740
+CmTier       = $5ff8
+CmMarker     = $5ff9
+CmLife       = $5ffa
+CmArea       = $5ffb
+CmWorld      = $5ffc
+CmActive     = $5ffd
+CmPreviousAB = $5c00
+CmFresh      = $5c01
+CmState      = $5c02
+CmJumpBuffer = $5c03
+CmCoyote     = $5c04
+CmWallGrace  = $5c05
+CmWallKick   = $5c06
+CmWallSide   = $5c07
+CmDashTimer  = $5c08
+CmDashReady  = $5c09
+CmDashDir    = $5c0a
+CmDashStock  = $5c0b
+CmBBuffer    = $5c0c
+CmCooldown   = $5c0d
+CmJumpTime   = $5c0e
+CmJumpInterval=$5c0f
+CmStaminaHi  = $5c10
+CmStaminaLo  = $5c11
+CmBoost      = $5c12
+CmRunMeter   = $5c13
+CmGravity    = $5c14
+CmFallForce  = $5c15
+CmFrictionLo = $5c16
+CmFrictionHi = $5c17
+CmMaxRight   = $5c18
+CmMaxLeft    = $5c19
+CmOldMaster  = $5c1a
+CmPalette    = $5c1b
+CmClock      = $5c1c
+CmPose       = $5c1d
+CmGfxBank    = $5c1e
+CmTemp       = $5c1f
+CmTemp2      = $5c20
+CmStartedJump=$5c21
+CmPoseBase   = $5c22
+CmLastState  = $5c23
+CmFootPhysics= $5c24
+CmKernelXFrac = Player_X_MoveForce
+CmPosXFrac    = SprObject_X_MoveForce
+CmPosYFrac    = Player_YMoveForceFractional
+CmVelYFrac    = Player_Y_MoveForce
+.assert CmFootPhysics<$5c80,error,"Celeste state allocation"

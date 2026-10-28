@@ -63,6 +63,47 @@ Loop:
 .endproc
 .segment "FIXED"
 .proc CrossoverGraphicsBank
+.if ::ENABLE_MMC5_EXPANDED
+  ; Same resident68B capsule, no shared SMC/bank-A trip in IRQ/NMI.
+  lda SelectedCharacter
+  cmp #CHARACTER_PIT
+  bcc Small
+  jmp ExpandedGraphicsBank
+Small:
+  cmp #CHARACTER_BILL
+  bcc First
+  jmp RosterGraphicsBank
+First:
+  cmp #CHARACTER_SAMUS
+  beq Samus
+  cmp #CHARACTER_MEGAMAN
+  beq Mega
+  lda MarioVariant
+  cmp #4
+  beq Celeste
+Native:
+  clc                         ; old default's CMP#SAMUS returns carry0
+  lda #.bank(MmMM_HAIR_STANDRight)|MMC5_PRG_ROM
+  bne Publish
+Samus:
+  lda #.bank(SmP0_STANDRight)|MMC5_PRG_ROM
+  bne Publish
+Celeste:
+  lda #.bank(CmArtStart)|MMC5_PRG_ROM
+  bne Publish
+Mega:
+  lda ObjectMetasprite
+  cmp #METASPRITE_SAMUS_BODY
+  beq MegaBody
+  bne Native
+MegaBody:
+  lda #.bank(SsMegaTHROWRight)|MMC5_PRG_ROM
+Publish:
+  BankPRGC a
+  rts
+  .res 5,$ea
+  .assert *-CrossoverGraphicsBank=68,error,"Resident graphics ABI capsule"
+.else
   lda SelectedCharacter
   cmp #CHARACTER_MEGAMAN
   bne :+
@@ -88,6 +129,7 @@ Loop:
 Samus:
   BankPRGC #.bank(SmP0_STANDRight)
   rts
+.endif
 .endproc
 
 .proc SamusStopAtWall

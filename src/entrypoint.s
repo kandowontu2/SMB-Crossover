@@ -545,4 +545,6 @@ Done:
 .include "new_roster_dispatch.s"
 .include "sunny.s"
 .include "sunny_integration.s"
+.include "celeste_mario_host_entry.s"
+.include "celeste_mario_host.s"
 .endif

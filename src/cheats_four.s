@@ -700,7 +700,13 @@ Modern:jsr CheatsInventoryMax
  bne Done
  farcall GuestBeginPowerup
  rts
-Mario:lda PlayerStatus
+Mario:
+ lda MarioVariant
+ cmp #4
+ bne :+
+ farcall CmHostFullPower,jmp
+:
+ lda PlayerStatus
  cmp #2
  bcs Done
  sta GuestPowerupOld

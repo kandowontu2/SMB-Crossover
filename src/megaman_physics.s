@@ -875,18 +875,43 @@ Stop202:
 ; update instead of allowing a visible fall/jump state for an extra frame.
 .segment "PLAYER"
 .proc MegaManSlideSmallGap
+.if ::ENABLE_MMC5_EXPANDED
+  lda SelectedCharacter
+  bne :+
+  lda MarioVariant
+  cmp #4
+  bne :+
+  farcall CmHostAfterBG,jmp
+:
+.endif
   lda CrossoverBehaviorVersion
+ .if ::ENABLE_MMC5_EXPANDED
+  beq Done
+ .else
   jeq Done
+ .endif
   lda SelectedCharacter
   beq MarioGap
   cmp #CHARACTER_MEGAMAN
+ .if ::ENABLE_MMC5_EXPANDED
+  bne Done
+ .else
   jne Done
+ .endif
   lda MmSliding
+ .if ::ENABLE_MMC5_EXPANDED
+  beq Done
+ .else
   jeq Done
+ .endif
   bne Common
 MarioGap:
   farcall MarioSourceGapEligible
+ .if ::ENABLE_MMC5_EXPANDED
+  bcc Done
+ .else
   jcc Done
+ .endif
 Common:
   farcall MarioSourceCrossSmallGap
 Done:

@@ -3,6 +3,20 @@
 ; Each adapter restores incoming A/P before entering its actual owner.
 .pushseg
 .segment "NEW_ROSTER_GATE"
+.macro NrCeleste Target
+ php
+ pha
+ lda SelectedCharacter
+ bne :+
+ lda MarioVariant
+ cmp #4
+ bne :+
+ pla
+ plp
+ farcall Target,jmp
+:pla
+ plp
+.endmacro
 .macro NrGate Name,Ice,City,Sunny,Legacy
 .proc Name
  php
@@ -37,7 +51,11 @@ NrGate NrDraw,IcDraw,RcDraw,SunnyDraw,RlDrawDispatch
 NrGate NrPortrait,IcPortrait,RcPortrait,SunnyPortrait,JnPortraitDispatch
 NrGate NrWeapons,IcWeapons,RcWeapons,SunnyWeapons,JnWeaponsDispatch
 NrGate NrInjury,IcInjuryStart,RcInjuryStart,SunnyInjuryIntegrated,JnInjuryStartDispatch
-NrGate NrInjuryStatus,IcInjuryStatus,RcInjuryStatus,SunnyInjuryStatus,JnInjuryStatusDispatch
+.proc NrInjuryStatus
+ NrCeleste CmHostInjuryStatus
+ jmp NrLegacyInjuryStatus
+.endproc
+NrGate NrLegacyInjuryStatus,IcInjuryStatus,RcInjuryStatus,SunnyInjuryStatus,JnInjuryStatusDispatch
 NrGate NrDeathStart,IcDeathStart,RcDeathStart,SunnyDeathStart,JnInventoryDeathDispatch
 NrGate NrDeath,IcDeathUpdate,RcDeath,SunnyNativeDeath,JnDeathDispatch
 NrGate NrVisible,IcVisible,RcVisible,SunnyVisible,JnVisibleDispatch
@@ -46,6 +64,12 @@ NrGate NrHead,IcHead,RcHeadProbe,SunnyHead,JnHeadDispatch
 .proc NrReset
  php
  pha
+ lda SelectedCharacter
+ bne :+
+ lda MarioVariant
+ cmp #4
+ beq Own
+:
  lda SelectedCharacter
  cmp #CHARACTER_ICE_CLIMBERS
  beq Own
@@ -61,6 +85,10 @@ Own:
  plp
  lda #0
  farcall SpecialRosterClear    ; clear shared legacy weapon/CHR overrides too
+ lda SelectedCharacter
+ bne :+
+ farcall CmHostEnsure,jmp
+:
  lda SelectedCharacter
  cmp #CHARACTER_SUNNY
  beq Sunny
@@ -157,6 +185,12 @@ Sunny:pla
  php
  pha
  lda SelectedCharacter
+ bne :+
+ lda MarioVariant
+ cmp #4
+ beq Own
+:
+ lda SelectedCharacter
  cmp #CHARACTER_ICE_CLIMBERS
  beq Own
  cmp #CHARACTER_RIVER_CITY
@@ -167,6 +201,7 @@ Sunny:pla
  plp
  farcall JnPrepareDispatch,jmp
 Own:
+ lda SelectedCharacter
  sta InvPickupOwner,x
  lda #$fc
  sta InvPickup,x
@@ -181,6 +216,12 @@ Own:
 .proc NrRise
  php
  pha
+ lda SelectedCharacter
+ bne :+
+ lda MarioVariant
+ cmp #4
+ beq Native
+:
  lda SelectedCharacter
  cmp #CHARACTER_ICE_CLIMBERS
  beq Native
@@ -201,6 +242,12 @@ Native:
  php
  pha
  lda SelectedCharacter
+ bne :+
+ lda MarioVariant
+ cmp #4
+ beq Native
+:
+ lda SelectedCharacter
  cmp #CHARACTER_ICE_CLIMBERS
  beq Native
  cmp #CHARACTER_RIVER_CITY
@@ -219,6 +266,12 @@ Native:
 .proc NrPickupCollision
  php
  pha
+ lda SelectedCharacter
+ bne :+
+ lda MarioVariant
+ cmp #4
+ beq Own
+:
  lda SelectedCharacter
  cmp #CHARACTER_ICE_CLIMBERS
  beq Own
@@ -243,6 +296,7 @@ Allowed:sec
  rts
 .endproc
 .proc NrPickup
+ NrCeleste CmHostPickup
  lda SelectedCharacter
  cmp #CHARACTER_SUNNY
  beq Sunny
@@ -272,6 +326,7 @@ Sunny:
  farcall SunnyCollectIntegrated,jmp
 .endproc
 .proc NrUi
+ NrCeleste CmHostUi
  php
  pha
  lda SelectedCharacter
@@ -299,6 +354,7 @@ Sunny:
  farcall SunnyUi,jmp
 .endproc
 .proc NrStatusName
+ NrCeleste CmHostStatusName
  php
  pha
  lda SelectedCharacter
@@ -354,6 +410,8 @@ Sunny:
  sta RcVariant
  sta MacVariant
  sta RcMarker                 ; initialize lazily, preserve selected owner's RAM
+ sta CmMarker
+ sta CmActive
  farcall IcGlobalInit
  farcall SunnyGlobalInit,jmp
 .endproc
@@ -367,7 +425,7 @@ Sunny:
  lda #0
  sta RcMarker
  farcall SunnyGlobalInit
- rts
+ farcall CmHostFresh,jmp
 .endproc
 .proc NrFullPower
  lda SelectedCharacter
@@ -412,6 +470,7 @@ Native:
  jmp BlockBufferColli_Side
 .endproc
 .proc NrColors
+ NrCeleste CmHostColors
  php
  pha
  lda SelectedCharacter
@@ -440,6 +499,24 @@ City:farcall RcColors,jmp
 Sunny:farcall SunnyColorsIntegrated,jmp
 .endproc
 .proc NrMenuToggle
+ lda CrossoverMenuIndex
+ bne NrOtherToggle
+ lda CrossoverMenuPressed
+ and #Select_Button
+ beq NrOtherToggle
+ lda MarioVariant
+ beq NrToLuigi
+ cmp #1
+ beq NrToCeleste
+ lda #0
+ beq NrMarioPublish
+NrToLuigi:lda #1
+ bne NrMarioPublish
+NrToCeleste:lda #4
+NrMarioPublish:sta MarioVariant
+ sec
+ rts
+NrOtherToggle:
  lda CrossoverMenuPressed
  and #Select_Button
  beq No
@@ -607,6 +684,14 @@ Sunny:pla
 .segment "NEW_ROSTER_NAMES"
 .proc NrQueueSelectName
   lda SelectedCharacter
+  bne CmOtherName
+  lda MarioVariant
+  cmp #4
+  bne CmMarioName
+  lda #44
+  jmp NameIndex
+CmMarioName:lda #0
+CmOtherName:
 .if ::ENABLE_MMC5_EXPANDED
   cmp #CHARACTER_SUNNY
   bne SunnyOtherName
@@ -718,7 +803,7 @@ Z2OriginalName:
   txa
   clc
   adc #24
-  jmp NameIndex
+  bne NameIndex
 Cv3OriginalName:
   lda SelectedCharacter
   cmp #CHARACTER_SCROOGE
@@ -802,9 +887,9 @@ Names:
   .byte "     ROLL       "
   .byte "      POPO      ","      NANA      "
   .byte "      ALEX      ","      RYAN      "
-  .byte "   DOC LOUIS    ","   MIKE TYSON   ","     SUNNY      "
+  .byte "   DOC LOUIS    ","   MIKE TYSON   ","     SUNNY      "," CELESTE MARIO  "
  .endif
 .endproc
 .segment "NEW_ROSTER_GATE"
-.assert * <= $b000,lderror,"Roster dispatcher overlaps Rogue Dawn reservation"
+.assert * <= $ae00,lderror,"Roster dispatcher overlaps Rogue auxiliary reservation"
 .popseg

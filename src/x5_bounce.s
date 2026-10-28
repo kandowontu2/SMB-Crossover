@@ -119,6 +119,15 @@ No:
 .proc X5SpringDispatch
   php
   pha
+  lda SelectedCharacter
+  bne :+
+  lda MarioVariant
+  cmp #4
+  bne :+
+  pla
+  plp
+  farcall CmHostSpring,jmp
+:
   jsr X5BounceProfile
   bcs New
   lda SelectedCharacter
@@ -153,6 +162,15 @@ Flying:
 .proc X5StompDispatch
   php
   pha
+  lda SelectedCharacter
+  bne :+
+  lda MarioVariant
+  cmp #4
+  bne :+
+  pla
+  plp
+  farcall CmHostStomp,jmp
+:
   jsr X5BounceProfile
   bcs New
   lda SelectedCharacter
