@@ -1,0 +1,55 @@
+Current326 Octopus: authenticated first-eight body exclusion
+
+The exact saved-input replay passes4801wall/4410Main/3984capturedframes. ROOT
+independently verified byte-exact inputs/trace/events and all decoded PPU bytes
+versus the original route. The added140-row journal is337397bytes. Native
+readiness/guards/controller/ROM remain unchanged; this report changes none.
+
+The source image displayed at3261 is the full rotated DrawAll completed at
+3260:37:312, not the newer mutable RAM found at endFrame3261. Its body call
+returns to genuine A232/SP242 with C76, pointerC89D/header28. DMA3 completes at
+3261:255:131/E008; all256 raw source values, physical destinations and hardware
+E3-encoded bytes match. Start/end3261 hardware is this same image;3262 keeps
+the same DMA. DMA4 from the next full draw completes3263:258:299 and supplies
+the normal comparison3263. The journal's initial truncated3256 owner is
+explicitly excluded from complete-owner claims.
+
+Body source pose is PnFrame[0]=74, pool0; PnDrawFrame118 is the last actor drawn,
+not the body pose. SmPosePtrC89D and actual record bytes are immutable ROM76.
+All7parts/28stores reach source and physical OAM. VvHurt/InjuryTimer/guest hurt/
+invulnerability/death/Big/missing/freeze state are0. PlayerOutlinesOff1 does
+not turn the actual ROM pointer into an arbitrary RAM record. Sprite mapping,
+palette and body tuples agree across the comparison; only priority placement
+differs. Real 8x16 bitplanes, mirrors, palette and physical first-eight per
+scanline are modeled, using observed CHR pages and exact bound ROM bytes.
+
+At3261 the body is NONWRAPPED slots56..62. Six earlier actor sprites50..55,
+two three-layer projectiles, occupy the same scanlines despite tiny artwork.
+The complete body has218 opaque source positions:20 are covered by the close
+projectile,45 body winners survive, and153 otherwise-visible positions lose
+hardware admission. Actual RGB differs from authenticated body colors at145
+of those153;8 equal-color positions remain pixel-ambiguous. At3263 the exact
+same seven tuples occupy slots2..8 and all218 body positions match actual RGB,
+including all153 coordinates excluded before. This confirms body starvation;
+it does not establish a missing CHR byte, hurt flash or solely a ring-wrap bug.
+
+The two wholeframes are the ONLY two newly extracted replay epochs,3261/3263.
+With the six original route marker epochs, the replay remains within eight.
+No additional old-route epochs were extracted. Agent inspection confirms the
+near-absent body in the left image and coherent torso/head in the right image.
+This is one observed pose/scene, not a roster/all-pose visual certification.
+
+Capacity constraint: each projectile's three records compose24 opaque pixels
+using colors0F/21/30, absent together from any current visible sprite palette.
+Thus an exact one-sprite composite is not a data-only change under this palette.
+Cold projectile/palette consolidation could reduce the observed maximum12
+rectangles/row to8, but shared palette ownership must be proved first. A body
+record reorder is separately testable for this exact pose, including overlap
+order and other-actor fairness; it must not be described as a complete fix from
+this witness. Prior rejected/held e11/2dc ordering evidence remains unchanged.
+
+No emulator was launched by this reviewer; no ROM/game/default/settings/Git
+mutation or body/actor hiding occurred. The journal records hardware state,
+not a per-dot CHR fetch or background reconstruction. New source work/native
+requires ROOT's separate review. Exact hashes/owned files are in
+build/verification/compact-326942-octopus-visibility-v1/body-final-review.json.

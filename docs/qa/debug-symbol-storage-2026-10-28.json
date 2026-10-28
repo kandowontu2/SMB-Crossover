@@ -1,0 +1,44 @@
+{
+  "passed": true,
+  "goal_complete": false,
+  "files_archived": 590,
+  "original_bytes": 8091895519,
+  "archive_bytes": 1499199119,
+  "net_bytes_saved_after_restore_test": 6582381059,
+  "captures_removed": 0,
+  "verified_before_removal": "Each complete gzip was decompressed and SHA256 compared with the unchanged original before its removal. Per-file durable journal precedes unlink.",
+  "restore_test": [
+    {
+      "restored": true,
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bass-rygar-audit\\before\\smb-crossover-mmc3.dbg",
+      "sha256": "05c479ef9f04316f4c6c349916e025ccc60d7fce28a7c7b6414cce91f7946994"
+    },
+    {
+      "already_restored": true,
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bass-rygar-audit\\before\\smb-crossover-mmc3.dbg"
+    }
+  ],
+  "restored_SHA256": "05c479ef9f04316f4c6c349916e025ccc60d7fce28a7c7b6414cce91f7946994",
+  "active_symbols_preserved": [
+    "smb-crossover-mmc5-expanded.dbg",
+    "bill_capsule_hud44204.dbg",
+    "bill_inert_pool.dbg",
+    "zelda2_easy_glove.dbg",
+    "bill_walk_clock.dbg"
+  ],
+  "restore_command": "python -B tools/audit/archive_old_debug_symbols_v1.py --restore BUILD_RELATIVE_PATH",
+  "archive_location": "build/debug-symbol-archive-v1",
+  "archives_in_Git": false,
+  "reason": "Lossless generated historical debug symbols stay local; journal and restoration utility are committed. No source, ROM, label or gameplay capture was removed.",
+  "workspace": {
+    "bytes": 19703273844,
+    "decimal_GB": 19.703273844,
+    "files": 291389,
+    "under_30GB": true
+  },
+  "bindings": {
+    "tools\\audit\\archive_old_debug_symbols_v1.py": "cff1f5d9e094d96626831cce8ada2b186beee78e7d5fb1610f9f1ab9cc62b619",
+    "build\\debug-symbol-archive-v1\\journal.jsonl": "d25c8473c6cffa289869f577aec5dfa19d54c562b006b86bdb6061de1375a3f9",
+    "docs\\qa\\checkpoints\\2026-10-28\\debug-symbol-archive-v1\\journal.jsonl.gz": "b1b0aed2dce90da1f917aabcf6a11b624b443c5ff552d06316da2ee8fcf2a843"
+  }
+}

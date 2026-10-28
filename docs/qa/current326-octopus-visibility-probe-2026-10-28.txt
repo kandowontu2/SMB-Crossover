@@ -1,0 +1,56 @@
+Current326 Octopus body-visibility probe — PREPARED, NOT RUN
+
+ROM32694243361bb1366f6fd64c054ea2451f86b2517fc020d9c2b5d66bbf07bfa0,
+build/zelda2_easy_glove.nes with its real DBG/LBL. Original successful Easy
+route remains build/verification/compact-326942-octopus-easy-v1. Its inputs,
+trace, events, index and lossless container are bound without copying them.
+
+Fresh ready/command: build/verification/compact-326942-octopus-visibility-v1.
+The shared route Lua, controller, mode0/variant1, cold menu, frame8000 bound,
+zero-death/CHR/NMI/IRQ/stack/5SMC/strict deadline/full256DMA guards are literal.
+Only host output paths, exact saved-input replay, and a passive module differ.
+Removing the one module-install line restores the producer's generated script.
+No emulator, game writes, resource seeds, settings writes or runtime/source
+copies were used. ROOT owns the eventual launch; this packet grants none.
+
+The journal window is actual PPU3256..3266, including the suspect3258..3264.
+It logs Main and rotated DrawAll boundaries, actual body JSR entry/continuation,
+real pointer after copy, native renderer entry when reached, body stores, raw
+page2 source, request and all256 actual DMA values/destinations, E008 hardware
+completion before mask enable, start/end physical OAM, palette and CHR0..11.
+Body return is A232 bank4, the compiled continuation after the true A22F JSR;
+it requires original entry SP+2 and saved returnword+1 at depth0. The rotated
+DrawAll RTS-entry owner checks original SP/returnword; SmFreezeRenderState is
+logged because a nonzero outer Samus path would require separate qualification.
+No arbitrary current-RAM snapshot is promoted to displayed evidence. Actual
+source256 is carried with each completed draw/request so later analysis can
+match the complete physical DMA and the corresponding full PPU epoch.
+
+Real compiled RAM contains PnFrame/PnDrawFlags/PnContact arrays of28 entries,
+VvHurt, PnBigStage/TimerHi/TimerLo, pool/pose, rotation/reservation, SmPosePtr,
+outline and guest-hurt state. No invented PnMode/PnBigTimer alias is supplied.
+Mapped record bytes are logged with actual physical C and pointer bank; a
+filtered RAM record remains distinguishable from its immutable ROM pointer.
+Physical OAM attributes have NES E3 encoding; raw source and actual writes stay
+unmasked. CHR bank readback plus bound ROM is not an actual pattern-fetch trace.
+
+All21 callbacks (14exec,5bus,2events) register at startup and the inventory seals
+before emulation. Runtime registration/removal, emulated writes and input calls
+are absent from the added module. Five finite owner controls reject wrong SP,
+returnword, physical bank and interrupt depth. Assembled pointer-copy/JSR/
+continuation, original multiple-exit callee and outer state0 tail-JMP were
+checked. A standalone Lua5.4 interpreter is unavailable; this is source/static
+readiness, not executed-Lua/native qualification. Nothing was downloaded.
+
+One compact fullroute container stays <=512MiB; one journal is capped at512rows
+and1,000,000bytes, no added screenshot. At most8 total epochs may be extracted
+from the NEW replay: six unchanged standard markers plus3261/3263 proposed.
+Any failure marker replaces a selection if needed. Do not extract further old
+Octopus epochs: the five-stream audit already used its allowed eight.
+
+After ROOT runs once, require exact inputs.csv, trace.csv, events.jsonl and
+decoded full-PPU SHA256 versus the original route. Observer stats are an
+intentional result metadata addition. Retain any mismatch/failure; no restart.
+Then use actual draw→DMA→start/end→RGB evidence to distinguish hurt/hidden
+source, admission/first-eight overflow or CHR ownership. Readiness proves no
+cause or visibility repair. Existing body-flicker limitation remains OPEN.

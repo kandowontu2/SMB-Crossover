@@ -1,0 +1,926 @@
+{
+  "passed_read_only_arithmetic": true,
+  "native_route_pass": true,
+  "ROM_sha256": "44204c9b573a82dd4838df1821afeaad8ffab8b264ebb234f31a8e156434ff5a",
+  "native_counts": {
+    "wall": 5992,
+    "Main": 5058,
+    "DMAs": 3878,
+    "PPU": 5107,
+    "control12": 25
+  },
+  "unchanged_binding_count": 42,
+  "same_ROM_successful_parent_files_byte_exact": {
+    "inputs.csv": "37c9ca5569f354562ff95890b9e23d090db37622306adf6e429a1ffc52888256",
+    "trace.csv": "50f4d844524c7f66f4b5847ac7d6fa3c7de142820ae3f586098eeecdb65aec06",
+    "result.json": "28e9ab1fd6b3737179d9a49fea93abe1ecb285890054e04c0c32a94ebdcd7944",
+    "captures-index.jsonl": "469a7624210de74bdcbfff07a9e4c151e4bb6b69069aa2285829c1e17ea5ed13",
+    "captures.nesppuv1": "496dff3bbf0b9f789d6ea997ac5c7a343eb466df668a67e15c0a5f0683f3cbfe"
+  },
+  "capture_decodes": 0,
+  "new_images": 0,
+  "timing_frames": [
+    3443,
+    3503
+  ],
+  "actual_data_rows": 61,
+  "table_totals": {
+    "AreaParserTaskHandler": {
+      "calls": 9,
+      "inclusive": 20746,
+      "exclusive": 20746,
+      "prewindow": 0,
+      "max": 4467,
+      "warmup": {
+        "calls": 0,
+        "inclusive": 0,
+        "exclusive": 0
+      },
+      "mean_inclusive_per_own_complete_call": 2305.1111111111113,
+      "mean_exclusive_per_own_complete_call": 2305.1111111111113
+    },
+    "AudioUpdate": {
+      "calls": 61,
+      "inclusive": 252738,
+      "exclusive": 252738,
+      "prewindow": 0,
+      "max": 6630,
+      "warmup": {
+        "calls": 1,
+        "inclusive": 3977,
+        "exclusive": 3977
+      },
+      "mean_inclusive_per_own_complete_call": 4143.245901639344,
+      "mean_exclusive_per_own_complete_call": 4143.245901639344
+    },
+    "BillBGEmptyEnvelope": {
+      "calls": 40,
+      "inclusive": 6106,
+      "exclusive": 6106,
+      "prewindow": 0,
+      "max": 608,
+      "warmup": {
+        "calls": 1,
+        "inclusive": 129,
+        "exclusive": 129
+      },
+      "mean_inclusive_per_own_complete_call": 152.65,
+      "mean_exclusive_per_own_complete_call": 152.65
+    },
+    "BillHotProject": {
+      "calls": 40,
+      "inclusive": 10756,
+      "exclusive": 10756,
+      "prewindow": 0,
+      "max": 285,
+      "warmup": {
+        "calls": 1,
+        "inclusive": 263,
+        "exclusive": 263
+      },
+      "mean_inclusive_per_own_complete_call": 268.9,
+      "mean_exclusive_per_own_complete_call": 268.9
+    },
+    "BulletBlocks": {
+      "calls": 140,
+      "inclusive": 70949,
+      "exclusive": 70949,
+      "prewindow": 0,
+      "max": 1295,
+      "warmup": {
+        "calls": 4,
+        "inclusive": 1872,
+        "exclusive": 1872
+      },
+      "mean_inclusive_per_own_complete_call": 506.7785714285714,
+      "mean_exclusive_per_own_complete_call": 506.7785714285714
+    },
+    "BulletEnemies": {
+      "calls": 67,
+      "inclusive": 44892,
+      "exclusive": 44892,
+      "prewindow": 0,
+      "max": 3342,
+      "warmup": {
+        "calls": 0,
+        "inclusive": 0,
+        "exclusive": 0
+      },
+      "mean_inclusive_per_own_complete_call": 670.0298507462686,
+      "mean_exclusive_per_own_complete_call": 670.0298507462686
+    },
+    "DrawAllMetasprites": {
+      "calls": 22,
+      "inclusive": 205519,
+      "exclusive": 93577,
+      "prewindow": 0,
+      "max": 10328,
+      "warmup": {
+        "calls": 0,
+        "inclusive": 0,
+        "exclusive": 0
+      },
+      "mean_inclusive_per_own_complete_call": 9341.772727272728,
+      "mean_exclusive_per_own_complete_call": 4253.5
+    },
+    "DrawMetasprite": {
+      "calls": 75,
+      "inclusive": 49424,
+      "exclusive": 24523,
+      "prewindow": 0,
+      "max": 1483,
+      "warmup": {
+        "calls": 3,
+        "inclusive": 2243,
+        "exclusive": 1121
+      },
+      "mean_inclusive_per_own_complete_call": 658.9866666666667,
+      "mean_exclusive_per_own_complete_call": 326.97333333333336
+    },
+    "EnemiesAndLoopsCore": {
+      "calls": 240,
+      "inclusive": 186413,
+      "exclusive": 99813,
+      "prewindow": 0,
+      "max": 2209,
+      "warmup": {
+        "calls": 6,
+        "inclusive": 3764,
+        "exclusive": 2027
+      },
+      "mean_inclusive_per_own_complete_call": 776.7208333333333,
+      "mean_exclusive_per_own_complete_call": 415.8875
+    },
+    "EnemyGraphicsEngine": {
+      "calls": 95,
+      "inclusive": 12617,
+      "exclusive": 12617,
+      "prewindow": 0,
+      "max": 246,
+      "warmup": {
+        "calls": 2,
+        "inclusive": 258,
+        "exclusive": 258
+      },
+      "mean_inclusive_per_own_complete_call": 132.81052631578947,
+      "mean_exclusive_per_own_complete_call": 132.81052631578947
+    },
+    "EnemyMovementSubs": {
+      "calls": 95,
+      "inclusive": 26895,
+      "exclusive": 26895,
+      "prewindow": 0,
+      "max": 375,
+      "warmup": {
+        "calls": 2,
+        "inclusive": 730,
+        "exclusive": 730
+      },
+      "mean_inclusive_per_own_complete_call": 283.10526315789474,
+      "mean_exclusive_per_own_complete_call": 283.10526315789474
+    },
+    "GameLoop": {
+      "calls": 40,
+      "inclusive": 1138820,
+      "exclusive": 248143,
+      "prewindow": 1,
+      "max": 38803,
+      "warmup": {
+        "calls": 0,
+        "inclusive": 0,
+        "exclusive": 0
+      },
+      "mean_inclusive_per_own_complete_call": 28470.5,
+      "mean_exclusive_per_own_complete_call": 6203.575
+    },
+    "GuestPrepareEnemies": {
+      "calls": 40,
+      "inclusive": 9095,
+      "exclusive": 9095,
+      "prewindow": 0,
+      "max": 347,
+      "warmup": {
+        "calls": 1,
+        "inclusive": 150,
+        "exclusive": 150
+      },
+      "mean_inclusive_per_own_complete_call": 227.375,
+      "mean_exclusive_per_own_complete_call": 227.375
+    },
+    "MetaspriteRenderLoop": {
+      "calls": 220,
+      "inclusive": 59673,
+      "exclusive": 59673,
+      "prewindow": 0,
+      "max": 1226,
+      "warmup": {
+        "calls": 6,
+        "inclusive": 2156,
+        "exclusive": 2156
+      },
+      "mean_inclusive_per_own_complete_call": 271.2409090909091,
+      "mean_exclusive_per_own_complete_call": 271.2409090909091
+    },
+    "Mmc5GroundGoombaTerrain": {
+      "calls": 95,
+      "inclusive": 17558,
+      "exclusive": 17558,
+      "prewindow": 0,
+      "max": 556,
+      "warmup": {
+        "calls": 2,
+        "inclusive": 32,
+        "exclusive": 32
+      },
+      "mean_inclusive_per_own_complete_call": 184.82105263157894,
+      "mean_exclusive_per_own_complete_call": 184.82105263157894
+    },
+    "PlayerBGCollision": {
+      "calls": 40,
+      "inclusive": 60721,
+      "exclusive": 54615,
+      "prewindow": 0,
+      "max": 1910,
+      "warmup": {
+        "calls": 1,
+        "inclusive": 1431,
+        "exclusive": 1302
+      },
+      "mean_inclusive_per_own_complete_call": 1518.025,
+      "mean_exclusive_per_own_complete_call": 1365.375
+    },
+    "PlayerCtrlRoutine": {
+      "calls": 40,
+      "inclusive": 192655,
+      "exclusive": 82326,
+      "prewindow": 0,
+      "max": 5249,
+      "warmup": {
+        "calls": 1,
+        "inclusive": 4591,
+        "exclusive": 1912
+      },
+      "mean_inclusive_per_own_complete_call": 4816.375,
+      "mean_exclusive_per_own_complete_call": 2058.15
+    },
+    "PlayerEnemyCollision": {
+      "calls": 95,
+      "inclusive": 9564,
+      "exclusive": 9564,
+      "prewindow": 0,
+      "max": 182,
+      "warmup": {
+        "calls": 2,
+        "inclusive": 146,
+        "exclusive": 146
+      },
+      "mean_inclusive_per_own_complete_call": 100.67368421052632,
+      "mean_exclusive_per_own_complete_call": 100.67368421052632
+    },
+    "PlayerGfxHandler": {
+      "calls": 39,
+      "inclusive": 65477,
+      "exclusive": 65477,
+      "prewindow": 0,
+      "max": 1994,
+      "warmup": {
+        "calls": 1,
+        "inclusive": 1563,
+        "exclusive": 1563
+      },
+      "mean_inclusive_per_own_complete_call": 1678.8974358974358,
+      "mean_exclusive_per_own_complete_call": 1678.8974358974358
+    },
+    "PlayerMovementSubs": {
+      "calls": 40,
+      "inclusive": 38852,
+      "exclusive": 13880,
+      "prewindow": 0,
+      "max": 1030,
+      "warmup": {
+        "calls": 1,
+        "inclusive": 985,
+        "exclusive": 347
+      },
+      "mean_inclusive_per_own_complete_call": 971.3,
+      "mean_exclusive_per_own_complete_call": 347.0
+    },
+    "ProcLoopCommand": {
+      "calls": 136,
+      "inclusive": 19966,
+      "exclusive": 19966,
+      "prewindow": 0,
+      "max": 1326,
+      "warmup": {
+        "calls": 4,
+        "inclusive": 571,
+        "exclusive": 571
+      },
+      "mean_inclusive_per_own_complete_call": 146.80882352941177,
+      "mean_exclusive_per_own_complete_call": 146.80882352941177
+    },
+    "RemainingDraw": {
+      "calls": 22,
+      "inclusive": 10022,
+      "exclusive": 10022,
+      "prewindow": 0,
+      "max": 461,
+      "warmup": {
+        "calls": 0,
+        "inclusive": 0,
+        "exclusive": 0
+      },
+      "mean_inclusive_per_own_complete_call": 455.54545454545456,
+      "mean_exclusive_per_own_complete_call": 455.54545454545456
+    },
+    "RemainingWeapons": {
+      "calls": 40,
+      "inclusive": 13720,
+      "exclusive": 13720,
+      "prewindow": 0,
+      "max": 343,
+      "warmup": {
+        "calls": 1,
+        "inclusive": 343,
+        "exclusive": 343
+      },
+      "mean_inclusive_per_own_complete_call": 343.0,
+      "mean_exclusive_per_own_complete_call": 343.0
+    },
+    "RosterDrawShots": {
+      "calls": 22,
+      "inclusive": 32976,
+      "exclusive": 17724,
+      "prewindow": 0,
+      "max": 1586,
+      "warmup": {
+        "calls": 0,
+        "inclusive": 0,
+        "exclusive": 0
+      },
+      "mean_inclusive_per_own_complete_call": 1498.909090909091,
+      "mean_exclusive_per_own_complete_call": 805.6363636363636
+    },
+    "RosterMovement": {
+      "calls": 40,
+      "inclusive": 24972,
+      "exclusive": 24972,
+      "prewindow": 0,
+      "max": 683,
+      "warmup": {
+        "calls": 1,
+        "inclusive": 638,
+        "exclusive": 638
+      },
+      "mean_inclusive_per_own_complete_call": 624.3,
+      "mean_exclusive_per_own_complete_call": 624.3
+    },
+    "RosterWeapons": {
+      "calls": 40,
+      "inclusive": 203967,
+      "exclusive": 79031,
+      "prewindow": 0,
+      "max": 9505,
+      "warmup": {
+        "calls": 1,
+        "inclusive": 3947,
+        "exclusive": 1925
+      },
+      "mean_inclusive_per_own_complete_call": 5099.175,
+      "mean_exclusive_per_own_complete_call": 1975.775
+    }
+  },
+  "foreground_exclusive_ranking": [
+    {
+      "name": "GameLoop",
+      "calls": 40,
+      "inclusive": 1138820,
+      "exclusive": 248143,
+      "prewindow": 1,
+      "max": 38803,
+      "warmup": {
+        "calls": 0,
+        "inclusive": 0,
+        "exclusive": 0
+      },
+      "mean_inclusive_per_own_complete_call": 28470.5,
+      "mean_exclusive_per_own_complete_call": 6203.575
+    },
+    {
+      "name": "EnemiesAndLoopsCore",
+      "calls": 240,
+      "inclusive": 186413,
+      "exclusive": 99813,
+      "prewindow": 0,
+      "max": 2209,
+      "warmup": {
+        "calls": 6,
+        "inclusive": 3764,
+        "exclusive": 2027
+      },
+      "mean_inclusive_per_own_complete_call": 776.7208333333333,
+      "mean_exclusive_per_own_complete_call": 415.8875
+    },
+    {
+      "name": "DrawAllMetasprites",
+      "calls": 22,
+      "inclusive": 205519,
+      "exclusive": 93577,
+      "prewindow": 0,
+      "max": 10328,
+      "warmup": {
+        "calls": 0,
+        "inclusive": 0,
+        "exclusive": 0
+      },
+      "mean_inclusive_per_own_complete_call": 9341.772727272728,
+      "mean_exclusive_per_own_complete_call": 4253.5
+    },
+    {
+      "name": "PlayerCtrlRoutine",
+      "calls": 40,
+      "inclusive": 192655,
+      "exclusive": 82326,
+      "prewindow": 0,
+      "max": 5249,
+      "warmup": {
+        "calls": 1,
+        "inclusive": 4591,
+        "exclusive": 1912
+      },
+      "mean_inclusive_per_own_complete_call": 4816.375,
+      "mean_exclusive_per_own_complete_call": 2058.15
+    },
+    {
+      "name": "RosterWeapons",
+      "calls": 40,
+      "inclusive": 203967,
+      "exclusive": 79031,
+      "prewindow": 0,
+      "max": 9505,
+      "warmup": {
+        "calls": 1,
+        "inclusive": 3947,
+        "exclusive": 1925
+      },
+      "mean_inclusive_per_own_complete_call": 5099.175,
+      "mean_exclusive_per_own_complete_call": 1975.775
+    },
+    {
+      "name": "BulletBlocks",
+      "calls": 140,
+      "inclusive": 70949,
+      "exclusive": 70949,
+      "prewindow": 0,
+      "max": 1295,
+      "warmup": {
+        "calls": 4,
+        "inclusive": 1872,
+        "exclusive": 1872
+      },
+      "mean_inclusive_per_own_complete_call": 506.7785714285714,
+      "mean_exclusive_per_own_complete_call": 506.7785714285714
+    },
+    {
+      "name": "PlayerGfxHandler",
+      "calls": 39,
+      "inclusive": 65477,
+      "exclusive": 65477,
+      "prewindow": 0,
+      "max": 1994,
+      "warmup": {
+        "calls": 1,
+        "inclusive": 1563,
+        "exclusive": 1563
+      },
+      "mean_inclusive_per_own_complete_call": 1678.8974358974358,
+      "mean_exclusive_per_own_complete_call": 1678.8974358974358
+    },
+    {
+      "name": "MetaspriteRenderLoop",
+      "calls": 220,
+      "inclusive": 59673,
+      "exclusive": 59673,
+      "prewindow": 0,
+      "max": 1226,
+      "warmup": {
+        "calls": 6,
+        "inclusive": 2156,
+        "exclusive": 2156
+      },
+      "mean_inclusive_per_own_complete_call": 271.2409090909091,
+      "mean_exclusive_per_own_complete_call": 271.2409090909091
+    },
+    {
+      "name": "PlayerBGCollision",
+      "calls": 40,
+      "inclusive": 60721,
+      "exclusive": 54615,
+      "prewindow": 0,
+      "max": 1910,
+      "warmup": {
+        "calls": 1,
+        "inclusive": 1431,
+        "exclusive": 1302
+      },
+      "mean_inclusive_per_own_complete_call": 1518.025,
+      "mean_exclusive_per_own_complete_call": 1365.375
+    },
+    {
+      "name": "BulletEnemies",
+      "calls": 67,
+      "inclusive": 44892,
+      "exclusive": 44892,
+      "prewindow": 0,
+      "max": 3342,
+      "warmup": {
+        "calls": 0,
+        "inclusive": 0,
+        "exclusive": 0
+      },
+      "mean_inclusive_per_own_complete_call": 670.0298507462686,
+      "mean_exclusive_per_own_complete_call": 670.0298507462686
+    },
+    {
+      "name": "EnemyMovementSubs",
+      "calls": 95,
+      "inclusive": 26895,
+      "exclusive": 26895,
+      "prewindow": 0,
+      "max": 375,
+      "warmup": {
+        "calls": 2,
+        "inclusive": 730,
+        "exclusive": 730
+      },
+      "mean_inclusive_per_own_complete_call": 283.10526315789474,
+      "mean_exclusive_per_own_complete_call": 283.10526315789474
+    },
+    {
+      "name": "RosterMovement",
+      "calls": 40,
+      "inclusive": 24972,
+      "exclusive": 24972,
+      "prewindow": 0,
+      "max": 683,
+      "warmup": {
+        "calls": 1,
+        "inclusive": 638,
+        "exclusive": 638
+      },
+      "mean_inclusive_per_own_complete_call": 624.3,
+      "mean_exclusive_per_own_complete_call": 624.3
+    },
+    {
+      "name": "DrawMetasprite",
+      "calls": 75,
+      "inclusive": 49424,
+      "exclusive": 24523,
+      "prewindow": 0,
+      "max": 1483,
+      "warmup": {
+        "calls": 3,
+        "inclusive": 2243,
+        "exclusive": 1121
+      },
+      "mean_inclusive_per_own_complete_call": 658.9866666666667,
+      "mean_exclusive_per_own_complete_call": 326.97333333333336
+    },
+    {
+      "name": "AreaParserTaskHandler",
+      "calls": 9,
+      "inclusive": 20746,
+      "exclusive": 20746,
+      "prewindow": 0,
+      "max": 4467,
+      "warmup": {
+        "calls": 0,
+        "inclusive": 0,
+        "exclusive": 0
+      },
+      "mean_inclusive_per_own_complete_call": 2305.1111111111113,
+      "mean_exclusive_per_own_complete_call": 2305.1111111111113
+    },
+    {
+      "name": "ProcLoopCommand",
+      "calls": 136,
+      "inclusive": 19966,
+      "exclusive": 19966,
+      "prewindow": 0,
+      "max": 1326,
+      "warmup": {
+        "calls": 4,
+        "inclusive": 571,
+        "exclusive": 571
+      },
+      "mean_inclusive_per_own_complete_call": 146.80882352941177,
+      "mean_exclusive_per_own_complete_call": 146.80882352941177
+    },
+    {
+      "name": "RosterDrawShots",
+      "calls": 22,
+      "inclusive": 32976,
+      "exclusive": 17724,
+      "prewindow": 0,
+      "max": 1586,
+      "warmup": {
+        "calls": 0,
+        "inclusive": 0,
+        "exclusive": 0
+      },
+      "mean_inclusive_per_own_complete_call": 1498.909090909091,
+      "mean_exclusive_per_own_complete_call": 805.6363636363636
+    },
+    {
+      "name": "Mmc5GroundGoombaTerrain",
+      "calls": 95,
+      "inclusive": 17558,
+      "exclusive": 17558,
+      "prewindow": 0,
+      "max": 556,
+      "warmup": {
+        "calls": 2,
+        "inclusive": 32,
+        "exclusive": 32
+      },
+      "mean_inclusive_per_own_complete_call": 184.82105263157894,
+      "mean_exclusive_per_own_complete_call": 184.82105263157894
+    },
+    {
+      "name": "PlayerMovementSubs",
+      "calls": 40,
+      "inclusive": 38852,
+      "exclusive": 13880,
+      "prewindow": 0,
+      "max": 1030,
+      "warmup": {
+        "calls": 1,
+        "inclusive": 985,
+        "exclusive": 347
+      },
+      "mean_inclusive_per_own_complete_call": 971.3,
+      "mean_exclusive_per_own_complete_call": 347.0
+    },
+    {
+      "name": "RemainingWeapons",
+      "calls": 40,
+      "inclusive": 13720,
+      "exclusive": 13720,
+      "prewindow": 0,
+      "max": 343,
+      "warmup": {
+        "calls": 1,
+        "inclusive": 343,
+        "exclusive": 343
+      },
+      "mean_inclusive_per_own_complete_call": 343.0,
+      "mean_exclusive_per_own_complete_call": 343.0
+    },
+    {
+      "name": "EnemyGraphicsEngine",
+      "calls": 95,
+      "inclusive": 12617,
+      "exclusive": 12617,
+      "prewindow": 0,
+      "max": 246,
+      "warmup": {
+        "calls": 2,
+        "inclusive": 258,
+        "exclusive": 258
+      },
+      "mean_inclusive_per_own_complete_call": 132.81052631578947,
+      "mean_exclusive_per_own_complete_call": 132.81052631578947
+    },
+    {
+      "name": "BillHotProject",
+      "calls": 40,
+      "inclusive": 10756,
+      "exclusive": 10756,
+      "prewindow": 0,
+      "max": 285,
+      "warmup": {
+        "calls": 1,
+        "inclusive": 263,
+        "exclusive": 263
+      },
+      "mean_inclusive_per_own_complete_call": 268.9,
+      "mean_exclusive_per_own_complete_call": 268.9
+    },
+    {
+      "name": "RemainingDraw",
+      "calls": 22,
+      "inclusive": 10022,
+      "exclusive": 10022,
+      "prewindow": 0,
+      "max": 461,
+      "warmup": {
+        "calls": 0,
+        "inclusive": 0,
+        "exclusive": 0
+      },
+      "mean_inclusive_per_own_complete_call": 455.54545454545456,
+      "mean_exclusive_per_own_complete_call": 455.54545454545456
+    },
+    {
+      "name": "PlayerEnemyCollision",
+      "calls": 95,
+      "inclusive": 9564,
+      "exclusive": 9564,
+      "prewindow": 0,
+      "max": 182,
+      "warmup": {
+        "calls": 2,
+        "inclusive": 146,
+        "exclusive": 146
+      },
+      "mean_inclusive_per_own_complete_call": 100.67368421052632,
+      "mean_exclusive_per_own_complete_call": 100.67368421052632
+    },
+    {
+      "name": "GuestPrepareEnemies",
+      "calls": 40,
+      "inclusive": 9095,
+      "exclusive": 9095,
+      "prewindow": 0,
+      "max": 347,
+      "warmup": {
+        "calls": 1,
+        "inclusive": 150,
+        "exclusive": 150
+      },
+      "mean_inclusive_per_own_complete_call": 227.375,
+      "mean_exclusive_per_own_complete_call": 227.375
+    },
+    {
+      "name": "BillBGEmptyEnvelope",
+      "calls": 40,
+      "inclusive": 6106,
+      "exclusive": 6106,
+      "prewindow": 0,
+      "max": 608,
+      "warmup": {
+        "calls": 1,
+        "inclusive": 129,
+        "exclusive": 129
+      },
+      "mean_inclusive_per_own_complete_call": 152.65,
+      "mean_exclusive_per_own_complete_call": 152.65
+    }
+  ],
+  "measured_Main": {
+    "calls": 40,
+    "total": 1138820,
+    "mean": 28470.5,
+    "median": 29607.0,
+    "p95_nearest_rank": 36956,
+    "maximum": 38803,
+    "Main_CPU_alone_above29781": 18
+  },
+  "boundary": {
+    "first_Main_prewindow": 1,
+    "open_spans_censored": [
+      {
+        "depth": 0,
+        "entry_sp": 250,
+        "frame": 3503,
+        "name": "GameLoop",
+        "owner": {
+          "bank": 126,
+          "call_pc": 33485,
+          "kind": "pinned_ROM_JSR",
+          "operand": 33497,
+          "pc": 33488
+        },
+        "return_pc": 33488,
+        "start": 104300686
+      },
+      {
+        "depth": 0,
+        "entry_sp": 242,
+        "frame": 3503,
+        "name": "PlayerGfxHandler",
+        "owner": {
+          "bank": -1,
+          "call_pc": 363,
+          "kind": "actual_SMC_JSR",
+          "operand": 41660,
+          "pc": 366
+        },
+        "return_pc": 366,
+        "start": 104317008
+      }
+    ],
+    "open_interrupts": 0,
+    "completed_table_foreground_exclusives": 1136640,
+    "closed_Main_inclusive": 1138820,
+    "difference": -2180,
+    "aggregate_foreground_exclusives": 1154125,
+    "warmup_foreground_exclusives": 17485,
+    "rule": "Different completion cohorts. Do not divide all descendants by40 or sum nested inclusive totals. Open lastMain/Gfx and warmup orphan/descendant accounting prevent exact reallocation to one closedMain/DrawAll cohort without serial IDs."
+  },
+  "ISR_DMA": {
+    "nmi_closed": 61,
+    "nmi_elapsed": 288819,
+    "irq_closed": 61,
+    "irq_elapsed": 7320,
+    "dmas": 22,
+    "lag_counter_delta": 39
+  },
+  "state_samples": {
+    "state": {
+      "0": 20,
+      "1": 41
+    },
+    "weapon": {
+      "0": 61
+    },
+    "ordinary_shots": {
+      "2": 2,
+      "3": 12,
+      "4": 47
+    },
+    "advanced_shots": {
+      "0": 61
+    },
+    "other_shots": {
+      "0": 61
+    },
+    "enemy_slots": {
+      "1": 10,
+      "2": 18,
+      "3": 33
+    },
+    "timer": {
+      "0": 61
+    },
+    "powerup": {
+      "0": 61
+    },
+    "refill": {
+      "0": 61
+    }
+  },
+  "new_DrawMetasprite_closed_child_CPU": 24901,
+  "actual_DrawMetasprite_aggregate_callsite_counts": {
+    "pinned_ROM_JSR:4:41352:41969": 9,
+    "pinned_ROM_JSR:4:41394:41969": 46,
+    "pinned_ROM_JSR:4:41519:41969": 23
+  },
+  "source_proposal": {
+    "source_owner": "RosterGraphics standing/walking path, physical22:$A208..$A21D",
+    "compiled_bytes": [
+      162,
+      0,
+      201,
+      7,
+      144,
+      6,
+      233,
+      7,
+      232,
+      76,
+      10,
+      162,
+      138,
+      201,
+      3,
+      144,
+      5,
+      233,
+      3,
+      76,
+      21,
+      162
+    ],
+    "old_arithmetic_typed_inputs": 256,
+    "old_arithmetic_cycles": [
+      14,
+      518
+    ],
+    "identity_for_all256": "floor(clock/7) mod3 == floor((clock mod21)/7)",
+    "possible_small_experiment": "Replace the repeated divide7/mod3 with a bounded mod21/classification implementation; do not skip pose updates or original stores.",
+    "native_call_input_RgClock_or_pose_logged": false,
+    "measured_native_saving": null,
+    "proof_needs": "Fresh assembled net whole PlayerGfx/RosterGraphics AXYP/SP/application/OAM/CHR/bank comparisons for all256 clocks, incoming flags, both Bill/Lance variants/modes and other reachable families; retain returned X/flags unless whole genuine caller proves overwrite. Check real footprint and cold-path regressions. No LUT/free-space or universal improvement assumed."
+  },
+  "artifact_hashes": {
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\bill-drawing-timing44204-ready-v1\\ready.json": "9019d34a8ee392fb4091d546243a18c8e7607d3878e9f1801312e0b9bea965e0",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\bill-drawing-timing44204-ready-v1\\launch.json": "fcd36df83b5ee5b70602ba18acf7a533722701b78dbe45e059a2f8cc791a899c",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\bill-drawing-timing44204-ready-v1\\result.json": "28e9ab1fd6b3737179d9a49fea93abe1ecb285890054e04c0c32a94ebdcd7944",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\bill-drawing-timing44204-ready-v1\\profile-config.json": "bcb9f5bce035b061174578061287eab459d49f88fa0053bb1a8f43bb32783f06",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\bill-drawing-timing44204-ready-v1\\prepare-controls.json": "156d4b6a0f3386aa2a94aa218d43635a19f74d836e65e96e0b6b3bcbe73ccb19",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\bill-drawing-timing44204-ready-v1\\bill-timing.csv": "9b29b09597c51a825c5f992099c85f0675c421394cce114ec2c486bd56513cc5",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\bill-drawing-timing44204-ready-v1\\bill-timing-summary.json": "faf0859a7d8e1c8f4d06287a100862937133b632676abe6c6c518f4ceccbf848",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\bill-landing-candidate326-hard-ready-v1\\ready.json": "eabf38e602e852967fa9fc9f0daf8bf7d7a113345ce6efe2008a8f5e89acf51c",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bill_inert_pool.nes": "44204c9b573a82dd4838df1821afeaad8ffab8b264ebb234f31a8e156434ff5a",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bill_inert_pool.dbg": "a6e12481de5204ec8b3de33bfadc02faa4f51cc6b286ae0f600953db9fc519d2",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\bill_drawing_timing44204_review_v1.py": "28943a3873e1b34bfd37c97a519d5dec5c7cd77065617f2a4e73e9faf81d06ba",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\roster.s": "17a3e4753cd9c9171c38e39f2d6e0621e32c9d49ec03fc654aeb12a64b654bf3",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\game.s": "328bae039dbce7ae75e78bb552ef653fb0333dbb02146dee72888b70651a0f94",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\player.s": "9a385048bb7177bf3e9c9c93efaab223d445711c38835fded745690c014690f3",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\metasprite_engine.s": "f328cab1c2a649317e0dbebe6c6dc892b27e105046acc0207e1c6a3ceaf00ebe",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bill_early_cache_timing_full.lua": "d36933a205b7118abf5df6c3bc707e15b1044a05c2b33cc47bd65e5491edb15d",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\bill_early_cache_cpu_v1.py": "5c08430c98bcb0456daaf538ce7586338e387243ba3dc47d71e13ff6e72a9105"
+  },
+  "limits": "44204 historical ROM only; no canonical change/native launch. Selected window differs from prior3263500..3560; prior Main313583/DrawAll130852 residuals are not matched baselines. Source arithmetic lead is not a new implementation or native saving. No per-call EnemyID/RgClock/pose and no FPS claim; only endFrame sample workload. NMI gross includes nestedIRQ; AudioCPU excludes interrupts. Inherited summary prose3560 is stale, actual fields3443..3503 govern."
+}

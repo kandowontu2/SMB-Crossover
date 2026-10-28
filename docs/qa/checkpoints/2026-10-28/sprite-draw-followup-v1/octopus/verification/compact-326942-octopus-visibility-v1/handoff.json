@@ -1,0 +1,40 @@
+{
+  "prepared": true,
+  "native_run": false,
+  "ready_sha256": "a1e34eb1277d9bee14f1c86b2a61e613bc0a08e7a6c90ea466d314f99e7f4a11",
+  "strict_bindings_verified": 28,
+  "owned": {
+    "tools\\audit\\current326_octopus_visibility_probe_v1.lua": "21d1725250a4776dacd1571da8425595c63b8dd7caa7c9bfec09c2323c23c4b4",
+    "tools\\audit\\current326_octopus_visibility_prepare_v1.py": "f12f0e50c1fea1aa7f8319958a59e58089b1d2d0ede06c4a6877e063aff88011",
+    "docs\\qa\\current326-octopus-visibility-probe-2026-10-28.txt": "f10460a3013bdc4a47eed4c5a28a6477e213224eb939919d8a74bc1f5a7cee09",
+    "build\\verification\\compact-326942-octopus-visibility-v1\\ready.json": "a1e34eb1277d9bee14f1c86b2a61e613bc0a08e7a6c90ea466d314f99e7f4a11",
+    "build\\verification\\compact-326942-octopus-visibility-v1\\run.lua": "14df99c0365bef8a0871ff3c729f57cab50590f16b3d8ce027cabce2f140a539",
+    "build\\verification\\compact-326942-octopus-visibility-v1\\source-controls.json": "96e4c180af1c11117e8bef65c4a5029ca2f0a5e5cdacd904c1f8887d7ebc61ab",
+    "build\\verification\\compact-326942-octopus-visibility-v1\\command.json": "0256510084ace71152ce79de2d82cbd78125fcf2bdff2a5beb43c474fc13c1f8"
+  },
+  "command": [
+    "python",
+    "-B",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\run_mesen_isolated.py",
+    "--output",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\compact-326942-octopus-visibility-v1",
+    "--emulator",
+    "C:/Mesen2/Mesen.exe",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\compact-326942-octopus-visibility-v1\\run.lua",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\zelda2_easy_glove.nes",
+    "--timeout",
+    "600",
+    "--option=--doNotSaveSettings",
+    "--option=--nes.removeSpriteLimit=false",
+    "--option=--nes.ramPowerOnState=AllZeros",
+    "--option=--nes.randomizeCpuPpuAlignment=false",
+    "--option=--nes.randomizeMapperPowerOnState=false"
+  ],
+  "no_launch": true,
+  "limits": {
+    "new_native_screenshots": 0,
+    "max_offline_selected_epochs": 8,
+    "probe_bytes": 1000000,
+    "container_bytes": 536870912
+  }
+}

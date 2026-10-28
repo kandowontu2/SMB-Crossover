@@ -1,0 +1,2009 @@
+{
+  "passed": true,
+  "attribution": "Actual first-eight hardware sprite exclusion of an emitted nonwrapped body; not hurt flash/source hiding/stale pool or missing CHR.",
+  "ROM_sha256": "32694243361bb1366f6fd64c054ea2451f86b2517fc020d9c2b5d66bbf07bfa0",
+  "original_and_replay_native_pass": true,
+  "exact_inputs_trace_events_full3984PPU": true,
+  "journal_rows": 140,
+  "journal_bytes": 337397,
+  "all_five_DMA_epochs_full256_source_write_destination_E3_exact": true,
+  "all_five_observed_body_and_rotated_draw_owners_match": true,
+  "initial_truncated_owner_excluded": "The first3256 RTS/return has no entry in the bounded window; it is deliberately not a qualified full owner.",
+  "frames": {
+    "3261": {
+      "display_start": {
+        "a": 0,
+        "cpu_cycle": 97084326,
+        "dot": 0,
+        "irq_depth": 0,
+        "nmi_depth": 1,
+        "pc": 42160,
+        "pc_bank": 29,
+        "physical_A": 29,
+        "physical_C": 116,
+        "ppu_frame": 3261,
+        "scanline": -1,
+        "sp": 242,
+        "x": 85,
+        "y": 1
+      },
+      "display_end": {
+        "a": 184,
+        "cpu_cycle": 97111719,
+        "dot": 0,
+        "irq_depth": 0,
+        "nmi_depth": 0,
+        "pc": 48911,
+        "pc_bank": 4,
+        "physical_A": 4,
+        "physical_C": 76,
+        "ppu_frame": 3261,
+        "scanline": 240,
+        "sp": 239,
+        "x": 40,
+        "y": 5
+      },
+      "completed_dma_id": 3,
+      "completed_dma_stamp": {
+        "a": 30,
+        "cpu_cycle": 97083688,
+        "dot": 131,
+        "irq_depth": 0,
+        "nmi_depth": 1,
+        "pc": 57352,
+        "pc_bank": 127,
+        "physical_A": 0,
+        "physical_C": 116,
+        "ppu_frame": 3261,
+        "scanline": 255,
+        "sp": 244,
+        "x": 0,
+        "y": 7
+      },
+      "source_draw_id": 2,
+      "source_draw_stamp": {
+        "a": 56,
+        "cpu_cycle": 97058969,
+        "dot": 312,
+        "irq_depth": 0,
+        "nmi_depth": 0,
+        "pc": 41546,
+        "pc_bank": 4,
+        "physical_A": 4,
+        "physical_C": 76,
+        "ppu_frame": 3260,
+        "scanline": 37,
+        "sp": 243,
+        "x": 252,
+        "y": 0
+      },
+      "body_entry": {
+        "a": 64,
+        "cpu_cycle": 97057765,
+        "dot": 110,
+        "irq_depth": 0,
+        "nmi_depth": 0,
+        "pc": 41969,
+        "pc_bank": 4,
+        "physical_A": 4,
+        "physical_C": 76,
+        "ppu_frame": 3260,
+        "scanline": 27,
+        "sp": 240,
+        "x": 233,
+        "y": 0
+      },
+      "body_real_caller_return": {
+        "a": 0,
+        "cpu_cycle": 97058942,
+        "dot": 231,
+        "irq_depth": 0,
+        "nmi_depth": 0,
+        "pc": 41522,
+        "pc_bank": 4,
+        "physical_A": 4,
+        "physical_C": 76,
+        "ppu_frame": 3260,
+        "scanline": 37,
+        "sp": 242,
+        "x": 252,
+        "y": 0
+      },
+      "owner_matches": true,
+      "body_pose": 74,
+      "incidental_last_actor_PnDrawFrame": 118,
+      "pool": 0,
+      "pointer": 51357,
+      "record": "1cabc00cf8bd800100b9c00108b702fffdaf02ff059942f90da1c30cf8",
+      "hurt_injury_invulnerability_Big_missing_freeze_all_zero": true,
+      "body_written_parts": 7,
+      "body_writes": 28,
+      "physical_body_slots": [
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62
+      ],
+      "logical_body_start": 24,
+      "physical_rotation": 200,
+      "physical_start": 224,
+      "body_span_wraps": false,
+      "body_patterns": {
+        "56": {
+          "page": 834,
+          "pattern32": "0000000000000000000000000000000000000000000206020000000000000000",
+          "tuple": [
+            69,
+            161,
+            195,
+            121
+          ]
+        },
+        "57": {
+          "page": 834,
+          "pattern32": "0000000000000000000000000000000000000000000000000000000000000004",
+          "tuple": [
+            50,
+            153,
+            66,
+            142
+          ]
+        },
+        "58": {
+          "page": 834,
+          "pattern32": "000000000000000000000003870c30c600000000000000000d5ccf6700000104",
+          "tuple": [
+            56,
+            175,
+            2,
+            134
+          ]
+        },
+        "59": {
+          "page": 834,
+          "pattern32": "000000000000000000000410000008180000000000000000031800000080c081",
+          "tuple": [
+            56,
+            183,
+            2,
+            126
+          ]
+        },
+        "60": {
+          "page": 834,
+          "pattern32": "0002120f0f3fa3a10a1d292030c0404060810218000103001868b1263922243b",
+          "tuple": [
+            58,
+            185,
+            192,
+            137
+          ]
+        },
+        "61": {
+          "page": 834,
+          "pattern32": "0006242f071f3c1906395350782040e0050100183e1b070038e639a641201807",
+          "tuple": [
+            58,
+            189,
+            128,
+            129
+          ]
+        },
+        "62": {
+          "page": 834,
+          "pattern32": "0000000000000000000000000000000000000000000818080000000000081808",
+          "tuple": [
+            69,
+            171,
+            192,
+            121
+          ]
+        }
+      },
+      "palette32": "22291a0f0f36170f0f30210f0f27170f221508210f1a30270f1630270f0f3617",
+      "sprite_chr_pages": [
+        832,
+        16,
+        17,
+        18,
+        19,
+        20,
+        834,
+        835
+      ],
+      "complete_body_opaque_positions": 218,
+      "body_winners_after_first8": 45,
+      "otherwise_visible_body_positions_excluded_by_first8": 153,
+      "other_sprite_occluded_body_positions": 20,
+      "per_body_part": [
+        {
+          "slot": 56,
+          "opaque": 4,
+          "opaque_admitted_by_first8": 4
+        },
+        {
+          "slot": 57,
+          "opaque": 1,
+          "opaque_admitted_by_first8": 1
+        },
+        {
+          "slot": 58,
+          "opaque": 34,
+          "opaque_admitted_by_first8": 34
+        },
+        {
+          "slot": 59,
+          "opaque": 14,
+          "opaque_admitted_by_first8": 0
+        },
+        {
+          "slot": 60,
+          "opaque": 75,
+          "opaque_admitted_by_first8": 7
+        },
+        {
+          "slot": 61,
+          "opaque": 86,
+          "opaque_admitted_by_first8": 2
+        },
+        {
+          "slot": 62,
+          "opaque": 4,
+          "opaque_admitted_by_first8": 0
+        }
+      ],
+      "scanline_first8": [
+        {
+          "y": 51,
+          "eligible": [
+            57
+          ],
+          "first8": [
+            57
+          ]
+        },
+        {
+          "y": 52,
+          "eligible": [
+            57
+          ],
+          "first8": [
+            57
+          ]
+        },
+        {
+          "y": 53,
+          "eligible": [
+            57
+          ],
+          "first8": [
+            57
+          ]
+        },
+        {
+          "y": 54,
+          "eligible": [
+            57
+          ],
+          "first8": [
+            57
+          ]
+        },
+        {
+          "y": 55,
+          "eligible": [
+            57
+          ],
+          "first8": [
+            57
+          ]
+        },
+        {
+          "y": 56,
+          "eligible": [
+            57
+          ],
+          "first8": [
+            57
+          ]
+        },
+        {
+          "y": 57,
+          "eligible": [
+            57,
+            58,
+            59
+          ],
+          "first8": [
+            57,
+            58,
+            59
+          ]
+        },
+        {
+          "y": 58,
+          "eligible": [
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            57,
+            58,
+            59
+          ],
+          "first8": [
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            57,
+            58
+          ]
+        },
+        {
+          "y": 59,
+          "eligible": [
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            57,
+            58,
+            59,
+            60,
+            61
+          ],
+          "first8": [
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            57,
+            58
+          ]
+        },
+        {
+          "y": 60,
+          "eligible": [
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            57,
+            58,
+            59,
+            60,
+            61
+          ],
+          "first8": [
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            57,
+            58
+          ]
+        },
+        {
+          "y": 61,
+          "eligible": [
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            57,
+            58,
+            59,
+            60,
+            61
+          ],
+          "first8": [
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            57,
+            58
+          ]
+        },
+        {
+          "y": 62,
+          "eligible": [
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            57,
+            58,
+            59,
+            60,
+            61
+          ],
+          "first8": [
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            57,
+            58
+          ]
+        },
+        {
+          "y": 63,
+          "eligible": [
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            57,
+            58,
+            59,
+            60,
+            61
+          ],
+          "first8": [
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            57,
+            58
+          ]
+        },
+        {
+          "y": 64,
+          "eligible": [
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            57,
+            58,
+            59,
+            60,
+            61
+          ],
+          "first8": [
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            57,
+            58
+          ]
+        },
+        {
+          "y": 65,
+          "eligible": [
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            57,
+            58,
+            59,
+            60,
+            61
+          ],
+          "first8": [
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            57,
+            58
+          ]
+        },
+        {
+          "y": 66,
+          "eligible": [
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            57,
+            58,
+            59,
+            60,
+            61
+          ],
+          "first8": [
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            57,
+            58
+          ]
+        },
+        {
+          "y": 67,
+          "eligible": [
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            58,
+            59,
+            60,
+            61
+          ],
+          "first8": [
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            58,
+            59
+          ]
+        },
+        {
+          "y": 68,
+          "eligible": [
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            58,
+            59,
+            60,
+            61
+          ],
+          "first8": [
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            58,
+            59
+          ]
+        },
+        {
+          "y": 69,
+          "eligible": [
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            58,
+            59,
+            60,
+            61
+          ],
+          "first8": [
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            58,
+            59
+          ]
+        },
+        {
+          "y": 70,
+          "eligible": [
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            56,
+            58,
+            59,
+            60,
+            61,
+            62
+          ],
+          "first8": [
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            56,
+            58
+          ]
+        },
+        {
+          "y": 71,
+          "eligible": [
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            56,
+            58,
+            59,
+            60,
+            61,
+            62
+          ],
+          "first8": [
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            56,
+            58
+          ]
+        },
+        {
+          "y": 72,
+          "eligible": [
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            56,
+            58,
+            59,
+            60,
+            61,
+            62
+          ],
+          "first8": [
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            56,
+            58
+          ]
+        },
+        {
+          "y": 73,
+          "eligible": [
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            56,
+            60,
+            61,
+            62
+          ],
+          "first8": [
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            56,
+            60
+          ]
+        },
+        {
+          "y": 74,
+          "eligible": [
+            56,
+            60,
+            61,
+            62
+          ],
+          "first8": [
+            56,
+            60,
+            61,
+            62
+          ]
+        },
+        {
+          "y": 75,
+          "eligible": [
+            56,
+            62
+          ],
+          "first8": [
+            56,
+            62
+          ]
+        },
+        {
+          "y": 76,
+          "eligible": [
+            56,
+            62
+          ],
+          "first8": [
+            56,
+            62
+          ]
+        },
+        {
+          "y": 77,
+          "eligible": [
+            56,
+            62
+          ],
+          "first8": [
+            56,
+            62
+          ]
+        },
+        {
+          "y": 78,
+          "eligible": [
+            56,
+            62
+          ],
+          "first8": [
+            56,
+            62
+          ]
+        },
+        {
+          "y": 79,
+          "eligible": [
+            56,
+            62
+          ],
+          "first8": [
+            56,
+            62
+          ]
+        },
+        {
+          "y": 80,
+          "eligible": [
+            56,
+            62
+          ],
+          "first8": [
+            56,
+            62
+          ]
+        },
+        {
+          "y": 81,
+          "eligible": [
+            56,
+            62
+          ],
+          "first8": [
+            56,
+            62
+          ]
+        },
+        {
+          "y": 82,
+          "eligible": [
+            56,
+            62
+          ],
+          "first8": [
+            56,
+            62
+          ]
+        },
+        {
+          "y": 83,
+          "eligible": [
+            56,
+            62
+          ],
+          "first8": [
+            56,
+            62
+          ]
+        },
+        {
+          "y": 84,
+          "eligible": [
+            56,
+            62
+          ],
+          "first8": [
+            56,
+            62
+          ]
+        },
+        {
+          "y": 85,
+          "eligible": [
+            56,
+            62
+          ],
+          "first8": [
+            56,
+            62
+          ]
+        }
+      ],
+      "raw_PPU_record": {
+        "type": "record",
+        "record": 3017,
+        "offset": 57135885,
+        "bytes": 28687,
+        "kind": 1,
+        "mode": 1,
+        "name": "actual-ppu.argb",
+        "decoded_bytes": 245760,
+        "stamp": {
+          "bank": 4,
+          "cpu_cycle": 97111719,
+          "dot": 0,
+          "pc": 48911,
+          "ppu_frame": 3261,
+          "scanline": 240,
+          "sp": 239
+        },
+        "full_ordinal": 3017,
+        "word_fnv1a32": 3464759850
+      }
+    },
+    "3263": {
+      "display_start": {
+        "a": 0,
+        "cpu_cycle": 97143887,
+        "dot": 0,
+        "irq_depth": 0,
+        "nmi_depth": 1,
+        "pc": 57375,
+        "pc_bank": 127,
+        "physical_A": 0,
+        "physical_C": 116,
+        "ppu_frame": 3263,
+        "scanline": -1,
+        "sp": 244,
+        "x": 0,
+        "y": 7
+      },
+      "display_end": {
+        "a": 162,
+        "cpu_cycle": 97171280,
+        "dot": 0,
+        "irq_depth": 0,
+        "nmi_depth": 0,
+        "pc": 42591,
+        "pc_bank": 4,
+        "physical_A": 4,
+        "physical_C": 76,
+        "ppu_frame": 3263,
+        "scanline": 240,
+        "sp": 239,
+        "x": 16,
+        "y": 1
+      },
+      "completed_dma_id": 4,
+      "completed_dma_stamp": {
+        "a": 30,
+        "cpu_cycle": 97143646,
+        "dot": 299,
+        "irq_depth": 0,
+        "nmi_depth": 1,
+        "pc": 57352,
+        "pc_bank": 127,
+        "physical_A": 0,
+        "physical_C": 116,
+        "ppu_frame": 3263,
+        "scanline": 258,
+        "sp": 244,
+        "x": 0,
+        "y": 7
+      },
+      "source_draw_id": 3,
+      "source_draw_stamp": {
+        "a": 16,
+        "cpu_cycle": 97116485,
+        "dot": 315,
+        "irq_depth": 0,
+        "nmi_depth": 0,
+        "pc": 41546,
+        "pc_bank": 4,
+        "physical_A": 4,
+        "physical_C": 76,
+        "ppu_frame": 3262,
+        "scanline": 19,
+        "sp": 243,
+        "x": 36,
+        "y": 0
+      },
+      "body_entry": {
+        "a": 64,
+        "cpu_cycle": 97115401,
+        "dot": 132,
+        "irq_depth": 0,
+        "nmi_depth": 0,
+        "pc": 41969,
+        "pc_bank": 4,
+        "physical_A": 4,
+        "physical_C": 76,
+        "ppu_frame": 3262,
+        "scanline": 10,
+        "sp": 240,
+        "x": 233,
+        "y": 0
+      },
+      "body_real_caller_return": {
+        "a": 0,
+        "cpu_cycle": 97116458,
+        "dot": 234,
+        "irq_depth": 0,
+        "nmi_depth": 0,
+        "pc": 41522,
+        "pc_bank": 4,
+        "physical_A": 4,
+        "physical_C": 76,
+        "ppu_frame": 3262,
+        "scanline": 19,
+        "sp": 242,
+        "x": 36,
+        "y": 0
+      },
+      "owner_matches": true,
+      "body_pose": 74,
+      "incidental_last_actor_PnDrawFrame": 118,
+      "pool": 0,
+      "pointer": 51357,
+      "record": "1cabc00cf8bd800100b9c00108b702fffdaf02ff059942f90da1c30cf8",
+      "hurt_injury_invulnerability_Big_missing_freeze_all_zero": true,
+      "body_written_parts": 7,
+      "body_writes": 28,
+      "physical_body_slots": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "logical_body_start": 24,
+      "physical_rotation": 240,
+      "physical_start": 8,
+      "body_span_wraps": false,
+      "body_patterns": {
+        "2": {
+          "page": 834,
+          "pattern32": "0000000000000000000000000000000000000000000206020000000000000000",
+          "tuple": [
+            69,
+            161,
+            195,
+            121
+          ]
+        },
+        "3": {
+          "page": 834,
+          "pattern32": "0000000000000000000000000000000000000000000000000000000000000004",
+          "tuple": [
+            50,
+            153,
+            66,
+            142
+          ]
+        },
+        "4": {
+          "page": 834,
+          "pattern32": "000000000000000000000003870c30c600000000000000000d5ccf6700000104",
+          "tuple": [
+            56,
+            175,
+            2,
+            134
+          ]
+        },
+        "5": {
+          "page": 834,
+          "pattern32": "000000000000000000000410000008180000000000000000031800000080c081",
+          "tuple": [
+            56,
+            183,
+            2,
+            126
+          ]
+        },
+        "6": {
+          "page": 834,
+          "pattern32": "0002120f0f3fa3a10a1d292030c0404060810218000103001868b1263922243b",
+          "tuple": [
+            58,
+            185,
+            192,
+            137
+          ]
+        },
+        "7": {
+          "page": 834,
+          "pattern32": "0006242f071f3c1906395350782040e0050100183e1b070038e639a641201807",
+          "tuple": [
+            58,
+            189,
+            128,
+            129
+          ]
+        },
+        "8": {
+          "page": 834,
+          "pattern32": "0000000000000000000000000000000000000000000818080000000000081808",
+          "tuple": [
+            69,
+            171,
+            192,
+            121
+          ]
+        }
+      },
+      "palette32": "22291a0f0f36170f0f30210f0f27170f221508210f1a30270f1630270f0f3617",
+      "sprite_chr_pages": [
+        832,
+        16,
+        17,
+        18,
+        19,
+        20,
+        834,
+        835
+      ],
+      "complete_body_opaque_positions": 218,
+      "body_winners_after_first8": 218,
+      "otherwise_visible_body_positions_excluded_by_first8": 0,
+      "other_sprite_occluded_body_positions": 0,
+      "per_body_part": [
+        {
+          "slot": 2,
+          "opaque": 4,
+          "opaque_admitted_by_first8": 4
+        },
+        {
+          "slot": 3,
+          "opaque": 1,
+          "opaque_admitted_by_first8": 1
+        },
+        {
+          "slot": 4,
+          "opaque": 34,
+          "opaque_admitted_by_first8": 34
+        },
+        {
+          "slot": 5,
+          "opaque": 14,
+          "opaque_admitted_by_first8": 14
+        },
+        {
+          "slot": 6,
+          "opaque": 75,
+          "opaque_admitted_by_first8": 75
+        },
+        {
+          "slot": 7,
+          "opaque": 86,
+          "opaque_admitted_by_first8": 86
+        },
+        {
+          "slot": 8,
+          "opaque": 4,
+          "opaque_admitted_by_first8": 4
+        }
+      ],
+      "scanline_first8": [
+        {
+          "y": 51,
+          "eligible": [
+            3
+          ],
+          "first8": [
+            3
+          ]
+        },
+        {
+          "y": 52,
+          "eligible": [
+            3
+          ],
+          "first8": [
+            3
+          ]
+        },
+        {
+          "y": 53,
+          "eligible": [
+            3
+          ],
+          "first8": [
+            3
+          ]
+        },
+        {
+          "y": 54,
+          "eligible": [
+            3
+          ],
+          "first8": [
+            3
+          ]
+        },
+        {
+          "y": 55,
+          "eligible": [
+            3
+          ],
+          "first8": [
+            3
+          ]
+        },
+        {
+          "y": 56,
+          "eligible": [
+            3
+          ],
+          "first8": [
+            3
+          ]
+        },
+        {
+          "y": 57,
+          "eligible": [
+            3,
+            4,
+            5
+          ],
+          "first8": [
+            3,
+            4,
+            5
+          ]
+        },
+        {
+          "y": 58,
+          "eligible": [
+            0,
+            1,
+            3,
+            4,
+            5,
+            60,
+            61,
+            62,
+            63
+          ],
+          "first8": [
+            0,
+            1,
+            3,
+            4,
+            5,
+            60,
+            61,
+            62
+          ]
+        },
+        {
+          "y": 59,
+          "eligible": [
+            0,
+            1,
+            3,
+            4,
+            5,
+            6,
+            7,
+            60,
+            61,
+            62,
+            63
+          ],
+          "first8": [
+            0,
+            1,
+            3,
+            4,
+            5,
+            6,
+            7,
+            60
+          ]
+        },
+        {
+          "y": 60,
+          "eligible": [
+            0,
+            1,
+            3,
+            4,
+            5,
+            6,
+            7,
+            60,
+            61,
+            62,
+            63
+          ],
+          "first8": [
+            0,
+            1,
+            3,
+            4,
+            5,
+            6,
+            7,
+            60
+          ]
+        },
+        {
+          "y": 61,
+          "eligible": [
+            0,
+            1,
+            3,
+            4,
+            5,
+            6,
+            7,
+            60,
+            61,
+            62,
+            63
+          ],
+          "first8": [
+            0,
+            1,
+            3,
+            4,
+            5,
+            6,
+            7,
+            60
+          ]
+        },
+        {
+          "y": 62,
+          "eligible": [
+            0,
+            1,
+            3,
+            4,
+            5,
+            6,
+            7,
+            60,
+            61,
+            62,
+            63
+          ],
+          "first8": [
+            0,
+            1,
+            3,
+            4,
+            5,
+            6,
+            7,
+            60
+          ]
+        },
+        {
+          "y": 63,
+          "eligible": [
+            0,
+            1,
+            3,
+            4,
+            5,
+            6,
+            7,
+            60,
+            61,
+            62,
+            63
+          ],
+          "first8": [
+            0,
+            1,
+            3,
+            4,
+            5,
+            6,
+            7,
+            60
+          ]
+        },
+        {
+          "y": 64,
+          "eligible": [
+            0,
+            1,
+            3,
+            4,
+            5,
+            6,
+            7,
+            60,
+            61,
+            62,
+            63
+          ],
+          "first8": [
+            0,
+            1,
+            3,
+            4,
+            5,
+            6,
+            7,
+            60
+          ]
+        },
+        {
+          "y": 65,
+          "eligible": [
+            0,
+            1,
+            3,
+            4,
+            5,
+            6,
+            7,
+            60,
+            61,
+            62,
+            63
+          ],
+          "first8": [
+            0,
+            1,
+            3,
+            4,
+            5,
+            6,
+            7,
+            60
+          ]
+        },
+        {
+          "y": 66,
+          "eligible": [
+            0,
+            1,
+            3,
+            4,
+            5,
+            6,
+            7,
+            60,
+            61,
+            62,
+            63
+          ],
+          "first8": [
+            0,
+            1,
+            3,
+            4,
+            5,
+            6,
+            7,
+            60
+          ]
+        },
+        {
+          "y": 67,
+          "eligible": [
+            0,
+            1,
+            4,
+            5,
+            6,
+            7,
+            60,
+            61,
+            62,
+            63
+          ],
+          "first8": [
+            0,
+            1,
+            4,
+            5,
+            6,
+            7,
+            60,
+            61
+          ]
+        },
+        {
+          "y": 68,
+          "eligible": [
+            0,
+            1,
+            4,
+            5,
+            6,
+            7,
+            60,
+            61,
+            62,
+            63
+          ],
+          "first8": [
+            0,
+            1,
+            4,
+            5,
+            6,
+            7,
+            60,
+            61
+          ]
+        },
+        {
+          "y": 69,
+          "eligible": [
+            0,
+            1,
+            4,
+            5,
+            6,
+            7,
+            60,
+            61,
+            62,
+            63
+          ],
+          "first8": [
+            0,
+            1,
+            4,
+            5,
+            6,
+            7,
+            60,
+            61
+          ]
+        },
+        {
+          "y": 70,
+          "eligible": [
+            0,
+            1,
+            2,
+            4,
+            5,
+            6,
+            7,
+            8,
+            60,
+            61,
+            62,
+            63
+          ],
+          "first8": [
+            0,
+            1,
+            2,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        },
+        {
+          "y": 71,
+          "eligible": [
+            0,
+            1,
+            2,
+            4,
+            5,
+            6,
+            7,
+            8,
+            60,
+            61,
+            62,
+            63
+          ],
+          "first8": [
+            0,
+            1,
+            2,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        },
+        {
+          "y": 72,
+          "eligible": [
+            0,
+            1,
+            2,
+            4,
+            5,
+            6,
+            7,
+            8,
+            60,
+            61,
+            62,
+            63
+          ],
+          "first8": [
+            0,
+            1,
+            2,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        },
+        {
+          "y": 73,
+          "eligible": [
+            0,
+            1,
+            2,
+            6,
+            7,
+            8,
+            60,
+            61,
+            62,
+            63
+          ],
+          "first8": [
+            0,
+            1,
+            2,
+            6,
+            7,
+            8,
+            60,
+            61
+          ]
+        },
+        {
+          "y": 74,
+          "eligible": [
+            2,
+            6,
+            7,
+            8
+          ],
+          "first8": [
+            2,
+            6,
+            7,
+            8
+          ]
+        },
+        {
+          "y": 75,
+          "eligible": [
+            2,
+            8
+          ],
+          "first8": [
+            2,
+            8
+          ]
+        },
+        {
+          "y": 76,
+          "eligible": [
+            2,
+            8
+          ],
+          "first8": [
+            2,
+            8
+          ]
+        },
+        {
+          "y": 77,
+          "eligible": [
+            2,
+            8
+          ],
+          "first8": [
+            2,
+            8
+          ]
+        },
+        {
+          "y": 78,
+          "eligible": [
+            2,
+            8
+          ],
+          "first8": [
+            2,
+            8
+          ]
+        },
+        {
+          "y": 79,
+          "eligible": [
+            2,
+            8
+          ],
+          "first8": [
+            2,
+            8
+          ]
+        },
+        {
+          "y": 80,
+          "eligible": [
+            2,
+            8
+          ],
+          "first8": [
+            2,
+            8
+          ]
+        },
+        {
+          "y": 81,
+          "eligible": [
+            2,
+            8
+          ],
+          "first8": [
+            2,
+            8
+          ]
+        },
+        {
+          "y": 82,
+          "eligible": [
+            2,
+            8
+          ],
+          "first8": [
+            2,
+            8
+          ]
+        },
+        {
+          "y": 83,
+          "eligible": [
+            2,
+            8
+          ],
+          "first8": [
+            2,
+            8
+          ]
+        },
+        {
+          "y": 84,
+          "eligible": [
+            2,
+            8
+          ],
+          "first8": [
+            2,
+            8
+          ]
+        },
+        {
+          "y": 85,
+          "eligible": [
+            2,
+            8
+          ],
+          "first8": [
+            2,
+            8
+          ]
+        }
+      ],
+      "raw_PPU_record": {
+        "type": "record",
+        "record": 3019,
+        "offset": 57167163,
+        "bytes": 28999,
+        "kind": 1,
+        "mode": 1,
+        "name": "actual-ppu.argb",
+        "decoded_bytes": 245760,
+        "stamp": {
+          "bank": 4,
+          "cpu_cycle": 97171280,
+          "dot": 0,
+          "pc": 42591,
+          "ppu_frame": 3263,
+          "scanline": 240,
+          "sp": 239
+        },
+        "full_ordinal": 3019,
+        "word_fnv1a32": 589609577
+      }
+    }
+  },
+  "actual_Mesen_body_NES_color_to_RGB": {
+    "15": 0,
+    "48": 16776959,
+    "8": 3355904,
+    "21": 12000891,
+    "33": 6598911
+  },
+  "missing_body_pixels": 153,
+  "actual_RGB_confirms_different": 145,
+  "equal_RGB_ambiguous": 8,
+  "six_earlier_sprites": [
+    {
+      "slots": [
+        50,
+        51,
+        52
+      ],
+      "patterns": {
+        "50": {
+          "page": 832,
+          "pattern32": "0000000000000000000000000000001800000000000000001800000000000000",
+          "tuple": [
+            57,
+            10,
+            2,
+            139
+          ]
+        },
+        "51": {
+          "page": 832,
+          "pattern32": "0000000000001824000000000000182424180000000000002418000000000000",
+          "tuple": [
+            57,
+            34,
+            0,
+            139
+          ]
+        },
+        "52": {
+          "page": 832,
+          "pattern32": "0000000000182442000000000000000042241800000000000000000000000000",
+          "tuple": [
+            57,
+            40,
+            3,
+            139
+          ]
+        }
+      },
+      "composite_opaque_pixels": 24,
+      "visible_NES_colors": [
+        15,
+        33,
+        48
+      ]
+    },
+    {
+      "slots": [
+        53,
+        54,
+        55
+      ],
+      "patterns": {
+        "53": {
+          "page": 832,
+          "pattern32": "0000000000000000000000000000001800000000000000001800000000000000",
+          "tuple": [
+            57,
+            10,
+            2,
+            229
+          ]
+        },
+        "54": {
+          "page": 832,
+          "pattern32": "0000000000001824000000000000182424180000000000002418000000000000",
+          "tuple": [
+            57,
+            34,
+            0,
+            229
+          ]
+        },
+        "55": {
+          "page": 832,
+          "pattern32": "0000000000182442000000000000000042241800000000000000000000000000",
+          "tuple": [
+            57,
+            40,
+            3,
+            229
+          ]
+        }
+      },
+      "composite_opaque_pixels": 24,
+      "visible_NES_colors": [
+        15,
+        33,
+        48
+      ]
+    }
+  ],
+  "active_sprite_palettes_visible_colors": [
+    [
+      21,
+      8,
+      33
+    ],
+    [
+      26,
+      48,
+      39
+    ],
+    [
+      22,
+      48,
+      39
+    ],
+    [
+      15,
+      54,
+      23
+    ]
+  ],
+  "projectile_composite_limit": "Each three-part projectile contributes24 source opaque pixels but3 full16px-high hardware entries. Its three visible colors0F/21/30 are not together in any current sprite palette; a one-sprite exact composite is not a data-only change under these palettes.",
+  "narrow_followup": "Prioritize cold source-art/palette consolidation of frame118 projectile, preserving its pixels/actors/state. Two one-part shots would reduce this witnessed maximum12 rectangles/row to8. Palette ownership is a required unresolved design constraint; no patch is qualified here. Reordering the body alone merely reallocates the same hardware loss and repeats held e11/2dc tradeoffs.",
+  "agent_visual_review": false,
+  "placements": {
+    "sheet": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\compact-326942-octopus-visibility-v1\\body-3261-3263-whole-frames.png",
+    "sha256": "0bd129ea764078e26a6d4ffe08f15142aadf92fb4c1f2a09e4f6b1c18ee10a27",
+    "placements": [
+      {
+        "frame": 3261,
+        "row": 0,
+        "column": 0,
+        "record": {
+          "type": "record",
+          "record": 3017,
+          "offset": 57135885,
+          "bytes": 28687,
+          "kind": 1,
+          "mode": 1,
+          "name": "actual-ppu.argb",
+          "decoded_bytes": 245760,
+          "stamp": {
+            "bank": 4,
+            "cpu_cycle": 97111719,
+            "dot": 0,
+            "pc": 48911,
+            "ppu_frame": 3261,
+            "scanline": 240,
+            "sp": 239
+          },
+          "full_ordinal": 3017,
+          "word_fnv1a32": 3464759850
+        }
+      },
+      {
+        "frame": 3263,
+        "row": 0,
+        "column": 1,
+        "record": {
+          "type": "record",
+          "record": 3019,
+          "offset": 57167163,
+          "bytes": 28999,
+          "kind": 1,
+          "mode": 1,
+          "name": "actual-ppu.argb",
+          "decoded_bytes": 245760,
+          "stamp": {
+            "bank": 4,
+            "cpu_cycle": 97171280,
+            "dot": 0,
+            "pc": 42591,
+            "ppu_frame": 3263,
+            "scanline": 240,
+            "sp": 239
+          },
+          "full_ordinal": 3019,
+          "word_fnv1a32": 589609577
+        }
+      }
+    ],
+    "distinct_new_epochs_extracted": 2,
+    "maximum_with_six_original_route_markers": 8
+  },
+  "bindings": {
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\compact-326942-octopus-visibility-v1\\ready.json": "a1e34eb1277d9bee14f1c86b2a61e613bc0a08e7a6c90ea466d314f99e7f4a11",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\compact-326942-octopus-visibility-v1\\source-controls.json": "96e4c180af1c11117e8bef65c4a5029ca2f0a5e5cdacd904c1f8887d7ebc61ab",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\compact-326942-octopus-visibility-v1\\run.lua": "14df99c0365bef8a0871ff3c729f57cab50590f16b3d8ce027cabce2f140a539",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\compact-326942-octopus-visibility-v1\\launch.json": "68d1f093d397b86e64ed9419f92ec6bbf8604f3783b991c38713a336ec8b8d14",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\compact-326942-octopus-visibility-v1\\result.json": "b55b2b8d3a817e3713268e031c756448c3ba1e30d3307a02e14ea4dbf49a070c",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\compact-326942-octopus-visibility-v1\\review.json": "a83369848febb2565254a82596591c08536554d5424a104b50f01b92a1ca4c0d",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\compact-326942-octopus-visibility-v1\\inputs.csv": "b390723a9390f8aac00c10b1d935c8b899b40d0e2d30610e2ba8a2436b5a1f4a",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\compact-326942-octopus-visibility-v1\\trace.csv": "2b046eacb3478c972075a7a48a7c40dfa66c1e77509d147e67f23ee9ef9b8042",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\compact-326942-octopus-visibility-v1\\events.jsonl": "dcb3967e7088d060a11f955144eeb85a237520dc540c4ae0edb43e7626610b20",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\compact-326942-octopus-visibility-v1\\captures.nesppuv1": "e1336123114080a493e9e503b0ac9e456370a183b984322d4bc03fb30b2b487b",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\compact-326942-octopus-visibility-v1\\captures-index.jsonl": "035d1f4ca0803c7e27844fd7bbdfec977bbc5c00fe2f5abc926ee7141825949f",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\compact-326942-octopus-visibility-v1\\octopus-visibility.jsonl": "643aad8a563088da72e0db55f2f050e2efc6593a8dd0c4c4c239dba6333d98ff",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\compact-326942-octopus-easy-v1\\ready.json": "d98c41c04d86f27c1eda1e2b91fb74f3d2b926c255fee81d4a50c13dcaf5ea74",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\compact-326942-octopus-easy-v1\\result.json": "ef52ab503b8cc08fac29affc06ebdcfd2e70731712a03667b1f1d4563da623e6",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\compact-326942-octopus-easy-v1\\review.json": "6e62ae8d793b2787fe7ed5d497d604fb8d50e4b231904051db0f2eee968bf0ce",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\compact-326942-octopus-easy-v1\\inputs.csv": "b390723a9390f8aac00c10b1d935c8b899b40d0e2d30610e2ba8a2436b5a1f4a",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\compact-326942-octopus-easy-v1\\trace.csv": "2b046eacb3478c972075a7a48a7c40dfa66c1e77509d147e67f23ee9ef9b8042",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\compact-326942-octopus-easy-v1\\events.jsonl": "dcb3967e7088d060a11f955144eeb85a237520dc540c4ae0edb43e7626610b20",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\zelda2_easy_glove.nes": "32694243361bb1366f6fd64c054ea2451f86b2517fc020d9c2b5d66bbf07bfa0",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\zelda2_easy_glove.dbg": "9155318791914d0cbd5cd2ad076c1a891b21cb2dd09acbffedcef1cb9ef62e3d",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\zelda2_easy_glove.lbl": "5a7b7f83fdc77a4af91d85333d3a0703a400c8ecf7a2bb78685520f765dabd80",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\current326_octopus_visibility_review_v1.py": "c8efa53b84990da0817e382cbd979ead793ac905381dcf114e3e9680f3b3618c",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\current326_route_visual_scan_v1.py": "7a244d2059a07160f3ed94ab05629e478a8ff1421dc32ba9f002062b86e31992",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\current_roster_compact_11_v1.py": "fe2b6c43ae273269ed40f18e62cfcb3ba1d45cde6d0463d748ba72ccc25ebd6f",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\final_inventory_compact_capture_v1.py": "fd5585f4f5ccb4217a25270703784193e336c580ba71c65aa53fda0a70068b2a",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\metasprite_engine.s": "f328cab1c2a649317e0dbebe6c6dc892b27e105046acc0207e1c6a3ceaf00ebe",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\parodius_render.s": "a6f0d11ab8e4f1d1e8e9a92dfd54a47de0acca4383b3022965dea3f21a920330",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\parodius_adapter.s": "446d08b68d98852a9180151feb05642760de6becae2e6c6a3333865c063b9304",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\compact-326942-octopus-visibility-v1\\body-3261-3263-whole-frames.png": "0bd129ea764078e26a6d4ffe08f15142aadf92fb4c1f2a09e4f6b1c18ee10a27",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\compact-326942-octopus-visibility-v1\\body-placements.json": "e291c51f00d0bd82c6d7b3ad206559bae75e9d876e6ffc91d871d283c2cdefdf"
+  },
+  "limits": [
+    "This is one exact pose/scene/epoch pair, not all modes/ships/poses or universal visibility.",
+    "Patterns use actual mapper readbacks and exact bound ROM bytes; there is no per-dot pattern-fetch/background trace.",
+    "The8 equal-RGB omitted positions are explicitly ambiguous in pixels despite proven physical first-eight exclusion.",
+    "No native launch, ROM/source/default/settings edit or additional actor hiding/priority policy was performed."
+  ]
+}
