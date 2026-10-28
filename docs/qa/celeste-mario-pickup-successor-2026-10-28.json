@@ -1,0 +1,74 @@
+{
+  "passed": true,
+  "native_run": false,
+  "ROM_sha256": "b1cbfb3a287666fa05871a5cc96813cf2264b844b075af0de1542b55f5bacc6c",
+  "historical_v1": {
+    "commit": "888cb050",
+    "ROM_sha256": "2e7e0167cabf1f00df954a5fd92341ee2373ff309a257589cc72413ea5962a19",
+    "limitation": "Original leaf read slot0 PowerUpType and wrote1Up popup tag11 without full setup. Earlier movement/art evidence retains its original scope; source-only typed pickup controls did not establish six-slot ownership."
+  },
+  "source_delta": "Only CmPickup body differs after explicit CRLF normalization against888cb050. Reads PowerUpType,X at actual entering slot, preservesX across release, invokes native EraseEnemyObject +SetupFloateyNumber6 exactly once, emits pickupSFX once. Declines Star/1Up untouched for actual host fallback.",
+  "old_counterexamples": [
+    {
+      "actual_slot": 5,
+      "actual_type": 1,
+      "unrelated_slot0_type": 2,
+      "old": {
+        "carry": false,
+        "tier": 0,
+        "flag": 1,
+        "score": 68
+      },
+      "fixed": {
+        "carry": true,
+        "tier": 1,
+        "flag": 0,
+        "score": 6
+      }
+    },
+    {
+      "actual_slot": 5,
+      "actual_type": 2,
+      "unrelated_slot0_type": 0,
+      "old": {
+        "carry": true,
+        "tier": 1,
+        "flag": 0,
+        "score": 11
+      },
+      "fixed": {
+        "carry": false,
+        "tier": 0,
+        "flag": 1,
+        "score": 68
+      }
+    }
+  ],
+  "cases": {
+    "accepted": 72,
+    "Star_1Up_declines_and_native_fallback": 36,
+    "pickup_IRQ_NMI": 24,
+    "native_movement_cases": 31,
+    "native_movement_updates": 2208,
+    "linked_rows": 141,
+    "art_records": 52,
+    "other_IRQ_NMI": 24
+  },
+  "core_bytes": 3544,
+  "CORE_end": 48600,
+  "CORE_spare": 552,
+  "pickup_interrupt_minSP": 169,
+  "host_contract": [
+    "Require SelectedCharacter0/MarioVariant4 before calling the leaf; no temporary identity.",
+    "X must be the actual contacted native actor slot0..5, preserved by admission farcall.",
+    "Gate actual mushroom/flower emergence using genuine Enemy_State/type owner before pickup; CmPickup assumes legal contact admission.",
+    "Carry1 consumes0/1: do not erase or award score again. Carry0 requires exactly one native fallback for Star/1Up.",
+    "Native PowerUpType survives EraseEnemyObject and other five actor fields are untouched.",
+    "Existing host integration plan93 B000 tail was a proposal only; ROOT now reserves this for FF ART, so host must use its separately agreed allocation."
+  ],
+  "limits": [
+    "No native run, true pickup emergence/host dispatch, PPU/deadline/cadence/crowding claim.",
+    "Private link contains current shared roster context and cannot be described as a pure ROM delta against oldv1.",
+    "Old linked control pickup rows remain a historical leaf subset; the fresh72+36 cases supply actual six-slot ownership."
+  ]
+}
