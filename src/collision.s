@@ -1091,7 +1091,7 @@ ExHCF: rts                      ;and now let's leave
 HandlePowerUpCollision:
 .if ::ENABLE_CROSSOVER
 .if ::ENABLE_MMC5_EXPANDED
-      farcall JnPickupDispatch, jmp
+      farcall NrPickup, jmp
 .else
       farcall MarioSourcePowerupCollision, jmp
 .endif

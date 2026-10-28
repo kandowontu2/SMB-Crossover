@@ -71,6 +71,6 @@ Fallback:
  farcall Original,jmp
 .endproc
 .endmacro
-HotCollision HotCollisionAdder,RlAdder,KbAdderDispatch,CdAdderDispatch,LmAdderGate,JnAdderDispatch,M3AdderDispatch,VvAdderDispatch,TnAdderDispatch,RlAdderDispatch
-HotCollision HotCollisionBox,RlBox,KbBoxDispatch,CdBoxDispatch,LmBoxGate,JnBoxDispatch,M3BoxDispatch,VvBoxDispatch,TnBoxDispatch,RlBoxDispatch
+HotCollision HotCollisionAdder,RlAdder,KbAdderDispatch,CdAdderDispatch,LmAdderGate,JnAdderDispatch,M3AdderDispatch,VvAdderDispatch,TnAdderDispatch,NrAdder
+HotCollision HotCollisionBox,RlBox,KbBoxDispatch,CdBoxDispatch,LmBoxGate,JnBoxDispatch,M3BoxDispatch,VvBoxDispatch,TnBoxDispatch,NrBox
 .popseg

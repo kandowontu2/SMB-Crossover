@@ -62,6 +62,6 @@ Fallback:
  farcall Original,jmp
 .endproc
 .endmacro
-HotRender HotPlayerGraphics,RlGraphics,KbGraphicsDispatch,CdGraphicsDispatch,LmGraphicsGate,JnGraphicsDispatch,M3GraphicsDispatch,VvGraphicsDispatch,TnGraphics,RlGraphicsDispatch
-HotRender HotNewCharacterDraw,RlDraw,CdNewDrawDispatch,CdNewDrawDispatch,LmDrawGate,JnDrawDispatch,M3NewDrawDispatch,VvDrawDispatch,TnDraw,RlDrawDispatch
+HotRender HotPlayerGraphics,RlGraphics,KbGraphicsDispatch,CdGraphicsDispatch,LmGraphicsGate,JnGraphicsDispatch,M3GraphicsDispatch,VvGraphicsDispatch,TnGraphics,NrGraphics
+HotRender HotNewCharacterDraw,RlDraw,CdNewDrawDispatch,CdNewDrawDispatch,LmDrawGate,JnDrawDispatch,M3NewDrawDispatch,VvDrawDispatch,TnDraw,NrDraw
 .popseg

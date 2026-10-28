@@ -2,6 +2,9 @@
 HELPER_RECORDS = 34
 HpCharacterMasks:
   .byte 0,3,1,3,3,1,1,1,0,0,1,2,3,3,3,3,3,0,0,0
+.if ::ENABLE_MMC5_EXPANDED
+  .byte 1,3,0,0,0,0,0,0 ; explicit new-profile H/V accommodations
+.endif
 HpDataKey:
   .byte 0,1,2,4,5,5,5,6,6,8,9,10,12,13,14,16,17,18,20,21,22,24,25,25,25,26,26,28,28,28,29,29,30,31
 HpDataArea:

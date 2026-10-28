@@ -1,6 +1,13 @@
 ; Authored Crossover level differences, using the retained revision2 audit.
 ; Easy = pinned hosted six-character1.x; Hard = authenticated2.02.
 ; Keep original NES coordinates. This is not a replacement castle-maze engine.
+.macro LvLoadedAreaA
+.if ::ENABLE_MMC5_EXPANDED
+ jsr HpCurrentArea
+.else
+ lda AreaPointer
+.endif
+.endmacro
 .pushseg
 .segment "LEVEL_VARIANTS_BRIDGE"
 ; AreaParserCore discards incoming A and reloads BlockBufferColumnPos after us.
@@ -21,7 +28,7 @@
 .segment "LEVEL_VARIANTS"
 .proc CrossoverLevelColumn
   farcall ProcessAreaData
-  lda AreaPointer
+  LvLoadedAreaA
   cmp #$40                    ;1-2
   beq Scan
   cmp #$41                    ;4-2
@@ -41,7 +48,7 @@
 Scan:
   ldx #CrossoverCellCount-1
 Loop:
-  lda AreaPointer
+  LvLoadedAreaA
   cmp CellArea,x
   bne Next
   lda WorldNumber
@@ -84,7 +91,7 @@ Done:
 .proc CrossoverLevelEnemyInit
   php
   pha
-  lda AreaPointer
+  LvLoadedAreaA
   cmp #$01                    ; Shared2-2 /7-2 water stream.
   bne Ground
   lda WorldNumber
@@ -121,7 +128,7 @@ Native:
   farcall CheckpointEnemyID
   php
   pha
-  lda AreaPointer
+  LvLoadedAreaA
   cmp #$62
   bne Done
   lda WorldNumber
@@ -173,7 +180,7 @@ Done:
   lda NumberofGroupEnemies
   cmp #1                     ; Omit the second/final member, not the whole group.
   bne Native
-  lda AreaPointer
+  LvLoadedAreaA
   cmp #$25
   bne World6Group
   lda WorldNumber
@@ -213,7 +220,7 @@ Native:
   beq Ordinary
   ldx #CrossoverCoinCellCount-1
 Loop:
-  lda AreaPointer
+  LvLoadedAreaA
   cmp CoinCellArea,x
   bne Next
   lda WorldNumber
@@ -287,7 +294,7 @@ Single:
 .endproc
 
 .proc CrossoverLiftMove
-  lda AreaPointer
+  LvLoadedAreaA
   cmp #$62
   jne Native
   lda WorldNumber

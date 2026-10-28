@@ -319,7 +319,7 @@ CheckConfirm:
   bne :+
  .if ::ENABLE_MMC5_EXPANDED
 .if ::ENABLE_MMC5_EXPANDED
-    farcall KbFreshGameInit
+    farcall NrFreshGameInit
 .else
     farcall X5InventoryInit
 .endif
@@ -340,6 +340,11 @@ CheckConfirm:
   rts
 CheckDirection:
 .if ::ENABLE_MMC5_EXPANDED
+  farcall NrMenuToggle
+  bcc NrNoToggle
+  lda CrossoverMenuIndex
+  jmp Changed
+NrNoToggle:
   lda SelectedCharacter
   cmp #CHARACTER_BASS
   bne RlNoToggle
@@ -501,28 +506,9 @@ M3NoToggle:
   jmp Changed
 Navigation:
 .if ::ENABLE_MMC5_EXPANDED
-  lda CrossoverMenuPressed
-  and #Left_Dir|Right_Dir|Up_Dir|Down_Dir
+  farcall NrMenuNavigate
+  cmp #$ff
   jeq NotReady
-  lda #$24
-  jsr QueueCursor
-  ldx CrossoverMenuIndex
-  lda CrossoverMenuPressed
-  and #Up_Dir
-  beq :+
-  lda X5MenuUp,x
-  jmp Changed
-: lda CrossoverMenuPressed
-  and #Down_Dir
-  beq :+
-  lda X5MenuDown,x
-  jmp Changed
-: lda CrossoverMenuPressed
-  and #Left_Dir
-  beq :+
-  lda X5MenuLeft,x
-  jmp Changed
-: lda X5MenuRight,x
   jmp Changed
 .else
   lda CrossoverMenuPressed
@@ -582,7 +568,7 @@ Changed:
 .proc MenuResolveCharacter
   ldx CrossoverMenuIndex
 .if ::ENABLE_MMC5_EXPANDED
-  lda X5MenuCharacters,x
+  farcall NrMenuCharacter
 .else
   lda MenuCharacters,x
 .endif
@@ -626,6 +612,7 @@ MenuCharacters: .byte 0,1,2,3,4,5,6,7,12,9,10,11
   sta Player_X_Position
   lda #152
 .if ::ENABLE_MMC5_EXPANDED
+  lda #160
   ldx SelectedCharacter
   cpx #15
   bne :+
@@ -650,6 +637,9 @@ PreviewX: .byte 120,121,118,116,120,120
   .byte 120,120,120,121,120,120
 .if ::ENABLE_MMC5_EXPANDED
   .byte 120,120,120,120,120,120,120
+  .repeat 9
+  .byte 120
+  .endrepeat
 .endif
 .endproc
 
@@ -673,6 +663,16 @@ PreviewX: .byte 120,121,118,116,120,120
 Copy:
   lda SelectedCharacter
  .if ::ENABLE_MMC5_EXPANDED
+  cmp #CHARACTER_ICE_CLIMBERS
+  beq NrAlternateHint
+  cmp #15
+  beq NrAlternateHint
+  cmp #CHARACTER_RIVER_CITY
+  bne NrOtherHint
+NrAlternateHint:
+  lda ProtoHint,y
+  jmp Put
+NrOtherHint:
   cmp #CHARACTER_BASS
   bne RlNoHint
   lda ProtoHint,y
@@ -769,8 +769,25 @@ ProtoHint: .byte "SELECT  CHANGE HERO "
 .endproc
 
 .proc QueueSelectName
+.if ::ENABLE_MMC5_EXPANDED
+  farcall NrQueueSelectName,jmp
+.else
   lda SelectedCharacter
 .if ::ENABLE_MMC5_EXPANDED
+  cmp #CHARACTER_ICE_CLIMBERS
+  bne NrNotIceName
+  lda IcVariant
+  clc
+  adc #37
+  jmp NameIndex
+NrNotIceName:
+  cmp #CHARACTER_RIVER_CITY
+  bne NrNotCityName
+  lda RcVariant
+  clc
+  adc #39
+  jmp NameIndex
+NrNotCityName:
   cmp #CHARACTER_BASS
   bne RlOtherName
   lda RlVariant
@@ -781,6 +798,12 @@ RlOriginalName:lda #CHARACTER_BASS
 RlOtherName:
   cmp #15
   bne LmOtherName
+  lda MacVariant
+  beq LmDefaultName
+  clc
+  adc #40
+  jmp NameIndex
+LmDefaultName:
   lda #30
   jmp NameIndex
 LmOtherName:
@@ -938,10 +961,17 @@ Names:
   .byte "  META KNIGHT   "
   .byte "    OCTOPUS     ","    TWINBEE     ","    PENTAROU    "
   .byte "     ROLL       "
+  .byte "      POPO      ","      NANA      "
+  .byte "      ALEX      ","      RYAN      "
+  .byte "   DOC LOUIS    ","   MIKE TYSON   "
  .endif
+.endif
 .endproc
 
 .proc QueueCursor
+.if ::ENABLE_MMC5_EXPANDED
+  farcall NrQueueCursor,jmp
+.endif
   pha
   ldy CrossoverMenuIndex
 .if ::ENABLE_MMC5_EXPANDED
@@ -1222,7 +1252,7 @@ SelectPalette:
  .endif
 SelectNameTable:
 .if ::ENABLE_MMC5_EXPANDED
-  .incbin "chr/raw/x5-character-select.bin"
+  .incbin "chr/raw/roster-expansion-menu.bin"
 .else
   .incbin "chr/raw/character-select.bin"
 .endif
@@ -1237,8 +1267,8 @@ SelectNameTable:
 
 .if ::ENABLE_MMC5_EXPANDED
 .pushseg
-.segment "PROTO_MENU"
-.include "x5_menu_layout.inc"
+.segment "NEW_ROSTER_GATE"
+.include "roster_expansion_menu.inc"
 .popseg
 .endif
 

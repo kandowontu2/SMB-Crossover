@@ -1,0 +1,2841 @@
+{
+  "source_only": true,
+  "native_run": false,
+  "sources": {
+    "mac": {
+      "file": "mac-roster-source-126765.png",
+      "sha256": "61bfc5addb2dae7c9404d4ce0ed5d032eba75eb0741b83210176af62bb4f7b58",
+      "page": "https://www.spriters-resource.com/custom_edited/punchoutcustoms/asset/126765/",
+      "credit": "MisterMike, Little Mac (Zelda 2-Style), 2020"
+    },
+    "doc": {
+      "file": "mac-roster-source-32930.png",
+      "sha256": "ffd346d5011963d0f7aa65b529f3d2d90ffb05d6167b910ed7aa93bbd1c9b1de",
+      "page": "https://www.spriters-resource.com/nes/punchout/asset/32930/",
+      "credit": "Nintendo; rip Solink / Tox2564"
+    },
+    "tyson": {
+      "file": "mac-roster-source-32931.png",
+      "sha256": "0d6cd570db1c2ed707c593dab54656ead61bd04be73c28fcaf01295c6459ab0c",
+      "page": "https://www.spriters-resource.com/nes/punchout/asset/32931/",
+      "credit": "Nintendo; rip evildevil / Tox2564"
+    }
+  },
+  "variant_order": [
+    "mac",
+    "doc",
+    "tyson"
+  ],
+  "source_scope": {
+    "mac": "Exact requested authored source cells, no new painted pixels.",
+    "doc": "Explicit new adapted boxing set: original Doc profile head/neck, stockier125% width and requested Mac pose scaffold. Not original NES boxing frames, not a bicycle gameplay crop.",
+    "tyson": "Original NES combat poses, uniform3/8 nearest sampling; source green trunks->black and eye/teeth highlights->skin for one3-color sprite palette. Not exact original size/colors."
+  },
+  "NES_palettes": {
+    "mac": [
+      54,
+      10,
+      42
+    ],
+    "doc": [
+      23,
+      15,
+      48
+    ],
+    "tyson": [
+      24,
+      15,
+      22
+    ]
+  },
+  "frames": [
+    {
+      "id": 0,
+      "family": "mac",
+      "name": "idle",
+      "page": 668,
+      "parts": [
+        {
+          "tile": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "tile": 2,
+          "x": 8,
+          "y": 0
+        },
+        {
+          "tile": 4,
+          "x": 0,
+          "y": 16
+        },
+        {
+          "tile": 6,
+          "x": 8,
+          "y": 16
+        }
+      ],
+      "size": [
+        16,
+        32
+      ],
+      "origin_offset": [
+        0,
+        0
+      ],
+      "max_parts": 4,
+      "indexed_sha256": "83335f76a3b485e3e9c17c74d8b33b6f7ddb81dd0467ae8f32c37e2d2825d1ee"
+    },
+    {
+      "id": 1,
+      "family": "mac",
+      "name": "walk0",
+      "page": 668,
+      "parts": [
+        {
+          "tile": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "tile": 2,
+          "x": 8,
+          "y": 0
+        },
+        {
+          "tile": 4,
+          "x": 0,
+          "y": 16
+        },
+        {
+          "tile": 8,
+          "x": 8,
+          "y": 16
+        }
+      ],
+      "size": [
+        16,
+        32
+      ],
+      "origin_offset": [
+        0,
+        0
+      ],
+      "max_parts": 4,
+      "indexed_sha256": "6eb97a82fdb6cd6b6f305fac3be8f7d548a8069881dda646c27372bb4ca8f733"
+    },
+    {
+      "id": 2,
+      "family": "mac",
+      "name": "walk1",
+      "page": 668,
+      "parts": [
+        {
+          "tile": 10,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "tile": 12,
+          "x": 8,
+          "y": 0
+        },
+        {
+          "tile": 14,
+          "x": 0,
+          "y": 16
+        },
+        {
+          "tile": 16,
+          "x": 8,
+          "y": 16
+        }
+      ],
+      "size": [
+        16,
+        32
+      ],
+      "origin_offset": [
+        0,
+        0
+      ],
+      "max_parts": 4,
+      "indexed_sha256": "35dd1aba900b2ce32fd00a65819a61b422ec93bb8e8ef8419a75935af5e5b91c"
+    },
+    {
+      "id": 3,
+      "family": "mac",
+      "name": "walk2",
+      "page": 668,
+      "parts": [
+        {
+          "tile": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "tile": 2,
+          "x": 8,
+          "y": 0
+        },
+        {
+          "tile": 18,
+          "x": 0,
+          "y": 16
+        },
+        {
+          "tile": 20,
+          "x": 8,
+          "y": 16
+        }
+      ],
+      "size": [
+        16,
+        32
+      ],
+      "origin_offset": [
+        0,
+        0
+      ],
+      "max_parts": 4,
+      "indexed_sha256": "061ad07ff95792933b783ade8b3328f25f17ab364264de9bbacf7f8a6c584750"
+    },
+    {
+      "id": 4,
+      "family": "mac",
+      "name": "duck",
+      "page": 668,
+      "parts": [
+        {
+          "tile": 22,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "tile": 24,
+          "x": 8,
+          "y": 0
+        },
+        {
+          "tile": 26,
+          "x": 0,
+          "y": 16
+        },
+        {
+          "tile": 28,
+          "x": 8,
+          "y": 16
+        }
+      ],
+      "size": [
+        16,
+        32
+      ],
+      "origin_offset": [
+        0,
+        0
+      ],
+      "max_parts": 4,
+      "indexed_sha256": "7618d9dce992ed03c8981cb523036c085890aff0ac49e71fff6a8c0c5f2186e0"
+    },
+    {
+      "id": 5,
+      "family": "mac",
+      "name": "jump0",
+      "page": 668,
+      "parts": [
+        {
+          "tile": 22,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "tile": 24,
+          "x": 8,
+          "y": 0
+        },
+        {
+          "tile": 26,
+          "x": 0,
+          "y": 16
+        },
+        {
+          "tile": 28,
+          "x": 8,
+          "y": 16
+        }
+      ],
+      "size": [
+        16,
+        32
+      ],
+      "origin_offset": [
+        0,
+        0
+      ],
+      "max_parts": 4,
+      "indexed_sha256": "7618d9dce992ed03c8981cb523036c085890aff0ac49e71fff6a8c0c5f2186e0"
+    },
+    {
+      "id": 6,
+      "family": "mac",
+      "name": "jump1",
+      "page": 668,
+      "parts": [
+        {
+          "tile": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "tile": 2,
+          "x": 8,
+          "y": 0
+        },
+        {
+          "tile": 18,
+          "x": 0,
+          "y": 16
+        },
+        {
+          "tile": 20,
+          "x": 8,
+          "y": 16
+        }
+      ],
+      "size": [
+        16,
+        32
+      ],
+      "origin_offset": [
+        0,
+        0
+      ],
+      "max_parts": 4,
+      "indexed_sha256": "061ad07ff95792933b783ade8b3328f25f17ab364264de9bbacf7f8a6c584750"
+    },
+    {
+      "id": 7,
+      "family": "mac",
+      "name": "hurt",
+      "page": 668,
+      "parts": [
+        {
+          "tile": 30,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "tile": 32,
+          "x": 8,
+          "y": 0
+        },
+        {
+          "tile": 34,
+          "x": 0,
+          "y": 16
+        },
+        {
+          "tile": 36,
+          "x": 8,
+          "y": 16
+        }
+      ],
+      "size": [
+        16,
+        32
+      ],
+      "origin_offset": [
+        0,
+        0
+      ],
+      "max_parts": 4,
+      "indexed_sha256": "6ba903f267d1b970116b0f0fc10c17e77a0512a803afd9f791aa3fbf06594d6a"
+    },
+    {
+      "id": 8,
+      "family": "mac",
+      "name": "pickup",
+      "page": 668,
+      "parts": [
+        {
+          "tile": 38,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "tile": 40,
+          "x": 8,
+          "y": 0
+        },
+        {
+          "tile": 42,
+          "x": 0,
+          "y": 16
+        },
+        {
+          "tile": 44,
+          "x": 8,
+          "y": 16
+        }
+      ],
+      "size": [
+        16,
+        32
+      ],
+      "origin_offset": [
+        0,
+        0
+      ],
+      "max_parts": 4,
+      "indexed_sha256": "ae74da7289d97aeb2bbc647e44ed372604d8d94347f72d37c9002c548d1dbf1b"
+    },
+    {
+      "id": 9,
+      "family": "mac",
+      "name": "victory",
+      "page": 668,
+      "parts": [
+        {
+          "tile": 38,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "tile": 46,
+          "x": 8,
+          "y": 0
+        },
+        {
+          "tile": 42,
+          "x": 0,
+          "y": 16
+        },
+        {
+          "tile": 48,
+          "x": 8,
+          "y": 16
+        }
+      ],
+      "size": [
+        16,
+        32
+      ],
+      "origin_offset": [
+        0,
+        0
+      ],
+      "max_parts": 4,
+      "indexed_sha256": "5e8d291a3f8020361f602cabd5ecbb9a7e9f7f48226fa4c6e9b03b141c49a7b4"
+    },
+    {
+      "id": 10,
+      "family": "mac",
+      "name": "windup",
+      "page": 668,
+      "parts": [
+        {
+          "tile": 50,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "tile": 52,
+          "x": 8,
+          "y": 0
+        },
+        {
+          "tile": 54,
+          "x": 16,
+          "y": 0
+        },
+        {
+          "tile": 56,
+          "x": 8,
+          "y": 16
+        },
+        {
+          "tile": 58,
+          "x": 16,
+          "y": 16
+        }
+      ],
+      "size": [
+        24,
+        32
+      ],
+      "origin_offset": [
+        0,
+        0
+      ],
+      "max_parts": 5,
+      "indexed_sha256": "2bfe3cf84fcfca10aca8a00c8b22cb9d9b9a7384be009898f0a63c903eeba78f"
+    },
+    {
+      "id": 11,
+      "family": "mac",
+      "name": "punch",
+      "page": 669,
+      "parts": [
+        {
+          "tile": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "tile": 2,
+          "x": 8,
+          "y": 0
+        },
+        {
+          "tile": 4,
+          "x": 16,
+          "y": 0
+        },
+        {
+          "tile": 6,
+          "x": 24,
+          "y": 0
+        },
+        {
+          "tile": 8,
+          "x": 0,
+          "y": 16
+        },
+        {
+          "tile": 10,
+          "x": 8,
+          "y": 16
+        }
+      ],
+      "size": [
+        32,
+        32
+      ],
+      "origin_offset": [
+        0,
+        0
+      ],
+      "max_parts": 6,
+      "indexed_sha256": "8cbf64be115bf257ceddb70402678f7df1bd3c2a59a003272fabcb501eb46290"
+    },
+    {
+      "id": 12,
+      "family": "mac",
+      "name": "duckpunch",
+      "page": 669,
+      "parts": [
+        {
+          "tile": 12,
+          "x": 8,
+          "y": 0
+        },
+        {
+          "tile": 14,
+          "x": 16,
+          "y": 0
+        },
+        {
+          "tile": 16,
+          "x": 0,
+          "y": 16
+        },
+        {
+          "tile": 18,
+          "x": 8,
+          "y": 16
+        },
+        {
+          "tile": 20,
+          "x": 16,
+          "y": 16
+        },
+        {
+          "tile": 22,
+          "x": 24,
+          "y": 16
+        }
+      ],
+      "size": [
+        32,
+        32
+      ],
+      "origin_offset": [
+        0,
+        0
+      ],
+      "max_parts": 6,
+      "indexed_sha256": "d5b66fac4990dc0b7339e8bd650fad4bca451773a8949e4501a37244af56e9d2"
+    },
+    {
+      "id": 13,
+      "family": "mac",
+      "name": "downthrust",
+      "page": 669,
+      "parts": [
+        {
+          "tile": 24,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "tile": 26,
+          "x": 8,
+          "y": 0
+        },
+        {
+          "tile": 28,
+          "x": 0,
+          "y": 16
+        },
+        {
+          "tile": 30,
+          "x": 8,
+          "y": 16
+        }
+      ],
+      "size": [
+        16,
+        32
+      ],
+      "origin_offset": [
+        0,
+        0
+      ],
+      "max_parts": 4,
+      "indexed_sha256": "ef616d7e38ba546320bb4ae4b340b3296340d65029d7c39360096dad3c339f9c"
+    },
+    {
+      "id": 14,
+      "family": "mac",
+      "name": "uppercut",
+      "page": 669,
+      "parts": [
+        {
+          "tile": 32,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "tile": 34,
+          "x": 8,
+          "y": 0
+        },
+        {
+          "tile": 36,
+          "x": 0,
+          "y": 16
+        },
+        {
+          "tile": 38,
+          "x": 8,
+          "y": 16
+        }
+      ],
+      "size": [
+        16,
+        32
+      ],
+      "origin_offset": [
+        0,
+        0
+      ],
+      "max_parts": 4,
+      "indexed_sha256": "121a7977ad6779992f24541a8e0dccf1d00f40c9b4e5c216e28914e12cc5ee45"
+    },
+    {
+      "id": 15,
+      "family": "mac",
+      "name": "guard",
+      "page": 669,
+      "parts": [
+        {
+          "tile": 40,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "tile": 42,
+          "x": 8,
+          "y": 0
+        },
+        {
+          "tile": 44,
+          "x": 0,
+          "y": 16
+        },
+        {
+          "tile": 46,
+          "x": 8,
+          "y": 16
+        }
+      ],
+      "size": [
+        16,
+        32
+      ],
+      "origin_offset": [
+        0,
+        0
+      ],
+      "max_parts": 4,
+      "indexed_sha256": "f3b70051ef69f2ec4c3d74bcb4d3960dfda483c3f85a7292cbb8c7e3cc757203"
+    },
+    {
+      "id": 16,
+      "family": "doc",
+      "name": "idle",
+      "page": 670,
+      "parts": [
+        {
+          "tile": 0,
+          "x": -2,
+          "y": 0
+        },
+        {
+          "tile": 2,
+          "x": 6,
+          "y": 0
+        },
+        {
+          "tile": 4,
+          "x": 14,
+          "y": 0
+        },
+        {
+          "tile": 6,
+          "x": -2,
+          "y": 16
+        },
+        {
+          "tile": 8,
+          "x": 6,
+          "y": 16
+        },
+        {
+          "tile": 10,
+          "x": 14,
+          "y": 16
+        }
+      ],
+      "size": [
+        20,
+        32
+      ],
+      "origin_offset": [
+        -2,
+        0
+      ],
+      "max_parts": 6,
+      "indexed_sha256": "c08b6916166dd3d6447e0adf0cd564d23503b89ee7420189705041ff821a8806"
+    },
+    {
+      "id": 17,
+      "family": "doc",
+      "name": "walk0",
+      "page": 670,
+      "parts": [
+        {
+          "tile": 0,
+          "x": -2,
+          "y": 0
+        },
+        {
+          "tile": 2,
+          "x": 6,
+          "y": 0
+        },
+        {
+          "tile": 4,
+          "x": 14,
+          "y": 0
+        },
+        {
+          "tile": 6,
+          "x": -2,
+          "y": 16
+        },
+        {
+          "tile": 12,
+          "x": 6,
+          "y": 16
+        },
+        {
+          "tile": 14,
+          "x": 14,
+          "y": 16
+        }
+      ],
+      "size": [
+        20,
+        32
+      ],
+      "origin_offset": [
+        -2,
+        0
+      ],
+      "max_parts": 6,
+      "indexed_sha256": "286805248aa597668a845d513d3e66d3689c414e1efa2b3b7dfa54b8c51efab1"
+    },
+    {
+      "id": 18,
+      "family": "doc",
+      "name": "walk1",
+      "page": 670,
+      "parts": [
+        {
+          "tile": 16,
+          "x": -2,
+          "y": 0
+        },
+        {
+          "tile": 18,
+          "x": 6,
+          "y": 0
+        },
+        {
+          "tile": 20,
+          "x": 14,
+          "y": 0
+        },
+        {
+          "tile": 22,
+          "x": -2,
+          "y": 16
+        },
+        {
+          "tile": 24,
+          "x": 6,
+          "y": 16
+        },
+        {
+          "tile": 26,
+          "x": 14,
+          "y": 16
+        }
+      ],
+      "size": [
+        20,
+        32
+      ],
+      "origin_offset": [
+        -2,
+        0
+      ],
+      "max_parts": 6,
+      "indexed_sha256": "f7748205bde4cefb6ebf776498a7745aa81607aae08985d3ddc777781d63413f"
+    },
+    {
+      "id": 19,
+      "family": "doc",
+      "name": "walk2",
+      "page": 670,
+      "parts": [
+        {
+          "tile": 0,
+          "x": -2,
+          "y": 0
+        },
+        {
+          "tile": 2,
+          "x": 6,
+          "y": 0
+        },
+        {
+          "tile": 4,
+          "x": 14,
+          "y": 0
+        },
+        {
+          "tile": 28,
+          "x": -2,
+          "y": 16
+        },
+        {
+          "tile": 30,
+          "x": 6,
+          "y": 16
+        },
+        {
+          "tile": 32,
+          "x": 14,
+          "y": 16
+        }
+      ],
+      "size": [
+        20,
+        32
+      ],
+      "origin_offset": [
+        -2,
+        0
+      ],
+      "max_parts": 6,
+      "indexed_sha256": "186e9fcf8e65e2b306b42aa6ac63a93166e551957aca715f215d5876951b38c8"
+    },
+    {
+      "id": 20,
+      "family": "doc",
+      "name": "duck",
+      "page": 670,
+      "parts": [
+        {
+          "tile": 34,
+          "x": -2,
+          "y": 0
+        },
+        {
+          "tile": 36,
+          "x": 6,
+          "y": 0
+        },
+        {
+          "tile": 38,
+          "x": -2,
+          "y": 16
+        },
+        {
+          "tile": 40,
+          "x": 6,
+          "y": 16
+        },
+        {
+          "tile": 42,
+          "x": 14,
+          "y": 16
+        }
+      ],
+      "size": [
+        20,
+        32
+      ],
+      "origin_offset": [
+        -2,
+        0
+      ],
+      "max_parts": 5,
+      "indexed_sha256": "eb84cdfcd212b2cb13523e6b8827f8e8622c93c344cdc1b67e48c6b252d542a8"
+    },
+    {
+      "id": 21,
+      "family": "doc",
+      "name": "jump0",
+      "page": 670,
+      "parts": [
+        {
+          "tile": 34,
+          "x": -2,
+          "y": 0
+        },
+        {
+          "tile": 36,
+          "x": 6,
+          "y": 0
+        },
+        {
+          "tile": 38,
+          "x": -2,
+          "y": 16
+        },
+        {
+          "tile": 40,
+          "x": 6,
+          "y": 16
+        },
+        {
+          "tile": 42,
+          "x": 14,
+          "y": 16
+        }
+      ],
+      "size": [
+        20,
+        32
+      ],
+      "origin_offset": [
+        -2,
+        0
+      ],
+      "max_parts": 5,
+      "indexed_sha256": "eb84cdfcd212b2cb13523e6b8827f8e8622c93c344cdc1b67e48c6b252d542a8"
+    },
+    {
+      "id": 22,
+      "family": "doc",
+      "name": "jump1",
+      "page": 670,
+      "parts": [
+        {
+          "tile": 0,
+          "x": -2,
+          "y": 0
+        },
+        {
+          "tile": 2,
+          "x": 6,
+          "y": 0
+        },
+        {
+          "tile": 4,
+          "x": 14,
+          "y": 0
+        },
+        {
+          "tile": 28,
+          "x": -2,
+          "y": 16
+        },
+        {
+          "tile": 30,
+          "x": 6,
+          "y": 16
+        },
+        {
+          "tile": 32,
+          "x": 14,
+          "y": 16
+        }
+      ],
+      "size": [
+        20,
+        32
+      ],
+      "origin_offset": [
+        -2,
+        0
+      ],
+      "max_parts": 6,
+      "indexed_sha256": "186e9fcf8e65e2b306b42aa6ac63a93166e551957aca715f215d5876951b38c8"
+    },
+    {
+      "id": 23,
+      "family": "doc",
+      "name": "hurt",
+      "page": 670,
+      "parts": [
+        {
+          "tile": 44,
+          "x": -2,
+          "y": 0
+        },
+        {
+          "tile": 46,
+          "x": 6,
+          "y": 0
+        },
+        {
+          "tile": 48,
+          "x": 14,
+          "y": 0
+        },
+        {
+          "tile": 50,
+          "x": -2,
+          "y": 16
+        },
+        {
+          "tile": 52,
+          "x": 6,
+          "y": 16
+        },
+        {
+          "tile": 54,
+          "x": 14,
+          "y": 16
+        }
+      ],
+      "size": [
+        20,
+        32
+      ],
+      "origin_offset": [
+        -2,
+        0
+      ],
+      "max_parts": 6,
+      "indexed_sha256": "805c5459bd7f61b10d95853944f264a164da7e2588cd0cc1f4a00b68a82fe04b"
+    },
+    {
+      "id": 24,
+      "family": "doc",
+      "name": "pickup",
+      "page": 671,
+      "parts": [
+        {
+          "tile": 0,
+          "x": -2,
+          "y": 0
+        },
+        {
+          "tile": 2,
+          "x": 6,
+          "y": 0
+        },
+        {
+          "tile": 4,
+          "x": 14,
+          "y": 0
+        },
+        {
+          "tile": 6,
+          "x": -2,
+          "y": 16
+        },
+        {
+          "tile": 8,
+          "x": 6,
+          "y": 16
+        },
+        {
+          "tile": 10,
+          "x": 14,
+          "y": 16
+        }
+      ],
+      "size": [
+        20,
+        32
+      ],
+      "origin_offset": [
+        -2,
+        0
+      ],
+      "max_parts": 6,
+      "indexed_sha256": "a98c9e413d117cb817c65083ae90ee39d83988e07191e32085f9f4a20d06b828"
+    },
+    {
+      "id": 25,
+      "family": "doc",
+      "name": "victory",
+      "page": 671,
+      "parts": [
+        {
+          "tile": 0,
+          "x": -2,
+          "y": 0
+        },
+        {
+          "tile": 12,
+          "x": 6,
+          "y": 0
+        },
+        {
+          "tile": 14,
+          "x": 14,
+          "y": 0
+        },
+        {
+          "tile": 6,
+          "x": -2,
+          "y": 16
+        },
+        {
+          "tile": 16,
+          "x": 6,
+          "y": 16
+        },
+        {
+          "tile": 18,
+          "x": 14,
+          "y": 16
+        }
+      ],
+      "size": [
+        20,
+        32
+      ],
+      "origin_offset": [
+        -2,
+        0
+      ],
+      "max_parts": 6,
+      "indexed_sha256": "708b722ecc85fe44753520e74222eb64fee7f844ef781db3c8c1fda975ebea41"
+    },
+    {
+      "id": 26,
+      "family": "doc",
+      "name": "windup",
+      "page": 671,
+      "parts": [
+        {
+          "tile": 20,
+          "x": 6,
+          "y": 0
+        },
+        {
+          "tile": 22,
+          "x": 14,
+          "y": 0
+        },
+        {
+          "tile": 24,
+          "x": 22,
+          "y": 0
+        },
+        {
+          "tile": 26,
+          "x": 6,
+          "y": 16
+        },
+        {
+          "tile": 28,
+          "x": 14,
+          "y": 16
+        },
+        {
+          "tile": 30,
+          "x": 22,
+          "y": 16
+        }
+      ],
+      "size": [
+        30,
+        32
+      ],
+      "origin_offset": [
+        -2,
+        0
+      ],
+      "max_parts": 6,
+      "indexed_sha256": "1ad0506a6469edd19ba282897d4dcaf9618d81678976ca57aab6328f5006e5e8"
+    },
+    {
+      "id": 27,
+      "family": "doc",
+      "name": "punch",
+      "page": 671,
+      "parts": [
+        {
+          "tile": 32,
+          "x": -2,
+          "y": 0
+        },
+        {
+          "tile": 34,
+          "x": 6,
+          "y": 0
+        },
+        {
+          "tile": 36,
+          "x": 14,
+          "y": 0
+        },
+        {
+          "tile": 38,
+          "x": 22,
+          "y": 0
+        },
+        {
+          "tile": 40,
+          "x": 30,
+          "y": 0
+        },
+        {
+          "tile": 42,
+          "x": -2,
+          "y": 16
+        },
+        {
+          "tile": 44,
+          "x": 6,
+          "y": 16
+        },
+        {
+          "tile": 46,
+          "x": 14,
+          "y": 16
+        }
+      ],
+      "size": [
+        40,
+        32
+      ],
+      "origin_offset": [
+        -2,
+        0
+      ],
+      "max_parts": 8,
+      "indexed_sha256": "e99de3f6c189a1c0f9ff11868329386160b39eda36e2d0480e7cc8e9dd26405e"
+    },
+    {
+      "id": 28,
+      "family": "doc",
+      "name": "duckpunch",
+      "page": 671,
+      "parts": [
+        {
+          "tile": 48,
+          "x": 6,
+          "y": 0
+        },
+        {
+          "tile": 50,
+          "x": 14,
+          "y": 0
+        },
+        {
+          "tile": 52,
+          "x": -2,
+          "y": 16
+        },
+        {
+          "tile": 54,
+          "x": 6,
+          "y": 16
+        },
+        {
+          "tile": 56,
+          "x": 14,
+          "y": 16
+        },
+        {
+          "tile": 58,
+          "x": 22,
+          "y": 16
+        },
+        {
+          "tile": 60,
+          "x": 30,
+          "y": 16
+        }
+      ],
+      "size": [
+        40,
+        32
+      ],
+      "origin_offset": [
+        -2,
+        0
+      ],
+      "max_parts": 7,
+      "indexed_sha256": "e3c8648cb3da4acb139b4f434aad1bfef0881ccf0ec8fff66ab737f55aa395ea"
+    },
+    {
+      "id": 29,
+      "family": "doc",
+      "name": "downthrust",
+      "page": 672,
+      "parts": [
+        {
+          "tile": 0,
+          "x": -2,
+          "y": 0
+        },
+        {
+          "tile": 2,
+          "x": 6,
+          "y": 0
+        },
+        {
+          "tile": 4,
+          "x": 14,
+          "y": 0
+        },
+        {
+          "tile": 6,
+          "x": -2,
+          "y": 16
+        },
+        {
+          "tile": 8,
+          "x": 6,
+          "y": 16
+        },
+        {
+          "tile": 10,
+          "x": 14,
+          "y": 16
+        }
+      ],
+      "size": [
+        20,
+        32
+      ],
+      "origin_offset": [
+        -2,
+        0
+      ],
+      "max_parts": 6,
+      "indexed_sha256": "a918d73de628331e054fdb149f9e97ae27e8434a30096f0d1549d305d79a7d87"
+    },
+    {
+      "id": 30,
+      "family": "doc",
+      "name": "uppercut",
+      "page": 672,
+      "parts": [
+        {
+          "tile": 12,
+          "x": -2,
+          "y": 0
+        },
+        {
+          "tile": 14,
+          "x": 6,
+          "y": 0
+        },
+        {
+          "tile": 16,
+          "x": -2,
+          "y": 16
+        },
+        {
+          "tile": 18,
+          "x": 6,
+          "y": 16
+        },
+        {
+          "tile": 20,
+          "x": 14,
+          "y": 16
+        }
+      ],
+      "size": [
+        20,
+        32
+      ],
+      "origin_offset": [
+        -2,
+        0
+      ],
+      "max_parts": 5,
+      "indexed_sha256": "5c61aa98635e90a7ba436bf67678fc51c10a19fc916d51f24c030f3537ccdac2"
+    },
+    {
+      "id": 31,
+      "family": "doc",
+      "name": "guard",
+      "page": 672,
+      "parts": [
+        {
+          "tile": 22,
+          "x": -2,
+          "y": 0
+        },
+        {
+          "tile": 24,
+          "x": 6,
+          "y": 0
+        },
+        {
+          "tile": 26,
+          "x": 14,
+          "y": 0
+        },
+        {
+          "tile": 28,
+          "x": -2,
+          "y": 16
+        },
+        {
+          "tile": 30,
+          "x": 6,
+          "y": 16
+        },
+        {
+          "tile": 32,
+          "x": 14,
+          "y": 16
+        }
+      ],
+      "size": [
+        20,
+        32
+      ],
+      "origin_offset": [
+        -2,
+        0
+      ],
+      "max_parts": 6,
+      "indexed_sha256": "a7118ffabb78fdafc2ab1f8503d166ce2c10c79fac0b77ea5c1114fc1262e3b0"
+    },
+    {
+      "id": 32,
+      "family": "tyson",
+      "name": "idle",
+      "page": 673,
+      "parts": [
+        {
+          "tile": 0,
+          "x": 0,
+          "y": -8
+        },
+        {
+          "tile": 2,
+          "x": 8,
+          "y": -8
+        },
+        {
+          "tile": 4,
+          "x": 0,
+          "y": 8
+        },
+        {
+          "tile": 6,
+          "x": 8,
+          "y": 8
+        },
+        {
+          "tile": 8,
+          "x": 0,
+          "y": 24
+        },
+        {
+          "tile": 10,
+          "x": 8,
+          "y": 24
+        }
+      ],
+      "size": [
+        15,
+        40
+      ],
+      "origin_offset": [
+        0,
+        -8
+      ],
+      "max_parts": 6,
+      "indexed_sha256": "e89da30415c92bdfc0b6c03279e16289ebefd4463549d07b7be8a3edacc753ee"
+    },
+    {
+      "id": 33,
+      "family": "tyson",
+      "name": "walk0",
+      "page": 673,
+      "parts": [
+        {
+          "tile": 12,
+          "x": 0,
+          "y": -8
+        },
+        {
+          "tile": 14,
+          "x": 8,
+          "y": -8
+        },
+        {
+          "tile": 16,
+          "x": 0,
+          "y": 8
+        },
+        {
+          "tile": 18,
+          "x": 8,
+          "y": 8
+        },
+        {
+          "tile": 8,
+          "x": 0,
+          "y": 24
+        },
+        {
+          "tile": 10,
+          "x": 8,
+          "y": 24
+        }
+      ],
+      "size": [
+        15,
+        40
+      ],
+      "origin_offset": [
+        0,
+        -8
+      ],
+      "max_parts": 6,
+      "indexed_sha256": "ea8311a23e67967202cd06867395f98cdefb7c03297b6195bf1c119bf6796d74"
+    },
+    {
+      "id": 34,
+      "family": "tyson",
+      "name": "walk1",
+      "page": 673,
+      "parts": [
+        {
+          "tile": 20,
+          "x": 0,
+          "y": -7
+        },
+        {
+          "tile": 22,
+          "x": 8,
+          "y": -7
+        },
+        {
+          "tile": 24,
+          "x": 0,
+          "y": 9
+        },
+        {
+          "tile": 26,
+          "x": 8,
+          "y": 9
+        },
+        {
+          "tile": 28,
+          "x": 0,
+          "y": 25
+        },
+        {
+          "tile": 30,
+          "x": 8,
+          "y": 25
+        }
+      ],
+      "size": [
+        15,
+        39
+      ],
+      "origin_offset": [
+        0,
+        -7
+      ],
+      "max_parts": 6,
+      "indexed_sha256": "e42f742b64ae7d276f61a2613f99505a0ff70a7817c574eb76c344676c84790e"
+    },
+    {
+      "id": 35,
+      "family": "tyson",
+      "name": "walk2",
+      "page": 673,
+      "parts": [
+        {
+          "tile": 32,
+          "x": 0,
+          "y": -9
+        },
+        {
+          "tile": 34,
+          "x": 8,
+          "y": -9
+        },
+        {
+          "tile": 36,
+          "x": 0,
+          "y": 7
+        },
+        {
+          "tile": 38,
+          "x": 8,
+          "y": 7
+        },
+        {
+          "tile": 40,
+          "x": 0,
+          "y": 23
+        },
+        {
+          "tile": 42,
+          "x": 8,
+          "y": 23
+        }
+      ],
+      "size": [
+        15,
+        41
+      ],
+      "origin_offset": [
+        0,
+        -9
+      ],
+      "max_parts": 6,
+      "indexed_sha256": "04d318ea95f86ee7653fc4f9792fec69001a4688cf157fbf05fbf21815881056"
+    },
+    {
+      "id": 36,
+      "family": "tyson",
+      "name": "guard",
+      "page": 673,
+      "parts": [
+        {
+          "tile": 44,
+          "x": -1,
+          "y": -8
+        },
+        {
+          "tile": 46,
+          "x": 7,
+          "y": -8
+        },
+        {
+          "tile": 48,
+          "x": -1,
+          "y": 8
+        },
+        {
+          "tile": 50,
+          "x": 7,
+          "y": 8
+        },
+        {
+          "tile": 52,
+          "x": -1,
+          "y": 24
+        },
+        {
+          "tile": 54,
+          "x": 7,
+          "y": 24
+        },
+        {
+          "tile": 56,
+          "x": 15,
+          "y": 24
+        }
+      ],
+      "size": [
+        17,
+        40
+      ],
+      "origin_offset": [
+        -1,
+        -8
+      ],
+      "max_parts": 7,
+      "indexed_sha256": "c8ba9b19984aad81a2c76d4b38583ab439f922378956048cc503aef6e877da3b"
+    },
+    {
+      "id": 37,
+      "family": "tyson",
+      "name": "windup",
+      "page": 674,
+      "parts": [
+        {
+          "tile": 0,
+          "x": 0,
+          "y": -7
+        },
+        {
+          "tile": 2,
+          "x": 8,
+          "y": -7
+        },
+        {
+          "tile": 4,
+          "x": 0,
+          "y": 9
+        },
+        {
+          "tile": 6,
+          "x": 8,
+          "y": 9
+        },
+        {
+          "tile": 8,
+          "x": 0,
+          "y": 25
+        },
+        {
+          "tile": 10,
+          "x": 8,
+          "y": 25
+        }
+      ],
+      "size": [
+        16,
+        39
+      ],
+      "origin_offset": [
+        0,
+        -7
+      ],
+      "max_parts": 6,
+      "indexed_sha256": "785e9266c96b37f00e6c430f3b5186ba5f6041168f2066193a3951ac3681f7f2"
+    },
+    {
+      "id": 38,
+      "family": "tyson",
+      "name": "uppercut",
+      "page": 674,
+      "parts": [
+        {
+          "tile": 12,
+          "x": -3,
+          "y": -16
+        },
+        {
+          "tile": 14,
+          "x": 5,
+          "y": -16
+        },
+        {
+          "tile": 16,
+          "x": -3,
+          "y": 0
+        },
+        {
+          "tile": 18,
+          "x": 5,
+          "y": 0
+        },
+        {
+          "tile": 20,
+          "x": -3,
+          "y": 16
+        },
+        {
+          "tile": 22,
+          "x": 5,
+          "y": 16
+        },
+        {
+          "tile": 24,
+          "x": 13,
+          "y": 16
+        }
+      ],
+      "size": [
+        21,
+        48
+      ],
+      "origin_offset": [
+        -3,
+        -16
+      ],
+      "max_parts": 7,
+      "indexed_sha256": "cefef18d3d87e598828a9661600e53753fdaeceb6b0fd6cbf0f41315615637ad"
+    },
+    {
+      "id": 39,
+      "family": "tyson",
+      "name": "duck",
+      "page": 674,
+      "parts": [
+        {
+          "tile": 26,
+          "x": -1,
+          "y": -9
+        },
+        {
+          "tile": 28,
+          "x": 7,
+          "y": -9
+        },
+        {
+          "tile": 30,
+          "x": -1,
+          "y": 7
+        },
+        {
+          "tile": 32,
+          "x": 7,
+          "y": 7
+        },
+        {
+          "tile": 34,
+          "x": 15,
+          "y": 7
+        },
+        {
+          "tile": 36,
+          "x": -1,
+          "y": 23
+        },
+        {
+          "tile": 38,
+          "x": 7,
+          "y": 23
+        },
+        {
+          "tile": 40,
+          "x": 15,
+          "y": 23
+        }
+      ],
+      "size": [
+        18,
+        41
+      ],
+      "origin_offset": [
+        -1,
+        -9
+      ],
+      "max_parts": 8,
+      "indexed_sha256": "bb5ddaa6cacf656e9f1fbe84cd1524a8f7898a40a1d7c6d8a8b83f0344923e73"
+    },
+    {
+      "id": 40,
+      "family": "tyson",
+      "name": "hurt",
+      "page": 674,
+      "parts": [
+        {
+          "tile": 42,
+          "x": -2,
+          "y": -8
+        },
+        {
+          "tile": 44,
+          "x": 6,
+          "y": -8
+        },
+        {
+          "tile": 46,
+          "x": 14,
+          "y": -8
+        },
+        {
+          "tile": 48,
+          "x": -2,
+          "y": 8
+        },
+        {
+          "tile": 50,
+          "x": 6,
+          "y": 8
+        },
+        {
+          "tile": 52,
+          "x": 14,
+          "y": 8
+        },
+        {
+          "tile": 54,
+          "x": -2,
+          "y": 24
+        },
+        {
+          "tile": 56,
+          "x": 6,
+          "y": 24
+        }
+      ],
+      "size": [
+        20,
+        40
+      ],
+      "origin_offset": [
+        -2,
+        -8
+      ],
+      "max_parts": 8,
+      "indexed_sha256": "7b7de2e430229ef9716979a09969a306254c3ee7ca389d21898ef6308442d156"
+    },
+    {
+      "id": 41,
+      "family": "tyson",
+      "name": "punch",
+      "page": 675,
+      "parts": [
+        {
+          "tile": 0,
+          "x": -2,
+          "y": -9
+        },
+        {
+          "tile": 2,
+          "x": 6,
+          "y": -9
+        },
+        {
+          "tile": 4,
+          "x": 14,
+          "y": -9
+        },
+        {
+          "tile": 6,
+          "x": -2,
+          "y": 7
+        },
+        {
+          "tile": 8,
+          "x": 6,
+          "y": 7
+        },
+        {
+          "tile": 10,
+          "x": 14,
+          "y": 7
+        },
+        {
+          "tile": 12,
+          "x": -2,
+          "y": 23
+        },
+        {
+          "tile": 14,
+          "x": 6,
+          "y": 23
+        },
+        {
+          "tile": 16,
+          "x": 14,
+          "y": 23
+        }
+      ],
+      "size": [
+        19,
+        41
+      ],
+      "origin_offset": [
+        -2,
+        -9
+      ],
+      "max_parts": 9,
+      "indexed_sha256": "3fed7cd54f868d94a8aa078087a3336c1dbf0193048dc06070debca1144a41bc"
+    },
+    {
+      "id": 42,
+      "family": "tyson",
+      "name": "duckpunch",
+      "page": 675,
+      "parts": [
+        {
+          "tile": 18,
+          "x": -1,
+          "y": -9
+        },
+        {
+          "tile": 20,
+          "x": 7,
+          "y": -9
+        },
+        {
+          "tile": 22,
+          "x": -1,
+          "y": 7
+        },
+        {
+          "tile": 24,
+          "x": 7,
+          "y": 7
+        },
+        {
+          "tile": 26,
+          "x": 15,
+          "y": 7
+        },
+        {
+          "tile": 28,
+          "x": -1,
+          "y": 23
+        },
+        {
+          "tile": 30,
+          "x": 7,
+          "y": 23
+        },
+        {
+          "tile": 32,
+          "x": 15,
+          "y": 23
+        }
+      ],
+      "size": [
+        18,
+        41
+      ],
+      "origin_offset": [
+        -1,
+        -9
+      ],
+      "max_parts": 8,
+      "indexed_sha256": "bb5ddaa6cacf656e9f1fbe84cd1524a8f7898a40a1d7c6d8a8b83f0344923e73"
+    },
+    {
+      "id": 43,
+      "family": "tyson",
+      "name": "jump0",
+      "page": 675,
+      "parts": [
+        {
+          "tile": 34,
+          "x": 0,
+          "y": -9
+        },
+        {
+          "tile": 36,
+          "x": 8,
+          "y": -9
+        },
+        {
+          "tile": 38,
+          "x": 0,
+          "y": 7
+        },
+        {
+          "tile": 40,
+          "x": 8,
+          "y": 7
+        },
+        {
+          "tile": 42,
+          "x": 0,
+          "y": 23
+        },
+        {
+          "tile": 44,
+          "x": 8,
+          "y": 23
+        }
+      ],
+      "size": [
+        15,
+        41
+      ],
+      "origin_offset": [
+        0,
+        -9
+      ],
+      "max_parts": 6,
+      "indexed_sha256": "611d7d21fb26baccc881e4580fcce4f5b2984917d57e014ef0ec077c7f81bc5a"
+    },
+    {
+      "id": 44,
+      "family": "tyson",
+      "name": "jump1",
+      "page": 675,
+      "parts": [
+        {
+          "tile": 46,
+          "x": 0,
+          "y": -8
+        },
+        {
+          "tile": 48,
+          "x": 8,
+          "y": -8
+        },
+        {
+          "tile": 50,
+          "x": 0,
+          "y": 8
+        },
+        {
+          "tile": 52,
+          "x": 8,
+          "y": 8
+        },
+        {
+          "tile": 54,
+          "x": 0,
+          "y": 24
+        },
+        {
+          "tile": 56,
+          "x": 8,
+          "y": 24
+        }
+      ],
+      "size": [
+        15,
+        40
+      ],
+      "origin_offset": [
+        0,
+        -8
+      ],
+      "max_parts": 6,
+      "indexed_sha256": "5cdfc51e37875fda7134fe73a3c318ceb8bf5bef2af1ce6113c3b3b6b025931f"
+    },
+    {
+      "id": 45,
+      "family": "tyson",
+      "name": "pickup",
+      "page": 676,
+      "parts": [
+        {
+          "tile": 0,
+          "x": -2,
+          "y": -9
+        },
+        {
+          "tile": 2,
+          "x": 6,
+          "y": -9
+        },
+        {
+          "tile": 4,
+          "x": 14,
+          "y": -9
+        },
+        {
+          "tile": 6,
+          "x": -2,
+          "y": 7
+        },
+        {
+          "tile": 8,
+          "x": 6,
+          "y": 7
+        },
+        {
+          "tile": 10,
+          "x": 14,
+          "y": 7
+        },
+        {
+          "tile": 12,
+          "x": -2,
+          "y": 23
+        },
+        {
+          "tile": 14,
+          "x": 6,
+          "y": 23
+        }
+      ],
+      "size": [
+        19,
+        41
+      ],
+      "origin_offset": [
+        -2,
+        -9
+      ],
+      "max_parts": 8,
+      "indexed_sha256": "0ad85b60b8fd56b5558e7fc6b3da66c8adf505bc06475e0edb45cb1b7e4b8e6b"
+    },
+    {
+      "id": 46,
+      "family": "tyson",
+      "name": "victory",
+      "page": 676,
+      "parts": [
+        {
+          "tile": 16,
+          "x": -1,
+          "y": -9
+        },
+        {
+          "tile": 18,
+          "x": 7,
+          "y": -9
+        },
+        {
+          "tile": 20,
+          "x": 15,
+          "y": -9
+        },
+        {
+          "tile": 22,
+          "x": -1,
+          "y": 7
+        },
+        {
+          "tile": 24,
+          "x": 7,
+          "y": 7
+        },
+        {
+          "tile": 26,
+          "x": 15,
+          "y": 7
+        },
+        {
+          "tile": 28,
+          "x": -1,
+          "y": 23
+        },
+        {
+          "tile": 30,
+          "x": 7,
+          "y": 23
+        }
+      ],
+      "size": [
+        18,
+        41
+      ],
+      "origin_offset": [
+        -1,
+        -9
+      ],
+      "max_parts": 8,
+      "indexed_sha256": "7e09957916e2ac775fcb7b9f1ee1a9eafdef772f9065e79342ba5b4d03350b37"
+    },
+    {
+      "id": 47,
+      "family": "tyson",
+      "name": "downthrust",
+      "page": 676,
+      "parts": [
+        {
+          "tile": 32,
+          "x": -3,
+          "y": -6
+        },
+        {
+          "tile": 34,
+          "x": 5,
+          "y": -6
+        },
+        {
+          "tile": 36,
+          "x": 13,
+          "y": -6
+        },
+        {
+          "tile": 38,
+          "x": -3,
+          "y": 10
+        },
+        {
+          "tile": 40,
+          "x": 5,
+          "y": 10
+        },
+        {
+          "tile": 42,
+          "x": 13,
+          "y": 10
+        },
+        {
+          "tile": 44,
+          "x": -3,
+          "y": 26
+        },
+        {
+          "tile": 46,
+          "x": 5,
+          "y": 26
+        },
+        {
+          "tile": 48,
+          "x": 13,
+          "y": 26
+        }
+      ],
+      "size": [
+        22,
+        38
+      ],
+      "origin_offset": [
+        -3,
+        -6
+      ],
+      "max_parts": 9,
+      "indexed_sha256": "e4a01a04287e0226a37a5c534e186a5a1edfe72b93b3271aaac8c4fcd81f6db8"
+    },
+    {
+      "id": 48,
+      "family": "mac",
+      "name": "portrait",
+      "page": 705,
+      "parts": [
+        {
+          "tile": 0,
+          "x": -4,
+          "y": 0
+        },
+        {
+          "tile": 2,
+          "x": 4,
+          "y": 0
+        },
+        {
+          "tile": 4,
+          "x": 12,
+          "y": 0
+        },
+        {
+          "tile": 6,
+          "x": -4,
+          "y": 16
+        },
+        {
+          "tile": 8,
+          "x": 4,
+          "y": 16
+        },
+        {
+          "tile": 10,
+          "x": 12,
+          "y": 16
+        }
+      ],
+      "size": [
+        24,
+        32
+      ],
+      "origin_offset": [
+        -4,
+        0
+      ],
+      "max_parts": 6,
+      "indexed_sha256": "dae4687931bb895e7150685f421198f43c7384bafb9a0d94bf12e761f330f7fe"
+    },
+    {
+      "id": 49,
+      "family": "doc",
+      "name": "portrait",
+      "page": 706,
+      "parts": [
+        {
+          "tile": 0,
+          "x": -2,
+          "y": 0
+        },
+        {
+          "tile": 2,
+          "x": 6,
+          "y": 0
+        },
+        {
+          "tile": 4,
+          "x": 14,
+          "y": 0
+        },
+        {
+          "tile": 6,
+          "x": -2,
+          "y": 16
+        },
+        {
+          "tile": 8,
+          "x": 6,
+          "y": 16
+        },
+        {
+          "tile": 10,
+          "x": 14,
+          "y": 16
+        }
+      ],
+      "size": [
+        20,
+        32
+      ],
+      "origin_offset": [
+        -2,
+        0
+      ],
+      "max_parts": 6,
+      "indexed_sha256": "56b0e09937baaa1dab06bc0608a60ced9a8fec9fcb18ace8b15d6b94851b9d34"
+    },
+    {
+      "id": 50,
+      "family": "tyson",
+      "name": "portrait",
+      "page": 707,
+      "parts": [
+        {
+          "tile": 0,
+          "x": -4,
+          "y": 8
+        },
+        {
+          "tile": 2,
+          "x": 4,
+          "y": 8
+        },
+        {
+          "tile": 4,
+          "x": -4,
+          "y": 24
+        },
+        {
+          "tile": 6,
+          "x": 4,
+          "y": 24
+        },
+        {
+          "tile": 8,
+          "x": 12,
+          "y": 24
+        }
+      ],
+      "size": [
+        24,
+        24
+      ],
+      "origin_offset": [
+        -4,
+        8
+      ],
+      "max_parts": 5,
+      "indexed_sha256": "64ce8a8e37931c53007ea8e4c1cbe264c80787a51e69682bafdf545dd3f122f1"
+    }
+  ],
+  "family_frames": {
+    "mac": {
+      "idle": 0,
+      "walk0": 1,
+      "walk1": 2,
+      "walk2": 3,
+      "duck": 4,
+      "jump0": 5,
+      "jump1": 6,
+      "hurt": 7,
+      "pickup": 8,
+      "victory": 9,
+      "windup": 10,
+      "punch": 11,
+      "duckpunch": 12,
+      "downthrust": 13,
+      "uppercut": 14,
+      "guard": 15
+    },
+    "doc": {
+      "idle": 16,
+      "walk0": 17,
+      "walk1": 18,
+      "walk2": 19,
+      "duck": 20,
+      "jump0": 21,
+      "jump1": 22,
+      "hurt": 23,
+      "pickup": 24,
+      "victory": 25,
+      "windup": 26,
+      "punch": 27,
+      "duckpunch": 28,
+      "downthrust": 29,
+      "uppercut": 30,
+      "guard": 31
+    },
+    "tyson": {
+      "idle": 32,
+      "walk0": 33,
+      "walk1": 34,
+      "walk2": 35,
+      "guard": 36,
+      "windup": 37,
+      "uppercut": 38,
+      "duck": 39,
+      "hurt": 40,
+      "punch": 41,
+      "duckpunch": 42,
+      "jump0": 43,
+      "jump1": 44,
+      "pickup": 45,
+      "victory": 46,
+      "downthrust": 47
+    }
+  },
+  "body_pages": [
+    668,
+    676
+  ],
+  "body_page_count": 9,
+  "star_page": 704,
+  "original_star_page_exact": true,
+  "portrait_pages": [
+    705,
+    706,
+    707
+  ],
+  "portrait_frames": [
+    48,
+    49,
+    50
+  ],
+  "CHR_bytes": 40960,
+  "all_cells_roundtrip_exact": true,
+  "left_facing_raster_mirror_exact": true,
+  "maximum_body_parts": 9,
+  "both_facings": "Same CHR cells, source-exact Hflip and x=8-originalX about player center7.5.",
+  "tyson_source_frames": {
+    "idle": {
+      "source_box": [
+        0,
+        0,
+        52,
+        120
+      ],
+      "opaque_bbox": [
+        9,
+        8,
+        50,
+        116
+      ],
+      "uniform_scale": "3/8 nearest-neighbor",
+      "output_size": [
+        15,
+        40
+      ]
+    },
+    "walk0": {
+      "source_box": [
+        52,
+        0,
+        104,
+        120
+      ],
+      "opaque_bbox": [
+        9,
+        8,
+        50,
+        116
+      ],
+      "uniform_scale": "3/8 nearest-neighbor",
+      "output_size": [
+        15,
+        40
+      ]
+    },
+    "walk1": {
+      "source_box": [
+        104,
+        0,
+        156,
+        120
+      ],
+      "opaque_bbox": [
+        9,
+        8,
+        48,
+        113
+      ],
+      "uniform_scale": "3/8 nearest-neighbor",
+      "output_size": [
+        15,
+        39
+      ]
+    },
+    "walk2": {
+      "source_box": [
+        156,
+        0,
+        208,
+        120
+      ],
+      "opaque_bbox": [
+        9,
+        8,
+        48,
+        117
+      ],
+      "uniform_scale": "3/8 nearest-neighbor",
+      "output_size": [
+        15,
+        41
+      ]
+    },
+    "guard": {
+      "source_box": [
+        312,
+        0,
+        364,
+        120
+      ],
+      "opaque_bbox": [
+        5,
+        8,
+        50,
+        116
+      ],
+      "uniform_scale": "3/8 nearest-neighbor",
+      "output_size": [
+        17,
+        40
+      ]
+    },
+    "windup": {
+      "source_box": [
+        364,
+        0,
+        416,
+        120
+      ],
+      "opaque_bbox": [
+        5,
+        8,
+        48,
+        113
+      ],
+      "uniform_scale": "3/8 nearest-neighbor",
+      "output_size": [
+        16,
+        39
+      ]
+    },
+    "uppercut": {
+      "source_box": [
+        552,
+        129,
+        608,
+        257
+      ],
+      "opaque_bbox": [
+        0,
+        1,
+        55,
+        128
+      ],
+      "uniform_scale": "3/8 nearest-neighbor",
+      "output_size": [
+        21,
+        48
+      ]
+    },
+    "duck": {
+      "source_box": [
+        451,
+        129,
+        501,
+        257
+      ],
+      "opaque_bbox": [
+        0,
+        13,
+        48,
+        123
+      ],
+      "uniform_scale": "3/8 nearest-neighbor",
+      "output_size": [
+        18,
+        41
+      ]
+    },
+    "hurt": {
+      "source_box": [
+        305,
+        129,
+        359,
+        257
+      ],
+      "opaque_bbox": [
+        0,
+        11,
+        53,
+        117
+      ],
+      "uniform_scale": "3/8 nearest-neighbor",
+      "output_size": [
+        20,
+        40
+      ]
+    },
+    "punch": {
+      "source_box": [
+        501,
+        129,
+        552,
+        257
+      ],
+      "opaque_bbox": [
+        0,
+        19,
+        51,
+        128
+      ],
+      "uniform_scale": "3/8 nearest-neighbor",
+      "output_size": [
+        19,
+        41
+      ]
+    },
+    "duckpunch": {
+      "source_box": [
+        451,
+        129,
+        501,
+        257
+      ],
+      "opaque_bbox": [
+        0,
+        13,
+        48,
+        123
+      ],
+      "uniform_scale": "3/8 nearest-neighbor",
+      "output_size": [
+        18,
+        41
+      ]
+    },
+    "jump0": {
+      "source_box": [
+        104,
+        129,
+        156,
+        257
+      ],
+      "opaque_bbox": [
+        0,
+        8,
+        39,
+        117
+      ],
+      "uniform_scale": "3/8 nearest-neighbor",
+      "output_size": [
+        15,
+        41
+      ]
+    },
+    "jump1": {
+      "source_box": [
+        156,
+        129,
+        208,
+        257
+      ],
+      "opaque_bbox": [
+        0,
+        8,
+        41,
+        116
+      ],
+      "uniform_scale": "3/8 nearest-neighbor",
+      "output_size": [
+        15,
+        40
+      ]
+    },
+    "pickup": {
+      "source_box": [
+        575,
+        0,
+        626,
+        120
+      ],
+      "opaque_bbox": [
+        0,
+        7,
+        50,
+        117
+      ],
+      "uniform_scale": "3/8 nearest-neighbor",
+      "output_size": [
+        19,
+        41
+      ]
+    },
+    "victory": {
+      "source_box": [
+        626,
+        0,
+        675,
+        120
+      ],
+      "opaque_bbox": [
+        0,
+        7,
+        48,
+        117
+      ],
+      "uniform_scale": "3/8 nearest-neighbor",
+      "output_size": [
+        18,
+        41
+      ]
+    },
+    "downthrust": {
+      "source_box": [
+        334,
+        273,
+        395,
+        380
+      ],
+      "opaque_bbox": [
+        0,
+        5,
+        60,
+        106
+      ],
+      "uniform_scale": "3/8 nearest-neighbor",
+      "output_size": [
+        22,
+        38
+      ]
+    }
+  },
+  "files": {
+    "tools\\prepare_mac_roster_assets_v1.py": "2a6f50040bce076159584436eba3fb904fe4b7aae3f532648ca4bada0927f294",
+    "chr\\characters\\mac-roster.chr": "d1d41a5e7c75fd058d05134825e05a42dfcbde24ca65a91b37d4c5cd5fd61ffd",
+    "chr\\characters\\mac-roster-review.png": "7a0e5db19a77637c745ac69b0c26f8a7a8db3c0a43037801fddb31a65af4a108",
+    "src\\mac_roster_data.inc": "bf7a2ba23e6b5de55fdce896b5e8616dc9e380e0fbb0badd9f4f902456154f3e"
+  }
+}

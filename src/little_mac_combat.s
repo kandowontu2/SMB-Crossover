@@ -8,7 +8,7 @@
  jcs Own
  pla
  plp
- farcall JnWeaponsDispatch,jmp
+ farcall NrWeapons,jmp
 Own:pla
  plp
  lda TimerControl
@@ -25,8 +25,8 @@ Own:pla
  lda LmFresh
  and #B_Button
  jeq Done
- lda LmHearts
- jeq Done
+ jsr MacRosterCanAfford
+ jcc Done
  lda #0
  sta LmHits
  sta LmBlockHit
@@ -38,26 +38,22 @@ Own:pla
  jeq Done
  dec LmStars
  inc LmSuper
- lda #88 ; original native super animation total
- bne Begin
-Normal:lda #34 ; original native right body-punch total
-Begin:sta LmAttack
- lda LmHearts
- beq :+
- dec LmHearts
-:lda #1
+ jmp Begin
+Normal:
+Begin:
+ jsr MacRosterAttackTotal
+ sta LmAttack
+ jsr MacRosterSpendHearts
+ lda #1
  sta LmDirty
  lda #Sfx_Fireball
  sta Square1SoundQueue
 Attack:
- lda LmAttack
- ldx LmSuper
- bne Super
- cmp #27
- jcs Done
- cmp #12
+ jsr MacRosterAttackWindow
  jcc Done
- lda #10
+ lda LmSuper
+ bne Super
+ lda MacRosterNormalHeight,x
  sta LmRectH
  lda Player_Y_Position
  clc
@@ -68,17 +64,16 @@ Attack:
 :sta LmRectY
  jmp Rect
 Super:
- cmp #71
- jcs Done
- cmp #42
- jcc Done
- lda #38
+ lda MacRosterSuperHeight,x
  sta LmRectH
  lda Player_Y_Position
  sec
  sbc #20
  sta LmRectY
-Rect:lda #18
+Rect:
+ jsr MacRosterVariant
+ tax
+ lda MacRosterPunchReach,x
  sta LmRectW
  lda Player_X_Position
  clc
@@ -91,26 +86,37 @@ Rect:lda #18
  cmp #2
  bne Hit
  lda Player_X_Position
- sec
- sbc #16
+ clc
+ adc #2
  sta LmRectX
  lda Player_PageLoc
+ adc #0
+ sta LmRectPage
+ lda LmRectX
+ sec
+ sbc LmRectW
+ sta LmRectX
+ lda LmRectPage
  sbc #0
  sta LmRectPage
 Hit:
  jsr LmHitEnemies
  lda LmBlockHit
  jne Done
- lda LmRectX
- ldx PlayerFacingDir
- cpx #2
- beq LeftProbe
+ lda PlayerFacingDir
+ cmp #2
+ beq LoadLeftProbe
+ lda LmRectW
+ sec
+ sbc #1
  clc
- adc #17
+ adc LmRectX
  sta MmProbeX
  lda LmRectPage
  adc #0
  jmp ProbePage
+LoadLeftProbe:
+ lda LmRectX
 LeftProbe:
  sta MmProbeX
  lda LmRectPage

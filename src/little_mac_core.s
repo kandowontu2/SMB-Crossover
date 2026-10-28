@@ -1,6 +1,16 @@
 ; Punch-Out runner and native boxing timing; SMB platform motion is adapted.
 .pushseg
 .segment "LM_CORE"
+; Loader-owned identity; AreaPointer may describe a future pipe destination.
+.proc LmSceneKey
+ lda AreaType
+ .repeat 5
+  asl
+ .endrepeat
+ ora AreaAddrsLOffset
+ rts
+.endproc
+
 .macro TnHotGate Target
 .local Legacy
  php
@@ -42,7 +52,7 @@ Active:pla
  jsr LmLifeAdvanced
  jcc NewLife
  .res 3,$ea ; retain the original life-test span
- lda AreaPointer
+ jsr LmSceneKey
  cmp LmArea
  jne Area
  lda WorldNumber
@@ -75,7 +85,7 @@ Loop:sta $5c00,x
  sta DisableCollisionDet
  lda NumberofLives
  sta LmLife
- lda AreaPointer
+ jsr LmSceneKey
  sta LmArea
  lda WorldNumber
  sta LmWorld
@@ -84,7 +94,7 @@ Loop:sta $5c00,x
  rts
 .endproc
 .proc LmResetGate
- farcall JnResetDispatch
+ farcall NrReset
  jsr LmIsActive
  bcc Done
  ; Check the old life marker before LmClear stamps the newly loaded life.
@@ -95,7 +105,7 @@ Done:rts
 .endproc
 .proc LmMovementGate
  TnHotGate TnMovement
- LmGate JnMovementDispatch
+ LmGate NrMovement
  jsr LmEnsure
  lda GameEngineSubroutine
  cmp #8
@@ -170,8 +180,7 @@ Rest:
  lda RgCrouch
  beq Done
  inc LmRest
- lda LmRest
- cmp #30
+ farcall MacRosterRestDue
  bcc Done
  lda #0
  sta LmRest
@@ -182,7 +191,7 @@ Rest:
 Done:rts
 .endproc
 .proc LmInjuryGate
- LmGate JnInjuryStartDispatch
+ LmGate NrInjury
  lda LmInvul
  jne Protected
  lda #8
@@ -229,7 +238,7 @@ Dead:lda #0
  jmp KillPlayer
 .endproc
 .proc LmInjuryStatusGate
- LmGate JnInjuryStatusDispatch
+ LmGate NrInjuryStatus
  lda #1
  tax
  rts
@@ -248,7 +257,7 @@ NoFootContact:
  plp
 FootContactReady:
  TnHotGate TnBodyDispatch
- LmGate JnBodyDispatch
+ LmGate NrBody
  pha
  lda AreaType
  sta GuestBodyStompAllowed
@@ -259,7 +268,7 @@ FootContactReady:
  rts
 .endproc
 .proc LmDeathStartGate
- LmGate JnInventoryDeathDispatch
+ LmGate NrDeathStart
  lda #0
  sta LmStars
  sta LmAttack
@@ -269,7 +278,7 @@ FootContactReady:
  rts
 .endproc
 .proc LmDeathGate
- LmGate JnDeathDispatch
+ LmGate NrDeath
  farcall MegaManDeathUpdate,jmp
 .endproc
 .proc LmAdderGate
@@ -291,7 +300,7 @@ Own:ldy #0
 .endproc
 .proc LmVisibleGate
  TnHotGate TnVisibleDispatch
- LmGate JnVisibleDispatch
+ LmGate NrVisible
  lda LmInvul
  beq Show
  lda FrameCounter
@@ -303,18 +312,7 @@ Hide:clc
  rts
 .endproc
 .proc LmStatusNameGate
- LmGate JnStatusName
- cmp #0
- bne Done
- phy
- ldy #7
-Loop:lda Text,y
- sta VRAM_Buffer1+11,y
- dey
- bpl Loop
- ply
- lda #0
-Done:rts
-Text:.byte "L MAC   "
+ LmGate NrStatusName
+ farcall MacRosterStatusName,jmp
 .endproc
 .popseg

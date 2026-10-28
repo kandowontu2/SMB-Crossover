@@ -1,0 +1,97 @@
+Popo / Nana — new character20, private source implementation
+28 October2026. ROOT owns shared integration, native runs and adoption.
+
+Original source
+Nintendo manual: https://www.nintendo.co.jp/clv/manuals/en/pdf/CLV-P-NAAUE.pdf
+Original executable/data disassembly (Ice Climber J):
+https://github.com/cyneprepou4uk/NES-Games-Disassembly/tree/df2c8e55e7f13e5792482527db9e7c9e4a84c6e1/Ice%20Climber
+Six exact downloaded source/data files and SHA256s are pinned in
+tools/prepare_ice_climbers_assets_v1.py and ice-climbers-source.json. No game
+ROM or third-party emulator was downloaded or executed.
+
+This is a dedicated character module, not another hero's sprite replacement.
+Popo and Nana use the same original NES body patterns with their actual
+blue/pink source palettes30/11/26 and30/15/26. Select chooses variant0/1.
+The generator executes original D17C/EAFC/C73D rendering and D0D7 death
+rotation. All60 movement/hammer/death/facing/variant masks are reassembled
+losslessly from original8x8 pixels into host8x16 parts. Four1KB pages contain
+98 unique pairs; max5 OAM parts/pose. No fabricated shape or placeholder art.
+
+Native motion/combat basis
+C839/C83D: first gravity08, subsequent22/256, fixed arc without A-release cut.
+Original jump base03A8 rises about50px. Approved SMB traversal adaptation is
+0428 with the same first/subsequent gravity phases so64px pipes can be cleared.
+D143: ground motion1px plus one extra pixel every8updates; buildup caps24.
+D160: air advances45/256 or90/256 according to buildup. Direction is latched;
+only an initially still falling player can establish an air direction.
+CFC6: release/reversal coasts at1px for a buildup-derived bounded period.
+D05D/D3B3: B swing lasts20updates and its actual collision moment is age9;
+the swing ends on a successful strike. A genuine jump keeps its overhead
+hammer active, including descent. Walking off a ledge is distinguished from
+an A jump. Native SMB head/feet/side/block collision and camera remain owners.
+
+Crossover choices, intentionally not claimed as original Ice Climber powers
+Easy permits the usual stompable-enemy stomps; Hard requires the hammer.
+Mushroom advances to padded parka protection; Flower advances to stronger
+hammer/protection. Tiers0/1/2 correspond to zero/one/two protected injury
+losses before a lethal hit. Hammer damage is the existing guarded100-unit
+melee owner; Flower can apply its second guarded hit for200. Original hammer
+geometry is unchanged. The normal block/score/life delivery remains host-owned.
+The source-native program has no water/vines: water stroke/gravity and vine
+climbing are explicit SMB handoffs. Shared SMB sound requests are used; no
+claim of original Ice Climber music/waveform integration is made.
+
+Allocation agreed with ROOT
+CORE bank62/$3E A2B7..BFFF, after existing X5_PUBLISH. ART bank70/$46
+C380..CB7F. CHR physical712..715. No new NMI or resident mapper routine.
+IcVariant5FEC; persistent5F80..5F97; identity-exclusive scratch5C00..5C7F.
+Only six persistent bytes and20 scratch bytes are currently named. Body
+pattern page is published by IcDraw with actual drawing, rather than by a
+catch-up Graphics update. Existing X5SetPhysicalChr is genuinely in bank62,
+so the new same-bank tail call is a direct JMP, not a farcall/fake alias.
+
+Shared integration interface (ROOT)
+Include ice_climbers_state.inc before dispatch references; ice_climbers.s once.
+IcGlobalInit: new-game variant/persistent initialization.
+IcEnsure/IcAreaReset: life/stage/transient ownership; real INC gains including
+wrap preserve gear, actual modulo life loss resets it. Menu/new-game clear
+must invoke GlobalInit; arbitrary external changes are not a save-state API.
+IcMovement: normal active PlayerCtrl movement; native host BG collision follows.
+IcWeapons: active weapon/update pass, before normal enemy/body contact.
+IcGraphics/IcGraphicsBank: actual pose and C-bank owner.
+IcDraw: draw-pass body CHR publication, before body MetaspriteRenderLoop.
+IcPortrait: native standing pose plus body page/palette, no gameplay mutation.
+IcPickup: A=normalized native food0/1, carry handled; caller retains actor erase
+and score. Star/1Up (A>=2) are not consumed. No generic InvSelected/Ammo20 access.
+IcInjuryStatus: A0 lethal /positive protected. IcInjuryStart returns carry set.
+IcFullPower: legal parka/hammer tier2. IcVisible: carry shown, clear hidden.
+IcAdder: Y3/carry set; IcBox:Y12. IcHead: native BlockBufferColli_Head query.
+IcStompPolicy: carry set only Easy; native enemy-stompability still applies.
+IcDeathStart/IcDeathUpdate: dedicated death state and eventual host life handoff.
+IcForcePalette/IcPalette: actual original colors; six-byte packet capacity is
+checked, acknowledgment only after enqueue, invalidated during Star/transform.
+All entrypoints use ordinary6502 caller-clobbered A/X/Y/P unless noted above;
+SP is balanced. No old public entrypoint or callable alias is replaced here.
+
+Validation status
+Original asset generator: PASS60 exact complete palette-index masks; source
+reconstruction uses pinned bytes, including all original death phases.
+Initial assembler short-branch errors retained in ice-climbers-first-compile-
+negative.json; corrected leaf syntax then assembled. ROOT first link retained
+same-bank farcall failure and corrected it to the genuine direct publisher call.
+First completed leaf-only ROM599a041c81dbf6ebca9f61ea3f8af5a7a0ed2a465e6b122a2df2f1b5134def64:
+60 linked original art masks and actual renderer allocation controls PASS;
+initial motion gate FALSE (63px rise) exposed the omitted native first08 phase.
+That negative stays in build/ice-climbers-first-link-controls.json. Approved
+source correction restores08 on the first jump update, then22 thereafter.
+The separate finite control tool will bind the new compiled ROM explicitly.
+No native selection, controller route, physical acquisition, full-level,
+render deadline, crowded8sprite, all-PPU or waveform PASS is claimed yet.
+
+Owned leaf packet
+src/ice_climbers.s, ice_climbers_state.inc, ice_climbers_core.s,
+ice_climbers_render.s, ice_climbers_art.inc; chr/characters/ice-climbers*;
+tools/prepare_ice_climbers_assets_v1.py, prepare_ice_climbers_source_v1.py,
+prepare_ice_climbers_controls_v1.py; this note. Shared entrypoint/constants/
+cfg/menu/dispatch edits and all other new character agents' files belong to ROOT.
+Old unfinished fixed-capsule0edb and all previous repairs remain frozen.

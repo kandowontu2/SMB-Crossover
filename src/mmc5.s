@@ -193,14 +193,13 @@ StartPublication:
   lda #68 | MMC5_PRG_ROM
   bne StoreGraphics
 NativeGraphics:
-  lda DwResidentGraphicsBanks,x
-  ora #MMC5_PRG_ROM
+  lda DwResidentGraphicsBanks,x ; rows already carry the ROM-select bit
 StoreGraphics:
   sta CurrentBankC
   sta MMC5_PRG_BANK_C
   rts
 ::DwResidentGraphicsBanks:
-  .byte .bank(XgPIT0_STANDRight),.bank(XgRYGAR0_STANDRight),.bank(XgLUIGI0_STANDRight),.bank(XgBASS0_STANDRight),.bank(XgRYU0_STANDRight),.bank(XgSOPHIA0_STANDRight),.bank(XgSCROOGE_STANDRight),.bank(KbArtStart),.bank(CdArtBegin),94,97,91,76,.bank(TnArtStart)
+  .byte (.bank(XgPIT0_STANDRight))|MMC5_PRG_ROM,(.bank(XgRYGAR0_STANDRight))|MMC5_PRG_ROM,(.bank(XgLUIGI0_STANDRight))|MMC5_PRG_ROM,(.bank(XgBASS0_STANDRight))|MMC5_PRG_ROM,(.bank(XgRYU0_STANDRight))|MMC5_PRG_ROM,(.bank(XgSOPHIA0_STANDRight))|MMC5_PRG_ROM,(.bank(XgSCROOGE_STANDRight))|MMC5_PRG_ROM,(.bank(KbArtStart))|MMC5_PRG_ROM,(.bank(CdArtBegin))|MMC5_PRG_ROM,(94)|MMC5_PRG_ROM,(97)|MMC5_PRG_ROM,(91)|MMC5_PRG_ROM,(76)|MMC5_PRG_ROM,(.bank(TnArtStart))|MMC5_PRG_ROM,(.bank(IcArtStart))|MMC5_PRG_ROM,(.bank(RcArtStart))|MMC5_PRG_ROM
 ::Cv3ResidentRosterBank:
  lda SelectedCharacter
  cmp #CHARACTER_SIMON

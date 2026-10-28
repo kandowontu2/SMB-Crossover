@@ -3,6 +3,26 @@
 .segment "CROSSOVER_HELPERS"
 .include "crossover_helper_data.inc"
 
+; The parser can replace AreaPointer with a future pipe destination while
+; the current scene remains loaded. These loader-owned fields remain stable.
+.macro HpLoadedAreaA
+.if ::ENABLE_MMC5_EXPANDED
+ jsr HpCurrentArea
+.else
+ lda AreaPointer
+.endif
+.endmacro
+.if ::ENABLE_MMC5_EXPANDED
+.proc HpCurrentArea
+ lda AreaType
+ .repeat 5
+ asl
+ .endrepeat
+ ora AreaAddrsLOffset
+ rts
+.endproc
+.endif
+
 ; Preserve the original area-loader result, including its native scratch.
 .proc HpLoadArea
   farcall GetAreaDataAddrs
@@ -51,7 +71,7 @@ Clear:
   asl
   ora LevelNumber
   sta HpKey
-  lda AreaPointer
+  HpLoadedAreaA
   sta HpArea
   jsr HpIdentityKey
   sta HpCharacter
@@ -69,7 +89,11 @@ Record:
   cmp HpArea
   bne Next
   ldx SelectedCharacter          ; Cache is packed; admission always uses raw ID.
+.if ::ENABLE_MMC5_EXPANDED
+  cpx #28
+.else
   cpx #20
+.endif
   bcs Next
   lda HpMode
   bne Hard
@@ -128,7 +152,11 @@ Next:
 
 ; Y=family ID, A=H/V accommodation mask; preserve X/Y for authored cells.
 .proc HpGetCharacterMask
+.if ::ENABLE_MMC5_EXPANDED
+  cpy #28
+.else
   cpy #20
+.endif
   bcs None
 .if ::ENABLE_MMC5_EXPANDED
   cpy #5
@@ -230,7 +258,7 @@ Done:
 .proc HpSpawnAndTrack
   lda HpValid
   beq Configure
-  lda AreaPointer
+  HpLoadedAreaA
   cmp HpArea
   bne Configure
   jsr HpIdentityKey

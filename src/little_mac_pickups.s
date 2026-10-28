@@ -1,7 +1,7 @@
 .pushseg
 .segment "LM_CORE"
 .proc LmPrepareGate
- LmGate JnPrepareDispatch
+ LmGate NrPrepare
  stx InvObject
  jsr LmEnsure
  ldx InvObject
@@ -81,11 +81,11 @@ No:clc
  rts
 .endproc
 .proc LmPrivateGate
- LmGate JnPrivateDispatch
+ LmGate NrPrivate
  jmp LmIsStar
 .endproc
 .proc LmRiseGate
- LmGate JnRiseDispatch
+ LmGate NrRise
  farcall InventoryRisePickup
  php
  lda LmStamp,x

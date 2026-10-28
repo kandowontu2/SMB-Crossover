@@ -61,39 +61,12 @@ Hide:lda #0
  rts
 .endproc
 .proc LmPortraitGate
- LmGate JnPortraitDispatch
+ LmGate NrPortrait
  jsr LmEnsure
- ldx #0
- jsr LmSetPose
- jsr LmPublish
- jmp LmForcePalette
+ farcall MacRosterPortrait,jmp
 .endproc
 .proc LmSetPose
- phx
- jsr LmQueuePalette
- plx
- BankPRGC #94
- lda PlayerFacingDir
- cmp #2
- beq Left
- lda LmPoseRLo,x
- sta SmPosePtr
- lda LmPoseRHi,x
- sta SmPosePtr+1
- lda LmChrR,x
- jmp Store
-Left:lda LmPoseLLo,x
- sta SmPosePtr
- lda LmPoseLHi,x
- sta SmPosePtr+1
- lda LmChrL,x
-Store:sta SmChrBank
- lda Player_SprAttrib
- and #$fc
- sta Player_SprAttrib
- lda #METASPRITE_SAMUS_BODY
- sta ObjectMetasprite
- rts
+ farcall MacRosterSetPose,jmp
 .endproc
 .proc LmPublish
  lda SmChrBank
@@ -140,41 +113,14 @@ Next:dec LmSlot
  bpl Loop
  rts
 .endproc
-.proc LmForcePalette
- lda #0
- sta LmPalette
- jmp LmQueuePalette
+ .proc LmForcePalette
+ farcall MacRosterForcePalette,jmp
 .endproc
 .proc LmQueuePalette
- lda LmPalette
- bne Done
- ldx VRAM_Buffer1_Offset
- cpx #78 ; Six command bytes plus terminator fit the84-byte buffer.
- bcs Done
- lda #$3f
- sta VRAM_Buffer1,x
- lda #$11
- sta VRAM_Buffer1+1,x
- lda #3
- sta VRAM_Buffer1+2,x
- lda #$36
- sta VRAM_Buffer1+3,x
- lda #$0f
- sta VRAM_Buffer1+4,x
- lda #$25
- sta VRAM_Buffer1+5,x
- txa
- clc
- adc #6
- tax
- stx VRAM_Buffer1_Offset
- lda #0
- sta VRAM_Buffer1,x
- inc LmPalette
-Done:rts
+ farcall MacRosterQueuePalette,jmp
 .endproc
 .proc LmUiGate
- LmGate VvUiDispatch
+ LmGate NrUi
  lda #0
  sta InvHudActive
  sta InvDirty

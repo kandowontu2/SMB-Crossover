@@ -1,0 +1,91 @@
+Mac / Doc Louis / Mike Tyson independent roster component
+
+Status: source/assets assembled only; shared registry and runtime not integrated.
+No old Mac source, shared menu, entrypoint, cfg, default ROM, Downloads or native
+fixture was edited. ROOT owns the shared integration and native launch.
+
+Assets and provenance
+  mac-roster-source-126765.png: exact requested315x186 Zelda2-style sheet by
+    MisterMike. This is authored custom Mac, not original Punch-Out boxing art.
+    Every Mac frame cell is preserved without new painted pixels. Green and
+    magenta sheet backgrounds become transparent, while dark-green ink stays.
+  mac-roster-source-32930.png: Nintendo NES art, ripped by Solink/Tox2564.
+    NES Doc has portraits and bicycle-coaching frames, no complete boxing set.
+    Doc's new boxing animation is an explicit authorized adaptation: native
+    profile head/neck + stockier125%-width Mac pose scaffold, white boxing
+    clothes and larger face/jaw. It is neither original NES combat animation
+    nor a bicycle crop used as the player. Native portrait uses his own face.
+  mac-roster-source-32931.png: Nintendo NES Tyson combat art, rip credited to
+    evildevil/Tox2564. Actual source poses are sampled uniformly3/8 nearest.
+    Skin/ink/glove colors are retained as three roles; green trunks become
+    black and white highlights become skin. Exact original colors/size are
+    not claimed. Source mugshot supplies Tyson's actual portrait.
+  Source URLs, hashes, exact cells and authored adaptations are recorded by
+    mac-roster-manifest.json, with the original Nintendo and artist credits.
+
+Storage
+  mac-roster.chr is40960B in existing physical pages668..707. Only668..676
+    hold packed body cells;704 preserves the existing original star page
+    byte-exact;705/706/707 hold the three portraits. Rest remains zero.
+  There are16 genuine/adapted body poses per variant +3 portraits =51 frames.
+  Right and left records share CHR, with real Hflip and x'=8-x about player
+    center7.5. Maximum9 hardware8x16 parts, header36. No empty padding parts.
+  MAC_ROSTER_CORE is reserved95:A310+; MAC_ROSTER_ART94:C2C0+.
+    Actual ca65 sizes and projected ends are in build/mac_roster_component.json.
+    An unlinked object is not a callable address/whole-game qualification.
+
+State and shared hook interface
+  MacVariant=$5FE2,0 Mac /1 Doc Louis /2 Mike Tyson, menu-persistent.
+    Select should cycle3 values for char15; shared registry owns selection.
+    Invalid stored values render/use baseline Mac safely, without a new flag.
+  MacRosterSetPose replaces the semantic LmSetPose call by genuine farcall:
+    X=0idle,1/2walk,3duck,4punch,5super,6air,7hurt,8duckpunch,9ducksuper;
+   10 is portrait. It sets genuine C94 SmPosePtr, SmChrBank and body sentinel.
+    X/Y preserved; final A=old sentinel, C=facing CMP#2; post-palette V/D/I
+    retained. It does not write LmPose or other hidden scratch state.
+    Caller/full-IRQ equivalence is pending linked integration; no broad mask.
+  MacRosterPublish mirrors existing physical-CHR upper2/special704 publication.
+    Retain genuine old source DrawGate/star drawing and lifecycle owner.
+  MacRosterPortrait: call LmEnsure first, then this portrait entry. It publishes
+    actual portrait data and player palette. No full body substituted for Doc.
+  MacRosterQueuePalette/ForcePalette use existing LmPalette and original
+    six-byte3F11/3 command, guard offset<78, player subpalette0 only. Select
+    must invalidate LmPalette so the previous variant's cached colors cannot stick.
+
+Boxing adaptations (unchanged health96/hearts20/star cap3/earned pickup owner)
+  Mac: normal34, active remaining12..26; super88, active42..70;
+    reach18, heights10/38, heartcost1, zero-heart duck recovery30.
+  Doc: normal42, active14..32; super96, active44..77;
+    reach20, heights12/38, heartcost1, recovery24. Slower heavier coach, quicker rest.
+  Tyson: normal28, active9..22; super76, active30..59;
+    reach24, heights12/42, heartcost2, recovery36. Fast/reaching, more spirit cost.
+  These are intentional platform boxing differences, not original opponent AI.
+  MacRosterAttackTotal/AttackWindow return genuine age contracts; exported
+    tables give reach/heights/cost/rest. Existing Lm attack/hits/resource fields
+    remain authoritative. CanAfford must execute before any star debit or
+    attack start. SpendHearts subtracts exact1/2 only if enough remain; it does
+    not refill anything. Preserve the original +1 hit refund and star cost1.
+    Keep original damage/contact/defeat/block/lifecycle mechanisms.
+  Poses show windup/active/recovery from the same actual remaining-age windows.
+    Source Mac has no crouched uppercut; its actual duck-punch art is reused
+    honestly with the existing super volume. No new attack move is invented.
+
+Root integration checklist
+  Include mac_roster.s once, after existing Mac/global symbols/macros.
+  Add only the reserved CORE/ART segment placements. Redirect new CHR data to
+    existing LM_CHR_MEM while excluding the old little-mac.chr incbin, so the
+    allocation is replaced exactly once, never appended twice.
+  Register variant/Select/names/portraits and the above genuine hooks. Old
+    Mac gameplay code must retain full foreign fallback and TMNT chains.
+  Apply profile tables to accepted attack total/window/reach/height/cost/rest;
+    do not silently leave all alternates with baseline values.
+  Regenerate actual linked hooks/DBG and qualify full callers, maximum OAM,
+    both directions/poses, menu palette/lifecycle and real earned attacks
+    before native/adoption. No native result is inherited from old Mac.
+
+Reproduction: tools/prepare_mac_roster_assets_v1.py, then
+  tools/prepare_mac_roster_component_v1.py (assembles only, never links/runs).
+All files needed for integration are listed by build/mac_roster_handoff.json.
+Source-derived frame/cell roundtrips and left-facing raster checks pass.
+No source/native FPS, visibility-under-overload or universal palette deadline
+claim. The single mac-roster-review.png is a generated asset sheet, not game footage.

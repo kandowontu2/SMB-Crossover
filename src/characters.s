@@ -154,7 +154,7 @@ Samus:
 .proc CrossoverInit
  .if ::ENABLE_MMC5_EXPANDED
 .if ::ENABLE_MMC5_EXPANDED
-  farcall KbGlobalInit
+  farcall NrGlobalInit
 .else
   farcall ProtoGlobalInit
 .endif
@@ -226,7 +226,7 @@ CharacterNames:
   ldx VRAM_Buffer1_Offset
 PaletteSelector:
 .if ::ENABLE_MMC5_EXPANDED
-  farcall KbWorldPaletteIndex
+  farcall NrWorldPaletteIndex
 .else
   jsr GuestWorldPaletteIndex
   jmp Guest

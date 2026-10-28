@@ -6,5 +6,5 @@
 .include "little_mac_art.inc"
 .pushseg
 .segment "LM_CHR"
-.incbin "chr/characters/little-mac.chr"
+; MAC_ROSTER_CHR replaces this allocation through the expanded entrypoint.
 .popseg

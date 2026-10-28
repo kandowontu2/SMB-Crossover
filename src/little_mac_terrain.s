@@ -57,7 +57,7 @@ FootBox:
 .endproc
 .proc LmHeadGate
  TnHotGate TnHeadDispatch
- LmGate JnHeadDispatch
+ LmGate NrHead
  sty LmSavedY
  lda Player_Y_Position
  sta LmOldY

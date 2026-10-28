@@ -1,0 +1,1042 @@
+{
+  "passed": true,
+  "source_only": true,
+  "native_run": false,
+  "scope": "Run the genuine actor-move JSR continuously through its real consumer.\n\nNo return-register exclusions: compare full final AXYP/SP after the immediate\nJMP OffscreenBoundsCheck has completed. Retain/disclose intermediate dead A/P\ndifferences. Bounded assembled CPU component only, not whole-RAM/NMI/native QA.\n",
+  "bindings": {
+    "build\\roster-expansion-ice-native-v1.nes": "62dd860e9dd6d5414cd6251c5bd0557c5c14b6872aacf81d5e628eb4bab8caff",
+    "build\\roster-expansion-traversal-v1.nes": "7b42160095b0c817c13a3991773c240b3c93e15eaae9833aa7d3e8f4ef0a3d37",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\roster_expansion_enemy_gate_controls_v3.py": "2d0eb39d22d8be91bd91a2fe2c0f20504d0e1ea069f4b8bb31d0ee78f257aaf3",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\link_pit_rygar_sophia_audit_cpu.py": "15ef348bc124a97d8ef2c8a56777180276271b44fb77c8ace7e62c2a50310113",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\check_tmnt_render_oa.py": "32033893e48055adc9a23c661238e9331dd1db856be51b753ba9b6781eb528e4",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\verify_native_relocation.py": "1bab7154bc2e5468e827087d14030a7e30c4d3676db5e775ef15de4d0c34ce11",
+    "build\\roster-expansion-ice-native-v1.dbg": "0341c71c16996df5c1851382e27dad2693fbfe9116abbb98a40862a2cf81e14d",
+    "build\\roster-expansion-ice-native-v1.lbl": "f408b733c262cf4d06126880a564d0cc5eab3a1c5a49b4bf717f92492a8cd3f9",
+    "build\\roster-expansion-traversal-v1.dbg": "ad2f1fa8859dffa7e368def462d3dac46fad489813213bbfb09fcc552d0bd82b",
+    "build\\roster-expansion-traversal-v1.lbl": "bc9e65244d8d53d2cad50cf772e8d6fecadf51b25738fd06e4c0f20401c8f7f2",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\roster-expansion-river-enemy-gate-controls-v1.json": "e43f54d004d8c334665022c8f7ca3444d2e3303219307dc7bc1e37286a047bb6",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\roster-expansion-river-enemy-gate-controls-v2.json": "a358dda619d99ef6921e4d3f7133e4c72efea843aa353032d943d799aaf0db9b"
+  },
+  "retained_negatives": {
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\roster-expansion-river-enemy-gate-controls-v1.json": false,
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\roster-expansion-river-enemy-gate-controls-v2.json": false
+  },
+  "actual_caller_contracts": [
+    {
+      "bank": 0,
+      "start": 42123,
+      "JSR": 42128,
+      "after_JSR": 42131,
+      "consumer": 42244,
+      "bytes": "ac4a07d00320baa44c04a5",
+      "all_PRG_numeric_JSR_hits": [
+        {
+          "bank": 0,
+          "offset": 1168
+        },
+        {
+          "bank": 123,
+          "offset": 11
+        }
+      ],
+      "unrelated_same_numeric_address_calls": [
+        {
+          "bank": 123,
+          "offset": 11,
+          "PC": 40971,
+          "segment": "\"MAC_NATIVE_AUDIO\"",
+          "same_window_target_bank": 123,
+          "EnemyMovementSubs_owner": false
+        }
+      ]
+    },
+    {
+      "bank": 0,
+      "start": 42123,
+      "JSR": 42128,
+      "after_JSR": 42131,
+      "consumer": 42244,
+      "bytes": "ac4a07d00320baa44c04a5",
+      "all_PRG_numeric_JSR_hits": [
+        {
+          "bank": 0,
+          "offset": 1168
+        },
+        {
+          "bank": 123,
+          "offset": 11
+        }
+      ],
+      "unrelated_same_numeric_address_calls": [
+        {
+          "bank": 123,
+          "offset": 11,
+          "PC": 40971,
+          "segment": "\"MAC_NATIVE_AUDIO\"",
+          "same_window_target_bank": 123,
+          "EnemyMovementSubs_owner": false
+        }
+      ]
+    }
+  ],
+  "foreign_and_native_fallback_cases": 2832,
+  "complete_caller_cycle_delta": [
+    5,
+    162
+  ],
+  "unmasked_intermediate_examples": [
+    {
+      "case": [
+        0,
+        0,
+        9,
+        0,
+        0,
+        48
+      ],
+      "baseline": {
+        "-113": [
+          165,
+          0,
+          20,
+          176,
+          251
+        ],
+        "2": [
+          9,
+          0,
+          20,
+          48,
+          251
+        ],
+        "4": [
+          9,
+          0,
+          20,
+          176,
+          251
+        ]
+      },
+      "candidate": {
+        "-113": [
+          164,
+          0,
+          20,
+          176,
+          251
+        ],
+        "2": [
+          9,
+          0,
+          20,
+          48,
+          251
+        ],
+        "4": [
+          9,
+          0,
+          20,
+          176,
+          251
+        ]
+      },
+      "final_full_CPU_exact": true
+    },
+    {
+      "case": [
+        0,
+        0,
+        9,
+        0,
+        0,
+        49
+      ],
+      "baseline": {
+        "-113": [
+          165,
+          0,
+          20,
+          176,
+          251
+        ],
+        "2": [
+          9,
+          0,
+          20,
+          48,
+          251
+        ],
+        "4": [
+          9,
+          0,
+          20,
+          176,
+          251
+        ]
+      },
+      "candidate": {
+        "-113": [
+          164,
+          0,
+          20,
+          176,
+          251
+        ],
+        "2": [
+          9,
+          0,
+          20,
+          48,
+          251
+        ],
+        "4": [
+          9,
+          0,
+          20,
+          176,
+          251
+        ]
+      },
+      "final_full_CPU_exact": true
+    },
+    {
+      "case": [
+        0,
+        0,
+        9,
+        0,
+        0,
+        50
+      ],
+      "baseline": {
+        "-113": [
+          165,
+          0,
+          20,
+          176,
+          251
+        ],
+        "2": [
+          9,
+          0,
+          20,
+          48,
+          251
+        ],
+        "4": [
+          9,
+          0,
+          20,
+          176,
+          251
+        ]
+      },
+      "candidate": {
+        "-113": [
+          164,
+          0,
+          20,
+          176,
+          251
+        ],
+        "2": [
+          9,
+          0,
+          20,
+          48,
+          251
+        ],
+        "4": [
+          9,
+          0,
+          20,
+          176,
+          251
+        ]
+      },
+      "final_full_CPU_exact": true
+    },
+    {
+      "case": [
+        0,
+        0,
+        9,
+        0,
+        0,
+        51
+      ],
+      "baseline": {
+        "-113": [
+          165,
+          0,
+          20,
+          176,
+          251
+        ],
+        "2": [
+          9,
+          0,
+          20,
+          48,
+          251
+        ],
+        "4": [
+          9,
+          0,
+          20,
+          176,
+          251
+        ]
+      },
+      "candidate": {
+        "-113": [
+          164,
+          0,
+          20,
+          176,
+          251
+        ],
+        "2": [
+          9,
+          0,
+          20,
+          48,
+          251
+        ],
+        "4": [
+          9,
+          0,
+          20,
+          176,
+          251
+        ]
+      },
+      "final_full_CPU_exact": true
+    },
+    {
+      "case": [
+        0,
+        0,
+        9,
+        0,
+        0,
+        52
+      ],
+      "baseline": {
+        "-113": [
+          165,
+          0,
+          20,
+          180,
+          251
+        ],
+        "2": [
+          9,
+          0,
+          20,
+          52,
+          251
+        ],
+        "4": [
+          9,
+          0,
+          20,
+          180,
+          251
+        ]
+      },
+      "candidate": {
+        "-113": [
+          164,
+          0,
+          20,
+          180,
+          251
+        ],
+        "2": [
+          9,
+          0,
+          20,
+          52,
+          251
+        ],
+        "4": [
+          9,
+          0,
+          20,
+          180,
+          251
+        ]
+      },
+      "final_full_CPU_exact": true
+    },
+    {
+      "case": [
+        0,
+        0,
+        9,
+        0,
+        0,
+        53
+      ],
+      "baseline": {
+        "-113": [
+          165,
+          0,
+          20,
+          180,
+          251
+        ],
+        "2": [
+          9,
+          0,
+          20,
+          52,
+          251
+        ],
+        "4": [
+          9,
+          0,
+          20,
+          180,
+          251
+        ]
+      },
+      "candidate": {
+        "-113": [
+          164,
+          0,
+          20,
+          180,
+          251
+        ],
+        "2": [
+          9,
+          0,
+          20,
+          52,
+          251
+        ],
+        "4": [
+          9,
+          0,
+          20,
+          180,
+          251
+        ]
+      },
+      "final_full_CPU_exact": true
+    },
+    {
+      "case": [
+        0,
+        0,
+        9,
+        0,
+        0,
+        54
+      ],
+      "baseline": {
+        "-113": [
+          165,
+          0,
+          20,
+          180,
+          251
+        ],
+        "2": [
+          9,
+          0,
+          20,
+          52,
+          251
+        ],
+        "4": [
+          9,
+          0,
+          20,
+          180,
+          251
+        ]
+      },
+      "candidate": {
+        "-113": [
+          164,
+          0,
+          20,
+          180,
+          251
+        ],
+        "2": [
+          9,
+          0,
+          20,
+          52,
+          251
+        ],
+        "4": [
+          9,
+          0,
+          20,
+          180,
+          251
+        ]
+      },
+      "final_full_CPU_exact": true
+    },
+    {
+      "case": [
+        0,
+        0,
+        9,
+        0,
+        0,
+        55
+      ],
+      "baseline": {
+        "-113": [
+          165,
+          0,
+          20,
+          180,
+          251
+        ],
+        "2": [
+          9,
+          0,
+          20,
+          52,
+          251
+        ],
+        "4": [
+          9,
+          0,
+          20,
+          180,
+          251
+        ]
+      },
+      "candidate": {
+        "-113": [
+          164,
+          0,
+          20,
+          180,
+          251
+        ],
+        "2": [
+          9,
+          0,
+          20,
+          52,
+          251
+        ],
+        "4": [
+          9,
+          0,
+          20,
+          180,
+          251
+        ]
+      },
+      "final_full_CPU_exact": true
+    },
+    {
+      "case": [
+        0,
+        0,
+        9,
+        0,
+        0,
+        56
+      ],
+      "baseline": {
+        "-113": [
+          165,
+          0,
+          20,
+          184,
+          251
+        ],
+        "2": [
+          9,
+          0,
+          20,
+          56,
+          251
+        ],
+        "4": [
+          9,
+          0,
+          20,
+          184,
+          251
+        ]
+      },
+      "candidate": {
+        "-113": [
+          164,
+          0,
+          20,
+          184,
+          251
+        ],
+        "2": [
+          9,
+          0,
+          20,
+          56,
+          251
+        ],
+        "4": [
+          9,
+          0,
+          20,
+          184,
+          251
+        ]
+      },
+      "final_full_CPU_exact": true
+    },
+    {
+      "case": [
+        0,
+        0,
+        9,
+        0,
+        0,
+        57
+      ],
+      "baseline": {
+        "-113": [
+          165,
+          0,
+          20,
+          184,
+          251
+        ],
+        "2": [
+          9,
+          0,
+          20,
+          56,
+          251
+        ],
+        "4": [
+          9,
+          0,
+          20,
+          184,
+          251
+        ]
+      },
+      "candidate": {
+        "-113": [
+          164,
+          0,
+          20,
+          184,
+          251
+        ],
+        "2": [
+          9,
+          0,
+          20,
+          56,
+          251
+        ],
+        "4": [
+          9,
+          0,
+          20,
+          184,
+          251
+        ]
+      },
+      "final_full_CPU_exact": true
+    },
+    {
+      "case": [
+        0,
+        0,
+        9,
+        0,
+        0,
+        58
+      ],
+      "baseline": {
+        "-113": [
+          165,
+          0,
+          20,
+          184,
+          251
+        ],
+        "2": [
+          9,
+          0,
+          20,
+          56,
+          251
+        ],
+        "4": [
+          9,
+          0,
+          20,
+          184,
+          251
+        ]
+      },
+      "candidate": {
+        "-113": [
+          164,
+          0,
+          20,
+          184,
+          251
+        ],
+        "2": [
+          9,
+          0,
+          20,
+          56,
+          251
+        ],
+        "4": [
+          9,
+          0,
+          20,
+          184,
+          251
+        ]
+      },
+      "final_full_CPU_exact": true
+    },
+    {
+      "case": [
+        0,
+        0,
+        9,
+        0,
+        0,
+        59
+      ],
+      "baseline": {
+        "-113": [
+          165,
+          0,
+          20,
+          184,
+          251
+        ],
+        "2": [
+          9,
+          0,
+          20,
+          56,
+          251
+        ],
+        "4": [
+          9,
+          0,
+          20,
+          184,
+          251
+        ]
+      },
+      "candidate": {
+        "-113": [
+          164,
+          0,
+          20,
+          184,
+          251
+        ],
+        "2": [
+          9,
+          0,
+          20,
+          56,
+          251
+        ],
+        "4": [
+          9,
+          0,
+          20,
+          184,
+          251
+        ]
+      },
+      "final_full_CPU_exact": true
+    }
+  ],
+  "actual_timer_skip_cases": 30,
+  "shared_city_12_cells": [
+    {
+      "variant": 0,
+      "slot": 0,
+      "stun_calls": 4,
+      "stun_caller_cycles": [
+        354,
+        354,
+        354,
+        354
+      ],
+      "carried_origin": [
+        2,
+        120,
+        124
+      ],
+      "carry_caller_cycles": 384,
+      "genuine_gate_and_consumer_hits": {
+        "movement": 1,
+        "consumer": 1,
+        "city": 1
+      }
+    },
+    {
+      "variant": 0,
+      "slot": 1,
+      "stun_calls": 4,
+      "stun_caller_cycles": [
+        354,
+        354,
+        354,
+        354
+      ],
+      "carried_origin": [
+        2,
+        120,
+        124
+      ],
+      "carry_caller_cycles": 384,
+      "genuine_gate_and_consumer_hits": {
+        "movement": 1,
+        "consumer": 1,
+        "city": 1
+      }
+    },
+    {
+      "variant": 0,
+      "slot": 2,
+      "stun_calls": 4,
+      "stun_caller_cycles": [
+        354,
+        354,
+        354,
+        354
+      ],
+      "carried_origin": [
+        2,
+        120,
+        124
+      ],
+      "carry_caller_cycles": 384,
+      "genuine_gate_and_consumer_hits": {
+        "movement": 1,
+        "consumer": 1,
+        "city": 1
+      }
+    },
+    {
+      "variant": 0,
+      "slot": 3,
+      "stun_calls": 4,
+      "stun_caller_cycles": [
+        354,
+        354,
+        354,
+        354
+      ],
+      "carried_origin": [
+        2,
+        120,
+        124
+      ],
+      "carry_caller_cycles": 384,
+      "genuine_gate_and_consumer_hits": {
+        "movement": 1,
+        "consumer": 1,
+        "city": 1
+      }
+    },
+    {
+      "variant": 0,
+      "slot": 4,
+      "stun_calls": 4,
+      "stun_caller_cycles": [
+        354,
+        354,
+        354,
+        354
+      ],
+      "carried_origin": [
+        2,
+        120,
+        124
+      ],
+      "carry_caller_cycles": 384,
+      "genuine_gate_and_consumer_hits": {
+        "movement": 1,
+        "consumer": 1,
+        "city": 1
+      }
+    },
+    {
+      "variant": 0,
+      "slot": 5,
+      "stun_calls": 4,
+      "stun_caller_cycles": [
+        354,
+        354,
+        354,
+        354
+      ],
+      "carried_origin": [
+        2,
+        120,
+        124
+      ],
+      "carry_caller_cycles": 384,
+      "genuine_gate_and_consumer_hits": {
+        "movement": 1,
+        "consumer": 1,
+        "city": 1
+      }
+    },
+    {
+      "variant": 1,
+      "slot": 0,
+      "stun_calls": 4,
+      "stun_caller_cycles": [
+        354,
+        354,
+        354,
+        354
+      ],
+      "carried_origin": [
+        2,
+        120,
+        124
+      ],
+      "carry_caller_cycles": 384,
+      "genuine_gate_and_consumer_hits": {
+        "movement": 1,
+        "consumer": 1,
+        "city": 1
+      }
+    },
+    {
+      "variant": 1,
+      "slot": 1,
+      "stun_calls": 4,
+      "stun_caller_cycles": [
+        354,
+        354,
+        354,
+        354
+      ],
+      "carried_origin": [
+        2,
+        120,
+        124
+      ],
+      "carry_caller_cycles": 384,
+      "genuine_gate_and_consumer_hits": {
+        "movement": 1,
+        "consumer": 1,
+        "city": 1
+      }
+    },
+    {
+      "variant": 1,
+      "slot": 2,
+      "stun_calls": 4,
+      "stun_caller_cycles": [
+        354,
+        354,
+        354,
+        354
+      ],
+      "carried_origin": [
+        2,
+        120,
+        124
+      ],
+      "carry_caller_cycles": 384,
+      "genuine_gate_and_consumer_hits": {
+        "movement": 1,
+        "consumer": 1,
+        "city": 1
+      }
+    },
+    {
+      "variant": 1,
+      "slot": 3,
+      "stun_calls": 4,
+      "stun_caller_cycles": [
+        354,
+        354,
+        354,
+        354
+      ],
+      "carried_origin": [
+        2,
+        120,
+        124
+      ],
+      "carry_caller_cycles": 384,
+      "genuine_gate_and_consumer_hits": {
+        "movement": 1,
+        "consumer": 1,
+        "city": 1
+      }
+    },
+    {
+      "variant": 1,
+      "slot": 4,
+      "stun_calls": 4,
+      "stun_caller_cycles": [
+        354,
+        354,
+        354,
+        354
+      ],
+      "carried_origin": [
+        2,
+        120,
+        124
+      ],
+      "carry_caller_cycles": 384,
+      "genuine_gate_and_consumer_hits": {
+        "movement": 1,
+        "consumer": 1,
+        "city": 1
+      }
+    },
+    {
+      "variant": 1,
+      "slot": 5,
+      "stun_calls": 4,
+      "stun_caller_cycles": [
+        354,
+        354,
+        354,
+        354
+      ],
+      "carried_origin": [
+        2,
+        120,
+        124
+      ],
+      "carry_caller_cycles": 384,
+      "genuine_gate_and_consumer_hits": {
+        "movement": 1,
+        "consumer": 1,
+        "city": 1
+      }
+    }
+  ],
+  "final_contract": "Exact final A/X/Y/P(all bits)/SP, all named six-slot native/private actor fields, ObjectOffset and restored PRG bank state. No CPU flag exclusions.",
+  "limits": "Isolated movement/Offscreen caller: no collision/graphics/full RunNormalEnemies, whole application RAM/dead stack/SMC equality, IRQ/NMI/native route timing or River City damage/throw progression claim."
+}

@@ -50,7 +50,7 @@ IsMac:
 .endproc
 .endif
 .endmacro
-TnProbeGate TnFastSideGate,TnSideDispatch,TnMacSideProbe,Z2SideAdmission
+TnProbeGate TnFastSideGate,TnSideDispatch,TnMacSideProbe,NrSide
 .proc TnFastHeadGate
  php
  pha

@@ -70,6 +70,7 @@ DwHang=$73f7
 .include "cv3_state.inc"
 .include "little_mac_state.inc"
 .include "tmnt_state.inc"
+.include "ice_climbers_state.inc"
 .endif
 
 .if MAPPER_MMC5
@@ -178,7 +179,7 @@ CrossoverChrStart:
 .if ::ENABLE_CROSSOVER
 .if ::MAPPER_MMC5
 .if ::ENABLE_MMC5_EXPANDED
-.incbin "chr/characters/packed-mmc5-expanded.chr"
+.incbin "chr/characters/packed-mmc5-roster-expanded.chr"
 .else
 .incbin "chr/characters/packed-mmc5.chr"
 .endif
@@ -532,4 +533,13 @@ Done:
 
 .if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
 .include "chip_hud_queue.s"
+.endif
+
+.if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
+; New profiles are linked before they are exposed by the character selector.
+.include "ice_climbers.s"
+.include "river_city.s"
+.include "mac_roster.s"
+.include "mac_roster_adapter.s"
+.include "new_roster_dispatch.s"
 .endif

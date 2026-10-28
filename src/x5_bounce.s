@@ -105,7 +105,7 @@ Cv3:
 NewFamily:
   cmp #13
   bcc No
-  cmp #20
+  cmp #28
   bcs No
   cmp #18
   beq No
@@ -621,7 +621,7 @@ CameraResult:
   lda SelectedCharacter
   cmp #13
   bcc Done
-  cmp #20
+  cmp #28
   bcs Done
   cmp #18
   beq CurrentPosition          ; Vic advances his own autoscrolling camera.

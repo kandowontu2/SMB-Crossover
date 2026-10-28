@@ -1,0 +1,35 @@
+Pre-change traversal list, 2026-10-28
+
+Baseline private ROM62dd860e9dd6d5414cd6251c5bd0557c5c14b6872aacf81d5e628eb4bab8caff.
+No level geometry or helper coordinates are changed by this plan.
+
+Observed negatives:
+1. Generic Mario lookahead launches Popo too early at the first1-1 pit:
+   discovery v1 falls at worldX1120, frame2900. Its input and31MB single
+   lossless capture are retained; no full-level pass was credited.
+2. Edge-aware Ice controller v2 clears that first pit, then falls in the next
+   wider pit at worldX1409, frame2519. Original locked air speed is at most
+   144/256px per update; its~64-update arc cannot span a normal48px gap.
+   This distinguishes the controller issue from the actual traversal limit.
+
+Planned changes, before editing:
+1. Explicit SMB adaptation: double Ice's two original fractional air speeds
+   69/256->138/256 and144/256->288/256. The faster value now matches his
+   1.125px ground walk. Keep original run buildup, locked air direction,
+   falling-only initial steering, fixed jump arc and hammer timing.
+   The existing67px pipe-clearance jump adaptation remains documented.
+   This is an adaptation, not exact original Ice Climber displacement.
+2. Repair existing accommodation identity: AreaPointer is the next pipe's
+   destination after ParseRow0e; it is not a stable loaded-scene ID. Use
+   (AreaType<<5)|AreaAddrsLOffset, which the real area loader sets, for the
+   existing helper and authored-cell checks. Preserve ordinary mapper bytes
+   by limiting this correction initially to the expanded target.
+3. Admit Ice to existing horizontal accommodations and River City to existing
+   horizontal/vertical accommodations as explicit new-roster adaptations.
+   Keep all34 placements from the prior complete level audit unchanged.
+   Continue using native platform25/28, native actor slots, collision/carry,
+   graphics and sine motion. Add no terrain, tiles, actors or helper records.
+
+Validation still required after these changes: bounded loaded-scene/destination
+counterexamples, native1-1 route, independent replay, screenshot review and
+old-profile regression. None is implied by writing this plan.

@@ -1,0 +1,237 @@
+{
+  "status": "active character expansion; pause canceled",
+  "baseline_ROM_sha256": "85afad507fa7abac29603c65bf5f7d9cadd224a24fd13ff2fd22f541b65729aa",
+  "old_work_checkpoint": "docs/qa/before-roster-expansion-2026-10-28.json",
+  "request": "docs/new-roster-request-2026-10-28.txt",
+  "confirmed_new_slots": [
+    {
+      "slot": 19,
+      "ID": 20,
+      "name": "Ice Climbers",
+      "identities": [
+        "Popo",
+        "Nana"
+      ],
+      "status": "integrated; Popo Easy1-1 to controlled1-2 passed on7b4216 candidate; menu Popo/Nana cycle viewed; current c6d stable-scene update awaiting complete route; all-upgrade/native music qualification outstanding",
+      "agent": "mario_scrooge_source_audit"
+    },
+    {
+      "slot": 20,
+      "ID": 21,
+      "name": "River City Ransom",
+      "identities": [
+        "Alex",
+        "Ryan"
+      ],
+      "status": "linked with authentic Alex/Ryan art and brawler actions; shared actor gate2832 exact final-CPU controls passed; hidden from menu pending native route/palette review",
+      "agent": "z2_platform_native_qa"
+    },
+    {
+      "slot": 21,
+      "ID": 22,
+      "name": "Final Fantasy",
+      "identities": [
+        "Fighter",
+        "White Mage",
+        "Black Mage",
+        "Thief"
+      ],
+      "status": "queued; use supplied unused Crossover sheet"
+    },
+    {
+      "slot": 22,
+      "ID": 23,
+      "name": "Super Sunny World",
+      "identities": [
+        "Sunny"
+      ],
+      "status": "Sunny own state, original source graphics and initial Mario-family hooks frozen; source/assembly only, runtime integration pending"
+    },
+    {
+      "slot": 23,
+      "ID": 24,
+      "name": "Dragon Power",
+      "identities": [
+        "Goku"
+      ],
+      "status": "queued"
+    },
+    {
+      "slot": 24,
+      "ID": 25,
+      "name": "Super Mario Bros.2",
+      "identities": [
+        "Mario",
+        "Luigi",
+        "Toad",
+        "Peach"
+      ],
+      "status": "queued"
+    },
+    {
+      "slot": 25,
+      "ID": 26,
+      "name": "Gimmick",
+      "identities": [
+        "Yumetaro"
+      ],
+      "status": "queued"
+    },
+    {
+      "slot": 26,
+      "ID": 27,
+      "name": "Bowser",
+      "identities": [
+        "SMB Bowser",
+        "SMB3 Bowser"
+      ],
+      "status": "queued"
+    },
+    {
+      "slot": 27,
+      "ID": 28,
+      "name": "Donkey Kong",
+      "identities": [
+        "Donkey Kong"
+      ],
+      "status": "queued; source game spelling/context requires confirmation from game data"
+    }
+  ],
+  "existing_slot_additions": [
+    {
+      "slot": "Mario",
+      "identities": [
+        "Super Maaaaaaaa neck Mario",
+        "Kamikaze Mario DX Plus naked Mario",
+        "Celeste Mario"
+      ],
+      "status": "queued; Celeste original NES source located, unique movement must be ported; Mushroom wallgrab then Flower dash"
+    },
+    {
+      "slot": "Samus",
+      "identities": [
+        "Rogue Dawn"
+      ],
+      "status": "queued; disassemble supplied ROM and port unique weapons/abilities, not a reskin"
+    },
+    {
+      "slot": "Pit",
+      "identities": [
+        "Game Boy Pit"
+      ],
+      "status": "queued; graphics source RHDN1459 direct fetch403; do not bypass challenge"
+    },
+    {
+      "slot": "Little Mac",
+      "identities": [
+        "Doc Louis",
+        "Mike Tyson"
+      ],
+      "status": "requested authored Mac update+two alternates underway; agent vehicles_tmtn_mike_mac_audit"
+    }
+  ],
+  "prospective_identity_total_if_all_confirmed": 62,
+  "prospective_slots": 28,
+  "maybe_only": [
+    "Excitebike",
+    "Karnov as Rygar alternate",
+    "Metal Storm protagonist",
+    "Contra Force four characters"
+  ],
+  "principles": [
+    "Only implemented/tested profiles become selectable.",
+    "Keep exact original assets/routines distinct from explicitly documented crossover adaptations.",
+    "Sunny is a separate profile for future powers; Celeste/Rogue Dawn require their actual unique code.",
+    "After additions, every character must clear1-1 and exercise every powerup; inspect scrolling, bump displacement, lag, physics, visuals/audio.",
+    "Expanded MMC5 remains target; workspace stays under30decimalGB, no per-frame image trees."
+  ],
+  "planned_menu": "Four rows of seven;16x24 grayscale thumbnails fit a native4KB background, dedicated full-size colored selection preview and one highlighted name. Do not expose unfinished slots.",
+  "source_files": [
+    {
+      "path": "C:\\Users\\kando\\Downloads\\sunny_rc_1_0_2026_04_26.nes",
+      "bytes": 786448,
+      "sha256": "b9487289afa9a2f2023886f1e5ffb9b5a32d4fe786eeca3b77350c87ac3622d2",
+      "mapper": 4,
+      "header": [
+        78,
+        69,
+        83,
+        26,
+        32,
+        32,
+        66,
+        8,
+        0,
+        0,
+        112,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "path": "C:\\NES\\the stash\\Metroid - Rogue Dawn 1.21 (header fixed).nes",
+      "bytes": 786448,
+      "sha256": "9271411a20cc26c09f4d4bffe74c0d69a1bf91b815f7716fcf4610c4cee61077",
+      "mapper": 4,
+      "header": [
+        78,
+        69,
+        83,
+        26,
+        32,
+        32,
+        67,
+        8,
+        0,
+        0,
+        112,
+        7,
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SNES Ports\\upstream-nes\\MG.65s",
+      "bytes": 260242,
+      "sha256": "bd5993371dc43de2b24051d161dfd95d9ebdb2df92ee9dd90b2aaab8411c23d8"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SNES Ports\\upstream-nes\\src\\Bank05_GameRoutines.65s",
+      "bytes": 93379,
+      "sha256": "4b75b1df5f2c6bd2776f5d653f76a754e70f50f06374aaf1af1f650f3be0b8a2"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SNES Ports\\upstream-nes\\0000-07FF.65s",
+      "bytes": 50821,
+      "sha256": "57c4fd4e2562a641ef6d657dd54a719a97d5b2d313065409b4c0ebf8b9ed86dc"
+    }
+  ],
+  "current_private_candidate": {
+    "path": "build/roster-expansion-mac-integrated-v4.nes",
+    "sha256": "c6d61dc035374d001fa990fff81f635cc9ca9727244ed0242435e519472ebb7d",
+    "installed": false,
+    "canonical_build_unchanged": true
+  },
+  "new_alternates_progress": {
+    "Little Mac/Doc Louis/Tyson": "source graphics and distinct cost/timing/reach/recovery integrated; c6d native menu cycle and480 active opening emulator frames pass; b5 full-gate CPU/art controls pass; current post-scene/status edits CPU recheck pending",
+    "Celeste Mario": "dedicated source-verified physics/dash/wall-stamina module in CPU qualification; not runtime integrated",
+    "Rogue Dawn": "author1.21 patch payload reproduced in memory, actual banked routines disassembled;1942B movement/weapons module passes original-ROM differential and bomb lifecycle controls; host collision, render, audio and earned-item integration pending",
+    "GB Pit": "original requested hack page403; extraction not yet complete"
+  },
+  "verification_limits": [
+    "No complete expanded-roster release or every-character/every-powerup pass.",
+    "Retain discovery negatives1/2/3; Popo controller4 uses actual inputs and physically collects mushroom.",
+    "Popo source jump/air speeds explicitly adapted for SMB traversal; helpers reuse all34 original audited native-platform placements.",
+    "Ordinary MMC3/MMC5 flag-off outputs remain byte-exact to their previous baselines.",
+    "Native Mesen uses hardware sprite limits and one process at a time; selected review <=8 whole frames, one lossless stream, no per-frame image files."
+  ],
+  "ordinary_unchanged_hashes": {
+    "mmc3": "d444cac88e13fa02b29ad16100b8f08fa565ba90f8cedde192de43fb2dc8f3eb",
+    "mmc5": "f4ffd2483c51daa4d60bb575da2da8c4d817692cda407611c243031f67520833"
+  }
+}

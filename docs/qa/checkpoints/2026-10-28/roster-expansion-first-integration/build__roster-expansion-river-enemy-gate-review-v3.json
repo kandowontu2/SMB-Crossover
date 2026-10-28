@@ -1,0 +1,197 @@
+{
+  "passed": true,
+  "source_only": true,
+  "native_run": false,
+  "actual_ROM_scope": [
+    "62dd860e9dd6d5414cd6251c5bd0557c5c14b6872aacf81d5e628eb4bab8caff",
+    "7b42160095b0c817c13a3991773c240b3c93e15eaae9833aa7d3e8f4ef0a3d37"
+  ],
+  "conclusion": "The actual sole physicalOBJECT JSR returns directly to JMP OffscreenBoundsCheck. Full final AXYP/SP and named actor/bank state match after continuous real consumer execution; no return A/P mask.",
+  "genuine_NoMove_NoRun_RTS": {
+    "baseline": {
+      "NoMoveCode": {
+        "PC": 42243,
+        "bytes": "60"
+      },
+      "NoRunCode": {
+        "PC": 42243,
+        "bytes": "60"
+      }
+    },
+    "candidate": {
+      "NoMoveCode": {
+        "PC": 42071,
+        "bytes": "60"
+      },
+      "NoRunCode": {
+        "PC": 42071,
+        "bytes": "60"
+      }
+    }
+  },
+  "dead_return_evidence": {
+    "case": [
+      0,
+      0,
+      9,
+      0,
+      0,
+      48
+    ],
+    "baseline": {
+      "-113": [
+        165,
+        0,
+        20,
+        176,
+        251
+      ],
+      "2": [
+        9,
+        0,
+        20,
+        48,
+        251
+      ],
+      "4": [
+        9,
+        0,
+        20,
+        176,
+        251
+      ]
+    },
+    "candidate": {
+      "-113": [
+        164,
+        0,
+        20,
+        176,
+        251
+      ],
+      "2": [
+        9,
+        0,
+        20,
+        48,
+        251
+      ],
+      "4": [
+        9,
+        0,
+        20,
+        176,
+        251
+      ]
+    },
+    "final_full_CPU_exact": true
+  },
+  "actual_caller": [
+    {
+      "bank": 0,
+      "start": 42123,
+      "JSR": 42128,
+      "after_JSR": 42131,
+      "consumer": 42244,
+      "bytes": "ac4a07d00320baa44c04a5",
+      "all_PRG_numeric_JSR_hits": [
+        {
+          "bank": 0,
+          "offset": 1168
+        },
+        {
+          "bank": 123,
+          "offset": 11
+        }
+      ],
+      "unrelated_same_numeric_address_calls": [
+        {
+          "bank": 123,
+          "offset": 11,
+          "PC": 40971,
+          "segment": "\"MAC_NATIVE_AUDIO\"",
+          "same_window_target_bank": 123,
+          "EnemyMovementSubs_owner": false
+        }
+      ]
+    },
+    {
+      "bank": 0,
+      "start": 42123,
+      "JSR": 42128,
+      "after_JSR": 42131,
+      "consumer": 42244,
+      "bytes": "ac4a07d00320baa44c04a5",
+      "all_PRG_numeric_JSR_hits": [
+        {
+          "bank": 0,
+          "offset": 1168
+        },
+        {
+          "bank": 123,
+          "offset": 11
+        }
+      ],
+      "unrelated_same_numeric_address_calls": [
+        {
+          "bank": 123,
+          "offset": 11,
+          "PC": 40971,
+          "segment": "\"MAC_NATIVE_AUDIO\"",
+          "same_window_target_bank": 123,
+          "EnemyMovementSubs_owner": false
+        }
+      ]
+    }
+  ],
+  "controls": {
+    "differential": 2832,
+    "timer_skip": 30,
+    "city_cells": 12,
+    "each_city_cell": "four real stun-consumed calls then genuine carry attach through shared gate and Offscreen consumer"
+  },
+  "cpu_costs": {
+    "differential_delta": [
+      5,
+      162
+    ],
+    "city_stun": 354,
+    "city_carry": 384,
+    "scope": "Includes genuine LDY/BNE/JSR and full Offscreen consumer, no IRQ/NMI"
+  },
+  "retained_negatives": {
+    "v1": "Full function return NZ mismatch; retained FALSE",
+    "v2": "Full function return A5/A4 mismatch from moved genuine no-op RTS; retained FALSE",
+    "v3": "Oracle first encoded TimerControl as zero-page; actual absolute LDY074A; retained FALSE and exact tool copy",
+    "v3b": "Numeric JSR A4BA also exists in physical123 MAC_NATIVE_AUDIO; actual same-window target is123:A4BA, not OBJECT0:A4BA; retained FALSE and exact tool copy"
+  },
+  "limits": "Isolated movement/Offscreen caller: no collision/graphics/full RunNormalEnemies, whole application RAM/dead stack/SMC equality, IRQ/NMI/native route timing or River City damage/throw progression claim.",
+  "owned_files": {
+    "tools/audit/roster_expansion_enemy_gate_controls_v3.py": {
+      "sha256": "2d0eb39d22d8be91bd91a2fe2c0f20504d0e1ea069f4b8bb31d0ee78f257aaf3",
+      "bytes": 13168
+    },
+    "build/roster-expansion-river-enemy-gate-controls-v3c.json": {
+      "sha256": "c8fb201c23081b47dca8acd15f63da10f1ef3e1d3502cfda0fa39a308fc01129",
+      "bytes": 18202
+    },
+    "build/roster-expansion-river-enemy-gate-controls-v3.json": {
+      "sha256": "81da6f823bfee0059ddd69b25a1acac32da97873e32dbdfdf85b51a52ac1710f",
+      "bytes": 2524
+    },
+    "build/roster-expansion-enemy-gate-controls-v3-operand-negative.py": {
+      "sha256": "01e04e73359cddd930a5de53c5e331cbd90fe39c3594966b3649a82e66e1b9df",
+      "bytes": 12114
+    },
+    "build/roster-expansion-river-enemy-gate-controls-v3b.json": {
+      "sha256": "9c7cdffd287fc4a36ea2834a88c21e6b051808f2eb20ee15b0e0eca75d1a4ea0",
+      "bytes": 2554
+    },
+    "build/roster-expansion-enemy-gate-controls-v3b-numeric-alias-negative.py": {
+      "sha256": "10b28447ffe3d8d354121f6ac461ef2ace2dba144986b5b7b4ffbb735b345153",
+      "bytes": 12150
+    }
+  },
+  "command": "python tools/audit/roster_expansion_enemy_gate_controls_v3.py --baseline build/roster-expansion-ice-native-v1.nes --rom build/roster-expansion-traversal-v1.nes --output NEW-RECEIPT.json",
+  "no_shared_or_ROM_mutation": true
+}

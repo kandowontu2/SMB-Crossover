@@ -381,7 +381,7 @@ NoBGColor:
 
 GetPlayerColors:
 .if ::ENABLE_MMC5_EXPANDED
-  farcall X5GetPlayerColors,jmp
+  farcall NrColors,jmp
 .else
 .if ::ENABLE_CROSSOVER
   jsr QueueMegaManFacePalette

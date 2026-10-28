@@ -265,7 +265,7 @@ Save:lda R0,x
  lda CheatInvincible
  and #CheatPower
  beq Restore
- jsr CheatsFullPower
+ farcall NrFullPower
 Restore:
  ldx #0
 Pop:pla

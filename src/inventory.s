@@ -112,9 +112,9 @@ No:
   bcc LegacySupported
   cpx #15
   beq LegacySupported
-  cpx #20
+  cpx #28
   bcs LegacySupported
-  ; CPX20 left C clear. None of the checks/pops changes V/D/I, so discard
+  ; CPX28 left C clear. None of the checks/pops changes V/D/I, so discard
   ; saved P rather than restoring its old carry. TXA supplies final N/Z.
   pla
   pla

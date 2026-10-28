@@ -292,6 +292,10 @@ WriteMetasprite:
     jsr MoveNormalEnemy
     jmp SprObjectOffscrChk
 Exit:
+.if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
+::NoMoveCode:
+::NoRunCode:
+.endif
   rts
 .endproc
 
@@ -352,6 +356,17 @@ NativePlayerCollision:
       jmp PlayerEnemyCollision
 
 EnemyMovementSubs:
+.if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
+      ; Keep the old74-byte dispatch/no-op region and every following PC.
+      ; Ordinary active actors add only this exact-ID admission. Stopped
+      ; actors and River City use the cold owner; both discard incoming A.
+      lda SelectedCharacter
+      cmp #CHARACTER_RIVER_CITY
+      beq NrEnemyCold
+      lda RgEnemyStun,x
+      bne NrEnemyCold
+::NrNativeEnemyMovement:
+.else
 .if ::ENABLE_CROSSOVER
       lda RgEnemyStun,x
       beq :+                     ; Ordinary motion has no mapper round-trip.
@@ -359,6 +374,7 @@ EnemyMovementSubs:
       bcc :+
       rts
       :
+.endif
 .endif
       lda Enemy_ID,x
       jsr JumpEngine
@@ -387,9 +403,22 @@ EnemyMovementSubs:
 
 ;--------------------------------
 
+.if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
+NrEnemyCold:
+      ; The native leaf overwrites A before consuming it, including its
+      ; old stun predicate. Do not preserve an unrelated stale SafecallA.
+      lda #<NrEnemyMovement
+      SMC_StoreLowByte FarcallJmpTarget,a
+      lda #>NrEnemyMovement
+      SMC_StoreHighByte FarcallJmpTarget,a
+      lda #.bank(NrEnemyMovement)|MMC5_PRG_ROM
+      jmp FarCallCommon
+      .assert *-EnemyMovementSubs=74,error,"Original enemy/no-op footprint"
+.else
 NoMoveCode:
 NoRunCode:
       rts
+.endif
 
 ;-------------------------------------------------------------------------------------
 ;$00 - page location of extended left boundary
@@ -3253,7 +3282,7 @@ RunPUSubs: jsr RelativeEnemyPosition  ;get coordinates relative to screen
            jsr DrawPowerUp            ;draw the power-up object
 .if ::ENABLE_CROSSOVER
 .if ::ENABLE_MMC5_EXPANDED
-           farcall JnCollisionDispatch
+           farcall NrPickupCollision
 .else
            farcall InventoryPickupCollision
 .endif
