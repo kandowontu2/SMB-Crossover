@@ -1,0 +1,129 @@
+{
+  "status": "Controller-only successor native PASS; both additional input negatives preserved",
+  "goal_complete": false,
+  "ROM_sha256": "32694243361bb1366f6fd64c054ea2451f86b2517fc020d9c2b5d66bbf07bfa0",
+  "game_source_changed": false,
+  "negative_attempts": [
+    {
+      "profile": "compact-326942-zelda2-easy-v2",
+      "passed": false,
+      "frames": 2331,
+      "native_reason": "Zero-death 1-1 route",
+      "diagnosis": "Input policy launches the second gap too early from near-standing speed; the paid Jump spell is active. No collision or jump-physics regression is inferred.",
+      "original_ready_sha256": "461f37537607e4f70f17d6ecddd6b7146a2aecfb3aff93fe41648089e59dd1b0",
+      "original_result_sha256": "d57c1257f3f9f5bc15ff444cbd4dda6dc53a14b2e49c8afd43db143c9f687256",
+      "full_lossless_capture_retained_locally": {
+        "path": "build\\verification\\compact-326942-zelda2-easy-v2\\captures.nesppuv1",
+        "sha256": "9ebd91521ad2b63cb181f01057318c2d07e6e0d75caf09ee2d4c2e59041b1c22"
+      },
+      "checkpoint": "docs/qa/checkpoints/2026-10-28/zelda2-easy-controller-326942/native-v2-negative"
+    },
+    {
+      "profile": "compact-326942-zelda2-easy-v3",
+      "passed": false,
+      "frames": 4533,
+      "native_reason": "Controller stationary for 300 genuinely active completed updates",
+      "diagnosis": "The second-gap correction crosses that gap, but the inherited final-stair phase fails to re-arm A after landing on the lower step. The stationary watchdog remains unchanged.",
+      "original_ready_sha256": "044e017c7a3e8d87274cb54493c97d13657f6af1e9d367ada46c0bbfba0bbb85",
+      "original_result_sha256": "009ba3939bfabce6919c2841ed7cc178f32d13629826a85146e5393c8402c8e1",
+      "full_lossless_capture_retained_locally": {
+        "path": "build\\verification\\compact-326942-zelda2-easy-v3\\captures.nesppuv1",
+        "sha256": "1ae6fbf9994847baf50a3b6160bbc04f4f0d07d8cd72c24ad2651d3b4fa513fa"
+      },
+      "checkpoint": "docs/qa/checkpoints/2026-10-28/zelda2-easy-controller-326942/native-v3-negative"
+    }
+  ],
+  "source_checkpoints": [
+    {
+      "original": "build/zelda2_easy_route_diagnosis_v1/air-entry-controls.json",
+      "original_sha256": "6f677ad1d46562092aab46ade33edb69d4ae76ca66be4105e5c7931fce514037",
+      "checkpoint": "docs/qa/checkpoints/2026-10-28/zelda2-easy-controller-326942/second-gap/air-entry-controls.json.gz",
+      "checkpoint_sha256": "8f951a8e5a15057443f4e167596dbb38d96602cf1f4aa2d937facf575afbd793"
+    },
+    {
+      "original": "build/zelda2_easy_route_diagnosis_v1/comparison-and-negatives.json",
+      "original_sha256": "7149ab13c2435a16996a24bdd3967ebbca324e7cbc51508f72d57573656f034d",
+      "checkpoint": "docs/qa/checkpoints/2026-10-28/zelda2-easy-controller-326942/second-gap/comparison-and-negatives.json",
+      "checkpoint_sha256": "7149ab13c2435a16996a24bdd3967ebbca324e7cbc51508f72d57573656f034d"
+    },
+    {
+      "original": "build/zelda2_easy_route_diagnosis_v1/eight-actual-whole-frames.png",
+      "original_sha256": "bf17cfc17e6d47b253d8be2a09b0afd15720d79f65113e021ad170d9008de9ba",
+      "checkpoint": "docs/qa/checkpoints/2026-10-28/zelda2-easy-controller-326942/second-gap/eight-actual-whole-frames.png",
+      "checkpoint_sha256": "bf17cfc17e6d47b253d8be2a09b0afd15720d79f65113e021ad170d9008de9ba"
+    },
+    {
+      "original": "build/zelda2_easy_route_diagnosis_v1/placements.json",
+      "original_sha256": "1dc71b1f4c9652a06c7781f6cf24b3cea5bbec632ec1117168528f8019880acc",
+      "checkpoint": "docs/qa/checkpoints/2026-10-28/zelda2-easy-controller-326942/second-gap/placements.json",
+      "checkpoint_sha256": "1dc71b1f4c9652a06c7781f6cf24b3cea5bbec632ec1117168528f8019880acc"
+    },
+    {
+      "original": "build/zelda2_easy_route_diagnosis_v1/source-controls.json",
+      "original_sha256": "e4726898d7665791b3fcc610dc018af5fec1ee589fde52a89622f9a447c4233c",
+      "checkpoint": "docs/qa/checkpoints/2026-10-28/zelda2-easy-controller-326942/second-gap/source-controls.json.gz",
+      "checkpoint_sha256": "fae8107291afd7e5409431806fea79fb34eb2df52438cb792a61c5677e026135"
+    },
+    {
+      "original": "build/verification/compact-326942-zelda2-easy-v3/ready.json",
+      "original_sha256": "044e017c7a3e8d87274cb54493c97d13657f6af1e9d367ada46c0bbfba0bbb85",
+      "checkpoint": "docs/qa/checkpoints/2026-10-28/zelda2-easy-controller-326942/second-gap/ready.json",
+      "checkpoint_sha256": "044e017c7a3e8d87274cb54493c97d13657f6af1e9d367ada46c0bbfba0bbb85"
+    },
+    {
+      "original": "build/verification/compact-326942-zelda2-easy-v3/run.lua",
+      "original_sha256": "1793ee1c4f03909f47d8720bc28a499f85aef0386ff57cf59833dc69c1a3e096",
+      "checkpoint": "docs/qa/checkpoints/2026-10-28/zelda2-easy-controller-326942/second-gap/run.lua",
+      "checkpoint_sha256": "1793ee1c4f03909f47d8720bc28a499f85aef0386ff57cf59833dc69c1a3e096"
+    },
+    {
+      "original": "build/verification/compact-326942-zelda2-easy-v3/command.json",
+      "original_sha256": "6ebfa74fa1dc299a985518c391c7dd88b601b1a28309e71b2a51f6f6574b2a80",
+      "checkpoint": "docs/qa/checkpoints/2026-10-28/zelda2-easy-controller-326942/second-gap/command.json",
+      "checkpoint_sha256": "6ebfa74fa1dc299a985518c391c7dd88b601b1a28309e71b2a51f6f6574b2a80"
+    },
+    {
+      "original": "build/zelda2_easy_final_stair_v6/four-actual-whole-frames.png",
+      "original_sha256": "94c80f284ea3a1ab92979a627aac1e12ad5f44d3262463d54c62a9f2717ecc2b",
+      "checkpoint": "docs/qa/checkpoints/2026-10-28/zelda2-easy-controller-326942/final-stair/four-actual-whole-frames.png",
+      "checkpoint_sha256": "94c80f284ea3a1ab92979a627aac1e12ad5f44d3262463d54c62a9f2717ecc2b"
+    },
+    {
+      "original": "build/zelda2_easy_final_stair_v6/placements.json",
+      "original_sha256": "01f8cbe8f17ba092f2bc499b3bd959307fd614cec9e946679510afbc23f7284b",
+      "checkpoint": "docs/qa/checkpoints/2026-10-28/zelda2-easy-controller-326942/final-stair/placements.json",
+      "checkpoint_sha256": "01f8cbe8f17ba092f2bc499b3bd959307fd614cec9e946679510afbc23f7284b"
+    },
+    {
+      "original": "build/zelda2_easy_final_stair_v6/source-controls.json",
+      "original_sha256": "8ea6c6f0a413197673d2d6f5cde45e02d032be045ba7eaecdac558f0f549f1cb",
+      "checkpoint": "docs/qa/checkpoints/2026-10-28/zelda2-easy-controller-326942/final-stair/source-controls.json.gz",
+      "checkpoint_sha256": "702e984a93b524589bad309087c3e0d9aae052833c54aaf10837f25464c8d787"
+    },
+    {
+      "original": "build/verification/compact-326942-zelda2-easy-v4/ready.json",
+      "original_sha256": "9792c64a2e8c362b64311d0b0e81fef2dc9923d65f7aae8a83a5d474a7ba255b",
+      "checkpoint": "docs/qa/checkpoints/2026-10-28/zelda2-easy-controller-326942/final-stair/ready.json",
+      "checkpoint_sha256": "9792c64a2e8c362b64311d0b0e81fef2dc9923d65f7aae8a83a5d474a7ba255b"
+    },
+    {
+      "original": "build/verification/compact-326942-zelda2-easy-v4/run.lua",
+      "original_sha256": "765e86542043834dc4d67fc2cbb423a23c4dcde8c7e09761731393e3058e5ff6",
+      "checkpoint": "docs/qa/checkpoints/2026-10-28/zelda2-easy-controller-326942/final-stair/run.lua",
+      "checkpoint_sha256": "765e86542043834dc4d67fc2cbb423a23c4dcde8c7e09761731393e3058e5ff6"
+    },
+    {
+      "original": "build/verification/compact-326942-zelda2-easy-v4/command.json",
+      "original_sha256": "5dba983934f9ef33c742775ad996b8cde0be88bc85a5d849d3a4c2c28f2002a9",
+      "checkpoint": "docs/qa/checkpoints/2026-10-28/zelda2-easy-controller-326942/final-stair/command.json",
+      "checkpoint_sha256": "5dba983934f9ef33c742775ad996b8cde0be88bc85a5d849d3a4c2c28f2002a9"
+    }
+  ],
+  "ROOT_selected_diagnostic_whole_frames_visually_reviewed": {
+    "second_gap": 8,
+    "final_stair": 4
+  },
+  "passing_route_report": "docs/qa/zelda2-current326942-easy-route-2026-10-28.json",
+  "passing_route_sha256": "da6ecd4d10b0ddf617f591f611526fbd40852add7844ae0564e0b3e74ae71d7e",
+  "scope": "Original guards, death bound, watchdog and endpoint retained. No all-frame, source-fidelity, audio or performance certification."
+}

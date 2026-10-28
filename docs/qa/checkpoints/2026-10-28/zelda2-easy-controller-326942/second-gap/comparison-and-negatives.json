@@ -1,0 +1,104 @@
+{
+  "passed": true,
+  "native_run": false,
+  "old_ROM_sha256": "8487c439ded9bc6274e1dc8f8e051494fa96ee518553d9c2f382eccf2e71d0e6",
+  "current_ROM_sha256": "32694243361bb1366f6fd64c054ea2451f86b2517fc020d9c2b5d66bbf07bfa0",
+  "actual_compiled_spans": [
+    {
+      "name": "Z2Movement",
+      "bytes": 441,
+      "pc": 42023,
+      "exact": true
+    },
+    {
+      "name": "Z2MovementCameraExit",
+      "bytes": 22,
+      "pc": 42464,
+      "exact": true
+    },
+    {
+      "name": "Z2PlatformGroundY",
+      "bytes": 36,
+      "pc": 43341,
+      "exact": true
+    },
+    {
+      "name": "Z2TryCast",
+      "bytes": 113,
+      "pc": 41187,
+      "exact": true
+    },
+    {
+      "name": "Z2CollectReward",
+      "bytes": 147,
+      "pc": 42800,
+      "exact": true
+    },
+    {
+      "name": "Z2Native::L93B0..Z2Native::LD247",
+      "bytes": 1063,
+      "pc": 40960,
+      "exact": true
+    },
+    {
+      "name": "L_GroundArea6..L_GroundArea7",
+      "bytes": 101,
+      "pc": 45516,
+      "exact": true
+    }
+  ],
+  "old_Hard_scope": "8487 mode1 actual pass5888/5629Main, not current mode0 proof. Actual old crossing used upper brickY48; current failure took floorY176.",
+  "selected_actual_frames": {
+    "agent_visual_review": true,
+    "count": 8,
+    "scope": "One sampled whole-frame sheet. No exhaustive graphics or collision verdict.",
+    "sheet_sha256": "bf17cfc17e6d47b253d8be2a09b0afd15720d79f65113e021ad170d9008de9ba",
+    "placements_sha256": "1dc71b1f4c9652a06c7781f6cf24b3cea5bbec632ec1117168528f8019880acc"
+  },
+  "negatives": {
+    "compact-326942-zelda2-easy-v1": {
+      "ROM_sha256": "32694243361bb1366f6fd64c054ea2451f86b2517fc020d9c2b5d66bbf07bfa0",
+      "actual_mode": 0,
+      "frame": 1855,
+      "reason": "Zero-death 1-1 route",
+      "passed": false,
+      "preserved_files": {
+        "capture-budget.json": "b3d802fb55e7ba16a02913e84bbc1b179cc3e03713fa107653e6c7b909fe9be4",
+        "captures-index.jsonl": "f8bcf185e4fcb320e82ff32e1818444426adcc215b545de37cc6acfa25218714",
+        "captures.nesppuv1": "5acdc576776b2ab028adfc87157130524858cf569a03ed6c95889112656116e8",
+        "events.jsonl": "9dc6e8aad312afc708a556e881f20cba5ad80654afbb2c3a16055a6385c00d83",
+        "inputs.csv": "07d153127dd0102d50c0e87bd72eed805f832a7eedac0fab8148f5735d366a3c",
+        "launch.json": "78f264720af358b9b06ea03c08c7eb2e7e2a56bda497562e2641ff85b19e43dd",
+        "ready.json": "65b54e59784b74d2b19b5fed0d05ab995b4c3a98a6ec3b76d8ab61f2ac05baba",
+        "result.json": "87c0524ea2ff7cc0ccc2d0888a650c06ea4f2a45284c298a4e0da9c47142931d",
+        "review.json": "ebeb89bc36d45f3c3a342fd0f121f3f5e9fb4d572ae8e7f99e4316a772e7352b",
+        "run.lua": "1eccc2a5a32cc7434d40a23c46119b6a28e036b23658e5b686634194d490fa09",
+        "selected-whole-frames.png": "8ea3bede21639d6aeaf8f2ac3a42e5e3514d7598ccc7d75b544eff0e4e667ff5",
+        "smb-crossover-mmc5-expanded-run.log": "19c062f1c5d9a46810cd4c517877536599a47fe74cca2c860574b2ef5e7162b8",
+        "trace.csv": "c2f929478f7b7647839ecd0f5119a00e3d1342f8008d2969684d00b8408a2647"
+      }
+    },
+    "compact-326942-zelda2-easy-v2": {
+      "ROM_sha256": "32694243361bb1366f6fd64c054ea2451f86b2517fc020d9c2b5d66bbf07bfa0",
+      "actual_mode": 0,
+      "frame": 2331,
+      "reason": "Zero-death 1-1 route",
+      "passed": false,
+      "preserved_files": {
+        "capture-budget.json": "c6ef5d2a3aa043e3350be069356c73bf5e65ef6e8505749dd2d0106c2e81320f",
+        "captures-index.jsonl": "539ceae98595c53004725ef5b1b5b9affe669b6da6ec338593abefd120b15f6b",
+        "captures.nesppuv1": "9ebd91521ad2b63cb181f01057318c2d07e6e0d75caf09ee2d4c2e59041b1c22",
+        "events.jsonl": "3e7a197c2a9ed591f52ec7d880c96af3a0e022a4c700aeab3c841606f307a53c",
+        "inputs.csv": "4c8b9dcc483131fd0af1a41b3d9b5ee93e9a4bd1e7292101ab829351ac009907",
+        "launch.json": "20bc0794dda4fdfb683b0589bff1e97cb783501c72a5c6b9b9929001f39bf14f",
+        "ready.json": "461f37537607e4f70f17d6ecddd6b7146a2aecfb3aff93fe41648089e59dd1b0",
+        "result.json": "d57c1257f3f9f5bc15ff444cbd4dda6dc53a14b2e49c8afd43db143c9f687256",
+        "review.json": "712a2fa994eb896e32718c764181ebc515c02a05014bfe528a016ff18f400a53",
+        "run.lua": "159c1f6edf1239cb272d76953b5447b125031ac7c30232905fda459b3a30d219",
+        "selected-whole-frames.png": "b64eb3d95cc86865c9e880aa4f237acb4a2907761f605dff77cdd5ee3f11b231",
+        "smb-crossover-mmc5-expanded-run.log": "7550c9aba7fb4e7508cf462fb08ecca55f930c36fddc8954c4ebb4405b300646",
+        "trace.csv": "67d9c9fc94ae6fa670ad7adcb20311ebe853c2a2c36de4eb6b57d42528558cb1"
+      }
+    }
+  }
+}

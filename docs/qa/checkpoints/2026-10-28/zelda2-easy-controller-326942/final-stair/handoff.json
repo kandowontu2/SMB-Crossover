@@ -1,0 +1,96 @@
+{
+  "prepared": true,
+  "native_run": false,
+  "source_controls_passed": true,
+  "ROM_sha256": "32694243361bb1366f6fd64c054ea2451f86b2517fc020d9c2b5d66bbf07bfa0",
+  "ready_sha256": "9792c64a2e8c362b64311d0b0e81fef2dc9923d65f7aae8a83a5d474a7ba255b",
+  "bindings_verified": 21,
+  "command": [
+    "python",
+    "-B",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\run_mesen_isolated.py",
+    "--output",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\compact-326942-zelda2-easy-v4",
+    "--emulator",
+    "C:/Mesen2/Mesen.exe",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\compact-326942-zelda2-easy-v4\\run.lua",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\zelda2_easy_glove.nes",
+    "--timeout",
+    "600",
+    "--option=--doNotSaveSettings",
+    "--option=--nes.removeSpriteLimit=false",
+    "--option=--nes.ramPowerOnState=AllZeros",
+    "--option=--nes.randomizeCpuPpuAlignment=false",
+    "--option=--nes.randomizeMapperPowerOnState=false"
+  ],
+  "agent_visual_review": {
+    "whole_frames": [
+      4174,
+      4200,
+      4234,
+      4533
+    ],
+    "scope": "Only the four actual sampled frames, not exhaustive graphics proof"
+  },
+  "preserved_original_FALSE": {
+    "capture-budget.json": "699abf9c21e82598e6c4c8004f18e2d0c21f2727479553a672f6684ab7f33d7a",
+    "captures-index.jsonl": "a37e8ff105a9894d6cdc12487c328379330daea68792f9385be30c37dd6bb22b",
+    "captures.nesppuv1": "1ae6fbf9994847baf50a3b6160bbc04f4f0d07d8cd72c24ad2651d3b4fa513fa",
+    "command.json": "6ebfa74fa1dc299a985518c391c7dd88b601b1a28309e71b2a51f6f6574b2a80",
+    "events.jsonl": "1f363e25b55b80135e4a3fe1ee51b4bc4ef65de99c7775292672872abee137f9",
+    "inputs.csv": "ea8dcd2978e474536c9e63cb1775375dd7be8e429a6ca027ad5eab917b67ad7d",
+    "launch.json": "041e18482a4a17ba585a75a7161d5b0540e1e3506eba6109016c7b543d0679d6",
+    "ready.json": "044e017c7a3e8d87274cb54493c97d13657f6af1e9d367ada46c0bbfba0bbb85",
+    "result.json": "009ba3939bfabce6919c2841ed7cc178f32d13629826a85146e5393c8402c8e1",
+    "run.lua": "1793ee1c4f03909f47d8720bc28a499f85aef0386ff57cf59833dc69c1a3e096",
+    "trace.csv": "708ba713f60b586627aebcd14e476644c8f52f43fc45191ef579ccf989da5ec4",
+    "zelda2_easy_glove-run.log": "09f665427f890d7d24ae32f7c6c99bb9a056a1c1666bff44642ffe003e35b631"
+  },
+  "owned_files": [
+    {
+      "path": "tools/playthroughs/current_roster_zelda2_11_v6.lua",
+      "bytes": 1404,
+      "sha256": "aaacae3a06c35b0d2853c4b5707013ffb7e2a62a4c70f1484b2e35d9cc7abc6a"
+    },
+    {
+      "path": "tools/audit/current_zelda2_final_stair_prepare_v6.py",
+      "bytes": 6461,
+      "sha256": "2d6a9f76e57971873b1c958bc537b01caba3a22e2a727cd7c4bf77bf61ac0532"
+    },
+    {
+      "path": "docs/qa/zelda2-easy-final-stair-controller-2026-10-28.txt",
+      "bytes": 2971,
+      "sha256": "30b85b297c7d3636db8eca258664d086afd2f3bf34868abe74537deadc7141be"
+    },
+    {
+      "path": "build/zelda2_easy_final_stair_v6/four-actual-whole-frames.png",
+      "bytes": 7470,
+      "sha256": "94c80f284ea3a1ab92979a627aac1e12ad5f44d3262463d54c62a9f2717ecc2b"
+    },
+    {
+      "path": "build/zelda2_easy_final_stair_v6/placements.json",
+      "bytes": 2200,
+      "sha256": "01f8cbe8f17ba092f2bc499b3bd959307fd614cec9e946679510afbc23f7284b"
+    },
+    {
+      "path": "build/zelda2_easy_final_stair_v6/source-controls.json",
+      "bytes": 421603,
+      "sha256": "8ea6c6f0a413197673d2d6f5cde45e02d032be045ba7eaecdac558f0f549f1cb"
+    },
+    {
+      "path": "build/verification/compact-326942-zelda2-easy-v4/ready.json",
+      "bytes": 13471,
+      "sha256": "9792c64a2e8c362b64311d0b0e81fef2dc9923d65f7aae8a83a5d474a7ba255b"
+    },
+    {
+      "path": "build/verification/compact-326942-zelda2-easy-v4/run.lua",
+      "bytes": 2017,
+      "sha256": "765e86542043834dc4d67fc2cbb423a23c4dcde8c7e09761731393e3058e5ff6"
+    },
+    {
+      "path": "build/verification/compact-326942-zelda2-easy-v4/command.json",
+      "bytes": 738,
+      "sha256": "5dba983934f9ef33c742775ad996b8cde0be88bc85a5d849d3a4c2c28f2002a9"
+    }
+  ]
+}

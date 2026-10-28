@@ -1,0 +1,49 @@
+Current326 Zelda II Easy v3 FALSE and input-only final-stair successor
+
+Actual v3 was stationary at4533 after4248Main, with zero deaths. The earlier
+second gap is cleared. Four saved whole PPU frames4174/4200/4234/4533 show
+the final staircase. Jump/MP031 remains visible. At4200 Link is airborne
+X2422/Y62 moving left(VX242). He lands below the top at X2400/Y128, then
+holds only Right for the final300 active updates. No hardware guard failed.
+
+The retained v1 controller has an unrecoverable phase: hop supplies A for
+10polls, then exits only after a grounded landingY<=112. This run instead
+landedY128, and the hop counter never rearms. Right-only cannot climb the
+next real step. This is an input-controller fault, not evidence that the
+game is softlocked. The old Hard pass had a different successful landing.
+
+New owned v6 wraps frozen v5. It overrides only world0/level0 X2390..2543
+with the actual final-stair map signature. It uses real A-release readback,
+can retry after a lower landing, brakes a rising approach, waits for a real
+top-step landing, then runs up and jumps over2448..2479. Everything outside
+this region retains v5. No game state, spells, HP, MP, position, physics,
+terrain or acquired outcomes are written in the prepared native route.
+
+Complete compiled current326 GameLoop controls: both modes, legal starting
+stairs2390/144,2400/128,2422/112, one or two Main updates per controller
+poll. All12 earn C0 through a prepared mature actor and pay96MP for Jump;
+all land on the top and launch2432..2434/Y112/VX18..22, landing beyond the
+gap at2523..2530 without death. Two controls with the old final Right-only
+tail remain2400/Y128 for310Main. These use typed initial scene/camera and
+actual parser cells, not a reconstruction of all unlogged native RAM.
+Lua VM and actual NMI/poll scheduling were not executed by the CPU model.
+The source JSON's inputs_per_poll field means Main updates per button poll.
+
+Prepared, NOT RUN: build/verification/compact-326942-zelda2-easy-v4
+ready.json SHA9792c64a2e8c362b64311d0b0e81fef2dc9923d65f7aae8a83a5d474a7ba255b
+All21bindings rehashed. Config is identical to v3 except controller/output
+paths. Actual numericEasy0, ROM326942, strict guards, stationary300 and
+8000 total-frame bound remain unchanged. command.json is the exact argv.
+No Mesen launch, production/default/settings/Git mutation or source clone.
+
+The original v3 result/input/trace/container/ready are unchanged; handoff
+binds their hashes without copying another raw bundle. A four-frame actual
+sheet is a sampled agent image review, not an all-pixel or native PASS.
+
+Owned files:
+tools/playthroughs/current_roster_zelda2_11_v6.lua
+tools/audit/current_zelda2_final_stair_prepare_v6.py
+docs/qa/zelda2-easy-final-stair-controller-2026-10-28.txt
+build/zelda2_easy_final_stair_v6/{source-controls.json,placements.json,
+ four-actual-whole-frames.png,handoff.json}
+build/verification/compact-326942-zelda2-easy-v4/{ready.json,run.lua,command.json}

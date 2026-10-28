@@ -247,7 +247,21 @@
     {
       "identity": "zelda2",
       "easy": {
-        "status": "pending current route"
+        "status": "cleared 1-1 and controlled1-2",
+        "native_ROM_sha256": "32694243361bb1366f6fd64c054ea2451f86b2517fc020d9c2b5d66bbf07bfa0",
+        "frames": 6194,
+        "completed_updates": 5881,
+        "captured_full_PPU_frames": 5376,
+        "PPU_stream_sha256": "90389b233bad6940b7bd3cf3db9ff3e96425ae7be00004db24da4dbc2c9695cd",
+        "zero_deaths": true,
+        "cheats_off": true,
+        "selected_whole_frames_visually_reviewed": true,
+        "all_frame_visual_review": false,
+        "independent_replay": false,
+        "native_result_sha256": "5fb481dbab12d86271f5b08262bc8e76f8a6c12a3ac2998c31b75ca01aa13f00",
+        "review_sha256": "ecb92bd2fde9eae56fb760eebc80c749ac510180484b4330ccd94c688e124e01",
+        "controller": "Input-only Zelda II Easy policy uses grounded launches for the actual second gap and retries after landing on the lower final stair. Real cold menu, full 1-1, zero deaths/cheats and 26 controlled 1-2 updates; seven selected whole PPU frames reviewed. v1-v3 input failures remain preserved. This is not every-frame visual, full-item, audio-fidelity or performance certification.",
+        "checkpoint": "docs/qa/checkpoints/2026-10-28/current-roster-326942/zelda2-easy"
       },
       "hard": {
         "status": "cleared 1-1 and controlled1-2",
@@ -273,6 +287,22 @@
           "frames": 1855,
           "reason": "Root selected the generic discovery policy instead of the prior qualified ZeldaII controller. It misses the first pit. This is retained as an input failure, not a proved ROM defect.",
           "report": "route-input-negatives-326942-2026-10-28.json"
+        },
+        {
+          "mode": "easy",
+          "native_ROM_sha256": "32694243361bb1366f6fd64c054ea2451f86b2517fc020d9c2b5d66bbf07bfa0",
+          "profile": "compact-326942-zelda2-easy-v2",
+          "frames": 2331,
+          "reason": "Input policy launches the second gap too early from near-standing speed; the paid Jump spell is active. No collision or jump-physics regression is inferred.",
+          "report": "zelda2-easy-controller-successor-2026-10-28.json"
+        },
+        {
+          "mode": "easy",
+          "native_ROM_sha256": "32694243361bb1366f6fd64c054ea2451f86b2517fc020d9c2b5d66bbf07bfa0",
+          "profile": "compact-326942-zelda2-easy-v3",
+          "frames": 4533,
+          "reason": "The second-gap correction crosses that gap, but the inherited final-stair phase fails to re-arm A after landing on the lower step. The stationary watchdog remains unchanged.",
+          "report": "zelda2-easy-controller-successor-2026-10-28.json"
         }
       ]
     },
@@ -969,16 +999,16 @@
       }
     }
   ],
-  "limits": "4 identities have exact326942 full routes; 33 other recent-lineage clears retain their predecessor ROMs. Earlier37identity3cee results are historical. Every implemented item has a collection/effect witness across recorded builds; fresh final-ROM routes/items, remaining modes/shortcut routes, complete graphics/sound and performance remain open.",
+  "limits": "5 identities have exact326942 full routes; 32 other recent-lineage clears retain their predecessor ROMs. Earlier37identity3cee results are historical. Every implemented item has a collection/effect witness across recorded builds; fresh final-ROM routes/items, remaining modes/shortcut routes, complete graphics/sound and performance remain open.",
   "goal_complete": false,
   "previous_ROM_sha256": "ee1152a49deae31e82d202159310fa3719cbcfd85de571fd1b9ac15a1cd2a7b3",
-  "exact_current_ROM_clear_identity_count": 4,
-  "predecessor_native_identity_count": 33,
+  "exact_current_ROM_clear_identity_count": 5,
+  "predecessor_native_identity_count": 32,
   "predecessor_ROM_native_identity_counts": {
     "2082c19a7364920f828e97f70040d37f1f7059bde1ea136b5c2c4532324abf36": 5,
     "9ea11eab2fc5c373a3795b013f6ed9e0d5e9781891b2ae3bf40ad2556c27b85e": 5,
     "ab221e81821dd10690ad3a1068d91c9efae6c7406230d9bd7fc4a729fdc433d2": 4,
-    "8487c439ded9bc6274e1dc8f8e051494fa96ee518553d9c2f382eccf2e71d0e6": 5,
+    "8487c439ded9bc6274e1dc8f8e051494fa96ee518553d9c2f382eccf2e71d0e6": 4,
     "4a0394b0892e6c54940856791e44bcbe9fe4e469047aca3982c3f59112a61b8b": 2,
     "6be48337ffee66a22b22de9ce134d5db323649fb4de620c43bad4ca98b80f193": 2,
     "ee1152a49deae31e82d202159310fa3719cbcfd85de571fd1b9ac15a1cd2a7b3": 7,

@@ -1,0 +1,71 @@
+Current326 Zelda II Easy route: controller-only second-gap successor
+
+The actual v2 failure is a mistimed standing jump at the second gap, not a
+missing Jump spell or evidence of changed Zelda II jump physics. Original
+v1/v2 negatives, captures, inputs and guards remain unchanged. No emulator
+was launched and no production source/build/settings were changed here.
+
+Actual native evidence (32694243361bb1366f6fd64c054ea2451f86b2517fc020d9c2b5d66bbf07bfa0):
+- Generic v1 died at1855 at the first pit. Retained v4 controller in v2
+  clears that pit: fresh jump1805 X1088/VX24; landing1863 X1169/Y176.
+- Power-change frame986 still displays SHIELD/MP127 because that image
+  precedes the new HUD publication. Frame1805 and every later reviewed
+  frame show JUMP/MP031. Thus lack of a paid Jump is not the failure cause.
+- Actual v2 ground record2249 is X1329/Y176/VX24/B+Right. Grounded
+  periodic sword attacks reduce speed to0. The new jump2267 starts at
+  X1329/Y171/VX0; apex2290 X1346/Y108. It descends into the gap at2318
+  X1383/Y177, reaching X1403/Y242/engine11 at2331.
+- Real AreaParserCore columns put this gap at1376..1423, with floor84
+  at1360 and1424. The old launch is47px before the support edge.
+
+Source comparison and limit:
+The old8487 Hardv7 pass took an upper-brick route here (X1334/Y48 at2377,
+X1389/Y48 at2450), so it did not prove this floor launch. Current/8487
+ROMs nevertheless have identical true addresses/bytes for Z2Movement
+(441B), MovementCameraExit(22B), PlatformGroundY(36B), TryCast(113B),
+CollectReward(147B), all1063B of Z2Native motion, and101B of 1-1 area data.
+Different route/input timing is sufficient to explain the different result.
+No conclusion about every collision path follows from those byte checks.
+
+Owned v5 wrapper keeps the existing v4 cast/first-pit/stair policy. Only
+world0/level0 X1296..1471 with the exact observed floor/gap cells gets a
+local landing/run-up/cross phase. It supplies normal buttons, disables B
+there, waits for native A-release, and launches near1360 with positive VX.
+It never writes player, spell, MP, health, movement, terrain or outcomes.
+Different terrain and all positions outside this interval keep the base.
+
+Complete compiled GameLoop controls on current326, both modes:
+- Six typed ground starts1296/1329/1344 physically collect prepared mature
+  C0 then pay Select's96MP. All launch1361/VX23..24, encounter the actual
+  overhead at minimumY96, and land1436/Y176 without death.
+- Two typed early standing1329 jumps fail at1404/Y242, matching the
+  observed kind of shortfall without claiming an exact native RAM replay.
+- Two real grounded B controls stop VX24 to0 and enter sword stage1.
+- Two additional earned-Jump airborne-entry controls launch from typed
+  ground1280, enter the wrapper at1297/Y109, then land/run up and cross
+  at1360/VX24, landing1435/Y176. These are source models, not native passes.
+All source models use one input per Main and an authored starting scene,
+follow camera and consume genuine queued VRAM. Lua VM/lag scheduling and
+later route obstacles remain for ROOT's bounded native run.
+
+Prepared, NOT RUN:
+build/verification/compact-326942-zelda2-easy-v3/ready.json
+SHA044e017c7a3e8d87274cb54493c97d13657f6af1e9d367ada46c0bbfba0bbb85
+All20 bound files were rehashed; all parent config fields except output,
+prefix and controller path match. Original guard/hardware/death/8000-frame
+caps remain literal. command.json contains the exact central runner argv.
+
+Read-only review:
+build/zelda2_easy_route_diagnosis_v1/eight-actual-whole-frames.png
+placements.json maps actual PPU986,1805,1955,2249,2267,2290,2318,2331.
+All8 whole frames were inspected by the agent. This is a sample, not an
+exhaustive visual/collision/FPS verdict. No new frame tree/raw bundle exists.
+
+Owned publication list (no ROM/debug/captures copied):
+tools/playthroughs/current_roster_zelda2_11_v5.lua
+tools/audit/current_zelda2_second_gap_prepare_v5.py
+docs/qa/zelda2-easy-second-gap-controller-2026-10-28.txt
+build/zelda2_easy_route_diagnosis_v1/{source-controls.json,
+ air-entry-controls.json,comparison-and-negatives.json,placements.json,
+ eight-actual-whole-frames.png,handoff.json}
+build/verification/compact-326942-zelda2-easy-v3/{ready.json,run.lua,command.json}
