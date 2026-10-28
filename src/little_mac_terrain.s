@@ -24,28 +24,19 @@ LegacyGate:
 Own:pla
  plp
  jsr BoundingBoxCore
- lda Player_Rel_XPos
- ldx RgCrouch
- beq :+
- sec
- sbc #5
-:sta BoundingBox_UL_XPos
+ jsr MacRosterTerrainProfile
  lda Player_Rel_XPos
  clc
- adc #15
- ldx RgCrouch
- beq :+
+ adc MacTerrainLeft,x
+ sta BoundingBox_UL_XPos
+ lda Player_Rel_XPos
  clc
- adc #5
-:sta BoundingBox_LR_Corner
+ adc MacTerrainRight,x
+ sta BoundingBox_LR_Corner
  lda Player_Rel_YPos
- sec
- sbc #14
- ldx RgCrouch
- beq :+
  clc
- adc #16
-:sta BoundingBox_UL_YPos
+ adc MacTerrainHead,x
+ sta BoundingBox_UL_YPos
  lda Player_Rel_YPos
  clc
  adc #32
@@ -58,6 +49,7 @@ FootBox:
 .proc LmHeadGate
  TnHotGate TnHeadDispatch
  LmGate NrHead
+::MacRosterTerrainHead:
  sty LmSavedY
  lda Player_Y_Position
  sta LmOldY
@@ -65,14 +57,11 @@ FootBox:
  sta LmOldX
  lda Player_PageLoc
  sta LmOldPage
+ jsr MacRosterTerrainProfile
  lda LmOldY
- sec
- sbc #18
- ldx RgCrouch
- beq :+
  clc
- adc #16
-:sta Player_Y_Position
+ adc MacTerrainHeadAdjust,x
+ sta Player_Y_Position
  clc
  adc #4
  cmp #32
@@ -84,9 +73,10 @@ FootBox:
  bne Sampled
  lda Player_Y_Speed
  bpl Sampled
+ jsr MacRosterTerrainProfile
  lda LmOldX
  sec
- sbc #6
+ sbc MacTerrainHeadLeftShift,x
  sta Player_X_Position
  lda LmOldPage
  sbc #0
@@ -94,9 +84,10 @@ FootBox:
  ldy LmSavedY
  jsr BlockBufferColli_Head
  bne Sampled
+ jsr MacRosterTerrainProfile
  lda LmOldX
  clc
- adc #6
+ adc MacTerrainHeadRightShift,x
  sta Player_X_Position
  lda LmOldPage
  adc #0
@@ -121,15 +112,14 @@ Sampled:pha
  and #MTILE_SOLID|MTILE_CLIMB
  cmp #MTILE_SOLID
  bne EndY
+ jsr MacRosterTerrainProfile
  lda R2
  clc
- adc #62
- ldx RgCrouch
- beq :+
+ adc #48
  sec
- sbc #16
-:sta Player_Y_Position
- and #15
+ sbc MacTerrainHead,x
+ sta Player_Y_Position
+ lda #12                     ; virtual native head Y = tile bottom minus4
  sta R4
  lda #0
  sta MarioJumpRise
@@ -138,7 +128,8 @@ Sampled:pha
  sta MmYFraction
  sta MmYFraction+1
 EndY:ply
-Finish:pla
+Finish:ldx #0
+ pla
  rts
 .endproc
 .proc LmSideGate
@@ -152,6 +143,7 @@ Finish:pla
  farcall M3SideDispatch,jmp
 Own:pla
  plp
+::MacRosterTerrainSide:
  lda GameEngineSubroutine
  cmp #8
  beq Gameplay
@@ -167,14 +159,12 @@ Gameplay:sty LmSavedY
  sta LmOldPage
  lda Player_Y_Position
  sta LmOldY
+ jsr MacRosterTerrainProfile
  ldy LmSavedY
  cpy #5
  bcs Right
- lda #2
- ldx RgCrouch
- beq :+
- lda #7
-:sta LmTemp
+ lda MacTerrainSideExpand,x
+ sta LmTemp
  lda LmOldX
  sec
  sbc LmTemp
@@ -183,11 +173,8 @@ Gameplay:sty LmSavedY
  sbc #0
  sta Player_PageLoc
  jmp Probe
-Right:lda #2
- ldx RgCrouch
- beq :+
- lda #7
-:clc
+Right:lda MacTerrainSideExpand,x
+ clc
  adc LmOldX
  sta Player_X_Position
  lda LmOldPage
@@ -197,12 +184,15 @@ Probe:
  lda LmSavedY
  and #1
  beq Lower
- lda RgCrouch
- bne Duck
  lda #0
  sta LmProbe
-Loop:ldy LmProbe
- lda Offsets,y
+Loop:
+ jsr MacRosterTerrainProfile
+ lda MacTerrainSideTopAdjust,x
+ ldy LmProbe
+ beq :+
+ lda MacTerrainSideMidAdjust,x
+: 
  clc
  adc LmOldY
  sta Player_Y_Position
@@ -212,15 +202,15 @@ Loop:ldy LmProbe
  bne Restore
  inc LmProbe
  lda LmProbe
- cmp #3
+ cmp #2
  bcc Loop
  lda R3
  jmp Restore
-Duck:lda LmOldY
+Lower:lda LmOldY
  clc
- adc #14
+ adc #6                      ; native lower24 -> logical near-foot30
  sta Player_Y_Position
-Lower:ldy LmSavedY
+ ldy LmSavedY
 ::LmVisibleLowerCall:
  jsr LmVisibleSideProbe
 Restore:pha
@@ -234,9 +224,10 @@ Restore:pha
  sta R0
  lda LmSavedEb
  sta Local_eb
+ ldx #0
+ ldy LmSavedY
  pla
  rts
-Offsets:.byte $ec,$f8,4 ; native upper sideadder8 -> actualY−12,0,+12
 .endproc
 .proc LmSideLegacy
  lda SelectedCharacter
@@ -246,6 +237,15 @@ Offsets:.byte $ec,$f8,4 ; native upper sideadder8 -> actualY−12,0,+12
 Native:jmp BlockBufferColli_Side
 .endproc
 .proc LmStandBlocked
+ jsr MacRosterTerrainProfile
+ txa
+ and #$fe
+ tax
+ cpx #4
+ bcc Save
+ lda #0                      ; Tyson duck is not shorter than idle
+ rts
+Save:
  lda Player_X_Position
  sta LmOldX
  lda Player_PageLoc
@@ -257,25 +257,46 @@ Native:jmp BlockBufferColli_Side
  sta LmResult
 Level:lda #2
  sta LmProbe
-Point:ldx LmProbe
+Point:
+ jsr MacRosterTerrainProfile
+ txa
+ and #$fe
+ tax
+ lda MacTerrainHeadRightShift,x
+ sta LmTemp
+ lda MacTerrainHeadLeftShift,x
+ sta LmTemp2
+ ldx LmProbe
  cpx #2
  beq Negative
+ cpx #0
+ bne Positive
+ lda #0
+ sta LmTemp
+Positive:
  lda LmOldX
  clc
- adc Xoffs,x
+ adc LmTemp
  sta Player_X_Position
  lda LmOldPage
  adc #0
  jmp Page
 Negative:lda LmOldX
  sec
- sbc #6
+ sbc LmTemp2
  sta Player_X_Position
  lda LmOldPage
  sbc #0
 Page:sta Player_PageLoc
- ldx LmStandLevel
- lda Yoffs,x
+ jsr MacRosterTerrainProfile
+ txa
+ and #$fe
+ tax
+ lda MacTerrainHeadAdjust,x
+ ldy LmStandLevel
+ beq :+
+ lda MacTerrainStandLowerAdjust,x
+: 
  clc
  adc LmOldY
  sta Player_Y_Position
@@ -292,7 +313,7 @@ Next:dec LmProbe
  inc LmStandLevel
  lda LmStandLevel
  cmp #2
- bcc Level
+ jcc Level
 Restore:
  lda LmOldX
  sta Player_X_Position
@@ -302,8 +323,6 @@ Restore:
  sta Player_Y_Position
  lda LmResult
  rts
-Xoffs:.byte 0,6,$fa
-Yoffs:.byte $ee,$fa
 .endproc
 .proc Z2WallLegacy
  LmGate CrossoverSourceWallDispatch
@@ -313,11 +332,9 @@ Yoffs:.byte $ee,$fa
  clc
  rts
 Native:
- lda #15
- ldx RgCrouch
- beq :+
- lda #20
-:sta LmTemp
+ jsr MacRosterTerrainProfile
+ lda MacTerrainRight,x
+ sta LmTemp
  ldy R0
  cpy #1
  bne Left
@@ -342,17 +359,14 @@ Native:
 :dec Player_X_Position
  jmp Stop
 Left:
- lda #0
- ldx RgCrouch
- beq :+
- lda #5
-:sta LmTemp
+ lda MacTerrainLeft,x
+ sta LmTemp
  lda Player_X_Position
- sec
- sbc LmTemp
+ clc
+ adc LmTemp
  sta LmTemp2
  lda Player_PageLoc
- sbc #0
+ adc #0
  sta LmOldPage
  lda LmTemp2
  and #$f0
@@ -363,11 +377,11 @@ Left:
  adc #0
  sta Player_PageLoc
  lda Player_X_Position
- clc
- adc LmTemp
+ sec
+ sbc LmTemp
  sta Player_X_Position
  lda Player_PageLoc
- adc #0
+ sbc #0
  sta Player_PageLoc
 Stop:
  lda #16
@@ -387,4 +401,28 @@ Stop:
  sec
  rts
 .endproc
+.proc MacRosterTerrainProfile
+ lda MacVariant
+ cmp #3
+ bcc :+
+ lda #0
+:asl
+ ldx RgCrouch
+ beq :+
+ ora #1
+:tax
+ rts
+.endproc
+; Conservative body core inside actual idle/duck masks; feet stay+32.
+; Tyson's guard remains tall when ducking. No former composite expansion.
+MacTerrainLeft:             .byte 2,2,0,0,2,2
+MacTerrainRight:            .byte 13,13,15,15,13,13
+MacTerrainHead:             .byte 4,12,5,14,$fa,$f9
+MacTerrainHeadAdjust:       .byte 0,8,1,10,$f6,$f5
+MacTerrainHeadLeftShift:    .byte 6,6,8,8,6,6
+MacTerrainHeadRightShift:   .byte 5,5,7,7,5,5
+MacTerrainSideExpand:       .byte 0,0,2,2,0,0
+MacTerrainSideTopAdjust:    .byte 0,8,1,10,$f6,$f5
+MacTerrainSideMidAdjust:    .byte 11,15,11,16,6,5
+MacTerrainStandLowerAdjust: .byte 7,7,9,9,$f5,$f5
 .popseg

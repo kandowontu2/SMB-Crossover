@@ -1,0 +1,152 @@
+{
+  "passed": true,
+  "native_run": false,
+  "ROM_sha256": "cea41c87a6e4919f6a5c02c637454cecd510a380be1a266b50c128d8c0e2d7da",
+  "parent_sha256": "bc346da71d6b8156600ea9750f18f8c59229e5581dd0de553a08ca569abd08bb",
+  "actual_owner": "PlayerBGCollision -> bank89 TnFastHeadGate/TnFastSideGate -> span-preserved TnMac endpoints -> actual bank93 terrain leaves; all shared foreign paths retained.",
+  "root_cause": "Old copied bank89 Mac probes retained former composite 46px head and wide side profiles despite current Mac/Doc/Tyson source art. Direct93 changes alone were unreachable from actual head/side caller.",
+  "source_scope": [
+    "src/little_mac_terrain.s",
+    "src/tmnt_mac_probes.inc"
+  ],
+  "profile": [
+    {
+      "family": "mac",
+      "pose": "idle",
+      "opaque": 319,
+      "opaque_bounds_exclusive": [
+        0,
+        2,
+        16,
+        32
+      ],
+      "logical": [
+        2,
+        4,
+        13,
+        32
+      ],
+      "padding": "2px top inset; symmetric torso inset, not a claim every logical pixel is opaque."
+    },
+    {
+      "family": "mac",
+      "pose": "duck",
+      "opaque": 234,
+      "opaque_bounds_exclusive": [
+        1,
+        10,
+        16,
+        32
+      ],
+      "logical": [
+        2,
+        12,
+        13,
+        32
+      ],
+      "padding": "2px top inset; symmetric torso inset, not a claim every logical pixel is opaque."
+    },
+    {
+      "family": "doc",
+      "pose": "idle",
+      "opaque": 359,
+      "opaque_bounds_exclusive": [
+        -2,
+        3,
+        18,
+        32
+      ],
+      "logical": [
+        0,
+        5,
+        15,
+        32
+      ],
+      "padding": "2px top inset; symmetric torso inset, not a claim every logical pixel is opaque."
+    },
+    {
+      "family": "doc",
+      "pose": "duck",
+      "opaque": 211,
+      "opaque_bounds_exclusive": [
+        -1,
+        12,
+        18,
+        32
+      ],
+      "logical": [
+        0,
+        14,
+        15,
+        32
+      ],
+      "padding": "2px top inset; symmetric torso inset, not a claim every logical pixel is opaque."
+    },
+    {
+      "family": "tyson",
+      "pose": "idle",
+      "opaque": 382,
+      "opaque_bounds_exclusive": [
+        0,
+        -8,
+        15,
+        32
+      ],
+      "logical": [
+        2,
+        -6,
+        13,
+        32
+      ],
+      "padding": "2px top inset; symmetric torso inset, not a claim every logical pixel is opaque."
+    },
+    {
+      "family": "tyson",
+      "pose": "duck",
+      "opaque": 306,
+      "opaque_bounds_exclusive": [
+        0,
+        -9,
+        17,
+        32
+      ],
+      "logical": [
+        2,
+        -7,
+        13,
+        32
+      ],
+      "padding": "2px top inset; symmetric torso inset, not a claim every logical pixel is opaque."
+    }
+  ],
+  "cases": 267,
+  "interrupt_cases": 24,
+  "minimum_interrupt_SP": 154,
+  "LM_CORE_end": 44418,
+  "cpu_costs": {
+    "empty": [
+      295,
+      1151
+    ],
+    "floor": [
+      295,
+      1151
+    ],
+    "ceiling": [
+      326,
+      1809
+    ],
+    "pipe": [
+      362,
+      805
+    ]
+  },
+  "ordinary_mmc3_sha256": "d444cac88e13fa02b29ad16100b8f08fa565ba90f8cedde192de43fb2dc8f3eb",
+  "ordinary_mmc5_sha256": "f4ffd2483c51daa4d60bb575da2da8c4d817692cda407611c243031f67520833",
+  "limits": [
+    "Private full link includes in-progress Sunny shared context; not a pure byte-union claim against Macv5. ROOT must rebuild actual integration and run these same source controls on its exact hash.",
+    "Positive complete-BG CPU cost is explicit; old collision outputs differ. No zero-cost/FPS/native-clear or deadline claim.",
+    "24 IRQ/NMI cases exercise blank-screen actual code/RTI with five SMC operands and live stack; not an actual visible native frame test.",
+    "Logical torso profiles have declared padding inside idle/duck mask extents, not per-pixel physical collision with every glove/hair pose."
+  ]
+}
