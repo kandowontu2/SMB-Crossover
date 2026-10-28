@@ -1,0 +1,156 @@
+FINAL FANTASY FOUR-CLASS COMPONENT — SOURCE-ONLY, NOT INTEGRATED/NATIVE
+
+Authoritative handoff: build/final-fantasy-component-v1/handoff.json.
+Immutable host: sunny-integrated-final55e874822160c3ab20f9ccfbca8b46cfe3b71c00bc4466a9fa8c5789bf7c0217.
+The sparse candidate only fills the agreed unused areas; it has NO selection,
+movement, combat or render dispatch hooks. ROOT must integrate those explicitly.
+Canonical, shared source, settings, Downloads, old FF audit and Rogue unchanged.
+
+AUTHENTIC SOURCE / ADAPTATIONS
+Original2.02 source.swf6374c724...; the preceding frozen audit f530f83a... and
+source-v1.json9be2faf6... authenticate bitmap39, class offsets and timelines.
+All144class/tier poses and14selected spell phases retain their source masks and
+geometry. Body palette roles use actual local NES FF1 battle palette bytes at
+file3EBB5 and class attributes3ECB4: Fighter/White16,30,36; Thief/Black28,18,21.
+Original cyan sword colors use0C/1C/2C (that row occurs in the same FF1 ROM).
+Source skin shadeFFC080 (10pixels) maps to the same FF1 skin36 role asF0D0B0;
+the two source blue shades3FBFFF/3CBCFC shareFF1 role21. This is NES color-role
+quantization, NOT byte-identical Flash RGBA or actual all-area NES palette proof.
+Primary palette reference: https://github.com/Entroper/FF1Disassembly/blob/master/Final%20Fantasy%20Disassembly/bank_0F.asm
+
+Fire/Ice original timeline rectangles point below bitmap39 (y383). The repair
+uses the existing authored matching Fire cells894,195/219/242,46x22 and Ice
+cells941/1015/1088/1161/1234,289,73-or72x70. No new sprite pixels. Fourth authored
+Fire cell remains unused, preserving the original three-frame Fire loop. Bolt
+keeps original six60x282cells. This atlas repair is an authored adaptation,
+not evidence the original blank prototype effects functioned.
+
+Source physics:630Flash jump,1400gravity,200walk. At60logical updates/sec and
+half-scale NES units: jump-5.25; speed5/3; gravity7/36. Q8.8 residuals retain the
+rational fractions within1/256px. Immediate air reversal/neutral stop, no A-
+release cut, ground action/crouch lock, ground A action cancellation. Source
+water750gravity, ground90cap, fall250cap and hTop<=32surface test are translated.
+Native springs/collision velocities import through Player_Y_Speed; vine movement
+is an explicit Cclear handoff. Native screen-top clamp is an SMB adaptation.
+Complete host terrain/climbing/spring/camera behavior still needs integration.
+
+Fighter/Thief sideB melee:100ms frames6..10 (30updates), source damage75/10,
+per-object hit dictionary represented by six-slot masks plus mandatory genuine
+object-reuse notification. Up/Down+B remain empty. Black side/Up/Down+B is
+Fire/Bolt/Ice:30prepare+18cast updates; source damage100/150/100; Fire3.75px/update,
+Ice/Bolt stationary. Actual source HRects are retained with outward half-pixel
+rounding: Fire16x19, Ice48x49, Bolt28x240. Bolt center125 derives(0+480)/2+10
+Flash then /2, HRect y5..245. Ice damages; no invented freeze. Original shared
+33/75ms AnimationTimers now advance all same-family instances together. Event
+ordering is a deterministic60Hz adapter, not an original Flash VM golden. Area
+entry starts a new local shared animation phase; it does not recreate a global
+timer running before this character existed. Three projectile slots refuse a
+new allocation while full, leaving old instances intact and preparation waiting.
+Actual authored widths determine whole-object horizontal offscreen disposal.
+
+WhiteMage was empty in the unused source. Its following rules are NEW: B uses
+the authored White attack poses and a staff-contact melee rule25damage; no new
+staff pixels are painted. Up+B prepares30updates and restores ONE lost earned
+crossover tier, consumes one real pickup-earned charge, cap3. It cannot heal
+dead/capped players or exceed highest earned tier. Mushroom earns one charge,
+Flower two. Down+B is a close defensive25damage burst using the authored Ice
+sequence; no claimed original White magic implementation.
+All classes: Mushroom/Flower normalized0/1 consumers earn protection tiers1/2.
+Tier2 selects the genuine upgraded source graphics. NEW class benefits:
+Fighter150melee, Thief25melee, Black+50spell damage, White50melee/75light plus
+finite Heal charges. Injury loses one tier,90update protection/12knockback.
+Life gains preserve gear; modulo losses reset it. FullPower is an explicit cheat
+API, excluded from earned-item claims. Easy permits stomping, Hard requires
+combat; underwater follows source no-stomp. Existing host cues are disclosed
+crossover SFX; no authentic FF music/sound import is claimed.
+
+LAYOUT / OWNERSHIP
+RawID22/menu21; FfVariant5FEF:0Fighter/1WhiteMage/2BlackMage/3Thief.
+Persistent5FC1..CE14B,5FCFfree; no5FC0(PnHitMask), Rogue5FB0..B7 or SunnyB8..BF.
+Active5C00..7F128B only when raw22 selected: state28B, three12Bprojectiles,
+64Bdescriptor/signed-chunk-offset block. No new ZP or NMI allocation. R0..R7
+are declared transient render outputs. Bank62CORE AA00..B68A3211B; ART physical
+93B000..BD51/runtimeD000..DD513410B; CHR756..78732KB. Pinned host tails areFF,
+CHR region zero. Shared CFG/consumer reservation approval remains ROOT-owned;
+no allocation/link to the current game has been performed here. CHR arithmetic
+handles the768crossing with an actual high-byte carry (256publication cases).
+
+HOST API OBLIGATIONS (ALL LEAVES CLOBBER A/X/Y/P UNLESS A/C OUTPUT STATED)
+FfGlobalInit: initial variant0/Ready0. Root new-game variant preservation applies.
+FfEnsure/FfAreaReset: lifecycle; active clear only raw22. Keep area/world checks
+after life gain. FfMovement once per active logical update; Cclear means run
+genuine native climb handoff, not success. FfWeapons once per active update
+after movement: shared clocks/projectile kinematics only; no generic enemy scan.
+FfEnemyContact A=FFmelee or projectile offset0/12/24, X=eligible native enemy0..5,
+FfTargetX/Page/Y/W/H=ACTUAL box (W/H1..64). Cset+FfDamage=exact accepted source
+HP units. Root MUST provide eligibility and apply exact damage/health/score/
+defeat/special effects; do not substitute a stock weapon type with another
+damage value. Preserve native ObjectOffset/loop index across this clobbering
+call. FfForgetEnemy X=slot is REQUIRED on genuine object destruction/reuse so
+the source dictionary does not confuse two objects sharing a native slot.
+FfPickup A=actual normalized0/1, Cset consumed; caller owns physical actor erase,
+rise/score/source provenance. No native acquisition claim from typed CPU inputs.
+FfInjuryStatus A=protection status; FfInjuryStart tail-jumps genuine KillPlayer
+when unprotected. FfDeathStart cancels weapons/gear; DeathUpdate finishes120-
+update host death presentation (crossover timing, not unfinished prototype proof).
+FfCollisionBounds returns exact R0left1/R1top6(or17crouched)/R2right15/R3bottom32.
+Use it in the shared collision bridge. FfBox12/FfAdder3 are explicitly legacy
+fallbacks (standing head8 rather than6); they are NOT source-exact geometry.
+FfHead/Side hand off genuine native probes; verify terrain adapters at integration.
+
+FfGraphics selects source pose and builds body chunk0; defaultOFF black means
+all colored body pixels fit that chunk (max8parts). SmPosePtr is the genuine
+RAM descriptor. FfSetPose A1..18 is the explicit portrait/pose entry. Graphics
+clears owned Player_SprAttrib because descriptor carries facing/palette/front
+priority. FfDraw publishes matching full physical CHR into the actual body
+window through genuine same-bank X5SetPhysicalChr. No per-character generic
+CHR table may overwrite that upper byte afterwards.
+FfRenderChunk Aentry0..157/Xchunk/Ywindow0..3, FfSlot facing0/1right/2left.
+Cset returns R0/R1descriptor,R2chunkcount,FfRenderPage, signed16bit
+FfRenderYOffset. Add that offset to the actual object's Y with high/carry;
+then publish via FfPublishChunk and draw with genuine MetaspriteRenderLoop,
+R3=0. Iterate ALL required chunks. Empty disabled-ink chunks are valid. Root
+must iterate extra body ink chunks when shadow enabled. Effects: valid offsets
+0/12/24 via FfProjectileEntry; use owner-facing only for Fire, right for Ice/
+Bolt/light as original. Record fields:kind,frame,reserved,reserved,x,page,
+xFraction,y,face,hitMask,tier,yFraction. Windows1..3 can map one full record
+each; each record's patterns fit one1KBpage. Do not overwrite body pose pointer
+or duplicate a source tick during these draw passes. Root owns OAM capacity,
+actual8-sprite crowding, raster deadline, full caller and collision qualification.
+
+PALETTE INTEGRATION IS NOT CLOSED
+FfPalettePointer returns roles only; FfEffectPalettePointer returns a four-byte
+non-Fire palette2 override. Neither publishes/queues a whole16B image. Native
+QueueGuestWeaponPalette at3F19 owns palette2 [16,30,27] for world/pickup sprites.
+Thus cyan sword/spell P2 CANNOT blindly replace it during live world rendering.
+Optional black currently uses P3color1; native P3color1 is0Fground/water,
+0Cunderground,00castle. Exact black requires deliberate composition or a
+disclosed area-shading adaptation. Tests prove masks/role indices, not actual
+all-area NES palette colors. Source legal timing prevents simultaneous Bolt/
+Ice (30prepare >27maximum moderate life); contradictory external state is
+rejected by effect-role selector. ROOT must resolve world palette ownership,
+Star/transform restoration and genuine queue-success acknowledgment before
+calling these effects graphically qualified.
+
+MEASUREMENTS / LIMITS
+Controls:720life/area cases,16rational motion cases,16direction/action cases,
+8typed item/injury campaigns,24projectile timelines,34sharedclock/pause cases,
+1512contact receipts,11foreign owners,632indexed-pixel/facing/shadow cases,
+1328genuine host OAM chunks,432pose selectors,256CHR publications and653actual
+IRQ instruction boundaries. Caller RAM/SP/bank/5SMC preservation is finite leaf
+evidence. No shared dispatch/Main/NMI/render deadline/native route claim.
+Normal four-leaf movement/weapons/graphics/publish paths1897..2683CPU before
+host draw. Full uncached default body art worst3792CPU, Fire2959, Ice8606,
+Bolt17945 (selector+real host draw); excludes caller farcall/CHR publisher/NMI/
+palette queue/audio. Bolt worst53sprite parts after excluding purple atlas
+guides, correcting earlier61preliminary estimate. Full concurrent OAM/scanline
+and frame budget can be material; no lag-free claim, no truncation hidden by
+these pixel controls. Source-art records retain every selected part; actual
+capacity rejection remains a genuine host/runtime limit needing qualification.
+
+REPRODUCE
+python tools/prepare_final_fantasy_component_v1.py
+python tools/prepare_final_fantasy_controls_v1.py
+python tools/prepare_final_fantasy_handoff_v1.py
+Only owned generated outputs in one existing build directory are overwritten.
+No emulator, runtime tree, current build, shared source or settings are touched.
