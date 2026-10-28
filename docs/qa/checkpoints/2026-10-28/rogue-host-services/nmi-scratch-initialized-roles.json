@@ -1,0 +1,373 @@
+{
+  "passed": true,
+  "native_run": false,
+  "shared_defect_accepted": false,
+  "classification": "Original service CPU negative is an UNINITIALIZED SamusAudioBank/Current fixture executing gameplay code in physical bank0. No shared NMI/audio repair justified.",
+  "active_Main_protocol": "Pinned d97e4858 GameLoop begins LDAFF/STANmiDisable. Regular0 NMI injection mid-Main is off-protocol; initialized FF lag is the admitted interrupt path.",
+  "cold_negative_rows": [
+    {
+      "raw_character": 0,
+      "initialized": false,
+      "NmiDisable": 0,
+      "init_calls": [],
+      "AreaMusicQueue_initial": 0,
+      "ticks": [
+        {
+          "tick": 0,
+          "driver_before": {
+            "SmAudioBank": 0,
+            "SmAudioCurrent": 0
+          },
+          "R2_R3_writers": []
+        }
+      ]
+    },
+    {
+      "raw_character": 2,
+      "initialized": false,
+      "NmiDisable": 0,
+      "init_calls": [],
+      "AreaMusicQueue_initial": 0,
+      "ticks": [
+        {
+          "tick": 0,
+          "driver_before": {
+            "SmAudioBank": 0,
+            "SmAudioCurrent": 0
+          },
+          "R2_R3_writers": [
+            {
+              "PC": "A529",
+              "physical_bank": 0,
+              "opcode3": "8506ad",
+              "address": "0006",
+              "value": 72,
+              "actual_JSR_path": [
+                "NonMaskableInterrupt",
+                "E3FA->F05D",
+                "F0A2->E874",
+                "EA9B->B3B4",
+                "B3B9->A504"
+              ]
+            },
+            {
+              "PC": "A530",
+              "physical_bank": 0,
+              "opcode3": "8505b5",
+              "address": "0005",
+              "value": 1,
+              "actual_JSR_path": [
+                "NonMaskableInterrupt",
+                "E3FA->F05D",
+                "F0A2->E874",
+                "EA9B->B3B4",
+                "B3B9->A504"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "raw_character": 21,
+      "initialized": false,
+      "NmiDisable": 0,
+      "init_calls": [],
+      "AreaMusicQueue_initial": 0,
+      "ticks": [
+        {
+          "tick": 0,
+          "driver_before": {
+            "SmAudioBank": 0,
+            "SmAudioCurrent": 0
+          },
+          "R2_R3_writers": []
+        }
+      ]
+    }
+  ],
+  "initialized_counterchecks": [
+    {
+      "raw_character": 0,
+      "initialized": true,
+      "NmiDisable": 0,
+      "init_calls": [
+        "AudioInit"
+      ],
+      "AreaMusicQueue_initial": 1,
+      "ticks": [
+        {
+          "tick": 0,
+          "driver_before": {
+            "SmAudioBank": 0,
+            "SmAudioCurrent": 0
+          },
+          "R2_R3_writers": []
+        },
+        {
+          "tick": 1,
+          "driver_before": {
+            "SmAudioBank": 0,
+            "SmAudioCurrent": 0
+          },
+          "R2_R3_writers": []
+        },
+        {
+          "tick": 2,
+          "driver_before": {
+            "SmAudioBank": 0,
+            "SmAudioCurrent": 0
+          },
+          "R2_R3_writers": []
+        },
+        {
+          "tick": 3,
+          "driver_before": {
+            "SmAudioBank": 0,
+            "SmAudioCurrent": 0
+          },
+          "R2_R3_writers": []
+        }
+      ]
+    },
+    {
+      "raw_character": 0,
+      "initialized": true,
+      "NmiDisable": 255,
+      "init_calls": [
+        "AudioInit"
+      ],
+      "AreaMusicQueue_initial": 1,
+      "ticks": [
+        {
+          "tick": 0,
+          "driver_before": {
+            "SmAudioBank": 0,
+            "SmAudioCurrent": 0
+          },
+          "R2_R3_writers": []
+        },
+        {
+          "tick": 1,
+          "driver_before": {
+            "SmAudioBank": 0,
+            "SmAudioCurrent": 0
+          },
+          "R2_R3_writers": []
+        },
+        {
+          "tick": 2,
+          "driver_before": {
+            "SmAudioBank": 0,
+            "SmAudioCurrent": 0
+          },
+          "R2_R3_writers": []
+        },
+        {
+          "tick": 3,
+          "driver_before": {
+            "SmAudioBank": 0,
+            "SmAudioCurrent": 0
+          },
+          "R2_R3_writers": []
+        }
+      ]
+    },
+    {
+      "raw_character": 2,
+      "initialized": true,
+      "NmiDisable": 0,
+      "init_calls": [
+        "AudioInit",
+        "SamusAudioInit"
+      ],
+      "AreaMusicQueue_initial": 1,
+      "ticks": [
+        {
+          "tick": 0,
+          "driver_before": {
+            "SmAudioBank": 15,
+            "SmAudioCurrent": 255
+          },
+          "R2_R3_writers": []
+        },
+        {
+          "tick": 1,
+          "driver_before": {
+            "SmAudioBank": 15,
+            "SmAudioCurrent": 15
+          },
+          "R2_R3_writers": []
+        },
+        {
+          "tick": 2,
+          "driver_before": {
+            "SmAudioBank": 15,
+            "SmAudioCurrent": 15
+          },
+          "R2_R3_writers": []
+        },
+        {
+          "tick": 3,
+          "driver_before": {
+            "SmAudioBank": 15,
+            "SmAudioCurrent": 15
+          },
+          "R2_R3_writers": []
+        }
+      ]
+    },
+    {
+      "raw_character": 2,
+      "initialized": true,
+      "NmiDisable": 255,
+      "init_calls": [
+        "AudioInit",
+        "SamusAudioInit"
+      ],
+      "AreaMusicQueue_initial": 1,
+      "ticks": [
+        {
+          "tick": 0,
+          "driver_before": {
+            "SmAudioBank": 15,
+            "SmAudioCurrent": 255
+          },
+          "R2_R3_writers": []
+        },
+        {
+          "tick": 1,
+          "driver_before": {
+            "SmAudioBank": 15,
+            "SmAudioCurrent": 15
+          },
+          "R2_R3_writers": []
+        },
+        {
+          "tick": 2,
+          "driver_before": {
+            "SmAudioBank": 15,
+            "SmAudioCurrent": 15
+          },
+          "R2_R3_writers": []
+        },
+        {
+          "tick": 3,
+          "driver_before": {
+            "SmAudioBank": 15,
+            "SmAudioCurrent": 15
+          },
+          "R2_R3_writers": []
+        }
+      ]
+    },
+    {
+      "raw_character": 21,
+      "initialized": true,
+      "NmiDisable": 0,
+      "init_calls": [
+        "AudioInit"
+      ],
+      "AreaMusicQueue_initial": 1,
+      "ticks": [
+        {
+          "tick": 0,
+          "driver_before": {
+            "SmAudioBank": 0,
+            "SmAudioCurrent": 0
+          },
+          "R2_R3_writers": []
+        },
+        {
+          "tick": 1,
+          "driver_before": {
+            "SmAudioBank": 0,
+            "SmAudioCurrent": 0
+          },
+          "R2_R3_writers": []
+        },
+        {
+          "tick": 2,
+          "driver_before": {
+            "SmAudioBank": 0,
+            "SmAudioCurrent": 0
+          },
+          "R2_R3_writers": []
+        },
+        {
+          "tick": 3,
+          "driver_before": {
+            "SmAudioBank": 0,
+            "SmAudioCurrent": 0
+          },
+          "R2_R3_writers": []
+        }
+      ]
+    },
+    {
+      "raw_character": 21,
+      "initialized": true,
+      "NmiDisable": 255,
+      "init_calls": [
+        "AudioInit"
+      ],
+      "AreaMusicQueue_initial": 1,
+      "ticks": [
+        {
+          "tick": 0,
+          "driver_before": {
+            "SmAudioBank": 0,
+            "SmAudioCurrent": 0
+          },
+          "R2_R3_writers": []
+        },
+        {
+          "tick": 1,
+          "driver_before": {
+            "SmAudioBank": 0,
+            "SmAudioCurrent": 0
+          },
+          "R2_R3_writers": []
+        },
+        {
+          "tick": 2,
+          "driver_before": {
+            "SmAudioBank": 0,
+            "SmAudioCurrent": 0
+          },
+          "R2_R3_writers": []
+        },
+        {
+          "tick": 3,
+          "driver_before": {
+            "SmAudioBank": 0,
+            "SmAudioCurrent": 0
+          },
+          "R2_R3_writers": []
+        }
+      ]
+    }
+  ],
+  "limits": [
+    "Four warm ticks with actual AudioInit/selected SamusAudioInit and AreaMusicQueue1; not all tracks/effects.",
+    "Raw21 result is pinned55e generic routing, not a claim about current RCR source/native.",
+    "Private-temporary implementation is conservative and costs more; not an engine repair/performance gain."
+  ],
+  "bindings": [
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\rogue_dawn_host_services_nmi_roles_v1.py",
+      "bytes": 4544,
+      "sha256": "512b7b9c29362854c72dcef250a948bdcae87db11ea3ba1c4fe2ba49146eb0fd"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\sunny-integrated-final.nes",
+      "bytes": 2097168,
+      "sha256": "55e874822160c3ab20f9ccfbca8b46cfe3b71c00bc4466a9fa8c5789bf7c0217"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\sunny-integrated-final.dbg",
+      "bytes": 27658081,
+      "sha256": "db5d78ec8114f76c3b8e5e9eebddf060d7cdc40a510009cde0b2c79d651c66fb"
+    }
+  ]
+}

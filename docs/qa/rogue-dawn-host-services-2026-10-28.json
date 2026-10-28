@@ -1,0 +1,413 @@
+{
+  "status": "FROZEN independent A95 host service component; not shared integration, cartridge candidate, native readiness or a playable-character PASS",
+  "native_run": false,
+  "canonical_edits": [],
+  "shared_edits": [],
+  "active_owned_processes": [],
+  "host_parent": {
+    "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\sunny-integrated-final.nes",
+    "bytes": 2097168,
+    "sha256": "55e874822160c3ab20f9ccfbca8b46cfe3b71c00bc4466a9fa8c5789bf7c0217"
+  },
+  "host_DBG": {
+    "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\sunny-integrated-final.dbg",
+    "bytes": 27658081,
+    "sha256": "db5d78ec8114f76c3b8e5e9eebddf060d7cdc40a510009cde0b2c79d651c66fb"
+  },
+  "source_authority": {
+    "path": "C:\\NES\\the stash\\Metroid - Rogue Dawn 1.21 (header fixed).nes",
+    "bytes": 786448,
+    "sha256": "9271411a20cc26c09f4d4bffe74c0d69a1bf91b815f7716fcf4610c4cee61077"
+  },
+  "immutable_host_source_roles": [
+    {
+      "path": "src/game.s",
+      "Git_ref": "d97e4858",
+      "Git_blob_SHA256": "328bae039dbce7ae75e78bb552ef653fb0333dbb02146dee72888b70651a0f94",
+      "copied_to_output": false
+    },
+    {
+      "path": "src/reset.s",
+      "Git_ref": "d97e4858",
+      "Git_blob_SHA256": "e108562a322dfe93c95caec209dd44329bee5ecedc6bd08083f80497f05172f5",
+      "copied_to_output": false
+    },
+    {
+      "path": "src/samus_audio.s",
+      "Git_ref": "d97e4858",
+      "Git_blob_SHA256": "b6ecbb5dbe5b2dc82870e726d83b0e43ad361becaf44bbf1b986c3aad3b38ff4",
+      "copied_to_output": false
+    },
+    {
+      "path": "src/guest_audio.s",
+      "Git_ref": "d97e4858",
+      "Git_blob_SHA256": "c916cc7a9836aa8b7d0e94849acc16ab51bcce0da39a8cffabe76ac0de34eb91",
+      "copied_to_output": false
+    }
+  ],
+  "placements": {
+    "A95": {
+      "start": "A600",
+      "end_exclusive": "B004",
+      "bytes_including_frozen_helpers": 2564,
+      "frozen_helper_bytes": 219,
+      "remaining_of_6656": 4092,
+      "RdHostDispatch": "A600"
+    },
+    "C94": {
+      "start": "DF50",
+      "end_exclusive": "DFFF",
+      "bytes": 175,
+      "remaining": 1,
+      "unchanged_frozen_bridge": true
+    },
+    "CORE124": {
+      "B000_BFF9": 4090,
+      "AE00_AFFB": 508,
+      "unchanged_source_only_callback_operands_relinked": true
+    },
+    "new_RAM": [],
+    "existing_RAM": {
+      "5C79": "approved service selector",
+      "5FB7": "approved bridge entry A",
+      "5C31_32_33_35_36_37": "existing source arithmetic/Wave temporaries. Geometry saves/restores six on real stack; staged unmorph explicitly owns35..37 across callbacks."
+    },
+    "protected": "5FB6 unused; Sunny5FB8..BF untouched; no5C80."
+  },
+  "implemented": [
+    "Actual raw2/RdVariant1 dispatch before any overlay read;22 fixed bridge service IDs. Callback6/9..12/14..17 query actual current16px two-page Block_Buffer and immutable native metatile attributes.",
+    "Full-page pixel step commits only when three transverse leading-edge samples clear; blocked motion never changes coordinates. Native coin/axe/climb are not solid; invisible5F/60 are head-only. Outside vertical buffer is empty, so pits fall rather than wrap into unrelated RAM.",
+    "Real primary platform support uses current actor identity/flags/world position and authenticated BoundBoxCtrlData offsets, not stale PlatformCollisionFlag or hardcoded sprite width. Actual carry and secondary small-platform surface remain open.",
+    "Source-center import/export preserves page/Y carry and host top-left anchor8/16, publishes actual committed Player_X_Scroll, velocity/facing/source-gravity state. Import/export exactly once per admitted player phase; hostYhigh temporarily denotes center-high until export.",
+    "Complete frozen source action runs through real175B C94 bridge and real A95 services in memory; no mock target substituted. Source unmorph stage/offset/commit and native projectileD0/E0/F0 initialization use full host page and real signed offsets.",
+    "Authentic current pose/radius/descriptor selection publishes SmPosePtr directly without a live global-ZP pointer. Approved contextB uses actual per-pose original8x8 body decoder returnX at virtual prior cursor0, including F7=0; same-update Stand/Aim D0CD witnesses verify actualX, not host OAM/constant36.",
+    "Source literal software-BCD add/subtract and Environmental Suit rounding, with real frozen post-damage/death continuation; A=BCDlow/Y=BCDhigh at the new injury API. No ordinary Samus HP or outcome alias.",
+    "Explicit new-session/scene/new-life hooks and original before/after clocks. Approved SMB life adaptation retains gear/tanks/max/current missiles and refills source tank-capacity health; scene resets active state only. Actual loaded-scene caller must use(AreaType<<5)|AreaAddrsLOffset, never AreaPointer.",
+    "Approved raw0/1 reward SELECTOR makes no resource change; typedD0..D9 actual-slot/mature-actor contact API rejects hidden/rising/wrong actor/owner. Authentic bit/tank/missile arithmetic commits only after real collision caller; that caller still owns exactly-one erasure/points."
+  ],
+  "callback_open_ids": {
+    "1_Door": "source room action5 is explicitly rejected; bind genuine SMB scene transition if admitted",
+    "2_DoorDirection": "no fake original door state/roomRAM",
+    "4_Elevator": "source action9 explicitly rejected; genuine native host pipe/scene owner required",
+    "7_LowHealthSound": "original06C4 low-health counter and authentic audio bridge not implemented",
+    "8_Health": "source B11C clears RdHit; original room6996=E4 morph-room extension deliberately not invented"
+  },
+  "progression": {
+    "classification": "ROOT-approved SMB reward-selection/life adaptation; ORIGINAL commit arithmetic is separately authenticated",
+    "initial": "intrinsic Morph/Long;gear0;sourceBCD99HP;maxMissiles0",
+    "rawMushroom0": "authentic item8 Energy Tank,cap6,source full refill",
+    "rawFlower1": "if maxMissiles0 item9+5; then next absent gear0..7; afterward item9+5",
+    "gear": [
+      {
+        "type": 0,
+        "mask": 1,
+        "name": "Bombs"
+      },
+      {
+        "type": 1,
+        "mask": 2,
+        "name": "High Jump"
+      },
+      {
+        "type": 2,
+        "mask": 4,
+        "name": "Wall Jump"
+      },
+      {
+        "type": 3,
+        "mask": 8,
+        "name": "Screw Attack"
+      },
+      {
+        "type": 4,
+        "mask": 16,
+        "name": "Spring Ball"
+      },
+      {
+        "type": 5,
+        "mask": 32,
+        "name": "Environmental Suit"
+      },
+      {
+        "type": 6,
+        "mask": 64,
+        "name": "Wave Beam"
+      },
+      {
+        "type": 7,
+        "mask": 128,
+        "name": "Ice Beam"
+      }
+    ],
+    "typed_drops": "actual-earned small energy+5 or small missile+5 only; no universal original RNG/table rate claimed",
+    "no_automatic_acquisition": true,
+    "actual_original_items": {
+      "source": "61:A5CC..A6A7",
+      "type_range": [
+        0,
+        9
+      ],
+      "real_frame": "(type&0F)|50 at A603",
+      "contact": "draw/publication then actual DC7F contact before A667 commit",
+      "announcement": "source62:CBF9/CBFF OR40 into0684; original0109FF music-delay ownership still needs integration"
+    },
+    "pending": "distinct authenticated item art/palette and real emergence/contact/announcement; do not let typedD0..D9 fall into old Samus inventory indexed tables."
+  },
+  "actor_contract": {
+    "eligibility": "actual active ordinary enemyX0..4;ID0..14;no duplicate-high-bit Flag/dead20;future collision owner must establish full-page physical contact",
+    "typed_effects": {
+      "beam": 4,
+      "Ice": 20,
+      "missile": 64,
+      "bombExplosion": 128
+    },
+    "warning": "These API codes are NOT counterfeit source040C flags. Eligibility/contact validation does not damage/kill/freeze an enemy. Shared real HP/defeat/Ice owner remains open; no Enemy_State manipulation or fake HP outcomes."
+  },
+  "audio_closure": {
+    "accepted_shared_bug": false,
+    "fixture_negative": {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-host-services-v1\\initial-nmi-scratch-negative.json",
+      "bytes": 2512,
+      "sha256": "52e898909ea6a1a01d57148275743d7a4196850302c47538fea11ad348485463"
+    },
+    "saved_exact_negative_payload_mapping": [
+      {
+        "original": {
+          "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\rogue_dawn_host_services.s",
+          "bytes": 18046,
+          "sha256": "ff2d7fb8f4908e7d2868c64817fff338d11c835af717e8ef94834bb756e8b1da"
+        },
+        "saved": {
+          "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-host-services-v1\\initial-nmi-scratch-negative-services.s",
+          "bytes": 18046,
+          "sha256": "ff2d7fb8f4908e7d2868c64817fff338d11c835af717e8ef94834bb756e8b1da"
+        }
+      },
+      {
+        "original": {
+          "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\rogue_dawn_host_services_bcd.inc",
+          "bytes": 2910,
+          "sha256": "4809f15486aff9ed036d027f3cf1a5cefdf0738acf82ddd811f7a0a1372ee9d8"
+        },
+        "saved": {
+          "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-host-services-v1\\rogue_dawn_host_services_bcd.inc",
+          "bytes": 2910,
+          "sha256": "4809f15486aff9ed036d027f3cf1a5cefdf0738acf82ddd811f7a0a1372ee9d8"
+        }
+      },
+      {
+        "original": {
+          "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-host-services-v1\\services.bin",
+          "bytes": 2408,
+          "sha256": "dba73a4a4959c650065c1ab8ea86cb438669f70f85af98dc41014d5ef1eb7711"
+        },
+        "saved": {
+          "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-host-services-v1\\initial-negative.bin",
+          "bytes": 2408,
+          "sha256": "dba73a4a4959c650065c1ab8ea86cb438669f70f85af98dc41014d5ef1eb7711"
+        }
+      },
+      {
+        "original": {
+          "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\sunny-integrated-final.nes",
+          "bytes": 2097168,
+          "sha256": "55e874822160c3ab20f9ccfbca8b46cfe3b71c00bc4466a9fa8c5789bf7c0217"
+        },
+        "saved": {
+          "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\sunny-integrated-final.nes",
+          "bytes": 2097168,
+          "sha256": "55e874822160c3ab20f9ccfbca8b46cfe3b71c00bc4466a9fa8c5789bf7c0217"
+        }
+      }
+    ],
+    "initialized_role_proof": {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-host-services-v1\\nmi-scratch-initialized-roles.json",
+      "bytes": 9273,
+      "sha256": "666a5e0834e499f0e396bbf4084a8cefb34a82a250aeaee9022467516afb320d"
+    },
+    "cause": "zeroed SmAudioBank/Current selected physical0:B3B4 gameplay, then0:A529/A530 wroteR3/R2. Proper initialized24ticks raw0/2/21 did not reproduce.0-regular mid-Main is off-protocol;GameLoop setsNmiDisableFF.",
+    "source_audio_regions": [
+      {
+        "physical_bank": 3,
+        "B000_entry": "a20086",
+        "B000_BFFF_bytes": 4096,
+        "B000_BFFF_sha256": "93d142c4de278a9ff557dcdd2cd97fee5348a7e014354ae4c27e15bb11222e03",
+        "B3B4_prefix": "a9c08d1740ad80064ab02ca51ec905f0d4a9008d0206201bb3204bb3203db32036bc"
+      },
+      {
+        "physical_bank": 5,
+        "B000_entry": "a20086",
+        "B000_BFFF_bytes": 4096,
+        "B000_BFFF_sha256": "3a42d1da9c12c59d2c3db36e9e37b67e8576fef93e376ef50c69f3ecb39cf1b4",
+        "B3B4_prefix": "a9c08d1740ad80064ab02ca51ec905f0d4a9008d0206201bb3204bb3203db32036bc"
+      },
+      {
+        "physical_bank": 7,
+        "B000_entry": "a20086",
+        "B000_BFFF_bytes": 4096,
+        "B000_BFFF_sha256": "dd2e27e187c3ecd098aed0007611de9c63298e91bc8d264da62220722b83257f",
+        "B3B4_prefix": "a9c08d1740ad80064ab02ca51ec905f0d4a9008d0206201bb3204bb3203db32036bc"
+      },
+      {
+        "physical_bank": 9,
+        "B000_entry": "a20086",
+        "B000_BFFF_bytes": 4096,
+        "B000_BFFF_sha256": "56c3e0da00b90df8503c3e225c9bf76de0e7cdd8183ccdbcaee022516e37d02a",
+        "B3B4_prefix": "a9c08d1740ad80064ab02ca51ec905f0d4a9008d0206201bb3204bb3203db32036bc"
+      },
+      {
+        "physical_bank": 11,
+        "B000_entry": "a20086",
+        "B000_BFFF_bytes": 4096,
+        "B000_BFFF_sha256": "dfcf12a90eeda04c9909eca2f430f5a7271559a5e92d780ee907b49e68e1c989",
+        "B3B4_prefix": "7071fbf81e0023230020a0a0a0a07d7fa0a0a0a0a00023232020a0a0a0a06d7ea0a0"
+      }
+    ],
+    "authentic_remaining_requirements": [
+      "Actual source NMI C0FA calls area B000; bank3 B3B4 consumes0680..0685 and directly touches4017. A private7-byte request image alone does not play source audio.",
+      "Driver calls B31B/B34B/B33D/BC36 plus relocated music pointers/data; full code/data/RAM closure and explicit APU mixer ownership must be audited before claiming an allocation/fit.",
+      "Preserve source low-health06C4 cadence/readme four-beep behavior, missed/retrigger/priority and source pickup/death/morph/Screw/beam/missile/bomb cues; do not clear requests before actual consumer ack.",
+      "Do not route raw2/RdVariant1 silently into old Metroid audio or substitute SMB sounds as authentic Rogue. No audio span/RAM is allocated here."
+    ]
+  },
+  "controls": {
+    "proof": {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-host-services-v1\\controls.json",
+      "bytes": 42124,
+      "sha256": "7037daf8d5e0ac28b90a4180a0b368174664a7409acba6a5eb2453b682372bff"
+    },
+    "counts": {
+      "foreign_no_overlay_read_write": 496,
+      "complete_source_BCD_damage": 108,
+      "typed_grants": 2784,
+      "selectors_no_automatic_grant": 2048,
+      "real_slot_typed_actor_maturity_rejections": 216,
+      "typed_drop_resource_source_cells": 216,
+      "full_anchor_and_newlife_cells": 540,
+      "actual_actor_eligibility_and_typed_effect_cells": 2880,
+      "real_block_page_geometry_cells": 9072,
+      "all_native_tile_axis_classifications": 1024,
+      "real_pose_facing_alt_admission_and_pointer_cells": 1536,
+      "native_primary_platform_bbox_support_cells": 768,
+      "admitted_IRQ_entry_SP_minimum": 192
+    },
+    "complete_action_campaigns": [
+      {
+        "gear": 0,
+        "updates": 86,
+        "source_actions": [
+          0,
+          1,
+          2
+        ],
+        "final_center": [
+          174,
+          192
+        ],
+        "real_bridge_and_callbacks": true,
+        "minimum_SP": 154,
+        "total_CPU": 401756
+      },
+      {
+        "gear": 4,
+        "updates": 77,
+        "source_actions": [
+          1
+        ],
+        "final_center": [
+          12,
+          192
+        ],
+        "real_bridge_and_callbacks": true,
+        "minimum_SP": 162,
+        "total_CPU": 345150
+      },
+      {
+        "gear": 17,
+        "updates": 85,
+        "source_actions": [
+          2,
+          3
+        ],
+        "final_center": [
+          104,
+          134
+        ],
+        "real_bridge_and_callbacks": true,
+        "minimum_SP": 154,
+        "total_CPU": 338940
+      },
+      {
+        "gear": 8,
+        "updates": 74,
+        "source_actions": [
+          0,
+          1,
+          2
+        ],
+        "final_center": [
+          173,
+          192
+        ],
+        "real_bridge_and_callbacks": true,
+        "minimum_SP": 154,
+        "total_CPU": 369729
+      }
+    ],
+    "morph_actual_D0CD_entries": 14,
+    "actual_ISR_seams": 36,
+    "admitted_control_entry_SP_minimum": 192,
+    "admitted_ISR_minSP": 138,
+    "exploratory_noninterrupt_entry_SP160_minimum": 128,
+    "stack_caveat": "SP160 callback stress is NON-interrupt only and has6bytes over live SMCCODE; does NOT widen admittedSP>=192 fullcontrol/IRQ contract. ROOT must measure linked caller stack.",
+    "all_five_SMC": "actual current operands preserved across initialized ISR seams; legitimate foreground farcalls intentionally change their own SMC operands."
+  },
+  "costs": {
+    "model_CPU": {
+      "damage_CPU": [
+        392,
+        533
+      ],
+      "geometry_with_dispatch_CPU": [
+        387,
+        1244
+      ]
+    },
+    "frozen_bridge": "171CPU instructions excluding targetbody/RTS6 and original source callsite JSR; verify old frozen receipt",
+    "full_campaign_model": "see real source action totals; boundary worlds are staged CPU tests",
+    "interpretation": "positive overhead, not zero-cost/no-lag/native cadence. Private temporaries are conservative implementation, NOT accepted shared-engine repair/performance win."
+  },
+  "integration_obligations": [
+    "Shared exact-owner admission/hook transaction integration, real actor defeat/Ice and damage dictionary ownership.",
+    "Real block bump/coin/axe/pipe and platform carry/second-small-platform surface transactions.",
+    "Distinct original item objects/emergence/art/announcements; selectors/grants alone are not acquired native coverage.",
+    "Original sound driver/data/request processing including06C4 low-health counter; no authentic waveform claim.",
+    "Source scene actions5/9 remain explicit unsupported door/elevator boundaries, no ordinary walking fallback.",
+    "No native deadlines/cadence/full sprite output/CHR or full-world source pipeline claim.",
+    "Exact raw2+variant1 fences before EVERY old Samus inventory/CHR/pose/body/shot/health/audio indexed path and before first SmPosePtr consumer. No temporary raw-ID swaps.",
+    "Wire admitted native head bump/coin/axe/pipe transactions with genuine pointer/row/caller ABI; real actor carry/defeat/freeze; variant-change metadata/particles teardown.",
+    "Root must assemble full cfg/shared integration, current matching DBG/LBL, complete native state/visual/controller/provenance tests and authentic reachable gear acquisition. Source component/readiness is not a native/playable PASS."
+  ],
+  "unchanged_frozen_inputs": [
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\rogue_dawn_host.s",
+      "bytes": 1950,
+      "sha256": "3fcb4e8a901fc13af5e7ad0dd4094c5293f0469f1ae40d34291d48a208c5b023"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\rogue_dawn_host_bridge.s",
+      "bytes": 2655,
+      "sha256": "ef2535fcef6c13e0ee39d999ffd37f10c30d7ca1c539705fb4730642dec700ec"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\rogue_dawn_host_context.inc",
+      "bytes": 722,
+      "sha256": "84cafda28a5a2f4ee2b4d423109b411a3113adb924622d92608ac40da466dbf8"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\rogue_dawn_control.s",
+      "bytes": 27937,
+      "sha256": "6b5374774a730941c12b02ad44792318b237d2996b6febbb9d9c65239f2fa199"
+    }
+  ]
+}
