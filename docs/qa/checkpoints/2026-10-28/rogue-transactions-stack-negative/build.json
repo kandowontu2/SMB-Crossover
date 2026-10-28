@@ -1,0 +1,317 @@
+{
+  "passed": true,
+  "source_only": true,
+  "native_run": false,
+  "playable_admission": false,
+  "ROM_sha256": "25f5c017fa22b94b14bf52db44c13b951c4e0255e19b3e0a8dc9583d07c2aa1a",
+  "parent_sha256": "4cbd019100ba4dfc51fd9f71c5d3cabd844828eb7d5d2a4aa39413e3579ab39a",
+  "bytes_changed": 14519,
+  "PRG_changed_banks": [
+    0,
+    94,
+    95,
+    124,
+    126
+  ],
+  "service_prefix_byteexact": true,
+  "host_end": "0xb3ae",
+  "host_bytes": 3502,
+  "frozen_services_sound_endpoint_negative": "bridge7 Health/8 Low; v1 dispatcher reverses; new dispatcher repairs without changing frozen bytes",
+  "old_symbols_moved": {
+    "('CrossoverBlockSize', 'MegaManHead')": [
+      36950,
+      36946
+    ],
+    "('CrossoverBlockSize', 'SamusHead')": [
+      36960,
+      36956
+    ],
+    "('CrossoverBlockSize', 'SmallHead')": [
+      36955,
+      36951
+    ],
+    "('CrossoverBlockSize', 'Done')": [
+      36958,
+      36954
+    ],
+    "('_FARCALL_COUNT',)": [
+      1380,
+      1381
+    ]
+  },
+  "commands": [
+    [
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\Windows\\cc65\\bin\\cl65.exe",
+      "--cpu",
+      "6502x",
+      "-t",
+      "nes",
+      "-g",
+      "-Oisr",
+      "-vm",
+      "-T",
+      "-C",
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-host-transactions-v3\\private.cfg",
+      "--ld-args",
+      "--dbgfile,C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-host-transactions-v3\\candidate.dbg",
+      "--include-dir",
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover",
+      "--asm-include-dir",
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-host-transactions-v3",
+      "--asm-include-dir",
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src",
+      "--asm-include-dir",
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover",
+      "--bin-include-dir",
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover",
+      "-m",
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-host-transactions-v3\\candidate.map",
+      "-Ln",
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-host-transactions-v3\\candidate.lbl",
+      "-o",
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-host-transactions-v3\\candidate.nes",
+      "--asm-define",
+      "ENABLE_CROSSOVER=1",
+      "-D",
+      "ENABLE_CROSSOVER=1",
+      "--asm-define",
+      "USE_SMB2J_FEATURES=0",
+      "-D",
+      "USE_SMB2J_FEATURES=0",
+      "--asm-define",
+      "MAPPER_MMC5=1",
+      "-D",
+      "MAPPER_MMC5=1",
+      "--asm-define",
+      "MAPPER_MMC3=0",
+      "-D",
+      "MAPPER_MMC3=0",
+      "--asm-define",
+      "ENABLE_C_CODE=0",
+      "-D",
+      "ENABLE_C_CODE=0",
+      "--asm-define",
+      "USE_CUSTOM_TITLESCREEN=0",
+      "-D",
+      "USE_CUSTOM_TITLESCREEN=0",
+      "--asm-define",
+      "MULTIPLE_POWERUPS_ON_SCREEN=1",
+      "-D",
+      "MULTIPLE_POWERUPS_ON_SCREEN=1",
+      "--asm-define",
+      "USE_LOOPING_ANIM_CYCLE=0",
+      "-D",
+      "USE_LOOPING_ANIM_CYCLE=0",
+      "--asm-define",
+      "USE_VANILLA_MUSIC=1",
+      "-D",
+      "USE_VANILLA_MUSIC=1",
+      "--asm-define",
+      "USE_FAMISTUDIO_MUSIC=0",
+      "-D",
+      "USE_FAMISTUDIO_MUSIC=0",
+      "--asm-define",
+      "USE_BHOP_MUSIC=0",
+      "-D",
+      "USE_BHOP_MUSIC=0",
+      "--asm-define",
+      "DPCM_BANK_COUNT=0",
+      "-D",
+      "DPCM_BANK_COUNT=0",
+      "--asm-define",
+      "USE_VANILLA_SFX=1",
+      "-D",
+      "USE_VANILLA_SFX=1",
+      "--asm-define",
+      "USE_CUSTOM_ENGINE_SFX=0",
+      "-D",
+      "USE_CUSTOM_ENGINE_SFX=0",
+      "--asm-define",
+      "FAMISTUDIO_USE_FAMITRACKER_TEMPO=1",
+      "-D",
+      "FAMISTUDIO_USE_FAMITRACKER_TEMPO=1",
+      "--asm-define",
+      "FAMISTUDIO_USE_VOLUME_TRACK=1",
+      "-D",
+      "FAMISTUDIO_USE_VOLUME_TRACK=1",
+      "--asm-define",
+      "FAMISTUDIO_CFG_DPCM_SUPPORT=1",
+      "-D",
+      "FAMISTUDIO_CFG_DPCM_SUPPORT=1",
+      "--asm-define",
+      "BHOP_PATTERN_BANKING=1",
+      "-D",
+      "BHOP_PATTERN_BANKING=1",
+      "--asm-define",
+      "USE_MOUSE_SUPPORT=0",
+      "-D",
+      "USE_MOUSE_SUPPORT=0",
+      "--asm-define",
+      "MOUSE_DISPLAY_CURSOR=0",
+      "-D",
+      "MOUSE_DISPLAY_CURSOR=0",
+      "--asm-define",
+      "MOUSE_READ_FROM_PORT=1",
+      "-D",
+      "MOUSE_READ_FROM_PORT=1",
+      "--asm-define",
+      "MOUSE_CONFIG_CONTROLLER_SIZE=1",
+      "-D",
+      "MOUSE_CONFIG_CONTROLLER_SIZE=1",
+      "--asm-define",
+      "MOUSE_CONFIG_SENSITIVITY=0",
+      "-D",
+      "MOUSE_CONFIG_SENSITIVITY=0",
+      "--asm-define",
+      "MOUSE_X_MINIMUM=1",
+      "-D",
+      "MOUSE_X_MINIMUM=1",
+      "--asm-define",
+      "MOUSE_X_MAXIMUM=255",
+      "-D",
+      "MOUSE_X_MAXIMUM=255",
+      "--asm-define",
+      "MOUSE_Y_MINIMUM=1",
+      "-D",
+      "MOUSE_Y_MINIMUM=1",
+      "--asm-define",
+      "MOUSE_Y_MAXIMUM=239",
+      "-D",
+      "MOUSE_Y_MAXIMUM=239",
+      "--asm-define",
+      "DEBUG_WORLD_SELECT=0",
+      "-D",
+      "DEBUG_WORLD_SELECT=0",
+      "--asm-define",
+      "PRINT_METASPRITE_IDS=0",
+      "-D",
+      "PRINT_METASPRITE_IDS=0",
+      "--asm-define",
+      "DEBUG_ADD_EXTRA_LAG=0",
+      "-D",
+      "DEBUG_ADD_EXTRA_LAG=0",
+      "--asm-define",
+      "DEBUG_DISPLAY_VISUAL_FRAMETIME=0",
+      "-D",
+      "DEBUG_DISPLAY_VISUAL_FRAMETIME=0",
+      "--asm-define",
+      "ENABLE_MMC5_EXPANDED=1",
+      "-D",
+      "ENABLE_MMC5_EXPANDED=1",
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-host-transactions-v3\\main.c",
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-host-transactions-v3\\entrypoint.s"
+    ]
+  ],
+  "bindings": [
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\prepare_rogue_dawn_host_transactions_v1.py",
+      "bytes": 10171,
+      "sha256": "d9e49ccaff63b65428dcc334dee0999364e36db5ede60411897b7a272ee7c6a8"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\rogue_dawn_host_transactions.s",
+      "bytes": 7311,
+      "sha256": "1e7c66ddaf782b198dcc8cc8c01f2bf0003bf0d0a0311c482c347d964134c63d"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\rogue_dawn_host_integration.s",
+      "bytes": 669,
+      "sha256": "f29b088a862bc9188b2eed905452e1a4a8aebac17263f1e1a2f2389bfe57cc44"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\roster-shared-rcr-adopted-v8.nes",
+      "bytes": 2097168,
+      "sha256": "4cbd019100ba4dfc51fd9f71c5d3cabd844828eb7d5d2a4aa39413e3579ab39a"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\roster-shared-rcr-adopted-v8.dbg",
+      "bytes": 27965043,
+      "sha256": "383ad1e3c31d151c7f556f6c24339726686f43f2f8532dd115e58721bfc1b057"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\roster-shared-rcr-adopted-v8.lbl",
+      "bytes": 1100352,
+      "sha256": "df4cac208ae1cfe019c100f8f8c70f7581ef13481db2c98789e7aa789330f619"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-host-services-v1\\handoff.json",
+      "bytes": 8701,
+      "sha256": "9dc533c5b59145c095e8d16f81965fcf05726c922607e7e731fb7895cd760f61"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-host-transactions-v3\\entrypoint.s",
+      "bytes": 13112,
+      "sha256": "c83ae12cec784825f03c21fb8973fbec6efb58f80187bb4a6abc70344d8e12ac"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-host-transactions-v3\\main.c",
+      "bytes": 416,
+      "sha256": "cb915413cb3491c73f87b27ad80056c32c4e9987716b2f661130c81f479af5c5"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-host-transactions-v3\\private.cfg",
+      "bytes": 31695,
+      "sha256": "c38965eeeebb674dca6c2d3376314563f0261949300190311c08f29230b0d506"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-host-transactions-v3\\source.patch",
+      "bytes": 2080,
+      "sha256": "2463c0ccd9865058fbff7d46b8b0190b172fd2706be9a92e139537d15ad93835"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-host-transactions-v3\\control-include.s",
+      "bytes": 27917,
+      "sha256": "7937031a1e3326422714167e6f92c13b5321f387061dfef7e1a6abd01f8c7154"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-host-transactions-v3\\services-include.s",
+      "bytes": 18958,
+      "sha256": "f1b4dedd7c8307366ed2db9dc6ad09d4a4a0a7deb5190946e30261a654edbc04"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-host-transactions-v3\\art-include.inc",
+      "bytes": 15873,
+      "sha256": "d32e6c6fe99b73f8687f2e0a43ad9fbc9b4d97ca32a4bae776f48c328ee7d11f"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-host-transactions-v3\\bridge-include.s",
+      "bytes": 2675,
+      "sha256": "ae5c50e2edfa7e8d2faf0bdde1d84f1a5f91b7997cc58e3f0c2d4db1c6026897"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-host-transactions-v3\\megaman_weapons.s",
+      "bytes": 51525,
+      "sha256": "c50d98884857c2a2fc13607c4261984c286c04cf02a8063fd91444fb7e0245e0"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-host-transactions-v3\\object.s",
+      "bytes": 184040,
+      "sha256": "0c45917d01e192fe93ff130c1f7b937b8f8e4d5904779780e534f573423b32c2"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-host-transactions-v3\\new_roster_dispatch.s",
+      "bytes": 14902,
+      "sha256": "2794120098b4f227df63c413ddc8cd8aef3424bec58a6e9f05c619fc5c954cca"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\megaman_weapons.s",
+      "bytes": 53060,
+      "sha256": "c5cf2fcdde115399fbc5f7e27439643c6d39f49c2116403f5a4d97e5029e9dca"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\object.s",
+      "bytes": 188446,
+      "sha256": "1bd79585526d88aad2313c675c92b40c27d82d0c4b3f0597b995e6f9ed4acd9b"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\new_roster_dispatch.s",
+      "bytes": 15782,
+      "sha256": "6c2c413607f44bc563eb9e15d7f1816f13df35d373a3cf145e2e0e4c65a16156"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\entrypoint.s",
+      "bytes": 13020,
+      "sha256": "f20d9cbbd3d7c9b66c1b7af1374c4c80d5ac1f1664253448f214e26cc3fdd6be"
+    }
+  ]
+}

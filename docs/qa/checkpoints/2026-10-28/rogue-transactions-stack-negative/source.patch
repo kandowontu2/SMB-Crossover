@@ -1,0 +1,96 @@
+--- current4cbd/src/megaman_weapons.s
++++ private/megaman_weapons.s
+@@ -238,6 +238,58 @@
+   rts
+ .endproc
+ .proc CrossoverBlockSize
++.if ::ENABLE_MMC5_EXPANDED
++  php
++  lda MmBlockAttack
++  bne Done
++  lda SelectedCharacter
++  cmp #CHARACTER_LUIGI
++  bne :+
++    lda PlayerStatus
++    beq SmallHead
++    ldy #0
++    beq Done
++  :
++  cmp #CHARACTER_SAMUS
++  beq SamusHead
++  cmp #CHARACTER_MARIO
++  beq Done
++.if .not ::ENABLE_MMC5_EXPANDED
++  bne SmallHead                 ; Bill/Link/Simon break with weapons, not heads.
++.endif
++MegaManHead:
++  lda PlayerStatus
++  bne Done
++SmallHead:
++.if ::ENABLE_MMC5_EXPANDED
++  ; Every linked caller is NativeRarePlayerHeadCollisionCore in bank9.
++  ; Keep this resident span exact; the cold leaf releases our saved P.
++  jmp CrossoverSmallHeadCold
++.else
++    ldy #1
++Done:
++  plp
++  rts
++.endif
++ .if ::ENABLE_MMC5_EXPANDED
++Done:
++  plp
++  rts
++ .endif
++SamusHead:
++  ; Easy uses the original suit rule;2.02 only bumps while upright.
++  lda RdVariant
++  cmp #1
++  beq SmallHead               ; actual Rogue never reads legacy SmBall
++  lda CrossoverBehaviorVersion
++  ora SmBall                  ; legal old Samus bool0/1; complete caller proof
++  bne SmallHead
++  lda PlayerStatus
++  cmp #2
++  beq SmallHead
++  ldy #0
++  beq Done
++.else
+   php
+   lda MmBlockAttack
+   bne Done
+@@ -290,6 +342,7 @@
+   beq Done
+ .if ::ENABLE_MMC5_EXPANDED
+   nop
++.endif
+ .endif
+ .endproc
+ .proc MegaManResetBlockHealth
+--- current4cbd/src/object.s
++++ private/object.s
+@@ -3189,7 +3189,7 @@
+ PositionPlayerOnVPlat:
+ .if ::ENABLE_MMC5_EXPANDED
+   lda Enemy_Y_Position,x ; Keep the small-platform BIT skip's original2bytes.
+-  farcall Z2PositionOnPlatform
++  farcall RdTxPositionPlatform
+ ExPlPos:rts
+   .res 11,$ea
+   .assert *-PositionPlayerOnVPlat=32,lderror,"Original native platform position span"
+--- current4cbd/src/new_roster_dispatch.s
++++ private/new_roster_dispatch.s
+@@ -182,9 +182,10 @@
+ .endproc
+ 
+ .proc NrPrepare
+- php
+- pha
+- lda SelectedCharacter
++ jmp RdNrPrepare
++ nop
++ nop
++::RdNrPrepareLegacy:
+  bne :+
+  lda MarioVariant
+  cmp #4
