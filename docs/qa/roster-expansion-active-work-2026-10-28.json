@@ -1,0 +1,68 @@
+{
+  "status": "Active expansion; incomplete, not paused",
+  "last_pushed_before_this": "9e045be7",
+  "canonical_ROM": "85afad507fa7abac29603c65bf5f7d9cadd224a24fd13ff2fd22f541b65729aa",
+  "private_root_ROM": {
+    "path": "build/roster-expansion-mac-integrated-v5.nes",
+    "sha256": "bc346da71d6b8156600ea9750f18f8c59229e5581dd0de553a08ca569abd08bb",
+    "installed": false
+  },
+  "native_Mesen_active": false,
+  "verified": [
+    "Popo Easy7b4216: zero-death1-1 to controlled1-2, seven selected frames viewed.",
+    "Nana Hardc6d61: same route and independent replay, inputs/full trace/decoded4213-frame PPU stream exact.",
+    "Mac/Doc/Tysonc6d61: real Select cycle, Start/lives and480 active opening emulator frames; six selected frames viewed."
+  ],
+  "agents": {
+    "vehicles_tmtn_mike_mac_audit": {
+      "task": "Sunny shared runtime/menu/native Mario audio integration and CPU/full-caller checks",
+      "ownership": [
+        "src/new_roster_dispatch.s",
+        "src/character_select.s",
+        "src/entrypoint.s",
+        "src/mmc5.s",
+        "src/player.s",
+        "src/object.s",
+        "smb1base-mmc5-expanded.cfg",
+        "tools/reference/build_roster_expansion_menu.py",
+        "src/music_drivers/audio.s"
+      ],
+      "limits": "No native/canonical. Owns these shared files until handoff. Final sparse candidate uses qualified Macv5 terrain override, not another agent's unqualified draft."
+    },
+    "z2_platform_native_qa": {
+      "task": "Repair Mac terrain/hurtbox to match new sprites, then separately qualified Celeste pickup successor",
+      "ownership": [
+        "src/little_mac_terrain.s"
+      ],
+      "Mac": "Old46px terrain above new32px art. New head tops: Mac4/12, Doc5/14, Tyson-6/-7; feet32. Real head/side/stand-up/wall/body contracts required.",
+      "Celeste": "Frozen19-file leaf saved Git888cb050. CmPickup incorrectly reads PowerUpType base rather than actual slot, and writes1Up floatey0B without native scoring. Earlier movement/art/IRQ scopes stand; real pickup admission blocked until successor tested.",
+      "integration_plan": "docs/qa/celeste-mario-host-integration-plan-2026-10-28.json"
+    },
+    "mario_scrooge_source_audit": {
+      "task": "Final Fantasy unused prototype source and sprite extraction",
+      "source": "Crossover2.02 SWF6374c724; sprite41/BlackMageSpell174 and shared bitmap39 atlas1307x383. Source classes already local. No TCRF403 bypass.",
+      "gap": "WhiteMage attacks/heal absent; pointer timer/target prototype unfinished. Clearly separate source evidence and authored playable adaptations.",
+      "proposed_only": "CORE62 AA00..BFFF; ART93 B000..BFFF C-mirror+2000; CHR756..787 pending all-consumer audit; active5C00..7F; persistent5FC1..CF (5FC0PnHitMask); variant5FEF."
+    }
+  },
+  "Rogue": [
+    "Source movement/weapons/default rendering frozen and pushed, not shared playable integration.",
+    "680..695 verified zero unused Mac interior; root incbin/CFG split still unapplied.260..275 occupied ProtoMan.",
+    "Alternate69B3 pattern costume, dynamic death/hurt/Screw, host collision/items/audio/palette/lifecycle/native tests remain."
+  ],
+  "Mac_negatives": [
+    "v1 generic controller lands above mushroom then stationary300updates; false result retained.",
+    "v2 repeated wrong-block jumps at x348; bounded event-log guard ended frame3148, launch exit1, no result.json. Inputs/log/capture retained."
+  ],
+  "storage": {
+    "last_workspace_bytes": 20629801939,
+    "cap": "30GB",
+    "policy": "One bounded lossless stream, <=8 selected whole frames, no per-frame files/source forests."
+  },
+  "next": [
+    "Root reviews frozen agents' exact candidates and caller/IRQ/camera/terrain contracts.",
+    "Only root launches one native Mesen, hardware sprite limit on; preserve negatives.",
+    "Complete remaining roster and every-character1-1/every-powerup checks; do not mark goal complete.",
+    "Commit/push explicit owned paths after verified milestones; canonical build remains unchanged."
+  ]
+}
