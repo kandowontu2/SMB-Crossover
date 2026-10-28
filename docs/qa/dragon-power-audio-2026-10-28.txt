@@ -1,0 +1,103 @@
+Dragon Power authentic audio: independent source closure, 2026-10-28
+
+This additive packet preserves the frozen fighting component85029e7d...01e8f.
+It closes the actual driver/data import, not the shared scheduler or native
+playability. No canonical/shared audio files, settings, ROM install or Mesen.
+
+Authority: supplied USA ROM SHA256
+e52cc421c726181a35f0cc9e8969a8aad50abd17bdc7eea59dc065990a576147.
+Actual original3:8040..9418 descriptors/streams/driver/tables, plus request
+3:98A8..98CE and98D5..98FA. Two mapper66 far-return wrappers8F62..67 and
+98CF..D4 are omitted rather than exposed as fake host-callable aliases.
+Actual original0:8CE5 startup requests0/1/2/3 are reproduced.
+
+There are478 genuine source instructions /1,042 source instruction bytes,
+5,152B complete data+driver+request projection. No song/voice/channel/tick/
+sample suppression. All109 descriptor rows retained. Nine original unused
+FFFF holes (decimal33..35 and39..44) are explicitly refused by public API;
+the100 valid entries are intact. Those decimal holes are not sourceSFX$33.
+Six genuine20B voices preserve source priority/order. The actual tested driver
+does not write DMC4010..4014; no invented sample player is added.
+
+Approved audio96/$60 A980..BFFF5,760B: actual5,445B throughBEC4,315B free.
+293B adapters +5,152B source closure. No shared resident growth/new RAM/CHR.
+Immutable Celeste83db parent metadata, actual callbacks in fixed127, no stale
+clone overlay. Complete code hashes and genuine standaloneDBG/LBL in handoff.
+
+RAM and real lifecycle ownership
+  DpAudioState = existing RgAudioRam first137B:120voice +12scratch +5privateZP.
+  Foreground ZP12..16 saved to existing RgAudioCpuZp first5B per callback and
+  restored exactly, including when IRQ interrupts a partially borrowed call.
+  No allocation in5FD0..DB or gameplay overlay is needed for the driver.
+  Exact SelectedCharacter24 admission precedes every public RAM owner read.
+  Explicit Init is required on genuine character/new-game lifecycle; do not
+  treat stale RgAudioCharacter24 as globally valid after another audio family.
+  Other native audio families own the same union while selected. ROOT must
+  retain their real reset paths on both directions of a character transition.
+
+  Retained REAL first draft ownership failure: RgAudioZp137B was unsafe.
+  Actual GuestAudioFinish Silent calls Cv3DmcResetOwner/Cv3FxOwnerInit even for
+  raw24 and clears shared CV3 aliases there. The resulting original source
+  state corruption was captured in first-parent-silent-owner-negative.json.
+  Moving only the private state base to RgAudioRam avoids those unconditional
+  clears. Final controls invoke the actual Silent path seven times, then
+  resume; all137source bytes remain exact. No shared CV3 guard was weakened.
+
+Public callbacks (A-bank96 mapped, E fixed127, C unchanged)
+  DpAudioInit: owned initialization +actual initial four requests, no tick.
+  DpAudioRequestEvent: callerA is exact original eventID, order retained.
+    RgAudioRequest remains accepted ID; FF reports an invalid/unused request.
+    Native source request/pointer/voice behavior is unchanged. This is not a
+    new Main/NMI queue or permission to read a half-written game cue vector.
+  DpAudioTick: one genuine original8F68 tick; auto-initializes if owner differs.
+  DpAudioMute: no source tick/voice change; explicit host lifecycle mute.
+    First Tick after mute restores source enable, marks buffered registers
+    dirty and executes one genuine source tick. Native GuestAudioFinish then
+    replays held high registers after pause disabled hardware length counters.
+  Every public callback preserves callerA/X/Y/P and balances stack. Physical
+  NV/D/I/Z/C are checked; B/U are model software markers. Internal DpAN*/
+  Borrow/Release require exclusive owned caller, not arbitrary shared calls.
+
+Store contract and actual callback composition
+  All original ordered APU requests match at real writer callback entries
+  with physical bank identity. Buffer writes match the full composed adapter
+  stream too. GuestNativeStatusSTA deliberately writes its enable image twice
+  around the real DMC-status helper; the original source requested it once.
+  This is disclosed composition, not normalization of raw source writes.
+  A private9B absolute4008 writer is real code because the parent has no such
+  helper; no fake alias or differently indexed helper substitutes for it.
+  Actual GuestAudioFinish hardware output was independently derived from
+  prior GuestApuLast/image/dirty/enable state and matched for24ticks including
+  real mute/resume. Original image writes4009/400D remain source-exact; native
+  mixer legitimately excludes those unused hardware registers.
+
+Finite results (no native/audio waveform/cadence claim)
+  101campaigns: initial group alone +each100valid request,64ticks each =6,464
+  ticks. Full137B source state, only genuine address relocation, exact ordered
+  request stream and full composed image stream. Plus120raw driver AXYP/SP
+  ticks and100raw request AXYP/SP cases, including NES decimal-flag behavior.
+  1,020foreign calls conserve RAM/banks/CPU;156invalid requests explicitly
+  refused without source-state mutation. All256foregroundZP bytes remain exact.
+  540actual parent IRQ injections at observed Init/Request/Tick instruction PCs
+  preserve CPU/SP/banks/private state/foregroundZP/entireSMCCODE and final
+  image/dirty state. Actual IRQ sourceMMIO controlled; not PPU scheduling.
+  Callback1,482..5,076CPU; original same-work ticks1,014..3,898. Paired added
+  cost+432..1,181CPU. Excludes outer bank dispatch and GuestAudioFinish cost;
+  no assumption this fits every host deadline. IRQ observed minSP E7(231)
+  from controlled direct caller entryFD, not a complete native stack limit.
+
+ROOT integration obligations before native
+  Include new audio leaves/segment after actual shared writer/RAM declarations;
+  recheck final allocator96A980..BFFF. Map A96 with genuine shadow/hardware
+  ownership, preserve/restablish all host NMI return/bank/SMC contracts.
+  Use original eventIDs/grouping from authenticated source. Init selects the
+  real source startup group; no all-scenes/area/death-song mapping is claimed.
+  Compose shared world SFX via actual Begin/Finish and prior DMC-owner release.
+  No parent70/97 DMC-alias runtime proof is inherited; this source module has
+  no DMC and was tested with E127 and prior DMC inactive.
+  ROOT owns safe committed gameplay-cue publication. The frozen fighting
+  vector is drained only after completed Movement today: NMI MUST NOT read
+  its partial count/data during Main. No mid-main source effects are dropped
+  or coalesced here. Direct callback controls are not an atomic queue proof.
+  Qualify actual cold selection/music/SFX/pause/title/death/transition/full
+  native PPU/DMA/IRQ/cadence. Authentic driver is now present; adoption is not.
