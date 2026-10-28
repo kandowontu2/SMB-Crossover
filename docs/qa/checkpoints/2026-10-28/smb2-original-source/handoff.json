@@ -1,0 +1,74 @@
+{
+  "status": "FROZEN_READONLY_ORIGINAL_SMB2_AUDIT_NO_RESERVATION_OR_IMPLEMENTATION",
+  "owned_files": [
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\smb2_roster_source_v1.py",
+      "bytes": 11808,
+      "sha256": "4edd13757c9a8daa967bff6052ecaf3f53a776fc9801a021405e8d6b6cf368e9"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\docs\\qa\\smb2-roster-source-2026-10-28.txt",
+      "bytes": 8782,
+      "sha256": "ee8741d4ef7674925b8003da41d252e2dcdaeea3f94ba39b94a8bca6b4f4886f"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\smb2-roster-source-v1\\audit.json",
+      "bytes": 163579,
+      "sha256": "243d97a1904d7a30c9ba7fd725b72461d3058dd48a8b142b510e6acea7642c76"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\smb2-roster-source-v1\\original-player-preview.png",
+      "bytes": 11697,
+      "sha256": "b29fe0193435f90c6a93dcbda87bd24076e4250a84f3901743a6e05354533e5b"
+    }
+  ],
+  "original_ROM": {
+    "path": "C:\\NES\\Super Mario Bros. 2 (USA).nes",
+    "bytes": 262160,
+    "sha256": "41300bc4942a8a4f9b53148b404dd5cae3dd708ebdd9b617888d290a51a83e43"
+  },
+  "original_existing_build": {
+    "path": "C:\\Users\\kando\\Documents\\ChatGPT\\mario in kid icarus\\vendor\\smb2\\bin\\native.nes",
+    "bytes": 262160,
+    "sha256": "47ba60fad332fdea5ae44b7979fe1ee78de1d316ee027fea2ad5fe3c0d86f25a"
+  },
+  "original_payload_exact": true,
+  "source_revision": "b73415e1953d7fdffd4957d5fb43fa7a13844c1c",
+  "compiled_source_jump_primitive_cases": 64,
+  "compiled_source_render_cases": 160,
+  "requested_variant_map": [
+    0,
+    3,
+    2,
+    1
+  ],
+  "original_player_chr_pages": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    9,
+    25
+  ],
+  "proposed_envelopes_only": {
+    "CORE": 6144,
+    "ART": 2048,
+    "CHR": 12288,
+    "AUDIO_code_data_adapter": 8192,
+    "DPCM_plan": 8192,
+    "active_RAM": 128,
+    "persistent_owner_gated_RAM": 8
+  },
+  "proposal_limits": "No actual spans reserved; size estimates need complete translated caller/asset recipe and allocator review before implementation",
+  "parser_findings": [
+    "Actual native odd eye tileD5 uses background pattern-latch page25; initial class-page-only assumption rejected",
+    "Actual charged branch overrides running before jump index; six launch entries plus separate quicksand and float bytes, not eight launch entries"
+  ],
+  "ROOT_next": "Review source-supported gameplay/adaptations and actual bank/RAM proposal before any leaf implementation; native remains ROOT-owned"
+}

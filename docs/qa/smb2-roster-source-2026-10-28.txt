@@ -1,0 +1,133 @@
+SMB2 Mario / Luigi / Toad / Peach: original-source audit, 2026-10-28
+
+READ ONLY. No character implementation, allocation, source clone, source edits,
+fresh original build, Mesen, settings/install/Git mutation. The local reference
+is intact and byte-authenticated; no ROM/source download or archive restore.
+
+Authority
+  C:/NES/Super Mario Bros. 2 (USA).nes SHA256
+  41300bc4942a8a4f9b53148b404dd5cae3dd708ebdd9b617888d290a51a83e43.
+  NES2.0 header4e45531a081040080000070000000001;128KB PRG+128KB CHR,MMC3.
+  Source C:/Users/kando/Documents/ChatGPT/mario in kid icarus/vendor/smb2
+  https://github.com/Xkeeper0/smb2 commit
+  b73415e1953d7fdffd4957d5fb43fa7a13844c1c, current tracked worktree clean.
+  Existing bin/native.nes47ba60fad332fdea5ae44b7979fe1ee78de1d316ee027fea2ad5fe3c0d86f25a
+  matches EVERY original PRG/CHR payload byte; header alone differs. Original
+  compiled NL metadata supplies real addresses, checked against ROM bytes.
+  This run does not claim a fresh rebuild. Prior SMB1-in-SMB2 replacement
+  physics/fireballs/2-character menus are not the authority for these four.
+
+Original order is Mario0,Princess1,Toad2,Luigi3. Requested presentation order
+Mario/Luigi/Toad/Peach must explicitly map variants[0,3,2,1]. No shared ID or
+variant RAM is reserved by this audit.
+
+Exact source movement and input
+  Original physical8KB banks0/1 contain HandlePlayerState0:8A02, Normal8A41,
+  full controls8C1A, StartJump8C99, Gravity8CD9, ground deceleration8D2C,
+  speed/throw wrapper8DC0, Yintegrator8EA4/general8EA6, terrain8EFA.
+  Normal actual order: Gravity ->controls/chargedjump/animation ->tilecollision
+  ->area boundary ->Yintegrator ->Xintegrator. Do not substitute a SMB1 order.
+  All axes retain 1/16 velocity and separate position fractions, signed carry/
+  borrow. Inputs and standing-on-enemy/platform results are real owner inputs.
+  Input freshA starts jump; B runs1.5x and freshB throws only when carrying.
+  No original empty-hand fireball attack is present.
+
+  Four23B stat records in physicalbank10:A/B:83CD..8428:
+            standingV   runningV   held/released gravity   float   lift delays
+  Mario     B0/B0       A6/AA      04/07                   0       0,4,2,1,4,7
+  Luigi     D6/D6       D0/D4      01/02                   0       0,4,2,1,4,7
+  Toad      B2/B2       AD/AD      04/07                   0       0,1,1,1,1,2
+  Peach     B3/B3       AC/B3      04/07                   60      0,6,4,2,6,12
+  Each pair is uncarried/carried. Velocity units are1/16pixel/update. All share
+  ordinary uncarried caps+18/-18; heavy-carry caps Mario18/E8,Luigi16/EA,
+  Toad1D/E3,Peach15/EB. Actual object-class routing chooses the carrying cap;
+  not every vegetable invokes that heavy cap. Preserve native B-rounding
+  asymmetry (e.g.Toad +43/-44 sixteenths while carrying/B).
+
+  Crouch charges60updates. Charged launch98 for Mario/Peach/Toad,C9Luigi.
+  Important actual-code detail: charged branch clearsA before constructing
+  jump index, so it overrides running: index2/3, never table6/7. Those latter
+  bytes are quicksand launchE0 and float length, not two extra jump entries.
+  Peach heldA near-apex floats with native FC,00,04,00 velocity cycle for up
+  to60updates; release stops the float. Luigi has flutter ANIMATION and lower
+  gravity, not Peach's float. Both true controls require original calls.
+
+  This audit executes64original StartJump/Gravity/Integrator cases (fourchars,
+  eight input combinations,tap/held). No terrain/full Normal caller or native
+  scheduling is implied. From sourceY180 standing: tap/held apexes Mario31/52,
+  Peach28/49,Toad29/50,Luigi28/56. Held ground-height crossing is42/100/42/85
+  updates respectively. Crossing is not a source collision/landing assertion.
+
+Carrying, pulling, throwing and native health
+  TileBehavior_CheckPickUp0:9155 produces actual plucked native actors. Lifting
+  state0:8A87 +timers8AC2/frames8AC6 consumes class lift delays. Carry/throw
+  wrapper0:8E05..8EA3 uses actual object index/state/class, terrain admission,
+  direction, duck and speed; real ThrowXVelocity8DB2/Y8DBA tables. Throws set
+  projectile ownership/timer; source objects continue native collision/damage.
+  Standing on enemies, freshB pickup, carried height, thrown enemy contact,
+  vegetables/bombs/shells/POW/mushroomblocks must be translated as a subsystem.
+  The original9world object pool is not permission to overwrite host enemies.
+
+  DamagePlayer physical3:B9FA: subtract10hex/one heart,7Finvulnerability,
+  native impact-dependent knockback, hurt DPCM. Health at4C2 uses0F/1F/2F/3F;
+  max-health index4C3 is0..2 for2/3/4hearts. Small rendering follows oneheart.
+  Native Heart physical3:B7E5 contact adds10hex and caps using real full-health
+  table physical15:F218. Mushroom physical2:909A increments actual max-health
+  and fills health; original two unique subspace mushrooms limit availability.
+  Repeated SMB1 mushrooms would need an explicit cap4 adaptation rather than
+  out-of-range original table indexing. Stopwatch2:90BA setsFF; Stars/cherries/
+  1Up have actual native collectors. There is no original Fire Flower tier.
+
+Art authority
+  Original RenderPlayer physical15:F31A..F478 plus tablesF2D5..F311 and
+  LoadCharacterCHR FE33 provide all four classes, big/small, poses/facings.
+ 160 actual renderer cases executed:4chars*2sizes*2directions*10validposes.
+  All emit5native8x16 parts. The32placement preview is original source output
+  in world1overworld palette roles, not a PPU capture or universal palette QA.
+  Observed actual player CHR pages0..7,9,25 (10KB bounding whole-page content).
+  Body comes from class page; Peach jumping skirt uses shared page9. Native
+  odd eye tileD5 really selects the other pattern table/page25 under inverted
+  MMC3; initial assumption all tiles were in the class page was rejected.
+  Extraction must include those actual source pixels, not guessed eyes.
+  Native classP0: Mario0F/01/16/27,Luigi0F/01/2A/36,Toad0F/01/30/27,
+  Peach0F/06/25/36. EyeP1/world palette varies by area. Future host publication
+  must compose roles without stealing world/pickup palettes. All classes have
+  native small art, carry/lift/throw/crouch/jump/death/climb, not four standskins.
+
+Authentic audio closure
+  physical4:8000 StartProcessingSoundQueue;8014 processes all source SFX;
+  DPCM82FD;music8361. Program/notes/data/instruments span4/5:8000..A3EE.
+  Removing only proven FF holes875F..8EFF and8FB3..8FFF leaves7,169B before
+  relocation/writers/adapter. Actual fixed14:C000..DBFF DPCM bounding payload
+  is7,168B (pull,hurt,death,boss/door/drum samples). Rough complete storage
+  floor14,337B before host adapter, not an assertion of a finished fit.
+  Audio RAM includes sourceBB..C6 pointers/scratch and scattered05EC..061F
+  queues/counters; needs exhaustive reachable-owner audit/projection. Original
+  DPCM is essential for pulling/hurt/death and drums; don't silently omit it.
+  Sample bank/clone/resident-return ownership requires a concrete design, not
+  assuming host C000 samples can coexist with dynamic C-window character art.
+  One authentic music/SFX family can serve all four variants.
+
+Proposed bounded API and size ENVELOPES FOR REVIEW, NOT ALLOCATIONS
+  Movement+native state/control projection; actual terrain/platform/head/feet
+  callbacks; CarryBegin/CarryTick/Throw with one held and two owned throw
+  records; Pickup/Hurt/Health; full native-pixel body/held object rendering;
+  audio Init/queues/Tick with complete DPCM lifecycle. Caller IRQ/NMI/SMC/bank
+  contracts and source-vs-port campaigns must precede native claims.
+  Request review for approximately6KB CORE +2KB ART, aligned12KB CHR
+  (10observed player pages +bounded common-object art; exact recipe pending),
+  about8KB driver/data+adapter and another8KB sample storage/clone plan.
+  Active128B plus8B owner-gated persistent is a preliminary projection budget
+  using one held/two thrown records; source9world objects remain host-owned.
+  Audio likely fits existing exclusive RgAudioRam, but no precise live-range
+  fit is asserted until code closure. No exact free spans/addresses claimed.
+  Current Goku reservations and frozen packets are not candidates for reuse.
+
+Adaptations needing explicit approval before implementation
+  Host SMB1 pipes/scrolling/hazards/normal-stomp Easy vs native stand/pickup
+  Hard behavior; mapping SMB1 Mushroom/Flower to native hearts/vegetable supply
+  without pretending a native fire tier; legal repeatable supply acquisition;
+  which SMB1 enemy classes may be held and their actual return/death behavior.
+  Original jars/doors/quicksand/climbing are true script handoffs. SMB1 swimming
+  has no authenticated source swim routine here and needs explicit treatment.
+  No actual implementation or reservation is authorized by this report alone.
