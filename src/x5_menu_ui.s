@@ -19,7 +19,7 @@ NativeReady:
  ply
  plx
  pla
- farcall DrawMetasprite,jmp
+ farcall CmHostPortraitRender,jmp
 .endproc
 .proc X5PortraitPosition
  lda SelectedCharacter

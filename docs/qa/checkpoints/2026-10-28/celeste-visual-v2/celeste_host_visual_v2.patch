@@ -1,0 +1,65 @@
+--- a/src/celeste_mario_host.s
++++ b/src/celeste_mario_host.s
+@@ -120,7 +120,8 @@
+ .endproc
+ .proc CmHostColors
+  jsr CmHostEnsure
+- farcall CmColors,jmp
++ jmp CmHostAreaColors
++ .res 15,$ea                 ; preserve genuine old host entry PCs
+ .endproc
+ .proc CmHostUi
+  jsr CmHostEnsure
+@@ -253,5 +254,41 @@
+  lda SelectedCharacter
+  rts
+ .endproc
++; Cold portrait tail: the real menu/lives producer supplied a native Mario
++; record. Select the authenticated Celeste standing record before its consumer.
++.proc CmHostPortraitRender
++ php
++ pha
++ phx
++ phy
++ jsr CmHostEnabled
++ bcc Foreign
++ jsr CmHostEnsure
++ ldx #25
++ farcall CmGraphics::Select
++ farcall CmDraw
++ farcall HpPrepareNativePointers
++ ply
++ plx
++ pla
++ plp
++ ldx #METASPRITE_SAMUS_BODY
++ farcall DrawMetasprite,jmp
++Foreign:
++ ply
++ plx
++ pla
++ plp
++ farcall DrawMetasprite,jmp
++.endproc
++.proc CmHostAreaColors
++ ; Existing native area/background control selects the universal backdrop.
++ ldx VRAM_Buffer1_Offset
++ cpx #80                    ; four bytes plus terminator must fit84B queue
++ bcs Body
++ farcall X5QueueAreaBackdrop
++Body:
++ farcall CmColors,jmp
++.endproc
+ .assert * <= $c000,lderror,"Celeste host adapter exceeds audited81BB10 tail"
+ .popseg
+--- a/src/x5_menu_ui.s
++++ b/src/x5_menu_ui.s
+@@ -19,7 +19,7 @@
+  ply
+  plx
+  pla
+- farcall DrawMetasprite,jmp
++ farcall CmHostPortraitRender,jmp
+ .endproc
+ .proc X5PortraitPosition
+  lda SelectedCharacter
