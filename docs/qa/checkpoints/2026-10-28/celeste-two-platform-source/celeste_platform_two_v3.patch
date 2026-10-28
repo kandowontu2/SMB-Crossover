@@ -1,0 +1,11 @@
+--- a/src/celeste_mario_host.s
++++ b/src/celeste_mario_host.s
+@@ -190,7 +190,7 @@
+  rts
+ .endproc
+ .proc CmHostDashTail
+- farcall CmWeapons
++ farcall CmPlatformWeapons
+  farcall ProcFireball_Bubble::ProcAirBubbles,jmp
+ .endproc
+ .proc CmHostFullPower
