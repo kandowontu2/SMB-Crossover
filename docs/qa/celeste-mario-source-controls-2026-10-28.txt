@@ -1,0 +1,95 @@
+CELESTE MARIO: PRIVATE SOURCE PORT / NO NATIVE RUN
+
+Authentic reference
+  C:/Users/kando/Documents/ChatGPT/SNES Ports/upstream-nes/MG.65s
+  src/Bank05_GameRoutines.65s; src/Bank07_BGEnemy02_Misc.65s;
+  src/Bank08_BGEnemy03_Misc.65s; src/BankA-1_BGEnemy0x_Misc.65s and RAM includes.
+  Actual assembler command (working directory upstream-nes):
+    asm6.exe -l MG.65s "<ROOT>/build/celeste-native-reference.nes"
+      "<ROOT>/build/celeste-native-reference.lst"
+  Reproduced ROM SHA256:
+    f1b6123f891c01a2cb0200c7e77c168991a5adca121c1f296e08839e0f70f08b
+  This is byte-exact reference-fixed.nes, not the differing released 2.00 ROM.
+  Enabled native options include CELESTEMARIOBUILD, CELESTEPHYSICS, SMB3ACC,
+  JUMPPOWERUSEUPGRADES, CELESTEDASH and WALLGRIPCLIMBUP. Starting VIT2,
+  JumpPwr0. Source flags/data are authenticated by the reproduced ROM.
+
+Controls and real differences from ordinary Mario
+  A: six-update buffered jump, five-update coyote time, variable release.
+  First physical mushroom/flower: wall grip; second: eight-direction dash.
+  Tier0 still uses Celeste acceleration, braking, jump and fractional motion.
+  Toward wall: slow slide. Up+toward wall: stamina hold; fresh A wall jump.
+  Hold consumes one decimal stamina unit/update from 299. Up wall jump
+  consumes 100, clamping to zero; ordinary wall kick remains available.
+  B: native four-update buffered dash, directional redirection during ready
+  phase, one charge, native 12+4 timer behavior and ground recharge.
+  Native max normal X2px/update, P-meter adds1px after threshold88; dash X6
+  or diagonal4.25px. Position/acceleration fractions remain distinct.
+  Native fixed-bank MoveObjectHorizontally / ImposeGravity integration order
+  is retained: integrate old velocity before gravity. This is not a call to
+  ordinary Mario movement followed by a dash patch.
+  Wall grace is TEN updates: actual StateCanWallClingTable, not stale comment2.
+  The native airborne-water branch does not admit a new swim jump merely
+  because A is pressed. The literal compiled branch is retained, including
+  ground/coyote water launch, surface gravity, lower swim speed and no dash.
+
+ROOT integration contract (ROOT owns shared files)
+  Identity: SelectedCharacter0, MarioVariant4. CmEnabled returns C1 only here.
+  CORE: physical98 / A-window B000..BFFF; allocation4KB. No new art segment.
+  Immutable pose data in the same bank is read through C98, address+2000.
+  CHR: pages740..755;16KB exact native bytes. Native body selects1KB page0/1/2,
+  so map740+page, NOT740+4*page. Actual native IRQ uses1KB bank numbering.
+  Persistent:5F98..5F9F. Active exclusive selected-identity overlay5C00..5C7F.
+  CmInit: genuine new game, initial tier0.
+  CmEnter: identity activation after another identity used5C; preserves tier.
+  CmEnsure: earned life preserves tier; one lost life resets tier. New loaded
+  scene clears motion; loaded key=(AreaType<<5)|AreaAddrsLOffset, plus World.
+  AreaPointer changes for future pipe destinations do NOT reset this state.
+  CmMovement: replaces actual movement call, exactly once per active Main;
+  host TimerControl has already received its genuine timer update.
+  CmAfterBG: immediately after genuine host BG collision; consumes final
+  Player_State/Player_CollisionBits and actual SmCeilingHit, not stale scratch.
+  CmWeapons: actual post-movement/post-BG weapon phase (native ProcDash order).
+  CmBounce: actual stomp/bounce hook, replacing ordinary MarioSourceBounce.
+  Native initial bounce is FC.60 / gravity26 / falling80 / hold32 / state1.
+  CmGraphics / CmGraphicsBank: choose native pose and restore physicalC98
+  before the FIRST body-record consumer, including outline filtering.
+  CmDraw: publishes four consecutive wide1KB sprite pages; CmUi/CmColors:
+  native charge palette16/27/01 or depleted21/27/01 via bounded foreground
+  six-byte palette packet (requires existing foreground VRAM owner).
+  CmPickup: handles physical types0/1, returns C1 consumed; other types C0.
+  CmInjuryStatus / CmInjuryStart: crossover tier-loss rule, not native CM death.
+  CmCollisionBox: returns Y0(big) orY2(crouch); body stays native big-size art.
+  Exported host Player_State maps private dash6 to host1. Do not dispatch6
+  through ordinary SMB's state jump table. Do not integrate either axis twice.
+
+Source controls and honest scope
+  prepare_celeste_mario_controls.py executes assembled original timers,
+  PlayerAbilitySubs, PlayerMovementSubs, actual caller post-movement span,
+  ContSChk wall owner and ProcDash against linked selected port entries.
+  Timers0:88FA jumps to BackToNMI (not RTS); wall owner8:84C8 is8000 window.
+  The flat floor and solid-side contact preconditions are typed CPU fixtures;
+  they do NOT prove native-vs-host complete geometry/camera equivalence.
+  Cases compare position, velocity, both fractions, jump/dash/stamina timers,
+  direction, coyote/wall grace, P-meter and force fields after every update.
+  Linked controls additionally compare actual native ProcessPlayerAction,
+  all52 records/physicalCHR bytes, actual renderer output and capacity refusal,
+  exact non-mask outline output, loaded-scene/life/admission/pickup contracts,
+  and representative genuine IRQ/NMI RTI seams with lower stack, AXYP/SP,
+  physicalPRG/shadows and all five farcall SMC operands. B/U differences from
+  py65's virtual status representation are excluded; real processor flags stay.
+  Exact final counts/hashes belong to source-controls.json/linked-controls.json.
+
+Intentional adaptations / still unqualified
+  Mushroom/flower progression, tier-loss injury, SMB sound cues, host vines,
+  pipes, springs and death lifecycle are crossover adapters, not claims that
+  the entire MG RPG/host engine was transplanted. Special clingable-tile
+  upward climbing is not invented on ordinary SMB walls. Other MG RPG powers,
+  shells, grappling, slopes and speed-mirage OAM are outside this alternate.
+  Original body tiles/palettes and pose/action sequence are source-derived;
+  preview is an asset rendering, not an actual NES visible epoch.
+  No native gameplay, PPU deadline, lag/cadence, camera or crowded first-eight
+  visibility conclusion. ROOT must link/admit and test real terrain/pickups.
+  Current private source build includes ROOT's concurrent roster integration;
+  it is NOT described as a one-bank diff against an older shared candidate.
+  No canonical source/config/menu/ROM, settings, Downloads or Git edits.
