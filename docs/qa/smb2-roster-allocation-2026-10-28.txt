@@ -1,0 +1,165 @@
+SMB2 four-character allocation and adaptation proposal, 2026-10-28
+
+READ ONLY. No allocations, source/CFG/ROM edits, assembly, native launch,
+source/runtime copies, or installation. Original source audit9e0080fb remains
+unchanged. This is a concrete layout proposal, not a playable/fit/native pass.
+
+Parent
+  build/roster-shared-rcr-adopted-v8.nes
+  4cbd019100ba4dfc51fd9f71c5d3cabd844828eb7d5d2a4aa39413e3579ab39a
+  Genuine matching DBG383ad1e3..., MAP/LBL/build receipt and shared CFG bound
+  in build/smb2-roster-allocator-v1.json. ROOT confirmed accepted RCR source
+  reproduces the parent. No old Sunny/Celeste prototype source is overlaid.
+
+Direct gameplay proposal (all end addresses below are inclusive)
+  CORE physical118/$76 A640..BFFF:6592B. Actual PARODIUS_BELLS endsA636;
+    leaveA637..A63F untouched. Its two source files own only emitted labeled
+    routines/tables/callbacks; no tail incbin/reader was found. Existing Bell
+    actor/VRAM routines keep all bytes/addresses. Estimated6KB core fits this
+    budget with448B headroom, not an assertion of final translated size.
+  ART physical80/$50 CE00..D5FF:2048B. Actual CD_GFX endsCD15; leaveCD16..CDFF.
+    CdGraphics/CdSetPose uses generated bounded pose/animation pointer tables,
+    and the box records are explicit; no reader of this unallocated tail was
+    found. New SMB2 records are independent, preserving all CD records.
+  CHR physical796..807:12KB, upper3. Exact zero, no emitted DBG segment. This
+    carves the original fill-only TMNT_CHR_TAIL; do not call populated TMNT
+    lower64KB free. The99 actual TnBodyChr values92..114 plus upper2 read
+    pages604..627 (including paired pages), equipment628/629. They do not
+    reach756..831. TMNT emits only its lower64KB incbin. No segment loads
+    TMNT_CHR_TAIL. FF756..787 and Dragon788..795 remain reserved;808..831 is
+    deliberately unclaimed. Actual four-player source art uses ten1KB pages;
+    the2KB remainder is a bounded shared-object budget requiring a real
+    extraction recipe, not permission for invented art or missing eye pixels.
+
+Authentic audio: feasible storage WITH explicit repacking, not spare banks
+  No unused all-FF8KB PRG bank exists. Do not mine encoded music segments,
+  reserved tails, bank125 post-link clone bytes, or DMC/resident mirrors.
+  Driver+small tables: physical74/$4A B180..BFFF3712B after KIRBY_ABILITIES
+    endsB156. Original8000..875E1887B plus8F00..8FB2179B =2066B, leaving
+    1646B for actual instruction/RAM projection, APU writers and safe adapter.
+  Music/instruments: physical117/$75 CA00..DFFF5632B after PARODIUS_ART
+    endsC9C1. Original9000..A3EE is5103B, leaving529B. Reassemble all genuine
+    pointers/absolute references; mapC once per complete callback and restore
+    actual foreground hardwareC/shadow. No per-read map/restore design.
+
+  DPCM must be independent of renderingC. Recommended plan frees two whole
+  physical banks by relocating complete existing source sections:
+    ROLL_CORE119/$77 A000..AAE02785B ->79/$4F AB00..BFFF5376B;
+    ROLL_WORLD120/$78 A000..ACC63271B ->78/$4E AE80..BFFF4480B.
+  Actual preceding owners end79:AADB and78:AE67. These destinations are FF
+  and outside emitted segments/reservations. CORE includes real shared
+  Parodius fast render helpers and Roll gates, not only Roll-local code;
+  WORLD includes actual source movement/dispatch/shot-bank helper. Their
+  physical PCs WOULD MOVE. Existing source uses symbolic calls/farcalls and
+  generated bank operands, but this proposal is not a relocation pass:
+  complete compiled caller/pointer, both owners, all foreign entries, shared
+  render, IRQ/NMI/stack/banks/SMC controls and old native scope must be rechecked.
+
+  Only after that reviewed relocation, generate E clones119/120 from FINAL
+  current127 after every link. Replace only the original BassWaterDpcm region
+  F140..FE10; preserve FE11 injury-rate data, FE15..FE39 actual start gate,
+  FEE1..FEFF owner helper, all other code/tails/vectors byte-exact. A naive
+  replacement of the whole named BASS_DPCM segment would overwrite real code
+  and is expressly rejected. Current125/126/127 and existing70/97 ownership
+  remain untouched. Proposed clone contents are calculated in memory only;
+  no new samples, clones or ROM are written by this audit.
+
+  Original8 requests have exact hardware fetch lengths(length*16+1). Store
+  all seven distinct complete fetches; DrumA reuses the actual prefix of
+  DrumB but keeps its own native rate/length. Include original overlapping
+  boundary byte: do not truncate to assembler data-label length.
+    Clone119: PlayerDeath1281, BossHurt961, ItemPull897.
+    Clone120: Door/Bomb1073, DrumB641, PlayerHurt257, BossDeath1153.
+  Every start is64-byte aligned; each packed footprint3265B, endsFE00, leaving
+  16B beforeFE11. All8 original requests retain every fetched byte. Actual
+  original fetch union6259B; separate seven complete payloads6263B; proposed
+  alignment footprint6530B. The earlier7168B was a bounding original range,
+  not permission to drop samples outside a new compressed region.
+
+  Live integration remains a real gate: exact new raw-ID DMC ownership,
+  E-clone hold until actual fetch completion, DAC hold, safe127 restore on
+  completion/cancel/selection/title and source-correct pause, private A/C shadows, mixer/SFX
+  ownership, and NMI/IRQ alias execution must be proved. Existing GuestDmcStatus
+  and Cv3 reset/completion only know existing owners; no compatibility claim
+  is made. No authentic audio channel/sample/tick suppression is acceptable.
+  Concrete owner protocol: retain original DPCMQueue low-set-bit priority and
+  original SFX/music call order (music can issue another start in the same
+  update). Translate only sample-address lookup; retain actual rate, length,
+  timer and ordered4010/4012/4013/4015 operations. Stage the selected clone ID
+  privately, then switch E only AFTER the original4015=0F stop and BEFORE the
+  following4015=1F start; never change the bank under an old ongoing fetch.
+  If that status helper executes in E, its continuation/RTS bytes must match
+  at the same addresses in127 and both new clones. The in-memory proposed
+  clones preserve every byte outsideF140..FE10, including actual FE15 start
+  gate, FEE1 owner gate, NMI entryE33C and vectors. Actual source IRQ rates
+ 0E/0F do not enable DMC IRQ; keep host IRQ vector/code unchanged.
+  On hardware completion, prevent accidental sample restart when the mixer
+  rewrites4015, restore127, but retain source DPCMTimer/Playing progression
+  and buffered final-byte/DAC hold. The old ordinary completion path writes
+  4011=0; that cannot simply be inherited since this original driver has no
+  such start/finish store. New owner admission must distinguish it. A genuine
+  cancel/selection must stop before restoring127 and cannot consume a partially
+  published Main request. Original SMB2 pause writes4015=0C and STILL processes
+  queues; do not silently replace it with a frozen/muted tick or unconditional
+  pause release. ROOT must choose any explicit host-pause adaptation separately.
+
+RAM proposal, for ROOT review before allocation
+  Active5C00..7F128B, exact SMB2-raw owner. This already belongs to mutually
+  exclusive profiles; it is not globally unused. Sketch:64B source stats/input/
+  physics/timers,16B held record,32B two owned throws,16B scratch. Retain native
+  signed1/16 fractions, lifting delays, float charge and collision order.
+  Persistent5F98..9F8B:Health,MaxHealth,VegetableReserve,Ready,Life,Area,World,
+  PaletteAck. This is an explicit exclusive overlay of PnHistory5F40..BF;
+  Parodius initialization also clears5F00..DF. Never use it for global admission
+  or read Ready before exact rawID selection. Genuine new-game/selection must
+  initialize it; area transition preserves earned health/supply, genuine death
+  resets appropriate source state, and real1Up must not be treated as death.
+  Current globally checked Celeste fields5FF8..FD stay untouched. Old standalone
+  Celeste5F98 prototype aliases are not imported; current DBG uses5FF8.
+  Variant5FE3 is proposed: no current named symbol at that address; existing
+ 16-byte X5MenuVariants cold clear and new-game save/restore already include
+  it. Requested UI Mario/Luigi/Toad/Peach0..3 maps native IDs[0,3,2,1]. This
+  unused-byte finding is a proposal, not approval to write or generic-index newID.
+  Audio uses existing RgAudioRam512B owner slab6F3D..713C and existing borrowed
+  foreground-ZP save slab RgAudioCpuZp71DD..727C. SourceBB..C6 plus5EC..61F
+  is64B before wrapper fields. Reserve<=128B only after reachable source-state
+  projection proof. Do not borrow RgAudioZp: Silent/CV3 lifecycle clears real
+  aliases there. No new SRAM or persistent global fast flag is proposed.
+
+Explicit authored SMB1-world adaptations PROPOSED, not original SMB2 claims
+  Dry movement: retain four original23B stat records, exact action ordering,
+  running/carried caps,60-update crouch charge, Luigi native low gravity and
+  Peach up-to60-update float. No convenient SMB1 replacement jump. Terrain,
+  camera, pipes, enemy contact and carry callbacks are honest host interfaces.
+  Health: start native two hearts(1F/max-index0), one-heart small source art;
+  real injury loses one heart and uses original hurt/knockback/protection.
+  Mushroom: original max-heart increment/full heal, explicitly cap at four
+  hearts/index2 because SMB1 can supply more than the two unique subspace
+  mushrooms. At cap it heals without indexing past original health table.
+  Flower: new crossover reserve of three native vegetables, cap9; no fireball
+  or claimed original fire tier. Fresh Down+B on supported solid ground with
+  empty hands spends one only on successful allocation, plays native lifting
+  delay/art/SFX, and yields a genuine held vegetable. FreshB throws using the
+  original four-class carried stats, direction/duck/throw tables and actual
+  throw collision. No free repeated empty-hand projectile or acquired HP seeds.
+  Carry: one held/two thrown owner records with real actor identity/epoch.
+  Adapt only eligible ordinary walking Goomba/Koopa classes initially; never
+  plants/firebars/bosses/arbitrary Enemy_State writes. Hard native stand-on-head
+  and freshB lift, Easy ordinary stomp unless explicit Down+B grab admission.
+  Held/thrown host actors need exact hide/release/contact/death/transition
+  lifecycle. Missing eligible classes are disclosed, not silently generalized.
+  SMB1 swimming is authored: use native SMB1 water vertical stroke/hazards,
+  retain four class horizontal/carried caps, disable dry Peach float only in
+  water; return to exact dry integrator on exit. No original SMB2 swim routine
+  was found. Do not present this as an authenticated original water engine.
+  Native jars/doors/quicksand/climbing require explicit handoffs when host
+  terrain supports them; no invented SMB1 equivalents from the isolated audit.
+
+Recommendation
+  Approve CORE/ART/CHR and owner-gated RAM independently only if these semantics
+  are desired. Audio storage is credible but requires deliberate Roll relocation
+  plus two regenerated clones, not an already available blank bank. Keep that
+  repack as a named, separately qualified prerequisite. Exact assembled fit,
+  full source-vs-port callers, all foreign and IRQ controls, cost, authentic
+  complete audio and actual native playability remain future work. ROOT owns
+  all shared integration and native launches.
