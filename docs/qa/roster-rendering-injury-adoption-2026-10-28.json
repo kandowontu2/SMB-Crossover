@@ -1,0 +1,87 @@
+{
+  "status": "ADOPTED_DEVELOPMENT_BUILD_AUDIT_IN_PROGRESS",
+  "ROM_sha256": "ee1152a49deae31e82d202159310fa3719cbcfd85de571fd1b9ac15a1cd2a7b3",
+  "parent_ROM_sha256": "5a0a37a97e95ce3c1086f91f6000ad0157bb477f923027d39f0342d9389e6db2",
+  "repairs": [
+    "Conservatively suppress redundant queued Chip/Dale HP packets before NMI.",
+    "Initialize Chip/Dale HP before the first visible new-game HUD.",
+    "Admit the shared injury tick for SMB3 forms so post-hit protection expires.",
+    "Release Darkwing from a falling Arrow when its native platform signals terrain release."
+  ],
+  "composition": {
+    "changed_bytes": 446,
+    "changed_banks": [
+      67,
+      78,
+      79,
+      90
+    ],
+    "old_qualified_symbols_exact": 61738,
+    "all_other_ROM_header_CHR_bytes_exact": true,
+    "ordinary_mmc3_sha256": "d444cac88e13fa02b29ad16100b8f08fa565ba90f8cedde192de43fb2dc8f3eb",
+    "ordinary_mmc5_sha256": "f4ffd2483c51daa4d60bb575da2da8c4d817692cda407611c243031f67520833"
+  },
+  "exact_build_native_routes": [
+    {
+      "identity": "chip",
+      "mode": "easy",
+      "status": "cleared 1-1 and controlled1-2",
+      "native_ROM_sha256": "ee1152a49deae31e82d202159310fa3719cbcfd85de571fd1b9ac15a1cd2a7b3",
+      "frames": 3610,
+      "completed_updates": 3486,
+      "captured_full_PPU_frames": 2793,
+      "PPU_stream_sha256": "eb8ff617ff5df131923e06d1d3a25eed239b5d081e56d699ba2f443a14aa4fbc",
+      "zero_deaths": true,
+      "cheats_off": true,
+      "selected_whole_frames_visually_reviewed": true,
+      "all_frame_visual_review": false,
+      "independent_replay": false,
+      "native_result_sha256": "8b7b4a935e192c7d23c85fb0ea83b34a05a886be2e884fef53b08f050f42f81b",
+      "review_sha256": "663b80396cae3ed7b0184a74817745a3e7755c274c7618d5e152f902c98612c9",
+      "checkpoint": "docs/qa/checkpoints/2026-10-28/roster-fixes-ee1152/chip"
+    },
+    {
+      "identity": "dale",
+      "mode": "easy",
+      "status": "cleared 1-1 and controlled1-2",
+      "native_ROM_sha256": "ee1152a49deae31e82d202159310fa3719cbcfd85de571fd1b9ac15a1cd2a7b3",
+      "frames": 3610,
+      "completed_updates": 3486,
+      "captured_full_PPU_frames": 2793,
+      "PPU_stream_sha256": "df53089b2b0c2192a84c60a00530d2ac1d7b7eb6fd1408a437d1f8fa44cacf8a",
+      "zero_deaths": true,
+      "cheats_off": true,
+      "selected_whole_frames_visually_reviewed": true,
+      "all_frame_visual_review": false,
+      "independent_replay": false,
+      "native_result_sha256": "a3fd502f510d5a90a83908ad34865b3dca10968fe9bdea775805968b4ab1315e",
+      "review_sha256": "d4e36cbdbd3efe2b23243585062780b42db8f3f8e57392d59eb2a41a5f9f921f",
+      "checkpoint": "docs/qa/checkpoints/2026-10-28/roster-fixes-ee1152/dale"
+    }
+  ],
+  "SMB3_private_repair_native": [
+    {
+      "identity": "mario3",
+      "actual_ROM_sha256": "b01dcf080e07f5c7526fbf5ed177fe2131c6d5fcbbab5eed8773a66f6a34171d",
+      "native_pass": true,
+      "cases": 24,
+      "updates": 3325,
+      "wall": 3741,
+      "checkpoint": "docs/qa/checkpoints/2026-10-28/roster-fixes-ee1152/smb3-native-b01/mario3"
+    },
+    {
+      "identity": "luigi3",
+      "actual_ROM_sha256": "b01dcf080e07f5c7526fbf5ed177fe2131c6d5fcbbab5eed8773a66f6a34171d",
+      "native_pass": true,
+      "cases": 24,
+      "updates": 3325,
+      "wall": 3741,
+      "checkpoint": "docs/qa/checkpoints/2026-10-28/roster-fixes-ee1152/smb3-native-b01/luigi3"
+    }
+  ],
+  "Darkwing_native": "Original1873 floor displacement no longer occurs on3e5e; two guarded8000-frame runs remained incomplete. Later controller cleared both tall pipes and both early gaps, then stalled at stairs. No full-clear claim.",
+  "costs": "Chip queue repair: empty+7CPU, singleton+23, observed later burst+946foreground/-336NMI. Cold constructor adds32CPU Chip/Dale or21foreign once per new game. SMB3 restored hurt processing adds source CPU while active. These are correctness repairs, not a60FPS/lag improvement claim.",
+  "limits": "Current build has two full native routes. SMB3 ability/injury proofs retain privateb01 identity; source composition verifies exact changed bank90. Darkwing/remaining identities/modes/shortcuts/everypowerup/animation/audio/performance work remains open.",
+  "checkpoint": "docs/qa/checkpoints/2026-10-28/roster-fixes-ee1152",
+  "goal_complete": false
+}

@@ -1,0 +1,62 @@
+{
+  "status": "HELD_PARTIAL_FIX_NOT_ADOPTED",
+  "candidate_ROM_sha256": "d49f265deccb847cde8f6d499c0cd4aec2aeb373226418301d287761aa19398d",
+  "whole_route_passed": false,
+  "old_1289_deadline_recovered_only": {
+    "actual_enable_after": [
+      1289,
+      259,
+      236
+    ],
+    "measured_CPU_saved": 336,
+    "diagnostic_exit1": "Original input stream exhausted; never a whole-route PASS",
+    "proof": "build/chip_hud_queue_native_diagnostic_timing_v1.json"
+  },
+  "new_full_route_failure": {
+    "data": {
+      "detail": {
+        "bank": 127,
+        "cpu_cycle": 43926320,
+        "dot": 217,
+        "pc": 57355,
+        "ppu_frame": 1476,
+        "scanline": 0,
+        "sp": 244
+      },
+      "reason": "Active render enable precedes pre-render vertical reload"
+    },
+    "frame": 1475,
+    "kind": "first-failure",
+    "poll": 1475,
+    "stamp": {
+      "bank": 127,
+      "cpu_cycle": 43926320,
+      "dot": 217,
+      "pc": 57355,
+      "ppu_frame": 1476,
+      "scanline": 0,
+      "sp": 244
+    }
+  },
+  "native_summary": {
+    "physical_frames": 1476,
+    "input_polls": 1475,
+    "completed_Main": 1414,
+    "completed_DMA": 1319,
+    "PPU_records": 1232,
+    "zero_deaths": true,
+    "minimum_SP": 204
+  },
+  "canonical_action": "ROOT withdrew singleton Chip source leaves/held three-part8145 composition. Keep d49f source/tests immutable; no full-repair claim. Canonical Chip remains original while ROOT adopts separate tested Kirby/Mike leaves.",
+  "next": "Exact1475-input passive diagnostic prepared around1470..1477. Need actual second packet and measured costs before new source patch.",
+  "bindings": {
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\chip-d49f-easy-v1\\result.json": "4161c5ff3cecbe547b3b9535446e48f220d5ecc5f7ad0ae78bac20525050a6a6",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\chip-d49f-easy-v1\\events.jsonl": "79e7744aba92752abb062a91f818c4d9083e072ab3c6ede764cc26880a9e378b",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\chip-d49f-easy-v1\\inputs.csv": "fe53938cef40813877e963192f14d7f2315ab4496545f75c6e3a655f68b082b9",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\chip-d49f-easy-v1\\trace.csv": "c8291434e1317f2328a2853a049c56165cbc91369966b493dee15fb2c599bf0e",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\chip-d49f-easy-v1\\launch.json": "f166fd4fbd5779ff83c0600e87ef09a2dee4a0802571c7c9bff2772266bd33d3",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\chip-d49f-easy-v1\\ready.json": "afbee644f5e7779425bd4507a769139461fae34faaf06540c4dc202bcaa686d7",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\chip_hud_queue_native_diagnostic_timing_v1.json": "1129dc6e65d2fc643001efa9326622a6d349527697689e9106a28a7c9361b9d7",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\chip-d49f-late-vram-probe-v1\\ready.json": "e454a475751cf8e0ce3597764a2e934376c28b365b00b612d81ac721539ce444"
+  }
+}

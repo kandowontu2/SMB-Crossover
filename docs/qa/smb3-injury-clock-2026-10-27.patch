@@ -1,0 +1,21 @@
+--- 5a/src/smb3_mario_dispatch.s
++++ private/src/smb3_mario_dispatch.s
+@@ -84,12 +84,16 @@
+  sta GuestInvulTicks
+  lda #1
+  sta InjuryTimer
+- lda #0
++ ; A genuine nonzero owner admits GuestInjuryTick on subsequent Main calls.
++ ; M3ClearSuitState above already invalidated M3PaletteValid. Reuse that
++ ; redundant store's space; the same17-byte tail still takes22 CPU cycles.
++ lda #17
+  sta GuestHurtKind
++ lda #0
+  sta GuestHurtTicks
+  sta TimerControl
+  sta PlayerChangeSizeFlag
+- sta M3PaletteValid
++ nop
+  lda #Sfx_PipeDown_Injury
+  sta Square1SoundQueue
+  ldx M3EnemySlot

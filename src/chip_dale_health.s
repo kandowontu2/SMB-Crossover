@@ -110,27 +110,8 @@ No:clc
  ldx VRAM_Buffer1_Offset
  cpx #$4d ; 7-byte update and terminator fit the 84-byte queue.
  bcs Done
- lda #$20
- sta VRAM_Buffer1,x
- lda #$4b ; Keep HP and its count together in the white HUD attribute.
- sta VRAM_Buffer1+1,x
- lda #4
- sta VRAM_Buffer1+2,x
- lda #$24
- sta VRAM_Buffer1+3,x
- lda CdHudText
- sta VRAM_Buffer1+4,x
- lda CdHudText+1
- sta VRAM_Buffer1+5,x
- lda CdHealth
- sta VRAM_Buffer1+6,x
- txa
- clc
- adc #7
- tax
- stx VRAM_Buffer1_Offset
- lda #0
- sta VRAM_Buffer1,x
+ jmp CdQueueHud
+ .res 48,$ea ; retain original Done/text/public PCs.
 Done:rts
 .endproc
 CdHudText:.byte "HP"

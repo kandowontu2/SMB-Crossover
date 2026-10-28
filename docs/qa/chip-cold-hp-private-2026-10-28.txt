@@ -1,0 +1,65 @@
+Chip/Dale visible cold HP0: source-qualified private correction, native unrun
+
+The original129d route's first two captured full PPU frames (245/246) display
+HP0, not a blank transition. The world, player and HUD are visible. Their HP
+digit at112,16 is byte-identical to the same frame's score0 glyph at24,24.
+Frame247's replacement digit matches the timer3 at208,24 in actualframe408.
+The original129d full-route PASS is unchanged; this is a separate visible
+startup finding, not a death or a deadline failure.
+
+Trace: engine7 at244 becomes8 at245; the first captured frame245 ends at
+scanline240/dot0, CPU7293731. Native did not log CdHealth/CdMagic writes or
+early PPUMASK stamps, so do not fabricate their exact native write times.
+
+Complete assembled Main reproduces the causal ordering: PlayerEntrance only
+sets engine8, skipping PlayerCtrlRoutine/CdMovement/CdEnsureInit that update.
+CdHud nevertheless queues204b0424111900. The next Main runs CdMovement and
+CdEnsureInit, creating HP3/MagicA5 and queuing3. The displayed0 survives the
+producer/consumer delay through246; captured247 shows3. This detailed RAM/
+caller ordering is source CPU evidence, corroborated by actual native pixels.
+
+Private build/chip_cold_health_init.nes:
+cd70d5647999e9167af94842ec4a6d09a94c2f5802f49d7b944772ca11451a83
+Parent129dabe88489c78e1ead49b17e898979bd01ee0806d44eba2efc1871d4dd227f.
+Exactly23 changed bytes in bank78: a21B helper and2 JSR operand bytes. All
+bank79 bytes, including the complete389B queue candidate, remain exact.
+Every original qualified PC remains fixed; no new RAM, live-gameplay check,
+NMI, audio, CHR, physics or guard change. Both ordinary flag-off hashes remain
+d444cac8...f3eb (MMC3) andf4ffd248...0833 (MMC5).
+
+The existing X5InventoryInit call to X5ProfilesNewGame now reaches a same-bank
+helper. It executes the original four-page clear unchanged, then only for
+SelectedCharacter14 stores the actual constructor values CdHealth3 and
+CdMagicA5. All other persistent fields are already zero. Original menu-variant
+restoration follows unchanged. This occurs after the clear that previously
+erased earlier reset dispatch state; it adds no farcall/SMC or per-frame work.
+The added one-new-game cost is32CPU for Chip/Dale,21CPU for foreign heroes.
+No earned health is overwritten during ordinary gameplay/area handoffs.
+
+Finite current assembled CPU controls pass:
+-296 whole KbFreshGameInit callers:37 identities,2 modes,4 initial flag sets;
+ AXYP/SP/banks/five-SMC and all unrelated RAM/bus stores exact, variants kept.
+-Chip/Dale in both modes: complete new-game, entrance, then two normal Main
+ updates; first HUD queues3, subsequent live queues match the original.
+-110 actual cold-helper/clear/variant-loop IRQ boundaries with exact return
+ state, all non-IRQ bus stores, and all five ordered IRQ MMIO stores.
+-3044 actual earned Main calls across Chip/Dale/modes, initialized through
+ the real cold-menu KbFreshGameInit. Real injury, healing, crates, throws and
+ physical1Up retention remain checked by the original earned campaign.
+
+Retained control negatives: initial source selector wrongly assumed CRLF;
+the actual x5_profiles.s uses LF, now preserved. A first overbroad full-RAM
+continuation assertion rejected the deliberately corrected old HUD payload
+byte beyond the next terminated queue. The successor identifies that exact
+0/3 source payload address, proves it is outside the current complete live
+queue, and compares all other RAM/SMC/live queue exactly; no APU mask.
+
+Receipts: build/chip_cold_health_init_build.json and
+build/chip_cold_health_init_controls.json. Sparse additional129d deployment:
+build/chip_cold_health_init_profiles.s -> src/x5_profiles.s (original LF);
+build/chip_cold_health_init_helper.s -> src/chip_hud_queue.s (129d helper plus
+the cold constructor). Preserve129d health leaf and guarded entrypoint include.
+Do not overlay a historical source tree or generated private entrypoint.
+
+Native correction coverage remains UNRUN. No current5a source/build/Downloads,
+settings, frozen389B packet/readies, or ongoing Dale native inputs were changed.

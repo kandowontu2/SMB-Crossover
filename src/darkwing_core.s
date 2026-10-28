@@ -543,7 +543,7 @@ Holding:
   lda RgShotType,x
   cmp #6
   bne Lost
-  jsr DwValidateArrow
+  jsr DwValidateHang
   bcc Lost
   lda ScFresh
   and #A_Button

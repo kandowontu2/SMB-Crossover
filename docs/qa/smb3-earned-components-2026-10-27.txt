@@ -1,0 +1,98 @@
+SMB3 Mario/Luigi earned components and injury-clock repair - SOURCE ONLY
+
+Private candidate b01dcf080e07f5c7526fbf5ed177fe2131c6d5fcbbab5eed8773a66f6a34171d
+Parent frozen5a 5a0a37a97e95ce3c1086f91f6000ad0157bb477f923027d39f0342d9389e6db2
+ROM/debug/labels: build/current_smb3_timer.{nes,dbg,lbl}; never installed or run natively.
+Source overlay: build/current_smb3_timer_dispatch.s -> src/smb3_mario_dispatch.s.
+Exactly13 changed ROM bytes, bank90, inside the existing M3Injury span. All old
+compiled symbols, RAM, CHR, header and every other bank remain exact. Actual
+canonical control reproduced frozen5a. Fresh ordinary MMC3/MMC5 private/control
+builds are byte exact (d444cac8...f3eb / f4ffd248...0833).
+
+Confirmed bdf9 counterexample: real earned Hammer suit -> real enemy contact ->
+Super1; GuestInvulTicks remains113 after1100 complete Main+NMI updates while
+InjuryTimer expires0. M3Injury wrote GuestHurtKind0, bypassing the only shared
+tick admission. Thus its intended113-update protection/blink clock never ran.
+The source counterexample is not a native outcome. Retained exact negative:
+build/current_smb3_injury_counterexample.json.
+
+Repair: publish genuine owned kind17, then use the existing GuestInjuryTick.
+M3ClearSuitState already invalidates M3PaletteValid; omit only its later duplicate
+store and use the recovered room for the zero reload plus1NOP. The original
+17-byte tail stays22 CPU cycles. All original continuation labels remain genuine.
+Protection now lasts113 subsequent active updates and clears normally; both real
+injury cases complete at114 updates including the initial contact. Existing
+pause/powerup/cancel logic and M3's own2-tick blink remain the clock consumers.
+No new memory, helper, palette value, source clock or foreign-owner behavior.
+
+Qualification (native_run=false):
+- 13,292 complete assembled GameLoop+full NMI calls:24 carried-state cases x both
+  modes x both variants;3323 calls each. Actual source48-update item rise and
+  physical collection, never a form grant or chosen RNG seed.
+- 768 complete M3Injury cases: all64 physical flag contexts, forms1..6 and slots
+  0/5; AXYP/SP, ENTIRE stack/application RAM, banks and all remaining writes
+  exact except named owner0->17 and that exact redundant palette store.0cycle delta.
+- 70 foreign-identity full Main cases: both modes, state/writes/cycles exact.
+- 39 real IRQ injections at M3Injury instruction boundaries; real restored
+  application state/SMC/banks/registers. Only actual IRQ PPU/CHR I/O and dead
+  interrupt stack have their specified separate hardware semantics.
+- 96 unchanged shared GuestInjuryTick pause/powerup/expiry/cancel cases. Earlier
+  interim message saying192 was an arithmetic error;96 is the actual count.
+- Existing NMI/IRQ/DMA code is unchanged. Headless Memory does not emulate native
+  PPU/DMA/DMC timing.39 IRQ checks do not claim every shared caller boundary.
+
+Cost is not zero: an isolated valid post-injury full Main unit takes16213->16883
+source CPU cycles (+670), entering the shared timer path that previously failed
+to run. That cost unit explicitly chooses a form as an ABI test; earned campaigns
+and native fixtures never do. No FPS, native no-harm or performance-ready claim.
+The earlier unit with expired game timer was invalid and is retained separately.
+
+Two unlaunched Hard profiles (50 bound files each; ROOT owns native/storage lease):
+Mario3: build/current-smb3-timer-mario3-hard-items-v1/prepared-not-run.json
+  cdfc090d068fe9bc767c2a5f8687d7492afb87534665f0f1900f5a76b2ac2e0d
+Luigi3: build/current-smb3-timer-luigi3-hard-items-v1/prepared-not-run.json
+  f76dcaf94ba6e53bc0a7157c96764db0c7a61b904455f2d58004e60da63fc579
+Exact commands are each directory's command.json. No launch authorization implied.
+Each has compiled19-node menu BFS/actual alternate/Hard readback, literal existing
+strict NMI/IRQ31/5SMC/stack/CHR/disabled-render256-byte DMA/E008/deadline guards,
+ASCII-only configuration, startup-only callbacks and validated literal/bare/scoped
+RAM addresses. Caps8000 physical frames/5000 Main/1200 host sec/2GB/64files/8PNGs;
+no per-frame files. Images require a genuine completed Roster image and matched
+actual physical DMA; fire/hammer samples additionally record actual live-render
+slot/pointer/coordinates. Lua VM was not executed offline; ROOT native is pending.
+
+Coverage: Small jump; emerging mushroom->Super, crouch/head brick; Fire and both
+shot directions; Raccoon tail enemy+brick, naturally charged P127 flight/wag; Frog
+hop/directional swim; Tanooki tail/flight and statue contact/release; Hammer both
+directions; physical Star/protected enemy defeat/expiry/music-request restoration;
+physical1Up/delayed life credit/popup cleanup; genuine6->1->0 injury transformations.
+
+Staging limits: flat logical+visible terrain, neutral external position/motion,
+water-room context and source-classified emerging actors are typed at real
+GameLoop+5/NmiDisableFF. Each requested suit waits for real evolving RNG classification;
+no RNG/form/private native velocity/P-meter/health/ammo/timer/injury/life/kill outcome
+writes. This is not natural question-block reveal, original drop eligibility,
+whole-world route, every-pixel/original palette/melody fidelity, dense/capacity or
+all physics coverage. Kuribo/carry/twister/slope are disabled in the adapter, not
+invented test features. No Hammer crouch-shield claim is made.
+
+Preparation negatives retained, not game bugs: omitted NMI left brick cleanup
+queued; left-facing input initially lacked the genuine directional readback;
+tail/hammer targets were outside actual source reach/arc; a reused scrolling
+room let the native level parser replace the staged floor. Static flat-room lock
+now allows genuine P127 charging before x239. No resource or physics assertion
+was waived. The first address regex also matched nr('WagCount') as r(...): strict
+preflight failed before output/native. Final metadata-only successor excludes
+that false match and compares EVERY source campaign/control/helper/global AST
+against the exact qualified predecessor. The13292-call proof remains immutable,
+with its original tool hash. The final fixture is byte-identical to that proof.
+No Lua Unicode escapes; no missing callback address silently accepted.
+
+Primary inputs, actual proofs/commands/cost and all exact hashes are catalogued in
+build/current_smb3_handoff.json. Owned publication files are only the three named
+tool/fixture files below plus this report and smb3-injury-clock-2026-10-27.patch:
+  tests/current-smb3-powerups.lua
+  tools/audit/current_smb3_powerups_prepare_v1.py
+  tools/audit/current_smb3_injury_candidate_v1.py
+External build proofs are referenced, not repeated source/runtime/ROM archives.
+No canonical/default/Downloads/settings/Git changes; no native worker used.

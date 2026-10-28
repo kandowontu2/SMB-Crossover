@@ -39,7 +39,7 @@ SaveVariants:
   dex
   bpl SaveVariants
   farcall InventoryInit
-  jsr X5ProfilesNewGame
+  jsr CdNewGameProfiles
   ldx #0
 RestoreVariants:
   pla

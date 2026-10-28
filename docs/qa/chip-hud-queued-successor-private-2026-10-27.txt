@@ -1,0 +1,107 @@
+Chip/Dale queued HP successor — PRIVATE129d, source qualified only
+
+Parent adopted5a: build/kirby-mike-polish-production.nes
+5a0a37a97e95ce3c1086f91f6000ad0157bb477f923027d39f0342d9389e6db2.
+Candidate: build/chip_hud_queue_complete.nes
+129dabe88489c78e1ead49b17e898979bd01ee0806d44eba2efc1871d4dd227f.
+No canonical/default/Downloads/settings/Git/native change by this agent.
+
+Retained actual failures
+Original bdf9 Chip v2 failed1289 at actual render enable0:221. The private
+singleton d49f repaired that exact deadline by336CPU, but its full route
+later FAILED1476 at actual0:217. d49f remains HELD, never adopted/full-pass.
+The second read-only exact1475-input replay has byte-identical inputs, trace,
+events, wholePPU container and index, including that same actual failure.
+At1476 NMI entry241:26, offset52 has three identical204b0424111902 commands,
+separated by2640/2660 terrain,206D timer,2062 score and3F0C color rotation.
+Native screen1301CPU/gateway1358/CHR420,28PPUDATA; DMA request1930CPU after
+NMI entry; enable2451CPU after entry. Audio follows the enable and is not
+this deadline's cause. The original strict guard is retained unchanged.
+Attribution: build/chip_hud_second_deadline_attribution_v1.json.
+
+Repair and capacity
+Retain original CdHud identity/mode/screen/capacity admission,76-byte span,
+genuine Done RTS/text/data PCs. Its original51-byte append body is replaced
+by a JMP plus unreachable padding. New338-byte same-bank helper79:A98A
+endsAADC in previously FF/free bank79; no unrelated bank reservation used.
+The original append body is copied from the current source, not fabricated.
+Empty and whole-singleton queues are fast. A known first HP record seeds
+longer scans. Parse only complete commands to the real current offset; never
+search arbitrary payload bytes for a fake header. Suppress a new append only
+when the last possibly overlapping complete command is an identical current
+HP record. Existing queued bytes are never rewritten or removed.
+
+Every possible nametable mirror of204B..204E invalidates an earlier match
+when partially or fully overlapped. Horizontal count<=63 cannot cross from
+the preceding256-byte page far enough to reach low4B, so the bound/alias test
+does not miss page wrapping. Repeat/vertical/native-zero256/high aliases,
+early terminators/truncation/unknown data conservatively keep original append.
+Changed health always gets an actual current update unless that same update
+is already the last effective pending writer. No persistent cache or stale
+area/menu/reset/cheat-health dependency; no new RAM/NMI code/bank mapping.
+Generic scans hold only callerY and one next-packet index on the CPU stack.
+All real returns, hardware bank shadows and five SMC operands are checked.
+
+389 actual ROM bytes, only bank79. All61738 old qualified symbols fixed,
+all other PRG/header/CHR bytes exact to5a, including adopted Kirby/Mike.
+Both fresh ordinary builds unchanged:
+MMC3 d444cac88e13fa02b29ad16100b8f08fa565ba90f8cedde192de43fb2dc8f3eb
+MMC5 f4ffd2483c51daa4d60bb575da2da8c4d817692cda407611c243031f67520833.
+Deployable delta: src/chip_dale_health.s, new src/chip_hud_queue.s, final
+expanded-MMC5 guarded entrypoint include. Preserve current5a source; do not
+copy an old complete entrypoint/tree. Original raw EOLs retained.
+
+Finite exact-current source controls PASS
+545 command/length/alias/payload/malformed cases;120 health/flags/variant/
+mode cases; original guard/capacity cases;74 all37/two-mode complete Main
+controls;16 full draw callers;418 actual IRQ/RTI instruction boundaries;
+35 actual lag-NMI instruction boundaries;3044 real source earned Chip/Dale
+Main calls covering actual damage/food/crate/throw/hide/1Up preservation.
+Full DrawAll terminal AXYP exact. The direct tail-returning CdHud/CdNewDraw
+X intentionally follows the shorter queue; all other live state is exact.
+
+NMI qualification distinction (first strict mismatch retained)
+During generic scanning liveY is1/0 instead of the outer caller's value.
+Unchanged ExpandedAudioTick::Byte+2, physical38:$CB05, executes STY $EB
+(XgLzSavedY) to preserve that real input Y. Its transient values necessarily
+differ from a different interruption point, although all final RAM is equal.
+The qualifier checks every such store's actual owner/opcode/address/value
+against CPU Y; its source store count/order stays exact. All raw hardware/APU
+and every other source RAM store remain exact and ordered. Immediate RTI
+AXYP/SP/PC/banks/SMC and the entire foreground queue are exact; complete final
+live RAM and ordered foreground stores match the equivalent injected case.
+No rawAPU mask, missed callback or source change hides that distinction.
+
+Measured source cost, not a lag-win claim
+Empty append127->134CPU(+7), whole-singleton127->150(+23), changed-health
+singleton127->210(+83). Generic finite direct overhead peaks853CPU.
+Reconstruct1289: four CdHud calls508->987CPU(+479 foreground), queue52->31,
+28->16PPUDATA, full screen1301->797(-504 consumer/NMI CPU).
+Reconstruct1476: three calls381->1327CPU(+946 foreground), queue52->38,
+28->20PPUDATA, full screen1301->965(-336 consumer/NMI CPU).
+Both final complete PPU maps and ordered non-HP stores exact. These are
+source CPU reconstructions, not proof of native cadence or later deadlines.
+Unknown formats deliberately decline dedup; no universal all-queue claim.
+
+Frozen source receipts
+build/chip_hud_queue_complete_build.json
+SHA37c2fed91e434c5f5af1276b6e47832e1ccdadf151d4ffcf18d17031940e77c2
+build/chip_hud_queue_complete_controls.json
+SHA376de20bef59b24d1f01bbee9ea43483bb5d36a42ae50a792b3ffde1faddce2f
+
+ROOT-only prepared native commands, NOT RUN by this agent
+build/verification/chip-129d-late-replay-v1/ready.json
+SHAbe5c8f743ad27d8898702d9c3bed079fde9d37e9a9157263bd3212dfff77fa76
+Original1475 poll/frame/mask rows. No invented tail; exhaustion remains an
+exit1 diagnostic-only negative, never a whole-route PASS.
+build/verification/chip-129d-easy-v1/ready.json
+SHA43b35c19647b92a3a1372d6029ee041279fa7ee0f0cc90ea01694df72111ac8b
+Original input-only120wait adaptive controller/8000 cap and all strict guards;
+requires actual full clear then independent saved-input replay before adoption.
+Each25 bindings; command.json alongside. Same existing startup-static passive
+oneCSV observer1470..1477, no new images or changed capture format.
+
+New owned tools: chip_hud_queue_complete_build_v1.py,
+chip_hud_queue_complete_controls_v1.py, chip_hud_queue_complete_prepare_v1.py,
+chip_hud_late_vram_prepare_v1.py. All earlier singleton/probe/Ryu/Sophia
+tools, readies, negatives and reports remain byte-exact and separate.

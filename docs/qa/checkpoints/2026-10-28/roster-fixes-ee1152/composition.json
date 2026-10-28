@@ -1,0 +1,87 @@
+{
+  "parent_ROM_sha256": "5a0a37a97e95ce3c1086f91f6000ad0157bb477f923027d39f0342d9389e6db2",
+  "expected_ROM_sha256": "ee1152a49deae31e82d202159310fa3719cbcfd85de571fd1b9ac15a1cd2a7b3",
+  "changed_bytes": 446,
+  "changed_banks": [
+    67,
+    78,
+    79,
+    90
+  ],
+  "parts": [
+    {
+      "source": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\chip_cold_health_init.nes",
+      "sha256": "cd70d5647999e9167af94842ec4a6d09a94c2f5802f49d7b944772ca11451a83",
+      "changed_bytes": 412,
+      "banks": [
+        78,
+        79
+      ]
+    },
+    {
+      "source": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current_smb3_timer.nes",
+      "sha256": "b01dcf080e07f5c7526fbf5ed177fe2131c6d5fcbbab5eed8773a66f6a34171d",
+      "changed_bytes": 13,
+      "banks": [
+        90
+      ]
+    },
+    {
+      "source": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\darkwing_hang_floor.nes",
+      "sha256": "3e5ee17fb7cc0413df4b758c94499ace1f33d8b66dd519fcdb92959e79b2ac1d",
+      "changed_bytes": 21,
+      "banks": [
+        67
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "target": "src/chip_dale_health.s",
+      "before_sha256": "51fb0a0fd7d556ef117fd0fc56a011e348e3dc6514609a7e865c4227549df0f5",
+      "overlay_sha256": "636c51b606f68368c18c3f66282584e4e34745661599667e8a457423c8d678d7"
+    },
+    {
+      "target": "src/chip_hud_queue.s",
+      "before_sha256": null,
+      "overlay_sha256": "a4c7b6924d2dc5074eea25863dd99b2ead1139b006ddd90927c1c1ce2211301c"
+    },
+    {
+      "target": "src/darkwing.s",
+      "before_sha256": "0eaed8730818d06a14f1074191a2f6fbb57930d07b6a05da1e728b7be8b004df",
+      "overlay_sha256": "0eaed8730818d06a14f1074191a2f6fbb57930d07b6a05da1e728b7be8b004df"
+    },
+    {
+      "target": "src/darkwing_core.s",
+      "before_sha256": "ca07ea5ecc059a7bf9029e3922369f464df9a26cf37a4f2e7dd2e04039263e89",
+      "overlay_sha256": "1bdd959266b1e2aed3bd294597abfd9305a2f0980b6110497749d1fe6da2ebc7"
+    },
+    {
+      "target": "src/darkwing_recovery.s",
+      "before_sha256": "ba63c5583450fa527d21e4c4d66458d0ab237789c6ba8f7075d8542e837ca9bf",
+      "overlay_sha256": "8bc0376e09de91bcd2b1e231c6012e50d548dc8e34eeebed63156eeb886868da"
+    },
+    {
+      "target": "src/entrypoint.s",
+      "before_sha256": "cfb8e6b7310eef8cdef6e966463a0345f61294bc67b106d4940f1e01a2d0a9d4",
+      "overlay_sha256": "30b3e8a9eaa81c02856d81c42bf1f95db9123dac170f88df1ba341b27188ad91"
+    },
+    {
+      "target": "src/smb3_mario_dispatch.s",
+      "before_sha256": "a35ac65b478494961e68ae5305be5e082f7d4f4931a4ea4f15f820aad7c20c7f",
+      "overlay_sha256": "d3c4108f6531607fc99436807915b881032b0f0f141de388b514994bf092f546"
+    },
+    {
+      "target": "src/x5_profiles.s",
+      "before_sha256": "fcf4c20242e35cdaef1cb3950312306eeba63b11600e6389fe9634d7d20cd0fa",
+      "overlay_sha256": "5c812e35d06dee95255e647a3ac54b211f5a9b80ce4de480b50e0fe35e85cf9b"
+    }
+  ],
+  "canonical_changed": false,
+  "native_run": false,
+  "negative": "First private build lacked the overlay linker config after a mistaken nonexistent wrapper assumption; original linker log retained. No ROM was emitted or run.",
+  "assembled": true,
+  "ROM_sha256": "ee1152a49deae31e82d202159310fa3719cbcfd85de571fd1b9ac15a1cd2a7b3",
+  "old_qualified_symbols_checked": 61738,
+  "old_qualified_symbols_exact": true
+}

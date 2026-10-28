@@ -1,0 +1,75 @@
+Darkwing falling-Arrow hang ignores native terrain release: private source fix
+
+Actual bdf9 reserve-v2 and its unchanged-input position diagnostic both remain
+native FALSE1873. Diagnostic observation PASS is separate. Complete original
+trace/inputs/events/base Arrow CSV/one lossless container/index are byte-exact.
+The additional57writes locate the first bad owner; no native retry/seed/bound
+relaxation or game/settings/default/Git change was made by this work.
+Cause receipt: build/current-bdf9-darkwing-position-cause-v1.json.
+
+Actual cycle55726208: callback67:A564, actual STA67:A562 in DwHangUpdate::Freeze,
+sets Y176->182 from validated Arrow actor4Y185 minus3. DwHang136 still means
+holding slot8; source Type6, SsMode1, actorID26/state168 ($20|8|$80), so this
+falling Arrow already disables native platform collision against terrain.
+Actual cycle55730272: callback10:A2ED, actual STA10:A2EB in generic left wall
+clamp, sets X721->735. R0..R4=2,84,176,84,6 proves both feet on $54 and deep
+Ylow6 with side2 selected. Stack includes9D22, return after126:9D20's actual
+StopPlayerMove JSR SamusStopAtWall. Same camera610; this is not14px velocity.
+Next Main corrects X735->721. The global wall resolver and guard stay intact.
+
+DwArrowActor already explicitly sets actorState80 when its falling terrain
+probe is solid, to prevent native carrying a rider through scenery. Holding
+called only DwValidateArrow, which validates identity/tag, ignoring that release.
+The adapter then continued manually hanging from the disabled platform. The
+fix honors that existing owner instead of adding a new collision policy.
+
+PRIVATE candidate on immutable current5a0a37a... (not a retagged bdf9 build):
+build/darkwing_hang_floor.nes SHA
+3e5ee17fb7cc0413df4b758c94499ace1f33d8b66dd519fcdb92959e79b2ac1d.
+Only21ROMbytes in bank67: Holding JSR operand2bytes plus19byte DwValidateHang
+at genuineB218..B22A, originalFF/end of DARKWING_CORE. It calls unchanged
+DwValidateArrow; invalid ownership returns as before; stable state80 remains
+legal for jump-through; unblocked falling carry remains legal. Only a valid
+falling actor with state80 returns clear and takes existing Lost cleanup.
+Lost releases hang/cooldown8 and resumes normal physics, leaving Arrow actor,
+lifetime, ammunition, equipment and independent movement intact.
+
+Two sparse source leaves only: darkwing_core.s and darkwing_recovery.s. Wrapper
+and entrypoint replace their exact include filenames, so nested includes use
+the actual overlays. Real assembler/debug/labels/map, unchanged cfg; no fake
+PCs. Every old true symbol/header/CHR/NMI/audio/other bank and RAM layout exact.
+Fresh ordinary MMC3 d444cac8... and MMC5 f4ffd248... whole-ROM exact. Initial
+ordinary compile used a nonexistent mapper-specific cfg and produced no ROM;
+the final ordinary runs use genuine smb1base.cfg. No failed ROM retagging.
+
+Finite source controls:
+-96 actual complete Physics/Main comparisons, both facings, stable/stable80,
+ unblocked falling, disabled-terrain falling, wrong type/ID/tag/missing actor,
+ fresh jump/Down release/cooldown and Scrooge alternate.
+-36 additional complete Main empty/floor/ceiling/left/right/carry comparisons.
+-10 initialized foreign complete Main returns, RAM, orderedwrites and cycles
+ exact, with no hang path entered.
+-25 actual IRQ and25 actual lag-NMI interruptions at every exercised genuine
+ new helper instruction: AXYP/SP, actual mapper/shadows and five SMC operands
+ restored; only py65's virtual B/U are normalized at ISR resume comparison.
+ Actual unchanged complete return P is otherwise compared exactly.
+
+Actual observed fields plus disclosed typed pipe/floor reconstruct the entire
+GameLoop: parent X735/Y182/hang136; candidate X721/Y176/hang8. Both facings
+reject the same improper pull. It is not a full captured native savestate or
+new input replay. Another direct real DwArrowActor->Physics control proves
+solid-terrain bit80 release and preserves free-air falling carry, both facings.
+Page1 below180 is application/SMC memory and is compared, not masked as stack.
+Lower actual stack180..1BF exact; only enumerated returned dead upper stack
+bytes differ. No broad application-RAM exclusion.
+
+Costs are positive: stable owned hang+23CPU, unblocked falling hang+28,
+failed actor validation+15; wrong type/already-released/Scrooge and measured
+foreign paths0. The changed floor
+release paths cost+102..219 in Physics and+1022..1036 in complete source Main,
+including different legitimate grounded graphics/CHR behavior. Those are not
+paired unchanged-output speed results or native cadence improvements. No NMI
+instructions/shared per-projectile checks/new RAM are added. Full native route,
+strict rendering deadline, current physical screenshots and cadence remain
+unqualified. Existing controller may still need genuine input/Arrow routing;
+this fix is not a full-clear claim. Source-only handoff, no agent launch.

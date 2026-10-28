@@ -172,4 +172,23 @@ XPos:
   sta DwCacheCooldown
   rts
 .endproc
+; Holding must honor the native Arrow's terrain-release gate. A falling
+; actor may continue carrying/hanging in free air; its state80 is set when
+; DwArrowActor finds solid scenery so the native platform no longer carries
+; a rider through that scenery. Stable jump-through state80 remains legal.
+.proc DwValidateHang
+  jsr DwValidateArrow
+  bcc Done
+  lda SsMode,x
+  beq Owned
+  lda Enemy_State,y
+  bmi Released
+Owned:
+  sec
+Done:
+  rts
+Released:
+  clc
+  rts
+.endproc
 .popseg
