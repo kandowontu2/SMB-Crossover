@@ -1,0 +1,84 @@
+{
+  "status": "Native baselineEasy Glove failure reproduced; private Easy/Hard earned campaigns PASS",
+  "installed": true,
+  "goal_complete": false,
+  "ROM_sha256": "32694243361bb1366f6fd64c054ea2451f86b2517fc020d9c2b5d66bbf07bfa0",
+  "parent_ROM_sha256": "ee1152a49deae31e82d202159310fa3719cbcfd85de571fd1b9ac15a1cd2a7b3",
+  "native_run": true,
+  "profiles": [
+    {
+      "profile": "current-ee115-zelda2-easy-earned-v1",
+      "passed": false,
+      "expected_baseline_negative_reproduced": true,
+      "ROM_sha256": "ee1152a49deae31e82d202159310fa3719cbcfd85de571fd1b9ac15a1cd2a7b3",
+      "reason": "Actual earned Glove sword breaks real brick assertion fails on baselineEasy.",
+      "ready_sha256": "0e596684bae40fb7bcff18da469940ec1c909cb25e5f6afd460ffbe874a51b27",
+      "launch_sha256": "f3a141b507c10a213f3117216365cacaa3c978d1092577c33bfec0d48bc87e25",
+      "strict_inputs_verified": 22
+    },
+    {
+      "profile": "current-z2glove-zelda2-easy-earned-v1",
+      "mode": 0,
+      "passed": true,
+      "ROM_sha256": "32694243361bb1366f6fd64c054ea2451f86b2517fc020d9c2b5d66bbf07bfa0",
+      "records": 55,
+      "wall": 2605,
+      "completed_Main": 2217,
+      "complete256_DMAs": 2460,
+      "owners": {
+        "Award": 3,
+        "Cast": 9,
+        "Collect": 20,
+        "Damage": 3,
+        "EXP": 6,
+        "Hit": 7,
+        "Jar": 8,
+        "Level": 3,
+        "Reward": 20
+      },
+      "ROOT_selected_PNGs_visually_reviewed": 7,
+      "panel_visuals_certified": false,
+      "visual_limitation": "pause-spells and earned-level-panel images are forced-blank blue publication frames. Actual font/display epoch proof is a separate pending supplement.",
+      "ready_sha256": "cc803daf922d34b660a58b15c7735ed0ed6b42684d95bc531abe8e42f40af112",
+      "result_sha256": "b3b0c16155ceb63873567e86b24149a30d80f5f3312aa9cf34ff3aac3444b688",
+      "strict_inputs_verified": 22
+    },
+    {
+      "profile": "current-z2glove-zelda2-hard-earned-v1",
+      "mode": 1,
+      "passed": true,
+      "ROM_sha256": "32694243361bb1366f6fd64c054ea2451f86b2517fc020d9c2b5d66bbf07bfa0",
+      "records": 55,
+      "wall": 2694,
+      "completed_Main": 2217,
+      "complete256_DMAs": 2540,
+      "owners": {
+        "Award": 3,
+        "Cast": 9,
+        "Collect": 20,
+        "Damage": 3,
+        "EXP": 6,
+        "Hit": 7,
+        "Jar": 8,
+        "Level": 3,
+        "Reward": 20
+      },
+      "ROOT_selected_PNGs_visually_reviewed": 7,
+      "panel_visuals_certified": false,
+      "visual_limitation": "pause-spells and earned-level-panel images are forced-blank blue publication frames. Actual font/display epoch proof is a separate pending supplement.",
+      "ready_sha256": "918ec1a2b945910747103e41f0a37387bf0198e5ddfa4bfae8c77243be7063e3",
+      "result_sha256": "064261f954534e414c902484a4b42f2baba0ed663fcbb51e3fc1f9d33e645324",
+      "strict_inputs_verified": 22
+    }
+  ],
+  "checkpoint": "docs/qa/checkpoints/2026-10-28/zelda2-glove-326942-native",
+  "repair": "Keep ZeldaII variant out of original Link Easy melee point/radius helper. Exactly15 bytes in bank22, original PCs and all other ROM bytes preserved.",
+  "scope": "20 real collectible contacts and55 completed task records per mode: eight paid spells/effects, both thrusts, Glove brick, jars, earned EXP and three paid level categories. Typed actors/terrain; no acquired-state seeds.",
+  "limits": [
+    "The two original panel images in each profile are blank capture epochs and are not menu visual certification. A real font/render/display supplement is pending.",
+    "Only physical EXP50/200 bags occur here; EXP100/500 remain separately requested in the supplement.",
+    "Original Link Easy costs +22CPU/eligibility, +1782/+2046 over the finite16Main sequences. Source ABI/caller/IRQ controls and independent review pass; no general FPS claim.",
+    "No natural drop/rise/RNG, all-stat maxima, persistence, whole-stage, everypose/allpixel or waveform fidelity claim."
+  ],
+  "adoption_report": "zelda2-glove-adoption-2026-10-28.json"
+}

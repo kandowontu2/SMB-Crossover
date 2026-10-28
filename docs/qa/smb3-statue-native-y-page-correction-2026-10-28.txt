@@ -1,0 +1,46 @@
+SMB3 focused statue observer v7, additive v6 correction
+
+Exact ROM ee1152a49deae31e82d202159310fa3719cbcfd85de571fd1b9ac15a1cd2a7b3.
+No game-source/ROM/settings/native launch change by this agent.
+
+ROOT's Mario focused v6 stopped at 'Visible staged statue origin', after CSV
+update228/age31, before any PNG or result.json. The original ready, output,
+source controls and Luigi-v6 unrun profile remain immutable. V6's three
+source mechanics cases had not executed its Lua coordinate predicate.
+
+Actual MetaspriteRenderLoop explicitly compares the calculated vertical high
+byte to1 for positive AND negative part offsets. DrawMetasprite copies the
+native object's Y high byte into R7; the visible normal world is Y page1.
+V6 incorrectly required R6+256*R7<256. That rejects native page1 rather than
+establishing visibility. Native v6 did not log R4..R7, so no exact native raw
+values are invented from its failure.
+
+Fresh real assembled three-case campaigns for both Hard variants total592
+Main+NMI calls. The actual renderer arguments at the stone pose are R4=112,
+R5=0,R6=176,R7=1: rawY432, screen/OAM Y176. All66 renderer-to-RosterOamReady
+observations verify four exact physical OAM tuples with the native rotation.
+Every one fails the old rawY<256 predicate; every one passes the corrected
+page1 rule. Both actual source campaigns still physically earn Super/Tanooki,
+perform exactly one real target Defeat and complete statue release.
+
+V7 is an additive observer-only successor. It requires Xpage0, Ypage1, then
+normalizes screen Y=rawY-256. It additionally requires every8x16 body part
+fully within256x240 before asserting exact source OAM/hardware DMA. No
+visibility/owner/descriptor/CHR/contact/delay or existing hardware assertion
+is removed. It logs raw low/high coordinates, normalized coordinates,
+pointer/bank/attributes/cursor/rotation/CHR and CPU/PPU stamps BEFORE the
+origin assertion. One bounded statue-origin.jsonl (64 rows, each<2048bytes)
+is added; no frame forest. The two-PPU-frame delay remains an unrun native
+image oracle until ROOT checks the actual captured pixels.
+
+Exact v6 reversal of the new fixture is verified. Literal original strict
+hardwareguard block remains byte-identical. No Lua VM available/executed
+offline. ROOT exclusively owns any later emulator launch.
+
+Owned new files:
+tools/audit/current_smb3_statue_supplement_prepare_v7.py
+tests/current-smb3-statue-supplement-v7.lua
+docs/qa/smb3-statue-native-y-page-correction-2026-10-28.txt
+build/current_smb3_statue_supplement_v7_source.json
+build/current_smb3_statue_supplement_v7_handoff.json
+Readies/command.json: build/current-ee1152-{mario3,luigi3}-statue-v7/.

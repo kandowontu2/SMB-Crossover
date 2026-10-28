@@ -1,0 +1,52 @@
+SMB3 statue picture follow-up (read-only source/native review)
+
+Exact ROM ee1152a49deae31e82d202159310fa3719cbcfd85de571fd1b9ac15a1cd2a7b3.
+The actual Mario/Luigi v5 05-statue.png images each contain twelve white pixels
+in the bounded player rectangle. Their coordinates exactly equal the compiled
+M3Poof0 two-sprite opaque mask (physical CHR544, real8x16 geometry). They do
+not show the stone statue. No claim that the v5 picture certifies statue art.
+
+The assembled earned-prefix trace emits the last poof at age31. Age32 really
+selects native PF_STATUE30, reads the genuine bank91 C484 descriptor, and emits
+all four stone parts with tiles48/50/52/54, physical CHR529. Its opaque mask is
+376 pixels. Physical529 is byte-exact original NES SMB3 Rev1 CHR65, selected
+by the original Tanooki root40h plus frame30 page offset1. No wrong descriptor
+or CHR bytes were found. Source correctness is distinct from native display.
+
+The v5 picture admitted source update2007/age32 and reports DMA2400/wall2423.
+Actual staged target defeat follows at update2008/age33 (Statue190, actor6,
+flag1, x112/y184). rec.protected had already become true while actor0 was
+absent. The actual later Defeat exists, but the original picture predicate
+did not establish it. V5 has no per-picture hardware256/CHR/palette/PPU stamps,
+so exact native screenshot/display epoch cannot be reconstructed. The old
+mechanics result, image and this limit remain unchanged. No product repair
+is justified by this image alone.
+
+Focused additive v6 preparation physically earns Super, then native-RNG
+classified Tanooki, then executes statue contact/release: three cases, not
+another24-case arsenal run. Both Hard variants pass296 complete source
+Main+NMI calls, one actual Defeat each. No acquired form/private physics,
+timer/RNG/resource/invulnerability/health/outcome writes. Cold BFS/alternate
+and the literal original hardware guards/caps remain. Lua VM not executed
+offline; no native run by this agent.
+
+The image now requires actual staged Defeat exactly1, genuine descriptor bank,
+four exact physical source OAM parts, identical complete hardware256DMA and
+all original1024CHR bytes. It waits two PPU frame epochs after the first
+verified stone-body DMA, requires another verified body DMA, and records
+render/publication/DMA/capture stamps, full hardware256,12CHR latches and32
+palette bytes. These are unrun assertions, not a native visual pass. At most
+one PNG per focused profile; no raw frame tree or ROM/runtime copies.
+
+Exact reusable inputs/results:
+tools/audit/current_smb3_statue_picture_review_v1.py
+tools/audit/current_smb3_statue_pixel_review_v1.py
+tools/audit/current_smb3_statue_supplement_prepare_v6.py
+tests/current-smb3-statue-supplement-v6.lua
+build/current_smb3_statue_picture_review_v1.json
+build/current_smb3_statue_pixel_review_v1.json
+build/current_smb3_statue_supplement_v6_source.json
+build/current_smb3_statue_supplement_v6_handoff.json
+Readies/command.json: build/current-ee1152-{mario3,luigi3}-statue-v6/.
+
+All original v5/readies/native images and current product sources untouched.

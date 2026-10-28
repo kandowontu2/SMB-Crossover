@@ -1,0 +1,144 @@
+{
+  "passed": true,
+  "source_only": true,
+  "native_run": false,
+  "ROM_sha256": "ee1152a49deae31e82d202159310fa3719cbcfd85de571fd1b9ac15a1cd2a7b3",
+  "original_SWF_sha256": "6374c72426556bfc3cc16f7594ce4443a5867fe2d367514136c99cc8458b70af",
+  "source_declarations": {
+    "OBTAINABLE_UPGRADES_ARR": {
+      "expression": "[[MM_SUPER_ARM,MM_METAL_BLADE,MM_HARD_KNUCKLE,MM_PHARAOH_SHOT,MM_CHARGE_KICK,MM_FLAME_BLAST,MM_WATER_SHIELD,MM_RUSH_COIL]]",
+      "line": 25
+    },
+    "MUSHROOM_UPGRADES": {
+      "expression": "[MM_CHARGE_SHOT]",
+      "line": 27
+    },
+    "SINGLE_UPGRADES_ARR": {
+      "expression": "[[]]",
+      "line": 29
+    },
+    "REPLACEABLE_UPGRADES_ARR": {
+      "expression": "[[MM_SUPER_ARM,MM_ENERGY_BALANCER],[MM_METAL_BLADE,MM_ENERGY_BALANCER],[MM_HARD_KNUCKLE,MM_ENERGY_BALANCER],[MM_PHARAOH_SHOT,MM_ENERGY_BALANCER],[MM_CHARGE_KICK,MM_ENERGY_BALANCER],[MM_FLAME_BLAST,MM_ENERGY_BALANCER],[MM_WATER_SHIELD,MM_ENERGY_BALANCER],[MM_RUSH_COIL,MM_ENERGY_BALANCER]]",
+      "line": 31
+    },
+    "ICON_ORDER_ARR": {
+      "expression": "[MM_SUPER_ARM,MM_METAL_BLADE,MM_HARD_KNUCKLE,MM_PHARAOH_SHOT,MM_CHARGE_KICK,MM_FLAME_BLAST,MM_MAGMA_BAZOOKA,MM_WATER_SHIELD,MM_RUSH_COIL,MM_RUSH_JET,MM_MAN_RUSH_MARINE,MM_ENERGY_BALANCER]",
+      "line": 33
+    },
+    "AMMO_ARR": {
+      "expression": "[[MM_SUPER_ARM,MAX_WPN_ENGY,MAX_WPN_ENGY],[MM_METAL_BLADE,MAX_WPN_ENGY,MAX_WPN_ENGY],[MM_HARD_KNUCKLE,MAX_WPN_ENGY,MAX_WPN_ENGY],[MM_RUSH_COIL,MAX_WPN_ENGY,MAX_WPN_ENGY],[MM_PHARAOH_SHOT,MAX_WPN_ENGY,MAX_WPN_ENGY],[MM_CHARGE_KICK,MAX_WPN_ENGY,MAX_WPN_ENGY],[MM_FLAME_BLAST,MAX_WPN_ENGY,MAX_WPN_ENGY],[MM_MAGMA_BAZOOKA,MAX_WPN_ENGY,MAX_WPN_ENGY],[MM_RUSH_JET,MAX_WPN_ENGY,MAX_WPN_ENGY],[MM_WATER_SHIELD,MAX_WPN_ENGY,MAX_WPN_ENGY]]",
+      "line": 35
+    }
+  },
+  "weapon_vector": {
+    "expression": "Vector.<String>([MM_MEGA_BUSTER,MM_SUPER_ARM,MM_METAL_BLADE,MM_HARD_KNUCKLE,MM_PHARAOH_SHOT,MM_CHARGE_KICK,MM_FLAME_BLAST,MM_MAGMA_BAZOOKA,MM_WATER_SHIELD,MM_RUSH_COIL])",
+    "line": 261
+  },
+  "conclusion": "Rush Jet is not an obtainable or selectable MegaMan2.02 upgrade. Jet/Marine names survive only in shared icon/ammo declarations; the concrete acquisition/replacement arrays and executable weapon vector/attack switch admit RushCoil only. Do not implement an invented Jet obligation.",
+  "matrix_addendum": {
+    "frozen_matrix": "docs/qa/all37-powerup-native-coverage-2026-10-28.json",
+    "frozen_sha256": "41168d1c642f9561e55e3d4ed17cc50b8acd14ff2a8d0ca6d1f420979a09f113",
+    "identities": [
+      "megaman",
+      "proto"
+    ],
+    "previous_label": "RushJet (same Rush item, other ability)",
+    "corrected": "NOT_APPLICABLE_TO_AUTHENTIC2.02_LINEUP",
+    "reason": "Port variants share the same character1 inventory row. Existing earned RushCoil item/use is valid original-lineup coverage; no new Jet native cell required. Original matrix kept byte-exact."
+  },
+  "compiled_scope": "Current SS_RUSH modes0/1/2/3/4 are fall/wait/Coil spring/exit animation/fly-away. Mode4 is departure, not player riding; prior nativeCoil already exercised all5 modes.",
+  "compiled_owners": [
+    {
+      "symbol": "MegaManRushAttack",
+      "pc": 48817,
+      "bank": 61,
+      "declared_bytes": 217,
+      "sha256": "61253fa1adc457db06fb7f6694ffa8eff37e4a80fdb8fde33d4cdd1e6eb36e65"
+    },
+    {
+      "symbol": "MegaManRushBounce",
+      "pc": 49034,
+      "bank": 61,
+      "declared_bytes": 36,
+      "sha256": "880aecc8ba59b9d1a8a761544d14eb5d9a6c74dee002d564ca6b50a5500f7374"
+    },
+    {
+      "symbol": "SpecialWeapons::RushMotion",
+      "pc": 43843,
+      "bank": 60,
+      "declared_bytes": 0,
+      "sha256": "68325720aabd7c82f30f554b313d0570c95accbb7dc4b5aae11204c08ffe732b"
+    },
+    {
+      "symbol": "SpecialWeapons::RushFly",
+      "pc": 44046,
+      "bank": 60,
+      "declared_bytes": 0,
+      "sha256": "2c624232cdd221771294dfbb310aca000a0df6ac8b66b696d90ef06fdefb64a3"
+    },
+    {
+      "symbol": "SpecialWeapons::RushFall",
+      "pc": 44066,
+      "bank": 60,
+      "declared_bytes": 0,
+      "sha256": "452ba1ddef80246c48be7690193c76c1d61185906be9401014fe14f1be64b74f"
+    }
+  ],
+  "bindings": [
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\current_ee115_rush_lineup_v1.py",
+      "bytes": 4453,
+      "sha256": "b281a5f6abcf66dec11353d5867c9793fe1ff5a9556296318565e40cbe77aa9f"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\reference\\crossover2\\source.swf",
+      "bytes": 9979896,
+      "sha256": "6374c72426556bfc3cc16f7594ce4443a5867fe2d367514136c99cc8458b70af"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\reference\\crossover2\\extracted\\scripts\\com\\smbc\\characters\\MegaMan.as",
+      "bytes": 4014,
+      "sha256": "2f02f3ca17ae08fb77ca3f457f31480e8aecc35e8405d50296e2c3c0f620cc70"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\reference\\crossover2\\extracted\\scripts\\com\\smbc\\characters\\base\\MegaManBase.as",
+      "bytes": 81988,
+      "sha256": "3aca147b666fe10c4f35f74307f3e8a690c29bb3bbc443f2cae4db063a1b7fdb"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\reference\\crossover2\\extracted\\scripts\\com\\smbc\\pickups\\Rush.as",
+      "bytes": 13365,
+      "sha256": "409fd89252d88870c1e3615f1d35375b87c491b722f3537b7085e76ee66398bf"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\reference\\crossover2\\extracted\\scripts\\com\\smbc\\data\\CharacterInfo.as",
+      "bytes": 6875,
+      "sha256": "9ca50b3be9801c55e6e1c429ee0293ef18ce0a5629f67d5f5ebb01910df2428b"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\roster-20261028-fixes.nes",
+      "bytes": 2097168,
+      "sha256": "ee1152a49deae31e82d202159310fa3719cbcfd85de571fd1b9ac15a1cd2a7b3"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\roster-20261028-fixes.dbg",
+      "bytes": 26935475,
+      "sha256": "c6b7aa303d22ce2876397982ab1fc2aaa0792772f74f63ee43201d5a0a2b29f9"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\megaman_rush.s",
+      "bytes": 1897,
+      "sha256": "85ccde471e3fe93d93edf708e50725cd52e822eeabeca6635f831acc93f8c309"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\special_weapons.s",
+      "bytes": 48685,
+      "sha256": "aec3859cda9b98b7c5b79ab37cbc3c09f3a1a6b9f1f1bf83622d7e1014d7ea9e"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\current_mega_arsenal_prepare_v1.py",
+      "bytes": 26588,
+      "sha256": "1463ebdb40f57008d9b1c36d8eba36534bfbe3e64093d1931479a21714cc17cf"
+    }
+  ]
+}

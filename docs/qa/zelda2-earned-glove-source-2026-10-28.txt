@@ -1,0 +1,107 @@
+Zelda II earned rewards / paid abilities and private Easy Glove repair
+
+Source qualification and preparations only. No emulator was launched by this
+worker, no native PASS is claimed, and no production/default/settings/Git input
+was changed.
+
+Parent is frozen build/roster-20261028-fixes.nes, SHA256
+ee1152a49deae31e82d202159310fa3719cbcfd85de571fd1b9ac15a1cd2a7b3.
+Private build/zelda2_easy_glove.nes is
+32694243361bb1366f6fd64c054ea2451f86b2517fc020d9c2b5d66bbf07bfa0.
+
+Baseline counterexample is retained inside zelda2_easy_glove_controls.json.
+The complete real GameLoop reaches Glove with all required rewards genuinely
+collected in the typed CPU arena. Its correct sword point (135,0,184) enters
+EasyWhipProbe and leaves as stale MmBillEdge point (0,0,0). The old Link4 Easy
+eligibility accepts proxy14 without distinguishing Z2Variant1. The authored
+brick remains51 and the unchanged brick-outcome assertion fails. This is an
+assembled source counterexample, not yet a native reproduction.
+
+The private expanded-only easy_lsr.s overlay replaces only the Link branch's
+three-byte LDA type with JSR to a 12-byte helper in actual old FF fill at bank22
+BFF4..BFFF. With valid variant0, LDA variant/EOR1/LSR/BCC/LDA type restores the
+original type and carry. With variant1 it returns type0/C0 and the existing
+CMP14 rejects it. Eligibility's existing mode/character tests still own entry:
+Simon and all foreign characters are unaffected by another character's stale
+Z2Variant. No new RAM or CFG segment, and no hidden source or runtime tree.
+
+Exactly15 ROM bytes differ, all bank22. All qualified old PCs, header, CHR,
+RAM layout, NMI/IRQ and every other bank remain exact. Ordinary MMC3 and MMC5
+overlay builds reproduce whole hashes d444cac8... and f4ffd248... respectively.
+The first ordinary-MMC5 compile attempt used a nonexistent cfg filename and
+stopped before producing that ROM; the builder now uses the genuine common
+ordinary cfg. The two already-compiled outputs were verified rather than
+invented/relabelled. Final build commands and real DBG/LBL/MAP are retained.
+
+Costs are positive and explicit. The classic Link variant0 Easy eligibility
+entry adds22 CPU per call. Other intended Z2 reject paths differ by7..19 CPU;
+unaffected family/mode entries add0. Across the finite16-GameLoop legacy Link
+Easy source sequences the total is +1782 or +2046 (tier-dependent); all actual
+AXYP/SP/application RAM still match. This is not a global no-cost or FPS claim.
+Hard ZeldaII's entire earned-campaign rows, events and counts match its parent.
+
+Source controls:
+- 2,624 complete real eligibility returns over all20 character IDs, both
+  modes/Link variant states, all256 types for Link and Simon, finite foreign
+  types. Only the intended ZeldaII Easy eligibility differs. Exact extra dead
+  return-stack bytes are disclosed, with active caller/lower live stack exact.
+- 22 actual instruction interruption seams execute real NMI/IRQ RTI resumes;
+  separate four full5SMC/bank/AXYP/SP checks retain all executable operands.
+- 62 complete GameLoop differential cases /992 calls cover both Link variants,
+  modes, facings, tiers and other current character IDs. These are typed CPU
+  scenes, not source equivalence being passed off as native coverage.
+- Two actual 2,183-GameLoop earned campaigns pass on the private ROM, Easy0 and
+  Hard1. They physically collect producer-derived C0..CD, all spells/tech,
+  eight HP/MP containers, and meaningful CD restoration after genuine contact
+  damage plus a paid Fire cast. No HP/MP/EXP/spell/tech/level/outcome seed.
+- Eight genuine paid Select casts through the real pause UI: Shield damage
+  halving, Life healing, Jump arc, Fire target defeat with actual Attack-level
+  benefit, flame Reflect, Spell enemy transformation, Thunder damage/defeat,
+  Fairy controlled motion; actual Up/Down thrust contact and stop-rise/bounce;
+  Glove brick breaking; blue/red jars; sword defeat earns EXP; physical50/200
+  bags fund real Life/Magic/Attack panel purchases and exact EXP debit.
+
+The first C0 actor metadata is derived from actual Z2PreparePickupGate raw0
+(SaveLo1); later raw1 rewards retain SaveLo0. Native preparations stage complete
+mature actors with these source-owned metadata, not collection or resource
+outcomes. They do not claim block reveal/rise or natural reward randomness.
+Native scene staging sets disclosed map/position/default NPC state at the real
+GameLoop+5 boundary. Enemy HP/EXP receipts, RPG states, pressed flags, learned
+spells, MP, HP, tiers, levels and projectile outcomes are forbidden writes.
+The Fire target has a real raised Y192 platform: an ordinary falling Goomba
+rests atY184 and misses the Y180 fire by one pixel; the correctly supported
+target rests atY168. This is a source-proved setup correction, not a game fix.
+
+Three independent small readies, same owned Lua, no launches:
+1 current-ee115-zelda2-easy-earned-v1: baseline, expected Glove FALSE retained.
+2 current-z2glove-zelda2-easy-earned-v1: private candidate Easy0.
+3 current-z2glove-zelda2-hard-earned-v1: private candidate Hard1.
+Each has config.json, run.lua, command.json and source-controls/ready metadata.
+ROOT owns the explicit command.json launch. Max5000 actual updates/8000 wall,
+1200 host seconds,64 files/2GB and at most8 selected PNGs (seven requested).
+
+Real inputs: cold menu variant1 and numeric mode readbacks, genuine panel
+navigation/Select/A/B/directions. Requested actions advance only after a real
+completed Main has observed both SavedJoypad mirrors; neither is written.
+All callbacks are startup-static. No save states, resource cheats or source
+runtime cloning. A Lua VM is not available to this preparation worker; actual
+Lua execution and native image/ability proof remain unrun gates.
+
+Hardware guard reuse is narrow and versioned: normal NMI completion stays real
+E008 after LDA/before STA2001. All256 unmasked DMA source/write/destination
+bytes, E3 physical attribute semantics, rendering-off/OAMADDR0, NMI AXY/SP,
+five SMC, actual banks/CHR and strict <=pre-render274 deadline remain intact.
+ZeldaII's real pause panel additionally owns two genuine page2 transfers under
+exclusive rendering-off/NmiDisableFF/pending1-or2/active1 conditions. Open is
+STA4014 AD15 then LDA0, completion AD1A; close is STA4014 ABE6 then real JSR to
+Z2PanelAttributesRestore, completion at its actual entry. Exact bank/request
+bytes and SP/return-PC ownership are checked. No broad foreground/bank waiver.
+The assembled campaigns observed70 real panel request contexts with the
+required exclusive blank state; these CPU observations are not native DMA or
+PPU timing evidence. Actual pre/post hardware still must pass natively.
+
+Limits: no native collection/cast/panel screenshot pass yet, no all-stat-max,
+area reset/persistence, Star/1UP, duplicate reward pool, natural emergence,
+whole-stage, all-pose/all-pixel or waveform/audio-fidelity claim. Seven selected
+images cannot establish universal sprite visibility. The prior passed route
+and old054d C0..CC reports keep their own hashes and were not relabelled.

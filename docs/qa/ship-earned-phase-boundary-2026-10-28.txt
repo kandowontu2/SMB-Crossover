@@ -1,0 +1,37 @@
+Ship observer phase correction, exact ee115, NATIVE SUCCESSOR UNRUN.
+
+The original Vic v1 native FALSE remains unchanged. CSV shows case1's real
+fire/target/expiry predicate passed and case-complete at wall553/update159,
+case1 age130. finishCase set phase=setup/index2; the following CSV update
+incorrectly labeled the old record as case2 and asserted130<130. There is no
+case2 start. This is a test terminal-boundary error, not evidence of a game
+failure or a complete native component/profile pass. Original launch exit1,
+settings equality, all raw files and item-01 PNG are retained and bound in
+build/current-ee115-vic-boundary-negative-v1.json. No emulator was rerun.
+
+Separate current_ship_earned_v2.lua changes exactly two source substrings:
+1) CSV uses immutable rec.case_index when a current record exists.
+2) The existing rec.age<t.limit assertion runs only while phase==case, after
+   all unchanged actual mechanic completion checks have been evaluated.
+An unfinished case still rejects equality and overrun. No limit is widened.
+The original strict4058-byte hardware block, controller, scene/pickup setup,
+resource restrictions, all damage/cost/cap/cleanup/sound predicates and native
+ROM/hook metadata are byte-exact. Exact forward/reverse substitutions prove
+all other fixture bytes unchanged. The615 typed boundary rows check each
+unchanged plan's accepted limit-1, rejected limit/limit+1, and completed
+setup/terminal phases. These are source models, not a Lua VM/native pass.
+
+current_ship_earned_phase_prepare_v2.py derives four fresh tiny v2 profiles
+from the unchanged v1 ready inputs. Each copies only config/run/command
+metadata and references the existing actual ee115 Easy/Hard source receipts;
+no unchanged CPU campaign or capture is duplicated. Native inputs are the
+same except the two observer substitutions and isolated output path. All26
+bindings per successor were checked. Original5a/finalee source packets and
+all v1 readies/native files remain unchanged. Root owns every native launch.
+
+Each exact one-shot command is command.json in build/current-ee115-{vic,
+octopus,twinbee,pentarou}-hard-earned-v2. Bounds remain5000 actual updates,
+8000 wallframes,1200 hostseconds,2GB/64files/8selectedPNG. Actual modeHard1,
+real source-prepared physical pickups/inputs/resources and original strict
+hardware/E008/E3/render deadline guards remain mandatory. This source-only
+correction does not establish native graphics/cadence or clear other cases.

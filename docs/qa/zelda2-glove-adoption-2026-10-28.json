@@ -1,0 +1,58 @@
+{
+  "status": "adopted",
+  "goal_complete": false,
+  "ROM_sha256": "32694243361bb1366f6fd64c054ea2451f86b2517fc020d9c2b5d66bbf07bfa0",
+  "previous_ROM_sha256": "ee1152a49deae31e82d202159310fa3719cbcfd85de571fd1b9ac15a1cd2a7b3",
+  "source": "src/easy_lsr.s",
+  "source_sha256": "858409f271c104cafe011fc628ce5f1ded2db0d4a8d06a14640c73c1ab063329",
+  "changes": [
+    "ZeldaII Easy sword/Glove uses its genuine point instead of originalLink melee edge scratch.",
+    "Exactly15ROM bytes inbank22; original qualified PCs/RAM/CHR/NMI/IRQ and every other ROM bank preserved."
+  ],
+  "canonical_rebuild_exact_private_native": true,
+  "ordinary_builds": [
+    {
+      "mapper": "mmc3",
+      "expected_sha256": "d444cac88e13fa02b29ad16100b8f08fa565ba90f8cedde192de43fb2dc8f3eb",
+      "actual_sha256": "d444cac88e13fa02b29ad16100b8f08fa565ba90f8cedde192de43fb2dc8f3eb",
+      "command": [
+        "C:\\Users\\kando\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+        "-B",
+        "tools/build_mmc5_expanded.py",
+        "--flag-off",
+        "mmc3",
+        "--output",
+        "build\\zelda2-glove-canonical-standard-mmc3.nes"
+      ]
+    },
+    {
+      "mapper": "mmc5",
+      "expected_sha256": "f4ffd2483c51daa4d60bb575da2da8c4d817692cda407611c243031f67520833",
+      "actual_sha256": "f4ffd2483c51daa4d60bb575da2da8c4d817692cda407611c243031f67520833",
+      "command": [
+        "C:\\Users\\kando\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+        "-B",
+        "tools/build_mmc5_expanded.py",
+        "--flag-off",
+        "mmc5",
+        "--output",
+        "build\\zelda2-glove-canonical-standard-mmc5.nes"
+      ]
+    }
+  ],
+  "native_report": "zelda2-glove-326942-earned-native-2026-10-28.json",
+  "checkpoint": "docs/qa/checkpoints/2026-10-28/zelda2-glove-326942-native",
+  "downloads": [
+    "C:\\Users\\kando\\Downloads\\SMB-Crossover-Current-MMC5.nes",
+    "C:\\Users\\kando\\Downloads\\SMB-Crossover-2026-10-28-32694243-MMC5.nes"
+  ],
+  "previous_download": "C:\\Users\\kando\\Downloads\\SMB-Crossover-Previous-ee1152a4-MMC5.nes",
+  "CPU_cost": "OriginalLinkEasy+22 pereligibility; finite16Main+1782/+2046, behavior/ABI preserved. No global FPS claim.",
+  "limits": [
+    "Both modes earned gameplay pass; original blank panel pictures do not prove menu visuals. Visible font/render/panel capture supplement remains open.",
+    "All37 fullroutes/everypowerup/modes/shortcut/graphics/sound/performance audit is still active."
+  ],
+  "source_matches_tracked_LF": true,
+  "line_endings": "Existing worktree was CRLF while Git tracks LF under -text. Final source matches tracked LF and the private qualified leaf; source diff adds17lines only. Both intermediateCRLF and finalLF rebuilds exactly match tested326942.",
+  "canonical_build_receipt": "build/zelda2-glove-canonical-lf.build.json"
+}

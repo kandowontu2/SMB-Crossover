@@ -1,7 +1,7 @@
 {
-  "ROM_sha256": "ee1152a49deae31e82d202159310fa3719cbcfd85de571fd1b9ac15a1cd2a7b3",
-  "status": "ee1152 adopted Chip/Dale rendering/startup HP, SMB3 injury clock and Darkwing terrain release; full roster audit in progress",
-  "clear_identity_count": 31,
+  "ROM_sha256": "32694243361bb1366f6fd64c054ea2451f86b2517fc020d9c2b5d66bbf07bfa0",
+  "status": "326942 adopted ZeldaII Easy Glove point repair; fullroster/powerup/graphics audit active",
+  "clear_identity_count": 36,
   "identities": 37,
   "rows": [
     {
@@ -667,16 +667,70 @@
     {
       "identity": "mario3",
       "easy": {
-        "status": "pending current route"
+        "status": "cleared 1-1 and controlled1-2",
+        "native_ROM_sha256": "ee1152a49deae31e82d202159310fa3719cbcfd85de571fd1b9ac15a1cd2a7b3",
+        "frames": 3308,
+        "completed_updates": 3170,
+        "captured_full_PPU_frames": 2492,
+        "PPU_stream_sha256": "8d0d275cd10dbc6cd44d09cc19e4a29c199949d4584924f746e7f681b07b0cb1",
+        "zero_deaths": true,
+        "cheats_off": true,
+        "selected_whole_frames_visually_reviewed": true,
+        "all_frame_visual_review": false,
+        "independent_replay": false,
+        "native_result_sha256": "1cc01d7e62c1c6c82ac0f2b7a62cf2a349e9eab01d7357bbc4c8bd335358ef7b",
+        "review_sha256": "3df88e318c17e31bbdcb7bcc18a8dd78a1c02524bcf827b4f02c24a61dc83e2e",
+        "controller": "SMB3 controller lands on the actual last stair, releases A, then requires a genuinely grounded fresh jump at the pole base. Full cold-menu1-1 into25controlled1-2; no game-state/resource/physics writes. Earlier stair and airborne-pole input failures retained.",
+        "checkpoint": "docs/qa/checkpoints/2026-10-28/current-roster-ee1152/mario3-easy"
       },
       "hard": {
         "status": "pending current route"
-      }
+      },
+      "failed_native_attempts": [
+        {
+          "mode": "easy",
+          "native_ROM_sha256": "ee1152a49deae31e82d202159310fa3719cbcfd85de571fd1b9ac15a1cd2a7b3",
+          "profile": "compact-ee1152-mario3-easy-v1",
+          "frames": 1768,
+          "reason": "First last-stair takeoff was early; zero-death guard rejected the pit fall.",
+          "report": "route-input-negatives-ee1152-2026-10-28.json"
+        },
+        {
+          "mode": "easy",
+          "native_ROM_sha256": "ee1152a49deae31e82d202159310fa3719cbcfd85de571fd1b9ac15a1cd2a7b3",
+          "profile": "compact-ee1152-mario3-easy-v2",
+          "frames": 8000,
+          "reason": "Cleared last stair but never requested a jump at the narrow raised pole base; exactX oscillation prevented generic still trigger.",
+          "report": "route-input-negatives-ee1152-2026-10-28.json"
+        },
+        {
+          "mode": "easy",
+          "native_ROM_sha256": "ee1152a49deae31e82d202159310fa3719cbcfd85de571fd1b9ac15a1cd2a7b3",
+          "profile": "compact-ee1152-mario3-easy-v3",
+          "frames": 8000,
+          "reason": "Fresh A was requested while airborne, then held across landing; finite bound. Grounded-release successor subsequently passed.",
+          "report": "route-input-negatives-ee1152-2026-10-28.json"
+        }
+      ]
     },
     {
       "identity": "luigi3",
       "easy": {
-        "status": "pending current route"
+        "status": "cleared 1-1 and controlled1-2",
+        "native_ROM_sha256": "ee1152a49deae31e82d202159310fa3719cbcfd85de571fd1b9ac15a1cd2a7b3",
+        "frames": 3512,
+        "completed_updates": 3380,
+        "captured_full_PPU_frames": 2675,
+        "PPU_stream_sha256": "39409c761e772ea4277a452108949bfc3208cb5abe269db0c256985a693ac577",
+        "zero_deaths": true,
+        "cheats_off": true,
+        "selected_whole_frames_visually_reviewed": true,
+        "all_frame_visual_review": false,
+        "independent_replay": false,
+        "native_result_sha256": "07b0a74a4207e9e7dc5cdba1349536212d4d4ca864b3ddda254c51638dc9eaf4",
+        "review_sha256": "99863e5b99ecbeff5041e8243f67d02cbc8c81c3d41c1cd8475005e097149bf7",
+        "controller": "SMB3 controller lands on the actual last stair, releases A, then requires a genuinely grounded fresh jump at the pole base. Actual Luigi alternate selected through cold menu; full1-1 into25controlled1-2; no game-state/resource/physics writes.",
+        "checkpoint": "docs/qa/checkpoints/2026-10-28/current-roster-ee1152/luigi3-easy"
       },
       "hard": {
         "status": "pending current route"
@@ -685,16 +739,62 @@
     {
       "identity": "vic",
       "easy": {
-        "status": "pending current route"
+        "status": "cleared 1-1 and controlled1-2",
+        "native_ROM_sha256": "ee1152a49deae31e82d202159310fa3719cbcfd85de571fd1b9ac15a1cd2a7b3",
+        "frames": 4421,
+        "completed_updates": 4368,
+        "captured_full_PPU_frames": 3604,
+        "PPU_stream_sha256": "6ddced08c99a5fe52caec7a5d08596fc3d7d7935cecd11c28e6451e90e0d46d9",
+        "zero_deaths": true,
+        "cheats_off": true,
+        "selected_whole_frames_visually_reviewed": true,
+        "all_frame_visual_review": false,
+        "independent_replay": false,
+        "native_result_sha256": "1d2840d11d350b1731b5283cd306066cc62a60f17072d05ea1506765bc9ecd15",
+        "review_sha256": "9ed7d00a63b57a1a9d085a1e53418c7fe9610bac998959d4789927e7eb73b9f3",
+        "controller": "Native ship flight uses actual movement/fire and an altitude above the first solid coin block and final pyramid. Full cold-menu1-1 into25controlled1-2, no cheats/deaths or game-state writes. Earlier low flight and terminal host Lua exception retained; unchanged-policy retry passed with original guards.",
+        "checkpoint": "docs/qa/checkpoints/2026-10-28/current-roster-ee1152/vic-easy"
       },
       "hard": {
         "status": "pending current route"
-      }
+      },
+      "failed_native_attempts": [
+        {
+          "mode": "easy",
+          "native_ROM_sha256": "ee1152a49deae31e82d202159310fa3719cbcfd85de571fd1b9ac15a1cd2a7b3",
+          "profile": "compact-ee1152-vic-easy-v1",
+          "frames": 350,
+          "reason": "LowY148 flight put the terrain query inside the first solid block. Native terrain death is expected; altitude controller corrected.",
+          "report": "route-input-negatives-ee1152-2026-10-28.json"
+        },
+        {
+          "mode": "easy",
+          "native_ROM_sha256": "ee1152a49deae31e82d202159310fa3719cbcfd85de571fd1b9ac15a1cd2a7b3",
+          "profile": "compact-ee1152-vic-easy-v2",
+          "frames": 3507,
+          "reason": "After reaching the genuine course-clear transition, the host Lua callback exceeded its one-second execution limit. No finished result or clear claimed; unchanged guards/controls fresh successor prepared.",
+          "report": "route-input-negatives-ee1152-2026-10-28.json"
+        }
+      ]
     },
     {
       "identity": "octopus",
       "easy": {
-        "status": "pending current route"
+        "status": "cleared 1-1 and controlled1-2",
+        "native_ROM_sha256": "32694243361bb1366f6fd64c054ea2451f86b2517fc020d9c2b5d66bbf07bfa0",
+        "frames": 4801,
+        "completed_updates": 4410,
+        "captured_full_PPU_frames": 3984,
+        "PPU_stream_sha256": "d1c9497e5191b83c0d3e2dc3513541bc4f68bbfdadf95a54b4a5c70ce833e281",
+        "zero_deaths": true,
+        "cheats_off": true,
+        "selected_whole_frames_visually_reviewed": true,
+        "all_frame_visual_review": false,
+        "independent_replay": false,
+        "native_result_sha256": "ef52ab503b8cc08fac29affc06ebdcfd2e70731712a03667b1f1d4563da623e6",
+        "review_sha256": "6e62ae8d793b2787fe7ed5d497d604fb8d50e4b231904051db0f2eee968bf0ce",
+        "controller": "Actual Octopus alternate, native flight/fire and shared ship altitude above the first block/final pyramid, autoscroll and real pole/castle progression into25controlled1-2. Coldmenu; zero deaths/cheats; no game-state/resources writes.",
+        "checkpoint": "docs/qa/checkpoints/2026-10-28/current-roster-326942/octopus-easy"
       },
       "hard": {
         "status": "pending current route"
@@ -703,7 +803,21 @@
     {
       "identity": "twinbee",
       "easy": {
-        "status": "pending current route"
+        "status": "cleared 1-1 and controlled1-2",
+        "native_ROM_sha256": "32694243361bb1366f6fd64c054ea2451f86b2517fc020d9c2b5d66bbf07bfa0",
+        "frames": 4756,
+        "completed_updates": 4431,
+        "captured_full_PPU_frames": 3918,
+        "PPU_stream_sha256": "0659139ae6aac08b53c99f9583db44d326d6ea61e9fb73fb3981b2a1a398ff75",
+        "zero_deaths": true,
+        "cheats_off": true,
+        "selected_whole_frames_visually_reviewed": true,
+        "all_frame_visual_review": false,
+        "independent_replay": false,
+        "native_result_sha256": "6c486e713c631f11535f67d1893944ca5d10b6eb5dd26bb1674aa16478bdca06",
+        "review_sha256": "b6daa995cb7f0b4ebf010fe854a773574678a76768bda5f670afecfd6ed0f43f",
+        "controller": "Input-only ship-altitude controller; native cold menu, full 1-1 and 25 controlled 1-2 updates. Six whole PPU frames visually reviewed; no game-state, resource, or outcome seeds.",
+        "checkpoint": "docs/qa/checkpoints/2026-10-28/current-roster-326942/twinbee-easy"
       },
       "hard": {
         "status": "pending current route"
@@ -807,11 +921,11 @@
       }
     }
   ],
-  "limits": "4 identities have exactee1152 full routes; 27 other recent-lineage clears retain their predecessor ROMs. Earlier37identity3cee results are historical. Remaining identities/modes/shortcut routes/everypowerup/full-frame graphics/sound/performance remain open.",
+  "limits": "2 identities have exact326942 full routes; 34 other recent-lineage clears retain their predecessor ROMs. Earlier37identity3cee results are historical. Remaining identities/modes/shortcut routes/everypowerup/full-frame graphics/sound/performance remain open.",
   "goal_complete": false,
-  "previous_ROM_sha256": "5a0a37a97e95ce3c1086f91f6000ad0157bb477f923027d39f0342d9389e6db2",
-  "exact_current_ROM_clear_identity_count": 4,
-  "predecessor_native_identity_count": 27,
+  "previous_ROM_sha256": "ee1152a49deae31e82d202159310fa3719cbcfd85de571fd1b9ac15a1cd2a7b3",
+  "exact_current_ROM_clear_identity_count": 2,
+  "predecessor_native_identity_count": 34,
   "predecessor_ROM_native_identity_counts": {
     "2082c19a7364920f828e97f70040d37f1f7059bde1ea136b5c2c4532324abf36": 5,
     "9ea11eab2fc5c373a3795b013f6ed9e0d5e9781891b2ae3bf40ad2556c27b85e": 5,
@@ -819,6 +933,7 @@
     "8487c439ded9bc6274e1dc8f8e051494fa96ee518553d9c2f382eccf2e71d0e6": 5,
     "4a0394b0892e6c54940856791e44bcbe9fe4e469047aca3982c3f59112a61b8b": 2,
     "6be48337ffee66a22b22de9ce134d5db323649fb4de620c43bad4ca98b80f193": 3,
+    "ee1152a49deae31e82d202159310fa3719cbcfd85de571fd1b9ac15a1cd2a7b3": 7,
     "bdf9ca2bfe69ee93ca85f1b5e5319e474d9f01aa641c79a58cd9bd602253c40e": 2,
     "5a0a37a97e95ce3c1086f91f6000ad0157bb477f923027d39f0342d9389e6db2": 1
   },
@@ -842,11 +957,15 @@
     "kirby-meta-currentbdf9-live-render-2026-10-27.json",
     "ryu-sophia-currentbdf9-earned-native-2026-10-27.json",
     "kirby-mike-polish-adoption-2026-10-27.json",
-    "cv3-alternates-current5a-earned-native-2026-10-28.json"
+    "cv3-alternates-current5a-earned-native-2026-10-28.json",
+    "roster-rendering-injury-adoption-2026-10-28.json",
+    "smb3-currentee1152-earned-native-v5-2026-10-28.json",
+    "vic-currentee1152-earned-native-2026-10-28.json",
+    "samus-currentee1152-varia-firebar-native-2026-10-28.json",
+    "smb3-statue-currentee1152-native-v7-2026-10-28.json"
   ],
   "current_component_checks": [
-    "roster-rendering-injury-adoption-2026-10-28.json",
-    "smb3-currentee1152-earned-native-v5-2026-10-28.json"
+    "zelda2-glove-326942-earned-native-2026-10-28.json"
   ],
-  "component_limits": "Four correctness repairs adopted; Chip/Dale, Mike and Darkwing have current full routes. Both SMB3 variants passed48 current native ability/item cases; stable statue picture remains under investigation. Other component reports retain actual predecessor ROM identities. No full roster/fidelity certification."
+  "component_limits": "Native originalEasyGlove failure reproduced; adopted326942 Easy/Hard55task earned campaigns pass. Panel screenshots were forcedblank and require separate completed-display proof. Earlier reports retain actual ROM identities."
 }

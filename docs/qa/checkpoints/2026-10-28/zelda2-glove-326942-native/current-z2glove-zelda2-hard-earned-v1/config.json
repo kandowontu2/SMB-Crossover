@@ -1,0 +1,816 @@
+{
+  "ROM_sha256": "32694243361bb1366f6fd64c054ea2451f86b2517fc020d9c2b5d66bbf07bfa0",
+  "mode": 1,
+  "ram": {
+    "Enemy_PageLoc": 93,
+    "Enemy_BoundBoxCtrl": 1606,
+    "Z2AttackStage": 29690,
+    "Z2ExpHi": 31909,
+    "Enemy_Y_HighPos": 165,
+    "Z2EnemyExpReceipt": 24103,
+    "Z2Mp": 31907,
+    "Z2PanelPending": 23957,
+    "Z2LearnedSpells": 31913,
+    "OperMode": 1905,
+    "Enemy_Y_Position": 190,
+    "Player_X_Position": 117,
+    "GamePauseTimer": 1912,
+    "Z2UiState": 29689,
+    "InvOwnedLo": 31798,
+    "Player_Y_MoveForce": 1538,
+    "Player_MovingDir": 69,
+    "Z2Containers": 31912,
+    "PlayerFacingDir": 1342,
+    "Player_State": 30,
+    "MmDeathFlag": 24583,
+    "MmEnemyHealthLo": 24639,
+    "Z2DropKind": 24144,
+    "PlayerSize": 1881,
+    "InvOwnedHi": 31810,
+    "Enemy_MovingDir": 1343,
+    "Z2ActiveSpells": 31915,
+    "MmYFraction": 26797,
+    "GamePauseStatus": 1911,
+    "Player_X_MoveForce": 1799,
+    "Z2Tech": 31914,
+    "Enemy_ID": 23,
+    "Enemy_State": 31,
+    "Enemy_Flag": 16,
+    "ScrollLock": 1830,
+    "GuestPowerupTarget": 27648,
+    "InvAmmo": 31906,
+    "Player_Y_Position": 189,
+    "Enemy_X_Position": 118,
+    "Z2Hp": 31906,
+    "Enemy_X_Speed": 71,
+    "Z2NativeVY": 24065,
+    "Z2ShotKind": 24112,
+    "Z2CachedPose": 29693,
+    "Z2LevelsHi": 31911,
+    "ScreenLeft_PageLoc": 1821,
+    "Player_CollisionBits": 1596,
+    "Z2DropFraction": 24180,
+    "GameEngineSubroutine": 15,
+    "MmEnemyHealthHi": 24645,
+    "Player_Y_HighPos": 164,
+    "InvPickup": 32098,
+    "SelectedCharacter": 24578,
+    "MmBrickHealth": 24657,
+    "InvPickupSaveLo": 32116,
+    "NmiDisable": 313,
+    "InvPickupOwner": 32110,
+    "GuestPowerupActive": 27645,
+    "MmXFraction": 26795,
+    "DisableScreenFlag": 1909,
+    "Z2LevelsLo": 31910,
+    "InvSelected": 31894,
+    "Z2DropPage": 24156,
+    "Z2Variant": 29688,
+    "Mirror_PPUMASK": 1914,
+    "ScreenLeft_X_Pos": 1823,
+    "SavedJoypadBits": 220,
+    "Enemy_CollisionBits": 1597,
+    "Enemy_Y_Speed": 143,
+    "Z2EnemyHp": 24097,
+    "MmSolidTerrain": 26321,
+    "SavedJoypad1Bits": 220,
+    "Z2DropAge": 24174,
+    "EnemyOffscrBitsMasked": 1448,
+    "Z2DropX": 24150,
+    "ScreenRight_X_Pos": 1824,
+    "Z2ExpPendingHi": 31921,
+    "Z2UiCursor": 24093,
+    "PlayerStatus": 1883,
+    "CheatInvincible": 32763,
+    "Z2MpPending": 31919,
+    "NumberofLives": 1887,
+    "MmEnemyFlash": 24651,
+    "Player_Y_Speed": 142,
+    "Z2PanelPage": 23950,
+    "Z2HurtTimer": 24127,
+    "MmOldX": 26805,
+    "AreaParserTaskNum": 1826,
+    "Z2AttackTimer": 29691,
+    "Z2DropVY": 24168,
+    "CrossoverMenuState": 29447,
+    "MmVX": 26789,
+    "Sprite0HitDetectFlag": 1829,
+    "Player_X_Speed": 70,
+    "Z2ExpLo": 31908,
+    "Z2ExpPendingLo": 31920,
+    "Z2DropY": 24162,
+    "Player_PageLoc": 92,
+    "ScrollThirtyTwo": 1856,
+    "OperMode_Task": 1907,
+    "PowerUpType": 52,
+    "Z2PanelActive": 23940,
+    "Block_Buffer_1": 768,
+    "Z2Selection": 31917,
+    "CrossoverMenuIndex": 29449,
+    "RgEnemyStun": 27916,
+    "ScreenRight_PageLoc": 1822,
+    "CrossoverBehaviorVersion": 32737,
+    "CrossoverOptionsFocus": 32441,
+    "Enemy_SprAttrib": 1416,
+    "CurrentBankC": 32161,
+    "MmVY": 26792,
+    "CurrentBank": 325,
+    "Enemy_Y_MoveForce": 1539,
+    "Z2HpPending": 31918
+  },
+  "hooks": {
+    "NmiEntry": {
+      "pc": 58172,
+      "banks": [
+        125,
+        127
+      ],
+      "bytes": [
+        72,
+        138,
+        72
+      ],
+      "source_symbol": "NonMaskableInterrupt",
+      "delta": 0
+    },
+    "IrqEntry": {
+      "pc": 32768,
+      "banks": [
+        126
+      ],
+      "bytes": [
+        72,
+        138,
+        72
+      ],
+      "source_symbol": "IrqScrollSplit",
+      "delta": 0
+    },
+    "GameLoopOwned": {
+      "pc": 33502,
+      "banks": [
+        126
+      ],
+      "bytes": [
+        32,
+        86,
+        131
+      ],
+      "source_symbol": "GameLoop",
+      "delta": 5
+    },
+    "GameLoopFinish": {
+      "pc": 33621,
+      "banks": [
+        126
+      ],
+      "bytes": [
+        96
+      ],
+      "source_symbol": "GameLoop",
+      "delta": 124
+    },
+    "NmiReturn": {
+      "pc": 58383,
+      "banks": [
+        125,
+        127
+      ],
+      "bytes": [
+        64
+      ],
+      "source_symbol": "NonMaskableInterrupt",
+      "delta": 211
+    },
+    "IrqReturn": {
+      "pc": 32835,
+      "banks": [
+        126
+      ],
+      "bytes": [
+        64
+      ],
+      "source_symbol": "IrqScrollSplit",
+      "delta": 67
+    },
+    "DmaComplete": {
+      "pc": 57352,
+      "banks": [
+        125,
+        127
+      ],
+      "bytes": [
+        141,
+        1,
+        32
+      ],
+      "source_symbol": "PostDmaMaskEnable",
+      "delta": 3
+    },
+    "Collect": {
+      "pc": 42700,
+      "banks": [
+        69
+      ],
+      "bytes": [
+        142,
+        145,
+        125
+      ],
+      "source_symbol": "Z2CollectPickupGate",
+      "delta": 0
+    },
+    "Reward": {
+      "pc": 42800,
+      "banks": [
+        69
+      ],
+      "bytes": [
+        201,
+        14,
+        144
+      ],
+      "source_symbol": "Z2CollectReward",
+      "delta": 0
+    },
+    "Cast": {
+      "pc": 41187,
+      "banks": [
+        69
+      ],
+      "bytes": [
+        201,
+        8,
+        176
+      ],
+      "source_symbol": "Z2TryCast",
+      "delta": 0
+    },
+    "Level": {
+      "pc": 41654,
+      "banks": [
+        69
+      ],
+      "bytes": [
+        201,
+        3,
+        176
+      ],
+      "source_symbol": "Z2LevelUp",
+      "delta": 0
+    },
+    "Damage": {
+      "pc": 41378,
+      "banks": [
+        69
+      ],
+      "bytes": [
+        41,
+        7,
+        10
+      ],
+      "source_symbol": "Z2Damage",
+      "delta": 0
+    },
+    "Hit": {
+      "pc": 46864,
+      "banks": [
+        69
+      ],
+      "bytes": [
+        141,
+        74,
+        94
+      ],
+      "source_symbol": "Z2HitEnemy",
+      "delta": 0
+    },
+    "Award": {
+      "pc": 47000,
+      "banks": [
+        69
+      ],
+      "bytes": [
+        32,
+        226,
+        182
+      ],
+      "source_symbol": "Z2AwardEnemy",
+      "delta": 0
+    },
+    "Jar": {
+      "pc": 41532,
+      "banks": [
+        69
+      ],
+      "bytes": [
+        201,
+        144,
+        240
+      ],
+      "source_symbol": "Z2JarPickup",
+      "delta": 0
+    },
+    "EXP": {
+      "pc": 41568,
+      "banks": [
+        69
+      ],
+      "bytes": [
+        24,
+        109,
+        176
+      ],
+      "source_symbol": "Z2QueueExp",
+      "delta": 0
+    },
+    "PanelOpenComplete": {
+      "pc": 44314,
+      "banks": [
+        69
+      ],
+      "bytes": [
+        141,
+        139,
+        93
+      ],
+      "source_symbol": "Z2PanelTick",
+      "delta": 196
+    },
+    "PanelCloseComplete": {
+      "pc": 44754,
+      "banks": [
+        69
+      ],
+      "bytes": [
+        162,
+        0,
+        32
+      ],
+      "source_symbol": "Z2PanelAttributesRestore",
+      "delta": 0
+    }
+  },
+  "owner_hooks": [
+    "Collect",
+    "Reward",
+    "Cast",
+    "Level",
+    "Damage",
+    "Hit",
+    "Award",
+    "Jar",
+    "EXP"
+  ],
+  "panel_dma": [
+    {
+      "name": "panel-open",
+      "request_pc": 44312,
+      "request_bytes": [
+        141,
+        20,
+        64
+      ],
+      "bank": 69,
+      "pending": 1,
+      "stack_delta": 0,
+      "complete_hook": "PanelOpenComplete"
+    },
+    {
+      "name": "panel-close",
+      "request_pc": 44009,
+      "request_bytes": [
+        141,
+        20,
+        64
+      ],
+      "bank": 69,
+      "pending": 2,
+      "stack_delta": -2,
+      "complete_hook": "PanelCloseComplete"
+    }
+  ],
+  "setup_allowed": {
+    "MmYFraction": true,
+    "MmEnemyFlash": true,
+    "Player_X_MoveForce": true,
+    "Player_Y_Speed": true,
+    "Enemy_PageLoc": true,
+    "Enemy_BoundBoxCtrl": true,
+    "Enemy_ID": true,
+    "InvPickupOwner": true,
+    "Enemy_State": true,
+    "MmOldX": true,
+    "AreaParserTaskNum": true,
+    "MmXFraction": true,
+    "Z2DropVY": true,
+    "MmVX": true,
+    "Enemy_Flag": true,
+    "Z2DropPage": true,
+    "ScreenLeft_X_Pos": true,
+    "ScrollLock": true,
+    "Player_X_Speed": true,
+    "Enemy_Y_HighPos": true,
+    "Enemy_CollisionBits": true,
+    "Z2DropY": true,
+    "Player_PageLoc": true,
+    "ScrollThirtyTwo": true,
+    "PowerUpType": true,
+    "Enemy_Y_Speed": true,
+    "Enemy_Y_Position": true,
+    "Block_Buffer_1": true,
+    "MmSolidTerrain": true,
+    "Player_X_Position": true,
+    "Player_Y_Position": true,
+    "Z2DropAge": true,
+    "Player_Y_MoveForce": true,
+    "Enemy_X_Position": true,
+    "Enemy_X_Speed": true,
+    "Player_MovingDir": true,
+    "EnemyOffscrBitsMasked": true,
+    "RgEnemyStun": true,
+    "PlayerFacingDir": true,
+    "ScreenRight_PageLoc": true,
+    "Player_State": true,
+    "Z2DropX": true,
+    "Enemy_SprAttrib": true,
+    "MmEnemyHealthLo": true,
+    "Z2DropKind": true,
+    "ScreenLeft_PageLoc": true,
+    "ScreenRight_X_Pos": true,
+    "Player_CollisionBits": true,
+    "MmVY": true,
+    "Z2DropFraction": true,
+    "MmEnemyHealthHi": true,
+    "Enemy_MovingDir": true,
+    "Player_Y_HighPos": true,
+    "InvPickup": true,
+    "Enemy_Y_MoveForce": true,
+    "MmBrickHealth": true,
+    "InvPickupSaveLo": true
+  },
+  "forbidden": {
+    "InvAmmo": true,
+    "InvOwnedLo": true,
+    "InvOwnedHi": true,
+    "InvSelected": true,
+    "Z2Hp": true,
+    "Z2Mp": true,
+    "Z2ExpLo": true,
+    "Z2ExpHi": true,
+    "Z2LevelsLo": true,
+    "Z2LevelsHi": true,
+    "Z2Containers": true,
+    "Z2LearnedSpells": true,
+    "Z2Tech": true,
+    "Z2ActiveSpells": true,
+    "Z2Selection": true,
+    "Z2HpPending": true,
+    "Z2MpPending": true,
+    "Z2ExpPendingLo": true,
+    "Z2ExpPendingHi": true,
+    "Z2EnemyHp": true,
+    "Z2EnemyExpReceipt": true,
+    "Z2ShotKind": true,
+    "Z2AttackStage": true,
+    "Z2AttackTimer": true,
+    "Z2HurtTimer": true,
+    "Z2CachedPose": true,
+    "Z2Variant": true,
+    "PlayerStatus": true,
+    "PlayerSize": true,
+    "NumberofLives": true,
+    "GuestPowerupActive": true,
+    "GuestPowerupTarget": true,
+    "CheatInvincible": true,
+    "MmDeathFlag": true,
+    "SavedJoypadBits": true,
+    "SavedJoypad1Bits": true
+  },
+  "final_fields": [
+    "Z2Hp",
+    "Z2Mp",
+    "Z2ExpLo",
+    "Z2ExpHi",
+    "Z2LevelsLo",
+    "Z2LevelsHi",
+    "Z2Containers",
+    "Z2LearnedSpells",
+    "Z2Tech",
+    "Z2ActiveSpells",
+    "Z2Selection",
+    "Z2HpPending",
+    "Z2MpPending",
+    "Z2ExpPendingLo",
+    "Z2ExpPendingHi",
+    "Z2UiState",
+    "Z2UiCursor",
+    "Z2PanelActive",
+    "Z2PanelPending",
+    "GamePauseStatus",
+    "Z2CachedPose",
+    "Player_X_Position",
+    "Player_Y_Position",
+    "Player_State"
+  ],
+  "rewards": [
+    {
+      "reward": 192,
+      "prepared": {
+        "PowerUpType": 1,
+        "InvPickupOwner": 4,
+        "InvPickup": 192,
+        "InvPickupSaveLo": 1
+      }
+    },
+    {
+      "reward": 193,
+      "prepared": {
+        "PowerUpType": 1,
+        "InvPickupOwner": 4,
+        "InvPickup": 193,
+        "InvPickupSaveLo": 0
+      }
+    },
+    {
+      "reward": 194,
+      "prepared": {
+        "PowerUpType": 1,
+        "InvPickupOwner": 4,
+        "InvPickup": 194,
+        "InvPickupSaveLo": 0
+      }
+    },
+    {
+      "reward": 195,
+      "prepared": {
+        "PowerUpType": 1,
+        "InvPickupOwner": 4,
+        "InvPickup": 195,
+        "InvPickupSaveLo": 0
+      }
+    },
+    {
+      "reward": 196,
+      "prepared": {
+        "PowerUpType": 1,
+        "InvPickupOwner": 4,
+        "InvPickup": 196,
+        "InvPickupSaveLo": 0
+      }
+    },
+    {
+      "reward": 197,
+      "prepared": {
+        "PowerUpType": 1,
+        "InvPickupOwner": 4,
+        "InvPickup": 197,
+        "InvPickupSaveLo": 0
+      }
+    },
+    {
+      "reward": 198,
+      "prepared": {
+        "PowerUpType": 1,
+        "InvPickupOwner": 4,
+        "InvPickup": 198,
+        "InvPickupSaveLo": 0
+      }
+    },
+    {
+      "reward": 199,
+      "prepared": {
+        "PowerUpType": 1,
+        "InvPickupOwner": 4,
+        "InvPickup": 199,
+        "InvPickupSaveLo": 0
+      }
+    },
+    {
+      "reward": 200,
+      "prepared": {
+        "PowerUpType": 1,
+        "InvPickupOwner": 4,
+        "InvPickup": 200,
+        "InvPickupSaveLo": 0
+      }
+    },
+    {
+      "reward": 201,
+      "prepared": {
+        "PowerUpType": 1,
+        "InvPickupOwner": 4,
+        "InvPickup": 201,
+        "InvPickupSaveLo": 0
+      }
+    },
+    {
+      "reward": 202,
+      "prepared": {
+        "PowerUpType": 1,
+        "InvPickupOwner": 4,
+        "InvPickup": 202,
+        "InvPickupSaveLo": 0
+      }
+    },
+    {
+      "reward": 203,
+      "prepared": {
+        "PowerUpType": 1,
+        "InvPickupOwner": 4,
+        "InvPickup": 203,
+        "InvPickupSaveLo": 0
+      }
+    },
+    {
+      "reward": 204,
+      "prepared": {
+        "PowerUpType": 1,
+        "InvPickupOwner": 4,
+        "InvPickup": 204,
+        "InvPickupSaveLo": 0
+      }
+    },
+    {
+      "reward": 203,
+      "prepared": {
+        "PowerUpType": 1,
+        "InvPickupOwner": 4,
+        "InvPickup": 203,
+        "InvPickupSaveLo": 0
+      }
+    },
+    {
+      "reward": 204,
+      "prepared": {
+        "PowerUpType": 1,
+        "InvPickupOwner": 4,
+        "InvPickup": 204,
+        "InvPickupSaveLo": 0
+      }
+    },
+    {
+      "reward": 203,
+      "prepared": {
+        "PowerUpType": 1,
+        "InvPickupOwner": 4,
+        "InvPickup": 203,
+        "InvPickupSaveLo": 0
+      }
+    },
+    {
+      "reward": 204,
+      "prepared": {
+        "PowerUpType": 1,
+        "InvPickupOwner": 4,
+        "InvPickup": 204,
+        "InvPickupSaveLo": 0
+      }
+    },
+    {
+      "reward": 203,
+      "prepared": {
+        "PowerUpType": 1,
+        "InvPickupOwner": 4,
+        "InvPickup": 203,
+        "InvPickupSaveLo": 0
+      }
+    },
+    {
+      "reward": 204,
+      "prepared": {
+        "PowerUpType": 1,
+        "InvPickupOwner": 4,
+        "InvPickup": 204,
+        "InvPickupSaveLo": 0
+      }
+    },
+    {
+      "reward": 205,
+      "prepared": {
+        "PowerUpType": 1,
+        "InvPickupOwner": 4,
+        "InvPickup": 205,
+        "InvPickupSaveLo": 0
+      }
+    }
+  ],
+  "spell_costs": [
+    64,
+    48,
+    48,
+    32,
+    32,
+    32,
+    32,
+    32,
+    96,
+    80,
+    64,
+    64,
+    40,
+    32,
+    24,
+    16,
+    140,
+    140,
+    120,
+    120,
+    100,
+    100,
+    100,
+    100,
+    160,
+    160,
+    120,
+    120,
+    80,
+    80,
+    80,
+    80,
+    240,
+    160,
+    120,
+    60,
+    32,
+    32,
+    32,
+    32,
+    240,
+    240,
+    160,
+    96,
+    80,
+    64,
+    48,
+    32,
+    240,
+    224,
+    192,
+    160,
+    96,
+    64,
+    48,
+    32,
+    240,
+    240,
+    240,
+    240,
+    240,
+    240,
+    200,
+    128
+  ],
+  "navigation": [
+    "left",
+    "left",
+    "right",
+    "right",
+    "",
+    "left",
+    "left",
+    "left",
+    "right",
+    "right",
+    "up",
+    "left",
+    "left",
+    "left",
+    "down",
+    "right",
+    "right",
+    "down",
+    "left"
+  ],
+  "dma_store_return": 57349,
+  "smc": [
+    354,
+    362,
+    377,
+    364,
+    365
+  ],
+  "metatiles": {
+    "MTileTopLeft": {
+      "bank": 3,
+      "offset": 6807
+    },
+    "MTileTopRight": {
+      "bank": 3,
+      "offset": 7319
+    },
+    "MTileBotLeft": {
+      "bank": 3,
+      "offset": 7063
+    },
+    "MTileBotRight": {
+      "bank": 3,
+      "offset": 7575
+    },
+    "MTileAttribute": {
+      "bank": 127,
+      "offset": 3894
+    }
+  },
+  "scope": "Controlled mature actors derived from actual raw0 first/raw1 later Z2PreparePickupGate. Real collision grants C0..CD, actual contact deficits, all eight paid Select spells and complete effects, Up/Down thrusts, Glove brick, jars, earned combat/50+200+200 EXP bags, paid Attack/Magic/Life purchases and real pause page. No learned/HP/MP/EXP/level/tech/selection/shot/death outcomes seeded. No reveal/rise/natural-drop producer, all-stat maxima, area-reset/persistence/campaign/everypose/allpixel/audio-fidelity/60Hz claim. Seven selected screenshots need independent actual image review."
+}

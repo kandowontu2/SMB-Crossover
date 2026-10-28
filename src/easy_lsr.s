@@ -103,7 +103,11 @@ D80: pla
   sec
   rts
 Link:
+ .if ::ENABLE_MMC5_EXPANDED
+  jsr Z2LegacyEasyProbeType
+ .else
   lda MmBulletType
+ .endif
   cmp #14
   bcc No
   cmp #17
@@ -335,4 +339,17 @@ Done: rts
 Original: pla
   rts
 .endproc
+ .if ::ENABLE_MMC5_EXPANDED
+; Link-only entry. Valid variant0/1: preserve original type/C for classic,
+; return type0 for ZeldaII so its real sword point is never replaced by a
+; legacy whip rectangle. X/Y/RAM unchanged; original caller does CMP#14.
+.proc Z2LegacyEasyProbeType
+  lda Z2Variant
+  eor #1
+  lsr a
+  bcc Done
+  lda MmBulletType
+Done:rts
+.endproc
+ .endif
 .popseg
