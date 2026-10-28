@@ -199,10 +199,10 @@ StoreGraphics:
   sta MMC5_PRG_BANK_C
   rts
 ::DwResidentGraphicsBanks:
-  .byte (.bank(XgPIT0_STANDRight))|MMC5_PRG_ROM,(.bank(XgRYGAR0_STANDRight))|MMC5_PRG_ROM,(.bank(XgLUIGI0_STANDRight))|MMC5_PRG_ROM,(.bank(XgBASS0_STANDRight))|MMC5_PRG_ROM,(.bank(XgRYU0_STANDRight))|MMC5_PRG_ROM,(.bank(XgSOPHIA0_STANDRight))|MMC5_PRG_ROM,(.bank(XgSCROOGE_STANDRight))|MMC5_PRG_ROM,(.bank(KbArtStart))|MMC5_PRG_ROM,(.bank(CdArtBegin))|MMC5_PRG_ROM,(94)|MMC5_PRG_ROM,(97)|MMC5_PRG_ROM,(91)|MMC5_PRG_ROM,(76)|MMC5_PRG_ROM,(.bank(TnArtStart))|MMC5_PRG_ROM,(.bank(IcArtStart))|MMC5_PRG_ROM,(.bank(RcArtStart))|MMC5_PRG_ROM
+  .byte (.bank(XgPIT0_STANDRight))|MMC5_PRG_ROM,(.bank(XgRYGAR0_STANDRight))|MMC5_PRG_ROM,(.bank(XgLUIGI0_STANDRight))|MMC5_PRG_ROM,(.bank(XgBASS0_STANDRight))|MMC5_PRG_ROM,(.bank(XgRYU0_STANDRight))|MMC5_PRG_ROM,(.bank(XgSOPHIA0_STANDRight))|MMC5_PRG_ROM,(.bank(XgSCROOGE_STANDRight))|MMC5_PRG_ROM,(.bank(KbArtStart))|MMC5_PRG_ROM,(.bank(CdArtBegin))|MMC5_PRG_ROM,(94)|MMC5_PRG_ROM,(97)|MMC5_PRG_ROM,(91)|MMC5_PRG_ROM,(76)|MMC5_PRG_ROM,(.bank(TnArtStart))|MMC5_PRG_ROM,(.bank(IcArtStart))|MMC5_PRG_ROM,(.bank(RcArtStart))|MMC5_PRG_ROM,$ff,(94)|MMC5_PRG_ROM
 ::Cv3ResidentRosterBank:
- lda SelectedCharacter
- cmp #CHARACTER_SIMON
+ ; Sole RosterGraphicsBank caller has X=SelectedCharacter-CHARACTER_BILL.
+ cpx #CHARACTER_SIMON-CHARACTER_BILL
  bne Cv3BankLegacy
  lda Cv3Variant
  beq Cv3BankLegacy

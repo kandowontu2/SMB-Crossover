@@ -733,7 +733,11 @@ PlayerChangeSize:
     farcall MarioSourcePowerupUpdate
     rts
   :
+.if ::ENABLE_MMC5_EXPANDED
+    farcall NrNativePowerupDispatch
+.else
     farcall GuestPowerupUpdate
+.endif
     rts
 .endif
   lda TimerControl    ;check master timer control
@@ -833,7 +837,11 @@ PlayerFireFlower:
 .if ::ENABLE_CROSSOVER
   lda SelectedCharacter
   beq :+
+.if ::ENABLE_MMC5_EXPANDED
+    farcall NrNativePowerupDispatch
+.else
     farcall GuestPowerupUpdate
+.endif
     rts
   :
 .endif

@@ -1,0 +1,53 @@
+{
+  "passed": false,
+  "source_CPU_only": true,
+  "native_run": false,
+  "checks": {
+    "resident_full_caller": {
+      "passed": true,
+      "cases": 54,
+      "cycles_delta": [
+        -4,
+        -4
+      ]
+    },
+    "expanded_full_selector": {
+      "passed": true,
+      "foreign_cases": 48,
+      "foreign_cycles_delta": [
+        0,
+        0
+      ],
+      "Sunny_C": 94
+    },
+    "native_box_adder": {
+      "passed": true,
+      "all_Y_cases": 512
+    },
+    "lifecycle": {
+      "passed": true,
+      "future_pipe_preserves": true,
+      "real_scene_preserves_form": true,
+      "life_loss_and_fresh_clear": true
+    },
+    "actual_pickup_injury_pipeline": {
+      "passed": true,
+      "Easy_Hard_form_cases": 12,
+      "freeze_updates_per_case": 60,
+      "native_star_life_cases": 2,
+      "injury_source_freeze": true
+    }
+  },
+  "bindings": {
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\sunny_integrated_controls_v1.py": "3e2157e9c99f91b4d479a9da8b6a31aaffa968f268ee63552ba5b881d6fa5a20",
+    "build\\sunny-integrated-audio.nes": "0eb380674253410afaa045468bdcb6759654ac148b85fb421f4a9dfdf5f5478f",
+    "build\\sunny-integrated-audio.dbg": "d040dc6babba70976f67ff2ed63f10d1b0c9107b37e43585d5037df3f12f187a",
+    "build\\roster-expansion-mac-integrated-v5.nes": "bc346da71d6b8156600ea9750f18f8c59229e5581dd0de553a08ca569abd08bb",
+    "build\\roster-expansion-mac-integrated-v5.dbg": "e7d76162b047b0d6a9c4eb9763409a27701f9cd5ed8be9c680662f8466bf7931",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\link_pit_rygar_sophia_audit_cpu.py": "15ef348bc124a97d8ef2c8a56777180276271b44fb77c8ace7e62c2a50310113",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\check_tmnt_render_oa.py": "32033893e48055adc9a23c661238e9331dd1db856be51b753ba9b6781eb528e4",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\verify_native_relocation.py": "1bab7154bc2e5468e827087d14030a7e30c4d3676db5e775ef15de4d0c34ce11"
+  },
+  "error": "AssertionError(('native audio', 0, 0, [215, 3, 0, 176, 253], [215, 3, 0, 176, 253]))",
+  "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\sunny_integrated_controls_v1.py\", line 112, in main\n    assert out[0][:4]==out[1][:4],('native audio',event,tick,out[0][0],out[1][0])\n           ^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: ('native audio', 0, 0, [215, 3, 0, 176, 253], [215, 3, 0, 176, 253])\n"
+}

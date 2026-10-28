@@ -81,11 +81,25 @@ RESERVE PauseModeFlag, 1
 .proc AudioUpdate
 .if ::ENABLE_CROSSOVER
   lda OperMode
+.if ::ENABLE_MMC5_EXPANDED
+  beq CrossoverVanillaAudio       ; bounded resident branch admits native Sunny
+.else
   jeq CrossoverVanillaAudio       ; title/select cursor uses the common driver
+.endif
   lda SelectedCharacter
+.if ::ENABLE_MMC5_EXPANDED
+  beq CrossoverVanillaAudio
+  cmp #CHARACTER_LUIGI
+  beq CrossoverVanillaAudio
+.else
   jeq CrossoverVanillaAudio
   cmp #CHARACTER_LUIGI
   jeq CrossoverVanillaAudio
+.endif
+.if ::ENABLE_MMC5_EXPANDED
+  cmp #CHARACTER_SUNNY
+  beq CrossoverVanillaAudio       ; Sunny inherits native SMB area/events/SFX
+.endif
   lda CurrentBank
   pha
   BankPRGA #.bank(RemainingAudioBegin)
@@ -129,6 +143,9 @@ GuestMix:
   pla
   BankPRGA a
   rts
+.if ::ENABLE_MMC5_EXPANDED
+  .res 5,$ea                    ; unexecuted, keeps native/following public PCs
+.endif
 CrossoverVanillaAudio:
 .if ::MAPPER_MMC5
   lda #0

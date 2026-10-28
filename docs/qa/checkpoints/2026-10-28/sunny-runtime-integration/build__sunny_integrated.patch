@@ -1,0 +1,607 @@
+--- a/src/new_roster_dispatch.s
++++ b/src/new_roster_dispatch.s
+@@ -3,7 +3,7 @@
+ ; Each adapter restores incoming A/P before entering its actual owner.
+ .pushseg
+ .segment "NEW_ROSTER_GATE"
+-.macro NrGate Name,Ice,City,Legacy
++.macro NrGate Name,Ice,City,Sunny,Legacy
+ .proc Name
+  php
+  pha
+@@ -12,6 +12,8 @@
+  beq ToIce
+  cmp #CHARACTER_RIVER_CITY
+  beq ToCity
++ cmp #CHARACTER_SUNNY
++ beq ToSunny
+  pla
+  plp
+  farcall Legacy,jmp
+@@ -23,19 +25,23 @@
+  pla
+  plp
+  farcall City,jmp
++ToSunny:
++ pla
++ plp
++ farcall Sunny,jmp
+ .endproc
+ .endmacro
+-NrGate NrMovement,IcMovement,RcMovement,JnMovementDispatch
+-NrGate NrGraphics,IcGraphics,RcGraphics,RlGraphicsDispatch
+-NrGate NrDraw,IcDraw,RcDraw,RlDrawDispatch
+-NrGate NrPortrait,IcPortrait,RcPortrait,JnPortraitDispatch
+-NrGate NrWeapons,IcWeapons,RcWeapons,JnWeaponsDispatch
+-NrGate NrInjury,IcInjuryStart,RcInjuryStart,JnInjuryStartDispatch
+-NrGate NrInjuryStatus,IcInjuryStatus,RcInjuryStatus,JnInjuryStatusDispatch
+-NrGate NrDeathStart,IcDeathStart,RcDeathStart,JnInventoryDeathDispatch
+-NrGate NrDeath,IcDeathUpdate,RcDeath,JnDeathDispatch
+-NrGate NrVisible,IcVisible,RcVisible,JnVisibleDispatch
+-NrGate NrHead,IcHead,RcHeadProbe,JnHeadDispatch
++NrGate NrMovement,IcMovement,RcMovement,SunnyNativeMovement,JnMovementDispatch
++NrGate NrGraphics,IcGraphics,RcGraphics,SunnyGraphicsIntegrated,RlGraphicsDispatch
++NrGate NrDraw,IcDraw,RcDraw,SunnyDraw,RlDrawDispatch
++NrGate NrPortrait,IcPortrait,RcPortrait,SunnyPortrait,JnPortraitDispatch
++NrGate NrWeapons,IcWeapons,RcWeapons,SunnyWeapons,JnWeaponsDispatch
++NrGate NrInjury,IcInjuryStart,RcInjuryStart,SunnyInjuryIntegrated,JnInjuryStartDispatch
++NrGate NrInjuryStatus,IcInjuryStatus,RcInjuryStatus,SunnyInjuryStatus,JnInjuryStatusDispatch
++NrGate NrDeathStart,IcDeathStart,RcDeathStart,SunnyDeathStart,JnInventoryDeathDispatch
++NrGate NrDeath,IcDeathUpdate,RcDeath,SunnyNativeDeath,JnDeathDispatch
++NrGate NrVisible,IcVisible,RcVisible,SunnyVisible,JnVisibleDispatch
++NrGate NrHead,IcHead,RcHeadProbe,SunnyHead,JnHeadDispatch
+ 
+ .proc NrReset
+  php
+@@ -45,6 +51,8 @@
+  beq Own
+  cmp #CHARACTER_RIVER_CITY
+  beq Own
++ cmp #CHARACTER_SUNNY
++ beq Own
+  pla
+  plp
+  farcall JnResetDispatch,jmp
+@@ -54,16 +62,21 @@
+  lda #0
+  farcall SpecialRosterClear    ; clear shared legacy weapon/CHR overrides too
+  lda SelectedCharacter
++ cmp #CHARACTER_SUNNY
++ beq Sunny
+  cmp #CHARACTER_ICE_CLIMBERS
+  bne City
+  farcall IcAreaReset,jmp
+ City:farcall RcReset,jmp
++Sunny:farcall SunnyReset,jmp
+ .endproc
+ 
+ .proc NrBody
+  php
+  pha
+  lda SelectedCharacter
++ cmp #CHARACTER_SUNNY
++ beq Sunny
+  cmp #CHARACTER_RIVER_CITY
+  beq City
+  cmp #CHARACTER_ICE_CLIMBERS
+@@ -84,6 +97,10 @@
+  plp
+  clc
+  rts
++Sunny:
++ pla
++ plp
++ farcall SunnyBody,jmp
+ .endproc
+ 
+ ; Terrain admission also validates the explicit ID argument supplied by SMB.
+@@ -96,6 +113,8 @@
+  beq Ice
+  cmp #CHARACTER_RIVER_CITY
+  beq City
++ cmp #CHARACTER_SUNNY
++ beq Sunny
+ Legacy:pla
+  plp
+  farcall RlAdderDispatch,jmp
+@@ -105,6 +124,9 @@
+ City:pla
+  plp
+  farcall RcCollisionAdder,jmp
++Sunny:pla
++ plp
++ farcall SunnyAdder,jmp
+ .endproc
+ .proc NrBox
+  php
+@@ -115,6 +137,8 @@
+  beq Ice
+  cmp #CHARACTER_RIVER_CITY
+  beq City
++ cmp #CHARACTER_SUNNY
++ beq Sunny
+ Legacy:pla
+  plp
+  farcall RlBoxDispatch,jmp
+@@ -124,6 +148,9 @@
+ City:pla
+  plp
+  farcall RcCollisionBox,jmp
++Sunny:pla
++ plp
++ farcall SunnyBox,jmp
+ .endproc
+ 
+ .proc NrPrepare
+@@ -133,6 +160,8 @@
+  cmp #CHARACTER_ICE_CLIMBERS
+  beq Own
+  cmp #CHARACTER_RIVER_CITY
++ beq Own
++ cmp #CHARACTER_SUNNY
+  beq Own
+  pla
+  plp
+@@ -157,6 +186,8 @@
+  beq Native
+  cmp #CHARACTER_RIVER_CITY
+  beq Native
++ cmp #CHARACTER_SUNNY
++ beq Native
+  pla
+  plp
+  farcall JnRiseDispatch,jmp
+@@ -174,6 +205,8 @@
+  beq Native
+  cmp #CHARACTER_RIVER_CITY
+  beq Native
++ cmp #CHARACTER_SUNNY
++ beq Native
+  pla
+  plp
+  farcall JnPrivateDispatch,jmp
+@@ -190,6 +223,8 @@
+  cmp #CHARACTER_ICE_CLIMBERS
+  beq Own
+  cmp #CHARACTER_RIVER_CITY
++ beq Own
++ cmp #CHARACTER_SUNNY
+  beq Own
+  pla
+  plp
+@@ -209,6 +244,8 @@
+ .endproc
+ .proc NrPickup
+  lda SelectedCharacter
++ cmp #CHARACTER_SUNNY
++ beq Sunny
+  cmp #CHARACTER_ICE_CLIMBERS
+  beq Ice
+  cmp #CHARACTER_RIVER_CITY
+@@ -231,11 +268,15 @@
+ Native:
+  farcall MarioSourcePowerupCollision,jmp ; native Star and extra-life handling
+ Done:rts
++Sunny:
++ farcall SunnyCollectIntegrated,jmp
+ .endproc
+ .proc NrUi
+  php
+  pha
+  lda SelectedCharacter
++ cmp #CHARACTER_SUNNY
++ beq Sunny
+  cmp #CHARACTER_ICE_CLIMBERS
+  beq Ice
+  cmp #CHARACTER_RIVER_CITY
+@@ -252,11 +293,17 @@
+  plp
+  farcall X5NativeInventoryUiLeaf
+  farcall RcUi,jmp
++Sunny:
++ pla
++ plp
++ farcall SunnyUi,jmp
+ .endproc
+ .proc NrStatusName
+  php
+  pha
+  lda SelectedCharacter
++ cmp #CHARACTER_SUNNY
++ beq Sunny
+  cmp #CHARACTER_ICE_CLIMBERS
+  beq Ice
+  cmp #CHARACTER_RIVER_CITY
+@@ -296,6 +343,10 @@
+ Done:rts
+ PopoName:.byte "POPO   "
+ NanaName:.byte "NANA   "
++Sunny:
++ pla
++ plp
++ farcall SunnyStatusName,jmp
+ .endproc
+ .proc NrGlobalInit
+  farcall KbGlobalInit
+@@ -303,7 +354,8 @@
+  sta RcVariant
+  sta MacVariant
+  sta RcMarker                 ; initialize lazily, preserve selected owner's RAM
+- farcall IcGlobalInit,jmp
++ farcall IcGlobalInit
++ farcall SunnyGlobalInit,jmp
+ .endproc
+ .proc NrFreshGameInit
+  farcall KbFreshGameInit
+@@ -314,10 +366,13 @@
+  sta IcVariant
+  lda #0
+  sta RcMarker
++ farcall SunnyGlobalInit
+  rts
+ .endproc
+ .proc NrFullPower
+  lda SelectedCharacter
++ cmp #CHARACTER_SUNNY
++ beq Sunny
+  cmp #CHARACTER_ICE_CLIMBERS
+  beq Ice
+  cmp #CHARACTER_RIVER_CITY
+@@ -335,6 +390,8 @@
+  lda #1
+  sta RcHudDirty
+  rts
++Sunny:
++ farcall SunnyFullPower,jmp
+ .endproc
+ .proc NrSide
+  php
+@@ -343,6 +400,8 @@
+  cmp #CHARACTER_ICE_CLIMBERS
+  beq Native
+  cmp #CHARACTER_RIVER_CITY
++ beq Native
++ cmp #CHARACTER_SUNNY
+  beq Native
+  pla
+  plp
+@@ -359,6 +418,8 @@
+  cmp #CHARACTER_ICE_CLIMBERS
+  beq Own
+  cmp #CHARACTER_RIVER_CITY
++ beq Own
++ cmp #CHARACTER_SUNNY
+  beq Own
+  pla
+  plp
+@@ -370,10 +431,13 @@
+  farcall QueueGuestWeaponPalette
+  farcall X5QueueAreaBackdrop
+  lda SelectedCharacter
++ cmp #CHARACTER_SUNNY
++ beq Sunny
+  cmp #CHARACTER_ICE_CLIMBERS
+  bne City
+  farcall IcForcePalette,jmp
+ City:farcall RcColors,jmp
++Sunny:farcall SunnyColorsIntegrated,jmp
+ .endproc
+ .proc NrMenuToggle
+  lda CrossoverMenuPressed
+@@ -427,6 +491,8 @@
+  cmp #CHARACTER_ICE_CLIMBERS
+  beq Native
+  cmp #CHARACTER_RIVER_CITY
++ beq Native
++ cmp #CHARACTER_SUNNY
+  beq Native
+  pla
+  plp
+@@ -511,9 +577,42 @@
+ Native:
+  farcall NrNativeEnemyMovement,jmp
+ .endproc
++.proc NrNativePowerupDispatch
++ php
++ pha
++ lda SelectedCharacter
++ cmp #CHARACTER_SUNNY
++ beq Sunny
++ pla
++ plp
++ farcall GuestPowerupUpdate,jmp
++Sunny:pla
++ plp
++ farcall SunnyPowerupUpdate,jmp
++.endproc
++.proc NrObjectWeaponTail
++ php
++ pha
++ lda SelectedCharacter
++ cmp #CHARACTER_SUNNY
++ beq Sunny
++ pla
++ plp
++ farcall RlWeaponsDispatch
++ farcall ProcFireball_Bubble::ProcAirBubbles,jmp
++Sunny:pla
++ plp
++ farcall SunnyNativeWeaponTail,jmp
++.endproc
++.segment "NEW_ROSTER_NAMES"
+ .proc NrQueueSelectName
+   lda SelectedCharacter
+ .if ::ENABLE_MMC5_EXPANDED
++  cmp #CHARACTER_SUNNY
++  bne SunnyOtherName
++  lda #43
++  jmp NameIndex
++SunnyOtherName:
+   cmp #CHARACTER_ICE_CLIMBERS
+   bne NrNotIceName
+   lda IcVariant
+@@ -703,8 +802,9 @@
+   .byte "     ROLL       "
+   .byte "      POPO      ","      NANA      "
+   .byte "      ALEX      ","      RYAN      "
+-  .byte "   DOC LOUIS    ","   MIKE TYSON   "
++  .byte "   DOC LOUIS    ","   MIKE TYSON   ","     SUNNY      "
+  .endif
+ .endproc
++.segment "NEW_ROSTER_GATE"
+ .assert * <= $b000,lderror,"Roster dispatcher overlaps Rogue Dawn reservation"
+ .popseg
+--- a/src/entrypoint.s
++++ b/src/entrypoint.s
+@@ -71,6 +71,7 @@
+ .include "little_mac_state.inc"
+ .include "tmnt_state.inc"
+ .include "ice_climbers_state.inc"
++.include "sunny_state.inc"
+ .endif
+ 
+ .if MAPPER_MMC5
+@@ -542,4 +543,6 @@
+ .include "mac_roster.s"
+ .include "mac_roster_adapter.s"
+ .include "new_roster_dispatch.s"
+-.endif
++.include "sunny.s"
++.include "sunny_integration.s"
++.endif
+--- a/src/mmc5.s
++++ b/src/mmc5.s
+@@ -199,10 +199,10 @@
+   sta MMC5_PRG_BANK_C
+   rts
+ ::DwResidentGraphicsBanks:
+-  .byte (.bank(XgPIT0_STANDRight))|MMC5_PRG_ROM,(.bank(XgRYGAR0_STANDRight))|MMC5_PRG_ROM,(.bank(XgLUIGI0_STANDRight))|MMC5_PRG_ROM,(.bank(XgBASS0_STANDRight))|MMC5_PRG_ROM,(.bank(XgRYU0_STANDRight))|MMC5_PRG_ROM,(.bank(XgSOPHIA0_STANDRight))|MMC5_PRG_ROM,(.bank(XgSCROOGE_STANDRight))|MMC5_PRG_ROM,(.bank(KbArtStart))|MMC5_PRG_ROM,(.bank(CdArtBegin))|MMC5_PRG_ROM,(94)|MMC5_PRG_ROM,(97)|MMC5_PRG_ROM,(91)|MMC5_PRG_ROM,(76)|MMC5_PRG_ROM,(.bank(TnArtStart))|MMC5_PRG_ROM,(.bank(IcArtStart))|MMC5_PRG_ROM,(.bank(RcArtStart))|MMC5_PRG_ROM
++  .byte (.bank(XgPIT0_STANDRight))|MMC5_PRG_ROM,(.bank(XgRYGAR0_STANDRight))|MMC5_PRG_ROM,(.bank(XgLUIGI0_STANDRight))|MMC5_PRG_ROM,(.bank(XgBASS0_STANDRight))|MMC5_PRG_ROM,(.bank(XgRYU0_STANDRight))|MMC5_PRG_ROM,(.bank(XgSOPHIA0_STANDRight))|MMC5_PRG_ROM,(.bank(XgSCROOGE_STANDRight))|MMC5_PRG_ROM,(.bank(KbArtStart))|MMC5_PRG_ROM,(.bank(CdArtBegin))|MMC5_PRG_ROM,(94)|MMC5_PRG_ROM,(97)|MMC5_PRG_ROM,(91)|MMC5_PRG_ROM,(76)|MMC5_PRG_ROM,(.bank(TnArtStart))|MMC5_PRG_ROM,(.bank(IcArtStart))|MMC5_PRG_ROM,(.bank(RcArtStart))|MMC5_PRG_ROM,$ff,(94)|MMC5_PRG_ROM
+ ::Cv3ResidentRosterBank:
+- lda SelectedCharacter
+- cmp #CHARACTER_SIMON
++ ; Sole RosterGraphicsBank caller has X=SelectedCharacter-CHARACTER_BILL.
++ cpx #CHARACTER_SIMON-CHARACTER_BILL
+  bne Cv3BankLegacy
+  lda Cv3Variant
+  beq Cv3BankLegacy
+--- a/src/player.s
++++ b/src/player.s
+@@ -733,7 +733,11 @@
+     farcall MarioSourcePowerupUpdate
+     rts
+   :
++.if ::ENABLE_MMC5_EXPANDED
++    farcall NrNativePowerupDispatch
++.else
+     farcall GuestPowerupUpdate
++.endif
+     rts
+ .endif
+   lda TimerControl    ;check master timer control
+@@ -833,7 +837,11 @@
+ .if ::ENABLE_CROSSOVER
+   lda SelectedCharacter
+   beq :+
++.if ::ENABLE_MMC5_EXPANDED
++    farcall NrNativePowerupDispatch
++.else
+     farcall GuestPowerupUpdate
++.endif
+     rts
+   :
+ .endif
+--- a/src/object.s
++++ b/src/object.s
+@@ -1672,11 +1672,12 @@
+   cmp #CHARACTER_PIT
+   bcc :+
+ .if ::ENABLE_MMC5_EXPANDED
+-    farcall RlWeaponsDispatch
++    farcall NrObjectWeaponTail,jmp
++    .res 3,$ea ; original21B weapons/bubble tail; adapter owns exactly one tail
+ .else
+     farcall ExpandedWeapons
++    jmp ProcAirBubbles
+ .endif
+-    jmp ProcAirBubbles
+   :
+   cmp #CHARACTER_BILL
+   bcc :+
+--- a/smb1base-mmc5-expanded.cfg
++++ b/smb1base-mmc5-expanded.cfg
+@@ -168,7 +168,8 @@
+     MIKE_CHR_MEM: start=$b1000,size=$1000,type=ro,fill=yes,file=%O,fillval=$00;
+     ICE_CLIMBERS_CHR_MEM: start=$b2000,size=$1000,type=ro,fill=yes,file=%O,fillval=$00;
+     RIVER_CITY_CHR_MEM: start=$b3000,size=$2000,type=ro,fill=yes,file=%O,fillval=$00;
+-    MIKE_UNUSED_CHR_MEM: start=$b5000,size=$8000,type=ro,fill=yes,file=%O,fillval=$00;
++    SUNNY_CHR_MEM: start=$b5000,size=$4000,type=ro,fill=yes,file=%O,fillval=$00;
++    CELESTE_UNUSED_CHR_MEM: start=$b9000,size=$4000,type=ro,fill=yes,file=%O,fillval=$00;
+     TMNT_CHR_TAIL: start=$bd000,size=$13000,type=ro,fill=yes,file=%O,fillval=$00;
+     PARODIUS_CHR_MEM: start=$d0000,size=$30000,type=ro,fill=yes,file=%O,fillval=$00;
+ }
+@@ -458,6 +459,10 @@
+     MAC_ROSTER_CORE: load=X5_NEW_5F,type=ro,start=$a310,optional=yes;
+     MAC_ROSTER_ART: load=X5_NEW_5E,type=ro,start=$c2c0,optional=yes;
+     NEW_ROSTER_GATE: load=X5_NEW_7C,type=ro,start=$a000,optional=yes;
++    SUNNY_CORE: load=X5_NEW_51,type=ro,start=$b200,optional=yes;
++    SUNNY_ART: load=X5_NEW_5E,type=ro,start=$ce00,optional=yes;
++    SUNNY_CHR: load=SUNNY_CHR_MEM,type=ro,optional=yes;
++    NEW_ROSTER_NAMES: load=X5_NEW_51,type=ro,start=$b700,optional=yes;
+ }
+ SYMBOLS {
+     __STACKSIZE__: type = weak, value = $20; # 32 bytes of stack
+--- a/src/music_drivers/audio.s
++++ b/src/music_drivers/audio.s
+@@ -81,11 +81,25 @@
+ .proc AudioUpdate
+ .if ::ENABLE_CROSSOVER
+   lda OperMode
++.if ::ENABLE_MMC5_EXPANDED
++  beq CrossoverVanillaAudio       ; bounded resident branch admits native Sunny
++.else
+   jeq CrossoverVanillaAudio       ; title/select cursor uses the common driver
++.endif
+   lda SelectedCharacter
++.if ::ENABLE_MMC5_EXPANDED
++  beq CrossoverVanillaAudio
++  cmp #CHARACTER_LUIGI
++  beq CrossoverVanillaAudio
++.else
+   jeq CrossoverVanillaAudio
+   cmp #CHARACTER_LUIGI
+   jeq CrossoverVanillaAudio
++.endif
++.if ::ENABLE_MMC5_EXPANDED
++  cmp #CHARACTER_SUNNY
++  beq CrossoverVanillaAudio       ; Sunny inherits native SMB area/events/SFX
++.endif
+   lda CurrentBank
+   pha
+   BankPRGA #.bank(RemainingAudioBegin)
+@@ -129,6 +143,9 @@
+   pla
+   BankPRGA a
+   rts
++.if ::ENABLE_MMC5_EXPANDED
++  .res 5,$ea                    ; unexecuted, keeps native/following public PCs
++.endif
+ CrossoverVanillaAudio:
+ .if ::MAPPER_MMC5
+   lda #0
+--- /dev/null
++++ b/src/sunny_integration.s
+@@ -0,0 +1,113 @@
++; ROOT-admission adapter; frozen sunny.s/source art stay unchanged.
++.pushseg
++.segment "SUNNY_CORE"
++SunnyNativePaletteBits=$5c05
++.proc SunnyInjuryIntegrated
++ jsr SunnyInjuryStart
++ sec                           ; genuine ForceInjury handled-result contract
++ rts
++.endproc
++.proc SunnyCollectIntegrated
++ phx
++ jsr EraseEnemyObject
++ lda #6
++ jsr SetupFloateyNumber
++ lda #Sfx_PowerUpGrab
++ sta Square2SoundQueue
++ lda PowerUpType,x
++ cmp #2
++ bcs Native
++ jsr SunnyBeginPickup
++ plx
++ rts
++Native:
++ cmp #3
++ beq Life
++ lda #$23
++ sta StarInvincibleTimer
++ lda #StarPowerMusic
++ sta AreaMusicQueue
++ plx
++ rts
++Life:
++ lda #$0b
++ sta FloateyNum_Control,x
++ plx
++ rts
++.endproc
++.proc SunnyGraphicsIntegrated
++ jsr SunnyEnsure
++ lda Player_SprAttrib
++ and #3
++ sta SunnyNativePaletteBits
++ jsr SunnyGraphics
++ php
++ pha
++ phx
++ phy
++ lda StarInvincibleTimer
++ beq Palette
++ lda Player_SprAttrib
++ ora SunnyNativePaletteBits
++ sta Player_SprAttrib
++ jmp Done
++Palette:jsr SunnyIntegrationPalette
++Done:ply
++ plx
++ pla
++ plp
++ rts
++.endproc
++.proc SunnyColorsIntegrated
++ lda #$ff
++ sta SunnyPalette
++ ; Native star cycles sprite palette attributes; don't recolor its owners.
++ lda StarInvincibleTimer
++ bne Done
++ jmp SunnyIntegrationPalette
++Done:rts
++.endproc
++.proc SunnyIntegrationPalette
++ ; Unlike the frozen art leaf, this integration owns transform colors too:
++ ; use genuine GuestPowerupDisplay; never temporarily clear active flags.
++ jsr SunnyVisualForm
++ cmp #2
++ lda #0
++ rol
++ cmp SunnyPalette
++ beq Done
++ pha
++ ldx VRAM_Buffer1_Offset
++ cpx #78
++ bcs Full
++ lda #$3f
++ sta VRAM_Buffer1,x
++ lda #$11
++ sta VRAM_Buffer1+1,x
++ lda #3
++ sta VRAM_Buffer1+2,x
++ lda #4
++ sta VRAM_Buffer1+3,x
++ jsr SunnyVisualForm
++ cmp #2
++ lda #$26
++ bcc Color
++ lda #$2a
++Color:sta VRAM_Buffer1+4,x
++ lda #$36
++ sta VRAM_Buffer1+5,x
++ txa
++ clc
++ adc #6
++ tax
++ stx VRAM_Buffer1_Offset
++ lda #0
++ sta VRAM_Buffer1,x
++ pla
++ sta SunnyPalette
++ rts
++Full:pla
++Done:rts
++.endproc
++.assert * <= $b700,lderror,"Sunny code must not overlap relocated menu names"
++.popseg

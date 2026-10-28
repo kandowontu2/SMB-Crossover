@@ -1,0 +1,600 @@
+{
+  "passed": true,
+  "bindings": {
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\sunny_integrated_pipeline_v1.py": "641867ab917e2cecf07d11c6897815794755c121ade9b8c55c96bf9247064ddf",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\sunny_integrated_controls_v1.py": "53f3444fa6b2f1875c687d1e5b9d2291c617d753758844d43ca4996622c6c2a0",
+    "build\\sunny-integrated-final.nes": "55e874822160c3ab20f9ccfbca8b46cfe3b71c00bc4466a9fa8c5789bf7c0217",
+    "build\\sunny-integrated-final.dbg": "db5d78ec8114f76c3b8e5e9eebddf060d7cdc40a510009cde0b2c79d651c66fb",
+    "build\\roster-expansion-mac-integrated-v5.nes": "bc346da71d6b8156600ea9750f18f8c59229e5581dd0de553a08ca569abd08bb",
+    "build\\roster-expansion-mac-integrated-v5.dbg": "e7d76162b047b0d6a9c4eb9763409a27701f9cd5ed8be9c680662f8466bf7931"
+  },
+  "checks": {
+    "whole_ForceInjury_and_60tick_source_freeze": {
+      "passed": true,
+      "cases": 16,
+      "C0_and_C1": true,
+      "negative_predecessor": "build/sunny-injury-carry-negative.json"
+    },
+    "exactly_two_native_fireballs_one_bubble_tail": {
+      "passed": true,
+      "calls": 20,
+      "rows": [
+        {
+          "swim": 0,
+          "face": 1,
+          "turn": 0,
+          "counts": {
+            "FireballObjCore": 2,
+            "BubbleCheck": 0
+          },
+          "CPU": 2282
+        },
+        {
+          "swim": 0,
+          "face": 1,
+          "turn": 1,
+          "counts": {
+            "FireballObjCore": 2,
+            "BubbleCheck": 0
+          },
+          "CPU": 2146
+        },
+        {
+          "swim": 0,
+          "face": 1,
+          "turn": 2,
+          "counts": {
+            "FireballObjCore": 2,
+            "BubbleCheck": 0
+          },
+          "CPU": 3677
+        },
+        {
+          "swim": 0,
+          "face": 1,
+          "turn": 3,
+          "counts": {
+            "FireballObjCore": 2,
+            "BubbleCheck": 0
+          },
+          "CPU": 3554
+        },
+        {
+          "swim": 0,
+          "face": 1,
+          "turn": 4,
+          "counts": {
+            "FireballObjCore": 2,
+            "BubbleCheck": 0
+          },
+          "CPU": 3548
+        },
+        {
+          "swim": 0,
+          "face": 2,
+          "turn": 0,
+          "counts": {
+            "FireballObjCore": 2,
+            "BubbleCheck": 0
+          },
+          "CPU": 2284
+        },
+        {
+          "swim": 0,
+          "face": 2,
+          "turn": 1,
+          "counts": {
+            "FireballObjCore": 2,
+            "BubbleCheck": 0
+          },
+          "CPU": 2148
+        },
+        {
+          "swim": 0,
+          "face": 2,
+          "turn": 2,
+          "counts": {
+            "FireballObjCore": 2,
+            "BubbleCheck": 0
+          },
+          "CPU": 3681
+        },
+        {
+          "swim": 0,
+          "face": 2,
+          "turn": 3,
+          "counts": {
+            "FireballObjCore": 2,
+            "BubbleCheck": 0
+          },
+          "CPU": 3558
+        },
+        {
+          "swim": 0,
+          "face": 2,
+          "turn": 4,
+          "counts": {
+            "FireballObjCore": 2,
+            "BubbleCheck": 0
+          },
+          "CPU": 3552
+        },
+        {
+          "swim": 1,
+          "face": 1,
+          "turn": 0,
+          "counts": {
+            "FireballObjCore": 2,
+            "BubbleCheck": 3
+          },
+          "CPU": 2573
+        },
+        {
+          "swim": 1,
+          "face": 1,
+          "turn": 1,
+          "counts": {
+            "FireballObjCore": 2,
+            "BubbleCheck": 3
+          },
+          "CPU": 2437
+        },
+        {
+          "swim": 1,
+          "face": 1,
+          "turn": 2,
+          "counts": {
+            "FireballObjCore": 2,
+            "BubbleCheck": 3
+          },
+          "CPU": 3968
+        },
+        {
+          "swim": 1,
+          "face": 1,
+          "turn": 3,
+          "counts": {
+            "FireballObjCore": 2,
+            "BubbleCheck": 3
+          },
+          "CPU": 3845
+        },
+        {
+          "swim": 1,
+          "face": 1,
+          "turn": 4,
+          "counts": {
+            "FireballObjCore": 2,
+            "BubbleCheck": 3
+          },
+          "CPU": 3839
+        },
+        {
+          "swim": 1,
+          "face": 2,
+          "turn": 0,
+          "counts": {
+            "FireballObjCore": 2,
+            "BubbleCheck": 3
+          },
+          "CPU": 2575
+        },
+        {
+          "swim": 1,
+          "face": 2,
+          "turn": 1,
+          "counts": {
+            "FireballObjCore": 2,
+            "BubbleCheck": 3
+          },
+          "CPU": 2439
+        },
+        {
+          "swim": 1,
+          "face": 2,
+          "turn": 2,
+          "counts": {
+            "FireballObjCore": 2,
+            "BubbleCheck": 3
+          },
+          "CPU": 3972
+        },
+        {
+          "swim": 1,
+          "face": 2,
+          "turn": 3,
+          "counts": {
+            "FireballObjCore": 2,
+            "BubbleCheck": 3
+          },
+          "CPU": 3849
+        },
+        {
+          "swim": 1,
+          "face": 2,
+          "turn": 4,
+          "counts": {
+            "FireballObjCore": 2,
+            "BubbleCheck": 3
+          },
+          "CPU": 3843
+        }
+      ]
+    },
+    "native_head_side_live_registers": {
+      "passed": true,
+      "cases": 36,
+      "rows": [
+        {
+          "gate": "NrHead",
+          "face": 1,
+          "row": 0,
+          "flags": 48,
+          "AXYP_SP_exact": true,
+          "cycles_extra": 108
+        },
+        {
+          "gate": "NrHead",
+          "face": 1,
+          "row": 0,
+          "flags": 49,
+          "AXYP_SP_exact": true,
+          "cycles_extra": 108
+        },
+        {
+          "gate": "NrHead",
+          "face": 1,
+          "row": 0,
+          "flags": 113,
+          "AXYP_SP_exact": true,
+          "cycles_extra": 108
+        },
+        {
+          "gate": "NrHead",
+          "face": 1,
+          "row": 1,
+          "flags": 48,
+          "AXYP_SP_exact": true,
+          "cycles_extra": 108
+        },
+        {
+          "gate": "NrHead",
+          "face": 1,
+          "row": 1,
+          "flags": 49,
+          "AXYP_SP_exact": true,
+          "cycles_extra": 108
+        },
+        {
+          "gate": "NrHead",
+          "face": 1,
+          "row": 1,
+          "flags": 113,
+          "AXYP_SP_exact": true,
+          "cycles_extra": 108
+        },
+        {
+          "gate": "NrHead",
+          "face": 1,
+          "row": 2,
+          "flags": 48,
+          "AXYP_SP_exact": true,
+          "cycles_extra": 108
+        },
+        {
+          "gate": "NrHead",
+          "face": 1,
+          "row": 2,
+          "flags": 49,
+          "AXYP_SP_exact": true,
+          "cycles_extra": 108
+        },
+        {
+          "gate": "NrHead",
+          "face": 1,
+          "row": 2,
+          "flags": 113,
+          "AXYP_SP_exact": true,
+          "cycles_extra": 108
+        },
+        {
+          "gate": "NrHead",
+          "face": 2,
+          "row": 0,
+          "flags": 48,
+          "AXYP_SP_exact": true,
+          "cycles_extra": 108
+        },
+        {
+          "gate": "NrHead",
+          "face": 2,
+          "row": 0,
+          "flags": 49,
+          "AXYP_SP_exact": true,
+          "cycles_extra": 108
+        },
+        {
+          "gate": "NrHead",
+          "face": 2,
+          "row": 0,
+          "flags": 113,
+          "AXYP_SP_exact": true,
+          "cycles_extra": 108
+        },
+        {
+          "gate": "NrHead",
+          "face": 2,
+          "row": 1,
+          "flags": 48,
+          "AXYP_SP_exact": true,
+          "cycles_extra": 108
+        },
+        {
+          "gate": "NrHead",
+          "face": 2,
+          "row": 1,
+          "flags": 49,
+          "AXYP_SP_exact": true,
+          "cycles_extra": 108
+        },
+        {
+          "gate": "NrHead",
+          "face": 2,
+          "row": 1,
+          "flags": 113,
+          "AXYP_SP_exact": true,
+          "cycles_extra": 108
+        },
+        {
+          "gate": "NrHead",
+          "face": 2,
+          "row": 2,
+          "flags": 48,
+          "AXYP_SP_exact": true,
+          "cycles_extra": 108
+        },
+        {
+          "gate": "NrHead",
+          "face": 2,
+          "row": 2,
+          "flags": 49,
+          "AXYP_SP_exact": true,
+          "cycles_extra": 108
+        },
+        {
+          "gate": "NrHead",
+          "face": 2,
+          "row": 2,
+          "flags": 113,
+          "AXYP_SP_exact": true,
+          "cycles_extra": 108
+        },
+        {
+          "gate": "NrSide",
+          "face": 1,
+          "row": 0,
+          "flags": 48,
+          "AXYP_SP_exact": true,
+          "cycles_extra": 34
+        },
+        {
+          "gate": "NrSide",
+          "face": 1,
+          "row": 0,
+          "flags": 49,
+          "AXYP_SP_exact": true,
+          "cycles_extra": 34
+        },
+        {
+          "gate": "NrSide",
+          "face": 1,
+          "row": 0,
+          "flags": 113,
+          "AXYP_SP_exact": true,
+          "cycles_extra": 34
+        },
+        {
+          "gate": "NrSide",
+          "face": 1,
+          "row": 1,
+          "flags": 48,
+          "AXYP_SP_exact": true,
+          "cycles_extra": 34
+        },
+        {
+          "gate": "NrSide",
+          "face": 1,
+          "row": 1,
+          "flags": 49,
+          "AXYP_SP_exact": true,
+          "cycles_extra": 34
+        },
+        {
+          "gate": "NrSide",
+          "face": 1,
+          "row": 1,
+          "flags": 113,
+          "AXYP_SP_exact": true,
+          "cycles_extra": 34
+        },
+        {
+          "gate": "NrSide",
+          "face": 1,
+          "row": 2,
+          "flags": 48,
+          "AXYP_SP_exact": true,
+          "cycles_extra": 34
+        },
+        {
+          "gate": "NrSide",
+          "face": 1,
+          "row": 2,
+          "flags": 49,
+          "AXYP_SP_exact": true,
+          "cycles_extra": 34
+        },
+        {
+          "gate": "NrSide",
+          "face": 1,
+          "row": 2,
+          "flags": 113,
+          "AXYP_SP_exact": true,
+          "cycles_extra": 34
+        },
+        {
+          "gate": "NrSide",
+          "face": 2,
+          "row": 0,
+          "flags": 48,
+          "AXYP_SP_exact": true,
+          "cycles_extra": 34
+        },
+        {
+          "gate": "NrSide",
+          "face": 2,
+          "row": 0,
+          "flags": 49,
+          "AXYP_SP_exact": true,
+          "cycles_extra": 34
+        },
+        {
+          "gate": "NrSide",
+          "face": 2,
+          "row": 0,
+          "flags": 113,
+          "AXYP_SP_exact": true,
+          "cycles_extra": 34
+        },
+        {
+          "gate": "NrSide",
+          "face": 2,
+          "row": 1,
+          "flags": 48,
+          "AXYP_SP_exact": true,
+          "cycles_extra": 34
+        },
+        {
+          "gate": "NrSide",
+          "face": 2,
+          "row": 1,
+          "flags": 49,
+          "AXYP_SP_exact": true,
+          "cycles_extra": 34
+        },
+        {
+          "gate": "NrSide",
+          "face": 2,
+          "row": 1,
+          "flags": 113,
+          "AXYP_SP_exact": true,
+          "cycles_extra": 34
+        },
+        {
+          "gate": "NrSide",
+          "face": 2,
+          "row": 2,
+          "flags": 48,
+          "AXYP_SP_exact": true,
+          "cycles_extra": 34
+        },
+        {
+          "gate": "NrSide",
+          "face": 2,
+          "row": 2,
+          "flags": 49,
+          "AXYP_SP_exact": true,
+          "cycles_extra": 34
+        },
+        {
+          "gate": "NrSide",
+          "face": 2,
+          "row": 2,
+          "flags": 113,
+          "AXYP_SP_exact": true,
+          "cycles_extra": 34
+        }
+      ]
+    },
+    "whole_GameLoop_source_arenas": {
+      "passed": true,
+      "calls": 90,
+      "cycles": [
+        18034,
+        21332
+      ],
+      "scope": "Real full GameLoop on typed empty-map active8 source arenas; three updates per mode/form/input. Not native traversal or physical PPU proof."
+    },
+    "foreign_dispatchers": {
+      "passed": true,
+      "cases": 176,
+      "cycles_delta": {
+        "NrBox": [
+          0,
+          4
+        ],
+        "NrAdder": [
+          1,
+          4
+        ],
+        "NrStatusName": [
+          3,
+          4
+        ],
+        "NrWorldPaletteIndex": [
+          1,
+          4
+        ],
+        "NrPrivate": [
+          0,
+          4
+        ],
+        "NrRise": [
+          1,
+          4
+        ],
+        "NrPickupCollision": [
+          0,
+          4
+        ],
+        "NrUi": [
+          4,
+          5
+        ]
+      }
+    },
+    "foreign_and_owned_resident_IRQs": {
+      "passed": true,
+      "injections": 150
+    },
+    "actual_menu_navigation_and_names": {
+      "passed": true,
+      "reachable_slots": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        22
+      ],
+      "rawID23_slot22": true,
+      "RC_holes_hidden": true
+    }
+  },
+  "source_only": true,
+  "native_run": false
+}

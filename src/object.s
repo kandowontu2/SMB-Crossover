@@ -1672,11 +1672,12 @@ RemainingBatchDone:
   cmp #CHARACTER_PIT
   bcc :+
 .if ::ENABLE_MMC5_EXPANDED
-    farcall RlWeaponsDispatch
+    farcall NrObjectWeaponTail,jmp
+    .res 3,$ea ; original21B weapons/bubble tail; adapter owns exactly one tail
 .else
     farcall ExpandedWeapons
-.endif
     jmp ProcAirBubbles
+.endif
   :
   cmp #CHARACTER_BILL
   bcc :+

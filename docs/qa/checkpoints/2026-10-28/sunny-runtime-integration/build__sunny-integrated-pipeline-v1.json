@@ -1,0 +1,23 @@
+{
+  "passed": false,
+  "bindings": {
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\sunny_integrated_pipeline_v1.py": "8e161fa4d0f3436325debc74d34f6822f3ba962bed9c919c0bc81ae972fc0251",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\sunny_integrated_controls_v1.py": "53f3444fa6b2f1875c687d1e5b9d2291c617d753758844d43ca4996622c6c2a0",
+    "build\\sunny-integrated-qualified.nes": "366593114bfa50f355dfdd4bc12f4c67de90aa6b9a60c4e85242414d373a3067",
+    "build\\sunny-integrated-qualified.dbg": "981c61046c05f34fc41c112f8410e64a520c861e72e0571b995d73e0f9dbf622",
+    "build\\roster-expansion-mac-integrated-v5.nes": "bc346da71d6b8156600ea9750f18f8c59229e5581dd0de553a08ca569abd08bb",
+    "build\\roster-expansion-mac-integrated-v5.dbg": "e7d76162b047b0d6a9c4eb9763409a27701f9cd5ed8be9c680662f8466bf7931"
+  },
+  "checks": {
+    "whole_ForceInjury_and_60tick_source_freeze": {
+      "passed": true,
+      "cases": 16,
+      "C0_and_C1": true,
+      "negative_predecessor": "build/sunny-injury-carry-negative.json"
+    }
+  },
+  "source_only": true,
+  "native_run": false,
+  "error": "AssertionError()",
+  "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\sunny_integrated_pipeline_v1.py\", line 41, in main\n    assert [q.get('Fireball_State',i)!=0 for i in range(2)]==[True,turn>=2]\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+}

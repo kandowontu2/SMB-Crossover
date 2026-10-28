@@ -1,0 +1,104 @@
+{
+  "passed": true,
+  "source_CPU_only": true,
+  "native_run": false,
+  "checks": {
+    "resident_full_caller": {
+      "passed": true,
+      "cases": 54,
+      "cycles_delta": [
+        -4,
+        -4
+      ]
+    },
+    "expanded_full_selector": {
+      "passed": true,
+      "foreign_cases": 48,
+      "foreign_cycles_delta": [
+        0,
+        0
+      ],
+      "Sunny_C": 94
+    },
+    "native_box_adder": {
+      "passed": true,
+      "all_Y_cases": 512
+    },
+    "lifecycle": {
+      "passed": true,
+      "future_pipe_preserves": true,
+      "real_scene_preserves_form": true,
+      "life_loss_and_fresh_clear": true
+    },
+    "actual_pickup_injury_pipeline": {
+      "passed": true,
+      "Easy_Hard_form_cases": 12,
+      "freeze_updates_per_case": 60,
+      "native_star_life_cases": 2,
+      "injury_source_freeze": true
+    },
+    "native_audio": {
+      "passed": true,
+      "paired_updates": 7200,
+      "ordered_all_writes_exact": true,
+      "native_event_buffer_clear_ticks": {
+        "1": 180,
+        "2": 216,
+        "8": 364,
+        "16": 216,
+        "32": 324,
+        "64": 168
+      },
+      "Sunny_vs_Mario_cycle_delta": [
+        8,
+        8
+      ]
+    },
+    "foreign_audio": {
+      "passed": true,
+      "paired_updates": 66,
+      "cycle_delta": [
+        -4,
+        1
+      ]
+    },
+    "foreign_foreground_callers": {
+      "passed": true,
+      "cases": 66,
+      "cycles_delta": {
+        "PlayerChangeSize": [
+          0,
+          96
+        ],
+        "PlayerFireFlower": [
+          0,
+          96
+        ],
+        "ProcFireball_Bubble": [
+          0,
+          171
+        ]
+      }
+    },
+    "graphics_draw": {
+      "passed": true,
+      "cases": 96,
+      "actual_C94_record_bounds": true
+    },
+    "actual_IRQ_boundaries": {
+      "passed": true,
+      "injections": 331,
+      "registers_flags_stack_R0_R7_banks_fiveSMC_exact": true
+    }
+  },
+  "bindings": {
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\sunny_integrated_controls_v1.py": "53f3444fa6b2f1875c687d1e5b9d2291c617d753758844d43ca4996622c6c2a0",
+    "build\\sunny-integrated-final.nes": "55e874822160c3ab20f9ccfbca8b46cfe3b71c00bc4466a9fa8c5789bf7c0217",
+    "build\\sunny-integrated-final.dbg": "db5d78ec8114f76c3b8e5e9eebddf060d7cdc40a510009cde0b2c79d651c66fb",
+    "build\\roster-expansion-mac-integrated-v5.nes": "bc346da71d6b8156600ea9750f18f8c59229e5581dd0de553a08ca569abd08bb",
+    "build\\roster-expansion-mac-integrated-v5.dbg": "e7d76162b047b0d6a9c4eb9763409a27701f9cd5ed8be9c680662f8466bf7931",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\link_pit_rygar_sophia_audit_cpu.py": "15ef348bc124a97d8ef2c8a56777180276271b44fb77c8ace7e62c2a50310113",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\check_tmnt_render_oa.py": "32033893e48055adc9a23c661238e9331dd1db856be51b753ba9b6781eb528e4",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\verify_native_relocation.py": "1bab7154bc2e5468e827087d14030a7e30c4d3676db5e775ef15de4d0c34ce11"
+  }
+}

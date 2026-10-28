@@ -3,7 +3,7 @@
 ; Each adapter restores incoming A/P before entering its actual owner.
 .pushseg
 .segment "NEW_ROSTER_GATE"
-.macro NrGate Name,Ice,City,Legacy
+.macro NrGate Name,Ice,City,Sunny,Legacy
 .proc Name
  php
  pha
@@ -12,6 +12,8 @@
  beq ToIce
  cmp #CHARACTER_RIVER_CITY
  beq ToCity
+ cmp #CHARACTER_SUNNY
+ beq ToSunny
  pla
  plp
  farcall Legacy,jmp
@@ -23,19 +25,23 @@ ToCity:
  pla
  plp
  farcall City,jmp
+ToSunny:
+ pla
+ plp
+ farcall Sunny,jmp
 .endproc
 .endmacro
-NrGate NrMovement,IcMovement,RcMovement,JnMovementDispatch
-NrGate NrGraphics,IcGraphics,RcGraphics,RlGraphicsDispatch
-NrGate NrDraw,IcDraw,RcDraw,RlDrawDispatch
-NrGate NrPortrait,IcPortrait,RcPortrait,JnPortraitDispatch
-NrGate NrWeapons,IcWeapons,RcWeapons,JnWeaponsDispatch
-NrGate NrInjury,IcInjuryStart,RcInjuryStart,JnInjuryStartDispatch
-NrGate NrInjuryStatus,IcInjuryStatus,RcInjuryStatus,JnInjuryStatusDispatch
-NrGate NrDeathStart,IcDeathStart,RcDeathStart,JnInventoryDeathDispatch
-NrGate NrDeath,IcDeathUpdate,RcDeath,JnDeathDispatch
-NrGate NrVisible,IcVisible,RcVisible,JnVisibleDispatch
-NrGate NrHead,IcHead,RcHeadProbe,JnHeadDispatch
+NrGate NrMovement,IcMovement,RcMovement,SunnyNativeMovement,JnMovementDispatch
+NrGate NrGraphics,IcGraphics,RcGraphics,SunnyGraphicsIntegrated,RlGraphicsDispatch
+NrGate NrDraw,IcDraw,RcDraw,SunnyDraw,RlDrawDispatch
+NrGate NrPortrait,IcPortrait,RcPortrait,SunnyPortrait,JnPortraitDispatch
+NrGate NrWeapons,IcWeapons,RcWeapons,SunnyWeapons,JnWeaponsDispatch
+NrGate NrInjury,IcInjuryStart,RcInjuryStart,SunnyInjuryIntegrated,JnInjuryStartDispatch
+NrGate NrInjuryStatus,IcInjuryStatus,RcInjuryStatus,SunnyInjuryStatus,JnInjuryStatusDispatch
+NrGate NrDeathStart,IcDeathStart,RcDeathStart,SunnyDeathStart,JnInventoryDeathDispatch
+NrGate NrDeath,IcDeathUpdate,RcDeath,SunnyNativeDeath,JnDeathDispatch
+NrGate NrVisible,IcVisible,RcVisible,SunnyVisible,JnVisibleDispatch
+NrGate NrHead,IcHead,RcHeadProbe,SunnyHead,JnHeadDispatch
 
 .proc NrReset
  php
@@ -44,6 +50,8 @@ NrGate NrHead,IcHead,RcHeadProbe,JnHeadDispatch
  cmp #CHARACTER_ICE_CLIMBERS
  beq Own
  cmp #CHARACTER_RIVER_CITY
+ beq Own
+ cmp #CHARACTER_SUNNY
  beq Own
  pla
  plp
@@ -54,16 +62,21 @@ Own:
  lda #0
  farcall SpecialRosterClear    ; clear shared legacy weapon/CHR overrides too
  lda SelectedCharacter
+ cmp #CHARACTER_SUNNY
+ beq Sunny
  cmp #CHARACTER_ICE_CLIMBERS
  bne City
  farcall IcAreaReset,jmp
 City:farcall RcReset,jmp
+Sunny:farcall SunnyReset,jmp
 .endproc
 
 .proc NrBody
  php
  pha
  lda SelectedCharacter
+ cmp #CHARACTER_SUNNY
+ beq Sunny
  cmp #CHARACTER_RIVER_CITY
  beq City
  cmp #CHARACTER_ICE_CLIMBERS
@@ -84,6 +97,10 @@ Ice:
  plp
  clc
  rts
+Sunny:
+ pla
+ plp
+ farcall SunnyBody,jmp
 .endproc
 
 ; Terrain admission also validates the explicit ID argument supplied by SMB.
@@ -96,6 +113,8 @@ Ice:
  beq Ice
  cmp #CHARACTER_RIVER_CITY
  beq City
+ cmp #CHARACTER_SUNNY
+ beq Sunny
 Legacy:pla
  plp
  farcall RlAdderDispatch,jmp
@@ -105,6 +124,9 @@ Ice:pla
 City:pla
  plp
  farcall RcCollisionAdder,jmp
+Sunny:pla
+ plp
+ farcall SunnyAdder,jmp
 .endproc
 .proc NrBox
  php
@@ -115,6 +137,8 @@ City:pla
  beq Ice
  cmp #CHARACTER_RIVER_CITY
  beq City
+ cmp #CHARACTER_SUNNY
+ beq Sunny
 Legacy:pla
  plp
  farcall RlBoxDispatch,jmp
@@ -124,6 +148,9 @@ Ice:pla
 City:pla
  plp
  farcall RcCollisionBox,jmp
+Sunny:pla
+ plp
+ farcall SunnyBox,jmp
 .endproc
 
 .proc NrPrepare
@@ -133,6 +160,8 @@ City:pla
  cmp #CHARACTER_ICE_CLIMBERS
  beq Own
  cmp #CHARACTER_RIVER_CITY
+ beq Own
+ cmp #CHARACTER_SUNNY
  beq Own
  pla
  plp
@@ -157,6 +186,8 @@ Own:
  beq Native
  cmp #CHARACTER_RIVER_CITY
  beq Native
+ cmp #CHARACTER_SUNNY
+ beq Native
  pla
  plp
  farcall JnRiseDispatch,jmp
@@ -174,6 +205,8 @@ Native:
  beq Native
  cmp #CHARACTER_RIVER_CITY
  beq Native
+ cmp #CHARACTER_SUNNY
+ beq Native
  pla
  plp
  farcall JnPrivateDispatch,jmp
@@ -190,6 +223,8 @@ Native:
  cmp #CHARACTER_ICE_CLIMBERS
  beq Own
  cmp #CHARACTER_RIVER_CITY
+ beq Own
+ cmp #CHARACTER_SUNNY
  beq Own
  pla
  plp
@@ -209,6 +244,8 @@ Allowed:sec
 .endproc
 .proc NrPickup
  lda SelectedCharacter
+ cmp #CHARACTER_SUNNY
+ beq Sunny
  cmp #CHARACTER_ICE_CLIMBERS
  beq Ice
  cmp #CHARACTER_RIVER_CITY
@@ -231,11 +268,15 @@ City:
 Native:
  farcall MarioSourcePowerupCollision,jmp ; native Star and extra-life handling
 Done:rts
+Sunny:
+ farcall SunnyCollectIntegrated,jmp
 .endproc
 .proc NrUi
  php
  pha
  lda SelectedCharacter
+ cmp #CHARACTER_SUNNY
+ beq Sunny
  cmp #CHARACTER_ICE_CLIMBERS
  beq Ice
  cmp #CHARACTER_RIVER_CITY
@@ -252,11 +293,17 @@ City:
  plp
  farcall X5NativeInventoryUiLeaf
  farcall RcUi,jmp
+Sunny:
+ pla
+ plp
+ farcall SunnyUi,jmp
 .endproc
 .proc NrStatusName
  php
  pha
  lda SelectedCharacter
+ cmp #CHARACTER_SUNNY
+ beq Sunny
  cmp #CHARACTER_ICE_CLIMBERS
  beq Ice
  cmp #CHARACTER_RIVER_CITY
@@ -296,6 +343,10 @@ NameDone:
 Done:rts
 PopoName:.byte "POPO   "
 NanaName:.byte "NANA   "
+Sunny:
+ pla
+ plp
+ farcall SunnyStatusName,jmp
 .endproc
 .proc NrGlobalInit
  farcall KbGlobalInit
@@ -303,7 +354,8 @@ NanaName:.byte "NANA   "
  sta RcVariant
  sta MacVariant
  sta RcMarker                 ; initialize lazily, preserve selected owner's RAM
- farcall IcGlobalInit,jmp
+ farcall IcGlobalInit
+ farcall SunnyGlobalInit,jmp
 .endproc
 .proc NrFreshGameInit
  farcall KbFreshGameInit
@@ -314,10 +366,13 @@ NanaName:.byte "NANA   "
  sta IcVariant
  lda #0
  sta RcMarker
+ farcall SunnyGlobalInit
  rts
 .endproc
 .proc NrFullPower
  lda SelectedCharacter
+ cmp #CHARACTER_SUNNY
+ beq Sunny
  cmp #CHARACTER_ICE_CLIMBERS
  beq Ice
  cmp #CHARACTER_RIVER_CITY
@@ -335,6 +390,8 @@ City:
  lda #1
  sta RcHudDirty
  rts
+Sunny:
+ farcall SunnyFullPower,jmp
 .endproc
 .proc NrSide
  php
@@ -343,6 +400,8 @@ City:
  cmp #CHARACTER_ICE_CLIMBERS
  beq Native
  cmp #CHARACTER_RIVER_CITY
+ beq Native
+ cmp #CHARACTER_SUNNY
  beq Native
  pla
  plp
@@ -360,6 +419,8 @@ Native:
  beq Own
  cmp #CHARACTER_RIVER_CITY
  beq Own
+ cmp #CHARACTER_SUNNY
+ beq Own
  pla
  plp
  farcall X5GetPlayerColors,jmp
@@ -370,10 +431,13 @@ Own:
  farcall QueueGuestWeaponPalette
  farcall X5QueueAreaBackdrop
  lda SelectedCharacter
+ cmp #CHARACTER_SUNNY
+ beq Sunny
  cmp #CHARACTER_ICE_CLIMBERS
  bne City
  farcall IcForcePalette,jmp
 City:farcall RcColors,jmp
+Sunny:farcall SunnyColorsIntegrated,jmp
 .endproc
 .proc NrMenuToggle
  lda CrossoverMenuPressed
@@ -427,6 +491,8 @@ No:clc
  cmp #CHARACTER_ICE_CLIMBERS
  beq Native
  cmp #CHARACTER_RIVER_CITY
+ beq Native
+ cmp #CHARACTER_SUNNY
  beq Native
  pla
  plp
@@ -511,9 +577,42 @@ Done:rts
 Native:
  farcall NrNativeEnemyMovement,jmp
 .endproc
+.proc NrNativePowerupDispatch
+ php
+ pha
+ lda SelectedCharacter
+ cmp #CHARACTER_SUNNY
+ beq Sunny
+ pla
+ plp
+ farcall GuestPowerupUpdate,jmp
+Sunny:pla
+ plp
+ farcall SunnyPowerupUpdate,jmp
+.endproc
+.proc NrObjectWeaponTail
+ php
+ pha
+ lda SelectedCharacter
+ cmp #CHARACTER_SUNNY
+ beq Sunny
+ pla
+ plp
+ farcall RlWeaponsDispatch
+ farcall ProcFireball_Bubble::ProcAirBubbles,jmp
+Sunny:pla
+ plp
+ farcall SunnyNativeWeaponTail,jmp
+.endproc
+.segment "NEW_ROSTER_NAMES"
 .proc NrQueueSelectName
   lda SelectedCharacter
 .if ::ENABLE_MMC5_EXPANDED
+  cmp #CHARACTER_SUNNY
+  bne SunnyOtherName
+  lda #43
+  jmp NameIndex
+SunnyOtherName:
   cmp #CHARACTER_ICE_CLIMBERS
   bne NrNotIceName
   lda IcVariant
@@ -703,8 +802,9 @@ Names:
   .byte "     ROLL       "
   .byte "      POPO      ","      NANA      "
   .byte "      ALEX      ","      RYAN      "
-  .byte "   DOC LOUIS    ","   MIKE TYSON   "
+  .byte "   DOC LOUIS    ","   MIKE TYSON   ","     SUNNY      "
  .endif
 .endproc
+.segment "NEW_ROSTER_GATE"
 .assert * <= $b000,lderror,"Roster dispatcher overlaps Rogue Dawn reservation"
 .popseg

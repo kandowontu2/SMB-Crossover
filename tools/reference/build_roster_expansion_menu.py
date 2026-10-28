@@ -5,7 +5,7 @@ new portraits come from authenticated source renderers. Only explicitly ready
 slots receive art or navigation. The full-size colored preview stays native.
 """
 from pathlib import Path
-import hashlib, json, re, sys
+import argparse, hashlib, json, re, sys
 from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -54,6 +54,12 @@ def navigation(slots):
 
 
 def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--sunny', action='store_true')
+    parser.add_argument('--cpu-proof', type=Path)
+    args = parser.parse_args()
+    if args.sunny:
+        assert args.cpu_proof and json.loads(args.cpu_proof.read_text())['passed'], 'CPU admission proof required before exposing Sunny'
     old_nt = (ROOT/'chr/raw/x5-character-select.bin').read_bytes()
     packed = (ROOT/'chr/characters/packed-mmc5-expanded.chr').read_bytes()
     # The checked-in standalone prepack can predate an expanded-only art
@@ -77,6 +83,29 @@ def main():
                     pic.putpixel((x, y), (v, v, v, 255))
         assert pic.getbbox(), slot
         portraits[slot] = pic
+    def actual_frame(manifest_name, chr_name, number):
+        manifest = json.loads((ROOT/'chr/characters'/manifest_name).read_text())
+        frame = manifest['frames'][number]
+        data = (ROOT/'chr/characters'/chr_name).read_bytes()
+        width,height = frame.get('size',[16,32])
+        left,top = frame.get('origin_offset',[0,0])
+        pic = Image.new('RGBA',(width,height))
+        first = 668 if manifest_name.startswith('mac-') else 724
+        page = frame.get('page',frame.get('physical_page'))-first
+        for part in frame['parts']:
+            for yy in range(16):
+                for xx in range(8):
+                    value = tile_pixel(data[page*1024:(page+1)*1024],part['tile']+yy//8,xx,yy%8)
+                    x,y=part['x']-left+xx,part['y']-top+yy
+                    if value and 0<=x<width and 0<=y<height:
+                        v=(0,72,160,248)[value]
+                        pic.putpixel((x,y),(v,v,v,255))
+        assert pic.getbbox()
+        return pic
+    # Exact authored current Mac portrait, not the old prepacked thumbnail.
+    portraits[14] = actual_frame('mac-roster-manifest.json','mac-roster.chr',48)
+    if args.sunny:
+        portraits[22] = actual_frame('sunny-manifest.json','sunny.chr',0)
     native, _, _ = ice.render(ice.original(), 0, 0, 1)
     minx, miny = min(x for x, y in native), min(y for x, y in native)
     pic = Image.new('RGBA', (max(x for x,y in native)-minx+1, max(y for x,y in native)-miny+1))
@@ -139,11 +168,13 @@ def main():
     chr_data[253*16:254*16] = encode([[3 if 1 <= x <= 5 and abs(y-3) <= 5-x else 0 for x in range(8)] for y in range(8)])
     chr_data[254*16:255*16] = encode([[1]*8 for _ in range(8)])
     characters = [0,1,2,3,4,5,6,7,12,9,10,11,13,14,15,16,17,18,19,20]
+    characters += [0]*(28-len(characters))
+    if args.sunny: characters[22]=23
     lines = ['; Staged expansion: absent profiles have no portrait or navigation.']
     for direction in ('left', 'right', 'up', 'down'):
         lines += ['X5Menu'+direction.title()+':', ' .byte '+','.join(str(nav[s][direction]) if s in nav else '0' for s in range(28))]
     for name, values in [
-        ('Characters', characters+[0]*(28-len(characters))),
+        ('Characters', characters),
         ('Present', [int(s in nav) for s in range(28)]),
         ('CursorLo', [((position(s)[0]+1)*32+position(s)[1]-1) & 255 for s in range(28)]),
         ('CursorHi', [32+((position(s)[0]+1)*32+position(s)[1]-1)//256 for s in range(28)])]:

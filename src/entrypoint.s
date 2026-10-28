@@ -71,6 +71,7 @@ DwHang=$73f7
 .include "little_mac_state.inc"
 .include "tmnt_state.inc"
 .include "ice_climbers_state.inc"
+.include "sunny_state.inc"
 .endif
 
 .if MAPPER_MMC5
@@ -542,4 +543,6 @@ Done:
 .include "mac_roster.s"
 .include "mac_roster_adapter.s"
 .include "new_roster_dispatch.s"
+.include "sunny.s"
+.include "sunny_integration.s"
 .endif
