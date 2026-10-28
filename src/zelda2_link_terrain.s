@@ -38,6 +38,8 @@ Legacy:jmp M3SideDispatch
  php
  pha
  lda SelectedCharacter
+ cmp #CHARACTER_RIVER_CITY
+ beq RcNative
  cmp #CHARACTER_LINK
  bne Legacy
  lda Z2Variant
@@ -51,6 +53,11 @@ Legacy:jmp M3SideDispatch
 Legacy:pla
  plp
  jmp Z2WallLegacy
+RcNative:
+ pla
+ plp
+ clc                          ; real native one-pixel residual response
+ rts
 .endproc
 
 .segment "Z2_COLD"

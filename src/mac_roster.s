@@ -307,5 +307,7 @@ MacRosterCoreEnd:
 .include "mac_roster_data.inc"
 .pushseg
 .segment "MAC_ROSTER_CHR"
-.incbin "chr/characters/mac-roster.chr"
+.incbin "chr/characters/mac-roster.chr",0,9216
+.segment "MAC_ROSTER_CHR_TAIL"
+.incbin "chr/characters/mac-roster.chr",36864,4096
 .popseg

@@ -1,0 +1,153 @@
+{
+  "status": "Private composed candidate; no native/shared-source/canonical adoption",
+  "ROM_sha256": "4cbd019100ba4dfc51fd9f71c5d3cabd844828eb7d5d2a4aa39413e3579ab39a",
+  "parent_sha256": "00597cddbff069acbd6fad1571b7b734c5c5f72bc67da49e672565e6c2c4e94d",
+  "native_run": false,
+  "source_preimages": [
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\river_city_core.s",
+      "sha256": "29a40a77d70af59b53d7b6349f51590612f00a757e0fd122759eecef7bc5d440"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\river_city.s",
+      "sha256": "5688a6787e29f845c21af34c07c672df42ff9a001858ac91a9ad092aadc5437d"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\river_city_shared_palette_render.inc",
+      "sha256": "4b38d6b0972ef6921afe575ba416042d13822f142f39b00ff87a32030963dd65"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\smb1base-mmc5-expanded.cfg",
+      "sha256": "ba0dc4c311e7010ce9c977e9ce05d7704109994b9456d7215225daa37d247cb4"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\mac_roster.s",
+      "sha256": "e5168cd03a484e89aaf21254a2b14b07b6b0cb1494da37424999b96c919d1f30"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\roster_expansion_menu.inc",
+      "sha256": "46e8d50b74aa4fac77461e2d78d933497d968b05844da6daaee157327d22c88f"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\chr\\characters\\packed-mmc5-roster-expanded.chr",
+      "sha256": "fe1a567a950fedb64697a5564d16e0f19771def1b47ba8b6cbec570056013e2f"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\chr\\raw\\roster-expansion-menu.bin",
+      "sha256": "e4eb9761526882840e6d6ba0c9f50c6660d31fab0dd46c9bebbc8478cb70f4ae"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\entrypoint.s",
+      "sha256": "f20d9cbbd3d7c9b66c1b7af1374c4c80d5ac1f1664253448f214e26cc3fdd6be"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\character_select.s",
+      "sha256": "405bc5250be8dee5133460d961af489babbb505bff6deb3032d7af1ac42e8a42"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\zelda2_link_terrain.s",
+      "sha256": "fc02c804879d16f061bf9e6f03ff28c8e8139505f0fbc3f9cd52f37bac034ba9"
+    }
+  ],
+  "menu_new_tiles": [
+    176,
+    177,
+    178,
+    179,
+    180,
+    181
+  ],
+  "free_menu_tiles": 70,
+  "command": [
+    "python",
+    "-B",
+    "tools/build_mmc5_expanded.py",
+    "--source-overlay",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\river-city-shared-v8-overlay",
+    "--output",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\river-city-shared-v8.nes"
+  ],
+  "limits": [
+    "Native composed route/PPU/ABI pending",
+    "Rogue CHR reserved, not yet populated or playable"
+  ],
+  "bindings": [
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\river_city_shared_v8_build.py",
+      "sha256": "166c36f118d125eec2033a993fa9780cf85ff3319e8a3c483c0c94e2a83c6bf5"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\river-city-shared-v8.nes",
+      "sha256": "4cbd019100ba4dfc51fd9f71c5d3cabd844828eb7d5d2a4aa39413e3579ab39a"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\river-city-shared-v8.dbg",
+      "sha256": "67b811d571b883cd37194863620c097c6edb82e40c69470cd0ca31e7e6b8537e"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\river-city-shared-v8.lbl",
+      "sha256": "df4cac208ae1cfe019c100f8f8c70f7581ef13481db2c98789e7aa789330f619"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\river_city_wall_prepass_v2.inc",
+      "sha256": "e5bab5e300bb9390779767a7c8983cf3609d59ad9b33b5e25e07196f944d0f09"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\river-city-shared-v8-overlay\\build.log",
+      "sha256": "ee6b38f6ceff1e8a87eed51c086e9b5b7ef9db2ed83618b12070737632b258a4"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\river-city-shared-v8-overlay\\smb1base-mmc5-expanded.cfg",
+      "sha256": "520fd35d50877945c032f2e52ef24bc84a4018a09036acdc497ff455c8d5f64a"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\river-city-shared-v8-overlay\\thumbnail-review.png",
+      "sha256": "89b55acd1cc3fc7117c8187837867d0748fa153b59308232790c4728dc9c8a1c"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\river-city-shared-v8-overlay\\src\\character_select.s",
+      "sha256": "6f7fce30b67689837bcb3a5024a81e1374e0f514aac8b4f69cc64b365634e4a7"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\river-city-shared-v8-overlay\\src\\entrypoint.s",
+      "sha256": "d19be7a50a9492e84269a6e8efc4f5a8904c5da59147c18b65bff74dc3a8fca6"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\river-city-shared-v8-overlay\\src\\mac_roster.s",
+      "sha256": "4398fe06a75105cdf6a101c04210187be7698b3c09baf7373e7a93c0188978b5"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\river-city-shared-v8-overlay\\src\\river_city.s",
+      "sha256": "a047152871daeef0c6df41d53d70466537fbc835802ae9d7355129cb7cdb1a3c"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\river-city-shared-v8-overlay\\src\\river_city_core.s",
+      "sha256": "216912d100f40d547652c799558502edf54d6f2641f22a4bbfe3ee3a7f9a31d5"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\river-city-shared-v8-overlay\\src\\river_city_shared_palette_render.inc",
+      "sha256": "c0403079de29f8c946de76db41532b703b7d3c14e5248d1deabc4cf9395b063b"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\river-city-shared-v8-overlay\\src\\roster_expansion_menu.inc",
+      "sha256": "bd4eedde68adea3fbd7aafea0dca7889bc8754c8c68c8d5f6c1d70c0c519cd71"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\river-city-shared-v8-overlay\\src\\zelda2_link_terrain.s",
+      "sha256": "e55c6653894df0ab239a2dbdd6d43b9263c00452907fecc9ed88408c6a636368"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\river-city-shared-v8-overlay\\chr\\characters\\packed-mmc5-roster-expanded.chr",
+      "sha256": "d59c7fe5193cc88056c1451def95a97c953e614f817d9eb1bbdfb9be1940d949"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\river-city-shared-v8-overlay\\chr\\raw\\roster-expansion-menu.bin",
+      "sha256": "bb8c76dc4d6f293edef175afd91b0f915faf169a8cdc73715894a993ef0e8f92"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\river_city_shared_candidate_v8.py",
+      "sha256": "e266f33f180f0299af2366bd87ad44cdc8157278f24672c38fc804e95d3f9712"
+    }
+  ],
+  "retained_negative": "Native Ryan a29f: X2706->2719. Typed v7 confirms pre-wall bounds alone insufficient: legacy SamusStopAtWallBanked left clamp still moves+15. Exact RCR-only cold gate returnsCLC to true native one-pixel response; all foreign cold paths require fresh fullcaller checks."
+}
