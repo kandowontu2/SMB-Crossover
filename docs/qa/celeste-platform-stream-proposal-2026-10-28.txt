@@ -1,0 +1,84 @@
+Celeste tier0 native-platform streaming -- PROPOSAL ONLY
+
+Frozen145-candidate census is unchanged (JSON027da20e). Those are geometric
+candidates, not145 mandatory placements. No helper record/map/physics/shared
+source or native input was changed. New selector is NOT assembled or timed.
+
+Concrete foreground integration
+  CmHostDashTail is exact raw0/MarioVariant4's admitted foreground path. Run a
+  bounded stream manager there before its existing bubble tail. GameCore then
+  enters HpProcessFireballsBridge, which tests HpCount before HpSpawnAndTrack.
+  This location solves initial HpCount0 without any NMI or foreign hot hook.
+  Lifecycle initialization/area/death still uses real HpLoadArea->HpConfigure.
+  Use stable AreaType/AreaAddrsLOffset and existing HpKey/world/level/mode;
+  never interpret the parser's future AreaPointer as a scene change.
+
+  Preserve the original eligible Easy gate4 record as a permanent cache cell,
+  including its held offscreen phase. Celeste currently has at most one such
+  record per area. Hard has none. Thus2 or3 cells remain for proposed supports.
+  Keep cache dense; install only nearby sorted next supports, not first3 for
+  the entire area. A next-record cursor avoids rescanning the full catalog.
+  Admit new records only tier0/engine8/unpaused. Existing visible/supported
+  cells survive pickup; stop new admissions and retire detached cells safely.
+  Paused calls leave selection/phase untouched. A real scene load resets the
+  existing91B helper block. Castle loopback subtracts4camera pages without a
+  scene change: detect page decrease, reset only the new-support cursor/epoch,
+  preserve occupied support and original permanent record phase.
+
+  Reuse actual native25/28 actors through HpFindActor/HpReleaseActor and the
+  existing spawn/initialization pipeline. Never overwrite any active enemy.
+  Evict a new cache cell only safely behind camera after amplitude/halfwidth
+  allowance, and never while its validated live actor supports the player.
+  Dense compaction copies all14 per-cell fields and changes the moved native
+  actor's HpActorOwner from oldslot+1 to newslot+1 before the enemy loop. The
+  actual ptr snapshot is prepared later by DrawAll. No full-OAM copies.
+
+  Proposed already-reserved helper fields (pending coordinator approval):
+  HpDeferred stream lifecycle marker/retirement; HpCountDown next-record
+  cursor; HpSupport permanent-prefix count; HpAxis last camera page. Current
+  source has only their declarations; HpConfigure's91B clear owns them.
+  This is explicit reuse inside the existing helper block, not free global
+  RAM. No persistent Celeste5FF8..FD changes. Menu identity changes occur
+  outside GameCore and next real area initialization clears helper state;
+  any future in-game identity switching must explicitly invalidate helpers.
+
+  Reject a catalog whose required simultaneous supports exceed available
+  cache/native actor capacity; do not silently defer an essential fourth
+  support. Keep native enemy priority. Actual6occupied slots can delay a
+  helper spawn; controls must show eventual safe arrival, never erase enemies.
+
+Minimum versus candidate distinctions
+  Actual1-1 compiled parser + CmHostMovement->completePlayerBGCollision->
+  realAfterBG pipeline was executed21cases/1890updates. From second pipe
+  X632/Y128, a fresh jump after4..6walking updates actually lands on the
+  third pipe X736/Y144 through genuine coyote time. Earlier jumps0..3fail.
+  Thus736 must NOT be blindly labeled a mandatory added platform.
+  Ground approaches X896/Y176 toward pipe912 and X2224/Y176 toward the
+  2240solid stair face remain blocked for all seven fresh-A delays: minY125
+  and X≤start+3. A local51px rise cannot reach those64px faces. They are the
+  first concrete1-1 accommodation priorities absent an alternate native
+  spring/platform/enemy route; candidate centers888/2216,Y176 are plans only.
+  The full145list cannot establish a minimum32-stage placement set: native
+  moving-platform timing, hidden-block reveals, ceiling routes and maze
+  transports still need continuous source path closure. No stronger claim.
+
+Executable finite evidence
+  tools/audit/celeste_platform_stream_model_v1.py
+  build/celeste_platform_stream_model_v1.json
+  Proof204cdf37e09f9a6a043299399d1d877d5b29be36501f7789520646bb511e34a0
+  11,200 reference-model steps cover zero-count startup, dense reuse, retained
+  phase, pause, foreign owner, powerup retirement and explicit overcapacity.
+  Actual unchanged83db CPU:90 owner/release true/false cases across3helper x
+  6actor cells;24 real ownership-remap/native dispatch/carry calls cover both
+  axes. Python performs proposed metadata compaction, not an assembled gate.
+  21 actual physics/BG pipelines separately qualify the local1-1 distinction.
+  No new-selector AXYP/cycle/IRQ/native qualification is claimed.
+
+Cost/adoption gate
+  No NMI work and no common foreign route required. New manager still costs
+  foreground CPU; every spawned platform also has real native update,
+  collision and OAM cost. Do not call it zero-cost or a lag improvement.
+  Next implementation review must approve minimal placements/record bounds,
+  actual PRG ownership and this finite state reuse. Then assemble one private
+  selector and measure full callers/IRQ/native platform carry plus whole
+  route deadline/capacity, before any terrain/helper/physics adoption.

@@ -1,0 +1,2354 @@
+{
+  "passed": true,
+  "source_CPU_only": true,
+  "native_run": false,
+  "ROM_sha256": "00597cddbff069acbd6fad1571b7b734c5c5f72bc67da49e672565e6c2c4e94d",
+  "bindings": {
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\celeste_mac_union_controls_v1.py": "dfea846cbfcfa97ae1ecaae73c9de64bc9cd4917cd17eece60483c801394731e",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\celeste_host_controls_v4.py": "af526b3251cb5e3a2a5c317be84359728e8d9f0245c0cedd82ca96dce317c19c",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\sunny_integrated_controls_v1.py": "53f3444fa6b2f1875c687d1e5b9d2291c617d753758844d43ca4996622c6c2a0",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\mac_roster_terrain_controls_v1.py": "05079bb2d523659e328add5d9a8d92854ab0965922a76c220fe6e352a2902d19",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\mac_roster_pipe_corner_controls_v1.py": "4a85040279ba0520faaf0b9c4c760620ef43432f1dab6fc65597d088ff78fd7d",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\celeste_host_visual_v2_handoff.json": "5e80d1f69483239bf6fbe39be9a91e3cdc169b1dbfd31137a0d338941d31b30e",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\mac-roster-pipe-corner-controls-v2.json": "78a58e2d851f4742937e7c7b8953b050d307f86fdb5b9d8b51d29f54fac4876b",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\mac-roster-pipe-terrain-regressions-v2.json": "e74673cd9ee95adff3d83168e9c22df8a5fe1ecd84a34e0d737d53bdfd31a992",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\celeste_mario_host_entry.s": "55d198b2bda61364a08c16ba0dcfd3d4b5ef57f34fd76de22f067186f7f28126",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\celeste_mario_host_state.inc": "faff9adbcc7ba7753b2ae940a212526668f0b96713e75760415a4f3aa0b1238f",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\celeste_mario_host.s": "dadc50c777c20f1e3695cc2dc9aa83a610c9551b49efb5ceed00726fba110edb",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\little_mac_terrain.s": "5ec7af07c9a0503fb469f0b8e54dbec77e013be35163969d590276d38f27d7cc",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\tmnt_mac_probes.inc": "3de30ac0062ed3e22a7fcf805a388eca67276b695940cb417b6bfbff1d049cad",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\roster-union-celeste-mac-v1.nes": "00597cddbff069acbd6fad1571b7b734c5c5f72bc67da49e672565e6c2c4e94d",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\roster-union-celeste-mac-v1.dbg": "0983af4a2e277b43ed9774ccc09ff315e86b7fcd40654d7399ee2f7a5fe9b7f7",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\roster-union-celeste-mac-v1.lbl": "14d93818fc99917f26c8a3af73f85c0bb6225a36c33cfd56acbcd15b26aa8c40",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\celeste-host-visual-v2.nes": "413239865daea7ec056567f4f53b9ba90ec44866b2fc23a1585a3a548b615615",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\celeste-host-visual-v2.dbg": "30bc3c8ce96e018b1ccc303973dea65d6b04ba92de0d687b5c78a1bc668f59ac",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\celeste-host-visual-v2.lbl": "1f8af075e93b8aa7e4b237a85307b8447b89d6b665af633cef76dc4f78787d9f",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\roster-expansion-mac-pipe-corner-v3.nes": "33d2c7a7bf58aa040f2911d44f1d59dddb4c9b40b3e8727334cf46db74915f97",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\roster-expansion-mac-pipe-corner-v3.dbg": "912642873f6bb4f1993c1750706d2e3ad86ee7c6f1956df3d642c5bc44e1d018",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\roster-expansion-mac-pipe-corner-v3.lbl": "8f3f88b1688aa5fa41484ebd38765cebb4268a42050972bc3707e68bc8db92b7"
+  },
+  "checks": {
+    "exact_layout_union": {
+      "passed": true,
+      "diff_vs_visual": {
+        "0": 4,
+        "1": 2,
+        "89": 371,
+        "93": 1616,
+        "120": 6,
+        "125": 2,
+        "127": 2
+      },
+      "other_banks_CHR_exact": true,
+      "rebound_callers": {
+        "0": {
+          "changed_bytes": 4,
+          "rows": [
+            {
+              "offset": 6074,
+              "old_target": [
+                93,
+                44021
+              ],
+              "new_target": [
+                93,
+                44184
+              ],
+              "genuine_names": [
+                "LmRiseGate"
+              ],
+              "changed_offsets": [
+                6078,
+                6083
+              ]
+            },
+            {
+              "offset": 6796,
+              "old_target": [
+                93,
+                43986
+              ],
+              "new_target": [
+                93,
+                44149
+              ],
+              "genuine_names": [
+                "LmPrivateGate"
+              ],
+              "changed_offsets": [
+                6800,
+                6805
+              ]
+            }
+          ]
+        },
+        "1": {
+          "changed_bytes": 2,
+          "rows": [
+            {
+              "offset": 327,
+              "old_target": [
+                93,
+                44207
+              ],
+              "new_target": [
+                93,
+                44370
+              ],
+              "genuine_names": [
+                "LmBoundingBoxGate"
+              ],
+              "changed_offsets": [
+                331,
+                336
+              ]
+            }
+          ]
+        },
+        "120": {
+          "changed_bytes": 6,
+          "rows": [
+            {
+              "offset": 2598,
+              "old_target": [
+                93,
+                43766
+              ],
+              "new_target": [
+                93,
+                43929
+              ],
+              "genuine_names": [
+                "LmPrepareGate"
+              ],
+              "changed_offsets": [
+                2602,
+                2607
+              ]
+            },
+            {
+              "offset": 2645,
+              "old_target": [
+                93,
+                43850
+              ],
+              "new_target": [
+                93,
+                44013
+              ],
+              "genuine_names": [
+                "LmCollectGate"
+              ],
+              "changed_offsets": [
+                2649
+              ]
+            },
+            {
+              "offset": 2862,
+              "old_target": [
+                93,
+                44094
+              ],
+              "new_target": [
+                93,
+                44257
+              ],
+              "genuine_names": [
+                "LmSupportedGate"
+              ],
+              "changed_offsets": [
+                2866
+              ]
+            },
+            {
+              "offset": 2887,
+              "old_target": [
+                93,
+                44128
+              ],
+              "new_target": [
+                93,
+                44291
+              ],
+              "genuine_names": [
+                "LmLegacyGate"
+              ],
+              "changed_offsets": [
+                2891,
+                2896
+              ]
+            }
+          ]
+        },
+        "125": {
+          "changed_bytes": 2,
+          "rows": [
+            {
+              "offset": 2070,
+              "old_target": [
+                93,
+                44162
+              ],
+              "new_target": [
+                93,
+                44325
+              ],
+              "genuine_names": [
+                "LmWallGate"
+              ],
+              "changed_offsets": [
+                2074,
+                2079
+              ]
+            }
+          ]
+        },
+        "127": {
+          "changed_bytes": 2,
+          "rows": [
+            {
+              "offset": 2070,
+              "old_target": [
+                93,
+                44162
+              ],
+              "new_target": [
+                93,
+                44325
+              ],
+              "genuine_names": [
+                "LmWallGate"
+              ],
+              "changed_offsets": [
+                2074,
+                2079
+              ]
+            }
+          ]
+        }
+      },
+      "bank89_owned_spans": [
+        {
+          "name": "TnMacHeadProbe",
+          "offset": 7342,
+          "bytes": 178
+        },
+        {
+          "name": "TnMacSideProbe",
+          "offset": 7520,
+          "bytes": 196
+        }
+      ],
+      "Mac33d_component_rebindings": {
+        "89": {
+          "changed_bytes": 1,
+          "rows": [
+            {
+              "offset": 7276,
+              "old_target": [
+                124,
+                43481
+              ],
+              "new_target": [
+                124,
+                43737
+              ],
+              "genuine_names": [
+                "NrSide"
+              ],
+              "changed_offsets": [
+                7285
+              ]
+            }
+          ]
+        },
+        "93": {
+          "changed_bytes": 16,
+          "rows": [
+            {
+              "offset": 146,
+              "old_target": [
+                124,
+                42251
+              ],
+              "new_target": [
+                124,
+                42290
+              ],
+              "genuine_names": [
+                "NrReset"
+              ],
+              "changed_offsets": [
+                150
+              ]
+            },
+            {
+              "offset": 405,
+              "old_target": [
+                1,
+                48533
+              ],
+              "new_target": [
+                1,
+                48514
+              ],
+              "genuine_names": [
+                "MarioSourceMovement"
+              ],
+              "changed_offsets": [
+                409
+              ]
+            },
+            {
+              "offset": 756,
+              "old_target": [
+                124,
+                42375
+              ],
+              "new_target": [
+                124,
+                42449
+              ],
+              "genuine_names": [
+                "NrBody"
+              ],
+              "changed_offsets": [
+                760
+              ]
+            },
+            {
+              "offset": 804,
+              "old_target": [
+                124,
+                41863
+              ],
+              "new_target": [
+                124,
+                41902
+              ],
+              "genuine_names": [
+                "NrDeathStart"
+              ],
+              "changed_offsets": [
+                808
+              ]
+            },
+            {
+              "offset": 853,
+              "old_target": [
+                124,
+                41960
+              ],
+              "new_target": [
+                124,
+                41999
+              ],
+              "genuine_names": [
+                "NrDeath"
+              ],
+              "changed_offsets": [
+                857,
+                862
+              ]
+            },
+            {
+              "offset": 1047,
+              "old_target": [
+                124,
+                42057
+              ],
+              "new_target": [
+                124,
+                42096
+              ],
+              "genuine_names": [
+                "NrVisible"
+              ],
+              "changed_offsets": [
+                1051
+              ]
+            },
+            {
+              "offset": 1093,
+              "old_target": [
+                124,
+                43103
+              ],
+              "new_target": [
+                124,
+                43300
+              ],
+              "genuine_names": [
+                "NrStatusName"
+              ],
+              "changed_offsets": [
+                1097,
+                1102
+              ]
+            },
+            {
+              "offset": 1642,
+              "old_target": [
+                124,
+                42988
+              ],
+              "new_target": [
+                124,
+                43149
+              ],
+              "genuine_names": [
+                "NrUi"
+              ],
+              "changed_offsets": [
+                1646,
+                1651
+              ]
+            },
+            {
+              "offset": 1971,
+              "old_target": [
+                124,
+                42154
+              ],
+              "new_target": [
+                124,
+                42193
+              ],
+              "genuine_names": [
+                "NrHead"
+              ],
+              "changed_offsets": [
+                1975
+              ]
+            },
+            {
+              "offset": 2981,
+              "old_target": [
+                124,
+                42666
+              ],
+              "new_target": [
+                124,
+                42740
+              ],
+              "genuine_names": [
+                "NrPrepare"
+              ],
+              "changed_offsets": [
+                2985
+              ]
+            },
+            {
+              "offset": 3201,
+              "old_target": [
+                124,
+                42766
+              ],
+              "new_target": [
+                124,
+                42867
+              ],
+              "genuine_names": [
+                "NrPrivate"
+              ],
+              "changed_offsets": [
+                3205
+              ]
+            },
+            {
+              "offset": 3236,
+              "old_target": [
+                124,
+                42725
+              ],
+              "new_target": [
+                124,
+                42814
+              ],
+              "genuine_names": [
+                "NrRise"
+              ],
+              "changed_offsets": [
+                3240,
+                3245
+              ]
+            }
+          ]
+        }
+      },
+      "Mac_core_bytes": 3512,
+      "Mac_art94_95_and_CHR668_707_exact": true
+    },
+    "actual_host_state_entry": {
+      "passed": true,
+      "state": {
+        "CmTier": 24568,
+        "CmMarker": 24569,
+        "CmLife": 24570,
+        "CmArea": 24571,
+        "CmWorld": 24572,
+        "CmActive": 24573
+      },
+      "exact_raw0_variant4": true,
+      "source_entry_host_state_not_old5F98": true
+    },
+    "Mac33d_actual_movement_full_BG": {
+      "passed": true,
+      "trajectories": 48,
+      "updates": 5760,
+      "every_before_after_xy_vy_collision_bit_exact": true,
+      "rows": [
+        {
+          "variant": 0,
+          "mode": 0,
+          "face": 1,
+          "pipe": 256,
+          "kind": "solid",
+          "updates": 120
+        },
+        {
+          "variant": 0,
+          "mode": 0,
+          "face": 1,
+          "pipe": 256,
+          "kind": "pipe",
+          "updates": 120
+        },
+        {
+          "variant": 0,
+          "mode": 0,
+          "face": 1,
+          "pipe": 736,
+          "kind": "solid",
+          "updates": 120
+        },
+        {
+          "variant": 0,
+          "mode": 0,
+          "face": 1,
+          "pipe": 736,
+          "kind": "pipe",
+          "updates": 120
+        },
+        {
+          "variant": 0,
+          "mode": 0,
+          "face": 2,
+          "pipe": 256,
+          "kind": "solid",
+          "updates": 120
+        },
+        {
+          "variant": 0,
+          "mode": 0,
+          "face": 2,
+          "pipe": 256,
+          "kind": "pipe",
+          "updates": 120
+        },
+        {
+          "variant": 0,
+          "mode": 0,
+          "face": 2,
+          "pipe": 736,
+          "kind": "solid",
+          "updates": 120
+        },
+        {
+          "variant": 0,
+          "mode": 0,
+          "face": 2,
+          "pipe": 736,
+          "kind": "pipe",
+          "updates": 120
+        },
+        {
+          "variant": 0,
+          "mode": 1,
+          "face": 1,
+          "pipe": 256,
+          "kind": "solid",
+          "updates": 120
+        },
+        {
+          "variant": 0,
+          "mode": 1,
+          "face": 1,
+          "pipe": 256,
+          "kind": "pipe",
+          "updates": 120
+        },
+        {
+          "variant": 0,
+          "mode": 1,
+          "face": 1,
+          "pipe": 736,
+          "kind": "solid",
+          "updates": 120
+        },
+        {
+          "variant": 0,
+          "mode": 1,
+          "face": 1,
+          "pipe": 736,
+          "kind": "pipe",
+          "updates": 120
+        },
+        {
+          "variant": 0,
+          "mode": 1,
+          "face": 2,
+          "pipe": 256,
+          "kind": "solid",
+          "updates": 120
+        },
+        {
+          "variant": 0,
+          "mode": 1,
+          "face": 2,
+          "pipe": 256,
+          "kind": "pipe",
+          "updates": 120
+        },
+        {
+          "variant": 0,
+          "mode": 1,
+          "face": 2,
+          "pipe": 736,
+          "kind": "solid",
+          "updates": 120
+        },
+        {
+          "variant": 0,
+          "mode": 1,
+          "face": 2,
+          "pipe": 736,
+          "kind": "pipe",
+          "updates": 120
+        },
+        {
+          "variant": 1,
+          "mode": 0,
+          "face": 1,
+          "pipe": 256,
+          "kind": "solid",
+          "updates": 120
+        },
+        {
+          "variant": 1,
+          "mode": 0,
+          "face": 1,
+          "pipe": 256,
+          "kind": "pipe",
+          "updates": 120
+        },
+        {
+          "variant": 1,
+          "mode": 0,
+          "face": 1,
+          "pipe": 736,
+          "kind": "solid",
+          "updates": 120
+        },
+        {
+          "variant": 1,
+          "mode": 0,
+          "face": 1,
+          "pipe": 736,
+          "kind": "pipe",
+          "updates": 120
+        },
+        {
+          "variant": 1,
+          "mode": 0,
+          "face": 2,
+          "pipe": 256,
+          "kind": "solid",
+          "updates": 120
+        },
+        {
+          "variant": 1,
+          "mode": 0,
+          "face": 2,
+          "pipe": 256,
+          "kind": "pipe",
+          "updates": 120
+        },
+        {
+          "variant": 1,
+          "mode": 0,
+          "face": 2,
+          "pipe": 736,
+          "kind": "solid",
+          "updates": 120
+        },
+        {
+          "variant": 1,
+          "mode": 0,
+          "face": 2,
+          "pipe": 736,
+          "kind": "pipe",
+          "updates": 120
+        },
+        {
+          "variant": 1,
+          "mode": 1,
+          "face": 1,
+          "pipe": 256,
+          "kind": "solid",
+          "updates": 120
+        },
+        {
+          "variant": 1,
+          "mode": 1,
+          "face": 1,
+          "pipe": 256,
+          "kind": "pipe",
+          "updates": 120
+        },
+        {
+          "variant": 1,
+          "mode": 1,
+          "face": 1,
+          "pipe": 736,
+          "kind": "solid",
+          "updates": 120
+        },
+        {
+          "variant": 1,
+          "mode": 1,
+          "face": 1,
+          "pipe": 736,
+          "kind": "pipe",
+          "updates": 120
+        },
+        {
+          "variant": 1,
+          "mode": 1,
+          "face": 2,
+          "pipe": 256,
+          "kind": "solid",
+          "updates": 120
+        },
+        {
+          "variant": 1,
+          "mode": 1,
+          "face": 2,
+          "pipe": 256,
+          "kind": "pipe",
+          "updates": 120
+        },
+        {
+          "variant": 1,
+          "mode": 1,
+          "face": 2,
+          "pipe": 736,
+          "kind": "solid",
+          "updates": 120
+        },
+        {
+          "variant": 1,
+          "mode": 1,
+          "face": 2,
+          "pipe": 736,
+          "kind": "pipe",
+          "updates": 120
+        },
+        {
+          "variant": 2,
+          "mode": 0,
+          "face": 1,
+          "pipe": 256,
+          "kind": "solid",
+          "updates": 120
+        },
+        {
+          "variant": 2,
+          "mode": 0,
+          "face": 1,
+          "pipe": 256,
+          "kind": "pipe",
+          "updates": 120
+        },
+        {
+          "variant": 2,
+          "mode": 0,
+          "face": 1,
+          "pipe": 736,
+          "kind": "solid",
+          "updates": 120
+        },
+        {
+          "variant": 2,
+          "mode": 0,
+          "face": 1,
+          "pipe": 736,
+          "kind": "pipe",
+          "updates": 120
+        },
+        {
+          "variant": 2,
+          "mode": 0,
+          "face": 2,
+          "pipe": 256,
+          "kind": "solid",
+          "updates": 120
+        },
+        {
+          "variant": 2,
+          "mode": 0,
+          "face": 2,
+          "pipe": 256,
+          "kind": "pipe",
+          "updates": 120
+        },
+        {
+          "variant": 2,
+          "mode": 0,
+          "face": 2,
+          "pipe": 736,
+          "kind": "solid",
+          "updates": 120
+        },
+        {
+          "variant": 2,
+          "mode": 0,
+          "face": 2,
+          "pipe": 736,
+          "kind": "pipe",
+          "updates": 120
+        },
+        {
+          "variant": 2,
+          "mode": 1,
+          "face": 1,
+          "pipe": 256,
+          "kind": "solid",
+          "updates": 120
+        },
+        {
+          "variant": 2,
+          "mode": 1,
+          "face": 1,
+          "pipe": 256,
+          "kind": "pipe",
+          "updates": 120
+        },
+        {
+          "variant": 2,
+          "mode": 1,
+          "face": 1,
+          "pipe": 736,
+          "kind": "solid",
+          "updates": 120
+        },
+        {
+          "variant": 2,
+          "mode": 1,
+          "face": 1,
+          "pipe": 736,
+          "kind": "pipe",
+          "updates": 120
+        },
+        {
+          "variant": 2,
+          "mode": 1,
+          "face": 2,
+          "pipe": 256,
+          "kind": "solid",
+          "updates": 120
+        },
+        {
+          "variant": 2,
+          "mode": 1,
+          "face": 2,
+          "pipe": 256,
+          "kind": "pipe",
+          "updates": 120
+        },
+        {
+          "variant": 2,
+          "mode": 1,
+          "face": 2,
+          "pipe": 736,
+          "kind": "solid",
+          "updates": 120
+        },
+        {
+          "variant": 2,
+          "mode": 1,
+          "face": 2,
+          "pipe": 736,
+          "kind": "pipe",
+          "updates": 120
+        }
+      ]
+    },
+    "Mac_complete_GameLoop": {
+      "passed": true,
+      "calls": 48,
+      "full_AXYP_SP_appRAM_banks_ordered_OAM_nonbank_hardware": true,
+      "rows": [
+        {
+          "variant": 0,
+          "mode": 0,
+          "face": 1,
+          "scene": "empty",
+          "CPU_delta": 7
+        },
+        {
+          "variant": 0,
+          "mode": 0,
+          "face": 1,
+          "scene": "floor",
+          "CPU_delta": 7
+        },
+        {
+          "variant": 0,
+          "mode": 0,
+          "face": 1,
+          "scene": "ceiling",
+          "CPU_delta": 7
+        },
+        {
+          "variant": 0,
+          "mode": 0,
+          "face": 1,
+          "scene": "pipe",
+          "CPU_delta": 7
+        },
+        {
+          "variant": 0,
+          "mode": 0,
+          "face": 2,
+          "scene": "empty",
+          "CPU_delta": 7
+        },
+        {
+          "variant": 0,
+          "mode": 0,
+          "face": 2,
+          "scene": "floor",
+          "CPU_delta": 7
+        },
+        {
+          "variant": 0,
+          "mode": 0,
+          "face": 2,
+          "scene": "ceiling",
+          "CPU_delta": 7
+        },
+        {
+          "variant": 0,
+          "mode": 0,
+          "face": 2,
+          "scene": "pipe",
+          "CPU_delta": 7
+        },
+        {
+          "variant": 0,
+          "mode": 1,
+          "face": 1,
+          "scene": "empty",
+          "CPU_delta": 7
+        },
+        {
+          "variant": 0,
+          "mode": 1,
+          "face": 1,
+          "scene": "floor",
+          "CPU_delta": 7
+        },
+        {
+          "variant": 0,
+          "mode": 1,
+          "face": 1,
+          "scene": "ceiling",
+          "CPU_delta": 7
+        },
+        {
+          "variant": 0,
+          "mode": 1,
+          "face": 1,
+          "scene": "pipe",
+          "CPU_delta": 7
+        },
+        {
+          "variant": 0,
+          "mode": 1,
+          "face": 2,
+          "scene": "empty",
+          "CPU_delta": 7
+        },
+        {
+          "variant": 0,
+          "mode": 1,
+          "face": 2,
+          "scene": "floor",
+          "CPU_delta": 7
+        },
+        {
+          "variant": 0,
+          "mode": 1,
+          "face": 2,
+          "scene": "ceiling",
+          "CPU_delta": 7
+        },
+        {
+          "variant": 0,
+          "mode": 1,
+          "face": 2,
+          "scene": "pipe",
+          "CPU_delta": 7
+        },
+        {
+          "variant": 1,
+          "mode": 0,
+          "face": 1,
+          "scene": "empty",
+          "CPU_delta": 7
+        },
+        {
+          "variant": 1,
+          "mode": 0,
+          "face": 1,
+          "scene": "floor",
+          "CPU_delta": 7
+        },
+        {
+          "variant": 1,
+          "mode": 0,
+          "face": 1,
+          "scene": "ceiling",
+          "CPU_delta": 7
+        },
+        {
+          "variant": 1,
+          "mode": 0,
+          "face": 1,
+          "scene": "pipe",
+          "CPU_delta": 7
+        },
+        {
+          "variant": 1,
+          "mode": 0,
+          "face": 2,
+          "scene": "empty",
+          "CPU_delta": 7
+        },
+        {
+          "variant": 1,
+          "mode": 0,
+          "face": 2,
+          "scene": "floor",
+          "CPU_delta": 7
+        },
+        {
+          "variant": 1,
+          "mode": 0,
+          "face": 2,
+          "scene": "ceiling",
+          "CPU_delta": 7
+        },
+        {
+          "variant": 1,
+          "mode": 0,
+          "face": 2,
+          "scene": "pipe",
+          "CPU_delta": 7
+        },
+        {
+          "variant": 1,
+          "mode": 1,
+          "face": 1,
+          "scene": "empty",
+          "CPU_delta": 7
+        },
+        {
+          "variant": 1,
+          "mode": 1,
+          "face": 1,
+          "scene": "floor",
+          "CPU_delta": 7
+        },
+        {
+          "variant": 1,
+          "mode": 1,
+          "face": 1,
+          "scene": "ceiling",
+          "CPU_delta": 7
+        },
+        {
+          "variant": 1,
+          "mode": 1,
+          "face": 1,
+          "scene": "pipe",
+          "CPU_delta": 7
+        },
+        {
+          "variant": 1,
+          "mode": 1,
+          "face": 2,
+          "scene": "empty",
+          "CPU_delta": 7
+        },
+        {
+          "variant": 1,
+          "mode": 1,
+          "face": 2,
+          "scene": "floor",
+          "CPU_delta": 7
+        },
+        {
+          "variant": 1,
+          "mode": 1,
+          "face": 2,
+          "scene": "ceiling",
+          "CPU_delta": 7
+        },
+        {
+          "variant": 1,
+          "mode": 1,
+          "face": 2,
+          "scene": "pipe",
+          "CPU_delta": 7
+        },
+        {
+          "variant": 2,
+          "mode": 0,
+          "face": 1,
+          "scene": "empty",
+          "CPU_delta": 7
+        },
+        {
+          "variant": 2,
+          "mode": 0,
+          "face": 1,
+          "scene": "floor",
+          "CPU_delta": 7
+        },
+        {
+          "variant": 2,
+          "mode": 0,
+          "face": 1,
+          "scene": "ceiling",
+          "CPU_delta": 7
+        },
+        {
+          "variant": 2,
+          "mode": 0,
+          "face": 1,
+          "scene": "pipe",
+          "CPU_delta": 7
+        },
+        {
+          "variant": 2,
+          "mode": 0,
+          "face": 2,
+          "scene": "empty",
+          "CPU_delta": 7
+        },
+        {
+          "variant": 2,
+          "mode": 0,
+          "face": 2,
+          "scene": "floor",
+          "CPU_delta": 7
+        },
+        {
+          "variant": 2,
+          "mode": 0,
+          "face": 2,
+          "scene": "ceiling",
+          "CPU_delta": 7
+        },
+        {
+          "variant": 2,
+          "mode": 0,
+          "face": 2,
+          "scene": "pipe",
+          "CPU_delta": 7
+        },
+        {
+          "variant": 2,
+          "mode": 1,
+          "face": 1,
+          "scene": "empty",
+          "CPU_delta": 7
+        },
+        {
+          "variant": 2,
+          "mode": 1,
+          "face": 1,
+          "scene": "floor",
+          "CPU_delta": 7
+        },
+        {
+          "variant": 2,
+          "mode": 1,
+          "face": 1,
+          "scene": "ceiling",
+          "CPU_delta": 7
+        },
+        {
+          "variant": 2,
+          "mode": 1,
+          "face": 1,
+          "scene": "pipe",
+          "CPU_delta": 7
+        },
+        {
+          "variant": 2,
+          "mode": 1,
+          "face": 2,
+          "scene": "empty",
+          "CPU_delta": 7
+        },
+        {
+          "variant": 2,
+          "mode": 1,
+          "face": 2,
+          "scene": "floor",
+          "CPU_delta": 7
+        },
+        {
+          "variant": 2,
+          "mode": 1,
+          "face": 2,
+          "scene": "ceiling",
+          "CPU_delta": 7
+        },
+        {
+          "variant": 2,
+          "mode": 1,
+          "face": 2,
+          "scene": "pipe",
+          "CPU_delta": 7
+        }
+      ]
+    },
+    "foreign_complete_GameLoop": {
+      "passed": true,
+      "calls": 82,
+      "full_AXYP_SP_appRAM_banks_ordered_OAM_nonbank_hardware": true,
+      "rows": [
+        {
+          "char": 0,
+          "key": "MarioVariant",
+          "variant": 0,
+          "mode": 0,
+          "CPU_delta": 0
+        },
+        {
+          "char": 0,
+          "key": "MarioVariant",
+          "variant": 0,
+          "mode": 1,
+          "CPU_delta": 0
+        },
+        {
+          "char": 8,
+          "key": "MarioVariant",
+          "variant": 1,
+          "mode": 0,
+          "CPU_delta": 0
+        },
+        {
+          "char": 8,
+          "key": "MarioVariant",
+          "variant": 1,
+          "mode": 1,
+          "CPU_delta": 0
+        },
+        {
+          "char": 1,
+          "key": "ProtoVariant",
+          "variant": 0,
+          "mode": 0,
+          "CPU_delta": 0
+        },
+        {
+          "char": 1,
+          "key": "ProtoVariant",
+          "variant": 0,
+          "mode": 1,
+          "CPU_delta": 0
+        },
+        {
+          "char": 1,
+          "key": "ProtoVariant",
+          "variant": 1,
+          "mode": 0,
+          "CPU_delta": 0
+        },
+        {
+          "char": 1,
+          "key": "ProtoVariant",
+          "variant": 1,
+          "mode": 1,
+          "CPU_delta": 0
+        },
+        {
+          "char": 2,
+          "key": "MarioVariant",
+          "variant": 0,
+          "mode": 0,
+          "CPU_delta": 0
+        },
+        {
+          "char": 2,
+          "key": "MarioVariant",
+          "variant": 0,
+          "mode": 1,
+          "CPU_delta": 0
+        },
+        {
+          "char": 3,
+          "key": "BillVariant",
+          "variant": 0,
+          "mode": 0,
+          "CPU_delta": 0
+        },
+        {
+          "char": 3,
+          "key": "BillVariant",
+          "variant": 0,
+          "mode": 1,
+          "CPU_delta": 0
+        },
+        {
+          "char": 3,
+          "key": "BillVariant",
+          "variant": 1,
+          "mode": 0,
+          "CPU_delta": 0
+        },
+        {
+          "char": 3,
+          "key": "BillVariant",
+          "variant": 1,
+          "mode": 1,
+          "CPU_delta": 0
+        },
+        {
+          "char": 4,
+          "key": "Z2Variant",
+          "variant": 0,
+          "mode": 0,
+          "CPU_delta": 0
+        },
+        {
+          "char": 4,
+          "key": "Z2Variant",
+          "variant": 0,
+          "mode": 1,
+          "CPU_delta": 0
+        },
+        {
+          "char": 4,
+          "key": "Z2Variant",
+          "variant": 1,
+          "mode": 0,
+          "CPU_delta": 0
+        },
+        {
+          "char": 4,
+          "key": "Z2Variant",
+          "variant": 1,
+          "mode": 1,
+          "CPU_delta": 0
+        },
+        {
+          "char": 5,
+          "key": "Cv3Variant",
+          "variant": 0,
+          "mode": 0,
+          "CPU_delta": 0
+        },
+        {
+          "char": 5,
+          "key": "Cv3Variant",
+          "variant": 0,
+          "mode": 1,
+          "CPU_delta": 0
+        },
+        {
+          "char": 5,
+          "key": "Cv3Variant",
+          "variant": 1,
+          "mode": 0,
+          "CPU_delta": 0
+        },
+        {
+          "char": 5,
+          "key": "Cv3Variant",
+          "variant": 1,
+          "mode": 1,
+          "CPU_delta": 0
+        },
+        {
+          "char": 5,
+          "key": "Cv3Variant",
+          "variant": 2,
+          "mode": 0,
+          "CPU_delta": 0
+        },
+        {
+          "char": 5,
+          "key": "Cv3Variant",
+          "variant": 2,
+          "mode": 1,
+          "CPU_delta": 0
+        },
+        {
+          "char": 5,
+          "key": "Cv3Variant",
+          "variant": 3,
+          "mode": 0,
+          "CPU_delta": 0
+        },
+        {
+          "char": 5,
+          "key": "Cv3Variant",
+          "variant": 3,
+          "mode": 1,
+          "CPU_delta": 0
+        },
+        {
+          "char": 6,
+          "key": "MarioVariant",
+          "variant": 0,
+          "mode": 0,
+          "CPU_delta": 0
+        },
+        {
+          "char": 6,
+          "key": "MarioVariant",
+          "variant": 0,
+          "mode": 1,
+          "CPU_delta": 0
+        },
+        {
+          "char": 7,
+          "key": "MarioVariant",
+          "variant": 0,
+          "mode": 0,
+          "CPU_delta": 0
+        },
+        {
+          "char": 7,
+          "key": "MarioVariant",
+          "variant": 0,
+          "mode": 1,
+          "CPU_delta": 0
+        },
+        {
+          "char": 9,
+          "key": "RlVariant",
+          "variant": 0,
+          "mode": 0,
+          "CPU_delta": 0
+        },
+        {
+          "char": 9,
+          "key": "RlVariant",
+          "variant": 0,
+          "mode": 1,
+          "CPU_delta": 0
+        },
+        {
+          "char": 9,
+          "key": "RlVariant",
+          "variant": 1,
+          "mode": 0,
+          "CPU_delta": 0
+        },
+        {
+          "char": 9,
+          "key": "RlVariant",
+          "variant": 1,
+          "mode": 1,
+          "CPU_delta": 0
+        },
+        {
+          "char": 10,
+          "key": "MarioVariant",
+          "variant": 0,
+          "mode": 0,
+          "CPU_delta": 0
+        },
+        {
+          "char": 10,
+          "key": "MarioVariant",
+          "variant": 0,
+          "mode": 1,
+          "CPU_delta": 0
+        },
+        {
+          "char": 11,
+          "key": "MarioVariant",
+          "variant": 0,
+          "mode": 0,
+          "CPU_delta": 0
+        },
+        {
+          "char": 11,
+          "key": "MarioVariant",
+          "variant": 0,
+          "mode": 1,
+          "CPU_delta": 0
+        },
+        {
+          "char": 12,
+          "key": "DarkwingVariant",
+          "variant": 0,
+          "mode": 0,
+          "CPU_delta": 0
+        },
+        {
+          "char": 12,
+          "key": "DarkwingVariant",
+          "variant": 0,
+          "mode": 1,
+          "CPU_delta": 0
+        },
+        {
+          "char": 12,
+          "key": "DarkwingVariant",
+          "variant": 1,
+          "mode": 0,
+          "CPU_delta": 0
+        },
+        {
+          "char": 12,
+          "key": "DarkwingVariant",
+          "variant": 1,
+          "mode": 1,
+          "CPU_delta": 0
+        },
+        {
+          "char": 13,
+          "key": "KbVariant",
+          "variant": 0,
+          "mode": 0,
+          "CPU_delta": 0
+        },
+        {
+          "char": 13,
+          "key": "KbVariant",
+          "variant": 0,
+          "mode": 1,
+          "CPU_delta": 0
+        },
+        {
+          "char": 13,
+          "key": "KbVariant",
+          "variant": 1,
+          "mode": 0,
+          "CPU_delta": 0
+        },
+        {
+          "char": 13,
+          "key": "KbVariant",
+          "variant": 1,
+          "mode": 1,
+          "CPU_delta": 0
+        },
+        {
+          "char": 14,
+          "key": "CdVariant",
+          "variant": 0,
+          "mode": 0,
+          "CPU_delta": 0
+        },
+        {
+          "char": 14,
+          "key": "CdVariant",
+          "variant": 0,
+          "mode": 1,
+          "CPU_delta": 0
+        },
+        {
+          "char": 14,
+          "key": "CdVariant",
+          "variant": 1,
+          "mode": 0,
+          "CPU_delta": 0
+        },
+        {
+          "char": 14,
+          "key": "CdVariant",
+          "variant": 1,
+          "mode": 1,
+          "CPU_delta": 0
+        },
+        {
+          "char": 16,
+          "key": "MarioVariant",
+          "variant": 0,
+          "mode": 0,
+          "CPU_delta": 0
+        },
+        {
+          "char": 16,
+          "key": "MarioVariant",
+          "variant": 0,
+          "mode": 1,
+          "CPU_delta": 0
+        },
+        {
+          "char": 17,
+          "key": "M3Variant",
+          "variant": 0,
+          "mode": 0,
+          "CPU_delta": 0
+        },
+        {
+          "char": 17,
+          "key": "M3Variant",
+          "variant": 0,
+          "mode": 1,
+          "CPU_delta": 0
+        },
+        {
+          "char": 17,
+          "key": "M3Variant",
+          "variant": 1,
+          "mode": 0,
+          "CPU_delta": 0
+        },
+        {
+          "char": 17,
+          "key": "M3Variant",
+          "variant": 1,
+          "mode": 1,
+          "CPU_delta": 0
+        },
+        {
+          "char": 18,
+          "key": "VvVariant",
+          "variant": 0,
+          "mode": 0,
+          "CPU_delta": 0
+        },
+        {
+          "char": 18,
+          "key": "VvVariant",
+          "variant": 0,
+          "mode": 1,
+          "CPU_delta": 0
+        },
+        {
+          "char": 18,
+          "key": "VvVariant",
+          "variant": 1,
+          "mode": 0,
+          "CPU_delta": 0
+        },
+        {
+          "char": 18,
+          "key": "VvVariant",
+          "variant": 1,
+          "mode": 1,
+          "CPU_delta": 0
+        },
+        {
+          "char": 18,
+          "key": "VvVariant",
+          "variant": 2,
+          "mode": 0,
+          "CPU_delta": 0
+        },
+        {
+          "char": 18,
+          "key": "VvVariant",
+          "variant": 2,
+          "mode": 1,
+          "CPU_delta": 0
+        },
+        {
+          "char": 18,
+          "key": "VvVariant",
+          "variant": 3,
+          "mode": 0,
+          "CPU_delta": 0
+        },
+        {
+          "char": 18,
+          "key": "VvVariant",
+          "variant": 3,
+          "mode": 1,
+          "CPU_delta": 0
+        },
+        {
+          "char": 19,
+          "key": "TnVariant",
+          "variant": 0,
+          "mode": 0,
+          "CPU_delta": 0
+        },
+        {
+          "char": 19,
+          "key": "TnVariant",
+          "variant": 0,
+          "mode": 1,
+          "CPU_delta": 0
+        },
+        {
+          "char": 19,
+          "key": "TnVariant",
+          "variant": 1,
+          "mode": 0,
+          "CPU_delta": 0
+        },
+        {
+          "char": 19,
+          "key": "TnVariant",
+          "variant": 1,
+          "mode": 1,
+          "CPU_delta": 0
+        },
+        {
+          "char": 19,
+          "key": "TnVariant",
+          "variant": 2,
+          "mode": 0,
+          "CPU_delta": 0
+        },
+        {
+          "char": 19,
+          "key": "TnVariant",
+          "variant": 2,
+          "mode": 1,
+          "CPU_delta": 0
+        },
+        {
+          "char": 19,
+          "key": "TnVariant",
+          "variant": 3,
+          "mode": 0,
+          "CPU_delta": 0
+        },
+        {
+          "char": 19,
+          "key": "TnVariant",
+          "variant": 3,
+          "mode": 1,
+          "CPU_delta": 0
+        },
+        {
+          "char": 20,
+          "key": "IcVariant",
+          "variant": 0,
+          "mode": 0,
+          "CPU_delta": 0
+        },
+        {
+          "char": 20,
+          "key": "IcVariant",
+          "variant": 0,
+          "mode": 1,
+          "CPU_delta": 0
+        },
+        {
+          "char": 20,
+          "key": "IcVariant",
+          "variant": 1,
+          "mode": 0,
+          "CPU_delta": 0
+        },
+        {
+          "char": 20,
+          "key": "IcVariant",
+          "variant": 1,
+          "mode": 1,
+          "CPU_delta": 0
+        },
+        {
+          "char": 21,
+          "key": "RcVariant",
+          "variant": 0,
+          "mode": 0,
+          "CPU_delta": 0
+        },
+        {
+          "char": 21,
+          "key": "RcVariant",
+          "variant": 0,
+          "mode": 1,
+          "CPU_delta": 0
+        },
+        {
+          "char": 21,
+          "key": "RcVariant",
+          "variant": 1,
+          "mode": 0,
+          "CPU_delta": 0
+        },
+        {
+          "char": 21,
+          "key": "RcVariant",
+          "variant": 1,
+          "mode": 1,
+          "CPU_delta": 0
+        },
+        {
+          "char": 23,
+          "key": "MarioVariant",
+          "variant": 0,
+          "mode": 0,
+          "CPU_delta": 0
+        },
+        {
+          "char": 23,
+          "key": "MarioVariant",
+          "variant": 0,
+          "mode": 1,
+          "CPU_delta": 0
+        }
+      ]
+    },
+    "Celeste_complete_GameLoop": {
+      "passed": true,
+      "calls": 48,
+      "full_AXYP_SP_appRAM_banks_ordered_OAM_nonbank_hardware": true,
+      "rows": [
+        {
+          "tier": 0,
+          "mode": 0,
+          "face": 1,
+          "buttons": 0,
+          "CPU_delta": 0
+        },
+        {
+          "tier": 0,
+          "mode": 0,
+          "face": 1,
+          "buttons": 1,
+          "CPU_delta": 0
+        },
+        {
+          "tier": 0,
+          "mode": 0,
+          "face": 1,
+          "buttons": 129,
+          "CPU_delta": 0
+        },
+        {
+          "tier": 0,
+          "mode": 0,
+          "face": 1,
+          "buttons": 64,
+          "CPU_delta": 0
+        },
+        {
+          "tier": 0,
+          "mode": 0,
+          "face": 2,
+          "buttons": 0,
+          "CPU_delta": 0
+        },
+        {
+          "tier": 0,
+          "mode": 0,
+          "face": 2,
+          "buttons": 1,
+          "CPU_delta": 0
+        },
+        {
+          "tier": 0,
+          "mode": 0,
+          "face": 2,
+          "buttons": 129,
+          "CPU_delta": 0
+        },
+        {
+          "tier": 0,
+          "mode": 0,
+          "face": 2,
+          "buttons": 64,
+          "CPU_delta": 0
+        },
+        {
+          "tier": 0,
+          "mode": 1,
+          "face": 1,
+          "buttons": 0,
+          "CPU_delta": 0
+        },
+        {
+          "tier": 0,
+          "mode": 1,
+          "face": 1,
+          "buttons": 1,
+          "CPU_delta": 0
+        },
+        {
+          "tier": 0,
+          "mode": 1,
+          "face": 1,
+          "buttons": 129,
+          "CPU_delta": 0
+        },
+        {
+          "tier": 0,
+          "mode": 1,
+          "face": 1,
+          "buttons": 64,
+          "CPU_delta": 0
+        },
+        {
+          "tier": 0,
+          "mode": 1,
+          "face": 2,
+          "buttons": 0,
+          "CPU_delta": 0
+        },
+        {
+          "tier": 0,
+          "mode": 1,
+          "face": 2,
+          "buttons": 1,
+          "CPU_delta": 0
+        },
+        {
+          "tier": 0,
+          "mode": 1,
+          "face": 2,
+          "buttons": 129,
+          "CPU_delta": 0
+        },
+        {
+          "tier": 0,
+          "mode": 1,
+          "face": 2,
+          "buttons": 64,
+          "CPU_delta": 0
+        },
+        {
+          "tier": 1,
+          "mode": 0,
+          "face": 1,
+          "buttons": 0,
+          "CPU_delta": 0
+        },
+        {
+          "tier": 1,
+          "mode": 0,
+          "face": 1,
+          "buttons": 1,
+          "CPU_delta": 0
+        },
+        {
+          "tier": 1,
+          "mode": 0,
+          "face": 1,
+          "buttons": 129,
+          "CPU_delta": 0
+        },
+        {
+          "tier": 1,
+          "mode": 0,
+          "face": 1,
+          "buttons": 64,
+          "CPU_delta": 0
+        },
+        {
+          "tier": 1,
+          "mode": 0,
+          "face": 2,
+          "buttons": 0,
+          "CPU_delta": 0
+        },
+        {
+          "tier": 1,
+          "mode": 0,
+          "face": 2,
+          "buttons": 1,
+          "CPU_delta": 0
+        },
+        {
+          "tier": 1,
+          "mode": 0,
+          "face": 2,
+          "buttons": 129,
+          "CPU_delta": 0
+        },
+        {
+          "tier": 1,
+          "mode": 0,
+          "face": 2,
+          "buttons": 64,
+          "CPU_delta": 0
+        },
+        {
+          "tier": 1,
+          "mode": 1,
+          "face": 1,
+          "buttons": 0,
+          "CPU_delta": 0
+        },
+        {
+          "tier": 1,
+          "mode": 1,
+          "face": 1,
+          "buttons": 1,
+          "CPU_delta": 0
+        },
+        {
+          "tier": 1,
+          "mode": 1,
+          "face": 1,
+          "buttons": 129,
+          "CPU_delta": 0
+        },
+        {
+          "tier": 1,
+          "mode": 1,
+          "face": 1,
+          "buttons": 64,
+          "CPU_delta": 0
+        },
+        {
+          "tier": 1,
+          "mode": 1,
+          "face": 2,
+          "buttons": 0,
+          "CPU_delta": 0
+        },
+        {
+          "tier": 1,
+          "mode": 1,
+          "face": 2,
+          "buttons": 1,
+          "CPU_delta": 0
+        },
+        {
+          "tier": 1,
+          "mode": 1,
+          "face": 2,
+          "buttons": 129,
+          "CPU_delta": 0
+        },
+        {
+          "tier": 1,
+          "mode": 1,
+          "face": 2,
+          "buttons": 64,
+          "CPU_delta": 0
+        },
+        {
+          "tier": 2,
+          "mode": 0,
+          "face": 1,
+          "buttons": 0,
+          "CPU_delta": 0
+        },
+        {
+          "tier": 2,
+          "mode": 0,
+          "face": 1,
+          "buttons": 1,
+          "CPU_delta": 0
+        },
+        {
+          "tier": 2,
+          "mode": 0,
+          "face": 1,
+          "buttons": 129,
+          "CPU_delta": 0
+        },
+        {
+          "tier": 2,
+          "mode": 0,
+          "face": 1,
+          "buttons": 64,
+          "CPU_delta": 0
+        },
+        {
+          "tier": 2,
+          "mode": 0,
+          "face": 2,
+          "buttons": 0,
+          "CPU_delta": 0
+        },
+        {
+          "tier": 2,
+          "mode": 0,
+          "face": 2,
+          "buttons": 1,
+          "CPU_delta": 0
+        },
+        {
+          "tier": 2,
+          "mode": 0,
+          "face": 2,
+          "buttons": 129,
+          "CPU_delta": 0
+        },
+        {
+          "tier": 2,
+          "mode": 0,
+          "face": 2,
+          "buttons": 64,
+          "CPU_delta": 0
+        },
+        {
+          "tier": 2,
+          "mode": 1,
+          "face": 1,
+          "buttons": 0,
+          "CPU_delta": 0
+        },
+        {
+          "tier": 2,
+          "mode": 1,
+          "face": 1,
+          "buttons": 1,
+          "CPU_delta": 0
+        },
+        {
+          "tier": 2,
+          "mode": 1,
+          "face": 1,
+          "buttons": 129,
+          "CPU_delta": 0
+        },
+        {
+          "tier": 2,
+          "mode": 1,
+          "face": 1,
+          "buttons": 64,
+          "CPU_delta": 0
+        },
+        {
+          "tier": 2,
+          "mode": 1,
+          "face": 2,
+          "buttons": 0,
+          "CPU_delta": 0
+        },
+        {
+          "tier": 2,
+          "mode": 1,
+          "face": 2,
+          "buttons": 1,
+          "CPU_delta": 0
+        },
+        {
+          "tier": 2,
+          "mode": 1,
+          "face": 2,
+          "buttons": 129,
+          "CPU_delta": 0
+        },
+        {
+          "tier": 2,
+          "mode": 1,
+          "face": 2,
+          "buttons": 64,
+          "CPU_delta": 0
+        }
+      ]
+    },
+    "actual_interrupts": {
+      "passed": true,
+      "Mac_IRQ_NMI_seams": [
+        {
+          "scene": "head",
+          "kind": "IRQ",
+          "lag": false,
+          "bank": 89,
+          "PC": 48302,
+          "AXYP_PC_SP_banks_five_SMC_live_stack_exact": true
+        },
+        {
+          "scene": "head",
+          "kind": "IRQ",
+          "lag": false,
+          "bank": 93,
+          "PC": 42951,
+          "AXYP_PC_SP_banks_five_SMC_live_stack_exact": true
+        },
+        {
+          "scene": "head",
+          "kind": "IRQ",
+          "lag": false,
+          "bank": 126,
+          "PC": 38279,
+          "AXYP_PC_SP_banks_five_SMC_live_stack_exact": true
+        },
+        {
+          "scene": "head",
+          "kind": "IRQ",
+          "lag": true,
+          "bank": 89,
+          "PC": 48302,
+          "AXYP_PC_SP_banks_five_SMC_live_stack_exact": true
+        },
+        {
+          "scene": "head",
+          "kind": "IRQ",
+          "lag": true,
+          "bank": 93,
+          "PC": 42951,
+          "AXYP_PC_SP_banks_five_SMC_live_stack_exact": true
+        },
+        {
+          "scene": "head",
+          "kind": "IRQ",
+          "lag": true,
+          "bank": 126,
+          "PC": 38279,
+          "AXYP_PC_SP_banks_five_SMC_live_stack_exact": true
+        },
+        {
+          "scene": "head",
+          "kind": "NMI",
+          "lag": false,
+          "bank": 89,
+          "PC": 48302,
+          "AXYP_PC_SP_banks_five_SMC_live_stack_exact": true
+        },
+        {
+          "scene": "head",
+          "kind": "NMI",
+          "lag": false,
+          "bank": 93,
+          "PC": 42951,
+          "AXYP_PC_SP_banks_five_SMC_live_stack_exact": true
+        },
+        {
+          "scene": "head",
+          "kind": "NMI",
+          "lag": false,
+          "bank": 126,
+          "PC": 38279,
+          "AXYP_PC_SP_banks_five_SMC_live_stack_exact": true
+        },
+        {
+          "scene": "head",
+          "kind": "NMI",
+          "lag": true,
+          "bank": 89,
+          "PC": 48302,
+          "AXYP_PC_SP_banks_five_SMC_live_stack_exact": true
+        },
+        {
+          "scene": "head",
+          "kind": "NMI",
+          "lag": true,
+          "bank": 93,
+          "PC": 42951,
+          "AXYP_PC_SP_banks_five_SMC_live_stack_exact": true
+        },
+        {
+          "scene": "head",
+          "kind": "NMI",
+          "lag": true,
+          "bank": 126,
+          "PC": 38279,
+          "AXYP_PC_SP_banks_five_SMC_live_stack_exact": true
+        },
+        {
+          "scene": "side",
+          "kind": "IRQ",
+          "lag": false,
+          "bank": 89,
+          "PC": 48480,
+          "AXYP_PC_SP_banks_five_SMC_live_stack_exact": true
+        },
+        {
+          "scene": "side",
+          "kind": "IRQ",
+          "lag": false,
+          "bank": 93,
+          "PC": 43248,
+          "AXYP_PC_SP_banks_five_SMC_live_stack_exact": true
+        },
+        {
+          "scene": "side",
+          "kind": "IRQ",
+          "lag": false,
+          "bank": 93,
+          "PC": 44427,
+          "AXYP_PC_SP_banks_five_SMC_live_stack_exact": true
+        },
+        {
+          "scene": "side",
+          "kind": "IRQ",
+          "lag": true,
+          "bank": 89,
+          "PC": 48480,
+          "AXYP_PC_SP_banks_five_SMC_live_stack_exact": true
+        },
+        {
+          "scene": "side",
+          "kind": "IRQ",
+          "lag": true,
+          "bank": 93,
+          "PC": 43248,
+          "AXYP_PC_SP_banks_five_SMC_live_stack_exact": true
+        },
+        {
+          "scene": "side",
+          "kind": "IRQ",
+          "lag": true,
+          "bank": 93,
+          "PC": 44427,
+          "AXYP_PC_SP_banks_five_SMC_live_stack_exact": true
+        },
+        {
+          "scene": "side",
+          "kind": "NMI",
+          "lag": false,
+          "bank": 89,
+          "PC": 48480,
+          "AXYP_PC_SP_banks_five_SMC_live_stack_exact": true
+        },
+        {
+          "scene": "side",
+          "kind": "NMI",
+          "lag": false,
+          "bank": 93,
+          "PC": 43248,
+          "AXYP_PC_SP_banks_five_SMC_live_stack_exact": true
+        },
+        {
+          "scene": "side",
+          "kind": "NMI",
+          "lag": false,
+          "bank": 93,
+          "PC": 44427,
+          "AXYP_PC_SP_banks_five_SMC_live_stack_exact": true
+        },
+        {
+          "scene": "side",
+          "kind": "NMI",
+          "lag": true,
+          "bank": 89,
+          "PC": 48480,
+          "AXYP_PC_SP_banks_five_SMC_live_stack_exact": true
+        },
+        {
+          "scene": "side",
+          "kind": "NMI",
+          "lag": true,
+          "bank": 93,
+          "PC": 43248,
+          "AXYP_PC_SP_banks_five_SMC_live_stack_exact": true
+        },
+        {
+          "scene": "side",
+          "kind": "NMI",
+          "lag": true,
+          "bank": 93,
+          "PC": 44427,
+          "AXYP_PC_SP_banks_five_SMC_live_stack_exact": true
+        }
+      ],
+      "Celeste_enabled_IRQ_boundaries": 163,
+      "actual_five_SMC_mapper_live_stack": true
+    }
+  }
+}

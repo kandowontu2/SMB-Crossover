@@ -1,0 +1,14 @@
+Additive count correction to the frozen00597 union handoff
+
+The actual proof contains48 Mac completeGameLoop cases, not96:
+3variants x2modes x2facings x4scenes =48. The source tool and its JSON
+machine counts are correct. An intermediate message and the frozen prose
+report incorrectly said96. Do not cite96 as measured coverage.
+
+Unchanged actual totals:48 Mac pipe trajectories/5760updates;48 Mac complete
+GameLoops;82 other-profile completeGameLoops;48 Celeste completeGameLoops;
+24 Mac IRQ/NMI seams;163 Celeste enabledIRQ boundaries. WholeGameLoop CPU
+delta vs respective declared parents: Mac+7, otherprofiles0, Celeste0.
+
+The original handoff/report/proof/tool are retained byte-exact. This corrects
+only the narrative count, without broadening coverage or changing any result.
