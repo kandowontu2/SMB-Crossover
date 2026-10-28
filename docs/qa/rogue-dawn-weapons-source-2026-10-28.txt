@@ -1,0 +1,152 @@
+Rogue Dawn1.21 dedicated weapon component — source-only handoff
+2026-10-28. No Mesen, live host hooks, candidate ROM, or native qualification.
+
+Scope
+-----
+New src/rogue_dawn_weapons.s ports actual1.21 bomb allocation/fuse/explosion
+state and authentic animation clock; normal/up beam emission/native offsets;
+native Select missile mode/ammo/last-ammo palette requests; exact Wave tables
+and signed decoders; combined Wave+Ice state; hit/viewport/animation cleanup.
+No stock-Samus movement/weapon function is called. Source ROM is the supplied
+9271411a20cc26c09f4d4bffe74c0d69a1bf91b815f7716fcf4610c4cee61077.
+
+The frozen632B kinematics packet is unchanged, including entry/core/state/tools
+and its16 bound files. To keep its reproducer exact, no include edit was made
+to that frozen entry. ROOT can include rogue_dawn_weapons.s immediately AFTER
+rogue_dawn.s in the shared entrypoint; the tested tiny standalone wrapper does
+exactly that. It produces1942bytes atB000..B795 (end-exclusiveB796):
+632B original kernel +1310B weapon component,2154B free in the4KB reservation.
+No source tree/runtime copies, shared cfg/entrypoint changes or native launch.
+
+Data/ownership
+--------------
+Native projectile indices D0/E0/F0 remain genuine public API indices. The
+indexed base5B70 is ARITHMETIC ONLY: +nativeX accesses5C40..5C6F exactly.
+Never invoke these private indexed leaves with anotherX/Y. This is checked
+across all3 real records; it does not allocate or access5B70 itself.
+
+The original0500/0501/0502 metadata uses a16-byte stride; it cannot be copied
+to an ordinary indexed base in the remaining16B without spilling to5C80+.
+Instead3x3 bytes pack at5C70..78 (offset0/3/6); explicit slot conversion is
+used.5C35..37 are owned conversion scratch. Active scratch stays within5C00..7D.
+5C3A draw/request class,3B bomb-terrain phase,3C native color6B,3D update71,
+3E/3F spawn/motion signedDX/DY;5C7A source061F beam-request image,
+7B source92 grabbed admission,7C source1C palette request,7D source69B3 skin.
+Persistent state remains the kernel's5FB0..B5; Sunny5FB8..BF untouched.
+
+Exact immutable data: native Wave25B tables62:D58F/D5A8; weapon animation bytes
+from physical02:8572+indices1B..1F and7D..98. These animation/decoder bytes
+also match physical04/06/08/0A. Their actual frameIDs/durations are preserved,
+not replaced by a fixed host timer. No new art/CHR or generic icon is supplied.
+
+Host API ordering — mandatory boundaries
+---------------------------------------
+Inputs Fresh/Held/Repeat must represent native12/14/16, including genuine native
+retrigger behavior; Clock represents native2D parity, not a draw counter. This
+module does not read joypads, advance world clocks, or apply pause policy.
+
+Bomb:
+ RdBombAllocate is the full actualD150 allocator. Gear01, fresh/retriggerB40,
+ no elevator; airborne is allowed. Exactly3 shared shot/bomb slots. Cost0.
+ X=D0/E0/F0, call RdBombStepBegin ONCE per source active update. It storesSlot.
+ C=0 means state/animation ready for current-frame host rendering (drawclass3).
+ C=1 means consume BombTerrainPhase first, then call RdBombStepFinish and render.
+ Phase1center,2up16,3down16,4left16,5right16;0no terrain request. These are the
+ actual D6A7 age1..5 cross phases. The host owns legal breakable admission and
+ map-edge translation; this module does not emulate Metroid6000..67FF rooms.
+ Age8->9 fuse12 decrements only oddClock, then native explosion10. Animation
+7F alternates real frames4E/4F; explosion82 uses3C/4A/49/4A/4D/4A/4D/F7.
+ Native frameF7 emits NO sprite parts. Final action0 still has one final draw
+ boundary, as the source does. Call ClearProjectileColor after real rendering.
+
+Source state/animation traces show46 or47 total updates from init action8 to
+action0, depending birth parity; explosion begins at tick23 or24 and removal
+at45/46. No action/lifetime endflag was injected; the native animation clock
+produced frameF7. Native tile breaks/enemy contact/pixels remain host hooks.
+
+Beam launch:
+ Call RdToggleMissile with actual Select/retrigger state; ammo0 refuses toggle.
+ Only invoke PrepareHorizontalShot/PrepareUpShot at source-approved B events.
+ DrawClass1 after Prepare means a new native record; Y is its actual slot.
+ Apply SpawnDX/DY through the genuine host position/collision adapter BEFORE
+ matching FireHorizontalFinish/FireUpFinish. These split at sourceD306; no
+ unrelated worldRAM is constructed. Denied prepare already sets native actor
+ fire/aim pose; no callback/Finish for a denied spawn. Helpers expose authentic
+ missile requests and subtract1 at actual launch, clear mode on last ammo.
+ Native ammo0/mode1 is an invalid calling state; use the real Select owner.
+
+NormalVX=+4/-4; upVY=-4. Shared radius2 initialization, native pose offsets
+0C/F4 or08/F8 horizontal and01/FF,EC/F0 upward. Actual Wave and Ice setup is
+not simplified: Wave action2/metadata/7D animation, Ice action3 can retain Wave.
+Wave+Ice ownership is anOR, not exclusive. Source shared sound image keeps
+Long80/Ice01 and original request channels. Authentic audio playback remains
+an explicit ROOT bridge; writing this private image is not waveform evidence.
+
+Active beam update boundaries:
+ SetSlot to actual projectile; CheckProjectileOnScreen kills when native030B
+ bit0clear. Host must derive that bit from actual camera/geometry, not seed it.
+ ProjectileImpact is actualD5DA hitflags entry. ProjectileTerrainImpact is the
+ genuine unconditionalD5E4 entry, so a real wall hit needs no fake hitflag.
+ Normal/missile use sourceD609 current-cell check/movement sequence.
+ Wave uses actualDAC7 current-cell/impact check BEFORE WaveKinematics, then
+ sourceD609 and conditionalD624 continuation AFTER it. Preserve this ordering;
+ source instructions can perform a retry after the first failure. Host owns
+ current/future tile test, destructible source class and coordinate update.
+ ProjectileMotionDelta exposes nativeVX/VY as signedDX/DY before that move.
+ IceUpdateAdmission sets private color81 and returns source Gear&40 to choose
+ normal versus Wave behavior; do not make Ice+Wave a straight-only shot.
+ AnimateProjectile(A=1) advances only the authentic weapon animation. Host
+ renderer must render its CURRENT frame, not advance it again. Then call
+ ClearProjectileColor; FinishProjectileRender closes native update71. Impact
+ frameF7 ends action4 via ProjectileExplosion; native animation91 is preserved
+ for missile impact. World geometry and full ordered host caller remain open.
+
+AttackAdmission returns newAPI Cset ONLY for native eligible action1/2/3/7/10/11.
+Actual source filter is63:F0B4..F0C7; actual geometry still required, then source
+enemy-specific damage/freeze ownership. Bomb8/9 and impact4 are NOT attacks.
+No all-enemies morphball damage shortcut, guessed damage amount or seeded hit.
+The module intentionally does not label every host enemy as a Metroid type.
+
+Controls and retained negative
+-----------------------------
+tools/rogue_dawn_weapons_controls_v1.py compiles the two actual modules only.
+It asserts first632 bytes EXACT frozen kernel, all original table bytes and
+size<=4KB. Tracked writes reject unrelated RAM, source worldRAM, mapper/APU/PPU
+accesses and5C80+ spills. Real source62/63/A61 and physical02 decoder/table bank
+are used. No native emulator, IRQ/PPU/DMA or full host caller is simulated.
+
+PASS5450 differential cells: full closed leaves have exact projected liveRAM
+andAXYP/SP; explicitly stopped coordinate/render prefixes have real sourceFB
+versus callable-portFD stack endpoints. Includes fullC/V combinations across
+1872 Wave states, all256 signed decoder inputs, real shared-slot allocation,
+both facings/up, all4 normal/Wave/Ice/combined gear states, native last ammo,
+Select guards,792 animation states and actual viewport bytevalues.
+Additional768 actual action-admission cells and768 terrain-age controls;
+6 complete source bomb state/animation timelines, allslots/birthparities.
+All are SOURCE components; no mature item collection, live enemy hit, actual
+breakable tile, projectile pixels, sound waveform or native cadence claim.
+
+Source0A/0B temporarily hold immutable Wave table addresses. Port directly
+indexes its authenticated local tables instead; no fake unused source-pointer
+alias was created. The exception is explicit private implementation state,
+not a waiver for values, voices, phase/counters, exact tables or source flags.
+Terrain/render functions are external boundaries, not no-op fake stubs.
+
+First expanded flags test genuinely FAILED: phase4/clock1/direction0,inputP70
+had exact state/AXY but sourceP72 versus draftP32. Compact metadata ADC paths
+had clobberedV while originalINC preserves it. The original failure JSON and
+exact bad source are retained. PHP/PLP around those arithmetic updates fixes
+the contract; noP mask or effective-hardware waiver. Current fullC/V controls
+pass. Bad source is not included by any current build.
+
+Costs are measured source CPU component costs, not native timing. Packing is
+not free: WaveKinematics source170..280 vs port322..540 cycles (+152..260),
+Wave init +66..205 depending direction/branch. Normal/up Prepare prefixes can
+add up to235/230 cycles, including owned index packing. The receipt separates
+source prefixes from new callableRTS, so no whole-frame saving is asserted.
+Native Main/NMI/render/IRQ/bank/SMC/stack/cadence qualification remains required.
+No effect, voice, tick, collision or original event was cut to improve costs.
+
+Reproduce: python tools/rogue_dawn_weapons_controls_v1.py
+Actual compiled DBG/LBL, code, source/proof/hash bindings and the retained
+negative reside in build/rogue-dawn-weapons-v1. No production files changed.

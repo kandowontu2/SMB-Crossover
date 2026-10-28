@@ -1,0 +1,3082 @@
+{
+  "passed": true,
+  "native_run": false,
+  "scope": "Rogue weapon source differential; no native emulator or host world emulation.\n\nOriginal external render/world calls are genuine stop boundaries. Port emits\ntheir explicit class/phase/delta and requires the host to honor those calls.\n",
+  "rom": {
+    "path": "C:\\NES\\the stash\\Metroid - Rogue Dawn 1.21 (header fixed).nes",
+    "bytes": 786448,
+    "sha256": "9271411a20cc26c09f4d4bffe74c0d69a1bf91b815f7716fcf4610c4cee61077"
+  },
+  "combined_bytes": 1942,
+  "weapons_bytes": 1310,
+  "end_exclusive": "B796",
+  "projection": {
+    "0300": "5C00",
+    "0301": "5C01",
+    "0302": "5C02",
+    "0303": "5C03",
+    "0304": "5C04",
+    "0305": "5C05",
+    "0306": "5C06",
+    "0307": "5C07",
+    "0308": "5C08",
+    "0309": "5C09",
+    "030A": "5C0A",
+    "030B": "5C0B",
+    "030C": "5C0C",
+    "030D": "5C0D",
+    "030E": "5C0E",
+    "030F": "5C0F",
+    "0310": "5C10",
+    "0311": "5C11",
+    "0312": "5C12",
+    "0313": "5C13",
+    "0314": "5C14",
+    "0315": "5C15",
+    "0316": "5C16",
+    "0317": "5C17",
+    "0318": "5C18",
+    "0319": "5C19",
+    "031A": "5C1A",
+    "031B": "5C1B",
+    "031C": "5C1C",
+    "031D": "5C1D",
+    "031E": "5C1E",
+    "031F": "5C1F",
+    "0680": "5C20",
+    "0681": "5C21",
+    "0682": "5C22",
+    "0683": "5C23",
+    "0684": "5C24",
+    "0685": "5C25",
+    "0686": "5C26",
+    "6878": "5FB0",
+    "6879": "5FB1",
+    "687A": "5FB2",
+    "6877": "5FB3",
+    "0106": "5FB4",
+    "0107": "5FB5",
+    "010E": "5C27",
+    "0012": "5C28",
+    "0014": "5C29",
+    "00CD": "5C2A",
+    "780E": "5C2B",
+    "004D": "5C2C",
+    "007D": "5C2D",
+    "002D": "5C2E",
+    "004B": "5C2F",
+    "0000": "5C30",
+    "0001": "5C31",
+    "0002": "5C32",
+    "0003": "5C33",
+    "0016": "5C34",
+    "07A0": "5C38",
+    "0AA9": "5C39",
+    "03D0": "5C40",
+    "03D1": "5C41",
+    "03D2": "5C42",
+    "03D3": "5C43",
+    "03D4": "5C44",
+    "03D5": "5C45",
+    "03D6": "5C46",
+    "03D7": "5C47",
+    "03D8": "5C48",
+    "03D9": "5C49",
+    "03DA": "5C4A",
+    "03DB": "5C4B",
+    "03DC": "5C4C",
+    "03DD": "5C4D",
+    "03DE": "5C4E",
+    "03DF": "5C4F",
+    "03E0": "5C50",
+    "03E1": "5C51",
+    "03E2": "5C52",
+    "03E3": "5C53",
+    "03E4": "5C54",
+    "03E5": "5C55",
+    "03E6": "5C56",
+    "03E7": "5C57",
+    "03E8": "5C58",
+    "03E9": "5C59",
+    "03EA": "5C5A",
+    "03EB": "5C5B",
+    "03EC": "5C5C",
+    "03ED": "5C5D",
+    "03EE": "5C5E",
+    "03EF": "5C5F",
+    "03F0": "5C60",
+    "03F1": "5C61",
+    "03F2": "5C62",
+    "03F3": "5C63",
+    "03F4": "5C64",
+    "03F5": "5C65",
+    "03F6": "5C66",
+    "03F7": "5C67",
+    "03F8": "5C68",
+    "03F9": "5C69",
+    "03FA": "5C6A",
+    "03FB": "5C6B",
+    "03FC": "5C6C",
+    "03FD": "5C6D",
+    "03FE": "5C6E",
+    "03FF": "5C6F",
+    "05D0": "5C70",
+    "05D1": "5C71",
+    "05D2": "5C72",
+    "05E0": "5C73",
+    "05E1": "5C74",
+    "05E2": "5C75",
+    "05F0": "5C76",
+    "05F1": "5C77",
+    "05F2": "5C78",
+    "061F": "5C7A",
+    "0092": "5C7B",
+    "001C": "5C7C",
+    "69B3": "5C7D",
+    "006B": "5C3C",
+    "0071": "5C3D",
+    "0004": "5C3F",
+    "0005": "5C3E"
+  },
+  "inputs": [
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\rogue_dawn_weapons.s",
+      "bytes": 16572,
+      "sha256": "bcc48630d66cef7084ca994e0f6a9730f929ee8bcdf82a636c6b89f877949aa4"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\rogue_dawn.s",
+      "bytes": 213,
+      "sha256": "cdfca414fea2604fe565ba4d7f0a203f622a3e280332ea3421437d77855558a0"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\rogue_dawn_state.inc",
+      "bytes": 2879,
+      "sha256": "f91a3dae3adabbf8231a9c446e09e07d1ce232e352a663b48f15ed0792336134"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\rogue_dawn_core.s",
+      "bytes": 6928,
+      "sha256": "3324311bf4cde2845871aa5f3970e0222b5b76f77f64854f44b2d32ecb5cda4a"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\rogue_dawn_weapons_controls_v1.py",
+      "bytes": 15365,
+      "sha256": "0d6ba8bfa6a171fb652b22d8ca7cdd1c0f3e50d89bec7dc969cf4b7e97c5da8a"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-kernel-v1\\handoff.json",
+      "bytes": 5482,
+      "sha256": "be71577d2f01b7bc67198fb9f125e7880293a23e51181d5ffc6398cfddf6fc26"
+    }
+  ],
+  "original_private_pointer_exception": "Wave source0A/0B table pointer has no port SRAM analogue: direct indexed immutable tables. This is declared, not a fake unused pointer. Actual world/render calls remain external boundaries.",
+  "exact_original_tables": [
+    {
+      "name": "WaveHorizontal",
+      "physical_bank": 62,
+      "cpu_address": "D58F",
+      "bytes": 25,
+      "sha256": "088a78044d7bb52afbd4511c2ed4f1ad9ed81b29b6e410d8f48abc9580547b8a"
+    },
+    {
+      "name": "WaveVertical",
+      "physical_bank": 62,
+      "cpu_address": "D5A8",
+      "bytes": 25,
+      "sha256": "4a07f570b2934051c709d0a2cda42d34603b36bfa2fd5b1e4f14cf44ad50f41b"
+    },
+    {
+      "name": "WeaponAnimationLow",
+      "physical_bank": 2,
+      "cpu_address": "858D",
+      "bytes": 5,
+      "sha256": "18826d146fdf6afff3fa2db1cd10b500e656113f56bb4bfb822c20b1dc8c6564"
+    },
+    {
+      "name": "WeaponAnimationHigh",
+      "physical_bank": 2,
+      "cpu_address": "85EF",
+      "bytes": 28,
+      "sha256": "ff0de4110d1606be2b9cf85416d76aa083e962fca8aad9ae200ebb403ffae225"
+    }
+  ],
+  "bomb_terrain_event_cases": 768,
+  "actual_attack_admission_cases": 768,
+  "attack_admission_limit": "New Cflag result means native action eligible only. Actual geometry and enemy-specific effects remain mandatory host collision hook; ticking bombs8/9 and impact4 never count as attacks.",
+  "complete_bomb_state_animation_timelines": [
+    {
+      "slot": 208,
+      "birth_parity": 0,
+      "updates": 46,
+      "rows": [
+        {
+          "tick": 0,
+          "clock_parity": 0,
+          "action": 9,
+          "age": 12,
+          "frame": 78,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 1,
+          "clock_parity": 1,
+          "action": 9,
+          "age": 11,
+          "frame": 78,
+          "animation_delay": 2,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 2,
+          "clock_parity": 0,
+          "action": 9,
+          "age": 11,
+          "frame": 78,
+          "animation_delay": 1,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 3,
+          "clock_parity": 1,
+          "action": 9,
+          "age": 10,
+          "frame": 79,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 4,
+          "clock_parity": 0,
+          "action": 9,
+          "age": 10,
+          "frame": 79,
+          "animation_delay": 2,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 5,
+          "clock_parity": 1,
+          "action": 9,
+          "age": 9,
+          "frame": 79,
+          "animation_delay": 1,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 6,
+          "clock_parity": 0,
+          "action": 9,
+          "age": 9,
+          "frame": 78,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 7,
+          "clock_parity": 1,
+          "action": 9,
+          "age": 8,
+          "frame": 78,
+          "animation_delay": 2,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 8,
+          "clock_parity": 0,
+          "action": 9,
+          "age": 8,
+          "frame": 78,
+          "animation_delay": 1,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 9,
+          "clock_parity": 1,
+          "action": 9,
+          "age": 7,
+          "frame": 79,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 10,
+          "clock_parity": 0,
+          "action": 9,
+          "age": 7,
+          "frame": 79,
+          "animation_delay": 2,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 11,
+          "clock_parity": 1,
+          "action": 9,
+          "age": 6,
+          "frame": 79,
+          "animation_delay": 1,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 12,
+          "clock_parity": 0,
+          "action": 9,
+          "age": 6,
+          "frame": 78,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 13,
+          "clock_parity": 1,
+          "action": 9,
+          "age": 5,
+          "frame": 78,
+          "animation_delay": 2,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 14,
+          "clock_parity": 0,
+          "action": 9,
+          "age": 5,
+          "frame": 78,
+          "animation_delay": 1,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 15,
+          "clock_parity": 1,
+          "action": 9,
+          "age": 4,
+          "frame": 79,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 16,
+          "clock_parity": 0,
+          "action": 9,
+          "age": 4,
+          "frame": 79,
+          "animation_delay": 2,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 17,
+          "clock_parity": 1,
+          "action": 9,
+          "age": 3,
+          "frame": 79,
+          "animation_delay": 1,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 18,
+          "clock_parity": 0,
+          "action": 9,
+          "age": 3,
+          "frame": 78,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 19,
+          "clock_parity": 1,
+          "action": 9,
+          "age": 2,
+          "frame": 78,
+          "animation_delay": 2,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 20,
+          "clock_parity": 0,
+          "action": 9,
+          "age": 2,
+          "frame": 78,
+          "animation_delay": 1,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 21,
+          "clock_parity": 1,
+          "action": 9,
+          "age": 1,
+          "frame": 79,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 22,
+          "clock_parity": 0,
+          "action": 9,
+          "age": 1,
+          "frame": 79,
+          "animation_delay": 2,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 23,
+          "clock_parity": 1,
+          "action": 10,
+          "age": 0,
+          "frame": 60,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 24,
+          "clock_parity": 0,
+          "action": 10,
+          "age": 1,
+          "frame": 60,
+          "animation_delay": 2,
+          "terrain_phase": 1
+        },
+        {
+          "tick": 25,
+          "clock_parity": 1,
+          "action": 10,
+          "age": 2,
+          "frame": 60,
+          "animation_delay": 1,
+          "terrain_phase": 2
+        },
+        {
+          "tick": 26,
+          "clock_parity": 0,
+          "action": 10,
+          "age": 3,
+          "frame": 74,
+          "animation_delay": 3,
+          "terrain_phase": 3
+        },
+        {
+          "tick": 27,
+          "clock_parity": 1,
+          "action": 10,
+          "age": 4,
+          "frame": 74,
+          "animation_delay": 2,
+          "terrain_phase": 4
+        },
+        {
+          "tick": 28,
+          "clock_parity": 0,
+          "action": 10,
+          "age": 5,
+          "frame": 74,
+          "animation_delay": 1,
+          "terrain_phase": 5
+        },
+        {
+          "tick": 29,
+          "clock_parity": 1,
+          "action": 10,
+          "age": 6,
+          "frame": 73,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 30,
+          "clock_parity": 0,
+          "action": 10,
+          "age": 7,
+          "frame": 73,
+          "animation_delay": 2,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 31,
+          "clock_parity": 1,
+          "action": 10,
+          "age": 8,
+          "frame": 73,
+          "animation_delay": 1,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 32,
+          "clock_parity": 0,
+          "action": 10,
+          "age": 9,
+          "frame": 74,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 33,
+          "clock_parity": 1,
+          "action": 10,
+          "age": 10,
+          "frame": 74,
+          "animation_delay": 2,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 34,
+          "clock_parity": 0,
+          "action": 10,
+          "age": 11,
+          "frame": 74,
+          "animation_delay": 1,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 35,
+          "clock_parity": 1,
+          "action": 10,
+          "age": 12,
+          "frame": 77,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 36,
+          "clock_parity": 0,
+          "action": 10,
+          "age": 13,
+          "frame": 77,
+          "animation_delay": 2,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 37,
+          "clock_parity": 1,
+          "action": 10,
+          "age": 14,
+          "frame": 77,
+          "animation_delay": 1,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 38,
+          "clock_parity": 0,
+          "action": 10,
+          "age": 15,
+          "frame": 74,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 39,
+          "clock_parity": 1,
+          "action": 10,
+          "age": 16,
+          "frame": 74,
+          "animation_delay": 2,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 40,
+          "clock_parity": 0,
+          "action": 10,
+          "age": 17,
+          "frame": 74,
+          "animation_delay": 1,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 41,
+          "clock_parity": 1,
+          "action": 10,
+          "age": 18,
+          "frame": 77,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 42,
+          "clock_parity": 0,
+          "action": 10,
+          "age": 19,
+          "frame": 77,
+          "animation_delay": 2,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 43,
+          "clock_parity": 1,
+          "action": 10,
+          "age": 20,
+          "frame": 77,
+          "animation_delay": 1,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 44,
+          "clock_parity": 0,
+          "action": 10,
+          "age": 21,
+          "frame": 247,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 45,
+          "clock_parity": 1,
+          "action": 0,
+          "age": 22,
+          "frame": 247,
+          "animation_delay": 2,
+          "terrain_phase": 0
+        }
+      ]
+    },
+    {
+      "slot": 208,
+      "birth_parity": 1,
+      "updates": 47,
+      "rows": [
+        {
+          "tick": 0,
+          "clock_parity": 1,
+          "action": 9,
+          "age": 12,
+          "frame": 78,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 1,
+          "clock_parity": 0,
+          "action": 9,
+          "age": 12,
+          "frame": 78,
+          "animation_delay": 2,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 2,
+          "clock_parity": 1,
+          "action": 9,
+          "age": 11,
+          "frame": 78,
+          "animation_delay": 1,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 3,
+          "clock_parity": 0,
+          "action": 9,
+          "age": 11,
+          "frame": 79,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 4,
+          "clock_parity": 1,
+          "action": 9,
+          "age": 10,
+          "frame": 79,
+          "animation_delay": 2,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 5,
+          "clock_parity": 0,
+          "action": 9,
+          "age": 10,
+          "frame": 79,
+          "animation_delay": 1,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 6,
+          "clock_parity": 1,
+          "action": 9,
+          "age": 9,
+          "frame": 78,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 7,
+          "clock_parity": 0,
+          "action": 9,
+          "age": 9,
+          "frame": 78,
+          "animation_delay": 2,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 8,
+          "clock_parity": 1,
+          "action": 9,
+          "age": 8,
+          "frame": 78,
+          "animation_delay": 1,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 9,
+          "clock_parity": 0,
+          "action": 9,
+          "age": 8,
+          "frame": 79,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 10,
+          "clock_parity": 1,
+          "action": 9,
+          "age": 7,
+          "frame": 79,
+          "animation_delay": 2,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 11,
+          "clock_parity": 0,
+          "action": 9,
+          "age": 7,
+          "frame": 79,
+          "animation_delay": 1,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 12,
+          "clock_parity": 1,
+          "action": 9,
+          "age": 6,
+          "frame": 78,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 13,
+          "clock_parity": 0,
+          "action": 9,
+          "age": 6,
+          "frame": 78,
+          "animation_delay": 2,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 14,
+          "clock_parity": 1,
+          "action": 9,
+          "age": 5,
+          "frame": 78,
+          "animation_delay": 1,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 15,
+          "clock_parity": 0,
+          "action": 9,
+          "age": 5,
+          "frame": 79,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 16,
+          "clock_parity": 1,
+          "action": 9,
+          "age": 4,
+          "frame": 79,
+          "animation_delay": 2,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 17,
+          "clock_parity": 0,
+          "action": 9,
+          "age": 4,
+          "frame": 79,
+          "animation_delay": 1,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 18,
+          "clock_parity": 1,
+          "action": 9,
+          "age": 3,
+          "frame": 78,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 19,
+          "clock_parity": 0,
+          "action": 9,
+          "age": 3,
+          "frame": 78,
+          "animation_delay": 2,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 20,
+          "clock_parity": 1,
+          "action": 9,
+          "age": 2,
+          "frame": 78,
+          "animation_delay": 1,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 21,
+          "clock_parity": 0,
+          "action": 9,
+          "age": 2,
+          "frame": 79,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 22,
+          "clock_parity": 1,
+          "action": 9,
+          "age": 1,
+          "frame": 79,
+          "animation_delay": 2,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 23,
+          "clock_parity": 0,
+          "action": 9,
+          "age": 1,
+          "frame": 79,
+          "animation_delay": 1,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 24,
+          "clock_parity": 1,
+          "action": 10,
+          "age": 0,
+          "frame": 60,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 25,
+          "clock_parity": 0,
+          "action": 10,
+          "age": 1,
+          "frame": 60,
+          "animation_delay": 2,
+          "terrain_phase": 1
+        },
+        {
+          "tick": 26,
+          "clock_parity": 1,
+          "action": 10,
+          "age": 2,
+          "frame": 60,
+          "animation_delay": 1,
+          "terrain_phase": 2
+        },
+        {
+          "tick": 27,
+          "clock_parity": 0,
+          "action": 10,
+          "age": 3,
+          "frame": 74,
+          "animation_delay": 3,
+          "terrain_phase": 3
+        },
+        {
+          "tick": 28,
+          "clock_parity": 1,
+          "action": 10,
+          "age": 4,
+          "frame": 74,
+          "animation_delay": 2,
+          "terrain_phase": 4
+        },
+        {
+          "tick": 29,
+          "clock_parity": 0,
+          "action": 10,
+          "age": 5,
+          "frame": 74,
+          "animation_delay": 1,
+          "terrain_phase": 5
+        },
+        {
+          "tick": 30,
+          "clock_parity": 1,
+          "action": 10,
+          "age": 6,
+          "frame": 73,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 31,
+          "clock_parity": 0,
+          "action": 10,
+          "age": 7,
+          "frame": 73,
+          "animation_delay": 2,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 32,
+          "clock_parity": 1,
+          "action": 10,
+          "age": 8,
+          "frame": 73,
+          "animation_delay": 1,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 33,
+          "clock_parity": 0,
+          "action": 10,
+          "age": 9,
+          "frame": 74,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 34,
+          "clock_parity": 1,
+          "action": 10,
+          "age": 10,
+          "frame": 74,
+          "animation_delay": 2,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 35,
+          "clock_parity": 0,
+          "action": 10,
+          "age": 11,
+          "frame": 74,
+          "animation_delay": 1,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 36,
+          "clock_parity": 1,
+          "action": 10,
+          "age": 12,
+          "frame": 77,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 37,
+          "clock_parity": 0,
+          "action": 10,
+          "age": 13,
+          "frame": 77,
+          "animation_delay": 2,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 38,
+          "clock_parity": 1,
+          "action": 10,
+          "age": 14,
+          "frame": 77,
+          "animation_delay": 1,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 39,
+          "clock_parity": 0,
+          "action": 10,
+          "age": 15,
+          "frame": 74,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 40,
+          "clock_parity": 1,
+          "action": 10,
+          "age": 16,
+          "frame": 74,
+          "animation_delay": 2,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 41,
+          "clock_parity": 0,
+          "action": 10,
+          "age": 17,
+          "frame": 74,
+          "animation_delay": 1,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 42,
+          "clock_parity": 1,
+          "action": 10,
+          "age": 18,
+          "frame": 77,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 43,
+          "clock_parity": 0,
+          "action": 10,
+          "age": 19,
+          "frame": 77,
+          "animation_delay": 2,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 44,
+          "clock_parity": 1,
+          "action": 10,
+          "age": 20,
+          "frame": 77,
+          "animation_delay": 1,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 45,
+          "clock_parity": 0,
+          "action": 10,
+          "age": 21,
+          "frame": 247,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 46,
+          "clock_parity": 1,
+          "action": 0,
+          "age": 22,
+          "frame": 247,
+          "animation_delay": 2,
+          "terrain_phase": 0
+        }
+      ]
+    },
+    {
+      "slot": 224,
+      "birth_parity": 0,
+      "updates": 46,
+      "rows": [
+        {
+          "tick": 0,
+          "clock_parity": 0,
+          "action": 9,
+          "age": 12,
+          "frame": 78,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 1,
+          "clock_parity": 1,
+          "action": 9,
+          "age": 11,
+          "frame": 78,
+          "animation_delay": 2,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 2,
+          "clock_parity": 0,
+          "action": 9,
+          "age": 11,
+          "frame": 78,
+          "animation_delay": 1,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 3,
+          "clock_parity": 1,
+          "action": 9,
+          "age": 10,
+          "frame": 79,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 4,
+          "clock_parity": 0,
+          "action": 9,
+          "age": 10,
+          "frame": 79,
+          "animation_delay": 2,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 5,
+          "clock_parity": 1,
+          "action": 9,
+          "age": 9,
+          "frame": 79,
+          "animation_delay": 1,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 6,
+          "clock_parity": 0,
+          "action": 9,
+          "age": 9,
+          "frame": 78,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 7,
+          "clock_parity": 1,
+          "action": 9,
+          "age": 8,
+          "frame": 78,
+          "animation_delay": 2,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 8,
+          "clock_parity": 0,
+          "action": 9,
+          "age": 8,
+          "frame": 78,
+          "animation_delay": 1,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 9,
+          "clock_parity": 1,
+          "action": 9,
+          "age": 7,
+          "frame": 79,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 10,
+          "clock_parity": 0,
+          "action": 9,
+          "age": 7,
+          "frame": 79,
+          "animation_delay": 2,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 11,
+          "clock_parity": 1,
+          "action": 9,
+          "age": 6,
+          "frame": 79,
+          "animation_delay": 1,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 12,
+          "clock_parity": 0,
+          "action": 9,
+          "age": 6,
+          "frame": 78,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 13,
+          "clock_parity": 1,
+          "action": 9,
+          "age": 5,
+          "frame": 78,
+          "animation_delay": 2,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 14,
+          "clock_parity": 0,
+          "action": 9,
+          "age": 5,
+          "frame": 78,
+          "animation_delay": 1,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 15,
+          "clock_parity": 1,
+          "action": 9,
+          "age": 4,
+          "frame": 79,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 16,
+          "clock_parity": 0,
+          "action": 9,
+          "age": 4,
+          "frame": 79,
+          "animation_delay": 2,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 17,
+          "clock_parity": 1,
+          "action": 9,
+          "age": 3,
+          "frame": 79,
+          "animation_delay": 1,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 18,
+          "clock_parity": 0,
+          "action": 9,
+          "age": 3,
+          "frame": 78,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 19,
+          "clock_parity": 1,
+          "action": 9,
+          "age": 2,
+          "frame": 78,
+          "animation_delay": 2,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 20,
+          "clock_parity": 0,
+          "action": 9,
+          "age": 2,
+          "frame": 78,
+          "animation_delay": 1,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 21,
+          "clock_parity": 1,
+          "action": 9,
+          "age": 1,
+          "frame": 79,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 22,
+          "clock_parity": 0,
+          "action": 9,
+          "age": 1,
+          "frame": 79,
+          "animation_delay": 2,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 23,
+          "clock_parity": 1,
+          "action": 10,
+          "age": 0,
+          "frame": 60,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 24,
+          "clock_parity": 0,
+          "action": 10,
+          "age": 1,
+          "frame": 60,
+          "animation_delay": 2,
+          "terrain_phase": 1
+        },
+        {
+          "tick": 25,
+          "clock_parity": 1,
+          "action": 10,
+          "age": 2,
+          "frame": 60,
+          "animation_delay": 1,
+          "terrain_phase": 2
+        },
+        {
+          "tick": 26,
+          "clock_parity": 0,
+          "action": 10,
+          "age": 3,
+          "frame": 74,
+          "animation_delay": 3,
+          "terrain_phase": 3
+        },
+        {
+          "tick": 27,
+          "clock_parity": 1,
+          "action": 10,
+          "age": 4,
+          "frame": 74,
+          "animation_delay": 2,
+          "terrain_phase": 4
+        },
+        {
+          "tick": 28,
+          "clock_parity": 0,
+          "action": 10,
+          "age": 5,
+          "frame": 74,
+          "animation_delay": 1,
+          "terrain_phase": 5
+        },
+        {
+          "tick": 29,
+          "clock_parity": 1,
+          "action": 10,
+          "age": 6,
+          "frame": 73,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 30,
+          "clock_parity": 0,
+          "action": 10,
+          "age": 7,
+          "frame": 73,
+          "animation_delay": 2,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 31,
+          "clock_parity": 1,
+          "action": 10,
+          "age": 8,
+          "frame": 73,
+          "animation_delay": 1,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 32,
+          "clock_parity": 0,
+          "action": 10,
+          "age": 9,
+          "frame": 74,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 33,
+          "clock_parity": 1,
+          "action": 10,
+          "age": 10,
+          "frame": 74,
+          "animation_delay": 2,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 34,
+          "clock_parity": 0,
+          "action": 10,
+          "age": 11,
+          "frame": 74,
+          "animation_delay": 1,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 35,
+          "clock_parity": 1,
+          "action": 10,
+          "age": 12,
+          "frame": 77,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 36,
+          "clock_parity": 0,
+          "action": 10,
+          "age": 13,
+          "frame": 77,
+          "animation_delay": 2,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 37,
+          "clock_parity": 1,
+          "action": 10,
+          "age": 14,
+          "frame": 77,
+          "animation_delay": 1,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 38,
+          "clock_parity": 0,
+          "action": 10,
+          "age": 15,
+          "frame": 74,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 39,
+          "clock_parity": 1,
+          "action": 10,
+          "age": 16,
+          "frame": 74,
+          "animation_delay": 2,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 40,
+          "clock_parity": 0,
+          "action": 10,
+          "age": 17,
+          "frame": 74,
+          "animation_delay": 1,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 41,
+          "clock_parity": 1,
+          "action": 10,
+          "age": 18,
+          "frame": 77,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 42,
+          "clock_parity": 0,
+          "action": 10,
+          "age": 19,
+          "frame": 77,
+          "animation_delay": 2,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 43,
+          "clock_parity": 1,
+          "action": 10,
+          "age": 20,
+          "frame": 77,
+          "animation_delay": 1,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 44,
+          "clock_parity": 0,
+          "action": 10,
+          "age": 21,
+          "frame": 247,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 45,
+          "clock_parity": 1,
+          "action": 0,
+          "age": 22,
+          "frame": 247,
+          "animation_delay": 2,
+          "terrain_phase": 0
+        }
+      ]
+    },
+    {
+      "slot": 224,
+      "birth_parity": 1,
+      "updates": 47,
+      "rows": [
+        {
+          "tick": 0,
+          "clock_parity": 1,
+          "action": 9,
+          "age": 12,
+          "frame": 78,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 1,
+          "clock_parity": 0,
+          "action": 9,
+          "age": 12,
+          "frame": 78,
+          "animation_delay": 2,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 2,
+          "clock_parity": 1,
+          "action": 9,
+          "age": 11,
+          "frame": 78,
+          "animation_delay": 1,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 3,
+          "clock_parity": 0,
+          "action": 9,
+          "age": 11,
+          "frame": 79,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 4,
+          "clock_parity": 1,
+          "action": 9,
+          "age": 10,
+          "frame": 79,
+          "animation_delay": 2,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 5,
+          "clock_parity": 0,
+          "action": 9,
+          "age": 10,
+          "frame": 79,
+          "animation_delay": 1,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 6,
+          "clock_parity": 1,
+          "action": 9,
+          "age": 9,
+          "frame": 78,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 7,
+          "clock_parity": 0,
+          "action": 9,
+          "age": 9,
+          "frame": 78,
+          "animation_delay": 2,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 8,
+          "clock_parity": 1,
+          "action": 9,
+          "age": 8,
+          "frame": 78,
+          "animation_delay": 1,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 9,
+          "clock_parity": 0,
+          "action": 9,
+          "age": 8,
+          "frame": 79,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 10,
+          "clock_parity": 1,
+          "action": 9,
+          "age": 7,
+          "frame": 79,
+          "animation_delay": 2,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 11,
+          "clock_parity": 0,
+          "action": 9,
+          "age": 7,
+          "frame": 79,
+          "animation_delay": 1,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 12,
+          "clock_parity": 1,
+          "action": 9,
+          "age": 6,
+          "frame": 78,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 13,
+          "clock_parity": 0,
+          "action": 9,
+          "age": 6,
+          "frame": 78,
+          "animation_delay": 2,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 14,
+          "clock_parity": 1,
+          "action": 9,
+          "age": 5,
+          "frame": 78,
+          "animation_delay": 1,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 15,
+          "clock_parity": 0,
+          "action": 9,
+          "age": 5,
+          "frame": 79,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 16,
+          "clock_parity": 1,
+          "action": 9,
+          "age": 4,
+          "frame": 79,
+          "animation_delay": 2,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 17,
+          "clock_parity": 0,
+          "action": 9,
+          "age": 4,
+          "frame": 79,
+          "animation_delay": 1,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 18,
+          "clock_parity": 1,
+          "action": 9,
+          "age": 3,
+          "frame": 78,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 19,
+          "clock_parity": 0,
+          "action": 9,
+          "age": 3,
+          "frame": 78,
+          "animation_delay": 2,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 20,
+          "clock_parity": 1,
+          "action": 9,
+          "age": 2,
+          "frame": 78,
+          "animation_delay": 1,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 21,
+          "clock_parity": 0,
+          "action": 9,
+          "age": 2,
+          "frame": 79,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 22,
+          "clock_parity": 1,
+          "action": 9,
+          "age": 1,
+          "frame": 79,
+          "animation_delay": 2,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 23,
+          "clock_parity": 0,
+          "action": 9,
+          "age": 1,
+          "frame": 79,
+          "animation_delay": 1,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 24,
+          "clock_parity": 1,
+          "action": 10,
+          "age": 0,
+          "frame": 60,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 25,
+          "clock_parity": 0,
+          "action": 10,
+          "age": 1,
+          "frame": 60,
+          "animation_delay": 2,
+          "terrain_phase": 1
+        },
+        {
+          "tick": 26,
+          "clock_parity": 1,
+          "action": 10,
+          "age": 2,
+          "frame": 60,
+          "animation_delay": 1,
+          "terrain_phase": 2
+        },
+        {
+          "tick": 27,
+          "clock_parity": 0,
+          "action": 10,
+          "age": 3,
+          "frame": 74,
+          "animation_delay": 3,
+          "terrain_phase": 3
+        },
+        {
+          "tick": 28,
+          "clock_parity": 1,
+          "action": 10,
+          "age": 4,
+          "frame": 74,
+          "animation_delay": 2,
+          "terrain_phase": 4
+        },
+        {
+          "tick": 29,
+          "clock_parity": 0,
+          "action": 10,
+          "age": 5,
+          "frame": 74,
+          "animation_delay": 1,
+          "terrain_phase": 5
+        },
+        {
+          "tick": 30,
+          "clock_parity": 1,
+          "action": 10,
+          "age": 6,
+          "frame": 73,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 31,
+          "clock_parity": 0,
+          "action": 10,
+          "age": 7,
+          "frame": 73,
+          "animation_delay": 2,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 32,
+          "clock_parity": 1,
+          "action": 10,
+          "age": 8,
+          "frame": 73,
+          "animation_delay": 1,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 33,
+          "clock_parity": 0,
+          "action": 10,
+          "age": 9,
+          "frame": 74,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 34,
+          "clock_parity": 1,
+          "action": 10,
+          "age": 10,
+          "frame": 74,
+          "animation_delay": 2,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 35,
+          "clock_parity": 0,
+          "action": 10,
+          "age": 11,
+          "frame": 74,
+          "animation_delay": 1,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 36,
+          "clock_parity": 1,
+          "action": 10,
+          "age": 12,
+          "frame": 77,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 37,
+          "clock_parity": 0,
+          "action": 10,
+          "age": 13,
+          "frame": 77,
+          "animation_delay": 2,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 38,
+          "clock_parity": 1,
+          "action": 10,
+          "age": 14,
+          "frame": 77,
+          "animation_delay": 1,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 39,
+          "clock_parity": 0,
+          "action": 10,
+          "age": 15,
+          "frame": 74,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 40,
+          "clock_parity": 1,
+          "action": 10,
+          "age": 16,
+          "frame": 74,
+          "animation_delay": 2,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 41,
+          "clock_parity": 0,
+          "action": 10,
+          "age": 17,
+          "frame": 74,
+          "animation_delay": 1,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 42,
+          "clock_parity": 1,
+          "action": 10,
+          "age": 18,
+          "frame": 77,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 43,
+          "clock_parity": 0,
+          "action": 10,
+          "age": 19,
+          "frame": 77,
+          "animation_delay": 2,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 44,
+          "clock_parity": 1,
+          "action": 10,
+          "age": 20,
+          "frame": 77,
+          "animation_delay": 1,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 45,
+          "clock_parity": 0,
+          "action": 10,
+          "age": 21,
+          "frame": 247,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 46,
+          "clock_parity": 1,
+          "action": 0,
+          "age": 22,
+          "frame": 247,
+          "animation_delay": 2,
+          "terrain_phase": 0
+        }
+      ]
+    },
+    {
+      "slot": 240,
+      "birth_parity": 0,
+      "updates": 46,
+      "rows": [
+        {
+          "tick": 0,
+          "clock_parity": 0,
+          "action": 9,
+          "age": 12,
+          "frame": 78,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 1,
+          "clock_parity": 1,
+          "action": 9,
+          "age": 11,
+          "frame": 78,
+          "animation_delay": 2,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 2,
+          "clock_parity": 0,
+          "action": 9,
+          "age": 11,
+          "frame": 78,
+          "animation_delay": 1,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 3,
+          "clock_parity": 1,
+          "action": 9,
+          "age": 10,
+          "frame": 79,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 4,
+          "clock_parity": 0,
+          "action": 9,
+          "age": 10,
+          "frame": 79,
+          "animation_delay": 2,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 5,
+          "clock_parity": 1,
+          "action": 9,
+          "age": 9,
+          "frame": 79,
+          "animation_delay": 1,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 6,
+          "clock_parity": 0,
+          "action": 9,
+          "age": 9,
+          "frame": 78,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 7,
+          "clock_parity": 1,
+          "action": 9,
+          "age": 8,
+          "frame": 78,
+          "animation_delay": 2,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 8,
+          "clock_parity": 0,
+          "action": 9,
+          "age": 8,
+          "frame": 78,
+          "animation_delay": 1,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 9,
+          "clock_parity": 1,
+          "action": 9,
+          "age": 7,
+          "frame": 79,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 10,
+          "clock_parity": 0,
+          "action": 9,
+          "age": 7,
+          "frame": 79,
+          "animation_delay": 2,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 11,
+          "clock_parity": 1,
+          "action": 9,
+          "age": 6,
+          "frame": 79,
+          "animation_delay": 1,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 12,
+          "clock_parity": 0,
+          "action": 9,
+          "age": 6,
+          "frame": 78,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 13,
+          "clock_parity": 1,
+          "action": 9,
+          "age": 5,
+          "frame": 78,
+          "animation_delay": 2,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 14,
+          "clock_parity": 0,
+          "action": 9,
+          "age": 5,
+          "frame": 78,
+          "animation_delay": 1,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 15,
+          "clock_parity": 1,
+          "action": 9,
+          "age": 4,
+          "frame": 79,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 16,
+          "clock_parity": 0,
+          "action": 9,
+          "age": 4,
+          "frame": 79,
+          "animation_delay": 2,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 17,
+          "clock_parity": 1,
+          "action": 9,
+          "age": 3,
+          "frame": 79,
+          "animation_delay": 1,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 18,
+          "clock_parity": 0,
+          "action": 9,
+          "age": 3,
+          "frame": 78,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 19,
+          "clock_parity": 1,
+          "action": 9,
+          "age": 2,
+          "frame": 78,
+          "animation_delay": 2,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 20,
+          "clock_parity": 0,
+          "action": 9,
+          "age": 2,
+          "frame": 78,
+          "animation_delay": 1,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 21,
+          "clock_parity": 1,
+          "action": 9,
+          "age": 1,
+          "frame": 79,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 22,
+          "clock_parity": 0,
+          "action": 9,
+          "age": 1,
+          "frame": 79,
+          "animation_delay": 2,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 23,
+          "clock_parity": 1,
+          "action": 10,
+          "age": 0,
+          "frame": 60,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 24,
+          "clock_parity": 0,
+          "action": 10,
+          "age": 1,
+          "frame": 60,
+          "animation_delay": 2,
+          "terrain_phase": 1
+        },
+        {
+          "tick": 25,
+          "clock_parity": 1,
+          "action": 10,
+          "age": 2,
+          "frame": 60,
+          "animation_delay": 1,
+          "terrain_phase": 2
+        },
+        {
+          "tick": 26,
+          "clock_parity": 0,
+          "action": 10,
+          "age": 3,
+          "frame": 74,
+          "animation_delay": 3,
+          "terrain_phase": 3
+        },
+        {
+          "tick": 27,
+          "clock_parity": 1,
+          "action": 10,
+          "age": 4,
+          "frame": 74,
+          "animation_delay": 2,
+          "terrain_phase": 4
+        },
+        {
+          "tick": 28,
+          "clock_parity": 0,
+          "action": 10,
+          "age": 5,
+          "frame": 74,
+          "animation_delay": 1,
+          "terrain_phase": 5
+        },
+        {
+          "tick": 29,
+          "clock_parity": 1,
+          "action": 10,
+          "age": 6,
+          "frame": 73,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 30,
+          "clock_parity": 0,
+          "action": 10,
+          "age": 7,
+          "frame": 73,
+          "animation_delay": 2,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 31,
+          "clock_parity": 1,
+          "action": 10,
+          "age": 8,
+          "frame": 73,
+          "animation_delay": 1,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 32,
+          "clock_parity": 0,
+          "action": 10,
+          "age": 9,
+          "frame": 74,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 33,
+          "clock_parity": 1,
+          "action": 10,
+          "age": 10,
+          "frame": 74,
+          "animation_delay": 2,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 34,
+          "clock_parity": 0,
+          "action": 10,
+          "age": 11,
+          "frame": 74,
+          "animation_delay": 1,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 35,
+          "clock_parity": 1,
+          "action": 10,
+          "age": 12,
+          "frame": 77,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 36,
+          "clock_parity": 0,
+          "action": 10,
+          "age": 13,
+          "frame": 77,
+          "animation_delay": 2,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 37,
+          "clock_parity": 1,
+          "action": 10,
+          "age": 14,
+          "frame": 77,
+          "animation_delay": 1,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 38,
+          "clock_parity": 0,
+          "action": 10,
+          "age": 15,
+          "frame": 74,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 39,
+          "clock_parity": 1,
+          "action": 10,
+          "age": 16,
+          "frame": 74,
+          "animation_delay": 2,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 40,
+          "clock_parity": 0,
+          "action": 10,
+          "age": 17,
+          "frame": 74,
+          "animation_delay": 1,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 41,
+          "clock_parity": 1,
+          "action": 10,
+          "age": 18,
+          "frame": 77,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 42,
+          "clock_parity": 0,
+          "action": 10,
+          "age": 19,
+          "frame": 77,
+          "animation_delay": 2,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 43,
+          "clock_parity": 1,
+          "action": 10,
+          "age": 20,
+          "frame": 77,
+          "animation_delay": 1,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 44,
+          "clock_parity": 0,
+          "action": 10,
+          "age": 21,
+          "frame": 247,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 45,
+          "clock_parity": 1,
+          "action": 0,
+          "age": 22,
+          "frame": 247,
+          "animation_delay": 2,
+          "terrain_phase": 0
+        }
+      ]
+    },
+    {
+      "slot": 240,
+      "birth_parity": 1,
+      "updates": 47,
+      "rows": [
+        {
+          "tick": 0,
+          "clock_parity": 1,
+          "action": 9,
+          "age": 12,
+          "frame": 78,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 1,
+          "clock_parity": 0,
+          "action": 9,
+          "age": 12,
+          "frame": 78,
+          "animation_delay": 2,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 2,
+          "clock_parity": 1,
+          "action": 9,
+          "age": 11,
+          "frame": 78,
+          "animation_delay": 1,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 3,
+          "clock_parity": 0,
+          "action": 9,
+          "age": 11,
+          "frame": 79,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 4,
+          "clock_parity": 1,
+          "action": 9,
+          "age": 10,
+          "frame": 79,
+          "animation_delay": 2,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 5,
+          "clock_parity": 0,
+          "action": 9,
+          "age": 10,
+          "frame": 79,
+          "animation_delay": 1,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 6,
+          "clock_parity": 1,
+          "action": 9,
+          "age": 9,
+          "frame": 78,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 7,
+          "clock_parity": 0,
+          "action": 9,
+          "age": 9,
+          "frame": 78,
+          "animation_delay": 2,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 8,
+          "clock_parity": 1,
+          "action": 9,
+          "age": 8,
+          "frame": 78,
+          "animation_delay": 1,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 9,
+          "clock_parity": 0,
+          "action": 9,
+          "age": 8,
+          "frame": 79,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 10,
+          "clock_parity": 1,
+          "action": 9,
+          "age": 7,
+          "frame": 79,
+          "animation_delay": 2,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 11,
+          "clock_parity": 0,
+          "action": 9,
+          "age": 7,
+          "frame": 79,
+          "animation_delay": 1,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 12,
+          "clock_parity": 1,
+          "action": 9,
+          "age": 6,
+          "frame": 78,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 13,
+          "clock_parity": 0,
+          "action": 9,
+          "age": 6,
+          "frame": 78,
+          "animation_delay": 2,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 14,
+          "clock_parity": 1,
+          "action": 9,
+          "age": 5,
+          "frame": 78,
+          "animation_delay": 1,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 15,
+          "clock_parity": 0,
+          "action": 9,
+          "age": 5,
+          "frame": 79,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 16,
+          "clock_parity": 1,
+          "action": 9,
+          "age": 4,
+          "frame": 79,
+          "animation_delay": 2,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 17,
+          "clock_parity": 0,
+          "action": 9,
+          "age": 4,
+          "frame": 79,
+          "animation_delay": 1,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 18,
+          "clock_parity": 1,
+          "action": 9,
+          "age": 3,
+          "frame": 78,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 19,
+          "clock_parity": 0,
+          "action": 9,
+          "age": 3,
+          "frame": 78,
+          "animation_delay": 2,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 20,
+          "clock_parity": 1,
+          "action": 9,
+          "age": 2,
+          "frame": 78,
+          "animation_delay": 1,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 21,
+          "clock_parity": 0,
+          "action": 9,
+          "age": 2,
+          "frame": 79,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 22,
+          "clock_parity": 1,
+          "action": 9,
+          "age": 1,
+          "frame": 79,
+          "animation_delay": 2,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 23,
+          "clock_parity": 0,
+          "action": 9,
+          "age": 1,
+          "frame": 79,
+          "animation_delay": 1,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 24,
+          "clock_parity": 1,
+          "action": 10,
+          "age": 0,
+          "frame": 60,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 25,
+          "clock_parity": 0,
+          "action": 10,
+          "age": 1,
+          "frame": 60,
+          "animation_delay": 2,
+          "terrain_phase": 1
+        },
+        {
+          "tick": 26,
+          "clock_parity": 1,
+          "action": 10,
+          "age": 2,
+          "frame": 60,
+          "animation_delay": 1,
+          "terrain_phase": 2
+        },
+        {
+          "tick": 27,
+          "clock_parity": 0,
+          "action": 10,
+          "age": 3,
+          "frame": 74,
+          "animation_delay": 3,
+          "terrain_phase": 3
+        },
+        {
+          "tick": 28,
+          "clock_parity": 1,
+          "action": 10,
+          "age": 4,
+          "frame": 74,
+          "animation_delay": 2,
+          "terrain_phase": 4
+        },
+        {
+          "tick": 29,
+          "clock_parity": 0,
+          "action": 10,
+          "age": 5,
+          "frame": 74,
+          "animation_delay": 1,
+          "terrain_phase": 5
+        },
+        {
+          "tick": 30,
+          "clock_parity": 1,
+          "action": 10,
+          "age": 6,
+          "frame": 73,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 31,
+          "clock_parity": 0,
+          "action": 10,
+          "age": 7,
+          "frame": 73,
+          "animation_delay": 2,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 32,
+          "clock_parity": 1,
+          "action": 10,
+          "age": 8,
+          "frame": 73,
+          "animation_delay": 1,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 33,
+          "clock_parity": 0,
+          "action": 10,
+          "age": 9,
+          "frame": 74,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 34,
+          "clock_parity": 1,
+          "action": 10,
+          "age": 10,
+          "frame": 74,
+          "animation_delay": 2,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 35,
+          "clock_parity": 0,
+          "action": 10,
+          "age": 11,
+          "frame": 74,
+          "animation_delay": 1,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 36,
+          "clock_parity": 1,
+          "action": 10,
+          "age": 12,
+          "frame": 77,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 37,
+          "clock_parity": 0,
+          "action": 10,
+          "age": 13,
+          "frame": 77,
+          "animation_delay": 2,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 38,
+          "clock_parity": 1,
+          "action": 10,
+          "age": 14,
+          "frame": 77,
+          "animation_delay": 1,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 39,
+          "clock_parity": 0,
+          "action": 10,
+          "age": 15,
+          "frame": 74,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 40,
+          "clock_parity": 1,
+          "action": 10,
+          "age": 16,
+          "frame": 74,
+          "animation_delay": 2,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 41,
+          "clock_parity": 0,
+          "action": 10,
+          "age": 17,
+          "frame": 74,
+          "animation_delay": 1,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 42,
+          "clock_parity": 1,
+          "action": 10,
+          "age": 18,
+          "frame": 77,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 43,
+          "clock_parity": 0,
+          "action": 10,
+          "age": 19,
+          "frame": 77,
+          "animation_delay": 2,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 44,
+          "clock_parity": 1,
+          "action": 10,
+          "age": 20,
+          "frame": 77,
+          "animation_delay": 1,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 45,
+          "clock_parity": 0,
+          "action": 10,
+          "age": 21,
+          "frame": 247,
+          "animation_delay": 3,
+          "terrain_phase": 0
+        },
+        {
+          "tick": 46,
+          "clock_parity": 1,
+          "action": 0,
+          "age": 22,
+          "frame": 247,
+          "animation_delay": 2,
+          "terrain_phase": 0
+        }
+      ]
+    }
+  ],
+  "bomb_timeline_limit": "Actual allocation is separately qualified. Full source state/animation timeline is compared across explicit source terrain/render boundaries; native tile damage, enemy contact and actual pixels remain host hooks, not simulated Metroid worldRAM.",
+  "allocation_check": {
+    "main_record_addresses": [
+      "0x5c40",
+      "0x5c41",
+      "0x5c42",
+      "0x5c43",
+      "0x5c44",
+      "0x5c45",
+      "0x5c46",
+      "0x5c47",
+      "0x5c48",
+      "0x5c49",
+      "0x5c4a",
+      "0x5c4b",
+      "0x5c4c",
+      "0x5c4d",
+      "0x5c4e",
+      "0x5c4f",
+      "0x5c50",
+      "0x5c51",
+      "0x5c52",
+      "0x5c53",
+      "0x5c54",
+      "0x5c55",
+      "0x5c56",
+      "0x5c57",
+      "0x5c58",
+      "0x5c59",
+      "0x5c5a",
+      "0x5c5b",
+      "0x5c5c",
+      "0x5c5d",
+      "0x5c5e",
+      "0x5c5f",
+      "0x5c60",
+      "0x5c61",
+      "0x5c62",
+      "0x5c63",
+      "0x5c64",
+      "0x5c65",
+      "0x5c66",
+      "0x5c67",
+      "0x5c68",
+      "0x5c69",
+      "0x5c6a",
+      "0x5c6b",
+      "0x5c6c",
+      "0x5c6d",
+      "0x5c6e",
+      "0x5c6f"
+    ],
+    "packed_wave_range": "5C70..5C78",
+    "private_metadata": "5C35..37",
+    "persistent_writes": "No B8..BF; source kernel B0..B5 only"
+  },
+  "cases": 5450,
+  "costs": {
+    "RdBombAllocate": {
+      "cases": 192,
+      "source_min": 15,
+      "source_max": 127,
+      "port_min": 15,
+      "port_max": 126,
+      "delta_min": -3,
+      "delta_max": 5
+    },
+    "RdBombInitialize": {
+      "cases": 3,
+      "source_min": 50,
+      "source_max": 50,
+      "port_min": 57,
+      "port_max": 57,
+      "delta_min": 7,
+      "delta_max": 7
+    },
+    "RdBombFuseStep": {
+      "cases": 24,
+      "source_min": 16,
+      "source_max": 103,
+      "port_min": 21,
+      "port_max": 103,
+      "delta_min": 0,
+      "delta_max": 5
+    },
+    "RdBombExplosionFinish": {
+      "cases": 9,
+      "source_min": 22,
+      "source_max": 26,
+      "port_min": 28,
+      "port_max": 32,
+      "delta_min": 6,
+      "delta_max": 6
+    },
+    "RdProjectileExplosion": {
+      "cases": 9,
+      "source_min": 21,
+      "source_max": 25,
+      "port_min": 30,
+      "port_max": 34,
+      "delta_min": 9,
+      "delta_max": 9
+    },
+    "RdSetProjectileAnimation": {
+      "cases": 15,
+      "source_min": 23,
+      "source_max": 23,
+      "port_min": 23,
+      "port_max": 23,
+      "delta_min": 0,
+      "delta_max": 0
+    },
+    "RdInitProjectile": {
+      "cases": 3,
+      "source_min": 48,
+      "source_max": 48,
+      "port_min": 51,
+      "port_max": 51,
+      "delta_min": 3,
+      "delta_max": 3
+    },
+    "RdInitWaveHorizontal": {
+      "cases": 96,
+      "source_min": 21,
+      "source_max": 133,
+      "port_min": 91,
+      "port_max": 338,
+      "delta_min": 70,
+      "delta_max": 205
+    },
+    "RdInitWaveUp": {
+      "cases": 96,
+      "source_min": 23,
+      "source_max": 135,
+      "port_min": 89,
+      "port_max": 336,
+      "delta_min": 66,
+      "delta_max": 201
+    },
+    "RdInitIce": {
+      "cases": 96,
+      "source_min": 13,
+      "source_max": 57,
+      "port_min": 13,
+      "port_max": 60,
+      "delta_min": 0,
+      "delta_max": 3
+    },
+    "RdProjectileImpact": {
+      "cases": 45,
+      "source_min": 13,
+      "source_max": 71,
+      "port_min": 14,
+      "port_max": 76,
+      "delta_min": 1,
+      "delta_max": 5
+    },
+    "RdProjectileTerrainImpact": {
+      "cases": 24,
+      "source_min": 17,
+      "source_max": 58,
+      "port_min": 18,
+      "port_max": 59,
+      "delta_min": 1,
+      "delta_max": 1
+    },
+    "RdCheckProjectileOnScreen": {
+      "cases": 768,
+      "source_min": 16,
+      "source_max": 25,
+      "port_min": 16,
+      "port_max": 22,
+      "delta_min": -3,
+      "delta_max": 0
+    },
+    "RdProjectileMotionDelta": {
+      "cases": 27,
+      "source_min": 17,
+      "source_max": 17,
+      "port_min": 28,
+      "port_max": 28,
+      "delta_min": 11,
+      "delta_max": 11
+    },
+    "RdWaveKinematics": {
+      "cases": 1872,
+      "source_min": 170,
+      "source_max": 280,
+      "port_min": 322,
+      "port_max": 540,
+      "delta_min": 152,
+      "delta_max": 260
+    },
+    "RdFindProjectileSlot": {
+      "cases": 8,
+      "source_min": 28,
+      "source_max": 98,
+      "port_min": 28,
+      "port_max": 65,
+      "delta_min": -35,
+      "delta_max": 0
+    },
+    "RdIceUpdateAdmission": {
+      "cases": 4,
+      "source_min": 14,
+      "source_max": 14,
+      "port_min": 18,
+      "port_max": 18,
+      "delta_min": 4,
+      "delta_max": 4
+    },
+    "RdFinishProjectileRender": {
+      "cases": 4,
+      "source_min": 11,
+      "source_max": 11,
+      "port_min": 9,
+      "port_max": 9,
+      "delta_min": -2,
+      "delta_max": -2
+    },
+    "RdClearProjectileColor": {
+      "cases": 3,
+      "source_min": 11,
+      "source_max": 11,
+      "port_min": 12,
+      "port_max": 12,
+      "delta_min": 1,
+      "delta_max": 1
+    },
+    "DecodeVertical": {
+      "cases": 256,
+      "source_min": 43,
+      "source_max": 46,
+      "port_min": 44,
+      "port_max": 47,
+      "delta_min": 1,
+      "delta_max": 1
+    },
+    "DecodeHorizontal": {
+      "cases": 256,
+      "source_min": 27,
+      "source_max": 44,
+      "port_min": 28,
+      "port_max": 45,
+      "delta_min": 1,
+      "delta_max": 1
+    },
+    "RdPrepareHorizontalShot": {
+      "cases": 256,
+      "source_min": 29,
+      "source_max": 433,
+      "port_min": 40,
+      "port_max": 644,
+      "delta_min": -24,
+      "delta_max": 235
+    },
+    "RdPrepareUpShot": {
+      "cases": 256,
+      "source_min": 52,
+      "source_max": 430,
+      "port_min": 58,
+      "port_max": 636,
+      "delta_min": -29,
+      "delta_max": 230
+    },
+    "RdFireHorizontalFinish": {
+      "cases": 72,
+      "source_min": 54,
+      "source_max": 84,
+      "port_min": 67,
+      "port_max": 94,
+      "delta_min": 10,
+      "delta_max": 13
+    },
+    "RdFireUpFinish": {
+      "cases": 72,
+      "source_min": 61,
+      "source_max": 110,
+      "port_min": 75,
+      "port_max": 114,
+      "delta_min": 4,
+      "delta_max": 14
+    },
+    "RdApplyHorizontalMissile": {
+      "cases": 48,
+      "source_min": 13,
+      "source_max": 149,
+      "port_min": 13,
+      "port_max": 151,
+      "delta_min": 0,
+      "delta_max": 2
+    },
+    "RdApplyUpMissile": {
+      "cases": 48,
+      "source_min": 13,
+      "source_max": 147,
+      "port_min": 13,
+      "port_max": 145,
+      "delta_min": -3,
+      "delta_max": 0
+    },
+    "RdToggleMissile": {
+      "cases": 96,
+      "source_min": 13,
+      "source_max": 77,
+      "port_min": 13,
+      "port_max": 80,
+      "delta_min": 0,
+      "delta_max": 3
+    },
+    "RdAnimateProjectile": {
+      "cases": 792,
+      "source_min": 25,
+      "source_max": 73,
+      "port_min": 27,
+      "port_max": 89,
+      "delta_min": 2,
+      "delta_max": 18
+    }
+  }
+}

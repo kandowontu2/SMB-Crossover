@@ -1,0 +1,150 @@
+{
+  "status": "FROZEN independent source/asset component; ROOT integration pending",
+  "character_id": 23,
+  "native_emulator_run": false,
+  "linked_ROM_created": false,
+  "shared_files_edited": false,
+  "source_ROM": "C:\\Users\\kando\\Downloads\\sunny_rc_1_0_2026_04_26.nes",
+  "source_ROM_sha256": "b9487289afa9a2f2023886f1e5ffb9b5a32d4fe786eeca3b77350c87ac3622d2",
+  "component_receipt_sha256": "ef882460bbe8f72973a3cc3984e14be1287b74751b10777eeb2519c3cc0d7692",
+  "asset_manifest_sha256": "70784193466a1467c0f43a78a14b90e4c4e077f5a436f90e30fbbb8c90b91e8c",
+  "actual_emitted_segments": {
+    "SUNNY_CORE": 1042,
+    "SUNNY_ART": 1119,
+    "SUNNY_CHR": 16384
+  },
+  "placements": {
+    "SUNNY_CORE": {
+      "bank": 81,
+      "start": 45568,
+      "end_exclusive": 46610
+    },
+    "SUNNY_ART": {
+      "bank": 94,
+      "start": 52736,
+      "end_exclusive": 53855
+    },
+    "SUNNY_CHR": {
+      "physical_pages": [
+        724,
+        739
+      ],
+      "used_pages": [
+        724,
+        727
+      ]
+    }
+  },
+  "owned_files": {
+    "src/sunny.s": {
+      "sha256": "3137f133503c8c043eae45e4c24e1fe25b482744aad5e321ec4cbc5dcc199bdb",
+      "bytes": 9624
+    },
+    "src/sunny_state.inc": {
+      "sha256": "f20a68eacc1ec274e3186f4e620e2277eaa338cacbb307dd8412105b4f82ed24",
+      "bytes": 1204
+    },
+    "src/sunny_art.inc": {
+      "sha256": "29037fb88fc28b4d02ab37eb3bc8d9c5aed084ba547dba671d95a65dcbc4729c",
+      "bytes": 17418
+    },
+    "chr/characters/sunny.chr": {
+      "sha256": "6a8e5035a5c667cfcb04940409929fcef5e6dfdeca930fc0c5d06d3918b34113",
+      "bytes": 16384
+    },
+    "chr/characters/sunny-manifest.json": {
+      "sha256": "70784193466a1467c0f43a78a14b90e4c4e077f5a436f90e30fbbb8c90b91e8c",
+      "bytes": 41665
+    },
+    "chr/characters/sunny-review.png": {
+      "sha256": "a4ff00e7815518a73377ed61c38531e49756c8ebc051b19a9123442c7fbf64c7",
+      "bytes": 20832
+    },
+    "chr/characters/sunny-integration.txt": {
+      "sha256": "145a676a83f0e6cd1d779a192a9b88952f31025f8adde7abaf533bf84d175b97",
+      "bytes": 5249
+    },
+    "tools/prepare_sunny_assets_v1.py": {
+      "sha256": "8968642d8b007c3628ddb39ca92aa0f8d53ad5ff69bd5be74d675543016312ed",
+      "bytes": 13168
+    },
+    "tools/prepare_sunny_component_v1.py": {
+      "sha256": "68b96695c94edf6e8fa201aef621e1a1a6941a2e39ac17fd9855b8ae1ccd6125",
+      "bytes": 4892
+    },
+    "build/sunny_component.json": {
+      "sha256": "ef882460bbe8f72973a3cc3984e14be1287b74751b10777eeb2519c3cc0d7692",
+      "bytes": 74528
+    }
+  },
+  "source_context_drift_since_assembly": [],
+  "source_scene_key": "(AreaType<<5)|AreaAddrsLOffset; excludes future AreaPointer destination",
+  "state": {
+    "persistent": "5FB8..5FBF",
+    "active": "5C00..5C04; reserved overlay5C00..5C7F for selected23 only"
+  },
+  "api": {
+    "lifecycle": [
+      "SunnyGlobalInit",
+      "SunnyEnsure",
+      "SunnyReset",
+      "SunnyAreaReset",
+      "SunnyCaptureForm",
+      "SunnyDeathStart"
+    ],
+    "gameplay": [
+      "SunnyNativeMovement",
+      "SunnyWeapons",
+      "SunnyNativeWeaponTail",
+      "SunnyBeginPickup",
+      "SunnyPowerupUpdate",
+      "SunnyInjuryStart",
+      "SunnyNativeDeath",
+      "SunnyHead",
+      "SunnySide",
+      "SunnyAdder",
+      "SunnyBox",
+      "SunnyBody",
+      "SunnyInjuryStatus",
+      "SunnyVisible"
+    ],
+    "presentation": [
+      "SunnyGraphics",
+      "SunnyPortrait",
+      "SunnySetPose",
+      "SunnyGraphicsBank",
+      "SunnyDraw",
+      "SunnyColors",
+      "SunnyUi",
+      "SunnyFullPower",
+      "SunnyStatusName"
+    ]
+  },
+  "controls": {
+    "original_native_OAM_interpreter_calls": 70,
+    "all35_records_both_facing_raster_exact": true,
+    "packed_8x16_both_facing_raster_exact": true,
+    "actual_ca65_syntax_and_emitted_size": true,
+    "full_runtime_caller_IRQ_deadline_native": false
+  },
+  "constraints": [
+    "Inherited Mario-family gameplay is intentional; original Sunny physics/powers not ported",
+    "No SelectedCharacter rewrite",
+    "SunnyWeapons is RTS; SunnyNativeWeaponTail replaces the genuine OBJECT tail, never an additional bubble tick",
+    "ROOT must admit ID23 before all legacy owner arrays and route source freeze updates/visibility",
+    "ROOT must rebind actual C94 player record and reserve its real header before rendering",
+    "Native gameplay, full caller/IRQ/foreign state and palette deadline qualification remain pending"
+  ],
+  "commands": [
+    "python tools/prepare_sunny_assets_v1.py",
+    "python tools/prepare_sunny_component_v1.py"
+  ],
+  "mac_handoff_unchanged_sha256": "d70259af09b1c7118301e2c952e58850b09b69db3e927dff87d4af4b795d993f",
+  "integration_notes": "chr/characters/sunny-integration.txt",
+  "draft_excluded_images": [
+    "sunny-source-chr-review.png",
+    "sunny-source-player-inspect.png",
+    "sunny-source-pose-inspect.png",
+    "sunny-native-poses-review.png"
+  ]
+}

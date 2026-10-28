@@ -1,0 +1,246 @@
+{
+  "passed": true,
+  "source_only": true,
+  "native_run": false,
+  "scope": "Compile only the dedicated Rogue kinematics leaf and compare actual ROM CPU.\n\nNo emulator, host game, PPU, native IRQ, collision adapter or live dispatch.\nAll original-vs-port differences use an explicit address projection. The source\n07A0/0AA9 overlapping BIT reads are represented, not silently masked flags.\n",
+  "rom": {
+    "path": "C:\\NES\\the stash\\Metroid - Rogue Dawn 1.21 (header fixed).nes",
+    "bytes": 786448,
+    "sha256": "9271411a20cc26c09f4d4bffe74c0d69a1bf91b815f7716fcf4610c4cee61077"
+  },
+  "kernel_bytes": 632,
+  "kernel_start": "B000",
+  "kernel_end_exclusive": "B278",
+  "projection": {
+    "0300": "5C00",
+    "0301": "5C01",
+    "0302": "5C02",
+    "0303": "5C03",
+    "0304": "5C04",
+    "0305": "5C05",
+    "0306": "5C06",
+    "0307": "5C07",
+    "0308": "5C08",
+    "0309": "5C09",
+    "030A": "5C0A",
+    "030B": "5C0B",
+    "030C": "5C0C",
+    "030D": "5C0D",
+    "030E": "5C0E",
+    "030F": "5C0F",
+    "0310": "5C10",
+    "0311": "5C11",
+    "0312": "5C12",
+    "0313": "5C13",
+    "0314": "5C14",
+    "0315": "5C15",
+    "0316": "5C16",
+    "0317": "5C17",
+    "0318": "5C18",
+    "0319": "5C19",
+    "031A": "5C1A",
+    "031B": "5C1B",
+    "031C": "5C1C",
+    "031D": "5C1D",
+    "031E": "5C1E",
+    "031F": "5C1F",
+    "0680": "5C20",
+    "0681": "5C21",
+    "0682": "5C22",
+    "0683": "5C23",
+    "0684": "5C24",
+    "0685": "5C25",
+    "0686": "5C26",
+    "6878": "5FB0",
+    "6879": "5FB1",
+    "687A": "5FB2",
+    "6877": "5FB3",
+    "0106": "5FB4",
+    "0107": "5FB5",
+    "010E": "5C27",
+    "0012": "5C28",
+    "0014": "5C29",
+    "00CD": "5C2A",
+    "780E": "5C2B",
+    "004D": "5C2C",
+    "007D": "5C2D",
+    "002D": "5C2E",
+    "004B": "5C2F",
+    "0000": "5C30",
+    "0001": "5C31",
+    "0002": "5C32",
+    "0003": "5C33",
+    "0016": "5C34",
+    "07A0": "5C38",
+    "0AA9": "5C39"
+  },
+  "inputs": [
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\rogue_dawn.s",
+      "bytes": 213,
+      "sha256": "cdfca414fea2604fe565ba4d7f0a203f622a3e280332ea3421437d77855558a0"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\rogue_dawn_core.s",
+      "bytes": 6928,
+      "sha256": "3324311bf4cde2845871aa5f3970e0222b5b76f77f64854f44b2d32ecb5cda4a"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\rogue_dawn_state.inc",
+      "bytes": 2879,
+      "sha256": "f91a3dae3adabbf8231a9c446e09e07d1ce232e352a663b48f15ed0792336134"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\rogue_dawn_map_v1.py",
+      "bytes": 16735,
+      "sha256": "b93ae79bbc57ab6a97dea3be1750b5625917e0adeab7e6e2906cdf19a29751f2"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\rogue_dawn_leaf_controls_v1.py",
+      "bytes": 6952,
+      "sha256": "3d9f41759f80bd645b826f5cd3f8b6b13628ccc3aada75f7f3b4caf402cbfb7f"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\rogue_dawn_kernel_controls_v1.py",
+      "bytes": 10438,
+      "sha256": "d3c9bc5798541ae0f5ab1d8fa89c253c338ccb4a87455b52ce6f11938e804dbd"
+    }
+  ],
+  "binary": {
+    "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-kernel-v1\\kernel.bin",
+    "bytes": 632,
+    "sha256": "271b9b49181e754f377ee20a91a824ee51866b1bb01edbf0644b09d4c47aa3ea"
+  },
+  "ordinary_jump_cut_prefix_cases": 64,
+  "ordinary_jump_cut_cost": {
+    "source_to_D015_min": 11,
+    "source_to_D015_max": 41,
+    "port_including_RTS_min": 17,
+    "port_including_RTS_max": 48
+  },
+  "ground_collision_prefix_cases": 240,
+  "ground_collision_cost": {
+    "source_to_E31A_min": 47,
+    "source_to_E31A_max": 70,
+    "port_including_RTS_min": 49,
+    "port_including_RTS_max": 66
+  },
+  "cases": 3376,
+  "total_differential_cases": 3680,
+  "integration_limits": [
+    "No host whole-caller/IRQ or NMI/PPU timing yet; standalone source component only.",
+    "Input Dflag clear. Original helper incoming Carry is observable and tested bothways atJump.",
+    "Logical0AA9 read is hardwaremirror02A9; the flags-probe projection supplies that byte explicitly.",
+    "No collision probes, player pixel movement/camera, wall admission, full weapon/contact/render or actual audio playback."
+  ],
+  "whole_leaf_costs": {
+    "RdStartJump": {
+      "cases": 512,
+      "original_min": 110,
+      "original_max": 170,
+      "port_min": 104,
+      "port_max": 161,
+      "delta_min": -12,
+      "delta_max": -3
+    },
+    "RdSetGravity": {
+      "cases": 112,
+      "original_min": 24,
+      "original_max": 25,
+      "port_min": 24,
+      "port_max": 25,
+      "delta_min": 0,
+      "delta_max": 0
+    },
+    "RdSetMaxSpeed": {
+      "cases": 112,
+      "original_min": 17,
+      "original_max": 26,
+      "port_min": 17,
+      "port_max": 29,
+      "delta_min": 0,
+      "delta_max": 3
+    },
+    "RdVerticalAccelerate": {
+      "cases": 1408,
+      "original_min": 63,
+      "original_max": 102,
+      "port_min": 64,
+      "port_max": 103,
+      "delta_min": 1,
+      "delta_max": 1
+    },
+    "RdHorizontalAccelerate": {
+      "cases": 720,
+      "original_min": 138,
+      "original_max": 199,
+      "port_min": 146,
+      "port_max": 212,
+      "delta_min": 8,
+      "delta_max": 13
+    },
+    "RdSpringAdmitted": {
+      "cases": 96,
+      "original_min": 27,
+      "original_max": 117,
+      "port_min": 33,
+      "port_max": 127,
+      "delta_min": 6,
+      "delta_max": 10
+    },
+    "RdSpringRelease": {
+      "cases": 64,
+      "original_min": 18,
+      "original_max": 46,
+      "port_min": 21,
+      "port_max": 50,
+      "delta_min": 3,
+      "delta_max": 4
+    },
+    "RdAddMissileTank": {
+      "cases": 49,
+      "original_min": 39,
+      "original_max": 41,
+      "port_min": 39,
+      "port_max": 41,
+      "delta_min": 0,
+      "delta_max": 0
+    },
+    "RdStopVertical": {
+      "cases": 8,
+      "original_min": 16,
+      "original_max": 16,
+      "port_min": 16,
+      "port_max": 16,
+      "delta_min": 0,
+      "delta_max": 0
+    },
+    "RdSetAnimation": {
+      "cases": 5,
+      "original_min": 20,
+      "original_max": 20,
+      "port_min": 20,
+      "port_max": 20,
+      "delta_min": 0,
+      "delta_max": 0
+    },
+    "RdAirControl": {
+      "cases": 288,
+      "original_min": 28,
+      "original_max": 96,
+      "port_min": 29,
+      "port_max": 99,
+      "delta_min": 1,
+      "delta_max": 3
+    },
+    "RdSetGroundAcceleration": {
+      "cases": 2,
+      "original_min": 14,
+      "original_max": 14,
+      "port_min": 14,
+      "port_max": 14,
+      "delta_min": 0,
+      "delta_max": 0
+    }
+  }
+}

@@ -1,0 +1,76 @@
+SUNNY ID23 -- independent leaf component
+
+Source: supplied sunny_rc_1_0_2026_04_26.nes
+SHA256 b9487289afa9a2f2023886f1e5ffb9b5a32d4fe786eeca3b77350c87ac3622d2
+This is Super Sunny World, an original homebrew by Matt Hughson with lead
+artist Kenneth Fejer: https://mhughson.itch.io/super-sunny-world . It is not
+a stock Mario recolor. An early padding-based pirate-ROM comparison was
+withdrawn; no meaningful matching code blocks supported that attribution.
+
+The requested port deliberately inherits Mario-family gameplay. It does not
+claim to port Sunny's original physics or powers. Small/big/fire are the
+host's forms; no new ability is invented. Native Sunny pixels and poses come
+from actual ROM records/CHR4,12,24 and the executed source OAM interpreter.
+The original 8x8 art is repacked exactly to host 8x16 with +12Y anchor shift.
+No pixel scaling/recoloring. Native palette 04/26/36, source alternate-power
+palette 04/2A/36 for the inherited Fire tier. Preview RGB is approximate.
+Small raw frame9 is hair/debris, not a full body; retained as source data but
+not selected as a semantic player pose. Portrait uses the genuine small idle.
+
+Allocations, confirmed against exact canonical85af bytes in asset manifest:
+SUNNY_CORE physical81 A-window B200..<C000 (3584B reservation).
+SUNNY_ART physical94 C-window CE00..<E000 (4608B reservation; Mac ends CD98).
+SUNNY_CHR pages724..739 (16KiB reservation, pages724..727 actually used).
+Persistent SunnyForm/Ready/Life/Area/World/Palette/LastForm/Future at5FB8..5FBF.
+Active SunnyClock/Pose/Frame/Temp/AnimationStep at5C00..5C04, only selected23.
+Area snapshot uses (AreaType<<5)|AreaAddrsLOffset, never the mutable future
+destination AreaPointer. Form is restored on selection/area; real life loss
+clears it, life gains preserve it. The future byte has no invented power.
+
+ROOT integration (not performed by this component):
+1. Include sunny.s only for expandedMMC5; add the three exact declared
+   segments above. Install sunny.chr in its reserved physical pages.
+2. Admit CHARACTER_SUNNY=23 in menu/name/identity bounds, preserve that ID
+   throughout execution. No temporary rewrite to Mario/Luigi.
+3. Global constructor SunnyGlobalInit only clears its own8B. For actual
+   selection/area call the existing shared legacy weapon/CHR cleanup then
+   SunnyReset. SunnyDeathStart clears its own form before SunnyNativeDeath.
+4. Route movement SunnyNativeMovement to the genuine CrossoverVanillaMovement
+   leaf. It preserves incoming AXYP for that tail. Do not route to current
+   owner0-specific MarioSourceMovement without proving its shared admissions.
+5. NrWeapons child is SunnyWeapons (RTS). Separately replace the OBJECT native
+   fireball/bubble tail with SunnyNativeWeaponTail. This is a tail branch, not
+   an additional weapon tick; adding both would execute bubbles twice.
+6. At actual physical mushroom/flower collection, caller retains its real
+   erase/points/SFX and invokes SunnyBeginPickup once (X=real actor). It uses
+   the existing MarioSourceBeginPowerup Easy/Hard contract. Star/1Up returnC0
+   for the native path. Engine9 uses SunnyPowerupUpdate; injury uses
+   SunnyInjuryStart and the existing GuestInjuryTick/legacy protection clock.
+   Small injury/death admission remains the actual native caller's job.
+7. Route graphics/portrait/draw to SunnyGraphics/SunnyPortrait/SunnyDraw;
+   body pointer is real C94, sentinel METASPRITE_SAMUS_BODY, SmChrBank low.
+   Restore C94 immediately at the actual player renderer if another actor
+   changed it. Reserve from the actual record header (max5 parts), not a
+   legacy ID table. SunnyGraphicsBank is the genuine C94 rebind leaf.
+8. SunnySetPose X=semantic0..16 preserves caller X/Y; returns the sentinel in
+   A and C from facing CMP2. SunnyPose/Frame and palette scratch are intentional
+   owned outputs. Genuine source idle20/crouch15-or30 animation uses SunnyClock;
+   other semantic timing follows native Mario animation selection.
+9. Route colors to SunnyColors (body palette0 at3F11); star/transform retains
+   the actual native palette owner and marks Sunny's cache dirty. Buffer
+   admission refuses offsets>=78; it acknowledges only an appended packet.
+   Admit ID23 before any legacy per-identity world-palette/CHR/physics arrays.
+10. Other callable leaves: SunnyHead/Side actual native block queries;
+    SunnyAdder C0 requests PlayerSize/crouch terrain rows; SunnyBox leaves Y;
+    SunnyBody allows native area-dependent stomp; SunnyInjuryStatus A/X=status;
+    SunnyVisible respects actual GuestHurtVisible or native InjuryTimer;
+    SunnyUi disables stale inventory HUD; SunnyFullPower implements host cheat;
+    SunnyStatusName writes exactly seven bytes atVRAM11..17 for messageA0.
+
+The art generator executes all35 original records in both facings and checks
+exact packed pixel reconstruction. Component tool performs actual ca65 syntax
+and emitted-size checks with genuine current host macros and records all
+assembler dependencies. This is UNLINKED SOURCE-ONLY evidence: it does not
+prove shared admissions, wholecaller/IRQ ABI, palette deadlines or native
+gameplay. ROOT owns full linking/route/native qualification. Shared source,
+canonical ROM, settings and all frozen Mac handoff files remain untouched.

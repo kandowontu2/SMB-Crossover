@@ -1,0 +1,812 @@
+{
+  "scope": "Bounded read-only Rogue Dawn 1.21 reference extraction; never runs an emulator.\n\nThe supplied cartridge is the authority. Original Metroid labels are comparison\nanchors only. No complete ROM, patch, audio, CHR, or runtime tree is copied.\n",
+  "native_run": false,
+  "rom": {
+    "path": "C:\\NES\\the stash\\Metroid - Rogue Dawn 1.21 (header fixed).nes",
+    "bytes": 786448,
+    "sha256": "9271411a20cc26c09f4d4bffe74c0d69a1bf91b815f7716fcf4610c4cee61077"
+  },
+  "original_base": {
+    "path": "C:\\NES\\Metroid (USA).nes",
+    "bytes": 131088,
+    "sha256": "88ad02b0b53012712f3c773a62073847551cec191aeda5d3ec19b22b594640eb"
+  },
+  "distribution_zip": {
+    "path": "C:\\Users\\kando\\Downloads\\Rogue_Dawn_V121.zip",
+    "bytes": 1043507,
+    "sha256": "aec62ec725aa693256ff88011533a51f24f9e1cadee821b763715250ef42448c"
+  },
+  "readme_archive_member": {
+    "name": "Rogue Dawn 1_21 Read Me.txt",
+    "bytes": 14735,
+    "sha256": "bef30d820aceb6c8e4a86cfbf4ca4e0664198afb7465e8501c86861526eee723"
+  },
+  "patch_archive_member": {
+    "name": "Rogue_Dawn_1.21.ips",
+    "bytes": 633848,
+    "sha256": "9181bd621e79157d849b0f83f8742842da73e611a911f441751ec90c1233a07d"
+  },
+  "patch_provenance": {
+    "payload_exact": true,
+    "only_header_differences": [
+      {
+        "file_offset": 10,
+        "archive_patch_byte": 7,
+        "supplied_byte": 112
+      }
+    ]
+  },
+  "cartridge": {
+    "header_hex": "4e45531a202043080000700700000001",
+    "mapper": 4,
+    "prg_bytes": 524288,
+    "chr_bytes": 262144,
+    "physical_prg_banks_8k": 64,
+    "fixed_c_bank": 62,
+    "fixed_e_bank": 63,
+    "vectors": {
+      "nmi": 51895,
+      "reset": 65456,
+      "irq": 51945
+    }
+  },
+  "static_mapping_scope": "Fixed C/E plus explicitly requested physical A61. Other switchable call targets require actual bank context.",
+  "tool": {
+    "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\rogue_dawn_map_v1.py",
+    "bytes": 16735,
+    "sha256": "b93ae79bbc57ab6a97dea3be1750b5625917e0adeab7e6e2906cdf19a29751f2"
+  },
+  "gear_items": [
+    {
+      "collector_id": 0,
+      "mask": "01",
+      "name": "Bombs",
+      "commit": "physical61:A667..A66D OR6878",
+      "evidence": "actual ROM; named Wall/Spring additionally in author1.21 readme"
+    },
+    {
+      "collector_id": 1,
+      "mask": "02",
+      "name": "High Jump",
+      "commit": "physical61:A667..A66D OR6878",
+      "evidence": "actual ROM; named Wall/Spring additionally in author1.21 readme"
+    },
+    {
+      "collector_id": 2,
+      "mask": "04",
+      "name": "Wall Jump",
+      "commit": "physical61:A667..A66D OR6878",
+      "evidence": "actual ROM; named Wall/Spring additionally in author1.21 readme"
+    },
+    {
+      "collector_id": 3,
+      "mask": "08",
+      "name": "Screw Attack",
+      "commit": "physical61:A667..A66D OR6878",
+      "evidence": "actual ROM; named Wall/Spring additionally in author1.21 readme"
+    },
+    {
+      "collector_id": 4,
+      "mask": "10",
+      "name": "Spring Ball",
+      "commit": "physical61:A667..A66D OR6878",
+      "evidence": "actual ROM; named Wall/Spring additionally in author1.21 readme"
+    },
+    {
+      "collector_id": 5,
+      "mask": "20",
+      "name": "Environmental Suit",
+      "commit": "physical61:A667..A66D OR6878",
+      "evidence": "actual ROM; named Wall/Spring additionally in author1.21 readme"
+    },
+    {
+      "collector_id": 6,
+      "mask": "40",
+      "name": "Wave Beam",
+      "commit": "physical61:A667..A66D OR6878",
+      "evidence": "actual ROM; named Wall/Spring additionally in author1.21 readme"
+    },
+    {
+      "collector_id": 7,
+      "mask": "80",
+      "name": "Ice Beam",
+      "commit": "physical61:A667..A66D OR6878",
+      "evidence": "actual ROM; named Wall/Spring additionally in author1.21 readme"
+    }
+  ],
+  "resource_items": [
+    {
+      "collector_id": 8,
+      "name": "Energy Tank",
+      "routine": "physical61:A68D..A6A7",
+      "effect": "TankCount6877 increments unless6; HealthHi0107=(TankCount<<4)|09, HealthLo0106=99"
+    },
+    {
+      "collector_id": 9,
+      "name": "Missile Tank",
+      "routine": "physical61:A684..A68B -> physical62:DD97",
+      "effect": "current6879 and max687A each+5 saturated255",
+      "limit": "A684 also treats other IDs>=9 this way; valid extra spawn IDs not inferred"
+    }
+  ],
+  "native_player_actions": {
+    "0": "stand CC36",
+    "1": "run/run-jump DA25->CCC2",
+    "2": "jump DA0A->D002",
+    "3": "morph D0E1",
+    "4": "aim-up D198",
+    "5": "door D3A8",
+    "6": "jump-aim DA72",
+    "7": "dead D41A",
+    "8": "dead2 D41F",
+    "9": "elevator D423"
+  },
+  "ability_rules": [
+    {
+      "name": "Morph Ball and Long Beam",
+      "status": "unconditional native code",
+      "source": [
+        "62:D0B5..D0D8",
+        "62:D252..D260",
+        "62:D4EB..D51E"
+      ],
+      "rule": "No gear10 morph requirement; native long-range checks replaced with constant04. Item bits04/10 are Wall/Spring."
+    },
+    {
+      "name": "Wall Jump",
+      "source": [
+        "62:DA25..DA6F",
+        "63:E880/E88B",
+        "62:CD40",
+        "62:CFC3"
+      ],
+      "rule": "gear04 + freshA + heldhorizontal; the selected side probe must return carryclear, then native jump/max-speed setup.",
+      "unresolved": "Physical probe side/facing and actual dry/wet contact sequence still need original native observation."
+    },
+    {
+      "name": "Spring Ball",
+      "source": [
+        "63:E1CB..E1DA",
+        "61:A2AD..A2FE"
+      ],
+      "rule": "freshA; support via frozenenemy7D or blocked-down probe; gear10. Same jump/high-jump environment helper. Releasing A after heldA clips upward VY belowFE toFE."
+    },
+    {
+      "name": "Air morph",
+      "source": [
+        "62:DA0A..DA3F"
+      ],
+      "rule": "freshDown in active jump: Spring bit10 bypasses ground restriction; cooldown2A gates jump action2 path. Action1 path otherwise probes support."
+    },
+    {
+      "name": "Native ball landing bounce",
+      "source": [
+        "63:E2E8..E318"
+      ],
+      "rule": "After actual downward collision, action3 halves VY/fraction then negates pair; impact with shifted VYzero stops. Other actions stop and clear gravity."
+    },
+    {
+      "name": "Bombs",
+      "source": [
+        "62:D150..D197",
+        "62:D65E..D6A6"
+      ],
+      "rule": "gear01 + fresh/retriggerB40, no elevator; airborne VY restriction removed. Shared projectile slotsD0/E0/F0, action8->9 fuse12 odd-parity ticks->10 explosion.",
+      "unresolved": "Complete explosion contact/block radius and animation lifetime require source continuation/native observations; no generic bomb damage substitute."
+    },
+    {
+      "name": "Wave plus Ice",
+      "source": [
+        "62:D359..D3A7",
+        "62:D5C1..D5C7",
+        "62:DA85..DA91",
+        "61:A667..A66D"
+      ],
+      "rule": "gear40 and80 coexist; Ice overrides action to3 while keeping Wave metadata; Ice dispatcher uses Wave update when40. Source wave tablesD58B..D5C0."
+    },
+    {
+      "name": "Missiles",
+      "source": [
+        "62:D315..D358"
+      ],
+      "rule": "native mode010E; real ammo debit6879 once per launch; removed D0-only restriction permits available shared3slots. Zero ammo clears missilemode."
+    },
+    {
+      "name": "Screw and Suit",
+      "source": [
+        "62:CD9C..CDBE",
+        "62:CEAC..CEBD",
+        "63:E294..E2A8"
+      ],
+      "rule": "Screw requires action1 plus authentic pose/motion test; Suit20 halves native BCD damage and changes environmental hazard admission.",
+      "unresolved": "Do not infer immunity to every host hazard or map enemy-type damage without actual source contact."
+    }
+  ],
+  "runtime_observations_needed": [
+    "Actual dry and water780E bits; standing/run jump source action, input12/14/16,0310..0316 and per-Main pixel deltas.",
+    "WallJumpDA4D, probe E880/E88B and actual carry at returnsDA5F/DA66; held direction/facing before and afterCD40.",
+    "Spring entry A61:A2AD with actual support7D/E7AD result and releaseA2DE..A2FE; active bank7 shadow7829.",
+    "Physical collection A61:A63F DC7F return/A643 and commitA667; item0748+0/8 and before/after6878/6877..7A.",
+    "BombD150 allocation, D65E fuse init, D670 oddclock and D691 explosion; actual enemy contactF2CA and source damageDA92, bounded target/no-target controls.",
+    "Earn40/80 in both acquisition orders; horizontal/up beam D359/D38E, actual wave metadata05D0..05F2, ice freeze and cleanup; missile debit/last-ammo/mode reset."
+  ],
+  "source_search": {
+    "author_distribution": "local Rogue_Dawn_V121.zip / exact1.21 readme and IPS",
+    "developer_announcement": "https://forum.gamehacking.org/forum/video-game-hacking-and-development/miscellaneous-game-hacking/12411-nes-metroid-1-hack-metroid-rogue-dawn",
+    "release_thread": "https://forum.metroidconstruction.com/index.php?topic=4221.0",
+    "editor_project": "https://github.com/snarfblam/editroid/tree/5d80fcceb1b081cf6428d773652f1f79c488f06d",
+    "original_metroid": "https://github.com/nmikstas/metroid-disassembly/tree/4270d57f9468daebdeea485686e31e26218a780c",
+    "limit": "No complete Rogue gameplay source located in the inspected local distribution or Editroid tree. Original Metroid names are anchors, not Rogue source. Forum access intermittent/403."
+  },
+  "wave_decoder_byte_aliases": {
+    "8296": {
+      "bytes": 15,
+      "sha256": "ce5cb991f998fc15217e68503ba492693a2def0af9cca892c750c7a409d685b8",
+      "identical_physical_banks": [
+        2,
+        4,
+        6,
+        8,
+        10
+      ]
+    },
+    "832F": {
+      "bytes": 16,
+      "sha256": "cf0839aee586ab20ff959355fd840eb500b020f626dd75ce3c08d3d3127b15d7",
+      "identical_physical_banks": [
+        2,
+        4,
+        6,
+        8,
+        10
+      ]
+    }
+  },
+  "bounded_spans": [
+    {
+      "bank_decimal": 62,
+      "bank_hex": "3E",
+      "cpu_start": "C2BE",
+      "cpu_end_exclusive": "C2CA",
+      "name": "shift helpers",
+      "file_offset": 508622,
+      "bytes": 12,
+      "sha256": "ebd084c64addb24005c779880c4c87c7bf6f7c10185ac028f9b1feaeda2051d3",
+      "type": "code range"
+    },
+    {
+      "bank_decimal": 62,
+      "bank_hex": "3E",
+      "cpu_start": "C4FA",
+      "cpu_end_exclusive": "C508",
+      "name": "logical 16K area mapping",
+      "file_offset": 509194,
+      "bytes": 14,
+      "sha256": "246e4340fb608f57e63f26761ea0c3b7f89882caf9cfdbbe37d0090eb0862afa",
+      "type": "code range"
+    },
+    {
+      "bank_decimal": 62,
+      "bank_hex": "3E",
+      "cpu_start": "C716",
+      "cpu_end_exclusive": "C71D",
+      "name": "physical A61 mapping",
+      "file_offset": 509734,
+      "bytes": 7,
+      "sha256": "2b21326ddc50f846ad84654fcdc4617e6d8a004565dcf14fce9b9581c2e5c475",
+      "type": "code range"
+    },
+    {
+      "bank_decimal": 62,
+      "bank_hex": "3E",
+      "cpu_start": "CC0D",
+      "cpu_end_exclusive": "CC22",
+      "name": "player update and indexed action dispatch",
+      "file_offset": 511005,
+      "bytes": 21,
+      "sha256": "8b39724c04f61c65185e8281a974dad347c12d84930ac22a8090d25638c85ecb",
+      "type": "code range"
+    },
+    {
+      "bank_decimal": 62,
+      "bank_hex": "3E",
+      "cpu_start": "CD40",
+      "cpu_end_exclusive": "CD6B",
+      "name": "running/wall jump continuation",
+      "file_offset": 511312,
+      "bytes": 43,
+      "sha256": "286326e42d944c5a9d8066236fbac67631633604a25fc0ed276ada200cde3042",
+      "type": "code range"
+    },
+    {
+      "bank_decimal": 62,
+      "bank_hex": "3E",
+      "cpu_start": "CD9C",
+      "cpu_end_exclusive": "CDBF",
+      "name": "Screw Attack action/pose admission; no morphball shortcut",
+      "file_offset": 511404,
+      "bytes": 35,
+      "sha256": "875235c5ac4b94b0ab1ded9b10e0f269b255fea1bdb628c3f14f8949cad7b84a",
+      "type": "code range"
+    },
+    {
+      "bank_decimal": 62,
+      "bank_hex": "3E",
+      "cpu_start": "CF2E",
+      "cpu_end_exclusive": "CF55",
+      "name": "horizontal collision response",
+      "file_offset": 511806,
+      "bytes": 39,
+      "sha256": "f5509de4bfe30b5c421a2ebce89a7ff71f3a1874584645cb9b8c7af547ce6c53",
+      "type": "code range"
+    },
+    {
+      "bank_decimal": 62,
+      "bank_hex": "3E",
+      "cpu_start": "CF6B",
+      "cpu_end_exclusive": "CF77",
+      "name": "animation reset",
+      "file_offset": 511867,
+      "bytes": 12,
+      "sha256": "fbd5a96d4246ba1702d6b9d31248ece6333c687bcd3e4a53856df083d1c5f9bd",
+      "type": "code range"
+    },
+    {
+      "bank_decimal": 62,
+      "bank_hex": "3E",
+      "cpu_start": "CFC3",
+      "cpu_end_exclusive": "D002",
+      "name": "jump initialization",
+      "file_offset": 511955,
+      "bytes": 63,
+      "sha256": "c1c0ac67c84684f1f94832d56814f93d514d81918d03d882bcfef7d14fa2b2b6",
+      "type": "code range"
+    },
+    {
+      "bank_decimal": 62,
+      "bank_hex": "3E",
+      "cpu_start": "D002",
+      "cpu_end_exclusive": "D055",
+      "name": "jump update, release cut, aim and fire",
+      "file_offset": 512018,
+      "bytes": 83,
+      "sha256": "df40c79186294910aa4a2ae51a2cea6e8af496cc7cb202348c4676e8b6ee45b9",
+      "type": "code range"
+    },
+    {
+      "bank_decimal": 62,
+      "bank_hex": "3E",
+      "cpu_start": "D055",
+      "cpu_end_exclusive": "D096",
+      "name": "air horizontal control",
+      "file_offset": 512101,
+      "bytes": 65,
+      "sha256": "bc0c56951b0144758216b5cfd8ac1648ad076037e3b52b212d764c846000c5a0",
+      "type": "code range"
+    },
+    {
+      "bank_decimal": 62,
+      "bank_hex": "3E",
+      "cpu_start": "D0B5",
+      "cpu_end_exclusive": "D0EA",
+      "name": "unconditional morph; Spring Ball gateway",
+      "file_offset": 512197,
+      "bytes": 53,
+      "sha256": "8c4de9f3d7aaab3bfd403bf6c6040c5200e48faba5a4f3bb57fde992c1347cce",
+      "type": "code range"
+    },
+    {
+      "bank_decimal": 62,
+      "bank_hex": "3E",
+      "cpu_start": "D0EB",
+      "cpu_end_exclusive": "D144",
+      "name": "unmorph, ball continuation and bomb call",
+      "file_offset": 512251,
+      "bytes": 89,
+      "sha256": "661d8f07397e218ec2aaf6bfd860e7142d8f66eca98c10aa735a23333505cb61",
+      "type": "code range"
+    },
+    {
+      "bank_decimal": 62,
+      "bank_hex": "3E",
+      "cpu_start": "D147",
+      "cpu_end_exclusive": "D198",
+      "name": "stop vertical movement and bomb allocation",
+      "file_offset": 512343,
+      "bytes": 81,
+      "sha256": "5c0a768f7ca81a78512f3e5fb53e86980ac433c0eb7c970f608eb5a7a23d4a51",
+      "type": "code range"
+    },
+    {
+      "bank_decimal": 62,
+      "bank_hex": "3E",
+      "cpu_start": "D1EE",
+      "cpu_end_exclusive": "D2EB",
+      "name": "beam allocation and horizontal/up fire",
+      "file_offset": 512510,
+      "bytes": 253,
+      "sha256": "a4dfac027d04c2285f52a83f2b01a6469bb86826be545511b204adf62839e459",
+      "type": "code range"
+    },
+    {
+      "bank_decimal": 62,
+      "bank_hex": "3E",
+      "cpu_start": "D2EB",
+      "cpu_end_exclusive": "D3A8",
+      "name": "projectile initialization, missiles, Wave and Ice",
+      "file_offset": 512763,
+      "bytes": 189,
+      "sha256": "a17fef9e63099afdc7dce7aa2e92174df1589b6f39d7189b70449f3db58018c8",
+      "type": "code range"
+    },
+    {
+      "bank_decimal": 62,
+      "bank_hex": "3E",
+      "cpu_start": "D4BF",
+      "cpu_end_exclusive": "D4D3",
+      "name": "three projectile update owners",
+      "file_offset": 513231,
+      "bytes": 20,
+      "sha256": "d75588253c047dbf9ee85102115fd93a0e74cfeff96aa7b830217424fae17272",
+      "type": "code range"
+    },
+    {
+      "bank_decimal": 62,
+      "bank_hex": "3E",
+      "cpu_start": "D4EB",
+      "cpu_end_exclusive": "D58B",
+      "name": "normal and Wave updates",
+      "file_offset": 513275,
+      "bytes": 160,
+      "sha256": "4a1e4a5fe67e152c31f45743457aca9ca7406edd7c845ff6fca189ce47e2b210",
+      "type": "code range"
+    },
+    {
+      "bank_decimal": 62,
+      "bank_hex": "3E",
+      "cpu_start": "D5C1",
+      "cpu_end_exclusive": "D609",
+      "name": "Ice dispatch and projectile hit/offscreen handling",
+      "file_offset": 513489,
+      "bytes": 72,
+      "sha256": "d2d41c6676a9598bc543cebb8ebec617a8dde8805621927ce905b74344e07cd8",
+      "type": "code range"
+    },
+    {
+      "bank_decimal": 62,
+      "bank_hex": "3E",
+      "cpu_start": "D65E",
+      "cpu_end_exclusive": "D6A7",
+      "name": "bomb initialization, fuse and explosion update",
+      "file_offset": 513646,
+      "bytes": 73,
+      "sha256": "13b2fae0ced41c89b8e9a3fdf05f1ccfcf776a3a8c4e7c717fd07dcebfd24a69",
+      "type": "code range"
+    },
+    {
+      "bank_decimal": 62,
+      "bank_hex": "3E",
+      "cpu_start": "D9D4",
+      "cpu_end_exclusive": "DAC7",
+      "name": "unmorph/support extension, air morph, wall jump, Wave/Ice and damage extensions",
+      "file_offset": 514532,
+      "bytes": 243,
+      "sha256": "7a2c8d01a13223cb22a491feb7b5edbcbb35170d75ab4b5a59109b77399ff15f",
+      "type": "code range"
+    },
+    {
+      "bank_decimal": 62,
+      "bank_hex": "3E",
+      "cpu_start": "DAC7",
+      "cpu_end_exclusive": "DB11",
+      "name": "new projectile terrain handling and banked gateway",
+      "file_offset": 514775,
+      "bytes": 74,
+      "sha256": "921b355e1ff8a6c1ba4e3d194912e247282a6bd86323b598afe655ab049e193d",
+      "type": "code range"
+    },
+    {
+      "bank_decimal": 62,
+      "bank_hex": "3E",
+      "cpu_start": "DB11",
+      "cpu_end_exclusive": "DB70",
+      "name": "A61 call/return gateways",
+      "file_offset": 514849,
+      "bytes": 95,
+      "sha256": "7dee0f2b93989f76ddd38136c4c2e1e1d3a342dec72e5550ec2ec3ff72e80472",
+      "type": "code range"
+    },
+    {
+      "bank_decimal": 62,
+      "bank_hex": "3E",
+      "cpu_start": "DC3E",
+      "cpu_end_exclusive": "DC73",
+      "name": "environment-aware gravity/max speed",
+      "file_offset": 515150,
+      "bytes": 53,
+      "sha256": "80c71dabff4d89aed5f950ef43a1bdb843a30f664601b791f2f1b71938ed02ee",
+      "type": "code range"
+    },
+    {
+      "bank_decimal": 62,
+      "bank_hex": "3E",
+      "cpu_start": "DC56",
+      "cpu_end_exclusive": "DC61",
+      "name": "alternate entry: ordinary water gravity",
+      "file_offset": 515174,
+      "bytes": 11,
+      "sha256": "82f72348a5e1aa8fed1b7426f523228195d295068bb10ef2a9d78761d20c7d14",
+      "type": "code range"
+    },
+    {
+      "bank_decimal": 62,
+      "bank_hex": "3E",
+      "cpu_start": "DC6D",
+      "cpu_end_exclusive": "DC73",
+      "name": "alternate entry: reduced wall-jump max speed",
+      "file_offset": 515197,
+      "bytes": 6,
+      "sha256": "ffb42a217a954feac38c834204e191f1ab29177ffed80342df8fd4da4f9f00c0",
+      "type": "code range"
+    },
+    {
+      "bank_decimal": 62,
+      "bank_hex": "3E",
+      "cpu_start": "DD97",
+      "cpu_end_exclusive": "DDB0",
+      "name": "missile tank +5 saturating counters",
+      "file_offset": 515495,
+      "bytes": 25,
+      "sha256": "98ccb3fa09552e4fb6e180ec6821db982adc878c82b84db2442290fe56b679fc",
+      "type": "code range"
+    },
+    {
+      "bank_decimal": 61,
+      "bank_hex": "3D",
+      "cpu_start": "A257",
+      "cpu_end_exclusive": "A279",
+      "name": "gear item special-case and gear read",
+      "file_offset": 500327,
+      "bytes": 34,
+      "sha256": "d547eee7df972ba3577d413ac379608ffaf002fa37bbed46c121f220665df765",
+      "type": "code range"
+    },
+    {
+      "bank_decimal": 61,
+      "bank_hex": "3D",
+      "cpu_start": "A2AD",
+      "cpu_end_exclusive": "A2FF",
+      "name": "Spring Ball and A-release cut",
+      "file_offset": 500413,
+      "bytes": 82,
+      "sha256": "88cb38ee8a94cef882d43ec5dcce3899de645aad89af32ec2cdd34de70466c7c",
+      "type": "code range"
+    },
+    {
+      "bank_decimal": 61,
+      "bank_hex": "3D",
+      "cpu_start": "A5C4",
+      "cpu_end_exclusive": "A70C",
+      "name": "physical item draw/contact/commit/history",
+      "file_offset": 501204,
+      "bytes": 328,
+      "sha256": "6338c2eab2213d6f6d4507463d3779144095d5b20d7448b41b71f3b04a580c73",
+      "type": "code range"
+    },
+    {
+      "bank_decimal": 63,
+      "bank_hex": "3F",
+      "cpu_start": "E1CB",
+      "cpu_end_exclusive": "E1DB",
+      "name": "Spring Ball banked call owner",
+      "file_offset": 516571,
+      "bytes": 16,
+      "sha256": "58075ac6e8b2881b922d5354abdfd3093424c9bf891bcf351beb54b7edb59424",
+      "type": "code range"
+    },
+    {
+      "bank_decimal": 63,
+      "bank_hex": "3F",
+      "cpu_start": "E294",
+      "cpu_end_exclusive": "E2A9",
+      "name": "environmental-suit damage admission",
+      "file_offset": 516772,
+      "bytes": 21,
+      "sha256": "e0bc6b3da93194c3c08ac2580a17d6689332590ed48355645218f01336a1f054",
+      "type": "code range"
+    },
+    {
+      "bank_decimal": 63,
+      "bank_hex": "3F",
+      "cpu_start": "E2E8",
+      "cpu_end_exclusive": "E31A",
+      "name": "downward collision: real morph-ball bounce or stop",
+      "file_offset": 516856,
+      "bytes": 50,
+      "sha256": "5324d0d9def1b30839f60635d7c0f370e079dc17fe50e0a9388a7f84f06fcf84",
+      "type": "code range"
+    },
+    {
+      "bank_decimal": 63,
+      "bank_hex": "3F",
+      "cpu_start": "E37A",
+      "cpu_end_exclusive": "E457",
+      "name": "vertical and horizontal acceleration",
+      "file_offset": 517002,
+      "bytes": 221,
+      "sha256": "e3a59c257969618a0543d690178aa1dc0604ce35e1ddadf79d7c0f861bc3beb2",
+      "type": "code range"
+    },
+    {
+      "bank_decimal": 63,
+      "bank_hex": "3F",
+      "cpu_start": "E7A2",
+      "cpu_end_exclusive": "E7C0",
+      "name": "up/down tile probes; partial continuation",
+      "file_offset": 518066,
+      "bytes": 30,
+      "sha256": "19c8349bf0b48653ef54cd307f4456d05a52a17ffbc3a7498131e99974bd6887",
+      "type": "code range"
+    },
+    {
+      "bank_decimal": 63,
+      "bank_hex": "3F",
+      "cpu_start": "E880",
+      "cpu_end_exclusive": "E8BE",
+      "name": "side tile probes; continuation excluded",
+      "file_offset": 518288,
+      "bytes": 62,
+      "sha256": "90ebcabd3218f62c6df94b9394ce356a50ecb812ba4634f1be85fcdcaefa60ce",
+      "type": "code range"
+    },
+    {
+      "bank_decimal": 63,
+      "bank_hex": "3F",
+      "cpu_start": "F2CA",
+      "cpu_end_exclusive": "F2DF",
+      "name": "actual contact gates projectile-to-enemy flags",
+      "file_offset": 520922,
+      "bytes": 21,
+      "sha256": "97ee03ee9706370cf14dbf466efa00823a8fa9e3495af650ed372fd5cbd5103f",
+      "type": "code range"
+    },
+    {
+      "bank_decimal": 63,
+      "bank_hex": "3F",
+      "cpu_start": "F579",
+      "cpu_end_exclusive": "F5F1",
+      "name": "enemy weapon damage admission to DA92",
+      "file_offset": 521609,
+      "bytes": 120,
+      "sha256": "2cdbd35129853dea0add2dd2feaa37066ae98ee1c9c17b83f189311e3ba3b0d2",
+      "type": "code range"
+    },
+    {
+      "bank_decimal": 63,
+      "bank_hex": "3F",
+      "cpu_start": "FFDC",
+      "cpu_end_exclusive": "FFF0",
+      "name": "MMC3 bank/shadow write gateway",
+      "file_offset": 524268,
+      "bytes": 20,
+      "sha256": "a72f23ae45f6e72ff2a4bbac78a1f93fc6f82bbf02bde8152d003c9f49790d07",
+      "type": "code range"
+    },
+    {
+      "bank_decimal": 2,
+      "bank_hex": "02",
+      "cpu_start": "8296",
+      "cpu_end_exclusive": "82A5",
+      "name": "known physical02 Wave signed vertical decoder",
+      "file_offset": 17062,
+      "bytes": 15,
+      "sha256": "ce5cb991f998fc15217e68503ba492693a2def0af9cca892c750c7a409d685b8",
+      "type": "code range"
+    },
+    {
+      "bank_decimal": 2,
+      "bank_hex": "02",
+      "cpu_start": "832F",
+      "cpu_end_exclusive": "833F",
+      "name": "known physical02 Wave signed horizontal decoder",
+      "file_offset": 17215,
+      "bytes": 16,
+      "sha256": "cf0839aee586ab20ff959355fd840eb500b020f626dd75ce3c08d3d3127b15d7",
+      "type": "code range"
+    },
+    {
+      "bank_decimal": 62,
+      "bank_hex": "3E",
+      "cpu_start": "CC22",
+      "cpu_end_exclusive": "CC36",
+      "name": "player action pointers",
+      "file_offset": 511026,
+      "bytes": 20,
+      "sha256": "8de46b3c3867f2944c0b9ffa7d4e0ee9fca468cf71dacba0c73dd285cd2476be",
+      "type": "data"
+    },
+    {
+      "bank_decimal": 62,
+      "bank_hex": "3E",
+      "cpu_start": "CCC0",
+      "cpu_end_exclusive": "CCC2",
+      "name": "ground accelerations right/left",
+      "file_offset": 511184,
+      "bytes": 2,
+      "sha256": "3f64308bda69a4f35398a9e0a39c3110253180d178f7b350a982be8e9a97707f",
+      "type": "data"
+    },
+    {
+      "bank_decimal": 62,
+      "bank_hex": "3E",
+      "cpu_start": "D26F",
+      "cpu_end_exclusive": "D275",
+      "name": "horizontal beam offsets and velocities",
+      "file_offset": 512639,
+      "bytes": 6,
+      "sha256": "77c6a74d650c9b499d698d9e504b35aa9b0f529ed1120ec4f0f871d13c4d3c03",
+      "type": "data"
+    },
+    {
+      "bank_decimal": 62,
+      "bank_hex": "3E",
+      "cpu_start": "D2E5",
+      "cpu_end_exclusive": "D2EB",
+      "name": "upward beam offsets",
+      "file_offset": 512757,
+      "bytes": 6,
+      "sha256": "6d799218cd56fd3dc00f5ac79a5d3a689532445b49585c67c2aa441e2ced4565",
+      "type": "data"
+    },
+    {
+      "bank_decimal": 62,
+      "bank_hex": "3E",
+      "cpu_start": "D33E",
+      "cpu_end_exclusive": "D340",
+      "name": "left/right missile animation IDs",
+      "file_offset": 512846,
+      "bytes": 2,
+      "sha256": "8178fc66262966f1acec2c5148cb85fcc6271c5b9d8d501e28bf435abcb05cab",
+      "type": "data"
+    },
+    {
+      "bank_decimal": 62,
+      "bank_hex": "3E",
+      "cpu_start": "D4D3",
+      "cpu_end_exclusive": "D4EB",
+      "name": "projectile action pointers",
+      "file_offset": 513251,
+      "bytes": 24,
+      "sha256": "fac7a1aed9a8c14c1c3d0f755c8cf5d6cea2bc12bea874017867fb662d04d8c8",
+      "type": "data"
+    },
+    {
+      "bank_decimal": 62,
+      "bank_hex": "3E",
+      "cpu_start": "D58B",
+      "cpu_end_exclusive": "D5C1",
+      "name": "Wave orientation pointers and wave motion tables",
+      "file_offset": 513435,
+      "bytes": 54,
+      "sha256": "1cca2150d6fb4caefbfbbc62a86403739e88fc4b4b2c746078f7579e1e300429",
+      "type": "data"
+    }
+  ],
+  "disassembly": {
+    "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\docs\\qa\\rogue-dawn-reference\\rom-map-v1.disassembly.txt",
+    "bytes": 39463,
+    "sha256": "ff49d44e6069b3595e6253490a3d7efe9db8acf6953e0baaef3902014f454ad9"
+  },
+  "original_metroid_comparison_anchors": [
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\.upstream\\metroid\\Source_Files\\Bank07.asm",
+      "bytes": 299476,
+      "sha256": "ccea3c5c3e582da0147af9e9614de9cd9b95ac25845cf5db2be152aedfb5f7fa"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\.upstream\\metroid\\Source_Files\\Metroid_Defines.asm",
+      "bytes": 58183,
+      "sha256": "b75ef77199fd2ab1295b680f58599bd281ff4300c7e567aad7c15fef0b430b08"
+    }
+  ]
+}

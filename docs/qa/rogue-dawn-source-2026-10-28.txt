@@ -1,0 +1,191 @@
+Rogue Dawn1.21 — actual-ROM map and dedicated kinematics component
+2026-10-28. SOURCE/CPU ONLY. No native emulator launched. Not a playable or
+integrated alternate yet. Ordinary Samus movement is never called by this leaf.
+
+Authority and provenance
+------------------------
+Supplied C:/NES/the stash/Metroid - Rogue Dawn1.21 (header fixed).nes
+(actual filename contains spaces around its title/version) SHA256:
+9271411a20cc26c09f4d4bffe74c0d69a1bf91b815f7716fcf4610c4cee61077.
+512KiB PRG/256KiB CHR, MMC3. Physical8KiB PRG banks are numbered0..63.
+The actual supplied filename/path is bound verbatim in rom-map-v1.json.
+
+The surviving author distribution C:/Users/kando/Downloads/Rogue_Dawn_V121.zip
+contains the1.21 IPS and original readme. Applying that IPS IN MEMORY to the
+existing local MetroidUSA ROM reproduces EVERY supplied PRG/CHR byte. Only
+header byte10 differs: archive patch07, supplied70. Nothing was downloaded or
+copied from the ROM/IPS/NSF/CHR. The small exact readme is extracted and hashed.
+
+Author1.21 readme confirms March20,2017 release; ball ground bounce; Wall Jump,
+Spring Ball, Wave/Ice/Screw/High Jump/Bombs; and starts with Morph/Long. It notes
+a1.21 fix for morphball erroneously damaging all enemies. Exact ROM controls,
+not old Metroid labels, are the implementation authority.
+
+Inspected source leads: author announcement at
+https://forum.gamehacking.org/forum/video-game-hacking-and-development/miscellaneous-game-hacking/12411-nes-metroid-1-hack-metroid-rogue-dawn
+(2015 goals, not final-version proof); release thread
+https://forum.metroidconstruction.com/index.php?topic=4221.0
+(access intermittent/403); Snarfblam's Editroid at commit
+5d80fcceb1b081cf6428d773652f1f79c488f06d contains Rogue graphics/editor material,
+but no complete Rogue gameplay source was found in the inspected tree/archive.
+Local original Metroid disassembly commit4270d57f9468daebdeea485686e31e26218a780c
+https://github.com/nmikstas/metroid-disassembly/tree/4270d57f9468daebdeea485686e31e26218a780c
+is an address/name comparison anchor only. Its gear bits04/10 mean Long/Morph;
+Rogue REASSIGNS them. Do not port those original names unmodified.
+
+Actual bank and owner map
+-------------------------
+Notation physical bank DECIMAL / CPU address; machine-readable map additionally
+uses HEX physical bank prefixes (3D=61,3E=62,3F=63). File offset for these8KiB
+banks is16+8192*bank+(CPU&1FFF). Fixed C/E engines are62:C000 and63:E000.
+Vectors are NMI62:CAB7, reset63:FFB0, IRQ62:CAE9.
+62:C716 maps physical61 at A000 via63:FFDC. FFDC writes MMC3 registers plus
+foreground shadows7820/7821/7822+register. 62:CA46 restores area mapping.
+62:C4FA maps an area's logical16KiB pair at8000/A000. Never call an8000/A000
+address without its actual physical bank. In particular61:A000 is MAP UI.
+
+Player update62:CC0D; action tableCC22:0standCC36,1run/run-jumpDA25->CCC2,
+2jumpDA0A->D002,3ballD0E1,4aimD198,5doorD3A8,6jump-aimDA72,
+7deadD41A,8dead2D41F,9elevatorD423. These distinct handlers matter.
+
+Native items and abilities
+--------------------------
+Physical61:A5CC updates2 actual item records at0748+X, X=0/8. A5D7 single
+collector copies actual actor coords, renders, checks DC7F collision and only
+then commits. 61:A667 ORs gear6878; the old exclusive-beam clearing is gone.
+
+kind bit name                actual behavior owner
+0    01  Bombs               62:D150 allocation; D65E/D670/D691 updates
+1    02  High Jump           62:CFC3/DC4B selects gravity12 instead18
+2    04  Wall Jump           62:DA46..DA6F; side probes63:E880/E88B ->CD40
+3    08  Screw Attack        62:CD9C action1 + source pose/upward tests
+4    10  Spring Ball         63:E1CB gateway ->61:A2AD..A2FE
+5    20  Environmental Suit  62:CEAC damage halving;63:E294 hazard admission
+6    40  Wave Beam           62:D359 initialization; D52C update
+7    80  Ice Beam            62:D38E initialization; D5C1->DA85 update
+8        Energy Tank        61:A68D increments6877 unless6; writes native BCD
+                            image0107=(tank<<4)|09,0106=99
+9        Missile Tank       61:A684 ->62:DD97 adds5 to6879/687A, saturates255
+IDs>=9 share the latter branch; no additional valid map-spawn IDs inferred.
+Item0 in one region (74&15==4) takes a separate A257 script path, unresolved.
+No invented Charge/Speed/Grapple/SpaceJump was added to this inventory.
+
+Morph is unconditional at62:D0B5, Long checks replaced with constant04 in
+native fire/update code. Wall Jump requires gear04, freshA(12 bit80), held
+horizontal(14 bits1/2), then blocked-side probe carryclear before nativeCD40.
+Its physical probe-side/facing sequence remains a runtime observation need.
+
+Spring uses freshA plus actual frozen support7D or down probeE7AD. Its native
+release edgeCD/14 immediately clips upward VY less thanFE toFE. Ordinary
+standing-jump D002 cuts only after jump displacement030F>=32. Do not apply
+one jump-release policy to every source action. Air morph uses freshDown and
+Spring bit10/support with a2A cooldown on action2. Root must retain these gates.
+
+REAL ball landing bounce is63:E2E8..E318 after actual downward collision:
+action3 halves VY/fraction and negates the pair; tiny impacts stop. The separate
+62:D9D4 extension belongs to the unmorph/support path, not the whole landing
+bounce. Normal ground contact stops vertical state/clears gravity.
+
+Bomb placement uses B(bit40 of12|16), notA. It now permits airborne placement,
+still rejects elevator0307, and shares exactly3 slots D0/E0/F0 with beams and
+missiles. Source actions8->9->10. Fuse starts12 and decrements only when
+FrameCount2D bit0=1:12 eligible ticks, normally24 Main updates. Original NES
+Metroid fuse was24. Full explosion block/contact/animation lifecycle remains
+unported; do not substitute a generic host bomb or assume global enemy damage.
+
+Wave40 and Ice80 coexist, in either acquisition order. Ice changes action3
+but preserves Wave metadata; DA85 selects native Wave motion when40. Actual
+Wave tables are62:D58B..D5C0. The signed motion decoder bytes at CPU8296/832F
+match exactly in physical banks2/4/6/8/10; they do NOT match title bank0.
+Missiles debit6879 once, clear mode010E atzero, and removed D0-only restriction
+allows other free shared projectile slots. Enemy-type damage handlingDA92 and
+real contactF2CA must remain owned, not guessed from beam name.
+
+Dedicated kernel delivered
+--------------------------
+src/rogue_dawn.s includes ONLY rogue_dawn_state.inc and rogue_dawn_core.s.
+ROGUE_DAWN_CORE links at physical124 A-windowB000..B277:632bytes;3464bytes
+remain in ROOT's4KiB reservation. Standalone kernel.bin is only632bytes.
+No shared cfg/entrypoint, production ROM, Downloads, settings or Git changed.
+
+Persistent5FB0..B5:gear,current/max missiles,tanks,BCD health.5FB6/7 unused.
+Sunny's5FB8..BF are never read/cleared. RdVariant5FEE is ROOT-owned: planned
+SelectedCharacter2/Samus,0ordinary,1Rogue. Active5C00..1F projects native player
+0300..031F;20..26 stores SOURCE SFX request image;28..39 control/math/probes;
+40..6F reserved projectile records (not yet implemented). Active overlay must
+only be used under Rogue identity. Literal address search found no persistent
+5FB0..B5 user; ROOT's complete owner/dispatch allocation remains the authority.
+
+APIs and obligations:
+ RdStartJump: complete native CFC3 initialization, native incomingCarry matters.
+ RdSetGravity/SetJumpGravity/SetMaxSpeed: exact environment helpers.
+ RdVerticalAccelerate: genuine inner E3A5 entry; call after real floor/support
+ admission. Returns signed per-update pixel delta RdDelta, retains native
+ linear+nonlinear fractions and native vertical caps.
+ RdHorizontalAccelerate: complete E3E5, signed RdDelta; source ground accel
+30/D0 and source maxspeed. It is not SMB/Samus host velocity arithmetic.
+ RdAirControl: complete D055, native both-direction/facing/pose logic.
+ RdSetGroundAcceleration: complete CCB7; X=0right/1left only.
+ RdStopVertical,SetAnimation: genuine closed native helpers.
+ RdSpringAdmitted: A2BA entry AFTER freshA plus actual support admission.
+ RdSpringRelease: complete A2DE; updates prior held input.
+ RdCutOrdinaryJump: D002 prefix only, source continuationD015 excluded.
+ RdGroundCollisionResponse: E2E8 prefix AFTER actual downward collision,
+ source horizontal continuationE31A excluded; implements real ball bounce.
+ RdAddMissileTank: exact source add/saturation; caller must earn collection.
+
+RdDelta and math state are OWNED SRAM. AXYP are source-clobbered, not preserved
+as a host ABI. The632byte leaf requests source sound in its private image; it
+does not play authentic Rogue audio or touch host sound/APU. A host sound bridge
+must be explicit. Original overlapped BIT07A0 and BIT0AA9 flags are represented
+by two owned probe bytes;0AA9 mirrors02A9 in real NES RAM. Their flags are not
+new abilities. Before host adapters consume returnedP, prove actual liveness
+or supply genuine source projection. Especially do not pass arbitrary hostC
+into reduced-environment jump setup: source ROR consumes incomingCarry.
+
+Finite source evidence (not native qualification)
+------------------------------------------------
+tools/rogue_dawn_map_v1.py validates ROM/ZIP/IPS and emits the finite annotated
+disassembly plus per-span hashes, native item/routine map, RAM/owner rules and
+runtime observation list. Inline tables and alternate entries are marked.
+tools/rogue_dawn_leaf_controls_v1.py actual-ROM PASS2425 finite cases:
+32 jump,96 Spring/support-release,192 complete bomb allocations,8 fuse prefixes,
+2048 equipment-commit cases,49 missile-tank cases. Physical collector admission
+and region-specific item0 script are explicitly excluded from commit tests.
+tools/rogue_dawn_kernel_controls_v1.py compiles only the new leaf and actual-ROM
+differential PASS3680 cases:3376 closed leaves with projected fullRAM/AXYP/SP,
+64 ordinary jump-cut prefixes and240 real ground-response prefixes. Prefix
+SP endpoints explicitly differ by the new callableRTS; source stop excludes the
+next actual continuation. Port foreignRAM writes are checked. Input Dflag clear.
+No NMI/IRQ/PPU/DMA or whole-host caller was simulated. This is not an all-state
+or cycle-identical claim: vertical+1CPU, horizontal+8..13, air+1..3;
+Spring+6..10, release+3..4, maxspeed0..+3, jump-init-12..-3. Prefix costs are
+reported separately with source join versus callable portRTS, no false totals.
+
+Commands:
+ python tools/rogue_dawn_map_v1.py --output docs/qa/rogue-dawn-reference/rom-map-v1.json
+ python tools/rogue_dawn_leaf_controls_v1.py --output docs/qa/rogue-dawn-reference/original-leaf-controls-v1.json
+ python tools/rogue_dawn_kernel_controls_v1.py
+
+Remaining integration / exact ROOT observations
+-----------------------------------------------
+Not a stock-Samus reskin: port must import/export the native counters, preserve
+the distinct source action handlers, run per-pixel host collisions from signed
+native deltas, then perform source stop/bounce/support/head/wall transitions.
+There is no complete host controller/render/weapon/contact/item/sound adapter
+yet. No proof that the remaining3464B fits all of those; no sample/voice/effect
+was truncated to force a fit. Art extraction/all actual projectile shapes still
+needed. Original1.21 morphball/contact fix must be retained in combat logic.
+
+ROOT original-ROM observations, bounded to actual earned gear/input:
+1. Dry/water780E, fresh/held12/14, source action0300, incomingC atCFC3/DC4B;
+native positions/counters0310..16 eachMain; run-vs-standing jump/release.
+2. WallDA4D, E880/E88B returnC atDA5F/DA66, facing4D andCD40 before/after.
+3. SpringA61:A2AD..A2FE with actual frozen/tile support and release.
+4. Physical itemA61:A63F->A643 thenA667:0748+0/8,6877..7A before/after.
+5. Bomb D150/D65E/D670/D691 plus contactF2CA and damageDA92; target/no-target,
+ground/air and breakable blocks; all3 shared slots and pause/scene cleanup.
+6. Earn Wave/Ice bothorders; D359/D38E/DA85,05D0..05F2 and actual freeze;
+up/horizontal missile requests, last-ammo/mode reset, authentic CHR/sound.
+No current host/native pass, original-frame timing or complete sound fidelity
+is inferred from these standalone source controls.

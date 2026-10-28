@@ -1,0 +1,119 @@
+{
+  "status": "FROZEN source weapon component; not host/native/playable qualification",
+  "original_ROM": {
+    "path": "C:\\NES\\the stash\\Metroid - Rogue Dawn 1.21 (header fixed).nes",
+    "bytes": 786448,
+    "sha256": "9271411a20cc26c09f4d4bffe74c0d69a1bf91b815f7716fcf4610c4cee61077"
+  },
+  "original_kernel_handoff": {
+    "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-kernel-v1\\handoff.json",
+    "bytes": 5482,
+    "sha256": "be71577d2f01b7bc67198fb9f125e7880293a23e51181d5ffc6398cfddf6fc26"
+  },
+  "all_16_v1_bindings_still_exact": true,
+  "code": {
+    "physical_bank": 124,
+    "segment": "ROGUE_DAWN_CORE",
+    "start": "B000",
+    "end_exclusive": "B796",
+    "kernel_bytes": 632,
+    "weapons_bytes": 1310,
+    "total_bytes": 1942,
+    "reserved_remaining_bytes": 2154
+  },
+  "differential_cells": 5450,
+  "terrain_phase_cells": 768,
+  "attack_admission_cells": 768,
+  "bomb_timelines": 6,
+  "bomb_total_updates": [
+    46,
+    47
+  ],
+  "active_owned_processes": [],
+  "native_run": false,
+  "shared_source_edits": [],
+  "old_packet_edits": [],
+  "integration": "ROOT add .include \"rogue_dawn_weapons.s\" immediately after existing .include \"rogue_dawn.s\"; tested actual wrapper bound below. No frozen main edit required.",
+  "cost": {
+    "wave": {
+      "cases": 1872,
+      "source_min": 170,
+      "source_max": 280,
+      "port_min": 322,
+      "port_max": 540,
+      "delta_min": 152,
+      "delta_max": 260
+    },
+    "hot_cost_not_free": true,
+    "native_cadence_unqualified": true
+  },
+  "retained_negative": {
+    "actual_contract": "originalP72/draftP32 for phase4 clock1 direction0 inputP70",
+    "exact_bad_source_retained": true,
+    "no_flag_mask": true
+  },
+  "owned": [
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\rogue_dawn_weapons.s",
+      "bytes": 16572,
+      "sha256": "bcc48630d66cef7084ca994e0f6a9730f929ee8bcdf82a636c6b89f877949aa4"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\rogue_dawn_weapons_controls_v1.py",
+      "bytes": 15365,
+      "sha256": "0d6ba8bfa6a171fb652b22d8ca7cdd1c0f3e50d89bec7dc969cf4b7e97c5da8a"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\docs\\qa\\rogue-dawn-weapons-source-2026-10-28.txt",
+      "bytes": 9656,
+      "sha256": "188bd36d60819d96c33d7bf6b779a98caf6a2a11221317d82e486e5e082158f5"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-weapons-v1\\controls.json",
+      "bytes": 72089,
+      "sha256": "0599d843e63cd8cc07fbf992049d4777cf70e385d6adeb8a1882d899ae9cc3f6"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-weapons-v1\\weapons.bin",
+      "bytes": 1942,
+      "sha256": "74010d1aa322ac018da0b12a3aae66d59b4a45ea53cbfcbd3b26a630f9b2fd2e"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-weapons-v1\\weapons.lbl",
+      "bytes": 5646,
+      "sha256": "6c733f8806b6b18671f7102469774ac93ecbe7b68d720370530ce60912d2b001"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-weapons-v1\\weapons.dbg",
+      "bytes": 107006,
+      "sha256": "75517b4692a18d31bf7ef1bd67851e260a40e229cd9d3955b45fb54db063bf07"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-weapons-v1\\weapons.cfg",
+      "bytes": 92,
+      "sha256": "12b43044b5884548c741de35cce9977a048c5007386591ceb7b42728f97e1452"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-weapons-v1\\weapons.s",
+      "bytes": 58,
+      "sha256": "2c1f8f7de8b7683415af0f22e711721c7f034c4b1c0b48046ae9ec4927a2b232"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-weapons-v1\\controls-flags-negative.json",
+      "bytes": 5873,
+      "sha256": "c3ddff35ec198391b4b6401eb565a36108453f15b78c586dfc70c1cfb0133bd7"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-weapons-v1\\weapons-flags-negative-source.s",
+      "bytes": 15804,
+      "sha256": "15224937b41318ad1faa8369c0666e0513e3155c334c940a2d7f6968d33ab8ac"
+    }
+  ],
+  "command": "python tools/rogue_dawn_weapons_controls_v1.py",
+  "remaining": [
+    "Host per-pixel terrain/collision/position callback implementation and enemy-specific effects.",
+    "Authentic current-frame art/radius/CHR bridge; no placeholders or new art claimed.",
+    "Input retrigger/clock/pause/life/scene initialization and clear ownership under real Rogue alternate.",
+    "Actual Rogue sound bridge, full host/IRQ/NMI/SMC/banks/native cadence and earned item qualification."
+  ]
+}
