@@ -1,0 +1,407 @@
+{
+  "prepared": true,
+  "native_run": false,
+  "ROM_sha256": "04631d6cf6b3487de2accb5eeb73e439902df111c7c4b65fb4f462437404d1fb",
+  "config": {
+    "name": "alex",
+    "character": 21,
+    "menu_index": 20,
+    "variant_symbol": "RcVariant",
+    "variant": 0,
+    "mode_value": 0,
+    "root": "C:/Users/kando/Documents/ChatGPT/SMB Crossover",
+    "out": "C:/Users/kando/Documents/ChatGPT/SMB Crossover/build/verification/roster-expansion-alex-easy-route-v2/",
+    "prefix": "C:/Users/kando/Documents/ChatGPT/SMB Crossover/build/verification/roster-expansion-alex-easy-route-v2/",
+    "policy": "C:/Users/kando/Documents/ChatGPT/SMB Crossover/tools/playthroughs/full_roster_policy_og.lua",
+    "limit": 6500,
+    "capture_bytes": 536870912,
+    "ROM_sha256": "04631d6cf6b3487de2accb5eeb73e439902df111c7c4b65fb4f462437404d1fb",
+    "navigation": [
+      "left",
+      "left",
+      "up",
+      "up",
+      "right",
+      "right",
+      "down",
+      "left",
+      "left",
+      "left",
+      "right",
+      "right",
+      "right",
+      "down",
+      "left",
+      "left",
+      "left",
+      "right",
+      "right",
+      "right",
+      "",
+      "",
+      "up",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "marker_names": [
+      "first-active",
+      "corner-332",
+      "corner-345",
+      "corner-360",
+      "power-change",
+      "flagpole",
+      "endpoint",
+      "failure"
+    ],
+    "hooks": {
+      "loop": {
+        "name": "GameLoop",
+        "pc": 33497,
+        "bank": 126,
+        "bytes": [
+          169,
+          255,
+          141
+        ]
+      },
+      "loop_return": {
+        "name": "GameLoop",
+        "pc": 33621,
+        "bank": 126,
+        "bytes": [
+          96,
+          141,
+          106
+        ]
+      },
+      "nmi": {
+        "name": "NonMaskableInterrupt",
+        "pc": 58172,
+        "bank": 127,
+        "bytes": [
+          72,
+          138,
+          72
+        ],
+        "banks": [
+          125,
+          127
+        ]
+      },
+      "nmi_return": {
+        "name": "NonMaskableInterrupt",
+        "pc": 58383,
+        "bank": 127,
+        "bytes": [
+          64,
+          162,
+          7
+        ],
+        "banks": [
+          125,
+          127
+        ]
+      },
+      "irq": {
+        "name": "IrqScrollSplit",
+        "pc": 32768,
+        "bank": 126,
+        "bytes": [
+          72,
+          138,
+          72
+        ]
+      },
+      "irq_return": {
+        "name": "IrqScrollSplit",
+        "pc": 32835,
+        "bank": 126,
+        "bytes": [
+          64,
+          141,
+          6
+        ]
+      },
+      "dma_complete": {
+        "name": "PostDmaMaskEnable",
+        "pc": 57352,
+        "bank": 127,
+        "bytes": [
+          141,
+          1,
+          32
+        ],
+        "banks": [
+          125,
+          127
+        ]
+      }
+    },
+    "dma_store_return": 57349,
+    "smc_fields": [
+      354,
+      362,
+      377,
+      364,
+      365
+    ],
+    "replay": null,
+    "extra_ram": {}
+  },
+  "command": [
+    "python",
+    "-B",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\run_mesen_isolated.py",
+    "--output",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\roster-expansion-alex-easy-route-v2",
+    "--emulator",
+    "C:/Mesen2/Mesen.exe",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\roster-expansion-alex-easy-route-v2\\run.lua",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\river-city-native-v2.nes",
+    "--timeout",
+    "600",
+    "--option=--doNotSaveSettings",
+    "--option=--nes.removeSpriteLimit=false",
+    "--option=--nes.ramPowerOnState=AllZeros",
+    "--option=--nes.randomizeCpuPpuAlignment=false",
+    "--option=--nes.randomizeMapperPowerOnState=false"
+  ],
+  "bindings": {
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\river-city-native-v2.dbg": "dc700ddcfc5e9ae1f0e50760d30d6ca119b33569c9a2f5958d359fb76f584323",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\river-city-native-v2.lbl": "9dd8b37c7bb61b6aff164d52737f132ed6eeb0524ba3ece6ca2744fa1c512e66",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\river-city-native-v2.nes": "04631d6cf6b3487de2accb5eeb73e439902df111c7c4b65fb4f462437404d1fb",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\roster-expansion-alex-easy-route-v2\\run.lua": "51f6f70e6cfd21b1c72aca4f9c321fc6521b00c61bd98f3ba3fd3c1382232690",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\capture_budget.py": "b9985e2e6db5c801a47454d8761adaf5f40e5254e8f599aeeddf412c1b7e8db9",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\current_roster_compact_11_v1.lua": "aba8f2418690dbf9c3fcb0709dba6ec46c3c16c12b91b62fd108e9e9082e2f0c",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\current_roster_compact_11_v1.py": "fe2b6c43ae273269ed40f18e62cfcb3ba1d45cde6d0463d748ba72ccc25ebd6f",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\final_inventory_compact_capture_v1.lua": "1aa9e049764584841be0c590c15427225863bcf7bc64aca8c93a609c2cadd40d",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\final_inventory_compact_capture_v1.py": "fd5585f4f5ccb4217a25270703784193e336c580ba71c65aa53fda0a70068b2a",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\run_mesen_isolated.py": "976f197a3712511e821f545e655eaa3f9bcfe95e42a3c6c76b2adca288d2aad3",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\playthroughs\\full_roster_policy_og.lua": "17d3a38d53fe09b930048f081938bf707028f765577207bce41777ea4f5edb7b",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\run_mesen.py": "5d71507b99a100a10b48ad84e1bb3e7db92c470e6215315c9d962551a4222c67",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\roster_expansion_native_prepare_v5.py": "5af6a4b56b4ad53700c571ad7d6995240de823334fedfb0172686f9637238ba7",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\roster_expansion_native_prepare_v2.py": "34b732294f62bc7563dfcc60790f9973236416cda05277f713931cdfe136940e"
+  },
+  "required_ram_reads": {
+    "AreaPointer": {
+      "address": 1877,
+      "origin": "driver_VICE_label"
+    },
+    "AreaType": {
+      "address": 1875,
+      "origin": "driver_VICE_label"
+    },
+    "Block_Buffer_1": {
+      "address": 768,
+      "origin": "driver_VICE_label"
+    },
+    "CheatInvincible": {
+      "address": 32763,
+      "origin": "driver_VICE_label"
+    },
+    "CheatStartLevel": {
+      "address": 32764,
+      "origin": "driver_VICE_label"
+    },
+    "CrossoverBehaviorVersion": {
+      "address": 32737,
+      "origin": "driver_VICE_label"
+    },
+    "CrossoverMenuIndex": {
+      "address": 29449,
+      "origin": "driver_VICE_label"
+    },
+    "CrossoverMenuState": {
+      "address": 29447,
+      "origin": "driver_VICE_label"
+    },
+    "CrossoverOptionsFocus": {
+      "address": 32441,
+      "origin": "driver_VICE_label"
+    },
+    "CrossoverTitleDrawn": {
+      "address": 24580,
+      "origin": "driver_VICE_label"
+    },
+    "CurrentBank": {
+      "address": 325,
+      "origin": "driver_VICE_label"
+    },
+    "CurrentBankC": {
+      "address": 32161,
+      "origin": "driver_VICE_label"
+    },
+    "Cv3Climb": {
+      "address": 23570,
+      "origin": "driver_VICE_label"
+    },
+    "Cv3Variant": {
+      "address": 24551,
+      "origin": "driver_VICE_label"
+    },
+    "DarkwingVariant": {
+      "address": 29663,
+      "origin": "driver_VICE_label"
+    },
+    "DisableScreenFlag": {
+      "address": 1909,
+      "origin": "driver_VICE_label"
+    },
+    "DwHang": {
+      "address": 29687,
+      "origin": "driver_VICE_label"
+    },
+    "Enemy_Flag": {
+      "address": 16,
+      "origin": "driver_VICE_label"
+    },
+    "Enemy_ID": {
+      "address": 23,
+      "origin": "driver_VICE_label"
+    },
+    "Enemy_PageLoc": {
+      "address": 93,
+      "origin": "driver_VICE_label"
+    },
+    "Enemy_State": {
+      "address": 31,
+      "origin": "driver_VICE_label"
+    },
+    "Enemy_X_Position": {
+      "address": 118,
+      "origin": "driver_VICE_label"
+    },
+    "Enemy_Y_Position": {
+      "address": 190,
+      "origin": "driver_VICE_label"
+    },
+    "GameEngineSubroutine": {
+      "address": 15,
+      "origin": "driver_VICE_label"
+    },
+    "KbMouth": {
+      "address": 23562,
+      "origin": "driver_VICE_label"
+    },
+    "LevelNumber": {
+      "address": 1889,
+      "origin": "driver_VICE_label"
+    },
+    "LmStars": {
+      "address": 24353,
+      "origin": "driver_VICE_label"
+    },
+    "NumberofLives": {
+      "address": 1887,
+      "origin": "driver_VICE_label"
+    },
+    "OperMode": {
+      "address": 1905,
+      "origin": "driver_VICE_label"
+    },
+    "OperMode_Task": {
+      "address": 1907,
+      "origin": "driver_VICE_label"
+    },
+    "PlayerStatus": {
+      "address": 1883,
+      "origin": "driver_VICE_label"
+    },
+    "Player_State": {
+      "address": 30,
+      "origin": "driver_VICE_label"
+    },
+    "Player_X_Speed": {
+      "address": 70,
+      "origin": "driver_VICE_label"
+    },
+    "Player_Y_HighPos": {
+      "address": 164,
+      "origin": "driver_VICE_label"
+    },
+    "Player_Y_Position": {
+      "address": 189,
+      "origin": "driver_VICE_label"
+    },
+    "Player_Y_Speed": {
+      "address": 142,
+      "origin": "driver_VICE_label"
+    },
+    "PowerUpType": {
+      "address": 52,
+      "origin": "driver_VICE_label"
+    },
+    "R2": {
+      "address": 5,
+      "origin": "driver_VICE_label"
+    },
+    "R3": {
+      "address": 6,
+      "origin": "driver_VICE_label"
+    },
+    "RcVariant": {
+      "address": 24557,
+      "origin": "driver_VICE_label"
+    },
+    "RgDoubleJump": {
+      "address": 27696,
+      "origin": "driver_VICE_label"
+    },
+    "ScrollLock": {
+      "address": 1830,
+      "origin": "driver_VICE_label"
+    },
+    "SelectedCharacter": {
+      "address": 24578,
+      "origin": "driver_VICE_label"
+    },
+    "TimerControl": {
+      "address": 1866,
+      "origin": "driver_VICE_label"
+    },
+    "WorldNumber": {
+      "address": 1892,
+      "origin": "driver_VICE_label"
+    },
+    "Z2LearnedSpells": {
+      "address": 31913,
+      "origin": "driver_VICE_label"
+    }
+  },
+  "hook_copy_owners": {
+    "NonMaskableInterrupt": {
+      "start": 58172,
+      "size": 212,
+      "banks": [
+        125,
+        127
+      ],
+      "body_sha256": "2206c8675917b6ce9099919f19cd2236eaaf6db702e35747bc73c91f8cbc6233"
+    },
+    "OAMandReadJoypad": {
+      "start": 57344,
+      "size": 43,
+      "banks": [
+        125,
+        127
+      ],
+      "body_sha256": "92e3ab82a5ac222ecbd612eb7204f2e8108dc3e2434c80ff7ca0250cff37eb1f"
+    }
+  },
+  "current_policy_status": "Surviving tracked discovery policy, NOT a current-ROM clear proof",
+  "max_total_frames": 8000,
+  "container_cap_bytes": 536870912,
+  "central_run_cap_bytes": 2000000000,
+  "screenshot_files_during_native": 0,
+  "maximum_offline_selected_frames": 8,
+  "no_source_runtime_clones": true,
+  "no_emulated_writes": true,
+  "no_cheats": true,
+  "explicit_endpoint": "World0/Level0 seen; natural World0/Level1 entry; >=25 completed active updates and >5px control there; zero deaths",
+  "remaining_dependencies": "Only listed current build/debug/labels, tracked scripts/controllers and existing C:/Mesen2 runtime/settings. No deleted archive inputs, Lua/Python package downloads or capture bridge.",
+  "staged_new_roster": true,
+  "controller_scope": "Actual menu raw21 / realSelect alternate; ordinary controller only. Private menu thumbnail/shared adoption remain open."
+}
