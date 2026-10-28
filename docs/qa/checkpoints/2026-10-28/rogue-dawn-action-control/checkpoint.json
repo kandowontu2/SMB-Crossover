@@ -1,0 +1,107 @@
+{
+  "status": "Frozen source/CPU action companion; no shared native integration",
+  "handoff_sha256": "e18de090c55ce4046fd59ced8225702cd5dd42a990ce895b7e9b785aa42d8fc0",
+  "placement": {
+    "CORE": {
+      "physical_bank": 124,
+      "segment": "ROGUE_DAWN_CORE",
+      "start": "B000",
+      "end_exclusive": "BFFA",
+      "bytes": 4090,
+      "new_start": "B8F5",
+      "new_bytes": 1797,
+      "remaining": 6
+    },
+    "AUX": {
+      "physical_bank": 124,
+      "segment": "ROGUE_DAWN_CONTROL_AUX",
+      "start": "AE00",
+      "end_exclusive": "AFFC",
+      "bytes": 508,
+      "reserved": 512,
+      "remaining": 4,
+      "reservation": "ROOT message explicitly reserves AE00..AFFF; AC53..ADFF belongs to future gate growth.",
+      "new_farcalls": 0
+    },
+    "ART": {
+      "physical_bank": 94,
+      "start": "D300",
+      "end_exclusive": "DF4E",
+      "bytes": 3150,
+      "unchanged": true
+    }
+  },
+  "integration_obligations": [
+    "Add named AUX placement AE00..AFFF and tighten shared gate belowAE00 under ROOT ownership; do not silently enlarge either region.",
+    "Bind real A124/C94 ownership, first pose/animation consumer and host callback return bank/SP/liveness in an actual linked build.",
+    "Translate source centers/radii/page/camera and per-pixel support/head/side/footer collision to real host geometry.",
+    "Supply contextual native-format draw return semantics from genuine draw ordering; original format allocator may be carried separately from host8x16 OAM.",
+    "Own newlife/area/variant lifecycle with stable loaded-scene identity; initialize legal source action/frame/animation state, resources and clocks.",
+    "Own source global clock/morph/hurt cooldown cadence; never double-tick animation or projectiles. Source actual Main updates enemies/projectiles before player.",
+    "Supply native-compatible BCD health/damage/contact admission before CEDA continuation; full inventory/acquisition/HUD and scene/gameover adaptation remain host responsibilities.",
+    "Qualify actual shared palette/CHR leases, physical OAM/PPU, sprite limit, IRQ/NMI display timing and practical native gameplay before playable admission.",
+    "Keep source alternate69B3 unsupported unless its distinct CHR/art is separately qualified; admitted body frames are the finite frozen default art set, not all byte values."
+  ],
+  "stored": [
+    {
+      "original": "build\\rogue-dawn-control-v1\\control.s",
+      "saved": "control.s",
+      "sha256": "31415b5b03570042bba881ed337662e95517b25893fa60fc0dca3021a100b461",
+      "bytes": 1964
+    },
+    {
+      "original": "build\\rogue-dawn-control-v1\\control.cfg",
+      "saved": "control.cfg",
+      "sha256": "fc4cee60f1fad41bafff7603d5259fef97f7bb192733dc200a0d8979b6090c23",
+      "bytes": 418
+    },
+    {
+      "original": "build\\rogue-dawn-control-v1\\control.bin",
+      "saved": "control.bin",
+      "sha256": "d3e22a6b27467cf1b74dc9d5b25531f895813164d95b74330e6114cfb82e40a1",
+      "bytes": 4090
+    },
+    {
+      "original": "build\\rogue-dawn-control-v1\\aux.bin",
+      "saved": "source-aux.bin",
+      "sha256": "28939e7005ea300eec860276c958b5acf24dbf73dd525fcb7062bb889b220d21",
+      "bytes": 508
+    },
+    {
+      "original": "build\\rogue-dawn-control-v1\\art.bin",
+      "saved": "art.bin",
+      "sha256": "0b0eebb968cf8834d3b97f05c216e77b8c6071dbb87755265c5eaecae35857bc",
+      "bytes": 3150
+    },
+    {
+      "original": "build\\rogue-dawn-control-v1\\control.lbl",
+      "saved": "control.lbl",
+      "sha256": "1fc78100fe5412b7d19b9923c417a489b14f7c265a62786b95a78f1549928534",
+      "bytes": 22314
+    },
+    {
+      "original": "build\\rogue-dawn-control-v1\\control.dbg",
+      "saved": "control.dbg",
+      "sha256": "a39685edb946194ab8d940dbe0e38b246b25d76c2a3ff7622844f0c729585d0f",
+      "bytes": 288853
+    },
+    {
+      "original": "build\\rogue-dawn-control-v1\\controls.json",
+      "saved": "controls.json",
+      "sha256": "c4835f48a7cf5ebf518023cb36d08683de98a6eae5b488976bd4335aea725062",
+      "bytes": 204931
+    },
+    {
+      "original": "build\\rogue-dawn-control-v1\\draw-return.json",
+      "saved": "draw-return.json",
+      "sha256": "5092e2fb2a798070850bde32cc62b6921afe255e4448500a76745becbe1f9036",
+      "bytes": 39453
+    },
+    {
+      "original": "build\\rogue-dawn-control-v1\\irq-controls.json",
+      "saved": "irq-controls.json",
+      "sha256": "2beaf74ce8650cf5e11105f2b225ca098bbe2a746840e03ae6390b88bc70fd85",
+      "bytes": 8684
+    }
+  ]
+}

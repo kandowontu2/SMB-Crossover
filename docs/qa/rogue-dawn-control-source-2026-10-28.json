@@ -1,0 +1,467 @@
+{
+  "status": "FROZEN source/CPU action-control component; host integration and native gameplay remain pending",
+  "native_run": false,
+  "shared_edits": [],
+  "active_owned_processes": [],
+  "authority": {
+    "path": "C:\\NES\\the stash\\Metroid - Rogue Dawn 1.21 (header fixed).nes",
+    "bytes": 786448,
+    "sha256": "9271411a20cc26c09f4d4bffe74c0d69a1bf91b815f7716fcf4610c4cee61077"
+  },
+  "scope": {
+    "new_source": "src/rogue_dawn_control.s",
+    "frozen_prefix_bytes": 2293,
+    "prefix_byte_exact": true,
+    "source_default_69B3": 0,
+    "alternate_failclosed": true,
+    "original_source_action_numbers": true,
+    "generic_Samus_fallback": false,
+    "fake_source_room_RAM": false
+  },
+  "placement": {
+    "CORE": {
+      "physical_bank": 124,
+      "segment": "ROGUE_DAWN_CORE",
+      "start": "B000",
+      "end_exclusive": "BFFA",
+      "bytes": 4090,
+      "new_start": "B8F5",
+      "new_bytes": 1797,
+      "remaining": 6
+    },
+    "AUX": {
+      "physical_bank": 124,
+      "segment": "ROGUE_DAWN_CONTROL_AUX",
+      "start": "AE00",
+      "end_exclusive": "AFFC",
+      "bytes": 508,
+      "reserved": 512,
+      "remaining": 4,
+      "reservation": "ROOT message explicitly reserves AE00..AFFF; AC53..ADFF belongs to future gate growth.",
+      "new_farcalls": 0
+    },
+    "ART": {
+      "physical_bank": 94,
+      "start": "D300",
+      "end_exclusive": "DF4E",
+      "bytes": 3150,
+      "unchanged": true
+    }
+  },
+  "entries": {
+    "RdControlStep": "124:B8F5",
+    "RdControlDispatch": "124:AE00",
+    "RdControlJump": "124:B90C",
+    "RdControlSpring": "124:AF2B",
+    "RdControlScrew": "124:BB6A",
+    "RdControlPhysics": "124:B912",
+    "RdControlDamageComplete": "124:AFAF",
+    "RdControlAdvance": "124:AEED",
+    "RdControlMorphByteWindow": "124:BEFA",
+    "RdControlEnd": "124:BFFA"
+  },
+  "new_active_state": [
+    {
+      "source": "0055",
+      "port": "5C17"
+    },
+    {
+      "source": "0053",
+      "port": "5C18"
+    },
+    {
+      "source": "0065",
+      "port": "5C19"
+    },
+    {
+      "source": "0064",
+      "port": "5C1A"
+    },
+    {
+      "source": "002A",
+      "port": "5C1B"
+    },
+    {
+      "source": "0070",
+      "port": "5C1C"
+    },
+    {
+      "source": "0072",
+      "port": "5C1D"
+    },
+    {
+      "source": "0073",
+      "port": "5C1E"
+    },
+    {
+      "source": "0077",
+      "port": "5C1F"
+    },
+    {
+      "source": "0058",
+      "port": "5C7E"
+    },
+    {
+      "source": "000E",
+      "port": "5C7F"
+    }
+  ],
+  "state_limits": {
+    "new_persistent_bytes": 0,
+    "persistent_existing": "5FB0..5FB5 gear/resources/BCD health",
+    "persistent_5FB6_5FB7": "unused",
+    "Sunny_5FB8_5FBF": "untouched",
+    "active": "new only5C17..1F/5C7E..7F, identity-exclusive overlay; inherited ranges unchanged",
+    "source_room_read_6000_67FF_in_campaigns": false
+  },
+  "actions": [
+    {
+      "action": 0,
+      "source": "62:CC36",
+      "behavior": "stand; real after-draw follow-up dispatcher"
+    },
+    {
+      "action": 1,
+      "source": "62:DA25 -> CCC2",
+      "behavior": "run, fresh-A gear04 side-probed wall jump; native air-morph gate"
+    },
+    {
+      "action": 2,
+      "source": "62:DA0A -> D002",
+      "behavior": "ordinary jump/release cut/air-morph gate"
+    },
+    {
+      "action": 3,
+      "source": "62:D0E1",
+      "behavior": "morph, real up-probed unmorph, A61:A2AD Spring Ball, bombs"
+    },
+    {
+      "action": 4,
+      "source": "62:D198",
+      "behavior": "aim up; actual after-draw follow-up dispatcher"
+    },
+    {
+      "action": 5,
+      "source": "62:D3A8",
+      "behavior": "explicit host door boundary; no room/gameplay fallback"
+    },
+    {
+      "action": 6,
+      "source": "62:DA72",
+      "behavior": "aimed jump"
+    },
+    {
+      "action": 7,
+      "source": "62:D41A",
+      "behavior": "death animation; outer gameover remains host-owned"
+    },
+    {
+      "action": 8,
+      "source": "62:D41F",
+      "behavior": "literal native dead-delay decrement; outer lifecycle remains host-owned"
+    },
+    {
+      "action": 9,
+      "source": "62:D423",
+      "behavior": "explicit host elevator boundary; no ordinary movement fallback"
+    }
+  ],
+  "control_order": [
+    "native CC0D slot0/updating entry",
+    "native CC1A action dispatch",
+    "actual action-specific input/animation/hurt/Screw order",
+    "declared DBE6 environment prefix boundary then actual projected E2A9 motion ordering",
+    "real per-pixel geometry/support callbacks",
+    "source-facing/palette and original draw semantic boundary",
+    "actual stand/aim AFTER-draw follow-up transition",
+    "native updating decrement/return"
+  ],
+  "host_callback_contracts": [
+    {
+      "names": [
+        "RdHostProbeUp",
+        "RdHostProbeDown",
+        "RdHostProbeLeft",
+        "RdHostProbeRight"
+      ],
+      "native_boundary": [
+        "63:E7A2",
+        "63:E7AD",
+        "63:E88B",
+        "63:E880"
+      ],
+      "contract": "Real current geometry; carry clear blocked, set open. Tested adapter preserves other AXY/flags. No source room-memory image."
+    },
+    {
+      "names": [
+        "RdHostMoveUp",
+        "RdHostMoveDown",
+        "RdHostMoveLeft",
+        "RdHostMoveRight"
+      ],
+      "native_boundary": [
+        "63:E457",
+        "63:E4A3",
+        "63:E626",
+        "63:E668"
+      ],
+      "contract": "Carry set commits one real source-unit pixel, clear rejects it. Up commits update source jump distance. Preserve other caller values as declared in the model; world/page/camera/terrain response is a real host obligation."
+    },
+    {
+      "names": [
+        "RdHostFindSupport"
+      ],
+      "native_boundary": [
+        "62:D976"
+      ],
+      "contract": "Return actual source-compatible elevator/frozen support/contact outputs; no synthetic support outcome."
+    },
+    {
+      "names": [
+        "RdHostRelativeX",
+        "RdHostRelativeY"
+      ],
+      "native_boundary": [
+        "63:E31D",
+        "63:E2AC"
+      ],
+      "contract": "Actual source relative-position/SBC result and flags using real host camera; finite CPU arenas are zero-scroll and do not qualify camera adaptation."
+    },
+    {
+      "names": [
+        "RdHostEnvironment"
+      ],
+      "native_boundary": [
+        "62:DBE6 before63:E2A9"
+      ],
+      "contract": "Own real environment/hazard/healing prefix; keep actual motion sequence after this boundary. Do not synthesize7808..780D source rooms."
+    },
+    {
+      "names": [
+        "RdHostStagePosition",
+        "RdHostOffsetPosition",
+        "RdHostCommitPosition"
+      ],
+      "native_boundary": [
+        "63:E8BE",
+        "63:FD8F",
+        "62:D638"
+      ],
+      "contract": "Source center/offset staging for real unmorph geometry; commit only source-requested successful native position. No teleport or room state fabrication."
+    },
+    {
+      "names": [
+        "RdHostSpawnProjectile"
+      ],
+      "native_boundary": [
+        "62:D306"
+      ],
+      "contract": "Real native placement from source slot/offset before frozen weapon finish; use the actual allocated source slot."
+    },
+    {
+      "names": [
+        "RdHostDrawPlayer"
+      ],
+      "native_boundary": [
+        "62:DE4A"
+      ],
+      "contract": "Render current source pose, update genuine source radii, and supply required source semantic original8x8 draw-return registers/flags. Native returnX depends on prior original-format enemy/projectile allocation; host8x16 cursor is forbidden as a substitute. Action chains use actual decoder with fresh original cursor0 as a declared finite boundary; draw-return.json separately proves wider contexts. ROOT must implement contextual semantics or explicitly qualify a different adaptation."
+    },
+    {
+      "names": [
+        "RdHostLowHealthSound",
+        "RdHostHealthSound"
+      ],
+      "native_boundary": [
+        "61:B119",
+        "61:B11C"
+      ],
+      "contract": "Boundary model preserves AXYP; no waveform/APU implementation is established."
+    },
+    {
+      "names": [
+        "RdHostDoor",
+        "RdHostElevator",
+        "RdHostDoorDirection"
+      ],
+      "native_boundary": [
+        "62:D3A8",
+        "62:D423",
+        "63 movement scene tail"
+      ],
+      "contract": "Real host scene ownership; mandatory callbacks. Scene actions5/9 intentionally reject a missing owner in the component model."
+    }
+  ],
+  "draw_context": {
+    "actual_Main_bank_PC": "62:CB29",
+    "bytes": "a200865b2045f320bfd4200dcc",
+    "order": [
+      "cursor=0",
+      "F345 enemy owners",
+      "D4BF three projectile owners",
+      "CC0D player control"
+    ],
+    "original_8x8_semantics_required": true,
+    "host8x16_cursor_substitution_allowed": false,
+    "constant36_allowed": false,
+    "actual_default_body_frame8_sequences": [
+      {
+        "actual_native_draws_before_body": [],
+        "body_frame": 8,
+        "body_input_cursor": 0,
+        "body_return_X": 36,
+        "source_morph_read": "CCC0+24",
+        "source_byte": 32
+      },
+      {
+        "actual_native_draws_before_body": [
+          [
+            40,
+            0,
+            28,
+            28
+          ]
+        ],
+        "body_frame": 8,
+        "body_input_cursor": 28,
+        "body_return_X": 64,
+        "source_morph_read": "CCC0+40",
+        "source_byte": 71
+      },
+      {
+        "actual_native_draws_before_body": [
+          [
+            37,
+            0,
+            28,
+            28
+          ],
+          [
+            40,
+            28,
+            56,
+            56
+          ]
+        ],
+        "body_frame": 8,
+        "body_input_cursor": 56,
+        "body_return_X": 92,
+        "source_morph_read": "CCC0+5C",
+        "source_byte": 32
+      },
+      {
+        "actual_native_draws_before_body": [
+          [
+            40,
+            0,
+            28,
+            28
+          ],
+          [
+            38,
+            28,
+            56,
+            56
+          ],
+          [
+            39,
+            56,
+            84,
+            84
+          ]
+        ],
+        "body_frame": 8,
+        "body_input_cursor": 84,
+        "body_return_X": 120,
+        "source_morph_read": "CCC0+78",
+        "source_byte": 203
+      }
+    ],
+    "F7": "no body/cursor advance; actual returnX0",
+    "limitations": [
+      "Finite actual-ROM CPU draw contexts; no original/native gameplay route, PPU, hardware eight-sprite, whole-room or host timing claim.",
+      "Testing every admitted action/frame combination is decoder closure, not a claim every such combination is reachable from controls."
+    ]
+  },
+  "controls": {
+    "source_action_chains": 56,
+    "updates": 3192,
+    "gate_cells": 106,
+    "Screw_cells": 1296,
+    "animation_cells": 224,
+    "native_post_debit_cells": 36,
+    "scene_negative_controls": 2,
+    "draw_decoder_cells": 2170,
+    "draw_context_sequences": 4,
+    "actual_host_ISR_seams": 28,
+    "minimum_SP_action": 176,
+    "minimum_SP_with_ISR": 163,
+    "comparison": "Complete projected state/AXYP/SP/caller-live stack/ordered boundary calls; incoming C/V combinations30/31/70/71 and decimal-clear arithmetic in action campaigns. ISR compares real NV D I Z C, excluding only py65 virtualB/U.",
+    "typed_geometry": "Finite rectangle per-pixel/probe/support callbacks and real original source instructions; not complete Metroid room/native gameplay."
+  },
+  "cost": {
+    "modeled_internal_per_update_CPU_delta_excluding_callbacks": [
+      -76,
+      242
+    ],
+    "excluded": "actual geometry/draw/sound/scene callbacks; real bank/camera/render/NMI costs not established",
+    "FPS_or_cadence_claim": false
+  },
+  "retained_dependencies": {
+    "frozen_animation_extension": {
+      "index": 153,
+      "native_frame": 4,
+      "frozen_render_leaf_frame": 15,
+      "native_source_bytes": "04030503ff",
+      "frozen_leaf_unchanged": true,
+      "corrected_by_separate_control_advance": true
+    },
+    "facing_only_would_be_wrong": {
+      "source_draw_return_X": 36,
+      "source_CCC0_plus_X": 32,
+      "incorrect_facing_only_byte": 48,
+      "broader_contexts_in": "draw-return.json"
+    },
+    "literal_morph_window": "256 actual source62:CCC0..CDBF bytes are adapter data, not source room execution.",
+    "frozen_previous_receipts_retagged": false
+  },
+  "integration_obligations": [
+    "Add named AUX placement AE00..AFFF and tighten shared gate belowAE00 under ROOT ownership; do not silently enlarge either region.",
+    "Bind real A124/C94 ownership, first pose/animation consumer and host callback return bank/SP/liveness in an actual linked build.",
+    "Translate source centers/radii/page/camera and per-pixel support/head/side/footer collision to real host geometry.",
+    "Supply contextual native-format draw return semantics from genuine draw ordering; original format allocator may be carried separately from host8x16 OAM.",
+    "Own newlife/area/variant lifecycle with stable loaded-scene identity; initialize legal source action/frame/animation state, resources and clocks.",
+    "Own source global clock/morph/hurt cooldown cadence; never double-tick animation or projectiles. Source actual Main updates enemies/projectiles before player.",
+    "Supply native-compatible BCD health/damage/contact admission before CEDA continuation; full inventory/acquisition/HUD and scene/gameover adaptation remain host responsibilities.",
+    "Qualify actual shared palette/CHR leases, physical OAM/PPU, sprite limit, IRQ/NMI display timing and practical native gameplay before playable admission.",
+    "Keep source alternate69B3 unsupported unless its distinct CHR/art is separately qualified; admitted body frames are the finite frozen default art set, not all byte values."
+  ],
+  "commands": [
+    "python -B tools/prepare_rogue_dawn_control_v1.py",
+    "python -B tools/rogue_dawn_control_controls_v1.py",
+    "python -B tools/rogue_dawn_draw_return_controls_v1.py",
+    "python -B tools/rogue_dawn_control_irq_v1.py"
+  ],
+  "proofs": {
+    "controls.json": {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-control-v1\\controls.json",
+      "bytes": 204931,
+      "sha256": "c4835f48a7cf5ebf518023cb36d08683de98a6eae5b488976bd4335aea725062"
+    },
+    "draw-return.json": {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-control-v1\\draw-return.json",
+      "bytes": 39453,
+      "sha256": "5092e2fb2a798070850bde32cc62b6921afe255e4448500a76745becbe1f9036"
+    },
+    "irq-controls.json": {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-control-v1\\irq-controls.json",
+      "bytes": 8684,
+      "sha256": "2beaf74ce8650cf5e11105f2b225ca098bbe2a746840e03ae6390b88bc70fd85"
+    }
+  },
+  "source": {
+    "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\rogue_dawn_control.s",
+    "bytes": 27937,
+    "sha256": "6b5374774a730941c12b02ad44792318b237d2996b6febbb9d9c65239f2fa199"
+  }
+}

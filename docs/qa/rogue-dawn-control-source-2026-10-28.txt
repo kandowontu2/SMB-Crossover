@@ -1,0 +1,81 @@
+Rogue Dawn 1.21 action-control component — source/CPU only
+
+Authority: supplied 1.21 cartridge SHA256
+9271411a20cc26c09f4d4bffe74c0d69a1bf91b815f7716fcf4610c4cee61077.
+New leaf src/rogue_dawn_control.s is reproduced from actual instructions by
+tools/prepare_rogue_dawn_control_v1.py. Frozen core/weapons/art/render leaves,
+shared dispatch/configuration/menu, canonical builds and settings are unchanged.
+No emulator was launched and no complete cartridge/source tree was copied.
+
+Implemented action owner
+The companion ports actual CC0D/CC1A action ordering: stand, run, ordinary and
+aimed jump, morph/unmorph, wall jump, Spring Ball, Screw admission, firing,
+hurt/blink and death animation. Real side/up/down/support boundaries replace
+the original room collision system explicitly. Source DA25 requires fresh A,
+gear04 and a blocked side; DA0A/DA25 preserve actual air-morph gates. Spring
+Ball uses genuine A61:A2AD and support/release gates. Scene actions5/9 require
+door/elevator callbacks; there is no generic Samus or ordinary-movement fallback.
+RdControlDamageComplete implements actual CEDA..CEF9 post-debit continuation;
+the host must provide the native-compatible BCD damage result/carry/contact
+owner. It is not a replacement for the complete CE92 damage algorithm.
+
+Placement and state
+Physical124 CORE B000..BFF9 is4090B, with the previous2293B prefix byte-exact.
+The appended core consumes1797B of1803B;6B remain. ROOT-reserved AUX AE00..AFFB
+is508B of512B, leaving4B. No new farcall is needed between these same-bank spans.
+ART physical94 D300..DF4D remains3150B. A124 and C94 must be correctly mapped
+before action/animation/art consumers; callbacks and interrupts must restore
+their ownership. The proof is a standalone component, not a full linked ROM.
+New active aliases use only5C17..1F and5C7E..7F. No new persistent RAM is used;
+5FB6/7 remain free and Sunny5FB8..BF is untouched. Inherited gear/health lives
+at5FB0..B5. No source room RAM6000..67FF is read in the action campaigns.
+
+Actual source draw-context dependency
+Native D0CD is LDA CCC0,X without a preceding TAX. X is the original8x8 draw
+return cursor, not facing and not the host8x16 OAM cursor. Actual Main CB29
+resets native5B, draws enemies F345, then three projectile owners D4BF, then
+player CC0D. Prior source-compatible emissions therefore contribute.
+For body frame8 with no prior draws the native returnX is36; after an actual
+beam it is64; after missile+beam92; after three projectiles120. F7 emits no
+body, preserves5B, but returnsX0. Do not simplify this output to constant36.
+The literal256B CCC0..CDBF source window is adapter data, not executable host
+room logic. ROOT must derive contextual original-format draw metadata or
+explicitly qualify a separate intentional adaptation. A mocked/fixed draw
+cursor is not a full native movement campaign.
+
+Controls and retained boundaries
+PASS56 action chains/3192 updates,106 morph/wall/Spring/unmorph admission cells,
+1296 Screw AXYP cells,224 animation cells and36 genuine native post-debit
+continuations. Complete projected state, AXYP/SP, caller-live stack1C1..1FF and
+ordered declared boundary calls agree in the tested domain. C/V incoming
+combinations30/31/70/71 are tested with decimal arithmetic disabled. Two scene
+actions reject silent movement fallback; source69B3 alternate costume is
+explicitly unsupported and returns without state/callback changes.
+Actual decoder closure covers2170 cells:7 admitted actions x31 default frames
+x2 facings x5 incoming cursors, plus4 ordered actual projectile/body sequences.
+This is decoder closure, not reachability of every action/frame combination.
+PASS28 real frozen Sunny55e host IRQ/NMI seams in an in-memory CPU composition:
+AXY/real flags/PC/SP/A+C/shadows/5SMC/live stack/owned state exact; minSP163.
+Blank-screen ISR fixtures do not establish rendering deadlines or cadence.
+
+Two source dependencies remain disclosed separately from old bounded proofs.
+The frozen animation leaf's table ends at98: native run index99 gives frame4,
+whereas calling that old leaf there gives15. The new control advance includes
+authenticated source02:860B..860F bytes04/03/05/03/FF without changing the old
+leaf. A facing-only replacement for native D0CD would read30 instead of the
+actual20 at returnX36. Both counterexamples are recorded in controls.json.
+
+Cost and remaining integration work
+Measured internal source-vs-port action deltas range−76..+242 CPU/update,
+excluding declared draw/geometry/sound/scene boundary implementation costs.
+These are not full-frame savings or an FPS claim. Action campaigns minSP176;
+actual ISR composition minSP163. No native PPU/OAM/audio/timing claim is made.
+ROOT must still qualify real host collision/page/camera adaptation, lifecycle
+initialization/loaded-scene persistence, global clock/cooldown cadence, BCD
+damage admission, pickups/inventory/HUD, palette/CHR leases, contextual original
+draw metadata and complete linked IRQ/NMI/native rendering. Current artwork
+admission is default69B3=0 only; unsupported source frames fail closed in the
+separate frozen art component. No playable admission is asserted by this packet.
+
+Exact bindings, entry addresses, callback contracts and commands are in the
+paired JSON report and build/rogue-dawn-control-v1/handoff.json.
