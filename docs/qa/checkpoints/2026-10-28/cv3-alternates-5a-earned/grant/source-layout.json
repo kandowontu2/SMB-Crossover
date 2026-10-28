@@ -1,0 +1,217 @@
+{
+  "passed": true,
+  "ROM_sha256": "5a0a37a97e95ce3c1086f91f6000ad0157bb477f923027d39f0342d9389e6db2",
+  "variant": 1,
+  "actual_CV3_reward_stamps": {
+    "208": {
+      "id": 208,
+      "health_add": 16,
+      "health_max": 64,
+      "authored": 1
+    },
+    "209": {
+      "id": 209,
+      "carried": 1,
+      "heart_add": 5,
+      "heart_max": 99,
+      "cost": 1,
+      "authored": 1
+    },
+    "210": {
+      "id": 210,
+      "carried": 2,
+      "heart_add": 5,
+      "heart_max": 99,
+      "cost": 1,
+      "authored": 1
+    },
+    "211": {
+      "id": 211,
+      "carried": 3,
+      "heart_add": 5,
+      "heart_max": 99,
+      "cost": 5,
+      "authored": 1
+    },
+    "212": {
+      "id": 212,
+      "power_add": 1,
+      "power_max": 2,
+      "authored": 0
+    }
+  },
+  "actual_hearts_writers": [
+    {
+      "pc": 44478,
+      "bank": 82,
+      "bytes": [
+        153,
+        163,
+        94
+      ],
+      "kind": "pickup"
+    },
+    {
+      "pc": 41339,
+      "bank": 84,
+      "bytes": [
+        153,
+        163,
+        94
+      ],
+      "kind": "debit"
+    },
+    {
+      "pc": 41330,
+      "bank": 84,
+      "bytes": [
+        153,
+        163,
+        94
+      ],
+      "kind": "watch-extra"
+    },
+    {
+      "pc": 43818,
+      "bank": 84,
+      "bytes": [
+        153,
+        163,
+        94
+      ],
+      "kind": "drop"
+    }
+  ],
+  "actual_current_E008_completion": {
+    "pc": 57352,
+    "banks": [
+      125,
+      127
+    ],
+    "bytes": [
+      141,
+      1,
+      32
+    ],
+    "source_symbol": "PostDmaMaskEnable",
+    "source_delta": 3
+  },
+  "unchanged_current_hardware_guard_sha256": "2b3aa5da62ebdd76723bc3ad87991e63695f15ac151213718f58b55f0211d70c",
+  "no_tested_resource_or_outcome_seeds": true,
+  "forbidden": [
+    "InvOwnedLo",
+    "InvOwnedHi",
+    "InvViewedLo",
+    "InvViewedHi",
+    "InvSelected",
+    "InvAmmo",
+    "PlayerStatus",
+    "PlayerSize",
+    "GuestPowerupActive",
+    "GuestPowerupTarget",
+    "GameEngineSubroutine",
+    "InjuryTimer",
+    "GuestHurtTicks",
+    "MmDeathFlag",
+    "Cv3Health",
+    "Cv3Hearts",
+    "Cv3Power",
+    "Cv3Subweapon",
+    "Cv3Ready",
+    "Cv3Bat",
+    "Cv3BatTransform",
+    "Cv3Climb",
+    "Cv3AttackAge",
+    "Cv3ShotType",
+    "AvStopwatch",
+    "Cv3FrozenTimer",
+    "AvFrozen",
+    "AvFrozenHi",
+    "CheatInvincible"
+  ],
+  "setup_allowlist": [
+    "Block_Buffer_1",
+    "MmSolidTerrain",
+    "MmBrickHealth",
+    "Enemy_Flag",
+    "Enemy_CollisionBits",
+    "InvDropKind",
+    "Player_X_Speed",
+    "Player_Y_Speed",
+    "Player_X_MoveForce",
+    "Player_Y_MoveForce",
+    "ScrollThirtyTwo",
+    "AreaParserTaskNum",
+    "MmVX",
+    "MmVY",
+    "MmXFraction",
+    "MmYFraction",
+    "ScrollLock",
+    "ScreenLeft_X_Pos",
+    "ScreenLeft_PageLoc",
+    "ScreenRight_X_Pos",
+    "ScreenRight_PageLoc",
+    "Player_X_Position",
+    "Player_PageLoc",
+    "MmOldX",
+    "Player_Y_Position",
+    "Player_Y_HighPos",
+    "Player_State",
+    "PlayerFacingDir",
+    "Player_MovingDir",
+    "Player_CollisionBits",
+    "Enemy_ID",
+    "Enemy_State",
+    "Enemy_BoundBoxCtrl",
+    "Enemy_X_Position",
+    "Enemy_PageLoc",
+    "Enemy_Y_Position",
+    "Enemy_Y_HighPos",
+    "Enemy_X_Speed",
+    "Enemy_Y_Speed",
+    "Enemy_SprAttrib",
+    "PowerUpType",
+    "InvPickupOwner",
+    "InvPickup",
+    "AvPickupAmmoItem",
+    "Enemy_Y_MoveForce",
+    "Enemy_MovingDir",
+    "EnemyOffscrBitsMasked",
+    "MmEnemyHealthLo",
+    "MmEnemyHealthHi",
+    "MmEnemyFlash",
+    "RgEnemyStun",
+    "Cv3PickupVariant",
+    "Cv3DropType",
+    "Cv3DropX",
+    "Cv3DropPage",
+    "Cv3DropY",
+    "Cv3DropAge",
+    "Cv3DropVY",
+    "Cv3DropFrac"
+  ],
+  "literal_numeric_reward_keys_and_every_direct_RAM_preflight": true,
+  "compiled_menu_BFS": [
+    "left",
+    "left",
+    "left",
+    "right",
+    "right",
+    "",
+    "left",
+    "left",
+    "left",
+    "right",
+    "right",
+    "up",
+    "left",
+    "left",
+    "left",
+    "right",
+    "right",
+    "right",
+    "down"
+  ],
+  "known_watch_blocked": false,
+  "source_only_limits": "Original-source finite CPU and literal generated configuration only. No LuaVM/native scheduling, full physical rendering, waveform, alternate facing, zero/maxstock saturation, injury-vs-otherenemy damage values, full natural reveal/drop lottery, or full campaign inferred."
+}

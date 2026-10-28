@@ -1,0 +1,1639 @@
+{
+  "passed": true,
+  "source_CPU_only": true,
+  "ROM_sha256": "5a0a37a97e95ce3c1086f91f6000ad0157bb477f923027d39f0342d9389e6db2",
+  "variant": 2,
+  "known_watch_duration_failure": false,
+  "cases": [
+    {
+      "name": "real-hard-Goomba-contact-deficit",
+      "kind": "injury",
+      "GameLoop_calls": 84,
+      "heart_before": 10,
+      "heart_after": 10,
+      "heart_writes": [],
+      "health_before": 64,
+      "health_after": 60,
+      "source_actor": {
+        "slot": 0,
+        "ID": 6,
+        "x": 72,
+        "y": 184,
+        "player_x": 64,
+        "player_y": 176,
+        "Hard_mode": 1
+      },
+      "actual_health_store": {
+        "phase": "actual-contact-and-natural-expiry",
+        "value": 60,
+        "pc": 44949,
+        "bank": 82
+      },
+      "natural_hurt16_protection64_expiry": true,
+      "states": [
+        {
+          "update": 1,
+          "health": 60,
+          "hearts": 10,
+          "hurt": 16,
+          "protection": 64,
+          "injury_timer": 0,
+          "x": 64,
+          "y": 176,
+          "state": 1
+        },
+        {
+          "update": 2,
+          "health": 60,
+          "hearts": 10,
+          "hurt": 15,
+          "protection": 63,
+          "injury_timer": 1,
+          "x": 63,
+          "y": 173,
+          "state": 1
+        },
+        {
+          "update": 3,
+          "health": 60,
+          "hearts": 10,
+          "hurt": 14,
+          "protection": 62,
+          "injury_timer": 1,
+          "x": 62,
+          "y": 170,
+          "state": 1
+        },
+        {
+          "update": 15,
+          "health": 60,
+          "hearts": 10,
+          "hurt": 2,
+          "protection": 50,
+          "injury_timer": 1,
+          "x": 50,
+          "y": 160,
+          "state": 1
+        },
+        {
+          "update": 16,
+          "health": 60,
+          "hearts": 10,
+          "hurt": 1,
+          "protection": 49,
+          "injury_timer": 1,
+          "x": 49,
+          "y": 161,
+          "state": 1
+        },
+        {
+          "update": 63,
+          "health": 60,
+          "hearts": 10,
+          "hurt": 0,
+          "protection": 2,
+          "injury_timer": 1,
+          "x": 48,
+          "y": 176,
+          "state": 0
+        },
+        {
+          "update": 64,
+          "health": 60,
+          "hearts": 10,
+          "hurt": 0,
+          "protection": 1,
+          "injury_timer": 1,
+          "x": 48,
+          "y": 176,
+          "state": 0
+        },
+        {
+          "update": 65,
+          "health": 60,
+          "hearts": 10,
+          "hurt": 0,
+          "protection": 0,
+          "injury_timer": 1,
+          "x": 48,
+          "y": 176,
+          "state": 0
+        },
+        {
+          "update": 84,
+          "health": 60,
+          "hearts": 10,
+          "hurt": 0,
+          "protection": 0,
+          "injury_timer": 0,
+          "x": 48,
+          "y": 176,
+          "state": 0
+        }
+      ],
+      "no_HP_hurt_protection_or_outcome_seed": true
+    },
+    {
+      "name": "health-earned-from-real-contact",
+      "kind": "collect",
+      "owners": [
+        "GameLoop",
+        "Cv3UpdateDrops",
+        "MarioSourcePowerupCollision",
+        "Cv3CollectPickupGate"
+      ],
+      "GameLoop_calls": 1,
+      "collisions": 1,
+      "collect_entries": 1,
+      "defeats": 0,
+      "heart_before": 10,
+      "health_before": 60,
+      "power_before": 0,
+      "sub_before": 0,
+      "types": [],
+      "allocations": 0,
+      "heart_writes": [],
+      "age": 0,
+      "heart_after": 10,
+      "health_after": 64,
+      "power_after": 0,
+      "sub_after": 0
+    },
+    {
+      "name": "health-capped-64",
+      "kind": "collect",
+      "owners": [
+        "GameLoop",
+        "Cv3UpdateDrops",
+        "MarioSourcePowerupCollision",
+        "Cv3CollectPickupGate"
+      ],
+      "GameLoop_calls": 1,
+      "collisions": 1,
+      "collect_entries": 1,
+      "defeats": 0,
+      "heart_before": 10,
+      "health_before": 64,
+      "power_before": 0,
+      "sub_before": 0,
+      "types": [],
+      "allocations": 0,
+      "heart_writes": [],
+      "age": 0,
+      "heart_after": 10,
+      "health_after": 64,
+      "power_after": 0,
+      "sub_after": 0
+    },
+    {
+      "name": "primary-base",
+      "kind": "use",
+      "owners": [
+        "GameLoop",
+        "Cv3UpdateDrops",
+        "Cv3AttackEnemies",
+        "ShellOrBlockDefeat"
+      ],
+      "GameLoop_calls": 321,
+      "collisions": 0,
+      "collect_entries": 0,
+      "defeats": 1,
+      "heart_before": 10,
+      "health_before": 64,
+      "power_before": 0,
+      "sub_before": 0,
+      "types": [],
+      "allocations": 0,
+      "heart_writes": [],
+      "age": 320,
+      "heart_after": 10,
+      "health_after": 64,
+      "power_after": 0,
+      "sub_after": 0
+    },
+    {
+      "name": "earn-flame",
+      "kind": "collect",
+      "owners": [
+        "GameLoop",
+        "Cv3UpdateDrops",
+        "MarioSourcePowerupCollision",
+        "Cv3CollectPickupGate"
+      ],
+      "GameLoop_calls": 1,
+      "collisions": 1,
+      "collect_entries": 1,
+      "defeats": 0,
+      "heart_before": 10,
+      "health_before": 64,
+      "power_before": 0,
+      "sub_before": 0,
+      "types": [],
+      "allocations": 0,
+      "heart_writes": [
+        [
+          0,
+          15,
+          44478,
+          82
+        ]
+      ],
+      "age": 0,
+      "heart_after": 15,
+      "health_after": 64,
+      "power_after": 0,
+      "sub_after": 1
+    },
+    {
+      "name": "use-flame",
+      "kind": "use",
+      "owners": [
+        "GameLoop",
+        "Cv3UpdateDrops",
+        "Cv3Spawn",
+        "Cv3AttackEnemies",
+        "ShellOrBlockDefeat"
+      ],
+      "GameLoop_calls": 321,
+      "collisions": 0,
+      "collect_entries": 0,
+      "defeats": 1,
+      "heart_before": 15,
+      "health_before": 64,
+      "power_before": 0,
+      "sub_before": 1,
+      "types": [
+        3
+      ],
+      "allocations": 1,
+      "heart_writes": [
+        [
+          6,
+          14,
+          41339,
+          84
+        ]
+      ],
+      "age": 320,
+      "heart_after": 14,
+      "health_after": 64,
+      "power_after": 0,
+      "sub_after": 1
+    },
+    {
+      "name": "earn-ice",
+      "kind": "collect",
+      "owners": [
+        "GameLoop",
+        "Cv3UpdateDrops",
+        "MarioSourcePowerupCollision",
+        "Cv3CollectPickupGate"
+      ],
+      "GameLoop_calls": 1,
+      "collisions": 1,
+      "collect_entries": 1,
+      "defeats": 0,
+      "heart_before": 14,
+      "health_before": 64,
+      "power_before": 0,
+      "sub_before": 1,
+      "types": [],
+      "allocations": 0,
+      "heart_writes": [
+        [
+          0,
+          19,
+          44478,
+          82
+        ]
+      ],
+      "age": 0,
+      "heart_after": 19,
+      "health_after": 64,
+      "power_after": 0,
+      "sub_after": 2
+    },
+    {
+      "name": "use-ice",
+      "kind": "use",
+      "owners": [
+        "GameLoop",
+        "Cv3UpdateDrops",
+        "Cv3Spawn",
+        "Cv3AttackEnemies"
+      ],
+      "GameLoop_calls": 321,
+      "collisions": 0,
+      "collect_entries": 0,
+      "defeats": 0,
+      "heart_before": 19,
+      "health_before": 64,
+      "power_before": 0,
+      "sub_before": 2,
+      "types": [
+        4
+      ],
+      "allocations": 3,
+      "heart_writes": [
+        [
+          6,
+          18,
+          41339,
+          84
+        ]
+      ],
+      "frozen_ticks": 180,
+      "age": 320,
+      "heart_after": 18,
+      "health_after": 64,
+      "power_after": 0,
+      "sub_after": 2
+    },
+    {
+      "name": "earn-orbs",
+      "kind": "collect",
+      "owners": [
+        "GameLoop",
+        "Cv3UpdateDrops",
+        "MarioSourcePowerupCollision",
+        "Cv3CollectPickupGate"
+      ],
+      "GameLoop_calls": 1,
+      "collisions": 1,
+      "collect_entries": 1,
+      "defeats": 0,
+      "heart_before": 18,
+      "health_before": 64,
+      "power_before": 0,
+      "sub_before": 2,
+      "types": [],
+      "allocations": 0,
+      "heart_writes": [
+        [
+          0,
+          23,
+          44478,
+          82
+        ]
+      ],
+      "age": 0,
+      "heart_after": 23,
+      "health_after": 64,
+      "power_after": 0,
+      "sub_after": 3
+    },
+    {
+      "name": "use-orbs",
+      "kind": "use",
+      "owners": [
+        "GameLoop",
+        "Cv3UpdateDrops",
+        "Cv3Spawn",
+        "Cv3AttackEnemies",
+        "ShellOrBlockDefeat"
+      ],
+      "GameLoop_calls": 321,
+      "collisions": 0,
+      "collect_entries": 0,
+      "defeats": 1,
+      "heart_before": 23,
+      "health_before": 64,
+      "power_before": 0,
+      "sub_before": 3,
+      "types": [
+        5
+      ],
+      "allocations": 3,
+      "heart_writes": [
+        [
+          6,
+          22,
+          41339,
+          84
+        ]
+      ],
+      "age": 320,
+      "heart_after": 22,
+      "health_after": 64,
+      "power_after": 0,
+      "sub_after": 3
+    },
+    {
+      "name": "physical-heart-one",
+      "kind": "heart",
+      "owners": [
+        "GameLoop",
+        "Cv3UpdateDrops"
+      ],
+      "GameLoop_calls": 1,
+      "collisions": 0,
+      "collect_entries": 0,
+      "defeats": 0,
+      "heart_before": 22,
+      "health_before": 64,
+      "power_before": 0,
+      "sub_before": 3,
+      "types": [],
+      "allocations": 0,
+      "heart_writes": [
+        [
+          0,
+          23,
+          43818,
+          84
+        ]
+      ],
+      "age": 0,
+      "heart_after": 23,
+      "health_after": 64,
+      "power_after": 0,
+      "sub_after": 3
+    },
+    {
+      "name": "physical-heart-five",
+      "kind": "heart",
+      "owners": [
+        "GameLoop",
+        "Cv3UpdateDrops"
+      ],
+      "GameLoop_calls": 1,
+      "collisions": 0,
+      "collect_entries": 0,
+      "defeats": 0,
+      "heart_before": 23,
+      "health_before": 64,
+      "power_before": 0,
+      "sub_before": 3,
+      "types": [],
+      "allocations": 0,
+      "heart_writes": [
+        [
+          0,
+          28,
+          43818,
+          84
+        ]
+      ],
+      "age": 0,
+      "heart_after": 28,
+      "health_after": 64,
+      "power_after": 0,
+      "sub_after": 3
+    },
+    {
+      "name": "physical1Up-retains-earned-equipment-hearts",
+      "kind": "life",
+      "GameLoop_calls": 70,
+      "heart_before": 28,
+      "heart_after": 28,
+      "heart_writes": [],
+      "health_before": 64,
+      "health_after": 64,
+      "power_before": 0,
+      "power_after": 0,
+      "sub_before": 3,
+      "sub_after": 3,
+      "life_before": 2,
+      "life_after": 3,
+      "actual_events": [
+        {
+          "event": "PhysicalPickup",
+          "update": 1,
+          "pc": 44913,
+          "bank": 3,
+          "x": 5,
+          "life": 2
+        },
+        {
+          "event": "LifeIncrement",
+          "update": 6,
+          "pc": 35207,
+          "bank": 126,
+          "x": 5,
+          "life": 2
+        }
+      ],
+      "no_equipment_or_life_seed": true
+    }
+  ],
+  "GameLoop_calls": 1446,
+  "limits": "Fresh finite complete GameLoop CPU only; no native interrupts/PPU/APU/Lua/cadence/waveform or full route. Mature actors and aligned legal enemy target are disclosed; no tested upgrade/heart/health/transform/projectile outcome seeds. All injury/healing calls execute continuously in the same actualCPU arena. This does not claim originalCV3 source-enemy damage fidelity or native/campaign success.",
+  "continuous_actual_same_arena_injury_then_D0_then_original_campaign": true,
+  "actual_hero_health_writes": [
+    {
+      "phase": "actual-contact-and-natural-expiry",
+      "value": 60,
+      "pc": 44949,
+      "bank": 82
+    },
+    {
+      "phase": "health-earned-from-real-contact",
+      "value": 64,
+      "pc": 44517,
+      "bank": 82
+    },
+    {
+      "phase": "health-capped-64",
+      "value": 64,
+      "pc": 44517,
+      "bank": 82
+    }
+  ],
+  "source_benefit": "One real Hard Goomba collision:64->60, native recoil/16hurt/64protection and real interval injuryTimer expiry, then actualD0 min(64,60+16)=64. Original cap-onlyD0 repeated at64 remains separately verified. No HP/hurt/transform writes.",
+  "numeric_mode_readback": 1,
+  "actual_complete_NMI_after_every_Main": true,
+  "both_mode_source_controls": [
+    {
+      "passed": true,
+      "source_CPU_only": true,
+      "ROM_sha256": "5a0a37a97e95ce3c1086f91f6000ad0157bb477f923027d39f0342d9389e6db2",
+      "variant": 2,
+      "known_watch_duration_failure": false,
+      "cases": [
+        {
+          "name": "real-hard-Goomba-contact-deficit",
+          "kind": "injury",
+          "GameLoop_calls": 84,
+          "heart_before": 10,
+          "heart_after": 10,
+          "heart_writes": [],
+          "health_before": 64,
+          "health_after": 60,
+          "source_actor": {
+            "slot": 0,
+            "ID": 6,
+            "x": 72,
+            "y": 184,
+            "player_x": 64,
+            "player_y": 176,
+            "Hard_mode": 0
+          },
+          "actual_health_store": {
+            "phase": "actual-contact-and-natural-expiry",
+            "value": 60,
+            "pc": 44949,
+            "bank": 82
+          },
+          "natural_hurt16_protection64_expiry": true,
+          "states": [
+            {
+              "update": 1,
+              "health": 60,
+              "hearts": 10,
+              "hurt": 16,
+              "protection": 64,
+              "injury_timer": 0,
+              "x": 64,
+              "y": 176,
+              "state": 1
+            },
+            {
+              "update": 2,
+              "health": 60,
+              "hearts": 10,
+              "hurt": 15,
+              "protection": 63,
+              "injury_timer": 1,
+              "x": 63,
+              "y": 173,
+              "state": 1
+            },
+            {
+              "update": 3,
+              "health": 60,
+              "hearts": 10,
+              "hurt": 14,
+              "protection": 62,
+              "injury_timer": 1,
+              "x": 62,
+              "y": 170,
+              "state": 1
+            },
+            {
+              "update": 15,
+              "health": 60,
+              "hearts": 10,
+              "hurt": 2,
+              "protection": 50,
+              "injury_timer": 1,
+              "x": 50,
+              "y": 160,
+              "state": 1
+            },
+            {
+              "update": 16,
+              "health": 60,
+              "hearts": 10,
+              "hurt": 1,
+              "protection": 49,
+              "injury_timer": 1,
+              "x": 49,
+              "y": 161,
+              "state": 1
+            },
+            {
+              "update": 63,
+              "health": 60,
+              "hearts": 10,
+              "hurt": 0,
+              "protection": 2,
+              "injury_timer": 1,
+              "x": 48,
+              "y": 176,
+              "state": 0
+            },
+            {
+              "update": 64,
+              "health": 60,
+              "hearts": 10,
+              "hurt": 0,
+              "protection": 1,
+              "injury_timer": 1,
+              "x": 48,
+              "y": 176,
+              "state": 0
+            },
+            {
+              "update": 65,
+              "health": 60,
+              "hearts": 10,
+              "hurt": 0,
+              "protection": 0,
+              "injury_timer": 1,
+              "x": 48,
+              "y": 176,
+              "state": 0
+            },
+            {
+              "update": 84,
+              "health": 60,
+              "hearts": 10,
+              "hurt": 0,
+              "protection": 0,
+              "injury_timer": 0,
+              "x": 48,
+              "y": 176,
+              "state": 0
+            }
+          ],
+          "no_HP_hurt_protection_or_outcome_seed": true
+        },
+        {
+          "name": "health-earned-from-real-contact",
+          "kind": "collect",
+          "owners": [
+            "GameLoop",
+            "Cv3UpdateDrops",
+            "MarioSourcePowerupCollision",
+            "Cv3CollectPickupGate"
+          ],
+          "GameLoop_calls": 1,
+          "collisions": 1,
+          "collect_entries": 1,
+          "defeats": 0,
+          "heart_before": 10,
+          "health_before": 60,
+          "power_before": 0,
+          "sub_before": 0,
+          "types": [],
+          "allocations": 0,
+          "heart_writes": [],
+          "age": 0,
+          "heart_after": 10,
+          "health_after": 64,
+          "power_after": 0,
+          "sub_after": 0
+        },
+        {
+          "name": "health-capped-64",
+          "kind": "collect",
+          "owners": [
+            "GameLoop",
+            "Cv3UpdateDrops",
+            "MarioSourcePowerupCollision",
+            "Cv3CollectPickupGate"
+          ],
+          "GameLoop_calls": 1,
+          "collisions": 1,
+          "collect_entries": 1,
+          "defeats": 0,
+          "heart_before": 10,
+          "health_before": 64,
+          "power_before": 0,
+          "sub_before": 0,
+          "types": [],
+          "allocations": 0,
+          "heart_writes": [],
+          "age": 0,
+          "heart_after": 10,
+          "health_after": 64,
+          "power_after": 0,
+          "sub_after": 0
+        },
+        {
+          "name": "primary-base",
+          "kind": "use",
+          "owners": [
+            "GameLoop",
+            "Cv3UpdateDrops",
+            "Cv3AttackEnemies",
+            "ShellOrBlockDefeat"
+          ],
+          "GameLoop_calls": 321,
+          "collisions": 0,
+          "collect_entries": 0,
+          "defeats": 1,
+          "heart_before": 10,
+          "health_before": 64,
+          "power_before": 0,
+          "sub_before": 0,
+          "types": [],
+          "allocations": 0,
+          "heart_writes": [],
+          "age": 320,
+          "heart_after": 10,
+          "health_after": 64,
+          "power_after": 0,
+          "sub_after": 0
+        },
+        {
+          "name": "earn-flame",
+          "kind": "collect",
+          "owners": [
+            "GameLoop",
+            "Cv3UpdateDrops",
+            "MarioSourcePowerupCollision",
+            "Cv3CollectPickupGate"
+          ],
+          "GameLoop_calls": 1,
+          "collisions": 1,
+          "collect_entries": 1,
+          "defeats": 0,
+          "heart_before": 10,
+          "health_before": 64,
+          "power_before": 0,
+          "sub_before": 0,
+          "types": [],
+          "allocations": 0,
+          "heart_writes": [
+            [
+              0,
+              15,
+              44478,
+              82
+            ]
+          ],
+          "age": 0,
+          "heart_after": 15,
+          "health_after": 64,
+          "power_after": 0,
+          "sub_after": 1
+        },
+        {
+          "name": "use-flame",
+          "kind": "use",
+          "owners": [
+            "GameLoop",
+            "Cv3UpdateDrops",
+            "Cv3Spawn",
+            "Cv3AttackEnemies",
+            "ShellOrBlockDefeat"
+          ],
+          "GameLoop_calls": 321,
+          "collisions": 0,
+          "collect_entries": 0,
+          "defeats": 1,
+          "heart_before": 15,
+          "health_before": 64,
+          "power_before": 0,
+          "sub_before": 1,
+          "types": [
+            3
+          ],
+          "allocations": 1,
+          "heart_writes": [
+            [
+              6,
+              14,
+              41339,
+              84
+            ]
+          ],
+          "age": 320,
+          "heart_after": 14,
+          "health_after": 64,
+          "power_after": 0,
+          "sub_after": 1
+        },
+        {
+          "name": "earn-ice",
+          "kind": "collect",
+          "owners": [
+            "GameLoop",
+            "Cv3UpdateDrops",
+            "MarioSourcePowerupCollision",
+            "Cv3CollectPickupGate"
+          ],
+          "GameLoop_calls": 1,
+          "collisions": 1,
+          "collect_entries": 1,
+          "defeats": 0,
+          "heart_before": 14,
+          "health_before": 64,
+          "power_before": 0,
+          "sub_before": 1,
+          "types": [],
+          "allocations": 0,
+          "heart_writes": [
+            [
+              0,
+              19,
+              44478,
+              82
+            ]
+          ],
+          "age": 0,
+          "heart_after": 19,
+          "health_after": 64,
+          "power_after": 0,
+          "sub_after": 2
+        },
+        {
+          "name": "use-ice",
+          "kind": "use",
+          "owners": [
+            "GameLoop",
+            "Cv3UpdateDrops",
+            "Cv3Spawn",
+            "Cv3AttackEnemies"
+          ],
+          "GameLoop_calls": 321,
+          "collisions": 0,
+          "collect_entries": 0,
+          "defeats": 0,
+          "heart_before": 19,
+          "health_before": 64,
+          "power_before": 0,
+          "sub_before": 2,
+          "types": [
+            4
+          ],
+          "allocations": 3,
+          "heart_writes": [
+            [
+              6,
+              18,
+              41339,
+              84
+            ]
+          ],
+          "frozen_ticks": 180,
+          "age": 320,
+          "heart_after": 18,
+          "health_after": 64,
+          "power_after": 0,
+          "sub_after": 2
+        },
+        {
+          "name": "earn-orbs",
+          "kind": "collect",
+          "owners": [
+            "GameLoop",
+            "Cv3UpdateDrops",
+            "MarioSourcePowerupCollision",
+            "Cv3CollectPickupGate"
+          ],
+          "GameLoop_calls": 1,
+          "collisions": 1,
+          "collect_entries": 1,
+          "defeats": 0,
+          "heart_before": 18,
+          "health_before": 64,
+          "power_before": 0,
+          "sub_before": 2,
+          "types": [],
+          "allocations": 0,
+          "heart_writes": [
+            [
+              0,
+              23,
+              44478,
+              82
+            ]
+          ],
+          "age": 0,
+          "heart_after": 23,
+          "health_after": 64,
+          "power_after": 0,
+          "sub_after": 3
+        },
+        {
+          "name": "use-orbs",
+          "kind": "use",
+          "owners": [
+            "GameLoop",
+            "Cv3UpdateDrops",
+            "Cv3Spawn",
+            "Cv3AttackEnemies",
+            "ShellOrBlockDefeat"
+          ],
+          "GameLoop_calls": 321,
+          "collisions": 0,
+          "collect_entries": 0,
+          "defeats": 1,
+          "heart_before": 23,
+          "health_before": 64,
+          "power_before": 0,
+          "sub_before": 3,
+          "types": [
+            5
+          ],
+          "allocations": 3,
+          "heart_writes": [
+            [
+              6,
+              22,
+              41339,
+              84
+            ]
+          ],
+          "age": 320,
+          "heart_after": 22,
+          "health_after": 64,
+          "power_after": 0,
+          "sub_after": 3
+        },
+        {
+          "name": "physical-heart-one",
+          "kind": "heart",
+          "owners": [
+            "GameLoop",
+            "Cv3UpdateDrops"
+          ],
+          "GameLoop_calls": 1,
+          "collisions": 0,
+          "collect_entries": 0,
+          "defeats": 0,
+          "heart_before": 22,
+          "health_before": 64,
+          "power_before": 0,
+          "sub_before": 3,
+          "types": [],
+          "allocations": 0,
+          "heart_writes": [
+            [
+              0,
+              23,
+              43818,
+              84
+            ]
+          ],
+          "age": 0,
+          "heart_after": 23,
+          "health_after": 64,
+          "power_after": 0,
+          "sub_after": 3
+        },
+        {
+          "name": "physical-heart-five",
+          "kind": "heart",
+          "owners": [
+            "GameLoop",
+            "Cv3UpdateDrops"
+          ],
+          "GameLoop_calls": 1,
+          "collisions": 0,
+          "collect_entries": 0,
+          "defeats": 0,
+          "heart_before": 23,
+          "health_before": 64,
+          "power_before": 0,
+          "sub_before": 3,
+          "types": [],
+          "allocations": 0,
+          "heart_writes": [
+            [
+              0,
+              28,
+              43818,
+              84
+            ]
+          ],
+          "age": 0,
+          "heart_after": 28,
+          "health_after": 64,
+          "power_after": 0,
+          "sub_after": 3
+        },
+        {
+          "name": "physical1Up-retains-earned-equipment-hearts",
+          "kind": "life",
+          "GameLoop_calls": 70,
+          "heart_before": 28,
+          "heart_after": 28,
+          "heart_writes": [],
+          "health_before": 64,
+          "health_after": 64,
+          "power_before": 0,
+          "power_after": 0,
+          "sub_before": 3,
+          "sub_after": 3,
+          "life_before": 2,
+          "life_after": 3,
+          "actual_events": [
+            {
+              "event": "PhysicalPickup",
+              "update": 1,
+              "pc": 44913,
+              "bank": 3,
+              "x": 5,
+              "life": 2
+            },
+            {
+              "event": "LifeIncrement",
+              "update": 6,
+              "pc": 35207,
+              "bank": 126,
+              "x": 5,
+              "life": 2
+            }
+          ],
+          "no_equipment_or_life_seed": true
+        }
+      ],
+      "GameLoop_calls": 1446,
+      "limits": "Fresh finite complete GameLoop CPU only; no native interrupts/PPU/APU/Lua/cadence/waveform or full route. Mature actors and aligned legal enemy target are disclosed; no tested upgrade/heart/health/transform/projectile outcome seeds. All injury/healing calls execute continuously in the same actualCPU arena. This does not claim originalCV3 source-enemy damage fidelity or native/campaign success.",
+      "continuous_actual_same_arena_injury_then_D0_then_original_campaign": true,
+      "actual_hero_health_writes": [
+        {
+          "phase": "actual-contact-and-natural-expiry",
+          "value": 60,
+          "pc": 44949,
+          "bank": 82
+        },
+        {
+          "phase": "health-earned-from-real-contact",
+          "value": 64,
+          "pc": 44517,
+          "bank": 82
+        },
+        {
+          "phase": "health-capped-64",
+          "value": 64,
+          "pc": 44517,
+          "bank": 82
+        }
+      ],
+      "source_benefit": "One real Hard Goomba collision:64->60, native recoil/16hurt/64protection and real interval injuryTimer expiry, then actualD0 min(64,60+16)=64. Original cap-onlyD0 repeated at64 remains separately verified. No HP/hurt/transform writes.",
+      "numeric_mode_readback": 0,
+      "actual_complete_NMI_after_every_Main": true
+    },
+    {
+      "passed": true,
+      "source_CPU_only": true,
+      "ROM_sha256": "5a0a37a97e95ce3c1086f91f6000ad0157bb477f923027d39f0342d9389e6db2",
+      "variant": 2,
+      "known_watch_duration_failure": false,
+      "cases": [
+        {
+          "name": "real-hard-Goomba-contact-deficit",
+          "kind": "injury",
+          "GameLoop_calls": 84,
+          "heart_before": 10,
+          "heart_after": 10,
+          "heart_writes": [],
+          "health_before": 64,
+          "health_after": 60,
+          "source_actor": {
+            "slot": 0,
+            "ID": 6,
+            "x": 72,
+            "y": 184,
+            "player_x": 64,
+            "player_y": 176,
+            "Hard_mode": 1
+          },
+          "actual_health_store": {
+            "phase": "actual-contact-and-natural-expiry",
+            "value": 60,
+            "pc": 44949,
+            "bank": 82
+          },
+          "natural_hurt16_protection64_expiry": true,
+          "states": [
+            {
+              "update": 1,
+              "health": 60,
+              "hearts": 10,
+              "hurt": 16,
+              "protection": 64,
+              "injury_timer": 0,
+              "x": 64,
+              "y": 176,
+              "state": 1
+            },
+            {
+              "update": 2,
+              "health": 60,
+              "hearts": 10,
+              "hurt": 15,
+              "protection": 63,
+              "injury_timer": 1,
+              "x": 63,
+              "y": 173,
+              "state": 1
+            },
+            {
+              "update": 3,
+              "health": 60,
+              "hearts": 10,
+              "hurt": 14,
+              "protection": 62,
+              "injury_timer": 1,
+              "x": 62,
+              "y": 170,
+              "state": 1
+            },
+            {
+              "update": 15,
+              "health": 60,
+              "hearts": 10,
+              "hurt": 2,
+              "protection": 50,
+              "injury_timer": 1,
+              "x": 50,
+              "y": 160,
+              "state": 1
+            },
+            {
+              "update": 16,
+              "health": 60,
+              "hearts": 10,
+              "hurt": 1,
+              "protection": 49,
+              "injury_timer": 1,
+              "x": 49,
+              "y": 161,
+              "state": 1
+            },
+            {
+              "update": 63,
+              "health": 60,
+              "hearts": 10,
+              "hurt": 0,
+              "protection": 2,
+              "injury_timer": 1,
+              "x": 48,
+              "y": 176,
+              "state": 0
+            },
+            {
+              "update": 64,
+              "health": 60,
+              "hearts": 10,
+              "hurt": 0,
+              "protection": 1,
+              "injury_timer": 1,
+              "x": 48,
+              "y": 176,
+              "state": 0
+            },
+            {
+              "update": 65,
+              "health": 60,
+              "hearts": 10,
+              "hurt": 0,
+              "protection": 0,
+              "injury_timer": 1,
+              "x": 48,
+              "y": 176,
+              "state": 0
+            },
+            {
+              "update": 84,
+              "health": 60,
+              "hearts": 10,
+              "hurt": 0,
+              "protection": 0,
+              "injury_timer": 0,
+              "x": 48,
+              "y": 176,
+              "state": 0
+            }
+          ],
+          "no_HP_hurt_protection_or_outcome_seed": true
+        },
+        {
+          "name": "health-earned-from-real-contact",
+          "kind": "collect",
+          "owners": [
+            "GameLoop",
+            "Cv3UpdateDrops",
+            "MarioSourcePowerupCollision",
+            "Cv3CollectPickupGate"
+          ],
+          "GameLoop_calls": 1,
+          "collisions": 1,
+          "collect_entries": 1,
+          "defeats": 0,
+          "heart_before": 10,
+          "health_before": 60,
+          "power_before": 0,
+          "sub_before": 0,
+          "types": [],
+          "allocations": 0,
+          "heart_writes": [],
+          "age": 0,
+          "heart_after": 10,
+          "health_after": 64,
+          "power_after": 0,
+          "sub_after": 0
+        },
+        {
+          "name": "health-capped-64",
+          "kind": "collect",
+          "owners": [
+            "GameLoop",
+            "Cv3UpdateDrops",
+            "MarioSourcePowerupCollision",
+            "Cv3CollectPickupGate"
+          ],
+          "GameLoop_calls": 1,
+          "collisions": 1,
+          "collect_entries": 1,
+          "defeats": 0,
+          "heart_before": 10,
+          "health_before": 64,
+          "power_before": 0,
+          "sub_before": 0,
+          "types": [],
+          "allocations": 0,
+          "heart_writes": [],
+          "age": 0,
+          "heart_after": 10,
+          "health_after": 64,
+          "power_after": 0,
+          "sub_after": 0
+        },
+        {
+          "name": "primary-base",
+          "kind": "use",
+          "owners": [
+            "GameLoop",
+            "Cv3UpdateDrops",
+            "Cv3AttackEnemies",
+            "ShellOrBlockDefeat"
+          ],
+          "GameLoop_calls": 321,
+          "collisions": 0,
+          "collect_entries": 0,
+          "defeats": 1,
+          "heart_before": 10,
+          "health_before": 64,
+          "power_before": 0,
+          "sub_before": 0,
+          "types": [],
+          "allocations": 0,
+          "heart_writes": [],
+          "age": 320,
+          "heart_after": 10,
+          "health_after": 64,
+          "power_after": 0,
+          "sub_after": 0
+        },
+        {
+          "name": "earn-flame",
+          "kind": "collect",
+          "owners": [
+            "GameLoop",
+            "Cv3UpdateDrops",
+            "MarioSourcePowerupCollision",
+            "Cv3CollectPickupGate"
+          ],
+          "GameLoop_calls": 1,
+          "collisions": 1,
+          "collect_entries": 1,
+          "defeats": 0,
+          "heart_before": 10,
+          "health_before": 64,
+          "power_before": 0,
+          "sub_before": 0,
+          "types": [],
+          "allocations": 0,
+          "heart_writes": [
+            [
+              0,
+              15,
+              44478,
+              82
+            ]
+          ],
+          "age": 0,
+          "heart_after": 15,
+          "health_after": 64,
+          "power_after": 0,
+          "sub_after": 1
+        },
+        {
+          "name": "use-flame",
+          "kind": "use",
+          "owners": [
+            "GameLoop",
+            "Cv3UpdateDrops",
+            "Cv3Spawn",
+            "Cv3AttackEnemies",
+            "ShellOrBlockDefeat"
+          ],
+          "GameLoop_calls": 321,
+          "collisions": 0,
+          "collect_entries": 0,
+          "defeats": 1,
+          "heart_before": 15,
+          "health_before": 64,
+          "power_before": 0,
+          "sub_before": 1,
+          "types": [
+            3
+          ],
+          "allocations": 1,
+          "heart_writes": [
+            [
+              6,
+              14,
+              41339,
+              84
+            ]
+          ],
+          "age": 320,
+          "heart_after": 14,
+          "health_after": 64,
+          "power_after": 0,
+          "sub_after": 1
+        },
+        {
+          "name": "earn-ice",
+          "kind": "collect",
+          "owners": [
+            "GameLoop",
+            "Cv3UpdateDrops",
+            "MarioSourcePowerupCollision",
+            "Cv3CollectPickupGate"
+          ],
+          "GameLoop_calls": 1,
+          "collisions": 1,
+          "collect_entries": 1,
+          "defeats": 0,
+          "heart_before": 14,
+          "health_before": 64,
+          "power_before": 0,
+          "sub_before": 1,
+          "types": [],
+          "allocations": 0,
+          "heart_writes": [
+            [
+              0,
+              19,
+              44478,
+              82
+            ]
+          ],
+          "age": 0,
+          "heart_after": 19,
+          "health_after": 64,
+          "power_after": 0,
+          "sub_after": 2
+        },
+        {
+          "name": "use-ice",
+          "kind": "use",
+          "owners": [
+            "GameLoop",
+            "Cv3UpdateDrops",
+            "Cv3Spawn",
+            "Cv3AttackEnemies"
+          ],
+          "GameLoop_calls": 321,
+          "collisions": 0,
+          "collect_entries": 0,
+          "defeats": 0,
+          "heart_before": 19,
+          "health_before": 64,
+          "power_before": 0,
+          "sub_before": 2,
+          "types": [
+            4
+          ],
+          "allocations": 3,
+          "heart_writes": [
+            [
+              6,
+              18,
+              41339,
+              84
+            ]
+          ],
+          "frozen_ticks": 180,
+          "age": 320,
+          "heart_after": 18,
+          "health_after": 64,
+          "power_after": 0,
+          "sub_after": 2
+        },
+        {
+          "name": "earn-orbs",
+          "kind": "collect",
+          "owners": [
+            "GameLoop",
+            "Cv3UpdateDrops",
+            "MarioSourcePowerupCollision",
+            "Cv3CollectPickupGate"
+          ],
+          "GameLoop_calls": 1,
+          "collisions": 1,
+          "collect_entries": 1,
+          "defeats": 0,
+          "heart_before": 18,
+          "health_before": 64,
+          "power_before": 0,
+          "sub_before": 2,
+          "types": [],
+          "allocations": 0,
+          "heart_writes": [
+            [
+              0,
+              23,
+              44478,
+              82
+            ]
+          ],
+          "age": 0,
+          "heart_after": 23,
+          "health_after": 64,
+          "power_after": 0,
+          "sub_after": 3
+        },
+        {
+          "name": "use-orbs",
+          "kind": "use",
+          "owners": [
+            "GameLoop",
+            "Cv3UpdateDrops",
+            "Cv3Spawn",
+            "Cv3AttackEnemies",
+            "ShellOrBlockDefeat"
+          ],
+          "GameLoop_calls": 321,
+          "collisions": 0,
+          "collect_entries": 0,
+          "defeats": 1,
+          "heart_before": 23,
+          "health_before": 64,
+          "power_before": 0,
+          "sub_before": 3,
+          "types": [
+            5
+          ],
+          "allocations": 3,
+          "heart_writes": [
+            [
+              6,
+              22,
+              41339,
+              84
+            ]
+          ],
+          "age": 320,
+          "heart_after": 22,
+          "health_after": 64,
+          "power_after": 0,
+          "sub_after": 3
+        },
+        {
+          "name": "physical-heart-one",
+          "kind": "heart",
+          "owners": [
+            "GameLoop",
+            "Cv3UpdateDrops"
+          ],
+          "GameLoop_calls": 1,
+          "collisions": 0,
+          "collect_entries": 0,
+          "defeats": 0,
+          "heart_before": 22,
+          "health_before": 64,
+          "power_before": 0,
+          "sub_before": 3,
+          "types": [],
+          "allocations": 0,
+          "heart_writes": [
+            [
+              0,
+              23,
+              43818,
+              84
+            ]
+          ],
+          "age": 0,
+          "heart_after": 23,
+          "health_after": 64,
+          "power_after": 0,
+          "sub_after": 3
+        },
+        {
+          "name": "physical-heart-five",
+          "kind": "heart",
+          "owners": [
+            "GameLoop",
+            "Cv3UpdateDrops"
+          ],
+          "GameLoop_calls": 1,
+          "collisions": 0,
+          "collect_entries": 0,
+          "defeats": 0,
+          "heart_before": 23,
+          "health_before": 64,
+          "power_before": 0,
+          "sub_before": 3,
+          "types": [],
+          "allocations": 0,
+          "heart_writes": [
+            [
+              0,
+              28,
+              43818,
+              84
+            ]
+          ],
+          "age": 0,
+          "heart_after": 28,
+          "health_after": 64,
+          "power_after": 0,
+          "sub_after": 3
+        },
+        {
+          "name": "physical1Up-retains-earned-equipment-hearts",
+          "kind": "life",
+          "GameLoop_calls": 70,
+          "heart_before": 28,
+          "heart_after": 28,
+          "heart_writes": [],
+          "health_before": 64,
+          "health_after": 64,
+          "power_before": 0,
+          "power_after": 0,
+          "sub_before": 3,
+          "sub_after": 3,
+          "life_before": 2,
+          "life_after": 3,
+          "actual_events": [
+            {
+              "event": "PhysicalPickup",
+              "update": 1,
+              "pc": 44913,
+              "bank": 3,
+              "x": 5,
+              "life": 2
+            },
+            {
+              "event": "LifeIncrement",
+              "update": 6,
+              "pc": 35207,
+              "bank": 126,
+              "x": 5,
+              "life": 2
+            }
+          ],
+          "no_equipment_or_life_seed": true
+        }
+      ],
+      "GameLoop_calls": 1446,
+      "limits": "Fresh finite complete GameLoop CPU only; no native interrupts/PPU/APU/Lua/cadence/waveform or full route. Mature actors and aligned legal enemy target are disclosed; no tested upgrade/heart/health/transform/projectile outcome seeds. All injury/healing calls execute continuously in the same actualCPU arena. This does not claim originalCV3 source-enemy damage fidelity or native/campaign success.",
+      "continuous_actual_same_arena_injury_then_D0_then_original_campaign": true,
+      "actual_hero_health_writes": [
+        {
+          "phase": "actual-contact-and-natural-expiry",
+          "value": 60,
+          "pc": 44949,
+          "bank": 82
+        },
+        {
+          "phase": "health-earned-from-real-contact",
+          "value": 64,
+          "pc": 44517,
+          "bank": 82
+        },
+        {
+          "phase": "health-capped-64",
+          "value": 64,
+          "pc": 44517,
+          "bank": 82
+        }
+      ],
+      "source_benefit": "One real Hard Goomba collision:64->60, native recoil/16hurt/64protection and real interval injuryTimer expiry, then actualD0 min(64,60+16)=64. Original cap-onlyD0 repeated at64 remains separately verified. No HP/hurt/transform writes.",
+      "numeric_mode_readback": 1,
+      "actual_complete_NMI_after_every_Main": true
+    }
+  ],
+  "fresh_GameLoop_calls_both_modes": 2892,
+  "source_limits": "Complete actual CPU GameLoop plus source full NMI on frozen5a, both numeric modes, current linked metadata. Headless bus does not emulate native PPU/DMA/DMC time. Typed map/mature actors and aligned default-health targets; no acquired health/hearts/subweapon/power/action/timer/life/kill/RNG outcome seeds. Historic Hard case names do not override actual numeric0/1 readback."
+}
