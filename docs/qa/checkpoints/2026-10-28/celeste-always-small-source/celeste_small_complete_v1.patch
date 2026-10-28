@@ -1,0 +1,755 @@
+--- a/src/celeste_mario_host.s
++++ b/src/celeste_mario_host.s
+@@ -36,7 +36,7 @@
+ Warm:farcall CmEnsure
+ Sync:lda CmTier
+  sta PlayerStatus
+- lda #0
++ lda #1
+  sta PlayerSize
+  rts
+ .endproc
+@@ -264,7 +264,7 @@
+  jsr CmHostEnabled
+  bcc Foreign
+  jsr CmHostEnsure
+- ldx #25
++ ldx #23
+  farcall CmGraphics::Select
+  farcall CmDraw
+  farcall HpPrepareNativePointers
+--- a/src/celeste_mario_host_entry.s
++++ b/src/celeste_mario_host_entry.s
+@@ -2,9 +2,9 @@
+ ; Dedicated Celeste Mario DELUXE kernel, source-derived from reproduced MG.
+ .if ::ENABLE_MMC5_EXPANDED
+ .include "celeste_mario_host_state.inc"
+-.include "celeste_mario_core.s"
++.include "celeste_mario_core_small_host.inc"
+ .include "celeste_mario_kernel.inc"
+-.include "celeste_mario_render.s"
++.include "celeste_mario_render_small_host.inc"
+ .pushseg
+ .segment "CELESTE_MARIO_CHR"
+ .incbin "chr/characters/celeste-mario.chr"
+--- /dev/null
++++ b/src/celeste_mario_core_small_host.inc
+@@ -0,0 +1,492 @@
++.export CmEnabled,CmInit,CmEnter,CmEnsure,CmMovement,CmAfterBG,CmWeapons,CmPickup
++.export CmInjuryStatus,CmInjuryStart,CmCollisionBox,CmBounce
++.pushseg
++.segment "CELESTE_MARIO_CORE"
++CmCoreStart:
++.proc CmEnabled
++ lda SelectedCharacter
++ bne No
++ lda MarioVariant
++ cmp #4
++ beq Yes
++No:clc
++ rts
++Yes:sec
++ rts
++.endproc
++.proc CmInit
++ lda #0
++ sta CmMarker
++ jmp CmEnsure
++.endproc
++.proc CmEnsure
++ lda CmMarker
++ cmp #$ce
++ bne First
++ lda CmLife
++ sec
++ sbc NumberofLives
++ cmp #1
++ beq First
++ jsr LoadedArea
++ cmp CmArea
++ bne Clear
++ lda WorldNumber
++ cmp CmWorld
++ bne Clear
++ jmp Save
++First:
++ lda #0
++ sta CmTier
++ lda #$ce
++ sta CmMarker
++Clear:
++ lda #0
++ ldx #$7f
++Loop:sta $5c00,x
++ dex
++ bpl Loop
++ sta Player_X_Speed
++ sta CmKernelXFrac
++ sta CmPosXFrac
++ sta CmVelYFrac
++ sta CmPosYFrac
++ sta PlayerAnimCtrl
++ sta PlayerAnimTimer
++ sta PlayerAnimTimerSet
++ lda #2
++ sta CmStaminaHi
++ lda #99
++ sta CmStaminaLo
++ lda #1
++ sta CmDashStock
++ lda #$50
++ sta CmFallForce
++ lda #$29
++ sta CmGravity
++Save:
++ lda NumberofLives
++ sta CmLife
++ jsr LoadedArea
++ sta CmArea
++ lda WorldNumber
++ sta CmWorld
++ rts
++LoadedArea:
++ lda AreaType
++ asl
++ asl
++ asl
++ asl
++ asl
++ ora AreaAddrsLOffset
++ rts
++.endproc
++.proc CmEnter
++ jsr CmEnsure
++ jmp CmEnsure::Clear            ; activate after another identity used5C overlay
++.endproc
++.proc CmMovement
++ jsr CmEnsure
++ lda GameEngineSubroutine
++ cmp #8
++ jne Done
++ lda GamePauseStatus
++ and #1
++ jne Done
++ inc CmClock
++ jsr CmTimers
++ lda SavedJoypadBits
++ eor CmPreviousAB
++ and SavedJoypadBits
++ and #$c0
++ sta CmFresh
++ lda SavedJoypadBits
++ and #$c0
++ sta CmPreviousAB
++ lda Player_State
++ sta CmLastState
++ lda CmState
++ cmp #6
++ beq Input
++Sync:
++ lda Player_State
++ sta CmState
++Input:
++ lda #0
++ .res 3,$ea                  ; host owns always-small size; preserve zero A/StartedJump
++ sta CmStartedJump
++ lda CmState
++ bne NoCrouch
++ lda Up_Down_Buttons
++ and #Down_Dir
++ sta CrouchingFlag
++NoCrouch:
++ lda CmState
++ bne NoRefill
++ lda #2                       ; source StartingVIT=2, decimal2*100+99 stamina
++ sta CmStaminaHi
++ lda #99
++ sta CmStaminaLo
++ lda #1
++ sta CmDashStock
++NoRefill:
++ lda CmFresh
++ bpl CheckJump
++ lda #6                       ; native six-update buffered A
++ sta CmJumpBuffer
++CheckJump:
++ lda CmJumpBuffer
++ beq DashState
++ lda CmDashReady
++ cmp #3
++ bcs DashState
++ lda CmState
++ beq GroundJump
++ cmp #3
++ beq GroundJump
++ lda CmCoyote
++ bne GroundJump
++ lda SwimmingFlag
++ bne DashState                 ; literal MG airborne-water jump admission
++ lda CmTier
++ beq DashState
++ lda CmWallGrace
++ beq DashState
++ jsr CmWallJump
++GroundJump:
++ jsr CmJump
++DashState:
++ lda CmState
++ cmp #6
++ beq Dashing
++ lda CmDashTimer
++ beq Ordinary
++ lda CmState
++ bne StopDash
++ lda #6                       ; native ground contact resumes remaining dash
++ sta CmState
++ jmp Dashing
++StopDash:
++ cmp #6
++ beq Dashing
++ lda #0
++ sta CmDashTimer
++ sta CmBoost
++Ordinary:
++ lda CmState
++ cmp #3
++ bne Normal
++ ; Host vines retain their actual collision/input owner, never a second axis.
++ farcall MegaManClimbing
++ jmp Export
++Normal:
++ jsr CmXPhysics
++ lda CmState
++ beq Ground
++ jsr CmAir
++ jmp Export
++Ground:
++ lda #5
++ sta CmCoyote
++ lda SwimmingFlag
++ bne :+
++ lda #$50
++ sta CmFallForce
++: 
++ jsr CmGround
++ jmp Export
++Dashing:
++ jsr CmDash
++Export:
++ lda CmState
++ cmp #6
++ bne :+
++ lda #1                       ; host Player_State never sees native dispatch6
++:sta Player_State
++ lda Player_X_Speed
++ beq Done
++ tax
++ ldy #1
++ cpx #0
++ bpl :+
++ iny
++:sty Player_MovingDir
++Done:rts
++.endproc
++.proc CmTimers
++ ; Called after the host's genuine master timer decrement. Native CM only
++ ; advances these frame timers when master control is zero. First zero skips
++ ; jump pre-input decrement, as native Dec_NoPreInput does.
++ lda TimerControl
++ bne Save
++ lda CmOldMaster
++ bne Timers
++ lda CmDashTimer
++ and #3
++ bne Timers
++ lda CmJumpBuffer
++ beq Timers
++ dec CmJumpBuffer
++Timers:
++ lda CmDashReady
++ beq DashTick
++ dec CmDashReady
++ jmp Other
++DashTick:
++ lda CmDashTimer
++ beq Other
++ dec CmDashTimer
++Other:
++ ldx #4
++Loop:
++ lda CmCoyote,x               ; coyote,wall grace,wall kick,side (skip side)
++ cpx #3
++ beq Next
++ cpx #4                       ; dash timer already owns its decrement
++ beq Next
++ cmp #0
++ beq Next
++ dec CmCoyote,x
++Next:dex
++ bpl Loop
++ ldx #2
++More:
++ lda CmCooldown,x             ; cooldown,jump hold,jump interval
++ beq :+
++ dec CmCooldown,x
++:dex
++ bpl More
++Save:
++ lda TimerControl
++ sta CmOldMaster
++ rts
++.endproc
++.proc CmAfterBG
++ lda #0
++ ldx CmWallKick
++ beq :+
++ lda #1
++:sta CmFootPhysics
++ lda GameEngineSubroutine
++ cmp #8
++ jne Done
++ lda SmCeilingHit
++ beq Land
++ lda #0
++ sta CmDashTimer
++ lda #$40
++ sta CmVelYFrac
++Land:
++ lda Player_State
++ bne Wall
++ lda CmState
++ cmp #6
++ bne Ground
++ lda CmDashReady
++ bne Wall
++ lda CmDashDir
++ cmp #5
++ bcc Wall
++Ground:
++ lda #0
++ sta CmState
++ sta CmVelYFrac
++Wall:
++ lda SwimmingFlag
++ bne Done
++ lda CmTier
++ beq Done
++ lda Player_CollisionBits
++ and #3
++ cmp #3
++ beq Done
++ eor #3
++ and #3
++ tay
++ beq Done
++ cmp #3
++ beq Done
++ sty CmWallSide
++ lda CrouchingFlag
++ bne Done
++ lda Player_Y_HighPos
++ beq Done
++ lda Player_Y_Speed
++ bmi Admit
++ cpy PlayerFacingDir
++ bne Done
++ cpy Left_Right_Buttons
++ bne Done
++Admit:
++ lda CmState
++ beq Done
++ cmp #3
++ beq Done
++ lda #10                      ; genuine StateCanWallClingTable, not old comment
++ sta CmWallGrace
++ lda Up_Down_Buttons
++ and #Up_Dir
++ beq Slide
++ lda CmStaminaLo
++ ora CmStaminaHi
++ beq Slide
++ lda Player_Y_Speed
++ bmi Done
++ lda #0
++ sta Player_Y_Speed
++ sta CmVelYFrac
++ dec CmStaminaLo
++ bpl Done
++ lda #99
++ sta CmStaminaLo
++ dec CmStaminaHi
++ rts
++Slide:
++ lda Player_Y_Speed
++ cmp #2
++ bmi Done
++ lda #2
++ sta Player_Y_Speed
++ lda #0
++ sta CmVelYFrac
++Done:rts
++.endproc
++.proc CmWeapons
++ ; ProcDash is a post-movement/post-BG owner in the actual MG GameCore.
++ lda CmFresh
++ and #B_Button
++ beq Tick
++ lda #4
++ sta CmBBuffer
++ bne Check
++Tick:
++ lda CmBBuffer
++ beq Done
++ dec CmBBuffer
++Check:
++ lda CmTier
++ cmp #2
++ bcc Done
++ lda GameEngineSubroutine
++ cmp #8
++ bne Done
++ lda CmCooldown
++ bne Done
++ lda Player_Y_HighPos
++ beq Done
++ lda AreaType
++ beq Done
++ lda CmState
++ cmp #3
++ bcs Done
++ lda CmDashStock
++ beq Done
++ dec CmDashStock
++ lda CmState
++ beq Pos
++ lda #$fd
++ sta Player_Y_Speed
++ sta CmVelYFrac
++Pos:
++ lda Player_Y_Position
++ bne :+
++ dec Player_Y_HighPos
++:dec Player_Y_Position
++ lda #6
++ sta CmState
++ lda #1
++ sta Player_State
++ lda #3
++ cmp TimerControl
++ bcc :+
++ sta TimerControl
++:lda #4
++ sta CmDashReady
++ lda #12
++ sta CmDashTimer
++ sta CmCooldown
++ sta CmBoost
++ lda #$3e
++ sta CmGravity
++ lda #Sfx_Fireball             ; crossover cue; no native CM music engine port
++ sta Square1SoundQueue
++Done:
++ lda TimerControl
++ sta CmOldMaster
++ rts
++.endproc
++.proc CmPickup
++ ; X is the actual contacted native actor slot, preserved across release.
++ phx
++ lda PowerUpType,x
++ cmp #2
++ bcs No
++ lda CmTier
++ cmp #2
++ bcs Full
++ inc CmTier
++Full:
++ lda CmTier
++ sta PlayerStatus
++ lda #0
++ sta CmPalette
++ jsr EraseEnemyObject
++ plx
++ lda #6
++ jsr SetupFloateyNumber
++ lda #Sfx_PowerUpGrab
++ sta Square2SoundQueue
++ sec
++ rts
++No:plx
++ clc
++ rts
++.endproc
++.proc CmInjuryStatus
++ lda CmTier
++ beq Done
++ lda #1
++Done:
++ rts
++.endproc
++.proc CmInjuryStart
++ lda CmTier
++ beq No
++ dec CmTier
++ lda CmTier
++ sta PlayerStatus
++ lda #0
++ sta CmDashTimer
++ sta CmDashReady
++ sta CmPalette
++ lda #$90
++ sta InjuryTimer
++ sec
++ rts
++No:clc
++ rts
++.endproc
++.proc CmCollisionBox
++ ldy #1                      ; native small bbox, independent of upgrade/crouch
++ rts
++ .res 7,$ea                  ; preserve genuine CmBounce and subsequent PCs
++.endproc
++.proc CmBounce
++ ; Native MG SBnce, initial JumpPwr0 and default EnemyStompVerticalForce80.
++ lda #$fc
++ sta Player_Y_Speed
++ lda #$60
++ sta CmVelYFrac
++ lda #$26
++ sta CmGravity
++ lda #$80
++ sta CmFallForce
++ lda #$20
++ sta CmJumpTime
++ lda #1
++ sta CmState
++ sta Player_State
++ rts
++.endproc
++.popseg
+--- /dev/null
++++ b/src/celeste_mario_render_small_host.inc
+@@ -0,0 +1,223 @@
++.export CmGraphics,CmGraphicsBank,CmDraw,CmUi,CmColors
++.pushseg
++.segment "CELESTE_MARIO_CORE"
++.proc CmGraphics
++ jsr CmEnsure
++ lda Player_Rel_XPos
++ sta Player_Pos_ForScroll
++ ldx #25                      ; native big StandGFX
++ lda GameEngineSubroutine
++ cmp #11
++ bne Live
++ ldx #22                      ; native killed frame
++ jmp Select
++Live:
++ lda CrouchingFlag
++ beq Wall
++ ldx #10
++ jmp Still
++Wall:
++ lda CmState
++ beq GroundActs
++ cmp #3
++ beq Climb
++ lda CmWallGrace
++ beq Air
++ ldx #3                       ; native wall pose uses SkidGFX
++ jmp Still
++Air:
++ lda CmState
++ cmp #2
++ beq Fall
++ cmp #1
++ bne GroundActs
++ lda SwimmingFlag
++ bne Swim
++ ldx #4
++ bne Still
++GroundActs:
++ lda Player_X_Speed
++ ora Left_Right_Buttons
++ beq Stand
++ lda Player_XSpeedAbsolute
++ cmp #9
++ bcc Walk
++ lda Player_MovingDir
++ and PlayerFacingDir
++ bne Walk
++ ldx #3
++ bne Still
++Stand:
++ ldx #25
++ bne Still
++Climb:
++ ldx #8
++ lda Player_Y_Speed
++ beq Still
++ lda #2
++ bne Animated
++Swim:
++ ldx #5
++ lda CmJumpTime
++ ora PlayerAnimCtrl
++ bne SwimAnimate
++ lda A_B_Buttons
++ bpl CurrentFrame
++SwimAnimate:
++ lda #3
++ bne Animated
++Walk:
++ ldx #0
++ lda #3
++Animated:
++ sta CmTemp
++ lda PlayerAnimTimer
++ beq Advance
++ lda PlayerAnimCtrl
++ cmp CmTemp
++ bcc CurrentFrame
++ lda #0
++ beq SetFrame
++Advance:
++ lda PlayerAnimTimerSet
++ sta PlayerAnimTimer
++ lda PlayerAnimCtrl
++ clc
++ adc #1
++ cmp CmTemp
++ bcc SetFrame
++ lda #0
++SetFrame:
++ sta PlayerAnimCtrl
++CurrentFrame:
++ txa
++ clc
++ adc PlayerAnimCtrl
++ tax
++ jmp Select
++Fall:
++ ldx #0
++ jmp CurrentFrame
++Still:
++ lda #0
++ sta PlayerAnimCtrl
++Select:
++ jsr CmSmallPoseSelect
++ lda CmArtBanks,x
++ sta CmGfxBank
++ lda PlayerFacingDir
++ cmp #2
++ beq Left
++ lda CmArtRLo,x
++ sta SmPosePtr
++ lda CmArtRHi,x
++ bne High
++Left:
++ lda CmArtLLo,x
++ sta SmPosePtr
++ lda CmArtLHi,x
++High:
++ sta SmPosePtr+1
++ lda CmGfxBank
++ clc
++ adc #<CM_FIRST_CHR
++ sta SmChrBank
++ lda #METASPRITE_SAMUS_BODY
++ sta ObjectMetasprite
++ jmp CmGraphicsBank
++.endproc
++.proc CmGraphicsBank
++ BankPRGC #.bank(CmArtStart)
++ rts
++.endproc
++.proc CmDraw
++ lda CmGfxBank
++ clc
++ adc #<CM_FIRST_CHR
++ sta CmTemp
++ ldy #0
++Loop:
++ lda CurrentCHRBank,y
++ cmp CmTemp
++ bne Changed
++ lda X5ChrMode,y
++ cmp #($80|>CM_FIRST_CHR)
++ beq Next
++Changed:
++ lda CmTemp
++ sta CurrentCHRBank,y
++ lda #($80|>CM_FIRST_CHR)
++ sta X5ChrMode,y
++ lda #1
++ sta ReloadCHRBank
++Next:
++ inc CmTemp
++ iny
++ cpy #4
++ bne Loop
++ lda #1
++ sta X5WideChrActive
++ rts
++.endproc
++.proc CmColors
++ lda #0
++ sta CmPalette
++ jmp CmUi
++.endproc
++.proc CmUi
++ ldy #1
++ lda CmDashStock
++ bne :+
++ iny
++:tya
++ cmp CmPalette
++ beq Done
++ ldx VRAM_Buffer1_Offset
++ cpx #78
++ bcs Done
++ sty CmPalette
++ lda #$3f
++ sta VRAM_Buffer1,x
++ lda #$11
++ sta VRAM_Buffer1+1,x
++ lda #3
++ sta VRAM_Buffer1+2,x
++ lda #$16
++ cpy #1
++ beq :+
++ lda #$21
++:sta VRAM_Buffer1+3,x
++ lda #$27
++ sta VRAM_Buffer1+4,x
++ lda #1
++ sta VRAM_Buffer1+5,x
++ txa
++ clc
++ adc #6
++ tax
++ stx VRAM_Buffer1_Offset
++ lda #0
++ sta VRAM_Buffer1,x
++Done:rts
++.endproc
++.popseg
++.include "celeste_mario_art.inc"
++
++; Host adaptation requested by user: original native small source records only.
++; Legal CmGraphics selectors are0..10,22,25. Other original internal indices
++; remain unchanged for compatibility;11/24 are not produced by CmGraphics.
++.pushseg
++.segment "CELESTE_MARIO_CORE"
++.assert * = $bdd8,lderror,"Unexpected original Celeste core/art end"
++CmSmallPoseStart:
++.proc CmSmallPoseSelect
++ lda Map,x
++ tax
++ stx CmPose
++ rts
++Map:.byte 12,13,14,15,16,17,18,19,20,21,23,11
++ .byte 12,13,14,15,16,17,18,19,20,21,22,23,24,23
++.endproc
++CmSmallPoseEnd:
++.assert * <= $c000,lderror,"Celeste small mapper exceeds original core tail"
++.popseg

@@ -36,7 +36,7 @@ Done:rts
 Warm:farcall CmEnsure
 Sync:lda CmTier
  sta PlayerStatus
- lda #0
+ lda #1
  sta PlayerSize
  rts
 .endproc
@@ -264,7 +264,7 @@ Restore:ply
  jsr CmHostEnabled
  bcc Foreign
  jsr CmHostEnsure
- ldx #25
+ ldx #23
  farcall CmGraphics::Select
  farcall CmDraw
  farcall HpPrepareNativePointers
