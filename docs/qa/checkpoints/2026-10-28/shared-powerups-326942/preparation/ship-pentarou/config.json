@@ -1,0 +1,836 @@
+{
+  "ROM_sha256": "32694243361bb1366f6fd64c054ea2451f86b2517fc020d9c2b5d66bbf07bfa0",
+  "character": 18,
+  "variant": 3,
+  "mode": 1,
+  "ram": {
+    "VvShield": 24029,
+    "CrossoverMenuState": 29447,
+    "MmDeathFlag": 24583,
+    "VvMissile": 24025,
+    "CurrentBank": 325,
+    "Player_State": 30,
+    "PnBellFlags": 23976,
+    "VvLife": 23820,
+    "MTileTopLeft": 47767,
+    "PnAux": 24232,
+    "PnActive": 24260,
+    "InjuryTimer": 1947,
+    "InvHudActive": 32158,
+    "PnCapAnim": 24540,
+    "CrossoverMenuIndex": 29449,
+    "Square1SoundQueue": 261,
+    "CrossoverBehaviorVersion": 32737,
+    "Enemy_X_Speed": 71,
+    "PnMissing": 24025,
+    "OperMode_Task": 1907,
+    "MmEnemyFlash": 24651,
+    "ScrollThirtyTwo": 1856,
+    "Enemy_State": 31,
+    "NumberofLives": 1887,
+    "VvSpeed": 24024,
+    "InvSelected": 31894,
+    "Player1ScoreDisplay": 1967,
+    "PnCapVX": 23804,
+    "PlayerSize": 1881,
+    "PnCapActive": 24009,
+    "OperMode": 1905,
+    "VvTake": 42271,
+    "PnCapChange": 24380,
+    "NoiseSoundQueue": 259,
+    "PnCapY": 23997,
+    "VvGun": 24027,
+    "MTileAttribute": 61238,
+    "SelectedCharacter": 24578,
+    "Enemy_SprAttrib": 1416,
+    "PnBigTimerHi": 23978,
+    "VvFresh": 24036,
+    "MmSolidTerrain": 26321,
+    "VvFlags": 24038,
+    "PnBigTimerLo": 23979,
+    "PnRedRemaining": 24023,
+    "VvObjSub": 23960,
+    "InvOwnedHi": 31810,
+    "Player_PageLoc": 92,
+    "CrossoverOptionsFocus": 32441,
+    "VvInitialized": 24039,
+    "Enemy_Y_HighPos": 165,
+    "Enemy_Y_Position": 190,
+    "VvAutoFire": 24034,
+    "AreaParserTaskNum": 1826,
+    "PnBombPaletteReady": 23932,
+    "Enemy_Y_MoveForce": 1539,
+    "MmEnemyHealthHi": 24645,
+    "Enemy_Y_Speed": 143,
+    "MTileBotLeft": 48023,
+    "PnCapFraction": 24013,
+    "PnBombCapturePending": 23931,
+    "PnCapHits": 24376,
+    "Enemy_ID": 23,
+    "InvAmmo": 31906,
+    "Enemy_CollisionBits": 1597,
+    "RgEnemyStun": 27916,
+    "VvVariant": 24554,
+    "InvPickupOwner": 32110,
+    "MTileBotRight": 48535,
+    "VvAlive": 24040,
+    "ScreenLeft_PageLoc": 1821,
+    "EnemyOffscrBitsMasked": 1448,
+    "ScreenRight_PageLoc": 1822,
+    "Player_Y_Position": 189,
+    "Enemy_X_Position": 118,
+    "VvHurt": 23821,
+    "Enemy_BoundBoxCtrl": 1606,
+    "VvPrevious": 24037,
+    "GuestHurtTicks": 28445,
+    "Sprite0HitDetectFlag": 1829,
+    "VvNeedEntry": 23838,
+    "CheatInvincible": 32763,
+    "InvOwnedLo": 31798,
+    "Enemy_PageLoc": 93,
+    "VvMeter": 24026,
+    "MTileTopRight": 48279,
+    "NmiDisable": 313,
+    "GuestPowerupActive": 27645,
+    "GameEngineSubroutine": 15,
+    "MmEnemyHealthLo": 24639,
+    "PnType": 23552,
+    "Enemy_MovingDir": 1343,
+    "Block_Buffer_1": 768,
+    "PnCapAge": 24005,
+    "VvObjAnim": 23936,
+    "VvObjY": 23808,
+    "PowerUpType": 52,
+    "ScrollLock": 1830,
+    "PnTakeKind": 45874,
+    "PnCapX": 23993,
+    "PnCapVXF": 24316,
+    "Player_X_Position": 117,
+    "VvOptions": 24028,
+    "ScreenLeft_X_Pos": 1823,
+    "CurrentBankC": 32161,
+    "VvHeld": 24035,
+    "InvPickup": 32098,
+    "Square2SoundQueue": 260,
+    "VvObjX": 23872,
+    "MmBrickHealth": 24657,
+    "ScreenRight_X_Pos": 1824,
+    "PlayerStatus": 1883,
+    "PnSkin": 23980,
+    "GuestPowerupTarget": 27648,
+    "Enemy_Flag": 16,
+    "PnY": 23664,
+    "Defeat": 43833,
+    "PnCapPage": 24001,
+    "PnX": 23608
+  },
+  "hooks": {
+    "VvTake": {
+      "pc": 42271,
+      "banks": [
+        77
+      ],
+      "bytes": [
+        173,
+        234,
+        95
+      ],
+      "source_symbol": "VvTake",
+      "source_delta": 0
+    },
+    "PnTakeKind": {
+      "pc": 45874,
+      "banks": [
+        77
+      ],
+      "bytes": [
+        141,
+        28,
+        92
+      ],
+      "source_symbol": "PnTakeKind",
+      "source_delta": 0
+    },
+    "BuyVic": {
+      "pc": 41358,
+      "banks": [
+        75
+      ],
+      "bytes": [
+        173,
+        232,
+        93
+      ],
+      "source_symbol": "VvBuyUpgrade",
+      "source_delta": 0
+    },
+    "BuyParodius": {
+      "pc": 42896,
+      "banks": [
+        75
+      ],
+      "bytes": [
+        173,
+        173,
+        93
+      ],
+      "source_symbol": "PnNativeGear",
+      "source_delta": 0
+    },
+    "VicWeapons": {
+      "pc": 41729,
+      "banks": [
+        77
+      ],
+      "bytes": [
+        173,
+        234,
+        95
+      ],
+      "source_symbol": "VvWeapons",
+      "source_delta": 0
+    },
+    "ParodiusWeapons": {
+      "pc": 45801,
+      "banks": [
+        77
+      ],
+      "bytes": [
+        165,
+        15,
+        201
+      ],
+      "source_symbol": "PnWeapons",
+      "source_delta": 0
+    },
+    "VicBody": {
+      "pc": 42382,
+      "banks": [
+        77
+      ],
+      "bytes": [
+        173,
+        234,
+        95
+      ],
+      "source_symbol": "VvBody",
+      "source_delta": 0
+    },
+    "ParodiusBody": {
+      "pc": 47277,
+      "banks": [
+        77
+      ],
+      "bytes": [
+        169,
+        0,
+        141
+      ],
+      "source_symbol": "PnBody",
+      "source_delta": 0
+    },
+    "Defeat": {
+      "pc": 39669,
+      "banks": [
+        126
+      ],
+      "bytes": [
+        32,
+        16,
+        238
+      ],
+      "source_symbol": "ShellOrBlockDefeat",
+      "source_delta": 0
+    },
+    "RedFire": {
+      "pc": 41487,
+      "banks": [
+        118
+      ],
+      "bytes": [
+        169,
+        39,
+        32
+      ],
+      "source_symbol": "Pb9a86",
+      "source_delta": 0
+    },
+    "BombDamage": {
+      "pc": 42533,
+      "banks": [
+        118
+      ],
+      "bytes": [
+        141,
+        106,
+        1
+      ],
+      "source_symbol": "PnBombWorldDamage",
+      "source_delta": 0
+    },
+    "BigDecrement": {
+      "pc": 42291,
+      "banks": [
+        75
+      ],
+      "bytes": [
+        206,
+        171,
+        93
+      ],
+      "source_symbol": "Pn81fa",
+      "source_delta": 0
+    },
+    "PhysicalPickup": {
+      "pc": 43992,
+      "banks": [
+        77
+      ],
+      "bytes": [
+        32,
+        0,
+        160
+      ],
+      "source_symbol": "VvPickupDispatch",
+      "source_delta": 0
+    },
+    "NmiEntry": {
+      "pc": 58172,
+      "banks": [
+        125,
+        127
+      ],
+      "bytes": [
+        72,
+        138,
+        72
+      ],
+      "source_symbol": "NonMaskableInterrupt",
+      "source_delta": 0
+    },
+    "IrqEntry": {
+      "pc": 32768,
+      "banks": [
+        126
+      ],
+      "bytes": [
+        72,
+        138,
+        72
+      ],
+      "source_symbol": "IrqScrollSplit",
+      "source_delta": 0
+    },
+    "GameLoopOwned": {
+      "pc": 33502,
+      "banks": [
+        126
+      ],
+      "bytes": [
+        32,
+        86,
+        131
+      ],
+      "source_symbol": "GameLoop",
+      "source_delta": 5
+    },
+    "GameLoopFinish": {
+      "pc": 33621,
+      "banks": [
+        126
+      ],
+      "bytes": [
+        96
+      ],
+      "source_symbol": "GameLoop",
+      "source_delta": 124
+    },
+    "NmiReturn": {
+      "pc": 58383,
+      "banks": [
+        125,
+        127
+      ],
+      "bytes": [
+        64
+      ],
+      "source_symbol": "NonMaskableInterrupt",
+      "source_delta": 211
+    },
+    "IrqReturn": {
+      "pc": 32835,
+      "banks": [
+        126
+      ],
+      "bytes": [
+        64
+      ],
+      "source_symbol": "IrqScrollSplit",
+      "source_delta": 67
+    },
+    "DmaComplete": {
+      "pc": 57352,
+      "banks": [
+        125,
+        127
+      ],
+      "bytes": [
+        141,
+        1,
+        32
+      ],
+      "source_symbol": "PostDmaMaskEnable",
+      "source_delta": 3
+    }
+  },
+  "setup_allowed": {
+    "AreaParserTaskNum": true,
+    "Block_Buffer_1": true,
+    "EnemyOffscrBitsMasked": true,
+    "Enemy_BoundBoxCtrl": true,
+    "Enemy_CollisionBits": true,
+    "Enemy_Flag": true,
+    "Enemy_ID": true,
+    "Enemy_MovingDir": true,
+    "Enemy_PageLoc": true,
+    "Enemy_SprAttrib": true,
+    "Enemy_State": true,
+    "Enemy_X_Position": true,
+    "Enemy_X_Speed": true,
+    "Enemy_Y_HighPos": true,
+    "Enemy_Y_MoveForce": true,
+    "Enemy_Y_Position": true,
+    "Enemy_Y_Speed": true,
+    "InvPickup": true,
+    "InvPickupOwner": true,
+    "MmBrickHealth": true,
+    "MmEnemyFlash": true,
+    "MmEnemyHealthHi": true,
+    "MmEnemyHealthLo": true,
+    "MmSolidTerrain": true,
+    "PnCapActive": true,
+    "PnCapAge": true,
+    "PnCapAnim": true,
+    "PnCapChange": true,
+    "PnCapFraction": true,
+    "PnCapHits": true,
+    "PnCapPage": true,
+    "PnCapVX": true,
+    "PnCapVXF": true,
+    "PnCapX": true,
+    "PnCapY": true,
+    "PowerUpType": true,
+    "RgEnemyStun": true,
+    "ScreenLeft_PageLoc": true,
+    "ScreenLeft_X_Pos": true,
+    "ScreenRight_PageLoc": true,
+    "ScreenRight_X_Pos": true,
+    "ScrollLock": true,
+    "ScrollThirtyTwo": true
+  },
+  "forbidden": {
+    "PlayerStatus": true,
+    "PlayerSize": true,
+    "NumberofLives": true,
+    "VvAlive": true,
+    "VvInitialized": true,
+    "VvVariant": true,
+    "VvPrevious": true,
+    "VvHeld": true,
+    "VvFresh": true,
+    "VvMeter": true,
+    "VvSpeed": true,
+    "VvGun": true,
+    "VvMissile": true,
+    "VvOptions": true,
+    "VvShield": true,
+    "VvAutoFire": true,
+    "VvHurt": true,
+    "VvLife": true,
+    "VvNeedEntry": true,
+    "VvObjX": true,
+    "VvObjY": true,
+    "VvObjAnim": true,
+    "VvObjSub": true,
+    "PnActive": true,
+    "PnType": true,
+    "PnX": true,
+    "PnY": true,
+    "PnGun": true,
+    "PnSkin": true,
+    "PnBellFlags": true,
+    "PnRedRemaining": true,
+    "PnRedSelected": true,
+    "PnRedReady": true,
+    "PnAux": true,
+    "PnBombCapturePending": true,
+    "PnBombPaletteReady": true,
+    "PnMissing": true,
+    "InvOwnedLo": true,
+    "InvOwnedHi": true,
+    "InvAmmo": true,
+    "InvSelected": true,
+    "InvHudActive": true,
+    "InvHudDirty": true,
+    "GuestPowerupActive": true,
+    "GuestPowerupTarget": true,
+    "Player_X_Position": true,
+    "Player_Y_Position": true,
+    "Player_PageLoc": true,
+    "Player_State": true,
+    "InjuryTimer": true,
+    "GuestHurtTicks": true,
+    "MmDeathFlag": true,
+    "CheatInvincible": true
+  },
+  "final_fields": [
+    "VvMeter",
+    "VvSpeed",
+    "VvGun",
+    "VvMissile",
+    "VvOptions",
+    "VvShield",
+    "PnAux",
+    "PnSkin",
+    "PnBellFlags",
+    "PnRedRemaining",
+    "NumberofLives"
+  ],
+  "owner_hooks": [
+    "VvTake",
+    "PnTakeKind",
+    "BuyVic",
+    "BuyParodius",
+    "VicWeapons",
+    "ParodiusWeapons",
+    "VicBody",
+    "ParodiusBody",
+    "Defeat",
+    "RedFire",
+    "BombDamage",
+    "BigDecrement"
+  ],
+  "plan": [
+    {
+      "name": "cold-shot",
+      "kind": "fire",
+      "limit": 130
+    },
+    {
+      "name": "speed1",
+      "kind": "gear",
+      "cell": 1,
+      "field": "VvSpeed",
+      "value": 1,
+      "limit": 180
+    },
+    {
+      "name": "speed2",
+      "kind": "gear",
+      "cell": 1,
+      "field": "VvSpeed",
+      "value": 2,
+      "limit": 180
+    },
+    {
+      "name": "speed3",
+      "kind": "gear",
+      "cell": 1,
+      "field": "VvSpeed",
+      "value": 3,
+      "limit": 180
+    },
+    {
+      "name": "speed4",
+      "kind": "gear",
+      "cell": 1,
+      "field": "VvSpeed",
+      "value": 4,
+      "limit": 180
+    },
+    {
+      "name": "speed-cap-refusal",
+      "kind": "gear",
+      "cell": 1,
+      "field": "VvSpeed",
+      "value": 4,
+      "refuse": true,
+      "limit": 120
+    },
+    {
+      "name": "missile",
+      "kind": "gear",
+      "cell": 2,
+      "field": "VvGun",
+      "mask": 8,
+      "value": 8,
+      "fire": true,
+      "limit": 250,
+      "image": true
+    },
+    {
+      "name": "tail-double",
+      "kind": "gear",
+      "cell": 4,
+      "field": "VvGun",
+      "mask": 192,
+      "value": 64,
+      "fire": true,
+      "limit": 250,
+      "image": true
+    },
+    {
+      "name": "alternate-gun",
+      "kind": "gear",
+      "cell": 8,
+      "field": "VvGun",
+      "mask": 192,
+      "value": 128,
+      "fire": true,
+      "limit": 250,
+      "image": true
+    },
+    {
+      "name": "option1",
+      "kind": "gear",
+      "cell": 16,
+      "field": "VvGun",
+      "mask": 7,
+      "value": 1,
+      "limit": 250,
+      "fire": false,
+      "image": false
+    },
+    {
+      "name": "option2",
+      "kind": "gear",
+      "cell": 16,
+      "field": "VvGun",
+      "mask": 7,
+      "value": 2,
+      "limit": 250,
+      "fire": false,
+      "image": false
+    },
+    {
+      "name": "option3",
+      "kind": "gear",
+      "cell": 16,
+      "field": "VvGun",
+      "mask": 7,
+      "value": 3,
+      "limit": 250,
+      "fire": true,
+      "image": true
+    },
+    {
+      "name": "option-cap-refusal",
+      "kind": "gear",
+      "cell": 16,
+      "field": "VvGun",
+      "mask": 7,
+      "value": 3,
+      "refuse": true,
+      "limit": 150
+    },
+    {
+      "name": "shield15",
+      "kind": "gear",
+      "cell": 64,
+      "field": "PnAux",
+      "value": 15,
+      "limit": 220
+    },
+    {
+      "name": "shield-contact1",
+      "kind": "contact",
+      "shield": 14,
+      "limit": 40
+    },
+    {
+      "name": "shield-contact2",
+      "kind": "contact",
+      "shield": 13,
+      "limit": 40
+    },
+    {
+      "name": "shield-contact3",
+      "kind": "contact",
+      "shield": 12,
+      "limit": 40
+    },
+    {
+      "name": "shield-contact4",
+      "kind": "contact",
+      "shield": 11,
+      "limit": 40
+    },
+    {
+      "name": "shield-contact5",
+      "kind": "contact",
+      "shield": 10,
+      "limit": 40
+    },
+    {
+      "name": "shield-contact6",
+      "kind": "contact",
+      "shield": 9,
+      "limit": 40
+    },
+    {
+      "name": "shield-contact7",
+      "kind": "contact",
+      "shield": 8,
+      "limit": 40
+    },
+    {
+      "name": "shield-contact8",
+      "kind": "contact",
+      "shield": 7,
+      "limit": 40
+    },
+    {
+      "name": "shield-contact9",
+      "kind": "contact",
+      "shield": 6,
+      "limit": 40
+    },
+    {
+      "name": "shield-contact10",
+      "kind": "contact",
+      "shield": 5,
+      "limit": 40
+    },
+    {
+      "name": "shield-contact11",
+      "kind": "contact",
+      "shield": 4,
+      "limit": 40
+    },
+    {
+      "name": "shield-contact12",
+      "kind": "contact",
+      "shield": 3,
+      "limit": 40
+    },
+    {
+      "name": "shield-contact13",
+      "kind": "contact",
+      "shield": 2,
+      "limit": 40
+    },
+    {
+      "name": "shield-contact14",
+      "kind": "contact",
+      "shield": 1,
+      "limit": 40
+    },
+    {
+      "name": "shield-contact15",
+      "kind": "contact",
+      "shield": 0,
+      "limit": 40
+    },
+    {
+      "name": "power-down",
+      "kind": "gear",
+      "cell": 32,
+      "field": "VvGun",
+      "value": 0,
+      "reset": true,
+      "limit": 250
+    },
+    {
+      "name": "roulette",
+      "kind": "bell",
+      "pickup": 5,
+      "limit": 200
+    },
+    {
+      "name": "gold-score",
+      "kind": "bell",
+      "pickup": 6,
+      "limit": 100
+    },
+    {
+      "name": "blue-bomb",
+      "kind": "bell",
+      "pickup": 7,
+      "limit": 280,
+      "image": true
+    },
+    {
+      "name": "red-three",
+      "kind": "bell",
+      "pickup": 9,
+      "limit": 1800,
+      "image": true
+    },
+    {
+      "name": "big-duration",
+      "kind": "bell",
+      "pickup": 8,
+      "limit": 1750,
+      "image": true
+    },
+    {
+      "name": "white-life",
+      "kind": "bell",
+      "pickup": 10,
+      "limit": 100
+    }
+  ],
+  "navigation": [
+    "left",
+    "left",
+    "right",
+    "right",
+    "up",
+    "left",
+    "left",
+    "left",
+    "right",
+    "right",
+    "down",
+    "left",
+    "left",
+    "left",
+    "right",
+    "right",
+    "right",
+    "",
+    "left"
+  ],
+  "update_cap": 5000,
+  "dma_store_return": 57349,
+  "smc": [
+    354,
+    362,
+    377,
+    364,
+    365
+  ],
+  "metatiles": {
+    "MTileTopLeft": {
+      "bank": 3,
+      "offset": 6807
+    },
+    "MTileTopRight": {
+      "bank": 3,
+      "offset": 7319
+    },
+    "MTileBotLeft": {
+      "bank": 3,
+      "offset": 7063
+    },
+    "MTileBotRight": {
+      "bank": 3,
+      "offset": 7575
+    },
+    "MTileAttribute": {
+      "bank": 127,
+      "offset": 3894
+    }
+  },
+  "scope": "Actual source-prepared mature ship capsules (ordinary reward requests0/1 both map to type1) to each native bar purchase/cap refusal; actual shots/defeats/options/shield debit. Parodius adds !? reset, roulette, first Gold500, Blue bomb, three Red charges, full Big duration/restoration/protected contact, White1UP. Typed complete mature pickup/default Goomba/empty map only; no reveal/rise/natural drops/RNG/emergence/star/common1UP/damage-death/reacquire/terrain firing/campaign/allposes/allpixels/audio-fidelity or general FPS claim. Easy source only; this command is Hard1."
+}

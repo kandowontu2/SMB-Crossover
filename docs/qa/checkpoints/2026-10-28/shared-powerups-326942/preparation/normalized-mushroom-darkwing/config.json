@@ -1,0 +1,1238 @@
+{
+  "ROM_sha256": "32694243361bb1366f6fd64c054ea2451f86b2517fc020d9c2b5d66bbf07bfa0",
+  "identity": "darkwing",
+  "character": 12,
+  "menu": 8,
+  "variant_name": "DarkwingVariant",
+  "variant": 1,
+  "mode": 1,
+  "hooks": {
+    "PhysicalPickup": {
+      "pc": 44913,
+      "banks": [
+        3
+      ],
+      "bytes": [
+        32,
+        47,
+        141
+      ],
+      "source_symbol": "MarioSourcePowerupCollision",
+      "source_delta": 0
+    },
+    "AreaMusic": {
+      "pc": 36235,
+      "banks": [
+        126
+      ],
+      "bytes": [
+        141,
+        106,
+        1
+      ],
+      "source_symbol": "GetAreaMusic",
+      "source_delta": 0
+    },
+    "NmiEntry": {
+      "pc": 58172,
+      "banks": [
+        125,
+        127
+      ],
+      "bytes": [
+        72,
+        138,
+        72
+      ],
+      "source_symbol": "NonMaskableInterrupt",
+      "source_delta": 0
+    },
+    "IrqEntry": {
+      "pc": 32768,
+      "banks": [
+        126
+      ],
+      "bytes": [
+        72,
+        138,
+        72
+      ],
+      "source_symbol": "IrqScrollSplit",
+      "source_delta": 0
+    },
+    "GameLoopOwned": {
+      "pc": 33502,
+      "banks": [
+        126
+      ],
+      "bytes": [
+        32,
+        86,
+        131
+      ],
+      "source_symbol": "GameLoop",
+      "source_delta": 5
+    },
+    "GameLoopFinish": {
+      "pc": 33621,
+      "banks": [
+        126
+      ],
+      "bytes": [
+        96
+      ],
+      "source_symbol": "GameLoop",
+      "source_delta": 124
+    },
+    "NmiReturn": {
+      "pc": 58383,
+      "banks": [
+        125,
+        127
+      ],
+      "bytes": [
+        64
+      ],
+      "source_symbol": "NonMaskableInterrupt",
+      "source_delta": 211
+    },
+    "IrqReturn": {
+      "pc": 32835,
+      "banks": [
+        126
+      ],
+      "bytes": [
+        64
+      ],
+      "source_symbol": "IrqScrollSplit",
+      "source_delta": 67
+    },
+    "StarContact": {
+      "pc": 38579,
+      "banks": [
+        126
+      ],
+      "bytes": [
+        76,
+        245,
+        154
+      ],
+      "source_symbol": "PlayerEnemyCollision",
+      "source_delta": 90
+    },
+    "LifeIncrement": {
+      "pc": 35207,
+      "banks": [
+        126
+      ],
+      "bytes": [
+        238,
+        95,
+        7
+      ],
+      "source_symbol": "FloateyNumbersCore",
+      "source_delta": 35
+    },
+    "DmaComplete": {
+      "pc": 57352,
+      "banks": [
+        125,
+        127
+      ],
+      "bytes": [
+        141,
+        1,
+        32
+      ],
+      "source_symbol": "PostDmaMaskEnable",
+      "source_delta": 3
+    },
+    "RewardGenericSpawn": {
+      "pc": 46121,
+      "banks": [
+        59
+      ],
+      "bytes": [
+        157,
+        230,
+        110
+      ],
+      "source_symbol": "InventoryEnemyDrop",
+      "source_delta": 115
+    },
+    "RewardGenericPublished": {
+      "pc": 46153,
+      "banks": [
+        59
+      ],
+      "bytes": [
+        172,
+        18,
+        111
+      ],
+      "source_symbol": "InventoryEnemyDrop",
+      "source_delta": 147
+    },
+    "RewardGenericCollect": {
+      "pc": 46542,
+      "banks": [
+        59
+      ],
+      "bytes": [
+        169,
+        8,
+        188
+      ],
+      "source_symbol": "InventoryUpdateDrops",
+      "source_delta": 271
+    },
+    "RewardRefillEntry": {
+      "pc": 42460,
+      "banks": [
+        59
+      ],
+      "bytes": [
+        141,
+        22,
+        111
+      ],
+      "source_symbol": "InventoryRefillAmount",
+      "source_delta": 0
+    },
+    "RewardGenericReturn": {
+      "pc": 46579,
+      "banks": [
+        59
+      ],
+      "bytes": [
+        174,
+        19,
+        111
+      ],
+      "source_symbol": "InventoryUpdateDrops",
+      "source_delta": 308
+    },
+    "RewardDwEntry": {
+      "pc": 44713,
+      "banks": [
+        67
+      ],
+      "bytes": [
+        201,
+        34,
+        208
+      ],
+      "source_symbol": "DwGiveItem",
+      "source_delta": 0
+    },
+    "RewardDwGas": {
+      "pc": 44782,
+      "banks": [
+        67
+      ],
+      "bytes": [
+        141,
+        240,
+        115
+      ],
+      "source_symbol": "DwGiveItem",
+      "source_delta": 69
+    },
+    "CollectOwner": {
+      "pc": 44652,
+      "banks": [
+        67
+      ],
+      "bytes": [
+        8,
+        72,
+        32
+      ],
+      "source_symbol": "DwCollectPickup",
+      "source_delta": 0
+    }
+  },
+  "ram": {
+    "ScrollLock": 1830,
+    "Player_X_Speed": 70,
+    "CurrentBank": 325,
+    "Enemy_State": 31,
+    "Z2ExpPendingHi": 31921,
+    "AvRefillItem": 32618,
+    "CrossoverMenuState": 29447,
+    "Pending": 42499,
+    "ScrollThirtyTwo": 1856,
+    "VvSpeed": 24024,
+    "Z2ExpPendingLo": 31920,
+    "Z2EnemyExpReceipt": 24103,
+    "LmHealth": 24352,
+    "ScreenRight_X_Pos": 1824,
+    "InvItem": 32143,
+    "Player_Y_MoveForce": 1538,
+    "InvDropEnemy": 28434,
+    "FloateyNum_Control": 269,
+    "PlayerStatus": 1883,
+    "CrossoverBehaviorVersion": 32737,
+    "MTileTopLeft": 47767,
+    "NmiDisable": 313,
+    "Player_CollisionBits": 1596,
+    "Enemy_CollisionBits": 1597,
+    "InvOwnedHi": 31810,
+    "PlayerFacingDir": 1342,
+    "Player_Y_Speed": 142,
+    "CurrentBankC": 32161,
+    "AreaMusicQueue": 257,
+    "InvDropAmount": 28438,
+    "MmBrickHealth": 24657,
+    "Sprite0HitDetectFlag": 1829,
+    "Enemy_PageLoc": 93,
+    "Enemy_SprAttrib": 1416,
+    "CrossoverOptionsFocus": 32441,
+    "VvGun": 24027,
+    "InvOwnedLo": 31798,
+    "GuestHurtTicks": 28445,
+    "GuestPowerupActive": 27645,
+    "VvObjX": 23872,
+    "Player_Y_Position": 189,
+    "PlayerSize": 1881,
+    "Player_MovingDir": 69,
+    "Enemy_X_Position": 118,
+    "LmStars": 24353,
+    "MTileBotLeft": 48023,
+    "StarInvincibleTimer": 1948,
+    "Square2SoundQueue": 260,
+    "ScreenLeft_PageLoc": 1821,
+    "AreaParserTaskNum": 1826,
+    "MTileTopRight": 48279,
+    "InvDropSlot": 28435,
+    "Z2HitSlot": 24137,
+    "InvPickup": 32098,
+    "DarkwingVariant": 29663,
+    "Player_PageLoc": 92,
+    "DwAdaptor": 29681,
+    "Enemy_BoundBoxCtrl": 1606,
+    "CrossoverMenuIndex": 29449,
+    "MTileAttribute": 61238,
+    "GameEngineSubroutine": 15,
+    "Player_State": 30,
+    "Enemy_Y_MoveForce": 1539,
+    "EnemyOffscrBitsMasked": 1448,
+    "FloateyNum_Timer": 297,
+    "VvMeter": 24026,
+    "Z2ExpHi": 31909,
+    "AvDropItem": 32608,
+    "PseudoRandomBitReg": 1952,
+    "Z2ExpLo": 31908,
+    "Enemy_ID": 23,
+    "InvDropAgeHi": 28430,
+    "OperMode_Task": 1907,
+    "InvAmmo": 31906,
+    "Player_X_MoveForce": 1799,
+    "MmSolidTerrain": 26321,
+    "InvDropKind": 28390,
+    "InvPickupOwner": 32110,
+    "Block_Buffer_1": 768,
+    "InvDropAge": 28426,
+    "ScreenLeft_X_Pos": 1823,
+    "GuestPowerupTarget": 27648,
+    "Player_X_Position": 117,
+    "Enemy_X_Speed": 71,
+    "VvOptions": 24028,
+    "Player_Y_HighPos": 164,
+    "CheatInvincible": 32763,
+    "VvMissile": 24025,
+    "DwHealth": 29679,
+    "Lo": 58993,
+    "Enemy_Flag": 16,
+    "InjuryTimer": 1947,
+    "LmHearts": 24354,
+    "SelectedCharacter": 24578,
+    "OperMode": 1905,
+    "Enemy_Y_HighPos": 165,
+    "InvSelected": 31894,
+    "MTileBotRight": 48535,
+    "Enemy_MovingDir": 1343,
+    "Z2DropCounters": 31916,
+    "ScreenRight_PageLoc": 1822,
+    "Enemy_Y_Speed": 143,
+    "VvShield": 24029,
+    "PowerUpType": 52,
+    "IntervalTimerControl": 1916,
+    "NumberofLives": 1887,
+    "DwGas": 29680,
+    "Enemy_Y_Position": 190,
+    "MmDeathFlag": 24583,
+    "DwMode": 29682
+  },
+  "navigation": [
+    "right",
+    "right",
+    "down",
+    "left",
+    "left",
+    "left",
+    "right",
+    "right",
+    "",
+    "left",
+    "left",
+    "left",
+    "right",
+    "right",
+    "up",
+    "up",
+    "left",
+    "left",
+    "left"
+  ],
+  "resources": [
+    {
+      "name": "PlayerStatus",
+      "index": 0,
+      "count": 1
+    },
+    {
+      "name": "PlayerSize",
+      "index": 0,
+      "count": 1
+    },
+    {
+      "name": "InvOwnedLo",
+      "index": 0,
+      "count": 12
+    },
+    {
+      "name": "InvOwnedHi",
+      "index": 0,
+      "count": 12
+    },
+    {
+      "name": "InvSelected",
+      "index": 0,
+      "count": 12
+    },
+    {
+      "name": "InvAmmo",
+      "index": 0,
+      "count": 192
+    },
+    {
+      "name": "DwHealth",
+      "index": 0,
+      "count": 1
+    },
+    {
+      "name": "DwGas",
+      "index": 0,
+      "count": 1
+    },
+    {
+      "name": "DwAdaptor",
+      "index": 0,
+      "count": 1
+    }
+  ],
+  "rewards": {
+    "family": "darkwing",
+    "character": 12,
+    "variant": 1,
+    "hooks": {
+      "RewardGenericSpawn": {
+        "pc": 46121,
+        "banks": [
+          59
+        ],
+        "bytes": [
+          157,
+          230,
+          110
+        ],
+        "source_symbol": "InventoryEnemyDrop",
+        "source_delta": 115
+      },
+      "RewardGenericPublished": {
+        "pc": 46153,
+        "banks": [
+          59
+        ],
+        "bytes": [
+          172,
+          18,
+          111
+        ],
+        "source_symbol": "InventoryEnemyDrop",
+        "source_delta": 147
+      },
+      "RewardGenericCollect": {
+        "pc": 46542,
+        "banks": [
+          59
+        ],
+        "bytes": [
+          169,
+          8,
+          188
+        ],
+        "source_symbol": "InventoryUpdateDrops",
+        "source_delta": 271
+      },
+      "RewardRefillEntry": {
+        "pc": 42460,
+        "banks": [
+          59
+        ],
+        "bytes": [
+          141,
+          22,
+          111
+        ],
+        "source_symbol": "InventoryRefillAmount",
+        "source_delta": 0
+      },
+      "RewardGenericReturn": {
+        "pc": 46579,
+        "banks": [
+          59
+        ],
+        "bytes": [
+          174,
+          19,
+          111
+        ],
+        "source_symbol": "InventoryUpdateDrops",
+        "source_delta": 308
+      },
+      "RewardDwEntry": {
+        "pc": 44713,
+        "banks": [
+          67
+        ],
+        "bytes": [
+          201,
+          34,
+          208
+        ],
+        "source_symbol": "DwGiveItem",
+        "source_delta": 0
+      },
+      "RewardDwGas": {
+        "pc": 44782,
+        "banks": [
+          67
+        ],
+        "bytes": [
+          141,
+          240,
+          115
+        ],
+        "source_symbol": "DwGiveItem",
+        "source_delta": 69
+      }
+    },
+    "order": [
+      "RewardGenericSpawn",
+      "RewardGenericPublished",
+      "RewardGenericCollect",
+      "RewardRefillEntry",
+      "RewardGenericReturn",
+      "RewardDwEntry",
+      "RewardDwGas"
+    ],
+    "rules": {
+      "RewardGenericSpawn": "RewardGenericSpawn",
+      "RewardGenericPublished": "RewardGenericPublished",
+      "RewardGenericCollect": "RewardGenericCollect",
+      "RewardRefillEntry": "RewardRefillEntry",
+      "RewardGenericReturn": "RewardGenericReturn",
+      "RewardDwEntry": "RewardDwEntry",
+      "RewardDwGas": "RewardDwGas"
+    },
+    "targets": [
+      29680
+    ],
+    "resource_index": {
+      "1883": 0,
+      "1881": 1,
+      "31798": 2,
+      "31799": 3,
+      "31800": 4,
+      "31801": 5,
+      "31802": 6,
+      "31803": 7,
+      "31804": 8,
+      "31805": 9,
+      "31806": 10,
+      "31807": 11,
+      "31808": 12,
+      "31809": 13,
+      "31810": 14,
+      "31811": 15,
+      "31812": 16,
+      "31813": 17,
+      "31814": 18,
+      "31815": 19,
+      "31816": 20,
+      "31817": 21,
+      "31818": 22,
+      "31819": 23,
+      "31820": 24,
+      "31821": 25,
+      "31894": 26,
+      "31895": 27,
+      "31896": 28,
+      "31897": 29,
+      "31898": 30,
+      "31899": 31,
+      "31900": 32,
+      "31901": 33,
+      "31902": 34,
+      "31903": 35,
+      "31904": 36,
+      "31905": 37,
+      "31906": 38,
+      "31907": 39,
+      "31908": 40,
+      "31909": 41,
+      "31910": 42,
+      "31911": 43,
+      "31912": 44,
+      "31913": 45,
+      "31914": 46,
+      "31915": 47,
+      "31916": 48,
+      "31917": 49,
+      "31918": 50,
+      "31919": 51,
+      "31920": 52,
+      "31921": 53,
+      "31922": 54,
+      "31923": 55,
+      "31924": 56,
+      "31925": 57,
+      "31926": 58,
+      "31927": 59,
+      "31928": 60,
+      "31929": 61,
+      "31930": 62,
+      "31931": 63,
+      "31932": 64,
+      "31933": 65,
+      "31934": 66,
+      "31935": 67,
+      "31936": 68,
+      "31937": 69,
+      "31938": 70,
+      "31939": 71,
+      "31940": 72,
+      "31941": 73,
+      "31942": 74,
+      "31943": 75,
+      "31944": 76,
+      "31945": 77,
+      "31946": 78,
+      "31947": 79,
+      "31948": 80,
+      "31949": 81,
+      "31950": 82,
+      "31951": 83,
+      "31952": 84,
+      "31953": 85,
+      "31954": 86,
+      "31955": 87,
+      "31956": 88,
+      "31957": 89,
+      "31958": 90,
+      "31959": 91,
+      "31960": 92,
+      "31961": 93,
+      "31962": 94,
+      "31963": 95,
+      "31964": 96,
+      "31965": 97,
+      "31966": 98,
+      "31967": 99,
+      "31968": 100,
+      "31969": 101,
+      "31970": 102,
+      "31971": 103,
+      "31972": 104,
+      "31973": 105,
+      "31974": 106,
+      "31975": 107,
+      "31976": 108,
+      "31977": 109,
+      "31978": 110,
+      "31979": 111,
+      "31980": 112,
+      "31981": 113,
+      "31982": 114,
+      "31983": 115,
+      "31984": 116,
+      "31985": 117,
+      "31986": 118,
+      "31987": 119,
+      "31988": 120,
+      "31989": 121,
+      "31990": 122,
+      "31991": 123,
+      "31992": 124,
+      "31993": 125,
+      "31994": 126,
+      "31995": 127,
+      "31996": 128,
+      "31997": 129,
+      "31998": 130,
+      "31999": 131,
+      "32000": 132,
+      "32001": 133,
+      "32002": 134,
+      "32003": 135,
+      "32004": 136,
+      "32005": 137,
+      "32006": 138,
+      "32007": 139,
+      "32008": 140,
+      "32009": 141,
+      "32010": 142,
+      "32011": 143,
+      "32012": 144,
+      "32013": 145,
+      "32014": 146,
+      "32015": 147,
+      "32016": 148,
+      "32017": 149,
+      "32018": 150,
+      "32019": 151,
+      "32020": 152,
+      "32021": 153,
+      "32022": 154,
+      "32023": 155,
+      "32024": 156,
+      "32025": 157,
+      "32026": 158,
+      "32027": 159,
+      "32028": 160,
+      "32029": 161,
+      "32030": 162,
+      "32031": 163,
+      "32032": 164,
+      "32033": 165,
+      "32034": 166,
+      "32035": 167,
+      "32036": 168,
+      "32037": 169,
+      "32038": 170,
+      "32039": 171,
+      "32040": 172,
+      "32041": 173,
+      "32042": 174,
+      "32043": 175,
+      "32044": 176,
+      "32045": 177,
+      "32046": 178,
+      "32047": 179,
+      "32048": 180,
+      "32049": 181,
+      "32050": 182,
+      "32051": 183,
+      "32052": 184,
+      "32053": 185,
+      "32054": 186,
+      "32055": 187,
+      "32056": 188,
+      "32057": 189,
+      "32058": 190,
+      "32059": 191,
+      "32060": 192,
+      "32061": 193,
+      "32062": 194,
+      "32063": 195,
+      "32064": 196,
+      "32065": 197,
+      "32066": 198,
+      "32067": 199,
+      "32068": 200,
+      "32069": 201,
+      "32070": 202,
+      "32071": 203,
+      "32072": 204,
+      "32073": 205,
+      "32074": 206,
+      "32075": 207,
+      "32076": 208,
+      "32077": 209,
+      "32078": 210,
+      "32079": 211,
+      "32080": 212,
+      "32081": 213,
+      "32082": 214,
+      "32083": 215,
+      "32084": 216,
+      "32085": 217,
+      "32086": 218,
+      "32087": 219,
+      "32088": 220,
+      "32089": 221,
+      "32090": 222,
+      "32091": 223,
+      "32092": 224,
+      "32093": 225,
+      "32094": 226,
+      "32095": 227,
+      "32096": 228,
+      "32097": 229,
+      "29679": 230,
+      "29680": 231,
+      "29681": 232
+    },
+    "resource_labels": {
+      "1883": "PlayerStatus[0]",
+      "1881": "PlayerSize[0]",
+      "31798": "InvOwnedLo[0]",
+      "31799": "InvOwnedLo[1]",
+      "31800": "InvOwnedLo[2]",
+      "31801": "InvOwnedLo[3]",
+      "31802": "InvOwnedLo[4]",
+      "31803": "InvOwnedLo[5]",
+      "31804": "InvOwnedLo[6]",
+      "31805": "InvOwnedLo[7]",
+      "31806": "InvOwnedLo[8]",
+      "31807": "InvOwnedLo[9]",
+      "31808": "InvOwnedLo[10]",
+      "31809": "InvOwnedLo[11]",
+      "31810": "InvOwnedHi[0]",
+      "31811": "InvOwnedHi[1]",
+      "31812": "InvOwnedHi[2]",
+      "31813": "InvOwnedHi[3]",
+      "31814": "InvOwnedHi[4]",
+      "31815": "InvOwnedHi[5]",
+      "31816": "InvOwnedHi[6]",
+      "31817": "InvOwnedHi[7]",
+      "31818": "InvOwnedHi[8]",
+      "31819": "InvOwnedHi[9]",
+      "31820": "InvOwnedHi[10]",
+      "31821": "InvOwnedHi[11]",
+      "31894": "InvSelected[0]",
+      "31895": "InvSelected[1]",
+      "31896": "InvSelected[2]",
+      "31897": "InvSelected[3]",
+      "31898": "InvSelected[4]",
+      "31899": "InvSelected[5]",
+      "31900": "InvSelected[6]",
+      "31901": "InvSelected[7]",
+      "31902": "InvSelected[8]",
+      "31903": "InvSelected[9]",
+      "31904": "InvSelected[10]",
+      "31905": "InvSelected[11]",
+      "31906": "InvAmmo[0]",
+      "31907": "InvAmmo[1]",
+      "31908": "InvAmmo[2]",
+      "31909": "InvAmmo[3]",
+      "31910": "InvAmmo[4]",
+      "31911": "InvAmmo[5]",
+      "31912": "InvAmmo[6]",
+      "31913": "InvAmmo[7]",
+      "31914": "InvAmmo[8]",
+      "31915": "InvAmmo[9]",
+      "31916": "InvAmmo[10]",
+      "31917": "InvAmmo[11]",
+      "31918": "InvAmmo[12]",
+      "31919": "InvAmmo[13]",
+      "31920": "InvAmmo[14]",
+      "31921": "InvAmmo[15]",
+      "31922": "InvAmmo[16]",
+      "31923": "InvAmmo[17]",
+      "31924": "InvAmmo[18]",
+      "31925": "InvAmmo[19]",
+      "31926": "InvAmmo[20]",
+      "31927": "InvAmmo[21]",
+      "31928": "InvAmmo[22]",
+      "31929": "InvAmmo[23]",
+      "31930": "InvAmmo[24]",
+      "31931": "InvAmmo[25]",
+      "31932": "InvAmmo[26]",
+      "31933": "InvAmmo[27]",
+      "31934": "InvAmmo[28]",
+      "31935": "InvAmmo[29]",
+      "31936": "InvAmmo[30]",
+      "31937": "InvAmmo[31]",
+      "31938": "InvAmmo[32]",
+      "31939": "InvAmmo[33]",
+      "31940": "InvAmmo[34]",
+      "31941": "InvAmmo[35]",
+      "31942": "InvAmmo[36]",
+      "31943": "InvAmmo[37]",
+      "31944": "InvAmmo[38]",
+      "31945": "InvAmmo[39]",
+      "31946": "InvAmmo[40]",
+      "31947": "InvAmmo[41]",
+      "31948": "InvAmmo[42]",
+      "31949": "InvAmmo[43]",
+      "31950": "InvAmmo[44]",
+      "31951": "InvAmmo[45]",
+      "31952": "InvAmmo[46]",
+      "31953": "InvAmmo[47]",
+      "31954": "InvAmmo[48]",
+      "31955": "InvAmmo[49]",
+      "31956": "InvAmmo[50]",
+      "31957": "InvAmmo[51]",
+      "31958": "InvAmmo[52]",
+      "31959": "InvAmmo[53]",
+      "31960": "InvAmmo[54]",
+      "31961": "InvAmmo[55]",
+      "31962": "InvAmmo[56]",
+      "31963": "InvAmmo[57]",
+      "31964": "InvAmmo[58]",
+      "31965": "InvAmmo[59]",
+      "31966": "InvAmmo[60]",
+      "31967": "InvAmmo[61]",
+      "31968": "InvAmmo[62]",
+      "31969": "InvAmmo[63]",
+      "31970": "InvAmmo[64]",
+      "31971": "InvAmmo[65]",
+      "31972": "InvAmmo[66]",
+      "31973": "InvAmmo[67]",
+      "31974": "InvAmmo[68]",
+      "31975": "InvAmmo[69]",
+      "31976": "InvAmmo[70]",
+      "31977": "InvAmmo[71]",
+      "31978": "InvAmmo[72]",
+      "31979": "InvAmmo[73]",
+      "31980": "InvAmmo[74]",
+      "31981": "InvAmmo[75]",
+      "31982": "InvAmmo[76]",
+      "31983": "InvAmmo[77]",
+      "31984": "InvAmmo[78]",
+      "31985": "InvAmmo[79]",
+      "31986": "InvAmmo[80]",
+      "31987": "InvAmmo[81]",
+      "31988": "InvAmmo[82]",
+      "31989": "InvAmmo[83]",
+      "31990": "InvAmmo[84]",
+      "31991": "InvAmmo[85]",
+      "31992": "InvAmmo[86]",
+      "31993": "InvAmmo[87]",
+      "31994": "InvAmmo[88]",
+      "31995": "InvAmmo[89]",
+      "31996": "InvAmmo[90]",
+      "31997": "InvAmmo[91]",
+      "31998": "InvAmmo[92]",
+      "31999": "InvAmmo[93]",
+      "32000": "InvAmmo[94]",
+      "32001": "InvAmmo[95]",
+      "32002": "InvAmmo[96]",
+      "32003": "InvAmmo[97]",
+      "32004": "InvAmmo[98]",
+      "32005": "InvAmmo[99]",
+      "32006": "InvAmmo[100]",
+      "32007": "InvAmmo[101]",
+      "32008": "InvAmmo[102]",
+      "32009": "InvAmmo[103]",
+      "32010": "InvAmmo[104]",
+      "32011": "InvAmmo[105]",
+      "32012": "InvAmmo[106]",
+      "32013": "InvAmmo[107]",
+      "32014": "InvAmmo[108]",
+      "32015": "InvAmmo[109]",
+      "32016": "InvAmmo[110]",
+      "32017": "InvAmmo[111]",
+      "32018": "InvAmmo[112]",
+      "32019": "InvAmmo[113]",
+      "32020": "InvAmmo[114]",
+      "32021": "InvAmmo[115]",
+      "32022": "InvAmmo[116]",
+      "32023": "InvAmmo[117]",
+      "32024": "InvAmmo[118]",
+      "32025": "InvAmmo[119]",
+      "32026": "InvAmmo[120]",
+      "32027": "InvAmmo[121]",
+      "32028": "InvAmmo[122]",
+      "32029": "InvAmmo[123]",
+      "32030": "InvAmmo[124]",
+      "32031": "InvAmmo[125]",
+      "32032": "InvAmmo[126]",
+      "32033": "InvAmmo[127]",
+      "32034": "InvAmmo[128]",
+      "32035": "InvAmmo[129]",
+      "32036": "InvAmmo[130]",
+      "32037": "InvAmmo[131]",
+      "32038": "InvAmmo[132]",
+      "32039": "InvAmmo[133]",
+      "32040": "InvAmmo[134]",
+      "32041": "InvAmmo[135]",
+      "32042": "InvAmmo[136]",
+      "32043": "InvAmmo[137]",
+      "32044": "InvAmmo[138]",
+      "32045": "InvAmmo[139]",
+      "32046": "InvAmmo[140]",
+      "32047": "InvAmmo[141]",
+      "32048": "InvAmmo[142]",
+      "32049": "InvAmmo[143]",
+      "32050": "InvAmmo[144]",
+      "32051": "InvAmmo[145]",
+      "32052": "InvAmmo[146]",
+      "32053": "InvAmmo[147]",
+      "32054": "InvAmmo[148]",
+      "32055": "InvAmmo[149]",
+      "32056": "InvAmmo[150]",
+      "32057": "InvAmmo[151]",
+      "32058": "InvAmmo[152]",
+      "32059": "InvAmmo[153]",
+      "32060": "InvAmmo[154]",
+      "32061": "InvAmmo[155]",
+      "32062": "InvAmmo[156]",
+      "32063": "InvAmmo[157]",
+      "32064": "InvAmmo[158]",
+      "32065": "InvAmmo[159]",
+      "32066": "InvAmmo[160]",
+      "32067": "InvAmmo[161]",
+      "32068": "InvAmmo[162]",
+      "32069": "InvAmmo[163]",
+      "32070": "InvAmmo[164]",
+      "32071": "InvAmmo[165]",
+      "32072": "InvAmmo[166]",
+      "32073": "InvAmmo[167]",
+      "32074": "InvAmmo[168]",
+      "32075": "InvAmmo[169]",
+      "32076": "InvAmmo[170]",
+      "32077": "InvAmmo[171]",
+      "32078": "InvAmmo[172]",
+      "32079": "InvAmmo[173]",
+      "32080": "InvAmmo[174]",
+      "32081": "InvAmmo[175]",
+      "32082": "InvAmmo[176]",
+      "32083": "InvAmmo[177]",
+      "32084": "InvAmmo[178]",
+      "32085": "InvAmmo[179]",
+      "32086": "InvAmmo[180]",
+      "32087": "InvAmmo[181]",
+      "32088": "InvAmmo[182]",
+      "32089": "InvAmmo[183]",
+      "32090": "InvAmmo[184]",
+      "32091": "InvAmmo[185]",
+      "32092": "InvAmmo[186]",
+      "32093": "InvAmmo[187]",
+      "32094": "InvAmmo[188]",
+      "32095": "InvAmmo[189]",
+      "32096": "InvAmmo[190]",
+      "32097": "InvAmmo[191]",
+      "29679": "DwHealth[0]",
+      "29680": "DwGas[0]",
+      "29681": "DwAdaptor[0]"
+    },
+    "generic_caps": {
+      "5": 99,
+      "10": 50
+    },
+    "darkwing_items": [
+      37,
+      37,
+      37,
+      36,
+      34,
+      34,
+      34,
+      35
+    ],
+    "enemy_exp": 2,
+    "enemy_group": 1
+  },
+  "need_life": true,
+  "motion": [
+    "Player_X_Speed",
+    "Player_Y_Speed",
+    "Player_X_MoveForce",
+    "Player_Y_MoveForce"
+  ],
+  "setup_allowed": {
+    "Block_Buffer_1": true,
+    "MmSolidTerrain": true,
+    "MmBrickHealth": true,
+    "Enemy_Flag": true,
+    "Enemy_CollisionBits": true,
+    "Player_X_Speed": true,
+    "Player_Y_Speed": true,
+    "Player_X_MoveForce": true,
+    "Player_Y_MoveForce": true,
+    "ScrollThirtyTwo": true,
+    "AreaParserTaskNum": true,
+    "ScrollLock": true,
+    "ScreenLeft_X_Pos": true,
+    "ScreenLeft_PageLoc": true,
+    "ScreenRight_X_Pos": true,
+    "ScreenRight_PageLoc": true,
+    "Player_X_Position": true,
+    "Player_PageLoc": true,
+    "Player_Y_Position": true,
+    "Player_Y_HighPos": true,
+    "Player_State": true,
+    "PlayerFacingDir": true,
+    "Player_MovingDir": true,
+    "Player_CollisionBits": true,
+    "Enemy_ID": true,
+    "Enemy_State": true,
+    "Enemy_BoundBoxCtrl": true,
+    "Enemy_X_Position": true,
+    "Enemy_PageLoc": true,
+    "Enemy_Y_Position": true,
+    "Enemy_Y_HighPos": true,
+    "Enemy_X_Speed": true,
+    "Enemy_Y_Speed": true,
+    "Enemy_Y_MoveForce": true,
+    "Enemy_MovingDir": true,
+    "Enemy_SprAttrib": true,
+    "EnemyOffscrBitsMasked": true,
+    "PowerUpType": true,
+    "InvPickupOwner": true,
+    "InvPickup": true
+  },
+  "resource_bans": {
+    "StarInvincibleTimer": true,
+    "NumberofLives": true,
+    "PlayerStatus": true,
+    "PlayerSize": true,
+    "InvOwnedLo": true,
+    "InvOwnedHi": true,
+    "InvAmmo": true,
+    "InvSelected": true,
+    "LmHealth": true,
+    "LmHearts": true,
+    "LmStars": true,
+    "VvShield": true,
+    "VvGun": true,
+    "VvMissile": true,
+    "VvOptions": true,
+    "VvSpeed": true,
+    "VvMeter": true,
+    "InjuryTimer": true,
+    "GuestHurtTicks": true,
+    "MmDeathFlag": true,
+    "CheatInvincible": true,
+    "PseudoRandomBitReg": true,
+    "GuestPowerupActive": true,
+    "GuestPowerupTarget": true,
+    "AreaMusicQueue": true,
+    "Square2SoundQueue": true,
+    "FloateyNum_Control": true,
+    "FloateyNum_Timer": true
+  },
+  "star_music": 64,
+  "extra_life_sfx": 64,
+  "scope": "Actual whole-source Prepare on raw0, then physical mature collision and real benefit. Mike gains real maximum heart3->4/HP6->8; PlayerStatus projects0->1 on next real movement update. Darkwing gains actual source Kinds[0]=2 Arrow adaptor and real Select activation. No native producer/reveal/rise or audio/render claim.",
+  "dma_store_return": 57349,
+  "smc": [
+    354,
+    362,
+    377,
+    364,
+    365
+  ],
+  "metatiles": {
+    "MTileTopLeft": {
+      "bank": 3,
+      "offset": 6807
+    },
+    "MTileTopRight": {
+      "bank": 3,
+      "offset": 7319
+    },
+    "MTileBotLeft": {
+      "bank": 3,
+      "offset": 7063
+    },
+    "MTileBotRight": {
+      "bank": 3,
+      "offset": 7575
+    },
+    "MTileAttribute": {
+      "bank": 127,
+      "offset": 3894
+    }
+  },
+  "prepared_actor": {
+    "PowerUpType": 1,
+    "InvPickupOwner": 12,
+    "InvPickup": 38
+  },
+  "before": [
+    {
+      "name": "PlayerStatus",
+      "index": 0,
+      "value": 0
+    },
+    {
+      "name": "DwHealth",
+      "index": 0,
+      "value": 4
+    },
+    {
+      "name": "DwGas",
+      "index": 0,
+      "value": 0
+    },
+    {
+      "name": "DwAdaptor",
+      "index": 0,
+      "value": 0
+    },
+    {
+      "name": "DwMode",
+      "index": 0,
+      "value": 0
+    }
+  ],
+  "after": [
+    {
+      "name": "PlayerStatus",
+      "index": 0,
+      "value": 0
+    },
+    {
+      "name": "DwHealth",
+      "index": 0,
+      "value": 4
+    },
+    {
+      "name": "DwGas",
+      "index": 0,
+      "value": 10
+    },
+    {
+      "name": "DwAdaptor",
+      "index": 0,
+      "value": 2
+    },
+    {
+      "name": "DwMode",
+      "index": 0,
+      "value": 0
+    }
+  ],
+  "final": [
+    {
+      "name": "PlayerStatus",
+      "index": 0,
+      "value": 0
+    },
+    {
+      "name": "DwHealth",
+      "index": 0,
+      "value": 4
+    },
+    {
+      "name": "DwGas",
+      "index": 0,
+      "value": 10
+    },
+    {
+      "name": "DwAdaptor",
+      "index": 0,
+      "value": 2
+    },
+    {
+      "name": "DwMode",
+      "index": 0,
+      "value": 1
+    }
+  ]
+}
