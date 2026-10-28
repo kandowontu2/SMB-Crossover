@@ -1,0 +1,55 @@
+RCR SHARED PALETTE SUCCESSOR — INDEPENDENT COMPONENT
+
+Original native source ROM276c1a1a..., actual ED0E player renderer for Alex/Ryan,
+18poses each, both facings. Primary white30/skin26/blue11 uses player palette0;
+only original black is an optional separate mask. Default shadowsOFF draws no
+additional ink. Complete original source mask/color-class maps are exact with
+ink, with NES color quantization explicitly distinct from literal RGB equality.
+
+The preceding original RcColors overwrote3F19 native world/pickup palette2.
+Real CPU reproduction retains that negative. Successor queues only3F11, never
+3F19, admits the84-byte native queue only below offset78 and acknowledges a
+successful enqueue. Star/transform defers it and invalidates acknowledgment.
+Actual all-area PPU composition remains unqualified: native palette3 ink color1
+is0Fground/water,0Cunderground,00castle. No all-area exact-black claim.
+
+The11KB atlas needs716..723 and formerly-zero677..679. Private source build
+uses8KB linked into the original RCR segment, plus an explicit checked3KB patch
+into Mac padding. This is a component test, not a final shared-source layout.
+Root must split the Mac incbin/CFG before final allocation/adoption. Rogue
+680..695, Mac668..676/704..707, and windows2/3 remain untouched here.
+
+Per-pose foreground window0 and optional ink window1 publish matching physical
+CHR(high2). DefaultOFF uses immutable source descriptors directly. With inkON,
+the <=57B complete record uses shared129B OutlinePoseBuffer, invalidating all
+legacy cache keys before writing. This active-only use is exclusive to raw21;
+no added persistent RAM. New transient aliases5C4C..4F stay inside its slab.
+Actual CORE3011B and ART3640B remain within the old allocated reservations.
+
+Checks: data-only genuine linked host renders144source layers/864capacity and
+rotation cases; runtime successor144complete original pose/facing/outline maps,
+340palette-queue canary cases,168actual NMI/IRQ boundaries. Five SMC operands
+and live AXYP/SP restored; full leaf continuation owned state/banks equals
+uninterrupted execution. Maximum measured source-selector/publisher/body-draw
+3036CPU includes outline copying; no full GameLoop/FPS/PPU deadline claim.
+
+Preserved first interrupt harness mismatch: exact RcSetPose+5/+7 occurs after
+STACurrentBankC but before STA5116. Genuine NMI restores the published C70
+shadow, so the physical oldC88 becomesC70 early. Requiring the previous physical
+bank at RTI was invalid at only those two identified macro instructions. Revised
+check still asserts exact live registers/5SMC, destination bank there, exact
+banks at every other seam, and complete continuation equality. No product code
+change was used to hide the result. The first tool and mismatch are retained.
+
+Reproduction on a fresh independent build directory:
+python -B tools/river_city_palette_preimages_v3.py
+python -B tools/river_city_palette_private_build_v3.py
+python -B tools/river_city_palette_runtime_controls_v3.py
+The13preimages come from pushed commit1a80fc9c. This run originally restored
+its byte-equivalent shared preimages from the concurrent Celeste snapshot; the
+normalized Git comparison and exact33d2baseline hash establish equivalence.
+Do not overwrite frozen outputs; use a separate workspace/output for reruns.
+
+Not yet accepted: shared source adoption/menu, actor/combat bridge, all terrain
+and lifecycle callers, music, visible native PPU/scanline load or1-1 traversal.
+Canonical85afad... and Downloads were not modified.

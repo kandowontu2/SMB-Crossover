@@ -1,0 +1,29 @@
+{
+  "status": "First interrupt harness mismatch retained; no pass claim",
+  "ROM_sha256": "d83fe8ac8aec86b2f5835bab7a7e7dcd32f68d1f83287a1a5dbb4212e59e825b",
+  "routine": "RcSetPose",
+  "PC": 44223,
+  "kind": "NMI",
+  "before": {
+    "physical_banks": [
+      126,
+      81,
+      88,
+      127
+    ],
+    "CurrentBank": 209,
+    "CurrentBankC": 198
+  },
+  "after": {
+    "physical_banks": [
+      126,
+      81,
+      70,
+      127
+    ],
+    "CurrentBank": 209,
+    "CurrentBankC": 198
+  },
+  "hypothesis": "NMI was injected between CurrentBankC shadow store and physical destination mapping. Need inspect real bank transition and compare complete continuation before deciding product or fixture defect.",
+  "test_source_sha256": "fee9acdce0095fd5bf7a401b5acf8e6f019af8b049b57a0731666100b5e87c67"
+}

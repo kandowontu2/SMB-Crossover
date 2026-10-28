@@ -1,0 +1,149 @@
+{
+  "passed": true,
+  "native_run": false,
+  "scope": "Build an unhooked RCR palette successor on the exact root33d2 baseline.\n\nOnly18 sparse source preimages are restored while another agent owns shared\nsources. Extra CHR is patched into authenticated zero padding for this private\ncomponent test; shared source/incbin allocation and native play remain open.\n",
+  "ROM_sha256": "d83fe8ac8aec86b2f5835bab7a7e7dcd32f68d1f83287a1a5dbb4212e59e825b",
+  "baseline_sha256": "33d2c7a7bf58aa040f2911d44f1d59dddb4c9b40b3e8727334cf46db74915f97",
+  "extra_CHR_pages": [
+    677,
+    678,
+    679
+  ],
+  "body_CHR_pages": [
+    716,
+    717,
+    718,
+    719,
+    720,
+    721,
+    722,
+    723
+  ],
+  "command": [
+    "python",
+    "-B",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\build_mmc5_expanded.py",
+    "--source-overlay",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\river-city-palette-runtime-v3-overlay",
+    "--output",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\river-city-palette-private-v3-linked.nes"
+  ],
+  "limits": [
+    "Unhooked private component; shared allocation/menu/native gameplay unqualified.",
+    "No all-area NES palette or cadence acceptance."
+  ],
+  "bindings": [
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\river_city_palette_private_build_v3.py",
+      "sha256": "dc11aabc9c303798c87fbbd3b8fee0aef32a16c9a6a1b72fb80cca16bc4de14c"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\river-city-palette-baseline-v3.nes",
+      "sha256": "33d2c7a7bf58aa040f2911d44f1d59dddb4c9b40b3e8727334cf46db74915f97"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\river-city-palette-baseline-v3.dbg",
+      "sha256": "763ceb783f2b43aafdf66080feef3b13d2c99c23ed03a3559474a42960481392"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\river-city-palette-private-v3.nes",
+      "sha256": "d83fe8ac8aec86b2f5835bab7a7e7dcd32f68d1f83287a1a5dbb4212e59e825b"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\river-city-palette-private-v3.dbg",
+      "sha256": "f33fc4dd878a0ccb057922ba92d272705a43f692738fd1b0b8a9b36bb3a9a334"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\river-city-palette-private-v3.lbl",
+      "sha256": "119cdb23f9ee215b5cbfaf9785d3c1fbffaf40166a22f2a08329b975cc6d5510"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\chr\\characters\\river-city-shared-palette.chr",
+      "sha256": "122c2e1a4f3480a9ab52e2c47d4c5002b7a11eb4d25a8da0ac197bf54048994d"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\river_city_shared_palette_art.inc",
+      "sha256": "0954e5382af558124e9b356c741ac497b3cc93fa34585d52842309dd0723621b"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\river_city_shared_palette_render.inc",
+      "sha256": "4b38d6b0972ef6921afe575ba416042d13822f142f39b00ff87a32030963dd65"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\river_city_core.s",
+      "sha256": "29a40a77d70af59b53d7b6349f51590612f00a757e0fd122759eecef7bc5d440"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\river_city_combat.s",
+      "sha256": "9caaaf7e905faca19687b85b4fbbe08623afa14eec70bb7fde1e19949b74e9cd"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\river_city_state.inc",
+      "sha256": "4dbaf849c14f8be3eff35860c43827867386da3085964b275626687ebf18c570"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\river-city-palette-runtime-v3-overlay\\runtime-build.log",
+      "sha256": "e769bb8628a12407e0d76ad850d851cd7215f4efe967322b1af30e8f426b09e5"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\river-city-palette-runtime-v3-overlay\\smb1base-mmc5-expanded.cfg",
+      "sha256": "2397f1873be552d7a6bc05cc38595c6356a73ea4b205a3bc0069434eecf6712b"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\river-city-palette-runtime-v3-overlay\\snapshot.json",
+      "sha256": "de9baea83bcbf65b9e34700235876c87205a5d58c506f699db45cb92d722be87"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\river-city-palette-runtime-v3-overlay\\src\\character_select.s",
+      "sha256": "4f0acda4b74ecb93d0d636281d3d0c4d87ce7a00f870f6d5bf788a66078cc759"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\river-city-palette-runtime-v3-overlay\\src\\cheats_four.s",
+      "sha256": "f22550b8a23bb3c1ef31fdd64d5d0fd9e1a8ebd5c027f68ca3a4cb4be4b431f9"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\river-city-palette-runtime-v3-overlay\\src\\collision.s",
+      "sha256": "379a8475ea48231084c4c00ac241d26dcd6a3075eef92956a61baf9dd3901454"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\river-city-palette-runtime-v3-overlay\\src\\entrypoint.s",
+      "sha256": "fe4bbe7e27d4884b69bec5b46a186ca35992e14e769933cd50fe9790a884c2f3"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\river-city-palette-runtime-v3-overlay\\src\\megaman_environment.s",
+      "sha256": "456fa1b64b45701ad937adba5ce00800457fe4d0eb83fbd10c3c96f47e2cefd4"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\river-city-palette-runtime-v3-overlay\\src\\megaman_physics.s",
+      "sha256": "d6c7760a6be8fb4b0165d05e98e9da0e261b946e4daa6e079c4d97b30aa15603"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\river-city-palette-runtime-v3-overlay\\src\\megaman_weapons.s",
+      "sha256": "c583cec8ad032ed2bf6c63cd73e2035b7806928ff913b68d5985ad347f3ab688"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\river-city-palette-runtime-v3-overlay\\src\\new_roster_dispatch.s",
+      "sha256": "8b165fb86e611cbed016fa4116a6edf5c9893b6485f1fe0a9831f7ff9e859aab"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\river-city-palette-runtime-v3-overlay\\src\\object.s",
+      "sha256": "d2321b8f0d57119fb5f75d00eec9cb8e9ddc88a1699584c8eccd179f9a100f53"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\river-city-palette-runtime-v3-overlay\\src\\player.s",
+      "sha256": "b43c37d7eb735e02dd6fa1486b678f5a46b3d0d2431cbda95bdbb0cd80d6b975"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\river-city-palette-runtime-v3-overlay\\src\\river_city.s",
+      "sha256": "4681c7259f191f5024e65f678f0b688ab4b034951e667b57d7bb1e007357fbd3"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\river-city-palette-runtime-v3-overlay\\src\\samus.s",
+      "sha256": "52783dbaf27769c2aad52a109ab519ee984572efb18f225bc47c8aec72889838"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\river-city-palette-runtime-v3-overlay\\src\\x5_bounce.s",
+      "sha256": "c8aae7fd2157526b4cacc06f5b6e21c3a7a023c9e3abbd0162881e7d9e170463"
+    }
+  ]
+}
