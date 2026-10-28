@@ -1,21 +1,24 @@
 {
   "status": "Active expansion; incomplete, not paused",
-  "last_pushed_before_this": "9e045be7",
+  "last_pushed_before_this": "1a80fc9c",
   "canonical_ROM": "85afad507fa7abac29603c65bf5f7d9cadd224a24fd13ff2fd22f541b65729aa",
   "private_root_ROM": {
-    "path": "build/roster-expansion-mac-integrated-v5.nes",
-    "sha256": "bc346da71d6b8156600ea9750f18f8c59229e5581dd0de553a08ca569abd08bb",
+    "path": "build/roster-expansion-mac-pipe-corner-v3.nes",
+    "sha256": "33d2c7a7bf58aa040f2911d44f1d59dddb4c9b40b3e8727334cf46db74915f97",
     "installed": false
   },
   "native_Mesen_active": false,
   "verified": [
     "Popo Easy7b4216: zero-death1-1 to controlled1-2, seven selected frames viewed.",
     "Nana Hardc6d61: same route and independent replay, inputs/full trace/decoded4213-frame PPU stream exact.",
-    "Mac/Doc/Tysonc6d61: real Select cycle, Start/lives and480 active opening emulator frames; six selected frames viewed."
+    "Mac/Doc/Tysonc6d61: real Select cycle, Start/lives and480 active opening emulator frames; six selected frames viewed.",
+    "Sunny Easy55e874: zero-death1-1 with actual mushroom into controlled1-2; seven selected frames viewed.",
+    "Mac Easy33d2c7: same with actual mushroom; pipe-side false ceiling repaired; seven selected frames viewed.",
+    "Tyson Hard33d2c7: same with actual mushroom; seven selected frames viewed."
   ],
   "agents": {
     "vehicles_tmtn_mike_mac_audit": {
-      "task": "Sunny shared runtime/menu/native Mario audio integration and CPU/full-caller checks",
+      "task": "Celeste Mario real movement/background/dash/pickups/lifecycle/graphics shared integration; separate candidate with frozen old Mac baseline",
       "ownership": [
         "src/new_roster_dispatch.s",
         "src/character_select.s",
@@ -30,19 +33,19 @@
       "limits": "No native/canonical. Owns these shared files until handoff. Final sparse candidate uses qualified Macv5 terrain override, not another agent's unqualified draft."
     },
     "z2_platform_native_qa": {
-      "task": "Repair Mac terrain/hurtbox to match new sprites, then separately qualified Celeste pickup successor",
+      "task": "Rogue Dawn independent source control/actions component",
       "ownership": [
-        "src/little_mac_terrain.s"
+        "src/rogue_dawn_control.s",
+        "own tools and proofs"
       ],
-      "Mac": "Old46px terrain above new32px art. New head tops: Mac4/12, Doc5/14, Tyson-6/-7; feet32. Real head/side/stand-up/wall/body contracts required.",
-      "Celeste": "Frozen19-file leaf saved Git888cb050. CmPickup incorrectly reads PowerUpType base rather than actual slot, and writes1Up floatey0B without native scoring. Earlier movement/art/IRQ scopes stand; real pickup admission blocked until successor tested.",
-      "integration_plan": "docs/qa/celeste-mario-host-integration-plan-2026-10-28.json"
+      "limits": "No shared source/native; source draw context affects morph routine and must be qualified.",
+      "allocation": "CORE124 B000..BFFF plus AUX124 AE00..AFFF; active17..1F+7E/7F"
     },
     "mario_scrooge_source_audit": {
-      "task": "Final Fantasy unused prototype source and sprite extraction",
+      "task": "Final Fantasy independent four-class playable component and source distinctions",
       "source": "Crossover2.02 SWF6374c724; sprite41/BlackMageSpell174 and shared bitmap39 atlas1307x383. Source classes already local. No TCRF403 bypass.",
       "gap": "WhiteMage attacks/heal absent; pointer timer/target prototype unfinished. Clearly separate source evidence and authored playable adaptations.",
-      "proposed_only": "CORE62 AA00..BFFF; ART93 B000..BFFF C-mirror+2000; CHR756..787 pending all-consumer audit; active5C00..7F; persistent5FC1..CF (5FC0PnHitMask); variant5FEF."
+      "proposed_only": "Reservations approved for independently qualified component: CORE62 AA00..BFFF, ART93 B000..BFFF, CHR756..787,5FC1..CE persistent,5FEFvariant; shared/native unqualified."
     }
   },
   "Rogue": [
@@ -52,17 +55,30 @@
   ],
   "Mac_negatives": [
     "v1 generic controller lands above mushroom then stationary300updates; false result retained.",
-    "v2 repeated wrong-block jumps at x348; bounded event-log guard ended frame3148, launch exit1, no result.json. Inputs/log/capture retained."
+    "v2 repeated wrong-block jumps at x348; bounded event-log guard ended frame3148, launch exit1, no result.json. Inputs/log/capture retained.",
+    "Cea41c87 art-aligned native run stalls third pipe: genuine pipe SIDE misclassified ceiling. 48 actual movement/BG trajectories plus54 true ceilings and old267cases/24IRQ pass after root fix.",
+    "Tyson Hard v1 misses final gap from lower step; revised controller v2 passes via actual top stair."
   ],
   "storage": {
-    "last_workspace_bytes": 20629801939,
-    "cap": "30GB",
-    "policy": "One bounded lossless stream, <=8 selected whole frames, no per-frame files/source forests."
+    "last_workspace_bytes": 21557808415,
+    "last_workspace_files": 292395,
+    "cap": "30GB decimal",
+    "policy": "One bounded lossless stream; <=8 selected whole frames; no per-frame capture forest.",
+    "measurement": "build/storage-audit-2026-10-28-root-v2.json"
   },
   "next": [
     "Root reviews frozen agents' exact candidates and caller/IRQ/camera/terrain contracts.",
     "Only root launches one native Mesen, hardware sprite limit on; preserve negatives.",
     "Complete remaining roster and every-character1-1/every-powerup checks; do not mark goal complete.",
     "Commit/push explicit owned paths after verified milestones; canonical build remains unchanged."
-  ]
+  ],
+  "RCR_work": {
+    "status": "Root independent shared-palette art/render successor; not yet integrated/native",
+    "source_frames": 72,
+    "host_layer_renders": 144,
+    "capacity_controls": 864,
+    "art_bytes": 3640,
+    "extra_CHR": "677..679; must split Mac incbin before shared allocation",
+    "limits": "Body uses own palette0 white/skin/blue, world palette2 preserved. Optional black must respect native area ink shades; mask controls alone do not prove all-area NES colors."
+  }
 }
