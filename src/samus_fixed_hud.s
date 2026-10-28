@@ -15,12 +15,26 @@
  BankPRGC #.bank(SamusFixedHudRecord)
  jmp RemainingDraw::FixedHudRender
 Native:
- jmp RemainingDraw::Draw
+ jmp BillCapsuleHudAnchor
 .endproc
 SamusFixedHudRecord:
  .byte 8
  .byte $4d,$c2,-4,-5
  .byte $4f,$c2,-4,3
+; Only Bill/Lance use the free upper HUD gap. The existing Samus
+; helper/record keep their addresses. Draw reloads A, and all live
+; outputs/flags are qualified through the complete RemainingDraw caller.
+.proc BillCapsuleHudAnchor
+ lda SelectedCharacter
+ cmp #CHARACTER_BILL
+ bne Original
+ lda #120
+ sta R4
+ lda #16
+ sta R6
+Original:
+ jmp RemainingDraw::Draw
+.endproc
 .assert SamusFixedMissileHud=$bfae,error,"Verified existing bank61 tail"
 .assert *-SamusFixedMissileHud<=82,error,"Verified tail capacity"
 .assert .bank(SamusFixedHudRecord)=61,error,"C alias must map physical61"

@@ -1,0 +1,114 @@
+{
+  "passed": false,
+  "scope": "Same six selected capsule epochs: actual occupied static HUD cells and unchanged coin display. No continuous HUD, every-pixel, or all-epoch claim.",
+  "ROOT_images_visually_reviewed": true,
+  "superseded_pixel_oracle": {
+    "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-85af-bill-hard-earned-hud-v1\\native\\selected-eight-whole-frames.json",
+    "sha256": "5f4ffc2fa232cf6c3651c0997d8ea5291f1fa117a666ba25d62716c243c7256f",
+    "reason": "V1 player-name box sampled the changing weapon name, and coin box sampled y16 rather than y24. Its zero-difference WORLD/TIME observations remain valid."
+  },
+  "regions": {
+    "player_name": [
+      24,
+      16,
+      80,
+      24
+    ],
+    "coins": [
+      88,
+      24,
+      120,
+      32
+    ],
+    "world_label": [
+      144,
+      16,
+      192,
+      24
+    ],
+    "world_value": [
+      152,
+      24,
+      176,
+      32
+    ],
+    "time_label": [
+      200,
+      16,
+      240,
+      24
+    ]
+  },
+  "comparisons": [
+    {
+      "name": "machine-actual-capsule-HUD",
+      "changed_pixels": {
+        "player_name": 0,
+        "coins": 0,
+        "world_label": 0,
+        "world_value": 0,
+        "time_label": 0
+      }
+    },
+    {
+      "name": "spread-actual-capsule-HUD",
+      "changed_pixels": {
+        "player_name": 0,
+        "coins": 24,
+        "world_label": 0,
+        "world_value": 0,
+        "time_label": 0
+      }
+    },
+    {
+      "name": "laser-actual-capsule-HUD",
+      "changed_pixels": {
+        "player_name": 0,
+        "coins": 24,
+        "world_label": 0,
+        "world_value": 0,
+        "time_label": 0
+      }
+    },
+    {
+      "name": "flare-actual-capsule-HUD",
+      "changed_pixels": {
+        "player_name": 0,
+        "coins": 0,
+        "world_label": 0,
+        "world_value": 0,
+        "time_label": 0
+      }
+    },
+    {
+      "name": "machine-rapid1-actual-capsule-HUD",
+      "changed_pixels": {
+        "player_name": 0,
+        "coins": 0,
+        "world_label": 0,
+        "world_value": 0,
+        "time_label": 0
+      }
+    },
+    {
+      "name": "machine-rapid2-actual-capsule-HUD",
+      "changed_pixels": {
+        "player_name": 0,
+        "coins": 24,
+        "world_label": 0,
+        "world_value": 0,
+        "time_label": 0
+      }
+    }
+  ],
+  "same_eight_epochs": true,
+  "additional_images": 0,
+  "bindings": {
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\current_bill_capsule_hud_pixels_v2.py": "23eed931826bf3018233c9101f1d34a839678cd24b5069d8800a98f4e09c6dc0",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-85af-bill-hard-earned-hud-v1\\native\\selected-eight-whole-frames.json": "5f4ffc2fa232cf6c3651c0997d8ea5291f1fa117a666ba25d62716c243c7256f",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-85af-bill-hard-earned-hud-v1\\native\\selected-eight-whole-frames.png": "181f246a33555c48d44340a84128c8605c1c0a69223fc8bbe7866ff1ddb6706e",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bill_capsule_hud44204_controls.json": "f704990288a95de336108c17ac7fd44f12d03c3761b019c253304f2e35830432",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-85af-bill-hard-earned-hud-v1\\native\\component-review.json": "87149256e98f175b4749741237ce9065a28f9298455abcd12587197961b67fcb",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-85af-bill-hard-earned-hud-v1\\native\\capsule-hud-native.json": "5abaa5a5f47e5b42e9d5e01fab4251661d64b66e445616ff197309f19d555857"
+  }
+}

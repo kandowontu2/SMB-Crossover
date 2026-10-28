@@ -1,0 +1,62 @@
+Private Bill/Lance capsule anchor on qualified inert-pool parent44204
+
+Combined private ROM85afad507fa7abac29603c65bf5f7d9cadd224a24fd13ff2fd22f541b65729aa.
+No native launch, canonical/source/default/Downloads/settings/Git mutation.
+
+Exactly20new bytes in bank61: redirect the two operand bytes of the existing
+SamusFixedMissileHud::Native JMP, then18new bytes at BFD9..BFEA. Its Samus
+entryBFAE, all earlier instructions apart from that JMP, missile record
+BFD0..BFD8, all73493old symbols, header/CHR/otherbanks remain exact. The
+82-byte tail uses61bytes;21FF remain. No RAM/CHR allocation, no bank/C-pointer
+change, no new stack operation. Source builder reuses frozen Bill remaining
+weapon overlay/main, replaces only the private Samus source include.
+Canonical adoption would apply the parent31B Bill logical source patch and
+this Samus source delta; retain each canonical file's original EOL. There
+is no canonical entrypoint or packed-asset change.
+
+Bill/Lance HUD anchor120,16 emits the three complete original capsule parts
+at x108..131/OAMY1..16, visibleY2..17. Native high-page clipping admits all;
+no part or original opaque pixel is sacrificed. Full original masks for
+all six Bill capsule records are preserved, with exact palette/tiles/flips.
+They avoid actual name/weapon/WORLD/TIME/score/coin/value glyph cells even at
+maximum digit values; Bill's InvAmmoIndexFF makes the upper ammo cells blank.
+Masks and actual tuples are in bill_capsule_hud44204_controls.json.
+
+Fresh source-only652complete paired RemainingDraw calls compare AXYP/SP,
+banks, all ordered OAM/part counts and flat RAM/stack/5SMC. Only actual Bill
+HUD X-72/Y-8 stores and final coordinate scratch differ.56Bill cells cover
+both variants/modes/facings. Classic Easy correctly refuses2.02 gun grants;
+selected-capsule mode0 cells are explicitly synthetic renderer geometry,
+not Easy acquisition.70foreign cells,48Samus missile/foreign cases,48edge
+cells include family rejection, near-full OAM and aligned rotation.35actual
+IRQ-vector instruction-boundary controls preserve full continuation and
+five original IRQ PPU writes. This is a finite CPU model, not native PPU.
+Measured complete-call deltas0..21: admitted Bill HUD+21; foreign selected
+HUD+12; fixed Samus missile0; noHUD0. No NMI/audio bytes or cycles changed.
+Fresh ordinary MMC3d444cac8/MMC5f4ffd248 builds match exact baseline hashes.
+
+Separate existing limitation: eight real source RemainingDraw calls for each
+Laser/Flare prove HUD true/false alternation. BillEndDrawPriority deliberately
+selects shot family233 on one turn and the capsule family221 on the other.
+This anchor change does not make that HUD continuously visible. The absent
+capsules in prior sampled Laser/Flare frames are consistent with that source
+schedule; those native frames did not instrument its first owner. Do not
+call this a fixed visibility problem or all-pixel qualification.
+
+Fresh ready current-85af-bill-hard-earned-hud-v1 preserves the actual qualified
+seven-case/28-stage Hard gallery, its inputs, guards and12000wall/1800host
+limits. Initial mushroom form/bit remains explicitly seeded; all subsequent
+gun/Rapid grants are actual staged-mature actor collections/autoequip, never
+ownership/ammo/outcome seeds. Six read-only HUD samples require source gate,
+real ArtPointer PC/SP/bank success and all3actual completed-DMA parts, after
+2later DMAs. All original full256/E3/E008/deadline, NMI/IRQ/CHR/bank/SP/SMC,
+sourceSFX/contact/terrain/cadence/cleanup guards remain. One lossless container,
+zero native PNGs, maximum8ROOT-selected images. No native grant/run here.
+No installed Lua VM was available for a new VM startup test; original static
+return module is literal, callbacks are startup-only, typed plan preflight is
+generated. Root must inspect/run the frozen command and review actual frames.
+
+Retained source-preparation negatives: actual classic Easy grant refusal;
+unsubmitted observer draft sampled before future grant and used sparse JSON
+maps. Corrected before submission, original draft hash/issues retained; no
+native attempt, guard relaxation or acquired-state write added.

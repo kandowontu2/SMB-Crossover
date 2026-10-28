@@ -1,0 +1,97 @@
+{
+  "status": "adopted",
+  "goal_complete": false,
+  "ROM_sha256": "85afad507fa7abac29603c65bf5f7d9cadd224a24fd13ff2fd22f541b65729aa",
+  "previous_ROM_sha256": "32694243361bb1366f6fd64c054ea2451f86b2517fc020d9c2b5d66bbf07bfa0",
+  "changes": [
+    "Skip the proved-inert second advanced-weapon scan for Bill/Lance while retaining freeze clocks and foreign contracts.",
+    "Move the complete original selected-gun capsule to the free upper HUD gap, clear of WORLD/TIME and all score/coin digits."
+  ],
+  "ROM_delta": {
+    "bytes": 51,
+    "banks": [
+      6,
+      61
+    ],
+    "new_RAM": 0,
+    "new_CHR": 0,
+    "new_bank_switches": 0
+  },
+  "sources": [
+    {
+      "path": "src/remaining_weapons.s",
+      "before_sha256": "63789904a5e617967fa4d0e7a126444e7e0a71ce8cf2c47a01e5806d2a44bc66",
+      "after_sha256": "aa4037ff789fb323a06c1a0d5a511993a541030d1e2c86d4374d71b98439073d",
+      "private_source": "build/bill_inert_pool_remaining_weapons.s",
+      "preimage": "docs\\qa\\checkpoints\\2026-10-28\\bill-hud-inert-adoption\\remaining_weapons-preimage.s",
+      "patch": "docs\\qa\\checkpoints\\2026-10-28\\bill-hud-inert-adoption\\remaining_weapons.patch"
+    },
+    {
+      "path": "src/samus_fixed_hud.s",
+      "before_sha256": "ced01abf2d8d6f367d9a4f1beaec548227ac4edf6dfb3acae1bd6565ac815093",
+      "after_sha256": "a0d6ea85b2ab97f33d2757592a168d1d7c2ca1f3b6f4527dc4fc4f5e865367dc",
+      "private_source": "build/bill_capsule_hud44204_samus_fixed_hud.s",
+      "preimage": "docs\\qa\\checkpoints\\2026-10-28\\bill-hud-inert-adoption\\samus_fixed_hud-preimage.s",
+      "patch": "docs\\qa\\checkpoints\\2026-10-28\\bill-hud-inert-adoption\\samus_fixed_hud.patch"
+    }
+  ],
+  "canonical_rebuild_matches_native_candidate": true,
+  "ordinary_builds_exact": {
+    "mmc3": "d444cac88e13fa02b29ad16100b8f08fa565ba90f8cedde192de43fb2dc8f3eb",
+    "mmc5": "f4ffd2483c51daa4d60bb575da2da8c4d817692cda407611c243031f67520833"
+  },
+  "source_cost": "Typed callers save620..680 CPU cycles; sparse advanced admission can cost up to24 more. The HUD gate adds21 cycles to Bill,12 to foreign selected HUD,0 to fixed Samus missiles/no HUD. No whole-frame FPS claim.",
+  "native_components": {
+    "passed": true,
+    "cases": 7,
+    "stages": 28,
+    "frames": 4338,
+    "Main_updates": 3860,
+    "completed_DMAS": 3288,
+    "min_SP": 200,
+    "acquisition_scope": "Initial Mushroom/PlayerStatus1 is an explicit staged seed. Subsequent guns and Rapid capsules are physical staged-mature pickups with actual autoequip/emission/cadence/enemy/terrain/source-art/SFX/cleanup witnesses. No natural reveal/rise, starting Mushroom collection, Select or energy claim.",
+    "complete_three_part_HUD_counts": [
+      420,
+      380,
+      278,
+      287,
+      419,
+      423
+    ],
+    "ROOT_whole_frames_reviewed": 8,
+    "actual_static_HUD_cells_exact": true,
+    "negative_pixel_oracles_preserved": [
+      "selected-eight-whole-frames.json",
+      "selected-eight-whole-frames-v2.json"
+    ]
+  },
+  "native_route": {
+    "passed": true,
+    "mode": "hard",
+    "frames": 5992,
+    "Main_updates": 5058,
+    "PPU_frames": 5107,
+    "zero_deaths": true,
+    "cheats_off": true,
+    "ROOT_whole_frames_reviewed": 7,
+    "report": "bill-current85afad-hard-route-2026-10-28.json",
+    "comparison": "Actual85af saved inputs, trace and all5107 decoded PPU buffers exactly match the successful44204 parent replay. Other identities retain actual older-build witnesses."
+  },
+  "prior_controller_failure": "Original44204 zero-death contact failure remains in the held checkpoint; paired revised real-controller policy passes326942 and44204. Do not erase or claim identical input histories between those different-speed runs.",
+  "checkpoint": "docs/qa/checkpoints/2026-10-28/bill-hud-inert-adoption",
+  "downloads": [
+    "C:/Users/kando/Downloads/SMB-Crossover-Current-MMC5.nes",
+    "C:/Users/kando/Downloads/SMB-Crossover-2026-10-28-85afad50-MMC5.nes"
+  ],
+  "limits": [
+    "Laser/Flare selected-capsule admission still alternates with their shot graphics family; placement repair does not fix that intermittency.",
+    "Octopus body starvation under first-eight sprite limits and other crowded-body issues remain open.",
+    "Only Bill has a full route on exact85af so far. Complete latest-ROM roster/modes/shortcuts/graphics/audio/performance work remains active."
+  ],
+  "bindings": {
+    "tools\\audit\\publish_bill_hud_inert_adoption_v1.py": "e12c1224415bcea8408d01e44d6316116ed2fb7d4ef3ac5f022c53350f605e17",
+    "docs\\qa\\checkpoints\\2026-10-28\\bill-hud-inert-adoption\\manifest.json": "052e055e5ce92bcff48b9188616e17b5932c4b9e10aca1e558dfd232b9a7ca07",
+    "docs\\qa\\bill-inert-pool-native-qualified-2026-10-28.json": "1036ce8e69cb7d07540884070b4687fa4d1552db000e52cd96b3463a0beb899f",
+    "docs\\qa\\bill-current85afad-hard-route-2026-10-28.json": "994718cb77eb4c5fceb7a0443b1b71d4306580df380bfd521fffe4d5ba0ccf11"
+  }
+}

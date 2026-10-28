@@ -1,0 +1,125 @@
+{
+  "passed": true,
+  "ROOT_images_visually_reviewed": true,
+  "scope": "Exact actual static occupied HUD glyphs and coin tally at six selected capsule epochs. Weapon names, score, timer numerals and animated coin icon are not static. No continuous-HUD/all-epochs claim.",
+  "source_mask_proof": "build/bill_capsule_hud44204_controls.json",
+  "preserved_negative_oracles": [
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-85af-bill-hard-earned-hud-v1\\native\\selected-eight-whole-frames.json",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-85af-bill-hard-earned-hud-v1\\native\\selected-eight-whole-frames-v2.json"
+  ],
+  "oracle_corrections": [
+    "V1 sampled changing weapon name and wrong coin row.",
+    "V2 included the time-varying eight-pixel-wide coin icon. All remaining V2 regions were exact."
+  ],
+  "regions": {
+    "player_name": [
+      24,
+      16,
+      80,
+      24
+    ],
+    "coin_tally": [
+      96,
+      24,
+      120,
+      32
+    ],
+    "world_label": [
+      144,
+      16,
+      192,
+      24
+    ],
+    "world_value": [
+      152,
+      24,
+      176,
+      32
+    ],
+    "time_label": [
+      200,
+      16,
+      240,
+      24
+    ]
+  },
+  "comparisons": [
+    {
+      "name": "machine-actual-capsule-HUD",
+      "changed_pixels": {
+        "player_name": 0,
+        "coin_tally": 0,
+        "world_label": 0,
+        "world_value": 0,
+        "time_label": 0
+      },
+      "excluded_coin_icon_difference_pixels": 0
+    },
+    {
+      "name": "spread-actual-capsule-HUD",
+      "changed_pixels": {
+        "player_name": 0,
+        "coin_tally": 0,
+        "world_label": 0,
+        "world_value": 0,
+        "time_label": 0
+      },
+      "excluded_coin_icon_difference_pixels": 24
+    },
+    {
+      "name": "laser-actual-capsule-HUD",
+      "changed_pixels": {
+        "player_name": 0,
+        "coin_tally": 0,
+        "world_label": 0,
+        "world_value": 0,
+        "time_label": 0
+      },
+      "excluded_coin_icon_difference_pixels": 24
+    },
+    {
+      "name": "flare-actual-capsule-HUD",
+      "changed_pixels": {
+        "player_name": 0,
+        "coin_tally": 0,
+        "world_label": 0,
+        "world_value": 0,
+        "time_label": 0
+      },
+      "excluded_coin_icon_difference_pixels": 0
+    },
+    {
+      "name": "machine-rapid1-actual-capsule-HUD",
+      "changed_pixels": {
+        "player_name": 0,
+        "coin_tally": 0,
+        "world_label": 0,
+        "world_value": 0,
+        "time_label": 0
+      },
+      "excluded_coin_icon_difference_pixels": 0
+    },
+    {
+      "name": "machine-rapid2-actual-capsule-HUD",
+      "changed_pixels": {
+        "player_name": 0,
+        "coin_tally": 0,
+        "world_label": 0,
+        "world_value": 0,
+        "time_label": 0
+      },
+      "excluded_coin_icon_difference_pixels": 24
+    }
+  ],
+  "same_eight_epochs": true,
+  "additional_images": 0,
+  "additional_capture_epochs": 0,
+  "bindings": {
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\current_bill_capsule_hud_pixels_v3.py": "54824c6124fb1cd1b86c9f2c92145c88e52c026f907481058e6a968b40a1ab44",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-85af-bill-hard-earned-hud-v1\\native\\selected-eight-whole-frames.json": "5f4ffc2fa232cf6c3651c0997d8ea5291f1fa117a666ba25d62716c243c7256f",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-85af-bill-hard-earned-hud-v1\\native\\selected-eight-whole-frames-v2.json": "178b5a88dfa5795b9f876da251ea1b295a58569857fe175f793643ca944395d5",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-85af-bill-hard-earned-hud-v1\\native\\selected-eight-whole-frames.png": "181f246a33555c48d44340a84128c8605c1c0a69223fc8bbe7866ff1ddb6706e",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-85af-bill-hard-earned-hud-v1\\native\\component-review.json": "87149256e98f175b4749741237ce9065a28f9298455abcd12587197961b67fcb",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-85af-bill-hard-earned-hud-v1\\native\\capsule-hud-native.json": "5abaa5a5f47e5b42e9d5e01fab4251661d64b66e445616ff197309f19d555857"
+  }
+}

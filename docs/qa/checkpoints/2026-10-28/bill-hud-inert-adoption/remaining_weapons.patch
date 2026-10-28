@@ -1,0 +1,52 @@
+--- src/remaining_weapons.s before
++++ src/remaining_weapons.s after
+@@ -775,11 +775,17 @@
+   ; spawn a shot. Freeze timers and Screw Attack still run every update.
+   jsr AdvanceFreeze
+   jsr Screw
++.if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
++  clc                         ; Samus empty slots compare type0 to32.
++BillNoAdvancedFinish:
++.endif
+   ldx #0
+   stx AvSlot
+   stx RgSlot
+   dex
+-  clc                         ; Each original empty slot compared type0 to32.
++.if !(::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5)
++  clc                         ; Original ordinary-target instruction order.
++.endif
+   jmp Done
+ 
+ AdvanceFreeze:
+@@ -1696,20 +1702,23 @@
+ .if ::ENABLE_MMC5_EXPANDED .and ::MAPPER_MMC5
+ ::BillEarlyCachePool:
+   lda RgShotType,x
+-  bne BillEarlyRange
+-BillEarlyNext:
+-  dex
+-  bpl ::BillEarlyCachePool
+-  jmp RemainingWeapons::EnemiesReady
+ BillEarlyRange:
+   cmp #32
+   bcc BillEarlyNext
+   cmp #47
+   bcc BillEarlyPrepare
+-  bcs BillEarlyNext
++BillEarlyNext:
++  dex
++  bpl ::BillEarlyCachePool
++  ; No32..46 consumer: keep freeze clocks, omit the inert second scan.
++  ; Final slot0 carry is0 below32,1 above46; AdvanceFreeze preserves it.
++  jsr RemainingWeapons::AdvanceFreeze
++  jmp RemainingWeapons::BillNoAdvancedFinish
+ BillEarlyPrepare:
+   jmp RemainingWeapons::PrepareActiveEnemies
+-  .assert *-::BillEarlyCachePool=24,error,"Existing unreachable24B pad"
++  .assert *-::BillEarlyCachePool=23,error,"Existing owned24B pool span"
++  .res 1,$ea
++  .assert *-::BillEarlyCachePool=24,error,"Existing owned24B pool span"
+ .else
+   .res 24, $ea
+ .endif
