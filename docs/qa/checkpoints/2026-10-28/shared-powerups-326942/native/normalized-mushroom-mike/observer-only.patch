@@ -1,0 +1,42 @@
+--- C:\Users\kando\Documents\ChatGPT\SMB Crossover\tests\current-ee115-normalized-mushrooms-v2.lua
++++ C:\Users\kando\Documents\ChatGPT\SMB Crossover\tests\current326-normalized-mike-v3.lua
+@@ -87,7 +87,7 @@
+  return{a=true}
+ end
+ 
+-local pickups,ownerCalls,rec=0,0,{}
++local pickups,ownerCalls,erasures,rec=0,0,0,{}
+ local function values(want)
+  for _,p in ipairs(want)do if C.identity=='mike'and want==C.after and p.name=='PlayerStatus'then assert(r('PlayerStatus')==0 or r('PlayerStatus')==1,'Only real next-update Mike display projection');else assert(r(p.name,p.index)==p.value,'Actual source-normalized benefit '..p.name..'['..p.index..']')end end
+ end
+@@ -114,14 +114,20 @@
+  pickups=pickups+1;event('physical-normalized-pickup',r('InvPickup',5))
+ end)
+ hook('CollectOwner',function(s)
+- if entered and phase=='collect'then assert(pickups==1 and s['cpu.x']==5 and r('Enemy_Flag',5)==0,'Actual native erase -> genuine private collector');ownerCalls=ownerCalls+1 end
++ if entered and phase=='collect'then assert(pickups==1 and s['cpu.x']==5 and r('Enemy_Flag',5)~=0,'Genuine Mike collector precedes native erase');ownerCalls=ownerCalls+1;event('genuine-pre-erase-collector',r('JnHealth'))end
++end)
++hook('NativeEraseReturn',function(s)
++ if not entered or phase~='collect'then return end
++ assert(pickups==1 and ownerCalls==1 and s['cpu.x']==5 and r('Enemy_Flag',5)==0,'Genuine Mike successful collector then actual EraseEnemyObject return')
++ assert(emu.read(256+(s['cpu.sp']+1)%256,emu.memType.nesDebug)==5,'Actual pending saved pickupX at native PLA')
++ erasures=erasures+1;rec.erase_update=updates;event('actual-native-erase-return',r('JnHealth'))
+ end)
+ hook('GameLoopFinish',function()
+  if not entered or done or phase=='settle'then return end
+  identity();assert(r('GuestPowerupActive')==0 and r('GameEngineSubroutine')==8,'Private item never masquerades as a power transformation')
+  if phase=='collect'then
+   if pickups==1 then
+-   assert(ownerCalls==1 and r('Enemy_Flag',5)==0,'One physical normalized reward and actual owning collector');values(C.after)
++   assert(ownerCalls==1 and erasures==1 and r('Enemy_Flag',5)==0,'One physical normalized reward, real collector and completed native erase');values(C.after)
+    rec.collected_update=updates;rec.publish_dma=dmas;phase='publish';age=0
+   end
+   assert(age<60,'Bounded actual normalized pickup')
+@@ -199,6 +205,6 @@
+  assert(wall<1600,'Finite normalized mature pickup')
+  if done then
+   assert(not pending and dmas>100 and irqCount>100 and nmis>100 and enables>100 and late==0,'Original actual hardware guards exercised')
+-  local f=assert(io.open(OUTPUT..'result.json','w'));f:write(json({passed=true,native_run=true,ROM_sha256=C.ROM_sha256,identity=C.identity,actual_mode=1,raw_source_request=0,prepared_actor=C.prepared_actor,pickups=pickups,collector_calls=ownerCalls,record=rec,wall=wall,updates=updates,complete256_DMAs=dmas,NMI_checks=nmis,IRQ31_checks=irqCount,NMI_safe_enables=enables,CHR_checks=chrChecks,minSP=minSP,images=images,scope=C.scope}));f:close();csv:close();emu.stop(0)
++  local f=assert(io.open(OUTPUT..'result.json','w'));f:write(json({passed=true,native_run=true,ROM_sha256=C.ROM_sha256,identity=C.identity,actual_mode=1,raw_source_request=0,prepared_actor=C.prepared_actor,pickups=pickups,collector_calls=ownerCalls,native_erase_returns=erasures,record=rec,wall=wall,updates=updates,complete256_DMAs=dmas,NMI_checks=nmis,IRQ31_checks=irqCount,NMI_safe_enables=enables,CHR_checks=chrChecks,minSP=minSP,images=images,scope=C.scope}));f:close();csv:close();emu.stop(0)
+  end
+ end,emu.eventType.endFrame)

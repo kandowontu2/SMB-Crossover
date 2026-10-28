@@ -1,0 +1,339 @@
+{
+  "read_only": true,
+  "native_run": false,
+  "ROM_sha256": "32694243361bb1366f6fd64c054ea2451f86b2517fc020d9c2b5d66bbf07bfa0",
+  "findings": {
+    "bass": "First two actual PNGs are byte-identical and both show the body at old X38..58, not the newly staged logicalX112. Later expiry image shows bodyX110..130. This demonstrates stale snapshot/scene timing, not absence in these two saved images.",
+    "bill": "star-earned/update30 and enemy-defeated/update31 both logged wall425. Single screenshot local changes01\u219202 before sole endFrame screenshot writer; no01 file is emitted.",
+    "capture_contract": "Phase completion requests a filename at GameLoopFinish; endFrame writes the latest filename immediately, without waiting for matching completed body draw/publication/DMA/visible epoch.",
+    "source_visibility": "Eight genuine compiled GuestPlayerVisible calls with Bass variant0, injury0, Star0/35 and four FrameCounter values all return visible. This rules out Star-only hide at this predicate; it is not a full renderer/PPU proof."
+  },
+  "bass_images": [
+    {
+      "name": "01-star-pickup.png",
+      "sha256": "fdb52ab422dbb016aee2a33e911ca7e19aafa0f80c93e02f610700032dcf6bd9",
+      "size": [
+        256,
+        240
+      ],
+      "region": [
+        0,
+        64,
+        256,
+        208
+      ],
+      "background_rgb": [
+        146,
+        144,
+        255
+      ],
+      "non_background_pixels": 393,
+      "bounding_box": [
+        38,
+        183,
+        58,
+        207
+      ]
+    },
+    {
+      "name": "02-protected-contact.png",
+      "sha256": "fdb52ab422dbb016aee2a33e911ca7e19aafa0f80c93e02f610700032dcf6bd9",
+      "size": [
+        256,
+        240
+      ],
+      "region": [
+        0,
+        64,
+        256,
+        208
+      ],
+      "background_rgb": [
+        146,
+        144,
+        255
+      ],
+      "non_background_pixels": 393,
+      "bounding_box": [
+        38,
+        183,
+        58,
+        207
+      ]
+    },
+    {
+      "name": "03-star-expired.png",
+      "sha256": "5c0c08ee2e4ccdee0e3a292cf106eafa535d69ec7bbe023e685987f6f2a86517",
+      "size": [
+        256,
+        240
+      ],
+      "region": [
+        0,
+        64,
+        256,
+        208
+      ],
+      "background_rgb": [
+        146,
+        144,
+        255
+      ],
+      "non_background_pixels": 393,
+      "bounding_box": [
+        110,
+        183,
+        130,
+        207
+      ]
+    },
+    {
+      "name": "04-extra-life.png",
+      "sha256": "3fb705240957bbab64cf943497a57360956c57067d75ace84d3c7504c9f56a99",
+      "size": [
+        256,
+        240
+      ],
+      "region": [
+        0,
+        64,
+        256,
+        208
+      ],
+      "background_rgb": [
+        146,
+        144,
+        255
+      ],
+      "non_background_pixels": 454,
+      "bounding_box": [
+        110,
+        158,
+        130,
+        207
+      ]
+    }
+  ],
+  "bass_early_events": [
+    {
+      "event": "disclosed-scene-setup",
+      "wall": "445",
+      "update": "30",
+      "phase": "star",
+      "age": "0",
+      "star": "0",
+      "lives": "2",
+      "injury": "0",
+      "x": "112",
+      "y": "176",
+      "enemy": "0",
+      "enemyState": "0",
+      "value": "0"
+    },
+    {
+      "event": "star-earned",
+      "wall": "446",
+      "update": "30",
+      "phase": "contact-setup",
+      "age": "0",
+      "star": "35",
+      "lives": "2",
+      "injury": "0",
+      "x": "112",
+      "y": "176",
+      "enemy": "0",
+      "enemyState": "0",
+      "value": "0"
+    },
+    {
+      "event": "disclosed-scene-setup",
+      "wall": "446",
+      "update": "31",
+      "phase": "contact",
+      "age": "0",
+      "star": "35",
+      "lives": "2",
+      "injury": "0",
+      "x": "112",
+      "y": "176",
+      "enemy": "1",
+      "enemyState": "0",
+      "value": "0"
+    },
+    {
+      "event": "enemy-defeated",
+      "wall": "447",
+      "update": "31",
+      "phase": "expiry",
+      "age": "0",
+      "star": "35",
+      "lives": "2",
+      "injury": "0",
+      "x": "112",
+      "y": "176",
+      "enemy": "1",
+      "enemyState": "34",
+      "value": "0"
+    },
+    {
+      "event": "disclosed-scene-setup",
+      "wall": "1175",
+      "update": "759",
+      "phase": "life",
+      "age": "0",
+      "star": "0",
+      "lives": "2",
+      "injury": "0",
+      "x": "112",
+      "y": "176",
+      "enemy": "0",
+      "enemyState": "0",
+      "value": "0"
+    }
+  ],
+  "bill_early_events": [
+    {
+      "event": "disclosed-scene-setup",
+      "wall": "424",
+      "update": "30",
+      "phase": "star",
+      "age": "0",
+      "star": "0",
+      "lives": "2",
+      "injury": "0",
+      "x": "112",
+      "y": "176",
+      "enemy": "0",
+      "enemyState": "0",
+      "value": "0"
+    },
+    {
+      "event": "star-earned",
+      "wall": "425",
+      "update": "30",
+      "phase": "contact-setup",
+      "age": "0",
+      "star": "35",
+      "lives": "2",
+      "injury": "0",
+      "x": "112",
+      "y": "176",
+      "enemy": "0",
+      "enemyState": "0",
+      "value": "0"
+    },
+    {
+      "event": "disclosed-scene-setup",
+      "wall": "425",
+      "update": "31",
+      "phase": "contact",
+      "age": "0",
+      "star": "35",
+      "lives": "2",
+      "injury": "0",
+      "x": "112",
+      "y": "176",
+      "enemy": "1",
+      "enemyState": "0",
+      "value": "0"
+    },
+    {
+      "event": "enemy-defeated",
+      "wall": "425",
+      "update": "31",
+      "phase": "expiry",
+      "age": "0",
+      "star": "35",
+      "lives": "2",
+      "injury": "0",
+      "x": "112",
+      "y": "176",
+      "enemy": "1",
+      "enemyState": "34",
+      "value": "0"
+    },
+    {
+      "event": "disclosed-scene-setup",
+      "wall": "1153",
+      "update": "759",
+      "phase": "life",
+      "age": "0",
+      "star": "0",
+      "lives": "2",
+      "injury": "0",
+      "x": "112",
+      "y": "176",
+      "enemy": "0",
+      "enemyState": "0",
+      "value": "0"
+    }
+  ],
+  "bill_available_PNGs": [
+    "02-protected-contact.png",
+    "03-star-expired.png",
+    "04-extra-life.png"
+  ],
+  "compiled_visibility_controls": [
+    {
+      "star": 0,
+      "frame": 0,
+      "carry_visible": true
+    },
+    {
+      "star": 0,
+      "frame": 1,
+      "carry_visible": true
+    },
+    {
+      "star": 0,
+      "frame": 2,
+      "carry_visible": true
+    },
+    {
+      "star": 0,
+      "frame": 31,
+      "carry_visible": true
+    },
+    {
+      "star": 35,
+      "frame": 0,
+      "carry_visible": true
+    },
+    {
+      "star": 35,
+      "frame": 1,
+      "carry_visible": true
+    },
+    {
+      "star": 35,
+      "frame": 2,
+      "carry_visible": true
+    },
+    {
+      "star": 35,
+      "frame": 31,
+      "carry_visible": true
+    }
+  ],
+  "limitations": "Only four Bass whole PNGs/source chronology were inspected. No saved per-epoch OAM/body source snapshot exists for first captures, so first precise stale draw/DMA/PPU boundary cannot be recovered. Functional native Star/Life PASS remains; early images do not prove protected-contact/body rendering in the staged scene. No game defect or global visual PASS is established. No fixture/readiness/result/product edit or native launch.",
+  "bindings": {
+    "build/current326-shared-powerups-v1/star-life-bass/native/01-star-pickup.png": "fdb52ab422dbb016aee2a33e911ca7e19aafa0f80c93e02f610700032dcf6bd9",
+    "build/current326-shared-powerups-v1/star-life-bass/native/02-protected-contact.png": "fdb52ab422dbb016aee2a33e911ca7e19aafa0f80c93e02f610700032dcf6bd9",
+    "build/current326-shared-powerups-v1/star-life-bass/native/03-star-expired.png": "5c0c08ee2e4ccdee0e3a292cf106eafa535d69ec7bbe023e685987f6f2a86517",
+    "build/current326-shared-powerups-v1/star-life-bass/native/04-extra-life.png": "3fb705240957bbab64cf943497a57360956c57067d75ace84d3c7504c9f56a99",
+    "build/current326-shared-powerups-v1/star-life-bass/native/result.json": "4ca7932cbfe95391baf68437fd858e143b834a0677108e5970a3157e4706eb08",
+    "build/current326-shared-powerups-v1/star-life-bass/native/star-life.csv": "97fd0c01b1fbce64b12d2038d721788e95d43a240998b1a70564ab466c4fe1fa",
+    "build/current326-shared-powerups-v1/star-life-bill/native/result.json": "ce65dd4b8f5de3f854b153fe299e11c178c24125ecad08915153d942af9b0b57",
+    "build/current326-shared-powerups-v1/star-life-bill/native/star-life.csv": "1abf73e8251adda94d7e8e01a2f1d05f1c895954008da6b5a213859061fbe008",
+    "build/current326-shared-powerups-v1/star-life-bass/config.json": "b3e98fb62622e0e8d274a89ebabaf8c76811115fa447b78db7e09ceec8f5b640",
+    "build/current326-shared-powerups-v1/star-life-bass/run.lua": "390b6dc05221eff8e647da833f7b314e3d54ae3cee907e187fc1c09c851e3e07",
+    "build/current326-shared-powerups-v1/star-life-bill/config.json": "c9f6fa502e5c08e9005f1a531ee3b682016bd8cbe1b7d37c8ac53b4840eafb81",
+    "build/current326-shared-powerups-v1/star-life-bill/run.lua": "dd69aacd5fe8f496901748f2197f2c7dcc56031cd2fd16fd31928baed787d2b1",
+    "tests/current-ee115-shared-star-life-v1.lua": "700684c1d1eacc0244a2f48f57b63316bb680c69fa4284a1b070221842647b23",
+    "src/game.s": "328bae039dbce7ae75e78bb552ef653fb0333dbb02146dee72888b70651a0f94",
+    "src/player.s": "9a385048bb7177bf3e9c9c93efaab223d445711c38835fded745690c014690f3",
+    "src/guest_injury.s": "ab4479d43882ad0cd270982e9e637df1969d4508894de0d60e0114c5d61f923e",
+    "src/roll_dispatch.s": "a7acee4cee355aedf9c6c0396d09b9ec5d211bc2c202e088e3488128463af3f2",
+    "build/zelda2_easy_glove.nes": "32694243361bb1366f6fd64c054ea2451f86b2517fc020d9c2b5d66bbf07bfa0"
+  }
+}
