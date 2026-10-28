@@ -1,0 +1,143 @@
+{
+  "status": "SOURCE_MAP_AND_UNALLOCATED_API_READY; NO_HOST_PORT_NO_NATIVE",
+  "character_raw": 24,
+  "menu_slot": 23,
+  "original": {
+    "path": "C:\\NES\\Dragon Power (USA).nes",
+    "bytes": 163856,
+    "sha256": "e52cc421c726181a35f0cc9e8969a8aad50abd17bdc7eea59dc065990a576147"
+  },
+  "owned_files": [
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\dragon_power_map_v1.py",
+      "bytes": 2842,
+      "sha256": "7ef7bf864ed93d67e4f985d11db9a4de14cb9eadc07871f437c060ebfc9e59d5"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\dragon_power_reference_v1.py",
+      "bytes": 17157,
+      "sha256": "8203331280fad535cbbe7875f2a144b3c9e35d4c2b5158dbf8e319a6e9025d78"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\docs\\qa\\dragon-power-source-map-2026-10-28.txt",
+      "bytes": 12390,
+      "sha256": "46454e02ec6bfe66b83d8c5b78a43fd2afcf992c7c447ea0cb2d70e9b8c44863"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\dragon-power-source-v1\\authentication.json",
+      "bytes": 1968,
+      "sha256": "ea3156893eec5d3368d974f143f40d1a0a1bdf4663188652bb82daf0d4f0968e"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\dragon-power-source-v1\\reference-controls.json",
+      "bytes": 60998,
+      "sha256": "3e562eaba079327bfc7683bcf4356eb641ba1583bc1c62305ad25db8f6beb97a"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\dragon-power-source-v1\\source-map.json",
+      "bytes": 8310,
+      "sha256": "e2cca8823e982883743e1dc46611f90ff7d18fd31793b8209ab3d67c6a9ac1e8"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\dragon-power-source-v1\\source-excerpts.txt",
+      "bytes": 59286,
+      "sha256": "6d3ae2a171c536d11f6fcb95e44dbb0d94b914620f76e9ee2924a38ab86263d2"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\dragon-power-source-v1\\side-view-original-preview.png",
+      "bytes": 12747,
+      "sha256": "765b599600d4ce0d961853bd16aba0d7cde6490528fc1dce9e09ec9cab08b28b"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\dragon-power-source-v1\\first-control-negative.json",
+      "bytes": 454,
+      "sha256": "b8123ca515960d2e87563d45b67978c06ce909df6a33f61d7b8d3ace7054025c"
+    }
+  ],
+  "runtime": {
+    "python": "3.14.3",
+    "py65": "1.2.0",
+    "pillow": "12.3.0",
+    "dependencies": [
+      {
+        "path": "C:\\Users\\kando\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\site-packages\\py65\\devices\\mpu6502.py",
+        "bytes": 35791,
+        "sha256": "15d93835b4f279b702270d9a0b417938291347ec57cc12d9e0307cd344d381fe"
+      },
+      {
+        "path": "C:\\Users\\kando\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\site-packages\\py65\\disassembler.py",
+        "bytes": 4737,
+        "sha256": "b8cca0c23ef69dcf88b6dccb08582e4a4d088a561a04c833acb37b3742cdcccc"
+      },
+      {
+        "path": "C:\\Users\\kando\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\site-packages\\PIL\\Image.py",
+        "bytes": 158171,
+        "sha256": "59f1b98ed7bfd7b516b9f13ffd9dd3bc0aa1a495042accdb5ae4609b41c329d5"
+      }
+    ]
+  },
+  "proposal_only": {
+    "CORE_bytes": 8192,
+    "ART_bytes": 3072,
+    "CHR_bytes": 8192,
+    "active_owned_RAM_bytes": 128,
+    "persistent_owned_overlay_bytes": 16,
+    "addresses": null,
+    "audio_optional_separate_PRG_bytes": 8192,
+    "audio_optional_owned_state_bytes": 160,
+    "allocation_authorized": false,
+    "overlay_rule": "raw24 admission before all state access; no global flag in Parodius5F00..DF; actual lifecycle init required"
+  },
+  "API": [
+    {
+      "name": "DpInit/DpOnExit",
+      "purpose": "raw24-owned newgame/identity/area/death/menu lifecycle; genuine1Up preserves earned state"
+    },
+    {
+      "name": "DpControl",
+      "purpose": "actual held/fresh input to translated original side-view state and position/pose/SFX outputs"
+    },
+    {
+      "name": "DpTerrain",
+      "purpose": "feet/side/head/platform contacts and correction imported at source-equivalent phase"
+    },
+    {
+      "name": "DpContact",
+      "purpose": "real enemy lifetime/boxes to event-owned original hit/injury; Easy stomp adaptation"
+    },
+    {
+      "name": "DpPickup",
+      "purpose": "typed real source actor reward; new Mushroom/Flower mapping declared"
+    },
+    {
+      "name": "DpSelectPose/DpDrawShots",
+      "purpose": "actual source parts/palette role pointer and per-pose CHR high/low"
+    },
+    {
+      "name": "DpAudioInit/Tick/Request",
+      "purpose": "separate optional original six-voice driver lifecycle, not a live hook"
+    }
+  ],
+  "limits": [
+    "No host source/ROM/source-tree allocation or build",
+    "No native/PPU/NMI/IRQ/host caller proof",
+    "Unresolved original red-green names/Super collision multiplicity",
+    "USA selected; Japanese version not substituted",
+    "SMB movement/overhead-upgrade integration requires explicit adaptation decisions",
+    "Palette role remap must preserve native world/pickup palette2"
+  ],
+  "corrections": [
+    "Early locked-air inference rejected by executed source release/reversal",
+    "First14/22 attack-wrapper forecast wrong; actual13/21 retained separately"
+  ],
+  "frozen_unmodified": [
+    {
+      "path": "build/final-fantasy-component-v1/handoff.json",
+      "sha256": "6df13a8d1ffc4911c38d6746d461e95471c8326b6a2923e00faf455cef124d07"
+    },
+    {
+      "path": "build/rogue-dawn-art-v1/handoff.json",
+      "sha256": "9b31326e6c5940fb64aa30f6937c8d99cb4dbc2c257fcf515f64e4184b2d1ca0"
+    }
+  ]
+}

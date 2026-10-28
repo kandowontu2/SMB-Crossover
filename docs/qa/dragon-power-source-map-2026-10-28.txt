@@ -1,0 +1,201 @@
+DRAGON POWER / GOKU - ORIGINAL SOURCE MAP AND UNALLOCATED PORT PROPOSAL
+2026-10-28. Raw character24/menu23 requested by ROOT. SOURCE-ONLY.
+
+SELECTED ORIGINAL
+C:/NES/Dragon Power (USA).nes
+SHA256 e52cc421c726181a35f0cc9e8969a8aad50abd17bdc7eea59dc065990a576147
+Payload SHA1 184d7ba4ccfe4143bbe4b3c793f0a3554bbaea63; CRC811F06D9.
+Mapper66/GNROM,128KB PRG+32KB CHR. Four32KB CPU PRG banks and four8KB
+CHR banks. CPU notation here is ORIGINAL PRG-bank:CPU, not host8KB banks.
+File offset =16+bank*32768+(CPU-8000). FFBE/FFCC/FFDC/FFE8 implement
+the original bus-conflict-safe map/restore trampoline. ROM instructions,
+data and art are the authority; no authenticated development disassembly
+was located in the bounded search. No ROM was downloaded.
+
+Primary Bandai manual scan:
+https://www.digitpress.com/library/manuals/nes/Dragon%20Power.pdf
+The English manual calls the hero Goku and documents jump, punch, pole,
+held-B charging then A for Wind Wave, low/air attacks and food/power items.
+Local Japanese/France cartridges are separately hashed comparison inputs;
+neither was substituted. The USA head/body pixels are visibly different
+from the Dragon Ball version. If Japanese Goku art is intended instead,
+that must be a separate explicit variant/source choice, not a silent swap.
+
+GENUINE MOVEMENT / ACTIONS
+The original has TWO engines. Do not mistake top-down travel for a complete
+side-view player, or substitute existing host Samus/Mario physics.
+Side-view caller3:E82E ->E834 ->EE25; source tile samplingEDC9, tilemap0300.
+Side-view original NMI0:80EE calls3:8015 ->9867 ->E82E thenEC4D.
+Travel caller3:E1AA/E226 uses separate overhead motion/camera routines.
+
+Source controller3:9799 reads actual4016/4017, DF held/E0 fresh:
+A01 B02 Select04 Start08 Up10 Down20 Left40 Right80.
+Twelve executed serial-reader cases verify this, including hold/release.
+
+Side-view source action2D:
+0 init E8E4;1 ground E906;2 jump-init E99A;3 jump E9B3;
+4 punch/pole-init EA20;5 attack EA3D;6 charge-init EA80;
+7 charge EA86;8 ready EAA6;9 fire/recovery EAD1;
+10 kick-init EAE1;11 air-kick EB05;12 crouch EB32;
+13 special forced bounce EB6D (not proposed as ordinary user ability);
+14 hurt EBE1;15 dying EC17;16 scripted exit EC45.
+
+Original fixed jump uses phase34 E7 then E8 on the next update; phase rises
+by1, verticalEE CB maps it to1..4 pixels. Full source caller in a legal
+native tile75 flat arena rises60px and returns to ground on update50,
+including admission/landing updates. Holding Right reaches X141 from80;
+releasing after update2 stops at81; reversing after20 reaches66.
+IMPORTANT CORRECTION: the early locked-air inference was wrong. E9B3's
+AND CF removes Up/Down, not Left/Right. Actual steering is preserved.
+
+Normal horizontalEE70 adds14hex to a fractional phase, yielding20pixels
+per16updates (1.25pixels/update). Both directions tested through E82E.
+No variable jump-height/release branch found in the genuine jump path.
+Native head/side/feet/platform collision and kick resets remain relevant.
+Source60px/1.25 traversal may need an EXPLICIT SMB traversal adaptation
+after real terrain integration; no speed/jump adaptation is chosen here.
+
+Concrete original state:2D action,2E HP,2F protection/drain timer;
+30 pose,31 OAM/facing flags,32 pole/attack/direction flags,33 action timer,
+34 vertical phase,35 signed fractional horizontal phase,36 timed-effect
+seconds,37 special state,38 jumping,39 travel groundY;3A projectile state,
+3B kind+stock,3C..3F projectile Y/page/X/page. F7/F8 player screenXY,
+F3..F6 camera;D9/DA ability/environment flags;26 frame,27 second phase.
+0400..0406 collision samples,0446/47 moving platform,0448 kick cooldown,
+0449 exit/render suppression,044A special terrain slowdown.
+These are SOURCE addresses only, not proposed host allocations.
+
+Attack source timers12 punch /20 pole decrement on allocation update.
+Complete fresh-B-to-idle callers take13/21updates. Air B enters the actual
+four-tick kick and resets the vertical phase; low pole has its own source
+branch. Source attack-point0:FBB9/FC1A varies by kick/punch/pole/lowpole;
+enemy admission0:FC22 uses the actual8x12 point tolerances. Host collision
+must convert these points/boxes explicitly and consume a hit only once
+per original event/enemy lifetime; no all-enemy damage equivalence yet.
+
+With3 genuine charges, held B completes punch, enters32-update charging,
+becomes ready on source wrapperupdate46; fresh A fires on47, stock3->2;
+recovery returns idle64. Shot speed7pixels/update in both directions.
+The source does not fire from repeated held A. No arbitrary stock created
+by the proposed host; the arena only establishes original routine inputs.
+
+ITEMS / FLAGS ACTUALLY EXECUTED
+Full source0:8EEB dispatcher computes geometry97A7 then real97FC contact:
+83 subtype0 food+20; subtype1+100; current cap150. Native story flagD9:40
+raises cap250, established at0:8B26..34; this is not an ordinary food item.
+84 subtype0 D9:10 speed; subtype1 D9:20 protection, both36=16seconds.
+85 subtype0 ordinary pole;1 D9:01+pole;2 D9:02+pole; timed36=16.
+86 subtype0 gives3 ordinary waves;2 gives3 with kind40;4 gives1 kind80.
+Wave collector caps stock60 and refuses an incompatible existing kind.
+These ten mature actor cases execute authentic collection/erase/reward
+code; they do NOT prove natural reveal, room random drops or native play.
+56 further native food-helper boundary cases cover both150/250 caps.
+
+Timed pole/speed/protection consumers belong to the OVERHEAD engine.
+3:E1D9 expires D9 mask$33 only when source seconds27 wraps; the side-view
+fighting caller does not run that path. Overhead pole durations are40
+attackticks and rotating direction logicE4D4/E533, versus base12/20.
+Thunder stateE6BE setsD9:04 and timer128; E748 clears it on expiry.
+Super kind40 selects the larger four-part art, plain wave two parts.
+Exact named red/green subtype mapping and Super collision multiplicity
+remain unresolved; manual wording is not substituted for source proof.
+Using these overhead upgrades in SMB side-view is a documented authored
+integration choice, not already-authentic side-view behavior.
+
+GRAPHICS / PALETTES
+Actual3:BAAB/BACE/BAD6 selects32 side-view pose keys from BAFA and appends
+the genuine BAE9 head for pose low-nibble<9. Actual original9941 outputs
+291 original8x8 OAM parts across these32cases; every tile/attribute/coordinate
+matches the original records.36 unique source tiles =576source CHR bytes;
+17 distinct side records plus head occupy522B (deduplication not yet done).
+The one preview is source pixels composed by original OAM output, not
+a native PPU capture. Costs1005..2396CPU for the ORIGINAL OAM decoder,
+5..12 sprites. Host8x16 packing may pair halves without changing pixels;
+it needs separate exact-pixel/geometry controls, not guessed frames.
+
+Overhead tableAE62 has49pose keys with AF3B/AEC4 overlays; bounded parse
+finds57unique records/1165B and59tile IDs. The same tile IDs reference
+different source CHR0/1/2, so a global tile-number dedup is invalid.
+No host CHR pages have been reserved or written. No source art invented.
+
+Side palette setter2:838C/83AF/83C8 and fixed83E7 roles are authenticated:
+P0 visible30/36/0F;P1 22/26/16;P2 36/26/04;P3 30/36/0F.
+Body uses nativeP2, head P3; original wind uses P3. Native host P2/world
+pickups must NOT be overwritten. Proposed host role remap is owned-body
+P0 +head/wave P1 only after ROOT audits concurrent palette consumers.
+Other area/overhead role images and palette timing still need integration.
+No whole16-byte palette publication is proposed. Default black stays real
+source color0F; no painted replacement or optional-outline assumption.
+
+MUSIC / AUDIO MAP
+Source3:8F62 ->8F68 interprets six20B voice records0688..06FF; scratch
+03F0..03FB; pointer12/13 and request14..16. Source descriptors start8040;
+request3:98A8/98D5. Original0:807C calls tick once per NMI. Four-voice
+initial source requests0/1/2/3 originate0:8CE5 and use records28/3C/50/64.
+Source actions request30jump,31attack,33specialpole,34wave,56kick,
+5Fpickup,67landing. These are original event IDs, not host shared cues.
+The actual driver writes4000..400F and4015; no DMC requests in tested group.
+120actual CPU ticks:834ordered stores,p50=1442,p95=2267,max3341cycles.
+This excludes mapper/borrow/mixer/NMI adapter work and is not native timing
+or waveform proof. Full event/track naming remains open; descriptor/data
+region roughly8040..8F62 plus989-byte interpreter and request/helper tables
+fits a separate8KB audio bank, subject to exact transitive closure/relocation.
+Full six-voice state needs132B plus borrowed pointer/request save cost;
+an existing160B exclusive AUDIO owner slab is a proposal, not allocation.
+Host must retain shared SFX, pause/title/death transitions, DAC/DMC owners,
+CurrentBank shadow and genuine interrupt ownership. Do not copy another
+character's music or assume per-read banking is free.
+
+COMPACT ALLOCATION REQUEST (NOT RESERVED, NOT LINKED)
+Player CORE: one8KB A-window segment budget, estimated5..6KB source-derived
+movement/actions/shot/pickup/lifecycle/collision adapter with headroom.
+ART:2KB C-window data budget; decoded side+overhead records1687B before
+pointer tables, so allow3KB if both full pose tables/shot/items are retained.
+CHR:8KB budget, configurable first-page constant with per-pose high bytes;
+all selected tiles must key by source CHRbank+tile, not a painted sheet.
+Active:128B exclusive identity overlay, including source19B hero state,
+7terrain samples/platform flags, one source projectile, event/hit outputs,
+source caller scratch. No source world tilemap or unrelated NPC RAM copied.
+Persistent:16B exclusive identity overlay budget for health/pole/kind-stock,
+timed flags/timers plus source-owned lifecycle. Exact byte layout pending.
+NO global fast flag in5F00..DF: Parodius owns dynamic history/clear there.
+Raw24 admission must happen before ANY Goku state read; init after real
+new-game/identity switch/death and preserve earned state on ordinary1-Up.
+Audio: separate8KB bank +up to160B audio-owner overlay, only if ROOT approves
+authentic music in this unit. Never silently spill active128 or another owner.
+
+PROPOSED LEAF API / ROOT OBLIGATIONS
+DpInit / DpOnExit: raw24 guarded; explicit cold/death/area/menu lifecycle.
+DpControl: host actualheld/fresh ->original DF/E0, authentic side-view state,
+outputs source position/facing/pose/velocity and fresh SFX requests.
+DpTerrain: supplies nativefeet,left/right side,head and moving-platform
+contacts; imports host collision correction back to the original source
+phase at defined instruction-equivalent boundaries. Camera/scroll retained.
+DpContact: typed enemy identity/lifetime +nativebox ->source attack/debit/
+hurt effects, with real per-event hit ownership and proper Easy stomps;
+Hard genuine attack-only combat. No untyped generic damage broadcast.
+DpPickup: typed mature/source-derived item ->source collector reward;
+Mushroom/Flower proposed crossover mapping ordinaryPole /threeWind charges
+is NEW and must be named as adaptation; distinct advanced source pickups
+would require actual item IDs/actors approved by ROOT, not fake original.
+DpSelectPose / DpDrawShots: returned real C-pointer, source role mapping,
+CHRlo/high and all parts; preserve public host entry/caller contracts.
+DpAudioInit/Tick/Request: separate optional actual driver translation.
+CORE/ART/CHR addresses and all host RAM names remain UNASSIGNED.
+
+WHAT ROOT NATIVE OBSERVATIONS WOULD RESOLVE LATER
+Original source mode transitions/currentF9+FA+2D/pose30 during jump/punch/
+charge/fire; actual source timed poles and Super/Thunder kill/stock behavior;
+original palette/CHR roles after room transition; per-PPU source audio call
+cadence. A tiny selected native observation would be useful after approval,
+but no native run is required or performed for this source allocation request.
+
+REPRODUCE / LIMITS
+python tools/dragon_power_map_v1.py
+python tools/dragon_power_reference_v1.py
+Outputs all remain under existing build/dragon-power-source-v1: source map,
+selected disassembly, compact controls and one PNG. First failed13/21 timing
+oracle forecast (incorrect14/22 assumption) retained as small negative;
+no real state mismatch masked. No ported assembly/native/canonical edits,
+allocations, shared files, settings changes or asset/source trees created.
+FF/Rogue/Ice frozen packets untouched. No actual host playability claim.

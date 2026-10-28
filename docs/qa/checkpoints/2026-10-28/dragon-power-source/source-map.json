@@ -1,0 +1,259 @@
+{
+  "status": "bounded annotated original map, not complete disassembly or host implementation",
+  "ROM": {
+    "path": "C:\\NES\\Dragon Power (USA).nes",
+    "bytes": 163856,
+    "sha256": "e52cc421c726181a35f0cc9e8969a8aad50abd17bdc7eea59dc065990a576147"
+  },
+  "bank_model": "32KB GNROM PRG bank0..3; fileoffset=16+bank*32768+(CPU-8000)",
+  "routines": [
+    {
+      "bank": 0,
+      "start": "800B",
+      "end_exclusive": "8097",
+      "bytes": 140,
+      "sha256": "39ebb7da7737a1acad68dec3417868378059d86653db83880696aaf197819c6b",
+      "role": "original NMI; gameplay dispatch and OAM/APU sequencing"
+    },
+    {
+      "bank": 0,
+      "start": "80DD",
+      "end_exclusive": "8136",
+      "bytes": 89,
+      "sha256": "1f2f5628473aff7c64dfee129e8ac3d3650fe882e0f537858e624686edc291a6",
+      "role": "native side-view gameplay NMI path"
+    },
+    {
+      "bank": 3,
+      "start": "9799",
+      "end_exclusive": "97DF",
+      "bytes": 70,
+      "sha256": "06d8f5f7bd5e98b84dc770b4dd3f0683c0fd417207133166f3be0c8759246c3e",
+      "role": "actual pad read; heldDF/freshE0"
+    },
+    {
+      "bank": 3,
+      "start": "E82E",
+      "end_exclusive": "E867",
+      "bytes": 57,
+      "sha256": "66dfb4c4bb1f3ac409086a09431d17595f3266f0ca10f6f6776159e4f9dcc84c",
+      "role": "side-view state caller"
+    },
+    {
+      "bank": 3,
+      "start": "E906",
+      "end_exclusive": "E99A",
+      "bytes": 148,
+      "sha256": "51a9fb5ee4f798163b4bfb1534ddf9bf4524459f3b3e57f9f9ebf3f01e4bb0de",
+      "role": "ground/select direction"
+    },
+    {
+      "bank": 3,
+      "start": "E99A",
+      "end_exclusive": "EA20",
+      "bytes": 134,
+      "sha256": "7cd6bbcef29886d3dc316c6114d2eb4ce6f68dc75eaabeea5d0696c361fbe54a",
+      "role": "jump and air kick admission"
+    },
+    {
+      "bank": 3,
+      "start": "EA20",
+      "end_exclusive": "EA80",
+      "bytes": 96,
+      "sha256": "6cfd710f70ba9df7ba1a0be94951ed1ea0d2a73fda091148265b4a9fb256de84",
+      "role": "punch/pole"
+    },
+    {
+      "bank": 3,
+      "start": "EA80",
+      "end_exclusive": "EAE1",
+      "bytes": 97,
+      "sha256": "db26790cf70781a9b7725c383fa76505c57186a16f0d6888cda68e25d41e296e",
+      "role": "Wind Wave charge/ready/fire/recovery"
+    },
+    {
+      "bank": 3,
+      "start": "EAE1",
+      "end_exclusive": "EB32",
+      "bytes": 81,
+      "sha256": "4a4c5ecd4dce04c4d237e64071284f03579f6fe91f5b9c03aa77b3b03c384c7e",
+      "role": "air kick"
+    },
+    {
+      "bank": 3,
+      "start": "EB32",
+      "end_exclusive": "EB6D",
+      "bytes": 59,
+      "sha256": "95f8b8916b8a956056f08c34b9b72a14e8000359d65ce0dcbf6cadf095e9e26c",
+      "role": "crouch/low pole"
+    },
+    {
+      "bank": 3,
+      "start": "EBE1",
+      "end_exclusive": "EC4D",
+      "bytes": 108,
+      "sha256": "2161eb2a358f31b7fe93dcb70e6a43b19ea459f46d8739dda41fb840e3fbbf8b",
+      "role": "hurt/death/exit"
+    },
+    {
+      "bank": 3,
+      "start": "EC4D",
+      "end_exclusive": "ECBA",
+      "bytes": 109,
+      "sha256": "31436bac43be20b0de55d1044ecae094a4663bd102d06023f0953fb945464a9a",
+      "role": "side-view Wind Wave"
+    },
+    {
+      "bank": 3,
+      "start": "ED2C",
+      "end_exclusive": "EE25",
+      "bytes": 249,
+      "sha256": "5d95e090c5bb52da99c50747adf0b14498cf536562677b2f2522335ce3034444",
+      "role": "source tile queries and collision sampling"
+    },
+    {
+      "bank": 3,
+      "start": "EE25",
+      "end_exclusive": "EEF9",
+      "bytes": 212,
+      "sha256": "0866f71eb021dadb03185a1414d1e59833fc28ff38316392fc76219d59ffd4ef",
+      "role": "source horizontal/vertical integrators"
+    },
+    {
+      "bank": 0,
+      "start": "FBB9",
+      "end_exclusive": "FC4F",
+      "bytes": 150,
+      "sha256": "69c25f26236bf643f94a79000ff29008e43260f91ca70418bf0f1da2ab0a29f2",
+      "role": "side-view attack point and enemy acceptance"
+    },
+    {
+      "bank": 0,
+      "start": "8EDD",
+      "end_exclusive": "8F00",
+      "bytes": 35,
+      "sha256": "16bc9da07fa209079208aa94725834440a88b9105354076eeed4d85b9f43c05c",
+      "role": "mature actor full dispatcher"
+    },
+    {
+      "bank": 0,
+      "start": "919D",
+      "end_exclusive": "91D2",
+      "bytes": 53,
+      "sha256": "e93c6c779411056ab060b63c00b93b522a57a163b37b9b3a8cd38a72e4abeca0",
+      "role": "food collector/table"
+    },
+    {
+      "bank": 0,
+      "start": "9235",
+      "end_exclusive": "927D",
+      "bytes": 72,
+      "sha256": "f2d736861ebb39da95986bb2688f0d6e891149d696d4f950c7146c9e9462838e",
+      "role": "timed flags and pole collectors"
+    },
+    {
+      "bank": 0,
+      "start": "927D",
+      "end_exclusive": "92CA",
+      "bytes": 77,
+      "sha256": "8e1a73d4eaa5009c8d1df0ef56e1c2bd0d74655b22bf104abbbd8fffd816e852",
+      "role": "Wind/Super/Thunder stock collector"
+    },
+    {
+      "bank": 0,
+      "start": "9A2E",
+      "end_exclusive": "9AB5",
+      "bytes": 135,
+      "sha256": "18086450243624368c8fa5ddb6f5c73c082b05ab2bfa908451aa6f2449f39b32",
+      "role": "hunger and heal/cap helper"
+    },
+    {
+      "bank": 3,
+      "start": "E1AA",
+      "end_exclusive": "E226",
+      "bytes": 124,
+      "sha256": "e39d202740340989a47fa9bac1c138ba82da6e3ba0bf4ac16bd120664caaa7cf",
+      "role": "separate overhead caller and timed flags"
+    },
+    {
+      "bank": 3,
+      "start": "E476",
+      "end_exclusive": "E53B",
+      "bytes": 197,
+      "sha256": "432ac73d0d432c90e7580a821df205d5c0a91b3459eab5ad5fccbc20a43eefd7",
+      "role": "overhead red/green pole attack/timing/pose tables"
+    },
+    {
+      "bank": 3,
+      "start": "E620",
+      "end_exclusive": "E757",
+      "bytes": 311,
+      "sha256": "80f42a57c9f69139ac45dd93807f4722421828c0e57ba542db7f6d8527c0c2dd",
+      "role": "overhead multidirection Wind/Thunder updater"
+    },
+    {
+      "bank": 3,
+      "start": "ADDC",
+      "end_exclusive": "AE62",
+      "bytes": 134,
+      "sha256": "075ce23e5c7fb7afe7712a22e738e479704d71ee6539d3c19244734c9fb37ca1",
+      "role": "source normal body/overlay selection"
+    },
+    {
+      "bank": 3,
+      "start": "BAAB",
+      "end_exclusive": "BAFA",
+      "bytes": 79,
+      "sha256": "5231b6faec3f0cc4491963b5be083b6f3cca0727c6056c6788adac90e153022c",
+      "role": "side-view source body selection"
+    },
+    {
+      "bank": 3,
+      "start": "9941",
+      "end_exclusive": "99E9",
+      "bytes": 168,
+      "sha256": "27c94d6568686050d7b14cbd9cf4ae63728b5d7810fa7b0a9c052f2cc8c76567",
+      "role": "original OAM decoder; trailing bound includes next entry padding only as disassembly"
+    },
+    {
+      "bank": 2,
+      "start": "838C",
+      "end_exclusive": "83F5",
+      "bytes": 105,
+      "sha256": "570ce4ef84a5cc57e5092d8dd0e07719f887c16db945c4246062cf467802def0",
+      "role": "source palette initialization and fixed sprite roles"
+    },
+    {
+      "bank": 0,
+      "start": "9977",
+      "end_exclusive": "99C3",
+      "bytes": 76,
+      "sha256": "c94b9a5dbf85c89e471b444d17f31a2a13a26ad3baf3ac3e31fc60fa80156416",
+      "role": "native palette upload"
+    },
+    {
+      "bank": 3,
+      "start": "8F68",
+      "end_exclusive": "9345",
+      "bytes": 989,
+      "sha256": "3383be6642486c4e296bfca3f6fa88e248248dc1a93c97ba356c5d4e48870371",
+      "role": "audio interpreter and ordered APU writer"
+    },
+    {
+      "bank": 3,
+      "start": "98A8",
+      "end_exclusive": "98FB",
+      "bytes": 83,
+      "sha256": "ec065256993df68617bea1c2083176934b9bd1b7b077b644d9b37b070d26456a",
+      "role": "event request and descriptor dispatch"
+    }
+  ],
+  "unresolved": [
+    "full damage table for every original enemy/boss",
+    "Super Wave collision multiplicity versus manual wording",
+    "red versus green named palette/behavior correspondence beyond native subtype1/2 flags",
+    "original US/JP choice if user expects Japanese Goku visual; US source is selected here",
+    "host terrain/input/injury/palette/audio lifecycle and cost; no host adapter exists"
+  ],
+  "correction": "Early locked-air inference rejected: AND CF removes Up/Down, preserves Left/Right; actual release/reversal controls retained."
+}
