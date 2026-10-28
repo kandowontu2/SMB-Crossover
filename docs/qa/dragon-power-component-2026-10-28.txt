@@ -1,0 +1,155 @@
+Dragon Power / Goku: independent first fighting component, 2026-10-28
+
+PRIVATE SOURCE COMPONENT ONLY. No menu/dispatch link, Mesen run, installed
+change, full traversal, authentic live music or finished playable claim.
+The source audit is separately frozen at dragon-power-source-v1/handoff.json
+(4af817878506f53dc31dfc3d5cdd0bb4a277b5a9f6735e953c37b3decded726e).
+
+Authority and authored boundaries
+  Actual user-supplied Dragon Power (USA).nes SHA256
+  e52cc421c726181a35f0cc9e8969a8aad50abd17bdc7eea59dc065990a576147.
+  Original bank notation here means 32KB mapper66 bank:CPU, not host8KB bank.
+  Native 3:E82E action+integrator and 3:EC4D projectile caller were projected
+  instruction-by-instruction, including real tables and ED1C->ED2C fallthrough.
+  There are 842 original instructions /1,732 original instruction bytes.
+  Genuine original labels/data are retained as DpNxxxx; no fake callable aliases.
+
+  Authentic: 60px full jump, fixed original arc, 20px/16updates horizontal
+  movement (1.25px/update), held/released/reversed air steering, punch/pole,
+  crouch/low pole, air kick, 32-update charge and fresh-A plain-wave release,
+  shot +/-7px/update, native screen clamps and pending block commands.
+  Ground attack complete admission-to-idle is 13updates punch/21pole. The
+  allocation timers12/20 decrement on the allocation update. The full original
+  charge wrapper becomes ready update46, fires47, returns idle64 in its arena.
+
+  Approved NEW crossover mapping: real Mushroom invokes ordinary Pole bit0
+  plus original-style food+20 capped150 and restarts hunger age. Real Flower
+  adds3 plain Waves capped60, preserving an earned Pole and original kind
+  priority (nonempty Super/Thunder kind cannot be downgraded/refilled by plain).
+  Repeated Mushroom preserves an earned Flower tier. These are integrations
+  of native effects, not original Dragon Power Mushroom/Flower pickups.
+  Easy exports normal-stomp permission; Hard exports authentic attack-only.
+
+  Original damage is queued, not immediate: 0:9A8B sets an empty damage budget;
+  0:9A80 drains1HP per8updates. Host injury takes that actual budget in A.
+  Hunger period1/3 is an explicit caller-provided scene policy; period0 disables
+  it until that policy is integrated. The component does not invent a SMB
+  scene-to-original room correspondence. Both period1/3 algorithms are checked.
+
+Exact sparse layout
+  Immutable parent build/celeste-host-final.nes
+  83db8bdf74dddc4055a52f5ec12526dcddc7a2fe418f24c3e9e1d5252fb6c9e0.
+  Separate parent DBG/LBL hashes and approved allocator proof are in handoff.
+  CORE physical86/$56 A800..B818: 4,121B, reservedA800..BFFF6,144B.
+  ART physical85/$55 C900..CDEE: 1,263B, reservedC900..D8FF4,096B.
+  CHR physical788..7958KB, high3; six1KB pages actually used (788..793).
+  No other header/PRG/CHR byte differs. Sparse ROM hash is in layout-controls;
+  it contains no shared integration and must not be launched as playable.
+  All old parent instructions/labels remain at their original addresses.
+  Component DBG is genuine standalone linked metadata; parent DBG is explicitly
+  unchanged-parent metadata, not renamed as a whole-candidate DBG.
+
+RAM, bank and caller API
+  Exact raw SelectedCharacter24 admission precedes all public overlay reads.
+  Persistent identity-exclusive overlay5FD0..5FDB12B; active5C00..5C7F128B.
+  No globally valid marker: Parodius initialization may overwrite this overlay.
+  ROOT must invalidate DpReady on genuine selection/new game before firstEnsure.
+  DpEnsure initializes HP100/pole0/waves0 and active state on new life; gains,
+  including ordinary modulo wrap, preserve earned data; area/type/world change
+  clears active state while preserving earned inventory. Arbitrary negative
+  modulo differences reset. This is not an assertion that any external write
+  of NumberofLives is a legitimate gameplay gain.
+
+  Enter public leaves through genuine A-bank86 mapping/farcall. All AXYP are
+  scratch except the stated carry/result; stack balances. Bounds/stomp hooks
+  are owner-gated too. Foreground may borrow native R0..R7 as documented by
+  source; graphics uses native SmPosePtr/SmChrBank/ObjectMetasprite.
+  Graphics intentionally publishes C-bank85 and CurrentBankC, not an arbitrary
+  incoming C mapping. A-bank restores through actual native farcall machinery.
+
+  DpEnsure: Cset owned/initialized, Cclear foreign; no generic char table lookup.
+  DpMovement: one logical gameplay tick; gates pause/engine!=8/TimerControl;
+    imports actual world XY/current camera and native pad bits; uses actual
+    host GetBlockBufferAddr+MTileAttribute, exports world XY/page/speed/state.
+    Source room-spawn table is an explicit actual-host-spawn boundary. Original
+    pending block commands5C47..4C persist until a real consumer acknowledges.
+  DpPickup: A0Mushroom/1Flower, Cset accepted, Cclear unknown/foreign.
+    Hook ONLY after actual native collection; this API alone proves no pickup.
+  DpInjuryStart: Aactual source damage budget; Cset newly queued, Cclear already
+    protected/foreign. It must not be called with fabricated generic damage.
+  DpCollisionBounds: owned R0/R1=0,R2=16,R3=32. DpStompPolicy Cset Easy only.
+  DpDrawBody/DpDrawShots: actual native publisher+renderer, complete source
+    palette-role pixels; camera captured at source shot allocation. Full32poses
+    in twofacings +plainWave in twofacings. Protection blinking is source-clock
+    based. Native OAM/capacity/clipping remains native renderer behavior.
+  DpPalettePointer: Cset, R0/R1 ->six role entries in C85. OriginalP2 body
+    36/26/04 ->hostrole0; originalP3 head/wave30/36/0F ->hostrole1. ROOT must
+    safely compose those roles. It does NOT queue a complete16B palette, steal
+    world/pickup palette2, or establish colors under native Star/area overrides.
+  DpBuildAttackPoint then DpTryContact(X0..5): source asymmetric8x12 point
+    predicate; Cclear accepted, Cset miss. Accepted Wave clears sourceShotState.
+    ROOT supplies actual eligible targets in5C70..75 X/5C76..7B Y in the same
+    source coordinate frame. Source negative subtraction uses EOR FF without
+    ADC1. Enemy HP/type/lifetime/repeat-hit ownership are not fabricated here.
+    AttackEpoch/HitMask/HitType are reserved integration fields, not implemented
+    real enemy lifetime receipts. RenderBuffer70..7F is a dormant scratch alias;
+    populate targets immediately before the contact phase, never concurrently.
+  DpCues4entries +count: committed ordered source requests from the completed
+    logical tick, overflow flagged. Drain after DpMovement returns. There is
+    NO safe live NMI producer/consumer/audio driver yet; don't poll mid-main.
+  Internal DpN*/DpSource*/DpHealthTick entries require an already-owned caller.
+
+Measured finite controls, final exact core hash bound in every receipt
+  Original-vs-projected source caller: 1,800updates, full mapped state/AXYP/SP
+    and genuine dispatch-pointer translation only. Actual original cost
+    1,233..1,608 CPU, translated2,943..3,589; paired delta+1,593..2,136.
+  Real public Movement: 2,160updates, 24campaigns, two camera pages, idle/walk/
+    release/reverse/punch/pole/wave/crouch/movingcamera/wall/ceiling/brick.
+    Actual native block helper/attributes, source terrain map on original side.
+    Source jump minY100 from160, wall stopsX95, ceiling/brick minY140.
+    Whole public Movement3,411..4,154 CPU; observed entryFD minSP EA (234).
+    This is material overhead and is NOT native cadence/lag-free evidence.
+  360pickup/cap/kind/tier cases plus repeated Mushroom->Flower->Mushroom,
+    cold128B clear/adjacent-byte conservation, scene/life/pause gates.
+  30queued-health checks; 72actual-original128update health/hunger campaigns
+    (9,216ticks), including immunity, period0/1/3 and exact lowHP request order.
+  588actual-original attack-point/contact cases, preserving native asymmetry.
+  66real native render/publication cases with exact palette-role pixels.
+    Actual output2..12spriteparts,770..1,824CPU,minSP F7 (247) in caller model.
+  4,080foreign API calls: no foreign RAM/mapper writes apart from dead stack.
+  Actual parent IRQ injected at111render +467Movement owned instruction PCs;
+    physical NV/D/I/Z/C, SP, mappings, final owned state and entireSMCCODE
+    restore strictly. B/U are CPU-model software markers, not hardware flags.
+    MMIO5204 was controlled; no PPU/NMI schedule/all-interrupt timing claim.
+
+  Retained draft negatives: unresolved source boundaries/relocation assumptions,
+  true ED1C fallthrough projection bug, native pending-brick command discarded
+  at next tick (brick update8 expected128/actual0), undefinedR2/R3 build error,
+  CPU software-B comparison. See draft-negatives.json; only the saved first
+  build-error file is a literal failure log, other unbound observations are
+  explicitly summarized and are not invented immutable old binaries.
+
+Full remaining work before a playable/native claim
+  1. ROOT raw24 menu/dispatch/name/palette/visibility/head/side/death/size hooks;
+     true newgame/selection/reset/area/pipe/scrolling/pit/transition ownership.
+     No per-char arrays may see raw24 without an explicit integration branch.
+  2. Real block hit/brick break/score/VRAM command consumer and acknowledgment;
+     native terrain/hazard/platform/pipe behavior beyond the controlled arenas.
+  3. Actual enemy eligibility/HP/damage budget/repeat-hit epochs/projectile
+     contact and source hurt/death/scene-exit consumption. No universal kill.
+  4. Complete original inventory: largefood+100, native speed/protection timed
+     16s rewards, colored-pole flag1/2; overhead Super/Thunder behavior and
+     rotation are separate pending authored adaptation, not working sideview.
+  5. Authentic audio: mapped original8040..9419 =5,081B plus83B request closure
+     totals5,164B before host adapter. Reserved96A980..BFFF5,760B remains EMPTY.
+     BorrowedZP12/13+requests14..16,132Bvoice/scratch state, mapper/shadow,
+     sharedSFX/mixer/Star/pause/title/death/transition/sample lifecycle and
+     safe cue publication/cold initialization/timing still need implementation.
+     Existing120tick source APU trace is original evidence, not ported audio.
+  6. Native cold-selection/gameplay/PPU/8sprite/full256DMA/NMI/IRQ/SMC/cadence
+     qualification and full1-1 discovery+independent replay. No native launched.
+
+Reproduction uses the owned tools in handoff. Art is derived from the original
+executable renderer, not guessed/painted/JP-swapped; no large capture or source
+clone is needed. Final shared allocator must be rechecked against ROOT's exact
+integration parent, since this unit binds the immutable Celeste83db parent.
