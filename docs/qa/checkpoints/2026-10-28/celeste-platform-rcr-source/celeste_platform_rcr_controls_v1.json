@@ -1,0 +1,687 @@
+{
+  "passed": true,
+  "source_CPU_only": true,
+  "native_run": false,
+  "bindings": {
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\celeste_platform_current_controls_v1.py": "33f80fe97dade3776f8009386f948062f118eeb846bbfdc871ac2a14385b3a1f",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\prepare_celeste_platform_current_v1.py": "529413020ff1113a0a4da3816e5c060fe7bfdeff9abc0871a09c89bab0e2896d",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\celeste_platform_two_controls_v1.py": "a7e979820ffff0197a51b9b3bdc466d67bbc2f39574624d08f7abe7cb622c69d",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\celeste_host_controls_v4.py": "af526b3251cb5e3a2a5c317be84359728e8d9f0245c0cedd82ca96dce317c19c",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\celeste_mac_union_controls_v1.py": "dfea846cbfcfa97ae1ecaae73c9de64bc9cd4917cd17eece60483c801394731e",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\crossover_helpers.s": "395f7b193397c9ce9ac7e12c04f424cb764bc0f4d80630adbc1f3439aea0c6ab",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\crossover_helper_ram.s": "d02e0754d0567ce87a68937d1418e5598fffef02fbc850856a32e3985e93d001",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\game.s": "328bae039dbce7ae75e78bb552ef653fb0333dbb02146dee72888b70651a0f94",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\object.s": "1bd79585526d88aad2313c675c92b40c27d82d0c4b3f0597b995e6f9ed4acd9b",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\reset.s": "e108562a322dfe93c95caec209dd44329bee5ecedc6bd08083f80497f05172f5",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\roster-shared-rcr-adopted-v8.nes": "4cbd019100ba4dfc51fd9f71c5d3cabd844828eb7d5d2a4aa39413e3579ab39a",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\roster-shared-rcr-adopted-v8.dbg": "383ad1e3c31d151c7f556f6c24339726686f43f2f8532dd115e58721bfc1b057",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\roster-shared-rcr-adopted-v8.lbl": "df4cac208ae1cfe019c100f8f8c70f7581ef13481db2c98789e7aa789330f619",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\celeste-platform-rcr-v1.nes": "81cdc9be7366d943996ec1288371a0f2ea417a17de87f0d89358c0ea8cf2e2fa",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\celeste-platform-rcr-v1.dbg": "8de7009a65dd713b70e535f9cf83a07f5488ab281966a5ff5b1ceec237fce749",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\celeste-platform-rcr-v1.lbl": "50b759ece7c15daea1eb62b219a023e18cf86fa8ff860ef9dba965737f1feb5a"
+  },
+  "checks": {
+    "allocation": {
+      "passed": true,
+      "physical_bank": 26,
+      "start": 45376,
+      "end_exclusive": 45953,
+      "emitted_bytes": 577,
+      "cap_bytes": 1216,
+      "ROM_diff": {
+        "26": 576,
+        "81": 3
+      },
+      "all_old_symbols_RAM_CHR_exact": true,
+      "unchanged_authored_records": 34
+    },
+    "existing_state_ownership": {
+      "passed": true,
+      "HpSupport": "existing unused byte; CE only while owned1-1 profile",
+      "new_reciprocal_tags": [
+        129,
+        130
+      ],
+      "original_tags": [
+        1,
+        2,
+        3
+      ],
+      "HpCount_zero_bypasses_generic_record_updater": true,
+      "scene_loader": "InitializeMemory clears all native actor arrays before HpLoadArea/HpConfigure clears91-byte helper slab",
+      "sound_test": "HpValid0 prevents manager; genuine next area load resets actors/cache"
+    },
+    "weapon_full_ABI": {
+      "passed": true,
+      "calls": 384,
+      "all64_architectural_flag_combinations": true,
+      "PHP_unused_break_encoding_30": true,
+      "AXYP_SP_R0_R7_ObjectOffset_banks": true,
+      "CPU_extra": {
+        "spawn": [
+          1361,
+          1361
+        ],
+        "warm": [
+          680,
+          680
+        ],
+        "outside": [
+          156,
+          156
+        ]
+      }
+    },
+    "capacity_and_stale_owner": {
+      "passed": true,
+      "capacity_cases": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          2,
+          1
+        ],
+        [
+          0,
+          3,
+          1
+        ],
+        [
+          0,
+          4,
+          1
+        ],
+        [
+          0,
+          5,
+          1
+        ],
+        [
+          0,
+          6,
+          0
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          2,
+          1
+        ],
+        [
+          1,
+          3,
+          1
+        ],
+        [
+          1,
+          4,
+          1
+        ],
+        [
+          1,
+          5,
+          1
+        ],
+        [
+          1,
+          6,
+          0
+        ]
+      ],
+      "release_cases": 24,
+      "all_native_actors_priority": true,
+      "wrong_owner_ID_flag_state_pointer_never_erased": true
+    },
+    "pickup_retirement": {
+      "passed": true,
+      "cases": 8,
+      "real_NrPickup_then_retains_actual_support_flag": true,
+      "retire_only_after_no_support_no_respawn": true
+    },
+    "real_native_motion_carry": {
+      "passed": true,
+      "updates": 1536,
+      "rows": [
+        {
+          "mode": 0,
+          "which": 0,
+          "Y_range": [
+            76,
+            213
+          ],
+          "native_motion_CPU": [
+            345,
+            399
+          ]
+        },
+        {
+          "mode": 0,
+          "which": 1,
+          "Y_range": [
+            76,
+            213
+          ],
+          "native_motion_CPU": [
+            345,
+            399
+          ]
+        },
+        {
+          "mode": 1,
+          "which": 0,
+          "Y_range": [
+            76,
+            213
+          ],
+          "native_motion_CPU": [
+            345,
+            399
+          ]
+        },
+        {
+          "mode": 1,
+          "which": 1,
+          "Y_range": [
+            76,
+            213
+          ],
+          "native_motion_CPU": [
+            345,
+            399
+          ]
+        }
+      ],
+      "ordinary_native25_kernel_not_approximate_sine": true
+    },
+    "local_actual_player_BG_native_platform_access": {
+      "passed": true,
+      "arenas": 16,
+      "rows": [
+        {
+          "mode": 0,
+          "wall": 912,
+          "delay": 0,
+          "updates": 87,
+          "actual_contact_updates": 40,
+          "first_face": [
+            86,
+            913,
+            112,
+            0,
+            []
+          ]
+        },
+        {
+          "mode": 0,
+          "wall": 912,
+          "delay": 16,
+          "updates": 88,
+          "actual_contact_updates": 43,
+          "first_face": [
+            87,
+            912,
+            112,
+            0,
+            []
+          ]
+        },
+        {
+          "mode": 0,
+          "wall": 912,
+          "delay": 32,
+          "updates": 61,
+          "actual_contact_updates": 32,
+          "first_face": [
+            60,
+            913,
+            112,
+            0,
+            []
+          ]
+        },
+        {
+          "mode": 0,
+          "wall": 912,
+          "delay": 64,
+          "updates": 78,
+          "actual_contact_updates": 64,
+          "first_face": [
+            77,
+            912,
+            95,
+            1,
+            []
+          ]
+        },
+        {
+          "mode": 0,
+          "wall": 2240,
+          "delay": 0,
+          "updates": 87,
+          "actual_contact_updates": 40,
+          "first_face": [
+            86,
+            2241,
+            112,
+            0,
+            []
+          ]
+        },
+        {
+          "mode": 0,
+          "wall": 2240,
+          "delay": 16,
+          "updates": 88,
+          "actual_contact_updates": 43,
+          "first_face": [
+            87,
+            2240,
+            112,
+            0,
+            []
+          ]
+        },
+        {
+          "mode": 0,
+          "wall": 2240,
+          "delay": 32,
+          "updates": 59,
+          "actual_contact_updates": 32,
+          "first_face": [
+            58,
+            2240,
+            112,
+            0,
+            []
+          ]
+        },
+        {
+          "mode": 0,
+          "wall": 2240,
+          "delay": 64,
+          "updates": 79,
+          "actual_contact_updates": 64,
+          "first_face": [
+            78,
+            2241,
+            93,
+            1,
+            []
+          ]
+        },
+        {
+          "mode": 1,
+          "wall": 912,
+          "delay": 0,
+          "updates": 87,
+          "actual_contact_updates": 40,
+          "first_face": [
+            86,
+            913,
+            112,
+            0,
+            []
+          ]
+        },
+        {
+          "mode": 1,
+          "wall": 912,
+          "delay": 16,
+          "updates": 88,
+          "actual_contact_updates": 43,
+          "first_face": [
+            87,
+            912,
+            112,
+            0,
+            []
+          ]
+        },
+        {
+          "mode": 1,
+          "wall": 912,
+          "delay": 32,
+          "updates": 61,
+          "actual_contact_updates": 32,
+          "first_face": [
+            60,
+            913,
+            112,
+            0,
+            []
+          ]
+        },
+        {
+          "mode": 1,
+          "wall": 912,
+          "delay": 64,
+          "updates": 78,
+          "actual_contact_updates": 64,
+          "first_face": [
+            77,
+            912,
+            95,
+            1,
+            []
+          ]
+        },
+        {
+          "mode": 1,
+          "wall": 2240,
+          "delay": 0,
+          "updates": 87,
+          "actual_contact_updates": 40,
+          "first_face": [
+            86,
+            2241,
+            112,
+            0,
+            []
+          ]
+        },
+        {
+          "mode": 1,
+          "wall": 2240,
+          "delay": 16,
+          "updates": 88,
+          "actual_contact_updates": 43,
+          "first_face": [
+            87,
+            2240,
+            112,
+            0,
+            []
+          ]
+        },
+        {
+          "mode": 1,
+          "wall": 2240,
+          "delay": 32,
+          "updates": 59,
+          "actual_contact_updates": 32,
+          "first_face": [
+            58,
+            2240,
+            112,
+            0,
+            []
+          ]
+        },
+        {
+          "mode": 1,
+          "wall": 2240,
+          "delay": 64,
+          "updates": 79,
+          "actual_contact_updates": 64,
+          "first_face": [
+            78,
+            2241,
+            93,
+            1,
+            []
+          ]
+        }
+      ],
+      "real_parser": true,
+      "complete_PlayerCtrlRoutine": true,
+      "real_RunLargePlatform_bbox_collision_carry": true,
+      "limit": "Typed local arenas, not complete native1-1. Valid floor origins864/2224;2192 was inside prior staircase and is retained as a rejected arena."
+    },
+    "camera_scene_and_negative_admission": {
+      "passed": true,
+      "both_modes": [
+        0,
+        1
+      ],
+      "future_pipe194_does_not_reset": true,
+      "offscreen_release_loopback_real_reinit": true,
+      "actual_InitializeArea_clears_actors_then91Bcache": true,
+      "explicit_no_new_global_state": true
+    },
+    "actual_interrupts": {
+      "passed": true,
+      "enabled_new_code_IRQ_boundaries": 498,
+      "unique_enabled_boundaries": 236,
+      "native_initialization_and_new_entry_IRQ_lagNMI_seams": [
+        {
+          "kind": "IRQ",
+          "actual_bank_PC": [
+            26,
+            45515
+          ]
+        },
+        {
+          "kind": "IRQ",
+          "actual_bank_PC": [
+            26,
+            45755
+          ]
+        },
+        {
+          "kind": "IRQ",
+          "actual_bank_PC": [
+            26,
+            45850
+          ]
+        },
+        {
+          "kind": "IRQ",
+          "actual_bank_PC": [
+            2,
+            42831
+          ]
+        },
+        {
+          "kind": "NMI",
+          "actual_bank_PC": [
+            26,
+            45515
+          ]
+        },
+        {
+          "kind": "NMI",
+          "actual_bank_PC": [
+            26,
+            45755
+          ]
+        },
+        {
+          "kind": "NMI",
+          "actual_bank_PC": [
+            26,
+            45850
+          ]
+        },
+        {
+          "kind": "NMI",
+          "actual_bank_PC": [
+            2,
+            42831
+          ]
+        }
+      ],
+      "AXYP_PC_SP_banks_five_SMC_R0_R7_live_stack_helper91B_and_Celeste_overlay": true,
+      "PHP_status_note": "Only the hardware-real six flags compare across IRQ/RTI; B/U are stack encoding, no C/Z/I/D/V/N exclusion."
+    },
+    "actual_complete_owned_GameLoop_cost": {
+      "passed": true,
+      "calls": 10,
+      "rows": [
+        {
+          "mode": 0,
+          "tier": 0,
+          "camera": 0,
+          "scene": "distant",
+          "baseline_CPU": 16515,
+          "candidate_CPU": 16671,
+          "CPU_extra": 156,
+          "AXYP_SP_banks_final5SMC_exact": true,
+          "whole_appRAM_ordered_OAM_hardware_exact": true,
+          "intentional_native_platform_actors": []
+        },
+        {
+          "mode": 0,
+          "tier": 1,
+          "camera": 0,
+          "scene": "powered_empty",
+          "baseline_CPU": 16525,
+          "candidate_CPU": 16645,
+          "CPU_extra": 120,
+          "AXYP_SP_banks_final5SMC_exact": true,
+          "whole_appRAM_ordered_OAM_hardware_exact": true,
+          "intentional_native_platform_actors": []
+        },
+        {
+          "mode": 0,
+          "tier": 0,
+          "camera": 768,
+          "scene": "first_spawn",
+          "baseline_CPU": 16706,
+          "candidate_CPU": 21782,
+          "CPU_extra": 5076,
+          "AXYP_SP_banks_final5SMC_exact": true,
+          "whole_appRAM_ordered_OAM_hardware_exact": false,
+          "intentional_native_platform_actors": [
+            [
+              5,
+              129
+            ]
+          ]
+        },
+        {
+          "mode": 0,
+          "tier": 0,
+          "camera": 768,
+          "scene": "warm",
+          "baseline_CPU": 16706,
+          "candidate_CPU": 21101,
+          "CPU_extra": 4395,
+          "AXYP_SP_banks_final5SMC_exact": true,
+          "whole_appRAM_ordered_OAM_hardware_exact": false,
+          "intentional_native_platform_actors": [
+            [
+              5,
+              129
+            ]
+          ]
+        },
+        {
+          "mode": 0,
+          "tier": 0,
+          "camera": 2096,
+          "scene": "second_spawn",
+          "baseline_CPU": 16716,
+          "candidate_CPU": 21798,
+          "CPU_extra": 5082,
+          "AXYP_SP_banks_final5SMC_exact": true,
+          "whole_appRAM_ordered_OAM_hardware_exact": false,
+          "intentional_native_platform_actors": [
+            [
+              5,
+              130
+            ]
+          ]
+        },
+        {
+          "mode": 1,
+          "tier": 0,
+          "camera": 0,
+          "scene": "distant",
+          "baseline_CPU": 16515,
+          "candidate_CPU": 16671,
+          "CPU_extra": 156,
+          "AXYP_SP_banks_final5SMC_exact": true,
+          "whole_appRAM_ordered_OAM_hardware_exact": true,
+          "intentional_native_platform_actors": []
+        },
+        {
+          "mode": 1,
+          "tier": 1,
+          "camera": 0,
+          "scene": "powered_empty",
+          "baseline_CPU": 16525,
+          "candidate_CPU": 16645,
+          "CPU_extra": 120,
+          "AXYP_SP_banks_final5SMC_exact": true,
+          "whole_appRAM_ordered_OAM_hardware_exact": true,
+          "intentional_native_platform_actors": []
+        },
+        {
+          "mode": 1,
+          "tier": 0,
+          "camera": 768,
+          "scene": "first_spawn",
+          "baseline_CPU": 16706,
+          "candidate_CPU": 21782,
+          "CPU_extra": 5076,
+          "AXYP_SP_banks_final5SMC_exact": true,
+          "whole_appRAM_ordered_OAM_hardware_exact": false,
+          "intentional_native_platform_actors": [
+            [
+              5,
+              129
+            ]
+          ]
+        },
+        {
+          "mode": 1,
+          "tier": 0,
+          "camera": 768,
+          "scene": "warm",
+          "baseline_CPU": 16706,
+          "candidate_CPU": 21101,
+          "CPU_extra": 4395,
+          "AXYP_SP_banks_final5SMC_exact": true,
+          "whole_appRAM_ordered_OAM_hardware_exact": false,
+          "intentional_native_platform_actors": [
+            [
+              5,
+              129
+            ]
+          ]
+        },
+        {
+          "mode": 1,
+          "tier": 0,
+          "camera": 2096,
+          "scene": "second_spawn",
+          "baseline_CPU": 16716,
+          "candidate_CPU": 21798,
+          "CPU_extra": 5082,
+          "AXYP_SP_banks_final5SMC_exact": true,
+          "whole_appRAM_ordered_OAM_hardware_exact": false,
+          "intentional_native_platform_actors": [
+            [
+              5,
+              130
+            ]
+          ]
+        }
+      ],
+      "scope": "Typed local empty-map fullGameLoops; includes real native actor collision/movement/drawing cost. Not native cadence/FPS or route timing. Added actors/OAM/cache state are intentional and are not masked as equivalent."
+    },
+    "foreign_complete_GameLoop": {
+      "passed": true,
+      "calls": 92,
+      "full_AXYP_SP_application_RAM_banks_ordered_OAM_hardware_and_CPU_exact": true
+    }
+  }
+}
