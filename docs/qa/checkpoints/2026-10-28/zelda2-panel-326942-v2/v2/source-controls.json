@@ -1,0 +1,230 @@
+{
+  "passed": true,
+  "native_run": false,
+  "Lua_VM_executed": false,
+  "ROM_sha256": "32694243361bb1366f6fd64c054ea2451f86b2517fc020d9c2b5d66bbf07bfa0",
+  "original_false": {
+    "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\zelda2_panel_supplement_v1_negative.json",
+    "bytes": 5494,
+    "sha256": "d3b64b3f53e1486cb939756dd7a45782d5c8e3cd6f078e96ee98a587049ea4a1"
+  },
+  "source_campaign_reused_unchanged": {
+    "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-z2glove-zelda2-panel-supplement-v1\\source-controls.json",
+    "bytes": 20602,
+    "sha256": "46927b0f21463de4f9727b3bd488a222d07beebccfbde6cf8e20f047bf8bc120"
+  },
+  "full_mechanics_controller_seed_guard_caps_reverse_exact": true,
+  "actual_assembled_X5PublishChr_cases": [
+    {
+      "source": 7,
+      "mode": 0,
+      "actual_physical11": 3,
+      "ordered_final_publication": [
+        [
+          20784,
+          0
+        ],
+        [
+          20784,
+          0
+        ],
+        [
+          20784,
+          0
+        ],
+        [
+          20784,
+          0
+        ],
+        [
+          20784,
+          0
+        ],
+        [
+          20784,
+          0
+        ],
+        [
+          20784,
+          0
+        ],
+        [
+          20784,
+          0
+        ],
+        [
+          20784,
+          0
+        ],
+        [
+          20784,
+          0
+        ],
+        [
+          20784,
+          0
+        ],
+        [
+          20784,
+          0
+        ],
+        [
+          20779,
+          3
+        ],
+        [
+          20784,
+          0
+        ]
+      ]
+    },
+    {
+      "source": 139,
+      "mode": 129,
+      "actual_physical11": 395,
+      "ordered_final_publication": [
+        [
+          20784,
+          0
+        ],
+        [
+          20784,
+          0
+        ],
+        [
+          20784,
+          0
+        ],
+        [
+          20784,
+          0
+        ],
+        [
+          20784,
+          0
+        ],
+        [
+          20784,
+          0
+        ],
+        [
+          20784,
+          0
+        ],
+        [
+          20784,
+          0
+        ],
+        [
+          20784,
+          0
+        ],
+        [
+          20784,
+          0
+        ],
+        [
+          20784,
+          0
+        ],
+        [
+          20784,
+          1
+        ],
+        [
+          20779,
+          139
+        ],
+        [
+          20784,
+          0
+        ]
+      ]
+    }
+  ],
+  "typed_observer_negatives": [
+    {
+      "field": "lease",
+      "value": false,
+      "rejected": true
+    },
+    {
+      "field": "physical",
+      "value": 7,
+      "rejected": true
+    },
+    {
+      "field": "physical",
+      "value": 395,
+      "rejected": true
+    },
+    {
+      "field": "source",
+      "value": 139,
+      "rejected": true
+    },
+    {
+      "field": "mode",
+      "value": 129,
+      "rejected": true
+    },
+    {
+      "field": "savedsource",
+      "value": 139,
+      "rejected": true
+    },
+    {
+      "field": "savedmode",
+      "value": 129,
+      "rejected": true
+    },
+    {
+      "field": "mask",
+      "value": 0,
+      "rejected": true
+    },
+    {
+      "field": "reload",
+      "value": 1,
+      "rejected": true
+    },
+    {
+      "field": "NMI",
+      "value": false,
+      "rejected": true
+    },
+    {
+      "field": "enablephysical",
+      "value": 395,
+      "rejected": true
+    }
+  ],
+  "new_compiled_alias": {
+    "name": "Z2PanelMode",
+    "address": 23942
+  },
+  "strict_font395_three_epoch_pixel_contract_unchanged": true,
+  "substitutions": [
+    {
+      "old": "repeat tick(0)until wall>=n+5 and physical[11]==r('Z2PanelChr')and mask&24~=0 and r('ReloadCHRBank')==0",
+      "new": "repeat tick(0)until wall>=n+5 and worldLease and physical[11]==worldLease.physical11 and r('CurrentCHRBank',11)==worldLease.source11 and r('X5ChrMode',11)==worldLease.mode11 and r('Z2PanelChr')==worldLease.source11 and r('Z2PanelMode')==worldLease.mode11 and mask&24~=0 and r('ReloadCHRBank')==0 and lastEnable and lastEnable.NMI and lastEnable.physical11==worldLease.physical11"
+    },
+    {
+      "insert_before": "hook('PanelUnblankReturn',function()note('panel-publication-RTS-entry')end)",
+      "readonly_hook": "local worldLease,observedWorldLeases=nil,{}\nemu.addMemoryCallback(function(_,v)\n if entered and nmi and v&24~=0 and r('Z2PanelActive')==0 and r('Z2PanelPending')==0 and r('ReloadCHRBank')==0 then\n  assert(physical[11]==emu.getState()['mapper.chrBanks11'],'Actual published world font')\n  local source,mode=r('CurrentCHRBank',11),r('X5ChrMode',11);local owner=stamp();owner.mask=v\n  observedWorldLeases[source..':'..mode]={source11=source,mode11=mode,physical11=physical[11],owner=owner}\n end\nend,emu.callbackType.write,0x2001)\nhook('PanelOpenComplete',function()\n if not entered then return end\n assert(not nmi and not irq and r('NmiDisable')==255 and r('Z2PanelActive')==1 and r('Z2PanelPending')==1 and mask&24==0,'Actual exclusive panel-open owner')\n assert(r('CurrentCHRBank',11)==r('Z2PanelChr')and r('X5ChrMode',11)==r('Z2PanelMode'),'Genuine panel backup matches current source/mode')\n local source,mode=r('Z2PanelChr'),r('Z2PanelMode');local prior=observedWorldLeases[source..':'..mode]\n assert(prior and prior.owner.NMI,'Matching source/mode had an actual visible NMI world-font lease')\n worldLease={source11=source,mode11=mode,physical11=prior.physical11,previousVisible=prior.owner,openOwner=stamp()};note('actual-pre-panel-world-lease')\nend)\n"
+    },
+    {
+      "old": "request_image('03-after-paid-level-world');tick(0);record(taskName,snap());desired=0;done=true",
+      "new": "request_image('03-after-paid-level-world');tick(0);record(taskName,snap(),{worldLease=worldLease,restoredHardware=stamp()});desired=0;done=true"
+    }
+  ],
+  "physical_lease_lineage": "Actual NMI render-enable while panelActive0/pending0/reload0 publishes source/mode to physical mapping; opening selects the matching observed lease. A rapid auto-panel reopen may still have395 physically installed, so its transient physical state is never used as the world target.",
+  "typed_pending_reopen_positive": {
+    "saved_source": 7,
+    "saved_mode": 0,
+    "actual_open_physical": 395,
+    "prior_NMI_published_physical": 3,
+    "required_final_physical": 3,
+    "accepted_only_after_reload0_and_actual_NMI": true
+  }
+}

@@ -1,0 +1,90 @@
+Zelda II panel display supplement -- PREPARED, NOT NATIVE RUN
+
+Frozen original Easy gallery result remains an actual mechanical PASS with an
+explicit panel visual gap. pause-spells.png was captured at wall702/Main390;
+earned-level-panel.png at wall1326/Main986. Both have PanelActive1/Pending0,
+but actual background physical CHR window11 is still page3, not panel395.
+Both actual images are uniformly blue. Original v1 did not record their exact
+2001 clock, so that missing stamp cannot be reconstructed or called observed.
+
+The source boundary explains the insufficient picture oracle: Z2PanelTick
+finishes its blanked direct writes, sets pending reload, and Z2PanelUnblank
+clears PanelPending0. BankSwitchCHR/render enable is a subsequent native NMI
+publication. Clearing pending is not proof a panel has been displayed. The new
+supplement therefore retains v1 mechanics/hardware guards and waits for actual
+hardware plus completed PPU epochs. No prior result or screenshot was edited.
+
+Target remains the private32694243361bb1366f6fd64c054ea2451f86b2517fc020d9c2b5d66bbf07bfa0
+build/zelda2_easy_glove.nes/.dbg/.lbl. Canonical adoption is ROOT-owned.
+
+Small earned sequence, numeric Easy0/variant1 only:
+1 Genuine native contact creates16HP deficit. A complete mature raw0/C0 actor
+  derived from actual Z2PreparePickupGate is physically collected; it learns
+  Jump and heals127HP. No owned/stat/HP/MP/resource/outcome write.
+2 Real Start and page navigation hold the earned spell page. Three qualified
+  start/end display epochs must retain all196 actual source-produced tiles,
+  font395, exact page/origin and render enable before its screenshot.
+3 Complete mature50EXP bag is physically collected, opening the real upgrade
+  panel. The same display contract captures the first Life-level screen.
+4 A purchases Life for50, then mature100 and500EXP bags fund genuine Magic100
+  and Attack200 purchases. Actual unspent300EXP is retained. Real B defers the
+  next Life and Magic offers, rather than clearing a mask/stat by fixture write.
+5 Restore the actual backed-up196 world cells and original font; allow five
+  wall frames, then take a selected whole-world/HUD image.
+
+100/500 are valid mature actors accepted by the compiled four-denomination
+collector. The current natural DropRoll table selects50/200, so the new cells
+are controlled physical collection/use, not a claim about natural100/500 drops.
+
+Fresh assembled source campaign passes190 complete GameLoops with one actual
+reward, three EXP queues and three real paid level purchases. All expected196
+tile values for both pages come from genuine compiled Z2PanelTile after actual
+earned state. No new gamecode, scene owner, resource seed or generic framework.
+The attempted second injury in early source preparation met a still-live
+InjuryTimer2; that redundant setup was removed. The source/fixture retains the
+first real deficit/mushroom healing, and does not bypass or zero an immunity.
+The already-passing full gallery separately covers paid Life on a real deficit.
+
+Additive native observer:
+- Original strict full256 DMA/E3/OAMADDR/renderoff/E008, panel-owner transfers,
+  NMI AXY/SP/5SMC/banks/IRQ31/CHR/deadline and finite caps remain reverse-exact.
+- Actual panel-unblank RTS entry, NMI RTI entry,2001 and512B writes are journaled
+  with CPU/PC/bank/PPU line-dot/frame, source pending/reload/mask/font and actual
+  physical page. RTI-entry callback wording is intentional.
+- A panel image requires three qualified startFrame/endFrame epochs and a
+  later frame than the first+1, matching every real196-cell value and actual
+  physical font395. A stale worldfont3, pending1/3, blank mask, wrong page,
+  shifted origin or changed cell prevents admission. Data includes actual
+  OAM256/palette32/CHR12 and all source/display stamps.
+- Callback registration order is explicit: this passive watcher precedes the
+  inherited latch watcher, so write records and lastEnable use callback v as
+  actual mask, not the old cached mask. No callback registration at runtime.
+- Journal <=2400rows/1MiB; three PNGs,64files/2GB, unchanged8000wall/5000updates.
+
+Independent pixel reviewer current_zelda2_panel_pixels_v1.py uses authenticated
+compiled physical395/font1024 bytes. Every pixel of both112x112 panel regions
+must match its source1-white/3-black class, with two uniform distinct actual RGB
+classes and correct palette ownership. It reports the actual RGB values rather
+than assuming a palette LUT. Two actual-tile synthetic positive pages and six
+wrong-image controls pass; the original real blank-blue PNG is rejected.
+This is checker qualification, not a new native or human visual result.
+
+Native launch stays ROOT-owned via the immutable command.json in
+build/current-z2glove-zelda2-panel-supplement-v1. After completion, the independent
+pixel command is:
+python -B tools/audit/current_zelda2_panel_pixels_v1.py --ready
+build/current-z2glove-zelda2-panel-supplement-v1 --native
+build/current-z2glove-zelda2-panel-supplement-v1/native --output
+build/zelda2_panel_actual_pixel_review.json
+
+No native launch, production source/default/settings or Git operation occurred.
+Lua VM/native pending. Actual whole-frame agent review remains required even
+after the scoped25,088-pixel check; no all-game/all-pixel/FPS claim.
+
+Eventual adoption source locations (unchanged):
+build/zelda2_easy_glove_easy_lsr.s -- sole private source overlay
+build/zelda2_easy_glove_entrypoint.s -- sparse actual include replacement
+build/zelda2_easy_glove_main.c -- actual sparse main input
+build/zelda2_easy_glove.patch -- normalized review diff
+build/zelda2_easy_glove_build.json -- real three build commands/output hashes,
+exact15B/bank22/old-PC/CHR/RAM checks, ordinary whole d444/f4ffd equivalence.
