@@ -1,0 +1,97 @@
+Rogue Dawn1.21 authentic graphics — frozen standalone component v1
+
+SOURCE/CPU ONLY. No live dispatch, playable-hero, native rendering, NMI/IRQ,
+screen-edge fidelity, or cadence qualification. Canonical source/ROM/settings
+and previous Rogue kernel/weapons packets were not changed.
+
+Authority
+Supplied C:/NES/the stash/Metroid - Rogue Dawn 1.21 (header fixed).nes,
+SHA256 9271411a20cc26c09f4d4bffe74c0d69a1bf91b815f7716fcf4610c4cee61077.
+The earlier ROM-map/readme packet authenticates author1.21 IPS against it.
+Original Metroid labels are comparison anchors, not guessed Rogue code.
+
+Actual original renderer: physical62:$DE4A..physical63:$E048, with real
+frame-pointer table02:$860B, placement02:$86DF, animation02:$8572.
+Source reset62:$C08A writes PPUCTRL90:8x8 sprites, pattern base0000.
+C606->C61F->61:A2FF executes actual MMC3 register writes. CPX atC626
+sets carry before ADC: default source69B3=0 writes09/0B, effectivelyCHR8..11;
+69B3=1 writes0A/0C, effectively10..13. This second pattern costume is NOT
+selected by this component. It is explicitly rejected, never recolored default
+graphics. Its gameplay meaning has not been established here.
+
+Source-to-pose inventory (hex ORIGINAL frame bytes)
+Body:03/04/05 run;07 front;08 stand;0C/0D/0E run-fire;10 jump;
+12 jump-fire;17..1A somersault;1B..1E morph;22 stand-fire;23 front-alt;
+2B aim-up;30 fire-up;38/39 air-aim;40/41/42 run-up;46/47/48 run-up-fire.
+Both source facings are executed, including the native front-frame mirror
+exception. These are Dawn's actual ROM pixels, not stock Samus assets.
+Weapons:25 right missile,26 left missile,27 up missile,28 beam,2A impact,
+3C/49/4A/4D bomb explosion sequence frames,4B Wave,4E/4F bomb fuse,
+67/68/69 missile impact. Normal color00 and actual Ice control81 executed.
+The source bomb frame4A has no opaque pixels: it is a legitimate blank flash,
+not a missing extracted frame. F7 remains an explicit empty sentinel.
+
+Palette provenance
+The original62:CB73 request and C20E/C30C PPU writer run on real data.
+Eight suit/missile/69B3 rows are recorded. Default body colors are0C/00/36;
+environment suit changes00->1C, missile mode26/30. Palette1 for actual Ice
+is21/1C/0C. All five original area banks agree on these first two roles;
+palette2/3 world colors differ. The full five-area ordered palette writes are
+in controls.json. RdRenderPalettePointer returns the physicalPRG02 area's
+16-byte sprite palette image, not permission to overwrite shared enemy colors.
+RGB preview uses the named local NEXXT NES palette only for illustration;
+equality assertions compare actual NES indices, geometry and priority bits.
+
+Storage and source contracts
+CORE124: frozen B000..B795 prefix1942B remains exact; new render code351B
+atB796..B8F4, leaving1803B. ART94:D300..DF4D3150B, leaving178B.
+CHR16KB:7body pages +2fixed weapon pages +7zero pages. ROOT's separately
+verified proposed physical range is680..695; render requires RD_FIRST_CHR.
+Do NOT use superseded260 or756 allocations; both had existing owners.
+Body uses spritewindow0;window1 is untouched; weapon2KB uses windows2/3.
+Thus a beam/bomb does not replace Dawn's body patterns. No CHR allocation
+or shared linker/source changes were made by this packet.
+
+APIs (AXY/P volatile except the exact animation leaf's proven source result)
+RdRenderGraphicsBank: genuine BankPRGC macro mapsC94, updates real shadow.
+RdAdvancePlayerFrame: ART already mapped; A=native hold4/5; exact source
+DC8F state/AXYP/SP. Called once at CD6D->DB96->DC8F timing, not in draw.
+RdRenderPlayer: consumes already advanced RdAnimFrame/RdFacing; updates
+genuine source radii, SmPosePtr,SmChrBank,ObjectMetasprite. C=1 supported.
+Player descriptors use usual host top-left: source center=(hostX+8,hostY+16).
+RdRenderWeapon: only native D0/E0/F0 slots and color00/81; consumes already
+advanced frame, updates source projectile radii, returns R0/R1 descriptor,
+C=0 empty/unsupported. It preserves body SmPosePtr/SmChrBank. Caller supplies
+weapon ORIGINAL center in R4/R6 to actual host MetaspriteRenderLoop. Original
+weapon animation/clear-color/update completion remain frozen weapon owners.
+RdRenderPalettePointer: returns R0/R1 to sixteen source palette bytes; no
+hardware/queue writes. Uses genuine existing transient SmTemp, not new RAM.
+RdRenderPublishChr: publishes only current wide-CHR shadows0/2/3 and dirty
+flag; existing host NMI owns actual hardware. No A/E mapper or SMC changes.
+R0/R1 and SmTemp are transient outputs. No new persistent/active allocation;
+5FB8..BF belongs to Sunny and is untouched. C-bank lease return/restoration,
+host position import/export, collisions/palette mixing/audio remain integration.
+
+Finite controls
+90 full source-to-ACTUAL COMPILED host sprite-loop pixel/attribute masks;
+450 original decoder/OAM cells across five area banks;1152 exact animation
+AXYP/SP/RAM cells;1534 frame/slot/color/alternate admission cells;8palette
+rows;70 changed/cached wide-CHR publication cells. The actual compiled host
+loop is the frozen first-link-v2 bank4 A5BA, with genuine DBG/LBL bindings.
+CPU-only inclusive selector costs:body144..147,weapon138..146cycles;
+actual host draw loop:body520..972,weapon21..1319. These are NOT NMI/native
+cadence measurements. Source8x8->host8x16 regrouping preserves opaque pixels,
+colors and priority; it deliberately does not preserve transparent OAM counts.
+
+Retained first errors: assembler bank-expression width; overbroad assumption
+that alternate69B3 had unchanged pattern mapping; animation mock reset pointing
+to its ownFF sentinel. Small original FALSE receipts remain in the packet.
+An earlier inspect-only 'all frames nonempty' assertion rejected legitimate4A;
+it produced no asset, and this classification is retained here explicitly.
+
+Remaining: alternate69B3 pattern costume, dynamic death explosion placements,
+hurt/Screw flash-control overlays, source injury/visibility lifecycle and final
+host integration/native IRQ/PPU/DMA/cadence. No gameplay-ready claim.
+Commands, source hashes, exact owned files and immutable parent hashes:
+build/rogue-dawn-art-v1/handoff.json. One source-vs-host eight-case PNG only;
+no native captures, cartridge/runtime trees, ROM copies, settings or audio.

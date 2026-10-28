@@ -1,0 +1,3290 @@
+{
+  "passed": true,
+  "native_run": false,
+  "host_integration": false,
+  "scope": "Sparse Rogue art/render source controls, with actual compiled host draw loop.\n\nNo live game, NMI/PPU emulator or native/render deadline qualification. Executes\noriginal sprite/animation/palette instructions and the real host OAM loop.\n",
+  "original_ROM": {
+    "path": "C:\\NES\\the stash\\Metroid - Rogue Dawn 1.21 (header fixed).nes",
+    "bytes": 786448,
+    "sha256": "9271411a20cc26c09f4d4bffe74c0d69a1bf91b815f7716fcf4610c4cee61077"
+  },
+  "compiled_host": [
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\roster-expansion-first-link-v2.nes",
+      "bytes": 2097168,
+      "sha256": "ccc14e622acf0e6c0f4514cf7792c4a1f79cbdf7e814e17dd42af73b5e520006"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\roster-expansion-first-link-v2.dbg",
+      "bytes": 27043931,
+      "sha256": "5f15ad5c956a37f888c78f85b51531db853bb646ba86560007f35d1d29d6ab41"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\roster-expansion-first-link-v2.lbl",
+      "bytes": 1072837,
+      "sha256": "92a5975768f50ae5b716af82402b31a0c1f11b37ba7fb1c4b934585eb6830e97"
+    }
+  ],
+  "full_source_to_actual_host_pixel_cases": [
+    {
+      "kind": "body",
+      "frame": 3,
+      "face": 0,
+      "color": 0,
+      "opaque": 156,
+      "parts": 4,
+      "selector_cycles": 144,
+      "host_draw_cycles": 520
+    },
+    {
+      "kind": "body",
+      "frame": 3,
+      "face": 1,
+      "color": 0,
+      "opaque": 156,
+      "parts": 4,
+      "selector_cycles": 146,
+      "host_draw_cycles": 520
+    },
+    {
+      "kind": "body",
+      "frame": 4,
+      "face": 0,
+      "color": 0,
+      "opaque": 181,
+      "parts": 5,
+      "selector_cycles": 144,
+      "host_draw_cycles": 633
+    },
+    {
+      "kind": "body",
+      "frame": 4,
+      "face": 1,
+      "color": 0,
+      "opaque": 181,
+      "parts": 5,
+      "selector_cycles": 146,
+      "host_draw_cycles": 633
+    },
+    {
+      "kind": "body",
+      "frame": 5,
+      "face": 0,
+      "color": 0,
+      "opaque": 180,
+      "parts": 5,
+      "selector_cycles": 144,
+      "host_draw_cycles": 633
+    },
+    {
+      "kind": "body",
+      "frame": 5,
+      "face": 1,
+      "color": 0,
+      "opaque": 180,
+      "parts": 5,
+      "selector_cycles": 146,
+      "host_draw_cycles": 633
+    },
+    {
+      "kind": "body",
+      "frame": 7,
+      "face": 0,
+      "color": 0,
+      "opaque": 189,
+      "parts": 4,
+      "selector_cycles": 144,
+      "host_draw_cycles": 520
+    },
+    {
+      "kind": "body",
+      "frame": 7,
+      "face": 1,
+      "color": 0,
+      "opaque": 189,
+      "parts": 4,
+      "selector_cycles": 146,
+      "host_draw_cycles": 520
+    },
+    {
+      "kind": "body",
+      "frame": 8,
+      "face": 0,
+      "color": 0,
+      "opaque": 160,
+      "parts": 5,
+      "selector_cycles": 145,
+      "host_draw_cycles": 633
+    },
+    {
+      "kind": "body",
+      "frame": 8,
+      "face": 1,
+      "color": 0,
+      "opaque": 160,
+      "parts": 5,
+      "selector_cycles": 147,
+      "host_draw_cycles": 633
+    },
+    {
+      "kind": "body",
+      "frame": 12,
+      "face": 0,
+      "color": 0,
+      "opaque": 167,
+      "parts": 5,
+      "selector_cycles": 145,
+      "host_draw_cycles": 644
+    },
+    {
+      "kind": "body",
+      "frame": 12,
+      "face": 1,
+      "color": 0,
+      "opaque": 167,
+      "parts": 5,
+      "selector_cycles": 147,
+      "host_draw_cycles": 633
+    },
+    {
+      "kind": "body",
+      "frame": 13,
+      "face": 0,
+      "color": 0,
+      "opaque": 177,
+      "parts": 6,
+      "selector_cycles": 145,
+      "host_draw_cycles": 746
+    },
+    {
+      "kind": "body",
+      "frame": 13,
+      "face": 1,
+      "color": 0,
+      "opaque": 177,
+      "parts": 6,
+      "selector_cycles": 147,
+      "host_draw_cycles": 746
+    },
+    {
+      "kind": "body",
+      "frame": 14,
+      "face": 0,
+      "color": 0,
+      "opaque": 182,
+      "parts": 6,
+      "selector_cycles": 145,
+      "host_draw_cycles": 746
+    },
+    {
+      "kind": "body",
+      "frame": 14,
+      "face": 1,
+      "color": 0,
+      "opaque": 182,
+      "parts": 6,
+      "selector_cycles": 147,
+      "host_draw_cycles": 746
+    },
+    {
+      "kind": "body",
+      "frame": 16,
+      "face": 0,
+      "color": 0,
+      "opaque": 156,
+      "parts": 5,
+      "selector_cycles": 145,
+      "host_draw_cycles": 633
+    },
+    {
+      "kind": "body",
+      "frame": 16,
+      "face": 1,
+      "color": 0,
+      "opaque": 156,
+      "parts": 5,
+      "selector_cycles": 147,
+      "host_draw_cycles": 633
+    },
+    {
+      "kind": "body",
+      "frame": 18,
+      "face": 0,
+      "color": 0,
+      "opaque": 167,
+      "parts": 6,
+      "selector_cycles": 145,
+      "host_draw_cycles": 746
+    },
+    {
+      "kind": "body",
+      "frame": 18,
+      "face": 1,
+      "color": 0,
+      "opaque": 167,
+      "parts": 6,
+      "selector_cycles": 147,
+      "host_draw_cycles": 746
+    },
+    {
+      "kind": "body",
+      "frame": 23,
+      "face": 0,
+      "color": 0,
+      "opaque": 106,
+      "parts": 4,
+      "selector_cycles": 145,
+      "host_draw_cycles": 520
+    },
+    {
+      "kind": "body",
+      "frame": 23,
+      "face": 1,
+      "color": 0,
+      "opaque": 106,
+      "parts": 4,
+      "selector_cycles": 147,
+      "host_draw_cycles": 520
+    },
+    {
+      "kind": "body",
+      "frame": 24,
+      "face": 0,
+      "color": 0,
+      "opaque": 106,
+      "parts": 5,
+      "selector_cycles": 145,
+      "host_draw_cycles": 633
+    },
+    {
+      "kind": "body",
+      "frame": 24,
+      "face": 1,
+      "color": 0,
+      "opaque": 106,
+      "parts": 5,
+      "selector_cycles": 147,
+      "host_draw_cycles": 633
+    },
+    {
+      "kind": "body",
+      "frame": 25,
+      "face": 0,
+      "color": 0,
+      "opaque": 106,
+      "parts": 4,
+      "selector_cycles": 145,
+      "host_draw_cycles": 520
+    },
+    {
+      "kind": "body",
+      "frame": 25,
+      "face": 1,
+      "color": 0,
+      "opaque": 106,
+      "parts": 4,
+      "selector_cycles": 147,
+      "host_draw_cycles": 520
+    },
+    {
+      "kind": "body",
+      "frame": 26,
+      "face": 0,
+      "color": 0,
+      "opaque": 106,
+      "parts": 5,
+      "selector_cycles": 145,
+      "host_draw_cycles": 633
+    },
+    {
+      "kind": "body",
+      "frame": 26,
+      "face": 1,
+      "color": 0,
+      "opaque": 106,
+      "parts": 5,
+      "selector_cycles": 147,
+      "host_draw_cycles": 633
+    },
+    {
+      "kind": "body",
+      "frame": 27,
+      "face": 0,
+      "color": 0,
+      "opaque": 133,
+      "parts": 4,
+      "selector_cycles": 145,
+      "host_draw_cycles": 520
+    },
+    {
+      "kind": "body",
+      "frame": 27,
+      "face": 1,
+      "color": 0,
+      "opaque": 133,
+      "parts": 4,
+      "selector_cycles": 147,
+      "host_draw_cycles": 520
+    },
+    {
+      "kind": "body",
+      "frame": 28,
+      "face": 0,
+      "color": 0,
+      "opaque": 133,
+      "parts": 4,
+      "selector_cycles": 145,
+      "host_draw_cycles": 520
+    },
+    {
+      "kind": "body",
+      "frame": 28,
+      "face": 1,
+      "color": 0,
+      "opaque": 133,
+      "parts": 4,
+      "selector_cycles": 147,
+      "host_draw_cycles": 520
+    },
+    {
+      "kind": "body",
+      "frame": 29,
+      "face": 0,
+      "color": 0,
+      "opaque": 133,
+      "parts": 4,
+      "selector_cycles": 145,
+      "host_draw_cycles": 520
+    },
+    {
+      "kind": "body",
+      "frame": 29,
+      "face": 1,
+      "color": 0,
+      "opaque": 133,
+      "parts": 4,
+      "selector_cycles": 147,
+      "host_draw_cycles": 520
+    },
+    {
+      "kind": "body",
+      "frame": 30,
+      "face": 0,
+      "color": 0,
+      "opaque": 133,
+      "parts": 4,
+      "selector_cycles": 145,
+      "host_draw_cycles": 520
+    },
+    {
+      "kind": "body",
+      "frame": 30,
+      "face": 1,
+      "color": 0,
+      "opaque": 133,
+      "parts": 4,
+      "selector_cycles": 147,
+      "host_draw_cycles": 520
+    },
+    {
+      "kind": "body",
+      "frame": 34,
+      "face": 0,
+      "color": 0,
+      "opaque": 158,
+      "parts": 4,
+      "selector_cycles": 145,
+      "host_draw_cycles": 520
+    },
+    {
+      "kind": "body",
+      "frame": 34,
+      "face": 1,
+      "color": 0,
+      "opaque": 158,
+      "parts": 4,
+      "selector_cycles": 147,
+      "host_draw_cycles": 520
+    },
+    {
+      "kind": "body",
+      "frame": 35,
+      "face": 0,
+      "color": 0,
+      "opaque": 148,
+      "parts": 8,
+      "selector_cycles": 145,
+      "host_draw_cycles": 972
+    },
+    {
+      "kind": "body",
+      "frame": 35,
+      "face": 1,
+      "color": 0,
+      "opaque": 148,
+      "parts": 8,
+      "selector_cycles": 147,
+      "host_draw_cycles": 972
+    },
+    {
+      "kind": "body",
+      "frame": 43,
+      "face": 0,
+      "color": 0,
+      "opaque": 176,
+      "parts": 6,
+      "selector_cycles": 145,
+      "host_draw_cycles": 773
+    },
+    {
+      "kind": "body",
+      "frame": 43,
+      "face": 1,
+      "color": 0,
+      "opaque": 176,
+      "parts": 6,
+      "selector_cycles": 147,
+      "host_draw_cycles": 746
+    },
+    {
+      "kind": "body",
+      "frame": 48,
+      "face": 0,
+      "color": 0,
+      "opaque": 174,
+      "parts": 5,
+      "selector_cycles": 145,
+      "host_draw_cycles": 633
+    },
+    {
+      "kind": "body",
+      "frame": 48,
+      "face": 1,
+      "color": 0,
+      "opaque": 174,
+      "parts": 5,
+      "selector_cycles": 147,
+      "host_draw_cycles": 633
+    },
+    {
+      "kind": "body",
+      "frame": 56,
+      "face": 0,
+      "color": 0,
+      "opaque": 171,
+      "parts": 7,
+      "selector_cycles": 145,
+      "host_draw_cycles": 859
+    },
+    {
+      "kind": "body",
+      "frame": 56,
+      "face": 1,
+      "color": 0,
+      "opaque": 171,
+      "parts": 7,
+      "selector_cycles": 147,
+      "host_draw_cycles": 859
+    },
+    {
+      "kind": "body",
+      "frame": 57,
+      "face": 0,
+      "color": 0,
+      "opaque": 169,
+      "parts": 6,
+      "selector_cycles": 145,
+      "host_draw_cycles": 746
+    },
+    {
+      "kind": "body",
+      "frame": 57,
+      "face": 1,
+      "color": 0,
+      "opaque": 169,
+      "parts": 6,
+      "selector_cycles": 147,
+      "host_draw_cycles": 746
+    },
+    {
+      "kind": "body",
+      "frame": 64,
+      "face": 0,
+      "color": 0,
+      "opaque": 171,
+      "parts": 6,
+      "selector_cycles": 145,
+      "host_draw_cycles": 746
+    },
+    {
+      "kind": "body",
+      "frame": 64,
+      "face": 1,
+      "color": 0,
+      "opaque": 171,
+      "parts": 6,
+      "selector_cycles": 147,
+      "host_draw_cycles": 746
+    },
+    {
+      "kind": "body",
+      "frame": 65,
+      "face": 0,
+      "color": 0,
+      "opaque": 181,
+      "parts": 7,
+      "selector_cycles": 145,
+      "host_draw_cycles": 884
+    },
+    {
+      "kind": "body",
+      "frame": 65,
+      "face": 1,
+      "color": 0,
+      "opaque": 181,
+      "parts": 7,
+      "selector_cycles": 147,
+      "host_draw_cycles": 859
+    },
+    {
+      "kind": "body",
+      "frame": 66,
+      "face": 0,
+      "color": 0,
+      "opaque": 186,
+      "parts": 7,
+      "selector_cycles": 145,
+      "host_draw_cycles": 859
+    },
+    {
+      "kind": "body",
+      "frame": 66,
+      "face": 1,
+      "color": 0,
+      "opaque": 186,
+      "parts": 7,
+      "selector_cycles": 147,
+      "host_draw_cycles": 859
+    },
+    {
+      "kind": "body",
+      "frame": 70,
+      "face": 0,
+      "color": 0,
+      "opaque": 169,
+      "parts": 5,
+      "selector_cycles": 145,
+      "host_draw_cycles": 633
+    },
+    {
+      "kind": "body",
+      "frame": 70,
+      "face": 1,
+      "color": 0,
+      "opaque": 169,
+      "parts": 5,
+      "selector_cycles": 147,
+      "host_draw_cycles": 633
+    },
+    {
+      "kind": "body",
+      "frame": 71,
+      "face": 0,
+      "color": 0,
+      "opaque": 179,
+      "parts": 6,
+      "selector_cycles": 145,
+      "host_draw_cycles": 746
+    },
+    {
+      "kind": "body",
+      "frame": 71,
+      "face": 1,
+      "color": 0,
+      "opaque": 179,
+      "parts": 6,
+      "selector_cycles": 147,
+      "host_draw_cycles": 746
+    },
+    {
+      "kind": "body",
+      "frame": 72,
+      "face": 0,
+      "color": 0,
+      "opaque": 184,
+      "parts": 6,
+      "selector_cycles": 145,
+      "host_draw_cycles": 746
+    },
+    {
+      "kind": "body",
+      "frame": 72,
+      "face": 1,
+      "color": 0,
+      "opaque": 184,
+      "parts": 6,
+      "selector_cycles": 147,
+      "host_draw_cycles": 746
+    },
+    {
+      "kind": "weapon",
+      "frame": 37,
+      "face": 0,
+      "color": 0,
+      "opaque": 41,
+      "parts": 4,
+      "selector_cycles": 138,
+      "host_draw_cycles": 532
+    },
+    {
+      "kind": "weapon",
+      "frame": 37,
+      "face": 0,
+      "color": 129,
+      "opaque": 41,
+      "parts": 4,
+      "selector_cycles": 144,
+      "host_draw_cycles": 484
+    },
+    {
+      "kind": "weapon",
+      "frame": 38,
+      "face": 0,
+      "color": 0,
+      "opaque": 41,
+      "parts": 4,
+      "selector_cycles": 138,
+      "host_draw_cycles": 520
+    },
+    {
+      "kind": "weapon",
+      "frame": 38,
+      "face": 0,
+      "color": 129,
+      "opaque": 41,
+      "parts": 4,
+      "selector_cycles": 144,
+      "host_draw_cycles": 484
+    },
+    {
+      "kind": "weapon",
+      "frame": 39,
+      "face": 0,
+      "color": 0,
+      "opaque": 41,
+      "parts": 4,
+      "selector_cycles": 139,
+      "host_draw_cycles": 520
+    },
+    {
+      "kind": "weapon",
+      "frame": 39,
+      "face": 0,
+      "color": 129,
+      "opaque": 41,
+      "parts": 4,
+      "selector_cycles": 145,
+      "host_draw_cycles": 484
+    },
+    {
+      "kind": "weapon",
+      "frame": 40,
+      "face": 0,
+      "color": 0,
+      "opaque": 12,
+      "parts": 4,
+      "selector_cycles": 139,
+      "host_draw_cycles": 520
+    },
+    {
+      "kind": "weapon",
+      "frame": 40,
+      "face": 0,
+      "color": 129,
+      "opaque": 12,
+      "parts": 4,
+      "selector_cycles": 145,
+      "host_draw_cycles": 484
+    },
+    {
+      "kind": "weapon",
+      "frame": 42,
+      "face": 0,
+      "color": 0,
+      "opaque": 52,
+      "parts": 4,
+      "selector_cycles": 139,
+      "host_draw_cycles": 520
+    },
+    {
+      "kind": "weapon",
+      "frame": 42,
+      "face": 0,
+      "color": 129,
+      "opaque": 52,
+      "parts": 4,
+      "selector_cycles": 145,
+      "host_draw_cycles": 484
+    },
+    {
+      "kind": "weapon",
+      "frame": 60,
+      "face": 0,
+      "color": 0,
+      "opaque": 32,
+      "parts": 4,
+      "selector_cycles": 140,
+      "host_draw_cycles": 520
+    },
+    {
+      "kind": "weapon",
+      "frame": 60,
+      "face": 0,
+      "color": 129,
+      "opaque": 32,
+      "parts": 4,
+      "selector_cycles": 145,
+      "host_draw_cycles": 484
+    },
+    {
+      "kind": "weapon",
+      "frame": 73,
+      "face": 0,
+      "color": 0,
+      "opaque": 136,
+      "parts": 4,
+      "selector_cycles": 140,
+      "host_draw_cycles": 520
+    },
+    {
+      "kind": "weapon",
+      "frame": 73,
+      "face": 0,
+      "color": 129,
+      "opaque": 136,
+      "parts": 4,
+      "selector_cycles": 145,
+      "host_draw_cycles": 484
+    },
+    {
+      "kind": "weapon",
+      "frame": 74,
+      "face": 0,
+      "color": 0,
+      "opaque": 0,
+      "parts": 0,
+      "selector_cycles": 141,
+      "host_draw_cycles": 21
+    },
+    {
+      "kind": "weapon",
+      "frame": 74,
+      "face": 0,
+      "color": 129,
+      "opaque": 0,
+      "parts": 0,
+      "selector_cycles": 146,
+      "host_draw_cycles": 21
+    },
+    {
+      "kind": "weapon",
+      "frame": 75,
+      "face": 0,
+      "color": 0,
+      "opaque": 12,
+      "parts": 4,
+      "selector_cycles": 140,
+      "host_draw_cycles": 520
+    },
+    {
+      "kind": "weapon",
+      "frame": 75,
+      "face": 0,
+      "color": 129,
+      "opaque": 12,
+      "parts": 4,
+      "selector_cycles": 145,
+      "host_draw_cycles": 484
+    },
+    {
+      "kind": "weapon",
+      "frame": 77,
+      "face": 0,
+      "color": 0,
+      "opaque": 412,
+      "parts": 8,
+      "selector_cycles": 140,
+      "host_draw_cycles": 983
+    },
+    {
+      "kind": "weapon",
+      "frame": 77,
+      "face": 0,
+      "color": 129,
+      "opaque": 412,
+      "parts": 8,
+      "selector_cycles": 145,
+      "host_draw_cycles": 900
+    },
+    {
+      "kind": "weapon",
+      "frame": 78,
+      "face": 0,
+      "color": 0,
+      "opaque": 40,
+      "parts": 4,
+      "selector_cycles": 140,
+      "host_draw_cycles": 520
+    },
+    {
+      "kind": "weapon",
+      "frame": 78,
+      "face": 0,
+      "color": 129,
+      "opaque": 40,
+      "parts": 4,
+      "selector_cycles": 145,
+      "host_draw_cycles": 484
+    },
+    {
+      "kind": "weapon",
+      "frame": 79,
+      "face": 0,
+      "color": 0,
+      "opaque": 48,
+      "parts": 4,
+      "selector_cycles": 140,
+      "host_draw_cycles": 520
+    },
+    {
+      "kind": "weapon",
+      "frame": 79,
+      "face": 0,
+      "color": 129,
+      "opaque": 48,
+      "parts": 4,
+      "selector_cycles": 145,
+      "host_draw_cycles": 484
+    },
+    {
+      "kind": "weapon",
+      "frame": 103,
+      "face": 0,
+      "color": 0,
+      "opaque": 94,
+      "parts": 4,
+      "selector_cycles": 140,
+      "host_draw_cycles": 484
+    },
+    {
+      "kind": "weapon",
+      "frame": 103,
+      "face": 0,
+      "color": 129,
+      "opaque": 94,
+      "parts": 4,
+      "selector_cycles": 145,
+      "host_draw_cycles": 484
+    },
+    {
+      "kind": "weapon",
+      "frame": 104,
+      "face": 0,
+      "color": 0,
+      "opaque": 278,
+      "parts": 8,
+      "selector_cycles": 140,
+      "host_draw_cycles": 900
+    },
+    {
+      "kind": "weapon",
+      "frame": 104,
+      "face": 0,
+      "color": 129,
+      "opaque": 278,
+      "parts": 8,
+      "selector_cycles": 145,
+      "host_draw_cycles": 900
+    },
+    {
+      "kind": "weapon",
+      "frame": 105,
+      "face": 0,
+      "color": 0,
+      "opaque": 278,
+      "parts": 12,
+      "selector_cycles": 140,
+      "host_draw_cycles": 1319
+    },
+    {
+      "kind": "weapon",
+      "frame": 105,
+      "face": 0,
+      "color": 129,
+      "opaque": 278,
+      "parts": 12,
+      "selector_cycles": 145,
+      "host_draw_cycles": 1316
+    }
+  ],
+  "original_five_area_OAM_cells": 450,
+  "five_area_palettes": [
+    {
+      "source_area_PRG": 2,
+      "initial_pointer": "900F",
+      "initial_actual_PPU_stores": [
+        [
+          16128,
+          15
+        ],
+        [
+          16129,
+          48
+        ],
+        [
+          16130,
+          0
+        ],
+        [
+          16131,
+          8
+        ],
+        [
+          16132,
+          15
+        ],
+        [
+          16133,
+          48
+        ],
+        [
+          16134,
+          50
+        ],
+        [
+          16135,
+          34
+        ],
+        [
+          16136,
+          15
+        ],
+        [
+          16137,
+          39
+        ],
+        [
+          16138,
+          23
+        ],
+        [
+          16139,
+          7
+        ],
+        [
+          16140,
+          15
+        ],
+        [
+          16141,
+          54
+        ],
+        [
+          16142,
+          0
+        ],
+        [
+          16143,
+          8
+        ],
+        [
+          16144,
+          15
+        ],
+        [
+          16145,
+          12
+        ],
+        [
+          16146,
+          23
+        ],
+        [
+          16147,
+          40
+        ],
+        [
+          16148,
+          15
+        ],
+        [
+          16149,
+          33
+        ],
+        [
+          16150,
+          28
+        ],
+        [
+          16151,
+          12
+        ],
+        [
+          16152,
+          15
+        ],
+        [
+          16153,
+          23
+        ],
+        [
+          16154,
+          39
+        ],
+        [
+          16155,
+          58
+        ],
+        [
+          16156,
+          15
+        ],
+        [
+          16157,
+          22
+        ],
+        [
+          16158,
+          38
+        ],
+        [
+          16159,
+          57
+        ]
+      ],
+      "rows": [
+        {
+          "alt": 0,
+          "gear_suit": 0,
+          "missile": 0,
+          "request": 2,
+          "pointer": "9033",
+          "actual_PPU_stores": [
+            [
+              16146,
+              0
+            ],
+            [
+              16147,
+              54
+            ]
+          ],
+          "sprite_colors": [
+            15,
+            12,
+            0,
+            54,
+            15,
+            33,
+            28,
+            12,
+            15,
+            23,
+            39,
+            58,
+            15,
+            22,
+            38,
+            57
+          ]
+        },
+        {
+          "alt": 0,
+          "gear_suit": 0,
+          "missile": 1,
+          "request": 4,
+          "pointer": "9039",
+          "actual_PPU_stores": [
+            [
+              16146,
+              38
+            ],
+            [
+              16147,
+              48
+            ]
+          ],
+          "sprite_colors": [
+            15,
+            12,
+            38,
+            48,
+            15,
+            33,
+            28,
+            12,
+            15,
+            23,
+            39,
+            58,
+            15,
+            22,
+            38,
+            57
+          ]
+        },
+        {
+          "alt": 0,
+          "gear_suit": 32,
+          "missile": 0,
+          "request": 3,
+          "pointer": "903F",
+          "actual_PPU_stores": [
+            [
+              16146,
+              28
+            ],
+            [
+              16147,
+              54
+            ]
+          ],
+          "sprite_colors": [
+            15,
+            12,
+            28,
+            54,
+            15,
+            33,
+            28,
+            12,
+            15,
+            23,
+            39,
+            58,
+            15,
+            22,
+            38,
+            57
+          ]
+        },
+        {
+          "alt": 0,
+          "gear_suit": 32,
+          "missile": 1,
+          "request": 5,
+          "pointer": "9045",
+          "actual_PPU_stores": [
+            [
+              16146,
+              38
+            ],
+            [
+              16147,
+              48
+            ]
+          ],
+          "sprite_colors": [
+            15,
+            12,
+            38,
+            48,
+            15,
+            33,
+            28,
+            12,
+            15,
+            23,
+            39,
+            58,
+            15,
+            22,
+            38,
+            57
+          ]
+        },
+        {
+          "alt": 1,
+          "gear_suit": 0,
+          "missile": 0,
+          "request": 25,
+          "pointer": "9092",
+          "actual_PPU_stores": [
+            [
+              16144,
+              15
+            ],
+            [
+              16145,
+              12
+            ],
+            [
+              16146,
+              34
+            ],
+            [
+              16147,
+              57
+            ]
+          ],
+          "sprite_colors": [
+            15,
+            12,
+            34,
+            57,
+            15,
+            33,
+            28,
+            12,
+            15,
+            23,
+            39,
+            58,
+            15,
+            22,
+            38,
+            57
+          ]
+        },
+        {
+          "alt": 1,
+          "gear_suit": 0,
+          "missile": 1,
+          "request": 27,
+          "pointer": "90A2",
+          "actual_PPU_stores": [
+            [
+              16144,
+              15
+            ],
+            [
+              16145,
+              6
+            ],
+            [
+              16146,
+              21
+            ],
+            [
+              16147,
+              33
+            ]
+          ],
+          "sprite_colors": [
+            15,
+            6,
+            21,
+            33,
+            15,
+            33,
+            28,
+            12,
+            15,
+            23,
+            39,
+            58,
+            15,
+            22,
+            38,
+            57
+          ]
+        },
+        {
+          "alt": 1,
+          "gear_suit": 32,
+          "missile": 0,
+          "request": 26,
+          "pointer": "909A",
+          "actual_PPU_stores": [
+            [
+              16144,
+              15
+            ],
+            [
+              16145,
+              5
+            ],
+            [
+              16146,
+              38
+            ],
+            [
+              16147,
+              57
+            ]
+          ],
+          "sprite_colors": [
+            15,
+            5,
+            38,
+            57,
+            15,
+            33,
+            28,
+            12,
+            15,
+            23,
+            39,
+            58,
+            15,
+            22,
+            38,
+            57
+          ]
+        },
+        {
+          "alt": 1,
+          "gear_suit": 32,
+          "missile": 1,
+          "request": 28,
+          "pointer": "90AA",
+          "actual_PPU_stores": [
+            [
+              16144,
+              15
+            ],
+            [
+              16145,
+              22
+            ],
+            [
+              16146,
+              39
+            ],
+            [
+              16147,
+              43
+            ]
+          ],
+          "sprite_colors": [
+            15,
+            22,
+            39,
+            43,
+            15,
+            33,
+            28,
+            12,
+            15,
+            23,
+            39,
+            58,
+            15,
+            22,
+            38,
+            57
+          ]
+        }
+      ]
+    },
+    {
+      "source_area_PRG": 4,
+      "initial_pointer": "9C64",
+      "initial_actual_PPU_stores": [
+        [
+          16128,
+          15
+        ],
+        [
+          16129,
+          16
+        ],
+        [
+          16130,
+          0
+        ],
+        [
+          16131,
+          12
+        ],
+        [
+          16132,
+          15
+        ],
+        [
+          16133,
+          16
+        ],
+        [
+          16134,
+          28
+        ],
+        [
+          16135,
+          12
+        ],
+        [
+          16136,
+          15
+        ],
+        [
+          16137,
+          55
+        ],
+        [
+          16138,
+          39
+        ],
+        [
+          16139,
+          8
+        ],
+        [
+          16140,
+          15
+        ],
+        [
+          16141,
+          35
+        ],
+        [
+          16142,
+          19
+        ],
+        [
+          16143,
+          3
+        ],
+        [
+          16144,
+          15
+        ],
+        [
+          16145,
+          12
+        ],
+        [
+          16146,
+          23
+        ],
+        [
+          16147,
+          40
+        ],
+        [
+          16148,
+          15
+        ],
+        [
+          16149,
+          33
+        ],
+        [
+          16150,
+          28
+        ],
+        [
+          16151,
+          12
+        ],
+        [
+          16152,
+          15
+        ],
+        [
+          16153,
+          18
+        ],
+        [
+          16154,
+          34
+        ],
+        [
+          16155,
+          51
+        ],
+        [
+          16156,
+          15
+        ],
+        [
+          16157,
+          7
+        ],
+        [
+          16158,
+          23
+        ],
+        [
+          16159,
+          39
+        ]
+      ],
+      "rows": [
+        {
+          "alt": 0,
+          "gear_suit": 0,
+          "missile": 0,
+          "request": 2,
+          "pointer": "9C88",
+          "actual_PPU_stores": [
+            [
+              16146,
+              0
+            ],
+            [
+              16147,
+              54
+            ]
+          ],
+          "sprite_colors": [
+            15,
+            12,
+            0,
+            54,
+            15,
+            33,
+            28,
+            12,
+            15,
+            18,
+            34,
+            51,
+            15,
+            7,
+            23,
+            39
+          ]
+        },
+        {
+          "alt": 0,
+          "gear_suit": 0,
+          "missile": 1,
+          "request": 4,
+          "pointer": "9C8E",
+          "actual_PPU_stores": [
+            [
+              16146,
+              38
+            ],
+            [
+              16147,
+              48
+            ]
+          ],
+          "sprite_colors": [
+            15,
+            12,
+            38,
+            48,
+            15,
+            33,
+            28,
+            12,
+            15,
+            18,
+            34,
+            51,
+            15,
+            7,
+            23,
+            39
+          ]
+        },
+        {
+          "alt": 0,
+          "gear_suit": 32,
+          "missile": 0,
+          "request": 3,
+          "pointer": "9C94",
+          "actual_PPU_stores": [
+            [
+              16146,
+              28
+            ],
+            [
+              16147,
+              54
+            ]
+          ],
+          "sprite_colors": [
+            15,
+            12,
+            28,
+            54,
+            15,
+            33,
+            28,
+            12,
+            15,
+            18,
+            34,
+            51,
+            15,
+            7,
+            23,
+            39
+          ]
+        },
+        {
+          "alt": 0,
+          "gear_suit": 32,
+          "missile": 1,
+          "request": 5,
+          "pointer": "9C9A",
+          "actual_PPU_stores": [
+            [
+              16146,
+              38
+            ],
+            [
+              16147,
+              48
+            ]
+          ],
+          "sprite_colors": [
+            15,
+            12,
+            38,
+            48,
+            15,
+            33,
+            28,
+            12,
+            15,
+            18,
+            34,
+            51,
+            15,
+            7,
+            23,
+            39
+          ]
+        },
+        {
+          "alt": 1,
+          "gear_suit": 0,
+          "missile": 0,
+          "request": 25,
+          "pointer": "9CE7",
+          "actual_PPU_stores": [
+            [
+              16144,
+              15
+            ],
+            [
+              16145,
+              12
+            ],
+            [
+              16146,
+              34
+            ],
+            [
+              16147,
+              57
+            ]
+          ],
+          "sprite_colors": [
+            15,
+            12,
+            34,
+            57,
+            15,
+            33,
+            28,
+            12,
+            15,
+            18,
+            34,
+            51,
+            15,
+            7,
+            23,
+            39
+          ]
+        },
+        {
+          "alt": 1,
+          "gear_suit": 0,
+          "missile": 1,
+          "request": 27,
+          "pointer": "9CF7",
+          "actual_PPU_stores": [
+            [
+              16144,
+              15
+            ],
+            [
+              16145,
+              6
+            ],
+            [
+              16146,
+              21
+            ],
+            [
+              16147,
+              33
+            ]
+          ],
+          "sprite_colors": [
+            15,
+            6,
+            21,
+            33,
+            15,
+            33,
+            28,
+            12,
+            15,
+            18,
+            34,
+            51,
+            15,
+            7,
+            23,
+            39
+          ]
+        },
+        {
+          "alt": 1,
+          "gear_suit": 32,
+          "missile": 0,
+          "request": 26,
+          "pointer": "9CEF",
+          "actual_PPU_stores": [
+            [
+              16144,
+              15
+            ],
+            [
+              16145,
+              5
+            ],
+            [
+              16146,
+              38
+            ],
+            [
+              16147,
+              57
+            ]
+          ],
+          "sprite_colors": [
+            15,
+            5,
+            38,
+            57,
+            15,
+            33,
+            28,
+            12,
+            15,
+            18,
+            34,
+            51,
+            15,
+            7,
+            23,
+            39
+          ]
+        },
+        {
+          "alt": 1,
+          "gear_suit": 32,
+          "missile": 1,
+          "request": 28,
+          "pointer": "9CFF",
+          "actual_PPU_stores": [
+            [
+              16144,
+              15
+            ],
+            [
+              16145,
+              22
+            ],
+            [
+              16146,
+              39
+            ],
+            [
+              16147,
+              43
+            ]
+          ],
+          "sprite_colors": [
+            15,
+            22,
+            39,
+            43,
+            15,
+            33,
+            28,
+            12,
+            15,
+            18,
+            34,
+            51,
+            15,
+            7,
+            23,
+            39
+          ]
+        }
+      ]
+    },
+    {
+      "source_area_PRG": 6,
+      "initial_pointer": "904C",
+      "initial_actual_PPU_stores": [
+        [
+          16128,
+          15
+        ],
+        [
+          16129,
+          7
+        ],
+        [
+          16130,
+          10
+        ],
+        [
+          16131,
+          24
+        ],
+        [
+          16132,
+          15
+        ],
+        [
+          16133,
+          39
+        ],
+        [
+          16134,
+          23
+        ],
+        [
+          16135,
+          7
+        ],
+        [
+          16136,
+          15
+        ],
+        [
+          16137,
+          7
+        ],
+        [
+          16138,
+          23
+        ],
+        [
+          16139,
+          2
+        ],
+        [
+          16140,
+          15
+        ],
+        [
+          16141,
+          2
+        ],
+        [
+          16142,
+          18
+        ],
+        [
+          16143,
+          7
+        ],
+        [
+          16144,
+          15
+        ],
+        [
+          16145,
+          12
+        ],
+        [
+          16146,
+          26
+        ],
+        [
+          16147,
+          56
+        ],
+        [
+          16148,
+          15
+        ],
+        [
+          16149,
+          33
+        ],
+        [
+          16150,
+          28
+        ],
+        [
+          16151,
+          12
+        ],
+        [
+          16152,
+          15
+        ],
+        [
+          16153,
+          39
+        ],
+        [
+          16154,
+          42
+        ],
+        [
+          16155,
+          56
+        ],
+        [
+          16156,
+          15
+        ],
+        [
+          16157,
+          7
+        ],
+        [
+          16158,
+          10
+        ],
+        [
+          16159,
+          40
+        ]
+      ],
+      "rows": [
+        {
+          "alt": 0,
+          "gear_suit": 0,
+          "missile": 0,
+          "request": 2,
+          "pointer": "9070",
+          "actual_PPU_stores": [
+            [
+              16146,
+              0
+            ],
+            [
+              16147,
+              54
+            ]
+          ],
+          "sprite_colors": [
+            15,
+            12,
+            0,
+            54,
+            15,
+            33,
+            28,
+            12,
+            15,
+            39,
+            42,
+            56,
+            15,
+            7,
+            10,
+            40
+          ]
+        },
+        {
+          "alt": 0,
+          "gear_suit": 0,
+          "missile": 1,
+          "request": 4,
+          "pointer": "9076",
+          "actual_PPU_stores": [
+            [
+              16146,
+              38
+            ],
+            [
+              16147,
+              48
+            ]
+          ],
+          "sprite_colors": [
+            15,
+            12,
+            38,
+            48,
+            15,
+            33,
+            28,
+            12,
+            15,
+            39,
+            42,
+            56,
+            15,
+            7,
+            10,
+            40
+          ]
+        },
+        {
+          "alt": 0,
+          "gear_suit": 32,
+          "missile": 0,
+          "request": 3,
+          "pointer": "907C",
+          "actual_PPU_stores": [
+            [
+              16146,
+              28
+            ],
+            [
+              16147,
+              54
+            ]
+          ],
+          "sprite_colors": [
+            15,
+            12,
+            28,
+            54,
+            15,
+            33,
+            28,
+            12,
+            15,
+            39,
+            42,
+            56,
+            15,
+            7,
+            10,
+            40
+          ]
+        },
+        {
+          "alt": 0,
+          "gear_suit": 32,
+          "missile": 1,
+          "request": 5,
+          "pointer": "9082",
+          "actual_PPU_stores": [
+            [
+              16146,
+              38
+            ],
+            [
+              16147,
+              48
+            ]
+          ],
+          "sprite_colors": [
+            15,
+            12,
+            38,
+            48,
+            15,
+            33,
+            28,
+            12,
+            15,
+            39,
+            42,
+            56,
+            15,
+            7,
+            10,
+            40
+          ]
+        },
+        {
+          "alt": 1,
+          "gear_suit": 0,
+          "missile": 0,
+          "request": 25,
+          "pointer": "90E5",
+          "actual_PPU_stores": [
+            [
+              16144,
+              15
+            ],
+            [
+              16145,
+              12
+            ],
+            [
+              16146,
+              34
+            ],
+            [
+              16147,
+              57
+            ]
+          ],
+          "sprite_colors": [
+            15,
+            12,
+            34,
+            57,
+            15,
+            33,
+            28,
+            12,
+            15,
+            39,
+            42,
+            56,
+            15,
+            7,
+            10,
+            40
+          ]
+        },
+        {
+          "alt": 1,
+          "gear_suit": 0,
+          "missile": 1,
+          "request": 27,
+          "pointer": "90F5",
+          "actual_PPU_stores": [
+            [
+              16144,
+              15
+            ],
+            [
+              16145,
+              6
+            ],
+            [
+              16146,
+              21
+            ],
+            [
+              16147,
+              33
+            ]
+          ],
+          "sprite_colors": [
+            15,
+            6,
+            21,
+            33,
+            15,
+            33,
+            28,
+            12,
+            15,
+            39,
+            42,
+            56,
+            15,
+            7,
+            10,
+            40
+          ]
+        },
+        {
+          "alt": 1,
+          "gear_suit": 32,
+          "missile": 0,
+          "request": 26,
+          "pointer": "90ED",
+          "actual_PPU_stores": [
+            [
+              16144,
+              15
+            ],
+            [
+              16145,
+              5
+            ],
+            [
+              16146,
+              38
+            ],
+            [
+              16147,
+              57
+            ]
+          ],
+          "sprite_colors": [
+            15,
+            5,
+            38,
+            57,
+            15,
+            33,
+            28,
+            12,
+            15,
+            39,
+            42,
+            56,
+            15,
+            7,
+            10,
+            40
+          ]
+        },
+        {
+          "alt": 1,
+          "gear_suit": 32,
+          "missile": 1,
+          "request": 28,
+          "pointer": "90FD",
+          "actual_PPU_stores": [
+            [
+              16144,
+              15
+            ],
+            [
+              16145,
+              22
+            ],
+            [
+              16146,
+              39
+            ],
+            [
+              16147,
+              43
+            ]
+          ],
+          "sprite_colors": [
+            15,
+            22,
+            39,
+            43,
+            15,
+            33,
+            28,
+            12,
+            15,
+            39,
+            42,
+            56,
+            15,
+            7,
+            10,
+            40
+          ]
+        }
+      ]
+    },
+    {
+      "source_area_PRG": 8,
+      "initial_pointer": "91BE",
+      "initial_actual_PPU_stores": [
+        [
+          16128,
+          15
+        ],
+        [
+          16129,
+          16
+        ],
+        [
+          16130,
+          0
+        ],
+        [
+          16131,
+          12
+        ],
+        [
+          16132,
+          15
+        ],
+        [
+          16133,
+          26
+        ],
+        [
+          16134,
+          11
+        ],
+        [
+          16135,
+          8
+        ],
+        [
+          16136,
+          15
+        ],
+        [
+          16137,
+          55
+        ],
+        [
+          16138,
+          24
+        ],
+        [
+          16139,
+          8
+        ],
+        [
+          16140,
+          15
+        ],
+        [
+          16141,
+          9
+        ],
+        [
+          16142,
+          39
+        ],
+        [
+          16143,
+          8
+        ],
+        [
+          16144,
+          15
+        ],
+        [
+          16145,
+          12
+        ],
+        [
+          16146,
+          23
+        ],
+        [
+          16147,
+          40
+        ],
+        [
+          16148,
+          15
+        ],
+        [
+          16149,
+          33
+        ],
+        [
+          16150,
+          28
+        ],
+        [
+          16151,
+          12
+        ],
+        [
+          16152,
+          15
+        ],
+        [
+          16153,
+          8
+        ],
+        [
+          16154,
+          24
+        ],
+        [
+          16155,
+          56
+        ],
+        [
+          16156,
+          15
+        ],
+        [
+          16157,
+          11
+        ],
+        [
+          16158,
+          26
+        ],
+        [
+          16159,
+          57
+        ]
+      ],
+      "rows": [
+        {
+          "alt": 0,
+          "gear_suit": 0,
+          "missile": 0,
+          "request": 2,
+          "pointer": "91E2",
+          "actual_PPU_stores": [
+            [
+              16146,
+              0
+            ],
+            [
+              16147,
+              54
+            ]
+          ],
+          "sprite_colors": [
+            15,
+            12,
+            0,
+            54,
+            15,
+            33,
+            28,
+            12,
+            15,
+            8,
+            24,
+            56,
+            15,
+            11,
+            26,
+            57
+          ]
+        },
+        {
+          "alt": 0,
+          "gear_suit": 0,
+          "missile": 1,
+          "request": 4,
+          "pointer": "91E8",
+          "actual_PPU_stores": [
+            [
+              16146,
+              38
+            ],
+            [
+              16147,
+              48
+            ]
+          ],
+          "sprite_colors": [
+            15,
+            12,
+            38,
+            48,
+            15,
+            33,
+            28,
+            12,
+            15,
+            8,
+            24,
+            56,
+            15,
+            11,
+            26,
+            57
+          ]
+        },
+        {
+          "alt": 0,
+          "gear_suit": 32,
+          "missile": 0,
+          "request": 3,
+          "pointer": "91EE",
+          "actual_PPU_stores": [
+            [
+              16146,
+              28
+            ],
+            [
+              16147,
+              54
+            ]
+          ],
+          "sprite_colors": [
+            15,
+            12,
+            28,
+            54,
+            15,
+            33,
+            28,
+            12,
+            15,
+            8,
+            24,
+            56,
+            15,
+            11,
+            26,
+            57
+          ]
+        },
+        {
+          "alt": 0,
+          "gear_suit": 32,
+          "missile": 1,
+          "request": 5,
+          "pointer": "91F4",
+          "actual_PPU_stores": [
+            [
+              16146,
+              38
+            ],
+            [
+              16147,
+              48
+            ]
+          ],
+          "sprite_colors": [
+            15,
+            12,
+            38,
+            48,
+            15,
+            33,
+            28,
+            12,
+            15,
+            8,
+            24,
+            56,
+            15,
+            11,
+            26,
+            57
+          ]
+        },
+        {
+          "alt": 1,
+          "gear_suit": 0,
+          "missile": 0,
+          "request": 25,
+          "pointer": "921E",
+          "actual_PPU_stores": [
+            [
+              16144,
+              15
+            ],
+            [
+              16145,
+              12
+            ],
+            [
+              16146,
+              34
+            ],
+            [
+              16147,
+              57
+            ]
+          ],
+          "sprite_colors": [
+            15,
+            12,
+            34,
+            57,
+            15,
+            33,
+            28,
+            12,
+            15,
+            8,
+            24,
+            56,
+            15,
+            11,
+            26,
+            57
+          ]
+        },
+        {
+          "alt": 1,
+          "gear_suit": 0,
+          "missile": 1,
+          "request": 27,
+          "pointer": "922E",
+          "actual_PPU_stores": [
+            [
+              16144,
+              15
+            ],
+            [
+              16145,
+              6
+            ],
+            [
+              16146,
+              21
+            ],
+            [
+              16147,
+              33
+            ]
+          ],
+          "sprite_colors": [
+            15,
+            6,
+            21,
+            33,
+            15,
+            33,
+            28,
+            12,
+            15,
+            8,
+            24,
+            56,
+            15,
+            11,
+            26,
+            57
+          ]
+        },
+        {
+          "alt": 1,
+          "gear_suit": 32,
+          "missile": 0,
+          "request": 26,
+          "pointer": "9226",
+          "actual_PPU_stores": [
+            [
+              16144,
+              15
+            ],
+            [
+              16145,
+              5
+            ],
+            [
+              16146,
+              38
+            ],
+            [
+              16147,
+              57
+            ]
+          ],
+          "sprite_colors": [
+            15,
+            5,
+            38,
+            57,
+            15,
+            33,
+            28,
+            12,
+            15,
+            8,
+            24,
+            56,
+            15,
+            11,
+            26,
+            57
+          ]
+        },
+        {
+          "alt": 1,
+          "gear_suit": 32,
+          "missile": 1,
+          "request": 28,
+          "pointer": "9236",
+          "actual_PPU_stores": [
+            [
+              16144,
+              15
+            ],
+            [
+              16145,
+              22
+            ],
+            [
+              16146,
+              39
+            ],
+            [
+              16147,
+              43
+            ]
+          ],
+          "sprite_colors": [
+            15,
+            22,
+            39,
+            43,
+            15,
+            33,
+            28,
+            12,
+            15,
+            8,
+            24,
+            56,
+            15,
+            11,
+            26,
+            57
+          ]
+        }
+      ]
+    },
+    {
+      "source_area_PRG": 10,
+      "initial_pointer": "925B",
+      "initial_actual_PPU_stores": [
+        [
+          16128,
+          15
+        ],
+        [
+          16129,
+          16
+        ],
+        [
+          16130,
+          0
+        ],
+        [
+          16131,
+          12
+        ],
+        [
+          16132,
+          15
+        ],
+        [
+          16133,
+          16
+        ],
+        [
+          16134,
+          0
+        ],
+        [
+          16135,
+          8
+        ],
+        [
+          16136,
+          15
+        ],
+        [
+          16137,
+          56
+        ],
+        [
+          16138,
+          40
+        ],
+        [
+          16139,
+          24
+        ],
+        [
+          16140,
+          15
+        ],
+        [
+          16141,
+          50
+        ],
+        [
+          16142,
+          34
+        ],
+        [
+          16143,
+          2
+        ],
+        [
+          16144,
+          15
+        ],
+        [
+          16145,
+          12
+        ],
+        [
+          16146,
+          23
+        ],
+        [
+          16147,
+          40
+        ],
+        [
+          16148,
+          15
+        ],
+        [
+          16149,
+          33
+        ],
+        [
+          16150,
+          28
+        ],
+        [
+          16151,
+          12
+        ],
+        [
+          16152,
+          15
+        ],
+        [
+          16153,
+          16
+        ],
+        [
+          16154,
+          0
+        ],
+        [
+          16155,
+          2
+        ],
+        [
+          16156,
+          15
+        ],
+        [
+          16157,
+          16
+        ],
+        [
+          16158,
+          0
+        ],
+        [
+          16159,
+          6
+        ]
+      ],
+      "rows": [
+        {
+          "alt": 0,
+          "gear_suit": 0,
+          "missile": 0,
+          "request": 2,
+          "pointer": "927F",
+          "actual_PPU_stores": [
+            [
+              16146,
+              0
+            ],
+            [
+              16147,
+              54
+            ]
+          ],
+          "sprite_colors": [
+            15,
+            12,
+            0,
+            54,
+            15,
+            33,
+            28,
+            12,
+            15,
+            16,
+            0,
+            2,
+            15,
+            16,
+            0,
+            6
+          ]
+        },
+        {
+          "alt": 0,
+          "gear_suit": 0,
+          "missile": 1,
+          "request": 4,
+          "pointer": "9285",
+          "actual_PPU_stores": [
+            [
+              16146,
+              38
+            ],
+            [
+              16147,
+              48
+            ]
+          ],
+          "sprite_colors": [
+            15,
+            12,
+            38,
+            48,
+            15,
+            33,
+            28,
+            12,
+            15,
+            16,
+            0,
+            2,
+            15,
+            16,
+            0,
+            6
+          ]
+        },
+        {
+          "alt": 0,
+          "gear_suit": 32,
+          "missile": 0,
+          "request": 3,
+          "pointer": "928B",
+          "actual_PPU_stores": [
+            [
+              16146,
+              28
+            ],
+            [
+              16147,
+              54
+            ]
+          ],
+          "sprite_colors": [
+            15,
+            12,
+            28,
+            54,
+            15,
+            33,
+            28,
+            12,
+            15,
+            16,
+            0,
+            2,
+            15,
+            16,
+            0,
+            6
+          ]
+        },
+        {
+          "alt": 0,
+          "gear_suit": 32,
+          "missile": 1,
+          "request": 5,
+          "pointer": "9291",
+          "actual_PPU_stores": [
+            [
+              16146,
+              38
+            ],
+            [
+              16147,
+              48
+            ]
+          ],
+          "sprite_colors": [
+            15,
+            12,
+            38,
+            48,
+            15,
+            33,
+            28,
+            12,
+            15,
+            16,
+            0,
+            2,
+            15,
+            16,
+            0,
+            6
+          ]
+        },
+        {
+          "alt": 1,
+          "gear_suit": 0,
+          "missile": 0,
+          "request": 25,
+          "pointer": "92CF",
+          "actual_PPU_stores": [
+            [
+              16144,
+              15
+            ],
+            [
+              16145,
+              12
+            ],
+            [
+              16146,
+              34
+            ],
+            [
+              16147,
+              57
+            ]
+          ],
+          "sprite_colors": [
+            15,
+            12,
+            34,
+            57,
+            15,
+            33,
+            28,
+            12,
+            15,
+            16,
+            0,
+            2,
+            15,
+            16,
+            0,
+            6
+          ]
+        },
+        {
+          "alt": 1,
+          "gear_suit": 0,
+          "missile": 1,
+          "request": 27,
+          "pointer": "92DF",
+          "actual_PPU_stores": [
+            [
+              16144,
+              15
+            ],
+            [
+              16145,
+              6
+            ],
+            [
+              16146,
+              21
+            ],
+            [
+              16147,
+              33
+            ]
+          ],
+          "sprite_colors": [
+            15,
+            6,
+            21,
+            33,
+            15,
+            33,
+            28,
+            12,
+            15,
+            16,
+            0,
+            2,
+            15,
+            16,
+            0,
+            6
+          ]
+        },
+        {
+          "alt": 1,
+          "gear_suit": 32,
+          "missile": 0,
+          "request": 26,
+          "pointer": "92D7",
+          "actual_PPU_stores": [
+            [
+              16144,
+              15
+            ],
+            [
+              16145,
+              5
+            ],
+            [
+              16146,
+              38
+            ],
+            [
+              16147,
+              57
+            ]
+          ],
+          "sprite_colors": [
+            15,
+            5,
+            38,
+            57,
+            15,
+            33,
+            28,
+            12,
+            15,
+            16,
+            0,
+            2,
+            15,
+            16,
+            0,
+            6
+          ]
+        },
+        {
+          "alt": 1,
+          "gear_suit": 32,
+          "missile": 1,
+          "request": 28,
+          "pointer": "92E7",
+          "actual_PPU_stores": [
+            [
+              16144,
+              15
+            ],
+            [
+              16145,
+              22
+            ],
+            [
+              16146,
+              39
+            ],
+            [
+              16147,
+              43
+            ]
+          ],
+          "sprite_colors": [
+            15,
+            22,
+            39,
+            43,
+            15,
+            33,
+            28,
+            12,
+            15,
+            16,
+            0,
+            2,
+            15,
+            16,
+            0,
+            6
+          ]
+        }
+      ]
+    }
+  ],
+  "admission_cells": 1534,
+  "animation_cells": 1152,
+  "animation_source_port_cycle_ranges": [
+    25,
+    71,
+    20,
+    63
+  ],
+  "palette_rows": 8,
+  "CHR_publication_cells": 70,
+  "actual_original_MMC3_mapping": [
+    {
+      "alt": 0,
+      "actual_MMC3_registers": {
+        "6": 2,
+        "7": 3,
+        "0": 9,
+        "1": 11,
+        "2": 28,
+        "3": 29,
+        "4": 18,
+        "5": 19
+      }
+    },
+    {
+      "alt": 1,
+      "actual_MMC3_registers": {
+        "6": 2,
+        "7": 3,
+        "0": 10,
+        "1": 12,
+        "2": 28,
+        "3": 29,
+        "4": 18,
+        "5": 19
+      }
+    }
+  ],
+  "code_bytes": 2293,
+  "render_bytes": 351,
+  "CORE_end": "B8F5",
+  "ART_bytes": 3150,
+  "ART_end": "DF4E",
+  "first_CHR": 680,
+  "CHR_reserved_bytes": 16384,
+  "CHR_used_pages": 9,
+  "body_window": 0,
+  "weapon_windows": [
+    2,
+    3
+  ],
+  "window1_unchanged": true,
+  "frozen_weapons_prefix_exact": true,
+  "source_host_preview": {
+    "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-art-v1\\source-host-eight.png",
+    "bytes": 15121,
+    "sha256": "08b013b3afb055d433db99720e63180f449a96a3698796e9ff3dd5f888e8289f"
+  },
+  "illustrative_NES_RGB_palette": {
+    "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\Windows\\NEXXT 3.0\\defaults\\nes.pal",
+    "bytes": 192,
+    "sha256": "1c30cb22380976043ff80ae907adb1c12f34ac9c040ee417c90592d43d62cde0"
+  },
+  "inputs": [
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\rogue_dawn_render.s",
+      "bytes": 4741,
+      "sha256": "28afe39f8e8929bb87a4772100cba906aabeb02b401b554f49ac8ce720beea4e"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\rogue_dawn_art.inc",
+      "bytes": 15808,
+      "sha256": "6bc09d5500dc3d4baf21128a3708e7c7c418a8c7a610e71cfd7a60da31bc5f64"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\chr\\characters\\rogue-dawn.chr",
+      "bytes": 16384,
+      "sha256": "4b31e0309b20c9fd408fe126670186e183f7b3059027cff052612e062680fe96"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\prepare_rogue_dawn_art_v1.py",
+      "bytes": 13082,
+      "sha256": "cdfd50898d201f0261f6b86c3a85f81e23092daadc80841b0f643912483c9f3e"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\rogue_dawn_render_controls_v1.py",
+      "bytes": 15205,
+      "sha256": "2a9736f1980f9bf14345adf1dc0580b7f446334f8d969b34cf9c25ba6b7eebcb"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\mmc5.s",
+      "bytes": 11191,
+      "sha256": "83a46b7e0900f0bca284fbbb3a4436f583b004bb762f79f3a2358d72131cd8cb"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-art-v1\\extraction.json",
+      "bytes": 650854,
+      "sha256": "f4b88c45a2b0f35fc4a29126132e1a67c9e2ef01d16b5bc76f0f994e30b83a49"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-weapons-v1\\handoff.json",
+      "bytes": 4908,
+      "sha256": "21efd14262ae4d92eefb862fea7d9483bf2e153f6b926f96093db1176d5f6c86"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-chr-reservation-v1.json",
+      "bytes": 568,
+      "sha256": "10a57911b59f5758b4b6c5204950d91717649ef2c5b70799f2f5013e67cc40c7"
+    }
+  ],
+  "limitations": [
+    "No native NMI/IRQ/PPU timing, host gameplay adapter or collision integration",
+    "Body source center=(host top-leftX+8,Y+16); weapons use actual source center. Gameplay import/export remains explicit integration work",
+    "Palette pointer is a source role description, not permission to replace shared enemy palettes",
+    "Dynamic death explosion, alternate pattern costume69B3 and hurt/Screw flash overrides not selected",
+    "Host8x16 regrouping preserves full visible pixel/attribute mask, not original8x8 transparent OAM count or clipping at every screen edge"
+  ]
+}
