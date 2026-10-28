@@ -1,0 +1,17 @@
+Bill inert-pool native comparison, 2026-10-28
+
+HELD: source-qualified candidate 44204c9b573a82dd4838df1821afeaad8ffab8b264ebb234f31a8e156434ff5a failed the unchanged zero-death guard at physical1811/x851/y176/engine11. It is not adopted. Matched current326 baseline 32694243361bb1366f6fd64c054ea2451f86b2517fc020d9c2b5d66bbf07bfa0 passed6095wall/5142completedMain/3813DMAs/5208wholePPU and25controlled1-2updates. Both launch receipts have unchanged bindings/settings. Native guard bodies, policy, RAM/hook config, runtime and caps are identical after exactly ROM/output config normalization.
+
+The first sampled policy mask difference is467, long before the failure; power acquisition is also earlier on candidate. These are adaptive runs, not a fixed-input differential. At candidate1809/Main1638 Bill is airborne atx850/y171 with mask5 (Right+Down); at1811 he is dead atx851/y176 with mask5. Matched baseline first lands1838/Main1639/x850/y176 alive with mask69 (Right+Down+B), then1839 uses mask68 (Down+B), crouches/stops and later jumps safely. Original policy pulses B from poll%12<5 and admits its short-enemy prone response only when grounded. Candidate terminal poll1810 has remainder10/Boff; baseline landing poll1837 has remainder1/Bon. This is a concrete scheduling/input-phase distinction, not proof that one final missing B pulse caused death.
+
+Eight exact whole images show two nearby Goombas during descent, the failed candidate contact region and matched baseline landing/prone response. No pit is present at that sampled contact. The route log does not identify the actual enemy contact/kill writer, slot or source collision state; the interruptedPC at the endFrame death sample must not be represented as that writer. Exact collision cause is consequently unproved. Earlier complete source caller/state/flags/RAM/OAM/IRQ qualification remains separately scoped. Candidate source changes only31bytes inbank6; no source behavior omission was demonstrated by this native comparison. Independent review remains required.
+
+No controller/guard/product patch or native launch was performed by this reviewer. A possible narrow successor is Bill-only anticipatory safe landing/real B-edge control around a live short enemy; changing wall-time cadence alone is not asserted sufficient. It needs a separate explicitly reviewed source-context control and readiness, while the existing failure stays unchanged. No full-route speed/FPS or adoption claim follows from these totals.
+
+Exact compact receipt: C:\Users\kando\Documents\ChatGPT\SMB Crossover\build\bill_inert_pool_native_review.json
+Receipt SHA256: 4a8a2fda651dd9cf808dd45b7952e7b6c0b79af59205e495c033a12051aa400f
+Matched sheet (four candidate + four current326 originals): C:\Users\kando\Documents\ChatGPT\SMB Crossover\build\bill_inert_pool_matched_contact.png
+Sheet SHA256: 75fa98e2a1bd768b3fdf12e0dab6c4ab535573cdddefc88351c25091702df225
+Partial stream decoding stops after selected records; only these eight frames were visually reviewed. The older historical9ea sheet remains separate and is not the matched baseline.
+
+Owned publication files: tools/audit/bill_inert_pool_baseline_prepare_v1.py; tools/audit/bill_inert_pool_native_review_v1.py; this report. Existing source/control files and the literal negative/native outputs remain frozen. ROOT owns publication/adoption/native decisions.

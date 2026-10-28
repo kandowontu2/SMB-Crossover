@@ -1,0 +1,42 @@
+[
+  {
+    "change": "Guarded setup at GameLoop+5",
+    "before": "assert(writeBoundary,'Fixture writes only at native GameLoop entry');",
+    "after": "assert(writeBoundary,'Fixture writes only at native GameLoop entry');assert(r('NmiDisable')==255 and emu.getState()['cpu.pc']==C.hooks.GameLoop.address,'Setup only after genuine main NMI exclusion');"
+  },
+  {
+    "change": "Genuine current E127/E125 NMI aliases",
+    "before": "if bank(h.address)~=h.physical_bank then return end",
+    "after": "local actual=bank(h.address);local permitted=actual==h.physical_bank;for _,v in ipairs(h.physical_banks or{})do permitted=permitted or actual==v end;if not permitted then return end"
+  },
+  {
+    "change": "Same real postDMA hook in resident clones",
+    "before": "if bank(pc)~=dmaProtocol.bank then return end",
+    "after": "local permitted=false;for _,v in ipairs(dmaProtocol.banks)do permitted=permitted or bank(pc)==v end;if not permitted then return end"
+  },
+  {
+    "change": "Qualified physical attribute E3 semantics",
+    "before": "local dmaProtocol=assert(C.dma_protocol)",
+    "after": "local function hardwareOamMatches(source,hardware)\n if #source~=256 or #hardware~=256 then return false end\n for i=1,256 do local want=source:byte(i);if(i-1)%4==2 then want=want&0xe3 end;if hardware:byte(i)~=want then return false end end\n return true\nend\nlocal dmaProtocol=assert(C.dma_protocol)"
+  },
+  {
+    "change": "Report only actual physical differences; raw source retained",
+    "before": "if q.source:byte(i)~=q.hardware:byte(i)then",
+    "after": "local expected=q.source:byte(i);if(i-1)%4==2 then expected=expected&0xe3 end;if expected~=q.hardware:byte(i)then"
+  },
+  {
+    "change": "All256 physical completion",
+    "before": "assert(q.hardware==q.source,'All256 physical OAM bytes equal the actual DMA source')",
+    "after": "assert(hardwareOamMatches(q.source,q.hardware),'All256 physical OAM bytes follow actual E3 hardware semantics')"
+  },
+  {
+    "change": "All256 uncontested startFrame",
+    "before": "assert(hardware==dmaCompleted.source,'startFrame hardware retains last completed DMA')",
+    "after": "assert(hardwareOamMatches(dmaCompleted.source,hardware),'startFrame hardware retains last completed DMA with E3 attributes')"
+  },
+  {
+    "change": "Original publication check",
+    "before": "assert(bytes(0,emu.memType.nesSpriteRam)==dma,'Committed native publication reaches OAM DMA')",
+    "after": "assert(hardwareOamMatches(dma,bytes(0,emu.memType.nesSpriteRam)),'Committed native publication reaches OAM DMA with E3 attributes')"
+  }
+]

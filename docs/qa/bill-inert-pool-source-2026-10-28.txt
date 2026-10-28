@@ -1,0 +1,133 @@
+Bill inert advanced-pool fast path — source-qualified, native UNRUN
+
+Private candidate build/bill_inert_pool.nes/.dbg/.lbl:
+44204c9b573a82dd4838df1821afeaad8ffab8b264ebb234f31a8e156434ff5a.
+Parent build/zelda2_easy_glove.nes is exact current326:
+32694243361bb1366f6fd64c054ea2451f86b2517fc020d9c2b5d66bbf07bfa0.
+No canonical/default/Downloads/settings/gameplay fixture changed; no emulator
+launched. ROOT owns native acceptance. The current326 fixed-input profile's
+replay-exhaustion FALSE remains separate and unchanged.
+
+Exact implementation
+One sparse overlay: build/bill_inert_pool_remaining_weapons.s, plus private
+entrypoint/main build leaves. The normalized source diff is
+build/bill_inert_pool.patch (SHA5f543764f6645264b72cc916dd2a4d8bd21e5428b0358b42cea37c8b155c6dcf).
+Exactly31 ROM bytes change, all physical bank6:AB53..AB5C (10B) and
+B54F..B563 (21B). The existing19B Samus-empty span and owned24B admission
+span retain their exact sizes. No free-space allocation, new RAM, bank
+roundtrip, NMI/IRQ/audio change, record/sample/collision omission or new flag.
+The immutable original4-byte bank6 tail is not consumed.
+
+The existing Bill scan now keeps AdvanceFreeze and, only when all ten types
+exclude32..46, shares the genuine final-slot tail at AB54. It omits the inert
+second traversal that otherwise rewrites AvSlot/RgSlot and tests Laser/Flare
+for every empty/basic slot. Fresh Select and any real advanced consumer take
+their original preparation/update path. The later mandatory Roster cache
+refresh stays in place after earlier mutations.
+
+Carry is not guessed: after the descending admission scan, slot0 below32
+leavesC0 and slot0 above46 leavesC1. Those are exactly the literal Bill Next
+tail outcomes for the admitted domain. Every possible instruction of
+AdvanceFreeze and its sole SamusFrozenDecrement callee preservesC/V and
+cannot write the pool/cursors; the final LDA0 restores originalN/Z. Samus's
+CLC moves before only LDX/STX/DEX, preserving his full return state/cycles.
+The change is expandedMMC5-only; ordinary instruction order remains original.
+
+All RAM/segment/public entry addresses remain genuine and unchanged. Three
+private helper labels move: BillEarlyRange B557→B54F, BillEarlyNext B551→B557,
+BillEarlyPrepare B561→B560. Each already has both a real global debug binding
+and an AvHomeFriction-scoped binding, so six existing qualified names move.
+Both names still denote the actual same intended instruction; no fake alias.
+
+Assembled qualification
+build/bill_inert_pool_cpu.json SHAac2e81574a2239313cd4abb1bda7f27b68014f3d4acff9264b6d819af343c94d:
+6144 all-byte/CV/Select cases;6144 complete Remaining all64 flags, modes,
+variants and freeze states;456 foreign calls;3072 timer/engine boundaries;
+480 complete real ProcFireball_Bubble callers plus1024 all64flag callers;
+242 actual IRQ injections;16 source-executed IRQ/NMI lag-path reader cases.
+All full calls require completeAXYP/SP, application/SHORTRAM/SMC/SRAM/OAM,
+banks and caller-live stack exact. No V/cache/SMC exception. The only reduced
+ordered application writes are intermediate publications of the two precise
+private cursors; their final values remain exact. Actual IRQ/new-boundary
+controls compare full caller state; actual Main-owned NMI lag paths inspect
+both variants and find no cursor reads. This is bounded source execution,
+not a claim of native interrupt scheduling or every audio-state coverage.
+
+All byte values have exact admission coverage. Foreign advanced32..41/44..46
+are compared at the genuine AdvanceFreeze boundary; executing those source
+drivers under Bill's private C-bank was an invalid original reference arena,
+retained as a failure. Actual Bill Laser42/Flare43 execute completely. No
+wrong-bank guard was weakened. Foreign code is byte-exact outside the Samus
+empty tail; every foreign whole-call control remains cycle-exact.
+
+build/bill_inert_pool_final.json SHAb8911cf548d27b0354e3fae4fe072269d3882d9da43712a50010a4271422e7be
+adds456 foreign and160 advanced/freshSelect full ordered-write cases WITHOUT
+even the cursor-write exception, and a static complete C/V/pool-write audit.
+Fresh build from the same sparse leaves reproduces44204c9b exactly:
+build/bill_inert_pool_verify_build.json SHAcc5ba06b91bb9d160e0c0010c761e0ce2bfc13a1b549832f130207f0bd029776.
+Both freshly assembled ordinary targets remain exact d444cac8/f4ffd248:
+build/bill_inert_pool_ordinary.json SHA3ee4a52ff93c991fdf62d7e4b5c5b67dff613169a352cc413e24eb51b9c17a2b.
+
+Measured costs, including new admission/routing
+The480 real complete typed ProcFireball_Bubble comparisons save620..680 CPU
+cycles (mean642.8). The1024 fullflag caller cases save644..680. Complete
+Remaining nonadvanced patterns save620..760; the larger extreme includes
+non-native foreign byte values, not an ordinary basic-only performance claim.
+FreshSelect costs0. True advanced admission changes−3..+24, depending on how
+many empty slots precede the advanced entry; that positive sparse-pool cost
+is retained and must be accepted/rejected by native testing. Foreign costs0.
+These source arenas are explicit tests, not natural acquisition or a measured
+whole-route speedup. There is no universal60Hz/FPS/frame-recovery claim.
+
+Larger unresolved Main/draw work
+The current native window's biggest exclusive category is unlabelled Main
+313583, followed by DrawAll130852. Neither is declared avoidable wholesale.
+Actual GameCoreRoutine calls include unmeasured GuestGameRoutinesBridge
+wrapping the measured PlayerCtrl work, HpProcessFireballsBridge, six
+FloateyNumbersCore calls, GuestPostEnemyCollision, PlayerGfxHandler, block/misc/
+cannon/whirlpool/timer handling and palette/scroll dispatch. DrawAll includes
+HpGraphicsBankCopy→HpPrepareNativePointers/CrossoverGraphicsBank, KbOamPriority,
+Roll→Mike→SMB3→TMNT→Z2 special-draw dispatch,24 shuffled object admissions,
+DrawMetasprite setup outside its measured inner renderer, Samus draw/bank
+restoration gates, score sprites and body setup/tail. Current enemy counts
+alone cannot identify score/object counts or the cost of those call chains.
+An additive PlayerGfxHandler/DrawMetasprite span split would be a useful
+bounded next localization if ROOT wants it; none is prepared/launched here.
+This small RemainingWeapons repair is not represented as the whole lag fix.
+
+One adaptive BillHard readiness, native UNRUN
+build/verification/bill-inert-pool326-hard-ready-v2/ready.json
+SHA836acffb430c5a4781a019b655b6216c9b2df74f98364820cacb0a120287f683,
+29 strict bindings; exact command.json alongside. The actual surviving
+adaptive parent is build/verification/bill-early-cache-pair-ready-v1/candidate9ea:
+its ready has replay=null and its genuine result PASS6091/5142. The same
+roster_samus_contra.lua SHA17b0683a72af2046c7a17f9d16ccf3b0a8322eca7a55a8c0000b9f4a22208847
+and its original navigation dependency still match that prior ready.
+This new run does not reuse/extrapolate the exhausted6090-poll stream.
+Fresh genuine candidate DBG/LBL hooks, cold numericHard/BillVariant0,
+8000 limit, zero-death/control1-2≥25 updates and all literal shared
+E008/all256DMA/deadline/CHR/NMI/IRQ/5SMC/stack/bank/input/motion guards remain.
+One512MiB container, central2GB/64-file cap, zero native PNG files; at most
+eight later selected images. No native grant is implied by this readiness.
+
+Retained finite negatives
+build/bill_inert_pool_build_negative.json: legitimate global debug helper
+names omitted from the first postbuild scope qualifier; no bad ROM adopted.
+build/bill_inert_pool_guard_negative.json/.zip: ungated ordinary CLC reordering
+caught by source preflight, then guarded; expanded ROM stays byte-exact44204.
+build/bill_inert_pool_cpu_owner_negative.json/.py: wrong-family advanced
+reference arena attempted a ROM write before candidate comparison; preserved.
+build/bill_inert_pool_finalize_decode_negative.json/.py: decoder omitted a
+real internal long-branch JMP; corrected with an exact in-span target check.
+build/bill_inert_pool_ordinary_command_negative.json: precompile command check
+over-required explicit expanded0; genuine original default0 is now explicit.
+Unlaunched native-ready-v1 retains missing environment-binding preflight;
+only v2 binds actual existing emulator/core/adjacent settings. No test/game
+guard, native failure, caps or required endpoint was relaxed.
+
+Owned publication paths (no commit/stage by this agent):
+tools/audit/bill_inert_pool_sparse_v1.py
+tools/audit/bill_inert_pool_cpu_v1.py
+tools/audit/bill_inert_pool_native_prepare_v1.py
+this report. Exact patch/small receipts may be selected by ROOT; no ROM/audio/
+runtime/settings/raw captures or source-tree archive belongs in publication.

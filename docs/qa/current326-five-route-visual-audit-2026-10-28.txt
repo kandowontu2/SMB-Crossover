@@ -1,0 +1,95 @@
+Current326 five-route saved-stream visual/scroll triage (read-only)
+
+This is NOT an all-visual PASS. No emulator, game/default/settings changes,
+source/runtime copies or per-frame image tree were made. Original route
+results and all failed attempts remain unchanged.
+
+Exact ROM32694243361bb1366f6fd64c054ea2451f86b2517fc020d9c2b5d66bbf07bfa0.
+LinkEasy v2:5727 captured fullframes; ZeldaIIEasy v4:5376; Octopus:3984;
+TwinBee:3918; Pentarou:3911. Every22916 saved full buffer was decoded twice;
+all physical indices and aggregate raw SHA256s equal prior verified route
+receipts. The fast path retains the original RLE decoder, uses equivalent
+NumPy XOR and matches the old full-stream digest; it does not re-run every
+per-record FNV. RAW/RLE/XOR controls are disclosed in scan.json.
+
+Measured active1-1 scope:19814 fullframes (4956/4795/3400/3335/3328).
+The remaining3102 frames are loading/flag/transition/1-2 phases and do not
+get the static1-1 pixel oracle. All were still decoded/hash checked. There
+is one573/574-frame uncaptured transition per route; no claim covers those
+missing images. These are whole SAVED streams, not all physical execution.
+
+Scrolling:
+Visible ground phase was fitted against actual first-screen ground pixels
+and actual parser floor84 cells, using only cameras recorded within10PPUs.
+The parser was extended through all256 columns; the inherited stair helper
+stopped at161 and cannot register the final pyramid. This fixed a scanner
+limitation, not a game fix. Early exploratory late-stage mismatch rankings
+are superseded by v3; they are not evidence of a display defect.
+
+Fitted camera never moves backwards in active1-1 frames. Visible steps are
+0..5px for both Links,0..2 for the three ships. Recorded RAM can lead the
+visible fit by0..5px (Links) or0..2px (ships). No lower-ground mismatch
+exceeds2.73% of sampled pixels, and no frame triggers the8%-error vertical
+phase investigation threshold. Sparse leg/enemy pixels can enter this strip.
+This is a lower-strip registration result, not a hardware-scroll-register
+proof or exclusion of every partial-screen raster fault.
+
+World/TIME header regions (two40x8 rectangles) are exactly unchanged over
+19764 checked activeframes/12648960 pixels. The first10 active PPUs per
+route precede the stable reference and are not part of this comparison.
+Other HUD digits/icons/health/bar labels are outside that narrow static mask.
+
+An empirical world-pixel majority reference excludes a broad player box.
+682653/851968 canvas pixels have >=8 observations and >=75%-equivalent
+majority support. Source brick/question cells and their bump margins are
+counted separately. Peak remaining static-region residual is742pixels,
+not the thousands initially caused by the incomplete parser mask. The
+complete per-frame CSV and ranked intervals remain available. Dynamic
+enemies/projectiles, animation and real block changes are not automatically
+classified as corruption, nor are they automatically accepted as correct.
+
+There is no confirmed stage jump, displaced terrain or unexpected persistent
+replacement tile in the inspected samples. This scan cannot close rare
+horizontal bump displacement: bump-adjacent regions intentionally retain
+their own residual counts, and no actual Block_X/Block_RepFlag/PPU-v epoch
+was logged. Source BumpBlock sets horizontal speed0; InitBlock_XY_Pos uses
+native16px alignment, while BlockObjMT_Updater can defer replacement until
+Buffer1 is free. Those owners explain legitimate sprite/blank/used-block
+epoch differences, not proof that every observed bump is correct. A common
+persistent wrong tile could also dominate all five empirical references.
+
+Actual OPEN body concern:
+Octopus PPU3261..3262 (traceX2792/Y57, fittedcamera2662) is nearly absent
+against the cloud in the whole-buffer image. The declared32x32 inspection
+box[114,49,146,81] has all1024 reference pixels and only35 residual pixels;
+the same box has177 at3260 and180 at3263. The wider128x88 trace-centred
+box changes177→35→192. A visibly present comparison at3557 has211 core
+residual pixels. These are empirical non-background differences, NOT a
+count of authenticated body-art opaque pixels. No actual PnFrame, VvHurt,
+InjuryTimer, physical OAM/first-eight or displayed CHR snapshot was saved.
+Hurt flash, source pose, overlap/priority, CHR or OAM admission cannot be
+distinguished. Earlier body-starvation/readability limitations remain OPEN.
+No new game patch is justified by this metric alone.
+
+Image scope:
+One final8-frame sheet: Link873; ZeldaII988; Octopus3261/3557;
+TwinBee1382/3513; Pentarou3169/3506. These are1/1/2/2/2 additional epochs,
+so with their existing7/7/6/6/6 marker sheets each final review set is8.
+All8 additional whole buffers were inspected by the agent; placements bind
+actual raw hashes. The pre-refinement exploratory sheets had16 epochs under
+the earlier per-case rule. Those unpublished derived rasters/placements
+were removed when the total-per-run extraction cap was clarified; no native
+capture or receipt was deleted. Their analytical v1/v2 CSVs remain labelled
+exploratory, not qualified final results. No further epochs were extracted.
+
+Identical consecutive active images:2432Link/1355Z2/1169Oct/996Twin/988Pent.
+This quantifies held images; it is not an FPS, lag-cause or cross-route
+performance comparison. Different natural inputs/routes are not controls.
+
+Final owned outputs:
+tools/audit/current326_route_visual_scan_v1.py
+docs/qa/current326-five-route-visual-audit-2026-10-28.txt
+build/current326-five-route-visual-scan-v3/{scan.json,all-frame-metrics.csv,
+ eight-additional-whole-frames.png,placements.json,final-review.json,handoff.json}
+Only v3 is the final quantitative packet. No blanket graphics/audio/physics,
+all-weapon/all-pose, constant60Hz or bug-free certification is made.

@@ -1,0 +1,1227 @@
+{
+  "read_only": true,
+  "native_launches": 0,
+  "new_images": 0,
+  "ROM_sha256": "44204c9b573a82dd4838df1821afeaad8ffab8b264ebb234f31a8e156434ff5a",
+  "parent_ROM_sha256": "32694243361bb1366f6fd64c054ea2451f86b2517fc020d9c2b5d66bbf07bfa0",
+  "finding": "Real preexisting Bill selected-capsule HUD layout overlap. Not a leftover natural reward actor and not introduced by the 31-byte inert-pool optimization.",
+  "exact_source_path": "RemainingDraw::Hud reads InvSelected[3] -> PickupArt ((character-2)*8+selected) -> actual capsule record -> anchor192,24 -> SamusFixedMissileHud native fallback -> ArtPointer -> MetaspriteRenderLoop.",
+  "actual_OAM_bounds": [
+    180,
+    9,
+    203,
+    24
+  ],
+  "actual_visible_sprite_bounds": [
+    180,
+    10,
+    203,
+    25
+  ],
+  "actual_header_white_RGB": [
+    255,
+    254,
+    255
+  ],
+  "source_palette": "Record palette3; build_remaining_art declares fixed black/peach/brown world quantization. Gold/brown appearance is consistent; layout over the header is the defect.",
+  "why_not_reward": "Gallery clearArena clears all six Enemy_Flag slots between stages; physical pickups are staged at156,176 (world art anchor164,200), while the three matched sprites exactly equal the selected HUD capsule at192,24. No new natural reward is staged in free-emission phase.",
+  "why_case_difference": "Normal selected0 skips HUD. Laser/Flare use a separate active shot CHR family; ArtPointer rejects an incompatible later family. Their selected samples lack matching capsule OAM; actual first-family source order was not logged, so this is a source-consistent explanation, not an instrumented cause claim.",
+  "preexisting_private_fix": "docs/qa/bill-lance-capsule-hud-source-2026-10-26.txt describes unadopted HUD9d anchor112,16. Its $BFAE helper site is now occupied by SamusFixedMissileHud; do not overlay that old patch blindly. Any new product fix needs current-layout qualification.",
+  "native_functional_result": "PASS4338wall/3860updates/3288DMA/minSP200 remains functional component evidence, not all-pixel correctness.",
+  "compiled_art": {
+    "0": {
+      "art": 0,
+      "source_record_bank": 20,
+      "pointer": 52242,
+      "record": [
+        0
+      ],
+      "family": 0,
+      "physical_page": 205,
+      "expected_hardware": []
+    },
+    "2": {
+      "art": 52,
+      "source_record_bank": 21,
+      "pointer": 52120,
+      "record": [
+        12,
+        1,
+        131,
+        241,
+        244,
+        27,
+        195,
+        241,
+        252,
+        1,
+        195,
+        241,
+        4
+      ],
+      "family": 9,
+      "physical_page": 221,
+      "expected_hardware": [
+        [
+          9,
+          1,
+          131,
+          180
+        ],
+        [
+          9,
+          27,
+          195,
+          188
+        ],
+        [
+          9,
+          1,
+          195,
+          196
+        ]
+      ]
+    },
+    "3": {
+      "art": 53,
+      "source_record_bank": 21,
+      "pointer": 52146,
+      "record": [
+        12,
+        1,
+        131,
+        241,
+        244,
+        29,
+        195,
+        241,
+        252,
+        1,
+        195,
+        241,
+        4
+      ],
+      "family": 9,
+      "physical_page": 221,
+      "expected_hardware": [
+        [
+          9,
+          1,
+          131,
+          180
+        ],
+        [
+          9,
+          29,
+          195,
+          188
+        ],
+        [
+          9,
+          1,
+          195,
+          196
+        ]
+      ]
+    },
+    "4": {
+      "art": 49,
+      "source_record_bank": 21,
+      "pointer": 52042,
+      "record": [
+        12,
+        59,
+        131,
+        241,
+        244,
+        61,
+        131,
+        241,
+        252,
+        59,
+        195,
+        241,
+        4
+      ],
+      "family": 8,
+      "physical_page": 219,
+      "expected_hardware": [
+        [
+          9,
+          59,
+          131,
+          180
+        ],
+        [
+          9,
+          61,
+          131,
+          188
+        ],
+        [
+          9,
+          59,
+          195,
+          196
+        ]
+      ]
+    },
+    "5": {
+      "art": 51,
+      "source_record_bank": 21,
+      "pointer": 52094,
+      "record": [
+        12,
+        1,
+        131,
+        241,
+        244,
+        3,
+        131,
+        241,
+        252,
+        1,
+        195,
+        241,
+        4
+      ],
+      "family": 9,
+      "physical_page": 221,
+      "expected_hardware": [
+        [
+          9,
+          1,
+          131,
+          180
+        ],
+        [
+          9,
+          3,
+          131,
+          188
+        ],
+        [
+          9,
+          1,
+          195,
+          196
+        ]
+      ]
+    }
+  },
+  "current_full_caller_controls": [
+    {
+      "selected": 0,
+      "actual_full_RemainingDraw": true,
+      "source_HUD_coordinates": [],
+      "actual_HUD_renderer_entries": [],
+      "actual_OAM_stores": []
+    },
+    {
+      "selected": 2,
+      "actual_full_RemainingDraw": true,
+      "source_HUD_coordinates": [
+        {
+          "x": 192,
+          "y": 24,
+          "A": 24,
+          "X": 10,
+          "Y": 0,
+          "P": 48,
+          "SP": 251
+        }
+      ],
+      "actual_HUD_renderer_entries": [
+        {
+          "index": 20,
+          "pointer": 52120,
+          "Cbank": 21,
+          "x": 192,
+          "y": 24,
+          "offset": 0
+        }
+      ],
+      "actual_OAM_stores": [
+        {
+          "address": 515,
+          "value": 196,
+          "index": 20
+        },
+        {
+          "address": 512,
+          "value": 9,
+          "index": 20
+        },
+        {
+          "address": 514,
+          "value": 195,
+          "index": 20
+        },
+        {
+          "address": 513,
+          "value": 1,
+          "index": 20
+        },
+        {
+          "address": 519,
+          "value": 188,
+          "index": 20
+        },
+        {
+          "address": 516,
+          "value": 9,
+          "index": 20
+        },
+        {
+          "address": 518,
+          "value": 195,
+          "index": 20
+        },
+        {
+          "address": 517,
+          "value": 27,
+          "index": 20
+        },
+        {
+          "address": 523,
+          "value": 180,
+          "index": 20
+        },
+        {
+          "address": 520,
+          "value": 9,
+          "index": 20
+        },
+        {
+          "address": 522,
+          "value": 131,
+          "index": 20
+        },
+        {
+          "address": 521,
+          "value": 1,
+          "index": 20
+        }
+      ]
+    },
+    {
+      "selected": 3,
+      "actual_full_RemainingDraw": true,
+      "source_HUD_coordinates": [
+        {
+          "x": 192,
+          "y": 24,
+          "A": 24,
+          "X": 11,
+          "Y": 0,
+          "P": 48,
+          "SP": 251
+        }
+      ],
+      "actual_HUD_renderer_entries": [
+        {
+          "index": 20,
+          "pointer": 52146,
+          "Cbank": 21,
+          "x": 192,
+          "y": 24,
+          "offset": 0
+        }
+      ],
+      "actual_OAM_stores": [
+        {
+          "address": 515,
+          "value": 196,
+          "index": 20
+        },
+        {
+          "address": 512,
+          "value": 9,
+          "index": 20
+        },
+        {
+          "address": 514,
+          "value": 195,
+          "index": 20
+        },
+        {
+          "address": 513,
+          "value": 1,
+          "index": 20
+        },
+        {
+          "address": 519,
+          "value": 188,
+          "index": 20
+        },
+        {
+          "address": 516,
+          "value": 9,
+          "index": 20
+        },
+        {
+          "address": 518,
+          "value": 195,
+          "index": 20
+        },
+        {
+          "address": 517,
+          "value": 29,
+          "index": 20
+        },
+        {
+          "address": 523,
+          "value": 180,
+          "index": 20
+        },
+        {
+          "address": 520,
+          "value": 9,
+          "index": 20
+        },
+        {
+          "address": 522,
+          "value": 131,
+          "index": 20
+        },
+        {
+          "address": 521,
+          "value": 1,
+          "index": 20
+        }
+      ]
+    },
+    {
+      "selected": 4,
+      "actual_full_RemainingDraw": true,
+      "source_HUD_coordinates": [
+        {
+          "x": 192,
+          "y": 24,
+          "A": 24,
+          "X": 12,
+          "Y": 0,
+          "P": 48,
+          "SP": 251
+        }
+      ],
+      "actual_HUD_renderer_entries": [
+        {
+          "index": 20,
+          "pointer": 52042,
+          "Cbank": 21,
+          "x": 192,
+          "y": 24,
+          "offset": 0
+        }
+      ],
+      "actual_OAM_stores": [
+        {
+          "address": 515,
+          "value": 196,
+          "index": 20
+        },
+        {
+          "address": 512,
+          "value": 9,
+          "index": 20
+        },
+        {
+          "address": 514,
+          "value": 195,
+          "index": 20
+        },
+        {
+          "address": 513,
+          "value": 59,
+          "index": 20
+        },
+        {
+          "address": 519,
+          "value": 188,
+          "index": 20
+        },
+        {
+          "address": 516,
+          "value": 9,
+          "index": 20
+        },
+        {
+          "address": 518,
+          "value": 131,
+          "index": 20
+        },
+        {
+          "address": 517,
+          "value": 61,
+          "index": 20
+        },
+        {
+          "address": 523,
+          "value": 180,
+          "index": 20
+        },
+        {
+          "address": 520,
+          "value": 9,
+          "index": 20
+        },
+        {
+          "address": 522,
+          "value": 131,
+          "index": 20
+        },
+        {
+          "address": 521,
+          "value": 59,
+          "index": 20
+        }
+      ]
+    },
+    {
+      "selected": 5,
+      "actual_full_RemainingDraw": true,
+      "source_HUD_coordinates": [
+        {
+          "x": 192,
+          "y": 24,
+          "A": 24,
+          "X": 13,
+          "Y": 0,
+          "P": 48,
+          "SP": 251
+        }
+      ],
+      "actual_HUD_renderer_entries": [
+        {
+          "index": 20,
+          "pointer": 52094,
+          "Cbank": 21,
+          "x": 192,
+          "y": 24,
+          "offset": 0
+        }
+      ],
+      "actual_OAM_stores": [
+        {
+          "address": 515,
+          "value": 196,
+          "index": 20
+        },
+        {
+          "address": 512,
+          "value": 9,
+          "index": 20
+        },
+        {
+          "address": 514,
+          "value": 195,
+          "index": 20
+        },
+        {
+          "address": 513,
+          "value": 1,
+          "index": 20
+        },
+        {
+          "address": 519,
+          "value": 188,
+          "index": 20
+        },
+        {
+          "address": 516,
+          "value": 9,
+          "index": 20
+        },
+        {
+          "address": 518,
+          "value": 131,
+          "index": 20
+        },
+        {
+          "address": 517,
+          "value": 3,
+          "index": 20
+        },
+        {
+          "address": 523,
+          "value": 180,
+          "index": 20
+        },
+        {
+          "address": 520,
+          "value": 9,
+          "index": 20
+        },
+        {
+          "address": 522,
+          "value": 131,
+          "index": 20
+        },
+        {
+          "address": 521,
+          "value": 1,
+          "index": 20
+        }
+      ]
+    }
+  ],
+  "actual_samples": [
+    {
+      "case": "normal",
+      "selected": 0,
+      "frame": {
+        "cpu_cycle": 13696544,
+        "dot": 0,
+        "ppu_frame": 460,
+        "scanline": 240
+      },
+      "sample_raw_sha256": "4e76ce4337a8a7ced8622c269999b1385fbcf484781ed9694960477ef08b70b4",
+      "last_completed_DMA": 437,
+      "DMA_start": {
+        "pc": 57349,
+        "cycle": 67,
+        "sp": 244,
+        "scanline": 243,
+        "frame": 460,
+        "bankC": 116,
+        "bankA": 0,
+        "mask": 6,
+        "cpu": 13667127,
+        "oamaddr": 0
+      },
+      "DMA_complete": {
+        "pc": 57352,
+        "cycle": 255,
+        "sp": 244,
+        "scanline": 247,
+        "frame": 460,
+        "bankC": 116,
+        "bankA": 0,
+        "mask": 6,
+        "cpu": 13667644,
+        "oamaddr": 0
+      },
+      "exact_compiled_HUD_OAM_parts": [],
+      "pattern_opaque_pixels": 0,
+      "source_pattern_RGB_classes": {},
+      "coherent_actual_ROM_pattern": false,
+      "overwritten_static_white_header_pixels": [],
+      "limits": "No native per-HUD caller/pointer or physical CHR/palette register dump exists. OAM/CPU/source routing plus actual rendered pattern classes attribute this to the selected capsule; absent Laser/Flare capsule does not alone prove a defect."
+    },
+    {
+      "case": "machine",
+      "selected": 4,
+      "frame": {
+        "cpu_cycle": 29986477,
+        "dot": 0,
+        "ppu_frame": 1007,
+        "scanline": 240
+      },
+      "sample_raw_sha256": "eb3a8e20ad7fa6340fb6eae9a04ec400aeee17d15651fb801a89cf463ceef701",
+      "last_completed_DMA": 966,
+      "DMA_start": {
+        "pc": 57349,
+        "cycle": 62,
+        "sp": 244,
+        "scanline": 243,
+        "frame": 1007,
+        "bankC": 116,
+        "bankA": 0,
+        "mask": 6,
+        "cpu": 29957059,
+        "oamaddr": 0
+      },
+      "DMA_complete": {
+        "pc": 57352,
+        "cycle": 250,
+        "sp": 244,
+        "scanline": 247,
+        "frame": 1007,
+        "bankC": 116,
+        "bankA": 0,
+        "mask": 6,
+        "cpu": 29957576,
+        "oamaddr": 0
+      },
+      "exact_compiled_HUD_OAM_parts": [
+        {
+          "slot": 54,
+          "bytes": [
+            9,
+            59,
+            195,
+            196
+          ]
+        },
+        {
+          "slot": 55,
+          "bytes": [
+            9,
+            61,
+            131,
+            188
+          ]
+        },
+        {
+          "slot": 56,
+          "bytes": [
+            9,
+            59,
+            131,
+            180
+          ]
+        }
+      ],
+      "pattern_opaque_pixels": 212,
+      "source_pattern_RGB_classes": {
+        "3": [
+          [
+            153,
+            78,
+            0
+          ]
+        ],
+        "1": [
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "2": [
+          [
+            247,
+            216,
+            165
+          ]
+        ]
+      },
+      "coherent_actual_ROM_pattern": true,
+      "overwritten_static_white_header_pixels": [
+        [
+          180,
+          16
+        ],
+        [
+          181,
+          17
+        ],
+        [
+          182,
+          18
+        ],
+        [
+          201,
+          16
+        ],
+        [
+          202,
+          16
+        ],
+        [
+          203,
+          16
+        ]
+      ],
+      "limits": "No native per-HUD caller/pointer or physical CHR/palette register dump exists. OAM/CPU/source routing plus actual rendered pattern classes attribute this to the selected capsule; absent Laser/Flare capsule does not alone prove a defect."
+    },
+    {
+      "case": "spread",
+      "selected": 5,
+      "frame": {
+        "cpu_cycle": 46365752,
+        "dot": 0,
+        "ppu_frame": 1557,
+        "scanline": 240
+      },
+      "sample_raw_sha256": "f48600b52af5fd958b9b72418d2d1c906c1eda09ad5cf71b29eafcba08b05c8b",
+      "last_completed_DMA": 1451,
+      "DMA_start": {
+        "pc": 57349,
+        "cycle": 62,
+        "sp": 244,
+        "scanline": 243,
+        "frame": 1557,
+        "bankC": 116,
+        "bankA": 0,
+        "mask": 6,
+        "cpu": 46336334,
+        "oamaddr": 0
+      },
+      "DMA_complete": {
+        "pc": 57352,
+        "cycle": 253,
+        "sp": 244,
+        "scanline": 247,
+        "frame": 1557,
+        "bankC": 116,
+        "bankA": 0,
+        "mask": 6,
+        "cpu": 46336852,
+        "oamaddr": 0
+      },
+      "exact_compiled_HUD_OAM_parts": [
+        {
+          "slot": 0,
+          "bytes": [
+            9,
+            1,
+            131,
+            180
+          ]
+        },
+        {
+          "slot": 62,
+          "bytes": [
+            9,
+            1,
+            195,
+            196
+          ]
+        },
+        {
+          "slot": 63,
+          "bytes": [
+            9,
+            3,
+            131,
+            188
+          ]
+        }
+      ],
+      "pattern_opaque_pixels": 204,
+      "source_pattern_RGB_classes": {
+        "1": [
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "3": [
+          [
+            153,
+            78,
+            0
+          ]
+        ],
+        "2": [
+          [
+            247,
+            216,
+            165
+          ]
+        ]
+      },
+      "coherent_actual_ROM_pattern": true,
+      "overwritten_static_white_header_pixels": [
+        [
+          180,
+          16
+        ],
+        [
+          181,
+          17
+        ],
+        [
+          182,
+          18
+        ],
+        [
+          201,
+          16
+        ],
+        [
+          202,
+          16
+        ],
+        [
+          203,
+          16
+        ]
+      ],
+      "limits": "No native per-HUD caller/pointer or physical CHR/palette register dump exists. OAM/CPU/source routing plus actual rendered pattern classes attribute this to the selected capsule; absent Laser/Flare capsule does not alone prove a defect."
+    },
+    {
+      "case": "laser",
+      "selected": 2,
+      "frame": {
+        "cpu_cycle": 62983271,
+        "dot": 0,
+        "ppu_frame": 2115,
+        "scanline": 240
+      },
+      "sample_raw_sha256": "cca77f0e9615fccc58527f871f105237412d4881e5c18736ae2cd1f2eab063f4",
+      "last_completed_DMA": 1896,
+      "DMA_start": {
+        "pc": 57349,
+        "cycle": 112,
+        "sp": 244,
+        "scanline": 245,
+        "frame": 2115,
+        "bankC": 116,
+        "bankA": 0,
+        "mask": 6,
+        "cpu": 62954097,
+        "oamaddr": 0
+      },
+      "DMA_complete": {
+        "pc": 57352,
+        "cycle": 300,
+        "sp": 244,
+        "scanline": 249,
+        "frame": 2115,
+        "bankC": 116,
+        "bankA": 0,
+        "mask": 6,
+        "cpu": 62954614,
+        "oamaddr": 0
+      },
+      "exact_compiled_HUD_OAM_parts": [],
+      "pattern_opaque_pixels": 0,
+      "source_pattern_RGB_classes": {},
+      "coherent_actual_ROM_pattern": false,
+      "overwritten_static_white_header_pixels": [],
+      "limits": "No native per-HUD caller/pointer or physical CHR/palette register dump exists. OAM/CPU/source routing plus actual rendered pattern classes attribute this to the selected capsule; absent Laser/Flare capsule does not alone prove a defect."
+    },
+    {
+      "case": "flare",
+      "selected": 3,
+      "frame": {
+        "cpu_cycle": 81238718,
+        "dot": 0,
+        "ppu_frame": 2728,
+        "scanline": 240
+      },
+      "sample_raw_sha256": "1e0ac1779070665eadaeb3c7145cb26195da7ee3dd6681adf9eadaab771094fe",
+      "last_completed_DMA": 2303,
+      "DMA_start": {
+        "pc": 57349,
+        "cycle": 105,
+        "sp": 244,
+        "scanline": 245,
+        "frame": 2728,
+        "bankC": 116,
+        "bankA": 0,
+        "mask": 6,
+        "cpu": 81209541,
+        "oamaddr": 0
+      },
+      "DMA_complete": {
+        "pc": 57352,
+        "cycle": 293,
+        "sp": 244,
+        "scanline": 249,
+        "frame": 2728,
+        "bankC": 116,
+        "bankA": 0,
+        "mask": 6,
+        "cpu": 81210058,
+        "oamaddr": 0
+      },
+      "exact_compiled_HUD_OAM_parts": [],
+      "pattern_opaque_pixels": 0,
+      "source_pattern_RGB_classes": {},
+      "coherent_actual_ROM_pattern": false,
+      "overwritten_static_white_header_pixels": [],
+      "limits": "No native per-HUD caller/pointer or physical CHR/palette register dump exists. OAM/CPU/source routing plus actual rendered pattern classes attribute this to the selected capsule; absent Laser/Flare capsule does not alone prove a defect."
+    },
+    {
+      "case": "machine-rapid1",
+      "selected": 4,
+      "frame": {
+        "cpu_cycle": 99851530,
+        "dot": 0,
+        "ppu_frame": 3353,
+        "scanline": 240
+      },
+      "sample_raw_sha256": "fdd47a359cfb03242fdc70f6473ed957c23b919c6e6a44423d72856ba36d644c",
+      "last_completed_DMA": 2786,
+      "DMA_start": {
+        "pc": 57349,
+        "cycle": 68,
+        "sp": 244,
+        "scanline": 243,
+        "frame": 3353,
+        "bankC": 116,
+        "bankA": 0,
+        "mask": 6,
+        "cpu": 99822114,
+        "oamaddr": 0
+      },
+      "DMA_complete": {
+        "pc": 57352,
+        "cycle": 259,
+        "sp": 244,
+        "scanline": 247,
+        "frame": 3353,
+        "bankC": 116,
+        "bankA": 0,
+        "mask": 6,
+        "cpu": 99822632,
+        "oamaddr": 0
+      },
+      "exact_compiled_HUD_OAM_parts": [
+        {
+          "slot": 59,
+          "bytes": [
+            9,
+            59,
+            195,
+            196
+          ]
+        },
+        {
+          "slot": 60,
+          "bytes": [
+            9,
+            61,
+            131,
+            188
+          ]
+        },
+        {
+          "slot": 61,
+          "bytes": [
+            9,
+            59,
+            131,
+            180
+          ]
+        }
+      ],
+      "pattern_opaque_pixels": 212,
+      "source_pattern_RGB_classes": {
+        "3": [
+          [
+            153,
+            78,
+            0
+          ]
+        ],
+        "1": [
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "2": [
+          [
+            247,
+            216,
+            165
+          ]
+        ]
+      },
+      "coherent_actual_ROM_pattern": true,
+      "overwritten_static_white_header_pixels": [
+        [
+          180,
+          16
+        ],
+        [
+          181,
+          17
+        ],
+        [
+          182,
+          18
+        ],
+        [
+          201,
+          16
+        ],
+        [
+          202,
+          16
+        ],
+        [
+          203,
+          16
+        ]
+      ],
+      "limits": "No native per-HUD caller/pointer or physical CHR/palette register dump exists. OAM/CPU/source routing plus actual rendered pattern classes attribute this to the selected capsule; absent Laser/Flare capsule does not alone prove a defect."
+    },
+    {
+      "case": "machine-rapid2",
+      "selected": 4,
+      "frame": {
+        "cpu_cycle": 116201025,
+        "dot": 0,
+        "ppu_frame": 3902,
+        "scanline": 240
+      },
+      "sample_raw_sha256": "ad2dfb033a3109b68d4e24003f0ed9939447fe2656652f10dc2e824b52c8ab14",
+      "last_completed_DMA": 3270,
+      "DMA_start": {
+        "pc": 57349,
+        "cycle": 233,
+        "sp": 244,
+        "scanline": 244,
+        "frame": 3902,
+        "bankC": 116,
+        "bankA": 0,
+        "mask": 6,
+        "cpu": 116171777,
+        "oamaddr": 0
+      },
+      "DMA_complete": {
+        "pc": 57352,
+        "cycle": 80,
+        "sp": 244,
+        "scanline": 249,
+        "frame": 3902,
+        "bankC": 116,
+        "bankA": 0,
+        "mask": 6,
+        "cpu": 116172294,
+        "oamaddr": 0
+      },
+      "exact_compiled_HUD_OAM_parts": [
+        {
+          "slot": 55,
+          "bytes": [
+            9,
+            59,
+            195,
+            196
+          ]
+        },
+        {
+          "slot": 56,
+          "bytes": [
+            9,
+            61,
+            131,
+            188
+          ]
+        },
+        {
+          "slot": 57,
+          "bytes": [
+            9,
+            59,
+            131,
+            180
+          ]
+        }
+      ],
+      "pattern_opaque_pixels": 212,
+      "source_pattern_RGB_classes": {
+        "3": [
+          [
+            153,
+            78,
+            0
+          ]
+        ],
+        "1": [
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "2": [
+          [
+            247,
+            216,
+            165
+          ]
+        ]
+      },
+      "coherent_actual_ROM_pattern": true,
+      "overwritten_static_white_header_pixels": [
+        [
+          180,
+          16
+        ],
+        [
+          181,
+          17
+        ],
+        [
+          182,
+          18
+        ],
+        [
+          201,
+          16
+        ],
+        [
+          202,
+          16
+        ],
+        [
+          203,
+          16
+        ]
+      ],
+      "limits": "No native per-HUD caller/pointer or physical CHR/palette register dump exists. OAM/CPU/source routing plus actual rendered pattern classes attribute this to the selected capsule; absent Laser/Flare capsule does not alone prove a defect."
+    },
+    {
+      "case": "laser",
+      "selected": 2,
+      "frame": {
+        "cpu_cycle": 70249713,
+        "dot": 0,
+        "ppu_frame": 2359,
+        "scanline": 240
+      },
+      "sample_raw_sha256": "19cc9d437e7e56895e78e14402a8da580c66a79cdd9196f28e494c017800ccb3",
+      "last_completed_DMA": 2062,
+      "DMA_start": {
+        "pc": 57349,
+        "cycle": 106,
+        "sp": 244,
+        "scanline": 245,
+        "frame": 2359,
+        "bankC": 116,
+        "bankA": 0,
+        "mask": 6,
+        "cpu": 70220537,
+        "oamaddr": 0
+      },
+      "DMA_complete": {
+        "pc": 57352,
+        "cycle": 294,
+        "sp": 244,
+        "scanline": 249,
+        "frame": 2359,
+        "bankC": 116,
+        "bankA": 0,
+        "mask": 6,
+        "cpu": 70221054,
+        "oamaddr": 0
+      },
+      "exact_compiled_HUD_OAM_parts": [],
+      "pattern_opaque_pixels": 0,
+      "source_pattern_RGB_classes": {},
+      "coherent_actual_ROM_pattern": false,
+      "overwritten_static_white_header_pixels": [],
+      "limits": "No native per-HUD caller/pointer or physical CHR/palette register dump exists. OAM/CPU/source routing plus actual rendered pattern classes attribute this to the selected capsule; absent Laser/Flare capsule does not alone prove a defect."
+    }
+  ],
+  "retained_tool_setup_limits": [
+    "First attempted whole helper-module import stopped at a deleted unrelated SMB3 archive dependency; no native/data writes. Only the existing exact two helper function ASTs were then loaded.",
+    "Initial standalone typed-control call omitted the historical OWNER_NAMES extension; its tracing assertion failed before capture. Corrected observer owner registration; no game source change.",
+    "Unsubmitted first analysis f8268f...c0785 used RGB255/255/255 to count white header pixels and reported0. Actual original header RGB is255/254/255. Corrected this offline color-class oracle, with no PNG/native/source modification."
+  ],
+  "bindings": {
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\current_bill_inert_pool_hud_attribution_v1.py": "ad3c029263a84f8d436af33e102f9d5744fec2fa4f923071ca5192f714bf0574",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bill_inert_pool.nes": "44204c9b573a82dd4838df1821afeaad8ffab8b264ebb234f31a8e156434ff5a",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bill_inert_pool.dbg": "a6e12481de5204ec8b3de33bfadc02faa4f51cc6b286ae0f600953db9fc519d2",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\zelda2_easy_glove.nes": "32694243361bb1366f6fd64c054ea2451f86b2517fc020d9c2b5d66bbf07bfa0",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-44204-bill-hard-earned-v1\\native\\selected-eight-whole-frames.json": "9eec9f444733b0fbae9cfbcef8a4b044a27736ff83d06f35bb6be37a76911267",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-44204-bill-hard-earned-v1\\native\\selected-eight-whole-frames.png": "ff7391e7eebe88e5d7351f52be79842ee65ec2cdf96b42605118ae039cb8f7cb",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-44204-bill-hard-earned-v1\\native\\ability-dma-epochs.jsonl": "d40da65e86d6542652bb99482fb0b83c1f96425fc6b52df39d091feae71d1de5",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-44204-bill-hard-earned-v1\\native\\captures.nesppuv1": "c13812c5b27993a647356074a1698bd116b168eda947dde529abf1bf4203b965",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-44204-bill-hard-earned-v1\\native\\native-bill-gallery.json": "dcccf182d0a3bd1d8fa0f41ac8ff7582deec3907cbe4d6976ab379e7dc9965e4",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\bill_capsule_hud_controls_v4.py": "ba8406c8b675ef45cfe68d8a8ae7756b0436a0ada606bec102c5a129b62b7442",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\reference\\build_remaining_art.py": "b62564213f44a5f6427652bf7feff4b6840b5cfde84df80e2bc74ed8ca7a9b17",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\samus_fixed_hud.s": "ced01abf2d8d6f367d9a4f1beaec548227ac4edf6dfb3acae1bd6565ac815093",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\docs\\qa\\bill-lance-capsule-hud-source-2026-10-26.txt": "9b201e318dd7b1d08496751515ce2e42443f8c968a4b4ea317be2c159cbbe4a3"
+  }
+}

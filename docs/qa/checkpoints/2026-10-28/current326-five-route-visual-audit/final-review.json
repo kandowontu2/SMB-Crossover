@@ -1,0 +1,304 @@
+{
+  "scan_completed": true,
+  "all_visual_pass": false,
+  "agent_visual_review": true,
+  "ROM_sha256": "32694243361bb1366f6fd64c054ea2451f86b2517fc020d9c2b5d66bbf07bfa0",
+  "scan_sha256": "2af193da7e15ce90c49b30501a06ff9b66d4d2f713cc2db63f0ef4c1a298f3a6",
+  "total_saved_full_frames": 22916,
+  "active_1_1_frames": 19814,
+  "hud_frames": 19764,
+  "hud_pixels": 12648960,
+  "hud_mismatches": 0,
+  "confirmed_new_stage_corruption": false,
+  "open_body_issue": {
+    "identity": "octopus",
+    "PPU_frames": [
+      3261,
+      3262
+    ],
+    "core_box": [
+      114,
+      49,
+      146,
+      81
+    ],
+    "reference_pixels": 1024,
+    "residuals_before_missing_after": [
+      177,
+      35,
+      180
+    ],
+    "attribution": "UNRESOLVED: physical OAM/PnFrame/VvHurt/actual fetched CHR missing; empirical residual is not exact body art"
+  },
+  "final_additional_image_epochs": {
+    "link": [
+      873
+    ],
+    "zelda2": [
+      988
+    ],
+    "octopus": [
+      3261,
+      3557
+    ],
+    "twinbee": [
+      1382,
+      3513
+    ],
+    "pentarou": [
+      3169,
+      3506
+    ]
+  },
+  "existing_standard_marker_counts": {
+    "link": 7,
+    "zelda2": 7,
+    "octopus": 6,
+    "twinbee": 6,
+    "pentarou": 6
+  },
+  "total_final_distinct_epochs_per_route": 8,
+  "extraction_refinement_disclosure": "Earlier exploratory sixteen-epoch sheets predate the tightened per-run cap. Only final selected eight-epoch combined sheet is retained; original raw containers untouched. No hidden added image epochs after refinement.",
+  "source_helper_bindings": {
+    "tools/audit/current_darkwing_stairs_prepare_v1.py": "8471a113bbe9f5ee6d8aaf599dbb7d31ee1c29788efef0c9e84264dd3c53532b",
+    "tools/audit/link_pit_rygar_sophia_audit_cpu.py": "15ef348bc124a97d8ef2c8a56777180276271b44fb77c8ace7e62c2a50310113",
+    "tools/audit/check_tmnt_render_oa.py": "32033893e48055adc9a23c661238e9331dd1db856be51b753ba9b6781eb528e4",
+    "tools/audit/verify_native_relocation.py": "1bab7154bc2e5468e827087d14030a7e30c4d3676db5e775ef15de4d0c34ce11",
+    "src/parodius_render.s": "a6f0d11ab8e4f1d1e8e9a92dfd54a47de0acca4383b3022965dea3f21a920330",
+    "src/parodius_adapter.s": "446d08b68d98852a9180151feb05642760de6becae2e6c6a3333865c063b9304",
+    "src/level_tiles.s": "ccfeacb8766a401c1fee7ce70125c8c3981e002855345c68a468e0748b0d1ece",
+    "src/sprite_render.s": "d4fd732b70216d679cc9ef4a37d7aba67ec48407e761ac73589d9494ed059bda"
+  },
+  "limits": "Every raw frame decoded and aggregate-hash verified; only active world0/level0 gets pixel metrics. Ground phase uses recorded camera history and static floor pattern, not observed hardware scroll registers. Majority pixels are empirical and can miss common persistent corruption; enemies, animation, source-sanctioned block mutations and epoch lag can trigger residuals. Physical OAM/CHR/art ownership and hurt/blink flags are absent in these route captures. Coarse body-box residual is not an eight-sprite or full-fidelity proof. This tool ranks actual images for manual review; it is not a green all-visual/audio/gameplay certification.",
+  "inspected_full_buffer_sheet": {
+    "path": "build\\current326-five-route-visual-scan-v3\\eight-additional-whole-frames.png",
+    "sha256": "b83e25867da2d2b248c063f86631b14cff8e02868b3a4358380af12b4e4a1e1c",
+    "placements": [
+      {
+        "identity": "link",
+        "frame": 873,
+        "row": 0,
+        "column": 0,
+        "metadata": {
+          "type": "record",
+          "record": 629,
+          "offset": 5801353,
+          "bytes": 26547,
+          "kind": 1,
+          "mode": 1,
+          "name": "actual-ppu.argb",
+          "decoded_bytes": 245760,
+          "stamp": {
+            "bank": 126,
+            "cpu_cycle": 25995885,
+            "dot": 0,
+            "pc": 33461,
+            "ppu_frame": 873,
+            "scanline": 240,
+            "sp": 253
+          },
+          "full_ordinal": 629,
+          "word_fnv1a32": 1555266448
+        },
+        "raw_sha256": "8048bf13c30f175d0cbbcaa9ef854f3ac51859a9aa510889f187d9816b8603ca"
+      },
+      {
+        "identity": "zelda2",
+        "frame": 988,
+        "row": 0,
+        "column": 1,
+        "metadata": {
+          "type": "record",
+          "record": 744,
+          "offset": 7453634,
+          "bytes": 26897,
+          "kind": 1,
+          "mode": 1,
+          "name": "actual-ppu.argb",
+          "decoded_bytes": 245760,
+          "stamp": {
+            "bank": 126,
+            "cpu_cycle": 29420643,
+            "dot": 0,
+            "pc": 33462,
+            "ppu_frame": 988,
+            "scanline": 240,
+            "sp": 253
+          },
+          "full_ordinal": 744,
+          "word_fnv1a32": 3796415235
+        },
+        "raw_sha256": "d9b13546f8c550f419eeb42d4446094ca4fe00ba508479dea83b60fcee93c922"
+      },
+      {
+        "identity": "octopus",
+        "frame": 3261,
+        "row": 1,
+        "column": 0,
+        "metadata": {
+          "type": "record",
+          "record": 3017,
+          "offset": 57135885,
+          "bytes": 28687,
+          "kind": 1,
+          "mode": 1,
+          "name": "actual-ppu.argb",
+          "decoded_bytes": 245760,
+          "stamp": {
+            "bank": 4,
+            "cpu_cycle": 97111719,
+            "dot": 0,
+            "pc": 48911,
+            "ppu_frame": 3261,
+            "scanline": 240,
+            "sp": 239
+          },
+          "full_ordinal": 3017,
+          "word_fnv1a32": 3464759850
+        },
+        "raw_sha256": "3fa04efd83fabebfc6196f7bb6d7fb1a2cb6fd57ab88723f6ac1a70d9333f658"
+      },
+      {
+        "identity": "octopus",
+        "frame": 3557,
+        "row": 1,
+        "column": 1,
+        "metadata": {
+          "type": "record",
+          "record": 3313,
+          "offset": 65549297,
+          "bytes": 2592,
+          "kind": 1,
+          "mode": 2,
+          "name": "actual-ppu.argb",
+          "decoded_bytes": 245760,
+          "stamp": {
+            "bank": 126,
+            "cpu_cycle": 105926747,
+            "dot": 0,
+            "pc": 33459,
+            "ppu_frame": 3557,
+            "scanline": 240,
+            "sp": 253
+          },
+          "full_ordinal": 3313,
+          "word_fnv1a32": 474058100
+        },
+        "raw_sha256": "b4221525732d1dcf02bc0b4b0c063f1bad240d26257b9a37dd86aaa4f676cf1c"
+      },
+      {
+        "identity": "twinbee",
+        "frame": 1382,
+        "row": 2,
+        "column": 0,
+        "metadata": {
+          "type": "record",
+          "record": 1117,
+          "offset": 22296331,
+          "bytes": 24479,
+          "kind": 1,
+          "mode": 1,
+          "name": "actual-ppu.argb",
+          "decoded_bytes": 245760,
+          "stamp": {
+            "bank": 71,
+            "cpu_cycle": 41154160,
+            "dot": 0,
+            "pc": 44352,
+            "ppu_frame": 1382,
+            "scanline": 240,
+            "sp": 231
+          },
+          "full_ordinal": 1117,
+          "word_fnv1a32": 4223090336
+        },
+        "raw_sha256": "5cc23015f84a008daaaf4491398a3d463702120d24f74eadb9fee3a5014f4afc"
+      },
+      {
+        "identity": "twinbee",
+        "frame": 3513,
+        "row": 2,
+        "column": 1,
+        "metadata": {
+          "type": "record",
+          "record": 3248,
+          "offset": 67765809,
+          "bytes": 2592,
+          "kind": 1,
+          "mode": 2,
+          "name": "actual-ppu.argb",
+          "decoded_bytes": 245760,
+          "stamp": {
+            "bank": 126,
+            "cpu_cycle": 104616405,
+            "dot": 0,
+            "pc": 33460,
+            "ppu_frame": 3513,
+            "scanline": 240,
+            "sp": 253
+          },
+          "full_ordinal": 3248,
+          "word_fnv1a32": 3384224205
+        },
+        "raw_sha256": "ccb53fa6890c57006eae65569d3034c4aa80d914a284c56b3ac542b6654ee8ef"
+      },
+      {
+        "identity": "pentarou",
+        "frame": 3169,
+        "row": 3,
+        "column": 0,
+        "metadata": {
+          "type": "record",
+          "record": 2904,
+          "offset": 58578021,
+          "bytes": 27740,
+          "kind": 1,
+          "mode": 1,
+          "name": "actual-ppu.argb",
+          "decoded_bytes": 245760,
+          "stamp": {
+            "bank": 4,
+            "cpu_cycle": 94371913,
+            "dot": 0,
+            "pc": 42572,
+            "ppu_frame": 3169,
+            "scanline": 240,
+            "sp": 238
+          },
+          "full_ordinal": 2904,
+          "word_fnv1a32": 531058201
+        },
+        "raw_sha256": "a6497b59ea79a8b785ea8f33ee1f8dc3ab24fd101d3708e54d966130700fbf9d"
+      },
+      {
+        "identity": "pentarou",
+        "frame": 3506,
+        "row": 3,
+        "column": 1,
+        "metadata": {
+          "type": "record",
+          "record": 3241,
+          "offset": 67887467,
+          "bytes": 2592,
+          "kind": 1,
+          "mode": 2,
+          "name": "actual-ppu.argb",
+          "decoded_bytes": 245760,
+          "stamp": {
+            "bank": 126,
+            "cpu_cycle": 104407942,
+            "dot": 0,
+            "pc": 33461,
+            "ppu_frame": 3506,
+            "scanline": 240,
+            "sp": 253
+          },
+          "full_ordinal": 3241,
+          "word_fnv1a32": 2135805194
+        },
+        "raw_sha256": "30aef302675a4262f7b38ae512da0aa440dbc17f49924fa35e7111177f7298de"
+      }
+    ],
+    "agent_visual_review": true
+  }
+}

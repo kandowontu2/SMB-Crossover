@@ -1,0 +1,198 @@
+{
+  "status": "INDEPENDENT_SOURCE_REVIEW_NO_STATIC_BLOCKER_NATIVE_FALSE_HELD",
+  "native_run": false,
+  "source_approved_for_bounded_native_test": true,
+  "adoption_approved": false,
+  "candidate_SHA256": "44204c9b573a82dd4838df1821afeaad8ffab8b264ebb234f31a8e156434ff5a",
+  "parent_SHA256": "32694243361bb1366f6fd64c054ea2451f86b2517fc020d9c2b5d66bbf07bfa0",
+  "verified_handoff_sha256": "fe1c1468d2a393f6f5c7010bf93f598f180a30f3f967143c0c45816b46202ff5",
+  "actual_ROM_diff": {
+    "bytes": 31,
+    "bank": 6,
+    "ranges": [
+      {
+        "start": "0xab53",
+        "end": "0xab5c",
+        "before": "a2008e737f8e606cca18",
+        "after": "18a2008e737f8e606cca"
+      },
+      {
+        "start": "0xb54f",
+        "end": "0xb563",
+        "before": "d006ca10f84c00a9c92090f6c92f9002b0f04ceea8",
+        "after": "c9209004c92f9009ca10f22060ab4c54ab4ceea8ea"
+      }
+    ],
+    "header_CHR_allotherbanks_exact": true
+  },
+  "rationale": [
+    "Bill-only noSelect gate scans all10 slots. No type32..46 means original second loop has no motion/hit/collision consumer and only republishes AvSlot/RgSlot plus final flags/zero bullet type. The candidate retains real AdvanceFreeze and reproduces final cursor0/XFF/A0/flags; it does not skip authentic weapon work.",
+    "Fresh Select always uses original preparation path; each advanced32..46 type always uses original path. No special cue/weapon/timer/event suppression. The later real RosterWeapons enemy cache refresh remains present.",
+    "The completed range scan carriesC0 for finalslot0 below32 andC1 above46. Those exactly match original Bill tail comparisons. Actual unchanged AdvanceFreeze/SamusFrozenDecrement instructions preserveC/V and cannot mutate the shot pool/cursors.",
+    "Samus empty-path CLC moves across only LDX/STX/DEX, leaving its full result and cycle count exact. It does not inherit Bill range carry.",
+    "Actual IRQ preserves AXY/P/SP/banks/fiveSMC. While GameLoop owns NmiDisableFF, the NMI takes the lag path; the finite original/current execution probes found no cursor readers. No AvSlot/RgSlot references occur in current audio/music source files."
+  ],
+  "independent_additional_CPU_counts": {
+    "all256_InvFresh_values_with_nonzero_entry_cursors": 256,
+    "full_caller_mixed16bit_freeze_states_and_live_cursors": 48,
+    "both_genuine_Bill_advanced_types_all10positions": 20,
+    "sampled_foreign_exact": 56
+  },
+  "independent_additional_CPU_costs": {
+    "InvFresh_dispatch": {
+      "cases": 256,
+      "minimum": -644,
+      "maximum": 0,
+      "mean": -322.0
+    },
+    "mixed_hi_timers_full_caller": {
+      "cases": 48,
+      "minimum": -760,
+      "maximum": -620,
+      "mean": -674.6666666666666
+    },
+    "real_advanced_dispatch": {
+      "cases": 20,
+      "minimum": -30,
+      "maximum": -3,
+      "mean": -16.5
+    }
+  },
+  "existing_bound_controls": {
+    "counts": {
+      "all256_types_three_positions_Select_CV_admission_or_complete": 6144,
+      "complete_Remaining_all64flags_modes_variants_freeze": 6144,
+      "foreign_complete_remaining": 456,
+      "timer_engine_allflags_boundaries": 3072,
+      "complete_actual_caller": 480,
+      "complete_actual_caller_all64flags": 1024,
+      "actual_IRQ_visited_new_boundaries": 242
+    },
+    "source_interrupt_reader_cases": 16,
+    "whole_state": "AXYP/SP, SHORTRAM/SMC/SRAM/OAM and every caller-live stack byte; no cache/V/SMC exception.",
+    "ordered_write_difference": "Only fewer intermediate AvSlot/RgSlot publications and consumed stack return slots in the noadvanced fast domain. Final memory is exact. Foreign/trueadvanced/freshSelect additionally have bound exact ordered writes without cursor exemption."
+  },
+  "challenges_and_limits": [
+    "All-byte qualification for foreign advanced32..41/44..46 stops at genuine AdvanceFreeze entry, before invoking another family driver under Bill Cbank. This is an explicit valid admission comparison, not a full foreign-driver test or hidden failure waiver. Bill42/43 execute complete; foreign-character direct paths are unchanged.",
+    "Incoming AYX values in the inherited runner are fixed. Static live-range review shows the changed Bill scan definesA/X before use, does not introduce Y uses, and final live outputs compare; this is not a claim of exhaustive register cross-product.",
+    "Native scheduling/cadence and actual32..46 use under sparse pools remain required. Up to+24CPU advanced admission is disclosed; no net lag-free or all-roster performance claim.",
+    "The IRQ counter top-level field0 is initialized legacy metadata; actual executed injections are correctly recorded as counts.actual_IRQ_visited_new_boundaries242. Source interrupt readers total16.",
+    "The readiness remains a single adaptive BillHard run, not matched-work timing by itself. Existing326 native fixed-stream exhaustion remains FALSE and is not passed by this source packet."
+  ],
+  "accepted_cost_scope": {
+    "complete_ProcFireball_Bubble": {
+      "cases": 480,
+      "minimum": -680,
+      "maximum": -620,
+      "mean": -642.8
+    },
+    "advanced": {
+      "cases": 180,
+      "minimum": -3,
+      "maximum": 24,
+      "mean": 11.0
+    },
+    "fresh_Select": {
+      "cases": 3072,
+      "minimum": 0,
+      "maximum": 0,
+      "mean": 0.0
+    },
+    "foreign": {
+      "cases": 456,
+      "minimum": 0,
+      "maximum": 0,
+      "mean": 0.0
+    },
+    "remaining_Main_exclusive_unlocalized": 313583,
+    "remaining_DrawAll_exclusive_unlocalized": 130852
+  },
+  "frozen_input_checks": {
+    "handoff_files": 10,
+    "native_ready_bindings": 29,
+    "all_rehashed": true,
+    "ordinary_hashes": [
+      "d444cac88e13fa02b29ad16100b8f08fa565ba90f8cedde192de43fb2dc8f3eb",
+      "f4ffd2483c51daa4d60bb575da2da8c4d817692cda407611c243031f67520833"
+    ]
+  },
+  "reviewer_changes": "Only this new small report. No B source, canonical source/ROM/build, readiness, settings, native emulator, or frozen report edits.",
+  "bindings": [
+    {
+      "path": "build\\bill_inert_pool_handoff.json",
+      "sha256": "fe1c1468d2a393f6f5c7010bf93f598f180a30f3f967143c0c45816b46202ff5"
+    },
+    {
+      "path": "build\\zelda2_easy_glove.nes",
+      "sha256": "32694243361bb1366f6fd64c054ea2451f86b2517fc020d9c2b5d66bbf07bfa0"
+    },
+    {
+      "path": "build\\zelda2_easy_glove.dbg",
+      "sha256": "9155318791914d0cbd5cd2ad076c1a891b21cb2dd09acbffedcef1cb9ef62e3d"
+    },
+    {
+      "path": "build\\bill_inert_pool.nes",
+      "sha256": "44204c9b573a82dd4838df1821afeaad8ffab8b264ebb234f31a8e156434ff5a"
+    },
+    {
+      "path": "build\\bill_inert_pool.dbg",
+      "sha256": "a6e12481de5204ec8b3de33bfadc02faa4f51cc6b286ae0f600953db9fc519d2"
+    },
+    {
+      "path": "build\\bill_inert_pool_cpu.json",
+      "sha256": "ac2e81574a2239313cd4abb1bda7f27b68014f3d4acff9264b6d819af343c94d"
+    },
+    {
+      "path": "build\\bill_inert_pool_final.json",
+      "sha256": "b8911cf548d27b0354e3fae4fe072269d3882d9da43712a50010a4271422e7be"
+    },
+    {
+      "path": "build\\bill_inert_pool_ordinary.json",
+      "sha256": "3ee4a52ff93c991fdf62d7e4b5c5b67dff613169a352cc413e24eb51b9c17a2b"
+    },
+    {
+      "path": "tools\\audit\\bill_early_cache_cpu_v1.py",
+      "sha256": "5c08430c98bcb0456daaf538ce7586338e387243ba3dc47d71e13ff6e72a9105"
+    },
+    {
+      "path": "tools\\audit\\bill_inert_pool_cpu_v1.py",
+      "sha256": "31e15c2117ae61d4097ca3fa185167a7b2be71c03b23e796662e3182f32494d9"
+    },
+    {
+      "path": "tools\\audit\\bill_inert_pool_native_prepare_v1.py",
+      "sha256": "8007af258515977def6e3d02bccde0918744e539507f2ecda453462b0442cd02"
+    },
+    {
+      "path": "build\\bill_inert_pool.patch",
+      "sha256": "5f543764f6645264b72cc916dd2a4d8bd21e5428b0358b42cea37c8b155c6dcf"
+    },
+    {
+      "path": "src\\remaining_weapons.s",
+      "sha256": "63789904a5e617967fa4d0e7a126444e7e0a71ce8cf2c47a01e5806d2a44bc66"
+    },
+    {
+      "path": "src\\reset.s",
+      "sha256": "e108562a322dfe93c95caec209dd44329bee5ecedc6bd08083f80497f05172f5"
+    },
+    {
+      "path": "build\\verification\\bill-inert-pool326-hard-ready-v2\\ready.json",
+      "sha256": "836acffb430c5a4781a019b655b6216c9b2df74f98364820cacb0a120287f683"
+    }
+  ],
+  "latest_native_context": {
+    "candidate_native_passed": false,
+    "actual_zero_death_FAILURE": 1811,
+    "result_path": "build\\verification\\bill-inert-pool326-hard-ready-v2\\result.json",
+    "result_sha256": "86fbaa4eb97eae2dff5f1ee500cfa931586777e19df799692298c922757dc0fe",
+    "reason": "Zero-death 1-1 route",
+    "baseline_matched_comparison_pending": true,
+    "adoption_HELD": true,
+    "source_findings_do_not_override_native_failure": true,
+    "causal_interpretation": "No cause assigned before actual matched baseline/trace. Faster source can change scheduling, but that is a hypothesis rather than exoneration. No new native launch by reviewer."
+  },
+  "independent_extra_case_scope": "The20 advanced pairs place one42/43 in each slot with allother slotsbasic1, so they measure densebasic surroundings(-30..-3), not the sparse-empty positive+24worstcase retained from the originalboundreceipt.",
+  "source_blockers": [],
+  "adoption_blockers": [
+    "Actual candidate native Zero-death failure1811 remains unresolved pending matched current326 baseline and causal attribution. No adoption or additional native launch authorized by this review."
+  ]
+}
