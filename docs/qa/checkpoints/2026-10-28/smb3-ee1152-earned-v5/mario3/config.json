@@ -1,0 +1,716 @@
+{
+  "ROM_sha256": "ee1152a49deae31e82d202159310fa3719cbcfd85de571fd1b9ac15a1cd2a7b3",
+  "identity": "mario3",
+  "character": 17,
+  "menu": 16,
+  "variant": 0,
+  "mode": 1,
+  "plan": [
+    {
+      "name": "cold-small-jump",
+      "kind": "jump",
+      "form": 0
+    },
+    {
+      "name": "real-super-mushroom",
+      "kind": "pickup",
+      "form": 0,
+      "to": 1,
+      "picture": "01-super.png"
+    },
+    {
+      "name": "super-crouch-and-real-head-brick",
+      "kind": "head",
+      "form": 1
+    },
+    {
+      "name": "real-fire-flower",
+      "kind": "pickup",
+      "form": 1,
+      "to": 2
+    },
+    {
+      "name": "native-fireball-right",
+      "kind": "shot",
+      "form": 2,
+      "face": 1,
+      "picture": "02-fireball.png"
+    },
+    {
+      "name": "native-fireball-left",
+      "kind": "shot",
+      "form": 2,
+      "face": 2
+    },
+    {
+      "name": "real-raccoon-leaf",
+      "kind": "pickup",
+      "form": 2,
+      "to": 3
+    },
+    {
+      "name": "raccoon-tail-enemy",
+      "kind": "tail",
+      "form": 3,
+      "face": 1
+    },
+    {
+      "name": "raccoon-tail-real-brick",
+      "kind": "tailblock",
+      "form": 3
+    },
+    {
+      "name": "earned-raccoon-P-flight-wag",
+      "kind": "flight",
+      "form": 3,
+      "picture": "03-raccoon-flight.png"
+    },
+    {
+      "name": "real-frog-suit",
+      "kind": "pickup",
+      "form": 3,
+      "to": 4
+    },
+    {
+      "name": "frog-ground-hop",
+      "kind": "jump",
+      "form": 4
+    },
+    {
+      "name": "frog-directional-water-swim",
+      "kind": "swim",
+      "form": 4,
+      "picture": "04-frog-swim.png"
+    },
+    {
+      "name": "real-tanooki-suit",
+      "kind": "pickup",
+      "form": 4,
+      "to": 5
+    },
+    {
+      "name": "tanooki-tail-enemy",
+      "kind": "tail",
+      "form": 5,
+      "face": 2
+    },
+    {
+      "name": "earned-tanooki-P-flight-wag",
+      "kind": "flight",
+      "form": 5
+    },
+    {
+      "name": "tanooki-statue-real-protected-contact-release",
+      "kind": "statue",
+      "form": 5,
+      "picture": "05-statue.png"
+    },
+    {
+      "name": "real-hammer-suit",
+      "kind": "pickup",
+      "form": 5,
+      "to": 6
+    },
+    {
+      "name": "native-hammer-right",
+      "kind": "shot",
+      "form": 6,
+      "face": 1,
+      "picture": "06-hammer.png"
+    },
+    {
+      "name": "native-hammer-left",
+      "kind": "shot",
+      "form": 6,
+      "face": 2
+    },
+    {
+      "name": "actual-Star-contact-expiry",
+      "kind": "star",
+      "form": 6,
+      "picture": "07-star-contact.png"
+    },
+    {
+      "name": "physical-1Up-gain-popup-cleanup",
+      "kind": "life",
+      "form": 6
+    },
+    {
+      "name": "real-higher-suit-injury-to-super",
+      "kind": "hurt",
+      "form": 6,
+      "to": 1
+    },
+    {
+      "name": "real-super-injury-shrink-to-small",
+      "kind": "hurt",
+      "form": 1,
+      "to": 0,
+      "picture": "08-small-cleanup.png"
+    }
+  ],
+  "native": {
+    "Power": "M3Native::Player_Power",
+    "FlyTime": "M3Native::Player_FlyTime",
+    "WagCount": "M3Native::Player_WagCount",
+    "TailAttack": "M3Native::Player_TailAttack",
+    "TailCount": "M3Native::Player_TailCount",
+    "Statue": "M3Native::Player_Statue",
+    "QueueSuit": "M3Native::Player_QueueSuit",
+    "IsDucking": "M3Native::Player_IsDucking",
+    "Frame": "M3Native::Player_Frame",
+    "XVel": "M3Native::Player_XVel",
+    "YVel": "M3Native::Player_YVel",
+    "InWater": "M3Native::Player_InWater",
+    "FrogHopCnt": "M3Native::Player_FrogHopCnt",
+    "SwimCnt": "M3Native::Player_SwimCnt",
+    "FlipBits": "M3Native::Player_FlipBits",
+    "FireCount": "M3Native::Player_FireCount"
+  },
+  "ram": {
+    "StarInvincibleTimer": 1948,
+    "M3Ready": 23680,
+    "SelectedCharacter": 24578,
+    "EnemyOffscrBitsMasked": 1448,
+    "MTileBotRight": 48535,
+    "Enemy_State": 31,
+    "Player_Y_Speed": 142,
+    "M3Native::Player_Statue": 23626,
+    "M3ShotAge": 23712,
+    "Enemy_Y_Position": 190,
+    "M3Native::Player_SwimCnt": 23622,
+    "NmiDisable": 313,
+    "Enemy_ID": 23,
+    "M3Life": 23719,
+    "Player_X_Speed": 70,
+    "ScreenRight_PageLoc": 1822,
+    "CrossoverBehaviorVersion": 32737,
+    "CurrentBank": 325,
+    "Player_CollisionBits": 1596,
+    "Block_Buffer_1": 768,
+    "M3Growth": 23691,
+    "Enemy_X_Position": 118,
+    "OperMode": 1905,
+    "ScreenLeft_X_Pos": 1823,
+    "CrossoverMenuIndex": 29449,
+    "ScreenRight_X_Pos": 1824,
+    "InvPickup": 32098,
+    "ScreenLeft_PageLoc": 1821,
+    "FloateyNum_Control": 269,
+    "InvAmmo": 31906,
+    "M3Native::Player_YVel": 23557,
+    "MmYFraction": 26797,
+    "CheatInvincible": 32763,
+    "M3Native::Player_FlipBits": 23583,
+    "Player_X_Position": 117,
+    "M3ShotPage": 23700,
+    "M3Variant": 24548,
+    "MmDeathFlag": 24583,
+    "M3Native::Player_Frame": 23582,
+    "PlayerStatus": 1883,
+    "InvOwnedHi": 31810,
+    "MTileTopLeft": 47767,
+    "M3ShotY": 23702,
+    "M3ShotKind": 23696,
+    "M3Native::Player_QueueSuit": 23624,
+    "M3Native::Player_InWater": 23621,
+    "CrossoverMenuState": 29447,
+    "M3Previous": 23681,
+    "TailBlock": 42289,
+    "MTileBotLeft": 48023,
+    "M3Poof": 23692,
+    "PowerUpType": 52,
+    "Player_State": 30,
+    "Player_Y_Position": 189,
+    "Collect": 46457,
+    "M3Native::Player_TailAttack": 23598,
+    "GuestInvulTicks": 28446,
+    "Enemy_Y_Speed": 143,
+    "InvRisePhase": 32104,
+    "M3Native::Player_IsDucking": 23617,
+    "GuestHurtTicks": 28445,
+    "CrouchingFlag": 1815,
+    "ScrollThirtyTwo": 1856,
+    "GuestPowerupTarget": 27648,
+    "Enemy_BoundBoxCtrl": 1606,
+    "ScrollLock": 1830,
+    "M3Native::Player_FireCount": 23596,
+    "M3ShotVX": 23706,
+    "MmXFraction": 26795,
+    "CurrentBankC": 32161,
+    "Enemy_CollisionBits": 1597,
+    "AreaParserTaskNum": 1826,
+    "M3ShotVY": 23708,
+    "M3Native::Player_XVel": 23556,
+    "GameEngineSubroutine": 15,
+    "Player_Y_HighPos": 164,
+    "CrossoverOptionsFocus": 32441,
+    "M3ShotX": 23698,
+    "MmBrickHealth": 24657,
+    "MmVY": 26792,
+    "M3Native::Player_WagCount": 23584,
+    "M3Native::Player_TailCount": 23594,
+    "Enemy_SprAttrib": 1416,
+    "MmVX": 26789,
+    "M3Native::Player_FrogHopCnt": 23596,
+    "R0": 3,
+    "MTileTopRight": 48279,
+    "Power": 47039,
+    "Player_X_MoveForce": 1799,
+    "PlayerSize": 1881,
+    "InjuryTimer": 1947,
+    "PlayerFacingDir": 1342,
+    "Throw": 45458,
+    "MTileAttribute": 61238,
+    "InvDrawSlot": 28436,
+    "InvPickupOwner": 32110,
+    "Enemy_MovingDir": 1343,
+    "NumberofLives": 1887,
+    "M3Native::Player_Power": 23587,
+    "M3Fresh": 23682,
+    "Tail": 47908,
+    "AreaType": 1875,
+    "M3Marker": 24399,
+    "Enemy_Y_HighPos": 165,
+    "R1": 4,
+    "OperMode_Task": 1907,
+    "Defeat": 43833,
+    "Enemy_PageLoc": 93,
+    "M3Form": 24384,
+    "GuestPowerupActive": 27645,
+    "InvSelected": 31894,
+    "Player_PageLoc": 92,
+    "MmSolidTerrain": 26321,
+    "Enemy_X_Speed": 71,
+    "PseudoRandomBitReg": 1952,
+    "InvOwnedLo": 31798,
+    "Block_State": 39,
+    "Enemy_Y_MoveForce": 1539,
+    "M3Native::Player_FlyTime": 23616,
+    "Sprite0HitDetectFlag": 1829,
+    "Enemy_Flag": 16,
+    "Player_Y_MoveForce": 1538,
+    "Player_MovingDir": 69,
+    "ObjectMetasprite": 1761,
+    "M3RenderFrame": 23694
+  },
+  "hooks": {
+    "PhysicalPickup": {
+      "pc": 44913,
+      "banks": [
+        3
+      ],
+      "bytes": [
+        32,
+        47,
+        141
+      ],
+      "source_symbol": "MarioSourcePowerupCollision",
+      "source_delta": 0
+    },
+    "AreaMusic": {
+      "pc": 36235,
+      "banks": [
+        126
+      ],
+      "bytes": [
+        141,
+        106,
+        1
+      ],
+      "source_symbol": "GetAreaMusic",
+      "source_delta": 0
+    },
+    "NmiEntry": {
+      "pc": 58172,
+      "banks": [
+        125,
+        127
+      ],
+      "bytes": [
+        72,
+        138,
+        72
+      ],
+      "source_symbol": "NonMaskableInterrupt",
+      "source_delta": 0
+    },
+    "IrqEntry": {
+      "pc": 32768,
+      "banks": [
+        126
+      ],
+      "bytes": [
+        72,
+        138,
+        72
+      ],
+      "source_symbol": "IrqScrollSplit",
+      "source_delta": 0
+    },
+    "GameLoopOwned": {
+      "pc": 33502,
+      "banks": [
+        126
+      ],
+      "bytes": [
+        32,
+        86,
+        131
+      ],
+      "source_symbol": "GameLoop",
+      "source_delta": 5
+    },
+    "GameLoopFinish": {
+      "pc": 33621,
+      "banks": [
+        126
+      ],
+      "bytes": [
+        96
+      ],
+      "source_symbol": "GameLoop",
+      "source_delta": 124
+    },
+    "NmiReturn": {
+      "pc": 58383,
+      "banks": [
+        125,
+        127
+      ],
+      "bytes": [
+        64
+      ],
+      "source_symbol": "NonMaskableInterrupt",
+      "source_delta": 211
+    },
+    "IrqReturn": {
+      "pc": 32835,
+      "banks": [
+        126
+      ],
+      "bytes": [
+        64
+      ],
+      "source_symbol": "IrqScrollSplit",
+      "source_delta": 67
+    },
+    "StarContact": {
+      "pc": 38579,
+      "banks": [
+        126
+      ],
+      "bytes": [
+        76,
+        245,
+        154
+      ],
+      "source_symbol": "PlayerEnemyCollision",
+      "source_delta": 90
+    },
+    "LifeIncrement": {
+      "pc": 35207,
+      "banks": [
+        126
+      ],
+      "bytes": [
+        238,
+        95,
+        7
+      ],
+      "source_symbol": "FloateyNumbersCore",
+      "source_delta": 35
+    },
+    "DmaComplete": {
+      "pc": 57352,
+      "banks": [
+        125,
+        127
+      ],
+      "bytes": [
+        141,
+        1,
+        32
+      ],
+      "source_symbol": "PostDmaMaskEnable",
+      "source_delta": 3
+    },
+    "Collect": {
+      "pc": 42102,
+      "banks": [
+        90
+      ],
+      "bytes": [
+        32,
+        0,
+        160
+      ],
+      "source_symbol": "M3CollectPickup",
+      "source_delta": 0
+    },
+    "Injury": {
+      "pc": 43948,
+      "banks": [
+        90
+      ],
+      "bytes": [
+        142,
+        181,
+        92
+      ],
+      "source_symbol": "M3Injury",
+      "source_delta": 0
+    },
+    "Throw": {
+      "pc": 46266,
+      "banks": [
+        92
+      ],
+      "bytes": [
+        32,
+        161,
+        179
+      ],
+      "source_symbol": "M3Throw",
+      "source_delta": 0
+    },
+    "Tail": {
+      "pc": 42531,
+      "banks": [
+        90
+      ],
+      "bytes": [
+        169,
+        17,
+        172
+      ],
+      "source_symbol": "M3TailEnemies",
+      "source_delta": 0
+    },
+    "TailBlock": {
+      "pc": 42741,
+      "banks": [
+        90
+      ],
+      "bytes": [
+        32,
+        176,
+        166
+      ],
+      "source_symbol": "M3TailBlock",
+      "source_delta": 0
+    },
+    "Defeat": {
+      "pc": 42965,
+      "banks": [
+        90
+      ],
+      "bytes": [
+        181,
+        23,
+        201
+      ],
+      "source_symbol": "M3DefeatEnemy",
+      "source_delta": 0
+    },
+    "ProjectileDamage": {
+      "pc": 44734,
+      "banks": [
+        90
+      ],
+      "bytes": [
+        181,
+        23,
+        201
+      ],
+      "source_symbol": "M3ProjectileDamage",
+      "source_delta": 0
+    },
+    "Graphics": {
+      "pc": 41259,
+      "banks": [
+        90
+      ],
+      "bytes": [
+        32,
+        0,
+        160
+      ],
+      "source_symbol": "M3Graphics",
+      "source_delta": 0
+    },
+    "ShotRender": {
+      "pc": 43221,
+      "banks": [
+        90
+      ],
+      "bytes": [
+        141,
+        106,
+        1
+      ],
+      "source_symbol": "M3DrawWorld::Render",
+      "source_delta": 0
+    },
+    "RosterReady": {
+      "pc": 41546,
+      "banks": [
+        4
+      ],
+      "bytes": [
+        96,
+        104,
+        74
+      ],
+      "source_symbol": "RosterOamReady",
+      "source_delta": 0
+    }
+  },
+  "scope": "Actual physical source-classified48-update suit emergence/collection and carried forms0..6; source movement/crouch/headbrick/tail enemy+brick/fire+hammer both directions/P-meter flight+wag/Frog hop+swim/Tanooki statue contact+release/Star contact+expiry/physical1Up/real injury cleanup. Typed flat arena, actor/classification/neutral external pose and water-room setup; no acquired form, native private physics, RNG, P-meter, timers, lives, health, injury or enemy outcome seeds. No natural question-block reveal/drop eligibility/world route, every-pixel/art/palette/melody fidelity, all terrain/capacity/exhaustion or universal timing claim.",
+  "navigation": [
+    "left",
+    "right",
+    "right",
+    "up",
+    "left",
+    "left",
+    "left",
+    "right",
+    "right",
+    "down",
+    "left",
+    "left",
+    "left",
+    "right",
+    "right",
+    "right",
+    "",
+    "left",
+    "left"
+  ],
+  "setup_allowed": {
+    "Block_Buffer_1": true,
+    "MmSolidTerrain": true,
+    "MmBrickHealth": true,
+    "Enemy_Flag": true,
+    "Enemy_CollisionBits": true,
+    "Player_X_Speed": true,
+    "Player_Y_Speed": true,
+    "Player_X_MoveForce": true,
+    "Player_Y_MoveForce": true,
+    "MmVX": true,
+    "MmVY": true,
+    "MmXFraction": true,
+    "MmYFraction": true,
+    "ScrollThirtyTwo": true,
+    "AreaParserTaskNum": true,
+    "ScrollLock": true,
+    "ScreenLeft_X_Pos": true,
+    "ScreenLeft_PageLoc": true,
+    "ScreenRight_PageLoc": true,
+    "ScreenRight_X_Pos": true,
+    "AreaType": true,
+    "Player_X_Position": true,
+    "Player_PageLoc": true,
+    "Player_Y_Position": true,
+    "Player_Y_HighPos": true,
+    "Player_State": true,
+    "PlayerFacingDir": true,
+    "Player_MovingDir": true,
+    "Player_CollisionBits": true,
+    "Enemy_ID": true,
+    "Enemy_State": true,
+    "Enemy_BoundBoxCtrl": true,
+    "Enemy_X_Position": true,
+    "Enemy_PageLoc": true,
+    "Enemy_Y_Position": true,
+    "Enemy_Y_HighPos": true,
+    "Enemy_X_Speed": true,
+    "Enemy_Y_Speed": true,
+    "Enemy_Y_MoveForce": true,
+    "Enemy_MovingDir": true,
+    "Enemy_SprAttrib": true,
+    "EnemyOffscrBitsMasked": true,
+    "PowerUpType": true,
+    "InvPickupOwner": true,
+    "InvPickup": true,
+    "InvRisePhase": true
+  },
+  "resource_bans": {
+    "M3Form": true,
+    "M3Marker": true,
+    "M3Ready": true,
+    "M3Growth": true,
+    "M3Poof": true,
+    "M3Fresh": true,
+    "M3Previous": true,
+    "M3ShotKind": true,
+    "M3ShotAge": true,
+    "M3ShotVX": true,
+    "M3ShotVY": true,
+    "M3Life": true,
+    "PlayerStatus": true,
+    "PlayerSize": true,
+    "InjuryTimer": true,
+    "GuestInvulTicks": true,
+    "GuestHurtTicks": true,
+    "MmDeathFlag": true,
+    "StarInvincibleTimer": true,
+    "NumberofLives": true,
+    "InvOwnedLo": true,
+    "InvOwnedHi": true,
+    "InvAmmo": true,
+    "InvSelected": true,
+    "PseudoRandomBitReg": true,
+    "CheatInvincible": true,
+    "GuestPowerupActive": true,
+    "GuestPowerupTarget": true,
+    "M3Native::Player_Power": true,
+    "M3Native::Player_FlyTime": true,
+    "M3Native::Player_WagCount": true,
+    "M3Native::Player_TailAttack": true,
+    "M3Native::Player_TailCount": true,
+    "M3Native::Player_Statue": true,
+    "M3Native::Player_QueueSuit": true,
+    "M3Native::Player_IsDucking": true,
+    "M3Native::Player_Frame": true,
+    "M3Native::Player_XVel": true,
+    "M3Native::Player_YVel": true,
+    "M3Native::Player_InWater": true,
+    "M3Native::Player_FrogHopCnt": true,
+    "M3Native::Player_SwimCnt": true,
+    "M3Native::Player_FlipBits": true,
+    "M3Native::Player_FireCount": true
+  },
+  "dma_store_return": 57349,
+  "smc": [
+    354,
+    362,
+    377,
+    364,
+    365
+  ],
+  "metatiles": {
+    "MTileTopLeft": {
+      "bank": 3,
+      "offset": 6807
+    },
+    "MTileTopRight": {
+      "bank": 3,
+      "offset": 7319
+    },
+    "MTileBotLeft": {
+      "bank": 3,
+      "offset": 7063
+    },
+    "MTileBotRight": {
+      "bank": 3,
+      "offset": 7575
+    },
+    "MTileAttribute": {
+      "bank": 127,
+      "offset": 3894
+    }
+  },
+  "statue_frame": 30
+}
