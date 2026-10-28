@@ -1,0 +1,122 @@
+Final Fantasy four-class prototype — SOURCE/ASSET evidence v1
+
+AUTHENTIC UNUSED2.02 ART/CODE, NOT A FINISHED CHARACTER OR NATIVE TEST.
+No shared assembly/cfg/menu/current ROM edits, no native launch, no allocation
+claim, no source/runtime tree copied. Rogue frozen packets are untouched.
+
+Authority and exact recovered assets
+reference/crossover2/source.swf SHA256
+6374c72426556bfc3cc16f7594ce4443a5867fe2d367514136c99cc8458b70af.
+Existing source.json records Git blob7ffefb108c55a0a10403403988d60c68432254c9.
+The preparer independently decompresses ORIGINAL SWF tag36/bitmap39 (1307x383,
+28RGBA palette entries) and asserts every RGBA byte against images/39.png.
+Original sprite41 labels/count18 and spell174 labels/count15 match raw SWF
+DefineSprite/FrameLabel tags. Shapes13/21, rect wrappers14/22, mask17/18,
+bitmap wrapper40 are also bound to original tag offsets/hashes.
+No TCRF download/bypass was used; FF1 ROM is available locally but not needed.
+
+Exact class rows: Fighter0,Thief94,BlackMage188,WhiteMage282. FireFlower adds
+X423, otherwiseX0. Proposed menu order is ROOT's Fighter/WhiteMage/BlackMage/
+Thief, with this row translation explicit. No class-selection implementation
+is present in original code: SUBCASSES is declared and never read; Special
+only records charPState. The four classes are absent from CharacterInfo.
+
+144 authored body cells are extracted (4classes x2tiers x18frames), exact
+original RGBA, no recoloring/quantization/chroma key. PNG remains one atlas,
+not144files. It includes stand,walk4,attack5,prepare2,jump,cast,fall,hurt,
+crouch,death. One preview shows40 selected placements with contrasting gaps.
+The authored cell is46px; floating mask45.998 can truncate to45 in prototype
+BitmapData construction, clipping22opaque margin occurrences in these144
+cells. Metadata preserves this limit; full authored-cell extraction is NOT
+a claim of runtime Flash pixel equivalence for this unreachable prototype.
+
+Body stand palettes contain FOUR opaque colors including real black outlines,
+plus transparency. Fighter/WhiteMage: black,skin F0D0B0,red F83800,white.
+Thief/BlackMage: black,blue(3FBFFF,upgradedBlackMage3CBCFC),brown AF7F00,
+yellow F8B800. Exact per-cell RGBA counts are recorded. NES cannot represent
+four opaque colors with one sprite palette; preserve black using an explicit
+second palette/layer or equivalent exact routing, not transparent-black loss.
+No arbitrary nearest-color palette or CHR page has been selected here.
+
+Authored spell art and REAL stale-timeline gap
+Bitmap39 contains lightning atX941..1306,Y7..288, plus visible fire/ice art
+in the unmodified spell-region crop. But sprite174 Fire frames1..3 point at
+Y383..417 and Ice4..8 atY383..464: entirely below bitmap height383, all blank.
+Bolt9..14 is in bounds;15 repeats final art before source destruction.
+This is an actual source/asset mismatch. Repairing Fire/Ice frame mapping is
+an authored adaptation, not an already-working original animation port.
+Two first-column sword glyphs are preserved separately; no corresponding
+pickup ID/collection/reward was found, so they are explicitly UNBOUND art.
+There are no authenticated FF-specific powerup/MP tables; shared Mushroom,
+Flower,Star,1Up need real new roster registration, not invented source claims.
+
+Source behavior map (raw script hashes + exact function line ranges in JSON)
+WarriorOfLight.setStats: jump630,gravity1400,xSpeed200 Flash units/sec;
+water gravity750, inherited ground water cap90/fall cap250; spring500/1000.
+Scale is2Flash pixels per NES pixel. At60Main/s this suggests launch5.25px,
+horizontal5/3px,gravity7/36px per update; fixed-point rounding remains a PORT
+choice, not a proven native equivalent. No FF jump-release cut is implemented;
+base Character.relJmpBtn only clears held state. Direction is immediate ±200,
+neutral/both stop; air direction remains controllable. Attack/preparation locks
+ground movement; air movement continues. Ground A cancels action listeners,
+starts jump, so a later port must retain this real cancel behavior.
+Body HRect:approximately[-7,-26,14,26] from original shape13/matrix; crouch
+[-7,-15,14,15]. Facing-right attack ARect:[7.5,-26,15,25], mirrored on left;
+all exact floating rectangles are recorded, not guessed generic sword boxes.
+BRICK_NONE and canStomp=false originate from the prototype/base defaults.
+
+Fighter.sideAttack and Thief.sideAttack begin frames6..10. 100ms timer per
+frame,500ms through next-frame completion. Ground movement is locked during
+attack; once per distinct target using ATK_DCT. Sword damage75/Thief10 in the
+original HP scale; do not equate those numbers to SMB one-hit damage blindly.
+Both directional Up/Down attacks are empty, not extra authored abilities.
+
+BlackMage: B=Fire100,Up+B=Bolt150,Down+B=Ice100; both directions held yields
+no attack. prepare500ms then cast300ms. Fire: horizontal450/sec, spawnX38,
+Y-27 Flash units. Ice: stationary X100,Y-27. Bolt:X100,YstageCenter+10,
+vertical broad hit distanceGLOB_STG_BOT/2. These positions are scaled atport.
+Fire animation33ms looping, Ice/Bolt75ms and destroy after end+1. Confirmed
+targets are recorded to prevent repeated hits; no MP/stock/weapon cap is
+implemented. Original timer/branch ownership needs finite source models before
+port, particularly jump-cancel and multi-spell concurrency.
+
+Pointer UI is incomplete:250ms appearance timer is constructed but no start
+call exists in WarriorOfLight. Its callback alone calls createPointer. Spell
+pointerType descriptors exist; current prepareSpell never uses them. Pointer
+direction speed400/sec, Aselect/Bcancel is implemented in the pointer class,
+but BlackMageSpell stores spellPnt and never reads it. Do not advertise
+functional targeting as source-complete.
+
+WhiteMage implements ONLY copyPixelsYOfs282 and inherited movement. No melee,
+healing,holy spell,MP,deduction/cooldown or attack override exists. Its authored
+attack/cast art does not establish any move rule. A playable WhiteMage requires
+an explicitly NEW combat/healing design. Do not expose a no-op WhiteMage as
+finished, borrow stock Samus, or falsely attribute invented healing to2.02.
+
+Inherited damage/power handling exists but registration is missing: Character
+dies without active Mushroom; with it removes Mushroom and ordinarily other
+upgrades, then protection/transform cleanup. Flower changes only the FF sprite
+column; no source subclass implements stronger attacks at that tier. Character
+initialization expects missing CHAR_NUM/MUSHROOM_UPGRADES/UPGRADE_INFO metadata
+and drawing-board palette/skin registration. These are genuine prototype gaps.
+
+Implementation recommendation, AFTER source evidence review
+1. Reuse the shared movement/state/power import with explicit new registration;
+   preserve above idle/cancel/air control and exact authored class/tier art.
+2. Port Fighter/Thief real melee first, BlackMage three actual algorithms with
+   explicitly repaired source-atlas frame map and finite active-spell storage.
+3. WhiteMage needs an authored choice: use its existing close-attack frames if
+   choosing a basic punch, or source additional real weapon art first. Healing
+   requires a declared finite resource/replenishment rule; none is original.
+4. Easy stomping, class Select cycle, flower gameplay upgrades/health rules,
+   sound and FF music are authored integration work. Document each separately.
+5. Check actual CORE62 AA00..BFFF and ART93 B000..BFFF/mirrorD000 extents and
+   all CHR consumers BEFORE linking; proposed756..787 is not owned/proven here.
+   Full-height Bolt art has282px masks and may need split rendering/extra ART;
+   never silently truncate it or weaken combat to fit a palette/OAM budget.
+
+Frozen metadata: chr/characters/final-fantasy-source-v1.json.
+Owned tool: tools/prepare_final_fantasy_assets_v1.py.
+Exact owned/input hashes and command: build/final_fantasy_source_assets_v1.json.
+No standalone gameplay leaf was justified before these missing design/routing
+rules are resolved; this packet completes the requested first source/art map.
