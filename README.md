@@ -6,7 +6,7 @@ This is a native NES adaptation of [Super Mario Bros. Crossover](https://www.smb
 
 **Status: playable, actively developed, and unfinished.** Character behavior, graphics, sound and performance are still being tested and corrected. MMC5 is the recommended target for the full roster.
 
-The October 28 development build (`ee1152a4`) fixes Chip/Dale's repeated HP updates running past the rendering deadline, their brief HP0 startup display, SMB3 forms retaining protection after damage, and Darkwing being pulled into terrain by a falling Arrow. Chip and Dale cleared 1-1 on this build without deaths or cheats. SMB3's focused tests passed on the individual repair; Darkwing's full-level run remains unfinished. See the [checks and limits](docs/qa/roster-rendering-injury-adoption-2026-10-28.json).
+The October 28 development build (`ee1152a4`) fixes Chip/Dale's repeated HP updates running past the rendering deadline, their brief HP0 startup display, SMB3 forms retaining protection after damage, and Darkwing being pulled into terrain by a falling Arrow. Chip and Dale cleared 1-1 on this build without deaths or cheats. Mike and Darkwing have also cleared 1-1 on this build. SMB3's focused tests passed on the individual repair; its full-level checks are continuing. See the [checks and limits](docs/qa/roster-rendering-injury-adoption-2026-10-28.json).
 
 The preceding October 27 development build (`5a0a37a9`) corrects Kirby's copied-enemy icon and green-shell colors, and restores Mike's original bat swing shapes and timing. The individual repairs passed focused native tests; the combined build preserves every other ROM byte and is still undergoing the full roster audit. See the [repair checks and limits](docs/qa/kirby-mike-polish-adoption-2026-10-27.json).
 

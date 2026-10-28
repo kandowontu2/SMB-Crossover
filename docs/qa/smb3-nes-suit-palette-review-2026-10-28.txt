@@ -1,0 +1,45 @@
+Read-only NES SMB3 suit-palette verification; no palette change warranted.
+
+The shared Fire/Frog/Tanooki/Hammer colors between Mario and Luigi match the
+original NES game. This comparison uses local USA PRG0 and USA PRG1 ROMs,
+not SNES/All-Stars or remembered appearances. The surviving authenticated
+PRG1 source/rebuilt payload also matches the original PRG1 ROM payload.
+
+Original physical PRG bank8 has PowerUp_Palettes at A529 and executable
+Level_SetPlayerPUpPal at A549 (83 bytes). Both USA revisions have identical
+table and routine bytes at those addresses. The actual selector uses
+Player_Current only for Small, Super and Raccoon; all other suits use their
+own shared table row, with Statue using row7.
+
+Actual three colors queued to PPU3F11:
+Small/Super/Raccoon Mario:16,36,0F; Luigi:2A,36,0F.
+Fire both:27,36,16. Frog both:2A,36,0F.
+Tanooki both:17,36,0F. Hammer both:30,27,0F.
+Tanooki Statue both:00,10,0F. (All values hexadecimal.)
+
+Current src/smb3_mario_render.s M3Palette selects those same rows and
+src/smb3_mario_art.inc M3NativePalettes contains the exact original triples,
+compacting only each source row's unused first byte. The actual32 complete
+original/current routine comparisons PASS: USA PRG0/PRG1 x two identities x
+seven suits plus the Tanooki statue selector. These isolated CPU calls declare
+form/player/statue and an empty queue; they are not earned-pickup campaigns.
+Every queued7-byte command including
+3F11 address/count/colors/terminator matches. This verifies palette dispatch
+and data, not all pixels/animations or every regional NES revision.
+
+Current native-tested private ROM build/current_smb3_timer.nes
+SHA256 b01dcf080e07f5c7526fbf5ed177fe2131c6d5fcbbab5eed8773a66f6a34171d
+Original USA PRG1 SHA256
+1ddc4b429490e298c05fa70389034107c0cb50f671c7c1baaa3f228224afc2e9
+Compact receipt build/current_smb3_nes_palette_review.json
+SHA256 93a53b7de0d0d5f2438cdf0e3af389ab2b6710a43bbf713a2b515a2caa653ef9
+Receipt binds both original ROMs, authentic source/symbols/rebuilt ROM,
+current ROM/debugger, current palette source and actual CPU helper files.
+No Mesen, product code, original fixtures/readies or settings were changed.
+
+The completed v4 native05-statue.png shows the existing authentic poof phase,
+not a stable stone-body proof. A future final-build readiness should wait
+for M3Poof0 and genuine native PF_STATUE before its statue picture; no such
+change was made to the frozen v4 profiles in this read-only verification.
+
+Owned public report: docs/qa/smb3-nes-suit-palette-review-2026-10-28.txt.

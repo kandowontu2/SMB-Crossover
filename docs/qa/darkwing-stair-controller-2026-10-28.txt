@@ -1,0 +1,72 @@
+Darkwing v8: input-only genuine top-stair landings and false-wall filter.
+PREPARED ONLY. No native launch, game/default/settings/Git changes.
+
+Preserved v7 actual FALSE8000:
+build/verification/compact-3e5e-darkwing-air-arrow-v7
+It cleared both real pipes and both floor gaps, then cycled at2225/176.
+At actual3097 it landed on a lower stair2152/144, jumped at2160, reached
+2192/96 at3129, kept Right instead of landing on the top, passed2206/114
+(feet146) at3140, then landed on the bottom2225/176 at3156. Actual six-frame
+sheet build/darkwing_v7_stairs_actual.png was read/visually inspected. It has
+no new captures: frames3065/3097/3129/3156/3235/8000 come from the retained
+lossless container. Adjacent .json binds exact records and independent RLE
+predecessors; every extracted record checksum was verified, not an all-frame
+decode/graphics claim. Source Block_Buffer RAM was not serialized natively.
+
+The old arrow_v5 also mistook the overhead1504/top80 head-height cell for a
+wall while body176 could walk underneath, spending earned gas4->1. The
+source level has that overhead ending at160, clear body corridor184/200.
+No new game fault is inferred: this is a controller admission error.
+
+Genuine current compiled map, not guessed scenery:
+The new source controls run GetAreaDataAddrs with the authentic1-1 selector25,
+then AreaParserCore through162 columns on exact combined ee1152. This is a
+declared compiled-map source model, not a reconstruction of the native trace's
+unlogged RAM (its AreaPointer field is194). Native61 stair columns are:
+2144/top192,2160/top176,2176/top160,2192/top144; first gap2208..2239 has floor208;
+2240/top144 followed by descending steps. Second ascent2368/2384/2400,
+top2416..2447/top144, true empty-floor gap2448..2479, far top2480/top144.
+These compiled cells agree with the sampled actual whole images.
+
+The small wrapper retains v7 unchanged elsewhere. On these two genuine61
+top/gap shapes it uses actual forward BODY obstacles for fresh takeoffs,
+stops above the top until physical ground and consumed DwPrevious A-release,
+then supplies a fresh Right+A crossing. It never seeds player motion,
+collisions, equipment, gas or outcomes. A separate pre-base check prevents
+the legacy Arrow state machine from advancing for a head-only cell when all
+forward body probes are clear. Real solid pipe faces still pass to v7.
+
+Fresh source controls on actual combined ROM:
+Easy/Hard each348 actual GameLoops clear both complexes, land2194/112 with
+previous0 and2433/112 with previous1 (A bit0), perform real fresh jumps and
+finish2550/176. Gas/adaptor remain their genuine cold0 values throughout.
+Two40-update overhead-only Right walks pass beneath the compiled overhead.
+Total776 actual GameLoops, plus162 compiled parser columns. No standalone
+Lua VM, PPU timing, native poll/controller/clear proof or per-frame fairness
+claim. Source scenes author initial player/camera/cold inventory/no enemies,
+then inputs only apart from disclosed following viewport and real VRAM
+consumer. Native v7's earned gas4 is not seeded into these source controls.
+Its prior pipe/gap native successes are historical on3e5e, not ee retags.
+
+Current private target build/roster-20261028-fixes.nes/.dbg/.lbl
+SHA256 ee1152a49deae31e82d202159310fa3719cbcfd85de571fd1b9ac15a1cd2a7b3
+Whole actual bank67 equals frozen3e5e, checked literally. All config hooks,
+RAM aliases and original passive resource observer metadata are rederived
+and verified against the combined compiled target. No source rebase claim
+is made from mutable canonical files.
+
+build/darkwing_stairs_source_v1.json
+SHA256 c1054bc479f612dd930de7749996888b83334b365cc2559ff38bd41d06e62f6c
+build/verification/compact-ee1152-darkwing-stairs-v8/ready.json
+SHA256 cf97f1016d091d006dee34c0ae2e8eb2653b7fcfac9f014c217bcbe4d5b3670b
+All25 bindings verified. One unchanged strict full1-1->controlled1-2 command
+is in command.json alongside. ROOT owns the launch/storage lease. Original
+8000 cap/zero deaths/finite watchdog/all256 DMA/actual deadline/CHR/IRQ/banks/
+SMC/stack/input/endpoint guards and one compact container remain unchanged.
+
+Exact new owned publication files:
+tools/playthroughs/current_roster_darkwing_stairs_v8.lua
+SHA256 cefd6a59c97edb756e440b242ee853ac4d732fc2c35ddf33b56ba4a58f3029d0
+tools/audit/current_darkwing_stairs_prepare_v1.py
+SHA256 8471a113bbe9f5ee6d8aaf599dbb7d31ee1c29788efef0c9e84264dd3c53532b
+docs/qa/darkwing-stair-controller-2026-10-28.txt
