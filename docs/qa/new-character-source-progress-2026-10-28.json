@@ -2,9 +2,9 @@
   "status": "Active work; full roster and final playthrough objective remain open",
   "shared_playable_build": {
     "path": "C:/Users/kando/Downloads/SMB-Crossover-Latest-WIP-MMC5.nes",
-    "sha256": "f56a0e154c86c2bcc3577bd99e48dfab71ee61282defa6d16963a2c73e4487c9",
-    "latest_user_change": "Celeste Mario remains small at every tier, retaining earned grip/dash; source/native CHR repair is installed",
-    "new_private_units_below_are_not_installed": true
+    "sha256": "737d71af449b70a73b1d13f228efb6cfa819ea027219f605344861fb0e2b0624",
+    "latest_user_change": "Kamikaze Mario full original source skin via Mario Select; Celeste remains small at every tier with earned grip/dash.",
+    "new_private_units_below_are_not_installed": "Goku, Rogue Dawn and SMB2 private integration units remain excluded; Kamikaze skin is included."
   },
   "source_qualified_checkpoints": {
     "Rogue_body": "checkpoints/2026-10-28/rogue-body-f56a-source",
@@ -18,12 +18,15 @@
     "Goku_mixed_body_wave_rendering": "checkpoints/2026-10-28/goku-mixed-render-source",
     "current_semantics_router_compaction": "checkpoints/2026-10-28/router-compaction-source",
     "SMB2_authentic_audio_source": "checkpoints/2026-10-28/smb2-authentic-audio-source",
-    "Goku_real_Main_movement": "checkpoints/2026-10-28/goku-real-main-movement-source"
+    "Goku_real_Main_movement": "checkpoints/2026-10-28/goku-real-main-movement-source",
+    "Goku_real_Main_combat_lifecycle_earned_pickups": "checkpoints/2026-10-28/goku-real-gameplay-source",
+    "Rogue_world_safe_weapons_earned_items": "checkpoints/2026-10-28/rogue-world-safe-weapons-items-source",
+    "Kamikaze_native_WIP": "checkpoints/2026-10-29/kamikaze-mario-native-wip"
   },
   "current_private_agent_work": {
-    "Rogue": "Actual weapons/terrain/actor consumers, followed by mature physical pickups, delivery-stage correction, Easy stomp synchronization and excluded hazard/boss mapping",
-    "Goku": "Source combat/health/hunger/injury/death and actual physical powerups; immutable movement component accepted privately",
-    "SMB2": "Actual complete Main movement/terrain/camera, physical pickups/health/lifecycle/vegetables; immutable audio component accepted privately. Host audio scheduler/atomic cue/mixer/DMC ownership remains separate"
+    "Rogue": "Real excluded hazards/bosses, source earned drops, menu/lives/UI; frozen b95c world-safe geometry and mature pickups privately accepted. Audio remains root-owned/open.",
+    "Goku": "Concrete Hammer owner, menu/lives/HUD and palette0 adaptation; frozen7b96 actual combat/death/earned pickups privately accepted. Audio protocol remains open.",
+    "SMB2": "Actual wholeMain contact, physical health/vegetable pickups, enemy lift/throw, coin/pipe/rise source controls; closing small native rise outline and foreign ABI. Palette composition, carried actor room transfer, projectile terrain, menu/audio/native remain open."
   },
   "Rogue_audio_actual_owner": {
     "receipt": "rogue-dawn-actual-audio-owner-2026-10-28.json",
@@ -65,6 +68,20 @@
       "span": "A480..BFFF (7040B); A770-only proposal was insufficient",
       "preserved_owner": "Original MIKE_GFX physical0000..0408",
       "condition": "Source code reachesA4A0 and observed note dataA480. Full static data closure/storage/wrapper fit is not qualified; original MIKE_GFX0000..0408 remains exact."
+    },
+    "Kamikaze": {
+      "CHR": [
+        696,
+        697,
+        698,
+        699
+      ],
+      "bank62_NMI": "A9C0..<AA00",
+      "bank62_core": "B690..<BBA7 (1303B), reserved throughBFFF; FFprototype endsB68A",
+      "bank124_cycle": "ADCE..<ADE7; compactrouterAD9B..ADA3/RogueconstructorADA4..ADCD preserved",
+      "bank81_menu": "BF60..<BF9F",
+      "new_RAM": false,
+      "mode_encoding": "Existing X5ChrMode0=84; actual completed publication maps native logical16..19 to696..699"
     }
   },
   "composition_cautions": [
@@ -72,7 +89,8 @@
     "E058..E065 is occupied SamusFreezeFlushPalette. The proposed extra bridge space was rejected by exact preimage inspection and was not consumed.",
     "Rogue and Goku GuestGameRoutinesBridge targets must compose without stale E overlays. Regenerate125 and future119/120 from the same final127.",
     "Rogue lifecycle adds342..519CPU per foreign typed Main beyond its body prototype. Final source costs/native cadence must be assessed before adoption.",
-    "Frozen Proto typed lag/catch-up failures and source stack-negative contracts remain retained; they are not waived or called native failures."
+    "Frozen Proto typed lag/catch-up failures and source stack-negative contracts remain retained; they are not waived or called native failures.",
+    "Kamikaze adds one main-object segment plus a separate NMI/CHR object; final Rogue/Kamikaze source union must respect the ca65 per-object256-segment cap and use real separate objects where needed."
   ],
   "remaining_roster_scope": [
     "Final Fantasy Fighter/White Mage/Black Mage/Thief prototype integration",
@@ -83,7 +101,6 @@
     "Bowser from SMB and SMB3",
     "Donkey Kong from Donkey Kong (user clarification)",
     "SuperMaaaa Mario neck mechanics",
-    "Kamikaze naked Mario skin",
     "Game Boy Kid Icarus graphics/alternate",
     "Every character completes1-1 and uses every powerup; fix scrolling, block shifts, graphics, physics, lag and ability issues"
   ],
@@ -94,28 +111,49 @@
     "Contra Force"
   ],
   "workspace_last_observed": {
-    "bytes": 24589324223,
-    "files": 294989,
+    "bytes": 25590678969,
+    "files": 295387,
     "cap_bytes": 30000000000,
     "under_cap": true,
-    "vanished_paths": [],
     "links_excluded": 471,
-    "capture_policy": "No new captures or per-frame file trees; compact source checkpoints only"
+    "capture_policy": "Bounded lossless streams; at most8 selected whole frames per run; zero per-frame files; no videos or frame trees."
   },
   "original_source_observations": {
     "Rogue_audio": "checkpoints/2026-10-28/rogue-actual-audio-source-observations",
     "scope": "Original source only; no compiled host audio port or native playback qualification"
   },
   "remaining_before_new_private_units_are_playable": [
-    "Actual Rogue block constructor must expose missiles/gear after earned energy tank; current status0 repeats tanks",
-    "Actual collision consumer already permits Rogue Easy stomps via behavior AND; native bounce currently targets old Samus/MmVY instead of RdVY. Qualify coherent source bounce synchronization.",
-    "Rogue Ice original palette1 shares world sprite owners; qualify a real color lease/adaptation",
+    "Rogue actual weapons/items now use windows7/6, preserving all native world1..5. Palette0 adaptation and corrected source item coordinate alignment are source-qualified; hazard/boss/drops/audio/menu/native remain open.",
     "Goku original coldHP100/cap150, low-health threshold30; preserve original damage/hunger callers",
     "SMB2 live source audio needs atomic Main cues, per-NMI/lag tick, actual mixed channel/DMC/clone ownership and native timing",
     "All new identities need menu/lives/HUD/graphics/scene/death and full native1-1/powerup qualification"
   ],
   "review_corrections": {
     "Rogue_Easy": "Root initially inferred no-stomp from producer flag1; actual ChkForPlayerInjury also ANDs behavior mode, so permission was already correct. The confirmed issue is the old Samus bounce owner.",
-    "Goku_health": "Original coldHP100/cap150;30 is a low-health threshold, not initial health."
+    "Goku_health": "Original coldHP100/cap150;30 is a low-health threshold, not initial health.",
+    "Kamikaze": "Original hack changes full26-frame graphics table, not only tile patterns. Native review rejected c2 before distribution;737d imports complete original poses."
+  },
+  "Kamikaze_skin_current": {
+    "candidate_SHA256": "737d71af449b70a73b1d13f228efb6cfa819ea027219f605344861fb0e2b0624",
+    "status": "WIP-qualified: source/frame controls and two native Easy1-1 clears, physical Mushroom+Flower, menu/lives/PPU visual review passed. Latest local download updated; canonical default source builder unchanged pending final union.",
+    "source_frames": 26,
+    "both_faces_pixel_controls": 52,
+    "native_menu_cycle": [
+      0,
+      1,
+      3,
+      4,
+      0
+    ],
+    "current_private_build": "build/kamikaze-mario-host-v4/candidate.nes",
+    "same_ROM_as_native_v3": true,
+    "native_runs": [
+      "build/verification/kamikaze-mario-native-easy-v3",
+      "build/verification/kamikaze-mario-upgrades-easy-v2"
+    ],
+    "source_ordinary_flags": "Fresh d444 MMC3/f4ffd MMC5 unchanged",
+    "adaptation": "Complete original source32px canvases include24px small sprite; source art may overhang native small collision box by8px. Mario physics/powerups/hitboxes remain authoritative; held-swim/throw pose adapters are explicit.",
+    "rejected_candidate": "c2b8615d native visual disqualified tile-only substitution before distribution",
+    "checkpoint": "checkpoints/2026-10-29/kamikaze-mario-native-wip"
   }
 }
