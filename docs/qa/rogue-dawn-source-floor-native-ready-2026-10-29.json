@@ -1,0 +1,243 @@
+{
+  "status": "FROZEN_PRIVATE_SOURCE_FLOOR_CORRECTION_NATIVE_READY_UNRUN",
+  "passed": true,
+  "native_run": false,
+  "source_CPU_only": true,
+  "canonical_changes": false,
+  "candidate": {
+    "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-floor-v4\\candidate.nes",
+    "bytes": 2097168,
+    "sha256": "df44abd4b9e196aedb3a68fb33c74e83491ce3c8581812808838d86f16af62f3"
+  },
+  "parent": {
+    "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-audio-readers-v6\\candidate.nes",
+    "bytes": 2097168,
+    "sha256": "69a4476c6b05903a149a527f0b99b65cc80c7ebad80fde1ce6e71a44a4f41fd5"
+  },
+  "first_native_symptom": "ROOT1241 pilots retained X330..331/Y175..176, action1, gravity26/0, valid floor54/attribute41, freshA ignored. No native firstpickup or routeclear was claimed.",
+  "exact_cause": "Original E4A3 tests current aligned bottom before committing the next downwardpixel. Host tested bottom+1, leaving center192/radius15/bottom207 on floor208. Source E37A then rearmsgravity1A; next grounded run tick CDBF resets animation and skipsCD3C jump/CF55 stand. Four-Main gravity/animation loop is reproduced through complete actualMain, independently of routepolicy.",
+  "corrections": [
+    "Only the host downward terrain sample changes from center+radius+1 to current center+radius; original source jump/action/physics bytes unchanged. Resting center193/radius15/bottom208 matches authenticated source alignment.",
+    "Separate authenticated omission restored: E4EC decrements jumpDistance on each committed downwardpixel, inverse of genuine E49E upwardincrement. 00->FF wraps; blockedpixel does not decrement. RunCCC9/CCDC/CCEC animation consumes this signed net upwarddistance.",
+    "Remove redundant nested support scratch saving. Public service6 retains its complete save/restoration. Geometry service9/14 invokes a clobbering private query under its enclosing save, then rederives its live axis from immutable serviceID; no extra stackbyte or newflag. LDA/EOR/BEQ select public/private return while preserving querycarry."
+  ],
+  "callback_semantics": "Carryset means one source pixel committed; carryclear blocked. Public AXYP exceptC and six private temporaries exact. Native platform owners unchanged. Only genuine MOVE-UP can queue native head transactions; original native first-solid/row/page and flush remain authoritative.",
+  "actual_compiled_support_consumers": [
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\rogue_dawn_host_floor_v4.s",
+      "line": 75,
+      "text": "Case 6,RdHsSupport"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\rogue_dawn_host_floor_v4.s",
+      "line": 352,
+      "text": "jsr RdHsSupportQuery"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\rogue_dawn_host_floor_v4.s",
+      "line": 412,
+      "text": ".proc RdHsSupport"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\rogue_dawn_host_floor_v4.s",
+      "line": 417,
+      "text": ".proc RdHsSupportQuery"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-floor-v4\\body-source.s",
+      "line": 86,
+      "text": "adc #1                        ; same leading-foot plane as RdHsSupport"
+    }
+  ],
+  "fit": {
+    "added_A95_bytes": 17,
+    "A95_end": "BEDA",
+    "bytes_before_fixed_BF00": 38,
+    "death_BF00_BF31_exact": true,
+    "new_RAM_flags_segments_or_leases": false,
+    "compiler_actual_ASM_incbin_inputs": 500,
+    "cached_objects": "Existing69a audio0, scheduler audio1/audio2, backdrophelper and qualified UIweaponobject reused with parent684binding source/object closure;500 actual newmainASM inputs, not a fabricated510 total.",
+    "outside_A95": "Exactly33 changedbytes are32 genuine address operand relocations of+17, including one C94bridgeJSR. Existing spans/opcodes/publicPCs retained; A95 following symbols genuinely relinked. Body/lifecycle tailasserts are declared successor values; fixeddeathBF00 exact.",
+    "per_bank_delta": {
+      "0": 2,
+      "1": 5,
+      "2": 1,
+      "3": 1,
+      "4": 1,
+      "66": 1,
+      "94": 1,
+      "95": 5629,
+      "121": 7,
+      "124": 3,
+      "125": 4,
+      "126": 3,
+      "127": 4
+    }
+  },
+  "source_controls": {
+    "original_genuine_down_owner": 108,
+    "actual_bridge_page_flags_and_wrap": 180,
+    "complete_Main_walk_release_jump_descent_landing": {
+      "cases": 4,
+      "modes": [
+        0,
+        1
+      ],
+      "facings": [
+        0,
+        1
+      ],
+      "Mains_each": 112
+    },
+    "real_question_underside_then_landing": 6,
+    "public_support_ABI": 16,
+    "native_platform_landing_carry": 42,
+    "foreign_complete_Main_NMI": 48,
+    "action_pad_Control192_full_lagNMI_realIRQ": 12,
+    "minimum_stack": 128,
+    "running_actual_natural_Main": [
+      {
+        "entry": "RdControlStep",
+        "entrySP": 192,
+        "cut": [
+          "0xa740",
+          95,
+          164
+        ],
+        "minimum_SP": 130,
+        "ISR": {
+          "CPU": 16360,
+          "minimum_SP": 130,
+          "actual_entry_SP": 164,
+          "IRQ": {
+            "kind": "IRQ",
+            "CPU": 113,
+            "minimum_SP": 130,
+            "ZP_live_required": true,
+            "ZP_differences": []
+          },
+          "deepest_executed": [
+            50192,
+            97,
+            135
+          ]
+        }
+      },
+      {
+        "entry": "IdleLoop",
+        "entrySP": 253,
+        "cut": [
+          "0xa740",
+          95,
+          199
+        ],
+        "minimum_SP": 165,
+        "ISR": {
+          "CPU": 16258,
+          "minimum_SP": 165,
+          "actual_entry_SP": 199,
+          "IRQ": {
+            "kind": "IRQ",
+            "CPU": 113,
+            "minimum_SP": 165,
+            "ZP_live_required": true,
+            "ZP_differences": []
+          },
+          "deepest_executed": [
+            50192,
+            97,
+            170
+          ]
+        }
+      }
+    ],
+    "ordinary_MMC3": "d444cac88e13fa02b29ad16100b8f08fa565ba90f8cedde192de43fb2dc8f3eb",
+    "ordinary_MMC5": "f4ffd2483c51daa4d60bb575da2da8c4d817692cda407611c243031f67520833"
+  },
+  "cost_limits": {
+    "foreign_Main_CPU_delta": [
+      0,
+      1
+    ],
+    "foreign_NMI_CPU_delta": [
+      0
+    ],
+    "support_public_CPU_delta": [
+      9
+    ],
+    "note": "No zero-cost or universal FPS claim. Source-query LDA/EOR return discrimination adds CPU; redundant pushes are removed. Audio/readers69a and clock/request semantics remain literal; real lag remains to measure."
+  },
+  "retained_negatives": {
+    "stack_packet": {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-floor-v4\\retained-stack-negatives.json",
+      "bytes": 6997,
+      "sha256": "42737fcd6454a0188086defebd55308518dff8d3bcd80dc9e024d1894c77ce60"
+    },
+    "original_run_trace": {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\docs\\qa\\rogue-dawn-run-support-trace-2026-10-29.json",
+      "bytes": 475929,
+      "sha256": "dbf14b2f4542ad4c6aa61cfbc5e28cc41e1b3ed6f6b3549f1ad9aaabe686fc7c"
+    },
+    "source_original_down": {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\docs\\qa\\rogue-dawn-original-down-pixel-2026-10-29.json",
+      "bytes": 85699,
+      "sha256": "e81616c4793c041a691192437569df19dd1ae02e55ae8511984b1343174db7d4"
+    },
+    "distinction": "All standalone192 failures retained:56e3actualSMC damage;1ad1newpublicquery min126;950cairMorph min127; parent69aairMorph actualSMC damage. Finaldf44 all12 tested action/pad cuts >=128. No native failure retagged or guard relaxed.",
+    "preparation": "Prior context used ordinary brick51 then required permanent used-block replacement; actualhead ran and brick correctly restored51. Correct native questionblockC1 now tested. Missing Pythonimport and fixed-tail/source-span prep rejections retained separately; no game workaround."
+  },
+  "native_handoff": {
+    "menu": "Same actual Samus slot, Selectalternate Rogue Dawn, rawSelectedCharacter2/RdVariant1, numericEasy0 orHard1. ROOT uses existing coldmenu/strict bounded producer; no cheats or outcome/state writes.",
+    "command_policy": "ROOT owns fresh handoff-bound native preparation/launch. Reuse literal strict runtime/camera/PPU guard and existing7000frame standing-only route; no extra native command launched here.",
+    "real_debug_triple": [
+      {
+        "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-floor-v4\\candidate.dbg",
+        "bytes": 29736168,
+        "sha256": "cfcca10dfb4232470fc766ffbde605fd4f8c5b4fe0aa491027d0535987879527"
+      },
+      {
+        "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-floor-v4\\candidate.lbl",
+        "bytes": 1151303,
+        "sha256": "9fab4f061d8353147db54c6232ff8a39063889e607fdd601ce5362b672c3ff37"
+      },
+      {
+        "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-floor-v4\\candidate.map",
+        "bytes": 226353,
+        "sha256": "d146ed079c4bc04fc64cb9fb751d4f571bf87d8a97a1fe0edcebf0fdf05bf6b5"
+      }
+    ]
+  },
+  "open": [
+    "Fresh ROOT native movement/head/pickup/route/wholePPU proof, real NMI deadline and audio performance/listening.",
+    "No everypowerup/allabilities/fullworld claim. Source exact local floor/control does not certify native controller route.",
+    "Original area3phase1 remains unsupported roomscript; existing explicit authored six-theme mapping unchanged.",
+    "Menu/global/default/settings/canonical adoption unchanged."
+  ],
+  "receipts": [
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-floor-v4\\build.json",
+      "bytes": 120453,
+      "sha256": "d1adf8b06139f719ca1a06adb7db6a6cfee5a7dc062900f9b6a7a4f26d830ce8"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-floor-v4\\controls.json",
+      "bytes": 60551,
+      "sha256": "c9bf3e38beec76f8e8c5bf988cfcae2d91d8b3ad5233e73a7267caeb7eb7fee1"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-floor-v4\\support-controls.json",
+      "bytes": 28114,
+      "sha256": "83fc22721171af2da19ebf0f6c246aa0199bd6fafb4bedf2302c1249f84a7587"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-floor-v4\\stack-layout-controls.json",
+      "bytes": 13869,
+      "sha256": "ce19c9744275dd6231f5f54dc19300b127f933e3036aae865b56985e8608f606"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-floor-v4\\ordinary-controls.json",
+      "bytes": 14776,
+      "sha256": "aad25fb4af26b3afb7ec649d11f712df10e1ec01cc949ee2204b8d17366ab407"
+    }
+  ]
+}

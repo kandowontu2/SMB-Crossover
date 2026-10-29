@@ -1,0 +1,85 @@
+{
+  "status": "Two source collision bugs corrected; native retest of latest side fix still pending",
+  "handoff": {
+    "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-side-v1\\handoff.json",
+    "bytes": 173950,
+    "sha256": "b260f10995fa68f13b6dd2d2f33cfaaab607ab8694139c2da3c7e3c92b238930"
+  },
+  "source_report": {
+    "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\docs\\qa\\rogue-dawn-side-floor-native-ready-2026-10-29.json",
+    "bytes": 12715,
+    "sha256": "3e7eaa688c10735d97ca14a04a1f5611eb771298e6caa8a675c3271b4199bff8"
+  },
+  "runs": [
+    {
+      "name": "rogue-dawn-floor-native-easy-v1",
+      "route_passed": false,
+      "reason": "finite frame bound",
+      "PPU_frames": 7000,
+      "completed_Main": 6255,
+      "zero_deaths": true,
+      "min_SP": 169,
+      "selected_whole_frames_visually_viewed": 4,
+      "strict_guards_passed": true,
+      "ready": {
+        "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\rogue-dawn-floor-native-easy-v1\\ready.json",
+        "bytes": 136317,
+        "sha256": "8aa21af31b012b3c8d32794d539e408411d3b8b3d3ed4b83bfa7b07db3294493"
+      },
+      "result": {
+        "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\rogue-dawn-floor-native-easy-v1\\result.json",
+        "bytes": 1639,
+        "sha256": "43a3aeeb12405d0347a75b07f6f1878c7e87852a414512c0ebd69082e4356638"
+      },
+      "review": {
+        "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\rogue-dawn-floor-native-easy-v1\\review.json",
+        "bytes": 578672,
+        "sha256": "92a41a27c77b24fa654422033e097cad7e2e8070357c8a656da2a64fb7446071"
+      },
+      "lossless_stream_reference": {
+        "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\rogue-dawn-floor-native-easy-v1\\captures.nesppuv1",
+        "bytes": 25452924,
+        "sha256": "18f2a5966413a59526521c3da20f74d09b46cc3733fa8081c70418f0725dbffc"
+      }
+    },
+    {
+      "name": "rogue-dawn-question-target-native-easy-v1",
+      "route_passed": false,
+      "reason": "Controller stationary for 300 genuinely active completed updates",
+      "PPU_frames": 2019,
+      "completed_Main": 1490,
+      "zero_deaths": true,
+      "min_SP": 169,
+      "selected_whole_frames_visually_viewed": 5,
+      "strict_guards_passed": true,
+      "ready": {
+        "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\rogue-dawn-question-target-native-easy-v1\\ready.json",
+        "bytes": 136385,
+        "sha256": "9aac01703c14245757566efd7220c300657c6b68d139b147fc9c9e16cd60c0b7"
+      },
+      "result": {
+        "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\rogue-dawn-question-target-native-easy-v1\\result.json",
+        "bytes": 1834,
+        "sha256": "616f70392c645ffe3430d224d0d0db5f85dd4c0be4d75d8e7fd4583c86f8953a"
+      },
+      "review": {
+        "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\rogue-dawn-question-target-native-easy-v1\\review.json",
+        "bytes": 166403,
+        "sha256": "0a8878920473475c845688056b9ad3cc416b7cf68666516326ac03cf62d0c45a"
+      },
+      "lossless_stream_reference": {
+        "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\rogue-dawn-question-target-native-easy-v1\\captures.nesppuv1",
+        "bytes": 9176872,
+        "sha256": "4bb4c381cd504cb9bbe89d4696461a74a6ec0fcacf68a4c2cd24c5e236c3a6c4"
+      }
+    }
+  ],
+  "actual_floor_bug": "Original E4A3 samples current bottom before moving downward. Leading-edge host probe stopped one pixel above the floor and repeatedly reset run/jump state. Restored source E4EC distance decrement on every committed downward pixel.",
+  "actual_side_bug": "After corrected floor rest at center193/radius15, inclusive bottom side sample208 entered the floor. Original E89F/E8CE scans the half-open vertical extent and excludes208. Native post-question X337/Y177 stall reproduces in full Main; successor subtracts one pixel from the bottom side sample.",
+  "coverage_gap": "Earlier walking stages asserted posture without asserting actual horizontal progress. New full Main cases require >=48px displacement, real question birth, release, fresh jump and relanding.",
+  "controller_target": "Original first-solid-left head ordering selects brick320 from X330. Input-only target336/338 selects question336 and produces a real typed D8 actor. No wider head box or weaker collision rule.",
+  "typed_arena_negative": "Hard Main26 BRK came from an uninitialized EnemyData pointer in the source arena. Correct genuine GetAreaDataAddrs initializes current ground stream AA3F and six 98-Main cases pass without candidate changes; original negative/trace retained.",
+  "visual_review": "Root viewed all selected wholeframes from both listed native negatives. Overworld blue restored and the correctly targeted question becomes used; typed item remains visible. E075/M000 debug overlays still need final cleanup.",
+  "scope": "No latest-side native clear, all-item, audio-audibility or FPS claim. Downloads remains ac126 WIP; ordinary d444/f4ffd exact in source checks.",
+  "workspace_cap_bytes": 70000000000
+}
