@@ -1,0 +1,65 @@
+{
+  "status": "ADDITIVE_HISTORICAL_REFERENCE_ERRATUM_FROZEN557_BINDINGS_UNCHANGED",
+  "native_run": false,
+  "final_current_image": {
+    "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-host-ui-v1\\candidate.nes",
+    "bytes": 2097168,
+    "sha256": "8904098e33df98b3a35795ba78c154dd7b78c892948411570b9af7d6d1446bff"
+  },
+  "frozen_handoff": {
+    "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-host-ui-v1\\handoff.json",
+    "bytes": 138457,
+    "sha256": "5f54e8ea7382217ca0c10687dbe669ca156c76558f794ddc915e3c4ce82bccc3"
+  },
+  "frozen_counterexample_receipt": {
+    "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-host-ui-v1\\menu-palette-counterexample.json",
+    "bytes": 3117,
+    "sha256": "20bcb291f9203d825918adb8f108e26ded8137c414b4e2eed3f81b9570714f99"
+  },
+  "historical_ROM_sha256": "97f6ab6b3de722d8aa340d54c940acaaef02e93e2aec2322b15a63c2d0f46394",
+  "historical_path_role": "The historical_ROM.path string inside the frozen negative is the old mutable build location. It is NOT a current runtime binding and MUST NOT be rehashed as the historical image. Final890 controls are separate controls.json and edge-controls.json on actual final image.",
+  "reverse_spans_from_final": [
+    {
+      "file_offset": 786003,
+      "bytes": "0848ad0260c902d031ad08732920f02aadee5f490129018dee5fa9008d9e7da203bde66e1005a9009de66eca10f3a9018d8e7d8d46016828386068288d6a01a9c58d6c01a9ab8d6d01a9fc4c5a0108482029af90246828a9088d035ca9008d2c5c8d7d5c8d6a01a9c98d6c01a9b78d6d01a9fc205a014c0db768288d6a01a9c38d6c01a9a68d6d01a98a4c5a01ffffffffffffffffffffffffffffffff"
+    },
+    {
+      "file_offset": 29636,
+      "bytes": "8d6a01a9918d6c01a9be8d6d01a9df205a01"
+    }
+  ],
+  "reconstructed_exact_old_image": true,
+  "actual_public_caller_recheck": [
+    {
+      "image": "historical97f6",
+      "actual_palette": [
+        63,
+        17,
+        3,
+        6,
+        21,
+        33
+      ],
+      "alt_after": 0,
+      "missile_mode_after": 1
+    },
+    {
+      "image": "final890",
+      "actual_palette": [
+        63,
+        17,
+        3,
+        12,
+        0,
+        54
+      ],
+      "alt_after": 0,
+      "missile_mode_after": 0
+    }
+  ],
+  "public_entry_scope": "Reconstructed old image executes the unchanged genuine CrossoverMenuInput entry and stable real RAM addresses; final DBG supplies only these old stable public/RAM addresses, not moved private helper addresses. No fake/retagged old DBG, no whole-old-image/source/native qualification.",
+  "limits": [
+    "The old97f6 negative never establishes final890 behavior.",
+    "No frozen source/handoff/receipt or ROM/DBG was changed; reconstruction stayed in memory."
+  ]
+}

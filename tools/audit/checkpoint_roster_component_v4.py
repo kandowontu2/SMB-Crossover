@@ -13,7 +13,7 @@ def main():
   for p,v in group.items():
    if not isinstance(v,str):continue
    assert binding(p)['sha256']==v,p;seen[str(Path(p).resolve())]=v
- allowed={'.s','.inc','.c','.cfg','.json','.txt','.d','.dep','.patch','.log','.py','.lua','.chr','.png'}
+ allowed={'.s','.inc','.c','.cfg','.json','.jsonl','.txt','.d','.dep','.patch','.log','.py','.lua','.chr','.png'}
  files=[Path(p)for p in seen if Path(p).is_relative_to(hp.parent)and Path(p).suffix in allowed]
  for key in ['owned_tools','owned_new_tools','owned_files','owned_publication_files']:
   for row in h.get(key,[]):
