@@ -1,0 +1,76 @@
+SMB2 authentic audio prerequisite / emitted Roll relocation plan
+2026-10-28. READ ONLY. No relocation/audio implementation or native evidence.
+
+Base is genuine frozen shared f56a0e154c86c2bcc3577bd99e48dfab71ee61282defa6d16963a2c73e4487c9,
+roster-shared-celeste-small-chr-v1, with its genuine DBG/MAP/LBL/current CFG.
+Frozen gameplay v1 and separate C80 palette endpoint remain byte-exact.
+The machine receipt binds actual source lines, emitted farcall instructions,
+symbol references, instruction/table extents and original source authority.
+
+Unit 1, proposed only: move complete ROLL_CORE119:A000..AAE0 to79:AB00..B5E0;
+complete ROLL_WORLD120:A000..ACC6 to78:B000..BCC6. B000 is deliberately inside
+the approved AE80..BFFF destination: an integral-page displacement preserves
+all low bytes, relative-branch page crossings and internal indexed-table
+crossings. AE80 would change those timings. Actual destination ROM bytes are
+FF outside every emitted segment. Current adjacent owners are CD_LOGIC79,
+X5_PROFILES78 and BASS_CEILING78; preserve all their bytes and PCs.
+
+ROLL_CORE includes both genuine Parodius fast record renderers, not just Roll.
+WORLD includes genuine source movement, full alternate/foreign dispatch and
+the original full-shot-CHR helper. Reassemble these complete sources with
+genuine moved labels/bank operands and every actual symbolic caller. Do not
+globally replace coincident Axxx values or pretend old PCs remain callable.
+The exact current farcall macro writes three real SMC fields then JSR/JMPs
+FarCallCommon. The audit identifies all emitted incoming/outgoing stubs,
+including fixed127 calls; no outgoing call becomes an illegal same-bank
+farcall in the proposed placement. Source-level symbol references cover
+internal calls/branches/tables as well. This is an audit, not qualification
+of a relocated binary. Subsequent full-call controls must preserve AXYP/SP,
+RAM, five SMC operands, actual mapper/shadows, foreign dispatch/PN OAM order,
+and interrupted NMI/IRQ restoration. Regenerate existing125 from FINAL127
+after its changed fixed caller operands; never retain stale mirrors.
+
+Unit 2, proposed only: approved A74:B180..BFFF3712B and C117:CA00..DFFF5632B.
+Original driver/small-table content2066B leaves1646B for actual translation
+and adapter; original data5103B leaves529B. New crucial code-as-data owner:
+Rocket/POW noise reads original ProcessMusicQueue+SoundEffectTimer3. Legal
+source timer1..127; retaining an immutable256B original view covers all-byte
+controls. Put that view inside existing C117 data headroom, leaving273B.
+Reading relocated/rewritten music instructions would change real SFX and is
+not allowed. Original ordered writes include4017=FF every callback.
+
+Source RAM closure is BB..C6 plus5EC..61F64B before private wrapper fields.
+Use existing raw25-exclusive RgAudioRam512B and RgAudioCpuZp160B, not new RAM
+or the CV3-cleared RgAudioZp. All twelve borrowed foreground ZP bytes must be
+preserved, including graphics/decoder interruption states. The copy body is
+408CPU indexed or336CPU unrolled before actual loop/call/adapter costs; this
+is a design estimate, not a complete host cost. Translate source StackArea
+0100 pause discriminator privately instead of overwriting host stack RAM.
+Original-only CPU calls in the receipt omit mapper/mixer/writer/NMI/PPU and
+DMC steals. They are not host timing or native music qualification.
+
+After reviewed Roll relocation, fresh119/120 E clones must derive from the
+SAME final127 as ordinary125. Replace only F140..FE10. Preserve FE11 rates,
+FE15 start gate, FEE1 owner helper, every other callable byte, NMI and vectors.
+All seven distinct complete hardware-fetch payloads retain their +1 byte;
+DrumA reuses an exact prefix with its own length/rate. Each clone footprint
+3265B endsFE00, leaving16B beforeFE11. Current70/97 are populated unrelated
+owners, not usable mirrors.125/126/127 remain protected.
+
+Unit 3 is separate ROOT host scheduling/lifecycle integration, not admitted.
+Preserve source low-set-bit request priority and160-tick nativeDPCMTimer.
+Switch E ONLY after actual source4015=0F stop and before4015=1F start. Hold it
+through real fetch completion, allow final-byte/DAC hold, and restore127
+without4011=0 or accidental restart from mixer4015 writes. Completion may
+not skip native timer/playing-state progression. Original pauseStackArea41
+writes4015=0C, skips three SFX/first DPCM callback, then runs music and clears
+all queues; that music path can itself issue DPCM. Existing GuestAudioFinish
+Silent writes4011/15=0, and GuestAudioBegin owner-change also writes4011=0:
+neither can be silently inherited as the original SMB2 lifecycle. Need an
+explicit distinct owner, cue publication/cancel/scene/title/pause contracts,
+actual A74/C117 lease restoration and shared world-SFX arbitration. No sample,
+voice, tick or source event cuts. No claim that storage alone completes this.
+
+Next actionable step: ROOT review this compact plan, then one sparse Roll
+relocation unit and full finite caller/foreign/IRQ controls before importing
+or scheduling authentic SMB2 audio. Shared source/cfg/default untouched.

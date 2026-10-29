@@ -1,0 +1,25 @@
+Additive SMB2 palette pointer correction, source/CPU only
+
+Frozen v1/64 bindings remain exact. Its S2PalettePointer role data lives in
+A118: that interface requires consuming the data before an A lease ends.
+Do not dereference it after an ordinary farcall restores another A bank.
+
+This separately versioned addon appends one real S2PalettePointerC endpoint
+after frozen CORE B89D and20 authentic palette bytes after ART D572. Total
+ART1927/2048B; no new RAM/CHR/segment, old data/code/PCs unchanged. ROOT can
+include src/smb2_roster_palette_v2.s after the frozen main leaf. The new
+endpoint deliberately maps C80 through the genuine old GraphicsBank helper,
+returns P0 R0/1 and eye/object role R2/3 in C80, then ordinary FarCallCommon
+may restore any original A bank. C80+its shadow are the explicit art lease.
+
+Controls execute actual FarCallCommon, its actual target and return, then
+read both pointers with A already restored: four UI variants, four original
+A banks and four original C banks. Original class P0 bytes match supplied
+SMB2 CharacterPalette exactly. Eye/object role remains world1 only. Actual
+parent IRQ is injected at all observed A118 instruction sites, including
+the old C mapping helper; CPU/SP/mapper/shadow/SMCCODE and private state
+are preserved. Foreign raw identities write no gameplay state/map.
+
+No native, shared integration, all-area RGB, whole palette publication or
+audio admission. ROOT must target S2PalettePointerC for normal farcall
+palette consumers. All other frozen v1 caller/lifecycle obligations remain.
