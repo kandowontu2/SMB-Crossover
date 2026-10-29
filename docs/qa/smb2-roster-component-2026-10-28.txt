@@ -1,0 +1,188 @@
+SMB2 four-character private gameplay component, raw25/menu24
+
+Status: standalone SOURCE/CPU component for ROOT integration review. It has
+no shared menu/dispatch hooks and is NOT a playable/native-qualified ROM.
+No Mesen, primary source, Downloads, settings, Git operation or source clone.
+
+Authority and parent
+  Original supplied SMB2 USA ROM SHA41300bc4942a8a4f9b53148b404dd5cae3dd708ebdd9b617888d290a51a83e43.
+  Authenticated local Xkeeper0 SMB2 source b73415e1953d7fdffd4957d5fb43fa7a13844c1c;
+  prior frozen source audit9e0080fb and allocator7b2fb748 remain unchanged.
+  Sparse parent is genuine build/roster-shared-celeste-small-v1.nes d52eeefe...
+  plus its real DBG30fbabd6/LBL610836b7. Fresh tests run on this sparse build.
+  Parent-rebase receipt independently verifies51 changes in81/98 from4cbd.
+  No mutable shared ASM/CFG is compiled. Later Celeste f56a is not relabeled
+  as this parent; ROOT must compose the frozen sparse leaves deliberately.
+
+Actual reservations and build
+  CORE118/$76 A640..ComponentEnd, within approvedA640..BFFF6592B;
+  ART80/$50 CE00..ArtEnd,1907/2048B;
+  CHR796..807,12288B: body profile pages796..803; vegetables804;
+  pages805..807 zero. Separate CHR-only ca65 object/formal memory declaration,
+  never a post-link CHR insertion. Main object adds no segment names: appends
+  existing PARODIUS_BELLS and CD_GFX with9/234FF alignment respectively.
+  Every parent byte outside these approved spans, header and ROM length exact.
+  Genuine separate component DBG/LBL plus parent DBG/LBL; no fake whole-ROM DBG.
+  Actual final bounds/hash/counts are in handoff/layout-controls, not estimates.
+
+State and lifecycle
+  S2Variant5FE3 UI Mario/Luigi/Toad/Peach0/1/2/3 -> source IDs0/3/2/1.
+  Persistent5F98..9F eight bytes; active5C00..7F exact128B. These are exclusive
+  raw25 overlays, including inactive Parodius history, NEVER global flags.
+  Every public adapter rejects raw!=25 before any private overlay read.
+  Raw projected S2N*/S2O* labels are private source entries for tests/internal
+  calls, not independently owner-gated generic dispatch endpoints.
+
+  ROOT MUST initialize through S2ColdInit at genuine real-menu/newgame ownership
+  acquisition under NMI exclusion, after legacy position/life fields are valid,
+  BEFORE publishing the initialized owner to NMI or calling Ensure/graphics.
+  A coincidental ReadyB2 in another character's history is not ownership proof.
+  ColdInit initializes genuine source two-heart large form and exported host
+  size/status, copies the actual23-byte class stat record and publishes ReadyLAST.
+  NewLife resets health/max/reserve/objects after a real life loss but preserves
+  the NMI phase. Ordinary life gains/wrap preserve earned fields. Scene reset
+  preserves earned health/reserve/input-edge history/phase; a privately carried
+  native vegetable resumes at original carry timer1/current-room coordinates.
+  Ordinary active throws are room-owned and cleared on a room reset.
+  Real carried SMB enemies require ROOT's actual scene-transfer/spawn authority;
+  old actor slots are not reused as pretend carried actors in a new room.
+
+  NmiClock is a tiny raw25-gated endpoint, preserving callerAXYP/SP and doing no
+  mapper/SMC/ZP borrowing/Ready read. ROOT still must map118 and restore actual
+  interrupted A hardware/shadow without shared farcallSMC. Call once every NMI,
+  including lag/pause. Source byte10 is an NMI phase, not a completed-Main clock.
+  Scene/newlife code never saves/restores or clears that concurrently owned byte.
+  EndFrame is called ONCE AFTER completed player/object/render actions, only
+  active gameplay/death Main, never skipped/paused Main. It decrements native
+  state/walk/hurt timers; it does not increment Clock. Native size change uses
+  timer30 and actual5/10/15/20/25 keyframes, not instant HP-derived sprite art.
+
+Gameplay source versus authored host boundaries
+  Original instructions: dry gravity/control/air steering/charged jumps and
+  fractions; gravity->control->tile response->area boundary->Y->X order; actual
+  lifting/throw speed tables; carry geometry with class-specific area-initialized
+  offsets; object fractional X/Y integrators; throw age1..32 saturation; nonfatal
+  health damage/knockback/DPCM requests; native size-transition sequence.
+  Original hitbox fields are left2/top11/right13/bottom33 standing, top16 ducked.
+  Native small size does not change the original enemy hitbox. Bounds are
+  exclusive right/bottom and must be consumed as such by shared collision.
+
+  Authored approved Mushroom: native max-heart increment/full refill cap4.
+  Flower: +3 reserve cap9. A freshB at actual supported ground with no held item
+  and no duck allocates a genuine native small vegetable32 and only THEN spends
+  one reserve. No allocation/no stock => no charge. One held plus two throws.
+  Original lifting timings differ for heavy/large items by class; small native32
+  uses its actual common quick-lift table. B throws with original native behavior.
+  Easy delegates ordinary stomping to the host; Hard accepts genuine resolved
+  top contact/standing and B lifting of eligible walking Goomba/Koopa only.
+  Eligibility never creates a contact and never writes defeat/score outcomes.
+
+  World boundary is SMB solid/empty block-buffer lookup through actual parent
+  GetBlockBufferAddr/MTileAttribute; root handles real block rewards/head response
+  and native pipe/vine/flagpole transitions. No SMB2 cherries, jars, quicksand,
+  world RNG or original enemy simulation is invented. Generic background
+  collision must not run a second contradictory physics pass after S2Movement.
+  Water is explicit authored SMB adaptation, not original SMB2 swim: original
+  four horizontal/carried caps, SMB1 FE:80 stroke/held13/released10 coefficients
+  represented in Q4,32-update stroke gate, fall cap4px/update and waterlineY20
+  stop. Quantized vertical integration/upper stop are disclosed adaptations.
+  Fatal outer enemy reactions and actual death-engine transition are host-owned.
+
+Public API / caller obligations
+  All CORE endpoints require actual A118 mapping; volatile A/X/Y/P unless noted.
+  ColdInit/NewLife/Ensure/Movement: C1 owner/handled. Movement only active normal
+  engine8 and TimerControl0, derives fresh masks from actual SavedJoypadBits.
+  Both engines already use A80/B40/Down04/Left02/Right01; no bit reversal.
+  Pickup: X actual collector, real PowerUpType0/1; X preserved, C1 consumed.
+  Root must erase the physical item only on C1 and suppress generic transform.
+  GiveItem(A0/1) is a trusted source pickup adapter, NOT a native-test seed API.
+  FullPower is an explicit user cheat API, never used as collection evidence.
+  InjuryStatus C1 protected; InjuryStart A=actual enemy-relativeX, C1 handled.
+  DeathStart/DeathUpdate use genuine host engine11->6 handoff; Root owns life loss.
+  StompPolicy C1 Easy/C0 Hard. CollisionBounds returns R0..3 as above.
+  HeadContact C1/R4X,R5page,R6Y identifies actual solid upward probe; root alone
+  consumes a real block reward once. Head/Side are native query compatibility
+  endpoints, not extra terrain resolution. Box is a legacy fallback only.
+
+  StandOnActor(X actual enemy) is called AFTER genuine Hard top-contact correction
+  has resolved hostXY using source bounds. It imports corrected position, zeros
+  vertical motion and tries native B lifting; it cannot fabricate an overlap.
+  TryLiftEnemy: real top-contact context, raw25/Hard, walking state0/positive flag,
+  actual Goomba6/Koopa0/1, freshB/no duck/no held; C1 success,X retained,Y record.
+  The adapted SMB actor uses source ShyguyRed heavy carry/throw class internally,
+  while retaining its actual SMB actor identity/graphics/physics authority.
+  EnemyControl(X real actor) C1/Y matching private record means root imports private
+  XY and skips the actor's autonomous AI/movement. Root keeps actual enemy art.
+  Root must account for source postthrow grace(age<32) before player contact.
+  ObjectHit(X private record), called ONLY after accepted real host collision,
+  clears it and returns C1/A original actor owner orFF vegetable. Root consumes
+  genuine target damage/score and any thrown-actor erase; no outcome is written.
+  ActorEpochChanged(X actual slot0..5) must be called at EVERY actual spawn,
+  erase/reset/reuse authority before reuse. No EnemyFlag-only fake epoch counter.
+
+Rendering
+  Source-executed original RenderPlayer/LoadWorldCHR and vegetable renderer;
+  full five-part small/large bodies with actual eye page25/Peach skirt page9.
+  No stock Mario/Samus replacement and no painted substitutes. Source record
+  order reversed only because the real host renderer consumes it backwards;
+  actual resulting source pixel/role priority is compared.
+  Body publishes one physical page at spritewindow0. Vegetables publish804 at
+  independent window6/tile81+; actual host publication and simultaneous body+
+  vegetable OAM are tested. Native standard enemy/floatey art uses other windows;
+  root must retain common CHR publication and physical high3 flags.
+  Native vegetable init clears animation; supported vegetable behavior does not
+  advance it. No invented NMI animation: live DrawObjects uses frame0; optional
+  source frame8 records are authenticated atlas/reference renderer controls only.
+  Five body OAM entries +two per vegetable, maximum11 owned entries. Source tests
+  do not qualify real eight-sprite contention, fullPPU or dense gameplay images.
+  GraphicsBank/Graphics/DrawBody leave intentional C80 art mapping+shadow.
+  Foreign paths leave state/mapping untouched; original IRQ restoration is tested.
+  PalettePointer returns P0 role pointer R0/1 and original world1 eye/object P1
+  role pointer R2/3. It NEVER queues a whole16B palette. ROOT must compose roles
+  without stealing native world/pickup/plant/enemy colors. Source color-index
+  equality is NOT all-area NES RGB equality or a completed palette integration.
+
+Finite evidence and exclusions
+  Actual compact results/CPU costs/counts/hashes live in component-controls.
+  Includes64 original jump campaigns;3400 complete dry Normal updates in finite
+  solid/empty arenas through actual original/host tile helpers;450object physics
+  cases;504class/size/crouch carry geometry cases; all-class lifting +original
+  throws; actual compiled item/injury/transition/life/pool/callback controls;
+  256body pixel-role cases +8 vegetable atlas cases; all-byte owner/input/clock
+  and original throw-age controls; genuine parent IRQ preservation boundaries.
+  Geometry campaigns use explicit empty/solid periodic scenes and fixed relative
+  camera position; no real scrolling publication/campaign/water/native proof.
+  Original RAM1 after original tile lookup is a pointer into the original map.
+  Port uses genuine host R6/R7 instead. Only that translated pointer scratch is
+  excluded from full Normal RAM equality; all other mapped fields/finalAXYP/SP
+  strict. Stats-2 is an indexed operand base, NOT an extra aliased RAM field;
+  actual heavy/large lifting exercises legal Y2..7 reads of Stats0..5.
+  Source native ObjectNonSticky0 overlaps private lift0 only for non-held object
+  physics; genuine carry output/flags and integrators are separately compared.
+  Endpoint interleaving proves no phase loss across a scene clear, not actual
+  shared NMI execution. IRQ controls use controlled MMIO and real parent handler,
+  compare physicalNV/D/I/Z/C plus SP/banks/entireSMCCODE; not all hardware phases.
+
+Retained drafts
+  first-RAM-fit-negative: redundant host temporaries exceeded128B before output.
+  first-build-failure: STY source zero-page,X cannot directly address new SRAM;
+  real instruction expansion preserves its live caller values.
+  first-source-control-negative: incorrect generator operand reuse at966A was
+  caught by original carry YHi comparison; corrected addressing-mode selection.
+  Original source/art/allocator packets remain byte-exact. The early d52 test
+  drafts are unbound development outputs, not independent native evidence.
+
+Remaining before playable admission
+  ROOT shared raw25/menu/newgame/scene/collision/actor epoch/HUD/palette hooks,
+  actual compiled full-caller composition and strict native selection/gameplay/
+  real pickup/carry/throw/contact/size/scene/death/render/cadence qualification.
+  Authentic SMB2 audio remains a SEPARATE reserved but unimplemented prerequisite:
+  Roll relocations, current E119/120 clone regeneration, packed original driver
+  and exact sample/DAC ownership. No stale clones or suppression are introduced.
+
+Reproduction in this same private output directory (no trees/runtime copies):
+  python tools/prepare_smb2_roster_native_v1.py
+  python tools/prepare_smb2_roster_objects_v1.py
+  python tools/prepare_smb2_roster_art_v1.py
+  python tools/smb2_roster_component_controls_v1.py
+All owned leaves/tools/assets and exact input/output bindings are in handoff.json.
