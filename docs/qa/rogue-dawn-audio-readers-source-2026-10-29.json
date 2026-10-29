@@ -1,0 +1,230 @@
+{
+  "status": "FROZEN_PRIVATE_SOURCE_QUALIFIED_READER_OPTIMIZATION_NATIVE_UNRUN",
+  "passed": true,
+  "native_run": false,
+  "source_CPU_only": true,
+  "canonical_changes": false,
+  "candidate": {
+    "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-audio-readers-v6\\candidate.nes",
+    "bytes": 2097168,
+    "sha256": "69a4476c6b05903a149a527f0b99b65cc80c7ebad80fde1ce6e71a44a4f41fd5"
+  },
+  "parent": {
+    "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-backdrop-v1\\candidate.nes",
+    "bytes": 2097168,
+    "sha256": "1241df0735eaf81a1c9db607c9a956b68add1bbad0416352d28c894c390df80c"
+  },
+  "change": "Four real original LDA absolute,Y replacements now enter typed8002/8003/801A/804C readers instead of searching returnPC. Original source3BJSR spans and originalC97 sourcePC+2000 layout remain exact. Internal raw reads omit redundant result reload+restore store; exported rawreader preserves its original value/flags ABI through a separate wrapper.",
+  "ABI": {
+    "source_call": "ReturnedA/NZ are the true original data byte; X/Y/C/V/D/I/SP and actualsoftware/hardware A/C maps exact. Constant operand LDA affects only transient savedP.N/Z, overwritten by final true dataLDA; all other savedP bits exact.",
+    "public": "RdaReadRom still returns actualA/data/NZ and original X/Y/CV/DI/map behavior. Diagnostic public entry costs12CPU more; true sourcehelpers call the internal endpoint and add no call-depth layer.",
+    "consumers": "RdaReadAbsoluteY/Absolute were unexported internal helpers; all four genuine compiled references replaced and no old helper references remain in actual newdriver/native source. No public entry silently relabeled."
+  },
+  "preserved": [
+    "All original49152 lower and8192 upper rawbytes/depotmaps, source requests/clock/RNG/pause semantics, cue priority and original authored six themes.",
+    "Header/CHR/source body/world/items/palette adaptation and native backdrop helper1241 unchanged.",
+    "No source tickskip, muted stream, cue suppression or room-scriptphase1 workaround."
+  ],
+  "fit": {
+    "A62_end": "0xbfc4",
+    "A62_bytes": 669,
+    "approved_bytes": 729,
+    "recovered_bytes": 54,
+    "C97_prefix_used": 96,
+    "C97_prefix_capacity": 119,
+    "source_C480_DFFF_extent": "7040unchanged",
+    "per_bank_delta": {
+      "62": 577,
+      "63": 2,
+      "95": 1,
+      "97": 97
+    },
+    "common_bank63": "Exactly two actual LDA immediate operands of the genuine RdsAudioFrame farcall follow its movedA62 entry.",
+    "bank95": "Exactly one actual lowHP farcall target byte follows the movedA62 leaf; Main instructions/ordering unchanged.",
+    "extra_Ram_or_allocations": false
+  },
+  "checks": {
+    "genuine_source_JSR_flags_RAM": 576,
+    "exported_rawreader_ABI": 216,
+    "original_source_vs_old_and_new_complete_NMI": 612,
+    "themes": 6,
+    "effects": 23,
+    "wholeControl192_NMI_IRQ": [
+      {
+        "entry": "RdControlStep",
+        "entry_SP": 192,
+        "minimum_SP": 128,
+        "ISR": {
+          "CPU": 16399,
+          "minimum_SP": 128,
+          "actual_entry_SP": 162,
+          "IRQ": {
+            "kind": "IRQ",
+            "CPU": 113,
+            "minimum_SP": 128,
+            "ZP_live_required": true,
+            "ZP_differences": []
+          },
+          "deepest_executed": [
+            50192,
+            97,
+            133
+          ]
+        }
+      },
+      {
+        "entry": "IdleLoop",
+        "entry_SP": 253,
+        "minimum_SP": 163,
+        "ISR": {
+          "CPU": 16297,
+          "minimum_SP": 163,
+          "actual_entry_SP": 197,
+          "IRQ": {
+            "kind": "IRQ",
+            "CPU": 113,
+            "minimum_SP": 163,
+            "ZP_live_required": true,
+            "ZP_differences": []
+          },
+          "deepest_executed": [
+            50192,
+            97,
+            168
+          ]
+        }
+      }
+    ],
+    "ordinaryMMC3": "d444cac88e13fa02b29ad16100b8f08fa565ba90f8cedde192de43fb2dc8f3eb",
+    "ordinaryMMC5": "f4ffd2483c51daa4d60bb575da2da8c4d817692cda407611c243031f67520833"
+  },
+  "measured": {
+    "source_campaigns": [
+      {
+        "area": 0,
+        "ticks": 102,
+        "new_fullNMI_CPU_max": 10522,
+        "CPU_saved_min": -1,
+        "CPU_saved_max": 656
+      },
+      {
+        "area": 1,
+        "ticks": 102,
+        "new_fullNMI_CPU_max": 16335,
+        "CPU_saved_min": -1,
+        "CPU_saved_max": 1272
+      },
+      {
+        "area": 2,
+        "ticks": 102,
+        "new_fullNMI_CPU_max": 14688,
+        "CPU_saved_min": -1,
+        "CPU_saved_max": 1021
+      },
+      {
+        "area": 3,
+        "ticks": 102,
+        "new_fullNMI_CPU_max": 15726,
+        "CPU_saved_min": -1,
+        "CPU_saved_max": 1256
+      },
+      {
+        "area": 4,
+        "ticks": 102,
+        "new_fullNMI_CPU_max": 15024,
+        "CPU_saved_min": -1,
+        "CPU_saved_max": 1182
+      },
+      {
+        "area": 5,
+        "ticks": 102,
+        "new_fullNMI_CPU_max": 15739,
+        "CPU_saved_min": -1,
+        "CPU_saved_max": 1256
+      }
+    ],
+    "paired_quiet_theme_start": [
+      {
+        "area": 1,
+        "tick": 0,
+        "old_fullNMI_CPU": 8142,
+        "new_fullNMI_CPU": 8143,
+        "saved_CPU": -1
+      },
+      {
+        "area": 1,
+        "tick": 1,
+        "old_fullNMI_CPU": 17607,
+        "new_fullNMI_CPU": 16335,
+        "saved_CPU": 1272
+      },
+      {
+        "area": 1,
+        "tick": 2,
+        "old_fullNMI_CPU": 7849,
+        "new_fullNMI_CPU": 7512,
+        "saved_CPU": 337
+      },
+      {
+        "area": 1,
+        "tick": 3,
+        "old_fullNMI_CPU": 7745,
+        "new_fullNMI_CPU": 7408,
+        "saved_CPU": 337
+      },
+      {
+        "area": 0,
+        "tick": 0,
+        "old_fullNMI_CPU": 8127,
+        "new_fullNMI_CPU": 8128,
+        "saved_CPU": -1
+      },
+      {
+        "area": 0,
+        "tick": 1,
+        "old_fullNMI_CPU": 10830,
+        "new_fullNMI_CPU": 10174,
+        "saved_CPU": 656
+      },
+      {
+        "area": 0,
+        "tick": 2,
+        "old_fullNMI_CPU": 10482,
+        "new_fullNMI_CPU": 9826,
+        "saved_CPU": 656
+      }
+    ],
+    "heavy_example": "Actual finite area1 theme-start full lagNMI17607->16335CPU,1272saved(7.22%). Quiet samearea7745->7408,337saved(4.35%). Initial no-reader cold tick8142->8143(+1alignment).",
+    "not_claimed": "HardwareDMA514, DMC steals, physical PPU phase/renderdeadline, nativeFPS/lag or listening. FullMain cost remains material and unchanged in semantics. Future controller poll/Main alignment can change because NMI is shorter; no whole-replayprefix identity."
+  },
+  "preparation_negative": "First builder span check omitted bank63 and rejected the genuine2-byte RdsAudioFrame target relocation. Actual compiled preimages/opcodes/old+newtarget operands are now explicitly verified. Candidatecode was unchanged by that check correction; no product failure or native run.",
+  "unsupported": "Original area3/phase1 low-RAM note-pointer room script stays explicitly unsupported; authored SMB host never emits06EFphase1. No universal original-driver transition claim.",
+  "native_parent_scope": "ROOT visually confirmed restored blue sky in five selected1241frames. That remains a narrow1241 native observation, not this69a reader candidate native evidence or a route clear.",
+  "receipts": [
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-audio-readers-v6\\build.json",
+      "bytes": 131275,
+      "sha256": "4e7b4ea64fce88c5834ca56a63b984ca77a9fed68372f7c72bfd0d7b144f07f1"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-audio-readers-v6\\controls.json",
+      "bytes": 19476,
+      "sha256": "bbac0e3ff10dbb3e8b345aab972f5af2dd3c3bb159d21caae1fc4a24795d36f3"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-audio-readers-v6\\ordinary-controls.json",
+      "bytes": 14492,
+      "sha256": "b1812d2c45517761ace589b7bb9a8874adb1d1ffcf31f8947c214d599f0e8187"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-audio-readers-v6\\costs.json",
+      "bytes": 2920,
+      "sha256": "67f6dddf70dbe7b8d2a260925ad2e6dc7f457387ebb1bc3a5087cf3dc9437b71"
+    }
+  ],
+  "open": [
+    "ROOT native wholeNMI/deadline/lag/audio/render and actual acquired-item/whole1-1 progress.",
+    "Actual source support/control-order diagnostic atX330 remains separate and must not be waived.",
+    "Final common family/DMC union and adoption."
+  ]
+}

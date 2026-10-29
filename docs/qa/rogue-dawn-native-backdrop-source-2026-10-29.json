@@ -1,0 +1,160 @@
+{
+  "status": "FROZEN_PRIVATE_NATIVE_BACKDROP_SOURCE_QUALIFIED_NATIVE_UNRUN",
+  "passed": true,
+  "source_CPU_only": true,
+  "native_run": false,
+  "canonical_changes": false,
+  "candidate": {
+    "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-backdrop-v1\\candidate.nes",
+    "bytes": 2097168,
+    "sha256": "1241df0735eaf81a1c9db607c9a956b68add1bbad0416352d28c894c390df80c"
+  },
+  "parent": {
+    "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-scheduler-v5\\candidate.nes",
+    "bytes": 2097168,
+    "sha256": "f4677c91c642c2720770b5f20e8590664d81ee5f6bcd7bcdae6994b739fb2fdb"
+  },
+  "cause": "Exact owned GetPlayerColors dispatch bypassed native BackgroundColors restoration while correctly retaining source body3F11 colors. Lives-screen black backdrop persisted into SMB overworld. Original native pilot remains terminalFALSE; this source fix needs new native wholeframe validation.",
+  "change": "Actual A95 RdBodyQueuePalette becomes a genuine18B tailfarcall to A121BF00 helper. Single atomic3F10/4 packet contains the native area/control background plus the existing authentic source three body colors. NativePPU3F10 mirrors3F00. No source palette0F universal publication.",
+  "leases": {
+    "helper": {
+      "bank": 121,
+      "start": "0xbf00",
+      "end": "0xbf5f",
+      "bytes": 95,
+      "ROOT_approved_cap": 112
+    },
+    "A95_end": "0xbec9",
+    "fixed_death_BF00_exact": true,
+    "A121_item_BE00_BEFD_exact": true,
+    "CHR_and_source_raw_audio_views_exact": true,
+    "RAM": "none added",
+    "A63_B600_B800": "not allocated or used",
+    "nominal_item_tail": "Original A121BE00..BFFF512B is explicitly subdivided: BE00..BEFD authenticitem/drop data unchanged; BF00..BF5E code95B; BF5F..BF6F unused within approved112Bcap."
+  },
+  "native_color_table": {
+    "symbol": "X5LegacyGetPlayerColors::BackgroundColors",
+    "file_offset": 639954,
+    "bytes": "22220f0f0f220f0f"
+  },
+  "enqueue_contract": "Only offsets0..76 accept the complete7B packet plus terminator within existing84B queue. Offset>=77 preserves every queue byte, offset and pendingRdColorRequest; clearsrequest only after successful completeenqueue. Prefix/suffix canaries exact.",
+  "source_checks": {
+    "queue_cases": 192,
+    "foreign_color_callers": 24,
+    "genuine_color_caller_to_fullNMI_PPU": 6,
+    "complete_Main_Star_transform_area_contexts": 6,
+    "foreign_complete_Main_NMI": 48,
+    "new_palette_deep_Main_NMI_IRQ": {
+      "cut": [
+        "0xb796",
+        124,
+        225
+      ],
+      "minimum_SP": 191,
+      "ISR": {
+        "CPU": 17569,
+        "minimum_SP": 191,
+        "actual_entry_SP": 225,
+        "IRQ": {
+          "kind": "IRQ",
+          "CPU": 113,
+          "minimum_SP": 191,
+          "ZP_live_required": true,
+          "ZP_differences": []
+        },
+        "deepest_executed": [
+          50185,
+          97,
+          196
+        ]
+      }
+    },
+    "original_Control192_NMI_IRQ": {
+      "minimum_SP": 128,
+      "ISR": {
+        "CPU": 17671,
+        "minimum_SP": 128,
+        "actual_entry_SP": 162,
+        "IRQ": {
+          "kind": "IRQ",
+          "CPU": 113,
+          "minimum_SP": 128,
+          "ZP_live_required": true,
+          "ZP_differences": []
+        },
+        "deepest_executed": [
+          50185,
+          97,
+          133
+        ]
+      }
+    },
+    "ordinary_MMC3": "d444cac88e13fa02b29ad16100b8f08fa565ba90f8cedde192de43fb2dc8f3eb",
+    "ordinary_MMC5": "f4ffd2483c51daa4d60bb575da2da8c4d817692cda407611c243031f67520833"
+  },
+  "source_cost": {
+    "Rogue_palette_publication_Main_CPU_added": 92,
+    "foreign_GetPlayerColors_CPU_added": 0,
+    "foreign_complete_Main_CPU_added": [
+      1
+    ],
+    "foreign_complete_NMI_CPU_added": [
+      0
+    ],
+    "note": "Actual measured+1 foreignMain relativef467 is A95 relocation/page alignment. Existing source scheduler/foreign overhead remains additional. Palette packet grows by one actualPPUbyte; no universal native deadline or lag claim."
+  },
+  "compilation": {
+    "main_helper_actual_ASM_incbin_inputs": 501,
+    "inherited": "Three genuine frozen audioobjects and qualified UIweaponobject reused with their verified614-binding parent source/object closure. No manual DBG or source/runtime tree copies.",
+    "genuine_debug_triple": [
+      {
+        "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-backdrop-v1\\candidate.dbg",
+        "bytes": 29737440,
+        "sha256": "87bcfac33b1008acb499bb150fcbedcc24306514a1ec14b92731cce1b5bf05c7"
+      },
+      {
+        "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-backdrop-v1\\candidate.lbl",
+        "bytes": 1151350,
+        "sha256": "b0f724d21a79ea8a0d84452954c567d9a5a79e0e01c7bbc31a6a1684e524f60e"
+      },
+      {
+        "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-backdrop-v1\\candidate.map",
+        "bytes": 226419,
+        "sha256": "060c2144fe77567b928e2c795f620fb0c4190d7765d7d6f35befdfa361114f0a"
+      }
+    ]
+  },
+  "retained_preparation_negatives": [
+    "first-helper.log: external BANK-byte relocation needed explicit lowbyte cast; assembly rejected before candidate.",
+    "first-build.log: old lifecycle fixed-body-tail assertion required declared successorB7CC after replacing73B by18B; genuine later code relocated and all actual imports relinked.",
+    "controls-negative-1.json: CPU fixture left NmiDisableFF, so real lagNMI correctly did not publishVRAM.",
+    "controls-negative-2.json: after genuine normalNMI, palette parser correctly canonicalized3F10 to physical3F00; oracle used unmirroredkey. Current publication check uses real physicalmirror; no native guard changed."
+  ],
+  "open": [
+    "New ROOT-only native palette/sky proof, renderdeadline and performance/audio listening.",
+    "Current standing-controller discovery remains separate; no morph/pickup/routeclear claim from these source controls.",
+    "No adoption/default/settings/shared-source changes. Original f467/614 packet and native negatives remain immutable."
+  ],
+  "receipts": [
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-backdrop-v1\\build.json",
+      "bytes": 131428,
+      "sha256": "1e4293b8106ca8bdecc234803eb7887f72ed6f0f2434c8360f10219be477ff3d"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-backdrop-v1\\controls.json",
+      "bytes": 12144,
+      "sha256": "4eb7879d5973a51d03ddd9e1200f4eb15a43e0537516747cccf9f31f0334b7a3"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-backdrop-v1\\foreign-controls.json",
+      "bytes": 7535,
+      "sha256": "5d60af3469fa875399e673024a98438876fee2ae6710261bf28bf96658d1c30f"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-backdrop-v1\\ordinary-controls.json",
+      "bytes": 13857,
+      "sha256": "b9a3bf1775d5670252c68795bf507fe1d2c6db6caf16e97588c4c89201e39e79"
+    }
+  ]
+}
