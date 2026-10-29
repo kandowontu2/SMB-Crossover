@@ -1,0 +1,69 @@
+{
+  "status": "STATIC CAPACITY OBSERVATION; NO RELEASE, ALLOCATION, CODE OR ASSET CHANGE",
+  "ROM_sha256": "f56a0e154c86c2bcc3577bd99e48dfab71ee61282defa6d16963a2c73e4487c9",
+  "source_records": 52,
+  "pose_banks": [
+    0,
+    0,
+    1,
+    1,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    1,
+    2,
+    2
+  ],
+  "all_source_records_need_only_sprite_window0": true,
+  "body_pages_including_initial_bank0": [
+    740,
+    741,
+    742
+  ],
+  "current_full_incbin_bytes": 16384,
+  "record_addressable_prefix_bytes": 3072,
+  "potential_suffix_pages": [
+    743,
+    755
+  ],
+  "potential_suffix_bytes": 13312,
+  "suffix_nonzero_bytes": 8022,
+  "reason": "All26 source poses, including unused large poses, select only pages0/1/2; every actual 8x16 pair fits that selected1KB window. The corrected draw publishes only window0. The old16KB copy also retained unrelated source patterns.",
+  "remaining_before_reuse": [
+    "Audit all physical CHR publishers/consumers and valid identity/scene lifecycles",
+    "Keep original source asset and first3KB exact; formally trim the build incbin/allocator",
+    "Prove other profiles and palettes/windows unchanged on actual compiled callers",
+    "Fresh exact-hash native replay with complete captured-pixel equality, not sampled inference",
+    "Only then reserve any part of the suffix for another character"
+  ],
+  "native_claim": "Existing f56a native receipt is historical evidence for that exact untrimmed build. No trim candidate or new native test exists.",
+  "bindings": {
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\celeste_chr_capacity_observation_v1.py": "96e742bca1795b639aa10a1ab42b3128937c5174d3e13b7cfec38861733ef7b1",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\roster-shared-celeste-small-chr-v1.nes": "f56a0e154c86c2bcc3577bd99e48dfab71ee61282defa6d16963a2c73e4487c9",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\chr\\characters\\celeste-mario.chr": "451324199a49e229a7ff824a3e086d2b9db1b859fe2dd28fcae93b719a5e0f77",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\chr\\characters\\celeste-mario-assets.json": "5c8c5751ea1e3bbeda5a87ae4a95bc1080f2eaee4f31e3cf4705bb1a907a130f",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\celeste_mario_art.inc": "94d0dffa1cf7097dab6487cf209c69e49472d7df42fed8373b08e08e11793ef7",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\celeste_mario_render_small_host.inc": "585c42f720ae3a3a0503dcf95b1ce6c1acf68cb618dca9d76bdce596562f1b81",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\celeste_mario_host_entry.s": "81be46d00959fe28f26dd483868622c759045a5aa7f398f7251ab067cfcbc863",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\celeste_mario_host_state.inc": "faff9adbcc7ba7753b2ae940a212526668f0b96713e75760415a4f3aa0b1238f",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\smb1base-mmc5-expanded.cfg": "b989e48529095c3fa0b40bdc88fb503c9028b166fa23b2e1b5cbf843aa3b1071",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\celeste_small_chr_handoff_v1.json": "7dccff142506b63857fee79cca19a0e5fb15e2eff8219173eae86bda558558c4",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\celeste-small-native-chr-easy-v1\\review.json": "625a608303b7ccbfccbbec769e1af065d168dc08f3a4f5c3a49f51f153ef0f2d"
+  }
+}
