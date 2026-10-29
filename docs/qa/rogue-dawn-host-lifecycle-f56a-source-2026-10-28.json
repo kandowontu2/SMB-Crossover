@@ -1,0 +1,671 @@
+{
+  "status": "PRIVATE source-qualified lifecycle/injury/visibility successor; NOT playable or native admission",
+  "native_run": false,
+  "ROM": {
+    "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-host-lifecycle-v1\\candidate.nes",
+    "bytes": 2097168,
+    "sha256": "6bbc2c8bee7716b1aad9a75c77f30847da91325cd11009daeb6310fd6aec72c3"
+  },
+  "parent": {
+    "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-host-body-v1\\candidate.nes",
+    "bytes": 2097168,
+    "sha256": "f1ed39c8dc5d801567d1f6a5b86e581ed61da19d67f04716daf3c7429391745d"
+  },
+  "shared_family_parent": {
+    "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\roster-shared-celeste-small-chr-v1.nes",
+    "bytes": 2097168,
+    "sha256": "f56a0e154c86c2bcc3577bd99e48dfab71ee61282defa6d16963a2c73e4487c9"
+  },
+  "layout": {
+    "new_code_physical_bank": 95,
+    "start": "B803",
+    "exclusive_end": "0xbb8f",
+    "bytes": 908,
+    "free_before_root_BF00": 881,
+    "root_death_records": "BF00..BF31 / C95DF00..DF31",
+    "death_CHR_page": 689,
+    "new_RAM_bytes": 0,
+    "exact_owner": "SelectedCharacter2 AND RdVariant1 before every source-overlay read",
+    "old_public_PCs": "exact; compile-time farcall count only differs"
+  },
+  "intended_hook_changes": [
+    {
+      "start": 9842,
+      "end": 9860,
+      "name": "PlayerMovementSubs->RdTxMovement",
+      "parent_hex": "8d6a01a97b8d6c01a9b58d6d01a9df205a01",
+      "candidate_hex": "8d6a01a9338d6c01a9b98d6d01a9df205a01"
+    },
+    {
+      "start": 9021,
+      "end": 9039,
+      "name": "PlayerGfxHandler->RdBodyGraphics",
+      "parent_hex": "8d6a01a9cc8d6c01a9b68d6d01a9df205a01",
+      "candidate_hex": "8d6a01a92d8d6c01a9bb8d6d01a9df205a01"
+    },
+    {
+      "start": 9427,
+      "end": 9445,
+      "name": "PlayerDeath->SamusDeathUpdate",
+      "parent_hex": "8d6a01a9098d6c01a9a98d6d01a98a205a01",
+      "candidate_hex": "8d6a01a99f8d6c01a9ba8d6d01a9df205a01"
+    },
+    {
+      "start": 40814,
+      "end": 40832,
+      "name": "MmDynamicPlayerPrgOwner->RdBodyDynamicPrg",
+      "parent_hex": "8d6a01a9c08d6c01a9b78d6d01a9df205a01",
+      "candidate_hex": "8d6a01a9638d6c01a9bb8d6d01a9df205a01"
+    },
+    {
+      "start": 1034221,
+      "end": 1034239,
+      "name": "InitializeArea->Z2ResetAreaGate",
+      "parent_hex": "8d6a01a90b8d6c01a9b38d6d01a9c5205a01",
+      "candidate_hex": "8d6a01a9e98d6c01a9b88d6d01a9df205a01"
+    },
+    {
+      "start": 1032945,
+      "end": 1032963,
+      "name": "GameLoop->X5BounceUiDispatch",
+      "parent_hex": "8d6a01a9978d6c01a9a28d6d01a9d6205a01",
+      "candidate_hex": "8d6a01a9038d6c01a9b88d6d01a9df205a01"
+    },
+    {
+      "start": 1036603,
+      "end": 1036621,
+      "name": "GuestPlayerVisible->RlVisibleDispatch",
+      "parent_hex": "8d6a01a9ee8d6c01a9a98d6d01a9f84c5a01",
+      "candidate_hex": "8d6a01a9528d6c01a9b98d6d01a9df4c5a01"
+    },
+    {
+      "start": 1043940,
+      "end": 1043958,
+      "name": "GuestInjuryStatus->RlInjuryStatusDispatch",
+      "parent_hex": "8d6a01a9bf8d6c01a9a98d6d01a9f84c5a01",
+      "candidate_hex": "8d6a01a97a8d6c01a9b98d6d01a9df4c5a01"
+    },
+    {
+      "start": 1043905,
+      "end": 1043923,
+      "name": "GuestBodyContactBridge->LmBodyGate",
+      "parent_hex": "8d6a01a9a98d6c01a9a28d6d01a9dd205a01",
+      "candidate_hex": "8d6a01a92e8d6c01a9ba8d6d01a9df205a01"
+    },
+    {
+      "start": 1038240,
+      "end": 1038258,
+      "name": "ForceInjury->RlInjuryDispatch",
+      "parent_hex": "8d6a01a9908d6c01a9a98d6d01a9f8205a01",
+      "candidate_hex": "8d6a01a99b8d6c01a9b98d6d01a9df205a01"
+    },
+    {
+      "start": 24258,
+      "end": 24276,
+      "name": "UnionDeathStartCore->Cv3FxDeathDispatch",
+      "parent_hex": "8d6a01a99c8d6c01a9b18d6d01a9d2205a01",
+      "candidate_hex": "8d6a01a9678d6c01a9ba8d6d01a9df205a01"
+    },
+    {
+      "start": 1018474,
+      "end": 1018492,
+      "name": "NrFreshGameInit->CmHostFresh",
+      "parent_hex": "8d6a01a98e8d6c01a9bb8d6d01a9d14c5a01",
+      "candidate_hex": "8d6a01a9b48d6c01a9b88d6d01a9df4c5a01"
+    },
+    {
+      "start": 1040451,
+      "end": 1040469,
+      "name": "GuestGameRoutinesBridge->CheatsGameRoutinesGate",
+      "parent_hex": "8d6a01a9528d6c01a9a28d6d01a9bf4c5a01",
+      "candidate_hex": "8d6a01a9538d6c01a9b88d6d01a9df4c5a01"
+    },
+    {
+      "start": 1040469,
+      "end": 1040487,
+      "name": "GuestGameRoutinesBridge->GameRoutines",
+      "parent_hex": "8d6a01a9218d6c01a9a08d6d01a9814c5a01",
+      "candidate_hex": "8d6a01a9218d6c01a9b88d6d01a9df4c5a01"
+    },
+    {
+      "start": 1027556,
+      "end": 1027574,
+      "name": "GuestInjuryStatus->RlInjuryStatusDispatch actualE125 copy",
+      "parent_hex": "8d6a01a9bf8d6c01a9a98d6d01a9f84c5a01",
+      "candidate_hex": "8d6a01a97a8d6c01a9b98d6d01a9df4c5a01"
+    },
+    {
+      "start": 1027521,
+      "end": 1027539,
+      "name": "GuestBodyContactBridge->LmBodyGate actualE125 copy",
+      "parent_hex": "8d6a01a9a98d6c01a9a28d6d01a9dd205a01",
+      "candidate_hex": "8d6a01a92e8d6c01a9ba8d6d01a9df205a01"
+    },
+    {
+      "start": 1024067,
+      "end": 1024085,
+      "name": "GuestGameRoutinesBridge->CheatsGameRoutinesGate actualE125 copy",
+      "parent_hex": "8d6a01a9528d6c01a9a28d6d01a9bf4c5a01",
+      "candidate_hex": "8d6a01a9538d6c01a9b88d6d01a9df4c5a01"
+    },
+    {
+      "start": 1024085,
+      "end": 1024103,
+      "name": "GuestGameRoutinesBridge->GameRoutines actualE125 copy",
+      "parent_hex": "8d6a01a9218d6c01a9a08d6d01a9814c5a01",
+      "candidate_hex": "8d6a01a9218d6c01a9b88d6d01a9df4c5a01"
+    },
+    {
+      "start": 779955,
+      "end": 779958,
+      "name": "Actual sourceDraw callback vector",
+      "parent_hex": "4c03ab",
+      "candidate_hex": "4cd9ba"
+    }
+  ],
+  "literal_frozen_spans": [
+    {
+      "bank": 124,
+      "start": "0xb000",
+      "bytes": 4090,
+      "sha256": "fb7d551d6bc284079fde46e7a8d84b5cf296f3f2e21fe5cbe8ba57bb00d61962"
+    },
+    {
+      "bank": 124,
+      "start": "0xae00",
+      "bytes": 508,
+      "sha256": "2b8839fed5e6e55e90d2a731fa74b3355d9e5edfa75110ff1efba2cdd3b0ae9f"
+    },
+    {
+      "bank": 94,
+      "start": "0xd300",
+      "bytes": 3150,
+      "sha256": "0b0eebb968cf8834d3b97f05c216e77b8c6071dbb87755265c5eaecae35857bc"
+    },
+    {
+      "bank": 94,
+      "start": "0xdf50",
+      "bytes": 175,
+      "sha256": "69570506cd113904de154cfe0657dfb308074c7d639ed9d0033ae3f4d8db6490"
+    }
+  ],
+  "source_and_adaptation": {
+    "original_source_ROM": {
+      "path": "C:\\NES\\the stash\\Metroid - Rogue Dawn 1.21 (header fixed).nes",
+      "bytes": 786448,
+      "sha256": "9271411a20cc26c09f4d4bffe74c0d69a1bf91b815f7716fcf4610c4cee61077"
+    },
+    "source_core": "Original CORE4090/AUX508/C94ART3150/C94bridge175 remain literal. Only service3 JMP target changes in existing A95 prefix.",
+    "source_draw": "372 actual old pose/F7/facing/P callback comparisons retain fullAXYP/radius/pointer/C94 and virtual-context-B X exactly.",
+    "death_draw": "Source frame35 (hex) genuine draw callback selects distinct rightDF00/leftDF19 descriptors while C94 remains mapped for callback return. Radius0/0, authentic virtual prior cursor0 source returnX24/Y12. Final body graphics and first record mapC95. No frozen ContextB table edit.",
+    "death_art": {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-death-art-v1\\handoff.json",
+      "bytes": 3821,
+      "sha256": "682df9315bf23669ab803b2dc3a11a49f521ce2522e0184c46a4f6199bd892e5"
+    },
+    "death_asset_report": {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\docs\\qa\\rogue-dawn-death-art-source-2026-10-28.json",
+      "bytes": 18145,
+      "sha256": "177e932ebfbf7e41714d5fe8ce5b33cc068e441d2453f27c14a93e69c0c66da5"
+    },
+    "ordinary_contact": "Explicit authored SMB ordinary-contact8HP, genuine sourceBCD arithmetic/Suit4HP; no Hard multiplier. Full enemy eligibility and actual native contact remain separate from projectile damage HP mapping.",
+    "eligible_actor_IDs_hex": [
+      "00",
+      "01",
+      "02",
+      "03",
+      "04",
+      "05",
+      "06",
+      "07",
+      "08",
+      "09",
+      "0A",
+      "0B",
+      "0D",
+      "0E",
+      "0F",
+      "11",
+      "12",
+      "14",
+      "33"
+    ],
+    "class_limits": "Only native ObjectOffset0..4, Enemy_Flag1 and not Enemy_State bit20; IDs01/04 are explicitly listed native table entries with unnamed/NoInitCode provenance, not an invented named enemy. Native flying-green10, Podoboo0C, Bowser2D/flame15, firebars1B..20, hammers/misc and unknown classes are NOT admitted by this contact unit. Returning protected is a bounded implementation blocker for playable admission, not a claim these hazards are harmless.",
+    "recoil": "Actual full-page attacker relation sets sourceHit20 or28; negative sourceContactFlags80 invokes authentic50-clock/F7 blink. Source clock/action/recoil continuation remains literal.",
+    "life": "Explicit approved SMB adaptation: retain gear/tanks/maxmissiles/currentmissiles, refill source tank-capacityBCD health on real life loss; scene resets only active/action. Fresh game resets original defaults/BCD99. No life-mismatch detector, AreaPointer snapshot or new marker.",
+    "death_clock": "Genuine native KillPlayer97D6 -> source death start -> actual PlayerDeath original SamusDeathUpdate180/150 host clock -> native PlayerLoseLife. This host clock is an explicit SMB transition adaptation; no generic Samus motion or original Rogue room timing claim.",
+    "source_audio": "OPEN. Root identified actual original C0D9->C215->A49A770/A776/B3B4 plus six lower songbanks. These tests initialize real host native audio only to qualify interrupts, not Rogue audio playback."
+  },
+  "lifecycle_contracts": {
+    "fresh": "Real NrFreshGameInit last-child target, after original generic clearing; private owner must already be selected. Continue skips this native fresh owner. This packet does not implement a menu variant toggle.",
+    "area": "Real InitializeArea target calls genuine complete MegaManResetArea before source initialization, skips old Z2 overlay clear, then permits original InitializeMemory and real data setup. Explicit MmDeathFlag snapshot identifies death; HP0 also refills legal cap without discarding earned equipment.",
+    "active": "Both real GuestGameRoutinesBridge paths normalize stale legacy hurt/size aliases before genuine GameRoutines. Rogue UI slot skips dormant native Samus inventory so it cannot write the source overlay. Native PauseRoutine stays original.",
+    "visibility": "SourceF7 hides; admitted current source frames show. Actual Main no longer needs GuestHurtKind/InjuryTimer/MMdeath/powerup0 preconditions. MmDeathFlag is only cleared as stale in live engine8/action<7; genuine engine11 death is retained.",
+    "source_resources": "CPU arenas explicitly initialize owned source resources/actors as declared inputs, not genuine native earned collection. No native acquisition claim.",
+    "future_union": "Frozen constructor42B remains124AD9B..ADC4, conflicts with B private router finish. Proposed approved future rehomeADA4..ADCD is not applied here. Future52B GuestGameRoutinesBridge must retain RdLifeCheatRoutines and RdLifeGameRoutines targets, not copy this old E overlay."
+  },
+  "actual_counts": {
+    "actual_area_target_genuine_clear_then_source_init": 16,
+    "complete_native_InitializeArea_after_source_reset": 4,
+    "genuine_IdleLoop_Main_initial_area_caller": 4,
+    "real_freshgame_owner": 2,
+    "complete_Main_no_old_hurt_zero_precondition": 96,
+    "genuine_visibility_owner_no_old_alias_reads": 72,
+    "native_contact_status_source_BCD_and_pending_refusal": 152,
+    "actual_full_Main_enemy_contact_injury_admission": 16,
+    "actual_Main_NMI_50tick_source_hurt_visibility": 4,
+    "death_actual_callback_C94_to_firstrecord_C95": 12,
+    "source_lethal_to_native_death_life_reset": 2,
+    "continuous_full_Main_NMI_death_clock_and_real_life_loss": 2,
+    "actual_1Up_gain_preserves_all_resources": {
+      "lives_before": 2,
+      "lives_after": 3,
+      "persistent": [
+        255,
+        7,
+        15,
+        3,
+        18,
+        25
+      ]
+    },
+    "actual_Main_pause_source_state_exact": true
+  },
+  "edge_counts": {
+    "all_foreign_full_Main_application_ordered_writes_AXYP_banks": 92,
+    "foreign_real_public_return_callers": 552,
+    "all_old_source_draw_callback_returns_and_context_exact": 372,
+    "exact_ID_before_any_Rogue_overlay_access": 345,
+    "actual_Main_new_owner_IRQ_lag_both_fixed_copies": 32,
+    "actual_visibility_farcall_all_SMC_instruction_seams": 28,
+    "real_contact_death_life_IRQ_lag_seams": 22
+  },
+  "actual_stack": {
+    "all_controls_minimum_SP": 165,
+    "full_Main_contact_natural_injury_SP": 238,
+    "full_Main_contact_minimum_SP": 197,
+    "full_Main_initial_area_minimum_SP": 186,
+    "full_Main_death_minimum_SP": 191,
+    "direct_reset_entry_SP": 224,
+    "direct_full_InitializeArea_entry_SP": 240,
+    "protected_constructor_stack_floor": 128
+  },
+  "costs": {
+    "foreign_full_Main_vs_frozen_body_CPU": {
+      "minimum": 342,
+      "maximum": 519,
+      "distinct": [
+        342,
+        385,
+        519
+      ]
+    },
+    "foreign_public_caller_CPU": {
+      "GuestBodyContactBridge": {
+        "minimum": 114,
+        "maximum": 122,
+        "distinct": [
+          114,
+          122
+        ]
+      },
+      "GuestInjuryStatus": {
+        "minimum": 114,
+        "maximum": 122,
+        "distinct": [
+          114,
+          122
+        ]
+      },
+      "GuestPlayerVisible": {
+        "minimum": 114,
+        "maximum": 122,
+        "distinct": [
+          114,
+          122
+        ]
+      },
+      "InjurePlayer": {
+        "minimum": 114,
+        "maximum": 343,
+        "distinct": [
+          114,
+          228,
+          229,
+          245,
+          343
+        ]
+      },
+      "NrFreshGameInit": {
+        "minimum": 114,
+        "maximum": 122,
+        "distinct": [
+          114,
+          122
+        ]
+      },
+      "PlayerDeath": {
+        "minimum": 0,
+        "maximum": 122,
+        "distinct": [
+          0,
+          122
+        ]
+      }
+    },
+    "unchanged_source_callback_new_dispatch_CPU": {
+      "minimum": 59,
+      "maximum": 59,
+      "distinct": [
+        59
+      ]
+    },
+    "no_zero_cost_FPS_deadline_claim": true
+  },
+  "ordinary_flagoff": [
+    {
+      "mapper": "mmc5",
+      "ROM": {
+        "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-host-lifecycle-v1\\flagoff-mmc5.nes",
+        "bytes": 786448,
+        "sha256": "f4ffd2483c51daa4d60bb575da2da8c4d817692cda407611c243031f67520833"
+      }
+    },
+    {
+      "mapper": "mmc3",
+      "ROM": {
+        "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-host-lifecycle-v1\\flagoff-mmc3.nes",
+        "bytes": 786448,
+        "sha256": "d444cac88e13fa02b29ad16100b8f08fa565ba90f8cedde192de43fb2dc8f3eb"
+      }
+    }
+  ],
+  "input_closure": {
+    "actual_ASM_incbin_files": 493,
+    "actual_C_preprocessor_files": 10,
+    "unique_consumed_files": 503,
+    "C_command": [
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\Windows\\cc65\\bin\\cc65.exe",
+      "--cpu",
+      "6502x",
+      "-t",
+      "nes",
+      "-g",
+      "-Oisr",
+      "-T",
+      "-I",
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover",
+      "--create-full-dep",
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-host-lifecycle-v1\\c-full.dep",
+      "-o",
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-host-lifecycle-v1\\c-closure.s",
+      "-D",
+      "ENABLE_CROSSOVER=1",
+      "-D",
+      "USE_SMB2J_FEATURES=0",
+      "-D",
+      "MAPPER_MMC5=1",
+      "-D",
+      "MAPPER_MMC3=0",
+      "-D",
+      "ENABLE_C_CODE=0",
+      "-D",
+      "USE_CUSTOM_TITLESCREEN=0",
+      "-D",
+      "MULTIPLE_POWERUPS_ON_SCREEN=1",
+      "-D",
+      "USE_LOOPING_ANIM_CYCLE=0",
+      "-D",
+      "USE_VANILLA_MUSIC=1",
+      "-D",
+      "USE_FAMISTUDIO_MUSIC=0",
+      "-D",
+      "USE_BHOP_MUSIC=0",
+      "-D",
+      "DPCM_BANK_COUNT=0",
+      "-D",
+      "USE_VANILLA_SFX=1",
+      "-D",
+      "USE_CUSTOM_ENGINE_SFX=0",
+      "-D",
+      "FAMISTUDIO_USE_FAMITRACKER_TEMPO=1",
+      "-D",
+      "FAMISTUDIO_USE_VOLUME_TRACK=1",
+      "-D",
+      "FAMISTUDIO_CFG_DPCM_SUPPORT=1",
+      "-D",
+      "BHOP_PATTERN_BANKING=1",
+      "-D",
+      "USE_MOUSE_SUPPORT=0",
+      "-D",
+      "MOUSE_DISPLAY_CURSOR=0",
+      "-D",
+      "MOUSE_READ_FROM_PORT=1",
+      "-D",
+      "MOUSE_CONFIG_CONTROLLER_SIZE=1",
+      "-D",
+      "MOUSE_CONFIG_SENSITIVITY=0",
+      "-D",
+      "MOUSE_X_MINIMUM=1",
+      "-D",
+      "MOUSE_X_MAXIMUM=255",
+      "-D",
+      "MOUSE_Y_MINIMUM=1",
+      "-D",
+      "MOUSE_Y_MAXIMUM=239",
+      "-D",
+      "DEBUG_WORLD_SELECT=0",
+      "-D",
+      "PRINT_METASPRITE_IDS=0",
+      "-D",
+      "DEBUG_ADD_EXTRA_LAG=0",
+      "-D",
+      "DEBUG_DISPLAY_VISUAL_FRAMETIME=0",
+      "-D",
+      "ENABLE_MMC5_EXPANDED=1",
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-host-lifecycle-v1\\main.c"
+    ],
+    "ASM_command": [
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\Windows\\cc65\\bin\\cl65.exe",
+      "--cpu",
+      "6502x",
+      "-t",
+      "nes",
+      "-g",
+      "-Oisr",
+      "-vm",
+      "-T",
+      "-C",
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-host-lifecycle-v1\\private.cfg",
+      "--ld-args",
+      "--dbgfile,C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-host-lifecycle-v1\\candidate.dbg",
+      "--include-dir",
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover",
+      "--asm-include-dir",
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-host-lifecycle-v1",
+      "--asm-include-dir",
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src",
+      "--asm-include-dir",
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover",
+      "--bin-include-dir",
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover",
+      "-m",
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-host-lifecycle-v1\\candidate.map",
+      "-Ln",
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-host-lifecycle-v1\\candidate.lbl",
+      "-o",
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-host-lifecycle-v1\\candidate.nes",
+      "--asm-define",
+      "ENABLE_CROSSOVER=1",
+      "-D",
+      "ENABLE_CROSSOVER=1",
+      "--asm-define",
+      "USE_SMB2J_FEATURES=0",
+      "-D",
+      "USE_SMB2J_FEATURES=0",
+      "--asm-define",
+      "MAPPER_MMC5=1",
+      "-D",
+      "MAPPER_MMC5=1",
+      "--asm-define",
+      "MAPPER_MMC3=0",
+      "-D",
+      "MAPPER_MMC3=0",
+      "--asm-define",
+      "ENABLE_C_CODE=0",
+      "-D",
+      "ENABLE_C_CODE=0",
+      "--asm-define",
+      "USE_CUSTOM_TITLESCREEN=0",
+      "-D",
+      "USE_CUSTOM_TITLESCREEN=0",
+      "--asm-define",
+      "MULTIPLE_POWERUPS_ON_SCREEN=1",
+      "-D",
+      "MULTIPLE_POWERUPS_ON_SCREEN=1",
+      "--asm-define",
+      "USE_LOOPING_ANIM_CYCLE=0",
+      "-D",
+      "USE_LOOPING_ANIM_CYCLE=0",
+      "--asm-define",
+      "USE_VANILLA_MUSIC=1",
+      "-D",
+      "USE_VANILLA_MUSIC=1",
+      "--asm-define",
+      "USE_FAMISTUDIO_MUSIC=0",
+      "-D",
+      "USE_FAMISTUDIO_MUSIC=0",
+      "--asm-define",
+      "USE_BHOP_MUSIC=0",
+      "-D",
+      "USE_BHOP_MUSIC=0",
+      "--asm-define",
+      "DPCM_BANK_COUNT=0",
+      "-D",
+      "DPCM_BANK_COUNT=0",
+      "--asm-define",
+      "USE_VANILLA_SFX=1",
+      "-D",
+      "USE_VANILLA_SFX=1",
+      "--asm-define",
+      "USE_CUSTOM_ENGINE_SFX=0",
+      "-D",
+      "USE_CUSTOM_ENGINE_SFX=0",
+      "--asm-define",
+      "FAMISTUDIO_USE_FAMITRACKER_TEMPO=1",
+      "-D",
+      "FAMISTUDIO_USE_FAMITRACKER_TEMPO=1",
+      "--asm-define",
+      "FAMISTUDIO_USE_VOLUME_TRACK=1",
+      "-D",
+      "FAMISTUDIO_USE_VOLUME_TRACK=1",
+      "--asm-define",
+      "FAMISTUDIO_CFG_DPCM_SUPPORT=1",
+      "-D",
+      "FAMISTUDIO_CFG_DPCM_SUPPORT=1",
+      "--asm-define",
+      "BHOP_PATTERN_BANKING=1",
+      "-D",
+      "BHOP_PATTERN_BANKING=1",
+      "--asm-define",
+      "USE_MOUSE_SUPPORT=0",
+      "-D",
+      "USE_MOUSE_SUPPORT=0",
+      "--asm-define",
+      "MOUSE_DISPLAY_CURSOR=0",
+      "-D",
+      "MOUSE_DISPLAY_CURSOR=0",
+      "--asm-define",
+      "MOUSE_READ_FROM_PORT=1",
+      "-D",
+      "MOUSE_READ_FROM_PORT=1",
+      "--asm-define",
+      "MOUSE_CONFIG_CONTROLLER_SIZE=1",
+      "-D",
+      "MOUSE_CONFIG_CONTROLLER_SIZE=1",
+      "--asm-define",
+      "MOUSE_CONFIG_SENSITIVITY=0",
+      "-D",
+      "MOUSE_CONFIG_SENSITIVITY=0",
+      "--asm-define",
+      "MOUSE_X_MINIMUM=1",
+      "-D",
+      "MOUSE_X_MINIMUM=1",
+      "--asm-define",
+      "MOUSE_X_MAXIMUM=255",
+      "-D",
+      "MOUSE_X_MAXIMUM=255",
+      "--asm-define",
+      "MOUSE_Y_MINIMUM=1",
+      "-D",
+      "MOUSE_Y_MINIMUM=1",
+      "--asm-define",
+      "MOUSE_Y_MAXIMUM=239",
+      "-D",
+      "MOUSE_Y_MAXIMUM=239",
+      "--asm-define",
+      "DEBUG_WORLD_SELECT=0",
+      "-D",
+      "DEBUG_WORLD_SELECT=0",
+      "--asm-define",
+      "PRINT_METASPRITE_IDS=0",
+      "-D",
+      "PRINT_METASPRITE_IDS=0",
+      "--asm-define",
+      "DEBUG_ADD_EXTRA_LAG=0",
+      "-D",
+      "DEBUG_ADD_EXTRA_LAG=0",
+      "--asm-define",
+      "DEBUG_DISPLAY_VISUAL_FRAMETIME=0",
+      "-D",
+      "DEBUG_DISPLAY_VISUAL_FRAMETIME=0",
+      "--asm-define",
+      "ENABLE_MMC5_EXPANDED=1",
+      "-D",
+      "ENABLE_MMC5_EXPANDED=1",
+      "--create-full-dep",
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-host-lifecycle-v1\\assembler-full.dep",
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-host-lifecycle-v1\\main.c",
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-host-lifecycle-v1\\entrypoint.s"
+    ],
+    "scope": "Genuine ca65/cc65 full-dependency outputs; exact linker/build tools/postprocessor also bound. Sparse caller staging only; no full source/runtime copy."
+  },
+  "retained_negatives": {
+    "body_handoff": {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-host-body-v1\\handoff.json",
+      "bytes": 126589,
+      "sha256": "af02998b9096b5db4e54512cb4a7587ac45fd8f36fac31ed8c187996ef07d879"
+    },
+    "body_address_erratum": {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-host-body-v1\\hook-address-erratum.json",
+      "bytes": 1826,
+      "sha256": "9896ff25ecbf356fe873438a0a4adec2073506bdc03bbb7e017885cf7df87d7b"
+    },
+    "immediate_ControlStep192": {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-host-transactions-v3\\control-SP192-negative.json",
+      "bytes": 4940,
+      "sha256": "8140de545e959b327669dca5368266116d24d42626813b9a9d010652f31c372f"
+    },
+    "standalone_flush192": {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-host-deferred-v1\\control-SP192-deferred-negative.json",
+      "bytes": 3055,
+      "sha256": "4bf9f8c84e263d7a31b9df5542f6becd88c7bbdbd1a96e92ac59ee85e2bb3153"
+    },
+    "two_Proto_typed_catchup_FALSEs": {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-host-body-v1\\body-edge-controls.json",
+      "bytes": 105137,
+      "sha256": "5f4a5ae24e3186eaa36ce839c6105f50b50dad17aaa0c83f63e76fdb37cf55bf"
+    },
+    "scope": "All old packets/negatives remain literal. The old flush192 standalone negative is a separate contract from safe callback-only ControlStep192/natural Main. Two Proto catch-up fixtures remain unqualified and no product/shared audio cause is accepted."
+  },
+  "still_open": [
+    "Actual physical PPUMASK/deadline/DMA/CHR/OAM/visible-pixel native qualification",
+    "Fresh menu/RdVariant acquisition and private router/body constructor union",
+    "Typed emerging item contact/art/announcement and actual earned gear campaign",
+    "Source beam/missile/bomb/Screw HP/freeze/boss consumers and all ordinary native classes",
+    "Hazard/boss contact damage classes not listed above",
+    "Authentic Rogue audio driver/data/SFX closure",
+    "Full playable/game room/SMB transition and mode coverage"
+  ],
+  "old_lifecycle_scope": "This successor closes bounded real native-owner CPU paths only. It does not retag earlier body-only packet as lifecycle/native qualified."
+}
