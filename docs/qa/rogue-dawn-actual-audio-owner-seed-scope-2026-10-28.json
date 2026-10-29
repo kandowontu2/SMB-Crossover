@@ -1,0 +1,30 @@
+{
+  "status": "Additive metadata clarification; original observation unchanged",
+  "original": {
+    "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\docs\\qa\\rogue-dawn-actual-audio-owner-2026-10-28.json",
+    "sha256": "9a5c14b929acf82ee4cb6bfdc74c92113c09e6cdc7f9e9159f6b949d40422294"
+  },
+  "clarification": "The write set includes declared source-arena seeding.1E(running mode),23(area),2D(Main clock) are fixture writes, not writes attributed to C215/audio. Other seeded queue/repeat cells are also actually written by the original driver. Do not infer a private RAM/ZP projection from the aggregate set.",
+  "excluded_fixture_only_addresses": [
+    "001E",
+    "0023",
+    "002D"
+  ],
+  "actual_observed_driver_ZP_writes": [
+    "0x2e",
+    "0x2f",
+    "0xe0",
+    "0xe1",
+    "0xe2",
+    "0xe3",
+    "0xe4",
+    "0xe5",
+    "0xe6",
+    "0xe7",
+    "0xea",
+    "0xeb",
+    "0xec",
+    "0xed"
+  ],
+  "scope": "Original audio mapping and ordered APU/source ROM-read evidence remains unchanged. No source host audio import or global/transitive closure claim."
+}
