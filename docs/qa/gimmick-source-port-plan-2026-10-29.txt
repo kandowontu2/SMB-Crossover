@@ -1,0 +1,197 @@
+Gimmick original-source audit and proposed native component
+2026-10-29 -- READ ONLY; no implementation, allocation, menu admission or native run
+
+Authority
+---------
+Supplied original: C:/NES/Gimmick! (Japan).nes
+SHA256 ce2f84618dfe3d5581fcdf11a10190b717853af3be0bea7988cd27cd1498c092
+393232 bytes, mapper69, 262144 PRG +131072 CHR. The existing sibling project
+C:/Users/kando/Documents/ChatGPT/gimmick/readable-disassembly/ is the authority,
+not a new download. Its existing readable-built.nes matches EVERY PRG/CHR byte;
+only header offsets7/15 differ. Payload SHA256:
+1bbe4b3e20a004a4f741018e31e6ae291772b8876d6fb6f01494c9c5b0917c6c.
+The local README pins original disassembly commit
+eb896859858879526943bdc7c3edab2871a636e2. Repository attribution, checked read-only:
+https://github.com/LucianoTheWindowsFan/gimmick
+Local readable labels are annotations; exact original instruction/data bytes
+remain the authority. No claims are inherited from unrelated old object reviews.
+
+Actual physical8KB banks and CPU entry points
+--------------------------------------------
+30:8000..83A0 hero input/charge/throw/animation and post-terrain support (929B).
+30:8149 horizontal input admission;30:82EC calls native terrain integration.
+30:83F5 hero draw;843D pointer table22 entries;85CE CHR-page selectors12/13.
+29:8006 star update;801D type dispatch;8023 normal;8171 type1;82AB type2.
+29:8003/8469 star drawing/history;8523 table66 entries.
+31:F468..F595 original metasprite renderer (302B).
+31:F596..FF12 original movement/terrain/ramp family (2429B, NOT all yet proven
+necessary to the host callback closure);FF13..FF90 support-overlap helper126B.
+16:8E8F star/platform support helper; actual original object0F/10/11 collectors
+join Obj10_CheckInventoryCapacityAndPickup in GIMMICK-JPN8.asm.
+31:E368 selects30 then JSR8000;E370 selects29 then JSR8006;E378 selects16 then
+JSR8003 for ordinary objects. Later E545 selects29/JSR8003 then E566 selects30/
+JSR83F5. Preserve this gameplay/actor/render ordering in the eventual adapter.
+F051 maps PRG8000 (FME7command09), F05E maps PRGA000 (command0A). Source file
+GIMMICK-JPN15 is16KB; its second-half labels must not be mistaken for CPUA000:
+physical31 is actually fixedE000. All addresses above use actual8KB mappings.
+
+Source behavior to port without Mario substitutes
+------------------------------------------------
+HeldF7/freshF5: A80 jump,B40 charge/release star,Up08 use inventory,Down04 rotate.
+Positions are signed16-bit in sixteenths of a pixel: heroX AE/B8,Y9A/A4;
+starX AF/B9,Y9B/A5. HeroVX CC/VY C2;starVX CD/VY C3 are signed8-bit.
+Facing030A is0left/1right;heroStatus90/starStatus91. Normal ground friction is
+F689; free-flight integration F6F3. Keep source comparisons, fractions, carry,
+selected terrain friction/ice and the per-frame ramp classification callbacks.
+Input acceleration is +/-2 with asymmetric pre-threshold comparisons17/E9;
+it can overshoot to24. Do not replace this with a symmetric constant cap.
+Fresh grounded A sets VY AC(-84), followed by sourcegravity+4, first displacement
+-5px. Release clamps an earlier rise below E8(-24) to E8. Actual original
+30-update bounded arcs: Aheld1/4/12/32 => apex8.75/22.25/47.25/52.5px.
+These execute pre-terrain input then actual original gravity/integration, with
+typed contact flags. They do NOT establish landing/camera/fullMain gameplay.
+This52.5px native arc needs real star-platform traversal evaluation in SMB1;
+there is no approved jump-height increase or silent traversal adaptation.
+
+Normal star charges to A0 after33 held updates (minimum valid release), A9
+after42 (full charge); release at1/32 aborts. A launched star blocks new charge.
+Throw uses the source CMP7F/ROR signed-halving idiom, including7F->BF behavior,
+then VY+30 and facing VX table[-28,+28]. It inherits hero velocity, not a fixed
+projectile vector. Wall negates savedVX; floor EORFF/CLC/ADC09 is -savedVY+8.
+Actual original pre-terrain40/48 velocity cases produce wall216/48,
+floor40/216,both216/216. Resting8updates entersD0; originalD0 dissolves16updates,
+D1 explodes32. Preserve type1 acceleration/animation/effect spawns and type2
+floor bounce/damping, not a generic replacement bomb/fireball routine.
+Hero post-terrain scans object9..1, including the star, with real FF13 support
+overlap. Port stand/carry and authentic bounds; Hard combat must not substitute
+ordinary stomps for star attacks. Host ordinary-actor epochs/ownership must be
+explicit when importing a real walking enemy as a support/contact target.
+
+Original inventory: three slots36..38,count39 cap3. Original0F/10/11 mature
+collectors store itemtype-minus0F:0 heals to maxHP,1/2 choose star0351 type1/2;
+the latter are spent by successful actual launch. Up has native cooldown55=50;
+Down rotates only when source restrictions permit. CurrentHP0346,maxHP2B;
+source object13 increases capacity only below4 and refills even at the cap.
+Exact visual English names of the two special inventory types remain unclaimed.
+Proposed crossover pickups, REQUIRING ROOT approval before implementation:
+Mushroom -> original capacity/refill path cap4;Flower -> a legal original special
+inventory reward, alternating type1/2 or exposing a source-native selection.
+Do not seed/auto-claim acquired inventory. Easy ordinary stomp is an authored
+host policy; Hard retains native star combat/support. Item policy is not original
+Gimmick content and is not yet approved or implemented.
+
+Authenticated art and palette
+-----------------------------
+22hero records (21unique,357record bytes) +66star records (64unique,1068B).
+Tables add44+132 bytes and hero selector22:1623B source art/table minimum.
+One original8x16 part can require two host8x8 OAM entries. Hero maximum6parts,
+star maximum7 before its real delayed-history draw. Do not drop the history trail
+or assume a12-entry total renderer bound. Source renderer has its own clipping,
+attribute flips, mirrored X=FA-offset and OAM ordering;176 original renderer
+cases passed (all88record indices,both facings). These are original CPU cases,
+not a host/OAM-pressure or PPU proof. Source renderer maxima sampled:hero894CPU,
+star1026CPU per single-record call; history/future host mapping cost additional.
+Minimum actual pattern payload uses source1KB pages8,12,13 (3KB); propose an
+aligned4KB host set with configurable first physical page, no allocation yet.
+IMPORTANT additive correction: base JSON star_frames.CHR_page=8 describes only
+dedicated star slot1. Actual star parts also reference slot0's current hero page
+12/13. Details JSON corrects this explicitly; base packet remains unchanged.
+Original stage0/roomLow0 palette0 is0F/0B/2A/30 from actual selector31:E660 and
+publisher31:EC6D. Full32B source publisher recorded. This is not all-stage or
+visible-NES proof; host world/enemy palette roles must not be overwritten.
+The single22-panel preview is authenticated2bpp masks in GRAYSCALE, not a final
+palette/composition claim. All source art remains original, no painted reskin.
+
+Audio closure -- real constraint, separate implementation prerequisite
+--------------------------------------------------------------------
+Physical7:8000 init/8009 update. Main QueueSound31:F285 uses56..59,count5A;
+request70/flags71 feed driver RAM0600..07FF. Actual fixed caller31:EA9C in NMI,
+and a second literal caller31:EC53 in an IRQ/split branch. Resolve real scheduling
+conditions before assigning one host tick perNMI. Source FME7bank0A maps song data
+and0B maps DPCM C000; APU and Sunsoft5B register-selectC000/dataE000 both matter.
+384 actual original callbacks (64each requests0D/10/15/17/1C/3E) executed with
+actual bank maps, ordered writes recorded. Title3E uses all three5B tones and
+registers0..13 including noise/envelope, plus nativeAPU and DPCM4010..15.
+Title callback range2105..6333CPU; sampled effects325..1384CPU. These costs are
+original driver only, not host-translation/mixer/IRQ/analog/fetch measurements.
+MMC5 has two extra pulse channels; three5B tones plus envelope/noise cannot be
+made equivalent by swapping register addresses. Do not suppress voices/samples.
+Need a separately approved synthesis/voice-allocation design and complete song/
+sample/caller closure before authentic music admission. No audio storage fit is
+claimed and no asset download/import or host audio code was started.
+
+Minimal component proposal and storage status
+--------------------------------------------
+Requested raw26/menu25 is NOT an actual current entry: pinned737d compiled table
+has28slots, slot25 raw0/present0, and no raw26 anywhere. Root must admit it.
+API proposal: GmFresh/GmScene/GmMovement/GmWeapons/GmGraphics/GmDraw/GmBox/GmHead/
+GmSide/GmStomp/GmInjury/GmDeath/GmPickup/GmFullPower. One movement integration per
+completeMain, then native star/ordinary actor/support order. Export native terrain,
+ceiling/side/floor/camera/contact adapters rather than emulate the original world
+RAM. Init before any Ready read; exactraw26 gate before every exclusive overlay
+read. Retain/retire health/inventory/star per actual scene/life/1Up rules. Full
+callerAXYP/SP/banks/shadows and all33SMC/IRQ contracts must be measured, not masked.
+Budget proposal: ~6KB code including native collision projection/renderer and
+host adapters, ~2KB art records/tables,4KB CHR, raw26-exclusive128B active state.
+Prefer12 own persistent bytes only if a genuinely safe span is approved; otherwise
+reserve them within128active and preserve them explicitly across own scene clears.
+No globaloverlay marker and no presumed spare5F bytes (Parodius dynamic history).
+
+Read-only gap candidates on737d, NOT reservations or complete consumer proof:
+physical24 lower-tail offset0E80..1BFF (A AE80..BBFF),3456B; after emitted
+CONTRA_AUDIO endsCE6D and before CONTRA_WRAP DC00. Genuine old Contra native
+absolute/indirect/code-as-data consumers still need bounded-end proof.
+physical122 offset1740..1FFF (A B740..BFFF),2240B after VIC_NATIVE_AUDIO B724;
+same requirement for its actual native pointer/data views and future leases.
+physical75 offset19C0..1FFF (A B9C0..BFFF),1600B after VIC_CORE B9B8, possible
+extra cold chunk if first two code chunks5696B cannot fit; not silently consumed.
+physical73 offset1920..1FFF (C D920..DFFF),1760B after KIRBY_GFX D907; source
+minimum1623B fits, but new descriptors/alignment could require another block.
+An eventual lease must bind actual consumer extents, future/private owners,
+both mapper windows and finalcurrent triple before implementation. Fragmented
+code means mapper cost must be measured; no per-terrain-probe bank trip assumed.
+No CHR physical pages or RAM spans are proposed as free without Root's final
+layout/consumer check. Existing old TMNT tail is not automatically available.
+
+CRITICAL allocator erratum: details JSON only mechanically lists unemitted FF
+gaps on737d. Its bank91/92/99 candidates are NOT available: actual existing
+prepare_rogue_dawn_audio_driver_v4.py UPPER_SLOTS owns91:1400..1FFF,
+92:1500..1FFF,99:1800..1FFF. They are excluded from this proposal. The details
+whole-bank exclusion list was incomplete; never use that list as an allocator.
+Current WIPac126/other private roots were not silently substituted for737d.
+
+Next bounded implementation, only after exact lease/pickup approval
+-----------------------------------------------------------------
+1. Translate actual hero/normal-star/full support and required terrain paths,
+then the two real inventory star types, using source-ROM differential kernels.
+2. Emit source-authenticated records/3KB patterns; prove all poses/tile slots,
+palettes/scanline/OAM/full caller/IRQ against actual host renderer.
+3. Link a sparse leaf-only component; prove cold constructor, scene/life/1Up,
+earned pickup/use/contact, source callback order and foreign byte/state/cost.
+4. Root-owned native pilot must exercise variable jump/release,33/42charge,
+inherited throw/wall-floor bounce/star riding, three-slot inventory, all real
+images/deadlines and terrain traversal. No new native request is made here.
+5. Authentic5B audio and actual clock/NMI/mixer/DMC ownership remain separate
+material requirements, not silently legacy music or a gameplay-ready claim.
+
+Retained scope/negative findings
+-------------------------------
+No full originalMain or native scene/terrain/PPU/IRQ was executed. Horizontal
+kernel tests retype stableY per isolated step;30update jump tests stop before
+invalid freefall, not a fake landing. Initial unbounded horizontal/freefall
+setups reached original death regions; corrected scope is explicit. First bounce
+oracle incorrectly read -VY+9; actual -VY+8 retained. First audio harness omitted
+FME7command0B and rejected; actual C mapping added. Original ROM is never mutated.
+Source state and phase fidelity, audio fit, all caller costs, safe final leases
+and actual native playability remain open. No new ROM/DBG/source-tree output.
+
+Owned deliverables
+------------------
+tools/gimmick_source_audit_v1.py
+tools/gimmick_source_details_v1.py
+tools/gimmick_source_freeze_v1.py
+docs/qa/gimmick-source-port-plan-2026-10-29.txt
+build/gimmick-source-audit-v1.json
+build/gimmick-source-details-v1.json
+build/gimmick-original-hero-poses-v1.png
+build/gimmick-source-handoff-v1.json
