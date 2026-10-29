@@ -1,0 +1,79 @@
+Gimmick private authentic leaf v2 — NOT shared/menu/native admission
+
+Authority: supplied Japanese ROM ce2f8461…8c092, byte-authenticated existing
+readable disassembly. Frozen v1 remains unchanged. Current component is a
+normal source/object link over immutable ac126, not post-link ROM patching.
+All64,065 pre-existing qualified symbols and all nonleased bytes are exact.
+Four actual PRG spans and CHR816..819 only; no new shared RAM or globalflag.
+Owner-exclusive128B is5C00..7F, first12 retained across own same-life scenes.
+Constructor revokes Ready before clearing, publishes47 LAST. Raw26 admission
+must occur BEFORE every private read; real menu/newgame MUST call NewGame
+before trusting overlay Ready. Same-life scenes/life gains retain equipment;
+death refills to earned capacity, original inventory retained.
+
+AUTHENTIC CORE: original1/16 fractional hero arithmetic/variable jump/air
+steering/friction; all3 star kinds, charge33/42, original signed half quirks,
+bounce/scripted lifecycle, authentic star support/noYsnap/nohorizontalcarry,
+seven B4 zero-velocity particles, four old history entries, original late
+pose/protection/blink timing, all22 hero and66 star records, exact CHR8/12/13.
+Host is already8x16: one original part consumes ONE OAM entry, not two.
+Max sampled three-star record15 emits21 entries before body/particles; OAM
+capacity/rotation is bounded and genuine hardware8-per-line is not bypassed.
+
+EXPLICIT ADAPTATIONS: source room terrain queries -> real SMB block buffers,
+native coins/brick/pipes/platform consumers; host viewport240rows instead191,
+camera-relative long-world retirement; source star oneHP -> native100HP NPC
+damage including existing immunity/flash/score behavior. It is not a port of
+original Gimmick enemy AI/all bosses. Easy stomp is authored; Hard uses stars.
+Mushroom increases/refills native capacity(initial2,max4); Flower earns
+alternating native star kinds1/2 through actual inventory codes2/3, cap3.
+Code0 is empty,code1 nativeheal, physical original item IDs10..12, not0F..11.
+No auto-grant. FullPower is ONLY explicit user cheat endpoint.
+
+PALETTE: original body0B/2A/30. Source palette1 is routed to nativeP2 with
+approved darkbrown07 -> native16, white30/yellow27 retained. Shape and source
+flip/priority exact. P0 queue writes ONLY3F11 visible triple; universal
+backdrop/world/enemy palettes untouched. P2 native publisher remains owner.
+All16 original palette bytes retained as reference metadata. This is one
+shade quantization, NOT all-area original color equality. GmColors can decline
+on busy/insufficient buffer; shared authoritative publisher must retain
+invalidation/retry, respect Star palettes and actual transitions/overwrites.
+
+EXACT SHARED CALL ORDER REQUIRED (next unit, not installed here):
+ 1 constructor before overlay access, reset old CHR overrides/slot ownership;
+ 2 genuine NMI calls GmNmiClock once, including lag/pause (not from Main);
+ 3 GmMovement once instead of generic movement; it integrates hero only;
+ 4 real native BG/coins/pipes/platforms with all7 Gm geometry probes;
+ 5 GmAfterTerrain once: sync accepted clamp/carry, source star support then
+   source star tick/particles. Native camera once; no second physics step;
+ 6 GmWeapons is collision-only. GmGraphics once lateMain advances original
+   pose/protection. GmDraw then emits source records/history/particles;
+ 7 real injury must pass actual overlap side0/1 to GmInjury, not oldfacing;
+   true HP0 hands off GmDeathStart/native life engine; Star immunity upstream;
+ 8 actual physical collector calls GmPickup(0Mush/1Flower), checkedCF receipt;
+   source original Up+B uses genuine three-slot special inventory;
+ 9 menu/lives portrait uses GmPortrait, no gameplay/clock/privateReady reads.
+
+GmMovement/AfterTerrain/Graphics/Draw/Weapons preserve AXYP/SP/R0..7/5SMC and
+true A/C maps. Incoming native FarCallCommon retains its real NZ-of-returnA
+contract, not fictitious preservedNZ. Portrait inputsA=facing,R4/5=screenX,
+R6=screenY; A/X/Y/R0..3 volatile, C/5SMC preserved. Adder returnsY0/C1; shared
+player BG must intercept ALL head/feet/side points with Head/Foot/Side. Native
+point geometry X8,5,11,5,5,11,11 / Y18,32,32,22,30,22,30. Body box is3x14px.
+Health returnsA=current,X=capacity,C1. Helper value-output P/Y contracts are
+not blanket outerAXYP claims. All28 foreign identities in controls leave
+application/ZP/OAM/livepage1/33SMC/banks unchanged.
+
+MEASURED: hero callback1607..1711CPU sampled; late callback1086CPU baseline;
+star collision1189(empty)..3846(realGoomba hit), complete callback minimumSP172,
+deepest actualIRQ minimum167, safely above protected page1/SMC. Source trail
+sample1056..3771 vs port1801..5321, NOT free/lag-neutral. No Main/cadence/FPS
+claim from primitive timing. No NES PPU/DMA timing, native pixels or waveform
+qualification. NormalNMI clock/audio/mixer/DMC protocol remains OPEN.
+
+NEXT: actual private raw26/menu25 shared routing, completeMain/lifecycle/
+foreground+NMI/foreign/IRQ closure and native-ready gameplay pilot. Native
+launches are ROOT-only. Keep source53px jump; qualify genuine star riding/
+traversal instead of increasing jump to force1-1. Authentic Sunsoft5B music
+arrangement is required separately; no stock/muted/relabelled audio claim.
+No A63 common lease consumed; SMB2 B600..B800 remains its coordinator-owned.
