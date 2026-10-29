@@ -1,0 +1,16 @@
+GB-Pit true-Select successor v3 — source-only, 2026-10-29
+
+Correction: frozen317c v2 used Down4 in GbPitMenuNavigate, and its source menu fixture repeated that mistake. ROOT native cold-menu testing found real Select32 did not toggle. The old v2 source handoff remains immutable; its Select qualification claim is withdrawn. This is a product hook defect plus a matching fixture defect, not a gameplay or physics failure.
+
+New candidate: ac126b545ceb0c27f4843dbbf2eed647f07288a74a7a036d6769db6e3df0b1d2
+Exactly one ROM operand differs from frozen317c: physical66 GbPitMenuNavigate AND immediate04->20. The standalone component uses named Select_Button copied verbatim from bound inc/constants.inc. No other PRG/CHR byte, genuine old public PC, physics, palette, weapon, body record or cache behavior changes.
+
+New source tests use genuine NES Select32 through complete CrossoverMenuInput: press/hold/release/press/release/press, actual preview/name queues and normal NMI. The old v2 is executed too and reproduces the real no-toggle counterexample. Separate Down4 inputs must navigate identically to the actual737d parent and must not toggle either Pit variant.
+
+All original renderer/ABI/IRQ/gameplay assertions are rerun on the new actual ROM. Fixture-only replacements are explicitly listed in controls-core-final.json and controls-gameplay.json; Down4 remains in the direct navigation matrix. Core2016 original-Pit pose ABI,2016 actual alternate DrawAll pixel cases,88 foreign complete Main and790 reached ISR seams pass. Supplemental24 normal-Pit Main,12 lives,192 consecutive Main+normalNMI,16 palette/backdrop and actual retained-pointer consumers pass.
+
+A genuine independent fresh assembly/link reproduces this ROM. Both ordinary flag-off targets remain exact d444cac8/f4ffd248. Full new assembly dependency/import closure is bound. The approved C31/A66 tails,5KB CHR808..812 and menu-only5FE0 allocation remain unchanged.
+
+One supplemental Down oracle first compared consumed stack writes and was too strong for the extra preserving wrapper; its original tool/raw precompletion output are retained. Final Down comparison retains all caller registers/flags/SP, complete application, final banks, ordered mapper/5SMC/application writes and excludes only consumed page1 writes.
+
+Native v3 testing remains pending ROOT. No native run, shared source, canonical/default, settings or Downloads change performed here. The previous699 source binding count did not establish cold-native Select behavior. Existing art provenance, explicit local-base dependence, old host animation aliases/composites and source timing limits remain as frozen v2; no original GoodNES full-ROM compatibility claim.
