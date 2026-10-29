@@ -1,0 +1,73 @@
+New-roster routing fit — read-only proposal, not an assembled candidate
+
+Recommended same-entry shape: each of the eleven actual97B NrGate slots can
+hold an80B sparse-ID table router plus17B unexecuted local room. One9B cold
+finish at124:AD9B..<ADA4 uses only current101B tail, leaving92B beforeAE00.
+Net178B reclaimed;279B total remaining, fragmented as11x17B +92B. A matching
+NrAdder/NrBox model is89B in each99B slot, potentially20B more (299B total),
+but those explicit-ID argument/terrain caller controls are still pending.
+No public top-level entry moves, segments, global scratch, service flags,
+new reservations or additional A-bank trips are required by this layout.
+Do not treat the fragmented capacity as a contiguous new allocation.
+
+The router saves incomingA in the existing SafecallA SMC operand and saves
+P/Y on the stack; X stays untouched. Current caller stack peak remains two
+saved bytes. Raw20..28 use nine per-route lo/hi/bank descriptor cells;
+raw0..19 and >=29 take the existing literal legacy target setup directly.
+Only20/21/23 are current semantics.24/25 require the proper host adapter
+rows;26..28 remain unallocated/unexposed. The model uses actual DpMovement
+and S2Movement addresses as NON-EXECUTED routing tokens, never as pretend
+Portrait/Weapons/Visible/Head implementations. Rogue22 stays legacy here;
+its independent reservation is neither borrowed nor changed.
+
+The9B cold finish sets NextBank once, restoresY/P, then enters the genuine
+FarCallCommon+3 LDA CurrentBank instruction. Actual first6bytes are checked.
+Old/new models execute THROUGH that real LDA before strict comparison:
+discardedA/N/Z are overwritten there, whileC/V/D/I/X/Y/SP/live return and
+actual next-bank/target/originalA fields stay exact. This is not a generic
+flags mask or fabricated alias. Safer alternative: use12B common finish
+and the public FarCallCommon entry; it costs3B/8CPU more only on cold routes.
+
+Actual-position CPU models:11264 cases for the89B self-contained option,
+11264 for the80B+9B option, covering all256 rawIDs/four flag combinations
+at each actual gate PC. Raw0..19 adds1..2CPU per visited gate, no bank trip.
+Existing Ice/City/Sunny table paths add9..18CPU. Additive correction: the
+v2 JSON's prose says10..18; its detailed tables correctly include9. Use9..18.
+These models stop before bank mapping/target execution. Complete real caller,
+IRQ/lagNMI/shadow-publication/orderedSMC/ordinary-build checks remain required.
+Fresh source assembly must assert every old public PC and each slot length.
+
+This resolves the repeated-gate footprint, NOT complete Goku/SMB2 integration.
+Special reset/pickup/UI/status/audio/actor/block functions still need explicit
+row semantics and actual assembly fit. NrDraw is a CHR preparation hook:
+calling DpDrawBody/S2DrawBody there would emit the body before the real DrawAll
+body consumer. Wave draws must restore/reselect the actual body pointer before
+RosterShots reads the dynamic body reservation header (Goku up to48B).
+
+Original Dragon Power source facts for the forthcoming combat adapter:
+-9A8B queues incoming A only if2F==0; already-protected returns0.9A80 drains
+ one queued unit at26&7==0, then commonHP debit; D9bit20 prevents the HP debit.
+-9A33 services pending damage first. Hunger is gated by E5==0 and27==0;
+ period3 whenF9==1 orD0>=4, otherwise1. These are original fields, not an
+ invented mapping from SMB world/area. Food9A98 resets hunger age and clamps
+ to150 (250 only with original D9bit40). CrossingHP30 requests64/65.
+-Confirmed source incoming budgets vary: FB33/3C/45/4E select3/6/12/18;
+ FB68/71/7A select6/12/18; FB93 uses10; fourteen JSR9A8B byte sites also
+ show direct5/6/10/20/30 contexts. Exact raw occurrences/decoded sections are
+ retained in the v1 JSON; they are not universal reachability or SMB stats.
+-C385/D372 use actual FC22 acceptance, actor cooldown050E=32 and ONE-unit
+ decrement of actual actorHP050D, with state/score050F consumers. D372 further
+ rejects ordinary punches unless pose16hex or the original negative wave
+ kind. Generic FDEC response is cooldown/effect/separation, not universalHP--.
+-Original main8121 bypasses9A2E when action>=0D. The component's isolated
+ HealthTick equivalence cannot establish full original hurt/scene/death
+ cadence. Preserve/prove the real caller gate during host integration.
+-Source3:E889..E8AD separately debitsHP on tiles10..12 andclock&0F==0,
+ for action1..12. Frozen host tile query emits75/95, so this source hazard
+ branch is not already an authored SMB hazard mapping. Do not label it one.
+
+Needed explicit policy: SMB enemy HP/armor and permitted attack kinds,
+source incoming budgets/contact effects, real native lifetime/repeat-hit
+receipts and terminal score/drop consumers, and source-backed hunger scene
+classification. Source facts do not authenticate invented Goomba/Bowser stats.
+No source, assets, ROM, settings, allocations, Mesen or frozen component changed.

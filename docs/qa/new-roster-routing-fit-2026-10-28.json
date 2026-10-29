@@ -1,0 +1,844 @@
+{
+  "status": "READ_ONLY_ROUTING_LAYOUT_AND_ORIGINAL_SOURCE_FACTS_NOT_ASSEMBLED_OR_ADMITTED",
+  "bindings": {
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\new_roster_routing_fit_v1.py": "6458dd3b70395b50d570b4e1d96e7ff3c1c7b4838382fd3bc934f3c4e330a338",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\celeste-small-chr-v2.nes": "f56a0e154c86c2bcc3577bd99e48dfab71ee61282defa6d16963a2c73e4487c9",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\celeste-small-chr-v2.dbg": "154b0640ed3c7d4792ed5b3a15ce6bfa1fcd5bd1c3383d035d30dff96333f0c3",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\celeste-small-chr-v2.lbl": "36cb7bfd341b7bcb3a95150595a3a4c73ac25549750d60928d317a31b1cac221",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\celeste-small-v1.nes": "d52eeefe78c5f050d276a833c651456b717157856d1783b98c131f9da29f8a60",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\new_roster_dispatch.s": "6c2c413607f44bc563eb9e15d7f1816f13df35d373a3cf145e2e0e4c65a16156",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\mmc5.s": "83a46b7e0900f0bca284fbbb3a4436f583b004bb762f79f3a2358d72131cd8cb",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\hot_render_gate.s": "8e594197d4b7c70ce0be11443dd776d0e4329271138b7097ed5b48d90b2a2ae6",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\dragon_power_host.s": "d993e598853a1681cc412eecc87d427b08778960592fd3566b618146c34b9c53",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\dragon_power_contact.s": "20e33adfc560c159b78fff2cf54ad6f0129377e69bbfe1b1f7a2a159b4cb5f2e",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\dragon_power_native.inc": "76a01fdf3192dd68dc0cbd1cf1ca3086588aca53862d9ba7a913ee323539553b",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\dragon_power_map_v1.py": "7ef7bf864ed93d67e4f985d11db9a4de14cb9eadc07871f437c060ebfc9e59d5",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\verify_native_relocation.py": "1bab7154bc2e5468e827087d14030a7e30c4d3676db5e775ef15de4d0c34ce11",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\dragon-power-mixed-render-v3\\component.lbl": "3a60df72bd6aef9535a90020b333040485ae2f1a1084303c3d2bff56c8450522",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\smb2-roster-component-v1\\component.lbl": "aec032397f41c263dfb725e968f07cea9b151a4b1d770f59b07616253f357cad",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\smb2-roster-component-v1\\handoff.json": "7c0a857e0bb1f61790df9631b0603cac6ba64df78dfe3a6cb04a87c8f81b1d54",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\dragon-power-mixed-render-v3\\handoff.json": "004bd632196def8060ea99fe187a084c059848bf48711fd52c2b42eac7c1c75c",
+    "C:\\NES\\Dragon Power (USA).nes": "e52cc421c726181a35f0cc9e8969a8aad50abd17bdc7eea59dc065990a576147"
+  },
+  "current_f56a_d52_bank124_exact": true,
+  "gate_segment": {
+    "start": 40960,
+    "end_exclusive": 44443,
+    "reserved_end_exclusive": 44544,
+    "tail_free": 101
+  },
+  "repeated_gates": [
+    {
+      "name": "NrMovement",
+      "public_PC": 41184,
+      "old_bytes": 97,
+      "proposed_bytes": 89,
+      "unexecuted_local_slack": 8,
+      "table_offsets": {
+        "Lo": 62,
+        "Hi": 71,
+        "Banks": 80
+      },
+      "old_targets": [
+        [
+          42273,
+          224
+        ],
+        [
+          41817,
+          190
+        ],
+        [
+          41946,
+          209
+        ],
+        [
+          45782,
+          209
+        ]
+      ],
+      "proposal_byte_hex": "8d6a01089848ad026038e914c909b01ca8b91ea18d6c01b927a18d6d01b930a18d620168a828ad62014c5a0168a828a9218d6c01a9a58d6d01a9e04c5a0159da21d6f609212121a3a3a5b2b2afa5a5a5bed1e0d1d6f6e0e0e0",
+      "estimated_CPU_delta_to_FarCallCommon": {
+        "legacy0_19": [
+          2,
+          2
+        ],
+        "Ice20": [
+          22,
+          22
+        ],
+        "City21": [
+          18,
+          18
+        ],
+        "Sunny23": [
+          14,
+          14
+        ],
+        "unexposed22_26_28": [
+          16,
+          16
+        ],
+        "other29_255": [
+          2,
+          2
+        ]
+      },
+      "whole_target_caller_or_ISR_proof": false
+    },
+    {
+      "name": "NrGraphics",
+      "public_PC": 41281,
+      "old_bytes": 97,
+      "proposed_bytes": 89,
+      "unexecuted_local_slack": 8,
+      "table_offsets": {
+        "Lo": 62,
+        "Hi": 71,
+        "Banks": 80
+      },
+      "old_targets": [
+        [
+          43173,
+          248
+        ],
+        [
+          43100,
+          190
+        ],
+        [
+          44414,
+          209
+        ],
+        [
+          46667,
+          209
+        ]
+      ],
+      "proposal_byte_hex": "8d6a01089848ad026038e914c909b01ca8b97fa18d6c01b988a18d6d01b991a18d620168a828ad62014c5a0168a828a9a58d6c01a9a88d6d01a9f84c5a015c7ea54bf609a5a5a5a8ada8b6b2afa8a8a8bed1f8d1d6f6f8f8f8",
+      "estimated_CPU_delta_to_FarCallCommon": {
+        "legacy0_19": [
+          1,
+          1
+        ],
+        "Ice20": [
+          23,
+          23
+        ],
+        "City21": [
+          19,
+          19
+        ],
+        "Sunny23": [
+          15,
+          15
+        ],
+        "unexposed22_26_28": [
+          16,
+          16
+        ],
+        "other29_255": [
+          1,
+          1
+        ]
+      },
+      "whole_target_caller_or_ISR_proof": false
+    },
+    {
+      "name": "NrDraw",
+      "public_PC": 41378,
+      "old_bytes": 97,
+      "proposed_bytes": 89,
+      "unexecuted_local_slack": 8,
+      "table_offsets": {
+        "Lo": 62,
+        "Hi": 71,
+        "Banks": 80
+      },
+      "old_targets": [
+        [
+          43314,
+          248
+        ],
+        [
+          43304,
+          190
+        ],
+        [
+          44924,
+          209
+        ],
+        [
+          46470,
+          209
+        ]
+      ],
+      "proposal_byte_hex": "8d6a01089848ad026038e914c909b01ca8b9e0a18d6c01b9e9a18d6d01b9f2a18d620168a828ad62014c5a0168a828a9328d6c01a9a98d6d01a9f84c5a01287c3286f609323232a9afa9b5b2afa9a9a9bed1f8d1d6f6f8f8f8",
+      "estimated_CPU_delta_to_FarCallCommon": {
+        "legacy0_19": [
+          1,
+          1
+        ],
+        "Ice20": [
+          23,
+          23
+        ],
+        "City21": [
+          19,
+          19
+        ],
+        "Sunny23": [
+          15,
+          15
+        ],
+        "unexposed22_26_28": [
+          16,
+          16
+        ],
+        "other29_255": [
+          1,
+          1
+        ]
+      },
+      "whole_target_caller_or_ISR_proof": false
+    },
+    {
+      "name": "NrPortrait",
+      "public_PC": 41475,
+      "old_bytes": 97,
+      "proposed_bytes": 89,
+      "unexecuted_local_slack": 8,
+      "table_offsets": {
+        "Lo": 62,
+        "Hi": 71,
+        "Banks": 80
+      },
+      "old_targets": [
+        [
+          42335,
+          224
+        ],
+        [
+          43324,
+          190
+        ],
+        [
+          44599,
+          209
+        ],
+        [
+          46109,
+          209
+        ]
+      ],
+      "proposal_byte_hex": "8d6a01089848ad026038e914c909b01ca8b941a28d6c01b94aa28d6d01b953a28d620168a828ad62014c5a0168a828a95f8d6c01a9a58d6d01a9e04c5a013c375f1df6095f5f5fa9aea5b4b2afa5a5a5bed1e0d1d6f6e0e0e0",
+      "estimated_CPU_delta_to_FarCallCommon": {
+        "legacy0_19": [
+          1,
+          1
+        ],
+        "Ice20": [
+          23,
+          23
+        ],
+        "City21": [
+          19,
+          19
+        ],
+        "Sunny23": [
+          15,
+          15
+        ],
+        "unexposed22_26_28": [
+          16,
+          16
+        ],
+        "other29_255": [
+          1,
+          1
+        ]
+      },
+      "whole_target_caller_or_ISR_proof": false
+    },
+    {
+      "name": "NrWeapons",
+      "public_PC": 41572,
+      "old_bytes": 97,
+      "proposed_bytes": 89,
+      "unexecuted_local_slack": 8,
+      "table_offsets": {
+        "Lo": 62,
+        "Hi": 71,
+        "Banks": 80
+      },
+      "old_targets": [
+        [
+          42366,
+          224
+        ],
+        [
+          42553,
+          190
+        ],
+        [
+          43475,
+          209
+        ],
+        [
+          45888,
+          209
+        ]
+      ],
+      "proposal_byte_hex": "8d6a01089848ad026038e914c909b01ca8b9a2a28d6c01b9aba28d6d01b9b4a28d620168a828ad62014c5a0168a828a97e8d6c01a9a58d6d01a9e04c5a0139d37e40f6097e7e7ea6a9a5b3b2afa5a5a5bed1e0d1d6f6e0e0e0",
+      "estimated_CPU_delta_to_FarCallCommon": {
+        "legacy0_19": [
+          1,
+          1
+        ],
+        "Ice20": [
+          23,
+          23
+        ],
+        "City21": [
+          19,
+          19
+        ],
+        "Sunny23": [
+          15,
+          15
+        ],
+        "unexposed22_26_28": [
+          16,
+          16
+        ],
+        "other29_255": [
+          1,
+          1
+        ]
+      },
+      "whole_target_caller_or_ISR_proof": false
+    },
+    {
+      "name": "NrInjury",
+      "public_PC": 41669,
+      "old_bytes": 97,
+      "proposed_bytes": 89,
+      "unexecuted_local_slack": 8,
+      "table_offsets": {
+        "Lo": 62,
+        "Hi": 71,
+        "Banks": 80
+      },
+      "old_targets": [
+        [
+          42443,
+          224
+        ],
+        [
+          42946,
+          190
+        ],
+        [
+          42651,
+          209
+        ],
+        [
+          46610,
+          209
+        ]
+      ],
+      "proposal_byte_hex": "8d6a01089848ad026038e914c909b01ca8b903a38d6c01b90ca38d6d01b915a38d620168a828ad62014c5a0168a828a9cb8d6c01a9a58d6d01a9e04c5a01c29bcb12f609cbcbcba7a6a5b6b2afa5a5a5bed1e0d1d6f6e0e0e0",
+      "estimated_CPU_delta_to_FarCallCommon": {
+        "legacy0_19": [
+          1,
+          1
+        ],
+        "Ice20": [
+          23,
+          23
+        ],
+        "City21": [
+          19,
+          19
+        ],
+        "Sunny23": [
+          14,
+          14
+        ],
+        "unexposed22_26_28": [
+          16,
+          16
+        ],
+        "other29_255": [
+          1,
+          1
+        ]
+      },
+      "whole_target_caller_or_ISR_proof": false
+    },
+    {
+      "name": "NrLegacyInjuryStatus",
+      "public_PC": 41805,
+      "old_bytes": 97,
+      "proposed_bytes": 89,
+      "unexecuted_local_slack": 8,
+      "table_offsets": {
+        "Lo": 62,
+        "Hi": 71,
+        "Banks": 80
+      },
+      "old_targets": [
+        [
+          42474,
+          224
+        ],
+        [
+          42934,
+          190
+        ],
+        [
+          42627,
+          209
+        ],
+        [
+          46063,
+          209
+        ]
+      ],
+      "proposal_byte_hex": "8d6a01089848ad026038e914c909b01ca8b98ba38d6c01b994a38d6d01b99da38d620168a828ad62014c5a0168a828a9ea8d6c01a9a58d6d01a9e04c5a01b683eaeff609eaeaeaa7a6a5b3b2afa5a5a5bed1e0d1d6f6e0e0e0",
+      "estimated_CPU_delta_to_FarCallCommon": {
+        "legacy0_19": [
+          1,
+          1
+        ],
+        "Ice20": [
+          23,
+          23
+        ],
+        "City21": [
+          19,
+          19
+        ],
+        "Sunny23": [
+          15,
+          15
+        ],
+        "unexposed22_26_28": [
+          16,
+          16
+        ],
+        "other29_255": [
+          1,
+          1
+        ]
+      },
+      "whole_target_caller_or_ISR_proof": false
+    },
+    {
+      "name": "NrDeathStart",
+      "public_PC": 41902,
+      "old_bytes": 97,
+      "proposed_bytes": 89,
+      "unexecuted_local_slack": 8,
+      "table_offsets": {
+        "Lo": 62,
+        "Hi": 71,
+        "Banks": 80
+      },
+      "old_targets": [
+        [
+          42756,
+          224
+        ],
+        [
+          43065,
+          190
+        ],
+        [
+          42836,
+          209
+        ],
+        [
+          46093,
+          209
+        ]
+      ],
+      "proposal_byte_hex": "8d6a01089848ad026038e914c909b01ca8b9eca38d6c01b9f5a38d6d01b9fea38d620168a828ad62014c5a0168a828a9048d6c01a9a78d6d01a9e04c5a013954040df609040404a8a7a7b4b2afa7a7a7bed1e0d1d6f6e0e0e0",
+      "estimated_CPU_delta_to_FarCallCommon": {
+        "legacy0_19": [
+          1,
+          1
+        ],
+        "Ice20": [
+          23,
+          23
+        ],
+        "City21": [
+          19,
+          19
+        ],
+        "Sunny23": [
+          16,
+          16
+        ],
+        "unexposed22_26_28": [
+          17,
+          17
+        ],
+        "other29_255": [
+          1,
+          1
+        ]
+      },
+      "whole_target_caller_or_ISR_proof": false
+    },
+    {
+      "name": "NrDeath",
+      "public_PC": 41999,
+      "old_bytes": 97,
+      "proposed_bytes": 89,
+      "unexecuted_local_slack": 8,
+      "table_offsets": {
+        "Lo": 62,
+        "Hi": 71,
+        "Banks": 80
+      },
+      "old_targets": [
+        [
+          42412,
+          224
+        ],
+        [
+          43080,
+          190
+        ],
+        [
+          42862,
+          209
+        ],
+        [
+          45956,
+          209
+        ]
+      ],
+      "proposal_byte_hex": "8d6a01089848ad026038e914c909b01ca8b94da48d6c01b956a48d6d01b95fa48d620168a828ad62014c5a0168a828a9ac8d6c01a9a58d6d01a9e04c5a01486eac84f609acacaca8a7a5b3b2afa5a5a5bed1e0d1d6f6e0e0e0",
+      "estimated_CPU_delta_to_FarCallCommon": {
+        "legacy0_19": [
+          1,
+          1
+        ],
+        "Ice20": [
+          23,
+          23
+        ],
+        "City21": [
+          19,
+          19
+        ],
+        "Sunny23": [
+          15,
+          15
+        ],
+        "unexposed22_26_28": [
+          16,
+          16
+        ],
+        "other29_255": [
+          1,
+          1
+        ]
+      },
+      "whole_target_caller_or_ISR_proof": false
+    },
+    {
+      "name": "NrVisible",
+      "public_PC": 42096,
+      "old_bytes": 97,
+      "proposed_bytes": 89,
+      "unexecuted_local_slack": 8,
+      "table_offsets": {
+        "Lo": 62,
+        "Hi": 71,
+        "Banks": 80
+      },
+      "old_targets": [
+        [
+          43063,
+          224
+        ],
+        [
+          43338,
+          190
+        ],
+        [
+          42882,
+          209
+        ],
+        [
+          46068,
+          209
+        ]
+      ],
+      "proposal_byte_hex": "8d6a01089848ad026038e914c909b01ca8b9aea48d6c01b9b7a48d6d01b9c0a48d620168a828ad62014c5a0168a828a9378d6c01a9a88d6d01a9e04c5a014a8237f4f609373737a9a7a8b3b2afa8a8a8bed1e0d1d6f6e0e0e0",
+      "estimated_CPU_delta_to_FarCallCommon": {
+        "legacy0_19": [
+          1,
+          1
+        ],
+        "Ice20": [
+          23,
+          23
+        ],
+        "City21": [
+          19,
+          19
+        ],
+        "Sunny23": [
+          15,
+          15
+        ],
+        "unexposed22_26_28": [
+          16,
+          16
+        ],
+        "other29_255": [
+          1,
+          1
+        ]
+      },
+      "whole_target_caller_or_ISR_proof": false
+    },
+    {
+      "name": "NrHead",
+      "public_PC": 42193,
+      "old_bytes": 97,
+      "proposed_bytes": 89,
+      "unexecuted_local_slack": 8,
+      "table_offsets": {
+        "Lo": 62,
+        "Hi": 71,
+        "Banks": 80
+      },
+      "old_targets": [
+        [
+          42950,
+          224
+        ],
+        [
+          43061,
+          190
+        ],
+        [
+          42942,
+          209
+        ],
+        [
+          45974,
+          209
+        ]
+      ],
+      "proposal_byte_hex": "8d6a01089848ad026038e914c909b01ca8b90fa58d6c01b918a58d6d01b921a58d620168a828ad62014c5a0168a828a9c68d6c01a9a78d6d01a9e04c5a0135bec696f609c6c6c6a8a7a7b3b2afa7a7a7bed1e0d1d6f6e0e0e0",
+      "estimated_CPU_delta_to_FarCallCommon": {
+        "legacy0_19": [
+          1,
+          1
+        ],
+        "Ice20": [
+          23,
+          23
+        ],
+        "City21": [
+          18,
+          18
+        ],
+        "Sunny23": [
+          14,
+          14
+        ],
+        "unexposed22_26_28": [
+          16,
+          16
+        ],
+        "other29_255": [
+          1,
+          1
+        ]
+      },
+      "whole_target_caller_or_ISR_proof": false
+    }
+  ],
+  "model_checks": 11264,
+  "proposal": {
+    "bytes_per_gate": 89,
+    "existing_gate_size": 97,
+    "reclaimed_local_bytes": 88,
+    "new_globals_or_segments": 0,
+    "additional_A_bank_roundtrips": 0,
+    "max_stack_saved_bytes": 2,
+    "all_old_public_entries_retain_their97B_slots": true,
+    "future26_28": "Table positions considered, remain unallocated/hidden/legacy tokens in this model; per-route safe semantics are mandatory before actual admission.",
+    "new24_25": "Actual DpMovement/S2Movement exported addresses are routing tokens only; targets are NOT executed. Do not copy them as Portrait/Weapons/etc semantic implementations.",
+    "ordered_SMC_change": "SafecallA store moves before selection, preserving original A while Y indexes; cold table paths pre-store NextBank then FarCallCommon repeats it. Full IRQ/NMI SMC/caller proof remains required."
+  },
+  "alternative99B_terrain": {
+    "proposed_bytes": 98,
+    "old_bytes": 99,
+    "exact_A_equals_SelectedCharacter_guard_preserved": true,
+    "method": "Insert CMP SelectedCharacter/BNE mismatch before savingY; mismatch PLP/JMP LegacySetup. Same tables and public entry, no assumed deadX/Y."
+  },
+  "not_complete_host_fit": "11 repeated gates reclaim88 fragmented bytes plus existing101B tail. Terrain adds at most2B. Reset/pickup/lifecycle/UI/audio/actor/block/endFrame still need real per-owner semantics; this is NOT a claim that complete Goku+SMB2 adapters fit.",
+  "required_controls": [
+    "Fresh whole assembly and every old public/internal alias census; local8B slack is code space, not new global allocation.",
+    "Real caller AXYP/SP/live stack/application RAM/banks/5SMC, all64 flags/ID argument mismatch/negative/foreign cases, timing including actual table/branch page crossings.",
+    "IRQ and both lag/regularNMI at every moved earlySafecallA/NextBank publication seam; preserve exact physical/shadow bank pending-store windows, no broad mapper normalization.",
+    "No ordinary actor/world path acquires another A-bank trip; actual legacy target traces/order/cycles measured and reviewed.",
+    "Semantic host wrappers: NrDraw prepares CHR, NOT DpDrawBody/S2DrawBody OAM emission; restore bodypointer aftershots before dynamic reservation. Real health/death/head/pickup ownership must not fall through legacy raw-ID tables."
+  ],
+  "original_source": {
+    "authority_sha256": "e52cc421c726181a35f0cc9e8969a8aad50abd17bdc7eea59dc065990a576147",
+    "raw_JSR_9A8B_occurrences": [
+      {
+        "bank": 0,
+        "PC": 36913,
+        "preceding12": "4591203198200b98b017a905",
+        "direct_immediate": 5
+      },
+      {
+        "bank": 0,
+        "PC": 37635,
+        "preceding12": "900d203198200798b037a906",
+        "direct_immediate": 6
+      },
+      {
+        "bank": 0,
+        "PC": 38002,
+        "preceding12": "4591203198200798b017a906",
+        "direct_immediate": 6
+      },
+      {
+        "bank": 0,
+        "PC": 38585,
+        "preceding12": "0006203198200798b01ca906",
+        "direct_immediate": 6
+      },
+      {
+        "bank": 0,
+        "PC": 46758,
+        "preceding12": "2908d019b59909089599a90a",
+        "direct_immediate": 10
+      },
+      {
+        "bank": 0,
+        "PC": 46982,
+        "preceding12": "0fa72904f004a900959ea905",
+        "direct_immediate": 5
+      },
+      {
+        "bank": 0,
+        "PC": 49070,
+        "preceding12": "a913240b1002a9238537a905",
+        "direct_immediate": 5
+      },
+      {
+        "bank": 0,
+        "PC": 49215,
+        "preceding12": "20e098a01520b1b8b01ba905",
+        "direct_immediate": 5
+      },
+      {
+        "bank": 0,
+        "PC": 52211,
+        "preceding12": "38e90c8501206dfcb00aa91e",
+        "direct_immediate": 30
+      },
+      {
+        "bank": 0,
+        "PC": 53304,
+        "preceding12": "e90c8501206dfc900160a90a",
+        "direct_immediate": 10
+      },
+      {
+        "bank": 0,
+        "PC": 56202,
+        "preceding12": "38e9148501206dfcb0cba914",
+        "direct_immediate": 20
+      },
+      {
+        "bank": 0,
+        "PC": 64341,
+        "preceding12": "1da90cd007204ffcb014a912",
+        "direct_immediate": 18
+      },
+      {
+        "bank": 0,
+        "PC": 64385,
+        "preceding12": "1ca90cd007204ffcb013a912",
+        "direct_immediate": 18
+      },
+      {
+        "bank": 0,
+        "PC": 64405,
+        "preceding12": "a9009d0005a90e852d60a90a",
+        "direct_immediate": 10
+      }
+    ],
+    "decoded_sections": [
+      {
+        "bank": 0,
+        "start": 33048,
+        "end_exclusive": 33066,
+        "text": "0:8118  20 B9 FB JSR $fbb9\n0:811B  20 EB F6 JSR $f6eb\n0:811E  20 2B F4 JSR $f42b\n0:8121  A5 2D    LDA $2d\n0:8123  C9 0D    CMP #$0d\n0:8125  B0 03    BCS $812a\n0:8127  20 2E 9A JSR $9a2e"
+      },
+      {
+        "bank": 0,
+        "start": 39475,
+        "end_exclusive": 39605,
+        "text": "0:9A33  A5 2F    LDA $2f\n0:9A35  F0 03    BEQ $9a3a\n0:9A37  20 80 9A JSR $9a80\n0:9A3A  A5 E5    LDA $e5\n0:9A3C  D0 41    BNE $9a7f\n0:9A3E  A9 03    LDA #$03\n0:9A40  A4 F9    LDY $f9\n0:9A42  C0 01    CPY #$01\n0:9A44  F0 08    BEQ $9a4e\n0:9A46  A4 D0    LDY $d0\n0:9A48  C0 04    CPY #$04\n0:9A4A  B0 02    BCS $9a4e\n0:9A4C  A9 01    LDA #$01\n0:9A4E  85 00    STA $00\n0:9A50  A5 27    LDA $27\n0:9A52  D0 2B    BNE $9a7f\n0:9A54  A5 2B    LDA $2b\n0:9A56  18       CLC\n0:9A57  69 01    ADC #$01\n0:9A59  C5 00    CMP $00\n0:9A5B  90 02    BCC $9a5f\n0:9A5D  A9 00    LDA #$00\n0:9A5F  85 2B    STA $2b\n0:9A61  D0 1C    BNE $9a7f\n0:9A63  A5 D9    LDA $d9\n0:9A65  29 20    AND #$20\n0:9A67  D0 16    BNE $9a7f\n0:9A69  A5 2E    LDA $2e\n0:9A6B  F0 12    BEQ $9a7f\n0:9A6D  C6 2E    DEC $2e\n0:9A6F  A5 2E    LDA $2e\n0:9A71  C9 1E    CMP #$1e\n0:9A73  D0 0A    BNE $9a7f\n0:9A75  A9 64    LDA #$64\n0:9A77  20 E0 98 JSR $98e0\n0:9A7A  A9 65    LDA #$65\n0:9A7C  20 E0 98 JSR $98e0\n0:9A7F  60       RTS\n0:9A80  A5 26    LDA $26\n0:9A82  29 07    AND #$07\n0:9A84  D0 F9    BNE $9a7f\n0:9A86  C6 2F    DEC $2f\n0:9A88  4C 63 9A JMP $9a63\n0:9A8B  48       PHA\n0:9A8C  A5 2F    LDA $2f\n0:9A8E  D0 04    BNE $9a94\n0:9A90  68       PLA\n0:9A91  85 2F    STA $2f\n0:9A93  60       RTS\n0:9A94  68       PLA\n0:9A95  A9 00    LDA #$00\n0:9A97  60       RTS\n0:9A98  A0 00    LDY #$00\n0:9A9A  24 D9    BIT $d9\n0:9A9C  50 01    BVC $9a9f\n0:9A9E  C8       INY\n0:9A9F  18       CLC\n0:9AA0  65 2E    ADC $2e\n0:9AA2  B0 05    BCS $9aa9\n0:9AA4  D9 B3 9A CMP $9ab3,Y\n0:9AA7  90 03    BCC $9aac\n0:9AA9  B9 B3 9A LDA $9ab3,Y\n0:9AAC  85 2E    STA $2e\n0:9AAE  A9 00    LDA #$00\n0:9AB0  85 2B    STA $2b\n0:9AB2  60       RTS\n0:9AB3  96 FA    STX $fa,Y"
+      },
+      {
+        "bank": 0,
+        "start": 64307,
+        "end_exclusive": 64418,
+        "text": "0:FB33  20 4F FC JSR $fc4f\n0:FB36  B0 2F    BCS $fb67\n0:FB38  A9 03    LDA #$03\n0:FB3A  D0 19    BNE $fb55\n0:FB3C  20 4F FC JSR $fc4f\n0:FB3F  B0 26    BCS $fb67\n0:FB41  A9 06    LDA #$06\n0:FB43  D0 10    BNE $fb55\n0:FB45  20 4F FC JSR $fc4f\n0:FB48  B0 1D    BCS $fb67\n0:FB4A  A9 0C    LDA #$0c\n0:FB4C  D0 07    BNE $fb55\n0:FB4E  20 4F FC JSR $fc4f\n0:FB51  B0 14    BCS $fb67\n0:FB53  A9 12    LDA #$12\n0:FB55  20 8B 9A JSR $9a8b\n0:FB58  F0 0D    BEQ $fb67\n0:FB5A  20 F5 FC JSR $fcf5\n0:FB5D  A5 2D    LDA $2d\n0:FB5F  C9 0F    CMP #$0f\n0:FB61  F0 04    BEQ $fb67\n0:FB63  A9 0E    LDA #$0e\n0:FB65  85 2D    STA $2d\n0:FB67  60       RTS\n0:FB68  20 4F FC JSR $fc4f\n0:FB6B  B0 25    BCS $fb92\n0:FB6D  A9 06    LDA #$06\n0:FB6F  D0 10    BNE $fb81\n0:FB71  20 4F FC JSR $fc4f\n0:FB74  B0 1C    BCS $fb92\n0:FB76  A9 0C    LDA #$0c\n0:FB78  D0 07    BNE $fb81\n0:FB7A  20 4F FC JSR $fc4f\n0:FB7D  B0 13    BCS $fb92\n0:FB7F  A9 12    LDA #$12\n0:FB81  20 8B 9A JSR $9a8b\n0:FB84  F0 E1    BEQ $fb67\n0:FB86  20 E1 FC JSR $fce1\n0:FB89  A9 00    LDA #$00\n0:FB8B  9D 00 05 STA $0500,X\n0:FB8E  A9 0E    LDA #$0e\n0:FB90  85 2D    STA $2d\n0:FB92  60       RTS\n0:FB93  A9 0A    LDA #$0a\n0:FB95  20 8B 9A JSR $9a8b\n0:FB98  F0 07    BEQ $fba1\n0:FB9A  20 F5 FC JSR $fcf5\n0:FB9D  A9 0E    LDA #$0e\n0:FB9F  85 2D    STA $2d\n0:FBA1  60       RTS"
+      },
+      {
+        "bank": 0,
+        "start": 64546,
+        "end_exclusive": 64591,
+        "text": "0:FC22  A5 85    LDA $85\n0:FC24  C9 FF    CMP #$ff\n0:FC26  F0 25    BEQ $fc4d\n0:FC28  38       SEC\n0:FC29  FD 03 05 SBC $0503,X\n0:FC2C  B0 02    BCS $fc30\n0:FC2E  49 FF    EOR #$ff\n0:FC30  C9 08    CMP #$08\n0:FC32  B0 19    BCS $fc4d\n0:FC34  A5 86    LDA $86\n0:FC36  38       SEC\n0:FC37  FD 02 05 SBC $0502,X\n0:FC3A  B0 02    BCS $fc3e\n0:FC3C  49 FF    EOR #$ff\n0:FC3E  C9 0C    CMP #$0c\n0:FC40  B0 0B    BCS $fc4d\n0:FC42  AD 4B 04 LDA $044b\n0:FC45  10 04    BPL $fc4b\n0:FC47  A9 00    LDA #$00\n0:FC49  85 3A    STA $3a\n0:FC4B  18       CLC\n0:FC4C  60       RTS\n0:FC4D  38       SEC\n0:FC4E  60       RTS"
+      },
+      {
+        "bank": 0,
+        "start": 50035,
+        "end_exclusive": 50090,
+        "text": "0:C373  BD 00 05 LDA $0500,X\n0:C376  F0 0C    BEQ $c384\n0:C378  C9 05    CMP #$05\n0:C37A  B0 08    BCS $c384\n0:C37C  BD 0E 05 LDA $050e,X\n0:C37F  F0 04    BEQ $c385\n0:C381  DE 0E 05 DEC $050e,X\n0:C384  60       RTS\n0:C385  20 22 FC JSR $fc22\n0:C388  B0 FA    BCS $c384\n0:C38A  20 04 FD JSR $fd04\n0:C38D  A9 20    LDA #$20\n0:C38F  9D 0E 05 STA $050e,X\n0:C392  DE 0D 05 DEC $050d,X\n0:C395  D0 ED    BNE $c384\n0:C397  A9 05    LDA #$05\n0:C399  9D 00 05 STA $0500,X\n0:C39C  A5 20    LDA $20\n0:C39E  18       CLC\n0:C39F  7D 0F 05 ADC $050f,X\n0:C3A2  85 20    STA $20\n0:C3A4  A9 00    LDA #$00\n0:C3A6  9D 0F 05 STA $050f,X\n0:C3A9  60       RTS"
+      },
+      {
+        "bank": 0,
+        "start": 54103,
+        "end_exclusive": 54178,
+        "text": "0:D357  BD 00 05 LDA $0500,X\n0:D35A  F0 45    BEQ $d3a1\n0:D35C  C9 05    CMP #$05\n0:D35E  B0 41    BCS $d3a1\n0:D360  20 4F FC JSR $fc4f\n0:D363  90 3D    BCC $d3a2\n0:D365  BD 0E 05 LDA $050e,X\n0:D368  F0 03    BEQ $d36d\n0:D36A  DE 0E 05 DEC $050e,X\n0:D36D  BD 0E 05 LDA $050e,X\n0:D370  D0 2F    BNE $d3a1\n0:D372  20 22 FC JSR $fc22\n0:D375  B0 2A    BCS $d3a1\n0:D377  A5 30    LDA $30\n0:D379  C9 16    CMP #$16\n0:D37B  F0 05    BEQ $d382\n0:D37D  AD 4B 04 LDA $044b\n0:D380  10 20    BPL $d3a2\n0:D382  A9 20    LDA #$20\n0:D384  9D 0E 05 STA $050e,X\n0:D387  20 F5 FC JSR $fcf5\n0:D38A  DE 0D 05 DEC $050d,X\n0:D38D  D0 12    BNE $d3a1\n0:D38F  A5 20    LDA $20\n0:D391  18       CLC\n0:D392  7D 0F 05 ADC $050f,X\n0:D395  85 20    STA $20\n0:D397  A9 00    LDA #$00\n0:D399  9D 0F 05 STA $050f,X\n0:D39C  A9 06    LDA #$06\n0:D39E  9D 00 05 STA $0500,X\n0:D3A1  60       RTS"
+      },
+      {
+        "bank": 0,
+        "start": 64999,
+        "end_exclusive": 65025,
+        "text": "0:FDE7  BD 0E 05 LDA $050e,X\n0:FDEA  D0 10    BNE $fdfc\n0:FDEC  20 22 FC JSR $fc22\n0:FDEF  B0 0E    BCS $fdff\n0:FDF1  A9 20    LDA #$20\n0:FDF3  9D 0E 05 STA $050e,X\n0:FDF6  20 04 FD JSR $fd04\n0:FDF9  4C 3A FD JMP $fd3a\n0:FDFC  DE 0E 05 DEC $050e,X\n0:FDFF  68       PLA\n0:FE00  68       PLA"
+      }
+    ],
+    "facts": [
+      "0:9A8B accepts budgetA only when2F==0; returns0 if protected. 0:9A80 decrements budget on26&7==0, then common health debit unlessD9bit20 orHP0.",
+      "0:9A33 always services pending budget first; hunger skips whileE5!=0. Period is3 whenF9==1 OR D0>=4, else1; increments2B only27==0 then debits when it wraps to0. Scene mapping of F9/D0 is not an SMB policy.",
+      "0:9A98 food addsA, clamps150 or250 whenD9bit40, resets2B. HP crossing30 requests source audio64+65.",
+      "Incoming fixed source budgets include3/6/12/18 viaFB33/3C/45/4E,6/12/18 viaFB68/71/7A,10 viaFB93; other direct callers load5,6,10,20,30. These are source actor/contact paths, NOT an SMB enemy damage table.",
+      "0:C385 andD372 use real FC22 accepted point, cooldown050E=32, decrement actual actor050D byONE, then source-specific state/score050F consumers. D372 additionally accepts pose16hex or negative044B wave; it rejects ordinary punch. Other source HP writers/consumers remain family-specific.",
+      "0:FDEC is a distinct generic contact response/cooldown/effect/separation path; it is not universalHP--. FC22 consumes a wave on accepted point before the caller applies family eligibility; host must test actual enemy eligibility before calling it.",
+      "Original main0:8121 comparesaction2D against0D and bypasses9A2E when>=0D. Host DpHealthTick unit equivalence is not proof of whole-Main health cadence during hurt/scene/death; preserve this source caller gate when designing the integrated consumer."
+    ],
+    "remaining_policy": [
+      "Author exact SMB actor HP/armor/accepted attack kinds, outgoing damage, incoming budgets and real defeat/score/drop mapping explicitly; source oneHP per accepted hit for named consumers is not a universal SMB mapping.",
+      "Choose source-backed hunger room classification for SMB scenes, preserving real pause/action/update admission and lowHP source cues; do not silently disable it.",
+      "Keep source hurt/recovery/death and delayedHP timing; DpInjuryStart queues budget only and does not itself author actor-specific knockback/collision behavior."
+    ]
+  }
+}
