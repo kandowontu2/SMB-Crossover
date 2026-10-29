@@ -1,0 +1,66 @@
+{
+  "status": "Original DK leaf implementation assembled and tested; host admission remains open",
+  "native_run": false,
+  "playable_build_promoted": false,
+  "candidate": {
+    "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\donkey-kong-component-v1\\candidate.nes",
+    "bytes": 2097168,
+    "sha256": "f1b49c44b9b4cc493a8bbcf055ab1ed53c72146f212814a6519179d907c947c0"
+  },
+  "build": {
+    "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\donkey-kong-component-v1\\build-proof.json",
+    "bytes": 80407,
+    "sha256": "6afc8191810e23831d440d564fbea6fb927b1652f3cb519c21bbad6363df8fa8"
+  },
+  "controls": {
+    "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\donkey-kong-component-v1\\controls.json",
+    "bytes": 2861,
+    "sha256": "e50bd56216250e85c4473eb2910682ea6b4c0a88f1ad9c96819bf71882e8b705"
+  },
+  "sizes": {
+    "DONKEY_KONG_CORE": 799,
+    "DONKEY_KONG_ART": 1142,
+    "DONKEY_KONG_CHR": 4096
+  },
+  "authored_playable_rules": {
+    "movement": "Genuine native SMB Mario movement; original DK is an NPC, so no original playable DK physics exists.",
+    "attack": "FreshB performs a24-update pickup/hold/toss using original poses; publishes one barrel at16. ReleaseB to throw again.",
+    "mushroom": "Earned protection/tier and second simultaneous rolling barrel.",
+    "flower": "Third simultaneous barrel and Down+B straight vertical drop.",
+    "persistence": "Explicit exact-raw activation constructor before overlay reads; same-life loaded scenes/extra lives preserve tiers, actual life loss clears.",
+    "animation": "Authored waddle from authentic pickup/toss poses with facing correction. No original NPC walking animation is claimed."
+  },
+  "authentic": {
+    "body": "Nine original48x32 records;18 actual emitted original-pixel raster comparisons across both facings.",
+    "barrels": "Six original16x16 frames.1152 actual CPU comparisons against original DBEE roll animation, both directions/all frames/all six counter phases.",
+    "body_palette": "0F/30/36/06, original BG2 and explicit falling-DK3F1D packet.",
+    "barrel_palette": "0F/06/27/02, original25M sprite3 remapped to native weapon palette1 without color quantization.",
+    "source_bounds": "Original NPC42x32: full48px canvas startsPlayerX-16; collider begins3px inside, so signedleft-13/right29/top0/bottom32.",
+    "menu": "Complete24x16 half-size sample of original48x32 idle; a disclosed menu adaptation, not a cropped sprite."
+  },
+  "leases": {
+    "status": "Conditional placement; actual old-owner pointer-consumer closure still required before menu admission",
+    "CORE": "A36B9FD..<BFC0, actual799B, preserves RYU_SIDE_COLD prefix and SCORE_POPUP_COLD BFC0.",
+    "ART": "C12DB13..<E000, actual1142B, preserves original GUEST_GFX prefix.",
+    "CHR": "820..823 exclusive4KB;32/30/22/27 pattern pairs.",
+    "RAM": "Exact raw28-only active5C00..7F. No persistent5F allocation or old inventory-owner indexing."
+  },
+  "checks": {
+    "foreign_gates": 364,
+    "original_DBEE_animation_CPU_comparisons": 1152,
+    "earned_grants_and_lifecycle": true,
+    "actual_throw_publication_and_pool": true,
+    "actual_emitted_original_body_rasters_both_facings": 18,
+    "palette_atomic_boundaries": 84
+  },
+  "open": [
+    "Close legitimate old pointer/record consumers of conditional PRG tails.",
+    "Actual raw28/menu27 admission and all shared routes before any old indexed character table.",
+    "Apply42px bounds to real enemy/powerup contacts and background side/head/feet/platform collision.",
+    "Connect barrel real terrain, eligible enemy HP/kill/slot-reuse receipts, brick/question/debris/score/SFX transactions.",
+    "Integrate original DK audio and preserve other characters/native world palettes.",
+    "Actual fresh/lives/scene/pipe/vine/spring/flag/death/powerup animation and fullcaller/interrupt tests.",
+    "Native normal8sprite OAM/PPU/scroll/1-1 and every earned powerup in both modes."
+  ],
+  "scope": "Actual compiled movement/state/throw/barrel/render/palette leaves only. Shared menu, full42px terrain/hurtbox, native combat/block transactions, source audio, scenes, wholeMain/interrupt/PPU/1-1 and earned-item validation remain open. Unchanged old bytes do not prove arbitrary old pointer consumers cannot read a proposed tail."
+}
