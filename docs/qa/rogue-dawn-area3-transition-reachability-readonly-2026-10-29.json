@@ -1,0 +1,478 @@
+{
+  "status": "BOUNDED_STATIC_SOURCE_FINDINGS__GLOBAL_AREA3_TRANSITION_REACHABILITY_OPEN",
+  "date": "2026-10-29",
+  "native_run": false,
+  "new_CPU_campaign": false,
+  "source_or_ROM_changed": false,
+  "purpose": "Resolve the actual foreground conditions omitted by the retained area3 phase1 audio-only counterexample; do not change driver behavior or relabel a failure.",
+  "result": {
+    "normal_area3_affinity_trigger_blocked": true,
+    "all_area3_phase1_producers_proven_unreachable": false,
+    "mandatory_area_change_before_tick120_established": false,
+    "foreground_cancellation_before_tick120_for_every_reachable_start_established": false,
+    "typed_fixture_proved_representative_of_reachable_foreground": false,
+    "source_RAM_0100_zero_invariant_established": false,
+    "decision": "The common room-affinity path cannot start physical7:B095. A separate real physical7:B086 still tests inherited79==1, so the entire area3+phase1 combination cannot honestly be declared unreachable from this audit. The audio-only counterexample remains a real differential failure of its declared fixture; its sustained foreground state is not a proved original itinerary. No silence/zero substitution or transition exclusion is qualified."
+  },
+  "logical_area_and_mapping": {
+    "units": "All physical banks below are DECIMAL; CPU addresses and scalar state values are HEX unless labelled otherwise.",
+    "actual_owner": "62:C4ED STY23 is the admitted area-selection writer;62:C01E STX23 resets it to0. Other raw matching bytes in room/song data are not promoted to code. This is a bounded direct-writer/caller audit, not an exhaustive indirect-memory-write theorem.",
+    "foreground": "62:CA46 LDA23 -> C4FA ASL -> C4FE/C502 JSRFFDC maps physical lower2*23 and upper2*23+1. C4E8 initially includes28&18 while loading, but C51A restores the gameplay pair before JMP(000A).",
+    "audio": "62:C215 LDY23;C217 LDAC238,Y;C224 maps the selected lower bank and common upper49;C21E JMPA770. Every audio tick samples current23 again.",
+    "rows": [
+      {
+        "logical_23": 0,
+        "gameplay_lower": 0,
+        "gameplay_upper": 1,
+        "audio_lower": 52,
+        "audio_upper": 49,
+        "normal_music_flag": "10",
+        "alternate_music_flag": "10"
+      },
+      {
+        "logical_23": 1,
+        "gameplay_lower": 2,
+        "gameplay_upper": 3,
+        "audio_lower": 48,
+        "audio_upper": 49,
+        "normal_music_flag": "01",
+        "alternate_music_flag": "10"
+      },
+      {
+        "logical_23": 2,
+        "gameplay_lower": 4,
+        "gameplay_upper": 5,
+        "audio_lower": 53,
+        "audio_upper": 49,
+        "normal_music_flag": "08",
+        "alternate_music_flag": "01"
+      },
+      {
+        "logical_23": 3,
+        "gameplay_lower": 6,
+        "gameplay_upper": 7,
+        "audio_lower": 54,
+        "audio_upper": 49,
+        "normal_music_flag": "40",
+        "alternate_music_flag": "01"
+      },
+      {
+        "logical_23": 4,
+        "gameplay_lower": 8,
+        "gameplay_upper": 9,
+        "audio_lower": 50,
+        "audio_upper": 49,
+        "normal_music_flag": "10",
+        "alternate_music_flag": "01"
+      },
+      {
+        "logical_23": 5,
+        "gameplay_lower": 10,
+        "gameplay_upper": 11,
+        "audio_lower": 51,
+        "audio_upper": 49,
+        "normal_music_flag": "80",
+        "alternate_music_flag": "01"
+      }
+    ]
+  },
+  "producer_inventory": {
+    "method": "Exact EE EF06 raw-byte scan across all64 original PRG banks, followed by actual instruction/caller checks. Thirteen raw matches; one physical9 candidate lacks an authenticated incoming edge. A raw match alone is not a reachable instruction proof.",
+    "all_raw_matches": [
+      [
+        5,
+        "B095"
+      ],
+      [
+        5,
+        "B10A"
+      ],
+      [
+        7,
+        "B086"
+      ],
+      [
+        7,
+        "B095"
+      ],
+      [
+        9,
+        "B086"
+      ],
+      [
+        9,
+        "B095"
+      ],
+      [
+        9,
+        "B126"
+      ],
+      [
+        9,
+        "B1B5"
+      ],
+      [
+        11,
+        "B066"
+      ],
+      [
+        11,
+        "B086"
+      ],
+      [
+        11,
+        "B095"
+      ],
+      [
+        11,
+        "B0FC"
+      ],
+      [
+        49,
+        "A786"
+      ]
+    ],
+    "rows": [
+      {
+        "physical_bank_decimal": 5,
+        "cpu_pc": "B095",
+        "logical_23_on_normal_gameplay_mapping": 2,
+        "audio_lower_on_next_tick": 53,
+        "caller": "63:E76C JMP B08A; B08A stores A to79; A==1 and56!=0",
+        "predicate_and_scope": "Conditional room-affinity producer. Actual physical5 table begins10 FF75 FF71; original map cell itinerary not executed."
+      },
+      {
+        "physical_bank_decimal": 5,
+        "cpu_pc": "B10A",
+        "logical_23_on_normal_gameplay_mapping": 2,
+        "audio_lower_on_next_tick": 53,
+        "caller": "62:CB4B JSR8B13 -> lower4:8B76 JMPB07E -> physical5:B086 JMPB0A2 -> B0F8",
+        "predicate_and_scope": "79==1;50<0C;BF==18;51<80;B7==0C. Real source branch, not proof that all room conditions are reachable together."
+      },
+      {
+        "physical_bank_decimal": 7,
+        "cpu_pc": "B086",
+        "logical_23_on_normal_gameplay_mapping": 3,
+        "audio_lower_on_next_tick": 54,
+        "caller": "62:CB4B JSR8B13 -> lower6:8B76 JMPB07E -> B080",
+        "predicate_and_scope": "79==1. No room-table lookup here and no23 change. Inherited/item-normalized79 path remains open."
+      },
+      {
+        "physical_bank_decimal": 7,
+        "cpu_pc": "B095",
+        "logical_23_on_normal_gameplay_mapping": 3,
+        "audio_lower_on_next_tick": 54,
+        "caller": "63:E76C JMPB08A",
+        "predicate_and_scope": "Requires A==1 and56!=0; A==1 is blocked on the proven E720 classifier path because physical7 AFE0..AFFF is allFF and an FF map cell returns before comparison. This does not eliminate B086."
+      },
+      {
+        "physical_bank_decimal": 9,
+        "cpu_pc": "B086",
+        "logical_23_on_normal_gameplay_mapping": 4,
+        "audio_lower_on_next_tick": 50,
+        "caller": "62:CB4B JSR8B13 -> lower8:8B76 JMPB07E -> B080",
+        "predicate_and_scope": "79==1; no23 store at the producer."
+      },
+      {
+        "physical_bank_decimal": 9,
+        "cpu_pc": "B095",
+        "logical_23_on_normal_gameplay_mapping": 4,
+        "audio_lower_on_next_tick": 50,
+        "caller": "63:E76C JMPB08A",
+        "predicate_and_scope": "A==1 and56!=0; physical9 affinity table begins62 69, thenFF."
+      },
+      {
+        "physical_bank_decimal": 9,
+        "cpu_pc": "B126",
+        "logical_23_on_normal_gameplay_mapping": 4,
+        "audio_lower_on_next_tick": 50,
+        "caller": "Instruction sequence atB122 CMP1/BNE/INC; no authenticated incoming caller found",
+        "predicate_and_scope": "Retained raw candidate, not counted as a proved reachable producer. Whole64-bank direct JSR/JMP scan finds B122 references only in physical11, whose B122 bytes implement a different routine. No proof against an unanalysed indirect entry."
+      },
+      {
+        "physical_bank_decimal": 9,
+        "cpu_pc": "B1B5",
+        "logical_23_on_normal_gameplay_mapping": 4,
+        "audio_lower_on_next_tick": 50,
+        "caller": "62:C92B -> DC73 -> physical9:B0D8 JSRB0A0 -> B0B4 JSRB1B1",
+        "predicate_and_scope": "06EF==0,BF==05,B7==07,and068D!=10; then source sets06F0=1. Real source branch, itinerary unexecuted."
+      },
+      {
+        "physical_bank_decimal": 11,
+        "cpu_pc": "B066",
+        "logical_23_on_normal_gameplay_mapping": 5,
+        "audio_lower_on_next_tick": 51,
+        "caller": "62:C494 -> C4A2 JSRB05A",
+        "predicate_and_scope": "2C==0;20 not04/06;4F<1C and50==1F. Executes before native operation-mode handoff; no23 store."
+      },
+      {
+        "physical_bank_decimal": 11,
+        "cpu_pc": "B086",
+        "logical_23_on_normal_gameplay_mapping": 5,
+        "audio_lower_on_next_tick": 51,
+        "caller": "62:CB4B JSR8B13 -> lower10:8B76 JMPB07E -> B080",
+        "predicate_and_scope": "79==1; no23 store."
+      },
+      {
+        "physical_bank_decimal": 11,
+        "cpu_pc": "B095",
+        "logical_23_on_normal_gameplay_mapping": 5,
+        "audio_lower_on_next_tick": 51,
+        "caller": "63:E76C JMPB08A",
+        "predicate_and_scope": "A==1 and56!=0; physical11 affinity table begins51, thenFF."
+      },
+      {
+        "physical_bank_decimal": 11,
+        "cpu_pc": "B0FC",
+        "logical_23_on_normal_gameplay_mapping": 5,
+        "audio_lower_on_next_tick": 51,
+        "caller": "62:C92B -> DC73 -> physical11:B0D8 JSRB0A0 -> B0B4 JSRB0F8",
+        "predicate_and_scope": "06EF==0,4F==1E,BF==1E,and068D!=80; then source INC06F0."
+      },
+      {
+        "physical_bank_decimal": 49,
+        "cpu_pc": "A786",
+        "logical_23_on_normal_gameplay_mapping": null,
+        "audio_lower_on_next_tick": null,
+        "caller": "62:C0FD J SRC215 -> C21E JMPA770 -> A776",
+        "predicate_and_scope": "Phase advance only: A776 immediately RTS if06EF==0. Cannot create phase1 from idle. C215 selects the current23 lower song bank, not a frozen initial bank."
+      }
+    ],
+    "mapping_limit": "Rows identify23 required for the genuine normal mapping and actual source code branches. They are not native observations of every room visit, nor proof that arbitrary coordinate predicates can coexist."
+  },
+  "area3_analysis": {
+    "classifier": "63:E750 loads a real room-map cell;E752 CMPFF/E754 BEQE76F returns onFF. E758..E760 searches32 AFE0 entries, E76A emits1 only on match; otherwise E762..E768 emits0 when79==0 or80 when79!=0. Physical7 all32 entries areFF, hence no1 through this caller for any accepted nonFF cell.",
+    "separate_start": "Physical7:B07E stores56, B080 reads79, andB086 increments06EF iff79==1. Real lower6:8B76 tail-jumps there after the ordinary CB4B/8B13 door/action5 setup. This branch is not eliminated by the allFF table.",
+    "non_classifier_state_paths": [
+      "61:A678..A67E, after real item contact/commit, normalizes ANY nonzero79 to1; zero remains zero. This is an actual inherited-state producer, not a fresh room-affinity match.",
+      "63:EB28..EB43 processes original enemy data: input bit40 and an unset corresponding687A,Y state can set6987=1. Door completion62:D3D8..D3E5 consumes it and reachesD3D4 STA79=80. These real operations prevent assuming79 only comes from the AFE0 table.",
+      "49:A7D1..A7D3 writes79=80 during transition phases3/4. 62:D3CE/D3D0 and area-specificB0CA/B0E5 may clear it. Genuine scene/actor/item reachability and relative completion are required to collapse these paths."
+    ],
+    "remaining_proof": "No complete original area3 room/actor/item/elevator itinerary was executed or reconstructed here. In particular no proof establishes a bit40 scene plus later actual item/door sequence in area3, or excludes inherited79 through all scene transfers. The conditional paths above are code evidence, not a claimed reached original gameplay run."
+  },
+  "foreground_scene_and_fade": {
+    "actual_area_change": "62:CA18 accepts only1E==3 (1E==7 returns), saves74, uses low-nibble tableCA30 [02,03,05,04,06] to write24, then CA2D JMP C4DE -> C4ED writes23=[1,2,4,3,5]. The two direct CA18 callers are initial C81A withA10 and elevator/scene-object D8E7. This caller audit found no CA18 call in the common door action5 path or audio transition callbacks.",
+    "ordinary_transfer": "62:C92B -> DC73 -> current-areaB0D8 performs native scroll/door progression. Source action5 is real CC22 table entryD3A8. Completing its own source counter/path callsD48C/ED65/95AB; D3C3..D3D0 can clear negative79. It does not write23.",
+    "phase_sensitive_foreground": "Physical7:B0D8 tests06EF. When nonzero it tail-jumpsE1F1 once, bypassing B0DD..B0E5 and the extra DC76 calls; when idle,59==11 explicitly clears79 and normal progression callsE1F1 plus DC76. Therefore running onlyC215 is not the actual room-transfer schedule.",
+    "audio_timeline": "For the explicit fixture06EF=1/06EE=0 and one call per tick: zero-based tick0 entersphase2; tick40 phase3 and tick80 phase4 repeatedly write79=80; tick120 entersphase5. At49:A7ED the source first reads79. Zero branchesA7D6 and clearsEF/EE before any forced request. Nonzero withEE==27 reachesA7F8/A7FA queue0684=10 andA7FD\u2192A750 toggles06F0. This timeline is static arithmetic from the authenticated routine and matches the retained diagnostic tick120; no new execution campaign was run.",
+    "answer_to_required_scene_change": "No mandatory23 change beforetick120 is present in this transition code or the normal door path. A real elevator may change23, and every NMI would then select that new lower song bank, but occurrence beforetick120 has not been established. Foreground79 cancellation is a separate authentic mechanism; it too is not proved inevitable beforetick120 for every admitted source start.",
+    "lag_limit": "C0E3/C0E5 may skip display/gameplay work when1A is busy, but C0FD still callsC215. Thus a count of120 audio/NMI calls is not a proof of120 completed foreground updates or a guaranteed door-completion deadline."
+  },
+  "retained_counterexample": {
+    "original_aggregate_failure": "extended-differential-negative.json remains literal at35844 total completed paired updates, logicalarea3, phase5.",
+    "isolated_existing_diagnostic": "transition-pointer-diagnostic.json and transition-instruction-diagnostic.json retain actual first mismatch at120 preceding paired ticks, phase5, current23=3.",
+    "source_reads": "After genuine source request10, current lower54 data80A7..80B3=17 00 F0 02 05 00 01 00 03 00 05 00 07 leads to E6/E7=0100 then0300/0500 and real LDA(E6),Y RAM reads. These bytes/reads are retained existing diagnostic evidence, not synthetic silence.",
+    "fixture_omissions": "Controls explicitly set source1E=3/23=area, then06EF=1 and call onlyC000 RNG +C215 audio for260ticks. They do not execute C92B/CB29, room geometry/progression, item transactions, D3A8 completion, or a real CA18 area transfer. They do not own the source foreground RAM/stack contexts later read by the note decoder.",
+    "RAM_limits": "No proof says original0100,0300,0500 are universally zero or silence. 0300 is the actual player action used by CC1A; source0100 and0500 may have foreground/stack/object context. This audit deliberately does not substitute host foreground RAM, synthetic zero, or an alleged constant original-stack value.",
+    "unchanged_declared_domain": "Existing controls-declared-rom-fixtures-v2.json has45460 declared paired updates and explicitly excludes this area3 transition. Its finite passes do not decide reachability, full original transition closure, native timing, or this failure."
+  },
+  "host_protocol_implications": [
+    "Do not treat every SMB scene transition as an unconditional original INC06EF. Choose an explicitly documented source-supported producer/context and preserve its79 cancellation/theme behavior.",
+    "If a host API admits area3 phase1 and can sustain nonzero79 through phase5, this counterexample remains inside that declared API and its real RAM-read semantics require a deliberate source-context implementation; do not waive it because the ordinary AFE0 trigger is blocked.",
+    "If the host instead excludes that combination or supplies a deterministic SMB adaptation, ROOT must declare and qualify the restricted producer/transition contract. This static report does not approve such a restriction.",
+    "A real foreground/room-transfer trace is still needed to prove or exclude the remaining inherited-state area3 start and its tick120 continuation. No new native run or generic differential expansion is requested by this report."
+  ],
+  "evidence_spans": [
+    {
+      "physical_bank_decimal": 62,
+      "cpu_start": "C4DE",
+      "bytes": 64,
+      "file_offset": 509166,
+      "sha256": "430563ef38835a16faef951ac8c148d2730a3f4502d9c1cd1a60a0ecaead66d1",
+      "role": "Area selection, gameplay mapping and restored dispatch"
+    },
+    {
+      "physical_bank_decimal": 62,
+      "cpu_start": "CA18",
+      "bytes": 49,
+      "file_offset": 510504,
+      "sha256": "f60b6fcbb70a6ee23e9e24b11cb60683f8b4072ec49ac93249b01deb65f79c00",
+      "role": "Scene/elevator area selection and CA46 normal restore"
+    },
+    {
+      "physical_bank_decimal": 62,
+      "cpu_start": "C215",
+      "bytes": 64,
+      "file_offset": 508453,
+      "sha256": "098c6d9e66cca060cc8fb600fcd3df208ebbaa283a48fa543099bdfd0435d68f",
+      "role": "Actual audio area mapping and theme owner"
+    },
+    {
+      "physical_bank_decimal": 63,
+      "cpu_start": "E720",
+      "bytes": 80,
+      "file_offset": 517936,
+      "sha256": "601c2caafd4ffb9c747a0f1f789004083435b9577fc4ad9d73272c6d86ebbdc3",
+      "role": "Room classifier with FF exclusion and79 dependency"
+    },
+    {
+      "physical_bank_decimal": 7,
+      "cpu_start": "AFE0",
+      "bytes": 32,
+      "file_offset": 61424,
+      "sha256": "af9613760f72635fbdb44a5a0a63c39f12af30f950a6ee5c971be188e89c4051",
+      "role": "AllFF area3 affinity table"
+    },
+    {
+      "physical_bank_decimal": 7,
+      "cpu_start": "B07E",
+      "bytes": 28,
+      "file_offset": 61582,
+      "sha256": "bd0591980ff190b663f278a78349a8665c2d691b716af8801d3c46f9e0fb863b",
+      "role": "Both area3 INC predicates"
+    },
+    {
+      "physical_bank_decimal": 6,
+      "cpu_start": "8B13",
+      "bytes": 102,
+      "file_offset": 52003,
+      "sha256": "29ea220766930fdd18093c73964fcb0965ca1236bc126fdb336139e581adaee3",
+      "role": "Actual logicalarea3 lower bank door producer caller"
+    },
+    {
+      "physical_bank_decimal": 7,
+      "cpu_start": "B0C8",
+      "bytes": 48,
+      "file_offset": 61656,
+      "sha256": "b2ddcd7e94c437ac9b31193b460772c341bb987bdc3b831b3fb85e36ddcd43d1",
+      "role": "Area3 clear and phase-sensitive progression"
+    },
+    {
+      "physical_bank_decimal": 62,
+      "cpu_start": "C92B",
+      "bytes": 53,
+      "file_offset": 510267,
+      "sha256": "358190080a92e624c73e4e804926b5ef69e0894d36d4614fb809d01d3c61071c",
+      "role": "Actual active foreground call order"
+    },
+    {
+      "physical_bank_decimal": 62,
+      "cpu_start": "D3A8",
+      "bytes": 80,
+      "file_offset": 512952,
+      "sha256": "f55c0ae1682b524cb845d1ef47a51a21a0cd1f5281d9c73c5e1d96ad79871465",
+      "role": "Door completion clears79 and consumes6987"
+    },
+    {
+      "physical_bank_decimal": 61,
+      "cpu_start": "A63A",
+      "bytes": 71,
+      "file_offset": 501322,
+      "sha256": "0c9f893f4334633266836dac027f7caef71158055d001573f2e7cd64498452e8",
+      "role": "Real item contact and79 normalization"
+    },
+    {
+      "physical_bank_decimal": 63,
+      "cpu_start": "EB28",
+      "bytes": 37,
+      "file_offset": 518968,
+      "sha256": "b43da30da7bf0748894128587bc402ba2016a2e578a76bdc21962fca2bbaf8bc",
+      "role": "Original actor flag/6987 pending owner"
+    },
+    {
+      "physical_bank_decimal": 62,
+      "cpu_start": "D8BF",
+      "bytes": 69,
+      "file_offset": 514255,
+      "sha256": "0663f3a109d61fbfc9f9507869cdf26dd74dd20de9aa13ef2976b01d6088c5f4",
+      "role": "True elevator scene change caller"
+    },
+    {
+      "physical_bank_decimal": 49,
+      "cpu_start": "A776",
+      "bytes": 138,
+      "file_offset": 403334,
+      "sha256": "8aa1a7dfd5accc65c5dee38cb1d4c016085c56c338007e337e02ce4c3b5f3326",
+      "role": "Phase dispatcher,79 writes, cancellation and forced cue"
+    },
+    {
+      "physical_bank_decimal": 49,
+      "cpu_start": "A750",
+      "bytes": 9,
+      "file_offset": 403296,
+      "sha256": "9252e582d4c79010317b572c728ee05044824c28c88eadde0b609d516cb6b753",
+      "role": "Actual theme toggle"
+    },
+    {
+      "physical_bank_decimal": 54,
+      "cpu_start": "80A7",
+      "bytes": 13,
+      "file_offset": 442551,
+      "sha256": "a57b2f27b2bee181b44bea0eae8f6268cc5b84b405b84eb79d1d555531db8cf0",
+      "role": "Retained source note-header bytes"
+    },
+    {
+      "physical_bank_decimal": 62,
+      "cpu_start": "C0D9",
+      "bytes": 42,
+      "file_offset": 508137,
+      "sha256": "215efd812f787c3613b292a2568e84fd3b93e41a56927f169ac8a392c03bdafc",
+      "role": "Audio remains active when ordinary display work is skipped"
+    }
+  ],
+  "bindings": [
+    {
+      "path": "C:\\NES\\the stash\\Metroid - Rogue Dawn 1.21 (header fixed).nes",
+      "bytes": 786448,
+      "sha256": "9271411a20cc26c09f4d4bffe74c0d69a1bf91b815f7716fcf4610c4cee61077"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\rogue_dawn_map_v1.py",
+      "bytes": 16735,
+      "sha256": "b93ae79bbc57ab6a97dea3be1750b5625917e0adeab7e6e2906cdf19a29751f2"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\rogue_dawn_audio_driver_controls_v4.py",
+      "bytes": 16180,
+      "sha256": "c88f473e77431906f7628ec04f2c40c0dc218dcb2afe9bfda36c54c03234c833"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\rogue_dawn_audio_transition_pointer_diagnostic_v1.py",
+      "bytes": 16552,
+      "sha256": "b24467b9a3f1edfb8ba1bee8e56d295a80e38ff7b46d374b574761d61d1da83e"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\rogue_dawn_audio_transition_diagnostic_v1.py",
+      "bytes": 16508,
+      "sha256": "5367e8f620c93f5ea6a7b2949bf2018e18bb38bd03ba1d73733f95d378703de7"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\rogue_dawn_audio_declared_rom_controls_v2.py",
+      "bytes": 17575,
+      "sha256": "31bc640ac7bae6e3d1a109262d3c36465f502eb315d4d39a976e7fddcd6a0d91"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-audio-driver-v4\\candidate.nes",
+      "bytes": 2097168,
+      "sha256": "c159cf3c68066d5d72a7ba50f836b33125b8d368431e249a6c7a241a072bfb5b"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-audio-driver-v4\\extended-differential-negative.json",
+      "bytes": 1569,
+      "sha256": "51800100ce2a1154ec9683b32b550945aec8a6de119358deeaad31f7de55035d"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-audio-driver-v4\\transition-pointer-diagnostic.json",
+      "bytes": 491997,
+      "sha256": "ffb80c40ae8d301653958d0692e79a31a5d2f2a6d278ad1da8d38fa3eafbda9d"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-audio-driver-v4\\transition-instruction-diagnostic.json",
+      "bytes": 372967,
+      "sha256": "de0b4cbec0ec81d0b7f8ae2bcdac7446daa329a539aed513708401f28cadc833"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-audio-driver-v4\\controls-declared-rom-fixtures-v2.json",
+      "bytes": 6083,
+      "sha256": "c7af071bc87d51a4a5b51131a74dae5865a244d214959d0daf721e19665894f5"
+    }
+  ],
+  "owned_files": [
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\docs\\qa\\rogue-dawn-area3-transition-reachability-readonly-2026-10-29.json"
+  ],
+  "limitations": [
+    "Read-only original-ROM control-flow and data audit only. No new CPU/differential/emulator execution.",
+    "No original whole-world reachability theorem; indirect control/data entry completeness and every source room itinerary remain unproved.",
+    "All old source, tests, candidates, receipts and negatives preserved; no product repair, playable/adoption/audio timing or audible fidelity claim."
+  ]
+}
