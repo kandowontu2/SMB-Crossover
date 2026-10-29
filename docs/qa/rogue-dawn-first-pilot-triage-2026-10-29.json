@@ -1,0 +1,846 @@
+{
+  "source_CPU_and_existing_native_evidence_only": true,
+  "new_native_run": false,
+  "no_source_ROM_or_settings_changes": true,
+  "candidate": {
+    "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-scheduler-v5\\candidate.nes",
+    "bytes": 2097168,
+    "sha256": "f4677c91c642c2720770b5f20e8590664d81ee5f6bcd7bcdae6994b739fb2fdb"
+  },
+  "source_handoff": {
+    "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-scheduler-v5\\handoff.json",
+    "bytes": 138223,
+    "sha256": "26834b7df8653cec66022f3b1ac731c0d799b9f3a46cb6818aad0c4174f27fa1"
+  },
+  "native_first_failure": {
+    "result": {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\rogue-dawn-scheduler-native-easy-v1\\result.json",
+      "bytes": 1819,
+      "sha256": "0b2dae3d8404abfe29d0f11d9f981d5de370906f76a536455ffbb47b2c4c6285"
+    },
+    "reason": "Controller stationary for 300 genuinely active completed updates",
+    "completed_Main": 823,
+    "full_frames": 855,
+    "completed_DMA": 579,
+    "min_SP": 167,
+    "terminal_trace": {
+      "frame": "970",
+      "poll": "969",
+      "ppu_frame": "970",
+      "loops": "823",
+      "captured": "855",
+      "world": "0",
+      "level": "0",
+      "area": "194",
+      "x": "332",
+      "y": "119",
+      "yHigh": "1",
+      "state": "1",
+      "vx": "0",
+      "vy": "0",
+      "power": "0",
+      "engine": "8",
+      "mode": "1",
+      "task": "3",
+      "lives": "2",
+      "camera": "220",
+      "mask": "128",
+      "ceiling": "0",
+      "dash": "0",
+      "jumpUsed": "0",
+      "loopCycles": "20170",
+      "interruptCycles": "0",
+      "foregroundCycles": "20170"
+    },
+    "mask_counts_last_window": {
+      "128": 129,
+      "0": 142
+    }
+  },
+  "controller": {
+    "exact_source": "Original source D0E1/D0E3 uses RdFresh AND08 freshUp, then real upward clearance atD0FA and unmorph atD110/D116. Down-held is a separate path. RdHostInput derives fresh=(SavedJoypadBits XOR RdHeld) AND SavedJoypadBits once per actualMain.",
+    "actual_policy": "roster_samus_contra.lua sets Up in its SmBall branch but then first-upgrade code replaces b={} before its bump logic. Final native mask128 is onlyA. This is a definite overwritten-input policy path; source ball state in the real native run is inferred from ROOT wholeframe, not present in this CSV.",
+    "limitation": "No real native source-action/RdFresh snapshot exists in v1. No terrain/movement fix follows solely from this read-only diagnosis. ROOT owns subsequent standing-only controller.",
+    "erratum": "Frozen scheduler report quoted ROOT provisional Down-toggle hypothesis in native-pilot status. Actual original admitted kernel requires freshUp as above; source CPU proof itself is unchanged."
+  },
+  "palette": {
+    "genuine_complete_GetPlayerColors_calls": [
+      {
+        "variant": 0,
+        "AreaType": 0,
+        "BackgroundColorCtrl": 0,
+        "raw": "3f1d030f37173f19031630273f100422161a2700",
+        "commands": [
+          {
+            "address": "0x3f1d",
+            "flags": 3,
+            "payload": "0f3717"
+          },
+          {
+            "address": "0x3f19",
+            "flags": 3,
+            "payload": "163027"
+          },
+          {
+            "address": "0x3f10",
+            "flags": 4,
+            "payload": "22161a27"
+          }
+        ]
+      },
+      {
+        "variant": 0,
+        "AreaType": 1,
+        "BackgroundColorCtrl": 0,
+        "raw": "3f1d030f37173f19031630273f100422161a2700",
+        "commands": [
+          {
+            "address": "0x3f1d",
+            "flags": 3,
+            "payload": "0f3717"
+          },
+          {
+            "address": "0x3f19",
+            "flags": 3,
+            "payload": "163027"
+          },
+          {
+            "address": "0x3f10",
+            "flags": 4,
+            "payload": "22161a27"
+          }
+        ]
+      },
+      {
+        "variant": 0,
+        "AreaType": 2,
+        "BackgroundColorCtrl": 0,
+        "raw": "3f1d030f37173f19031630273f10040f161a2700",
+        "commands": [
+          {
+            "address": "0x3f1d",
+            "flags": 3,
+            "payload": "0f3717"
+          },
+          {
+            "address": "0x3f19",
+            "flags": 3,
+            "payload": "163027"
+          },
+          {
+            "address": "0x3f10",
+            "flags": 4,
+            "payload": "0f161a27"
+          }
+        ]
+      },
+      {
+        "variant": 0,
+        "AreaType": 3,
+        "BackgroundColorCtrl": 0,
+        "raw": "3f1d030f37173f19031630273f10040f161a2700",
+        "commands": [
+          {
+            "address": "0x3f1d",
+            "flags": 3,
+            "payload": "0f3717"
+          },
+          {
+            "address": "0x3f19",
+            "flags": 3,
+            "payload": "163027"
+          },
+          {
+            "address": "0x3f10",
+            "flags": 4,
+            "payload": "0f161a27"
+          }
+        ]
+      },
+      {
+        "variant": 0,
+        "AreaType": 1,
+        "BackgroundColorCtrl": 4,
+        "raw": "3f1d030f37173f19031630273f10040f161a2700",
+        "commands": [
+          {
+            "address": "0x3f1d",
+            "flags": 3,
+            "payload": "0f3717"
+          },
+          {
+            "address": "0x3f19",
+            "flags": 3,
+            "payload": "163027"
+          },
+          {
+            "address": "0x3f10",
+            "flags": 4,
+            "payload": "0f161a27"
+          }
+        ]
+      },
+      {
+        "variant": 0,
+        "AreaType": 1,
+        "BackgroundColorCtrl": 5,
+        "raw": "3f1d030f37173f19031630273f100422161a2700",
+        "commands": [
+          {
+            "address": "0x3f1d",
+            "flags": 3,
+            "payload": "0f3717"
+          },
+          {
+            "address": "0x3f19",
+            "flags": 3,
+            "payload": "163027"
+          },
+          {
+            "address": "0x3f10",
+            "flags": 4,
+            "payload": "22161a27"
+          }
+        ]
+      },
+      {
+        "variant": 1,
+        "AreaType": 0,
+        "BackgroundColorCtrl": 0,
+        "raw": "3f11030c003600",
+        "commands": [
+          {
+            "address": "0x3f11",
+            "flags": 3,
+            "payload": "0c0036"
+          }
+        ]
+      },
+      {
+        "variant": 1,
+        "AreaType": 1,
+        "BackgroundColorCtrl": 0,
+        "raw": "3f11030c003600",
+        "commands": [
+          {
+            "address": "0x3f11",
+            "flags": 3,
+            "payload": "0c0036"
+          }
+        ]
+      },
+      {
+        "variant": 1,
+        "AreaType": 2,
+        "BackgroundColorCtrl": 0,
+        "raw": "3f11030c003600",
+        "commands": [
+          {
+            "address": "0x3f11",
+            "flags": 3,
+            "payload": "0c0036"
+          }
+        ]
+      },
+      {
+        "variant": 1,
+        "AreaType": 3,
+        "BackgroundColorCtrl": 0,
+        "raw": "3f11030c003600",
+        "commands": [
+          {
+            "address": "0x3f11",
+            "flags": 3,
+            "payload": "0c0036"
+          }
+        ]
+      },
+      {
+        "variant": 1,
+        "AreaType": 1,
+        "BackgroundColorCtrl": 4,
+        "raw": "3f11030c003600",
+        "commands": [
+          {
+            "address": "0x3f11",
+            "flags": 3,
+            "payload": "0c0036"
+          }
+        ]
+      },
+      {
+        "variant": 1,
+        "AreaType": 1,
+        "BackgroundColorCtrl": 5,
+        "raw": "3f11030c003600",
+        "commands": [
+          {
+            "address": "0x3f11",
+            "flags": 3,
+            "payload": "0c0036"
+          }
+        ]
+      }
+    ],
+    "diagnosis": "Exact raw2/RdVariant1 NrColors->RdBodyColors bypasses X5LegacyGetPlayerColors and its native BackgroundColors mirror restore. Rogue body queue correctly writes only3F11/3; it never restores universal3F00/3F10 on scene/lives transition. This is omitted host backdrop restoration, not an authenticated Rogue source0F write to3F10.",
+    "actual_source_native_colors": "BackgroundColorCtrl nonzero else AreaType indexes native BackgroundColors[22,22,0F,0F,0F,22,0F,0F]. Ground1/control0 requires22. Existing X5QueueAreaBackdrop uses the same table.",
+    "minimal_successor": "At exact owned color/lifecycle publication compose native universal background with source body three colors, preserving all world palettes and source suit/missile colors. Prefer one atomic3F10/4 packet with native backdrop+three source colors; guard full7-byte queue capacity and ACK only completecommit. Do not restore original Rogue nighttime backdrop or overwrite world palette1..3.",
+    "limitations": "Actual native pilot log lacks PPU palette-write chronology, so no claim about the first physical black-sky writer. Native wholeframe black sky plus actual missing transition restore is concrete; eventual private fix needs real scene/coldmenu validation and deadline."
+  },
+  "performance": {
+    "cases": [
+      {
+        "area": 1,
+        "tick": 0,
+        "full_lagNMI_CPU": 8142,
+        "minimum_SP": 229,
+        "dynamic_calls": {
+          "GuestAudioBegin": {
+            "calls": 1,
+            "inclusive_CPU": 1028,
+            "maximum": 1028
+          },
+          "RdaAudioInit": {
+            "calls": 1,
+            "inclusive_CPU": 3995,
+            "maximum": 3995
+          },
+          "RdaBorrow": {
+            "calls": 1,
+            "inclusive_CPU": 520,
+            "maximum": 520
+          },
+          "RdaNA770": {
+            "calls": 1,
+            "inclusive_CPU": 203,
+            "maximum": 203
+          },
+          "RdaRelease": {
+            "calls": 1,
+            "inclusive_CPU": 520,
+            "maximum": 520
+          },
+          "GuestAudioFinishTick": {
+            "calls": 1,
+            "inclusive_CPU": 872,
+            "maximum": 872
+          },
+          "GuestAudioNativeFlush": {
+            "calls": 1,
+            "inclusive_CPU": 434,
+            "maximum": 434
+          },
+          "RdsAudioFrame": {
+            "calls": 1,
+            "inclusive_CPU": 2389,
+            "maximum": 2389
+          }
+        },
+        "reader_envelopes_CPU": 0,
+        "translated_original_C97_C480_DFFF_instruction_CPU": 203,
+        "all_instruction_CPU_by_physical_bank": {
+          "127": 205,
+          "63": 412,
+          "-1": 212,
+          "29": 1847,
+          "62": 5256,
+          "97": 203
+        },
+        "accounting": "Inclusive dynamic call spans overlap their children. reader_envelopes contains four disjoint entry types; rawreader is nested within them. C97 source-range instruction tally is exclusive by actual executed instruction address, including real replacement JSR cost."
+      },
+      {
+        "area": 1,
+        "tick": 1,
+        "full_lagNMI_CPU": 17607,
+        "minimum_SP": 224,
+        "dynamic_calls": {
+          "RdaBorrow": {
+            "calls": 1,
+            "inclusive_CPU": 520,
+            "maximum": 520
+          },
+          "RdaOriginalRng": {
+            "calls": 1,
+            "inclusive_CPU": 40,
+            "maximum": 40
+          },
+          "RdaReadRom": {
+            "calls": 41,
+            "inclusive_CPU": 3321,
+            "maximum": 81
+          },
+          "RdaReadAbsoluteY": {
+            "calls": 21,
+            "inclusive_CPU": 4452,
+            "maximum": 247
+          },
+          "RdaReadE6Y": {
+            "calls": 18,
+            "inclusive_CPU": 2880,
+            "maximum": 160
+          },
+          "RdaReadECY": {
+            "calls": 2,
+            "inclusive_CPU": 320,
+            "maximum": 160
+          },
+          "RdaNA770": {
+            "calls": 1,
+            "inclusive_CPU": 14865,
+            "maximum": 14865
+          },
+          "RdaRelease": {
+            "calls": 1,
+            "inclusive_CPU": 520,
+            "maximum": 520
+          },
+          "GuestAudioFinishTick": {
+            "calls": 1,
+            "inclusive_CPU": 865,
+            "maximum": 865
+          },
+          "GuestAudioNativeFlush": {
+            "calls": 1,
+            "inclusive_CPU": 434,
+            "maximum": 434
+          },
+          "RdsAudioFrame": {
+            "calls": 1,
+            "inclusive_CPU": 17086,
+            "maximum": 17086
+          }
+        },
+        "reader_envelopes_CPU": 7652,
+        "translated_original_C97_C480_DFFF_instruction_CPU": 6588,
+        "all_instruction_CPU_by_physical_bank": {
+          "127": 517,
+          "63": 309,
+          "-1": 106,
+          "62": 5876,
+          "97": 9949,
+          "29": 843
+        },
+        "accounting": "Inclusive dynamic call spans overlap their children. reader_envelopes contains four disjoint entry types; rawreader is nested within them. C97 source-range instruction tally is exclusive by actual executed instruction address, including real replacement JSR cost."
+      },
+      {
+        "area": 1,
+        "tick": 2,
+        "full_lagNMI_CPU": 7849,
+        "minimum_SP": 224,
+        "dynamic_calls": {
+          "RdaBorrow": {
+            "calls": 1,
+            "inclusive_CPU": 520,
+            "maximum": 520
+          },
+          "RdaOriginalRng": {
+            "calls": 2,
+            "inclusive_CPU": 80,
+            "maximum": 40
+          },
+          "RdaReadRom": {
+            "calls": 6,
+            "inclusive_CPU": 486,
+            "maximum": 81
+          },
+          "RdaReadAbsoluteY": {
+            "calls": 4,
+            "inclusive_CPU": 958,
+            "maximum": 247
+          },
+          "RdaReadECY": {
+            "calls": 2,
+            "inclusive_CPU": 320,
+            "maximum": 160
+          },
+          "RdaNA770": {
+            "calls": 1,
+            "inclusive_CPU": 5091,
+            "maximum": 5091
+          },
+          "RdaRelease": {
+            "calls": 1,
+            "inclusive_CPU": 520,
+            "maximum": 520
+          },
+          "GuestAudioFinishTick": {
+            "calls": 1,
+            "inclusive_CPU": 841,
+            "maximum": 841
+          },
+          "GuestAudioNativeFlush": {
+            "calls": 1,
+            "inclusive_CPU": 410,
+            "maximum": 410
+          },
+          "RdsAudioFrame": {
+            "calls": 1,
+            "inclusive_CPU": 7328,
+            "maximum": 7328
+          }
+        },
+        "reader_envelopes_CPU": 1278,
+        "translated_original_C97_C480_DFFF_instruction_CPU": 3783,
+        "all_instruction_CPU_by_physical_bank": {
+          "127": 174,
+          "63": 309,
+          "-1": 106,
+          "62": 2085,
+          "97": 4349,
+          "29": 819
+        },
+        "accounting": "Inclusive dynamic call spans overlap their children. reader_envelopes contains four disjoint entry types; rawreader is nested within them. C97 source-range instruction tally is exclusive by actual executed instruction address, including real replacement JSR cost."
+      },
+      {
+        "area": 1,
+        "tick": 3,
+        "full_lagNMI_CPU": 7745,
+        "minimum_SP": 224,
+        "dynamic_calls": {
+          "RdaBorrow": {
+            "calls": 1,
+            "inclusive_CPU": 520,
+            "maximum": 520
+          },
+          "RdaReadRom": {
+            "calls": 6,
+            "inclusive_CPU": 486,
+            "maximum": 81
+          },
+          "RdaReadAbsoluteY": {
+            "calls": 4,
+            "inclusive_CPU": 958,
+            "maximum": 247
+          },
+          "RdaReadECY": {
+            "calls": 2,
+            "inclusive_CPU": 320,
+            "maximum": 160
+          },
+          "RdaNA770": {
+            "calls": 1,
+            "inclusive_CPU": 5091,
+            "maximum": 5091
+          },
+          "RdaRelease": {
+            "calls": 1,
+            "inclusive_CPU": 520,
+            "maximum": 520
+          },
+          "GuestAudioFinishTick": {
+            "calls": 1,
+            "inclusive_CPU": 837,
+            "maximum": 837
+          },
+          "GuestAudioNativeFlush": {
+            "calls": 1,
+            "inclusive_CPU": 406,
+            "maximum": 406
+          },
+          "RdsAudioFrame": {
+            "calls": 1,
+            "inclusive_CPU": 7224,
+            "maximum": 7224
+          }
+        },
+        "reader_envelopes_CPU": 1278,
+        "translated_original_C97_C480_DFFF_instruction_CPU": 3783,
+        "all_instruction_CPU_by_physical_bank": {
+          "127": 174,
+          "63": 309,
+          "-1": 106,
+          "62": 2065,
+          "97": 4269,
+          "29": 815
+        },
+        "accounting": "Inclusive dynamic call spans overlap their children. reader_envelopes contains four disjoint entry types; rawreader is nested within them. C97 source-range instruction tally is exclusive by actual executed instruction address, including real replacement JSR cost."
+      },
+      {
+        "area": 0,
+        "tick": 0,
+        "full_lagNMI_CPU": 8127,
+        "minimum_SP": 229,
+        "dynamic_calls": {
+          "GuestAudioBegin": {
+            "calls": 1,
+            "inclusive_CPU": 1028,
+            "maximum": 1028
+          },
+          "RdaAudioInit": {
+            "calls": 1,
+            "inclusive_CPU": 3995,
+            "maximum": 3995
+          },
+          "RdaBorrow": {
+            "calls": 1,
+            "inclusive_CPU": 520,
+            "maximum": 520
+          },
+          "RdaNA770": {
+            "calls": 1,
+            "inclusive_CPU": 203,
+            "maximum": 203
+          },
+          "RdaRelease": {
+            "calls": 1,
+            "inclusive_CPU": 520,
+            "maximum": 520
+          },
+          "GuestAudioFinishTick": {
+            "calls": 1,
+            "inclusive_CPU": 872,
+            "maximum": 872
+          },
+          "GuestAudioNativeFlush": {
+            "calls": 1,
+            "inclusive_CPU": 434,
+            "maximum": 434
+          },
+          "RdsAudioFrame": {
+            "calls": 1,
+            "inclusive_CPU": 2378,
+            "maximum": 2378
+          }
+        },
+        "reader_envelopes_CPU": 0,
+        "translated_original_C97_C480_DFFF_instruction_CPU": 203,
+        "all_instruction_CPU_by_physical_bank": {
+          "127": 205,
+          "63": 408,
+          "-1": 212,
+          "29": 1847,
+          "62": 5245,
+          "97": 203
+        },
+        "accounting": "Inclusive dynamic call spans overlap their children. reader_envelopes contains four disjoint entry types; rawreader is nested within them. C97 source-range instruction tally is exclusive by actual executed instruction address, including real replacement JSR cost."
+      },
+      {
+        "area": 0,
+        "tick": 1,
+        "full_lagNMI_CPU": 10830,
+        "minimum_SP": 228,
+        "dynamic_calls": {
+          "RdaBorrow": {
+            "calls": 1,
+            "inclusive_CPU": 520,
+            "maximum": 520
+          },
+          "RdaOriginalRng": {
+            "calls": 1,
+            "inclusive_CPU": 40,
+            "maximum": 40
+          },
+          "RdaReadRom": {
+            "calls": 19,
+            "inclusive_CPU": 1539,
+            "maximum": 81
+          },
+          "RdaReadAbsoluteY": {
+            "calls": 14,
+            "inclusive_CPU": 2843,
+            "maximum": 217
+          },
+          "RdaReadE6Y": {
+            "calls": 5,
+            "inclusive_CPU": 800,
+            "maximum": 160
+          },
+          "RdaNA770": {
+            "calls": 1,
+            "inclusive_CPU": 8110,
+            "maximum": 8110
+          },
+          "RdaRelease": {
+            "calls": 1,
+            "inclusive_CPU": 520,
+            "maximum": 520
+          },
+          "GuestAudioFinishTick": {
+            "calls": 1,
+            "inclusive_CPU": 843,
+            "maximum": 843
+          },
+          "GuestAudioNativeFlush": {
+            "calls": 1,
+            "inclusive_CPU": 412,
+            "maximum": 412
+          },
+          "RdsAudioFrame": {
+            "calls": 1,
+            "inclusive_CPU": 10309,
+            "maximum": 10309
+          }
+        },
+        "reader_envelopes_CPU": 3643,
+        "translated_original_C97_C480_DFFF_instruction_CPU": 4301,
+        "all_instruction_CPU_by_physical_bank": {
+          "127": 270,
+          "63": 309,
+          "-1": 106,
+          "62": 3437,
+          "97": 5880,
+          "29": 821
+        },
+        "accounting": "Inclusive dynamic call spans overlap their children. reader_envelopes contains four disjoint entry types; rawreader is nested within them. C97 source-range instruction tally is exclusive by actual executed instruction address, including real replacement JSR cost."
+      },
+      {
+        "area": 0,
+        "tick": 2,
+        "full_lagNMI_CPU": 10482,
+        "minimum_SP": 228,
+        "dynamic_calls": {
+          "RdaBorrow": {
+            "calls": 1,
+            "inclusive_CPU": 520,
+            "maximum": 520
+          },
+          "RdaOriginalRng": {
+            "calls": 2,
+            "inclusive_CPU": 80,
+            "maximum": 40
+          },
+          "RdaReadRom": {
+            "calls": 19,
+            "inclusive_CPU": 1539,
+            "maximum": 81
+          },
+          "RdaReadAbsoluteY": {
+            "calls": 14,
+            "inclusive_CPU": 2843,
+            "maximum": 217
+          },
+          "RdaReadE6Y": {
+            "calls": 5,
+            "inclusive_CPU": 800,
+            "maximum": 160
+          },
+          "RdaNA770": {
+            "calls": 1,
+            "inclusive_CPU": 7707,
+            "maximum": 7707
+          },
+          "RdaRelease": {
+            "calls": 1,
+            "inclusive_CPU": 520,
+            "maximum": 520
+          },
+          "GuestAudioFinishTick": {
+            "calls": 1,
+            "inclusive_CPU": 858,
+            "maximum": 858
+          },
+          "GuestAudioNativeFlush": {
+            "calls": 1,
+            "inclusive_CPU": 427,
+            "maximum": 427
+          },
+          "RdsAudioFrame": {
+            "calls": 1,
+            "inclusive_CPU": 9961,
+            "maximum": 9961
+          }
+        },
+        "reader_envelopes_CPU": 3643,
+        "translated_original_C97_C480_DFFF_instruction_CPU": 3898,
+        "all_instruction_CPU_by_physical_bank": {
+          "127": 270,
+          "63": 309,
+          "-1": 106,
+          "62": 3437,
+          "97": 5517,
+          "29": 836
+        },
+        "accounting": "Inclusive dynamic call spans overlap their children. reader_envelopes contains four disjoint entry types; rawreader is nested within them. C97 source-range instruction tally is exclusive by actual executed instruction address, including real replacement JSR cost."
+      }
+    ],
+    "conclusion": "Borrow/Release swap only19 explicit ZP bytes each every driver tick, not512B. The512B image clears only on actual acquisition. Quantified dynamic spans below distinguish original translated driver, rawreader, mixer and context costs.",
+    "actionable_paths": [
+      "Measure and reduce actual raw-ROM getter cost while retaining full original data views and every source read value/flag/callsite. Favor existing direct immutable table/data copies only after exact executed-code/reader closure; no new lease assumed.",
+      "Unroll or direct-project the19 known ZP save/restore pairs only if measured benefit exceeds code space, with complete foreground/old-owner/IRQ preservation. NMI owns private state; do not skip source ticks.",
+      "Profile real Main RdControl/terrain/render and original driver separately before claiming60FPS. Shared mixer work and original upper driver body remain genuine required costs."
+    ],
+    "limits": "Finite representative initialized CPU cases, not a full differential rerun or universal maximum. Hardware DMA514, DMC steals, PPU line/dot and native audio playback are excluded; no clockskip/muting/behavior reduction authorized."
+  },
+  "bindings": [
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\rogue_dawn_scheduler_pilot_triage_v1.py",
+      "bytes": 10338,
+      "sha256": "d65e574362d186c6e288a2cb7e0a542d19699d06d795973c8c00696fd41687bf"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-scheduler-v5\\candidate.nes",
+      "bytes": 2097168,
+      "sha256": "f4677c91c642c2720770b5f20e8590664d81ee5f6bcd7bcdae6994b739fb2fdb"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-scheduler-v5\\candidate.dbg",
+      "bytes": 29733721,
+      "sha256": "bab0dbe88c8047e2e8fbf7431a3e0fa6fdd6b61cceb8bde8060f30a6a1817ace"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-scheduler-v5\\candidate.lbl",
+      "bytes": 1151080,
+      "sha256": "6ffe5b5d977d324f54738eaa7ac44fe070bf5438f1a24a50db40004373898534"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-scheduler-v5\\handoff.json",
+      "bytes": 138223,
+      "sha256": "26834b7df8653cec66022f3b1ac731c0d799b9f3a46cb6818aad0c4174f27fa1"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\rogue-dawn-scheduler-native-easy-v1\\result.json",
+      "bytes": 1819,
+      "sha256": "0b2dae3d8404abfe29d0f11d9f981d5de370906f76a536455ffbb47b2c4c6285"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\rogue-dawn-scheduler-native-easy-v1\\trace.csv",
+      "bytes": 77737,
+      "sha256": "c7deb55509b3b2d48e0215c63926bff76e10b9b61d87ea882c480580af770828"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\rogue-dawn-scheduler-native-easy-v1\\inputs.csv",
+      "bytes": 10992,
+      "sha256": "b87a6d508035e09045ff949d15b88b66e90dd3289fccc322c891c760a16436aa"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\rogue-dawn-scheduler-native-easy-v1\\events.jsonl",
+      "bytes": 213379,
+      "sha256": "3d05fe10da6bf7ff458c4b1fde1cc2b52f454e236bd332f8d24a7bd1e4f666b4"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\playthroughs\\roster_samus_contra.lua",
+      "bytes": 7098,
+      "sha256": "17b0683a72af2046c7a17f9d16ccf3b0a8322eca7a55a8c0000b9f4a22208847"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\playthroughs\\roster_samus_contra_nav.lua",
+      "bytes": 1843,
+      "sha256": "b80b164e8583565f14e9ac6145c7aa2d314c55b253325630d9438a13e17514b0"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\rogue_dawn_control.s",
+      "bytes": 27937,
+      "sha256": "6b5374774a730941c12b02ad44792318b237d2996b6febbb9d9c65239f2fa199"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\rogue_dawn_host.s",
+      "bytes": 1950,
+      "sha256": "3fcb4e8a901fc13af5e7ad0dd4094c5293f0469f1ae40d34291d48a208c5b023"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-host-ui-v1\\body-source.s",
+      "bytes": 5846,
+      "sha256": "ce5464230c63d7a42fd8c15272c652bdc89adb5c44795fca88cadc49e8006ebc"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-host-ui-v1\\new_roster_dispatch.s",
+      "bytes": 14897,
+      "sha256": "650307c34d7f55a795e6971ae5b90100287fa0265f058eae3ea5752109da4b39"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\x5_palette.s",
+      "bytes": 6921,
+      "sha256": "a81f995a8b87d3db70c5e9be63191ccd750b5ddadef020842eac258646ce0197"
+    }
+  ]
+}

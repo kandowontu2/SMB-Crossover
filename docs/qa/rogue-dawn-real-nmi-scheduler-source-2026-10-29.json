@@ -1,0 +1,292 @@
+{
+  "status": "FROZEN_PRIVATE_SOURCE_QUALIFIED_SCHEDULER_NATIVE_ADMISSION_OPEN",
+  "passed": true,
+  "source_CPU_only": true,
+  "agent_native_run": false,
+  "canonical_shared_or_settings_changed": false,
+  "candidate": {
+    "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-scheduler-v5\\candidate.nes",
+    "bytes": 2097168,
+    "sha256": "f4677c91c642c2720770b5f20e8590664d81ee5f6bcd7bcdae6994b739fb2fdb"
+  },
+  "parent": {
+    "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-live-audio-v1\\candidate.nes",
+    "bytes": 2097168,
+    "sha256": "79d5e8e8657a932755ec3a1f2997d0f57c1759658ce822882c680581439bbcf2"
+  },
+  "genuine_debug_triple": [
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-scheduler-v5\\candidate.dbg",
+      "bytes": 29733721,
+      "sha256": "bab0dbe88c8047e2e8fbf7431a3e0fa6fdd6b61cceb8bde8060f30a6a1817ace"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-scheduler-v5\\candidate.lbl",
+      "bytes": 1151080,
+      "sha256": "6ffe5b5d977d324f54738eaa7ac44fe070bf5438f1a24a50db40004373898534"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-scheduler-v5\\candidate.map",
+      "bytes": 224091,
+      "sha256": "e2b56c327ffc80e7ae68c3dd3d425eb414501d9ca3b8cb68b08097b0b822a4cc"
+    }
+  ],
+  "exact_symbols": {
+    "RdsMainGate": "0xb400",
+    "RdsNmiGate": "0xb448",
+    "RdsBoot": "0xb5db",
+    "RdsAudioFrame": "0xbf10",
+    "RdLifeFresh": "0xb8b4",
+    "RdBodyNewSession": "0xb7a0",
+    "NrFreshGameInit": "0xaa17",
+    "GameLoop": "0x82d9",
+    "PauseRoutine": "0x8356",
+    "AudioUpdate": "0xf05d",
+    "RdVariant": "0x5fee"
+  },
+  "build_scope": {
+    "actual_ASM_incbin_inputs": 510,
+    "actual_C_inputs": 10,
+    "cached_weapon_object_inputs": 15,
+    "cached_weapon_object": {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-host-ui-v1\\weapon-object.o",
+      "bytes": 70756,
+      "sha256": "a897d1518afd1d98a6ccd62a1588fe51d045d4b330a1481d499e63a787641a35"
+    },
+    "cached_weapon_object_dep": {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-host-ui-v1\\weapon-object.dep",
+      "bytes": 2736,
+      "sha256": "374c18d3a3f95bcaca7047b5bdd174bc5eb507a1479544e89b80385f0d38224d"
+    },
+    "cached_weapon_object_source_receipt": {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-host-ui-v1\\build.json",
+      "bytes": 121149,
+      "sha256": "d7d48e27f216a2d0b0e661d6ad282a2c6651eb879b012945439c68f531032914"
+    },
+    "final_direct_receipt_bindings_verified": 531,
+    "note": "510 is actual assembler/incbin input count, not a whole build-input count. C preprocessing and the cached object source closure are separately bound. build.json retains its historical pre-control status; this report is additive."
+  },
+  "layout": {
+    "A62_start": "BD27",
+    "A62_end": "0xbffa",
+    "A62_bytes": 723,
+    "A63_common_start": "B400",
+    "A63_common_end": "0xb5ef",
+    "A63_common_bytes": 495,
+    "A95_end": "0xbf00",
+    "death50bytes_BF00_exact": true
+  },
+  "source_hook_contracts": [
+    "Reset: original 18B CrossoverInit farcall now targets RdsBoot, then genuine CrossoverInit.",
+    "GameLoop: existing six-byte common exit keeps LDA0/RTS; STA NmiDisable is replaced by JSR PauseRoutine. Existing 18B pause target enters RdsMainGate for BEGIN and COMMIT.",
+    "AudioUpdate F05D first18B in genuine E127 and postprocessed E125 maps A63 manually, enters RdsNmiGate, and retains original fixed F06F/F0D8 continuations and F0CE restore.",
+    "RdLifeFresh re-arms busy after real generic 5F clear and before source constructor; source init cue follows constructor. Existing death50B BF00 remains exact."
+  ],
+  "transport": {
+    "byte": "5FB6",
+    "semantics": "bit0 Main-busy; bits1..2 completed active Rogue Mains0..2; all other bits zero. Atomic INC BEGIN/owned COMMIT, foreign retirement discards counts while retaining current busy. No cue epochs.",
+    "cue_operands": {
+      "0680": "5C20",
+      "0681": "5C21",
+      "0683": "5C23",
+      "0684": "5C24",
+      "0685": "5C25"
+    },
+    "unproduced_Q2": "0682 remains NMI-private; 5C22 is the actual source06C4 lowHP counter and is never queue-cleared.",
+    "context": "MissileMode/Gear/VY/BeamSfx captured only at stable active owner; busy cold acquisition muted without stale driver/context reads.",
+    "RNG": "Genuine original C000 once per completed active Rogue Main; actual two-Main catch-up verified. Retired counts never replay into a fresh seed.",
+    "scratch": "Only proven existing RgAudioCpuZp+155..159 /7278..727C stores5SMC, NMI-exclusive after exact raw2/RdVariant1 domain admission. Foreign path performs zero private reads/writes."
+  },
+  "authored_SMB_theme_adaptation": {
+    "water": 4,
+    "underground": 2,
+    "castle": 5,
+    "ground_by_world": [
+      1,
+      0,
+      3,
+      1,
+      0,
+      3,
+      1,
+      0
+    ],
+    "unsupported": "Original area3/phase1 room script with low-RAM note pointers is retained as unsupported script behavior. Host never emits06EFphase1; no universal original transition pass."
+  },
+  "mixer": {
+    "source": "Actual source driver4017 every tick,4011 only genuine source init, no source DMC.",
+    "native": "Actual GuestAudioBegin/Frame/shared mixer, MMC5 pulses and NES noise; selected native SQ1 bump/flagpole42, SQ2mask7F, Noisebrick01.",
+    "lifecycle": "NMI-first effective-owner acquire/retire, actual old CV3 E125 DMC retirement, pause source mode5 queue retention, title/SoundTest state8 inner recursion exclusion.",
+    "future_union": "SMB2oldowner25/DMC119/120 and Goku are not installed. ROOT must compose ONE true Main/NMI dispatcher and old-owner DMC endpoint, preserving owned APIs; no standalone E-overlay union assumption."
+  },
+  "checks": {
+    "six_normal_theme_source_fullNMI": {
+      "passed": true,
+      "ticks": 612,
+      "effects": 23,
+      "themes": 6,
+      "ordered_requests_and_projected_state_exact": true
+    },
+    "deepest_Control192_real_NMI_and_IRQ": {
+      "passed": true,
+      "exact_PC_bank_SP_cases": 8,
+      "minimum_SP": 128,
+      "guard": 128,
+      "spare_at_stress": 0,
+      "natural_IdleLoop_minimum_SP": 163
+    },
+    "atomic_owner_counter_cuts": {
+      "passed": true,
+      "BEGIN_COMMIT": 192,
+      "foreign_retire_IRQ": 18
+    },
+    "complete_title_StartGame": {
+      "passed": true,
+      "actual_Main_cuts": 146,
+      "old_V4_terminal_counter": 1,
+      "final_terminal_counter_even": true,
+      "real_mode1_writer": "physical9:BC29"
+    },
+    "partial_real_constructor": {
+      "passed": true,
+      "clear_indices": 128
+    },
+    "foreign_Main_NMI": {
+      "passed": true,
+      "cases": 48
+    },
+    "old_DMC_actual_E125": {
+      "passed": true,
+      "evidence": {
+        "CPU": 8114,
+        "minimum_SP": 229,
+        "entry_E": 125,
+        "exit_E": 127,
+        "terminal_DMC_owner": 0,
+        "Rogue_driver_ticks": 1
+      }
+    },
+    "ordinary_flagoff_byte_equivalence": {
+      "passed": true,
+      "MMC3": "d444cac88e13fa02b29ad16100b8f08fa565ba90f8cedde192de43fb2dc8f3eb",
+      "MMC5": "f4ffd2483c51daa4d60bb575da2da8c4d817692cda407611c243031f67520833"
+    }
+  },
+  "measured_CPU": {
+    "fullNMI_per_theme_max": [
+      11178,
+      17607,
+      15709,
+      16982,
+      16206,
+      16995
+    ],
+    "full_lagNMI_with_nested_IRQ_max": 17772,
+    "foreign_Main_added_vs79d5": [
+      246,
+      254
+    ],
+    "foreign_NMI_added_vs79d5": [
+      106,
+      114
+    ],
+    "reset_added_CPU": 76,
+    "limits": "CPU interpreter excludes hardware DMA514, DMC steals and PPU phase/deadline. These finite maxima do not establish60FPS, universal NMI cost or lag-free play. Prior parent wrapper overhead remains additional."
+  },
+  "preserved_negatives": [
+    {
+      "version": "71fd V1",
+      "fact": "Actual ControlStep entry192 plus full lagNMI corrupts liveSMC/stack and reaches BRK0194/SP140; plain ControlStep alone remains a separate safe component.",
+      "receipt": {
+        "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-scheduler-v1\\ControlStep192-full-scheduler-negative.json",
+        "bytes": 1318,
+        "sha256": "cd1b802437d8f6c4ba3a3628b2f137c19f1ce8449178a55c18f43a73a8cb5324"
+      }
+    },
+    {
+      "version": "df2894 V2",
+      "fact": "Rejected experimental A63-to-A62 direct self-map draft: next opcode fetch changes bank. Never source-qualified; preserved build/source only, no successful stack claim."
+    },
+    {
+      "version": "6674 V3",
+      "fact": "Typed foreign retirement left completed count2; fresh seed consumed one retired RNG step without a new Main.",
+      "receipt": {
+        "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-scheduler-v3\\retired-RNG-count-negative.json",
+        "bytes": 603,
+        "sha256": "a3050e48bad6867a9933f9242dd1587c6f459deccd91b5921cd0460789c4a6d3"
+      }
+    },
+    {
+      "version": "9caa V4",
+      "fact": "Genuine whole titleMain5Fclear caused final counter1; finalV5 re-arms only at real owned fresh boundary. Old/fixed witness preserved in final title-start.json.",
+      "receipt": {
+        "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-scheduler-v5\\title-start.json",
+        "bytes": 85907,
+        "sha256": "4014e978c45dde143f7262456d6a245c3c15dc658b046f2bf80e2af5ee06986d"
+      }
+    },
+    {
+      "kind": "tooling/fixture",
+      "fact": "Other retained negative files are scoped preparation/oracle errors, not native product failures. Includes old normalNMI all-ZP oracle, mistaken bank qualification, pause-before-deferred-theme expectation, and legitimate lag catch-up count. V3 reader-offset note is static caught preparation, not a demonstrated runtime false."
+    }
+  ],
+  "native_pilot_interface": {
+    "owner": "raw Samus2 AND RdVariant1; same menu slot2, no identity swaps.",
+    "cold_menu": "From default Mario slot0: fresh Right/release twice to Samus slot2; fresh Select/release toggles RdVariant0->1, displayed ROGUEDAWN; fresh Start or A confirms.",
+    "gameplay": "A jump; B source fire; Up aim; Down morph/unmorph; Select missile mode. First native pilot remains ROOT-owned; no cheats or state writes.",
+    "root_reported_status": "ROOT subsequently reported terminal first cold pilot:970PPU/823Main, strict guards pass/minSP167, then stationary300 atX332/Y119. Actual selected wholeframe shows morph ball on top of blocks; old controller triesUp while source usesDown toggle. Controller cause remains a hypothesis pending source check. ROOT also observed black overworld sky, a separate palette defect requiring native backdrop preservation. No completed native PASS; these observations are outside the source CPU receipts."
+  },
+  "open": [
+    "Actual native render-enable deadline, wholePPU/body/item/weapon effects, source audio listening and sustained performance.",
+    "First native morph-ball/controller stationary cause and black native sky palette, to be diagnosed separately without movement/clock waiver.",
+    "Cross-family common bridge/DMC union and final adopted source/default build.",
+    "Future B600..B800 remains UNALLOCATED despite seven exact read-only free-span audits."
+  ],
+  "receipts": [
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-scheduler-v5\\build.json",
+      "bytes": 122990,
+      "sha256": "5db1066b0bddfa5712a2de73f21120c3fdbe620190f135d222c8adb968b97ab4"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-scheduler-v5\\controls.json",
+      "bytes": 11737,
+      "sha256": "50db8af6864dad25dc73e84a50ce3a9f67b9fd3d151852651c186c05670cb114"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-scheduler-v5\\deep-edges.json",
+      "bytes": 7368,
+      "sha256": "9460046ed80f4562fddf805342708aa68d0544709bb9ca9f8afc6156b0799cb3"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-scheduler-v5\\ownership.json",
+      "bytes": 71982,
+      "sha256": "b69b36023aae487fa780050cd325c182e7830dde917ea3b4a8834177996e234a"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-scheduler-v5\\callers.json",
+      "bytes": 48967,
+      "sha256": "53bd7506467945b740db3bc54eeb75f1cf10cee425bc3fb7f8003e2909b7ecba"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-scheduler-v5\\title-start.json",
+      "bytes": 85907,
+      "sha256": "4014e978c45dde143f7262456d6a245c3c15dc658b046f2bf80e2af5ee06986d"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-scheduler-v5\\ordinary-controls.json",
+      "bytes": 13378,
+      "sha256": "283903577131d672d185b67b37d65f22476e5e7fb5fefd84d2d4f58d76803775"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-scheduler-v5\\layout.json",
+      "bytes": 34185,
+      "sha256": "6b44212a405e06c5f5ea10aff7693c023dce55b87673266818868312122c99b6"
+    }
+  ],
+  "source_review_patch": {
+    "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-scheduler-v5\\source-review.patch",
+    "bytes": 16377,
+    "sha256": "e89cf8ccac88cd846cec1b003866629ac407b7e95261242309ba2ed7f3f1f403"
+  }
+}

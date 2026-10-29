@@ -1,0 +1,33 @@
+Original Donkey Kong and SMB3 Bowser source progress, 29 October 2026
+
+The pinned RussianManSMWC Donkey Kong disassembly at commit
+343f4c81880a253c0e8ede81fe7c21f205815280 assembles with the existing local asm6.
+Every PRG and CHR payload byte matches the user's Donkey Kong (World) (Rev1).
+Only header7/12/15 differ. No downloaded ROM or executable was used.
+Source/credit: https://github.com/RussianManSMWC/Donkey-Kong-NES-Disassembly
+
+Nine original poses are packed as native8x16 parts into4KBCHR without scaling.
+Eight are actual48x32 background records; the ninth is the native falling
+sprite. Their source pixels and decoded packed output match, including OAMY+1.
+The source25M background2/falling sprite3 palette is0F/30/36/06. Root viewed
+the complete nine-pose contact sheet; its RGB display approximates NES hues.
+CHR820..823 is now exclusively reserved for this DK implementation. No PRG
+or active RAM is allocated here. Full host integration/native remains open.
+
+Original DK is an NPC, not Jumpman. Original player physics for a playable
+Donkey Kong do not exist in this source. The crossover's controls, traversal,
+collision, walk choices and pickup rules need an explicit authored adapter.
+Source poses, barrel behavior, chest animation and sound remain the reference.
+
+The Southbird SMB3 disassembly is pinned to
+09b1bd81a788de8ceec664a34094e84ddb463117. All32PRG assembly leaves plus master
+andREADME were acquired and authenticated against Git blob hashes. Its Bowser
+movement/fire/break-floor/9-frame sprite tables are located inPRG001.
+Source/credit: https://github.com/captainsouthbird/smb3 and
+http://www.sonicepoch.com/sm3mix/ . No complete SMB3 rebuild or ROM-byte match
+has yet been established, and no Bowser host port/native result is claimed.
+
+The local assembly match and packed assets are useful implementation inputs,
+not a completed DK/Bowser character. This checkpoint contains source/receipts
+and the derived DK assets; original ROMs, full CHR, compiler and runtime files
+remain hash-bound local references.

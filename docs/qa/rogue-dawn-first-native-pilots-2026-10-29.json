@@ -1,0 +1,96 @@
+{
+  "status": "Two terminal failed-route discovery pilots; no playable promotion",
+  "runs": [
+    {
+      "name": "rogue-dawn-scheduler-native-easy-v1",
+      "source_ROM": "f4677c91c642c2720770b5f20e8590664d81ee5f6bcd7bcdae6994b739fb2fdb",
+      "route_passed": false,
+      "reason": "Controller stationary for 300 genuinely active completed updates",
+      "frames": 970,
+      "completed_Main": 823,
+      "decoded_whole_frames": 855,
+      "whole_frames_visually_viewed": 5,
+      "min_SP": 167,
+      "strict_guard_failure": false,
+      "ready": {
+        "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\rogue-dawn-scheduler-native-easy-v1\\ready.json",
+        "bytes": 95617,
+        "sha256": "7d2681d02ef87187ecd6abce8c7f949776a343fc347f0685b2f0213f861d466f"
+      },
+      "result": {
+        "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\rogue-dawn-scheduler-native-easy-v1\\result.json",
+        "bytes": 1819,
+        "sha256": "0b2dae3d8404abfe29d0f11d9f981d5de370906f76a536455ffbb47b2c4c6285"
+      },
+      "review": {
+        "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\rogue-dawn-scheduler-native-easy-v1\\review.json",
+        "bytes": 79361,
+        "sha256": "91132603ccc4da0d8bfdce5917435de48d8a3b29a4e479e64415deaf619239af"
+      },
+      "launch": {
+        "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\rogue-dawn-scheduler-native-easy-v1\\launch.json",
+        "bytes": 2270,
+        "sha256": "234034fa995501d854f46dc4e38eb490382f987005316312cbb5da03cea84238"
+      },
+      "stream_reference": {
+        "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\rogue-dawn-scheduler-native-easy-v1\\captures.nesppuv1",
+        "bytes": 4767013,
+        "sha256": "3f679d8c61b0bd6a29ee14a3d83cc9162b78a549b5b1f7293068c895a1bd84b8"
+      },
+      "sheet": {
+        "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\rogue-dawn-scheduler-native-easy-v1\\selected-whole-frames.png",
+        "bytes": 9652,
+        "sha256": "949f173422e8bd6f1d4a5758921a8df04f342eaf7f2a15a334bfa779f3a2dda3"
+      }
+    },
+    {
+      "name": "rogue-dawn-scheduler-native-easy-v2",
+      "source_ROM": "f4677c91c642c2720770b5f20e8590664d81ee5f6bcd7bcdae6994b739fb2fdb",
+      "route_passed": false,
+      "reason": "finite frame bound",
+      "frames": 7000,
+      "completed_Main": 6814,
+      "decoded_whole_frames": 6885,
+      "whole_frames_visually_viewed": 5,
+      "min_SP": 166,
+      "strict_guard_failure": false,
+      "ready": {
+        "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\rogue-dawn-scheduler-native-easy-v2\\ready.json",
+        "bytes": 95785,
+        "sha256": "65ef724c3d7476426abc38c9d3edcb9c1172fd979f98a3d5c300262eae2a5cbb"
+      },
+      "result": {
+        "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\rogue-dawn-scheduler-native-easy-v2\\result.json",
+        "bytes": 1786,
+        "sha256": "08788f3ac2bd4556ffbea3212785fa51ff1adffe66f97bba70e07e0107606c28"
+      },
+      "review": {
+        "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\rogue-dawn-scheduler-native-easy-v2\\review.json",
+        "bytes": 579683,
+        "sha256": "bb9e8224ac1a4cedaa49d42b4283fb6669948292ac735b738dea97f3b6f37c17"
+      },
+      "launch": {
+        "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\rogue-dawn-scheduler-native-easy-v2\\launch.json",
+        "bytes": 2270,
+        "sha256": "0301858ba5222df660f3b314ac74ed5c2b50b8432fdec0ef5b5224402ce37a5f"
+      },
+      "stream_reference": {
+        "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\rogue-dawn-scheduler-native-easy-v2\\captures.nesppuv1",
+        "bytes": 24429881,
+        "sha256": "b88a2834e22c03293f875bb6755f54111999cffc390c7e4abc085e76cb395bf1"
+      },
+      "sheet": {
+        "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\rogue-dawn-scheduler-native-easy-v2\\selected-whole-frames.png",
+        "bytes": 9967,
+        "sha256": "d6ce4c991139d2c22c486e61e28975a4194359fe04135f28f833b8f6a50e922e"
+      }
+    }
+  ],
+  "confirmed_visual_issue": "Overworld sky is black; source triage finds missing native BG restoration in Rogue color dispatch. New private fix is in progress, not this frozen ROM.",
+  "corrected_hypothesis": "Original uses freshUp to unmorph. Base controller overwrites that intent during first-block phase. Player_State from gravity is not a stable grounded predicate; source stand0/aim4 accepts freshA.",
+  "controller_successor": "Unlaunched rogue_dawn_11_v2 uses source action/support and exact fixed-ROM metatile attributes, strips incidental morph inputs. No movement code fix is inferred.",
+  "preflight_note": "Initial old launcher refused changed global settings bytes before any emulator launch. Semantic comparison found ONLY RecentFiles change; v2 retains all hardware checks and verifies before=after. User settings untouched.",
+  "scope": "Every lossless frame structurally decoded;5selected wholeframes/run visually viewed. No all-ability, full-level, music-audibility or FPS qualification. Retain original negative routes and streams.",
+  "active_own_native_processes": [],
+  "Downloads_unchanged": true
+}
