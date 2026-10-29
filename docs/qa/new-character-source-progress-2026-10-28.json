@@ -16,21 +16,41 @@
     "SMB2_audio_prerequisite_plan": "checkpoints/2026-10-28/smb2-audio-roll-prerequisite-plan",
     "Roll_relocation_for_SMB2_DPCM": "checkpoints/2026-10-28/smb2-roll-relocation-source",
     "Goku_mixed_body_wave_rendering": "checkpoints/2026-10-28/goku-mixed-render-source",
-    "current_semantics_router_compaction": "checkpoints/2026-10-28/router-compaction-source"
+    "current_semantics_router_compaction": "checkpoints/2026-10-28/router-compaction-source",
+    "SMB2_authentic_audio_source": "checkpoints/2026-10-28/smb2-authentic-audio-source",
+    "Goku_real_Main_movement": "checkpoints/2026-10-28/goku-real-main-movement-source"
   },
   "current_private_agent_work": {
-    "Rogue": "Original weapons with actual terrain/actor consumers, followed by mature physical pickups and excluded hazard/boss handling",
-    "Goku": "Real complete Main movement/terrain/camera integration; source combat, actor HP, lifecycle, HUD/audio and menu remain separate",
-    "SMB2": "Authentic source sound driver, immutable code-as-data views and complete DPCM clones; actual host NMI/mixer/queue lifecycle remains separate"
+    "Rogue": "Actual weapons/terrain/actor consumers, followed by mature physical pickups, delivery-stage correction, Easy stomp synchronization and excluded hazard/boss mapping",
+    "Goku": "Source combat/health/hunger/injury/death and actual physical powerups; immutable movement component accepted privately",
+    "SMB2": "Actual complete Main movement/terrain/camera, physical pickups/health/lifecycle/vegetables; immutable audio component accepted privately. Host audio scheduler/atomic cue/mixer/DMC ownership remains separate"
   },
   "Rogue_audio_actual_owner": {
     "receipt": "rogue-dawn-actual-audio-owner-2026-10-28.json",
     "seed_scope_addendum": "rogue-dawn-actual-audio-owner-seed-scope-2026-10-28.json",
     "path": "Source C0D9 -> C215/C224 -> PRG6 area note bank / PRG7=49 -> A770/A776 -> B3B4",
-    "lower_note_banks": [52, 48, 53, 54, 50, 51],
+    "lower_note_banks": [
+      52,
+      48,
+      53,
+      54,
+      50,
+      51
+    ],
     "finite_original_updates": 19584,
     "not_stock_Samus_audio_equivalence": true,
-    "remaining": "Complete static/valid-request/transition/pause/low-health closure, storage mapping, source import, actual NMI cues/mixer and native audio"
+    "remaining": "Complete static/valid-request/transition/pause/low-health closure, storage mapping, source import, actual NMI cues/mixer and native audio",
+    "static_actual49_instructions": 1231,
+    "extended_original_callbacks": 69409,
+    "weapon_context_cases": 288,
+    "weapon_context_updates": 27648,
+    "required_foreground_read_projections": {
+      "010E": "RdMissileMode",
+      "6878": "RdGear",
+      "0308": "RdVY",
+      "061F": "RdBeamSfx"
+    },
+    "not_a_host_audio_port": true
   },
   "next_private_storage": {
     "Rogue_HOST_AUX": {
@@ -42,9 +62,9 @@
     },
     "Rogue_audio_candidate": {
       "physical_bank": 97,
-      "span": "A770..BFFF (6288B)",
+      "span": "A480..BFFF (7040B); A770-only proposal was insufficient",
       "preserved_owner": "Original MIKE_GFX physical0000..0408",
-      "condition": "Reserved against other new allocations; actual audio closure/storage design not yet qualified"
+      "condition": "Source code reachesA4A0 and observed note dataA480. Full static data closure/storage/wrapper fit is not qualified; original MIKE_GFX0000..0408 remains exact."
     }
   },
   "composition_cautions": [
@@ -67,11 +87,35 @@
     "Game Boy Kid Icarus graphics/alternate",
     "Every character completes1-1 and uses every powerup; fix scrolling, block shifts, graphics, physics, lag and ability issues"
   ],
-  "optional_unconfirmed_roster": ["ExciteBike", "Karnov", "Metal Storm", "Contra Force"],
+  "optional_unconfirmed_roster": [
+    "ExciteBike",
+    "Karnov",
+    "Metal Storm",
+    "Contra Force"
+  ],
   "workspace_last_observed": {
-    "bytes": 24351636283,
+    "bytes": 24589324223,
+    "files": 294989,
     "cap_bytes": 30000000000,
     "under_cap": true,
-    "capture_policy": "No video production in this phase; keep compact source packets and bounded native captures"
+    "vanished_paths": [],
+    "links_excluded": 471,
+    "capture_policy": "No new captures or per-frame file trees; compact source checkpoints only"
+  },
+  "original_source_observations": {
+    "Rogue_audio": "checkpoints/2026-10-28/rogue-actual-audio-source-observations",
+    "scope": "Original source only; no compiled host audio port or native playback qualification"
+  },
+  "remaining_before_new_private_units_are_playable": [
+    "Actual Rogue block constructor must expose missiles/gear after earned energy tank; current status0 repeats tanks",
+    "Actual collision consumer already permits Rogue Easy stomps via behavior AND; native bounce currently targets old Samus/MmVY instead of RdVY. Qualify coherent source bounce synchronization.",
+    "Rogue Ice original palette1 shares world sprite owners; qualify a real color lease/adaptation",
+    "Goku original coldHP100/cap150, low-health threshold30; preserve original damage/hunger callers",
+    "SMB2 live source audio needs atomic Main cues, per-NMI/lag tick, actual mixed channel/DMC/clone ownership and native timing",
+    "All new identities need menu/lives/HUD/graphics/scene/death and full native1-1/powerup qualification"
+  ],
+  "review_corrections": {
+    "Rogue_Easy": "Root initially inferred no-stomp from producer flag1; actual ChkForPlayerInjury also ANDs behavior mode, so permission was already correct. The confirmed issue is the old Samus bounce owner.",
+    "Goku_health": "Original coldHP100/cap150;30 is a low-health threshold, not initial health."
   }
 }
