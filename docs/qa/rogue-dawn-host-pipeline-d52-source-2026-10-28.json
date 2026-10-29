@@ -1,0 +1,410 @@
+{
+  "status": "PRIVATE SOURCE MOTION/BG UNIT QUALIFIED; NOT PLAYABLE/NATIVE READY",
+  "native_run": false,
+  "ROM": {
+    "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-host-pipeline-v2\\candidate.nes",
+    "bytes": 2097168,
+    "sha256": "e4b788fe7426c9fb1e9b2b5ff9d116420d8adee0a383bb0298adb31ec900c333"
+  },
+  "parent": {
+    "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\roster-shared-celeste-small-v1.nes",
+    "bytes": 2097168,
+    "sha256": "d52eeefe78c5f050d276a833c651456b717157856d1783b98c131f9da29f8a60"
+  },
+  "known_parent_limit": "d52 has ROOT-tracked Celeste CHR issue; no silent admission or assertion about its unrelated visuals.",
+  "private_hooks": {
+    "movement_18B": {
+      "file_offset": 9842,
+      "physical_bank": 1,
+      "CPU": 42594,
+      "old": "8d6a01a95d8d6c01a9a48d6d01a98a205a01",
+      "new": "8d6a01a97b8d6c01a9b58d6d01a9df205a01"
+    },
+    "BG_3B": {
+      "file_offset": 8553,
+      "physical_bank": 1,
+      "CPU": 41305,
+      "old": "205b9b",
+      "new": "2058b9"
+    },
+    "exact_24B_B1_gate": {
+      "file_offset": 14696,
+      "physical_bank": 1,
+      "CPU": 47448,
+      "old": "eaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaea",
+      "new": "0848ad0260c902d00aadee5fc901d00368286068284c5b9b"
+    },
+    "old_Done_RTS": "0xb980",
+    "old_43B_prefix_bridge_exact": true
+  },
+  "layout": {
+    "host_start": "95:A600",
+    "real_end_exclusive": "0xb5d2",
+    "host_bytes": 4050,
+    "remaining_host_bytes": 2606,
+    "frozen_services_2564B_exact": true,
+    "core_bytes": 4090,
+    "aux_bytes": 508,
+    "bridge_bytes": 175,
+    "segment_ceiling": 256,
+    "no_new_reservations": true,
+    "build_json_marker_erratum": "host_end B3E8/3560 in build.json is the earlier RdTxEnd marker; final assembled movement-flush+wrapper ends B5D2,4050B. See actual genuine RdTxMovementEnd, not an asserted size waiver."
+  },
+  "differences": {
+    "PRG_changed_bytes_by_bank": {
+      "0": 3,
+      "1": 29,
+      "94": 2773,
+      "95": 3949,
+      "124": 4616,
+      "126": 42
+    },
+    "CHR_changed_bytes": 3676,
+    "total_changed_bytes": 15088,
+    "intended": [
+      "Old inherited component-only native block-size/platform/constructor hooks, frozen source ART/CORE/AUX/bridge and CHR reservation",
+      "New24B B1 gate and same-span18B real Samus-movement rebind",
+      "Pending head-cell/page borrowed only clear\u2192ControlStep\u2192immediate real native flush\u2192clear before weapons",
+      "A separate scratch-clobbering actual-movement flush; preserved standalone flush remains unchanged"
+    ]
+  },
+  "contracts": {
+    "exact_owner": "SelectedCharacter raw2 AND RdVariant1 before overlay state access; no temporary identity swaps",
+    "original_source": "Rogue Dawn1.21 9271411a...61077; literal core/AUX/art unchanged",
+    "context_B": "Explicit SMB adaptation: original8x8 decoder from virtual prior cursor0 per genuine pose/facing/F7; updates RdAcceleration, not morph cooldown.",
+    "source_ControlStep": {
+      "minimum_entry_SP": 192,
+      "actual_admitted_entry_SP": 230,
+      "eight_ISR_minimum_SP": 150
+    },
+    "public_movement_wrapper": {
+      "SP": 216,
+      "actual_admission_entry_SP": 236,
+      "source_ControlStep_entry_SP": 210,
+      "frozen_ControlStep_minimum_SP": 192,
+      "stress_rows": [
+        {
+          "kind": "head",
+          "facing": 0,
+          "input": 0,
+          "entry_SP": 216,
+          "minimum_SP": 161,
+          "ISR": null
+        },
+        {
+          "kind": "head",
+          "facing": 0,
+          "input": 128,
+          "entry_SP": 216,
+          "minimum_SP": 161,
+          "ISR": null
+        },
+        {
+          "kind": "head",
+          "facing": 0,
+          "input": 128,
+          "entry_SP": 216,
+          "minimum_SP": 161,
+          "ISR": [
+            "RdTxHead",
+            95,
+            "IRQ"
+          ]
+        },
+        {
+          "kind": "head",
+          "facing": 0,
+          "input": 128,
+          "entry_SP": 216,
+          "minimum_SP": 143,
+          "ISR": [
+            "RdHsPrepareActor",
+            95,
+            "lagNMI"
+          ]
+        },
+        {
+          "kind": "head",
+          "facing": 0,
+          "input": 129,
+          "entry_SP": 216,
+          "minimum_SP": 161,
+          "ISR": null
+        },
+        {
+          "kind": "head",
+          "facing": 1,
+          "input": 0,
+          "entry_SP": 216,
+          "minimum_SP": 161,
+          "ISR": null
+        },
+        {
+          "kind": "head",
+          "facing": 1,
+          "input": 128,
+          "entry_SP": 216,
+          "minimum_SP": 161,
+          "ISR": null
+        },
+        {
+          "kind": "head",
+          "facing": 1,
+          "input": 129,
+          "entry_SP": 216,
+          "minimum_SP": 161,
+          "ISR": null
+        },
+        {
+          "kind": "floor",
+          "facing": 0,
+          "input": 0,
+          "entry_SP": 216,
+          "minimum_SP": 180,
+          "ISR": null
+        },
+        {
+          "kind": "floor",
+          "facing": 0,
+          "input": 128,
+          "entry_SP": 216,
+          "minimum_SP": 180,
+          "ISR": null
+        },
+        {
+          "kind": "floor",
+          "facing": 0,
+          "input": 129,
+          "entry_SP": 216,
+          "minimum_SP": 180,
+          "ISR": null
+        },
+        {
+          "kind": "floor",
+          "facing": 1,
+          "input": 0,
+          "entry_SP": 216,
+          "minimum_SP": 180,
+          "ISR": null
+        },
+        {
+          "kind": "floor",
+          "facing": 1,
+          "input": 128,
+          "entry_SP": 216,
+          "minimum_SP": 180,
+          "ISR": null
+        },
+        {
+          "kind": "floor",
+          "facing": 1,
+          "input": 129,
+          "entry_SP": 216,
+          "minimum_SP": 180,
+          "ISR": null
+        },
+        {
+          "kind": "side",
+          "facing": 0,
+          "input": 0,
+          "entry_SP": 216,
+          "minimum_SP": 172,
+          "ISR": null
+        },
+        {
+          "kind": "side",
+          "facing": 0,
+          "input": 128,
+          "entry_SP": 216,
+          "minimum_SP": 172,
+          "ISR": null
+        },
+        {
+          "kind": "side",
+          "facing": 0,
+          "input": 129,
+          "entry_SP": 216,
+          "minimum_SP": 172,
+          "ISR": null
+        },
+        {
+          "kind": "side",
+          "facing": 1,
+          "input": 0,
+          "entry_SP": 216,
+          "minimum_SP": 182,
+          "ISR": null
+        },
+        {
+          "kind": "side",
+          "facing": 1,
+          "input": 128,
+          "entry_SP": 216,
+          "minimum_SP": 182,
+          "ISR": null
+        },
+        {
+          "kind": "side",
+          "facing": 1,
+          "input": 129,
+          "entry_SP": 216,
+          "minimum_SP": 182,
+          "ISR": null
+        },
+        {
+          "kind": "open",
+          "facing": 0,
+          "input": 0,
+          "entry_SP": 216,
+          "minimum_SP": 180,
+          "ISR": null
+        },
+        {
+          "kind": "open",
+          "facing": 0,
+          "input": 128,
+          "entry_SP": 216,
+          "minimum_SP": 180,
+          "ISR": null
+        },
+        {
+          "kind": "open",
+          "facing": 0,
+          "input": 129,
+          "entry_SP": 216,
+          "minimum_SP": 180,
+          "ISR": null
+        },
+        {
+          "kind": "open",
+          "facing": 1,
+          "input": 0,
+          "entry_SP": 216,
+          "minimum_SP": 180,
+          "ISR": null
+        },
+        {
+          "kind": "open",
+          "facing": 1,
+          "input": 128,
+          "entry_SP": 216,
+          "minimum_SP": 180,
+          "ISR": null
+        },
+        {
+          "kind": "open",
+          "facing": 1,
+          "input": 129,
+          "entry_SP": 216,
+          "minimum_SP": 180,
+          "ISR": null
+        }
+      ],
+      "minimum_SP": 143,
+      "qualification": "Conservative tested bound; actual source normal and catch-up call chains enter20bytes higher. Not a fictional SP224 caller substitute."
+    },
+    "actual_Main": {
+      "source_arenas": 96,
+      "real_IdleLoop_entry_SP": 253,
+      "real_GameLoop_entry_SP": 250,
+      "real_movement_entry_SP": 236,
+      "real_flush_entry_SP": 233,
+      "IRQ_lag_seams": 22,
+      "minimum_SP": 165,
+      "guard": 128,
+      "normal_and_one_catchup": true
+    },
+    "native_scratch": "Actual R0..7 are deliberately not preserved by movement-only flush; complete actual postmovement\u2192Scroll/Relative/BoundingBox continuation has no first read before write.18 actual interrupt seams independently preserve native R0..7.",
+    "body_response": "252 adjacent question/brick/invisible, both-facing standing/morph, fast-source/air inputs and page-edge cases preserve complete source body/state and native final effect vs the safe high-SP immediate reference.315 later real geometry queries never query the queued cell.",
+    "maxone": "Sole source Physics invocation; first blocked UP immediately RORs VY/fraction and leaves UP.18,432 prior action/pad/gear/facing cells completed before the preserved standalone flush failure; exact code hash reuse, not a new native campaign.",
+    "foreign": {
+      "complete_GameLoops": 92,
+      "AXYP_SP_application_RAM_nonbank_writes_banks_exact": true,
+      "CPU_delta_nonSamus": 26,
+      "CPU_delta_normal_Samus": 155,
+      "retained_Luigi_traction_calls": 432,
+      "retained_Luigi_traction_CPU_delta": 0,
+      "all_flags_gate_cases": 1536,
+      "physical_6502_flags": "C/Z/I/D/V/N exact; emulator-only B/U serialization omitted"
+    }
+  },
+  "negative_classification": [
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-host-transactions-v3\\control-SP192-negative.json",
+      "meaning": "Original immediate host effect nested INSIDE ControlStep failed entry192, including live SMC. That private host architecture is rejected."
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-host-deferred-v1\\control-SP192-deferred-negative.json",
+      "meaning": "Preserved standalone flush ABI still fails entry192 outside ControlStep; minimum114. It is NOT the actual movement entry and does NOT invalidate frozen queued-callback ControlStep192. Distinct ABI, retained unchanged."
+    }
+  ],
+  "ordinary_whole_SHA256": {
+    "mmc5": "f4ffd2483c51daa4d60bb575da2da8c4d817692cda407611c243031f67520833",
+    "mmc3": "d444cac88e13fa02b29ad16100b8f08fa565ba90f8cedde192de43fb2dc8f3eb"
+  },
+  "open_admission_obligations": [
+    "No menu exposes Rogue. This private motion prototype is not a playable admission or native-ready packet.",
+    "Only source active engine8/non-climbing movement is routed. Native climb/pipe/exit/death/scene/admission and session/life hooks must be integrated deliberately; no source Door/Elevator is fabricated.",
+    "Legacy Samus collision box/SmCeiling follow-up, graphical first record/CHR/palette, actor hurt/typed contact/erase and inventory/weapon consumers still need exact owner fences. Current complete Main tests establish call/stack provenance in typed arenas, not full Rogue Main correctness.",
+    "Authentic damage/freeze and typed item/drop consumers, original item art/announcements, unique physical emergence, and real audio driver closure remain separate downstream work. No native/render/FPS/audio claim."
+  ],
+  "negative_inputs": [
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-host-transactions-v3\\control-SP192-negative.json",
+      "bytes": 4940,
+      "sha256": "8140de545e959b327669dca5368266116d24d42626813b9a9d010652f31c372f"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-host-deferred-v1\\control-SP192-deferred-negative.json",
+      "bytes": 3055,
+      "sha256": "4bf9f8c84e263d7a31b9df5542f6becd88c7bbdbd1a96e92ac59ee85e2bb3153"
+    }
+  ],
+  "owned_source_files": [
+    "src/rogue_dawn_host_deferred.s",
+    "src/rogue_dawn_host_pipeline.s",
+    "tools/prepare_rogue_dawn_host_deferred_v1.py",
+    "tools/rogue_dawn_host_deferred_controls_v1.py",
+    "tools/rogue_dawn_host_deferred_negative_v1.py",
+    "tools/prepare_rogue_dawn_host_pipeline_v1.py",
+    "tools/prepare_rogue_dawn_host_pipeline_v2.py",
+    "tools/rogue_dawn_host_pipeline_controls_v1.py",
+    "tools/rogue_dawn_host_pipeline_controls_v2.py",
+    "tools/rogue_dawn_host_pipeline_geometry_v1.py",
+    "tools/rogue_dawn_host_pipeline_ordinary_v1.py",
+    "tools/rogue_dawn_host_pipeline_caller_abi_v1.py",
+    "tools/prepare_rogue_dawn_host_pipeline_handoff_v1.py"
+  ],
+  "bindings": [
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-host-pipeline-v2\\build.json",
+      "bytes": 13370,
+      "sha256": "a2a999057a9029473444d2626e76c8c0ecb9febf9633e489c077eed49e785e5d"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-host-pipeline-v2\\controls.json",
+      "bytes": 167531,
+      "sha256": "cce19cd610403df9220d820126f9d4dcec1254b63cc412db435a009340d7f311"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-host-pipeline-v2\\geometry-controls.json",
+      "bytes": 58990,
+      "sha256": "06aad49cc9d44ccfffe61b40eaa2b1471772026c3257d0666450cb4190493aab"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-host-pipeline-v2\\caller-ABI-controls.json",
+      "bytes": 58801,
+      "sha256": "2dd25d4c988adea88d64470318c9e86127b74e0e167dc7710fb36e5945989426"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-host-pipeline-v2\\ordinary-controls.json",
+      "bytes": 12170,
+      "sha256": "7a7368f886fd7e261a794c1e41cf4d4f5a5f2326eb302d24ff0c212a71aecaed"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-host-services-v1\\handoff.json",
+      "bytes": 8701,
+      "sha256": "9dc533c5b59145c095e8d16f81965fcf05726c922607e7e731fb7895cd760f61"
+    }
+  ]
+}
