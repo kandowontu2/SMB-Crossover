@@ -1,0 +1,28 @@
+{
+  "status": "User-authorized workspace cap70GB; boundedperrun and archivecaps retained",
+  "workspace_cap_bytes": 70000000000,
+  "archive_cap_bytes": 30000000000,
+  "default_run_cap_bytes": 2000000000,
+  "compact_run_cap_bytes": 600000000,
+  "run_files": 64,
+  "current_workspace": {
+    "bytes": 28447381801,
+    "files": 297396,
+    "directories": 20142,
+    "links_skipped": 471,
+    "complete": true
+  },
+  "guard_tests": "8tests passed: includesactual process termination/locking,40GB headroom admission and69GB+2GB reservation refusal.",
+  "previous_native_policy_commit": "4547e48f",
+  "historical_note": "Prior native receipts remain bound to original30GB guard source from4547e48f; those completed inputs/ROMs/results were not relabeled. Twelve ordinary baseline DBG rawfiles restored byte-exact aftercapraised; lossless.gz snapshots/receipts retained.",
+  "changed_files": {
+    "tools/workspace_storage.py": "62afc9b1facb402a4f7e6490e9aa79058b2040aab136a75ce6f1498030f4b6af",
+    "tools/audit/capture_budget.py": "758b3bd31b1f3ce3e7f187ab70f3c4c00b924a99f307d15aea9e778ab2da41b8",
+    "tools/playthroughs/roster_run.py": "aaa995a2d5f6ebdb191b31fd550344625d394bfecb535cd77e41a707056e0750",
+    "tools/playthroughs/roster_branch_search.py": "5dd8da096bc32b59f170e4dfb927e1834b19e5ab6c46e4d7295c6b4c2ff6e580",
+    "tools/playthroughs/assemble_capture_segments.py": "a231ee1e9ec2e47125d23505383ba9d9f62dd72bbba0fda74f3565c47b1796da",
+    "tools/audit/run_mesen_600mb_isolated_v1.py": "c36dc7401018122aca0c9e5c480b762597cdacefa33aa8c2fd2a6554ce01ffe3",
+    "tools/audit/limit_roster_ready_600mb_v1.py": "036645ee5caa2fafe50d7703cc4f23e29d6f6e92d353572ec2a8191967a3f48b",
+    "tools/audit/test_capture_budget.py": "612b529ce684f1c51e74ba30073e355d96a2a84d551b0e644b85a64ae3a82904"
+  }
+}

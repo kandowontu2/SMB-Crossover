@@ -19,7 +19,7 @@ WORKSPACE = Path(__file__).resolve().parents[2]
 ARCHIVE = Path.home()/'Videos/SMB Crossover Archive'
 ARCHIVE_BYTES = 30_000_000_000
 ARCHIVE_FILES = 20_000
-WORKSPACE_BYTES = 30_000_000_000
+WORKSPACE_BYTES = 70_000_000_000
 # A bounded traversal ceiling for the existing source/tool checkout, not a
 # capture allowance. Captures still get only 64 files.
 WORKSPACE_SCAN_FILES = 1_000_000
@@ -136,9 +136,10 @@ def preflight(output: Path, reserved_bytes: int = RUN_BYTES,
     workspace = inventory(WORKSPACE, WORKSPACE_BYTES, WORKSPACE_SCAN_FILES)
     growth = reserved_bytes if output.is_relative_to(WORKSPACE.resolve()) else 0
     if not workspace.complete or workspace.bytes+growth > WORKSPACE_BYTES:
-        raise CaptureBudgetExceeded('Capture would exceed the 30 GB workspace cap; no capture started.')
+        raise CaptureBudgetExceeded('Capture would exceed the 70 GB workspace cap; no capture started.')
     return dict(archive=str(ARCHIVE),archive_bytes=current.bytes,archive_files=current.files,
                 workspace_bytes=workspace.bytes,workspace_files=workspace.files,
+                workspace_byte_cap=WORKSPACE_BYTES,
                 reserved_bytes=reserved_bytes,reserved_files=reserved_files,free_bytes=free,
                 archive_byte_cap=ARCHIVE_BYTES,archive_file_cap=ARCHIVE_FILES,
                 run_byte_cap=RUN_BYTES,run_file_cap=RUN_FILES,minimum_free=MINIMUM_FREE)

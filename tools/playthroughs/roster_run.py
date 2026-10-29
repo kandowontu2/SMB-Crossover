@@ -110,7 +110,7 @@ def main() -> int:
                    help="Omit per-frame graphics/audio audit for discovery only; incompatible with --record/--replay")
     p.add_argument("--allow-deaths", action="store_true")
     p.add_argument("--keep-avi", action="store_true")
-    p.add_argument("--workspace-cap-gb", type=float, default=30)
+    p.add_argument("--workspace-cap-gb", type=float, default=CAP_BYTES / 1_000_000_000)
     a = p.parse_args()
     if a.record_segments:
         a.record = True
@@ -125,7 +125,7 @@ def main() -> int:
     assert cap > 0, "Workspace cap must be positive"
     print(json.dumps({"workspace_bytes_before": used, "workspace_cap_bytes": cap}), flush=True)
     if used + 64 * 1024 * 1024 > cap:
-        raise RuntimeError("Archive older evidence before starting another run under the 30 GB cap")
+        raise RuntimeError(f"Archive older evidence before starting another run under the {cap / 1_000_000_000:g} GB cap")
     for name in ('rom', 'policy', 'prefix', 'replay'):
         value = getattr(a, name)
         if value is not None:

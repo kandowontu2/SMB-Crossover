@@ -12,15 +12,16 @@ import sys
 
 ROOT=Path(__file__).resolve().parents[2]
 sys.path.insert(0,str(ROOT/'tools/playthroughs'))
-from roster_run import workspace_bytes
+from roster_run import workspace_bytes, CAP_BYTES
 sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
 p=argparse.ArgumentParser(description=__doc__)
 p.add_argument('--directory',required=True,type=Path)
 p.add_argument('--output',required=True,type=Path)
 p.add_argument('--expected-frames',required=True,type=int)
-p.add_argument('--workspace-cap-bytes',type=int,default=30_000_000_000)
+p.add_argument('--workspace-cap-bytes',type=int,default=CAP_BYTES)
 a=p.parse_args()
 assert a.workspace_cap_bytes>0
+a.workspace_cap_bytes=min(a.workspace_cap_bytes,CAP_BYTES)
 source=a.directory.resolve();output=a.output.resolve()
 assert source.is_relative_to(ROOT) and output.is_relative_to(ROOT)
 assert output.suffix=='.mkv' and not output.exists()

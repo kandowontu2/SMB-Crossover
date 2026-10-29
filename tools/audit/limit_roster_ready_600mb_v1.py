@@ -33,7 +33,7 @@ def main():
     record['central_run_cap_bytes'] = 600_000_000
     record['storage_guard'] = (
         'Stricter600MB live total run cap around512MiB maximum container; '
-        'workspace/archive30GB,64runfiles,25GB free floor and single-process lease remain unchanged.')
+        'workspace70GB/archive30GB,64runfiles,25GB free floor and single-process lease enforced.')
     ready.write_text(json.dumps(record, indent=2) + '\n')
     print(json.dumps(dict(ready=str(ready), sha256=sha(ready))))
 

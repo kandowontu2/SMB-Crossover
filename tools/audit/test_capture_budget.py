@@ -4,6 +4,7 @@ import json
 import subprocess
 import sys
 import tempfile
+from types import SimpleNamespace
 import unittest
 from unittest.mock import patch
 
@@ -39,6 +40,25 @@ class CaptureLimits(unittest.TestCase):
     def test_external_output_cannot_bypass_cap(self):
         with self.assertRaises(budget.CaptureBudgetExceeded):
             budget.preflight(self.root.parent/'elsewhere')
+
+    def test_workspace_can_use_new_headroom_above_30_gb(self):
+        def measured(root, *limits):
+            return budget.Inventory(bytes=40_000_000_000 if root == self.root else 0)
+        with patch.object(budget, 'inventory', side_effect=measured), \
+             patch.object(budget.shutil, 'disk_usage', return_value=SimpleNamespace(free=100_000_000_000)):
+            receipt = budget.preflight(self.output)
+        self.assertEqual(receipt['workspace_bytes'], 40_000_000_000)
+        self.assertEqual(receipt['workspace_byte_cap'], 70_000_000_000)
+        self.assertEqual(budget.WORKSPACE_BYTES, 70_000_000_000)
+
+    def test_workspace_reservation_cannot_cross_70_gb(self):
+        def measured(root, *limits):
+            return budget.Inventory(bytes=69_000_000_000 if root == self.root else 0)
+        with patch.object(budget, 'inventory', side_effect=measured), \
+             patch.object(budget.shutil, 'disk_usage', return_value=SimpleNamespace(free=100_000_000_000)):
+            with self.assertRaisesRegex(budget.CaptureBudgetExceeded, '70 GB workspace cap'):
+                budget.preflight(self.output)
+        self.assertFalse(self.output.exists())
 
     def test_actual_process_stopped_on_growth(self):
         program = ('from pathlib import Path; import time,sys; '

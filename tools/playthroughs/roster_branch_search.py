@@ -45,7 +45,7 @@ def main():
                    help='Prefer the physical landing height when the obstacle requires gaining height before moving right')
     a = p.parse_args()
     if workspace_bytes(ROOT) + 150_000_000 > CAP_BYTES:
-        raise RuntimeError('Archive older evidence before another branch search under the 30 GB cap')
+        raise RuntimeError(f'Archive older evidence before another branch search under the {CAP_BYTES / 1_000_000_000:g} GB cap')
     a.rom = locate(a.rom)
     a.prefix = locate(a.prefix)
     if a.root_proof:

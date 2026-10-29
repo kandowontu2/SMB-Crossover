@@ -290,12 +290,12 @@
     "Contra Force"
   ],
   "workspace_last_observed": {
-    "bytes": 28221902001,
-    "cap_bytes": 30000000000,
+    "bytes": 28447381801,
+    "cap_bytes": 70000000000,
     "under_cap": true,
     "links_excluded": 471,
-    "files": 297331,
-    "capture_policy": "Boundedlossless streams, zero perframefiles, atmost8selectedwholeframes/run; strict600MB total run cap under30GBworkspace. Exactfullinventory immediatelybeforefinaltinyreceipt/commit."
+    "files": 297396,
+    "capture_policy": "Userraisedworkspacecap70GBon29Oct; boundedlosslessstreams and atmost8selectedwholeframes/run, zero perframefiles. General2GBrunmaximum, compact600MBlimit retained."
   },
   "original_source_observations": {
     "Rogue_audio": "checkpoints/2026-10-28/rogue-actual-audio-source-observations",
@@ -422,14 +422,14 @@
     "upstream": "https://github.com/LucianoTheWindowsFan/gimmick/tree/eb896859858879526943bdc7c3edab2871a636e2"
   },
   "storage_snapshot": {
-    "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\verification\\workspace-inventory-2026-10-29-after-pit-promotion.json",
-    "bytes": 28221902001,
-    "files": 297331,
-    "directories": 20121,
+    "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\docs\\qa\\workspace-cap-70gb-2026-10-29.json",
+    "bytes": 28447381801,
+    "files": 297396,
+    "directories": 20142,
     "links_skipped": 471,
     "complete": true,
-    "cap_bytes": 30000000000,
-    "note": "AfterGBPitpromotion/bothnativeclears and lossless oldbaselineDBGcompression; beforefinaltinyreceipt/commit."
+    "cap_bytes": 70000000000,
+    "note": "Read-only complete inventory afterusercap70 and exact rawbaselineDBG restoration; beforefinalsmallreceipt/commit."
   },
-  "storage_current_turn": "Initialexact28,157,356,380B remainedunder30GB but ordinary2GBreservationblocked newrun. Newstricter600MB run guard keeps30GB workspace/archive/64file/25GB freefloor/singleprocess checks, live totalrunlimit599MBpayload. Two Pitnative runs passactualguard. Losslesslycompressed12old completedordinarybaselineDBGs saved154,455,140B; candidates/source/ROM/alllosslessgameplay retained. See exactrestoretool/receipt. Finalfullinventory 28,221,902,001bytes/297,331files under30GB; source work ongoing."
+  "storage_current_turn": "User explicitly raisedworkspacecapfrom30GBto70GBon29Oct. Activeworkspacechecker/capturepreflight/route-runner defaults/compactrunner/muxpolicy updated;2GBrunmaximum,600MBcompactbudget/64files/512MiBcontainercap retained. TwelvepreviouslycompressedordinarybaselineDBGS restored byteexact, gzipandhistoricalreceipts retained. 8guardtests pass incl40GB admission and70GBboundaryrefusal. Lastcompleteinventory 28447381801B,under70GB. See workspace-cap-70gb-2026-10-29.json. Prior30GBnative evidence remainshistorical, no emulator/ROM/settings change."
 }

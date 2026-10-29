@@ -4,8 +4,8 @@ import argparse
 import json
 
 ROOT = Path(__file__).resolve().parents[1]
-# The October 22 cleanup request supersedes the earlier raised capture budget.
-CAP_BYTES = 30_000_000_000
+# The user raised the workspace cap to70GB on October29.
+CAP_BYTES = 70_000_000_000
 
 
 def locate(path: Path) -> Path:

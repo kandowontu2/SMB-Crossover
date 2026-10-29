@@ -22,7 +22,8 @@ def main():
     args = parser.parse_args()
     sys.path.insert(0, str(ROOT / 'tools'))
     from audit import capture_budget as budget
-    assert budget.WORKSPACE_BYTES == budget.ARCHIVE_BYTES == 30_000_000_000
+    assert budget.WORKSPACE_BYTES == 70_000_000_000
+    assert budget.ARCHIVE_BYTES == 30_000_000_000
     assert budget.RUN_FILES == 64 and budget.RUN_BYTES >= RUN_BYTES
     original_preflight = budget.preflight
     budget.RUN_BYTES = RUN_BYTES
