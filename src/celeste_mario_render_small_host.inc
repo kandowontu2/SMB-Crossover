@@ -153,11 +153,10 @@ Changed:
 Next:
  inc CmTemp
  iny
- cpy #4
+ cpy #1                      ; small source records only use sprite window0
  bne Loop
- lda #1
- sta X5WideChrActive
- rts
+ jmp CmSmallChrDrawDone
+ .res 3,$ea                  ; preserve every following original entry PC
 .endproc
 .proc CmColors
  lda #0
@@ -220,4 +219,22 @@ Map:.byte 12,13,14,15,16,17,18,19,20,21,23,11
 .endproc
 CmSmallPoseEnd:
 .assert * <= $c000,lderror,"Celeste small mapper exceeds original core tail"
+.popseg
+
+.pushseg
+.segment "CELESTE_MARIO_CORE"
+.assert * = $bdfa,lderror,"Expected frozen small mapper end"
+CmSmallChrStart:
+.proc CmSmallChrDrawDone
+ ; Preserve the complete original CmDraw scratch/register/flag contract.
+ inc CmTemp
+ inc CmTemp
+ inc CmTemp
+ ldy #4
+ lda #1
+ sta X5WideChrActive
+ rts
+.endproc
+CmSmallChrEnd:
+.assert * <= $c000,lderror,"Celeste CHR ownership tail overflow"
 .popseg

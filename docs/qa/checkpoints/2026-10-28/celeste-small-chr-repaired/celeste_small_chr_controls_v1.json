@@ -1,0 +1,88 @@
+{
+  "passed": false,
+  "source_CPU_only": true,
+  "native_run": false,
+  "bindings": {
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\celeste_small_chr_controls_v1.py": "274613dcbf0492a0b4cff702189b6d1a5a6ef00050fedb52f12165eec3188976",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\prepare_celeste_small_chr_v1.py": "d08a0c52d4c15e0887c143745b4d6cb864c9fc62dfa45253a9abee8c30a65717",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\prepare_celeste_small_chr_v2.py": "66bc41337fbce6672a656a7ae1bc009b4bc3dc2d9f92aa17a804f43f8f20af75",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\celeste_small_controls_v5.py": "cfe002206abc917a2ac4df6ff35c6c915b54e77bb7c9b5c4de8b920d93ba17f5",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\celeste_host_controls_v4.py": "af526b3251cb5e3a2a5c317be84359728e8d9f0245c0cedd82ca96dce317c19c",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\sunny_integrated_controls_v1.py": "53f3444fa6b2f1875c687d1e5b9d2291c617d753758844d43ca4996622c6c2a0",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\mmc5.s": "83a46b7e0900f0bca284fbbb3a4436f583b004bb762f79f3a2358d72131cd8cb",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\mmc5_expanded.s": "50e543516718372613a0b45a567bc8d7bd718709f57fcca7e67c76e6eec9fbfc",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\metasprite_engine.s": "f328cab1c2a649317e0dbebe6c6dc892b27e105046acc0207e1c6a3ceaf00ebe",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\native_goomba_draw.s": "5bf1375a0c57ff49dfa592723ce3f569b940f1a195b39cd9c38d838673a4a97f",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\celeste_mario_art.inc": "94d0dffa1cf7097dab6487cf209c69e49472d7df42fed8373b08e08e11793ef7",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\chr\\characters\\celeste-mario.chr": "451324199a49e229a7ff824a3e086d2b9db1b859fe2dd28fcae93b719a5e0f77",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\chr\\characters\\celeste-mario-assets.json": "5c8c5751ea1e3bbeda5a87ae4a95bc1080f2eaee4f31e3cf4705bb1a907a130f",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\celeste_small_handoff_v1.json": "63a3b8a81b15d0cecd815713d06db389196eff59890e68c5d000a40e254c04df",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\celeste-small-v1.nes": "d52eeefe78c5f050d276a833c651456b717157856d1783b98c131f9da29f8a60",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\celeste-small-v1.dbg": "6803f74f2dc3d0af76f4b834650e5ef804a63670ac43c2bd86b2b4649ebc90c2",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\celeste-small-v1.lbl": "610836b703b567ef0a0cef4fea974a85278b860a893a94240d4ce43213d03dcb",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\celeste-small-chr-v2.nes": "f56a0e154c86c2bcc3577bd99e48dfab71ee61282defa6d16963a2c73e4487c9",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\celeste-small-chr-v2.dbg": "154b0640ed3c7d4792ed5b3a15ce6bfa1fcd5bd1c3383d035d30dff96333f0c3",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\celeste-small-chr-v2.lbl": "36cb7bfd341b7bcb3a95150595a3a4c73ac25549750d60928d317a31b1cac221",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\celeste-small-chr-v2-overlay\\src\\celeste_mario_host_entry.s": "81be46d00959fe28f26dd483868622c759045a5aa7f398f7251ab067cfcbc863",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\celeste-small-chr-v2-overlay\\src\\celeste_mario_render_small_host.inc": "585c42f720ae3a3a0503dcf95b1ce6c1acf68cb618dca9d76bdce596562f1b81",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\celeste-small-chr-v2-overlay\\src\\entrypoint.s": "1ed85fa11e82637801b40bbcae7c972369bde187f96238d2abcaf2b0e1500c2f"
+  },
+  "checks": {
+    "layout": {
+      "passed": true,
+      "changed_bytes_by_bank": {
+        "98": 24
+      },
+      "helper_span": [
+        48634,
+        48651
+      ],
+      "all_old_PC_RAM_CHR_exact": true
+    },
+    "source_window_closure": {
+      "passed": true,
+      "records": 24,
+      "poses": [
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "both_faces": true,
+      "max_tile": 50,
+      "max_pair_tile": 51,
+      "all_use_window0": true,
+      "outline": "X5PlayerOutlineFlag is0 for raw0; native records contain only source color classes, no appended mask. Both outline settings run actual mixed callers below."
+    },
+    "leaf_full_ABI": {
+      "passed": true,
+      "cases": 768,
+      "all64_flags": true,
+      "AXYP_SP_CmTemp_banks_5SMC_all_other_appRAM_and_ordered_writes": true,
+      "explicit_intentional_fields": [
+        328,
+        329,
+        330,
+        29665,
+        29666,
+        29667,
+        326
+      ],
+      "CPU_delta": [
+        -115,
+        -73
+      ],
+      "CmTemp_modulo_wrap": true
+    }
+  },
+  "failure": "AssertionError()",
+  "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\celeste_small_chr_controls_v1.py\", line 70, in main\n    n0,n1,n2=native_mix(q);pages,w=publish(q);assert all(pages[i]==nativepages[i]for i in range(1,12)) and pages[0]==788+q.get('CmGfxBank')\n                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+}
