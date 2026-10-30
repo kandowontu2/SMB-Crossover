@@ -1,0 +1,56 @@
+{
+  "status": "PRIVATE_NATIVE_COLD_SMOKE_PASS_UI_AND_PERFORMANCE_HOLD",
+  "source_handoff_sha256": "d89d5eb86f74ce201fd7c1a4c13f0e153361bc7b95e1dbd403a10538326b7bfa",
+  "native_handoff_sha256": "c110e3a922ac161bc32a4d9344c846468dc9f8a25d4af56d348f829403e555e1",
+  "verified_source_bindings": 712,
+  "verified_native_bindings": 22,
+  "ROM_sha256": "cbbf28b1f0fc37718c50f07389bf9258ca2868b79f3d7efe8f47f44a325fdee8",
+  "actual_cold_loader_reads": 18450,
+  "emulated_frames": 525,
+  "game_frames": 220,
+  "gameplay_HP": 40,
+  "genuine_QhUi_calls": 0,
+  "gameplay_NmiSkipped": [
+    28,
+    166
+  ],
+  "source_Main_profile": {
+    "calls": 118,
+    "mean_CPU": 28543.195,
+    "max_CPU": 41079
+  },
+  "source_draw_profile": {
+    "calls": 66,
+    "mean_CPU": 2453.076
+  },
+  "selected_visual_review": {
+    "reviewed_by": "root",
+    "scope": "All four selected current physical-v3 native PNGs.",
+    "images": {
+      "gameplay-final.png": "a428d0b450d7b7c4ff37ede77d5c360fdaa0ffbb0625db3afdd82ade1c46067b",
+      "gameplay-start.png": "a89af40e83763dab39e791762a6d0911d66337e491aefb5abbc200b692463af8",
+      "jump-and-fan.png": "cbc93373848dab70500bf6ae2135057f98fa92fdf9582ce70a30c277727c3f19",
+      "quick-cold-menu.png": "21890fe41a23e8984aaf25e81cf724d49e460ea44c3f0acbbc9e6ff449e0f768"
+    },
+    "findings": [
+      "Quick Man body, three-shot fan and native terrain look coherent in the selected gameplay frames.",
+      "BUSTER appears above Quick Man in later gameplay frames: confirmed incorrect inherited inventory HUD.",
+      "The selected character name and SELECT CHANGE HERO instruction are crowded and need a menu layout review."
+    ],
+    "every_frame_visual_review": false,
+    "UI_hold": true,
+    "performance_hold": true
+  },
+  "prior_two_fixture_negatives_retained": true,
+  "native_smoke": true,
+  "cadence_qualified": false,
+  "admitted": false,
+  "installed": false,
+  "excluded_compiled_payloads_recorded_in_original_binding_manifest": true,
+  "archive_sha256": "0f0bd6336c55a30a6fae4b21e472c6794738d4b9a5a810d759cd2c7de6b875ea",
+  "archive_bytes": 2285710,
+  "archive_members": 684,
+  "all_members_verified": true,
+  "no_ROM_object_debug_files": true,
+  "root_tool_sha256": "5a882af511f9a6f1b04dff6e397f2e43b7ede9efc2ae8d89c366cfd6ce965ea2"
+}

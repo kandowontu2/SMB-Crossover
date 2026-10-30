@@ -1,0 +1,31 @@
+{
+  "status": "PRIVATE_SELECTED_FF_ALIAS_REUSE_ONLY",
+  "exact_FF_epoch_aliases_approved": true,
+  "alias_proposal_sha256": "28df95b2c1d1328ef3bce86532f348cc01c67a84e8a4edb19caed64ba445a0e6",
+  "model_handoff_sha256": "5598592e11dc20cb0fcc9b349dc30b304d49cb507edade5842c78a1690d11e64",
+  "approved_aliases": {
+    "SmFreezeTurn_7FF8": "Next visible family cursor, 0..5; advance only after completed DrawAll.",
+    "SmFreezeLastBlue_7FFA": "80|last completed family 0..5; publish only with its complete OAM/packet.",
+    "SmFreezePalettePacket_07E0_07E6": "Existing complete seven-byte 3F15 palette packet only.",
+    "SmFreezePalettePending_07EA": "0 while rebuilding, 80 complete active packet, C0 complete native retirement."
+  },
+  "protected": [
+    "SmFreezeRenderState 7FF7 remains zero under acquired FF; genuine Samus behavior unchanged.",
+    "SmFreezePaletteControl 7FF9 remains the original native area/Bowser control with all original stores.",
+    "FfPaletteAck 5FC8 remains exclusively the body P0 palette cache.",
+    "All occupied original source code, art, service PCs, full cookie, other RAM and foreign owners."
+  ],
+  "conditions": [
+    "Selected FF and the full current cookie must qualify every new RAM worker; foreign/unready paths must not touch these aliases.",
+    "Preserve the actual InventoryInit, Scene, retirement, death and alternating-player lifecycle documented in the exact proposal.",
+    "Retire complete old OAM and publish C0 before changing Selected; compose future dispatch through genuine resolve consumers.",
+    "Preserve returned native DrawAll AXYP, including its intentional output carry, and all eight borrowed R0..R7 bytes.",
+    "Hold the existing Main/NMI busy protocol for all packet/OAM mutation; preserve normal/lag NMI, IRQ, paused/skipped draw and stale-owner behavior.",
+    "Reissue native family zero after FX too; inspect actual variable native palette queues and preserve native P2/P3 and backdrop.",
+    "Only actual visible admitted whole groups contribute families; always remove metadata before DMA; body zero is never hidden.",
+    "Actual emitted source-cartridge controls, full-cookie publication and source physics/render regressions are required before any readiness claim."
+  ],
+  "scope": "Source linking and bounded CPU qualification in a new private successor only; no native launch, admission or Downloads installation.",
+  "native": false,
+  "installed": false
+}

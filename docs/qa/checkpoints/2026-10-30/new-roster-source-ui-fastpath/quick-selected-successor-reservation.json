@@ -1,0 +1,22 @@
+{
+  "status": "PRIVATE_EXACT_QUICK_UI_SOURCE_SUCCESSOR_ONLY",
+  "parent_ROM_sha256": "cbbf28b1f0fc37718c50f07389bf9258ca2868b79f3d7efe8f47f44a325fdee8",
+  "parent_source_handoff_sha256": "d89d5eb86f74ce201fd7c1a4c13f0e153361bc7b95e1dbd403a10538326b7bfa",
+  "approved_owned_ROM": {
+    "physical_bank": 86,
+    "new_helper_start": "A79C",
+    "new_helper_limit_exclusive": "A7C4",
+    "maximum_bytes": 40,
+    "full_A79C_A800_100_byte_preimage_sha256": "da6f14970ce356ce01a5b340291e9d8b2652eb63fbf8f328ca6a87a727fde4d9",
+    "preimage": "All FF; follows the existing root-owned 22-byte X5NewRosterUiRoute at A786."
+  },
+  "allowed_existing_edit": "Replace only the four-byte CPX #13/BCC dispatch block inside X5OwnInventoryUi with JMP helper/NOP; retain all original public PCs and exact selected/legacy destinations.",
+  "conditions": [
+    "Qualify raw9 and FmAlts20 exactly, then reuse the existing X5NewRosterUiRoute and genuine NrUi/QhUi consumer.",
+    "Preserve original caller AXYP/stack and required original FF palette tick; retain all foreign mapper behavior and publish measured actual Main CPU changes.",
+    "Retain frozen Cbb source/native packets unchanged and use the guarded private-output tool for every compiler/linker output.",
+    "Actual natural UI, source Main, all-flags foreign and NMI/IRQ controls are required; no new RAM lease, admission, native launch or installation."
+  ],
+  "native": false,
+  "installed": false
+}

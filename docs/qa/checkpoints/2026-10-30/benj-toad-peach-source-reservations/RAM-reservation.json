@@ -1,0 +1,78 @@
+{
+  "status": "PRIVATE_SELECTED_OWNER_OVERLAY_RESERVED_NOT_GLOBALLY_FREE_OR_ADMITTED",
+  "proposal_sha256": "c5dd1c136845e0a239b79d50d031f90382f1f11764d284c183071ed1ed658124",
+  "parent_ROM_sha256": "a7ccbaaa7aab598d36e8806e30475eab36174ee1948f25f90ae72e6640f43f48",
+  "selected_identity": {
+    "raw": 0,
+    "MarioVariant": [
+      5,
+      6
+    ]
+  },
+  "RAM": {
+    "start": "0x5c60",
+    "end_exclusive": "0x5c7d",
+    "bytes": 29,
+    "fields": [
+      {
+        "name": "BmFloatTimer",
+        "start": "0x5c60",
+        "bytes": 2
+      },
+      {
+        "name": "BmFloatActive",
+        "start": "0x5c62",
+        "bytes": 2
+      },
+      {
+        "name": "BmSupportKind",
+        "start": "0x5c64",
+        "bytes": 2
+      },
+      {
+        "name": "BmSupportY",
+        "start": "0x5c66",
+        "bytes": 2
+      },
+      {
+        "name": "BmOwner",
+        "start": "0x5c68",
+        "bytes": 1
+      },
+      {
+        "name": "BmLife",
+        "start": "0x5c69",
+        "bytes": 1
+      },
+      {
+        "name": "BmArea",
+        "start": "0x5c6a",
+        "bytes": 1
+      },
+      {
+        "name": "BmDescriptor",
+        "start": "0x5c6b",
+        "bytes": 17
+      },
+      {
+        "name": "BmPoseIndex",
+        "start": "0x5c7c",
+        "bytes": 1
+      }
+    ]
+  },
+  "existing_aliases": 67,
+  "actual_current_Main_canaries_verified": 64,
+  "requirements": [
+    "Gate selected identity before every private read; use genuine constructor before gameplay, independent of stale cached bytes.",
+    "Preserve real typedFresh15 chain, IcGlobalInit and existing CmHostFresh exactly once; no inferred global5Cclear.",
+    "Clear/reinitialize source float arrays and owner/life/area on genuine lifecycle boundaries with real player0/1 separation.",
+    "Publish completed descriptor and use real shared5FFF busy protocol; NMI reads completed OAM/CHR, never partial private fields.",
+    "Prove actual normal/lagNMI/IRQ during constructor, portrait construction and retirement, including stale former audio-owner/pendingSFX contexts.",
+    "Prove every foreign selected owner and all older0..4 variants retain their actual overlay/callback/audio behavior; no global memory ownership claim.",
+    "Exact bound29B only; preserve FF5C7D onward and other livefields outside range."
+  ],
+  "native": false,
+  "installed": false,
+  "readiness": false
+}

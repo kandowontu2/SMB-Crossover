@@ -1,0 +1,91 @@
+{
+  "status": "PRIVATE_SOURCE_OWN_CODE_REUSE_ONLY_NOT_SCHEDULER_ADOPTION",
+  "proposal_sha256": "0dd2539798b60c67cd5ebceb22640d206a5f221abcea9a8077dde3de35cc672a",
+  "marker_handoff_sha256": "ea94867c9b3c808ea6124560be6330970dad9ac79d000d5b7f826856fffa83e3",
+  "parent_ROM_sha256": "5c225bb9f5439019bac183279b4a38438818c05a07810169700898ba28e35dde",
+  "verified_proposal_bindings": 576,
+  "verified_marker_bindings": 2398,
+  "explicit_own_ABI_retirement": {
+    "physical_bank": 62,
+    "span": [
+      "ADDE",
+      "AE46"
+    ],
+    "bytes": 104,
+    "names": [
+      "FwActionTick",
+      "FwWeapons",
+      "FwEnemyContact",
+      "FwForgetEnemy"
+    ],
+    "all_actual_object_imports_empty": true,
+    "all_other_public_PCs_and36live_service_targets_preserved": true
+  },
+  "FF_exclusive_RAM3_code_only": {
+    "holes": [
+      {
+        "start": 41584,
+        "end": 41589,
+        "bytes": 5
+      },
+      {
+        "start": 41609,
+        "end": 41728,
+        "bytes": 119
+      },
+      {
+        "start": 42725,
+        "end": 42752,
+        "bytes": 27
+      },
+      {
+        "start": 43004,
+        "end": 43008,
+        "bytes": 4
+      },
+      {
+        "start": 46731,
+        "end": 46848,
+        "bytes": 117
+      },
+      {
+        "start": 47353,
+        "end": 47360,
+        "bytes": 7
+      },
+      {
+        "start": 47943,
+        "end": 47968,
+        "bytes": 25
+      },
+      {
+        "start": 48847,
+        "end": 49120,
+        "bytes": 273
+      },
+      {
+        "start": 49136,
+        "end": 49152,
+        "bytes": 16
+      }
+    ],
+    "total_bytes": 593,
+    "condition": "Routine-boundary code packing within existing FF-exclusive image only. Original occupied source code/art/publisher/PCs and fullcookie remain protected; source-built payload/carrier/fingerprint must advance coherently."
+  },
+  "not_granted": [
+    "New runtime state RAM fields or addresses without an explicit current writer/lifecycle proposal",
+    "Any common/PRG/CHR/WRAM outside these existing owner spans",
+    "Scheduler adoption, readiness, nativeFPS or Downloads installation"
+  ],
+  "requirements": [
+    "Keep frozen lifecycle327B and marker130B plus8B free in C93; no silent growth.",
+    "Preserve foreign native callback and mapper sequence; no additional foreign farcall or source work.",
+    "Preserve body0, exact whole sword2/ink3/source projectile groups and whole native mixed-palette groups.",
+    "Only real visible admitted color families; commit last, actualfullqueue/normal-lagNMI/IRQ/cold/retire/originalbodytick heartbeat tests.",
+    "Prove original source physics/combat/pickup/render pixels and nativeP2/P3/backdrop preservation on fullactualMain.",
+    "New runtime cursor/epoch/owner/ack fields require exact old alias/writer and initialization proof before use.",
+    "No silent weakened color palette, pixel anatomy, collision or hardware8sprite constraints."
+  ],
+  "native": false,
+  "installed": false
+}
