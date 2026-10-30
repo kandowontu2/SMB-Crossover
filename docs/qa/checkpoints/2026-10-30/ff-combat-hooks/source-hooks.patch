@@ -1,0 +1,113 @@
+--- src/object.s
++++ src/object.s
+@@ -3441,21 +3441,10 @@
+ ; Spawn an enemy
+ CheckpointEnemyID:
+ .if ::ENABLE_CROSSOVER
+-  lda #0
+-  sta MmEnemyHealthLo,x
+-  sta MmEnemyHealthHi,x
+-  sta MmEnemyFlash,x
+-  sta RgEnemyStun,x
+-  sta LsrFrozenPose,x
+-  sta AvFrozen,x
+-  sta AvFrozenHi,x
+-  ; A reused native slot is a new source object, even if its ID is unchanged.
+-  lda GuestContactClearBits,x
+-  and GuestBodyPrev
+-  sta GuestBodyPrev
+-  lda GuestContactClearBits,x
+-  and GuestBodyNow
+-  sta GuestBodyNow
++  farcall FwNativeEnemyInit
++  jmp :+
++  .res 20,$ea
++:
+ .endif
+   lda Enemy_ID,x
+   cmp #$15                     ;check enemy object identifier for $15 or greater
+--- typed-services.s
++++ typed-services.s
+@@ -155,4 +155,33 @@
+ FWS_TYPED FwSvcWall,FwHostWall,LmWallGate
+ ; Common owner installs this at the genuine post-terrain entry separately.
+ FWS_TYPED FwSvcAfterTerrain,FwHostAfterTerrain,HuLegacyPostBG
++
++.export FwNativeEnemyInit
++.import FwHostNewEnemy
++.import MmEnemyHealthLo,MmEnemyHealthHi,MmEnemyFlash,RgEnemyStun,LsrFrozenPose
++.import AvFrozen,AvFrozenHi,GuestBodyPrev,GuestBodyNow
++FwNativeEnemyInit:
++  lda #0
++  sta MmEnemyHealthLo,x
++  sta MmEnemyHealthHi,x
++  sta MmEnemyFlash,x
++  sta RgEnemyStun,x
++  sta LsrFrozenPose,x
++  sta AvFrozen,x
++  sta AvFrozenHi,x
++  ; A reused native slot is a new source object, even if its ID is unchanged.
++  lda FwEnemyClearBits,x
++  and GuestBodyPrev
++  sta GuestBodyPrev
++  lda FwEnemyClearBits,x
++  and GuestBodyNow
++  sta GuestBodyNow
++ php
++ jsr FwCheck
++ bcc NoFF
++ plp
++ jmp FwHostNewEnemy
++NoFF:plp
++ rts
++FwEnemyClearBits:.byte $fe,$fd,$fb,$f7,$ef,$df
+ FwSvcEnd:
+--- entrypoint.s
++++ entrypoint.s
+@@ -1,3 +1,5 @@
++.import FwNativeEnemyInit
++.export RgEnemyStun,LsrFrozenPose,AvFrozen,AvFrozenHi,GuestBodyPrev,GuestBodyNow
+ .import FwSvcWall
+ .export LmWallGate
+ 
+--- combat.s
++++ combat.s
+@@ -225,6 +225,14 @@
+  lda TimerControl
+  ora MmDeathFlag
+  bne FfHostWeaponsDone
++ ; Existing native flash counter ages once per accepted logical weapon tick.
++ ldx #5
++FfHostFlashTick:
++ lda MmEnemyFlash,x
++ beq :+
++ dec MmEnemyFlash,x
++:dex
++ bpl FfHostFlashTick
+  jsr FfWeapons
+  ldx #5
+ FfHostActorLoop:
+--- veneers.s
++++ veneers.s
+@@ -103,8 +103,8 @@
+  jmp FwServiceUnavailable
+ ; 33 Powerup typed_source_gate_only
+  jmp FwHostPowerupTick
+-; 34 WeaponTail explicit_unimplemented_reject
+- jmp FwServiceUnavailable
++; 34 WeaponTail actual_native_Main_weapon_update
++ jmp FwHostWeapons
+ ; 35 Vine explicit_unimplemented_reject
+  jmp FwServiceUnavailable
+ FwServiceVeneersEnd:
+--- private.cfg
++++ private.cfg
+@@ -211,7 +211,7 @@
+     PRIVATE_QUICK_CARRIER_MEM:start=$dd000,size=$2400,type=ro,fill=yes,file=%O,fillval=$00;
+ FF_STREAM_MEM:start=$df400,size=$2000,type=ro,fill=yes,file=%O,fillval=$00;
+ UNALLOCATED_CHR_MEM:start=$e1400,size=$1ec00,type=ro,fill=yes,file=%O,fillval=$00;
+-FF_RAM3_MEM:start=$a000,size=$2000,bank=3,type=ro,file="C:/Users/kando/Documents/ChatGPT/SMB Crossover/build/ff-joint-terrain-hooks-1030-v3/joint/ram3.bin",fill=yes,fillval=$ff;
++FF_RAM3_MEM:start=$a000,size=$2000,bank=3,type=ro,file="C:/Users/kando/Documents/ChatGPT/SMB Crossover/build/ff-joint-combat-hooks-1030-v5/joint/ram3.bin",fill=yes,fillval=$ff;
+ }
+ SEGMENTS {
+ 

@@ -1,0 +1,54 @@
+{
+  "passed": true,
+  "native": false,
+  "installed": false,
+  "handoff_sha256": "c930c8844047da9a8feeb307f97265991b9a09c74617a237c10c4b5438f0f25f",
+  "ROM_sha256": "c1aeff70d438788c1abbe542186c59ac10c5a7bac0f60fd53b0718b44d3d0a79",
+  "archive_sha256": "54a2ccd4f0ffc5244e902da19594f473b67dc2c6c7eb6472c8730d1c1d0279a2",
+  "archive_bytes": 13940622,
+  "archive_members": 611,
+  "original_ROMs_included": false,
+  "checks": {
+    "native_constructors": {
+      "foreign_prefix_cases": 384,
+      "all64flags_FF_slot_reuse_cases": 384,
+      "complete_native_Goomba_init_slots": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "foreign_extra_CPU": [
+        174,
+        174
+      ]
+    },
+    "poisoned_cookie": {
+      "cases": 32,
+      "native_clear_executes_but_invalid_RAM3_never_executes": true
+    },
+    "flash_cadence": {
+      "guard_cases": 24,
+      "actual_full_Main_weapon_calls": 1,
+      "once_per_logical_update": true
+    },
+    "weapon_inputs": {
+      "cases": 48,
+      "all_four_classes_all_three_legal_initial_tiers": true,
+      "idle_attack_jump_direction_inputs": true,
+      "actual_earned_progression_claim": false
+    },
+    "actual_ISR": {
+      "cases": 204,
+      "all33SMC_APXY_live_page1_R01_R67_maps_verified": true
+    }
+  },
+  "limits": [
+    "Private source successor, not installed or native tested.",
+    "FF flash renderer,shared postBG ingress,palette/audio and actual earned-powerup1-1 tests remain open.",
+    "Native enemy constructor incurs174 extraCPU per initialization for foreign characters; not a hot per-frame path or60Hz claim.",
+    "Source predecessor is frozen FF07cda+terrain2219, not a replacement for current18de/Arthur/Celeste source composition."
+  ]
+}
