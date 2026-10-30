@@ -4,7 +4,7 @@
     "path": "C:/Users/kando/Downloads/SMB-Crossover-Latest-WIP-MMC5.nes",
     "sha256": "5b09a3ed02aa678fb1d6fca57d905224e95c7b8f0f4e12f13901bf3f41f12d1e",
     "latest_user_change": "Full4x8 character menu: 32 slots/80 variants visible; 47 playable, 33 starred pending; no newly admitted gameplay owners.",
-    "new_private_units_below_are_not_installed": "Goku, Rogue Dawn, SMB2 and other remaining prototypes are excluded. GB Pit Select alternate, Kamikaze and Celeste-small are included."
+    "new_private_units_below_are_not_installed": "Prototype gameplay for Goku, Rogue Dawn, SMB2 and the other pending owners is excluded; their menu entries are visible. GB Pit, Kamikaze and Celeste-small are playable."
   },
   "source_qualified_checkpoints": {
     "Rogue_body": "checkpoints/2026-10-28/rogue-body-f56a-source",
@@ -634,5 +634,27 @@
     "Bass alternate": "Quick Man, using original Rockman CX player abilities",
     "Ryu alternate": "Thomas from Kung Fu, alongside Shinobi",
     "source_art": "Original Arthur hardware OAM, original Thomas background cells, Quick Man original CX sheet"
+  },
+  "reviewed_private_host_checkpoint": {
+    "status": "Four reviewed source/evidence packets saved before shared-spine integration; no additional gameplay admitted",
+    "checkpoint": "docs/qa/checkpoints/2026-10-30/reviewed-private-hosts",
+    "units": [
+      "DK",
+      "Goku",
+      "Gimmick actual-NMI clock",
+      "SuperMaaa"
+    ],
+    "retained_limitation": "The old SuperMaaa independent.dbg output has changed; candidate ROM/DBG/LBL and all source bindings remain exact. Original handoff retained unchanged."
+  },
+  "active_host_union": {
+    "status": "Source implementation in progress",
+    "path": "build/character-host-union-v2",
+    "owners": [
+      "DK",
+      "Goku",
+      "Gimmick",
+      "SuperMaaa"
+    ],
+    "constraint": "Retain SMB2 Roll relocation79:AB00..B5E0 and78:B000..BCC6; shared routing uses separately audited tail."
   }
 }
