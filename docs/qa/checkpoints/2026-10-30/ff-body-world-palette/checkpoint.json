@@ -1,0 +1,72 @@
+{
+  "passed": true,
+  "native": false,
+  "installed": false,
+  "handoff_sha256": "3a02596a1393a52e624ac68af20cf00624a94e28049ab4cb8e62ad47b5624913",
+  "ROM_sha256": "76b5ebf2529ae69a54188ad79487c31e55c3caaac01d504193f91ce07df3e608",
+  "archive_sha256": "3eaf1c64d15092eb133b2ed50f2774bc6c3abdc989b02d0cd37e4c80d323475d",
+  "archive_bytes": 13968275,
+  "archive_members": 610,
+  "all_archived_member_hashes_verified": true,
+  "original_ROMs_included": false,
+  "checks": {
+    "source_rows": {
+      "passed": true,
+      "original_class_rows": 2,
+      "existing_guest_flash_rows": 3
+    },
+    "actual_colors": {
+      "passed": true,
+      "actual_GetPlayerColors_cases": 288,
+      "genuine_world_P2_P3_and_class_backdrop_exact": true,
+      "cold_no_RAM3_execution": true
+    },
+    "capacity": {
+      "passed": true,
+      "full_force_offsets": 512,
+      "cached_body_offsets": 256,
+      "queue_capacity": 84,
+      "all_canaries_and_complete_packet_retry_pass": true
+    },
+    "transitions": {
+      "passed": true,
+      "actual_UI_ticks": 1024,
+      "source_flash_phases_and_restoration_exact": true,
+      "cached_tick_CPU": [
+        594,
+        1482
+      ]
+    },
+    "cold_and_foreign": {
+      "passed": true,
+      "foreign_and_full_cookie_rejection_cases": 96,
+      "no_source_state_or_ACK_writes_and_no_RAM3_execution": true
+    },
+    "native_NMI_queue_consumption": {
+      "passed": true,
+      "actual_normal_NMI_consumptions": 16,
+      "actual_PPU_palette_writes_match": true,
+      "world_P1_not_recolored": true
+    },
+    "actual_Main": {
+      "passed": true,
+      "whole_Main_cases": 8,
+      "once_per_Main_real_UI_service": true,
+      "native_queue_ownership_observed": true
+    },
+    "actual_ISR": {
+      "passed": true,
+      "real_ISR_cases": 151,
+      "snapshots": 65,
+      "all33SMC_APXY_live_page1_R01_R67_maps_and_RAM3_verified": true,
+      "queue_writer_normal_NMI_not_fabricated": true
+    }
+  },
+  "limits": [
+    "Private source successor, not installed or native-emulator tested.",
+    "This packet proves body/world colors only. FX/sword palette allocation, optional black ink and Bowser palette conflicts remain open.",
+    "Full FF shared postBG ingress,audio,readiness,earned upgrades and1-1 completion remain open.",
+    "Normal NMI consumers were tested after complete publication and on the cached no-write path; Main was observed owning the queue with NmiDisable set while appending.",
+    "Source lineage is FF07cda with terrain/combat successors; shared composition must retain current a7cc Celeste/Kamikaze/Rogue changes."
+  ]
+}
