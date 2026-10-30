@@ -1,0 +1,53 @@
+{
+  "status": "PRIVATE_QUICK_UI_FIX_SOURCE_AND_NATIVE_PASS_PERFORMANCE_HOLD",
+  "ROM_sha256": "7a9e2cc1246d590bebe2acd5451267894f39cdac75cd528e20109de01753d760",
+  "source_handoff_sha256": "c229c572e469cd3c280cdc03d485ae85c7c70ff10293c72f37c1cec84e2824a3",
+  "prepared_sha256": "ff8c6e8384300877d31079c2cb2b5395e3d65718c8500c04c6831982146bbd0c",
+  "verified_source_bindings": 704,
+  "verified_native_bindings": 12,
+  "changed_ROM_bytes": 28,
+  "physical_bank": 86,
+  "genuine_QhUi_per_complete_sampled_Main": 1,
+  "sampled_Main_calls": 122,
+  "independently_checked_cycle_containment": true,
+  "native_smoke_game_frames": 220,
+  "HP": 40,
+  "BUSTER_absence_hardware_assertions": true,
+  "selected_visual_review": {
+    "reviewed_by": "root",
+    "images": {
+      "gameplay-final.png": "8adee89dcd88fc3e05cab15885bc07047ce15753ac97537e4407cbdd4453c0cd",
+      "gameplay-start.png": "008c2b39c03c6b93262a3ef5319f4b67caeaab09387f7a7bc49a58e5da17b909",
+      "jump-and-fan.png": "659bebff6bb03fa0ebe51f823a3616c9e53223d82a8dfc62596fae923cd3be81",
+      "quick-cold-menu.png": "21890fe41a23e8984aaf25e81cf724d49e460ea44c3f0acbbc9e6ff449e0f768"
+    },
+    "scope": "All four selected complete native PNGs; not every game frame.",
+    "findings": [
+      "HP40 is visible; inherited BUSTER is absent in all selected gameplay frames.",
+      "Quick Man body, fan shots, world blocks and blue backdrop appear coherent.",
+      "Menu name/footer spacing is still crowded; no PPU overwrite is established."
+    ],
+    "every_frame_visual_review": false,
+    "UI_fix_confirmed": true,
+    "performance_hold": true
+  },
+  "measured_Main_CPU": {
+    "calls": 122,
+    "mean": 28105.655737704918,
+    "max": 38233
+  },
+  "gameplay_NmiSkipped": [
+    28,
+    165
+  ],
+  "observer_correction": "The strengthened observer was bound but unused. Original v6 profile actually ran; mandatory root interval/count acceptance passes separately.",
+  "no_paired_native_speedup_or_cadence_claim": true,
+  "admitted": false,
+  "installed": false,
+  "archive_sha256": "e2b7ed06e03e0624593dea426e401b69366cae7cfee5849ad74c6897b37ccaad",
+  "archive_bytes": 2147798,
+  "archive_members": 639,
+  "all_members_verified": true,
+  "no_ROM_object_debug_files": true,
+  "root_tool_sha256": "5a882af511f9a6f1b04dff6e397f2e43b7ede9efc2ae8d89c366cfd6ce965ea2"
+}
