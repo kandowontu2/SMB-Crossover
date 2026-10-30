@@ -181,4 +181,14 @@ Please include the character and alternate, Easy/Hard mode, level, mapper target
 
 Built on [SMB1Base](https://github.com/smbstudio/smb1base), with the original project's information preserved in [its README](docs/SMB1BASE.md). The concept and browser-game reference are [Super Mario Bros. Crossover](https://www.smbgames.be/smb-crossover.php).
 
+Additional ROM-hack source credits, including alternates still in development:
+
+| Source | Credit |
+| --- | --- |
+| [Super Duper Mario Bros. 4P](https://github.com/benj-edwards/NESCoopMods) — requested SMB1 Toad/Peach alternates, using the supplied v44 build | Benj Edwards |
+| Super Mario Bros. 3+ — requested SMB3 Toad/Peach alternates | infidelity |
+| Super Maaaaaaaaaaaaaaaa | jroweboy |
+| Celeste Mario's Zap & Dash Deluxe | w7n, studsx and edengt |
+| [Metroid: Rogue Dawn](https://metroidconstruction.com/hack.php?id=441) | Grimlock (project lead, graphics and level design), snarfblam (programming and editor), Optomon (sound engine, effects and music); additional contributors credited in its original readme |
+
 This is an unofficial fan project. Original games, characters, artwork and music belong to their respective creators. Source and asset provenance are documented in the repository's research and architecture notes.

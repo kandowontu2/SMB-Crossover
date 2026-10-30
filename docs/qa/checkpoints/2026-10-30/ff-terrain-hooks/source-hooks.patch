@@ -1,0 +1,119 @@
+--- src/characters.s
++++ src/characters.s
+@@ -48,19 +48,27 @@
+ .if ::ENABLE_MMC5_EXPANDED
+   lda SelectedCharacter
+   cmp #CHARACTER_LINK
+-  bcc FootNative
+   beq FootCold
+   cmp #CHARACTER_SOPHIA
++  beq FootCold
++  cmp #22
+   beq FootCold
+   cmp #26
+   beq FootCold
+   cmp #CHARACTER_DONKEY_KONG
+   bne FootNative
+ FootCold:
+-  farcall DkHostFeetUnionRouter,jmp
++  ; DkHostFeetUnionRouter first loads SelectedCharacter and publishes it.
++  ; Incoming A/NZ die before use; its publication preserves the old SMC value.
++  lda #<DkHostFeetUnionRouter
++  sta FarcallJmpTarget_SMC+1
++  lda #>DkHostFeetUnionRouter
++  sta FarcallJmpTarget_SMC+2
++  lda #.lobyte(.bank(DkHostFeetUnionRouter)|$80)
++  jmp FarCallCommon
+ FootNative:
+   jmp BlockBufferColli_Feet
+-  .res 0,$ea
++  .res 1,$ea
+   .assert *-CrossoverHeadProbe=63,error,"Expanded head/feet dispatch span"
+ .else
+   lda SelectedCharacter
+--- src/donkey_kong_host.s
++++ src/donkey_kong_host.s
+@@ -699,6 +699,9 @@
+ .export DkHostFeetUnionRouter
+ .proc DkHostFeetUnionRouter
+  lda SelectedCharacter
++ sta SafecallA_SMC+1
++ cmp #22
++ beq ::DkFeetFinalFantasy
+  cmp #26
+  beq Gimmick
+  jmp DkHostFeetRouter
+@@ -715,7 +718,7 @@
+  pla
+  pla
+  jmp NextBank_SMC
+- .assert *-DkHostFeetUnionRouter=33,error,"Existing DK host headroom33B"
++ .assert *-DkHostFeetUnionRouter=40,error,"Own DK foot router40B"
+ .endproc
+ .export DkFlagSideGate,DkHostSideWide
+ ; Native pole snap places the shaft inside DK's42px outer side probes.
+@@ -734,5 +737,7 @@
+  sty DkProbeIndex
+  jmp DkHostSideWide
+ .endproc
++::DkFeetFinalFantasy:
++ farcall FwSvcFeet,jmp
+ .assert *<=$c000,lderror,"Existing DK host1024B cap"
+ .popseg
+--- dk-component.s
++++ dk-component.s
+@@ -1,3 +1,4 @@
++.import FwSvcFeet
+ .macpack longbranch
+ .feature force_range
+ .include "inc/common.inc"
+--- typed-services.s
++++ typed-services.s
+@@ -1,3 +1,6 @@
++.import FwHostFeet,FwHostWall,FwHostAfterTerrain
++.import BlockBufferColli_Feet,LmWallGate,HuLegacyPostBG
++.export FwSvcFeet,FwSvcWall,FwSvcAfterTerrain
+ ; Genuine selected-FF native callback contracts. No new state. ROM62 only.
+ ; Original v13 row23/24 were leaf plans: native23 is admission,24 collection.
+ .setcpu "6502"
+@@ -146,4 +149,10 @@
+  clc
+  rts
+ .endproc
++; Native wall Guest entry already admitted engine8. Inactive/foreign calls
++; retain the original LmWallGate, including all Mac/Link/RCR handling.
++FWS_TYPED FwSvcFeet,FwHostFeet,BlockBufferColli_Feet
++FWS_TYPED FwSvcWall,FwHostWall,LmWallGate
++; Common owner installs this at the genuine post-terrain entry separately.
++FWS_TYPED FwSvcAfterTerrain,FwHostAfterTerrain,HuLegacyPostBG
+ FwSvcEnd:
+--- src/samus.s
++++ src/samus.s
+@@ -158,7 +158,7 @@
+   rts
+ Guest:
+   .if ::ENABLE_MMC5_EXPANDED
+-    farcall LmWallGate,jmp
++    farcall FwSvcWall,jmp
+   .else
+     farcall CrossoverSourceWallDispatch,jmp
+   .endif
+--- entrypoint.s
++++ entrypoint.s
+@@ -1,3 +1,5 @@
++.import FwSvcWall
++.export LmWallGate
+ 
+ ; Single entrypoint that includes files to make building this easier
+ 
+--- private.cfg
++++ private.cfg
+@@ -211,7 +211,7 @@
+     PRIVATE_QUICK_CARRIER_MEM:start=$dd000,size=$2400,type=ro,fill=yes,file=%O,fillval=$00;
+ FF_STREAM_MEM:start=$df400,size=$2000,type=ro,fill=yes,file=%O,fillval=$00;
+ UNALLOCATED_CHR_MEM:start=$e1400,size=$1ec00,type=ro,fill=yes,file=%O,fillval=$00;
+-FF_RAM3_MEM:start=$a000,size=$2000,bank=3,type=ro,file="C:/Users/kando/Documents/ChatGPT/SMB Crossover/build/ff-joint-full-render-v2/joint/ram3.bin",fill=yes,fillval=$ff;
++FF_RAM3_MEM:start=$a000,size=$2000,bank=3,type=ro,file="C:/Users/kando/Documents/ChatGPT/SMB Crossover/build/ff-joint-terrain-hooks-1030-v3/joint/ram3.bin",fill=yes,fillval=$ff;
+ }
+ SEGMENTS {
+ 

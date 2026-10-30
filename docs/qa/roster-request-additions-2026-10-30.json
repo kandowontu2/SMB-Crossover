@@ -1,0 +1,60 @@
+{
+  "date": "2026-10-30",
+  "status": "SOURCE_INVENTORY_AND_REQUEST_QUEUE_NOT_IMPLEMENTATION",
+  "installed_ROM_sha256": "18de015564c61cd07d0d52ec26300661627278880d4226f7c589ac95028a0976",
+  "latest_explicit_Kamikaze_source_overrides_older_DX_goal_text": {
+    "path": "C:/NES/the stash/Kamikaze_V1_SMB1_Hack.nes",
+    "sha256": "7085f9fbfda4bee8da1c451f14e3880453466eefdf6d9579f91e5a3b8d27a877",
+    "installed": true,
+    "behavior": "Native Mario physics, abilities, palette and pose renderer; original V1 sprite pixels."
+  },
+  "new_alternates": [
+    {
+      "slot": "SMB1 Mario",
+      "identities": ["Toad", "Peach"],
+      "priority": "First additional choices before the hack-specific Mario alternates; retain Mario/Luigi.",
+      "source": "C:/NES/the stash/SuperDuperMarioBros4P-v44-nes2header.nes",
+      "sha256": "840af2ccf798a935ab2e63e3d4409da159f48d68928f9d71ee33b608c4aa3ff4",
+      "credit": "Benj Edwards",
+      "source_project": "https://github.com/benj-edwards/NESCoopMods/tree/main/patches",
+      "notes": "Pin supplied v44, although the current project lists v45. Original project describes separate fire forms and Peach floating. Audit exact v44 routines and graphics before adapting them. This does not request multiplayer co-op integration.",
+      "playable_in_installed_build": false
+    },
+    {
+      "slot": "SMB3 Mario/Luigi",
+      "identities": ["Toad", "Peach"],
+      "source": "C:/NES/the stash/Super Mario Bros. 3+.nes",
+      "sha256": "be750155f9005314d6ba79874c4de5b979cad0526b6cb348194d2bd4f3b90c56",
+      "credit_user_provided": "infidelity",
+      "notes": "Distinct from the four requested original SMB2 characters. Audit source movements, forms and palette/CHR layout; preserve the existing SMB3 powerup ensemble.",
+      "playable_in_installed_build": false
+    },
+    {
+      "slot": "SMB1 Mario",
+      "identities": ["Mega Giant Mario"],
+      "source": "C:/NES/the stash/MEGA GIANT MARIO BROS.nes",
+      "sha256": "01941716478c97b824109ed9c4ba8e6087e1c8c3679706de95e7f1ff9f9040d4",
+      "notes": "User named the unversioned ROM; v1.1 also exists and must not silently replace it. Source sprite, collision and platform-clearance audit still required.",
+      "playable_in_installed_build": false
+    }
+  ],
+  "requested_source_credits": {
+    "SMB3+": "infidelity",
+    "Super Duper Mario Bros. 4P": "Benj Edwards",
+    "Super Maaa": "jroweboy",
+    "Celeste Mario": ["w7n", "studsx", "edengt"],
+    "Rogue Dawn": {
+      "primary_team": ["Grimlock", "snarfblam", "Optomon"],
+      "project_page": "https://metroidconstruction.com/hack.php?id=441",
+      "archive_credit_listing": "https://cloud.linkwarden.app/api/v1/archives/693464?format=2",
+      "additional_listed_contributors": ["Parasyte", "Kenta Kurodani", "DemickXII", "M-Tee", "MrRichard999"],
+      "original_ROM": "C:/NES/the stash/Metroid - Rogue Dawn 1.21 (header fixed).nes",
+      "sha256": "9271411a20cc26c09f4d4bffe74c0d69a1bf91b815f7716fcf4610c4cee61077"
+    }
+  },
+  "completion_requires": [
+    "Actual menu entry, original source behavior, gameplay graphics and palette lifecycle for each new alternate.",
+    "One native 1-1 clear per character and at least one genuine use of every powerup.",
+    "Investigate scrolling, displaced blocks, lag, movement and graphics; source leaf tests alone are not a playthrough."
+  ]
+}
