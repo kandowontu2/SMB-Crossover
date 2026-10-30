@@ -1,0 +1,77 @@
+{
+  "status": "PRIVATE_SOURCE_SPLIT_GATEWAY_ALLOCATION_GRANTED",
+  "physical_bank": 117,
+  "offset_start": 2498,
+  "end_exclusive": 2560,
+  "bytes": 62,
+  "source_owner": "Arthur raw32-only NMI palette gateway",
+  "existing_source_padding": {
+    "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\src\\smb2_roster_audio.s",
+    "sha256": "3cf9d257059ecc3d13e3a3175004caa821c6550ae8e96f72668f96669286d59a",
+    "instruction": ".res $3e,$ff ; actual old endC9C2 -> approvedCA00",
+    "scope": "PARODIUS_ART includes explicit padding before S2AudioMusicDataCA00; this62B is padding, not music payload."
+  },
+  "verified_preimages": [
+    {
+      "owner": "shared32slot80profiles",
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\full-roster-menu-v5\\candidate.nes",
+      "sha256": "5b09a3ed02aa678fb1d6fca57d905224e95c7b8f0f4e12f13901bf3f41f12d1e"
+    },
+    {
+      "owner": "frozen4hostunion",
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\character-host-union-v2\\candidate.nes",
+      "sha256": "9d0cc739f21000c269327d63f03b1b103173b2383bc1026d7efaee1b6a2d3fcd"
+    },
+    {
+      "owner": "inprogress4hostunion_conservative",
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\character-host-union-v4\\candidate.nes",
+      "sha256": "cdb5e2296a4955418d0c2bede9bc3aee05202b788ca2c87e362cee7a237df4b9"
+    },
+    {
+      "owner": "Rogueflagpole",
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-flagpole-v1\\candidate.nes",
+      "sha256": "f36632e4d8662d2cc47968f526aac6a77ce9a385b5f00be9a4bb70352aa30132"
+    },
+    {
+      "owner": "SMB2realNMIaudioRogueunion",
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\smb2-roster-real-nmi-v9\\candidate.nes",
+      "sha256": "a74215e9efbe178fc9c8b03fd347e2dbec3fd503f0dbb8041b01f6cbe47bee49"
+    },
+    {
+      "owner": "Gokureview",
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\goku-admission-review-v2\\candidate\\candidate.nes",
+      "sha256": "e55f73a22f92d3564f14dff5700e262a32327777ae413a2663dfef4a91e17ecf"
+    },
+    {
+      "owner": "GimmickNMImenu",
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\gimmick-nmi-menu-v1\\candidate.nes",
+      "sha256": "1d57ce2e7fa81b42e7795f750cde29154b55ecc456024e4a0101ff2c0981436b"
+    },
+    {
+      "owner": "DKreview",
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\dk-admission-review-v2\\candidate.nes",
+      "sha256": "defa70fc491c654dfefed4b54d25f90ea93b3a3b52fadd69013e4f0a60d49be0"
+    },
+    {
+      "owner": "SuperMaaa",
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\supermaaa-host-v1\\candidate.nes",
+      "sha256": "a8187270b50e6b3c98af7cca448752a4144b25d57d6ae9736e9e91ad0a6ac5e2"
+    },
+    {
+      "owner": "union-v8",
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\character-host-union-v8\\candidate.nes",
+      "sha256": "f0cff94380c4d7ceea73ed738e8374a28439bd40f55ab890d83107153dccb274"
+    },
+    {
+      "owner": "densePN",
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\parodius-chr-compact-v1\\candidate.nes",
+      "sha256": "c658816042a73c8d11b5ad2ac36b699222359806bd3cdcd0c94cfa1e6a1a0da1"
+    }
+  ],
+  "conditions": [
+    "Source split must preserve all PN record/table bytes and all S2 data atCA00..DFFF. Future S2 linker/source must replace this padding with an explicit separate fixed-CA00 audio segment.",
+    "Gateway real UpdateScreen call and manual A mapping restore must retain PnPaletteScreenUpdate+13 users and actual ISR register/flags/shadow/SMC contracts. No new ZP or SMC.",
+    "Gimmick-common512B source gate may compose Arthur20Hz clock under existing genuine-NMI-return guards. Prefer one family selector to per-profile unconditional calls; measure all foreign NMI overhead.",
+    "No source palette approximation or lag-NMI PPUDATA writes. Actual RGB/OAM/foreign/normal+lag NMI controls before native; no shared admission from this lease."
+  ]
+}
