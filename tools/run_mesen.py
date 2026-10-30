@@ -24,7 +24,8 @@ def run(script: Path, rom: Path, emulator: str | None = None, timeout: int = 30,
         executable = 'C:/mesen2/Mesen.exe'
     if not executable:
         raise RuntimeError('Set MESEN to your Mesen 2 executable, or use --emulator.')
-    output = ROOT / 'build/verification'
+    # A fresh per-run evidence folder keeps each run under the capture cap.
+    output = Path(os.environ.get('SMB_RUN_OUTPUT') or ROOT/'build/verification').resolve()
     output.mkdir(parents=True, exist_ok=True)
     symbols = {}
     labels = rom.with_suffix('.lbl')

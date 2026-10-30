@@ -2,8 +2,8 @@
   "status": "Active work; full roster and final playthrough objective remain open",
   "shared_playable_build": {
     "path": "C:/Users/kando/Downloads/SMB-Crossover-Latest-WIP-MMC5.nes",
-    "sha256": "ac126b545ceb0c27f4843dbbf2eed647f07288a74a7a036d6769db6e3df0b1d2",
-    "latest_user_change": "GB Pit Select alternate using recovered Retold source art; trueSelect32 fixed after native negative; coldmenu/lives and both Easy/Hard1-1\u2192controlled1-2 native clears reviewed. Previous737d Kamikaze/Celeste-small features retained.",
+    "sha256": "c0269e1569c95bb78967f9025c7d2a2dbc5b0c147ed9ba75b1847c5c227a2f5f",
+    "latest_user_change": "Four-byte row4menu queue-validation fix; native late render enables3->0 and full controls restored. Existing gameplay/CHR unchanged.",
     "new_private_units_below_are_not_installed": "Goku, Rogue Dawn, SMB2 and other remaining prototypes are excluded. GB Pit Select alternate, Kamikaze and Celeste-small are included."
   },
   "source_qualified_checkpoints": {
@@ -595,5 +595,28 @@
       "sha256": "8dff997a4f43e306e587efe58a78488d63df3fe3cd14fb71c407cfb36c618d3f"
     },
     "checkpoint": "checkpoints/2026-10-28/resident-graphics-selector-for-gimmick-dk"
+  },
+  "fourth_row_menu_fix": {
+    "status": "PASS four-row menu queue correction; no new roster identities admitted by this repair",
+    "report": {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\docs\\qa\\menu-fourth-row-fix-2026-10-29.json",
+      "bytes": 16475,
+      "sha256": "e32a71d83d28a52139c6c88aa4b7598845901e22c8177d0c42f5e0a0ecb77a28"
+    },
+    "checkpoint": "checkpoints/2026-10-28/fourth-row-menu-native-vram-repair"
+  },
+  "additional_confirmed_requests_2026_10_29": {
+    "status": "Queued; not implemented or admitted",
+    "new_slots": [
+      "WWF WrestleMania allsixwrestlers, Selectcycles; eachthemethroughoutallareas",
+      "ExciteBike withPrinceofPersia alternate",
+      "ContraForce allfourcharacters"
+    ],
+    "existing_slot_alternates": {
+      "Rygar": "Karnov",
+      "Sophia": "MetalStorm protagonist",
+      "Ryu": "Shinobi"
+    },
+    "note": "These are confirmed additions, replacing the previous maybe list. Source/CHR/PRG/menu capacity must be allocated before host implementation."
   }
 }

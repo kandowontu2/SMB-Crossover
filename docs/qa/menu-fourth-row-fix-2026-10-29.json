@@ -1,0 +1,366 @@
+{
+  "status": "PASS four-row menu queue correction; no new roster identities admitted by this repair",
+  "parent": "ac126b545ceb0c27f4843dbbf2eed647f07288a74a7a036d6769db6e3df0b1d2",
+  "candidate": "c0269e1569c95bb78967f9025c7d2a2dbc5b0c147ed9ba75b1847c5c227a2f5f",
+  "actual_ROM_changes": [
+    {
+      "offset": 547840,
+      "bank": 66,
+      "before": 240,
+      "after": 144
+    },
+    {
+      "offset": 547841,
+      "bank": 66,
+      "before": 49,
+      "after": 4
+    },
+    {
+      "offset": 547843,
+      "bank": 66,
+      "before": 33,
+      "after": 35
+    },
+    {
+      "offset": 547844,
+      "bank": 66,
+      "before": 240,
+      "after": 144
+    }
+  ],
+  "cause": "MenuQueueValidate accepted cursor addresses20xx/21xx, but fourth-row cursors are22xx. Row4 and navigation away from it skipped the compactor, preserving excess hint/palette writes and missing the render deadline.",
+  "correction": "Exact8-byte range branch now admits20xx/21xx/22xx only; four ROM bytes change inbank66. Header/CHR and every linked label remain byte-exact toparent.",
+  "compiled_controls": {
+    "cases": 6144,
+    "only_changed_results": 6,
+    "scope": "Actual assembled validator; only fourth-row single-tile cursor commands become valid. Other6138 command shapes retain the original result."
+  },
+  "native": {
+    "headless": true,
+    "controller_only": true,
+    "no_emulated_writes": true,
+    "observations": {
+      "parent-instrumented": {
+        "0": {
+          "validations": 1,
+          "optimized": 1,
+          "visibleWrites": 0,
+          "lateEnables": 0
+        },
+        "7": {
+          "validations": 1,
+          "optimized": 1,
+          "visibleWrites": 0,
+          "lateEnables": 0
+        },
+        "14": {
+          "validations": 1,
+          "optimized": 1,
+          "visibleWrites": 0,
+          "lateEnables": 0
+        },
+        "15": {
+          "validations": 1,
+          "optimized": 0,
+          "visibleWrites": 0,
+          "lateEnables": 1
+        },
+        "22": {
+          "validations": 2,
+          "optimized": 0,
+          "visibleWrites": 0,
+          "lateEnables": 2
+        }
+      },
+      "fixed-instrumented": {
+        "0": {
+          "validations": 1,
+          "optimized": 1,
+          "visibleWrites": 0,
+          "lateEnables": 0
+        },
+        "7": {
+          "validations": 1,
+          "optimized": 1,
+          "visibleWrites": 0,
+          "lateEnables": 0
+        },
+        "14": {
+          "validations": 1,
+          "optimized": 1,
+          "visibleWrites": 0,
+          "lateEnables": 0
+        },
+        "15": {
+          "validations": 1,
+          "optimized": 1,
+          "visibleWrites": 0,
+          "lateEnables": 0
+        },
+        "22": {
+          "validations": 2,
+          "optimized": 2,
+          "visibleWrites": 0,
+          "lateEnables": 0
+        }
+      }
+    },
+    "render_enables_during_visible_scanlines_before": 3,
+    "render_enables_during_visible_scanlines_after": 0,
+    "active_render_PPUDATA_writes_before": 0,
+    "active_render_PPUDATA_writes_after": 0,
+    "route": "Cold Start; rows1/2/3/4; Select onrow4; Up/back and Down/return. Each run322frames, seven selected full screenshots, bounded logs."
+  },
+  "visual_review": "Root viewed row1/row4 and row4Select before/after. Fixed row4 retains the complete legend and removes the trailing strayB. Other screenshot files are retained; no exhaustive every-frame visual review claim.",
+  "limits": "Front-end repair only. New character units remain separate until their gameplay/source/native checks pass. No full campaign or performance claim beyond this menu route.",
+  "build": {
+    "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\menu-fourth-row-fix-v2\\build-proof.json",
+    "bytes": 11398,
+    "sha256": "610d02c60e409f010df0b0afc4b8315e3a422125e268ccf700db471a48361c17"
+  },
+  "controls": {
+    "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\menu-fourth-row-fix-v2\\queue-controls.json",
+    "bytes": 1850,
+    "sha256": "55530816f058debbd889e464ae0985e033f540c5d4718ea7e00d128f60a12b85"
+  },
+  "tools": [
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\build_menu_fourth_row_fix_v1.py",
+      "bytes": 3397,
+      "sha256": "7e450ae694ff464a53ad1606b5a0cb1ddaecf62a7821a494b34171944be84041"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\menu_fourth_row_capture_v1.lua",
+      "bytes": 1848,
+      "sha256": "e8170485067903b73ed78fc49e74c0f3f6fbbb860373bcf42ec08b95965c1dcb"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\menu_fourth_row_instrumented_v1.lua",
+      "bytes": 1662,
+      "sha256": "e5ae9b529366e2811267390079277f4bbe450d55ad91698aa70022567ff76746"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\menu_fourth_row_controls_v1.py",
+      "bytes": 2278,
+      "sha256": "8334872e2deb4f5c990d6e86b5f28214c423b6ce1ed34e59c5674d0344446879"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\finalize_menu_fourth_row_v1.py",
+      "bytes": 7097,
+      "sha256": "30b5b13e9b35efe82d3e327d704827efa994992940b05cf826ffd815fa9d66dd"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\menu-fourth-row-review-v1\\parent\\candidate-menu_fourth_row_capture_v1.log",
+      "bytes": 4098,
+      "sha256": "1c2dd2a435353885f7b5572e674a13468420e33a30bd6190d264f614102cbb08"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\menu-fourth-row-review-v1\\parent\\capture-budget.json",
+      "bytes": 1159,
+      "sha256": "fe98a86de4b4ab4fe13651c8c21fb815d39445e5f849b7f3f5d44843c6a4f1fb"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\menu-fourth-row-review-v1\\parent\\menu-back-row3.png",
+      "bytes": 3963,
+      "sha256": "32b9f8a6783f0ca0fd98b052fb5ff371096e6879181b95e50f2811867261ad59"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\menu-fourth-row-review-v1\\parent\\menu-observations.csv",
+      "bytes": 933,
+      "sha256": "c867911a82bdc58343f0dcd4c09f7dd4c04e9c5e6de7a8ac0a29640173e35350"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\menu-fourth-row-review-v1\\parent\\menu-return-row4.png",
+      "bytes": 3892,
+      "sha256": "db5540448b063a9d9943f6eed769a7320b62c116d89da685c10752c008bb749d"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\menu-fourth-row-review-v1\\parent\\menu-row1.png",
+      "bytes": 4083,
+      "sha256": "f340d0153d4907add27c90a1b7afc092532cfd94772af3afca9066088e0d8994"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\menu-fourth-row-review-v1\\parent\\menu-row2.png",
+      "bytes": 4132,
+      "sha256": "ca9719380c20268f6d68c48b5183c010b2868f9f0d3f241fc56fee4440f56ec3"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\menu-fourth-row-review-v1\\parent\\menu-row3.png",
+      "bytes": 4044,
+      "sha256": "318add06ee29b3dc3e91bb52b7f557bf6e5adf04715d77b3c0c823d4dde5998b"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\menu-fourth-row-review-v1\\parent\\menu-row4-alternate.png",
+      "bytes": 3892,
+      "sha256": "db5540448b063a9d9943f6eed769a7320b62c116d89da685c10752c008bb749d"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\menu-fourth-row-review-v1\\parent\\menu-row4.png",
+      "bytes": 3892,
+      "sha256": "db5540448b063a9d9943f6eed769a7320b62c116d89da685c10752c008bb749d"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\menu-fourth-row-review-v1\\fixed\\candidate-menu_fourth_row_capture_v1.log",
+      "bytes": 4131,
+      "sha256": "2fcedaa55c957457c13d05d04fb3995188e5757acba64ad3e8642dadb2bcd15c"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\menu-fourth-row-review-v1\\fixed\\capture-budget.json",
+      "bytes": 1163,
+      "sha256": "fb053a1a8cb737e9ce0262ac4f5facbddbfa879b99c08a8da057b9e913cc0d1c"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\menu-fourth-row-review-v1\\fixed\\menu-back-row3.png",
+      "bytes": 4159,
+      "sha256": "28f1633794f6cdc68e88e4d2230a5a6a2ff2ef432d7bf4c498eb5e7e90bc1d84"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\menu-fourth-row-review-v1\\fixed\\menu-observations.csv",
+      "bytes": 933,
+      "sha256": "c867911a82bdc58343f0dcd4c09f7dd4c04e9c5e6de7a8ac0a29640173e35350"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\menu-fourth-row-review-v1\\fixed\\menu-return-row4.png",
+      "bytes": 4094,
+      "sha256": "299cdf5d3e95541a45a98bddf18e2fbbca0c5ffc384ad85913d290fdbec9d93a"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\menu-fourth-row-review-v1\\fixed\\menu-row1.png",
+      "bytes": 4083,
+      "sha256": "f340d0153d4907add27c90a1b7afc092532cfd94772af3afca9066088e0d8994"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\menu-fourth-row-review-v1\\fixed\\menu-row2.png",
+      "bytes": 4132,
+      "sha256": "ca9719380c20268f6d68c48b5183c010b2868f9f0d3f241fc56fee4440f56ec3"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\menu-fourth-row-review-v1\\fixed\\menu-row3.png",
+      "bytes": 4044,
+      "sha256": "318add06ee29b3dc3e91bb52b7f557bf6e5adf04715d77b3c0c823d4dde5998b"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\menu-fourth-row-review-v1\\fixed\\menu-row4-alternate.png",
+      "bytes": 4094,
+      "sha256": "299cdf5d3e95541a45a98bddf18e2fbbca0c5ffc384ad85913d290fdbec9d93a"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\menu-fourth-row-review-v1\\fixed\\menu-row4.png",
+      "bytes": 4094,
+      "sha256": "299cdf5d3e95541a45a98bddf18e2fbbca0c5ffc384ad85913d290fdbec9d93a"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\menu-fourth-row-review-v1\\parent-instrumented\\candidate-menu_fourth_row_instrumented_v1.log",
+      "bytes": 4189,
+      "sha256": "40e4a0515448951b9d1913d51a7e10f9d9afebac93b909686a2871ca7df94815"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\menu-fourth-row-review-v1\\parent-instrumented\\capture-budget.json",
+      "bytes": 1159,
+      "sha256": "cfc6cb18dc2769f582968df90087e0488d8aa4d444ad3062791bea4336d40fa7"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\menu-fourth-row-review-v1\\parent-instrumented\\menu-back-row3.png",
+      "bytes": 3963,
+      "sha256": "32b9f8a6783f0ca0fd98b052fb5ff371096e6879181b95e50f2811867261ad59"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\menu-fourth-row-review-v1\\parent-instrumented\\menu-observations.csv",
+      "bytes": 933,
+      "sha256": "c867911a82bdc58343f0dcd4c09f7dd4c04e9c5e6de7a8ac0a29640173e35350"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\menu-fourth-row-review-v1\\parent-instrumented\\menu-return-row4.png",
+      "bytes": 3892,
+      "sha256": "db5540448b063a9d9943f6eed769a7320b62c116d89da685c10752c008bb749d"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\menu-fourth-row-review-v1\\parent-instrumented\\menu-row1.png",
+      "bytes": 4083,
+      "sha256": "f340d0153d4907add27c90a1b7afc092532cfd94772af3afca9066088e0d8994"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\menu-fourth-row-review-v1\\parent-instrumented\\menu-row2.png",
+      "bytes": 4132,
+      "sha256": "ca9719380c20268f6d68c48b5183c010b2868f9f0d3f241fc56fee4440f56ec3"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\menu-fourth-row-review-v1\\parent-instrumented\\menu-row3.png",
+      "bytes": 4044,
+      "sha256": "318add06ee29b3dc3e91bb52b7f557bf6e5adf04715d77b3c0c823d4dde5998b"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\menu-fourth-row-review-v1\\parent-instrumented\\menu-row4-alternate.png",
+      "bytes": 3892,
+      "sha256": "db5540448b063a9d9943f6eed769a7320b62c116d89da685c10752c008bb749d"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\menu-fourth-row-review-v1\\parent-instrumented\\menu-row4.png",
+      "bytes": 3892,
+      "sha256": "db5540448b063a9d9943f6eed769a7320b62c116d89da685c10752c008bb749d"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\menu-fourth-row-review-v1\\parent-instrumented\\queue-observations.csv",
+      "bytes": 112,
+      "sha256": "bc855d6a33b39ddca88f6a88e5d84ebce4ce25d7b0066587199d3b256369f6de"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\menu-fourth-row-review-v1\\fixed-instrumented\\candidate-menu_fourth_row_instrumented_v1.log",
+      "bytes": 4182,
+      "sha256": "ab6a368d8efcdd51337c0ba414bd5ab32d933b7480c46afbfe42873c2b3f86a9"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\menu-fourth-row-review-v1\\fixed-instrumented\\capture-budget.json",
+      "bytes": 1162,
+      "sha256": "29dbef82b4534cbbf6dd1a29ab4852a9fe3b97dcaca6c12ef386f32ed300df1d"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\menu-fourth-row-review-v1\\fixed-instrumented\\menu-back-row3.png",
+      "bytes": 4159,
+      "sha256": "28f1633794f6cdc68e88e4d2230a5a6a2ff2ef432d7bf4c498eb5e7e90bc1d84"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\menu-fourth-row-review-v1\\fixed-instrumented\\menu-observations.csv",
+      "bytes": 933,
+      "sha256": "c867911a82bdc58343f0dcd4c09f7dd4c04e9c5e6de7a8ac0a29640173e35350"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\menu-fourth-row-review-v1\\fixed-instrumented\\menu-return-row4.png",
+      "bytes": 4094,
+      "sha256": "299cdf5d3e95541a45a98bddf18e2fbbca0c5ffc384ad85913d290fdbec9d93a"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\menu-fourth-row-review-v1\\fixed-instrumented\\menu-row1.png",
+      "bytes": 4083,
+      "sha256": "f340d0153d4907add27c90a1b7afc092532cfd94772af3afca9066088e0d8994"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\menu-fourth-row-review-v1\\fixed-instrumented\\menu-row2.png",
+      "bytes": 4132,
+      "sha256": "ca9719380c20268f6d68c48b5183c010b2868f9f0d3f241fc56fee4440f56ec3"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\menu-fourth-row-review-v1\\fixed-instrumented\\menu-row3.png",
+      "bytes": 4044,
+      "sha256": "318add06ee29b3dc3e91bb52b7f557bf6e5adf04715d77b3c0c823d4dde5998b"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\menu-fourth-row-review-v1\\fixed-instrumented\\menu-row4-alternate.png",
+      "bytes": 4094,
+      "sha256": "299cdf5d3e95541a45a98bddf18e2fbbca0c5ffc384ad85913d290fdbec9d93a"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\menu-fourth-row-review-v1\\fixed-instrumented\\menu-row4.png",
+      "bytes": 4094,
+      "sha256": "299cdf5d3e95541a45a98bddf18e2fbbca0c5ffc384ad85913d290fdbec9d93a"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\menu-fourth-row-review-v1\\fixed-instrumented\\queue-observations.csv",
+      "bytes": 112,
+      "sha256": "b6bd9338378bcdae3f156e6174292f6f0fd66d6f149bac176da2667b878a2f62"
+    }
+  ],
+  "workspace_cap_bytes": 70000000000
+}
