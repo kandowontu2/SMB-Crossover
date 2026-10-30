@@ -1,0 +1,117 @@
+{
+  "passed": true,
+  "native": false,
+  "installed": false,
+  "handoff_sha256": "802e29144ea73f3a4d2a2a68cebd881f9e93f27efe5c5e349c73b1947bb4e42d",
+  "ROM_sha256": "6798b7458a8fef799b0836a5baf4e5df61e0fc46f2e4b639d68f8e7e2186a6c5",
+  "archive_sha256": "d3558d158174878997505a22b11caa65cc0f68ba27994e5943cad5f27aa1de9b",
+  "archive_bytes": 14000223,
+  "archive_members": 613,
+  "all_archived_member_hashes_verified": true,
+  "original_ROMs_included": false,
+  "checks": {
+    "actual_FF_flash": {
+      "passed": true,
+      "actual_FF_vs_native_Link_actor_pairs": 275,
+      "native_flash_colors_and_validated_Bowser_rear_ownership_exact": true
+    },
+    "foreign_actors": {
+      "passed": true,
+      "actual_foreign_actor_pairs": 256,
+      "extra_CPU_per_actor_range": [
+        0,
+        7
+      ],
+      "native_Link_direct_bypass_CPU": 0,
+      "all_application_state_ordered_writes_AXYP_SP_OAM_and_maps_exact": true
+    },
+    "foreign_DrawAll": {
+      "passed": true,
+      "actual_complete_foreign_DrawAll_pairs": 66,
+      "extra_CPU_range": [
+        145,
+        152
+      ],
+      "actual_Samus_freeze_and_original_return_contract_exact": true
+    },
+    "foreign_Main": {
+      "passed": true,
+      "actual_complete_foreign_Main_pairs": 24,
+      "legal_offline_scene_fixture_not_native_campaign": true,
+      "extra_CPU_range": [
+        145,
+        145
+      ]
+    },
+    "actual_ISR": {
+      "passed": true,
+      "real_lag_NMI_and_IRQ_cases": 136,
+      "snapshots": 68,
+      "actual_Main_queue_writer_contract": true,
+      "all33SMC_AXYP_live_page1_R01_R67_rawmaps_and_RAM3_exact": true
+    },
+    "palette_regression": {
+      "passed": true,
+      "checks": {
+        "source_rows": {
+          "passed": true,
+          "original_class_rows": 2,
+          "existing_guest_flash_rows": 3
+        },
+        "colors": {
+          "passed": true,
+          "actual_GetPlayerColors_cases": 288,
+          "genuine_world_P2_P3_and_class_backdrop_exact": true,
+          "cold_no_RAM3_execution": true
+        },
+        "capacity": {
+          "passed": true,
+          "full_force_offsets": 512,
+          "cached_body_offsets": 256,
+          "queue_capacity": 84,
+          "all_canaries_and_complete_packet_retry_pass": true
+        },
+        "transitions": {
+          "passed": true,
+          "actual_UI_ticks": 1024,
+          "source_flash_phases_and_restoration_exact": true,
+          "cached_tick_CPU": [
+            594,
+            1482
+          ]
+        },
+        "cold": {
+          "passed": true,
+          "foreign_and_full_cookie_rejection_cases": 96,
+          "no_source_state_or_ACK_writes_and_no_RAM3_execution": true
+        },
+        "native_NMI": {
+          "passed": true,
+          "actual_normal_NMI_consumptions": 16,
+          "actual_PPU_palette_writes_match": true,
+          "world_P1_not_recolored": true
+        },
+        "Main": {
+          "passed": true,
+          "whole_Main_cases": 8,
+          "once_per_Main_real_UI_service": true,
+          "native_queue_ownership_observed": true
+        },
+        "ISR": {
+          "passed": true,
+          "real_ISR_cases": 151,
+          "snapshots": 65,
+          "all33SMC_APXY_live_page1_R01_R67_maps_and_RAM3_verified": true,
+          "queue_writer_normal_NMI_not_fabricated": true
+        }
+      },
+      "cold_mode_ASL_optimization_actual_controls_exact": true
+    }
+  },
+  "limits": [
+    "Private source successor; no native emulator,menu admission,installed build or full1-1 completion claim.",
+    "An extra145CPU per complete DrawAll and0..7CPU per NPC are measured; no performance improvement or60Hz claim.",
+    "FF FX palette allocation/optional ink,actual sharedpostBG/audio/readiness/earned upgrades remain open.",
+    "Source lineage remains private FF07cda with terrain/combat/palette successors; shared composition must retain installeda7cc Celeste/Kamikaze/Rogue changes."
+  ]
+}

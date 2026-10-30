@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "native": false,
+  "product_changed": false,
+  "baseline": "build/ff-joint-body-palette-1030-v2/joint/candidate.nes",
+  "baseline_sha256": "76b5ebf2529ae69a54188ad79487c31e55c3caaac01d504193f91ce07df3e608",
+  "observations": [
+    {
+      "selected": 0,
+      "entry_rawC": 216,
+      "exit_rawC": 140,
+      "exit_shadowC": 140,
+      "SP": 224,
+      "first_actual_hardware_store_PC": 59389,
+      "actual_A_bank": 132
+    }
+  ],
+  "correction": "The original genuine DrawAll publishes graphics bankC. The successor harness keeps identical old/new C maps and ordered writes, full live page1 and A restoration; it stops requiring the unrelated typed-leaf unchanged-C condition."
+}

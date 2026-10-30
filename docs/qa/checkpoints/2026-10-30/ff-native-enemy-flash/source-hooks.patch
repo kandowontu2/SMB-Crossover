@@ -1,0 +1,107 @@
+--- parent/joint/src/metasprite_engine.s
++++ candidate/joint/src/metasprite_engine.s
+@@ -1,3 +1,4 @@
++.import FwNativeDrawAll
+ 
+ .segment "METASPRITE"
+ 
+@@ -792,12 +793,12 @@
+   farcall SamusFreezeDebrisPosition
+   jmp PositionReady
+ ::SamusFreezeDrawAll:
+-  lda SmFreezeRenderState
+-  beq NativeDraw
+-  jsr DrawAllMetasprites
+-  farcall SamusFreezeRenderFinish, jmp
+-NativeDraw:
+-  jmp DrawAllMetasprites
++  farcall FwNativeDrawAll, jmp
++::FwNativeFlashProbe:
++  cmp #22
++  beq NativeFlash
++  jmp SamusFreezeFlashOwner
++  .res 4,$ea
+ ::SamusFreezeFlashOwner:
+   cmp #CHARACTER_RYU
+   beq NativeFlash
+@@ -965,7 +966,7 @@
+   lda SelectedCharacter
+   cmp #CHARACTER_LINK
+   beq LsrFlashEnemy
+-  jmp SamusFreezeFlashOwner
++  jmp FwNativeFlashProbe
+   nop
+ LsrFlashEnemy:
+ ::SmFreezeNativeFlashEnemy:
+--- parent/joint/entrypoint.s
++++ candidate/joint/entrypoint.s
+@@ -1508,3 +1508,5 @@
+ .exportzp R6
+ .exportzp R7
+ 
++
++.export SamusFreezeRenderFinish
+--- parent/joint/private.cfg
++++ candidate/joint/private.cfg
+@@ -211,7 +211,7 @@
+     PRIVATE_QUICK_CARRIER_MEM:start=$dd000,size=$2400,type=ro,fill=yes,file=%O,fillval=$00;
+ FF_STREAM_MEM:start=$df400,size=$2000,type=ro,fill=yes,file=%O,fillval=$00;
+ UNALLOCATED_CHR_MEM:start=$e1400,size=$1ec00,type=ro,fill=yes,file=%O,fillval=$00;
+-FF_RAM3_MEM:start=$a000,size=$2000,bank=3,type=ro,file="C:/Users/kando/Documents/ChatGPT/SMB Crossover/build/ff-joint-body-palette-1030-v2/joint/ram3.bin",fill=yes,fillval=$ff;
++FF_RAM3_MEM:start=$a000,size=$2000,bank=3,type=ro,file="C:/Users/kando/Documents/ChatGPT/SMB Crossover/build/ff-joint-native-flash-1030-v1/joint/ram3.bin",fill=yes,fillval=$ff;
+ }
+ SEGMENTS {
+ 
+@@ -523,6 +523,7 @@
+ FF_ROM_HOST:load=X5_NEW_3E,type=ro,start=$aa00;
+ FF_DRAW_BRIDGE:load=X5_NEW_3E,type=ro,start=$b31c;
+ FF_PALETTE_BRIDGE:load=X5_NEW_3E,type=ro,start=$b336;
++FF_NATIVE_DRAW_BRIDGE:load=X5_NEW_3E,type=ro,start=$b3c5;
+ FF_SERVICE_VENEERS:load=X5_NEW_3E,type=ro,start=$b400;
+ FF_SERVICE_ADAPTERS:load=X5_NEW_3E,type=ro,start=$b46e;
+ FF_WORLD_PALETTE_BRIDGE:load=X5_NEW_3E,type=ro,start=$b67d;
+--- parent/joint/ff-palette.s
++++ candidate/joint/ff-palette.s
+@@ -65,9 +65,8 @@
+  lda #1
+  bne FwPaletteHaveMode
+ FwPaletteCold:
+- cmp #0
++ asl                          ; authenticated mode0/1 becomes cold0/2.
+  beq FwPaletteRestore
+- lda #2                       ; cold force: globals/ROM only, no FF cache ACK.
+ FwPaletteHaveMode:
+  pha
+  cmp #0
+@@ -254,3 +253,31 @@
+  .byte $0f,$0f,$24,$30
+ .endproc
+ FfHostPaletteCEnd:
++
++; Existing native DrawAll behavior relocated into the remaining owned A62
++; palette alignment. Do not latch freeze state after DrawAll: preserve its
++; genuine entry decision and genuine final returned AXY/P on both paths.
++.import DrawAllMetasprites,SmFreezeRenderState,SamusFreezeRenderFinish
++.export FwNativeDrawAll,FwNativeDrawAllEnd
++.segment "FF_NATIVE_DRAW_BRIDGE"
++.proc FwNativeDrawAll
++ lda SmFreezeRenderState
++ beq Native
++ FP_FAR DrawAllMetasprites
++ sta SafecallA_SMC+1
++ lda #<SamusFreezeRenderFinish
++ sta FarcallJmpTarget_SMC+1
++ lda #>SamusFreezeRenderFinish
++ sta FarcallJmpTarget_SMC+2
++ lda #.lobyte(.bank(SamusFreezeRenderFinish)|$80)
++ jmp FarCallCommon
++Native:
++ sta SafecallA_SMC+1
++ lda #<DrawAllMetasprites
++ sta FarcallJmpTarget_SMC+1
++ lda #>DrawAllMetasprites
++ sta FarcallJmpTarget_SMC+2
++ lda #.lobyte(.bank(DrawAllMetasprites)|$80)
++ jmp FarCallCommon
++.endproc
++FwNativeDrawAllEnd:
