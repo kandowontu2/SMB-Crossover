@@ -2,9 +2,11 @@
 
 Play Super Mario Bros. with characters from across the NES library, each bringing their own movement, weapons and upgrades.
 
-This is a native NES adaptation of [Super Mario Bros. Crossover](https://www.smbgames.be/smb-crossover.php), built on [SMB1Base](https://github.com/smbstudio/smb1base). The expanded MMC5 version currently includes **37 playable characters and alternates across 19 selection slots**.
+This is a native NES adaptation of [Super Mario Bros. Crossover](https://www.smbgames.be/smb-crossover.php), built on [SMB1Base](https://github.com/smbstudio/smb1base). The prepared expanded MMC5 target includes **37 playable characters and alternates across 19 selection slots**.
 
 **Status: playable, actively developed, and unfinished.** Character behavior, graphics, sound and performance are still being tested and corrected. MMC5 is the recommended target for the full roster.
+
+The October 30 roster-menu development checkpoint (`979cff78`) displays **77 identities in 31 slots across four rows**, including all requested Select alternates. **47 are playable; 30 starred entries are marked COMING SOON and cannot start gameplay.** All entries use original-game artwork. Controller checks cover every slot and alternate, title/options re-entry, and returning from pending previews to playable characters. See the [checks and limits](docs/qa/full-roster-menu-2026-10-30.json). This later checkpoint is separate from the prepared build commands below; its exact source inputs are retained under `docs/qa/checkpoints/2026-10-30/full-roster-menu/`.
 
 The October 28 development build (`85afad50`) removes an unnecessary second weapon scan during Bill/Lance's ordinary gunfire and moves their selected-gun icon clear of the HUD lettering. Bill passed the focused Hard gun suite and cleared 1-1 without deaths or cheats on this exact build. The ordinary MMC3/MMC5 ROMs remain unchanged. Laser/Flare's intermittent weapon indicator, crowded player sprites, and broader lag work remain open; this is not a constant-frame-rate claim. See the [checks and remaining limits](docs/qa/bill-hud-inert-adoption-2026-10-28.json).
 
