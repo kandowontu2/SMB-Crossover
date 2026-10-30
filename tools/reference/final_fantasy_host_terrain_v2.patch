@@ -1,0 +1,12 @@
+--- v1/terrain.s
++++ v2/terrain.s
+@@ -166,6 +166,9 @@
+  sec
+  sbc FfTerrainDY
+  sta FfTerrainTargetY
++ ; Commit the actual ceiling response before native side probes. The cell
++ ; tuple already exists; this is resolved motion, never a query proxy.
++ sta Player_Y_Position
+  lda #1
+  sta FfTerrainFlags
+  lda #4
