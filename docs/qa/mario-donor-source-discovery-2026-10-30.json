@@ -1,0 +1,77 @@
+{
+  "status": "SOURCE_DISCOVERY_ONLY_NOT_PLAYABLE_ADMISSION",
+  "donors": [
+    {
+      "identity": "SMB1 Toad and Peach",
+      "credit": "Benj Edwards",
+      "source": {
+        "path": "C:\\NES\\the stash\\SuperDuperMarioBros4P-v44-nes2header.nes",
+        "bytes": 262160,
+        "sha256": "840af2ccf798a935ab2e63e3d4409da159f48d68928f9d71ee33b608c4aa3ff4"
+      },
+      "asset_checkpoint": "docs/qa/checkpoints/2026-10-30/benj-toad-peach-exact-source-art/receipt.json"
+    },
+    {
+      "identity": "SMB3 Toad and Peach",
+      "credit": "Infidelity",
+      "source": {
+        "path": "C:\\NES\\the stash\\Super Mario Bros. 3+.nes",
+        "bytes": 786448,
+        "sha256": "be750155f9005314d6ba79874c4de5b979cad0526b6cb348194d2bd4f3b90c56"
+      }
+    },
+    {
+      "identity": "Mega Giant Mario",
+      "source": {
+        "path": "C:\\NES\\the stash\\MEGA GIANT MARIO BROS.nes",
+        "bytes": 65552,
+        "sha256": "01941716478c97b824109ed9c4ba8e6087e1c8c3679706de95e7f1ff9f9040d4"
+      },
+      "scope": "Queued. No behavior or art port claim."
+    }
+  ],
+  "SMB3plus_instruction_fixture": {
+    "status": "SMB3PLUS_INSTRUCTION_DISCOVERY_NOT_PORT_OR_NATIVE_QUALIFICATION",
+    "frames": 300,
+    "instructions": 2903407,
+    "nmis": 261,
+    "mapper_writes": 3448,
+    "prg_banks": [
+      62,
+      24,
+      25,
+      63
+    ],
+    "mapper_registers": [
+      120,
+      122,
+      84,
+      15,
+      196,
+      172,
+      25,
+      24
+    ],
+    "ctrl": 168,
+    "mask": 24,
+    "input_script": "Start held at frames65..68 and180..183; no other input.",
+    "limits": "Approximate PPU status/sprite-zero and frame NMI; MMC3 IRQ unmodeled. No graphics, playthrough, physics, cadence, or readiness claim."
+  },
+  "source_tools": [
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\discover_smb3plus_chr_routes_1030_v1.py",
+      "bytes": 2809,
+      "sha256": "890b5bca770f858fa54e77ed7b45dfdf8929d06ddba36a9b389b70c27ac5a273"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\benj_mario_donor_trace_1030_v1.py",
+      "bytes": 9001,
+      "sha256": "528c4e264b3edb7779dc06821d1b48be09de01a153a3d3fb3a055edd982d2487"
+    }
+  ],
+  "limits": [
+    "The SMB3+ fixture does not emulate MMC3 scanline IRQ or raster timing and is only a route-discovery aid.",
+    "CHR page similarity and visual inspection do not prove character-to-page ownership or playable abilities.",
+    "No installed build, shared selection menu, source lease, roster readiness or full-level check is changed."
+  ]
+}
