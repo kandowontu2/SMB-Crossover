@@ -1,0 +1,130 @@
+{
+  "status": "CONTROLLER_GRAPHICS_PASS_SEVERE_PERFORMANCE_HOLD",
+  "candidate_sha256": "1437f43b3327d2e213370779fc90c32a04208416c792031bae1175c8bacbbc10",
+  "native_handoff_sha256": "dde1e2e66e9806280efe97bca88a6ea41800a6874d0ce01709db620dc6fc8259",
+  "source_handoff_sha256": "505c20f7fa29c0f62bdcdff2bd996ee6562101b601369a84f8afd8e41b0308e3",
+  "verified_binding_counts": [
+    694,
+    49,
+    0
+  ],
+  "installed": false,
+  "full_1_1_clear": false,
+  "earned_upgrade_completion": false,
+  "reviewed_whole_frames": [
+    "menu-arthur.png",
+    "lives-arthur.png",
+    "game-start.png",
+    "double-jump.png",
+    "source-lance.png",
+    "game-controlled.png"
+  ],
+  "review": [
+    "Menu/lives/gameplay body, double jump and lance coherent in the bounded cold controller run.",
+    "Initial game-start frame precedes the first source body update; later actual body/black-detail assertions pass.",
+    "Inherited cyan menu band is visible; it is not declared fixed.",
+    "Normal hardware eight-sprite limit remained enabled, with no script RAM writes."
+  ],
+  "result": {
+    "passed": true,
+    "frames": 948,
+    "controlled_game_frames": 400,
+    "raw": 32,
+    "source_steps": 134,
+    "source_clock_calls": 400,
+    "source_lance_calls": 112,
+    "draws": 136,
+    "portraits": 1,
+    "right_pixels": 85,
+    "jump_pixels": 64,
+    "max_jump_count": 2,
+    "main_calls": 791,
+    "lag_observations": 266,
+    "active_ppu_writes": 0,
+    "screenshots": 6,
+    "scroll_checks": 655,
+    "actual_world_pixels": 7680,
+    "actual_body_pixels": 146,
+    "RAM_writes": false,
+    "limits": "Cold host smoke only; no earned upgrades or campaign clear."
+  },
+  "timing": {
+    "ROM_sha256": "1437f43b3327d2e213370779fc90c32a04208416c792031bae1175c8bacbbc10",
+    "physical_game_frames": 400,
+    "source_steps": 134,
+    "clock_calls": 400,
+    "draws": 133,
+    "lag_NMIs": 266,
+    "timing": {
+      "lag_nmi": {
+        "count": 266,
+        "total_CPU_cycles": 1018892,
+        "min": 3153,
+        "max": 5828,
+        "mean": 3830.421
+      },
+      "foreground": {
+        "count": 266,
+        "total_CPU_cycles": 8480447,
+        "min": 21105,
+        "max": 43410,
+        "mean": 31881.38
+      },
+      "irq": {
+        "count": 400,
+        "total_CPU_cycles": 48000,
+        "min": 120,
+        "max": 120,
+        "mean": 120.0
+      },
+      "normal_nmi": {
+        "count": 134,
+        "total_CPU_cycles": 789415,
+        "min": 5081,
+        "max": 7630,
+        "mean": 5891.157
+      }
+    },
+    "scope": "Actual CPU cycleCounter; foreground excludes intercepted NMI/IRQ elapsed, ISR includes DMA/stalls; no60Hz performance admission."
+  },
+  "same_controller_comparison": {
+    "physical_game_frames": 300,
+    "source_steps": [
+      34,
+      100
+    ],
+    "clock_calls": [
+      100,
+      300
+    ],
+    "draws": [
+      100,
+      100
+    ],
+    "lag_NMIs": [
+      200,
+      200
+    ],
+    "foreground_mean_delta": 1257.25,
+    "foreground_max_delta": 395,
+    "lag_NMI_mean_delta": 403.0
+  },
+  "hold_reason": "266 lag NMIs in400 physical gameplay frames; the source clock/input repair does not solve rendering or Main cadence.",
+  "source_archive_sha256": "58204e756567ad73dd2ea789ef72c2edf30b8f310787973e375efd19d9dea2d2",
+  "source_archive_bytes": 14760979,
+  "source_archive_members": 746,
+  "all_archived_members_verified_against_original_files": true,
+  "omitted_ROMs": [
+    {
+      "path": "build/arthur-physical-clock-v2/joint/candidate.nes",
+      "sha256": "1437f43b3327d2e213370779fc90c32a04208416c792031bae1175c8bacbbc10"
+    }
+  ],
+  "original_frozen_archive_sha256": "5afdc337bc421f5d2af99d7e785f5bc270c237641fce7fe338ab3eb5b4dc1454",
+  "no_new_native_run": true,
+  "no_download_change": true,
+  "next_work": "Reduce measured foreground/interrupt cost, then qualify the exact shared successor before replacing Downloads.",
+  "binding": {
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\checkpoint_arthur_clock_review_1030_v1.py": "111f37e2b5f9fd5636891d4715a60fd879a461265169187bcffb7ff371dd93fb"
+  }
+}

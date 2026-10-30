@@ -1,0 +1,170 @@
+{
+  "status": "NATIVE_CONTROLLER_GRAPHICS_PASS_SEVERE_PERFORMANCE_HOLD",
+  "candidate": "1437f43b3327d2e213370779fc90c32a04208416c792031bae1175c8bacbbc10",
+  "source_handoff": "505c20f7fa29c0f62bdcdff2bd996ee6562101b601369a84f8afd8e41b0308e3",
+  "native": true,
+  "installed": false,
+  "result": {
+    "passed": true,
+    "frames": 948,
+    "controlled_game_frames": 400,
+    "raw": 32,
+    "source_steps": 134,
+    "source_clock_calls": 400,
+    "source_lance_calls": 112,
+    "draws": 136,
+    "portraits": 1,
+    "right_pixels": 85,
+    "jump_pixels": 64,
+    "max_jump_count": 2,
+    "main_calls": 791,
+    "lag_observations": 266,
+    "active_ppu_writes": 0,
+    "screenshots": 6,
+    "scroll_checks": 655,
+    "actual_world_pixels": 7680,
+    "actual_body_pixels": 146,
+    "RAM_writes": false,
+    "limits": "Cold host smoke only; no earned upgrades or campaign clear."
+  },
+  "timing": {
+    "ROM_sha256": "1437f43b3327d2e213370779fc90c32a04208416c792031bae1175c8bacbbc10",
+    "physical_game_frames": 400,
+    "source_steps": 134,
+    "clock_calls": 400,
+    "draws": 133,
+    "lag_NMIs": 266,
+    "timing": {
+      "lag_nmi": {
+        "count": 266,
+        "total_CPU_cycles": 1018892,
+        "min": 3153,
+        "max": 5828,
+        "mean": 3830.421
+      },
+      "foreground": {
+        "count": 266,
+        "total_CPU_cycles": 8480447,
+        "min": 21105,
+        "max": 43410,
+        "mean": 31881.38
+      },
+      "irq": {
+        "count": 400,
+        "total_CPU_cycles": 48000,
+        "min": 120,
+        "max": 120,
+        "mean": 120.0
+      },
+      "normal_nmi": {
+        "count": 134,
+        "total_CPU_cycles": 789415,
+        "min": 5081,
+        "max": 7630,
+        "mean": 5891.157
+      }
+    },
+    "scope": "Actual CPU cycleCounter; foreground excludes intercepted NMI/IRQ elapsed, ISR includes DMA/stalls; no60Hz performance admission."
+  },
+  "fair_body": {
+    "passed": true,
+    "ROM_sha256": "1437f43b3327d2e213370779fc90c32a04208416c792031bae1175c8bacbbc10",
+    "actual_source_permutations": 135,
+    "hardware_OAM_first8_checks": 401,
+    "source_body_black_glyph_pixels_first8": 39253,
+    "maximum_body_records": 11,
+    "normal_eight_sprite_limit": true,
+    "script_RAM_writes": false,
+    "scope": "Passive complete64record source permutation, actual DMA OAM and actual mapped-cartridge CHR/palette evaluation. Screenshot review still required; background priority can cover a legitimate sprite pixel. No cadence admission."
+  },
+  "same_controller_matched_300frame_comparison": {
+    "physical_game_frames": 300,
+    "source_steps": [
+      34,
+      100
+    ],
+    "clock_calls": [
+      100,
+      300
+    ],
+    "draws": [
+      100,
+      100
+    ],
+    "lag_NMIs": [
+      200,
+      200
+    ],
+    "foreground_mean_delta": 1257.25,
+    "foreground_max_delta": 395,
+    "lag_NMI_mean_delta": 403.0
+  },
+  "original_failure_retained": "ba3475117cbd82f342f0f14b74f672f0aea2399633614da16695cf71a2fe6d61",
+  "source_physics_and_controller_unchanged": true,
+  "screenshots": [
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\arthur-physical-clock-v2\\native\\cold-physical-clock-v3\\menu-arthur.png",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\arthur-physical-clock-v2\\native\\cold-physical-clock-v3\\lives-arthur.png",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\arthur-physical-clock-v2\\native\\cold-physical-clock-v3\\game-start.png",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\arthur-physical-clock-v2\\native\\cold-physical-clock-v3\\double-jump.png",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\arthur-physical-clock-v2\\native\\cold-physical-clock-v3\\source-lance.png",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\arthur-physical-clock-v2\\native\\cold-physical-clock-v3\\game-controlled.png"
+  ],
+  "limits": [
+    "One cold selector/lives/1-1 smoke only; no campaign/earned-upgrades/audio completion.",
+    "266lagNMIs/400PPU remain severe. Source20Hz physical acceptance is restored; Main and drawing cadence are not improved.",
+    "Initial game-start capture precedes the first rendered source update; subsequent source body/ink/hardware tests pass.",
+    "Inherited cyan menu band remains. Static gold menu portrait and original blue lives palette have distinct source contexts.",
+    "Root whole-frame review and separate installation authorization are required; no Downloads changed."
+  ],
+  "bindings": {
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\arthur-physical-clock-v2\\native\\cold-physical-clock-v3\\actual-cache-code.bin": "ecc8e11206a72245ab852dae2ff5577dd94daf67c88caa3b31bc4df6f32152e6",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\arthur-physical-clock-v2\\native\\cold-physical-clock-v3\\actual-cache-cookie.bin": "5bc22cc75627c0b9e757a5940315ee8f909e404afdbd029748dae7964e3561a9",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\arthur-physical-clock-v2\\native\\cold-physical-clock-v3\\actual-cache.bin": "f3b8ad65edad75fb8948ecfc8ff844ce40dbcfa75911cc9b63d42eb249c2d82b",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\arthur-physical-clock-v2\\native\\cold-physical-clock-v3\\cache-native.json": "a343b79f3767afbebdf24eeb3109e8d8101e2b09af68a130f5fd30fb8aafbe18",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\arthur-physical-clock-v2\\native\\cold-physical-clock-v3\\candidate-native-driver-v3.log": "410e9c38b083fa349a29934eb88deabf8ce7931a544c10c82c25ecb428e46353",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\arthur-physical-clock-v2\\native\\cold-physical-clock-v3\\capture-budget.json": "50e3add5a91a471f8b104f0aa9ebb0e1b3badca71a4104bd7e05afc8d2b6e344",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\arthur-physical-clock-v2\\native\\cold-physical-clock-v3\\double-jump.hardware.json": "9d309a915ecfd7f81a8f37b76fb98b83d8e1517de236ba05e33f3d82e1c8dc01",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\arthur-physical-clock-v2\\native\\cold-physical-clock-v3\\double-jump.oam.bin": "87def2ac3640cf2b230b145b364584b42e6467dc26df9093143c8bf7277d4fc7",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\arthur-physical-clock-v2\\native\\cold-physical-clock-v3\\double-jump.palette.bin": "b6a35afa050f9421bea221e400d61af7add431421f60ac9b1023b3ac88059fa0",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\arthur-physical-clock-v2\\native\\cold-physical-clock-v3\\double-jump.png": "1fe5085879b669c34aaa70e8bf01afe5b66c30267a32462eb3f49658b05492a1",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\arthur-physical-clock-v2\\native\\cold-physical-clock-v3\\fair-body-native.json": "e8adf8307fd5957352b1384ea7c08a72871c7dd85fd4c6f77f75354e296ccd61",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\arthur-physical-clock-v2\\native\\cold-physical-clock-v3\\frames.csv": "a3bfff34d4424433caa8efbce9a718b119a4d19a518310b793b93c452628c3e7",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\arthur-physical-clock-v2\\native\\cold-physical-clock-v3\\game-controlled.hardware.json": "8f52e3e7040a3eaa21fadd25005084f80728825c6531a0a3fae5e7f767800c44",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\arthur-physical-clock-v2\\native\\cold-physical-clock-v3\\game-controlled.oam.bin": "da209b7d8496cb88461fe4829a4caf8545f25092947fcb78120e3ad3d8701eff",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\arthur-physical-clock-v2\\native\\cold-physical-clock-v3\\game-controlled.palette.bin": "af55fa8026bcbce589aa1470b005240e7cbe0f3bdc62e88d619a86d857df8cda",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\arthur-physical-clock-v2\\native\\cold-physical-clock-v3\\game-controlled.png": "2bf5fa1ffab82235204552cfcf9e1f6da67d3c0f7e1ab53d6d67794a50a17355",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\arthur-physical-clock-v2\\native\\cold-physical-clock-v3\\game-start.hardware.json": "252a629ce9baca480fb09c476d087a65753b61ab5f0a2f88c7be76c84e661165",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\arthur-physical-clock-v2\\native\\cold-physical-clock-v3\\game-start.oam.bin": "5581a52702942c3544dcf73e81f5c0d466fc6b921fb6c26d41e1619f26c24b92",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\arthur-physical-clock-v2\\native\\cold-physical-clock-v3\\game-start.palette.bin": "af55fa8026bcbce589aa1470b005240e7cbe0f3bdc62e88d619a86d857df8cda",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\arthur-physical-clock-v2\\native\\cold-physical-clock-v3\\game-start.png": "cc7eb6992f7f332f36499932c64b4966fd851043549c5e4afcdc2d4a07e84c12",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\arthur-physical-clock-v2\\native\\cold-physical-clock-v3\\lives-arthur.hardware.json": "77643c5ff580d707c9d1c7609aa2371d1728c86312c5f2dbb2a99612ce8f0493",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\arthur-physical-clock-v2\\native\\cold-physical-clock-v3\\lives-arthur.oam.bin": "69b5cdff4ea237d2f4bf1a0d66996010b06be89ac8267a846ef671b99dc65aa1",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\arthur-physical-clock-v2\\native\\cold-physical-clock-v3\\lives-arthur.palette.bin": "5a69975fb139db06d04ca21c28f57c979ac165744865f71191fa23407f6d0905",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\arthur-physical-clock-v2\\native\\cold-physical-clock-v3\\lives-arthur.png": "717fc0892e21141788784ca766a3084cca386f14ffca8bcfa8102ceeac6c166c",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\arthur-physical-clock-v2\\native\\cold-physical-clock-v3\\menu-arthur.hardware.json": "465c95804cfe375ce8504a0a093f4230947dde9da36f9b66ab48fedd9bcb51f0",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\arthur-physical-clock-v2\\native\\cold-physical-clock-v3\\menu-arthur.oam.bin": "c7f672d703a08a935c83fff3b0456176a94bd2fb3e19e69cbb0d0b9d0096237f",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\arthur-physical-clock-v2\\native\\cold-physical-clock-v3\\menu-arthur.palette.bin": "f10bb6691a9d11474720e99ac11a8c5f60a7655ee74d0b3014ba9364bea769ac",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\arthur-physical-clock-v2\\native\\cold-physical-clock-v3\\menu-arthur.png": "a64d0ac9bd3cc04cba24abe57a70725dc845124ad8672f5794b6ea9798c966e1",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\arthur-physical-clock-v2\\native\\cold-physical-clock-v3\\result.json": "e6f575e10ea25e0b627323cb4ac025316ba6313893b3024c8656f1c0b45b1020",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\arthur-physical-clock-v2\\native\\cold-physical-clock-v3\\source-lance.hardware.json": "6153af77d61b39715403675add3f5b5a54b4615f2e9519b304cc371dcbf19a3f",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\arthur-physical-clock-v2\\native\\cold-physical-clock-v3\\source-lance.oam.bin": "2c615eae021b4378269a41d5a63bb7dc5c890aed35381d6edfa892e32d32f57e",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\arthur-physical-clock-v2\\native\\cold-physical-clock-v3\\source-lance.palette.bin": "af55fa8026bcbce589aa1470b005240e7cbe0f3bdc62e88d619a86d857df8cda",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\arthur-physical-clock-v2\\native\\cold-physical-clock-v3\\source-lance.png": "a2347fd6827ab4bc8984521909e2a50f42303c8b8747a5962a372e0f5e2efb32",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\arthur-physical-clock-v2\\native\\cold-physical-clock-v3\\timing-at-visibility.json": "3c4a1a7cedc1153ca04324795fcf22e57313bd5e2fc2e7a271f1258b25972246",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\arthur-physical-clock-v2\\native\\cold-physical-clock-v3\\timing.json": "64cfe84161436a19dc2ef3625364fcded8b90db30475f856e74f6b07227b3d3a",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\freeze_arthur_physical_clock_native_v3.py": "ba6f72aae1ba3bb84afd8ba861a4669584223f98e389c0ec8e1459637efcca87",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\prepare_arthur_physical_clock_native_v3.py": "446cad36c326cc0b00a60c0b5682289182a6571d5fcc22a66622dc3a7c214f33",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\run_arthur_physical_clock_native_v3.py": "da6a18fbd4e65a46d7545934f9842d9a72a951ff9abc6ceefc17d43aa3e3529f",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\arthur-physical-clock-v2\\native-prepared-v3.json": "66630b98263839039324d2b04853a8f2056bd245fafb59289ebdcd71b16c30d3",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\arthur-physical-clock-v2\\native-driver-v3.lua": "7112a45bc270681ac98194439319a0cc860336e84349de35d48b567f72c062df",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\arthur-physical-clock-v2\\native-controller-v3.lua": "9f24adf31c09db8e3a549e05adaa86c90285f80098c3a49ba7f938dbde4c9202",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\arthur-physical-clock-v2\\native-controller-v3.patch": "a4fb3de8e302547ad0b2b6f8e229ee1305e905ab2109b02a07b1bc3e7f065ac6",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\arthur-physical-clock-v2\\native-capture-budget-v3.py": "94415cddef06d7c602575c9efee8b3bcd99c8578f16eb1cd9074c19cf4cddd95",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\arthur-physical-clock-v2\\native-storage-preflight-v3.json": "6996dd4e32f93065a40120c0282e5e5ee921d9c6ad71ed8eddd8f44bb3b977ba",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\arthur-physical-clock-v2\\native-preflight-v3.json": "012e285ffd759f8f4555173968ec8ce60f5c39ebbec39773cea5c582faa7a33f",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\arthur-physical-clock-v2\\native-postflight-v3.json": "bbe3989c7b8b8980a32d05f77c6c768d6997447519a47c58201b8c4ccc8d9b3e",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\arthur-physical-clock-v2\\native-summary-v3.json": "75938016ab39b676175905be83538264ccdfb3f356fc687d153d08f0a1736d55",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\arthur-physical-clock-v2\\native-whole-frame-review-v3.png": "a39150b2c6e5930eebe19c3e35f4ba5f8307d69cfebcd61fe6c0a0b08c60885e",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\arthur-physical-clock-v2\\handoff.json": "505c20f7fa29c0f62bdcdff2bd996ee6562101b601369a84f8afd8e41b0308e3"
+  }
+}

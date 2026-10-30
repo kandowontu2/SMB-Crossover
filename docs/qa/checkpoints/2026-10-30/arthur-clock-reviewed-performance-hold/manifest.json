@@ -1,0 +1,168 @@
+{
+  "status": "NATIVE_CONTROLLER_GRAPHICS_PASS_SEVERE_PERFORMANCE_HOLD",
+  "candidate": "1437f43b3327d2e213370779fc90c32a04208416c792031bae1175c8bacbbc10",
+  "source_handoff": "505c20f7fa29c0f62bdcdff2bd996ee6562101b601369a84f8afd8e41b0308e3",
+  "native_handoff": "dde1e2e66e9806280efe97bca88a6ea41800a6874d0ce01709db620dc6fc8259",
+  "evidence": {
+    "path": "source-native-evidence.zip",
+    "sha256": "5afdc337bc421f5d2af99d7e785f5bc270c237641fce7fe338ab3eb5b4dc1454",
+    "bytes": 15568133
+  },
+  "summary": {
+    "status": "NATIVE_CONTROLLER_GRAPHICS_PASS_SEVERE_PERFORMANCE_HOLD",
+    "candidate": "1437f43b3327d2e213370779fc90c32a04208416c792031bae1175c8bacbbc10",
+    "source_handoff": "505c20f7fa29c0f62bdcdff2bd996ee6562101b601369a84f8afd8e41b0308e3",
+    "native": true,
+    "installed": false,
+    "result": {
+      "passed": true,
+      "frames": 948,
+      "controlled_game_frames": 400,
+      "raw": 32,
+      "source_steps": 134,
+      "source_clock_calls": 400,
+      "source_lance_calls": 112,
+      "draws": 136,
+      "portraits": 1,
+      "right_pixels": 85,
+      "jump_pixels": 64,
+      "max_jump_count": 2,
+      "main_calls": 791,
+      "lag_observations": 266,
+      "active_ppu_writes": 0,
+      "screenshots": 6,
+      "scroll_checks": 655,
+      "actual_world_pixels": 7680,
+      "actual_body_pixels": 146,
+      "RAM_writes": false,
+      "limits": "Cold host smoke only; no earned upgrades or campaign clear."
+    },
+    "timing": {
+      "ROM_sha256": "1437f43b3327d2e213370779fc90c32a04208416c792031bae1175c8bacbbc10",
+      "physical_game_frames": 400,
+      "source_steps": 134,
+      "clock_calls": 400,
+      "draws": 133,
+      "lag_NMIs": 266,
+      "timing": {
+        "lag_nmi": {
+          "count": 266,
+          "total_CPU_cycles": 1018892,
+          "min": 3153,
+          "max": 5828,
+          "mean": 3830.421
+        },
+        "foreground": {
+          "count": 266,
+          "total_CPU_cycles": 8480447,
+          "min": 21105,
+          "max": 43410,
+          "mean": 31881.38
+        },
+        "irq": {
+          "count": 400,
+          "total_CPU_cycles": 48000,
+          "min": 120,
+          "max": 120,
+          "mean": 120.0
+        },
+        "normal_nmi": {
+          "count": 134,
+          "total_CPU_cycles": 789415,
+          "min": 5081,
+          "max": 7630,
+          "mean": 5891.157
+        }
+      },
+      "scope": "Actual CPU cycleCounter; foreground excludes intercepted NMI/IRQ elapsed, ISR includes DMA/stalls; no60Hz performance admission."
+    },
+    "fair_body": {
+      "passed": true,
+      "ROM_sha256": "1437f43b3327d2e213370779fc90c32a04208416c792031bae1175c8bacbbc10",
+      "actual_source_permutations": 135,
+      "hardware_OAM_first8_checks": 401,
+      "source_body_black_glyph_pixels_first8": 39253,
+      "maximum_body_records": 11,
+      "normal_eight_sprite_limit": true,
+      "script_RAM_writes": false,
+      "scope": "Passive complete64record source permutation, actual DMA OAM and actual mapped-cartridge CHR/palette evaluation. Screenshot review still required; background priority can cover a legitimate sprite pixel. No cadence admission."
+    },
+    "same_controller_matched_300frame_comparison": {
+      "physical_game_frames": 300,
+      "source_steps": [
+        34,
+        100
+      ],
+      "clock_calls": [
+        100,
+        300
+      ],
+      "draws": [
+        100,
+        100
+      ],
+      "lag_NMIs": [
+        200,
+        200
+      ],
+      "foreground_mean_delta": 1257.25,
+      "foreground_max_delta": 395,
+      "lag_NMI_mean_delta": 403.0
+    },
+    "original_failure_retained": "ba3475117cbd82f342f0f14b74f672f0aea2399633614da16695cf71a2fe6d61",
+    "source_physics_and_controller_unchanged": true,
+    "screenshots": [
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\arthur-physical-clock-v2\\native\\cold-physical-clock-v3\\menu-arthur.png",
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\arthur-physical-clock-v2\\native\\cold-physical-clock-v3\\lives-arthur.png",
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\arthur-physical-clock-v2\\native\\cold-physical-clock-v3\\game-start.png",
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\arthur-physical-clock-v2\\native\\cold-physical-clock-v3\\double-jump.png",
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\arthur-physical-clock-v2\\native\\cold-physical-clock-v3\\source-lance.png",
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\arthur-physical-clock-v2\\native\\cold-physical-clock-v3\\game-controlled.png"
+    ],
+    "limits": [
+      "One cold selector/lives/1-1 smoke only; no campaign/earned-upgrades/audio completion.",
+      "266lagNMIs/400PPU remain severe. Source20Hz physical acceptance is restored; Main and drawing cadence are not improved.",
+      "Initial game-start capture precedes the first rendered source update; subsequent source body/ink/hardware tests pass.",
+      "Inherited cyan menu band remains. Static gold menu portrait and original blue lives palette have distinct source contexts.",
+      "Root whole-frame review and separate installation authorization are required; no Downloads changed."
+    ]
+  },
+  "own_tools": [
+    "tools\\audit\\arthur_physical_clock_callbacks_v2.py",
+    "tools\\audit\\arthur_physical_clock_callbacks_v3.py",
+    "tools\\audit\\arthur_physical_clock_callbacks_v4.py",
+    "tools\\audit\\arthur_physical_clock_callbacks_v5.py",
+    "tools\\audit\\arthur_physical_clock_callbacks_v6.py",
+    "tools\\audit\\arthur_physical_clock_callbacks_v7.py",
+    "tools\\audit\\arthur_physical_clock_context_v2.py",
+    "tools\\audit\\arthur_physical_clock_controls_v2.py",
+    "tools\\audit\\arthur_physical_clock_extra_v2.py",
+    "tools\\audit\\arthur_physical_clock_foreign_v2.py",
+    "tools\\audit\\arthur_physical_clock_isr_v2.py",
+    "tools\\audit\\arthur_physical_clock_isr_v3.py",
+    "tools\\audit\\arthur_physical_clock_isr_v4.py",
+    "tools\\audit\\arthur_physical_clock_isr_v5.py",
+    "tools\\audit\\arthur_physical_clock_isr_v6.py",
+    "tools\\audit\\arthur_physical_clock_main_v2.py",
+    "tools\\audit\\arthur_physical_clock_presentation_v2.py",
+    "tools\\audit\\arthur_physical_clock_scope_v2.py",
+    "tools\\audit\\build_arthur_physical_clock_v1.py",
+    "tools\\audit\\build_arthur_physical_clock_v2.py",
+    "tools\\audit\\freeze_arthur_physical_clock_native_v3.py",
+    "tools\\audit\\freeze_arthur_physical_clock_v2.py",
+    "tools\\audit\\prepare_arthur_physical_clock_native_v2.py",
+    "tools\\audit\\prepare_arthur_physical_clock_native_v3.py",
+    "tools\\audit\\resume_arthur_physical_clock_v1.py",
+    "tools\\audit\\resume_arthur_physical_clock_v2.py",
+    "tools\\audit\\resume_arthur_physical_clock_v3.py",
+    "tools\\audit\\resume_arthur_physical_clock_v4.py",
+    "tools\\audit\\resume_arthur_physical_clock_v5.py",
+    "tools\\audit\\run_arthur_physical_clock_native_v2.py",
+    "tools\\audit\\run_arthur_physical_clock_native_v3.py"
+  ],
+  "checkpoint_files": [
+    "README.txt",
+    "source-native-evidence.zip",
+    "manifest.json"
+  ]
+}
