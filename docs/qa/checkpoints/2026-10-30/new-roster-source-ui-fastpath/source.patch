@@ -1,0 +1,51 @@
+--- parent/joint/src/x5_bounce.s
++++ candidate/joint/src/x5_bounce.s
+@@ -748,7 +748,7 @@
+  cpx #18
+  beq Legacy
+  cpx #20
+- bcs Legacy
++ bcs NewUiBridge
+  plx
+  pla
+  plp
+@@ -757,16 +757,15 @@
+ ; between this generic input leaf and M3Hud. Other native leaves still hide
+ ; the legacy inventory font. Reuse this previously unreachable15-byte tail.
+ HudRead:
+- cpx #17
+- bne OrdinaryHud
+- lda #0
+- clc
++ txa
++ eor #17
++ beq HudDone
++ lda InvHudActive
++HudDone:clc
+  rts
+-OrdinaryHud:
+- lda InvHudActive
+- clc
+- rts
+- .res 2,$ea
++NewUiBridge:jmp X5NewRosterUiRoute
++ nop
++ nop
+ Legacy:
+  plx
+  pla
+@@ -963,3 +962,14 @@
+ .endproc
+ .popseg
+ .endif
++
++.pushseg
++.segment "X5_BOUNCE"
++.proc X5NewRosterUiRoute
++ plx
++ pla
++ plp
++ farcall NrUi,jmp
++.endproc
++.assert * <= $a800,error,"UI router must precede Dragon Power core"
++.popseg

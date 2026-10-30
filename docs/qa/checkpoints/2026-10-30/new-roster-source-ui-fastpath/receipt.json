@@ -1,0 +1,63 @@
+{
+  "passed": true,
+  "native": false,
+  "installed": false,
+  "ROM_sha256": "9b35ded142a9a7fe956fcf2055e7908558dfff857a9a72c86612bb0f47933a66",
+  "handoff_sha256": "fdb5a6256d5ec24949dd4d59ee3c8d78e69a89a4f7326affe848515b55b6f58a",
+  "checks": {
+    "UI": {
+      "passed": true,
+      "actual_UI_pairs": 4418,
+      "CPU_delta": [
+        -297,
+        1
+      ],
+      "full_application_ordered_writes_AXYP_SP_rawmaps_RAM_payloads_exact": true,
+      "every_raw_selector_all256flags_for_newowners_and_hurt_input_histories": true
+    },
+    "HudRead": {
+      "passed": true,
+      "actual_HudRead_pairs": 6912,
+      "CPU_delta": [
+        1,
+        1
+      ],
+      "actual_all256flags_and_NZCVDI_contract_exact": true
+    },
+    "ArthurMain": {
+      "passed": true,
+      "actual_Arthur_Main_real_serial_NMI_pairs": 6,
+      "CPU_delta": [
+        -297,
+        -297
+      ],
+      "source_physics_body_world_OAM_queues_and_state_exact": true
+    },
+    "FFMain": {
+      "passed": true,
+      "actual_FF_Main_pairs": 24,
+      "source_palette_tick_always_once": true,
+      "CPU_delta": [
+        -297,
+        -297
+      ]
+    },
+    "ISR": {
+      "passed": true,
+      "actual_lag_NMI_IRQ_cuts": 24,
+      "snapshots": 12,
+      "live_AXYP_SP_SMC33_page1_maps_and_only_authorized_physical_clock_writes": true
+    }
+  },
+  "limits": [
+    "Private linked-CPU candidate, not native timing, installed update, readiness or1-1 completion.",
+    "The297CPU reduction per tested Arthur/FF Main is a small change and does not resolve severe lag.",
+    "Old-owner native HUD reads cost1extraCPU. All256raw selector UI fixtures and complete tested outputs remain exact.",
+    "Shared current successor must compile the supplied source.patch and recheck its own exact hash."
+  ],
+  "archive_sha256": "55dca298c6b31b940ce4a8319735f9fb0b115653d7ccfac035970dc88a1bf9ac",
+  "archive_bytes": 5969870,
+  "archive_members": 30,
+  "all_member_hashes_verified": true,
+  "no_ROM_files": true
+}
