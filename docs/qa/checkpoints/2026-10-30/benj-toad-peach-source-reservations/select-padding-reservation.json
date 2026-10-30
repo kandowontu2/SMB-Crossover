@@ -1,0 +1,22 @@
+{
+  "status": "PRIVATE_BENJ_OWN_KMSELECT_PADDING_REUSE_ONLY",
+  "physical_bank": 62,
+  "start": "B6EC",
+  "end_exclusive": "B716",
+  "bytes": 42,
+  "preimage": "42 original EA padding bytes after genuine33-byte KmSelect code",
+  "preimage_sha256": "402d6dc4dba15465c4838d08a9de1414a2c328c5bac5bd4078aad805caf47019",
+  "root_verified_on": [
+    "a7ccbaaa7aab598d36e8806e30475eab36174ee1948f25f90ae72e6640f43f48",
+    "f6672f63750e8d3b1c358c4cba3b9eb2097bae57038fd15672d44b2ac18b59e7"
+  ],
+  "source_proof": "Original explicit .res42,$ea; no DBG symbol in the bank-qualified suffix; two genuine KmSelect callers.",
+  "conditions": [
+    "Preserve the first33 live KmSelect bytes, all public entry/end PCs, all older variant consumers and source artwork.",
+    "Only the source head classifier and related already-authorized selected Benj helper packing may use this span.",
+    "Qualify actual native head/foot continuation flags, registers and stack; preserve every foreign caller and mapper/SMC/interrupt contract.",
+    "No new runtime RAM, common growth, native launch, admission or installation."
+  ],
+  "native": false,
+  "installed": false
+}
