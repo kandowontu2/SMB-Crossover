@@ -1,0 +1,772 @@
+{
+  "status": "PRIVATE_SOURCE_BBOX_ADAPTER_REALLOCATION_GRANTED",
+  "physical_bank": 93,
+  "offset_start": 4007,
+  "end_exclusive": 4071,
+  "bytes": 64,
+  "A_start": "AFA7",
+  "C_start": "CFA7",
+  "previous_owner": "QuickMan joint10124B allocation",
+  "new_owner": "Four-host union local bbox near-adapter",
+  "Quick_remaining_full_budget": 10060,
+  "release_receipt": {
+    "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\quickman-host-integrate-v3\\bill64-release-v1\\release.json",
+    "sha256": "c1d4413ed1b7659af755bb2605288fd6c37460fa91ec095c0a0ecebeb788c500",
+    "candidate_sha256": "503ae8b76a96ff2038cf21e4b41f6180d6b2b3c3ddc436f880d6dca46df2ff22"
+  },
+  "release_evidence": {
+    "status": "QUICK_EXPLICITLY_RELEASES64_BYTES_TO_ROOT_NOT_A_UNION_GRANT",
+    "interval": {
+      "physical_bank": 93,
+      "offset_start": 4007,
+      "offset_end_exclusive": 4071,
+      "bytes": 64,
+      "C_window_start": 53159,
+      "C_window_end_exclusive": 53223,
+      "file_start": 765879,
+      "file_end_exclusive": 765943
+    },
+    "candidate_sha256": "503ae8b76a96ff2038cf21e4b41f6180d6b2b3c3ddc436f880d6dca46df2ff22",
+    "allocation_receipt_sha256": "0d12cb77cb79feb9648803d6c057293ffe5686a5a94c41f9813b057b1cdac2ae",
+    "release_slice_sha256": "8667e718294e9e0df1d30600ba3eeb201f764aad2dad72748643e4a285e1d1f7",
+    "release_slice_values": [
+      255
+    ],
+    "actual_debug_segments_overlap": [],
+    "all_quick_segments_checked_against_actual_DBG": true,
+    "Quick_payload_bytes": 9837,
+    "Quick_remaining_grant_bytes": 10060,
+    "Quick_headroom_bytes": 223,
+    "source_policy": "Builder permanently excludes 93:0FA7..<0FE7 before assignment. Root alone grants the next owner. No readiness/native claim.",
+    "linked_Quick_fragments": [
+      {
+        "segment": "QM_COORD",
+        "bank": 70,
+        "offset": 2144,
+        "bytes": 721,
+        "window": "A",
+        "CPU_start": 43104,
+        "file_offset": 575600,
+        "linked_sha256": "59fa44cead31b516eb7565c879861f276e36871cbe9f29fd268ad8726c02426b"
+      },
+      {
+        "segment": "ARENA_ART_META",
+        "bank": 98,
+        "offset": 3217,
+        "bytes": 619,
+        "window": "C",
+        "CPU_start": 52369,
+        "file_offset": 806049,
+        "linked_sha256": "ac0a76f0da3680821e65b99d24b4dd210513dd003454f6e17cb7bcc9db025b48"
+      },
+      {
+        "segment": "ARENA_ART_LOOKUP",
+        "bank": 98,
+        "offset": 7691,
+        "bytes": 163,
+        "window": "C",
+        "CPU_start": 56843,
+        "file_offset": 810523,
+        "linked_sha256": "b7c937580338c05ca73cab4da3734e94efce8bb48646b764ccf16ab0bf0a1edc"
+      },
+      {
+        "segment": "ARENA_ART_PUBLISH",
+        "bank": 98,
+        "offset": 7854,
+        "bytes": 22,
+        "window": "C",
+        "CPU_start": 57006,
+        "file_offset": 810686,
+        "linked_sha256": "d4fb18d85b5f9a368b4d49a3f0942b6719e762db4fefdf84935c0575a990843f"
+      },
+      {
+        "segment": "ARENA_RENDER",
+        "bank": 98,
+        "offset": 7876,
+        "bytes": 254,
+        "window": "C",
+        "CPU_start": 57028,
+        "file_offset": 810708,
+        "linked_sha256": "b906f4eaa2360388ad7dc3fc6290f9205deb3cd1aa5e375ca8c184bf6ff5f570"
+      },
+      {
+        "segment": "R1",
+        "bank": 84,
+        "offset": 5417,
+        "bytes": 178,
+        "window": "C",
+        "CPU_start": 54569,
+        "file_offset": 693561,
+        "linked_sha256": "721d2c2af4f280a5b4da3961dab83295e15d612d381de02081c90a1a0cfbf0f3"
+      },
+      {
+        "segment": "R2",
+        "bank": 84,
+        "offset": 7680,
+        "bytes": 1,
+        "window": "C",
+        "CPU_start": 56832,
+        "file_offset": 695824,
+        "linked_sha256": "8d33f520a3c4cef80d2453aef81b612bfe1cb44c8b2025630ad38662763f13d3"
+      },
+      {
+        "segment": "R3",
+        "bank": 84,
+        "offset": 7681,
+        "bytes": 77,
+        "window": "C",
+        "CPU_start": 56833,
+        "file_offset": 695825,
+        "linked_sha256": "aba6c69c87385cb1864e98ff54710593122a425bd217a4cbbcd449e18dbddffc"
+      },
+      {
+        "segment": "R4",
+        "bank": 84,
+        "offset": 7758,
+        "bytes": 80,
+        "window": "C",
+        "CPU_start": 56910,
+        "file_offset": 695902,
+        "linked_sha256": "84437cf69f306246ca34b074348c6bfeaa2122b23dc0366b276dceb88f3adea0"
+      },
+      {
+        "segment": "R10",
+        "bank": 84,
+        "offset": 7838,
+        "bytes": 13,
+        "window": "C",
+        "CPU_start": 56990,
+        "file_offset": 695982,
+        "linked_sha256": "cc431c9426d8e4fada16fa927607b69f04bf70a33f5857049cd45d33988e0ae4"
+      },
+      {
+        "segment": "R33",
+        "bank": 84,
+        "offset": 7851,
+        "bytes": 248,
+        "window": "C",
+        "CPU_start": 57003,
+        "file_offset": 695995,
+        "linked_sha256": "bc50b2cc53f498cfb59c61fde26f6d17c20fd6aa12089f4a9979993b288cdf55"
+      },
+      {
+        "segment": "R25",
+        "bank": 82,
+        "offset": 7268,
+        "bytes": 864,
+        "window": "C",
+        "CPU_start": 56420,
+        "file_offset": 679028,
+        "linked_sha256": "bc01c71579ce62e46153cb287be762d0b8eff00b1cabf61191328a39663cdf5d"
+      },
+      {
+        "segment": "QH_RESET",
+        "bank": 70,
+        "offset": 2865,
+        "bytes": 77,
+        "window": "A",
+        "CPU_start": 43825,
+        "file_offset": 576321,
+        "linked_sha256": "fec416909f7f4be3d87ecd62bcde0530d600705a5767fd3dfa1bda3eda7a7d19"
+      },
+      {
+        "segment": "R22",
+        "bank": 93,
+        "offset": 3520,
+        "bytes": 487,
+        "window": "C",
+        "CPU_start": 52672,
+        "file_offset": 765392,
+        "linked_sha256": "04f7647f6c0937fb61248dc3b6c8dc52bd3a23d62b7bf160a9b83085b4c20fbd"
+      },
+      {
+        "segment": "R8",
+        "bank": 81,
+        "offset": 4187,
+        "bytes": 392,
+        "window": "C",
+        "CPU_start": 53339,
+        "file_offset": 667755,
+        "linked_sha256": "b16f42421e0908a00620d8b5df5f642903f7e5010e9df6cca831039c23bc8337"
+      },
+      {
+        "segment": "R14",
+        "bank": 32,
+        "offset": 7832,
+        "bytes": 346,
+        "window": "C",
+        "CPU_start": 56984,
+        "file_offset": 269992,
+        "linked_sha256": "36a282ed273803d9cda6cbf59f462f6ed60d9d9cc83009c49435c7b855c5f7ac"
+      },
+      {
+        "segment": "R16",
+        "bank": 33,
+        "offset": 7842,
+        "bytes": 334,
+        "window": "C",
+        "CPU_start": 56994,
+        "file_offset": 278194,
+        "linked_sha256": "d287ed3b32590944d7d365d03ab5e26b4a06d8615bed95dd7e72fcb6d16b24c1"
+      },
+      {
+        "segment": "R13",
+        "bank": 20,
+        "offset": 7884,
+        "bytes": 304,
+        "window": "C",
+        "CPU_start": 57036,
+        "file_offset": 171740,
+        "linked_sha256": "60ce728794506ffa3b6f1c93f6cd3cbb377f4e44035b78746ea6a2bc18ca7c52"
+      },
+      {
+        "segment": "R17",
+        "bank": 66,
+        "offset": 7861,
+        "bytes": 298,
+        "window": "C",
+        "CPU_start": 57013,
+        "file_offset": 548549,
+        "linked_sha256": "2f1f57b1fd1938fae01b13e98b549d2f0f23722f3596064b28ecf0d6f53d95f6"
+      },
+      {
+        "segment": "R19",
+        "bank": 34,
+        "offset": 7581,
+        "bytes": 293,
+        "window": "C",
+        "CPU_start": 56733,
+        "file_offset": 286125,
+        "linked_sha256": "17058161bc91c74607c0e0676a05c8c6e16db7721348f7293b60d39ce78b5586"
+      },
+      {
+        "segment": "R9",
+        "bank": 35,
+        "offset": 7862,
+        "bytes": 283,
+        "window": "C",
+        "CPU_start": 57014,
+        "file_offset": 294598,
+        "linked_sha256": "7b03087b1f674abcab5e6e232e087e23d717af38e40eda640e39e5dbf6a380b5"
+      },
+      {
+        "segment": "R27",
+        "bank": 34,
+        "offset": 7874,
+        "bytes": 262,
+        "window": "C",
+        "CPU_start": 57026,
+        "file_offset": 286418,
+        "linked_sha256": "45417cdd87bec18e86c0b6dda1da0a72e7bcf957f6e147df4f183eb8075967a9"
+      },
+      {
+        "segment": "R11",
+        "bank": 72,
+        "offset": 4113,
+        "bytes": 233,
+        "window": "C",
+        "CPU_start": 53265,
+        "file_offset": 593953,
+        "linked_sha256": "d4b9dc28d5a99ed667deb7f49f0771d0190e1079a3b7667adb9694f9349330ac"
+      },
+      {
+        "segment": "R5",
+        "bank": 67,
+        "offset": 4651,
+        "bytes": 205,
+        "window": "C",
+        "CPU_start": 53803,
+        "file_offset": 553531,
+        "linked_sha256": "1d1cf2c27ab3456b792a7b4c74d31451795f82c475a7e12b17ac8c0fa5a6ceaa"
+      },
+      {
+        "segment": "R18",
+        "bank": 115,
+        "offset": 7992,
+        "bytes": 197,
+        "window": "C",
+        "CPU_start": 57144,
+        "file_offset": 950088,
+        "linked_sha256": "87d841dcfc659c0c7698ce8fb74b7e8c1c4194abb9f57945d133047135649bb2"
+      },
+      {
+        "segment": "R31",
+        "bank": 88,
+        "offset": 4916,
+        "bytes": 197,
+        "window": "C",
+        "CPU_start": 54068,
+        "file_offset": 725828,
+        "linked_sha256": "1ed0c9e2d170cd3574af202181a296cc64a006a664bd4b0f35f269f0dd015c6a"
+      },
+      {
+        "segment": "R6",
+        "bank": 87,
+        "offset": 4128,
+        "bytes": 189,
+        "window": "C",
+        "CPU_start": 53280,
+        "file_offset": 716848,
+        "linked_sha256": "15f0e8ae18433c452b53c3f468756ad09729ed888d0489348e14a6e14da89e40"
+      },
+      {
+        "segment": "R28",
+        "bank": 83,
+        "offset": 5428,
+        "bytes": 188,
+        "window": "C",
+        "CPU_start": 54580,
+        "file_offset": 685380,
+        "linked_sha256": "f70cf9b5024a5efc30e7c21586f7ae64a086b79314e8dc9267135aa440571170"
+      },
+      {
+        "segment": "R0",
+        "bank": 65,
+        "offset": 6982,
+        "bytes": 182,
+        "window": "C",
+        "CPU_start": 56134,
+        "file_offset": 539478,
+        "linked_sha256": "5751f4c1643a57295d8bb85492c7795e16293006e9ee44beeb425b4bc5c35fc8"
+      },
+      {
+        "segment": "R7",
+        "bank": 71,
+        "offset": 3923,
+        "bytes": 171,
+        "window": "C",
+        "CPU_start": 53075,
+        "file_offset": 585571,
+        "linked_sha256": "0bdc44daae57da7cd2545e02579f0f5f93eae23600d5f76d9eb89e190dba2cd0"
+      },
+      {
+        "segment": "QH_WEAPONS",
+        "bank": 121,
+        "offset": 8031,
+        "bytes": 159,
+        "window": "C",
+        "CPU_start": 57183,
+        "file_offset": 999279,
+        "linked_sha256": "cc187b93901b3f7093a5dd970ce10179772b47979674ec1e4978a5a18f4ce8f2"
+      },
+      {
+        "segment": "R21",
+        "bank": 31,
+        "offset": 8041,
+        "bytes": 150,
+        "window": "C",
+        "CPU_start": 57193,
+        "file_offset": 262009,
+        "linked_sha256": "fc9bee0dd00f134115a59c693bfc9f0bd29a7bcef50fb5a86eb97cf3d3132d16"
+      },
+      {
+        "segment": "R29",
+        "bank": 98,
+        "offset": 3836,
+        "bytes": 148,
+        "window": "C",
+        "CPU_start": 52988,
+        "file_offset": 806668,
+        "linked_sha256": "1e8121c41153a3035513b53c891769e926cb5d8cd73784428f06096a0bf0636f"
+      },
+      {
+        "segment": "R15",
+        "bank": 78,
+        "offset": 2925,
+        "bytes": 140,
+        "window": "C",
+        "CPU_start": 52077,
+        "file_offset": 641917,
+        "linked_sha256": "021ef122ddf0041b119ff050c3e12cb56d609fdecb5b686aff35ad48b37871ea"
+      },
+      {
+        "segment": "R20",
+        "bank": 68,
+        "offset": 7968,
+        "bytes": 137,
+        "window": "C",
+        "CPU_start": 57120,
+        "file_offset": 565040,
+        "linked_sha256": "7713c51f744b17c9b648b2f235e84050edf3c2491290920f03f9f5fc81faf052"
+      },
+      {
+        "segment": "QH_HURT",
+        "bank": 99,
+        "offset": 5998,
+        "bytes": 130,
+        "window": "C",
+        "CPU_start": 55150,
+        "file_offset": 817022,
+        "linked_sha256": "b9e89dcfa21fa8c299c722350d7c6d29db5bbeff86aa908e474243dae407c6de"
+      },
+      {
+        "segment": "QH_HIT",
+        "bank": 95,
+        "offset": 1408,
+        "bytes": 123,
+        "window": "C",
+        "CPU_start": 50560,
+        "file_offset": 779664,
+        "linked_sha256": "5fa3d1a83042516cdb3db207b49a95f2fbf727b3ec2a9b3720051f0d0d7ba40b"
+      },
+      {
+        "segment": "QH_UI",
+        "bank": 98,
+        "offset": 3984,
+        "bytes": 112,
+        "window": "C",
+        "CPU_start": 53136,
+        "file_offset": 806816,
+        "linked_sha256": "a534fc75e600db4f3242a22df597f3e2e340c37aaf9c809fef6e0af6b44d1fe0"
+      },
+      {
+        "segment": "QH_INIT",
+        "bank": 36,
+        "offset": 5411,
+        "bytes": 108,
+        "window": "C",
+        "CPU_start": 54563,
+        "file_offset": 300339,
+        "linked_sha256": "4c7a3b9594587144024c2cdb7bbae9c9cba90828bc0477cbaca9b9758fc3a812"
+      },
+      {
+        "segment": "QH_PROBE",
+        "bank": 36,
+        "offset": 5519,
+        "bytes": 107,
+        "window": "C",
+        "CPU_start": 54671,
+        "file_offset": 300447,
+        "linked_sha256": "a78df27af56b3e80a5beb14aa648a03248c5199ca97450f0a9a17c2350bd0d27"
+      },
+      {
+        "segment": "QH_DRAW",
+        "bank": 69,
+        "offset": 8007,
+        "bytes": 96,
+        "window": "C",
+        "CPU_start": 57159,
+        "file_offset": 573271,
+        "linked_sha256": "08fcd317cc55ef9c6350182da3d3a05d89a699aba1ca009448042b42349812e6"
+      },
+      {
+        "segment": "QH_COLORS",
+        "bank": 84,
+        "offset": 8099,
+        "bytes": 86,
+        "window": "C",
+        "CPU_start": 57251,
+        "file_offset": 696243,
+        "linked_sha256": "31b9cd91b3006e97493123251f68ebaa3210ced99c50cec31acbe603a2f5980a"
+      },
+      {
+        "segment": "R23",
+        "bank": 68,
+        "offset": 8105,
+        "bytes": 84,
+        "window": "C",
+        "CPU_start": 57257,
+        "file_offset": 565177,
+        "linked_sha256": "cd19499657db855c5d0bd5bb39686bc6b759dfc8fd9722387112b39f1c87b5e6"
+      },
+      {
+        "segment": "QH_MOVE",
+        "bank": 69,
+        "offset": 8103,
+        "bytes": 78,
+        "window": "C",
+        "CPU_start": 57255,
+        "file_offset": 573367,
+        "linked_sha256": "9e84d0a62da76f3e79decb8e505ae01ce6fdfd40126ec6bf24fea786096f8921"
+      },
+      {
+        "segment": "R26",
+        "bank": 82,
+        "offset": 8132,
+        "bytes": 57,
+        "window": "C",
+        "CPU_start": 57284,
+        "file_offset": 679892,
+        "linked_sha256": "73d4498958d6ad5c4cb6cd7b0c5855622ddcfa541ced0a98a10b4f0e236abc35"
+      },
+      {
+        "segment": "R32",
+        "bank": 98,
+        "offset": 8130,
+        "bytes": 48,
+        "window": "C",
+        "CPU_start": 57282,
+        "file_offset": 810962,
+        "linked_sha256": "57358b36825a8a9c4392d8902e582347f6b8ffdbd6f6d7aa1d934d068f5456f5"
+      },
+      {
+        "segment": "QH_CONSTRUCT",
+        "bank": 35,
+        "offset": 8145,
+        "bytes": 41,
+        "window": "C",
+        "CPU_start": 57297,
+        "file_offset": 294881,
+        "linked_sha256": "2a289285e029d1222367433f57b069f4a13fc34246a2e1302248ce932bf69607"
+      },
+      {
+        "segment": "R24",
+        "bank": 34,
+        "offset": 8136,
+        "bytes": 40,
+        "window": "C",
+        "CPU_start": 57288,
+        "file_offset": 286680,
+        "linked_sha256": "29c0f40aaf096327b5a1744174d3f07ec041ede7153439067d4b53acf1590f94"
+      },
+      {
+        "segment": "QH_ITEM",
+        "bank": 84,
+        "offset": 5595,
+        "bytes": 37,
+        "window": "C",
+        "CPU_start": 54747,
+        "file_offset": 693739,
+        "linked_sha256": "8f4f6af42f9b8e1530f07a3df0eb8c8fcef75c37eeae368020c096423120f89f"
+      },
+      {
+        "segment": "R12",
+        "bank": 87,
+        "offset": 4317,
+        "bytes": 29,
+        "window": "C",
+        "CPU_start": 53469,
+        "file_offset": 717037,
+        "linked_sha256": "2c8ba17bdc0bb6c24b510cb53142a1870c35b4b3be54fde816a67295ad04e89c"
+      },
+      {
+        "segment": "R34",
+        "bank": 81,
+        "offset": 4579,
+        "bytes": 27,
+        "window": "C",
+        "CPU_start": 53731,
+        "file_offset": 668147,
+        "linked_sha256": "03c69bd80673ca0142186853b72af825a02ad29ec0b0425eb8606f284f431db7"
+      },
+      {
+        "segment": "R30",
+        "bank": 93,
+        "offset": 4071,
+        "bytes": 22,
+        "window": "C",
+        "CPU_start": 53223,
+        "file_offset": 765943,
+        "linked_sha256": "1c8eae0f56aca44e0599bc5d20d4f498e39a0797fd43999b6cb4c141e66b9dc6"
+      }
+    ],
+    "all12_bound_ROM_preimages": [
+      {
+        "owner": "shared32slot80profiles",
+        "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\full-roster-menu-v5\\candidate.nes",
+        "sha256": "5b09a3ed02aa678fb1d6fca57d905224e95c7b8f0f4e12f13901bf3f41f12d1e",
+        "released_slice_sha256": "8667e718294e9e0df1d30600ba3eeb201f764aad2dad72748643e4a285e1d1f7",
+        "released_slice_values": [
+          255
+        ]
+      },
+      {
+        "owner": "frozen4hostunion",
+        "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\character-host-union-v2\\candidate.nes",
+        "sha256": "9d0cc739f21000c269327d63f03b1b103173b2383bc1026d7efaee1b6a2d3fcd",
+        "released_slice_sha256": "8667e718294e9e0df1d30600ba3eeb201f764aad2dad72748643e4a285e1d1f7",
+        "released_slice_values": [
+          255
+        ]
+      },
+      {
+        "owner": "inprogress4hostunion_conservative",
+        "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\character-host-union-v4\\candidate.nes",
+        "sha256": "cdb5e2296a4955418d0c2bede9bc3aee05202b788ca2c87e362cee7a237df4b9",
+        "released_slice_sha256": "8667e718294e9e0df1d30600ba3eeb201f764aad2dad72748643e4a285e1d1f7",
+        "released_slice_values": [
+          255
+        ]
+      },
+      {
+        "owner": "Rogueflagpole",
+        "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-flagpole-v1\\candidate.nes",
+        "sha256": "f36632e4d8662d2cc47968f526aac6a77ce9a385b5f00be9a4bb70352aa30132",
+        "released_slice_sha256": "8667e718294e9e0df1d30600ba3eeb201f764aad2dad72748643e4a285e1d1f7",
+        "released_slice_values": [
+          255
+        ]
+      },
+      {
+        "owner": "SMB2realNMIaudioRogueunion",
+        "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\smb2-roster-real-nmi-v9\\candidate.nes",
+        "sha256": "a74215e9efbe178fc9c8b03fd347e2dbec3fd503f0dbb8041b01f6cbe47bee49",
+        "released_slice_sha256": "8667e718294e9e0df1d30600ba3eeb201f764aad2dad72748643e4a285e1d1f7",
+        "released_slice_values": [
+          255
+        ]
+      },
+      {
+        "owner": "Gokureview",
+        "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\goku-admission-review-v2\\candidate\\candidate.nes",
+        "sha256": "e55f73a22f92d3564f14dff5700e262a32327777ae413a2663dfef4a91e17ecf",
+        "released_slice_sha256": "8667e718294e9e0df1d30600ba3eeb201f764aad2dad72748643e4a285e1d1f7",
+        "released_slice_values": [
+          255
+        ]
+      },
+      {
+        "owner": "GimmickNMImenu",
+        "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\gimmick-nmi-menu-v1\\candidate.nes",
+        "sha256": "1d57ce2e7fa81b42e7795f750cde29154b55ecc456024e4a0101ff2c0981436b",
+        "released_slice_sha256": "8667e718294e9e0df1d30600ba3eeb201f764aad2dad72748643e4a285e1d1f7",
+        "released_slice_values": [
+          255
+        ]
+      },
+      {
+        "owner": "DKreview",
+        "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\dk-admission-review-v2\\candidate.nes",
+        "sha256": "defa70fc491c654dfefed4b54d25f90ea93b3a3b52fadd69013e4f0a60d49be0",
+        "released_slice_sha256": "8667e718294e9e0df1d30600ba3eeb201f764aad2dad72748643e4a285e1d1f7",
+        "released_slice_values": [
+          255
+        ]
+      },
+      {
+        "owner": "SuperMaaa",
+        "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\supermaaa-host-v1\\candidate.nes",
+        "sha256": "a8187270b50e6b3c98af7cca448752a4144b25d57d6ae9736e9e91ad0a6ac5e2",
+        "released_slice_sha256": "8667e718294e9e0df1d30600ba3eeb201f764aad2dad72748643e4a285e1d1f7",
+        "released_slice_values": [
+          255
+        ]
+      },
+      {
+        "owner": "actual_parent_v5",
+        "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\character-host-union-v5\\candidate.nes",
+        "sha256": "1a71b8b5a5752aeec7440c4dc2de91a136d6285c98922c99b52f39f4047f2b25",
+        "released_slice_sha256": "8667e718294e9e0df1d30600ba3eeb201f764aad2dad72748643e4a285e1d1f7",
+        "released_slice_values": [
+          255
+        ]
+      },
+      {
+        "owner": "union_v7",
+        "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\character-host-union-v7\\candidate.nes",
+        "sha256": "ccb72233d35e04300ac3d38265d0846b264a4de91d078c68750c6ff08f389ca0",
+        "released_slice_sha256": "8667e718294e9e0df1d30600ba3eeb201f764aad2dad72748643e4a285e1d1f7",
+        "released_slice_values": [
+          255
+        ]
+      },
+      {
+        "owner": "Rogue_victory",
+        "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\rogue-dawn-victory-pose-v4\\candidate.nes",
+        "sha256": "ba3033e17e12705ffa141d0908a01188e17779df717a6843fd12c638f1b0f5dc",
+        "released_slice_sha256": "8667e718294e9e0df1d30600ba3eeb201f764aad2dad72748643e4a285e1d1f7",
+        "released_slice_values": [
+          255
+        ]
+      }
+    ],
+    "bindings": [
+      {
+        "path": "builder/quickman_host_integrate_v3.py",
+        "bytes": 29021,
+        "sha256": "73c7d2d0cdc18eb7b7e1c8469983f4bc99a58d841679bfc1f30f435d49628d23"
+      },
+      {
+        "path": "builder/quickman_host_runtime_v3.s",
+        "bytes": 9834,
+        "sha256": "48195f61085d562b89fa1f033f7101a4c2e0bb414db376cf6c077d821df16b50"
+      },
+      {
+        "path": "builder/quickman_release_bill64_v3.py",
+        "bytes": 4050,
+        "sha256": "d67c7f56521497913e89dc35c3466831450745eb71066174a7ffefbc0574a617"
+      },
+      {
+        "path": "candidate.dbg",
+        "bytes": 30791379,
+        "sha256": "692f75b33693c2d9c759e80253fd945ba9a6cb17902969156828ed7dfc14058e"
+      },
+      {
+        "path": "candidate.lbl",
+        "bytes": 1313015,
+        "sha256": "d4c930bda930da732f6d35da72e8746416be92cb9f85ac9176cd021557b7b92f"
+      },
+      {
+        "path": "candidate.nes",
+        "bytes": 2097168,
+        "sha256": "503ae8b76a96ff2038cf21e4b41f6180d6b2b3c3ddc436f880d6dca46df2ff22"
+      },
+      {
+        "path": "quick/core.s",
+        "bytes": 125580,
+        "sha256": "31f996aac846bdd34bfc304a5bc43d2b81217c1602a35e4d38c00e00c69d80cc"
+      },
+      {
+        "path": "quick/qh_fields.inc",
+        "bytes": 7324,
+        "sha256": "c13c66b0dcbdb58620d6f582d3bc881411dd64e2b2e22fed494400d29d72540e"
+      },
+      {
+        "path": "quick/qh_imports.inc",
+        "bytes": 1755,
+        "sha256": "f7709b0dc49cefc039d73d655c2feaca382cbe2a498e0473e711d35652cb64f6"
+      },
+      {
+        "path": "quick/render.s",
+        "bytes": 4675,
+        "sha256": "d6fcba72b0677649ac1cd51dad02fb231c4d3f44f718590fe59450dcccd7e2b7"
+      },
+      {
+        "path": "quick/runtime.s",
+        "bytes": 9834,
+        "sha256": "48195f61085d562b89fa1f033f7101a4c2e0bb414db376cf6c077d821df16b50"
+      },
+      {
+        "path": "quick/segment-sizes.json",
+        "bytes": 1969,
+        "sha256": "0bc95ae04ec19933de35b7cbc19214f9496f54a41b45aad43fa74536e6b4cdeb"
+      },
+      {
+        "path": "quick-build-log.json",
+        "bytes": 9038,
+        "sha256": "2d87b98fdc40404153d4ec49b1b1bdfe3a2c0f27952baf756e2d943d5ce20a58"
+      },
+      {
+        "path": "quick-fit.json",
+        "bytes": 5769,
+        "sha256": "f13ee0e1516280a13b056f698d80f80c774b746d11cd848bfd27b6e0cb9302e9"
+      },
+      {
+        "path": "quick-layout.json",
+        "bytes": 13539,
+        "sha256": "fee892e7cabb5b82d3cd6732410f1318b1fd72675192e850ebb4eb68f4f3bf61"
+      },
+      {
+        "path": "quick-parent-exports.inc",
+        "bytes": 1752,
+        "sha256": "f0792272d3081556c45d6e697ceea1d77310f67866f8b5ad388f38aad93a261a"
+      },
+      {
+        "path": "quick.cfg",
+        "bytes": 45752,
+        "sha256": "72ee1e221a91d74e8cba8a4b73d384eadb68e0302ba427aa79357d966e4d58d7"
+      },
+      {
+        "path": "union.s",
+        "bytes": 19148,
+        "sha256": "7978828912e7a2b8c3ffc82501e5a751920e69f3a04854d65a7bb11455deace9"
+      }
+    ]
+  },
+  "conditions": [
+    "No other part of bank93 touched; Quick builder must retain its explicit exclusion.",
+    "57B source near-adapter may use this64B after exact private parent preimage. Actual HuTailFar/R0..7/SMC/register contracts must be retained.",
+    "No physics/terrain geometry reductions; qualify all legal legacy and new-family paths plus actual in-flight ISR seams.",
+    "Shared installation requires matching-controller native Bill budget and family regressions."
+  ]
+}

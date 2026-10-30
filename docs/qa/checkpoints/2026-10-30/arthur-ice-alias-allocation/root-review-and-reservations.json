@@ -1,0 +1,35 @@
+{
+  "status": "PRIVATE_ARTHUR_SAME_BANK_DATA_AND_HELPERS_GRANTED",
+  "ROM_sha256": "34a49769043610c38ec239424109049550fb12385af7516a3fa24e978fce8c93",
+  "parent_ROM_sha256": "c658816042a73c8d11b5ad2ac36b699222359806bd3cdcd0c94cfa1e6a1a0da1",
+  "physical_bank": 70,
+  "offset_start": 1423,
+  "end_exclusive": 2144,
+  "bytes": 721,
+  "A_start": "A58F",
+  "C_start": "C58F",
+  "owner": "Arthur source palette/lookup/world helpers",
+  "proof": {
+    "build_path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\ice-pose-aliases-v2\\build-proof.json",
+    "build_sha256": "17b9095c6c4b17eb6d32e489e322157b7e7e20acf5021a7e8616c26e99e10100",
+    "controls_path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\ice-pose-aliases-v2\\controls.json",
+    "controls_sha256": "3b35d090659619f33a4d0f1a561bfc9fa46cbf44aa7073e516f3a1767dd291c7",
+    "cases": 2160,
+    "actual_OAM_parts": 9072,
+    "renderer_CPU_saving_range": [
+      0,
+      11
+    ],
+    "new_RAM": 0,
+    "all_CHR_unchanged": true,
+    "all_runtime_instructions_unchanged": true
+  },
+  "conditions": [
+    "Compile exact private ice_climbers.s and ice_climbers_art.inc aliases from this source unit; original60descriptor data producer cannot own this range again.",
+    "Page-safe19canonical descriptors retain all60lookup indices, authentic pages and pixels, and no new page-cross cycles; all non-Ice symbols/bytes preserved.",
+    "C70 helper address may be called only when correct A/C window mapped; source importers must preserve all genuine mapper/SMC/R0..7 contracts.",
+    "Do not touch Quick coordinator A70A860..AB80 or old RCR CB80..D9B8.",
+    "Normal8sprite/scanline and64OAM limits retained; foreign A/C mappings restored.",
+    "Native Ice A/B screen/runtime test remains pending; no shared installation or global all-roster gameplay claim from source fixtures."
+  ]
+}
