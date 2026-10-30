@@ -1,0 +1,62 @@
+{
+  "status": "STANDALONE_NATIVE_MAPPER_EXPERIMENT_PASS_NO_GAME_ADOPTION",
+  "ROM_sha256": "de7dd0fd31bf4458fff644726e52c110cf8aab8fbcc32d63259fa740109f7929",
+  "native": {
+    "passed": true,
+    "frames": 2,
+    "status": 165,
+    "stage": 4,
+    "debug_RAM_writes": false
+  },
+  "source_checks": [
+    "Exact1024byte PPU-to-CPU copy including buffered-read discard",
+    "Execute same real6502 leaf through A/C windows",
+    "Independent RAM0 persistent sentinels and RAM2 data",
+    "RAM write protection"
+  ],
+  "primary_sources": [
+    "https://github.com/SourMesen/Mesen2/blob/master/Core/NES/Mappers/Nintendo/MMC5.h",
+    "https://github.com/mist-devel/nes/blob/master/src/mappers/MMC5.sv"
+  ],
+  "unchanged_shared_game": true,
+  "limits": [
+    "Tests a synthetic standalone ROM with32KBWRAM, not the current8KBWRAM game.",
+    "Actual game loader, interrupts, scroll/CHR restoration and bank-aware source calls remain required.",
+    "No physical-cartridge compatibility claim; no shared memory lease changed."
+  ],
+  "shared_installation": false,
+  "archive": {
+    "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\docs\\qa\\checkpoints\\2026-10-30\\mmc5-banked-wram-lab\\frozen-source-and-evidence.zip",
+    "sha256": "4180ae04c136afc1cead6173c1a44bad458ae007de3e22277e4ff950e901f727",
+    "bytes": 12037,
+    "members": 11
+  },
+  "members": {
+    "tools/audit/prepare_mmc5_overlay_lab_v1.py": "22bb2ed83cb0f58c2b017f37dbb72986e167d8e0c88a38fcd67c56adac70ae7d",
+    "build/mmc5-overlay-lab-v1/lab.s": "6b50f0a264fae60113eda15fe078a848b4803952fb0f2e8ed37537c37935cde5",
+    "build/mmc5-overlay-lab-v1/lab.cfg": "bab2a544b4d56b384e8b7dd41025d0f58b374000f8411cae2c3c298949343990",
+    "build/mmc5-overlay-lab-v1/header.bin": "a19eeb87123fcf85fc8b9350ca76cb55f380c4dd28c009a66a0218485a372caf",
+    "build/mmc5-overlay-lab-v1/test.chr": "5e7b6d2e8b0a4b32afe4b9ce97f82aad54aa20ef9208267fc9a1266c61c901ba",
+    "build/mmc5-overlay-lab-v1/controller.lua": "ec6685f48fe602e25fbc396e4996b08ea53fc2e1d0231f2c1d745ad9ae53a417",
+    "build/mmc5-overlay-lab-v1/ready.json": "d8b01e33fee5d6cbe28a53982dde2af208c5205153d9dcccbf2282ccba9e2b67",
+    "build/mmc5-overlay-lab-v1/native/result.json": "398290618b3b278f50edc08b698aac64ca9c92763726a5d2741029943b903af6",
+    "build/mmc5-overlay-lab-v1/native/capture-budget.json": "713399d0608d80ea5fbd5f91e9fcd8b51994762d55804d848572722c070ee544",
+    "build/mmc5-overlay-lab-v1/native/candidate-controller.log": "5d5d8e162f5820f7a014d2a8741a57afa7138ef8acd339c0f4d2466675f3833c",
+    "tools/audit/checkpoint_roster_progress_1030_v2.py": "39dfeb3b3eb94d08590de2f2bb6f4d7135820ba4b2b202be088b653db251d79c"
+  },
+  "runtime_references": {
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\prepare_mmc5_overlay_lab_v1.py": "22bb2ed83cb0f58c2b017f37dbb72986e167d8e0c88a38fcd67c56adac70ae7d",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\mmc5-overlay-lab-v1\\lab.s": "6b50f0a264fae60113eda15fe078a848b4803952fb0f2e8ed37537c37935cde5",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\mmc5-overlay-lab-v1\\lab.cfg": "bab2a544b4d56b384e8b7dd41025d0f58b374000f8411cae2c3c298949343990",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\mmc5-overlay-lab-v1\\header.bin": "a19eeb87123fcf85fc8b9350ca76cb55f380c4dd28c009a66a0218485a372caf",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\mmc5-overlay-lab-v1\\test.chr": "5e7b6d2e8b0a4b32afe4b9ce97f82aad54aa20ef9208267fc9a1266c61c901ba",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\mmc5-overlay-lab-v1\\controller.lua": "ec6685f48fe602e25fbc396e4996b08ea53fc2e1d0231f2c1d745ad9ae53a417",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\Windows\\cc65\\bin\\ca65.exe": "f76546b43557488bdf773b7750d0247fb917b95cbf7bbf12be0957cd9ecc1444",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\Windows\\cc65\\bin\\ld65.exe": "ef988084f166580c6615bb2952dee3da95978707586941de99e4a5c71c02178c",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\mmc5-overlay-lab-v1\\ready.json": "d8b01e33fee5d6cbe28a53982dde2af208c5205153d9dcccbf2282ccba9e2b67",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\mmc5-overlay-lab-v1\\native\\result.json": "398290618b3b278f50edc08b698aac64ca9c92763726a5d2741029943b903af6",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\mmc5-overlay-lab-v1\\native\\capture-budget.json": "713399d0608d80ea5fbd5f91e9fcd8b51994762d55804d848572722c070ee544",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\mmc5-overlay-lab-v1\\native\\candidate-controller.log": "5d5d8e162f5820f7a014d2a8741a57afa7138ef8acd339c0f4d2466675f3833c",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\checkpoint_roster_progress_1030_v2.py": "39dfeb3b3eb94d08590de2f2bb6f4d7135820ba4b2b202be088b653db251d79c"
+  }
+}
