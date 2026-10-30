@@ -1,0 +1,19 @@
+--- parent/joint/ff-render.s
++++ candidate/joint/ff-render.s
+@@ -191,7 +191,7 @@
+  inc FfProjectile+3,x
+ PartCursorReady:
+  lda HSlot
+- ldy #1
++ ldy #5                 ; existing upper sprite windows5/6/7.
+ Window:cmp #12
+  bcc WindowReady
+  sec
+@@ -460,6 +460,7 @@
+  .repeat 6
+  asl
+  .endrepeat
++ ora #1                  ;8x16 pattern-table1: biases41/81/C1.
+  sta FfTemp
+  ldy #0
+  lda (R0),y

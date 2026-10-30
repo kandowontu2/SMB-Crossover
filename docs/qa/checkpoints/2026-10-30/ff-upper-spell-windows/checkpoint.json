@@ -1,0 +1,129 @@
+{
+  "passed": true,
+  "native": false,
+  "installed": false,
+  "handoff_sha256": "94057b1efd5a5ece0ddee2aca9545ff1ee36bad59d3ae04f7632b46baf2cd4f2",
+  "ROM_sha256": "645e4745b84cd64e2429d55748169b542a61b461fd58b430f070e7035648b9df",
+  "archive_sha256": "9648d1ee114184f30e26f4255034715873e9faa866c02e0f712e261379ff9e7e",
+  "archive_bytes": 14045182,
+  "archive_members": 616,
+  "all_archived_member_hashes_verified": true,
+  "original_ROMs_included": false,
+  "checks": {
+    "native_window_catalog": {
+      "passed": true,
+      "compiled_native_records": 288,
+      "windows": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "actual_compiled_mouse_disabled": true
+    },
+    "world_and_FX_final_NMI_patterns": {
+      "passed": true,
+      "source_canonical_chunks": 88,
+      "actual_complete_DrawAll_NMI_cases": 90,
+      "final_admitted_FX_patterns_exact": true,
+      "world_OAM_patterns_and_windows1_to4_exact_to_noFX": true,
+      "includes_3_separate_Fire_pages_and_legal_Fire_Ice_Bolt_family_overlaps": true,
+      "declared_render_fixtures_not_earned_progression": true
+    },
+    "buffered_loader": {
+      "passed": true,
+      "cases": 12,
+      "negative_cases": [
+        "foreign",
+        "title",
+        "active",
+        "mask",
+        "normalNMI",
+        "readback-corruption"
+      ],
+      "actual_buffered_copy_verify_bytes": 8192,
+      "exact_published_checkpoint_12_windows": true,
+      "software_queue_R0_R1_globalRAM0_unchanged": true,
+      "cookie_invalid_first_valid_last": true,
+      "no_RAM_preload": true
+    },
+    "palette_and_ISR_regression": {
+      "passed": true,
+      "checks": {
+        "source_rows": {
+          "passed": true,
+          "original_class_rows": 2,
+          "existing_guest_flash_rows": 3
+        },
+        "colors": {
+          "passed": true,
+          "actual_GetPlayerColors_cases": 288,
+          "genuine_world_P2_P3_and_class_backdrop_exact": true,
+          "cold_no_RAM3_execution": true
+        },
+        "capacity": {
+          "passed": true,
+          "full_force_offsets": 512,
+          "cached_body_offsets": 256,
+          "queue_capacity": 84,
+          "all_canaries_and_complete_packet_retry_pass": true
+        },
+        "transitions": {
+          "passed": true,
+          "actual_UI_ticks": 1024,
+          "source_flash_phases_and_restoration_exact": true,
+          "cached_tick_CPU": [
+            594,
+            1482
+          ]
+        },
+        "cold": {
+          "passed": true,
+          "foreign_and_full_cookie_rejection_cases": 96,
+          "no_source_state_or_ACK_writes_and_no_RAM3_execution": true
+        },
+        "native_NMI": {
+          "passed": true,
+          "actual_normal_NMI_consumptions": 16,
+          "actual_PPU_palette_writes_match": true,
+          "world_P1_not_recolored": true
+        },
+        "Main": {
+          "passed": true,
+          "whole_Main_cases": 8,
+          "once_per_Main_real_UI_service": true,
+          "native_queue_ownership_observed": true
+        },
+        "ISR": {
+          "passed": true,
+          "real_ISR_cases": 151,
+          "snapshots": 65,
+          "all33SMC_APXY_live_page1_R01_R67_maps_and_RAM3_verified": true,
+          "queue_writer_normal_NMI_not_fabricated": true
+        }
+      },
+      "cold_mode_ASL_optimization_actual_controls_exact": true
+    },
+    "actual_active_FX_interruptions": {
+      "passed": true,
+      "actual_snapshots": 20,
+      "actual_lag_NMI_IRQ_cases": 40,
+      "masked_IRQ_requests": 0,
+      "published_upper_windows": [
+        5,
+        6,
+        7
+      ],
+      "complete_OAM_source_state_CHR_hardware_and_shadows_registers_and_maps_exact": true,
+      "source_Fire_render_fixture_not_earned_cast_progression": true,
+      "all_spell_family_patterns_tested_separately_in_parent_controls": true
+    }
+  },
+  "limits": [
+    "Private source-only successor; no native emulator, installed build, roster readiness,1-1 completion or earned-powerup claim.",
+    "FX palette sharing/sword/optional ink, shared composition/audio/readiness and native gameplay remain unfinished.",
+    "NormalNMI runs only after completed foreground OAM/palette publication; active-transaction cuts use genuine lagNMI/IRQ.",
+    "Per-update source/graphics correctness does not establish60Hz performance."
+  ]
+}
