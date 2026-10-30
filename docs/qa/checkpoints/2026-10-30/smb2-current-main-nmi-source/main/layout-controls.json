@@ -1,0 +1,795 @@
+{
+  "passed": true,
+  "candidate": {
+    "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\smb2-current-main-cohort-v9\\candidate.nes",
+    "bytes": 2097168,
+    "sha256": "48d6bad6cf0c228bf3f53618d0d0825ab228609927fb3abfd37f6dc695f38bc4"
+  },
+  "parent": {
+    "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\smb2-current-typed-services-v7\\candidate.nes",
+    "bytes": 2097168,
+    "sha256": "cb513577ade4788bc8b62f268da789205e623ddf6d4535f2b63bdb942e15e272"
+  },
+  "source_CPU_only": true,
+  "native": false,
+  "all_differing_bytes_within_owned_sources_or_actual_rebound_consumers": true,
+  "owned_spans": [
+    {
+      "offset": 6076,
+      "end": 6128,
+      "bytes": 52,
+      "source": "GrowThePowerUp"
+    },
+    {
+      "offset": 1128,
+      "end": 1133,
+      "bytes": 5,
+      "source": "RunNormalEnemies"
+    },
+    {
+      "offset": 5890,
+      "end": 5922,
+      "bytes": 32,
+      "source": "PositionPlayerOnVPlat"
+    },
+    {
+      "offset": 1040365,
+      "end": 1040390,
+      "bytes": 25,
+      "source": "RyuPlatformErase"
+    },
+    {
+      "offset": 18271,
+      "end": 18294,
+      "bytes": 23,
+      "source": "InitEnemyObject"
+    },
+    {
+      "offset": 1043905,
+      "end": 1043923,
+      "bytes": 18,
+      "source": "GuestBodyContactBridge"
+    },
+    {
+      "offset": 1040443,
+      "end": 1040488,
+      "bytes": 45,
+      "source": "GuestGameRoutinesBridge"
+    },
+    {
+      "offset": 1033081,
+      "end": 1033104,
+      "bytes": 23,
+      "source": "HpGraphicsBankCopy"
+    },
+    {
+      "offset": 1016381,
+      "end": 1016436,
+      "bytes": 55,
+      "source": "GmOnlyCommon"
+    },
+    {
+      "offset": 1018407,
+      "end": 1018447,
+      "bytes": 40,
+      "source": "NrFreshGameInit"
+    },
+    {
+      "offset": 519473,
+      "end": 519571,
+      "bytes": 98,
+      "source": "Actual98B A63 owned remainder, two49B guards"
+    },
+    {
+      "offset": 614065,
+      "end": 614277,
+      "bytes": 212,
+      "source": "Actual212B A74 owned append, three49B guards plus65B pointers"
+    },
+    {
+      "offset": 652784,
+      "end": 655335,
+      "bytes": 2551,
+      "source": "Source-owned common typed router, private predecessor only"
+    },
+    {
+      "offset": 565,
+      "end": 580,
+      "bytes": 15,
+      "source": "Genuine linked farcall HuAfterEffects -> HuAfterEffects"
+    },
+    {
+      "offset": 3437,
+      "end": 3452,
+      "bytes": 15,
+      "source": "Genuine linked farcall HuBeforeEffects -> HuBeforeEffects"
+    },
+    {
+      "offset": 3455,
+      "end": 3470,
+      "bytes": 15,
+      "source": "Genuine linked farcall HuUpdateDrops -> HuUpdateDrops"
+    },
+    {
+      "offset": 3521,
+      "end": 3536,
+      "bytes": 15,
+      "source": "Genuine linked farcall HuRemainingWeapons -> HuRemainingWeapons"
+    },
+    {
+      "offset": 5895,
+      "end": 5910,
+      "bytes": 15,
+      "source": "Genuine linked farcall RdBodyPositionPlatform -> S2BoundaryPlatform"
+    },
+    {
+      "offset": 18278,
+      "end": 18293,
+      "bytes": 15,
+      "source": "Genuine linked farcall CrossoverLevelEnemyInit -> S2MainSpawn"
+    },
+    {
+      "offset": 33247,
+      "end": 33262,
+      "bytes": 15,
+      "source": "Genuine linked farcall HuSamusShots -> HuSamusShots"
+    },
+    {
+      "offset": 629387,
+      "end": 629402,
+      "bytes": 15,
+      "source": "Genuine linked farcall HuResolve -> HuResolve"
+    },
+    {
+      "offset": 762922,
+      "end": 762937,
+      "bytes": 15,
+      "source": "Genuine linked farcall HuVisibleDirect -> HuVisibleDirect"
+    },
+    {
+      "offset": 763517,
+      "end": 763532,
+      "bytes": 15,
+      "source": "Genuine linked farcall HuUiDirect -> HuUiDirect"
+    },
+    {
+      "offset": 1016190,
+      "end": 1016205,
+      "bytes": 15,
+      "source": "Genuine linked farcall HuGmMenuName -> HuGmMenuName"
+    },
+    {
+      "offset": 1017358,
+      "end": 1017373,
+      "bytes": 15,
+      "source": "Genuine linked farcall HuLegacyPostBG -> HuLegacyPostBG"
+    },
+    {
+      "offset": 1018432,
+      "end": 1018447,
+      "bytes": 15,
+      "source": "Genuine linked farcall S2FreshAfterClear -> IcGlobalInit"
+    },
+    {
+      "offset": 1018477,
+      "end": 1018492,
+      "bytes": 15,
+      "source": "Genuine linked farcall HuGmStatusName -> HuGmStatusName"
+    },
+    {
+      "offset": 1033081,
+      "end": 1033096,
+      "bytes": 15,
+      "source": "Genuine linked farcall HpPrepareNativePointers -> S2BoundaryPointers"
+    },
+    {
+      "offset": 1033273,
+      "end": 1033288,
+      "bytes": 15,
+      "source": "Genuine linked farcall HuDrawAll -> HuDrawAll"
+    },
+    {
+      "offset": 1033346,
+      "end": 1033361,
+      "bytes": 15,
+      "source": "Genuine linked farcall CyclePlayerPalettePreload -> S2BoundaryStarEnd"
+    },
+    {
+      "offset": 1033367,
+      "end": 1033382,
+      "bytes": 15,
+      "source": "Genuine linked farcall HuLateUiDirect -> HuLateUiDirect"
+    },
+    {
+      "offset": 1037996,
+      "end": 1038011,
+      "bytes": 15,
+      "source": "Genuine linked farcall MarioSourceBodyImmunity -> S2BoundaryImmunity"
+    },
+    {
+      "offset": 1040454,
+      "end": 1040469,
+      "bytes": 15,
+      "source": "Genuine linked farcall HuGameColdDispatch -> HuGameColdDispatch"
+    },
+    {
+      "offset": 1040472,
+      "end": 1040487,
+      "bytes": 15,
+      "source": "Genuine linked farcall HuGameRoutinesDirect -> S2BoundaryGame"
+    },
+    {
+      "offset": 1041913,
+      "end": 1041928,
+      "bytes": 15,
+      "source": "Genuine linked farcall HuAfterTerrainGate -> HuAfterTerrainGate"
+    },
+    {
+      "offset": 1043908,
+      "end": 1043923,
+      "bytes": 15,
+      "source": "Genuine linked farcall GuestBodyContact -> S2BoundaryBody"
+    },
+    {
+      "offset": 765904,
+      "end": 765927,
+      "bytes": 23,
+      "source": "Genuine linked HuTailFar HuPlayerSubs"
+    },
+    {
+      "offset": 1024016,
+      "end": 1032208,
+      "bytes": 8192,
+      "source": "Exact same-final127 CV3 mirror plus original declared overlays"
+    },
+    {
+      "offset": 974864,
+      "end": 983056,
+      "bytes": 8192,
+      "source": "Same-final127 source clone with authenticated SMB2 sample fragments"
+    },
+    {
+      "offset": 983056,
+      "end": 991248,
+      "bytes": 8192,
+      "source": "Same-final127 source clone with authenticated SMB2 sample fragments"
+    }
+  ],
+  "genuine_rebound_edges": [
+    {
+      "offset": 565,
+      "source_bank": 0,
+      "kind": "farcall",
+      "old": "HuAfterEffects",
+      "new": "HuAfterEffects",
+      "old_target": [
+        79,
+        48836
+      ],
+      "new_target": [
+        79,
+        48904
+      ]
+    },
+    {
+      "offset": 3437,
+      "source_bank": 0,
+      "kind": "farcall",
+      "old": "HuBeforeEffects",
+      "new": "HuBeforeEffects",
+      "old_target": [
+        79,
+        48782
+      ],
+      "new_target": [
+        79,
+        48850
+      ]
+    },
+    {
+      "offset": 3455,
+      "source_bank": 0,
+      "kind": "farcall",
+      "old": "HuUpdateDrops",
+      "new": "HuUpdateDrops",
+      "old_target": [
+        79,
+        48890
+      ],
+      "new_target": [
+        79,
+        48958
+      ]
+    },
+    {
+      "offset": 3521,
+      "source_bank": 0,
+      "kind": "farcall",
+      "old": "HuRemainingWeapons",
+      "new": "HuRemainingWeapons",
+      "old_target": [
+        79,
+        48962
+      ],
+      "new_target": [
+        79,
+        49030
+      ]
+    },
+    {
+      "offset": 5895,
+      "source_bank": 0,
+      "kind": "farcall",
+      "old": "RdBodyPositionPlatform",
+      "new": "S2BoundaryPlatform",
+      "old_target": [
+        95,
+        46710
+      ],
+      "new_target": [
+        74,
+        48801
+      ]
+    },
+    {
+      "offset": 18278,
+      "source_bank": 2,
+      "kind": "farcall",
+      "old": "CrossoverLevelEnemyInit",
+      "new": "S2MainSpawn",
+      "old_target": [
+        26,
+        41091
+      ],
+      "new_target": [
+        118,
+        48384
+      ]
+    },
+    {
+      "offset": 33247,
+      "source_bank": 4,
+      "kind": "farcall",
+      "old": "HuSamusShots",
+      "new": "HuSamusShots",
+      "old_target": [
+        79,
+        48709
+      ],
+      "new_target": [
+        79,
+        48777
+      ]
+    },
+    {
+      "offset": 629387,
+      "source_bank": 76,
+      "kind": "farcall",
+      "old": "HuResolve",
+      "new": "HuResolve",
+      "old_target": [
+        79,
+        47663
+      ],
+      "new_target": [
+        79,
+        47702
+      ]
+    },
+    {
+      "offset": 762922,
+      "source_bank": 93,
+      "kind": "farcall",
+      "old": "HuVisibleDirect",
+      "new": "HuVisibleDirect",
+      "old_target": [
+        79,
+        48391
+      ],
+      "new_target": [
+        79,
+        48430
+      ]
+    },
+    {
+      "offset": 763517,
+      "source_bank": 93,
+      "kind": "farcall",
+      "old": "HuUiDirect",
+      "new": "HuUiDirect",
+      "old_target": [
+        79,
+        48195
+      ],
+      "new_target": [
+        79,
+        48234
+      ]
+    },
+    {
+      "offset": 1016190,
+      "source_bank": 124,
+      "kind": "farcall",
+      "old": "HuGmMenuName",
+      "new": "HuGmMenuName",
+      "old_target": [
+        79,
+        47903
+      ],
+      "new_target": [
+        79,
+        47942
+      ]
+    },
+    {
+      "offset": 1017358,
+      "source_bank": 124,
+      "kind": "farcall",
+      "old": "HuLegacyPostBG",
+      "new": "HuLegacyPostBG",
+      "old_target": [
+        79,
+        47824
+      ],
+      "new_target": [
+        79,
+        47863
+      ]
+    },
+    {
+      "offset": 1018432,
+      "source_bank": 124,
+      "kind": "farcall",
+      "old": "S2FreshAfterClear",
+      "new": "IcGlobalInit",
+      "old_target": [
+        63,
+        43553
+      ],
+      "new_target": [
+        62,
+        41667
+      ]
+    },
+    {
+      "offset": 1018477,
+      "source_bank": 124,
+      "kind": "farcall",
+      "old": "HuGmStatusName",
+      "new": "HuGmStatusName",
+      "old_target": [
+        79,
+        47949
+      ],
+      "new_target": [
+        79,
+        47988
+      ]
+    },
+    {
+      "offset": 1033081,
+      "source_bank": 126,
+      "kind": "farcall",
+      "old": "HpPrepareNativePointers",
+      "new": "S2BoundaryPointers",
+      "old_target": [
+        26,
+        45180
+      ],
+      "new_target": [
+        74,
+        48948
+      ]
+    },
+    {
+      "offset": 1033273,
+      "source_bank": 126,
+      "kind": "farcall",
+      "old": "HuDrawAll",
+      "new": "HuDrawAll",
+      "old_target": [
+        79,
+        48655
+      ],
+      "new_target": [
+        79,
+        48723
+      ]
+    },
+    {
+      "offset": 1033346,
+      "source_bank": 126,
+      "kind": "farcall",
+      "old": "CyclePlayerPalettePreload",
+      "new": "S2BoundaryStarEnd",
+      "old_target": [
+        1,
+        42258
+      ],
+      "new_target": [
+        74,
+        48850
+      ]
+    },
+    {
+      "offset": 1033367,
+      "source_bank": 126,
+      "kind": "farcall",
+      "old": "HuLateUiDirect",
+      "new": "HuLateUiDirect",
+      "old_target": [
+        79,
+        48486
+      ],
+      "new_target": [
+        79,
+        48525
+      ]
+    },
+    {
+      "offset": 1037996,
+      "source_bank": 126,
+      "kind": "farcall",
+      "old": "MarioSourceBodyImmunity",
+      "new": "S2BoundaryImmunity",
+      "old_target": [
+        59,
+        48314
+      ],
+      "new_target": [
+        63,
+        44370
+      ]
+    },
+    {
+      "offset": 1040454,
+      "source_bank": 127,
+      "kind": "farcall",
+      "old": "HuGameColdDispatch",
+      "new": "HuGameColdDispatch",
+      "old_target": [
+        79,
+        48575
+      ],
+      "new_target": [
+        79,
+        48643
+      ]
+    },
+    {
+      "offset": 1040472,
+      "source_bank": 127,
+      "kind": "farcall",
+      "old": "HuGameRoutinesDirect",
+      "new": "S2BoundaryGame",
+      "old_target": [
+        1,
+        41293
+      ],
+      "new_target": [
+        63,
+        44321
+      ]
+    },
+    {
+      "offset": 1041913,
+      "source_bank": 127,
+      "kind": "farcall",
+      "old": "HuAfterTerrainGate",
+      "new": "HuAfterTerrainGate",
+      "old_target": [
+        79,
+        47987
+      ],
+      "new_target": [
+        79,
+        48026
+      ]
+    },
+    {
+      "offset": 1043908,
+      "source_bank": 127,
+      "kind": "farcall",
+      "old": "GuestBodyContact",
+      "new": "S2BoundaryBody",
+      "old_target": [
+        10,
+        46497
+      ],
+      "new_target": [
+        74,
+        48899
+      ]
+    },
+    {
+      "offset": 765904,
+      "source_bank": 93,
+      "kind": "HuTailFar",
+      "old": "HuPlayerSubs",
+      "new": "HuPlayerSubs"
+    }
+  ],
+  "moved_common_public_symbols": [
+    {
+      "symbol": "HuEnd",
+      "old": "0xBF93",
+      "new": "0xBFD7"
+    },
+    {
+      "symbol": "HuSourceCallbackTail",
+      "old": "0xBF8A",
+      "new": "0xBFCE"
+    },
+    {
+      "symbol": "HuRemainingWeapons",
+      "old": "0xBF42",
+      "new": "0xBF86"
+    },
+    {
+      "symbol": "HuUpdateDrops",
+      "old": "0xBEFA",
+      "new": "0xBF3E"
+    },
+    {
+      "symbol": "HuAfterEffects",
+      "old": "0xBEC4",
+      "new": "0xBF08"
+    },
+    {
+      "symbol": "HuBeforeEffects",
+      "old": "0xBE8E",
+      "new": "0xBED2"
+    },
+    {
+      "symbol": "HuSamusShots",
+      "old": "0xBE45",
+      "new": "0xBE89"
+    },
+    {
+      "symbol": "HuDrawAll",
+      "old": "0xBE0F",
+      "new": "0xBE53"
+    },
+    {
+      "symbol": "HuGameColdDispatch",
+      "old": "0xBDBF",
+      "new": "0xBE03"
+    },
+    {
+      "symbol": "HuLateUiDirect",
+      "old": "0xBD66",
+      "new": "0xBD8D"
+    },
+    {
+      "symbol": "HuVisibleDirect",
+      "old": "0xBD07",
+      "new": "0xBD2E"
+    },
+    {
+      "symbol": "HuSlideSmallGap",
+      "old": "0xBCAD",
+      "new": "0xBCD4"
+    },
+    {
+      "symbol": "HuUiDirect",
+      "old": "0xBC43",
+      "new": "0xBC6A"
+    },
+    {
+      "symbol": "HuPlayerSubs",
+      "old": "0xBBA7",
+      "new": "0xBBCE"
+    },
+    {
+      "symbol": "HuAfterTerrainGate",
+      "old": "0xBB73",
+      "new": "0xBB9A"
+    },
+    {
+      "symbol": "HuGmName",
+      "old": "0xBB63",
+      "new": "0xBB8A"
+    },
+    {
+      "symbol": "HuGmStatusName",
+      "old": "0xBB4D",
+      "new": "0xBB74"
+    },
+    {
+      "symbol": "HuGmMenuName",
+      "old": "0xBB1F",
+      "new": "0xBB46"
+    },
+    {
+      "symbol": "HuLegacyPostBG",
+      "old": "0xBAD0",
+      "new": "0xBAF7"
+    },
+    {
+      "symbol": "HuResolve",
+      "old": "0xBA2F",
+      "new": "0xBA56"
+    },
+    {
+      "symbol": "HuBank",
+      "old": "0xB99F",
+      "new": "0xB9C6"
+    },
+    {
+      "symbol": "HuHi",
+      "old": "0xB90F",
+      "new": "0xB936"
+    },
+    {
+      "symbol": "HuNativeWorldPalette",
+      "old": "0xBAC2",
+      "new": "0xBAE9"
+    },
+    {
+      "symbol": "HuDkPrepare",
+      "old": "0xBAA8",
+      "new": "0xBACF"
+    },
+    {
+      "symbol": "HuLo",
+      "old": "0xB87F",
+      "new": "0xB8A6"
+    }
+  ],
+  "stable_global_symbols": 54450,
+  "all_header_CHR80menu_art_ready52_KamaV1_Celeste_exact": true,
+  "clones": [
+    {
+      "bank": 119,
+      "samples": 3,
+      "fetch_bytes": 3139
+    },
+    {
+      "bank": 120,
+      "samples": 4,
+      "fetch_bytes": 3124
+    }
+  ],
+  "final127_sha256": "1e9c10d2ad336448d292c168356b0cb1734f77de35ac323722de5c96a6be377c",
+  "limits": [
+    "Replaced own source bodies have CPU controls; this is an ownership and linked-consumer closure, not an independent proof of every new instruction.",
+    "Independent predecessor router, not the current FF/Arthur2590B source composition."
+  ],
+  "bindings": [
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\smb2-current-main-cohort-v9\\layout_controls.py",
+      "bytes": 8330,
+      "sha256": "649969d36a38fcba3c53dfccd1fb34e431f4937e8b2b673a606cc72a5e8a3b0a"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\smb2-current-main-cohort-v9\\build.py",
+      "bytes": 10315,
+      "sha256": "7497495d72029fef37ade6f7f7893a43930bd333f2f24bdff7d4dd47e739533e"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\smb2-current-main-cohort-v9\\candidate.dbg",
+      "bytes": 32595799,
+      "sha256": "70e7cbf44c289d4b5f8e744b590670676a6485186ff72ced5fe4e28aef141d95"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\smb2-current-main-cohort-v9\\candidate.lbl",
+      "bytes": 1317978,
+      "sha256": "11e16ebfadaef33f171558dca8337ec8c1093bce9beeb443a6561b3d8f1ebc5a"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\smb2-current-main-cohort-v9\\dmc-clones.s",
+      "bytes": 1769,
+      "sha256": "55a16f77ad44fc05dce7c214c1091e644d39ddc675446c997b5564e5a179c8b1"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\smb2-current-main-cohort-v9\\final127.bin",
+      "bytes": 8192,
+      "sha256": "1e9c10d2ad336448d292c168356b0cb1734f77de35ac323722de5c96a6be377c"
+    },
+    {
+      "path": "C:\\NES\\Super Mario Bros. 2 (USA).nes",
+      "bytes": 262160,
+      "sha256": "41300bc4942a8a4f9b53148b404dd5cae3dd708ebdd9b617888d290a51a83e43"
+    }
+  ]
+}

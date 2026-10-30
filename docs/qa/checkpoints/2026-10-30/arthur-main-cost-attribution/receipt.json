@@ -1,0 +1,243 @@
+{
+  "status": "READ_ONLY_DIAGNOSTIC_CPU_ATTRIBUTION",
+  "candidate_sha256": "1437f43b3327d2e213370779fc90c32a04208416c792031bae1175c8bacbbc10",
+  "native": false,
+  "installed": false,
+  "new_native_run": false,
+  "optimization_claim": false,
+  "source_receipt_sha256": "505c20f7fa29c0f62bdcdff2bd996ee6562101b601369a84f8afd8e41b0308e3",
+  "evidence": [
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\arthur-physical-clock-v2\\Main-cost-attribution-negative-1030-v1.json",
+      "sha256": "4fcf8da4a9404de9f86fac7ec074574c315dec5e987c0443d1a1dee7f8bf6f57"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\arthur-physical-clock-v2\\Main-cost-attribution-1030-v2.json",
+      "sha256": "bc7b13df6c38fbf636f6637a72688e8af1c6352f43de7f3c0d8f97d514338ed3"
+    }
+  ],
+  "checks": {
+    "passed": true,
+    "updates": [
+      {
+        "age": 1,
+        "CPU": 35209,
+        "minimum_SP": 208
+      },
+      {
+        "age": 4,
+        "CPU": 36674,
+        "minimum_SP": 199
+      },
+      {
+        "age": 7,
+        "CPU": 36752,
+        "minimum_SP": 195
+      },
+      {
+        "age": 10,
+        "CPU": 36484,
+        "minimum_SP": 195
+      },
+      {
+        "age": 13,
+        "CPU": 36753,
+        "minimum_SP": 195
+      },
+      {
+        "age": 16,
+        "CPU": 36723,
+        "minimum_SP": 195
+      }
+    ],
+    "complete_Main_CPU": {
+      "min": 35209,
+      "max": 36753,
+      "mean": 36432.5
+    },
+    "exclusive_instruction_segments": {
+      "AR_GEN_FOREGROUND": 33084,
+      "SMC/RAM": 31503,
+      "UNATTRIBUTED": 15225,
+      "NEW_ROSTER_GATE": 13950,
+      "CHARACTER_HOST_UNION": 11736,
+      "METASPRITE": 9691,
+      "CODE": 8763,
+      "ARTHUR_DRAW": 8214,
+      "LOWCODE": 7887,
+      "ARTHUR_OWN_SERVICES": 7332,
+      "ARTHUR_COMMON": 6834,
+      "ARTHUR_PROBES": 6792,
+      "ARTHUR_WORLD": 5560,
+      "LEVEL": 5429,
+      "ARTHUR_ADAPTER": 5016,
+      "OBJECT": 4446,
+      "PLAYER": 3337,
+      "GIMMICK_COMMON_NMI": 3108,
+      "FIXED": 2765,
+      "ARTHUR_LIFECYCLE": 2544,
+      "COLLISION": 2200,
+      "RENDER": 1788,
+      "ROLL_WORLD": 1785,
+      "SPECIAL_MM": 1782,
+      "X5_BOUNCE": 1752,
+      "TMNT_COMBAT": 1668,
+      "ARTHUR_LEAF": 1532,
+      "CROSSOVER_HELPERS": 1476,
+      "LM_CORE": 1362,
+      "Z2_COLD": 1356,
+      "ARTHUR_BODY": 1168,
+      "INVENTORY": 828,
+      "HOT_COLLISION_GATE": 786,
+      "ROGUE_SCHEDULER_COMMON": 738,
+      "MAAA_CORE": 725,
+      "HOT_RENDER_GATE": 660,
+      "HOST_BBOX_LOCAL": 414,
+      "KIRBY_CORE": 387,
+      "ARTHUR_ADAPTER_COLD": 360,
+      "Z2_LOGIC": 282,
+      "VIC_WORLD": 276,
+      "M3_LOGIC": 276,
+      "BILL_BODY_COLD": 266,
+      "OBJECT_TIMER_FAST": 252,
+      "ARTHUR_PALETTE_MODE": 222,
+      "SAMUS": 210,
+      "OAMALIGNED": 192,
+      "MIKE_CORE": 180,
+      "X5_DRAW_GATE": 174,
+      "SAMUS_CROUCH_WATER": 126,
+      "MM_BODY_RESERVE": 96,
+      "DARKWING_DRAW_GUARD": 60
+    },
+    "inclusive_routine_costs": {
+      "PlayerBGCollision": {
+        "calls": 6,
+        "total": 54458,
+        "min": 9020,
+        "max": 9189,
+        "mean": 9076.333333333334
+      },
+      "ArHostDrawAll": {
+        "calls": 6,
+        "total": 49582,
+        "min": 6887,
+        "max": 8708,
+        "mean": 8263.666666666666
+      },
+      "SamusFreezeDrawAll": {
+        "calls": 6,
+        "total": 40301,
+        "min": 6649,
+        "max": 6770,
+        "mean": 6716.833333333333
+      },
+      "DrawAllMetasprites": {
+        "calls": 6,
+        "total": 40241,
+        "min": 6639,
+        "max": 6760,
+        "mean": 6706.833333333333
+      },
+      "ArDispatch": {
+        "calls": 30,
+        "total": 34856,
+        "min": 219,
+        "max": 2730,
+        "mean": 1161.8666666666666
+      },
+      "ArHostMovement": {
+        "calls": 6,
+        "total": 14000,
+        "min": 1449,
+        "max": 2582,
+        "mean": 2333.3333333333335
+      },
+      "ArHostDraw": {
+        "calls": 6,
+        "total": 10912,
+        "min": 1768,
+        "max": 1842,
+        "mean": 1818.6666666666667
+      },
+      "ArStep": {
+        "calls": 6,
+        "total": 9414,
+        "min": 683,
+        "max": 1818,
+        "mean": 1569.0
+      },
+      "X5BounceUiDispatch": {
+        "calls": 6,
+        "total": 8046,
+        "min": 1341,
+        "max": 1341,
+        "mean": 1341.0
+      },
+      "ArHostGraphics": {
+        "calls": 6,
+        "total": 3204,
+        "min": 534,
+        "max": 534,
+        "mean": 534.0
+      },
+      "ArHostEnsure": {
+        "calls": 24,
+        "total": 2544,
+        "min": 106,
+        "max": 106,
+        "mean": 106.0
+      },
+      "ArHostAfterTerrain": {
+        "calls": 6,
+        "total": 1874,
+        "min": 297,
+        "max": 343,
+        "mean": 312.3333333333333
+      },
+      "ArHostPoint": {
+        "calls": 12,
+        "total": 1020,
+        "min": 85,
+        "max": 85,
+        "mean": 85.0
+      },
+      "CrossoverGraphicsBank": {
+        "calls": 12,
+        "total": 492,
+        "min": 41,
+        "max": 41,
+        "mean": 41.0
+      },
+      "NativeGoombaRender": {
+        "calls": 6,
+        "total": 186,
+        "min": 31,
+        "max": 31,
+        "mean": 31.0
+      },
+      "MetaspriteRenderLoop": {
+        "calls": 6,
+        "total": 126,
+        "min": 21,
+        "max": 21,
+        "mean": 21.0
+      }
+    },
+    "source_due_pad_and_physics_not_supplied_by_profiler": true,
+    "exclusive_costs_sum_exactly_to_complete_Main": true,
+    "limits": [
+      "Six flat-scene linked CPU updates, not the earlier native controller route.",
+      "Named routine costs are inclusive and overlap; segment totals are exclusive.",
+      "No optimization or60Hz/native performance qualification claimed."
+    ]
+  },
+  "limits": [
+    "Six actual linked flat-scene GameLoop updates with real serial-input NMIs. This is not the native controller scene.",
+    "No Due/Pad/sourcephysics writes by profiler. Named call costs overlap; exclusive segment costs sum to Main cycles.",
+    "Current Downloads unchanged; severe native lag remains."
+  ],
+  "bindings": {
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\arthur_clock_main_attribution_1030_v1.py": "978ad554ed56cb78e8e1349be70af00b50143f9810b94fada6afe1fda7a7f60d",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\arthur_clock_main_attribution_1030_v2.py": "0b3527f87a1edfa4866208b03f495026b160f8bc5d5dc27c22f102b11d1c1554"
+  }
+}
