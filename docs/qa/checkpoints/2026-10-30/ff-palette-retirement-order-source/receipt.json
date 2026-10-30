@@ -1,0 +1,29 @@
+{
+  "status": "PRIVATE_SOURCE_PALETTE_RETIREMENT_ORDER_FIXED",
+  "candidate_sha256": "4929545edb5a7b9224ab2d11101a4f2dba781210f1e6915fb01c8a8ee9d29b5e",
+  "parent_sha256": "80628f27bf5bd56bb1ecc03001b04272050aa401e0d8fc6ef0f4913a20e31cd8",
+  "original_handoff_sha256": "2922f377c941cc3f4c41162acc31d16360298a1df6a2f15dee157cac44b38d32",
+  "verified_bindings": 1295,
+  "parent_source_checkpoint": "shared-quick-ff-arthur-source/source-lineage.zip",
+  "native": false,
+  "installed": false,
+  "admitted": false,
+  "scheduler": false,
+  "measured_foreign_normal_NMI_CPU_delta": 41,
+  "measured_foreign_lag_NMI_IRQ_CPU_delta": 0,
+  "own_tail_bytes": 327,
+  "own_tail_free_bytes": 138,
+  "findings": [
+    "Retirement restoration runs before the complete original native palette chain; later native colors win.",
+    "The fixed3color writer matches real C116-mapped UpdateScreen, including both status reads, control mirror and scroll/latch behavior.",
+    "1056 real interrupt pairs and252 lifecycle instruction cuts pass; native deadlines and gameplay cadence are unqualified.",
+    "Near-call wrong-bank BRK, missing second status read and old late-native overwrite negatives remain retained.",
+    "The future world marker and spell palette scheduler are not installed."
+  ],
+  "archive_sha256": "357f78cb3047c34c6aa2e68053924f26e702a327d586d2ffa5108686ab3c3205",
+  "archive_bytes": 247446,
+  "archive_members": 56,
+  "all_members_verified": true,
+  "no_ROM_files": true,
+  "root_tool_sha256": "bbd7898d347ff62baebf4c865442fdad6f0a96bb42e1d9645c6c5f73cdeef8ca"
+}

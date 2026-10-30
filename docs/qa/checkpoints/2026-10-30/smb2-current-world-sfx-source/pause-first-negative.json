@@ -1,0 +1,17 @@
+{
+  "candidate": {
+    "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\smb2-current-world-sfx-v12\\candidate.nes",
+    "bytes": 2097168,
+    "sha256": "cba3eacb535a9475b834624ef38c949c362dc750b248867b306d037c42533e49"
+  },
+  "real_NMI": true,
+  "paused_buffers": {
+    "Square1SoundBuffer": 0,
+    "Square2SoundBuffer": 1,
+    "NoiseSoundBuffer": 0
+  },
+  "expansion_enable": 0,
+  "CPU": 2812,
+  "passed": false,
+  "requirement": "Pause disables MMC5 length counters; clear native world effect buffers like the actual GuestAudioFinish silent path so stale cached timers cannot pretend to resume a held world note."
+}

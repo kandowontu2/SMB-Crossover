@@ -1,0 +1,9 @@
+{
+  "kind": "retained_fixture_corrections_not_product_failures",
+  "candidate_sha256": "256a1ea00fd196cd90bb40502ad8ab5729ddd563336dcfa6ac3d0f80c6396e69",
+  "corrections": [
+    "GuestAudioFinish does not always write4015: if its cached status already matches, a Bass-specific bit drop does not prove an actual hardware stop. The final control records the genuine GuestDmcStatus API's dropped DMC bit, while independently proving real own sample continuity.",
+    "GiveOneCoin only updates displayed coin/score state. Its real SetupJumpCoin caller queues the sound and increments CoinTallyFor1Ups. The final producer control uses that native caller and verifies the true GiveOneCoin path."
+  ],
+  "pause_negative_is_separate_actual_product_defect": true
+}
