@@ -1,0 +1,38 @@
+{
+  "status": "SOURCE_SELECTOR_FIX_AND_UNSAFE_MAILBOX_NEGATIVE_RETAINED",
+  "native": false,
+  "installed": false,
+  "selector_candidate_sha256": "6fc2bb8e8a0cd0d3d88cb334b370b7ba31e8dc9f0b44258d2a2219649759fb3f",
+  "parent_native_flash_sha256": "6798b7458a8fef799b0836a5baf4e5df61e0fc46f2e4b639d68f8e7e2186a6c5",
+  "parent_source_checkpoint": "docs/qa/checkpoints/2026-10-30/ff-native-enemy-flash",
+  "packets": [
+    {
+      "packet": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\ff-graphics-bank-proposal-v2\\handoff.json",
+      "sha256": "39c9db81d773680680bad546d378f6ed5eda4a8e16363f1cadc08455d3020fa0",
+      "verified_bindings": 10486
+    },
+    {
+      "packet": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\ff-fx-sword-role-audit-v1\\controls.json",
+      "sha256": "b38d1c10e0c2b1fb6b97eb78691029617fc964d4311398bb0055f907f3afa071",
+      "verified_bindings": 7
+    },
+    {
+      "packet": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\ff-fx-palette-mailbox-audit-v2\\controls.json",
+      "sha256": "2fd5b2e0f94a741ca88f1a94427ca849b84bb31a812296e00f5fac407d8a9f36",
+      "verified_bindings": 507
+    }
+  ],
+  "findings": [
+    "One-byte FF resident graphics row FF\u2192DD:16384 actual selectors,64 complete Main pairs,28 real vector cuts pass; all other ROM bytes/PCs/header/CHR/RAM3/cookie exact.",
+    "576 original iterator views prove body0,sword2 and ink3 separate complete records. Sword uses all3 indices with [0C,1C,2C], distinct from Ice/White; recoloring is not an exact port.",
+    "Existing palette mailbox flushes after native queue before OAM DMA, even when the native queue is full; lag retains packet.",
+    "Two retained real retirement negatives show stale FF colors flush into Mario/Samus after selection. Alias adoption remains unsafe until lifecycle repair.",
+    "No scheduler producer, mailbox alias, roster admission or Downloads change is adopted by this checkpoint."
+  ],
+  "archive_sha256": "f05686d8d3bda32731c2cb41293e3cbdf8945f590b7c4ab398145ce8ce3258b7",
+  "archive_bytes": 1048848,
+  "archive_members": 25,
+  "all_delta_members_verified": true,
+  "no_ROM_files": true,
+  "root_tool_sha256": "77e987c99526b128199e63bf655790867309e28700128bb5e64584c4ba637309"
+}
