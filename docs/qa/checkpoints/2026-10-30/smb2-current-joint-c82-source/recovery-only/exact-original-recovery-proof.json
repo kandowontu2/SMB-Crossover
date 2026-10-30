@@ -1,0 +1,49 @@
+{
+  "passed": true,
+  "mode": "EXACT_HASH_RETAINED_COPY_RECOVERY",
+  "cause": "Inherited copied recipes still named older output/source paths. Initial parent-prefix replacements did not match. Two older generated objects were recompiled; original recipe replay changed compile-time metadata, so exact retained copies were used.",
+  "restored": [
+    {
+      "target": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\celeste-menu-name-arthur-v2\\joint\\main.o",
+      "before_sha256": "9233d7d3aa9a073b4f2d85c184ef10876ef50dcc177db93c95653029b98762a0",
+      "retained_negative": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\smb2-current-joint-source-v11\\recovery-only\\celeste-menu-name-arthur-v2-main.o",
+      "frozen_expected_sha256": "7f54f42f869ce93b19f59b98d5242c0b504dea5f8ba78f1ec118bb798dcf0952",
+      "source_copy": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\arthur-physical-clock-v2\\joint\\main.o",
+      "source_sha256": "7f54f42f869ce93b19f59b98d5242c0b504dea5f8ba78f1ec118bb798dcf0952",
+      "restored_sha256": "7f54f42f869ce93b19f59b98d5242c0b504dea5f8ba78f1ec118bb798dcf0952",
+      "authoritative_handoff": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\celeste-menu-name-arthur-v2\\handoff.json",
+      "dependency_file_exact": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\celeste-menu-name-arthur-v2\\joint\\main.dep"
+    },
+    {
+      "target": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\arthur-expanded-host-v1\\joint\\gm-nmi.o",
+      "before_sha256": "51f6e1fea985b289bc96f3d79e1147b9c68ad09fe16cbd5d2d8bf5b4e6994738",
+      "retained_negative": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\smb2-current-joint-source-v11\\recovery-only\\arthur-expanded-host-v1-gm-nmi.o",
+      "frozen_expected_sha256": "92583d987bc6479c678a1e0f5b7f02797cd693062a6b98f92d7b65cb076610da",
+      "source_copy": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-character-composition-v2\\joint\\gm-nmi.o",
+      "source_sha256": "92583d987bc6479c678a1e0f5b7f02797cd693062a6b98f92d7b65cb076610da",
+      "restored_sha256": "92583d987bc6479c678a1e0f5b7f02797cd693062a6b98f92d7b65cb076610da",
+      "authoritative_handoff": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\arthur-expanded-host-v1\\handoff.json",
+      "dependency_file_exact": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\arthur-expanded-host-v1\\joint\\gm-nmi.dep"
+    }
+  ],
+  "full_packet_checks": {
+    "celeste-menu-name-arthur-v2": {
+      "bindings": 628,
+      "all_exact": true,
+      "bad": []
+    },
+    "arthur-expanded-host-v1": {
+      "bindings": 633,
+      "all_exact": true,
+      "bad": []
+    },
+    "current-character-composition-v2": {
+      "bindings": 677,
+      "all_exact": true,
+      "bad": []
+    }
+  },
+  "no_ROM_source_header_receipt_or_shared_change": true,
+  "preventive_guard": "Validate ALL assembler output/dependency/link DBG/LBL/map/config side outputs stay under the resolved NEW private root before invocation; assign actual flags/source by argument positions.",
+  "tool": "One bounded recovery script; no compilation or metadata patch required"
+}

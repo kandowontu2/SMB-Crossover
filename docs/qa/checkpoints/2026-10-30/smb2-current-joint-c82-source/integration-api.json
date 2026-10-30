@@ -1,0 +1,312 @@
+{
+  "status": "SOURCE_API_ONLY_FOUR_PENDING",
+  "candidate": {
+    "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\smb2-current-joint-source-v11\\candidate.nes",
+    "bytes": 2097168,
+    "sha256": "c15b50da02221e2e3ae4339d6552808bbe1540ada0bf25803ee5a0da98cb995e"
+  },
+  "parent_ROM": {
+    "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-character-composition-v2\\joint\\candidate.nes",
+    "bytes": 2097168,
+    "sha256": "80628f27bf5bd56bb1ecc03001b04272050aa401e0d8fc6ef0f4913a20e31cd8"
+  },
+  "source": {
+    "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\smb2-current-joint-source-v11\\smb2\\smb2_roster_host_v5.s",
+    "bytes": 10998,
+    "sha256": "b1c1c5c6ff26866cd6ffd83a04b394200be3b92b275dd982b1d9c00ca8433402"
+  },
+  "C82_source": {
+    "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\smb2-current-joint-source-v11\\nmi-c82.s",
+    "bytes": 4016,
+    "sha256": "a470f06fd909700e139904d475de2504c28f780b4c013dceff57c87f0c3d7d45"
+  },
+  "common_source": {
+    "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\smb2-current-joint-source-v11\\gm-nmi.s",
+    "bytes": 1805,
+    "sha256": "741eb3c7200914bfcd9335212fa08331dfec0bd3faf04ae12ed59aba6cef66b0"
+  },
+  "symbols": [
+    {
+      "name": "S2C82Entry",
+      "present": true,
+      "address": "0xdd94",
+      "physical_bank": 82
+    },
+    {
+      "name": "S2C82End",
+      "present": true,
+      "address": "0xdf95",
+      "physical_bank": 82
+    },
+    {
+      "name": "S2ServiceVeneers",
+      "present": true,
+      "address": "0xab00",
+      "physical_bank": 63
+    },
+    {
+      "name": "S2ServiceVeneersEnd",
+      "present": true,
+      "address": "0xab6c",
+      "physical_bank": 63
+    },
+    {
+      "name": "S2ServiceUnavailable",
+      "present": true,
+      "address": "0xab6c",
+      "physical_bank": 63
+    },
+    {
+      "name": "S2ServiceCodeEnd",
+      "present": true,
+      "address": "0xad21",
+      "physical_bank": 63
+    },
+    {
+      "name": "S2FreshAfterClear",
+      "present": true,
+      "address": "0xaa21",
+      "physical_bank": 63
+    },
+    {
+      "name": "S2InitScreenPrepare",
+      "present": true,
+      "address": "0xaa6b",
+      "physical_bank": 63
+    },
+    {
+      "name": "S2TypedScene",
+      "present": true,
+      "address": "0xacd6",
+      "physical_bank": 63
+    },
+    {
+      "name": "S2TypedGraphics",
+      "present": true,
+      "address": "0xacfa",
+      "physical_bank": 63
+    },
+    {
+      "name": "S2MainGame",
+      "present": true,
+      "address": "0xb8cb",
+      "physical_bank": 118
+    },
+    {
+      "name": "S2MainPlayer",
+      "present": true,
+      "address": "0xb8f3",
+      "physical_bank": 118
+    },
+    {
+      "name": "S2Movement",
+      "present": true,
+      "address": "0xaf09",
+      "physical_bank": 118
+    },
+    {
+      "name": "S2MainWorld",
+      "present": true,
+      "address": "0xba0a",
+      "physical_bank": 118
+    },
+    {
+      "name": "VvScrollBridge",
+      "present": true,
+      "address": "0xed65",
+      "physical_bank": 127
+    },
+    {
+      "name": "S2MainEnd",
+      "present": true,
+      "address": "0xbc7a",
+      "physical_bank": 118
+    },
+    {
+      "name": "S2ColdInit",
+      "present": true,
+      "address": "0xad95",
+      "physical_bank": 118
+    },
+    {
+      "name": "S2Ensure",
+      "present": true,
+      "address": "0xae45",
+      "physical_bank": 118
+    },
+    {
+      "name": "S2Ready",
+      "present": true,
+      "address": "0x5f9b"
+    },
+    {
+      "name": "S2Variant",
+      "present": true,
+      "address": "0x5fe3"
+    },
+    {
+      "name": "S2MainBody",
+      "present": true,
+      "address": "0xbb71",
+      "physical_bank": 118
+    },
+    {
+      "name": "S2MainPlatform",
+      "present": true,
+      "address": "0xbc2a",
+      "physical_bank": 118
+    },
+    {
+      "name": "S2MainSpawn",
+      "present": true,
+      "address": "0xbd00",
+      "physical_bank": 118
+    },
+    {
+      "name": "S2MainErase",
+      "present": true,
+      "address": "0xbd1d",
+      "physical_bank": 118
+    },
+    {
+      "name": "S2MainGrow",
+      "present": true,
+      "address": "0xbdad",
+      "physical_bank": 118
+    },
+    {
+      "name": "S2MainCarryPrelude",
+      "present": true,
+      "address": "0xbd57",
+      "physical_bank": 118
+    },
+    {
+      "name": "S2PublishBody",
+      "present": true,
+      "address": "0xb784",
+      "physical_bank": 118
+    },
+    {
+      "name": "S2HostAcquireNmi",
+      "present": true,
+      "address": "0xbcb7",
+      "physical_bank": 74
+    },
+    {
+      "name": "S2HostNmiTick",
+      "present": true,
+      "address": "0xbcf1",
+      "physical_bank": 74
+    },
+    {
+      "name": "S2HostRetireNmi",
+      "present": true,
+      "address": "0xbe58",
+      "physical_bank": 74
+    },
+    {
+      "name": "S2HostDmcStatus",
+      "present": true,
+      "address": "0xbe75",
+      "physical_bank": 74
+    },
+    {
+      "name": "FamilyMainCommit",
+      "present": true,
+      "address": "0x5fff"
+    }
+  ],
+  "selected_raw": 25,
+  "variant_native_character": [
+    0,
+    3,
+    2,
+    1
+  ],
+  "busy": {
+    "symbol": "FamilyMainCommit",
+    "address": "0x5fff",
+    "mask": 1
+  },
+  "transport": {
+    "bank": 63,
+    "raw_bank": "0xbf",
+    "base": "0xab00",
+    "slots": 36,
+    "bytes_per_slot": 3,
+    "invalid_slot": 36,
+    "invalid_entry": "S2ServiceUnavailable",
+    "ABI": "Existing common saves original A in SafecallA_SMC and original Y/P on stack; restore original Y/P before target. Source tails enter actual FarCallCommon start, never +3. Real target ABI comes from frozen v7 contracts."
+  },
+  "already_integrated": [
+    "Real current common outer NMI/Arthur/Gimmick clocks retained; actual13B C82 ingress",
+    "Approved513B C82 source audio acquisition/tick/retirement and original DMC",
+    "Qualified Roll7char/helper1B producers, own relocation and true importer reassembly",
+    "Same-final127 DMC119/120 clones and125 mirror"
+  ],
+  "unjoined_natural_consumers": [
+    {
+      "consumer": "shared raw25 typed transport",
+      "source_stage": "Dispatcher owner handles actual padding/caller proof; this leaf leaves current union source logical bytes exact"
+    },
+    {
+      "consumer": "GuestGameRoutinesBridge",
+      "required": "Selected25 executes S2MainGame once; row0 stays NOOP. Preserve every foreign original target/caller ABI."
+    },
+    {
+      "consumer": "NrFreshGameInit/post IcGlobalInit",
+      "required": "Run genuine native clear once, then S2ColdInit once inside existing5FFF busy publication interval. Do not combine row15 and S2FreshAfterClear into two source constructors."
+    },
+    {
+      "consumer": "InitScreen/native MoveAllSpritesOffscreen chain",
+      "required": "Retain ArGenSceneInit->FwSceneInit native callback chain, then selected25 Ensure/Graphics/PublishBody in busy interval. Do not replace the current chain with predecessor wrapper."
+    },
+    {
+      "consumer": "GuestBodyContactBridge and MarioSourceBodyImmunity",
+      "required": "Real current bridge bypasses old NrBody; integrate selected25 body/status at actual consumers, preserve Hard standing and foreign original routines."
+    },
+    {
+      "consumer": "GrowThePowerUp/RunNormalEnemies/Spawn/Erase/Platform/StarEnd/HpGraphicsBankCopy",
+      "required": "Source-rebase the actual v9 natural boundary hooks and linked imports. No manually invoked leaf callback substitutes for natural consumer coverage."
+    },
+    {
+      "consumer": "world-only native SFX mixer",
+      "required": "Still pending; source music/DMC tests do not qualify native world cue mixing."
+    }
+  ],
+  "predecessor_API": {
+    "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\smb2-current-typed-services-v7\\service-contracts.json",
+    "bytes": 8410,
+    "sha256": "31de2778c973a40bb230b3e6a30ef156984569b429e06e8755c4f69d582b149a"
+  },
+  "qualified_predecessors": [
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\smb2-current-main-cohort-v9\\handoff.json",
+      "bytes": 176118,
+      "sha256": "4f8767211e52071b63d53ca57a8e4f3962b2b28276c8b5c198483bc845590bfc"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\smb2-current-nmi-audio-v10\\handoff.json",
+      "bytes": 176032,
+      "sha256": "b29402f2617c5429b75e28ca2f65e96d58e49b1778a556f9c5a5bef668978639"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\smb2-roll-current-relocation-v5\\handoff.json",
+      "bytes": 183692,
+      "sha256": "7207b8b3545742e33d91d7fdfa20fb419117f9745f9bd82ff673193a387c3c1f"
+    }
+  ],
+  "measured_limits": {
+    "ordinary_current_Main_CPU_delta": [
+      0,
+      0
+    ],
+    "foreign_NMI_CPU_delta": [
+      132,
+      132
+    ],
+    "native": false,
+    "raw25_natural_fullMain": false,
+    "admission": false
+  }
+}
