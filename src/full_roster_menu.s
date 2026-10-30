@@ -1,7 +1,7 @@
 ; Front-end only admission layer. Pending profiles never reach gameplay tables.
 ; Two previously unused ExRAM variant bytes; cleared on screen entry and launch.
 .if ::ENABLE_MMC5_EXPANDED && ::MAPPER_MMC5
-FmAlts=$5fe5                   ; Karnov/MetalStorm/Shinobi/Bowser/Prince bits
+FmAlts=$5fe5                   ; Karnov/Metal/Shinobi/Bowser/Prince/Quick/Thomas
 FmGroups=$5fe8                 ; WWF low3, ContraForce bits3..4
 .pushseg
 .segment "FULL_ROSTER_MENU"
@@ -36,11 +36,27 @@ NotRogue:
  sec
  rts
 NotKarnov:
+ cpx #9
+ bne NotQuickMan
+ lda FmAlts
+ and #32
+ beq Ready
+ lda #31
+ sec
+ rts
+NotQuickMan:
  cpx #10
  bne NotShinobi
  lda FmAlts
  and #4
+ bne Shinobi
+ lda FmAlts
+ and #64
  beq Ready
+ lda #32
+ sec
+ rts
+Shinobi:
  lda #3
  sec
  rts
@@ -113,6 +129,12 @@ NotWWF:
 Bike:lda #24
  bne Pending
 ContraForce:
+ cpx #31
+ bne ForceVariant
+ lda #30
+ sec
+ rts
+ForceVariant:
  lda FmGroups
  and #24
  lsr
@@ -160,12 +182,52 @@ NotRogue:
  cpx #7
  bne NotKarnov
  lda #1
- bne Flip
+ jmp Flip
 NotKarnov:
+ cpx #9
+ bne NotBass
+ lda FmAlts
+ and #32
+ beq BassOrRoll
+ lda FmAlts
+ and #$df
+ sta FmAlts
+ lda #0
+ sta RlVariant
+ beq BassReady
+BassOrRoll:
+ lda RlVariant
+ beq Roll
+ lda FmAlts
+ ora #32
+ sta FmAlts
+ lda #0
+ sta RlVariant
+ beq BassReady
+Roll:inc RlVariant
+BassReady:
+ lda #0
+ sta RlPalette
+ jmp Yes
+NotBass:
  cpx #10
  bne NotShinobi
- lda #4
- bne Flip
+ lda FmAlts
+ and #68
+ beq SelectShinobi
+ cmp #4
+ beq SelectThomas
+ lda #0
+ beq RyuAlt
+SelectShinobi:lda #4
+ bne RyuAlt
+SelectThomas:lda #64
+RyuAlt:sta R0
+ lda FmAlts
+ and #$bb
+ ora R0
+ sta FmAlts
+ jmp Yes
 NotShinobi:
  cpx #11
  bne NotMetal

@@ -1,21 +1,21 @@
 -- Cold, controller-only traversal: every slot, every Select alternate, launch gates.
 local frame,phase,age,at=0,'title',0,1
-local raw={0,1,2,3,4,5,6,7,12,9,10,11,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31}
-local counts={5,2,2,2,2,4,2,2,2,2,2,2,2,2,3,1,2,4,4,2,2,4,1,1,4,1,2,1,6,2,4}
+local raw={0,1,2,3,4,5,6,7,12,9,10,11,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32}
+local counts={5,2,2,2,2,4,2,2,2,3,3,2,2,2,3,1,2,4,4,2,2,4,1,1,4,1,2,1,6,2,4,1}
 local steps,shots={},0
 local seen,variants={},{}
 local function r(n)return emu.read(assert(L[n],n),emu.memType.nesDebug)end
 local function ram(a)return emu.read(a,emu.memType.nesDebug)end
 local function pending(s,v)
- return s==0 and v==2 or (s==2 or s==7 or s==10 or s==11)and v==1 or s==21 or s>=23
+ return s==0 and v==2 or (s==2 or s==7 or s==11)and v==1 or s==10 and v>0 or s==9 and v==2 or s==21 or s>=23
 end
-local visitorder={0,1,2,3,4,5,6,7,15,14,13,12,11,10,9,8,16,17,18,19,20,21,22,23,30,29,28,27,26,25,24}
+local visitorder={0,1,2,3,4,5,6,7,15,14,13,12,11,10,9,8,16,17,18,19,20,21,22,23,31,30,29,28,27,26,25,24}
 local function add(button,s,v,tag)steps[#steps+1]={button=button,slot=s,variant=v,tag=tag}end
 for i,s in ipairs(visitorder)do
  if i>1 then
   local old=visitorder[i-1]
   local b=s//8>old//8 and 'down' or s>old and 'right' or 'left'
-  add(b,s,0,({[7]='row1-end',[15]='row2',[23]='row3',[30]='row4'})[s])
+  add(b,s,0,({[7]='row1-end',[15]='row2',[23]='row3',[31]='row4'})[s])
  else add('',s,0,'initial')end
  for v=1,counts[s+1]-1 do
   add('select',s,v,(s==28 and v==1 and 'wwf-alt')or(s==29 and v==1 and 'prince')or(s==30 and v==3 and 'contra-beans')or nil)
@@ -90,12 +90,12 @@ emu.addEventCallback(function()
   assert(r('SelectedCharacter')==0 and r('MarioVariant')==0,'Selected playable owner')
   assert(ram(0x5fe5)==0 and ram(0x5fe8)==0,'Pending-only state cleared before gameplay')
   local ns,nv=0,0;for _ in pairs(seen)do ns=ns+1 end;for _ in pairs(variants)do nv=nv+1 end
-  assert(ns==31,'Every requested slot visited')
+  assert(ns==32 and nv==80,'Every requested slot and alternate visited')
   log:close()
   assert(late==0 and visible==0,'No active-display upload or late rendering enable')
   local f=assert(io.open(OUTPUT..'result.json','w'))
   f:write(string.format('{"passed":true,"frames":%d,"slots":%d,"alternates":%d,"screenshots":%d,"late_enables":%d,"visible_ppu_writes":%d}\n',frame,ns,nv,shots,late,visible));f:close()
-  print('PASS full31-slot cold controller traversal, all Select alternates, pending gates, live launch and PPU deadlines')
+  print('PASS full32-slot cold controller traversal, all80 Select identities, pending gates, live launch and PPU deadlines')
   emu.stop(0)
  end
 end,emu.eventType.endFrame)

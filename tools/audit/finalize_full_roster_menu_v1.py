@@ -1,6 +1,6 @@
 """Verify frozen inputs/relink/native evidence, archive sources and install MMC5."""
 from pathlib import Path
-import hashlib,json,re,shutil,subprocess,sys,zipfile
+import argparse,hashlib,json,re,shutil,subprocess,sys,zipfile
 from collections import Counter
 
 ROOT=Path(__file__).resolve().parents[2]
@@ -15,6 +15,22 @@ def write(p,v):p.parent.mkdir(parents=True,exist_ok=True);p.write_text(json.dump
 
 
 def main():
+    global OUT,REPORT,EXPECTED
+    ap=argparse.ArgumentParser(description=__doc__)
+    ap.add_argument('--output',type=Path,default=OUT)
+    ap.add_argument('--report',type=Path,default=REPORT)
+    ap.add_argument('--expected',default=EXPECTED)
+    ap.add_argument('--slots',type=int,default=31)
+    ap.add_argument('--identities',type=int,default=77)
+    ap.add_argument('--pending',type=int,default=30)
+    ap.add_argument('--cpu-packet',default='full-menu-source-controls-v1')
+    ap.add_argument('--native-sweep',default='full-roster-menu-native-v3')
+    ap.add_argument('--native-reentry',default='full-roster-menu-reentry-v4')
+    ap.add_argument('--native-extra',action='append',default=[])
+    ap.add_argument('--checkpoint',default='full-roster-menu')
+    ap.add_argument('--install-parent')
+    ap.add_argument('--versioned-name',default='SMB-Crossover-2026-10-30-Full-Roster-Menu-MMC5.nes')
+    args=ap.parse_args();OUT=args.output.resolve();REPORT=args.report.resolve();EXPECTED=args.expected
     assert not REPORT.exists(),'Preserve finalized evidence'
     p=json.loads((OUT/'build-proof.json').read_text());assert p['candidate']==sha(OUT/'candidate.nes')==EXPECTED
     for f,h in p['bindings'].items():assert sha(f)==h,f
@@ -25,7 +41,7 @@ def main():
             path=Path(word.replace('\\ ',' '));path=(path if path.is_absolute()else ROOT/path).resolve()
             assert path.is_file(),path;deps[str(path)]=sha(path)
     assert len(deps)>470 and str(OUT/'src/full_roster_menu.s')in deps
-    independent=ROOT/'build/full-roster-menu-independent-v3'
+    independent=OUT.with_name(OUT.name.replace('menu-','menu-independent-'))
     previous=json.loads((OUT/'source-closure.json').read_text())if(OUT/'source-closure.json').exists()else None
     if previous:assert previous['actual_ASM_dependencies']==deps
     else:independent.mkdir()
@@ -48,17 +64,17 @@ def main():
     closure=dict(passed=True,independent_relink_byte_exact_ROM_and_LBL=True,commands=commands,actual_ASM_dependencies=deps,
                  candidate=bind(OUT/'candidate.nes'),independent=bind(independent/'candidate.nes'))
     write(OUT/'source-closure.json',closure)
-    cpu=ROOT/'build/full-menu-source-controls-v1/receipt.json';c=json.loads(cpu.read_text());assert c['ROM_sha256']==EXPECTED
+    cpu=ROOT/'build'/args.cpu_packet/'receipt.json';c=json.loads(cpu.read_text());assert c['ROM_sha256']==EXPECTED
     for f,h in c['bindings'].items():assert sha(f)==h,f
     evidence=[];native={}
-    for tag,folder in [('sweep','full-roster-menu-native-v3'),('reentry','full-roster-menu-reentry-v4')]:
+    for tag,folder in [('sweep',args.native_sweep),('reentry',args.native_reentry)]+[(f'extra{i}',d)for i,d in enumerate(args.native_extra)]:
         d=ROOT/'build'/folder;result=json.loads((d/'result.json').read_text());assert result['passed']
         budget=json.loads((d/'capture-budget.json').read_text());assert budget['returncode']==0 and not budget['violations']
         assert '--testRunner'in budget['command']
         assert len(list(d.glob('*.png')))<=8 and sum(f.stat().st_size for f in d.iterdir()if f.is_file())<2_000_000_000
         assert not list(d.glob('*failure*'))
         native[tag]=result;evidence += [f for f in d.iterdir()if f.is_file()]
-    assert native['sweep']['slots']==31 and native['sweep']['alternates']==77
+    assert native['sweep']['slots']==args.slots and native['sweep']['alternates']==args.identities
     assert native['sweep']['late_enables']==native['sweep']['visible_ppu_writes']==0
     parent=ROOT/'build/menu-fourth-row-fix-v2/candidate.nes';a=parent.read_bytes();b=(OUT/'candidate.nes').read_bytes()
     assert len(a)==len(b)==2097168 and a[:16]==b[:16]
@@ -75,7 +91,7 @@ def main():
         if x!=y:assert any(lo<=i<hi for lo,hi in menu_ranges),hex(i+0xa000)
     assert not any(x['placeholder']for x in p['pending_profiles'])
     report=dict(status='PASS full roster menu; pending entries visible but gameplay blocked',candidate=EXPECTED,parent=p['parent'],
-        menu=dict(slots=31,columns=8,rows=4,identities=77,playable=47,pending=30,portrait_tiles=169,
+        menu=dict(slots=args.slots,columns=8,rows=4,identities=args.identities,playable=args.identities-args.pending,pending=args.pending,portrait_tiles=p['layout']['portrait_tiles'],
                   pending_marker='Star prefix and COMING SOON legend; A/Start remain in menu.',
                   art='Original-game source pixels or hardware captures; Contra Force uses authentic selection faces pending full-body integration.',
                   select_alternates=True,individual_thumbnail_names=False),
@@ -84,17 +100,19 @@ def main():
         changed_PRG_banks=banks,changed_CHR_pages=p['CHR_changed'],original_gameplay_and_NMI_IRQ_instruction_bytes_unchanged=True,
         memory=dict(new_RAM_bytes=0,menu_only_ExRAM=['5FE5','5FE8'],menu_only_PRG='bank76 A-view B979..<C000',preview_CHR=[700,703]),
         visual_review='Root reviewed all eight selected sweep screenshots as a contact sheet, plus restored Proto gameplay. Finite menu and launch checks; no full new-character gameplay qualification claim.',
-        limits='Thirty starred identities still require gameplay integration; this menu publication does not admit their private component builds. Native Mario/Proto launches checked, not a full campaign replay.',
+        limits=f'{args.pending} starred identities still require gameplay integration; this menu publication does not admit their private component builds. Native Mario/Proto launches checked, not a full campaign replay.',
         source_build=bind(OUT/'build-proof.json'),evidence=[bind(f)for f in evidence],
         workspace_cap_bytes=70_000_000_000)
     write(REPORT,report)
     files={Path(f)for f in deps}|{Path(f)for f in p['bindings']}|{Path(f)for f in c['bindings']}
     files|={REPORT,OUT/'build-proof.json',OUT/'source-closure.json',OUT/'full-menu.cfg',OUT/'entrypoint.s',OUT/'menu.nam',OUT/'menu.rle',OUT/'packed.chr',OUT/'pending-previews.chr',OUT/'native-review-contact.png',cpu,Path(__file__),ROOT/'README.md',ROOT/'tools/prepare_cv3_dmc_mirror.py'}
     files|=set(evidence)
-    files|=set((ROOT/'build/full-menu-source-controls-v1').rglob('*.py'))|set((ROOT/'build/full-menu-source-controls-v1').rglob('*.json'))
-    files|={ROOT/'tools/audit'/n for n in ['build_full_roster_menu_v1.py','full_roster_menu_native_v1.lua','full_roster_menu_reentry_v1.lua']}
-    files|={f for d in ['build/full-roster-menu-reentry-v3','build/full-menu-known-art-v1','build/full-menu-source-art-v1','build/wwf-menu-art-v1']for f in (ROOT/d).rglob('*')if f.is_file()and f.suffix in ['.png','.json','.py','.lua','.bin']}
-    target=ROOT/'docs/qa/checkpoints/2026-10-30/full-roster-menu';assert not target.exists();target.mkdir(parents=True)
+    files|=set(cpu.parent.rglob('*.py'))|set(cpu.parent.rglob('*.json'))
+    files|={ROOT/'tools/audit'/n for n in ['build_full_roster_menu_v1.py','full_roster_menu_native_v1.lua','full_roster_menu_reentry_v1.lua','full_roster_final_alts_native_v1.lua']}
+    files|={f for d in ['build/full-roster-menu-reentry-v3','build/full-menu-known-art-v1','build/full-menu-source-art-v1','build/wwf-menu-art-v1','build/full-menu-final-art-v1','build/full-menu-quickman-art-v1']for f in (ROOT/d).rglob('*')if f.is_file()and f.suffix in ['.png','.json','.py','.lua','.bin']}
+    target=ROOT/'docs/qa/checkpoints/2026-10-30'/args.checkpoint
+    if target.exists():assert not any(target.iterdir()),'Preserve existing checkpoint'
+    target.mkdir(parents=True,exist_ok=True)
     archive=target/'frozen-source-packet.zip';members={}
     with zipfile.ZipFile(archive,'w',zipfile.ZIP_DEFLATED,compresslevel=9)as z:
         for f in sorted(files):
@@ -104,17 +122,18 @@ def main():
     with zipfile.ZipFile(archive)as z:assert {n:hashlib.sha256(z.read(n)).hexdigest()for n in z.namelist()}==members
     write(target/'root-review.json',dict(status=report['status'],candidate=EXPECTED,report=bind(REPORT),archive=bind(archive),members=members,actual_ASM_dependencies=deps,limits=report['limits']))
     downloads=Path('C:/Users/kando/Downloads');latest=downloads/'SMB-Crossover-Latest-WIP-MMC5.nes'
-    assert sha(latest)==p['parent'],'Unexpected newer installed build'
-    backup=downloads/'SMB-Crossover-Backup-c0269e15-MMC5.nes'
-    if backup.exists():assert sha(backup)==p['parent']
+    install_parent=args.install_parent or p['parent']
+    assert sha(latest)==install_parent,'Unexpected newer installed build'
+    backup=downloads/f'SMB-Crossover-Backup-{install_parent[:8]}-MMC5.nes'
+    if backup.exists():assert sha(backup)==install_parent
     else:shutil.copy2(latest,backup)
-    versioned=downloads/'SMB-Crossover-2026-10-30-Full-Roster-Menu-MMC5.nes'
+    versioned=downloads/args.versioned_name
     if versioned.exists():assert sha(versioned)==EXPECTED
     else:shutil.copy2(OUT/'candidate.nes',versioned)
     shutil.copy2(OUT/'candidate.nes',latest);assert sha(latest)==sha(versioned)==EXPECTED
     write(OUT/'install.json',dict(passed=True,installed=bind(latest),versioned=bind(versioned),backup=bind(backup),verification=bind(REPORT)))
     progress=ROOT/'docs/qa/new-character-source-progress-2026-10-28.json';state=json.loads(progress.read_text())
-    state['shared_playable_build'].update(sha256=EXPECTED,latest_user_change='Full4x8 character menu:31slots/77variants visible;47playable,30starredpending; no newly admitted gameplay owners.')
+    state['shared_playable_build'].update(sha256=EXPECTED,latest_user_change=f'Full4x8 character menu: {args.slots} slots/{args.identities} variants visible; {args.identities-args.pending} playable, {args.pending} starred pending; no newly admitted gameplay owners.')
     state['full_roster_menu']=dict(status=report['status'],report=bind(REPORT),checkpoint=str(target.relative_to(ROOT)))
     state['additional_confirmed_requests_2026_10_29']['status']='Visible in menu with original art and Select alternates; starred pending gameplay integration'
     write(progress,state)

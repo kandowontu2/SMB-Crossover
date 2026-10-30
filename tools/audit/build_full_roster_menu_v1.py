@@ -17,14 +17,17 @@ NAMES=['SUPERMAAA','ROGUE DAWN','KARNOV','SHINOBI','METAL STORM',
        'SMB2 MARIO','SMB2 LUIGI','SMB2 TOAD','SMB2 PEACH','GIMMICK',
        'SMB3 BOWSER','SMB1 BOWSER','DONKEY KONG','HULK HOGAN','TED DIBIASE',
        'BAM BAM BIGELOW','HONKY TONK MAN','RANDY SAVAGE','ANDRE THE GIANT',
-       'EXCITEBIKE','PRINCE PERSIA','BURNS','SMITH','IRON','BEANS']
+       'EXCITEBIKE','PRINCE PERSIA','BURNS','SMITH','IRON','BEANS',
+       'ARTHUR','QUICK MAN','THOMAS']
 KEYS=['supermaaa','rogue-dawn','karnov','shinobi','metal-storm',
       'ff-fighter','ff-white-mage','ff-black-mage','ff-thief','goku',
       'smb2-mario','smb2-luigi','smb2-toad','smb2-peach','gimmick',
       'bowser-smb3','bowser-smb1','donkey-kong','wwf-5','wwf-0','wwf-1',
       'wwf-2','wwf-3','wwf-4','excitebike','persia','contra-force-burns',
-      'contra-force-smith','contra-force-iron','contra-force-beans']
-RAW=[0,1,2,3,4,5,6,7,12,9,10,11,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,0]
+      'contra-force-smith','contra-force-iron','contra-force-beans',
+      'arthur','quick-man','thomas']
+RAW=[0,1,2,3,4,5,6,7,12,9,10,11,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32]
+SLOT_COUNT=32
 
 
 def sha(p):return hashlib.sha256(Path(p).read_bytes()).hexdigest()
@@ -41,7 +44,7 @@ def position(s):return 4+s//8*4,4+s%8*3
 
 def assets(out):
     sources={};bindings={}
-    for path in [ROOT/'build/full-menu-known-art-v1/all-assets-manifest.json',ROOT/'build/full-menu-source-art-v1/menu-assets.json']:
+    for path in [ROOT/'build/full-menu-known-art-v1/all-assets-manifest.json',ROOT/'build/full-menu-source-art-v1/menu-assets.json',ROOT/'build/full-menu-final-art-v1/manifest.json',ROOT/'build/full-menu-quickman-art-v1/manifest.json']:
         if not path.exists():continue
         bindings[str(path)]=sha(path);data=json.loads(path.read_text())
         for row in data.get('entries',data.get('profiles',[])):
@@ -101,7 +104,7 @@ def pack(out,pictures):
                 v=tile(old_chr,nt[(top+y//8)*32+col+x//8],x%8,y%8)
                 if v:im.putpixel((x,y),[(0,0,0,0),(72,72,72,255),(160,160,160,255),(248,248,248,255)][v])
         portraits[s]=im
-    for s,index in {21:5,23:9,24:10,25:14,26:15,27:17,28:18,29:24,30:26}.items():portraits[s]=pictures[index]
+    for s,index in {21:5,23:9,24:10,25:14,26:15,27:17,28:18,29:24,30:26,31:30}.items():portraits[s]=pictures[index]
     new=bytearray([0x24]*960+[0]*64);chrdata=bytearray(old_chr)
     def text(row,col,s):
         for i,c in enumerate(s):new[row*32+col+i]=0x24 if c==' 'else 0x3f if c=='*'else int(c)if c.isdigit()else ord(c)-55
@@ -137,19 +140,19 @@ def pack(out,pictures):
             n=min(255,count);runs+=bytes([n,value]);count-=n
     runs.append(0);(out/'menu.rle').write_bytes(runs)
     nav={}
-    for s in range(31):
-        row=list(range(s//8*8,min(s//8*8+8,31)));i=row.index(s)
+    for s in range(SLOT_COUNT):
+        row=list(range(s//8*8,min(s//8*8+8,SLOT_COUNT)));i=row.index(s)
         nav[s]={'left':row[(i-1)%len(row)],'right':row[(i+1)%len(row)]}
         for name,delta in [('up',-1),('down',1)]:
-            rr=(s//8+delta)%4;nav[s][name]=min(range(rr*8,min(rr*8+8,31)),key=lambda v:(abs(v%8-s%8),v))
+            rr=(s//8+delta)%4;nav[s][name]=min(range(rr*8,min(rr*8+8,SLOT_COUNT)),key=lambda v:(abs(v%8-s%8),v))
     lines=['; Four rows/eight columns. Seven32B tables replace eight28B tables.',
            '; Unused X5MenuPresent removed; all original following router PCs stay fixed.']
     for direction in ['left','right','up','down']:
-        lines+=['X5Menu'+direction.title()+':',' .byte '+','.join(str(nav[s][direction])if s<31 else '0'for s in range(32))]
+        lines+=['X5Menu'+direction.title()+':',' .byte '+','.join(str(nav[s][direction])if s<SLOT_COUNT else '0'for s in range(32))]
     for name,values in [('Characters',RAW),('CursorLo',[((position(s)[0]+1)*32+position(s)[1]-1)&255 for s in range(32)]),('CursorHi',[32+((position(s)[0]+1)*32+position(s)[1]-1)//256 for s in range(32)])]:
         lines+=['X5Menu'+name+':',' .byte '+','.join(map(str,values))]
     save(out/'src/roster_expansion_menu.inc','\n'.join(lines)+'\n')
-    return dict(slots=31,columns=8,rows=4,portrait_tiles=nexttile-64,navigation=nav)
+    return dict(slots=SLOT_COUNT,columns=8,rows=4,portrait_tiles=nexttile-64,navigation=nav)
 
 
 def source(out):
