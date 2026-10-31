@@ -1,0 +1,3 @@
+Peach palette correction f56e55cd: two root-run controller-only native smokes pass,180 controlled Main updates and360 real interrupt restore checks each. Root reviewed all8 full-frame PNGs. Actual Peach P0 is163027 on selection/lives/gameplay, matching the genuine donor normalP2 consumer. The earlier98048319 tests passed an incorrect expectedP3 row0F3617; those historical receipts remain unchanged and are superseded on palette authenticity.
+
+Only3 ROM bytes changed; no entry moved and noCHR changed. This remains a64-character WIP: normal palette correction does not qualify original fire/star/area progression, the full campaign, or every powerup. Both new HUDs still say MARIO. No video or per-frame captures were created.
