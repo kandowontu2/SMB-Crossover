@@ -1,98 +1,96 @@
 # SMB Crossover for NES
 
-Play Super Mario Bros. with characters from across the NES library, each bringing their own movement, weapons and upgrades.
+**One Mushroom Kingdom. A whole NES library of heroes.**
 
-This is a native NES adaptation of [Super Mario Bros. Crossover](https://www.smbgames.be/smb-crossover.php), built on [SMB1Base](https://github.com/smbstudio/smb1base). The latest expanded MMC5 development checkpoint has **54 playable characters and alternates**, with **80 visible identities across 32 selection slots**. **26 identities remain COMING SOON.**
+A native NES adaptation of [Super Mario Bros. Crossover](https://www.smbgames.be/smb-crossover.php), built on [SMB1Base](https://github.com/smbstudio/smb1base). Play SMB's levels with character-specific movement, weapons, upgrades, music and health systems.
 
-**Status: playable, actively developed, and unfinished.** Character behavior, graphics, sound and performance are still being tested and corrected. MMC5 is the recommended target for the full roster.
+[Player's guide](<Player Guide/SMB-Crossover-Players-Guide-NU.pdf>) · [Full roster image](docs/images/SMB-Crossover-Full-Roster.png) · [Build from source](#build-from-source) · [Report a bug](https://github.com/kandowontu2/SMB-Crossover/issues)
 
-The latest menu checkpoint (`44c92ad7`, October 30) fixes Donkey Kong's small gray roster icon, thumbnail facing and the fourth row's preview-panel palette overlap. Quick Man and Arthur are playable and no longer carry coming-soon markers. It preserves the preceding 54-character build's gameplay; the native menu/movement check covers 75 active updates, not a full level. See the [menu repair receipt](docs/qa/roster-menu-visual-fixes-2026-10-30.json) and [54-character unlock receipt](docs/qa/functional-roster-ready54-2026-10-30.json).
+> **In development:** the latest expanded MMC5 checkpoint has **54 playable identities**, including alternates, across a **32-slot, four-row menu**. Another **26 visible identities are coming soon**. The prepared source build currently contains 37 identities; see the build table below.
 
-The four SMB2 and four Final Fantasy characters are still being integrated and are not unlocked in that checkpoint. Their select/lives-screen graphics checks remain in progress. Goku's planned move to Arthur's Select alternates and the Battletoads pair are also future work. The build commands below reproduce the prepared 37-identity target; the newer checkpoints use the frozen source inputs and recipes in their linked archives.
+<p align="center">
+  <img src="docs/images/character-select.png" width="512" alt="Actual NES character-select screen with four rows of heroes and a highlighted Chip">
+</p>
 
-The earlier October 30 playable-roster update (`18de0155`) unlocks **Super Maaa, Rogue Dawn, Goku, Gimmick and Donkey Kong**. That checkpoint had 52 playable and 28 coming-soon identities. Kamikaze Mario now uses sprites from **Kamikaze V1**, with Mario's native drawing, physics, abilities and palette. Donkey Kong has a larger full-body preview; Burns, Smith, Iron and Beans use their original Contra Force gameplay sprites and colors. Rogue Dawn's new-game health, recursive area reset, and missing menu/lives portraits are fixed. Checks include every menu identity, Rogue's cold-start movement, a Kamikaze 1-1 clear, and 288 comparisons with native Mario. Performance and broader roster playthroughs remain in progress. See the [exact builds, checks and limits](docs/qa/expanded-playable-roster-2026-10-30.json); the frozen source is retained under `docs/qa/checkpoints/2026-10-30/expanded-playable-roster/`.
+*Actual emulator capture from the October 30 menu checkpoint.*
 
-The earlier label-only successor (`a7ccbaaa`) displays **CELESTE MARIO** when that alternate is highlighted. All 80 menu identities pass the source checks, and a cold emulator run verifies the actual displayed name after four Select presses. Gameplay, graphics tiles, music and roster availability match `18de0155`. See the [installed build receipt](docs/qa/celeste-menu-label-release-2026-10-30.json).
+## What's in the game?
 
-The earlier October 30 roster-menu checkpoint (`5b09a3ed`) introduced the four-row, 80-identity menu, with 47 playable and 33 pending identities. Arthur occupies the final slot; Quick Man joins Bass/Roll and Thomas joins Ryu/Shinobi. See its [checks and limits](docs/qa/full-roster-menu-80-2026-10-30.json). These later development checkpoints are separate from the prepared build commands below, which target the earlier 37-identity build; their exact source inputs are retained in the linked checkpoint archives.
+- **Distinct characters.** Busters, swords, arrows, Morph Ball bombs, pogo attacks, copy abilities, a Diskarmor and more.
+- **Character-specific progression.** Health, ammo, EXP, spells, weapon inventories and upgrades vary by character.
+- **Easy and Hard modes.** Easy enables ordinary stomping for ground characters; Hard uses character-specific contact rules and the migrated Crossover 2.02 equipment systems.
+- **More than a reskin.** Zelda II Link has an upgrade/spell menu, SMB3 Mario has multiple forms and a P meter, and the Gradius/Parodius ships have graphical powerup bars.
+- **Options for testing and play.** Player outlines, level selection, invincibility, mid-air jumps, screen wrapping, a frozen timer and full power.
+- **An audio browser.** Test character-labelled music and sound effects in the expanded MMC5 build.
 
-The October 30 update (`ec2f23ed`) keeps Alex and Ryan's original black details visible with **Shadows ON or OFF**. It changes only their two rendering checks. Both characters passed menu, lives-screen and gameplay checks with each setting, alongside comparisons of all 18 poses in both directions against the original graphics. Arthur already retains his black detail independently of the setting; crowded scenes still cause sprite loss and remain under review. See the [repair checks and limits](docs/qa/required-player-ink-2026-10-30.json).
+The title opens a separate character-select screen. Use the D-pad to highlight a slot and **Select** to cycle its alternates.
 
-The October 28 development build (`85afad50`) removes an unnecessary second weapon scan during Bill/Lance's ordinary gunfire and moves their selected-gun icon clear of the HUD lettering. Bill passed the focused Hard gun suite and cleared 1-1 without deaths or cheats on this exact build. The ordinary MMC3/MMC5 ROMs remain unchanged. Laser/Flare's intermittent weapon indicator, crowded player sprites, and broader lag work remain open; this is not a constant-frame-rate claim. See the [checks and remaining limits](docs/qa/bill-hud-inert-adoption-2026-10-28.json).
+## Current roster
 
-The preceding October 28 development build (`32694243`) fixes Zelda II Link's Glove failing to break bricks in Easy mode. The original failure was reproduced in the emulator; the repair passed earned-upgrade tests in both modes and a canonical rebuild. A separate native check verified visible spell and upgrade panels and restoration of the world graphics when closing the menu. See the [repair checks](docs/qa/zelda2-glove-adoption-2026-10-28.json) and [menu checks and limits](docs/qa/zelda2-panel-current326942-native-v2-2026-10-28.json).
+This table describes the **54-playable development checkpoint**, not the older prepared build. A character visible in the menu is not necessarily playable: names marked with a star are **COMING SOON**.
 
-The preceding October 28 development build (`ee1152a4`) fixes Chip/Dale's repeated HP updates running past the rendering deadline, their brief HP0 startup display, SMB3 forms retaining protection after damage, and Darkwing being pulled into terrain by a falling Arrow. Chip, Dale, Mike, Darkwing, Vic Viper and both SMB3 variants have cleared 1-1 on this build without deaths or cheats. Both SMB3 variants also passed current focused gameplay tests and a separate native check of the Tanooki statue graphics, protected contact and release. See the [checks and limits](docs/qa/roster-rendering-injury-adoption-2026-10-28.json).
-
-The preceding October 27 development build (`5a0a37a9`) corrects Kirby's copied-enemy icon and green-shell colors, and restores Mike's original bat swing shapes and timing. The individual repairs passed focused native tests; the combined build preserves every other ROM byte and is still undergoing the full roster audit. See the [repair checks and limits](docs/qa/kirby-mike-polish-adoption-2026-10-27.json).
-
-The preceding build (`bdf9ca2b`) preserves earned Castlevania equipment and hearts when gaining a 1-Up, and removes a second stopwatch countdown. Source checks cover Grant, Sypha and Alucard in both modes; a native Grant test confirms a real 1-Up preserves his earned dagger and hearts. Full-roster testing remains open. See the [repair checks and limits](docs/qa/cv3-life-watch-adoption-2026-10-27.json).
-
-The preceding build (`ab221e81`) fixes missing Mega Man/Proto Man body sprites during weapon attacks and a redundant Proto Man palette update that ran past the rendering deadline. Both passed their Hard-mode earned-weapon tests and cleared 1-1 with no deaths or cheats, reaching playable 1-2. See the [repair checks and limits](docs/qa/mega-proto-body-palette-adoption-2026-10-27.json).
-
-It retains `9ea11eab`'s removal of a repeated enemy scan during Bill/Lance's ordinary gunfire. Bill cleared 1-1 in Hard mode with the rendering guards enabled. This reduces unnecessary CPU work; the recorded comparison does not establish a faster route or constant frame rate. See the [build checks and limits](docs/qa/bill-early-cache-adoption-2026-10-27.json).
-
-It retains the preceding `6be48337` Samus missile-icon fix. Checks recorded on that earlier build cover Samus's items and HUD jump, Bass's items in both modes, Pit's upgrades and flight in both modes, and 1-1 clears for Link, Simon and Rygar. See the [Samus checks](docs/qa/samus-fixed-hud-adoption-2026-10-27.json), [Pit checks](docs/qa/pit-current6be-components-native-2026-10-27.json) and [roster progress](docs/qa/current-roster-progress-2026-10-27.json) for each tested ROM and mode.
-
-It also includes `4a0394b0`'s alternating body-sprite priority for Mega Man and Proto Man, and its fix for a scrolling jump caused by repeated palette updates running past the rendering deadline. Both cleared Hard 1-1 without a death and reached playable 1-2 on that build. See the [rendering checks and limits](docs/qa/mm-body-palette-adoption-2026-10-27.json).
-
-It retains `2082c19a`'s Proto Man level-start palette fix and `8487c439`'s correction to Bass's airborne head collision and block separation. Bass cleared 1-1 in Hard with zero deaths and no cheats, and an independent replay matched the inputs, trace and all 4,340 captured PPU frames. See the [Bass checks and limits](docs/qa/bass-corner-adoption-2026-10-27.json).
-
-It retains `fb2a608e`'s fixes for the audio test's stretched note timing and screen flicker. Sustained overworld playback was checked for all 37 identities, including stable menu pixels; Mario's note timing matches normal gameplay playback. See the [audio checks and limits](docs/qa/music-test-timing-adoption-2026-10-27.json).
-
-It includes the character-labelled music/SFX browser and four additional cheats: mid-air jumps, screen wrapping, a frozen timer and full power. The [earlier menu checks](docs/qa/frontend-adoption-2026-10-27.json) also exercise Mario's new cheat behavior in gameplay. The broader roster audit is still in progress.
-
-It includes the Bass weapon-HUD and graphics/bullet-overhead repairs from `3b112e1d`. That earlier build passed 32 controlled Bass weapon cases across Easy and Hard, plus a thrown-brick/question-block regression. Those checks remain specific to their recorded build; see the [results](docs/qa/inventory-timing-adoption-2026-10-26.json).
-
-It retains Luigi's Mario-based movement with a modestly higher jump and less traction from `641460e2`, the character-select and level-start HUD fixes from `731c918b`, earlier Castlevania sound repairs, reduced Chip/Dale movement overhead, and clearer Parodius power-bar lettering. See the [Luigi results](docs/qa/luigi-profile-adoption-2026-10-26.json) and [earlier timing results](docs/qa/presentation-timing-adoption-2026-10-26.json).
-
-The last complete 37-character 1-1 suite ran on `3cee18ca`: 36 identities cleared in Easy and Bass in Hard, each with an independent replay. Those results remain specific to that build; further checks on the latest build are in progress. See the [1-1 results](docs/qa/current37-1-1-2026-10-26.txt).
-
-All 37 identities now have a recorded 1-1 clear in the recent build lineage, and every implemented powerup has a native collection-and-effect witness at least once. These checks span several ROM versions; they do not certify the whole roster on the latest build. See the [item coverage and limits](docs/qa/all37-powerup-once-coverage-2026-10-28.json).
-
-Crowded scenes still cause partial player sprites, including Mega Man, Sophia and Octopus. Final-build playthroughs, graphics, the other mode and shortcut routes, sound and performance still need further work; see the [current roster checks](docs/qa/current-roster-progress-2026-10-27.json). Results from earlier builds remain labelled separately.
-
-## Features
-
-- A four-row character select screen in the current checkpoint; the prepared build has three rows. Press Select for alternates.
-- Character-specific movement, attacks, equipment, health and resource systems.
-- Easy and Hard behavior settings, optional player outlines and six cheat options.
-- A character-labelled music and SFX browser in expanded MMC5.
-- SMB levels with Crossover-inspired changes and the original platform actors to help different movement styles traverse them.
-- Native character music and sound support, with additional audio work still in progress.
-- Full graphical Gradius and Parodius upgrade bars in the expanded MMC5 build.
-
-## Roster
-
-Highlight a character and press **Select** to cycle the alternates in that slot.
-
-The table below describes the prepared 37-identity build. The current checkpoint adds Super Maaa, Kamikaze Mario, Celeste Mario, Rogue Dawn, GB Pit, Quick Man, Doc Louis, Mike Tyson, Popo, Nana, Alex, Ryan, Sunny, Goku, Gimmick, Donkey Kong and Arthur. See the [pictured 80-identity roster](docs/images/SMB-Crossover-Full-Roster.png); visible coming-soon characters cannot start a level.
-
-| Selection slot | Characters | Highlights |
+| Slot | Playable now | Coming soon |
 | --- | --- | --- |
-| Mario | Mario / Luigi | Familiar SMB controls; Luigi jumps a little higher and has less traction. |
-| Mega Man | Mega Man / Proto Man | Buster, slide, charge upgrade, acquired weapons and Rush Coil. |
-| Samus | Samus | Beams, Morph Ball, bombs, missiles and suit upgrades. |
-| Contra | Bill Rizer / Lance Bean | Directional shooting, crouching and Contra weapon upgrades. |
-| Link | Link / Zelda II Link | Sword and subweapons; Zelda II Link has EXP, stats, spells and health/magic. |
-| Castlevania | Simon / Grant / Sypha / Alucard | Whip and double jump, climbing, spells, or bat transformation. |
-| Pit | Pit | Arrows, hammer and a limited flight upgrade. |
-| Rygar | Rygar | Returning Diskarmor and reach upgrades. |
-| Bass | Bass / Roll | Bass has directional fire, dash and weapon inventory; Roll has her own attacks and health. |
-| Ryu | Ryu Hayabusa | Sword, wall movement and ninjitsu. |
-| Sophia III | Sophia III | Cannon, missiles, hover and surface traversal upgrades. |
-| Scrooge | Scrooge McDuck / Darkwing Duck | Cane and pogo, or gas gun, guarding and adaptors. |
-| Kirby | Kirby / Meta Knight | Inhale, swallow and copy powers, or grounded sword combat. |
-| Rescue Rangers | Chip / Dale | Carry, throw and hide in crates. |
-| Little Mac | Little Mac | Punches, stamina and up to three stored star punches. |
-| StarTropics | Mike Jones | Heart-dependent primary weapons and collectible specials. |
-| SMB3 | SMB3 Mario / Luigi | P meter, flight and Fire, Raccoon, Frog, Tanooki and Hammer forms. |
-| Gradius / Parodius | Vic Viper / Octopus / TwinBee / Pentarou | Flight, automatic level scrolling and ship-specific upgrade bars. |
-| TMNT | Leonardo / Raphael / Michelangelo / Donatello | Distinct primary weapons, directional attacks and collectible secondary weapons. |
+| Mario | Mario / Luigi / Super Maaa / Kamikaze Mario / Celeste Mario | — |
+| Mega Man | Mega Man / Proto Man | — |
+| Metroid | Samus / Rogue Dawn | — |
+| Contra | Bill Rizer / Lance Bean | — |
+| Zelda | Link / Zelda II Link | — |
+| Castlevania | Simon / Grant / Sypha / Alucard | — |
+| Kid Icarus | Pit / GB Pit | — |
+| Rygar | Rygar | Karnov |
+| DuckTales | Scrooge / Darkwing Duck | — |
+| Bass | Bass / Roll / Quick Man | — |
+| Ninja Gaiden | Ryu Hayabusa | Shinobi / Thomas |
+| Blaster Master | Sophia III | Metal Storm |
+| Kirby | Kirby / Meta Knight | — |
+| Rescue Rangers | Chip / Dale | — |
+| Punch-Out!! | Little Mac / Doc Louis / Mike Tyson | — |
+| StarTropics | Mike Jones | — |
+| SMB3 | SMB3 Mario / Luigi | — |
+| Gradius / Parodius | Vic Viper / Octopus / TwinBee / Pentarou | — |
+| TMNT | Leonardo / Raphael / Michelangelo / Donatello | — |
+| Ice Climber | Popo / Nana | — |
+| River City Ransom | Alex / Ryan | — |
+| Final Fantasy | — | Fighter / White Mage / Black Mage / Thief |
+| Super Sunny World | Sunny | — |
+| Dragon Power | Goku | — |
+| SMB2 | — | Mario / Luigi / Toad / Peach |
+| Gimmick! | Gimmick | — |
+| Bowser | — | SMB3 Bowser / SMB1 Bowser |
+| Donkey Kong | Donkey Kong | — |
+| WWF WrestleMania | — | Hulk Hogan / Ted DiBiase / Bam Bam Bigelow / Honky Tonk Man / Randy Savage / Andre the Giant |
+| Excitebike | — | Excitebike / Prince of Persia |
+| Contra Force | — | Burns / Smith / Iron / Beans |
+| Ghosts 'n Goblins | Arthur | — |
 
-## Build and play
+<details>
+<summary><strong>View artwork for all 80 visible identities</strong></summary>
 
-You need **Python 3.10 or newer** and **cc65**. Windows compiler tools are included; on other systems, install cc65 and put `cl65` on your PATH. The main build uses the prepared assets already in the repository.
+![Individual portraits for all 80 menu identities, including coming-soon characters](docs/images/SMB-Crossover-Full-Roster.png)
+
+The image includes unfinished characters. Use the table above for availability.
+
+</details>
+
+The four SMB2 characters and four Final Fantasy classes are undergoing integration and emulator checks. Goku's move behind Arthur's Select alternates, the Battletoads pair and additional Mario alternates are planned work; they are not included in the current 80-identity count.
+
+## Choose a build
+
+| Target | Roster | Cartridge layout | Status |
+| --- | --- | --- | --- |
+| Expanded MMC5 checkpoint | 54 playable / 80 visible identities | 1 MiB PRG + 1 MiB CHR | Newest development work; frozen source and recipes are in the checkpoint archives. |
+| Prepared expanded MMC5 | 37 identities | 1 MiB PRG + 1 MiB CHR | Reproduced by the commands below. |
+| Standard MMC3 / MMC5 | 14 identities in 12 slots | 512 KiB PRG + 256 KiB CHR | Smaller original roster. |
+| Oversized MMC3 | Expanded roster | 2 MiB PRG + 256 KiB CHR RAM | Experimental; feature parity and physical cartridge compatibility remain unverified. |
+
+**MMC5 is the main target for the full roster.** Mesen 2 is used for development and testing. The oversized MMC3 implementation needs eight-bit PRG banking and 256 KiB CHR RAM; Parodius currently uses a text powerup bar on that target.
+
+Generated ROMs are excluded from this repository. The newer checkpoint source has not yet been folded into the prepared builder, so the commands below do **not** produce the 54-character checkpoint.
+
+## Build from source
+
+Requires **Python 3.10+** and **cc65**. Windows compiler tools are included. On other systems, install cc65 and put `cl65` on your PATH.
 
 From the repository root:
 
@@ -101,103 +99,109 @@ python tools/prepare_guest_audio.py
 python tools/build_mmc5_expanded.py
 ```
 
-Open **`build/smb-crossover-mmc5-expanded.nes`** in an emulator with MMC5 support. Mesen 2 is used for development and testing. The build also produces a `.build.json` receipt containing the ROM's SHA-256 hash.
+Open `build/smb-crossover-mmc5-expanded.nes` in an emulator with MMC5 support. A companion `.build.json` receipt records the ROM's SHA-256 hash.
 
-To use a different compiler location:
+The prepared build uses repository assets and does not require downloading original ROMs or research archives. Asset regeneration and research tools have additional dependencies; see the [architecture and provenance notes](docs/architecture.md).
+
+<details>
+<summary>Compiler overrides and other targets</summary>
+
+Use a different compiler:
 
 ```sh
 python tools/build_mmc5_expanded.py --compiler /path/to/cl65
 ```
 
-These steps have been checked against a clean export of the tracked sources. Building the prepared MMC5 target does not require downloading original ROMs or reference archives. Asset regeneration and some research/verification tools have additional dependencies; see the [architecture notes](docs/architecture.md).
-
-### Other cartridge targets
-
-| Target | Roster | Cartridge layout | Status |
-| --- | --- | --- | --- |
-| Expanded MMC5, prepared build | 37 identities | 1 MiB PRG + 1 MiB CHR | Reproduced by the commands above. |
-| Expanded MMC5, current checkpoint | 54 playable / 80 visible identities | 1 MiB PRG + 1 MiB CHR | Newer source archives; integration into the prepared builder is pending. |
-| Standard MMC3 / MMC5 | 14 identities in 12 slots | 512 KiB PRG + 256 KiB CHR | Smaller original roster; expanded alternates are excluded. |
-| Oversized MMC3 | Expanded roster | 2 MiB PRG + 256 KiB CHR RAM | Experimental; qualification and feature parity remain in progress. |
-
-For a standard build, run the audio preparation step above, then:
+Build the smaller standard targets after audio preparation:
 
 ```sh
 python tools/build_mmc5_expanded.py --flag-off mmc3 --output build/smb-crossover-mmc3.nes
 python tools/build_mmc5_expanded.py --flag-off mmc5 --output build/smb-crossover-mmc5.nes
 ```
 
-The experimental oversized builder is `tools/build_mmc3_oversized.py`; it requires a freshly built expanded MMC5 ROM as its graphics reference. Its mapper implementation must support eight-bit PRG banking and 256 KiB CHR RAM. Physical cartridge compatibility is still unverified, and Parodius currently uses a text bar on this target.
+The experimental oversized builder is `tools/build_mmc3_oversized.py`. It requires a freshly built expanded MMC5 ROM as its graphics reference.
+
+</details>
 
 ## Controls
 
-| Screen / action | Controls |
+| Action | Controls |
 | --- | --- |
-| Main menu | Up/Down chooses START or OPTIONS; A or Start confirms. |
+| Main menu | Up/Down selects START or OPTIONS; A or Start confirms. |
 | Character selection | D-pad moves; Select cycles alternates; A or Start begins; B returns. |
-| Audio test (expanded MMC5) | Up/Down character; Left/Right cue; Select music/SFX; A plays; Start stops; B returns. |
-| Movement | D-pad moves or aims. |
-| Jump / primary attack | A jumps; B attacks or runs, depending on the character. |
-| Pause | Start pauses and resumes. |
-| Weapon inventory | For supported characters, paused Left/Right selects equipment; paused Select returns to the primary weapon. |
-| Mega Man / Bass weapon cycling | Select also cycles acquired weapons during play. |
+| Movement and aiming | D-pad. |
+| Jump / attack | Usually A to jump and B to attack or run; character-specific exceptions apply. |
+| Pause | Start. |
+| Mega Man / Bass weapons | Select cycles acquired weapons, including the normal weapon. |
+| Supported weapon inventories | Paused Left/Right chooses equipment; paused Select returns to the primary weapon. |
+| Gradius / Parodius | A fires; B purchases the highlighted upgrade. |
+| Audio test | Up/Down chooses a character; Left/Right chooses a cue; Select switches music/SFX; A plays; Start stops; B returns. |
 
-Special moves use character-specific combinations. Zelda II Link has his own paused spell/stat interface. **Vic Viper and the Parodius ships use A to fire and B to buy the highlighted upgrade.** See the [player's guide](<Player Guide/SMB-Crossover-Players-Guide-NU.pdf>) for individual moves and tips. The guide is updated separately and can lag behind development changes.
+See the [illustrated player's guide](<Player Guide/SMB-Crossover-Players-Guide-NU.pdf>) for individual moves and tips. Zelda II Link has his own paused spell/stat interface. The guide is updated separately and may lag behind the ROM.
 
-### Easy and Hard
+### Easy, Hard and options
 
-**Easy is the default.** It allows ordinary enemy stomps for ground characters and uses the earlier Crossover power progression for the original guest roster.
+**Easy is the default.** Ground characters can ordinarily stomp enemies, and the original guest roster uses the earlier Crossover power progression.
 
-**Hard** uses the migrated Crossover 2.02 equipment systems and character-specific enemy contact rules. Many guests must attack rather than land on enemies. Mario, Luigi and the SMB3 pair retain stomping in both modes. Ships keep their own contact/shield rules, and hazards and special body attacks have separate rules.
+**Hard** uses character-specific enemy contact rules and the migrated Crossover 2.02 equipment systems. Many guests must attack instead of landing on enemies. Mario, Luigi and the SMB3 pair retain ordinary stomping in both modes; ships and special body attacks follow their own rules.
 
-New additions also have adaptations for SMB's levels and NES controls. The project does not claim that every character is identical to its original game or to Crossover 2.02.
+Options include:
 
-### Options and cheats
+- **Player outlines:** off by default. Extra black sprites improve some characters' contrast but can increase flicker.
+- **Mode:** Easy or Hard.
+- **Cheats:** invincibility, starting level (1-1 through 8-4), mid-air jumps, screen wrap, freeze timer and full power.
+- **Audio test:** character-labelled music and SFX. Some cues share an underlying track.
 
-- **PLAYER OUTLINES:** off by default. Turning this on adds black outline sprites; crowded scenes can flicker more.
-- **MODE:** Easy or Hard.
-- **CHEATS:** invincibility, starting level (1-1 through 8-4), mid-air jumps, screen wrap, freeze timer and full power. A selected starting level applies when confirming a character. Invincibility does not prevent pit or time-out deaths. Full power restores health/ammo and grants compatible character upgrades; existing suit and weapon choices are retained where possible.
-- **AUDIO TEST** (expanded MMC5): choose a character and its music or SFX. Track labels describe the scene or event that uses the cue; some cues share the same underlying music.
+The chosen starting level applies when confirming a character. Invincibility does not prevent pit or time-out deaths. Full power restores compatible health, ammo and upgrades. Settings last until reset; B returns from submenus.
 
-Settings last until reset. Use B to return from a submenu.
+## Development status
 
-## Known limitations
+The latest published development checkpoint is `44c92ad7` (October 30). It corrects Donkey Kong's gray roster icon, thumbnail facing and fourth-row palette overlap, and removes stale coming-soon markers from Quick Man and Arthur. See the [menu repair receipt](docs/qa/roster-menu-visual-fixes-2026-10-30.json) and [54-character unlock receipt](docs/qa/functional-roster-ready54-2026-10-30.json).
 
-- Lag, sprite flicker, scrolling and collision regressions are still under review. NES sprite limits remain relevant.
-- Moving-platform behavior, the full campaign and every powerup on the latest build have not yet completed verification across the entire roster.
-- Some characters still share music or sound effects. Dedicated audio routing and additional effects remain unfinished.
-- TMNT secondary weapons and other newer abilities still need broader gameplay verification. Some HUDs and animations need refinement.
-- Oversized MMC3 is experimental and does not yet match every MMC5 feature.
+Work still in progress includes lag and sprite flicker, remaining character implementations, dedicated audio, some animations/HUDs, broader collision checks and complete campaign/powerup coverage. “Playable” means selectable in the development checkpoint; it is not a claim that every character or level has passed the full audit. Adaptations for SMB's levels and NES controls also mean the project does not promise exact original-game or Crossover 2.02 behavior for every character.
 
-The [current development record](docs/qa/current-work-pr-2026-10-24.md) and [source comparison notes](docs/reference/parity.md) contain detailed findings. QA reports describe specific ROM hashes and checkpoints; a passing older test does not certify the latest build. Generated ROMs and large test recordings are excluded from Git.
+For detailed records:
 
-## Reporting bugs
+- [Earlier checkpoint history](docs/development-checkpoints.md)
+- [Architecture and provenance](docs/architecture.md)
+- [Source comparison notes](docs/reference/parity.md)
+- [Checkpoint source archives and QA](docs/qa/checkpoints/2026-10-30/)
+- [Recorded roster playthroughs](docs/qa/current-roster-progress-2026-10-27.json)
 
-Please include the character and alternate, Easy/Hard mode, level, mapper target and emulator or hardware used. Describe the steps that caused the problem and, when possible, attach a short video or screenshot. The ROM hash from the build receipt helps match a report to the correct version.
+QA results apply to their recorded ROM hashes. A passing older test does not certify a later build.
 
-## Repository layout
+## Report a bug
+
+[Open an issue](https://github.com/kandowontu2/SMB-Crossover/issues) with:
+
+- Character and alternate, Easy/Hard mode, level and mapper target.
+- Emulator/version or the hardware and flash cartridge used.
+- Steps to reproduce, expected behavior and what happened.
+- A screenshot or short clip, and the ROM hash from its build receipt if available.
+
+## Repository map
 
 | Folder | Contents |
 | --- | --- |
 | `src/`, `inc/` | Game code and assembly includes. |
-| `chr/`, `audio/` | Prepared graphics and audio assets. |
-| `tools/` | Build, conversion and verification tools. |
-| `tests/` | Emulator fixtures and focused regression checks. |
-| `docs/` | Architecture, source research and checkpoint-specific QA. |
-| `Player Guide/` | Illustrated guide, preview and editable source pack. |
+| `chr/`, `audio/` | Prepared graphics and audio. |
+| `tools/`, `tests/` | Builders, conversion tools and emulator checks. |
+| `docs/` | Architecture, research, provenance and checkpoint QA. |
+| `Player Guide/` | Illustrated guide and editable source material. |
 
 ## Credits
 
-Built on [SMB1Base](https://github.com/smbstudio/smb1base), with the original project's information preserved in [its README](docs/SMB1BASE.md). The concept and browser-game reference are [Super Mario Bros. Crossover](https://www.smbgames.be/smb-crossover.php).
+- **[Super Mario Bros. Crossover](https://www.smbgames.be/smb-crossover.php):** the browser-game concept and reference.
+- **[SMB1Base](https://github.com/smbstudio/smb1base):** the foundation for this port. Its original information is preserved in [the upstream README](docs/SMB1BASE.md).
 
-Additional ROM-hack source credits, including alternates still in development:
+Additional ROM-hack sources, including requested alternates still in development:
 
 | Source | Credit |
 | --- | --- |
-| [Super Duper Mario Bros. 4P](https://github.com/benj-edwards/NESCoopMods) — requested SMB1 Toad/Peach alternates, using the supplied v44 build | Benj Edwards |
-| Super Mario Bros. 3+ — requested SMB3 Toad/Peach alternates | infidelity |
+| [Super Duper Mario Bros. 4P](https://github.com/benj-edwards/NESCoopMods), supplied v44 build | Benj Edwards |
+| Super Mario Bros. 3+ | infidelity |
 | Super Maaaaaaaaaaaaaaaa | jroweboy |
 | Celeste Mario's Zap & Dash Deluxe | w7n, studsx and edengt |
-| [Metroid: Rogue Dawn](https://metroidconstruction.com/hack.php?id=441) | Grimlock (project lead, graphics and level design), snarfblam (programming and editor), Optomon (sound engine, effects and music); additional contributors credited in its original readme |
+| [Metroid: Rogue Dawn](https://metroidconstruction.com/hack.php?id=441) | Grimlock (lead, graphics and level design), snarfblam (programming and editor), Optomon (sound engine, effects and music), plus its original README's contributors |
 
-This is an unofficial fan project. Original games, characters, artwork and music belong to their respective creators. Source and asset provenance are documented in the repository's research and architecture notes.
+This is an unofficial fan project. Original games, characters, artwork and music belong to their respective creators. Source and asset provenance are documented in the research and architecture notes.
