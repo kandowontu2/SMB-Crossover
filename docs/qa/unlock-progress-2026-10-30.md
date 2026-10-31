@@ -1,17 +1,19 @@
 # Playable unlock work — October 30
 
-The current Downloads WIP is **62 enabled identities**, exact ROM `dfdb194ac73438ae8deb05b5fc93f241b1109d45a84b3ad333d0e632008d7fc7`. Eight new bounded native checks passed: SMB2 Mario/Luigi/Toad/Peach and FF Fighter/White Mage/Black Mage/Thief. Root reviewed all36 actual PPU PNGs. This is not a full1-1 or every-powerup qualification. Goku is now an Arthur Select alternate. The previous54 build is backed up.
+The current Downloads WIP is **64 enabled identities**, exact ROM `98048319d382e7a5c4e7186704b6e3b939eda4eec9bdd6e098c402cbd30799b6`. The latest two bounded native checks pass for SMB1 Toad and Peach:180 controlled Main updates each, correct menu/lives body palette and visible pixels, jump/landing, and360 real interrupt restores per run. Root reviewed all8 actual PPU PNGs. The previous62 build is backed up.
+
+The earlier exact `dfdb194a` build passed eight bounded native checks for SMB2 Mario/Luigi/Toad/Peach and FF Fighter/White Mage/Black Mage/Thief; root reviewed its36 PNGs. Those tests apply to that older hash. This is not a full1-1 or every-powerup qualification. Goku remains an Arthur Select alternate.
 
 The user's current priority is playable unlocks, including laggy WIP characters, followed by polish. FF mandatory black shadows, White Mage's reported damage problem and the retained Fighter render-deadline failure remain open. The complete goal still includes every identity clearing1-1 and exercising every powerup; it has not been completed or paused.
 
 ## Next integrations
 
-- **SMB1 Toad / Peach:** private candidate `98048319` has the authentic supplied Benj Edwards sprites, native Mario movement and recovered Peach float vertical/ground/head-support behavior. Select order is Mario, Luigi, Toad, Peach, Super Maaa, Kamikaze, Celeste. Seven cycle steps,48 real palette packets,240 older palette comparisons and160 controlled CPU Main updates pass. The special donor float enemy/ceiling/platform consumers and fire/star/area palette progression are partial. The older CPU memory model rejected current mapped-WRAM retirement; the successful constructor checks use the actual existing four-bank model. Native packets are prepared; the runner found an existing user Mesen session and left it alone. This candidate is **not installed**.
+- **SMB1 Toad / Peach — installed:** `98048319` has the authentic supplied Benj Edwards sprites, native Mario movement and recovered Peach float vertical/ground/head-support behavior. Select order is Mario, Luigi, Toad, Peach, Super Maaa, Kamikaze, Celeste. Seven cycle steps,48 real palette packets,240 older palette comparisons,160 controlled CPU Main updates and all83 menu profiles/664 Start/A cases pass source checks. The older CPU memory model rejected current mapped-WRAM retirement; the successful constructor checks use the actual existing four-bank model. After the user closed their Mesen session, both native checks passed. The special donor float enemy/ceiling/platform consumers and fire/star/area palette progression remain partial, and both HUDs still say MARIO.
 - **Battletoads Rash / Zitz:** original PRG reproduced and source motion/basic-punch/art recovered. The actual buffered8KB loader, cookie checks, private36-service router and1380 real interrupt seams pass source checks. Source for the existing rare-service transport is being compacted to admit the new owner without moving public entries. Gameplay adapters and native play remain unfinished.
 - **SMB1 / SMB3 Bowser:** original movement/fire/body source cores and authentic art are recovered. Split loader/router/preview workers fit within the explicitly granted1281B across six existing PRG islands; the first assembled implementation uses913B. Actual world, combat and gameplay ingress remain unfinished.
 - **Contra Force Burns / Smith / Iron / Beans:** original full PRG reproduced byte-for-byte. Four distinct source walks, variable jumps and twelve original class/gear projectile allocations execute in CPU fixtures. All156 source body views now pack losslessly into9 pose-local CHR pages. Actual host movement, weapons, lifecycle and allocation work is ongoing.
 
-These source milestones do not count as additional installed unlocks.
+The Battletoads, Bowser and Contra Force source milestones do not count as additional installed unlocks.
 
 ## Remaining scope
 
