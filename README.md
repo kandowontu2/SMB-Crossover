@@ -6,7 +6,7 @@ A native NES adaptation of [Super Mario Bros. Crossover](https://www.smbgames.be
 
 [Player's guide](<Player Guide/SMB-Crossover-Players-Guide-NU.pdf>) · [Full roster image](docs/images/SMB-Crossover-Full-Roster.png) · [Build from source](#build-from-source) · [Report a bug](https://github.com/kandowontu2/SMB-Crossover/issues)
 
-> **In development:** the latest expanded MMC5 checkpoint has **64 playable identities**, including alternates, across a **32-slot, four-row menu**. Another **18 individual identities** and a new **Battletoads placeholder** are coming soon. The prepared source build currently contains 37 identities; see the build table below.
+> **In development:** the latest expanded MMC5 checkpoint has **66 playable identities**, including alternates, across a **32-slot, four-row menu**. Another **16 individual identities** and a new **Battletoads placeholder** are coming soon. The prepared source build currently contains 37 identities; see the build table below.
 
 <p align="center">
   <img src="docs/images/character-select.png" width="512" alt="Actual NES character-select screen with four rows of heroes and highlighted SMB1 Toad">
@@ -27,7 +27,7 @@ The title opens a separate character-select screen. Use the D-pad to highlight a
 
 ## Current roster
 
-This table describes the **64-playable development checkpoint**, not the older prepared build. A character visible in the menu is not necessarily playable: names marked with a star are **COMING SOON**.
+This table describes the **66-playable development checkpoint**, not the older prepared build. A character visible in the menu is not necessarily playable: names marked with a star are **COMING SOON**.
 
 | Slot | Playable now | Coming soon |
 | --- | --- | --- |
@@ -57,7 +57,7 @@ This table describes the **64-playable development checkpoint**, not the older p
 | Battletoads | — | Rash / Zitz (family placeholder; not yet selectable individually) |
 | SMB2 | Mario / Luigi / Toad / Peach | — |
 | Gimmick! | Gimmick | — |
-| Bowser | — | SMB3 Bowser / SMB1 Bowser |
+| Bowser | SMB3 Bowser / SMB1 Bowser | — |
 | Donkey Kong | Donkey Kong | — |
 | WWF WrestleMania | — | Hulk Hogan / Ted DiBiase / Bam Bam Bigelow / Honky Tonk Man / Randy Savage / Andre the Giant |
 | Excitebike | — | Excitebike / Prince of Persia |
@@ -75,18 +75,20 @@ The image includes unfinished characters and predates the two new SMB1 alternate
 
 The four SMB2 characters, four Final Fantasy classes and SMB1 Toad/Peach are now enabled, with bounded emulator checks recorded for their respective build hashes. Goku is an Arthur Select alternate. Battletoads, further Mario alternates and Getsu Fuma for Simon remain in development and are not included in the current 82-individual count. The Battletoads menu entry is one generic pending placeholder.
 
+Both Bowser versions are enabled in the October 31 WIP. They have source-derived movement, fire breath and health, with corrected injury handling and lives portraits. SMB1 Bowser uses a stronger playable jump to clear SMB's pipes. Both pass bounded Mesen checks; lag, extended attacks and original SMB3 audio still need work. See the [66-character verification receipt](docs/qa/functional-roster-ready66-bowser-2026-10-31.json). The full roster's level and powerup audit is still in progress.
+
 ## Choose a build
 
 | Target | Roster | Cartridge layout | Status |
 | --- | --- | --- | --- |
-| Expanded MMC5 checkpoint | 64 playable / 82 individual identities, plus Battletoads placeholder | 1 MiB PRG + 1 MiB CHR | Newest development work; frozen source and recipes are in the checkpoint archives. |
+| Expanded MMC5 checkpoint | 66 playable / 82 individual identities, plus Battletoads placeholder | 1 MiB PRG + 1 MiB CHR | Newest development work; frozen source and recipes are in the checkpoint archives. |
 | Prepared expanded MMC5 | 37 identities | 1 MiB PRG + 1 MiB CHR | Reproduced by the commands below. |
 | Standard MMC3 / MMC5 | 14 identities in 12 slots | 512 KiB PRG + 256 KiB CHR | Smaller original roster. |
 | Oversized MMC3 | Expanded roster | 2 MiB PRG + 256 KiB CHR RAM | Experimental; feature parity and physical cartridge compatibility remain unverified. |
 
 **MMC5 is the main target for the full roster.** Mesen 2 is used for development and testing. The oversized MMC3 implementation needs eight-bit PRG banking and 256 KiB CHR RAM; Parodius currently uses a text powerup bar on that target.
 
-Generated ROMs are excluded from this repository. The newer checkpoint source has not yet been folded into the prepared builder, so the commands below do **not** produce the 64-character checkpoint.
+Generated ROMs are excluded from this repository. The newer checkpoint source has not yet been folded into the prepared builder, so the commands below do **not** produce the 66-character checkpoint.
 
 ## Build from source
 

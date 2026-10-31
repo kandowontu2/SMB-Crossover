@@ -1,0 +1,79 @@
+{
+  "status": "PRIVATE_MEASURED_EXTERNAL_CF_BT_GUARD_SOURCE_GRANT",
+  "native": false,
+  "installed": false,
+  "shared_hook_granted": false,
+  "ROM": {
+    "physical_bank": 69,
+    "first_offset": 8007,
+    "end_offset_exclusive": 8125,
+    "bytes": 118,
+    "execution_view": "A",
+    "CPU_start": 48967,
+    "authority": "118B subset of prior Quick lease after actual Z2_LOGIC"
+  },
+  "reviewed": [
+    {
+      "ROM_sha256": "f56e55cd69b93821e66548848305cf9822e2ac0e8a25752d7192332cded53b78",
+      "emitted_conflicts": 0,
+      "symbol_conflicts": 0,
+      "classified_temporal_aliases": [],
+      "preimage_sha256": "f006bf56fa691e62cae4a7b60be45a367ae52de2725d74ee677faceb55204595"
+    },
+    {
+      "ROM_sha256": "95295fa6b15518b3813cad8609d833755bb92ba1e7eff3e39a60c9003f9f1ce1",
+      "emitted_conflicts": 0,
+      "symbol_conflicts": 0,
+      "classified_temporal_aliases": [
+        {
+          "name": "BwPersistent",
+          "value": 49024,
+          "owner": "Bowser rawRAM3 data, not ROM69"
+        },
+        {
+          "name": "BwPersistent",
+          "value": 49024,
+          "owner": "Bowser rawRAM3 data, not ROM69"
+        }
+      ],
+      "preimage_sha256": "f006bf56fa691e62cae4a7b60be45a367ae52de2725d74ee677faceb55204595"
+    }
+  ],
+  "constraints": [
+    "Source-built successors only; split actual MEMORY/SEGMENTS; preserve all existing public PCs and neighboring bytes.",
+    "Only the measured ROM guard and full expected cookie. Remaining67 bytes of the older lease are not granted here.",
+    "Authenticate full cookie/class in ROM before any rawA2 opcode; restore rawC and AXYP except resultC.",
+    "BT branch uses the actual imported BtCheck address and bank. Preserve its real ingress ABI.",
+    "Root/Bowser owner retains shared resolver edits; this grant alone adds no common hook.",
+    "No new global/ZP/RAM/CHR grant; run emitted guard, wrong-cookie, all-flags, mapper/ISR and first-opcode failure controls.",
+    "This is source allocation, not functional admission, native verification or permission to install an untested ROM."
+  ],
+  "bindings": {
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\contra_force_rom_guard_resource_1031_v1.py": "765f56c597b88beb188756e416ca9fe2bff1b284081eaa14de3889cc87cdd9db",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-rom-guard-proposal-v1\\proposal.json": "4ecb248d79775d93fdc77075b68e85df95c1caec630823559d0e456a97884f0b",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\docs\\qa\\checkpoints\\2026-10-30\\arthur-quick-private-allocation\\root-review-and-reservations.json": "0d12cb77cb79feb9648803d6c057293ffe5686a5a94c41f9813b057b1cdac2ae",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\reference\\contra_force_rom_guard_v1.s": "1daec12142d29efddec86648784df235c71216d910577341002862e317a81334",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\peach-palette-fix-1030-v1\\joint\\candidate.nes": "f56e55cd69b93821e66548848305cf9822e2ac0e8a25752d7192332cded53b78",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\peach-palette-fix-1030-v1\\joint\\candidate.dbg": "040abd376adcefea50298ba12aaea2c6d87eaa51f3951d6375161e9a7a56aa35",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\peach-palette-fix-1030-v1\\joint\\private.cfg": "a79287e9c7daf2793c8870960ee34b76c56cbe5a07540dd55133f1c428e423da",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bowser-current64-v3\\joint\\candidate.nes": "95295fa6b15518b3813cad8609d833755bb92ba1e7eff3e39a60c9003f9f1ce1",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bowser-current64-v3\\joint\\candidate.dbg": "fff8ad53409619307a08636a3c0263b069bd4ad7738cc586ae51ce9be5fc0e81",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bowser-current64-v3\\joint\\private.cfg": "703a18855b216008753aa2b169840269a29485a827d7846873f1e88290ee9290",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bowser-current64-v3\\joint\\bowser\\art.s": "d109580b95d345fe5579dbeaf73c4f6769c21524ee54a4ebd720f23cd6a57ec3",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bowser-current64-v3\\joint\\bowser\\check.s": "2eea8cab14c7c7c37c6fbd960e8d830b8bc6fdcf0b4875dc41d1585935cab106",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bowser-current64-v3\\joint\\bowser\\cold.s": "445bfaea30891d509ec6303b1ab6ce867ec8a205fa19c0628eddb595ae339660",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bowser-current64-v3\\joint\\bowser\\copy.s": "e0cdeee24bfd94ad6ce0d1cf29cdbfb9842fc42f13a9fdfe9899781ac65f7cb4",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bowser-current64-v3\\joint\\bowser\\core.s": "f07e7d7f9c4b95594aea0da7c80c6a9971b94e6744fa1b01f1427295d313e820",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bowser-current64-v3\\joint\\bowser\\host.s": "5de753ba3e80321dc99c24b39cc16be35ae5a62db931a187a08a828ca1c87b60",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bowser-current64-v3\\joint\\bowser\\image-tail.s": "725e81936f22b69891cbfed21a7bca79cbc096aedb87e5c90d257d86a0904b70",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bowser-current64-v3\\joint\\bowser\\image.s": "9d2aa50c9a2b80a7d815ff36e3530cd1d1c0d3d33d8614ecc1147109940a8375",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bowser-current64-v3\\joint\\bowser\\load.s": "473ac468647f84e7e035c4497b6eb7f575d3680d52d0ac882b70734d6bd463fd",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bowser-current64-v3\\joint\\bowser\\preview.s": "a43d25c26d770949d43b7cb527a212b6713d0b7785e3e2410cb15ec1e30a3245",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bowser-current64-v3\\joint\\bowser\\retire.s": "07af3c4ef52cd55afe562cb52100a27942791d650412bad998d9cbf527109e2c",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bowser-current64-v3\\joint\\bowser\\router.s": "1ccd40197d8c0a96f5495deb90556b712c86315e1f6d0e49a151ee72831abb09",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bowser-current64-v3\\joint\\bowser\\stream.s": "fe852f4a43c4b32158b779c9e35d7850d51fbce95e223116bad4f33046aa9790",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bowser-current64-v3\\joint\\bowser\\common.inc": "05f8a1cc441b3470c5f4c4fd2466891550189b5059d0e5a774c85d02cdbdbdbc",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bowser-current64-v3\\joint\\bowser\\host-imports.inc": "e3319a90fc5e1db2b531d9dae168108c8b794aad9ed8acf57cdb1159f7aa9a1c",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bowser-current64-v3\\joint\\bowser\\state.inc": "5779d7f3473e634f304f72328e6c298e973bef767236762416d9bdd52831b4ab"
+  }
+}

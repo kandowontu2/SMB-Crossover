@@ -1,0 +1,22 @@
+{
+  "passed": false,
+  "native": false,
+  "guest_RAM_preloaded": false,
+  "actual_shared_ingress": false,
+  "ready": false,
+  "checks": {},
+  "failure": "AssertionError(('actual indexed callback difference', 0, 48, [0, 0, 1, 50], [0, 0, 1, 50]))",
+  "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\contra_force_a2_router_controls_v1.py\", line 87, in main\n    for n,f in[('interfaces',interfaces),('stale',stale)]:d['checks'][n]=f();print('CF A2 router',n,'PASS',flush=True)\n                                                                         ~^^\n  File \"C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\contra_force_a2_router_controls_v1.py\", line 62, in interfaces\n    assert pair[0][:4]==pair[1][:4],('actual indexed callback difference',service,p,pair[0][0],pair[1][0])\n           ^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: ('actual indexed callback difference', 0, 48, [0, 0, 1, 50], [0, 0, 1, 50])\n",
+  "bindings": {
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\contra_force_a2_router_controls_v1.py": "e145d72b97f5d3b6a17ddc5351c851582493d92fb36a62f31e2dc8801cc09850",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\contra_force_loader_controls_v2.py": "eadec33e0576762ed72d12b5990b5a3d11a3774ebbbeb610a7d52fa87a136d3a",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-loader-cart-v4\\source-stage.json": "964c3c29f86c27ed839c1ba9820b37a45b549f99f8439c20f03b40fc6c0fb44c",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-loader-cart-v4\\joint\\candidate.nes": "b1a85fa1a602dc7f40a04fb35d1a3c972837b100578738b90fef8524170bb303",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-loader-cart-v4\\joint\\candidate.dbg": "95326b1d4296c96dbe401ae122f84198b37e312971ffbb38da17de8f3c7f49ef",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-loader-cart-v4\\joint\\cf-stream.bin": "2523bf1028e616ba2677af00de02387ffc294e3244d72c1c25a7cf6207f5d723",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-loader-cart-v4\\joint\\cf-cookie.bin": "d9809738a2bd4ffac8b1606c7923807648da4f4e22d6325b6c9ef9892db8ffcd",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-a2-router-v1\\build-proof.json": "ad0abeced5e6d90172afecfa20e4b66b6f0ba80ba35146d3228cc75edc7f4f1d",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-a2-router-v1\\runtime.dbg": "af63ecd0d644ee96d4ba1f43c1683f8e3da0c05990db4de51b166867bf7bc56d",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-a2-router-v1\\runtime.lbl": "3460be7006f7d16f0b7257db7e207cc5d6a92f388a566d297b6490ac1be2a196"
+  }
+}

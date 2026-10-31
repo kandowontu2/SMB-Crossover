@@ -1,0 +1,415 @@
+{
+  "passed": false,
+  "error": "AssertionError({'command': ['C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\tools\\\\Windows\\\\cc65\\\\bin\\\\ld65.exe', '-C', 'C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\runtime.cfg', '-o', 'C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\unused.bin', '--dbgfile', 'C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\runtime.dbg', '-Ln', 'C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\runtime.lbl', '-m', 'C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\runtime.map', 'C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\component.o', 'C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\phase-bridge.o', 'C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\native-imports.o', 'C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\host-runtime.o', 'C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\host-gates.o', 'C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\render.o', 'C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\body-meta.o', 'C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\shot-meta.o', 'C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\boundaries.o', 'C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\boundary-gates.o'], 'cwd': 'C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1', 'output_guard': {'tool': 'ld65', 'private_root': 'C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1', 'outputs': [{'kind': '-o', 'path': 'C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\unused.bin'}, {'kind': '--dbgfile', 'path': 'C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\runtime.dbg'}, {'kind': '-Ln', 'path': 'C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\runtime.lbl'}, {'kind': '-m', 'path': 'C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\runtime.map'}, {'kind': 'MEMORY file', 'path': 'C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\ram1.bin'}, {'kind': 'MEMORY file', 'path': 'C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\ram3.bin'}, {'kind': 'MEMORY file', 'path': 'C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\ram2.bin'}, {'kind': 'MEMORY file', 'path': 'C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\oracle-gates.bin'}], 'outputs_validated_before_execution': True}, 'returncode': 1, 'stdout': '', 'stderr': \"ld65: Warning: Address size mismatch for 'Enemy_BoundBoxCtrl': Exported from native-imports.o, C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\native-imports.s:107 as 'absolute', import in boundaries.o, C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\boundaries.s:15 as 'zeropage'\\nld65: Warning: Address size mismatch for 'Player_PageLoc': Exported from native-imports.o, C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\native-imports.s:30 as 'zeropage', import in render.o, C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\render.s:10 as 'absolute'\\nld65: Warning: Address size mismatch for 'Player_PageLoc': Exported from native-imports.o, C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\native-imports.s:30 as 'zeropage', import in host-runtime.o, C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\host-runtime.s:9 as 'absolute'\\nld65: Warning: Address size mismatch for 'Player_State': Exported from native-imports.o, C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\native-imports.s:34 as 'zeropage', import in host-runtime.o, C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\host-runtime.s:11 as 'absolute'\\nld65: Warning: Address size mismatch for 'Player_X_Position': Exported from native-imports.o, C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\native-imports.s:38 as 'zeropage', import in render.o, C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\render.s:10 as 'absolute'\\nld65: Warning: Address size mismatch for 'Player_X_Position': Exported from native-imports.o, C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\native-imports.s:38 as 'zeropage', import in host-runtime.o, C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\host-runtime.s:9 as 'absolute'\\nld65: Warning: Address size mismatch for 'Player_X_Speed': Exported from native-imports.o, C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\native-imports.s:42 as 'zeropage', import in host-runtime.o, C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\host-runtime.s:10 as 'absolute'\\nld65: Warning: Address size mismatch for 'Player_Y_HighPos': Exported from native-imports.o, C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\native-imports.s:44 as 'zeropage', import in render.o, C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\render.s:11 as 'absolute'\\nld65: Warning: Address size mismatch for 'Player_Y_HighPos': Exported from native-imports.o, C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\native-imports.s:44 as 'zeropage', import in host-runtime.o, C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\host-runtime.s:9 as 'absolute'\\nld65: Warning: Address size mismatch for 'Player_Y_Position': Exported from native-imports.o, C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\native-imports.s:46 as 'zeropage', import in render.o, C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\render.s:11 as 'absolute'\\nld65: Warning: Address size mismatch for 'Player_Y_Position': Exported from native-imports.o, C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\native-imports.s:46 as 'zeropage', import in host-runtime.o, C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\host-runtime.s:9 as 'absolute'\\nld65: Warning: Address size mismatch for 'Player_Y_Speed': Exported from native-imports.o, C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\native-imports.s:48 as 'zeropage', import in host-runtime.o, C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\host-runtime.s:10 as 'absolute'\\nld65: Warning: Address size mismatch for 'SavedJoypadBits': Exported from native-imports.o, C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\native-imports.s:62 as 'zeropage', import in host-runtime.o, C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\host-runtime.s:12 as 'absolute'\\nld65: Error: Range error in module 'C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\boundaries.s', line 266\\n\"})",
+  "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\prepare_contra_force_host_boundaries_v1.py\", line 53, in main\n    run([str(ld),'-C',str(O/'runtime.cfg'),'-o',str(O/'unused.bin'),'--dbgfile',str(O/'runtime.dbg'),'-Ln',str(O/'runtime.lbl'),'-m',str(O/'runtime.map'),*[str(O/(n+'.o'))for n in names]])\n    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\prepare_contra_force_host_boundaries_v1.py\", line 51, in run\n    (O/'build-log.json').write_text(json.dumps(logs,indent=2)+'\\n');assert p.returncode==0,logs[-1]\n                                                                           ^^^^^^^^^^^^^^^\nAssertionError: {'command': ['C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\tools\\\\Windows\\\\cc65\\\\bin\\\\ld65.exe', '-C', 'C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\runtime.cfg', '-o', 'C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\unused.bin', '--dbgfile', 'C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\runtime.dbg', '-Ln', 'C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\runtime.lbl', '-m', 'C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\runtime.map', 'C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\component.o', 'C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\phase-bridge.o', 'C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\native-imports.o', 'C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\host-runtime.o', 'C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\host-gates.o', 'C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\render.o', 'C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\body-meta.o', 'C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\shot-meta.o', 'C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\boundaries.o', 'C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\boundary-gates.o'], 'cwd': 'C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1', 'output_guard': {'tool': 'ld65', 'private_root': 'C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1', 'outputs': [{'kind': '-o', 'path': 'C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\unused.bin'}, {'kind': '--dbgfile', 'path': 'C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\runtime.dbg'}, {'kind': '-Ln', 'path': 'C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\runtime.lbl'}, {'kind': '-m', 'path': 'C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\runtime.map'}, {'kind': 'MEMORY file', 'path': 'C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\ram1.bin'}, {'kind': 'MEMORY file', 'path': 'C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\ram3.bin'}, {'kind': 'MEMORY file', 'path': 'C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\ram2.bin'}, {'kind': 'MEMORY file', 'path': 'C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\oracle-gates.bin'}], 'outputs_validated_before_execution': True}, 'returncode': 1, 'stdout': '', 'stderr': \"ld65: Warning: Address size mismatch for 'Enemy_BoundBoxCtrl': Exported from native-imports.o, C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\native-imports.s:107 as 'absolute', import in boundaries.o, C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\boundaries.s:15 as 'zeropage'\\nld65: Warning: Address size mismatch for 'Player_PageLoc': Exported from native-imports.o, C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\native-imports.s:30 as 'zeropage', import in render.o, C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\render.s:10 as 'absolute'\\nld65: Warning: Address size mismatch for 'Player_PageLoc': Exported from native-imports.o, C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\native-imports.s:30 as 'zeropage', import in host-runtime.o, C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\host-runtime.s:9 as 'absolute'\\nld65: Warning: Address size mismatch for 'Player_State': Exported from native-imports.o, C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\native-imports.s:34 as 'zeropage', import in host-runtime.o, C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\host-runtime.s:11 as 'absolute'\\nld65: Warning: Address size mismatch for 'Player_X_Position': Exported from native-imports.o, C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\native-imports.s:38 as 'zeropage', import in render.o, C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\render.s:10 as 'absolute'\\nld65: Warning: Address size mismatch for 'Player_X_Position': Exported from native-imports.o, C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\native-imports.s:38 as 'zeropage', import in host-runtime.o, C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\host-runtime.s:9 as 'absolute'\\nld65: Warning: Address size mismatch for 'Player_X_Speed': Exported from native-imports.o, C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\native-imports.s:42 as 'zeropage', import in host-runtime.o, C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\host-runtime.s:10 as 'absolute'\\nld65: Warning: Address size mismatch for 'Player_Y_HighPos': Exported from native-imports.o, C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\native-imports.s:44 as 'zeropage', import in render.o, C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\render.s:11 as 'absolute'\\nld65: Warning: Address size mismatch for 'Player_Y_HighPos': Exported from native-imports.o, C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\native-imports.s:44 as 'zeropage', import in host-runtime.o, C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\host-runtime.s:9 as 'absolute'\\nld65: Warning: Address size mismatch for 'Player_Y_Position': Exported from native-imports.o, C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\native-imports.s:46 as 'zeropage', import in render.o, C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\render.s:11 as 'absolute'\\nld65: Warning: Address size mismatch for 'Player_Y_Position': Exported from native-imports.o, C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\native-imports.s:46 as 'zeropage', import in host-runtime.o, C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\host-runtime.s:9 as 'absolute'\\nld65: Warning: Address size mismatch for 'Player_Y_Speed': Exported from native-imports.o, C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\native-imports.s:48 as 'zeropage', import in host-runtime.o, C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\host-runtime.s:10 as 'absolute'\\nld65: Warning: Address size mismatch for 'SavedJoypadBits': Exported from native-imports.o, C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\native-imports.s:62 as 'zeropage', import in host-runtime.o, C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\host-runtime.s:12 as 'absolute'\\nld65: Error: Range error in module 'C:\\\\Users\\\\kando\\\\Documents\\\\ChatGPT\\\\SMB Crossover\\\\build\\\\contra-force-host-boundaries-v1\\\\boundaries.s', line 266\\n\"}\n",
+  "commands": [
+    {
+      "command": [
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\Windows\\cc65\\bin\\ca65.exe",
+        "--cpu",
+        "6502x",
+        "-g",
+        "-I",
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-reproduction-v2",
+        "--create-full-dep",
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\component.dep",
+        "-o",
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\component.o",
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\component.s"
+      ],
+      "cwd": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1",
+      "output_guard": {
+        "tool": "ca65",
+        "private_root": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1",
+        "outputs": [
+          {
+            "kind": "--create-full-dep",
+            "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\component.dep"
+          },
+          {
+            "kind": "-o",
+            "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\component.o"
+          }
+        ],
+        "outputs_validated_before_execution": true
+      },
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\Windows\\cc65\\bin\\ca65.exe",
+        "--cpu",
+        "6502x",
+        "-g",
+        "-I",
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-reproduction-v2",
+        "--create-full-dep",
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\phase-bridge.dep",
+        "-o",
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\phase-bridge.o",
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\phase-bridge.s"
+      ],
+      "cwd": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1",
+      "output_guard": {
+        "tool": "ca65",
+        "private_root": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1",
+        "outputs": [
+          {
+            "kind": "--create-full-dep",
+            "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\phase-bridge.dep"
+          },
+          {
+            "kind": "-o",
+            "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\phase-bridge.o"
+          }
+        ],
+        "outputs_validated_before_execution": true
+      },
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\Windows\\cc65\\bin\\ca65.exe",
+        "--cpu",
+        "6502x",
+        "-g",
+        "-I",
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-reproduction-v2",
+        "--create-full-dep",
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\native-imports.dep",
+        "-o",
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\native-imports.o",
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\native-imports.s"
+      ],
+      "cwd": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1",
+      "output_guard": {
+        "tool": "ca65",
+        "private_root": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1",
+        "outputs": [
+          {
+            "kind": "--create-full-dep",
+            "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\native-imports.dep"
+          },
+          {
+            "kind": "-o",
+            "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\native-imports.o"
+          }
+        ],
+        "outputs_validated_before_execution": true
+      },
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\Windows\\cc65\\bin\\ca65.exe",
+        "--cpu",
+        "6502x",
+        "-g",
+        "-I",
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-reproduction-v2",
+        "--create-full-dep",
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\host-runtime.dep",
+        "-o",
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\host-runtime.o",
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\host-runtime.s"
+      ],
+      "cwd": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1",
+      "output_guard": {
+        "tool": "ca65",
+        "private_root": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1",
+        "outputs": [
+          {
+            "kind": "--create-full-dep",
+            "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\host-runtime.dep"
+          },
+          {
+            "kind": "-o",
+            "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\host-runtime.o"
+          }
+        ],
+        "outputs_validated_before_execution": true
+      },
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\Windows\\cc65\\bin\\ca65.exe",
+        "--cpu",
+        "6502x",
+        "-g",
+        "-I",
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-reproduction-v2",
+        "--create-full-dep",
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\host-gates.dep",
+        "-o",
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\host-gates.o",
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\host-gates.s"
+      ],
+      "cwd": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1",
+      "output_guard": {
+        "tool": "ca65",
+        "private_root": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1",
+        "outputs": [
+          {
+            "kind": "--create-full-dep",
+            "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\host-gates.dep"
+          },
+          {
+            "kind": "-o",
+            "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\host-gates.o"
+          }
+        ],
+        "outputs_validated_before_execution": true
+      },
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\Windows\\cc65\\bin\\ca65.exe",
+        "--cpu",
+        "6502x",
+        "-g",
+        "-I",
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-reproduction-v2",
+        "--create-full-dep",
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\render.dep",
+        "-o",
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\render.o",
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\render.s"
+      ],
+      "cwd": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1",
+      "output_guard": {
+        "tool": "ca65",
+        "private_root": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1",
+        "outputs": [
+          {
+            "kind": "--create-full-dep",
+            "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\render.dep"
+          },
+          {
+            "kind": "-o",
+            "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\render.o"
+          }
+        ],
+        "outputs_validated_before_execution": true
+      },
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\Windows\\cc65\\bin\\ca65.exe",
+        "--cpu",
+        "6502x",
+        "-g",
+        "-I",
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-reproduction-v2",
+        "--create-full-dep",
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\body-meta.dep",
+        "-o",
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\body-meta.o",
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\body-meta.s"
+      ],
+      "cwd": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1",
+      "output_guard": {
+        "tool": "ca65",
+        "private_root": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1",
+        "outputs": [
+          {
+            "kind": "--create-full-dep",
+            "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\body-meta.dep"
+          },
+          {
+            "kind": "-o",
+            "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\body-meta.o"
+          }
+        ],
+        "outputs_validated_before_execution": true
+      },
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\Windows\\cc65\\bin\\ca65.exe",
+        "--cpu",
+        "6502x",
+        "-g",
+        "-I",
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-reproduction-v2",
+        "--create-full-dep",
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\shot-meta.dep",
+        "-o",
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\shot-meta.o",
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\shot-meta.s"
+      ],
+      "cwd": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1",
+      "output_guard": {
+        "tool": "ca65",
+        "private_root": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1",
+        "outputs": [
+          {
+            "kind": "--create-full-dep",
+            "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\shot-meta.dep"
+          },
+          {
+            "kind": "-o",
+            "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\shot-meta.o"
+          }
+        ],
+        "outputs_validated_before_execution": true
+      },
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\Windows\\cc65\\bin\\ca65.exe",
+        "--cpu",
+        "6502x",
+        "-g",
+        "-I",
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-reproduction-v2",
+        "--create-full-dep",
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\boundaries.dep",
+        "-o",
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\boundaries.o",
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\boundaries.s"
+      ],
+      "cwd": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1",
+      "output_guard": {
+        "tool": "ca65",
+        "private_root": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1",
+        "outputs": [
+          {
+            "kind": "--create-full-dep",
+            "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\boundaries.dep"
+          },
+          {
+            "kind": "-o",
+            "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\boundaries.o"
+          }
+        ],
+        "outputs_validated_before_execution": true
+      },
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\Windows\\cc65\\bin\\ca65.exe",
+        "--cpu",
+        "6502x",
+        "-g",
+        "-I",
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-reproduction-v2",
+        "--create-full-dep",
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\boundary-gates.dep",
+        "-o",
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\boundary-gates.o",
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\boundary-gates.s"
+      ],
+      "cwd": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1",
+      "output_guard": {
+        "tool": "ca65",
+        "private_root": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1",
+        "outputs": [
+          {
+            "kind": "--create-full-dep",
+            "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\boundary-gates.dep"
+          },
+          {
+            "kind": "-o",
+            "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\boundary-gates.o"
+          }
+        ],
+        "outputs_validated_before_execution": true
+      },
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\Windows\\cc65\\bin\\ld65.exe",
+        "-C",
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\runtime.cfg",
+        "-o",
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\unused.bin",
+        "--dbgfile",
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\runtime.dbg",
+        "-Ln",
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\runtime.lbl",
+        "-m",
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\runtime.map",
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\component.o",
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\phase-bridge.o",
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\native-imports.o",
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\host-runtime.o",
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\host-gates.o",
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\render.o",
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\body-meta.o",
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\shot-meta.o",
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\boundaries.o",
+        "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\boundary-gates.o"
+      ],
+      "cwd": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1",
+      "output_guard": {
+        "tool": "ld65",
+        "private_root": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1",
+        "outputs": [
+          {
+            "kind": "-o",
+            "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\unused.bin"
+          },
+          {
+            "kind": "--dbgfile",
+            "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\runtime.dbg"
+          },
+          {
+            "kind": "-Ln",
+            "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\runtime.lbl"
+          },
+          {
+            "kind": "-m",
+            "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\runtime.map"
+          },
+          {
+            "kind": "MEMORY file",
+            "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\ram1.bin"
+          },
+          {
+            "kind": "MEMORY file",
+            "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\ram3.bin"
+          },
+          {
+            "kind": "MEMORY file",
+            "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\ram2.bin"
+          },
+          {
+            "kind": "MEMORY file",
+            "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\oracle-gates.bin"
+          }
+        ],
+        "outputs_validated_before_execution": true
+      },
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "ld65: Warning: Address size mismatch for 'Enemy_BoundBoxCtrl': Exported from native-imports.o, C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\native-imports.s:107 as 'absolute', import in boundaries.o, C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\boundaries.s:15 as 'zeropage'\nld65: Warning: Address size mismatch for 'Player_PageLoc': Exported from native-imports.o, C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\native-imports.s:30 as 'zeropage', import in render.o, C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\render.s:10 as 'absolute'\nld65: Warning: Address size mismatch for 'Player_PageLoc': Exported from native-imports.o, C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\native-imports.s:30 as 'zeropage', import in host-runtime.o, C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\host-runtime.s:9 as 'absolute'\nld65: Warning: Address size mismatch for 'Player_State': Exported from native-imports.o, C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\native-imports.s:34 as 'zeropage', import in host-runtime.o, C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\host-runtime.s:11 as 'absolute'\nld65: Warning: Address size mismatch for 'Player_X_Position': Exported from native-imports.o, C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\native-imports.s:38 as 'zeropage', import in render.o, C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\render.s:10 as 'absolute'\nld65: Warning: Address size mismatch for 'Player_X_Position': Exported from native-imports.o, C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\native-imports.s:38 as 'zeropage', import in host-runtime.o, C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\host-runtime.s:9 as 'absolute'\nld65: Warning: Address size mismatch for 'Player_X_Speed': Exported from native-imports.o, C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\native-imports.s:42 as 'zeropage', import in host-runtime.o, C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\host-runtime.s:10 as 'absolute'\nld65: Warning: Address size mismatch for 'Player_Y_HighPos': Exported from native-imports.o, C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\native-imports.s:44 as 'zeropage', import in render.o, C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\render.s:11 as 'absolute'\nld65: Warning: Address size mismatch for 'Player_Y_HighPos': Exported from native-imports.o, C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\native-imports.s:44 as 'zeropage', import in host-runtime.o, C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\host-runtime.s:9 as 'absolute'\nld65: Warning: Address size mismatch for 'Player_Y_Position': Exported from native-imports.o, C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\native-imports.s:46 as 'zeropage', import in render.o, C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\render.s:11 as 'absolute'\nld65: Warning: Address size mismatch for 'Player_Y_Position': Exported from native-imports.o, C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\native-imports.s:46 as 'zeropage', import in host-runtime.o, C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\host-runtime.s:9 as 'absolute'\nld65: Warning: Address size mismatch for 'Player_Y_Speed': Exported from native-imports.o, C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\native-imports.s:48 as 'zeropage', import in host-runtime.o, C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\host-runtime.s:10 as 'absolute'\nld65: Warning: Address size mismatch for 'SavedJoypadBits': Exported from native-imports.o, C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\native-imports.s:62 as 'zeropage', import in host-runtime.o, C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\host-runtime.s:12 as 'absolute'\nld65: Error: Range error in module 'C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-host-boundaries-v1\\boundaries.s', line 266\n"
+    }
+  ]
+}

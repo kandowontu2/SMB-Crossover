@@ -1,0 +1,85 @@
+--- frozen9529/bowser/host.s
++++ playable-c663/bowser/host.s
+@@ -330,8 +330,9 @@
+  jsr BwSavePlayer
+ BwTailDone:rts
+ 
++; Native ForceInjury uses zero as immediate death, not power tier.
+ BwStatus:
+- lda BwTier
++ lda BwHP
+  tax
+  rts
+ BwInjury:
+@@ -342,7 +343,7 @@
+  beq BwHurtDead
+  dec BwHP
+  beq BwHurtDead
+- lda #90
++ lda #8                     ; genuine native interval duration, not90frames
+  sta InjuryTimer
+  lda #4
+  sta Square1SoundQueue
+--- frozen9529/bowser/cold.s
++++ playable-c663/bowser/cold.s
+@@ -4,6 +4,7 @@
+ .import VRAM_Buffer1_Offset,VRAM_Buffer1,FmAlts,SmPosePtr,SmChrBank,CurrentCHRBank,ObjectMetasprite,X5SetPhysicalChr
+ .import BwPortrait1Right,BwPortrait3Right,BwLoad,BwConstruct,BwRetire
+ .import S2InitScreenPrepare,FwMuxMenuResolve,DrawMetasprite,WriteGameText,BwColors
++.importzp Player_Y_Position
+ .export BwScene,BwMenuResolve,BwColdPrepare,BwColdDraw,BwStatusName
+ 
+ .segment "BW_ROM_COPY"
+@@ -32,6 +33,7 @@
+  BwFar X5SetPhysicalChr,jsr
+  lda CurrentCHRBank
+  sta SmChrBank
++BwColdMap:
+  lda #.lobyte(.bank(BwPortrait1Right)|$80)
+  sta CurrentBankC
+  sta $5116
+@@ -43,12 +45,29 @@
+ BwColdDraw:
+  php
+  pha
+- lda #.lobyte(.bank(BwPortrait1Right)|$80)
+- sta CurrentBankC
+- sta $5116
++ lda OperMode
++ cmp #1
++ bne BwColdNoLifeOffset
++ lda Player_Y_Position
++ adc #7                    ; exact CMP#1 path already hasC1: +8
++ sta Player_Y_Position
++BwColdNoLifeOffset:
++ jsr BwColdMap
+  pla
+  plp
+- BwFar DrawMetasprite,jmp
++ BwFar DrawMetasprite,jsr
++ php
++ pha
++ lda OperMode
++ cmp #1
++ bne BwColdDrawRestore
++ lda Player_Y_Position
++ sbc #8                    ; exact CMP#1 path still hasC1
++ sta Player_Y_Position
++BwColdDrawRestore:
++ pla
++ plp
++ rts
+ .assert *<=$b600,lderror,"A83 ROM portrait budget"
+ 
+ .segment "BW_ROM_AUX"
+--- frozen9529/bowser/core.s
++++ playable-c663/bowser/core.s
+@@ -77,7 +77,7 @@
+  ldx BwVariant
+  beq :+
+  dec BwPos+1                ; exact native MakeBJump first Y decrement
+- lda #$fe                   ; original source1 Bowser -2px jump
++ lda #$fd                   ; authored playable A-edge -3; original falling arithmetic below unchanged
+ :
+  sta BwVel+1
+  lda #0
