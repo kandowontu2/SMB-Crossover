@@ -1,0 +1,267 @@
+--- frozen62/src/new_roster_dispatch.s
++++ ArGoku-remap/src/new_roster_dispatch.s
+@@ -1078,8 +1078,8 @@
+  rts
+ .endproc
+ .proc NrMenuCharacter
+- lda X5MenuCharacters,x
+- rts
++ jmp NrMenuAltTail
++ nop
+ .endproc
+ .proc NrWorldPaletteIndex
+  php
+--- frozen62/src/kamikaze_mario.s
++++ ArGoku-remap/src/kamikaze_mario.s
+@@ -34,7 +34,23 @@
+  rts
+ .endproc
+ KmCycleEnd:
+-.assert * <= $ae00,lderror,"Kamikaze cycle overlaps Rogue auxiliary"
++.segment "NEW_ROSTER_GATE"
++.assert * = $adee,lderror,"Original gate tail preimage moved"
++NrMenuColdPadStart:
++.proc NrMenuAltTail
++ lda X5MenuCharacters,x
++ php
++ cpx #31
++ bne Done
++ bit FmAlts
++ bpl Done
++ lda #24
++Done:plp
++ rts
++.endproc
++.assert *-NrMenuColdPadStart=17,lderror,"Arthur/Goku cold helper size"
++.res 1,$ff
++.assert * = $ae00,lderror,"Existing gate-owned cold pad boundary"
+ .segment "CELESTE_MARIO_HOST"
+ KmMenuStart:
+ .proc KmQueueName
+--- frozen62/src/roster_expansion_menu.inc
++++ ArGoku-remap/src/roster_expansion_menu.inc
+@@ -9,7 +9,7 @@
+ X5MenuDown:
+  .byte 8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,0,1,2,3,4,5,6,7
+ X5MenuCharacters:
+- .byte 0,1,2,3,4,5,6,7,12,9,10,11,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32
++ .byte 0,1,2,3,4,5,6,7,12,9,10,11,13,14,15,16,17,18,19,20,21,22,23,33,25,26,27,28,29,30,31,32
+ X5MenuCursorLo:
+  .byte 163,166,169,172,175,178,181,184,35,38,41,44,47,50,53,56,163,166,169,172,175,178,181,184,35,38,41,44,47,50,53,56
+ X5MenuCursorHi:
+--- frozen62/src/full_roster_menu.s
++++ ArGoku-remap/src/full_roster_menu.s
+@@ -84,8 +84,6 @@
+  clc
+  rts
+ NotFF:
+- cpx #23
+- beq Ready
+  cpx #25
+  beq Ready
+  cpx #27
+@@ -104,9 +102,6 @@
+  clc
+  rts
+ NotSMB2:
+- lda #14
+- cpx #25
+- beq Pending
+  cpx #26
+  bne NotBowser
+  lda FmAlts
+@@ -117,9 +112,6 @@
+ Bowser3:lda #15
+  bne Pending
+ NotBowser:
+- lda #17
+- cpx #27
+- beq Pending
+  cpx #28
+  bne NotWWF
+  lda FmGroups
+@@ -140,8 +132,12 @@
+ ContraForce:
+  cpx #31
+  bne ForceVariant
++ lda FmAlts
++ bmi Goku
+  lda #30
+- clc
++ bne ArthurGokuReady
++Goku:lda #9
++ArthurGokuReady:clc
+  rts
+ ForceVariant:
+  lda FmGroups
+@@ -153,6 +149,8 @@
+  adc #26
+ Pending:sec
+  rts
++.assert *-FmPending<=241,lderror,"Existing pending span"
++.res 7,$ea
+ .endproc
+ 
+ .proc FmResolve
+@@ -170,8 +168,10 @@
+ .proc FmToggle
+  lda CrossoverMenuPressed
+  and #Select_Button
+- jeq No
+- ldx CrossoverMenuIndex
++ bne HasSelect
++ clc
++ rts
++HasSelect:ldx CrossoverMenuIndex
+  bne NotMario
+  inc MarioVariant
+  lda MarioVariant
+@@ -198,8 +198,7 @@
+  lda FmAlts
+  and #32
+  beq BassOrRoll
+- lda FmAlts
+- and #$df
++ eor FmAlts
+  sta FmAlts
+  lda #0
+  sta RlVariant
+@@ -226,17 +225,14 @@
+  beq SelectShinobi
+  cmp #4
+  beq SelectThomas
+- lda #0
+- beq RyuAlt
++ lda FmAlts
++ and #$bb
++ sta FmAlts
++ jmp Yes
+ SelectShinobi:lda #4
+- bne RyuAlt
+-SelectThomas:lda #64
+-RyuAlt:sta R0
+- lda FmAlts
+- and #$bb
+- ora R0
+- sta FmAlts
+- jmp Yes
++ bne Flip
++SelectThomas:lda #68
++ bne Flip
+ NotShinobi:
+  cpx #11
+  bne NotMetal
+@@ -255,6 +251,11 @@
+  sta FmAlts
+  jmp Yes
+ NotPrince:
++ cpx #31
++ bne NotArthur
++ lda #$80
++ jmp Flip
++NotArthur:
+  cpx #21
+  bne NotFF
+  inc $5fef
+@@ -298,6 +299,8 @@
+  rts
+ No:clc
+  rts
++.assert *-FmToggle<=278,lderror,"Existing Select span"
++.res 0,$ea
+ .endproc
+ 
+ .proc FmQueueName
+@@ -394,9 +397,15 @@
+  sta Sprite_Data+1,x
+  lda #0
+  sta Sprite_Data+2,x
+- lda FmPreviewX,x
++ txa
++ and #4
++ asl
++ adc #120
+  sta Sprite_Data+3,x
+- lda FmPreviewY,x
++ txa
++ and #8
++ asl
++ adc #159
+  sta Sprite_Data,x
+  iny
+  inx
+@@ -444,11 +453,30 @@
+  sta VRAM_Buffer1,x
+  rts
+ FmDkPreviewOam:.byte 159,132,0,116,159,134,0,124,159,132,64,132,175,252,0,116,175,254,0,124,175,252,64,132
+-FmPreviewX:.byte 120,0,0,0,128,0,0,0,120,0,0,0,128,0,0,0
+-FmPreviewY:.byte 159,0,0,0,159,0,0,0,175,0,0,0,175,0,0,0
+ .endproc
+ 
+ .include "full_roster_menu_art.inc"
++;28B funded by26B coordinate/data compaction plus the old2B tail.
++; Only the real Start path calls this; original flags survive except native
++; final A0 N/Z, X/Y unchanged, and every foreign alternate byte is cleared.
++.proc FmStartFlags
++ php
++ lda #$80
++ cpx #31
++ beq Mask
++ lsr
++ lsr
++ cpx #9
++ beq Mask
++ lda #0
++Mask:and FmAlts
++ sta FmAlts
++ plp
++ lda #0
++ sta FmGroups
++ rts
++.endproc
++.assert *-FmStartFlags=28,lderror,"Start identity worker exact funding"
+ .assert * <= $c000,lderror,"Full roster UI exceeds bank76 A-view tail"
+ .popseg
+ .endif
+--- frozen62/src/character_select.s
++++ ArGoku-remap/src/character_select.s
+@@ -337,17 +337,8 @@
+ FmStartReady:
+   ; FmPending just returned X=CrossoverMenuIndex. Preserve native flag ABI
+   ; while retaining only Quick's alternate bit on the genuine Bass slot.
+-  php
+-  lda #0
+-  cpx #9
+-  bne QwStartStore
+-  lda FmAlts
+-  and #32
+-QwStartStore:
+-  sta FmAlts
+-  plp
+-  lda #0
+-  sta FmGroups
++  farcall FmStartFlags
++  .res 3,$ea ; Existing21B Start identity block, all later PCs unchanged.
+   farcall CheatsApplyStartingLevel
+   lda CrossoverContinue
+   bne :+
+--- frozen62/src/full_roster_menu_art.inc
++++ ArGoku-remap/src/full_roster_menu_art.inc
+@@ -9,7 +9,7 @@
+  .byte "  FF WHITE MAGE "
+  .byte "  FF BLACK MAGE "
+  .byte "    FF THIEF    "
+- .byte "     *GOKU      "
++ .byte "  *BATTLETOADS  "
+  .byte "   SMB2 MARIO   "
+  .byte "   SMB2 LUIGI   "
+  .byte "    SMB2 TOAD   "
+@@ -43,7 +43,7 @@
+  .byte 48,50,52,54
+  .byte 56,58,60,62
+  .byte 64,66,68,70
+- .byte 72,74,76,78
++ .byte 112,112,112,112
+  .byte 80,82,84,86
+  .byte 88,90,92,94
+  .byte 96,98,100,102
