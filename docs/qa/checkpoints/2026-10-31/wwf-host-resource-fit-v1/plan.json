@@ -1,0 +1,372 @@
+{
+  "source": true,
+  "plan_only": true,
+  "read_only_current_sources": true,
+  "no_allocation": true,
+  "native": false,
+  "installed": false,
+  "parent": "f0b7b9b80ac59b546cee599b9efcb5337b970b11638a669ace78a67dd024724d",
+  "layout_only_baseline_exact": true,
+  "full_family_storage": {
+    "body_pages": 84,
+    "common_three_bank_carrier_pages": 24,
+    "selected_metadata_pages": 11,
+    "optional_original_portrait_pages": 6,
+    "total_pages": 125,
+    "proposed_owner_release_pages": 131,
+    "remaining_retained_pages": 6,
+    "original_top_five_pages_untouched": true
+  },
+  "exact_owner_release_requests": [
+    {
+      "retained_owner": "CD_CHR_MEM",
+      "pages": [
+        426,
+        460
+      ],
+      "bytes": 34816,
+      "zero_sha256": "5bc703857c55bcb7558710bf96d6c4af548974e8d615ee6b30b9f78af98b9055",
+      "no_emitted_segments": true,
+      "allocated_to_WWF": false
+    },
+    {
+      "retained_owner": "M3_CHR_MEM",
+      "pages": [
+        546,
+        604
+      ],
+      "bytes": 59392,
+      "zero_sha256": "9ed858526fa2cfec6d8643c6cb514106f4135360c53e2a332e9febcaba6df2cb",
+      "no_emitted_segments": true,
+      "allocated_to_WWF": false
+    },
+    {
+      "retained_owner": "TMNT_CHR_MEM",
+      "pages": [
+        629,
+        668
+      ],
+      "bytes": 39936,
+      "zero_sha256": "347a8901c04728d2cdd9b6d546d6b6d8b37e1f8f4c6ce520f3a0f22839a909da",
+      "no_emitted_segments": true,
+      "allocated_to_WWF": false
+    }
+  ],
+  "proposed_family_CHR_split": {
+    "body": [
+      {
+        "pages": [
+          546,
+          604
+        ],
+        "original_page_indexes": [
+          0,
+          58
+        ]
+      },
+      {
+        "pages": [
+          426,
+          452
+        ],
+        "original_page_indexes": [
+          58,
+          84
+        ]
+      }
+    ],
+    "carrier_pages": [
+      629,
+      653
+    ],
+    "metadata_pages": [
+      653,
+      664
+    ],
+    "optional_portraits": [
+      [
+        664,
+        668
+      ],
+      [
+        452,
+        454
+      ]
+    ],
+    "unconsumed_old_owner_tail": [
+      454,
+      460
+    ]
+  },
+  "first_Hogan_only": {
+    "menu_variant": 0,
+    "original_id": 5,
+    "theme": 1,
+    "source_pose_pages_used": 17,
+    "all_31_source_poses_preserved": true,
+    "selected_metadata": {
+      "original_id": 5,
+      "name": "Hulk Hogan",
+      "offset": 9214,
+      "bytes": 1687,
+      "poses": 31,
+      "groups": 17,
+      "sha256": "6006fd8b5d062ad58492983fb1463c583ea3688e73f71abc49d9c964fef65df3",
+      "theme": 1
+    },
+    "notes": [
+      "Reuse the existing Hogan-first menu identity. Do not reorder six identities.",
+      "An idle body record can serve the first cold preview without additional original portrait pages.",
+      "Full-family allocation remains a request; first wrestler can consume only its17 source body pages,24 template pages and2 metadata pages."
+    ]
+  },
+  "metadata_overlay": {
+    "format": "2B header;2B/group(first,count);3B/pose(record offset16,page index);record(width,count,4B/cell tile/role/x/y)",
+    "total_bytes": 10901,
+    "rows": [
+      {
+        "original_id": 0,
+        "name": "Ted DiBiase",
+        "offset": 0,
+        "bytes": 1814,
+        "poses": 34,
+        "groups": 17,
+        "sha256": "b69b00574cae29dec89c9d7c9b162112207f0719003e24f0ed19db0bedce2b1f",
+        "theme": 6
+      },
+      {
+        "original_id": 1,
+        "name": "Bam Bam Bigelow",
+        "offset": 1814,
+        "bytes": 2270,
+        "poses": 36,
+        "groups": 18,
+        "sha256": "20096b893bf1dabc6799f745017ebb52b3c9adcc41e0624439fe9545bdcff020",
+        "theme": 7
+      },
+      {
+        "original_id": 2,
+        "name": "Honky Tonk Man",
+        "offset": 4084,
+        "bytes": 1582,
+        "poses": 28,
+        "groups": 18,
+        "sha256": "1590beea5bac7ccaf5e777dd196850f12792482e2dd412b4f99ed3b316b0c1d4",
+        "theme": 4
+      },
+      {
+        "original_id": 3,
+        "name": "Randy Savage",
+        "offset": 5666,
+        "bytes": 1843,
+        "poses": 33,
+        "groups": 20,
+        "sha256": "404ee37edbc8621a8562e86aa4bfb1680b868ea51bc3fbf3adf456b111f8bd7d",
+        "theme": 2
+      },
+      {
+        "original_id": 4,
+        "name": "Andre the Giant",
+        "offset": 7509,
+        "bytes": 1705,
+        "poses": 33,
+        "groups": 17,
+        "sha256": "9e88679d4184ddb026cdda5c00997ca47387e55667c79f1e23dd180944c4749b",
+        "theme": 5
+      },
+      {
+        "original_id": 5,
+        "name": "Hulk Hogan",
+        "offset": 9214,
+        "bytes": 1687,
+        "poses": 31,
+        "groups": 17,
+        "sha256": "6006fd8b5d062ad58492983fb1463c583ea3688e73f71abc49d9c964fef65df3",
+        "theme": 1
+      }
+    ],
+    "decode_checks": 195,
+    "no_raster_or_palette_change": true,
+    "notes": [
+      "One24KB code/state template plus packed per-wrestler metadata avoids six separate24KB cache copies.",
+      "The loader must patch/read back selected metadata before publishing its class/full16-byte cookie last.",
+      "Each class cookie is generated from the genuine final template+metadata image, not invented constants."
+    ]
+  },
+  "selected_RAM_request": {
+    "family": 29,
+    "conditional_owner": "Authenticated selected WWF epoch only",
+    "banks": [
+      1,
+      2,
+      3
+    ],
+    "new_global_or_ZP_bytes": 0,
+    "A3_VM": {
+      "original_code_bytes": 3248,
+      "max_direct_state_instruction_growth_before_pointer_savings": 573,
+      "dispatch_bytes": 180,
+      "script_bundle_bytes": 3634,
+      "proposed36JMP_API_bytes": 108,
+      "total_before_branch_fixes": 7743,
+      "bytes_remaining": 449,
+      "notes": [
+        "This is a measured byte-count plan, NOT an assembled dense-cache fit. Conditional-branch expansion/pointer wrappers remain to link.",
+        "Move code or constants to the selected C2 helper region if genuine branch fixes exceed449B. Preserve all scripts and every handler."
+      ]
+    },
+    "A1_music": {
+      "original_source_union_bytes": 7897,
+      "bytes_remaining": 295,
+      "notes": [
+        "Dense source relocation of8018..<88D7 plusE222..<F83C must symbolically rebind code/data pointers. No high-only or generic tune substitute.",
+        "Scratch01..08 uses the same scoped8B at the separate audio phase, saving/restoring the interrupted foreground values."
+      ]
+    },
+    "C2_layout": [
+      {
+        "start": 49152,
+        "end": 51200,
+        "role": "Relocated native VM state compatibility envelope, including original01D2 side effect atC1D2"
+      },
+      {
+        "start": 51200,
+        "end": 51392,
+        "role": "192B original music state relocated separately"
+      },
+      {
+        "start": 51392,
+        "end": 51890,
+        "role": "486B descriptors plus12B descriptor directory"
+      },
+      {
+        "start": 51904,
+        "end": 54176,
+        "role": "Selected wrestler metadata; current measured maximum2270B"
+      },
+      {
+        "start": 54176,
+        "end": 57296,
+        "role": "3120B proposed source/native callbacks, transport and temporary saved pointer context"
+      },
+      {
+        "start": 57296,
+        "end": 57312,
+        "role": "Proposed epoch/readiness/audio state; no shared lease yet"
+      },
+      {
+        "start": 57312,
+        "end": 57328,
+        "role": "Full16-byte family/class/version/source cookie, valid-last"
+      }
+    ]
+  },
+  "pointer_relocation": {
+    "actual_indirect_pairs": [
+      "1F/20",
+      "21/22",
+      "23/24",
+      "25/26",
+      "C3/C4"
+    ],
+    "scoped_R0_R7_roles": {
+      "R0_R1": "Self descriptor25/26 during VM; constructor/selector1F/20 only in separate phase",
+      "R2_R3": "Opponent descriptorC3/C4",
+      "R4_R5": "Script21/22",
+      "R6_R7": "Action directory23/24"
+    },
+    "dispatch": "1F/20 during VM is stored in selected RAM and used by legal absolute JMP(C01F); it needs no ZP pair.",
+    "contracts": [
+      "Nonpointer native state operands become selected C2 source symbols, not a wholesale ZP swap.",
+      "Retain original indexed wrapping and original absolute00D3,Y\u2192C0D3,Y behavior; prove nativeactor0/1 and constructor loop bounds.",
+      "Persist source pointer values in the selected context between APIs; save/restore all8 hostR0..7 around every source phase.",
+      "Every native callback marshals explicit source fields and saves/restores live source pointers around native scratch use.",
+      "Normal/lag/pausedNMI and nestedIRQ must restore actual interruptedR0..7,33SMC,rawA/C/E and livepage1; no NMI disable as a shortcut."
+    ]
+  },
+  "resident_ROM_request": {
+    "owner": "X5_NEW_60 / MIKE_CORE",
+    "physical_bank": 96,
+    "A_view": [
+      43318,
+      49152
+    ],
+    "bytes": 5834,
+    "preimage_sha256": "5d098dc059be18cbe52c41be7d57b6aca88048fd64a22e917cc6156ce242497c",
+    "allocated_to_WWF": false,
+    "requested_view": "A-resident cold/guard/router, plus explicitly reviewed C-view copy phase if source copier requires it",
+    "notes": [
+      "5834B is a verified source/FF preimage candidate still owned by Mike, not a grant or emitted WWF capacity measurement.",
+      "No current Jn entry moves; all existing Mike instructions and data remain belowA936.",
+      "A-source worker cannot replace its own A mapping while fetching.24KB loader needs a real stable C-view phase (new alias review) or a separately reviewed descriptor refactor of an existing stable copier."
+    ]
+  },
+  "menu_and_shared_source_plan": {
+    "slot": 28,
+    "raw": 29,
+    "menu_to_original_identity": [
+      5,
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "existing_variant": "FmGroups low3, already cycles six with upper bits preserved",
+    "current_menu_helper_bytes": 393,
+    "Start": "Add six-byte LDA#7/CPX#28/BEQ Groups to FmStartRetireFlags before its finalzero mask; current393B helper has7B headroom. Preserve all old masks and retirement order.",
+    "A79": "No-growth classifier proposal: range27..<34; handle28 via existing DK target and30 via originalFetch; remaining27/29/31/33 share B020 setup. Move/remove the old later4-byte DK comparison to fund the four additional bytes. All36 prologues/public suffixes remain.",
+    "NrOnly": "Replace final AND#FC/CMP#24 with 24<=raw<30 and remove redundant earlier raw28 special case: net2B shorter, restore explicit padding. This adds only29 to the original admitted set;30 remains native.",
+    "B020": "Saved-AXYP owner gate can classify odd27..33 in14B versus current15B. Keep row/worker labels and captureSFCtargetLo before any nested mapper.",
+    "resolver": "Retarget the existing same-size resolver farcall to an owned ROM dispatcher:29 authenticates in ROM then resolves A000+3Y/raw3;27/31/33 delegate to the genuine existing resolver. No silent admission of29 in BtCheck or CfOrBtCheck.",
+    "retirement": "Outer menu retirement beforeSelected publication and actual pre-loader chain must retire WWF C2/full epoch before every Quick/Ar/FF/Bowser/BT/CF foreign A1/C2/A3 write. Loader APIs retain explicit caller preconditions; do not infer protection from a worker existing.",
+    "cold": "ROM-only names/portrait/colors work before load. Invalid15/19 use real CmHostFresh/JnResetDispatch once. Forcedblank InitScreen copies/patches/verifies all3 banks, authenticates then constructs source once; valid same-player/life warm scene retains earned state. No Ready gate cleared until natural parser/Main/root native proof."
+  },
+  "music_plan": {
+    "original_themes": [
+      6,
+      7,
+      4,
+      2,
+      5,
+      1
+    ],
+    "menu_theme_order": [
+      1,
+      6,
+      7,
+      4,
+      2,
+      5
+    ],
+    "natural_end_ticks": [
+      5036,
+      1634,
+      2567,
+      2563,
+      2738,
+      2306
+    ],
+    "original_tick_cycles": [
+      284,
+      2200
+    ],
+    "placement": "Actual reset.s normal path completes UpdateScreen, BankSwitchCHR and OAM/input/render publication BEFORE AudioUpdate; use its normal/lag source-audio callback phase, not the PPU deadline-critical prefix.",
+    "NMI_gate_proposal": "AudioUpdate existing12B prefix maps new own resident gateway instead ofA63; use4B STA5115/RTS inside its old6EA pad as a fixed same-frame A-map trampoline. Foreign paths must replay actual GmFamilyNmiGate with the original saved-A frame, no extra shadow/SMC mutation. Requires explicit root review, no new fixed span.",
+    "policies": [
+      "Scene initializes selected original song exactlyonce before readiness; all four area types retain it.",
+      "On true source all-channel end, call the genuine init entry for the same theme, not a recording or generic area song.",
+      "Audio-owned192B is separate from foreground VM state. Foreground may reset it only after full epoch invalidation; valid playing epochs save/restore interrupted pointers and map state.",
+      "Pause/death/result/world-SFX channel ownership and actual scanlineIRQ/deadline measurements remain required.2200 source cycles are not an NMI fit/admission claim."
+    ]
+  },
+  "semantic_work_remaining": [
+    "Dense source-symbol state/code/data relocation is not yet assembled; action directories contain real native pointers that must be rebuilt, including the deliberate action0 code pointer.",
+    "Recover genuine match/actor initialization beyond D1A5 stats; a captured2KiB initialized fixture is not a host constructor implementation.",
+    "Translate ring X/depth/clamp/contact eligibility to SMB world coordinates/terrain while preserving each script timing, opponent side effects and source damage. Basic native jump/gravity must not reinterpret ring depth as platformY.",
+    "Marshal real SMB enemy epochs into the original opponent/contact state and apply source damage through native enemy defeat APIs exactlyonce. Grapple/rope/pin eligibility cannot be fabricated.",
+    "Source body both-facing raster/anchor and two-palette role ownership must be qualified; current84-page records preserve original pixels but host mapping is unfinished.",
+    "Assemble/loop the actual music source and native cue/channel mixing; no generic area-music fallback qualifies all-areas music.",
+    "Existing source-lab60/90 dynamic handler coverage is bounded evidence, not natural host eligibility for every move."
+  ]
+}
