@@ -1,0 +1,100 @@
+{
+  "date": "2026-10-31",
+  "goal_status": "ACTIVE_INCOMPLETE",
+  "installed": {
+    "latest": "C:\\Users\\kando\\Downloads\\SMB-Crossover-Latest-WIP-MMC5.nes",
+    "versioned": "C:\\Users\\kando\\Downloads\\SMB-Crossover-2026-10-31-Ready74-Battletoads-ContraForce-MMC5.nes",
+    "backup": "C:\\Users\\kando\\Downloads\\SMB-Crossover-Before-Ready74-01a40d40-MMC5.nes",
+    "sha256": "a12661c1ddad2e15a8ce0589e86b5510703fd390e6346a982b14a6be0b742e3c",
+    "playable": 74,
+    "individual_identities": 86,
+    "pending_individual_identities": 12,
+    "slots": 32,
+    "rows": 4
+  },
+  "source": {
+    "joint": "build/contra-force-world-roles-1031-v2/joint",
+    "handoff": "docs/qa/checkpoints/2026-10-31/contra-force-jump-contact-source-v1/handoff.json",
+    "handoff_sha256": "072c8e8855ff60b0524d9f62a2e7e2e3e9c762660f3e9bff0c96031f8ba86359",
+    "verified_bindings": 484,
+    "verified_archive_members_across_three_packets": 139,
+    "actual_main_recipe": "build/bt-p2-cf-menu-source-1031-v2/main-build.json",
+    "actual_link_recipe": "build/contra-force-world-roles-1031-v2/final-link.json"
+  },
+  "native": {
+    "BT": "build/ready74-final-bt-native-1031-v1",
+    "CF": "build/contra-force-firstlooks-native-1031-v5",
+    "root_reviewed_PNGs": 24,
+    "all_six_exit_zero": true,
+    "BT_Main_per_case": 240,
+    "BT_physical_frames": 360,
+    "CF_Main_per_case": 180,
+    "CF_physical_frames": 362,
+    "CF_jump_rise": [
+      80,
+      72,
+      64,
+      76
+    ],
+    "full_1_1_or_every_powerup_complete": false,
+    "archive": "docs/qa/checkpoints/2026-10-31/ready74-bt-cf-native-v1/native-and-menu-results.zip"
+  },
+  "fixes": [
+    "BT menu/lives palette, graphics preparation and one-frame lives NMI deadline; P2 status name overwrite.",
+    "CF original preview/readiness, palettes, lives-only+56 offset, reversed terrain roles blocking jump, stale terrain contact freezing ascent.",
+    "CF airborne screenshots now use actual admitted DMA body bounds. All eight gameplay HUD name masks match their own lives header."
+  ],
+  "limits": [
+    "Bounded native menu, lives, walking, jump/landing and attack checks; no full1-1/every-powerup/campaign completion.",
+    "Lag and sprite pressure remain. Battletoads completed240 Main updates in360 physical frames, with240 lag NMIs.",
+    "Complete donor special moves, audio and all older character issues remain unfinished; these are playable WIP unlocks.",
+    "Required Final Fantasy outlines and the reported White Mage damage issue remain outstanding."
+  ],
+  "pending_current_roster": [
+    "Karnov",
+    "Shinobi",
+    "Thomas",
+    "Metal Storm",
+    "Hulk Hogan",
+    "Ted DiBiase",
+    "Bam Bam Bigelow",
+    "Honky Tonk Man",
+    "Randy Savage",
+    "Andre the Giant",
+    "Excitebike",
+    "Prince of Persia"
+  ],
+  "other_requested_future_identities": [
+    "Mega Giant Mario",
+    "Getsu Fuma"
+  ],
+  "active_agents": {
+    "/root/claude_gimmick_review": "Thomas authentic selected C2 source: reduce16-byte lab scratch to actual eight-byte R0..7 scope; preserve original pointer-low provenance; no host grant.",
+    "/root/claude_goku_maaa_review": "WWF genuine recovery/grapple closure and compiled SMB terrain/enemy proxy, preserving ring-depth vs jump-offset; no physical grant.",
+    "/root/claude_dk_review": "CF release source/native review complete; no source change for disproven Iron/Smith HUD concern."
+  },
+  "latest_pushed_source_packets": [
+    "docs/qa/checkpoints/2026-10-31/thomas-original-source-component-v1/handoff.json",
+    "docs/qa/checkpoints/2026-10-31/wwf-c2-source-component-v1/handoff.json",
+    "docs/qa/checkpoints/2026-10-31/wwf-selected-host-lab-v1/handoff.json"
+  ],
+  "next": [
+    "Fund both WWF and Thomas Start-mask cases together; current helper393/400 has only7B headroom. No private agent may silently allocate it.",
+    "Review actual selected cache/CHR/resident resources on current a126 source before granting host integration. Old f0b7 whole-main/object overlays are not acceptable.",
+    "Finish remaining real character integrations, then all1-1/every-powerup checks; substantial lag and old FF issues remain.",
+    "Fold checkpoint source into the canonical builder; it currently still produces37 identities."
+  ],
+  "operating_rules": {
+    "workspace_cap_bytes": 70000000000,
+    "last_native_preflight_workspace_bytes": 56867826683,
+    "max_native_PNGs": 4,
+    "max_native_files": 64,
+    "max_native_bytes": 536870912,
+    "emulator_timeout_seconds": 90,
+    "root_owns_Mesen": true,
+    "existing_user_sessions_left_alone": true,
+    "no_new_videos": true,
+    "checkpoint_inputs_immutable": true,
+    "unrelated_tracked_file_to_leave_untouched": "docs/qa/current-roster-progress-2026-10-27.json"
+  }
+}

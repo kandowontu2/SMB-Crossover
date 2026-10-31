@@ -6,7 +6,7 @@ A native NES adaptation of [Super Mario Bros. Crossover](https://www.smbgames.be
 
 [Player's guide](<Player Guide/SMB-Crossover-Players-Guide-NU.pdf>) · [Full roster image](docs/images/SMB-Crossover-Full-Roster.png) · [Build from source](#build-from-source) · [Report a bug](https://github.com/kandowontu2/SMB-Crossover/issues)
 
-> **In development:** the latest expanded MMC5 checkpoint has **68 playable identities**, including alternates, across a **32-slot, four-row menu**. Another **16 individual identities** and a new **Battletoads placeholder** are coming soon. The prepared source build currently contains 37 identities; see the build table below.
+> **In development:** the latest expanded MMC5 checkpoint has **74 playable identities**, including alternates, across a **32-slot, four-row menu**. Another **12 individual identities** are coming soon. The prepared source build currently contains 37 identities; see the build table below.
 
 <p align="center">
   <img src="docs/images/character-select.png" width="512" alt="Actual NES character-select screen with four rows of heroes and highlighted SMB1 Toad">
@@ -27,7 +27,7 @@ The title opens a separate character-select screen. Use the D-pad to highlight a
 
 ## Current roster
 
-This table describes the **68-playable development checkpoint**, not the older prepared build. A character visible in the menu is not necessarily playable: names marked with a star are **COMING SOON**.
+This table describes the **74-playable development checkpoint**, not the older prepared build. A character visible in the menu is not necessarily playable: names marked with a star are **COMING SOON**.
 
 | Slot | Playable now | Coming soon |
 | --- | --- | --- |
@@ -54,14 +54,14 @@ This table describes the **68-playable development checkpoint**, not the older p
 | River City Ransom | Alex / Ryan | — |
 | Final Fantasy | Fighter / White Mage / Black Mage / Thief | — |
 | Super Sunny World | Sunny | — |
-| Battletoads | — | Rash / Zitz (family placeholder; not yet selectable individually) |
+| Battletoads | Rash / Zitz | — |
 | SMB2 | Mario / Luigi / Toad / Peach | — |
 | Gimmick! | Gimmick | — |
 | Bowser | SMB3 Bowser / SMB1 Bowser | — |
 | Donkey Kong | Donkey Kong | — |
 | WWF WrestleMania | — | Hulk Hogan / Ted DiBiase / Bam Bam Bigelow / Honky Tonk Man / Randy Savage / Andre the Giant |
 | Excitebike | — | Excitebike / Prince of Persia |
-| Contra Force | — | Burns / Smith / Iron / Beans |
+| Contra Force | Burns / Smith / Iron / Beans | — |
 | Ghosts 'n Goblins / Dragon Power | Arthur / Goku | — |
 
 <details>
@@ -73,7 +73,9 @@ The image includes unfinished characters and predates the two new SMB1 alternate
 
 </details>
 
-The four SMB2 characters, four Final Fantasy classes and both SMB1 and SMB3 Toad/Peach are enabled, with bounded emulator checks recorded for their respective build hashes. Goku is an Arthur Select alternate. Battletoads, further Mario alternates and Getsu Fuma for Simon remain in development and are not included in the current 84-individual count. The Battletoads menu entry is one generic pending placeholder.
+The four SMB2 characters, four Final Fantasy classes and both SMB1 and SMB3 Toad/Peach are enabled, with bounded emulator checks recorded for their respective build hashes. Goku is an Arthur Select alternate. Further Mario alternates and Getsu Fuma for Simon remain in development and are not included in the current 86-individual count.
+
+On **Battletoads**, Select cycles **Rash → Zitz**. On **Contra Force**, it cycles **Burns → Smith → Iron → Beans**. These six use recovered original-game movement, graphics and attacks. The latest checkpoint fixes their lives portraits and colors, Contra Force's blocked jump input, and its landing/contact synchronization. All six pass bounded native checks on the release hash; full levels, complete special moves, upgrades and dedicated audio remain unfinished. Battletoads and Contra Force are noticeably slow. See the [74-character WIP receipt](docs/qa/functional-roster-ready74-bt-cf-2026-10-31.json).
 
 On the SMB3 slot, **Select cycles Mario → Luigi → Toad → Peach**. The new Toad/Peach use graphics and controller routines recovered from Infidelity's SMB3+ hack, including Toad's big-form kick and Peach's hover. Names and lives portraits are updated. Donor ground pound, custom stomp delay, some special art consumers and Toad's kick sound remain unfinished. See the [68-character WIP receipt](docs/qa/functional-roster-ready68-smb3plus-2026-10-31.json).
 
@@ -83,14 +85,14 @@ Both Bowser versions are enabled in the October 31 WIP. They have source-derived
 
 | Target | Roster | Cartridge layout | Status |
 | --- | --- | --- | --- |
-| Expanded MMC5 checkpoint | 68 playable / 84 individual identities, plus Battletoads placeholder | 1 MiB PRG + 1 MiB CHR | Newest development work; frozen source and recipes are in the checkpoint archives. |
+| Expanded MMC5 checkpoint | 74 playable / 86 individual identities | 1 MiB PRG + 1 MiB CHR | Newest development work; frozen source and recipes are in the checkpoint archives. |
 | Prepared expanded MMC5 | 37 identities | 1 MiB PRG + 1 MiB CHR | Reproduced by the commands below. |
 | Standard MMC3 / MMC5 | 14 identities in 12 slots | 512 KiB PRG + 256 KiB CHR | Smaller original roster. |
 | Oversized MMC3 | Expanded roster | 2 MiB PRG + 256 KiB CHR RAM | Experimental; feature parity and physical cartridge compatibility remain unverified. |
 
 **MMC5 is the main target for the full roster.** Mesen 2 is used for development and testing. The oversized MMC3 implementation needs eight-bit PRG banking and 256 KiB CHR RAM; Parodius currently uses a text powerup bar on that target.
 
-Generated ROMs are excluded from this repository. The newer checkpoint source has not yet been folded into the prepared builder, so the commands below do **not** produce the 68-character checkpoint.
+Generated ROMs are excluded from this repository. The newer checkpoint source has not yet been folded into the prepared builder, so the commands below do **not** produce the 74-character checkpoint.
 
 ## Build from source
 
@@ -160,7 +162,9 @@ The chosen starting level applies when confirming a character. Invincibility doe
 
 ## Development status
 
-The latest development checkpoint is `01a40d40` (October 31), with **68 playable identities**. It adds SMB3 Toad and Peach to the existing SMB3 Select cycle. Both pass native selection, lives-screen, walking, jump and landing checks on this exact build; Peach's hover lasts the donor's 80 updates. Original-code comparisons cover ordinary movement and boundary states. These are bounded checks, not full level or powerup completion. See the [current build receipt](docs/qa/functional-roster-ready68-smb3plus-2026-10-31.json) and [native verification](docs/qa/checkpoints/2026-10-31/smb3plus-current68-native-v1/README.md).
+The latest development checkpoint is `a12661c1` (October 31), with **74 playable identities**. It enables Rash, Zitz and the four Contra Force characters, following source recovery and fixes found in real emulator runs. Root reviewed 24 full-frame screenshots and checked selection, lives screens, movement, jumping, landing, attacks and interrupt restoration on this exact cartridge. Each run covers 360–362 physical gameplay frames. These are early functional unlocks with substantial lag; they do not establish full level or powerup completion. See the [current build receipt](docs/qa/functional-roster-ready74-bt-cf-2026-10-31.json) and [native verification](docs/qa/checkpoints/2026-10-31/ready74-bt-cf-native-v1/README.md).
+
+The earlier `01a40d40` checkpoint enabled SMB3 Toad and Peach. Their source-derived graphics and controller routines, including Peach's 80-update hover, remain included. Their earlier native checks and remaining donor ground-pound, stomp-delay and audio work are recorded in the [68-character receipt](docs/qa/functional-roster-ready68-smb3plus-2026-10-31.json).
 
 The earlier `f56e55cd` checkpoint corrected SMB1 Peach's normal colors after `98048319` selected an enemy palette. That correction is retained. SMB1 Toad/Peach use Benj Edwards' supplied sprites and recovered float behavior; their HUDs still say MARIO, and special float contacts and fire/star/area palette progression remain unfinished. See the [palette correction checks](docs/qa/checkpoints/2026-10-30/peach-palette-correction-native/README.md).
 
