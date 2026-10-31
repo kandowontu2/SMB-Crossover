@@ -1,0 +1,171 @@
+--- ready54/union.s
++++ SMB2/union.s
+@@ -1,3 +1,4 @@
++.import S2ServiceVeneers,S2BoundaryLateUI
+ .import QwFullBox,QwAfterTerrain
+ .import QwService,ArenaGateBank,FmAlts
+ .import FwGenAfterTerrain
+@@ -61,8 +62,8 @@
+  ldy #0
+  jmp HuCommon
+ ::HuQClass:
+- cmp #9
+- jmp HuQDecide
++ cmp #25
++ jmp HuS2Decide
+  .assert *-HuMovement=16,lderror,"Rare fixed entry stride"
+ .endproc
+ .export HuGraphics
+@@ -451,7 +452,9 @@
+  pha
+  ldy #30
+  jmp HuCommon
+- .res 5,$ff
++::HuS2Decide:
++ beq HuS2High
++ jmp HuS2Foreign
+  .assert *-HuStatus=16,lderror,"Rare fixed entry stride"
+ .endproc
+ .export HuBounce
+@@ -462,7 +465,9 @@
+  pha
+  ldy #31
+  jmp HuCommon
+- .res 5,$ff
++::HuS2Foreign:
++ cmp #9
++ jmp HuQDecide
+  .assert *-HuBounce=16,lderror,"Rare fixed entry stride"
+ .endproc
+ .export HuWorldPalette
+@@ -473,7 +478,10 @@
+  pha
+  ldy #32
+  jmp HuCommon
+- .res 5,$ff
++::HuS2High:
++ lda #>S2ServiceVeneers
++ bne HuS2StoreHigh
++ nop
+  .assert *-HuWorldPalette=16,lderror,"Rare fixed entry stride"
+ .endproc
+ .export HuPowerup
+@@ -484,7 +492,9 @@
+  pha
+  ldy #33
+  jmp HuCommon
+- .res 5,$ff
++::HuS2StoreHigh:
++ sta FarcallJmpTarget_SMC+2
++ bne HuS2Bank
+  .assert *-HuPowerup=16,lderror,"Rare fixed entry stride"
+ .endproc
+ .export HuWeaponTail
+@@ -495,7 +505,9 @@
+  pha
+  ldy #34
+  jmp HuCommon
+- .res 5,$ff
++::HuS2Bank:
++ lda #.lobyte(.bank(S2ServiceVeneers)|$80)
++ jmp HuExtendedSet
+  .assert *-HuWeaponTail=16,lderror,"Rare fixed entry stride"
+ .endproc
+ .export HuVine
+@@ -873,7 +885,7 @@
+  beq RogueCheck
+ Legacy:
+  lda #0
+- HuTailFar ResetPalStar
++ HuTailFar S2BoundaryLateUI
+ Goku:
+  HuTailFar DpAdmissionUi
+ RogueCheck:
+@@ -1174,3 +1186,5 @@
+ 
+ .assert .lobyte(QwFullBox)<>0 .and .lobyte(QwAfterTerrain)<>0,lderror,"Known-nonzero low-byte branch"
+ .assert .hibyte(QwFullBox)<>0,lderror,"Known-nonzero high-byte branch"
++
++.assert .hibyte(S2ServiceVeneers)<>0,lderror,"S2 genuine page-high branch"
+--- ready54/src/new_roster_dispatch.s
++++ SMB2/src/new_roster_dispatch.s
+@@ -184,20 +184,21 @@
+  beq GmOnlyQuick
+  cmp #26
+  beq Own
++ cmp #25
++ beq GmOnlyRare
+  cmp #22
+- beq Rare
++ beq GmOnlyRare
+  cmp #32
+- beq Rare
++ beq GmOnlyRare
+  ; Exactly24or28 after clearing their sole differing bit. Every other
+  ; highID stays on its genuine old direct legacy table, avoiding recursion.
+  and #$fb
+  cmp #24
+- beq Rare
++ beq GmOnlyRare
+ ::GmOnlyLegacy:
+ Legacy:
+  tya
+- clc
+- adc #16
++ ora #16
+  tay
+ Own:
+  lda GmOnlyLo,y
+@@ -206,8 +207,6 @@
+  sta FarcallJmpTarget_SMC+2
+  lda GmOnlyBank,y
+  jmp GmNrFinish
+-::GmOnlyRare:
+-Rare:jmp HuOnlyRare
+ 
+ .endscope
+ .endmacro
+@@ -228,7 +227,8 @@
+  lda FmAlts
+  and #32
+  beq GmOnlyLegacy
+- jmp GmOnlyRare
++::GmOnlyRare:
++ jmp HuOnlyRare
+ 
+ .endscope
+ .endmacro
+--- ready54/src/character_select.s
++++ SMB2/src/character_select.s
+@@ -609,7 +609,7 @@
+ 
+ .proc MenuResolveCharacter
+ .if ::ENABLE_MMC5_EXPANDED
+-  farcall QwMenuResolve,jmp
++  farcall S2MenuResolve,jmp
+   .res 16,$ea
+ .else
+   ldx CrossoverMenuIndex
+--- ready54/screen_render.s
++++ SMB2/screen_render.s
+@@ -49,7 +49,7 @@
+   beq :+
+     rts
+   :
+-  farcall QwSceneInit ; private FF loader, genuine Move remains first
++  farcall S2InitScreenPrepare ; private FF loader, genuine Move remains first
+   jsr InitializeNameTables    ;and erase both name and attribute tables
+   lda OperMode
+   beq NextSubtask             ;if mode still 0, do not load
+--- ready54/src/full_roster_menu.s
++++ SMB2/src/full_roster_menu.s
+@@ -101,7 +101,8 @@
+  and #3
+  clc
+  adc #10
+- bne Pending
++ clc
++ rts
+ NotSMB2:
+  lda #14
+  cpx #25
