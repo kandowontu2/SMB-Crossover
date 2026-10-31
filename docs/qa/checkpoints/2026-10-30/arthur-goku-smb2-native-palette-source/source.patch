@@ -1,0 +1,912 @@
+--- frozen-remap/smb2/smb2_roster_palette_v2.s
++++ remap-native-BG-eye/smb2/smb2_roster_palette_v2.s
+@@ -0,0 +1,38 @@
++; Additive to frozen v1. Consume this endpoint through a normal farcall:
++; pointers remain in the intentional C80 art lease after A is restored.
++.pushseg
++.segment "PARODIUS_BELLS"
++.export S2NativePaletteHeader,S2PaletteCCodeStart,S2PaletteCCodeEnd
++S2PaletteCCodeStart:
++.proc S2NativePaletteHeader
++OwnStart:
++ ; OWN unused45B private pointer gate retired after exact object closure.
++ ; Genuine native SetBGColor chooses BackgroundColorCtrl, or AreaType when0.
++ lda #$3f
++ sta VRAM_Buffer1,x
++ lda #$10
++ sta VRAM_Buffer1+1,x
++ lda #4
++ sta VRAM_Buffer1+2,x
++ ldy BackgroundColorCtrl
++ bne S2NativeBGSelect
++ ldy AreaType
++S2NativeBGSelect:lda S2NativeBGBytes,y
++ sta VRAM_Buffer1+3,x
++ inx
++ ldy #1
++ rts
++S2NativeBGBytes:.byte $22,$22,$0f,$0f,$0f,$22,$0f,$0f
++ .assert *-OwnStart<=45,error,"Retired own45B gate"
++ .res 45-(*-OwnStart),$ea
++.endproc
++S2PaletteCCodeEnd:
++.segment "CD_GFX"
++.export S2CharacterPalettesC,S2EyeObjectRoleC,S2PaletteCDataEnd
++S2CharacterPalettesC:
++ .byte $0f,$01,$16,$27,$0f,$06,$25,$36
++ .byte $0f,$01,$30,$27,$0f,$01,$2a,$36
++S2EyeObjectRoleC:
++ .byte $0f,$30,$16,$0f          ; original world1 eye/object role, not all areas.
++S2PaletteCDataEnd:
++.popseg
+--- frozen-remap/smb2/smb2_roster_main_v2.s
++++ remap-native-BG-eye/smb2/smb2_roster_main_v2.s
+@@ -0,0 +1,775 @@
++; PRIVATE raw25 Main bridge. Frozen original-source leaves are included first.
++; No NMI/audio scheduler/menu exposure. No new RAM or global admission flag.
++.pushseg
++.segment "PARODIUS_BELLS"
++.export S2MainGame,S2MainPlayer,S2MainBox,S2MainWorld,S2MainPickup,S2MainEnd
++.export S2MainInjury,S2MainStatus,S2MainVisible,S2MainDraw,S2MainPlatform
++.export S2MainStomp,S2MainPrepare,S2MainScene,S2MainFresh,S2MainUi
++.export S2MainBody,S2MainNativeNoop,S2MainMature,S2MainPalette
++.export S2MainSpawn,S2MainErase,S2MainImmunity,S2MainCarryPrelude,S2MainGrow,S2MainEndStar
++.export S2MainProjectiles
++.export S2MainAdder,S2MainBoxProfile
++.export S2MainBegin,S2MainEndCode
++S2MainBegin:
++
++.proc S2MainGame
++ ; Called only AFTER raw25 gate; cold ownership is initialized by Fresh.
++ lda GameEngineSubroutine
++ cmp #8
++ beq Player
++ cmp #11
++ beq Death
++ farcall GameRoutines,jmp       ; genuine SMB entrance/pipe/vine/flag routines.
++Player:jmp S2MainPlayer
++Death:
++ jsr S2DeathUpdate
++ jsr GetPlayerOffscreenBits
++ jmp RelativePlayerPosition
++.endproc
++
++.proc S2MainPlayer
++ jsr S2Ensure                 ; own acquisition before any private mask read.
++ lda SavedJoypadBits
++ and #$c0
++ sta A_B_Buttons
++ lda SavedJoypadBits
++ and #3
++ sta Left_Right_Buttons
++ lda SavedJoypadBits
++ and #12
++ sta Up_Down_Buttons
++ lda Player_Rel_XPos
++ sta Player_Pos_ForScroll       ; native pre-step camera sample, exactly once.
++ lda #0
++ sta S2HeadY                   ; host-only cache invalid until real up probe.
++ lda Player_Y_Position
++ pha                           ; actual pre-Main origin; source scratch may change.
++ jsr S2MainOwnerMask
++ pha
++ jsr S2Movement                ; sole source physics/object/control callback.
++ bcc PopDone
++ pla
++ jsr S2MainReleaseCulled       ; real native erase for a source-retired throw.
++ jsr S2MainVelocity
++ jsr VvScrollBridge            ; resident native camera/clamp, exactly once.
++ jsr GetPlayerOffscreenBits
++ jsr RelativePlayerPosition
++ jsr S2ImportPosition          ; accept actual camera left/right clamp.
++ jsr S2MainWorld               ; native rewards/pipes, no native BG integrator.
++ pla
++ sta S2HeadPage                ; head/coin scratch consumed; priorY for body pass.
++ jsr S2MainBox
++ lda Player_Y_HighPos
++ cmp #2
++ bcc Done
++ jsr S2DeathStart              ; source death, host life loss remains engine6.
++Done:rts
++PopDone:pla
++ pla
++ rts
++.endproc
++
++.proc S2MainOwnerMask
++ lda #0
++ sta R0
++ ldx #2
++Loop:lda S2ObjectState,x
++ beq Next
++ ldy S2ObjectHost0,x
++ cpy #6
++ bcs Next
++ lda Bits,y
++ ora R0
++ sta R0
++Next:dex
++ bpl Loop
++ lda R0
++ rts
++Bits:.byte 1,2,4,8,16,32
++.endproc
++.proc S2MainReleaseCulled
++ sta R1
++ jsr S2MainOwnerMask
++ eor #$ff
++ and R1
++ sta R1
++ ldx #5
++Loop:lda S2MainOwnerMask::Bits,x
++ and R1
++ beq Next
++ jsr EraseEnemyObject
++Next:dex
++ bpl Loop
++ rts
++.endproc
++
++.proc S2MainVelocity
++ ; Source signed Q4 VY remains untouched. Native SMB consumers use integer
++ ; speed/sign. A positive fractional fall must still be a descending contact.
++ lda S2VY
++ beq Store
++ bmi Negative
++ clc
++ adc #15
++ .repeat 4
++ lsr
++ .endrepeat
++ bne Store
++Negative:
++ lda S2VY
++ .repeat 4
++ cmp #$80
++ ror
++ .endrepeat
++Store:sta Player_Y_Speed
++ rts
++.endproc
++
++.proc S2MainBox
++ ; Original source rectangle is exclusive right/bottom. SMB's collision
++ ; loop compares inclusive endpoints, so publish right12/bottom32.
++ lda Player_Rel_XPos
++ clc
++ adc #2
++ sta BoundingBox_UL_XPos
++ lda Player_Rel_XPos
++ clc
++ adc #12
++ sta BoundingBox_LR_Corner
++ lda #11
++ ldy S2Duck
++ beq :+
++ lda #16
++:clc
++ adc Player_Y_Position
++ sta BoundingBox_UL_YPos
++ lda Player_Y_Position
++ clc
++ adc #32
++ sta BoundingBox_LR_Corner+1
++ ldx #0
++ ldy #0
++ rts
++.endproc
++
++.proc S2MainCell
++ ; R4 worldX,R5 page,R6 screenY -> genuine native block pointer R6/7,
++ ; R2 row, A tile. Main scratch only. Bounds checked BEFORE any indirect read.
++ lda R6
++ cmp #32
++ bcc Empty
++ cmp #240
++ bcs Empty
++ and #$f0
++ sec
++ sbc #32
++ sta R2
++ lda R5
++ and #1
++ .repeat 4
++ asl
++ .endrepeat
++ sta R0
++ lda R4
++ .repeat 4
++ lsr
++ .endrepeat
++ ora R0
++ jsr GetBlockBufferAddr
++ ldy R2
++ lda (R6),y
++ rts
++Empty:lda #0
++ rts
++.endproc
++
++.proc S2MainWorld
++ ; Resolve source-detected head transaction once, retaining the real native
++ ; brick/question/coin writer and actor producer. Never repeat BG physics.
++ lda S2HeadY
++ beq Coins
++ lda AreaType
++ beq Coins
++ lda BlockBounceTimer
++ bne Coins
++ lda S2HeadY
++ sta R6
++ lda S2HeadX
++ sta R4
++ lda S2HeadPage
++ sta R5
++ jsr S2MainCell
++ beq Coins
++ tay
++ lda MTileAttribute,y
++ and #MTILE_BUMP|MTILE_CLIMB
++ bne Coins
++ tya
++ jsr PlayerHeadCollision
++ jsr S2MainVelocity            ; real bump does not replace source Q4 motion.
++Coins:
++ lda S2YPage
++ jne Done
++ lda #0
++ sta S2HeadPage                ; head cache consumed; reuse host-only scratch.
++CoinLoop:
++ ldx S2HeadPage
++ lda CoinY,x
++ clc
++ adc S2Y
++ sta R6
++ lda CoinX,x
++ clc
++ adc S2X
++ sta R4
++ lda S2Page
++ adc #0
++ sta R5
++ jsr S2MainCell
++ jsr CheckForCoinMTiles
++ bcc Next
++ jsr HandleCoinMetatile        ; actual erase, visible queue, coins/life writer.
++ jmp Pipe                     ; source adapter awards at most one per Main.
++Next:inc S2HeadPage
++ lda S2HeadPage
++ cmp #9
++ bcc CoinLoop
++Pipe:
++ lda S2Air
++ bne Done
++ lda S2Held
++ and #4
++ beq Done
++ lda S2X
++ clc
++ adc #3
++ sta R4
++ lda S2Page
++ adc #0
++ sta R5
++ lda S2Y
++ clc
++ adc #32
++ sta R6
++ jsr S2MainCell
++ pha
++ lda S2X
++ clc
++ adc #12
++ sta R4
++ lda S2Page
++ adc #0
++ sta R5
++ lda S2Y
++ clc
++ adc #32
++ sta R6
++ jsr S2MainCell
++ sta R0                       ; native right11,left10 pipe pair.
++ pla
++ sta R1
++ jsr HandlePipeEntry
++Done:rts
++CoinX:.byte 2,7,12,2,7,12,2,7,12
++CoinY:.byte 11,11,11,22,22,22,32,32,32
++.endproc
++
++.proc S2MainPickup
++ ; Actual physically admitted collector supplies X, no rewards are seeded.
++ phx
++ jsr S2Pickup
++ plx
++ bcc Native
++ phx
++ jsr EraseEnemyObject
++ plx
++ lda #Sfx_PowerUpGrab
++ sta Square2SoundQueue
++ lda #6
++ jmp SetupFloateyNumber
++Native:farcall MarioSourcePowerupCollision,jmp
++.endproc
++
++.proc S2MainPrepare
++ lda SelectedCharacter
++ sta InvPickupOwner,x
++ lda #$fc
++ sta InvPickup,x
++ lda #0
++ sta InvRisePhase,x
++ sta InvPickupSaveLo,x
++ sta InvPickupSaveHi,x
++ rts
++.endproc
++
++.proc S2MainScene
++ jsr S2Ensure
++ jsr S2ImportPosition
++ rts
++.endproc
++.proc S2MainFresh
++ jmp S2ColdInit                ; before first Ensure/Ready read, at real newgame.
++.endproc
++.proc S2MainUi
++ ; Shared native status fields stay, no legacy inventory row indexed by25.
++ lda #0
++ sta InvHudActive
++ sta InvFresh
++ rts
++.endproc
++.proc S2MainNativeNoop
++ clc
++ rts
++.endproc
++.proc S2MainMature
++ lda PowerUpType,x
++ cmp #2
++ bcs Yes
++ lda Enemy_State,x
++ bpl No
++Yes:sec
++ rts
++No:clc
++ rts
++.endproc
++.proc S2MainAdder
++ cmp #25
++ beq Own
++ farcall RlAdderDispatch,jmp
++Own:jmp S2Adder
++.endproc
++.proc S2MainBoxProfile
++ cmp #25
++ beq Own
++ farcall RlBoxDispatch,jmp
++Own:jmp S2Box
++.endproc
++
++.proc S2MainBody
++ ; Real PlayerCollisionCore has ALREADY admitted this actor overlap.
++ ; No coordinate heuristic invents contact. X remains the actual actor.
++ phy
++ lda AreaType
++ sta GuestBodyStompAllowed
++ lda CrossoverBehaviorVersion
++ sta GuestBodyNoStomp
++ beq Ordinary
++ lda S2VY
++ bmi Ordinary
++ cpx #6
++ bcs Ordinary
++ lda Enemy_Flag,x
++ beq Ordinary
++ bmi Ordinary
++ lda Enemy_State,x
++ bne Ordinary
++ lda Enemy_ID,x
++ cmp #6
++ beq Walker
++ cmp #2
++ bcs Ordinary
++Walker:
++ txa
++ pha
++ asl
++ asl
++ clc
++ adc #5                       ; native enemy bbox top:4*(slot+1)+1.
++ tay
++ lda S2HeadPage               ; actual pre-Main origin, after head/coin consumption.
++ clc
++ adc #32                      ; inclusive native leading-foot contact plane.
++ bcs NoTop
++ cmp BoundingBox_UL_Corner,y
++ bcc Top
++ bne NoTop
++Top:
++ lda BoundingBox_UL_Corner,y
++ sec
++ sbc #32
++ sta Player_Y_Position
++ lda #1
++ sbc #0
++ sta Player_Y_HighPos
++ pla
++ tax
++ ; Re-lifting a still-live old throw transfers its private ownership. Never
++ ; allocate a second record for the same actual native actor.
++ lda S2Fresh
++ and #$40
++ beq Stand
++ lda S2State
++ ora S2Holding
++ ora S2Duck
++ bne Stand
++ jsr S2EnemyControl
++ bcc Stand
++ phx
++ tya
++ tax
++ jsr S2ClearObject
++ plx
++Stand:
++ jsr S2StandOnActor
++ ply
++ sec
++ rts
++NoTop:pla
++ tax
++Ordinary:ply
++ clc
++ rts
++.endproc
++
++.proc S2MainInjury
++ lda Enemy_Rel_XPos            ; real ForceInjury caller leaves A=raw ownerID.
++ jsr S2InjuryStart
++ sec                          ; protection is also handled; no vanilla shrink.
++ rts
++.endproc
++.proc S2MainStatus
++ lda #1                       ; source HP, not PlayerStatus, owns death choice.
++ tax
++ rts
++.endproc
++.proc S2MainVisible
++ lda S2Hurt
++ beq Show
++ lda S2Clock
++ and #8
++ bne Hide
++Show:sec
++ rts
++Hide:clc
++ rts
++.endproc
++
++.proc S2MainStomp
++ ; Only after a real successful Easy native stomp; import its genuine impulse.
++ jsr S2ActorEpochChanged       ; native stomp now owns this actor's state/AI.
++ lda Player_Y_Speed
++ .repeat 4
++ asl
++ .endrepeat
++ sta S2VY
++ lda #0
++ sta S2AY
++ sta S2YF
++ lda #1
++ sta S2Air
++ sta Player_State
++ rts
++.endproc
++
++.proc S2MainPlatform
++ ; A is the real platform top from PositionPlayerOnVPlat's actual owner.
++ ; X is its native actor. Source inclusive foot is origin+32.
++ pha
++ lda GameEngineSubroutine
++ cmp #11
++ beq Skip
++ lda Enemy_Y_HighPos,x
++ cmp #1
++ bne Skip
++ pla
++ sec
++ sbc #32
++ sta Player_Y_Position
++ lda Enemy_Y_HighPos,x
++ sbc #0
++ sta Player_Y_HighPos
++ jsr S2ImportPosition
++ lda #0
++ sta S2VY
++ sta S2AY
++ sta S2YF
++ sta S2Air
++ sta Player_Y_Speed
++ sta Player_Y_MoveForce
++ sta Player_State
++ rts
++Skip:pla
++ rts
++.endproc
++
++.proc S2MainDraw
++ ; NrDraw is the PRE-body projectile pass. Do not render body twice or let
++ ; vegetable pose overwrite its cached descriptor/reservation.
++ lda SmPosePtr
++ pha
++ lda SmPosePtr+1
++ pha
++ lda SmChrBank
++ pha
++ jsr S2DrawObjects
++ pla
++ sta SmChrBank
++ pla
++ sta SmPosePtr+1
++ pla
++ sta SmPosePtr
++ rts
++.endproc
++
++.proc S2MainEnd
++ ; Called at the one GameCore palette tail AFTER world/render work. The
++ ; NMI source clock is independent and deliberately NOT advanced here.
++ farcall ResetPalStar
++ jmp S2HudLate
++.endproc
++.proc S2MainEndStar
++ farcall CyclePlayerPalettePreload
++ jmp S2HudLate
++.endproc
++.proc S2MainEndTimers
++ lda GameEngineSubroutine
++ cmp #11
++ beq Active
++ lda TimerControl
++ bne Done
++Active:jsr S2MainPalette
++ jmp S2EndFrame
++Done:rts
++.endproc
++
++.proc S2MainPalette
++OwnStart:
++ ; Publish sourceP0's three non-universal colors only. Original source eye
++ ; roleP1 is returned by the frozen C80 endpoint, NOT stolen from enemies.
++ ; Complete eye-role hardware composition remains explicit host work.
++ lda StarInvincibleTimer
++ ora VRAM_Buffer_AddrCtrl       ; ROM palette service must precede acknowledgment.
++ bne Done
++ lda S2NativeCharacter
++ cmp S2PaletteAck
++ beq Done
++ jsr S2PalettePointer
++ ldx VRAM_Buffer1_Offset
++ cpx #77
++ bcs Done
++ jsr S2NativePaletteHeader
++Loop:lda (R0),y
++ sta VRAM_Buffer1+3,x
++ inx
++ iny
++ cpy #4
++ bne Loop
++ txa
++ clc
++ adc #3
++ tax
++ stx VRAM_Buffer1_Offset
++ lda #0
++ sta VRAM_Buffer1,x
++ lda S2NativeCharacter
++ sta S2PaletteAck              ; acknowledge only a successful complete packet.
++Done:rts
++ .res 14,$ea
++ .assert *-OwnStart=74,error,"Existing source palette public envelope"
++.endproc
++
++.proc S2MainSpawn
++ php
++ pha
++ phy
++ jsr S2ActorEpochChanged
++ ply
++ pla
++ plp
++ farcall CrossoverLevelEnemyInit,jmp
++.endproc
++.proc S2MainErase
++ ; Exact native Ryu erase body follows owner-specific epoch invalidation.
++ php
++ pha
++ phy
++ jsr S2ActorEpochChanged
++ ply
++ pla
++ plp
++ sta MmEnemyFlash,x
++ php
++ inx
++ cpx RyPlatformSlot
++ bne Done
++ sta RyPlatformSlot
++ sta RyPlatformCancel
++ sta XgWall
++ inc XgJumpUsed
++Done:dex
++ plp
++ rts
++.endproc
++.proc S2MainImmunity
++ phy
++ jsr S2EnemyControl
++ bcc No
++ lda S2ObjectProjectile,y
++ cmp #32
++ bcs No
++ ply
++ sec                          ; original held/self and post-throw grace.
++ rts
++No:ply
++ clc
++ rts
++.endproc
++.proc S2MainCarryPrelude
++ ; Original RunNormalEnemies prefix has not run. Native attrs remain exact.
++ lda #0
++ sta Enemy_SprAttrib,x
++ lda Enemy_State,x
++ beq Control
++ phy
++ jsr S2ActorEpochChanged       ; real battle/reset writer now owns native state.
++ ply
++ clc
++ rts
++Control:
++ phy
++ jsr S2EnemyControl
++ ply
++ bcc Done                     ; ordinary actor resumes the untouched native path.
++ farcall NormalEnemyOffscreenBits
++ jsr RelativeEnemyPosition
++ farcall EnemyGraphicsEngine
++ farcall NormalEnemyBoundBox
++ sec                          ; source owns carried/thrown terrain/physics.
++Done:rts
++.endproc
++.proc S2MainGrow
++ ; Source-derived outline of the actual52-byte A0 rise body. Every exit
++ ; tail-farcalls its genuine A0 consumer; no raw cross-window JMP.
++ farcall LmRiseGate
++ bcs Draw
++ lda FrameCounter
++ and #3
++ bne Check
++ dec Enemy_Y_Position,x
++ lda Enemy_State,x
++ inc Enemy_State,x
++ cmp #$11
++ bcc Check
++ lda #$10
++ sta Enemy_X_Speed,x
++ lda #$80
++ sta Enemy_State,x
++ asl
++ sta Enemy_SprAttrib,x
++ rol
++ sta Enemy_MovingDir,x
++Check:farcall ChkPUSte,jmp
++Draw:farcall RunPUSubs,jmp
++.endproc
++
++.proc S2MainProjectiles
++ ; Borrow/restore the actual four-byte native fireball collision rectangle.
++ ; Source kinematics run once in Movement; this is only the host contact
++ ; consumer. A real native rectangle test precedes every defeat/score write.
++ lda TimerControl
++ ora GamePauseStatus
++ jne Done
++ ldx #3
++Save:lda BoundingBox_UL_Corner+28,x
++ pha
++ dex
++ bpl Save
++ ldx #2
++Object:
++ stx S2Source12
++ lda S2ObjectState,x
++ jeq NextObject
++ lda S2ObjectProjectile,x
++ jeq NextObject
++ lda S2YPage+1,x
++ jne NextObject
++ lda S2X+1,x
++ sec
++ sbc ScreenLeft_X_Pos
++ sta R4
++ lda S2Page+1,x
++ sbc ScreenLeft_PageLoc
++ jne NextObject
++ lda R4
++ cmp #240
++ jcs NextObject               ; same fully-visible admission as native shots.
++ ldy S2ObjectHitbox,x
++ lda R4
++ clc
++ adc HitLeft,y
++ sta BoundingBox_UL_Corner+28
++ clc
++ adc HitWidth,y
++ sec
++ sbc #1
++ sta BoundingBox_UL_Corner+30
++ lda S2Y+1,x
++ clc
++ adc HitTop,y
++ sta BoundingBox_UL_Corner+29
++ clc
++ adc HitHeight,y
++ sec
++ sbc #1
++ sta BoundingBox_UL_Corner+31
++ ldx #5
++Enemy:
++ lda Enemy_Flag,x
++ beq NextEnemy
++ bmi NextEnemy
++ lda Enemy_State,x
++ and #$20
++ bne NextEnemy
++ lda Enemy_ID,x
++ cmp #$15
++ bcs NextEnemy
++ cmp #Podoboo
++ beq NextEnemy
++ jsr S2EnemyControl
++ bcs NextEnemy                ; held/other owned throws are not enemy targets.
++ jsr GetEnemyOffscreenBits
++ jsr RelativeEnemyPosition
++ phx
++ farcall GetEnemyBoundBox
++ plx
++ lda EnemyOffscrBitsMasked,x
++ bne NextEnemy
++ jsr GetEnemyBoundBoxOfs
++ phx
++ ldx #28
++ jsr SprObjectCollisionCore
++ plx
++ bcc NextEnemy
++ phx
++ ldx S2Source12
++ jsr S2ObjectHit               ; clears ONLY after actual accepted overlap.
++ cmp #6
++ bcs Vegetable
++ tax
++ jsr EraseEnemyObject          ; carried actor's genuine native epoch ends.
++Vegetable:
++ plx
++ jsr ShellOrBlockDefeat        ; actual native drop/damage/score/SFX authority.
++ jmp NextObject
++NextEnemy:dex
++ bpl Enemy
++NextObject:
++ ldx S2Source12
++ dex
++ jpl Object
++ ldx #0
++Restore:pla
++ sta BoundingBox_UL_Corner+28,x
++ inx
++ cpx #4
++ bcc Restore
++Done:rts
++ ; Exact originalF099/F0AD/F0C1/F0D5 fields0..3. Active records use0/2.
++HitLeft:.byte 2,2,3,0
++HitTop:.byte 11,16,3,0
++HitWidth:.byte 11,11,9,16
++HitHeight:.byte 22,17,13,16
++.endproc
++S2MainEndCode:
++.assert S2MainEndCode<=$c000,lderror,"SMB2 Main needs reviewed additional CORE capacity"
++.popseg
+--- frozen-remap/smb2/smb2_roster_art.inc
++++ remap-native-BG-eye/smb2/smb2_roster_art.inc
+@@ -0,0 +1,85 @@
++; Generated from genuine original RenderPlayer/LoadWorldCHR and RenderSprite.
++; Original pattern bytes incl actual page25 eyes and page9 Peach skirt retained.
++.pushseg
++.segment "CD_GFX"
++S2ArtStart:
++S2BodyRecord: .byte 0,1,2,3,4,5,6,7,8,9,10,11,12,13,12,13,14,15,14,15,16,17,16,17,18,19,18,19,20,21,20,21,22,23,24,25,26,27,28,29,8,9,10,11,30,31,30,31,32,33,32,33,34,35,34,35,36,37,36,37,38,39,38,39,40,41,12,13,4,5,6,7,8,9,10,11,42,43,42,43,14,15,14,15,16,17,16,17,18,19,18,19,20,21,20,21,44,45,30,31,26,27,28,29,8,9,10,11,30,31,30,31,32,33,32,33,34,35,34,35,36,37,36,37,38,39,38,39,46,47,48,49,50,51,52,53,8,9,10,11,54,55,54,55,14,15,14,15,16,17,16,17,56,57,56,57,20,21,20,21,58,59,60,61,62,63,64,65,8,9,10,11,66,67,66,67,32,33,32,33,34,35,34,35,68,69,68,69,38,39,38,39,0,1,2,3,4,5,6,7,8,9,10,11,12,13,12,13,14,15,14,15,16,17,16,17,18,19,18,19,20,21,20,21,22,23,24,25,26,27,28,29,8,9,10,11,30,31,30,31,32,33,32,33,34,35,34,35,36,37,36,37,38,39,38,39
++S2ObjectRecord: .byte 70,70,71,71,71,71,72,72
++S2ArtLo: .byte <S2Art0,<S2Art1,<S2Art2,<S2Art3,<S2Art4,<S2Art5,<S2Art6,<S2Art7,<S2Art8,<S2Art9,<S2Art10,<S2Art11,<S2Art12,<S2Art13,<S2Art14,<S2Art15,<S2Art16,<S2Art17,<S2Art18,<S2Art19,<S2Art20,<S2Art21,<S2Art22,<S2Art23,<S2Art24,<S2Art25,<S2Art26,<S2Art27,<S2Art28,<S2Art29,<S2Art30,<S2Art31,<S2Art32,<S2Art33,<S2Art34,<S2Art35,<S2Art36,<S2Art37,<S2Art38,<S2Art39,<S2Art40,<S2Art41,<S2Art42,<S2Art43,<S2Art44,<S2Art45,<S2Art46,<S2Art47,<S2Art48,<S2Art49,<S2Art50,<S2Art51,<S2Art52,<S2Art53,<S2Art54,<S2Art55,<S2Art56,<S2Art57,<S2Art58,<S2Art59,<S2Art60,<S2Art61,<S2Art62,<S2Art63,<S2Art64,<S2Art65,<S2Art66,<S2Art67,<S2Art68,<S2Art69,<S2Art70,<S2Art71,<S2Art72
++S2ArtHi: .byte >S2Art0,>S2Art1,>S2Art2,>S2Art3,>S2Art4,>S2Art5,>S2Art6,>S2Art7,>S2Art8,>S2Art9,>S2Art10,>S2Art11,>S2Art12,>S2Art13,>S2Art14,>S2Art15,>S2Art16,>S2Art17,>S2Art18,>S2Art19,>S2Art20,>S2Art21,>S2Art22,>S2Art23,>S2Art24,>S2Art25,>S2Art26,>S2Art27,>S2Art28,>S2Art29,>S2Art30,>S2Art31,>S2Art32,>S2Art33,>S2Art34,>S2Art35,>S2Art36,>S2Art37,>S2Art38,>S2Art39,>S2Art40,>S2Art41,>S2Art42,>S2Art43,>S2Art44,>S2Art45,>S2Art46,>S2Art47,>S2Art48,>S2Art49,>S2Art50,>S2Art51,>S2Art52,>S2Art53,>S2Art54,>S2Art55,>S2Art56,>S2Art57,>S2Art58,>S2Art59,>S2Art60,>S2Art61,>S2Art62,>S2Art63,>S2Art64,>S2Art65,>S2Art66,>S2Art67,>S2Art68,>S2Art69,>S2Art70,>S2Art71,>S2Art72
++S2Art0: .byte 20,56,2,255,0,6,0,15,8,4,0,15,0,2,0,255,8,0,0,255,0
++S2Art1: .byte 20,56,66,255,8,4,64,15,8,6,64,15,0,0,64,255,8,2,64,255,0
++S2Art2: .byte 20,56,2,255,0,18,0,15,8,16,0,15,0,14,0,255,8,12,0,255,0
++S2Art3: .byte 20,56,66,255,8,16,64,15,8,18,64,15,0,12,64,255,8,14,64,255,0
++S2Art4: .byte 20,56,2,0,0,10,0,16,8,8,0,16,0,2,0,0,8,0,0,0,0
++S2Art5: .byte 20,56,66,0,8,8,64,16,8,10,64,16,0,0,64,0,8,2,64,0,0
++S2Art6: .byte 20,56,2,0,0,22,0,16,8,20,0,16,0,14,0,0,8,12,0,0,0
++S2Art7: .byte 20,56,66,0,8,20,64,16,8,22,64,16,0,12,64,0,8,14,64,0,0
++S2Art8: .byte 20,58,2,0,0,44,64,16,8,44,0,16,0,58,64,0,8,58,0,0,0
++S2Art9: .byte 20,58,66,0,8,44,64,16,8,44,0,16,0,58,64,0,8,58,0,0,0
++S2Art10: .byte 20,58,2,0,0,46,64,16,8,46,0,16,0,58,64,0,8,58,0,0,0
++S2Art11: .byte 20,58,66,0,8,46,64,16,8,46,0,16,0,58,64,0,8,58,0,0,0
++S2Art12: .byte 20,56,2,0,0,18,0,16,8,16,0,16,0,14,0,0,8,12,0,0,0
++S2Art13: .byte 20,56,66,0,8,16,64,16,8,18,64,16,0,12,64,0,8,14,64,0,0
++S2Art14: .byte 20,58,2,0,0,50,64,16,8,50,0,16,0,48,64,0,8,48,0,0,0
++S2Art15: .byte 20,58,66,0,8,50,64,16,8,50,0,16,0,48,64,0,8,48,0,0,0
++S2Art16: .byte 20,58,2,0,0,38,0,16,8,36,0,16,0,34,0,0,8,32,0,0,0
++S2Art17: .byte 20,58,66,0,8,36,64,16,8,38,64,16,0,32,64,0,8,34,64,0,0
++S2Art18: .byte 20,56,2,0,0,42,0,16,8,40,0,16,0,2,0,0,8,0,0,0,0
++S2Art19: .byte 20,56,66,0,8,40,64,16,8,42,64,16,0,0,64,0,8,2,64,0,0
++S2Art20: .byte 20,58,2,0,0,30,0,16,8,28,0,16,0,26,0,0,8,24,0,0,0
++S2Art21: .byte 20,58,66,0,8,28,64,16,8,30,64,16,0,24,64,0,8,26,64,0,0
++S2Art22: .byte 20,56,2,7,0,6,0,23,8,4,0,23,0,2,0,7,8,0,0,7,0
++S2Art23: .byte 20,56,66,7,8,4,64,23,8,6,64,23,0,0,64,7,8,2,64,7,0
++S2Art24: .byte 20,56,2,7,0,18,0,23,8,16,0,23,0,14,0,7,8,12,0,7,0
++S2Art25: .byte 20,56,66,7,8,16,64,23,8,18,64,23,0,12,64,7,8,14,64,7,0
++S2Art26: .byte 20,56,2,8,0,10,0,24,8,8,0,24,0,2,0,8,8,0,0,8,0
++S2Art27: .byte 20,56,66,8,8,8,64,24,8,10,64,24,0,0,64,8,8,2,64,8,0
++S2Art28: .byte 20,56,2,8,0,22,0,24,8,20,0,24,0,14,0,8,8,12,0,8,0
++S2Art29: .byte 20,56,66,8,8,20,64,24,8,22,64,24,0,12,64,8,8,14,64,8,0
++S2Art30: .byte 20,56,2,8,0,18,0,24,8,16,0,24,0,14,0,8,8,12,0,8,0
++S2Art31: .byte 20,56,66,8,8,16,64,24,8,18,64,24,0,12,64,8,8,14,64,8,0
++S2Art32: .byte 20,58,2,8,0,50,64,24,8,50,0,24,0,48,64,8,8,48,0,8,0
++S2Art33: .byte 20,58,66,8,8,50,64,24,8,50,0,24,0,48,64,8,8,48,0,8,0
++S2Art34: .byte 20,58,2,8,0,38,0,24,8,36,0,24,0,34,0,8,8,32,0,8,0
++S2Art35: .byte 20,58,66,8,8,36,64,24,8,38,64,24,0,32,64,8,8,34,64,8,0
++S2Art36: .byte 20,56,2,8,0,42,0,24,8,40,0,24,0,2,0,8,8,0,0,8,0
++S2Art37: .byte 20,56,66,8,8,40,64,24,8,42,64,24,0,0,64,8,8,2,64,8,0
++S2Art38: .byte 20,58,2,8,0,30,0,24,8,28,0,24,0,26,0,8,8,24,0,8,0
++S2Art39: .byte 20,58,66,8,8,28,64,24,8,30,64,24,0,24,64,8,8,26,64,8,0
++S2Art40: .byte 20,56,2,0,0,6,0,16,8,4,0,16,0,2,0,0,8,0,0,0,0
++S2Art41: .byte 20,56,66,0,8,4,64,16,8,6,64,16,0,0,64,0,8,2,64,0,0
++S2Art42: .byte 20,56,2,0,0,54,0,16,8,52,0,16,0,14,0,0,8,12,0,0,0
++S2Art43: .byte 20,56,66,0,8,52,64,16,8,54,64,16,0,12,64,0,8,14,64,0,0
++S2Art44: .byte 20,56,2,8,0,6,0,24,8,4,0,24,0,2,0,8,8,0,0,8,0
++S2Art45: .byte 20,56,66,8,8,4,64,24,8,6,64,24,0,0,64,8,8,2,64,8,0
++S2Art46: .byte 20,58,2,255,0,6,0,15,8,4,0,15,0,2,0,255,8,0,0,255,0
++S2Art47: .byte 20,58,66,255,8,4,64,15,8,6,64,15,0,0,64,255,8,2,64,255,0
++S2Art48: .byte 20,58,2,255,0,18,0,15,8,16,0,15,0,14,0,255,8,12,0,255,0
++S2Art49: .byte 20,58,66,255,8,16,64,15,8,18,64,15,0,12,64,255,8,14,64,255,0
++S2Art50: .byte 20,58,2,0,0,10,0,16,8,8,0,16,0,2,0,0,8,0,0,0,0
++S2Art51: .byte 20,58,66,0,8,8,64,16,8,10,64,16,0,0,64,0,8,2,64,0,0
++S2Art52: .byte 20,58,2,0,0,22,0,16,8,20,0,16,0,14,0,0,8,12,0,0,0
++S2Art53: .byte 20,58,66,0,8,20,64,16,8,22,64,16,0,12,64,0,8,14,64,0,0
++S2Art54: .byte 20,58,2,0,0,18,0,16,8,16,0,16,0,14,0,0,8,12,0,0,0
++S2Art55: .byte 20,58,66,0,8,16,64,16,8,18,64,16,0,12,64,0,8,14,64,0,0
++S2Art56: .byte 20,58,2,0,0,42,0,16,8,40,0,16,0,2,0,0,8,0,0,0,0
++S2Art57: .byte 20,58,66,0,8,40,64,16,8,42,64,16,0,0,64,0,8,2,64,0,0
++S2Art58: .byte 20,58,2,7,0,6,0,23,8,4,0,23,0,2,0,7,8,0,0,7,0
++S2Art59: .byte 20,58,66,7,8,4,64,23,8,6,64,23,0,0,64,7,8,2,64,7,0
++S2Art60: .byte 20,58,2,7,0,18,0,23,8,16,0,23,0,14,0,7,8,12,0,7,0
++S2Art61: .byte 20,58,66,7,8,16,64,23,8,18,64,23,0,12,64,7,8,14,64,7,0
++S2Art62: .byte 20,58,2,8,0,10,0,24,8,8,0,24,0,2,0,8,8,0,0,8,0
++S2Art63: .byte 20,58,66,8,8,8,64,24,8,10,64,24,0,0,64,8,8,2,64,8,0
++S2Art64: .byte 20,58,2,8,0,22,0,24,8,20,0,24,0,14,0,8,8,12,0,8,0
++S2Art65: .byte 20,58,66,8,8,20,64,24,8,22,64,24,0,12,64,8,8,14,64,8,0
++S2Art66: .byte 20,58,2,8,0,18,0,24,8,16,0,24,0,14,0,8,8,12,0,8,0
++S2Art67: .byte 20,58,66,8,8,16,64,24,8,18,64,24,0,12,64,8,8,14,64,8,0
++S2Art68: .byte 20,58,2,8,0,42,0,24,8,40,0,24,0,2,0,8,8,0,0,8,0
++S2Art69: .byte 20,58,66,8,8,40,64,24,8,42,64,24,0,0,64,8,8,2,64,8,0
++S2Art70: .byte 8,129,195,0,8,129,131,0,0
++S2Art71: .byte 8,131,195,0,8,131,131,0,0
++S2Art72: .byte 8,133,195,0,8,133,131,0,0
++S2ArtEnd:
++.assert S2ArtEnd-S2ArtStart<=2048,error,"SMB2 ART budget"
++.popseg
+--- frozen-remap/asset.s
++++ remap-native-BG-eye/asset.s
+@@ -0,0 +1,2 @@
++.segment "SMB2_ROSTER_CHR"
++.incbin "eye-red.chr"

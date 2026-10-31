@@ -6,13 +6,13 @@ A native NES adaptation of [Super Mario Bros. Crossover](https://www.smbgames.be
 
 [Player's guide](<Player Guide/SMB-Crossover-Players-Guide-NU.pdf>) · [Full roster image](docs/images/SMB-Crossover-Full-Roster.png) · [Build from source](#build-from-source) · [Report a bug](https://github.com/kandowontu2/SMB-Crossover/issues)
 
-> **In development:** the latest expanded MMC5 checkpoint has **54 playable identities**, including alternates, across a **32-slot, four-row menu**. Another **26 visible identities are coming soon**. The prepared source build currently contains 37 identities; see the build table below.
+> **In development:** the latest expanded MMC5 checkpoint has **62 playable identities**, including alternates, across a **32-slot, four-row menu**. Another **18 individual identities** and a new **Battletoads placeholder** are coming soon. The prepared source build currently contains 37 identities; see the build table below.
 
 <p align="center">
-  <img src="docs/images/character-select.png" width="512" alt="Actual NES character-select screen with four rows of heroes and a highlighted Chip">
+  <img src="docs/images/character-select.png" width="512" alt="Actual NES character-select screen with four rows of heroes and highlighted SMB2 Mario">
 </p>
 
-*Actual emulator capture from the October 30 menu checkpoint.*
+*Actual emulator capture from the October 30 62-character WIP.*
 
 ## What's in the game?
 
@@ -27,7 +27,7 @@ The title opens a separate character-select screen. Use the D-pad to highlight a
 
 ## Current roster
 
-This table describes the **54-playable development checkpoint**, not the older prepared build. A character visible in the menu is not necessarily playable: names marked with a star are **COMING SOON**.
+This table describes the **62-playable development checkpoint**, not the older prepared build. A character visible in the menu is not necessarily playable: names marked with a star are **COMING SOON**.
 
 | Slot | Playable now | Coming soon |
 | --- | --- | --- |
@@ -52,41 +52,41 @@ This table describes the **54-playable development checkpoint**, not the older p
 | TMNT | Leonardo / Raphael / Michelangelo / Donatello | — |
 | Ice Climber | Popo / Nana | — |
 | River City Ransom | Alex / Ryan | — |
-| Final Fantasy | — | Fighter / White Mage / Black Mage / Thief |
+| Final Fantasy | Fighter / White Mage / Black Mage / Thief | — |
 | Super Sunny World | Sunny | — |
-| Dragon Power | Goku | — |
-| SMB2 | — | Mario / Luigi / Toad / Peach |
+| Battletoads | — | Rash / Zitz (family placeholder; not yet selectable individually) |
+| SMB2 | Mario / Luigi / Toad / Peach | — |
 | Gimmick! | Gimmick | — |
 | Bowser | — | SMB3 Bowser / SMB1 Bowser |
 | Donkey Kong | Donkey Kong | — |
 | WWF WrestleMania | — | Hulk Hogan / Ted DiBiase / Bam Bam Bigelow / Honky Tonk Man / Randy Savage / Andre the Giant |
 | Excitebike | — | Excitebike / Prince of Persia |
 | Contra Force | — | Burns / Smith / Iron / Beans |
-| Ghosts 'n Goblins | Arthur | — |
+| Ghosts 'n Goblins / Dragon Power | Arthur / Goku | — |
 
 <details>
 <summary><strong>View artwork for all 80 visible identities</strong></summary>
 
 ![Individual portraits for all 80 menu identities, including coming-soon characters](docs/images/SMB-Crossover-Full-Roster.png)
 
-The image includes unfinished characters. Use the table above for availability.
+The image includes unfinished characters and predates Goku's move to Arthur's Select alternates. Use the table above for availability.
 
 </details>
 
-The four SMB2 characters and four Final Fantasy classes are undergoing integration and emulator checks. Goku's move behind Arthur's Select alternates, the Battletoads pair and additional Mario alternates are planned work; they are not included in the current 80-identity count.
+The four SMB2 characters and four Final Fantasy classes are now enabled, with bounded emulator checks for selection, the lives screen and basic movement. Goku is an Arthur Select alternate. Battletoads and additional Mario alternates remain in development and are not included in the current 80-individual count. The Battletoads menu entry is one generic pending placeholder.
 
 ## Choose a build
 
 | Target | Roster | Cartridge layout | Status |
 | --- | --- | --- | --- |
-| Expanded MMC5 checkpoint | 54 playable / 80 visible identities | 1 MiB PRG + 1 MiB CHR | Newest development work; frozen source and recipes are in the checkpoint archives. |
+| Expanded MMC5 checkpoint | 62 playable / 80 individual identities, plus Battletoads placeholder | 1 MiB PRG + 1 MiB CHR | Newest development work; frozen source and recipes are in the checkpoint archives. |
 | Prepared expanded MMC5 | 37 identities | 1 MiB PRG + 1 MiB CHR | Reproduced by the commands below. |
 | Standard MMC3 / MMC5 | 14 identities in 12 slots | 512 KiB PRG + 256 KiB CHR | Smaller original roster. |
 | Oversized MMC3 | Expanded roster | 2 MiB PRG + 256 KiB CHR RAM | Experimental; feature parity and physical cartridge compatibility remain unverified. |
 
 **MMC5 is the main target for the full roster.** Mesen 2 is used for development and testing. The oversized MMC3 implementation needs eight-bit PRG banking and 256 KiB CHR RAM; Parodius currently uses a text powerup bar on that target.
 
-Generated ROMs are excluded from this repository. The newer checkpoint source has not yet been folded into the prepared builder, so the commands below do **not** produce the 54-character checkpoint.
+Generated ROMs are excluded from this repository. The newer checkpoint source has not yet been folded into the prepared builder, so the commands below do **not** produce the 62-character checkpoint.
 
 ## Build from source
 
@@ -156,7 +156,9 @@ The chosen starting level applies when confirming a character. Invincibility doe
 
 ## Development status
 
-The latest published development checkpoint is `44c92ad7` (October 30). It corrects Donkey Kong's gray roster icon, thumbnail facing and fourth-row palette overlap, and removes stale coming-soon markers from Quick Man and Arthur. See the [menu repair receipt](docs/qa/roster-menu-visual-fixes-2026-10-30.json) and [54-character unlock receipt](docs/qa/functional-roster-ready54-2026-10-30.json).
+The latest development checkpoint is `dfdb194a` (October 30). It enables the SMB2 quartet and four Final Fantasy classes, moves Goku behind Arthur, and repairs SMB2 backdrop/palette handling and both families' lives screens. The earlier Donkey Kong icon, facing and fourth-row menu fixes remain included. See the [62-character unlock receipt](docs/qa/functional-roster-ready62-2026-10-30.json) and [exact-build native checks](docs/qa/checkpoints/2026-10-30/ready62-native-unlocks/README.md).
+
+**Known FF issues:** an earlier full-level Fighter attempt exposed a render-timing glitch that remains unfixed. Required black outlines and White Mage's reported damage problem are also pending. The eight new bounded checks do not establish complete level, combat or powerup coverage; this checkpoint prioritizes playable unlocks.
 
 Work still in progress includes lag and sprite flicker, remaining character implementations, dedicated audio, some animations/HUDs, broader collision checks and complete campaign/powerup coverage. “Playable” means selectable in the development checkpoint; it is not a claim that every character or level has passed the full audit. Adaptations for SMB's levels and NES controls also mean the project does not promise exact original-game or Crossover 2.02 behavior for every character.
 

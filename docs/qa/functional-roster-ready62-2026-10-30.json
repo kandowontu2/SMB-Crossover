@@ -1,0 +1,126 @@
+{
+  "date": "2026-10-30",
+  "status": "INSTALLED_UNLOCK62_WIP_WITH_KNOWN_BUGS",
+  "installed": true,
+  "ROM_sha256": "dfdb194ac73438ae8deb05b5fc93f241b1109d45a84b3ad333d0e632008d7fc7",
+  "source_handoff_sha256": "fae1ec38db9525a645a8907fd92608978de15f0f7cf4b12088cee0e0f0393a1c",
+  "verified_source_bindings": 652,
+  "latest": "C:\\Users\\kando\\Downloads\\SMB-Crossover-Latest-WIP-MMC5.nes",
+  "versioned": "C:\\Users\\kando\\Downloads\\SMB-Crossover-2026-10-30-Ready62-WIP-MMC5.nes",
+  "backup": "C:\\Users\\kando\\Downloads\\SMB-Crossover-Before-Ready62-44c92ad7-MMC5.nes",
+  "previous_sha256": "44c92ad7f75f74d5d4712a5bb30fb057b6d8adda54983ca149c4b7d03492ff34",
+  "menu_slots": 32,
+  "individual_identities": 80,
+  "playable": 62,
+  "pending_individual_identities": 18,
+  "generic_pending_family_placeholders": [
+    "Battletoads"
+  ],
+  "newly_unlocked": [
+    "SMB2 Mario",
+    "SMB2 Luigi",
+    "SMB2 Toad",
+    "SMB2 Peach",
+    "FF Fighter",
+    "FF White Mage",
+    "FF Black Mage",
+    "FF Thief"
+  ],
+  "changes": [
+    "Goku moved to Select on Arthur; old slot is pending Battletoads.",
+    "SMB2 original body/eye colors and native backdrop restored.",
+    "SMB2 late lives palette overwrite and FF lives text/palette overrun repaired."
+  ],
+  "bounded_native": [
+    {
+      "identity": "SMB2 Mario",
+      "passed": true,
+      "result_sha256": "9b60e30a898be9274b64d06a4bb32c1804de708a449b3b32a6ad6ff2de60e243",
+      "physical_frames": 570,
+      "controlled_Main_updates": 220,
+      "root_reviewed_whole_PPU_PNGs": 4,
+      "scope": "Cold menu/lives, entrance, walk/jump/land; no level-clear claim."
+    },
+    {
+      "identity": "SMB2 Luigi",
+      "passed": true,
+      "result_sha256": "ca30c46e8dcc6d8318b9dc43fc1e3972751f24ae751351080fa94fcac0d1b1ad",
+      "physical_frames": 591,
+      "controlled_Main_updates": 220,
+      "root_reviewed_whole_PPU_PNGs": 4,
+      "scope": "Cold menu/lives, entrance, walk/jump/land; no level-clear claim."
+    },
+    {
+      "identity": "SMB2 Toad",
+      "passed": true,
+      "result_sha256": "39fca8d132c9cacb3a042f6925b5d843202e5c19c638abbf79401012ac8433e0",
+      "physical_frames": 612,
+      "controlled_Main_updates": 220,
+      "root_reviewed_whole_PPU_PNGs": 4,
+      "scope": "Cold menu/lives, entrance, walk/jump/land; no level-clear claim."
+    },
+    {
+      "identity": "SMB2 Peach",
+      "passed": true,
+      "result_sha256": "9905eeefbae1d5b9d7afb52295c85da3a1e40cfd65842f321c2d9ce9626f00aa",
+      "physical_frames": 654,
+      "controlled_Main_updates": 220,
+      "root_reviewed_whole_PPU_PNGs": 4,
+      "scope": "Cold menu/lives, entrance, walk/jump/land; no level-clear claim."
+    },
+    {
+      "identity": "FF fighter",
+      "passed": true,
+      "result_sha256": "c2eeb6db8ffebff811d077a29fba44706bb5e358a090ab6f21f0fa5184cf1ba0",
+      "physical_frames": 578,
+      "controlled_game_frames": 260,
+      "source_movement_calls": 130,
+      "lag_NMIs": 216,
+      "root_reviewed_whole_PPU_PNGs": 5,
+      "scope": "Cold menu/lives, cache load and bounded walk/jump/attack poses; enemy damage and level-clear not established."
+    },
+    {
+      "identity": "FF white-mage",
+      "passed": true,
+      "result_sha256": "4bc3c1d5c48057606a04a25d034a86e8bfb01da357852648448048d38b9ffeb2",
+      "physical_frames": 578,
+      "controlled_game_frames": 260,
+      "source_movement_calls": 130,
+      "lag_NMIs": 216,
+      "root_reviewed_whole_PPU_PNGs": 5,
+      "scope": "Cold menu/lives, cache load and bounded walk/jump/attack poses; enemy damage and level-clear not established."
+    },
+    {
+      "identity": "FF black-mage",
+      "passed": true,
+      "result_sha256": "d7d42a26b19f8b01787cfac2094552cbd1dea2b257b39d8d8994d0a8bb68e3c3",
+      "physical_frames": 599,
+      "controlled_game_frames": 260,
+      "source_movement_calls": 130,
+      "lag_NMIs": 216,
+      "root_reviewed_whole_PPU_PNGs": 5,
+      "scope": "Cold menu/lives, cache load and bounded walk/jump/attack poses; enemy damage and level-clear not established."
+    },
+    {
+      "identity": "FF thief",
+      "passed": true,
+      "result_sha256": "839618f461946c3c5b209f6c68bc24d63fca16da5008af3736f1616680371491",
+      "physical_frames": 599,
+      "controlled_game_frames": 260,
+      "source_movement_calls": 130,
+      "lag_NMIs": 216,
+      "root_reviewed_whole_PPU_PNGs": 5,
+      "scope": "Cold menu/lives, cache load and bounded walk/jump/attack poses; enemy damage and level-clear not established."
+    }
+  ],
+  "root_checkpoint_manifest_sha256": "f753381a4f4c7dda66c8f85bda109d6e0c2886251c36770f5780b88e69128940",
+  "full_campaign_pass": false,
+  "every_powerup_pass": false,
+  "constant_60Hz_qualified": false,
+  "known_open": [
+    "FF gameplay render-deadline failure from retained exact3721 Fighter route.",
+    "FF required black shadow sprites and White Mage damage report deferred by user.",
+    "Lag, missing attacks/audio/upgrades and other character polish remain."
+  ],
+  "instruction": "Reopen the new ROM and start fresh; old save states may contain incompatible code/state."
+}

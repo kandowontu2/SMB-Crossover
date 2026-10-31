@@ -1,0 +1,143 @@
+--- parent/host.s
++++ new/host.s
+@@ -315,6 +315,7 @@
+  rts
+ .endproc
+ .proc S2MenuStatus
++S2LivesOwnStart:
+  php
+  pha
+  lda SelectedCharacter
+@@ -323,20 +324,28 @@
+  pla
+  plp
+  farcall JnStatusName,jmp
+-Own:pla
+- bne Done
++Own:
++ ; SourceA remains in the entry stack while originalX/Y are pushed.
+  phx
+  phy
+- farcall S2GraphicsBank
+- ldx #11
+- lda #7
+- sta R0
+- jsr S2MenuCopyC
++ tsx
++ lda $0103,x
++ tax
++ ldy CurrentBankC
++ ; Exact selected path from source S2GraphicsBank, A74 remains mapped.
++ lda #80|$80
++ sta CurrentBankC
++ sta $5116
++ jsr S2TextStatusC
++ sty CurrentBankC              ; A74 stays mapped while C is restored.
++ sty $5116
+  ply
+  plx
+- lda #0
+-Done:plp
+- rts
++ pla                           ; original sourceA0/1/other contract.
++ plp
++ rts
++ .assert *-S2LivesOwnStart<=71,error,"Existing71B public Status envelope"
++ .res 71-(*-S2LivesOwnStart),$ea
+ .endproc
+ .proc S2MenuPortrait
+  farcall S2Ensure
+--- parent/component.s
++++ new/component.s
+@@ -29,7 +29,90 @@
+  jmp FarCallCommon
+  .assert .bank(DrawMetasprite)=4,lderror,"Actual native renderer bank"
+  .assert *=$cd25,lderror,"Exactly15B inside already-owned S2 sourcepadding"
+- .res 219,$ff
++.proc S2TextStatusC
++S2LivesOwnStart:
++ ; Near-called only with genuine C80 mapped by the source A74 wrapper.
++ ; Y carries priorC, originalY is on the CPU stack below our JSR+PHY.
++ phy
++ txa                           ; wrapper X retains original sourceA.
++ cmp #0
++ beq S2TextName
++ cmp #1
++ jne S2TextDone
++ tsx
++ lda $0104,x
++ cmp #30
++ bne S2TextRejectLives
++ ; Native WriteGameText has completed its30B lives commands. Its remaining
++ ; number patches address only bytes12/23/25, below this appended palette.
++ ldx #3
++S2TextSaveScratch:
++ lda R0,x
++ pha
++ dex
++ bpl S2TextSaveScratch
++ lda BackgroundColorCtrl
++ pha
++ lda #2
++ sta BackgroundColorCtrl
++ lda #30
++ sta VRAM_Buffer1_Offset
++ lda #$ff
++ sta S2PaletteAck
++ ; Preserve the caller-owned five actually mutable SFC operands.
++ lda NextBank_SMC+1
++ pha
++ lda SafecallA_SMC+1
++ pha
++ lda FarcallJmpTarget_SMC+1
++ pha
++ lda FarcallJmpTarget_SMC+2
++ pha
++ lda SafereturnA_SMC+1
++ pha
++ farcall S2MainPalette
++ pla
++ sta SafereturnA_SMC+1
++ pla
++ sta FarcallJmpTarget_SMC+2
++ pla
++ sta FarcallJmpTarget_SMC+1
++ pla
++ sta SafecallA_SMC+1
++ pla
++ sta NextBank_SMC+1
++ pla
++ sta BackgroundColorCtrl
++ ldx #0
++S2TextRestoreScratch:
++ pla
++ sta R0,x
++ inx
++ cpx #4
++ bne S2TextRestoreScratch
++S2TextRejectLives:
++ lda #1
++ bne S2TextDone
++S2TextName:
++ ; Match original A0 child-call/SFC output exactly. Old PHY set its sourceA
++ ; to originalY, found below this helper JSR+saved priorC.
++ tsx
++ lda $0104,x
++ farcall S2GraphicsBank
++ ldx #11
++ lda #7
++ sta R0
++ jsr S2MenuCopyC
++ ply
++ ldy #80|$80                   ; original successful A0 status leaves C80.
++ lda #0
++ rts
++S2TextDone:
++ ply                           ; other inputs retain genuine priorC.
++ rts
++ .assert *-S2LivesOwnStart<=219,error,"Existing C80 source padding only"
++ .res 219-(*-S2LivesOwnStart),$ff
++.endproc
+ S2ArtAppend:
+ .assert S2ArtAppend=$ce00,lderror,"SMB2 ART actual append start"
+ .popseg

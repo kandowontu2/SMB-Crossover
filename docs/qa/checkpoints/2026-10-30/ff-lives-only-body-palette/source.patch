@@ -1,0 +1,45 @@
+--- frozen3721/loader.s
++++ lives-body-only/loader.s
+@@ -1,3 +1,4 @@
++.import FwPaletteMapC
+ .import BackgroundColorCtrl
+ .import FwForceColors,VRAM_Buffer1_Offset
+ .include "inc/charmap.inc"
+@@ -383,6 +384,21 @@
+ ; Retired unused source aliases; live movement/collection use typed host gates.
+ FwHudNames:
+  .byte "RETHGIF ","M ETIHW ","M KCALB ","  FEIHT "
++; Only class*8 +0..6 reads the32B table above. This19B helper occupies
++; its explicit previously unused20B own padding, preserving every old PC.
++FwLivesBodyColors:
++ php
++ pha
++ txa
++ pha
++ tya
++ pha
++ jsr FwCheck                 ; all16 cookie bytes before any RAM3 ACK access
++ lda #2                      ; cold force: no authenticated-state writes
++ bcc :+
++ lda #1                      ; valid force: queue body and commit ACK on success
++:pha
++ jmp FwPaletteMapC           ; genuine saved-context C mapper/queue/restore
+  .res 52-(*-FwHudNames),$ea
+ FW_GATE FwFullPower,FfFullPower
+ FW_GATE FwInjuryStatus,FfInjuryStatus
+@@ -459,7 +475,7 @@
+  pha
+  lda #2
+  sta BackgroundColorCtrl
+- jsr FwForceColors
++ jsr FwLivesBodyColors
+  pla
+  sta BackgroundColorCtrl
+  lda #1
+--- frozen3721/ff-palette.s
++++ lives-body-only/ff-palette.s
+@@ -1,3 +1,4 @@
++.export FwPaletteMapC
+ .import FfMuxNativeROM
+ ; Genuine native queue composition for FF body colors. No new state.
+ ; Existing FfPaletteAck is touched only after the full RAM3 owner cookie passes.
