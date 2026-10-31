@@ -1,0 +1,70 @@
+{
+  "source": true,
+  "native": false,
+  "adopted": false,
+  "resource_granted": false,
+  "ready": false,
+  "parent": "0b1602d0ec3dafa71f620af91af2280a2a464f0884c127f4307e9ba74e0253ff",
+  "measured": {
+    "any_A_ROM": {
+      "bytes": 67,
+      "near_native_packet": false
+    },
+    "same_physical93": {
+      "bytes": 52,
+      "near_native_packet": true
+    }
+  },
+  "zero_byte_entry": {
+    "label": "FwMuxNativeSelect",
+    "physical_bank": 93,
+    "PC": 48822,
+    "source": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\cf-cold-warm-palette-source-v1\\joint\\ff-palette-lifecycle.s",
+    "actual_original_opcode": "aef97f",
+    "scope": "Immediately AFTER original MoveAllSpritesOffscreen farcall; reads only native Control/Area, builds7B native C0 packet. Does not touchState/OAM/Turn."
+  },
+  "proposed_changes": [
+    "Retarget selected31-only late SFC target inside existing59B from B020+18 to CfP1NativeRestore; no shared span growth",
+    "Export genuine zero-byte FwMuxNativeSelect in physical93 producer",
+    "New52B A-ROM worker if physical93 is granted; otherwise67B in any new A-ROM span. Neither interval is allocated/adopted here."
+  ],
+  "policy": [
+    "Only LastC0/C1 (CF-owned) is repaired; Samus0/1 and FF80 are untouched",
+    "ClearPending FIRST; setLastC0; genuine native packet publishesC0 LAST; keepTurn to retain fairalternation",
+    "Restore originalAXYP before genuine service6 B020 callback; invalid auth returns with nativeP1 restore and native OAM retained; valid late callback can replace with exactCF80 epoch",
+    "NativeC0 preflush remains BEFORE original native palettequeue, so sameMain Axe/Bowser/text publishers win; validCF80 stayspostqueue",
+    "No State/Control/bodyACK/newRAM/CHR/OAM writes; no firstA2 without fullcookie/class guard"
+  ],
+  "candidate_only_interval": {
+    "physical_bank": 93,
+    "start_offset": 4007,
+    "end_offset": 4059,
+    "bytes": 52,
+    "status": "WITHDRAWN_CONFLICT: actual installed68 HOST_BBOX_LOCAL79B AFA7..<AFF6 occupies this interval; NOT an available candidate"
+  },
+  "remaining_controls": [
+    "Actual valid/invalid DrawAll once+paired normalNMI/stalehardware",
+    "OriginalAXYP/outputC+all33SMC/livepage1/maps and realISR",
+    "Fullqueue/late-native/pause/lag/abandon/acquire/retire/current66foreign before readiness"
+  ],
+  "bindings": {
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\prepare_contra_force_p1_native_restore_proposal_v2.py": "a8059ae243dc3b41181a8b9cb779cd9ff545629cf1a7a93dfaa4866ce635607d",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\reference\\contra_force_p1_native_restore_proposal_v2.s": "a75ec54c06142d0619af5dced2e0b6351375f65c0566d3feb24613725d8e5a25",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-p1-cart-v2\\source-stage.json": "aab3adc044e80ae2f043a6f2cfce98ec5ac1ae860331d5f698e47ed810c2a629",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-p1-cart-v2\\joint\\candidate.nes": "0b1602d0ec3dafa71f620af91af2280a2a464f0884c127f4307e9ba74e0253ff",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\cf-cold-warm-palette-source-v1\\joint\\ff-palette-lifecycle.s": "54ac3b43cf42329737847d688df993be05f19659c66eccca3059b2ce4e957d5d",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-p1-native-first-controls-v3\\controls.json": "e7b4e962af175c4cdbb9d208a9c2fb16ce2bb6d5821e94580af22b95426e195e",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-p1-stale-palette-ppu-v1\\controls.json": "c8d5a1eb51cd980342d3b599204da09a90b10288bf1e9985b85ef7881f233d66",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-p1-stale-palette-ppu-v2\\controls.json": "72ab3dd197c8782a8069ab0daabee2d5a3da4a7343a6a36e0b2972496f79a6ce",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-p1-native-restore-proposal-v2\\any_A_ROM-segments.txt": "c251ce18e712da8ecd71ae579003ddefd4859fd0932aca0807ef59c66468856c",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-p1-native-restore-proposal-v2\\any_A_ROM.dep": "ebb0e620aa29d9cdc97723f1946869e9eb233b3a4372c3eb759822cf83f4738f",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-p1-native-restore-proposal-v2\\any_A_ROM.lst": "ff5c156297b8970a6ee380a35542a6208f4dd12dd1685dcf8dce8f462c013cc1",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-p1-native-restore-proposal-v2\\any_A_ROM.o": "a42569048691857430f92a4cfea6e1176a12f2b869d66fe6091b71a369578918",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-p1-native-restore-proposal-v2\\commands.json": "d8af29b639264bdd51b0ec26c72f788ba6ae42826c11fe6c37cec1356add7fec",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-p1-native-restore-proposal-v2\\ff-palette-lifecycle-zero-export.s": "f1a8558411e4754a2f4d488e2cf61d15e8e2f2fc28dd85b813b6f07000d8cab3",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-p1-native-restore-proposal-v2\\same_physical93-segments.txt": "1193b1351103cab2a7a51798545872bc5ed30df8fd364701ae37c9d464ece8f0",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-p1-native-restore-proposal-v2\\same_physical93.dep": "7220b9fa0ac2d395f5734bfc8618b9e51a21e6ff52bf7ba4c9ab2d8513e6f278",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-p1-native-restore-proposal-v2\\same_physical93.lst": "1999e6ac907052563b0a125c003cd8f0d456b6e02493cdce90519a52adadf1c7",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-p1-native-restore-proposal-v2\\same_physical93.o": "63439d2e15ba535ceb212b0ca3a1c8185e075bb3fe4b828e87201fbaa35299e7"
+  }
+}

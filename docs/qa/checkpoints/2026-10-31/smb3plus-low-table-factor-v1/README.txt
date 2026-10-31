@@ -1,0 +1,5 @@
+Lossless SMB3+ low table factor on installed68 source01a4. Candidatee54b91fa changes439 owned bytes only. ExistingForm5Lo code, every otherpubliclabel/header/CHR/payload/cookie remains exact. Sevenlow pointers useForm0 plus sevenmod256 offsets; genuinecallerclampsX. Actual12B helper preserves X/Y/allP/resultA at typedcall, with23B footprint retained.
+
+9072graphics and1344movement pairs pass.36288full64flag helper pairs and996 invalidform actualcaller cases pass.2156 donor pixel cases exact;112 preexistingdisabledKuribo records remain explicitly unsupported.2016 wholecontroller,81foreignmenus/768status,282completeMain (-3..0CPU),3364existingvectors and812pointer/helpervectors pass. No Mesen/native/install/performance/FPS claim.
+
+Compilerrefs/realcaller bytes/source numeric-address consumers establish398 bytes unused in this successor:91:CE97..<CEE1,CF32..<CF83,CFD4..<D025,D076..<D0C7,D1BA..<D20B. Nothing allocated to anotherowner here. Root67B CFproposal mustcompose factor first; those bytes are LIVE oldtable data in installed01a4. Abilityimplementation absent and requires rootreviewed donor-source plan.

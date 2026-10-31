@@ -1,0 +1,3 @@
+Root verified the frozen e54b91fa source785bindings and699 ZIPmembers, then ran both genuine controller-only360-frame policies. All eight full PNGs reviewed; real select/lives OAM/physicalCHR/PPU pixels and720 actual interrupt restore checks each. Toad359Main/14lag and Peach360Main/0lag. Captures and exact scopes are in manifest.json. Initial60s walltimeout is retained;90s retry changes host allowance only, keeping full controller policy and capture/storage caps. No video.
+
+This qualifies the source factoring as a private common-join prerequisite, not a new installed character, all-level/powerup audit or a completed CF palette repair. Latest Downloads remains01a4. All broader work stays active.
