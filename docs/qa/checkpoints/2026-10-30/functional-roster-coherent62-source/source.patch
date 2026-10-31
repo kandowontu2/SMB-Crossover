@@ -1,0 +1,161 @@
+--- visual58/src/character_select.s
++++ coherent62/src/character_select.s
+@@ -1,3 +1,4 @@
++.import FwMuxMenuResolve
+ .import ArGenResolve
+ ; Dedicated, non-gameplay front end. The title never runs GameCoreRoutine.
+ .pushseg
+@@ -609,7 +610,7 @@
+ 
+ .proc MenuResolveCharacter
+ .if ::ENABLE_MMC5_EXPANDED
+-  farcall S2MenuResolve,jmp
++  farcall FwMuxMenuResolve,jmp
+   .res 16,$ea
+ .else
+   ldx CrossoverMenuIndex
+--- visual58/src/full_roster_menu.s
++++ coherent62/src/full_roster_menu.s
+@@ -81,7 +81,7 @@
+  and #3
+  clc
+  adc #5
+- sec
++ clc
+  rts
+ NotFF:
+  cpx #23
+--- visual58/src/full_roster_menu_art.inc
++++ coherent62/src/full_roster_menu_art.inc
+@@ -5,15 +5,15 @@
+  .byte "    *KARNOV     "
+  .byte "    *SHINOBI    "
+  .byte "  *METAL STORM  "
+- .byte "  *FF FIGHTER   "
+- .byte " *FF WHITE MAGE "
+- .byte " *FF BLACK MAGE "
+- .byte "   *FF THIEF    "
++ .byte "   FF FIGHTER   "
++ .byte "  FF WHITE MAGE "
++ .byte "  FF BLACK MAGE "
++ .byte "    FF THIEF    "
+  .byte "     *GOKU      "
+- .byte "  *SMB2 MARIO   "
+- .byte "  *SMB2 LUIGI   "
+- .byte "   *SMB2 TOAD   "
+- .byte "  *SMB2 PEACH   "
++ .byte "   SMB2 MARIO   "
++ .byte "   SMB2 LUIGI   "
++ .byte "    SMB2 TOAD   "
++ .byte "   SMB2 PEACH   "
+  .byte "    *GIMMICK    "
+  .byte "  *SMB3 BOWSER  "
+  .byte "  *SMB1 BOWSER  "
+--- visual58/src/samus_freeze_render.s
++++ coherent62/src/samus_freeze_render.s
+@@ -1,3 +1,4 @@
++.import FwPalettePreflush
+ ; Hard Samus freeze: local blue palette lease, source late40ms color epochs.
+ ; Native CHR has three opaque indices: blue11/31/01 is an NES quantization,
+ ; not four-ARGB or waveform/Flash-render parity. Software OAM bit4 is cleared
+@@ -20,9 +21,9 @@
+ .if ::ENABLE_MMC5_EXPANDED && ::MAPPER_MMC5
+   ; NMI owns this temporary C window. Its entry bank is already stacked and
+   ; restored by ExitNMI; do not touch foreground farcall code or its shadow.
+-  lda #.bank(PnPaletteScreenUpdate) | MMC5_PRG_ROM
++  lda #.bank(FwPalettePreflush) | MMC5_PRG_ROM
+   sta MMC5_PRG_BANK_C
+-  jmp PnHudPreUpdateScreen
++  jmp FwPalettePreflush
+   nop
+ .else
+   jsr UpdateScreen
+--- visual58/src/metasprite_engine.s
++++ coherent62/src/metasprite_engine.s
+@@ -1,3 +1,4 @@
++.import FfMuxWorldDraw
+ .import FwNativeDrawAll
+ 
+ .segment "METASPRITE"
+@@ -796,9 +797,10 @@
+   farcall FwNativeDrawAll, jmp
+ ::FwNativeFlashProbe:
+   cmp #22
+-  beq NativeFlash
+-  jmp SamusFreezeFlashOwner
+-  .res 4,$ea
++  bne SamusFreezeFlashOwner
++  jsr FfMuxWorldDraw
++  rts
++  .res 3,$ea
+ ::SamusFreezeFlashOwner:
+   cmp #CHARACTER_RYU
+   beq NativeFlash
+--- visual58/entrypoint.s
++++ coherent62/entrypoint.s
+@@ -1676,3 +1676,23 @@
+ .export S2WorldMixedBody := GuestAudioFinish::MixedChannels
+ 
+ .import S2MenuResolve,S2InitScreenPrepare
++
++.export SmFreezePalettePacket
++
++.export SmFreezeTurn
++
++.export SmFreezeLastBlue
++
++.export UpdateScreen
++
++.export PnHudPreUpdateScreen
++
++.export SmFreezeNativeFlashEnemy
++
++.export RgOamUsed
++
++.export DrawMetasprite
++
++.exportzp NmiR0
++
++.exportzp NmiR1
+--- visual58/private.cfg
++++ coherent62/private.cfg
+@@ -271,6 +271,7 @@
+ QH_PERSIST_MEM:start=$5f88,size=$8,type=rw,file="";
+ QW_RAM1:start=$a000,size=$2000,type=ro,fill=yes,fillval=$ff,file="C:/Users/kando/Documents/ChatGPT/SMB Crossover/build/functional-roster-coherent62-v4/joint/code.bin",bank=1;
+ QW_RAM2:start=$c000,size=$2000,type=ro,fill=yes,fillval=$ff,file="C:/Users/kando/Documents/ChatGPT/SMB Crossover/build/functional-roster-coherent62-v4/joint/data.bin",bank=2;
++FF_FX_PROTOCOL_RUN:start=$be2f,size=$1d1,type=ro,file="",bank=93;
+ }
+ SEGMENTS {
+ 
+@@ -568,15 +569,21 @@
+     KAMIKAZE_NMI: load=X5_NEW_3E,type=ro,start=$a9c0,optional=yes;
+ FF_FX_DATA0:load=FF_RAM3_MEM,type=ro,start=$a000;
+ FF_RAM_PUBLISHER:load=FF_RAM3_MEM,type=ro,start=$a275;
++FF_EPOCH_CLASSIFY:load=FF_RAM3_MEM,type=ro,start=$a289;
++FF_EPOCH_HEARTBEAT:load=FF_RAM3_MEM,type=ro,start=$a2cc;
+ FF_HOST_RENDER:load=FF_RAM3_MEM,type=ro,start=$a300;
++FF_EPOCH_COLORS:load=FF_RAM3_MEM,type=ro,start=$a6e5;
+ FF_FX_DATA1:load=FF_RAM3_MEM,type=ro,start=$a700;
+ FF_HOST_CULL_TABLES:load=FF_RAM3_MEM,type=ro,start=$a800;
+ FF_FX_DATA2:load=FF_RAM3_MEM,type=ro,start=$a874;
+ FINAL_FANTASY_CORE:load=FF_RAM3_MEM,type=ro,start=$aa00;
++FF_EPOCH_PACKET:load=FF_RAM3_MEM,type=ro,start=$b68b;
+ FF_HOST_COMBAT:load=FF_RAM3_MEM,type=ro,start=$b700;
+ FF_HOST_TERRAIN:load=FF_RAM3_MEM,type=ro,start=$b900;
+ FF_HOST_PICKUPS:load=FF_RAM3_MEM,type=ro,start=$bb60;
+ FF_FX_DATA3:load=FF_RAM3_MEM,type=ro,start=$bcef;
++FF_EPOCH_MAIN:load=FF_RAM3_MEM,type=ro,start=$becf;
++FF_EPOCH_TABLES:load=FF_RAM3_MEM,type=ro,start=$bff0;
+ FF_ROM_HOST:load=X5_NEW_3E,type=ro,start=$aa00;
+ FF_DRAW_BRIDGE:load=X5_NEW_3E,type=ro,start=$b31c;
+ FF_PALETTE_BRIDGE:load=X5_NEW_3E,type=ro,start=$b336;
+@@ -586,6 +593,9 @@
+ FF_WORLD_PALETTE_BRIDGE:load=X5_NEW_3E,type=ro,start=$b67d;
+ FINAL_FANTASY_ART:load=FF_ART_MEM,type=ro;
+ FF_HOST_PALETTE_C:load=FF_ART_MEM,type=ro;
++FF_FX_PROTOCOL_A:load=FF_ART_MEM,run=FF_FX_PROTOCOL_RUN,type=ro;
++FF_FX_PREFLUSH_C:load=FF_ART_MEM,type=ro;
++FF_FX_WORLD_MARKER:load=FF_ART_MEM,type=ro;
+ FINAL_FANTASY_CHR:load=TMNT_CHR_TAIL,type=ro,start=$bd000;
+ FF_STREAM:load=FF_STREAM_MEM,type=ro;
+     KAMIKAZE_CORE: load=X5_NEW_3E,type=ro,start=$b690,optional=yes;
