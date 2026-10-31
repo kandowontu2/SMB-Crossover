@@ -2,13 +2,17 @@
 
 Play Super Mario Bros. with characters from across the NES library, each bringing their own movement, weapons and upgrades.
 
-This is a native NES adaptation of [Super Mario Bros. Crossover](https://www.smbgames.be/smb-crossover.php), built on [SMB1Base](https://github.com/smbstudio/smb1base). The latest expanded MMC5 development checkpoint has **52 playable characters and alternates**, with **80 visible identities across 32 selection slots**.
+This is a native NES adaptation of [Super Mario Bros. Crossover](https://www.smbgames.be/smb-crossover.php), built on [SMB1Base](https://github.com/smbstudio/smb1base). The latest expanded MMC5 development checkpoint has **54 playable characters and alternates**, with **80 visible identities across 32 selection slots**. **26 identities remain COMING SOON.**
 
 **Status: playable, actively developed, and unfinished.** Character behavior, graphics, sound and performance are still being tested and corrected. MMC5 is the recommended target for the full roster.
 
-The October 30 playable-roster update (`18de0155`) unlocks **Super Maaa, Rogue Dawn, Goku, Gimmick and Donkey Kong**. **28 starred identities remain COMING SOON.** Kamikaze Mario now uses sprites from **Kamikaze V1**, with Mario's native drawing, physics, abilities and palette. Donkey Kong has a larger full-body preview; Burns, Smith, Iron and Beans use their original Contra Force gameplay sprites and colors. Rogue Dawn's new-game health, recursive area reset, and missing menu/lives portraits are fixed. Checks include every menu identity, Rogue's cold-start movement, a Kamikaze 1-1 clear, and 288 comparisons with native Mario. Performance and broader roster playthroughs remain in progress. See the [exact builds, checks and limits](docs/qa/expanded-playable-roster-2026-10-30.json); the frozen source is retained under `docs/qa/checkpoints/2026-10-30/expanded-playable-roster/`.
+The latest menu checkpoint (`44c92ad7`, October 30) fixes Donkey Kong's small gray roster icon, thumbnail facing and the fourth row's preview-panel palette overlap. Quick Man and Arthur are playable and no longer carry coming-soon markers. It preserves the preceding 54-character build's gameplay; the native menu/movement check covers 75 active updates, not a full level. See the [menu repair receipt](docs/qa/roster-menu-visual-fixes-2026-10-30.json) and [54-character unlock receipt](docs/qa/functional-roster-ready54-2026-10-30.json).
 
-The latest label-only successor (`a7ccbaaa`) displays **CELESTE MARIO** when that alternate is highlighted. All 80 menu identities pass the source checks, and a cold emulator run verifies the actual displayed name after four Select presses. Gameplay, graphics tiles, music and roster availability match `18de0155`. See the [installed build receipt](docs/qa/celeste-menu-label-release-2026-10-30.json).
+The four SMB2 and four Final Fantasy characters are still being integrated and are not unlocked in that checkpoint. Their select/lives-screen graphics checks remain in progress. Goku's planned move to Arthur's Select alternates and the Battletoads pair are also future work. The build commands below reproduce the prepared 37-identity target; the newer checkpoints use the frozen source inputs and recipes in their linked archives.
+
+The earlier October 30 playable-roster update (`18de0155`) unlocks **Super Maaa, Rogue Dawn, Goku, Gimmick and Donkey Kong**. That checkpoint had 52 playable and 28 coming-soon identities. Kamikaze Mario now uses sprites from **Kamikaze V1**, with Mario's native drawing, physics, abilities and palette. Donkey Kong has a larger full-body preview; Burns, Smith, Iron and Beans use their original Contra Force gameplay sprites and colors. Rogue Dawn's new-game health, recursive area reset, and missing menu/lives portraits are fixed. Checks include every menu identity, Rogue's cold-start movement, a Kamikaze 1-1 clear, and 288 comparisons with native Mario. Performance and broader roster playthroughs remain in progress. See the [exact builds, checks and limits](docs/qa/expanded-playable-roster-2026-10-30.json); the frozen source is retained under `docs/qa/checkpoints/2026-10-30/expanded-playable-roster/`.
+
+The earlier label-only successor (`a7ccbaaa`) displays **CELESTE MARIO** when that alternate is highlighted. All 80 menu identities pass the source checks, and a cold emulator run verifies the actual displayed name after four Select presses. Gameplay, graphics tiles, music and roster availability match `18de0155`. See the [installed build receipt](docs/qa/celeste-menu-label-release-2026-10-30.json).
 
 The earlier October 30 roster-menu checkpoint (`5b09a3ed`) introduced the four-row, 80-identity menu, with 47 playable and 33 pending identities. Arthur occupies the final slot; Quick Man joins Bass/Roll and Thomas joins Ryu/Shinobi. See its [checks and limits](docs/qa/full-roster-menu-80-2026-10-30.json). These later development checkpoints are separate from the prepared build commands below, which target the earlier 37-identity build; their exact source inputs are retained in the linked checkpoint archives.
 
@@ -50,7 +54,7 @@ Crowded scenes still cause partial player sprites, including Mega Man, Sophia an
 
 ## Features
 
-- A three-row character select screen, with alternate characters chosen using Select.
+- A four-row character select screen in the current checkpoint; the prepared build has three rows. Press Select for alternates.
 - Character-specific movement, attacks, equipment, health and resource systems.
 - Easy and Hard behavior settings, optional player outlines and six cheat options.
 - A character-labelled music and SFX browser in expanded MMC5.
@@ -61,6 +65,8 @@ Crowded scenes still cause partial player sprites, including Mega Man, Sophia an
 ## Roster
 
 Highlight a character and press **Select** to cycle the alternates in that slot.
+
+The table below describes the prepared 37-identity build. The current checkpoint adds Super Maaa, Kamikaze Mario, Celeste Mario, Rogue Dawn, GB Pit, Quick Man, Doc Louis, Mike Tyson, Popo, Nana, Alex, Ryan, Sunny, Goku, Gimmick, Donkey Kong and Arthur. See the [pictured 80-identity roster](docs/images/SMB-Crossover-Full-Roster.png); visible coming-soon characters cannot start a level.
 
 | Selection slot | Characters | Highlights |
 | --- | --- | --- |
@@ -109,7 +115,8 @@ These steps have been checked against a clean export of the tracked sources. Bui
 
 | Target | Roster | Cartridge layout | Status |
 | --- | --- | --- | --- |
-| Expanded MMC5 | All 37 identities | 1 MiB PRG + 1 MiB CHR | Recommended development build. |
+| Expanded MMC5, prepared build | 37 identities | 1 MiB PRG + 1 MiB CHR | Reproduced by the commands above. |
+| Expanded MMC5, current checkpoint | 54 playable / 80 visible identities | 1 MiB PRG + 1 MiB CHR | Newer source archives; integration into the prepared builder is pending. |
 | Standard MMC3 / MMC5 | 14 identities in 12 slots | 512 KiB PRG + 256 KiB CHR | Smaller original roster; expanded alternates are excluded. |
 | Oversized MMC3 | Expanded roster | 2 MiB PRG + 256 KiB CHR RAM | Experimental; qualification and feature parity remain in progress. |
 
