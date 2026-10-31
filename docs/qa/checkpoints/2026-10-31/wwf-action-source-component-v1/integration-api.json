@@ -1,0 +1,812 @@
+{
+  "source": true,
+  "isolated_CPU_component": true,
+  "no_host_allocation": true,
+  "entries": {
+    "WfInitDescriptors": {
+      "native": 53669,
+      "relocated": 37497
+    },
+    "WfSelectAction": {
+      "native": 44877,
+      "relocated": 36985
+    },
+    "WfAdoptRequests": {
+      "native": 44756,
+      "relocated": 36864
+    },
+    "WfVmTick": {
+      "native": 58088,
+      "relocated": 37720
+    },
+    "WfVmDispatch": {
+      "native": 58245,
+      "relocated": 37877
+    },
+    "WfReadOperand": {
+      "native": 61384,
+      "relocated": 40104
+    }
+  },
+  "native_state_inputs": {
+    "identity": "Actor0 uses descriptor ID2B; actor1 uses2A. Both IDs must be0..5.",
+    "WfInitDescriptors": "Reads original IDs2A/2B and genuine81B records; writes native stats/palette globals exactly as D1A5. No invented blanket state reset.",
+    "WfSelectAction": "X=actor0/1,Y=controller offset0/2; held/fresh at0D+2X/0E+2X. Y=FF invokes explicit native AI boundary. Original CB+X/action/contact gates remain active.",
+    "WfAdoptRequests": "Runs genuine pending3E/3F to current3C/3D adoption after original input polls; does not synthesize requests.",
+    "WfVmTick": "71&1 chooses actor;8D is the original video-frame counter. A selected actor updates every2 video frames, not every host Main and not an invented NMI clock."
+  },
+  "return_ABI": "Genuine original returned A/X/Y/P/SP; the component is not a preserving wrapper. RTS uses the caller real return frame.",
+  "callback_ABI": "Named JSR/tail imports preserve their original register/state/flag contract. Lab adapters execute actual native callback code against shared source state and the existing caller return frame; host replacements remain unimplemented.",
+  "callbacks": [
+    {
+      "name": "WfCbAI",
+      "native_entry": 46779,
+      "isolated_dispatch_slot": 28672,
+      "source_call_sites": [
+        {
+          "native_PC": 44886,
+          "transfer": "jmp",
+          "callback": "WfCbAI",
+          "source_label": "WfN_AF56"
+        }
+      ]
+    },
+    {
+      "name": "WfCbRingClamp",
+      "native_entry": 50871,
+      "isolated_dispatch_slot": 28676,
+      "source_call_sites": [
+        {
+          "native_PC": 58310,
+          "transfer": "jsr",
+          "callback": "WfCbRingClamp",
+          "source_label": "WfN_E3C6"
+        },
+        {
+          "native_PC": 58324,
+          "transfer": "jsr",
+          "callback": "WfCbRingClamp",
+          "source_label": "WfN_E3D4"
+        }
+      ]
+    },
+    {
+      "name": "WfCbActorDepthProbe",
+      "native_entry": 52482,
+      "isolated_dispatch_slot": 28680,
+      "source_call_sites": [
+        {
+          "native_PC": 58288,
+          "transfer": "jsr",
+          "callback": "WfCbActorDepthProbe",
+          "source_label": "WfN_E3B0"
+        }
+      ]
+    },
+    {
+      "name": "WfCbRingBounds",
+      "native_entry": 53440,
+      "isolated_dispatch_slot": 28684,
+      "source_call_sites": [
+        {
+          "native_PC": 58291,
+          "transfer": "jsr",
+          "callback": "WfCbRingBounds",
+          "source_label": "WfN_E3B3"
+        }
+      ]
+    },
+    {
+      "name": "WfCbActorContact",
+      "native_entry": 52517,
+      "isolated_dispatch_slot": 28688,
+      "source_call_sites": [
+        {
+          "native_PC": 58298,
+          "transfer": "jsr",
+          "callback": "WfCbActorContact",
+          "source_label": "WfN_E3BA"
+        }
+      ]
+    },
+    {
+      "name": "WfCbRandom",
+      "native_entry": 52759,
+      "isolated_dispatch_slot": 28692,
+      "source_call_sites": [
+        {
+          "native_PC": 59584,
+          "transfer": "jsr",
+          "callback": "WfCbRandom",
+          "source_label": "WfN_E8C0"
+        }
+      ]
+    },
+    {
+      "name": "WfCbAudio09",
+      "native_entry": 41518,
+      "isolated_dispatch_slot": 28696,
+      "source_call_sites": [
+        {
+          "native_PC": 60172,
+          "transfer": "jmp",
+          "callback": "WfCbAudio09",
+          "source_label": "WfN_EB0C"
+        }
+      ]
+    },
+    {
+      "name": "WfCbAudio0F",
+      "native_entry": 41532,
+      "isolated_dispatch_slot": 28700,
+      "source_call_sites": [
+        {
+          "native_PC": 60175,
+          "transfer": "jmp",
+          "callback": "WfCbAudio0F",
+          "source_label": "WfN_EB0F"
+        }
+      ]
+    },
+    {
+      "name": "WfCbAudio12",
+      "native_entry": 41539,
+      "isolated_dispatch_slot": 28704,
+      "source_call_sites": [
+        {
+          "native_PC": 60150,
+          "transfer": "jsr",
+          "callback": "WfCbAudio12",
+          "source_label": "WfN_EAF6"
+        },
+        {
+          "native_PC": 60178,
+          "transfer": "jmp",
+          "callback": "WfCbAudio12",
+          "source_label": "WfN_EB12"
+        }
+      ]
+    }
+  ],
+  "handler_table": [
+    {
+      "opcode": 8,
+      "native_entry": 61298,
+      "relocated_entry": 40018,
+      "source_label": "WfOpcode08",
+      "dynamically_covered": false
+    },
+    {
+      "opcode": 9,
+      "native_entry": 61305,
+      "relocated_entry": 40025,
+      "source_label": "WfOpcode09",
+      "dynamically_covered": false
+    },
+    {
+      "opcode": 10,
+      "native_entry": 61312,
+      "relocated_entry": 40032,
+      "source_label": "WfOpcode0A",
+      "dynamically_covered": false
+    },
+    {
+      "opcode": 11,
+      "native_entry": 61315,
+      "relocated_entry": 40035,
+      "source_label": "WfOpcode0B",
+      "dynamically_covered": false
+    },
+    {
+      "opcode": 12,
+      "native_entry": 61290,
+      "relocated_entry": 40010,
+      "source_label": "WfOpcode0C",
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 13,
+      "native_entry": 61318,
+      "relocated_entry": 40038,
+      "source_label": "WfOpcode0D",
+      "dynamically_covered": false
+    },
+    {
+      "opcode": 14,
+      "native_entry": 61323,
+      "relocated_entry": 40043,
+      "source_label": "WfOpcode0E",
+      "dynamically_covered": false
+    },
+    {
+      "opcode": 15,
+      "native_entry": 59294,
+      "relocated_entry": 38014,
+      "source_label": "WfOpcode0F",
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 16,
+      "native_entry": 61328,
+      "relocated_entry": 40048,
+      "source_label": "WfOpcode10",
+      "dynamically_covered": false
+    },
+    {
+      "opcode": 17,
+      "native_entry": 61333,
+      "relocated_entry": 40053,
+      "source_label": "WfOpcode11",
+      "dynamically_covered": false
+    },
+    {
+      "opcode": 18,
+      "native_entry": 61338,
+      "relocated_entry": 40058,
+      "source_label": "WfOpcode12",
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 19,
+      "native_entry": 61354,
+      "relocated_entry": 40074,
+      "source_label": "WfOpcode13",
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 20,
+      "native_entry": 61362,
+      "relocated_entry": 40082,
+      "source_label": "WfOpcode14",
+      "dynamically_covered": false
+    },
+    {
+      "opcode": 21,
+      "native_entry": 61367,
+      "relocated_entry": 40087,
+      "source_label": "WfOpcode15",
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 22,
+      "native_entry": 61280,
+      "relocated_entry": 40000,
+      "source_label": "WfOpcode16",
+      "dynamically_covered": false
+    },
+    {
+      "opcode": 23,
+      "native_entry": 61275,
+      "relocated_entry": 39995,
+      "source_label": "WfOpcode17",
+      "dynamically_covered": false
+    },
+    {
+      "opcode": 24,
+      "native_entry": 61285,
+      "relocated_entry": 40005,
+      "source_label": "WfOpcode18",
+      "dynamically_covered": false
+    },
+    {
+      "opcode": 25,
+      "native_entry": 61270,
+      "relocated_entry": 39990,
+      "source_label": "WfOpcode19",
+      "dynamically_covered": false
+    },
+    {
+      "opcode": 26,
+      "native_entry": 61263,
+      "relocated_entry": 39983,
+      "source_label": "WfOpcode1A",
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 27,
+      "native_entry": 61248,
+      "relocated_entry": 39968,
+      "source_label": "WfOpcode1B",
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 28,
+      "native_entry": 61228,
+      "relocated_entry": 39948,
+      "source_label": "WfOpcode1C",
+      "dynamically_covered": false
+    },
+    {
+      "opcode": 29,
+      "native_entry": 60915,
+      "relocated_entry": 39635,
+      "source_label": "WfOpcode1D",
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 30,
+      "native_entry": 60897,
+      "relocated_entry": 39617,
+      "source_label": "WfOpcode1E",
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 31,
+      "native_entry": 61085,
+      "relocated_entry": 39805,
+      "source_label": "WfOpcode1F",
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 32,
+      "native_entry": 61374,
+      "relocated_entry": 40094,
+      "source_label": "WfOpcode20",
+      "dynamically_covered": false
+    },
+    {
+      "opcode": 33,
+      "native_entry": 61379,
+      "relocated_entry": 40099,
+      "source_label": "WfOpcode21",
+      "dynamically_covered": false
+    },
+    {
+      "opcode": 34,
+      "native_entry": 60806,
+      "relocated_entry": 39526,
+      "source_label": "WfOpcode22",
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 35,
+      "native_entry": 60884,
+      "relocated_entry": 39604,
+      "source_label": "WfOpcode23",
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 36,
+      "native_entry": 60615,
+      "relocated_entry": 39335,
+      "source_label": "WfOpcode24",
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 37,
+      "native_entry": 60622,
+      "relocated_entry": 39342,
+      "source_label": "WfOpcode25",
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 38,
+      "native_entry": 60792,
+      "relocated_entry": 39512,
+      "source_label": "WfOpcode26",
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 39,
+      "native_entry": 60816,
+      "relocated_entry": 39536,
+      "source_label": "WfOpcode27",
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 40,
+      "native_entry": 60549,
+      "relocated_entry": 39269,
+      "source_label": "WfOpcode28",
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 41,
+      "native_entry": 60602,
+      "relocated_entry": 39322,
+      "source_label": "WfOpcode29",
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 42,
+      "native_entry": 60378,
+      "relocated_entry": 39098,
+      "source_label": "WfOpcode2A",
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 43,
+      "native_entry": 60405,
+      "relocated_entry": 39125,
+      "source_label": "WfOpcode2B",
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 44,
+      "native_entry": 60455,
+      "relocated_entry": 39175,
+      "source_label": "WfOpcode2C",
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 45,
+      "native_entry": 60362,
+      "relocated_entry": 39082,
+      "source_label": "WfOpcode2D",
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 46,
+      "native_entry": 60339,
+      "relocated_entry": 39059,
+      "source_label": "WfOpcode2E",
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 47,
+      "native_entry": 60332,
+      "relocated_entry": 39052,
+      "source_label": "WfOpcode2F",
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 48,
+      "native_entry": 60251,
+      "relocated_entry": 38971,
+      "source_label": "WfOpcode30",
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 49,
+      "native_entry": 60317,
+      "relocated_entry": 39037,
+      "source_label": "WfOpcode31",
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 50,
+      "native_entry": 60830,
+      "relocated_entry": 39550,
+      "source_label": "WfOpcode32",
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 51,
+      "native_entry": 60203,
+      "relocated_entry": 38923,
+      "source_label": "WfOpcode33",
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 52,
+      "native_entry": 60371,
+      "relocated_entry": 39091,
+      "source_label": "WfOpcode34",
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 53,
+      "native_entry": 60184,
+      "relocated_entry": 38904,
+      "source_label": "WfOpcode35",
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 54,
+      "native_entry": 60181,
+      "relocated_entry": 38901,
+      "source_label": "WfOpcode36",
+      "dynamically_covered": false
+    },
+    {
+      "opcode": 55,
+      "native_entry": 61346,
+      "relocated_entry": 40066,
+      "source_label": "WfOpcode37",
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 56,
+      "native_entry": 60156,
+      "relocated_entry": 38876,
+      "source_label": "WfOpcode38",
+      "dynamically_covered": false
+    },
+    {
+      "opcode": 57,
+      "native_entry": 60866,
+      "relocated_entry": 39586,
+      "source_label": "WfOpcode39",
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 58,
+      "native_entry": 60128,
+      "relocated_entry": 38848,
+      "source_label": "WfOpcode3A",
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 59,
+      "native_entry": 60125,
+      "relocated_entry": 38845,
+      "source_label": "WfOpcode3B",
+      "dynamically_covered": false
+    },
+    {
+      "opcode": 60,
+      "native_entry": 60122,
+      "relocated_entry": 38842,
+      "source_label": "WfOpcode3C",
+      "dynamically_covered": false
+    },
+    {
+      "opcode": 61,
+      "native_entry": 60221,
+      "relocated_entry": 38941,
+      "source_label": "WfOpcode3D",
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 62,
+      "native_entry": 60236,
+      "relocated_entry": 38956,
+      "source_label": "WfOpcode3E",
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 63,
+      "native_entry": 60483,
+      "relocated_entry": 39203,
+      "source_label": "WfOpcode3F",
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 64,
+      "native_entry": 60523,
+      "relocated_entry": 39243,
+      "source_label": "WfOpcode40",
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 65,
+      "native_entry": 60111,
+      "relocated_entry": 38831,
+      "source_label": "WfOpcode41",
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 66,
+      "native_entry": 60092,
+      "relocated_entry": 38812,
+      "source_label": "WfOpcode42",
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 67,
+      "native_entry": 60108,
+      "relocated_entry": 38828,
+      "source_label": "WfOpcode43",
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 68,
+      "native_entry": 60059,
+      "relocated_entry": 38779,
+      "source_label": "WfOpcode44",
+      "dynamically_covered": false
+    },
+    {
+      "opcode": 69,
+      "native_entry": 60052,
+      "relocated_entry": 38772,
+      "source_label": "WfOpcode45",
+      "dynamically_covered": false
+    },
+    {
+      "opcode": 70,
+      "native_entry": 60031,
+      "relocated_entry": 38751,
+      "source_label": "WfOpcode46",
+      "dynamically_covered": false
+    },
+    {
+      "opcode": 71,
+      "native_entry": 60047,
+      "relocated_entry": 38767,
+      "source_label": "WfOpcode47",
+      "dynamically_covered": false
+    },
+    {
+      "opcode": 72,
+      "native_entry": 60841,
+      "relocated_entry": 39561,
+      "source_label": "WfOpcode48",
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 73,
+      "native_entry": 59941,
+      "relocated_entry": 38661,
+      "source_label": "WfOpcode49",
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 74,
+      "native_entry": 59911,
+      "relocated_entry": 38631,
+      "source_label": "WfOpcode4A",
+      "dynamically_covered": false
+    },
+    {
+      "opcode": 75,
+      "native_entry": 59886,
+      "relocated_entry": 38606,
+      "source_label": "WfOpcode4B",
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 76,
+      "native_entry": 59873,
+      "relocated_entry": 38593,
+      "source_label": "WfOpcode4C",
+      "dynamically_covered": false
+    },
+    {
+      "opcode": 77,
+      "native_entry": 59864,
+      "relocated_entry": 38584,
+      "source_label": "WfOpcode4D",
+      "dynamically_covered": false
+    },
+    {
+      "opcode": 78,
+      "native_entry": 59696,
+      "relocated_entry": 38416,
+      "source_label": "WfOpcode4E",
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 79,
+      "native_entry": 59674,
+      "relocated_entry": 38394,
+      "source_label": "WfOpcode4F",
+      "dynamically_covered": false
+    },
+    {
+      "opcode": 80,
+      "native_entry": 59667,
+      "relocated_entry": 38387,
+      "source_label": "WfOpcode50",
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 81,
+      "native_entry": 59627,
+      "relocated_entry": 38347,
+      "source_label": "WfOpcode51",
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 82,
+      "native_entry": 59636,
+      "relocated_entry": 38356,
+      "source_label": "WfOpcode52",
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 83,
+      "native_entry": 59645,
+      "relocated_entry": 38365,
+      "source_label": "WfOpcode53",
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 84,
+      "native_entry": 59605,
+      "relocated_entry": 38325,
+      "source_label": "WfOpcode54",
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 85,
+      "native_entry": 59559,
+      "relocated_entry": 38279,
+      "source_label": "WfOpcode55",
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 86,
+      "native_entry": 59547,
+      "relocated_entry": 38267,
+      "source_label": "WfOpcode56",
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 87,
+      "native_entry": 59503,
+      "relocated_entry": 38223,
+      "source_label": "WfOpcode57",
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 88,
+      "native_entry": 59525,
+      "relocated_entry": 38245,
+      "source_label": "WfOpcode58",
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 89,
+      "native_entry": 59490,
+      "relocated_entry": 38210,
+      "source_label": "WfOpcode59",
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 90,
+      "native_entry": 59479,
+      "relocated_entry": 38199,
+      "source_label": "WfOpcode5A",
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 91,
+      "native_entry": 59456,
+      "relocated_entry": 38176,
+      "source_label": "WfOpcode5B",
+      "dynamically_covered": false
+    },
+    {
+      "opcode": 92,
+      "native_entry": 59380,
+      "relocated_entry": 38100,
+      "source_label": "WfOpcode5C",
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 93,
+      "native_entry": 59318,
+      "relocated_entry": 38038,
+      "source_label": "WfOpcode5D",
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 94,
+      "native_entry": 59309,
+      "relocated_entry": 38029,
+      "source_label": "WfOpcode5E",
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 95,
+      "native_entry": 59848,
+      "relocated_entry": 38568,
+      "source_label": "WfOpcode5F",
+      "dynamically_covered": false
+    },
+    {
+      "opcode": 96,
+      "native_entry": 59295,
+      "relocated_entry": 38015,
+      "source_label": "WfOpcode60",
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 97,
+      "native_entry": 59302,
+      "relocated_entry": 38022,
+      "source_label": "WfOpcode61",
+      "dynamically_covered": true
+    }
+  ],
+  "data_origins_retained": true,
+  "limitations": [
+    "No host services, allocation, menu, native launch, audio engine, raster or unlock is installed.",
+    "Original-state compatibility currently uses2KiB native RAM plus donor callback environment, not a proven compact host overlay.",
+    "Both actor fixtures are explicit CPU cases. The separate556 directory-entry cases do not prove original controller eligibility.",
+    "30 opcode entries and additional conditional branches are source-byte proven but not dynamically covered by these cohorts.",
+    "Original E9BB STA00D3,Y may reach01D2 forY=FF; preserve/document this original dead-stack behavior before future state/stack relocation.",
+    "Native-origin code compares all RAM/stack/writes/cycles. Relocated code compares nonstack RAM and ordered writes plus every live upper-stack byte, with only two exact dispatch-address store sites symbolically translated. Dead return bytes relocate."
+  ]
+}
