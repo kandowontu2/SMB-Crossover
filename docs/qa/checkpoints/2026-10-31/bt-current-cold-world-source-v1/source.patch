@@ -1,0 +1,187 @@
+--- 8961/bt/router.s
++++ BT-cold-world/bt/router.s
+@@ -1,31 +1,16 @@
+-
++; SIZE/ABI PROPOSAL ONLY. Not installed or linked into any source candidate.
+ .setcpu "6502"
+-.import SelectedCharacter,BwBtResolve,BtCacheServices,FarCallCommon,FarcallJmpTarget_SMC
+-.import SafecallA_SMC,SafereturnA_SMC,NextBank_SMC
++.import SelectedCharacter,BwBtResolve,BtCacheServices,BtColdPortrait,BtColdColors
++.import FarCallCommon,FarcallJmpTarget_SMC,SafecallA_SMC,NextBank_SMC
+ .export BwServiceVeneers,BtServiceVeneers,BtServiceUnavailable,BtRouter
+ .segment "BT_ROM_ROUTER"
+ BwServiceVeneers:
+ BtServiceVeneers:
+ .repeat 36
+- jsr BtRouter
++ jmp BtRouter
+ .endrepeat
+ BtServiceUnavailable:clc
+  rts
+-
+-.macro BtFar Target,Mode
+- sta SafecallA_SMC+1
+- lda #<Target
+- sta FarcallJmpTarget_SMC+1
+- lda #>Target
+- sta FarcallJmpTarget_SMC+2
+- lda #.lobyte(.bank(Target)|$80)
+- .if .xmatch({Mode},{jmp})
+- jmp FarCallCommon
+- .else
+- jsr FarCallCommon
+- .endif
+-.endmacro
+-
+ BtRouter:
+  php
+  pha
+@@ -33,22 +18,51 @@
+  pha
+  tya
+  pha
+- ; Current real native AXYP already saved. Reject all other owner values
+- ; before the single-import resolver can use native fallback rows15/19.
++ ; Equivalent13B owner gate: exactly27/31/33, no native flags consumed.
+  lda SelectedCharacter
++ cmp #33
++ beq Owner
++ and #$fb
+  cmp #27
+- beq Owner
+- cmp #31
+- beq Owner
++ bne Bad
++Owner:
++ ; No nested call or write of any SMC byte precedes this capture. The
++ ; genuine incoming SFC target remains B020+3*service; all33SMC is saved
++ ; by both actual vector paths. There is NO own rowJSR return to consume.
++ lda FarcallJmpTarget_SMC+1
++ sec
++ sbc #<BtServiceVeneers
++ ; Original nativeAXYP is already saved. X is only resolver service temp.
++ tax
++ lda SelectedCharacter
+  cmp #33
+- bne BtRouterBad
+-Owner:
+- tsx
+- lda $0105,x
+- sec
+- sbc #<(BtServiceVeneers+2)
+- BtFar BwBtResolve,jsr
+- bcc BtRouterBad
++ bne Default
++ txa
++ cmp #51
++ beq Portrait
++ cmp #78
++ bne Default
++ lda #<BtColdColors
++ bne Cold
++Portrait:
++ lda #<BtColdPortrait
++Cold:
++ sta FarcallJmpTarget_SMC+1
++ lda #>BtColdPortrait
++ sta FarcallJmpTarget_SMC+2
++ lda #.lobyte(.bank(BtColdPortrait)|$80)
++ bne Target
++Default:
++ txa
++ sta SafecallA_SMC+1
++ lda #<BwBtResolve
++ sta FarcallJmpTarget_SMC+1
++ lda #>BwBtResolve
++ sta FarcallJmpTarget_SMC+2
++ lda #.lobyte(.bank(BwBtResolve)|$80)
++ jsr FarCallCommon
++ bcc Bad
++Target:
+  sta NextBank_SMC+1
+  pla
+  tay
+@@ -56,16 +70,9 @@
+  tax
+  pla
+  sta SafecallA_SMC+1
+- pla
+- sta SafereturnA_SMC+1       ; temporary sourceP, covered by real33B SMC ISR save
+- pla
+- pla                        ; consume ONLY own rowJSR frame
+- lda SafereturnA_SMC+1
+- pha
+- lda SafecallA_SMC+1
+  plp
+  jmp FarCallCommon+3
+-BtRouterBad:
++Bad:
+  pla
+  tay
+  pla
+@@ -74,14 +81,14 @@
+  sta SafecallA_SMC+1
+  pla
+  and #$fe
+- sta SafereturnA_SMC+1
+- pla
+- pla
+- lda SafereturnA_SMC+1
+  pha
+  lda SafecallA_SMC+1
+  plp
+  rts
+-.assert *<=$b100,lderror,"Exact BT224B Quick partition"
+-.assert >BtServiceVeneers=>(BtServiceVeneers+109),lderror,"RowJSR same-page subtract"
+-.assert .lobyte(BtCacheServices)=0,lderror,"Cache row offset exact"
++.assert *-BtServiceVeneers=223,error,"Measured223/224 only"
++.assert >BtColdPortrait=>BtColdColors,lderror,"True owned cold targets share high"
++.assert .bank(BtColdPortrait)=.bank(BtColdColors),lderror,"True owned cold targets share bank"
++.assert .lobyte(BtColdColors)<>0,lderror,"Literal cold branch always"
++.assert .lobyte(.bank(BtColdPortrait)|$80)<>0,lderror,"ROM raw bank nonzero"
++.assert >BtServiceVeneers=>(BtServiceVeneers+107),lderror,"All36 low offsets same page"
++.assert .lobyte(BtCacheServices)=0,lderror,"Actual A000 cache API"
+--- 8961/bt/api.s
++++ BT-cold-world/bt/api.s
+@@ -1,3 +1,5 @@
++.import HuNativeWorldPalette
++.export BtNativeWorldPalette
+ ; BT's own selected RAM3 host adapter. No cold/menu admission claim.
+ .setcpu "6502"
+ .macpack longbranch
+@@ -106,7 +108,7 @@
+  jmp BtUnavailable    ;29 HUD not yet implemented
+  jmp BtUnavailable    ;30 status-name bridge pending
+  jmp BtUnavailable    ;31
+- jmp BtUnavailable    ;32 ROM world-palette bridge pending
++ jmp BtNativeWorldPalette ;32 genuine native area palette query
+  jmp BtUnavailable    ;33
+  jmp BtWeapons        ;34 consumes flag, never ticks source twice
+  jmp BtUnavailable    ;35 native vine draw bridge pending
+@@ -806,6 +808,9 @@
+  rts
+ BtUnavailable:clc
+  rts
++; Full-cookie row32 only. Genuine native callback, no state alias.
++BtNativeWorldPalette:
++ BtFar HuNativeWorldPalette,jmp
+ .segment "BT_CACHE_STATE"
+ BtState:.res 117,0
+ .segment "BT_CACHE_HOST_STATE"
+--- 8961/bt/loader.s
++++ BT-cold-world/bt/loader.s
+@@ -265,5 +265,5 @@
+  lda #.lobyte(.bank(BtEnsure)) ; actual RAM3, never ROM83
+  jmp FarCallCommon
+ BtAcquireDone:rts
+-BtCookie:.incbin "C:/Users/kando/Documents/ChatGPT/SMB Crossover/build/bt-current-cf-component-v2/joint/bt/cookie.bin"
++BtCookie:.incbin "C:/Users/kando/Documents/ChatGPT/SMB Crossover/build/bt-native-world-source-v2/joint/bt/cookie.bin"
+ .assert *<=$afa7,lderror,"Exact BT487B Quick partition"
+--- 8961/bt/stream.s
++++ BT-cold-world/bt/stream.s
+@@ -1,4 +1,4 @@
+ .segment "BT_STREAM"
+-.incbin "C:/Users/kando/Documents/ChatGPT/SMB Crossover/build/bt-current-cf-component-v2/joint/bt/stream.bin"
++.incbin "C:/Users/kando/Documents/ChatGPT/SMB Crossover/build/bt-native-world-source-v2/joint/bt/stream.bin"
+ .segment "BT_CHR"
+ .incbin "C:/Users/kando/Documents/ChatGPT/SMB Crossover/build/battletoads-small-core-assets-v1/art.chr"

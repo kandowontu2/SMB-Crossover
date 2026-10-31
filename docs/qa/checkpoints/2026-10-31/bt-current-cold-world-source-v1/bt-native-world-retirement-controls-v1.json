@@ -1,0 +1,49 @@
+{
+  "passed": true,
+  "native": false,
+  "CF_BT_pending": true,
+  "active_reject": [
+    {
+      "context": "title",
+      "calls": {
+        "BtLoad": 1
+      },
+      "no_A3_or_C2_write": true
+    },
+    {
+      "context": "active",
+      "calls": {
+        "BtLoad": 1
+      },
+      "no_A3_or_C2_write": true
+    },
+    {
+      "context": "notbusy",
+      "calls": {
+        "BtLoad": 1
+      },
+      "no_A3_or_C2_write": true
+    },
+    {
+      "context": "normal",
+      "calls": {
+        "BtLoad": 1
+      },
+      "no_A3_or_C2_write": true
+    }
+  ],
+  "direct_contract": {
+    "exported_BtLoad_does_not_retire_CF": true,
+    "explicit_prior_CfRetire_required": true,
+    "stale_C2_witness_retained": true,
+    "not_a_production_hook": true
+  },
+  "actual_CF_to_BT_screen_setup_pairs": 16,
+  "actual_retire_before_pending_Selected0": 8,
+  "source_context_rejections": 4,
+  "scope": "Actual InitScreen -> earlyCfRetire -> native scene chain once; actual next SetupIntermediate -> GetPlayerColors -> ROM26 -> BtAcquire -> verified load+Ensure. No pending gate bypass or manually staged BT payload. This call-order fixture is not yet whole cold parser/admission; direct loader contract remains explicit.",
+  "retained_v2_negative": "BT remains pending: genuine FmResolve deliberately publishesSelected0, not33. V3 requires that actual pending output; no readiness change or bypass.",
+  "retained_v1_negative": "A preexisting FF high-bit palette lease legitimately invokes one extra MoveAllSpritesOffscreen during its retirement. The v2 expectation requires exactly1+that pre-entry bit; no source change.",
+  "full_receipt": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bt-native-world-retirement-controls-v1\\controls.json",
+  "sha256": "8684a99794aca4493458777307b9f4c2965d525a99747828d7d211d0a487500b"
+}
