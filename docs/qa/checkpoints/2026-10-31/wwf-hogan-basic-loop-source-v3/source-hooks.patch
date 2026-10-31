@@ -1,0 +1,227 @@
+--- build/bt-p2-cf-menu-source-1031-v2/joint/entrypoint.s
++++ build/wwf-hogan-natural-source-v15/joint/host-main/entrypoint.s
+@@ -1713,3 +1713,7 @@
+ .include "smb3plus_float_data.s"
+ 
+ .include "smb3plus_menu_name.s"
++
++.export ImposeGravitySprObj,VerticalForce,VerticalForceDown,PlayerPhysicsSub,Sprite_Data,SprObject_SprAttrib,BlockBufferColli_Head,BlockBufferColli_Side,PlayerHeadWithinTerrain,BlankPalette
++
++.import WfScene,WfMenuRetire
+--- build/contra-force-menu-admission-1031-v2/joint/src/character_select.s
++++ build/wwf-hogan-natural-source-v15/joint/host-main/src/character_select.s
+@@ -602,7 +602,7 @@
+ .if ::ENABLE_MMC5_EXPANDED
+   ; Retire CF before Fm/Cm can publish the next owner. CfRetire preserves
+   ; sourceA and has no inner SFC, so reuse the first call's saved sourceA.
+-  farcall CfRetire
++  farcall WfMenuRetire
+   lda #<BwMenuResolve
+   sta FarcallJmpTarget_SMC+1
+   lda #>BwMenuResolve
+--- build/contra-force-menu-admission-1031-v2/joint/src/full_roster_menu.s
++++ build/wwf-hogan-natural-source-v15/joint/host-main/src/full_roster_menu.s
+@@ -120,7 +120,8 @@
+  and #7
+  clc
+  adc #18
+- bne Pending
++ cmp #19
++ rts
+ NotWWF:
+  cpx #29
+  bne ContraForce
+@@ -154,7 +155,7 @@
+ Pending:sec
+  rts
+ .assert *-FmPending<=243,lderror,"Existing248B pending envelope"
+-.res 5,$ea
++.res 4,$ea
+ .endproc
+ 
+ .proc FmResolve
+--- build/contra-force-menu-admission-1031-v2/joint/src/full_roster_menu_art.inc
++++ build/wwf-hogan-natural-source-v15/joint/host-main/src/full_roster_menu_art.inc
+@@ -18,7 +18,7 @@
+  .byte "   SMB3 BOWSER  "
+  .byte "   SMB1 BOWSER  "
+  .byte "  *DONKEY KONG  "
+- .byte "  *HULK HOGAN   "
++ .byte "   HULK HOGAN   "
+  .byte "  *TED DIBIASE  "
+  .byte "*BAM BAM BIGELOW"
+  .byte "*HONKY TONK MAN "
+--- build/bt-ready-menu-1031-v2/joint/src/new_roster_dispatch.s
++++ build/wwf-hogan-natural-source-v15/joint/host-main/src/new_roster_dispatch.s
+@@ -184,17 +184,15 @@
+  beq GmOnlyQuick
+  cmp #26
+  beq Own
+- cmp #28
+- beq GmOnlyHigh
+  cmp #22
+  beq GmOnlyHigh
+  cmp #31
+  bcs GmOnlyHigh
+- ; Exactly24or28 after clearing their sole differing bit. Every other
+- ; highID stays on its genuine old direct legacy table, avoiding recursion.
+- and #$fc
+  cmp #24
+- beq GmOnlyHigh
++ bcc GmOnlyLegacy
++ cmp #30
++ bcc GmOnlyHigh
++ .res 2,$ea
+ ::GmOnlyLegacy:
+ Legacy:
+  tya
+--- build/bt-p2-cf-menu-source-1031-v2/joint/src/screen_render.s
++++ build/wwf-hogan-natural-source-v15/joint/host-main/src/screen_render.s
+@@ -49,7 +49,7 @@
+   beq :+
+     rts
+   :
+-  farcall BwScene ; private FF loader, genuine Move remains first
++  farcall WfScene ; private FF loader, genuine Move remains first
+   jsr InitializeNameTables    ;and erase both name and attribute tables
+   lda OperMode
+   beq NextSubtask             ;if mode still 0, do not load
+--- build/bt-ready-menu-1031-v2/joint/union.s
++++ build/wwf-hogan-natural-source-v15/joint/union.s
+@@ -530,12 +530,13 @@
+  cmp #32
+  jeq HuExtendedArthur
+  cmp #27
+- beq HuExtendedShared
+- cmp #31
+- beq HuExtendedShared
+- cmp #33
+- bne HuExtendedNotShared
+-HuExtendedShared:
++ bcc HuExtendedNotShared
++ cmp #34
++ bcs HuExtendedNotShared
++ cmp #28
++ beq DK
++ cmp #30
++ beq Fetch
+  jmp HuExtendedBT
+ HuExtendedNotShared:
+  cmp #2
+@@ -549,8 +550,6 @@
+  tay
+  bne Fetch
+ Other:
+- cmp #28
+- beq DK
+  cmp #24
+  bne Fetch
+  tya
+--- build/bt-jmp-row-cold-source-v1/joint/bt/router.s
++++ build/wwf-hogan-natural-source-v15/joint/bt-router.s
+@@ -1,6 +1,6 @@
+ ; SIZE/ABI PROPOSAL ONLY. Not installed or linked into any source candidate.
+ .setcpu "6502"
+-.import SelectedCharacter,BwBtResolve,BtCacheServices,BtColdPortrait,BtColdColors
++.import SelectedCharacter,WfResolve,BtCacheServices,BtColdPortrait,BtColdColors
+ .import FarCallCommon,FarcallJmpTarget_SMC,SafecallA_SMC,NextBank_SMC
+ .export BwServiceVeneers,BtServiceVeneers,BtServiceUnavailable,BtRouter
+ .segment "BT_ROM_ROUTER"
+@@ -20,10 +20,11 @@
+  pha
+  ; Equivalent13B owner gate: exactly27/31/33, no native flags consumed.
+  lda SelectedCharacter
+- cmp #33
+- beq Owner
+- and #$fb
+- cmp #27
++ sec
++ sbc #27
++ cmp #7
++ bcs Bad
++ and #1
+  bne Bad
+ Owner:
+  ; No nested call or write of any SMC byte precedes this capture. The
+@@ -55,11 +56,11 @@
+ Default:
+  txa
+  sta SafecallA_SMC+1
+- lda #<BwBtResolve
++ lda #<WfResolve
+  sta FarcallJmpTarget_SMC+1
+- lda #>BwBtResolve
++ lda #>WfResolve
+  sta FarcallJmpTarget_SMC+2
+- lda #.lobyte(.bank(BwBtResolve)|$80)
++ lda #.lobyte(.bank(WfResolve)|$80)
+  jsr FarCallCommon
+  bcc Bad
+ Target:
+@@ -85,7 +86,7 @@
+  lda SafecallA_SMC+1
+  plp
+  rts
+-.assert *-BtServiceVeneers=223,error,"Measured223/224 only"
++.assert *-BtServiceVeneers=224,error,"Measured223/224 only"
+ .assert >BtColdPortrait=>BtColdColors,lderror,"True owned cold targets share high"
+ .assert .bank(BtColdPortrait)=.bank(BtColdColors),lderror,"True owned cold targets share bank"
+ .assert .lobyte(BtColdColors)<>0,lderror,"Literal cold branch always"
+--- build/contra-force-p1-coherent-cart-v2/joint/ff-palette.s
++++ build/wwf-hogan-natural-source-v15/joint/ff-palette.s
+@@ -1,5 +1,6 @@
+ .export FwPaletteMapC
+ .import FfMuxNativeROM,FfMuxNativeTail,CfP1NativeRestore
++.import WfLegacyFreeze,WfP1LateDispatch
+ ; Genuine native queue composition for FF body colors. No new state.
+ ; Existing FfPaletteAck is touched only after the full RAM3 owner cookie passes.
+ .setcpu "6502"
+@@ -264,36 +265,32 @@
+ .segment "FF_NATIVE_DRAW_BRIDGE"
+ .proc FwNativeDrawAll
+  lda SelectedCharacter
+- eor #31                 ; compare equality WITHOUT changing callerCarry
++ eor #31
++ and #$fd                      ; exactly29/31, original Carry unchanged
+  beq CF
+- ; EXACT original decision/input, including stale state on every foreign.
+  lda SmFreezeRenderState
+  beq Native
+- ; True same-bank native tail body, zero-byte label after its old PLA/PLP.
+- ; Same18B SMC/actualnative farcall, same caller return depth; +3CPU vsinline.
+- jsr FfMuxNativeTail
+  sta SafecallA_SMC+1
+- lda #<SamusFreezeRenderFinish
++ lda #<WfLegacyFreeze
+  sta FarcallJmpTarget_SMC+1
+- lda #>SamusFreezeRenderFinish
++ lda #>WfLegacyFreeze
+  sta FarcallJmpTarget_SMC+2
+- lda #.lobyte(.bank(SamusFreezeRenderFinish)|$80)
++ lda #.lobyte(.bank(WfLegacyFreeze)|$80)
+ Far:
+  jmp FarCallCommon
+ Native:
+  jmp FfMuxNativeROM
+ CF:
+- ; Original path already discarded incomingA and delivered this realstateA.
+- ; Preserve it while deliberately bypassing old SamusFinish under newowner.
+  lda SmFreezeRenderState
+- jsr FfMuxNativeTail       ; ALWAYS complete nativeDrawAll once, even badCFcookie
++ jsr FfMuxNativeTail
+  sta SafecallA_SMC+1
+- lda #<CfP1NativeRestore
++ lda #<WfP1LateDispatch
+  sta FarcallJmpTarget_SMC+1
+- lda #>CfP1NativeRestore
++ lda #>WfP1LateDispatch
+  sta FarcallJmpTarget_SMC+2
+- lda #.lobyte(.bank(CfP1NativeRestore)|$80)
+- bne Far                  ; actualnonzero ROMbank, same finalSFC tail
+-.assert *-FwNativeDrawAll=59,error,"Approved native-first CF late59"
++ lda #.lobyte(.bank(WfP1LateDispatch)|$80)
++ bne Far
++ .res 1,$ea
++.assert *-FwNativeDrawAll=59,error,"Exact private59B family factoring"
+ .endproc
+ FwNativeDrawAllEnd:
