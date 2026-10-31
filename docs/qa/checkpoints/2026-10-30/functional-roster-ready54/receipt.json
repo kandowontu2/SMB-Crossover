@@ -1,0 +1,78 @@
+{
+  "status": "INSTALLED_FUNCTIONAL_WIP_54",
+  "ROM_sha256": "08f1a75fb13f1974270bf9c6732d050f778f7f5b8b8a3361683416c242a176f3",
+  "verified_source_bindings": 699,
+  "source_handoff_sha256": "8c5ecf42e67f53a046a64de8e93a893956d713e427d84149b6f472d409621876",
+  "ready": 54,
+  "pending": 26,
+  "source_checks": {
+    "menu_profiles": 80,
+    "Start_A_all64flags": 10240,
+    "actual_dual_cold": true,
+    "Cd_selectors": 120
+  },
+  "native_facing": [
+    {
+      "identity": "chip",
+      "frames": 341,
+      "actual_updates": 75,
+      "selected_visual": {
+        "reviewed_by": "root",
+        "status": "MENU_AND_SUSTAINED_FACING_VISUAL_PASS",
+        "montage_sha256": "caaa1c0358bbc00c425a0c45a2b6d5c85b2ef73404a0a23d6f5fc937bd6e0298",
+        "selected_screens": 5,
+        "observations": [
+          "Native colored menu preview faces right.",
+          "Sustained right and left movement show the corresponding complete body facing."
+        ],
+        "actual_completed_updates_after_entrance": 75,
+        "scope_correction": "Fixture loops includesstartup; its220-active-update wording is NOT qualified. Actual trace proves75 post-entrance updates, both sustained directions and coldmenu.",
+        "full_1_1_clear": false,
+        "every_frame_visual_review": false
+      },
+      "source_DMA_bytes": 82176,
+      "physical_E3_bytes": 82176,
+      "CHR_window_checks": 912,
+      "NMI_checks": 75,
+      "IRQ_checks": 75
+    },
+    {
+      "identity": "dale",
+      "frames": 341,
+      "actual_updates": 75,
+      "selected_visual": {
+        "reviewed_by": "root",
+        "status": "MENU_AND_SUSTAINED_FACING_VISUAL_PASS",
+        "montage_sha256": "889d285a015ce3e67d7f6d0ef8ff68c8b1a0b5df8ffe354fc9947578bda079de",
+        "selected_screens": 5,
+        "observations": [
+          "Native colored menu preview faces right.",
+          "Sustained right and left movement show the corresponding complete body facing."
+        ],
+        "actual_completed_updates_after_entrance": 75,
+        "scope_correction": "Fixture loops includesstartup; its220-active-update wording is NOT qualified. Actual trace proves75 post-entrance updates, both sustained directions and coldmenu.",
+        "full_1_1_clear": false,
+        "every_frame_visual_review": false
+      },
+      "source_DMA_bytes": 82176,
+      "physical_E3_bytes": 82176,
+      "CHR_window_checks": 912,
+      "NMI_checks": 75,
+      "IRQ_checks": 75
+    }
+  ],
+  "retained_full_route_failure": {
+    "identity": "chip",
+    "frame": 1956,
+    "x": 2012,
+    "reason": "Zero-death 1-1 route",
+    "clear": false
+  },
+  "all_character_1_1_and_powerups_complete": false,
+  "other_four_requested_facing_fixes_still_pending": true,
+  "archive_sha256": "b7a6043531657ff7195c8f449608ec571648e1f703843ad0adc235bdc44dd7e7",
+  "archive_bytes": 2322872,
+  "archive_members": 706,
+  "all_archive_members_verified": true,
+  "no_ROM_object_debug_files": true
+}
