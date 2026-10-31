@@ -1,0 +1,16 @@
+"""Both native tap/held jump arcs, actual four-class weapon identity evidence."""
+from pathlib import Path
+P=Path(__file__).with_name('contra_force_engine_probe_v1.py')
+s=P.read_text().replace('import hashlib,json,re,sys,traceback','import hashlib,json,re,sys,traceback,itertools')
+s=s.replace("O=R/'build/contra-force-engine-probe-v1'", "O=R/'build/contra-force-engine-probe-v4'")
+s=s.replace('def pair(self,lo):self.reg[6:8]=[lo,lo+1];self.map()', 'def pair(self,lo):self.reg[6:8]=[lo,lo+1];self[0x36]=2 if lo==4 else 0;self.map()')
+s=s.replace('m[0x782]=1;', 'm[0x782]=0x2e;')
+s=s.replace("kind=m[0x782+i]", "kind=m[0x682+i]")
+s=s.replace("for i in range(2,10)if m[0x782+i]", "for i in range(2,26)if m[0x682+i]")
+s=s.replace('for var in range(4):\n   c=machine(var);seq=[]\n   for age in range(48):', 'for var,hold in itertools.product(range(4),[False,True]):\n   c=machine(var);seq=[]\n   for age in range(72):')
+s=s.replace('0x80 if age==0 else 0', '0x80 if age<(20 if hold else 1) else 0')
+s=s.replace('dict(variant=var,initial_source_velocity=', 'dict(variant=var,A_hold_updates=20 if hold else 1,initial_source_velocity=')
+s=s.replace("q['checks']['four_original_source_jump_arcs']", "q['checks']['eight_original_source_jump_arcs']")
+s=s.replace("assert z['shot_count']>0 and slots,(var,gear,z,slots)", "assert z['shot_count']==1 and len(slots)==1 and slots[0]['slot']==10 and slots[0]['kind']==[[1,2,14],[1,12,4],[1,3,5],[1,13,7]][var][gear],(var,gear,z,slots)")
+s=s.replace("files={Path(__file__),Path(sys.modules", "files={P,*[P.with_name(f'contra_force_engine_probe_v{v}.py')for v in range(1,5)],R/'build/contra-force-source-v1/source-fetch.json',Path(__file__),Path(sys.modules")
+exec(compile(s,str(P),'exec'),{'__name__':'__main__','__file__':str(Path(__file__).resolve())})

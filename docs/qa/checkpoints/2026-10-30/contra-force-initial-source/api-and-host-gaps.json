@@ -1,0 +1,112 @@
+{
+  "status": "MEASURED_ORIGINAL_SOURCE_API_NOT_RELOCATED_HOST",
+  "identity": {
+    "menu_slot": 30,
+    "raw": 31,
+    "variant_byte": "FmGroups=$5FE8 bits3..4",
+    "names": [
+      "Burns",
+      "Smith",
+      "Iron",
+      "Beans"
+    ],
+    "start_gap": "Current FmStartFlags clears all FmGroups. Future selected slot30 must preserve18 only; BTslot23 uses20 and requires coordinated composition."
+  },
+  "original_entries": {
+    "input": {
+      "bank_pair": [
+        4,
+        5
+      ],
+      "address": "A2E7"
+    },
+    "movement_pose_weapon_spawn": {
+      "bank_pair": [
+        4,
+        5
+      ],
+      "address": "A538"
+    },
+    "clear_source_delta": {
+      "fixed_address": "F640"
+    },
+    "position_integration": {
+      "bank_pair": [
+        0,
+        1
+      ],
+      "address": "BCE0"
+    },
+    "source_animation_parser": {
+      "bank": 4,
+      "address": "9762",
+      "nested_script24_data_bank": 6,
+      "source_shadow": "0036"
+    }
+  },
+  "source_motion": {
+    "horizontal_8_8": [
+      312,
+      304,
+      288,
+      319
+    ],
+    "tapA_updates": 1,
+    "tap_apex_pixels": [
+      4,
+      4,
+      4,
+      4
+    ],
+    "heldA_updates": 20,
+    "observed_held_apex_pixels": [
+      55,
+      50,
+      45,
+      53
+    ],
+    "not_maximum_hold_or_64px_pipe_proof": true
+  },
+  "actual_source_weapon_kinds_by_class_gear": [
+    [
+      1,
+      2,
+      14
+    ],
+    [
+      1,
+      12,
+      4
+    ],
+    [
+      1,
+      3,
+      5
+    ],
+    [
+      1,
+      13,
+      7
+    ]
+  ],
+  "contact_scope": "Only explicit flat-floor/air07D2 arena inputs. No native SMB collision/platform/pipe/flagpole callback installed or proven.",
+  "unimplemented": [
+    "Relocatable source core and conservative state projection",
+    "Authentic full-body/effect decoder and per-pose hardware page pack",
+    "SMB terrain/head/feet/side/pipe/platform/flagpole/progression adapters",
+    "Lifecycle constructor/retire/two-player save/load and shared selected31 routes",
+    "Actual menu readiness and native cold/controller qualification"
+  ],
+  "resources": {
+    "granted": false,
+    "PRG_RAM_CHR_reserved_by_this_packet": false,
+    "avoid_current_Benj_CHR": "901..<915",
+    "avoid_current_BT_CHR": "915..<927",
+    "possible_temporal_RAM1_C2_requires_explicit_owner_review": true
+  },
+  "authentic_art": {
+    "existing_frozen_menu_manifest": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-body-art-v6\\manifest.json",
+    "no_new_art_or_palette_approximation": true,
+    "palette_candidate": "Original P0[37,12,0F] plus lossless red16 source-mask parts via stable nativeP2index1; actual per-pose OAM/priority budget still unmeasured, not adopted."
+  }
+}
