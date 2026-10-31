@@ -1,0 +1,26 @@
+{
+  "negatives": [
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\cf-bt-shared-transport-v1\\negative.json",
+      "sha256": "80fcdd4177491d734b203103835c2b5f0e10e5f43023d94757d27d0a18366d4a",
+      "error": "AssertionError()"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\cf-bt-shared-transport-v2\\negative.json",
+      "sha256": "3727a0fb2cd61c2971edfc1cb10163d073baaa1d7635fcedf9592dc4a2d56be0",
+      "error": "AssertionError()"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-shared-transport-isr-controls-v1\\controls.json",
+      "sha256": "28491fd92abf7c2947c6c8b7363ff85f420fcc8a92ceb0e8c320d391ba6e5823",
+      "error": "AssertionError()"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-shared-transport-isr-controls-v2\\controls.json",
+      "sha256": "d71aa3b7f4028fa094762df2ef3f7081e5433d8848ff674cfcb051c474a5b706",
+      "error": "AssertionError(('joined continuation', {'service': 0, 'lag': 0, 'pause': 0, 'reason': 'genuine SFC stack seam', 'PC': 352, 'raw': -1, 'source_SP': 222, 'kind': 'NMI', 'actual_AXYP': [0, 0, 1, 50], 'expected_AXYP': [3, 3, 3, 48], 'actual_rawtags': [254, 215, 216, 255], 'expected_rawtags': [254, 215, 216, 255]}))"
+    }
+  ],
+  "preparation": "v1 assumed an inherited union command had --create-full-dep. v2 linked correctly but post-check guessed a private finish address. v3 adds an actual dependency output and derives finish from parent BwResolveRAM+6=B282. Frozen outputs untouched.",
+  "normal_input_handoff": "Retained joined-v2 d71aa3b7: real normalNMI polls fixture4016=0, changing manuallyseeded SavedJoypadBits1 to0 before source read. ImmediateRTI CPU/33SMC/page1/maps were exact. Passing joined-v3 uses explicit stablezero normal/paused and heldRight lag/IRQ, with no input restoration or source normalization. No serial-heldRight/naturalMain claim."
+}

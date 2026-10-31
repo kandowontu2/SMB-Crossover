@@ -1,0 +1,3 @@
+Frozen Contra Force source dependency, independently rehashed by root. The sibling handoff describes its actual API, tests, retained fixture failures and explicit limits. Its small source delta archive is relative to the predecessor named in the handoff; original ROM/object/debug binaries are excluded.
+
+Retirement invalidates stale CF code before another family reuses mapped RAM. The checkpoint loader invokes the real native CHR publisher internally before its buffered24KB transfer. These isolated workers do not establish installed menu/scene coverage. The full source composition and character presentation are separate ongoing work. CF and Battletoads remain pending; Downloads stays on the verified66-character Bowser build.

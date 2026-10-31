@@ -1,0 +1,25 @@
+{
+  "entry": "CfLoaderProposal",
+  "A_ROM": 115,
+  "PC": "BF38",
+  "A_bytes": 147,
+  "core_entry": "CfLoaderCoreProposal",
+  "C_ROM": 78,
+  "core_PC": "CE68",
+  "C_bytes": 302,
+  "expected_cookie_PC": "CF86",
+  "difference": "Actual genuine X5PublishChr is called once INTERNALLY from stableC78 while nativeA62 ownsA, BEFORE borrowedPPU copy. It establishes the real software-to-hardware12window/upper0 checkpoint; an external call is no longer required.",
+  "preserved": "FullAXYP except resultC, rawA/C, nativeR0..3, all33SMC inside worker, livepage1, Reload, originalCTRL/latch/scroll, all12publishedCHR windows, RAM0/protection. No5102/5103/5113 writes.",
+  "preconditions": [
+    "Selected31",
+    "FamilyMainCommit bit0=1",
+    "OperMode1",
+    "forcedblank MirrorPPUMASK&18=0 and DisableScreenFlag!=0",
+    "NmiDisable negative",
+    "retire prior selected owners BEFORE any destructive write",
+    "native WRAM writable"
+  ],
+  "copy": "Actual bufferedPPUDATA2007 full24576B copy+readback; invalidateC2 thenRAM3 before firstcopy, full16cookie/class A7validity publishedLAST.",
+  "implementation": "Equivalent two-cookie STX loop saves8B, shared R0/R2zero init saves2B, MapPageY0 reorder saves2B. Add genuine11B mapA62/JSR publisher,1B pad retainsCF86. No source kernel/payload/cookie changes.",
+  "cold": "This worker is callable at actual forcedblank InitScreen but no native hook is installed. Menu/scene/player owner coverage and full presentation remain pending. CfRetire BFBD is present unchanged and separately qualified."
+}

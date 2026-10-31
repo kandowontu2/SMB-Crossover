@@ -1,0 +1,79 @@
+--- installed-c663/union.s
++++ inert-cf-bt/union.s
+@@ -530,9 +530,14 @@
+  cmp #32
+  jeq HuExtendedArthur
+  cmp #27
+- jeq HuExtendedBT
++ beq HuExtendedShared
++ cmp #31
++ beq HuExtendedShared
+  cmp #33
+- jeq HuExtendedBT
++ bne HuExtendedNotShared
++HuExtendedShared:
++ jmp HuExtendedBT
++HuExtendedNotShared:
+  cmp #2
+  bne Other
+  lda RdVariant
+--- installed-c663/src/new_roster_dispatch.s
++++ inert-cf-bt/src/new_roster_dispatch.s
+@@ -188,7 +188,7 @@
+  beq GmOnlyHigh
+  cmp #22
+  beq GmOnlyHigh
+- cmp #32
++ cmp #31
+  bcs GmOnlyHigh
+  ; Exactly24or28 after clearing their sole differing bit. Every other
+  ; highID stays on its genuine old direct legacy table, avoiding recursion.
+--- installed-c663/bowser/router.s
++++ inert-cf-bt/bowser/router.s
+@@ -2,7 +2,7 @@
+ ; It never executes a callback. The original BT row preserves native AXYP.
+ .setcpu "6502"
+ .include "common.inc"
+-.import BwCheck,BtCheck,SafereturnA_SMC,NextBank_SMC
++.import BwCheck,CfOrBtCheck,SafereturnA_SMC,NextBank_SMC
+ .import BwColdPrepare,BwColdDraw,CmHostFresh,FmQueueName,JnResetDispatch
+ .import BwColors,BwStatusName,HuNativeWorldPalette,OperMode_Task
+ .export BwBtResolve
+@@ -13,7 +13,7 @@
+  cmp #27
+  beq BwResolveBowser
+  pla
+- BwFar BtCheck,jsr
++ BwFar CfOrBtCheck,jsr
+  bcc BwResolveBad
+  jmp BwResolveRAM
+ BwResolveBowser:
+@@ -37,9 +37,10 @@
+  bcc BwResolveBad
+ BwResolveRAM:
+  sta FarcallJmpTarget_SMC+1
+- lda #$a0
++ jmp BwResolveFamilyTail
++BwResolveRAMFinish:
+  sta FarcallJmpTarget_SMC+2
+- lda #3
++ txa
+  sec
+  rts
+ BwResolveColdDraw:
+@@ -93,3 +94,15 @@
+  lda #0
+  rts
+ .assert *<=$b300,lderror,"A67 resolver+shared Start helper213B"
++
++; Exact16B already-owned tail; nativeAXYP remains on the outer B020 stack.
++BwResolveFamilyTail:
++ lda #$a0
++ ldx #3
++ ldy SelectedCharacter
++ cpy #31
++ bne BwResolveRAMFinish
++ lda #$be
++ dex
++ bne BwResolveRAMFinish
++.assert *=$b300,lderror,"Exact old16B resolver tail funding"

@@ -1,0 +1,81 @@
+{
+  "status": "PRIVATE_EXACT_CF_RETIRE_ROM_SOURCE_GRANT",
+  "native": false,
+  "installed": false,
+  "lifecycle_hooks_granted": false,
+  "ROM": {
+    "physical_bank": 69,
+    "first_offset": 8125,
+    "end_offset_exclusive": 8161,
+    "bytes": 36,
+    "execution_view": "A",
+    "CPU_start": 49085
+  },
+  "authority": "36B subset of prior Quick lease, immediately after the separately allocated118B guard",
+  "reviewed": [
+    {
+      "joint": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\peach-palette-fix-1030-v1\\joint",
+      "ROM_sha256": "f56e55cd69b93821e66548848305cf9822e2ac0e8a25752d7192332cded53b78",
+      "emitted_conflicts": 0,
+      "classified_temporal_aliases": [
+        {
+          "name": "AR_CACHE_VALID",
+          "value": 57312,
+          "owner": "rawRAM2 C data; never ROM69"
+        }
+      ],
+      "preimage_sha256": "c38236f1e6d5ba2e8616b0c8a115bf8bf0814ddae740ac6cbea93d063417cd0e"
+    },
+    {
+      "joint": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bowser-playable-jump-v1\\joint",
+      "ROM_sha256": "c6635815711a624a02c4337cd9f1830ca9c43b14a824f2ea51963f796ad98c2a",
+      "emitted_conflicts": 0,
+      "classified_temporal_aliases": [
+        {
+          "name": "AR_CACHE_VALID",
+          "value": 57312,
+          "owner": "rawRAM2 C data; never ROM69"
+        }
+      ],
+      "preimage_sha256": "c38236f1e6d5ba2e8616b0c8a115bf8bf0814ddae740ac6cbea93d063417cd0e"
+    },
+    {
+      "joint": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-guarded-cart-v2\\joint",
+      "ROM_sha256": "c1159eff9e3d3caf80411be99a4c5b0fd19695c7517d3c74bb31cc0a44e056a6",
+      "emitted_conflicts": 0,
+      "classified_temporal_aliases": [
+        {
+          "name": "AR_CACHE_VALID",
+          "value": 57312,
+          "owner": "rawRAM2 C data; never ROM69"
+        }
+      ],
+      "preimage_sha256": "c38236f1e6d5ba2e8616b0c8a115bf8bf0814ddae740ac6cbea93d063417cd0e"
+    }
+  ],
+  "constraints": [
+    "Only source-built successors. Preserve all public entries and adjacent bytes; remaining31B is ungranted.",
+    "Full caller AXYP/SP/live stack and all33SMC unchanged; restore origin rawC; no guest opcode.",
+    "Clear only C2 DFE0 if family byte DFE1 equals31, including malformed/stale CF; foreign families untouched.",
+    "Common owner separately composes every required Menu/Start/scene/player/lifecycle and foreign RAM3 replacement path before its first destructive write.",
+    "Run actual full-flag/all-cookie/foreign-state and real normal/lag/paused-NMI/IRQ controls before adopting.",
+    "No new global/ZP/RAM/CHR lease; no readiness, native, complete lifecycle coverage or installation claim."
+  ],
+  "bindings": {
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\contra_force_retire_resource_1031_v1.py": "013b609a26805abbde21dc7dadaa35709f0ffe3e2b398bd64e286368abf43f98",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-retire-proposal-v2\\proposal.json": "69d141b06c6770492b91c5b3ca741c4ddbec5f04aae91d71c899eaa919a71546",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\docs\\qa\\checkpoints\\2026-10-30\\arthur-quick-private-allocation\\root-review-and-reservations.json": "0d12cb77cb79feb9648803d6c057293ffe5686a5a94c41f9813b057b1cdac2ae",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\docs\\qa\\checkpoints\\2026-10-31\\contra-force-rom-guard-resources\\root-review-and-reservations.json": "3bb5b3e3c0c2f9d30d424c5523f4bcf084af00bf57a6c504d0a3385b95135956",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\reference\\contra_force_retire_proposal_v2.s": "b783b5063eee160ce983fd1b7723d707eb60e64e902fdc68c5417825310d9b09",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\peach-palette-fix-1030-v1\\joint\\candidate.nes": "f56e55cd69b93821e66548848305cf9822e2ac0e8a25752d7192332cded53b78",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\peach-palette-fix-1030-v1\\joint\\candidate.dbg": "040abd376adcefea50298ba12aaea2c6d87eaa51f3951d6375161e9a7a56aa35",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\peach-palette-fix-1030-v1\\joint\\private.cfg": "a79287e9c7daf2793c8870960ee34b76c56cbe5a07540dd55133f1c428e423da",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bowser-playable-jump-v1\\joint\\candidate.nes": "c6635815711a624a02c4337cd9f1830ca9c43b14a824f2ea51963f796ad98c2a",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bowser-playable-jump-v1\\joint\\candidate.dbg": "9d95bbc58a08e808b42cc570b86ecd8c6115d804392ba78ff3342cfa92ab09e3",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bowser-playable-jump-v1\\joint\\private.cfg": "93ce4e8378b3a6ed0707518d7cc9e4f283393502148e7b84e12ef2edf45c81b0",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-guarded-cart-v2\\joint\\candidate.nes": "c1159eff9e3d3caf80411be99a4c5b0fd19695c7517d3c74bb31cc0a44e056a6",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-guarded-cart-v2\\joint\\candidate.dbg": "2a9ac7bfd0bba2c1f1d7f8ce7f9acfb550e538abebc6899b950c65a3269de44a",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-guarded-cart-v2\\joint\\private.cfg": "675f11e9717aa8b7fd150cb8d78d30848cb87324f0ff73904650ca556977b47e",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bowser-playable-jump-v1\\joint\\arthur\\cache-wrapper.s": "f59b1fdd8a69677e886f2bedffc5d23f0b899e7fa466a1e57c23cdbe9e4a879b"
+  }
+}

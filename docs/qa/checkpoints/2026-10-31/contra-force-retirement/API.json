@@ -1,0 +1,12 @@
+{
+  "entry": "CfRetire",
+  "actual_A_ROM": 69,
+  "PC": "BFBD",
+  "end_exclusive": "BFE1",
+  "bytes": 36,
+  "caller": "FullAXYP unchanged, including C; X/Y untouched. Real SFC still performs its own two documented immediate writes and N/Z reload of returned A.",
+  "maps": "Original rawC+shadow restored, rawA unchanged inside worker, original SFC frame and live page1 preserved; direct worker and ISR all33SMC exact.",
+  "effect": "Only C2DFE0 is zeroed when C2DFE1==31, including stale/malformed CF. Foreign families stay byteexact. No guest opcode/PPU/protection/globalRAM writes.",
+  "ordering": "Call BEFORE any foreign A1/C2/RAM3 destructive write and before future owner readiness publication, irrespective of SelectedCharacter or class.",
+  "lifecycle": "Worker qualified only. Actual joint Menu/scene/global/alternate-player/load call coverage remains uninstalled and must be independently proved."
+}
