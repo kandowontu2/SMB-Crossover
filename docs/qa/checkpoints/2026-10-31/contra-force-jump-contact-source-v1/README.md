@@ -1,0 +1,7 @@
+# Contra Force jump and native-contact source correction
+
+The previous7b7 native first look showed correct body/colors/ground weapons but no jump. The host world adapter reversed original CF role0 empty and role1 solid, causing the original input routine to remove A while standing in empty space. Correcting those two immediates permits authentic ascent, then exposes stale source ground contact after takeoff.
+
+The existing movement call to Import now calls the existing AfterBG worker, whose first operation is exactly that Import. It consumes the previous native collision outcome before the next original input/body update. This preserves native landing/ceiling authority without a new shared hook, velocity workaround, code growth, state field or private-PC movement. The corrected lives delta0 is retained. The genuine source object images/carrier/full cookies are rebuilt; all non-CF bytes remain exact to frozen e538.
+
+Four real cold/menu/parser cohorts and96Main each prove rises80/72/64/76 and actual native landings back atY176 (ages74/72/70/73).32 genuine public0 NMI/IRQ cuts cover the changed live call/world path and preserve AXYP/page1/all33SMC/maps. These are source CPU results; root native retry/visual approval and later full-route qualification remain pending. Original frozen receipts retain their finite valid horizontal/body/palette scopes; none is relabeled as jump success. No Git staging/commit or native launch was performed.
