@@ -1,0 +1,1 @@
+Root launched the exact installed Ready74 cart after confirming Mesen was closed. Peach has the donor normal P0 palette163027 on selection, lives and gameplay. All four full-frame PNGs were reviewed;180 genuine Main updates and360 interrupt guards pass. No video, full-level or every-powerup claim. Existing MARIO HUD text remains.

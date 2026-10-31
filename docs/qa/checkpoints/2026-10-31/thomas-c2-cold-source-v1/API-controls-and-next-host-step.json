@@ -1,0 +1,75 @@
+{
+  "status": "FROZEN_ISOLATED_C2_SOURCE_NOT_HOST_ADMITTED",
+  "final_component": {
+    "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\thomas-c2-eight-melee-v1\\component.bin",
+    "sha256": "5cef447d11d74da8cec85ddd2fcc4b754c64a280558b976fed337afa3eb55a67",
+    "source_stage_sha256": "8ee9e59ffd192c94a5d1d0d190bc1c0fec14325070e87f4f6dd071588159bb30",
+    "compiled_code_and_data_bytes": 3641,
+    "lab_code_range": "6000..<6E39",
+    "lab_output_bytes": 8192,
+    "selected_C2_state": "C000..<C800 native2KB projection",
+    "transaction_span": "C800..<C818 (24B, including8savedZP and6meleeoutputbytes)",
+    "host_allocations": "NONE. AllC2/code addresses in this packet are isolated lab layout, not a current-roster lease."
+  },
+  "interface": {
+    "ThomasC2ColdInit": "A floor0..4, X player0/1, Y initialepoch; caller has selectedC2 ownership and idleBusy0. Clearsprivate state, executes genuine84F0/8563/8610, selects originalidlepose, publishesReadyA7LAST; restores callerAXYP/SP.",
+    "ThomasC2AcceptedFrame": "A originalheldbyte, X1accepted/otherrejected, Yforegroundepochmod256; skipsbusy/unready/duplicate. Executes original frame reset, timers, controllerlatch, movement/input, trueC208window+C65Brectangle, animation/pose. Restores callerAXYP/SP.",
+    "native_controls": "Right1/Left2/Down4/Up8 jump/B40punch/A80kick; source edge/stance timing untouched.",
+    "outputs": "Originalprivate69/68/B6/D4/E5/4A6/FB..FF, latched originalposeC805; attackenabledC808/kindC809/rectangleC80A..C80D.",
+    "scratch": "OnlyphysicalR0..7 borrowed. Original08..0F become directC2fields. Canonicalworking/pointerstate remainsselectedC2; saveC810..C817 restored before return. No NMI-disable interval.",
+    "private_worker_contract": "Rawbodybox offsetX0/4; rawattackbox canonicaloffset0/4; selectedplayer damageX6 only. EnemyserviceX0..5 is not a host API.",
+    "retained_dependencies": "Original coldworldtables80F8..811D and damage metadata/B243 remain named donor dependencies. Audio queues are retained; driver/audio ownership and native deathscript are not integrated."
+  },
+  "finite_controls": {
+    "cold_receipt": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\thomas-c2-eight-melee-controls-v1\\controls.json",
+    "cold_receipt_sha256": "ce4b8f3519d9e3afe396566030bcd551a34e22239a10503fd1432031be54cfc7",
+    "original_cold_pairs": 640,
+    "accepted_actor_pairs": 2336,
+    "duplicate_unaccepted_busy_inert": 7008,
+    "primitive_receipt": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\thomas-c2-scope-controls-v1\\controls.json",
+    "primitive_receipt_sha256": "91e756f401e9833afd3209cbdac67e68f875b49533d070ef035051fa45cd12ba",
+    "original_allflag_primitive_and_storeorder_pairs": 6912,
+    "real_lab_NMI_IRQ_cases": 132,
+    "all64flags": "C/Z/I/D/V/N exhaustive with canonicalB/U30; every executingCPU is NES-specificNesMPU, decimalarithmeticdisabled while P.Dpreserved.",
+    "source_state_projection": "Exact2KB application state exceptdeadstack; fullAXYP/SP, every originalprimitive applicationstore in originalorder. Pointer provenance tracked perbyte, not generic wholeword normalization.",
+    "pointer_details": "Only truepair publishers A842/A915/A923 rebind linkedcode/table pointers; coldpointerhighwriters84FC/8505/850D projectC3..C8. Laterlow-only/scalarwrites retain untouchedhigh-byte provenance. Observer tracks logical00..0F; only00..07arephysicalborrowed.",
+    "vector_contract": "CompiledlabISR preservesexactlyR0..7, increments host09, attemptsbusy reentry, executesrealNMI/IRQ vectors andRTI. Host09increment survives; all33SMC canarybytes exact.",
+    "actual_lab_minimumSP": 139,
+    "cold_CPU_cycles": [
+      25904,
+      26039
+    ],
+    "exclusions": "Not actual currenthostNMI/mapper/audio/raster/PPUdeadline/nativeemulator/terrain/Main qualification. No readiness or installation claim."
+  },
+  "predecessor": {
+    "frozen_original_handoff": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\docs\\qa\\checkpoints\\2026-10-31\\thomas-original-source-component-v1\\handoff.json",
+    "sha256": "278b74d2bc28f7d2b2f0379d2fb7f95e5a8e5973d106f8c85499679dae607b61",
+    "old16_scope": "build/thomas-c2-component-v4 remainsimmutable lab-only; rejectedforhost because08..0F are live enginefields.",
+    "actual_negative": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\thomas-c2-scope-controls-v1\\old16-scope-negative.json",
+    "negative_sha256": "db9d7c6ac53367d7f9d1e70c54c34044091019f8e8ddcc253445495512939363",
+    "negative": "Old16scope hides host09as0 then restoresBA after real INC09; correcthostresultBB islost. New8byte132vectors retainBB."
+  },
+  "future_terrain_base": {
+    "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-world-roles-1031-v2\\joint\\candidate.nes",
+    "sha256": "a12661c1ddad2e15a8ce0589e86b5510703fd390e6346a982b14a6be0b742e3c",
+    "handoff": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\docs\\qa\\checkpoints\\2026-10-31\\contra-force-jump-contact-source-v1\\handoff.json",
+    "handoff_sha256": "072c8e8855ff60b0524d9f62a2e7e2e3e9c762660f3e9bff0c96031f8ba86359"
+  },
+  "remaining_host_gaps": [
+    "ActualC2/code/CHR allocation and completecookie/selectedThomas/FmAlts40 owner predicates",
+    "Realforcedblankloader and C mapping/acquire/retire through current5FFF protocol; idleBusy0 acquisition is only a lab precondition now",
+    "Import current world/screen/ground anchor, nativehead/feet/support/ceiling/fall and native progression without a second integrator",
+    "Normalize bakedbackground art offsets against originalB6 once; publicpose/bodybox APIs remain genuineoriginal",
+    "Connect publishedattackwindow/rectangles to actualhost targets/defeat and selectednativeHP/life/powerup rules",
+    "Source audio driver/state/channel/NMIownership; queues alone are not sound qualification",
+    "Coordinated Thomas/WWF Startmask compaction; last7menuhelperbytes remainunclaimed"
+  ],
+  "retained_development_negatives": [
+    "Firstcoldwrapper checkedY after registersave instead of savedA; newv4 correctlyreloadsstackarguments.",
+    "Genericwholeword pointer normalization misclassified pointerhighleft after scalar-low overwrite; instruction-provenance comparison fixesobserver only.",
+    "Sixteenphysicalscratchbytes are explicitly non-host-adoptable; eightbyte successor records08..0FdirectC2 andactual host09survival."
+  ],
+  "changes_outside_private_sources": false,
+  "native_runs": 0,
+  "Git_or_download_changes": false
+}
