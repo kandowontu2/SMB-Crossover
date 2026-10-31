@@ -1,0 +1,1 @@
+Private source experiment only. Native testing rejected admission: wrong lives colors and an invisible gameplay body. The correct selection image and successful movement do not qualify an unlock. A separate source successor must fix both defects and pass visible-body emulator checks. Downloads remains the verified68-character build.
