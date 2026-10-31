@@ -64,6 +64,10 @@ def main():
     for name,file in [('SMB2 MARIO','mario'),('SMB2 LUIGI','luigi'),('SMB2 TOAD','toad'),('SMB2 PEACH','peach')]:
         p=R/f'build/smb2-roster-normal-rgba-1030-v2/smb2-{file}-normal.png'
         pics[name]=Image.open(p).convert('RGBA')
+    # These existing reference exports face opposite to the requested roster
+    # presentation. Flip the complete sprite, keeping all original pixels.
+    for name in ['CHIP','DALE','SMB3 BOWSER','GIMMICK','THOMAS','GOKU']:
+        pics[name]=pics[name].transpose(Image.Transpose.FLIP_LEFT_RIGHT)
     assert len(names)==80 and len(set(n for n,_ in names))==80
     assert set(n for n,_ in names)<=set(pics),set(n for n,_ in names)-set(pics)
     W,H=1936,2168
