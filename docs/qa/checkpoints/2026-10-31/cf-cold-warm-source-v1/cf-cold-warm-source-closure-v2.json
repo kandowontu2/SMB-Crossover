@@ -1,0 +1,182 @@
+{
+  "source": true,
+  "passed": true,
+  "native": false,
+  "candidate": "8f0a925be0f1845952583a28dac7b54dd716c35539cfd65a13df37a7f9cdb310",
+  "parent": "f5231061660c6b898554a86c429db8357bd80da71b8aa38525b09636a6eb8e5e",
+  "ready": 66,
+  "CF_BT_pending": true,
+  "actual_scoped_parent_symbols": 80242,
+  "only_declared_internal_or_retired_symbols": [
+    {
+      "module": [
+        "joint",
+        "entrypoint.s"
+      ],
+      "scope": [
+        "\"\""
+      ],
+      "symbol": "FmCfHelperEnd",
+      "old": "0xB5CF",
+      "new": "0xB602"
+    },
+    {
+      "module": [
+        "bowser",
+        "router.s"
+      ],
+      "scope": [
+        "\"\""
+      ],
+      "symbol": "BwStartGroups",
+      "old": "0xB2E6",
+      "new": null
+    },
+    {
+      "module": [
+        "bowser",
+        "router.s"
+      ],
+      "scope": [
+        "\"\""
+      ],
+      "symbol": "BwStartAlts",
+      "old": "0xB2D2",
+      "new": null
+    },
+    {
+      "module": [
+        "bowser",
+        "router.s"
+      ],
+      "scope": [
+        "\"\""
+      ],
+      "symbol": "BwStartFlags",
+      "old": "0xB2BD",
+      "new": null
+    },
+    {
+      "module": [
+        "bt",
+        "router.s"
+      ],
+      "scope": [
+        "\"\""
+      ],
+      "symbol": "BtRouterBad",
+      "old": "0xB0CB",
+      "new": "0xB0DA"
+    }
+  ],
+  "all_current66_publicPCs_fixed": true,
+  "moved_original_51B_Start_mask_byteexact": true,
+  "real_Start_call_rebound": true,
+  "no_remaining_BwStartFlags_importers": true,
+  "original_Bowser_constructor_15B_byteexact": true,
+  "menu_used_and_granted": [
+    359,
+    400
+  ],
+  "BT_router_used_and_granted": [
+    211,
+    224
+  ],
+  "BT_table_slot36_worker_fixed": true,
+  "A67_reclaimed_51B_used_by_14B_native_fallback_and_37B_loadselector": true,
+  "new_ROM_only_granted_17B_and_42B": true,
+  "exact_changed_envelopes": [
+    {
+      "owner": "FmStartFlags",
+      "offset": 630772,
+      "size": 28
+    },
+    {
+      "owner": "FmStartIdentityFlags",
+      "offset": 243167,
+      "size": 51
+    },
+    {
+      "owner": "BwBtResolve",
+      "offset": 553531,
+      "size": 213
+    },
+    {
+      "owner": "BtServiceVeneers",
+      "offset": 716848,
+      "size": 224
+    },
+    {
+      "owner": "CfSceneRetireForeign",
+      "offset": 573425,
+      "size": 17
+    },
+    {
+      "owner": "CfLoadIfCold",
+      "offset": 950235,
+      "size": 42
+    },
+    {
+      "owner": "CfOrBtCheck",
+      "offset": 573271,
+      "size": 118
+    },
+    {
+      "owner": "CfLoaderProposal",
+      "offset": 950088,
+      "size": 147
+    },
+    {
+      "owner": "CfLoaderCoreProposal",
+      "offset": 642680,
+      "size": 302
+    },
+    {
+      "owner": "BwScene",
+      "offset": 725871,
+      "size": 161
+    },
+    {
+      "owner": "CF_granted_carrier_body_shots",
+      "offset": 2006032,
+      "size": 34816
+    }
+  ],
+  "changed_bytes": 5467,
+  "header_and_all_other_ROM_CHR_bytes_exact": true,
+  "Quick_Ar_FF_BW_images_and_cookies_exact": true,
+  "CF_payload_cookie_exact_141b": true,
+  "actual_linked_importers": {
+    "BwStartFlags": [],
+    "FmStartIdentityFlags": [],
+    "BwScene": [
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\cf-cold-warm-source-v3\\joint\\main.o"
+    ],
+    "CfSceneRetireForeign": [
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\cf-cold-warm-source-v3\\joint\\bowser\\cold.o"
+    ],
+    "BwCfSceneLoad": [
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\cf-cold-warm-source-v3\\joint\\bowser\\cold.o"
+    ],
+    "CfLoadIfCold": [
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\cf-cold-warm-source-v3\\joint\\bowser\\router.o"
+    ],
+    "CfLoaderProposal": [
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\cf-cold-warm-source-v3\\joint\\cf-cold-warm.o"
+    ],
+    "CfOrBtCheck": [
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\cf-cold-warm-source-v3\\joint\\bowser\\router.o",
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\cf-cold-warm-source-v3\\joint\\cf-cold-warm.o"
+    ],
+    "BtServiceVeneers": [
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\cf-bt-shared-transport-v3\\joint\\union.o",
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\cf-cold-warm-source-v3\\joint\\cf-cold-warm.o"
+    ]
+  },
+  "actual_consumed_union_object": [
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\cf-bt-shared-transport-v3\\joint\\union.o"
+  ],
+  "scope": "CF pending. Actual menu retirement remains before Selected; foreign scene retires before inner FW/BW overwrites. Selected31 genuine ROM auth/loader then guarded B02015 SceneEnsure, C0 skips original BW constructor. Invalid15/19 genuine native fallback; all other invalid rows decline. No names/palette/P1/native/admission claim.",
+  "full_receipt": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\cf-cold-warm-source-closure-v2\\controls.json",
+  "sha256": "57acad96d6e5f1f8cefbfe4657dcc932b626b0820d416ff7528bee218f83efba"
+}

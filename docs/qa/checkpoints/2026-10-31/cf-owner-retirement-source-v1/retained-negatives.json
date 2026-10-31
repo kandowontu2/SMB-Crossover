@@ -1,0 +1,27 @@
+{
+  "negatives": [
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\cf-owner-retirement-v1\\negative.json",
+      "sha256": "e04206079261ad3674d0fc9b6b342c8eefeb63a930f75f356831583009d58877",
+      "error": "KeyError('BwSceneNativePrepared')"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\cf-owner-retirement-coverage-v1\\controls.json",
+      "sha256": "44112e682f996901c45b4ee29df38447157defae0887d61bc8756aa5394397fc",
+      "error": "AssertionError((27, 0, 'MoveAllSpritesOffscreen', {'BwScene': 1, 'CfRetire': 1, 'S2InitScreenPrepare': 1, 'QwSceneInit': 1, 'ArGenSceneInit': 1, 'FwSceneInit': 1, 'MoveAllSpritesOffscreen': 2, 'FwLoad': 1, 'BwLoad': 1}))"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\cf-owner-retirement-source-closure-v1\\negative.json",
+      "sha256": "d6bc0765dd01ff8b374af0f661b30ed190e858357deda3e0345cd4e39dc4548d",
+      "error": "Overbroad all-symbols claim treated 11 already-reviewed phase1 common internal/table symbols as fixed public PCs. New retirement source did not move these relative to a7da."
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\cf-owner-retirement-hook-abi-v1\\interrupted.json",
+      "sha256": "3491e834141c08fee310190b4883bb4e11f169f94c556274dc192912d7d51472",
+      "error": ""
+    }
+  ],
+  "extra_sprite_clear": "V1 expected one MoveAllSpritesOffscreen. Unchanged a7da has two on an old FF palette-owned Bowser transition: original native clear, then FwMuxSceneA::Retire clearing prior FF parts before native P1 restoration. Bound parent/new diagnostic and v2 demand identical original call counts.",
+  "stale_object": "Builderv1 compiled new cold.o but inherited final link consumed frozen c663 cold.o. Postlink missing new helper failed. V2 binds/replaces actual sole cold producer; no frozen output was overwritten.",
+  "symbol_scope": "Closurev1 incorrectly treated already-frozen phase1 common internal/table labels as fixed public PCs. V2 checks no new current66 moves vs actual a7da; twelve CF loader internal diagnostic exports rebind exactly to frozen60a5."
+}

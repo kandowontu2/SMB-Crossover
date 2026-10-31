@@ -1,0 +1,237 @@
+--- inert-a7da/src/character_select.s
++++ owner-retirement/src/character_select.s
+@@ -1,3 +1,4 @@
++.import CfRetire
+ .import BwMenuResolve
+ .import ArGenResolve
+ ; Dedicated, non-gameplay front end. The title never runs GameCoreRoutine.
+@@ -601,8 +602,16 @@
+ 
+ .proc MenuResolveCharacter
+ .if ::ENABLE_MMC5_EXPANDED
+-  farcall BwMenuResolve,jmp
+-  .res 16,$ea
++  ; Retire CF before Fm/Cm can publish the next owner. CfRetire preserves
++  ; sourceA and has no inner SFC, so reuse the first call's saved sourceA.
++  farcall CfRetire
++  lda #<BwMenuResolve
++  sta FarcallJmpTarget_SMC+1
++  lda #>BwMenuResolve
++  sta FarcallJmpTarget_SMC+2
++  lda #.lobyte(.bank(BwMenuResolve)|$80)
++  jmp FarCallCommon
++  .res 1,$ea
+ .else
+   ldx CrossoverMenuIndex
+ .if ::ENABLE_MMC5_EXPANDED
+@@ -1330,7 +1339,7 @@
+  .endif
+ SelectNameTable:
+ .if ::ENABLE_MMC5_EXPANDED
+-  .incbin "C:/Users/kando/Documents/ChatGPT/SMB Crossover/build/cf-bt-shared-transport-v3/joint/menu.rle"
++  .incbin "C:/Users/kando/Documents/ChatGPT/SMB Crossover/build/cf-owner-retirement-v2/joint/menu.rle"
+ .else
+   .incbin "chr/raw/character-select.bin"
+ .endif
+--- inert-a7da/bowser/cold.s
++++ owner-retirement/bowser/cold.s
+@@ -1,3 +1,4 @@
++.import CfRetire
+ ; All ROM-only callbacks fit already granted six A-only Bowser islands.
+ .setcpu "6502"
+ .include "common.inc"
+@@ -72,7 +73,15 @@
+ 
+ .segment "BW_ROM_AUX"
+ BwScene:
+- BwFar S2InitScreenPrepare,jsr
++ ; Sole production ingress is the genuine InitScreen SFC. Its nativeA is
++ ; already in SafecallA; retire before S2/Qw/Ar/Fw can overwrite any bank.
++ lda #<CfRetire
++ sta FarcallJmpTarget_SMC+1
++ lda #>CfRetire
++ sta FarcallJmpTarget_SMC+2
++ lda #.lobyte(.bank(CfRetire)|$80)
++ jsr FarCallCommon
++ jsr BwSceneNativePrepared
+  php
+  pha
+  txa
+@@ -139,4 +148,13 @@
+  rts
+ .include "inc/charmap.inc"
+ BwHudName:.byte " BOWSER"
+-.assert *<=$b400,lderror,"A88 actual name-patch+late lives budget"
++; Existing15B own tail. The original nativeA remains SFC-saved because
++; CfRetire preservesA/SMC; reuse the callerJSR frame for the original child.
++BwSceneNativePrepared:
++ lda #<S2InitScreenPrepare
++ sta FarcallJmpTarget_SMC+1
++ lda #>S2InitScreenPrepare
++ sta FarcallJmpTarget_SMC+2
++ lda #.lobyte(.bank(S2InitScreenPrepare)|$80)
++ jmp FarCallCommon
++.assert *=$b400,lderror,"Exact A88 existing15B tail funding"
+--- inert-a7da/cf-loader.s
++++ owner-retirement/cf-loader.s
+@@ -1,11 +1,13 @@
+-; Source-only measured CF bootstrap proposal. NO ROM lease or native hook.
++; Source-owned CF loader successor inside the granted147+302B ROM spans.
++; No common/lifecycle/native admission hook is installed by this source.
+ ; A retained A-ROM outer worker maps a retained C-ROM copier. No guest code
+ ; executes until all24KiB are copied, verified and C2 cookie validity is last.
+ ; Caller must FIRST retire prior selected owners and assert Main-busy, then
+-; reach genuine InitScreen forced blank with actual X5PublishChr checkpoint.
++; reach genuine InitScreen forced blank. This successor establishes the
++; actual native12-window X5PublishChr checkpoint INTERNALLY, before copying.
+ .setcpu "6502"
+ .macpack longbranch
+-.import SelectedCharacter,FamilyMainCommit,OperMode,FmGroups
++.import SelectedCharacter,FamilyMainCommit,OperMode,FmGroups,X5PublishChr
+ .import Mirror_PPUMASK,Mirror_PPUCTRL,NmiDisable,DisableScreenFlag
+ .import CurrentBank,CurrentBankC,ReloadCHRBank,CurrentCHRBank
+ .import X5ChrMode,X5WideChrActive,ChrPhysicalMap,HorizontalScroll,VerticalScroll
+@@ -93,30 +95,33 @@
+ CfLoaderCoreProposal:
+  lda CurrentBank
+  pha
+- lda #2
+- sta CurrentBank
+- sta $5115
+- lda #0
+- sta $bfe0                     ; shared C2 valid cleared before ANY copy
+- lda #3
+- sta CurrentBank
+- sta $5115
+- lda #0
+- sta $bfe0                     ; retire stale RAM3 code cookie before write
++ ; C78 remains executable while the genuine A62 publisher owns A.
++ lda #.lobyte(.bank(X5PublishChr)|$80)
++ sta CurrentBank
++ sta $5115
++ jsr X5PublishChr
++ ldx #2
++CfInvalidatePreviousCookies:
++ stx CurrentBank
++ stx $5115
++ lda #0
++ sta $bfe0                     ; C2 FIRST, RAM3 SECOND, before ANY copy
++ inx
++ cpx #4
++ bne CfInvalidatePreviousCookies
+  lda Mirror_PPUCTRL
+  and #$fb
+  ora #$20
+  sta $2000
+  lda #0
+  sta R2                        ; stream-page0..23
++ sta R0                        ; pointer low stays0 through all24 source pages
+  lda #1
+  sta R3                        ; actual destination rawA1,2,3
+ CfLoadNextBank:
+  lda R3
+  sta CurrentBank
+  sta $5115
+- lda #0
+- sta R0
+  lda #$a0
+  sta R1
+ CfLoadNextPage:
+@@ -227,10 +232,10 @@
+  bit $2002
+  lda #$0c
+  sta $2006
+- lda #0
+- sta $2006
++ ldy #0
++ sty $2006
+  lda $2007                    ; discard actual buffered first read
+- ldy #0
+  rts
++.res 1,$ff                   ; retain genuine expected-cookie PC CF86
+ CfLoaderExpectedCookie:
+-.incbin "C:/Users/kando/Documents/ChatGPT/SMB Crossover/build/cf-bt-shared-transport-v3/joint/cf-cookie.bin"
++.incbin "C:/Users/kando/Documents/ChatGPT/SMB Crossover/build/cf-owner-retirement-v2/joint/cf-cookie.bin"
+--- inert-a7da/private.cfg
++++ owner-retirement/private.cfg
+@@ -1,5 +1,5 @@
+ MEMORY {
+-BT_CACHE_MEM:start=$a000,size=$2000,bank=3,type=ro,file="C:/Users/kando/Documents/ChatGPT/SMB Crossover/build/cf-bt-shared-transport-v3/joint/sideoutputs/candidate/00-cache.bin",fill=yes,fillval=$ff;
++BT_CACHE_MEM:start=$a000,size=$2000,bank=3,type=ro,file="C:/Users/kando/Documents/ChatGPT/SMB Crossover/build/cf-owner-retirement-v2/joint/sideoutputs/candidate/00-cache.bin",fill=yes,fillval=$ff;
+ 
+  AR_GEN_CTOR_RUN:start=$bc95,size=$6b,type=ro,file="",bank=$46;
+  AR_GEN_NAME_RUN:start=$a9cf,size=$31,type=ro,file="",bank=$75;
+@@ -110,7 +110,8 @@
+ BW_LOAD_MEM:start=$bf20,size=$e0,type=ro,file=%O,fill=yes,fillval=$ff,bank=$44;
+     X5_NEW_45:start=$a000,size=$1f47,type=ro,file=%O,fill=yes,fillval=$ff,bank=$45;
+  CF_GUARD_MEM:start=$bf47,size=$76,type=ro,file=%O,fill=yes,fillval=$ff,bank=$45;
+- CF_GUARD_POST:start=$bfbd,size=$43,type=ro,file=%O,fill=yes,fillval=$ff,bank=$45;
++ CF_RETIRE_MEM:start=$bfbd,size=$24,type=ro,file=%O,fill=yes,fillval=$ff,bank=$45;
++ CF_GUARD_POST:start=$bfe1,size=$1f,type=ro,file=%O,fill=yes,fillval=$ff,bank=$45;
+     X5_NEW_46:start=$c000,size=$58f,type=ro,file=%O,fill=yes,fillval=$ff,bank=$46;
+ AR_C70_SMALL:start=$c58f,size=$2d1,type=ro,file=%O,fill=yes,fillval=$ff,bank=$46;
+ QW_ROUTER_MEM:start=$a860,size=$315,type=ro,file=%O,fill=yes,fillval=$ff,bank=$46;
+@@ -257,7 +258,7 @@
+  CF_BODY_MEM:start=$efc00,size=$2400,type=ro,fill=yes,file=%O,fillval=$00;
+  CF_SHOT_MEM:start=$f2000,size=$400,type=ro,fill=yes,file=%O,fillval=$00;
+  CF_CHR_POST:start=$f2400,size=$dc00,type=ro,fill=yes,file=%O,fillval=$00;
+-FF_RAM3_MEM:start=$a000,size=$2000,bank=3,type=ro,file="C:/Users/kando/Documents/ChatGPT/SMB Crossover/build/cf-bt-shared-transport-v3/joint/sideoutputs/candidate/01-ram3.bin",fill=yes,fillval=$ff;
++FF_RAM3_MEM:start=$a000,size=$2000,bank=3,type=ro,file="C:/Users/kando/Documents/ChatGPT/SMB Crossover/build/cf-owner-retirement-v2/joint/sideoutputs/candidate/01-ram3.bin",fill=yes,fillval=$ff;
+ 
+ N0:start=$5C00,size=$90,type=rw;
+ N1:start=$5C90,size=$30,type=rw;
+@@ -301,16 +302,17 @@
+ N39:start=$5E2E,size=$1,type=rw;
+ N40:start=$5E2F,size=$1,type=rw;
+ QH_PERSIST_MEM:start=$5f88,size=$8,type=rw,file="";
+-QW_RAM1:start=$a000,size=$2000,type=ro,fill=yes,fillval=$ff,file="C:/Users/kando/Documents/ChatGPT/SMB Crossover/build/cf-bt-shared-transport-v3/joint/sideoutputs/candidate/02-code.bin",bank=1;
+-QW_RAM2:start=$c000,size=$2000,type=ro,fill=yes,fillval=$ff,file="C:/Users/kando/Documents/ChatGPT/SMB Crossover/build/cf-bt-shared-transport-v3/joint/sideoutputs/candidate/03-data.bin",bank=2;
++QW_RAM1:start=$a000,size=$2000,type=ro,fill=yes,fillval=$ff,file="C:/Users/kando/Documents/ChatGPT/SMB Crossover/build/cf-owner-retirement-v2/joint/sideoutputs/candidate/02-code.bin",bank=1;
++QW_RAM2:start=$c000,size=$2000,type=ro,fill=yes,fillval=$ff,file="C:/Users/kando/Documents/ChatGPT/SMB Crossover/build/cf-owner-retirement-v2/joint/sideoutputs/candidate/03-data.bin",bank=2;
+ FF_FX_PROTOCOL_RUN:start=$be2f,size=$1d1,type=ro,file="",bank=93;
+ 
+-BW_IMAGE_MEM:start=$a000,size=$2000,type=ro,bank=3,file="C:/Users/kando/Documents/ChatGPT/SMB Crossover/build/cf-bt-shared-transport-v3/joint/sideoutputs/candidate/04-bowser.bin",fill=yes,fillval=$ff;
++BW_IMAGE_MEM:start=$a000,size=$2000,type=ro,bank=3,file="C:/Users/kando/Documents/ChatGPT/SMB Crossover/build/cf-owner-retirement-v2/joint/sideoutputs/candidate/04-bowser.bin",fill=yes,fillval=$ff;
+ }
+ SEGMENTS {
+  CF_LOADER_PROPOSAL_A:load=CF_BOOT_A,type=ro;
+  CF_LOADER_PROPOSAL_C:load=CF_BOOT_C,type=ro;
+  CF_ROM_GUARD:load=CF_GUARD_MEM,type=ro;
++ CF_RETIRE_PROPOSAL:load=CF_RETIRE_MEM,type=ro;
+  CF_CARRIER:load=CF_CARRIER_MEM,type=ro;
+  CF_BODY_CHR:load=CF_BODY_MEM,type=ro;
+  CF_SHOT_CHR:load=CF_SHOT_MEM,type=ro;
+--- /dev/null
++++ owner-retirement/cf-retire.s
+@@ -0,0 +1,31 @@
++; UNALLOCATED SOURCE PROPOSAL. A retained ROM entry must run BEFORE any
++; foreign A1/C2/RAM3 replacement. This worker never executes guest code.
++; Family31-only clearing is intentional even for a malformed/invalid CF
++; cookie; already-foreign family09/20/21 cookies are byte-for-byte untouched.
++; All original AXYP, raw C, SP/live caller stack and SMC are preserved.
++.setcpu "6502"
++.import CurrentBankC
++.export CfRetire,CfRetireEnd
++.segment "CF_RETIRE_PROPOSAL"
++CfRetire:
++ php
++ pha
++ lda CurrentBankC
++ pha
++ lda #2
++ sta CurrentBankC
++ sta $5116
++ lda $dfe1
++ cmp #31
++ bne CfRetireRestore
++ lda #0
++ sta $dfe0
++CfRetireRestore:
++ pla
++ sta CurrentBankC
++ sta $5116
++ pla
++ plp
++ rts
++CfRetireEnd:
++.assert CfRetireEnd-CfRetire=36,error,"Measured pure ROM retirement size"

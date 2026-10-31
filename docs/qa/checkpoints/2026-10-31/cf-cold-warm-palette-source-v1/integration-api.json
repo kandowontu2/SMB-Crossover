@@ -1,0 +1,122 @@
+{
+  "source": true,
+  "candidate": "ef2f11e232ec878c277245c3802bcf8a415415e38507c26feefaef3744c1bee1",
+  "ready": 66,
+  "CF_pending": true,
+  "BT_pending": true,
+  "real_chain": {
+    "menu": "MenuResolveCharacter -> CfRetire before Bw/Fw/S2/Qw/Ar/Fm/Cm Selected publication",
+    "scene": "InitScreen -> BwScene -> CfSceneRetireForeign -> S2InitScreenPrepare -> QwSceneInit -> ArGenSceneInit -> FwSceneInit/nativeMove, then BwCfSceneLoad for exactly27/31",
+    "foreign_scene": "Selected!=31 calls genuine CfRetire BEFORE any inner FW/BW A3 overwrite",
+    "CF_cold": "Selected31 -> pure CfOrBtCheck -> if invalid verified CfLoaderProposal -> B020 service15 -> pure ROM guard -> BE2D/raw02 -> CfHostSceneEnsure; C0 skips original BW constructor",
+    "CF_warm": "Selected31 retains full valid image; guarded SceneEnsure preserves source gear/HP, native player/life policy141b",
+    "unready_rows": "15 -> CmHostFresh;19 -> JnResetDispatch; others decline before A2; owner gate rejects foreign before these fallbacks",
+    "CF_reset19": "valid guard -> real JnResetDispatch once then general Ensure+area transient reset, no duplicate CmFresh"
+  },
+  "true_exports": {
+    "BtServiceVeneers": {
+      "address": "0xb020",
+      "physical_ROM_bank": 87,
+      "raw_ROM_bank": 215
+    },
+    "BtRouter": {
+      "address": "0xb08e",
+      "physical_ROM_bank": 87,
+      "raw_ROM_bank": 215
+    },
+    "BtServiceUnavailable": {
+      "address": "0xb08c",
+      "physical_ROM_bank": 87,
+      "raw_ROM_bank": 215
+    },
+    "BwBtResolve": {
+      "address": "0xb22b",
+      "physical_ROM_bank": 67,
+      "raw_ROM_bank": 195
+    },
+    "BwResolveColdNative": {
+      "address": "0xb2bd",
+      "physical_ROM_bank": 67,
+      "raw_ROM_bank": 195
+    },
+    "BwCfSceneLoad": {
+      "address": "0xb2cb",
+      "physical_ROM_bank": 67,
+      "raw_ROM_bank": 195
+    },
+    "CfOrBtCheck": {
+      "address": "0xbf47",
+      "physical_ROM_bank": 69,
+      "raw_ROM_bank": 197
+    },
+    "CfRetire": {
+      "address": "0xbfbd",
+      "physical_ROM_bank": 69,
+      "raw_ROM_bank": 197
+    },
+    "CfSceneRetireForeign": {
+      "address": "0xbfe1",
+      "physical_ROM_bank": 69,
+      "raw_ROM_bank": 197
+    },
+    "CfLoaderProposal": {
+      "address": "0xbf38",
+      "physical_ROM_bank": 115,
+      "raw_ROM_bank": 243
+    },
+    "CfLoadIfCold": {
+      "address": "0xbfcb",
+      "physical_ROM_bank": 115,
+      "raw_ROM_bank": 243
+    },
+    "BwScene": {
+      "address": "0xb35f",
+      "physical_ROM_bank": 88,
+      "raw_ROM_bank": 216
+    },
+    "FmStartIdentityFlags": {
+      "address": "0xb5cf",
+      "physical_ROM_bank": 29,
+      "raw_ROM_bank": 157
+    }
+  },
+  "ABI": "B02036JSR row saves original nativeAXYP. Resolver A=3*service returns true target/rawbank/C. Guard preserves AXY/P except resultC/rawC/33SMC and executes no guest. CF BE00+3*service/raw02 requires full ROM auth BEFORE firstA2. Actual native callback outputs returned; genuineSFC publishes NZ from returnedA.",
+  "source_state": "CF A1/A3 code+C2 state/router, full16class cookie DFE0; Ready=CurrentPlayer+1; last-life DDB8; unchanged141b policy. No new global/ZP/RAM lease.",
+  "source_stage": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\cf-cold-warm-palette-source-v1\\joint\\source-stage.json",
+  "actual_link_recipe": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\cf-cold-warm-palette-source-v1\\final-link.json",
+  "remaining": [
+    "Pre-load genuine ROM name18 fallback and correct readyCF preview path remain unimplemented",
+    "P1 yellow-shot fairness proposal unadopted; no sharedmailbox/NMI hook",
+    "CF/BTpending/current66readiness exact; no native/install/admission"
+  ],
+  "CF_cache_veneer": {
+    "address": "BE00",
+    "execution_raw_PRG_bank": 2,
+    "slot36": "BE6C",
+    "full_ROM_guard_required_before_opcode": true
+  },
+  "parent": "8f0a925be0f1845952583a28dac7b54dd716c35539cfd65a13df37a7f9cdb310",
+  "own_P0_name_source": "e82eafd5f921793c7eebde4cefde7ab2f46ffc223c027b45d7712b1394114547",
+  "source_controls": [
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\cf-cold-warm-palette-parser-controls-v1\\controls.json",
+      "sha256": "eb32b48aa4ffc13966e934bc78053e7fa4518c85be03ba9aaa71eeb4b1bca790"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-cold-warm-palette-rebind-v1\\controls.json",
+      "sha256": "363c96a0a698f47652488bb210ffe3d36621711d0d97ecc868d309b9b935aeb2"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-cold-warm-palette-rebind-isr-v1\\controls.json",
+      "sha256": "c63824bdbc0fbb6fe928e30a29b2046234c3b74d0d8ab06bd55c73f1826d6f98"
+    }
+  ],
+  "own_rows_added": {
+    "17": "Actual source idle portrait also queues originalP0",
+    "18": "Authenticated RAM3 full16char BURNS/SMITH/IRON/BEANS; ROM-only pre-load fallback stillneeded",
+    "26": "Bounded native3F10 length4 universalBG+original37/12/0F; fullqueue defersdirty",
+    "29": "Dirty P0 retry, noP1 heartbeat",
+    "30": "A0 nativeHUD names; actual A1/Y30 after30B native lives text appends7B blackBG/originalP0,37Btotal",
+    "32": "Genuine native worldP3 area policy without world recolor"
+  }
+}

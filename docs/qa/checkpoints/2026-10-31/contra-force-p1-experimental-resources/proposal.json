@@ -1,0 +1,150 @@
+{
+  "passed": true,
+  "native": false,
+  "linked_or_adopted": false,
+  "resource_granted": false,
+  "current_bridge": {
+    "PC": 46021,
+    "physical_bank": 62,
+    "span": 59
+  },
+  "measured_source_size": 57,
+  "net_additional_shared_bytes_required": 0,
+  "remaining_original_padding": 2,
+  "source_factoring": {
+    "existing_tail": 44562,
+    "existing_tail_bytes": "8d6a01a9008d6c01a9a08d6d01a9844c5a01",
+    "same_A62_context": true,
+    "zero_byte_label": "FfMuxNativeTail AFTER genuine FfMuxRomNative PLA/PLP",
+    "old_native_inline_bytes": 18,
+    "new_true_near_JSR": 3,
+    "saved_bytes": 15,
+    "original_Samus_freeze_path_delta_cycles": 3,
+    "stack_depth": "Same2B caller return: old JSR SFC vsnew JSR native-tail+JMP SFC; actual returnaddresses naturally differ. Immediate old helper sequence/orderedSMC/nativeoutputs unchanged."
+  },
+  "selected31": {
+    "before_Samus_state_gate": true,
+    "protected_render_state_writes": 0,
+    "old_stale_Samus_state_cannot_divert_CF": true,
+    "external_first_A2_auth": "Actual B020+18 service6 ROM full16-cookie before any A2/RAM3 opcode",
+    "native_input": "Equality via EOR#31 preserves incomingC/V/D/I; BOTH paths execute originalLDAstate replacing A/N/Z exactly. X/Y unchanged; no extra status stack or originalA assumption."
+  },
+  "layout": {
+    "own_C2_workspace": "DDB9..<DDD2,25B AFTER grantedownLastLife DDB8; not yet allocated as P1state",
+    "own_A1_free": 240,
+    "own_A3_free": 551,
+    "proposed_phase_split": {
+      "A1": [
+        "89Bwhole worker",
+        "22B true CfCallA gate to A3late"
+      ],
+      "A3": [
+        "48Btag",
+        "145Bnative mask",
+        "127Blate",
+        "124Bpacket",
+        "48Bheartbeat",
+        "17Bacquire"
+      ]
+    },
+    "A1_total": 111,
+    "A3_total": 509,
+    "A2_output_C_transport": "8..12B within current own97B router tail; genuine native completedC returned after restoring originA2, never self-unmap"
+  },
+  "global_alias_request": {
+    "bytes": 10,
+    "fields": [
+      "Packet7",
+      "Pending1",
+      "LastBlue1",
+      "Turn1"
+    ],
+    "protected": [
+      "SmFreezeRenderState",
+      "SmFreezePaletteControl",
+      "FFbodyACK"
+    ],
+    "valid_last": "Packet completed -> LastBlueC0(native)/C1(CF) -> PendingC0 pre/native or80 post/CF LAST",
+    "mandatory_scope": "Actual native producer retirement before foreign Selected/OAM/WRAM replacement; no late Samus rewriter, paused/skipped heartbeat and NMI consumers must be demonstrated before adopting any producer."
+  },
+  "consumer_census": {
+    "dependencies": 75,
+    "missing_object_deps": [],
+    "remaining_objects_no_mailbox_imports": [
+      {
+        "object": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\smb2-current-unlock-source-v13\\consumer-19.o",
+        "sha256": "6af3ccbae5cc42c7e312826895d82911363bc975031d34d10eee7668a6c2127b",
+        "actual_named_mailbox_imports": []
+      },
+      {
+        "object": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\smb2-current-unlock-source-v13\\consumer-29.o",
+        "sha256": "ff343bcd2ba4185dee7864d52dacf054fa603cb321d70ed022c910ba9d304400",
+        "actual_named_mailbox_imports": []
+      },
+      {
+        "object": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-character-quick-ui-v13\\joint\\generation-predicates.o",
+        "sha256": "2e7b0a252c8bccc73bc9073b5f4c215c04dc5e2d383558dae0697a63b25bf456",
+        "actual_named_mailbox_imports": []
+      },
+      {
+        "object": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\current-character-quick-ui-v13\\joint\\generation-constructor.o",
+        "sha256": "6a815107be240d2bdabe742b62d90904a0f89bcd0b29ae9f16da2df410797336",
+        "actual_named_mailbox_imports": []
+      },
+      {
+        "object": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\smb2-current-unlock-source-v13\\consumer-49.o",
+        "sha256": "8ab5bd307bcf4c9ea19886a8cc5301a5e5b91e7092107c0af225a480a2344e3a",
+        "actual_named_mailbox_imports": []
+      },
+      {
+        "object": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\smb2-current-unlock-source-v13\\consumer-51.o",
+        "sha256": "a446ae83287327a3dce827fa4003a52a0f29e44b228965ad3765e2dcb99ae69a",
+        "actual_named_mailbox_imports": []
+      },
+      {
+        "object": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\functional-roster-smb2-v1\\joint\\nmi-c82.o",
+        "sha256": "5b84cc011186368cce1760515dc102aa2d2eb723227e35d16c2fff6524203f33",
+        "actual_named_mailbox_imports": []
+      },
+      {
+        "object": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\functional-roster-coherent62-v4\\joint\\dmc-clones.o",
+        "sha256": "1f8747937bf7300ce8e56ea6977f78aca80c3ff24ed6c1b20d80c6a8cc2e9a6a",
+        "actual_named_mailbox_imports": []
+      },
+      {
+        "object": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\peach-palette-fix-1030-v1\\joint\\benj-chr.o",
+        "sha256": "48c756815dd13ea5444b77b00573bc22ea6330987799d5f09fff6eda091740b5",
+        "actual_named_mailbox_imports": []
+      }
+    ],
+    "sources": 622,
+    "references": 106,
+    "scope": "All84actualobjects: .dep/.d source dependencies OR actual od65 import-list exclusion. This closes named mailbox producer references, not dynamic indirect writes, executed lifecycle, or native timing."
+  },
+  "required_next": [
+    "Root approval still needed before modifying shared bridge, despite exact57/59B fit; no additional PRG lease needed",
+    "Globalalias lease/source lifecycle/commit proof needed; no scheduler readyclaim",
+    "Native complete-object tag/actual final OAM/pattern/palette model, queuefull and lag/pause/noFX/abandon tests required",
+    "Actual native deadline/performance unknown; no Mesen run"
+  ],
+  "bindings": {
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\prepare_contra_force_p1_shared_factor_proposal_v3.py": "72a4d473c55d2c2f414bb7ce1c68283378d7ed605b4c5a9790e5612ff49393e9",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\reference\\contra_force_p1_shared_factor_proposal_v2.s": "06df38d333976a2ba801b6d2b3bffca89b60a449b7e598c0c6d4ae12b981b0b8",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-palette-names-cart-v2\\source-stage.json": "e76a193a7fd3da07303c3421fcb284ee05202c5038708108167122fbeea273a0",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-palette-names-cart-v2\\joint\\candidate.nes": "707dc4e15ff6f740aceed5a9031b48db90899ea8360e441ab29fe3b3822cc577",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-palette-names-cart-v2\\joint\\candidate.dbg": "1fa3f016265eb4e4f6d71277b423f2a99597b8f5dabf0b94c783f84e6f89a964",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\cf-owner-retirement-v2\\handoff.json": "ca66a6190f035f85d6335127538986190bd1b599cb5e59d32204c245b3955431",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\cf-owner-retirement-v2\\joint\\ff-epoch-rom.inc": "151b3323531c2f3a133700d67388f2f4fe35a74b9d43ab729db9241c0407c2c5",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\cf-owner-retirement-v2\\joint\\ff-palette.s": "71392efc6352bf1ebf8e1e369f7589bb33ed5cd8f0abcd583bf44eb539193216",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-p1-epoch-proposal-v2\\proposal.json": "fffd7ff6be29d6df29a9b7e07e8cc840b39d38ef6fe41d12315dd637810e9d82",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-palette-names-qualified-v1\\handoff.json": "e82eafd5f921793c7eebde4cefde7ab2f46ffc223c027b45d7712b1394114547",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\private_build_outputs_v1.py": "52f519ccb652852ed5518e9bc79c79278fcede8bc09a4399496ef4316736f037",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-p1-shared-factor-proposal-v3\\compile.json": "c8ff2b845ebfbbfbf1e593d979780e17c555f7d56118c0811fecad0c495e45e5",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-p1-shared-factor-proposal-v3\\current-linked-source-consumers.json": "e9e2c1c942e65021cc51672f5584b134e263b1932b5cb96a2826f0346578420e",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-p1-shared-factor-proposal-v3\\ff-epoch-native-tail-zero-label.inc": "0895fed3fa5b14ca76e00c4eb756071cee2332ece4ed431c5311bb9b4fa3abcd",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-p1-shared-factor-proposal-v3\\proposal.dep": "362093baf7170c700e0420b302906d473228c7bb332525cd7c45c0fbcf518c3a",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-p1-shared-factor-proposal-v3\\proposal.lst": "852759da03c27fde7adc0df8a1a6ce091eca4df30605bbbf8ae7855df3cd85a3",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-p1-shared-factor-proposal-v3\\proposal.o": "e0186d1e6e5466d115d48cc18d9fa22bf0133105e1f9369a8afeb7ebb794374e",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-p1-shared-factor-proposal-v3\\segments.txt": "2f41a31c92d153ffafb264b563f060713273cc14ef4e64d3570910a8b8076359"
+  }
+}

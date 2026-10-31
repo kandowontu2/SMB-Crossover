@@ -1,0 +1,191 @@
+{
+  "status": "PRIVATE_EXACT_CF_COLD_WARM_STUB_ROM_GRANT",
+  "source": true,
+  "native": false,
+  "installed": false,
+  "requested_new_ROM": [
+    {
+      "physical_ROM": 69,
+      "A_start": "BFE1",
+      "A_end_exclusive": "BFF2",
+      "bytes": 17,
+      "source_api": "CfSceneRetireForeign17",
+      "preimage_SHA256": "e840723f7901baf63bb89c6a95133e00c04e186487511bd3de638bcc27dde064",
+      "all_FF": true,
+      "no_emitted_segment_overlap": true,
+      "no_interior_symbol": true,
+      "start_boundary_symbols": [
+        "CfRetireEnd"
+      ],
+      "granted": true
+    },
+    {
+      "physical_ROM": 115,
+      "A_start": "BFCB",
+      "A_end_exclusive": "BFE3",
+      "bytes": 24,
+      "source_api": "CfLoadIfCold24",
+      "preimage_SHA256": "44a5f7891570e5631e8c91c85186e6633f4ab5364f644040b2a00126a07985b6",
+      "all_FF": true,
+      "no_emitted_segment_overlap": true,
+      "no_interior_symbol": true,
+      "start_boundary_symbols": [],
+      "granted": true
+    }
+  ],
+  "total_bytes": 41,
+  "no_new_RAM_CHR_or_global": true,
+  "reviewed": [
+    {
+      "joint": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bowser-playable-jump-v1\\joint",
+      "candidate": "c6635815711a624a02c4337cd9f1830ca9c43b14a824f2ea51963f796ad98c2a",
+      "bank": 69,
+      "first": "BFE1",
+      "end_exclusive": "BFF2",
+      "preimage_sha256": "e840723f7901baf63bb89c6a95133e00c04e186487511bd3de638bcc27dde064",
+      "no_emitted_conflict": true,
+      "classified_aliases": [
+        {
+          "name": "AR_CACHE_FAMILY",
+          "value": 57313,
+          "owner": "rawRAM2 C Arthur cache metadata, never this ROM bank"
+        },
+        {
+          "name": "AR_CACHE_VERSION",
+          "value": 57315,
+          "owner": "rawRAM2 C Arthur cache metadata, never this ROM bank"
+        }
+      ]
+    },
+    {
+      "joint": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bowser-playable-jump-v1\\joint",
+      "candidate": "c6635815711a624a02c4337cd9f1830ca9c43b14a824f2ea51963f796ad98c2a",
+      "bank": 115,
+      "first": "BFCB",
+      "end_exclusive": "BFE3",
+      "preimage_sha256": "44a5f7891570e5631e8c91c85186e6633f4ab5364f644040b2a00126a07985b6",
+      "no_emitted_conflict": true,
+      "classified_aliases": [
+        {
+          "name": "AR_CACHE_FAMILY",
+          "value": 57313,
+          "owner": "rawRAM2 C Arthur cache metadata, never this ROM bank"
+        },
+        {
+          "name": "AR_CACHE_VALID",
+          "value": 57312,
+          "owner": "rawRAM2 C Arthur cache metadata, never this ROM bank"
+        }
+      ]
+    },
+    {
+      "joint": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\cf-owner-retirement-v2\\joint",
+      "candidate": "f5231061660c6b898554a86c429db8357bd80da71b8aa38525b09636a6eb8e5e",
+      "bank": 69,
+      "first": "BFE1",
+      "end_exclusive": "BFF2",
+      "preimage_sha256": "e840723f7901baf63bb89c6a95133e00c04e186487511bd3de638bcc27dde064",
+      "no_emitted_conflict": true,
+      "classified_aliases": [
+        {
+          "name": "AR_CACHE_FAMILY",
+          "value": 57313,
+          "owner": "rawRAM2 C Arthur cache metadata, never this ROM bank"
+        },
+        {
+          "name": "AR_CACHE_VERSION",
+          "value": 57315,
+          "owner": "rawRAM2 C Arthur cache metadata, never this ROM bank"
+        }
+      ]
+    },
+    {
+      "joint": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\cf-owner-retirement-v2\\joint",
+      "candidate": "f5231061660c6b898554a86c429db8357bd80da71b8aa38525b09636a6eb8e5e",
+      "bank": 115,
+      "first": "BFCB",
+      "end_exclusive": "BFE3",
+      "preimage_sha256": "44a5f7891570e5631e8c91c85186e6633f4ab5364f644040b2a00126a07985b6",
+      "no_emitted_conflict": true,
+      "classified_aliases": [
+        {
+          "name": "AR_CACHE_FAMILY",
+          "value": 57313,
+          "owner": "rawRAM2 C Arthur cache metadata, never this ROM bank"
+        },
+        {
+          "name": "AR_CACHE_VALID",
+          "value": 57312,
+          "owner": "rawRAM2 C Arthur cache metadata, never this ROM bank"
+        }
+      ]
+    },
+    {
+      "joint": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\smb3plus-menu-host-1031-v4\\joint",
+      "candidate": "bad5779b5cfc8b2612dd128be700aa61ff1fbf368393388f3df408c83fb9c025",
+      "bank": 69,
+      "first": "BFE1",
+      "end_exclusive": "BFF2",
+      "preimage_sha256": "e840723f7901baf63bb89c6a95133e00c04e186487511bd3de638bcc27dde064",
+      "no_emitted_conflict": true,
+      "classified_aliases": [
+        {
+          "name": "AR_CACHE_FAMILY",
+          "value": 57313,
+          "owner": "rawRAM2 C Arthur cache metadata, never this ROM bank"
+        },
+        {
+          "name": "AR_CACHE_VERSION",
+          "value": 57315,
+          "owner": "rawRAM2 C Arthur cache metadata, never this ROM bank"
+        }
+      ]
+    },
+    {
+      "joint": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\smb3plus-menu-host-1031-v4\\joint",
+      "candidate": "bad5779b5cfc8b2612dd128be700aa61ff1fbf368393388f3df408c83fb9c025",
+      "bank": 115,
+      "first": "BFCB",
+      "end_exclusive": "BFE3",
+      "preimage_sha256": "44a5f7891570e5631e8c91c85186e6633f4ab5364f644040b2a00126a07985b6",
+      "no_emitted_conflict": true,
+      "classified_aliases": [
+        {
+          "name": "AR_CACHE_FAMILY",
+          "value": 57313,
+          "owner": "rawRAM2 C Arthur cache metadata, never this ROM bank"
+        },
+        {
+          "name": "AR_CACHE_VALID",
+          "value": 57312,
+          "owner": "rawRAM2 C Arthur cache metadata, never this ROM bank"
+        }
+      ]
+    }
+  ],
+  "constraints": [
+    "Only17B ROM69 BFE1..<BFF2 and24B ROM115 BFCB..<BFE3. Other remaining tails are not granted.",
+    "Source-built successors only; preserve adjacent public entries/header/CHR and original caller/live stack/33SMC/raw maps.",
+    "Scene-only selected31 retirement bypass requires proven invalidation before every foreign C2/A3 writer. Menu retirement stays unconditional before Selected publication.",
+    "Warm loading must authenticate full16 cookie/class in ROM before first A2; cold path keeps all original forcedblank, negativeNMI, OperMode, busy-bit and copy/readback conditions.",
+    "Invalid15/19 require the genuine native fallback once. Own CF scene ensure/reset must explicitly preserve earned health/gear while handling death/life/class/player changes.",
+    "Shared Start/selector source factoring stays inside prior measured owned envelopes. BTrouter owner gate requires its separate owner review.",
+    "Actual menu, parser, warm/life/player, all-current66 foreign, fullflag and normal/paused/lagNMI/IRQ tests required before adoption.",
+    "No palette/mailbox/NMI/shared-hook/global-state lease, readiness, native-gameplay, admission or installation is granted."
+  ],
+  "bindings": {
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\cf_cold_warm_resource_grant_1031_v1.py": "9f1ae8a498fabbad0c1ce39b1e4b51b778752b51bdfc37b2a5cf64b5efd1993c",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\cf-cold-warm-resource-proposal-v1\\proposal.json": "7357aa7067966a117fcd63a2cf251ff25df00d59b5ccc1341b900b7c689d1161",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\reference\\cf_cold_warm_resource_proposal_v1.s": "9d41f2b525b9136f29f3cf8809a631618a8edf85274e1fff3764d2953ac35b3f",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bowser-playable-jump-v1\\joint\\candidate.nes": "c6635815711a624a02c4337cd9f1830ca9c43b14a824f2ea51963f796ad98c2a",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bowser-playable-jump-v1\\joint\\candidate.dbg": "9d95bbc58a08e808b42cc570b86ecd8c6115d804392ba78ff3342cfa92ab09e3",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bowser-playable-jump-v1\\joint\\private.cfg": "93ce4e8378b3a6ed0707518d7cc9e4f283393502148e7b84e12ef2edf45c81b0",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\cf-owner-retirement-v2\\joint\\candidate.nes": "f5231061660c6b898554a86c429db8357bd80da71b8aa38525b09636a6eb8e5e",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\cf-owner-retirement-v2\\joint\\candidate.dbg": "1897f68522ffd0de6c6bb49258a1f24792f450340cf8983b3d82ff0b4102cb54",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\cf-owner-retirement-v2\\joint\\private.cfg": "1a01d9dfb70602e86e89a8c9ba9d7b74ebef4421a50ef0676cf220560acc6ac4",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\smb3plus-menu-host-1031-v4\\joint\\candidate.nes": "bad5779b5cfc8b2612dd128be700aa61ff1fbf368393388f3df408c83fb9c025",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\smb3plus-menu-host-1031-v4\\joint\\candidate.dbg": "3dc7c210fd20a025de135cdc74e4d7feabd54d097a7cb185ca094b0491b6afc4",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\smb3plus-menu-host-1031-v4\\joint\\private.cfg": "a48247d465d36d4800d38775633ef0b4addced63954dc8857e4c8d16ab4b0745",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bowser-playable-jump-v1\\joint\\arthur\\cache-wrapper.s": "f59b1fdd8a69677e886f2bedffc5d23f0b899e7fa466a1e57c23cdbe9e4a879b"
+  }
+}

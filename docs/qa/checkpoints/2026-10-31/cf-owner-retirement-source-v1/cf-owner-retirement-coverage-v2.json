@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "source_CPU": true,
+  "native": false,
+  "old_parent_negative": {
+    "candidate": "a7da1094265701d69fc52588f495eddb09e3c1ff7d76e55e62f5bdfdf45d501d",
+    "CF_cookie_stale_A7": true,
+    "A3_family": 27,
+    "ROM_guard_wrongly_accepts_stale_CF": true,
+    "no_guest_opcode_executed": true
+  },
+  "actual_menu_retire_before_publish": 128,
+  "actual_native_scene_CF_to_FF_BW": 12,
+  "actual_global_before_publish": 4,
+  "actual_direct_BT_explicit_contract": 4,
+  "installed_call_coverage": "FwLoad sole FwSceneInit caller, BwLoad sole BwScene caller, both after early sceneCfRetire. BtLoad has no installed caller; directAPI explicitly requires retire. QwBoot clearsC2 before globalSelected publication.",
+  "limits": "CF andBT remainpending. No natural CF cold/load/Main, warmCF health/player semantics or all-soundtest-selected stores claim. Direct FW/BW/BTloader API users must honor retirement contract; worker existence is not a global hook.",
+  "full_receipt": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\cf-owner-retirement-coverage-v2\\controls.json",
+  "sha256": "e699c45cf4e638a19532a9463cf6dfbeebdb7c318a3ff0b57ca63120db1155df"
+}

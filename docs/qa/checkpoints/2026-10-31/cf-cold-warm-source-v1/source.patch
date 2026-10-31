@@ -1,0 +1,374 @@
+--- f523/entrypoint.s
++++ CF-cold-warm/entrypoint.s
+@@ -1,4 +1,4 @@
+-.import BwScene,BwMenuResolve,BwStartFlags
++.import BwScene,BwMenuResolve
+ .export FmGroups,CmHostFresh,FmQueueName,JnResetDispatch,DrawMetasprite,WriteGameText
+ .export AreaType,SelectedCharacter,OperMode,OperMode_Task,FamilyMainCommit,GamePauseStatus,TimerControl,FmAlts,CurrentPlayer,NumberofLives,PlayerStatus,PlayerSize,CrouchingFlag,PlayerFacingDir,Player_XSpeedAbsolute,Player_X_Scroll,Player_Y_MoveForce,Player_Rel_XPos,Player_Rel_YPos,InjuryTimer,GuestBodyStompAllowed,GuestBodyNoStomp,GuestPowerupOld,GuestPowerupDisplay,GuestPowerupTarget,GuestPowerupUpdate,MarioSourceBeginFreeze,MarioSourcePowerupCollision,Square1SoundQueue,Square2SoundQueue,NoiseSoundQueue,MmDeathFlag,KillPlayer,EraseEnemyObject,SetupFloateyNumber,NativePlayerDeath,BlockBufferColli_Head,BlockBufferColli_Side,BoundingBox_UL_Corner,BoundingBox_LR_Corner,PowerUpType,ScreenLeft_X_Pos,ScreenLeft_PageLoc,SecondaryHardMode,PseudoRandomBitReg,HandleEnemyFBallCol,MetaspriteRenderLoop,ObjectMetasprite,Player_SprAttrib,SmPosePtr,SmChrBank,CurrentCHRBank,X5ChrMode,CurrentBankC,X5SetPhysicalChr,SafecallA_SMC,FarcallJmpTarget_SMC,FarCallCommon,METASPRITE_SAMUS_BODY,BlockBufferAddr,Block_Buffer_1,MTileAttribute,StarInvincibleTimer,Player_X_Position,Player_PageLoc,Player_Y_Position,Player_Y_HighPos,Player_X_Speed,Player_Y_Speed,Player_State,SavedJoypadBits,GameEngineSubroutine,FrameCounter,Enemy_Flag,Enemy_State,Enemy_ID,Enemy_X_Position,Enemy_PageLoc,Enemy_Y_Position,Enemy_Y_HighPos,ObjectOffset,R0,R1,R2,R3,R4,R5,R6,R7
+ .export PlayerBGCollision
+@@ -192,7 +192,7 @@
+ .if ::ENABLE_CROSSOVER
+ .if ::MAPPER_MMC5
+ .if ::ENABLE_MMC5_EXPANDED
+-.incbin "C:/Users/kando/Documents/ChatGPT/SMB Crossover/build/cf-owner-retirement-v2/joint/packed.chr"
++.incbin "C:/Users/kando/Documents/ChatGPT/SMB Crossover/build/cf-cold-warm-source-v3/joint/packed.chr"
+ .else
+ .incbin "chr/characters/packed-mmc5.chr"
+ .endif
+@@ -802,7 +802,7 @@
+ .include "full_roster_menu.s"
+ .pushseg
+ .segment "FULL_ROSTER_PREVIEW_CHR"
+-.incbin "C:/Users/kando/Documents/ChatGPT/SMB Crossover/build/cf-owner-retirement-v2/joint/pending-previews.chr"
++.incbin "C:/Users/kando/Documents/ChatGPT/SMB Crossover/build/cf-cold-warm-source-v3/joint/pending-previews.chr"
+ .popseg
+ 
+ .include "donkey_kong_state.inc"
+--- f523/src/full_roster_menu.s
++++ CF-cold-warm/src/full_roster_menu.s
+@@ -458,7 +458,7 @@
+ ; Only the real Start path calls this; original flags survive except native
+ ; final A0 N/Z, X/Y unchanged, and every foreign alternate byte is cleared.
+ .proc FmStartFlags
+- farcall BwStartFlags,jmp
++ farcall FmStartIdentityFlags,jmp
+  .res 10,$ea
+ .endproc
+ .assert *-FmStartFlags=28,lderror,"Start identity worker exact funding"
+--- f523/src/cf_menu_body.inc
++++ CF-cold-warm/src/cf_menu_body.inc
+@@ -102,6 +102,38 @@
+ Done:
+  rts
+ .endproc
++FmStartIdentityFlags:
++ php
++ lda #$80
++ cpx #31
++ beq FmStartIdentityAlts
++ lsr
++ lsr
++ cpx #9
++ beq FmStartIdentityAlts
++ lsr
++ lsr
++ cpx #26
++ beq FmStartIdentityAlts
++ lda #0
++FmStartIdentityAlts:
++ and FmAlts
++ sta FmAlts
++ lda #$20
++ cpx #23
++ beq FmStartIdentityGroups
++ lda #$18
++ cpx #30
++ beq FmStartIdentityGroups
++ lda #0
++FmStartIdentityGroups:
++ and FmGroups
++ sta FmGroups
++ plp
++ lda #0
++ rts
++.assert *-FmStartIdentityFlags=51,error,"Exact old51B mask"
++
+ FmCfHelperEnd:
+ .assert FmCfHelperEnd-FmCfHelperStart <= 400,lderror,"Menu helper exceeds root400B limit"
+ .res $b22-$0d-(FmCfHelperEnd-FmCfHelperStart),$ff
+--- f523/bowser/cold.s
++++ CF-cold-warm/bowser/cold.s
+@@ -1,4 +1,4 @@
+-.import CfRetire
++.import CfSceneRetireForeign,BwCfSceneLoad,BtServiceVeneers
+ ; All ROM-only callbacks fit already granted six A-only Bowser islands.
+ .setcpu "6502"
+ .include "common.inc"
+@@ -75,11 +75,11 @@
+ BwScene:
+  ; Sole production ingress is the genuine InitScreen SFC. Its nativeA is
+  ; already in SafecallA; retire before S2/Qw/Ar/Fw can overwrite any bank.
+- lda #<CfRetire
++ lda #<CfSceneRetireForeign
+  sta FarcallJmpTarget_SMC+1
+- lda #>CfRetire
++ lda #>CfSceneRetireForeign
+  sta FarcallJmpTarget_SMC+2
+- lda #.lobyte(.bank(CfRetire)|$80)
++ lda #.lobyte(.bank(CfSceneRetireForeign)|$80)
+  jsr FarCallCommon
+  jsr BwSceneNativePrepared
+  php
+@@ -89,9 +89,19 @@
+  tya
+  pha
+  lda SelectedCharacter
++ and #$fb                    ; exactly27/31, no other raw owner alias
+  cmp #27
+  bne BwSceneDone
+- BwFar BwLoad,jsr
++ ; Private scene load consumes no nativeA argument. Original nativeAXYP
++ ; is already saved above; reuse genuine SFC's saved sourceA here.
++ lda #<BwCfSceneLoad
++ sta FarcallJmpTarget_SMC+1
++ lda #>BwCfSceneLoad
++ sta FarcallJmpTarget_SMC+2
++ lda #.lobyte(.bank(BwCfSceneLoad)|$80)
++ jsr FarCallCommon
++ nop                         ; +2 predicate, -3 redundant sourceA store
++
+  bcc BwSceneDone
+  lda #<BwConstruct
+  sta FarcallJmpTarget_SMC+1
+--- f523/bowser/router.s
++++ CF-cold-warm/bowser/router.s
+@@ -2,10 +2,11 @@
+ ; It never executes a callback. The original BT row preserves native AXYP.
+ .setcpu "6502"
+ .include "common.inc"
+-.import BwCheck,CfOrBtCheck,SafereturnA_SMC,NextBank_SMC
++.import BwLoad,BwCheck,CfOrBtCheck,SafereturnA_SMC,NextBank_SMC
+ .import BwColdPrepare,BwColdDraw,CmHostFresh,FmQueueName,JnResetDispatch
+ .import BwColors,BwStatusName,HuNativeWorldPalette,OperMode_Task
+-.export BwBtResolve
++.export BwBtResolve,BwCfSceneLoad
++.import CfLoadIfCold
+ .segment "BW_ROM_ROUTER"
+ BwBtResolve:
+  pha
+@@ -14,7 +15,7 @@
+  beq BwResolveBowser
+  pla
+  BwFar CfOrBtCheck,jsr
+- bcc BwResolveBad
++ bcc BwResolveColdNative
+  jmp BwResolveRAM
+ BwResolveBowser:
+  pla
+@@ -61,40 +62,36 @@
+ BwColdBank:.byte .lobyte(.bank(BwColdPrepare)|$80),.lobyte(.bank(CmHostFresh)|$80),.lobyte(.bank(BwColdDraw)|$80),.lobyte(.bank(FmQueueName)|$80),.lobyte(.bank(JnResetDispatch)|$80),.lobyte(.bank(BwColors)|$80),.lobyte(.bank(BwStatusName)|$80),.lobyte(.bank(HuNativeWorldPalette)|$80)
+ .assert *<=$b300,lderror,"Own A67 target resolver fits213B"
+ 
+-.import FmAlts,FmGroups
+-.export BwStartFlags
+-BwStartFlags:
+- php
+- lda #$80
+- cpx #31
+- beq BwStartAlts
+- lsr
+- lsr
+- cpx #9
+- beq BwStartAlts
+- lsr
+- lsr
+- cpx #26
+- beq BwStartAlts
+- lda #0
+-BwStartAlts:
+- and FmAlts
+- sta FmAlts
+- lda #$20
+- cpx #23
+- beq BwStartGroups
+- lda #$18
+- cpx #30
+- beq BwStartGroups
+- lda #0
+-BwStartGroups:
+- and FmGroups
+- sta FmGroups
+- plp
+- lda #0
++; Exact prior51B, only after the sole Start consumer is rebound.
++; Actual single importing BtRouter admits only27/31/33 before this resolver.
++BwResolveColdNative:
++ ldx #1
++ cmp #45
++ beq BwResolveROM
++ ldx #4
++ cmp #57
++ beq BwResolveROM
++ clc
+  rts
+-.assert *<=$b300,lderror,"A67 resolver+shared Start helper213B"
+-
++BwCfSceneLoad:
++ lda SelectedCharacter
++ cmp #31
++ beq Cf
++ lda #<BwLoad
++ sta FarcallJmpTarget_SMC+1
++ lda #>BwLoad
++ sta FarcallJmpTarget_SMC+2
++ lda #.lobyte(.bank(BwLoad)|$80)
++ jmp FarCallCommon
++Cf:
++ lda #<CfLoadIfCold
++ sta FarcallJmpTarget_SMC+1
++ lda #>CfLoadIfCold
++ sta FarcallJmpTarget_SMC+2
++ lda #.lobyte(.bank(CfLoadIfCold)|$80)
++ jmp FarCallCommon
++.assert BwCfSceneLoad-BwResolveColdNative=14,error,"Exact14B fallback"
++.assert *-BwCfSceneLoad=37,error,"Exact37B private loader selector"
+ ; Exact16B already-owned tail; nativeAXYP remains on the outer B020 stack.
+ BwResolveFamilyTail:
+  lda #$a0
+--- f523/bt/router.s
++++ CF-cold-warm/bt/router.s
+@@ -1,6 +1,6 @@
+ 
+ .setcpu "6502"
+-.import BwBtResolve,BtCacheServices,FarCallCommon,FarcallJmpTarget_SMC
++.import SelectedCharacter,BwBtResolve,BtCacheServices,FarCallCommon,FarcallJmpTarget_SMC
+ .import SafecallA_SMC,SafereturnA_SMC,NextBank_SMC
+ .export BwServiceVeneers,BtServiceVeneers,BtServiceUnavailable,BtRouter
+ .segment "BT_ROM_ROUTER"
+@@ -33,6 +33,16 @@
+  pha
+  tya
+  pha
++ ; Current real native AXYP already saved. Reject all other owner values
++ ; before the single-import resolver can use native fallback rows15/19.
++ lda SelectedCharacter
++ cmp #27
++ beq Owner
++ cmp #31
++ beq Owner
++ cmp #33
++ bne BtRouterBad
++Owner:
+  tsx
+  lda $0105,x
+  sec
+--- f523/cf-loader.s
++++ CF-cold-warm/cf-loader.s
+@@ -238,4 +238,4 @@
+  rts
+ .res 1,$ff                   ; retain genuine expected-cookie PC CF86
+ CfLoaderExpectedCookie:
+-.incbin "C:/Users/kando/Documents/ChatGPT/SMB Crossover/build/cf-owner-retirement-v2/joint/cf-cookie.bin"
++.incbin "C:/Users/kando/Documents/ChatGPT/SMB Crossover/build/cf-cold-warm-source-v3/joint/cf-cookie.bin"
+--- f523/cf-carrier.s
++++ CF-cold-warm/cf-carrier.s
+@@ -1,5 +1,5 @@
+ .segment "CF_CARRIER"
+-.incbin "C:/Users/kando/Documents/ChatGPT/SMB Crossover/build/cf-owner-retirement-v2/joint/cf-stream.bin"
++.incbin "C:/Users/kando/Documents/ChatGPT/SMB Crossover/build/cf-cold-warm-source-v3/joint/cf-stream.bin"
+ .segment "CF_BODY_CHR"
+ .incbin "C:/Users/kando/Documents/ChatGPT/SMB Crossover/build/contra-force-body-pack-v3/atlas.chr"
+ .segment "CF_SHOT_CHR"
+--- f523/private.cfg
++++ CF-cold-warm/private.cfg
+@@ -1,5 +1,5 @@
+ MEMORY {
+-BT_CACHE_MEM:start=$a000,size=$2000,bank=3,type=ro,file="C:/Users/kando/Documents/ChatGPT/SMB Crossover/build/cf-owner-retirement-v2/joint/sideoutputs/candidate/00-cache.bin",fill=yes,fillval=$ff;
++BT_CACHE_MEM:start=$a000,size=$2000,bank=3,type=ro,file="C:/Users/kando/Documents/ChatGPT/SMB Crossover/build/cf-cold-warm-source-v3/joint/sideoutputs/candidate/00-cache.bin",fill=yes,fillval=$ff;
+ 
+  AR_GEN_CTOR_RUN:start=$bc95,size=$6b,type=ro,file="",bank=$46;
+  AR_GEN_NAME_RUN:start=$a9cf,size=$31,type=ro,file="",bank=$75;
+@@ -111,7 +111,8 @@
+     X5_NEW_45:start=$a000,size=$1f47,type=ro,file=%O,fill=yes,fillval=$ff,bank=$45;
+  CF_GUARD_MEM:start=$bf47,size=$76,type=ro,file=%O,fill=yes,fillval=$ff,bank=$45;
+  CF_RETIRE_MEM:start=$bfbd,size=$24,type=ro,file=%O,fill=yes,fillval=$ff,bank=$45;
+- CF_GUARD_POST:start=$bfe1,size=$1f,type=ro,file=%O,fill=yes,fillval=$ff,bank=$45;
++ CF_SCENE_RETIRE_MEM:start=$bfe1,size=$11,type=ro,file=%O,fill=yes,fillval=$ff,bank=$45;
++ CF_GUARD_POST:start=$bff2,size=$e,type=ro,file=%O,fill=yes,fillval=$ff,bank=$45;
+     X5_NEW_46:start=$c000,size=$58f,type=ro,file=%O,fill=yes,fillval=$ff,bank=$46;
+ AR_C70_SMALL:start=$c58f,size=$2d1,type=ro,file=%O,fill=yes,fillval=$ff,bank=$46;
+ QW_ROUTER_MEM:start=$a860,size=$315,type=ro,file=%O,fill=yes,fillval=$ff,bank=$46;
+@@ -193,7 +194,8 @@
+     X5_NEW_72: start=$a000, size=$2000, type=ro, file=%O, fill=yes, fillval=$ff, bank=$72;
+     X5_NEW_73:start=$a000,size=$1f38,type=ro,file=%O,fill=yes,fillval=$ff,bank=$73;
+  CF_BOOT_A:start=$bf38,size=$93,type=ro,file=%O,fill=yes,fillval=$ff,bank=$73;
+- CF_BOOT_A_POST:start=$bfcb,size=$35,type=ro,file=%O,fill=yes,fillval=$ff,bank=$73;
++ CF_WARM_LOAD_MEM:start=$bfcb,size=$2a,type=ro,file=%O,fill=yes,fillval=$ff,bank=$73;
++ CF_BOOT_A_POST:start=$bff5,size=$b,type=ro,file=%O,fill=yes,fillval=$ff,bank=$73;
+     X5_NEW_74: start=$c000, size=$2000, type=ro, file=%O, fill=yes, fillval=$ff, bank=$74;
+     X5_NEW_75:start=$c000,size=$9c2,type=ro,file=%O,fill=yes,fillval=$ff,bank=$75;
+     AR_NMI_GATE_MEM:start=$c9c2,size=$3e,type=ro,file=%O,fill=yes,fillval=$ff,bank=$75;
+@@ -258,7 +260,7 @@
+  CF_BODY_MEM:start=$efc00,size=$2400,type=ro,fill=yes,file=%O,fillval=$00;
+  CF_SHOT_MEM:start=$f2000,size=$400,type=ro,fill=yes,file=%O,fillval=$00;
+  CF_CHR_POST:start=$f2400,size=$dc00,type=ro,fill=yes,file=%O,fillval=$00;
+-FF_RAM3_MEM:start=$a000,size=$2000,bank=3,type=ro,file="C:/Users/kando/Documents/ChatGPT/SMB Crossover/build/cf-owner-retirement-v2/joint/sideoutputs/candidate/01-ram3.bin",fill=yes,fillval=$ff;
++FF_RAM3_MEM:start=$a000,size=$2000,bank=3,type=ro,file="C:/Users/kando/Documents/ChatGPT/SMB Crossover/build/cf-cold-warm-source-v3/joint/sideoutputs/candidate/01-ram3.bin",fill=yes,fillval=$ff;
+ 
+ N0:start=$5C00,size=$90,type=rw;
+ N1:start=$5C90,size=$30,type=rw;
+@@ -302,13 +304,15 @@
+ N39:start=$5E2E,size=$1,type=rw;
+ N40:start=$5E2F,size=$1,type=rw;
+ QH_PERSIST_MEM:start=$5f88,size=$8,type=rw,file="";
+-QW_RAM1:start=$a000,size=$2000,type=ro,fill=yes,fillval=$ff,file="C:/Users/kando/Documents/ChatGPT/SMB Crossover/build/cf-owner-retirement-v2/joint/sideoutputs/candidate/02-code.bin",bank=1;
+-QW_RAM2:start=$c000,size=$2000,type=ro,fill=yes,fillval=$ff,file="C:/Users/kando/Documents/ChatGPT/SMB Crossover/build/cf-owner-retirement-v2/joint/sideoutputs/candidate/03-data.bin",bank=2;
++QW_RAM1:start=$a000,size=$2000,type=ro,fill=yes,fillval=$ff,file="C:/Users/kando/Documents/ChatGPT/SMB Crossover/build/cf-cold-warm-source-v3/joint/sideoutputs/candidate/02-code.bin",bank=1;
++QW_RAM2:start=$c000,size=$2000,type=ro,fill=yes,fillval=$ff,file="C:/Users/kando/Documents/ChatGPT/SMB Crossover/build/cf-cold-warm-source-v3/joint/sideoutputs/candidate/03-data.bin",bank=2;
+ FF_FX_PROTOCOL_RUN:start=$be2f,size=$1d1,type=ro,file="",bank=93;
+ 
+-BW_IMAGE_MEM:start=$a000,size=$2000,type=ro,bank=3,file="C:/Users/kando/Documents/ChatGPT/SMB Crossover/build/cf-owner-retirement-v2/joint/sideoutputs/candidate/04-bowser.bin",fill=yes,fillval=$ff;
++BW_IMAGE_MEM:start=$a000,size=$2000,type=ro,bank=3,file="C:/Users/kando/Documents/ChatGPT/SMB Crossover/build/cf-cold-warm-source-v3/joint/sideoutputs/candidate/04-bowser.bin",fill=yes,fillval=$ff;
+ }
+ SEGMENTS {
++ CF_SCENE_RETIRE_PROPOSAL:load=CF_SCENE_RETIRE_MEM,type=ro;
++ CF_WARM_LOAD_PROPOSAL:load=CF_WARM_LOAD_MEM,type=ro;
+  CF_LOADER_PROPOSAL_A:load=CF_BOOT_A,type=ro;
+  CF_LOADER_PROPOSAL_C:load=CF_BOOT_C,type=ro;
+  CF_ROM_GUARD:load=CF_GUARD_MEM,type=ro;
+--- /dev/null
++++ CF-cold-warm/cf-cold-warm.s
+@@ -0,0 +1,53 @@
++; Exact root-granted17+42B CF cold/warm adapters, source-linked here.
++.setcpu "6502"
++.import SelectedCharacter,CfRetire,CfOrBtCheck,CfLoaderProposal,BtServiceVeneers
++.import SafecallA_SMC,FarcallJmpTarget_SMC,FarCallCommon
++.export CfSceneRetireForeign,CfSceneRetireForeignEnd
++.export CfLoadIfCold,CfLoadIfColdEnd
++.segment "CF_SCENE_RETIRE_PROPOSAL"
++CfSceneRetireForeign:
++ php
++ pha
++ lda SelectedCharacter
++ cmp #31
++ beq Own
++ pla
++ plp
++ jmp CfRetire                    ; same genuine ROM69
++Own:
++ pla
++ plp
++ rts
++CfSceneRetireForeignEnd:
++.assert CfSceneRetireForeignEnd-CfSceneRetireForeign=17,error,"Measured17B"
++.segment "CF_WARM_LOAD_PROPOSAL"
++CfLoadIfCold:
++ sta SafecallA_SMC+1
++ lda #<CfOrBtCheck
++ sta FarcallJmpTarget_SMC+1
++ lda #>CfOrBtCheck
++ sta FarcallJmpTarget_SMC+2
++ lda #.lobyte(.bank(CfOrBtCheck)|$80)
++ jsr FarCallCommon
++ bcs Ensure
++ jsr CfLoaderProposal             ; actual verifiedcopy C1 only
++ bcc Done
++Ensure:
++ ; Genuine shared row15 runs its actual ROM guard before any A2 opcode.
++ ; Bowser's existing direct constructor remains separate and unchanged.
++ lda #<(BtServiceVeneers+45)
++ sta FarcallJmpTarget_SMC+1
++ lda #>(BtServiceVeneers+45)
++ sta FarcallJmpTarget_SMC+2
++ lda #.lobyte(.bank(BtServiceVeneers)|$80)
++ jsr FarCallCommon
++ clc                             ; completed CF path: skip Bowser constructor
++Done:
++ rts
++CfLoadIfColdEnd:
++.assert CfLoadIfColdEnd-CfLoadIfCold=42,error,"Measured42B"
++
++.assert .bank(CfSceneRetireForeign)=.bank(CfRetire),lderror,"Actual same-bank retire tail"
++.assert .bank(CfLoadIfCold)=.bank(CfLoaderProposal),lderror,"Actual same-bank loader tail"
++.assert CfSceneRetireForeign=$bfe1,lderror,"Granted17B start"
++.assert CfLoadIfCold=$bfcb,lderror,"Granted42B helper start"

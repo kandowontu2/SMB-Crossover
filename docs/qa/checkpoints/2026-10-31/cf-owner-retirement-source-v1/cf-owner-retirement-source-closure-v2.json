@@ -1,0 +1,169 @@
+{
+  "source": true,
+  "passed": true,
+  "native": false,
+  "candidate": "f5231061660c6b898554a86c429db8357bd80da71b8aa38525b09636a6eb8e5e",
+  "current66_symbols_checked": 79575,
+  "already_frozen_phase1_internal_table_relocations": {
+    "Valid": [
+      "0xBA2B",
+      "0xBA2C"
+    ],
+    "HuExtendedBT": [
+      "0xBA1B",
+      "0xBA1C"
+    ],
+    "HuPairBank": [
+      "0xB9ED",
+      "0xB9EE"
+    ],
+    "HuPairHi": [
+      "0xB9BF",
+      "0xB9C0"
+    ],
+    "HuPairIndex": [
+      "0xB92F",
+      "0xB930"
+    ],
+    "HuLo": [
+      "0xB89F",
+      "0xB8A0"
+    ],
+    "HuCommon::Restore": [
+      "0xB899",
+      "0xB89A"
+    ],
+    "HuCommonRestore": [
+      "0xB899",
+      "0xB89A"
+    ],
+    "HuCommon::DK": [
+      "0xB87E",
+      "0xB87F"
+    ],
+    "HuCommon::Fetch": [
+      "0xB883",
+      "0xB884"
+    ],
+    "HuCommon::Other": [
+      "0xB871",
+      "0xB872"
+    ]
+  },
+  "no_new_current66_symbol_relocations": true,
+  "only_12_internal_CF_loader_diagnostic_labels_rebound_to_frozen60a5": [
+    {
+      "symbol": "CfWrite11",
+      "old": "0xCF40",
+      "new": "0xCF41"
+    },
+    {
+      "symbol": "CfDirect11",
+      "old": "0xCF38",
+      "new": "0xCF39"
+    },
+    {
+      "symbol": "CfLegacy11",
+      "old": "0xCF2A",
+      "new": "0xCF2B"
+    },
+    {
+      "symbol": "CfRestorePublication",
+      "old": "0xCF1F",
+      "new": "0xCF20"
+    },
+    {
+      "symbol": "CfPublishCookie",
+      "old": "0xCEF5",
+      "new": "0xCEF6"
+    },
+    {
+      "symbol": "CfLoadVerified",
+      "old": "0xCEEB",
+      "new": "0xCEEC"
+    },
+    {
+      "symbol": "CfLoadFailed",
+      "old": "0xCF11",
+      "new": "0xCF12"
+    },
+    {
+      "symbol": "CfVerify256",
+      "old": "0xCEC6",
+      "new": "0xCEC7"
+    },
+    {
+      "symbol": "CfCopy256",
+      "old": "0xCEAD",
+      "new": "0xCEAE"
+    },
+    {
+      "symbol": "CfMapSourcePage",
+      "old": "0xCF66",
+      "new": "0xCF67"
+    },
+    {
+      "symbol": "CfLoadNextPage",
+      "old": "0xCEA8",
+      "new": "0xCEA9"
+    },
+    {
+      "symbol": "CfLoadNextBank",
+      "old": "0xCE98",
+      "new": "0xCE9D"
+    }
+  ],
+  "original_menu_34B": true,
+  "scene_first18B_repacked": true,
+  "existing_A88_tail15B": true,
+  "BW_ROM_AUX_total": 204,
+  "BW_ROM_AUX_grant": 204,
+  "all_other_ROM_bytes_header_CHR_images_cookies_exact": true,
+  "changed_bytes": 358,
+  "exact_changed_envelopes": [
+    [
+      543309,
+      34
+    ],
+    [
+      725871,
+      18
+    ],
+    [
+      726017,
+      15
+    ],
+    [
+      573389,
+      36
+    ],
+    [
+      642680,
+      302
+    ]
+  ],
+  "actual_linked_importers": {
+    "CfRetire": [
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\cf-owner-retirement-v2\\joint\\main.o",
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\cf-owner-retirement-v2\\joint\\bowser\\cold.o"
+    ],
+    "BwScene": [
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\cf-owner-retirement-v2\\joint\\main.o"
+    ],
+    "FwLoad": [],
+    "BwLoad": [
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\cf-owner-retirement-v2\\joint\\bowser\\cold.o"
+    ],
+    "BtLoad": []
+  },
+  "installed_foreign_A3_writers": {
+    "FwLoad": "sole source call FwSceneInit, reached after early BwScene CfRetire",
+    "BwLoad": "sole source call BwScene, after early CfRetire",
+    "BtLoad": "no installed caller in this still-pending leaf; direct API requires explicit retirement"
+  },
+  "selected_publication": "Actual MenuResolve34 retires before BwMenuResolve\u2192FwMux/S2/Qw/Ar/Fm/Cm publication; global CrossoverInit already runs QwBoot validity clear first.",
+  "source_A_reuse_contract": "InitScreen is sole genuine production SFC ingress to BwScene. Its original A is already SafecallA; pure CfRetire has no nestedSFC and preserves fullAXYP/SMC. New15B helper reuses native JSR return with actual FarCallCommon. Menu first genuine CfRetire SFC saves originalA before the subsequent15B tail.",
+  "limits": "CF/BT remain pending. No naturalCF warm/player policy, soundtest Selected store coverage, or direct-API automatic protection claimed. Future BT/CF cold integration must preserve the early owner boundary.",
+  "full_receipt": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\cf-owner-retirement-source-closure-v2\\controls.json",
+  "sha256": "f0d40a4ce3d224d6bb52811b6500ee5bd19616a143f93790a63b4ee8ecdadbbd"
+}
