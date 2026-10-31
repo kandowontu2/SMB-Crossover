@@ -1,0 +1,112 @@
+--- named0369/loader.s
++++ corrected334b/loader.s
+@@ -1,3 +1,5 @@
++.import BackgroundColorCtrl
++.import FwForceColors,VRAM_Buffer1_Offset
+ .include "inc/charmap.inc"
+ .import FmQueueName,FfVariant,VRAM_Buffer1
+ ; Private selected-raw22 FF loader/router. Real source-linked imports only.
+@@ -380,7 +382,7 @@
+ FW_GATE FwAreaReset,FfAreaReset
+ ; Retired unused source aliases; live movement/collection use typed host gates.
+ FwHudNames:
+- .byte "FIGHTER ","WHITE M ","BLACK M ","THIEF   "
++ .byte "RETHGIF ","M ETIHW ","M KCALB ","  FEIHT "
+  .res 52-(*-FwHudNames),$ea
+ FW_GATE FwFullPower,FfFullPower
+ FW_GATE FwInjuryStatus,FfInjuryStatus
+@@ -391,7 +393,14 @@
+ .export FwStatusName
+ FwStatusName:
+  cmp #0
++ beq FwStatusOwn
++ cmp #1
+  bne FwStatusDone
++ cpy #30
++ bne FwStatusDone
++ sty VRAM_Buffer1_Offset
++ jmp FwLivesColors
++FwStatusOwn:
+  php
+  txa
+  pha
+@@ -403,14 +412,13 @@
+  asl
+  asl
+  tax
+- ldy #0
++ ldy #6
+ FwStatusCopy:
+  lda FwHudNames,x
+  sta VRAM_Buffer1+11,y
+  inx
+- iny
+- cpy #7
+- bne FwStatusCopy
++ dey
++ bpl FwStatusCopy
+  pla
+  tay
+  pla
+@@ -421,8 +429,43 @@
+  rts
+  .res 52-(*-FwStatusName),$ea
+ FW_GATE FwBox,FfBox
+-FW_GATE FwAdder,FfAdder
+-FW_GATE FwHead,FfHead
++.import FwPreviewPublish,DrawMetasprite
++.export FwPortraitDraw
++; Genuine Only-service17 is the actual title/lives DRAW callback. Service3
++; already built SmPosePtr/body0, and HpPrepareNativePointers took its snapshot.
++FwPortraitDraw:
++ php
++ pha
++ txa
++ pha
++ tya
++ pha
++ jsr FwPreviewPublish
++ pla
++ tay
++ pla
++ tax
++ pla
++ plp
++ sta SafecallA_SMC+1
++ lda #<DrawMetasprite
++ sta FarcallJmpTarget_SMC+1
++ lda #>DrawMetasprite
++ sta FarcallJmpTarget_SMC+2
++ lda #.lobyte(.bank(DrawMetasprite)|$80)
++ jmp FarCallCommon
++FwLivesColors:
++ lda BackgroundColorCtrl
++ pha
++ lda #2
++ sta BackgroundColorCtrl
++ jsr FwForceColors
++ pla
++ sta BackgroundColorCtrl
++ lda #1
++ rts
++ .assert *-FwPortraitDraw<=52,error,"OWN retired FF two-gate span"
++ .res 52-(*-FwPortraitDraw),$ea
+ FW_GATE FwSide,FfSide
+ .include "ff-epoch-rom.inc"
+ FW_GATE FwProjectileEntry,FfProjectileEntry
+--- named0369/veneers.s
++++ corrected334b/veneers.s
+@@ -1,3 +1,4 @@
++.import FwPortraitDraw
+ .import FwMenuName,FwStatusName
+ .import FfMuxTickROM
+ .import FwForceColors,FwPaletteTick,FwSvcWorldPalette
+@@ -71,7 +72,7 @@
+ ; 16 FullBox typed_source_gate_only
+  jmp FwSvcFullBox
+ ; 17 MenuPortrait typed_source_gate_only
+- jmp FwPortrait
++ jmp FwPortraitDraw
+ ; 18 MenuName explicit_unimplemented_reject
+  jmp FwMenuName
+ ; 19 Reset typed_source_gate_only

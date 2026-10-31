@@ -1,0 +1,66 @@
+{
+  "candidate": "334b291a929e81d12e25e2f067fe047fdd48f0cba9e58cdab2f0156f9ebd946d",
+  "predecessor_gameplay_inventory": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\ff-current-ready-v2\\source-merge-inventory.json",
+  "recipe_logs": [
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\ff-cold-preview-v5\\joint\\final-link.json",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\ff-cold-preview-v5\\joint\\loader-build.json",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\ff-cold-preview-v3\\joint\\veneers-build.json",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\ff-cold-preview-v2\\joint\\main-build.json"
+  ],
+  "recipes_are_evidence_not_replay_safe": true,
+  "guard": "Rebase ALL compiler/link/dep/DBG/LBL/map/CFG MEMORY outputs beneath a NEW private root; validate with tools/audit/private_build_outputs_v1.py before any build.",
+  "full_owned_FF_sources": [
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\ff-cold-preview-v5\\joint\\loader.s",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\ff-cold-preview-v5\\joint\\veneers.s",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\ff-cold-preview-v5\\joint\\ff-palette.s",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\ff-cold-preview-v5\\joint\\ff-epoch-rom.inc",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\ff-cold-preview-v5\\joint\\ff-epoch-workers.s",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\ff-cold-preview-v5\\joint\\ff-palette-lifecycle.s",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\ff-cold-preview-v5\\joint\\ff-palette-preflush.s",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\ff-cold-preview-v5\\joint\\ff-world-marker.s",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\ff-cold-preview-v5\\joint\\ff-cookie.bin",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\ff-cold-preview-v5\\joint\\ff-stream.bin",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\ff-cold-preview-v5\\joint\\ram3.bin"
+  ],
+  "actual_main_source": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\ff-cold-preview-v2\\joint\\entrypoint.s",
+  "main_source_changes": [
+    "Preserve current source and add genuine zero-byte .export DrawMetasprite.",
+    "MenuResolveCharacter actual operand->FwMuxMenuResolve.",
+    "Existing9B Samus NMI gateway operands->C93 preflush, retain full PN HUD/palette/Ar continuation.",
+    "Existing11B DrawMetasprite FF flash probe->complete world marker.",
+    "FF readiness SEC->CLC for four index21 variants; remove four FF pending stars only."
+  ],
+  "live_service_rows": {
+    "2": "FwHostDrawShots EARLY gameplay, byte-exact predecessor",
+    "3": "FwPortrait metadata, unchanged",
+    "17": "FwPortraitDraw actual native DrawMetasprite, title AND lives",
+    "18": "FwMenuName genuine full16B class label",
+    "30": "FwStatusName A0 HUD; actual native lives A1/Y30 late colors"
+  },
+  "explicit_own_ABI_retirements": [
+    "FwGlobalInit",
+    "FwMovement",
+    "FwPickup",
+    "FwStompPolicy",
+    "FwCollisionBounds",
+    "FwAdder",
+    "FwHead"
+  ],
+  "own_fixed_spans": [
+    "62:AC47..<AC5E23B menu",
+    "62:AC8C..<ACC052B labels",
+    "62:AD42..<AD7652B status",
+    "62:AD90..<ADC452B =33B portrait draw+19B lives colors"
+  ],
+  "cfg": "No new split beyond frozen280ab epoch593B RAM3 holes and owned C93 protocol/marker tail. Retain all current S2/Quick/Ar/Roll/DMC/reader segments; do NOT replace whole current CFG.",
+  "mandatory_final_rebind": "ff-palette-lifecycle.s genuine QwMenuResolve import/tail MUST become S2MenuResolve on final S2 tree; retain S2\u2192Quick\u2192Ar\u2192Fm chain. Existing inner FwSceneInit remains once.",
+  "payload": "RAM3/full8192B stream/full16B version9 cookie unchanged named0369/3754. Original FF CHR756..<788; carrier893..<901 is CODE, never art.",
+  "preserve_root_later_changes": [
+    "RCR409+Chip1",
+    "Quick/Ar ready-marker data repair",
+    "Celeste exact name",
+    "Goku authentic portrait1byte",
+    "latest DK/CF/Rogue menu artwork",
+    "SMB2/Roll/DMC/reader allocations"
+  ]
+}
