@@ -1,0 +1,13 @@
+Isolated WWF selected host-source milestone. No cartridge changes or unlock.
+
+The frozen symbolic VM from480ab1b3 remains intact. New compiled source adds a real cold producer, accepted-video-frame single-hero phase adapter, and selected native contact/depth/RNG closure. The VM image is byteexact. Contact source is399B; host cold/phase source plus constants647B; host context16B. The phase adapter is deliberately narrower than the complete donor frame loop:CF14 recovery/grapple logic, native SMB world boundaries, physical clock, audio engine and cache ownership remain future work.
+
+The original per-wrestler scripts/descriptor behavior are preserved.24 genuine cold cases and4608 accepted-frame pairs match an assembled original-state phase capsule. Selected contact source passes320 RNG +640 depth +9216 contact fullflag cases. All publicAXYP/SP, scoped scratch, projected ordered state writes and source sound/map sideeffects match. Actual APU-write cases in this direct sound-queue scope are0; this is not audible music/SFX qualification. Another2796 actual privateNMI/IRQ/nestedIRQ cuts at932 reached seams resume exactly (minSP199). These are isolated probes, not current MMC5/common interrupts.
+
+CPU-model correction:stockpy65 honorsD arithmetic, while NES retainsD but ADC/SBC remains binary. A new receipt reruns132inputs/8448updates,556directorycases/35584updates,768AIflagcases,504960actual addressing cases,2748privateinterruptcuts and24cold/4608phase pairs with projectNesMPU. Earlier frozen equality understockpy65 remains valid at that narrower scope. Source images are unchanged by the correction.
+
+Retained actual contact failure was NOT caused by decimal mode:both D-clear and NesMPU reproduce it when the new cold adapter omits original8039/803B initialization of native far-dispatch high byte0A=80. NativeFF1F then jumps0012. The corrected cold child includes those genuine source instructions before descriptor/match initialization. Both failure receipts and the diagnostic original-instruction trace are archived. Other retained compile/observer negatives are also bound.
+
+Original42/43, labelledfinal_health in older reports, are descriptor-byte9 body-anchor heights used in original rendering, not a proven health meter. Native79/7A participate in damage/endurance operations. The immutable old label is corrected here without altering archived results.
+
+No whole checkout, donor ROM, parent host ROM or six duplicated cache images is archived. Source-only ZIP includes actual assembled source, guarded build recipes, finite receipts, negatives and the CPU-model note. The donor ROM and previousC2source packet are external hash-pinned inputs. Rebuild only into NEW output roots with all compiler/config outputs validated before execution.
