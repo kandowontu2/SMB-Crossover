@@ -1,0 +1,723 @@
+--- installed-f56/entrypoint.s
++++ bowser-current64/entrypoint.s
+@@ -1,3 +1,6 @@
++.import BwScene,BwMenuResolve,BwStartFlags
++.export FmGroups,CmHostFresh,FmQueueName,JnResetDispatch,DrawMetasprite,WriteGameText
++.export AreaType,SelectedCharacter,OperMode,OperMode_Task,FamilyMainCommit,GamePauseStatus,TimerControl,FmAlts,CurrentPlayer,NumberofLives,PlayerStatus,PlayerSize,CrouchingFlag,PlayerFacingDir,Player_XSpeedAbsolute,Player_X_Scroll,Player_Y_MoveForce,Player_Rel_XPos,Player_Rel_YPos,InjuryTimer,GuestBodyStompAllowed,GuestBodyNoStomp,GuestPowerupOld,GuestPowerupDisplay,GuestPowerupTarget,GuestPowerupUpdate,MarioSourceBeginFreeze,MarioSourcePowerupCollision,Square1SoundQueue,Square2SoundQueue,NoiseSoundQueue,MmDeathFlag,KillPlayer,EraseEnemyObject,SetupFloateyNumber,NativePlayerDeath,BlockBufferColli_Head,BlockBufferColli_Side,BoundingBox_UL_Corner,BoundingBox_LR_Corner,PowerUpType,ScreenLeft_X_Pos,ScreenLeft_PageLoc,SecondaryHardMode,PseudoRandomBitReg,HandleEnemyFBallCol,MetaspriteRenderLoop,ObjectMetasprite,Player_SprAttrib,SmPosePtr,SmChrBank,CurrentCHRBank,X5ChrMode,CurrentBankC,X5SetPhysicalChr,SafecallA_SMC,FarcallJmpTarget_SMC,FarCallCommon,METASPRITE_SAMUS_BODY,BlockBufferAddr,Block_Buffer_1,MTileAttribute,StarInvincibleTimer,Player_X_Position,Player_PageLoc,Player_Y_Position,Player_Y_HighPos,Player_X_Speed,Player_Y_Speed,Player_State,SavedJoypadBits,GameEngineSubroutine,FrameCounter,Enemy_Flag,Enemy_State,Enemy_ID,Enemy_X_Position,Enemy_PageLoc,Enemy_Y_Position,Enemy_Y_HighPos,ObjectOffset,R0,R1,R2,R3,R4,R5,R6,R7
+ .export PlayerBGCollision
+ .import QwMovementGate,QwAdderGate,QwBoxProfileGate,QwHeadGate,QwMenuResolve
+ .export RlMovementDispatch,HotCollisionAdder,HotCollisionBox,TnFastHeadGate
+@@ -189,7 +192,7 @@
+ .if ::ENABLE_CROSSOVER
+ .if ::MAPPER_MMC5
+ .if ::ENABLE_MMC5_EXPANDED
+-.incbin "C:/Users/kando/Documents/ChatGPT/SMB Crossover/build/peach-palette-fix-1030-v1/joint/packed.chr"
++.incbin "C:/Users/kando/Documents/ChatGPT/SMB Crossover/build/bowser-current64-v3/joint/packed.chr"
+ .else
+ .incbin "chr/characters/packed-mmc5.chr"
+ .endif
+@@ -799,7 +802,7 @@
+ .include "full_roster_menu.s"
+ .pushseg
+ .segment "FULL_ROSTER_PREVIEW_CHR"
+-.incbin "C:/Users/kando/Documents/ChatGPT/SMB Crossover/build/peach-palette-fix-1030-v1/joint/pending-previews.chr"
++.incbin "C:/Users/kando/Documents/ChatGPT/SMB Crossover/build/bowser-current64-v3/joint/pending-previews.chr"
+ .popseg
+ 
+ .include "donkey_kong_state.inc"
+--- installed-f56/src/character_select.s
++++ bowser-current64/src/character_select.s
+@@ -1,4 +1,4 @@
+-.import FwMuxMenuResolve
++.import BwMenuResolve
+ .import ArGenResolve
+ ; Dedicated, non-gameplay front end. The title never runs GameCoreRoutine.
+ .pushseg
+@@ -601,7 +601,7 @@
+ 
+ .proc MenuResolveCharacter
+ .if ::ENABLE_MMC5_EXPANDED
+-  farcall FwMuxMenuResolve,jmp
++  farcall BwMenuResolve,jmp
+   .res 16,$ea
+ .else
+   ldx CrossoverMenuIndex
+@@ -1330,7 +1330,7 @@
+  .endif
+ SelectNameTable:
+ .if ::ENABLE_MMC5_EXPANDED
+-  .incbin "C:/Users/kando/Documents/ChatGPT/SMB Crossover/build/peach-palette-fix-1030-v1/joint/menu.rle"
++  .incbin "C:/Users/kando/Documents/ChatGPT/SMB Crossover/build/bowser-current64-v3/joint/menu.rle"
+ .else
+   .incbin "chr/raw/character-select.bin"
+ .endif
+--- installed-f56/screen_render.s
++++ bowser-current64/screen_render.s
+@@ -49,7 +49,7 @@
+   beq :+
+     rts
+   :
+-  farcall S2InitScreenPrepare ; private FF loader, genuine Move remains first
++  farcall BwScene ; private FF loader, genuine Move remains first
+   jsr InitializeNameTables    ;and erase both name and attribute tables
+   lda OperMode
+   beq NextSubtask             ;if mode still 0, do not load
+--- installed-f56/src/mmc5.s
++++ bowser-current64/src/mmc5.s
+@@ -200,7 +200,7 @@
+   rts
+ ::DwResidentGraphicsBanks:
+   .byte (.bank(XgPIT0_STANDRight))|MMC5_PRG_ROM,(.bank(XgRYGAR0_STANDRight))|MMC5_PRG_ROM,(.bank(XgLUIGI0_STANDRight))|MMC5_PRG_ROM,(.bank(XgBASS0_STANDRight))|MMC5_PRG_ROM,(.bank(XgRYU0_STANDRight))|MMC5_PRG_ROM,(.bank(XgSOPHIA0_STANDRight))|MMC5_PRG_ROM,(.bank(XgSCROOGE_STANDRight))|MMC5_PRG_ROM,(.bank(KbArtStart))|MMC5_PRG_ROM,(.bank(CdArtBegin))|MMC5_PRG_ROM,(94)|MMC5_PRG_ROM,(97)|MMC5_PRG_ROM,(91)|MMC5_PRG_ROM,(76)|MMC5_PRG_ROM,(.bank(TnArtStart))|MMC5_PRG_ROM,(.bank(IcArtStart))|MMC5_PRG_ROM,(.bank(RcArtStart))|MMC5_PRG_ROM,.lobyte(.bank(FfArtStart)|MMC5_PRG_ROM),(94)|MMC5_PRG_ROM
+-  .byte .lobyte(.bank(DpArtStart)|$80),$ff,$c9,$ff,$8c ; raw24/25/26/27/28: genuine linked source art
++  .byte .lobyte(.bank(DpArtStart)|$80),$ff,$c9,3,$8c ; raw24/25/26/27/28: genuine linked source art
+ ::Cv3ResidentRosterBank:
+  ; Sole RosterGraphicsBank caller has X=SelectedCharacter-CHARACTER_BILL.
+  cpx #CHARACTER_SIMON-CHARACTER_BILL
+--- installed-f56/src/full_roster_menu.s
++++ bowser-current64/src/full_roster_menu.s
+@@ -108,9 +108,11 @@
+  and #8
+  beq Bowser3
+  lda #16
+- bne Pending
++ clc
++ rts
+ Bowser3:lda #15
+- bne Pending
++ clc
++ rts
+ NotBowser:
+  cpx #28
+  bne NotWWF
+@@ -456,21 +458,8 @@
+ ; Only the real Start path calls this; original flags survive except native
+ ; final A0 N/Z, X/Y unchanged, and every foreign alternate byte is cleared.
+ .proc FmStartFlags
+- php
+- lda #$80
+- cpx #31
+- beq Mask
+- lsr
+- lsr
+- cpx #9
+- beq Mask
+- lda #0
+-Mask:and FmAlts
+- sta FmAlts
+- plp
+- lda #0
+- sta FmGroups
+- rts
++ farcall BwStartFlags,jmp
++ .res 10,$ea
+ .endproc
+ .assert *-FmStartFlags=28,lderror,"Start identity worker exact funding"
+ .assert * <= $c000,lderror,"Full roster UI exceeds bank76 A-view tail"
+--- installed-f56/src/full_roster_menu_art.inc
++++ bowser-current64/src/full_roster_menu_art.inc
+@@ -15,8 +15,8 @@
+  .byte "    SMB2 TOAD   "
+  .byte "   SMB2 PEACH   "
+  .byte "    *GIMMICK    "
+- .byte "  *SMB3 BOWSER  "
+- .byte "  *SMB1 BOWSER  "
++ .byte "   SMB3 BOWSER  "
++ .byte "   SMB1 BOWSER  "
+  .byte "  *DONKEY KONG  "
+  .byte "  *HULK HOGAN   "
+  .byte "  *TED DIBIASE  "
+--- installed-f56/union.s
++++ bowser-current64/union.s
+@@ -1,4 +1,5 @@
+ .import S2ServiceVeneers,S2BoundaryLateUI
++.import BtServiceVeneers
+ .import QwFullBox,QwAfterTerrain
+ .import QwService,ArenaGateBank,FmAlts
+ .import FwGenAfterTerrain
+@@ -528,6 +529,10 @@
+  jeq HuExtendedFF
+  cmp #32
+  jeq HuExtendedArthur
++ cmp #27
++ jeq HuExtendedBT
++ cmp #33
++ jeq HuExtendedBT
+  cmp #2
+  bne Other
+  lda RdVariant
+@@ -554,9 +559,11 @@
+ Fetch:
+  lda HuLo,y
+  sta FarcallJmpTarget_SMC+1
+- lda HuHi,y
+- sta FarcallJmpTarget_SMC+2
+- lda HuBank,y
++ lda HuPairIndex,y
++ tay
++ lda HuPairHi,y
++ sta FarcallJmpTarget_SMC+2
++ lda HuPairBank,y
+  sta NextBank_SMC+1
+ ::HuCommonRestore:
+ Restore:
+@@ -568,10 +575,319 @@
+ 
+ HuLo:
+  .byte <JnMovementDispatch,<RlGraphicsDispatch,<RlDrawDispatch,<JnPortraitDispatch,<JnWeaponsDispatch,<JnInjuryStartDispatch,<JnInjuryStatusDispatch,<JnInventoryDeathDispatch,<JnDeathDispatch,<JnVisibleDispatch,<JnHeadDispatch,<JnBodyDispatch,<RlAdderDispatch,<RlBoxDispatch,<Z2SideAdmission,<BmFresh,<GmFullBoxGate,<KmPortrait,<GmMenuNameGate,<JnResetDispatch,<JnPrepareDispatch,<JnRiseDispatch,<JnPrivateDispatch,<JnCollisionDispatch,<JnPickupDispatch,<CheatsFullPower,<BmColors,<X5StompDispatch,<Z2HeadWithinTerrain,<VvUiDispatch,<JnStatusName,<GmStompGate,<KbWorldPaletteIndex,<GuestPowerupUpdate,<RlWeaponsDispatch,<MmReserveVine,<DkMovement,<DkHostGraphics,<DkHostDraw,<DkHostPortrait,<DkHostWeapons,<DkHostInjury,<DkHostInjuryStatus,<DkHostDeathStart,<DkHostDeath,<DkHostVisible,<DkHostHead,<DkHostBody,<DkHostAdder,<DkHostBoxProfile,<DkHostSide,<DkHostFresh,<DkHostBoxGate,<KmPortrait,<DkHostMenuName,<DkHostReset,<HuDkPrepare,<GmNativeNoop,<GmNativeNoop,<GmMatureOwn,<DkHostCollect,<DkFullPower,<DkHostColors,<X5StompDispatch,<Z2HeadWithinTerrain,<DkHostUi,<DkHostName,<GmStompGate,<HuNativeWorldPalette,<DkHostPowerup,<DkHostWeapons,<DkHostVine,<JnMovementDispatch,<DpGameLate,<DpGameDraw,<DpAdmissionPortrait,<DpPlatformWeapons,<DpGameInjury,<DpGameStatus,<DpGameDeathStart,<JnDeathDispatch,<DpHostVisible,<JnHeadDispatch,<DpGameBody,<RlAdderDispatch,<RlBoxDispatch,<Z2SideAdmission,<DpAdmissionFresh,<MaaBox,<KmPortrait,<DpAdmissionMenuName,<DpAdmissionReset,<DpGamePrepare,<DpGameRise,<DpGamePrivate,<DpGameCollision,<DpGamePickup,<CheatsFullPower,<DpAdmissionColors,<DpGameBounce,<Z2HeadWithinTerrain,<DpAdmissionEarly,<DpAdmissionStatusName,<DpGameBounce,<KbWorldPaletteIndex,<GuestPowerupUpdate,<RlWeaponsDispatch,<DpGameVine,<RdLifeMovement,<RdLifeGraphics,<RlDrawDispatch,<RdUiPortrait,<RdWxSamusGate,<RdHzInjury,<RdLifeStatus,<RdLifeDeathStart,<RdLifeDeathTick,<RdLifeVisible,<JnHeadDispatch,<RdLifeBody,<RlAdderDispatch,<RlBoxDispatch,<Z2SideAdmission,<RdLifeFresh,<RdBodyBox,<KmPortrait,<RdUiName,<JnResetDispatch,<RdItPrepare,<JnRiseDispatch,<RdItPrivate,<RdItCollision,<RdItPickup,<CheatsFullPower,<RdBodyColors,<RdWxBounce,<Z2HeadWithinTerrain,<RdUiEarly,<RdUiStatus,<RdWxBounce,<KbWorldPaletteIndex,<GuestPowerupUpdate,<RdWxRemainingGate,<MmReserveVine
+-HuHi:
+- .byte >JnMovementDispatch,>RlGraphicsDispatch,>RlDrawDispatch,>JnPortraitDispatch,>JnWeaponsDispatch,>JnInjuryStartDispatch,>JnInjuryStatusDispatch,>JnInventoryDeathDispatch,>JnDeathDispatch,>JnVisibleDispatch,>JnHeadDispatch,>JnBodyDispatch,>RlAdderDispatch,>RlBoxDispatch,>Z2SideAdmission,>BmFresh,>GmFullBoxGate,>KmPortrait,>GmMenuNameGate,>JnResetDispatch,>JnPrepareDispatch,>JnRiseDispatch,>JnPrivateDispatch,>JnCollisionDispatch,>JnPickupDispatch,>CheatsFullPower,>BmColors,>X5StompDispatch,>Z2HeadWithinTerrain,>VvUiDispatch,>JnStatusName,>GmStompGate,>KbWorldPaletteIndex,>GuestPowerupUpdate,>RlWeaponsDispatch,>MmReserveVine,>DkMovement,>DkHostGraphics,>DkHostDraw,>DkHostPortrait,>DkHostWeapons,>DkHostInjury,>DkHostInjuryStatus,>DkHostDeathStart,>DkHostDeath,>DkHostVisible,>DkHostHead,>DkHostBody,>DkHostAdder,>DkHostBoxProfile,>DkHostSide,>DkHostFresh,>DkHostBoxGate,>KmPortrait,>DkHostMenuName,>DkHostReset,>HuDkPrepare,>GmNativeNoop,>GmNativeNoop,>GmMatureOwn,>DkHostCollect,>DkFullPower,>DkHostColors,>X5StompDispatch,>Z2HeadWithinTerrain,>DkHostUi,>DkHostName,>GmStompGate,>HuNativeWorldPalette,>DkHostPowerup,>DkHostWeapons,>DkHostVine,>JnMovementDispatch,>DpGameLate,>DpGameDraw,>DpAdmissionPortrait,>DpPlatformWeapons,>DpGameInjury,>DpGameStatus,>DpGameDeathStart,>JnDeathDispatch,>DpHostVisible,>JnHeadDispatch,>DpGameBody,>RlAdderDispatch,>RlBoxDispatch,>Z2SideAdmission,>DpAdmissionFresh,>MaaBox,>KmPortrait,>DpAdmissionMenuName,>DpAdmissionReset,>DpGamePrepare,>DpGameRise,>DpGamePrivate,>DpGameCollision,>DpGamePickup,>CheatsFullPower,>DpAdmissionColors,>DpGameBounce,>Z2HeadWithinTerrain,>DpAdmissionEarly,>DpAdmissionStatusName,>DpGameBounce,>KbWorldPaletteIndex,>GuestPowerupUpdate,>RlWeaponsDispatch,>DpGameVine,>RdLifeMovement,>RdLifeGraphics,>RlDrawDispatch,>RdUiPortrait,>RdWxSamusGate,>RdHzInjury,>RdLifeStatus,>RdLifeDeathStart,>RdLifeDeathTick,>RdLifeVisible,>JnHeadDispatch,>RdLifeBody,>RlAdderDispatch,>RlBoxDispatch,>Z2SideAdmission,>RdLifeFresh,>RdBodyBox,>KmPortrait,>RdUiName,>JnResetDispatch,>RdItPrepare,>JnRiseDispatch,>RdItPrivate,>RdItCollision,>RdItPickup,>CheatsFullPower,>RdBodyColors,>RdWxBounce,>Z2HeadWithinTerrain,>RdUiEarly,>RdUiStatus,>RdWxBounce,>KbWorldPaletteIndex,>GuestPowerupUpdate,>RdWxRemainingGate,>MmReserveVine
+-HuBank:
+- .byte .lobyte(.bank(JnMovementDispatch)|$80),.lobyte(.bank(RlGraphicsDispatch)|$80),.lobyte(.bank(RlDrawDispatch)|$80),.lobyte(.bank(JnPortraitDispatch)|$80),.lobyte(.bank(JnWeaponsDispatch)|$80),.lobyte(.bank(JnInjuryStartDispatch)|$80),.lobyte(.bank(JnInjuryStatusDispatch)|$80),.lobyte(.bank(JnInventoryDeathDispatch)|$80),.lobyte(.bank(JnDeathDispatch)|$80),.lobyte(.bank(JnVisibleDispatch)|$80),.lobyte(.bank(JnHeadDispatch)|$80),.lobyte(.bank(JnBodyDispatch)|$80),.lobyte(.bank(RlAdderDispatch)|$80),.lobyte(.bank(RlBoxDispatch)|$80),.lobyte(.bank(Z2SideAdmission)|$80),.lobyte(.bank(BmFresh)|$80),.lobyte(.bank(GmFullBoxGate)|$80),.lobyte(.bank(KmPortrait)|$80),.lobyte(.bank(GmMenuNameGate)|$80),.lobyte(.bank(JnResetDispatch)|$80),.lobyte(.bank(JnPrepareDispatch)|$80),.lobyte(.bank(JnRiseDispatch)|$80),.lobyte(.bank(JnPrivateDispatch)|$80),.lobyte(.bank(JnCollisionDispatch)|$80),.lobyte(.bank(JnPickupDispatch)|$80),.lobyte(.bank(CheatsFullPower)|$80),.lobyte(.bank(BmColors)|$80),.lobyte(.bank(X5StompDispatch)|$80),.lobyte(.bank(Z2HeadWithinTerrain)|$80),.lobyte(.bank(VvUiDispatch)|$80),.lobyte(.bank(JnStatusName)|$80),.lobyte(.bank(GmStompGate)|$80),.lobyte(.bank(KbWorldPaletteIndex)|$80),.lobyte(.bank(GuestPowerupUpdate)|$80),.lobyte(.bank(RlWeaponsDispatch)|$80),.lobyte(.bank(MmReserveVine)|$80),.lobyte(.bank(DkMovement)|$80),.lobyte(.bank(DkHostGraphics)|$80),.lobyte(.bank(DkHostDraw)|$80),.lobyte(.bank(DkHostPortrait)|$80),.lobyte(.bank(DkHostWeapons)|$80),.lobyte(.bank(DkHostInjury)|$80),.lobyte(.bank(DkHostInjuryStatus)|$80),.lobyte(.bank(DkHostDeathStart)|$80),.lobyte(.bank(DkHostDeath)|$80),.lobyte(.bank(DkHostVisible)|$80),.lobyte(.bank(DkHostHead)|$80),.lobyte(.bank(DkHostBody)|$80),.lobyte(.bank(DkHostAdder)|$80),.lobyte(.bank(DkHostBoxProfile)|$80),.lobyte(.bank(DkHostSide)|$80),.lobyte(.bank(DkHostFresh)|$80),.lobyte(.bank(DkHostBoxGate)|$80),.lobyte(.bank(KmPortrait)|$80),.lobyte(.bank(DkHostMenuName)|$80),.lobyte(.bank(DkHostReset)|$80),.lobyte(.bank(HuDkPrepare)|$80),.lobyte(.bank(GmNativeNoop)|$80),.lobyte(.bank(GmNativeNoop)|$80),.lobyte(.bank(GmMatureOwn)|$80),.lobyte(.bank(DkHostCollect)|$80),.lobyte(.bank(DkFullPower)|$80),.lobyte(.bank(DkHostColors)|$80),.lobyte(.bank(X5StompDispatch)|$80),.lobyte(.bank(Z2HeadWithinTerrain)|$80),.lobyte(.bank(DkHostUi)|$80),.lobyte(.bank(DkHostName)|$80),.lobyte(.bank(GmStompGate)|$80),.lobyte(.bank(HuNativeWorldPalette)|$80),.lobyte(.bank(DkHostPowerup)|$80),.lobyte(.bank(DkHostWeapons)|$80),.lobyte(.bank(DkHostVine)|$80),.lobyte(.bank(JnMovementDispatch)|$80),.lobyte(.bank(DpGameLate)|$80),.lobyte(.bank(DpGameDraw)|$80),.lobyte(.bank(DpAdmissionPortrait)|$80),.lobyte(.bank(DpPlatformWeapons)|$80),.lobyte(.bank(DpGameInjury)|$80),.lobyte(.bank(DpGameStatus)|$80),.lobyte(.bank(DpGameDeathStart)|$80),.lobyte(.bank(JnDeathDispatch)|$80),.lobyte(.bank(DpHostVisible)|$80),.lobyte(.bank(JnHeadDispatch)|$80),.lobyte(.bank(DpGameBody)|$80),.lobyte(.bank(RlAdderDispatch)|$80),.lobyte(.bank(RlBoxDispatch)|$80),.lobyte(.bank(Z2SideAdmission)|$80),.lobyte(.bank(DpAdmissionFresh)|$80),.lobyte(.bank(MaaBox)|$80),.lobyte(.bank(KmPortrait)|$80),.lobyte(.bank(DpAdmissionMenuName)|$80),.lobyte(.bank(DpAdmissionReset)|$80),.lobyte(.bank(DpGamePrepare)|$80),.lobyte(.bank(DpGameRise)|$80),.lobyte(.bank(DpGamePrivate)|$80),.lobyte(.bank(DpGameCollision)|$80),.lobyte(.bank(DpGamePickup)|$80),.lobyte(.bank(CheatsFullPower)|$80),.lobyte(.bank(DpAdmissionColors)|$80),.lobyte(.bank(DpGameBounce)|$80),.lobyte(.bank(Z2HeadWithinTerrain)|$80),.lobyte(.bank(DpAdmissionEarly)|$80),.lobyte(.bank(DpAdmissionStatusName)|$80),.lobyte(.bank(DpGameBounce)|$80),.lobyte(.bank(KbWorldPaletteIndex)|$80),.lobyte(.bank(GuestPowerupUpdate)|$80),.lobyte(.bank(RlWeaponsDispatch)|$80),.lobyte(.bank(DpGameVine)|$80),.lobyte(.bank(RdLifeMovement)|$80),.lobyte(.bank(RdLifeGraphics)|$80),.lobyte(.bank(RlDrawDispatch)|$80),.lobyte(.bank(RdUiPortrait)|$80),.lobyte(.bank(RdWxSamusGate)|$80),.lobyte(.bank(RdHzInjury)|$80),.lobyte(.bank(RdLifeStatus)|$80),.lobyte(.bank(RdLifeDeathStart)|$80),.lobyte(.bank(RdLifeDeathTick)|$80),.lobyte(.bank(RdLifeVisible)|$80),.lobyte(.bank(JnHeadDispatch)|$80),.lobyte(.bank(RdLifeBody)|$80),.lobyte(.bank(RlAdderDispatch)|$80),.lobyte(.bank(RlBoxDispatch)|$80),.lobyte(.bank(Z2SideAdmission)|$80),.lobyte(.bank(RdLifeFresh)|$80),.lobyte(.bank(RdBodyBox)|$80),.lobyte(.bank(KmPortrait)|$80),.lobyte(.bank(RdUiName)|$80),.lobyte(.bank(JnResetDispatch)|$80),.lobyte(.bank(RdItPrepare)|$80),.lobyte(.bank(JnRiseDispatch)|$80),.lobyte(.bank(RdItPrivate)|$80),.lobyte(.bank(RdItCollision)|$80),.lobyte(.bank(RdItPickup)|$80),.lobyte(.bank(CheatsFullPower)|$80),.lobyte(.bank(RdBodyColors)|$80),.lobyte(.bank(RdWxBounce)|$80),.lobyte(.bank(Z2HeadWithinTerrain)|$80),.lobyte(.bank(RdUiEarly)|$80),.lobyte(.bank(RdUiStatus)|$80),.lobyte(.bank(RdWxBounce)|$80),.lobyte(.bank(KbWorldPaletteIndex)|$80),.lobyte(.bank(GuestPowerupUpdate)|$80),.lobyte(.bank(RdWxRemainingGate)|$80),.lobyte(.bank(MmReserveVine)|$80)
++HuPairIndex:
++ .byte 0,1,2,0,0,0,0,3,0,4,3,3,1,1,5,6,7,6,7,8,8,8,8,8,3,9,10,11,12,13,4,14,15,16,2,17,18,19,19,19,20,21,21,21,21,21,22,21,20,20,22,19,20,6,19,19,23,7,7,7,21,18,19,11,12,21,21,14,23,24,20,25,0,26,26,27,28,26,26,26,0,29,3,26,1,1,5,30,31,6,30,30,26,26,32,32,32,9,30,32,12,30,30,32,15,16,2,32,33,34,2,35,36,37,33,38,38,33,3,38,1,1,5,39,40,6,41,8,37,8,42,42,42,9,43,44,12,45,41,44,15,16,36,17
++HuPairHi:
++ .byte >JnMovementDispatch,>RlGraphicsDispatch,>RlDrawDispatch,>JnInventoryDeathDispatch,>JnVisibleDispatch,>Z2SideAdmission,>BmFresh,>GmFullBoxGate,>JnResetDispatch,>CheatsFullPower,>BmColors,>X5StompDispatch,>Z2HeadWithinTerrain,>VvUiDispatch,>GmStompGate,>KbWorldPaletteIndex,>GuestPowerupUpdate,>MmReserveVine,>DkMovement,>DkHostGraphics,>DkHostWeapons,>DkHostInjury,>DkHostHead,>HuDkPrepare,>DkHostPowerup,>DkHostVine,>DpGameLate,>DpAdmissionPortrait,>DpPlatformWeapons,>DpHostVisible,>DpAdmissionFresh,>MaaBox,>DpGamePrivate,>RdLifeMovement,>RdLifeGraphics,>RdUiPortrait,>RdWxSamusGate,>RdHzInjury,>RdLifeDeathStart,>RdLifeFresh,>RdBodyBox,>RdUiName,>RdItPrivate,>RdBodyColors,>RdWxBounce,>RdUiEarly
++HuPairBank:
++ .byte .lobyte(.bank(JnMovementDispatch)|$80),.lobyte(.bank(RlGraphicsDispatch)|$80),.lobyte(.bank(RlDrawDispatch)|$80),.lobyte(.bank(JnInventoryDeathDispatch)|$80),.lobyte(.bank(JnVisibleDispatch)|$80),.lobyte(.bank(Z2SideAdmission)|$80),.lobyte(.bank(BmFresh)|$80),.lobyte(.bank(GmFullBoxGate)|$80),.lobyte(.bank(JnResetDispatch)|$80),.lobyte(.bank(CheatsFullPower)|$80),.lobyte(.bank(BmColors)|$80),.lobyte(.bank(X5StompDispatch)|$80),.lobyte(.bank(Z2HeadWithinTerrain)|$80),.lobyte(.bank(VvUiDispatch)|$80),.lobyte(.bank(GmStompGate)|$80),.lobyte(.bank(KbWorldPaletteIndex)|$80),.lobyte(.bank(GuestPowerupUpdate)|$80),.lobyte(.bank(MmReserveVine)|$80),.lobyte(.bank(DkMovement)|$80),.lobyte(.bank(DkHostGraphics)|$80),.lobyte(.bank(DkHostWeapons)|$80),.lobyte(.bank(DkHostInjury)|$80),.lobyte(.bank(DkHostHead)|$80),.lobyte(.bank(HuDkPrepare)|$80),.lobyte(.bank(DkHostPowerup)|$80),.lobyte(.bank(DkHostVine)|$80),.lobyte(.bank(DpGameLate)|$80),.lobyte(.bank(DpAdmissionPortrait)|$80),.lobyte(.bank(DpPlatformWeapons)|$80),.lobyte(.bank(DpHostVisible)|$80),.lobyte(.bank(DpAdmissionFresh)|$80),.lobyte(.bank(MaaBox)|$80),.lobyte(.bank(DpGamePrivate)|$80),.lobyte(.bank(RdLifeMovement)|$80),.lobyte(.bank(RdLifeGraphics)|$80),.lobyte(.bank(RdUiPortrait)|$80),.lobyte(.bank(RdWxSamusGate)|$80),.lobyte(.bank(RdHzInjury)|$80),.lobyte(.bank(RdLifeDeathStart)|$80),.lobyte(.bank(RdLifeFresh)|$80),.lobyte(.bank(RdBodyBox)|$80),.lobyte(.bank(RdUiName)|$80),.lobyte(.bank(RdItPrivate)|$80),.lobyte(.bank(RdBodyColors)|$80),.lobyte(.bank(RdWxBounce)|$80),.lobyte(.bank(RdUiEarly)|$80)
++.assert >JnMovementDispatch=>JnMovementDispatch,lderror,"Actual64 pair high0"
++.assert .bank(JnMovementDispatch)=.bank(JnMovementDispatch),lderror,"Actual64 pair bank0"
++.assert >RlGraphicsDispatch=>RlGraphicsDispatch,lderror,"Actual64 pair high1"
++.assert .bank(RlGraphicsDispatch)=.bank(RlGraphicsDispatch),lderror,"Actual64 pair bank1"
++.assert >RlDrawDispatch=>RlDrawDispatch,lderror,"Actual64 pair high2"
++.assert .bank(RlDrawDispatch)=.bank(RlDrawDispatch),lderror,"Actual64 pair bank2"
++.assert >JnPortraitDispatch=>JnMovementDispatch,lderror,"Actual64 pair high3"
++.assert .bank(JnPortraitDispatch)=.bank(JnMovementDispatch),lderror,"Actual64 pair bank3"
++.assert >JnWeaponsDispatch=>JnMovementDispatch,lderror,"Actual64 pair high4"
++.assert .bank(JnWeaponsDispatch)=.bank(JnMovementDispatch),lderror,"Actual64 pair bank4"
++.assert >JnInjuryStartDispatch=>JnMovementDispatch,lderror,"Actual64 pair high5"
++.assert .bank(JnInjuryStartDispatch)=.bank(JnMovementDispatch),lderror,"Actual64 pair bank5"
++.assert >JnInjuryStatusDispatch=>JnMovementDispatch,lderror,"Actual64 pair high6"
++.assert .bank(JnInjuryStatusDispatch)=.bank(JnMovementDispatch),lderror,"Actual64 pair bank6"
++.assert >JnInventoryDeathDispatch=>JnInventoryDeathDispatch,lderror,"Actual64 pair high7"
++.assert .bank(JnInventoryDeathDispatch)=.bank(JnInventoryDeathDispatch),lderror,"Actual64 pair bank7"
++.assert >JnDeathDispatch=>JnMovementDispatch,lderror,"Actual64 pair high8"
++.assert .bank(JnDeathDispatch)=.bank(JnMovementDispatch),lderror,"Actual64 pair bank8"
++.assert >JnVisibleDispatch=>JnVisibleDispatch,lderror,"Actual64 pair high9"
++.assert .bank(JnVisibleDispatch)=.bank(JnVisibleDispatch),lderror,"Actual64 pair bank9"
++.assert >JnHeadDispatch=>JnInventoryDeathDispatch,lderror,"Actual64 pair high10"
++.assert .bank(JnHeadDispatch)=.bank(JnInventoryDeathDispatch),lderror,"Actual64 pair bank10"
++.assert >JnBodyDispatch=>JnInventoryDeathDispatch,lderror,"Actual64 pair high11"
++.assert .bank(JnBodyDispatch)=.bank(JnInventoryDeathDispatch),lderror,"Actual64 pair bank11"
++.assert >RlAdderDispatch=>RlGraphicsDispatch,lderror,"Actual64 pair high12"
++.assert .bank(RlAdderDispatch)=.bank(RlGraphicsDispatch),lderror,"Actual64 pair bank12"
++.assert >RlBoxDispatch=>RlGraphicsDispatch,lderror,"Actual64 pair high13"
++.assert .bank(RlBoxDispatch)=.bank(RlGraphicsDispatch),lderror,"Actual64 pair bank13"
++.assert >Z2SideAdmission=>Z2SideAdmission,lderror,"Actual64 pair high14"
++.assert .bank(Z2SideAdmission)=.bank(Z2SideAdmission),lderror,"Actual64 pair bank14"
++.assert >BmFresh=>BmFresh,lderror,"Actual64 pair high15"
++.assert .bank(BmFresh)=.bank(BmFresh),lderror,"Actual64 pair bank15"
++.assert >GmFullBoxGate=>GmFullBoxGate,lderror,"Actual64 pair high16"
++.assert .bank(GmFullBoxGate)=.bank(GmFullBoxGate),lderror,"Actual64 pair bank16"
++.assert >KmPortrait=>BmFresh,lderror,"Actual64 pair high17"
++.assert .bank(KmPortrait)=.bank(BmFresh),lderror,"Actual64 pair bank17"
++.assert >GmMenuNameGate=>GmFullBoxGate,lderror,"Actual64 pair high18"
++.assert .bank(GmMenuNameGate)=.bank(GmFullBoxGate),lderror,"Actual64 pair bank18"
++.assert >JnResetDispatch=>JnResetDispatch,lderror,"Actual64 pair high19"
++.assert .bank(JnResetDispatch)=.bank(JnResetDispatch),lderror,"Actual64 pair bank19"
++.assert >JnPrepareDispatch=>JnResetDispatch,lderror,"Actual64 pair high20"
++.assert .bank(JnPrepareDispatch)=.bank(JnResetDispatch),lderror,"Actual64 pair bank20"
++.assert >JnRiseDispatch=>JnResetDispatch,lderror,"Actual64 pair high21"
++.assert .bank(JnRiseDispatch)=.bank(JnResetDispatch),lderror,"Actual64 pair bank21"
++.assert >JnPrivateDispatch=>JnResetDispatch,lderror,"Actual64 pair high22"
++.assert .bank(JnPrivateDispatch)=.bank(JnResetDispatch),lderror,"Actual64 pair bank22"
++.assert >JnCollisionDispatch=>JnResetDispatch,lderror,"Actual64 pair high23"
++.assert .bank(JnCollisionDispatch)=.bank(JnResetDispatch),lderror,"Actual64 pair bank23"
++.assert >JnPickupDispatch=>JnInventoryDeathDispatch,lderror,"Actual64 pair high24"
++.assert .bank(JnPickupDispatch)=.bank(JnInventoryDeathDispatch),lderror,"Actual64 pair bank24"
++.assert >CheatsFullPower=>CheatsFullPower,lderror,"Actual64 pair high25"
++.assert .bank(CheatsFullPower)=.bank(CheatsFullPower),lderror,"Actual64 pair bank25"
++.assert >BmColors=>BmColors,lderror,"Actual64 pair high26"
++.assert .bank(BmColors)=.bank(BmColors),lderror,"Actual64 pair bank26"
++.assert >X5StompDispatch=>X5StompDispatch,lderror,"Actual64 pair high27"
++.assert .bank(X5StompDispatch)=.bank(X5StompDispatch),lderror,"Actual64 pair bank27"
++.assert >Z2HeadWithinTerrain=>Z2HeadWithinTerrain,lderror,"Actual64 pair high28"
++.assert .bank(Z2HeadWithinTerrain)=.bank(Z2HeadWithinTerrain),lderror,"Actual64 pair bank28"
++.assert >VvUiDispatch=>VvUiDispatch,lderror,"Actual64 pair high29"
++.assert .bank(VvUiDispatch)=.bank(VvUiDispatch),lderror,"Actual64 pair bank29"
++.assert >JnStatusName=>JnVisibleDispatch,lderror,"Actual64 pair high30"
++.assert .bank(JnStatusName)=.bank(JnVisibleDispatch),lderror,"Actual64 pair bank30"
++.assert >GmStompGate=>GmStompGate,lderror,"Actual64 pair high31"
++.assert .bank(GmStompGate)=.bank(GmStompGate),lderror,"Actual64 pair bank31"
++.assert >KbWorldPaletteIndex=>KbWorldPaletteIndex,lderror,"Actual64 pair high32"
++.assert .bank(KbWorldPaletteIndex)=.bank(KbWorldPaletteIndex),lderror,"Actual64 pair bank32"
++.assert >GuestPowerupUpdate=>GuestPowerupUpdate,lderror,"Actual64 pair high33"
++.assert .bank(GuestPowerupUpdate)=.bank(GuestPowerupUpdate),lderror,"Actual64 pair bank33"
++.assert >RlWeaponsDispatch=>RlDrawDispatch,lderror,"Actual64 pair high34"
++.assert .bank(RlWeaponsDispatch)=.bank(RlDrawDispatch),lderror,"Actual64 pair bank34"
++.assert >MmReserveVine=>MmReserveVine,lderror,"Actual64 pair high35"
++.assert .bank(MmReserveVine)=.bank(MmReserveVine),lderror,"Actual64 pair bank35"
++.assert >DkMovement=>DkMovement,lderror,"Actual64 pair high36"
++.assert .bank(DkMovement)=.bank(DkMovement),lderror,"Actual64 pair bank36"
++.assert >DkHostGraphics=>DkHostGraphics,lderror,"Actual64 pair high37"
++.assert .bank(DkHostGraphics)=.bank(DkHostGraphics),lderror,"Actual64 pair bank37"
++.assert >DkHostDraw=>DkHostGraphics,lderror,"Actual64 pair high38"
++.assert .bank(DkHostDraw)=.bank(DkHostGraphics),lderror,"Actual64 pair bank38"
++.assert >DkHostPortrait=>DkHostGraphics,lderror,"Actual64 pair high39"
++.assert .bank(DkHostPortrait)=.bank(DkHostGraphics),lderror,"Actual64 pair bank39"
++.assert >DkHostWeapons=>DkHostWeapons,lderror,"Actual64 pair high40"
++.assert .bank(DkHostWeapons)=.bank(DkHostWeapons),lderror,"Actual64 pair bank40"
++.assert >DkHostInjury=>DkHostInjury,lderror,"Actual64 pair high41"
++.assert .bank(DkHostInjury)=.bank(DkHostInjury),lderror,"Actual64 pair bank41"
++.assert >DkHostInjuryStatus=>DkHostInjury,lderror,"Actual64 pair high42"
++.assert .bank(DkHostInjuryStatus)=.bank(DkHostInjury),lderror,"Actual64 pair bank42"
++.assert >DkHostDeathStart=>DkHostInjury,lderror,"Actual64 pair high43"
++.assert .bank(DkHostDeathStart)=.bank(DkHostInjury),lderror,"Actual64 pair bank43"
++.assert >DkHostDeath=>DkHostInjury,lderror,"Actual64 pair high44"
++.assert .bank(DkHostDeath)=.bank(DkHostInjury),lderror,"Actual64 pair bank44"
++.assert >DkHostVisible=>DkHostInjury,lderror,"Actual64 pair high45"
++.assert .bank(DkHostVisible)=.bank(DkHostInjury),lderror,"Actual64 pair bank45"
++.assert >DkHostHead=>DkHostHead,lderror,"Actual64 pair high46"
++.assert .bank(DkHostHead)=.bank(DkHostHead),lderror,"Actual64 pair bank46"
++.assert >DkHostBody=>DkHostInjury,lderror,"Actual64 pair high47"
++.assert .bank(DkHostBody)=.bank(DkHostInjury),lderror,"Actual64 pair bank47"
++.assert >DkHostAdder=>DkHostWeapons,lderror,"Actual64 pair high48"
++.assert .bank(DkHostAdder)=.bank(DkHostWeapons),lderror,"Actual64 pair bank48"
++.assert >DkHostBoxProfile=>DkHostWeapons,lderror,"Actual64 pair high49"
++.assert .bank(DkHostBoxProfile)=.bank(DkHostWeapons),lderror,"Actual64 pair bank49"
++.assert >DkHostSide=>DkHostHead,lderror,"Actual64 pair high50"
++.assert .bank(DkHostSide)=.bank(DkHostHead),lderror,"Actual64 pair bank50"
++.assert >DkHostFresh=>DkHostGraphics,lderror,"Actual64 pair high51"
++.assert .bank(DkHostFresh)=.bank(DkHostGraphics),lderror,"Actual64 pair bank51"
++.assert >DkHostBoxGate=>DkHostWeapons,lderror,"Actual64 pair high52"
++.assert .bank(DkHostBoxGate)=.bank(DkHostWeapons),lderror,"Actual64 pair bank52"
++.assert >KmPortrait=>BmFresh,lderror,"Actual64 pair high53"
++.assert .bank(KmPortrait)=.bank(BmFresh),lderror,"Actual64 pair bank53"
++.assert >DkHostMenuName=>DkHostGraphics,lderror,"Actual64 pair high54"
++.assert .bank(DkHostMenuName)=.bank(DkHostGraphics),lderror,"Actual64 pair bank54"
++.assert >DkHostReset=>DkHostGraphics,lderror,"Actual64 pair high55"
++.assert .bank(DkHostReset)=.bank(DkHostGraphics),lderror,"Actual64 pair bank55"
++.assert >HuDkPrepare=>HuDkPrepare,lderror,"Actual64 pair high56"
++.assert .bank(HuDkPrepare)=.bank(HuDkPrepare),lderror,"Actual64 pair bank56"
++.assert >GmNativeNoop=>GmFullBoxGate,lderror,"Actual64 pair high57"
++.assert .bank(GmNativeNoop)=.bank(GmFullBoxGate),lderror,"Actual64 pair bank57"
++.assert >GmNativeNoop=>GmFullBoxGate,lderror,"Actual64 pair high58"
++.assert .bank(GmNativeNoop)=.bank(GmFullBoxGate),lderror,"Actual64 pair bank58"
++.assert >GmMatureOwn=>GmFullBoxGate,lderror,"Actual64 pair high59"
++.assert .bank(GmMatureOwn)=.bank(GmFullBoxGate),lderror,"Actual64 pair bank59"
++.assert >DkHostCollect=>DkHostInjury,lderror,"Actual64 pair high60"
++.assert .bank(DkHostCollect)=.bank(DkHostInjury),lderror,"Actual64 pair bank60"
++.assert >DkFullPower=>DkMovement,lderror,"Actual64 pair high61"
++.assert .bank(DkFullPower)=.bank(DkMovement),lderror,"Actual64 pair bank61"
++.assert >DkHostColors=>DkHostGraphics,lderror,"Actual64 pair high62"
++.assert .bank(DkHostColors)=.bank(DkHostGraphics),lderror,"Actual64 pair bank62"
++.assert >X5StompDispatch=>X5StompDispatch,lderror,"Actual64 pair high63"
++.assert .bank(X5StompDispatch)=.bank(X5StompDispatch),lderror,"Actual64 pair bank63"
++.assert >Z2HeadWithinTerrain=>Z2HeadWithinTerrain,lderror,"Actual64 pair high64"
++.assert .bank(Z2HeadWithinTerrain)=.bank(Z2HeadWithinTerrain),lderror,"Actual64 pair bank64"
++.assert >DkHostUi=>DkHostInjury,lderror,"Actual64 pair high65"
++.assert .bank(DkHostUi)=.bank(DkHostInjury),lderror,"Actual64 pair bank65"
++.assert >DkHostName=>DkHostInjury,lderror,"Actual64 pair high66"
++.assert .bank(DkHostName)=.bank(DkHostInjury),lderror,"Actual64 pair bank66"
++.assert >GmStompGate=>GmStompGate,lderror,"Actual64 pair high67"
++.assert .bank(GmStompGate)=.bank(GmStompGate),lderror,"Actual64 pair bank67"
++.assert >HuNativeWorldPalette=>HuDkPrepare,lderror,"Actual64 pair high68"
++.assert .bank(HuNativeWorldPalette)=.bank(HuDkPrepare),lderror,"Actual64 pair bank68"
++.assert >DkHostPowerup=>DkHostPowerup,lderror,"Actual64 pair high69"
++.assert .bank(DkHostPowerup)=.bank(DkHostPowerup),lderror,"Actual64 pair bank69"
++.assert >DkHostWeapons=>DkHostWeapons,lderror,"Actual64 pair high70"
++.assert .bank(DkHostWeapons)=.bank(DkHostWeapons),lderror,"Actual64 pair bank70"
++.assert >DkHostVine=>DkHostVine,lderror,"Actual64 pair high71"
++.assert .bank(DkHostVine)=.bank(DkHostVine),lderror,"Actual64 pair bank71"
++.assert >JnMovementDispatch=>JnMovementDispatch,lderror,"Actual64 pair high72"
++.assert .bank(JnMovementDispatch)=.bank(JnMovementDispatch),lderror,"Actual64 pair bank72"
++.assert >DpGameLate=>DpGameLate,lderror,"Actual64 pair high73"
++.assert .bank(DpGameLate)=.bank(DpGameLate),lderror,"Actual64 pair bank73"
++.assert >DpGameDraw=>DpGameLate,lderror,"Actual64 pair high74"
++.assert .bank(DpGameDraw)=.bank(DpGameLate),lderror,"Actual64 pair bank74"
++.assert >DpAdmissionPortrait=>DpAdmissionPortrait,lderror,"Actual64 pair high75"
++.assert .bank(DpAdmissionPortrait)=.bank(DpAdmissionPortrait),lderror,"Actual64 pair bank75"
++.assert >DpPlatformWeapons=>DpPlatformWeapons,lderror,"Actual64 pair high76"
++.assert .bank(DpPlatformWeapons)=.bank(DpPlatformWeapons),lderror,"Actual64 pair bank76"
++.assert >DpGameInjury=>DpGameLate,lderror,"Actual64 pair high77"
++.assert .bank(DpGameInjury)=.bank(DpGameLate),lderror,"Actual64 pair bank77"
++.assert >DpGameStatus=>DpGameLate,lderror,"Actual64 pair high78"
++.assert .bank(DpGameStatus)=.bank(DpGameLate),lderror,"Actual64 pair bank78"
++.assert >DpGameDeathStart=>DpGameLate,lderror,"Actual64 pair high79"
++.assert .bank(DpGameDeathStart)=.bank(DpGameLate),lderror,"Actual64 pair bank79"
++.assert >JnDeathDispatch=>JnMovementDispatch,lderror,"Actual64 pair high80"
++.assert .bank(JnDeathDispatch)=.bank(JnMovementDispatch),lderror,"Actual64 pair bank80"
++.assert >DpHostVisible=>DpHostVisible,lderror,"Actual64 pair high81"
++.assert .bank(DpHostVisible)=.bank(DpHostVisible),lderror,"Actual64 pair bank81"
++.assert >JnHeadDispatch=>JnInventoryDeathDispatch,lderror,"Actual64 pair high82"
++.assert .bank(JnHeadDispatch)=.bank(JnInventoryDeathDispatch),lderror,"Actual64 pair bank82"
++.assert >DpGameBody=>DpGameLate,lderror,"Actual64 pair high83"
++.assert .bank(DpGameBody)=.bank(DpGameLate),lderror,"Actual64 pair bank83"
++.assert >RlAdderDispatch=>RlGraphicsDispatch,lderror,"Actual64 pair high84"
++.assert .bank(RlAdderDispatch)=.bank(RlGraphicsDispatch),lderror,"Actual64 pair bank84"
++.assert >RlBoxDispatch=>RlGraphicsDispatch,lderror,"Actual64 pair high85"
++.assert .bank(RlBoxDispatch)=.bank(RlGraphicsDispatch),lderror,"Actual64 pair bank85"
++.assert >Z2SideAdmission=>Z2SideAdmission,lderror,"Actual64 pair high86"
++.assert .bank(Z2SideAdmission)=.bank(Z2SideAdmission),lderror,"Actual64 pair bank86"
++.assert >DpAdmissionFresh=>DpAdmissionFresh,lderror,"Actual64 pair high87"
++.assert .bank(DpAdmissionFresh)=.bank(DpAdmissionFresh),lderror,"Actual64 pair bank87"
++.assert >MaaBox=>MaaBox,lderror,"Actual64 pair high88"
++.assert .bank(MaaBox)=.bank(MaaBox),lderror,"Actual64 pair bank88"
++.assert >KmPortrait=>BmFresh,lderror,"Actual64 pair high89"
++.assert .bank(KmPortrait)=.bank(BmFresh),lderror,"Actual64 pair bank89"
++.assert >DpAdmissionMenuName=>DpAdmissionFresh,lderror,"Actual64 pair high90"
++.assert .bank(DpAdmissionMenuName)=.bank(DpAdmissionFresh),lderror,"Actual64 pair bank90"
++.assert >DpAdmissionReset=>DpAdmissionFresh,lderror,"Actual64 pair high91"
++.assert .bank(DpAdmissionReset)=.bank(DpAdmissionFresh),lderror,"Actual64 pair bank91"
++.assert >DpGamePrepare=>DpGameLate,lderror,"Actual64 pair high92"
++.assert .bank(DpGamePrepare)=.bank(DpGameLate),lderror,"Actual64 pair bank92"
++.assert >DpGameRise=>DpGameLate,lderror,"Actual64 pair high93"
++.assert .bank(DpGameRise)=.bank(DpGameLate),lderror,"Actual64 pair bank93"
++.assert >DpGamePrivate=>DpGamePrivate,lderror,"Actual64 pair high94"
++.assert .bank(DpGamePrivate)=.bank(DpGamePrivate),lderror,"Actual64 pair bank94"
++.assert >DpGameCollision=>DpGamePrivate,lderror,"Actual64 pair high95"
++.assert .bank(DpGameCollision)=.bank(DpGamePrivate),lderror,"Actual64 pair bank95"
++.assert >DpGamePickup=>DpGamePrivate,lderror,"Actual64 pair high96"
++.assert .bank(DpGamePickup)=.bank(DpGamePrivate),lderror,"Actual64 pair bank96"
++.assert >CheatsFullPower=>CheatsFullPower,lderror,"Actual64 pair high97"
++.assert .bank(CheatsFullPower)=.bank(CheatsFullPower),lderror,"Actual64 pair bank97"
++.assert >DpAdmissionColors=>DpAdmissionFresh,lderror,"Actual64 pair high98"
++.assert .bank(DpAdmissionColors)=.bank(DpAdmissionFresh),lderror,"Actual64 pair bank98"
++.assert >DpGameBounce=>DpGamePrivate,lderror,"Actual64 pair high99"
++.assert .bank(DpGameBounce)=.bank(DpGamePrivate),lderror,"Actual64 pair bank99"
++.assert >Z2HeadWithinTerrain=>Z2HeadWithinTerrain,lderror,"Actual64 pair high100"
++.assert .bank(Z2HeadWithinTerrain)=.bank(Z2HeadWithinTerrain),lderror,"Actual64 pair bank100"
++.assert >DpAdmissionEarly=>DpAdmissionFresh,lderror,"Actual64 pair high101"
++.assert .bank(DpAdmissionEarly)=.bank(DpAdmissionFresh),lderror,"Actual64 pair bank101"
++.assert >DpAdmissionStatusName=>DpAdmissionFresh,lderror,"Actual64 pair high102"
++.assert .bank(DpAdmissionStatusName)=.bank(DpAdmissionFresh),lderror,"Actual64 pair bank102"
++.assert >DpGameBounce=>DpGamePrivate,lderror,"Actual64 pair high103"
++.assert .bank(DpGameBounce)=.bank(DpGamePrivate),lderror,"Actual64 pair bank103"
++.assert >KbWorldPaletteIndex=>KbWorldPaletteIndex,lderror,"Actual64 pair high104"
++.assert .bank(KbWorldPaletteIndex)=.bank(KbWorldPaletteIndex),lderror,"Actual64 pair bank104"
++.assert >GuestPowerupUpdate=>GuestPowerupUpdate,lderror,"Actual64 pair high105"
++.assert .bank(GuestPowerupUpdate)=.bank(GuestPowerupUpdate),lderror,"Actual64 pair bank105"
++.assert >RlWeaponsDispatch=>RlDrawDispatch,lderror,"Actual64 pair high106"
++.assert .bank(RlWeaponsDispatch)=.bank(RlDrawDispatch),lderror,"Actual64 pair bank106"
++.assert >DpGameVine=>DpGamePrivate,lderror,"Actual64 pair high107"
++.assert .bank(DpGameVine)=.bank(DpGamePrivate),lderror,"Actual64 pair bank107"
++.assert >RdLifeMovement=>RdLifeMovement,lderror,"Actual64 pair high108"
++.assert .bank(RdLifeMovement)=.bank(RdLifeMovement),lderror,"Actual64 pair bank108"
++.assert >RdLifeGraphics=>RdLifeGraphics,lderror,"Actual64 pair high109"
++.assert .bank(RdLifeGraphics)=.bank(RdLifeGraphics),lderror,"Actual64 pair bank109"
++.assert >RlDrawDispatch=>RlDrawDispatch,lderror,"Actual64 pair high110"
++.assert .bank(RlDrawDispatch)=.bank(RlDrawDispatch),lderror,"Actual64 pair bank110"
++.assert >RdUiPortrait=>RdUiPortrait,lderror,"Actual64 pair high111"
++.assert .bank(RdUiPortrait)=.bank(RdUiPortrait),lderror,"Actual64 pair bank111"
++.assert >RdWxSamusGate=>RdWxSamusGate,lderror,"Actual64 pair high112"
++.assert .bank(RdWxSamusGate)=.bank(RdWxSamusGate),lderror,"Actual64 pair bank112"
++.assert >RdHzInjury=>RdHzInjury,lderror,"Actual64 pair high113"
++.assert .bank(RdHzInjury)=.bank(RdHzInjury),lderror,"Actual64 pair bank113"
++.assert >RdLifeStatus=>RdLifeMovement,lderror,"Actual64 pair high114"
++.assert .bank(RdLifeStatus)=.bank(RdLifeMovement),lderror,"Actual64 pair bank114"
++.assert >RdLifeDeathStart=>RdLifeDeathStart,lderror,"Actual64 pair high115"
++.assert .bank(RdLifeDeathStart)=.bank(RdLifeDeathStart),lderror,"Actual64 pair bank115"
++.assert >RdLifeDeathTick=>RdLifeDeathStart,lderror,"Actual64 pair high116"
++.assert .bank(RdLifeDeathTick)=.bank(RdLifeDeathStart),lderror,"Actual64 pair bank116"
++.assert >RdLifeVisible=>RdLifeMovement,lderror,"Actual64 pair high117"
++.assert .bank(RdLifeVisible)=.bank(RdLifeMovement),lderror,"Actual64 pair bank117"
++.assert >JnHeadDispatch=>JnInventoryDeathDispatch,lderror,"Actual64 pair high118"
++.assert .bank(JnHeadDispatch)=.bank(JnInventoryDeathDispatch),lderror,"Actual64 pair bank118"
++.assert >RdLifeBody=>RdLifeDeathStart,lderror,"Actual64 pair high119"
++.assert .bank(RdLifeBody)=.bank(RdLifeDeathStart),lderror,"Actual64 pair bank119"
++.assert >RlAdderDispatch=>RlGraphicsDispatch,lderror,"Actual64 pair high120"
++.assert .bank(RlAdderDispatch)=.bank(RlGraphicsDispatch),lderror,"Actual64 pair bank120"
++.assert >RlBoxDispatch=>RlGraphicsDispatch,lderror,"Actual64 pair high121"
++.assert .bank(RlBoxDispatch)=.bank(RlGraphicsDispatch),lderror,"Actual64 pair bank121"
++.assert >Z2SideAdmission=>Z2SideAdmission,lderror,"Actual64 pair high122"
++.assert .bank(Z2SideAdmission)=.bank(Z2SideAdmission),lderror,"Actual64 pair bank122"
++.assert >RdLifeFresh=>RdLifeFresh,lderror,"Actual64 pair high123"
++.assert .bank(RdLifeFresh)=.bank(RdLifeFresh),lderror,"Actual64 pair bank123"
++.assert >RdBodyBox=>RdBodyBox,lderror,"Actual64 pair high124"
++.assert .bank(RdBodyBox)=.bank(RdBodyBox),lderror,"Actual64 pair bank124"
++.assert >KmPortrait=>BmFresh,lderror,"Actual64 pair high125"
++.assert .bank(KmPortrait)=.bank(BmFresh),lderror,"Actual64 pair bank125"
++.assert >RdUiName=>RdUiName,lderror,"Actual64 pair high126"
++.assert .bank(RdUiName)=.bank(RdUiName),lderror,"Actual64 pair bank126"
++.assert >JnResetDispatch=>JnResetDispatch,lderror,"Actual64 pair high127"
++.assert .bank(JnResetDispatch)=.bank(JnResetDispatch),lderror,"Actual64 pair bank127"
++.assert >RdItPrepare=>RdHzInjury,lderror,"Actual64 pair high128"
++.assert .bank(RdItPrepare)=.bank(RdHzInjury),lderror,"Actual64 pair bank128"
++.assert >JnRiseDispatch=>JnResetDispatch,lderror,"Actual64 pair high129"
++.assert .bank(JnRiseDispatch)=.bank(JnResetDispatch),lderror,"Actual64 pair bank129"
++.assert >RdItPrivate=>RdItPrivate,lderror,"Actual64 pair high130"
++.assert .bank(RdItPrivate)=.bank(RdItPrivate),lderror,"Actual64 pair bank130"
++.assert >RdItCollision=>RdItPrivate,lderror,"Actual64 pair high131"
++.assert .bank(RdItCollision)=.bank(RdItPrivate),lderror,"Actual64 pair bank131"
++.assert >RdItPickup=>RdItPrivate,lderror,"Actual64 pair high132"
++.assert .bank(RdItPickup)=.bank(RdItPrivate),lderror,"Actual64 pair bank132"
++.assert >CheatsFullPower=>CheatsFullPower,lderror,"Actual64 pair high133"
++.assert .bank(CheatsFullPower)=.bank(CheatsFullPower),lderror,"Actual64 pair bank133"
++.assert >RdBodyColors=>RdBodyColors,lderror,"Actual64 pair high134"
++.assert .bank(RdBodyColors)=.bank(RdBodyColors),lderror,"Actual64 pair bank134"
++.assert >RdWxBounce=>RdWxBounce,lderror,"Actual64 pair high135"
++.assert .bank(RdWxBounce)=.bank(RdWxBounce),lderror,"Actual64 pair bank135"
++.assert >Z2HeadWithinTerrain=>Z2HeadWithinTerrain,lderror,"Actual64 pair high136"
++.assert .bank(Z2HeadWithinTerrain)=.bank(Z2HeadWithinTerrain),lderror,"Actual64 pair bank136"
++.assert >RdUiEarly=>RdUiEarly,lderror,"Actual64 pair high137"
++.assert .bank(RdUiEarly)=.bank(RdUiEarly),lderror,"Actual64 pair bank137"
++.assert >RdUiStatus=>RdUiName,lderror,"Actual64 pair high138"
++.assert .bank(RdUiStatus)=.bank(RdUiName),lderror,"Actual64 pair bank138"
++.assert >RdWxBounce=>RdWxBounce,lderror,"Actual64 pair high139"
++.assert .bank(RdWxBounce)=.bank(RdWxBounce),lderror,"Actual64 pair bank139"
++.assert >KbWorldPaletteIndex=>KbWorldPaletteIndex,lderror,"Actual64 pair high140"
++.assert .bank(KbWorldPaletteIndex)=.bank(KbWorldPaletteIndex),lderror,"Actual64 pair bank140"
++.assert >GuestPowerupUpdate=>GuestPowerupUpdate,lderror,"Actual64 pair high141"
++.assert .bank(GuestPowerupUpdate)=.bank(GuestPowerupUpdate),lderror,"Actual64 pair bank141"
++.assert >RdWxRemainingGate=>RdWxSamusGate,lderror,"Actual64 pair high142"
++.assert .bank(RdWxRemainingGate)=.bank(RdWxSamusGate),lderror,"Actual64 pair bank142"
++.assert >MmReserveVine=>MmReserveVine,lderror,"Actual64 pair high143"
++.assert .bank(MmReserveVine)=.bank(MmReserveVine),lderror,"Actual64 pair bank143"
++HuExtendedBT:
++ lda #>BtServiceVeneers
++ sta FarcallJmpTarget_SMC+2
++ lda #.lobyte(.bank(BtServiceVeneers)|$80)
++ sta NextBank_SMC+1
++ cpy #36
++ bcc Valid
++ ldy #36
++Valid:
++ tya
++ sta FarcallJmpTarget_SMC+1
++ asl
++ adc FarcallJmpTarget_SMC+1
++ adc #<BtServiceVeneers
++ sta FarcallJmpTarget_SMC+1
++ jmp HuCommon::Restore
++.assert .lobyte(BtServiceVeneers)+108<256,lderror,"BT full row remains on one page"
++.assert *<=$ba3d,lderror,"Private table compaction must fund BT without shifting public suffix"
++.res $045d-(*-HuStart),$ea
+ .export HuResolve
+ .proc HuResolve
+  php
+--- installed-f56/src/new_roster_dispatch.s
++++ bowser-current64/src/new_roster_dispatch.s
+@@ -184,17 +184,17 @@
+  beq GmOnlyQuick
+  cmp #26
+  beq Own
+- cmp #25
+- beq GmOnlyRare
++ cmp #28
++ beq GmOnlyHigh
+  cmp #22
+- beq GmOnlyRare
++ beq GmOnlyHigh
+  cmp #32
+- beq GmOnlyRare
++ bcs GmOnlyHigh
+  ; Exactly24or28 after clearing their sole differing bit. Every other
+  ; highID stays on its genuine old direct legacy table, avoiding recursion.
+- and #$fb
++ and #$fc
+  cmp #24
+- beq GmOnlyRare
++ beq GmOnlyHigh
+ ::GmOnlyLegacy:
+ Legacy:
+  tya
+@@ -227,12 +227,15 @@
+  lda FmAlts
+  and #32
+  beq GmOnlyLegacy
++::GmOnlyHigh:
++ cmp #34
++ bcs GmOnlyLegacy
+ ::GmOnlyRare:
+  jmp HuOnlyRare
+ 
+ .endscope
+ .endmacro
+-GmNrRoute NrWeapons,IcWeapons,RcWeapons,SunnyWeapons,JnWeaponsDispatch,GmWeapons,97,GmExtraNrWeapons,51,0
++GmNrRoute NrWeapons,IcWeapons,RcWeapons,SunnyWeapons,JnWeaponsDispatch,GmWeapons,97,GmExtraNrWeapons,55,0
+ .macro GmExtraNrInjury
+ .scope GmOwnedHelper3
+ ::GmHostPortrait:
+--- installed-f56/private.cfg
++++ bowser-current64/private.cfg
+@@ -1,4 +1,6 @@
+ MEMORY {
++BT_CACHE_MEM:start=$a000,size=$2000,bank=3,type=ro,file="C:/Users/kando/Documents/ChatGPT/SMB Crossover/build/bowser-current64-v3/joint/bt/cache.bin",fill=yes,fillval=$ff;
++
+  AR_GEN_CTOR_RUN:start=$bc95,size=$6b,type=ro,file="",bank=$46;
+  AR_GEN_NAME_RUN:start=$a9cf,size=$31,type=ro,file="",bank=$75;
+  ARTHUR_CACHE_RUN:start=$d800,size=$7e0,type=rw,file="";
+@@ -62,7 +64,8 @@
+ QW_EMPTY34_MEM:start=$dd9d,size=$1,type=ro,file=%O,fill=yes,fillval=$ff,bank=$22;
+ XG_BASS_MEM_CurrentKeep1:start=$dd9e,size=$262,type=ro,file=%O,fill=yes,fillval=$ff,bank=$22;
+     XG_RYU_MEM: start=$c000, size=$2000, type=ro, file=%O, fill=yes, fillval=$ff, bank=$23;
+-    XG_SOPHIA_MEM: start=$c000, size=$1600, type=ro, file=%O, fill=yes, fillval=$ff, bank=$24;
++XG_SOPHIA_MEM:start=$c000,size=$1523,type=ro,file=%O,fill=yes,fillval=$ff,bank=$24;
++BW_COPY_MEM:start=$b523,size=$dd,type=ro,file=%O,fill=yes,fillval=$ff,bank=$24;
+     XG_SOPHIA_A_TAIL_MEM: start=$b600, size=$0a00, type=ro, file=%O, fill=yes, fillval=$ff, bank=$24;
+     XG_EXTRA_MEM: start=$a000, size=$2000, type=ro, file=%O, fill=yes, fillval=$ff, bank=$25;
+     XG_AUDIO_MEM: start=$c000, size=$2000, type=ro, file=%O, fill=yes, fillval=$ff, bank=$26;
+@@ -100,8 +103,11 @@
+     DK_HOST_A65: start=$bc00,size=$0400,type=ro,file=%O,fill=yes,fillval=$ff,bank=$41;
+     X5_NEW_42: start=$a000, size=$19a8, type=ro, file=%O, fill=yes, fillval=$ff, bank=$42;
+     X5_NEW_42_TAIL: start=$b9a8, size=$0658, type=ro, file=%O, fill=yes, fillval=$ff, bank=$42;
+-    X5_NEW_43: start=$a000, size=$2000, type=ro, file=%O, fill=yes, fillval=$ff, bank=$43;
+-    X5_NEW_44: start=$c000, size=$2000, type=ro, file=%O, fill=yes, fillval=$ff, bank=$44;
++X5_NEW_43:start=$a000,size=$122b,type=ro,file=%O,fill=yes,fillval=$ff,bank=$43;
++BW_ROUTER_MEM:start=$b22b,size=$d5,type=ro,file=%O,fill=yes,fillval=$ff,bank=$43;
++X5_NEW_43_BW_POST:start=$b300,size=$d00,type=ro,file=%O,fill=yes,fillval=$ff,bank=$43;
++X5_NEW_44:start=$c000,size=$1f20,type=ro,file=%O,fill=yes,fillval=$ff,bank=$44;
++BW_LOAD_MEM:start=$bf20,size=$e0,type=ro,file=%O,fill=yes,fillval=$ff,bank=$44;
+     X5_NEW_45: start=$a000, size=$2000, type=ro, file=%O, fill=yes, fillval=$ff, bank=$45;
+     X5_NEW_46:start=$c000,size=$58f,type=ro,file=%O,fill=yes,fillval=$ff,bank=$46;
+ AR_C70_SMALL:start=$c58f,size=$2d1,type=ro,file=%O,fill=yes,fillval=$ff,bank=$46;
+@@ -110,7 +116,9 @@
+ AR_C70_TAIL:start=$d9b8,size=$348,type=ro,file=%O,fill=yes,fillval=$ff,bank=$46;
+     AR_OWN_LOAD:start=$dd00,size=$300,type=ro,file=%O,fill=yes,fillval=$ff,bank=$46;
+     X5_NEW_47: start=$a000, size=$2000, type=ro, file=%O, fill=yes, fillval=$ff, bank=$47;
+-    X5_NEW_48: start=$a000, size=$2000, type=ro, file=%O, fill=yes, fillval=$ff, bank=$48;
++    X5_NEW_48:start=$a000,size=$1011,type=ro,file=%O,fill=yes,fillval=$ff,bank=$48;
++BT_ROM_PREVIEW_MEM:start=$b011,size=$ef,type=ro,file=%O,fill=yes,fillval=$ff,bank=$48;
++BT_48_TAIL:start=$b100,size=$f00,type=ro,file=%O,fill=yes,fillval=$ff,bank=$48;
+     X5_NEW_49: start=$c000, size=$1920, type=ro, file=%O, fill=yes, fillval=$ff, bank=$49;
+     GIMMICK_ART_MEM: start=$d920,size=$6e0,type=ro,file=%O,fill=yes,fillval=$ff,bank=$49;
+     X5_NEW_4A: start=$a000, size=$2000, type=ro, file=%O, fill=yes, fillval=$ff, bank=$4a;
+@@ -128,17 +136,26 @@
+ X5_NEW_52_CurrentKeep0:start=$a000,size=$1c64,type=ro,file=%O,fill=yes,fillval=$ff,bank=$52;
+ QW_LOADER_MEM:start=$dc64,size=$360,type=ro,file=%O,fill=yes,fillval=$ff,bank=$52;
+ X5_NEW_52_CurrentKeep1:start=$bfc4,size=$3c,type=ro,file=%O,fill=yes,fillval=$ff,bank=$52;
+-    X5_NEW_53: start=$c000, size=$2000, type=ro, file=%O, fill=yes, fillval=$ff, bank=$53;
+-    X5_NEW_54: start=$a000, size=$2000, type=ro, file=%O, fill=yes, fillval=$ff, bank=$54;
++X5_NEW_53:start=$c000,size=$1534,type=ro,file=%O,fill=yes,fillval=$ff,bank=$53;
++BW_PREVIEW_MEM:start=$b534,size=$cc,type=ro,file=%O,fill=yes,fillval=$ff,bank=$53;
++X5_NEW_53_BW_POST:start=$d600,size=$a00,type=ro,file=%O,fill=yes,fillval=$ff,bank=$53;
++X5_NEW_54:start=$a000,size=$1529,type=ro,file=%O,fill=yes,fillval=$ff,bank=$54;
++BW_CHECK_MEM:start=$b529,size=$d7,type=ro,file=%O,fill=yes,fillval=$ff,bank=$54;
++X5_NEW_54_BW_POST:start=$b600,size=$a00,type=ro,file=%O,fill=yes,fillval=$ff,bank=$54;
+     X5_NEW_55: start=$c000, size=$2000, type=ro, file=%O, fill=yes, fillval=$ff, bank=$55;
+     X5_NEW_56: start=$a000, size=$2000, type=ro, file=%O, fill=yes, fillval=$ff, bank=$56;
+-    X5_NEW_57: start=$a000, size=$2000, type=ro, file=%O, fill=yes, fillval=$ff, bank=$57;
+-    X5_NEW_58: start=$c000, size=$2000, type=ro, file=%O, fill=yes, fillval=$ff, bank=$58;
++    X5_NEW_57:start=$a000,size=$1020,type=ro,file=%O,fill=yes,fillval=$ff,bank=$57;
++BT_ROM_ROUTER_MEM:start=$b020,size=$e0,type=ro,file=%O,fill=yes,fillval=$ff,bank=$57;
++BT_57_TAIL:start=$b100,size=$f00,type=ro,file=%O,fill=yes,fillval=$ff,bank=$57;
++X5_NEW_58:start=$c000,size=$1334,type=ro,file=%O,fill=yes,fillval=$ff,bank=$58;
++BW_AUX_MEM:start=$b334,size=$cc,type=ro,file=%O,fill=yes,fillval=$ff,bank=$58;
++X5_NEW_58_BW_POST:start=$d400,size=$c00,type=ro,file=%O,fill=yes,fillval=$ff,bank=$58;
+     X5_NEW_59: start=$a000, size=$2000, type=ro, file=%O, fill=yes, fillval=$ff, bank=$59;
+     X5_NEW_5A: start=$a000, size=$2000, type=ro, file=%O, fill=yes, fillval=$ff, bank=$5a;
+     X5_NEW_5B: start=$c000, size=$2000, type=ro, file=%O, fill=yes, fillval=$ff, bank=$5b;
+     X5_NEW_5C: start=$a000, size=$2000, type=ro, file=%O, fill=yes, fillval=$ff, bank=$5c;
+-    X5_NEW_5D:start=$a000,size=$fa7,type=ro,file=%O,fill=yes,fillval=$ff,bank=$5d;
++    X5_NEW_5D:start=$a000,size=$dc0,type=ro,file=%O,fill=yes,fillval=$ff,bank=$5d;
++BT_ROM_LOADER_MEM:start=$adc0,size=$1e7,type=ro,file=%O,fill=yes,fillval=$ff,bank=$5d;
+     HOST_BBOX_LOCAL_MEM:start=$afa7,size=$59,type=ro,file=%O,fill=yes,fillval=$ff,bank=$5d;
+ FF_ART_MEM:start=$d000,size=$1000,type=ro,file=%O,fill=yes,fillval=$ff,bank=$5d;
+     X5_NEW_5E: start=$c000, size=$2000, type=ro, file=%O, fill=yes, fillval=$ff, bank=$5e;
+@@ -218,14 +235,20 @@
+     CELESTE_MARIO_CHR_MEM: start=$b9000,size=$4000,type=ro,fill=yes,file=%O,fillval=$00;
+     TMNT_CHR_TAIL: start=$bd000,size=$f000,type=ro,fill=yes,file=%O,fillval=$00;
+  GIMMICK_CHR_MEM:start=$cc000,size=$1000,type=ro,fill=yes,file=%O,fillval=$00;
+- TMNT_CHR_AFTER_GM:start=$cd000,size=$3000,type=ro,fill=yes,file=%O,fillval=$00;
++ TMNT_CHR_AFTER_GM:start=$cd000,size=$1000,type=ro,fill=yes,file=%O,fillval=$00;
++BW_BODY_MEM:start=$ce000,size=$c00,type=ro,fill=yes,file=%O,fillval=$00;
++BW_BODY_POST:start=$cec00,size=$1400,type=ro,fill=yes,file=%O,fillval=$00;
+     PARODIUS_CHR_MEM: start=$d0000,size=$9000,type=ro,fill=yes,file=%O,fillval=$00;
+     ARTHUR_CHR_MEM:start=$d9000,size=$3400,type=ro,fill=yes,file=%O,fillval=$00;
+     ARTHUR_CACHE_STORAGE:start=$dc400,size=$c00,type=ro,fill=yes,file=%O,fillval=$00;
+     QW_STREAM_MEM:start=$dd000,size=$2400,type=ro,fill=yes,file=%O,fillval=$00;
+ FF_STREAM_MEM:start=$df400,size=$2000,type=ro,fill=yes,file=%O,fillval=$00;
+-UNALLOCATED_CHR_MEM:start=$e1400,size=$1ec00,type=ro,fill=yes,file=%O,fillval=$00;
+-FF_RAM3_MEM:start=$a000,size=$2000,bank=3,type=ro,file="C:/Users/kando/Documents/ChatGPT/SMB Crossover/build/peach-palette-fix-1030-v1/joint/ram3.bin",fill=yes,fillval=$ff;
++BENJ_RETAINED_CHR_MEM:start=$e1400,size=$3800,type=ro,fill=yes,file=%O,fillval=$00;
++BT_CHR_MEM:start=$e4c00,size=$1000,type=ro,fill=yes,file=%O,fillval=$00;
++BT_STREAM_MEM:start=$e5c00,size=$2000,type=ro,fill=yes,file=%O,fillval=$00;
++BW_STREAM_MEM:start=$e7c00,size=$2000,type=ro,fill=yes,file=%O,fillval=$00;
++BW_STREAM_POST:start=$e9c00,size=$16400,type=ro,fill=yes,file=%O,fillval=$00;
++FF_RAM3_MEM:start=$a000,size=$2000,bank=3,type=ro,file="C:/Users/kando/Documents/ChatGPT/SMB Crossover/build/bowser-current64-v3/joint/ram3.bin",fill=yes,fillval=$ff;
+ 
+ N0:start=$5C00,size=$90,type=rw;
+ N1:start=$5C90,size=$30,type=rw;
+@@ -269,11 +292,28 @@
+ N39:start=$5E2E,size=$1,type=rw;
+ N40:start=$5E2F,size=$1,type=rw;
+ QH_PERSIST_MEM:start=$5f88,size=$8,type=rw,file="";
+-QW_RAM1:start=$a000,size=$2000,type=ro,fill=yes,fillval=$ff,file="C:/Users/kando/Documents/ChatGPT/SMB Crossover/build/peach-palette-fix-1030-v1/joint/code.bin",bank=1;
+-QW_RAM2:start=$c000,size=$2000,type=ro,fill=yes,fillval=$ff,file="C:/Users/kando/Documents/ChatGPT/SMB Crossover/build/peach-palette-fix-1030-v1/joint/data.bin",bank=2;
++QW_RAM1:start=$a000,size=$2000,type=ro,fill=yes,fillval=$ff,file="C:/Users/kando/Documents/ChatGPT/SMB Crossover/build/bowser-current64-v3/joint/code.bin",bank=1;
++QW_RAM2:start=$c000,size=$2000,type=ro,fill=yes,fillval=$ff,file="C:/Users/kando/Documents/ChatGPT/SMB Crossover/build/bowser-current64-v3/joint/data.bin",bank=2;
+ FF_FX_PROTOCOL_RUN:start=$be2f,size=$1d1,type=ro,file="",bank=93;
++
++BW_IMAGE_MEM:start=$a000,size=$2000,type=ro,bank=3,file="C:/Users/kando/Documents/ChatGPT/SMB Crossover/build/bowser-current64-v3/joint/bowser.bin",fill=yes,fillval=$ff;
+ }
+ SEGMENTS {
++ BENJ_MARIO_CHR:load=BENJ_RETAINED_CHR_MEM,type=ro,start=$e1400;
++
++ BT_ROM_LOADER:load=BT_ROM_LOADER_MEM,type=ro;
++ BT_ROM_ROUTER:load=BT_ROM_ROUTER_MEM,type=ro;
++ BT_ROM_PREVIEW:load=BT_ROM_PREVIEW_MEM,type=ro;
++ BT_CHR:load=BT_CHR_MEM,type=ro;
++ BT_STREAM:load=BT_STREAM_MEM,type=ro;
++ BT_CACHE_API:load=BT_CACHE_MEM,type=ro,start=$a000;
++ BT_CORE:load=BT_CACHE_MEM,type=ro;
++ BT_ART_META:load=BT_CACHE_MEM,type=ro;
++ BT_CACHE_HOST:load=BT_CACHE_MEM,type=ro;
++ BT_CACHE_STATE:load=BT_CACHE_MEM,type=ro,start=$bee0;
++ BT_CACHE_HOST_STATE:load=BT_CACHE_MEM,type=ro,start=$bf60;
++ BT_CACHE_INVALID_COOKIE:load=BT_CACHE_MEM,type=ro,start=$bfe0;
++
+ 
+     HOST_BBOX_LOCAL:load=HOST_BBOX_LOCAL_MEM,type=ro;
+     OBJECT_TIMER_FAST:load=OBJECT_TIMER_TAIL,type=ro;
+@@ -354,7 +394,6 @@
+     ROLL_CHR_DW:load=ROLL_CHR_DW_MEM,type=ro;
+     ROLL_CHR_Z2:load=ROLL_CHR_Z2_MEM,type=ro;
+     PARODIUS_CHR:load=PARODIUS_CHR_MEM,type=ro;
+-    BENJ_MARIO_CHR:load=UNALLOCATED_CHR_MEM,type=ro,start=$e1400;
+ 
+     TMNT_CORE:load=X5_NEW_57,type=ro;
+     TMNT_GFX:load=X5_NEW_58,type=ro;
+@@ -637,18 +676,18 @@
+     ROGUE_DAWN_CONTROL_AUX:load=X5_NEW_7C,type=ro,start=$ae00,optional=yes;
+     ROGUE_DAWN_CORE:load=X5_NEW_7C,type=ro,start=$b000,optional=yes;
+     ROGUE_DAWN_HOST:load=X5_NEW_5F,type=ro,start=$a600,optional=yes;
+-    ROGUE_AUDIO_PAGES_10: load=X5_NEW_43,type=ro,start=$b300,optional=yes;
++    ROGUE_AUDIO_PAGES_10: load=X5_NEW_43_BW_POST,type=ro,start=$b300,optional=yes;
+     ROGUE_AUDIO_PAGES_5: load=X5_NEW_47,type=ro,start=$b000,optional=yes;
+-    ROGUE_AUDIO_PAGES_9: load=X5_NEW_48,type=ro,start=$b100,optional=yes;
++    ROGUE_AUDIO_PAGES_9: load=BT_48_TAIL,type=ro,start=$b100,optional=yes;
+     ROLL_WORLD:load=X5_NEW_4E,type=ro,start=$b000;
+     ROGUE_AUDIO_PAGES_4: load=X5_NEW_4E,type=ro,start=$bd00,optional=yes;
+     ROGUE_AUDIO_PAGES_3: load=X5_NEW_50,type=ro,start=$d600,optional=yes;
+-    ROGUE_AUDIO_PAGES_12: load=X5_NEW_53,type=ro,start=$d600,optional=yes;
+-    ROGUE_AUDIO_PAGES_13: load=X5_NEW_54,type=ro,start=$b600,optional=yes;
+-    ROGUE_AUDIO_PAGES_2: load=X5_NEW_54,type=ro,start=$bd00,optional=yes;
++    ROGUE_AUDIO_PAGES_12: load=X5_NEW_53_BW_POST,type=ro,start=$d600,optional=yes;
++    ROGUE_AUDIO_PAGES_13: load=X5_NEW_54_BW_POST,type=ro,start=$b600,optional=yes;
++    ROGUE_AUDIO_PAGES_2: load=X5_NEW_54_BW_POST,type=ro,start=$bd00,optional=yes;
+     ROGUE_AUDIO_PAGES_1: load=X5_NEW_55,type=ro,start=$d900,optional=yes;
+-    ROGUE_AUDIO_PAGES_8: load=X5_NEW_57,type=ro,start=$b100,optional=yes;
+-    ROGUE_AUDIO_PAGES_11: load=X5_NEW_58,type=ro,start=$d400,optional=yes;
++    ROGUE_AUDIO_PAGES_8: load=BT_57_TAIL,type=ro,start=$b100,optional=yes;
++    ROGUE_AUDIO_PAGES_11: load=X5_NEW_58_BW_POST,type=ro,start=$d400,optional=yes;
+     ROGUE_AUDIO_PAGES_7: load=X5_NEW_5A,type=ro,start=$af00,optional=yes;
+     ROGUE_AUDIO_PAGES_6: load=X5_NEW_74,type=ro,start=$d000,optional=yes;
+     ROGUE_AUDIO_PAGE_MAP: load=X5_NEW_3E,type=ro,start=$bba7,optional=yes;
+@@ -659,8 +698,8 @@
+     ROGUE_AUDIO_UPPER_RAW_2:load=X5_NEW_63,type=ro,start=$b800,optional=yes;
+     ROGUE_RELOC_PAGE_0:load=XG_BASS_MEM_CurrentKeep1,type=ro,start=$de00;
+     ROGUE_RELOC_PAGE_1:load=XG_BASS_MEM_CurrentKeep1,type=ro,start=$df00;
+-    ROGUE_RELOC_PAGE_2:load=X5_NEW_54,type=ro,start=$be00;
+-    ROGUE_RELOC_PAGE_3:load=X5_NEW_54,type=ro,start=$bf00;
++    ROGUE_RELOC_PAGE_2:load=X5_NEW_54_BW_POST,type=ro,start=$be00;
++    ROGUE_RELOC_PAGE_3:load=X5_NEW_54_BW_POST,type=ro,start=$bf00;
+     ROGUE_RELOC_PAGE_5:load=XG_RYGAR_MEM,type=ro,start=$df00;
+     ROGUE_RELOC_PAGE_6:load=XG_LUIGI_MEM,type=ro,start=$df00;
+     ROGUE_RELOC_PAGE_7:load=X5_NEW_42_TAIL,type=ro,start=$bf00;
+@@ -763,6 +802,17 @@
+     S2_DMC_E120:load=X5_NEW_78,type=ro,start=$a000,optional=yes;
+     SMB2_NMI_C82:load=QW_LOADER_MEM,type=ro,start=$dd94;
+     SMB2_AUDIO_MUSIC:load=AR_FUTURE_S2_AUDIO,type=ro;
++BW_ROM_LOAD:load=BW_LOAD_MEM,type=ro;
++BW_ROM_COPY:load=BW_COPY_MEM,type=ro;
++BW_ROM_CHECK:load=BW_CHECK_MEM,type=ro;
++BW_ROM_ROUTER:load=BW_ROUTER_MEM,type=ro;
++BW_ROM_PREVIEW:load=BW_PREVIEW_MEM,type=ro;
++BW_ROM_AUX:load=BW_AUX_MEM,type=ro;
++BW_BODY:load=BW_BODY_MEM,type=ro;
++BW_STREAM:load=BW_STREAM_MEM,type=ro;
++BW_IMAGE:load=BW_IMAGE_MEM,type=ro;
++BW_STATE:load=BW_IMAGE_MEM,type=ro,start=$be00;
++BW_COOKIE_GAP:load=BW_IMAGE_MEM,type=ro,start=$bfe0;
+ }
+ SYMBOLS {
+     __STACKSIZE__: type = weak, value = $20; # 32 bytes of stack
