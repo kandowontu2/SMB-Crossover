@@ -1,0 +1,115 @@
+{
+  "request": "Add SMB1 / SMB2J selection after character selection, with all SMB2J levels and additional functions.",
+  "status": "ACTIVE_INCOMPLETE",
+  "installed_campaign": false,
+  "choices": [
+    "SUPER MARIO BROS.",
+    "SUPER MARIO BROS 2J"
+  ],
+  "donor_sha256": "ff8afb9ae6b705b4e51dbcb193dcebadf4c049800a71003d3a45052648e52eda",
+  "worlds": 13,
+  "numbered_stages": 52,
+  "ordered_area_entries_including_pipe_intros": 58,
+  "current_host_feature_flag": 0,
+  "source_flag_limit": "The optional host flag contains partial wind/flagpole/skid support, not the complete campaign.",
+  "storage": "Existing32KiB workRAM and PRG/CHR grants are already occupied. No larger RAM/header, CHR region or resident allocation is adopted by this reference packet.",
+  "state_note": "Do not allocate a persistent campaign flag at ZP EC: genuine Contra audio uses EC/ED as SOUND_TABLE_PTR. Any menu-bit sharing or new allocation requires source lifetime checks.",
+  "required": [
+    {
+      "id": "game-choice",
+      "behavior": "Character confirm opens SUPER MARIO BROS. / SUPER MARIO BROS 2J. D-pad chooses, A/Start confirms, B returns with the chosen character and alternate retained.",
+      "reference": "Host character_select.s; original GameMenuRoutine/StartGame",
+      "status": "NOT_IMPLEMENTED"
+    },
+    {
+      "id": "complete-levels",
+      "behavior": "Preserve original terrain/enemy streams, all pipe intros, bonus rooms, clouds, vines, checkpoints and exits across worlds1-9 andA-D.",
+      "reference": "WorldAddrOffsets/AreaDataAddrs/EnemyDataAddrs in MAIN and DATA4; DATA2/DATA3 overlays",
+      "status": "SOURCE_REFERENCE_VERIFIED"
+    },
+    {
+      "id": "parser-metatiles",
+      "behavior": "Translate or extend the host object/metatile protocol for every donor object without changing existing SMB1 levels or brick/contact ownership.",
+      "reference": "DecodeAreaData, AreaParserCore, object handler tables, MetatileGraphics_*",
+      "status": "NOT_IMPLEMENTED"
+    },
+    {
+      "id": "poison-items",
+      "behavior": "Visible and hidden poison-mushroom blocks, original emergence/motion and damaging pickup; regular/hidden powerup blocks and life items remain correct for each guest.",
+      "reference": "PoisonMushBlock, BrickQBlockMetatiles, PowerUpObjHandler, HandlePowerUpCollision",
+      "status": "NOT_IMPLEMENTED"
+    },
+    {
+      "id": "wind",
+      "behavior": "Original activation/deactivation, external player force, leaves and wind sound across every applicable guest controller.",
+      "reference": "DATA2/DATA4 BlowPlayerAround/SimulateWind/WindOn/WindOff",
+      "status": "NOT_IMPLEMENTED"
+    },
+    {
+      "id": "pipes-plants",
+      "behavior": "Upside-down pipes/plants, original red/green plant behavior and timing, native collision/defeat exclusions and graphics.",
+      "reference": "DATA2/DATA4 UpsideDownPipe_High/Low/MoveUpsideDownPiranhaP; MAIN InitPiranhaPlant/MovePiranhaPlant",
+      "status": "NOT_IMPLEMENTED"
+    },
+    {
+      "id": "springs",
+      "behavior": "Original red/green spring behavior, tall launch/return and camera rules with every guest, without a stale collision or offscreen softlock.",
+      "reference": "MAIN JumpspringHandler/GreenJS/PlayerPhysicsSub",
+      "status": "NOT_IMPLEMENTED"
+    },
+    {
+      "id": "enemy-rules",
+      "behavior": "Original enemy placement, movement/contact differences, underwater actor combinations, Hammer Bros., castle hazards and bosses; preserve guest attacks and Easy/Hard contact policy.",
+      "reference": "MAIN enemy init/movement/BG collision/defeat tables; DATA2/DATA4 additions",
+      "status": "NOT_IMPLEMENTED"
+    },
+    {
+      "id": "warps-loops",
+      "behavior": "Forward/backward warps, maze loops, native world/area/checkpoint advancement and timer/life rules.",
+      "reference": "MAIN WarpZoneNumbers, LoopCmdE, AreaDataOfsLoopback, NextArea, HalfwayPageNybbles; DATA4 ChangeHalfwayPages",
+      "status": "NOT_IMPLEMENTED"
+    },
+    {
+      "id": "flagpole-rewards",
+      "behavior": "Original flagpole, coin/time-dependent life/firework rewards, score display and stage-end transitions.",
+      "reference": "MAIN FlagpoleRoutine/GameTimerFireworks/PlayerEndLevel",
+      "status": "NOT_IMPLEMENTED"
+    },
+    {
+      "id": "world9",
+      "behavior": "Track completion of every required world and original warp eligibility; enter, message and loop world9 under the donor rules.",
+      "reference": "MAIN CompletedWorlds; DATA3 GoToWorld9/FantasyWorld9Msg/EndingDiskRoutines",
+      "status": "NOT_IMPLEMENTED"
+    },
+    {
+      "id": "worldsA-D-save",
+      "behavior": "Retain clear-count/star progression and original letter-world unlock behavior, replacing disk-file saving with a validated cartridge save.",
+      "reference": "MAIN GamesBeatenCount/GameMenuRoutine/HardWorldFlag; DATA3 UpdateGamesBeaten; SM2SAVE",
+      "status": "NOT_IMPLEMENTED"
+    },
+    {
+      "id": "mario-luigi",
+      "behavior": "Use the donor campaign differences where appropriate for Mario/Luigi while preserving the accepted SMB1 Luigi profile and each other guest controller.",
+      "reference": "MAIN PlayerPhysicsSub and SelectedPlayer paths",
+      "status": "NOT_IMPLEMENTED"
+    },
+    {
+      "id": "presentation-audio",
+      "behavior": "Donor level graphics/palettes, HUD world labels, ending/messages and effects. Ending FDS wavetable voice needs an explicit arrangement for available NES/MMC5 audio.",
+      "reference": "SM2CHAR1/2; MAIN graphics/audio; DATA3 ending and waveform driver",
+      "status": "NOT_IMPLEMENTED"
+    },
+    {
+      "id": "options-lifecycle",
+      "behavior": "Campaign-aware level-select cheats, reset/new-life/continue/pause/menu return, alternating characters and source cache ownership; no title demo.",
+      "reference": "Host menu/cheats/scene/cache APIs plus donor progression",
+      "status": "NOT_IMPLEMENTED"
+    },
+    {
+      "id": "verification",
+      "behavior": "Exercise all numbered stages, entrances/exits, special mechanics and bonus-world progression; validate full character compatibility rather than one Mario-only scene.",
+      "reference": "Exact candidate source and bounded native controller replays",
+      "status": "NOT_RUN"
+    }
+  ]
+}
