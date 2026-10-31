@@ -1,0 +1,58 @@
+{
+  "passed": true,
+  "source": true,
+  "native": false,
+  "installed": false,
+  "candidate": "1cbbd1ccfb22614b206d2e6fe75c55795f31bd47c2bbeda127f0b1645baf9b7d",
+  "parent": "a12661c1ddad2e15a8ce0589e86b5510703fd390e6346a982b14a6be0b742e3c",
+  "source_ready74": true,
+  "menu_profiles": 86,
+  "cause": "CF graphics bypassed native PlayerOffscreenChk, so native Player_Pos_ForScroll stayed0 after real AllZeros power-on. Native ScrollHandler correctly refused scrolling, clamped atX239, and never advanced terrain/enemy parser.",
+  "change": "Same-PC five-byte CfHostGraphics prefix becomes JSR+2NOP to own12B BFBA..<BFC6 helper. Helper copies genuine native LDA Player_Rel_XPos / STA Player_Pos_ForScroll then original LDA0 / STA ObjectMetasprite / RTS.",
+  "original_native_scroll_parser_source_unchanged": true,
+  "original_CF_motion_jump_weapons_art_unchanged": true,
+  "actual_source_controls": {
+    "zero_field_old_X239_camera0_no_spawns": true,
+    "classes": 4,
+    "positive_X": [
+      369,
+      369,
+      369,
+      369
+    ],
+    "positive_camera": [
+      257,
+      257,
+      257,
+      257
+    ],
+    "actual_native_terrain_and_Goomba_spawn": true,
+    "jump_avoidance_no_enemy_or_guest_seed": true,
+    "graphics1_3_all64flags_pairs": 512,
+    "normal_lag_and_lagpaused_NMI_IRQ_cuts": 216,
+    "additional_normalpaused_NMI_IRQ_cuts": 72,
+    "all_AXYP_live_page1_33SMC_maps_exact": true,
+    "foreign_menu_pairs": 86,
+    "ready_counts": [
+      74,
+      74
+    ],
+    "Start_flag_cases": 10240
+  },
+  "fixture_coverage_correction": "Earlier finite cold helper inherited native Player_Pos_ForScroll96, masking missing publication; those finite body/jump/palette observations remain valid but did not prove actual AllZeros camera/spawn. New source probe changes ONLY this additional native initial byte96\u21920 before real menu/Start; after cold entry only controller fields and normalNMI fixture boundary change. Full hardware power-on remains root native scope.",
+  "actual_native_negative": {
+    "frames": 7421,
+    "Main": 3489,
+    "maximum_x": 239,
+    "gameplay_frames": 7000,
+    "kills": 0,
+    "collections": 0,
+    "source_unchanged": true
+  },
+  "combat_hold": "Separate heldDown+B and settledDown4 + freshB2on/6off probes still die. Starting source projectileY193/startup or189/settled; original body settledanchorY192. Actual GoombaY184/control9 bbox[3,14,13,20] givesY198..204; current contact adapter pointY misses. No projectile-Y/physics/art/contact source changed; no conclusion that only edge timing causes failure.",
+  "remaining": [
+    "Root advancing-scroll native smoke/visual review; no new native or install claim.",
+    "Ground enemy shooting/contact alignment remains a separate retained blocker before a successful full1-1 route.",
+    "No1-1 clear/allpowerups/60Hz/crowding improvement claim."
+  ]
+}

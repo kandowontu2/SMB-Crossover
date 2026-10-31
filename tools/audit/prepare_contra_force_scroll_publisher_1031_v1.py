@@ -1,0 +1,124 @@
+"""Source-link exact native scroll-position publication in CF graphics only."""
+from pathlib import Path
+import hashlib,json,re,subprocess,sys,traceback
+R=Path(__file__).resolve().parents[2];sys.path[:0]=[str(R/'tools/audit'),str(R/'tools')]
+from private_build_outputs_v1 import validate
+from prepare_ff_current_component_v2 import qualified
+from check_tmnt_render_oa import address,location
+from prepare_contra_force_p1_coherent_cart_v2 import native_abi
+from prepare_cv3_dmc_mirror import prepare
+P=R/'build/contra-force-world-roles-1031-v2';K=P/'kernel';PJ=P/'joint'
+H=R/'docs/qa/checkpoints/2026-10-31/contra-force-jump-contact-source-v1/handoff.json'
+BASEK=R/'build/contra-force-p1-kernel-v1'
+O=R/'build/contra-force-scroll-publisher-1031-v1';J=O/'joint';N=O/'kernel'
+sha=lambda p:hashlib.sha256(Path(p).read_bytes()).hexdigest()
+def write(p,s):p.parent.mkdir(parents=True,exist_ok=True);p.write_text(s,encoding='utf-8',newline='\n')
+def save(p,q):write(p,json.dumps(q,indent=2)+'\n')
+def bound(p):
+ q=json.loads(p.read_text())
+ for f,h in q['bindings'].items():assert sha(f)==h,('Frozen dependency changed',f)
+ return q
+def run(name,cmd,cwd):
+ g=validate(cmd,O,cwd=cwd)
+ for p in g['outputs']:Path(p['path']).parent.mkdir(parents=True,exist_ok=True)
+ z=subprocess.run(cmd,cwd=cwd,capture_output=True,text=True)
+ save(O/(name+'.json'),dict(command=cmd,cwd=str(cwd),output_guard=g,returncode=z.returncode,stdout=z.stdout,stderr=z.stderr))
+ assert z.returncode==0,(name,z.stderr)
+def labels(p):return{n:int(v,16)for v,n in re.findall(r'al ([0-9A-Fa-f]+) \.(\w+)',p.read_text())}
+def main():
+ assert not O.exists();O.mkdir();J.mkdir();N.mkdir()
+ try:
+  bound(H);bound(P/'source-stage.json');bound(BASEK/'build-proof.json')
+  assert sha(PJ/'candidate.nes')=='a12661c1ddad2e15a8ce0589e86b5510703fd390e6346a982b14a6be0b742e3c'
+  b=qualified(PJ/'candidate.nes');imports=native_abi(b);oldlabels=labels(K/'runtime.lbl')
+  old3=(K/'ram3.bin').read_bytes();assert old3[0x1fba:0x1fc6]==bytes([255])*12
+  # Exact genuine current native PlayerOffscreenChk load/store, not invented camera logic.
+  rel,pos,obj=[address(b,n)for n in['Player_Rel_XPos','Player_Pos_ForScroll','ObjectMetasprite']]
+  expected=bytes([0xad,rel&255,rel>>8,0x8d,pos&255,pos>>8,0x60])
+  pc=location(b,'PlayerOffscreenChk');assert b['raw'][pc:pc+7]==expected
+  logs=json.loads((BASEK/'build-log.json').read_text())
+  original=(K/'render.s').read_text();a='CfHostGraphics:\n lda #0\n sta ObjectMetasprite'
+  assert original.count(a)==1
+  write(N/'render.s',original.replace('.import CfState,CfBodyFrameIndex', '.import CfHostScrollPublish\n.import CfState,CfBodyFrameIndex').replace(a,'CfHostGraphics:\n jsr CfHostScrollPublish\n nop\n nop'))
+  text=(BASEK/'native-imports.s').read_text();assert 'Player_Rel_XPos'not in text
+  write(N/'native-imports.s',text+f'\n.export Player_Rel_XPos\nPlayer_Rel_XPos=${rel:04x}\n')
+  write(N/'scroll-publisher.s','''.setcpu "6502"
+.import Player_Rel_XPos,Player_Pos_ForScroll,ObjectMetasprite
+.export CfHostScrollPublish,CfHostScrollPublishEnd
+.segment "CF_SCROLL_PUBLISHER"
+; First two instructions are exact native PlayerOffscreenChk. The remainder
+; is the overwritten original CF graphics prefix plus a genuine near return.
+CfHostScrollPublish:
+ lda Player_Rel_XPos
+ sta Player_Pos_ForScroll
+ lda #0
+ sta ObjectMetasprite
+ rts
+CfHostScrollPublishEnd:
+.assert CfHostScrollPublishEnd-CfHostScrollPublish=12,error,"own12B native publisher"
+''')
+  for name in('render','native-imports','scroll-publisher'):
+   source_name='render'if name=='scroll-publisher'else name
+   cmd=next(q['command']for q in logs if q['command'][-1]==str(BASEK/(source_name+'.s')))[:]
+   for flag,path in[('--create-full-dep',N/(name+'.dep')),('-o',N/(name+'.o'))]:cmd[cmd.index(flag)+1]=str(path)
+   cmd[-1]=str(N/(name+'.s'));run('kernel-'+name+'-build',cmd,N)
+  cfg=(K/'runtime.cfg').read_text();a=' CF_P1_NATIVE_MASK:load=A3,type=ro;';assert cfg.count(a)==1
+  write(N/'runtime.cfg',cfg.replace(a,a+'\n CF_SCROLL_PUBLISHER:load=A3,type=ro,start=$bfba;'))
+  cmd=json.loads((P/'kernel-link.json').read_text())['command'][:]
+  for flag,path in[('-C',N/'runtime.cfg'),('-o',N/'unused.bin'),('--dbgfile',N/'runtime.dbg'),('-Ln',N/'runtime.lbl'),('-m',N/'runtime.map')]:cmd[cmd.index(flag)+1]=str(path)
+  for i,x in enumerate(cmd):
+   if x.endswith('render.o'):cmd[i]=str(N/'render.o')
+   elif x.endswith('native-imports.o'):cmd[i]=str(N/'native-imports.o')
+  cmd.append(str(N/'scroll-publisher.o'));run('kernel-link',cmd,N)
+  newlabels=labels(N/'runtime.lbl')
+  assert all(newlabels[n]==v for n,v in oldlabels.items()),'Old private PCs changed'
+  assert newlabels['CfHostScrollPublish']==0xbfba and newlabels['CfHostScrollPublishEnd']==0xbfc6
+  assert(N/'ram1.bin').read_bytes()==(K/'ram1.bin').read_bytes()and(N/'ram2.bin').read_bytes()==(K/'ram2.bin').read_bytes()
+  new3=(N/'ram3.bin').read_bytes();oracle=bytearray(old3);at=oldlabels['CfHostGraphics']-0xa000
+  assert old3[at:at+5]==bytes([0xa9,0,0x8d,obj&255,obj>>8])
+  oracle[at:at+5]=bytes([0x20,0xba,0xbf,0xea,0xea])
+  helper=expected[:-1]+bytes([0xa9,0,0x8d,obj&255,obj>>8,0x60]);assert len(helper)==12
+  oracle[0x1fba:0x1fc6]=helper;assert new3==oracle
+  images=[]
+  for i in(1,2,3):
+   image=bytearray((N/f'ram{i}.bin').read_bytes());image.extend(bytes(8192-len(image)))
+   if i in(2,3):image[0x1fe0:]=bytes(32)
+   images.append(image)
+  stream=b''.join(images);cookie=bytes([167,31,0,3])+hashlib.sha256(stream).digest()[:12]
+  (J/'cf-stream.bin').write_bytes(stream);(J/'cf-cookie.bin').write_bytes(cookie)
+  for name in('cf-loader','cf-guard','cf-carrier'):
+   text=(PJ/(name+'.s')).read_text()
+   for asset in('cf-cookie.bin','cf-stream.bin'):
+    text=re.sub(r'\.incbin\s+"[^\"]*'+re.escape(asset)+'"',lambda m:'.incbin "'+(J/asset).as_posix()+'"',text)
+   write(J/(name+'.s'),text)
+   cmd=json.loads((P/(name+'-build.json')).read_text())['command'][:]
+   for flag,path in[('--create-full-dep',J/(name+'.dep')),('-o',J/(name+'.o'))]:cmd[cmd.index(flag)+1]=str(path)
+   cmd[-1]=str(J/(name+'.s'));run(name+'-build',cmd,R)
+  cfg=(PJ/'candidate.cfg').read_text();cfg=re.sub(r'file="([^\"]+)"',lambda m:'file="'+(J/'sideoutputs'/Path(m[1]).name).as_posix()+'"',cfg);write(J/'candidate.cfg',cfg)
+  cmd=json.loads((P/'final-link.json').read_text())['command'][:]
+  for flag,path in[('-C',J/'candidate.cfg'),('-Ln',J/'candidate.lbl'),('-o',J/'candidate.nes'),('-m',J/'candidate.map')]:cmd[cmd.index(flag)+1]=str(path)
+  cmd[cmd.index('--ld-args')+1]='--dbgfile,'+str(J/'candidate.dbg')
+  for i,x in enumerate(cmd):
+   if Path(x).name in('cf-loader.o','cf-guard.o','cf-carrier.o'):cmd[i]=str(J/Path(x).name)
+  run('final-link',cmd,R);prepare(R,J/'candidate.nes')
+  n=qualified(J/'candidate.nes');raw=n['raw'];base=b['raw'];oracle=bytearray(base);cs=16+128*8192+935*1024;oracle[cs:cs+24576]=stream
+  for name in('CfExternalCookie','CfLoaderExpectedCookie'):
+   p=location(b,name);oracle[p:p+16]=cookie
+  assert raw==oracle,'Product differs from exact own source-only delta'
+  count=0
+  for name,s in b['syms'].items():
+   if s.get('type')=='lab'and'seg'in s and name in n['syms']:
+    assert address(b,name)==address(n,name),name
+    if'ooffs'in b['segs'][s['seg']]:assert location(b,name)==location(n,name),name
+    count+=1
+  refs=[Path(__file__),H,P/'source-stage.json',P/'kernel-link.json',P/'final-link.json',PJ/'candidate.nes',PJ/'candidate.dbg',BASEK/'build-log.json',BASEK/'native-imports.s',K/'render.s',K/'runtime.cfg',K/'runtime.lbl',K/'ram3.bin',R/'tools/audit/private_build_outputs_v1.py',R/'tools/audit/prepare_cv3_dmc_mirror.py',
+    *[p for p in N.iterdir()if p.is_file()],*[p for p in J.iterdir()if p.is_file()and p.suffix in('.s','.o','.dep','.bin','.cfg','.nes','.dbg','.lbl')],*O.glob('*-build.json'),O/'kernel-link.json',O/'final-link.json',R/'build/contra-force-11-native-1031-v5/burns/capture/result.json']
+  save(O/'source-stage.json',dict(passed=True,source=True,native=False,installed=False,parent=sha(PJ/'candidate.nes'),candidate=sha(J/'candidate.nes'),cookie=cookie.hex(),
+    only_semantic_change='CF graphics publishes exact native Player_Rel_XPos→Player_Pos_ForScroll; original native scroll/parser/donor movement unchanged',
+    own_helper=dict(start=0xbfba,end=0xbfc6,bytes=list(helper),original_native_publisher=list(expected)),
+    private_entry_delta=dict(label='CfHostGraphics',start=oldlabels['CfHostGraphics'],old=list(old3[at:at+5]),new=list(new3[at:at+5])),
+    all_old_private_labels_preserved=len(oldlabels),all_native_matched_PC_locations_preserved=count,all_other_ROM_CHR_header_BT_menu_Start_exact=True,
+    native_imports=imports,bindings={str(p.resolve()):sha(p)for p in refs}))
+  print(json.dumps(dict(candidate=sha(J/'candidate.nes'),stage=str(O/'source-stage.json'),sha256=sha(O/'source-stage.json'),cookie=cookie.hex()),indent=2),flush=True)
+ except Exception as e:save(O/'negative.json',dict(passed=False,error=repr(e),traceback=traceback.format_exc()));raise
+if __name__=='__main__':main()
