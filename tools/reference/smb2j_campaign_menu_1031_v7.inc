@@ -1,0 +1,279 @@
+; Private frontend component. No SMB2J engine admission is implied.
+; Root owns only the former CHAR_SELECT filler B640..<BEF0.
+.assert * <= $b640,lderror,"Campaign menu overlaps existing helper"
+.res $b640-$b49b-(*-FmCfHelperStart),$ff
+J2MenuStart:
+.macro J2Text address,text
+ .local Begin,End
+ .byte >address,<address,End-Begin
+Begin:.byte text
+End:
+.endmacro
+
+ ; Dispatch and tiny near helpers live in PROTO_MENU bank66. This body is
+; reached through the genuine FarCallCommon transport from that bank.
+.proc J2GameMenu
+ lda CrossoverMenuState
+ cmp #9
+ beq J2BuildMenu
+ cmp #11
+ jeq J2CacheProbe
+ jmp J2InputMenu
+.endproc
+
+.proc J2OpenCampaign
+ lda CrossoverContinue
+ and #A_Button
+ sta CrossoverContinue
+ lda #9
+ sta CrossoverMenuState
+ lda #1
+ sta DisableScreenFlag
+ lda #0
+ rts
+.endproc
+
+.proc J2BuildMenu
+ lda Mirror_PPUMASK
+ and #$18
+ beq J2Blank
+ lda #0
+ rts
+J2Blank:
+ php
+ sei
+ farcall InitializeNameTables
+ farcall MoveAllSpritesOffscreen
+ farcall FmNativePrepare
+ lda #$3c
+ sta AreaChrBank
+ lda #$3d
+ sta AreaChrBank+1
+ lda #$3e
+ sta AreaChrBank+2
+ lda #$3f
+ sta AreaChrBank+3
+ inc ReloadCHRBank
+ lda PPUSTATUS
+ lda #$3f
+ sta PPUADDR
+ lda #0
+ sta PPUADDR
+ ldx #0
+J2Palette:
+ lda J2MenuPalette,x
+ sta PPUDATA
+ inx
+ cpx #16
+ bne J2Palette
+ ldx #0
+J2Command:
+ lda J2TextData,x
+ beq J2TextDone
+ bit PPUSTATUS
+ sta PPUADDR
+ inx
+ lda J2TextData,x
+ sta PPUADDR
+ inx
+ lda J2TextData,x
+ tay
+ inx
+J2Copy:
+ lda J2TextData,x
+ sta PPUDATA
+ inx
+ dey
+ bne J2Copy
+ jmp J2Command
+J2TextDone:
+ plp
+ lda #10
+ sta CrossoverMenuState
+ jsr J2QueueCursor
+ lda #0
+ sta DisableScreenFlag
+ rts
+J2TextData:
+ J2Text $20a8,"CHOOSE YOUR GAME "
+ J2Text $2166,"SUPER MARIO BROS."
+ J2Text $21c6,"SUPER MARIO BROS 2J"
+ J2Text $2226,"ALL NIGHT NIPPON"
+ J2Text $22e6,"A OR START  PLAY"
+ J2Text $2326,"B  CHARACTERS"
+ .byte 0
+.assert *-J2TextData<256,error,"Campaign static command X must not wrap"
+.endproc
+
+ .proc J2QueueCursor
+ ldx VRAM_Buffer1_Offset
+ cpx #72
+ bcs J2Done
+ lda #$21
+ sta VRAM_Buffer1,x
+ sta VRAM_Buffer1+4,x
+ lda #$22
+ sta VRAM_Buffer1+8,x
+ lda #$64
+ sta VRAM_Buffer1+1,x
+ lda #$c4
+ sta VRAM_Buffer1+5,x
+ lda #$24
+ sta VRAM_Buffer1+9,x
+ lda #1
+ sta VRAM_Buffer1+2,x
+ sta VRAM_Buffer1+6,x
+ sta VRAM_Buffer1+10,x
+ lda CrossoverContinue
+ and #3
+ cmp #3
+ bcc J2ChoiceOK
+ lda #0
+J2ChoiceOK:
+ tay
+ lda J2Marks,y
+ sta VRAM_Buffer1+3,x
+ lda J2Marks+2,y
+ sta VRAM_Buffer1+7,x
+ lda J2Marks+4,y
+ sta VRAM_Buffer1+11,x
+ txa
+ clc
+ adc #12
+ tax
+ stx VRAM_Buffer1_Offset
+ lda #0
+ sta VRAM_Buffer1,x
+J2Done:
+ rts
+J2Marks:.byte $fd,$24,$24,$fd,$24,$24,$fd
+.endproc
+
+.proc J2InputMenu
+ lda CrossoverMenuPressed
+ and #B_Button
+ beq J2Toggle
+ lda CrossoverContinue
+ ora #4
+ sta CrossoverContinue
+ lda #1
+ sta CrossoverMenuState
+ sta DisableScreenFlag
+ lda #0
+ rts
+J2Toggle:
+ lda CrossoverMenuPressed
+ and #Up_Dir | Down_Dir | Left_Dir | Right_Dir | Select_Button
+ beq J2Confirm
+ lda CrossoverContinue
+ and #3
+ tax
+ lda CrossoverMenuPressed
+ and #Up_Dir | Left_Dir
+ bne J2Previous
+ inx
+ cpx #3
+ bcc J2ChoiceChanged
+ ldx #0
+ beq J2ChoiceChanged
+J2Previous:
+ dex
+ bpl J2ChoiceChanged
+ ldx #2
+J2ChoiceChanged:
+ txa
+ sta R0
+ lda CrossoverContinue
+ and #$fc
+ ora R0
+ sta CrossoverContinue
+ jsr J2QueueCursor
+ lda #Sfx_Bump
+ sta Square1SoundQueue
+ lda #0
+ rts
+J2Confirm:
+ lda CrossoverMenuPressed
+ and #A_Button | Start_Button
+ beq J2Wait
+ jsr J2CampaignReady
+ bcc J2Wait
+ farcall FmStartFlags
+ farcall CrossoverMenuInput::FmStartReady+18,jmp
+J2Wait:
+ lda #0
+ rts
+.endproc
+
+; Deliberate source-component guard. Until the complete engine is linked,
+; choosing2J must NOT silently launch SMB1 under an incorrect game label.
+.proc J2CampaignReady
+ lda CrossoverContinue
+ and #3
+ bne J2Pending
+ sec
+ rts
+J2Pending:
+ cmp #1
+ beq J2Probe2J
+ clc
+ rts
+J2Probe2J:
+ lda #11
+ sta CrossoverMenuState
+ lda #1
+ sta DisableScreenFlag
+ clc
+ rts
+.endproc
+J2MenuPalette:
+ .byte $0f,$00,$10,$30,$0f,$30,$30,$30
+ .byte $0f,$28,$28,$28,$0f,$21,$11,$21
+; Private loader probe, not campaign admission. Return to the game screen
+; after verifying the original worlds1-4 data in exclusive RAM4.
+.proc J2CacheProbe
+ lda Mirror_PPUMASK
+ and #$18
+ beq J2ProbeBlank
+ lda #0
+ rts
+J2ProbeBlank:
+ php
+ sei
+ .repeat 8,I
+  lda R0+I
+  pha
+ .endrepeat
+ lda CurrentBankC
+ pha
+ lda #$c1
+ sta CurrentBankC
+ sta MMC5_PRG_BANK_C
+ lda #0
+ jsr J2LoadCache
+ lda #0
+ adc #0
+ tay
+ pla
+ sta CurrentBankC
+ sta MMC5_PRG_BANK_C
+ .repeat 8,I
+  pla
+  sta R7-I
+ .endrepeat
+ plp
+ tya
+ beq J2ProbeFailed
+ lda CrossoverContinue
+ ora #8
+ sta CrossoverContinue
+J2ProbeFailed:
+ lda #10
+ sta CrossoverMenuState
+ jsr J2QueueCursor
+ lda #0
+ sta DisableScreenFlag
+ rts
+.endproc
+J2MenuEnd:
+.assert J2MenuEnd <= $bef0,lderror,"Campaign frontend exceeds root filler grant"

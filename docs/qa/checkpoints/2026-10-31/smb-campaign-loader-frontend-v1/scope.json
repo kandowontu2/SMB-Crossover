@@ -1,0 +1,51 @@
+{
+  "status": "ACTIVE_INCOMPLETE",
+  "passed": true,
+  "installed": false,
+  "candidate": "6f9f2936d9b859f81b1965d1c43022027f53220be878d79a902aa0bd86b9fbf3",
+  "choices": [
+    "SUPER MARIO BROS.",
+    "SUPER MARIO BROS 2J",
+    "ALL NIGHT NIPPON"
+  ],
+  "actual_frontend": "All three names/cursor positions render. B preserves selected character/alternate. Only SMB1 launches gameplay.",
+  "data": "Four lossless original2J data caches include71 reachable profile-areas/93 world-area pairs,80 active-world pipe links and all52 numbered stages.",
+  "source_checks": "All86 menu identities,74 ready,12 pending;2048 continue/reset/guard cases each;340 queue bounds.",
+  "loader_checks": "24 actual source-linked buffered-PPU loader cases across4profiles/control increments/wide CHR; every8192bytes and full16byte cookie; six rejection/readback cases.",
+  "native": "Cold controller-only Peach: all3 choice screens, real forcedblank profile0 load into physicalRAM4 with every byte checked, blocked ANN launch, B return and180actual SMB1 Main updates. Four reviewed PNGs, no RAM pokes/video.",
+  "private_resources": {
+    "data_CHR_pages": [
+      442,
+      460
+    ],
+    "art_CHR_pages": [
+      563,
+      571
+    ],
+    "resident_physical_bank": 65,
+    "resident_C_view": [
+      51000,
+      53512
+    ],
+    "new_global_or_ZP_bytes": 0
+  },
+  "private_header_WRAM_KiB": 64,
+  "actual_resident_bytes": 452,
+  "remaining_resident_bytes": 2060,
+  "new_campaigns_playable": false,
+  "save_persistence": false,
+  "required_next": [
+    "Connect cache-backed world/area and terrain/enemy parser entrypoints.",
+    "Port2J-specific objects/contact/graphics, wind/poison/plants/springs, progression/warps and endings.",
+    "Implement original9/A-D/star/save rules and campaign-aware cheats/lifecycle.",
+    "Add ANN original data/art/protocol and progression, preserving its differences from2J.",
+    "Verify complete campaigns and guest compatibility."
+  ],
+  "negatives": [
+    "Loader-v1 had an out-of-range branch and never linked.",
+    "Loader-v2 linked correctly but its diff assertion omitted the genuine frontend farcall operand rebind; the separate qualification proves the exact change.",
+    "Menu-controls-v4 expected15 glyphs for ALL NIGHT NIPPON; its actual auto-sized command is16. v5 uses the string length.",
+    "No failed candidate was installed."
+  ],
+  "storage": "Native preflight measured60,056,414,496 workspace bytes under70,000,000,000. No capture movies or frame forests."
+}
