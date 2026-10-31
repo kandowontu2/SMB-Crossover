@@ -1,0 +1,89 @@
+{
+  "passed": true,
+  "parent": {
+    "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\functional-roster-smb2-v1\\joint\\candidate.nes",
+    "bytes": 2097168,
+    "sha256": "68cbe3207ef4123c8351c760ed04c804eeaa8d9d5aa2a76b7395d60c6c541ab3"
+  },
+  "candidate": {
+    "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\smb2-current-cold-render-v29\\candidate.nes",
+    "bytes": 2097168,
+    "sha256": "69297379d7c2535944a6702870cc6d1e24c94e28bc2d9fc1a1688180e96ae522"
+  },
+  "source_only": true,
+  "native": false,
+  "new_helper": {
+    "physical_bank": 80,
+    "CPU_start": "CD16",
+    "end_exclusive": "CD25",
+    "bytes": 15,
+    "source_owned_padding": "Original .res234 CD16..<CE00 shrunk to219; ArtAppendCE00/allfollowingPCs exact"
+  },
+  "actual_service17_veneer_CPU": 43827,
+  "changed_offsets": [
+    518980,
+    518981,
+    519702,
+    519707,
+    519712,
+    519713,
+    519716,
+    519717,
+    519718,
+    658726,
+    658727,
+    658728,
+    658729,
+    658730,
+    658731,
+    658732,
+    658733,
+    658734,
+    658735,
+    658736,
+    658737,
+    658738,
+    658739,
+    658740
+  ],
+  "all_other_ROM_header_CHR_and_existing_symbol_locations_exact": true,
+  "all_Wram_payloads_exact": true,
+  "actual_original_consumers": "DrawSelectionPreview/DisplayIntermediate -> DrawPlayerIntermediate service3 prepares, X5PortraitRender HpNativePointers -> GmMenuDrawGate/typed17 -> newnativeDrawMetasprite tail",
+  "source_bindings": [
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\smb2-current-cold-render-v29\\build.py",
+      "bytes": 5746,
+      "sha256": "adfc38219370dc38c5b6b0269e338573860fe1ceea477f3fd67876b476e7d60a"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\smb2-current-cold-render-v29\\component.s",
+      "bytes": 2514,
+      "sha256": "7c194a7367f183e7693e9cfa97904fc4728d7a3a8fe2376afe01b8f75f070308"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\smb2-current-cold-render-v29\\entrypoint.s",
+      "bytes": 41272,
+      "sha256": "209c354dd8eb43261782222652a382fd2d06a8a31c05911369d876cd1d850104"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\smb2-current-cold-render-v29\\smb2\\smb2_roster.s",
+      "bytes": 1368,
+      "sha256": "7384c74396eadebecbb3a91e267cdc77535508faf232355d54b95f121afcb1c0"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\smb2-current-cold-render-v29\\smb2\\smb2_roster_host_v5.s",
+      "bytes": 11703,
+      "sha256": "77e3282c5797b869db4677b5a47be8f18c5bea9dd744edfc43093777136adcfa"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\smb2-current-cold-render-v29\\private.cfg",
+      "bytes": 47829,
+      "sha256": "c22262029c6b6c19e099246684c9317db73a7305142e997f46ac48c1520e3dc5"
+    },
+    {
+      "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\private_build_outputs_v1.py",
+      "bytes": 4244,
+      "sha256": "52f519ccb652852ed5518e9bc79c79278fcede8bc09a4399496ef4316736f037"
+    }
+  ]
+}
