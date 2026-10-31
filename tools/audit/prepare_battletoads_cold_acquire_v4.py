@@ -1,0 +1,124 @@
+"""Source-only real BT/native boundary successor. Cold lifecycle still pending."""
+from pathlib import Path
+import hashlib,json,shutil,subprocess,sys
+R=Path(__file__).resolve().parents[2];sys.path[:0]=[str(R/'tools/audit'),str(R/'tools')]
+from private_build_outputs_v1 import validate
+from prepare_cv3_dmc_mirror import prepare
+from check_tmnt_render_oa import load,address,location
+P=R/'build/battletoads-cold-preview-v2';O=R/'build/battletoads-cold-acquire-v4';J=O/'joint'
+sha=lambda p:hashlib.sha256(Path(p).read_bytes()).hexdigest()
+def write(p,s):p.parent.mkdir(parents=True,exist_ok=True);p.write_text(s)
+def command(c,n):
+    v=validate(c,J,cwd=R);z=subprocess.run(c,cwd=R,text=True,capture_output=True)
+    write(O/(n+'.json'),json.dumps(dict(command=c,validated_outputs=v,returncode=z.returncode,stdout=z.stdout,stderr=z.stderr),indent=2)+'\n')
+    assert z.returncode==0,(n,z.stderr)
+def main():
+    assert not O.exists();assert sha(P/'joint/candidate.nes')=='5743e6da7465aec10acad808ba10975c8a395c87b527f4e6fb2ece4010f0d792'
+    shutil.copytree(P/'joint',J,ignore=shutil.ignore_patterns('*.o','candidate.nes','candidate.dbg','candidate.lbl','candidate.map'))
+    for p in J.rglob('*'):
+        if p.is_file()and p.suffix in['.s','.inc','.cfg']:
+            write(p,p.read_text().replace(str(P/'joint'),str(J)).replace((P/'joint').as_posix(),J.as_posix()))
+    loader=(J/'bt/loader.s').read_text()
+    assert loader.count('BtFar X5PublishChr,jsr')==2
+    loader=loader.replace('BtFar X5PublishChr,jsr','jsr BtPublishChr')
+    old=' lda R1\n sec\n sbc #$c0\n lsr\n lsr\n clc\n adc #$97'
+    assert loader.count(old)==1
+    loader=loader.replace(old,' lda R1\n lsr\n lsr\n adc #$67 ; every true destination page C0,C4,..DC has bit1=0')
+    loader=loader.replace('.import SelectedCharacter,','.import BtEnsure\n.import SelectedCharacter,',1)
+    loader=loader.replace('.export BtLoad,BtCheck,','.export BtAcquire,BtPublishChr\n.export BtLoad,BtCheck,',1)
+    mark='BtCookie:.incbin'
+    assert loader.count(mark)==1
+    loader=loader.replace(mark,"""BtPublishChr:
+ BtFar X5PublishChr,jsr
+ rts
+BtAcquire:
+ jsr BtLoad
+ bcc BtAcquireDone
+ sta SafecallA_SMC+1
+ lda #<BtEnsure
+ sta FarcallJmpTarget_SMC+1
+ lda #>BtEnsure
+ sta FarcallJmpTarget_SMC+2
+ lda #.lobyte(.bank(BtEnsure)) ; actual RAM3, never ROM83
+ jmp FarCallCommon
+BtAcquireDone:rts
+BtCookie:.incbin""")
+    write(J/'bt/loader.s',loader)
+    preview=(J/'bt/preview.s').read_text()
+    preview=preview.replace('.import FmGroups,','.import BtAcquire\n.import FmGroups,',1)
+    preview=preview.replace('ColorDone:\n Restore','ColorDone:\n jsr BtAcquire\n Restore')
+    # Acquire is A93 code; this is a genuine farcall rather than a near JSR
+    # from the A72 preview page. It replaces the planned3B call with18B, so
+    # delegate from the same-bank palette worker via the available tail island.
+    preview=preview.replace(' jsr BtAcquire',' BtFar BtAcquire')
+    preview=preview.replace('.import BtAcquire', '.import CurrentCHRBank,X5ChrMode,X5WideChrActive,ReloadCHRBank\n.import BtAcquire',1)
+    original=' lda #.lobyte(915)\n ldx #.hibyte(915)\n ldy #0\n BtFar X5SetPhysicalChr'
+    replacement=' lda #.lobyte(915)\n sta CurrentCHRBank\n lda #$83\n sta X5ChrMode\n lda #1\n sta X5WideChrActive\n sta ReloadCHRBank'
+    assert preview.count(original)==1
+    preview=preview.replace(original,replacement)
+    assert preview.count(' Restore\n rts')==2
+    preview=preview.replace(' Restore\n rts',' jmp BtColdReturn',1)
+    preview=preview.replace(' Restore\n rts','BtColdReturn:\n Restore\n rts',1)
+    original=' BtFar X5QueueAreaBackdrop\n ldx VRAM_Buffer1_Offset'
+    assert preview.count(original)==1
+    preview=preview.replace(original,' BtFar X5QueueAreaBackdrop ; genuine worker returns X=updated offset')
+    write(J/'bt/preview.s',preview)
+    api=(J/'bt/api.s').read_text().replace('.export BtMovement,','.export BtEnsure\n.export BtMovement,',1)
+    api=api.replace('BtConstruct:\n',"""BtEnsure:
+ lda BtHostReady
+ cmp #1
+ beq BtEnsureDone
+ jmp BtConstruct
+BtEnsureDone:rts
+BtConstruct:
+""",1)
+    write(J/'bt/api.s',api)
+    constants=(R/'inc/constants.inc').read_text().splitlines()
+    names=['Sfx_PowerUpGrab','Sfx_PipeDown_Injury','Goomba','Bowser']
+    selected=[l for l in constants if any(l.startswith(n+' ')for n in names)]
+    assert len(selected)==4
+    write(J/'bt/native-constants.inc','\n'.join(selected)+'\n')
+    cc=R/'tools/Windows/cc65/bin'
+    p=J/'entrypoint.s'
+    main=json.loads((P/'main-build.json').read_text())['command'][:]
+    main[-1]=str(J/'entrypoint.s');main[main.index('-o')+1]=str(J/'bt-main.o')
+    main[1:1]=['-I',str(J),'-I',str(J/'src')]
+    for flag in ['--create-dep','--create-full-dep','-l','--listing']:
+        if flag in main:main[main.index(flag)+1]=str(J/Path(main[main.index(flag)+1]).name)
+    command(main,'main-build')
+    def assemble(n):command([str(cc/'ca65.exe'),'-g','-D','MAPPER_MMC5=1','-I',str(R),'-o',str(J/'bt'/f'{n}.o'),str(J/'bt'/f'{n}.s')],n+'-build')
+    for n in['api','core','art','loader','router','preview','stream']:assemble(n)
+    link=json.loads((P/'final-link.json').read_text())['command'][:]
+    for flag in['-o','-Ln','-C','-m','--dbgfile','--mapfile']:
+        if flag in link:link[link.index(flag)+1]=str(J/Path(link[link.index(flag)+1]).name)
+    if '--ld-args'in link:
+        k=link.index('--ld-args')+1;v=link[k].split(',')
+        for i in range(1,len(v),2):v[i]=str(J/Path(v[i]).name)
+        link[k]=','.join(v)
+    oldmain=str(P/'joint/bt-main.o');assert link.count(oldmain)==1;link[link.index(oldmain)]=str(J/'bt-main.o')
+    for n in['api','core','art','loader','router','preview','stream']:
+        hit=[i for i,p in enumerate(link)if p.endswith('/bt/'+n+'.o')or p.endswith('\\bt\\'+n+'.o')]
+        assert len(hit)==1,(n,hit);link[hit[0]]=str(J/'bt'/f'{n}.o')
+    command(link,'initial-link')
+    cache=(J/'bt/cache.bin').read_bytes();assert len(cache)==8192 and cache[0x1fe0:0x1ff0]==bytes(16)
+    cookie=bytes([0xa7,33,1,117])+hashlib.sha256(cache).digest()[:12]
+    (J/'bt/cookie.bin').write_bytes(cookie);(J/'bt/stream.bin').write_bytes(cache)
+    assemble('loader');assemble('stream');command(link,'final-link');prepare(R,J/'candidate.nes')
+    old,new=[load(x/'joint/candidate.nes')for x in[P,O]]
+    diff=[i for i,(a,b)in enumerate(zip(old['raw'],new['raw']))if a!=b]
+    spans=[(16+93*8192+0xdc0,16+93*8192+0xfa7),(16+72*8192+0x1011,16+72*8192+0x1100),(16+0x100000+919*1024,16+0x100000+927*1024)]
+    assert all(any(a<=i<b for a,b in spans)for i in diff)
+    for n in['BtServiceVeneers','BtCheck','BtLoad','BtState','BtHostState','BtCacheServices','BtInit','BtPoseIds']:
+        assert address(old,n)==address(new,n)
+    q=dict(status='SOURCE_PROTOTYPE_OWN_COLD_LOAD_ENSURE_PENDING_PROOF',native=False,ready=False,
+        candidate=sha(J/'candidate.nes'),parent=sha(P/'joint/candidate.nes'),changed_bytes=len(diff),
+        header_current64_menu_readiness_all_foreign_bytes_exact=True,
+        source_core_code_bytes=2864,source_state_bytes=117,new_global_RAM0_bytes=0,
+        host_code_end=address(new,'BtUnavailable')+2,host_code_limit=0xbee0,
+        cold_ROM_preview_bytes=address(new,'BtColdEnd')-address(new,'BtColdPortrait'),
+        implemented=['No-cache exact source cold portrait and two authentic palette rows','Donor integrator native import/export once','Original source fractional X/jump/gravity','Native real head/side tile probes','Native big-body contact rectangle','Exact source P0/P1 queue without universal writes','Native kernel/sourcepose geometry','Original player-punch profile18 health math','Original food+8/cap2F','Native Star/1up genuine consumer','One authentic E2 event to native actor immunity/defeat/Bowser/score path'],
+        pending=['Natural ROM Fresh/Reset/cold acquisition chain','Cold portrait/name/status publication','P1 retirement/menu Start masks','Native firstlook/route'],
+        scope='Actual private cache boundary source; no readiness/Main/cold/native qualification from this link',
+        bindings={str(p.resolve()):sha(p)for p in[Path(__file__),R/'tools/audit/battletoads_cold_preview_v2.s',P/'cold-controls-v2.json',J/'candidate.nes',J/'candidate.dbg',J/'candidate.lbl',J/'private.cfg',J/'bt/api.s',J/'bt/cache.bin',J/'bt/cookie.bin',J/'bt/stream.bin']})
+    write(O/'source-stage.json',json.dumps(q,indent=2)+'\n');print(json.dumps({k:v for k,v in q.items()if k!='bindings'}))
+if __name__=='__main__':main()
