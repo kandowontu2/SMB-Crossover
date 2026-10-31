@@ -1,0 +1,90 @@
+{
+  "status": "SOURCE_RECOVERED_ISOLATED_COMPONENT_NOT_ROSTER_ADMITTED",
+  "donor": {
+    "path": "C:/NES/Kung Fu (Japan, USA) (En).nes",
+    "sha256": "2275213352411a23df7428496ad03991348ddee3034ac6db83d2d16f0d1f8554",
+    "mapper": 0,
+    "prg_bytes": 32768,
+    "chr_bytes": 8192
+  },
+  "component": {
+    "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\thomas-melee-component-v2\\component.bin",
+    "sha256": "2af54cc830aac325fd609d95a929cfd284500fd03d06ab513397a628416401fd",
+    "source_stage_sha256": "be3560da3039c474fcbd2db9f86a8e06286d9eeeb4108fbdcb8e76d33d95ac3e",
+    "packed_sizes": {
+      "control_animation": 1204,
+      "tables": 166,
+      "health": 411,
+      "body_overlap_melee": 274,
+      "typed_attack_query": 22,
+      "geometry_tables": 56,
+      "subtotal_code_data": 2133,
+      "art_patterns": 4672,
+      "art_descriptor_metadata": 1230,
+      "total_without_audio_or_host_adapters": 8035,
+      "original_audio_region": 1983
+    },
+    "size_correction": "Initial melee API conservatively estimated query24B; actual linked THOMAS_GEOM128hex minus original274B is22B. No source/code change; canonical measured total8035B.",
+    "lab_abi": "Native donor RAM offsets retained inside isolated CPU lab; source code6000,health6500,tables6800,geometry6A00,data6C00 are lab locations, not host leases.",
+    "external_health_dependencies": "Named original nonplayer services/data remain explicit lab imports. No absolute alias stands in for a ported host service."
+  },
+  "authentic_behavior": {
+    "controls": "Right/Left,Downcrouch,Upjump,Bpunch,Akick; original edge/stance restrictions retained",
+    "movement": "Original049E fractional20hex accumulation gives1/2pixel updates; no invented acceleration",
+    "jump": "Original11-position9B9C Ytable and9B82 cadence; allair/ground attack phases execute original source",
+    "health": "04A6 starts30hex;0 remains alive, subtractingbelow0 enters original signednegative death",
+    "attacks": "Original C208 window, C65B rectangles and C0F3 inclusive overlap; distinct standing/crouch/air punch/kick",
+    "art": "42 original background commands executed by original DAEA/DB3E PPUwriter; palette role[0F,27,30,0F], both original facings, max8parts, no blank8x16pairs",
+    "art_caveat": "Only exact same-position floor2A matches in native row22 are subtracted, matching prior authenticated idle extraction. Original index0 is transparent, index3 opaqueblack retained. Source metadata has16bit pair IDs; no hardware tile/bank assignment.",
+    "audio": "F831 reconstructed source at original address; all1983 audio bytes preserved. Genuine input event queues and ordered APU writes match. Audio relocation/host ownership remains unqualified."
+  },
+  "tests": {
+    "control_receipt": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\thomas-original-controls-v4\\controls.json",
+    "control_sha256": "af7941b2c72dcc567b71565b511cdcbfb70c595604bc1417341357b569e5b8c8",
+    "original_reset_start_parser_frames": 600,
+    "independent_original_nmi_frames": 503,
+    "real_boundary_states": 31,
+    "allflag_input_movement_animation_pairs": 5120,
+    "player_health_damage_pairs": 16128,
+    "geometry_pairs": 672,
+    "original_attack_window_pairs": 1408,
+    "total_differential_pairs": 23328,
+    "source_frame_cpu_delta": [
+      0,
+      3
+    ],
+    "original_prg_source_reproduction": "Exact all32768 bytes using recovered source plus explicit untouched incbin ranges",
+    "comparison": "Actual6502 A/X/Y/P/SP/applicationRAM/storeorder/simulatedPPU+OAM/orderedAPUevents",
+    "qualification_limit": "Untimed original NROM CPU oracle supplies ready PPUstatus. No Mesen/raster/deadline/currenthost/Main/owner/IRQ/native qualification."
+  },
+  "next_concrete_host_steps": [
+    "Approve selectedThomas state/code/CHR ownership after actual current resource closure; no7Bmenu claim.",
+    "Map native control state privately, retain native oneintegrator/sourcejump deltas and attack windows; join true current head/feet/support/camera and native end progression.",
+    "Normalize baked background pose offset against sourceB6 once, so host jump does not move art twice.",
+    "Connect original rectangles to true host damage/defeat and exact native HP/life/upgrade transitions.",
+    "Source-link coldloader, sceneFresh, actor body, worldpalette, audio acquisition/retirement and genuine NMI before menu readiness.",
+    "Coordinate actual current Startmask compaction with WWF; slot10Thomas bit40hex currently cleared onStart."
+  ],
+  "resource_note": "8035B is measured source/art size, not an8KB fit/allocation. Host wrappers/state/pointer tables and audio are additional; art can remain per-pose banked CHR instead of code-cache resident.",
+  "current_start_constraints": {
+    "slot": 10,
+    "Thomas_bit": "FmAlts40hex",
+    "Shinobi_bit": "FmAlts04hex",
+    "actual_menu_source": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\contra-force-menu-admission-1031-v2\\joint\\src\\full_roster_menu.s",
+    "actual_start_source": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\bt-ready-menu-1031-v2\\joint\\src\\cf_menu_body.inc",
+    "helper_current_bytes": 393,
+    "helper_limit": 400,
+    "remaining7": "Also proposed WWF6; wholly unclaimed byThomas",
+    "current_BT_CF_source": "e538d2b809b1dac9b70a0a1b23a1b33b3d361297b25fac0b556d8eae5c7721ed"
+  },
+  "retained_negatives": [
+    "Initialv1 compiler-location assumption failed before any compiler invocation; v2 usesactual guarded workspace tools.",
+    "InitialaudioCFG treated known LDx8/BNE as possiblefallthrough into tableF881; corrected staticconstantflags, full original PRG comparison passes.",
+    "Firstartpacking assumed one4KB tile-indexspace; actual1468x16pairs require4672B. Finalmetadata usesu16pairIDs, no forcedhardwaremapping.",
+    "Firstmelee link cfg emitted6A/6C before6800; linker rejected it. Newv2 ascendinglayout links without overwritingearlier source.",
+    "Long sequentialv1 controls died before laterstance policies; retained but not used for final stance coverage. Final independent cohorts fork a genuine600framecoldstate.",
+    "Earlyairattack buttonedge was remembered before eligible phase4/5; finalcontroller-only timing at10..13 reaches bothairpunch14hex andairkick24hex, original product unchanged.",
+    "Provisional melee API querysize24B is corrected to actual22B in this canonical receipt; predecessor estimates unchanged."
+  ],
+  "untouched": "No shared/canonical source, installed ROM, menu, Start, allocation, native process or Git state changed."
+}
