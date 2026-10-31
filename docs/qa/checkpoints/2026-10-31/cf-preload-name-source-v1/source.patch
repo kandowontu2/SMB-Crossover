@@ -1,0 +1,51 @@
+--- ef2f/bowser/router.s
++++ preload-name/bowser/router.s
+@@ -68,30 +68,37 @@
+  ldx #1
+  cmp #45
+  beq BwResolveROM
+- ldx #4
++ ldx #3
++ cmp #54
++ beq BwResolveROM
++ inx
+  cmp #57
+  beq BwResolveROM
+  clc
+  rts
+ BwCfSceneLoad:
++ ; Sole private caller has already saved nativeAXYP. These X/Y are
++ ; target metadata, not source/native gameplay parameters.
+  lda SelectedCharacter
+  cmp #31
+  beq Cf
+  lda #<BwLoad
+- sta FarcallJmpTarget_SMC+1
+- lda #>BwLoad
+- sta FarcallJmpTarget_SMC+2
+- lda #.lobyte(.bank(BwLoad)|$80)
+- jmp FarCallCommon
++ ldx #>BwLoad
++ ldy #.lobyte(.bank(BwLoad)|$80)
++ bne Publish
+ Cf:
+  lda #<CfLoadIfCold
++ ldx #>CfLoadIfCold
++ ldy #.lobyte(.bank(CfLoadIfCold)|$80)
++Publish:
+  sta FarcallJmpTarget_SMC+1
+- lda #>CfLoadIfCold
+- sta FarcallJmpTarget_SMC+2
+- lda #.lobyte(.bank(CfLoadIfCold)|$80)
++ stx FarcallJmpTarget_SMC+2
++ tya
+  jmp FarCallCommon
+-.assert BwCfSceneLoad-BwResolveColdNative=14,error,"Exact14B fallback"
+-.assert *-BwCfSceneLoad=37,error,"Exact37B private loader selector"
++.assert BwCfSceneLoad-BwResolveColdNative=19,error,"Exact19B 15/18/19 fallback"
++.assert *-BwCfSceneLoad=31,error,"Exact31B private selected loader"
++ nop
++.assert .lobyte(.bank(BwLoad)|$80)<>0,lderror,"Selected ROM metadata branch always"
+ ; Exact16B already-owned tail; nativeAXYP remains on the outer B020 stack.
+ BwResolveFamilyTail:
+  lda #$a0

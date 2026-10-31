@@ -1,0 +1,88 @@
+{
+  "proposal_only": true,
+  "source": true,
+  "cartridge_modified": false,
+  "native": false,
+  "ready": false,
+  "parent": "05b1c5a861eaf49fbaea1f8278229f2970defa3e81909178e0eb46e1ad2f2d10",
+  "offsets": [
+    0,
+    4,
+    4,
+    244,
+    0,
+    248,
+    252
+  ],
+  "exact_form_frame_results": 567,
+  "proposed_pointer_change": "All seven low-table pointers reference original form0Lo. Add per-form modulo256 offset before publishing SmChrBank. High-table pointers and final CHR pages remain unchanged.",
+  "reclaimed_tables": [
+    {
+      "form": 1,
+      "bytes": 81,
+      "PC": 52880
+    },
+    {
+      "form": 2,
+      "bytes": 81,
+      "PC": 53042
+    },
+    {
+      "form": 3,
+      "bytes": 81,
+      "PC": 53204
+    },
+    {
+      "form": 4,
+      "bytes": 81,
+      "PC": 53366
+    },
+    {
+      "form": 6,
+      "bytes": 81,
+      "PC": 53690
+    }
+  ],
+  "total_redundant_bytes": 405,
+  "offset_table_bytes": 7,
+  "available_for_original_abilities": 398,
+  "measured_helper_bytes": 22,
+  "original_helper_reserved_bytes": 23,
+  "limits": [
+    "No code adopted. Need exact9072 graphics/application-write comparison with precisely classified first low-pointer stores, original pixel/palette assertions, live interrupts and native replay before integrating.",
+    "Retired low tables must be proven unconsumed by every actual pointer/direct consumer before writing ability code. Existing form5Lo code is not reclaimed."
+  ],
+  "compile": {
+    "command": [
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\Windows\\cc65\\bin\\ca65.exe",
+      "--cpu",
+      "6502x",
+      "-g",
+      "-o",
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\smb3plus-low-table-factor-proposal-1031-v1\\proposal.o",
+      "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\smb3plus-low-table-factor-proposal-1031-v1\\proposal.s"
+    ],
+    "output_guard": {
+      "tool": "ca65",
+      "private_root": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\smb3plus-low-table-factor-proposal-1031-v1",
+      "outputs": [
+        {
+          "kind": "-o",
+          "path": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\smb3plus-low-table-factor-proposal-1031-v1\\proposal.o"
+        }
+      ],
+      "outputs_validated_before_execution": true
+    },
+    "returncode": 0,
+    "stderr": "",
+    "segment_dump": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\smb3plus-low-table-factor-proposal-1031-v1\\proposal.o:\n  Segments:\n    Count:                          6\n    Index:                          0\n      Name:                    \"CODE\"\n      Flags:                        0\n      Size:                        22\n      Alignment:                    1\n      Address size:              0x02  (absolute)\n      Fragment count:              18\n    Index:                          1\n      Name:                  \"RODATA\"\n      Flags:                        0\n      Size:                         0\n      Alignment:                    1\n      Address size:              0x02  (absolute)\n      Fragment count:               0\n    Index:                          2\n      Name:                     \"BSS\"\n      Flags:                        0\n      Size:                         0\n      Alignment:                    1\n      Address size:              0x02  (absolute)\n      Fragment count:               0\n    Index:                          3\n      Name:                    \"DATA\"\n      Flags:                        0\n      Size:                         0\n      Alignment:                    1\n      Address size:              0x02  (absolute)\n      Fragment count:               0\n    Index:                          4\n      Name:                \"ZEROPAGE\"\n      Flags:                        0\n      Size:                         0\n      Alignment:                    1\n      Address size:              0x01  (zeropage)\n      Fragment count:               0\n    Index:                          5\n      Name:                    \"NULL\"\n      Flags:                        0\n      Size:                         0\n      Alignment:                    1\n      Address size:              0x02  (absolute)\n      Fragment count:               0\n"
+  },
+  "bindings": {
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\propose_smb3plus_low_table_factor_1031_v1.py": "2ff1cc6eb88bf3847e197f497fd5539d143ae3a32afb66d4e8ee81b07c3ecf5e",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\smb3plus-peach-gravity-consumer-1031-v1\\joint\\src\\smb3_mario_art.inc": "bee666ae93d2b37cb943fa5ddc529471e2ae227e1a8db82983432d00766aec48",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\smb3plus-peach-gravity-consumer-1031-v1\\joint\\candidate.nes": "05b1c5a861eaf49fbaea1f8278229f2970defa3e81909178e0eb46e1ad2f2d10",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\smb3plus-peach-gravity-consumer-1031-v1\\joint\\candidate.dbg": "397b48a9f5d2bf5545bb60757f31042f2575c71ca87e8d3ab09eb03041f83b0b",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\smb3plus-low-table-factor-proposal-1031-v1\\proposal.s": "bff4878514a036a97aa24ab120c809afd9ee44a40d1bd9f3f198b11d932da0eb",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\smb3plus-low-table-factor-proposal-1031-v1\\proposal.o": "e6f1cf679fd45d1d084f40cec3299f04bd367598480e33806b6b7a4da1179103"
+  }
+}
