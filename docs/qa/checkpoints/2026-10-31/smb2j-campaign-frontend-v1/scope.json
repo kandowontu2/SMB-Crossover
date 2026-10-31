@@ -1,0 +1,43 @@
+{
+  "passed": true,
+  "source_CPU": true,
+  "bounded_native": true,
+  "installed": false,
+  "campaign_complete": false,
+  "candidate": "5995749b2efe82343f58899358a663bd050219d3857bbdbc7e01bb38c7e540ba",
+  "menu_profiles": 86,
+  "playable_profiles": 74,
+  "pending_profiles": 12,
+  "behavior": [
+    "Character confirm opens two named game choices.",
+    "B returns to the character page retaining the selected alternate.",
+    "The SMB1 choice follows the existing real start and gameplay path.",
+    "The SMB2J choice is guarded until its actual engine is connected."
+  ],
+  "native": "Cold AllZeros controller-only Peach sequence, both actual PPU text rows/cursor, guarded2J confirm, B return, actual SMB1 parser/entrance and180controlled video frames.",
+  "source_checks": {
+    "continue_values": 512,
+    "reset_values": 512,
+    "campaign_ready": 512,
+    "cursor_bounds": 170,
+    "menu_profiles": 86,
+    "ready_open": 74,
+    "pending_decline": 12
+  },
+  "new_global_and_ZP_bytes": 0,
+  "private_resources": [
+    "Bank29 B640..<B830 (496B), old menu helper405B mask funding.",
+    "Bank66 B0C0..<B130 (112B), original116B source-declared tail."
+  ],
+  "negative_ledger": [
+    "v1/v3 did not assemble: relocatable padding and macro-name collision.",
+    "v2/v4/v5 checks failed on private debug aliases or inherited405B mask shifts.",
+    "v6 revealed a real unbanked near-call defect: PROTO_MENU is physical66 while the new body is29. Never installed or native-run.",
+    "v7 places all tiny near helpers in66 and uses genuine FarCallCommon for every edge into29 and back.",
+    "controls-v2 expected18 glyphs for the19-character second title; the emitted command was correct. v3 corrects the fixture length."
+  ],
+  "limits": [
+    "No SMB2J loader, campaign, new mechanics, ending or save is installed.",
+    "Native coverage is one Peach frontend/SMB1 opening sequence, not every character or a full-level clear."
+  ]
+}
