@@ -1,0 +1,13 @@
+True symbolic WWF C2 state relocation, isolated CPU source component.
+
+The compiled VM contains the original per-wrestler interpreter, all90 genuine opcode handlers, six original81-byte descriptors,145 native action-directory words and full3634-byte script bundle. No prerecorded action timeline or generic attack replaces source instructions. All RAM operands are genuine selected-state symbols. Three expanded branches use assembled6502 branch/JMP sequences. Original dispatch is JMP through the selected C2 word.
+
+The four scoped R0..7 pairs serve only five actual indirect read helpers. Every read reloads its canonical selected-state pointer. The public and callback wrappers separately save all8 physical scratch bytes on the real CPU stack and restore actual incoming/returned flags and registers. The dynamically executed original callback oracle deliberately clobbers all8 afterward; compiled source still returns exact scratch state.
+
+Controls:132 input cases/8448 updates including actor1;556 action entries/35584 updates;768 fullflag AI calls. Original66 cases/4224 updates reproduce the prior source recovery. Ordered selected-state writes, callback inputs/outputs/order, native mapper/audio effects and returnedAXYP/SP are exact under declared address projection. Handler coverage remains60/90. Addressing additionally checks259200 actual indexed instructions,81920 E9BB16-bit page1 aliases and163840 pointer-helper cases. Real assembled privateNMI/IRQ/nestedIRQ probes pass2748 cuts at916 reached instruction seams, minimumSP199. These probes do not claim actual MMC5/commonISR integration.
+
+Footprint:3912 code +180 dispatch +3634 scripts =7726 A3 bytes;498 descriptor/directory bytes;1157 C2 helper bytes;2048 selected-state bytes;4 phase-context bytes. Original donor callbacks, real host constructor, terrain/contact/ring/progression/audio adapters and host mapping remain outside this component. No host lease or unlock is implied.
+
+Replay generated source with the pinned ca65/ld65 recipes and guarded output paths in build-proof.json/link/build logs, always into a NEW laboratory root. The donor ROM is an external hash-pinned input. The2KiB native fixture is included; donor ROM and parent cartridge images are not archived. No six duplicated cache images are produced.
+
+Retained negatives:missing action0 genuineimport(v1);overlapping oracle gateway/environment slots(v2);first C2 observer omitted native mapperwrites for Audio12(v1 controls). The corrected observer includes those exact writes rather than changing source. Original older source-control report prose saying dense state relocation is absent is inherited; this successor's explicit source/projection/control scope supersedes that description without altering the frozen reports.

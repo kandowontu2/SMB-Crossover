@@ -1,0 +1,669 @@
+{
+  "source": true,
+  "isolated_lab": true,
+  "no_host_allocation": true,
+  "entries": {
+    "WfInitDescriptors": 54505,
+    "WfSelectAction": 54421,
+    "WfAdoptRequests": 54337,
+    "WfVmTick": 54589,
+    "WfVmDispatch": 42159,
+    "WfReadOperand": 44861
+  },
+  "phase_order": [
+    "native controller poll with held/fresh inputs",
+    "WfSelectAction X=actor0/1,Y=0/2; Y=FF is explicit AI tail",
+    "WfAdoptRequests once after input selection",
+    "WfVmTick with original71 phase and8D video counter; each actor updates every2 source video frames"
+  ],
+  "identity": "Actor0 reads descriptor2B; actor1 reads2A. Genuine descriptors retain original stats, per-wrestler script directory and side effects.",
+  "state": {
+    "base": 49152,
+    "bytes": 2048,
+    "projection": "Every genuine state operand below2000 uses WfState+(operand&7FF); original code/data pointers translate through genuine source symbols."
+  },
+  "scoped_pairs": {
+    "physical_R0_R7": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "pointer_fields": {
+      "0x1f": 0,
+      "0x25": 0,
+      "0xc3": 2,
+      "0x21": 4,
+      "0x23": 6
+    },
+    "dispatch": "JMP(WfState+$01F), no zero-page dispatch alias",
+    "reads": "Five13B helpers reload canonical C2 pointer before every indirect LDA;1F and25 share a physical pair only in separate helper phases."
+  },
+  "pointer_rules": "Only the five declared16-bit pointer fields translate code/data addresses. Paired source writes preserve original order. Indexed actor state is declaredX0/1; every405 actual indexed instruction is compared for all64flags. E9BB retains16-bit00D3+Y addressing, including original01D2 forYFF, at selectedC1D2.",
+  "scratch_context": {
+    "private_C2": [
+      57296,
+      57300
+    ],
+    "foreground_bytes": 2,
+    "callback_bytes": 2,
+    "public_stack_extra": 10,
+    "oracle_gateway_stack_extra": 22
+  },
+  "returned_ABI": "Actual original returnedAXYP/SP, not a generic preserving routine. Public/callback wrappers restore every physicalR0..7 byte around genuine compiled code. Callback outputs, including flags, mapper/APU writes and ordered source state are exact.",
+  "callbacks": [
+    {
+      "name": "WfCbAI",
+      "original_entry": 46779,
+      "compiled_wrapper": 54673,
+      "environment_stub": 28672,
+      "gateway": 29696,
+      "calls": [
+        {
+          "native_PC": 44886,
+          "linked_PC": 41117,
+          "transfer": "jmp",
+          "callback": "WfCbAI"
+        }
+      ]
+    },
+    {
+      "name": "WfCbRingClamp",
+      "original_entry": 50871,
+      "compiled_wrapper": 54757,
+      "environment_stub": 28704,
+      "gateway": 29700,
+      "calls": [
+        {
+          "native_PC": 58310,
+          "linked_PC": 42235,
+          "transfer": "jsr",
+          "callback": "WfCbRingClamp"
+        },
+        {
+          "native_PC": 58324,
+          "linked_PC": 42252,
+          "transfer": "jsr",
+          "callback": "WfCbRingClamp"
+        }
+      ]
+    },
+    {
+      "name": "WfCbActorDepthProbe",
+      "original_entry": 52482,
+      "compiled_wrapper": 54841,
+      "environment_stub": 28736,
+      "gateway": 29704,
+      "calls": [
+        {
+          "native_PC": 58288,
+          "linked_PC": 42210,
+          "transfer": "jsr",
+          "callback": "WfCbActorDepthProbe"
+        }
+      ]
+    },
+    {
+      "name": "WfCbRingBounds",
+      "original_entry": 53440,
+      "compiled_wrapper": 54925,
+      "environment_stub": 28768,
+      "gateway": 29708,
+      "calls": [
+        {
+          "native_PC": 58291,
+          "linked_PC": 42213,
+          "transfer": "jsr",
+          "callback": "WfCbRingBounds"
+        }
+      ]
+    },
+    {
+      "name": "WfCbActorContact",
+      "original_entry": 52517,
+      "compiled_wrapper": 55009,
+      "environment_stub": 28800,
+      "gateway": 29712,
+      "calls": [
+        {
+          "native_PC": 58298,
+          "linked_PC": 42221,
+          "transfer": "jsr",
+          "callback": "WfCbActorContact"
+        }
+      ]
+    },
+    {
+      "name": "WfCbRandom",
+      "original_entry": 52759,
+      "compiled_wrapper": 55093,
+      "environment_stub": 28832,
+      "gateway": 29716,
+      "calls": [
+        {
+          "native_PC": 59584,
+          "linked_PC": 42665,
+          "transfer": "jsr",
+          "callback": "WfCbRandom"
+        }
+      ]
+    },
+    {
+      "name": "WfCbAudio09",
+      "original_entry": 41518,
+      "compiled_wrapper": 55177,
+      "environment_stub": 28864,
+      "gateway": 29720,
+      "calls": [
+        {
+          "native_PC": 60172,
+          "linked_PC": 43357,
+          "transfer": "jmp",
+          "callback": "WfCbAudio09"
+        }
+      ]
+    },
+    {
+      "name": "WfCbAudio0F",
+      "original_entry": 41532,
+      "compiled_wrapper": 55261,
+      "environment_stub": 28896,
+      "gateway": 29724,
+      "calls": [
+        {
+          "native_PC": 60175,
+          "linked_PC": 43360,
+          "transfer": "jmp",
+          "callback": "WfCbAudio0F"
+        }
+      ]
+    },
+    {
+      "name": "WfCbAudio12",
+      "original_entry": 41539,
+      "compiled_wrapper": 55345,
+      "environment_stub": 28928,
+      "gateway": 29728,
+      "calls": [
+        {
+          "native_PC": 60150,
+          "linked_PC": 43334,
+          "transfer": "jsr",
+          "callback": "WfCbAudio12"
+        },
+        {
+          "native_PC": 60178,
+          "linked_PC": 43363,
+          "transfer": "jmp",
+          "callback": "WfCbAudio12"
+        }
+      ]
+    }
+  ],
+  "handlers": [
+    {
+      "opcode": 8,
+      "linked_entry": 44755,
+      "dynamically_covered": false
+    },
+    {
+      "opcode": 9,
+      "linked_entry": 44763,
+      "dynamically_covered": false
+    },
+    {
+      "opcode": 10,
+      "linked_entry": 44771,
+      "dynamically_covered": false
+    },
+    {
+      "opcode": 11,
+      "linked_entry": 44775,
+      "dynamically_covered": false
+    },
+    {
+      "opcode": 12,
+      "linked_entry": 44746,
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 13,
+      "linked_entry": 44779,
+      "dynamically_covered": false
+    },
+    {
+      "opcode": 14,
+      "linked_entry": 44785,
+      "dynamically_covered": false
+    },
+    {
+      "opcode": 15,
+      "linked_entry": 42326,
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 16,
+      "linked_entry": 44791,
+      "dynamically_covered": false
+    },
+    {
+      "opcode": 17,
+      "linked_entry": 44798,
+      "dynamically_covered": false
+    },
+    {
+      "opcode": 18,
+      "linked_entry": 44805,
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 19,
+      "linked_entry": 44823,
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 20,
+      "linked_entry": 44832,
+      "dynamically_covered": false
+    },
+    {
+      "opcode": 21,
+      "linked_entry": 44839,
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 22,
+      "linked_entry": 44732,
+      "dynamically_covered": false
+    },
+    {
+      "opcode": 23,
+      "linked_entry": 44725,
+      "dynamically_covered": false
+    },
+    {
+      "opcode": 24,
+      "linked_entry": 44739,
+      "dynamically_covered": false
+    },
+    {
+      "opcode": 25,
+      "linked_entry": 44718,
+      "dynamically_covered": false
+    },
+    {
+      "opcode": 26,
+      "linked_entry": 44710,
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 27,
+      "linked_entry": 44693,
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 28,
+      "linked_entry": 44671,
+      "dynamically_covered": false
+    },
+    {
+      "opcode": 29,
+      "linked_entry": 44280,
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 30,
+      "linked_entry": 44260,
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 31,
+      "linked_entry": 44491,
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 32,
+      "linked_entry": 44849,
+      "dynamically_covered": false
+    },
+    {
+      "opcode": 33,
+      "linked_entry": 44855,
+      "dynamically_covered": false
+    },
+    {
+      "opcode": 34,
+      "linked_entry": 44140,
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 35,
+      "linked_entry": 44243,
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 36,
+      "linked_entry": 43919,
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 37,
+      "linked_entry": 43927,
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 38,
+      "linked_entry": 44121,
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 39,
+      "linked_entry": 44153,
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 40,
+      "linked_entry": 43837,
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 41,
+      "linked_entry": 43903,
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 42,
+      "linked_entry": 43611,
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 43,
+      "linked_entry": 43649,
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 44,
+      "linked_entry": 43714,
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 45,
+      "linked_entry": 43592,
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 46,
+      "linked_entry": 43564,
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 47,
+      "linked_entry": 43555,
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 48,
+      "linked_entry": 43454,
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 49,
+      "linked_entry": 43535,
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 50,
+      "linked_entry": 44172,
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 51,
+      "linked_entry": 43392,
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 52,
+      "linked_entry": 43603,
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 53,
+      "linked_entry": 43370,
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 54,
+      "linked_entry": 43366,
+      "dynamically_covered": false
+    },
+    {
+      "opcode": 55,
+      "linked_entry": 44814,
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 56,
+      "linked_entry": 43340,
+      "dynamically_covered": false
+    },
+    {
+      "opcode": 57,
+      "linked_entry": 44220,
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 58,
+      "linked_entry": 43306,
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 59,
+      "linked_entry": 43303,
+      "dynamically_covered": false
+    },
+    {
+      "opcode": 60,
+      "linked_entry": 43300,
+      "dynamically_covered": false
+    },
+    {
+      "opcode": 61,
+      "linked_entry": 43414,
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 62,
+      "linked_entry": 43434,
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 63,
+      "linked_entry": 43751,
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 64,
+      "linked_entry": 43803,
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 65,
+      "linked_entry": 43286,
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 66,
+      "linked_entry": 43264,
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 67,
+      "linked_entry": 43283,
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 68,
+      "linked_entry": 43225,
+      "dynamically_covered": false
+    },
+    {
+      "opcode": 69,
+      "linked_entry": 43217,
+      "dynamically_covered": false
+    },
+    {
+      "opcode": 70,
+      "linked_entry": 43192,
+      "dynamically_covered": false
+    },
+    {
+      "opcode": 71,
+      "linked_entry": 43210,
+      "dynamically_covered": false
+    },
+    {
+      "opcode": 72,
+      "linked_entry": 44186,
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 73,
+      "linked_entry": 43093,
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 74,
+      "linked_entry": 43055,
+      "dynamically_covered": false
+    },
+    {
+      "opcode": 75,
+      "linked_entry": 43024,
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 76,
+      "linked_entry": 43008,
+      "dynamically_covered": false
+    },
+    {
+      "opcode": 77,
+      "linked_entry": 42997,
+      "dynamically_covered": false
+    },
+    {
+      "opcode": 78,
+      "linked_entry": 42805,
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 79,
+      "linked_entry": 42783,
+      "dynamically_covered": false
+    },
+    {
+      "opcode": 80,
+      "linked_entry": 42775,
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 81,
+      "linked_entry": 42720,
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 82,
+      "linked_entry": 42732,
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 83,
+      "linked_entry": 42744,
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 84,
+      "linked_entry": 42691,
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 85,
+      "linked_entry": 42634,
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 86,
+      "linked_entry": 42619,
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 87,
+      "linked_entry": 42561,
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 88,
+      "linked_entry": 42590,
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 89,
+      "linked_entry": 42545,
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 90,
+      "linked_entry": 42532,
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 91,
+      "linked_entry": 42506,
+      "dynamically_covered": false
+    },
+    {
+      "opcode": 92,
+      "linked_entry": 42422,
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 93,
+      "linked_entry": 42353,
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 94,
+      "linked_entry": 42343,
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 95,
+      "linked_entry": 42980,
+      "dynamically_covered": false
+    },
+    {
+      "opcode": 96,
+      "linked_entry": 42327,
+      "dynamically_covered": true
+    },
+    {
+      "opcode": 97,
+      "linked_entry": 42335,
+      "dynamically_covered": true
+    }
+  ],
+  "interrupt_contract": "On an interrupt every borrowed physicalR0..7 byte and live upper page1 must be preserved, along with AXYP and actual PC. Private tested probe saves all8, permits legal nestedIRQ after save, restores and RTIs. Source/callback phase scratch is untouched by the probe.",
+  "limitations": [
+    "No cartridge/common source, shared allocation, MMC5 mapping, native run, readiness or installation is changed.",
+    "The nine callback bodies remain genuine dynamically executed donor-environment oracles. Their replacement by SMB terrain/contact/audio implementations is not established.",
+    "The 556 directory-entry cases prove authored script execution in declared CPU contexts, not natural host eligibility for every wrestling action.",
+    "60 of 90 handler entries execute in retained cohorts. The remaining30 are assembled from the same original instruction source and symbol proof but are not dynamically covered.",
+    "Private interrupt probes cover real6502 save/restore and resumed source contracts, including nestedIRQ. They are not the current cartridge/common NMI/IRQ implementation or donor-callback internal instruction coverage.",
+    "The source phase wrappers are foreground-nonreentrant. Future NMI music must use independent context and must preserve every borrowed scratch byte; it cannot recursively enter these foreground APIs.",
+    "The initialized native2KiB snapshot remains an external fixture dependency. A real cold host constructor and phase-correct terrain/contact adapter are subsequent work."
+  ]
+}
