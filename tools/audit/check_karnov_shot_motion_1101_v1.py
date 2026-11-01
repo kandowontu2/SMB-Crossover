@@ -25,6 +25,7 @@ def main():
         c,_=L.call(seed,'KrLoad');assert c.p&1;c=call(seed,15);assert c.p&1
         def step(m):
             nonlocal compared
+            scratch=bytes(m[3:11])
             pending=[];references=[]
             def hook(mem,c,i):
                 nonlocal compared
@@ -49,6 +50,7 @@ def main():
                     assert not delta,('actor/projectile state divergence',[(hex(at),n[at],mem.ram[2][at])for at in delta[:8]])
                     digest.update(bytes(mem.ram[2][0x62:0x89]));compared+=1
             c=H.finish(m,start(m,0),hook)[0];assert c.p&1 and not pending and not references
+            assert bytes(m[3:11])==scratch,'Weapon callbacks must preserve native foreground R0..R7'
         peaks={};first={}
         for boots,weapon in itertools.product([0,128],[0,1,2,8]):
             m=L.fork(seed);m.ram[2][0x65]=boots|weapon;peak=0

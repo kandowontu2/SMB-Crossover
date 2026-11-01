@@ -9,8 +9,9 @@ from prepare_cv3_dmc_mirror import prepare
 O,A,W,J=B.O,B.A,B.W,B.J
 
 def main():
-    ap=argparse.ArgumentParser();ap.add_argument('--render',action='store_true');ap.add_argument('--ingress',action='store_true');args=ap.parse_args()
+    ap=argparse.ArgumentParser();ap.add_argument('--render',action='store_true');ap.add_argument('--ingress',action='store_true');ap.add_argument('--scene',action='store_true');args=ap.parse_args()
     assert not args.ingress or args.render
+    assert not args.scene or args.ingress
     assert not(O/'source-stage.json').exists()
     paths=[Path(__file__),Path(B.__file__),R/'tools/reference/karnov_cache_kernel_1101_v1.s',R/'tools/reference/karnov_cache_resident_1101_v1.inc',R/'tools/reference/karnov_host_terrain_1101_v1.inc',A/'portable_actor.inc',A/'portable_dispatch.inc',W/'portable_weapon.inc',W/'portable_clear.inc']
     kernel=paths[2].read_text();vector_marker='.repeat 36\n jmp KrReject\n.endrepeat';assert kernel.count(vector_marker)==1
@@ -20,6 +21,9 @@ def main():
     if args.ingress:
         from prepare_karnov_ingress_1101_v1 import prepare as ingress_prepare
         resident,union_command,refs=ingress_prepare(resident,B.write);paths+=refs
+    if args.scene:
+        from prepare_karnov_scene_1101_v1 import prepare as scene_prepare
+        resident,terrain,refs=scene_prepare(resident,terrain,B.write);paths+=refs
     if args.render:
         art=json.loads((O/'render-art.json').read_text());assert art['passed']
         for p,h in art['bindings'].items():assert B.sha(p)==h,p
@@ -38,7 +42,7 @@ def main():
         B.write(O/'kr-render.inc',(R/'tools/reference/karnov_host_render_1101_v1.inc').read_text())
     actor=paths[5].read_text();old='Kr_FA06: LDX #$10 ; original 0xfa06';assert actor.count(old)==1
     actor=actor.replace(old,'Kr_FA06: JMP Kr_FA5C ; SMB owns viewport clamps; retain original facing update')
-    cookie=bytes([167,7,1,4 if args.ingress else 3 if args.render else 2])+hashlib.sha256(b''.join(p.read_bytes()for p in paths)+bytes.fromhex(B.sha(J/'candidate.nes'))).digest()[:12]
+    cookie=bytes([167,7,1,5 if args.scene else 4 if args.ingress else 3 if args.render else 2])+hashlib.sha256(b''.join(p.read_bytes()for p in paths)+bytes.fromhex(B.sha(J/'candidate.nes'))).digest()[:12]
     (O/'kr-cookie.bin').write_bytes(cookie)
     for name,t in [('kr-kernel.s',kernel),('kr-resident.inc',resident),('kr-terrain.inc',terrain),('kr-host-actor.inc',actor)]:B.write(O/name,t)
     # Same exact main inputs as prior phase; export actual linked host owners.
@@ -79,6 +83,8 @@ KrResidentLimit:
     permitted=[]
     if args.ingress:
         permitted=[n for n in changed if n=='MarioWaterCoast::ProductHi'or old['segs'].get(old['syms'][n].get('seg'),{}).get('name')=='"CHARACTER_HOST_UNION"']
+    if args.scene:
+        permitted += [n for n in changed if n=='HotPlayerGraphics::Foreign']
     assert set(changed)<=set(permitted),[n for n in changed if n not in permitted][:20]
     lo,hi=[address(new,n)for n in ['KrResidentBegin','KrResidentLimit']]
     allowed=[(16+29*8192+lo-0xa000,16+29*8192+hi-0xa000),(1048592+399*1024,1048592+412*1024)]
@@ -87,11 +93,14 @@ KrResidentLimit:
         # old multiply routine changes only its three table operands.
         allowed += [(location(old,'MarioWaterCoast'),location(old,'MarioWaterCoast::ProductHi')+256),(location(old,'HuStart'),location(old,'HuEnd'))]
         assert address(new,'HuResolve')==0xba54 and address(new,'KrServiceVeneers')==0xb400
+    if args.scene:
+        allowed.append((location(old,'InitScreen'),location(old,'InitScreen')+32))
+        allowed.append((location(old,'ThPostNativeHot'),location(old,'HotPlayerGraphics')+226))
     delta=[i for i,(a,b)in enumerate(zip(old['raw'],new['raw']))if a!=b];assert delta and all(any(a<=i<b for a,b in allowed)for i in delta)
     paths += [J/'candidate.nes',J/'candidate.dbg',O/'entrypoint.s',O/'cf_menu_body.inc',O/'kr-kernel.s',O/'kr-resident.inc',O/'kr-terrain.inc',O/'kr-host-actor.inc',O/'kr-cookie.bin',O/'kr-kernel.bin',O/'kr-images.s',O/'candidate.cfg',O/'candidate.nes',O/'candidate.dbg',O/'terrain-final-link.json']
     if args.render:paths.append(O/'kr-render.inc')
     if args.ingress:paths.append(O/'ingress-union-build.json')
-    B.save(O/'terrain-assembly.json',dict(passed=True,render=args.render,ingress=args.ingress,source_CPU=False,native=False,installed=False,menu_admitted=False,ROM_sha256=B.sha(O/'candidate.nes'),cookie=cookie.hex(),resident_bytes=address(new,'KrResidentEnd')-lo,kernel_bytes=address(new,'KrKernelEnd')-0xa000,implemented_services=services,all_existing_runtime_symbols_exact=not changed,moved_source_symbols=permitted,changed_bytes=len(delta),allowed_ROM_ranges=allowed,viewport_adaptation='Only FA06 clamps redirect to original FA5C facing; SMB owns absolute boundaries. Original jump/fall/walk instructions and data retained.',bindings={str(p.resolve()):B.sha(p)for p in paths}))
+    B.save(O/'terrain-assembly.json',dict(passed=True,render=args.render,ingress=args.ingress,scene=args.scene,source_CPU=False,native=False,installed=False,menu_admitted=False,ROM_sha256=B.sha(O/'candidate.nes'),cookie=cookie.hex(),resident_bytes=address(new,'KrResidentEnd')-lo,kernel_bytes=address(new,'KrKernelEnd')-0xa000,implemented_services=services,all_existing_runtime_symbols_exact=not changed,moved_source_symbols=permitted,changed_bytes=len(delta),allowed_ROM_ranges=allowed,viewport_adaptation='Only FA06 clamps redirect to original FA5C facing; SMB owns absolute boundaries. Original jump/fall/walk instructions and data retained.',bindings={str(p.resolve()):B.sha(p)for p in paths}))
     print(json.dumps(dict(passed=True,candidate=B.sha(O/'candidate.nes'),resident_bytes=address(new,'KrResidentEnd')-lo,kernel_bytes=address(new,'KrKernelEnd')-0xa000,services=services,menu_admitted=False)))
 
 if __name__=='__main__':main()

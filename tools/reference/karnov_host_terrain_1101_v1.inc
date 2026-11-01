@@ -42,6 +42,34 @@ KrQueryProbe=$c820
  pha
  .endrepeat
 .endmacro
+
+; Movement's source calls own R0/R1 and restore their inline-dispatch pointer.
+; R2..R7 are never used here; future native callback leaves must preserve them.
+; Keep the caller pair explicitly without saving unused R2..R7.
+.macro KrActorSave
+ php
+ pha
+ txa
+ pha
+ tya
+ pha
+ lda R0
+ pha
+ lda R1
+ pha
+.endmacro
+.macro KrActorRestore
+ pla
+ sta R1
+ pla
+ sta R0
+ pla
+ tay
+ pla
+ tax
+ pla
+ plp
+.endmacro
 .macro KrRestore
  .repeat 8,I
  pla
@@ -114,7 +142,7 @@ KrConstructNo:
  rts
 
 KrMovement:
- KrSave
+ KrActorSave
  lda OperMode
  cmp #1
  jne KrMoveNo
@@ -277,21 +305,22 @@ KrFall:lda #2
 KrWriteState:
  sta Player_State
 KrMoveYes:
- KrRestore
+ KrActorRestore
  sec
  rts
 KrMoveNo:
- KrRestore
+ KrActorRestore
  clc
  rts
 
 ; Runs after the genuine SMB PlayerBGCollision. It reconciles the source
 ; state to real landing/ceiling results; it never integrates a second step.
 KrPostTerrain:
- KrSave
+ php
+ pha                        ; this leaf touches only A/P, no foreground ZP
  lda KrReady
  cmp #$a7
- bne KrPostDone
+ jne KrPostDone
  lda GameEngineSubroutine
  cmp #8
  bne KrPostDone
@@ -305,6 +334,9 @@ KrPostTerrain:
  beq KrCheckCeiling
  bpl KrCheckUnsupported
 KrCheckCeiling:
+ lda KrState+$62
+ and #$40
+ bne KrCheckUnsupported      ; zero-pixel fall phase is not a new head impact
  lda Player_Y_Speed
  bmi KrPostDone
  lda KrState+$62
@@ -352,7 +384,8 @@ KrLand:
  sta KrState+$6a
  sta KrState+$6b
 KrPostDone:
- KrRestore
+ pla
+ plp
  sec
  rts
 
@@ -466,7 +499,10 @@ KrQueryInvalid:
  ldx #0
  rts
 KrBox:
- KrSave
+ php
+ pha
+ txa
+ pha                        ; this leaf touches only A/X/P
  lda Player_Rel_XPos
  sta BoundingBox_UL_Corner
  clc
@@ -483,7 +519,10 @@ KrBox:
  clc
  adc #31
  sta BoundingBox_LR_Corner+1
- KrRestore
+ pla
+ tax
+ pla
+ plp
  sec
  rts
 KrReverseNibble:.byte 0,8,4,12,2,10,6,14,1,9,5,13,3,11,7,15

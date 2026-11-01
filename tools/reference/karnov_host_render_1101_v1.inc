@@ -122,6 +122,13 @@ KrPoseFacing:
 :rts
 KrGraphics:
  KrSave
+ jsr KrGraphicsCore
+ KrRestore
+ sec
+ rts
+; KrDraw already owns the complete save frame. Reuse the body without a
+; second twelve-byte save across the native CHR farcalls.
+KrGraphicsCore:
  lda KrReady
  cmp #$a7
  jne KrGraphicsDone
@@ -145,15 +152,13 @@ KrGraphics:
  lda #>KrEmpty
  sta SmPosePtr+1
 KrGraphicsDone:
- KrRestore
- sec
  rts
 KrDraw:
  KrSave
  lda KrReady
  cmp #$a7
  jne KrDrawDone
- jsr KrGraphics
+ jsr KrGraphicsCore
  ldx KrPoseIndex
  lda KrPoseLo,x
  sta R0

@@ -1,0 +1,83 @@
+{
+  "passed": true,
+  "progress_only": true,
+  "native": false,
+  "installed": false,
+  "menu_admitted": false,
+  "private_candidate": "63258e2c516bc67a52562fa3e247c4c8ca4697a97fdd67e14b0c1b3991e41add",
+  "installed_nightly": "f6415a64767b9ea1ada79ac5ccab433d7b1f4ae5f8bb13e53f04adeca717a3f1",
+  "playable": 85,
+  "total_menu_identities": 90,
+  "source_proof": {
+    "file": "source-proof.zip",
+    "sha256": "8633fc5a0f77cffc5f6aaadd3db27364f2ff568721a30ed61f8031925a6a77a5",
+    "bytes": 206798,
+    "members": 61
+  },
+  "resident_bytes": 1374,
+  "kernel_bytes": 7361,
+  "implemented_services": {
+    "0": "KrMovement",
+    "10": "KrHead",
+    "11": "KrBodyPolicy",
+    "12": "KrAdder",
+    "13": "KrBoxProfile",
+    "14": "KrSide",
+    "15": "KrConstruct",
+    "16": "KrBox",
+    "27": "KrPostTerrain",
+    "28": "KrHeadWithin",
+    "1": "KrGraphics",
+    "2": "KrDraw",
+    "26": "KrColors"
+  },
+  "runtime_ID": 34,
+  "existing_identity_scene_pairs": 85,
+  "existing_post_BG_pairs": 255,
+  "foreign_post_BG_extra_cycles": [
+    4
+  ],
+  "actual_parser_updates": 167,
+  "actual_Main_updates": 120,
+  "completed_normal_NMIs": 287,
+  "actual_Main_ISR_cuts": 72,
+  "minimum_Main_ISR_SP": 135,
+  "draw_cycle_range": [
+    1762,
+    5237
+  ],
+  "Main_runtime_assignment_fixture": true,
+  "area_preserves_gear_stock_health": true,
+  "new_life_resets_gear": true,
+  "earned_extra_life_keeps_movement": true,
+  "apex_zero_step_fall_fixed": true,
+  "route_pairs": 51408,
+  "unchanged_public_union_exports": 54,
+  "ingress_ISR_cuts": 254,
+  "component_ISR_cuts": 440,
+  "minimum_component_SP": 164,
+  "body_cases": 256,
+  "shot_cases": 768,
+  "terrain_query_pairs": 840,
+  "landing_ceiling_ledge_boundaries": 15,
+  "native_camera_updates": 420,
+  "previous_component": "docs/qa/checkpoints/2026-11-01/karnov-ingress-component-v1",
+  "storage": {
+    "build_bytes": 1517461898,
+    "build_files": 7214,
+    "build_byte_cap": 5000000000,
+    "build_file_cap": 20000
+  },
+  "next": [
+    "Add ROM-only cold menu portrait/colors/names and selected-alternate remap, audit every direct runtime-ID table before enabling Start.",
+    "Connect original projectiles to native blocks/enemies, injury/health, earned Super Fireball/options, original audio and native stomp bounce.",
+    "Run bounded native controller tests for normal1-1, shortcut and every powerup before user-facing admission/nightly replacement."
+  ],
+  "limits": [
+    "Karnov is still COMING SOON in the installed85 build. No nightly update or playable86 claim.",
+    "The actual parser/Main test assigns raw34 once after starting old-menu Rygar; it does not prove normal menu admission.",
+    "Life/area stock and gear preservation uses explicit original-state fixtures; upgrades are not earned in this test.",
+    "All simulation is CPU/mapper/PPU queue modeling. No native emulator/controller/raster/full-stage/audio qualification.",
+    "Older component scopes describing absent shared hooks are historical or explicitly unexercised boundaries. Use these eight exact-hash receipts."
+  ]
+}

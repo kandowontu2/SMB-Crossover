@@ -101,12 +101,19 @@ def main():
             H.put(m,Player_State=2,Player_Y_Speed=1);service(m,27)
             assert m.ram[2][0x62]==72 and not any(m.ram[2][i]for i in [0x66,0x6a,0x6b]);contacts+=1
         m=L.fork(seed);H.put(m,Player_State=2);service(m,27);assert m.ram[2][0x62]==23;contacts+=1
+        for pose,face in itertools.product([8,9],[0,128]):
+            m=L.fork(seed);m.ram[2][0x62]=pose|64|face;m.ram[2][0x66]=17;m.ram[2][0x6a]=12;m.ram[2][0x6b]=4
+            m.ram[2][address(b,'KrDeltaY')&8191]=0;H.put(m,Player_State=2,Player_Y_Speed=0)
+            service(m,27)
+            assert [m.ram[2][i]for i in [0x62,0x66,0x6a,0x6b]]==[pose|64|face,17,12,4],'Zero-step fall must advance its source gravity phase'
+            contacts+=1
         # Compare every imported actor step to the original executable actor.
         # Only FA06's source-screen clamp is adapted in that explicit oracle;
         # all actual movement/jump/fall bytes/tables remain the original ROM.
         compared=0;digest=hashlib.sha256()
         def movement(m):
             nonlocal compared
+            scratch=bytes(m[3:11])
             before=(H.get(m,'Player_X_Position')+256*H.get(m,'Player_PageLoc'),H.get(m,'Player_Y_Position')+256*H.get(m,'Player_Y_HighPos'))
             entering=[];pending=[]
             c=H.start(m,'KrServiceVeneers',y=51);target=address(b,'KrServiceVeneers')
@@ -133,6 +140,7 @@ def main():
                     assert not delta,('native actor state',[(hex(i),n[i],mem.ram[2][i])for i in delta[:8]])
                     compared+=1
             c,_=H.finish(m,c,hook);assert c.p&1 and len(entering)==1 and not pending
+            assert bytes(m[3:11])==scratch,'Actor callbacks must preserve native foreground R0..R7'
             dx,dy=entering[0];after=(H.get(m,'Player_X_Position')+256*H.get(m,'Player_PageLoc'),H.get(m,'Player_Y_Position')+256*H.get(m,'Player_Y_HighPos'))
             assert after==((before[0]+dx)&65535,(before[1]+dy)&65535),('world export',before,after,dx,dy)
             assert H.get(m,'Player_X_Scroll')==dx&255
