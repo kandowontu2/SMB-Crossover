@@ -2,7 +2,7 @@
   "goal_status": "ACTIVE_INCOMPLETE",
   "previous_goal_turn_classification": "progress",
   "date": "2026-11-01",
-  "current_priority": "Menu heading-flash repair and76-character nightly delivered. Continue remaining pending source characters and the original full-roster/full-stage objective.",
+  "current_priority": "Integrate the complete source-tested WWF roster package,69-byte pose buffer and8088-byte original theme driver onto current28693c0b; validate before unlocking the five remaining WWF alternates.",
   "nightly_policy": "Publish usable updates frequently. Replace C:/Users/kando/Downloads/SMB-Crossover-Latest-WIP-MMC5.nes; do not make backup copies. A GitHub push is not a nightly delivery.",
   "installed_nightly": {
     "path": "C:\\Users\\kando\\Downloads\\SMB-Crossover-Latest-WIP-MMC5.nes",
@@ -190,5 +190,89 @@
     "final_heading_errors": 0,
     "final_visible_mask_writes": 0,
     "notes": "Accept actual palette packets; remove static hint; prune only unused palettes; coalesce universal/final colors and discard fully shadowed3F11/3. Alex/Ryan required outlines retained. Harmless colored-preview overlap still changes the broader static-portrait hash; no claim of complete menu layout polish."
+  },
+  "WWF_roster_source_next": {
+    "checkpoint": "docs\\qa\\checkpoints\\2026-11-01\\wwf-roster-compact-source-v1",
+    "checkpoint_sha256": "fb12a99f86ced1645ce5039a4d194232eb654a82bd8a0e14c5467e24d27b5e0c",
+    "output_roots": [
+      "build\\wwf-roster-package-1101-v1",
+      "build\\wwf-roster-decoder-1101-v1",
+      "build\\wwf-audio-source-1101-v1",
+      "build\\wwf-audio-private-1101-v2"
+    ],
+    "installed": false,
+    "summary": {
+      "passed": true,
+      "source_CPU": true,
+      "native": false,
+      "installed": false,
+      "parent_nightly": "28693c0bf61926f5bef62511b5da0b71f97543170d27d0e03e59bb5e70edf0ca",
+      "pose_rasters": 195,
+      "face_rasters": 390,
+      "decoder_cases_with_clamps": 688,
+      "decoder_bytes": 211,
+      "pose_buffer_bytes": 69,
+      "private_C2_growth": 5,
+      "metadata_and_cookie_slot_bytes": 8182,
+      "largest_metadata_bytes": 1685,
+      "existing_metadata_slot": 1687,
+      "audio": {
+        "bytes": 8088,
+        "private_bank_scratch_bytes": 10,
+        "native_pointer_bytes_borrowed_and_restored": 2,
+        "host_global_or_ZP_growth": 0,
+        "themes": 6,
+        "ticks_per_theme": 2400,
+        "max_original_cycles": 2200,
+        "max_private_port_cycles": 6760
+      },
+      "storage": {
+        "available_owner_pages": 115,
+        "body_pages": 84,
+        "common_C2_nonzero_pages": 5,
+        "common_A3_pages": 8,
+        "audio_pages": 8,
+        "metadata_pages": 8,
+        "total": 113,
+        "spare": 2,
+        "zero_C2_pages": [
+          0,
+          1,
+          3
+        ],
+        "optional_shared_zero_page_uses_one_spare": true
+      },
+      "receipts": [
+        {
+          "path": "build\\wwf-roster-package-1101-v1\\source-package.json",
+          "sha256": "7017206516d2d24cd5009da0ad6567537312afe00dd9b1ec91f8449575c12390"
+        },
+        {
+          "path": "build\\wwf-roster-decoder-1101-v1\\source-controls.json",
+          "sha256": "73f0d1b2f5bce57f7e8f1315ff623f6e98f79e88716fc55259a5b57378d43ac3"
+        },
+        {
+          "path": "build\\wwf-audio-source-1101-v1\\source-controls.json",
+          "sha256": "31bfffd761b29d738dc9c9c3893d905f627bd974c9cbc3620fb0f2f0c8fac8a0"
+        },
+        {
+          "path": "build\\wwf-audio-private-1101-v2\\source-controls.json",
+          "sha256": "8fc1c59ca1ad069f64c4fb38df15cec27f4d8c4a50bb46e070d3fcbafaf387ee"
+        }
+      ],
+      "archive": {
+        "path": "docs\\qa\\checkpoints\\2026-11-01\\wwf-roster-compact-source-v1\\source.zip",
+        "sha256": "3f2e380bd65699c32d52f8a3ffe39f70350593c01b1f999385f6c79f9271e760",
+        "bytes": 195406,
+        "members": 43
+      },
+      "limits": [
+        "No change to installed76-character ROM or menu admission",
+        "Final loader, per-variant cookies, graphics page mapping, palettes, HUD names and menu/lives portraits still need integration",
+        "Actual69-byte conditional C2 allocation and all referring source objects must be linked together; current standalone decoder uses its new source layout",
+        "Audio bank proof does not establish nativeNMI/SFX mixing, audible playback or60Hz; its worst-case CPU cost must be measured after integration",
+        "All original goal characters, full1-1/shortcut and every-powerup tests remain required"
+      ]
+    }
   }
 }
