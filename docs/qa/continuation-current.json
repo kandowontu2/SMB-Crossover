@@ -2,7 +2,18 @@
   "goal_status": "ACTIVE_INCOMPLETE",
   "previous_goal_turn_classification": "progress",
   "date": "2026-11-01",
-  "current_priority": "Delivered c864 Kirby repair and Karnov HUD. Proceed with Metal Storm owning integration and Mario the Tank ROM gates/loader; keep current Kirby override composed. Full roster/campaign/playthrough goal remains active.",
+  "current_priority": "Delivered c864 remains current. Stale Downloads IPS removed and user confirmed Karnov works. Independently reproduced Kirby held-direction inhale injury in actual Main and Mesen; correct immediate suction/original friction. Continue disjoint Metal Storm/Tank owning integration. Full roster/campaign/playthrough goal remains active.",
+  "nightly_autopatch_incident": "docs/qa/nightly-autopatch-2026-11-01.md",
+  "kirby_moving_inhale_followup": {
+    "status": "REPRODUCED_FIX_IN_PROGRESS",
+    "baseline_ROM": "c864e46a8f333ab7a936c8d8f330944041a3eff12bc6dd4d9ba96892144ff3c7",
+    "CPU": "build/kirby-ordinary-inhale-audit-1101-v3/ordinary-inhale-CPU.json",
+    "native_negative": "build/kirby-approach-native-1101-v3/baseline/capture/candidate-controller.log",
+    "native_generator": "tools/audit/prepare_kirby_approach_native_1101_v3.py",
+    "trigger": "Hold B and forward with an edible ground enemy two pixels ahead; movement crosses enemy origin during delayed suction startup.",
+    "original_source_finding": "Original Kirby Ontick applies suction immediately while the eight-frame opening pose progresses; movement applies friction instead of directional acceleration.",
+    "fixed_nightly_delivered": false
+  },
   "nightly_policy": "Publish usable updates frequently. Replace C:/Users/kando/Downloads/SMB-Crossover-Latest-WIP-MMC5.nes; do not make backup copies. A GitHub push is not a nightly delivery.",
   "installed_nightly": {
     "passed": true,
