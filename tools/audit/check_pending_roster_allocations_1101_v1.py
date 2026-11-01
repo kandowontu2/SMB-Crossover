@@ -19,7 +19,12 @@ def verify_tank_tail_baseline(grant):
         assert hashlib.sha256(image).hexdigest()==row['bank_sha256'],('Changed predecessor bank',bank)
         assert image[start:end]==bytes([255])*(end-start),('Occupied allocation',bank)
         name=row['old_end_symbol'];symbol=b['syms'][name]
-        size=16 if name=='CfLoaderExpectedCookie'else int(symbol['size'],0)
+        typed_sizes={'CfLoaderExpectedCookie':16,'MaaNeckOdd':3,'GmStage0Palette':16}
+        if name=='SsNativeChunk':
+            size=1+raw[location(b,name)]
+            assert size==5
+        elif name in typed_sizes:size=typed_sizes[name]
+        else:size=int(symbol['size'],0)
         assert address(b,name)+size==row['old_end_PC'],('Producer endpoint changed',name)
         assert location(b,name)+size==16+bank*8192+start,('Producer not adjacent',name)
         checked.append(dict(bank=bank,old_end=row['old_end_PC'],bytes=end-start))
@@ -39,6 +44,10 @@ def main():
     tails=read('mario-tank-code-tail-grant.json')
     verified_tails=verify_tank_tail_baseline(tails)
     for q in tails['intervals']:
+        start,end=q['physical_offsets_half_open'];prg.append(('Tank',q['physical_PRG_bank'],start,end-start))
+    art=read('mario-tank-art-tail-grant.json')
+    verified_tails.extend(verify_tank_tail_baseline(art))
+    for q in art['intervals']:
         start,end=q['physical_offsets_half_open'];prg.append(('Tank',q['physical_PRG_bank'],start,end-start))
     for i,(owner,bank,start,size) in enumerate(prg):
         assert 0<=start<start+size<=8192 and bank!=125

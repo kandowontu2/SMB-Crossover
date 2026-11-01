@@ -1,0 +1,17 @@
+{
+  "grant": true,
+  "baseline_ROM_sha256": "58e50db6ceead7c3706087c92d6e49014f05ff8b80b000be30c27b4e7dfa11f2",
+  "intervals": [
+    {"physical_PRG_bank":13,"physical_offsets_half_open":[8131,8192],"old_end_symbol":"SsNativeChunk","old_end_PC":57283,"bank_sha256":"bedd70c4e726ee8900787741cb16e7e4f6023139f73db618348df64e19d6a5e8"},
+    {"physical_PRG_bank":68,"physical_offsets_half_open":[7884,7968],"old_end_symbol":"MaaNeckOdd","old_end_PC":57036,"bank_sha256":"ed3a4aa8313beff816900b143768173aa5ab152e03dd43825768938a981ded78"},
+    {"physical_PRG_bank":73,"physical_offsets_half_open":[8126,8192],"old_end_symbol":"GmStage0Palette","old_end_PC":57278,"bank_sha256":"d82b7627f577ae0ab8a26267682238e2be9e703c9432000db347f6baff749f1e"},
+    {"physical_PRG_bank":12,"physical_offsets_half_open":[8109,8192],"old_end_symbol":"DkMenuName","old_end_PC":57261,"bank_sha256":"9f92247d9a44a9e3c5ce5d45086174d11e5143f62dab99f10fd8e7f5a42d0b3f"}
+  ],
+  "review": "Root reviewed the typed art-table auditor and verified15 source bindings, including exact archived objects without extraction.589 current sprite records and17 pointer tables stay within prior art extents.2016 actual Maaa body/neck calls cover all63 legal native poses, both facings and boundary lengths. Compiled neck count is (length>>3)+1, hence at most32 for a byte. Compiled DK name stub jumps to the shared emitter; actual native execution reads exactlyDF9D..DFAC. Rogue shared page mapping was separately checked and excludes these intervals.",
+  "evidence_tool": "tools/audit/audit_mario_tank_art_tails_1101_v5.py",
+  "conditions": [
+    "Verify current predecessor bank hashes and exact old endpoints before placement; preserve every prior owner byte and keep each new fragment within its interval.",
+    "Enforce these endpoint caps in future source rebuilds. Legal pose/index contracts remain required; this does not authorize expanded tables to grow into Tank code.",
+    "Bank115 music review remains pending. This grants placement only, not final playable admission or full-stage qualification."
+  ]
+}
