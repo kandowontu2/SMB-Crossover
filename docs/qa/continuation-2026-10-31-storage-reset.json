@@ -1,0 +1,143 @@
+{
+  "date": "2026-10-31",
+  "goal_status": "ACTIVE_INCOMPLETE",
+  "current_user_priority": "SSD cleanup completed; all three agents interrupted. No new feature builds/captures were started after the storage complaint.",
+  "installed": {
+    "date": "2026-10-31",
+    "passed": true,
+    "installed": true,
+    "status": "INSTALLED_READY74_CF_PROJECTILE_CONTACT_WIP",
+    "ROM_sha256": "f4767d595a25bf64355b1e2cea86be7a93046f1cf139a4d9b0544e35f9ed4182",
+    "previous_sha256": "a4410264ffccc7ce44e3b5ead1da639428cfa0594c94b2f63fa99fb4feab5b38",
+    "latest": "C:\\Users\\kando\\Downloads\\SMB-Crossover-Latest-WIP-MMC5.nes",
+    "versioned": "C:\\Users\\kando\\Downloads\\SMB-Crossover-2026-10-31-Ready74-CF-Projectile-Contact-MMC5.nes",
+    "backup": "C:\\Users\\kando\\Downloads\\SMB-Crossover-Before-CF-Projectile-a4410264-MMC5.nes",
+    "playable": 74,
+    "individual_identities": 86,
+    "pending_individual_identities": 12,
+    "menu_slots": 32,
+    "menu_rows": 4,
+    "source_handoff_sha256": "78ce571a5670df0d3cf97a20e3b5a27499497fd685eb81fda90eb66c0645d706",
+    "native_manifest_sha256": "30060bb6a0f57abca2d789c94c7ca099e9376354be311914361e6fea20a9f91d",
+    "limits": [
+      "Exact-hash cold menu/lives and bounded opening movement; all four CF classes earn one ordinary pistol/native Goomba defeat, native score/SFX and original impact. No full1-1 or every-powerup claim.",
+      "Original donor muzzle/art/radii are retained. Native SMB enemy body rectangles are an intentional host adaptation, not original Contra Force enemy geometry.",
+      "Substantial lag remains. This contact correction does not claim constant60Hz or physical-console qualification.",
+      "Only the CF contact source changed from a441. Existing menu polish, other character bugs, advanced moves/audio and pending identities remain incomplete.",
+      "Campaign frontend/cache and private Thomas/Hogan source components are not included. Roster remains74 playable out of86 menu identities."
+    ],
+    "all_characters_1_1_and_every_powerup_complete": false,
+    "goal_complete": false
+  },
+  "storage_cleanup": {
+    "result": "docs/qa/workspace-cleanup-2026-10-31/result.json",
+    "verification": "docs/qa/workspace-cleanup-2026-10-31/final-verification.json",
+    "build_bytes": 816524109,
+    "build_files": 5508,
+    "workspace_bytes": 4258457032,
+    "build_cap_bytes": 5000000000,
+    "build_cap_files": 20000,
+    "task_cap_bytes": 256000000,
+    "task_cap_files": 1000,
+    "capture_cap_bytes": 128000000,
+    "capture_cap_files": 64,
+    "capture_cap_PNGs": 4,
+    "bounded_runner": "tools/audit/run_bounded_build_v1.py",
+    "recovery_archive": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\_recovery\\legacy-sources-2026-10-31.zip",
+    "recovery_archive_sha256": "61edc74c6ae009468b39f01a65d07ec01930abd9daaeb7be3589708f78f9dcd8",
+    "whole_archive_extraction_forbidden": true,
+    "source_archive_payloads_verified": true,
+    "actual_current_link_objects_verified": true
+  },
+  "private_campaign": {
+    "candidate": "6f9f2936d9b859f81b1965d1c43022027f53220be878d79a902aa0bd86b9fbf3",
+    "joint": "build/smb2j-cache-loader-source-1031-v3/joint",
+    "handoff": "docs/qa/checkpoints/2026-10-31/smb-campaign-loader-frontend-v1/handoff.json",
+    "three_choices": [
+      "SUPER MARIO BROS.",
+      "SUPER MARIO BROS 2J",
+      "ALL NIGHT NIPPON"
+    ],
+    "native_private_menu_and_profile0_cache_passed": true,
+    "only_SMB1_launches": true,
+    "full_2J_and_ANN_gameplay_installed": false,
+    "WRAM_KiB": 64,
+    "exclusive_campaign_cache_bank": 4,
+    "resource_grant": {
+      "resident_bank65_C": [
+        51000,
+        53512
+      ],
+      "data_CHR": [
+        442,
+        460
+      ],
+      "original_2J_CHR": [
+        563,
+        571
+      ]
+    },
+    "next": "Implement genuine cache-backed world/area/enemy/terrain protocols, then all required2J and ANN functions. Do not launch SMB1 under an added-campaign label."
+  },
+  "Doki": {
+    "handoff": "docs/qa/checkpoints/2026-10-31/doki-original-physics-source-v1/handoff.json",
+    "handoff_sha256": "79767f5107fb89a534dfbf42bd081ba0f7bdaa738fe20e834866a7835b3feec9",
+    "user_requires_original_custom_physics": true,
+    "skins_only_scope_superseded": true,
+    "findings": [
+      "Mama51px versus Luigi56px from-rest held jump in finite original-byte traces",
+      "No original Doki B-running boost",
+      "Lina60-update float",
+      "Original fixed carry geometry and always-large presentation differ from SMB2U"
+    ],
+    "full_disk_rebuild": "23/27 files exact; critical1168B player slice,69B carry prefix,TEMP and four CHR files exact",
+    "ported": false
+  },
+  "Thomas": {
+    "candidate": "3fe8683284193f311aecde19290ad507f80283cf12c82ce27efea3b64c995527",
+    "root": "build/thomas-natural-host-1031-v6",
+    "handoff": "docs/qa/checkpoints/2026-10-31/thomas-natural-host-source-v3/handoff.json",
+    "source_basic_loop_passed": true,
+    "native_run": false,
+    "installed": false,
+    "new_blockers": [
+      "Controller-only CPU route stalls at worldX88 through1150Main before first pipe; diagnose original horizontal camera/boundary producer",
+      "Original jump27px; first-pipe traversal not qualified; generic1-1 helper atX3104 does not solve it"
+    ],
+    "retained_diagnostics": [
+      "build/thomas-original-camera-trace-1031-v1",
+      "build/thomas-progression-analysis-1031-v2"
+    ]
+  },
+  "Hogan": {
+    "candidate": "99b9026588e772e93cdc95e845ab3617ff4376260ad0a111b68c3d92925cbd27",
+    "joint": "build/wwf-hogan-natural-source-v15/joint",
+    "handoff": "docs/qa/checkpoints/2026-10-31/wwf-hogan-basic-loop-source-v3/handoff.json",
+    "source_basic_loop_passed": true,
+    "native_run": false,
+    "installed": false,
+    "other_five_pending": true,
+    "limits": "No advanced wrestling/audio/all-powerup/full1-1 qualification; native preparation was interrupted for cleanup."
+  },
+  "CF_native": {
+    "installed_candidate": "f4767d595a25bf64355b1e2cea86be7a93046f1cf139a4d9b0544e35f9ed4182",
+    "handoff": "docs/qa/checkpoints/2026-10-31/contra-force-projectile-contact-source-v1/handoff.json",
+    "native_manifest": "docs/qa/checkpoints/2026-10-31/ready74-cf-projectile-native-v1/manifest.json",
+    "four_controller_earned_pistol_defeats": true,
+    "Peach_exact_candidate_regression": true,
+    "primary_PNGs_reviewed": 20,
+    "suspected_score_HUD_bug": "Mistaken screenshot reading. Actual internal100 atMain171; PPU2062 shows100 atMain172. No score patch needed.",
+    "diagnostic_observer_limit": "RAM3/ROM3 helper-PC coincidences excluded from score proof; fixed126 FloateyCore and directPPU reads were used."
+  },
+  "before_resuming": [
+    "Read AGENTS.md and cleanup README. Use bounded runner and small receipts; do not re-create old dependency/capture forests.",
+    "Root owns single Mesen queue. Reprepare native policies with128MB cap and new guard hashes. Do not disable guards for old512MB ready packets.",
+    "Compose current f476 CF source with private campaign/Hogan/Thomas through actual current Main/import/config/link recipes; no old whole-main overlay.",
+    "Fix Thomas progression before claiming functional unlock; native-test any new exact candidate before install.",
+    "Finish Doki original-physics ports and requested added campaigns; unlock other pending roster identities.",
+    "Every identity still needs1-1 and every powerup. Canonical prepared builder still37; installedWIP74/86."
+  ],
+  "untouched_unrelated_tracked_file": "docs/qa/current-roster-progress-2026-10-27.json",
+  "all_characters_1_1_and_every_powerup_complete": false,
+  "goal_complete": false
+}

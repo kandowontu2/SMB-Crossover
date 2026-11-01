@@ -1,0 +1,49 @@
+{
+  "passed": true,
+  "source": true,
+  "source_CPU": true,
+  "native": false,
+  "ported": false,
+  "admitted": false,
+  "installed": false,
+  "main_or_shared_edits": false,
+  "original": {
+    "path": "C:\\NES\\fds\\Yume Koujou - Doki Doki Panic (Japan) (DV 1).fds",
+    "bytes": 131000,
+    "sha256": "937894f56890d4c90d63037b656b9aede82f913c8eb1411511b6f7d52594192a"
+  },
+  "source_revision": "1c7327e4a0c800ff695293eb755cab0812738f69",
+  "primary_sources": [
+    "https://gitlab.com/segaloco/doki",
+    "https://github.com/Xkeeper0/smb2"
+  ],
+  "supersedes": {
+    "path": "docs/qa/additional-campaign-and-doki-donors-2026-10-31.json",
+    "field": "Doki_Doki_Panic.scope",
+    "previous": "Four original-character skins/identities for the SMB2 family",
+    "current": "Four original characters with original custom physics/control/render lineage. Mama must not be treated as an unchanged Luigi skin. No B-running by default."
+  },
+  "counts": {
+    "jump_contexts": 192,
+    "jump_CPU_executions": 576,
+    "horizontal_contexts": 32,
+    "horizontal_CPU_executions": 96,
+    "timed_lift_contexts": 4,
+    "timed_lift_CPU_executions": 12,
+    "carry_contexts": 48,
+    "carry_CPU_executions": 144
+  },
+  "findings": [
+    "Imajin/Mario, Lina/Peach, Papa/Toad original23-byte stat records match. Mama differs from Luigi in all6 jump launch entries: D8 D8 CB CB D2 D6 versus D6 D6 C9 C9 D0 D4. Original Mama has same2/1 gravity, not identical launch/arc.",
+    "From rest, long-held jump collisionless leaves: Mama51px/81updates versus Luigi56px/85; tap1 Mama26/41 versus Luigi28/43. Lina retains original60-update float (long-held49px/100 total). No Mama Peach-style hover.",
+    "Doki original action/clamp lacks USA B-held1.5x speed branch.32 actual horizontal traces cover all4, left/right, B and heavy carry; without B all three engines match. Installed S2 exactly follows USA in all32.",
+    "Class-specific original timed lifting is retained: Imajin20,Lina32,Mama20,Papa8 updates in declared leaf timer model; all3 engines match.",
+    "Original Doki carry geometry has fixed standing offset-5 and crouch+8; final SMB2U has character-specific big/small offsets.48 actual world-commit prefixes prove installed S2 follows USA, with concrete Doki differences.",
+    "Doki normal player handler lacks final SMB2U HP-based small-form transition and Luigi-only airborne leg-animation path. A Doki port needs explicit original branches, not sprites/constants alone."
+  ],
+  "limits": [
+    "All controls are finite CPU leaf cases with declared setup/timer handling, not original native/controller/room tests.",
+    "Complete donor file rebuild remains negative (23/27 files exact); critical1168-byte player slice,69-byte carry prefix,TEMP-PRG and all4 character CHR files reproduce exactly.",
+    "No Doki movement, art, menu, resource, mapper or common hook has been installed. SMB-world terrain/camera/pipes/water/lifecycle remain intentional port adaptations to qualify."
+  ]
+}

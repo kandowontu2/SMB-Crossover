@@ -22,8 +22,9 @@ ARCHIVE_FILES = 20_000
 WORKSPACE_BYTES = 70_000_000_000
 # A bounded traversal ceiling for the existing source/tool checkout, not a
 # capture allowance. Captures still get only 64 files.
-WORKSPACE_SCAN_FILES = 1_000_000
-RUN_BYTES = 2_000_000_000
+WORKSPACE_SCAN_FILES = 100_000
+RUN_BYTES = 128_000_000
+HARD_RUN_BYTES = 128_000_000
 RUN_FILES = 64
 MINIMUM_FREE = 25_000_000_000
 LOCK = WORKSPACE/'build/capture.lock'
@@ -125,8 +126,14 @@ def preflight(output: Path, reserved_bytes: int = RUN_BYTES,
     allowed = (WORKSPACE.resolve(), ARCHIVE.resolve())
     if not any(output != root and output.is_relative_to(root) for root in allowed):
         raise CaptureBudgetExceeded('Capture output must stay in the project or its existing archive; no alternate storage root.')
-    if not 0 < reserved_bytes <= RUN_BYTES or not 0 < reserved_files <= RUN_FILES:
-        raise CaptureBudgetExceeded('Capture reservation exceeds the per-run 2 GB / 64-file cap.')
+    if not 0 < reserved_bytes <= min(RUN_BYTES,HARD_RUN_BYTES) or not 0 < reserved_files <= RUN_FILES:
+        raise CaptureBudgetExceeded('Capture reservation exceeds the per-run 128 MB / 64-file cap.')
+    try:
+        from .build_storage_guard_v1 import preflight as build_preflight
+    except ImportError:
+        from build_storage_guard_v1 import preflight as build_preflight
+    if output.is_relative_to(WORKSPACE/'build'):
+        build_preflight(reserved_bytes=reserved_bytes,reserved_files=reserved_files,fresh=True)
     current = inventory(ARCHIVE, ARCHIVE_BYTES, ARCHIVE_FILES)
     disk = output if output.exists() else output.parent
     while not disk.exists():
@@ -171,8 +178,8 @@ def _run_owned(command: list[str], *, output: Path, timeout: float) -> subproces
             while not stopped.wait(0.1):
                 size = inventory(output,PAYLOAD_BYTES,PAYLOAD_FILES)
                 free = shutil.disk_usage(output).free
-                if not size.complete or free < MINIMUM_FREE:
-                    violation.append('Evidence exceeded the 2 GB / 64-file limit or 25 GB free-space floor.')
+                if not size.complete or free < MINIMUM_FREE or sum(1 for _ in output.rglob('*.png'))>4:
+                    violation.append('Evidence exceeded its 128 MB / 64-file / four-PNG limit or 25 GB free-space floor.')
                     if process.poll() is None:
                         process.terminate()
                     return

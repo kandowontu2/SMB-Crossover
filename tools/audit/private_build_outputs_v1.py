@@ -29,6 +29,11 @@ def validate(command,private_root,*,cwd):
     implicit compilation and unknown linker pass-through options fail closed.
     MEMORY file outputs from the actual linker config are checked as well.
     """
+    try:
+        from .build_storage_guard_v1 import preflight
+    except ImportError:
+        from build_storage_guard_v1 import preflight
+    preflight(private_root=private_root,reserved_bytes=32_000_000,reserved_files=16)
     args=[str(v)for v in command]
     if not args:raise UnsafeBuildOutput('Empty command')
     tool=Path(args[0]).stem.lower()
