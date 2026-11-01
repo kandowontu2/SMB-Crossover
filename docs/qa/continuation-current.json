@@ -291,11 +291,11 @@
     "older_cleanup_rejection": "Do not bypass policy rejection of deleting build/thomas-lift-carry. Superseded experiment remains within cap.",
     "native_cleanup_rejection_1101": "Automatic approval review also rejected removal of the six superseded WWF native test folders listed in docs/qa/nightly-2026-11-01-ready81-finalization.json. They remain in place. Do not retry through another mechanism. The policy response supplied no more specific reason."
   },
-  "agents": "Do not spawn or resume agents without explicit authorization. Prior workers remain interrupted.",
+  "agents": "User explicitly requested maximum parallel agents on November1. Three available slots were used for Metal Storm, Shinobi and Excitebike/Prince; source components and independent follow-up audits are complete. One follow-up worker is building the current85 compact WWF menu preview fix; root owns native qualification, integration and delivery. Do not resume older historical workers blindly.",
   "do_not_stage": "docs/qa/current-roster-progress-2026-10-27.json",
   "other_full_objective_work": [
     "Karnov source component is ready for host integration; options/health/pickups/audio/real gameplay still pending",
-    "Metal Storm, Shinobi, Excitebike and Prince of Persia remain pending",
+    "Metal Storm, Shinobi and Excitebike now have reviewed original-source components; host integration/native admission remain. Prince has only an entry/art audit and still needs actor recovery",
     "Sonic3-reference integration, Donkey Kong Jr., Jay McCray, Steve Hermann, Mega Giant Mario and Getsu Fuma remain required",
     "Finish authentic moves/upgrades/audio and known graphics/lag issues across the enabled roster",
     "Every character clears1-1 and the shortcut route and uses every powerup",
@@ -867,6 +867,48 @@
       "Reviewed source grafts/recipes reuse prior frozen inputs; canonical prepared builder still has37 identities"
     ]
   },
+  "parallel_character_components": {
+    "review": "docs/qa/parallel-character-components-2026-11-01.json",
+    "admitted": false,
+    "installed": false,
+    "Metal_Storm": {
+      "checkpoint": "docs/qa/checkpoints/2026-11-01/metal-storm-original-component-v3",
+      "source_packet_sha256": "e181212f5cc90c961661020b4567140d9ba5cf4f98f6cabce27b5672f421f8c2",
+      "source_packet_bytes": 95635,
+      "actor_pairs": 480,
+      "original_instructions": 1988,
+      "code_bytes": 6323,
+      "source_CHR_bytes": 4608,
+      "graphics_contexts": 208,
+      "notes": "tools/reference/metal_storm_component_1101_v2.md",
+      "limits": "Recorded genuine donor API effects are replayed at explicit callback boundaries, not ported terrain/enemy/audio bodies. Lab ZP00/01 must become real foreground03/04 and pass live ISR/SMC/stack checks. Qualified v2 lab is immutable; publish corrected v3 ZIP only, which omits PRG/object/debug snapshots."
+    },
+    "Shinobi": {
+      "checkpoint": "docs/qa/checkpoints/2026-11-01/shinobi-original-component-v2",
+      "source_packet_sha256": "3fdfe170c0c87814776ed5e1c55ca816f2324ebef851bc88ac01b77946ead9bf",
+      "source_packet_bytes": 68077,
+      "CPU_pairs": 2320,
+      "original_instructions": 2142,
+      "code_bytes": 6569,
+      "source_pose_frames": 52,
+      "notes": "tools/reference/shinobi_host_contract_1101_v2.inc",
+      "limits": "Synthetic floor/no-enemy/no-op audio leaves. Borrowed00..03 is not safe with SMB NMI00..02.21 reachable poses have863B metadata closure still awaiting relocation: timer0000 reads borrowed RAM and depends on original header pointer values. No host resource or native admission."
+    },
+    "Excitebike": {
+      "checkpoint": "docs/qa/checkpoints/2026-11-01/excitebike-original-component-v2",
+      "source_packet_sha256": "26d1baf8e925d823da01cec0c2d3cea50c726945c08e345c32377d6bbdd69e63",
+      "source_packet_bytes": 50790,
+      "CPU_cases": 2304,
+      "donor_sequence_updates": 1020,
+      "actual_replacement_calls": 14281,
+      "code_bytes": 1240,
+      "table_bytes": 76,
+      "source_poses": 23,
+      "notes": "tools/reference/excitebike_component_1101_v2.md",
+      "limits": "Private state and host ZP preserved in isolated/sequenced CPU tests. Native top-down track/ramp movement requires a deliberate platform adapter. Fixtures correlate actor/input low bits; not exhaustive. Natural sequence covers airborne0/2,heat8..29,one launch, not complete overheat/crash/recovery lifecycle. Source writer excludes publication outputs from its own receipt to avoid circular resume bindings."
+    },
+    "Prince_of_Persia": "Only separate fixed-entry and authenticated historical262-pixel16x40 body audit in Excitebike packet. No actor/animation port or unlock."
+  },
   "Karnov_current": {
     "passed": true,
     "goal_complete": false,
@@ -1137,6 +1179,7 @@
     "menu": "Cold ROM portrait/colors/name and status callbacks avoid RAM opcode execution before scene load. Real Select/Start/A resolves raw34 and preserves alternate bit through native cleanup. GmOnlyHigh admits34 to guarded typed UI instead of legacy12-owner tables. Existing89 contexts keep OAM/CHR/queue/IDs. Native124 transitions/2630 frames preserve heading and have zero visible PPUMASK writes; tall-preview overlap diagnostics remain.",
     "palette_fix": "Native opening caught black sky inherited from lives. KrColors and cold colors now queue exact native area/control universal background plus original body colors. Menu stays black.132 queue contexts,22 real NMI writer contexts and422 native gameplay frames cover the fix.",
     "native_opening": "Controller-only real menu Start,836 physical frames/288 Main/source actor/weapon updates,1275 actual ISR-return checks, jump/landing,camera141/worldX221 and three active source shots. Original body display checked in menu,lives and game. Combat/earned items/source audio/full-stage not qualified.",
+    "admission_blockers": "docs/qa/karnov-native-admission-gaps-2026-11-01.md: actual injury-status echoes callerA, injury kills even with PlayerStatus2, death update no-ops, pickup maturity/collection reject, and public bounce-only service27 currently aliases KrPostTerrain. Separate source rebound from post-BG; do not release this private candidate. Additional20-case UI boundary receipt proves current public inventory/UI/full-power paths avoid legacy12-owner leaves, but full-power is an unsupported no-op.",
     "CPU": "Nine current exact-hash receipts: menu,scene,ingress,terrain,render,shot-motion,vectors,art,assembly.167 parser+120 Main+287 complete normal NMI and72 live Main ISR cuts,minimumSP135 (12 above SMC). Full old85 scene equivalence,255 old post-BG endpoints,51408 shared route pairs and original water arithmetic repeat.",
     "next": "Audit remaining raw-ID inventory/cheat/collision leaves; add native projectile/enemy/block effects, health/injury/stomp bounce, earned source equipment/options and original audio. Run normal1-1/shortcut/items/scene tests before nightly admission. The older menu-disabled component text describes historical immutable checkpoints."
   },

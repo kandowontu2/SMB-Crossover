@@ -1,0 +1,282 @@
+{
+  "passed": true,
+  "source_CPU": true,
+  "native": false,
+  "installed": false,
+  "progress_only": true,
+  "ROM_sha256": "f1fadebcf755a5cff09f8857ed054ecff3897ed4e804e8e88e690a2669cc43ee",
+  "entry_cases": 20,
+  "legacy_inventory_declined": true,
+  "no_legacy_raw34_index_leaf": true,
+  "no_legacy_owner_ammo_mutation": true,
+  "no_cold_RAM_opcode": true,
+  "rows": [
+    {
+      "entry": "InventorySupported",
+      "loaded": false,
+      "hard": false,
+      "returned": [
+        34,
+        34,
+        0,
+        112,
+        224
+      ],
+      "minimum_SP": 201
+    },
+    {
+      "entry": "InventoryUiTick",
+      "loaded": false,
+      "hard": false,
+      "returned": [
+        0,
+        34,
+        0,
+        114,
+        224
+      ],
+      "minimum_SP": 199
+    },
+    {
+      "entry": "InventoryHud",
+      "loaded": false,
+      "hard": false,
+      "returned": [
+        0,
+        0,
+        0,
+        114,
+        224
+      ],
+      "minimum_SP": 219
+    },
+    {
+      "entry": "NrFullPower",
+      "loaded": false,
+      "hard": false,
+      "returned": [
+        34,
+        0,
+        0,
+        112,
+        224
+      ],
+      "minimum_SP": 195
+    },
+    {
+      "entry": "NrUi",
+      "loaded": false,
+      "hard": false,
+      "returned": [
+        89,
+        0,
+        0,
+        112,
+        224
+      ],
+      "minimum_SP": 195
+    },
+    {
+      "entry": "InventorySupported",
+      "loaded": false,
+      "hard": true,
+      "returned": [
+        34,
+        34,
+        0,
+        112,
+        224
+      ],
+      "minimum_SP": 201
+    },
+    {
+      "entry": "InventoryUiTick",
+      "loaded": false,
+      "hard": true,
+      "returned": [
+        0,
+        34,
+        0,
+        114,
+        224
+      ],
+      "minimum_SP": 199
+    },
+    {
+      "entry": "InventoryHud",
+      "loaded": false,
+      "hard": true,
+      "returned": [
+        0,
+        0,
+        0,
+        114,
+        224
+      ],
+      "minimum_SP": 219
+    },
+    {
+      "entry": "NrFullPower",
+      "loaded": false,
+      "hard": true,
+      "returned": [
+        34,
+        0,
+        0,
+        112,
+        224
+      ],
+      "minimum_SP": 195
+    },
+    {
+      "entry": "NrUi",
+      "loaded": false,
+      "hard": true,
+      "returned": [
+        89,
+        0,
+        0,
+        112,
+        224
+      ],
+      "minimum_SP": 195
+    },
+    {
+      "entry": "InventorySupported",
+      "loaded": true,
+      "hard": false,
+      "returned": [
+        34,
+        34,
+        0,
+        112,
+        224
+      ],
+      "minimum_SP": 201
+    },
+    {
+      "entry": "InventoryUiTick",
+      "loaded": true,
+      "hard": false,
+      "returned": [
+        0,
+        34,
+        0,
+        114,
+        224
+      ],
+      "minimum_SP": 199
+    },
+    {
+      "entry": "InventoryHud",
+      "loaded": true,
+      "hard": false,
+      "returned": [
+        0,
+        0,
+        0,
+        114,
+        224
+      ],
+      "minimum_SP": 219
+    },
+    {
+      "entry": "NrFullPower",
+      "loaded": true,
+      "hard": false,
+      "returned": [
+        34,
+        0,
+        0,
+        112,
+        224
+      ],
+      "minimum_SP": 195
+    },
+    {
+      "entry": "NrUi",
+      "loaded": true,
+      "hard": false,
+      "returned": [
+        89,
+        0,
+        0,
+        112,
+        224
+      ],
+      "minimum_SP": 195
+    },
+    {
+      "entry": "InventorySupported",
+      "loaded": true,
+      "hard": true,
+      "returned": [
+        34,
+        34,
+        0,
+        112,
+        224
+      ],
+      "minimum_SP": 201
+    },
+    {
+      "entry": "InventoryUiTick",
+      "loaded": true,
+      "hard": true,
+      "returned": [
+        0,
+        34,
+        0,
+        114,
+        224
+      ],
+      "minimum_SP": 199
+    },
+    {
+      "entry": "InventoryHud",
+      "loaded": true,
+      "hard": true,
+      "returned": [
+        0,
+        0,
+        0,
+        114,
+        224
+      ],
+      "minimum_SP": 219
+    },
+    {
+      "entry": "NrFullPower",
+      "loaded": true,
+      "hard": true,
+      "returned": [
+        34,
+        0,
+        0,
+        112,
+        224
+      ],
+      "minimum_SP": 195
+    },
+    {
+      "entry": "NrUi",
+      "loaded": true,
+      "hard": true,
+      "returned": [
+        89,
+        0,
+        0,
+        112,
+        224
+      ],
+      "minimum_SP": 195
+    }
+  ],
+  "scope": "Actual exposed inventory support/UI/HUD and NrFullPower/NrUi entrypoints in Easy/Hard, cold and initialized. Proves these paths avoid legacy12-owner index leaves and do not change their ownership/ammo. Full-power is currently an unsupported no-op for Karnov, not an implemented upgrade. Does not close every pickup/collision/direct-ID leaf or admit gameplay.",
+  "bindings": {
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\check_karnov_ui_boundaries_1101_v1.py": "c7d32c38575b0325941d03a607c9937bafa0f02dca0b4210718f7e59d66e0928",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\karnov-host-resource-base-1101-v1\\terrain-assembly.json": "67d21e8b20b97bb8da81f1ddfeedb0d03e2fc2b6ea286bd6c70e3a4eb6765423",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\karnov-host-resource-base-1101-v1\\candidate.nes": "f1fadebcf755a5cff09f8857ed054ecff3897ed4e804e8e88e690a2669cc43ee",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\karnov-host-resource-base-1101-v1\\candidate.dbg": "c28ffe331f238547f24f0f4bf6fb7037e8b4dc25065fbd9f28a31b17404229fb"
+  }
+}

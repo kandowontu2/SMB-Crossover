@@ -1,0 +1,71 @@
+{
+  "status": "EXCITEBIKE_ORIGINAL_ASSEMBLY_REVIEW_COMPONENT_NO_HOST_UNLOCK",
+  "source_CPU_only": true,
+  "native": false,
+  "installed": false,
+  "archive": {
+    "path": "build/excite-prince-component-1101-v2/source-and-proof.zip",
+    "sha256": "26d1baf8e925d823da01cec0c2d3cea50c726945c08e345c32377d6bbdd69e63",
+    "bytes": 50790,
+    "members": 22
+  },
+  "excitebike": {
+    "donor_sha256": "4eac85fdf79ffb931103d910d6f9ae3b0db0affd1df833d5e2511055a5698489",
+    "code_bytes": 1240,
+    "table_bytes": 76,
+    "explicit_differential_cases": 2304,
+    "actual_donor_sequencing_frames": 1020,
+    "actual_component_replacement_calls": 14281,
+    "all23_pose_indices": true,
+    "patterns": 154,
+    "pattern_bytes": 2464,
+    "host_zero_page_preserved": true,
+    "limitations": [
+      "Explicit CPU fixtures; original quarter-frame phase imported at4C.",
+      "No native SMB terrain, health/combat, audio, menu dispatch or playable unlock.",
+      "Original vertical movement is top-down track perspective; importing it as a platform jump needs a deliberate host adapter.",
+      "Untimed PPU status alternates ready bits; this is not a raster or donor-native qualification.",
+      "Component runs in callable CPU substitute; this is not an integrated NES candidate.",
+      "Original track terrain, timing services and other actors remain donor-owned.",
+      "Bus has untimed status readiness and no acoustic rendering.",
+      "Observed natural airborne states0/2, heat8..29 and one launch do not prove the complete overheat/crash/recovery lifecycle."
+    ]
+  },
+  "prince": {
+    "status": "FIXED_ENTRY_AND_HISTORICAL_BODY_AUDIT_ONLY",
+    "source_actor_assembled": false,
+    "native_rerun": false,
+    "installed": false,
+    "opaque_body_pixels": 262,
+    "original_packet_extent": [
+      16,
+      40
+    ],
+    "limits": "Not part of Excitebike movement proof. No Prince actor/input/animation recovery or gameplay claim."
+  },
+  "integration_notes": "tools/reference/excitebike_component_1101_v2.md",
+  "next": "Root reviews this compact packet, allocates selected-owner code/state/CHR, defines explicit side-view terrain/input adapter, then qualifies actual native dispatch/menu/controller play before a nightly unlock.",
+  "bindings": {
+    "tools/audit/excite_prince_component_1101_v2.py": "7cbad03047df2b317a3a9bcdf9926664ee163e7dedc5278defbb4863cdbc7848",
+    "tools/audit/freeze_excite_prince_component_1101_v2.py": "d85d2a4305e9940a8a1d0d3e6c9835ccbbd6407fa50297ab6824600db79c4650",
+    "tools/reference/excitebike_original_cpu_1101_v2.py": "935e415dbb5b83a208457596500dd8fd3bc008e2216ef10628ddacb065d889cc",
+    "tools/reference/excitebike_component_1101_v2.md": "6551b92e34f7b1d2fa87a4552b7a2fd3858209b39b37f155df581c1a2accfadf",
+    "tools/audit/thomas_original_cpu_1031_v1.py": "0fe3df819236ccf2b2c09acd11953db000747c90058460bde3544bedf24f0a9d",
+    "tools/audit/verify_native_relocation.py": "1bab7154bc2e5468e827087d14030a7e30c4d3676db5e775ef15de4d0c34ce11",
+    "build/excite-prince-component-1101-v2/review.json": "cf942a272738acfc360988a6ae51c748505b651fc6ccbe494665fe6c1e1c7147",
+    "build/excite-prince-component-1101-v2/component-CPU-controls.json": "4923bd92237eb8954c4a2fe877cbe5e93baaaeb88efb3400732eb47360a9fdab",
+    "build/excite-prince-component-1101-v2/source-sequencing-CPU-controls.json": "afb144c8837b2cf58ceba545b7339be9eeeac0de9d7195da2dae472754cbb059",
+    "build/excite-prince-component-1101-v2/compile.json": "6ff8a842ed926fa6efdbba20e266107cf178b92f45d0558c0a147e44e8a01db0",
+    "build/excite-prince-component-1101-v2/excitebike-component.s": "a3ef262be49f252f0cd3bb5c64604bcdb47b62b2251a68ecf21f8af67b9f0123",
+    "build/excite-prince-component-1101-v2/component.cfg": "f836d5830fc819d66a0c178abd16a49c296cade4c54a09ce4d5cdaac0111745b",
+    "build/excite-prince-component-1101-v2/component.bin": "79a6de9d58fcddc3a8fcdb857d204218e49b27505836d2dcdf320f1839ad1ecd",
+    "build/excite-prince-component-1101-v2/component.lbl": "79ad7b5e5611041e8afbdcb0f31003baaa7a0ea20ab979af93d448003461389d",
+    "build/excite-prince-component-1101-v2/source-art.json": "3f5fa117654fb4e225511a3ce237a0c112d4e82f586260e18c4d0e8603375c51",
+    "build/excite-prince-component-1101-v2/excitebike-body-patterns.bin": "6efc60f29a9149b92fbf86cd0063e4eda6e3bc7aa9132c77d2f478c8feb1a819",
+    "build/excite-prince-component-1101-v2/source-poses.png": "0b90b1268f8091f30eb33a1781365dd3566fb20689a408128c7e6a6a40e92ad2",
+    "build/excite-prince-component-1101-v2/prince-source-audit.json": "fa8f8fae345e3b036b7e17d59cc1f74af4b216033d2d9f23b39ff4ec37fa159a",
+    "build/excite-prince-component-1101-v2/prince-fixed-entry-disassembly.txt": "52bc537297bfc167472ed35523a76e842e6ee339d1c8df053a51fe9451709ff5",
+    "build/excite-prince-component-1101-v2/prince-body-patterns.bin": "2e057652662d52a346cb6f2f5ca3414d22557d20b465baf5f6e834f7109fcb13",
+    "build/excite-prince-component-1101-v2/prince-source-body.png": "3493263b1e6a97999afc67602e360bcedd371d20bb920b22e21dcd2c871262f1"
+  }
+}
