@@ -28,7 +28,7 @@ def main():
             name=name.strip();symbols[name]=banks[name]if name in banks else address(b,name);types[name]=kind
     binding=['.setcpu "6502"\n']
     for n,v in symbols.items():binding.append(('.exportzp 'if types[n]=='importzp'else'.export ')+n+f'\n{n}=${v:04x}\n')
-    (O/'bindings.s').write_text(''.join(binding));(O/'component.s').write_text('.setcpu "6502"\n.macpack longbranch\n.include "karnov_combat_1101_v2.inc"\n')
+    (O/'bindings.s').write_text(''.join(binding));(O/'component.s').write_text('.setcpu "6502"\n.macpack longbranch\n.include "'+SRC.name+'"\n')
     kernel=address(b,'KrKernelEnd');resident=0xc900;klimit=0xbfe0;rlimit=0xd000
     assert kernel<klimit
     # Proposed private selected-C2 code lease. This output supplies assembly

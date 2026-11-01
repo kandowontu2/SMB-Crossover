@@ -1,0 +1,107 @@
+{
+  "passed": true,
+  "installed": true,
+  "backup_created": false,
+  "complete": false,
+  "user_requested_WIP": true,
+  "destination": "C:\\Users\\kando\\Downloads\\SMB-Crossover-Latest-WIP-MMC5.nes",
+  "output_sha256": "0ffb1d79c4fbc52bb337a4726f8e61f984f30e4795fd2555b204322140c0a717",
+  "replaced_sha256": "0162287ebf5b8fcb8a84dcf108a0d0930c4dc9d6e68928c4804bd774712e1a6c",
+  "selectable_identities": 86,
+  "total_menu_identities": 90,
+  "selection": "Rygar -> Select -> Karnov -> A/Start",
+  "checkpoint": "docs/qa/checkpoints/2026-11-01/karnov-combat-nightly-v7",
+  "source": {
+    "path": "docs/qa/checkpoints/2026-11-01/karnov-combat-nightly-v7/source.zip",
+    "sha256": "d4160bbdda88160a74f735975a9899a69c4d2c3bd82d4c6467f39ab545379ca5",
+    "bytes": 416576,
+    "members": 137
+  },
+  "native": {
+    "path": "docs/qa/checkpoints/2026-11-01/karnov-combat-nightly-v7/native-results.zip",
+    "sha256": "81a42673097b9ef87782d803fcb4cd31d08a04c76960e7b5550050f259c41341",
+    "bytes": 94340,
+    "members": 36
+  },
+  "verification": {
+    "ROM_sha256": "0ffb1d79c4fbc52bb337a4726f8e61f984f30e4795fd2555b204322140c0a717",
+    "actual_Main_ISR_cuts": 1304,
+    "minimum_combat_Main_ISR_SP": 135,
+    "cold_Main_ISR_cuts": 49,
+    "minimum_cold_Main_ISR_SP": 138,
+    "both_carrier_readback_failures_rejected": true,
+    "both_complete_cache_headers_checked": true,
+    "source_CPU_suite": [
+      "health-CPU-controls.json",
+      "rebound-CPU-controls.json",
+      "life-restart-CPU-controls.json",
+      "terrain-CPU-controls.json",
+      "terrain-vectors.json",
+      "scene-CPU-controls.json"
+    ],
+    "native_goomba_kills": 1,
+    "native_enemy_hit_sound": true,
+    "native_earned_double_shot": true,
+    "native_projectile_block_effects": 3,
+    "native_brick_debris": true,
+    "native_question_block_powerup": true,
+    "native_menu_transitions": 124,
+    "sampled_roster_anomalies": 0,
+    "heading_errors": 0,
+    "visible_mask_writes": 0,
+    "native_scopes": {
+      "combat-crouch": "Controller-only actual cold Select/Start, crouch and shoot the first real Goomba, require native defeat/SFX, head-hit the first real question block, collect the emerged mushroom and fire original double shots. No RAM/code/object injection. Four PNG cap; full1-1/equipment/source-audio remains separate.",
+      "block-row": "Controller-only cold Select/Start, crouch-fire Goomba kill, stand left of the first block row and jump/fire into bricks and a question block. Require native projectile block effects, brick animation and real powerup spawn. No player/object/code/RAM injection. Four PNG cap.",
+      "final-menu": "Actual selectable86 WIP: all90 roster identities/124 transitions. Exact heading, unchanged sampled gray roster and no visible PPUMASK writes. Four PNG cap; no full-stage or complete-character claim."
+    }
+  },
+  "components": {
+    "carrier-grant": {
+      "path": "docs/qa/checkpoints/2026-11-01/karnov-combat-nightly-v7/carrier-grant.zip",
+      "sha256": "9b122337170d23d8d34539b18d915af6499fc8c63aba8d8c06265fed46a547c2",
+      "integrated": true
+    },
+    "loader-funding": {
+      "path": "docs/qa/checkpoints/2026-11-01/karnov-combat-nightly-v7/loader-funding.zip",
+      "sha256": "ad5d8f3a1ba170b4f4edce36f12186c59231381611500f861e3b9c655980c5eb",
+      "integrated": true
+    },
+    "combat-stack-component": {
+      "path": "docs/qa/checkpoints/2026-11-01/karnov-combat-nightly-v7/combat-stack-component.zip",
+      "sha256": "8d8b45a0abf3820d9992ab8f583d0e63ae1298661f4ce220ec0739396417e4cd",
+      "integrated": true
+    },
+    "metal-storm-terrain-v5": {
+      "path": "docs/qa/checkpoints/2026-11-01/karnov-combat-nightly-v7/metal-storm-terrain-v5.zip",
+      "sha256": "43084a98280258338fa387ce106c3d249cdb87a47c3a31c1b7287d4eeefbb80e",
+      "integrated": false
+    },
+    "metal-storm-objects-v6": {
+      "path": "docs/qa/checkpoints/2026-11-01/karnov-combat-nightly-v7/metal-storm-objects-v6.zip",
+      "sha256": "dcb7cc103fcd48949efb7b0dd1413edce1633ee1ebc1fbfd132afa5e927f6442",
+      "integrated": false
+    },
+    "karnov-options-v7": {
+      "path": "docs/qa/checkpoints/2026-11-01/karnov-combat-nightly-v7/karnov-options-v7.zip",
+      "sha256": "cedec68dfc324fb65ab6a81bd76a2963fc22c2dd0915a10ef3d610a0aff7b7bd",
+      "integrated": false
+    }
+  },
+  "changes": [
+    "Karnov original fireballs now hit native enemies and activate/break eligible blocks with native score, SFX and animations.",
+    "Projectile contact aligns with the visible lower8px of every original8x16 fireball/boomerang tile pair.",
+    "A17-byte private saved-frame transfer preserves the actual Main interrupt reserve through nested native effects.",
+    "The real forced-blank ten-row loader copies and verifies combat before publishing both cache cookies."
+  ],
+  "pending": [
+    "Original equipment activation/Select/HUD/icons and original Karnov audio remain unintegrated.",
+    "Full1-1/shortcut/every-powerup controller qualification is unfinished; crouch-fire is needed for low enemies.",
+    "Metal Storm, Shinobi and Excitebike remain unselectable; Metal Storm actor/terrain/projectile and Karnov option source components are preserved."
+  ],
+  "storage": {
+    "build_bytes": 1584006019,
+    "build_files": 8044,
+    "build_byte_cap": 5000000000,
+    "build_file_cap": 20000
+  }
+}

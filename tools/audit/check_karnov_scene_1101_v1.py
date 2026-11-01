@@ -89,12 +89,18 @@ def main():
             m=L.make(new);H.put(m,SelectedCharacter=34,FmAlts=1);result=invoke(m,'InitScreen');assert result['counts'].get('KrConstruct')==1 and result['counts'].get('KrLoad')==1
             assert m.ram[3]==(O/'kr-kernel.bin').read_bytes()and m.ram[2][address(new,'KrReady')&8191]==167
             return m,result
-        seed,first=fresh();assert seed.ppu_reads==16400
+        expected_reads=18964 if stage.get('combat')else 16400
+        seed,first=fresh();assert seed.ppu_reads==expected_reads
+        if stage.get('combat'):
+            assert bytes(seed.ram[2][0x900:0xe00])==(O/'kr-combat.bin').read_bytes()
+            assert seed.ram[2][0x84d]==seed.ram[2][0x854]==0
+            seed.ram[2][0x84d]=1;seed.ram[2][0x854]=63
         preserved=[]
         for field,value in [(0x65,130),(0x68,128),(0x300,71),(0x400,29),(0x7fd,67)]:seed.ram[2][field]=value;preserved.append((field,value))
         for i in range(9):seed.ram[2][0x6e+3*i]=132
         H.put(seed,AreaAddrsLOffset=1,WorldNumber=1,PlayerFacingDir=2);reads=seed.ppu_reads;second=invoke(seed,'InitScreen')
         assert seed.ppu_reads==reads and second['counts'].get('KrConstruct')==1
+        if stage.get('combat'):assert seed.ram[2][0x84d]==seed.ram[2][0x854]==0,'Scene transfer retained combat epoch/victim mask'
         assert all(seed.ram[2][i]==v for i,v in preserved),'Scene transfer lost source gear/stock/health'
         assert all(seed.ram[2][0x6e+3*i]==0 for i in range(9))and seed.ram[2][0x62]==128
         assert seed.ram[2][address(new,'KrWorld')&8191]==1 and seed.ram[2][address(new,'KrArea')&8191]==1
@@ -167,6 +173,7 @@ def main():
         q['minimum_Main_ISR_SP']=minimum_ISR_SP;q['minimum_Main_ISR_context']=minimum_ISR_context
         assert minimum_ISR_SP-0x7b>=12,('Actual live Main ISR stack needs at least twelve bytes above SMC operands',minimum_ISR_SP,minimum_ISR_context)
         q.update(passed=True,ROM_sha256=stage['ROM_sha256'],existing_identity_scene_pairs=scene_pairs,existing_post_BG_pairs=post_pairs,foreign_post_BG_extra_cycles=sorted(post_extra_cycles),InitScreen_operand_offsets=offsets,cold_scene=first,warm_scene=second,warm_area_source_fields_preserved=preserved,new_life_resets_gear=True,extra_life_keeps_movement=True,Main_runtime_assignment_fixture=not stage.get('menu',False),real_Karnov_Select_Start=stage.get('menu',False),actual_parser_updates=len(setup),actual_Main_updates=len(rows),completed_normal_NMIs=len(setup)+len(rows),actual_Main_ISR_cuts=main_cuts,minimum_Main_ISR_SP=minimum_ISR_SP,source_cold_loader_reads=16400,setup=setup,frames=rows,scope='Actual InitScreen scene consumer with original Wf/Bw/S2/Th callback chain, genuine cold cache loader and native parser/Main/NMI in CPU/mapper model. All85 old menu identity scene outputs exact. With menu mode, real Select and Start retain raw34 with no runtime assignment; otherwise the historical explicit assignment fixture is used. Source stock/health/gear fields in lifecycle checks are deliberate fixtures. Live Main IRQ/forced-blank NMI cuts supplement complete normal NMI executions between updates. No earned item, native emulator/controller/raster/playthrough, combat, audio or nightly claim.')
+        q['source_cold_loader_reads']=expected_reads
     except Exception as e:q.update(error=repr(e),traceback=traceback.format_exc())
     q['bindings']={str(p.resolve()):sha(p)for p in paths}
     (O/'scene-CPU-controls.json').write_text(json.dumps(q,indent=2)+'\n',encoding='utf-8')
