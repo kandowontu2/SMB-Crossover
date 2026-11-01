@@ -1,6 +1,6 @@
 """Read actual current finite art tables, including all six WWF metadata sets."""
 from pathlib import Path
-import hashlib,json,re,sys
+import hashlib,json,re,sys,zipfile
 R=Path(__file__).resolve().parents[2];sys.path[:0]=[str(R/'tools'),str(R/'tools/audit')]
 from link_pit_rygar_sophia_audit_cpu import scoped_load
 from check_tmnt_render_oa import location
@@ -47,6 +47,28 @@ def main():
     domains['CV3 nonzero alternates weapons']=list(range(518,524))
     domains['Mac world']= [704]
     domains['FinalFantasy body and preview']=list(range(756,788))
+    recovered={}
+    def require(relative,clauses):
+        p=R/relative
+        if p.exists():sources.append(p);text=p.read_text()
+        else:
+            key=next(k for k in historical['source_bindings'] if k.replace('\\','/').endswith('/'+relative))
+            digest=historical['source_bindings'][key]['sha256']
+            with zipfile.ZipFile(R/'build/_recovery/legacy-sources-2026-10-31.zip') as z:data=z.read('objects/'+digest)
+            assert hashlib.sha256(data).hexdigest()==digest
+            recovered[key]=digest;text=data.decode()
+        for clause in clauses:assert clause in text,(relative,clause)
+    require('src/mike_jones_state.inc',['JN_FIRST_CHR=708'])
+    require('src/mike_jones_core.s',['lda #<JN_FIRST_CHR\n sta SmChrBank'])
+    require('src/mike_jones_render.s',['lda #<(JN_FIRST_CHR+2)','lda #<(JN_FIRST_CHR+3)'])
+    require('src/final_fantasy_state.inc',['FF_FIRST_CHR=756'])
+    require('src/final_fantasy_render.s',['and #31\n sta FfRenderPage'])
+    require('build/current-character-composition-v1/joint/preview.s',['and #31\n sta FfRenderPage'])
+    require('build/bt-ready-menu-1031-v2/joint/src/cv3_core.s',[
+        'lda Cv3Variant\n  jeq No\n  cmp #4\n  jcs No'])
+    require('build/bt-ready-menu-1031-v2/joint/src/cv3_draw.s',[
+        'farcall Cv3IsActive\n bcs Native\n farcall RosterDrawShots,jmp\nNative:jmp Cv3DrawShots',
+        'adc #<516','adc #<517'])
     m3=set()
     for i in range(7):
         low=table(f'M3Form{i}ChrLo',81);high=table(f'M3Form{i}ChrHi',81)
@@ -89,7 +111,7 @@ def main():
         WWF_source_clamps_bound=True,WWF_code_bank_unchanged=bank,
         WWF_legal_page_indices=sorted(pages),
         limits=['Finite table/domain extension only; typed selector, writer preservation and publication proof must also hold.','IRQ may publish512; it is deliberately excluded.','251 was rejected by a real native-menu publication test and is not proposed.'],
-        bindings={str(p):sha(p)for p in sources})
+        recovered_source_objects=recovered,bindings={str(p):sha(p)for p in sources})
     (O/'upper2-finite-domains.json').write_text(json.dumps(result,indent=2)+'\n')
     print(json.dumps(dict(passed=True,WWF_records=records,WWF_pages=sorted(pages),domains=len(domains))))
 

@@ -1,0 +1,21 @@
+{
+  "grant": true,
+  "owner": "Shinobi actor, metadata and graphics",
+  "baseline_ROM_sha256": "367266d2ec4e62fcefc15fffb3a05095a16060ad52f9d68348f213d94b31268c",
+  "physical_CHR_1KB_pages": [503, 504, 505, 506, 507, 508, 509, 510, 513, 515, 516, 517],
+  "excluded_pages": {"251": "Observed native menu publication", "511": "Thomas loader", "512": "IRQ publication", "514": "Actual SMB3 form table"},
+  "review": "Root reviewed inherited typed publisher domains, current compiled art tables, all six WWF metadata sets and source clamps, CV3 nonzero-variant dispatch, Mike and Final Fantasy page formulas, actual current publisher instruction tests, and the exact current Kirby successor changes. This allocation is exclusive to Shinobi and does not authorize RAM or PRG writes.",
+  "evidence": [
+    "build/metal-storm-chr-closure-1101-v10/consumer-closure.json",
+    "build/shinobi-chr-closure-1101-v1/upper2-finite-domains.json",
+    "build/shinobi-chr-closure-1101-v1/publication-CPU-controls.json",
+    "build/shinobi-chr-closure-1101-v1/current-writer-preservation.json"
+  ],
+  "conditions": [
+    "Use only the listed physical pages. Preserve every other CHR byte, especially SMB3 page514, Thomas511, and the separately allocated Metal Storm and Tank pages.",
+    "The owning recipe must bind to the reviewed baseline and assert disjoint page ownership before writing. Any later publisher, table, loader or menu change requires rechecking the affected domain.",
+    "WWF exclusion relies on source-valid metadata and the reviewed group/frame clamps; CV3 exclusion relies on the nonzero variant dispatch. Arbitrary corrupted RAM is outside this allocation proof.",
+    "Prove the new loader retirement, initialization and graphics publication behavior before character admission. These checks do not constitute a native Shinobi playthrough.",
+    "No character unlock or nightly delivery is authorized by resource allocation alone; integrate and verify the requested behavior."
+  ]
+}
