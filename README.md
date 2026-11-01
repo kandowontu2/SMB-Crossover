@@ -6,7 +6,7 @@ A native NES adaptation of [Super Mario Bros. Crossover](https://www.smbgames.be
 
 [Player's guide](<Player Guide/SMB-Crossover-Players-Guide-NU.pdf>) · [Full roster image](docs/images/SMB-Crossover-Full-Roster.png) · [Build from source](#build-from-source) · [Report a bug](https://github.com/kandowontu2/SMB-Crossover/issues)
 
-> **In development:** the latest expanded MMC5 nightly has **76 playable identities**, including alternates, across a **32-slot, four-row menu**. Another **10 individual identities** are coming soon. The prepared source build currently contains 37 identities; see the build table below.
+> **In development:** the latest expanded MMC5 nightly has **81 playable identities**, including alternates, across a **32-slot, four-row menu**. Another **5 individual identities** are coming soon. The prepared source build currently contains 37 identities; see the build table below.
 
 <p align="center">
   <img src="docs/images/character-select.png" width="512" alt="Actual NES character-select screen with four rows of heroes and highlighted Thomas">
@@ -27,7 +27,7 @@ The title opens a separate character-select screen. Use the D-pad to highlight a
 
 ## Current roster
 
-This table describes the **76-playable development nightly**, not the older prepared build. A character visible in the menu is not necessarily playable: names marked with a star are **COMING SOON**.
+This table describes the **81-playable development nightly**, not the older prepared build. A character visible in the menu is not necessarily playable: names marked with a star are **COMING SOON**.
 
 | Slot | Playable now | Coming soon |
 | --- | --- | --- |
@@ -59,7 +59,7 @@ This table describes the **76-playable development nightly**, not the older prep
 | Gimmick! | Gimmick | — |
 | Bowser | SMB3 Bowser / SMB1 Bowser | — |
 | Donkey Kong | Donkey Kong | — |
-| WWF WrestleMania | Hulk Hogan | Ted DiBiase / Bam Bam Bigelow / Honky Tonk Man / Randy Savage / Andre the Giant |
+| WWF WrestleMania | Hulk Hogan / Ted DiBiase / Bam Bam Bigelow / Honky Tonk Man / Randy Savage / Andre the Giant | — |
 | Excitebike | — | Excitebike / Prince of Persia |
 | Contra Force | Burns / Smith / Iron / Beans | — |
 | Ghosts 'n Goblins / Dragon Power | Arthur / Goku | — |
@@ -75,7 +75,7 @@ The image includes unfinished characters and predates the two new SMB1 alternate
 
 The four SMB2 characters, four Final Fantasy classes and both SMB1 and SMB3 Toad/Peach are enabled, with bounded emulator checks recorded for their respective build hashes. Goku is an Arthur Select alternate. Further Mario alternates and Getsu Fuma for Simon remain in development and are not included in the current 86-individual count.
 
-**Hulk Hogan** is playable in the WWF slot. His original movement, poses and punches are integrated with SMB terrain and enemies. A cold Mesen run verifies selection, lives, jumping, landing, a punch that defeats a Goomba, and scrolling across a page boundary. Full stages, advanced wrestling, original audio and upgrades remain unfinished.
+**All six WWF wrestlers** are playable. Select cycles **Hogan → DiBiase → Bigelow → Honky Tonk Man → Savage → Andre**. Their original actor routines, poses, palettes and themes are integrated with SMB terrain and enemies. A jumps; B punches; Down+B kicks, and Up+B retains the original directional attack. Every wrestler passes a cold Mesen opening route through selection, lives, jump/landing, a Goomba defeat and scrolling across a page. Full stages, advanced wrestling, authentic endurance/upgrades and steady performance remain unfinished. See the [81-character verification](docs/qa/checkpoints/2026-11-01/ready81-wwf-native-v1/README.md).
 
 **Thomas** is now playable: highlight Ryu and press Select twice. He keeps Kung-Fu's short jump and uses native SMB moving platforms to clear the four pipes in the tested 1-1 route. Original poses, melee attacks, platform graphics, scrolling and enemy defeats are verified; other stages and his full ability/audio lineup still need work.
 
@@ -83,7 +83,7 @@ The four SMB2 characters, four Final Fantasy classes and both SMB1 and SMB3 Toad
 
 On **Battletoads**, Select cycles **Rash → Zitz**. On **Contra Force**, it cycles **Burns → Smith → Iron → Beans**. These six use recovered original-game movement, graphics and attacks. The preceding checkpoint repairs Contra Force's projectile contact with native enemies, following the camera and enemy-graphics fixes. All four Contra Force characters passed controller-earned pistol kills with native score, hit sound and original projectile impacts; SMB1 Peach also passed a bounded regression check on that ROM. Those results remain attached to their tested hashes. Full levels, complete special moves, upgrades and dedicated audio remain unfinished. Battletoads and Contra Force are noticeably slow. See the [74-character WIP receipt](docs/qa/functional-roster-ready74-cf-projectile-2026-10-31.json).
 
-SMB2J and All Night Nippon campaigns, the original Doki Doki Panic characters, Thomas and the WWF roster are still being developed. Their private source checkpoints do not add playable identities or campaigns to this build.
+SMB2J and All Night Nippon campaigns and the original Doki Doki Panic characters are still being developed. Their private source checkpoints do not add playable identities or campaigns to this build.
 
 On the SMB3 slot, **Select cycles Mario → Luigi → Toad → Peach**. The new Toad/Peach use graphics and controller routines recovered from Infidelity's SMB3+ hack, including Toad's big-form kick and Peach's hover. Names and lives portraits are updated. Donor ground pound, custom stomp delay, some special art consumers and Toad's kick sound remain unfinished. See the [68-character WIP receipt](docs/qa/functional-roster-ready68-smb3plus-2026-10-31.json).
 
