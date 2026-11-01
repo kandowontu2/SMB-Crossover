@@ -52,10 +52,11 @@ import hashlib,json,os,subprocess,sys
 O=Path(__file__).resolve().parent;R=next(p for p in O.parents if(p/'AGENTS.md').is_file())
 sys.path[:0]=[str(R/'tools'),str(R/'tools/audit')]
 from run_mesen import run
+from mesen_session_guard_v1 import require_free_workspace
 q=json.loads((O/'ready.json').read_text())
 for p,h in q['bindings'].items():assert hashlib.sha256(Path(p).read_bytes()).hexdigest()==h,p
-active=subprocess.run(['powershell','-NoProfile','-Command',"Get-CimInstance Win32_Process -Filter \\\"Name like '%Mesen%'\\\" | Select-Object ProcessId,Name | ConvertTo-Json -Compress"],capture_output=True,text=True,check=True).stdout.strip()
-if active:print('Existing Mesen left alone: '+active);raise SystemExit(3)
+other_sessions=require_free_workspace(R,Path(q['ROM']))
+print('Other-project Mesen sessions left untouched: '+json.dumps([p['ProcessId'] for p in other_sessions]),flush=True)
 os.environ['SMB_RUN_OUTPUT']=str(O/'capture')
 result=run(O/'controller.lua',Path(q['ROM']),timeout=90,emulator_options=['--doNotSaveSettings','--nes.removeSpriteLimit=false','--nes.ramPowerOnState=AllZeros','--nes.randomizeCpuPpuAlignment=false','--nes.randomizeMapperPowerOnState=false'])
 for p,h in q['bindings'].items():assert hashlib.sha256(Path(p).read_bytes()).hexdigest()==h,p
@@ -64,7 +65,8 @@ raise SystemExit(result)
 ''',encoding='utf-8',newline='\n')
     refs=[Path(__file__),template,j/'candidate.nes',j/'candidate.lbl',j/'candidate.dbg',artpath,
           o/'controller.lua',o/'run.py',R/'tools/run_mesen.py',R/'tools/audit/capture_budget.py',
-          R/'tools/audit/build_storage_guard_v1.py',R/'tools/audit/run_bounded_build_v1.py']
+          R/'tools/audit/build_storage_guard_v1.py',R/'tools/audit/run_bounded_build_v1.py',
+          R/'tools/audit/mesen_session_guard_v1.py']
     q=dict(prepared=True,native=False,frontend_only=args.frontend_only,ROM=str(j/'candidate.nes'),ROM_sha256=args.expected,
            run_byte_cap=128_000_000,max_files=64,max_PNGs=4,emulated_writes=False,
            bindings={str(p):sha(p)for p in refs})

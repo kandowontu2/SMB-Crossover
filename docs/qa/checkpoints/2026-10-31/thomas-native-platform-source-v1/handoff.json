@@ -1,0 +1,132 @@
+{
+  "source_CPU": true,
+  "native": false,
+  "installed": false,
+  "candidate": "5cfc0a7276f47a980e48967cd26c7fabd29e750d35ae40866468e10d99472821",
+  "source_summary": {
+    "passed": true,
+    "source_CPU": true,
+    "native": false,
+    "parser_Main": 167,
+    "Main": 2073,
+    "original_actor_frame_pairs": 2073,
+    "pipe_clears": [
+      {
+        "pipe_X": 448,
+        "Main": 755,
+        "X": 497
+      },
+      {
+        "pipe_X": 608,
+        "Main": 1216,
+        "X": 657
+      },
+      {
+        "pipe_X": 736,
+        "Main": 1593,
+        "X": 784
+      },
+      {
+        "pipe_X": 912,
+        "Main": 2073,
+        "X": 960
+      }
+    ],
+    "native_defeats": 3,
+    "maximum_X": 960,
+    "combat_vectors": [
+      {
+        "nested_IRQ": false,
+        "entry_SP": 152,
+        "minimum_SP": 131,
+        "returned_exact": true,
+        "SMC33_exact": true,
+        "borrowed_R0_R7_exact": true,
+        "maps_exact": true,
+        "own_detached_gap_exact": true,
+        "passed": true
+      },
+      {
+        "nested_IRQ": true,
+        "entry_SP": 152,
+        "minimum_SP": 131,
+        "returned_exact": true,
+        "SMC33_exact": true,
+        "borrowed_R0_R7_exact": true,
+        "maps_exact": true,
+        "own_detached_gap_exact": true,
+        "passed": true
+      }
+    ],
+    "candidate": "5cfc0a7276f47a980e48967cd26c7fabd29e750d35ae40866468e10d99472821",
+    "scope": "Real native parser/AI/support/carry/combat executed in CPU/peripheral model; exact original actor-frame pairs. Finite source interrupt cuts. No Mesen/raster, full1-1, audio or all-powerup qualification."
+  },
+  "combat_current": [
+    {
+      "nested_IRQ": false,
+      "entry_SP": 152,
+      "minimum_SP": 131,
+      "live_melee_bytes": "03d1120400a0540039ff0a310131",
+      "returned_exact": true,
+      "SMC33_exact": true,
+      "borrowed_R0_R7_exact": true,
+      "maps_exact": true,
+      "live_melee_C860_C86D_exact": true,
+      "passed": true
+    },
+    {
+      "nested_IRQ": true,
+      "entry_SP": 152,
+      "minimum_SP": 131,
+      "live_melee_bytes": "03d1120400a0540039ff0a310131",
+      "returned_exact": true,
+      "SMC33_exact": true,
+      "borrowed_R0_R7_exact": true,
+      "maps_exact": true,
+      "live_melee_C860_C86D_exact": true,
+      "passed": true
+    }
+  ],
+  "native_PRG_changed_bytes": 12,
+  "native_PRG_scope": "Own constructor-cookie digest only; native instruction bodies unchanged",
+  "kernel_bytes": 6141,
+  "grant_bytes": 6144,
+  "original_body_CHR_exact": true,
+  "source_checkpoint": "docs/qa/checkpoints/2026-10-31/thomas-camera-source-v1/handoff.json",
+  "source_checkpoint_sha256": "4c755dfc7037707615843b3319c7db39feaa47194a38e87dc0f028a0ed601f21",
+  "limitations": [
+    "CPU/peripheral-model checks only; no Mesen/raster qualification",
+    "No full1-1, shortcut, every upgrade or original audio claim",
+    "Private older parent; not composed into installed74-character f476"
+  ],
+  "archive_sha256": "4f8ad1e3acd5e28acec221a40935c1943616ab4b58c78889ba5d4382f0ae582a",
+  "archive_bytes": 107915,
+  "members": {
+    "build/thomas-native-carry/all-pipes/controls.json": "146e405b7a31b77bd64ae329cf423c7e87ab840a4b5d6f0446dc3a19aeda36e9",
+    "build/thomas-platform-ground/all-pipes/controls.json": "b7b215a962b761201bc63c951570a49386f3fe0d4f62d05e0f7fa17e117c9113",
+    "build/thomas-platform-ground/cache.s": "1f0087e82094fbcdaa1e5942e89a15aeabffb343a99e38a90ec6fa7e03881937",
+    "build/thomas-platform-ground/candidate.cfg": "cf2e0807e6ba7fccd738ab96dab40a895ff2098ae12675f351a2bbb828967a6b",
+    "build/thomas-platform-ground/carrier.s": "f777af6841858da78e9260d4115be56b533a4ea1f6603cea8a11f411eba76317",
+    "build/thomas-platform-ground/combat-current/controls.json": "a2aad974cecab792fee8fbdf1ba333df3fa56b1d48e97fddf47fc7c3a363e031",
+    "build/thomas-platform-ground/cookie.bin": "d1b7828df3d3d262d62c572c5bb0343ae48aa2586406800285788d855f9eb90d",
+    "build/thomas-platform-ground/final-debug-format.json": "12443255a8b028bcd94a7dbfd3e5bbdcb0d4283f4b7c0553e7d98d3ae9a114a9",
+    "build/thomas-platform-ground/final-link.json": "6094692b8b5e6b74da76a549cb7d44d87613980c27c3b8bcdd14573c4572763e",
+    "build/thomas-platform-ground/lift.s": "b9ce5da75e18b7324b860a126086d66a13cb03c92d7c5a1b69c87f6b047597aa",
+    "build/thomas-platform-ground/resident.s": "6eb9602d3f5fe86f3dfde430b30b3fdb8ef458e05846a1a2890cd6e9489c196d",
+    "build/thomas-platform-ground/source-stage.json": "5db37b9fd27dccecd2cd06f92ac80e8d76de267428b75290ca54036a3fb6d099",
+    "build/thomas-safe-melee/boundary.s": "189a25d4790ef3421140ae2d49f603bf7571d7e82f9bdf448b0c9c944c447938",
+    "docs/qa/checkpoints/2026-10-31/thomas-camera-source-v1/pipe-assists-before-changes.json": "c72d949242dc0c749f1a2f91d05cef67c4e83ec051a9e1b927093c841c0eb43c",
+    "tools/audit/build_thomas_pipe_lifts_bounded_v1.py": "eaa57a7a1271b34e495cd0083bc488736bf56ede0eaa33be682b3ffbbf20454e",
+    "tools/audit/check_thomas_all_pipes_bounded_v1.py": "6cd2663e116d18b0cac5ecac54d6072bbac6282ad683783fee5e81e152030330",
+    "tools/audit/check_thomas_combat_vectors_bounded_v1.py": "5a76a48a23737a3f34c586694c4edac797352c73c1c9b8f6251216b97229274e",
+    "tools/audit/check_thomas_combat_vectors_bounded_v2.py": "5f85ac8b6712a9e4df58367716e1c7fc02e9da9e5ace18e75234185c086ea7fd",
+    "tools/audit/fix_thomas_melee_stack_bounded_v2.py": "b556ea79a4d9f0416543c8043c057942c210fffcea7a49fee147615d576293cd",
+    "tools/audit/fix_thomas_native_carry_bounded_v3.py": "f8cd023b1e7fe3ea0461063cdf2d83bc037a628ec35fa44fc9d78daba0c21d58",
+    "tools/audit/fix_thomas_platform_ground_bounded_v1.py": "9d01b45b69d1a25fdd8ef8e9374cf70f134b167d8a40e4e8b92fa75988defaa3",
+    "tools/audit/freeze_native_concurrency_thomas_pipes_bounded_v1.py": "f47152bf4b029206fd6bfa292b45b959a3cd75b95288c2fcd298f1d22bed9049",
+    "tools/audit/probe_thomas_lift_bounded_v1.py": "7820a778fd15eec8333427941f2591d5ebe2528d7586e94d18bb76b5c3cd9a33",
+    "tools/audit/rebuild_selected_thomas_bounded_v1.py": "a7b3a152b210709449b3d0e306107dc04d15263c473918227ecbb275feedada4",
+    "tools/audit/rebuild_selected_thomas_bounded_v2.py": "f7396069cd29fabbcd29a4798e477ca755bf2d037e85bdf0e1dd5532c41f2b86",
+    "tools/reference/thomas_pipe_lifts_v1.s": "bff01a115be6520563a3884e45b9b2af176ee936fe26f8ac8df391911d0c1eab"
+  }
+}
