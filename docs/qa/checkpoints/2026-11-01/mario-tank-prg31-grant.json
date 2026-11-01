@@ -1,0 +1,21 @@
+{
+  "baseline_ROM_sha256": "c864e46a8f333ab7a936c8d8f330944041a3eff12bc6dd4d9ba96892144ff3c7",
+  "physical_PRG_bank": 31,
+  "PRG_bank_sha256": "884a4ff657cc700e72287a987e5ebb36b699b41d0fd3cc3284e08ad90af69042",
+  "owner": "Mario the Tank forced-blank loader outer",
+  "grant": true,
+  "physical_offsets_half_open": [8041, 8192],
+  "A_window_half_open": [49001, 49152],
+  "C_window_half_open": [57193, 57344],
+  "bytes": 151,
+  "previous_GB_Pit_source_limit": 57344,
+  "new_GB_Pit_source_limit_exclusive": 57193,
+  "existing_Pit_and_Bill_bytes_must_remain_exact": true,
+  "reader_evidence": "build/mario-tank-gates-loader-1101-v3/PRG31-tail-readers.json",
+  "review": "Root checked the CPU reader implementation, its 1008 Pit and 7424 Bill cases, all bound source hashes, the exact current c864 bank hash, and the 151-byte FF tail. Metal Storm relocated its proposed gate elsewhere, leaving this interval exclusively for Tank.",
+  "conditions": [
+    "The owning linker recipe must enforce the reduced GB_Pit limit at DF69 and the new loader's limit at E000; A-window aliases are BF69 and C000.",
+    "This grant funds only this ROM interval; remaining loader intervals and conditional RAM still need their own closure.",
+    "No menu admission or nightly installation follows from this allocation alone. Actual loader, Main/ISR and native gameplay verification remain required."
+  ]
+}
