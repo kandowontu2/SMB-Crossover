@@ -1,0 +1,78 @@
+{
+  "passed": true,
+  "installed": true,
+  "backup_created": false,
+  "complete": false,
+  "user_requested_WIP": true,
+  "destination": "C:\\Users\\kando\\Downloads\\SMB-Crossover-Latest-WIP-MMC5.nes",
+  "output_sha256": "c864e46a8f333ab7a936c8d8f330944041a3eff12bc6dd4d9ba96892144ff3c7",
+  "replaced_sha256": "99bf88c8d971f1305f965a21833703c7a11aafa6a24febd9f3bfb7c87ba4bbda",
+  "selectable_identities": 86,
+  "total_menu_identities": 90,
+  "checkpoint": "docs/qa/checkpoints/2026-11-01/kirby-owner-nightly-v2",
+  "source": {
+    "path": "docs/qa/checkpoints/2026-11-01/kirby-owner-nightly-v2/source.zip",
+    "sha256": "e465b2c73a0e0ce9a36f55ad3cac648bdf2ec6b1e198c8763974be419688c847",
+    "bytes": 767785,
+    "members": 239,
+    "inherited_source_packet": "docs/qa/checkpoints/2026-11-01/karnov-hud-nightly-v9/source.zip",
+    "inherited_sha256": "ae5e53e01d7796f6d5beab97668b4f02a270c5dc60027d1cda181b6dfe11f777"
+  },
+  "native": {
+    "path": "docs/qa/checkpoints/2026-11-01/kirby-owner-nightly-v2/native-results.zip",
+    "sha256": "d89ed57e39a5a1b4a9be7fb20cd1fc929e458f62cc502619677e909c4bb0fe9d",
+    "bytes": 38378,
+    "members": 13
+  },
+  "owning_candidate": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\kirby-owner-main-1101-v2\\candidate.nes",
+  "owning_build_recipe": "tools/audit/prepare_kirby_owner_main_1101_v2.py",
+  "verification": {
+    "ROM_sha256": "c864e46a8f333ab7a936c8d8f330944041a3eff12bc6dd4d9ba96892144ff3c7",
+    "actual_Main": true,
+    "Main_ISR_minimum_SP": 138,
+    "Main_ISR_cases": 160,
+    "native_cases": 3,
+    "native_mode": "Hard",
+    "native_scope": "Cold Hard-mode Kirby with disclosed flat native terrain/player/NPC setup; actual freshB inhale, capture/Down copy and both grounded shell powers. All DMA/CHR/ISR guards retained; no tested ability/health/shot/input-edge/outcome writes. FourPNG cap; not full1-1.",
+    "actual_Main_entry_SP": 250,
+    "native_entry_SP_updates": 965,
+    "native_frames": 1383,
+    "native_updates": 965,
+    "native_screenshots": 3,
+    "native_IRQ31": 966,
+    "native_NMI": 1375,
+    "native_complete256_DMA": 1208,
+    "foreign_dispatch_receipt_sha256": "ecd241493bad0d376b0608186bf529829f84b1bd2c4a63d0b5fa699942f55d07",
+    "foreign_dispatch_ABI_verified": true,
+    "exact_source_closure_sha256": "ec520e00feca81223d929915d321ec33d901d2cb7f3ebc1bc7f64659d44fc858",
+    "inherited_HUD_checkpoint": "docs/qa/checkpoints/2026-11-01/karnov-hud-nightly-v9",
+    "inherited_HUD_ROM_sha256": "99bf88c8d971f1305f965a21833703c7a11aafa6a24febd9f3bfb7c87ba4bbda",
+    "inherited_HUD_evidence_not_renamed_to_successor": true
+  },
+  "changes": [
+    "Native enemy contacts now reach Kirby body protection during the original eight-update inhale opening.",
+    "Copied green/red shells move3px per update and use real native enemy boxes, including ground-level and page-boundary contacts."
+  ],
+  "pending": [
+    "Full1-1/shortcut/every-powerup testing and the remaining character/campaign integrations remain unfinished.",
+    "Karnov original audio and other equipment remain unfinished. Metal Storm, Shinobi and Excitebike are still unselectable."
+  ],
+  "components": {
+    "metal_storm_palette": {
+      "path": "docs/qa/checkpoints/2026-11-01/kirby-owner-nightly-v2/metal-storm-player-palette.zip",
+      "sha256": "fac9a37cc67a42d0ffe080a85cca6e20b04d5892da864c8b2b9f3aea0decadf5",
+      "integrated": false
+    },
+    "mario_tank_host": {
+      "path": "docs/qa/checkpoints/2026-11-01/kirby-owner-nightly-v2/mario-tank-host.zip",
+      "sha256": "6dea7920bdb5795403376f6cd11b967cb5439c8cc0c956fe35b90e334135ea84",
+      "integrated": false
+    }
+  },
+  "storage": {
+    "build_bytes": 1630156911,
+    "build_files": 8708,
+    "build_byte_cap": 5000000000,
+    "build_file_cap": 20000
+  }
+}

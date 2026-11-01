@@ -2,7 +2,7 @@
   "goal_status": "ACTIVE_INCOMPLETE",
   "previous_goal_turn_classification": "progress",
   "date": "2026-11-01",
-  "current_priority": "Delivered99bf88c8 equipmentHUD. Integrate Kirby inhale and shell repair next; continue Mario the Tank and Metal Storm, then full-stage/shortcut/every-upgrade and remaining original-source roster.",
+  "current_priority": "Delivered c864 Kirby repair and Karnov HUD. Proceed with Metal Storm owning integration and Mario the Tank ROM gates/loader; keep current Kirby override composed. Full roster/campaign/playthrough goal remains active.",
   "nightly_policy": "Publish usable updates frequently. Replace C:/Users/kando/Downloads/SMB-Crossover-Latest-WIP-MMC5.nes; do not make backup copies. A GitHub push is not a nightly delivery.",
   "installed_nightly": {
     "passed": true,
@@ -11,102 +11,73 @@
     "complete": false,
     "user_requested_WIP": true,
     "destination": "C:\\Users\\kando\\Downloads\\SMB-Crossover-Latest-WIP-MMC5.nes",
-    "output_sha256": "99bf88c8d971f1305f965a21833703c7a11aafa6a24febd9f3bfb7c87ba4bbda",
-    "replaced_sha256": "1c073196b51b6aaaaac90d1bea925b68807fcaa3055665cf6dd0cc8f7858fe33",
+    "output_sha256": "c864e46a8f333ab7a936c8d8f330944041a3eff12bc6dd4d9ba96892144ff3c7",
+    "replaced_sha256": "99bf88c8d971f1305f965a21833703c7a11aafa6a24febd9f3bfb7c87ba4bbda",
     "selectable_identities": 86,
     "total_menu_identities": 90,
-    "selection": "Rygar -> Select -> Karnov -> A/Start",
-    "checkpoint": "docs/qa/checkpoints/2026-11-01/karnov-hud-nightly-v9",
+    "checkpoint": "docs/qa/checkpoints/2026-11-01/kirby-owner-nightly-v2",
     "source": {
-      "path": "docs/qa/checkpoints/2026-11-01/karnov-hud-nightly-v9/source.zip",
-      "sha256": "ae5e53e01d7796f6d5beab97668b4f02a270c5dc60027d1cda181b6dfe11f777",
-      "bytes": 540111,
-      "members": 170,
-      "inherited_source_packet": "docs/qa/checkpoints/2026-11-01/karnov-options-nightly-v8/source.zip",
-      "inherited_sha256": "dedeb87c123ce5b575bcf16f0eb84bd52bffd6a1808174cfd4f25fe5856514ea"
+      "path": "docs/qa/checkpoints/2026-11-01/kirby-owner-nightly-v2/source.zip",
+      "sha256": "e465b2c73a0e0ce9a36f55ad3cac648bdf2ec6b1e198c8763974be419688c847",
+      "bytes": 767785,
+      "members": 239,
+      "inherited_source_packet": "docs/qa/checkpoints/2026-11-01/karnov-hud-nightly-v9/source.zip",
+      "inherited_sha256": "ae5e53e01d7796f6d5beab97668b4f02a270c5dc60027d1cda181b6dfe11f777"
     },
     "native": {
-      "path": "docs/qa/checkpoints/2026-11-01/karnov-hud-nightly-v9/native-results.zip",
-      "sha256": "7a152bfb6e4613fd44d01840a051f0ceea429befc030d88eb1b8070dcae740ed",
-      "bytes": 186085,
-      "members": 72
+      "path": "docs/qa/checkpoints/2026-11-01/kirby-owner-nightly-v2/native-results.zip",
+      "sha256": "d89ed57e39a5a1b4a9be7fb20cd1fc929e458f62cc502619677e909c4bb0fe9d",
+      "bytes": 38378,
+      "members": 13
     },
+    "owning_candidate": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\kirby-owner-main-1101-v2\\candidate.nes",
+    "owning_build_recipe": "tools/audit/prepare_kirby_owner_main_1101_v2.py",
     "verification": {
-      "ROM_sha256": "99bf88c8d971f1305f965a21833703c7a11aafa6a24febd9f3bfb7c87ba4bbda",
-      "HUD_Main_minimum_ISR_SP": 169,
-      "equipment_Main_minimum_ISR_SP": 137,
-      "combat_Main_minimum_ISR_SP": 135,
-      "cold_Main_minimum_ISR_SP": 138,
-      "cold_Main_ISR_cuts": 55,
-      "actual_loader_rows": 12,
-      "all32_cookie_bytes_independently_rejected": true,
-      "source_CPU_suite": [
-        "health-CPU-controls.json",
-        "rebound-CPU-controls.json",
-        "life-restart-CPU-controls.json",
-        "terrain-CPU-controls.json",
-        "terrain-vectors.json",
-        "scene-CPU-controls.json"
-      ],
-      "native_equipment_stock_fixture": true,
-      "native_controller_combat_and_pickups": true,
-      "native_menu_transitions": 124,
-      "heading_errors": 0,
-      "visible_mask_writes": 0,
-      "native_scopes": {
-        "boots-hud": "Cold controller Select/Start with original portrait/lives/body CHR, palette, DMA and ISR checks. Six declared source inventory bytes create earned stock at Main20; subsequent Select/Down+B/use controls are real controller input. Tests boots88px jump, boomerang flight/return or wingsUp/Down. No claim that the fixture collected gear or qualified expiry/full-stage/audio. Two earned-stock uses are explicitly initialized per equipment, leaving01 after activation so its original icon remains selected. Native PPU checks verify fullname/BCD/icon tiles, exact font lease and actual HUD/world publications.",
-        "boomerang-hud": "Cold controller Select/Start with original portrait/lives/body CHR, palette, DMA and ISR checks. Six declared source inventory bytes create earned stock at Main20; subsequent Select/Down+B/use controls are real controller input. Tests boots88px jump, boomerang flight/return or wingsUp/Down. No claim that the fixture collected gear or qualified expiry/full-stage/audio. Two earned-stock uses are explicitly initialized per equipment, leaving01 after activation so its original icon remains selected. Native PPU checks verify fullname/BCD/icon tiles, exact font lease and actual HUD/world publications.",
-        "wings-hud": "Cold controller Select/Start with original portrait/lives/body CHR, palette, DMA and ISR checks. Six declared source inventory bytes create earned stock at Main20; subsequent Select/Down+B/use controls are real controller input. Tests boots88px jump, boomerang flight/return or wingsUp/Down. No claim that the fixture collected gear or qualified expiry/full-stage/audio. Two earned-stock uses are explicitly initialized per equipment, leaving01 after activation so its original icon remains selected. Native PPU checks verify fullname/BCD/icon tiles, exact font lease and actual HUD/world publications.",
-        "combat-crouch": "Controller-only actual cold Select/Start, crouch and shoot the first real Goomba, require native defeat/SFX, head-hit the first real question block, collect the emerged mushroom and fire original double shots. No RAM/code/object injection. Four PNG cap; full1-1/equipment/source-audio remains separate.",
-        "block-row": "Controller-only cold Select/Start, crouch-fire Goomba kill, stand left of the first block row and jump/fire into bricks and a question block. Require native projectile block effects, brick animation and real powerup spawn. No player/object/code/RAM injection. Four PNG cap.",
-        "final-menu": "Actual selectable86 WIP: all90 roster identities/124 transitions. Exact heading, unchanged sampled gray roster and no visible PPUMASK writes. Four PNG cap; no full-stage or complete-character claim."
-      },
-      "HUD_font_physical": 1023,
-      "HUD_cache": "C87A..C87F",
-      "same_life_area_HUD_cancel": true,
-      "ROM_retirement_HUD_cancel": true
+      "ROM_sha256": "c864e46a8f333ab7a936c8d8f330944041a3eff12bc6dd4d9ba96892144ff3c7",
+      "actual_Main": true,
+      "Main_ISR_minimum_SP": 138,
+      "Main_ISR_cases": 160,
+      "native_cases": 3,
+      "native_mode": "Hard",
+      "native_scope": "Cold Hard-mode Kirby with disclosed flat native terrain/player/NPC setup; actual freshB inhale, capture/Down copy and both grounded shell powers. All DMA/CHR/ISR guards retained; no tested ability/health/shot/input-edge/outcome writes. FourPNG cap; not full1-1.",
+      "actual_Main_entry_SP": 250,
+      "native_entry_SP_updates": 965,
+      "native_frames": 1383,
+      "native_updates": 965,
+      "native_screenshots": 3,
+      "native_IRQ31": 966,
+      "native_NMI": 1375,
+      "native_complete256_DMA": 1208,
+      "foreign_dispatch_receipt_sha256": "ecd241493bad0d376b0608186bf529829f84b1bd2c4a63d0b5fa699942f55d07",
+      "foreign_dispatch_ABI_verified": true,
+      "exact_source_closure_sha256": "ec520e00feca81223d929915d321ec33d901d2cb7f3ebc1bc7f64659d44fc858",
+      "inherited_HUD_checkpoint": "docs/qa/checkpoints/2026-11-01/karnov-hud-nightly-v9",
+      "inherited_HUD_ROM_sha256": "99bf88c8d971f1305f965a21833703c7a11aafa6a24febd9f3bfb7c87ba4bbda",
+      "inherited_HUD_evidence_not_renamed_to_successor": true
     },
+    "changes": [
+      "Native enemy contacts now reach Kirby body protection during the original eight-update inhale opening.",
+      "Copied green/red shells move3px per update and use real native enemy boxes, including ground-level and page-boundary contacts."
+    ],
+    "pending": [
+      "Full1-1/shortcut/every-powerup testing and the remaining character/campaign integrations remain unfinished.",
+      "Karnov original audio and other equipment remain unfinished. Metal Storm, Shinobi and Excitebike are still unselectable."
+    ],
     "components": {
-      "HUD-source": {
-        "path": "docs/qa/checkpoints/2026-11-01/karnov-hud-nightly-v9/HUD-source.zip",
-        "sha256": "10aa09065b7a999f75f3d5a8ff726d0c7031678bfd25519e68faed2a8baee34b",
-        "integrated": true
-      },
-      "HUD-resource-grant": {
-        "path": "docs/qa/checkpoints/2026-11-01/karnov-hud-nightly-v9/HUD-resource-grant.zip",
-        "sha256": "299abbd0477434f45334a25acfdd38d4ddc646c5966464aeac02806c8cec9b46",
-        "integrated": true
-      },
-      "kirby-repair-component": {
-        "path": "docs/qa/checkpoints/2026-11-01/karnov-hud-nightly-v9/kirby-repair-component.zip",
-        "sha256": "9da690c7693403fb2088cc8e32ac27ba0890084c61a03d00d5d39f78a1d5709a",
+      "metal_storm_palette": {
+        "path": "docs/qa/checkpoints/2026-11-01/kirby-owner-nightly-v2/metal-storm-player-palette.zip",
+        "sha256": "fac9a37cc67a42d0ffe080a85cca6e20b04d5892da864c8b2b9f3aea0decadf5",
         "integrated": false
       },
-      "mario-tank-source": {
-        "path": "docs/qa/checkpoints/2026-11-01/karnov-hud-nightly-v9/mario-tank-source.zip",
-        "sha256": "4ba9b8bcb8706e906749bde18619fd1dcdfff39cba259a0ed45bfc49bdeafac5",
-        "integrated": false
-      },
-      "metal-storm-resources": {
-        "path": "docs/qa/checkpoints/2026-11-01/karnov-hud-nightly-v9/metal-storm-resources.zip",
-        "sha256": "abe08a438e929bbeac93fcb319ed01cd9fdf64649a4a4d4f1828a8dd91d48710",
+      "mario_tank_host": {
+        "path": "docs/qa/checkpoints/2026-11-01/kirby-owner-nightly-v2/mario-tank-host.zip",
+        "sha256": "6dea7920bdb5795403376f6cd11b967cb5439c8cc0c956fe35b90e334135ea84",
         "integrated": false
       }
     },
-    "controls": "Select cycles earned Boots/Boomerang/Wings/NONE. Down+fresh B activates the highlighted option. A jumps; B fires. Up/Down move during flight.",
-    "changes": [
-      "Equipment HUD shows the original icon, full selected name and BCD stock with an alternating control hint.",
-      "Native HUD font publication preserves world font mapping and yields to busy native VRAM updates.",
-      "Same-life construction and ROM retirement cancel the derived HUD lease; other owners remain unchanged."
-    ],
-    "pending": [
-      "Original Karnov audio and six other equipment types remain unfinished.",
-      "Equipment native tests use declared stock fixtures; controller-earned gear, full1-1/shortcut/every-powerup remain unfinished.",
-      "Kirby source repair is frozen but is not integrated in this nightly. Metal Storm, Shinobi and Excitebike remain unselectable."
-    ],
     "storage": {
-      "build_bytes": 1609866487,
-      "build_files": 8578,
+      "build_bytes": 1630156911,
+      "build_files": 8708,
       "build_byte_cap": 5000000000,
       "build_file_cap": 20000
     }
@@ -170,14 +141,14 @@
     "proof": "Rebuild source; check native imports/foreign behavior, real86-identity menu transitions and exact combined-ROM Mesen play. Existing component hashes are not combined-ROM evidence.",
     "composition_completed": true
   },
-  "Mesen": "Six positive root SMB runs terminal. Other-project sessions untouched.",
+  "Mesen": "All root-owned SMB native runs for c864 delivery are terminal. Other-project sessions were left untouched.",
   "storage": {
-    "build_bytes": 1609866487,
-    "build_files": 8578,
+    "build_bytes": 1630332901,
+    "build_files": 8724,
     "build_byte_cap": 5000000000,
     "build_file_cap": 20000
   },
-  "agents": "Three authorized workers: isolated Kirby owning-link/Main proposal, Mario the Tank host adapters, Metal Storm world-safe palette/resource proposal. Root owns SMB Mesen queue.",
+  "agents": "Mario the Tank ROM-gate/loader funding; Metal Storm actual owning graft using accepted CHR resources; Shinobi owning graft from the recovered original-source component. Root owns SMB Mesen and delivery.",
   "do_not_stage": "docs/qa/current-roster-progress-2026-10-27.json",
   "other_full_objective_work": [
     "Karnov is selectable WIP with original movement, health/death/stomp and contact-earned pickups; projectile combat, equipment activation/HUD/icons, original audio and full-stage testing remain.",
@@ -2169,9 +2140,9 @@
   },
   "active_source_components": {
     "kirby_repair": {
-      "path": "docs/qa/checkpoints/2026-11-01/karnov-hud-nightly-v9/kirby-repair-component.zip",
-      "sha256": "9da690c7693403fb2088cc8e32ac27ba0890084c61a03d00d5d39f78a1d5709a",
-      "integrated": false
+      "integrated": true,
+      "checkpoint": "docs/qa/checkpoints/2026-11-01/kirby-owner-nightly-v2",
+      "ROM_sha256": "c864e46a8f333ab7a936c8d8f330944041a3eff12bc6dd4d9ba96892144ff3c7"
     },
     "mario_tank": {
       "path": "docs/qa/checkpoints/2026-11-01/karnov-hud-nightly-v9/mario-tank-source.zip",
@@ -2187,6 +2158,29 @@
       "path": "docs/qa/checkpoints/2026-11-01/karnov-hud-nightly-v9/HUD-source.zip",
       "sha256": "10aa09065b7a999f75f3d5a8ff726d0c7031678bfd25519e68faed2a8baee34b",
       "integrated": true
+    },
+    "metal_storm_palette": {
+      "path": "docs/qa/checkpoints/2026-11-01/kirby-owner-nightly-v2/metal-storm-player-palette.zip",
+      "sha256": "fac9a37cc67a42d0ffe080a85cca6e20b04d5892da864c8b2b9f3aea0decadf5",
+      "integrated": false
+    },
+    "mario_tank_host": {
+      "path": "docs/qa/checkpoints/2026-11-01/kirby-owner-nightly-v2/mario-tank-host.zip",
+      "sha256": "6dea7920bdb5795403376f6cd11b967cb5439c8cc0c956fe35b90e334135ea84",
+      "integrated": false
+    },
+    "CHR_resource_grant": {
+      "path": "docs/qa/checkpoints/2026-11-01/metal-storm-chr-resources-v10/resource-grant.json",
+      "sha256": "48bfa9768dcaaa0c7000f886faad967a59ee50d387b5b512417fbb60750032b9"
     }
+  },
+  "current_owning_candidate": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\kirby-owner-main-1101-v2\\candidate.nes",
+  "current_owning_build_recipe": "tools/audit/prepare_kirby_owner_main_1101_v2.py",
+  "source_override_required": "Do not rebuild from the older Karnov Main alone: the current Kirby override and S2 boundary repair must remain composed.",
+  "cleanup_rejection": {
+    "action": "Delete Mario the Tank host.o and host.dbg temporary outputs",
+    "reason": "Automatic approval review blocked deletion under policy",
+    "bytes": 64959,
+    "retained_within_caps": true
   }
 }

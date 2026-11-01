@@ -1,0 +1,41 @@
+{
+  "passed": true,
+  "baseline_ROM_sha256": "c864e46a8f333ab7a936c8d8f330944041a3eff12bc6dd4d9ba96892144ff3c7",
+  "closure_packet": "docs/qa/checkpoints/2026-11-01/metal-storm-chr-resources-v10/source-proof.zip",
+  "closure_sha256": "a30a18a8d840c6720d603c9456d37a978b7ebcba25f619c6c1a0783cab91ee86",
+  "accepted_existing_consumer_closure": true,
+  "CHR_pages_granted": true,
+  "Metal_pages": [
+    247,
+    248,
+    249,
+    250,
+    494,
+    495,
+    496,
+    497,
+    498,
+    499,
+    500,
+    827,
+    828,
+    829,
+    830,
+    831
+  ],
+  "Tank_pages": [
+    501,
+    502
+  ],
+  "Thomas511_remains_owned": true,
+  "PRG_gates_granted": false,
+  "RAM_runtime_lease_granted": false,
+  "menu_admitted": false,
+  "native_qualified": false,
+  "conditions": [
+    "Metal uses500 in place of HUD-owned1023. Keep the original sprite shape and approved player-only red/white/black adaptation; native P1/P2/P3 remain exact.",
+    "Freeze code/CHR before checksums and complete owner headers. No shared callback may enter an unloaded or unauthenticated runtime image.",
+    "Current PRG tail ownership, conditional work-RAM lifecycle, constructors/retirement, actual Main/ISR and native play still require qualification.",
+    "This allocates only the listed CHR pages. No permission to reuse arbitrary zero/FF data or fixed mirror space."
+  ]
+}
