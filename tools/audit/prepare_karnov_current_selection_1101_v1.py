@@ -7,8 +7,10 @@ from prepare_selected_native_packet_v1 import R, prepare, sha
 
 def main():
     ap=argparse.ArgumentParser();ap.add_argument('--output',type=Path,required=True)
+    ap.add_argument('--candidate',type=Path,help='Tested candidate matching the installed ROM and its labels')
     ap.add_argument('--installed-path',action='store_true');a=ap.parse_args()
-    rom=R/'build/kirby-owner-main-1101-v2/candidate.nes'
+    current=json.loads((R/'docs/qa/continuation-current.json').read_text())['installed_nightly']
+    rom=a.candidate or Path(current['owning_candidate'])
     installed=Path('C:/Users/kando/Downloads/SMB-Crossover-Latest-WIP-MMC5.nes')
     assert sha(rom)==sha(installed)
     controller=r'''
