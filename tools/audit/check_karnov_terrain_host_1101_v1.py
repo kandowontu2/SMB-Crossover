@@ -19,6 +19,7 @@ def main():
     q=dict(passed=False,source_CPU=True,native=False,installed=False,menu_admitted=False)
     try:
         assembly=json.loads((O/'terrain-assembly.json').read_text());assert assembly['passed']
+        post_row=36 if assembly.get('rebound')else 27
         for p,h in assembly['bindings'].items():assert sha(p)==h,p
         b=H.C.qualified(O/'candidate.nes');raw=ROM.read_bytes();original=raw[16+14*8192:16+16*8192]
         def service(m,row,**kw):
@@ -49,7 +50,7 @@ def main():
             m=L.fork(seed)
             if bank is None:H.put(m,FmAlts=0)
             else:m.ram[bank][0x1fe0+index]^=1
-            for row in range(36):
+            for row in range(assembly.get('service_count',36)):
                 prior=[bytes(z)for z in m.ram];fresh(m);c=service(m,row,y=30,deny_RAM=True)
                 if assembly.get('menu')and bank is not None and row in [3,17,18,19,26,30,32]:
                     assert[bytes(z)for z in m.ram]==prior and not m.ram_writes;safe_ROM_routes+=1
@@ -99,18 +100,18 @@ def main():
         for source_state,face in itertools.product([8|64,9|64,23,24],[0,128]):
             m=L.fork(seed);m.ram[2][0x62]=source_state|face;m.ram[2][0x66]=17;m.ram[2][0x6a]=55;m.ram[2][0x6b]=3
             H.put(m,Player_State=0);before=[H.get(m,n)for n in ['Player_X_Position','Player_PageLoc','Player_Y_Position','Player_Y_HighPos']]
-            service(m,27)
+            service(m,post_row)
             assert m.ram[2][0x62]==face and not any(m.ram[2][i]for i in [0x66,0x6a,0x6b])
             assert[H.get(m,n)for n in ['Player_X_Position','Player_PageLoc','Player_Y_Position','Player_Y_HighPos']]==before;contacts+=1
         for delta in [0,251]:
             m=L.fork(seed);m.ram[2][0x62]=8;m.ram[2][address(b,'KrDeltaY')&8191]=delta
-            H.put(m,Player_State=2,Player_Y_Speed=1);service(m,27)
+            H.put(m,Player_State=2,Player_Y_Speed=1);service(m,post_row)
             assert m.ram[2][0x62]==72 and not any(m.ram[2][i]for i in [0x66,0x6a,0x6b]);contacts+=1
-        m=L.fork(seed);H.put(m,Player_State=2);service(m,27);assert m.ram[2][0x62]==23;contacts+=1
+        m=L.fork(seed);H.put(m,Player_State=2);service(m,post_row);assert m.ram[2][0x62]==23;contacts+=1
         for pose,face in itertools.product([8,9],[0,128]):
             m=L.fork(seed);m.ram[2][0x62]=pose|64|face;m.ram[2][0x66]=17;m.ram[2][0x6a]=12;m.ram[2][0x6b]=4
             m.ram[2][address(b,'KrDeltaY')&8191]=0;H.put(m,Player_State=2,Player_Y_Speed=0)
-            service(m,27)
+            service(m,post_row)
             assert [m.ram[2][i]for i in [0x62,0x66,0x6a,0x6b]]==[pose|64|face,17,12,4],'Zero-step fall must advance its source gravity phase'
             contacts+=1
         # Compare every imported actor step to the original executable actor.
@@ -164,7 +165,7 @@ def main():
                 # native collision/playthrough admission that follows.
                 if H.get(m,'Player_Y_Position')>=176 and H.get(m,'Player_Y_Speed')<128:
                     H.put(m,Player_Y_Position=176,Player_Y_HighPos=1,Player_State=0,Player_Y_Speed=0)
-                service(m,27)
+                service(m,post_row)
             rise=176-peak;assert rise==(88 if boots else 48),(boots,page,rise)
             traces.append(dict(boots=boots,page=page,rise=rise))
         # Actual native camera routine consumes the exported committed step.
@@ -172,7 +173,7 @@ def main():
         maximum_camera=0
         for tick in range(420):
             H.put(m,SavedJoypadBits=1,FrameCounter=tick&255,Player_State=0);movement(m)
-            service(m,27);L.call(m,'ScrollHandler')
+            service(m,post_row);L.call(m,'ScrollHandler')
             camera=H.get(m,'ScreenLeft_X_Pos')+256*H.get(m,'ScreenLeft_PageLoc');maximum_camera=max(camera,maximum_camera)
             relative=(H.get(m,'Player_X_Position')+256*H.get(m,'Player_PageLoc')-camera)&65535
             assert relative<=112,('camera drift',tick,relative,camera)

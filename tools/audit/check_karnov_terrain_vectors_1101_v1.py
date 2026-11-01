@@ -37,9 +37,14 @@ def main():
             names=['Player_X_Position','Player_PageLoc','Player_Y_Position','Player_Y_HighPos','Player_State','Player_Y_Speed','Player_X_Speed','Player_X_Scroll','Player_Pos_ForScroll']
             return [bytes(z)for z in m.ram],m.rawtags[:],H.get(m,'CurrentBank'),H.get(m,'CurrentBankC'),bytes(m[3:11]),bytes(m[0x15a:0x17b]),[H.get(m,n)for n in names],bytes(m[0x200:0x300])
         rows=[];minimum=255
-        services=[0,10,14,15,27]+([1,2,26]if stage.get('render')else[])
+        services=[0,10,14,15,27]+([31,36]if stage.get('rebound')else[])+([1,2,26]if stage.get('render')else[])
+        if stage.get('health'):services += [5,6,7,8]
         for slot in services:
-            origin=L.fork(seed);baseline=L.fork(origin);bc,trace,_=run(baseline,slot)
+            origin=L.fork(seed)
+            if slot==8:
+                H.put(origin,GameEngineSubroutine=11,FrameCounter=1,Player_Y_Position=144,Player_Y_HighPos=1)
+                origin.ram[2][0x62]=25;origin.ram[2][0x64]=176
+            baseline=L.fork(origin);bc,trace,_=run(baseline,slot)
             unique={}
             for i,pc in enumerate(trace):unique.setdefault(pc,i)
             positions=sorted(unique.values());cuts={0,len(trace)-2,*positions[::max(1,len(positions)//24)]}

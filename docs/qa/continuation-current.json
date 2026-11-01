@@ -2,61 +2,92 @@
   "goal_status": "ACTIVE_INCOMPLETE",
   "previous_goal_turn_classification": "progress",
   "date": "2026-11-01",
-  "current_priority": "User explicitly requests the same selectable WIP as testing. Delivered merged86 Karnov+compact menu be7512... directly to Downloads, no backup. Karnov is selectable via Rygar/Select; combat, injury/death, pickups, rebound, equipment/audio remain incomplete. Three agents are implementing isolated health/pickup/combat components. Continue source integration and publish subsequent integrated WIP promptly; do not withhold it for complete-character qualification. Preserve remaining roster/campaign/playthrough objectives.",
+  "current_priority": "Delivered current86 WIP e8d35a95 with three alternate-input fixes, Karnov original health/death/next-life and separate stomp/post-BG rows. All exact-candidate source/native gates pass. Next integrate contact pickups through reviewed puretransformer, then source projectile combat only after carrier ownership, forcedblank copy/readback and real Main stack proof. Publish each usable integrated WIP to same Downloads file without backup; preserve full roster/campaign/every-powerup goals.",
   "nightly_policy": "Publish usable updates frequently. Replace C:/Users/kando/Downloads/SMB-Crossover-Latest-WIP-MMC5.nes; do not make backup copies. A GitHub push is not a nightly delivery.",
   "installed_nightly": {
     "passed": true,
     "installed": true,
     "backup_created": false,
     "user_requested_WIP": true,
+    "complete": false,
     "destination": "C:\\Users\\kando\\Downloads\\SMB-Crossover-Latest-WIP-MMC5.nes",
-    "output_sha256": "be751275d00757ecaa51defcd2ccd5ea235921aa4b1f34337fa6c5c6e1877962",
-    "replaced_sha256": "e40109ff598e060a4ad384a7cf77bafccfefbe2efa79599f817f832c93fca019",
+    "output_sha256": "e8d35a95ffe8e396dc1d8b32ca78d57d376fc14de9a2f4b37754012448fde09a",
+    "replaced_sha256": "be751275d00757ecaa51defcd2ccd5ea235921aa4b1f34337fa6c5c6e1877962",
     "selectable_identities": 86,
     "previously_verified_identities": 85,
     "total_menu_identities": 90,
-    "new_identities": [
-      "Karnov"
-    ],
-    "selection": "Rygar -> Select -> Karnov -> Start",
-    "complete": false,
-    "complete_character": false,
+    "selection": "Rygar -> Select -> Karnov -> A/Start",
+    "checkpoint": "docs/qa/checkpoints/2026-11-01/karnov-menu-health-nightly-v3",
     "source": {
-      "path": "docs/qa/checkpoints/2026-11-01/requested-wip86-native-v2/source.zip",
-      "sha256": "29d31e7f126138d8cf30b405298619508024b3230d03d0262175a5091576f178",
-      "bytes": 241331,
-      "members": 75
+      "path": "docs/qa/checkpoints/2026-11-01/karnov-menu-health-nightly-v3/source.zip",
+      "sha256": "a3e0c83a0c4d46bd465c53006f50579cea95f0dd34cc1089b05c70ef2820e770",
+      "bytes": 789908,
+      "members": 102
     },
     "native": {
-      "path": "docs/qa/checkpoints/2026-11-01/requested-wip86-native-v2/native-results.zip",
-      "sha256": "3444ef6bcd0824ece95710362559afd94d0d76bf22a2889dbea9de21e90adbb5",
-      "bytes": 28716,
-      "members": 13
+      "path": "docs/qa/checkpoints/2026-11-01/karnov-menu-health-nightly-v3/native-results.zip",
+      "sha256": "4174817eb3d85ecba46538048f757f9182ff08947e1a8ed35a717c7037ea3f51",
+      "bytes": 91122,
+      "members": 36
     },
-    "checkpoint": "docs/qa/checkpoints/2026-11-01/requested-wip86-native-v2",
+    "changes": [
+      "Real alternate consumers run before simultaneous Select+confirm. Select edges during roster construction are deferred; B/title reentry retains the chosen alternate. Cold reset retains original defaults.",
+      "Karnov now uses original first-hit health/blue palette/128-update immunity, fatal/death animation, life loss and fresh next-life state.",
+      "Public stomp rows27/31 restart original jump state. Post-BG reconciliation has its own private row36, preventing stomp velocity from being overwritten."
+    ],
     "verification": {
-      "ROM_sha256": "be751275d00757ecaa51defcd2ccd5ea235921aa4b1f34337fa6c5c6e1877962",
-      "scope": "Exact-candidate controller boot/menu/lives/game opening, body pixels, jump/landing, source projectile updates, camera, backdrop and ISR returns. All old private bytes outside menu+cookies exact; compact menu code exact to prior delivered repair.",
-      "Main": 288,
-      "video_frames": 836,
-      "ISR_returns": 1275,
-      "source_movement": 288,
-      "source_weapons": 288,
-      "maximum_camera": 141,
-      "maximum_projectiles": 3,
-      "background_checks": 422,
-      "jumped": true,
-      "landed": true
+      "ROM_sha256": "e8d35a95ffe8e396dc1d8b32ca78d57d376fc14de9a2f4b37754012448fde09a",
+      "source_CPU_suite": [
+        "health-CPU-controls.json",
+        "rebound-CPU-controls.json",
+        "life-restart-CPU-controls.json",
+        "terrain-CPU-controls.json",
+        "terrain-vectors.json",
+        "scene-CPU-controls.json"
+      ],
+      "menu_native_calls": 3020,
+      "menu_identities": 90,
+      "Start_A": 180,
+      "combined_cases": 180,
+      "deferred_edges": 128,
+      "title_reentries": 90,
+      "native_menu_transitions": 124,
+      "native_menu_frames": 2630,
+      "sampled_gray_anomalies": 0,
+      "heading_errors": 0,
+      "visible_mask_writes": 0,
+      "opening_Main": 314,
+      "opening_source_shots": 1,
+      "injury_Main": 636,
+      "injury_ISR_returns": 2311,
+      "first_injury_and_invulnerability_observed": true,
+      "life_restart": "Source CPU actual native parser/Main/NMI; declared depleted-health fixture. Not a controller-earned fatal collision."
+    },
+    "components": {
+      "pickups": {
+        "path": "docs/qa/checkpoints/2026-11-01/karnov-menu-health-nightly-v3/pickups-component.zip",
+        "sha256": "56de530e2827d217bb98eeea1eb9c08f1d63363ba768aedbdb7f4aed049170e1",
+        "integrated": false
+      },
+      "combat": {
+        "path": "docs/qa/checkpoints/2026-11-01/karnov-menu-health-nightly-v3/combat-component.zip",
+        "sha256": "87eb2bebe69fa5af709febae60a2e117ddce4d011e17cc41f26783998be1ce2a",
+        "integrated": false
+      }
     },
     "pending": [
-      "Karnov enemy/block combat, injury/death, pickups, stomp rebound, equipment and original audio are incomplete.",
-      "Metal Storm, Shinobi and Excitebike are isolated source components, not selectable ROM characters yet.",
-      "No full1-1/shortcut/all-powerup, full-roster campaign or constant60Hz claim."
+      "Karnov native projectile enemy/block combat and contact-earned pickups/options are not integrated yet; compact agent components are preserved separately.",
+      "Original audio, equipment activation, native option HUD/icons, full1-1/shortcut/every-powerup testing remain unfinished.",
+      "Metal Storm, Shinobi and Excitebike remain source components without selectable host integration.",
+      "The exact user-reported inaccessible-selection path remains unknown; three reproduced input traps are now fixed, not a claim that every input-device configuration was tested."
     ],
-    "delivery_policy": "The user explicitly requests access to the same selectable WIP used for testing. Publish integrated WIP without withholding it for complete-character qualification.",
+    "diagnostics": [
+      "Earlier encounter attempts used CPU-address reads for banked source state; corrected to physical nesWorkRam before current qualification. Old three-projectile observation was invalid; current starting weapon shows one actual source projectile.",
+      "A broader controller death route failed to regain contact with the same goomba before reaching the locked left camera edge. It was not counted as a passing death/restart test; that boundary has a separate explicit source-CPU fixture."
+    ],
     "storage": {
-      "build_bytes": 1556440075,
-      "build_files": 7519,
+      "build_bytes": 1559655553,
+      "build_files": 7695,
       "build_byte_cap": 5000000000,
       "build_file_cap": 20000
     }
@@ -122,21 +153,10 @@
   },
   "Mesen": "All owned SMB queues are terminal. External projects may run Mesen concurrently. Root owns one SMB queue; --doNotSaveSettings, original sprite limits, owned-process watchdog and bounded storage rules remain required.",
   "storage": {
-    "build_last_bytes_approx": 1556319186,
-    "build_last_files": 7496,
-    "workspace_last_bytes_approx": 5013048591,
+    "build_bytes": 1559655553,
+    "build_files": 7695,
     "build_byte_cap": 5000000000,
-    "build_file_cap": 20000,
-    "workspace_byte_cap": 70000000000,
-    "task_byte_cap": 256000000,
-    "task_file_cap": 1000,
-    "capture_byte_cap": 128000000,
-    "capture_file_cap": 64,
-    "capture_PNG_cap": 4,
-    "runner": "All artifact producers via tools/audit/run_bounded_build_v1.py. Resume only owned unfinished roots. No videos, frame/state forests, source-tree copies or recursive recovery of old proof graphs.",
-    "recovery_archive": "build/_recovery/legacy-sources-2026-10-31.zip; restore only exact indexed inputs as needed.",
-    "older_cleanup_rejection": "Do not bypass policy rejection of deleting build/thomas-lift-carry. Superseded experiment remains within cap.",
-    "native_cleanup_rejection_1101": "Automatic approval review also rejected removal of the six superseded WWF native test folders listed in docs/qa/nightly-2026-11-01-ready81-finalization.json. They remain in place. Do not retry through another mechanism. The policy response supplied no more specific reason."
+    "build_file_cap": 20000
   },
   "agents": "User explicitly requested maximum parallel agents on November1. All three available slots were used for original-source components and follow-up reviews. Their source packets and the compact WWF menu fix are published; all owned native runs are terminal and current85 nightly is delivered. Do not resume older historical workers blindly.",
   "do_not_stage": "docs/qa/current-roster-progress-2026-10-27.json",
@@ -764,11 +784,11 @@
     "native_port": true,
     "admitted": false,
     "installed": true,
-    "installed_nightly_sha256": "be751275d00757ecaa51defcd2ccd5ea235921aa4b1f34337fa6c5c6e1877962",
+    "installed_nightly_sha256": "e8d35a95ffe8e396dc1d8b32ca78d57d376fc14de9a2f4b37754012448fde09a",
     "installed_selectable": 86,
     "previously_verified_identities": 85,
-    "current_WIP_checkpoint": "docs/qa/checkpoints/2026-11-01/requested-wip86-native-v2",
-    "current_WIP_policy": "User explicitly requests access to the same selectable test build despite incomplete Karnov mechanics. Delivered86 with latest compact menu. Nested component records below retain historical hash-specific scopes and do not override this delivery.",
+    "current_WIP_checkpoint": "docs/qa/checkpoints/2026-11-01/karnov-menu-health-nightly-v3",
+    "current_WIP_policy": "Same selectable test WIP is delivered promptly. Complete-character qualification remains unfinished; historical component records below retain their original hashes/scopes.",
     "donor_sha256": "0d49c1120fc13ead1efe4429f7cbb4f01b90e2486c66661c46e922dda6dc830a",
     "source": {
       "path": "docs/qa/checkpoints/2026-11-01/karnov-original-component-v1/source.zip",
@@ -1072,13 +1092,9 @@
       "host": "build/karnov-host-resource-base-1101-v1"
     },
     "next": [
-      "Continue delivered selectable86 WIP be7512. Implement native combat/health/earned options/rebound/audio and full-stage behavior; publish subsequent integrated WIP promptly without withholding it for complete-character qualification",
-      "Recover/use native health/injury leaves CA2B..CA50/CB69..CB8B and palette-command helper C2C7..C2DF; actual collision admission currently belongs to C969",
-      "Recover actual options activation/stock/timers and earned Super Fireball pickups; source weapon-state fixtures do not prove collectible progression",
-      "Connect native SMB head/side/feet/camera/pipes/flagpole and independent source projectile slots to native enemies/blocks; retain original clamp as an explicit host boundary adaptation",
-      "Preserve the now-verified original body/shot art, OAM order and default/injured palettes while wiring real gameplay; projectile patterns use only verified unused pairs in body page3 and P0 window3, leaving world windows4..7 untouched",
-      "Recover original audio and qualify IRQ/NMI/SMC/private pointer restoration before controller-earned native admission",
-      "Continue Metal Storm/Shinobi/Excitebike/Prince of Persia, Sonic3 and other named goal characters; then every1-1/shortcut/every-powerup audit"
+      "Integrate reviewed pickup puretransformer tools/audit/prepare_karnov_pickup_host_1101_v3.py; source-based block item selection, real emergence/contact, original progression/options; actual Main/ISR qualification required.",
+      "Combat source1040B+C2context32+A3wrapper12 passes isolated contacts/interrupts. CHR1019/1020 carrier still requires all-other-owner closure, forcedblank copy/readback before cookies, and real Main-depth stack proof. Never allocate from zero-fill alone.",
+      "Wire original option activation/Select/icons/HUD and audio, then full1-1/shortcut/every-powerup; other source characters and campaigns remain in scope."
     ],
     "limits": [
       "Karnov is selectable in installed86 WIP via Rygar/Select. Cold menu/native opening passes; full-stage/combat/powerup/audio and complete-character qualification remain unfinished.",
@@ -1087,7 +1103,75 @@
       "Host-linked source uses R0/R1=3/4 and restores host ZP in 7808 differential executions. The resident passes 228 real host NMI/IRQ cuts plus 12 normal/paused NMI cases. Native gameplay/source-step interrupts, raster, audio and scene ownership still require admission checks.",
       "Source snapshots and proofs are frozen here; active build roots remain unqualified/mutable for continued integration. Do not recursively restore historical trees or reuse stale mutable bindings after edits."
     ],
-    "primary_manual": "https://www.gamingalexandria.com/highquality/NES/Karnov/Karnov%20-%20Manual%20(Searchable).pdf"
+    "primary_manual": "https://www.gamingalexandria.com/highquality/NES/Karnov/Karnov%20-%20Manual%20(Searchable).pdf",
+    "current_menu_health": {
+      "checkpoint": "docs/qa/checkpoints/2026-11-01/karnov-menu-health-nightly-v3",
+      "ROM_sha256": "e8d35a95ffe8e396dc1d8b32ca78d57d376fc14de9a2f4b37754012448fde09a",
+      "services": {
+        "0": "KrMovement",
+        "10": "KrHead",
+        "11": "KrBodyPolicy",
+        "12": "KrAdder",
+        "13": "KrBoxProfile",
+        "14": "KrSide",
+        "15": "KrConstruct",
+        "16": "KrBox",
+        "27": "KrBounce",
+        "28": "KrHeadWithin",
+        "31": "KrBounce",
+        "36": "KrPostTerrain",
+        "5": "KrHealthInjury",
+        "6": "KrHealthStatus",
+        "7": "KrHealthDeathStart",
+        "8": "KrHealthDeathUpdate",
+        "1": "KrGraphics",
+        "2": "KrDraw",
+        "26": "KrColors"
+      },
+      "resident_bytes": 1630,
+      "kernel_bytes": 8028,
+      "new_menu_helper": "107B existing PROTO_MENU padding +26B appended existing PROTO_PALETTE_ACK;0 ROM29/kernel/newSRAM",
+      "verification": {
+        "ROM_sha256": "e8d35a95ffe8e396dc1d8b32ca78d57d376fc14de9a2f4b37754012448fde09a",
+        "source_CPU_suite": [
+          "health-CPU-controls.json",
+          "rebound-CPU-controls.json",
+          "life-restart-CPU-controls.json",
+          "terrain-CPU-controls.json",
+          "terrain-vectors.json",
+          "scene-CPU-controls.json"
+        ],
+        "menu_native_calls": 3020,
+        "menu_identities": 90,
+        "Start_A": 180,
+        "combined_cases": 180,
+        "deferred_edges": 128,
+        "title_reentries": 90,
+        "native_menu_transitions": 124,
+        "native_menu_frames": 2630,
+        "sampled_gray_anomalies": 0,
+        "heading_errors": 0,
+        "visible_mask_writes": 0,
+        "opening_Main": 314,
+        "opening_source_shots": 1,
+        "injury_Main": 636,
+        "injury_ISR_returns": 2311,
+        "first_injury_and_invulnerability_observed": true,
+        "life_restart": "Source CPU actual native parser/Main/NMI; declared depleted-health fixture. Not a controller-earned fatal collision."
+      },
+      "components": {
+        "pickups": {
+          "path": "docs/qa/checkpoints/2026-11-01/karnov-menu-health-nightly-v3/pickups-component.zip",
+          "sha256": "56de530e2827d217bb98eeea1eb9c08f1d63363ba768aedbdb7f4aed049170e1",
+          "integrated": false
+        },
+        "combat": {
+          "path": "docs/qa/checkpoints/2026-11-01/karnov-menu-health-nightly-v3/combat-component.zip",
+          "sha256": "87eb2bebe69fa5af709febae60a2e117ddce4d011e17cc41f26783998be1ce2a",
+          "integrated": false
+        }
+      }
+    }
   },
   "previous_qualified_nightly": {
     "installed": true,

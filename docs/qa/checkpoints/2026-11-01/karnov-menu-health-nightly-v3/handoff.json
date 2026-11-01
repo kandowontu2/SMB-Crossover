@@ -1,0 +1,88 @@
+{
+  "passed": true,
+  "installed": true,
+  "backup_created": false,
+  "user_requested_WIP": true,
+  "complete": false,
+  "destination": "C:\\Users\\kando\\Downloads\\SMB-Crossover-Latest-WIP-MMC5.nes",
+  "output_sha256": "e8d35a95ffe8e396dc1d8b32ca78d57d376fc14de9a2f4b37754012448fde09a",
+  "replaced_sha256": "be751275d00757ecaa51defcd2ccd5ea235921aa4b1f34337fa6c5c6e1877962",
+  "selectable_identities": 86,
+  "previously_verified_identities": 85,
+  "total_menu_identities": 90,
+  "selection": "Rygar -> Select -> Karnov -> A/Start",
+  "checkpoint": "docs/qa/checkpoints/2026-11-01/karnov-menu-health-nightly-v3",
+  "source": {
+    "path": "docs/qa/checkpoints/2026-11-01/karnov-menu-health-nightly-v3/source.zip",
+    "sha256": "a3e0c83a0c4d46bd465c53006f50579cea95f0dd34cc1089b05c70ef2820e770",
+    "bytes": 789908,
+    "members": 102
+  },
+  "native": {
+    "path": "docs/qa/checkpoints/2026-11-01/karnov-menu-health-nightly-v3/native-results.zip",
+    "sha256": "4174817eb3d85ecba46538048f757f9182ff08947e1a8ed35a717c7037ea3f51",
+    "bytes": 91122,
+    "members": 36
+  },
+  "changes": [
+    "Real alternate consumers run before simultaneous Select+confirm. Select edges during roster construction are deferred; B/title reentry retains the chosen alternate. Cold reset retains original defaults.",
+    "Karnov now uses original first-hit health/blue palette/128-update immunity, fatal/death animation, life loss and fresh next-life state.",
+    "Public stomp rows27/31 restart original jump state. Post-BG reconciliation has its own private row36, preventing stomp velocity from being overwritten."
+  ],
+  "verification": {
+    "ROM_sha256": "e8d35a95ffe8e396dc1d8b32ca78d57d376fc14de9a2f4b37754012448fde09a",
+    "source_CPU_suite": [
+      "health-CPU-controls.json",
+      "rebound-CPU-controls.json",
+      "life-restart-CPU-controls.json",
+      "terrain-CPU-controls.json",
+      "terrain-vectors.json",
+      "scene-CPU-controls.json"
+    ],
+    "menu_native_calls": 3020,
+    "menu_identities": 90,
+    "Start_A": 180,
+    "combined_cases": 180,
+    "deferred_edges": 128,
+    "title_reentries": 90,
+    "native_menu_transitions": 124,
+    "native_menu_frames": 2630,
+    "sampled_gray_anomalies": 0,
+    "heading_errors": 0,
+    "visible_mask_writes": 0,
+    "opening_Main": 314,
+    "opening_source_shots": 1,
+    "injury_Main": 636,
+    "injury_ISR_returns": 2311,
+    "first_injury_and_invulnerability_observed": true,
+    "life_restart": "Source CPU actual native parser/Main/NMI; declared depleted-health fixture. Not a controller-earned fatal collision."
+  },
+  "components": {
+    "pickups": {
+      "path": "docs/qa/checkpoints/2026-11-01/karnov-menu-health-nightly-v3/pickups-component.zip",
+      "sha256": "56de530e2827d217bb98eeea1eb9c08f1d63363ba768aedbdb7f4aed049170e1",
+      "integrated": false
+    },
+    "combat": {
+      "path": "docs/qa/checkpoints/2026-11-01/karnov-menu-health-nightly-v3/combat-component.zip",
+      "sha256": "87eb2bebe69fa5af709febae60a2e117ddce4d011e17cc41f26783998be1ce2a",
+      "integrated": false
+    }
+  },
+  "pending": [
+    "Karnov native projectile enemy/block combat and contact-earned pickups/options are not integrated yet; compact agent components are preserved separately.",
+    "Original audio, equipment activation, native option HUD/icons, full1-1/shortcut/every-powerup testing remain unfinished.",
+    "Metal Storm, Shinobi and Excitebike remain source components without selectable host integration.",
+    "The exact user-reported inaccessible-selection path remains unknown; three reproduced input traps are now fixed, not a claim that every input-device configuration was tested."
+  ],
+  "diagnostics": [
+    "Earlier encounter attempts used CPU-address reads for banked source state; corrected to physical nesWorkRam before current qualification. Old three-projectile observation was invalid; current starting weapon shows one actual source projectile.",
+    "A broader controller death route failed to regain contact with the same goomba before reaching the locked left camera edge. It was not counted as a passing death/restart test; that boundary has a separate explicit source-CPU fixture."
+  ],
+  "storage": {
+    "build_bytes": 1559655553,
+    "build_files": 7695,
+    "build_byte_cap": 5000000000,
+    "build_file_cap": 20000
+  }
+}

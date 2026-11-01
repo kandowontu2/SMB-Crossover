@@ -9,11 +9,17 @@ from prepare_cv3_dmc_mirror import prepare
 O,A,W,J=B.O,B.A,B.W,B.J
 
 def main():
-    ap=argparse.ArgumentParser();ap.add_argument('--render',action='store_true');ap.add_argument('--ingress',action='store_true');ap.add_argument('--scene',action='store_true');ap.add_argument('--menu',action='store_true');ap.add_argument('--compact-menu',action='store_true');args=ap.parse_args()
+    ap=argparse.ArgumentParser();ap.add_argument('--render',action='store_true');ap.add_argument('--ingress',action='store_true');ap.add_argument('--scene',action='store_true');ap.add_argument('--menu',action='store_true');ap.add_argument('--compact-menu',action='store_true');ap.add_argument('--rebound',action='store_true');ap.add_argument('--health',action='store_true');ap.add_argument('--menu-input',action='store_true');args=ap.parse_args()
     assert not args.ingress or args.render
     assert not args.scene or args.ingress
     assert not args.menu or args.scene
     assert not args.compact_menu or args.menu
+    assert not args.rebound or args.scene
+    assert args.rebound or not(O/'kr-rebound.inc').exists(),'Keep --rebound after separating private post-BG from public bounce'
+    assert not args.health or args.rebound
+    assert args.health or not(O/'kr-health.inc').exists(),'Keep --health after integrating source injury/death'
+    assert not args.menu_input or args.compact_menu
+    assert args.menu_input or not(O/'menu-input-entry.s').exists(),'Keep --menu-input after the menu input repair'
     assert args.menu or not(O/'kr-menu.inc').exists(),'This root now contains menu sources; keep --menu enabled'
     assert not(O/'source-stage.json').exists()
     paths=[Path(__file__),Path(B.__file__),R/'tools/reference/karnov_cache_kernel_1101_v1.s',R/'tools/reference/karnov_cache_resident_1101_v1.inc',R/'tools/reference/karnov_host_terrain_1101_v1.inc',A/'portable_actor.inc',A/'portable_dispatch.inc',W/'portable_weapon.inc',W/'portable_clear.inc']
@@ -38,6 +44,14 @@ def main():
     if args.menu:
         from prepare_karnov_menu_1101_v1 import prepare as menu_prepare
         resident,refs=menu_prepare(resident,B.write);paths+=refs
+    if args.rebound:
+        from prepare_karnov_rebound_1101_v2 import prepare as rebound_prepare
+        resident,refs=rebound_prepare(resident,B.write);paths+=refs
+        services.update({27:'KrBounce',31:'KrBounce',36:'KrPostTerrain'})
+    if args.health:
+        health=R/'tools/reference/karnov_health_1101_v2.inc'
+        B.write(O/'kr-health.inc',health.read_text());paths += [health,O/'kr-health.inc']
+        services.update({5:'KrHealthInjury',6:'KrHealthStatus',7:'KrHealthDeathStart',8:'KrHealthDeathUpdate'})
     if args.render:
         # The native four-color writer restores the area's universal backdrop
         # after the black lives screen. Retain its exact eight-entry table.
@@ -53,20 +67,50 @@ def main():
         terrain=terrain.replace(old,' jsr KrSourceFrame\n jsr KrSourceWeapons\n inc KrState+$e8')
         old=' lda FrameCounter\n sta KrLastEpoch';assert terrain.count(old)==1
         terrain=terrain.replace(old,' jsr KrRebaseShots\n'+old)
-    kernel=kernel.replace(vector_marker,'\n'.join(' jmp '+services.get(i,'KrReject')for i in range(36)))
+    service_count=37 if args.rebound else 36
+    kernel=kernel.replace(vector_marker,'\n'.join(' jmp '+services.get(i,'KrReject')for i in range(service_count)))
     kernel=kernel.replace('.include "portable_actor.inc"','.include "kr-host-actor.inc"').replace('KrKernelEnd:','.include "kr-terrain.inc"\nKrKernelEnd:')
     if args.render:
         kernel=kernel.replace('KrKernelEnd:','.include "kr-render.inc"\nKrKernelEnd:')
         B.write(O/'kr-render.inc',(R/'tools/reference/karnov_host_render_1101_v1.inc').read_text())
+    if args.rebound:
+        kernel=kernel.replace('KrKernelEnd:','.include "kr-rebound.inc"\nKrKernelEnd:')
+    if args.health:
+        kernel=kernel.replace('KrKernelEnd:','.include "kr-health.inc"\nKrKernelEnd:')
     actor=(A/'portable_actor.inc').read_text();old='Kr_FA06: LDX #$10 ; original 0xfa06';assert actor.count(old)==1
     actor=actor.replace(old,'Kr_FA06: JMP Kr_FA5C ; SMB owns viewport clamps; retain original facing update')
-    cookie=bytes([167,7,1,7 if args.compact_menu else 6 if args.menu else 5 if args.scene else 4 if args.ingress else 3 if args.render else 2])+hashlib.sha256(b''.join(p.read_bytes()for p in paths)+bytes.fromhex(B.sha(J/'candidate.nes'))).digest()[:12]
+    if args.menu_input:
+        from prepare_menu_input_1101_v3 import proposal,REFERENCE
+        config=(O/'candidate.cfg').read_text()
+        line='\n    MENU_INPUT_COLD_V3: load=X5_NEW_42_TAIL,type=ro,start=$beb5,optional=yes;'
+        assert config.count(line)<=1
+        config=config.replace(line,'')
+        command=json.loads((O/'main-build.json').read_text())['command']
+        candidates=[Path(command[i+1])/'characters.s'for i,v in enumerate(command[:-1])if v=='-I'and Path(command[i+1])!=O]
+        character_source=next(p for p in candidates if p.exists())
+        assert character_source==R/'build/bt-p2-cf-menu-source-1031-v2/joint/src/characters.s'
+        texts=list(proposal((O/'character_select.s').read_text(),character_source.read_text(),(J/'menu/entrypoint.s').read_text(),config))
+        # ca65's include filename parser rejects this Windows drive path.
+        # Keep an exact local copy and bind both it and the reference source.
+        B.write(O/'menu-input.inc',REFERENCE.read_text())
+        texts[2]=texts[2].replace(REFERENCE.as_posix(),'menu-input.inc')
+        marker='\n; Actual original segment owners endBEB5 and restartBF00.'
+        assert texts[0].count(marker)==1
+        select,cold=texts[0].split(marker)
+        texts[0]=select+'\n'
+        cold=cold[cold.index('.pushseg'):].replace('.segment "MENU_INPUT_COLD_V3"','.segment "PROTO_PALETTE_ACK"')
+        texts[2]+='\n; Append after the original palette-ACK emitter; no new segment.\n'+cold+'\n.assert MnMenuColdInit=$beb5,lderror,"Funded cold helper start"\n.assert MnMenuColdInit+26=$becf,lderror,"Funded cold helper end"\n'
+        texts[3]=texts[3].replace(line,'')
+        for name,t in zip(['character_select.s','characters.s','menu-input-entry.s','candidate.cfg'],texts):B.write(O/name,t)
+        paths += [R/'tools/audit/prepare_menu_input_1101_v3.py',REFERENCE,character_source,O/'menu-input.inc',O/'characters.s',O/'menu-input-entry.s',O/'candidate.cfg']
+    cookie=bytes([167,7,1,10 if args.menu_input else 9 if args.health else 8 if args.rebound else 7 if args.compact_menu else 6 if args.menu else 5 if args.scene else 4 if args.ingress else 3 if args.render else 2])+hashlib.sha256(b''.join(p.read_bytes()for p in paths)+bytes.fromhex(B.sha(J/'candidate.nes'))).digest()[:12]
     (O/'kr-cookie.bin').write_bytes(cookie)
     for name,t in [('kr-kernel.s',kernel),('kr-resident.inc',resident),('kr-terrain.inc',terrain),('kr-host-actor.inc',actor)]:B.write(O/name,t)
     # Same exact main inputs as prior phase; export actual linked host owners.
-    entry=(J/'menu/entrypoint.s').read_text()
+    entry=((O/'menu-input-entry.s')if args.menu_input else(J/'menu/entrypoint.s')).read_text()
     names=['CurrentPlayer','NumberofLives','WorldNumber','AreaAddrsLOffset','FrameCounter','OperMode','GamePauseStatus','PlayerFacingDir','PlayerSize','CrouchingFlag','Player_X_Scroll','Player_XSpeedAbsolute','Player_Pos_ForScroll','ScreenLeft_X_Pos','ScreenLeft_PageLoc','Player_Rel_XPos','Player_Rel_YPos','BoundingBox_UL_Corner','BoundingBox_LR_Corner','Block_Buffer_1','Block_Buffer_2','AreaType','CrossoverBehaviorVersion','GuestBodyStompAllowed','GuestBodyNoStomp']
     if args.render:names += ['ObjectMetasprite','SmPosePtr','Player_SprAttrib','VRAM_Buffer1','VRAM_Buffer1_Offset','X5SetPhysicalChr','MetaspriteRenderLoop']
+    if args.health:names += ['MmDeathFlag','MmDeathAge','MmDeathPit','TimerControl','EventMusicQueue','StarInvincibleTimer','MTileAttribute']
     entry+='\n.export '+','.join(names)+'\n';B.write(O/'entrypoint.s',entry)
     t=(R/'build/hogan-thomas-current/src/cf_menu_body.inc').read_text();old='.res $b22-$0d-(FmCfHelperEnd-FmCfHelperStart),$ff';assert t.count(old)==1
     t=t.replace(old,'''KrResidentBegin:
@@ -94,7 +138,7 @@ KrResidentLimit:
     dbg=O/'candidate.dbg';keep={'version','info','file','lib','mod','seg','scope','sym'}
     dbg.write_bytes(b''.join(l for l in dbg.read_bytes().splitlines(keepends=True)if l.split(b'\t',1)[0].decode('ascii')in keep));prepare(R,O/'candidate.nes')
     old=scoped_load(J/'candidate.nes');new=scoped_load(O/'candidate.nes')
-    for row in range(36):
+    for row in range(service_count):
         target=address(new,services.get(row,'KrReject'))
         assert image[row*3:row*3+3]==bytes([0x4c,target&255,target>>8]),('Emitted service vector',row)
     changed=[n for n,s in old['syms'].items()if(n not in new['syms']or s['val']!=new['syms'][n]['val'])and '$anon-SCOPE-'not in n and n!='_FARCALL_COUNT']
@@ -125,11 +169,16 @@ KrResidentLimit:
         allowed += [(location(old,'FmPending'),location(old,'FmResolve')+40),(location(old,'FmStartFlags'),location(old,'FmStartFlags')+28),(location(old,'FmNames')+32,location(old,'FmNames')+48),(location(old,'GmOnlyHigh')+1,location(old,'GmOnlyHigh')+2)]
     if args.compact_menu:
         allowed += [(location(old,'DrawSelectionPreview'),location(old,'QueueVariantHint'))]
+    if args.menu_input:
+        # Exact source-funded menu patch intervals, previously independently
+        # assembled against the actual native consumers. All PCs stay fixed.
+        intervals=[(541893,20),(542080,6),(82358,18),(544976,107),(548549,26)]
+        allowed += [(start,start+size)for start,size in intervals]
     delta=[i for i,(a,b)in enumerate(zip(old['raw'],new['raw']))if a!=b];assert delta and all(any(a<=i<b for a,b in allowed)for i in delta)
     paths += [J/'candidate.nes',J/'candidate.dbg',O/'entrypoint.s',O/'cf_menu_body.inc',O/'kr-kernel.s',O/'kr-resident.inc',O/'kr-terrain.inc',O/'kr-host-actor.inc',O/'kr-cookie.bin',O/'kr-kernel.bin',O/'kr-images.s',O/'candidate.cfg',O/'candidate.nes',O/'candidate.dbg',O/'terrain-final-link.json']
     if args.render:paths.append(O/'kr-render.inc')
     if args.ingress:paths.append(O/'ingress-union-build.json')
-    B.save(O/'terrain-assembly.json',dict(passed=True,render=args.render,ingress=args.ingress,scene=args.scene,menu=args.menu,compact_menu=args.compact_menu,source_CPU=False,native=False,installed=False,menu_admitted=args.menu,ROM_sha256=B.sha(O/'candidate.nes'),cookie=cookie.hex(),resident_bytes=address(new,'KrResidentEnd')-lo,kernel_bytes=address(new,'KrKernelEnd')-0xa000,implemented_services=services,all_existing_runtime_symbols_exact=not changed,moved_source_symbols=permitted,changed_bytes=len(delta),allowed_ROM_ranges=allowed,viewport_adaptation='Only FA06 clamps redirect to original FA5C facing; SMB owns absolute boundaries. Original jump/fall/walk instructions and data retained.',bindings={str(p.resolve()):B.sha(p)for p in paths}))
+    B.save(O/'terrain-assembly.json',dict(passed=True,render=args.render,ingress=args.ingress,scene=args.scene,menu=args.menu,compact_menu=args.compact_menu,rebound=args.rebound,health=args.health,menu_input=args.menu_input,service_count=service_count,source_CPU=False,native=False,installed=False,menu_admitted=args.menu,ROM_sha256=B.sha(O/'candidate.nes'),cookie=cookie.hex(),resident_bytes=address(new,'KrResidentEnd')-lo,kernel_bytes=address(new,'KrKernelEnd')-0xa000,implemented_services=services,all_existing_runtime_symbols_exact=not changed,moved_source_symbols=permitted,changed_bytes=len(delta),allowed_ROM_ranges=allowed,viewport_adaptation='Only FA06 clamps redirect to original FA5C facing; SMB owns absolute boundaries. Original jump/fall/walk instructions and data retained.',bindings={str(p.resolve()):B.sha(p)for p in paths}))
     print(json.dumps(dict(passed=True,candidate=B.sha(O/'candidate.nes'),resident_bytes=address(new,'KrResidentEnd')-lo,kernel_bytes=address(new,'KrKernelEnd')-0xa000,services=services,menu_admitted=args.menu)))
 
 if __name__=='__main__':main()

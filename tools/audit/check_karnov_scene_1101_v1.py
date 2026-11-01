@@ -13,7 +13,7 @@ import check_hogan_current_bounded_v1 as C
 import ff_host_pickups_vectors_v2 as V
 from check_karnov_ingress_1101_v1 import endpoint
 from check_tmnt_render_oa import address,location
-O=R/'build/karnov-host-resource-base-1101-v1';J=R/'build/doki-current-component-1101-v1'
+O=R/'build/karnov-host-resource-base-1101-v1';J=R/'build/menu-wwf-compact-1101-v1'
 sha=lambda p:hashlib.sha256(Path(p).read_bytes()).hexdigest()
 COUNTS=[7,2,2,2,2,4,2,2,2,3,3,2,2,2,3,1,4,4,4,2,2,4,1,2,8,1,2,1,6,2,4,2]
 RAM=['KrConstruct','KrMovement','KrPostTerrain','KrSourceFrame','KrSourceWeapons','KrGraphics','KrDraw','KrColors']
