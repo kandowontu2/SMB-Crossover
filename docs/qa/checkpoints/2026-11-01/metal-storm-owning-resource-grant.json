@@ -14,9 +14,10 @@
   "conditional_identity": "SelectedCharacter35, Metal Storm alternate of Sophie11",
   "RAM_intervals_physical_bank_offset_size": [
     [3, 0, 8083], [3, 8160, 16],
-    [2, 0, 2048], [2, 2048, 61], [2, 2176, 33],
-    [2, 3328, 2456], [2, 8160, 16]
+    [2, 0, 2048], [2, 2048, 64], [2, 2176, 33],
+    [2, 3328, 2777], [2, 8160, 16]
   ],
+  "native_worker_extension_review": "Root inspected v12 native-worker-assembly.json: renderer/metadata2350 plus427 bytes native workers occupies CD00..D7D9,321 bytes beyond prior extent. Player/lives/effect state adds C83D..C83F. No intra-owner overlap; existing three renderer carriers suffice. This allocation does not qualify unresolved health, combat, GravityFire, audio, block effects or scene callbacks.",
   "lifecycle_requirements": [
     "RAM2/3 are mutually exclusive character overlays. Never interpret or write Metal state on a foreign identity before retiring that owner's authenticated state.",
     "A ROM-owned forced-blank constructor invalidates Metal headers first, then copies and verifies all code/state and publishes both complete headers last.",
