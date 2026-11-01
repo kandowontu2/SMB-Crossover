@@ -1,5 +1,14 @@
 # Workspace storage rules
 
+## Nightly delivery
+
+- Publish usable character updates frequently to
+  `C:/Users/kando/Downloads/SMB-Crossover-Latest-WIP-MMC5.nes`.
+- Replace that file directly. The user explicitly requests **no backup copies**.
+- Verify installed bytes against the tested candidate and record verification
+  scope. A GitHub push alone is not a nightly delivery.
+- Current active handoff: `docs/qa/continuation-current.json`.
+
 The user has twice had to intervene over excessive generated files. Storage is
 a hard requirement, not a reason to create more archives or raise a cap.
 
