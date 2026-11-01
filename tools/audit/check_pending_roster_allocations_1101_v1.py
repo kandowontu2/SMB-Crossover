@@ -15,6 +15,8 @@ def main():
         start,end=q['physical_offsets_half_open'];prg.append(('Tank',q['physical_PRG_bank'],start,end-start))
     for q in read('mario-tank-prg35-81-86-grant.json')['intervals']:
         start,end=q['physical_offsets_half_open'];prg.append(('Tank',q['physical_PRG_bank'],start,end-start))
+    for q in read('mario-tank-code-tail-grant.json')['intervals']:
+        start,end=q['physical_offsets_half_open'];prg.append(('Tank',q['physical_PRG_bank'],start,end-start))
     for i,(owner,bank,start,size) in enumerate(prg):
         assert 0<=start<start+size<=8192 and bank!=125
         for other,bank2,start2,size2 in prg[i+1:]:

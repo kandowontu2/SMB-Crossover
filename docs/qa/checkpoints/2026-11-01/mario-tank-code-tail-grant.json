@@ -1,0 +1,26 @@
+{
+  "grant": true,
+  "baseline_ROM_sha256": "58e50db6ceead7c3706087c92d6e49014f05ff8b80b000be30c27b4e7dfa11f2",
+  "intervals": [
+    {"physical_PRG_bank":82,"physical_offsets_half_open":[8130,8192],"old_end_symbol":"S2AcquireAudioImage","old_end_PC":57282,"bank_sha256":"1ebded90dfe0f33ccaa823f3a62a7d7185c0bbd9e7a4d7a0103081b50b509d45"},
+    {"physical_PRG_bank":66,"physical_offsets_half_open":[6487,6568],"old_end_symbol":"MaaReservation","old_end_PC":47447,"bank_sha256":"255eaa0185fef45c43ff3320ced8c9e26833b37cb457cad6e57952405856a76a"},
+    {"physical_PRG_bank":58,"physical_offsets_half_open":[8106,8192],"old_end_symbol":"RyuSourceBodyPlatformFinish","old_end_PC":49066,"bank_sha256":"369d4d9f786f419d8863b1d3efd1c72a6c88e61f4919402c9985ec73b632e3ef"},
+    {"physical_PRG_bank":89,"physical_offsets_half_open":[8112,8192],"old_end_symbol":"BassHeadAdmission","old_end_PC":49072,"bank_sha256":"72ea88ed5883c5eeed284b565834064b900bda794aa23e1eccb220afa7e5e24a"},
+    {"physical_PRG_bank":28,"physical_offsets_half_open":[8112,8192],"old_end_symbol":"Cv3DmcBeforeCv1","old_end_PC":57264,"bank_sha256":"feafd2b3101e40cac509b40c7d496d7a9801748268bf88cac2067529c0488f26"},
+    {"physical_PRG_bank":62,"physical_offsets_half_open":[8132,8192],"old_end_symbol":"NormalFlags","old_end_PC":49092,"bank_sha256":"1c02f5eb36361ed5cea0b9daec7ff2012efb6c6519861d21126b3010f5a35250"},
+    {"physical_PRG_bank":78,"physical_offsets_half_open":[3990,4096],"old_end_symbol":"CfLoaderExpectedCookie","old_end_PC":53142,"bank_sha256":"fd4e206895edabb13e75b185a456d44887a2d9ca47939b3239452d8f468af146"}
+  ],
+  "review": "Root checked actual current linked terminal code rather than relying on obsolete debug source text. Five terminal leaves contain143 reachable instructions, terminate before their gaps, and have no local ROM data reads. Rogue typed reader coverage excludes all seven gaps. The final Rogue six-byte theme table is bounded by the current SMB1 context producer;16384 producer cases and all six actual indexed loads passed. CF publication reads indices1..15 and authentication reads0..15 excluding2;17 valid/corrupted-cookie cases passed. Current segment census excludes all proposed spans and their exact current preimages areFF.",
+  "evidence_tools": [
+    "tools/audit/check_tank_terminal_leaves_1101_v1.py",
+    "tools/audit/check_tank_remaining_rogue_readers_1101_v1.py",
+    "tools/audit/check_tank_rogue_theme_tail_1101_v1.py",
+    "tools/audit/check_tank_cf_cookie_tail_1101_v1.py"
+  ],
+  "conditions": [
+    "Placement must verify each exact baseline bank hash and untouched previous-owner bytes, enforce the stated old endpoint, and constrain every new fragment to its granted interval.",
+    "Future source rebuilds must tighten old producer caps to these endpoints. An old looser source assertion is not permission to overwrite Tank code.",
+    "Rogue theme proof covers existing SMB1 AreaType0..3 and WorldNumber0..7. Expanded world modes must establish their own valid theme indexing before admission.",
+    "This grants ROM placement only. Conditional RAM ownership, retirement, native Main/ISR behavior, menu selection and gameplay tests remain separate requirements."
+  ]
+}
