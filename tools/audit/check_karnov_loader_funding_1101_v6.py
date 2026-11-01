@@ -242,7 +242,7 @@ def carrier_checks(b):
     return test,dict(passed=True,actual_complete_KrLoad_cases=rows,payload_SHA256=sha(payload),payload_bytes=len(code),padded_carrier_bytes=len(carrier),carrier_ownership_granted=False,executed_carrier_code=False)
 
 
-def cold_Main_ISR(b):
+def cold_Main_ISR(b,carrier_rows=(0,8,9)):
     m=P.C.fresh(b);H.put(m,CrossoverMenuIndex=7)
     for name in ['MenuResolveCharacter','QueueSelection']:P.C.invoke(m,name)
     H.put(m,VRAM_Buffer1_Offset=0,CrossoverMenuButtons=0,SavedJoypad1Bits=32,SavedJoypad2Bits=0)
@@ -258,7 +258,7 @@ def cold_Main_ISR(b):
             if c.sp<minimum[0]:minimum[:]=[c.sp,i]
             if c.pc in points and c.pc>=0x8000 and mem.rawtags[(c.pc-0x8000)//8192]==157:
                 n=points[c.pc];row=mem[address(b,'R2')]if n in ['KrCopyRow','KrMapRow','KrCarrierRowSetup','KrCarrierMap']else None
-                key=(n,row if row in [0,8,9]else None)
+                key=(n,row if row in carrier_rows else None)
                 if key not in seen:cuts[i]=dict(label=n,row=row);seen.add(key)
             if c.pc>=0x8000 and mem.rawtags[(c.pc-0x8000)//8192]==157 and mem[c.pc]in[0x8d,0x8e]and bytes(mem[c.pc+1:c.pc+3])==b'\x16\x51':
                 if mem.rawtags[2]!=H.get(mem,'CurrentBankC'):

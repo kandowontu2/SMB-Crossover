@@ -1,0 +1,96 @@
+{
+  "passed": true,
+  "installed": true,
+  "backup_created": false,
+  "complete": false,
+  "user_requested_WIP": true,
+  "destination": "C:\\Users\\kando\\Downloads\\SMB-Crossover-Latest-WIP-MMC5.nes",
+  "output_sha256": "1c073196b51b6aaaaac90d1bea925b68807fcaa3055665cf6dd0cc8f7858fe33",
+  "replaced_sha256": "0ffb1d79c4fbc52bb337a4726f8e61f984f30e4795fd2555b204322140c0a717",
+  "selectable_identities": 86,
+  "total_menu_identities": 90,
+  "selection": "Rygar -> Select -> Karnov -> A/Start",
+  "checkpoint": "docs/qa/checkpoints/2026-11-01/karnov-options-nightly-v8",
+  "source": {
+    "path": "docs/qa/checkpoints/2026-11-01/karnov-options-nightly-v8/source.zip",
+    "sha256": "dedeb87c123ce5b575bcf16f0eb84bd52bffd6a1808174cfd4f25fe5856514ea",
+    "bytes": 466664,
+    "members": 149,
+    "inherited_source_packet": "docs/qa/checkpoints/2026-11-01/karnov-combat-nightly-v7/source.zip",
+    "inherited_sha256": "d4160bbdda88160a74f735975a9899a69c4d2c3bd82d4c6467f39ab545379ca5"
+  },
+  "native": {
+    "path": "docs/qa/checkpoints/2026-11-01/karnov-options-nightly-v8/native-results.zip",
+    "sha256": "68eef8f5e58f6257c26d8bc67ae5be21ccba05a9fef13722d82d8e2258e29f9d",
+    "bytes": 179313,
+    "members": 72
+  },
+  "verification": {
+    "ROM_sha256": "1c073196b51b6aaaaac90d1bea925b68807fcaa3055665cf6dd0cc8f7858fe33",
+    "equipment_Main_minimum_ISR_SP": 137,
+    "combat_Main_minimum_ISR_SP": 135,
+    "cold_Main_minimum_ISR_SP": 138,
+    "cold_Main_ISR_cuts": 57,
+    "equipment_Main_cases": 3,
+    "combat_Main_ISR_cuts": 1304,
+    "four_new_carrier_fault_rows_rejected": [
+      8,
+      9,
+      10,
+      11
+    ],
+    "all32_cookie_bytes_independently_rejected": true,
+    "actual_loader_rows": 12,
+    "source_CPU_suite": [
+      "health-CPU-controls.json",
+      "rebound-CPU-controls.json",
+      "life-restart-CPU-controls.json",
+      "terrain-CPU-controls.json",
+      "terrain-vectors.json",
+      "scene-CPU-controls.json"
+    ],
+    "native_equipment_stock_fixture": true,
+    "native_controller_combat_and_pickups": true,
+    "native_menu_transitions": 124,
+    "heading_errors": 0,
+    "visible_mask_writes": 0,
+    "native_scopes": {
+      "boots": "Cold controller Select/Start with original portrait/lives/body CHR, palette, DMA and ISR checks. Six declared source inventory bytes create earned stock at Main20; subsequent Select/Down+B/use controls are real controller input. Tests boots88px jump, boomerang flight/return or wingsUp/Down. No claim that the fixture collected gear or qualified expiry/full-stage/audio.",
+      "boomerang": "Cold controller Select/Start with original portrait/lives/body CHR, palette, DMA and ISR checks. Six declared source inventory bytes create earned stock at Main20; subsequent Select/Down+B/use controls are real controller input. Tests boots88px jump, boomerang flight/return or wingsUp/Down. No claim that the fixture collected gear or qualified expiry/full-stage/audio.",
+      "wings": "Cold controller Select/Start with original portrait/lives/body CHR, palette, DMA and ISR checks. Six declared source inventory bytes create earned stock at Main20; subsequent Select/Down+B/use controls are real controller input. Tests boots88px jump, boomerang flight/return or wingsUp/Down. No claim that the fixture collected gear or qualified expiry/full-stage/audio.",
+      "combat-crouch": "Controller-only actual cold Select/Start, crouch and shoot the first real Goomba, require native defeat/SFX, head-hit the first real question block, collect the emerged mushroom and fire original double shots. No RAM/code/object injection. Four PNG cap; full1-1/equipment/source-audio remains separate.",
+      "block-row": "Controller-only cold Select/Start, crouch-fire Goomba kill, stand left of the first block row and jump/fire into bricks and a question block. Require native projectile block effects, brick animation and real powerup spawn. No player/object/code/RAM injection. Four PNG cap.",
+      "final-menu": "Actual selectable86 WIP: all90 roster identities/124 transitions. Exact heading, unchanged sampled gray roster and no visible PPUMASK writes. Four PNG cap; no full-stage or complete-character claim."
+    }
+  },
+  "components": {
+    "equipment-carrier-grant": {
+      "path": "docs/qa/checkpoints/2026-11-01/karnov-options-nightly-v8/equipment-carrier-grant.zip",
+      "sha256": "b61c283362a2e593de24c38c91088d1b497100fd921d03d1915fabc879556846",
+      "integrated": true
+    },
+    "bomb-ladder-component": {
+      "path": "docs/qa/checkpoints/2026-11-01/karnov-options-nightly-v8/bomb-ladder-component.zip",
+      "sha256": "4e4bad3d63ab5487c88c160ea5c0378a1378fa8709123f6c720a7e5433d01b29",
+      "integrated": false
+    }
+  },
+  "controls": "Select cycles earned Boots/Boomerang/Wings/NONE. Down+fresh B activates the highlighted option. A jumps; B fires. Up/Down move during flight.",
+  "changes": [
+    "Original Karnov Boots, Boomerang and Wings activation, stock consumption, motion and timers are integrated.",
+    "Full source button edges reach the equipment controller; source effects advance once per accepted game update.",
+    "New life selects NONE and clears equipment; same-life area changes preserve cursor/stock.",
+    "Twelve cold-loader rows copy and verify both equipment pages before either complete cache cookie is published."
+  ],
+  "pending": [
+    "Equipment HUD/icons and original Karnov audio remain unfinished. Six other original equipment options are not enabled.",
+    "Equipment native tests use declared inventory fixtures; actual earned equipment progression/full1-1/shortcut/all-powerup tests remain unfinished.",
+    "Metal Storm, Shinobi and Excitebike remain unselectable; remaining new source characters and campaigns remain required."
+  ],
+  "storage": {
+    "build_bytes": 1600336767,
+    "build_files": 8371,
+    "build_byte_cap": 5000000000,
+    "build_file_cap": 20000
+  }
+}

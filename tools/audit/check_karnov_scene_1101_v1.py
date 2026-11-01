@@ -89,14 +89,19 @@ def main():
             m=L.make(new);H.put(m,SelectedCharacter=34,FmAlts=1);result=invoke(m,'InitScreen');assert result['counts'].get('KrConstruct')==1 and result['counts'].get('KrLoad')==1
             assert m.ram[3]==(O/'kr-kernel.bin').read_bytes()and m.ram[2][address(new,'KrReady')&8191]==167
             return m,result
-        expected_reads=18964 if stage.get('combat')else 16400
+        expected_reads=23064 if stage.get('options')else 18964 if stage.get('combat')else 16400
         seed,first=fresh();assert seed.ppu_reads==expected_reads
+        if stage.get('options'):
+            assert bytes(seed.ram[2][0x1600:0x1e00])==(O/'kr-options.bin').read_bytes()
+            assert seed.ram[2][0x8e]==255,'Original new-life NONE equipment cursor'
         if stage.get('combat'):
             assert bytes(seed.ram[2][0x900:0xe00])==(O/'kr-combat.bin').read_bytes()
             assert seed.ram[2][0x84d]==seed.ram[2][0x854]==0
             seed.ram[2][0x84d]=1;seed.ram[2][0x854]=63
         preserved=[]
         for field,value in [(0x65,130),(0x68,128),(0x300,71),(0x400,29),(0x7fd,67)]:seed.ram[2][field]=value;preserved.append((field,value))
+        if stage.get('options'):
+            for field,value in [(0x8e,3),(0x8f,137),(0xbe,5)]:seed.ram[2][field]=value;preserved.append((field,value))
         for i in range(9):seed.ram[2][0x6e+3*i]=132
         H.put(seed,AreaAddrsLOffset=1,WorldNumber=1,PlayerFacingDir=2);reads=seed.ppu_reads;second=invoke(seed,'InitScreen')
         assert seed.ppu_reads==reads and second['counts'].get('KrConstruct')==1
@@ -108,6 +113,8 @@ def main():
         assert seed.ram[2][0x65]==130
         H.put(seed,NumberofLives=2);r=invoke(seed,'InitScreen');assert r['counts'].get('KrConstruct')==1
         assert all(seed.ram[2][i]==0 for i in [0x65,0x68,0x300,0x400,0x7fd]),'Lost-life context retained gear/stock'
+        if stage.get('options'):
+            assert seed.ram[2][0x8e]==255 and seed.ram[2][0x8f]==seed.ram[2][0xbe]==0,'New life retained equipment cursor/stock'
         H.put(seed,CurrentPlayer=1);seed.ram[2][0x65]=2;invoke(seed,'InitScreen');assert seed.ram[2][0x65]==0
         print('Real InitScreen cold/warm/area/life/extra-life boundaries PASS',flush=True)
         # Start Rygar through real menu, then explicitly assign the unadmitted

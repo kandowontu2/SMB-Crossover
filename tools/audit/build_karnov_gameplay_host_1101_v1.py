@@ -9,7 +9,7 @@ from prepare_cv3_dmc_mirror import prepare
 O,A,W,J=B.O,B.A,B.W,B.J
 
 def main():
-    ap=argparse.ArgumentParser();ap.add_argument('--render',action='store_true');ap.add_argument('--ingress',action='store_true');ap.add_argument('--scene',action='store_true');ap.add_argument('--menu',action='store_true');ap.add_argument('--compact-menu',action='store_true');ap.add_argument('--rebound',action='store_true');ap.add_argument('--health',action='store_true');ap.add_argument('--menu-input',action='store_true');ap.add_argument('--pickups',action='store_true');ap.add_argument('--combat',action='store_true');args=ap.parse_args()
+    ap=argparse.ArgumentParser();ap.add_argument('--render',action='store_true');ap.add_argument('--ingress',action='store_true');ap.add_argument('--scene',action='store_true');ap.add_argument('--menu',action='store_true');ap.add_argument('--compact-menu',action='store_true');ap.add_argument('--rebound',action='store_true');ap.add_argument('--health',action='store_true');ap.add_argument('--menu-input',action='store_true');ap.add_argument('--pickups',action='store_true');ap.add_argument('--combat',action='store_true');ap.add_argument('--options',action='store_true');args=ap.parse_args()
     assert not args.ingress or args.render
     assert not args.scene or args.ingress
     assert not args.menu or args.scene
@@ -24,6 +24,8 @@ def main():
     assert args.pickups or not(O/'kr-pickup-kernel-v3.inc').exists(),'Keep --pickups after integrating earned source upgrades'
     assert not args.combat or args.pickups
     assert args.combat or not(O/'kr-combat-v7.inc').exists(),'Keep --combat after integrating native contacts'
+    assert not args.options or args.combat
+    assert args.options or not(O/'kr-options-host-v8.inc').exists(),'Keep --options after integrating original equipment'
     assert args.menu or not(O/'kr-menu.inc').exists(),'This root now contains menu sources; keep --menu enabled'
     assert not(O/'source-stage.json').exists()
     paths=[Path(__file__),Path(B.__file__),R/'tools/reference/karnov_cache_kernel_1101_v1.s',R/'tools/reference/karnov_cache_resident_1101_v1.inc',R/'tools/reference/karnov_host_terrain_1101_v1.inc',A/'portable_actor.inc',A/'portable_dispatch.inc',W/'portable_weapon.inc',W/'portable_clear.inc']
@@ -133,13 +135,25 @@ KrResidentLimit:
         config=(O/'candidate.cfg').read_text()
         config=re.sub(r'(?m)^KR_COMBAT_RAM_MEM:[^\n]+\n','',config)
         config=config.replace('\nSEGMENTS { KR_COMBAT_ROM:load=KR_COMBAT_RAM_MEM,type=ro; KR_COMBAT_IMAGE:load=CF_CHR_POST,type=ro,start=$fec00; }\n','')
+        config=re.sub(r'(?m)^KR_OPTIONS_RAM_MEM:[^\n]+\n','',config)
+        config=config.replace('\nSEGMENTS { KR_OPTIONS_ROM:load=KR_OPTIONS_RAM_MEM,type=ro; KR_OPTIONS_IMAGE:load=CF_CHR_POST,type=ro,start=$ff400; }\n','')
         graft=combat_graft(kernel=kernel,resident=resident,terrain=terrain,entrypoint=entry,config=config,output=O)
         kernel,resident,terrain,entry=[graft[n]for n in ['kernel','resident','terrain','entrypoint']]
         B.write(O/'candidate.cfg',graft['config'])
         for name,text in graft['fragments'].items():B.write(O/name,text)
         paths += [R/'tools/audit/prepare_karnov_combat_host_1101_v7.py',R/'tools/audit/prepare_karnov_combat_stack_1101_v3.py',R/'tools/audit/prepare_karnov_loader_funding_1101_v6.py',R/'tools/reference/karnov_combat_1101_v2.inc',R/'tools/reference/karnov_combat_carrier_loader_1101_v3.inc',*[O/n for n in graft['fragments']]]
         services.update(graft['service_rows'])
-    cookie=bytes([167,7,1,14 if args.combat else 13 if args.pickups else 10 if args.menu_input else 9 if args.health else 8 if args.rebound else 7 if args.compact_menu else 6 if args.menu else 5 if args.scene else 4 if args.ingress else 3 if args.render else 2])+hashlib.sha256(b''.join(p.read_bytes()for p in paths)+bytes.fromhex(B.sha(J/'candidate.nes'))).digest()[:12]
+    if args.options:
+        from prepare_karnov_options_host_1101_v8 import transform_sources as options_graft,PORTABLE,HOST
+        grant_path=R/'build/karnov-carrier-extension-1101-v7/carrier-grant.json'
+        assert B.sha(grant_path)=='0d43f5788bc22a1bcee80a91a123e4a1d29f7da22c4fabac116517ba322507aa'
+        grant=json.loads(grant_path.read_text());assert grant['passed']and grant['carrier_granted']
+        graft=options_graft(kernel=kernel,resident=resident,terrain=terrain,config=(O/'candidate.cfg').read_text(),output=O,carrier_helper=(O/'kr-loader-carrier-v6.inc').read_text())
+        kernel,resident,terrain=[graft[n]for n in ['kernel','resident','terrain']]
+        B.write(O/'candidate.cfg',graft['config'])
+        for name,text in graft['fragments'].items():B.write(O/name,text)
+        paths += [R/'tools/audit/prepare_karnov_options_host_1101_v8.py',R/'tools/audit/prepare_karnov_options_1101_v7.py',PORTABLE,HOST,grant_path,*[O/n for n in graft['fragments']]]
+    cookie=bytes([167,7,1,15 if args.options else 14 if args.combat else 13 if args.pickups else 10 if args.menu_input else 9 if args.health else 8 if args.rebound else 7 if args.compact_menu else 6 if args.menu else 5 if args.scene else 4 if args.ingress else 3 if args.render else 2])+hashlib.sha256(b''.join(p.read_bytes()for p in paths)+bytes.fromhex(B.sha(J/'candidate.nes'))).digest()[:12]
     (O/'kr-cookie.bin').write_bytes(cookie)
     for name,text in [('kr-kernel.s',kernel),('kr-resident.inc',resident),('kr-terrain.inc',terrain),('kr-host-actor.inc',actor),('entrypoint.s',entry),('cf_menu_body.inc',t)]:B.write(O/name,text)
     build=json.loads((O/'main-build.json').read_text())['command'][:]
@@ -154,7 +168,7 @@ KrResidentLimit:
         link[link.index(old_union)]=str(O/'union.o')
     B.run('terrain-first-link',link)
     image=(O/'kr-kernel.bin').read_bytes();assert len(image)==8192 and image[0x1fe0:0x1ff0]==cookie
-    B.write(O/'kr-images.s','.segment "KR_KERNEL_IMAGE"\n.incbin "kr-kernel.bin"\n.segment "KR_BODY_CHR"\n.incbin "'+('kr-body.chr'if args.render else'body.chr')+'"\n'+('.segment "KR_COMBAT_IMAGE"\n.incbin "kr-combat.bin"\n'if args.combat else''))
+    B.write(O/'kr-images.s','.segment "KR_KERNEL_IMAGE"\n.incbin "kr-kernel.bin"\n.segment "KR_BODY_CHR"\n.incbin "'+('kr-body.chr'if args.render else'body.chr')+'"\n'+('.segment "KR_COMBAT_IMAGE"\n.incbin "kr-combat.bin"\n'if args.combat else'')+('.segment "KR_OPTIONS_IMAGE"\n.incbin "kr-options.bin"\n'if args.options else''))
     B.run('terrain-images-build',[str(cc),'-g','--bin-include-dir',str(O),'--bin-include-dir',str(R/'build/karnov-original-art-1101-v1'),'-o',str(O/'kr-images.o'),str(O/'kr-images.s')])
     link.append(str(O/'kr-images.o'));B.run('terrain-final-link',link);assert(O/'kr-kernel.bin').read_bytes()==image
     dbg=O/'candidate.dbg';keep={'version','info','file','lib','mod','seg','scope','sym'}
@@ -180,6 +194,7 @@ KrResidentLimit:
     lo,hi=[address(new,n)for n in ['KrResidentBegin','KrResidentLimit']]
     allowed=[(16+29*8192+lo-0xa000,16+29*8192+hi-0xa000),(1048592+399*1024,1048592+412*1024)]
     if args.combat:allowed.append((1048592+1019*1024,1048592+1021*1024))
+    if args.options:allowed.append((1048592+1021*1024,1048592+1023*1024))
     if args.ingress:
         # Occupied source data is swapped with an exact relocated copy; the
         # old multiply routine changes only its three table operands.
@@ -200,9 +215,10 @@ KrResidentLimit:
     delta=[i for i,(a,b)in enumerate(zip(old['raw'],new['raw']))if a!=b];assert delta and all(any(a<=i<b for a,b in allowed)for i in delta)
     paths += [J/'candidate.nes',J/'candidate.dbg',O/'entrypoint.s',O/'cf_menu_body.inc',O/'kr-kernel.s',O/'kr-resident.inc',O/'kr-terrain.inc',O/'kr-host-actor.inc',O/'kr-cookie.bin',O/'kr-kernel.bin',O/'kr-images.s',O/'candidate.cfg',O/'candidate.nes',O/'candidate.dbg',O/'terrain-final-link.json']
     if args.combat:paths.append(O/'kr-combat.bin')
+    if args.options:paths.append(O/'kr-options.bin')
     if args.render:paths.append(O/'kr-render.inc')
     if args.ingress:paths.append(O/'ingress-union-build.json')
-    B.save(O/'terrain-assembly.json',dict(passed=True,render=args.render,ingress=args.ingress,scene=args.scene,menu=args.menu,compact_menu=args.compact_menu,rebound=args.rebound,health=args.health,menu_input=args.menu_input,pickups=args.pickups,combat=args.combat,carrier_ownership_granted=False,service_count=service_count,source_CPU=False,native=False,installed=False,menu_admitted=args.menu,ROM_sha256=B.sha(O/'candidate.nes'),cookie=cookie.hex(),resident_bytes=address(new,'KrResidentEnd')-lo,kernel_bytes=address(new,'KrKernelEnd')-0xa000,implemented_services=services,all_existing_runtime_symbols_exact=not changed,moved_source_symbols=permitted,changed_bytes=len(delta),allowed_ROM_ranges=allowed,viewport_adaptation='Only FA06 clamps redirect to original FA5C facing; SMB owns absolute boundaries. Original jump/fall/walk instructions and data retained.',bindings={str(p.resolve()):B.sha(p)for p in paths}))
+    B.save(O/'terrain-assembly.json',dict(passed=True,render=args.render,ingress=args.ingress,scene=args.scene,menu=args.menu,compact_menu=args.compact_menu,rebound=args.rebound,health=args.health,menu_input=args.menu_input,pickups=args.pickups,combat=args.combat,options=args.options,carrier_ownership_granted=bool(args.options),options_supported=[0,3,7]if args.options else[],service_count=service_count,source_CPU=False,native=False,installed=False,menu_admitted=args.menu,ROM_sha256=B.sha(O/'candidate.nes'),cookie=cookie.hex(),resident_bytes=address(new,'KrResidentEnd')-lo,kernel_bytes=address(new,'KrKernelEnd')-0xa000,implemented_services=services,all_existing_runtime_symbols_exact=not changed,moved_source_symbols=permitted,changed_bytes=len(delta),allowed_ROM_ranges=allowed,viewport_adaptation='Only FA06 clamps redirect to original FA5C facing; SMB owns absolute boundaries. Original jump/fall/walk instructions and data retained.',bindings={str(p.resolve()):B.sha(p)for p in paths}))
     print(json.dumps(dict(passed=True,candidate=B.sha(O/'candidate.nes'),resident_bytes=address(new,'KrResidentEnd')-lo,kernel_bytes=address(new,'KrKernelEnd')-0xa000,services=services,menu_admitted=args.menu)))
 
 if __name__=='__main__':main()

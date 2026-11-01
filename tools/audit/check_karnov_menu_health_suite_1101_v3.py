@@ -1,11 +1,12 @@
 """One bounded exact-candidate health/rebound/scene regression suite."""
 from pathlib import Path
-import hashlib,json,subprocess,sys
+import argparse,hashlib,json,subprocess,sys
 R=Path(__file__).resolve().parents[2];O=R/'build/karnov-host-resource-base-1101-v1'
 sha=lambda p:hashlib.sha256(Path(p).read_bytes()).hexdigest()
 
 
 def main():
+    ap=argparse.ArgumentParser();ap.add_argument('--resume-passed',action='store_true');args=ap.parse_args()
     expected=sha(O/'candidate.nes')
     jobs=[('check_karnov_health_1101_v2.py',['--integrated','--output',str(O/'health-CPU-controls.json')],'health-CPU-controls.json'),
         ('check_karnov_rebound_1101_v2.py',[],'rebound-CPU-controls.json'),
@@ -14,9 +15,11 @@ def main():
         ('check_karnov_terrain_vectors_1101_v1.py',[],'terrain-vectors.json'),
         ('check_karnov_scene_1101_v1.py',[],'scene-CPU-controls.json')]
     receipts={}
-    for name,args,receipt in jobs:
-        subprocess.run([sys.executable,str(R/'tools/audit'/name),*args],check=True,cwd=R)
-        path=O/receipt;q=json.loads(path.read_text());assert q['passed']and q['ROM_sha256']==expected
+    for name,options,receipt in jobs:
+        path=O/receipt;q=json.loads(path.read_text())if path.exists()else{}
+        reusable=args.resume_passed and q.get('passed')and q.get('ROM_sha256')==expected and all(sha(p)==h for p,h in q.get('bindings',{}).items())
+        if not reusable:subprocess.run([sys.executable,str(R/'tools/audit'/name),*options],check=True,cwd=R)
+        q=json.loads(path.read_text());assert q['passed']and q['ROM_sha256']==expected
         for p,h in q['bindings'].items():assert sha(p)==h,p
         receipts[receipt]=sha(path)
     assert sha(O/'candidate.nes')==expected
