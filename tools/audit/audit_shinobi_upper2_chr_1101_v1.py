@@ -11,6 +11,24 @@ sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
 
 def main():
     b=scoped_load(ROM);raw=b['raw'];sources=[Path(__file__),ROM];domains={};tables={}
+    wf=R/'build/wwf-roster-native-1101-v1/runtime.s'
+    sources.append(wf)
+    source=wf.read_text()
+    for clause in [
+        'lda WfState+$32\n cmp WfHoganMetadata\n bcc GroupValid\n lda #0',
+        'lda WfState+$34\n cmp R3\n bcc FrameValid\n lda #0',
+        'FrameValid:\n clc\n adc WfPoseIndex',
+        'lda WfHoganMetadata+1,y\n pha\n and #7',
+        'ldy #0\n lda (R0),y\n sta WfPosePage',
+    ]:
+        assert clause in source,clause
+    historical=json.loads((R/'build/metal-storm-chr-closure-1101-v10/source-domains.json').read_text())
+    source_key=next(k for k in historical['source_bindings'] if k.replace('\\','/').endswith('/wwf-roster-native-1101-v1/runtime.s'))
+    assert sha(wf)==historical['source_bindings'][source_key]['sha256']
+    prior=R/'build/kirby-owner-main-1101-v2/candidate.nes'
+    sources.append(prior)
+    offset=location(b,'WfBuildPose');bank=(offset-16)//8192;bankstart=16+8192*bank
+    assert raw[bankstart:bankstart+8192]==prior.read_bytes()[bankstart:bankstart+8192]
     def table(name,n):
         p=location(b,name);v=raw[p:p+n];assert len(v)==n
         tables[name]=dict(offset=p,bytes=n,sha256=hashlib.sha256(v).hexdigest())
@@ -68,6 +86,7 @@ def main():
     result=dict(passed=True,ROM_sha256=sha(ROM),proposed_pages=sorted(TARGETS),
         resource_granted=False,complete_consumer_closure=False,domains=domains,tables=tables,
         WWF_metadata_records=records,WWF_selector_cases=selector_cases,
+        WWF_source_clamps_bound=True,WWF_code_bank_unchanged=bank,
         WWF_legal_page_indices=sorted(pages),
         limits=['Finite table/domain extension only; typed selector, writer preservation and publication proof must also hold.','IRQ may publish512; it is deliberately excluded.','251 was rejected by a real native-menu publication test and is not proposed.'],
         bindings={str(p):sha(p)for p in sources})
