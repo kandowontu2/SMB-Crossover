@@ -1,0 +1,16 @@
+{
+  "grant": true,
+  "conditional_identity": "SelectedCharacter36: Shinobi, Ryu slot10 Select alternate with FmAlts bit04",
+  "baseline_ROM_sha256": "367266d2ec4e62fcefc15fffb3a05095a16060ad52f9d68348f213d94b31268c",
+  "RAM_intervals_physical_bank_offset_size": [[3,0,5910],[3,8160,16],[2,0,2048],[2,2048,17],[2,4096,2542],[2,8160,16]],
+  "identity_evidence": "build/shinobi-identity-1101-v1/identity-census.json",
+  "size_evidence": "build/shinobi-owning-graft-1101-v1/assembly.json",
+  "review": "Root enumerated all90 current menu identities with actual linked resolver/input code. None selects raw36. The existing pending Ryu alternate uses FmAlts04 and does not yet select36. Measured code/state/context/metadata fit below the proposed complete headers without internal overlap. RAM2/3 remain mutually exclusive character overlays.",
+  "conditions": [
+    "Raw36 must receive explicit native dispatch and table bounds; absence from the old menu is not proof that old tables safely accept36.",
+    "ROM-owned retirement must invalidate both headers before a foreign overlay replaces either RAM bank, including menu, scene, new-life and cold-loader ingress.",
+    "Invalidate headers before loading; copy and verify all actor code, metadata and initialized state; publish both complete owner headers last. Warm entry requires exact identity and both complete matching headers before any RAM opcode.",
+    "Preserve foreground and NMI scratch ownership, existing mapper/stack conventions and current Kirby fixes. Additional context or code requires a measured extension.",
+    "This grants integration resources, not menu admission. Native controller, collision, attacks, scrolling, lifecycle and Main/ISR verification remain required."
+  ]
+}
