@@ -1,0 +1,111 @@
+{
+  "passed": true,
+  "installed": true,
+  "backup_created": false,
+  "destination": "C:\\Users\\kando\\Downloads\\SMB-Crossover-Latest-WIP-MMC5.nes",
+  "output_sha256": "e40109ff598e060a4ad384a7cf77bafccfefbe2efa79599f817f832c93fca019",
+  "replaced_sha256": "f6415a64767b9ea1ada79ac5ccab433d7b1f4ae5f8bb13e53f04adeca717a3f1",
+  "playable_identities": 85,
+  "total_menu_identities": 90,
+  "new_identities": [],
+  "change": "Six WWF selection previews use existing original-body16x32 menu art, preventing overlap with gray roster and name. Full-size lives/gameplay sprites remain.",
+  "ROM_changed_bytes": 193,
+  "allowed_ROM_range": [
+    543461,
+    543695
+  ],
+  "source": {
+    "path": "docs/qa/checkpoints/2026-11-01/ready85-compact-menu-native-v1/source.zip",
+    "sha256": "06784c97cb1e4ba3c0a44015bd86e0c4927b0f728aea116b827631bef9784b64",
+    "bytes": 83442
+  },
+  "native": {
+    "path": "docs/qa/checkpoints/2026-11-01/ready85-compact-menu-native-v1/native-results.zip",
+    "sha256": "3eb3ec50085bceef2fce233c9c4d57dc0f0254acb805f022022e55f1e4c898c1",
+    "bytes": 452066
+  },
+  "CPU": {
+    "menu_identities": 90,
+    "playable": 85,
+    "unchanged_non_WWF_contexts": 84,
+    "Start_A_cases": 720,
+    "X_all_indices_flags": 8192
+  },
+  "menu": {
+    "transitions": 124,
+    "observed_frames": 2480,
+    "physical_frames": 2630,
+    "gray_roster_anomalies": 0,
+    "heading_errors": 0,
+    "visible_mask_writes": 0
+  },
+  "opening": {
+    "hogan": {
+      "Main": 30,
+      "frames": 534,
+      "ISR_returns": 573,
+      "source_updates": 30,
+      "minimum_ISR_SP": 196,
+      "compact_selected": true,
+      "original_lives_game_art": true
+    },
+    "dibiase": {
+      "Main": 30,
+      "frames": 555,
+      "ISR_returns": 594,
+      "source_updates": 30,
+      "minimum_ISR_SP": 196,
+      "compact_selected": true,
+      "original_lives_game_art": true
+    },
+    "bam": {
+      "Main": 30,
+      "frames": 576,
+      "ISR_returns": 615,
+      "source_updates": 30,
+      "minimum_ISR_SP": 196,
+      "compact_selected": true,
+      "original_lives_game_art": true
+    },
+    "honky": {
+      "Main": 30,
+      "frames": 597,
+      "ISR_returns": 636,
+      "source_updates": 30,
+      "minimum_ISR_SP": 194,
+      "compact_selected": true,
+      "original_lives_game_art": true
+    },
+    "savage": {
+      "Main": 30,
+      "frames": 618,
+      "ISR_returns": 657,
+      "source_updates": 30,
+      "minimum_ISR_SP": 196,
+      "compact_selected": true,
+      "original_lives_game_art": true
+    },
+    "andre": {
+      "Main": 30,
+      "frames": 639,
+      "ISR_returns": 678,
+      "source_updates": 30,
+      "minimum_ISR_SP": 194,
+      "compact_selected": true,
+      "original_lives_game_art": true
+    }
+  },
+  "checkpoint": "docs/qa/checkpoints/2026-11-01/ready85-compact-menu-native-v1",
+  "limits": [
+    "Menu-only193-byte repair within the original234-byte routine; engine/level/CHR bytes unchanged.",
+    "Six WWF30-Main openings qualify menu-to-lives/game restoration, not new full-stage/combat/upgrade/audio tests. Existing85 admission comes from prior checkpoints.",
+    "Karnov/Metal Storm/Shinobi/Excitebike remain private source/host progress; no new playable identities in this delivery.",
+    "Private Karnov still uses older85 parent; carry this exact compact menu repair into its next composition before any eventual release."
+  ],
+  "storage": {
+    "build_bytes": 1556315561,
+    "build_files": 7495,
+    "build_byte_cap": 5000000000,
+    "build_file_cap": 20000
+  }
+}
