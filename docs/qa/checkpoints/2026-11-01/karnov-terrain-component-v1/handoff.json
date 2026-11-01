@@ -1,0 +1,57 @@
+{
+  "passed": true,
+  "progress_only": true,
+  "installed": false,
+  "admitted": false,
+  "native": false,
+  "private_candidate": "ea3819232fa7d41db01722c4d9339e4827c205b2a5d66994fdc39546ce09276e",
+  "installed_nightly": "f6415a64767b9ea1ada79ac5ccab433d7b1f4ae5f8bb13e53f04adeca717a3f1",
+  "playable": 85,
+  "total_menu_identities": 90,
+  "source_proof": {
+    "file": "source-proof.zip",
+    "sha256": "03a3913d77da648c37ec2e7969ad127af7b57635bebe0d5a7f33701641ce08c8",
+    "bytes": 99962,
+    "members": 34
+  },
+  "resident_bytes": 977,
+  "kernel_bytes": 5272,
+  "services": {
+    "0": "KrMovement",
+    "10": "KrHead",
+    "11": "KrBodyPolicy",
+    "12": "KrAdder",
+    "13": "KrBoxProfile",
+    "14": "KrSide",
+    "15": "KrConstruct",
+    "16": "KrBox",
+    "27": "KrPostTerrain",
+    "28": "KrHeadWithin"
+  },
+  "cookie_checks": 2112,
+  "corrupt_or_foreign_route_rejections": 1188,
+  "query_differentials": 840,
+  "source_step_comparisons": 1140,
+  "contact_boundaries": 11,
+  "native_camera_updates": 420,
+  "maximum_camera": 419,
+  "real_interrupt_cuts": 272,
+  "minimum_SP": 165,
+  "next": [
+    "Implement body/projectile CHR publication and original six-cell body packets.",
+    "Connect original nine projectile slots to native blocks/enemies, camera rebasing, hit counts and effects.",
+    "Recover damage, health, earned options/upgrades and original audio.",
+    "Fund selected-only shared ingress and scene/menu hooks; do not change legal existing character routes.",
+    "Verify native 1-1, shortcut, pickups, stomps/bounces, pipes/flagpole and camera before admission."
+  ],
+  "limits": [
+    "No shared Main/terrain ingress or character-menu admission exists yet.",
+    "Support and post-collision inputs in the CPU tests are declared fixtures. Actual ScrollHandler and ordinary SMB block-query routines execute.",
+    "Only source FA06 viewport clamps redirect to FA5C facing update; original land movement/jump/fall instructions and tables are retained.",
+    "Native enemy bounce, full collision worker, weapons, health/options, music and rendering remain unfinished.",
+    "The active output is mutable. Older cache receipts there refer to previous hashes; use immutable checkpoint packets for those stages."
+  ],
+  "retained_baseline": "docs/qa/checkpoints/2026-11-01/ready85-doki-native-v1",
+  "original_component": "docs/qa/checkpoints/2026-11-01/karnov-original-component-v1",
+  "prior_cache": "docs/qa/checkpoints/2026-11-01/karnov-guarded-cache-v1"
+}

@@ -1,0 +1,56 @@
+"""Link Karnov's native terrain/movement boundary; menu admission stays disabled."""
+from pathlib import Path
+import hashlib,json,re,sys
+R=Path(__file__).resolve().parents[2];sys.path[:0]=[str(R/'tools'),str(R/'tools/audit')]
+import build_karnov_cache_host_1101_v1 as B
+from link_pit_rygar_sophia_audit_cpu import scoped_load
+from check_tmnt_render_oa import address
+from prepare_cv3_dmc_mirror import prepare
+O,A,W,J=B.O,B.A,B.W,B.J
+
+def main():
+    assert not(O/'source-stage.json').exists()
+    paths=[Path(__file__),Path(B.__file__),R/'tools/reference/karnov_cache_kernel_1101_v1.s',R/'tools/reference/karnov_cache_resident_1101_v1.inc',R/'tools/reference/karnov_host_terrain_1101_v1.inc',A/'portable_actor.inc',A/'portable_dispatch.inc',W/'portable_weapon.inc',W/'portable_clear.inc']
+    kernel=paths[2].read_text();old='.repeat 36\n jmp KrReject\n.endrepeat';assert kernel.count(old)==1
+    services={0:'KrMovement',10:'KrHead',11:'KrBodyPolicy',12:'KrAdder',13:'KrBoxProfile',14:'KrSide',15:'KrConstruct',16:'KrBox',27:'KrPostTerrain',28:'KrHeadWithin'}
+    kernel=kernel.replace(old,'\n'.join(' jmp '+services.get(i,'KrReject')for i in range(36)))
+    kernel=kernel.replace('.include "portable_actor.inc"','.include "kr-host-actor.inc"').replace('KrKernelEnd:','.include "kr-terrain.inc"\nKrKernelEnd:')
+    actor=paths[5].read_text();old='Kr_FA06: LDX #$10 ; original 0xfa06';assert actor.count(old)==1
+    actor=actor.replace(old,'Kr_FA06: JMP Kr_FA5C ; SMB owns viewport clamps; retain original facing update')
+    cookie=bytes([167,7,1,2])+hashlib.sha256(b''.join(p.read_bytes()for p in paths)+bytes.fromhex(B.sha(J/'candidate.nes'))).digest()[:12]
+    (O/'kr-cookie.bin').write_bytes(cookie)
+    for name,t in [('kr-kernel.s',kernel),('kr-resident.inc',paths[3].read_text()),('kr-terrain.inc',paths[4].read_text()),('kr-host-actor.inc',actor)]:B.write(O/name,t)
+    # Same exact main inputs as prior phase; export actual linked host owners.
+    entry=(J/'menu/entrypoint.s').read_text()
+    names=['CurrentPlayer','NumberofLives','WorldNumber','AreaAddrsLOffset','FrameCounter','OperMode','GamePauseStatus','PlayerFacingDir','PlayerSize','CrouchingFlag','Player_X_Scroll','Player_XSpeedAbsolute','Player_Pos_ForScroll','ScreenLeft_X_Pos','ScreenLeft_PageLoc','Player_Rel_XPos','Player_Rel_YPos','BoundingBox_UL_Corner','BoundingBox_LR_Corner','Block_Buffer_1','Block_Buffer_2','AreaType','CrossoverBehaviorVersion','GuestBodyStompAllowed','GuestBodyNoStomp']
+    entry+='\n.export '+','.join(names)+'\n';B.write(O/'entrypoint.s',entry)
+    t=(R/'build/hogan-thomas-current/src/cf_menu_body.inc').read_text();old='.res $b22-$0d-(FmCfHelperEnd-FmCfHelperStart),$ff';assert t.count(old)==1
+    t=t.replace(old,'''KrResidentBegin:
+.export KrResidentBegin,KrResidentLimit
+.include "kr-resident.inc"
+.assert KrResidentEnd<=$bfb0,lderror,"Karnov resident exceeds menu padding"
+.res $b22-$0d-(FmCfHelperEnd-FmCfHelperStart)-(KrResidentEnd-KrResidentBegin),$ff
+KrResidentLimit:
+''');B.write(O/'cf_menu_body.inc',t)
+    build=json.loads((O/'main-build.json').read_text())['command'][:]
+    for opt in ['-I','--bin-include-dir']:build[1:1]=[opt,str(O)]
+    B.run('terrain-main-build',build)
+    cc=R/'tools/Windows/cc65/bin/ca65.exe'
+    B.run('terrain-kernel-build',[str(cc),'-g','-I',str(O),'-I',str(A),'-I',str(W),'--bin-include-dir',str(O),'-o',str(O/'kr-kernel.o'),str(O/'kr-kernel.s')])
+    link=json.loads((O/'link.json').read_text())['command'][:]+[str(O/'kr-kernel.o')]
+    B.run('terrain-first-link',link)
+    image=(O/'kr-kernel.bin').read_bytes();assert len(image)==8192 and image[0x1fe0:0x1ff0]==cookie
+    B.run('terrain-images-build',[str(cc),'-g','--bin-include-dir',str(O),'--bin-include-dir',str(R/'build/karnov-original-art-1101-v1'),'-o',str(O/'kr-images.o'),str(O/'kr-images.s')])
+    link.append(str(O/'kr-images.o'));B.run('terrain-final-link',link);assert(O/'kr-kernel.bin').read_bytes()==image
+    dbg=O/'candidate.dbg';keep={'version','info','file','lib','mod','seg','scope','sym'}
+    dbg.write_bytes(b''.join(l for l in dbg.read_bytes().splitlines(keepends=True)if l.split(b'\t',1)[0].decode('ascii')in keep));prepare(R,O/'candidate.nes')
+    old=scoped_load(J/'candidate.nes');new=scoped_load(O/'candidate.nes')
+    changed=[n for n,s in old['syms'].items()if(n not in new['syms']or s['val']!=new['syms'][n]['val'])and '$anon-SCOPE-'not in n and n!='_FARCALL_COUNT'];assert not changed,changed[:20]
+    lo,hi=[address(new,n)for n in ['KrResidentBegin','KrResidentLimit']]
+    allowed=[(16+29*8192+lo-0xa000,16+29*8192+hi-0xa000),(1048592+399*1024,1048592+412*1024)]
+    delta=[i for i,(a,b)in enumerate(zip(old['raw'],new['raw']))if a!=b];assert delta and all(any(a<=i<b for a,b in allowed)for i in delta)
+    paths += [J/'candidate.nes',J/'candidate.dbg',O/'entrypoint.s',O/'cf_menu_body.inc',O/'kr-kernel.s',O/'kr-resident.inc',O/'kr-terrain.inc',O/'kr-host-actor.inc',O/'kr-cookie.bin',O/'kr-kernel.bin',O/'candidate.cfg',O/'candidate.nes',O/'candidate.dbg',O/'terrain-final-link.json']
+    B.save(O/'terrain-assembly.json',dict(passed=True,source_CPU=False,native=False,installed=False,menu_admitted=False,ROM_sha256=B.sha(O/'candidate.nes'),cookie=cookie.hex(),resident_bytes=address(new,'KrResidentEnd')-lo,kernel_bytes=address(new,'KrKernelEnd')-0xa000,implemented_services=services,all_existing_runtime_symbols_exact=True,changed_bytes=len(delta),allowed_ROM_ranges=allowed,viewport_adaptation='Only FA06 clamps redirect to original FA5C facing; SMB owns absolute boundaries. Original jump/fall/walk instructions and data retained.',bindings={str(p.resolve()):B.sha(p)for p in paths}))
+    print(json.dumps(dict(passed=True,candidate=B.sha(O/'candidate.nes'),resident_bytes=address(new,'KrResidentEnd')-lo,kernel_bytes=address(new,'KrKernelEnd')-0xa000,services=services,menu_admitted=False)))
+
+if __name__=='__main__':main()

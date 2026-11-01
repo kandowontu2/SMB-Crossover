@@ -2,7 +2,7 @@
   "goal_status": "ACTIVE_INCOMPLETE",
   "previous_goal_turn_classification": "progress",
   "date": "2026-11-01",
-  "current_priority": "Continue Karnov gameplay adapters from the verified guarded host cache: native terrain/camera, body/projectile rendering, damage, pickups/options, audio and selected-only ingress. The guarded loader is linked and CPU/vector tested; all36 gameplay services still reject. Installed85 remains unchanged until a real86-identity candidate passes. Preserve the full roster and1-1/shortcut/every-powerup objective.",
+  "current_priority": "Continue Karnov from the verified terrain component: next implement original body/projectile rendering and native combat, then damage, pickups/options, audio and selected-only shared ingress. Ten private services now exist, with real typed query results and source movement/camera checks; shared Main/terrain and menu hooks remain unimplemented. Installed85 stays unchanged until a real playable86 candidate passes. Preserve the full roster and1-1/shortcut/every-powerup objective.",
   "nightly_policy": "Publish usable updates frequently. Replace C:/Users/kando/Downloads/SMB-Crossover-Latest-WIP-MMC5.nes; do not make backup copies. A GitHub push is not a nightly delivery.",
   "installed_nightly": {
     "installed": true,
@@ -971,6 +971,39 @@
       "ROM_changes_only_reserved_bank29_padding_and_CHR399_411": true,
       "limits": "All36gameplay service rows deliberately reject. Source callback events are declared test boundaries, not real SMB terrain/audio. No scene/Main/menu integration or playable86claim. Immutable snapshot retains this evidence; active host output remains mutable and bindings become stale on edits."
     },
+    "terrain_component": {
+      "checkpoint": "docs/qa/checkpoints/2026-11-01/karnov-terrain-component-v1",
+      "source_proof_sha256": "03a3913d77da648c37ec2e7969ad127af7b57635bebe0d5a7f33701641ce08c8",
+      "source_proof_bytes": 99962,
+      "source_proof_members": 34,
+      "private_candidate": "ea3819232fa7d41db01722c4d9339e4827c205b2a5d66994fdc39546ce09276e",
+      "installed": false,
+      "admitted": false,
+      "native": false,
+      "resident_bytes": 977,
+      "kernel_bytes": 5272,
+      "private_services": [0, 10, 11, 12, 13, 14, 15, 16, 27, 28],
+      "proofs": [
+        "build/karnov-host-resource-base-1101-v1/terrain-assembly.json",
+        "build/karnov-host-resource-base-1101-v1/terrain-CPU-controls.json",
+        "build/karnov-host-resource-base-1101-v1/terrain-vectors.json"
+      ],
+      "cookie_checks": 2112,
+      "corrupt_or_foreign_route_rejections": 1188,
+      "query_differentials": 840,
+      "source_step_comparisons": 1140,
+      "contact_boundaries": 11,
+      "native_camera_updates": 420,
+      "maximum_camera": 419,
+      "real_interrupt_cuts": 272,
+      "minimum_SP": 165,
+      "fixed": "Real JMP-row service selection retains caller Y; live child query AXYP/scratch returns through dispatcher. Native block queries never move the player anchor. Source signed steps export across world pages, with pre-step camera sampling and no duplicate-epoch movement. Corrected zero-step unsupported-ledge reconciliation.",
+      "boundary": "Only FA06 viewport clamps redirect to original FA5C facing. Actual native ordinary head/side queries and ScrollHandler execute in CPU tests; support/post-collision inputs are declared fixtures. No shared Main/terrain/menu hook is enabled.",
+      "next_render": "Use the recovered original six-cell packets. Put metadata in conditional C2 (e.g. D000), since farcalls unmap A3 while MetaspriteRenderLoop reads it. Reuse five body pages407..411 in sprite window0; metadata may fit inside the remaining kernel image and be copied at forced-blank construction. Native renderer expects Yhigh1, not viewport0. Preserve the pre-step Player_Pos_ForScroll cache. Palette writes should target3F11..13 with28/16/0F, injured10/1C/0F; do not overwrite universal background3F10/00.",
+      "next_weapons": "Original cold fixture CHR shadows15/16/17 are1/12/6. Validate original projectile renderer/window5 before packing its normal75/77, impact69 and boomerang61/63/65/67 patterns into unused pairs0 and23..31 of packed body page3. Connect all9 source slots to native blocks/enemies, camera rebasing and effects; native stomp bounce still needs explicit source-state reconciliation.",
+      "shared_ingress_funding": "Current union has only1B pad before HuResolve plus fragmented5B movement/5B vine/2B UI padding. Do not append beyond C000. Investigate genuine unreachable branch redundancy/source compaction while preserving all85 legal identities and their real ingress ABI; no blanket PRG125 reclamation. KrServiceVeneers currently uses genuine36 JMP rows in bank29, selected by SMC target offset.",
+      "limits": "Rendering, native combat/bounce, full BG collision worker, health/options/upgrades, music and shared scene/menu admission remain incomplete. Mutable older cache receipts are stale for this hash; retain their immutable prior checkpoint instead."
+    },
     "active_roots": {
       "actor": "build/karnov-original-source-1101-v1",
       "weapons": "build/karnov-original-weapons-1101-v1",
@@ -978,7 +1011,7 @@
       "host": "build/karnov-host-resource-base-1101-v1"
     },
     "next": [
-      "Implement actual gameplay services behind the now-linked and CPU-tested cold loader/guarded36-service dispatcher; every service currently rejects and no gameplay/menu/scene hook is enabled",
+      "Implement original six-cell body/shot publication and native combat on the current terrain component; ten private services are implemented, but shared gameplay/menu/scene hooks are not enabled",
       "Recover/use native health/injury leaves CA2B..CA50/CB69..CB8B and palette-command helper C2C7..C2DF; actual collision admission currently belongs to C969",
       "Recover actual options activation/stock/timers and earned Super Fireball pickups; source weapon-state fixtures do not prove collectible progression",
       "Connect native SMB head/side/feet/camera/pipes/flagpole and independent source projectile slots to native enemies/blocks; retain original clamp as an explicit host boundary adaptation",

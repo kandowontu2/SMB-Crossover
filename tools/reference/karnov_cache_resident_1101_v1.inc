@@ -1,7 +1,7 @@
 ; Included in the real menu bank29 residual FF lease, stable while C2/C3 map.
 ; No menu/scene/Main hook enables this private candidate yet.
 .export KrLoad,KrCheckCode,KrRetire,KrSelected,KrResidentEnd,KrCookie
-.export KrDispatch,KrLoadReturn,KrDispatchReturn
+.export KrDispatch,KrServiceVeneers,KrLoadReturn,KrDispatchReturn
 .import KrCacheServices
 KrSelected:
  lda SelectedCharacter
@@ -339,9 +339,15 @@ KrRestorePPU:
  sta $2005
  rts
 
-; Private typed service ingress, Y=0..35. Only a complete selected two-bank
-; signature admits a RAM opcode. Current unimplemented service bodies reject.
-; Outer caller AXYP and all five SMC operands survive (C is the result).
+; Genuine 36 JMP rows retain the original caller Y; the SMC target identifies
+; the service, as in the current Thomas dispatcher. Terrain probe Y stays live.
+KrServiceVeneers:
+.repeat 36
+ jmp KrDispatch
+.endrepeat
+; Typed service ingress. Only a complete selected two-bank signature
+; admits a RAM opcode. A valid child's real AXYP/results and scratch are live;
+; rejection retains incoming AXYP except C. All five SMC operands are restored.
 KrDispatch:
  php
  pha
@@ -365,15 +371,19 @@ KrDispatch:
  .endif
  pha
  .endrepeat
- cpy #36
+ lda FarcallJmpTarget_SMC+1
+ sec
+ sbc #<KrServiceVeneers
+ sta FarcallJmpTarget_SMC+1  ; borrow only after all SMC operands are saved
+ lda FarcallJmpTarget_SMC+2
+ sbc #>KrServiceVeneers
+ bne KrDispatchNo
+ lda FarcallJmpTarget_SMC+1
+ cmp #108
  bcs KrDispatchNo
  jsr KrCheckCode
  bcc KrDispatchNo
- tya
- asl
- sty FarcallJmpTarget_SMC+1
- clc
- adc FarcallJmpTarget_SMC+1
+ lda FarcallJmpTarget_SMC+1
  clc
  adc #<KrCacheServices
  sta FarcallJmpTarget_SMC+1
@@ -393,17 +403,34 @@ KrDispatch:
  plp
  lda #3
  jsr FarCallCommon
- bcc KrDispatchNo
+ php
+ pha
+ txa
+ pha
+ tya
+ pha
  tsx
- lda $010a,x
- ora #1
- bne KrDispatchSet
+ lda $0101,x
+ sta $010b,x                 ; child Y replaces saved incoming Y
+ lda $0102,x
+ sta $010c,x                 ; child X
+ lda $0103,x
+ sta $010d,x                 ; child A
+ lda $0104,x
+ sta $010e,x                 ; child P (outer farcall publishes NZ from A)
+ txa
+ clc
+ adc #4
+ tax
+ txs
+ jmp KrDispatchRestore
 KrDispatchNo:
  tsx
  lda $010a,x
  and #$fe
 KrDispatchSet:
  sta $010a,x
+KrDispatchRestore:
  .repeat 5,I
  pla
  .if I=0
