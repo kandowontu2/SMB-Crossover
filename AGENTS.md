@@ -18,6 +18,11 @@ a hard requirement, not a reason to create more archives or raise a cap.
   during execution, kills only its owned process tree on violation and removes
   that invocation's disposable partial outputs. Read-only inspections need no
   wrapper. Emulator runs also retain their capture watchdog.
+- To continue the same unfinished task, the bounded runner accepts `--resume`.
+  Use it only for your own unqualified output directory. It refuses a root
+  containing a completed `source-stage.json` or `binding.json`. On a resumed
+  job's limit violation, preexisting files are retained; prune your partial
+  outputs before retrying. This avoids making another full build per retry.
 - Storage inventories and explicitly scoped cleanup can run directly so they
   can repair an already exceeded cap; this exception does not authorize builds.
 - Keep one active output per component. Do not copy whole source/reference

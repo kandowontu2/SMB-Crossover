@@ -1,0 +1,42 @@
+{
+  "date": "2026-10-31",
+  "goal_status": "ACTIVE_INCOMPLETE",
+  "current_priority": "Hogan current source merged and camera repaired; exact native validation pending. Preserve storage limits.",
+  "installed_ROM_sha256": "f4767d595a25bf64355b1e2cea86be7a93046f1cf139a4d9b0544e35f9ed4182",
+  "installed_playable": 74,
+  "private_Hogan_ROM_sha256": "4acfe759b13a9dd7749fb24522f94d2e47267c24a367c294fff361ea6c1f6f2d",
+  "private_Hogan_joint": "build/hogan-adapter",
+  "private_Hogan_source_playable": 75,
+  "source_checkpoint": "docs/qa/checkpoints/2026-10-31/hogan-current-camera-source-v1/handoff.json",
+  "source_checks": {
+    "menu_identities": 86,
+    "Start_A_cases": 688,
+    "native_parser_Main": 167,
+    "route_Main": 607,
+    "normal_NMI": 774,
+    "jump_rise": 60,
+    "native_Goomba_defeat_callbacks": 1,
+    "world_X": 369,
+    "camera_X": 257
+  },
+  "native_qualified": false,
+  "native_next": "Run prepared build/hogan-frontend-diagnostic/run.py through bounded runner only after CIM shows Mesen is free. Other project sessions were preserved. Investigate lives-background shift; do not move portrait based on unproven hypothesis. Then run bounded whole route against exact candidate.",
+  "earlier_native_negative": "build/hogan-native-review/record.json; compact archive frozen in source checkpoint",
+  "bounded_runner_checks_passed": 15,
+  "storage": {
+    "build_bytes": 917009904,
+    "build_files": 5606,
+    "build_byte_cap": 5000000000,
+    "build_file_cap": 20000
+  },
+  "original_cleanup_note": "docs/qa/continuation-2026-10-31-storage-reset.json",
+  "other_pending_work": [
+    "Thomas original27px jump/camera/progression",
+    "Remaining WWF identities/source music/advanced moves",
+    "Doki original physics source port",
+    "SMB2J and ANN full campaigns",
+    "Every identity1-1 and all powerups"
+  ],
+  "agents": "Interrupted; do not resume by default. No new agents without explicit authorization.",
+  "unrelated_file_do_not_stage": "docs/qa/current-roster-progress-2026-10-27.json"
+}

@@ -47,6 +47,23 @@ def main():
                 denied('bounded_runner_stops_owned_overflow',W.main)
                 assert not bad.exists()and time.monotonic()-started<8
                 passed.append('bounded_runner_removes_only_owned_partial')
+                # An unfinished task can continue without another output tree.
+                code=f'from pathlib import Path;p=Path({str(good)!r});(p/"two.bin").write_bytes(bytes(5))'
+                sys.argv=['bounded','--resume','--output',str(good),'--',sys.executable,'-c',code]
+                assert W.main()==0 and (good/'one.bin').stat().st_size==10
+                passed.append('bounded_runner_resumes_unfinished_task')
+                code=f'import time;from pathlib import Path;p=Path({str(good)!r});(p/"overflow.bin").write_bytes(bytes(30));time.sleep(10)'
+                sys.argv=['bounded','--resume','--output',str(good),'--',sys.executable,'-c',code]
+                denied('bounded_runner_stops_resumed_overflow',W.main)
+                assert {p.name for p in good.iterdir()}=={'one.bin','two.bin'}
+                passed.append('resumed_overflow_preserves_preexisting_files')
+                for marker in ['source-stage.json','binding.json']:
+                    (good/marker).write_text('{}')
+                    try:
+                        try:W.main()
+                        except AssertionError:passed.append('reject_resume_'+marker)
+                        else:raise AssertionError('Qualified output must be immutable')
+                    finally:(good/marker).unlink()
             finally:sys.argv=argv
         print(json.dumps(dict(passed=True,checks=passed,temporary_outputs_removed=True)))
     finally:
