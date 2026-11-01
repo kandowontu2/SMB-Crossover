@@ -1,0 +1,108 @@
+{
+  "passed": true,
+  "goal_complete": false,
+  "source_CPU": true,
+  "native_original": true,
+  "native_port": false,
+  "admitted": false,
+  "installed": false,
+  "installed_nightly_sha256": "f6415a64767b9ea1ada79ac5ccab433d7b1f4ae5f8bb13e53f04adeca717a3f1",
+  "installed_playable": 85,
+  "donor_sha256": "0d49c1120fc13ead1efe4429f7cbb4f01b90e2486c66661c46e922dda6dc830a",
+  "source": {
+    "path": "docs/qa/checkpoints/2026-11-01/karnov-original-component-v1/source.zip",
+    "sha256": "5501991451076a5f1036574497c1106ee67ecc352f8df9ba62e50717f4bd3a42",
+    "bytes": 178775,
+    "members": 45
+  },
+  "native_reference": {
+    "path": "docs/qa/checkpoints/2026-11-01/karnov-original-component-v1/native-reference.zip",
+    "sha256": "90578cb19c8d89f02199e4614435cb9e6cee860522caa2b99352fcc05081ff49",
+    "bytes": 41783,
+    "members": 21
+  },
+  "recovered_actor_instructions": 900,
+  "original_fixed_16KiB_exact": true,
+  "original_bank11_8KiB_exact": true,
+  "private_actor_weapon_bytes": 3969,
+  "actor_CPU": {
+    "selector_pairs": 4096,
+    "coherent_updates": 5760,
+    "engine_executions": 19712,
+    "jump_rises": [
+      25,
+      26,
+      48,
+      88
+    ]
+  },
+  "weapon_CPU": {
+    "boundaries": 2688,
+    "coherent_updates": 1440,
+    "engine_executions": 11136,
+    "clear_helper_executions": 324,
+    "order": [
+      "body",
+      "shots",
+      "actor",
+      "projectiles"
+    ]
+  },
+  "graphics": {
+    "cases": 256,
+    "pages": 5,
+    "patterns": 134,
+    "palette": [
+      15,
+      40,
+      22,
+      15
+    ],
+    "intentional_hidden_source_cases": 70
+  },
+  "private_resource_partition": {
+    "resident": {
+      "bank": 29,
+      "A_view": [
+        46640,
+        49072
+      ],
+      "bytes": 2432,
+      "source": "Actual residual CF helper FF padding; fixed Rush reset and all old endpoints unchanged."
+    },
+    "CHR_kernel": [
+      399,
+      407
+    ],
+    "CHR_body": [
+      407,
+      412
+    ],
+    "RAM": "Not granted/implemented by this partition. Future selected C2/RAM3 use requires full cookie/epoch/IRQ/owner checks.",
+    "baseline_all_bytes_and_symbols_exact": true,
+    "baseline_candidate": "f6415a64767b9ea1ada79ac5ccab433d7b1f4ae5f8bb13e53f04adeca717a3f1"
+  },
+  "active_roots": {
+    "actor": "build/karnov-original-source-1101-v1",
+    "weapons": "build/karnov-original-weapons-1101-v1",
+    "art": "build/karnov-original-art-1101-v1",
+    "host": "build/karnov-host-resource-base-1101-v1"
+  },
+  "next": [
+    "Implement the source-sized selected-owner kernel, cold loader and guarded36-service host dispatcher, preserving all85 playable identities",
+    "Recover/use native health/injury leaves CA2B..CA50/CB69..CB8B and palette-command helper C2C7..C2DF; actual collision admission currently belongs to C969",
+    "Recover actual options activation/stock/timers and earned Super Fireball pickups; source weapon-state fixtures do not prove collectible progression",
+    "Connect native SMB head/side/feet/camera/pipes/flagpole and independent source projectile slots to native enemies/blocks; retain original clamp as an explicit host boundary adaptation",
+    "Publish actual six-cell art, default/injured palettes and authentic bullet/boomerang patterns; unused pairs in body source page3 may hold projectile art after complete read closure",
+    "Recover original audio and qualify IRQ/NMI/SMC/private pointer restoration before controller-earned native admission",
+    "Continue Metal Storm/Shinobi/Excitebike/Prince of Persia, Sonic3 and other named goal characters; then every1-1/shortcut/every-powerup audit"
+  ],
+  "limits": [
+    "Karnov remains coming soon in the installed85 build. Source proof is not a playable character or native host qualification.",
+    "Original sound/terrain/scene callbacks are isolated in CPU tests; no acoustic, complete original-game or physical-console fidelity claim.",
+    "All32 selector roots are recovered; finite fixtures do not establish complete options, health, terrain, combat, music or campaign behavior.",
+    "The pointer wrapper restores borrowed ZP in isolated tests; real interrupt/mapper admission remains required.",
+    "Source snapshots and proofs are frozen here; active build roots remain unqualified/mutable for continued integration. Do not recursively restore historical trees or reuse stale mutable bindings after edits."
+  ],
+  "primary_manual": "https://www.gamingalexandria.com/highquality/NES/Karnov/Karnov%20-%20Manual%20(Searchable).pdf"
+}
