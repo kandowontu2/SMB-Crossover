@@ -80,10 +80,11 @@ def lifetime(m,option):
     return dict(initial_Y=base,after_Up_Y=up,after_Down_Y=down,expiry_accepted_updates=expired)
 
 
-def checks():
+def checks(expected_options=None):
     b,assembly=model();T.INTEGRATED=True
     seed,setup=T.boot(b)
-    assert bytes(seed.ram[2][0x1600:0x1e00])==(O/'options.bin').read_bytes()
+    if expected_options is None:expected_options=(O/'options.bin').read_bytes()
+    assert bytes(seed.ram[2][0x1600:0x1e00])==expected_options
     assert seed.ram[2][0x8e]==255
     # Deliberate earned-equipment state fixture, no object collection claim.
     seed.ram[2][0x65]=2;seed.ram[2][0x8f]=255

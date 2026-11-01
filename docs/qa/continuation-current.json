@@ -2,7 +2,7 @@
   "goal_status": "ACTIVE_INCOMPLETE",
   "previous_goal_turn_classification": "progress",
   "date": "2026-11-01",
-  "current_priority": "Delivered86-selectable1c073196 WIP with original Karnov Boots/Boomerang/Wings controls/timers. Next equipmentHUD/audio and other original equipment, then full-stage/shortcut/all-powerup qualification and remaining original-source roster.",
+  "current_priority": "Delivered99bf88c8 equipmentHUD. Integrate Kirby inhale and shell repair next; continue Mario the Tank and Metal Storm, then full-stage/shortcut/every-upgrade and remaining original-source roster.",
   "nightly_policy": "Publish usable updates frequently. Replace C:/Users/kando/Downloads/SMB-Crossover-Latest-WIP-MMC5.nes; do not make backup copies. A GitHub push is not a nightly delivery.",
   "installed_nightly": {
     "passed": true,
@@ -11,42 +11,35 @@
     "complete": false,
     "user_requested_WIP": true,
     "destination": "C:\\Users\\kando\\Downloads\\SMB-Crossover-Latest-WIP-MMC5.nes",
-    "output_sha256": "1c073196b51b6aaaaac90d1bea925b68807fcaa3055665cf6dd0cc8f7858fe33",
-    "replaced_sha256": "0ffb1d79c4fbc52bb337a4726f8e61f984f30e4795fd2555b204322140c0a717",
+    "output_sha256": "99bf88c8d971f1305f965a21833703c7a11aafa6a24febd9f3bfb7c87ba4bbda",
+    "replaced_sha256": "1c073196b51b6aaaaac90d1bea925b68807fcaa3055665cf6dd0cc8f7858fe33",
     "selectable_identities": 86,
     "total_menu_identities": 90,
     "selection": "Rygar -> Select -> Karnov -> A/Start",
-    "checkpoint": "docs/qa/checkpoints/2026-11-01/karnov-options-nightly-v8",
+    "checkpoint": "docs/qa/checkpoints/2026-11-01/karnov-hud-nightly-v9",
     "source": {
-      "path": "docs/qa/checkpoints/2026-11-01/karnov-options-nightly-v8/source.zip",
-      "sha256": "dedeb87c123ce5b575bcf16f0eb84bd52bffd6a1808174cfd4f25fe5856514ea",
-      "bytes": 466664,
-      "members": 149,
-      "inherited_source_packet": "docs/qa/checkpoints/2026-11-01/karnov-combat-nightly-v7/source.zip",
-      "inherited_sha256": "d4160bbdda88160a74f735975a9899a69c4d2c3bd82d4c6467f39ab545379ca5"
+      "path": "docs/qa/checkpoints/2026-11-01/karnov-hud-nightly-v9/source.zip",
+      "sha256": "ae5e53e01d7796f6d5beab97668b4f02a270c5dc60027d1cda181b6dfe11f777",
+      "bytes": 540111,
+      "members": 170,
+      "inherited_source_packet": "docs/qa/checkpoints/2026-11-01/karnov-options-nightly-v8/source.zip",
+      "inherited_sha256": "dedeb87c123ce5b575bcf16f0eb84bd52bffd6a1808174cfd4f25fe5856514ea"
     },
     "native": {
-      "path": "docs/qa/checkpoints/2026-11-01/karnov-options-nightly-v8/native-results.zip",
-      "sha256": "68eef8f5e58f6257c26d8bc67ae5be21ccba05a9fef13722d82d8e2258e29f9d",
-      "bytes": 179313,
+      "path": "docs/qa/checkpoints/2026-11-01/karnov-hud-nightly-v9/native-results.zip",
+      "sha256": "7a152bfb6e4613fd44d01840a051f0ceea429befc030d88eb1b8070dcae740ed",
+      "bytes": 186085,
       "members": 72
     },
     "verification": {
-      "ROM_sha256": "1c073196b51b6aaaaac90d1bea925b68807fcaa3055665cf6dd0cc8f7858fe33",
+      "ROM_sha256": "99bf88c8d971f1305f965a21833703c7a11aafa6a24febd9f3bfb7c87ba4bbda",
+      "HUD_Main_minimum_ISR_SP": 169,
       "equipment_Main_minimum_ISR_SP": 137,
       "combat_Main_minimum_ISR_SP": 135,
       "cold_Main_minimum_ISR_SP": 138,
-      "cold_Main_ISR_cuts": 57,
-      "equipment_Main_cases": 3,
-      "combat_Main_ISR_cuts": 1304,
-      "four_new_carrier_fault_rows_rejected": [
-        8,
-        9,
-        10,
-        11
-      ],
-      "all32_cookie_bytes_independently_rejected": true,
+      "cold_Main_ISR_cuts": 55,
       "actual_loader_rows": 12,
+      "all32_cookie_bytes_independently_rejected": true,
       "source_CPU_suite": [
         "health-CPU-controls.json",
         "rebound-CPU-controls.json",
@@ -61,41 +54,59 @@
       "heading_errors": 0,
       "visible_mask_writes": 0,
       "native_scopes": {
-        "boots": "Cold controller Select/Start with original portrait/lives/body CHR, palette, DMA and ISR checks. Six declared source inventory bytes create earned stock at Main20; subsequent Select/Down+B/use controls are real controller input. Tests boots88px jump, boomerang flight/return or wingsUp/Down. No claim that the fixture collected gear or qualified expiry/full-stage/audio.",
-        "boomerang": "Cold controller Select/Start with original portrait/lives/body CHR, palette, DMA and ISR checks. Six declared source inventory bytes create earned stock at Main20; subsequent Select/Down+B/use controls are real controller input. Tests boots88px jump, boomerang flight/return or wingsUp/Down. No claim that the fixture collected gear or qualified expiry/full-stage/audio.",
-        "wings": "Cold controller Select/Start with original portrait/lives/body CHR, palette, DMA and ISR checks. Six declared source inventory bytes create earned stock at Main20; subsequent Select/Down+B/use controls are real controller input. Tests boots88px jump, boomerang flight/return or wingsUp/Down. No claim that the fixture collected gear or qualified expiry/full-stage/audio.",
+        "boots-hud": "Cold controller Select/Start with original portrait/lives/body CHR, palette, DMA and ISR checks. Six declared source inventory bytes create earned stock at Main20; subsequent Select/Down+B/use controls are real controller input. Tests boots88px jump, boomerang flight/return or wingsUp/Down. No claim that the fixture collected gear or qualified expiry/full-stage/audio. Two earned-stock uses are explicitly initialized per equipment, leaving01 after activation so its original icon remains selected. Native PPU checks verify fullname/BCD/icon tiles, exact font lease and actual HUD/world publications.",
+        "boomerang-hud": "Cold controller Select/Start with original portrait/lives/body CHR, palette, DMA and ISR checks. Six declared source inventory bytes create earned stock at Main20; subsequent Select/Down+B/use controls are real controller input. Tests boots88px jump, boomerang flight/return or wingsUp/Down. No claim that the fixture collected gear or qualified expiry/full-stage/audio. Two earned-stock uses are explicitly initialized per equipment, leaving01 after activation so its original icon remains selected. Native PPU checks verify fullname/BCD/icon tiles, exact font lease and actual HUD/world publications.",
+        "wings-hud": "Cold controller Select/Start with original portrait/lives/body CHR, palette, DMA and ISR checks. Six declared source inventory bytes create earned stock at Main20; subsequent Select/Down+B/use controls are real controller input. Tests boots88px jump, boomerang flight/return or wingsUp/Down. No claim that the fixture collected gear or qualified expiry/full-stage/audio. Two earned-stock uses are explicitly initialized per equipment, leaving01 after activation so its original icon remains selected. Native PPU checks verify fullname/BCD/icon tiles, exact font lease and actual HUD/world publications.",
         "combat-crouch": "Controller-only actual cold Select/Start, crouch and shoot the first real Goomba, require native defeat/SFX, head-hit the first real question block, collect the emerged mushroom and fire original double shots. No RAM/code/object injection. Four PNG cap; full1-1/equipment/source-audio remains separate.",
         "block-row": "Controller-only cold Select/Start, crouch-fire Goomba kill, stand left of the first block row and jump/fire into bricks and a question block. Require native projectile block effects, brick animation and real powerup spawn. No player/object/code/RAM injection. Four PNG cap.",
         "final-menu": "Actual selectable86 WIP: all90 roster identities/124 transitions. Exact heading, unchanged sampled gray roster and no visible PPUMASK writes. Four PNG cap; no full-stage or complete-character claim."
-      }
+      },
+      "HUD_font_physical": 1023,
+      "HUD_cache": "C87A..C87F",
+      "same_life_area_HUD_cancel": true,
+      "ROM_retirement_HUD_cancel": true
     },
     "components": {
-      "equipment-carrier-grant": {
-        "path": "docs/qa/checkpoints/2026-11-01/karnov-options-nightly-v8/equipment-carrier-grant.zip",
-        "sha256": "b61c283362a2e593de24c38c91088d1b497100fd921d03d1915fabc879556846",
+      "HUD-source": {
+        "path": "docs/qa/checkpoints/2026-11-01/karnov-hud-nightly-v9/HUD-source.zip",
+        "sha256": "10aa09065b7a999f75f3d5a8ff726d0c7031678bfd25519e68faed2a8baee34b",
         "integrated": true
       },
-      "bomb-ladder-component": {
-        "path": "docs/qa/checkpoints/2026-11-01/karnov-options-nightly-v8/bomb-ladder-component.zip",
-        "sha256": "4e4bad3d63ab5487c88c160ea5c0378a1378fa8709123f6c720a7e5433d01b29",
+      "HUD-resource-grant": {
+        "path": "docs/qa/checkpoints/2026-11-01/karnov-hud-nightly-v9/HUD-resource-grant.zip",
+        "sha256": "299abbd0477434f45334a25acfdd38d4ddc646c5966464aeac02806c8cec9b46",
+        "integrated": true
+      },
+      "kirby-repair-component": {
+        "path": "docs/qa/checkpoints/2026-11-01/karnov-hud-nightly-v9/kirby-repair-component.zip",
+        "sha256": "9da690c7693403fb2088cc8e32ac27ba0890084c61a03d00d5d39f78a1d5709a",
+        "integrated": false
+      },
+      "mario-tank-source": {
+        "path": "docs/qa/checkpoints/2026-11-01/karnov-hud-nightly-v9/mario-tank-source.zip",
+        "sha256": "4ba9b8bcb8706e906749bde18619fd1dcdfff39cba259a0ed45bfc49bdeafac5",
+        "integrated": false
+      },
+      "metal-storm-resources": {
+        "path": "docs/qa/checkpoints/2026-11-01/karnov-hud-nightly-v9/metal-storm-resources.zip",
+        "sha256": "abe08a438e929bbeac93fcb319ed01cd9fdf64649a4a4d4f1828a8dd91d48710",
         "integrated": false
       }
     },
     "controls": "Select cycles earned Boots/Boomerang/Wings/NONE. Down+fresh B activates the highlighted option. A jumps; B fires. Up/Down move during flight.",
     "changes": [
-      "Original Karnov Boots, Boomerang and Wings activation, stock consumption, motion and timers are integrated.",
-      "Full source button edges reach the equipment controller; source effects advance once per accepted game update.",
-      "New life selects NONE and clears equipment; same-life area changes preserve cursor/stock.",
-      "Twelve cold-loader rows copy and verify both equipment pages before either complete cache cookie is published."
+      "Equipment HUD shows the original icon, full selected name and BCD stock with an alternating control hint.",
+      "Native HUD font publication preserves world font mapping and yields to busy native VRAM updates.",
+      "Same-life construction and ROM retirement cancel the derived HUD lease; other owners remain unchanged."
     ],
     "pending": [
-      "Equipment HUD/icons and original Karnov audio remain unfinished. Six other original equipment options are not enabled.",
-      "Equipment native tests use declared inventory fixtures; actual earned equipment progression/full1-1/shortcut/all-powerup tests remain unfinished.",
-      "Metal Storm, Shinobi and Excitebike remain unselectable; remaining new source characters and campaigns remain required."
+      "Original Karnov audio and six other equipment types remain unfinished.",
+      "Equipment native tests use declared stock fixtures; controller-earned gear, full1-1/shortcut/every-powerup remain unfinished.",
+      "Kirby source repair is frozen but is not integrated in this nightly. Metal Storm, Shinobi and Excitebike remain unselectable."
     ],
     "storage": {
-      "build_bytes": 1600336767,
-      "build_files": 8371,
+      "build_bytes": 1609866487,
+      "build_files": 8578,
       "build_byte_cap": 5000000000,
       "build_file_cap": 20000
     }
@@ -159,14 +170,14 @@
     "proof": "Rebuild source; check native imports/foreign behavior, real86-identity menu transitions and exact combined-ROM Mesen play. Existing component hashes are not combined-ROM evidence.",
     "composition_completed": true
   },
-  "Mesen": "All root-owned SMB native queues for this delivery are terminal. Other projects may run concurrently; root owns the SMB queue.",
+  "Mesen": "Six positive root SMB runs terminal. Other-project sessions untouched.",
   "storage": {
-    "build_bytes": 1600526180,
-    "build_files": 8397,
+    "build_bytes": 1609866487,
+    "build_files": 8578,
     "build_byte_cap": 5000000000,
     "build_file_cap": 20000
   },
-  "agents": "Three authorized workers continue compact source components: Karnov HUD, Metal Storm resource integration and Mario the Tank source behavior. Root delivered1c073196 and owns the only SMB Mesen queue. No entire build/ROM copies or frame dumps.",
+  "agents": "Three authorized workers: isolated Kirby owning-link/Main proposal, Mario the Tank host adapters, Metal Storm world-safe palette/resource proposal. Root owns SMB Mesen queue.",
   "do_not_stage": "docs/qa/current-roster-progress-2026-10-27.json",
   "other_full_objective_work": [
     "Karnov is selectable WIP with original movement, health/death/stomp and contact-earned pickups; projectile combat, equipment activation/HUD/icons, original audio and full-stage testing remain.",
@@ -176,7 +187,7 @@
     "Every character clears1-1 and the shortcut route and uses every powerup",
     "SMB2J and All Night Nippon campaigns remain separate ongoing requested work"
   ],
-  "completion": "Not complete.86 selectable/90 menu identities; remaining characters, campaigns and full1-1/shortcuts/every-upgrade are required.",
+  "completion": "Not complete:86 selectable/90 menu identities. Remaining characters, campaigns and all-character full1-1/shortcut/every-powerup verification remain required.",
   "combined76": {
     "final_joint": "build\\ready76-menu-fixed-v5",
     "candidate": "28693c0bf61926f5bef62511b5da0b71f97543170d27d0e03e59bb5e70edf0ca",
@@ -2157,29 +2168,25 @@
     }
   },
   "active_source_components": {
-    "metal_storm_v7": {
-      "passed": true,
-      "integrated": false,
-      "selectable": false,
-      "carrier_granted": false,
-      "source_packet": "docs/qa/checkpoints/2026-11-01/metal-storm-render-v7/source-proof.zip",
-      "sha256": "1b1aef299eaabdd197a7c2efc125d6aad98d1b4f2dcab277913aca2a74365d0c",
-      "bytes": 58734,
-      "actor_bytes": 8083,
-      "renderer_lifecycle_bytes": 2354,
-      "unfunded_gate_bytes": 132,
-      "body_contexts": 208,
-      "projectile_contexts": 104,
-      "original_lifecycle_pairs": 768,
-      "composed_frames": 576,
-      "still_required": [
-        "Actual PRG/CHR/C2 and palette/world-sprite resource allocation",
-        "Cold loader, authenticated gate and native Main/ISR qualification",
-        "Source health/death/scenes/audio/native combat",
-        "Controller stage/shortcut/every-powerup tests"
-      ]
+    "kirby_repair": {
+      "path": "docs/qa/checkpoints/2026-11-01/karnov-hud-nightly-v9/kirby-repair-component.zip",
+      "sha256": "9da690c7693403fb2088cc8e32ac27ba0890084c61a03d00d5d39f78a1d5709a",
+      "integrated": false
     },
-    "karnov_equipment_HUD": "Active worker: onefontpage with12originaliconcells,6Bproposeddisplaycache,440Bworker/tables. Placement/ownership/Main/native proof pending; no HUD in1c073196.",
-    "mario_the_tank": "Active worker: reproduced author1.0.2a donor3396476e from public original SMB1Base source, original native movement/contact/destruction/boots rules. Source component freezing; no menu/runtime integration yet."
+    "mario_tank": {
+      "path": "docs/qa/checkpoints/2026-11-01/karnov-hud-nightly-v9/mario-tank-source.zip",
+      "sha256": "4ba9b8bcb8706e906749bde18619fd1dcdfff39cba259a0ed45bfc49bdeafac5",
+      "integrated": false
+    },
+    "metal_storm_resources": {
+      "path": "docs/qa/checkpoints/2026-11-01/karnov-hud-nightly-v9/metal-storm-resources.zip",
+      "sha256": "abe08a438e929bbeac93fcb319ed01cd9fdf64649a4a4d4f1828a8dd91d48710",
+      "integrated": false
+    },
+    "equipment_HUD": {
+      "path": "docs/qa/checkpoints/2026-11-01/karnov-hud-nightly-v9/HUD-source.zip",
+      "sha256": "10aa09065b7a999f75f3d5a8ff726d0c7031678bfd25519e68faed2a8baee34b",
+      "integrated": true
+    }
   }
 }
