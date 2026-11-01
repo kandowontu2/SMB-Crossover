@@ -2,7 +2,7 @@
   "goal_status": "ACTIVE_INCOMPLETE",
   "previous_goal_turn_classification": "progress",
   "date": "2026-11-01",
-  "current_priority": "Continue Karnov from the verified scene/Main component. Real shared dispatch, InitScreen loading and post-BG reconciliation are connected. A real Rygar menu Start followed by one explicit raw34 assignment passes167 parser/entrance updates and120 Main updates in the CPU model, including jump/landing and72 live Main ISR cuts. An apex freeze and an extra-life movement guard were fixed, and redundant saves removed. All85 old identities retain scene outputs; their post-BG selection costs four extra cycles. Next add ROM-only cold portrait/colors/names and menu remap, audit all direct-ID tables, then implement native combat/stomp/health, earned upgrades/options and original audio. Installed85 is unchanged; Karnov is not admitted. Preserve every remaining character and the full1-1/shortcut/every-powerup objective.",
+  "current_priority": "Continue Karnov from the private cold-menu/native-opening component. Normal Select/Start now retains runtime34, and original body display, jump/landing/source projectile updates and camera141 pass288 Main updates in Mesen. Native testing exposed and fixed black sky retained from the lives screen. All85 old scene owners and89 old menu contexts retain source outputs;124 native menu transitions have stable heading and no visible PPUMASK writes. Remaining direct-ID leaf audits, native combat/stomp/health, earned gear/options and original audio precede playable admission. Installed85 is unchanged. Three requested parallel agents are building Metal Storm, Shinobi and Excitebike/Prince source components. Preserve all remaining characters and full1-1/shortcut/every-powerup objective.",
   "nightly_policy": "Publish usable updates frequently. Replace C:/Users/kando/Downloads/SMB-Crossover-Latest-WIP-MMC5.nes; do not make backup copies. A GitHub push is not a nightly delivery.",
   "installed_nightly": {
     "installed": true,
@@ -872,7 +872,7 @@
     "goal_complete": false,
     "source_CPU": true,
     "native_original": true,
-    "native_port": false,
+    "native_port": true,
     "admitted": false,
     "installed": false,
     "installed_nightly_sha256": "f6415a64767b9ea1ada79ac5ccab433d7b1f4ae5f8bb13e53f04adeca717a3f1",
@@ -1119,6 +1119,27 @@
     "verification_boundary": "The actual parser/Main test starts old-menu Rygar and then assigns raw34 once. It is not a normal Karnov menu Start, native emulator/controller run, raster proof, earned powerup, enemy combat or1-1/shortcut clear. Between-frame normal NMIs and live Main IRQ/forced-blank NMIs execute in the CPU/mapper model.",
     "next": "Wire ROM-only cold portraits/colors/names and FmResolve remap while keeping the Select bit through Start/continue. Audit direct-ID tables before admission: unguarded raw-index CheatsInventoryMax tables and inventory routing merit particular attention. Native enemy/brick/projectile effects, actual health/earned Super Fireball/options, stomp bounce, water, source music/SFX and bounded native tests remain. Source callback integration must respect R2..R7 and the12B stack reserve. All other characters and full campaign/item testing remain in scope."
   },
+  "menu_native_component": {
+    "checkpoint": "docs/qa/checkpoints/2026-11-01/karnov-menu-native-component-v1",
+    "private_candidate": "f1fadebcf755a5cff09f8857ed054ecff3897ed4e804e8e88e690a2669cc43ee",
+    "source_proof_sha256": "242f2480945a0de268b0910e71399291292f4319675684ca89116eee41a1c946",
+    "native_proof_sha256": "f6b7dbbb885b18fcd6fecfe17a654b3a0059eaef6eda44ca5b03eb914fe4ae3f",
+    "source_bytes": 251476,
+    "native_bytes": 74602,
+    "private_selectable": 86,
+    "installed_playable": 85,
+    "admitted": false,
+    "installed": false,
+    "runtime_ID": 34,
+    "resident_bytes": 1630,
+    "kernel_bytes": 7383,
+    "build": "Bounded --resume on build/karnov-host-resource-base-1101-v1, build_karnov_gameplay_host_1101_v1.py --render --ingress --scene --menu. Keep --menu: the owned root now contains local menu sources. No art regeneration, recursive restores or whole-tree copies.",
+    "menu": "Cold ROM portrait/colors/name and status callbacks avoid RAM opcode execution before scene load. Real Select/Start/A resolves raw34 and preserves alternate bit through native cleanup. GmOnlyHigh admits34 to guarded typed UI instead of legacy12-owner tables. Existing89 contexts keep OAM/CHR/queue/IDs. Native124 transitions/2630 frames preserve heading and have zero visible PPUMASK writes; tall-preview overlap diagnostics remain.",
+    "palette_fix": "Native opening caught black sky inherited from lives. KrColors and cold colors now queue exact native area/control universal background plus original body colors. Menu stays black.132 queue contexts,22 real NMI writer contexts and422 native gameplay frames cover the fix.",
+    "native_opening": "Controller-only real menu Start,836 physical frames/288 Main/source actor/weapon updates,1275 actual ISR-return checks, jump/landing,camera141/worldX221 and three active source shots. Original body display checked in menu,lives and game. Combat/earned items/source audio/full-stage not qualified.",
+    "CPU": "Nine current exact-hash receipts: menu,scene,ingress,terrain,render,shot-motion,vectors,art,assembly.167 parser+120 Main+287 complete normal NMI and72 live Main ISR cuts,minimumSP135 (12 above SMC). Full old85 scene equivalence,255 old post-BG endpoints,51408 shared route pairs and original water arithmetic repeat.",
+    "next": "Audit remaining raw-ID inventory/cheat/collision leaves; add native projectile/enemy/block effects, health/injury/stomp bounce, earned source equipment/options and original audio. Run normal1-1/shortcut/items/scene tests before nightly admission. The older menu-disabled component text describes historical immutable checkpoints."
+  },
   "active_roots": {
     "actor": "build/karnov-original-source-1101-v1",
       "weapons": "build/karnov-original-weapons-1101-v1",
@@ -1126,7 +1147,7 @@
       "host": "build/karnov-host-resource-base-1101-v1"
     },
     "next": [
-    "Implement ROM-only cold menu/name/portrait handlers and remap from the current scene/Main component; shared dispatch, InitScreen and post-BG integration pass, but normal menu Start remains disabled. Audit direct-ID tables, then native combat/health/earned options/audio and bounded native admission",
+    "Continue current menu/native-opening checkpoint: real Select/Start now works in the private build. Audit remaining direct-ID leaves, implement native combat/health/earned options/audio and qualify full-stage behavior before nightly admission",
       "Recover/use native health/injury leaves CA2B..CA50/CB69..CB8B and palette-command helper C2C7..C2DF; actual collision admission currently belongs to C969",
       "Recover actual options activation/stock/timers and earned Super Fireball pickups; source weapon-state fixtures do not prove collectible progression",
       "Connect native SMB head/side/feet/camera/pipes/flagpole and independent source projectile slots to native enemies/blocks; retain original clamp as an explicit host boundary adaptation",
@@ -1135,7 +1156,7 @@
       "Continue Metal Storm/Shinobi/Excitebike/Prince of Persia, Sonic3 and other named goal characters; then every1-1/shortcut/every-powerup audit"
     ],
     "limits": [
-      "Karnov remains coming soon in the installed85 build. Source proof is not a playable character or native host qualification.",
+      "Karnov remains coming soon in installed85. Private cold menu/native opening passes, but is not playable86 or full-stage/combat/powerup/audio qualification.",
       "Original sound/terrain/scene callbacks are isolated in CPU tests; no acoustic, complete original-game or physical-console fidelity claim.",
       "All32 selector roots are recovered; finite fixtures do not establish complete options, health, terrain, combat, music or campaign behavior.",
       "Host-linked source uses R0/R1=3/4 and restores host ZP in 7808 differential executions. The resident passes 228 real host NMI/IRQ cuts plus 12 normal/paused NMI cases. Native gameplay/source-step interrupts, raster, audio and scene ownership still require admission checks.",

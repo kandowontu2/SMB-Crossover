@@ -1,6 +1,7 @@
 ; Original Karnov body/projectiles. Metadata lives in C2 during native farcalls.
 .import ObjectMetasprite,SmPosePtr,Player_SprAttrib,VRAM_Buffer1,VRAM_Buffer1_Offset
 .import X5SetPhysicalChr,MetaspriteRenderLoop,FarCallCommon,FarcallJmpTarget_SMC,SafecallA_SMC
+.import BackgroundColorCtrl
 .export KrGraphics,KrDraw,KrColors,KrCopyArt,KrArtImage,KrArtEnd,KrShotTiles
 .export KrRebaseShots,KrCameraLo,KrCameraHi
 KrCameraLo=$c821
@@ -285,31 +286,37 @@ KrColors:
  bcs KrColorsDone
  lda #$3f
  sta VRAM_Buffer1,x
- lda #$11                   ; never overwrite universal BG at3F10/3F00
+ lda #$10                   ; native palette owns the shared background too
  sta VRAM_Buffer1+1,x
- lda #3
+ lda #4
  sta VRAM_Buffer1+2,x
+ ldy BackgroundColorCtrl
+ bne :+
+ ldy AreaType
+:lda KrNativeBackgroundColors,y
+ sta VRAM_Buffer1+3,x
  ldy #0
  lda KrState+$68
  bpl :+
  ldy #3
 :lda KrPalette,y
- sta VRAM_Buffer1+3,x
- lda KrPalette+1,y
  sta VRAM_Buffer1+4,x
- lda KrPalette+2,y
+ lda KrPalette+1,y
  sta VRAM_Buffer1+5,x
- lda #0
+ lda KrPalette+2,y
  sta VRAM_Buffer1+6,x
+ lda #0
+ sta VRAM_Buffer1+7,x
  txa
  clc
- adc #6
+ adc #7
  sta VRAM_Buffer1_Offset
 KrColorsDone:
  KrRestore
  sec
  rts
 KrPalette:.byte $28,$16,$0f,$10,$1c,$0f
+KrNativeBackgroundColors:.incbin "kr-native-bg.bin"
 KrShotTiles:.incbin "kr-shot-tiles.bin"
 KrArtImage:.incbin "kr-pose-meta.bin"
 KrArtEnd:

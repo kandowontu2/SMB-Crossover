@@ -22,9 +22,12 @@ def main():
         for p,h in assembly['bindings'].items():assert sha(p)==h,p
         b=H.C.qualified(O/'candidate.nes');raw=ROM.read_bytes();original=raw[16+14*8192:16+16*8192]
         def service(m,row,**kw):
+            deny_RAM=kw.pop('deny_RAM',False)
             c=H.start(m,'KrServiceVeneers',**kw);target=address(b,'KrServiceVeneers')+row*3
             m[address(b,'FarcallJmpTarget_SMC')+1]=target&255;m[address(b,'FarcallJmpTarget_SMC')+2]=target>>8
-            return H.finish(m,c)[0]
+            def hook(mem,c,i):
+                if deny_RAM:assert not(0xa000<=c.pc<0xc000 and mem.rawtags[1]==3),'Unauthenticated RAM opcode'
+            return H.finish(m,c,hook)[0]
         def make(**kw):
             m=L.make(b);H.put(m,SelectedCharacter=7,FmAlts=1);H.put(m,**kw)
             c,_=L.call(m,'KrLoad');assert c.p&1
@@ -41,15 +44,18 @@ def main():
                 prior=[bytes(z)for z in m.ram];c,_=L.call(m,'KrCheckCode',p=L.flags(f))
                 assert bool(c.p&1)==(bank is None)and[bytes(z)for z in m.ram]==prior
                 cookie_checks+=1
-        rejected_routes=0
+        rejected_routes=0;safe_ROM_routes=0
         for bank,index in list(itertools.product([2,3],range(16)))+[(None,0)]:
             m=L.fork(seed)
             if bank is None:H.put(m,FmAlts=0)
             else:m.ram[bank][0x1fe0+index]^=1
             for row in range(36):
-                prior=[bytes(z)for z in m.ram];fresh(m);c=service(m,row,y=30)
-                assert not c.p&1 and(c.a,c.x,c.y)==(85,7,30)and[bytes(z)for z in m.ram]==prior
-                assert not m.ram_writes;rejected_routes+=1
+                prior=[bytes(z)for z in m.ram];fresh(m);c=service(m,row,y=30,deny_RAM=True)
+                if assembly.get('menu')and bank is not None and row in [3,17,18,19,26,30,32]:
+                    assert[bytes(z)for z in m.ram]==prior and not m.ram_writes;safe_ROM_routes+=1
+                else:
+                    assert not c.p&1 and(c.a,c.x,c.y)==(85,7,30)and[bytes(z)for z in m.ram]==prior
+                    assert not m.ram_writes;rejected_routes+=1
         # Construction is allowed only under the real forced-blank contract.
         cold_negative=[]
         for n,v in [('DisableScreenFlag',0),('Mirror_PPUMASK',30),('NmiDisable',0),('FamilyMainCommit',0)]:
@@ -174,7 +180,7 @@ def main():
         prior=bytes(m.ram[2]);position=[H.get(m,n)for n in ['Player_X_Position','Player_PageLoc','Player_Y_Position','Player_Y_HighPos']]
         c=service(m,0);assert c.p&1 and bytes(m.ram[2])==prior and[H.get(m,n)for n in ['Player_X_Position','Player_PageLoc','Player_Y_Position','Player_Y_HighPos']]==position
         assert bytes(m.ram[3])==image and[bytes(z)for z in m.ram[:2]]==foreign
-        q.update(passed=True,ROM_sha256=assembly['ROM_sha256'],cookie_checks=cookie_checks,corrupt_or_foreign_route_rejections=rejected_routes,query_differentials=probes,head_extent_cases=64,landing_ceiling_ledge_boundaries=contacts,movement_negative=movement_negative,duplicate_epoch_no_second_step=True,source_step_comparisons=compared,source_traces=traces,native_camera_updates=420,maximum_camera=maximum_camera,trace_sha256=digest.hexdigest(),typed_query_returns_live=True,player_anchor_never_temporarily_changed_by_queries=True,scope='Actual linked cold loader and genuine 36 JMP-row ingress; live child A/X/Y/scratch/flags. Standing head/side queries compared against actual SMB ordinary Mega-profile query. Original actor state and exported world deltas compared with sole declared FA06 viewport adaptation. Flat support and post-collision contact inputs are unit fixtures; actual ScrollHandler executes. No shared Main/terrain ingress, menu admission, native stage or acoustic claim.')
+        q.update(passed=True,ROM_sha256=assembly['ROM_sha256'],cookie_checks=cookie_checks,corrupt_or_foreign_route_rejections=rejected_routes,safe_ROM_cold_routes=safe_ROM_routes,unauthenticated_RAM_opcodes=0,query_differentials=probes,head_extent_cases=64,landing_ceiling_ledge_boundaries=contacts,movement_negative=movement_negative,duplicate_epoch_no_second_step=True,source_step_comparisons=compared,source_traces=traces,native_camera_updates=420,maximum_camera=maximum_camera,trace_sha256=digest.hexdigest(),typed_query_returns_live=True,player_anchor_never_temporarily_changed_by_queries=True,scope='Actual linked cold loader and genuine36 JMP-row ingress; live child A/X/Y/scratch/flags. Standing head/side queries compared against actual SMB ordinary Mega-profile query. Original actor state and exported world deltas compared with sole declared FA06 viewport adaptation. Flat support and post-collision contact inputs are unit fixtures; actual ScrollHandler executes. Poisoned caches permit only declared immutable ROM UI callbacks in menu mode, never RAM execution. Shared Main/menu tests are separate receipts; no native stage or acoustic claim.')
     except Exception as e:q.update(error=repr(e),traceback=traceback.format_exc())
     q['bindings']={str(p.resolve()):sha(p)for p in [Path(__file__),O/'terrain-assembly.json',O/'candidate.nes',O/'candidate.dbg',O/'kr-kernel.bin',ROM]}
     (O/'terrain-CPU-controls.json').write_text(json.dumps(q,indent=2)+'\n',encoding='utf-8')

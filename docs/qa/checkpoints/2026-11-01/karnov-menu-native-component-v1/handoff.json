@@ -1,0 +1,94 @@
+{
+  "passed": true,
+  "progress_only": true,
+  "private_menu_enabled": true,
+  "native_opening": true,
+  "native_admitted": false,
+  "installed": false,
+  "playable": 85,
+  "private_selectable": 86,
+  "total_menu_identities": 90,
+  "private_candidate": "f1fadebcf755a5cff09f8857ed054ecff3897ed4e804e8e88e690a2669cc43ee",
+  "installed_nightly": "f6415a64767b9ea1ada79ac5ccab433d7b1f4ae5f8bb13e53f04adeca717a3f1",
+  "source_proof": {
+    "file": "source-proof.zip",
+    "sha256": "242f2480945a0de268b0910e71399291292f4319675684ca89116eee41a1c946",
+    "bytes": 251476,
+    "members": 79
+  },
+  "native_proof": {
+    "file": "native-results.zip",
+    "sha256": "f6b7dbbb885b18fcd6fecfe17a654b3a0059eaef6eda44ca5b03eb914fe4ae3f",
+    "bytes": 74602,
+    "members": 26
+  },
+  "resident_bytes": 1630,
+  "kernel_bytes": 7383,
+  "real_Select_Start_A_cases": 48,
+  "old_menu_contexts_unchanged": 89,
+  "real_Karnov_Select_Start": true,
+  "actual_Main_ISR_cuts": 72,
+  "minimum_Main_ISR_SP": 135,
+  "palette_queue_contexts": 132,
+  "actual_palette_NMI_contexts": 22,
+  "native_menu": {
+    "transitions": 124,
+    "physical_frames": 2630,
+    "heading_errors": 0,
+    "visible_mask_writes": 0
+  },
+  "native_opening_results": {
+    "APU_writes": 3422,
+    "ISR_returns": 1275,
+    "Main": 288,
+    "ROM_sha256": "f1fadebcf755a5cff09f8857ed054ecff3897ed4e804e8e88e690a2669cc43ee",
+    "background_checks": 422,
+    "damage": 0,
+    "defeats": 0,
+    "frames": 836,
+    "graphics_checks": {
+      "game": 74,
+      "lives": 133,
+      "selected": 24
+    },
+    "jumped": true,
+    "landed": true,
+    "maximum_X": 221,
+    "maximum_camera": 141,
+    "maximum_projectiles": 3,
+    "minimum_Y": 128,
+    "minimum_observed_SP": 204,
+    "passed": true,
+    "phase": "game",
+    "poses": {
+      "4": true,
+      "8": true
+    },
+    "source_movement": 288,
+    "source_weapons": 288
+  },
+  "fixed": [
+    "Karnov now resolves to real runtime34 through normal Select/Start; his alternate bit survives native fresh-game cleanup.",
+    "Immutable ROM portrait/name/palette handlers work before any RAM cache construction. Guarded typed UI routing admits runtime34 rather than indexing legacy12-owner tables.",
+    "Actual native opening caught black sky inherited from lives. Both cold and initialized colors now restore the exact native area/control backdrop; menu stays black."
+  ],
+  "previous": "docs/qa/checkpoints/2026-11-01/karnov-scene-component-v1",
+  "next": [
+    "Audit remaining direct-ID inventory/cheat/collision leaves, retaining full old-owner equivalence.",
+    "Implement native projectile/enemy/block effects, health/injury, stomp bounce, earned source gear/options and original audio.",
+    "Qualify actual normal1-1 and shortcut/item/scene behavior before user-facing admission and nightly replacement."
+  ],
+  "limits": [
+    "Installed nightly stays85; private selectable86 is not playable86 qualification.",
+    "Opening stops at worldX221/camera141, with no enemy defeat/damage or controller-earned powerup. Source shot updates are observed; native projectile pixel/hit qualification remains.",
+    "Menu gate proves heading stability and zero visible PPUMASK writes across124 transitions. Static gray-portrait overlap diagnostics remain; this is not a claim that every menu pixel is clean.",
+    "Source audio is not connected. Native APU activity is the existing host audio, not a Karnov-track proof.",
+    "Earlier native menu-rectangle suspicion was not reproduced as a candidate regression: complete Mario screenshots matched the installed baseline byte-for-byte at the pixel level."
+  ],
+  "storage": {
+    "build_bytes": 1522289969,
+    "build_files": 7358,
+    "build_byte_cap": 5000000000,
+    "build_file_cap": 20000
+  }
+}

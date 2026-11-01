@@ -119,7 +119,11 @@ def main():
             for variant in range(total):
                 if variant:
                     for m in pair:C.put(m,VRAM_Buffer1_Offset=0,CrossoverMenuButtons=0,SavedJoypad1Bits=32,SavedJoypad2Bits=0);C.invoke(m,'CrossoverMenuInput')
-                pending=[bool(C.invoke(m,'FmPending')['P']&1)for m in pair];assert pending[0]==pending[1]
+                pending=[bool(C.invoke(m,'FmPending')['P']&1)for m in pair]
+                if stage.get('menu')and(slot,variant)==(7,1):
+                    assert pending==[True,False]and H.get(pair[1],'SelectedCharacter')==34
+                    continue
+                assert pending[0]==pending[1]
                 raw=H.get(pair[1],'SelectedCharacter');assert H.get(pair[0],'SelectedCharacter')==raw
                 if pending[1]:continue
                 identities+=1

@@ -38,6 +38,7 @@ def main():
     paths=[Path(__file__),O/'terrain-assembly.json',O/'candidate.nes',O/'candidate.dbg',O/'kr-kernel.bin',J/'candidate.nes',J/'candidate.dbg']
     try:
         stage=json.loads((O/'terrain-assembly.json').read_text());assert stage['passed']and stage['scene']
+        q['private_menu_enabled']=stage.get('menu',False)
         for p,h in stage['bindings'].items():assert sha(p)==h,p
         old,new=[H.C.qualified(p/'candidate.nes')for p in [J,O]]
         # The exact InitScreen source replacement must only change the genuine
@@ -61,7 +62,11 @@ def main():
             for variant in range(total):
                 if variant:
                     for m in pair:C.put(m,VRAM_Buffer1_Offset=0,CrossoverMenuButtons=0,SavedJoypad1Bits=32,SavedJoypad2Bits=0);C.invoke(m,'CrossoverMenuInput')
-                pending=[bool(C.invoke(m,'FmPending')['P']&1)for m in pair];assert pending[0]==pending[1]
+                pending=[bool(C.invoke(m,'FmPending')['P']&1)for m in pair]
+                if stage.get('menu')and(slot,variant)==(7,1):
+                    assert pending==[True,False]and H.get(pair[1],'SelectedCharacter')==34
+                    continue
+                assert pending[0]==pending[1]
                 if pending[1]:continue
                 identities+=1;results=[];states=[]
                 for m,name in zip(pair,['ThSceneInit','KrSceneInit']):
@@ -103,9 +108,16 @@ def main():
         # new runtime ID. This closes scene/Main ownership without pretending
         # the pending character is already selectable by the user.
         m=C.fresh(new);H.put(m,CrossoverMenuIndex=7)
-        C.invoke(m,'MenuResolveCharacter');C.invoke(m,'QueueSelection');H.put(m,SavedJoypad1Bits=16,SavedJoypad2Bits=0)
+        C.invoke(m,'MenuResolveCharacter');C.invoke(m,'QueueSelection')
+        if stage.get('menu'):
+            H.put(m,VRAM_Buffer1_Offset=0,CrossoverMenuButtons=0,SavedJoypad1Bits=32,SavedJoypad2Bits=0)
+            C.invoke(m,'CrossoverMenuInput');C.invoke(m,'DrawSelectionPreview')
+            assert H.get(m,'SelectedCharacter')==34 and H.get(m,'FmAlts')&1
+        H.put(m,SavedJoypad1Bits=16,SavedJoypad2Bits=0)
         C.invoke(m,'GameMenuRoutine');assert H.get(m,'OperMode')==1
-        H.put(m,SelectedCharacter=34,FmAlts=1);C.invoke(m,'PauseRoutine',a=0)
+        if stage.get('menu'):assert H.get(m,'SelectedCharacter')==34 and H.get(m,'FmAlts')&1
+        else:H.put(m,SelectedCharacter=34,FmAlts=1)
+        C.invoke(m,'PauseRoutine',a=0)
         setup=[]
         for tick in range(600):
             if H.get(m,'OperMode_Task')==3 and H.get(m,'GameEngineSubroutine')==8:break
@@ -154,7 +166,7 @@ def main():
         assert rows[0]['X']<max(r['X']for r in rows)
         q['minimum_Main_ISR_SP']=minimum_ISR_SP;q['minimum_Main_ISR_context']=minimum_ISR_context
         assert minimum_ISR_SP-0x7b>=12,('Actual live Main ISR stack needs at least twelve bytes above SMC operands',minimum_ISR_SP,minimum_ISR_context)
-        q.update(passed=True,ROM_sha256=stage['ROM_sha256'],existing_identity_scene_pairs=scene_pairs,existing_post_BG_pairs=post_pairs,foreign_post_BG_extra_cycles=sorted(post_extra_cycles),InitScreen_operand_offsets=offsets,cold_scene=first,warm_scene=second,warm_area_source_fields_preserved=preserved,new_life_resets_gear=True,extra_life_keeps_movement=True,Main_runtime_assignment_fixture=True,actual_parser_updates=len(setup),actual_Main_updates=len(rows),completed_normal_NMIs=len(setup)+len(rows),actual_Main_ISR_cuts=main_cuts,minimum_Main_ISR_SP=minimum_ISR_SP,source_cold_loader_reads=16400,setup=setup,frames=rows,scope='Actual InitScreen scene consumer with original Wf/Bw/S2/Th callback chain, genuine cold cache loader and native parser/Main/NMI in CPU/mapper model. All85 old menu identity scene outputs exact. New raw34 is explicitly assigned after a real old-menu Start because menu admission is still disabled. Source stock/health/gear fields in lifecycle checks are deliberate fixtures. Live Main IRQ/forced-blank NMI cuts supplement complete normal NMI executions between updates. No earned item, native emulator/controller/raster/playthrough, combat, audio or nightly claim.')
+        q.update(passed=True,ROM_sha256=stage['ROM_sha256'],existing_identity_scene_pairs=scene_pairs,existing_post_BG_pairs=post_pairs,foreign_post_BG_extra_cycles=sorted(post_extra_cycles),InitScreen_operand_offsets=offsets,cold_scene=first,warm_scene=second,warm_area_source_fields_preserved=preserved,new_life_resets_gear=True,extra_life_keeps_movement=True,Main_runtime_assignment_fixture=not stage.get('menu',False),real_Karnov_Select_Start=stage.get('menu',False),actual_parser_updates=len(setup),actual_Main_updates=len(rows),completed_normal_NMIs=len(setup)+len(rows),actual_Main_ISR_cuts=main_cuts,minimum_Main_ISR_SP=minimum_ISR_SP,source_cold_loader_reads=16400,setup=setup,frames=rows,scope='Actual InitScreen scene consumer with original Wf/Bw/S2/Th callback chain, genuine cold cache loader and native parser/Main/NMI in CPU/mapper model. All85 old menu identity scene outputs exact. With menu mode, real Select and Start retain raw34 with no runtime assignment; otherwise the historical explicit assignment fixture is used. Source stock/health/gear fields in lifecycle checks are deliberate fixtures. Live Main IRQ/forced-blank NMI cuts supplement complete normal NMI executions between updates. No earned item, native emulator/controller/raster/playthrough, combat, audio or nightly claim.')
     except Exception as e:q.update(error=repr(e),traceback=traceback.format_exc())
     q['bindings']={str(p.resolve()):sha(p)for p in paths}
     (O/'scene-CPU-controls.json').write_text(json.dumps(q,indent=2)+'\n',encoding='utf-8')

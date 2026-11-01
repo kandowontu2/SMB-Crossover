@@ -108,25 +108,27 @@ def main():
             H.put(m,ScreenLeft_X_Pos=newcam&255,ScreenLeft_PageLoc=newcam>>8);service(m,2)
             actual=cells(m);x=shotx-(newcam-oldcam)
             assert actual==([(120,mapping[0x75],0,x)]if x>=0 else[]),('post-move camera render',oldcam,newcam,shotx,actual);camera_cases+=1
-        # Palette queue writes only the three opaque sprite colors. Execute the
-        # real normal NMI writer, modeling the NES universal-color mirroring.
+        # GetPlayerColors owns the universal backdrop as well as body colors.
+        # Retain the native area's sky/black override after the lives screen.
+        native_bg=(O/'kr-native-bg.bin').read_bytes();assert len(native_bg)==8
+        backgrounds=[(area,0)for area in range(4)]+[(1,ctrl)for ctrl in range(1,8)]
         palette_cases=0
-        for blue,offset in itertools.product([0,128],[0,12,66,71,72,80]):
-            m=L.fork(seed);m.ram[2][0x68]=blue;H.put(m,VRAM_Buffer1_Offset=offset)
+        for blue,offset,(area,ctrl) in itertools.product([0,128],[0,12,66,71,72,80],backgrounds):
+            m=L.fork(seed);m.ram[2][0x68]=blue;H.put(m,VRAM_Buffer1_Offset=offset,AreaType=area,BackgroundColorCtrl=ctrl)
             at=address(b,'VRAM_Buffer1');m[at:at+84]=[0x55]*84;before=bytes(m[at:at+84]);service(m,26)
             if offset>=72:assert bytes(m[at:at+84])==before and H.get(m,'VRAM_Buffer1_Offset')==offset
             else:
                 colors=[16,28,15]if blue else[40,22,15]
-                assert bytes(m[at+offset:at+offset+7])==bytes([63,17,3,*colors,0])
-                assert bytes(m[at:at+offset])==before[:offset]and H.get(m,'VRAM_Buffer1_Offset')==offset+6
+                assert bytes(m[at+offset:at+offset+8])==bytes([63,16,4,native_bg[ctrl or area],*colors,0])
+                assert bytes(m[at:at+offset])==before[:offset]and H.get(m,'VRAM_Buffer1_Offset')==offset+7
             palette_cases+=1
         native_palette_cases=0
-        for blue in [0,128]:
-            m=L.fork(seed);m.ram[2][0x68]=blue;H.put(m,VRAM_Buffer1_Offset=0,NmiDisable=0)
+        for blue,(area,ctrl) in itertools.product([0,128],backgrounds):
+            m=L.fork(seed);m.ram[2][0x68]=blue;H.put(m,VRAM_Buffer1_Offset=0,NmiDisable=0,AreaType=area,BackgroundColorCtrl=ctrl)
             service(m,26);m.__class__=PaletteBus;m.native_palette=bytearray([0x21]*32);m.palette_writes=[]
             c=H.start(m,'KrCheckCode');H.finish(m,c);V.interrupt(m,c,'NMI')
-            assert m.native_palette[0]==0x21 and m.native_palette[17:20]==bytes([16,28,15]if blue else[40,22,15]),('native palette',blue,m.palette_writes)
-            assert not any(p==0 for _,p,_ in m.palette_writes)
+            assert m.native_palette[0]==native_bg[ctrl or area] and m.native_palette[17:20]==bytes([16,28,15]if blue else[40,22,15]),('native palette',blue,area,ctrl,m.palette_writes)
+            assert sum(p==0 for _,p,_ in m.palette_writes)==1
             native_palette_cases+=1
         # One bounded technical preview from the actual CPU-rendered pattern
         # pixels, not a native gameplay capture or replacement character art.
@@ -143,7 +145,7 @@ def main():
             at=3*1024+(tile-192)*16;pat=(O/'kr-body.chr').read_bytes()[at:at+32]
             for(x,y),v in pixels(pat,0).items():img.putpixel((8+column*32+x,126+y),rgb([0,40,22,15][v]))
         img.save(O/'render-preview.png')
-        q.update(passed=True,ROM_sha256=stage['ROM_sha256'],body_cases=count,shot_cases=shots,capacity_rotation_cases=capacity_cases,post_movement_camera_cases=camera_cases,palette_queue_cases=palette_cases,actual_native_palette_NMI=native_palette_cases,draw_cycle_range=[min(render_cycles),max(render_cycles)],trace_sha256=digest.hexdigest(),original_body_OAM_order=True,actual_physical_pattern_pixels=True,all_world_sprite_CHR_windows_preserved=True,metadata_survives_native_farcalls=True,universal_background_color_unchanged=True,scope='Actual linked JMP-row graphics/draw/color services, ordinary native renderer and physical CHR publisher; all256 original body contexts and768 source shot contexts. Native NMI palette writer executes with NES palette mirroring modeled. No raster capture, controller traversal, combat hit/upgrade progression or menu admission claim.')
+        q.update(passed=True,ROM_sha256=stage['ROM_sha256'],body_cases=count,shot_cases=shots,capacity_rotation_cases=capacity_cases,post_movement_camera_cases=camera_cases,palette_queue_cases=palette_cases,actual_native_palette_NMI=native_palette_cases,draw_cycle_range=[min(render_cycles),max(render_cycles)],trace_sha256=digest.hexdigest(),original_body_OAM_order=True,actual_physical_pattern_pixels=True,all_world_sprite_CHR_windows_preserved=True,metadata_survives_native_farcalls=True,native_universal_background_restored=True,scope='Actual linked JMP-row graphics/draw/color services, ordinary native renderer and physical CHR publisher; all256 original body contexts and768 source shot contexts. Native NMI palette writer executes with NES palette mirroring modeled, restoring the native area/control backdrop after lives black. No raster capture, controller traversal, combat hit/upgrade progression or menu admission claim.')
     except Exception as e:q.update(error=repr(e),traceback=traceback.format_exc())
     q['bindings']={str(p.resolve()):sha(p)for p in [Path(__file__),O/'terrain-assembly.json',O/'render-art.json',O/'candidate.nes',O/'candidate.dbg',O/'kr-kernel.bin',A/'art-controls.json',A/'body.chr']}
     (O/'render-CPU-controls.json').write_text(json.dumps(q,indent=2)+'\n',encoding='utf-8');print(json.dumps({k:v for k,v in q.items()if k not in ['bindings','traceback']}));assert q['passed'],q.get('error')
