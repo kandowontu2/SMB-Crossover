@@ -12,7 +12,7 @@ sha=lambda p:hashlib.sha256(Path(p).read_bytes()).hexdigest()
 def main():
     result=dict(passed=False,source_CPU=True,native=False,installed=False)
     try:
-        source=json.loads((R/'build/doki-original-physics-audit-1031-v2/audit.json').read_text());port=json.loads((O/'port-assembly.json').read_text())
+        source=json.loads((R/'build/doki-original-physics-audit-1031-v2/audit.json').read_text());assembly=O/('graphics-assembly.json'if(O/'graphics-assembly.json').exists()else'port-assembly.json');port=json.loads(assembly.read_text())
         for f,h in port['bindings'].items():assert sha(f)==h,f
         rec=json.loads((D/'reproduction.json').read_text());files={q['name']:q for q in rec['disk_files']}
         for name in ['MAIN-PRO','TEMP-PRG']:assert sha(files[name]['extracted'])==files[name]['sha256']
@@ -138,9 +138,24 @@ def main():
                                 assert rows['OLD']==rows['USA'],('USA carry regression',v,face,crouch,stage,y,hitbox,rows)
                                 assert rows['DDP']==rows['DOKI'],('Doki carry lineage',v,face,crouch,stage,y,hitbox,rows)
                                 digest.update(json.dumps(rows).encode());counts['carry']+=1
-        result.update(passed=True,candidate=sha(O/'candidate.nes'),counts=counts,engine_executions=4*sum(counts.values()),air_animation_contexts=animation_cases,health_transition_prefixes=size_cases,same_class_mode_switches=mode_switches,trace_sha256=digest.hexdigest(),scope='Actual original FDS jump/gravity/Q4 action and carry-prefix execution against assembled current Doki modes; original four USA modes compared to installed81 parent. Air animation, no-shrink prefixes and same-native-class lineage changes also checked. Declared collisionless/lift/carry fixtures; no native/menu/graphics/new-identity admission or full-level claim.')
+        carry_small=0
+        for v in range(4):
+            for size in [0,1]:
+                for face in [0,1]:
+                    for crouch in [0,4]:
+                        for stage in range(1,8):
+                            for y in [0,13,14,100,250]:
+                                for hitbox in [0,2,3]:
+                                    rows={}
+                                    for k,b in [('OLD',old),('USA',new)]:
+                                        m=make(k,v);z=carryfields[k];m[address(b,'S2Size')]=size
+                                        for n,val in dict(x=255,xh=1,y=y,yh=0,face=face,animation=crouch,heldstage=stage,hitbox=hitbox,actorindex=0).items():m[z[n]]=val
+                                        call(m,address(b,'S2O960F'),stop=address(b,'S2CarryGeometryReturn'));rows[k]=[m[z[n]]for n in ['actorX','actorXH','actorY','actorYH','actorface']]
+                                    assert rows['OLD']==rows['USA'],('USA all-form carry regression',v,size,face,crouch,stage,y,hitbox,rows)
+                                    digest.update(json.dumps(rows).encode());carry_small+=1
+        result.update(passed=True,candidate=sha(O/'candidate.nes'),counts=counts,engine_executions=4*sum(counts.values())+2*carry_small,USA_all_form_carry=carry_small,air_animation_contexts=animation_cases,health_transition_prefixes=size_cases,same_class_mode_switches=mode_switches,trace_sha256=digest.hexdigest(),scope='Actual original FDS jump/gravity/Q4 action and carry-prefix execution against assembled current Doki modes; original four USA modes compared to installed81 parent, including both sizes/all seven carry stages. Air animation, no-shrink prefixes and same-native-class lineage changes also checked. Declared collisionless/lift/carry fixtures; no native/menu/graphics/new-identity admission or full-level claim.')
     except Exception as e:result.update(failure=repr(e),traceback=traceback.format_exc())
-    result['bindings']={str(p.resolve()):sha(p)for p in[Path(__file__),O/'candidate.nes',O/'candidate.dbg',O/'port-assembly.json',D/'original-files/main_pro.bin',D/'original-files/temp_prg.bin']}
+    result['bindings']={str(p.resolve()):sha(p)for p in[Path(__file__),O/'candidate.nes',O/'candidate.dbg',assembly,D/'original-files/main_pro.bin',D/'original-files/temp_prg.bin']}
     (O/'physics-controls.json').write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8');print(json.dumps({k:v for k,v in result.items()if k!='bindings'}));assert result['passed']
 
 

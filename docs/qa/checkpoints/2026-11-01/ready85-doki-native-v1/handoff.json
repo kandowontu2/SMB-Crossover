@@ -1,0 +1,195 @@
+{
+  "complete": false,
+  "ROM_sha256": "f6415a64767b9ea1ada79ac5ccab433d7b1f4ae5f8bb13e53f04adeca717a3f1",
+  "playable": 85,
+  "total_identities": 90,
+  "source": {
+    "path": "docs/qa/checkpoints/2026-11-01/ready85-doki-native-v1/source.zip",
+    "sha256": "5aa0cdf7ab63c7bf69084c8f8f3aefb28c0c5e14e21332f15495da24140129bb",
+    "bytes": 184274,
+    "members": 51
+  },
+  "native": {
+    "path": "docs/qa/checkpoints/2026-11-01/ready85-doki-native-v1/native-results.zip",
+    "sha256": "addacfa80b89bb172038dbb81edb12ca124af17fd7ca8daca2aa083c03cebe8a",
+    "bytes": 287249,
+    "members": 112
+  },
+  "physics": {
+    "passed": true,
+    "source_CPU": true,
+    "native": false,
+    "installed": false,
+    "candidate": "f6415a64767b9ea1ada79ac5ccab433d7b1f4ae5f8bb13e53f04adeca717a3f1",
+    "counts": {
+      "jump": 192,
+      "horizontal": 32,
+      "lift": 4,
+      "carry": 720
+    },
+    "engine_executions": 10512,
+    "USA_all_form_carry": 3360,
+    "air_animation_contexts": 8,
+    "same_class_mode_switches": 8,
+    "trace_sha256": "22e45b52119141789e403c314a851111e74fc1a7e9f9a32f5cabf9b2c22631b0"
+  },
+  "graphics": {
+    "passed": true,
+    "source_CPU": true,
+    "native": false,
+    "installed": false,
+    "candidate": "f6415a64767b9ea1ada79ac5ccab433d7b1f4ae5f8bb13e53f04adeca717a3f1",
+    "compiled_original_Doki_packets": 128,
+    "original_USA_pose_cases": 256,
+    "original_USA_records": 73,
+    "original_Doki_palettes": 4,
+    "HUD_title_names": 16,
+    "menu_identities": 90,
+    "playable": 85,
+    "Start_A_cases": 720
+  },
+  "menu": {
+    "transitions": 124,
+    "transition_frames": 2480,
+    "heading_errors": 0,
+    "visible_mask_writes": 0
+  },
+  "characters": {
+    "imajin": {
+      "variant": 4,
+      "frames": 832,
+      "Main": 347,
+      "ISR_returns": 1202,
+      "source_movement": 347,
+      "jumped": true,
+      "landed": true,
+      "maximum_camera": 258,
+      "graphics_checks": {
+        "game": 275,
+        "lives": 145,
+        "selected": 24
+      },
+      "APU_writes": 5074
+    },
+    "lina": {
+      "variant": 5,
+      "frames": 852,
+      "Main": 346,
+      "ISR_returns": 1221,
+      "source_movement": 346,
+      "jumped": true,
+      "landed": true,
+      "maximum_camera": 257,
+      "graphics_checks": {
+        "game": 272,
+        "lives": 142,
+        "selected": 24
+      },
+      "APU_writes": 5133
+    },
+    "papa": {
+      "variant": 6,
+      "frames": 874,
+      "Main": 344,
+      "ISR_returns": 1244,
+      "source_movement": 344,
+      "jumped": true,
+      "landed": true,
+      "maximum_camera": 257,
+      "graphics_checks": {
+        "game": 270,
+        "lives": 139,
+        "selected": 24
+      },
+      "APU_writes": 5247
+    },
+    "mama": {
+      "variant": 7,
+      "frames": 918,
+      "Main": 369,
+      "ISR_returns": 1311,
+      "source_movement": 369,
+      "jumped": true,
+      "landed": true,
+      "maximum_camera": 257,
+      "graphics_checks": {
+        "game": 289,
+        "lives": 136,
+        "selected": 24
+      },
+      "APU_writes": 5458
+    },
+    "mario": {
+      "variant": 0,
+      "frames": 727,
+      "Main": 346,
+      "ISR_returns": 1097,
+      "source_movement": 346,
+      "jumped": true,
+      "landed": true,
+      "maximum_camera": 257,
+      "graphics_checks": {
+        "game": 285,
+        "lives": 136,
+        "selected": 24
+      },
+      "APU_writes": 4654
+    },
+    "luigi": {
+      "variant": 1,
+      "frames": 740,
+      "Main": 338,
+      "ISR_returns": 1102,
+      "source_movement": 338,
+      "jumped": true,
+      "landed": true,
+      "maximum_camera": 257,
+      "graphics_checks": {
+        "game": 273,
+        "lives": 133,
+        "selected": 24
+      },
+      "APU_writes": 4668
+    },
+    "toad": {
+      "variant": 2,
+      "frames": 769,
+      "Main": 344,
+      "ISR_returns": 1139,
+      "source_movement": 344,
+      "jumped": true,
+      "landed": true,
+      "maximum_camera": 257,
+      "graphics_checks": {
+        "game": 282,
+        "lives": 130,
+        "selected": 24
+      },
+      "APU_writes": 4830
+    },
+    "peach": {
+      "variant": 3,
+      "frames": 788,
+      "Main": 346,
+      "ISR_returns": 1156,
+      "source_movement": 346,
+      "jumped": true,
+      "landed": true,
+      "maximum_camera": 257,
+      "graphics_checks": {
+        "game": 288,
+        "lives": 127,
+        "selected": 24
+      },
+      "APU_writes": 4877
+    }
+  },
+  "limits": [
+    "Opening camera routes only; full1-1, shortcut and every-powerup checks remain unfinished",
+    "Doki motion/carry/health-mode and art match the declared original-source fixtures; this is an SMB1 integration, not the complete Doki game",
+    "Doki uses the existing SMB2 audio; an original Doki audio port is not qualified",
+    "No constant60Hz, hardware-console, complete combat/upgrade or full-roster campaign claim",
+    "Five existing menu identities and additional original-goal characters/campaigns remain unfinished",
+    "Reviewed source grafts/recipes reuse prior frozen inputs; canonical prepared builder still has37 identities"
+  ]
+}
