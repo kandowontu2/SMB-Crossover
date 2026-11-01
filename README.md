@@ -6,13 +6,13 @@ A native NES adaptation of [Super Mario Bros. Crossover](https://www.smbgames.be
 
 [Player's guide](<Player Guide/SMB-Crossover-Players-Guide-NU.pdf>) · [Full roster image](docs/images/SMB-Crossover-Full-Roster.png) · [Build from source](#build-from-source) · [Report a bug](https://github.com/kandowontu2/SMB-Crossover/issues)
 
-> **In development:** the latest expanded MMC5 nightly has **75 playable identities**, including alternates, across a **32-slot, four-row menu**. Another **11 individual identities** are coming soon. The prepared source build currently contains 37 identities; see the build table below.
+> **In development:** the latest expanded MMC5 nightly has **76 playable identities**, including alternates, across a **32-slot, four-row menu**. Another **10 individual identities** are coming soon. The prepared source build currently contains 37 identities; see the build table below.
 
 <p align="center">
-  <img src="docs/images/character-select.png" width="512" alt="Actual NES character-select screen with four rows of heroes and highlighted SMB1 Toad">
+  <img src="docs/images/character-select.png" width="512" alt="Actual NES character-select screen with four rows of heroes and highlighted Thomas">
 </p>
 
-*Actual emulator capture from the October 30 64-character WIP.*
+*Actual emulator capture from the November 1 76-character WIP.*
 
 ## What's in the game?
 
@@ -27,7 +27,7 @@ The title opens a separate character-select screen. Use the D-pad to highlight a
 
 ## Current roster
 
-This table describes the **75-playable development nightly**, not the older prepared build. A character visible in the menu is not necessarily playable: names marked with a star are **COMING SOON**.
+This table describes the **76-playable development nightly**, not the older prepared build. A character visible in the menu is not necessarily playable: names marked with a star are **COMING SOON**.
 
 | Slot | Playable now | Coming soon |
 | --- | --- | --- |
@@ -41,7 +41,7 @@ This table describes the **75-playable development nightly**, not the older prep
 | Rygar | Rygar | Karnov |
 | DuckTales | Scrooge / Darkwing Duck | — |
 | Bass | Bass / Roll / Quick Man | — |
-| Ninja Gaiden | Ryu Hayabusa | Shinobi / Thomas |
+| Ninja Gaiden | Ryu Hayabusa / Thomas | Shinobi |
 | Blaster Master | Sophia III | Metal Storm |
 | Kirby | Kirby / Meta Knight | — |
 | Rescue Rangers | Chip / Dale | — |
@@ -75,7 +75,11 @@ The image includes unfinished characters and predates the two new SMB1 alternate
 
 The four SMB2 characters, four Final Fantasy classes and both SMB1 and SMB3 Toad/Peach are enabled, with bounded emulator checks recorded for their respective build hashes. Goku is an Arthur Select alternate. Further Mario alternates and Getsu Fuma for Simon remain in development and are not included in the current 86-individual count.
 
-**Hulk Hogan** is now playable in the WWF slot. His original movement, poses and punches are integrated with SMB terrain and enemies. A cold Mesen run verifies selection, lives, jumping, landing, a punch that defeats a Goomba, and scrolling across a page boundary. Full stages, advanced wrestling, original audio and upgrades remain unfinished. See the [75-character nightly verification](docs/qa/checkpoints/2026-10-31/hogan-current-native-loop-v1/README.md).
+**Hulk Hogan** is playable in the WWF slot. His original movement, poses and punches are integrated with SMB terrain and enemies. A cold Mesen run verifies selection, lives, jumping, landing, a punch that defeats a Goomba, and scrolling across a page boundary. Full stages, advanced wrestling, original audio and upgrades remain unfinished.
+
+**Thomas** is now playable: highlight Ryu and press Select twice. He keeps Kung-Fu's short jump and uses native SMB moving platforms to clear the four pipes in the tested 1-1 route. Original poses, melee attacks, platform graphics, scrolling and enemy defeats are verified; other stages and his full ability/audio lineup still need work.
+
+**Character selection** also has a rendering-budget repair. A cold-controller sweep covers all 86 identities through 120 D-pad/Select transitions without the reproduced heading flashes. Alex and Ryan retain their required outlines. See the [76-character verification](docs/qa/checkpoints/2026-11-01/ready76-menu-native-v1/README.md).
 
 On **Battletoads**, Select cycles **Rash → Zitz**. On **Contra Force**, it cycles **Burns → Smith → Iron → Beans**. These six use recovered original-game movement, graphics and attacks. The preceding checkpoint repairs Contra Force's projectile contact with native enemies, following the camera and enemy-graphics fixes. All four Contra Force characters passed controller-earned pistol kills with native score, hit sound and original projectile impacts; SMB1 Peach also passed a bounded regression check on that ROM. Those results remain attached to their tested hashes. Full levels, complete special moves, upgrades and dedicated audio remain unfinished. Battletoads and Contra Force are noticeably slow. See the [74-character WIP receipt](docs/qa/functional-roster-ready74-cf-projectile-2026-10-31.json).
 
@@ -89,14 +93,14 @@ Both Bowser versions are enabled in the October 31 WIP. They have source-derived
 
 | Target | Roster | Cartridge layout | Status |
 | --- | --- | --- | --- |
-| Expanded MMC5 nightly | 75 playable / 86 individual identities | 1 MiB PRG + 1 MiB CHR | Newest development work; frozen source and recipes are in the checkpoint archives. |
+| Expanded MMC5 nightly | 76 playable / 86 individual identities | 1 MiB PRG + 1 MiB CHR | Newest development work; frozen source and recipes are in the checkpoint archives. |
 | Prepared expanded MMC5 | 37 identities | 1 MiB PRG + 1 MiB CHR | Reproduced by the commands below. |
 | Standard MMC3 / MMC5 | 14 identities in 12 slots | 512 KiB PRG + 256 KiB CHR | Smaller original roster. |
 | Oversized MMC3 | Expanded roster | 2 MiB PRG + 256 KiB CHR RAM | Experimental; feature parity and physical cartridge compatibility remain unverified. |
 
 **MMC5 is the main target for the full roster.** Mesen 2 is used for development and testing. The oversized MMC3 implementation needs eight-bit PRG banking and 256 KiB CHR RAM; Parodius currently uses a text powerup bar on that target.
 
-Generated ROMs are excluded from this repository. The newer checkpoint source has not yet been folded into the prepared builder, so the commands below do **not** produce the 75-character nightly.
+Generated ROMs are excluded from this repository. The newer checkpoint source has not yet been folded into the prepared builder, so the commands below do **not** produce the 76-character nightly.
 
 ## Build from source
 
@@ -166,7 +170,7 @@ The chosen starting level applies when confirming a character. Invincibility doe
 
 ## Development status
 
-The latest delivered nightly is `4acfe759` (October 31), with **75 playable identities** including Hogan. His controller-only native opening route passes 663 game updates, one Goomba defeat and scrolling to world 370/camera 258. All 2,498 observed interrupt returns preserve live registers and stack-resident dispatch code. This is an opening-route check, not a full-stage, original-audio, every-powerup or 60 Hz claim. See the [native verification](docs/qa/checkpoints/2026-10-31/hogan-current-native-loop-v1/README.md) and [delivery receipt](docs/qa/nightly-2026-10-31-hogan75.json). Thomas now clears all four 1-1 pipes using native moving platforms, with corrected background, inventory and platform graphics in his [private native test](docs/qa/checkpoints/2026-10-31/thomas-native-pipe-graphics-v1/README.md). Combining him with Hogan in the nightly remains in progress.
+The latest delivered nightly is `28693c0b` (November 1), with **76 playable identities** including Hogan and Thomas. The final ROM passes 688 source Start/A cases, 86 preview OAM/palette comparisons, and a native menu sweep with an identical heading on all 2,400 observed transition frames. Hogan's final opening route and Thomas's final first-pipe route pass; the combined gameplay parent also passes Thomas's four-pipe route and all four Contra Force pistol/Goomba checks. Later changes are confined to the menu bank, with all CHR and selected source images unchanged. These checks do not establish full-stage, original-audio, every-powerup or 60 Hz completion. See the [verification](docs/qa/checkpoints/2026-11-01/ready76-menu-native-v1/README.md) and [delivery receipt](docs/qa/nightly-2026-11-01-ready76.json).
 
 The earlier `a4410264` checkpoint fixed a Contra Force camera stall and a CHR mapping error that displayed portrait fragments as enemies. Its four Contra Force runs and SMB1 Peach regression covered camera crossing and rendered pixels; the following `f4767d59` checkpoint added successful projectile-contact checks. See the [camera/CHR receipt](docs/qa/functional-roster-ready74-cf-scroll-chr-2026-10-31.json) and [projectile-contact receipt](docs/qa/functional-roster-ready74-cf-projectile-2026-10-31.json).
 

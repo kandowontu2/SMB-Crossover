@@ -1,25 +1,89 @@
 {
   "goal_status": "ACTIVE_INCOMPLETE",
   "previous_goal_turn_classification": "progress",
-  "date": "2026-10-31",
-  "current_priority": "Compose the final native-tested Thomas component alongside Hogan onto the current nightly, validate the exact combined ROM, then replace the Downloads nightly with no backup.",
+  "date": "2026-11-01",
+  "current_priority": "Menu heading-flash repair and76-character nightly delivered. Continue remaining pending source characters and the original full-roster/full-stage objective.",
   "nightly_policy": "Publish usable updates frequently. Replace C:/Users/kando/Downloads/SMB-Crossover-Latest-WIP-MMC5.nes; do not make backup copies. A GitHub push is not a nightly delivery.",
   "installed_nightly": {
-    "path": "C:/Users/kando/Downloads/SMB-Crossover-Latest-WIP-MMC5.nes",
-    "sha256": "4acfe759b13a9dd7749fb24522f94d2e47267c24a367c294fff361ea6c1f6f2d",
-    "playable_identities": 75,
-    "new_identity": "Hulk Hogan",
-    "receipt": "docs/qa/nightly-2026-10-31-hogan75.json",
+    "path": "C:\\Users\\kando\\Downloads\\SMB-Crossover-Latest-WIP-MMC5.nes",
+    "sha256": "28693c0bf61926f5bef62511b5da0b71f97543170d27d0e03e59bb5e70edf0ca",
+    "playable_identities": 76,
+    "new_identity": "Thomas",
     "backup_created": false,
-    "source_joint": "build/hogan-adapter",
-    "native_checkpoint": "docs/qa/checkpoints/2026-10-31/hogan-current-native-loop-v1/handoff.json",
-    "scope": "Native cold selection/lives/jump/landing/punch Goomba defeat/camera crossing.663Main,1735video frames. No full1-1, all-powerup, original-audio or60Hz claim."
+    "source_joint": "build\\ready76-menu-fixed-v5",
+    "receipt": "docs/qa/nightly-2026-11-01-ready76.json",
+    "native_checkpoint": "docs\\qa\\checkpoints\\2026-11-01\\ready76-menu-native-v1",
+    "scope": {
+      "complete": false,
+      "ROM_sha256": "28693c0bf61926f5bef62511b5da0b71f97543170d27d0e03e59bb5e70edf0ca",
+      "playable": 76,
+      "total_identities": 86,
+      "source": {
+        "path": "docs\\qa\\checkpoints\\2026-11-01\\ready76-menu-native-v1\\source.zip",
+        "sha256": "d2f6c046085e04036404e898e201d3e1364325734aa91d17e9d2c09dd2c9b386",
+        "bytes": 456918,
+        "members": 68
+      },
+      "native": {
+        "path": "docs\\qa\\checkpoints\\2026-11-01\\ready76-menu-native-v1\\native-results.zip",
+        "sha256": "edca3109ea8718ded51b0dab3e591dc7c992bab309fa8357ff0e275d27b16999",
+        "bytes": 415367,
+        "members": 142
+      },
+      "menu": {
+        "transitions": 120,
+        "physical_frames_observed": 2400,
+        "identical_heading": true,
+        "visible_mask_writes": 0,
+        "source_admission_cases": 688,
+        "source_preview_equivalence_cases": 86
+      },
+      "Hogan": {
+        "ROM": "28693c0bf61926f5bef62511b5da0b71f97543170d27d0e03e59bb5e70edf0ca",
+        "Main": 663,
+        "frames": 1735,
+        "defeats": 1
+      },
+      "Thomas": {
+        "final_ROM": "28693c0bf61926f5bef62511b5da0b71f97543170d27d0e03e59bb5e70edf0ca",
+        "final_pipe_clears": 1,
+        "final_Main": 753,
+        "four_pipe_parent": "d1c4973cf69702ba02d83706aadda72a2a63a6f0cec6018ec5fa63735ff75393",
+        "parent_Main": 2080,
+        "parent_frames": 3651,
+        "parent_defeats": 3,
+        "parent_pipes": [
+          448,
+          608,
+          736,
+          912
+        ],
+        "body_pixel_frames": 1261,
+        "platform_pixel_frames": 342
+      },
+      "Contra_Force": {
+        "native_parent": "d1c4973cf69702ba02d83706aadda72a2a63a6f0cec6018ec5fa63735ff75393",
+        "variants": [
+          "burns",
+          "smith",
+          "iron",
+          "beans"
+        ],
+        "source_images_and_native_imports_unchanged": true
+      },
+      "limits": [
+        "Opening routes, not full1-1/shortcut or every powerup",
+        "Hogan and Thomas original audio/advanced moves remain incomplete",
+        "Ten menu identities remain pending; broader roster/campaign work remains active",
+        "Whole-menu heading flash regression checked; colored preview overlap in static portrait hashes is not counted as a heading error"
+      ]
+    }
   },
   "Thomas_final_component": {
     "joint": "build/thomas-platform-chr",
     "sha256": "5471f6333b02f786ccb6009b20ed49568772385692ceedef9062b4fb3f8e0262",
     "private_playable": 75,
-    "installed": false,
+    "installed": true,
     "native_checkpoint": "docs/qa/checkpoints/2026-10-31/thomas-native-pipe-graphics-v1/handoff.json",
     "native_checkpoint_sha256": "a8a836222134ad67e221911fd5dc139db0e5ec6f76575cfde265402f3f581df6",
     "native_output": "build/thomas-platform-native/capture",
@@ -28,7 +92,12 @@
     "native_enemy_defeats": 3,
     "native_vector_return_checks": 6338,
     "native_platform_pixel_checks": 339,
-    "pipe_clears": [448, 608, 736, 912],
+    "pipe_clears": [
+      448,
+      608,
+      736,
+      912
+    ],
     "world_X": 961,
     "camera_X": 849,
     "original_jump_pixels": 27,
@@ -50,7 +119,13 @@
       "tools/audit/fix_thomas_platform_chr_bounded_v1.py",
       "tools/audit/prepare_thomas_native_platform_pixels_bounded_v1.py"
     ],
-    "still_required": ["Composition alongside Hogan/current CF changes", "Full1-1 and shortcut", "All powerups and native objects/effects", "Original audio and remaining source moves"]
+    "still_required": [
+      "Full1-1 and shortcut",
+      "All powerups and native objects/effects",
+      "Original audio and remaining source moves",
+      "Other stages/pipe and gap compatibility"
+    ],
+    "installed_as_part_of": "28693c0bf61926f5bef62511b5da0b71f97543170d27d0e03e59bb5e70edf0ca"
   },
   "composition_notes": {
     "current_Hogan_builder": "tools/audit/join_hogan_current_bounded_v1.py",
@@ -60,11 +135,12 @@
     "earlier_comparison": "Hogan4ac versus Thomas5cfc deltas from a126 differ at only36 shared PRG bytes: InitScreen hook operands0x725e/0x7263/0x7268 and HuCommon0x9f863..0x9f885. This is planning evidence, not permission to patch bytes or assume the latest547 delta composes unchanged.",
     "shared_hooks": "Merge typed Main/menu/scene/union behavior as source. Preserve both owner retire/load paths. HuCommon/union A79 is full (Hogan HuEndBFFF, Thomas C000), so inspect/fund the combined implementation rather than overwriting one branch.",
     "link_inputs": "Reuse current immutable objects by full path/role. Basenames collide across components (loader, stream, component); never select replacements by basename alone.",
-    "proof": "Rebuild source; check native imports/foreign behavior, real86-identity menu transitions and exact combined-ROM Mesen play. Existing component hashes are not combined-ROM evidence."
+    "proof": "Rebuild source; check native imports/foreign behavior, real86-identity menu transitions and exact combined-ROM Mesen play. Existing component hashes are not combined-ROM evidence.",
+    "composition_completed": true
   },
-  "Mesen": "Root owns one SMB queue. Other projects may run Mesen concurrently. Use --doNotSaveSettings, original sprite limits and the owned-process capture watchdog. Native queues are terminal as of this handoff; do not restart jobs based only on a stale note.",
+  "Mesen": "All owned SMB queues are terminal. External projects may run Mesen concurrently. Root owns one SMB queue; --doNotSaveSettings, original sprite limits, owned-process watchdog and bounded storage rules remain required.",
   "storage": {
-    "build_last_bytes_approx": 1200000000,
+    "build_last_bytes_approx": 1450000000,
     "build_byte_cap": 5000000000,
     "build_file_cap": 20000,
     "workspace_byte_cap": 70000000000,
@@ -79,6 +155,40 @@
   },
   "agents": "Do not spawn or resume agents without explicit authorization. Prior workers remain interrupted.",
   "do_not_stage": "docs/qa/current-roster-progress-2026-10-27.json",
-  "other_full_objective_work": ["Remaining5 WWF identities, source tracks and advanced moves", "Doki original physics port", "Sonic3-reference source integration", "Remaining pending roster identities/alternates", "Every character clears1-1 and shortcut and uses every powerup", "SMB2J and ANN campaign work remains separate"],
-  "completion": "Not complete. Do not reduce the goal to these native opening routes."
+  "other_full_objective_work": [
+    "Remaining5 WWF identities, source tracks and advanced moves",
+    "Doki original physics port",
+    "Sonic3-reference source integration",
+    "Remaining pending roster identities/alternates",
+    "Every character clears1-1 and shortcut and uses every powerup",
+    "SMB2J and ANN campaign work remains separate"
+  ],
+  "completion": "Not complete. Do not reduce the goal to these native opening routes.",
+  "combined76": {
+    "final_joint": "build\\ready76-menu-fixed-v5",
+    "candidate": "28693c0bf61926f5bef62511b5da0b71f97543170d27d0e03e59bb5e70edf0ca",
+    "gameplay_parent": "d1c4973cf69702ba02d83706aadda72a2a63a6f0cec6018ec5fa63735ff75393",
+    "source_admissions": 688,
+    "preview_semantics": 86,
+    "native_menu_transitions": 120,
+    "native_transition_frames": 2400,
+    "heading_errors": 0,
+    "visible_PPUMASK_writes": 0,
+    "Thomas_parent_four_pipe_Main": 2080,
+    "CF_parent_variants": [
+      "burns",
+      "smith",
+      "iron",
+      "beans"
+    ],
+    "final_Hogan_Main": 663,
+    "final_Thomas_first_pipe_Main": 753,
+    "all_native_queues_terminal": true
+  },
+  "menu_flicker_followup": {
+    "reproduced": 17,
+    "final_heading_errors": 0,
+    "final_visible_mask_writes": 0,
+    "notes": "Accept actual palette packets; remove static hint; prune only unused palettes; coalesce universal/final colors and discard fully shadowed3F11/3. Alex/Ryan required outlines retained. Harmless colored-preview overlap still changes the broader static-portrait hash; no claim of complete menu layout polish."
+  }
 }
