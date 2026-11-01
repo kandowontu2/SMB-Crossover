@@ -1,0 +1,30 @@
+{
+  "complete": false,
+  "installed": false,
+  "menu_CPU_passed": true,
+  "native_gameplay_passed": false,
+  "ROM_sha256": "9af4c0ad1a2ad0dfe45207cc522873b6f4b569a426b9e70363e3b8ac4bf106b5",
+  "packet_sha256": "f94e5aa6933ee782da31edeedaba57681684027ac33475035db3c1710e04c2c1",
+  "packet_bytes": 13361,
+  "menu_CPU": {
+    "passed": true,
+    "ROM_sha256": "9af4c0ad1a2ad0dfe45207cc522873b6f4b569a426b9e70363e3b8ac4bf106b5",
+    "menu_identities": 91,
+    "old_Start_cases": 720,
+    "Metal_Start_cases": 8,
+    "paired_header_exit_cases": 165,
+    "installed": false,
+    "native": false,
+    "scope": "Actual CPU menu/Start paths. No native Main/IRQ/gameplay, health/combat/audio claim."
+  },
+  "native": {
+    "passed": false,
+    "controller_only": true,
+    "frames": 636,
+    "world_x": 0,
+    "selected": 35,
+    "full_stage": false
+  },
+  "finding": "Controller-only cold selection and Start reach gameplay with raw35, but no visible player and worldX stays0 after36 right+B frames. Native smoke exits1. Do not publish this candidate.",
+  "next": "Trace real cold scene load, authenticated cache headers, constructor timing, movement and draw dispatch. Existing component fixtures began with initialized native coordinates and do not prove real spawn behavior."
+}

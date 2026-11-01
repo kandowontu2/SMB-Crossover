@@ -1,0 +1,22 @@
+{
+  "grant": true,
+  "owner": "Metal Storm menu resolve/retirement and Start flags",
+  "baseline_ROM_sha256": "b7e3b1aaa36f128140b54c2159732fe698a91af8318e68599654a268c8bfdc3f",
+  "physical_PRG_bank": 29,
+  "physical_offsets_half_open": [
+    [
+      5006,
+      5120
+    ],
+    [
+      5231,
+      5262
+    ]
+  ],
+  "evidence": "Pinned megaman_physics.s explicit .res $72/$1f around B400 37-row veneers; native MarioWaterCoast ProductHi relocated to BB8E and all256 table bytes checked.",
+  "conditions": [
+    "Keep B400..B46F veneers and relocated256-byte water table byte-exact.",
+    "Keep public KrStartFlags address; maintain fixed-size source wrapper and assertions.",
+    "This is allocation only, not native gameplay approval."
+  ]
+}
