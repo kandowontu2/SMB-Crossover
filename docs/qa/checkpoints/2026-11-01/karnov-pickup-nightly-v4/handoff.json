@@ -1,0 +1,656 @@
+{
+  "passed": true,
+  "installed": true,
+  "backup_created": false,
+  "user_requested_WIP": true,
+  "complete": false,
+  "destination": "C:\\Users\\kando\\Downloads\\SMB-Crossover-Latest-WIP-MMC5.nes",
+  "output_sha256": "0162287ebf5b8fcb8a84dcf108a0d0930c4dc9d6e68928c4804bd774712e1a6c",
+  "replaced_sha256": "e8d35a95ffe8e396dc1d8b32ca78d57d376fc14de9a2f4b37754012448fde09a",
+  "selectable_identities": 86,
+  "previously_verified_identities": 85,
+  "total_menu_identities": 90,
+  "selection": "Rygar -> Select -> Karnov -> A/Start",
+  "checkpoint": "docs/qa/checkpoints/2026-11-01/karnov-pickup-nightly-v4",
+  "source": {
+    "path": "docs/qa/checkpoints/2026-11-01/karnov-pickup-nightly-v4/source.zip",
+    "sha256": "c8a43d87ea0415e309f8eb0f03937521ad48e05b0ab13e393bdda2e8b0477cde",
+    "bytes": 367619,
+    "members": 116
+  },
+  "native": {
+    "path": "docs/qa/checkpoints/2026-11-01/karnov-pickup-nightly-v4/native-results.zip",
+    "sha256": "fb4d8e52fe4bc27724a8309d611f0665706148cb5aa6583144b3a8a23f71a7cf",
+    "bytes": 64281,
+    "members": 24
+  },
+  "verification": {
+    "ROM_sha256": "0162287ebf5b8fcb8a84dcf108a0d0930c4dc9d6e68928c4804bd774712e1a6c",
+    "source_CPU_suite": [
+      "health-CPU-controls.json",
+      "rebound-CPU-controls.json",
+      "life-restart-CPU-controls.json",
+      "terrain-CPU-controls.json",
+      "terrain-vectors.json",
+      "scene-CPU-controls.json"
+    ],
+    "composed": {
+      "core": {
+        "passed": true,
+        "ROM_sha256": "0162287ebf5b8fcb8a84dcf108a0d0930c4dc9d6e68928c4804bd774712e1a6c",
+        "no_code_overlay": true,
+        "native_emulator": false,
+        "installed": false,
+        "donor_sha256": "0d49c1120fc13ead1efe4429f7cbb4f01b90e2486c66661c46e922dda6dc830a",
+        "donor_contact_pairs": 104,
+        "actual_Union_spawn_cases": 90,
+        "actual_maturity_cases": 24,
+        "actual_cookie_foreign_rejections": 9,
+        "authenticated_service_calls": {
+          "24": 107,
+          "20": 93,
+          "23": 27
+        },
+        "minimum_API_SP": 179,
+        "earned_trace_sha256": "380e0b083e08d27ddc38e1c93429a459964231c3f8a4a7e7b438eb15e9348e8d",
+        "same_life_preserves_cycle": true,
+        "new_life_resets_cycle": true,
+        "scope": "Actual final ROM loader/authenticated resident/final service routes/ROM29 workers and native object consumers; only declared actor/object/data fixtures, no executable overlay. Full donor earned state compared excluding legacyHUD/dispatch/stack boundaries. Main/emergence/old-owner/ISR checks are separate below."
+      },
+      "old_owners": {
+        "passed": true,
+        "raw_owner_contexts": 536,
+        "byte_changes": 5080,
+        "Karnov_owned_ROM_intervals": [
+          [
+            243264,
+            245696
+          ],
+          [
+            1457168,
+            1465360
+          ]
+        ],
+        "verified_private_callee_operand_relocations": [
+          {
+            "caller": "InitScreen",
+            "callee": "KrSceneInit",
+            "offsets": [
+              12,
+              17,
+              22
+            ],
+            "before": 47508,
+            "after": 47490
+          },
+          {
+            "caller": "FmResolve::Native",
+            "callee": "KrMenuResolve",
+            "offsets": [
+              4,
+              9,
+              14
+            ],
+            "before": 47562,
+            "after": 47544
+          },
+          {
+            "caller": "FmStartFlags",
+            "callee": "KrStartFlags",
+            "offsets": [
+              4,
+              9,
+              14
+            ],
+            "before": 47599,
+            "after": 47581
+          }
+        ],
+        "trace_sha256": "8c84496cb5183455f013197fdda9c8c9bb33616e2d5202bfadb9629f85840734",
+        "scope": "All raw0..33 owners, both alternate-bit patterns and all4native types/immature+mature fixtures; Karnov alias7/odd excluded. Actual shared pickup consumers equal in registers/application RAM/RAMbanks/maps/CHR. Changed ROM outside owned leases is restricted to target immediates in three exact existing farcall templates for relocated private Karnov callees. This is not complete old-owner gameplay or every valid alternate admission."
+      },
+      "emergence": {
+        "passed": true,
+        "cases": [
+          {
+            "source_weapon": 0,
+            "item_type": 0,
+            "emergence_updates": 65,
+            "rise_pixels": 17,
+            "contact_updates": 1,
+            "minimum_SP": 174,
+            "final_source65": 1,
+            "boots_stock": 0
+          },
+          {
+            "source_weapon": 2,
+            "item_type": 1,
+            "emergence_updates": 65,
+            "rise_pixels": 17,
+            "contact_updates": 1,
+            "minimum_SP": 174,
+            "final_source65": 2,
+            "boots_stock": 1
+          }
+        ],
+        "actual_service_calls": {
+          "20": 2,
+          "23": 100,
+          "24": 2
+        },
+        "scope": "Real UnionPwrUpCore and unchanged nativePowerUpObjHandler perform their17-pixelvisible emergence without an award; moving the declared player/body coordinate fixture into contact executes native collision and authenticated collection. No executable overlay, controller-earned block hit or native emulator video claim."
+      },
+      "Main": {
+        "passed": true,
+        "real_Select_Start": true,
+        "source_code_loaded_from_ROM": true,
+        "total_Main_updates": 619,
+        "setup_Main": 167,
+        "normal_NMIs": 619,
+        "controller_earned_block_spawn": true,
+        "controller_earned_mushroom": true,
+        "invincibility_route_fixture": true,
+        "deepest_option_state_fixture": true,
+        "minimum_Main_SP": 156,
+        "minimum_Main_ISR_SP": 135,
+        "reserve_above_SMC": 12,
+        "actual_Main_ISR_cases": 18,
+        "Main_events": [
+          {
+            "Main": 475,
+            "input": 128,
+            "minimum_SP": 156,
+            "minimum_instruction": {
+              "SP": 156,
+              "step": 1863,
+              "PC": 44133,
+              "bank": 3
+            },
+            "events": [
+              [
+                "SetupPowerUp",
+                4739,
+                190,
+                254
+              ],
+              [
+                "UnionPwrUpCore",
+                4767,
+                187,
+                130
+              ],
+              [
+                "KrPickupPrepareBody",
+                5213,
+                158,
+                157
+              ]
+            ],
+            "source65": 0,
+            "source68": 0
+          },
+          {
+            "Main": 617,
+            "input": 1,
+            "minimum_SP": 156,
+            "minimum_instruction": {
+              "SP": 156,
+              "step": 1909,
+              "PC": 44133,
+              "bank": 3
+            },
+            "events": [
+              [
+                "KrPickupMature",
+                9771,
+                188,
+                3
+              ],
+              [
+                "KrPickupCollect",
+                10347,
+                185,
+                157
+              ],
+              [
+                "KrPickupSuperFireball",
+                10368,
+                183,
+                157
+              ]
+            ],
+            "source65": 1,
+            "source68": 0
+          },
+          {
+            "Main": 618,
+            "input": 0,
+            "minimum_SP": 156,
+            "minimum_instruction": {
+              "SP": 156,
+              "step": 1885,
+              "PC": 44133,
+              "bank": 3
+            },
+            "events": [
+              [
+                "KrPickupMature",
+                9501,
+                188,
+                3
+              ],
+              [
+                "KrPickupCollect",
+                10071,
+                185,
+                157
+              ],
+              [
+                "KrPickupGrantOption",
+                10105,
+                183,
+                157
+              ]
+            ],
+            "source65": 2,
+            "source68": 0
+          }
+        ],
+        "interrupts": [
+          {
+            "Main": 475,
+            "cut": 1863,
+            "foreground": {
+              "PC": 44133,
+              "SP": 156,
+              "bank": 3
+            },
+            "kind": "IRQ",
+            "CPU": 120,
+            "minimum_SP": 151,
+            "raw_maps": [
+              254,
+              3,
+              2,
+              255
+            ],
+            "AXYP_SP_SMC33_page1_R0_R1_R6_R7_exact": true
+          },
+          {
+            "Main": 475,
+            "cut": 1863,
+            "foreground": {
+              "PC": 44133,
+              "SP": 156,
+              "bank": 3
+            },
+            "kind": "NMI",
+            "CPU": 3036,
+            "minimum_SP": 135,
+            "raw_maps": [
+              254,
+              3,
+              2,
+              255
+            ],
+            "AXYP_SP_SMC33_page1_R0_R1_R6_R7_exact": true
+          },
+          {
+            "Main": 475,
+            "cut": 4739,
+            "foreground": {
+              "PC": 36660,
+              "SP": 190,
+              "bank": 254
+            },
+            "kind": "IRQ",
+            "CPU": 120,
+            "minimum_SP": 185,
+            "raw_maps": [
+              254,
+              137,
+              231,
+              255
+            ],
+            "AXYP_SP_SMC33_page1_R0_R1_R6_R7_exact": true
+          },
+          {
+            "Main": 475,
+            "cut": 4739,
+            "foreground": {
+              "PC": 36660,
+              "SP": 190,
+              "bank": 254
+            },
+            "kind": "NMI",
+            "CPU": 3909,
+            "minimum_SP": 167,
+            "raw_maps": [
+              254,
+              137,
+              231,
+              255
+            ],
+            "AXYP_SP_SMC33_page1_R0_R1_R6_R7_exact": true
+          },
+          {
+            "Main": 475,
+            "cut": 5213,
+            "foreground": {
+              "PC": 48668,
+              "SP": 158,
+              "bank": 157
+            },
+            "kind": "IRQ",
+            "CPU": 120,
+            "minimum_SP": 153,
+            "raw_maps": [
+              254,
+              157,
+              2,
+              255
+            ],
+            "AXYP_SP_SMC33_page1_R0_R1_R6_R7_exact": true
+          },
+          {
+            "Main": 475,
+            "cut": 5213,
+            "foreground": {
+              "PC": 48668,
+              "SP": 158,
+              "bank": 157
+            },
+            "kind": "NMI",
+            "CPU": 4159,
+            "minimum_SP": 135,
+            "raw_maps": [
+              254,
+              157,
+              2,
+              255
+            ],
+            "AXYP_SP_SMC33_page1_R0_R1_R6_R7_exact": true
+          },
+          {
+            "Main": 617,
+            "cut": 1909,
+            "foreground": {
+              "PC": 44133,
+              "SP": 156,
+              "bank": 3
+            },
+            "kind": "IRQ",
+            "CPU": 120,
+            "minimum_SP": 151,
+            "raw_maps": [
+              254,
+              3,
+              2,
+              255
+            ],
+            "AXYP_SP_SMC33_page1_R0_R1_R6_R7_exact": true
+          },
+          {
+            "Main": 617,
+            "cut": 1909,
+            "foreground": {
+              "PC": 44133,
+              "SP": 156,
+              "bank": 3
+            },
+            "kind": "NMI",
+            "CPU": 3036,
+            "minimum_SP": 135,
+            "raw_maps": [
+              254,
+              3,
+              2,
+              255
+            ],
+            "AXYP_SP_SMC33_page1_R0_R1_R6_R7_exact": true
+          },
+          {
+            "Main": 617,
+            "cut": 10347,
+            "foreground": {
+              "PC": 48743,
+              "SP": 185,
+              "bank": 157
+            },
+            "kind": "IRQ",
+            "CPU": 120,
+            "minimum_SP": 180,
+            "raw_maps": [
+              254,
+              157,
+              2,
+              255
+            ],
+            "AXYP_SP_SMC33_page1_R0_R1_R6_R7_exact": true
+          },
+          {
+            "Main": 617,
+            "cut": 10347,
+            "foreground": {
+              "PC": 48743,
+              "SP": 185,
+              "bank": 157
+            },
+            "kind": "NMI",
+            "CPU": 3036,
+            "minimum_SP": 164,
+            "raw_maps": [
+              254,
+              157,
+              2,
+              255
+            ],
+            "AXYP_SP_SMC33_page1_R0_R1_R6_R7_exact": true
+          },
+          {
+            "Main": 617,
+            "cut": 10368,
+            "foreground": {
+              "PC": 47947,
+              "SP": 183,
+              "bank": 157
+            },
+            "kind": "IRQ",
+            "CPU": 120,
+            "minimum_SP": 178,
+            "raw_maps": [
+              254,
+              157,
+              2,
+              255
+            ],
+            "AXYP_SP_SMC33_page1_R0_R1_R6_R7_exact": true
+          },
+          {
+            "Main": 617,
+            "cut": 10368,
+            "foreground": {
+              "PC": 47947,
+              "SP": 183,
+              "bank": 157
+            },
+            "kind": "NMI",
+            "CPU": 3036,
+            "minimum_SP": 162,
+            "raw_maps": [
+              254,
+              157,
+              2,
+              255
+            ],
+            "AXYP_SP_SMC33_page1_R0_R1_R6_R7_exact": true
+          },
+          {
+            "Main": 618,
+            "cut": 1885,
+            "foreground": {
+              "PC": 44133,
+              "SP": 156,
+              "bank": 3
+            },
+            "kind": "IRQ",
+            "CPU": 120,
+            "minimum_SP": 151,
+            "raw_maps": [
+              254,
+              3,
+              2,
+              255
+            ],
+            "AXYP_SP_SMC33_page1_R0_R1_R6_R7_exact": true
+          },
+          {
+            "Main": 618,
+            "cut": 1885,
+            "foreground": {
+              "PC": 44133,
+              "SP": 156,
+              "bank": 3
+            },
+            "kind": "NMI",
+            "CPU": 4320,
+            "minimum_SP": 135,
+            "raw_maps": [
+              254,
+              3,
+              2,
+              255
+            ],
+            "AXYP_SP_SMC33_page1_R0_R1_R6_R7_exact": true
+          },
+          {
+            "Main": 618,
+            "cut": 10071,
+            "foreground": {
+              "PC": 48743,
+              "SP": 185,
+              "bank": 157
+            },
+            "kind": "IRQ",
+            "CPU": 120,
+            "minimum_SP": 180,
+            "raw_maps": [
+              254,
+              157,
+              2,
+              255
+            ],
+            "AXYP_SP_SMC33_page1_R0_R1_R6_R7_exact": true
+          },
+          {
+            "Main": 618,
+            "cut": 10071,
+            "foreground": {
+              "PC": 48743,
+              "SP": 185,
+              "bank": 157
+            },
+            "kind": "NMI",
+            "CPU": 4320,
+            "minimum_SP": 164,
+            "raw_maps": [
+              254,
+              157,
+              2,
+              255
+            ],
+            "AXYP_SP_SMC33_page1_R0_R1_R6_R7_exact": true
+          },
+          {
+            "Main": 618,
+            "cut": 10105,
+            "foreground": {
+              "PC": 48270,
+              "SP": 183,
+              "bank": 157
+            },
+            "kind": "IRQ",
+            "CPU": 120,
+            "minimum_SP": 178,
+            "raw_maps": [
+              254,
+              157,
+              2,
+              255
+            ],
+            "AXYP_SP_SMC33_page1_R0_R1_R6_R7_exact": true
+          },
+          {
+            "Main": 618,
+            "cut": 10105,
+            "foreground": {
+              "PC": 48270,
+              "SP": 183,
+              "bank": 157
+            },
+            "kind": "NMI",
+            "CPU": 4320,
+            "minimum_SP": 162,
+            "raw_maps": [
+              254,
+              157,
+              2,
+              255
+            ],
+            "AXYP_SP_SMC33_page1_R0_R1_R6_R7_exact": true
+          }
+        ],
+        "scope": "Real Select/Start/native parser/Main/NMI. D-pad/A head-hit the first actual1-1question block, native item rises and is collected through real body contact; route invincibility is a declared cheat fixture. An earned-triple/Kmark-counter/object fixture exercises deepest actual Main option contact. IRQ/lagNMI cuts at real spawn/pickup/grant/minimum-stack instructions restore allforeground state/SMC/maps; passing requires12-byte SMC reserve. Native emulator/video/acoustic/full-stage qualification is separate."
+      }
+    },
+    "double_shot_Main": 554,
+    "double_shot_ISR_returns": 2211,
+    "maximum_projectiles": 2,
+    "native_menu_transitions": 124,
+    "native_menu_frames": 2630,
+    "sampled_gray_anomalies": 0,
+    "heading_errors": 0,
+    "visible_mask_writes": 0
+  },
+  "unallocated_carrier_closure": {
+    "path": "docs/qa/checkpoints/2026-11-01/karnov-pickup-nightly-v4/unallocated-carrier-closure.zip",
+    "sha256": "684aca698afd1e0a6e8db14bde684c0c2b46f303c204ccba54fa8fea171e23d1",
+    "carrier_granted": false,
+    "integrated": false
+  },
+  "next_components": {
+    "carrier-loader-bounds": {
+      "path": "docs/qa/checkpoints/2026-11-01/karnov-pickup-nightly-v4/carrier-loader-bounds.zip",
+      "sha256": "0bf639df7f17883e9c1165426d76e54974d6d39fc16553539304b317662ba070",
+      "integrated": false
+    },
+    "metal-storm-host": {
+      "path": "docs/qa/checkpoints/2026-11-01/karnov-pickup-nightly-v4/metal-storm-host.zip",
+      "sha256": "71950815e98a78eef49d98dfa41c7067cb20106fd2d62b43ffe06ec98bcebbdf",
+      "integrated": false
+    }
+  },
+  "changes": [
+    "Karnov block items now use original earned weapon/health state instead of Mario tiers.",
+    "Items retain native emergence and award their original progression only on real collection.",
+    "Authenticated block-item preparation avoids nested bank calls, retaining the required interrupt stack reserve.",
+    "Mushrooms heal depleted original health or advance single/double/triple fireballs; healthy triple-shot flowers cycle original equipment stock0..9.",
+    "Native item erase, pickup sound and score remain; existing menu, health/death and stomp fixes are retained."
+  ],
+  "pending": [
+    "Original equipment activation/Select/HUD/icons and original audio remain unfinished.",
+    "Karnov projectile-to-enemy/block combat remains an unintegrated source component pending resource and real Main stack qualification.",
+    "Full1-1, shortcut and every-powerup controller playthroughs remain unfinished.",
+    "Metal Storm, Shinobi and Excitebike are not selectable yet."
+  ],
+  "diagnostics": [
+    "An initial firing fixture held B immediately after movement/collection; the original actor lost that edge on its walking-to-idle transition. The corrected controller fixture pulses B and observes two simultaneous source projectiles.",
+    "Two predecessor prototypes failed actual Main block-spawn interrupt reserve. The c917 negative receipt and exact generating checker are preserved; it reached129 (only6 above SMC). The final direct preparation and authentication path reaches135, satisfying12. Only final exact-candidate results qualify this delivery."
+  ],
+  "storage": {
+    "build_bytes": 1576343346,
+    "build_files": 7833,
+    "build_byte_cap": 5000000000,
+    "build_file_cap": 20000
+  }
+}

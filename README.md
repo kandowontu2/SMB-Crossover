@@ -6,7 +6,7 @@ A native NES adaptation of [Super Mario Bros. Crossover](https://www.smbgames.be
 
 [Player's guide](<Player Guide/SMB-Crossover-Players-Guide-NU.pdf>) · [Full roster image](docs/images/SMB-Crossover-Full-Roster.png) · [Build from source](#build-from-source) · [Report a bug](https://github.com/kandowontu2/SMB-Crossover/issues)
 
-> **In development:** the latest expanded MMC5 nightly has **85 playable identities**, including alternates, across a **32-slot, four-row menu**. Another **5 individual identities** are coming soon. The prepared source build currently contains 37 identities; see the build table below.
+> **In development:** the latest expanded MMC5 nightly has **86 selectable identities**, including unfinished Karnov, across a **32-slot, four-row menu**. Another **4 individual identities** are coming soon. The prepared source build currently contains 37 identities; see the build table below.
 
 <p align="center">
   <img src="docs/images/character-select.png" width="512" alt="Actual NES character-select screen with four rows of heroes and highlighted Imajin">
@@ -27,7 +27,7 @@ The title opens a separate character-select screen. Use the D-pad to highlight a
 
 ## Current roster
 
-This table describes the **85-playable development nightly**, not the older prepared build. A character visible in the menu is not necessarily playable: names marked with a star are **COMING SOON**.
+This table describes the **86-selectable development nightly**, including work in progress. A character visible in the menu is not necessarily selectable: names marked with a star are **COMING SOON**.
 
 | Slot | Playable now | Coming soon |
 | --- | --- | --- |
@@ -38,7 +38,7 @@ This table describes the **85-playable development nightly**, not the older prep
 | Zelda | Link / Zelda II Link | — |
 | Castlevania | Simon / Grant / Sypha / Alucard | — |
 | Kid Icarus | Pit / GB Pit | — |
-| Rygar | Rygar | Karnov |
+| Rygar | Rygar / Karnov (WIP) | — |
 | DuckTales | Scrooge / Darkwing Duck | — |
 | Bass | Bass / Roll / Quick Man | — |
 | Ninja Gaiden | Ryu Hayabusa / Thomas | Shinobi |
@@ -79,7 +79,9 @@ The four SMB2 characters, four Final Fantasy classes and both SMB1 and SMB3 Toad
 
 **Thomas** is now playable: highlight Ryu and press Select twice. He keeps Kung-Fu's short jump and uses native SMB moving platforms to clear the four pipes in the tested 1-1 route. Original poses, melee attacks, platform graphics, scrolling and enemy defeats are verified; other stages and his full ability/audio lineup still need work.
 
-**Character selection** also has a rendering-budget repair. A cold-controller sweep covers all 90 identities through 124 D-pad/Select transitions without the reproduced heading flashes. Alex and Ryan retain their required outlines. See the [85-character verification](docs/qa/checkpoints/2026-11-01/ready85-doki-native-v1/README.md).
+**Karnov** is selectable: highlight Rygar, press Select, then A or Start. His original movement, fireballs, health, injury/death and stomp rebound are integrated. Items emerge from blocks and grant upgrades on contact; the first mushroom is verified through ordinary controller input and firing the earned double shot. Projectile contact with enemies/blocks, equipment activation and its HUD, original audio and full-stage testing remain unfinished. See the [current WIP verification](docs/qa/checkpoints/2026-11-01/karnov-pickup-nightly-v4/README.md).
+
+**Character selection** also has rendering and input repairs. A cold-controller sweep covers all 90 identities through 124 D-pad/Select transitions without sampled heading flashes or visible rendering changes. Select pressed during construction is deferred, simultaneous Select+confirm chooses the alternate, and returning through the title retains it. Alex and Ryan retain their required outlines. See the [current WIP verification](docs/qa/checkpoints/2026-11-01/karnov-pickup-nightly-v4/README.md).
 
 On **Battletoads**, Select cycles **Rash → Zitz**. On **Contra Force**, it cycles **Burns → Smith → Iron → Beans**. These six use recovered original-game movement, graphics and attacks. The preceding checkpoint repairs Contra Force's projectile contact with native enemies, following the camera and enemy-graphics fixes. All four Contra Force characters passed controller-earned pistol kills with native score, hit sound and original projectile impacts; SMB1 Peach also passed a bounded regression check on that ROM. Those results remain attached to their tested hashes. Full levels, complete special moves, upgrades and dedicated audio remain unfinished. Battletoads and Contra Force are noticeably slow. See the [74-character WIP receipt](docs/qa/functional-roster-ready74-cf-projectile-2026-10-31.json).
 
@@ -93,14 +95,14 @@ Both Bowser versions are enabled in the October 31 WIP. They have source-derived
 
 | Target | Roster | Cartridge layout | Status |
 | --- | --- | --- | --- |
-| Expanded MMC5 nightly | 85 playable / 90 individual identities | 1 MiB PRG + 1 MiB CHR | Newest development work; frozen source and recipes are in the checkpoint archives. |
+| Expanded MMC5 nightly | 86 selectable / 90 individual identities | 1 MiB PRG + 1 MiB CHR | Includes unfinished Karnov; frozen source and recipes are in the checkpoint archives. |
 | Prepared expanded MMC5 | 37 identities | 1 MiB PRG + 1 MiB CHR | Reproduced by the commands below. |
 | Standard MMC3 / MMC5 | 14 identities in 12 slots | 512 KiB PRG + 256 KiB CHR | Smaller original roster. |
 | Oversized MMC3 | Expanded roster | 2 MiB PRG + 256 KiB CHR RAM | Experimental; feature parity and physical cartridge compatibility remain unverified. |
 
 **MMC5 is the main target for the full roster.** Mesen 2 is used for development and testing. The oversized MMC3 implementation needs eight-bit PRG banking and 256 KiB CHR RAM; Parodius currently uses a text powerup bar on that target.
 
-Generated ROMs are excluded from this repository. The newer checkpoint source has not yet been folded into the prepared builder, so the commands below do **not** produce the 76-character nightly.
+Generated ROMs are excluded from this repository. The newer checkpoint source has not yet been folded into the prepared builder, so the commands below do **not** produce the expanded nightly.
 
 ## Build from source
 
@@ -170,7 +172,7 @@ The chosen starting level applies when confirming a character. Invincibility doe
 
 ## Development status
 
-The latest delivered nightly is `f6415a64` (November 1), with **85 playable identities**. It adds the four original Doki characters and preserves all six WWF wrestlers from the prior build. The exact ROM passes 720 source Start/A cases, original Doki movement/art comparisons, eight SMB2/Doki cold emulator routes, and a 90-identity menu sweep with unchanged heading pixels across 2,480 transition frames. Full stages, shortcuts, all powerups, original Doki audio and steady 60 Hz remain unfinished. See the [verification](docs/qa/checkpoints/2026-11-01/ready85-doki-native-v1/README.md) and [delivery receipt](docs/qa/nightly-2026-11-01-ready85.json).
+The latest delivered nightly is `0162287e` (November 1), with **86 selectable identities**. It adds Karnov's contact-earned pickups to the preceding menu-input, health/death and stomp fixes. The exact ROM passes the first-mushroom/double-shot controller route, the 124-transition menu sweep, and source checks for health, terrain, scene ownership and pickup handling. Earlier Doki and WWF checks remain bound to their historical builds. Full stages, shortcuts, all powerups, Karnov equipment activation/combat/audio and steady 60 Hz remain unfinished. See the [verification](docs/qa/checkpoints/2026-11-01/karnov-pickup-nightly-v4/README.md) and [delivery receipt](docs/qa/checkpoints/2026-11-01/karnov-pickup-nightly-v4/handoff.json).
 
 The earlier `a4410264` checkpoint fixed a Contra Force camera stall and a CHR mapping error that displayed portrait fragments as enemies. Its four Contra Force runs and SMB1 Peach regression covered camera crossing and rendered pixels; the following `f4767d59` checkpoint added successful projectile-contact checks. See the [camera/CHR receipt](docs/qa/functional-roster-ready74-cf-scroll-chr-2026-10-31.json) and [projectile-contact receipt](docs/qa/functional-roster-ready74-cf-projectile-2026-10-31.json).
 

@@ -1,4 +1,4 @@
-"""Link Karnov's native terrain/movement boundary; menu admission stays disabled."""
+"""Link the declared Karnov WIP services and retain all existing host owners."""
 from pathlib import Path
 import argparse,hashlib,json,re,sys
 R=Path(__file__).resolve().parents[2];sys.path[:0]=[str(R/'tools'),str(R/'tools/audit')]
@@ -9,7 +9,7 @@ from prepare_cv3_dmc_mirror import prepare
 O,A,W,J=B.O,B.A,B.W,B.J
 
 def main():
-    ap=argparse.ArgumentParser();ap.add_argument('--render',action='store_true');ap.add_argument('--ingress',action='store_true');ap.add_argument('--scene',action='store_true');ap.add_argument('--menu',action='store_true');ap.add_argument('--compact-menu',action='store_true');ap.add_argument('--rebound',action='store_true');ap.add_argument('--health',action='store_true');ap.add_argument('--menu-input',action='store_true');args=ap.parse_args()
+    ap=argparse.ArgumentParser();ap.add_argument('--render',action='store_true');ap.add_argument('--ingress',action='store_true');ap.add_argument('--scene',action='store_true');ap.add_argument('--menu',action='store_true');ap.add_argument('--compact-menu',action='store_true');ap.add_argument('--rebound',action='store_true');ap.add_argument('--health',action='store_true');ap.add_argument('--menu-input',action='store_true');ap.add_argument('--pickups',action='store_true');args=ap.parse_args()
     assert not args.ingress or args.render
     assert not args.scene or args.ingress
     assert not args.menu or args.scene
@@ -20,6 +20,8 @@ def main():
     assert args.health or not(O/'kr-health.inc').exists(),'Keep --health after integrating source injury/death'
     assert not args.menu_input or args.compact_menu
     assert args.menu_input or not(O/'menu-input-entry.s').exists(),'Keep --menu-input after the menu input repair'
+    assert not args.pickups or args.health
+    assert args.pickups or not(O/'kr-pickup-kernel-v3.inc').exists(),'Keep --pickups after integrating earned source upgrades'
     assert args.menu or not(O/'kr-menu.inc').exists(),'This root now contains menu sources; keep --menu enabled'
     assert not(O/'source-stage.json').exists()
     paths=[Path(__file__),Path(B.__file__),R/'tools/reference/karnov_cache_kernel_1101_v1.s',R/'tools/reference/karnov_cache_resident_1101_v1.inc',R/'tools/reference/karnov_host_terrain_1101_v1.inc',A/'portable_actor.inc',A/'portable_dispatch.inc',W/'portable_weapon.inc',W/'portable_clear.inc']
@@ -103,15 +105,12 @@ def main():
         texts[3]=texts[3].replace(line,'')
         for name,t in zip(['character_select.s','characters.s','menu-input-entry.s','candidate.cfg'],texts):B.write(O/name,t)
         paths += [R/'tools/audit/prepare_menu_input_1101_v3.py',REFERENCE,character_source,O/'menu-input.inc',O/'characters.s',O/'menu-input-entry.s',O/'candidate.cfg']
-    cookie=bytes([167,7,1,10 if args.menu_input else 9 if args.health else 8 if args.rebound else 7 if args.compact_menu else 6 if args.menu else 5 if args.scene else 4 if args.ingress else 3 if args.render else 2])+hashlib.sha256(b''.join(p.read_bytes()for p in paths)+bytes.fromhex(B.sha(J/'candidate.nes'))).digest()[:12]
-    (O/'kr-cookie.bin').write_bytes(cookie)
-    for name,t in [('kr-kernel.s',kernel),('kr-resident.inc',resident),('kr-terrain.inc',terrain),('kr-host-actor.inc',actor)]:B.write(O/name,t)
     # Same exact main inputs as prior phase; export actual linked host owners.
     entry=((O/'menu-input-entry.s')if args.menu_input else(J/'menu/entrypoint.s')).read_text()
     names=['CurrentPlayer','NumberofLives','WorldNumber','AreaAddrsLOffset','FrameCounter','OperMode','GamePauseStatus','PlayerFacingDir','PlayerSize','CrouchingFlag','Player_X_Scroll','Player_XSpeedAbsolute','Player_Pos_ForScroll','ScreenLeft_X_Pos','ScreenLeft_PageLoc','Player_Rel_XPos','Player_Rel_YPos','BoundingBox_UL_Corner','BoundingBox_LR_Corner','Block_Buffer_1','Block_Buffer_2','AreaType','CrossoverBehaviorVersion','GuestBodyStompAllowed','GuestBodyNoStomp']
     if args.render:names += ['ObjectMetasprite','SmPosePtr','Player_SprAttrib','VRAM_Buffer1','VRAM_Buffer1_Offset','X5SetPhysicalChr','MetaspriteRenderLoop']
     if args.health:names += ['MmDeathFlag','MmDeathAge','MmDeathPit','TimerControl','EventMusicQueue','StarInvincibleTimer','MTileAttribute']
-    entry+='\n.export '+','.join(names)+'\n';B.write(O/'entrypoint.s',entry)
+    entry+='\n.export '+','.join(names)+'\n'
     t=(R/'build/hogan-thomas-current/src/cf_menu_body.inc').read_text();old='.res $b22-$0d-(FmCfHelperEnd-FmCfHelperStart),$ff';assert t.count(old)==1
     t=t.replace(old,'''KrResidentBegin:
 .export KrResidentBegin,KrResidentLimit
@@ -119,7 +118,17 @@ def main():
 .assert KrResidentEnd<=$bfb0,lderror,"Karnov resident exceeds menu padding"
 .res $b22-$0d-(FmCfHelperEnd-FmCfHelperStart)-(KrResidentEnd-KrResidentBegin),$ff
 KrResidentLimit:
-''');B.write(O/'cf_menu_body.inc',t)
+''')
+    if args.pickups:
+        from prepare_karnov_pickup_host_1101_v5 import transform_sources
+        graft=transform_sources(kernel=kernel,resident=resident,terrain=terrain,entrypoint=entry,cf_menu=t)
+        kernel,resident,terrain,entry,t=[graft[n]for n in ['kernel','resident','terrain','entrypoint','cf_menu']]
+        for name,text in graft['fragments'].items():B.write(O/name,text)
+        paths += [R/'tools/audit/prepare_karnov_pickup_host_1101_v3.py',R/'tools/audit/prepare_karnov_pickup_host_1101_v4.py',R/'tools/audit/prepare_karnov_pickup_host_1101_v5.py',R/'tools/reference/karnov_pickups_1101_v2.inc',*[O/n for n in graft['fragments']]]
+        services.update(graft['service_rows'])
+    cookie=bytes([167,7,1,13 if args.pickups else 10 if args.menu_input else 9 if args.health else 8 if args.rebound else 7 if args.compact_menu else 6 if args.menu else 5 if args.scene else 4 if args.ingress else 3 if args.render else 2])+hashlib.sha256(b''.join(p.read_bytes()for p in paths)+bytes.fromhex(B.sha(J/'candidate.nes'))).digest()[:12]
+    (O/'kr-cookie.bin').write_bytes(cookie)
+    for name,text in [('kr-kernel.s',kernel),('kr-resident.inc',resident),('kr-terrain.inc',terrain),('kr-host-actor.inc',actor),('entrypoint.s',entry),('cf_menu_body.inc',t)]:B.write(O/name,text)
     build=json.loads((O/'main-build.json').read_text())['command'][:]
     for opt in ['-I','--bin-include-dir']:build[1:1]=[opt,str(O)]
     B.run('terrain-main-build',build)
@@ -178,7 +187,7 @@ KrResidentLimit:
     paths += [J/'candidate.nes',J/'candidate.dbg',O/'entrypoint.s',O/'cf_menu_body.inc',O/'kr-kernel.s',O/'kr-resident.inc',O/'kr-terrain.inc',O/'kr-host-actor.inc',O/'kr-cookie.bin',O/'kr-kernel.bin',O/'kr-images.s',O/'candidate.cfg',O/'candidate.nes',O/'candidate.dbg',O/'terrain-final-link.json']
     if args.render:paths.append(O/'kr-render.inc')
     if args.ingress:paths.append(O/'ingress-union-build.json')
-    B.save(O/'terrain-assembly.json',dict(passed=True,render=args.render,ingress=args.ingress,scene=args.scene,menu=args.menu,compact_menu=args.compact_menu,rebound=args.rebound,health=args.health,menu_input=args.menu_input,service_count=service_count,source_CPU=False,native=False,installed=False,menu_admitted=args.menu,ROM_sha256=B.sha(O/'candidate.nes'),cookie=cookie.hex(),resident_bytes=address(new,'KrResidentEnd')-lo,kernel_bytes=address(new,'KrKernelEnd')-0xa000,implemented_services=services,all_existing_runtime_symbols_exact=not changed,moved_source_symbols=permitted,changed_bytes=len(delta),allowed_ROM_ranges=allowed,viewport_adaptation='Only FA06 clamps redirect to original FA5C facing; SMB owns absolute boundaries. Original jump/fall/walk instructions and data retained.',bindings={str(p.resolve()):B.sha(p)for p in paths}))
+    B.save(O/'terrain-assembly.json',dict(passed=True,render=args.render,ingress=args.ingress,scene=args.scene,menu=args.menu,compact_menu=args.compact_menu,rebound=args.rebound,health=args.health,menu_input=args.menu_input,pickups=args.pickups,service_count=service_count,source_CPU=False,native=False,installed=False,menu_admitted=args.menu,ROM_sha256=B.sha(O/'candidate.nes'),cookie=cookie.hex(),resident_bytes=address(new,'KrResidentEnd')-lo,kernel_bytes=address(new,'KrKernelEnd')-0xa000,implemented_services=services,all_existing_runtime_symbols_exact=not changed,moved_source_symbols=permitted,changed_bytes=len(delta),allowed_ROM_ranges=allowed,viewport_adaptation='Only FA06 clamps redirect to original FA5C facing; SMB owns absolute boundaries. Original jump/fall/walk instructions and data retained.',bindings={str(p.resolve()):B.sha(p)for p in paths}))
     print(json.dumps(dict(passed=True,candidate=B.sha(O/'candidate.nes'),resident_bytes=address(new,'KrResidentEnd')-lo,kernel_bytes=address(new,'KrKernelEnd')-0xa000,services=services,menu_admitted=args.menu)))
 
 if __name__=='__main__':main()
