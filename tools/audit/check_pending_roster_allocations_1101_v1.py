@@ -31,7 +31,8 @@ def main():
     shinobi=read('shinobi-identity-ram-grant.json')
     bridge=read('metal-storm-a3-bridge-grant.json')
     ram={'Metal':[list(v) for v in metal['RAM_intervals_physical_bank_offset_size']],
-         'Shinobi':shinobi['RAM_intervals_physical_bank_offset_size']}
+         'Shinobi':shinobi['RAM_intervals_physical_bank_offset_size'],
+         'Tank':read('mario-tank-ram-grant.json')['RAM_intervals_physical_bank_offset_size']}
     ram['Metal'][0][2]=bridge['extended_actor_offsets_half_open'][1]
     for owner,spans in ram.items():
         for i,(bank,start,size) in enumerate(spans):

@@ -1,0 +1,15 @@
+{
+  "grant": true,
+  "conditional_identity": "SelectedCharacter=0 and MarioVariant=7",
+  "RAM_intervals_physical_bank_offset_size": [[2,2176,12],[2,5632,2048],[2,8160,16]],
+  "purposes": ["C880..C88B foreground terrain context", "D600..DDFF two verified CHR carrier pages containing worker, metadata and art", "DFE0..DFEF complete owner fingerprint"],
+  "review": "Root reviewed the ROM-resident identity/header predicate, guarded forced-blank loader, readback verification and signature-last publication. Source code permits RAM opcodes only after exact identity and all16 header bytes match. Loader first retires the old owner and invalidates the bank2 header. Private component receipts exercise native selection/Start, full carrier copying, menu exits and Main interrupt returns; those older candidate results are evidence for design review, not final-nightly qualification.",
+  "conditions": [
+    "These bytes are exclusive to Tank while selected and authenticated. No simultaneous use by Metal Storm, Shinobi or another bank2 owner is permitted.",
+    "Cold entry requires gameplay mode, FamilyMainCommit, forced blank, PPUMASK rendering disabled and the existing NMI guard. Retire foreign owners before replacing any bytes.",
+    "Invalidate the header before copying. Verify both full carrier pages and initialized context before publishing all16 header bytes with the signature byte last.",
+    "Every shared ingress remains ROM-resident and checks identity plus complete header before RAM execution. Menu/scene/new-life retirement and each foreign loader must prevent stale reentry.",
+    "Recompose over current58e50 nightly, preserve revised Karnov cookies and Kirby fixes, then rerun owning loader/menu/Main tests. Prior367-derived candidate receipts are not proof for the final composition.",
+    "This permits integration, not final menu admission or a claim that full-stage/powerup testing is complete."
+  ]
+}
