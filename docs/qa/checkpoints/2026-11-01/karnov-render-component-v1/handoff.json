@@ -1,0 +1,67 @@
+{
+  "passed": true,
+  "progress_only": true,
+  "installed": false,
+  "admitted": false,
+  "native": false,
+  "private_candidate": "124259003ef9022fcb470e3d69eb61a21482d704062b3634c8c3ce0324fa5b2f",
+  "installed_nightly": "f6415a64767b9ea1ada79ac5ccab433d7b1f4ae5f8bb13e53f04adeca717a3f1",
+  "playable": 85,
+  "total_menu_identities": 90,
+  "source_proof": {
+    "file": "source-proof.zip",
+    "sha256": "90565aa146cbf5592ab58b3ad401846f549b04320e488027501764a45286d2a7",
+    "bytes": 133688,
+    "members": 46
+  },
+  "preview": {
+    "file": "sprite-preview.png",
+    "sha256": "752785d12fcfb91408dfb9b9cc316b9f5825dfaaf96eb9360dc026467cd76a77",
+    "kind": "CPU-rendered source-pixel preview; not an emulator capture"
+  },
+  "resident_bytes": 977,
+  "kernel_bytes": 7441,
+  "services": {
+    "0": "KrMovement",
+    "10": "KrHead",
+    "11": "KrBodyPolicy",
+    "12": "KrAdder",
+    "13": "KrBoxProfile",
+    "14": "KrSide",
+    "15": "KrConstruct",
+    "16": "KrBox",
+    "27": "KrPostTerrain",
+    "28": "KrHeadWithin",
+    "1": "KrGraphics",
+    "2": "KrDraw",
+    "26": "KrColors"
+  },
+  "body_cases": 256,
+  "shot_cases": 768,
+  "OAM_capacity_rotation_cases": 24,
+  "native_palette_NMI": 2,
+  "source_actor_projectile_updates": 644,
+  "source_engine_executions": 2576,
+  "native_camera_updates": 420,
+  "real_interrupt_cuts": 434,
+  "minimum_SP": 152,
+  "draw_cycle_range": [
+    1901,
+    5376
+  ],
+  "next": [
+    "Fund the real shared dispatch and scene/menu hooks without changing any85 legal existing identities.",
+    "Connect original projectiles to native enemies, destructible blocks, effects and score.",
+    "Recover source health, earned upgrades/options and original audio.",
+    "Use native controller playtests for1-1/shortcut/powerups before admission or nightly replacement."
+  ],
+  "limits": [
+    "No shared Main/terrain/menu hook is enabled; Karnov remains COMING SOON in the installed85 build.",
+    "Body/shot contexts and upgrades are CPU fixtures, not earned gameplay progression.",
+    "Normal native NMI palette writing executes in a model with NES palette mirroring; no raster/video claim.",
+    "Contact support and source sound/scene/terrain callbacks remain declared unit boundaries.",
+    "The mutable root contains historical receipts for older hashes. Use the current six receipt names in this packet."
+  ],
+  "retained_baseline": "docs/qa/checkpoints/2026-11-01/ready85-doki-native-v1",
+  "previous_component": "docs/qa/checkpoints/2026-11-01/karnov-terrain-component-v1"
+}

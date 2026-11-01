@@ -2,7 +2,7 @@
   "goal_status": "ACTIVE_INCOMPLETE",
   "previous_goal_turn_classification": "progress",
   "date": "2026-11-01",
-  "current_priority": "Continue Karnov from the verified terrain component: next implement original body/projectile rendering and native combat, then damage, pickups/options, audio and selected-only shared ingress. Ten private services now exist, with real typed query results and source movement/camera checks; shared Main/terrain and menu hooks remain unimplemented. Installed85 stays unchanged until a real playable86 candidate passes. Preserve the full roster and1-1/shortcut/every-powerup objective.",
+  "current_priority": "Continue Karnov from the verified render component. Next wire the real shared dispatch/scene integration and native combat, then health, earned upgrades/options and audio. Thirteen private services, original body/shot rendering and actor-to-weapon updates now pass exact-hash CPU/vector checks. Read karnov-render-component-v1/NEXT-STEPS.md for a concrete source-funding approach. Shared Main/terrain/menu hooks are still absent; installed85 remains unchanged until a playable86 candidate passes. Preserve every remaining character and the full1-1/shortcut/every-powerup objective.",
   "nightly_policy": "Publish usable updates frequently. Replace C:/Users/kando/Downloads/SMB-Crossover-Latest-WIP-MMC5.nes; do not make backup copies. A GitHub push is not a nightly delivery.",
   "installed_nightly": {
     "installed": true,
@@ -276,7 +276,7 @@
   },
   "Mesen": "All owned SMB queues are terminal. External projects may run Mesen concurrently. Root owns one SMB queue; --doNotSaveSettings, original sprite limits, owned-process watchdog and bounded storage rules remain required.",
   "storage": {
-    "build_last_bytes_approx": 1516200000,
+    "build_last_bytes_approx": 1516800000,
     "build_byte_cap": 5000000000,
     "build_file_cap": 20000,
     "workspace_byte_cap": 70000000000,
@@ -983,10 +983,10 @@
       "resident_bytes": 977,
       "kernel_bytes": 5272,
       "private_services": [0, 10, 11, 12, 13, 14, 15, 16, 27, 28],
-      "proofs": [
-        "build/karnov-host-resource-base-1101-v1/terrain-assembly.json",
-        "build/karnov-host-resource-base-1101-v1/terrain-CPU-controls.json",
-        "build/karnov-host-resource-base-1101-v1/terrain-vectors.json"
+      "historical_proofs_in_archive": [
+        "docs/qa/checkpoints/2026-11-01/karnov-terrain-component-v1/source-proof.zip::host/terrain-assembly.json",
+        "docs/qa/checkpoints/2026-11-01/karnov-terrain-component-v1/source-proof.zip::host/terrain-CPU-controls.json",
+        "docs/qa/checkpoints/2026-11-01/karnov-terrain-component-v1/source-proof.zip::host/terrain-vectors.json"
       ],
       "cookie_checks": 2112,
       "corrupt_or_foreign_route_rejections": 1188,
@@ -1004,6 +1004,43 @@
       "shared_ingress_funding": "Current union has only1B pad before HuResolve plus fragmented5B movement/5B vine/2B UI padding. Do not append beyond C000. Investigate genuine unreachable branch redundancy/source compaction while preserving all85 legal identities and their real ingress ABI; no blanket PRG125 reclamation. KrServiceVeneers currently uses genuine36 JMP rows in bank29, selected by SMC target offset.",
       "limits": "Rendering, native combat/bounce, full BG collision worker, health/options/upgrades, music and shared scene/menu admission remain incomplete. Mutable older cache receipts are stale for this hash; retain their immutable prior checkpoint instead."
     },
+    "render_component": {
+      "checkpoint": "docs/qa/checkpoints/2026-11-01/karnov-render-component-v1",
+      "source_proof_sha256": "90565aa146cbf5592ab58b3ad401846f549b04320e488027501764a45286d2a7",
+      "source_proof_bytes": 133688,
+      "source_proof_members": 46,
+      "private_candidate": "124259003ef9022fcb470e3d69eb61a21482d704062b3634c8c3ce0324fa5b2f",
+      "installed": false,
+      "admitted": false,
+      "native": false,
+      "resident_bytes": 977,
+      "kernel_bytes": 7441,
+      "private_services": [0, 1, 2, 10, 11, 12, 13, 14, 15, 16, 26, 27, 28],
+      "current_receipts": [
+        "build/karnov-host-resource-base-1101-v1/terrain-assembly.json",
+        "build/karnov-host-resource-base-1101-v1/render-art.json",
+        "build/karnov-host-resource-base-1101-v1/render-CPU-controls.json",
+        "build/karnov-host-resource-base-1101-v1/shot-motion-CPU-controls.json",
+        "build/karnov-host-resource-base-1101-v1/terrain-CPU-controls.json",
+        "build/karnov-host-resource-base-1101-v1/terrain-vectors.json"
+      ],
+      "build": "Use bounded runner on the existing owned root, --resume, to run prepare_karnov_host_art_1101_v1.py followed by build_karnov_gameplay_host_1101_v1.py --render. No new tree copy. These current receipts are bound to the private_candidate hash above; older mutable cache receipts are stale.",
+      "body_contexts": 256,
+      "shot_contexts": 768,
+      "OAM_capacity_rotation_cases": 24,
+      "actual_native_palette_NMI": 2,
+      "source_actor_projectile_updates": 644,
+      "source_engine_executions": 2576,
+      "real_interrupt_cuts": 434,
+      "minimum_SP": 152,
+      "draw_cycle_range": [1901, 5376],
+      "graphics": "Original OAM order preserved by reversed packet storage for the native renderer.1345-byte metadata lives at conditional C2/D000. Body uses P0/window0; shots use even tilesC0/EE/F0/F2/F4/F6/F8 in P0/window3, physical410. All world windows4..7 preserved. Hurt flash hides body without changing the original state's CHR selection. Palette writes3F11..13 preserve universal background3F00/10.",
+      "motion": "Original weapon routine now runs after original actor, before source clock increment. Existing9slots rebase before new actor spawning; drawing also subtracts the camera change that occurs after movement. Underflow clears a shot instead of wrapping it to the right. Large camera jumps call the genuine source9-slot clear.",
+      "fixed_in_verification": "Corrected render-mode factory variable shadowing and added actual emitted36-vector validation. Corrected body hurt-flash page selection, exact source OAM order, projectile P0/window3 publication and post-movement scroll offset.",
+      "preview": "docs/qa/checkpoints/2026-11-01/karnov-render-component-v1/sprite-preview.png is one CPU-rendered source-pixel preview, not a native emulator capture.",
+      "integration_plan": "Read docs/qa/checkpoints/2026-11-01/karnov-render-component-v1/NEXT-STEPS.md. A concrete unimplemented approach assigns runtime34, moves the exact MarioWaterCoast ProductHi table within its bank (same low-byte alignment), fits KrServiceVeneers atB400, and funds a selected-only union branch from existing pads plus source helper reordering. It preserves legal existing aliases and should require no physics arithmetic change. Prove consumers/ABI/cycles before changing. Menu/scene/pickup/death/audio and direct-ID tables still need integration.",
+      "limits": "No shared Main/terrain/menu hook yet. Contact support and source sound/scene/terrain callbacks remain unit boundaries. No native controller traversal, raster timing, earned upgrades, combat hits or playable86 claim. Nightly85 is unchanged."
+    },
     "active_roots": {
       "actor": "build/karnov-original-source-1101-v1",
       "weapons": "build/karnov-original-weapons-1101-v1",
@@ -1011,11 +1048,11 @@
       "host": "build/karnov-host-resource-base-1101-v1"
     },
     "next": [
-      "Implement original six-cell body/shot publication and native combat on the current terrain component; ten private services are implemented, but shared gameplay/menu/scene hooks are not enabled",
+      "Implement real shared ingress/scene hooks and native combat from the current render component; thirteen private services and original body/shot publication now exist, but no gameplay/menu/scene hook is enabled",
       "Recover/use native health/injury leaves CA2B..CA50/CB69..CB8B and palette-command helper C2C7..C2DF; actual collision admission currently belongs to C969",
       "Recover actual options activation/stock/timers and earned Super Fireball pickups; source weapon-state fixtures do not prove collectible progression",
       "Connect native SMB head/side/feet/camera/pipes/flagpole and independent source projectile slots to native enemies/blocks; retain original clamp as an explicit host boundary adaptation",
-      "Publish actual six-cell art, default/injured palettes and authentic bullet/boomerang patterns; unused pairs in body source page3 may hold projectile art after complete read closure",
+      "Preserve the now-verified original body/shot art, OAM order and default/injured palettes while wiring real gameplay; projectile patterns use only verified unused pairs in body page3 and P0 window3, leaving world windows4..7 untouched",
       "Recover original audio and qualify IRQ/NMI/SMC/private pointer restoration before controller-earned native admission",
       "Continue Metal Storm/Shinobi/Excitebike/Prince of Persia, Sonic3 and other named goal characters; then every1-1/shortcut/every-powerup audit"
     ],

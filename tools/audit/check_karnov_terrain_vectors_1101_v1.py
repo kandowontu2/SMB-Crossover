@@ -35,9 +35,10 @@ def main():
         c,_,_=run(seed,15);assert c.p&1
         def state(m):
             names=['Player_X_Position','Player_PageLoc','Player_Y_Position','Player_Y_HighPos','Player_State','Player_Y_Speed','Player_X_Speed','Player_X_Scroll','Player_Pos_ForScroll']
-            return [bytes(z)for z in m.ram],m.rawtags[:],H.get(m,'CurrentBank'),H.get(m,'CurrentBankC'),bytes(m[3:11]),bytes(m[0x15a:0x17b]),[H.get(m,n)for n in names]
+            return [bytes(z)for z in m.ram],m.rawtags[:],H.get(m,'CurrentBank'),H.get(m,'CurrentBankC'),bytes(m[3:11]),bytes(m[0x15a:0x17b]),[H.get(m,n)for n in names],bytes(m[0x200:0x300])
         rows=[];minimum=255
-        for slot in [0,10,14,15,27]:
+        services=[0,10,14,15,27]+([1,2,26]if stage.get('render')else[])
+        for slot in services:
             origin=L.fork(seed);baseline=L.fork(origin);bc,trace,_=run(baseline,slot)
             unique={}
             for i,pc in enumerate(trace):unique.setdefault(pc,i)
@@ -54,7 +55,7 @@ def main():
                     assert len(events)==1 and state(m)==state(baseline)and V.cpu_state(c)==V.cpu_state(bc),(slot,kind,cut,'resumption mismatch')
                     minimum=min(minimum,low,events[0]['minimum_SP']);rows.append(dict(service=slot,cut=cut,PC=f'{trace[cut][0]:04X}',**events[0]))
         assert minimum>0x7b,'Live stack reached the actual FarCallCommon SMC operands'
-        q.update(passed=True,ROM_sha256=stage['ROM_sha256'],real_interrupt_cuts=len(rows),minimum_SP=minimum,typed_services=[0,10,14,15,27],actual_host_vectors=True,source_never_borrows_NMI_ZP=True,scope='Real emitted dispatcher, selected A3/C2 movement/head/side/constructor/post-terrain services and unchanged host IRQ/NMI vectors. Forced-blank lag NMI fixture, with source actor/typed query result and complete conditional RAM/maps/SMC/foreground scratch/world exports restored. No normal-frame cadence, menu admission or native controller traversal claim.',rows=rows)
+        q.update(passed=True,ROM_sha256=stage['ROM_sha256'],real_interrupt_cuts=len(rows),minimum_SP=minimum,typed_services=services,actual_host_vectors=True,source_never_borrows_NMI_ZP=True,scope='Real emitted dispatcher, selected A3/C2 services and unchanged host IRQ/NMI vectors. Forced-blank lag NMI fixture, with source actor/typed query result and complete conditional RAM/maps/SMC/foreground scratch/world exports/OAM restored. Includes graphics/draw/colors when emitted. No normal-frame cadence, menu admission or native controller traversal claim.',rows=rows)
     except Exception as e:q.update(error=repr(e),traceback=traceback.format_exc())
     q['bindings']={str(p.resolve()):sha(p)for p in [Path(__file__),Path(V.__file__),O/'terrain-assembly.json',O/'candidate.nes',O/'candidate.dbg']}
     (O/'terrain-vectors.json').write_text(json.dumps(q,indent=2)+'\n',encoding='utf-8')
