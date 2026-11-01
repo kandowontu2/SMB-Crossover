@@ -1,0 +1,57 @@
+{
+  "passed": true,
+  "installed": true,
+  "backup_created": false,
+  "user_requested_WIP": true,
+  "destination": "C:\\Users\\kando\\Downloads\\SMB-Crossover-Latest-WIP-MMC5.nes",
+  "output_sha256": "be751275d00757ecaa51defcd2ccd5ea235921aa4b1f34337fa6c5c6e1877962",
+  "replaced_sha256": "e40109ff598e060a4ad384a7cf77bafccfefbe2efa79599f817f832c93fca019",
+  "selectable_identities": 86,
+  "previously_verified_identities": 85,
+  "total_menu_identities": 90,
+  "new_identities": [
+    "Karnov"
+  ],
+  "selection": "Rygar -> Select -> Karnov -> Start",
+  "complete": false,
+  "complete_character": false,
+  "source": {
+    "path": "docs/qa/checkpoints/2026-11-01/requested-wip86-native-v2/source.zip",
+    "sha256": "29d31e7f126138d8cf30b405298619508024b3230d03d0262175a5091576f178",
+    "bytes": 241331,
+    "members": 75
+  },
+  "native": {
+    "path": "docs/qa/checkpoints/2026-11-01/requested-wip86-native-v2/native-results.zip",
+    "sha256": "3444ef6bcd0824ece95710362559afd94d0d76bf22a2889dbea9de21e90adbb5",
+    "bytes": 28716,
+    "members": 13
+  },
+  "checkpoint": "docs/qa/checkpoints/2026-11-01/requested-wip86-native-v2",
+  "verification": {
+    "ROM_sha256": "be751275d00757ecaa51defcd2ccd5ea235921aa4b1f34337fa6c5c6e1877962",
+    "scope": "Exact-candidate controller boot/menu/lives/game opening, body pixels, jump/landing, source projectile updates, camera, backdrop and ISR returns. All old private bytes outside menu+cookies exact; compact menu code exact to prior delivered repair.",
+    "Main": 288,
+    "video_frames": 836,
+    "ISR_returns": 1275,
+    "source_movement": 288,
+    "source_weapons": 288,
+    "maximum_camera": 141,
+    "maximum_projectiles": 3,
+    "background_checks": 422,
+    "jumped": true,
+    "landed": true
+  },
+  "pending": [
+    "Karnov enemy/block combat, injury/death, pickups, stomp rebound, equipment and original audio are incomplete.",
+    "Metal Storm, Shinobi and Excitebike are isolated source components, not selectable ROM characters yet.",
+    "No full1-1/shortcut/all-powerup, full-roster campaign or constant60Hz claim."
+  ],
+  "delivery_policy": "The user explicitly requests access to the same selectable WIP used for testing. Publish integrated WIP without withholding it for complete-character qualification.",
+  "storage": {
+    "build_bytes": 1556440075,
+    "build_files": 7519,
+    "build_byte_cap": 5000000000,
+    "build_file_cap": 20000
+  }
+}
