@@ -1,0 +1,18 @@
+{
+  "grant": true,
+  "owner": "Mario the Tank native power, draw and menu integration",
+  "baseline_ROM_sha256": "58e50db6ceead7c3706087c92d6e49014f05ff8b80b000be30c27b4e7dfa11f2",
+  "intervals": [
+    {"physical_PRG_bank":35,"physical_offsets_half_open":[7862,7936],"bytes":74,"PRG_bank_sha256":"7df9a11b2d6fd10665807df54977a179f7bf3edba3c7e3ef3632bad2063361d5"},
+    {"physical_PRG_bank":81,"physical_offsets_half_open":[4304,4352],"bytes":48,"PRG_bank_sha256":"43470abd01c19ec6dfa036136e6d82494714a4995cce7576745898462c24e656"},
+    {"physical_PRG_bank":86,"physical_offsets_half_open":[1972,2048],"bytes":76,"PRG_bank_sha256":"946f6352886dec6bbc5363e9bac5261e810a10fa4949d96c18197fac26862147"}
+  ],
+  "review": "Root inspected the actual native-reader and last-leaf verifier implementations, verified every bound source hash in code-gap-owners and orbit-gap-owners receipts, and independently checked whole-bank equality from367 to58e50 plus exact FF preimages. Bank35 is closed by Ryu body/weapon records, actual Bill late-flare reads and the exact Rogue logical-page reader. Bank81 includes the appended SMB3plus name and Peach leaf, not only River City. Bank86 terminal Quick UI leaf exits by absolute JMP in all1536 cases.",
+  "evidence": ["build/mario-tank-visible-host-1101-v5/code-gap-owners.json","build/mario-tank-visible-host-1101-v5/orbit-gap-owners.json","build/mario-tank-visible-host-1101-v5/Bill-tail-readers.json"],
+  "conditions": [
+    "Tighten X5QuickUiAdmission producer cap fromA7C4 toA7B4; preserve its exact24-byte terminal leaf and all prior public PCs.",
+    "Tighten the appended MbPeachLeafOverride producer cap fromB100 toB0D0; preserve all original RCR and SMB3plus code/names. Rogue page atB100..B1FF is excluded.",
+    "Keep bank35 original art/Bill tables below physical1EB6 and Rogue page at1F00..2000 unchanged; enforce both source producer and new consumer bounds.",
+    "These three intervals do not grant the other requested tails, RAM ownership, menu admission or gameplay qualification. Preserve current Karnov platform and cookie changes when composing."
+  ]
+}
