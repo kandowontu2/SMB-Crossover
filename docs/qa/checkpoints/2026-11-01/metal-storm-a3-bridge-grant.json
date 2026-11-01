@@ -1,0 +1,18 @@
+{
+  "grant": true,
+  "conditional_identity": "SelectedCharacter35, Metal Storm",
+  "physical_RAM_bank": 3,
+  "additional_offsets_half_open": [8083, 8128],
+  "additional_bytes": 45,
+  "extended_actor_offsets_half_open": [0, 8128],
+  "header_offsets_half_open_unchanged": [8160, 8176],
+  "evidence": "build/metal-storm-native-integration-1101-v12/transport-CPU-controls.json",
+  "bridge_sha256": "04ac7b46e45945dccad775f23a83c2fac6e32132df495f41a57bc45deeb9c7d8",
+  "review": "Root read the emitted transport and bridge source and verified every bound proof input. The45-byte bridge ends atphysical1FC0, retaining32 bytes before the existing header. The111 typed-row cases and invalid-header/identity cases are standalone transport evidence, not Main gameplay qualification.",
+  "conditions": [
+    "All lifecycle requirements in metal-storm-owning-resource-grant.json remain mandatory, including ROM-side retirement and both complete matching headers before RAM execution.",
+    "The cold loader must copy and verify the extended actor and update its authenticated identity. No fixture worker or fixture cookie may be installed as a gameplay implementation.",
+    "Do not extend C2 workers or any PRG/CHR interval through this grant. Those allocations remain independent.",
+    "Verify actual Main interrupt and native gameplay behavior after integration."
+  ]
+}
