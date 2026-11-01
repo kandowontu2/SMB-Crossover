@@ -1,0 +1,17 @@
+{
+  "grant": true,
+  "owner": "Mario the Tank native service guards",
+  "baseline_ROM_sha256": "367266d2ec4e62fcefc15fffb3a05095a16060ad52f9d68348f213d94b31268c",
+  "intervals": [
+    {"physical_PRG_bank": 32, "physical_offsets_half_open": [7832, 7936], "bytes": 104, "PRG_bank_sha256": "a6a3489340c61ebfedfea9e677f454ab4393860bf57547cb46852ae72f7b7f48"},
+    {"physical_PRG_bank": 33, "physical_offsets_half_open": [7842, 7936], "bytes": 94, "PRG_bank_sha256": "a45c1bc11a2cb53b4c50f92eb60072387e3b3cde3aac3b20581d1218225a0359"}
+  ],
+  "reader_evidence": "build/mario-tank-loader-1101-v4/orbit-gap-owners.json",
+  "review": "Root inspected the native pointer/reader test implementation and verified every source binding, the bound Bill receipt, whole-bank identity between c864 and current367, and exact FF preimages. Evidence covers 1512 body pose cases, 27 weapon pointers, and 956 Rogue audio reader cases. Rogue reads start at physical1F00, outside both granted intervals.",
+  "conditions": [
+    "The owning linker must reserve only these half-open intervals and enforce both existing producer endpoints and the new guard endpoints.",
+    "Preserve every existing byte outside the granted intervals, including Rogue audio pages at1F00..2000 and existing Bill, Rygar, Luigi and Scrooge data.",
+    "This allocates ROM space only. Remaining loader intervals, conditional RAM, native integration and gameplay verification remain outstanding.",
+    "No character unlock or nightly admission follows from this resource allocation alone."
+  ]
+}
