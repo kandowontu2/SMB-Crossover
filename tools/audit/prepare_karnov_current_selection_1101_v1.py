@@ -12,7 +12,8 @@ def main():
     current=json.loads((R/'docs/qa/continuation-current.json').read_text())['installed_nightly']
     rom=a.candidate or Path(current['owning_candidate'])
     installed=Path('C:/Users/kando/Downloads/SMB-Crossover-Latest-WIP-MMC5.nes')
-    assert sha(rom)==sha(installed)
+    if a.candidate is None or a.installed_path:
+        assert sha(rom)==sha(installed)
     controller=r'''
 local frame,age,phase,done=0,0,'title',false
 local function r(n)return emu.read(assert(L[n],n),emu.memType.nesDebug)end
@@ -51,7 +52,7 @@ end,emu.eventType.endFrame)
         assert labels.keys()==names
         controller='\n'.join(f'L[{json.dumps(n)}]={v}' for n,v in labels.items())+'\n'+controller
     a.output.parent.mkdir(parents=True,exist_ok=True)
-    prepare(a.output,rom,controller,[Path(__file__),installed],expected=sha(installed),timeout=60,scope='Actual installed-byte-equivalent cold title, Rygar Select, Karnov Start, native gameplay entry. Controller only; two PNGs.')
+    prepare(a.output,rom,controller,[Path(__file__),rom],expected=sha(rom),timeout=60,scope='Explicit candidate cold title, Rygar Select, Karnov Start, native gameplay entry. Controller only; two PNGs.')
     if a.installed_path:
         ready=a.output/'ready.json';q=json.loads(ready.read_text());q['ROM']=str(installed)
         q['scope']='Actual Downloads launch, no matching automatic patch; cold Karnov menu-to-gameplay. Controller only.'

@@ -7,6 +7,7 @@ def main():
     def prepare(output,rom,controller,refs,**kw):
         output.parent.mkdir(parents=True,exist_ok=True)
         refs=[p.with_name('owner-link.json') if p.name=='graphics-assembly.json' else p for p in refs]
+        refs=[p.with_name('assembly.json') if p.name=='owner-link.json' and not p.exists() else p for p in refs]
         return original(output,rom,controller,[*refs,Path(__file__)],**kw)
     D.V.V.prepare=prepare
     D.main()

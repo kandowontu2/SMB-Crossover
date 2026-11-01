@@ -1,0 +1,38 @@
+{
+  "passed": true,
+  "installed": true,
+  "complete": false,
+  "backup_created": false,
+  "ROM_sha256": "58e50db6ceead7c3706087c92d6e49014f05ff8b80b000be30c27b4e7dfa11f2",
+  "output_sha256": "58e50db6ceead7c3706087c92d6e49014f05ff8b80b000be30c27b4e7dfa11f2",
+  "replaced_sha256": "367266d2ec4e62fcefc15fffb3a05095a16060ad52f9d68348f213d94b31268c",
+  "destination": "C:\\Users\\kando\\Downloads\\SMB-Crossover-Latest-WIP-MMC5.nes",
+  "selectable_identities": 86,
+  "total_menu_identities": 90,
+  "checkpoint": "docs\\qa\\checkpoints\\2026-11-01\\karnov-platform-nightly-v1",
+  "owning_candidate": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\karnov-native-platform-1101-v1\\candidate.nes",
+  "owning_build_recipe": "tools/audit/prepare_karnov_native_platform_1101_v1.py",
+  "source_packet": {
+    "path": "docs\\qa\\checkpoints\\2026-11-01\\karnov-platform-nightly-v1\\source-and-native.zip",
+    "sha256": "79a9f647f88a5a03e60103e0e04828ca6cc33f77822cc48f2b89e4381602b6a3",
+    "bytes": 52749
+  },
+  "inherited_source_checkpoint": "docs/qa/checkpoints/2026-11-01/kirby-approach-nightly-v3",
+  "native_pipe_crossings": 2,
+  "each_crossing_frames": 3013,
+  "native_menu_identities": 90,
+  "native_menu_transitions": 124,
+  "manager_CPU_cases": 160,
+  "sampled_native_stack": {
+    "minimum_sampled_SP": 170,
+    "stack_page_write_samples": 3857022,
+    "lowest_write_in_180_1ff": 426,
+    "scope": "SP sampled at descending write addresses in stack upper half; not exhaustive IRQ-cut proof"
+  },
+  "limits": [
+    "No full 1-1 or shortcut completion claim. A subsequent automatic route fell into the first pit; route planning remains unfinished.",
+    "160 manager CPU comparisons preserve tested Goku/foreign behavior; this is not a full Goku playthrough.",
+    "Native stack sampling is not exhaustive IRQ-cut verification. Previous Kirby code is byte-preserved outside these declared spans.",
+    "Remaining characters, attacks, original audio, campaigns and all-character/all-powerup qualification remain unfinished."
+  ]
+}
