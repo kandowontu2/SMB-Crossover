@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "complete": false,
+  "ROM_sha256": "7ec9cd5c4a462d0f4638c00ed35bc53a94c05cb80f4699f443245c0f754e3a1f",
+  "verification": {
+    "passed": true,
+    "natural_mushroom_collected": true,
+    "natural_boot_collected": true,
+    "max_status": 2,
+    "world_x": 1212,
+    "controller_only": true,
+    "full_stage": false,
+    "lost_life": false
+  },
+  "packet_sha256": "544232f08d4e95b6b1d2b640989aa0e67fa5060b233922c96e5f5a3737a26f88",
+  "packet_bytes": 8795,
+  "scope": "Natural first mushroom release, pickup and growth; second block releases visible boot, player jumps onto it and reaches status2. No emulated RAM writes or lost life. Two powered screenshots inspected.",
+  "limitations": "No full-stage clear. Boot combat, terrain destruction and flashing cadence still need native gameplay coverage; screenshots alone do not prove cadence.",
+  "route_findings": "Earlier replay failed to release A between some jumps and launched too early at the second pit. Corrected controller route clears that pit; these are route changes, not ROM fixes."
+}
