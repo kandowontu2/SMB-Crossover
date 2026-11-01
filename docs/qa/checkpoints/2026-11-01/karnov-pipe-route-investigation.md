@@ -23,3 +23,28 @@ make the controller replay pass. Full 1-1 clearance remains unverified.
 
 Recipe: `tools/audit/prepare_karnov_stage_route_1101_v3.py` (final X636).
 Each capture's generated controller preserves its exact launch threshold.
+
+## Follow-up: equipment and firing control
+
+`build/karnov-stage-route-1101-v5/probe/capture` repeats the X636 launch but
+releases B after X530, removing repeated firing as an explanation. It still
+stalls at maximum X722 without dying after3200 frames. The endpoint PNG was
+visually inspected: Karnov is beside the tall pipe, not in a different room
+or death sequence. Recipe: `prepare_karnov_stage_route_1101_v4.py`.
+
+Read-only inspection of the exact candidate's compiled labels/bytes confirms:
+
+- The only authored 1-1 helper is X3104/Y64 near the finish. There is no
+  early-pipe helper in that table.
+- `HpGetCharacterMask` starts `C0 1C B0 10`: IDs28 and above, including
+  Karnov34, do not receive that helper mask.
+- `KrPickupHaveShot` starts `29 03 C9 02 90 2F`: option grants require the
+  existing triple-shot state. The source adapter first advances single to
+  double, then triple; only a subsequent eligible flower grants Boots0.
+  The first mushroom cannot supply boots for this obstacle.
+
+This narrows the pending repair to actual progression support; enabling a
+helper mask alone cannot fix the early pipe because no corresponding record
+exists. Reuse the native platform/collision/carry system if adding an
+accommodation. Existing Goku platform integration supplies a useful reference,
+but its scene ownership and ROM allocation must not be copied blindly.
