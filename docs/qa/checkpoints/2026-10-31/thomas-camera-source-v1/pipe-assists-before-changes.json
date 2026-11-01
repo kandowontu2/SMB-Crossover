@@ -1,0 +1,79 @@
+{
+  "source_CPU": true,
+  "changes_applied": false,
+  "scope": "Complete list of proposed new pipe assists for Thomas1-1 only. Other stages/gaps still require route investigation.",
+  "reason": "Actual donor jump27px; decoded pipe heights32/48/64/64. Nine natural-state controller policies reachX433/434 but do not clear the first pipe.",
+  "existing_level_cells_unchanged": true,
+  "reuse": "Native SMB enemy25: genuine InitEnemyObject, vertical platform AI, collisions, player carry and renderer. No painted-only platforms or raised donor jump.",
+  "additions": [
+    {
+      "pipe": {
+        "X": 448,
+        "top": 176,
+        "width": 32,
+        "height": 32
+      },
+      "platform_X": 400,
+      "initial_Y": 192,
+      "type": 37,
+      "character": "Thomas only",
+      "stage": "1-1",
+      "width": "native platform default"
+    },
+    {
+      "pipe": {
+        "X": 608,
+        "top": 160,
+        "width": 32,
+        "height": 48
+      },
+      "platform_X": 560,
+      "initial_Y": 192,
+      "type": 37,
+      "character": "Thomas only",
+      "stage": "1-1",
+      "width": "native platform default"
+    },
+    {
+      "pipe": {
+        "X": 736,
+        "top": 144,
+        "width": 32,
+        "height": 64
+      },
+      "platform_X": 688,
+      "initial_Y": 192,
+      "type": 37,
+      "character": "Thomas only",
+      "stage": "1-1",
+      "width": "native platform default"
+    },
+    {
+      "pipe": {
+        "X": 912,
+        "top": 144,
+        "width": 32,
+        "height": 64
+      },
+      "platform_X": 864,
+      "initial_Y": 192,
+      "type": 37,
+      "character": "Thomas only",
+      "stage": "1-1",
+      "width": "native platform default"
+    }
+  ],
+  "unresolved": [
+    "Prove constructor timing and empty-slot ownership",
+    "Prove support/carry and all four pipe crossings",
+    "End gaps, shortcut room and full1-1 remain unqualified"
+  ],
+  "candidate": "b1725ec3e25cbfd321e435249a996b2d0bec901c35e1f57664a0e75cf42d8972",
+  "bindings": {
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\freeze_thomas_camera_bounded_v1.py": "be87532416470340c7e7c41e4399c34f2b562a6dc192d83361d43c0e85c5eb06",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\check_hogan_current_bounded_v1.py": "3e74e69f50c19e07ba022861c0b0ecb2c590b470c6677f07f172a0ee4ceb2422",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\thomas-adapter\\candidate.nes": "b1725ec3e25cbfd321e435249a996b2d0bec901c35e1f57664a0e75cf42d8972",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\thomas-adapter\\candidate.dbg": "b7908bedfbd8005e081ab2f1d5d07c319c94b01fc803e944360d6d5fd4295070",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\thomas-adapter\\pipe-analysis\\analysis.json": "3976425852433a40a28bfe3ac886adc6c33404f855753068916865976e3a20ae"
+  }
+}
