@@ -19,7 +19,7 @@ def verify_tank_tail_baseline(grant):
         assert hashlib.sha256(image).hexdigest()==row['bank_sha256'],('Changed predecessor bank',bank)
         assert image[start:end]==bytes([255])*(end-start),('Occupied allocation',bank)
         name=row['old_end_symbol'];symbol=b['syms'][name]
-        typed_sizes={'CfLoaderExpectedCookie':16,'MaaNeckOdd':3,'GmStage0Palette':16}
+        typed_sizes={'CfLoaderExpectedCookie':16,'MaaNeckOdd':3,'GmStage0Palette':16,'X5MusicBank0F':405}
         if name=='SsNativeChunk':
             size=1+raw[location(b,name)]
             assert size==5
@@ -48,6 +48,10 @@ def main():
     art=read('mario-tank-art-tail-grant.json')
     verified_tails.extend(verify_tank_tail_baseline(art))
     for q in art['intervals']:
+        start,end=q['physical_offsets_half_open'];prg.append(('Tank',q['physical_PRG_bank'],start,end-start))
+    music=read('mario-tank-music-tail-grant.json')
+    verified_tails.extend(verify_tank_tail_baseline(music))
+    for q in music['intervals']:
         start,end=q['physical_offsets_half_open'];prg.append(('Tank',q['physical_PRG_bank'],start,end-start))
     for i,(owner,bank,start,size) in enumerate(prg):
         assert 0<=start<start+size<=8192 and bank!=125

@@ -1,0 +1,12 @@
+{
+  "grant": true,
+  "baseline_ROM_sha256": "58e50db6ceead7c3706087c92d6e49014f05ff8b80b000be30c27b4e7dfa11f2",
+  "intervals": [{"physical_PRG_bank":115,"physical_offsets_half_open":[405,512],"old_end_symbol":"X5MusicBank0F","old_end_PC":41365,"bank_sha256":"629fb3198b06cbbe482a4aaf12f4dc6a5c51ddbc2330a743178c3c3ed0259575"}],
+  "review": "Actual compiled full-roster compressed music reader traversed12 unique streams covering56 area/loop/event rows,541360 byte calls, ending atA195 with no gap reads. Root also ran current compiled Mike source initialization and active playback for11 supported tracks,18000 calls each. All198000 playback calls and initializers read bank115 only atA200 or higher. Rogue page mappings do not use this bank. Existing stream and adjacent native driver extents remain unchanged.",
+  "evidence_tools": ["tools/audit/audit_mario_tank_music_tail_1101_v5.py","tools/audit/check_tank_mike_music_tail_1101_v1.py"],
+  "conditions": [
+    "Verify exact predecessor bank hash and405-byte X5MusicBank0F endpoint. New fragment must remain insideA195..A200; Mike native audio starts atA200 and must remain byte-identical.",
+    "Future source rebuilds must cap the preceding music producer atA195 and preserve Mike'sA200 alignment. New tracks or pointer schemes require renewed bounds verification.",
+    "This completes Tank ROM resource allocation only. Native emulator/menu/lifecycle/gameplay checks remain required before delivery."
+  ]
+}
