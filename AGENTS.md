@@ -8,6 +8,13 @@
 - Verify installed bytes against the tested candidate and record verification
   scope. A GitHub push alone is not a nightly delivery.
 - Current active handoff: `docs/qa/continuation-current.json`.
+- Before and after delivery, run `python tools/audit/nightly_patch_guard_v1.py
+  C:/Users/kando/Downloads/SMB-Crossover-Latest-WIP-MMC5.nes`. A same-name
+  IPS/BPS/UPS can silently overwrite the nightly through Mesen's automatic
+  patch loading. Resolve stale generated patches before claiming delivery;
+  do not delete unrelated user patches. Test the Downloads launch context,
+  not only an isolated build path. On November 1 a stale October 31 IPS
+  caused Karnov to remain locked despite the new ROM being installed.
 
 The user has twice had to intervene over excessive generated files. Storage is
 a hard requirement, not a reason to create more archives or raise a cap.
