@@ -1,0 +1,18 @@
+{
+  "grant": true,
+  "owner": "Metal Storm cold zero/readback routine",
+  "baseline_ROM_sha256": "367266d2ec4e62fcefc15fffb3a05095a16060ad52f9d68348f213d94b31268c",
+  "physical_PRG_bank": 94,
+  "physical_offsets_half_open": [3480, 3584],
+  "C_window_half_open": [52632, 52736],
+  "bytes": 104,
+  "PRG_bank_sha256": "80328a9a3c66fc22f96a926c4e6f97f897fde2286823d3748fe650a2338b45c2",
+  "evidence": "build/mac-roster-prg94-gap-1101-v1/mac-records.json",
+  "review": "Root checked192 compiled sprite records, Mac star,13 Mac selector result tables and4080 source-modeled Sunny animation cases. Existing LM_GFX endsC2B9, Mac roster art endsCD98, Sunny beginsCE00. Exact compiled descriptor and selector domains excludeCD98..CE00. Whole current bank matches the preceding tested build.",
+  "conditions": [
+    "Reserve onlyCD98..CE00 and reduce MacRosterArt's owning linker/source capacity toCD98. Preserve every byte outside this interval.",
+    "Tank must use its replacement interval, not its historical ungranted bank94 proposal. This allocation is exclusive to Metal Storm.",
+    "Movement between already granted Metal intervals must keep each interval's bounds and update loader authentication and source bindings.",
+    "Conditional RAM extensions and actual Main/native gameplay admission remain separate; this grant does not unlock the character."
+  ]
+}
