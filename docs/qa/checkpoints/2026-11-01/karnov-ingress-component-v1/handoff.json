@@ -1,0 +1,75 @@
+{
+  "passed": true,
+  "progress_only": true,
+  "native": false,
+  "installed": false,
+  "menu_admitted": false,
+  "private_candidate": "64aafbfa8a6d60b79ddc4d06841fdfdd8a78821dcd23a02c8b89cb7a58072319",
+  "installed_nightly": "f6415a64767b9ea1ada79ac5ccab433d7b1f4ae5f8bb13e53f04adeca717a3f1",
+  "playable": 85,
+  "total_menu_identities": 90,
+  "source_proof": {
+    "file": "source-proof.zip",
+    "sha256": "296a1ad71025ad283079475075e1f79f5681dda7426e6f9af5fdfcffeb46b655",
+    "bytes": 163090,
+    "members": 53
+  },
+  "resident_bytes": 1374,
+  "kernel_bytes": 7441,
+  "implemented_services": {
+    "0": "KrMovement",
+    "10": "KrHead",
+    "11": "KrBodyPolicy",
+    "12": "KrAdder",
+    "13": "KrBoxProfile",
+    "14": "KrSide",
+    "15": "KrConstruct",
+    "16": "KrBox",
+    "27": "KrPostTerrain",
+    "28": "KrHeadWithin",
+    "1": "KrGraphics",
+    "2": "KrDraw",
+    "26": "KrColors"
+  },
+  "runtime_character_ID": 34,
+  "service_veneer_address": "B400",
+  "original_water_table": "B38E",
+  "relocated_water_table": "0xba8e",
+  "exact_table_consumers": [
+    9,
+    45,
+    83
+  ],
+  "indexed_read_pairs": 2304,
+  "full_math_pairs": 2056,
+  "unchanged_public_union_exports": 54,
+  "route_pairs": 51408,
+  "admitted_existing_identities": 85,
+  "ingress_ISR_cuts": 254,
+  "component_ISR_cuts": 436,
+  "minimum_component_SP": 152,
+  "body_cases": 256,
+  "shot_cases": 768,
+  "source_step_comparisons": 1140,
+  "native_camera_updates": 420,
+  "storage": {
+    "build_bytes": 1517065684,
+    "build_files": 7208,
+    "build_byte_cap": 5000000000,
+    "build_file_cap": 20000
+  },
+  "previous_component": "docs/qa/checkpoints/2026-11-01/karnov-render-component-v1",
+  "next": [
+    "Wire the original real InitScreen consumer (screen_render.s) through a ROM-resident Karnov scene wrapper, preserving the whole old Wf/Bw/S2/Th scene chain.",
+    "Split new-life construction from area reconciliation to preserve earned options; verify actual Main with raw34.",
+    "Add ROM-only cold portrait/colors/names and menu remap; audit every direct-ID table before enabling Start.",
+    "Implement native combat/stomp reconciliation, health, earned upgrades/options and original audio.",
+    "Use bounded native controller playtests before menu admission or nightly replacement."
+  ],
+  "limits": [
+    "Actual shared36-entry ingress is now present, but the menu and scene loader do not call it for Karnov yet.",
+    "No actual new-character Main/gameplay/menu qualification or native raster/playthrough claim.",
+    "Existing component scripts still use their deliberate raw7+alt1 private fixtures; their older no-shared-ingress wording describes the unexercised boundary, not removal of the new ingress.",
+    "No combat, earned-upgrade, health, native audio or nightly change is claimed."
+  ]
+}
