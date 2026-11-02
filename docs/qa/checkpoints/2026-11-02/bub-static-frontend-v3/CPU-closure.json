@@ -1,0 +1,1542 @@
+{
+  "passed": true,
+  "proposal_only": true,
+  "ROM_written": false,
+  "native": false,
+  "menu_admitted": false,
+  "base_ROM_SHA256": "cf1412eb78ed6531d2f7478c9790f96314a95f2f3fdd6c2b80bfbefd24fca3a8",
+  "consumers": {
+    "passed": true,
+    "actual_existing_profiles": 91,
+    "name_rows": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      10,
+      11,
+      12,
+      13,
+      15,
+      16,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32
+    ],
+    "portrait_rows": [
+      3,
+      4,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      30
+    ],
+    "actual_visible_pending_pairs": [
+      [
+        700,
+        384
+      ],
+      [
+        700,
+        416
+      ],
+      [
+        700,
+        448
+      ],
+      [
+        700,
+        480
+      ],
+      [
+        700,
+        512
+      ],
+      [
+        700,
+        544
+      ],
+      [
+        700,
+        576
+      ],
+      [
+        700,
+        608
+      ],
+      [
+        702,
+        64
+      ],
+      [
+        702,
+        96
+      ],
+      [
+        702,
+        128
+      ],
+      [
+        702,
+        160
+      ],
+      [
+        702,
+        192
+      ],
+      [
+        702,
+        224
+      ],
+      [
+        702,
+        256
+      ],
+      [
+        702,
+        288
+      ],
+      [
+        702,
+        320
+      ],
+      [
+        702,
+        352
+      ],
+      [
+        702,
+        384
+      ],
+      [
+        702,
+        416
+      ],
+      [
+        702,
+        448
+      ],
+      [
+        702,
+        480
+      ],
+      [
+        702,
+        512
+      ],
+      [
+        702,
+        544
+      ],
+      [
+        702,
+        576
+      ],
+      [
+        702,
+        608
+      ],
+      [
+        702,
+        640
+      ],
+      [
+        702,
+        672
+      ],
+      [
+        702,
+        704
+      ],
+      [
+        702,
+        736
+      ],
+      [
+        702,
+        768
+      ],
+      [
+        702,
+        800
+      ],
+      [
+        702,
+        832
+      ],
+      [
+        702,
+        864
+      ],
+      [
+        702,
+        896
+      ],
+      [
+        702,
+        928
+      ],
+      [
+        702,
+        960
+      ],
+      [
+        702,
+        992
+      ],
+      [
+        703,
+        0
+      ],
+      [
+        703,
+        32
+      ],
+      [
+        703,
+        64
+      ],
+      [
+        703,
+        96
+      ],
+      [
+        703,
+        128
+      ],
+      [
+        703,
+        160
+      ],
+      [
+        703,
+        192
+      ],
+      [
+        703,
+        224
+      ],
+      [
+        703,
+        256
+      ],
+      [
+        703,
+        288
+      ],
+      [
+        703,
+        320
+      ],
+      [
+        703,
+        352
+      ],
+      [
+        703,
+        384
+      ],
+      [
+        703,
+        416
+      ],
+      [
+        703,
+        448
+      ],
+      [
+        703,
+        480
+      ],
+      [
+        703,
+        512
+      ],
+      [
+        703,
+        544
+      ],
+      [
+        703,
+        576
+      ],
+      [
+        703,
+        608
+      ],
+      [
+        703,
+        640
+      ],
+      [
+        703,
+        672
+      ],
+      [
+        703,
+        704
+      ],
+      [
+        703,
+        736
+      ],
+      [
+        703,
+        960
+      ],
+      [
+        703,
+        992
+      ]
+    ],
+    "source_references": [
+      {
+        "file": "src/full_roster_menu.s",
+        "line": 297,
+        "text": "ldx #<FmNames"
+      },
+      {
+        "file": "src/full_roster_menu.s",
+        "line": 299,
+        "text": "ldx #>FmNames"
+      },
+      {
+        "file": "src/full_roster_menu.s",
+        "line": 369,
+        "text": "lda FmPreviewTiles,y"
+      },
+      {
+        "file": "src/full_roster_menu.s",
+        "line": 398,
+        "text": "lda FmPreviewColors,y"
+      },
+      {
+        "file": "src/full_roster_menu.s",
+        "line": 400,
+        "text": "lda FmPreviewColors+1,y"
+      },
+      {
+        "file": "src/full_roster_menu.s",
+        "line": 402,
+        "text": "lda FmPreviewColors+2,y"
+      }
+    ],
+    "inherited_finite_table_rebinds": 44,
+    "source_family_page_domains": 59,
+    "nonmenu_upper2_domains_exclude700": true,
+    "positive700_menu_publishers": [
+      "FmDrawPreviewSelected incl DKspecial row17",
+      "FmDrawCfPreview"
+    ],
+    "BG_reverse_legacy_selectors": {
+      "4": [
+        60
+      ],
+      "5": [
+        61
+      ],
+      "6": [
+        62
+      ],
+      "7": [
+        63
+      ]
+    },
+    "existing_screen_builds": [
+      {
+        "build_state": 1,
+        "result_state": 2,
+        "background_tiles": [
+          10,
+          11,
+          12,
+          13,
+          14,
+          16,
+          17,
+          18,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          27,
+          28,
+          29,
+          30,
+          31,
+          34,
+          36,
+          63,
+          64,
+          65,
+          66,
+          67,
+          68,
+          69,
+          70,
+          71,
+          72,
+          73,
+          74,
+          75,
+          76,
+          77,
+          78,
+          79,
+          80,
+          81,
+          82,
+          83,
+          84,
+          85,
+          86,
+          87,
+          88,
+          89,
+          90,
+          91,
+          92,
+          93,
+          94,
+          95,
+          96,
+          97,
+          98,
+          99,
+          100,
+          101,
+          102,
+          103,
+          104,
+          105,
+          106,
+          107,
+          108,
+          109,
+          110,
+          111,
+          112,
+          113,
+          114,
+          115,
+          116,
+          117,
+          118,
+          119,
+          120,
+          121,
+          122,
+          123,
+          124,
+          125,
+          126,
+          127,
+          128,
+          129,
+          130,
+          131,
+          132,
+          133,
+          134,
+          135,
+          136,
+          137,
+          138,
+          139,
+          140,
+          141,
+          142,
+          143,
+          144,
+          145,
+          146,
+          147,
+          148,
+          149,
+          150,
+          151,
+          152,
+          153,
+          154,
+          155,
+          156,
+          157,
+          158,
+          159,
+          160,
+          161,
+          162,
+          163,
+          164,
+          165,
+          166,
+          167,
+          168,
+          169,
+          170,
+          171,
+          172,
+          173,
+          174,
+          175,
+          176,
+          177,
+          178,
+          179,
+          180,
+          181,
+          182,
+          183,
+          184,
+          185,
+          186,
+          187,
+          194,
+          195,
+          196,
+          197,
+          198,
+          199,
+          200,
+          201,
+          202,
+          203,
+          204,
+          205,
+          206,
+          207,
+          208,
+          209,
+          210,
+          211,
+          212,
+          213,
+          214,
+          215,
+          216,
+          217,
+          218,
+          219,
+          220,
+          221,
+          222,
+          223,
+          224,
+          225,
+          226,
+          227,
+          228,
+          229,
+          230,
+          231,
+          233,
+          234,
+          235,
+          236,
+          237,
+          238,
+          239,
+          240,
+          241,
+          242,
+          243,
+          244,
+          252,
+          254
+        ],
+        "queue_commands": 3
+      },
+      {
+        "build_state": 3,
+        "result_state": 4,
+        "background_tiles": [
+          10,
+          11,
+          12,
+          13,
+          14,
+          17,
+          18,
+          20,
+          23,
+          24,
+          25,
+          28,
+          29,
+          30,
+          36,
+          40
+        ],
+        "queue_commands": 7
+      },
+      {
+        "build_state": 5,
+        "result_state": 6,
+        "background_tiles": [
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          35,
+          36,
+          40
+        ],
+        "queue_commands": 8
+      },
+      {
+        "build_state": 7,
+        "result_state": 8,
+        "background_tiles": [
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          27,
+          28,
+          29,
+          30,
+          32,
+          33,
+          34,
+          36,
+          40
+        ],
+        "queue_commands": 4
+      }
+    ],
+    "profiles": [
+      {
+        "slot": 0,
+        "variant": 0,
+        "raw": 0,
+        "visible_preview_pairs": []
+      },
+      {
+        "slot": 0,
+        "variant": 1,
+        "raw": 8,
+        "visible_preview_pairs": []
+      },
+      {
+        "slot": 0,
+        "variant": 2,
+        "raw": 0,
+        "visible_preview_pairs": []
+      },
+      {
+        "slot": 0,
+        "variant": 3,
+        "raw": 0,
+        "visible_preview_pairs": []
+      },
+      {
+        "slot": 0,
+        "variant": 4,
+        "raw": 0,
+        "visible_preview_pairs": []
+      },
+      {
+        "slot": 0,
+        "variant": 5,
+        "raw": 0,
+        "visible_preview_pairs": []
+      },
+      {
+        "slot": 0,
+        "variant": 6,
+        "raw": 0,
+        "visible_preview_pairs": []
+      },
+      {
+        "slot": 0,
+        "variant": 7,
+        "raw": 0,
+        "visible_preview_pairs": []
+      },
+      {
+        "slot": 1,
+        "variant": 0,
+        "raw": 1,
+        "visible_preview_pairs": []
+      },
+      {
+        "slot": 1,
+        "variant": 1,
+        "raw": 1,
+        "visible_preview_pairs": []
+      },
+      {
+        "slot": 2,
+        "variant": 0,
+        "raw": 2,
+        "visible_preview_pairs": []
+      },
+      {
+        "slot": 2,
+        "variant": 1,
+        "raw": 2,
+        "visible_preview_pairs": []
+      },
+      {
+        "slot": 3,
+        "variant": 0,
+        "raw": 3,
+        "visible_preview_pairs": []
+      },
+      {
+        "slot": 3,
+        "variant": 1,
+        "raw": 3,
+        "visible_preview_pairs": []
+      },
+      {
+        "slot": 4,
+        "variant": 0,
+        "raw": 4,
+        "visible_preview_pairs": []
+      },
+      {
+        "slot": 4,
+        "variant": 1,
+        "raw": 4,
+        "visible_preview_pairs": []
+      },
+      {
+        "slot": 5,
+        "variant": 0,
+        "raw": 5,
+        "visible_preview_pairs": []
+      },
+      {
+        "slot": 5,
+        "variant": 1,
+        "raw": 5,
+        "visible_preview_pairs": []
+      },
+      {
+        "slot": 5,
+        "variant": 2,
+        "raw": 5,
+        "visible_preview_pairs": []
+      },
+      {
+        "slot": 5,
+        "variant": 3,
+        "raw": 5,
+        "visible_preview_pairs": []
+      },
+      {
+        "slot": 6,
+        "variant": 0,
+        "raw": 6,
+        "visible_preview_pairs": []
+      },
+      {
+        "slot": 6,
+        "variant": 1,
+        "raw": 6,
+        "visible_preview_pairs": []
+      },
+      {
+        "slot": 7,
+        "variant": 0,
+        "raw": 7,
+        "visible_preview_pairs": []
+      },
+      {
+        "slot": 7,
+        "variant": 1,
+        "raw": 34,
+        "visible_preview_pairs": []
+      },
+      {
+        "slot": 8,
+        "variant": 0,
+        "raw": 12,
+        "visible_preview_pairs": []
+      },
+      {
+        "slot": 8,
+        "variant": 1,
+        "raw": 12,
+        "visible_preview_pairs": []
+      },
+      {
+        "slot": 9,
+        "variant": 0,
+        "raw": 9,
+        "visible_preview_pairs": []
+      },
+      {
+        "slot": 9,
+        "variant": 1,
+        "raw": 9,
+        "visible_preview_pairs": []
+      },
+      {
+        "slot": 9,
+        "variant": 2,
+        "raw": 9,
+        "visible_preview_pairs": []
+      },
+      {
+        "slot": 10,
+        "variant": 0,
+        "raw": 10,
+        "visible_preview_pairs": []
+      },
+      {
+        "slot": 10,
+        "variant": 1,
+        "raw": 36,
+        "visible_preview_pairs": [
+          [
+            700,
+            384
+          ],
+          [
+            700,
+            416
+          ],
+          [
+            700,
+            448
+          ],
+          [
+            700,
+            480
+          ]
+        ]
+      },
+      {
+        "slot": 10,
+        "variant": 2,
+        "raw": 10,
+        "visible_preview_pairs": []
+      },
+      {
+        "slot": 11,
+        "variant": 0,
+        "raw": 11,
+        "visible_preview_pairs": []
+      },
+      {
+        "slot": 11,
+        "variant": 1,
+        "raw": 35,
+        "visible_preview_pairs": [
+          [
+            700,
+            512
+          ],
+          [
+            700,
+            544
+          ],
+          [
+            700,
+            576
+          ],
+          [
+            700,
+            608
+          ]
+        ]
+      },
+      {
+        "slot": 12,
+        "variant": 0,
+        "raw": 13,
+        "visible_preview_pairs": []
+      },
+      {
+        "slot": 12,
+        "variant": 1,
+        "raw": 13,
+        "visible_preview_pairs": []
+      },
+      {
+        "slot": 13,
+        "variant": 0,
+        "raw": 14,
+        "visible_preview_pairs": []
+      },
+      {
+        "slot": 13,
+        "variant": 1,
+        "raw": 14,
+        "visible_preview_pairs": []
+      },
+      {
+        "slot": 14,
+        "variant": 0,
+        "raw": 15,
+        "visible_preview_pairs": []
+      },
+      {
+        "slot": 14,
+        "variant": 1,
+        "raw": 15,
+        "visible_preview_pairs": []
+      },
+      {
+        "slot": 14,
+        "variant": 2,
+        "raw": 15,
+        "visible_preview_pairs": []
+      },
+      {
+        "slot": 15,
+        "variant": 0,
+        "raw": 16,
+        "visible_preview_pairs": []
+      },
+      {
+        "slot": 16,
+        "variant": 0,
+        "raw": 17,
+        "visible_preview_pairs": []
+      },
+      {
+        "slot": 16,
+        "variant": 1,
+        "raw": 17,
+        "visible_preview_pairs": []
+      },
+      {
+        "slot": 16,
+        "variant": 2,
+        "raw": 17,
+        "visible_preview_pairs": []
+      },
+      {
+        "slot": 16,
+        "variant": 3,
+        "raw": 17,
+        "visible_preview_pairs": []
+      },
+      {
+        "slot": 17,
+        "variant": 0,
+        "raw": 18,
+        "visible_preview_pairs": []
+      },
+      {
+        "slot": 17,
+        "variant": 1,
+        "raw": 18,
+        "visible_preview_pairs": []
+      },
+      {
+        "slot": 17,
+        "variant": 2,
+        "raw": 18,
+        "visible_preview_pairs": []
+      },
+      {
+        "slot": 17,
+        "variant": 3,
+        "raw": 18,
+        "visible_preview_pairs": []
+      },
+      {
+        "slot": 18,
+        "variant": 0,
+        "raw": 19,
+        "visible_preview_pairs": []
+      },
+      {
+        "slot": 18,
+        "variant": 1,
+        "raw": 19,
+        "visible_preview_pairs": []
+      },
+      {
+        "slot": 18,
+        "variant": 2,
+        "raw": 19,
+        "visible_preview_pairs": []
+      },
+      {
+        "slot": 18,
+        "variant": 3,
+        "raw": 19,
+        "visible_preview_pairs": []
+      },
+      {
+        "slot": 19,
+        "variant": 0,
+        "raw": 20,
+        "visible_preview_pairs": []
+      },
+      {
+        "slot": 19,
+        "variant": 1,
+        "raw": 20,
+        "visible_preview_pairs": []
+      },
+      {
+        "slot": 20,
+        "variant": 0,
+        "raw": 21,
+        "visible_preview_pairs": []
+      },
+      {
+        "slot": 20,
+        "variant": 1,
+        "raw": 21,
+        "visible_preview_pairs": []
+      },
+      {
+        "slot": 21,
+        "variant": 0,
+        "raw": 22,
+        "visible_preview_pairs": []
+      },
+      {
+        "slot": 21,
+        "variant": 1,
+        "raw": 22,
+        "visible_preview_pairs": []
+      },
+      {
+        "slot": 21,
+        "variant": 2,
+        "raw": 22,
+        "visible_preview_pairs": []
+      },
+      {
+        "slot": 21,
+        "variant": 3,
+        "raw": 22,
+        "visible_preview_pairs": []
+      },
+      {
+        "slot": 22,
+        "variant": 0,
+        "raw": 23,
+        "visible_preview_pairs": []
+      },
+      {
+        "slot": 23,
+        "variant": 0,
+        "raw": 33,
+        "visible_preview_pairs": []
+      },
+      {
+        "slot": 23,
+        "variant": 1,
+        "raw": 33,
+        "visible_preview_pairs": []
+      },
+      {
+        "slot": 24,
+        "variant": 0,
+        "raw": 25,
+        "visible_preview_pairs": []
+      },
+      {
+        "slot": 24,
+        "variant": 1,
+        "raw": 25,
+        "visible_preview_pairs": []
+      },
+      {
+        "slot": 24,
+        "variant": 2,
+        "raw": 25,
+        "visible_preview_pairs": []
+      },
+      {
+        "slot": 24,
+        "variant": 3,
+        "raw": 25,
+        "visible_preview_pairs": []
+      },
+      {
+        "slot": 24,
+        "variant": 4,
+        "raw": 25,
+        "visible_preview_pairs": []
+      },
+      {
+        "slot": 24,
+        "variant": 5,
+        "raw": 25,
+        "visible_preview_pairs": []
+      },
+      {
+        "slot": 24,
+        "variant": 6,
+        "raw": 25,
+        "visible_preview_pairs": []
+      },
+      {
+        "slot": 24,
+        "variant": 7,
+        "raw": 25,
+        "visible_preview_pairs": []
+      },
+      {
+        "slot": 25,
+        "variant": 0,
+        "raw": 26,
+        "visible_preview_pairs": []
+      },
+      {
+        "slot": 26,
+        "variant": 0,
+        "raw": 27,
+        "visible_preview_pairs": []
+      },
+      {
+        "slot": 26,
+        "variant": 1,
+        "raw": 27,
+        "visible_preview_pairs": []
+      },
+      {
+        "slot": 27,
+        "variant": 0,
+        "raw": 28,
+        "visible_preview_pairs": [
+          [
+            702,
+            64
+          ],
+          [
+            702,
+            96
+          ],
+          [
+            702,
+            64
+          ],
+          [
+            703,
+            960
+          ],
+          [
+            703,
+            992
+          ],
+          [
+            703,
+            960
+          ]
+        ]
+      },
+      {
+        "slot": 28,
+        "variant": 0,
+        "raw": 29,
+        "visible_preview_pairs": [
+          [
+            702,
+            128
+          ],
+          [
+            702,
+            160
+          ],
+          [
+            702,
+            192
+          ],
+          [
+            702,
+            224
+          ]
+        ]
+      },
+      {
+        "slot": 28,
+        "variant": 1,
+        "raw": 29,
+        "visible_preview_pairs": [
+          [
+            702,
+            256
+          ],
+          [
+            702,
+            288
+          ],
+          [
+            702,
+            320
+          ],
+          [
+            702,
+            352
+          ]
+        ]
+      },
+      {
+        "slot": 28,
+        "variant": 2,
+        "raw": 29,
+        "visible_preview_pairs": [
+          [
+            702,
+            384
+          ],
+          [
+            702,
+            416
+          ],
+          [
+            702,
+            448
+          ],
+          [
+            702,
+            480
+          ]
+        ]
+      },
+      {
+        "slot": 28,
+        "variant": 3,
+        "raw": 29,
+        "visible_preview_pairs": [
+          [
+            702,
+            512
+          ],
+          [
+            702,
+            544
+          ],
+          [
+            702,
+            576
+          ],
+          [
+            702,
+            608
+          ]
+        ]
+      },
+      {
+        "slot": 28,
+        "variant": 4,
+        "raw": 29,
+        "visible_preview_pairs": [
+          [
+            702,
+            640
+          ],
+          [
+            702,
+            672
+          ],
+          [
+            702,
+            704
+          ],
+          [
+            702,
+            736
+          ]
+        ]
+      },
+      {
+        "slot": 28,
+        "variant": 5,
+        "raw": 29,
+        "visible_preview_pairs": [
+          [
+            702,
+            768
+          ],
+          [
+            702,
+            800
+          ],
+          [
+            702,
+            832
+          ],
+          [
+            702,
+            864
+          ]
+        ]
+      },
+      {
+        "slot": 29,
+        "variant": 0,
+        "raw": 37,
+        "visible_preview_pairs": [
+          [
+            702,
+            896
+          ],
+          [
+            702,
+            928
+          ],
+          [
+            702,
+            960
+          ],
+          [
+            702,
+            992
+          ]
+        ]
+      },
+      {
+        "slot": 29,
+        "variant": 1,
+        "raw": 0,
+        "visible_preview_pairs": [
+          [
+            703,
+            0
+          ],
+          [
+            703,
+            32
+          ],
+          [
+            703,
+            64
+          ],
+          [
+            703,
+            96
+          ]
+        ]
+      },
+      {
+        "slot": 30,
+        "variant": 0,
+        "raw": 31,
+        "visible_preview_pairs": [
+          [
+            703,
+            128
+          ],
+          [
+            703,
+            160
+          ],
+          [
+            703,
+            192
+          ],
+          [
+            703,
+            224
+          ],
+          [
+            703,
+            256
+          ]
+        ]
+      },
+      {
+        "slot": 30,
+        "variant": 1,
+        "raw": 31,
+        "visible_preview_pairs": [
+          [
+            703,
+            128
+          ],
+          [
+            703,
+            288
+          ],
+          [
+            703,
+            320
+          ],
+          [
+            703,
+            352
+          ],
+          [
+            703,
+            256
+          ]
+        ]
+      },
+      {
+        "slot": 30,
+        "variant": 2,
+        "raw": 31,
+        "visible_preview_pairs": [
+          [
+            703,
+            384
+          ],
+          [
+            703,
+            416
+          ],
+          [
+            703,
+            256
+          ],
+          [
+            703,
+            128
+          ],
+          [
+            703,
+            448
+          ]
+        ]
+      },
+      {
+        "slot": 30,
+        "variant": 3,
+        "raw": 31,
+        "visible_preview_pairs": [
+          [
+            703,
+            480
+          ],
+          [
+            703,
+            512
+          ],
+          [
+            703,
+            544
+          ],
+          [
+            703,
+            576
+          ],
+          [
+            703,
+            608
+          ]
+        ]
+      },
+      {
+        "slot": 31,
+        "variant": 0,
+        "raw": 32,
+        "visible_preview_pairs": [
+          [
+            703,
+            640
+          ],
+          [
+            703,
+            672
+          ],
+          [
+            703,
+            704
+          ],
+          [
+            703,
+            736
+          ]
+        ]
+      },
+      {
+        "slot": 31,
+        "variant": 1,
+        "raw": 24,
+        "visible_preview_pairs": []
+      }
+    ],
+    "scope": "Actual existing menu profile/name/OAM consumers plus source-typed upper2 family domains, current tables and positive menu selector constructors. Source-valid states only; arbitrary forged CHR modes/pointers are outside the ABI.",
+    "inherited_bindings": {
+      "build/bubble-bobble-source-1101-v1/current3-domain-rebind.json": "c19e6a7daeb303a3ede0dfe0fc05f0e9b72ae466adb5532693502d06d188669f",
+      "build/bubble-bobble-source-1101-v1/current3-closure-supplement.json": "858ccee4febd10a651fbb58b96f9f77bf29eb7cb1695f1a11fcd4ece23faaadc",
+      "build/metal-storm-chr-closure-1101-v10/source-domains.json": "e1e75373a91aa551af3d86a401d500a3289c2950ba33c55b8ed127be4c775fde"
+    }
+  },
+  "interrupts": {
+    "passed": true,
+    "original_unmasked_IRQ_negative": {
+      "cut_PC": 42416,
+      "PPU_address_before": 8192,
+      "PPU_address_after": 128,
+      "actual_original_copy_corrupted": true
+    },
+    "actual_new_copy_instruction_state_cuts": 2535,
+    "actual_ISR_counts": {
+      "NMI_accepted": 2535,
+      "IRQ_accepted": 5,
+      "IRQ_masked": 2530
+    },
+    "accepted_IRQ_boundaries": "Three cuts before SEI/PPU initialization; two cuts after complete copy and PLP. All PPUDATA writes remain masked."
+  },
+  "ingress_interrupts": {
+    "actual_changed_instruction_identity_states": 1293,
+    "actual_ISR_counts": {
+      "NMI_accepted": 1293,
+      "IRQ_accepted": 1293
+    },
+    "scope": "Actual new pending/Select/confirm and shared P1/Start instructions in complete menu calls; real IRQ and busy NMI preserve AXYP/SP/R0..7/SMC/maps/conditional RAM. Unloaded static menu path only; new authenticated backend is separately qualified."
+  },
+  "bindings": {
+    "tools/audit/check_bub_menu_art_1102_v1.py": "a51525a7505b6180ae794452ad5dbc46b2a4aab8f5abc04624f6018bb7a8d847",
+    "tools/audit/propose_bub_menu_controls_1102_v1.py": "4d1e9db57b5df54edd7224a46eec4e223b01eb75578cd0f784476e265b98fc41",
+    "tools/audit/propose_bub_menu_art_1102_v1.py": "5380ba7694bf90306afe6069ab70cab0e4721409bc0b7f27d01774802970c421",
+    "build/excitebike-pose-1101-v3/current4.nes": "cf1412eb78ed6531d2f7478c9790f96314a95f2f3fdd6c2b80bfbefd24fca3a8",
+    "build/bub-menu-integration-1102-v1/art-proposal.json": "97d3a3f623226a4a45017a447f7e55ddcf0f56a965651738c9776186b72b49db",
+    "build/bub-menu-integration-1102-v1/menu-stream.bin": "f4d30e3f83f6a9b138b912acc9bc9fb8a903b5e2f067bbff04b3e709df912b0c",
+    "build/bub-menu-integration-1102-v1/menu-controls.bin": "3121a5b234823ccf92971bd096c4f81c4cf6cb5a47349ba795794f101fbb876e"
+  }
+}

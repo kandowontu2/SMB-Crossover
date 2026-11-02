@@ -1,0 +1,1256 @@
+{
+  "passed": true,
+  "installed": true,
+  "ROM_SHA256": "1966a4883a888a5e62f90c4d3e96d25ecf028ddd7d714214727793418d633243",
+  "parent_ROM_SHA256": "1cd8e192ee4bee33dfe0d9c737bec097e1cf2339e0b9f77353fd5194f2530f55",
+  "assembly": {
+    "assembled": true,
+    "installed": false,
+    "native": false,
+    "parent_ROM_SHA256": "1cd8e192ee4bee33dfe0d9c737bec097e1cf2339e0b9f77353fd5194f2530f55",
+    "ROM_SHA256": "1966a4883a888a5e62f90c4d3e96d25ecf028ddd7d714214727793418d633243",
+    "patch": {
+      "offset": 792580,
+      "old": "99b7e0",
+      "new": "3aaf88",
+      "physical_PRG": 96,
+      "CPU": 47092,
+      "service_row": 8
+    },
+    "new_ROM_or_RAM_bytes": 0,
+    "affected_WWF_alternates": 6,
+    "existing_worker": {
+      "physical_PRG": 8,
+      "CPU": 44858,
+      "exact_bytes": "ee0960a096ad0860d002a0a898cd0960f002b009a906850fa9008d4a0760"
+    },
+    "scope": "Only existing WWF death-tick row8 changes. Native pit/death start already initializes MmDeathAge/Pit; real existing update completes life loss. No source endurance/animation claim.",
+    "bindings": {
+      "tools\\audit\\prepare_wwf_death_1102_v2.py": "ae825e6bec8c5dfab0d680188cf847ef061088689cd996b3292c59e3a8f6b7a4",
+      "build\\metal-reservation-1102-v42\\candidate.nes": "1cd8e192ee4bee33dfe0d9c737bec097e1cf2339e0b9f77353fd5194f2530f55",
+      "src\\megaman_death.s": "f19a8acc3db5a77bf5dca76d6eee4a1e94744d1e5a0ffac18240a768f3de289c",
+      "build\\wwf-roster-native-1101-v1\\runtime.s": "758271c1a91286e4217b346138a3aa7cbe1ef5180b5c4994c09bb53c3ddcb2ed",
+      "build\\wwf-death-1102-v2\\death-row.s": "4ff844bb4a9133a6decf059e3fb6d2e633867419cfc928e6d8f629362c3f33d8"
+    }
+  },
+  "CPU": {
+    "passed": true,
+    "ROM_SHA256": "1966a4883a888a5e62f90c4d3e96d25ecf028ddd7d714214727793418d633243",
+    "native": false,
+    "actual_foreign_resolver_full_state_cases": 84,
+    "actual_invalid_WWF_selectors": 2,
+    "actual_other_WWF_service_full_state_cases": 420,
+    "actual_WWF_native_death_and_life_loss_cases": [
+      {
+        "variant": 0,
+        "pit": true,
+        "actual_death_ticks": 150,
+        "native_lives_before": 2,
+        "native_lives_after": 1
+      },
+      {
+        "variant": 0,
+        "pit": false,
+        "actual_death_ticks": 168,
+        "native_lives_before": 2,
+        "native_lives_after": 1
+      },
+      {
+        "variant": 1,
+        "pit": true,
+        "actual_death_ticks": 150,
+        "native_lives_before": 2,
+        "native_lives_after": 1
+      },
+      {
+        "variant": 1,
+        "pit": false,
+        "actual_death_ticks": 168,
+        "native_lives_before": 2,
+        "native_lives_after": 1
+      },
+      {
+        "variant": 2,
+        "pit": true,
+        "actual_death_ticks": 150,
+        "native_lives_before": 2,
+        "native_lives_after": 1
+      },
+      {
+        "variant": 2,
+        "pit": false,
+        "actual_death_ticks": 168,
+        "native_lives_before": 2,
+        "native_lives_after": 1
+      },
+      {
+        "variant": 3,
+        "pit": true,
+        "actual_death_ticks": 150,
+        "native_lives_before": 2,
+        "native_lives_after": 1
+      },
+      {
+        "variant": 3,
+        "pit": false,
+        "actual_death_ticks": 168,
+        "native_lives_before": 2,
+        "native_lives_after": 1
+      },
+      {
+        "variant": 4,
+        "pit": true,
+        "actual_death_ticks": 150,
+        "native_lives_before": 2,
+        "native_lives_after": 1
+      },
+      {
+        "variant": 4,
+        "pit": false,
+        "actual_death_ticks": 168,
+        "native_lives_before": 2,
+        "native_lives_after": 1
+      },
+      {
+        "variant": 5,
+        "pit": true,
+        "actual_death_ticks": 150,
+        "native_lives_before": 2,
+        "native_lives_after": 1
+      },
+      {
+        "variant": 5,
+        "pit": false,
+        "actual_death_ticks": 168,
+        "native_lives_before": 2,
+        "native_lives_after": 1
+      }
+    ],
+    "original_negative": {
+      "actual_calls": 10,
+      "death_age": 0,
+      "engine": 11,
+      "stalled": true
+    },
+    "scope": "Actual foreign typed resolution and all other WWF service targets remain exact. Real public HuDeath and native PlayerLoseLife; both pit and normal guest-death durations complete for all6 WWF identities. Source-game endurance/death artwork and full-stage replay remain separate. Fixtures set declared death state in memory.",
+    "bindings": {
+      "tools\\audit\\check_wwf_death_1102_v2.py": "cd39d118f3370bd20a01d79e984bfec37308654a5df3fd1704265f1f1af80cb8",
+      "build\\metal-reservation-1102-v42\\candidate.nes": "1cd8e192ee4bee33dfe0d9c737bec097e1cf2339e0b9f77353fd5194f2530f55",
+      "build\\wwf-death-1102-v2\\candidate.nes": "1966a4883a888a5e62f90c4d3e96d25ecf028ddd7d714214727793418d633243",
+      "build\\wwf-death-1102-v2\\assembly.json": "93ef271a47d007a23c9c5e7768a1bbd4e2cb33ca73e9b1ee0f97a83b1d41d575"
+    }
+  },
+  "native": [
+    {
+      "case": "contact-0",
+      "result": {
+        "passed": true,
+        "reason": "contact-death-recovered",
+        "controller_only": true,
+        "WWF_variant": 0,
+        "frames": 1597,
+        "death_frame": 1267,
+        "death_seen": true,
+        "maximum_death_age": 168,
+        "initial_lives": 2,
+        "final_lives": 1,
+        "world": 0,
+        "level": 0,
+        "engine": 8,
+        "mode": 1,
+        "task": 3
+      },
+      "binding": {
+        "ROM_sha256": "1966a4883a888a5e62f90c4d3e96d25ecf028ddd7d714214727793418d633243",
+        "ready_sha256": "7b780fd5d5cca8d739c733797298bf1270add3bc037acdb188d6b00f8fe02074",
+        "exit_code": 0
+      },
+      "ready_SHA256": "7b780fd5d5cca8d739c733797298bf1270add3bc037acdb188d6b00f8fe02074"
+    },
+    {
+      "case": "contact-1",
+      "result": {
+        "passed": true,
+        "reason": "contact-death-recovered",
+        "controller_only": true,
+        "WWF_variant": 1,
+        "frames": 1623,
+        "death_frame": 1289,
+        "death_seen": true,
+        "maximum_death_age": 168,
+        "initial_lives": 2,
+        "final_lives": 1,
+        "world": 0,
+        "level": 0,
+        "engine": 8,
+        "mode": 1,
+        "task": 3
+      },
+      "binding": {
+        "ROM_sha256": "1966a4883a888a5e62f90c4d3e96d25ecf028ddd7d714214727793418d633243",
+        "ready_sha256": "f96d38f0c22326540e1b518fa9bf4a9c39aa0fc4ffb7b20059350d3face59d43",
+        "exit_code": 0
+      },
+      "ready_SHA256": "f96d38f0c22326540e1b518fa9bf4a9c39aa0fc4ffb7b20059350d3face59d43"
+    },
+    {
+      "case": "contact-2",
+      "result": {
+        "passed": true,
+        "reason": "contact-death-recovered",
+        "controller_only": true,
+        "WWF_variant": 2,
+        "frames": 1659,
+        "death_frame": 1325,
+        "death_seen": true,
+        "maximum_death_age": 168,
+        "initial_lives": 2,
+        "final_lives": 1,
+        "world": 0,
+        "level": 0,
+        "engine": 8,
+        "mode": 1,
+        "task": 3
+      },
+      "binding": {
+        "ROM_sha256": "1966a4883a888a5e62f90c4d3e96d25ecf028ddd7d714214727793418d633243",
+        "ready_sha256": "ef49a1b60943a1a22eb95e930b469821d86b5c2c6a674ba873ee3bf3072b8626",
+        "exit_code": 0
+      },
+      "ready_SHA256": "ef49a1b60943a1a22eb95e930b469821d86b5c2c6a674ba873ee3bf3072b8626"
+    },
+    {
+      "case": "contact-3",
+      "result": {
+        "passed": true,
+        "reason": "contact-death-recovered",
+        "controller_only": true,
+        "WWF_variant": 3,
+        "frames": 1690,
+        "death_frame": 1352,
+        "death_seen": true,
+        "maximum_death_age": 168,
+        "initial_lives": 2,
+        "final_lives": 1,
+        "world": 0,
+        "level": 0,
+        "engine": 8,
+        "mode": 1,
+        "task": 3
+      },
+      "binding": {
+        "ROM_sha256": "1966a4883a888a5e62f90c4d3e96d25ecf028ddd7d714214727793418d633243",
+        "ready_sha256": "2384ec9803805fc1f1a423caa4df09de1b45b717c2ff44a297c7745f3daa300f",
+        "exit_code": 0
+      },
+      "ready_SHA256": "2384ec9803805fc1f1a423caa4df09de1b45b717c2ff44a297c7745f3daa300f"
+    },
+    {
+      "case": "contact-4",
+      "result": {
+        "passed": true,
+        "reason": "contact-death-recovered",
+        "controller_only": true,
+        "WWF_variant": 4,
+        "frames": 1710,
+        "death_frame": 1380,
+        "death_seen": true,
+        "maximum_death_age": 168,
+        "initial_lives": 2,
+        "final_lives": 1,
+        "world": 0,
+        "level": 0,
+        "engine": 8,
+        "mode": 1,
+        "task": 3
+      },
+      "binding": {
+        "ROM_sha256": "1966a4883a888a5e62f90c4d3e96d25ecf028ddd7d714214727793418d633243",
+        "ready_sha256": "171dc1c53add650e33a2514765aff4c234ffc617a6b93cf7970992942a755502",
+        "exit_code": 0
+      },
+      "ready_SHA256": "171dc1c53add650e33a2514765aff4c234ffc617a6b93cf7970992942a755502"
+    },
+    {
+      "case": "contact-5",
+      "result": {
+        "passed": true,
+        "reason": "contact-death-recovered",
+        "controller_only": true,
+        "WWF_variant": 5,
+        "frames": 1738,
+        "death_frame": 1408,
+        "death_seen": true,
+        "maximum_death_age": 168,
+        "initial_lives": 2,
+        "final_lives": 1,
+        "world": 0,
+        "level": 0,
+        "engine": 8,
+        "mode": 1,
+        "task": 3
+      },
+      "binding": {
+        "ROM_sha256": "1966a4883a888a5e62f90c4d3e96d25ecf028ddd7d714214727793418d633243",
+        "ready_sha256": "c710477f73fe568a4307bbf52fe8c548d11a4d948bbae902050bb78bb43f9e88",
+        "exit_code": 0
+      },
+      "ready_SHA256": "c710477f73fe568a4307bbf52fe8c548d11a4d948bbae902050bb78bb43f9e88"
+    },
+    {
+      "case": "pit",
+      "result": {
+        "passed": true,
+        "reason": "pit-death-recovered",
+        "controller_only": true,
+        "character": "HULK HOGAN",
+        "frames": 4405,
+        "Main_updates": 1717,
+        "initial_lives": 2,
+        "final_lives": 1,
+        "maximum_x": 1122,
+        "maximum_camera": 1010,
+        "minimum_native_y": 46,
+        "current_x": 40,
+        "current_y": 176,
+        "pipe_index": 5,
+        "jump_sequences": 11,
+        "native_defeats": 3,
+        "world": 0,
+        "level": 0,
+        "engine": 8,
+        "trace": [
+          {
+            "frame": 750,
+            "updates": 76,
+            "x": 80,
+            "y": 176,
+            "state": 0,
+            "engine": 8,
+            "pipe": 1
+          },
+          {
+            "frame": 900,
+            "updates": 150,
+            "x": 136,
+            "y": 176,
+            "state": 0,
+            "engine": 8,
+            "pipe": 1
+          },
+          {
+            "frame": 1050,
+            "updates": 224,
+            "x": 191,
+            "y": 176,
+            "state": 0,
+            "engine": 8,
+            "pipe": 1
+          },
+          {
+            "frame": 1200,
+            "updates": 297,
+            "x": 245,
+            "y": 176,
+            "state": 0,
+            "engine": 8,
+            "pipe": 1
+          },
+          {
+            "frame": 1350,
+            "updates": 373,
+            "x": 272,
+            "y": 176,
+            "state": 0,
+            "engine": 8,
+            "pipe": 1
+          },
+          {
+            "frame": 1500,
+            "updates": 446,
+            "x": 328,
+            "y": 176,
+            "state": 0,
+            "engine": 8,
+            "pipe": 1
+          },
+          {
+            "frame": 1650,
+            "updates": 519,
+            "x": 382,
+            "y": 176,
+            "state": 0,
+            "engine": 8,
+            "pipe": 1
+          },
+          {
+            "frame": 1800,
+            "updates": 592,
+            "x": 437,
+            "y": 120,
+            "state": 2,
+            "engine": 8,
+            "pipe": 1
+          },
+          {
+            "frame": 1950,
+            "updates": 666,
+            "x": 493,
+            "y": 135,
+            "state": 2,
+            "engine": 8,
+            "pipe": 1
+          },
+          {
+            "frame": 2100,
+            "updates": 739,
+            "x": 547,
+            "y": 176,
+            "state": 0,
+            "engine": 8,
+            "pipe": 2
+          },
+          {
+            "frame": 2250,
+            "updates": 812,
+            "x": 602,
+            "y": 128,
+            "state": 0,
+            "engine": 8,
+            "pipe": 2
+          },
+          {
+            "frame": 2400,
+            "updates": 886,
+            "x": 658,
+            "y": 162,
+            "state": 2,
+            "engine": 8,
+            "pipe": 2
+          },
+          {
+            "frame": 2550,
+            "updates": 958,
+            "x": 708,
+            "y": 105,
+            "state": 2,
+            "engine": 8,
+            "pipe": 3
+          },
+          {
+            "frame": 2700,
+            "updates": 1032,
+            "x": 722,
+            "y": 118,
+            "state": 2,
+            "engine": 8,
+            "pipe": 3
+          },
+          {
+            "frame": 2850,
+            "updates": 1105,
+            "x": 776,
+            "y": 58,
+            "state": 2,
+            "engine": 8,
+            "pipe": 3
+          },
+          {
+            "frame": 3000,
+            "updates": 1179,
+            "x": 807,
+            "y": 176,
+            "state": 0,
+            "engine": 8,
+            "pipe": 4
+          },
+          {
+            "frame": 3150,
+            "updates": 1251,
+            "x": 853,
+            "y": 176,
+            "state": 0,
+            "engine": 8,
+            "pipe": 4
+          },
+          {
+            "frame": 3300,
+            "updates": 1327,
+            "x": 878,
+            "y": 136,
+            "state": 2,
+            "engine": 8,
+            "pipe": 4
+          },
+          {
+            "frame": 3450,
+            "updates": 1401,
+            "x": 897,
+            "y": 127,
+            "state": 2,
+            "engine": 8,
+            "pipe": 4
+          },
+          {
+            "frame": 3600,
+            "updates": 1474,
+            "x": 950,
+            "y": 50,
+            "state": 2,
+            "engine": 8,
+            "pipe": 4
+          },
+          {
+            "frame": 3750,
+            "updates": 1548,
+            "x": 1005,
+            "y": 176,
+            "state": 0,
+            "engine": 8,
+            "pipe": 5
+          },
+          {
+            "frame": 3900,
+            "updates": 1621,
+            "x": 1059,
+            "y": 176,
+            "state": 0,
+            "engine": 8,
+            "pipe": 5
+          },
+          {
+            "frame": 4050,
+            "updates": 1694,
+            "x": 1115,
+            "y": 142,
+            "state": 2,
+            "engine": 8,
+            "pipe": 5
+          },
+          {
+            "frame": 4200,
+            "updates": 1717,
+            "x": 1124,
+            "y": 243,
+            "state": 2,
+            "engine": 11,
+            "pipe": 5
+          },
+          {
+            "frame": 4350,
+            "updates": 1717,
+            "x": 96,
+            "y": 88,
+            "state": 0,
+            "engine": 0,
+            "pipe": 5
+          }
+        ]
+      },
+      "binding": {
+        "ROM_sha256": "1966a4883a888a5e62f90c4d3e96d25ecf028ddd7d714214727793418d633243",
+        "ready_sha256": "09c5c2354e30f993bc51dd1e036cab03bd9502f4134cb94c3179f75d2f5102f7",
+        "exit_code": 0
+      },
+      "ready_SHA256": "09c5c2354e30f993bc51dd1e036cab03bd9502f4134cb94c3179f75d2f5102f7"
+    }
+  ],
+  "delivery": {
+    "installed": true,
+    "ROM_sha256": "1966a4883a888a5e62f90c4d3e96d25ecf028ddd7d714214727793418d633243",
+    "previous_sha256": "1cd8e192ee4bee33dfe0d9c737bec097e1cf2339e0b9f77353fd5194f2530f55",
+    "destination": "C:\\Users\\kando\\Downloads\\SMB-Crossover-Latest-WIP-MMC5.nes",
+    "candidate": "build\\wwf-death-1102-v2\\candidate.nes",
+    "backup_created": false,
+    "downloads_launch_verified": true,
+    "before": {
+      "passed": true,
+      "ROM": "C:\\Users\\kando\\Downloads\\SMB-Crossover-Latest-WIP-MMC5.nes",
+      "ROM_sha256": "1cd8e192ee4bee33dfe0d9c737bec097e1cf2339e0b9f77353fd5194f2530f55",
+      "matching_patch_files": []
+    },
+    "after": {
+      "passed": true,
+      "ROM": "C:\\Users\\kando\\Downloads\\SMB-Crossover-Latest-WIP-MMC5.nes",
+      "ROM_sha256": "1966a4883a888a5e62f90c4d3e96d25ecf028ddd7d714214727793418d633243",
+      "matching_patch_files": []
+    },
+    "native_scope": "All6 WWF identities recover from genuine enemy-contact deaths to active1-1. Hogan also recovers from a genuine first-pit death after crossing allfourpipes. Existing168/150tick native sequence and one life loss. Only3 existing row bytes changed.",
+    "helpers_added": false,
+    "complete": false,
+    "downloads_verification": {
+      "passed": true,
+      "reason": "contact-death-recovered",
+      "controller_only": true,
+      "WWF_variant": 0,
+      "frames": 1597,
+      "death_frame": 1267,
+      "death_seen": true,
+      "maximum_death_age": 168,
+      "initial_lives": 2,
+      "final_lives": 1,
+      "world": 0,
+      "level": 0,
+      "engine": 8,
+      "mode": 1,
+      "task": 3
+    }
+  },
+  "original_negative": {
+    "passed": false,
+    "reason": "route-bound",
+    "controller_only": true,
+    "character": "HULK HOGAN",
+    "frames": 11100,
+    "Main_updates": 1717,
+    "initial_lives": 2,
+    "final_lives": 2,
+    "maximum_x": 1122,
+    "maximum_camera": 1010,
+    "minimum_native_y": 46,
+    "current_x": 1124,
+    "current_y": 243,
+    "pipe_index": 5,
+    "jump_sequences": 11,
+    "native_defeats": 3,
+    "world": 0,
+    "level": 0,
+    "engine": 11,
+    "trace": [
+      {
+        "frame": 750,
+        "updates": 76,
+        "x": 80,
+        "y": 176,
+        "state": 0,
+        "engine": 8,
+        "pipe": 1
+      },
+      {
+        "frame": 900,
+        "updates": 150,
+        "x": 136,
+        "y": 176,
+        "state": 0,
+        "engine": 8,
+        "pipe": 1
+      },
+      {
+        "frame": 1050,
+        "updates": 224,
+        "x": 191,
+        "y": 176,
+        "state": 0,
+        "engine": 8,
+        "pipe": 1
+      },
+      {
+        "frame": 1200,
+        "updates": 297,
+        "x": 245,
+        "y": 176,
+        "state": 0,
+        "engine": 8,
+        "pipe": 1
+      },
+      {
+        "frame": 1350,
+        "updates": 373,
+        "x": 272,
+        "y": 176,
+        "state": 0,
+        "engine": 8,
+        "pipe": 1
+      },
+      {
+        "frame": 1500,
+        "updates": 446,
+        "x": 328,
+        "y": 176,
+        "state": 0,
+        "engine": 8,
+        "pipe": 1
+      },
+      {
+        "frame": 1650,
+        "updates": 519,
+        "x": 382,
+        "y": 176,
+        "state": 0,
+        "engine": 8,
+        "pipe": 1
+      },
+      {
+        "frame": 1800,
+        "updates": 592,
+        "x": 437,
+        "y": 120,
+        "state": 2,
+        "engine": 8,
+        "pipe": 1
+      },
+      {
+        "frame": 1950,
+        "updates": 666,
+        "x": 493,
+        "y": 135,
+        "state": 2,
+        "engine": 8,
+        "pipe": 1
+      },
+      {
+        "frame": 2100,
+        "updates": 739,
+        "x": 547,
+        "y": 176,
+        "state": 0,
+        "engine": 8,
+        "pipe": 2
+      },
+      {
+        "frame": 2250,
+        "updates": 812,
+        "x": 602,
+        "y": 128,
+        "state": 0,
+        "engine": 8,
+        "pipe": 2
+      },
+      {
+        "frame": 2400,
+        "updates": 886,
+        "x": 658,
+        "y": 162,
+        "state": 2,
+        "engine": 8,
+        "pipe": 2
+      },
+      {
+        "frame": 2550,
+        "updates": 958,
+        "x": 708,
+        "y": 105,
+        "state": 2,
+        "engine": 8,
+        "pipe": 3
+      },
+      {
+        "frame": 2700,
+        "updates": 1032,
+        "x": 722,
+        "y": 118,
+        "state": 2,
+        "engine": 8,
+        "pipe": 3
+      },
+      {
+        "frame": 2850,
+        "updates": 1105,
+        "x": 776,
+        "y": 58,
+        "state": 2,
+        "engine": 8,
+        "pipe": 3
+      },
+      {
+        "frame": 3000,
+        "updates": 1179,
+        "x": 807,
+        "y": 176,
+        "state": 0,
+        "engine": 8,
+        "pipe": 4
+      },
+      {
+        "frame": 3150,
+        "updates": 1251,
+        "x": 853,
+        "y": 176,
+        "state": 0,
+        "engine": 8,
+        "pipe": 4
+      },
+      {
+        "frame": 3300,
+        "updates": 1327,
+        "x": 878,
+        "y": 136,
+        "state": 2,
+        "engine": 8,
+        "pipe": 4
+      },
+      {
+        "frame": 3450,
+        "updates": 1401,
+        "x": 897,
+        "y": 127,
+        "state": 2,
+        "engine": 8,
+        "pipe": 4
+      },
+      {
+        "frame": 3600,
+        "updates": 1474,
+        "x": 950,
+        "y": 50,
+        "state": 2,
+        "engine": 8,
+        "pipe": 4
+      },
+      {
+        "frame": 3750,
+        "updates": 1548,
+        "x": 1005,
+        "y": 176,
+        "state": 0,
+        "engine": 8,
+        "pipe": 5
+      },
+      {
+        "frame": 3900,
+        "updates": 1621,
+        "x": 1059,
+        "y": 176,
+        "state": 0,
+        "engine": 8,
+        "pipe": 5
+      },
+      {
+        "frame": 4050,
+        "updates": 1694,
+        "x": 1115,
+        "y": 142,
+        "state": 2,
+        "engine": 8,
+        "pipe": 5
+      },
+      {
+        "frame": 4200,
+        "updates": 1717,
+        "x": 1124,
+        "y": 243,
+        "state": 2,
+        "engine": 11,
+        "pipe": 5
+      },
+      {
+        "frame": 4350,
+        "updates": 1717,
+        "x": 1124,
+        "y": 243,
+        "state": 2,
+        "engine": 11,
+        "pipe": 5
+      },
+      {
+        "frame": 4500,
+        "updates": 1717,
+        "x": 1124,
+        "y": 243,
+        "state": 2,
+        "engine": 11,
+        "pipe": 5
+      },
+      {
+        "frame": 4650,
+        "updates": 1717,
+        "x": 1124,
+        "y": 243,
+        "state": 2,
+        "engine": 11,
+        "pipe": 5
+      },
+      {
+        "frame": 4800,
+        "updates": 1717,
+        "x": 1124,
+        "y": 243,
+        "state": 2,
+        "engine": 11,
+        "pipe": 5
+      },
+      {
+        "frame": 4950,
+        "updates": 1717,
+        "x": 1124,
+        "y": 243,
+        "state": 2,
+        "engine": 11,
+        "pipe": 5
+      },
+      {
+        "frame": 5100,
+        "updates": 1717,
+        "x": 1124,
+        "y": 243,
+        "state": 2,
+        "engine": 11,
+        "pipe": 5
+      },
+      {
+        "frame": 5250,
+        "updates": 1717,
+        "x": 1124,
+        "y": 243,
+        "state": 2,
+        "engine": 11,
+        "pipe": 5
+      },
+      {
+        "frame": 5400,
+        "updates": 1717,
+        "x": 1124,
+        "y": 243,
+        "state": 2,
+        "engine": 11,
+        "pipe": 5
+      },
+      {
+        "frame": 5550,
+        "updates": 1717,
+        "x": 1124,
+        "y": 243,
+        "state": 2,
+        "engine": 11,
+        "pipe": 5
+      },
+      {
+        "frame": 5700,
+        "updates": 1717,
+        "x": 1124,
+        "y": 243,
+        "state": 2,
+        "engine": 11,
+        "pipe": 5
+      },
+      {
+        "frame": 5850,
+        "updates": 1717,
+        "x": 1124,
+        "y": 243,
+        "state": 2,
+        "engine": 11,
+        "pipe": 5
+      },
+      {
+        "frame": 6000,
+        "updates": 1717,
+        "x": 1124,
+        "y": 243,
+        "state": 2,
+        "engine": 11,
+        "pipe": 5
+      },
+      {
+        "frame": 6150,
+        "updates": 1717,
+        "x": 1124,
+        "y": 243,
+        "state": 2,
+        "engine": 11,
+        "pipe": 5
+      },
+      {
+        "frame": 6300,
+        "updates": 1717,
+        "x": 1124,
+        "y": 243,
+        "state": 2,
+        "engine": 11,
+        "pipe": 5
+      },
+      {
+        "frame": 6450,
+        "updates": 1717,
+        "x": 1124,
+        "y": 243,
+        "state": 2,
+        "engine": 11,
+        "pipe": 5
+      },
+      {
+        "frame": 6600,
+        "updates": 1717,
+        "x": 1124,
+        "y": 243,
+        "state": 2,
+        "engine": 11,
+        "pipe": 5
+      },
+      {
+        "frame": 6750,
+        "updates": 1717,
+        "x": 1124,
+        "y": 243,
+        "state": 2,
+        "engine": 11,
+        "pipe": 5
+      },
+      {
+        "frame": 6900,
+        "updates": 1717,
+        "x": 1124,
+        "y": 243,
+        "state": 2,
+        "engine": 11,
+        "pipe": 5
+      },
+      {
+        "frame": 7050,
+        "updates": 1717,
+        "x": 1124,
+        "y": 243,
+        "state": 2,
+        "engine": 11,
+        "pipe": 5
+      },
+      {
+        "frame": 7200,
+        "updates": 1717,
+        "x": 1124,
+        "y": 243,
+        "state": 2,
+        "engine": 11,
+        "pipe": 5
+      },
+      {
+        "frame": 7350,
+        "updates": 1717,
+        "x": 1124,
+        "y": 243,
+        "state": 2,
+        "engine": 11,
+        "pipe": 5
+      },
+      {
+        "frame": 7500,
+        "updates": 1717,
+        "x": 1124,
+        "y": 243,
+        "state": 2,
+        "engine": 11,
+        "pipe": 5
+      },
+      {
+        "frame": 7650,
+        "updates": 1717,
+        "x": 1124,
+        "y": 243,
+        "state": 2,
+        "engine": 11,
+        "pipe": 5
+      },
+      {
+        "frame": 7800,
+        "updates": 1717,
+        "x": 1124,
+        "y": 243,
+        "state": 2,
+        "engine": 11,
+        "pipe": 5
+      },
+      {
+        "frame": 7950,
+        "updates": 1717,
+        "x": 1124,
+        "y": 243,
+        "state": 2,
+        "engine": 11,
+        "pipe": 5
+      },
+      {
+        "frame": 8100,
+        "updates": 1717,
+        "x": 1124,
+        "y": 243,
+        "state": 2,
+        "engine": 11,
+        "pipe": 5
+      },
+      {
+        "frame": 8250,
+        "updates": 1717,
+        "x": 1124,
+        "y": 243,
+        "state": 2,
+        "engine": 11,
+        "pipe": 5
+      },
+      {
+        "frame": 8400,
+        "updates": 1717,
+        "x": 1124,
+        "y": 243,
+        "state": 2,
+        "engine": 11,
+        "pipe": 5
+      },
+      {
+        "frame": 8550,
+        "updates": 1717,
+        "x": 1124,
+        "y": 243,
+        "state": 2,
+        "engine": 11,
+        "pipe": 5
+      },
+      {
+        "frame": 8700,
+        "updates": 1717,
+        "x": 1124,
+        "y": 243,
+        "state": 2,
+        "engine": 11,
+        "pipe": 5
+      },
+      {
+        "frame": 8850,
+        "updates": 1717,
+        "x": 1124,
+        "y": 243,
+        "state": 2,
+        "engine": 11,
+        "pipe": 5
+      },
+      {
+        "frame": 9000,
+        "updates": 1717,
+        "x": 1124,
+        "y": 243,
+        "state": 2,
+        "engine": 11,
+        "pipe": 5
+      },
+      {
+        "frame": 9150,
+        "updates": 1717,
+        "x": 1124,
+        "y": 243,
+        "state": 2,
+        "engine": 11,
+        "pipe": 5
+      },
+      {
+        "frame": 9300,
+        "updates": 1717,
+        "x": 1124,
+        "y": 243,
+        "state": 2,
+        "engine": 11,
+        "pipe": 5
+      },
+      {
+        "frame": 9450,
+        "updates": 1717,
+        "x": 1124,
+        "y": 243,
+        "state": 2,
+        "engine": 11,
+        "pipe": 5
+      },
+      {
+        "frame": 9600,
+        "updates": 1717,
+        "x": 1124,
+        "y": 243,
+        "state": 2,
+        "engine": 11,
+        "pipe": 5
+      },
+      {
+        "frame": 9750,
+        "updates": 1717,
+        "x": 1124,
+        "y": 243,
+        "state": 2,
+        "engine": 11,
+        "pipe": 5
+      },
+      {
+        "frame": 9900,
+        "updates": 1717,
+        "x": 1124,
+        "y": 243,
+        "state": 2,
+        "engine": 11,
+        "pipe": 5
+      },
+      {
+        "frame": 10050,
+        "updates": 1717,
+        "x": 1124,
+        "y": 243,
+        "state": 2,
+        "engine": 11,
+        "pipe": 5
+      },
+      {
+        "frame": 10200,
+        "updates": 1717,
+        "x": 1124,
+        "y": 243,
+        "state": 2,
+        "engine": 11,
+        "pipe": 5
+      },
+      {
+        "frame": 10350,
+        "updates": 1717,
+        "x": 1124,
+        "y": 243,
+        "state": 2,
+        "engine": 11,
+        "pipe": 5
+      },
+      {
+        "frame": 10500,
+        "updates": 1717,
+        "x": 1124,
+        "y": 243,
+        "state": 2,
+        "engine": 11,
+        "pipe": 5
+      },
+      {
+        "frame": 10650,
+        "updates": 1717,
+        "x": 1124,
+        "y": 243,
+        "state": 2,
+        "engine": 11,
+        "pipe": 5
+      },
+      {
+        "frame": 10800,
+        "updates": 1717,
+        "x": 1124,
+        "y": 243,
+        "state": 2,
+        "engine": 11,
+        "pipe": 5
+      },
+      {
+        "frame": 10950,
+        "updates": 1717,
+        "x": 1124,
+        "y": 243,
+        "state": 2,
+        "engine": 11,
+        "pipe": 5
+      },
+      {
+        "frame": 11100,
+        "updates": 1717,
+        "x": 1124,
+        "y": 243,
+        "state": 2,
+        "engine": 11,
+        "pipe": 5
+      }
+    ]
+  },
+  "observer_negative": "First contact observer missed the final age168 store when engine11\u21926 before endFrame; native-v3 observes that actual bus write and retains all duration/respawn assertions.",
+  "helpers_added": false,
+  "full11_cleared": false,
+  "remaining": "WWF full1-1 traversal/gaps, all earned powerups, original endurance/advanced moves and performance remain unfinished."
+}

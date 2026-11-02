@@ -1,9 +1,15 @@
 # Bub / Bob original-source readiness — 2026-11-01
 
-Status: original normal-play source recovered and CPU-checked. **No host bytes,
-raw character ID, menu entry, cache page, CHR page or resident span allocated.**
-No Mesen run, candidate ROM, installation or commit was performed by this work.
-Shinobi v29/v30 inputs were left intact.
+Current status (November 2): original-source and host-ingress CPU proofs are
+preserved in the source-only checkpoints. Conditional private storage and
+static menu resources have been granted; the private menu candidate passes
+all 33 positions in Mesen. Bub/Bob gameplay is not admitted or installed.
+The newer service/contact and trapped-enemy lifecycle work remains under
+review before a native gameplay candidate can be qualified. See the current
+continuation note and allocation receipts for exact ownership.
+
+The recovery narrative below records the original November 1 scope; its
+earlier “unallocated” proposals are historical, not current allocation status.
 
 ## Donor and credits
 
@@ -425,3 +431,58 @@ ingresses, source sound/score/UI/stage adapters, resident loader/retirement
 authentication, Main/IRQ and native controller qualification remain separate.
 The current Excitebike loader is owner-specific556B; none of its bytes or
 eight spare resident bytes are assumed available to Bub/Bob.
+
+## November 2 native ingress checkpoint
+
+The complete original/native update now compiles into **8,158 bytes**, including
+the 37-entry service vector. The immutable art441 helper row provides Graphics,
+Colors, StatusName, warm MenuPortrait and MenuName in **207/224 bytes**. Its CPU
+proof covers 64 register/scratch/buffer cases, two completed native NMI CHR/RGB
+publications on legal surface fixtures, and 332 real IRQ/Main-busy NMI cuts.
+The frozen source/receipts are `qualified-native-proofs-1102-v1.json` and ZIP in
+`build/bubble-bobble-source-1101-v1`; ZIP SHA-256 is
+`ef8771c2323fe306f1012b38d69a17c5357b08c1402faff3172c2af53b09f176`.
+Nine private rows are bound; 28 reject. The earlier four-row layout prose is
+historical. These frozen source files remain unchanged.
+
+The separate common-route CPU proof uses the exact cf1412eb cartridge model:
+2,808 foreign and 72 raw39 public endpoint cases require **no PRG79 changes**.
+Both identities execute the proposed scene gate, full nine-row copy/verify,
+two complete headers and original Fresh. It also passes 72 resident/private
+vector comparisons, 32 header corruptions, exact current Excitebike scene
+state/ABI, and 215 IRQ plus 215 Main-busy NMI cuts through dispatch/authentication.
+Four NMI cuts finish an adjacent pending CurrentBankC/hardware publication;
+the complete foreground continuations remain exact.
+
+The native policy successor corrects the provisional native powerup ID from
+`$14` to the real **`$2E`**; `$14` is FlyingCheepCheep. It fits with five code
+bytes and four immutable helper bytes spare. Actual `InjurePlayer` reaches
+HuStatus6/HuInjury5 and the original hurt routine with its 200-update grace;
+native visibility and geometry leave SMB power state unchanged.
+
+Actual `GuestBodyContactBridge` reaches PRG74 `$BF03`, rather than HuBody through
+the older source chain. A measured **49/49-byte replacement** within
+`$BF03..$BF34` adds exact39 authenticated contact, preserves raw25 and all other
+owners, and uses the unchanged adjacent `$BF00` FarCall jump. This source lease
+is **proposed, not granted or installed**. Tests pass 156 complete foreign
+AXYP/application/SMC/mapper cases, 882 actual fixed-bridge source9px contacts,
+four native powerup/FlyingCheep cases, four actual hazard/grace cases and
+35 IRQ plus 35 Main-busy NMI gate cuts. The existing native pickup-admission
+path passes 112 cases but does not reach HuMature39; this is explicitly an
+existing fallback, not a new row23 or item-effect qualification.
+
+Those successor recipes, generated inputs and receipts are frozen in
+`native-ingress-qualified-1102-v4.json` and ZIP under the same bounded output.
+The 57,655-byte ZIP SHA-256 is
+`0f054ebfbd053c25f37e73db9a2ca56b690a6f5bdd898be5c5a225b577e7b2c8`.
+Its manifest lists the seven new source files separately from the prior15.
+No NES, DBG, PNG or object archive is included.
+
+Still incomplete: actual Main and terrain head/side admission, shot-bank and
+fullbox gates, trapped-enemy native AI/art lifecycle and same-ID slot reuse,
+original item/audio mappings, cold frontend grants and native controller/1-1
+qualification. A self-secondary native Enemy_Flag proxy is only a design under
+review, not implemented. Bub and Bob have no helper-platform placement and no
+native stage-clear claim. Future composition must start from the installed
+Metal successor1cd8 and preserve its disjoint payload/auth bytes; cf is only
+the exact CPU proof baseline here.

@@ -1,0 +1,63 @@
+{
+  "passed": true,
+  "proposal_only": true,
+  "ROM_written": false,
+  "menu_admitted": false,
+  "native_playable": false,
+  "source_base_SHA256": "cf1412eb78ed6531d2f7478c9790f96314a95f2f3fdd6c2b80bfbefd24fca3a8",
+  "checkpoint": "build/bub-menu-integration-1102-v1/frontend-source-checkpoint.zip",
+  "checkpoint_SHA256": "fb885dc2dc6df13e6b3ded3ade43e41cab24c3e124d2d18ca04537dbd44a9346",
+  "bindings": {
+    "tools/audit/audit_bub_menu_frontend_1102_v1.py": "6e83ff0caf6dab9088eb2936fddea78eccc78ba3fb8ca0a1d6ab3f3861f35304",
+    "tools/audit/propose_bub_menu_flags_1102_v1.py": "d10ecd9ece08b6a9656ea5dd58fe77982bcd55229bf7a9d8bd57c22b0ba2fccd",
+    "tools/audit/propose_bub_menu_art_1102_v1.py": "5380ba7694bf90306afe6069ab70cab0e4721409bc0b7f27d01774802970c421",
+    "tools/audit/propose_bub_menu_controls_1102_v1.py": "4d1e9db57b5df54edd7224a46eec4e223b01eb75578cd0f784476e265b98fc41",
+    "tools/audit/check_bub_menu_art_1102_v1.py": "a51525a7505b6180ae794452ad5dbc46b2a4aab8f5abc04624f6018bb7a8d847",
+    "tools/audit/freeze_bub_menu_proposal_1102_v1.py": "5c2977a93ca4a94a19e40c624f2a2450a06319811e7a281c78d63c66418723b8",
+    "docs/qa/bub-menu-readiness-1102-v1.md": "1972c6cfcbbb4840a8d0b356e1ae185e95e112817b80ab6c34d01ac512b00a6d",
+    "build/bub-menu-integration-1102-v1/frontend-closure.json": "c65a853661f71656b88fb2282be2aceb47b0fd60f4e9f5f25ca60e5a36ebedf5",
+    "build/bub-menu-integration-1102-v1/flag-proposal.json": "9cc1e6be49f052132b40a83afcae3cefc4f92d35f3831bc025a0bcc2ed2f0a71",
+    "build/bub-menu-integration-1102-v1/art-proposal.json": "97d3a3f623226a4a45017a447f7e55ddcf0f56a965651738c9776186b72b49db",
+    "build/bub-menu-integration-1102-v1/controls-proposal.json": "2f462f8e82898a1d18c3d60f56b5769dc20899b9cade61426f5a78998ede2d41",
+    "build/bub-menu-integration-1102-v1/art-CPU-closure.json": "1cb63d8237a30cd52fb0f760c9c0177415d2099743acfa3a2dbd0b2dbab4e849",
+    "build/bub-menu-integration-1102-v1/start-flags.s": "8f11cb2f518906a158c7c8eb999cbf6ae522f4aee9d6167dc9a2734c693f47bd",
+    "build/bub-menu-integration-1102-v1/start-flags.cfg": "b01c0ffd8b6e9a1b26efd8859eb9a556623241a79dbd40ef48258aeefe3f0142",
+    "build/bub-menu-integration-1102-v1/start-flags.bin": "f6ee6d08cd3dfa3e3f6cd3c1301f8cccd0e0e59086be0319fe960fc84c6257fe",
+    "build/bub-menu-integration-1102-v1/menu-stream.s": "70a663eb2b226e76f60a17cfab6e486cad29a49867472271657b4835d97c70d5",
+    "build/bub-menu-integration-1102-v1/menu-stream.cfg": "57093e1ca833b229188500062787300577ae7cdbd31c6a1b14310488100a96c0",
+    "build/bub-menu-integration-1102-v1/menu-stream.bin": "f4d30e3f83f6a9b138b912acc9bc9fb8a903b5e2f067bbff04b3e709df912b0c",
+    "build/bub-menu-integration-1102-v1/pending-static.s": "0de751d95b2b6ea16411616649aeac389900e28f2abc9b03be1ca8e2560a1c66",
+    "build/bub-menu-integration-1102-v1/pending-static.cfg": "d2fefb65875d64d6bcf268e8801c610ca03bb375d96aec03b08e021c5b98216f",
+    "build/bub-menu-integration-1102-v1/pending-static.bin": "235ca0dc706a6979a5f27fcc168e4b46afb0f19a9bac4447510133422dbcbc4e",
+    "build/bub-menu-integration-1102-v1/menu-controls.s": "5eb4f8015e179756c7ff528fa52497815d873f04694854a4756a8a31542a35c4",
+    "build/bub-menu-integration-1102-v1/menu-controls.cfg": "fa648d42dc6b830c0e8b11b53116a25326dc8aa56456c2e38472ed08a002ab1a",
+    "build/bub-menu-integration-1102-v1/menu-controls.bin": "3121a5b234823ccf92971bd096c4f81c4cf6cb5a47349ba795794f101fbb876e"
+  },
+  "source_files_to_stage": [
+    "tools/audit/audit_bub_menu_frontend_1102_v1.py",
+    "tools/audit/propose_bub_menu_flags_1102_v1.py",
+    "tools/audit/propose_bub_menu_art_1102_v1.py",
+    "tools/audit/propose_bub_menu_controls_1102_v1.py",
+    "tools/audit/check_bub_menu_art_1102_v1.py",
+    "tools/audit/freeze_bub_menu_proposal_1102_v1.py",
+    "docs/qa/bub-menu-readiness-1102-v1.md"
+  ],
+  "commands": [
+    "python -B tools/audit/run_bounded_build_v1.py --resume --output build/bub-menu-integration-1102-v1 --timeout 300 -- python -B tools/audit/audit_bub_menu_frontend_1102_v1.py",
+    "python -B tools/audit/run_bounded_build_v1.py --resume --output build/bub-menu-integration-1102-v1 --timeout 300 -- python -B tools/audit/propose_bub_menu_flags_1102_v1.py",
+    "python -B tools/audit/run_bounded_build_v1.py --resume --output build/bub-menu-integration-1102-v1 --timeout 300 -- python -B tools/audit/propose_bub_menu_art_1102_v1.py",
+    "python -B tools/audit/run_bounded_build_v1.py --resume --output build/bub-menu-integration-1102-v1 --timeout 300 -- python -B tools/audit/propose_bub_menu_controls_1102_v1.py",
+    "python -B tools/audit/run_bounded_build_v1.py --resume --output build/bub-menu-integration-1102-v1 --timeout 300 -- python -B tools/audit/check_bub_menu_art_1102_v1.py",
+    "python -B tools/audit/run_bounded_build_v1.py --resume --output build/bub-menu-integration-1102-v1 --timeout 300 -- python -B tools/audit/freeze_bub_menu_proposal_1102_v1.py"
+  ],
+  "root_review_remaining": [
+    "Grant exact static art/data/FmPending entry and49B initializer+same677B rewrite.",
+    "Compose only exact approved diffs over formal1cd8 rebase, retaining latest Metal.",
+    "Bind final owner retirement and authenticated backend Fresh to bit7; no private cold execution in OperMode0.",
+    "Root native UI/BT/CF/backend qualification; confirmation gate remains SEC at physical66 AD64 until approved."
+  ],
+  "active_output_budget": {
+    "bytes": 16000000,
+    "files": 128
+  }
+}

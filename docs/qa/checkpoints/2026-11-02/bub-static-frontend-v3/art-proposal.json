@@ -1,0 +1,1511 @@
+{
+  "passed": true,
+  "proposal_only": true,
+  "ROM_written": false,
+  "menu_admitted": false,
+  "native": false,
+  "base_ROM_SHA256": "cf1412eb78ed6531d2f7478c9790f96314a95f2f3fdd6c2b80bfbefd24fca3a8",
+  "requested_patches": [
+    {
+      "offset": 1765392,
+      "old": "00001f3f3f3f07070f1f0317130f070707070707001e3f7f070707070f0100000000c0f0f8f0e08080f04070b800e08080808080c2672f37808080802297d7cf7f7efcf0f8f8f0700001030fffffff7f0824e3f0f8707038171b1c0f04000000",
+      "new": "000000000000000000000000000000000000000000000000000000000000000000000f1f3f2b2b6b01030000162323236b7f083f1f3f3e1c231608001e3f3fff000080c0e0e0f0f000807830001c0800f0f0d08888c87c3f0c082070703482c0",
+      "role": "Unused static portrait pairs0..2; exact source body, blank top row",
+      "preimage_SHA256": "d168bef7c8f0657b99d6b786feefcb386645c5b2eb8be060f70445c9b8a5d6a7"
+    },
+    {
+      "offset": 1056608,
+      "old": "00000000000000000000000000000000",
+      "new": "00000f1f3f2b2b6b0103000016232323",
+      "role": "Blank and unreferenced BG tile; exact source silhouette pixels",
+      "preimage_SHA256": "374708fff7719dd5979ec875d56cd2286f6d3cf7ec317a3b25632aab28ec37bb"
+    },
+    {
+      "offset": 1056624,
+      "old": "00000000000000000000000000000000",
+      "new": "000080c0e0e0f0f000807830001c0800",
+      "role": "Blank and unreferenced BG tile; exact source silhouette pixels",
+      "preimage_SHA256": "374708fff7719dd5979ec875d56cd2286f6d3cf7ec317a3b25632aab28ec37bb"
+    },
+    {
+      "offset": 1056640,
+      "old": "00000000000000000000000000000000",
+      "new": "6b7f083f1f3f3e1c231608001e3f3fff",
+      "role": "Blank and unreferenced BG tile; exact source silhouette pixels",
+      "preimage_SHA256": "374708fff7719dd5979ec875d56cd2286f6d3cf7ec317a3b25632aab28ec37bb"
+    },
+    {
+      "offset": 1056656,
+      "old": "00000000000000000000000000000000",
+      "new": "f0f0d08888c87c3f0c082070703482c0",
+      "role": "Blank and unreferenced BG tile; exact source silhouette pixels",
+      "preimage_SHA256": "374708fff7719dd5979ec875d56cd2286f6d3cf7ec317a3b25632aab28ec37bb"
+    },
+    {
+      "offset": 544299,
+      "old": "2824010c01110218011c010e012401220118011e011b01240111010e011b01182a241cfc0924014401450124014a014b01240150015104240159015a0124015f01600124016501660924014001410124014601470124014c014d0124015201530124015501560124015b015c0124016101620124016701680924014201430124014801490124014e014f012401540224015701580124015d015e01240163016401240169016a2924016b016c0124017101720124017701780724018501860124018b018c0124019101920924016d016e01240173017401240179017a0124017d017e0124018101820124018701880124018d018e0124019301940924016f01700124017501760124017b017c0124017f018001240183018401240189018a0124018f0190012401950196292401970198042401a001a1012401a601a7012401ac01ad012401b601b70f240199019a0124019d022401a201a3012401a801a9012401ae01af012401b801b9012401b201b30c24019b019c0124019e019f012401a401a5012401aa01ab012401b001b1012401ba01bb012401b401b52c2401c201c3012401c8022401cd01ce012401d301d401d501d701d8012401dd01de012401ef01f0012401e901ea092401c401c5012401c901ca012401cf01d0012401d601e301e401d901da012401df01e0012401f101f2012401eb01ec092401c601c7012401cb01cc012401d101d2012401e501e601e701db01dc012401e101e2012401f301f4012401ed01ee312408fe182408fe182408fe182408fe182408fe5124010a01240118011b0124011c011d010a011b011d012401190115010a01220224010b0124010b010a010c01140824010d01240119010a010d012401160118011f010e0224013f010c011801160112011701100124011c02180117242408a5230002ff0300105500",
+      "new": "2824900c1118181c0e2422181e1b24110e1b182a241cfc0924884445244a4b245051042488595a245f602465660924974041244647244c4d245253245556245b5c2461622467680924974243244849244e4f245424245758245d5e24636424696a2924886b6c2471722477780724888586248b8c2491920924976d6e24737424797a247d7e248182248788248d8e2493940924976f70247576247b7c247f8024838424898a248f90249596292482979804248ba0a124a6a724acad24b6b70f2494999a249d2424a2a324a8a924aeaf24b8b924b2b30c24949b9c249e9f24a4a524aaab24b0b124babb24b4b52c2497c2c324c82424cdce24d3d4d5d7d824ddde24eff024e9ea092497c4c524c9ca24cfd024d6e3e4d9da24dfe024f1f224ebec092497c6c724cbcc24d1d224e5e6e7dbdc24e1e224f3f424edee312408fe102482f5f6062408fe102482f7f8062408fe182408fe182408fe5124970a24181b241c1d0a1b1d2419150a2224240b240b0a0c140824980d24190a0d2416181f0e24243f0c1816121710241c181817242408a5230002ff03001055000878ad0220a9208d0620a9008d0620a91b8503a9ae8504a000b103f0303016aac8d002e604b103c8d002e6048d0720cad0fa4cceaf297faac8d002e604b1038d0720cad0f3c8d0d1e6044cceafa9b08504a0a4a20028a9004cb9a5eaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaea",
+      "role": "Same677B stream plus carry-preserving literal/repeat decoder",
+      "preimage_SHA256": "dd36961a6906b54421330c1bab094db5130cb5cd277cf89a6491dace23139b9b"
+    },
+    {
+      "offset": 542104,
+      "old": "ad0220a9208d0620a9008d0620a91b8503a9ae8504a000b103f016aac8d002e604b103c8d002e6048d0720cad0fa4c9fa5",
+      "new": "4cb5afeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaea",
+      "role": "Original49B PPU initialization/decoder replaced by same-bank transaction; A5B9 continuation fixed",
+      "preimage_SHA256": "a7d7b8cab3ab0a5f386e0d1ce99fb352ddcd451eab4d5f7493214f0d56ed96db"
+    },
+    {
+      "offset": 629129,
+      "old": "ae0973",
+      "new": "4cedbc",
+      "role": "Cold slot32 pending UI wrapper; all old slots resume original CPX0",
+      "preimage_SHA256": "d93a3f01c334c8f4e367b55dc8021f151cf0b1505611d6749cf201642eeab6cb"
+    },
+    {
+      "offset": 630013,
+      "old": "2424243f1c1e190e1b160a0a0a24242424243f1b18101e0e240d0a2017242424",
+      "new": "ae0973e020d00dade85f3004a909d002a90e38604c7cb9eaeaeaeaeaeaeaeaea",
+      "role": "Unused names0/1 fund static pending wrapper",
+      "preimage_SHA256": "3094c7085a9486e7c302a8243c1a79eb4f4d3e67a5134b9e08427c07c5955f47"
+    },
+    {
+      "offset": 630157,
+      "old": "24243f0b0a1d1d150e1d180a0d1c2424",
+      "new": "2424242424240b1e0b24242424242424",
+      "role": "Unused pending name row9",
+      "preimage_SHA256": "9201e38711e294706ac0cf308a019292e9362c6175e0e46f51c4d5ca8b785f69"
+    },
+    {
+      "offset": 630577,
+      "old": "70707070",
+      "new": "00000204",
+      "role": "Unused pending portrait row9",
+      "preimage_SHA256": "7cbccda65959a4fe629dbdf546ae3ddea9328ae5a53498785f4a27394fe26515"
+    },
+    {
+      "offset": 630700,
+      "old": "360f26",
+      "new": "2a2630",
+      "role": "Original source RGB portrait palette row9",
+      "preimage_SHA256": "09dcd8d6590d7f24afe94b61e14cd969f2e4ac4b8b0e81da360139da06072e51"
+    },
+    {
+      "offset": 630237,
+      "old": "242424243f10121616120c1424242424",
+      "new": "2424242424240b180b24242424242424",
+      "role": "Unused pending name row14",
+      "preimage_SHA256": "4bb51319d79cc52fa2b86400c492296f1cb6be3de345f8fbc56cc2d6012c0c8c"
+    },
+    {
+      "offset": 630597,
+      "old": "70727476",
+      "new": "00000204",
+      "role": "Unused pending portrait row14",
+      "preimage_SHA256": "c1aed4829fd3cc40156c677caab8cd49da8dd9d6f502bb52718c7dc3c82b047c"
+    },
+    {
+      "offset": 630715,
+      "old": "2a0b20",
+      "new": "2c2330",
+      "role": "Original source RGB portrait palette row14",
+      "preimage_SHA256": "9ff82aeae9f55297729e1825c4494403a97e0aa146384dad5c081acc9ff60e1a"
+    }
+  ],
+  "old_stream_bytes": 677,
+  "new_stream_bytes": 410,
+  "decoder_bytes": 91,
+  "stream_and_decoder_bytes": 501,
+  "spare_bytes": 176,
+  "stream_packet_kinds": {
+    "repeat": 38,
+    "literal": 20
+  },
+  "new_icon": {
+    "leftX": 32,
+    "topY": 160,
+    "source_body_topY": 168,
+    "width": 16,
+    "height": 24,
+    "nametable_changed_positions": [
+      676,
+      677,
+      708,
+      709
+    ],
+    "tiles": [
+      245,
+      246,
+      247,
+      248
+    ],
+    "exact_source_pixel_count": 256
+  },
+  "decoder_full_input_P_cases": 256,
+  "old_decoder_continuation": {
+    "A": 0,
+    "X": 0,
+    "Y": 164,
+    "P": 127,
+    "SP": 210,
+    "R0": 27,
+    "R1": 176,
+    "instructions": 6128,
+    "cycles": 18102
+  },
+  "new_decoder_continuation": {
+    "A": 0,
+    "X": 0,
+    "Y": 164,
+    "P": 127,
+    "SP": 210,
+    "R0": 27,
+    "R1": 176,
+    "instructions": 4554,
+    "cycles": 13864
+  },
+  "foreign_pending_byte_cases": 3347,
+  "own_pending_byte_cases": 256,
+  "pending_wrapper_bytes": 23,
+  "pending_domains": {
+    "0": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        4,
+        0
+      ],
+      [
+        5,
+        0
+      ],
+      [
+        6,
+        0
+      ],
+      [
+        7,
+        0
+      ],
+      [
+        8,
+        0
+      ],
+      [
+        9,
+        0
+      ],
+      [
+        10,
+        0
+      ],
+      [
+        11,
+        0
+      ],
+      [
+        12,
+        0
+      ],
+      [
+        13,
+        0
+      ],
+      [
+        14,
+        0
+      ],
+      [
+        15,
+        0
+      ],
+      [
+        16,
+        0
+      ],
+      [
+        17,
+        0
+      ],
+      [
+        18,
+        0
+      ],
+      [
+        19,
+        0
+      ],
+      [
+        20,
+        0
+      ],
+      [
+        21,
+        0
+      ],
+      [
+        22,
+        0
+      ],
+      [
+        23,
+        0
+      ],
+      [
+        24,
+        0
+      ],
+      [
+        25,
+        0
+      ],
+      [
+        26,
+        0
+      ],
+      [
+        27,
+        0
+      ],
+      [
+        28,
+        0
+      ],
+      [
+        29,
+        0
+      ],
+      [
+        30,
+        0
+      ],
+      [
+        31,
+        0
+      ],
+      [
+        32,
+        0
+      ],
+      [
+        33,
+        0
+      ],
+      [
+        34,
+        0
+      ],
+      [
+        35,
+        0
+      ],
+      [
+        36,
+        0
+      ],
+      [
+        37,
+        0
+      ],
+      [
+        38,
+        0
+      ],
+      [
+        39,
+        0
+      ],
+      [
+        40,
+        0
+      ],
+      [
+        41,
+        0
+      ],
+      [
+        42,
+        0
+      ],
+      [
+        43,
+        0
+      ],
+      [
+        44,
+        0
+      ],
+      [
+        45,
+        0
+      ],
+      [
+        46,
+        0
+      ],
+      [
+        47,
+        0
+      ],
+      [
+        48,
+        0
+      ],
+      [
+        49,
+        0
+      ],
+      [
+        50,
+        0
+      ],
+      [
+        51,
+        0
+      ],
+      [
+        52,
+        0
+      ],
+      [
+        53,
+        0
+      ],
+      [
+        54,
+        0
+      ],
+      [
+        55,
+        0
+      ],
+      [
+        56,
+        0
+      ],
+      [
+        57,
+        0
+      ],
+      [
+        58,
+        0
+      ],
+      [
+        59,
+        0
+      ],
+      [
+        60,
+        0
+      ],
+      [
+        61,
+        0
+      ],
+      [
+        62,
+        0
+      ],
+      [
+        63,
+        0
+      ],
+      [
+        64,
+        0
+      ],
+      [
+        65,
+        0
+      ],
+      [
+        66,
+        0
+      ],
+      [
+        67,
+        0
+      ],
+      [
+        68,
+        0
+      ],
+      [
+        69,
+        0
+      ],
+      [
+        70,
+        0
+      ],
+      [
+        71,
+        0
+      ],
+      [
+        72,
+        0
+      ],
+      [
+        73,
+        0
+      ],
+      [
+        74,
+        0
+      ],
+      [
+        75,
+        0
+      ],
+      [
+        76,
+        0
+      ],
+      [
+        77,
+        0
+      ],
+      [
+        78,
+        0
+      ],
+      [
+        79,
+        0
+      ],
+      [
+        80,
+        0
+      ],
+      [
+        81,
+        0
+      ],
+      [
+        82,
+        0
+      ],
+      [
+        83,
+        0
+      ],
+      [
+        84,
+        0
+      ],
+      [
+        85,
+        0
+      ],
+      [
+        86,
+        0
+      ],
+      [
+        87,
+        0
+      ],
+      [
+        88,
+        0
+      ],
+      [
+        89,
+        0
+      ],
+      [
+        90,
+        0
+      ],
+      [
+        91,
+        0
+      ],
+      [
+        92,
+        0
+      ],
+      [
+        93,
+        0
+      ],
+      [
+        94,
+        0
+      ],
+      [
+        95,
+        0
+      ],
+      [
+        96,
+        0
+      ],
+      [
+        97,
+        0
+      ],
+      [
+        98,
+        0
+      ],
+      [
+        99,
+        0
+      ],
+      [
+        100,
+        0
+      ],
+      [
+        101,
+        0
+      ],
+      [
+        102,
+        0
+      ],
+      [
+        103,
+        0
+      ],
+      [
+        104,
+        0
+      ],
+      [
+        105,
+        0
+      ],
+      [
+        106,
+        0
+      ],
+      [
+        107,
+        0
+      ],
+      [
+        108,
+        0
+      ],
+      [
+        109,
+        0
+      ],
+      [
+        110,
+        0
+      ],
+      [
+        111,
+        0
+      ],
+      [
+        112,
+        0
+      ],
+      [
+        113,
+        0
+      ],
+      [
+        114,
+        0
+      ],
+      [
+        115,
+        0
+      ],
+      [
+        116,
+        0
+      ],
+      [
+        117,
+        0
+      ],
+      [
+        118,
+        0
+      ],
+      [
+        119,
+        0
+      ],
+      [
+        120,
+        0
+      ],
+      [
+        121,
+        0
+      ],
+      [
+        122,
+        0
+      ],
+      [
+        123,
+        0
+      ],
+      [
+        124,
+        0
+      ],
+      [
+        125,
+        0
+      ],
+      [
+        126,
+        0
+      ],
+      [
+        127,
+        0
+      ],
+      [
+        128,
+        0
+      ],
+      [
+        129,
+        0
+      ],
+      [
+        130,
+        0
+      ],
+      [
+        131,
+        0
+      ],
+      [
+        132,
+        0
+      ],
+      [
+        133,
+        0
+      ],
+      [
+        134,
+        0
+      ],
+      [
+        135,
+        0
+      ],
+      [
+        136,
+        0
+      ],
+      [
+        137,
+        0
+      ],
+      [
+        138,
+        0
+      ],
+      [
+        139,
+        0
+      ],
+      [
+        140,
+        0
+      ],
+      [
+        141,
+        0
+      ],
+      [
+        142,
+        0
+      ],
+      [
+        143,
+        0
+      ],
+      [
+        144,
+        0
+      ],
+      [
+        145,
+        0
+      ],
+      [
+        146,
+        0
+      ],
+      [
+        147,
+        0
+      ],
+      [
+        148,
+        0
+      ],
+      [
+        149,
+        0
+      ],
+      [
+        150,
+        0
+      ],
+      [
+        151,
+        0
+      ],
+      [
+        152,
+        0
+      ],
+      [
+        153,
+        0
+      ],
+      [
+        154,
+        0
+      ],
+      [
+        155,
+        0
+      ],
+      [
+        156,
+        0
+      ],
+      [
+        157,
+        0
+      ],
+      [
+        158,
+        0
+      ],
+      [
+        159,
+        0
+      ],
+      [
+        160,
+        0
+      ],
+      [
+        161,
+        0
+      ],
+      [
+        162,
+        0
+      ],
+      [
+        163,
+        0
+      ],
+      [
+        164,
+        0
+      ],
+      [
+        165,
+        0
+      ],
+      [
+        166,
+        0
+      ],
+      [
+        167,
+        0
+      ],
+      [
+        168,
+        0
+      ],
+      [
+        169,
+        0
+      ],
+      [
+        170,
+        0
+      ],
+      [
+        171,
+        0
+      ],
+      [
+        172,
+        0
+      ],
+      [
+        173,
+        0
+      ],
+      [
+        174,
+        0
+      ],
+      [
+        175,
+        0
+      ],
+      [
+        176,
+        0
+      ],
+      [
+        177,
+        0
+      ],
+      [
+        178,
+        0
+      ],
+      [
+        179,
+        0
+      ],
+      [
+        180,
+        0
+      ],
+      [
+        181,
+        0
+      ],
+      [
+        182,
+        0
+      ],
+      [
+        183,
+        0
+      ],
+      [
+        184,
+        0
+      ],
+      [
+        185,
+        0
+      ],
+      [
+        186,
+        0
+      ],
+      [
+        187,
+        0
+      ],
+      [
+        188,
+        0
+      ],
+      [
+        189,
+        0
+      ],
+      [
+        190,
+        0
+      ],
+      [
+        191,
+        0
+      ],
+      [
+        192,
+        0
+      ],
+      [
+        193,
+        0
+      ],
+      [
+        194,
+        0
+      ],
+      [
+        195,
+        0
+      ],
+      [
+        196,
+        0
+      ],
+      [
+        197,
+        0
+      ],
+      [
+        198,
+        0
+      ],
+      [
+        199,
+        0
+      ],
+      [
+        200,
+        0
+      ],
+      [
+        201,
+        0
+      ],
+      [
+        202,
+        0
+      ],
+      [
+        203,
+        0
+      ],
+      [
+        204,
+        0
+      ],
+      [
+        205,
+        0
+      ],
+      [
+        206,
+        0
+      ],
+      [
+        207,
+        0
+      ],
+      [
+        208,
+        0
+      ],
+      [
+        209,
+        0
+      ],
+      [
+        210,
+        0
+      ],
+      [
+        211,
+        0
+      ],
+      [
+        212,
+        0
+      ],
+      [
+        213,
+        0
+      ],
+      [
+        214,
+        0
+      ],
+      [
+        215,
+        0
+      ],
+      [
+        216,
+        0
+      ],
+      [
+        217,
+        0
+      ],
+      [
+        218,
+        0
+      ],
+      [
+        219,
+        0
+      ],
+      [
+        220,
+        0
+      ],
+      [
+        221,
+        0
+      ],
+      [
+        222,
+        0
+      ],
+      [
+        223,
+        0
+      ],
+      [
+        224,
+        0
+      ],
+      [
+        225,
+        0
+      ],
+      [
+        226,
+        0
+      ],
+      [
+        227,
+        0
+      ],
+      [
+        228,
+        0
+      ],
+      [
+        229,
+        0
+      ],
+      [
+        230,
+        0
+      ],
+      [
+        231,
+        0
+      ],
+      [
+        232,
+        0
+      ],
+      [
+        233,
+        0
+      ],
+      [
+        234,
+        0
+      ],
+      [
+        235,
+        0
+      ],
+      [
+        236,
+        0
+      ],
+      [
+        237,
+        0
+      ],
+      [
+        238,
+        0
+      ],
+      [
+        239,
+        0
+      ],
+      [
+        240,
+        0
+      ],
+      [
+        241,
+        0
+      ],
+      [
+        242,
+        0
+      ],
+      [
+        243,
+        0
+      ],
+      [
+        244,
+        0
+      ],
+      [
+        245,
+        0
+      ],
+      [
+        246,
+        0
+      ],
+      [
+        247,
+        0
+      ],
+      [
+        248,
+        0
+      ],
+      [
+        249,
+        0
+      ],
+      [
+        250,
+        0
+      ],
+      [
+        251,
+        0
+      ],
+      [
+        252,
+        0
+      ],
+      [
+        253,
+        0
+      ],
+      [
+        254,
+        0
+      ],
+      [
+        255,
+        0
+      ]
+    ],
+    "1": [
+      [
+        85,
+        0
+      ]
+    ],
+    "2": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "3": [
+      [
+        85,
+        0
+      ]
+    ],
+    "4": [
+      [
+        85,
+        0
+      ]
+    ],
+    "5": [
+      [
+        85,
+        0
+      ]
+    ],
+    "6": [
+      [
+        85,
+        0
+      ]
+    ],
+    "7": [
+      [
+        0,
+        0
+      ],
+      [
+        2,
+        0
+      ]
+    ],
+    "8": [
+      [
+        85,
+        0
+      ]
+    ],
+    "9": [
+      [
+        0,
+        0
+      ],
+      [
+        31,
+        0
+      ]
+    ],
+    "10": [
+      [
+        0,
+        0
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        32,
+        0
+      ]
+    ],
+    "11": [
+      [
+        0,
+        0
+      ],
+      [
+        4,
+        1
+      ]
+    ],
+    "12": [
+      [
+        85,
+        0
+      ]
+    ],
+    "13": [
+      [
+        85,
+        0
+      ]
+    ],
+    "14": [
+      [
+        85,
+        0
+      ]
+    ],
+    "15": [
+      [
+        85,
+        0
+      ]
+    ],
+    "16": [
+      [
+        85,
+        0
+      ]
+    ],
+    "17": [
+      [
+        85,
+        0
+      ]
+    ],
+    "18": [
+      [
+        85,
+        0
+      ]
+    ],
+    "19": [
+      [
+        85,
+        0
+      ]
+    ],
+    "20": [
+      [
+        85,
+        0
+      ]
+    ],
+    "21": [
+      [
+        5,
+        0
+      ],
+      [
+        6,
+        0
+      ],
+      [
+        7,
+        0
+      ],
+      [
+        8,
+        0
+      ]
+    ],
+    "22": [
+      [
+        85,
+        0
+      ]
+    ],
+    "23": [
+      [
+        9,
+        0
+      ]
+    ],
+    "24": [
+      [
+        10,
+        0
+      ],
+      [
+        11,
+        0
+      ],
+      [
+        12,
+        0
+      ],
+      [
+        13,
+        0
+      ]
+    ],
+    "25": [
+      [
+        85,
+        0
+      ]
+    ],
+    "26": [
+      [
+        15,
+        0
+      ],
+      [
+        16,
+        0
+      ]
+    ],
+    "27": [
+      [
+        85,
+        0
+      ]
+    ],
+    "28": [
+      [
+        18,
+        0
+      ],
+      [
+        19,
+        0
+      ],
+      [
+        20,
+        0
+      ],
+      [
+        21,
+        0
+      ],
+      [
+        22,
+        0
+      ],
+      [
+        23,
+        0
+      ],
+      [
+        24,
+        1
+      ],
+      [
+        25,
+        1
+      ]
+    ],
+    "29": [
+      [
+        24,
+        1
+      ],
+      [
+        25,
+        1
+      ]
+    ],
+    "30": [
+      [
+        26,
+        0
+      ],
+      [
+        27,
+        0
+      ],
+      [
+        28,
+        0
+      ],
+      [
+        29,
+        0
+      ]
+    ],
+    "31": [
+      [
+        9,
+        0
+      ],
+      [
+        30,
+        0
+      ]
+    ]
+  },
+  "dependent_field_per_slot": {
+    "0": "MarioVariant",
+    "2": "RdVariant",
+    "7": "FmAlts",
+    "9": "FmAlts",
+    "10": "FmAlts",
+    "11": "FmAlts",
+    "21": "FfMode",
+    "24": "Sm2Variant",
+    "26": "FmAlts",
+    "28": "FmGroups",
+    "29": "FmAlts",
+    "30": "FmGroups",
+    "31": "FmAlts"
+  },
+  "lease_closure_remaining": [
+    "Formal root grants for requested static data, CHR and same677B decoder rewrite.",
+    "Confirm actual global CHR700/menuBG reader ownership against finite publisher closure.",
+    "Actual disabled-NMI/IRQ cuts and native menu inspection before admission."
+  ],
+  "bindings": {
+    "tools/audit/propose_bub_menu_art_1102_v1.py": "5380ba7694bf90306afe6069ab70cab0e4721409bc0b7f27d01774802970c421",
+    "tools/audit/audit_bub_menu_frontend_1102_v1.py": "6e83ff0caf6dab9088eb2936fddea78eccc78ba3fb8ca0a1d6ab3f3861f35304",
+    "build/excitebike-pose-1101-v3/current4.nes": "cf1412eb78ed6531d2f7478c9790f96314a95f2f3fdd6c2b80bfbefd24fca3a8",
+    "build/bubble-bobble-source-1101-v1/component-native.chr": "781827ea26f9c0c2896bc275da44aefc298f9e52c529cd2d9ef60b352e08a14d",
+    "build/bub-menu-integration-1102-v1/menu-stream.s": "70a663eb2b226e76f60a17cfab6e486cad29a49867472271657b4835d97c70d5",
+    "build/bub-menu-integration-1102-v1/menu-stream.bin": "f4d30e3f83f6a9b138b912acc9bc9fb8a903b5e2f067bbff04b3e709df912b0c",
+    "build/bub-menu-integration-1102-v1/pending-static.s": "0de751d95b2b6ea16411616649aeac389900e28f2abc9b03be1ca8e2560a1c66",
+    "build/bub-menu-integration-1102-v1/pending-static.bin": "235ca0dc706a6979a5f27fcc168e4b46afb0f19a9bac4447510133422dbcbc4e",
+    "build/bub-menu-integration-1102-v1/frontend-closure.json": "c65a853661f71656b88fb2282be2aceb47b0fd60f4e9f5f25ca60e5a36ebedf5"
+  }
+}

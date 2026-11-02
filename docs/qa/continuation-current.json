@@ -68,63 +68,47 @@
   },
   "installed_nightly": {
     "installed": true,
-    "ROM_sha256": "1cd8e192ee4bee33dfe0d9c737bec097e1cf2339e0b9f77353fd5194f2530f55",
-    "previous_sha256": "cf1412eb78ed6531d2f7478c9790f96314a95f2f3fdd6c2b80bfbefd24fca3a8",
+    "ROM_sha256": "1966a4883a888a5e62f90c4d3e96d25ecf028ddd7d714214727793418d633243",
+    "previous_sha256": "1cd8e192ee4bee33dfe0d9c737bec097e1cf2339e0b9f77353fd5194f2530f55",
     "destination": "C:\\Users\\kando\\Downloads\\SMB-Crossover-Latest-WIP-MMC5.nes",
-    "candidate": "build\\metal-reservation-1102-v42\\candidate.nes",
+    "candidate": "build\\wwf-death-1102-v2\\candidate.nes",
     "backup_created": false,
     "downloads_launch_verified": true,
     "before": {
       "passed": true,
       "ROM": "C:\\Users\\kando\\Downloads\\SMB-Crossover-Latest-WIP-MMC5.nes",
-      "ROM_sha256": "cf1412eb78ed6531d2f7478c9790f96314a95f2f3fdd6c2b80bfbefd24fca3a8",
+      "ROM_sha256": "1cd8e192ee4bee33dfe0d9c737bec097e1cf2339e0b9f77353fd5194f2530f55",
       "matching_patch_files": []
     },
     "after": {
       "passed": true,
       "ROM": "C:\\Users\\kando\\Downloads\\SMB-Crossover-Latest-WIP-MMC5.nes",
-      "ROM_sha256": "1cd8e192ee4bee33dfe0d9c737bec097e1cf2339e0b9f77353fd5194f2530f55",
+      "ROM_sha256": "1966a4883a888a5e62f90c4d3e96d25ecf028ddd7d714214727793418d633243",
       "matching_patch_files": []
     },
-    "native_scope": "Stable zero header and aligned OAM rotation pass; full1-1 reaches active1-2 in5587physicalframes, lives2to2, genuine native defeat. Idle120/180 and walk27/40 updates unchanged; palette/HUD/audio remain open.",
+    "native_scope": "All6 WWF identities recover from genuine enemy-contact deaths to active1-1. Hogan also recovers from a genuine first-pit death after crossing allfourpipes. Existing168/150tick native sequence and one life loss. Only3 existing row bytes changed.",
     "helpers_added": false,
     "complete": false,
     "downloads_verification": {
       "passed": true,
-      "reason": "measured",
-      "character": "METAL STORM",
+      "reason": "contact-death-recovered",
       "controller_only": true,
-      "frames": 910,
+      "WWF_variant": 0,
+      "frames": 1597,
+      "death_frame": 1267,
+      "death_seen": true,
+      "maximum_death_age": 168,
       "initial_lives": 2,
-      "final_lives": 2,
-      "selected": 35,
-      "measurements": [
-        {
-          "phase": "idle",
-          "physical_frames": 180,
-          "main_updates": 120,
-          "updates_per_frame": 0.666667,
-          "first_x": 40,
-          "last_x": 40,
-          "max_visible_enemies": 0,
-          "max_active_slots": 0
-        },
-        {
-          "phase": "walk",
-          "physical_frames": 40,
-          "main_updates": 27,
-          "updates_per_frame": 0.675,
-          "first_x": 40,
-          "last_x": 77,
-          "max_visible_enemies": 0,
-          "max_active_slots": 0
-        }
-      ],
-      "full_stage": false
+      "final_lives": 1,
+      "world": 0,
+      "level": 0,
+      "engine": 8,
+      "mode": 1,
+      "task": 3
     }
   },
   "roster_integration_followup": {
-    "installed_ROM_sha256": "1cd8e192ee4bee33dfe0d9c737bec097e1cf2339e0b9f77353fd5194f2530f55",
+    "installed_ROM_sha256": "1966a4883a888a5e62f90c4d3e96d25ecf028ddd7d714214727793418d633243",
     "goal_status": "ACTIVE_INCOMPLETE",
     "helpers_model": "gpt-6.1-sol",
     "helpers_reasoning": "xhigh",
@@ -2438,9 +2422,9 @@
       "sha256": "48bfa9768dcaaa0c7000f886faad967a59ee50d387b5b512417fbb60750032b9"
     }
   },
-  "current_owning_candidate": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\metal-reservation-1102-v42\\candidate.nes",
-  "current_owning_build_recipe": "tools/audit/prepare_metal_reservation_1102_v42.py",
-  "source_override_required": "Latest installed1cd8 is a verified successor tocf1412. Use the exact private recipe/frozen inputs and current parent; never replace it with an older canonical kernel. Bub/Prince rebase: docs/qa/allocations/roster-rebase-1102-v3.json.",
+  "current_owning_candidate": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\wwf-death-1102-v2\\candidate.nes",
+  "current_owning_build_recipe": "tools/audit/prepare_wwf_death_1102_v2.py",
+  "source_override_required": "Latest installed1966 is a3-byte WWF death-row successor to1cd8. Keep both the latest Metal repair and WWF row when composing new characters. Formal rebase: docs/qa/allocations/roster-rebase-1102-v4.json. Canonical37-character source builder is not this full WIP.",
   "cleanup_rejection": {
     "action": "Delete Mario the Tank host.o and host.dbg temporary outputs",
     "reason": "Automatic approval review blocked deletion under policy",
@@ -2555,7 +2539,7 @@
     "helper_row_grant": "docs/qa/allocations/bubble-helper-row-1102-v2.json",
     "frontend_grant": "docs/qa/allocations/bub-menu-1102-v1.json",
     "frontend_flags_grant": "docs/qa/allocations/bub-menu-flags-1102-v2.json",
-    "latest_rebase": "docs\\qa\\allocations\\roster-rebase-1102-v3.json",
+    "latest_rebase": "docs\\qa\\allocations\\roster-rebase-1102-v4.json",
     "private_native_checkpoint": "docs\\qa\\checkpoints\\2026-11-02\\bubble-native-core-v2",
     "immutable_helper_tail_used_bytes": 207,
     "shared_nine_row_worker_bytes": 229,
@@ -2569,6 +2553,11 @@
       26,
       30,
       36
+    ],
+    "frontend_static_grant": "docs/qa/allocations/bub-menu-static-1102-v3.json",
+    "frontend_native_negatives": [
+      "native-menu: Mesen importer rejected dangling synthetic DBGsegment900000 before gameplay.",
+      "native-menu2: simultaneous Select+A name expectation disagreed with preserved native Select-before-confirm order. Helper is proving ordered input and preparing a distinct observer; not native menu acceptance."
     ]
   },
   "Prince_resource_followup": {
@@ -2582,7 +2571,7 @@
     "menu_admitted": false,
     "native_playable": false,
     "remaining": "Original core has 20 explicit environment callbacks. Bind actual host services, source-fund shared cold loader/routing and qualify controls, art, contacts and full 1-1.",
-    "latest_rebase": "docs\\qa\\allocations\\roster-rebase-1102-v3.json"
+    "latest_rebase": "docs\\qa\\allocations\\roster-rebase-1102-v4.json"
   },
   "DKJr_source_followup": {
     "source_checkpoint": "docs\\qa\\checkpoints\\2026-11-02\\dkjr-source-core-v1",
@@ -2618,5 +2607,17 @@
     "actual_Downloads_launch_verified": true,
     "original_audio_or_all_powerups": false,
     "remaining": "Palette/HUD/audio and complete abilities/modes/shortcut remain open; idle cadence unchanged."
+  },
+  "WWF_death_followup": {
+    "installed": true,
+    "ROM_SHA256": "1966a4883a888a5e62f90c4d3e96d25ecf028ddd7d714214727793418d633243",
+    "note": "docs/qa/wwf-death-1102-v2.md",
+    "checkpoint": "docs\\qa\\checkpoints\\2026-11-02\\wwf-death-v2",
+    "native_contact_death_respawn_variants": 6,
+    "native_Hogan_pit_respawn": true,
+    "actual_Downloads_verified": true,
+    "full11": false,
+    "helpers_added": false,
+    "next": "Late-edge gap attempt and complete routes/powerups; do not infer helpers from early-jump policy."
   }
 }

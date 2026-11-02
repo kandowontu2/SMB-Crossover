@@ -8,9 +8,15 @@ the42 physical pages and conditional overlay RAM in
 `docs/qa/allocations/prince-1102-v1.json`, rebased to installed cf1412eb78ed6531d2f7478c9790f96314a95f2f3fdd6c2b80bfbefd24fca3a8.
 Code uses conditional RAM bank3 A000..BFE0; original state uses conditional
 RAM bank2 C000..C800 and pose metadata C800..DD32. BFE0/DFE0 headers and shared
-DFD0..DFD2 clock ownership remain explicit. Only429 backing bytes are spare;
-code space before its header has2079 spare bytes after the current source image.
-Resident PRG/shared routing/menu admission remain ungranted. Raw38 is reserved
+DFD0..DFD2 clock ownership remain explicit. The later Metal-only installed1cd8
+rebase preserves these resources; see `allocations/roster-rebase-1102-v3.json`.
+The current private contact/native-leaf image uses7555 code bytes and leaves751
+live bytes across two owned spans. Its measured lossless backing uses41880 of
+43008 bytes, leaving1128 bytes; the common worker does not yet support this codec.
+The247-byte shared resident reservation is granted in
+`allocations/common-cold-1102-v1.json` and is coordinated by the Bub owner.
+Prince shared routing, codec integration and menu admission remain unqualified.
+Raw38 is reserved
 for the existing Excitebike alternate. Excitebike owns raw37's
 current dispatcher and its own granted resources; none are Prince resources.
 
@@ -18,7 +24,60 @@ All temporary outputs are in `build/prince-actor-1101-v1`. No asset tree,
 native frame capture or emulator instance was created. Source fixtures stay
 in memory and aggregate into compact receipts.
 
-## Original instruction and caller closure
+## Current source and native-leaf measurements, November2
+
+The separate `recover_prince_contact_1102_v4.py` successor includes original
+D17A/D4F5 post-physics support, wall, fall and landing selection, F882 ledge
+catch, D427 landing and both8574/8710 HP leaves. It reassembles4665 original
+instruction bytes across2017 boundaries, SHA
+`97522f3bbfb28a7f40a935c08f2cece851d97d7cc8d2c5cc10c50bbc1e5fce65`.
+Local branches whose linked targets are in range save1287 bytes. The resulting
+source image is7105 bytes, A000..BBC1. `contact-CPU.json` passes26454 directed
+instruction cases; `contact-sequence-CPU.json` passes1570 genuine donor frames,
+including976 reached replacements and240 full terrain/contact calls. Source
+application RAM, physical flags, live stack, bank, PPU, OAM and APU match.
+Four original trap/potion/sword-room boundaries remain explicit alongside the
+world/audio boundaries; they are not invented native tile behavior.
+
+`check_prince_contact_point_1102_v2.py` places the94-byte actual native point
+reader in B310..B36E of the source-declared B310..B400 alignment span. It passes
+6144 pairs against the real native BlockBufferCollision, including all256
+metatiles, page carries and both buffers. The146-byte remainder is still free.
+
+`prince_host_render_1102_v1.s` is450 bytes at BBC1..BD83. It executes the genuine
+FarCallCommon, X5SetPhysicalChr and MetaspriteRenderLoop. All408 source poses
+and280 clipping/capacity/alignment cases match exact source packet order,
+attributes and geometry. It uses only the granted31 body pages. A completed
+native NMI publishes the requested physical pages. The742 actual IRQ/lag-NMI
+instruction/SP cuts preserve both private banks, R0..R7 and SMC state. Four
+farcall cuts occur immediately before STA5115: NMI restores the pending shadow
+bank early, and the resumed identical store plus complete foreground result
+and return mapping remain exact.
+
+The native packet occupies exactly C200..C235, within original OAM that no
+recovered source direct/indexed/data-indirect operand can access. Every indexed
+operand is conservatively expanded through all256 indices. It remains mapped
+while the native emitter replaces A000 with ROM. The leaf also exports original
+04BC,04C3,070F and06F1 projection values; the latter uses original actorY,
+independent of the host render anchor. It does not repurpose source-live OAM.
+
+`measure_prince_host_storage_1102_v3.py` combines those qualified leaves into
+`host-private.bin`, SHA
+`31cf2b987ff50c589ee9ae67d45e9a0fe745b0955be4666f1d17d9a4fb6cf260`.
+The actual6502 decoder reproduces its7555 bytes from5850 bytes and the5426-byte
+metadata from4778 bytes. Including unchanged31072-byte art and180-byte decoder,
+physical cost is41880 bytes. Total cold decode cost is1171232 cycles. Decoder
+C000..C0B4 and staged tail C200..C332 exist only before initialization; return
+from decoding, zero the full original2KB state, initialize, then publish headers.
+
+The private payload still contains explicit fixture environment addresses.
+World material/coordinate bindings, real update/camera/health/combat ingress,
+owner/header/cold dispatch and native raster remain incomplete. Direct
+SetAction motion envelopes omit controller takeoff alignment, so they do not
+establish a low-jump ability limit or any helper requirement. No ROM, emulator
+capture, install, playable identity or full1-1 qualification is claimed.
+
+## Historical v1 instruction and caller closure
 
 `recover_prince_core_1101_v1.py` walks the actual donor instruction graph and
 explicit script command vectors, reproducing3042 instruction bytes at their

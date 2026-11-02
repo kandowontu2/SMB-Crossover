@@ -4,7 +4,7 @@ The functional roster pass is not complete. This inventory separates source
 placements from actual route verification; it is not the final all-character list.
 
 Inventory fixture SHA256: `128915e97e78891a585aa8f9fd904c166ca64dcd6dd1ee395fc68fd505c1e72c`.
-Current nightly SHA256: `1cd8e192ee4bee33dfe0d9c737bec097e1cf2339e0b9f77353fd5194f2530f55`.
+Current nightly SHA256: `1966a4883a888a5e62f90c4d3e96d25ecf028ddd7d714214727793418d633243`.
 The placements below are unchanged; the original admission fixture belongs to its stated earlier hash.
 `tools/audit/inventory_named_helpers_1101_v2.py` verified identical installed and
 candidate bytes, read all 34 compiled shared records and executed `HpConfigure`
@@ -50,6 +50,11 @@ pipes and three gaps, reaching active 1-2 with no life loss. Both 64px pipes
 record native top support; the third has static left X736, width32, top Y144
 and rider top Y112. No helper stage, height or world position has been assigned.
 The slot29 Prince alternate remains locked and has no helper.
+
+Hogan now crosses all four1-1 pipes in a natural controller attempt without
+helpers, then fails the first gap under an early-jump policy. A subsequent
+native death repair is verified for all six WWF identities. No WWF helper
+placement or impossible-crossing claim follows from that unfinished route.
 
 ## Later-stage shared placements
 
