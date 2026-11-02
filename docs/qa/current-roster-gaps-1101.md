@@ -2,7 +2,7 @@
 
 Installed MMC5 SHA256: `613b3300b09e530ec920835b95df53f3115d865ed854e273809d4cafa52407ce`.
 
-The parent f5 menu audit counted 91 distinct displayed entries; 90 accepted Start and A in CPU tests. The current build adds Bub/Bob in slot32, beyond that audit's 32-slot range. Both confirm in native tests; a new complete menu inventory remains due. Menu admission does not prove a full 1-1 clear or every powerup.
+The current 33-slot compiled menu audit counts 93 distinct displayed entries; 92 accept Start and A in CPU tests. Prince of Persia is the sole displayed entry still rejecting confirmation. Bub/Bob occupy slot32 and both also confirm in native tests. `tools/audit/inventory_bub_menu_1102_v4.py` verifies the audited ROM matches Downloads; its receipt is `build/playable-menu-1102-v4/inventory.json`. Menu admission does not prove a full 1-1 clear or every powerup.
 
 Excitebike is selectable, with native cold selection, throttle/turbo/coast/reverse, a source-derived 61-pixel back-lean jump, landing and graphics checks on parent `cf1412eb`. Its original overheat recovery and full non-shortcut 1-1 clear into active 1-2 pass on that parent: 6996 physical frames, lives 2 to 2, all four pipes and three gaps, no helpers. Prince of Persia remains displayed but rejects confirmation. Its source-backed integration remains in progress.
 
