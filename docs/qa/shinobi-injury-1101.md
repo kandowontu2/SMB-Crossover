@@ -20,3 +20,19 @@ Still required: injury/death pose graphics, native damage/death integration,
 remaining external source callbacks, menu admission and controller-only 1-1.
 This component is not installed in the nightly and does not unlock Shinobi.
 The installed Metal Storm nightly remains unchanged.
+
+## Injury/death graphics recovery
+
+`tools/audit/prepare_shinobi_hurt_art_1101_v4.py` now executes the donor's
+animator and OAM emitter for poses 6 and 7, both facings. All six pose/frame/
+facing packets convert to native 8x16 pairs with identical opaque pixels,
+palette indices and sprite priority. Eleven new pairs (352 bytes) append to
+the existing 96-pair atlas. The output retains the original OAM and converted
+rows in `build/shinobi-hurt-art-1101-v4/packets.json`; additional patterns are
+in `additional-art.chr`, with a hash-bound `result.json`.
+
+These are real source poses, not replacement drawings. The converter has not
+yet assigned a fourth hardware sprite window or expanded metadata. Do not
+publish pair indices 96..106 through the existing three-page setup. The old
+metadata uses 1696/2048 bytes, leaving exactly 352 bytes before adding these
+poses; metadata compaction or another verified allocation is required.
