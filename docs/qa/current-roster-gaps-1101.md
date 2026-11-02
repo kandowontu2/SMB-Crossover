@@ -1,6 +1,6 @@
 # Current roster gaps — November 2
 
-Installed MMC5 SHA256: `37959000690d3f9fe596823fc0910e86b9fc977448779360d523751764248b0c`.
+Installed MMC5 SHA256: `d8a87050beefefe96869ebd4d188beeb52733241cd2c0fa64392a55ec8ebca05`.
 
 The actual compiled menu has 91 distinct displayed entries; 90 accept Start and A in CPU tests. This is menu admission only. It does not prove that all those characters can clear 1-1 or use every powerup.
 
@@ -19,4 +19,4 @@ The following requested identities are absent from the emitted menu names:
 
 Shinobi retains original pose-dependent native enemy/contact bounds. The current combined ROM passes its cold idle/walk/OAM smoke. Its earlier full 1-1 clear on 6f319 (8924 physical frames, lives 2 to 2) is historical, not a fresh full-stage run on the new hash. The same distinction applies to Arthur's earlier 6107-frame clear.
 
-Arthur's corrected wall separation and item admission now pass a real flower release/maturity/collection and original torch-use replay on the current combined ROM (1173 physical frames, lives 2 to 2). Excitebike's full 1-1 and fresh Arthur full-stage combat checks remain open. No new helper platforms were added. Remaining original moves, upgrades, audio, every-character routes, and helper-assisted crossings remain required.
+Arthur's corrected wall separation and item admission pass a real flower release/maturity/collection and original torch-use replay on the preceding combined379590 ROM (1173 physical frames, lives 2 to 2). The current two-byte owning weapon-tail correction also passes genuine source-lance/native enemy defeat and a fresh full non-shortcut 1-1 into active 1-2 (5950 physical frames, lives 2 to 2, no injuries or helpers). Excitebike's full 1-1/recovery and other Arthur earned weapons remain open. No new helper platforms were added. Remaining original moves, upgrades, audio, every-character routes, and helper-assisted crossings remain required.

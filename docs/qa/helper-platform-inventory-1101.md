@@ -4,7 +4,7 @@ The functional roster pass is not complete. This inventory separates source
 placements from actual route verification; it is not the final all-character list.
 
 Inventory fixture SHA256: `128915e97e78891a585aa8f9fd904c166ca64dcd6dd1ee395fc68fd505c1e72c`.
-Current nightly SHA256: `37959000690d3f9fe596823fc0910e86b9fc977448779360d523751764248b0c`.
+Current nightly SHA256: `d8a87050beefefe96869ebd4d188beeb52733241cd2c0fa64392a55ec8ebca05`.
 The placements below are unchanged; the original admission fixture belongs to its stated earlier hash.
 `tools/audit/inventory_named_helpers_1101_v2.py` verified identical installed and
 candidate bytes, read all 34 compiled shared records and executed `HpConfigure`
@@ -123,3 +123,5 @@ Arthur on cumulative c3dd0303 also clears 1-1 into active 1-2 in 6107 physical f
 With original pose-based contact bounds installed in 6f319d20, Shinobi again clears 1-1 into active 1-2 without helpers (8924 physical frames, lives 2 to 2). Arthur also passes on this exact ROM in 6107 frames without helpers.
 
 November2: current nightly379590 adds playable Excitebike. No helper platforms were added; its full1-1/tall-pipe qualification is still open. The source placements listed above are unchanged.
+
+Arthur now clears full non-shortcut1-1 into active1-2 on d8a87050 in5950 physical frames, lives2to2, with no source injury or helpers. The source weapon-tail callback repair lets his real lances damage native enemies; his original side probes and jumps remain unchanged.
