@@ -4,7 +4,7 @@ The functional roster pass is not complete. This inventory separates source
 placements from actual route verification; it is not the final all-character list.
 
 Inventory fixture SHA256: `128915e97e78891a585aa8f9fd904c166ca64dcd6dd1ee395fc68fd505c1e72c`.
-Current nightly SHA256: `1966a4883a888a5e62f90c4d3e96d25ecf028ddd7d714214727793418d633243`.
+Current nightly SHA256: `f5c30ceaa36894f3e814ef277081ecd9cf434a934c0f7b3f514c2291be0e1cfc`.
 The placements below are unchanged; the original admission fixture belongs to its stated earlier hash.
 `tools/audit/inventory_named_helpers_1101_v2.py` verified identical installed and
 candidate bytes, read all 34 compiled shared records and executed `HpConfigure`
@@ -56,14 +56,22 @@ the later-edge controller. The next opening pit still fails: the x+8
 launch starts at world X1368, rises from Y176 to Y110, and falls at X1412.
 Waiting until x+4 loses ground support before a second jump can begin.
 Original directional attacks and helper placement remain under review.
-No WWF helper is installed in the nightly. A private candidate (`f5c30cea`)
+The current nightly (`f5c30cea`)
 adds one existing native horizontal actor `$28` for all six WWF identities in
 1-1 / area `$25`: **initial center X=1400, initial left edge X=1376,
 initial Y=208, width=48 pixels**. Hogan crossed the authored X1376–1424 pit
 with 72 actual native platform-carry calls and reached the castle without
 losing a life. A longer terminal wait verifies the full transition to active
 1-2 in 12,277 physical frames, lives2→2, with 15 native enemy defeats.
-The other five identities are still unverified.
+Ted DiBiase, Bam Bam Bigelow, Honky Tonk Man, and Randy Savage also reach
+active 1-2 without losing a life (11,938 / 12,372 / 12,337 / 12,307 physical
+frames). Their native platform-carry counts are 72 / 72 / 72 / 75.
+Andre remains unverified: the latest attempt loses a life to an enemy at
+X1194, before this helper. Both modes admit the platform; these route checks
+do not establish both-mode qualification.
+The actual Downloads launch repeats Hogan's full clear in 12,277 frames.
+Karnov's separate lifts still cross both tall pipes and the first gap,
+grounded at X1156 with no life loss; this is not a full Karnov clear.
 Evidence: `build/wwf-helper-stable-1102-v2/native-hogan3/capture/`.
 Native death
 recovery is verified for all six wrestlers. The route remains unfinished;

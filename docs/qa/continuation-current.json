@@ -68,43 +68,52 @@
   },
   "installed_nightly": {
     "installed": true,
-    "ROM_sha256": "1966a4883a888a5e62f90c4d3e96d25ecf028ddd7d714214727793418d633243",
-    "previous_sha256": "1cd8e192ee4bee33dfe0d9c737bec097e1cf2339e0b9f77353fd5194f2530f55",
+    "ROM_sha256": "f5c30ceaa36894f3e814ef277081ecd9cf434a934c0f7b3f514c2291be0e1cfc",
+    "previous_sha256": "1966a4883a888a5e62f90c4d3e96d25ecf028ddd7d714214727793418d633243",
     "destination": "C:\\Users\\kando\\Downloads\\SMB-Crossover-Latest-WIP-MMC5.nes",
-    "candidate": "build\\wwf-death-1102-v2\\candidate.nes",
     "backup_created": false,
     "downloads_launch_verified": true,
     "before": {
       "passed": true,
       "ROM": "C:\\Users\\kando\\Downloads\\SMB-Crossover-Latest-WIP-MMC5.nes",
-      "ROM_sha256": "1cd8e192ee4bee33dfe0d9c737bec097e1cf2339e0b9f77353fd5194f2530f55",
+      "ROM_sha256": "1966a4883a888a5e62f90c4d3e96d25ecf028ddd7d714214727793418d633243",
       "matching_patch_files": []
     },
     "after": {
       "passed": true,
       "ROM": "C:\\Users\\kando\\Downloads\\SMB-Crossover-Latest-WIP-MMC5.nes",
-      "ROM_sha256": "1966a4883a888a5e62f90c4d3e96d25ecf028ddd7d714214727793418d633243",
+      "ROM_sha256": "f5c30ceaa36894f3e814ef277081ecd9cf434a934c0f7b3f514c2291be0e1cfc",
       "matching_patch_files": []
     },
-    "native_scope": "All6 WWF identities recover from genuine enemy-contact deaths to active1-1. Hogan also recovers from a genuine first-pit death after crossing allfourpipes. Existing168/150tick native sequence and one life loss. Only3 existing row bytes changed.",
-    "helpers_added": false,
-    "complete": false,
-    "downloads_verification": {
+    "verified_runs": [
+      "native-hogan3",
+      "native-wwf-1",
+      "native-wwf-2",
+      "native-wwf-3",
+      "native-wwf-4",
+      "native-karnov-regression"
+    ],
+    "remaining": "Andre combat route; complete roster and all powerups remain incomplete.",
+    "downloads_result": {
       "passed": true,
-      "reason": "contact-death-recovered",
+      "reason": "active-1-2",
       "controller_only": true,
-      "WWF_variant": 0,
-      "frames": 1597,
-      "death_frame": 1267,
-      "death_seen": true,
-      "maximum_death_age": 168,
+      "character": "HULK HOGAN",
+      "frames": 12277,
+      "Main_updates": 4977,
       "initial_lives": 2,
-      "final_lives": 1,
+      "final_lives": 2,
+      "maximum_x": 3159,
+      "maximum_camera": 3047,
+      "minimum_native_y": 1,
+      "current_x": 40,
+      "current_y": 48,
+      "pipe_index": 5,
+      "jump_sequences": 25,
+      "native_defeats": 15,
       "world": 0,
-      "level": 0,
-      "engine": 8,
-      "mode": 1,
-      "task": 3
+      "level": 1,
+      "engine": 8
     }
   },
   "roster_integration_followup": {
@@ -2539,7 +2548,7 @@
     "menu_admitted": false,
     "native_playable": false,
     "private_code_used_bytes": 8158,
-    "remaining": "Private v6 actual Bub/Bob cold palette and full HUD pass. Excitebike and Shinobi native regressions pass. BT simultaneous Select/confirm final identity assertion failed and is under investigation. Native bubble controls/combat, Easy stomp repair, full1-1 and delivery remain unqualified.",
+    "remaining": "Private4395 actual Bub/Bob cold visuals pass; Excitebike/Shinobi/ContraForce/Battletoads launch regressions pass. Bub movement/jump/bubble controls and natural Goomba trap/timed release pass. Two distant-shot pop controllers failed before timeout; closer-shot successor pending. Easy v7 source CPU passes/private composition approved, native still pending. Idle30Hz is dominated by shared dispatch/authentication. Full1-1 and delivery remain unqualified.",
     "rebase": "docs/qa/allocations/bubble-bobble-rebase-1102-v2.json",
     "resident_storage_grant": "docs/qa/allocations/common-cold-1102-v1.json",
     "helper_row_grant": "docs/qa/allocations/bubble-helper-row-1102-v2.json",
@@ -2664,6 +2673,25 @@
       "native_decoder": "rowC/type0 -> Hole_Empty; low length2 -> three16px columns",
       "note": "Authored pit confirmed. Legacy full11 fixture2240 gap marker is inaccurate; genuine full-stage clears still reach active1-2."
     },
-    "helper_proposal": "Source-compacted generic native actor28, isolated gate8/raw29/all6, center1400/left1376/Y208/width48; CPU only, no ROM/grant/assisted crossing yet."
+    "helper_proposal": "Private f5c30ceaa36894f3e814ef277081ecd9cf434a934c0f7b3f514c2291be0e1cfc adds native actor28, isolated gate8/raw29/all6, initial center1400/left1376/Y208/width48. Hogan and Ted DiBiase reach active1-2 lives2to2 with native assisted carrying. Remaining four wrestlers still testing; not installed.",
+    "helper_candidate": "build/wwf-helper-stable-1102-v2/candidate2.nes",
+    "helper_Hogan_native_checkpoint": "docs/qa/checkpoints/2026-11-02/wwf-helper-hogan-native-v3",
+    "helper_next": "Finish all6 native routes and foreign platform regression, then actual Downloads delivery with patch guards. Keep separate from private Bub4395 until qualified composition."
+  },
+  "wwf_helper_delivery_1102": {
+    "qualified": [
+      "Hulk Hogan",
+      "Ted DiBiase",
+      "Bam Bam Bigelow",
+      "Honky Tonk Man",
+      "Randy Savage"
+    ],
+    "remaining": "Andre loses a life at X1194 before helper; all-roster/powerup qualification incomplete.",
+    "stage": "1-1",
+    "initial_center_x": 1400,
+    "initial_left_x": 1376,
+    "initial_y": 208,
+    "width": 48,
+    "actor": 40
   }
 }
