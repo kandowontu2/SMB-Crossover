@@ -57,3 +57,20 @@ Candidate: `build/shinobi-hurt-layout-1101-v5/candidate.nes`, SHA256
 `f6658fb7532dc87b1583da8f388fd8e3f1094b2bbd71ea51a5c611bb37364db9`.
 This supersedes the v2 private placement. Hardware CHR publication and gameplay
 hooks are still absent; this is not an unlocked or installed nightly.
+
+## CHR request service
+
+The v6 successor adds ROM-resident `ShChr`, authenticating both cache headers
+before requesting physical sprite pages 503/504/505/517 in windows 4..7.
+It clears the competing special-window override and asks the native NMI path
+to publish the banks. The actual `X5PublishChr` instructions produce those
+four hardware register values in the CPU model, preserving other windows.
+Twelve accepted cases and 38 invalid-header/foreign-character rejections pass.
+The new resident size is 1053/1536 bytes.
+
+Candidate: `build/shinobi-chr-1101-v6/candidate.nes`, SHA256
+`e3bec84b8721984bebd84dfd1121080b21d95e4662a829611987ed0addd3657b`.
+Source: `tools/reference/shinobi_chr_1101_v6.inc`; reproduction and test:
+`tools/audit/prepare_shinobi_chr_1101_v6.py`. This service is not yet called by
+the scene/main hooks. No emulator display, unlocked character or new nightly
+is claimed.
