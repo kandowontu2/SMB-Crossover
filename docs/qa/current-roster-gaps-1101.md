@@ -1,17 +1,15 @@
 # Current roster gaps — November 2
 
-Installed MMC5 SHA256: `f5c30ceaa36894f3e814ef277081ecd9cf434a934c0f7b3f514c2291be0e1cfc`.
+Installed MMC5 SHA256: `613b3300b09e530ec920835b95df53f3115d865ed854e273809d4cafa52407ce`.
 
-The actual compiled menu has 91 distinct displayed entries; 90 accept Start and A in CPU tests. This is menu admission only. It does not prove that all those characters can clear 1-1 or use every powerup.
+The parent f5 menu audit counted 91 distinct displayed entries; 90 accepted Start and A in CPU tests. The current build adds Bub/Bob in slot32, beyond that audit's 32-slot range. Both confirm in native tests; a new complete menu inventory remains due. Menu admission does not prove a full 1-1 clear or every powerup.
 
 Excitebike is selectable, with native cold selection, throttle/turbo/coast/reverse, a source-derived 61-pixel back-lean jump, landing and graphics checks on parent `cf1412eb`. Its original overheat recovery and full non-shortcut 1-1 clear into active 1-2 pass on that parent: 6996 physical frames, lives 2 to 2, all four pipes and three gaps, no helpers. Prince of Persia remains displayed but rejects confirmation. Its source-backed integration remains in progress.
 
-The exact installed menu was re-audited in `current-menu-inventory-1102.json`. All six WWF wrestlers and Karnov have full 1-1 clears on this installed hash. Private Bub/Bob candidate `613b3300` passes both identities' cold selection, controls and earned bubble ride; Bub also passes trap/pop and Easy stomp. It is not installed, and full-stage qualification remains open.
+The parent f5 menu was audited in `current-menu-inventory-1102.json`. All six WWF wrestlers and Karnov have full 1-1 clears on that parent. Installed Bub/Bob build `613b3300` passes both identities' cold selection, controls and earned bubble ride; Bub also passes trap/pop, Easy stomp and ceiling contact. Actual Downloads Bub controls pass. Full-stage qualification remains open, and idle/walk run roughly half rate.
 
 The following requested identities are absent from the emitted menu names:
 
-- Bub
-- Bob
 - Sonic (Master System reference; user superseded the earlier Sonic 3 choice on November 2)
 - Donkey Kong Jr.
 - Getsu Fuma
