@@ -1,4 +1,11 @@
 {
+  "shinobi_scene_followup": {
+    "candidate": "build/shinobi-scene-1101-v7/candidate.nes",
+    "sha256": "249d9a7159048ea995b097df7d03f7d3b1182fc460d39fea5f66914e248c704d",
+    "status": "Private successor to chr-v6; actual InitScreen scene chain patched. Not installed or unlocked.",
+    "proof": "Cold constructor via actual service dispatcher; warm scene preserves inventory/health without PPU reads; foreign scene retires headers then runs prior scene chain. Resident1145/1536 bytes.",
+    "next": "Native service routing, damage/death and unresolved donor callbacks; menu admission and Mesen gameplay. Scene constructor currently initializes on missing Ready; life reset must retire/reset Ready explicitly."
+  },
   "shinobi_chr_followup": {
     "candidate": "build/shinobi-chr-1101-v6/candidate.nes",
     "sha256": "e3bec84b8721984bebd84dfd1121080b21d95e4662a829611987ed0addd3657b",

@@ -74,3 +74,25 @@ Source: `tools/reference/shinobi_chr_1101_v6.inc`; reproduction and test:
 `tools/audit/prepare_shinobi_chr_1101_v6.py`. This service is not yet called by
 the scene/main hooks. No emulator display, unlocked character or new nightly
 is claimed.
+
+## Scene ingress
+
+The v7 successor patches the existing 18-byte `InitScreen` farcall to `ShScene`.
+For Shinobi it loads/authenticates the component, requests CHR, and calls the
+source constructor through service15 if Ready is absent. An authenticated warm
+room change preserves source state. For other identities it retires Shinobi's
+headers, then invokes the previous Metal/Karnov scene chain.
+
+CPU tests exercise cold construction (470794 cycles, standalone minimum SP180),
+warm scene entry with preserved inventory/health (2056 cycles), and foreign
+retirement plus previous chain (4356 cycles). These are bounded instruction
+fixtures, not NMI/Main stack-reserve or emulator proof. A new-life path still
+needs an explicit Ready reset/retirement; warm room transitions must not reset
+inventory accidentally.
+
+Candidate: `build/shinobi-scene-1101-v7/candidate.nes`, SHA256
+`249d9a7159048ea995b097df7d03f7d3b1182fc460d39fea5f66914e248c704d`.
+Resident usage: 1145/1536 bytes. Reproduce with
+`tools/audit/prepare_shinobi_scene_1101_v7.py`. Still not unlocked or installed;
+normal character-service routing, damage/death, unresolved donor callbacks and
+native gameplay remain.
