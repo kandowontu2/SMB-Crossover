@@ -1,0 +1,109 @@
+{
+  "passed": true,
+  "proposal_only": true,
+  "ROM_written": false,
+  "native": false,
+  "admitted": false,
+  "base_ROM": "build/bub-menu-candidate-1102-v2/combined-cold-fixed.nes",
+  "base_ROM_SHA256": "5a8a04c3deabafc2222e594bdcefd4a445afecb5c1ab4c1753e66acc4a883d29",
+  "in_memory_candidate_SHA256": "613b3300b09e530ec920835b95df53f3115d865ed854e273809d4cafa52407ce",
+  "patches": [
+    {
+      "offset": 1017024,
+      "old": "088d6a019848a00c4c2aa2",
+      "new": "089848a00cad02604cd6a0",
+      "role": "Original source stomp thunk; same saved P/Y and already-published A",
+      "existing_grant": "Conditional root reservation for v9 source measurement; exact shared successor grant still required",
+      "source_proof": "native-event-v9-closure.json; actual source-declared navigation .res and original source stomp ABI/callers",
+      "old_SHA256": "84fc5e167b3cfb0a4c196d21370d8350ef58124d507f0b3995e5f76e2248254c",
+      "new_SHA256": "3b3c85569c13e3076b5c46c67759a36e448ad880bbdee132e846d853f3704fa4"
+    },
+    {
+      "offset": 1016038,
+      "old": "ffffffffffffffffffff",
+      "new": "c927d0034c79a14c90a1",
+      "role": "Owner39-only discriminator; other IDs rejoin original A190 chain",
+      "existing_grant": "Conditional root reservation for v9 source measurement; exact shared successor grant still required",
+      "source_proof": "native-event-v9-closure.json; actual source-declared navigation .res and original source stomp ABI/callers",
+      "old_SHA256": "0083af118d18a63c6bb552f21d0c4ee78741f988ecd319d3cd06cb6c85a68a63",
+      "new_SHA256": "b36ca4702c57bec3a90c5092106bce713b35bf97d74e1c57fd9f994f8fb99a61"
+    },
+    {
+      "offset": 536595,
+      "old": "a72701094bfb30df323a74a650801bd8",
+      "new": "a727012954ecad01314374d1f7ed6441",
+      "role": "Complete existing BB16B cookie; both headers bind unchanged art/helper and new explicit-event code",
+      "existing_grant": "bubble-cold-fixed-1102-v8.json; exact v9 cookie successor pending",
+      "source_proof": "Only existing owner cookie changes; all531B manager instructions/Excookie/retire target are exact.",
+      "old_SHA256": "45ff8c52abd490e7368dd8df7ff1b0404f78f21e57500f946f8ecad1b1908256",
+      "new_SHA256": "9415090ee75f8ed8eaaf9dd813d8992597750292602db3bf1f01ea482ce966a0"
+    },
+    {
+      "offset": 1356897,
+      "old": "4c72a0",
+      "new": "4ce9a0",
+      "role": "Private public27 vector becomes actual native stomp event",
+      "existing_grant": "Existing Bub code carriers/conditionalRAM; exact v9 private successor pending",
+      "source_proof": "Original5434B source unchanged; existing20B leaf and existing vector/JSR extent reused. No new state or physical carrier.",
+      "old_SHA256": "d84228a06ac07e9e07f4ed26024cf7e2b0d91401161854594f4aca8f2ff7d304",
+      "new_SHA256": "94bb405ba248743e5f336d6eb54e0ba1d280e1b5d6ce69c5cc11b4fc55755cfd"
+    },
+    {
+      "offset": 1357049,
+      "old": "a58e100fbd03c0c902d008a9009d03c04ccca460",
+      "new": "08488a489848201eb6a9009d03c020cca44cb2d3",
+      "role": "Replace old velocity inference with saved-AXYP original D36B event callback",
+      "existing_grant": "Existing Bub code carriers/conditionalRAM; exact v9 private successor pending",
+      "source_proof": "Original5434B source unchanged; existing20B leaf and existing vector/JSR extent reused. No new state or physical carrier.",
+      "old_SHA256": "0c1a174fd9a365b3819c0bc861aee4ec554ce7d21ad919c6833a8420b46b7946",
+      "new_SHA256": "724ac9976362dd4ad58fef01b8b8aec999a557ede2ee713e7c6b63895e661ff3"
+    },
+    {
+      "offset": 1499801,
+      "old": "20e9a0",
+      "new": "eaeaea",
+      "role": "Remove NativeIn heuristic; same layout retained with3NOP",
+      "existing_grant": "Existing Bub code carriers/conditionalRAM; exact v9 private successor pending",
+      "source_proof": "Original5434B source unchanged; existing20B leaf and existing vector/JSR extent reused. No new state or physical carrier.",
+      "old_SHA256": "357faf10fcd811246a863cc63c53f172166000c7236a5d978dc0271831beded1",
+      "new_SHA256": "2ab627a7d8df9c69fbace525384a3cb4c883abed9a4ba393112c65126c5109b1"
+    }
+  ],
+  "changed_bytes": 55,
+  "shared_new_route_bytes": 21,
+  "existing_complete_BB_cookie_bytes": 16,
+  "private_actual_changed_bytes": 24,
+  "source_original_A100_B53A_and800art_exact": true,
+  "whole1024_helper_art_row_exact": true,
+  "no_new_mutable_RAM": true,
+  "no_new_physical_carrier": true,
+  "fixed_MegaManBounceVelocity_unchanged": true,
+  "all_Sh_Ex_Arthur_Metal_WWF_frontend_bytes_retained": true,
+  "shared_scope": "Only original124 source stomp thunk11B and source-declared navigation tail10B require a new routing grant; existing BBcookie successor16B. AllPRG65 instructions/37Exveneers/Shports/typed37/PRG79 unchanged.",
+  "native_stomp_event_API": {
+    "actual_chain": "EnemyStomped -> fixed MegaManBounceVelocity ->124:A4B0 -> owner39 A0D6 -> existingA179/Y12 -> HuBounceOnly27 -> B0DD -> authenticated privateA051 -> A0E9",
+    "public_row": 27,
+    "resident_veneer": 45277,
+    "private_vector": 41041,
+    "private_callback": 41193,
+    "foreign_path": "Every raw!=39 rejoins byte-identical124:A190 original chain with original savedP/Y/A. Native fallback side effects retained.",
+    "source_callback": "One original D36B restart, same28update/43px jump and directional latch; full AXYP except public carry restored; native wrapper preserves its existingP contract. No velocity inference or second motion step."
+  },
+  "code_end": 49112,
+  "private_code_spare": 8,
+  "box_hole_bytes": 77,
+  "box_hole_spare": 3,
+  "helper_bytes": 224,
+  "helper_spare": 0,
+  "cookie": "a727012954ecad01314374d1f7ed6441",
+  "payload_SHA256": "2fb70c98fe758502bf1d560a23811fce375aeef49045eb5cd5de57a98e63b044",
+  "helper_SHA256": "263d809dccf9d5cc881a8500aa0798f4f931846d52cba537c693b3e793384b1f",
+  "receipts": {
+    "build/bubble-bobble-source-1101-v1/native-event-v9-CPU.json": "8c32d62dec2a50a27e5bfbfb0bcbd7a8debcbd754562d1d43cf54c28cc6a440e",
+    "build/bubble-bobble-source-1101-v1/native-event-v9-closure.json": "8561ca975ab173186031e1abd9758ca0f9f665abc6d87c687f2eb86d1e138173",
+    "build/bubble-bobble-source-1101-v1/native-bounce-owner-gate-measurement-v9.json": "77fed561903de43b2b8182ff93eb266cf2adcd168c192317a4f337a36b1673e1"
+  },
+  "native_Easy_stomp_qualified": false,
+  "native_performance_qualified": false,
+  "scope": "Exact source/CPU-only successor over current private5a8a including delivered WWF951B. No ROM written, menu admission or installation. Root exact grant/composer/native actual gameplay tests remain required."
+}

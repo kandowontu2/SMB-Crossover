@@ -36,9 +36,9 @@ All named 1-1 placements above apply in **both Easy and Hard**. Only
 `Cv3Variant` changes the shared alternate mask; other same-owner alternates
 inherit it without an individual ability check. High raw IDs are excluded from
 shared admission, so Shinobi/Metal Storm do not inherit Ryu/Sophia helpers.
-Karnov and Thomas use separate native managers. Karnov's controller-only run
-crossed both tall pipes and the first pit, not all 1-1; see
-`docs/qa/checkpoints/2026-11-01/karnov-pit-route-progress.md`.
+Karnov and Thomas use separate native managers. Karnov's current controller-only
+run clears all 1-1; see
+`docs/qa/checkpoints/2026-11-02/karnov-full11-v6/receipt.json`.
 No additional impossible crossing was proven by this read-only audit, and no
 platforms were added. Shinobi's opening-pipe failure is still being diagnosed;
 it is not evidence yet that a helper is needed.
