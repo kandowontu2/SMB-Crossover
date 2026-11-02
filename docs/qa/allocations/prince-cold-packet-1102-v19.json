@@ -1,0 +1,48 @@
+{
+  "granted": true,
+  "date": "2026-11-02",
+  "owner": "Prince cold uninitialized exclusive RAM2",
+  "base_ROM_SHA256": "1966a4883a888a5e62f90c4d3e96d25ecf028ddd7d714214727793418d633243",
+  "parent": "docs/qa/allocations/prince-executable-state-1102-v15.json",
+  "root_approval": "Root conditionally accepted cold-only C200..C235 execution while uninitialized, forcedblank, SEI and both headers invalid; asked to document/check conditions and overwrite before live.",
+  "cold_only_additional_execution_half_open": [
+    49664,
+    49717
+  ],
+  "context": {
+    "worker_half_open": [
+      49408,
+      49753
+    ],
+    "decoder_half_open": [
+      49152,
+      49406
+    ],
+    "boot_half_open": [
+      53854,
+      53951
+    ]
+  },
+  "conditions": [
+    "Only before original actor initialization, with actual rendering disabled, SEI and both authentication commit bytes invalid.",
+    "Private boot rejects wrong rawID, live ready/actor marker, enabled rendering, enabled NMI work, clear I or either published header.",
+    "Last state decode replaces the temporary code; finalizer zeros all53 packet bytes before the original constructor and ready publication.",
+    "Both full owner headers remain unpublished until resident code has verified/copy-qualified all source images.",
+    "No new global RAM, shared loader/manager/descriptor/routing/menu or ROM mutation approval.",
+    "Final composition must carry current installed f5c and later root-approved disjoint successors after Bub stabilizes."
+  ],
+  "proof": {
+    "boot_guards": 9,
+    "independent_corruption_rejections": 4,
+    "CPU": 7110705,
+    "actual_original_constructor_calls": 1,
+    "headers_unpublished": true,
+    "all_packet_bytes_zero_before_live": true
+  },
+  "bindings": {
+    "build\\prince-actor-1101-v1\\cold-worker-CPU-v19.json": "58cb449307802bbb8790a576556e8f0daf0480b954fe9ca096b0de5f60d6ca23",
+    "tools\\reference\\prince_cold_worker_1102_v19.s": "5fa541720c6554d636cc549392026db96f86e7b702a06d0b9f42a1b59909d02a",
+    "tools\\audit\\prepare_prince_cold_worker_1102_v19.py": "c567e2eb0226955fb8d1051e01fed2d0a89104b864d78342a3cff28205b5da8c",
+    "tools\\audit\\check_prince_cold_worker_1102_v19.py": "0f9d9938e66f5f85c7c8c18d1f30b46e81e37b177e037f3b0cf2b1b06e293811"
+  }
+}

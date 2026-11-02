@@ -1,0 +1,130 @@
+{
+  "granted": true,
+  "date": "2026-11-02",
+  "owner": "Prince of Persia exclusive conditional RAM2",
+  "base_ROM_SHA256": "1966a4883a888a5e62f90c4d3e96d25ecf028ddd7d714214727793418d633243",
+  "root_approval": "Explicit root review of v15 receipt: exact six source-dead spans, geometry C078..C0B0, packet C200..C235, compact metadata C800..DB9A, 826 actual ISR cuts; tail DB9A..DD32 execution approved.",
+  "parent_grant": "docs/qa/allocations/prince-1102-v1.json",
+  "latest_rebase": "docs/qa/allocations/roster-rebase-1102-v4.json",
+  "executable_code_half_open": [
+    [
+      49328,
+      49400
+    ],
+    [
+      49408,
+      49664
+    ],
+    [
+      49717,
+      50002
+    ],
+    [
+      50018,
+      50175
+    ],
+    [
+      50187,
+      50321
+    ],
+    [
+      50431,
+      50694
+    ]
+  ],
+  "geometry_and_service_fields_half_open": [
+    49272,
+    49328
+  ],
+  "native_packet_half_open": [
+    49664,
+    49717
+  ],
+  "compact_metadata_half_open": [
+    51200,
+    56218
+  ],
+  "additional_owned_code_half_open": [
+    56218,
+    56626
+  ],
+  "additional_owned_code_bytes": 408,
+  "source_reader_writer_closure": {
+    "original_instruction_boundaries": 2182,
+    "direct_indexed_domains": 652,
+    "all256_index_values_expanded": true,
+    "indirect": "LDA(21),Y is translated by the private script reader to the immutable authenticated original-script section; JMP(23) contains translated command entrypoints. Original actor/script closure and all15commands were independently donor-qualified. Native rendering reads only bounded408pose packets, now C800..DB9A; no packet can read DB9A..DD32.",
+    "original_source_cannot_observe_code_slots": true
+  },
+  "interrupt_proof": {
+    "cuts": {
+      "total": 826,
+      "by_kind": {
+        "IRQ": 413,
+        "lagNMI": 413
+      },
+      "distinct_reached_instruction_SP_cuts": 413,
+      "maximum_pages_pose": 230,
+      "full_owned_packet_code_state_and_foreground_context_preserved": true,
+      "native_pending_mapper_store_boundaries": [
+        {
+          "kind": "lagNMI",
+          "PC": 358,
+          "SP": 201,
+          "before": 3,
+          "after": 190,
+          "next_instruction": "STA $5115; identical pending CurrentBank value"
+        },
+        {
+          "kind": "lagNMI",
+          "PC": 358,
+          "SP": 202,
+          "before": 3,
+          "after": 132,
+          "next_instruction": "STA $5115; identical pending CurrentBank value"
+        },
+        {
+          "kind": "lagNMI",
+          "PC": 373,
+          "SP": 202,
+          "before": 190,
+          "after": 3,
+          "next_instruction": "STA $5115; identical pending CurrentBank value"
+        },
+        {
+          "kind": "lagNMI",
+          "PC": 373,
+          "SP": 203,
+          "before": 132,
+          "after": 3,
+          "next_instruction": "STA $5115; identical pending CurrentBank value"
+        }
+      ]
+    },
+    "nonzero_runtime_and_state_code": true,
+    "zero_RAM2_RAM3_writes_including_same_value": true
+  },
+  "constructor": "Actual60B RAM3 finalizer copies C100..C65F down to C0B0..C60F, zeros C000..C0B0 and C60F..C800, then calls original14B actor template/native spawn constructor. Thus every genuine source byte is zero or explicitly initialized before live actor/auth; executable source-dead slots are already installed.",
+  "conditions": [
+    "Prince-only; no additional global RAM or executable spans.",
+    "Both authenticated owner headers and complete image/copy verification must precede every live entry.",
+    "Retire authentication and all foreign ownership before overlay writes; restore native mapper/PPU/SMC transport.",
+    "Owned clock admission, scene/restart/death and service implementation remain to be qualified; source Main FrameCounter is the proposed epoch authority.",
+    "Shared loader, dispatch, production menu admission and installation are not approved by this amendment.",
+    "Carry installed1966 and later root-approved disjoint cumulative successors."
+  ],
+  "ROM_written": false,
+  "installed": false,
+  "bindings": {
+    "tools\\audit\\persist_prince_state_amendment_1102_v15.py": "743004c734535d10819a69f557276e1012352cd9e3d41d42f89cd422d3218fd7",
+    "build\\prince-actor-1101-v1\\executable-state-proposal-v15.json": "251ef5b7431c32e051bd0084297c19425936df0b826ff5615211853850a194ff",
+    "build\\prince-actor-1101-v1\\state-render-v15-CPU.json": "b2df7399c68f57600e6a7c2a2891145d6bf50dced5ecab58620431c82c468445",
+    "build\\prince-actor-1101-v1\\host-life-CPU-v12.json": "5ae1926d510f8d2d86b1306dd5c0e6a2e3cbf74eaf65b577db8f097c34ab03b7",
+    "build\\prince-actor-1101-v1\\host-storage-v12.json": "5b16364e88cee185db2bddf45d3e5763ffdf025140a76320e95fef32fe4e4419",
+    "tools\\audit\\check_prince_executable_state_1102_v15.py": "254287736c986acfeb6b5252e4180768edfd1af03ac4cd5c2e8e635789f88ec5",
+    "tools\\reference\\prince_host_lifecycle_1102_v12.s": "de19520260972be55ee5357de40a19717a856912224b9e2095a7dd928e415bed",
+    "tools\\reference\\prince_host_world_1102_v8.s": "b696f076030f1be21ad85152fe3c86ecfc6d0c204cc65523ab73afcb301614e6",
+    "tools\\audit\\recover_prince_world_coordinates_1102_v7.py": "995dc7ee7eae6d1c6d996cc4cfc5625aa79b9de3773bf97ebc53567288dc6208",
+    "tools\\audit\\prepare_prince_geometry_codec_1102_v11.py": "4b3599bb94a95dcf81c625374f349468a6f79b1034658220560a2110a807cfd5"
+  }
+}
