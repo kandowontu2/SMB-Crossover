@@ -66,9 +66,12 @@ losing a life. A longer terminal wait verifies the full transition to active
 Ted DiBiase, Bam Bam Bigelow, Honky Tonk Man, and Randy Savage also reach
 active 1-2 without losing a life (11,938 / 12,372 / 12,337 / 12,307 physical
 frames). Their native platform-carry counts are 72 / 72 / 72 / 75.
-Andre remains unverified: the latest attempt loses a life to an enemy at
-X1194, before this helper. Both modes admit the platform; these route checks
-do not establish both-mode qualification.
+Andre now also reaches active 1-2 without losing a life in 11,172 physical
+frames, defeating 13 enemies and recording 64 native platform-carry calls.
+His original walking action must retire before a fresh punch press; two
+neutral source updates fixed the test controller, with no ROM change.
+All six wrestlers have full-route evidence on this exact nightly. Both modes
+admit the platform; these route checks do not establish both-mode qualification.
 The actual Downloads launch repeats Hogan's full clear in 12,277 frames.
 Karnov's separate lifts still cross both tall pipes and the first gap,
 grounded at X1156 with no life loss; this is not a full Karnov clear.

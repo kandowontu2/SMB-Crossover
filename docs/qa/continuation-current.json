@@ -2684,14 +2684,71 @@
       "Ted DiBiase",
       "Bam Bam Bigelow",
       "Honky Tonk Man",
-      "Randy Savage"
+      "Randy Savage",
+      "Andre the Giant"
     ],
-    "remaining": "Andre loses a life at X1194 before helper; all-roster/powerup qualification incomplete.",
+    "remaining": "All6 full1-1 pass on current nightly; both-mode and all-powerup qualification remain incomplete.",
     "stage": "1-1",
     "initial_center_x": 1400,
     "initial_left_x": 1376,
     "initial_y": 208,
     "width": 48,
     "actor": 40
+  },
+  "current_bub_v8_native": {
+    "candidate": "build/bub-menu-candidate-1102-v2/combined-cold-fixed.nes",
+    "sha256": "5a8a04c3deabafc2222e594bdcefd4a445afecb5c1ab4c1753e66acc4a883d29",
+    "installed": false,
+    "passed": [
+      "native-cold-fixed-bub",
+      "native-cold-fixed-bob",
+      "native-cold-fixed-bub-controls",
+      "native-cold-fixed-bob-controls",
+      "native-cold-fixed-bub-pop2"
+    ],
+    "remaining": [
+      "Fix repeated jump restart on ceiling contact",
+      "Easy stomping",
+      "full 1-1",
+      "performance"
+    ],
+    "earned_pop": "Natural first Goomba, capture to native defeat in one source update, lives2to2, controller-only. First pop observer failed event-name lookup; unchanged-input successor passes.",
+    "ceiling_regression": "v8 NativeIn confuses its own previously published upward speed with native bounce after ceiling changes source selector to falling. Actual21jumpstarts/noEnemyStomped; v9 separate source correction in progress."
+  },
+  "andre_contact_followup": {
+    "ROM_sha256": "f5c30ceaa36894f3e814ef277081ecd9cf434a934c0f7b3f514c2291be0e1cfc",
+    "passed": true,
+    "ROM_changed": false,
+    "result": {
+      "passed": true,
+      "reason": "active-1-2",
+      "controller_only": true,
+      "character": "WWF VARIANT 5",
+      "frames": 11172,
+      "Main_updates": 4351,
+      "initial_lives": 2,
+      "final_lives": 2,
+      "maximum_x": 3158,
+      "maximum_camera": 3046,
+      "minimum_native_y": 0,
+      "current_x": 40,
+      "current_y": 48,
+      "pipe_index": 5,
+      "jump_sequences": 22,
+      "native_defeats": 13,
+      "world": 0,
+      "level": 1,
+      "engine": 8
+    },
+    "helper": {
+      "native_carry_calls": 64,
+      "passed_gap": true,
+      "center_x": 1400,
+      "initial_left_x": 1376,
+      "initial_y": 208
+    },
+    "archive_SHA256": "3726280f774fe098bd824c21870df9a090a991cc302563db158673eba42bb4e3",
+    "files": 39,
+    "scope": "Actual controller-only full1-1 active1-2, unchanged lives. Earlier missed-punch negatives retained. Not both modes or all powerups."
   }
 }
