@@ -1,5 +1,17 @@
 # Workspace storage rules
 
+## Current gameplay priority
+
+- Prioritize making every roster character playable and able to clear 1-1.
+- Defer extended cosmetic polishing to the later per-character review.
+- Address overwhelming lag while idle or walking without enemies; zero lag is
+  not an acceptance requirement for this pass.
+- Where a character cannot traverse 1-1 with their intended abilities, reuse
+  existing native platform actors as helpers. Verify the assisted crossing.
+- Maintain `docs/qa/helper-platform-inventory-1101.md`; final reporting must name
+  every affected character/alternate and each helper's stage and world-pixel
+  location, distinguishing initial height and left edge versus center.
+
 ## Nightly delivery
 
 - Publish usable character updates frequently to
