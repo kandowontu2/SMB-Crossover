@@ -122,6 +122,7 @@ local function menu()
  return{a=true}
 end
 hook('GameLoopOwned',function()
+ if done then return end
  if r('OperMode')~=1 or r('OperMode_Task')~=3 then return end
  if not entered then
   if r('GameEngineSubroutine')~=8 then return end

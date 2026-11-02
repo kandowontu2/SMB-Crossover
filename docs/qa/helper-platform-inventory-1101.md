@@ -50,9 +50,11 @@ Chip/Dale; Little Mac/Doc Louis/Mike Tyson; Mike Jones; Alex/Ryan.
 **O** means raw owners 0–5, including their same-owner alternates: Mario and
 raw-0 variants, Mega Man/Proto Man, Samus/Rogue Dawn, Bill/Lance,
 Link/Zelda II Link, Simon/Grant/Sypha/Alucard. Luigi is raw 8 and is excluded.
-This condition does not separately inspect raw-0 Mario variants (Supermaaa,
-Sonic, Celeste Mario, Kamikaze Mario, Mario the Tank); menu readiness remains
-a separate concern. A dash means absent in that mode.
+The actual compiled menu cycle resolves Mario(variant0), Supermaaa(2),
+Kamikaze Mario(3), Celeste Mario(4), Toad(5), Peach(6), and Mario the Tank(7)
+to raw0; Luigi(1) resolves to raw8. Sonic is not in this Mario cycle and is
+not assigned raw0 by this inventory. Menu readiness remains a separate concern.
+A dash means absent in that mode.
 
 All coordinates and widths below are pixels. Area IDs distinguish a reused
 outdoor exit from the main underground/water area. Gate group is independent
