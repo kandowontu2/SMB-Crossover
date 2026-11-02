@@ -1,0 +1,62 @@
+{
+  "passed": true,
+  "ROM_SHA256": "d8a87050beefefe96869ebd4d188beeb52733241cd2c0fa64392a55ec8ebca05",
+  "actual_M3SetFrame_cases": 1134,
+  "forms": 7,
+  "frames": 81,
+  "facings": 2,
+  "pages": [
+    524,
+    525,
+    526,
+    527,
+    528,
+    529,
+    530,
+    531,
+    532,
+    533,
+    534,
+    535,
+    536,
+    537,
+    538,
+    539,
+    540,
+    541,
+    542,
+    543
+  ],
+  "scope": "Actual current factored selector execution, not reads from retired M3FormNChrLo labels. No graphical or gameplay claim.",
+  "current_source_constraint": {
+    "sole_caller_clamps_form": "LDX form;CPX7;BCC;LDX0",
+    "all7_low_pointers": "M3Form0ChrLo",
+    "form_offsets": [
+      0,
+      4,
+      4,
+      244,
+      0,
+      248,
+      252
+    ],
+    "base_low_values": [
+      24,
+      25,
+      26,
+      27
+    ],
+    "high_CHR_literal": 2,
+    "exact_live_caller_bytes": "ae8d5ce0079002a200bd5cd28503bd63d28504ac8e5c20baa2eaeabd6ad28503bd71d28504a9028d875c",
+    "exact_live_helper_bytes": "08b103187d90ce8d086b2860",
+    "formula": "512 + ((Form0ChrLo[frame] + offsets[clampedForm]) &255)",
+    "why_old795_is_not_live": "M3Form1/2/3/4/6ChrLo arrays were retired by low-table factor; no live pointer selects them.",
+    "source_producer": "tools/audit/prepare_smb3plus_low_table_factor_host_1031_v4.py"
+  },
+  "bindings": {
+    "build\\arthur-side-clamp-1101-v8\\weapon-tail-candidate.nes": "d8a87050beefefe96869ebd4d188beeb52733241cd2c0fa64392a55ec8ebca05",
+    "tools\\audit\\check_excitebike_smb3_pages_1101_v1.py": "f1b484c990a7007b3e694c4af88dfad31822199bee805318311aeb68e545b3e8",
+    "tools\\audit\\prepare_smb3plus_low_table_factor_host_1031_v4.py": "da062e0dbc9e09bd1951ff832a5ac420e4aed7f6e4553b5f555f8244634a7f1a",
+    "tools\\audit\\audit_prince_pool_1102_v1.py": "3b43115712514ce759a0354f56a6cb7ec03b4933060bd76e0e9640886c1f1747"
+  }
+}

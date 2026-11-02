@@ -1,0 +1,100 @@
+{
+  "passed": true,
+  "proposal_only": true,
+  "resource_granted": false,
+  "ROM_sha256": "d8a87050beefefe96869ebd4d188beeb52733241cd2c0fa64392a55ec8ebca05",
+  "replacement_candidates": [
+    690,
+    691,
+    692,
+    693,
+    695,
+    795
+  ],
+  "DP_actual_all66_selector_publish_cases": 66,
+  "DP_five_source_routines_reproduced_exact": [
+    {
+      "name": "DpGraphics",
+      "physical_bank": 86,
+      "CPU": "0xb617",
+      "bytes": 61,
+      "sha256": "6d9d1a58bb0c3d70a3f2861b35d0f4a93c8ee2c62c9f653175b8c5f644ed31b6"
+    },
+    {
+      "name": "DpSetRecord",
+      "physical_bank": 86,
+      "CPU": "0xb654",
+      "bytes": 35,
+      "sha256": "d22620ecd9411ba61c719142ecc6803e72ace47bfa76eba37f03411bf5f184b2"
+    },
+    {
+      "name": "DpPublish",
+      "physical_bank": 86,
+      "CPU": "0xb677",
+      "bytes": 34,
+      "sha256": "a851960429e282072688b576f3221d18211226fba29e7f1fc6d5b6c95c7ee099"
+    },
+    {
+      "name": "DpDrawShots",
+      "physical_bank": 86,
+      "CPU": "0xb6e4",
+      "bytes": 96,
+      "sha256": "b2812c5308b4b22659c62e70e7e83b841ffa6c57acef34405ea6b6b084ff9c19"
+    },
+    {
+      "name": "DpMixedPage",
+      "physical_bank": 86,
+      "CPU": "0xb819",
+      "bytes": 34,
+      "sha256": "bbdb6c94f50141ef7c79af6321198bb550647709b57d479c2e15c2ff9343db6b"
+    }
+  ],
+  "DP_all256poses_bothfacings_bothwaves": 1024,
+  "DP_source_adaptation": "Remove only the old DpGraphics LDA0/STA Player_SprAttrib as authenticated by dragon_power_flagpole_lifecycle_v2.py ordered-writer differential; every resulting opcode/operand matches current ROM.",
+  "DP_actual_body_and_both_shots_pages": [
+    788,
+    789,
+    790,
+    791,
+    792,
+    793,
+    794
+  ],
+  "Rogue_actual_supported_body_facing_publish_cases": 60,
+  "Rogue_actual_death_cases": 2,
+  "Rogue_actual_all40_typed_items_plus3drops_cases": 43,
+  "Rogue_actual_domains": {
+    "body": [
+      680,
+      681,
+      682,
+      683,
+      684,
+      685,
+      686
+    ],
+    "weapons": [
+      687,
+      688
+    ],
+    "death": [
+      689
+    ],
+    "items": [
+      694
+    ]
+  },
+  "scope": "Actual current source/table/compiled selectors; no adjacent-page assumption. Sprite8x16 bank uses window0 only for body; other declared independent windows are explicit. Replacements exclude all9 root-reserved Bub pages. Native transient/publication closure and root grant remain required.",
+  "bindings": {
+    "tools\\audit\\check_prince_replacement_pages_1102_v1.py": "961e7a9d33539406af43ac261903ec785ab829d3e67a56ca111e8d380ccb653d",
+    "build\\arthur-side-clamp-1101-v8\\weapon-tail-candidate.nes": "d8a87050beefefe96869ebd4d188beeb52733241cd2c0fa64392a55ec8ebca05",
+    "src\\dragon_power_render.s": "25f89defba92d8c8271d16c3c2f97a2d9d82b0fb9448f06ce00ddd477de4f07a",
+    "tools\\prepare_dragon_power_mixed_render_v3.py": "88e3251344e5bf808d5e5ce42473faae09e416a545b22143efa61b10cde3be63",
+    "tools\\prepare_dragon_power_flagpole_v2.py": "733de4dd2688bd926fcb10e9cf08f701fd18d9ca95c67215baf5256dcbdf6c71",
+    "tools\\audit\\dragon_power_flagpole_lifecycle_v2.py": "f49db28cd14e9975c58ec2d176a00086ffe79e038f4e27e4631ff2fa9ae918f3",
+    "src\\rogue_dawn_render.s": "28afe39f8e8929bb87a4772100cba906aabeb02b401b554f49ac8ce720beea4e",
+    "src\\rogue_dawn_host_weapon_world.s": "b082bbb49fe080258e17ef8bcdfc4117bbff5fd56e5e7ac672157978b551c21c",
+    "src\\rogue_dawn_host_hazards_drops_v1.s": "783d0147967b1d018297468b6d525564261b3f5327bde23aa431c42282032c02",
+    "src\\rogue_dawn_host_lifecycle.s": "1b61f71e77495fc3c90d8b7615c39758f4d21430238e543aae97b98975fb34a0"
+  }
+}
