@@ -51,10 +51,14 @@ record native top support; the third has static left X736, width32, top Y144
 and rider top Y112. No helper stage, height or world position has been assigned.
 The slot29 Prince alternate remains locked and has no helper.
 
-Hogan now crosses all four1-1 pipes in a natural controller attempt without
-helpers, then fails the first gap under an early-jump policy. A subsequent
-native death repair is verified for all six WWF identities. No WWF helper
-placement or impossible-crossing claim follows from that unfinished route.
+Hogan crosses all four 1-1 pipes and the first pit without helpers under
+the later-edge controller. The next opening pit still fails: the x+8
+launch starts at world X1368, rises from Y176 to Y110, and falls at X1412.
+Waiting until x+4 loses ground support before a second jump can begin.
+Original directional attacks and helper placement remain under review.
+No WWF helper has been added or assigned a final location. Native death
+recovery is verified for all six wrestlers. The route remains unfinished;
+see `docs/qa/checkpoints/2026-11-02/hogan-gaps-v5/receipt.json`.
 
 ## Later-stage shared placements
 
