@@ -107,3 +107,7 @@ Remaining: native assisted-crossing checks for every named alternate and mode,
 later-stage activation, and full-route evidence. This inventory does not claim
 that characters without current helpers will never need one. Refresh it after
 any helper or raw-owner change.
+
+Native 1-1 addendum: Shinobi now clears the entire stage into active 1-2 on installed 933c0650, in 8462 physical frames, lives 2 to 2, without helpers. Tall-pipe takeoffs at 692/868 and later gap input were sufficient with original motion. Metal Storm also clears on this hash in 5498 frames, lives 2 to 2, without helpers. These are stage-specific results; exact Shinobi body-policy review remains open.
+
+Arthur on cumulative c3dd0303 also clears 1-1 into active 1-2 in 6107 physical frames, lives 2 to 2, without helpers. His intended second jump press is required. This covers Arthur only, not his Goku alternate.

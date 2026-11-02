@@ -47,7 +47,7 @@ def main():
  changes=[i for i,(a,b)in enumerate(zip(old['raw'],new['raw']))if a!=b]
  assert len(old['raw'])==len(new['raw'])and set(changes)<=allowed
  assert all(old['raw'][offset(pc)]==new['raw'][offset(pc)]for pc in range(lab['ShSourceBounds'],lab['ShNativeCombatEnd']))
- poses=json.loads((P.R/'build/shinobi-component-1101-v2/pose-packets.json').read_text())['poses']
+ poses=json.loads((P.R/'build/shinobi-hurt-layout-1101-v5/pose-packets.json').read_text())['poses']
  cases=[(pose,0,0,128,224,0,True)for pose in poses]
  cases +=[(poses[0],prefix,rotation,x,y,bits,ready)for prefix,rotation,x,y,bits,ready in itertools.product([24,208,252],[4,252],[4,248],[32,224],[0,30],[True,False])]
  rows=[];digest=hashlib.sha256()
