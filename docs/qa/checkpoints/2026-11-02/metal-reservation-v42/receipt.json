@@ -1,0 +1,1892 @@
+{
+  "passed": true,
+  "installed": true,
+  "ROM_SHA256": "1cd8e192ee4bee33dfe0d9c737bec097e1cf2339e0b9f77353fd5194f2530f55",
+  "parent_ROM_SHA256": "cf1412eb78ed6531d2f7478c9790f96314a95f2f3fdd6c2b80bfbefd24fca3a8",
+  "source": {
+    "archive_bytes": 78034,
+    "archive_SHA256": "f1548d2f32972aa150939ab9b33ab829aa4f19f60013cf813031ac21888724e9",
+    "no_ROM_or_capture_archive": true,
+    "members": [
+      {
+        "path": "component.s",
+        "bytes": 169858,
+        "SHA256": "995c6515e35c0df36d7d2642d7f483d1fc6b02c1165924f54f78549a73f27238"
+      },
+      {
+        "path": "component.cfg",
+        "bytes": 2534,
+        "SHA256": "95edf8b3ec21306d8fd45a24ba85b1814656f579e3c2fff52f50bb407433dd4d"
+      },
+      {
+        "path": "component.lbl",
+        "bytes": 78717,
+        "SHA256": "2486ea414abcde510d52260e2aad250a29916a2087d7e11eb5b5d9712ae69d1c"
+      },
+      {
+        "path": "body-compact.bin",
+        "bytes": 390,
+        "SHA256": "51ca06246e9784863ada475c94da7bc50f6c5753da11e3b4ea67c14a8394bf0f"
+      },
+      {
+        "path": "native-cookie.bin",
+        "bytes": 16,
+        "SHA256": "4cb510a11d67af91105dfbbd83e60994db22f83f9928b88f7a119e344a4d4a6b"
+      },
+      {
+        "path": "native-actor.bin",
+        "bytes": 8128,
+        "SHA256": "e85066624600ac28f73afa826a201f40e70b0dc56d1e1a41fd564d5cde238d55"
+      },
+      {
+        "path": "native-render.bin",
+        "bytes": 2991,
+        "SHA256": "46eee8a8779584e5e50c2c89dbdd6425581a84a337f83a94a5395211643e60c5"
+      },
+      {
+        "path": "native-extra.bin",
+        "bytes": 257,
+        "SHA256": "73729ff4547d71d4b783e5e47fc11364398fb22baac0932f8f000f1f475960d2"
+      },
+      {
+        "path": "native-auth.bin",
+        "bytes": 97,
+        "SHA256": "da6686fcd4bf7fd4a27b14184d3f076f836c694e63e1399444cb8ce21e4196fe"
+      },
+      {
+        "path": "native-finish.bin",
+        "bytes": 135,
+        "SHA256": "f5fdb2132238efbf397926e2591bd7be5f5712e05f143de51da9a9a9f01b4769"
+      },
+      {
+        "path": "shot-meta.bin",
+        "bytes": 38,
+        "SHA256": "0183e441871e0b19acfc45636b8a85e3c844a2e9eb8e14d6d17d60e34ebc3b92"
+      }
+    ],
+    "scope": "Exact expanded source plus only its two art inputs and current compact native leaves. Absolute build output path in linker config must be rebound before reconstruction; no complete donor, host ROM, debug graph, historical tree or media archive."
+  },
+  "assembly": {
+    "assembled": true,
+    "installed": false,
+    "native": false,
+    "ROM_SHA256": "1cd8e192ee4bee33dfe0d9c737bec097e1cf2339e0b9f77353fd5194f2530f55",
+    "parent_ROM_SHA256": "cf1412eb78ed6531d2f7478c9790f96314a95f2f3fdd6c2b80bfbefd24fca3a8",
+    "renderer_bytes": 2991,
+    "renderer_grant_bytes": 3072,
+    "extra_bytes": 257,
+    "new_resident_ROM_bytes": 0,
+    "new_RAM_bytes": 0,
+    "patches": [
+      {
+        "role": "auth complete-cookie binding",
+        "offset": 212910,
+        "bytes": 97,
+        "before_SHA256": "2d234ad7499ae85e41ce60dc81852ce7e963842530fe69a3fab90d6fb46ab7dc",
+        "after_SHA256": "da6686fcd4bf7fd4a27b14184d3f076f836c694e63e1399444cb8ce21e4196fe"
+      },
+      {
+        "role": "finish complete-cookie binding",
+        "offset": 817022,
+        "bytes": 135,
+        "before_SHA256": "2bce14df645c7c0b50592f4527243adec4a349e841ec52e7a998fa8c20ae97b0",
+        "after_SHA256": "f5fdb2132238efbf397926e2591bd7be5f5712e05f143de51da9a9a9f01b4769"
+      },
+      {
+        "role": "Existing Metal actor carrier247",
+        "offset": 1301520,
+        "bytes": 1024,
+        "before_SHA256": "198fe2ff228069f10a517450d93ccda07a89afc9a763af397dec92f78b59c593",
+        "after_SHA256": "7e312a2bcd0a89036b4c30c72fc7ccbbf3fb77f62836b6d8271942ba1998b509"
+      },
+      {
+        "role": "Existing Metal actor carrier248",
+        "offset": 1302544,
+        "bytes": 1024,
+        "before_SHA256": "289a7498a26c08a650e40390f59a09319049d1ed7706d4b7bb80f355e5d29aca",
+        "after_SHA256": "b6196af67cbc0672c2609d85b3ffd4eed8464f610c64671c857fc2f3bb11de93"
+      },
+      {
+        "role": "Existing Metal actor carrier249",
+        "offset": 1303568,
+        "bytes": 1024,
+        "before_SHA256": "fc351747e6a72aa075ac167e5eb6dac959988a1d75e6d9fd7c0cf92f5aa127ae",
+        "after_SHA256": "fc351747e6a72aa075ac167e5eb6dac959988a1d75e6d9fd7c0cf92f5aa127ae"
+      },
+      {
+        "role": "Existing Metal actor carrier250",
+        "offset": 1304592,
+        "bytes": 1024,
+        "before_SHA256": "2dae1394f3112d98dc5bafda91044bc915fee3964ab099f3fccd768fb5b3bc0e",
+        "after_SHA256": "2dae1394f3112d98dc5bafda91044bc915fee3964ab099f3fccd768fb5b3bc0e"
+      },
+      {
+        "role": "Existing Metal actor carrier827",
+        "offset": 1895440,
+        "bytes": 1024,
+        "before_SHA256": "718f0a902e86e34996c1abde1d436823d4f50ec91ffe4560642989ac279d8050",
+        "after_SHA256": "56f394ea675bd35f9269d1572d515190c8b66a74efdd6147dd2ab5a76f730714"
+      },
+      {
+        "role": "Existing Metal actor carrier828",
+        "offset": 1896464,
+        "bytes": 1024,
+        "before_SHA256": "f737406f57ed8743052294c61d85e81a84914c50b36815bdcbd1fa0b0b22e99d",
+        "after_SHA256": "f737406f57ed8743052294c61d85e81a84914c50b36815bdcbd1fa0b0b22e99d"
+      },
+      {
+        "role": "Existing Metal actor carrier829",
+        "offset": 1897488,
+        "bytes": 1024,
+        "before_SHA256": "12edb12e9a226ea18236eb9dc23308cbccfb0f3da6ab1aeee4291721a69a3dbf",
+        "after_SHA256": "1dad837a2230558666a4f25bb1710b8e623928a50051ac339a7b9d1c46744f72"
+      },
+      {
+        "role": "Existing Metal actor carrier830",
+        "offset": 1898512,
+        "bytes": 960,
+        "before_SHA256": "137593ac986bf44e3c50bdb72bc22f1caf3338994be0fdcf7087a06de5018663",
+        "after_SHA256": "41e51ba030e93be9d46752bdf4d11b17a28fdd65ea9f426121362be3dc1d99bc"
+      },
+      {
+        "role": "Existing Metal renderer carrier831",
+        "offset": 1899536,
+        "bytes": 1024,
+        "before_SHA256": "d2b15a0be5aa1f85a113c90bf294b83d8c929f364f0ad2fdbe27cb60d67f0461",
+        "after_SHA256": "b261ed7bcef39472b804658961045bcb4126ffc0822f5ec2804eb5226f0dc1da"
+      },
+      {
+        "role": "Existing Metal renderer carrier500",
+        "offset": 1560592,
+        "bytes": 1024,
+        "before_SHA256": "451bbec1e25a299979cc4b281f1bcf47374b5274302b9bca7cb56520b29d8b26",
+        "after_SHA256": "18d3fafd475658769fe756ed6c15fa864f1923fc6f45139b44d34272d995fb3d"
+      },
+      {
+        "role": "Existing Metal renderer carrier494",
+        "offset": 1554448,
+        "bytes": 1024,
+        "before_SHA256": "74640b5f6386383fdbe4c8497004e527304732b0e76430bd9ce79809e69f14d7",
+        "after_SHA256": "4e49ebc26f6793e6d2a7112d4f850ba4d6fdd9899e9303ae0d3936a9856f3b48"
+      },
+      {
+        "role": "Existing Metal extra leaves after immutable art prefix",
+        "offset": 1560240,
+        "bytes": 257,
+        "before_SHA256": "73729ff4547d71d4b783e5e47fc11364398fb22baac0932f8f000f1f475960d2",
+        "after_SHA256": "73729ff4547d71d4b783e5e47fc11364398fb22baac0932f8f000f1f475960d2"
+      }
+    ],
+    "scope": "Stable native zero reservation established before movement/draw. Authentic actor, packets, physics, contacts and all other-owner bytes retained. Palette/name and native proof remain open.",
+    "bindings": {
+      "tools\\audit\\prepare_metal_reservation_1102_v42.py": "77e077f9f2440cf5be452a015bc048745c779bdb3be44dc6993405d0c87db6fb",
+      "build\\excitebike-pose-1101-v3\\current4.nes": "cf1412eb78ed6531d2f7478c9790f96314a95f2f3fdd6c2b80bfbefd24fca3a8",
+      "build\\metal-storm-idle-shots-1101-v41\\component.s": "9d7c61705b47165a7d520aa1171fd139039915da367614ca20fd2e463869f0d9",
+      "build\\metal-storm-idle-shots-1101-v41\\component.cfg": "dfc896b8a2f29ddd503020ee5cd28cbb3d597c81ef6c8b8dd27ae9a8a067dc61",
+      "build\\metal-reservation-1102-v42\\component.s": "995c6515e35c0df36d7d2642d7f483d1fc6b02c1165924f54f78549a73f27238",
+      "build\\metal-reservation-1102-v42\\component.cfg": "95edf8b3ec21306d8fd45a24ba85b1814656f579e3c2fff52f50bb407433dd4d",
+      "build\\metal-reservation-1102-v42\\native-cookie.bin": "4cb510a11d67af91105dfbbd83e60994db22f83f9928b88f7a119e344a4d4a6b",
+      "build\\metal-reservation-1102-v42\\native-render.bin": "46eee8a8779584e5e50c2c89dbdd6425581a84a337f83a94a5395211643e60c5"
+    }
+  },
+  "CPU": {
+    "passed": true,
+    "ROM_SHA256": "1cd8e192ee4bee33dfe0d9c737bec097e1cf2339e0b9f77353fd5194f2530f55",
+    "movement_equivalence_cases": 16,
+    "complete_header_rejections": 32,
+    "actual_ISR_cuts": {
+      "IRQ": 174,
+      "lagNMI": 174
+    },
+    "manual_cache_fixture": true,
+    "native": false,
+    "scope": "Real public callbacks; original source physics/native movement outputs retained. Both full headers reject every one-byte corruption. Actual busy-IRQ/NMI returns preserve registers, scratch, SMC, maps and source banks around changed renderer calls.",
+    "bindings": {
+      "tools\\audit\\check_metal_reservation_1102_v42.py": "27f456584137d2dc552248ce1541d7d3190321f8f9199a433a8c70caf13571e6",
+      "build\\metal-reservation-1102-v42\\candidate.nes": "1cd8e192ee4bee33dfe0d9c737bec097e1cf2339e0b9f77353fd5194f2530f55",
+      "build\\metal-reservation-1102-v42\\component.s": "995c6515e35c0df36d7d2642d7f483d1fc6b02c1165924f54f78549a73f27238",
+      "build\\metal-reservation-1102-v42\\assembly.json": "219b8beb91ff2c4202de621245283be99e38d42f057f68c289223a499148ceff"
+    }
+  },
+  "native": {
+    "native": {
+      "result": {
+        "passed": true,
+        "reason": "measured",
+        "character": "METAL STORM",
+        "controller_only": true,
+        "frames": 910,
+        "initial_lives": 2,
+        "final_lives": 2,
+        "selected": 35,
+        "measurements": [
+          {
+            "phase": "idle",
+            "physical_frames": 180,
+            "main_updates": 120,
+            "updates_per_frame": 0.666667,
+            "first_x": 40,
+            "last_x": 40,
+            "max_visible_enemies": 0,
+            "max_active_slots": 0
+          },
+          {
+            "phase": "walk",
+            "physical_frames": 40,
+            "main_updates": 27,
+            "updates_per_frame": 0.675,
+            "first_x": 40,
+            "last_x": 77,
+            "max_visible_enemies": 0,
+            "max_active_slots": 0
+          }
+        ],
+        "full_stage": false
+      },
+      "binding": {
+        "ROM_sha256": "1cd8e192ee4bee33dfe0d9c737bec097e1cf2339e0b9f77353fd5194f2530f55",
+        "ready_sha256": "b324a8512358eba64d433561850fc3b3e427824c54846d631353d907fb5a9ae2",
+        "exit_code": 0
+      },
+      "ready_SHA256": "b324a8512358eba64d433561850fc3b3e427824c54846d631353d907fb5a9ae2"
+    },
+    "route": {
+      "result": {
+        "passed": true,
+        "reason": "entered-1-2",
+        "frames": 5587,
+        "world_x": 40,
+        "spawned": false,
+        "matured": false,
+        "collected": false,
+        "lives": 2,
+        "initial_lives": 2,
+        "trace": [
+          {
+            "t": 40,
+            "x": 76,
+            "y": 176,
+            "state": 0,
+            "engine": 8,
+            "route": 0
+          },
+          {
+            "t": 80,
+            "x": 116,
+            "y": 176,
+            "state": 0,
+            "engine": 8,
+            "route": 0
+          },
+          {
+            "t": 120,
+            "x": 154,
+            "y": 176,
+            "state": 0,
+            "engine": 8,
+            "route": 0
+          },
+          {
+            "t": 160,
+            "x": 188,
+            "y": 176,
+            "state": 0,
+            "engine": 8,
+            "route": 0
+          },
+          {
+            "t": 200,
+            "x": 223,
+            "y": 176,
+            "state": 0,
+            "engine": 8,
+            "route": 0
+          },
+          {
+            "t": 240,
+            "x": 256,
+            "y": 176,
+            "state": 0,
+            "engine": 8,
+            "route": 0
+          },
+          {
+            "t": 280,
+            "x": 292,
+            "y": 131,
+            "state": 2,
+            "engine": 8,
+            "route": 1
+          },
+          {
+            "t": 320,
+            "x": 300,
+            "y": 135,
+            "state": 2,
+            "engine": 8,
+            "route": 1
+          },
+          {
+            "t": 360,
+            "x": 329,
+            "y": 176,
+            "state": 0,
+            "engine": 8,
+            "route": 2
+          },
+          {
+            "t": 400,
+            "x": 366,
+            "y": 176,
+            "state": 0,
+            "engine": 8,
+            "route": 2
+          },
+          {
+            "t": 440,
+            "x": 404,
+            "y": 176,
+            "state": 0,
+            "engine": 8,
+            "route": 2
+          },
+          {
+            "t": 480,
+            "x": 440,
+            "y": 109,
+            "state": 2,
+            "engine": 8,
+            "route": 2
+          },
+          {
+            "t": 520,
+            "x": 477,
+            "y": 136,
+            "state": 0,
+            "engine": 8,
+            "route": 2
+          },
+          {
+            "t": 560,
+            "x": 515,
+            "y": 176,
+            "state": 0,
+            "engine": 8,
+            "route": 2
+          },
+          {
+            "t": 600,
+            "x": 552,
+            "y": 176,
+            "state": 0,
+            "engine": 8,
+            "route": 2
+          },
+          {
+            "t": 640,
+            "x": 590,
+            "y": 109,
+            "state": 2,
+            "engine": 8,
+            "route": 2
+          },
+          {
+            "t": 680,
+            "x": 627,
+            "y": 128,
+            "state": 0,
+            "engine": 8,
+            "route": 2
+          },
+          {
+            "t": 720,
+            "x": 663,
+            "y": 146,
+            "state": 2,
+            "engine": 8,
+            "route": 2
+          },
+          {
+            "t": 760,
+            "x": 698,
+            "y": 158,
+            "state": 2,
+            "engine": 8,
+            "route": 2
+          },
+          {
+            "t": 800,
+            "x": 732,
+            "y": 105,
+            "state": 2,
+            "engine": 8,
+            "route": 2
+          },
+          {
+            "t": 840,
+            "x": 767,
+            "y": 112,
+            "state": 2,
+            "engine": 8,
+            "route": 2
+          },
+          {
+            "t": 880,
+            "x": 800,
+            "y": 148,
+            "state": 2,
+            "engine": 8,
+            "route": 2
+          },
+          {
+            "t": 920,
+            "x": 831,
+            "y": 176,
+            "state": 0,
+            "engine": 8,
+            "route": 2
+          },
+          {
+            "t": 960,
+            "x": 863,
+            "y": 176,
+            "state": 0,
+            "engine": 8,
+            "route": 2
+          },
+          {
+            "t": 1000,
+            "x": 902,
+            "y": 104,
+            "state": 2,
+            "engine": 8,
+            "route": 2
+          },
+          {
+            "t": 1040,
+            "x": 939,
+            "y": 112,
+            "state": 0,
+            "engine": 8,
+            "route": 2
+          },
+          {
+            "t": 1080,
+            "x": 977,
+            "y": 152,
+            "state": 2,
+            "engine": 8,
+            "route": 2
+          },
+          {
+            "t": 1120,
+            "x": 1014,
+            "y": 176,
+            "state": 0,
+            "engine": 8,
+            "route": 2
+          },
+          {
+            "t": 1160,
+            "x": 1050,
+            "y": 176,
+            "state": 0,
+            "engine": 8,
+            "route": 2
+          },
+          {
+            "t": 1200,
+            "x": 1088,
+            "y": 158,
+            "state": 2,
+            "engine": 8,
+            "route": 2
+          },
+          {
+            "t": 1240,
+            "x": 1125,
+            "y": 108,
+            "state": 2,
+            "engine": 8,
+            "route": 2
+          },
+          {
+            "t": 1280,
+            "x": 1160,
+            "y": 176,
+            "state": 0,
+            "engine": 8,
+            "route": 2
+          },
+          {
+            "t": 1320,
+            "x": 1196,
+            "y": 176,
+            "state": 0,
+            "engine": 8,
+            "route": 2
+          },
+          {
+            "t": 1360,
+            "x": 1232,
+            "y": 176,
+            "state": 0,
+            "engine": 8,
+            "route": 2
+          },
+          {
+            "t": 1400,
+            "x": 1266,
+            "y": 176,
+            "state": 0,
+            "engine": 8,
+            "route": 2
+          },
+          {
+            "t": 1440,
+            "x": 1301,
+            "y": 176,
+            "state": 0,
+            "engine": 8,
+            "route": 2
+          },
+          {
+            "t": 1480,
+            "x": 1335,
+            "y": 176,
+            "state": 0,
+            "engine": 8,
+            "route": 2
+          },
+          {
+            "t": 1520,
+            "x": 1371,
+            "y": 128,
+            "state": 2,
+            "engine": 8,
+            "route": 2
+          },
+          {
+            "t": 1560,
+            "x": 1409,
+            "y": 113,
+            "state": 2,
+            "engine": 8,
+            "route": 2
+          },
+          {
+            "t": 1600,
+            "x": 1436,
+            "y": 176,
+            "state": 0,
+            "engine": 8,
+            "route": 2
+          },
+          {
+            "t": 1640,
+            "x": 1460,
+            "y": 176,
+            "state": 0,
+            "engine": 8,
+            "route": 2
+          },
+          {
+            "t": 1680,
+            "x": 1493,
+            "y": 176,
+            "state": 0,
+            "engine": 8,
+            "route": 2
+          },
+          {
+            "t": 1720,
+            "x": 1524,
+            "y": 176,
+            "state": 0,
+            "engine": 8,
+            "route": 2
+          },
+          {
+            "t": 1760,
+            "x": 1559,
+            "y": 176,
+            "state": 0,
+            "engine": 8,
+            "route": 2
+          },
+          {
+            "t": 1800,
+            "x": 1592,
+            "y": 176,
+            "state": 0,
+            "engine": 8,
+            "route": 2
+          },
+          {
+            "t": 1840,
+            "x": 1626,
+            "y": 176,
+            "state": 0,
+            "engine": 8,
+            "route": 2
+          },
+          {
+            "t": 1880,
+            "x": 1662,
+            "y": 176,
+            "state": 0,
+            "engine": 8,
+            "route": 2
+          },
+          {
+            "t": 1920,
+            "x": 1697,
+            "y": 176,
+            "state": 0,
+            "engine": 8,
+            "route": 2
+          },
+          {
+            "t": 1960,
+            "x": 1727,
+            "y": 176,
+            "state": 0,
+            "engine": 8,
+            "route": 2
+          },
+          {
+            "t": 2000,
+            "x": 1758,
+            "y": 176,
+            "state": 0,
+            "engine": 8,
+            "route": 2
+          },
+          {
+            "t": 2040,
+            "x": 1791,
+            "y": 176,
+            "state": 0,
+            "engine": 8,
+            "route": 2
+          },
+          {
+            "t": 2080,
+            "x": 1827,
+            "y": 176,
+            "state": 0,
+            "engine": 8,
+            "route": 2
+          },
+          {
+            "t": 2120,
+            "x": 1860,
+            "y": 176,
+            "state": 0,
+            "engine": 8,
+            "route": 2
+          },
+          {
+            "t": 2160,
+            "x": 1890,
+            "y": 176,
+            "state": 0,
+            "engine": 8,
+            "route": 2
+          },
+          {
+            "t": 2200,
+            "x": 1917,
+            "y": 176,
+            "state": 0,
+            "engine": 8,
+            "route": 2
+          },
+          {
+            "t": 2240,
+            "x": 1947,
+            "y": 176,
+            "state": 0,
+            "engine": 8,
+            "route": 2
+          },
+          {
+            "t": 2280,
+            "x": 1979,
+            "y": 176,
+            "state": 0,
+            "engine": 8,
+            "route": 2
+          },
+          {
+            "t": 2320,
+            "x": 2016,
+            "y": 176,
+            "state": 0,
+            "engine": 8,
+            "route": 2
+          },
+          {
+            "t": 2360,
+            "x": 2054,
+            "y": 176,
+            "state": 0,
+            "engine": 8,
+            "route": 2
+          },
+          {
+            "t": 2400,
+            "x": 2091,
+            "y": 176,
+            "state": 0,
+            "engine": 8,
+            "route": 2
+          },
+          {
+            "t": 2440,
+            "x": 2129,
+            "y": 131,
+            "state": 2,
+            "engine": 8,
+            "route": 2
+          },
+          {
+            "t": 2480,
+            "x": 2166,
+            "y": 111,
+            "state": 2,
+            "engine": 8,
+            "route": 2
+          },
+          {
+            "t": 2520,
+            "x": 2196,
+            "y": 61,
+            "state": 2,
+            "engine": 8,
+            "route": 2
+          },
+          {
+            "t": 2560,
+            "x": 2232,
+            "y": 84,
+            "state": 2,
+            "engine": 8,
+            "route": 2
+          },
+          {
+            "t": 2600,
+            "x": 2269,
+            "y": 116,
+            "state": 2,
+            "engine": 8,
+            "route": 2
+          },
+          {
+            "t": 2640,
+            "x": 2307,
+            "y": 155,
+            "state": 2,
+            "engine": 8,
+            "route": 2
+          },
+          {
+            "t": 2680,
+            "x": 2344,
+            "y": 158,
+            "state": 2,
+            "engine": 8,
+            "route": 2
+          },
+          {
+            "t": 2720,
+            "x": 2382,
+            "y": 105,
+            "state": 2,
+            "engine": 8,
+            "route": 2
+          },
+          {
+            "t": 2760,
+            "x": 2408,
+            "y": 80,
+            "state": 2,
+            "engine": 8,
+            "route": 2
+          },
+          {
+            "t": 2800,
+            "x": 2447,
+            "y": 67,
+            "state": 2,
+            "engine": 8,
+            "route": 2
+          },
+          {
+            "t": 2840,
+            "x": 2483,
+            "y": 112,
+            "state": 0,
+            "engine": 8,
+            "route": 2
+          },
+          {
+            "t": 2880,
+            "x": 2521,
+            "y": 133,
+            "state": 2,
+            "engine": 8,
+            "route": 2
+          },
+          {
+            "t": 2920,
+            "x": 2558,
+            "y": 176,
+            "state": 0,
+            "engine": 8,
+            "route": 2
+          },
+          {
+            "t": 2960,
+            "x": 2596,
+            "y": 124,
+            "state": 0,
+            "engine": 8,
+            "route": 2
+          },
+          {
+            "t": 3000,
+            "x": 2633,
+            "y": 125,
+            "state": 2,
+            "engine": 8,
+            "route": 2
+          },
+          {
+            "t": 3040,
+            "x": 2671,
+            "y": 176,
+            "state": 0,
+            "engine": 8,
+            "route": 2
+          },
+          {
+            "t": 3080,
+            "x": 2684,
+            "y": 176,
+            "state": 0,
+            "engine": 8,
+            "route": 2
+          },
+          {
+            "t": 3120,
+            "x": 2716,
+            "y": 176,
+            "state": 0,
+            "engine": 8,
+            "route": 2
+          },
+          {
+            "t": 3160,
+            "x": 2753,
+            "y": 176,
+            "state": 0,
+            "engine": 8,
+            "route": 2
+          },
+          {
+            "t": 3200,
+            "x": 2791,
+            "y": 176,
+            "state": 0,
+            "engine": 8,
+            "route": 2
+          },
+          {
+            "t": 3240,
+            "x": 2828,
+            "y": 176,
+            "state": 2,
+            "engine": 8,
+            "route": 2
+          },
+          {
+            "t": 3280,
+            "x": 2865,
+            "y": 107,
+            "state": 2,
+            "engine": 8,
+            "route": 2
+          },
+          {
+            "t": 3320,
+            "x": 2902,
+            "y": 140,
+            "state": 2,
+            "engine": 8,
+            "route": 2
+          },
+          {
+            "t": 3360,
+            "x": 2936,
+            "y": 73,
+            "state": 2,
+            "engine": 8,
+            "route": 2
+          },
+          {
+            "t": 3400,
+            "x": 2959,
+            "y": 73,
+            "state": 2,
+            "engine": 8,
+            "route": 2
+          },
+          {
+            "t": 3440,
+            "x": 2997,
+            "y": 26,
+            "state": 2,
+            "engine": 8,
+            "route": 2
+          },
+          {
+            "t": 3480,
+            "x": 3033,
+            "y": 48,
+            "state": 0,
+            "engine": 8,
+            "route": 2
+          },
+          {
+            "t": 3520,
+            "x": 3070,
+            "y": 80,
+            "state": 2,
+            "engine": 8,
+            "route": 2
+          },
+          {
+            "t": 3560,
+            "x": 3108,
+            "y": 176,
+            "state": 0,
+            "engine": 8,
+            "route": 2
+          },
+          {
+            "t": 3600,
+            "x": 3145,
+            "y": 153,
+            "state": 2,
+            "engine": 8,
+            "route": 2
+          },
+          {
+            "t": 3640,
+            "x": 3161,
+            "y": 158,
+            "state": 3,
+            "engine": 4,
+            "route": 2
+          },
+          {
+            "t": 3680,
+            "x": 3175,
+            "y": 158,
+            "state": 3,
+            "engine": 5,
+            "route": 2
+          },
+          {
+            "t": 3720,
+            "x": 3187,
+            "y": 163,
+            "state": 2,
+            "engine": 5,
+            "route": 2
+          },
+          {
+            "t": 3760,
+            "x": 3232,
+            "y": 176,
+            "state": 0,
+            "engine": 5,
+            "route": 2
+          },
+          {
+            "t": 3800,
+            "x": 3265,
+            "y": 176,
+            "state": 0,
+            "engine": 5,
+            "route": 2
+          },
+          {
+            "t": 3840,
+            "x": 3265,
+            "y": 176,
+            "state": 0,
+            "engine": 5,
+            "route": 2
+          },
+          {
+            "t": 3880,
+            "x": 3265,
+            "y": 176,
+            "state": 0,
+            "engine": 5,
+            "route": 2
+          },
+          {
+            "t": 3920,
+            "x": 3265,
+            "y": 176,
+            "state": 0,
+            "engine": 5,
+            "route": 2
+          },
+          {
+            "t": 3960,
+            "x": 3265,
+            "y": 176,
+            "state": 0,
+            "engine": 5,
+            "route": 2
+          },
+          {
+            "t": 4000,
+            "x": 3265,
+            "y": 176,
+            "state": 0,
+            "engine": 5,
+            "route": 2
+          },
+          {
+            "t": 4040,
+            "x": 3265,
+            "y": 176,
+            "state": 0,
+            "engine": 5,
+            "route": 2
+          },
+          {
+            "t": 4080,
+            "x": 3265,
+            "y": 176,
+            "state": 0,
+            "engine": 5,
+            "route": 2
+          },
+          {
+            "t": 4120,
+            "x": 3265,
+            "y": 176,
+            "state": 0,
+            "engine": 5,
+            "route": 2
+          },
+          {
+            "t": 4160,
+            "x": 3265,
+            "y": 176,
+            "state": 0,
+            "engine": 5,
+            "route": 2
+          },
+          {
+            "t": 4200,
+            "x": 3265,
+            "y": 176,
+            "state": 0,
+            "engine": 5,
+            "route": 2
+          },
+          {
+            "t": 4240,
+            "x": 3265,
+            "y": 176,
+            "state": 0,
+            "engine": 5,
+            "route": 2
+          },
+          {
+            "t": 4280,
+            "x": 3265,
+            "y": 176,
+            "state": 0,
+            "engine": 5,
+            "route": 2
+          },
+          {
+            "t": 4320,
+            "x": 3265,
+            "y": 176,
+            "state": 0,
+            "engine": 5,
+            "route": 2
+          },
+          {
+            "t": 4360,
+            "x": 3265,
+            "y": 176,
+            "state": 0,
+            "engine": 5,
+            "route": 2
+          },
+          {
+            "t": 4400,
+            "x": 0,
+            "y": 0,
+            "state": 0,
+            "engine": 0,
+            "route": 2
+          },
+          {
+            "t": 4440,
+            "x": 96,
+            "y": 88,
+            "state": 0,
+            "engine": 0,
+            "route": 2
+          },
+          {
+            "t": 4480,
+            "x": 96,
+            "y": 88,
+            "state": 0,
+            "engine": 0,
+            "route": 2
+          },
+          {
+            "t": 4520,
+            "x": 96,
+            "y": 88,
+            "state": 0,
+            "engine": 0,
+            "route": 2
+          },
+          {
+            "t": 4560,
+            "x": 96,
+            "y": 88,
+            "state": 0,
+            "engine": 0,
+            "route": 2
+          },
+          {
+            "t": 4600,
+            "x": 48,
+            "y": 176,
+            "state": 0,
+            "engine": 7,
+            "route": 2
+          },
+          {
+            "t": 4640,
+            "x": 78,
+            "y": 176,
+            "state": 0,
+            "engine": 7,
+            "route": 2
+          },
+          {
+            "t": 4680,
+            "x": 108,
+            "y": 176,
+            "state": 0,
+            "engine": 7,
+            "route": 2
+          },
+          {
+            "t": 4720,
+            "x": 138,
+            "y": 176,
+            "state": 0,
+            "engine": 7,
+            "route": 2
+          },
+          {
+            "t": 4760,
+            "x": 160,
+            "y": 176,
+            "state": 0,
+            "engine": 7,
+            "route": 2
+          },
+          {
+            "t": 4800,
+            "x": 160,
+            "y": 176,
+            "state": 0,
+            "engine": 7,
+            "route": 2
+          },
+          {
+            "t": 4840,
+            "x": 160,
+            "y": 176,
+            "state": 0,
+            "engine": 7,
+            "route": 2
+          },
+          {
+            "t": 4880,
+            "x": 160,
+            "y": 176,
+            "state": 0,
+            "engine": 7,
+            "route": 2
+          },
+          {
+            "t": 4920,
+            "x": 0,
+            "y": 0,
+            "state": 0,
+            "engine": 0,
+            "route": 2
+          },
+          {
+            "t": 4960,
+            "x": 0,
+            "y": 0,
+            "state": 0,
+            "engine": 0,
+            "route": 2
+          }
+        ]
+      },
+      "binding": {
+        "ROM_sha256": "1cd8e192ee4bee33dfe0d9c737bec097e1cf2339e0b9f77353fd5194f2530f55",
+        "ready_sha256": "dceba9e4a6f9d13ff2ff612c71cbf2c2e3b3eed081df5091d772542b4a6ad2c0",
+        "exit_code": 0
+      },
+      "ready_SHA256": "dceba9e4a6f9d13ff2ff612c71cbf2c2e3b3eed081df5091d772542b4a6ad2c0"
+    },
+    "downloads": {
+      "result": {
+        "passed": true,
+        "reason": "measured",
+        "character": "METAL STORM",
+        "controller_only": true,
+        "frames": 910,
+        "initial_lives": 2,
+        "final_lives": 2,
+        "selected": 35,
+        "measurements": [
+          {
+            "phase": "idle",
+            "physical_frames": 180,
+            "main_updates": 120,
+            "updates_per_frame": 0.666667,
+            "first_x": 40,
+            "last_x": 40,
+            "max_visible_enemies": 0,
+            "max_active_slots": 0
+          },
+          {
+            "phase": "walk",
+            "physical_frames": 40,
+            "main_updates": 27,
+            "updates_per_frame": 0.675,
+            "first_x": 40,
+            "last_x": 77,
+            "max_visible_enemies": 0,
+            "max_active_slots": 0
+          }
+        ],
+        "full_stage": false
+      },
+      "binding": {
+        "ROM_sha256": "1cd8e192ee4bee33dfe0d9c737bec097e1cf2339e0b9f77353fd5194f2530f55",
+        "ready_sha256": "02b7f4ee23f5769a9fb41db4507f6e0a2f2b8a85134ef8a46b40827318dc46da",
+        "exit_code": 0
+      },
+      "ready_SHA256": "02b7f4ee23f5769a9fb41db4507f6e0a2f2b8a85134ef8a46b40827318dc46da"
+    }
+  },
+  "delivery": {
+    "installed": true,
+    "ROM_sha256": "1cd8e192ee4bee33dfe0d9c737bec097e1cf2339e0b9f77353fd5194f2530f55",
+    "previous_sha256": "cf1412eb78ed6531d2f7478c9790f96314a95f2f3fdd6c2b80bfbefd24fca3a8",
+    "destination": "C:\\Users\\kando\\Downloads\\SMB-Crossover-Latest-WIP-MMC5.nes",
+    "candidate": "build\\metal-reservation-1102-v42\\candidate.nes",
+    "backup_created": false,
+    "downloads_launch_verified": true,
+    "before": {
+      "passed": true,
+      "ROM": "C:\\Users\\kando\\Downloads\\SMB-Crossover-Latest-WIP-MMC5.nes",
+      "ROM_sha256": "cf1412eb78ed6531d2f7478c9790f96314a95f2f3fdd6c2b80bfbefd24fca3a8",
+      "matching_patch_files": []
+    },
+    "after": {
+      "passed": true,
+      "ROM": "C:\\Users\\kando\\Downloads\\SMB-Crossover-Latest-WIP-MMC5.nes",
+      "ROM_sha256": "1cd8e192ee4bee33dfe0d9c737bec097e1cf2339e0b9f77353fd5194f2530f55",
+      "matching_patch_files": []
+    },
+    "native_scope": "Stable zero header and aligned OAM rotation pass; full1-1 reaches active1-2 in5587physicalframes, lives2to2, genuine native defeat. Idle120/180 and walk27/40 updates unchanged; palette/HUD/audio remain open.",
+    "helpers_added": false,
+    "complete": false,
+    "downloads_verification": {
+      "passed": true,
+      "reason": "measured",
+      "character": "METAL STORM",
+      "controller_only": true,
+      "frames": 910,
+      "initial_lives": 2,
+      "final_lives": 2,
+      "selected": 35,
+      "measurements": [
+        {
+          "phase": "idle",
+          "physical_frames": 180,
+          "main_updates": 120,
+          "updates_per_frame": 0.666667,
+          "first_x": 40,
+          "last_x": 40,
+          "max_visible_enemies": 0,
+          "max_active_slots": 0
+        },
+        {
+          "phase": "walk",
+          "physical_frames": 40,
+          "main_updates": 27,
+          "updates_per_frame": 0.675,
+          "first_x": 40,
+          "last_x": 77,
+          "max_visible_enemies": 0,
+          "max_active_slots": 0
+        }
+      ],
+      "full_stage": false
+    }
+  },
+  "ordering": {
+    "counts": {
+      "body_entry": 74,
+      "draw_entry": 74,
+      "reservation": 74,
+      "emit_entry": 74,
+      "native_render": 74
+    },
+    "misaligned": {},
+    "first_events": [
+      {
+        "name": "draw_entry",
+        "frame": 690,
+        "epoch": 44,
+        "oam_offset": 0,
+        "rotation": 240,
+        "guest_rotation": 1,
+        "player_start": 24,
+        "pose_pointer": 1761,
+        "pose_length": 0,
+        "packet": 21504,
+        "packet_length": 84,
+        "r4_7": [
+          0,
+          4,
+          32,
+          79
+        ]
+      },
+      {
+        "name": "body_entry",
+        "frame": 690,
+        "epoch": 44,
+        "oam_offset": 0,
+        "rotation": 240,
+        "guest_rotation": 1,
+        "player_start": 24,
+        "pose_pointer": 1761,
+        "pose_length": 0,
+        "packet": 21504,
+        "packet_length": 84,
+        "r4_7": [
+          0,
+          4,
+          32,
+          79
+        ]
+      },
+      {
+        "name": "emit_entry",
+        "frame": 690,
+        "epoch": 44,
+        "oam_offset": 0,
+        "rotation": 240,
+        "guest_rotation": 1,
+        "player_start": 24,
+        "pose_pointer": 1761,
+        "pose_length": 0,
+        "packet": 54111,
+        "packet_length": 29,
+        "r4_7": [
+          32,
+          0,
+          176,
+          1
+        ]
+      },
+      {
+        "name": "native_render",
+        "frame": 690,
+        "epoch": 44,
+        "oam_offset": 0,
+        "rotation": 240,
+        "guest_rotation": 1,
+        "player_start": 24,
+        "pose_pointer": 1761,
+        "pose_length": 0,
+        "packet": 51328,
+        "packet_length": 24,
+        "r4_7": [
+          32,
+          0,
+          176,
+          1
+        ]
+      },
+      {
+        "name": "reservation",
+        "frame": 690,
+        "epoch": 44,
+        "oam_offset": 24,
+        "rotation": 240,
+        "guest_rotation": 1,
+        "player_start": 24,
+        "pose_pointer": 1761,
+        "pose_length": 0,
+        "packet": 21504,
+        "packet_length": 84,
+        "r4_7": [
+          0,
+          4,
+          32,
+          79
+        ]
+      },
+      {
+        "name": "draw_entry",
+        "frame": 693,
+        "epoch": 46,
+        "oam_offset": 0,
+        "rotation": 236,
+        "guest_rotation": 1,
+        "player_start": 24,
+        "pose_pointer": 1761,
+        "pose_length": 0,
+        "packet": 21504,
+        "packet_length": 84,
+        "r4_7": [
+          0,
+          4,
+          32,
+          79
+        ]
+      },
+      {
+        "name": "body_entry",
+        "frame": 693,
+        "epoch": 46,
+        "oam_offset": 0,
+        "rotation": 236,
+        "guest_rotation": 1,
+        "player_start": 24,
+        "pose_pointer": 1761,
+        "pose_length": 0,
+        "packet": 21504,
+        "packet_length": 84,
+        "r4_7": [
+          0,
+          4,
+          32,
+          79
+        ]
+      },
+      {
+        "name": "emit_entry",
+        "frame": 693,
+        "epoch": 46,
+        "oam_offset": 0,
+        "rotation": 236,
+        "guest_rotation": 1,
+        "player_start": 24,
+        "pose_pointer": 1761,
+        "pose_length": 0,
+        "packet": 54111,
+        "packet_length": 29,
+        "r4_7": [
+          32,
+          0,
+          176,
+          1
+        ]
+      },
+      {
+        "name": "native_render",
+        "frame": 693,
+        "epoch": 46,
+        "oam_offset": 0,
+        "rotation": 236,
+        "guest_rotation": 1,
+        "player_start": 24,
+        "pose_pointer": 1761,
+        "pose_length": 0,
+        "packet": 51328,
+        "packet_length": 24,
+        "r4_7": [
+          32,
+          0,
+          176,
+          1
+        ]
+      },
+      {
+        "name": "reservation",
+        "frame": 693,
+        "epoch": 46,
+        "oam_offset": 24,
+        "rotation": 236,
+        "guest_rotation": 1,
+        "player_start": 24,
+        "pose_pointer": 1761,
+        "pose_length": 0,
+        "packet": 21504,
+        "packet_length": 84,
+        "r4_7": [
+          0,
+          4,
+          32,
+          79
+        ]
+      },
+      {
+        "name": "draw_entry",
+        "frame": 696,
+        "epoch": 48,
+        "oam_offset": 0,
+        "rotation": 0,
+        "guest_rotation": 1,
+        "player_start": 24,
+        "pose_pointer": 1761,
+        "pose_length": 0,
+        "packet": 21504,
+        "packet_length": 84,
+        "r4_7": [
+          0,
+          4,
+          32,
+          79
+        ]
+      },
+      {
+        "name": "body_entry",
+        "frame": 696,
+        "epoch": 48,
+        "oam_offset": 0,
+        "rotation": 0,
+        "guest_rotation": 1,
+        "player_start": 24,
+        "pose_pointer": 1761,
+        "pose_length": 0,
+        "packet": 21504,
+        "packet_length": 84,
+        "r4_7": [
+          0,
+          4,
+          32,
+          79
+        ]
+      },
+      {
+        "name": "emit_entry",
+        "frame": 696,
+        "epoch": 48,
+        "oam_offset": 0,
+        "rotation": 0,
+        "guest_rotation": 1,
+        "player_start": 24,
+        "pose_pointer": 1761,
+        "pose_length": 0,
+        "packet": 54111,
+        "packet_length": 29,
+        "r4_7": [
+          32,
+          0,
+          176,
+          1
+        ]
+      },
+      {
+        "name": "native_render",
+        "frame": 696,
+        "epoch": 48,
+        "oam_offset": 0,
+        "rotation": 0,
+        "guest_rotation": 1,
+        "player_start": 24,
+        "pose_pointer": 1761,
+        "pose_length": 0,
+        "packet": 51328,
+        "packet_length": 24,
+        "r4_7": [
+          32,
+          0,
+          176,
+          1
+        ]
+      },
+      {
+        "name": "reservation",
+        "frame": 696,
+        "epoch": 48,
+        "oam_offset": 24,
+        "rotation": 0,
+        "guest_rotation": 1,
+        "player_start": 24,
+        "pose_pointer": 1761,
+        "pose_length": 0,
+        "packet": 21504,
+        "packet_length": 84,
+        "r4_7": [
+          0,
+          4,
+          32,
+          79
+        ]
+      }
+    ]
+  },
+  "DMA_samples": {
+    "counts": {
+      "draw": 74,
+      "graphics": 221,
+      "colors": 0
+    },
+    "samples": [
+      {
+        "frame": 692,
+        "phase": "idle",
+        "native_x": 40,
+        "native_y": 176,
+        "native_rel_x": 40,
+        "native_rel_y": 176,
+        "ObjectMetasprite": 0,
+        "SmPosePtr": 1761,
+        "pointer_logical_byte": 0,
+        "pointer_physical_C2_byte": 0,
+        "raw_A": 128,
+        "raw_C": 95,
+        "C2_header": "a7232adc6108a496b540c01aae27f9bd",
+        "C3_header": "a7232adc6108a496b540c01aae27f9bd",
+        "source_x": 32,
+        "source_y": 176,
+        "source_active": 128,
+        "source_pose": 7,
+        "source_frame": 2,
+        "CHR": [
+          499,
+          532,
+          533,
+          534,
+          19,
+          495,
+          21,
+          21,
+          0,
+          1,
+          2,
+          3
+        ],
+        "visible_OAM": [
+          [
+            192,
+            28,
+            0,
+            44
+          ],
+          [
+            192,
+            30,
+            0,
+            52
+          ],
+          [
+            176,
+            123,
+            0,
+            36
+          ],
+          [
+            176,
+            24,
+            0,
+            44
+          ],
+          [
+            176,
+            127,
+            0,
+            52
+          ],
+          [
+            192,
+            26,
+            0,
+            36
+          ]
+        ]
+      },
+      {
+        "frame": 779,
+        "phase": "idle",
+        "native_x": 40,
+        "native_y": 176,
+        "native_rel_x": 40,
+        "native_rel_y": 176,
+        "ObjectMetasprite": 0,
+        "SmPosePtr": 1761,
+        "pointer_logical_byte": 0,
+        "pointer_physical_C2_byte": 0,
+        "raw_A": 128,
+        "raw_C": 95,
+        "C2_header": "a7232adc6108a496b540c01aae27f9bd",
+        "C3_header": "a7232adc6108a496b540c01aae27f9bd",
+        "source_x": 32,
+        "source_y": 176,
+        "source_active": 128,
+        "source_pose": 7,
+        "source_frame": 2,
+        "CHR": [
+          499,
+          532,
+          533,
+          534,
+          19,
+          495,
+          21,
+          21,
+          0,
+          1,
+          2,
+          3
+        ],
+        "visible_OAM": [
+          [
+            192,
+            26,
+            0,
+            36
+          ],
+          [
+            192,
+            28,
+            0,
+            44
+          ],
+          [
+            192,
+            30,
+            0,
+            52
+          ],
+          [
+            176,
+            123,
+            0,
+            36
+          ],
+          [
+            176,
+            24,
+            0,
+            44
+          ],
+          [
+            176,
+            127,
+            0,
+            52
+          ]
+        ]
+      },
+      {
+        "frame": 899,
+        "phase": "walk",
+        "native_x": 65,
+        "native_y": 176,
+        "native_rel_x": 65,
+        "native_rel_y": 176,
+        "ObjectMetasprite": 0,
+        "SmPosePtr": 1761,
+        "pointer_logical_byte": 0,
+        "pointer_physical_C2_byte": 0,
+        "raw_A": 128,
+        "raw_C": 95,
+        "C2_header": "a7232adc6108a496b540c01aae27f9bd",
+        "C3_header": "a7232adc6108a496b540c01aae27f9bd",
+        "source_x": 57,
+        "source_y": 176,
+        "source_active": 128,
+        "source_pose": 0,
+        "source_frame": 4,
+        "CHR": [
+          495,
+          532,
+          533,
+          534,
+          19,
+          495,
+          21,
+          21,
+          0,
+          1,
+          2,
+          3
+        ],
+        "visible_OAM": [
+          [
+            176,
+            26,
+            0,
+            68
+          ],
+          [
+            176,
+            28,
+            0,
+            76
+          ],
+          [
+            192,
+            36,
+            0,
+            60
+          ],
+          [
+            192,
+            38,
+            0,
+            68
+          ],
+          [
+            192,
+            40,
+            0,
+            76
+          ],
+          [
+            176,
+            24,
+            0,
+            60
+          ]
+        ]
+      }
+    ]
+  },
+  "helpers_added": false,
+  "remaining": "Metal Storm palette, HUD name, original audio, gravity escape/upgrade/modes and shortcut checks remain open. This is not all-character or zero-lag qualification."
+}

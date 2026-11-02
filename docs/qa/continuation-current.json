@@ -68,25 +68,63 @@
   },
   "installed_nightly": {
     "installed": true,
-    "ROM_sha256": "cf1412eb78ed6531d2f7478c9790f96314a95f2f3fdd6c2b80bfbefd24fca3a8",
-    "previous_sha256": "d8a87050beefefe96869ebd4d188beeb52733241cd2c0fa64392a55ec8ebca05",
+    "ROM_sha256": "1cd8e192ee4bee33dfe0d9c737bec097e1cf2339e0b9f77353fd5194f2530f55",
+    "previous_sha256": "cf1412eb78ed6531d2f7478c9790f96314a95f2f3fdd6c2b80bfbefd24fca3a8",
     "destination": "C:\\Users\\kando\\Downloads\\SMB-Crossover-Latest-WIP-MMC5.nes",
-    "candidate": "build/excitebike-pose-1101-v3/current4.nes",
+    "candidate": "build\\metal-reservation-1102-v42\\candidate.nes",
     "backup_created": false,
     "downloads_launch_verified": true,
-    "patch_guard": {
+    "before": {
       "passed": true,
       "ROM": "C:\\Users\\kando\\Downloads\\SMB-Crossover-Latest-WIP-MMC5.nes",
       "ROM_sha256": "cf1412eb78ed6531d2f7478c9790f96314a95f2f3fdd6c2b80bfbefd24fca3a8",
       "matching_patch_files": []
     },
-    "native_scope": "Excitebike original timer divider, cooling, lane and throttle release restored. Controls, native 61px jump, graphics and real overheat recovery pass on this exact candidate. Actual Downloads repeats the earned overheat \u2192 recovery 5 \u2192 0 \u2192 resumed motion, lives 2 \u2192 2. Full 1-1 reaches active 1-2 in 6996 physical frames, all four pipes and three gaps, lives 2 \u2192 2, no helpers. Arthur weapon fix bytes are retained; its full-stage proof remains attached to parent d8a87050.",
+    "after": {
+      "passed": true,
+      "ROM": "C:\\Users\\kando\\Downloads\\SMB-Crossover-Latest-WIP-MMC5.nes",
+      "ROM_sha256": "1cd8e192ee4bee33dfe0d9c737bec097e1cf2339e0b9f77353fd5194f2530f55",
+      "matching_patch_files": []
+    },
+    "native_scope": "Stable zero header and aligned OAM rotation pass; full1-1 reaches active1-2 in5587physicalframes, lives2to2, genuine native defeat. Idle120/180 and walk27/40 updates unchanged; palette/HUD/audio remain open.",
+    "helpers_added": false,
     "complete": false,
-    "character_selection": "Excitebike row4,column6; Arthur row4,column8. Reopen ROM and start fresh.",
-    "helpers_added": false
+    "downloads_verification": {
+      "passed": true,
+      "reason": "measured",
+      "character": "METAL STORM",
+      "controller_only": true,
+      "frames": 910,
+      "initial_lives": 2,
+      "final_lives": 2,
+      "selected": 35,
+      "measurements": [
+        {
+          "phase": "idle",
+          "physical_frames": 180,
+          "main_updates": 120,
+          "updates_per_frame": 0.666667,
+          "first_x": 40,
+          "last_x": 40,
+          "max_visible_enemies": 0,
+          "max_active_slots": 0
+        },
+        {
+          "phase": "walk",
+          "physical_frames": 40,
+          "main_updates": 27,
+          "updates_per_frame": 0.675,
+          "first_x": 40,
+          "last_x": 77,
+          "max_visible_enemies": 0,
+          "max_active_slots": 0
+        }
+      ],
+      "full_stage": false
+    }
   },
   "roster_integration_followup": {
-    "installed_ROM_sha256": "cf1412eb78ed6531d2f7478c9790f96314a95f2f3fdd6c2b80bfbefd24fca3a8",
+    "installed_ROM_sha256": "1cd8e192ee4bee33dfe0d9c737bec097e1cf2339e0b9f77353fd5194f2530f55",
     "goal_status": "ACTIVE_INCOMPLETE",
     "helpers_model": "gpt-6.1-sol",
     "helpers_reasoning": "xhigh",
@@ -112,11 +150,11 @@
       "verified": "Cold Hard selection, moving close-enemy inhale/spit and green/red grounded shell powers pass. HP6 retained, zero injuries, native defeats observed. Three screenshots inspected. Disclosed flat terrain/NPC setup; notfull1-1.",
       "test_repair": "GameLoop observer now returns after done, preventing finalization nil task error; gameplay assertions retained."
     },
-    "next": "Continue Prince, Bub/Bob and the other absent identities. Complete every-character 1-1 and every-powerup testing; source-only components and menu admission do not establish native playability. Preserve the installed cf1412eb nightly.",
+    "next": "Continue native Bub/Bob/Prince and absent identities; all-character1-1, every-powerup and severe idle/walk lag remain unfinished. Preserve Metal1cd8 and current Ex/Arthur fixes.",
     "active_helpers": {
-      "arthur_sol61": "Prince original actor/script/control/renderer recovery.",
-      "excitebike_sol61": "Donkey Kong Jr. original actor and art recovery.",
-      "shinobi_sol61": "Bub/Bob original Bubble Bobble actor/bubble/trap/pop recovery."
+      "arthur_sol61": "Prince source ledge-catching and actual host callbacks/codec fit.",
+      "excitebike_sol61": "Bub/Bob real frontend, selector/Start/retained palette closure.",
+      "shinobi_sol61": "Bub/Bob shared owner loader and actual native service/contact integration."
     },
     "menu_audit": {
       "receipt": "build/playable-menu-1102-v5/inventory.json",
@@ -2400,9 +2438,9 @@
       "sha256": "48bfa9768dcaaa0c7000f886faad967a59ee50d387b5b512417fbb60750032b9"
     }
   },
-  "current_owning_candidate": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\mario-tank-visible-host-1101-v5\\candidate.nes",
-  "current_owning_build_recipe": "tools/audit/prepare_mario_tank_candidate_1101_v5.py",
-  "source_override_required": "Compose the current58 Karnov/Kirby baseline with prepare_mario_tank_visible_1101_v5.py, prepare_mario_tank_graft_1101_v5.py and prepare_mario_tank_candidate_1101_v5.py. All formal grants/preimages must pass. Do not replace with an older kernel.",
+  "current_owning_candidate": "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\metal-reservation-1102-v42\\candidate.nes",
+  "current_owning_build_recipe": "tools/audit/prepare_metal_reservation_1102_v42.py",
+  "source_override_required": "Latest installed1cd8 is a verified successor tocf1412. Use the exact private recipe/frozen inputs and current parent; never replace it with an older canonical kernel. Bub/Prince rebase: docs/qa/allocations/roster-rebase-1102-v3.json.",
   "cleanup_rejection": {
     "action": "Delete Mario the Tank host.o and host.dbg temporary outputs",
     "reason": "Automatic approval review blocked deletion under policy",
@@ -2510,9 +2548,28 @@
     "resident_loader_granted": false,
     "menu_admitted": false,
     "native_playable": false,
-    "private_code_used_bytes": 8155,
-    "remaining": "Private whole-update/camera model passes. Actual host entry, per-owner enemy AI/contact admission, common cold loader/authentication/retirement and new base menu slot remain incomplete.",
-    "rebase": "docs/qa/allocations/bubble-bobble-rebase-1102-v2.json"
+    "private_code_used_bytes": 8158,
+    "remaining": "Nine private rows and common nine-row copy/auth/retirement CPU proofs are frozen oncf, with explicit1cd8 rebase. Actual Hu/Main routing, enemy AI/contact/birth seams, native Bub/Bob play and full1-1 remain gated. Cold menu static art/codec lease still pending.",
+    "rebase": "docs/qa/allocations/bubble-bobble-rebase-1102-v2.json",
+    "resident_storage_grant": "docs/qa/allocations/common-cold-1102-v1.json",
+    "helper_row_grant": "docs/qa/allocations/bubble-helper-row-1102-v2.json",
+    "frontend_grant": "docs/qa/allocations/bub-menu-1102-v1.json",
+    "frontend_flags_grant": "docs/qa/allocations/bub-menu-flags-1102-v2.json",
+    "latest_rebase": "docs\\qa\\allocations\\roster-rebase-1102-v3.json",
+    "private_native_checkpoint": "docs\\qa\\checkpoints\\2026-11-02\\bubble-native-core-v2",
+    "immutable_helper_tail_used_bytes": 207,
+    "shared_nine_row_worker_bytes": 229,
+    "private_implemented_rows": [
+      0,
+      1,
+      2,
+      15,
+      17,
+      18,
+      26,
+      30,
+      36
+    ]
   },
   "Prince_resource_followup": {
     "allocation": "docs/qa/allocations/prince-1102-v1.json",
@@ -2524,6 +2581,42 @@
     "resident_loader_granted": false,
     "menu_admitted": false,
     "native_playable": false,
-    "remaining": "Original core has 20 explicit environment callbacks. Bind actual host services, source-fund shared cold loader/routing and qualify controls, art, contacts and full 1-1."
+    "remaining": "Original core has 20 explicit environment callbacks. Bind actual host services, source-fund shared cold loader/routing and qualify controls, art, contacts and full 1-1.",
+    "latest_rebase": "docs\\qa\\allocations\\roster-rebase-1102-v3.json"
+  },
+  "DKJr_source_followup": {
+    "source_checkpoint": "docs\\qa\\checkpoints\\2026-11-02\\dkjr-source-core-v1",
+    "status": "ORIGINAL_SOURCE_COMPONENT_ONLY",
+    "code_bytes": 4853,
+    "state_bytes": 2048,
+    "CHR_bytes": 1728,
+    "CPU_cases": 11326,
+    "original_jump_rise": 15,
+    "native_playable": false,
+    "helper_placed": false,
+    "remaining": "Actual host terrain/vine/fruit/defeat/ISR and resource integration; native 1-1 with verified helpers if needed."
+  },
+  "empty_screen_performance_followup": {
+    "note": "docs/qa/empty-screen-lag-1102-v1.md",
+    "receipt": "docs\\qa\\checkpoints\\2026-11-02\\empty-screen-lag-v1\\receipt.json",
+    "ROM_SHA256": "cf1412eb78ed6531d2f7478c9790f96314a95f2f3fdd6c2b80bfbefd24fca3a8",
+    "measured_identities": 9,
+    "full_stage": false,
+    "no_lag_completion": false,
+    "next": "Profile heavy idle integrations and inspect Metal Storm actual OAM/CHR/HUD placement."
+  },
+  "Metal_reservation_followup": {
+    "installed": true,
+    "ROM_SHA256": "1cd8e192ee4bee33dfe0d9c737bec097e1cf2339e0b9f77353fd5194f2530f55",
+    "source_checkpoint": "docs\\qa\\checkpoints\\2026-11-02\\metal-reservation-v42",
+    "note": "docs/qa/metal-reservation-1102-v42.md",
+    "full11": true,
+    "full11_frames": 5587,
+    "initial_lives": 2,
+    "final_lives": 2,
+    "helpers_added": false,
+    "actual_Downloads_launch_verified": true,
+    "original_audio_or_all_powerups": false,
+    "remaining": "Palette/HUD/audio and complete abilities/modes/shortcut remain open; idle cadence unchanged."
   }
 }

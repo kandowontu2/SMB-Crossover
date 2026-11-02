@@ -4,7 +4,7 @@ The functional roster pass is not complete. This inventory separates source
 placements from actual route verification; it is not the final all-character list.
 
 Inventory fixture SHA256: `128915e97e78891a585aa8f9fd904c166ca64dcd6dd1ee395fc68fd505c1e72c`.
-Current nightly SHA256: `cf1412eb78ed6531d2f7478c9790f96314a95f2f3fdd6c2b80bfbefd24fca3a8`.
+Current nightly SHA256: `1cd8e192ee4bee33dfe0d9c737bec097e1cf2339e0b9f77353fd5194f2530f55`.
 The placements below are unchanged; the original admission fixture belongs to its stated earlier hash.
 `tools/audit/inventory_named_helpers_1101_v2.py` verified identical installed and
 candidate bytes, read all 34 compiled shared records and executed `HpConfigure`
@@ -25,7 +25,7 @@ at X=448,608,736,912. Goku/Karnov's two placements assist the latter two pipes.
 Machine-readable current output: `build/helper-named-inventory-1101-v2/inventory.json`.
 Metal Storm now has a controller-only full non-shortcut1-1 clear on this ROM,
 including the transition to active1-2, without added or shared helper platforms.
-See `docs/qa/metal-storm-route-1101.md`. Its powerup/mode checks remain unfinished.
+The November2 successor repeats the full route in5587frames, lives2→2, with repaired sprite reservation. See `docs/qa/metal-reservation-1102-v42.md`. Powerup/mode checks remain unfinished.
 
 The shared width field counts 8-pixel tiles. `HpProjectPosition` subtracts
 `Width * 4` from the center: shared width 2 therefore means a 16-pixel platform,

@@ -1,0 +1,55 @@
+{
+  "granted": true,
+  "owner": "Bub/Bob character-select integration",
+  "date": "2026-11-02",
+  "base_ROM_SHA256": "cf1412eb78ed6531d2f7478c9790f96314a95f2f3fdd6c2b80bfbefd24fca3a8",
+  "front_end_PRG": {
+    "bank": 66,
+    "CPU_half_open": [
+      44345,
+      44411
+    ],
+    "bytes": 66,
+    "file_offset": 544073,
+    "preimage_SHA256": "eb1cbdd7edd1c0b7e7ceb59fe49e5e75fd8b647cfbddbdc3e4b4644b1506e3df",
+    "source_funding": "Unconditional expanded QueueCursor tail thunk makes the following 42B fallback and both 12B local tables unreachable."
+  },
+  "navigation": {
+    "bank": 124,
+    "CPU_half_open": [
+      40960,
+      41184
+    ],
+    "bytes": 224,
+    "replacement_scope": "Six 33-entry tables plus computed cursor high byte; update the seven exact actual reader operands.",
+    "proposal_SHA256": "c55f98efc0e1a30ec79524b92f53eec743b51c581c3c7df7d52de99cc340bc63",
+    "used_bytes": 214,
+    "spare_bytes": 10
+  },
+  "selector_reservation": {
+    "address": 24552,
+    "alias": "FmGroups",
+    "bit": 7,
+    "additional_RAM_bytes": 0,
+    "condition": "Prove actual WWF/ContraForce/menu readers and preserve bit7 across other family toggles before enabling. CF AND31\u2192AND159 is proposed, not already installed."
+  },
+  "conditions": [
+    "Preserve QueueCursor public 18B tail thunk and QueueTitleCursor at AD7B.",
+    "Retired CursorLow/High labels are no longer data APIs and must never receive a new reader.",
+    "Do not move existing navigation-tail code at A0E0 or enlarge the 224B allocation.",
+    "Old native family names, palettes, selection retention and simultaneous Select+confirm must retain behavior.",
+    "One new position at leftX32, topY160; center preview remains separate. Rendering must pass before delivery.",
+    "Actual raw39 backend, owner-specific enemy admission and native controls must work before allowing gameplay confirmation."
+  ],
+  "raw39_reserved": true,
+  "menu_admitted": false,
+  "native_playable": false,
+  "host_ROM_changed": false,
+  "bindings": {
+    "tools\\audit\\grant_bub_menu_storage_1102_v1.py": "d2745c1bd183d92d25c88ebc81fe9119be33b70b3fbb4de2059286464401e432",
+    "build\\excitebike-pose-1101-v3\\current4.nes": "cf1412eb78ed6531d2f7478c9790f96314a95f2f3fdd6c2b80bfbefd24fca3a8",
+    "src\\character_select.s": "405bc5250be8dee5133460d961af489babbb505bff6deb3032d7af1ac42e8a42",
+    "src\\new_roster_dispatch.s": "6c2c413607f44bc563eb9e15d7f1816f13df35d373a3cf145e2e0e4c65a16156",
+    "build\\bub-menu-navigation-1102-v1\\proposal.json": "c55f98efc0e1a30ec79524b92f53eec743b51c581c3c7df7d52de99cc340bc63"
+  }
+}

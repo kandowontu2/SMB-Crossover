@@ -1,0 +1,108 @@
+{
+  "passed": true,
+  "ROM_SHA256": "cf1412eb78ed6531d2f7478c9790f96314a95f2f3fdd6c2b80bfbefd24fca3a8",
+  "proposal_only": true,
+  "resource_granted": false,
+  "source_declared_padding_only": true,
+  "all_nine_legal_track_state_machines_closed": true,
+  "actual_source_code_and_data_reads_never_enter_pad": true,
+  "rows": [
+    {
+      "song": 1,
+      "original_updates_to_closed_state": 4034,
+      "loop_start": 4033,
+      "period": 1,
+      "actual_source_bank_reads": 2263065,
+      "CPU": 3396721,
+      "minimum_SP": 212,
+      "ordered_source_state_SHA256": "1dc6ac520517c85c46594b96b56f7e62c6deac988f0e5f60e31002dee2d6d8a9"
+    },
+    {
+      "song": 2,
+      "original_updates_to_closed_state": 478,
+      "loop_start": 477,
+      "period": 1,
+      "actual_source_bank_reads": 265561,
+      "CPU": 401109,
+      "minimum_SP": 212,
+      "ordered_source_state_SHA256": "eb9b7bdf02241259bf853e44a29f7c054e748cf7bcccb754a79637b9b84f483a"
+    },
+    {
+      "song": 4,
+      "original_updates_to_closed_state": 578,
+      "loop_start": 577,
+      "period": 1,
+      "actual_source_bank_reads": 308899,
+      "CPU": 460481,
+      "minimum_SP": 212,
+      "ordered_source_state_SHA256": "a6a9554015c94780a7609593e2d362c0211dbfb131512ae0a583a867f71f8477"
+    },
+    {
+      "song": 6,
+      "original_updates_to_closed_state": 266,
+      "loop_start": 265,
+      "period": 1,
+      "actual_source_bank_reads": 140310,
+      "CPU": 212169,
+      "minimum_SP": 212,
+      "ordered_source_state_SHA256": "e10f9d57af8d2e8a48912cbf8fb8fb462c051132156a2470dc84209dd00c0fc8"
+    },
+    {
+      "song": 7,
+      "original_updates_to_closed_state": 290,
+      "loop_start": 289,
+      "period": 1,
+      "actual_source_bank_reads": 151353,
+      "CPU": 229375,
+      "minimum_SP": 212,
+      "ordered_source_state_SHA256": "2f717cf1a1124f01cf2d3b805bfb9d5823a9ffe0c99ac8fe85a4238d835a9307"
+    },
+    {
+      "song": 9,
+      "original_updates_to_closed_state": 642,
+      "loop_start": 641,
+      "period": 1,
+      "actual_source_bank_reads": 362414,
+      "CPU": 538229,
+      "minimum_SP": 212,
+      "ordered_source_state_SHA256": "5e416505cf7dec42826289f8cda6c20e71676870418b21f139a57e87cb34f38e"
+    },
+    {
+      "song": 20,
+      "original_updates_to_closed_state": 6401,
+      "loop_start": 1,
+      "period": 6400,
+      "actual_source_bank_reads": 3490822,
+      "CPU": 5233376,
+      "minimum_SP": 212,
+      "ordered_source_state_SHA256": "1600fda36eaf3e96445d328b3a62d92bf516a42f08abedd0bb5d883e2f6ad2ab"
+    },
+    {
+      "song": 22,
+      "original_updates_to_closed_state": 1281,
+      "loop_start": 1,
+      "period": 1280,
+      "actual_source_bank_reads": 668747,
+      "CPU": 1013163,
+      "minimum_SP": 212,
+      "ordered_source_state_SHA256": "44bf48df18fa35966f9ad080de50923fd556607ad65dc9154d00656dab1ff30e"
+    },
+    {
+      "song": 23,
+      "original_updates_to_closed_state": 124161,
+      "loop_start": 1,
+      "period": 124160,
+      "actual_source_bank_reads": 58205459,
+      "CPU": 89203951,
+      "minimum_SP": 212,
+      "ordered_source_state_SHA256": "cf2331576e21a58c07172f48bad01d21855e4ac52f43a0a40faddd6425125da0"
+    }
+  ],
+  "scope": "All nine source tracks from their genuine initialization until exact source control-state repetition, executing actual current bank123 source instructions and real APU-store children. No arbitrary corrupted-source pointers, raster or native audio waveform claim. Mixed request/restart/retirement call closure still requires source review.",
+  "bindings": {
+    "tools\\audit\\check_prince_mac_padding_consumers_1102_v1.py": "c5a8b9cb27bb906dbc394e20507f64096dfed96408ac38828d22f80419bbe748",
+    "build\\excitebike-pose-1101-v3\\current4.nes": "cf1412eb78ed6531d2f7478c9790f96314a95f2f3fdd6c2b80bfbefd24fca3a8",
+    "src\\mac_native_music.s": "c6ce901ff7ebbe25c933208ba428eb87c1a05b4e8eb18a8bc13e36df724d0117",
+    "build\\prince-actor-1101-v1\\resident-padding-proposal.json": "9e99a7f04ba1238a938bcec4f334e06fbe2b19db799849775114f688c932feec"
+  }
+}

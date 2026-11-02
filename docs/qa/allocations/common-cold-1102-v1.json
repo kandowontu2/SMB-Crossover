@@ -1,0 +1,62 @@
+{
+  "granted": true,
+  "owner": "Shared authenticated cold owner manager",
+  "date": "2026-11-02",
+  "base_ROM_SHA256": "cf1412eb78ed6531d2f7478c9790f96314a95f2f3fdd6c2b80bfbefd24fca3a8",
+  "resident_PRG_spans": [
+    {
+      "physical_PRG_bank": 123,
+      "CPU_half_open": [
+        44864,
+        45056
+      ],
+      "bytes": 192,
+      "file_offset": 1011536,
+      "preimage_SHA256": "8f62c344eff1568474fb693b8c18526629db443b9653a84264189c97693605de",
+      "source_res_directive": ".res $1000-(*-LmNativeBankStart),$ff"
+    },
+    {
+      "physical_PRG_bank": 123,
+      "CPU_half_open": [
+        47574,
+        47616
+      ],
+      "bytes": 42,
+      "file_offset": 1014246,
+      "preimage_SHA256": "c56c6f48c42bdcd4a531035fbe04f0faf303fdcf1e69ca5e20e5335a7d7935d3",
+      "source_res_directive": ".res $200-(*-LmNativeMusicUpdate),$ff"
+    },
+    {
+      "physical_PRG_bank": 123,
+      "CPU_half_open": [
+        49043,
+        49056
+      ],
+      "bytes": 13,
+      "file_offset": 1015715,
+      "preimage_SHA256": "3ca1cd3246b94888a50aeadf92d5605bd242d2060e8e86dccbdcdfc0f886fb1e",
+      "source_res_directive": ".res $1fa0-(*-LmNativeBankStart),$ff"
+    }
+  ],
+  "source_consumer_closure": "Nine exact source track cycles plus actual queue, restart, pause, title, retirement and DMC ingress.",
+  "conditions": [
+    "One common allocation shared by Excitebike/Bub/Bob and later measured owners, never multiple competing writes.",
+    "Preserve every original Mac audio instruction and data byte outside the three source-declared pads.",
+    "Shared worker support must be measured per payload format. Full-page copy support does not imply support for Prince packed/compressed streams.",
+    "Existing Ex resident code may be factored only with its complete ABI, headers, SMC/map/PPU restoration and foreign retirement validated on the current cf parent.",
+    "Authenticate complete two-bank owner headers and retire genuine trapped actors before invalidation or overwrite.",
+    "Current raw37 cookie must bind the cf recovery payload, never a stale parent cookie.",
+    "Shared routing, menu admission and additional RAM are not granted by this storage reservation."
+  ],
+  "shared_router_granted": false,
+  "additional_RAM_granted": false,
+  "raw39_reserved": true,
+  "menu_admitted": false,
+  "native_playable": false,
+  "host_ROM_changed": false,
+  "evidence": {
+    "resident-padding-proposal.json": "9e99a7f04ba1238a938bcec4f334e06fbe2b19db799849775114f688c932feec",
+    "resident-pad-consumers-v2.json": "c5cc6220fff2cba12364d0679dfd36fa70d54e0c78ee70479dfdad9c04541723",
+    "resident-pad-ingress-v2.json": "1eb51d9ccb16224baa9f0245c5cbcd12729f92e846b9b5d7b08161cfb513a226"
+  }
+}

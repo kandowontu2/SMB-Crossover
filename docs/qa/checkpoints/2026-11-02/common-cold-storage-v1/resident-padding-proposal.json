@@ -1,0 +1,58 @@
+{
+  "passed": true,
+  "proposal_only": true,
+  "resource_granted": false,
+  "ROM_SHA256": "d8a87050beefefe96869ebd4d188beeb52733241cd2c0fa64392a55ec8ebca05",
+  "whole_source_bank_exact": {
+    "bank": 123,
+    "bytes": 8192,
+    "sha256": "e8c3714178b89fc5b933da096a71f4798cce42f7aae966e1eab2c48b4062cb51"
+  },
+  "declared_pads": [
+    {
+      "physical_PRG_bank": 123,
+      "CPU_half_open": [
+        44864,
+        45056
+      ],
+      "bytes": 192,
+      "source_res_directive": ".res $1000-(*-LmNativeBankStart),$ff",
+      "preimage_SHA256": "8f62c344eff1568474fb693b8c18526629db443b9653a84264189c97693605de",
+      "interior_symbols": []
+    },
+    {
+      "physical_PRG_bank": 123,
+      "CPU_half_open": [
+        47574,
+        47616
+      ],
+      "bytes": 42,
+      "source_res_directive": ".res $200-(*-LmNativeMusicUpdate),$ff",
+      "preimage_SHA256": "c56c6f48c42bdcd4a531035fbe04f0faf303fdcf1e69ca5e20e5335a7d7935d3",
+      "interior_symbols": []
+    },
+    {
+      "physical_PRG_bank": 123,
+      "CPU_half_open": [
+        49043,
+        49056
+      ],
+      "bytes": 13,
+      "source_res_directive": ".res $1fa0-(*-LmNativeBankStart),$ff",
+      "preimage_SHA256": "3ca1cd3246b94888a50aeadf92d5605bd242d2060e8e86dccbdcdfc0f886fb1e",
+      "interior_symbols": []
+    }
+  ],
+  "total_bytes": 247,
+  "consumer_closure_complete": false,
+  "remaining": [
+    "Close source audio indexed reads and all indirect playback paths before granting source-declared padding.",
+    "No loader/router has been assembled into these spans; split spans and exact fit remain unproven.",
+    "No Prince owner is added to Excitebike shared dispatch."
+  ],
+  "bindings": {
+    "tools\\audit\\audit_prince_resident_padding_1102_v1.py": "be6eed6edf3507ab922c54a562fe4c7d24a4f8cba8b2522c5850017438952a42",
+    "build\\arthur-side-clamp-1101-v8\\weapon-tail-candidate.nes": "d8a87050beefefe96869ebd4d188beeb52733241cd2c0fa64392a55ec8ebca05",
+    "src\\mac_native_music.s": "c6ce901ff7ebbe25c933208ba428eb87c1a05b4e8eb18a8bc13e36df724d0117"
+  }
+}
