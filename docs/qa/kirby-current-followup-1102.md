@@ -66,3 +66,12 @@ PNGs and reached minimum stack pointer 180. Together the two batches exercise
 all 14 copied families in Hard mode. The controlled-scene and effect-aligned
 target limitations above still apply; this is not a natural full-level combat
 claim. The separate basic-move/healing test is underway.
+
+The basic-move/healing test subsequently passed (Mesen exit 0), recorded in
+`build/kirby-basics-1102-v6/native/capture/result.json`: spit star, inflation
+and air puff, and Down+A slide each defeated a target without injury. Four
+deliberate enemy contacts each removed one HP. Mushroom and flower each healed
+two HP through the real pickup handler, with the six-HP clamp checked. Health
+was never seeded. This run used 1,069 updates / 1,488 physical frames, one PNG
+and minimum stack pointer 180. Items were staged mature; block emergence is
+not covered. Root also viewed the high-copy cloud-hover screenshot.
