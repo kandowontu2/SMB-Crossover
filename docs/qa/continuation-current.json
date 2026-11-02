@@ -2785,11 +2785,28 @@
     "files": 54,
     "scope": "Controller-only active1-2/no death or life change; original crouch fire and native pipe lifts. Neither all-powerup nor both-mode qualification."
   },
+  "Sonic_reference_current": {
+    "platform": "Sega Master System",
+    "archive": "C:/Users/kando/Downloads/Sonic The Hedgehog (USA Europe Brazil) (En).zip",
+    "archive_SHA256": "fc65d9e81d82a2a157fb0be11863baaa867822d8eaa9d61ed73782e8c46397fc",
+    "member": "Sonic The Hedgehog (USA, Europe, Brazil) (En).sms",
+    "ROM_bytes": 262144,
+    "ROM_SHA256": "6ad738965ece231427ee046b9905cfee470d5c01220afdd934da4673e4a2458b",
+    "scope": "User updated goal reference; supersedes earlier Genesis Sonic3 preference. Archive inspected read-only in memory; no extraction or port qualification."
+  },
+  "Bub_v9_native_current": {
+    "ROM_SHA256": "613b3300b09e530ec920835b95df53f3115d865ed854e273809d4cafa52407ce",
+    "installed": false,
+    "evidence": "docs/qa/checkpoints/2026-11-02/bub-native-v9/receipt.json",
+    "passed": "Actual Bub/Bob cold selection and controls; Bub trap/pop, Easy stomp and original earned bubble ride80px with supported landing/lives unchanged.",
+    "Bob_ride": "Also PASS: build/bub-menu-candidate-1102-v2/native-event-bob-ride/capture; same80px original support/landing assertions. This follow-up is not yet in the compact checkpoint.",
+    "remaining": "Ceiling stress, full1-1 and powerup review; measured idle/walk approximately half-rate. No full-roster or native fullstage claim."
+  },
   "Thomas_full11_followup_1102": {
     "ROM_sha256": "f5c30ceaa36894f3e814ef277081ecd9cf434a934c0f7b3f514c2291be0e1cfc",
     "status": "FOUR_PIPES_CLEARED_FULL_ROUTE_STALLED",
-    "path": "build/bub-menu-candidate-1102-v2/native-thomas-software-status/capture",
-    "finding": "Observer corrected using actual software RTI path and six real C/Z/I/D/V/N flags (Mesen excludes stack-only bits4/5). Unchanged f5 ROM crosses all four assisted pipes at Main753/1214/1594/2080, reaches X2129 with12 native defeats, then stalls until240s host timeout. Fullstage controller obstacle probe may miss a16px stair; source/terrain diagnosis next. No full1-1 pass or gameplay defect claimed.",
+    "path": "build/bub-menu-candidate-1102-v2/native-thomas-step-probe/capture",
+    "finding": "Observer corrected using actual software RTI path and six real C/Z/I/D/V/N flags. Unchanged f5 crosses all4 assisted pipes. Actual tile evidence confirms body-foot obstacle probe fixes formerX2129 stair stall; source Up jumps climb it. Replay then falls between stairs and stalls atX2225 until240s timeout. Elevated support/takeoff controller needs investigation before helper or gameplay changes. No full1-1 pass claimed.",
     "ROM_changed": false
   },
   "Prince_native_checkpoint_1102_v3": {
