@@ -1,0 +1,44 @@
+{
+  "passed": true,
+  "baseline_ROM_sha256": "14a2aff55f918b2ca8fcf29c5a813bf8950b8170f1efab56ed9c69d07956a170",
+  "granted": true,
+  "CHR": {
+    "page": 499,
+    "byte_half_open": [
+      672,
+      1024
+    ],
+    "bytes": 352,
+    "already_exclusive_Metal_page": true
+  },
+  "conditional_RAM": {
+    "bank": 2,
+    "copy_half_open": [
+      55552,
+      56576
+    ],
+    "code_half_open": [
+      56224,
+      56576
+    ],
+    "exclusive_selected_owner": 35
+  },
+  "body_pattern_max": 143,
+  "shot_pattern_max": 4,
+  "highest_displayed_byte": 671,
+  "conditions": [
+    "Extend existing buffered-copy/readback loop from11 to12 rows, mapping499 toD900. No new physical CHR page is allocated.",
+    "Regenerate both complete owner fingerprints with the extra code image; retain cold forced-blank and full owner retirement.",
+    "Keep displayed art bytes0..671 exact. Future armor/weapon artwork or metadata changes must re-audit this shared page tail.",
+    "Copying art bytes intoD900..DBA0 is harmless private data, not executable entrypoints. Only DBA0..DD00 may hold new helpers.",
+    "This is a source-domain/storage grant, not a native loader or gameplay test."
+  ],
+  "bindings": {
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\tools\\audit\\audit_metal_storm_art_tail_1101_v25.py": "81e5fde5c78f05d38ac3c5d0786d443836a3512346e52899222aa1842ee70367",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\metal-storm-hurt-host-1101-v24\\candidate.nes": "14a2aff55f918b2ca8fcf29c5a813bf8950b8170f1efab56ed9c69d07956a170",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\metal-storm-hurt-host-1101-v24\\component.s": "1406ef621b0102d4938dc8b1c1489011ee878d36d61a22199476a1bd8f991b4f",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\metal-storm-hurt-host-1101-v24\\component.lbl": "7ae5c0874748606f11858fac73660c22db5e810008c4f2d08f378252e7df43e5",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\metal-storm-hurt-host-1101-v24\\native-render.bin": "65eb1c8a06e8492d3ea9f03b8da50c1cf610f256c0a0dfae449f58718ac89dba",
+    "C:\\Users\\kando\\Documents\\ChatGPT\\SMB Crossover\\build\\metal-storm-coexistence-1101-v9\\red-white-black.chr": "b74c7e886442cddddee3b6e9136475d25de2fc3856f0096241dd34c351a25f0e"
+  }
+}
