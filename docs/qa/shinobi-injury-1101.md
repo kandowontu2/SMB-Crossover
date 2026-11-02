@@ -96,3 +96,24 @@ Resident usage: 1145/1536 bytes. Reproduce with
 `tools/audit/prepare_shinobi_scene_1101_v7.py`. Still not unlocked or installed;
 normal character-service routing, damage/death, unresolved donor callbacks and
 native gameplay remain.
+
+## Native service routing
+
+The v8 candidate routes raw36 through all 36 public Hu entries to Shinobi's
+resident veneers. It extends the existing Metal gate within its 48-byte
+source-proven HUD padding (46 bytes used), and reuses 26 bytes of the old,
+unreachable Metal route after its existing JMP. No new allocation is borrowed.
+Service1 goes directly to authenticated `ShChr` rather than the unimplemented
+RAM graphics row. Karnov and Metal keep all 72 original route destinations,
+including Metal's cold world-palette special case.
+
+The real HuGraphics, HuDraw and guarded HuMovement entry points execute in CPU
+fixtures. Drawing emits six native body sprites. This does not establish active
+movement, combat or emulator correctness. Remaining services still reject;
+do not enable the menu based only on these routing checks.
+
+Candidate: `build/shinobi-route-1101-v8/candidate.nes`, SHA256
+`12db8aa78ac0fb5de9591fdf34a82a1b0c13a94106cf3b430660c1091072deb7`.
+Reproduction: `tools/audit/prepare_shinobi_route_1101_v8.py`. The v8 ROM includes
+a three-byte service1 veneer edit absent from the inherited v7 resident binary;
+preserve it when extending the resident code. Downloads is unchanged.
