@@ -51,3 +51,18 @@ Targets for non-shell attacks are placed relative to their effects, so this
 proves earned activation and collision, not naturally reached combat geometry.
 The high-copy batch is prepared but has not yet run. Full-stage, other modes,
 all facings and audio fidelity are not established by this batch.
+
+## Remaining seven copied abilities
+
+`build/kirby-copies-high-1102-v5/native/capture/result.json` also passed on the
+same current ROM, with Mesen exit 0: wave, high jump, cloud hover, three needles,
+bite, short flame and bullet dash. Each case recorded one real capture and
+swallow. The six offensive powers each reached native defeat; cloud hover
+instead passed its sustained vertical-velocity and position checks. Native
+Select discard and cleanup completed for every case.
+
+This second batch took 2,842 updates / 3,284 physical frames, retained three
+PNGs and reached minimum stack pointer 180. Together the two batches exercise
+all 14 copied families in Hard mode. The controlled-scene and effect-aligned
+target limitations above still apply; this is not a natural full-level combat
+claim. The separate basic-move/healing test is underway.
