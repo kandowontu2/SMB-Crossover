@@ -1,0 +1,164 @@
+{
+  "delivery": {
+    "installed": true,
+    "ROM_sha256": "b9e685ffd0620a213a2fc05219e2bae415ee81aa07ab0e994db79455792ef6c4",
+    "previous_sha256": "6f319d2039f920bc85e4a6bfe6ee3327996b42020e03c09e671142eada2a6428",
+    "destination": "C:\\Users\\kando\\Downloads\\SMB-Crossover-Latest-WIP-MMC5.nes",
+    "candidate": "build\\arthur-side-clamp-1101-v8\\maturity-candidate.nes",
+    "backup_created": false,
+    "downloads_launch_verified": true,
+    "before": {
+      "passed": true,
+      "ROM": "C:\\Users\\kando\\Downloads\\SMB-Crossover-Latest-WIP-MMC5.nes",
+      "ROM_sha256": "6f319d2039f920bc85e4a6bfe6ee3327996b42020e03c09e671142eada2a6428",
+      "matching_patch_files": []
+    },
+    "after": {
+      "passed": true,
+      "ROM": "C:\\Users\\kando\\Downloads\\SMB-Crossover-Latest-WIP-MMC5.nes",
+      "ROM_sha256": "b9e685ffd0620a213a2fc05219e2bae415ee81aa07ab0e994db79455792ef6c4",
+      "matching_patch_files": []
+    },
+    "natural_flower": {
+      "passed": true,
+      "reason": "Natural flower and original B-driven torch",
+      "controller_only": true,
+      "frames": 1173,
+      "play_frames": 673,
+      "start_x": 40,
+      "maximum_x": 328,
+      "maximum_camera": 236,
+      "minimum_y": 112,
+      "main_calls": 430,
+      "source_steps": 224,
+      "jump_sequences": 1,
+      "maximum_jump_count": 2,
+      "initial_four_pipes_passed": 0,
+      "three_gaps_passed": 0,
+      "lives_start": 2,
+      "lives_end": 2,
+      "world": 0,
+      "level": 0,
+      "engine": 8,
+      "helpers_added": false
+    },
+    "item": {
+      "seen_natural_flower": true,
+      "mature": true,
+      "last_pickup": 6,
+      "source_weapon": 68,
+      "source_pickup_calls": {
+        "6": 1
+      },
+      "x": 328,
+      "y": 112
+    },
+    "torch": {
+      "collected_at_play_frame": 553,
+      "original_torch_handler_calls": 60
+    },
+    "helpers_added": false,
+    "scope": "Arthur wall separation now agrees with original side probes. Correct owned policy admits item contact; original collector still rejects immature items. First natural flower and torch pass; all other ROM bytes retain the previous WIP outside Arthur wall215B and two owned table operand bytes.",
+    "limits": [
+      "Fresh full1-1 clear on this hash remains incomplete.",
+      "Every-character, every-powerup and audio reviews remain active."
+    ],
+    "after_downloads_launch_patch_guard": {
+      "passed": true,
+      "ROM": "C:\\Users\\kando\\Downloads\\SMB-Crossover-Latest-WIP-MMC5.nes",
+      "ROM_sha256": "b9e685ffd0620a213a2fc05219e2bae415ee81aa07ab0e994db79455792ef6c4",
+      "matching_patch_files": []
+    },
+    "downloads_result": {
+      "passed": true,
+      "reason": "Natural flower and original B-driven torch",
+      "controller_only": true,
+      "frames": 1173,
+      "play_frames": 673,
+      "start_x": 40,
+      "maximum_x": 328,
+      "maximum_camera": 236,
+      "minimum_y": 112,
+      "main_calls": 430,
+      "source_steps": 224,
+      "jump_sequences": 1,
+      "maximum_jump_count": 2,
+      "initial_four_pipes_passed": 0,
+      "three_gaps_passed": 0,
+      "lives_start": 2,
+      "lives_end": 2,
+      "world": 0,
+      "level": 0,
+      "engine": 8,
+      "helpers_added": false
+    }
+  },
+  "CPU": {
+    "passed": true,
+    "source_CPU_only": true,
+    "native": false,
+    "base_sha256": "8be03441c6f5503acb3d001e76fbcc1d82a0fc4967c856c2eda763eba2d09806",
+    "candidate_sha256": "b9e685ffd0620a213a2fc05219e2bae415ee81aa07ab0e994db79455792ef6c4",
+    "changed_bytes": [
+      580950,
+      580951
+    ],
+    "Arthur_owned_admission_full_state_cases": 112,
+    "other35_Arthur_public_policy_full_state_cases": 140,
+    "foreign_actual_NrPickupCollision_parity_cases": 152,
+    "actual_overlapping_contact_cases": 240,
+    "immature_kind0_1_no_source_palette_grant_erase_cases": 72,
+    "kind2_3_genuine_MarioSource_cases": 120,
+    "mature_kind0_1_original_Arthur_pickup_cases": 48,
+    "unique_owned_policy_interrupt_boundaries": 27,
+    "IRQ_lag_NMI_cuts": 54,
+    "no_new_PRG_CHR_RAM": true,
+    "scope": "Actual owned policy is pure SEC followed by the existing complete return transport; constructor, all36publicpolicies, full admission and real normal-player bbox contact run actual ROM instructions. Full application/WRAM/source counters/cache/palette/mapper/AXYP parity against an independent in-memory copy of the existing allowed policy at the former transport address. ArHostCollect remains the maturity authority; BBox is unchanged. Native real flower/torch and full1-1 still pending.",
+    "bindings": {
+      "tools\\audit\\check_arthur_maturity_fix_1102_v12.py": "832e1a11fc63cc076e9227a4bb275eb8c5efccf7349b6fa4fef4adda9004985b",
+      "tools\\reference\\arthur_maturity_policy_1102_v12.s": "dfaf4f9520badd5217f5112f5562297b4499776aa00ae6fc8a5e671f1fb5a854",
+      "build\\arthur-side-clamp-1101-v8\\candidate.nes": "8be03441c6f5503acb3d001e76fbcc1d82a0fc4967c856c2eda763eba2d09806",
+      "build\\arthur-side-clamp-1101-v8\\maturity-entry.bin": "d544caa1f6a86de146446434ccb4f41af24006f5450140b479186d0c64c5752d",
+      "build\\arthur-camera-1101-v3\\camera.lbl": "e67296166bd806cf1ca7cefaefd6842bfce476eabfd9d321fd960dd67dcc05a8"
+    },
+    "source_union_archive_object": "b2899621c6e8722c96eb7c671948c349589bede5238c1166dbf3c84212c57792"
+  },
+  "candidate": {
+    "prepared": true,
+    "installed": false,
+    "native": false,
+    "ROM_sha256": "b9e685ffd0620a213a2fc05219e2bae415ee81aa07ab0e994db79455792ef6c4",
+    "base_sha256": "8be03441c6f5503acb3d001e76fbcc1d82a0fc4967c856c2eda763eba2d09806",
+    "only_physical_PRG_bank": 70,
+    "owned_table_row": 23,
+    "owned_CPU_half_open": [
+      "BD45",
+      "BD48"
+    ],
+    "old_JMP": "4c2abe",
+    "new_JMP": "4cbfbd",
+    "delta": [
+      {
+        "file_offset": 580950,
+        "old": 42,
+        "new": 191
+      },
+      {
+        "file_offset": 580951,
+        "old": 190,
+        "new": 189
+      }
+    ],
+    "no_new_PRG_CHR_RAM": true,
+    "existing_target": "Actual v3-source ArOwnSet9 BDBF -> pure SEC ArMergeLocalVisible BEB8 -> original complete policy return. ArHostCollect retains maturity authority for0/1;>=2 uses genuine MarioSource.",
+    "bindings": {
+      "tools\\audit\\prepare_arthur_maturity_fix_1102_v12.py": "41b68fb53aa2b013a8d06bd33b6c504cd912a072f82cd8c0bd7e4e79d7580deb",
+      "tools\\reference\\arthur_maturity_policy_1102_v12.s": "dfaf4f9520badd5217f5112f5562297b4499776aa00ae6fc8a5e671f1fb5a854",
+      "build\\arthur-side-clamp-1101-v8\\maturity-fix-CPU.json": "5de02a9a7b57f6c4e467fa15384c2b30cee626e13cf40fe7b1ccdc3a1d21ec2b",
+      "build\\arthur-side-clamp-1101-v8\\maturity-candidate.nes": "b9e685ffd0620a213a2fc05219e2bae415ee81aa07ab0e994db79455792ef6c4",
+      "build\\arthur-side-clamp-1101-v8\\maturity-candidate.dbg": "5326cbda161c15110aff5299ef96007d844d4ad9931a44a3183fc75dcc439dda",
+      "build\\arthur-side-clamp-1101-v8\\maturity-candidate.lbl": "fa94fd410921a3987fd295183bd15b93dd650dbe814e93a772ccbafc99d18058"
+    }
+  },
+  "limits": "ACTIVE_INCOMPLETE. Arthur wall and real flower/torch repairs delivered. Excitebike native successor, Prince and Bub/Bob integrations, absent requested identities, every-character1-1 and every-powerup verification remain active."
+}
