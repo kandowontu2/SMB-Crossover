@@ -27,7 +27,7 @@
     "current_downloads_native_check": "docs/qa/checkpoints/2026-11-01/karnov-downloads-current-selection.md",
     "status": "Resource grants permit integration only; no additional character unlocked or ROM delivered. Exact identity/header retirement contract is pending for Shinobi RAM; Metal extended RAM also pending."
   },
-  "current_priority": "Metal v22 status callback compiled; v21 hurt/armor-return64B and v23 original immunity timer33B differential verified, need host integration. v23 bank4:8471 decrements180 to179 on armor-return frame, clears0648 atzero, writes70/074E. IMPORTANT: visual meaning70 not proven; original F282 uses0540 low1 as palette override, not hiding. Do not implement guessed hide flicker. Public7ec9 unchanged.",
+  "current_priority": "Metal v24 armor-hit callback and recovered hurt/timer integrated, full212updates plus pause/duplicate/repeat-hit controls pass; native cold636frames passed. Candidate14a2, not delivered. Next graphics/palette source hurt and earned armor/powerups, original lethal sequence, enemy and audio effects. Carrier renderer3067/3072 nearly full; reallocate exact proven storage before further growth. Public7ec9 unchanged.",
   "november_1_allocation_followup": {
     "Tank_code_tails": "docs/qa/checkpoints/2026-11-01/mario-tank-code-tail-grant.json",
     "Tank_RAM": "docs/qa/checkpoints/2026-11-01/mario-tank-ram-grant.json",
@@ -2238,5 +2238,14 @@
     "host_wired": false,
     "source": "tools/reference/metal_storm_armor_timer_1101_v23.inc",
     "remaining_capacity_note": "v22 renderer2841 /3072 carrier, adding97B leaves134B for start/clock/visual adapter; measure actual assembled size, do not exceed grants."
+  },
+  "metal_hurt_host_v24": {
+    "checkpoint": "docs\\qa\\checkpoints\\2026-11-01\\metal-storm-hurt-host-v24",
+    "candidate": "build\\metal-storm-hurt-host-1101-v24\\candidate.nes",
+    "sha256": "14a2aff55f918b2ca8fcf29c5a813bf8950b8170f1efab56ed9c69d07956a170",
+    "renderer_bytes": 3067,
+    "native_result": "native-final/capture/result.json",
+    "installed": false,
+    "limits": "Native smoke does not exercise actual enemy damage or earned armor. CPU armor is injectedfixture. BA1A terrain-style admission reuses source armorstate; enemy-specific effects still pending. Old native-smoke binds superseded candidate; do not count it for currenthash."
   }
 }
