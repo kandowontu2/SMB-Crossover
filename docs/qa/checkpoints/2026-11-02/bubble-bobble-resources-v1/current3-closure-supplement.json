@@ -1,0 +1,122 @@
+{
+  "passed": true,
+  "ROM_SHA256": "37959000690d3f9fe596823fc0910e86b9fc977448779360d523751764248b0c",
+  "source_supplement": true,
+  "prior_scoped_negative_receipts_retained": true,
+  "existing_candidate_consumer_closure": true,
+  "remaining_existing_finite_publishers": 0,
+  "complete_new_BubBob_transport": false,
+  "resource_granted": false,
+  "proposed_code_pages": [
+    301,
+    305,
+    337,
+    362,
+    363,
+    440,
+    819,
+    666
+  ],
+  "proposed_art_pages": [
+    441
+  ],
+  "preimage_SHA256": {
+    "301": "5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+    "305": "5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+    "337": "5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+    "362": "5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+    "363": "5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+    "440": "5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+    "819": "5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+    "666": "5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+    "441": "5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef"
+  },
+  "Tank_restore_source_binding": {
+    "original_call": "D5:B57E genuineThSceneInit",
+    "current_call": "CE:AFD6 MtFreshV5",
+    "continuation": [
+      "D5:B57E genuineThSceneInit",
+      "9F:BF69 MtColdLoadV4",
+      "RTS"
+    ],
+    "native_hex": "8d6a01a97e8d6c01a9b58d6d01a9d5205a018d6a01a9698d6c01a9bf8d6d01a99f205a0160",
+    "source_files": [
+      "tools/audit/prepare_mario_tank_candidate_1101_v5.py:26",
+      "tools/reference/mario_tank_graft_1101_v5.inc:3"
+    ],
+    "source_owner_interval": {
+      "name": "MT_CONTACT",
+      "bank": 78,
+      "physical_offset": 3990,
+      "run_PC": 44950,
+      "used": 101,
+      "requested_bytes": 106,
+      "remaining": 5,
+      "sha256": "a259f6d2daafec72d0bcbd1d5d6be62e9835409c290146442dd66bd18b9dd7a9",
+      "ROM_preimage_sha256": "db4ef44d40b2412344fa8d8d5650890ff9af278d6b5c32a1918b836ce23192ad",
+      "PRG_bank_sha256": "fd4e206895edabb13e75b185a456d44887a2d9ca47939b3239452d8f468af146",
+      "formal_grant": true,
+      "grant": "mario-tank-code-tail-grant.json"
+    }
+  },
+  "proof_counts": {
+    "current_tables": 44,
+    "actual_menu_states": 92,
+    "actual_newer_cold_map_rows": 30,
+    "inherited_native_writers": 816,
+    "inherited_private_writers": 15,
+    "replaced_Karnov_writers": 14,
+    "typed_setter_cuts": 2160,
+    "native_menu_cuts": 2376,
+    "actual_NMI_RTI_returns": 4575
+  },
+  "conditional_RAM": {
+    "code_bank": 3,
+    "code_body_half_open": [
+      40960,
+      49120
+    ],
+    "state_bank": 2,
+    "state_half_open": [
+      49152,
+      50176
+    ],
+    "owner_headers": [
+      [
+        49120,
+        49136
+      ],
+      [
+        57312,
+        57328
+      ]
+    ],
+    "unconditional_RAM": false,
+    "granted": false,
+    "conditions": [
+      "Authenticate own complete code/state headers before any mapped call.",
+      "Retire previous owner before copy/zero/header writes.",
+      "Cold source reads only under existing forced-blank commit rules; publish complete owner headers last."
+    ]
+  },
+  "remaining_new_owner_work": [
+    "Resident loader/authentication/two-header transition/routing has no source-funded grant or implementation.",
+    "No rawID/menu/base-slot grant; new fifth-row base family required, no replacement of an existing family.",
+    "Compile/measure remaining update/camera glue and qualify actual owner-specific birth/AI/body-contact ingresses.",
+    "No Bub/Bob Main/IRQ/native emulator/full1-1 or actual audio qualification."
+  ],
+  "scope": "Candidate-specific finite existing-consumer closure for these nine physical pages on exact379590, with actual publisher/lag-NMI protocol cuts and explicit source-domain constructors. This affirmative supplement closes the earlier domain receipt stale prose about three Tank retarget operands; that negative artifact is retained. No allocation, new-loader/retirement/admission, arbitrary corrupt-state, hardware or full game proof.",
+  "bindings": {
+    "tools/audit/freeze_bubble_bobble_current3_closure_1102_v3.py": "56e24403c9937acad16fea24745fe4b225ad4112009868604d4275822d3ea149",
+    "build/bubble-bobble-source-1101-v1/current3-domain-rebind.json": "c19e6a7daeb303a3ede0dfe0fc05f0e9b72ae466adb5532693502d06d188669f",
+    "build/bubble-bobble-source-1101-v1/publication-CPU-controls.json": "a36fe94c193191d2bebc5e5501d8e46a84534bdcfdde90a0b797b68d086d0f9d",
+    "build/excitebike-pose-1101-v3/current3.nes": "37959000690d3f9fe596823fc0910e86b9fc977448779360d523751764248b0c",
+    "build/mario-tank-visible-host-1101-v5/candidate-patches.json": "b074fafea5e54e7b3da058c6dfbbcea82ad1287fe247263f6e6e59af5af45022",
+    "build/mario-tank-visible-host-1101-v5/graft-assembly.json": "f91ffb3e5e47654c6b123d9c5ce380db7bd3675bf3b24d712d7bcb650df8bb19",
+    "build/mario-tank-visible-host-1101-v5/MT_CONTACT.bin": "a259f6d2daafec72d0bcbd1d5d6be62e9835409c290146442dd66bd18b9dd7a9",
+    "tools/audit/prepare_mario_tank_candidate_1101_v5.py": "05c6527e83c387ea9ce822fe22b8706bb464a65be13a155b1d5879b503ad7f11",
+    "tools/reference/mario_tank_graft_1101_v5.inc": "983dfb1dcf866fc6941ab8e45f82d716301bb96ea8289876cd8be84914d14eb8",
+    "tools/audit/audit_bubble_bobble_current3_domains_1102_v3.py": "0ef0f10eb49ed60ba80b1650fcdddef3ac9bb12845b3c899c758a995d30edafc",
+    "tools/audit/check_bubble_bobble_current3_publication_1102_v3.py": "1d344f0bf6e1dabeb668816059f92a0aaec6997d6234ebec0e16d44cb5199683"
+  }
+}

@@ -1,0 +1,148 @@
+{
+  "granted": true,
+  "owner": "Bub/Bob original Bubble Bobble component",
+  "date": "2026-11-02",
+  "base_ROM_SHA256": "d8a87050beefefe96869ebd4d188beeb52733241cd2c0fa64392a55ec8ebca05",
+  "existing_consumer_proof_ROM_SHA256": "37959000690d3f9fe596823fc0910e86b9fc977448779360d523751764248b0c",
+  "retained_parent_publisher_bytes": true,
+  "parent_delta": [
+    580983,
+    580984
+  ],
+  "physical_CHR_pages": [
+    {
+      "page": 301,
+      "bytes": 1024,
+      "file_offset": 1356816,
+      "purpose": "code carrier",
+      "preimage_SHA256": "5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef"
+    },
+    {
+      "page": 305,
+      "bytes": 1024,
+      "file_offset": 1360912,
+      "purpose": "code carrier",
+      "preimage_SHA256": "5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef"
+    },
+    {
+      "page": 337,
+      "bytes": 1024,
+      "file_offset": 1393680,
+      "purpose": "code carrier",
+      "preimage_SHA256": "5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef"
+    },
+    {
+      "page": 362,
+      "bytes": 1024,
+      "file_offset": 1419280,
+      "purpose": "code carrier",
+      "preimage_SHA256": "5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef"
+    },
+    {
+      "page": 363,
+      "bytes": 1024,
+      "file_offset": 1420304,
+      "purpose": "code carrier",
+      "preimage_SHA256": "5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef"
+    },
+    {
+      "page": 440,
+      "bytes": 1024,
+      "file_offset": 1499152,
+      "purpose": "code carrier",
+      "preimage_SHA256": "5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef"
+    },
+    {
+      "page": 819,
+      "bytes": 1024,
+      "file_offset": 1887248,
+      "purpose": "code carrier",
+      "preimage_SHA256": "5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef"
+    },
+    {
+      "page": 666,
+      "bytes": 1024,
+      "file_offset": 1730576,
+      "purpose": "code carrier",
+      "preimage_SHA256": "5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef"
+    },
+    {
+      "page": 441,
+      "bytes": 1024,
+      "file_offset": 1500176,
+      "purpose": "sprite art",
+      "preimage_SHA256": "5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef"
+    }
+  ],
+  "code_page_load_order": [
+    301,
+    305,
+    337,
+    362,
+    363,
+    440,
+    819,
+    666
+  ],
+  "conditional_RAM": {
+    "code_bank": 3,
+    "code_body_half_open": [
+      40960,
+      49120
+    ],
+    "state_bank": 2,
+    "state_half_open": [
+      49152,
+      50176
+    ],
+    "headers": [
+      [
+        49120,
+        49136
+      ],
+      [
+        57312,
+        57328
+      ]
+    ],
+    "unconditional_RAM": false,
+    "shared_clock_mailbox_DFD0_DFD2_retained": true
+  },
+  "conditions": [
+    "Authenticate own complete code/state headers before any mapped call.",
+    "Retire previous owner before copy/zero/header writes.",
+    "Cold source reads only under existing forced-blank commit rules; publish complete owner headers last.",
+    "Mutually exclusive with every current bank2/3 overlay; no concurrent contents or header ownership.",
+    "New resident loader/authentication/routing requires a separate source-funded grant before any shared ROM edit.",
+    "Do not publish code carrier pages as normal body/background art; cold transfers require the existing forced-blank protocol.",
+    "Header publication follows complete copy and verification; retire every foreign owner before any copy/zero/header writes.",
+    "Compiled service plus update/camera glue must fit the granted body before integration; no full service-fit claim from the partial private component."
+  ],
+  "resident_PRG_granted": false,
+  "shared_router_granted": false,
+  "raw_identity_granted": false,
+  "menu_admission_granted": false,
+  "native_playable": false,
+  "host_bytes_written": false,
+  "evidence": {
+    "supplement": "858ccee4febd10a651fbb58b96f9f77bf29eb7cb1695f1a11fcd4ece23faaadc",
+    "finite_domains": "c19e6a7daeb303a3ede0dfe0fc05f0e9b72ae466adb5532693502d06d188669f",
+    "publication": "a36fe94c193191d2bebc5e5501d8e46a84534bdcfdde90a0b797b68d086d0f9d"
+  },
+  "proof_counts": {
+    "current_tables": 44,
+    "actual_menu_states": 92,
+    "actual_newer_cold_map_rows": 30,
+    "inherited_native_writers": 816,
+    "inherited_private_writers": 15,
+    "replaced_Karnov_writers": 14,
+    "typed_setter_cuts": 2160,
+    "native_menu_cuts": 2376,
+    "actual_NMI_RTI_returns": 4575
+  },
+  "exclusions": [
+    "846 belongs to Parodius pool3 special art.",
+    "667 is the WWF zero carrier.",
+    "No Prince physical page may overlap these nine pages."
+  ]
+}
