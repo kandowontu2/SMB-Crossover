@@ -4,7 +4,7 @@ The functional roster pass is not complete. This inventory separates source
 placements from actual route verification; it is not the final all-character list.
 
 Inventory fixture SHA256: `128915e97e78891a585aa8f9fd904c166ca64dcd6dd1ee395fc68fd505c1e72c`.
-Current nightly SHA256: `d8a87050beefefe96869ebd4d188beeb52733241cd2c0fa64392a55ec8ebca05`.
+Current nightly SHA256: `cf1412eb78ed6531d2f7478c9790f96314a95f2f3fdd6c2b80bfbefd24fca3a8`.
 The placements below are unchanged; the original admission fixture belongs to its stated earlier hash.
 `tools/audit/inventory_named_helpers_1101_v2.py` verified identical installed and
 candidate bytes, read all 34 compiled shared records and executed `HpConfigure`
@@ -44,10 +44,12 @@ platforms were added. Shinobi's opening-pipe failure is still being diagnosed;
 it is not evidence yet that a helper is needed.
 
 Excitebike (raw37, slot29 base alternate) has no added or inherited helper in
-the delivered `current3.nes` candidate (`37959000`). Its source motor/lean jump
-reaches61px in native flat-floor tests; actual native tall-pipe and
-full1-1 traversal remain pending. No helper stage, height or world position has
-been assigned. The slot29 Prince alternate remains locked and has no helper.
+the `current4.nes` candidate (`cf1412eb`). Its source motor/lean jump reaches
+61px in CPU and native controls. A genuine controller run crosses all four
+pipes and three gaps, reaching active 1-2 with no life loss. Both 64px pipes
+record native top support; the third has static left X736, width32, top Y144
+and rider top Y112. No helper stage, height or world position has been assigned.
+The slot29 Prince alternate remains locked and has no helper.
 
 ## Later-stage shared placements
 
@@ -125,3 +127,5 @@ With original pose-based contact bounds installed in 6f319d20, Shinobi again cle
 November2: current nightly379590 adds playable Excitebike. No helper platforms were added; its full1-1/tall-pipe qualification is still open. The source placements listed above are unchanged.
 
 Arthur now clears full non-shortcut1-1 into active1-2 on d8a87050 in5950 physical frames, lives2to2, with no source injury or helpers. The source weapon-tail callback repair lets his real lances damage native enemies; his original side probes and jumps remain unchanged.
+
+Excitebike now clears full non-shortcut 1-1 into active 1-2 on cf1412eb in 6996 physical frames, lives 2 → 2, all four pipes and three gaps, with no added or inherited helpers. Third and fourth 64px pipe support contacts are recorded in the native receipt.

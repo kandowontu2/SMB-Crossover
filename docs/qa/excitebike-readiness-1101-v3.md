@@ -3,20 +3,85 @@
 ## Delivered November 2
 
 Current Downloads nightly SHA256:
-`37959000690d3f9fe596823fc0910e86b9fc977448779360d523751764248b0c`.
+`cf1412eb78ed6531d2f7478c9790f96314a95f2f3fdd6c2b80bfbefd24fca3a8`.
 Excitebike is selectable at row4, column6. Exact candidate and actual Downloads
 tests pass throttle/turbo/coast/reverse, the source-derived61px back-lean jump,
 landing and native graphics checks. Combined Arthur flower/torch and unchanged
 Shinobi idle/walk/OAM regressions pass. Source checkpoint:
 `docs/qa/checkpoints/2026-11-02/excitebike-source-v1`.
 
-Full1-1 remains incomplete: the first controller crosses two pipes and reaches
-world671, then continuous turbo overheats and the recovery path stalls at
-state5/speed0. The third64px pipe was not reached, so this is not evidence for
-adding a helper. No helper platforms were added. Earlier source proposals and
-private negative tests below are historical, not current availability claims.
+Full non-shortcut 1-1 now reaches active 1-2 in 6996 physical frames, lives
+2 → 2, all four pipes and three gaps, with actual top support on both 64px
+pipes. No helper platforms were added. Original overheat recovery also passes
+on the exact candidate and actual Downloads launch. Shortcut, all earned
+powerups and dedicated audio remain incomplete. Earlier source proposals and
+negative tests below are historical, not current availability claims.
 
-## Current private integration: repaired successor awaiting native qualification
+## Earlier delivered controls
+
+Root delivered `37959000` and verified the actual Downloads launch: native
+controls pass in1,762 frames, including61px original turbo/backlean jump and
+landing, lives2→2, coherent source art and1,068 completed-frame hardware checks.
+Combined Arthur flower/torch and unchanged Shinobi OAM smoke also pass. The
+later installed Arthur weapon-tail successor `d8a87050` retains these Ex bytes.
+That earlier hash did not have a full-stage or every-powerup/audio proof.
+
+The first full-stage controller (`full11/`) is a preserved terminal negative:
+2,117 frames, two pipes crossed, maximumX671, lives2→2, then source overheat
+and recovery5 stall. It never tested the64px third pipe; no helper is justified
+by this run, and none was added.
+
+## Source continuation successor: native recovery passes
+
+`build/excitebike-pose-1101-v3/current4.nes`, SHA256
+`cf1412eb78ed6531d2f7478c9790f96314a95f2f3fdd6c2b80bfbefd24fca3a8`,
+retains installedd8 and restores three omitted donor phases: D310..D325 timer
+divider (long timers30..3D advance every11 source epochs), DD8D..DDCE complete
+cooling/lane progression, and DCDE..DCF1 post-air throttle-inhibit release.
+The two donor HUD/OAM tails return at the typed host boundary. All public
+entries stay fixed;105B additional private code uses existing carriers.
+Only175 bytes change, in six Ex code pages and its complete16B cookie.
+
+`heat-CPU.json` passes2,048 exact original instruction/RAM/AXYP/SP cases and
+requires actual overheat/injury→recovery0→resumed motion, both cold8192-byte
+payloads/full headers and unchanged guarded warm reuse. `heat-ISR-CPU.json`
+passes246 actual IRQ/lag-NMI cuts across52 private instruction PCs and four
+genuine source contexts. Old host fixtures accepting recovery5 did not prove
+resumed movement; those historical criteria are not used for this repair.
+
+Root completed `native5/`: unchanged controls/hardware pass in1,762 frames.
+The first `heat-native/` is retained as a terminal negative at1,734 frames:
+its360-frame stationary deadline expired while the genuine long timer still
+read10. The separate `heat-native2/` then passes in2,168 frames/877 Main
+updates: actual heat32, recovery5, heat0/recovery0 and source speed≥608 with
+forward movement resume; lives2→2, heat beginsX661, recovery0 atX683 and final
+X724. B is released after the first actual overheat. Only meaningful source
+cooling/recovery progress extends the stationary deadline; the original
+global bound remains. Its heat-only final PNG has a historical misleading
+`active-1-2` name; the result correctly records world0/level0, and this is
+**not** a full-stage clear. Future heat-only capture names are corrected.
+
+The root-only `deliver_excitebike_heat_1102_v2.py` verifies native5 and heat2,
+replaces Downloads directly with no backup, checks patch guards, and prepares
+`heat-downloads/` with explicit symbols and no Downloads sidecars. No delivery
+is claimed by this source recipe until root executes it. The compact source
+checkpoint is `docs/qa/checkpoints/2026-11-02/excitebike-continuation-v2`
+(48,415-byte archive; eleven explicit source files, no ROM/DBG/PNG forest).
+
+`full11-v3/` timed out after crossing the third pipe; its distant obstacle
+probe missed the fourth pipe. The read-only controller successor `full11-v4/`
+crossed all pipes and gaps, then its observer rejected the frame-counter reset
+during the actual level transition. `full11-v5/` permits that reset only when
+native scene state changes independently, and passes into active 1-2 in 6996
+physical frames. Both 64px pipes record native top support; lives remain 2 → 2.
+These controller changes do not modify the ROM or add helper platforms.
+
+Root installed the exact cf1412eb successor, repeated the earned overheat and
+recovery on the actual Downloads path, and checked for automatic patch
+sidecars. The compact native receipt is
+`docs/qa/checkpoints/2026-11-02/excitebike-recovery-native-v2/receipt.json`.
+
+## Prior integration and retained evidence
 
 The current combined successor is
 `build/excitebike-pose-1101-v3/current3.nes`, SHA256
@@ -24,7 +89,7 @@ The current combined successor is
 It adds the exact frozen Excitebike repair to installed Arthur wall/maturity
 `b9e685ff`. Its 7,373 changed Ex bytes are strictly disjoint from all 198 Arthur
 changed bytes; every other installed b9 byte is preserved. The complete byte
-proof is `current3-composition.json`. No installation is claimed.
+proof is `current3-composition.json`. Root delivered and verified this version.
 
 Its unchanged Excitebike counterpart is
 `build/excitebike-pose-1101-v3/current2.nes`, SHA256
