@@ -75,3 +75,18 @@ two HP through the real pickup handler, with the six-HP clamp checked. Health
 was never seeded. This run used 1,069 updates / 1,488 physical frames, one PNG
 and minimum stack pointer 180. Items were staged mature; block emergence is
 not covered. Root also viewed the high-copy cloud-hover screenshot.
+
+## Natural full 1-1 clear
+
+`build/kirby-full11-1102-v7/native/capture/result.json` passes on the exact
+current ROM. The controller-only run reached active 1-2 after 6,242 physical
+frames / 4,579 game updates, with lives 2→2, health 5 and earned copy family 1.
+It is not a no-damage run. No world, enemy, health, power or outcome state was
+seeded. The surviving discovery policy handled the first powerup area and
+ordinary obstacles; this was not a shortcut-pipe route.
+
+The run checked 69,900 CHR observations, 3,287 DMA completions, 5,630 IRQs and
+6,235 NMIs; minimum stack pointer was 180. Root viewed the actual endpoint PNG
+showing Kirby in 1-2. Compact controller inputs are retained in `inputs.csv`
+(81,755 bytes). Exact replay, Easy mode, shortcut route, frame-by-frame visual
+inspection and audio fidelity remain unqualified.
