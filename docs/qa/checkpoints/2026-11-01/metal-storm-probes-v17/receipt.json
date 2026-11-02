@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "installed": false,
+  "ROM_sha256": "9e736b9083166e7f315b57e166c1624f5258ff7352ea81df9d1f2a2b3c05df17",
+  "native_probe_contract_cases": 120,
+  "native": {
+    "passed": true,
+    "controller_only": true,
+    "frames": 636,
+    "world_x": 73,
+    "selected": 35,
+    "full_stage": false
+  },
+  "fixed": "Head/side queries returned incoming A through a rejection callback, falsely reporting solid tiles. Canonical native ROM probes now return real tile and coordinate outputs.",
+  "limits": "Native screenshot shows black sky: world-palette callback unfinished. Health/combat/audio, full-stage and broader native regressions remain incomplete. Do not publish yet.",
+  "packet_sha256": "176d638b4bd85f83628161622301f6fa9c5365a8fffc507566d499a1abe969c6",
+  "packet_bytes": 7433
+}
