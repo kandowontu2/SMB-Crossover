@@ -21,6 +21,9 @@ distinguished to avoid a 16-pixel ambiguity. Thomas's placements assist pipes
 at X=448,608,736,912. Goku/Karnov's two placements assist the latter two pipes.
 
 Machine-readable current output: `build/helper-inventory-1101-v1/inventory.json`.
+Metal Storm now has a controller-only full non-shortcut1-1 clear on this ROM,
+including the transition to active1-2, without added or shared helper platforms.
+See `docs/qa/metal-storm-route-1101.md`. Its powerup/mode checks remain unfinished.
+
 The final delivery must include named alternates, Easy/Hard differences, any new
-accommodations, and current route evidence. Metal Storm's need for additional
-helpers has not yet been established.
+accommodations, and current route evidence.
