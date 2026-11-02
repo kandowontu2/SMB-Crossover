@@ -4,9 +4,9 @@ The functional roster pass is not complete. This inventory separates source
 placements from actual route verification; it is not the final all-character list.
 
 Inventory fixture SHA256: `128915e97e78891a585aa8f9fd904c166ca64dcd6dd1ee395fc68fd505c1e72c`.
-Current nightly SHA256: `613b3300b09e530ec920835b95df53f3115d865ed854e273809d4cafa52407ce`.
+Current nightly SHA256: `d0b445a71d6c539804d7c559fafc2c328ebf97ab4e35e8f3273f94ff8a25d01d`.
 Bub/Bob added no helper platforms. Earlier route proofs below retain their stated hashes.
-The placements below are unchanged; the original admission fixture belongs to its stated earlier hash.
+Thomas's two late placements were added on d0b445a7; other placements are unchanged. The original admission fixture belongs to its stated earlier hash.
 `tools/audit/inventory_named_helpers_1101_v2.py` verified identical installed and
 candidate bytes, read all 34 compiled shared records and executed `HpConfigure`
 in 80 cases: raw owners 0–36 in both modes, plus Grant/Sypha/Alucard. These are
@@ -16,12 +16,12 @@ admission tests, not native assisted-crossing or complete-route tests.
 |---|---|---|---|---|
 | Mega Man, Proto Man; Samus, Rogue Dawn; Bill, Lance; Link, Zelda II Link; Simon, Grant, Sypha, Alucard; Pit, GB Pit; Rygar; Ryu; Scrooge, Darkwing Duck; Kirby, Meta Knight; Chip, Dale; Little Mac, Doc Louis, Mike Tyson; Mike Jones; Popo, Nana; Alex, Ryan | 1-1 | Center X=3104, **native left edge=3096**, initial Y=64, width=16 pixels, near end staircase/flagpole | Native horizontal actor `$28` | Both modes admit the same helper; current alternate-by-alternate assisted crossings pending |
 | Goku and Karnov | 1-1 | Centers X=704 and 888; left edges 688 and 872; initial Y=208 | Existing native vertical platform, actor `$25`; one owned lift at a time | Karnov full route passes on `f5c30cea`; Goku and both-mode checks remain |
-| Thomas | 1-1 | Left edges X=400,560,688,864; initial Y=192 | Existing native vertical platform, actor `$25` | Full current-build route |
+| Thomas | 1-1 | Left edges X=400,560,688,864,2560,2816; centers X=416,576,704,880,2576,2832; initial Y=192; width=32 | Existing native vertical platform, actor `$25` | All six assisted crossings and full non-shortcut1-1 into1-2 pass on d0b445a7, no life loss; actual Downloads first assisted crossing passes. Both modes/all powerups remain open. |
 
 Coordinates are world pixels. Initial/authored Y is not a fixed platform height:
 the platform moves. Center coordinates and left-edge coordinates are explicitly
 distinguished to avoid a 16-pixel ambiguity. Thomas's placements assist pipes
-at X=448,608,736,912. Goku/Karnov's two placements assist the latter two pipes.
+at X=448,608,736,912,2608,2864. Goku/Karnov's two placements assist pipes736/912.
 
 Machine-readable current output: `build/helper-named-inventory-1101-v2/inventory.json`.
 Metal Storm now has a controller-only full non-shortcut1-1 clear on this ROM,
