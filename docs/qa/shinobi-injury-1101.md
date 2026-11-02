@@ -142,3 +142,24 @@ Next damage boundary: donor `$D771` decrements `$0539`; only underflow clamps
 it to0 and sets `$0038` bit1 (unless source bit0 suppresses death). Thus the
 constructor's value6 is seven hits, not six. Inspect the preceding contact
 gate and `$0752/$0549` timing before wiring the health adapter.
+
+## Native damage adapter
+
+The v10 candidate implements `HuInjury` in resident ROM. It authenticates both
+headers, maps source state, applies donor immunity conditions (states10/16,
+flags0460 bit1 and magic timer054C/D), and applies the donor health-underflow
+rule. Nonlethal damage invokes the recovered original `$DA1B` through private
+authenticated service36; the original interpreter supplies vertical knockback
+as well as horizontal direction. Foreground R0..7 and mapper state are restored.
+
+Twenty health/facing/immunity cases and 32 corrupt-header rejection cases pass.
+The original `$0752` flag is a dirty-HUD request (consumed at `$9495`), not a
+post-hit invulnerability countdown; hurt state16 itself excludes further hits.
+Death currently only sets original0038 bit1. Native death/life handoff, injury
+status routing, HUD, sound and actual enemy-contact gameplay are incomplete.
+
+Candidate: `build/shinobi-damage-1101-v10/candidate.nes`, SHA256
+`6d43da1f12248a1763ad3d8c68353611f72342e3b32a9294f7ff30b14b61014a`.
+Resident1333/1536 bytes, leaving203. New cache cookie binds the private vector36
+change; rebuilt resident preserves v8's CHR veneer. Reproduction:
+`tools/audit/prepare_shinobi_damage_1101_v10.py`. Not installed or unlocked.

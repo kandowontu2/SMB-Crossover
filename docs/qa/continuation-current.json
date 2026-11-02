@@ -1,4 +1,11 @@
 {
+  "shinobi_damage_followup": {
+    "candidate": "build/shinobi-damage-1101-v10/candidate.nes",
+    "sha256": "6d43da1f12248a1763ad3d8c68353611f72342e3b32a9294f7ff30b14b61014a",
+    "status": "Private successor to route-v8. Actual HuInjury health/knockback now wired; not unlocked or installed.",
+    "proof": "20 source-health/facing/immunity CPU cases plus32 header rejection cases. Authenticated private row36 invokes original DA1B; R0..7 preserved. Resident1333/1536 leaves203 bytes.",
+    "next": "Native death/life handoff and SFX, injury-status ownership, palettes, remaining callbacks, then menu/Mesen. Lethal damage currently sets source0038 bit1 only. No full damage gameplay claim. New cookie and vector36 change must be retained."
+  },
   "shinobi_active_followup": {
     "receipt": "build/shinobi-active-1101-v9/result.json",
     "candidate": "build/shinobi-route-1101-v8/candidate.nes",
