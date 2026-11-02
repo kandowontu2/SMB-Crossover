@@ -188,3 +188,20 @@ Candidate: `build/shinobi-death-1101-v11/candidate.nes`, SHA256
 Reproduction: `tools/audit/prepare_shinobi_death_1101_v11.py`. The local damage
 include override in this output connects lethal damage to death row7; retain
 it when rebuilding. Downloads remains unchanged; menu remains locked.
+
+## Body palette and cold world color
+
+The v12 successor adds cold-safe `HuColors`, queuing original body palette
+colors0F/36/1C. These are taken from the original NATIVE01 capture's PPU
+palette (offset8479..8481), not guessed from the sprite sheet. It keeps SMB's
+current universal backdrop through BackgroundColorCtrl/AreaType and leaves
+other sprite palettes alone. Thirty-two queue tests cover all eight background
+selectors and offsets0/12/56/57, including refusal when the packet cannot fit.
+The existing Metal cold world-palette route now also handles Shinobi row32.
+
+Candidate: `build/shinobi-palette-1101-v12/candidate.nes`, SHA256
+`33bafb324e4e8e8e17be2ce5f8b80a8119a3e51b6c8ae35c414c26f3736df009`.
+Resident1446/1536 bytes. Reproduce with
+`tools/audit/prepare_shinobi_palette_1101_v12.py`. Original projectile/magic
+palette2 is not yet reconciled with native enemy palette sharing. No emulator
+color proof, menu unlock or nightly delivery is claimed.
