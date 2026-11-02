@@ -14,7 +14,7 @@ admission tests, not native assisted-crossing or complete-route tests.
 | Characters / scope | Stage | Placement | Native behavior | Verification remaining |
 |---|---|---|---|---|
 | Mega Man, Proto Man; Samus, Rogue Dawn; Bill, Lance; Link, Zelda II Link; Simon, Grant, Sypha, Alucard; Pit, GB Pit; Rygar; Ryu; Scrooge, Darkwing Duck; Kirby, Meta Knight; Chip, Dale; Little Mac, Doc Louis, Mike Tyson; Mike Jones; Popo, Nana; Alex, Ryan | 1-1 | Center X=3104, **native left edge=3096**, initial Y=64, width=16 pixels, near end staircase/flagpole | Native horizontal actor `$28` | Both modes admit the same helper; current alternate-by-alternate assisted crossings pending |
-| Goku and Karnov | 1-1 | Centers X=704 and 888; left edges 688 and 872; initial Y=208 | Existing native vertical platform, actor `$25`; one owned lift at a time | Full current-build route |
+| Goku and Karnov | 1-1 | Centers X=704 and 888; left edges 688 and 872; initial Y=208 | Existing native vertical platform, actor `$25`; one owned lift at a time | Karnov full route passes on `f5c30cea`; Goku and both-mode checks remain |
 | Thomas | 1-1 | Left edges X=400,560,688,864; initial Y=192 | Existing native vertical platform, actor `$25` | Full current-build route |
 
 Coordinates are world pixels. Initial/authored Y is not a fixed platform height:
@@ -146,6 +146,14 @@ Remaining: native assisted-crossing checks for every named alternate and mode,
 later-stage activation, and full-route evidence. This inventory does not claim
 that characters without current helpers will never need one. Refresh it after
 any helper or raw-owner change.
+
+November 2 Karnov: the current `f5c30cea` ROM reaches active 1-2 in 9,908
+gameplay-observer frames with no life change or death. The controller uses
+original crouch shots, waits for overhead Goombas, and lands on the final
+stair before jumping the third pit. Existing native pipe lifts are retained;
+no new platform, physics or ROM change was needed. This is a non-shortcut
+route, not every powerup or both modes. Evidence:
+`docs/qa/checkpoints/2026-11-02/karnov-full11-v6/receipt.json`.
 
 Native 1-1 addendum: Shinobi now clears the entire stage into active 1-2 on installed 933c0650, in 8462 physical frames, lives 2 to 2, without helpers. Tall-pipe takeoffs at 692/868 and later gap input were sufficient with original motion. Metal Storm also clears on this hash in 5498 frames, lives 2 to 2, without helpers. These are stage-specific results; exact Shinobi body-policy review remains open.
 
