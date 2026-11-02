@@ -57,10 +57,59 @@ def main():
                 rows.append((tuple(result[k] for k in ['A','X','Y','P','minimum_SP']),bytes(m[3:11]),tuple(m.rawtags)))
             assert rows[0] == rows[1], (flags,owner)
             count += 1
+    native=M.NesMPU; cuts=set()
+    def fixture():
+        m=M.fork(seed);m.bundle=z
+        M.put(m,SelectedCharacter=29,WorldNumber=0,LevelNumber=0,AreaPointer=37,
+            AreaType=1,AreaAddrsLOffset=5,FamilyMainCommit=1,NmiDisable=1,
+            GamePauseStatus=0,TimerControl=1,VRAM_Buffer1_Offset=0)
+        return m
+    class Trace(native):
+        def step(self):
+            if self.memory.rawtags[1]==154 and q['labels']['HpLoadArea']<=self.pc<q['labels']['HpConfigure']:
+                cuts.add((self.pc,self.sp))
+            return native.step(self)
+    ref=fixture();M.NesMPU=Trace
+    try: expected=M.invoke(ref,'HpLoadArea',p=0x30)
+    finally: M.NesMPU=native
+    injected_count=0
+    for kind in ['IRQ','lagNMI']:
+        for cut in sorted(cuts):
+            m=fixture();injected=False
+            class Interrupt(native):
+                def step(self):
+                    nonlocal injected
+                    if not injected and self.memory.rawtags[1]==154 and (self.pc,self.sp)==cut:
+                        injected=True; saved=(self.a,self.x,self.y,self.p,self.sp,self.pc)
+                        scratch=bytes(self.memory[3:11]);maps=list(self.memory.rawtags)
+                        self.irq() if kind=='IRQ' else self.nmi()
+                        for _ in range(200000):
+                            if self.pc==saved[5] and self.sp==saved[4]:break
+                            native.step(self)
+                        else: raise AssertionError('Interrupt failed to return')
+                        assert saved==(self.a,self.x,self.y,self.p,self.sp,self.pc)
+                        assert scratch==bytes(self.memory[3:11]) and maps==self.memory.rawtags
+                    return native.step(self)
+            M.NesMPU=Interrupt
+            try: actual=M.invoke(m,'HpLoadArea',p=0x30)
+            finally: M.NesMPU=native
+            assert injected
+            assert all(actual[k]==expected[k] for k in ['A','X','Y','P'])
+            assert bytes(m[0x7382:0x73dd])==bytes(ref[0x7382:0x73dd])
+            injected_count+=1
+    refs=[]
+    rx=re.compile(r'\b(?:'+'|'.join(q['relocations'])+r')\b')
+    for path in (P.R/'src').rglob('*'):
+        if path.suffix not in ['.s','.inc'] or path.name in ['crossover_helpers.s','crossover_helper_data.inc']:continue
+        for number,line in enumerate(path.read_text(errors='replace').splitlines(),1):
+            hits=rx.findall(line.split(';')[0])
+            if hits: refs.append(dict(file=path.relative_to(P.R).as_posix(),line=number,targets=hits))
+    assert {r['file'] for r in refs}=={'src/game.s','src/level_variants.s'}
     receipt=dict(passed=True,ROM_written=False,native=False,installed=False,base_ROM_SHA256=P.PIN,
         actual_HpLoadArea_AXYP_stack_scratch_maps_cases=count,canonical_and_same_bank_routes=routes,
         late_entries_and_Rogue_pause_tail_preserved=True,
-        remaining='Complete split-pointer/source caller census, ISR cuts and actual assisted crossing before ROM admission.')
+        actual_IRQ_lagNMI_cuts=injected_count,external_source_references=refs,
+        remaining='Private native assisted crossings and foreign platform/pause regressions before delivery.')
     (O/'caller-load-CPU.json').write_text(json.dumps(receipt,indent=2)+'\n')
     print(json.dumps(receipt))
 

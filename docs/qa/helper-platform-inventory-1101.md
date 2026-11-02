@@ -56,7 +56,16 @@ the later-edge controller. The next opening pit still fails: the x+8
 launch starts at world X1368, rises from Y176 to Y110, and falls at X1412.
 Waiting until x+4 loses ground support before a second jump can begin.
 Original directional attacks and helper placement remain under review.
-No WWF helper has been added or assigned a final location. Native death
+No WWF helper is installed in the nightly. A private candidate (`f5c30cea`)
+adds one existing native horizontal actor `$28` for all six WWF identities in
+1-1 / area `$25`: **initial center X=1400, initial left edge X=1376,
+initial Y=208, width=48 pixels**. Hogan crossed the authored X1376–1424 pit
+with 72 actual native platform-carry calls and reached the castle without
+losing a life. A longer terminal wait verifies the full transition to active
+1-2 in 12,277 physical frames, lives2→2, with 15 native enemy defeats.
+The other five identities are still unverified.
+Evidence: `build/wwf-helper-stable-1102-v2/native-hogan3/capture/`.
+Native death
 recovery is verified for all six wrestlers. The route remains unfinished;
 see `docs/qa/checkpoints/2026-11-02/hogan-gaps-v5/receipt.json`.
 
