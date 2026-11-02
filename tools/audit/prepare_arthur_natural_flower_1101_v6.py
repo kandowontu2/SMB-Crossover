@@ -7,8 +7,7 @@ from pathlib import Path
 from prepare_selected_native_packet_v1 import R,prepare,sha
 O=R/'build/arthur-natural-flower-1101-v6'
 
-def main():
- O.mkdir(exist_ok=True)
+def controller():
  ref=R/'tools/reference/arthur_full11_native_1101_v3.lua';t=ref.read_text()
  t=t.replace('local jumps=0','''local jumps=0
 local questJump=nil
@@ -62,6 +61,11 @@ end,emu.callbackType.exec,assert(L.ArHostNativePickup))
   if age>=1600 then finish(false,'Natural flower controller bound');return end
 '''
  assert t.count(marker)==1;t=t.replace(marker,marker+observe)
+ return ref,t
+
+def main():
+ O.mkdir(exist_ok=True)
+ ref,t=controller()
  rom=R/'build/shinobi-bbox-candidate-1101-v30/candidate.nes'
  prepare(O/'native2',rom,t,[Path(__file__),ref],expected=sha(rom),timeout=150,allow_interactive=True,scope='Cold Arthur controller-only firstflower: genuine headbump blockrelease, native itemmaturity, originalpickupA6/ArLastPickup and torch68. Readonly callbacks; no terrain/NPC/health/power/outcome writes. Atmost4PNGs/1600playframes. Doesnotclaim mushroom/star/1up/fullstage. Earlier native attempt stopped at x289: controller waited for exact y112 at input polling and never advanced.')
 

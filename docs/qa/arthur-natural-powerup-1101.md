@@ -33,7 +33,30 @@ center imports host X+8, the current host X+0/X+16 queries are intentional.
 The generic wall clamp instead assumes host X+14 and subtracts 15 after
 rounding, producing the erroneous whole-tile displacement at X=305. Keep
 the original probes and repair Arthur's separation under an exact owner check.
-The proposed correction still needs CPU and native regression verification.
+The correction is now a private candidate, SHA256
+`8be03441c6f5503acb3d001e76fbcc1d82a0fc4967c856c2eda763eba2d09806`.
+It changes 196 bytes wholly within the existing 215-byte wall routine. Original
+GNG probe geometry, `NativeGuest` and the next public entry remain intact.
+CPU checks pass for foreign callers, arbitrary-A Ryu direct ingress, Arthur's
+16-bit separation, original guards and IRQ/lag-NMI boundaries.
+
+It is **not installed**. On the same natural flower approach, Arthur now stops
+at the correct X=303 instead of 289, but still does not collect the item. The
+stronger replay consequently records no B-driven torch use. The unchanged
+previous successful 1-1 controller passes the four pipes and first gap, then
+enters the death engine at world X=1808, physical frame 2605. Changed wall and
+enemy timing must be distinguished from a regression before qualification.
+Both negative receipts are under `build/arthur-side-native-1101-v8/`.
+
+The flower replay's remaining failure has a source-backed controller cause:
+`ArStep` clears `ArR_065D` on ground and sets jump drift only when a horizontal
+direction is held at launch. The replay launched vertically, then added Right
+after 18 physical frames. That changes facing without adding air movement.
+Prepare a genuine directional takeoff rather than modifying the physics or
+adding a helper. The full-route failure is a ground-enemy encounter, not an
+unreachable gap; corrected wall separation reaches that region about 264
+physical frames earlier and changes its encounter phase. A controller successor
+is being prepared; the passing source arithmetic alone is not a native clear.
 
 Compact evidence is under `build/arthur-natural-flower-1101-v6/`:
 `native`, `native2`, and `diagnostic`. The diagnostic's

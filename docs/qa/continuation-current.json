@@ -2,9 +2,19 @@
   "arthur_natural_powerup_followup": {
     "ROM_sha256": "6f319d2039f920bc85e4a6bfe6ee3327996b42020e03c09e671142eada2a6428",
     "note": "docs/qa/arthur-natural-powerup-1101.md",
-    "status": "INCOMPLETE_REAL_WALL_DISPLACEMENT_REPRODUCED",
-    "native": "Actual first flower released and matured; no collection yet. Atframe984 worldX305to289,Y130,writePC A2BD physicalPRG10. Original GNG sideprobes0/16 differ from genericclamp14/minus15. Exact-Arthur repair being prepared; no nightly change. Failedcontroller/assertion receipts retained.",
+    "status": "PRIVATE_WALL_CORRECTION_NATIVE_ROUTES_INCOMPLETE",
+    "private_candidate": "build/arthur-side-clamp-1101-v8/candidate.nes",
+    "private_SHA256": "8be03441c6f5503acb3d001e76fbcc1d82a0fc4967c856c2eda763eba2d09806",
+    "native": "First flower genuinely released/matured, still uncollected. Corrected candidate now clamps at303 rather than289; unchanged approach controller still fails collection/torch assertion. Exact previous successful full11 controller now reaches1808/fourpipes/firstgap then engine11 (2605physicalframes), so candidate remains PRIVATE. Investigate changed wall/enemy timing versus regression. CPU foreign/Arthur/IRQ and actualRyu caller checks pass; no nightly change. Evidence build/arthur-side-native-1101-v8.",
     "helpers": "Existing GPT-6.1 Sol xhigh agents continuing Excitebike, Prince/Arthur wall repair and Bub/Bob."
+  },
+  "excitebike_native_followup": {
+    "private_SHA256": "70621f954e65d0bc582fd6177a0a2f5eb50f3af3d51e39531a6fb81cd2800b85",
+    "status": "PRIVATE_NATIVE_FAILURES_UNDER_REPAIR",
+    "native1": "Cold select/raw37, idle/throttle/coast/reverse pass; short Apress missed jump. Full run assertion failed; no installation.",
+    "native2": "Longer Apress launches once/rises30px, below backlean assertion. Native ExColors calls0, CHR4 overwritten535 instead736, OAM records rotate misaligned. Needs actual color/name ingresses, exact37 legacyshot-bank bypass and stablezero SmPosePtr header. BlanketHuColors rebind rejected actualTankvariant6 regression; exact37 wrappers being funded/proven. Native receipts remain negative.",
+    "evidence": "build/excitebike-pose-1101-v3/native and native2/capture",
+    "Bub_Bob": "Independent8KB/5434B component and1KB art/state measured;2297CPU/140art cases; no physical grants or menu. Helper now preparing native adapters in isolated model. See docs/qa/bubble-bobble-readiness-1101.md."
   },
   "installed_nightly": {
     "installed": true,
