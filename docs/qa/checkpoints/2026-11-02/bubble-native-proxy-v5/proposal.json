@@ -1,0 +1,751 @@
+{
+  "passed": true,
+  "proposal_only": true,
+  "ROM_written": false,
+  "admitted": false,
+  "base_ROM": "build\\wwf-death-1102-v2\\candidate.nes",
+  "base_ROM_SHA256": "1966a4883a888a5e62f90c4d3e96d25ecf028ddd7d714214727793418d633243",
+  "CPU_model_base_SHA256": "cf1412eb78ed6531d2f7478c9790f96314a95f2f3fdd6c2b80bfbefd24fca3a8",
+  "in_memory_backend_only_over1966_SHA256": "c7480fc34f1d01434901e38419f0391ce8c6180073e9701f8eecb3ca936d7cd5",
+  "existing_PRG79_router_changed_bytes": 0,
+  "existing37_Ex_veneers_realExMenuDone_unchanged": true,
+  "bodygate_ordinary_contact_row": 37,
+  "HuBody11_profile_reject": true,
+  "typed_virtual_row37": {
+    "resident_entry": 45097,
+    "private_entry": 41071,
+    "virtual_B0FB_never_executed": true,
+    "typed_input_restore_half_open": [
+      42994,
+      43000
+    ]
+  },
+  "common_worker": {
+    "bytes": 229,
+    "total_granted": 247,
+    "unused": 18
+  },
+  "private_code": {
+    "A000_BFE0_used": 8145,
+    "end": 49105,
+    "spare": 15,
+    "original_A100_B53A_unchanged": true,
+    "helper_tail_bytes": 220,
+    "helper_tail_spare": 4
+  },
+  "cookie": "a727017603c014185b219cdd4b067eae",
+  "payload_SHA256": "c38f8361c72012d6f6f607e5b632500f0f931480f4a17618db25575038e20c16",
+  "helper_row_SHA256": "84247170724e53778fe5265600435ca573fc1d4fb0358cd3e9fcb870b4a555de",
+  "shared_patches": [
+    {
+      "physical_PRG": 123,
+      "CPU_half_open": [
+        44864,
+        45055
+      ],
+      "file_offset": 1011536,
+      "bytes": 191,
+      "original_owner": "Mac9source-declared192Bpad",
+      "source_reclaim_proof": "common-cold-1102-v1 grant; exact9track/mixedrestart/DMC source closures.191of192 used.",
+      "old_SHA256": "9362c6ea998bd95bc34e9c71a5ecdb7631aa390d3263fc547a8e78d15c227d95",
+      "new_SHA256": "d4c7ea66da8525d8a22f8fcfeb82f94702e4b4e4b430672565210b93a74a3337",
+      "old_hex": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+      "new_hex": "a9028da17d8d1651a9008503a9c08504a002b106aaa000a9009103d103f0034cd3afc8d0f4e604cad0edad790729fb09208d0020a9008505a505a001d106900cf1060a0a09d08504a902d0080a0a09c08504a9038da17d8d165120d6b9a204ad07209103c8d0f8e604cad0f3a50438e904850420d6b9a204ad0720d103d014c8d0f6e604cad0f1e605a000a505d106d0a738601860080620d0d802d902da02db02dc02dd02de02df02090804d02d01310151016a016b01b80133039a02b901",
+      "compiled_blob": "build/bubble-bobble-source-1101-v1/common-split.bin",
+      "actual_changed_bytes": 191
+    },
+    {
+      "physical_PRG": 123,
+      "CPU_half_open": [
+        47574,
+        47612
+      ],
+      "file_offset": 1014246,
+      "bytes": 38,
+      "original_owner": "Mac9source-declared42Bpad",
+      "source_reclaim_proof": "Same formal247Bpool,38of42 used; BF93..BFA0 remains untouched.",
+      "old_SHA256": "b22a774f0671c2a5c7816ad683a11031f8cbb52bfddab4a37f085fef6c60e63e",
+      "new_SHA256": "6ce3f9ab30c95a65889e8ff53cd28c2b1baf5dd0e77bf5f00770e270f98e56cb",
+      "old_hex": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+      "new_hex": "a5050a186905a8b1068d305188b1068d2351a0008c30512c0220a90c8d06208c0620ad072060",
+      "compiled_blob": "build/bubble-bobble-source-1101-v1/common-split-map.bin",
+      "actual_changed_bytes": 38
+    },
+    {
+      "physical_PRG": 65,
+      "CPU_half_open": [
+        42816,
+        43000
+      ],
+      "file_offset": 534352,
+      "bytes": 184,
+      "original_owner": "Ex192Bsource-funded Proto pad/dispatcher",
+      "source_reclaim_proof": "Frozen route compaction178B +6B typed-input restore tail; total184of192; all37Ex ABI+foreign+ISR proof.",
+      "old_SHA256": "a4b767ab33d5897671ca129f90b11552e17fd565d4b1d6216add3b5cc793f57f",
+      "new_SHA256": "42f1ff38d9185865ac11a42ff4c7599bd5bd45891fa299d5ad0806bc781c4d1f",
+      "old_hex": "08488a489848ada17d48a200bc11b0b9000148e8e005d0f4ad0260c925f006ad6c014c31b02000ae9058ad6d01c9b0d051ad6c0138e98c9049c96fb0451869008d6c01a9a58d6d01a9028da17d8d1651babd0a0148bd09018d6a01bd080148bd0701a868aa28a903205a0108488a489848baa004bd01019d0b01e888d0f69a4ccba7babd0a0129fe9d0a01a204bc11b068990001ca10f6688da17d8d165168a868aa6828607b03ffff0848ad0260c925f00568284c1dac4c",
+      "new_hex": "08488a489848ada17d48a200bce6afb9000148e8e005d0f4ad026029fdc925f006ad6c014c31b020f3ae9061ad6d01c9b0d05aad6c0138e98c9052c972b04e1869008d6c01a9a0ae0260e027f002a9a58d6d01a9028da17d8d1651babd0a0148bd09018d6a01bd080148bd0701a868aa28a903205a0108488a489848baa004bd01019d0b01e888d0f69a4cd6a7babd0a0129fe9d0a01a204bce6af68990001ca10f6688da17d8d165168a868aa6828607b03ad6a014c40a7",
+      "compiled_blob": "build/bubble-bobble-source-1101-v1/native-proxy-routes.bin",
+      "actual_changed_bytes": 156
+    },
+    {
+      "physical_PRG": 65,
+      "CPU_half_open": [
+        44544,
+        45075
+      ],
+      "file_offset": 536080,
+      "bytes": 531,
+      "original_owner": "Ex556Bloader within AE00..B108 grant",
+      "source_reclaim_proof": "Source-factor full9row common worker;531Bmanager, fulltwo16Bheaders, bothowner/currentExcookie/readback/protection/NMI equivalence.",
+      "old_SHA256": "865d506361251cc2b233eb0a5a11fe1c3a32bd654963a2809321316730de4a57",
+      "new_SHA256": "95d36eaf11295e091eabbb4c3803347dfa394633e6176ab39b57989570a8aeb2",
+      "old_hex": "ada17d48ad0260c925d020a2038ea17d8e1651a20fbde0dfdd16b0d00eca10f5aea17dcae001d0e538b00118688da17d8d16516008488a48ada17d48a2038ea17d8e1651a20fbde0dfdd16b0d008ca10f5a9008de0dfaea17dcae001d0e0688da17d8d165168aa68286008488a489848a200b50348e8e008d0f8a200bc11b0b9000148e8e005d0f4ada17d48ad460148ad0260c925d027ad7107c901d020adff5f2901f019ad7507f014ad7a072918d00dad390110082000ae90064c75af4c83af78a9008d460120feaf20b2afa9028da17d8d1651a9008503a9c08504a000a220a9009103d103f0034c7dafc8d0f4e604cad0edad790729fb09208d0020a9008505a505c906900d38e9060a0a09d08504a902d0080a0a09c08504a9038da17d8d165120c5afa204ad07209103c8d0f8e604cad0f3a50438e904850420c5afa204ad0720d103d035c8d0f6e604cad0f1e605a505c908d0aaa203a0018ea17d8e1651a20fbd16b09de0dfca10f7a2028810ea20e5afbabd13010901d00c20b2af20e5afbabd130129fe9d1301688d4601688da17d8d1651a204bc11b068990001ca10f6a207689503ca10fa68a868aa682860a2038ea17d8e1651a9008de0dfcae001d0f060a9028d3051a50509d88d2351a0008c30512c0220a90c8d06208c0620ad07206020feafad79078d00202c0220ad42078d0520ad43078d0520608d6a01a93d8d6c01a9a08d6d01a9be205a0160626a",
+      "new_hex": "08488a489848a90048f00908488a489848a90148a200b50348e8e008d0f8a200bce6afb9000148e8e005d0f4ada17d48ad460148babd1001f0062069af4cccae2014afb0034cc3aead7107c901d020adff5f2901f019ad7507f014ad7a072918d00dad39011008203daf90064cb5ae4cc3ae78a9008d460120d3af2069af20a7af2014af8d6a01a9408d6c01a9af8d6d01a9fb205a019025a2038ea17d8e1651a00fb10899e0df8810f8aea17dcae001d0e820baafbabd14010901d00c20a7af20baafbabd140129fe9d1401688d4601688da17d8d1651a204bce6af68990001ca10f6a207689503ca10fa6868a868aa682860a203b50648ca10fa2014af9003203dafa9002aa8a200689506e8e004d0f8984a60ad0260c925f008c927d01ca201d002a200bdebaf8508bdedaf8509bdefaf8506bdf1af850738601860ada17d48a2038ea17d8e1651a00fb9e0dfd108d00e8810f6aea17dcae001d0e638b00118688da17d8d165160a9038508a9b08509203daf901da9028da17d8d16518d6a01a9768d6c01a9bb8d6d01a903205a0120a7afa9f38508a9af8509203daf900320a7af2049a860a2038ea17d8e1651a9008de0dfcae001d0f06020d3afad79078d00202c0220ad42078d0520ad43078d0520608d6a01a93d8d6c01a9a08d6d01a9be205a0160626a6c6d79f303afb0d5e9afafa72501b3d453c8c94b3cf90944475320a727017603c014185b219cdd4b067eae",
+      "compiled_blob": "build/bubble-bobble-source-1101-v1/native-proxy-owner.bin",
+      "actual_changed_bytes": 524
+    },
+    {
+      "physical_PRG": 65,
+      "CPU_half_open": [
+        45075,
+        45094
+      ],
+      "file_offset": 536611,
+      "bytes": 19,
+      "original_owner": "Exoldloader/cookie extent",
+      "source_reclaim_proof": "Manager endsB013; frozen source compact scene gate19B.",
+      "old_SHA256": "6c81da7617fe83978e4fbf65a8da8f916aad152d9b72ac4b8b44e938af38124e",
+      "new_SHA256": "47dedc4fd43365269d41c982b8551fc3c60c0e3fec260e19c4f9dab48a799209",
+      "old_hex": "6c6d79a72501b3d453c8c94b3cf90944475320",
+      "new_hex": "0848ad026029fdc925f00568284c1dac4c62b0",
+      "compiled_blob": "build/bubble-bobble-source-1101-v1/native-proxy-route-scene-gate.bin",
+      "actual_changed_bytes": 19
+    },
+    {
+      "physical_PRG": 65,
+      "CPU_half_open": [
+        45094,
+        45097
+      ],
+      "file_offset": 536630,
+      "bytes": 3,
+      "original_owner": "ExRetireBoth11Bentry",
+      "source_reclaim_proof": "Original JSRAE34/JMPA849 then5FF; replaced3BJMPCoRetire. AC2C/AD88 callers retain exactB026.",
+      "old_SHA256": "7751e52a8b9c5ce99199a7062d6a2bbdf69e4ac14b3997824facea5b39202bca",
+      "new_SHA256": "98c970f54b3f3c82c5c84618bb5420d52f72a5804533f9b8e6ff3edf83e9acd0",
+      "old_hex": "2034ae",
+      "new_hex": "4c0bae",
+      "compiled_blob": "build/bubble-bobble-source-1101-v1/native-proxy-route-retire-stub.bin",
+      "actual_changed_bytes": 2
+    },
+    {
+      "physical_PRG": 65,
+      "CPU_half_open": [
+        45097,
+        45105
+      ],
+      "file_offset": 536633,
+      "bytes": 8,
+      "original_owner": "ExRetireBoth reclaimed8B",
+      "source_reclaim_proof": "Allbank65 absolute control/data operand census has zero interior readers/entries; typed37 only, realB0FB untouched.",
+      "old_SHA256": "58453ecd7752da7322221058c3fb50c77bbeba0f93cdff58db195021821ff6e4",
+      "new_SHA256": "4a1d1c143f00617f966d43609d5a68413e1261de0ff9b8f00e8c7d22b122899f",
+      "old_hex": "4c49a8ffffffffff",
+      "new_hex": "a9fb8d6c014cf2a7",
+      "compiled_blob": "build/bubble-bobble-source-1101-v1/native-proxy-typed-contact.bin",
+      "actual_changed_bytes": 8
+    },
+    {
+      "physical_PRG": 65,
+      "CPU_half_open": [
+        45105,
+        45154
+      ],
+      "file_offset": 536641,
+      "bytes": 49,
+      "original_owner": "Exresident foreignUI continuation",
+      "source_reclaim_proof": "Frozen source-compacted same native status/colors tail, full foreign differential; preserves37legacyveneers.",
+      "old_SHA256": "82e72f921335aea10a2ac3c8cb80c9547508b126254c84c28ed85dba4ec6d344",
+      "new_SHA256": "5ca92b1e253c85d471894ab91a11a4d0e5d27df6c02d9c07a8eab8824edb77c2",
+      "old_hex": "c9daf005c9e6d024cabde1a78d6c01bd5cb08d6d01bd01b18d620168686868686868a868aa682868684c61014cc2a7baab",
+      "new_hex": "c9daf005c9e6d024cabdeca78d6c01bd5cb08d6d01bd01b18d620168686868686868a868aa682868684c61014ccda7baab",
+      "compiled_blob": "build/bubble-bobble-source-1101-v1/native-proxy-route-foreign.bin",
+      "actual_changed_bytes": 2
+    },
+    {
+      "physical_PRG": 65,
+      "CPU_half_open": [
+        45154,
+        45175
+      ],
+      "file_offset": 536690,
+      "bytes": 21,
+      "original_owner": "Exresident scene continuation",
+      "source_reclaim_proof": "Frozen source-compacted owning scene; originalExscene AXYP/state exact.",
+      "old_SHA256": "2541c728a20c1524bf784da2169d5a31f8983396d0372b4aaf7ccefc175c0397",
+      "new_SHA256": "bb6ce3348d847b42c51c31c58f6a0a4f878eba7a9ef6acdbacfd63b13e3bd4c2",
+      "old_hex": "206aae900da9f88d6c01a9b08d6d0120f8b0682860",
+      "new_hex": "2000ae900da9f88d6c01a9b08d6d0120f8b0682860",
+      "compiled_blob": "build/bubble-bobble-source-1101-v1/native-proxy-route-scene-own.bin",
+      "actual_changed_bytes": 1
+    },
+    {
+      "physical_PRG": 65,
+      "CPU_half_open": [
+        45313,
+        45315
+      ],
+      "file_offset": 536849,
+      "bytes": 2,
+      "original_owner": "ExReset currentJSRcallee operand",
+      "source_reclaim_proof": "Same existing row19 ROM-only retirement seam; retarget AE34\u2192CoRetire; B100JSR opcode andfollowingSEC/RTS unchanged.",
+      "old_SHA256": "e8c4b502f87578a295b452150a3ce6849e31e77aca8d761eb39031d1a0992969",
+      "new_SHA256": "76790b5c8ead87f989332851cf78efea9767f8e7cdfef2fcbdd616a92d5ae24c",
+      "old_hex": "34ae",
+      "new_hex": "0bae",
+      "compiled_blob": null,
+      "actual_changed_bytes": 1
+    },
+    {
+      "physical_PRG": 3,
+      "CPU_half_open": [
+        45646,
+        45647
+      ],
+      "file_offset": 29278,
+      "bytes": 1,
+      "original_owner": "Native InitScreen existing scene farcall operand",
+      "source_reclaim_proof": "Frozen source-bound existing targetA7E9\u2192CoSceneGateB013; originalclassification/foreigntail/frames unchanged.",
+      "old_SHA256": "de2e331d891ae267a7009cb45b4e8830f170e0c937288ea2731a1941c7a53b0d",
+      "new_SHA256": "ab897fbdedfa502b2d839b6a56100887dccdc507555c282e59589e06300a62e2",
+      "old_hex": "e9",
+      "new_hex": "13",
+      "compiled_blob": null,
+      "actual_changed_bytes": 1
+    },
+    {
+      "physical_PRG": 3,
+      "CPU_half_open": [
+        45651,
+        45652
+      ],
+      "file_offset": 29283,
+      "bytes": 1,
+      "original_owner": "Native InitScreen existing scene farcall operand",
+      "source_reclaim_proof": "Frozen source-bound existing targetA7E9\u2192CoSceneGateB013; originalclassification/foreigntail/frames unchanged.",
+      "old_SHA256": "2dbf9365a0b09d85bbd6176d8b2332aa5ae97bef652712473bc69165e74b22ed",
+      "new_SHA256": "f4f97c88c409dcf3789b5b518da3f7d266c488066e97a606e38a150779880735",
+      "old_hex": "a7",
+      "new_hex": "b0",
+      "compiled_blob": null,
+      "actual_changed_bytes": 1
+    },
+    {
+      "physical_PRG": 74,
+      "CPU_half_open": [
+        48899,
+        48948
+      ],
+      "file_offset": 614163,
+      "bytes": 49,
+      "original_owner": "SMB2source owning contact gate",
+      "source_reclaim_proof": "Frozen source exact49B PH/PHA classifier+SMB2 continuation; source duplicateA-save removal and sharedprecedingBF00JMP fund raw39 typed37. Foreign0..38 exact +original25 path; same49B.",
+      "old_SHA256": "b0d44e0559bcff2c924bc49266c9422f8a112c953641877fa49711d264a8bbcc",
+      "new_SHA256": "b2c2183502a9e72265b301f53b834caf87157c74d9a756deb32526d5a4eae509",
+      "old_hex": "0848ad0260c919f01468284cdcabeaeaeaeaeaeaeaeaeaeaeaeaeaeaea68288d6a01a9158d6c01a9bb8d6d01a9f64c5a01",
+      "new_hex": "08ad0260c919f00bc927f016ad6a01284cdcab28a9158d6c01a9bb8d6d01a9f6d0db28a9298d6c01a9b08d6d01a9c1d0cc",
+      "compiled_blob": "build/bubble-bobble-source-1101-v1/native-proxy-contact-gate.bin",
+      "actual_changed_bytes": 48
+    },
+    {
+      "physical_PRG": 65,
+      "CPU_half_open": [
+        44470,
+        44504
+      ],
+      "file_offset": 536006,
+      "bytes": 34,
+      "original_owner": "Sh source-owned shot gate",
+      "source_reclaim_proof": "Existing33Bshot +40Bbbox +1FF=74B. Duplicate SafecallA save omitted under actual outer farcall ABI; new39 compare costs1 net byte.",
+      "old_SHA256": "925353f06ba14d1ebcd55f7dedc2f688fd987bb56d21b54872cbac8243251e75",
+      "new_SHA256": "9605a20fa3fa5ed4b54564bcbd4fec408886f8859b601b2df00a26d750e365a8",
+      "old_hex": "0848ad02604ac912d00368286068288d6a01a9bc8d6c01a9bb8d6d01a9ce4c5a0108",
+      "new_hex": "0848ad0260c927f0054ac912d0036828606828a9bc8d6c01a9bb8d6d01a9ce4c5a01",
+      "compiled_blob": "build/bubble-bobble-source-1101-v1/native-proxy-ports.bin",
+      "actual_changed_bytes": 29
+    },
+    {
+      "physical_PRG": 65,
+      "CPU_half_open": [
+        44504,
+        44542
+      ],
+      "file_offset": 536040,
+      "bytes": 38,
+      "original_owner": "Sh source-owned bbox gate shifted1B",
+      "source_reclaim_proof": "NativeBoundingBoxCore inputAdead; source PHP-only/no redundantA reload/save funds raw39 and genericHuFullBox16. All23Shposes/fullSMC exact; totalshot+bbox72of74.",
+      "old_SHA256": "9865389dd7b19daa42cf6cc1dd91ddd0482f11af13abb1f9ce9c7f1262395789",
+      "new_SHA256": "a76c03dd5180e77723721b6f3412a972095c0848b20b03883935f804954d389e",
+      "old_hex": "48ad0260c924f00568284c4e9f68288d6a01a9b88d6c01a9aa8d6d01a9c1205a01b0034c4e9f",
+      "new_hex": "08ad0260c924f008c927f004284c4e9f28a9008d6c01a9b78d6d01a9cf205a01b0034c4e9f60",
+      "compiled_blob": "build/bubble-bobble-source-1101-v1/native-proxy-bbox.bin",
+      "actual_changed_bytes": 32
+    },
+    {
+      "physical_PRG": 77,
+      "CPU_half_open": [
+        43789,
+        43790
+      ],
+      "file_offset": 633629,
+      "bytes": 1,
+      "original_owner": "Native LmBoundingBoxGate existing farcall low operand",
+      "source_reclaim_proof": "Actual current macro AB09 startsSTASafecallA; targetADD7\u2192ADD8, highAD/bankC1 unchanged.",
+      "old_SHA256": "414a21e525a759e3ffeb22556be6348a92d5a13e40b61a0805f36f18c2909513",
+      "new_SHA256": "af193a8cdcd0e3fb39e71147e59efa5cad40763d2611f5beff34a274f514362f",
+      "old_hex": "d7",
+      "new_hex": "d8",
+      "compiled_blob": null,
+      "actual_changed_bytes": 1
+    }
+  ],
+  "owned_carriers": [
+    {
+      "physical_CHR": 301,
+      "file_offset": 1356816,
+      "bytes": 1024,
+      "old_SHA256": "5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+      "new_SHA256": "7176a93c28b8b3a9749c0e4e10bfb936fb4bbc4b475bcbedaab73dad043cfa35",
+      "new_blob": "build/bubble-bobble-source-1101-v1/native-proxy.bin",
+      "new_blob_offset": 0,
+      "grant": "bubble-bobble-rebase-1102-v2.json"
+    },
+    {
+      "physical_CHR": 305,
+      "file_offset": 1360912,
+      "bytes": 1024,
+      "old_SHA256": "5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+      "new_SHA256": "e8930a1b14b99158047d83a13318a4c07e228a6ba244997a2a9ab4bbb25a18e3",
+      "new_blob": "build/bubble-bobble-source-1101-v1/native-proxy.bin",
+      "new_blob_offset": 1024,
+      "grant": "bubble-bobble-rebase-1102-v2.json"
+    },
+    {
+      "physical_CHR": 337,
+      "file_offset": 1393680,
+      "bytes": 1024,
+      "old_SHA256": "5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+      "new_SHA256": "f0753867543942e6bd1be34eea27ca2bc5fdfe86db02ab40365832dc4ca80287",
+      "new_blob": "build/bubble-bobble-source-1101-v1/native-proxy.bin",
+      "new_blob_offset": 2048,
+      "grant": "bubble-bobble-rebase-1102-v2.json"
+    },
+    {
+      "physical_CHR": 362,
+      "file_offset": 1419280,
+      "bytes": 1024,
+      "old_SHA256": "5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+      "new_SHA256": "055125c353cae834edb17b3f5f501571bee2e69a63f7348a112cc66948ce5099",
+      "new_blob": "build/bubble-bobble-source-1101-v1/native-proxy.bin",
+      "new_blob_offset": 3072,
+      "grant": "bubble-bobble-rebase-1102-v2.json"
+    },
+    {
+      "physical_CHR": 363,
+      "file_offset": 1420304,
+      "bytes": 1024,
+      "old_SHA256": "5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+      "new_SHA256": "17d4006ee50091412d178fe5838deb7c0d1b7e28193a138125b7ddb70f95b80d",
+      "new_blob": "build/bubble-bobble-source-1101-v1/native-proxy.bin",
+      "new_blob_offset": 4096,
+      "grant": "bubble-bobble-rebase-1102-v2.json"
+    },
+    {
+      "physical_CHR": 440,
+      "file_offset": 1499152,
+      "bytes": 1024,
+      "old_SHA256": "5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+      "new_SHA256": "3d6f760355490a215875bfa26a9b1175e57835b77011792293bec7a2fcbe778a",
+      "new_blob": "build/bubble-bobble-source-1101-v1/native-proxy.bin",
+      "new_blob_offset": 5120,
+      "grant": "bubble-bobble-rebase-1102-v2.json"
+    },
+    {
+      "physical_CHR": 819,
+      "file_offset": 1887248,
+      "bytes": 1024,
+      "old_SHA256": "5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+      "new_SHA256": "13b6aa645a9f44694bc5b9dbff102fff0fc0f16ba696652e4e15b9040e5a197f",
+      "new_blob": "build/bubble-bobble-source-1101-v1/native-proxy.bin",
+      "new_blob_offset": 6144,
+      "grant": "bubble-bobble-rebase-1102-v2.json"
+    },
+    {
+      "physical_CHR": 666,
+      "file_offset": 1730576,
+      "bytes": 1024,
+      "old_SHA256": "5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+      "new_SHA256": "16da6f45e2e97a40a6c5afeef2f7b2696b1d311ace90865b0558e5eebf0a540e",
+      "new_blob": "build/bubble-bobble-source-1101-v1/native-proxy.bin",
+      "new_blob_offset": 7168,
+      "grant": "bubble-bobble-rebase-1102-v2.json"
+    },
+    {
+      "physical_CHR": 441,
+      "file_offset": 1500176,
+      "bytes": 1024,
+      "old_SHA256": "5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+      "new_SHA256": "84247170724e53778fe5265600435ca573fc1d4fb0358cd3e9fcb870b4a555de",
+      "new_blob": "build/bubble-bobble-source-1101-v1/native-proxy-helper.chr",
+      "new_blob_offset": 0,
+      "grant": "bubble-helper-row-1102-v2.json"
+    }
+  ],
+  "changed_bytes": 9782,
+  "no_new_mutable_RAM": true,
+  "no_AI_birth_hook": true,
+  "no_menu_or_confirmation_write": true,
+  "frontend_composition": "Apply exact frontend1249B delta over1966 independently, retain AD64 confirmation SEC until root approves private native candidate. Frontend agent owns composer.",
+  "grant_status": "Existing physical carriers, conditional RAM and247Bcommon storage granted. Actual commonrouting/typedcontact49B/Shports+caller bindings remain proposals for root review.",
+  "receipts": {
+    "build/bubble-bobble-source-1101-v1/native-proxy-CPU.json": "5ade7077a611cdc56a493c8f7ec43ab8534485aa5581b7c11f23e4fe18d68b4f",
+    "build/bubble-bobble-source-1101-v1/native-proxy-Main-CPU.json": "52a39479b34d077a4dc688b5a50a54a6c693b1b618320f9611f2f80fbf626a07",
+    "build/bubble-bobble-source-1101-v1/native-proxy-typed-contact-CPU.json": "8e6f9931c3d8a21e58df27560dd4bf9451071c71b7f6e75ceac9f69c440d0791",
+    "build/bubble-bobble-source-1101-v1/native-proxy-ports-CPU.json": "371d7a47553501df60f8e3f5d038a48c653a5060eef135e284380fa617ff84da",
+    "build/bubble-bobble-source-1101-v1/native-proxy-cold-CPU.json": "b80083b430de9d702bd5317227b639b22d05a343c9f16a11ca4acfd7706bd35a"
+  },
+  "scope": "Exactcurrent1966 old/new preimages and sole in-memory diff closure. Allcurrent Metal/Arthur/Ex and WWF outside declared patch bytes preserved; no candidate ROM written. Actual native/controller/stageclear qualification remains root-owned.",
+  "funding_closure": {
+    "source_padding": {
+      "source": "src/protoman.s",
+      "declaration": ".res $1108-(*-ProtoArtBegin), $ff",
+      "original_Ex_lease_AE00_B108": 776,
+      "old_source_overlay_end": 45100,
+      "next_fixed_segment_start": 45105,
+      "five_pad_bytes_retained_from_original_source": true,
+      "not_alignment_directive": true
+    },
+    "dispatcher_source_lease": {
+      "proof": "tools/audit/prepare_excitebike_dispatch_1101_v1.py::lease",
+      "exact_half_open": [
+        42816,
+        43008
+      ],
+      "bytes": 192,
+      "Proto_descriptor_index_domain": [
+        0,
+        26
+      ],
+      "immutable_descriptor_end_C": 50838,
+      "complete_art_end_C": 51000,
+      "reader_source": "src/protoman_cold.s",
+      "successor_used": 184,
+      "successor_spare": 8
+    },
+    "old_Ex_source_rebound_to_current": {
+      "source_loader_bytes": 556,
+      "all_non_cookie_bytes_exact": true,
+      "cookie_half_open": [
+        45078,
+        45094
+      ]
+    },
+    "complete_typed_indexed_and_indirect_domains": [
+      {
+        "reader": "ExHeadersByte/ExRetireByte/ExPublishByte",
+        "range": [
+          45078,
+          45094
+        ],
+        "index": "X15..0",
+        "source": "owner-loader.inc"
+      },
+      {
+        "reader": "ExLoadSaveSmc/ExLoadRestoreSmc/ExDispatchSaveSmc/ExDispatchRestoreSmc",
+        "range": [
+          45073,
+          45078
+        ],
+        "index": "X0..4/4..0",
+        "source": "owner-loader.inc +excitebike_resident_dispatch_1101_v1.inc"
+      },
+      {
+        "reader": "ExForeignLo/Hi/Bank-4,X",
+        "ranges": [
+          [
+            42981,
+            42983
+          ],
+          [
+            45152,
+            45154
+          ],
+          [
+            45317,
+            45319
+          ]
+        ],
+        "index": "OnlyX4/5 after bounded5SMC save; two UIselectors26/30",
+        "source": "excitebike_resident_dispatch_1101_v1.inc"
+      },
+      {
+        "reader": "ExCopyByte/ExVerifyByte/ExZeroByte (R0),Y",
+        "range": [
+          49152,
+          57344
+        ],
+        "index": "OnlymappedRAM2/3 destinations; no ROM65 source pointer",
+        "source": "owner-loader.inc"
+      },
+      {
+        "reader": "ExDispatch FarCallCommon cached service",
+        "range": [
+          42240,
+          42351
+        ],
+        "index": "37aligned actualpublicrow targets0..36; typed37 newlybounded separately",
+        "source": "excitebike_resident_dispatch_1101_v1.inc"
+      },
+      {
+        "reader": "Native current farcall/JSR ingresses",
+        "targets": [
+          "A7E9scene",
+          "B026RetireBoth",
+          "B08C+3*row0..36",
+          "B100ROMreset"
+        ],
+        "source": "Frozen actualPRG79 endpoint proof +source-bound native UI/scene andSh retirement seams; noB029 interior target"
+      }
+    ],
+    "surviving_interior_B029_B031_readers_entries": [],
+    "source_bindings": {
+      "src/protoman.s": "510a07f5cf68dba452f9d57d693bab30bb6e94464d38ac2f992450a6ac257ec4",
+      "src/protoman_art.inc": "dbcc6bc3ae3b0936fb972296c4d895da36a75609f4bb30f71d2af9d2b3197c6e",
+      "src/protoman_cold.s": "b6dabf6e38bb647236abb7b1ddab4188454252d78868168a0372a32d3b682fa6",
+      "src/protoman_pose_ids.inc": "a100824b597377f0bb7919216d8622f0d2dfee9e30647d85a975da8c65674c9b",
+      "tools/audit/prepare_excitebike_dispatch_1101_v1.py": "d2f8ff13a27e856e4c692e5041c3d8c6fa504189e39a20d22ff82a0152352be3",
+      "tools/audit/compose_excitebike_owner_1101_v1.py": "23947b5156aacf1497c564e55eb8c2eeb9d7e1d49c1897857af8a8994906d543",
+      "tools/reference/excitebike_resident_dispatch_1101_v1.inc": "bc4b68a84eaf99b0dda41150d92f908de55fcdffd0a309b7be237de5ea475ae6",
+      "build/excitebike-pose-1101-v3/dispatch.s": "546ed8c01b99fde8bb31e0b07ebb84e29aacf5836655c9a43213b7db0402d1a8",
+      "build/excitebike-pose-1101-v3/dispatch.cfg": "a864666e423852c50e2659b09df148dbd13310c3bd7af75283ae84fd41a9f14d",
+      "build/excitebike-pose-1101-v3/dispatch-loader.bin": "4d4350073725b251f607d92133052e10e9eb9ae3bd4caf808f995f03644f5956",
+      "build/excitebike-pose-1101-v3/owner-loader.inc": "8c0a60d8c7c62e4e6b9adf42494fc8082e9cae9d7a52eac14617005c9a722815",
+      "build/excitebike-pose-1101-v3/scene.lbl": "18cd6639f6d612cbfb10519d6deac90c462824009cc3223bb3d39dfbf4616618",
+      "build/excitebike-pose-1101-v3/dispatch-lease.json": "342a65b6047121cc03c8c669dfd3e3ba84c008d4a7620f44bf7609049651ee4d"
+    }
+  },
+  "patches": [
+    {
+      "offset": 1011536,
+      "old": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+      "new": "a9028da17d8d1651a9008503a9c08504a002b106aaa000a9009103d103f0034cd3afc8d0f4e604cad0edad790729fb09208d0020a9008505a505a001d106900cf1060a0a09d08504a902d0080a0a09c08504a9038da17d8d165120d6b9a204ad07209103c8d0f8e604cad0f3a50438e904850420d6b9a204ad0720d103d014c8d0f6e604cad0f1e605a000a505d106d0a738601860080620d0d802d902da02db02dc02dd02de02df02090804d02d01310151016a016b01b80133039a02b901",
+      "role": "Mac9source-declared192Bpad; common-cold-1102-v1 grant; exact9track/mixedrestart/DMC source closures.191of192 used.",
+      "existing_grant": "common-cold-1102-v1.json",
+      "required_successor_grant": "Root pending exact commonrouting/contact/ports grant"
+    },
+    {
+      "offset": 1014246,
+      "old": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+      "new": "a5050a186905a8b1068d305188b1068d2351a0008c30512c0220a90c8d06208c0620ad072060",
+      "role": "Mac9source-declared42Bpad; Same formal247Bpool,38of42 used; BF93..BFA0 remains untouched.",
+      "existing_grant": "common-cold-1102-v1.json",
+      "required_successor_grant": "Root pending exact commonrouting/contact/ports grant"
+    },
+    {
+      "offset": 534352,
+      "old": "08488a489848ada17d48a200bc11b0b9000148e8e005d0f4ad0260c925f006ad6c014c31b02000ae9058ad6d01c9b0d051ad6c0138e98c9049c96fb0451869008d6c01a9a58d6d01a9028da17d8d1651babd0a0148bd09018d6a01bd080148bd0701a868aa28a903205a0108488a489848baa004bd01019d0b01e888d0f69a4ccba7babd0a0129fe9d0a01a204bc11b068990001ca10f6688da17d8d165168a868aa6828607b03ffff0848ad0260c925f00568284c1dac4c",
+      "new": "08488a489848ada17d48a200bce6afb9000148e8e005d0f4ad026029fdc925f006ad6c014c31b020f3ae9061ad6d01c9b0d05aad6c0138e98c9052c972b04e1869008d6c01a9a0ae0260e027f002a9a58d6d01a9028da17d8d1651babd0a0148bd09018d6a01bd080148bd0701a868aa28a903205a0108488a489848baa004bd01019d0b01e888d0f69a4cd6a7babd0a0129fe9d0a01a204bce6af68990001ca10f6688da17d8d165168a868aa6828607b03ad6a014c40a7",
+      "role": "Ex192Bsource-funded Proto pad/dispatcher; Frozen route compaction178B +6B typed-input restore tail; total184of192; all37Ex ABI+foreign+ISR proof.",
+      "existing_grant": "Existing Ex/Sh source-backed typed owner grant; actual successor routing grant pending",
+      "required_successor_grant": "Root pending exact commonrouting/contact/ports grant"
+    },
+    {
+      "offset": 536080,
+      "old": "ada17d48ad0260c925d020a2038ea17d8e1651a20fbde0dfdd16b0d00eca10f5aea17dcae001d0e538b00118688da17d8d16516008488a48ada17d48a2038ea17d8e1651a20fbde0dfdd16b0d008ca10f5a9008de0dfaea17dcae001d0e0688da17d8d165168aa68286008488a489848a200b50348e8e008d0f8a200bc11b0b9000148e8e005d0f4ada17d48ad460148ad0260c925d027ad7107c901d020adff5f2901f019ad7507f014ad7a072918d00dad390110082000ae90064c75af4c83af78a9008d460120feaf20b2afa9028da17d8d1651a9008503a9c08504a000a220a9009103d103f0034c7dafc8d0f4e604cad0edad790729fb09208d0020a9008505a505c906900d38e9060a0a09d08504a902d0080a0a09c08504a9038da17d8d165120c5afa204ad07209103c8d0f8e604cad0f3a50438e904850420c5afa204ad0720d103d035c8d0f6e604cad0f1e605a505c908d0aaa203a0018ea17d8e1651a20fbd16b09de0dfca10f7a2028810ea20e5afbabd13010901d00c20b2af20e5afbabd130129fe9d1301688d4601688da17d8d1651a204bc11b068990001ca10f6a207689503ca10fa68a868aa682860a2038ea17d8e1651a9008de0dfcae001d0f060a9028d3051a50509d88d2351a0008c30512c0220a90c8d06208c0620ad07206020feafad79078d00202c0220ad42078d0520ad43078d0520608d6a01a93d8d6c01a9a08d6d01a9be205a0160626a",
+      "new": "08488a489848a90048f00908488a489848a90148a200b50348e8e008d0f8a200bce6afb9000148e8e005d0f4ada17d48ad460148babd1001f0062069af4cccae2014afb0034cc3aead7107c901d020adff5f2901f019ad7507f014ad7a072918d00dad39011008203daf90064cb5ae4cc3ae78a9008d460120d3af2069af20a7af2014af8d6a01a9408d6c01a9af8d6d01a9fb205a019025a2038ea17d8e1651a00fb10899e0df8810f8aea17dcae001d0e820baafbabd14010901d00c20a7af20baafbabd140129fe9d1401688d4601688da17d8d1651a204bce6af68990001ca10f6a207689503ca10fa6868a868aa682860a203b50648ca10fa2014af9003203dafa9002aa8a200689506e8e004d0f8984a60ad0260c925f008c927d01ca201d002a200bdebaf8508bdedaf8509bdefaf8506bdf1af850738601860ada17d48a2038ea17d8e1651a00fb9e0dfd108d00e8810f6aea17dcae001d0e638b00118688da17d8d165160a9038508a9b08509203daf901da9028da17d8d16518d6a01a9768d6c01a9bb8d6d01a903205a0120a7afa9f38508a9af8509203daf900320a7af2049a860a2038ea17d8e1651a9008de0dfcae001d0f06020d3afad79078d00202c0220ad42078d0520ad43078d0520608d6a01a93d8d6c01a9a08d6d01a9be205a0160626a6c6d79f303afb0d5e9afafa72501b3d453c8c94b3cf90944475320a727017603c014185b219cdd4b067eae",
+      "role": "Ex556Bloader within AE00..B108 grant; Source-factor full9row common worker;531Bmanager, fulltwo16Bheaders, bothowner/currentExcookie/readback/protection/NMI equivalence.",
+      "existing_grant": "Existing Ex/Sh source-backed typed owner grant; actual successor routing grant pending",
+      "required_successor_grant": "Root pending exact commonrouting/contact/ports grant"
+    },
+    {
+      "offset": 536611,
+      "old": "6c6d79a72501b3d453c8c94b3cf90944475320",
+      "new": "0848ad026029fdc925f00568284c1dac4c62b0",
+      "role": "Exoldloader/cookie extent; Manager endsB013; frozen source compact scene gate19B.",
+      "existing_grant": "Existing Ex/Sh source-backed typed owner grant; actual successor routing grant pending",
+      "required_successor_grant": "Root pending exact commonrouting/contact/ports grant"
+    },
+    {
+      "offset": 536630,
+      "old": "2034ae",
+      "new": "4c0bae",
+      "role": "ExRetireBoth11Bentry; Original JSRAE34/JMPA849 then5FF; replaced3BJMPCoRetire. AC2C/AD88 callers retain exactB026.",
+      "existing_grant": "Existing Ex/Sh source-backed typed owner grant; actual successor routing grant pending",
+      "required_successor_grant": "Root pending exact commonrouting/contact/ports grant"
+    },
+    {
+      "offset": 536633,
+      "old": "4c49a8ffffffffff",
+      "new": "a9fb8d6c014cf2a7",
+      "role": "ExRetireBoth reclaimed8B; Allbank65 absolute control/data operand census has zero interior readers/entries; typed37 only, realB0FB untouched.",
+      "existing_grant": "Existing Ex/Sh source-backed typed owner grant; actual successor routing grant pending",
+      "required_successor_grant": "Root pending exact commonrouting/contact/ports grant"
+    },
+    {
+      "offset": 536641,
+      "old": "c9daf005c9e6d024cabde1a78d6c01bd5cb08d6d01bd01b18d620168686868686868a868aa682868684c61014cc2a7baab",
+      "new": "c9daf005c9e6d024cabdeca78d6c01bd5cb08d6d01bd01b18d620168686868686868a868aa682868684c61014ccda7baab",
+      "role": "Exresident foreignUI continuation; Frozen source-compacted same native status/colors tail, full foreign differential; preserves37legacyveneers.",
+      "existing_grant": "Existing Ex/Sh source-backed typed owner grant; actual successor routing grant pending",
+      "required_successor_grant": "Root pending exact commonrouting/contact/ports grant"
+    },
+    {
+      "offset": 536690,
+      "old": "206aae900da9f88d6c01a9b08d6d0120f8b0682860",
+      "new": "2000ae900da9f88d6c01a9b08d6d0120f8b0682860",
+      "role": "Exresident scene continuation; Frozen source-compacted owning scene; originalExscene AXYP/state exact.",
+      "existing_grant": "Existing Ex/Sh source-backed typed owner grant; actual successor routing grant pending",
+      "required_successor_grant": "Root pending exact commonrouting/contact/ports grant"
+    },
+    {
+      "offset": 536849,
+      "old": "34ae",
+      "new": "0bae",
+      "role": "ExReset currentJSRcallee operand; Same existing row19 ROM-only retirement seam; retarget AE34\u2192CoRetire; B100JSR opcode andfollowingSEC/RTS unchanged.",
+      "existing_grant": "Existing Ex/Sh source-backed typed owner grant; actual successor routing grant pending",
+      "required_successor_grant": "Root pending exact commonrouting/contact/ports grant"
+    },
+    {
+      "offset": 29278,
+      "old": "e9",
+      "new": "13",
+      "role": "Native InitScreen existing scene farcall operand; Frozen source-bound existing targetA7E9\u2192CoSceneGateB013; originalclassification/foreigntail/frames unchanged.",
+      "existing_grant": "Existing Ex/Sh source-backed typed owner grant; actual successor routing grant pending",
+      "required_successor_grant": "Root pending exact commonrouting/contact/ports grant"
+    },
+    {
+      "offset": 29283,
+      "old": "a7",
+      "new": "b0",
+      "role": "Native InitScreen existing scene farcall operand; Frozen source-bound existing targetA7E9\u2192CoSceneGateB013; originalclassification/foreigntail/frames unchanged.",
+      "existing_grant": "Existing Ex/Sh source-backed typed owner grant; actual successor routing grant pending",
+      "required_successor_grant": "Root pending exact commonrouting/contact/ports grant"
+    },
+    {
+      "offset": 614163,
+      "old": "0848ad0260c919f01468284cdcabeaeaeaeaeaeaeaeaeaeaeaeaeaeaea68288d6a01a9158d6c01a9bb8d6d01a9f64c5a01",
+      "new": "08ad0260c919f00bc927f016ad6a01284cdcab28a9158d6c01a9bb8d6d01a9f6d0db28a9298d6c01a9b08d6d01a9c1d0cc",
+      "role": "SMB2source owning contact gate; Frozen source exact49B PH/PHA classifier+SMB2 continuation; source duplicateA-save removal and sharedprecedingBF00JMP fund raw39 typed37. Foreign0..38 exact +original25 path; same49B.",
+      "existing_grant": "Existing Ex/Sh source-backed typed owner grant; actual successor routing grant pending",
+      "required_successor_grant": "Root pending exact commonrouting/contact/ports grant"
+    },
+    {
+      "offset": 536006,
+      "old": "0848ad02604ac912d00368286068288d6a01a9bc8d6c01a9bb8d6d01a9ce4c5a0108",
+      "new": "0848ad0260c927f0054ac912d0036828606828a9bc8d6c01a9bb8d6d01a9ce4c5a01",
+      "role": "Sh source-owned shot gate; Existing33Bshot +40Bbbox +1FF=74B. Duplicate SafecallA save omitted under actual outer farcall ABI; new39 compare costs1 net byte.",
+      "existing_grant": "Existing Ex/Sh source-backed typed owner grant; actual successor routing grant pending",
+      "required_successor_grant": "Root pending exact commonrouting/contact/ports grant"
+    },
+    {
+      "offset": 536040,
+      "old": "48ad0260c924f00568284c4e9f68288d6a01a9b88d6c01a9aa8d6d01a9c1205a01b0034c4e9f",
+      "new": "08ad0260c924f008c927f004284c4e9f28a9008d6c01a9b78d6d01a9cf205a01b0034c4e9f60",
+      "role": "Sh source-owned bbox gate shifted1B; NativeBoundingBoxCore inputAdead; source PHP-only/no redundantA reload/save funds raw39 and genericHuFullBox16. All23Shposes/fullSMC exact; totalshot+bbox72of74.",
+      "existing_grant": "Existing Ex/Sh source-backed typed owner grant; actual successor routing grant pending",
+      "required_successor_grant": "Root pending exact commonrouting/contact/ports grant"
+    },
+    {
+      "offset": 633629,
+      "old": "d7",
+      "new": "d8",
+      "role": "Native LmBoundingBoxGate existing farcall low operand; Actual current macro AB09 startsSTASafecallA; targetADD7\u2192ADD8, highAD/bankC1 unchanged.",
+      "existing_grant": "Existing Ex/Sh source-backed typed owner grant; actual successor routing grant pending",
+      "required_successor_grant": "Root pending exact commonrouting/contact/ports grant"
+    },
+    {
+      "offset": 1356816,
+      "old": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "new": "4c65be4c20d34c10bd4c72a04c72a04cefd34cbabf4c72a04c72a04c7cb54c87954c72a04cf5d34cf9d34c8b954c65b54cbebf4c4ad34c5fd34c72a04c72a04c72a04c72a04c7cb54c72a04c72a04c53d34c72a04c72a04c72a04c5fd34c72a04c72a04c72a04c7cb54c72a04c65b54cc6ba1860ffffffffffffffffffffffff4c73a04c73a04c73a04c72a04c72a04c73a04c72a04c3ab54c72a04c72a04c40b54c73a04c72a04c72a04c2eb74c3ab72021b6b903c138e9108db0c38db4c318690f8db2c338e9078db6c3b900c18db1c38db5c318690f8db3c338e9078db7c3386020b0a0a203bdb4c39d5806ca10f73860a20020c6bae8e006d0f860ffffffb901c148b905c19901c1689905c160e8e8e8e898186908a8608d67c2b903c1cd22c0b0034c2da1ed22c04c34a138ad22c0f903c18d23c0cd67c290034c50a1b900c1cd21c0b0034c51a1ed21c0cd67c26038ad21c0f900c14c4da1ee1fc0a227a02bde00c030034c71a1a9099d00c0a02d98aabd00c0d0034c7ea1de00c0cae027d0f060a9008d23c0a9058d24c0ad21c029f838e9200ab0034ca2a1ee24c0ee24c00ab0034caba1ee24c0186d23c08d23c0ad22c04a4a4a186d23c08d23c0ad24c0c909f0034ccea1a9058d24c0c905b0034ceaa1c90890034ceaa18e25c0a20020aaa008ae25c02860a9078d85c0ad23c0291f09e08d84c08e25c0a20020ada008ae25c02860ee23c04cbfa1ee23c0ee23c04cbfa1a920f0034c1fa2a940186d23c08d23c0a9006d24c08d24c04cbfa138ad23c0e9204c40a238ad23c0e9408d23c0ad24c0e9008d24c04cbfa1ce23c04cbfa1ce23c0ce23c04cbfa1a22e2064a2a242a9009d03c09d06c09d13c0bd02c0293f9d02c060b900c029c04a4a9d01c0b900c029030a0a1d01c09d01c0b902c029c31d01c09d01c060a9012086a020aea3a9012086a02054a3ad28c0f0034cb8a2a9038d28c0a22ea00020c9a2a242a00820c9a24ca3a2bd13c0d0034cdca2de13c0a91620ffa84c81a9bd00c0d0034c53a3ad61c2f0034cfea29848a0f5c900d0034cf9a2a0f62078a268a8bd03c010034c27a320e9a32001a62065a4bd02c02981d0034c1ca32065a4ad5fc2d0034c27a3208ca0209ba5209ba7bd12c0d0034c48a3c90ab0034c40a3e90a09102080a0a9009d12c0ad62c2d0034c53a32098a060ad56c2d0034c72a3ad29c0f0034c72a3a9008d56c2ad57c28d58c2208da3ad59c2d0034cada3ad2ac0f0034cada3a9008d59c2ad5ac28d5bc238e903b0034cada3ae2ec0d0034ca6a3ae42c0d0034ca6a30a386d05c28d05c260ad2ec0d0034cc3a3a200bdd9a39d00c1e8e008d0f5ad42c0d0034cd8a3a200bde1a39d08c1e8e008d0f560600a43606000436880000090800a0098bd01c02910d0034cf6a32036a7bd09c0d0034c06a42079",
+      "role": "Bub/Bob granted physical carrier 301",
+      "existing_grant": "bubble-bobble-rebase-1102-v2.json",
+      "required_successor_grant": null
+    },
+    {
+      "offset": 1360912,
+      "old": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "new": "a4a9009d09c0601c00000001000101010101010101020202020202020202020303030302bd04c08e26c0aabd08a4d0034c4ea48d77c2ae26c0b900c12907f0034c46a42015a520f8a5ce77c2d0ebae26c0fe04c0ad07a4dd04c0f0034c62a4fe03c04c14a7bd03c0d0034cc2a4c901d0034ceba4c902f0ac60bd03c0d0034ca6a410034ca5a4c901d0034ca5a4bd01c02980d0034ca5a4a9009d03c0ee37c2fe12c020cca460bd09c010fabd01c02903d0f3b902c12940f0034cbfa44ca0a64c29a6bd01c02920d0034ceaa4bd01c029039d05c0fe03c098488a48a9192095a068aa68a8ad07a49d04c060bd04c08e25c0aa38b900c1fd07a49900c19904c1ae25c0de04c0f0034c12a5fe03c0a9009d09c04c14a7203aa5d0034c27a5ae26c0a9009d03c0686860b900c1c9d090034cc8a5c910b0034cc8a5602028a5b900c12907f0034c83a5b900c11869088d21c0b903c18d22c0ee22c02084a1d0034c83a52007a2d0034c83a5ad22c02904f0034c89a52016a2d0034c86a5204ea2d0034c86a5a90060a901602007a2f0f52016a2f0f3204ea2f0ee4c7ba5bd03c0297fd0034cada5c903d0034cada560203aa5d0034cbea5bd03c029809d03c060bd03c0298009039d03c0b900c18d84c0ee84c0bd02c02981d0034ce4a5ee84c04e84c00e84c0ad84c09900c19904c1c9f4f0034cf7a5ee3ac260b900c11869014ce7a5bd03c010034c99a6d0034c18a6ad28c0c901f0034c99a6bd01c02903d0034c99a6c901d0034ca0a6b903c18d22c0ce22c0bd03c0f0034c4da6bd02c02981d0034c4da6ce22c04e22c00e22c0b900c1c918b0034c86a6c9d090034c86a618690f8d21c02084a1f0034c86a6bd03c0c901f0034c9aa62016a2d0034c9aa6203aa2d0034c9aa6ad22c0c911b0034c9aa69903c11869089907c160a9009d05c060b903c118690f8d22c0ee22c0bd03c0f0034cc7a6bd02c02981d0034cc7a6ee22c04e22c00e22c0b900c1c918b0034cf7a6c9d090034cf7a618690f8d21c02084a1f0034cf7a6bd03c0c901d0ad2016a2f0a8203aa2f0a3ad22c0c9f0b09ce9069907c138e9089903c160bd05c0c901f08f4c29a6bd05c0d0034c2da7bd02c02981f0034c2ea7ad1fc02901d0dd60ad1fc02903d0d560bd08c0f0034c60a7a9199d08c0bd02c02904d0034c50a75e08c0a980e02ed0034c5aa74a0d64c28d64c2608e78c2a22ebd11c0f0034c8fa7a9c89d11c0a9809d03c0a9009d07c0a90a9d06c098488a48a9112095a068aa68a8ae78c2608e78c2a2424c66a72008a8fe07c0bd06c0c90b90034cf6a72081a9bd11c0d0034ccda7de11c02901f0034ccda7a9279901c19905c1a90b9d06c0ad1fc02904d0034cf6a7bd02c02980d0034cf7a7b902c16ab0034ceea7184cefa7382a9902c19906c160b902c16a6ab902c129",
+      "role": "Bub/Bob granted physical carrier 305",
+      "existing_grant": "bubble-bobble-rebase-1102-v2.json",
+      "required_successor_grant": null
+    },
+    {
+      "offset": 1393680,
+      "old": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "new": "fc90ed09034cf0a7bd08c0f0034c51a8bd03c010034c79a8d0034c60a8c901d0034c2ea8bd07c0291009804c6ca8bd07c0291009604c6ca8290cd0034c44a8a9009d07c0bd07c029184a4a4a69014c70a8de08c0bd08c029f8f0b5a90a4c70a8bd01c0290fd0d1bd07c029104a4a4a4add06c0f0034cfca860bd07c02907d0f8fe06c0bd06c0c916f0034c1ea9a9009d02c0de00c0d0034cbaa8e02ef0034caba8a9189903c1a9204cb2a8a9d89903c1a9e09907c1a9c04ccca8e02ed0034cc7a88da2c24ccaa88da1c2a9f49900c19904c1a9009d03c0a943e02ed0034ce2a8a9009902c19906c1a91620fca82083a0ad62c2d0034cfba84c9ba0609d06c08e26c00aaab902c12940f0034c5fa9bdc5a99901c1bdc6a99905c1ae26c0609d06c08e26c00aaabdc6a9c9ffd0034c6ba9b902c129031dc6a99902c19906c110034c4fa9bdc5a99901c11869024c17a9bdc5a99905c11869029901c1ae26c060bdc6a99901c1bdc5a94c17a9b902c129039902c109409906c1bdc5a99901c14c17a9bd01c02903d0034cb5a9c901d0034cb6a9b902c12940d0034cb5a9b902c129bf9902c19906c1b901c148b905c19901c1689905c160b902c12940d0f8b902c109404ca1a9000a000c000a020c040a020c060a060e080a080e10121400180014c018c01400180014c018c01cff1eff27ff1416a9012086a0a288a088bd00c0d0034c9aaac9ffd0034ca4a0c9f6d0034ca7a0c9f7d0034ca7a0c9f8d0034ca7a020b5ab20deacbd00c030034c3baab900c1c9f4f0034c3baa20a0ac200fa1e0c4d0baad62c2f0034c6aaaa268a010bd00c0d0034c63aabd02c02910d0034c63aa20f5ac200fa1e084d0e4ce44c230034c80aaad5dc28d44c230034c80aaee44c2ad07c2d0034c90aa2089a0a9008d07c2204db020efaf208fa060ad64c2f09c30034cfeaa297f8d64c2fe00c0ad60c2d0034cbeaaad30c02908f0034c3baba9039902c19906c1ad00c19900c19904c1ad03c19903c1ad07c19907c1ad02c129409d01c0a9089d03c098488a48a9162095a068aa68a8ee35c220eab24c20aa29bf8d64c2fe00c0ad60c2d0034c18abad44c02908f0034c94aba9009902c19906c1ad08c19900c19904c1ad0bc19903c1ad0fc19907c1ad0ac14cdeaaad00c19900c19904c1ad03c19903c1ad07c19907c1ad02c129409d01c009019902c19906c1bd01c0f0034c72aba9449901c1a9464c79aba9469901c1a9449905c1a9ff9d02c098488a48a9102095a068aa68a8ce60c24c20aaad08c19900c19904c1ad0bc19903c1ad0fc19907c1ad0ac14c53ab20f1b14c5bacbd00c0c901d0034cd4abc904d0034cd3abc905d0034c69ac20c4ad20c9ae60bd02c0c9fff0d4de03c0bd03c0f0034c28aca9089d03c0fe02c020eab2bd02c0c903f0034c28acb902c14aad",
+      "role": "Bub/Bob granted physical carrier 337",
+      "existing_grant": "bubble-bobble-rebase-1102-v2.json",
+      "required_successor_grant": null
+    },
+    {
+      "offset": 1419280,
+      "old": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "new": "30c090034c0aacad44c02940d0034c20aca9f59d00c0a9309901c1a9329905c1fe00c0a9009d01c0ad62c2f0034c33ac20f1b1b900c169088d21c0b903c18d22c0bd01c0d0034c52acad22c018690f8d22c02084a1f0034c5bac60bd01c0d0034c66ac4c56b34c2ab3ad1fc02903f0034ccbacbd02c0c906b0034c82aca9039d02c0fe02c020eab2bd02c0c904d0034cccacc905d0034cd5acc906f0034ccbacbd00c0c9f6b0034cb5acce06c230034cb5acee06c2a9009d00c09d01c09d02c09d03c0a9f49900c19904c160b906c109409906c160b906c129bf9906c160bd00c010034cf5acc902d0034cf5acc903d0034cf5ac60ce63c2f0034c7eada9058d63c2ad54c210034c0dadee63c2ad62c010034c18adee63c28e25c08c26c0b900c18d21c0b903c18d22c0a288a088ec25c0d0034c4cadbd00c010034c89adc902d0034c89adc903d0034c89ad200fa1e0c4d0dba268a010ec25c0d0034c71adbd00c0d0034c71adbd02c02910f0034c7fad200fa1e084d0dfae25c0ac26c060a90b2019a1b0eb4c90ada90b2019a1b0bcb900c1ae25c0ac26c0cd21c0b0034caaadb900c138e9024cb0adb900c11869029900c19904c1ad63c030034cc1ad4c37b34c5fb3ad44c2d0034cd3ad60a9059d00c060bd00c010034cffadde01c0f0034cffadbd00c0c903f0e3fe00c0b902c129fc09019902c19906c1a9b49d01c0209aae8e26c098aab900c169088d21c0b903c169088d22c02084a12907c903d0034c6baec904d0034c50aec902d0034c86aec907d0034c86aede00c1de04c1ad5dc230034c4caede00c1de04c1ae26c060bd03c1c91190f5de03c1de07c1ad5dc210eade03c1de07c14c4caebd03c1c9e0b0dafe03c1fe07c1ad5dc210cffe03c1fe07c14c4caefe00c1fe04c1ad5dc210bbfe00c1fe04c14c4caee084b0034cc8aebd00c0c903f0034cc8aebd01c0c95090034cc8ae29018d84c0b902c129fc0d84c09902c19906c160a92e8d24c0a9008d25c020e0aea9428d24c0a9088d25c08e26c0ae24c0bd00c0d0034c8dafae25c0bd00c18d21c0bd03c18d22c0a9102019a190034c8dafc90a90034c1bafad23c0c90a90034c39af4c91afad21c0d900c190034c39afad23c0c90a90034c39afae24c0fe09c04c8dafae25c038bd02c12940f0034c6aafad22c0f903c1b0034c8dafc90d90034c8dafae24c0bd09c009809d09c0ae26c04c40b3b903c1ed22c0b0034c8dafc90d90034c8dafae24c0bd09c009809d09c0ae26c04c64b3ae26c060a900e000d0034c9cafa980ae26c0e088b0034cc7af9d01c0bd00c0c9f6d0034cdeafc9f7d0034cdeafc9f8d0034cdeaf20d1b44cd5af0ab0034cd5afbd02c009209d02c0a9049d00c0ee36c260bd01c009019d01c0ce06c2a9009d03c060ad64c2f0034c01b0ad54c2c90a90034c0e",
+      "role": "Bub/Bob granted physical carrier 362",
+      "existing_grant": "bubble-bobble-rebase-1102-v2.json",
+      "required_successor_grant": null
+    },
+    {
+      "offset": 1420304,
+      "old": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "new": "b0a903200fb02023b0a9008d64c260a288a088dd00c0d0034c48b0200fa1e0c4d0f160a288a088a902dd00c0f0034c40b0bd01c0d0034c40b0c9c8b0034c48b0200fa1e0c4d0e06068684cb5aca288a088bd00c0c904d0034cafb0bd00c030034c7bb0c9ffd0034c7bb0bd01c04ab0034c7bb0bd03c0d0034cafb0200fa1e0c4d0cfa268a010bd02c02910d0034c9ab0bd03c0c904d0034ca2b0200fa1e084d0e5608e25c0bd02c029200a0a4cb5b08e25c0bd01c08d26c0b900c18d21c0b903c18d22c0a288a088bd00c010034c5fb1c902d0034c5fb1c903d0034c5fb1200fa1e0c4d0e3a268a010bd02c02910d0034c23b1bd03c0c904d0034c23b1c905d0034c23b1a90f2019a190034c23b1a9049d03c0ad26c030034c23b1bd02c009209d02c0200fa1e084d0bfae25c0e088b0034c51b1bd00c010034c59b1a9059d00c0bd01c030034c4db1ee54c060ee40c060a9059d03c04cb5b1a9ff9d03c060c9ffd0034cdeb0a90f2019a190034cdeb0bd00c0c9f6d0034c99b1c9f7d0034c99b1c9f8d0034c99b1ad26c09d01c020d1b4a9049d00c04cdeb0bd01c04a90034cb2b1ad26c009019d01c0ce06c2a9009d02c04cdeb0bd02c02920f0034cd8b1ad56c2f0034cd4b1ee56c2a9008d57c2a9148d29c0ee57c260ad59c2f0034cedb1ee59c2a9008d5ac2a9148d2ac0ee5ac2608e25c08c26c0b900c18d21c0b903c18d22c0bd02c08d84c0a268a010bd00c0d0034c42b2ad84c030034c22b2a9084c24b2a9183d02c0f0034c42b2bd01c0290fc90fd0034c42b2a90c2019a1b0034c50b2200fa1e084d0c4ae25c0ac26c060ad84c010034cccb2ad0ac29dabc1bd02c02908f0034ca9b2ad21c09900c19904c1ad22c09903c11869089907c1bd02c0091029d09d02c0a9009d03c0bd01c029039d01c0ac26c0b902c12903d0034ca9b2bd02c009019d02c0ae25c0ac26c0bd02c0c9ffd0034ccbb2a9009d00c09d02c0a9f49900c19904c1686860bd02c02910f0034cdbb2a9214cddb2a9169dadc12096b4ae25c0ac26c060bd02c00a8e26c0aabd2cb59901c1bd2db59905c1d901c1f0034c12b3b906c109c09906c1ae26c060b906c1293f9906c1ae26c06020202222242426282a2a2c2e2088b338b907c1ed21c04c46b338b907c1e9034c46b338b907c1e901c917b0034c7ab39907c1e9089903c1602088b3ad21c04c66b3a9034c66b3a901187903c1c9e790034c7ab39903c169089907c160bd02c0c9fff0034c87b320a0ac60b902c1d0034c96b3ad30c04c99b3ad44c029021869038d21c060a288bd00c0d0034cb8b3c9f090034cb8b3a9059d00c0200fa1e0c4d0e560bd03c0c905f0034cd0b32096b44c9ea0ad44c2f0034cdbb320ffadbd03c048bd00c09d03c0689d00c020c9aebd00c048bd03c09d00c0689d03c0ad91c2f0034c",
+      "role": "Bub/Bob granted physical carrier 363",
+      "existing_grant": "bubble-bobble-rebase-1102-v2.json",
+      "required_successor_grant": null
+    },
+    {
+      "offset": 1499152,
+      "old": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "new": "0ab4deabc1d0034c31b4bdabc1c902b0034c7ab4c904b0034c26b4bd02c029fb9d02c04c77b4bd02c009049d02c04c77b4a9809d03c0bd02c029ef9d02c0bd01c02903098c9d01c0b903c1c91190034c57b4a9104c60b4c9e1b0034c63b4a9e09903c1bd00c0290fc906f0034c74b4a9809dacc14ca1a04c9ea0ad91c2f0f8c90ab0f4a92c9901c1a92e9905c1a9019902c19906c16098488a48a90a2095a068aa68a8bd02c0292009189d02c0bd00c0297f9d03c0bd00c0297f9d00c0ee76c2ad76c229019d01c0ad76c229029d03c060bd00c030034c2bb52907c90690034c2bb5ee43c28d00c0a900382ace00c010fa8d00c08a48bd01c010034c03b5a22e4c05b5a242bd00c0d0034c29b5ad00c01d10c09d10c0ad00c02092a098488a48a9152095a068aa68a868aa6020202222242426282a2a2c2e20df8d0fc09818600848bd02c02910f019bd02c02901f002a9039902c19906c1a9269901c1a9289905c1682860ad07c3aad007ad04c3c9a7f00aade85f0aa9002a4c7eb53860c90290034c87b6488a48a900a2009d00c09d00c19d00c29d00c3e8d0f1688dcec3688d00c32021b6ad5f071869019d00c01869048d08c2c92eb008a92f38ed08c2b002a9028d0ac2a9288d92c2a9018d61c2a9ff8d54c2a9028d5dc2205da220aea32089b62021b6adcec3f005a9c89d11c0bd00c08d08c3a900ae00c3d002a903ae3e05e001d00209409902c19906c1ad1f078d05c3ad1d078d06c3a9a78d04c33860a22ea000ad00c3f004a242a00860ad04c3c9a7d051ad07c3d04cad7107c901d045a50fc908d03fad77072901d038ad03c3f007a50ecd02c3f02ca50e8d02c3a9018d03c32021b6a0f5ad00c3f001c8a5dc4d01c325dc9900c0a5dc9902c08d01c32078a2386018602021b6a5758d09c338ed1f071869109903c18d0dc31869089907c1a55c8d0ac3a5bd8d0bc31869109900c19904c18d0ec3a5a48d0cc3602021b6b903c138ed0dc38d01078d0fc30a0a0a0a8546ad0fc3a200c9809001ca186d09c385758a6d0ac3855cb900c138ed0ec3858ea200c9809001ca186d0bc385bd8a6d0cc385a42021b6bd03c0f002a901851eb902c12940f004a901d002a9028d3e05a57538ed1f078d5a0760ad23c08dd0c3ad24c04c43b7ad84c08dd0c3ad85c08dd1c3088a489848a50948a50a48add1c338e905c903b0700a0a0a0a0a0a8dd2c3add0c329e04a4a186dd2c329f0a8add0c3291f0a0a0a38e9108dd0c3a900e9008dd1c3add0c3186d1f078dd0c3add1c36d1d07c9fff0302901f005a9d04ca6b7a9008509a903850aadd0c34a4a4a4a1865098509b1098dd3c3aabd36ef2903c901d004a900f002a9018dd4c368850a68850968a868aa28add4c3608a480a0a186968aabd00c0f00bbd02c02910f00468aa386068aa18608ec0c38a0a",
+      "role": "Bub/Bob granted physical carrier 440",
+      "existing_grant": "bubble-bobble-rebase-1102-v2.json",
+      "required_successor_grant": null
+    },
+    {
+      "offset": 1887248,
+      "old": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "new": "0a1869688dc1c38a0a0a0a1869108dc2c360e00690034c87b620fbb7aec1c3bd00c0d0034cfcb9bd02c02910d0034cfcb9aec0c3b510d0034cfcb910034cfcb9b51f2920f0034cfcb98a0a0a0a0aa8a9009920c3b5179921c3b5109922c3b51f9925c3b5479926c3b58f9927c3bd3f059928c3bd93079929c3860d8eedc3a9c08deac3a9ba8debc3a9808decc320c8bcaec0c38a098095108a0a0a0a0aa8a9019920c33860a200208fb9b019acc5c3b920c3f011a9009920c38a0a0a186968a8a9009900c0e8e006d0dd60a20020fbb7b510d0034c7bb91008208fb9b0034c7bb9b517c91590034c7bb9c90cd0034c7bb9b51f2920f0034c7bb9b5a5c901d07baec1c3bd00c0f007bd02c02910d074aec0c3b57638ed1f078dc3c3b55ded1d078dc4c3adc3c31869108dc3c3adc4c36900d048adc3c3c9f0b041b5be186908b03ac9e0b036acc2c39900c19904c1adc3c39903c11869089907c1a9009901c19905c19902c19906c1aec1c39d01c09d02c09d03c0a9019d00c0d008aec1c3a9009d00c0aec0c3e8e006f0034ccdb860e006b0278ec0c38a0a0a0a0aa88cc5c3b920c3f0168a0980d510d00fb517d921c3d008b51f2920d00238601860208fb9903b20fbb7acc2c3b903c138e9108dc3c3a900e9008dc4c3adc3c3186d1f079576adc4c36d1d07955db900c138e90895bea90195a5a9009547958f38601860208fb990f9b922c39510b925c3951fb926c39547b927c3958fb928c39d3f05b929c39d9307a9009920c33860a20020fbb7aec1c3bd00c0d0034cbababd02c02910f013aec0c38a0a0a0a0aa8b920c3d0052012b8904daec0c38a0a0a0a0aa8b920c3f05820bcb9903aaec1c3bd02c02908d010bd02c02910d042aec0c320feb94ca1baaec0c320feb9aec0c38eedc3860da9f58deac3a99a8debc3a9fe8decc320c8bcaec0c38a0a0a0a0aa8a9009920c320fbb7aec1c3a9009d00c0aec0c3e8e006f0034c2cba60ad04c3c9a7f0034c87b6e00690034c87b68ec0c3b510d0034c87b6100b208fb990034c71bb4c87b6b517c92ed0034c87b6b51f2920d07420dfb7b06fa5a4d5a5d069a57538f5768dc3c3a55cf55df00dc9ffd057adc3c3c9f89050b007adc3c3c909b0472021b6bd11c0d03fbd03c0303ab900c18d21c0b903c18d22c0aec0c3b5be1869088d40c1b57638ed1f071869108d43c1a040a9092019a1b00ead00c3f0062093a74c71bb2061a7aec0c33860a20020feb9aec0c38a0a0a0a0aa8a9009920c320fbb7aec1c3a9009d00c0aec0c3e8e006d0dca288a9009d00c0e8e8e8e8e0c4d0f58d04c38d03c33860a5a4c901f0034c87b6cd0cc3f0034c87b6ad0bc3c9e090034c87b6a5bdcd0bc390034c87b618690f8dc9c3ad0bc318690f8dc8c3a50948a50a48acc8c3a9012033bcf019acc8c3a90e2033bcf0",
+      "role": "Bub/Bob granted physical carrier 819",
+      "existing_grant": "bubble-bobble-rebase-1102-v2.json",
+      "required_successor_grant": null
+    },
+    {
+      "offset": 1730576,
+      "old": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "new": "0fcec8c3adc8c3cdc9c3d0e1a900f016adc8c329f085bd2021b6a9029d03c0a9009d04c0a9018dcdc368850a6885094ecdc3608ccac31865758dcbc3a55c69002901f005a9d04c4bbca9008509a903850aadcbc34a4a4a4a1865098509adcac338e920c9d0b01229f0a8b109aabd36ef2903c901d003a90060a90160ad07c3f0034c87b62021b6bd00c0cd08c3901b8d08c3a5a4c901d00ba5bdc9f0b0034c87b6b007c902b0034c87b6a9018d07c3a9d68deac3a9978debc3a9fe8decc3a9008dedc320c8bc3860a200b50348e8e008d0f8a200bc60beb9000148e8e005d0f4adedc38504adeac38d6c01adebc38d6d01aeedc3adecc3205a01a20468bc60be990001ca10f6a207689503ca10fa386008488a489848a200b50348e8e008d0f8a200bc60beb9000148e8e005d0f4a9008dcfc3ad04c3c9a7d06aadde062903d063ad0b6cf007ad086c2903d0572014bf2089b62021b6bd00c0f00320cdbda268a010e088b007bd02c02910f010bd00c0f00b8a48984820cdbd68a868aae8e8e8e898186908a8e080d004a288a088e0c4d0d0a9008de106a9e18d066ba9068d076beecfc3a20468bc60be990001ca10f6a207689503ca10faadcfc3f00868a868aa6828386068a868aa68281860b900c1c9f0b0758509a901850ab903c138e9108507a900e9008508b901c1204abe90598de5c3b905c1204abe904e8de1c3b902c18de6c3b906c18de2c3b904c138f900c18de3c3b907c138f903c18de4c3a9008de7c38de8c38506a9088de0c3a9e08503a9c38504a9ba8d6c01a9a58d6d01a9008d6a01a984205a0160c927d004a9313860c930b0084ab0050a090138601860626a6c6d79202fb6b001602014bf2089b6a203bd09c39d80c3ca10f7a9008defc320cbb82021b620c9a220c0b620b3bb9003eeefc3a55ccd1d079009d011a575cd1f07b00aad1f078575ad1d07855c2089b620f8a9a20020fbb7aec1c3bd00c0f010bd02c02910f0098e26c0acc2c320c0b3aec0c3e8e006d0dd202aba20f2a0205ba1a57538ed80c38d01070a0a0a0a8546a5bd38ed82c3858e2021b6bd03c0f002a901851ea57538ed1f078d5a07207cbc386020a5b8ad1f0738ed05c38df0c3ad1d07ed06c38df1c30df0c3f02fa288a088206bbfe8e8e8e898186908a8e0c4d0f0a268a010bd02c02910f003206bbfe8e8e8e898186908a8e080d0e9ad1f078d05c3ad1d078d06c360bd00c0f0498ef3c38cf4c3b903c138edf0c38df2c3a900edf1c3d011adf2c3c9f0b00a9903c11869089907c160e088b0148a38e9684a4aaa20feb9aef3c3a9009d00c0f00320b5acaef3c3acf4c360a901aa602089b620b0a0a203bdb0c39d5806ca10f73860ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+      "role": "Bub/Bob granted physical carrier 666",
+      "existing_grant": "bubble-bobble-rebase-1102-v2.json",
+      "required_successor_grant": null
+    },
+    {
+      "offset": 1500176,
+      "old": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "new": "00000f1f3f2b2b6b01030000162323236b7f083f1f3f3e1c231608001e3f3fff00000f1f3f2b2b6b01030000162323236b7f083f1f393018231608001e3f3f7f00000f1f3f2b2b6b01030000162323236b7f083f1f3f3810231608001e3f3f3f00000f1f2b2b2b7f01030000022323377f7f083f1f3f3810371608001e3f3f7f00000f1f3f3f2b6b01030000163723236b7f083f1f3c381c231608001e7fff7f000080c0e0e0f0f000807830001c0800f0f0d08888c87c3f0c082070703482c0000080c0e0e0f0f000807830001c0800f0f0d08889c97e3c0c082070703680c0000080c0e0e0f0c000807830001c0830808090f8f9f97e3c7c786000000680c000061d3a3c1d1f0700070c18080517030301003f1f3f3c18000000001e3f3fff000080c0e0e0f0f080c078b0c0dc8800f0e0c080c1f97e3c0c003878300680c000000f1f3f2b2b4001030000162b2b006b7f0800031f0f072b16080304017f3f080280c0e0e0f0f108827830001c0808f1e140e2fc840c18061e3e1c00f8f0f0010111333171797920606162606965741d1d0f0d486838047070707277170703c0b008b8bc0cbcbc00b000b0b000b2b3fcfcf8f0e00100020202040c1c359082000000000105020c000000000105020c02050100000000000205010000000000000101190d040038000101190d04003800040c190101010000040c1901010100000000000103070700000000000003020707030100000000000000000000000000000003070f0f0f00000000010204000f0f0f070300000000000000000000000001070f1f1f3f3f000000060c0800003f3f1f1f0f0701000000000000000000030c141e2e2e44400000040e0e0e04004040202010100c030000000000000000c030080804040202000000000000000002020424480830c000000020400000000208100020004000000800002000000000400020001008020040000000100002200008400250494a010301000050494a4a524140040004014a5241400020702000022000040094520080000000009452525292002000400052529200040e040000000000000000000000000000000000000000000000000000000000000000000848a9b98d4b01a9818de473a9008d057e8de106a9e18d066ba9068d076ba9018dee738d4601682838602065b52020d34c10bd08488a489848a000a206d01508488a489848ad7107f006a00ca20ad004a020a213a503488603aeae04e02db01ead00c3f00598186503a8b9a9d39daf04e8c8c603d0f4a9009daf048eae0468850368a868aa682838603f1d032a26303f11032c23302043070b1e0b242424242043070b180b242424242328102424242424240b1e0b242424242424242328102424242424240b180b242424242424242021b64c63bba0023860a0016000000000",
+      "role": "Bub/Bob granted physical carrier 441",
+      "existing_grant": "bubble-helper-row-1102-v2.json",
+      "required_successor_grant": null
+    }
+  ],
+  "exported_actual_entries": {
+    "native_contact37": 45097,
+    "CoSceneGate": 45075,
+    "CoRetire": 44555,
+    "HuBody11": "ExistingB0AD remainsprofile rejection forraw39",
+    "NativeHead": 38279,
+    "NativeSide": 38283,
+    "NativeFullBox": 49086,
+    "NativeShotGate": 44470,
+    "NativeBBoxGate": 44504
+  }
+}
