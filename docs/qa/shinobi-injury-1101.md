@@ -36,3 +36,24 @@ yet assigned a fourth hardware sprite window or expanded metadata. Do not
 publish pair indices 96..106 through the existing three-page setup. The old
 metadata uses 1696/2048 bytes, leaving exactly 352 bytes before adding these
 poses; metadata compaction or another verified allocation is required.
+
+## Implemented layout successor
+
+`prepare_shinobi_hurt_layout_1101_v5.py` resolves the storage issue above by
+moving the unchanged 256-byte terrain-attribute table into the kernel tail.
+The kernel, including the original injury initializer/script, is 7160/7168
+bytes. Expanded metadata is 1544 bytes; the additional art occupies
+`D6A0..D800`, the last 352 bytes of existing physical CHR page 517. New
+descriptors use pairs 117..127, leaving the metadata portion unaddressed.
+The fourth sprite window must therefore publish page 517.
+
+All 58 existing and new pose/frame/facing cases pass through the actual native
+metasprite renderer in CPU fixtures, with original pixels, priority and palette
+indices preserved. The private cartridge also passes actual PRG-resident cold/
+warm loader, 32 header corruption and retirement tests. No new resource grant
+or additional CHR page was needed.
+
+Candidate: `build/shinobi-hurt-layout-1101-v5/candidate.nes`, SHA256
+`f6658fb7532dc87b1583da8f388fd8e3f1094b2bbd71ea51a5c611bb37364db9`.
+This supersedes the v2 private placement. Hardware CHR publication and gameplay
+hooks are still absent; this is not an unlocked or installed nightly.
