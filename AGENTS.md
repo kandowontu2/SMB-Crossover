@@ -2,6 +2,8 @@
 
 ## Current gameplay priority
 
+- Use GPT-6.1 Sol (`gpt-6.1-sol`) with `xhigh` reasoning for helper agents,
+  as explicitly requested by the user. Keep root's single Mesen queue.
 - Prioritize making every roster character playable and able to clear 1-1.
 - Defer extended cosmetic polishing to the later per-character review.
 - Address overwhelming lag while idle or walking without enemies; zero lag is
