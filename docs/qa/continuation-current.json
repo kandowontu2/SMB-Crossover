@@ -27,7 +27,7 @@
     "current_downloads_native_check": "docs/qa/checkpoints/2026-11-01/karnov-downloads-current-selection.md",
     "status": "Resource grants permit integration only; no additional character unlocked or ROM delivered. Exact identity/header retirement contract is pending for Shinobi RAM; Metal extended RAM also pending."
   },
-  "current_priority": "USER PRIORITY: Mario the Tank shoes always glow; normal Mario walking with only flashing shoes, reported blocky appearance. Native v30 confirms glow status2-only; body walks normal pose IDs but rendered corruption still needs diagnosis. V31 exact112 small/big facing shoe masks recovered,33patterns1056B; explicit record format avoids old5bit overflow. Need storage/integration and native verification before delivery. See docs/qa/mario-the-tank-walk-glow-1101.md. Metal v29 remains pending with590B recovered; see its follow-up. Public7ec9 unchanged, full roster goal incomplete.",
+  "current_priority": "USER PRIORITY UPDATE: get every character working in-game and passing1-1; address overwhelming idle/walk lag even with no enemies. Zero lag and exhaustive cosmetic review are not required now. Add real native helper platforms where necessary and deliver a complete character/location list. Tank v33 normal walking with/without B fixed, native tested and installed d3759; always-on shoe glow deferred for later full review. Downloads test left user's running Mesen untouched. See docs/qa/functional-roster-priority-1101.md and docs/qa/mario-the-tank-walk-glow-1101.md. Full original goal remains active.",
   "november_1_allocation_followup": {
     "Tank_code_tails": "docs/qa/checkpoints/2026-11-01/mario-tank-code-tail-grant.json",
     "Tank_RAM": "docs/qa/checkpoints/2026-11-01/mario-tank-ram-grant.json",
@@ -52,6 +52,17 @@
   },
   "nightly_policy": "Publish usable updates frequently. Replace C:/Users/kando/Downloads/SMB-Crossover-Latest-WIP-MMC5.nes; do not make backup copies. A GitHub push is not a nightly delivery.",
   "installed_nightly": {
+    "installed": true,
+    "complete": false,
+    "backup_created": false,
+    "ROM_sha256": "d3759b333cd7c21ecac1862de8c60e35d0b65c4aadf92ff4c94d2a39fe36259a",
+    "destination": "C:/Users/kando/Downloads/SMB-Crossover-Latest-WIP-MMC5.nes",
+    "change": "Mario the Tank normal walking with and without B; projectile OAM preserved",
+    "verification": "build/tank-normal-walk-1101-v33/verification.json:256 selector cases,71 settled native walking frames and cold menu selection",
+    "downloads_launch": "Not rerun: actual user Mesen PID267260 was loading Downloads ROM; left untouched. Installed bytes and before/after sidecar guard pass.",
+    "limitations": "Always-on shoe glow deferred; full roster1-1 and powerup qualification incomplete"
+  },
+  "previous_nightly_7ec9": {
     "passed": true,
     "installed": true,
     "complete": false,

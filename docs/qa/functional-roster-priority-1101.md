@@ -1,0 +1,9 @@
+# Current user priority
+
+Get everyone functional in-game and through world1-1. Fix crashes, softlocks, progression barriers and overwhelming lag while standing/walking in an empty area. Some lag is acceptable; zero lag is not a gate. The detailed graphics/abilities review of every character will happen later. Preserve the full roster objective and unfinished requirements instead of declaring completion from focused smoke tests.
+
+Where a character cannot clear1-1 with their intended moves, use the existing native platform actors. Do not draw fake platforms or silently replace their source movement. Record every affected character and each platform's stage, world coordinates, movement type, obstacle and verification. Deliver the complete list when this work is done. Existing Thomas and Karnov platforms are starting points to audit, not an exhaustive inventory.
+
+Mario the Tank walking fix is installed as d3759b333cd7c21ecac1862de8c60e35d0b65c4aadf92ff4c94d2a39fe36259a. Both B modes use normal walking frames; observed projectile OAM matches the previous build. Persistent shoe glow remains deferred to the later full review. Native candidate tests passed; the Downloads launch test found the user's active Mesen using that ROM and left it untouched. Reopen the ROM for the changed bytes.
+
+Next functional work: finish Metal Storm's death/respawn handoff so it cannot softlock, then its1-1 route and necessary pickups/combat. Existing source death leaves and590 recovered renderer bytes are available. Faithful explosion artwork and broader cosmetic polishing may remain WIP while core playability advances. Shinobi and remaining source integrations stay in scope. Do not use old roster receipts as proof of clears on the current build; track which routes are current, inherited, untested or failed.

@@ -11,7 +11,7 @@ def main():
  patterns=[];records=[];packed=[];lookup=[]
  for face in ['Right','Left']:
   lo,hi=[location(b,'MetaspriteTable'+face+x) for x in ['Lo','Hi']];base=lo-address(b,'MetaspriteTable'+face+'Lo')
-  for pose in range(1,57):
+  for pose in range(1,63):
    page=physical[r[bank+pose]];data=r[1048592+page*1024:1048592+(page+1)*1024]
    at=base+r[lo+pose]+256*r[hi+pose];pixels={}
    for j in range(1,r[at]+1,4):
@@ -23,7 +23,8 @@ def main():
       if v:pixels[x+(7-xx if a&64 else xx),y+(15-yy if a&128 else yy)]=v
    parts=[]
    for left in [0,8]:
-    p=[(x,y) for (x,y),v in pixels.items() if v==3 and left<=x<left+8 and y>=(16 if pose<29 else 0)]
+    # Fire-small and growth poses use four cells, unlike ordinary small Mario.
+    p=[(x,y) for (x,y),v in pixels.items() if v==3 and left<=x<left+8 and y>=(16 if r[at]==16 else 0)]
     if not p:continue
     bottom=max(y for x,y in p);shoe=set((x,y) for x,y in p if y>=bottom-2)
     minx=min(x for x,y in shoe);miny=min(y for x,y in shoe);w=max(x for x,y in shoe)-minx+1;h=max(y for x,y in shoe)-miny+1
@@ -54,6 +55,6 @@ def main():
  blob=b''.join(patterns);(O/'shoes.chr').write_bytes(blob)
  # 16-bit offsets because all-size records can exceed the old byte index.
  (O/'records.bin').write_bytes(b''.join(packed))
- q=dict(passed=True,ROM_sha256=hashlib.sha256(r).hexdigest(),poses=len(records),patterns=len(patterns),pattern_bytes=len(blob),unique_records=len(packed),record_bytes=sum(map(len,packed)),max_offset=max(lookup),lookup=lookup,records=records,host_wired=False,scope='Lowest three brown rows in each native leg column; all 112 pose/facing masks reconstruct exactly. Both small and big Mario. No invented walking body artwork. Native integration and visual review pending.')
+ q=dict(passed=True,ROM_sha256=hashlib.sha256(r).hexdigest(),poses=len(records),patterns=len(patterns),pattern_bytes=len(blob),unique_records=len(packed),record_bytes=sum(map(len,packed)),max_offset=max(lookup),lookup=lookup,records=records,host_wired=False,scope='Lowest three brown rows in each native leg column; all 124 pose/facing masks reconstruct exactly, including fire-small and growth. Both small and big Mario. No invented walking body artwork. Native integration and visual review pending.')
  (O/'masks.json').write_text(json.dumps(q,indent=2)+'\n');print(json.dumps({k:v for k,v in q.items() if k not in ['lookup','records']}))
 if __name__=='__main__':main()
