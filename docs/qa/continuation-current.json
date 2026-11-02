@@ -1,53 +1,65 @@
 {
   "installed_nightly": {
     "installed": true,
-    "ROM_sha256": "c3dd03031faaef7faf12f865b7a5cdfd363835e2179eca22fe2eef8180553157",
-    "previous_sha256": "933c0650ea5c1db0e613836be7ba9d07c67a25142276fe4efa6874f1063e04df",
+    "ROM_sha256": "6f319d2039f920bc85e4a6bfe6ee3327996b42020e03c09e671142eada2a6428",
+    "previous_sha256": "c3dd03031faaef7faf12f865b7a5cdfd363835e2179eca22fe2eef8180553157",
     "backup_created": false,
     "before": {
       "passed": true,
       "ROM": "C:\\Users\\kando\\Downloads\\SMB-Crossover-Latest-WIP-MMC5.nes",
-      "ROM_sha256": "933c0650ea5c1db0e613836be7ba9d07c67a25142276fe4efa6874f1063e04df",
+      "ROM_sha256": "6f319d2039f920bc85e4a6bfe6ee3327996b42020e03c09e671142eada2a6428",
       "matching_patch_files": []
     },
     "after": {
       "passed": true,
       "ROM": "C:\\Users\\kando\\Downloads\\SMB-Crossover-Latest-WIP-MMC5.nes",
-      "ROM_sha256": "c3dd03031faaef7faf12f865b7a5cdfd363835e2179eca22fe2eef8180553157",
+      "ROM_sha256": "6f319d2039f920bc85e4a6bfe6ee3327996b42020e03c09e671142eada2a6428",
       "matching_patch_files": []
     },
     "downloads_launch_verified": true,
-    "scope": "Arthur authentication cost reduced, scrolling contract repaired, pit death reaches next life. Exact cumulative candidate full1-1\u2192active1-2 lives2\u21922/nohelpers, realpitdeath2\u21921/resumedcontrol, Shinobi smoke/OAM and Metalidle/walk pass. Previously qualified Shinobi/Metal changes preserved byte-for-byte. Original Shinobi body hitbox/audio/melee/magic followup remains. No all-roster or all-powerup completion claim.",
+    "performance": {
+      "physical_frames_per_phase": 120,
+      "idle": {
+        "completed_updates": 80,
+        "mean_cycles": 30144.3,
+        "max_cycles": 35370
+      },
+      "walk": {
+        "completed_updates": 78,
+        "mean_cycles": 31096.1,
+        "max_cycles": 39054
+      }
+    },
+    "scope": "Shinobi original pose rectangles own native enemy/contact bbox. Exact full1-1 toactive1-2 in8924frames,lives2to2,nohelpers. Arthur full1-1 regression and Metalidle/walk pass. Idle/walk80/78 updates per120physicalframes unchanged; meanCPU+1523/update. Originalhead/sideprofiles, audio/melee/magic/powerups stillrequirefollowup. Fullroster/everypowerup notcomplete.",
     "after_downloads_launch_patch_guard": {
       "passed": true,
       "ROM": "C:\\Users\\kando\\Downloads\\SMB-Crossover-Latest-WIP-MMC5.nes",
-      "ROM_sha256": "c3dd03031faaef7faf12f865b7a5cdfd363835e2179eca22fe2eef8180553157",
+      "ROM_sha256": "6f319d2039f920bc85e4a6bfe6ee3327996b42020e03c09e671142eada2a6428",
       "matching_patch_files": []
     },
     "destination": "C:\\Users\\kando\\Downloads\\SMB-Crossover-Latest-WIP-MMC5.nes",
+    "candidate": "build/shinobi-bbox-candidate-1101-v30/candidate.nes",
     "complete": false,
-    "candidate": "build\\roster-combined-1101-v3\\candidate.nes",
-    "character_selection": "Ryu slot10, Select once to Shinobi (raw36/FmAlts04). Menu currently retains pending-style name prefix; actual Select/Start admission works.",
-    "native_scope": "Exact cumulative Arthur1-1 to active1-2 in6107physicalframes,lives2to2,nohelpers; intentionalpitdeathreachesnextlife/resumedcontrol. Shinobi actualDownloads coldmenu/Start/idle/walkOAMaligned and Metalidle/walk pass. Earlier933Shinobi/Metal full1-1 bytes retained outsideArthur531-byteownedpatch. No backup. Fullroster/allpowerups incomplete."
+    "character_selection": "Select on Ryu slot10 to Shinobi; Star/pending-style name prefix still cosmetic, confirmation works. Reopen ROM/start fresh after updating."
   },
   "roster_integration_followup": {
-    "installed_ROM_sha256": "c3dd03031faaef7faf12f865b7a5cdfd363835e2179eca22fe2eef8180553157",
+    "installed_ROM_sha256": "6f319d2039f920bc85e4a6bfe6ee3327996b42020e03c09e671142eada2a6428",
     "goal_status": "ACTIVE_INCOMPLETE",
     "helpers_model": "gpt-6.1-sol",
     "helpers_reasoning": "xhigh",
     "shinobi": {
-      "candidate": "build/roster-combined-1101-v3/candidate.nes",
-      "ROM_sha256": "c3dd03031faaef7faf12f865b7a5cdfd363835e2179eca22fe2eef8180553157",
+      "candidate": "build/shinobi-bbox-candidate-1101-v30/candidate.nes",
+      "ROM_sha256": "6f319d2039f920bc85e4a6bfe6ee3327996b42020e03c09e671142eada2a6428",
       "installed": true,
-      "verified": "Shinobi full1-1 throughactive1-2 passed on933 in8462frames/lives2to2/nohelpers. C3dd preserves thoseShinobi/Metal bytes outsideArthur531-byteownedpatch; cumulativeShinobiOAMsmoke and actualDownloads coldlaunch passed. Not a fresh fullShinobi route onC3dd.",
-      "contact": "120 CPU cases preserve original shots and all borrowed/native boxes. Separate real crouch controller defeats opening Goomba and keeps lives but stalls at third pipe X721, both takeoff688 and704; no full-stage claim.",
-      "remaining": "Exact original-pose body hitbox ingress remains; current native small SMB enemy/contact box is too short. Original audio/melee/magic and HUD name/palette review remain. Full-roster/allpowerup verification incomplete."
+      "verified": "Shinobi original pose rectangles own native enemy/contact bbox. Exact full1-1 toactive1-2 in8924frames,lives2to2,nohelpers. Arthur full1-1 regression and Metalidle/walk pass. Idle/walk80/78 updates per120physicalframes unchanged; meanCPU+1523/update. Originalhead/sideprofiles, audio/melee/magic/powerups stillrequirefollowup. Fullroster/everypowerup notcomplete.",
+      "contact": "Original shot bounds/motion retained. Native body enemy/contact rectangle now follows original pose, including40/30/19px-high profiles; source coordinates/caller state restored.",
+      "remaining": "Head/side tile probes still use existing profile3; original audio/melee/magic/powerups and HUD name/palette review remain. No full-roster/allpowerup completion claim."
     },
     "arthur": {
-      "candidate": "build/roster-combined-1101-v3/candidate.nes",
-      "ROM_sha256": "c3dd03031faaef7faf12f865b7a5cdfd363835e2179eca22fe2eef8180553157",
+      "candidate": "build/shinobi-bbox-candidate-1101-v30/candidate.nes",
+      "ROM_sha256": "6f319d2039f920bc85e4a6bfe6ee3327996b42020e03c09e671142eada2a6428",
       "installed": true,
-      "verified": "Exact cumulative Arthur1-1 to active1-2 in6107physicalframes,lives2to2,nohelpers; intentionalpitdeathreachesnextlife/resumedcontrol. Shinobi actualDownloads coldmenu/Start/idle/walkOAMaligned and Metalidle/walk pass. Earlier933Shinobi/Metal full1-1 bytes retained outsideArthur531-byteownedpatch. No backup. Fullroster/allpowerups incomplete."
+      "verified": "Exact new body-bbox candidate Arthur full1-1\u2192active1-2 native regression passes6107frames,lives2to2,nohelpers. C3dd pitdeath\u2192nextlife fix bytes retained; previouspitproof unchanged."
     },
     "kirby": {
       "ROM_sha256": "27dee145eead745dfe94cc6e4734a88fdd03811c7f7c3c9d1ee55e54d3057318",
@@ -55,12 +67,33 @@
       "verified": "Cold Hard selection, moving close-enemy inhale/spit and green/red grounded shell powers pass. HP6 retained, zero injuries, native defeats observed. Three screenshots inspected. Disclosed flat terrain/NPC setup; notfull1-1.",
       "test_repair": "GameLoop observer now returns after done, preventing finalization nil task error; gameplay assertions retained."
     },
-    "next": "Arthur raw32 traversal/death fix delivered. Continue Excitebike source motor/pose/crash/terrain adapter and coldscene/router admission; Prince original actor/animation recovery; Shinobi original-pose body hitbox ingress. Preserve installed c3dd. Full-roster1-1, everypowerup, Easy/Hard and named assisted-crossing verification remain incomplete.",
+    "next": "Continue all missing roster entries; Excitebike/Prince currentlyblocked, eight requested identities absent (see menu_audit). Complete every-character1-1 and every-powerup proof; source/CPU-only components and menuadmission cannot stand in for native playability. Preserve installed6f319.",
     "active_helpers": {
-      "arthur_sol61": "Prince of Persia source actor oracle and closure (no host allocation yet).",
-      "excitebike_sol61": "Raw37 source motor/pose/kernel and native scene/terrain/router, menu still locked.",
-      "shinobi_sol61": "Pose-aware body bbox; proposed funding replaces duplicate256B native attribute table and compacts own resident scratch transaction. No successor adopted."
-    }
+      "arthur_sol61": "Prince original actor/script/control/renderer recovery.",
+      "excitebike_sol61": "Excitebike source motor/pose/terrain and compact three-owner router/scene integration.",
+      "shinobi_sol61": "Bub/Bob original Bubble Bobble actor/bubble/trap/pop recovery."
+    },
+    "menu_audit": {
+      "receipt": "build/playable-menu-1101-v4/inventory.json",
+      "distinct_names": 91,
+      "confirmable_names": 89,
+      "blocked": [
+        "Excitebike",
+        "Prince of Persia"
+      ],
+      "absent": [
+        "Bub",
+        "Bob",
+        "Sonic (Sonic3 reference)",
+        "Donkey Kong Jr.",
+        "Getsu Fuma",
+        "Mega Giant Mario",
+        "Jay McCray",
+        "Steve Hermann"
+      ],
+      "scope": "CPU actualSelect/Start/A only; menu admission is not gameplay/fullstage/powerup qualification."
+    },
+    "shinobi_bbox_source_checkpoint": "docs/qa/checkpoints/2026-11-01/shinobi-bbox-source-v30 (fiveexactretainedinputs,69362sourcebytes,17965-byteZIP; noROM/historicaltree)."
   },
   "goal_status": "ACTIVE_INCOMPLETE",
   "previous_goal_turn_classification": "progress",
@@ -293,13 +326,13 @@
   "do_not_stage": "docs/qa/current-roster-progress-2026-10-27.json",
   "other_full_objective_work": [
     "Karnov is selectable WIP with original movement, health/death/stomp and contact-earned pickups; projectile combat, equipment activation/HUD/icons, original audio and full-stage testing remain.",
-    "Metal Storm, Shinobi and Excitebike now have reviewed original-source components; host integration/native admission remain. Prince has only an entry/art audit and still needs actor recovery",
+    "Metal Storm/Shinobi/Arthur delivered WIP with native1-1 proof; Excitebike/Prince source-backed hostintegration and Bub/Bob source recovery remain underway.",
     "Sonic3-reference integration, Donkey Kong Jr., Jay McCray, Steve Hermann, Mega Giant Mario and Getsu Fuma remain required",
     "Finish authentic moves/upgrades/audio and known graphics/lag issues across the enabled roster",
     "Every character clears1-1 and the shortcut route and uses every powerup",
     "SMB2J and All Night Nippon campaigns remain separate ongoing requested work"
   ],
-  "completion": "Not complete:86 selectable/90 menu identities. Remaining characters, campaigns and all-character full1-1/shortcut/every-powerup verification remain required.",
+  "completion": "ACTIVE_INCOMPLETE. Installed menu has91distinctnames/89confirmable inCPUtests; Excitebike/Princeblocked andeightrequestedidentitiesabsent. All-character1-1/shortcut/every-powerup/nativegraphicsandabilityverificationremainrequired.",
   "combined76": {
     "final_joint": "build\\ready76-menu-fixed-v5",
     "candidate": "28693c0bf61926f5bef62511b5da0b71f97543170d27d0e03e59bb5e70edf0ca",

@@ -7,7 +7,7 @@ R = Path(__file__).resolve().parents[2]
 sha = lambda p: hashlib.sha256(Path(p).read_bytes()).hexdigest()
 
 
-def prepare(output, rom, controller, refs, *, expected, timeout, scope):
+def prepare(output, rom, controller, refs, *, expected, timeout, scope, allow_interactive=False):
     output = output.resolve()
     rom = rom.resolve()
     assert output.is_relative_to(R / 'build')
@@ -25,8 +25,8 @@ from run_mesen import run
 from mesen_session_guard_v1 import require_free_workspace
 q=json.loads((O/'ready.json').read_text())
 for p,h in q['bindings'].items():assert hashlib.sha256(Path(p).read_bytes()).hexdigest()==h,p
-other=require_free_workspace(R,Path(q['ROM']))
-print('Other-project Mesen sessions left untouched: '+json.dumps([p['ProcessId'] for p in other]),flush=True)
+other=require_free_workspace(R,Path(q['ROM']),allow_interactive=q.get('allow_interactive',False))
+print('Existing Mesen sessions left untouched: '+json.dumps([p['ProcessId'] for p in other]),flush=True)
 os.environ['SMB_RUN_OUTPUT']=str(O/'capture')
 O.joinpath('capture').mkdir()
 (O/'capture/session-before.json').write_text(json.dumps(other,indent=2)+'\\n')
@@ -43,6 +43,7 @@ raise SystemExit(result)
     ready = dict(prepared=True, native=False, ROM=str(rom), ROM_sha256=expected,
                  timeout=timeout, scope=scope, emulated_writes=False,
                  run_byte_cap=128_000_000, max_files=64, max_PNGs=4,
+                 allow_interactive=allow_interactive,
                  bindings={str(p.resolve()): sha(p) for p in sorted(paths)})
     (output / 'ready.json').write_text(json.dumps(ready, indent=2) + '\n', encoding='utf-8')
     print(json.dumps(dict(prepared=True, ready=str(output / 'ready.json'), ROM_sha256=expected)))

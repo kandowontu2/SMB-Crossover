@@ -67,6 +67,11 @@ a hard requirement, not a reason to create more archives or raise a cap.
 - Root owns the single Mesen queue and cleanup. Agents must budget outputs and
   report their active paths. Do not let several workers create independent
   copies of the same large debug, source or asset trees.
+- The user authorized a separate emulator instance alongside an interactive
+  session. For isolated `--testRunner` validation, the packet helper may opt
+  into `allow_interactive=True`: only a plain executable-plus-ROM process is
+  exempted from the queue check. Automated runs in this workspace still block.
+  Leave every existing user and other-project Mesen process untouched.
 
 Before resuming after the October 31 storage incident, read
 `docs/qa/workspace-cleanup-2026-10-31/result.json` and the current continuation
