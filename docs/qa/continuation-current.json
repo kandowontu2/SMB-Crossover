@@ -27,7 +27,7 @@
     "current_downloads_native_check": "docs/qa/checkpoints/2026-11-01/karnov-downloads-current-selection.md",
     "status": "Resource grants permit integration only; no additional character unlocked or ROM delivered. Exact identity/header retirement contract is pending for Shinobi RAM; Metal extended RAM also pending."
   },
-  "current_priority": "Metal Storm v19 background fixed. Original injury decision recovered/tested in v20: armor05D0 bit7, immunity0648, barrier0660, gravity0630; source scene2 hurt sequence clears armor at95BB and sets074B=B4. Port this actual lifecycle and enemy contact next; no health host implementation yet. Public7ec9 unchanged.",
+  "current_priority": "Metal Storm hurt leaves ported/tested1056 cases (64 bytes), not yet host wired. Actual donor scene/NMI shows armor return on tick32, timer180; no-armor follows death scene. Next fund C2 leaves and implement host injury/scene timer, enemy effects, palette/audio/death boundaries. Public7ec9 unchanged.",
   "november_1_allocation_followup": {
     "Tank_code_tails": "docs/qa/checkpoints/2026-11-01/mario-tank-code-tail-grant.json",
     "Tank_RAM": "docs/qa/checkpoints/2026-11-01/mario-tank-ram-grant.json",
@@ -2210,5 +2210,17 @@
     "source_CPU_cases": 32,
     "host_implemented": false,
     "discovery_note": "1200 controller-only donor frames did not reach damage; do not count as natural injury proof."
+  },
+  "metal_hurt_v21": {
+    "source": "tools/reference/metal_storm_hurt_leaves_1101_v21.inc",
+    "checkpoint": "docs\\qa\\checkpoints\\2026-11-01\\metal-storm-hurt-v21",
+    "source_CPU_cases": 1056,
+    "relocated_bytes": 64,
+    "host_wired": false,
+    "source_boundaries": [
+      "9548..9567 blink; enemy flash at9567 separate",
+      "95BB..95D6 armor return; enemy release/palette separate"
+    ],
+    "native_ingress": "HuInjury row5; HuInjuryStatus row6; current generic transport rejects both"
   }
 }
