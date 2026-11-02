@@ -1,4 +1,11 @@
 {
+  "shinobi_active_followup": {
+    "receipt": "build/shinobi-active-1101-v9/result.json",
+    "candidate": "build/shinobi-route-1101-v8/candidate.nes",
+    "status": "620 active HuMovement updates across8 CPU scenarios pass, without callback stubs. Not native Mesen or1-1 proof.",
+    "evidence": "Both directions1px/update; source66px jumps return to floor; running jump79px; crouch and both throw stances work; paused and duplicate updates preserve state. Movement call peak5100cycles, not whole-frame lag.",
+    "next": "Wire original health/damage/death. Donor D771 decrements0539 and only sets death bit0038 bit1 on underflow; initial6 represents7 hits, not6. Preserve this rather than inventing HP thresholds. Need inspect preceding damage gate and source0752/0549 invulnerability timing."
+  },
   "shinobi_route_followup": {
     "candidate": "build/shinobi-route-1101-v8/candidate.nes",
     "sha256": "12db8aa78ac0fb5de9591fdf34a82a1b0c13a94106cf3b430660c1091072deb7",

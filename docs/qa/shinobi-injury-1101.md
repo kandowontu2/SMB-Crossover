@@ -117,3 +117,28 @@ Candidate: `build/shinobi-route-1101-v8/candidate.nes`, SHA256
 Reproduction: `tools/audit/prepare_shinobi_route_1101_v8.py`. The v8 ROM includes
 a three-byte service1 veneer edit absent from the inherited v7 resident binary;
 preserve it when extending the resident code. Downloads is unchanged.
+
+## Active movement through native entry
+
+`check_shinobi_active_1101_v9.py` now runs 620 updates through the actual
+`HuMovement` cartridge entry across idle, both walk directions, standing jump,
+running jump, crouch, standing throw and crouching throw. No donor callback
+is stubbed. Assertions cover one pixel/update walking, 66-pixel jump height,
+landing, horizontal running-jump travel, crouch state and live projectile slots.
+Duplicate-frame and paused calls preserve the simulation phase and position.
+All assertions pass on v8's exact ROM hash.
+
+The fixture places floor metatiles in native row12 (world Y224), matching
+the source feet position224/native player Y192. An initial row11 fixture
+incorrectly embedded the body16 pixels into the floor; that invalid placement
+was corrected before accepting movement results.
+
+Peak measured service costs are 2447 cycles idle, 3244 walking, 3430 running
+jump and 5100 throwing. They exclude Main, NMI, camera and other actors and
+cannot establish whole-frame lag. This remains a flat-buffer CPU fixture,
+not native playability, collision-with-enemy or stage-clear proof.
+
+Next damage boundary: donor `$D771` decrements `$0539`; only underflow clamps
+it to0 and sets `$0038` bit1 (unless source bit0 suppresses death). Thus the
+constructor's value6 is seven hits, not six. Inspect the preceding contact
+gate and `$0752/$0549` timing before wiring the health adapter.
