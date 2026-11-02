@@ -23,3 +23,17 @@ Generated assembly SHA256:
 This proves original-source reproduction. NES instruction translation,
 collision/rendering/audio integration, menu admission and gameplay tests remain
 required. The Master System reference supersedes the earlier Sonic3 choice.
+
+## First private 6502 primitive
+
+`tools/audit/port_sonic_x_velocity_1102_v3.py` translates original bank1
+`4B1B..4B49` (exclusive end): the horizontal velocity commit, sign-crossing
+clamp and zero-velocity exception. The 65-byte assembled 6502 routine matches
+an interpreter executing the original ROM opcodes in 9,928 boundary/random
+cases. Live HL/C/B/DE, stored 24-bit velocity and final accumulator agree;
+measured routine cost is 73–97 NES CPU cycles.
+
+This is fixture-only code with no host RAM allocation or menu integration.
+It does not yet cover acceleration selection, jumping, rolling, terrain,
+rendering or a full caller-register contract. Receipt:
+`build/sonic-sms-xvelocity-1102-v3/receipt.json`.
