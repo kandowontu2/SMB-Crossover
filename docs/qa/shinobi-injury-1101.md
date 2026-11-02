@@ -163,3 +163,28 @@ Candidate: `build/shinobi-damage-1101-v10/candidate.nes`, SHA256
 Resident1333/1536 bytes, leaving203. New cache cookie binds the private vector36
 change; rebuilt resident preserves v8's CHR veneer. Reproduction:
 `tools/audit/prepare_shinobi_damage_1101_v10.py`. Not installed or unlocked.
+
+## Death and new life
+
+The v11 successor adds authenticated cache rows6/7/8 for injury status and
+death. Status returns1 so native damage arbitration reaches the source-health
+handler even when its zero-based health counter is0. Lethal injury enters
+original pose7, initializes its animator, and holds for the donor's200 updates.
+The final tick clears Ready and selects SMB engine6; only native GameRoutines
+deducts a life. The next scene initializes a fresh source actor.
+
+The 122-byte worker occupies previously zero metadata padding `D608..D682`,
+before the injury-art tail atD6A0. A four-byte status leaf uses the kernel tail
+atBBF8. Updated cache cookie covers both changes. Resident1351/1536 bytes.
+
+CPU fixtures exercise actual HuInjuryStatus, lethal HuInjury, HuDeath and
+GameRoutines:200 ticks,200 duplicate checks,200 paused checks, exactly one
+native life decrement and a fresh health/death state after scene entry. The
+animator advances before every nonfinal tick as in the original death loop.
+This does not establish native emulator visuals, sound, enemy collision or1-1.
+
+Candidate: `build/shinobi-death-1101-v11/candidate.nes`, SHA256
+`fa5e38ce1202f6cb8de9eb79b25dd27627006ea020afded5ce090f40f1bab5aa`.
+Reproduction: `tools/audit/prepare_shinobi_death_1101_v11.py`. The local damage
+include override in this output connects lethal damage to death row7; retain
+it when rebuilding. Downloads remains unchanged; menu remains locked.

@@ -1,4 +1,11 @@
 {
+  "shinobi_death_followup": {
+    "candidate": "build/shinobi-death-1101-v11/candidate.nes",
+    "sha256": "fa5e38ce1202f6cb8de9eb79b25dd27627006ea020afded5ce090f40f1bab5aa",
+    "status": "Private successor to damage-v10. Native injury status and lethal damage enter original death pose/timing, then native one-life handoff. Not unlocked or installed.",
+    "proof": "200 death updates,200 duplicate and200 pause checks; actual GameRoutines loses one life; scene resets source health/death state. Metadata D608..D682 hosts122-byte death worker; resident1351/1536; status4-byte leaf atBBF8.",
+    "next": "Palette/audio and unresolved donor callbacks, menu admission, native Mesen main/scroll/contacts and1-1. Resident source now includes local damage override in v11; preserve it and v11 cache vectors6/7/8/36 and cookie."
+  },
   "shinobi_damage_followup": {
     "candidate": "build/shinobi-damage-1101-v10/candidate.nes",
     "sha256": "6d43da1f12248a1763ad3d8c68353611f72342e3b32a9294f7ff30b14b61014a",
