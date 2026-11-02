@@ -1,0 +1,621 @@
+{
+  "installed": {
+    "installed": true,
+    "ROM_sha256": "37959000690d3f9fe596823fc0910e86b9fc977448779360d523751764248b0c",
+    "previous_sha256": "b9e685ffd0620a213a2fc05219e2bae415ee81aa07ab0e994db79455792ef6c4",
+    "destination": "C:\\Users\\kando\\Downloads\\SMB-Crossover-Latest-WIP-MMC5.nes",
+    "candidate": "build/excitebike-pose-1101-v3/current3.nes",
+    "backup_created": false,
+    "downloads_launch_verified": true,
+    "patch_guard": {
+      "passed": true,
+      "ROM": "C:\\Users\\kando\\Downloads\\SMB-Crossover-Latest-WIP-MMC5.nes",
+      "ROM_sha256": "37959000690d3f9fe596823fc0910e86b9fc977448779360d523751764248b0c",
+      "matching_patch_files": []
+    },
+    "complete": false,
+    "character_selection": "Excitebike: row4, column6 (slot29). Prince alternate remains locked.",
+    "controls": "Right throttle, B turbo, A jump, Up/Down lean; Left reverses travel after stopping.",
+    "native_scope": "Excitebike now confirms from roster slot29. Actual Downloads cold menu, throttle/turbo/coast/reverse, original61px backlean jump and landing pass; native CHR/palette/HUD/OAM checks pass. Combined Arthur natural flower/torch and unchanged Shinobi cold idle/walk/OAM smoke pass. Full1-1 for Excitebike and fresh full-stage Arthur combat qualification remain incomplete.",
+    "native_hardware_checks": 1068,
+    "native_hardware_failures": 0,
+    "idle_walk_measurement": {
+      "idle": {
+        "completed_updates": 90,
+        "physical_frames": 135
+      },
+      "right": {
+        "completed_updates": 30,
+        "physical_frames": 45
+      }
+    },
+    "helpers_added": false
+  },
+  "native_results": {
+    "native4": {
+      "passed": true,
+      "reason": "completed",
+      "frames": 1762,
+      "selected": 37,
+      "initial_lives": 2,
+      "final_lives": 2,
+      "world_x": 183,
+      "y": 176,
+      "engine": 8,
+      "phases": [
+        {
+          "phase": "idle",
+          "updates": 90,
+          "physical_frames": 135,
+          "first_x": 40,
+          "last_x": 40,
+          "min_x": 40,
+          "max_x": 40,
+          "first_y": 176,
+          "minimum_y": 176,
+          "last_y": 176,
+          "late_min_x": 40,
+          "late_max_x": 40
+        },
+        {
+          "phase": "right",
+          "updates": 30,
+          "physical_frames": 45,
+          "first_x": 40,
+          "last_x": 51,
+          "min_x": 40,
+          "max_x": 51,
+          "first_y": 176,
+          "minimum_y": 176,
+          "last_y": 176,
+          "late_min_x": 41,
+          "late_max_x": 51
+        },
+        {
+          "phase": "coast",
+          "updates": 180,
+          "physical_frames": 270,
+          "first_x": 51,
+          "last_x": 57,
+          "min_x": 51,
+          "max_x": 57,
+          "first_y": 176,
+          "minimum_y": 176,
+          "last_y": 176,
+          "late_min_x": 57,
+          "late_max_x": 57
+        },
+        {
+          "phase": "reverse",
+          "updates": 30,
+          "physical_frames": 45,
+          "first_x": 57,
+          "last_x": 47,
+          "min_x": 47,
+          "max_x": 57,
+          "first_y": 176,
+          "minimum_y": 176,
+          "last_y": 176,
+          "late_min_x": 47,
+          "late_max_x": 56
+        },
+        {
+          "phase": "rest",
+          "updates": 180,
+          "physical_frames": 270,
+          "first_x": 47,
+          "last_x": 44,
+          "min_x": 44,
+          "max_x": 47,
+          "first_y": 176,
+          "minimum_y": 176,
+          "last_y": 176,
+          "late_min_x": 44,
+          "late_max_x": 44
+        },
+        {
+          "phase": "prepare",
+          "updates": 40,
+          "physical_frames": 60,
+          "first_x": 44,
+          "last_x": 96,
+          "min_x": 44,
+          "max_x": 96,
+          "first_y": 176,
+          "minimum_y": 176,
+          "last_y": 176,
+          "late_min_x": 57,
+          "late_max_x": 96
+        },
+        {
+          "phase": "prelean",
+          "updates": 4,
+          "physical_frames": 6,
+          "first_x": 96,
+          "last_x": 106,
+          "min_x": 96,
+          "max_x": 106,
+          "first_y": 176,
+          "minimum_y": 176,
+          "last_y": 176,
+          "late_min_x": 96,
+          "late_max_x": 106
+        },
+        {
+          "phase": "jump",
+          "updates": 36,
+          "physical_frames": 57,
+          "first_x": 106,
+          "last_x": 164,
+          "min_x": 106,
+          "max_x": 164,
+          "first_y": 176,
+          "minimum_y": 115,
+          "last_y": 115,
+          "late_min_x": 141,
+          "late_max_x": 164
+        },
+        {
+          "phase": "land",
+          "updates": 120,
+          "physical_frames": 184,
+          "first_x": 164,
+          "last_x": 183,
+          "min_x": 164,
+          "max_x": 183,
+          "first_y": 115,
+          "minimum_y": 115,
+          "last_y": 176,
+          "late_min_x": 183,
+          "late_max_x": 183
+        }
+      ],
+      "trace": [
+        {
+          "frame": 750,
+          "phase": "idle",
+          "steps": 40,
+          "x": 40,
+          "y": 176,
+          "state": 2,
+          "engine": 8
+        },
+        {
+          "frame": 810,
+          "phase": "idle",
+          "steps": 80,
+          "x": 40,
+          "y": 176,
+          "state": 2,
+          "engine": 8
+        },
+        {
+          "frame": 930,
+          "phase": "coast",
+          "steps": 40,
+          "x": 57,
+          "y": 176,
+          "state": 2,
+          "engine": 8
+        },
+        {
+          "frame": 990,
+          "phase": "coast",
+          "steps": 80,
+          "x": 57,
+          "y": 176,
+          "state": 2,
+          "engine": 8
+        },
+        {
+          "frame": 1050,
+          "phase": "coast",
+          "steps": 120,
+          "x": 57,
+          "y": 176,
+          "state": 2,
+          "engine": 8
+        },
+        {
+          "frame": 1110,
+          "phase": "coast",
+          "steps": 160,
+          "x": 57,
+          "y": 176,
+          "state": 2,
+          "engine": 8
+        },
+        {
+          "frame": 1245,
+          "phase": "rest",
+          "steps": 40,
+          "x": 44,
+          "y": 176,
+          "state": 2,
+          "engine": 8
+        },
+        {
+          "frame": 1305,
+          "phase": "rest",
+          "steps": 80,
+          "x": 44,
+          "y": 176,
+          "state": 0,
+          "engine": 8
+        },
+        {
+          "frame": 1365,
+          "phase": "rest",
+          "steps": 120,
+          "x": 44,
+          "y": 176,
+          "state": 2,
+          "engine": 8
+        },
+        {
+          "frame": 1425,
+          "phase": "rest",
+          "steps": 160,
+          "x": 44,
+          "y": 176,
+          "state": 2,
+          "engine": 8
+        },
+        {
+          "frame": 1515,
+          "phase": "prepare",
+          "steps": 40,
+          "x": 96,
+          "y": 176,
+          "state": 2,
+          "engine": 8
+        },
+        {
+          "frame": 1638,
+          "phase": "land",
+          "steps": 37,
+          "x": 183,
+          "y": 176,
+          "state": 0,
+          "engine": 8
+        },
+        {
+          "frame": 1698,
+          "phase": "land",
+          "steps": 77,
+          "x": 183,
+          "y": 176,
+          "state": 0,
+          "engine": 8
+        },
+        {
+          "frame": 1758,
+          "phase": "land",
+          "steps": 117,
+          "x": 183,
+          "y": 176,
+          "state": 0,
+          "engine": 8
+        }
+      ]
+    },
+    "arthur-flower": {
+      "passed": true,
+      "reason": "Natural flower and original B-driven torch",
+      "controller_only": true,
+      "frames": 1173,
+      "play_frames": 673,
+      "start_x": 40,
+      "maximum_x": 328,
+      "maximum_camera": 236,
+      "minimum_y": 112,
+      "main_calls": 430,
+      "source_steps": 224,
+      "jump_sequences": 1,
+      "maximum_jump_count": 2,
+      "initial_four_pipes_passed": 0,
+      "three_gaps_passed": 0,
+      "lives_start": 2,
+      "lives_end": 2,
+      "world": 0,
+      "level": 0,
+      "engine": 8,
+      "helpers_added": false
+    },
+    "shinobi-smoke": {
+      "passed": true,
+      "controller_only": true,
+      "frames": 606,
+      "world_x": 54,
+      "selected": 36,
+      "full_stage": false
+    },
+    "downloads": {
+      "passed": true,
+      "reason": "completed",
+      "frames": 1762,
+      "selected": 37,
+      "initial_lives": 2,
+      "final_lives": 2,
+      "world_x": 183,
+      "y": 176,
+      "engine": 8,
+      "phases": [
+        {
+          "phase": "idle",
+          "updates": 90,
+          "physical_frames": 135,
+          "first_x": 40,
+          "last_x": 40,
+          "min_x": 40,
+          "max_x": 40,
+          "first_y": 176,
+          "minimum_y": 176,
+          "last_y": 176,
+          "late_min_x": 40,
+          "late_max_x": 40
+        },
+        {
+          "phase": "right",
+          "updates": 30,
+          "physical_frames": 45,
+          "first_x": 40,
+          "last_x": 51,
+          "min_x": 40,
+          "max_x": 51,
+          "first_y": 176,
+          "minimum_y": 176,
+          "last_y": 176,
+          "late_min_x": 41,
+          "late_max_x": 51
+        },
+        {
+          "phase": "coast",
+          "updates": 180,
+          "physical_frames": 270,
+          "first_x": 51,
+          "last_x": 57,
+          "min_x": 51,
+          "max_x": 57,
+          "first_y": 176,
+          "minimum_y": 176,
+          "last_y": 176,
+          "late_min_x": 57,
+          "late_max_x": 57
+        },
+        {
+          "phase": "reverse",
+          "updates": 30,
+          "physical_frames": 45,
+          "first_x": 57,
+          "last_x": 47,
+          "min_x": 47,
+          "max_x": 57,
+          "first_y": 176,
+          "minimum_y": 176,
+          "last_y": 176,
+          "late_min_x": 47,
+          "late_max_x": 56
+        },
+        {
+          "phase": "rest",
+          "updates": 180,
+          "physical_frames": 270,
+          "first_x": 47,
+          "last_x": 44,
+          "min_x": 44,
+          "max_x": 47,
+          "first_y": 176,
+          "minimum_y": 176,
+          "last_y": 176,
+          "late_min_x": 44,
+          "late_max_x": 44
+        },
+        {
+          "phase": "prepare",
+          "updates": 40,
+          "physical_frames": 60,
+          "first_x": 44,
+          "last_x": 96,
+          "min_x": 44,
+          "max_x": 96,
+          "first_y": 176,
+          "minimum_y": 176,
+          "last_y": 176,
+          "late_min_x": 57,
+          "late_max_x": 96
+        },
+        {
+          "phase": "prelean",
+          "updates": 4,
+          "physical_frames": 6,
+          "first_x": 96,
+          "last_x": 106,
+          "min_x": 96,
+          "max_x": 106,
+          "first_y": 176,
+          "minimum_y": 176,
+          "last_y": 176,
+          "late_min_x": 96,
+          "late_max_x": 106
+        },
+        {
+          "phase": "jump",
+          "updates": 36,
+          "physical_frames": 57,
+          "first_x": 106,
+          "last_x": 164,
+          "min_x": 106,
+          "max_x": 164,
+          "first_y": 176,
+          "minimum_y": 115,
+          "last_y": 115,
+          "late_min_x": 141,
+          "late_max_x": 164
+        },
+        {
+          "phase": "land",
+          "updates": 120,
+          "physical_frames": 184,
+          "first_x": 164,
+          "last_x": 183,
+          "min_x": 164,
+          "max_x": 183,
+          "first_y": 115,
+          "minimum_y": 115,
+          "last_y": 176,
+          "late_min_x": 183,
+          "late_max_x": 183
+        }
+      ],
+      "trace": [
+        {
+          "frame": 750,
+          "phase": "idle",
+          "steps": 40,
+          "x": 40,
+          "y": 176,
+          "state": 2,
+          "engine": 8
+        },
+        {
+          "frame": 810,
+          "phase": "idle",
+          "steps": 80,
+          "x": 40,
+          "y": 176,
+          "state": 2,
+          "engine": 8
+        },
+        {
+          "frame": 930,
+          "phase": "coast",
+          "steps": 40,
+          "x": 57,
+          "y": 176,
+          "state": 2,
+          "engine": 8
+        },
+        {
+          "frame": 990,
+          "phase": "coast",
+          "steps": 80,
+          "x": 57,
+          "y": 176,
+          "state": 2,
+          "engine": 8
+        },
+        {
+          "frame": 1050,
+          "phase": "coast",
+          "steps": 120,
+          "x": 57,
+          "y": 176,
+          "state": 2,
+          "engine": 8
+        },
+        {
+          "frame": 1110,
+          "phase": "coast",
+          "steps": 160,
+          "x": 57,
+          "y": 176,
+          "state": 2,
+          "engine": 8
+        },
+        {
+          "frame": 1245,
+          "phase": "rest",
+          "steps": 40,
+          "x": 44,
+          "y": 176,
+          "state": 2,
+          "engine": 8
+        },
+        {
+          "frame": 1305,
+          "phase": "rest",
+          "steps": 80,
+          "x": 44,
+          "y": 176,
+          "state": 0,
+          "engine": 8
+        },
+        {
+          "frame": 1365,
+          "phase": "rest",
+          "steps": 120,
+          "x": 44,
+          "y": 176,
+          "state": 2,
+          "engine": 8
+        },
+        {
+          "frame": 1425,
+          "phase": "rest",
+          "steps": 160,
+          "x": 44,
+          "y": 176,
+          "state": 2,
+          "engine": 8
+        },
+        {
+          "frame": 1515,
+          "phase": "prepare",
+          "steps": 40,
+          "x": 96,
+          "y": 176,
+          "state": 2,
+          "engine": 8
+        },
+        {
+          "frame": 1638,
+          "phase": "land",
+          "steps": 37,
+          "x": 183,
+          "y": 176,
+          "state": 0,
+          "engine": 8
+        },
+        {
+          "frame": 1698,
+          "phase": "land",
+          "steps": 77,
+          "x": 183,
+          "y": 176,
+          "state": 0,
+          "engine": 8
+        },
+        {
+          "frame": 1758,
+          "phase": "land",
+          "steps": 117,
+          "x": 183,
+          "y": 176,
+          "state": 0,
+          "engine": 8
+        }
+      ]
+    }
+  },
+  "menu_summary": {
+    "receipt": "build/playable-menu-1102-v5/inventory.json",
+    "distinct_names": 91,
+    "confirmable_names": 90,
+    "blocked": [
+      "<3F>PRINCE PERSIA"
+    ],
+    "absent": [
+      "Bub",
+      "Bob",
+      "Sonic (Sonic3 reference)",
+      "Donkey Kong Jr.",
+      "Getsu Fuma",
+      "Mega Giant Mario",
+      "Jay McCray",
+      "Steve Hermann"
+    ],
+    "scope": "Compiled Select/Start/A admission only; native stage qualification remains separate."
+  },
+  "complete": false
+}

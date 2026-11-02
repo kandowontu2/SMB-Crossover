@@ -55,7 +55,7 @@ def main():
                    limits=q['completion'])
     (checkpoint / 'receipt.json').write_text(json.dumps(payload, indent=2) + '\n')
     doc = R / 'docs/qa/arthur-maturity-1102-v12.md'
-    text = doc.read_text()
+    text = doc.read_text(encoding='utf-8')
     text = text.replace('-112 ', '- 112 ').replace('-140 ', '- 140 ').replace('-152 ', '- 152 ')
     text = text.replace('-240 ', '- 240 ').replace('-54 ', '- 54 ').replace('-`', '- `')
     note = ('\n## Native delivery — November 2\n\n'

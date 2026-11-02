@@ -3,7 +3,9 @@
 The functional roster pass is not complete. This inventory separates source
 placements from actual route verification; it is not the final all-character list.
 
-Installed MMC5 SHA256: `128915e97e78891a585aa8f9fd904c166ca64dcd6dd1ee395fc68fd505c1e72c`.
+Inventory fixture SHA256: `128915e97e78891a585aa8f9fd904c166ca64dcd6dd1ee395fc68fd505c1e72c`.
+Current nightly SHA256: `37959000690d3f9fe596823fc0910e86b9fc977448779360d523751764248b0c`.
+The placements below are unchanged; the original admission fixture belongs to its stated earlier hash.
 `tools/audit/inventory_named_helpers_1101_v2.py` verified identical installed and
 candidate bytes, read all 34 compiled shared records and executed `HpConfigure`
 in 80 cases: raw owners 0–36 in both modes, plus Grant/Sypha/Alucard. These are
@@ -40,6 +42,12 @@ crossed both tall pipes and the first pit, not all 1-1; see
 No additional impossible crossing was proven by this read-only audit, and no
 platforms were added. Shinobi's opening-pipe failure is still being diagnosed;
 it is not evidence yet that a helper is needed.
+
+Excitebike (raw37, slot29 base alternate) has no added or inherited helper in
+the delivered `current3.nes` candidate (`37959000`). Its source motor/lean jump
+reaches61px in native flat-floor tests; actual native tall-pipe and
+full1-1 traversal remain pending. No helper stage, height or world position has
+been assigned. The slot29 Prince alternate remains locked and has no helper.
 
 ## Later-stage shared placements
 
@@ -113,3 +121,5 @@ Native 1-1 addendum: Shinobi now clears the entire stage into active 1-2 on inst
 Arthur on cumulative c3dd0303 also clears 1-1 into active 1-2 in 6107 physical frames, lives 2 to 2, without helpers. His intended second jump press is required. This covers Arthur only, not his Goku alternate.
 
 With original pose-based contact bounds installed in 6f319d20, Shinobi again clears 1-1 into active 1-2 without helpers (8924 physical frames, lives 2 to 2). Arthur also passes on this exact ROM in 6107 frames without helpers.
+
+November2: current nightly379590 adds playable Excitebike. No helper platforms were added; its full1-1/tall-pipe qualification is still open. The source placements listed above are unchanged.

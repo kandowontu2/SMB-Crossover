@@ -6,7 +6,7 @@ A native NES adaptation of [Super Mario Bros. Crossover](https://www.smbgames.be
 
 [Player's guide](<Player Guide/SMB-Crossover-Players-Guide-NU.pdf>) · [Full roster image](docs/images/SMB-Crossover-Full-Roster.png) · [Build from source](#build-from-source) · [Report a bug](https://github.com/kandowontu2/SMB-Crossover/issues)
 
-> **In development:** the latest expanded MMC5 nightly has **86 selectable identities**, including unfinished Karnov, across a **32-slot, four-row menu**. Another **4 individual identities** are coming soon. The prepared source build currently contains 37 identities; see the build table below.
+> **In development:** the November 2 expanded MMC5 nightly has **90 selectable identities** across a **32-slot, four-row menu**. Prince of Persia is displayed but remains locked; additional requested characters are still being integrated. Menu availability does not mean every character has completed stage and powerup testing. The prepared source build currently contains 37 identities; see the build table below.
 
 <p align="center">
   <img src="docs/images/character-select.png" width="512" alt="Actual NES character-select screen with four rows of heroes and highlighted Imajin">
@@ -27,11 +27,11 @@ The title opens a separate character-select screen. Use the D-pad to highlight a
 
 ## Current roster
 
-This table describes the **86-selectable development nightly**, including work in progress. A character visible in the menu is not necessarily selectable: names marked with a star are **COMING SOON**.
+This table describes the **90-selectable development nightly**, including work in progress. Some unfinished entries retain a WIP marker; availability below follows the actual menu confirmation tests. Prince of Persia is the remaining displayed entry that cannot start gameplay.
 
 | Slot | Playable now | Coming soon |
 | --- | --- | --- |
-| Mario | Mario / Luigi / Toad / Peach / Super Maaa / Kamikaze Mario / Celeste Mario | — |
+| Mario | Mario / Luigi / Toad / Peach / Super Maaa / Kamikaze Mario / Celeste Mario / Mario the Tank | — |
 | Mega Man | Mega Man / Proto Man | — |
 | Metroid | Samus / Rogue Dawn | — |
 | Contra | Bill Rizer / Lance Bean | — |
@@ -41,8 +41,8 @@ This table describes the **86-selectable development nightly**, including work i
 | Rygar | Rygar / Karnov (WIP) | — |
 | DuckTales | Scrooge / Darkwing Duck | — |
 | Bass | Bass / Roll / Quick Man | — |
-| Ninja Gaiden | Ryu Hayabusa / Thomas | Shinobi |
-| Blaster Master | Sophia III | Metal Storm |
+| Ninja Gaiden | Ryu Hayabusa / Shinobi / Thomas | — |
+| Blaster Master | Sophia III / Metal Storm | — |
 | Kirby | Kirby / Meta Knight | — |
 | Rescue Rangers | Chip / Dale | — |
 | Punch-Out!! | Little Mac / Doc Louis / Mike Tyson | — |
@@ -60,7 +60,7 @@ This table describes the **86-selectable development nightly**, including work i
 | Bowser | SMB3 Bowser / SMB1 Bowser | — |
 | Donkey Kong | Donkey Kong | — |
 | WWF WrestleMania | Hulk Hogan / Ted DiBiase / Bam Bam Bigelow / Honky Tonk Man / Randy Savage / Andre the Giant | — |
-| Excitebike | — | Excitebike / Prince of Persia |
+| Excitebike | Excitebike (WIP) | Prince of Persia |
 | Contra Force | Burns / Smith / Iron / Beans | — |
 | Ghosts 'n Goblins / Dragon Power | Arthur / Goku | — |
 
@@ -73,7 +73,9 @@ The image includes unfinished characters and predates the two new SMB1 alternate
 
 </details>
 
-The four SMB2 characters, four Final Fantasy classes and both SMB1 and SMB3 Toad/Peach are enabled, with bounded emulator checks recorded for their respective build hashes. Goku is an Arthur Select alternate. Further Mario alternates and Getsu Fuma for Simon remain in development and are not included in the current 90-individual count.
+The four SMB2 characters, four Final Fantasy classes and both SMB1 and SMB3 Toad/Peach are enabled, with bounded emulator checks recorded for their respective build hashes. Goku is an Arthur Select alternate. Bub/Bob, Sonic, Donkey Kong Jr., Getsu Fuma, Mega Giant Mario, Jay McCray and Steve Hermann remain absent from the current menu; see the [current roster gaps](docs/qa/current-roster-gaps-1101.md).
+
+**Excitebike** is now selectable on row four, column six. Right accelerates, B uses the original turbo, A jumps, and Up/Down lean the bike. Left reverses travel after stopping. Cold selection, coasting, reversing, a 61-pixel back-lean jump, landing and native graphics checks pass on the delivered build. Full 1-1, powerups and dedicated audio remain unfinished. Arthur's block-side separation and natural flower/torch pickup are also repaired in this build. See the [November 2 verification](docs/qa/checkpoints/2026-11-02/excitebike-nightly-v1/receipt.json).
 
 **All six WWF wrestlers** are playable. Select cycles **Hogan → DiBiase → Bigelow → Honky Tonk Man → Savage → Andre**. Their original actor routines, poses, palettes and themes are integrated with SMB terrain and enemies. A jumps; B punches; Down+B kicks, and Up+B retains the original directional attack. Every wrestler passes a cold Mesen opening route through selection, lives, jump/landing, a Goomba defeat and scrolling across a page. Full stages, advanced wrestling, authentic endurance/upgrades and steady performance remain unfinished. See the [81-character verification](docs/qa/checkpoints/2026-11-01/ready81-wwf-native-v1/README.md).
 
@@ -97,7 +99,7 @@ Both Bowser versions are enabled in the October 31 WIP. They have source-derived
 
 | Target | Roster | Cartridge layout | Status |
 | --- | --- | --- | --- |
-| Expanded MMC5 nightly | 86 selectable / 90 individual identities | 1 MiB PRG + 1 MiB CHR | Includes unfinished Karnov; frozen source and recipes are in the checkpoint archives. |
+| Expanded MMC5 nightly | 90 selectable / 91 displayed identities | 1 MiB PRG + 1 MiB CHR | Includes unfinished characters; frozen source and recipes are in the checkpoint archives. |
 | Prepared expanded MMC5 | 37 identities | 1 MiB PRG + 1 MiB CHR | Reproduced by the commands below. |
 | Standard MMC3 / MMC5 | 14 identities in 12 slots | 512 KiB PRG + 256 KiB CHR | Smaller original roster. |
 | Oversized MMC3 | Expanded roster | 2 MiB PRG + 256 KiB CHR RAM | Experimental; feature parity and physical cartridge compatibility remain unverified. |

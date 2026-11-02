@@ -1,10 +1,10 @@
-# Current roster gaps — November 1
+# Current roster gaps — November 2
 
-Installed MMC5 SHA256: `6f319d2039f920bc85e4a6bfe6ee3327996b42020e03c09e671142eada2a6428`.
+Installed MMC5 SHA256: `37959000690d3f9fe596823fc0910e86b9fc977448779360d523751764248b0c`.
 
-The actual compiled menu has 91 distinct displayed entries; 89 accept Start and A in CPU tests. This is menu admission only. It does not prove that all those characters can clear 1-1 or use every powerup.
+The actual compiled menu has 91 distinct displayed entries; 90 accept Start and A in CPU tests. This is menu admission only. It does not prove that all those characters can clear 1-1 or use every powerup.
 
-Excitebike and Prince of Persia are displayed but still reject confirmation. Their source-backed integrations remain in progress.
+Excitebike is now selectable, with native cold selection, throttle/turbo/coast/reverse, a source-derived 61-pixel back-lean jump, landing and graphics checks. Prince of Persia remains displayed but rejects confirmation. Its source-backed integration remains in progress.
 
 The following requested identities are absent from the emitted menu names:
 
@@ -17,6 +17,6 @@ The following requested identities are absent from the emitted menu names:
 - Jay McCray
 - Steve Hermann
 
-Shinobi now has original pose-dependent native enemy/contact bounds and a fresh no-helper 1-1 to active 1-2 clear (8924 physical frames, lives 2 to 2). Arthur also passes the full-stage regression on this exact ROM (6107 frames, lives 2 to 2). Shinobi idle/walk throughput remains 80/78 updates per 120 physical frames; CPU work increases by 1523 cycles per update.
+Shinobi retains original pose-dependent native enemy/contact bounds. The current combined ROM passes its cold idle/walk/OAM smoke. Its earlier full 1-1 clear on 6f319 (8924 physical frames, lives 2 to 2) is historical, not a fresh full-stage run on the new hash. The same distinction applies to Arthur's earlier 6107-frame clear.
 
-No new natural-powerup coverage is claimed by these runs. Remaining original moves, upgrades, audio, every-character routes, and helper-assisted crossings remain required.
+Arthur's corrected wall separation and item admission now pass a real flower release/maturity/collection and original torch-use replay on the current combined ROM (1173 physical frames, lives 2 to 2). Excitebike's full 1-1 and fresh Arthur full-stage combat checks remain open. No new helper platforms were added. Remaining original moves, upgrades, audio, every-character routes, and helper-assisted crossings remain required.
