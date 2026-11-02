@@ -33,3 +33,21 @@ checks, 963 IRQ checks, 1,372 NMI checks and minimum stack pointer 180. Three
 screenshots were retained; root viewed the red-shell result. Scene and enemy
 setup were explicitly supplied by the harness; abilities, health and outcomes
 were not seeded. This is a focused regression, not a full-stage or audio test.
+
+## First seven copied abilities
+
+Current-hash batch `build/kirby-copies-low-1102-v5/native/capture/result.json`
+passed with Mesen exit 0: ground charge, bouncing shell, returning shell, guard,
+hammer arc, upward jet and bubble. Each case recorded exactly one real capture
+and swallow, followed by attack/use and native Select cleanup. The six offensive
+abilities each recorded a native defeat. Guard recorded protected contact and
+no defeat, as required. The run took 2,832 updates / 3,281 physical frames,
+retained three PNGs and reached minimum stack pointer 180.
+
+Producer: `tools/audit/prepare_kirby_all_copies_1102_v5.py --unit copies-low`.
+The result inherits the focused harness's generic unit/scope label; the actual
+seven `cases` and the ready packet's batch scope identify the coverage above.
+Targets for non-shell attacks are placed relative to their effects, so this
+proves earned activation and collision, not naturally reached combat geometry.
+The high-copy batch is prepared but has not yet run. Full-stage, other modes,
+all facings and audio fidelity are not established by this batch.
