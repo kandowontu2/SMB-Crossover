@@ -1,0 +1,423 @@
+{
+  "passed": true,
+  "frozen": true,
+  "private_native_candidate_only": true,
+  "installed": false,
+  "native_emulator": false,
+  "native_ready_for_root_probe": true,
+  "ROM_SHA256": "b684ff8aaf52aaf41f668e272f9e28704463f8cde50c9254445ec96881a451e1",
+  "parent_ROM_SHA256": "cf7f157aa39493149b24039c190f09244ce68bc47f0a87f06f01adb47a2c70dd",
+  "component_memory_SHA256": "cba497aabf91ccb357a9392a4407f261c8fd33a66032ae9d7b2e1ba790ef490d",
+  "archive": "build/prince-actor-1101-v1/strike-source-v141.zip",
+  "archive_SHA256": "32fb6df22e08ca02bb4bec475c5734c5b8a144f4f3db533df1a3b94efcba1751",
+  "archive_bytes": 225037,
+  "archive_members": 92,
+  "source_files_to_commit": [
+    "tools/audit/measure_prince_deferred_strike_1102_v116.py",
+    "tools/audit/check_prince_deferred_strike_1102_v117.py",
+    "tools/audit/diagnose_prince_deferred_strike_1102_v118.py",
+    "tools/audit/audit_prince_native_drop_policy_1102_v119.py",
+    "tools/audit/measure_prince_owned_drop_ack_1102_v120.py",
+    "tools/audit/check_prince_owned_drop_ack_1102_v121.py",
+    "tools/audit/measure_prince_owned_drop_ack_1102_v122.py",
+    "tools/audit/check_prince_owned_drop_ack_1102_v123.py",
+    "tools/audit/check_prince_strike_lifetime_1102_v125.py",
+    "tools/audit/check_prince_strike_lifetime_1102_v126.py",
+    "tools/audit/check_prince_strike_nested_irq_1102_v127.py",
+    "tools/audit/check_prince_strike_nested_irq_1103_v128.py",
+    "tools/audit/prepare_prince_strike_cold_1103_v129.py",
+    "tools/audit/prepare_prince_strike_manifest_1103_v130.py",
+    "tools/audit/check_prince_strike_cold_1103_v131.py",
+    "tools/audit/check_prince_strike_foreign_1103_v132.py",
+    "tools/audit/check_prince_strike_respawn_1103_v133.py",
+    "tools/audit/check_prince_strike_actual_1103_v134.py",
+    "tools/audit/check_prince_strike_lifecycle_isr_1103_v135.py",
+    "tools/audit/check_prince_strike_actual_nested_1103_v136.py",
+    "tools/audit/prepare_prince_frontend_1103_v137.py",
+    "tools/audit/check_prince_strike_native_ingress_1103_v138.py",
+    "tools/audit/prepare_prince_first_native_1103_v139.py",
+    "tools/audit/prince_first_native_1103_v139.lua",
+    "tools/audit/emit_prince_private_1103_v140.py",
+    "docs/qa/prince-strike-native-1103-v141.md",
+    "tools/audit/freeze_prince_strike_source_1103_v141.py"
+  ],
+  "members": {
+    "tools/audit/measure_prince_deferred_strike_1102_v116.py": {
+      "SHA256": "56592177307bfebaa81f1af778c333265f3cd799b83828f3b341fc3362a73b70",
+      "bytes": 6515
+    },
+    "tools/audit/check_prince_deferred_strike_1102_v117.py": {
+      "SHA256": "9b4c1bef671db27684806c9f3183326227a78b968d908d7afc8cdf0f3b9e2bf4",
+      "bytes": 4963
+    },
+    "tools/audit/diagnose_prince_deferred_strike_1102_v118.py": {
+      "SHA256": "d6da35f997d9669096dc34beb0b058223813e58b02c8d239247c8365a4a342a1",
+      "bytes": 1978
+    },
+    "tools/audit/audit_prince_native_drop_policy_1102_v119.py": {
+      "SHA256": "b3c480765825b6984b8e0ae02c64c7e42988bee265fc1c7956fe8daa4f6f0c39",
+      "bytes": 4831
+    },
+    "tools/audit/measure_prince_owned_drop_ack_1102_v120.py": {
+      "SHA256": "1f7cc71f72fba904567140953250dce7ab85c3b5c0fd1439ac8a61b4e525f77f",
+      "bytes": 2268
+    },
+    "tools/audit/check_prince_owned_drop_ack_1102_v121.py": {
+      "SHA256": "3e1558c2b7f5db002dc0c3429ad96bc9e294f6fe8b357e5a6db4bfb4286851f1",
+      "bytes": 4291
+    },
+    "tools/audit/measure_prince_owned_drop_ack_1102_v122.py": {
+      "SHA256": "f75890820ec3fbfc6fbd0abd8cec9989221167b68bc33c518fc608132642218b",
+      "bytes": 1205
+    },
+    "tools/audit/check_prince_owned_drop_ack_1102_v123.py": {
+      "SHA256": "c643cc146f481fe5768236adde852c0d9e53f25b8edc3c5ce21b533b21bf6630",
+      "bytes": 949
+    },
+    "tools/audit/check_prince_strike_lifetime_1102_v125.py": {
+      "SHA256": "40f97274b0edeae41c43376e59465b3f15d2ea676103eebe414bdfc4e5554581",
+      "bytes": 4845
+    },
+    "tools/audit/check_prince_strike_lifetime_1102_v126.py": {
+      "SHA256": "320c34414085ccd2ec5438a5d4e1f36ec46e60b7a68d4b62ef79352b08ba2f88",
+      "bytes": 1823
+    },
+    "tools/audit/check_prince_strike_nested_irq_1102_v127.py": {
+      "SHA256": "c7f1523ef665ae8c007474a21bfcc348bcf42fd0815bc1f6cfe82239cdaba64b",
+      "bytes": 3200
+    },
+    "tools/audit/check_prince_strike_nested_irq_1103_v128.py": {
+      "SHA256": "8f750c18587758e0dd47164b4c9462f41ab791f95f0c59436495dd9e6e05a3ee",
+      "bytes": 1449
+    },
+    "tools/audit/prepare_prince_strike_cold_1103_v129.py": {
+      "SHA256": "27eb5906ff89096eec1b9ce61792da1a7f35a9894e5e954ad82332d56b4f8271",
+      "bytes": 2207
+    },
+    "tools/audit/prepare_prince_strike_manifest_1103_v130.py": {
+      "SHA256": "923551988dcfd51dffe5c643811f77de6f43093c5bd399e73b49b9e279bd9c29",
+      "bytes": 4537
+    },
+    "tools/audit/check_prince_strike_cold_1103_v131.py": {
+      "SHA256": "4d68e2b06cadda55ef6892777ea329960e542a22ccc3178133e1354f7eb93748",
+      "bytes": 2522
+    },
+    "tools/audit/check_prince_strike_foreign_1103_v132.py": {
+      "SHA256": "0a1a3483eafcf620493eba3681b950e8e81251742363f083bfe518d63cce52a5",
+      "bytes": 1331
+    },
+    "tools/audit/check_prince_strike_respawn_1103_v133.py": {
+      "SHA256": "428285aa4444aff3eeda17d980e12a4ac31b90a93317a251eecd50b84bc14dd4",
+      "bytes": 2467
+    },
+    "tools/audit/check_prince_strike_actual_1103_v134.py": {
+      "SHA256": "1e5b59c36efdc6dd5a662c2ae6d45f776c0b3bcaa886508729c6c7a8b3667e08",
+      "bytes": 5433
+    },
+    "tools/audit/check_prince_strike_lifecycle_isr_1103_v135.py": {
+      "SHA256": "76d6a9bd44049c76f1c858d7fdeac3751312c53d7e9636dbb2538045b6195152",
+      "bytes": 1944
+    },
+    "tools/audit/check_prince_strike_actual_nested_1103_v136.py": {
+      "SHA256": "3c1f0e1f8e11773b394fdfb09a05454e7c95458b3751e4e0889848b253ebeb4a",
+      "bytes": 2867
+    },
+    "tools/audit/prepare_prince_frontend_1103_v137.py": {
+      "SHA256": "7ff2578e312bd9f28d41ae28e40c170216f57301eee60e6841e2bfc52f57b921",
+      "bytes": 1521
+    },
+    "tools/audit/check_prince_strike_native_ingress_1103_v138.py": {
+      "SHA256": "8dae4d36bc473bdebadeff4c2136195a3a1b7560bb1fd8849a530db661304a5c",
+      "bytes": 1828
+    },
+    "tools/audit/prepare_prince_first_native_1103_v139.py": {
+      "SHA256": "05817b303fe902ba0fbf012b6404c548893e538b54ddc1e01c0eb242824d9cf5",
+      "bytes": 4798
+    },
+    "tools/audit/prince_first_native_1103_v139.lua": {
+      "SHA256": "b4c107266b5cba2e0988f17af78bd360486e2a7e20aaac54d7450d103626bcbb",
+      "bytes": 6011
+    },
+    "tools/audit/emit_prince_private_1103_v140.py": {
+      "SHA256": "cf54c939309b641c323101c49617d65ab1b881d97d4aa00d1bdc8f3828857b3c",
+      "bytes": 5397
+    },
+    "docs/qa/prince-strike-native-1103-v141.md": {
+      "SHA256": "fc522808c5e83fd85430def780418ed0737dea0e6623325f74f80bec51904825",
+      "bytes": 5971
+    },
+    "tools/audit/freeze_prince_strike_source_1103_v141.py": {
+      "SHA256": "11f557c4c3ebe60409b638c1b34a27a9d54004827619a39711f4192ee28d1981",
+      "bytes": 5518
+    },
+    "docs/qa/allocations/prince-current-frontend-1103-v105.json": {
+      "SHA256": "8399bdf3772ba6996fa1dc8cf3ef146502e814d65db06ee580581497c6067a2f",
+      "bytes": 4513
+    },
+    "build/prince-actor-1101-v1/native-drop-policy-CPU-v119.json": {
+      "SHA256": "76ef790718366b175b9e763aeb0c372adde6c538eb881c42790470aac877806a",
+      "bytes": 2952
+    },
+    "build/prince-actor-1101-v1/deferred-strike-CPU-v123.json": {
+      "SHA256": "b29b6af73ad789624731ab81e397a98abdfd3e531d64da310e6e2784c9ef68d4",
+      "bytes": 5331
+    },
+    "build/prince-actor-1101-v1/strike-lifetime-CPU-v126.json": {
+      "SHA256": "340a602c6ac6ed90c0d010abdb96308e5c465f96d12e2f72b2e7cd42bd4a15a5",
+      "bytes": 3449
+    },
+    "build/prince-actor-1101-v1/post-return-nested-IRQ-CPU-v128.json": {
+      "SHA256": "dfe7f23559f90a620381f11757c4091194ecddc63a87cbdbe9719a3e70a24ecb",
+      "bytes": 8176
+    },
+    "build/prince-actor-1101-v1/cold-link-storage-v129.json": {
+      "SHA256": "c88117e459a5a857b3c1bd569c4d6139ef7ff1539134680e8d9716f04678b2f3",
+      "bytes": 4745
+    },
+    "build/prince-actor-1101-v1/strike-manifest-v130.json": {
+      "SHA256": "c216788f0e8f858cccb60da36f98397026de9566b93d28768301e9d1a5a60bab",
+      "bytes": 212288
+    },
+    "build/prince-actor-1101-v1/current-shared-cold-CPU-v131.json": {
+      "SHA256": "10e200fed65e517ad6dfa2e7262f1a4efbe52ddad3a35c83a511d6fc7f6d857b",
+      "bytes": 4262
+    },
+    "build/prince-actor-1101-v1/current-foreign-hot-CPU-v132.json": {
+      "SHA256": "4d401f32158830af39ec5aa1d3a6781aeec580dcb489b1f187f4e75f5ec4cfde",
+      "bytes": 1900
+    },
+    "build/prince-actor-1101-v1/post-return-respawn-CPU-v133.json": {
+      "SHA256": "f3908d7146ed5aaf3502b98876aae2e210563443b0378867136fc38b37378a6b",
+      "bytes": 55022
+    },
+    "build/prince-actor-1101-v1/actual-strike-CPU-v134.json": {
+      "SHA256": "42fea1725395bb041c0341e69a5777335ca5abfa0fe639fe1aa70d55ef2b3e65",
+      "bytes": 4415
+    },
+    "build/prince-actor-1101-v1/current-game-loop-ISR-CPU-v135.json": {
+      "SHA256": "763f2521d2d36510621af2927fd9e8bff0d4b133fb2da15cc622ff3c0d861662",
+      "bytes": 3980
+    },
+    "build/prince-actor-1101-v1/post-return-nested-IRQ-CPU-v136.json": {
+      "SHA256": "c0cb3cb0d39ba2c56a63b0d446eb4e0d9c72f8bc25f74db6cf5e0aae8c9ebb1c",
+      "bytes": 7816
+    },
+    "build/prince-actor-1101-v1/frontend-proposal-v137.json": {
+      "SHA256": "32a50d5bb242197a73c7604b14453bfacb2f56b2f3c65cdd22b9326fed9fc654",
+      "bytes": 30822
+    },
+    "build/prince-actor-1101-v1/current-native-ingress-CPU-v138.json": {
+      "SHA256": "b29fbeb266e6d7b9e5e9147ecb8b1faf18004bdbb349e9e00636f0f9023f5844",
+      "bytes": 7258
+    },
+    "build/prince-actor-1101-v1/candidate-v140.json": {
+      "SHA256": "ea6b0332cd7c174e875b727e46c54a8ee086f3e7a2d52262827cb5f9691ce351",
+      "bytes": 3017
+    },
+    "build/prince-actor-1101-v1/deferred-strike-negative-v117.json": {
+      "SHA256": "23f5d6fa2756c920f0971da2800d35050168bc33cbfe33d449241444a4c64167",
+      "bytes": 143
+    },
+    "build/prince-actor-1101-v1/deferred-strike-diagnostic-v118.json": {
+      "SHA256": "624efbd27b7259616cde440ac9bebcb6566a1018b0c8df54a6918907cb2b6410",
+      "bytes": 1931
+    },
+    "build/prince-actor-1101-v1/strike-lifetime-negative-v125.json": {
+      "SHA256": "5f4ae6369d84fecd07210294811e3d90cc2af42b550929930ef53ecf536c195f",
+      "bytes": 145
+    },
+    "build/prince-actor-1101-v1/strike-nested-IRQ-negative-v127.json": {
+      "SHA256": "fcef8ac8c9173061fdfbbe4b7163bea8d4310a4749675b4eb260ebe489bf1ddb",
+      "bytes": 110
+    },
+    "build/prince-actor-1101-v1/strike-shared-cold-negative-v131.json": {
+      "SHA256": "d6906858955ad33ddb3b7408ef437e9db05782e04038ba7040ba71b951fba00f",
+      "bytes": 82
+    },
+    "build/prince-actor-1101-v1/deferred-strike-measurement-v116.json": {
+      "SHA256": "64ac99315af5c14d80f98a418a2baa40dd26792da5a706f978810b7edb8f5c35",
+      "bytes": 3858
+    },
+    "build/prince-actor-1101-v1/deferred-strike-measurement-v120.json": {
+      "SHA256": "9d5a6b55d49150b7a25651d31aff8ce7bf517c8ab5150f5fd275bec96ca29c04",
+      "bytes": 4880
+    },
+    "build/prince-actor-1101-v1/deferred-strike-measurement-v122.json": {
+      "SHA256": "6b4a66fc70d8e13c802b18b0d1f2b3808e7eb5e10bf7e856b5e27e4d87ea538a",
+      "bytes": 5193
+    },
+    "build/prince-actor-1101-v1/native-labels-v122.json": {
+      "SHA256": "5805d84db92b765eca385d7e8c8695e6f6dda1271b050984855f93ec67edef30",
+      "bytes": 10783
+    },
+    "build/prince-actor-1101-v1/native-runtime-v122.bin": {
+      "SHA256": "26a5adf902e137988ec4a10853eb6ac161d6be665a81aae7493dbac386781671",
+      "bytes": 8159
+    },
+    "build/prince-actor-1101-v1/native-metadata-v122.bin": {
+      "SHA256": "e8492e91e83e1574b33c6dadb911b755021658787662290501683a8280607a76",
+      "bytes": 6095
+    },
+    "build/prince-actor-1101-v1/native-state-v122.bin": {
+      "SHA256": "14d3506057394414a1fe5d86376482d3a1fe03685120f131a388fb6a9e8fed7f",
+      "bytes": 1529
+    },
+    "build/prince-actor-1101-v1/cold-pool-v129.bin": {
+      "SHA256": "23acb9b1350fa208a4166bd9b86f56aa85f79650b7a03e12bbdc0bc1a68429bf",
+      "bytes": 44476
+    },
+    "build/prince-actor-1101-v1/cold-worker-v129.s": {
+      "SHA256": "827fd3e3ffbbac7279355388c0c21a3f27fd07d07ebde9bf47858334a65afef1",
+      "bytes": 4139
+    },
+    "build/prince-actor-1101-v1/cold-worker-v129.cfg": {
+      "SHA256": "1fc70c66f3bae8508ee603488d363991302a569b8137b1a912b0ad80ea05469e",
+      "bytes": 124
+    },
+    "build/prince-actor-1101-v1/cold-worker-v129.lbl": {
+      "SHA256": "b35729a26a842d3d03407363c92834ff19c63d09ef78c4d23ecb7c78d888d4b1",
+      "bytes": 776
+    },
+    "build/prince-actor-1101-v1/cold-worker-v129.bin": {
+      "SHA256": "b35b6b6d66764ff64bc44d781199331ef933a777b716d06c772d8e4a9e2ef196",
+      "bytes": 444
+    },
+    "build/prince-actor-1101-v1/post-owner-v130.s": {
+      "SHA256": "cb4ccb81c70a76dcbc6d7eebea2b8e0127b41738c564bc95010bd76c62558ae4",
+      "bytes": 5839
+    },
+    "build/prince-actor-1101-v1/post-owner-v130.cfg": {
+      "SHA256": "54ea4d60badb1df0f5c0bc309c10b900738aa1511a45e615f456faf290cc6690",
+      "bytes": 241
+    },
+    "build/prince-actor-1101-v1/post-owner-v130.lbl": {
+      "SHA256": "026ffbaa2494baf38c449e4c23e550a3f163e38011423c6036c921e231917268",
+      "bytes": 1240
+    },
+    "build/prince-actor-1101-v1/post-owner-v130.bin": {
+      "SHA256": "c14898173001d8cdeb88337a2a235a521553a43230ea7775dc487d1b6708e73b",
+      "bytes": 531
+    },
+    "build/prince-actor-1101-v1/post-owner-extra-v130.bin": {
+      "SHA256": "55132e463b00b2fd54d2ac778aa84da2fb4a5ac8732179a18b4fc18eabab8c3d",
+      "bytes": 94
+    },
+    "build/prince-actor-1101-v1/post-selector-v130.s": {
+      "SHA256": "4f48cfd5a4ee5ec06423beb4f8c16c5bf3da77c46a99813cbfc78f0fe2efb48a",
+      "bytes": 1476
+    },
+    "build/prince-actor-1101-v1/post-selector-v130.cfg": {
+      "SHA256": "9cf10f68e33f9cf79364b0a8bff7ee892ecdd9d6b0ee9e68d28a9b6529da4682",
+      "bytes": 74
+    },
+    "build/prince-actor-1101-v1/post-selector-v130.lbl": {
+      "SHA256": "78cd74a7fab0a01ddb73b9e66436808460fc303d8febaacfe5a1c063a9da48ae",
+      "bytes": 264
+    },
+    "build/prince-actor-1101-v1/post-selector-v130.bin": {
+      "SHA256": "72f33aa4403c0ff91ab80f6de16d0b93379f06c9568fc8c740abb8b1045820ce",
+      "bytes": 156
+    },
+    "build/prince-actor-1101-v1/native-services-v122.s": {
+      "SHA256": "eca56a928b6bd6630195efd357da48994d41029fa7e3698ba239575b0315257b",
+      "bytes": 4926
+    },
+    "build/prince-actor-1101-v1/native-services-v122.bin": {
+      "SHA256": "68f76fedc9d35e1fd8a6eed415aa6d5552cccccf50f2dcf61e8b8b434da3807f",
+      "bytes": 355
+    },
+    "build/prince-actor-1101-v1/native-battle-v122.s": {
+      "SHA256": "e58cc3e64aa6c5e8e470f4a845a3f58f91b68d0cf92828d31e2ee6e5b8c6cbff",
+      "bytes": 27612
+    },
+    "build/prince-actor-1101-v1/native-battle-v122.bin": {
+      "SHA256": "afdef17ad9635e03109557eb7c7bba60644eb81af70bc8383a1100bd192f702e",
+      "bytes": 760
+    },
+    "build/prince-actor-1101-v1/native-proxy-v122.s": {
+      "SHA256": "f745b67017b37ee1df757d30b511a4f26ed654e697acdc35884abd907493b40f",
+      "bytes": 2557
+    },
+    "build/prince-actor-1101-v1/native-proxy-v122.bin": {
+      "SHA256": "ee06ac9fb6f22ef0a79cce93e80bbf06bab7790eea94610f1c01bf1ed7c37a36",
+      "bytes": 297
+    },
+    "build/prince-actor-1101-v1/native-public-v122.s": {
+      "SHA256": "4801ac250e25d224e9759e90c30b6edc4435113a621d1741e00a039ac315fc0a",
+      "bytes": 2532
+    },
+    "build/prince-actor-1101-v1/native-public-v122.bin": {
+      "SHA256": "dea7d4f39b46c4f85bea701c37bfec46bf1d76a7c79e6090ff560113b15fdd60",
+      "bytes": 183
+    },
+    "build/prince-actor-1101-v1/native-policies-v122.s": {
+      "SHA256": "2dd36413a3a8304d3536fbcd1e92a4345861f0b699e5341aeccc87ade75ce768",
+      "bytes": 858
+    },
+    "build/prince-actor-1101-v1/native-policies-v122.bin": {
+      "SHA256": "14b37b6913949795a3be98b7b0140425c869085850528922a52d2475908156c4",
+      "bytes": 49
+    },
+    "build/prince-actor-1101-v1/native-audio-v122.s": {
+      "SHA256": "8bf55db3f6e5db4042c629d8a428022be1695c25454acb14fa77b6174bc90b6b",
+      "bytes": 2480
+    },
+    "build/prince-actor-1101-v1/native-audio-v122.bin": {
+      "SHA256": "ec8dfe3af6ec004f7281b42394f590c195232310c26260cddc525b0dff795d06",
+      "bytes": 149
+    },
+    "build/prince-actor-1101-v1/native-small-v122.s": {
+      "SHA256": "b3a21b5f2cefc4c3d141f8545df09bd3a62ec3aee1f60cc9e89c2d60d59a29dc",
+      "bytes": 239
+    },
+    "build/prince-actor-1101-v1/native-small-v122.bin": {
+      "SHA256": "34ddaad07acdd6a62f9aa8da6b67a10e2ef80baa2168db4fe838c76e610ce228",
+      "bytes": 13
+    },
+    "build/prince-actor-1101-v1/native-runtime-v129.lzdict": {
+      "SHA256": "39ea0842d39323e34852e0260dd7fba42923a26a239397a119f27928450ebea0",
+      "bytes": 6341
+    },
+    "build/prince-actor-1101-v1/native-metadata-v129.lzdict": {
+      "SHA256": "dfc7692c3db855d0064fd78d20e3bf0fb77a4dfd2c90bf3516896206f3568917",
+      "bytes": 5214
+    },
+    "build/prince-actor-1101-v1/native-state_code-v129.lzdict": {
+      "SHA256": "99049d9137411a9c236924a89d4d58fb6cb9a01f7a15b69c22f20dd8f7fa793c",
+      "bytes": 1151
+    },
+    "build/prince-actor-1101-v1/native-first-controls-v139/controller.lua": {
+      "SHA256": "455f691de95feb147e373e4ae300bc491ef18172bfc37444f24e7485bdf147de",
+      "bytes": 16113
+    },
+    "build/prince-actor-1101-v1/native-first-controls-v139/run.py": {
+      "SHA256": "84d2a16b8f0b6aa7c22717f9eefbda494f21fcc0f923907384b74d63991cc49b",
+      "bytes": 1331
+    },
+    "build/prince-actor-1101-v1/native-first-controls-v139/ready.json": {
+      "SHA256": "c4f05f4d4a1c02d2299c1cf5f3ea78c6cdf506cd5ccabc16d5cd4de3fbd16bf1",
+      "bytes": 4477
+    },
+    "build/prince-actor-1101-v1/native-first-contact-death-v139/controller.lua": {
+      "SHA256": "34f59ae6306e62a6a09aff37e137a162a6cf5f3dab0f42501e445aaf0de87093",
+      "bytes": 16123
+    },
+    "build/prince-actor-1101-v1/native-first-contact-death-v139/run.py": {
+      "SHA256": "84d2a16b8f0b6aa7c22717f9eefbda494f21fcc0f923907384b74d63991cc49b",
+      "bytes": 1331
+    },
+    "build/prince-actor-1101-v1/native-first-contact-death-v139/ready.json": {
+      "SHA256": "a54ba664f9fa8001c5c4b35898f8d63889c29f2b6aa8d5ea232916c676df5e5a",
+      "bytes": 4487
+    }
+  },
+  "prior_frozen_dependency": {
+    "durable_root": "docs/qa/checkpoints/2026-11-03/prince-current-v115",
+    "archive_SHA256": "50052ec19203fc81506b4e74cf0d594429da8e62850b6b22d008954d73c211d5",
+    "not_copied_or_expanded": true
+  },
+  "active_output": "build/prince-actor-1101-v1",
+  "active_output_files": 918,
+  "active_output_bytes": 13827328,
+  "remaining": "Root native menu/hardware/controls/contact/death, naturally earned sword/strike, original movement/ledge crossing and1-1; original audio mapping unfinished. No helper added. No nightly installation by helper."
+}
