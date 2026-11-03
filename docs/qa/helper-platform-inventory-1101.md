@@ -204,3 +204,10 @@ the native obstacles, not new platform placements; there are no helper left
 edges, centers or initial heights to report for Mini. The run completes the
 flagpole/castle sequence and reaches active 1-2 in 7,875 physical frames.
 Evidence: `docs/qa/checkpoints/2026-11-03/mini-end-v50/receipt.json`.
+
+The November 3 mushroom repair `9d291cb7` repeats the complete Mini route into
+active 1-2, lives 2 to 2, with the same obstacle crossings and no helpers.
+The separate earned mushroom run also passes from Downloads. Prince remains
+private: first-pipe runs stop at the first Goomba, so no Prince helper placement
+or assisted crossing has been established. See `roster-resume-v62/receipt.json`
+under the November 3 checkpoints for the positive and negative scope.
