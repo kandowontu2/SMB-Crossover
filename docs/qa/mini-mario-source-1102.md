@@ -24,7 +24,27 @@ alone would not establish matching behavior. The source state enum has
 ground, fall, crouch, skid, jump, climb, blank and swim states; references
 to `last_wall` alone do not establish a working wall-grab.
 
-This is a verified reference packet, not a playable implementation. No
-original compilation, NES physics/CHR port, wall-grab, menu admission or
-stage clear is claimed. Keep source behavior separate from any traversal
-adaptation. Credit Mico27, with Michirin credited for upstream music/sound.
+The November 3 horizontal port compiles literal acceleration blocks from
+that packet as a host C reference and compares them with assembled 6502.
+The initial 328-byte ground component passes 432,760 cases. A combined
+483-byte ground/jump/fall component passes 963,824 cases, taking 98–271
+CPU cycles per isolated call. The original jump and fall horizontal blocks
+are also checked for token identity. Tests cover the complete supported
+velocity range, simultaneous left/right/run inputs, signed platform
+displacements, and animation/attack boundaries. They retain the original
+airborne run reversal, which differs from ground turning, and air
+deceleration of 208 versus ground deceleration of 256.
+
+The small checkpoint is
+`docs/qa/checkpoints/2026-11-03/mini-mario-motion-v4` (16,894-byte archive).
+Fixtures remain in memory; no per-case files or emulator captures are made.
+This is a source-C comparison, not a comparison with the original Game Boy
+machine code or a full game update. The caller resets animation timing
+before dispatching the state; isolated primitive preservation tests do not
+replace that caller behavior.
+
+Mini Mario is not playable yet. Full state dispatch, vertical movement,
+world collision, lifecycle, graphics, audio and menu integration remain,
+along with an innate wall-grab if traversal requires it. No native RAM or
+code allocation, helper need, stage clear or nightly update is claimed.
+Credit Mico27, with Michirin credited for upstream music/sound.

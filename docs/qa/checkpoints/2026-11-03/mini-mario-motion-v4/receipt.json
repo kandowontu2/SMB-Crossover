@@ -1,0 +1,31 @@
+{
+  "passed": true,
+  "installed": false,
+  "ROM_produced": false,
+  "checkpoint": "docs/qa/checkpoints/2026-11-03/mini-mario-motion-v4",
+  "archive_bytes": 16894,
+  "archive_SHA256": "a12c0ea0131e7b4900e69e73f2339b2183b790c4a5704451eb2fc20244efb191",
+  "scope": "Original-source C versus assembled 6502 CPU fixtures only. Ground328B/432760cases; unified ground/jump/fall483B/963824cases,98..271cycles. Jump/fall horizontal source token identity independently asserted. Entire supported X-velocity domain, all L/R/run combinations and platform-delta signs; animation/attack branch boundaries. No persistent per-case fixtures or emulator captures.",
+  "remaining": "GB machine-code comparison and full caller/state/Y/jump/swim/native terrain/graphics/audio/lifecycle/menu/1-1. The source ground/air primitives do not constitute a playable Mini Mario. No allocation or helper need established.",
+  "source_files": [
+    "tools/audit/freeze_mini_mario_motion_1103_v4.py",
+    "tools/audit/port_mini_mario_ground_x_1103_v2.py",
+    "tools/audit/port_mini_mario_air_x_1103_v3.py"
+  ],
+  "bindings": {
+    "tools/audit/freeze_mini_mario_motion_1103_v4.py": "eb739ebd3a663e9784d2702d5f9627a59cd8e622df526a080b22518cdee5ad65",
+    "tools/audit/port_mini_mario_ground_x_1103_v2.py": "944aebdb1593d6be77e80e8a77b30ee8feefe3d0ac296cc02f2d0b6dc815aec4",
+    "tools/audit/port_mini_mario_air_x_1103_v3.py": "b596d3f526a96929fe52711ba29689f3c21946bc17c52ce9c557ff94150d2d82",
+    "build/mini-mario-motion-1103-v2/receipt.json": "b05d8e5ab73bc2fc1518cc7ee4eedcf01801f924c2ae2f22864353828b0640be",
+    "build/mini-mario-motion-1103-v2/ground-x.s": "6dae7968035fac34c7907679a36dd2335ed319b749620b12173184ad8c9cd51d",
+    "build/mini-mario-motion-1103-v2/ground-x.cfg": "04b236042214a05b1f470d28fd59c68048c60372aea4c12a29ba19a24577c516",
+    "build/mini-mario-motion-1103-v2/ground-x.bin": "662193e07b61fafd5ce089274ab97a24b21d1e99c63a0c4772afcde13a383eb6",
+    "build/mini-mario-motion-1103-v2/original-ground-x.c": "4978a91e42d1040badfbd30e154f9c2a5f471c78e58b49517a3190e74d833515",
+    "build/mini-mario-motion-1103-v3/receipt.json": "586f45b8a12d76542659c00e92ce17e1e4e6b7ea1c61b0ffb8b86b6a8b73a3a9",
+    "build/mini-mario-motion-1103-v3/motion-x.s": "47c434fdb2b059ba76a66f309f4feb311f6dad6371d9ce36311a6f87ed8f59ac",
+    "build/mini-mario-motion-1103-v3/motion-x.cfg": "04b236042214a05b1f470d28fd59c68048c60372aea4c12a29ba19a24577c516",
+    "build/mini-mario-motion-1103-v3/motion-x.bin": "d65ee8cf327646fdee069561a18278b1afa361d105322624d34aa8c19bf2ba17",
+    "build/mini-mario-motion-1103-v3/original-motion-x.c": "29e525b01848bad96a8208556c188f3b9381de64c06ea2b00ab30babe2a2de61",
+    "build/mini-mario-motion-1103-v3/motion-x.lbl": "21a9cdaca7f6a5fb34c6945650e5b5793f699dc779b4624fc26341b64a14498f"
+  }
+}
