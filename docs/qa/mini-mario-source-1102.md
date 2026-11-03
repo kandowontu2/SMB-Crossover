@@ -1,15 +1,21 @@
 # Mini Mario source reference
 
 November 3 delivery: Mini Mario is unlocked as Mario's ninth Select choice
-in nightly `8daf59cc`. The original art and ground/jump/fall/crouch/skid
+in nightly `ca90e8be`. The original art and ground/jump/fall/crouch/skid
 source port are integrated, with an explicit wall-cling/jump adaptation.
 Actual Downloads selection, movement, jumping, landing, sprite rotation,
 one-part reservation, palette and collision checks pass. All four 1-1 pipes
-and three gaps are crossed without life loss or helpers; the flagpole/next
-stage handoff is still unverified. Source actors, swimming/climbing,
+and three gaps are crossed without life loss or helpers, completing 1-1
+into active 1-2 in 7,875 physical frames. Source actors, swimming/climbing,
 projectiles, powerups, original audio and performance need further review.
 Work is paused at the user's request. The compact source/native checkpoint
-is [mini-nightly-v46](checkpoints/2026-11-03/mini-nightly-v46/receipt.json).
+is [mini-end-v50](checkpoints/2026-11-03/mini-end-v50/receipt.json), following
+the retained initial [mini-nightly-v46](checkpoints/2026-11-03/mini-nightly-v46/receipt.json).
+The minimal ending repair limits source solid filtering to active engine 8;
+scripted endings receive native collision packets. Non-gameplay drawing and
+the lives portrait now project native coordinates. Only Mini's five code
+carriers and its 16-byte payload cookie changed; all foreign bytes match
+the previous nightly. The original motion and active drawing stay unchanged.
 
 The expanded goal adds Mini Mario from
 [Mico27's Super Mario Bros Mini](https://mico27.itch.io/super-mario-bros-mini)

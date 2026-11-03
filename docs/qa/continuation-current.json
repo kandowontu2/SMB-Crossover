@@ -1,12 +1,12 @@
 {
   "mini_mario_priority_1103": {
-    "status": "DELIVERED_INITIAL_PLAYABLE_PAUSE_REQUESTED",
+    "status": "DELIVERED_PLAYABLE_FULL11_PAUSED_BY_USER",
     "user_request": "Pause after unlocking Mini Mario in the nightly.",
     "selection": "Highlight Mario; Select until MINI MARIO (variant8/raw41).",
-    "checkpoint": "docs/qa/checkpoints/2026-11-03/mini-nightly-v46",
+    "checkpoint": "docs/qa/checkpoints/2026-11-03/mini-end-v50",
     "traversal": {
-      "full_stage_passed": false,
-      "physical_bound": 22000,
+      "full_stage_passed": true,
+      "physical_bound": 7875,
       "all_four_pipes_and_three_pits_crossed": true,
       "crossings": [
         {
@@ -86,15 +86,15 @@
         2
       ],
       "last_source_x": 3156.8125,
-      "remaining": "Test reached flagpole but did not verify active1-2 before bound. Terminal native mode/selection was not captured: inspect end handoff on resume; do not infer its exact cause or claim full1-1 clear."
+      "remaining": "None for tested non-shortcut1-1 route; reaches active1-2. Shortcut/powerups/other stages remain unverified."
     },
     "remaining": [
-      "Mini flagpole/end handoff is first resume item.",
-      "Lives/entry portrait and native end-animation coordinate synchronization need review.",
-      "Original source actors/swim/climb/projectiles, earned powerups, original audio and performance audit remain incomplete.",
-      "Prince remains locked; DK Jr remains absent from the public menu. Prince180 source cannot be applied with its old ABA9 cookie after the five-owner layout moved it toABA4."
+      "Mini earned powerups, source actors/swim/climb/projectiles, original audio and performance.",
+      "Prince locked: frozen180 zero OAM header must reserve4*(poseHeader&15),12..52B across408 poses. Proposed zero-growth STA SmPose funded by redundant pre-emitter STA SafecallA; uncompiled. Preserve five-owner layout; Prince cookieABA4, notABA9. No native Prince stage proof.",
+      "DK Jr absent from public menu. All original roster/full-stage/powerup/Kirby audit requirements remain open."
     ],
-    "root_queue": "FREE; all automated emulator runs terminal; helper work stopped."
+    "root_queue": "FREE; all automated emulator runs terminal; helper work stopped.",
+    "repair_checkpoint": "docs/qa/checkpoints/2026-11-03/mini-end-v50"
   },
   "goku_current_discovery_1102": {
     "status": "PASS_HARD_FULL_1_1_CONTROLLER_ONLY",
@@ -209,14 +209,14 @@
   },
   "installed_nightly": {
     "installed": true,
-    "ROM_sha256": "8daf59cc958e2a3a645882ea53c6bd75e9a7c641793054f8ce534358f369a7d7",
+    "ROM_sha256": "ca90e8be125c55e7ae12413964ecf766c9b890525751ea1e0ad6ce225613f4db",
     "destination": "C:\\Users\\kando\\Downloads\\SMB-Crossover-Latest-WIP-MMC5.nes",
     "backup_created": false,
     "downloads_launch_verified": true,
-    "IPS_SHA256": "f93313467865afda399775fcf0f4e5cdc9b58995a81dac538b1c363c0f65877e",
+    "IPS_SHA256": "d099f32d273911f01e55f66776a731661c305b1e94503b3dccd6b6ad3e39adf3",
     "IPS_roundtrip": true,
-    "checkpoint": "docs/qa/checkpoints/2026-11-03/mini-nightly-v46",
-    "verification_scope": "Actual Downloads cold Mario Select-to-Mini, Start, idle20, walking/reversal, 35.875px held jump/landing, exact source sprite/6x7box/CHR968/OAMrotation and one-part reservation. No backups, matching sidecar patches or new helpers."
+    "checkpoint": "docs/qa/checkpoints/2026-11-03/mini-end-v50",
+    "verification_scope": "Candidate smoke/full route, native draw geometry, actual Downloads smoke, final kernel cold transitions/header poisons/copy faults; IPS roundtrip and published digest."
   },
   "previous_installed_nightly_bub_613b": {
     "installed": true,
@@ -346,7 +346,7 @@
       "remaining": "Shortcut, every earned powerup and original audio remain incomplete."
     }
   },
-  "goal_status": "PAUSED_AT_USER_REQUEST_INCOMPLETE",
+  "goal_status": "PAUSED_BY_USER_INCOMPLETE",
   "previous_goal_turn_classification": "progress",
   "parallel_roster_followup": {
     "installed_ROM_sha256": "27dee145eead745dfe94cc6e4734a88fdd03811c7f7c3c9d1ee55e54d3057318",
@@ -3525,5 +3525,6 @@
       "matching_patch_files": []
     },
     "checkpoint": "docs/qa/checkpoints/2026-11-03/bub-earned-delivery-v99"
-  }
+  },
+  "pause_request": "Pause after Mini Mario unlock; latest Mini ending repair delivered and all helpers stopped. Resume only when user requests."
 }
