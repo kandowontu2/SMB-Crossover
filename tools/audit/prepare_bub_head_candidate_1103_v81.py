@@ -1,4 +1,4 @@
-"""Emit a source/ISR-qualified head candidate and rebind actual controller packets."""
+"""Prepare a private head candidate; a probe never qualifies nightly delivery."""
 import argparse,hashlib,json,re
 from pathlib import Path
 import check_bub_head_projection_1102_v56 as H
@@ -6,9 +6,11 @@ from prepare_selected_native_packet_v1 import R,sha,prepare
 O=R/'build/bub-head-root-candidate-1103-v81'
 
 def main():
-    ap=argparse.ArgumentParser();ap.add_argument('--isr',type=Path,required=True);ap.add_argument('--nested',type=Path,required=True);a=ap.parse_args()
+    ap=argparse.ArgumentParser();ap.add_argument('--isr',type=Path,required=True);ap.add_argument('--nested',type=Path);ap.add_argument('--nmi-i1',type=Path,required=True);ap.add_argument('--probe',action='store_true');a=ap.parse_args()
+    assert a.nested is not None or a.probe,'Unqualified private probe must be explicit'
     O.mkdir(exist_ok=True);old,b,route,q,p,image=H.bundle();pin=hashlib.sha256(b['raw']).hexdigest();assert pin==p['memory_ROM_SHA256']
-    proofs=[H.O/'head-projection-v55.json',H.O/'head-projection-v56-CPU.json',a.isr.resolve(),a.nested.resolve()]
+    proofs=[H.O/'head-projection-v55.json',H.O/'head-projection-v56-CPU.json',a.isr.resolve(),a.nmi_i1.resolve()]
+    if a.nested is not None:proofs.append(a.nested.resolve())
     for path in proofs:
         proof=json.loads(path.read_text());assert proof['passed'] and proof['memory_ROM_SHA256']==pin
         for f,h in proof['bindings'].items():assert sha(R/f)==h,f
@@ -57,8 +59,8 @@ def main():
                 pc=int(hook['pc']);assert bytes(int(hook['bytes'][i]) for i in range(1,5))==image[pc-0xa000:pc-0xa000+4],hook['name']
         assert lua.eval('function(s)local f,e=load(s);assert(f,e);return true end')(text)
         refs=[Path(__file__),controller,H.O/'head-projection-v55-image.bin',*proofs,*extra_refs]
-        prepare(O/name,rom,text,refs,expected=pin,timeout=timeout,allow_interactive=True,scope='Root private native head candidate: source-owned actual ceiling event projects sampled tile/row/column/upwardDY into ordinary native head getter after movement transport returns. Both controller-only fullroutes retain all support/collision/source/hardware assertions; earnedfirstmushroom packet retains natural block emergence/maturity/collection/transform/no-life-loss assertions. No installation or allpowerup claim.')
+        prepare(O/name,rom,text,refs,expected=pin,timeout=timeout,allow_interactive=True,scope=('Unqualified private probe; nested lag-audio IRQ proof remains pending. ' if a.probe else '')+'Root private native head candidate: source-owned actual ceiling event projects sampled tile/row/column/upwardDY into ordinary native head getter after movement transport returns. Both controller-only fullroutes retain all support/collision/source/hardware assertions; earnedfirstmushroom packet retains natural block emergence/maturity/collection/transform/no-life-loss assertions. No installation or allpowerup claim.')
         paths.append(str((O/name/'ready.json').relative_to(R)))
-    out=dict(prepared=True,installed=False,parent_ROM_SHA256=q['expected_memory_only_ROM_SHA256'],ROM_SHA256=pin,cookie=p['cookie'],candidate=rom.relative_to(R).as_posix(),packets=paths,private_patches=p['private_patches'],new_RAM_or_CHR_pages=0,proofs=[str(f.relative_to(R)) for f in proofs],bindings={str(f.relative_to(R)):sha(f) for f in [Path(__file__),*proofs,H.O/'head-projection-v55-image.bin']})
+    out=dict(prepared=True,installed=False,probe=a.probe,CPU_qualified=not a.probe,parent_ROM_SHA256=q['expected_memory_only_ROM_SHA256'],ROM_SHA256=pin,cookie=p['cookie'],candidate=rom.relative_to(R).as_posix(),packets=paths,private_patches=p['private_patches'],new_RAM_or_CHR_pages=0,proofs=[str(f.relative_to(R)) for f in proofs],bindings={str(f.relative_to(R)):sha(f) for f in [Path(__file__),*proofs,H.O/'head-projection-v55-image.bin']})
     (O/'candidate.json').write_text(json.dumps(out,indent=2)+'\n');print(json.dumps({k:v for k,v in out.items() if k not in ['private_patches','bindings']}))
 if __name__=='__main__':main()

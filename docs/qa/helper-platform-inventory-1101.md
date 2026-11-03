@@ -62,6 +62,15 @@ helper-platform placements. See
 `docs/qa/checkpoints/2026-11-03/bub-upgrade-full11-v80/receipt.json`.
 The candidate remains private while its head-block/powerup bridge is repaired.
 
+The November3 successor `cf7f157aa39493149b24039c190f09244ce68bc47f0a87f06f01adb47a2c70dd`
+also clears the complete route for both identities without helpers: Bub13,460
+frames and Bob13,513, each with17 natural pops, six original bubble rides and
+two lives unchanged. Separate controller runs collect a naturally released
+mushroom and complete its animation/source speed upgrade for each identity.
+See `docs/qa/checkpoints/2026-11-03/bub-earned-native-v90/receipt.json`.
+Flower and final interrupt/Downloads qualification remain open; these results
+do not change the installed nightly or any platform placement.
+
 Hogan crosses all four 1-1 pipes and the first pit without helpers under
 the later-edge controller. The next opening pit still fails: the x+8
 launch starts at world X1368, rises from Y176 to Y110, and falls at X1412.

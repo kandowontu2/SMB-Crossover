@@ -29,3 +29,34 @@ November 3: both identities now clear the complete non-shortcut1-1 in the exactb
 The block bridge remains separate: helper55's shallow return of the actual recorded tile/row/column/pre-clamp displacement lets unchanged native PlayerBGCollision release a real mushroom in a CPU fixture for each identity, without another native call inside the resident callback. It is not yet qualified or emitted. The deeper54 approach actually corrupted the stack and is retained as a negative.
 
 Next: qualify the real ceiling-to-native-head event and its pending-state lifetime; exercise block emergence and mature collection in Mesen for both identities; test earned upgrades and validate exact Downloads launch context before publishing. Prince and Donkey Kong Jr. remain separate private integrations. The measured authentication-cache proposal remains unqualified and is not in this candidate.
+
+November3 native follow-up: candidate `cf7f157aa39493149b24039c190f09244ce68bc47f0a87f06f01adb47a2c70dd`
+passes actual first-mushroom collection for both identities and separate full1-1
+runs. The source head projection uses107 recovered bytes; an additional10-byte
+initialization leaf clears only native starting tier on cold/new-life creation.
+Warm Fresh retains the native tier and original source upgrades, with no added
+stack depth. Eighteen paired lifecycle cases and ten IRQ/ten genuine FF NMI
+checks at the new instructions pass.
+
+The real menu trace found the missing initialization: browsing SMB2 Mario wrote
+native PlayerStatus1, and Bub inherited it while his source upgrade flags were0.
+The first block therefore produced a flower. Resetting Bub's own initial tier0
+restores the mushroom progression. A separate controller correction aligns both
+original source head probes inside the actual question block at336..351; Mario's
+old center-probe alignment first contacted the neighboring brick. Earlier runs
+remain negatives and were not relabeled.
+
+Bub's earned-mushroom run passes1,911 physical frames/6,701 checks; Bob's
+passes1,948/6,666. Both observe the immature then mature item, genuine native
+transformation, source flags01 and two lives unchanged. Full1-1 passes13,460
+frames for Bub and13,513 for Bob, with17 natural pops and six original bubble
+rides each, no helper platforms and active1-2 reached without losing a life.
+All four endpoint images were viewed. Compact exact inputs/results are in
+`docs/qa/checkpoints/2026-11-03/bub-earned-native-v90`.
+
+This candidate remains private. Parent head tests pass3,570 IRQ and3,570 genuine
+FF lag-NMI cuts; an unconditional foreground audit finds no I1 instructions in
+these actual episodes. Expanded post-head/nested IRQ work includes deeper
+rendering with the newly queued sounds and an exact pending mapper-write
+boundary; it is not yet a complete pass. Plain-brick audio, earned flower,
+final cold/lifecycle binding and actual Downloads launch remain required.

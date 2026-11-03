@@ -1,0 +1,38 @@
+{
+  "passed": true,
+  "private_checkpoint_only": true,
+  "installed": false,
+  "ROM_written": false,
+  "archive_SHA256": "50052ec19203fc81506b4e74cf0d594429da8e62850b6b22d008954d73c211d5",
+  "archive_bytes": 128377,
+  "members": 57,
+  "source_files": [
+    "tools/audit/prepare_prince_current_post_return_1102_v97.py",
+    "tools/audit/check_prince_current_cold_1102_v98.py",
+    "tools/audit/check_prince_current_cold_1102_v99.py",
+    "tools/audit/check_prince_current_respawn_1102_v100.py",
+    "tools/audit/check_prince_current_respawn_1102_v101.py",
+    "tools/audit/check_prince_current_game_loop_isr_1102_v102.py",
+    "tools/audit/check_prince_current_foreign_1102_v103.py",
+    "tools/audit/check_prince_current_nested_irq_1102_v104.py",
+    "tools/audit/prepare_prince_frontend_proposal_1102_v106.py",
+    "tools/audit/prepare_prince_frontend_proposal_1102_v107.py",
+    "tools/audit/check_prince_current_native_ingress_1102_v108.py",
+    "tools/audit/prepare_prince_frontend_proposal_1102_v109.py",
+    "tools/audit/check_prince_current_player_pipeline_1102_v110.py",
+    "tools/audit/check_prince_current_render_retire_1102_v111.py",
+    "tools/audit/check_prince_current_I1_lag_1102_v112.py",
+    "tools/audit/check_prince_frontend_source_1102_v113.py",
+    "tools/audit/check_prince_current_earned_defeat_1102_v114.py",
+    "tools/reference/prince_frontend_1102_v109.inc",
+    "docs/qa/prince-current-native-1102-v115.md",
+    "tools/audit/freeze_prince_current_source_1102_v115.py"
+  ],
+  "scope_correction": "Frontend proposal only; actual114 earned-strike native defeat corrupts live SMC under FF lag NMI. No menu/gameplay admission.",
+  "bindings": {
+    "tools\\audit\\freeze_current_helpers_root_1103_v89.py": "68109668b1c698176939adc166b9427232b8f45c8159b32d1a8f5f36e4ba7305",
+    "build\\prince-actor-1101-v1\\current-checkpoint-v115.json": "f5583564e629ba7d56b0d18cdb38e00b4a1d37283ed1102b0458521837add554",
+    "docs\\qa\\checkpoints\\2026-11-03\\prince-current-v115\\inputs.zip": "50052ec19203fc81506b4e74cf0d594429da8e62850b6b22d008954d73c211d5",
+    "docs\\qa\\checkpoints\\2026-11-03\\prince-current-v115\\helper-manifest.json": "f5583564e629ba7d56b0d18cdb38e00b4a1d37283ed1102b0458521837add554"
+  }
+}

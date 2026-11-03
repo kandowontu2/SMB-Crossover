@@ -1,0 +1,277 @@
+{
+  "passed": true,
+  "frozen": true,
+  "ROM_written": false,
+  "menu_admitted": false,
+  "installed": false,
+  "native_ready": false,
+  "blocker": "v114 actual original-earned native defeat FF-lag NMI stack/SMC overwrite; no combat ISR/native admission.",
+  "parent_memory_SHA256": "b7e2a161ea2781a8346b126b9c759f7c60f2583e2a18e58f8ca888d041c0bd53",
+  "gameplay_memory_SHA256": "5a93cf49ce81db315c3ca69e14412c89dfe0ad31805b13ef857f1f1242df83c7",
+  "separate_frontend_proposal_memory_SHA256": "c1d325bc471553d00288cda3b53167a7d2c2c0bdc0be9c9f516d119e64b0b639",
+  "archive": "build/prince-actor-1101-v1/current-source-v115.zip",
+  "archive_SHA256": "50052ec19203fc81506b4e74cf0d594429da8e62850b6b22d008954d73c211d5",
+  "archive_bytes": 128377,
+  "archive_members": 57,
+  "source_files_to_commit": [
+    "tools/audit/prepare_prince_current_post_return_1102_v97.py",
+    "tools/audit/check_prince_current_cold_1102_v98.py",
+    "tools/audit/check_prince_current_cold_1102_v99.py",
+    "tools/audit/check_prince_current_respawn_1102_v100.py",
+    "tools/audit/check_prince_current_respawn_1102_v101.py",
+    "tools/audit/check_prince_current_game_loop_isr_1102_v102.py",
+    "tools/audit/check_prince_current_foreign_1102_v103.py",
+    "tools/audit/check_prince_current_nested_irq_1102_v104.py",
+    "tools/audit/prepare_prince_frontend_proposal_1102_v106.py",
+    "tools/audit/prepare_prince_frontend_proposal_1102_v107.py",
+    "tools/audit/check_prince_current_native_ingress_1102_v108.py",
+    "tools/audit/prepare_prince_frontend_proposal_1102_v109.py",
+    "tools/audit/check_prince_current_player_pipeline_1102_v110.py",
+    "tools/audit/check_prince_current_render_retire_1102_v111.py",
+    "tools/audit/check_prince_current_I1_lag_1102_v112.py",
+    "tools/audit/check_prince_frontend_source_1102_v113.py",
+    "tools/audit/check_prince_current_earned_defeat_1102_v114.py",
+    "tools/reference/prince_frontend_1102_v109.inc",
+    "docs/qa/prince-current-native-1102-v115.md",
+    "tools/audit/freeze_prince_current_source_1102_v115.py"
+  ],
+  "members": {
+    "tools/audit/prepare_prince_current_post_return_1102_v97.py": {
+      "SHA256": "c1723f5f14f6b605be45b7b96aba7f21733826963d7007ae9c5a22e23f58e10f",
+      "bytes": 8751
+    },
+    "tools/audit/check_prince_current_cold_1102_v98.py": {
+      "SHA256": "e3081e9e4f3c4d20667e863276b239c0c8da3a62284f2c7d5af83d49a509e369",
+      "bytes": 5468
+    },
+    "tools/audit/check_prince_current_cold_1102_v99.py": {
+      "SHA256": "355c30b4263b19be31545d731f150f2921416020510f58e47be141f3fd67e27d",
+      "bytes": 1170
+    },
+    "tools/audit/check_prince_current_respawn_1102_v100.py": {
+      "SHA256": "ae2cbfc01616643eedd8430a7bda833fc64e6fff40cff09a9994caa0367d75de",
+      "bytes": 2748
+    },
+    "tools/audit/check_prince_current_respawn_1102_v101.py": {
+      "SHA256": "a63c344dd5272db8b130a05330132e29f62dcc768d6f34a3c64821a3f94fe268",
+      "bytes": 1736
+    },
+    "tools/audit/check_prince_current_game_loop_isr_1102_v102.py": {
+      "SHA256": "5388afd527cc87501792f9da685d6cca6a24dcef967fe380b06ad8d0c1895f40",
+      "bytes": 4612
+    },
+    "tools/audit/check_prince_current_foreign_1102_v103.py": {
+      "SHA256": "da90511920a572f008647c53b5ee6b7c50befa303ba853d0a73b69bdfb2e8423",
+      "bytes": 2532
+    },
+    "tools/audit/check_prince_current_nested_irq_1102_v104.py": {
+      "SHA256": "b07395669165fc1befc58e4609ca52213e300670714f49451af4ebcc895f52a3",
+      "bytes": 4041
+    },
+    "tools/audit/prepare_prince_frontend_proposal_1102_v106.py": {
+      "SHA256": "02efaa1febf9091a349ddd5949405165294f40a2e3c90f7516c9414fc091754b",
+      "bytes": 7132
+    },
+    "tools/audit/prepare_prince_frontend_proposal_1102_v107.py": {
+      "SHA256": "2bdcf1508d22d29dcdb59298159bd2d26d878977acc0dc01e1fea96303b4d3e1",
+      "bytes": 10043
+    },
+    "tools/audit/check_prince_current_native_ingress_1102_v108.py": {
+      "SHA256": "ec4bd03372386da175e67a568926b660b54ad99bb26f46e31290cc2f718cce90",
+      "bytes": 3596
+    },
+    "tools/audit/prepare_prince_frontend_proposal_1102_v109.py": {
+      "SHA256": "e284d2e136db75c1b58cf272d9667796646cbd18efd23945c89f826fde7fa9b1",
+      "bytes": 14343
+    },
+    "tools/audit/check_prince_current_player_pipeline_1102_v110.py": {
+      "SHA256": "8fb6e6cc7024a5a51b2372b4e4e4e5d7bb65ca269bb4bde53714fe77b88d2e67",
+      "bytes": 1873
+    },
+    "tools/audit/check_prince_current_render_retire_1102_v111.py": {
+      "SHA256": "55536da97e79b2e558c80b56e505dade1a0cec06fc6b532552827316f5839aa6",
+      "bytes": 5652
+    },
+    "tools/audit/check_prince_current_I1_lag_1102_v112.py": {
+      "SHA256": "74dbf6cb32f850b618d6a978dd33d2fa6031e8ad4640d5fbddeaa2d1d99384ea",
+      "bytes": 3252
+    },
+    "tools/audit/check_prince_frontend_source_1102_v113.py": {
+      "SHA256": "9312831e6c9a9dbab3f12be43030b20d2be8342e619ff092b9e318973cf6db1d",
+      "bytes": 4599
+    },
+    "tools/audit/check_prince_current_earned_defeat_1102_v114.py": {
+      "SHA256": "1ad408de688bdcfb2fedf10b4fdd075172944b3a4638da15f75ebc4ecf27bfdd",
+      "bytes": 3396
+    },
+    "tools/reference/prince_frontend_1102_v109.inc": {
+      "SHA256": "c51a1736cd221025fcca2e61db7caab0ffc576418502dee2d409962f028c05a7",
+      "bytes": 1353
+    },
+    "docs/qa/prince-current-native-1102-v115.md": {
+      "SHA256": "cb508e36f60e9515e4e20503666bd10cac2f3b664824d39d5af84a34e5f2d83b",
+      "bytes": 5736
+    },
+    "tools/audit/freeze_prince_current_source_1102_v115.py": {
+      "SHA256": "74bf009f54dd6497ecb97aedb9950e4d947473b72600b2eb8e997387f5c0a68f",
+      "bytes": 5201
+    },
+    "build/prince-actor-1101-v1/post-return-manifest-v97.json": {
+      "SHA256": "3d24ac92d146707f4f48460276f94f7b73b371499ffea3af819ba6ad03e81a0d",
+      "bytes": 211105
+    },
+    "build/prince-actor-1101-v1/current-shared-cold-CPU-v99.json": {
+      "SHA256": "9428bd33cb191b75ea6d54e1db27230e5a39a1bf6f5905f58a13c85e1c4b8d3e",
+      "bytes": 3928
+    },
+    "build/prince-actor-1101-v1/post-return-respawn-CPU-v101.json": {
+      "SHA256": "aa02d5221b455f891db6202036608066299ce13fdc5b5466eaa25dafb541b275",
+      "bytes": 55815
+    },
+    "build/prince-actor-1101-v1/current-game-loop-ISR-CPU-v102.json": {
+      "SHA256": "33c4c4be59a38945766c688bd23776fb13ae21c9676d4e1a83570320defcdc14",
+      "bytes": 3270
+    },
+    "build/prince-actor-1101-v1/current-foreign-hot-CPU-v103.json": {
+      "SHA256": "9dee22233a5e1f42a72c59e7f80db17238356274db1f66fff886614f511a3727",
+      "bytes": 1812
+    },
+    "build/prince-actor-1101-v1/post-return-nested-IRQ-CPU-v104.json": {
+      "SHA256": "8e314cdf605d224b1101f216413797a898e5004ff8d271261b7b03e3adab04bc",
+      "bytes": 7831
+    },
+    "build/prince-actor-1101-v1/current-native-ingress-CPU-v108.json": {
+      "SHA256": "aa1fcc1a2565a10e1a9c6384cb10689b0e7f5bdc7fba63c7d621b89d9308e892",
+      "bytes": 7030
+    },
+    "build/prince-actor-1101-v1/frontend-proposal-v109.json": {
+      "SHA256": "e1650c7148ca1c35d63c3b25505282f0fb13f5d61ee2cd86d2e89345b373e8c9",
+      "bytes": 29983
+    },
+    "build/prince-actor-1101-v1/player-pipeline-CPU-v110.json": {
+      "SHA256": "00bbbab3169a1d9cfaa57253a212c49e69a52555bf806f96297f54258172397c",
+      "bytes": 37221
+    },
+    "build/prince-actor-1101-v1/current-render-retire-CPU-v111.json": {
+      "SHA256": "fd646b685ad1914b6df135784aae8b5b3c6a5c55ea01c59da9dadbc0fed26dc9",
+      "bytes": 3550
+    },
+    "build/prince-actor-1101-v1/current-I1-lag-CPU-v112.json": {
+      "SHA256": "62135105ef9430ea17e8df8cd40b2d171cc698e168beaf0134ac3c83433f12b3",
+      "bytes": 2091
+    },
+    "build/prince-actor-1101-v1/frontend-source-CPU-v113.json": {
+      "SHA256": "1ced9456ea70cd37564228dbf4255f4654d00c828517ba72d6aeae14e1c654e7",
+      "bytes": 4650
+    },
+    "build/prince-actor-1101-v1/current-shared-cold-negative-v98.json": {
+      "SHA256": "d6906858955ad33ddb3b7408ef437e9db05782e04038ba7040ba71b951fba00f",
+      "bytes": 82
+    },
+    "build/prince-actor-1101-v1/post-return-respawn-negative-v100.json": {
+      "SHA256": "e3270dc8edd7ae4da3786b0be87e6b537df43143583881618fcf6ede9d3cbe27",
+      "bytes": 52717
+    },
+    "build/prince-actor-1101-v1/frontend-negative-v106.json": {
+      "SHA256": "342a1111fb337f620a2df42b6c0ff85addc1d3312dbfebbd2da28026393d698e",
+      "bytes": 145
+    },
+    "build/prince-actor-1101-v1/frontend-negative-v107.json": {
+      "SHA256": "18efe89853d7713ae104e98ab8e96a682a5854bdf85b53e6e38966c4a4495170",
+      "bytes": 313
+    },
+    "build/prince-actor-1101-v1/frontend-negative-v109.json": {
+      "SHA256": "2da0ef5c3b116227550b6ef0a72fa9ec51450a0b22edb3f02b240bee135ee912",
+      "bytes": 115
+    },
+    "build/prince-actor-1101-v1/frontend-aliased-mask-negative-v109.json": {
+      "SHA256": "2da0ef5c3b116227550b6ef0a72fa9ec51450a0b22edb3f02b240bee135ee912",
+      "bytes": 115
+    },
+    "build/prince-actor-1101-v1/current-earned-defeat-negative-v114.json": {
+      "SHA256": "51500e2f2b6eae4714bd2cd8a7a9be5ee594c0f9f1fd4bf561a094de2332e42a",
+      "bytes": 539
+    },
+    "build/prince-actor-1101-v1/post-owner-v97.s": {
+      "SHA256": "438c093eb236512eafd66748f96e736c766a92b2ca59959c31bed68c73217878",
+      "bytes": 5839
+    },
+    "build/prince-actor-1101-v1/post-owner-v97.cfg": {
+      "SHA256": "ae7492287cdaecb354be3aa21562cfe17bdbbdde1cba734be1b6f5a619f84577",
+      "bytes": 240
+    },
+    "build/prince-actor-1101-v1/post-owner-v97.lbl": {
+      "SHA256": "026ffbaa2494baf38c449e4c23e550a3f163e38011423c6036c921e231917268",
+      "bytes": 1240
+    },
+    "build/prince-actor-1101-v1/post-owner-v97.bin": {
+      "SHA256": "2d384950f47749339f96a75840a7396d8be5f9dba96972e2dd7d0bf9a953fea9",
+      "bytes": 531
+    },
+    "build/prince-actor-1101-v1/post-owner-extra-v97.bin": {
+      "SHA256": "c7de9aa86152cc0d537c41762a1935d318e7af06f6e546bd6c163fed8256b62a",
+      "bytes": 94
+    },
+    "build/prince-actor-1101-v1/post-selector-v97.s": {
+      "SHA256": "4f48cfd5a4ee5ec06423beb4f8c16c5bf3da77c46a99813cbfc78f0fe2efb48a",
+      "bytes": 1476
+    },
+    "build/prince-actor-1101-v1/post-selector-v97.cfg": {
+      "SHA256": "9cf10f68e33f9cf79364b0a8bff7ee892ecdd9d6b0ee9e68d28a9b6529da4682",
+      "bytes": 74
+    },
+    "build/prince-actor-1101-v1/post-selector-v97.lbl": {
+      "SHA256": "78cd74a7fab0a01ddb73b9e66436808460fc303d8febaacfe5a1c063a9da48ae",
+      "bytes": 264
+    },
+    "build/prince-actor-1101-v1/post-selector-v97.bin": {
+      "SHA256": "72f33aa4403c0ff91ab80f6de16d0b93379f06c9568fc8c740abb8b1045820ce",
+      "bytes": 156
+    },
+    "build/prince-actor-1101-v1/native-labels-v78.json": {
+      "SHA256": "abfb131129d477ca08aafe0a93a09837f9c59d31208afa75357e9abaa5a00d07",
+      "bytes": 10783
+    },
+    "build/prince-actor-1101-v1/frontend-resolver-v113.s": {
+      "SHA256": "1551ee1691dd9468f2ccb5b77efdf08f4efaed16e8d98e529e77a3afc8cf8c94",
+      "bytes": 1614
+    },
+    "build/prince-actor-1101-v1/frontend-resolver-v113.cfg": {
+      "SHA256": "ec3b51ad3c1663d0427fbdfa2f5177d6c29cc62106e260606780e902432917e3",
+      "bytes": 68
+    },
+    "build/prince-actor-1101-v1/frontend-resolver-v113.lbl": {
+      "SHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "build/prince-actor-1101-v1/frontend-resolver-v113.bin": {
+      "SHA256": "f94f1ac834d2f3eff1248c15a940984802c0cb0caf9cd62bd12eb307611bffdb",
+      "bytes": 21
+    },
+    "build/prince-actor-1101-v1/frontend-masks-v113.s": {
+      "SHA256": "1d22b3d576dc364f723956b70b65680b52a71669ed6cdcae5878ec377edca9e9",
+      "bytes": 1616
+    },
+    "build/prince-actor-1101-v1/frontend-masks-v113.cfg": {
+      "SHA256": "33d5974baf10c5ded1c2dbeb97af0e0bdb09656430086985dfcea35d1ad9ee95",
+      "bytes": 68
+    },
+    "build/prince-actor-1101-v1/frontend-masks-v113.lbl": {
+      "SHA256": "6dd943d66f6ee02c9d71e596e74f756b6a9ee6aedf5b24f1c4fa261beb46742c",
+      "bytes": 89
+    },
+    "build/prince-actor-1101-v1/frontend-masks-v113.bin": {
+      "SHA256": "9c5efe550a0926148a7bba797204ed59fd8e3e76a29125cc215223892d3449e9",
+      "bytes": 74
+    }
+  },
+  "prior_frozen_dependency": {
+    "durable_root": "docs/qa/checkpoints/2026-11-02/prince-post-return-v95",
+    "archive_SHA256": "0f0a47316b5f7dc9c5da6ce8c490ad0f0536747474a2a6399bf637ac80d72ae3",
+    "not_copied_or_expanded": true
+  },
+  "active_output": "build/prince-actor-1101-v1",
+  "next": "Measure owned original-strike queue/shallower native delivery, preserve event order/multiplicity/identity/retirement and actualGameLoop FF-NMI/nestedIRQ. Root reviews menu before ROM composition and owns Mesen/install/Git. Original music/SFX mapping remains incomplete; no helpers added.",
+  "active_output_files": 795,
+  "active_output_bytes": 10755457
+}
