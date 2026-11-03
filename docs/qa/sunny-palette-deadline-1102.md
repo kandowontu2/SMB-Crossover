@@ -38,3 +38,19 @@ the sole Latest release with one IPS, SHA-256
 `6ef620d62c4eff2aabc9bfd2dc553963fb37bf6bfdf74b56e71e235006e4b114`;
 the remote asset digest matches and IPS round-trip reconstructs the installed
 ROM. Other characters and all-powerup qualification remain open.
+
+A later controller-only Hard run on the same `16a9de64` ROM collected the
+mushroom and flower, fired native fireballs, and completed 1-1 into active
+1-2: 4,415 physical frames / 3,582 updates, lives 2 to 2. It observed 335
+updates with active fireballs and 20 actual firing-SFX queue writes; the
+deadline/DMA/CHR/IRQ/stack guards passed. Receipt:
+`build/sunny-upgrades-stairs-1102-v3/native/capture/result.json`.
+The two ability screenshots and endpoint were inspected. Sound requests
+are verified; this is not an audio-fidelity or shortcut-route claim.
+
+The earlier v1 controller incorrectly rejected the original transform's
+temporary old/new power-state alternation, before transformation completed.
+The v2 controller collected both upgrades and used fireballs but fell at
+the final staircase gap. Both negatives remain. V3 changes only controller
+input to settle on the top step before crossing; it changes no ROM or
+emulated player state and adds no helper platforms.
