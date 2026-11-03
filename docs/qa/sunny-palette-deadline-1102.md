@@ -54,3 +54,10 @@ The v2 controller collected both upgrades and used fireballs but fell at
 the final staircase gap. Both negatives remain. V3 changes only controller
 input to settle on the top step before crossing; it changes no ROM or
 emulated player state and adds no helper platforms.
+
+The independent actual Downloads replay also passed with exactly the same
+4,415 frames, inputs and terminal result. Its receipt is
+`build/sunny-upgrades-downloads-1102-v4/native/capture/result.json`.
+The Downloads endpoint was inspected, and the post-run patch guard passes
+with no matching patches. The nightly was not replaced or backed up for
+this check; its bytes remain `16a9de64`.
