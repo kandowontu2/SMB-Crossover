@@ -1,6 +1,7 @@
 # Sunny transform rendering deadline
 
-Current Downloads remains `22d09909`. Sunny's cold Hard non-shortcut 1-1
+The delivered Downloads nightly is now `16a9de64` (November2). On the
+previous `22d09909` nightly, Sunny's cold Hard non-shortcut 1-1
 test reproduced a genuine late rendering enable at frame968, engine9,
 X416/Y176, PPU line0/dot105. NMI took2,413 CPU cycles before enabling
 rendering. The42-byte command buffer contained the same P0 palette command
@@ -25,8 +26,15 @@ branch to the existing Sunny tail. The new20-byte gate occupies verified
 unreachable padding at bank3:$B206..$B21A. All existing formatter/private
 getter bytes preceding it remain exact. No RAM or carrier allocation was added.
 
-Native full1-1 remains pending. The root queue runs
+Native full1-1 passes on both the exact candidate and actual Downloads:
+3,948 physical frames / 3,102 gameplay updates, lives2 to2, active1-2,
+minimum stack pointer196. Both terminal Mesen exits are0. No late enable,
+DMA, CHR, IRQ or stack assertion fired. The root queue used
 `build/sunny-growth-native-1102-v9/native/run.py` with the unchanged deadline,
 DMA, interrupt, CHR and stack assertions, and controller-only input. A
-passing result and actual Downloads-context testing are required before
-nightly delivery. Other characters and all-powerup qualification remain open.
+passing result and actual Downloads-context testing were required before
+nightly delivery. Before/after same-name patch guards pass. Current remains
+the sole Latest release with one IPS, SHA-256
+`6ef620d62c4eff2aabc9bfd2dc553963fb37bf6bfdf74b56e71e235006e4b114`;
+the remote asset digest matches and IPS round-trip reconstructs the installed
+ROM. Other characters and all-powerup qualification remain open.
