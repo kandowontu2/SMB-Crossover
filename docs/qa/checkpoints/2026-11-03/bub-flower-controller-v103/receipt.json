@@ -1,0 +1,45 @@
+{
+  "passed": true,
+  "tests_passed": false,
+  "installed_ROM_changed": false,
+  "archive_SHA256": "4954b4bc5d65a7c39f3c638e5dc763acce293892d7faf88d30bdc88199aa40a7",
+  "archive_bytes": 56867,
+  "rows": [
+    {
+      "version": 100,
+      "passed": false,
+      "kind": "controller-only negative",
+      "reason": "NativeState0 was assumed fully source-settled before issuing retry."
+    },
+    {
+      "version": 102,
+      "passed": false,
+      "kind": "controller-only negative",
+      "reason": "First pipe crossed after release/retry correction; second pipe stalls X593..595/Y176 with zero original rides. No flower reached."
+    }
+  ],
+  "source_files": [
+    "tools/audit/freeze_bub_flower_controls_1103_v103.py",
+    "tools/audit/prepare_bub_grounded_bubble_retry_1103_v100.py",
+    "tools/audit/prepare_bub_settled_retry_1103_v102.py"
+  ],
+  "scope": "Retained diagnostic controllers; no flower/physics/helper or ability qualification. Tested/installed cf7 nightly remains unchanged. Next priority measured idle/walk cost and Prince/DK Jr native completion; resume earned-flower route with a source-bound bubble/contact trace rather than arbitrary input-window changes.",
+  "bindings": {
+    "tools/audit/freeze_bub_flower_controls_1103_v103.py": "b610f4ea55e16f25c497f5e57fa81d2a4bdc65d6228d631b71d88cd2c9c699c6",
+    "tools/audit/prepare_bub_grounded_bubble_retry_1103_v100.py": "9b0fce869bd8737a786ce1d78a6ed310e00c8234a03e95d07aab1f0f8b80f497",
+    "tools/audit/prepare_bub_settled_retry_1103_v102.py": "9d0176abc5f26bfd72523060db423b293840cae46c3a054824dccf5a005fcfee",
+    "build/bub-earned-flower-1103-v100/bub-flower/controller.lua": "310773a87460c2d51e5a54ee7c1aa9f4f36591de98fa203f3c83d8eca5941b15",
+    "build/bub-earned-flower-1103-v100/bub-flower/run.py": "84d2a16b8f0b6aa7c22717f9eefbda494f21fcc0f923907384b74d63991cc49b",
+    "build/bub-earned-flower-1103-v100/bub-flower/ready.json": "1652e4bb46f879dff376f13d1d5e7414c4835662f0bf957d82a207e3b2042f9f",
+    "build/bub-earned-flower-1103-v100/bub-flower/capture/binding.json": "c0ac30c3cc4ef5d09e7487020cb36a64a1abfbf81b701029bb33b4358bc5f990",
+    "build/bub-earned-flower-1103-v100/bub-flower/capture/callback-error.json": "ab8d0b9bdadb8082cb81f4132393c1989b431e4b454986ffe57df09297609b18",
+    "build/bub-earned-flower-1103-v100/bub-flower/capture/flower.csv": "617b236dbd7036e180dbb7629dbc747218356c36c673c5c2b2ca7cdc4dc5d6ba",
+    "build/bub-earned-flower-1103-v102/bub-flower/controller.lua": "43b33fe5fdb1cd918025c11c6df6f15d4b72585714d39bbebf7c9c5a38df0778",
+    "build/bub-earned-flower-1103-v102/bub-flower/run.py": "84d2a16b8f0b6aa7c22717f9eefbda494f21fcc0f923907384b74d63991cc49b",
+    "build/bub-earned-flower-1103-v102/bub-flower/ready.json": "7526197a55b4f1d2002bb74cd68851c360c00b01d7332253ebb7bd17bc979553",
+    "build/bub-earned-flower-1103-v102/bub-flower/capture/binding.json": "65eb592a1d549e28174e66a1ae8d42b3fea798f605411440f742a4f52cee2787",
+    "build/bub-earned-flower-1103-v102/bub-flower/capture/callback-error.json": "3c909c4091c533870afd796fe0d833ea71d59f585503e4021e6f31afcb0483f3",
+    "build/bub-earned-flower-1103-v102/bub-flower/capture/full11.json": "49a5f708fb1169733760180cafe0cfdc89c021683e13a1bdddd7274da292b8e7",
+    "build/bub-earned-flower-1103-v102/bub-flower/capture/flower.csv": "11f757b0fa30427f139d673e00e6fb7d841a1b24e73f3f801b95df4e24a8e8d7"
+  }
+}
