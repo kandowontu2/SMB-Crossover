@@ -1,0 +1,389 @@
+{
+  "passed": true,
+  "checkpoint_only": true,
+  "CPU_only": true,
+  "candidate_allowed": false,
+  "ROM_written": false,
+  "installed": false,
+  "cache_used": false,
+  "new_RAM_used": false,
+  "installed_reference_SHA256": "cf7f157aa39493149b24039c190f09244ce68bc47f0a87f06f01adb47a2c70dd",
+  "source_proposal_memory_SHA256": "2850708ad3677082fbd5eb496edc79eae4eaa646601a412ab40449f39d394343",
+  "archive": {
+    "path": "build/bub-menu-candidate-1102-v2/complete-auth-source-v81.zip",
+    "SHA256": "102daf970e4833c45483e92aa7cf2f7892c34aafc4bb835c2138d9fac077d504",
+    "bytes": 97543,
+    "members": 47
+  },
+  "source_commit_files": [
+    "tools/audit/measure_bub_full_auth_helper_1103_v73.py",
+    "tools/audit/measure_bub_complete_auth_transport_1103_v74.py",
+    "tools/audit/measure_bub_direct_primitives_1103_v75.py",
+    "tools/audit/measure_bub_shared_auth_funding_1103_v76.py",
+    "tools/audit/check_bub_shared_auth_contracts_1103_v77.py",
+    "tools/audit/check_bub_shared_auth_lifecycle_1103_v78.py",
+    "tools/audit/check_bub_shared_auth_interrupts_1103_v79.py",
+    "tools/audit/check_bub_shared_auth_nested_1103_v80.py",
+    "tools/audit/freeze_bub_complete_auth_1103_v81.py"
+  ],
+  "unchanged_complete_auth_checks_per_Main": 13,
+  "measured_Main_cases": [
+    {
+      "identity": 0,
+      "phase": "idle",
+      "baseline_CPU": 47703.0,
+      "proposal_CPU": 43387.0,
+      "saving_CPU": 4316.0,
+      "full_auth_calls": [
+        156,
+        156
+      ],
+      "remaining_private_instruction_AXYP_SP_exact": true
+    },
+    {
+      "identity": 0,
+      "phase": "walk",
+      "baseline_CPU": 48358.666666666664,
+      "proposal_CPU": 44042.666666666664,
+      "saving_CPU": 4316.0,
+      "full_auth_calls": [
+        156,
+        156
+      ],
+      "remaining_private_instruction_AXYP_SP_exact": true
+    },
+    {
+      "identity": 0,
+      "phase": "left",
+      "baseline_CPU": 48375.916666666664,
+      "proposal_CPU": 44059.916666666664,
+      "saving_CPU": 4316.0,
+      "full_auth_calls": [
+        156,
+        156
+      ],
+      "remaining_private_instruction_AXYP_SP_exact": true
+    },
+    {
+      "identity": 0,
+      "phase": "jump",
+      "baseline_CPU": 47877.583333333336,
+      "proposal_CPU": 43561.583333333336,
+      "saving_CPU": 4316.0,
+      "full_auth_calls": [
+        156,
+        156
+      ],
+      "remaining_private_instruction_AXYP_SP_exact": true
+    },
+    {
+      "identity": 0,
+      "phase": "bubble",
+      "baseline_CPU": 49234.083333333336,
+      "proposal_CPU": 44918.083333333336,
+      "saving_CPU": 4316.0,
+      "full_auth_calls": [
+        156,
+        156
+      ],
+      "remaining_private_instruction_AXYP_SP_exact": true
+    },
+    {
+      "identity": 1,
+      "phase": "idle",
+      "baseline_CPU": 47732.666666666664,
+      "proposal_CPU": 43416.666666666664,
+      "saving_CPU": 4316.0,
+      "full_auth_calls": [
+        156,
+        156
+      ],
+      "remaining_private_instruction_AXYP_SP_exact": true
+    },
+    {
+      "identity": 1,
+      "phase": "walk",
+      "baseline_CPU": 48388.333333333336,
+      "proposal_CPU": 44072.333333333336,
+      "saving_CPU": 4316.0,
+      "full_auth_calls": [
+        156,
+        156
+      ],
+      "remaining_private_instruction_AXYP_SP_exact": true
+    },
+    {
+      "identity": 1,
+      "phase": "left",
+      "baseline_CPU": 48405.583333333336,
+      "proposal_CPU": 44089.583333333336,
+      "saving_CPU": 4316.0,
+      "full_auth_calls": [
+        156,
+        156
+      ],
+      "remaining_private_instruction_AXYP_SP_exact": true
+    },
+    {
+      "identity": 1,
+      "phase": "jump",
+      "baseline_CPU": 47907.25,
+      "proposal_CPU": 43591.25,
+      "saving_CPU": 4316.0,
+      "full_auth_calls": [
+        156,
+        156
+      ],
+      "remaining_private_instruction_AXYP_SP_exact": true
+    },
+    {
+      "identity": 1,
+      "phase": "bubble",
+      "baseline_CPU": 49262.166666666664,
+      "proposal_CPU": 44946.166666666664,
+      "saving_CPU": 4316.0,
+      "full_auth_calls": [
+        156,
+        156
+      ],
+      "remaining_private_instruction_AXYP_SP_exact": true
+    }
+  ],
+  "actual_ISR_counts": {
+    "IRQ": 8127,
+    "FF": 9287
+  },
+  "nested_IRQs": 8607,
+  "nested_reconstructed_foreground_contexts": 134,
+  "minimum_nested_SP": 126,
+  "fixed_source_extents": {
+    "manager": [
+      44544,
+      45075
+    ],
+    "extra": [
+      43890,
+      43982
+    ],
+    "Sh_auth": [
+      43008,
+      43081
+    ]
+  },
+  "cookies_and_existing_15B_end_pad_unchanged": true,
+  "retained_negative": {
+    "path": "build/bub-menu-candidate-1102-v2/shared-auth-v79-initial-state-negative.json",
+    "scope": "Initial oracle wrongly required native PPU latch preservation during setup IRQ. Final79 instead compares every native PPU/CHR/audio result to the unchanged handler executed from the identical interrupted state; CPU/source/native RAM/scratch/SMC/live stack remain strict. No PPU normalization."
+  },
+  "earlier_checkpoint": {
+    "path": "build/bub-menu-candidate-1102-v2/transport-proposals-v72.json",
+    "SHA256": "4ce91337d9e61ed8fa9525d197c2ee79e9caffbf95f4edd9ed1b405ab0574216",
+    "scope": "69..71 current profile, retained rejected SEC lead and independent full-auth Side measurement; not rehydrated."
+  },
+  "remaining": [
+    "Bind the complete actual external caller/reference closure, including outer FarCallCommon flag semantics, moved private auth entry, cookies and SMC references.",
+    "Rebind and fund against the canonical combined Prince159/DK101 successor. Structural funding is not additive:101 already spends part of the76 savings. No footer padding is leased by this checkpoint.",
+    "Root must approve a final exact private candidate before ROM placement or native validation. No video-frame rate improvement is claimed from CPU measurements."
+  ],
+  "members": {
+    "tools/audit/measure_bub_full_auth_helper_1103_v73.py": {
+      "bytes": 9549,
+      "SHA256": "de7f7735a50b13ffc2c37ea1f0efc300da9341d9ea4cf4c678effbe7c08ba47c"
+    },
+    "tools/audit/measure_bub_complete_auth_transport_1103_v74.py": {
+      "bytes": 8139,
+      "SHA256": "4add5f216367f97b5f26dc664c2410d3522b1fc567f6fadb267df19207bafcd1"
+    },
+    "tools/audit/measure_bub_direct_primitives_1103_v75.py": {
+      "bytes": 2698,
+      "SHA256": "b0aa613c8d826b681a9304a380b00f6f28f045f0ecbf73cff2cf35c525fdc783"
+    },
+    "tools/audit/measure_bub_shared_auth_funding_1103_v76.py": {
+      "bytes": 8089,
+      "SHA256": "10ab568451f92f23c6e7bbe83e3394bb48338d39e1fc53f51f43e55a54f4c9a2"
+    },
+    "tools/audit/check_bub_shared_auth_contracts_1103_v77.py": {
+      "bytes": 7812,
+      "SHA256": "b7a45fca5f262518c8abeba7f9e6c3d32e660d025cc208c7917e83f5b7e5e5a0"
+    },
+    "tools/audit/check_bub_shared_auth_lifecycle_1103_v78.py": {
+      "bytes": 5433,
+      "SHA256": "9ad06fb85a2dde23286593d38e4de5769d66da0f4be04f48a93034d97055a48c"
+    },
+    "tools/audit/check_bub_shared_auth_interrupts_1103_v79.py": {
+      "bytes": 10976,
+      "SHA256": "b15f1b30a83b26b83fad5c1880b5fd21abbbe2d70c02be53756755e4e4355d42"
+    },
+    "tools/audit/check_bub_shared_auth_nested_1103_v80.py": {
+      "bytes": 5190,
+      "SHA256": "9392b660bb2b5f727a8b85fc35885db7ebbf1f884fd38cea589cd0332ba65a31"
+    },
+    "tools/audit/freeze_bub_complete_auth_1103_v81.py": {
+      "bytes": 6703,
+      "SHA256": "79e1421afe3301f66e337684464fc81777852766fa0420ebdacf3b3ec383e4f0"
+    },
+    "build/bub-menu-candidate-1102-v2/full-auth-v73-measurement.json": {
+      "bytes": 8521,
+      "SHA256": "b19bd2093f563debba6bdfd01acadd53cb5982bae71cb429c8a410db65d38396"
+    },
+    "build/bub-menu-candidate-1102-v2/complete-auth-v74-measurement.json": {
+      "bytes": 7677,
+      "SHA256": "1732fa17c79bade95f8f3c38e80f5b14a132992657b5496acafef9e10704240d"
+    },
+    "build/bub-menu-candidate-1102-v2/direct-primitives-v75-measurement.json": {
+      "bytes": 7841,
+      "SHA256": "07c3c844f5e0665c4adfb004c7c7c13649c67bddf7a292591ac2922096308b39"
+    },
+    "build/bub-menu-candidate-1102-v2/shared-auth-v76-funding.json": {
+      "bytes": 7441,
+      "SHA256": "2850708ad3677082fbd5eb496edc79eae4eaa646601a412ab40449f39d394343"
+    },
+    "build/bub-menu-candidate-1102-v2/shared-auth-v77-contracts.json": {
+      "bytes": 9691,
+      "SHA256": "55c04337550729887fba86b881e76fc15b4a3448469bee4908cc1fc3bf7a14e6"
+    },
+    "build/bub-menu-candidate-1102-v2/shared-auth-v78-lifecycle.json": {
+      "bytes": 5955,
+      "SHA256": "6ab3798ac9e146f208919e9c0f0d588397f59083f677bd14aa3420a3980736d9"
+    },
+    "build/bub-menu-candidate-1102-v2/shared-auth-v79-ISR.json": {
+      "bytes": 1331608,
+      "SHA256": "36928e05457b8c5e57397f2fc6dd83002002b22ca4286e77ca26ecc1a4d4b140"
+    },
+    "build/bub-menu-candidate-1102-v2/shared-auth-v80-nested.json": {
+      "bytes": 5401,
+      "SHA256": "1464f90bd08e921764d11ab9d39e74bfffea0a4b45ff55fde041ab7f97fb042f"
+    },
+    "build/bub-menu-candidate-1102-v2/shared-auth-v79-initial-state-negative.json": {
+      "bytes": 341,
+      "SHA256": "d4723abac77d493f4f00ff70102ed1de9c447900262ce367970552a4a77944d4"
+    },
+    "build/bub-menu-candidate-1102-v2/full-auth-v73-reproduce.s": {
+      "bytes": 6213,
+      "SHA256": "40b4045f7a734fe3a7f50347b91b64b4f2099d500f8d83b83063a0614b9c24ef"
+    },
+    "build/bub-menu-candidate-1102-v2/full-auth-v73-reproduce.cfg": {
+      "bytes": 255,
+      "SHA256": "f79885a505cd070aea142b84cbdb20021a14778ca641ee9ce3b70a740c267709"
+    },
+    "build/bub-menu-candidate-1102-v2/full-auth-v73-reproduce.bin": {
+      "bytes": 531,
+      "SHA256": "52573323fd22a1268f48ca0877506a896929404c0a20f72cacb0965e3fa622ff"
+    },
+    "build/bub-menu-candidate-1102-v2/full-auth-v73-reproduce.lbl": {
+      "bytes": 421,
+      "SHA256": "8b92504f4c23a8b090e3c0cca99a65a5299220794f94a7c9c23fe304092cf9b6"
+    },
+    "build/bub-menu-candidate-1102-v2/full-auth-v73-final.s": {
+      "bytes": 6458,
+      "SHA256": "b04786d441c3efaf4d25f7fa7bd76e406c1f70b6b207dc8814bb27aa9ec15e60"
+    },
+    "build/bub-menu-candidate-1102-v2/full-auth-v73-final.cfg": {
+      "bytes": 251,
+      "SHA256": "1183cfb60374b7c9bab002e403de27afa6449b1d6ceab89be50981d681ff5cff"
+    },
+    "build/bub-menu-candidate-1102-v2/full-auth-v73-final.bin": {
+      "bytes": 531,
+      "SHA256": "7a45dd176edbdf1c0aa151272773a14e6030489083d8ee1674178b9fee45c82b"
+    },
+    "build/bub-menu-candidate-1102-v2/full-auth-v73-final.lbl": {
+      "bytes": 421,
+      "SHA256": "e269317fcf24f2fe36e093c6e4d87808dae6032800a5d31379f5065bf898497c"
+    },
+    "build/bub-menu-candidate-1102-v2/complete-auth-v74-kernel.s": {
+      "bytes": 472,
+      "SHA256": "7f9151dfd6daf19197c06393c318d1d4c65ff3b11aad7d9a71c99ee1d82dc191"
+    },
+    "build/bub-menu-candidate-1102-v2/complete-auth-v74-kernel.cfg": {
+      "bytes": 76,
+      "SHA256": "87820ed582b64eac3449eb583e8525a403acd759ab8eb325df32e2ff97629935"
+    },
+    "build/bub-menu-candidate-1102-v2/complete-auth-v74-kernel.bin": {
+      "bytes": 57,
+      "SHA256": "35f600dae21fa2f85ae1547eace4471a170d30db8efea43359298652cca3d32b"
+    },
+    "build/bub-menu-candidate-1102-v2/complete-auth-v74-kernel.lbl": {
+      "bytes": 121,
+      "SHA256": "b4fb0e6f560b5ffe982d4da59f43c99519a15b0b96375b5eeea7ca41193ca74e"
+    },
+    "build/bub-menu-candidate-1102-v2/direct-primitives-v75-kernel.s": {
+      "bytes": 513,
+      "SHA256": "bd0c436163d612b847a497fcc0580e4a724155d6a960f605ca5d63782ff84b2f"
+    },
+    "build/bub-menu-candidate-1102-v2/direct-primitives-v75-kernel.cfg": {
+      "bytes": 76,
+      "SHA256": "87820ed582b64eac3449eb583e8525a403acd759ab8eb325df32e2ff97629935"
+    },
+    "build/bub-menu-candidate-1102-v2/direct-primitives-v75-kernel.bin": {
+      "bytes": 55,
+      "SHA256": "3b46c38596430c12e87373f183702a6e976baa6ac4f568fa9871bde38135b12f"
+    },
+    "build/bub-menu-candidate-1102-v2/direct-primitives-v75-kernel.lbl": {
+      "bytes": 142,
+      "SHA256": "a4e905a1ae9c02e8f7140d25a4e1b2dcbbeaf7230f585f77c168b9783a2c412e"
+    },
+    "build/bub-menu-candidate-1102-v2/shared-auth-v76-Sh-reproduce.s": {
+      "bytes": 1064,
+      "SHA256": "95f1641c78d57dc75eefcf76b631e76b1b67a743747b0b4665a6368c8ef51c5b"
+    },
+    "build/bub-menu-candidate-1102-v2/shared-auth-v76-Sh-reproduce.cfg": {
+      "bytes": 81,
+      "SHA256": "6233f0d10a428cb31fef357f522969a1dab481400ccf255841ca8ba54d969b42"
+    },
+    "build/bub-menu-candidate-1102-v2/shared-auth-v76-Sh-reproduce.bin": {
+      "bytes": 73,
+      "SHA256": "5b9aae3504e14179f4754e18258a0fa9bf6960841223892a2b294a8b7fee35cd"
+    },
+    "build/bub-menu-candidate-1102-v2/shared-auth-v76-Sh-reproduce.lbl": {
+      "bytes": 47,
+      "SHA256": "0c7819032182d0b18f3221bd609e20f67662b7c11e86940b6faea95e2af3c086"
+    },
+    "build/bub-menu-candidate-1102-v2/shared-auth-v76.s": {
+      "bytes": 7383,
+      "SHA256": "f88731ffd25891f21e18b06f80c9b0f18dbebfbd7668474599eb1bc064e66152"
+    },
+    "build/bub-menu-candidate-1102-v2/shared-auth-v76.cfg": {
+      "bytes": 410,
+      "SHA256": "ba1a01010b47ffdcb7b154693de695e556ce51a475336f146db5dd6ce88c5e2b"
+    },
+    "build/bub-menu-candidate-1102-v2/shared-auth-v76.bin": {
+      "bytes": 531,
+      "SHA256": "9de0141d183a0e3a3b2e32a5359c890a80949ce0584c5145313d296d741a7cca"
+    },
+    "build/bub-menu-candidate-1102-v2/shared-auth-v76.lbl": {
+      "bytes": 653,
+      "SHA256": "55122c484e36faa0757777e50be352938a9bf23653951f3ee023a0ae3aa4a016"
+    },
+    "build/bub-menu-candidate-1102-v2/full-auth-v73-reproduce-extra.bin": {
+      "bytes": 92,
+      "SHA256": "aad97046784c2c388bd342c4520c0340a75376d2ff553f51052aa0b1568b0495"
+    },
+    "build/bub-menu-candidate-1102-v2/full-auth-v73-final-extra.bin": {
+      "bytes": 92,
+      "SHA256": "2560a624ea70ecf2f852760d4337817fd0563e5dfa13b1263c449c321b759121"
+    },
+    "build/bub-menu-candidate-1102-v2/shared-auth-v76-Sh.bin": {
+      "bytes": 73,
+      "SHA256": "316eef334d5158ff522444bc9699e2a02e8f3c700d667a71dd7957ed5571ad4e"
+    },
+    "build/bub-menu-candidate-1102-v2/shared-auth-v76-extra.bin": {
+      "bytes": 92,
+      "SHA256": "aad97046784c2c388bd342c4520c0340a75376d2ff553f51052aa0b1568b0495"
+    },
+    "build/bub-menu-candidate-1102-v2/complete-auth-source-commit-files-v81.txt": {
+      "bytes": 503,
+      "SHA256": "e23f02ffc0ec0c83785d1719cf0a8ae4f37e0de586744dae9e9620339804f5d2"
+    }
+  },
+  "external_read_only_inputs": {
+    "build/dkjr-native-source-1102-v2/native-owner-proposal-v79.json": "0f6c280d62401b4053948f1b5fee69634b8f4a6b98a90a050cd324173d0fd954",
+    "build/dkjr-native-source-1102-v2/native-owner-v79.s": "40b4045f7a734fe3a7f50347b91b64b4f2099d500f8d83b83063a0614b9c24ef",
+    "build/dkjr-native-source-1102-v2/native-selector-v79.s": "a31be5e8bb56ccc53ed6d2eab103b562be1779156adbf8e328d58f8c07d0d262",
+    "src/music_drivers/vanilla_sfx.s": "d687d13e64ab3410e516e1d93ce8a2e8378e2f54fb16502dbbf05a0767b0b821",
+    "src/reset.s": "e108562a322dfe93c95caec209dd44329bee5ecedc6bd08083f80497f05172f5",
+    "tools/audit/check_bub_head_interrupts_1102_v57.py": "84c3a3aa9231a0d47ff8490721cd43bf8a91279efe620dc6bb027e53205162d0",
+    "tools/audit/prepare_dkjr_current_owner_1103_v79.py": "f21cc35f5237431ce5b8a8b9c8b3e86ac34779a395e02c037299df4f9bc6f74c",
+    "tools/audit/profile_bub_current_bridge_1103_v69.py": "15900949338216cb3636aed2da8bd97902569b4c75292844a2a46bc6ff593963",
+    "tools/reference/shinobi_resident_loader_1101_v1.inc": "de9b6f5afd3f4e1625118186a0c7ac5d84efe38baa6569ffe12850e4398d6de9"
+  }
+}

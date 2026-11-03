@@ -1,0 +1,23 @@
+{
+  "passed": true,
+  "source_CPU_only": true,
+  "installed": false,
+  "ROM_produced": false,
+  "checkpoint": "docs/qa/checkpoints/2026-11-03/bub-complete-auth-v81",
+  "archive_bytes": 97543,
+  "archive_SHA256": "102daf970e4833c45483e92aa7cf2f7892c34aafc4bb835c2138d9fac077d504",
+  "members": 47,
+  "source_files": [
+    "tools/audit/measure_bub_full_auth_helper_1103_v73.py",
+    "tools/audit/measure_bub_complete_auth_transport_1103_v74.py",
+    "tools/audit/measure_bub_direct_primitives_1103_v75.py",
+    "tools/audit/measure_bub_shared_auth_funding_1103_v76.py",
+    "tools/audit/check_bub_shared_auth_contracts_1103_v77.py",
+    "tools/audit/check_bub_shared_auth_lifecycle_1103_v78.py",
+    "tools/audit/check_bub_shared_auth_interrupts_1103_v79.py",
+    "tools/audit/check_bub_shared_auth_nested_1103_v80.py",
+    "tools/audit/freeze_bub_complete_auth_1103_v81.py"
+  ],
+  "limits": "Completed source/CPU packet preserved byte-exact; no root approval of shared placement, no native stage/helper crossing or installation inferred. Full goal remains active.",
+  "field_erratum": "source_proposal_memory_SHA256 is a funding-receipt SHA256, not a ROM/memory hash. Original81 is immutable; corrected82/89 semantics retained."
+}
