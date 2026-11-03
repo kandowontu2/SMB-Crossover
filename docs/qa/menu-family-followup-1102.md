@@ -3,6 +3,18 @@
 Base: `d0b445a71d6c539804d7c559fafc2c328ebf97ab4e35e8f3273f94ff8a25d01d`.
 The installed Downloads nightly has not changed for this work yet.
 
+Current root candidate: `build/menu-family-root-candidate-1102-v1/mr-gimmick-family.nes`,
+SHA256 `22d09909bf952ef007d1582589dc869073262784bf38b92d2c7b206ce3c45b19`.
+All32-slot/all-alternate native browse passes5180frames/125observations,
+fourPNG screenshots, zero active-display PPUDATA writes and zero late enables.
+Bub/Rash screenshots viewed: right-facing Bub and populated Battletoads icon.
+Separate native Bub and Bob normal-A launches pass actual owner/Fresh checks.
+Mr. Gimmick native launch is running as root session76580; poll that handle.
+Downloads launch-context testing and latestIPS replacement still required.
+Root producer snapshots helper v18 and changes its overbroad simultaneous-key
+test to ordinary Start/A: Select+Start on Excitebike chooses locked Prince,
+so that old expectation was invalid. No gameplay patch was made for that test.
+
 User requirements: Mr. Gimmick replaces the Gimmick label; Bub and Bob are his
 Select alternates, with no standalone Bub/Bob position. Bub and Bob face right
 in the roster/selected preview; check gameplay direction as well. Remove stale
