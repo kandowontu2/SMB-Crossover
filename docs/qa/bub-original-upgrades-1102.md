@@ -60,3 +60,9 @@ these actual episodes. Expanded post-head/nested IRQ work includes deeper
 rendering with the newly queued sounds and an exact pending mapper-write
 boundary; it is not yet a complete pass. Plain-brick audio, earned flower,
 final cold/lifecycle binding and actual Downloads launch remain required.
+
+November3 delivery: the exactcf7 nightly now replaces Downloads directly, without a backup. Both identities pass actual Downloads first-mushroom and separate full1-1 replays, matching candidate frames/updates/checks exactly; all four endpoint images were viewed. The sole Current/Latest IPS reconstructs cf7 and its GitHub API digest matches7fae59278cda3952d5b12a89670e0a623bb114a5f4fd92c3d667f13d704dd5a1. Patch guards pass before/after and after all replays.
+
+Parent head qualification now passes8,506 expanded genuine FF contexts and6,244 nested IRQs, minimumSP122. Plain-brick checks add138 actual FF profile minima and10,480 nested IRQs: small bump minimum122, mushroom-powered shatter124. All four exact native sound clocks are tracked. The compact head source checkpoint is `docs/qa/checkpoints/2026-11-03/bub-head-source-v59`. These CPU runs retain their cc7 hash. Separate exactcf7 cold/readback/warm/32header-poison/code+helperfault/protection/retire tests pass, together with250 paired Main updates proving original instruction/state/AXYP/SP and zero-cycle-delta after initialization. The only cartridge differences fromcc7 are14 initializer bytes and its authenticated cookie; new initializer instructions separately pass10IRQ+10genuineFF.
+
+The later flower route remains unverified. Controller91..96 negatives are preserved in `docs/qa/checkpoints/2026-11-03/bub-earned-delivery-v99`, including the actual original jump-direction latch and unreachable test takeoff windows. They do not establish a physics regression or a helper need. Idle/walk lag, acoustic fidelity and broader roster work remain open. No new helper platform was added.

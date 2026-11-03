@@ -6,7 +6,7 @@ A native NES adaptation of [Super Mario Bros. Crossover](https://www.smbgames.be
 
 [Player's guide](<Player Guide/SMB-Crossover-Players-Guide-NU.pdf>) · [Full roster image](docs/images/SMB-Crossover-Full-Roster.png) · [Build from source](#build-from-source) · [Report a bug](https://github.com/kandowontu2/SMB-Crossover/issues)
 
-> **In development:** the November 2 expanded MMC5 nightly has **90 selectable identities** across a **32-slot, four-row menu**. Prince of Persia is displayed but remains locked; additional requested characters are still being integrated. Menu availability does not mean every character has completed stage and powerup testing. The prepared source build currently contains 37 identities; see the build table below.
+> **In development:** the November 3 expanded MMC5 nightly has **92 selectable identities** across a **32-slot, four-row menu**. Prince of Persia is displayed but remains locked; additional requested characters are still being integrated. Menu availability does not mean every character has completed stage and powerup testing. The prepared source build currently contains 37 identities; see the build table below.
 
 <p align="center">
   <img src="docs/images/character-select.png" width="512" alt="Actual NES character-select screen with four rows of heroes and highlighted Imajin">
@@ -27,7 +27,7 @@ The title opens a separate character-select screen. Use the D-pad to highlight a
 
 ## Current roster
 
-This table describes the **90-selectable development nightly**, including work in progress. Some unfinished entries retain a WIP marker; availability below follows the actual menu confirmation tests. Prince of Persia is the remaining displayed entry that cannot start gameplay.
+This table describes the **92-selectable development nightly**, including work in progress. Availability follows the recorded menu confirmation tests. Prince of Persia is the remaining displayed entry that cannot start gameplay.
 
 | Slot | Playable now | Coming soon |
 | --- | --- | --- |
@@ -56,7 +56,7 @@ This table describes the **90-selectable development nightly**, including work i
 | Super Sunny World | Sunny | — |
 | Battletoads | Rash / Zitz | — |
 | SMB2 / Doki Doki Panic | Mario / Luigi / Toad / Peach / Imajin / Lina / Papa / Mama | — |
-| Gimmick! | Gimmick | — |
+| Mr. Gimmick | Mr. Gimmick / Bub / Bob | — |
 | Bowser | SMB3 Bowser / SMB1 Bowser | — |
 | Donkey Kong | Donkey Kong | — |
 | WWF WrestleMania | Hulk Hogan / Ted DiBiase / Bam Bam Bigelow / Honky Tonk Man / Randy Savage / Andre the Giant | — |
@@ -73,7 +73,9 @@ The image includes unfinished characters and predates the two new SMB1 alternate
 
 </details>
 
-The four SMB2 characters, four Final Fantasy classes and both SMB1 and SMB3 Toad/Peach are enabled, with bounded emulator checks recorded for their respective build hashes. Goku is an Arthur Select alternate. Bub/Bob, Sonic, Donkey Kong Jr., Getsu Fuma, Mega Giant Mario, Jay McCray and Steve Hermann remain absent from the current menu; see the [current roster gaps](docs/qa/current-roster-gaps-1101.md).
+The four SMB2 characters, four Final Fantasy classes and both SMB1 and SMB3 Toad/Peach are enabled, with bounded emulator checks recorded for their respective build hashes. Goku is an Arthur Select alternate. Bub and Bob are Select alternates for Mr. Gimmick. Sonic, Donkey Kong Jr., Getsu Fuma, Mega Giant Mario, Jay McCray and Steve Hermann remain absent from the current menu; see the [current roster gaps](docs/qa/current-roster-gaps-1101.md).
+
+**Bub and Bob:** A jumps; B blows bubbles. Trap enemies, then touch their bubbles to pop them; hold A to bounce on free bubbles. Mushrooms grant the original speed upgrade. Both characters pass first-mushroom collection and separate full non-shortcut 1-1 runs without life loss or additional helper platforms, on the candidate and the actual Downloads nightly. Block contacts and starting power status are repaired. The later flower route, original audio and idle/walk performance remain under test. See the [November 3 verification](docs/qa/checkpoints/2026-11-03/bub-earned-delivery-v99/receipt.json).
 
 **Excitebike** is now selectable on row four, column six. Right accelerates, B uses the original turbo, A jumps, and Up/Down lean the bike. Left reverses travel after stopping. Cold selection, coasting, reversing, a 61-pixel back-lean jump, landing and native graphics checks pass. The latest repair restores the original overheat recovery; a full non-shortcut 1-1 run reaches active 1-2 with no life loss or helper platforms. Shortcut, powerup and dedicated audio testing remain unfinished. See the [November 2 verification](docs/qa/checkpoints/2026-11-02/excitebike-recovery-native-v2/receipt.json).
 
@@ -105,7 +107,7 @@ Both Bowser versions are enabled in the October 31 WIP. They have source-derived
 
 | Target | Roster | Cartridge layout | Status |
 | --- | --- | --- | --- |
-| Expanded MMC5 nightly | 90 selectable / 91 displayed identities | 1 MiB PRG + 1 MiB CHR | Includes unfinished characters; frozen source and recipes are in the checkpoint archives. |
+| Expanded MMC5 nightly | 92 selectable / 93 displayed identities | 1 MiB PRG + 1 MiB CHR | Includes unfinished characters; frozen source and recipes are in the checkpoint archives. |
 | Prepared expanded MMC5 | 37 identities | 1 MiB PRG + 1 MiB CHR | Reproduced by the commands below. |
 | Standard MMC3 / MMC5 | 14 identities in 12 slots | 512 KiB PRG + 256 KiB CHR | Smaller original roster. |
 | Oversized MMC3 | Expanded roster | 2 MiB PRG + 256 KiB CHR RAM | Experimental; feature parity and physical cartridge compatibility remain unverified. |
@@ -182,7 +184,7 @@ The chosen starting level applies when confirming a character. Invincibility doe
 
 ## Development status
 
-The latest delivered nightly is `1966a488` (November 2), with **90 selectable identities**. It repairs Metal Storm's sprite allocation and retains Excitebike's original overheat recovery and Arthur's native weapon contacts. Metal Storm, Excitebike and Arthur each have full non-shortcut 1-1 checks recorded against their respective repair hashes; the latest Metal Storm run reaches active 1-2 with no life loss. The actual Downloads launch is verified. Full roster stages, shortcuts, every earned powerup and steady performance remain unfinished. See the [latest verification](docs/qa/checkpoints/2026-11-02/metal-reservation-v42/receipt.json).
+The latest delivered nightly is `cf7f157a` (November 3), with **92 selectable identities**. Bub and Bob now hit blocks through the real native block routine and begin with the correct power status. Both pass actual first-mushroom collection and independent full non-shortcut 1-1 runs into active 1-2, without life loss or new helpers. All four checks also pass from the actual Downloads path; the sole Latest IPS reconstructs the tested ROM. Earlier Metal Storm, Excitebike and Arthur repairs remain included, with their original verification hashes recorded separately. Full roster stages, shortcuts, every earned powerup and steady performance remain unfinished. See the [latest verification](docs/qa/checkpoints/2026-11-03/bub-earned-delivery-v99/receipt.json).
 
 The earlier `58e50db6` checkpoint (November 1) added native elevator assistance for Karnov's tall pipes in 1-1 and repaired moving/jumping off platforms. Its two cold controller runs clear both pipes; its menu sweep and 160 platform-manager CPU comparisons pass. Those changes and Kirby's immediate suction, inhale friction and shell repairs remain included. See the [earlier verification](docs/qa/checkpoints/2026-11-01/karnov-platform-nightly-v1/README.md).
 
