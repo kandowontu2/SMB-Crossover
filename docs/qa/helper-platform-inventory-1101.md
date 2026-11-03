@@ -4,7 +4,7 @@ The functional roster pass is not complete. This inventory separates source
 placements from actual route verification; it is not the final all-character list.
 
 Inventory fixture SHA256: `128915e97e78891a585aa8f9fd904c166ca64dcd6dd1ee395fc68fd505c1e72c`.
-Current nightly SHA256: `22d09909bf952ef007d1582589dc869073262784bf38b92d2c7b206ce3c45b19`.
+Current nightly SHA256: `9cf99b438e6f5bc614dc4ccc433707a3796702b7f33a04318a428a1155397f15`.
 Bub/Bob added no helper platforms. Earlier route proofs below retain their stated hashes.
 Thomas's two late placements were added on d0b445a7; other placements are unchanged. The original admission fixture belongs to its stated earlier hash.
 `tools/audit/inventory_named_helpers_1101_v2.py` verified identical installed and
@@ -51,6 +51,16 @@ pipes and three gaps, reaching active 1-2 with no life loss. Both 64px pipes
 record native top support; the third has static left X736, width32, top Y144
 and rider top Y112. No helper stage, height or world position has been assigned.
 The slot29 Prince alternate remains locked and has no helper.
+
+On November3, the private Bub/Bob upgrade candidate
+`b7e2a161ea2781a8346b126b9c759f7c60f2583e2a18e58f8ca888d041c0bd53`
+clears the full non-shortcut1-1 for **both Bub and Bob without any helper**.
+Each naturally earns six original bubble rides, clears all four pipes and three
+gaps, and reaches active1-2 with two lives unchanged. Bub takes13,540 physical
+frames; Bob takes13,510. These are original character abilities, not native
+helper-platform placements. See
+`docs/qa/checkpoints/2026-11-03/bub-upgrade-full11-v80/receipt.json`.
+The candidate remains private while its head-block/powerup bridge is repaired.
 
 Hogan crosses all four 1-1 pipes and the first pit without helpers under
 the later-edge controller. The next opening pit still fails: the x+8

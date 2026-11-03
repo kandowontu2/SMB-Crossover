@@ -1,0 +1,98 @@
+{
+  "passed": true,
+  "private_checkpoint_only": true,
+  "ROM_written": false,
+  "installed": false,
+  "archive_SHA256": "9d5a804e3f038ccb86a92f92635e1dab8e9531a74923274ae0f2d03e6f2d8f1d",
+  "archive_bytes": 308226,
+  "member_count": 70,
+  "source_files": [
+    {
+      "path": "tools/audit/prepare_dkjr_native_terrain_ports_1102_v36.py",
+      "SHA256": "1bc03fb6a52e8871ddb9415a4d1db090895ebc2a6c74a8b486c9e80a62919ccc"
+    },
+    {
+      "path": "tools/audit/check_dkjr_native_terrain_ports_1102_v37.py",
+      "SHA256": "6e8086566277594a82ce5cda929aabfdcfeca1598873c9a33da99c663d76feed"
+    },
+    {
+      "path": "tools/audit/prepare_dkjr_native_atlas_1102_v38.py",
+      "SHA256": "e6a661b5872a47d556d4c77fe7115b092c19f5a8b38fa993698a03790935d431"
+    },
+    {
+      "path": "tools/audit/prepare_dkjr_native_effects_1102_v39.py",
+      "SHA256": "ee0fda7f989662affa1c7f5d7f366aee669bc63597850ed0729520e7f30c65b8"
+    },
+    {
+      "path": "tools/audit/check_dkjr_native_effects_1102_v40.py",
+      "SHA256": "804c3c27f4ea2908db2cb7423056ccd206e584d818bde990acbdb46c9bb7cfb3"
+    },
+    {
+      "path": "tools/audit/check_dkjr_native_earned_main_1102_v41.py",
+      "SHA256": "38d605d9d306c0d4f9a82af9b550ff42ddd743fe8db5bd9344aa2bffb063016e"
+    },
+    {
+      "path": "tools/audit/prepare_dkjr_native_service_packets_1102_v42.py",
+      "SHA256": "c91fa91258f60acd1a5f6fe3b96d63eabbdb8a2cbc570ff6a564a051bf963943"
+    },
+    {
+      "path": "tools/audit/check_dkjr_native_service_packets_1102_v43.py",
+      "SHA256": "a47284ff1f396c6083ee6713ff0bb046981de9eada633fe1c6bc891953f5f0fd"
+    },
+    {
+      "path": "tools/audit/check_dkjr_native_drop_boundary_1102_v44.py",
+      "SHA256": "df58ac27faadc440665f754a4bff52d433086eb17c2cbb0fa33fbd15712b2336"
+    },
+    {
+      "path": "tools/audit/prepare_dkjr_native_defeat_leaf_1102_v45.py",
+      "SHA256": "fac174841b74a6e052783451ce1b2e3968716403563675f95caa1ddc578f7348"
+    },
+    {
+      "path": "tools/audit/check_dkjr_native_defeat_leaf_1102_v46.py",
+      "SHA256": "b747088befbcf969ad943e88522a246388e0d77b7465e4e1c38f4226e596f3e2"
+    },
+    {
+      "path": "tools/audit/check_dkjr_native_service_irq_1102_v47.py",
+      "SHA256": "f389dc8a7e041120ae67961634b18d25fd54fa0b6e16c2d1dc6d91945a382ddb"
+    },
+    {
+      "path": "tools/audit/prepare_dkjr_native_register_packets_1102_v48.py",
+      "SHA256": "1d00aefbd2278a2d536802af643cc2a3c93e76e247438a66bd420d8852fad29b"
+    },
+    {
+      "path": "tools/audit/check_dkjr_native_register_packets_1102_v49.py",
+      "SHA256": "08d5c91f2d0c740aabaa08d7c2c09498d016cf5e98289ab3c94deeef84e95074"
+    },
+    {
+      "path": "tools/audit/freeze_dkjr_native_services_1102_v50.py",
+      "SHA256": "b68442cf259d5f1227a1d581ebc1e9c7bcb81b6328f4e2d47a821b0eeedc0715"
+    }
+  ],
+  "scope": "Source/native-service progress only. Retains failed foreground and interrupt fixtures; no actual emulator gameplay or public admission.",
+  "NMI_scope_correction": "Helper explicitly checked after freezing50:49 inherits NmiDisable=1, so its NMI is regular, not genuine FF lag audio. Historical archive wording is retained unchanged.51 must prove actual FF, INC NmiSkipped once, no regular branch, complete packet lifetime and audio/IRQ cuts before admission.",
+  "unfinished_vector_rows": [
+    4,
+    11,
+    17,
+    18,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    27,
+    28,
+    29,
+    30,
+    31,
+    35,
+    37
+  ],
+  "bindings": {
+    "tools\\audit\\freeze_dkjr_services_root_1103_v82.py": "9caf29b6e67ae6f0264a536372d2f9faf493cdea74c74bc8d91675492f60555f",
+    "build\\dkjr-native-source-1102-v2\\native-services-v50.json": "c0b98ef2a2a232dc4b335d817c545623547bd5440269311d2da10a54d9687720",
+    "docs\\qa\\checkpoints\\2026-11-03\\dkjr-native-services-v50\\inputs.zip": "9d5a804e3f038ccb86a92f92635e1dab8e9531a74923274ae0f2d03e6f2d8f1d",
+    "docs\\qa\\checkpoints\\2026-11-03\\dkjr-native-services-v50\\helper-manifest.json": "c0b98ef2a2a232dc4b335d817c545623547bd5440269311d2da10a54d9687720"
+  }
+}
