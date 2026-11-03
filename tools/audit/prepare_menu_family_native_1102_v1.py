@@ -10,7 +10,9 @@ from observe_chip_committed_write import lua
 R=A.R
 
 def main():
-    ap=argparse.ArgumentParser();ap.add_argument('--rom',type=Path,required=True);ap.add_argument('--output',type=Path,required=True);args=ap.parse_args()
+    ap=argparse.ArgumentParser();ap.add_argument('--rom',type=Path,required=True);ap.add_argument('--output',type=Path,required=True)
+    ap.add_argument('--launch',choices=['mr-gimmick','bub','bob'])
+    args=ap.parse_args()
     b=A.bundle();b['raw']=args.rom.read_bytes()
     screen=M.fresh(b);M.put(screen,CrossoverMenuState=1,Mirror_PPUMASK=0,DisableScreenFlag=1)
     M.invoke(screen,'CrossoverMenuInput')
@@ -27,7 +29,7 @@ def main():
         assert (63 in cells)==('PRINCE' in name),(slot,name)
         shot=None
         if name in ['RASH','MR GIMMICK','BUB','BOB'] and name not in seen:shot=name.lower().replace(' ','-')
-        plans.append(dict(keys=[key]if key else[],slot=slot,variant=0,tag=name,state=2,kind='observe',wait=40,raw=raw,name=cells,shot=shot))
+        plans.append(dict(keys=[key]if key else[],slot=slot,variant=0,tag=name,state=2,kind='observe',wait=40,raw=raw,name=cells,shot=shot,groups=M.get(m,'FmGroups')))
         seen.append(name)
         return name,raw
     snake=list(range(8))+list(range(15,7,-1))+list(range(16,24))+list(range(31,23,-1))
@@ -45,6 +47,16 @@ def main():
         previous=slot
     assert all(n in seen for n in ['MR GIMMICK','BUB','BOB','RASH','ZITZ'])
     assert sum(bool(s['shot'])for s in plans)==4
+    launch=None
+    if args.launch:
+        target=args.launch.upper().replace('-',' ')
+        end=next(i for i,s in enumerate(plans)if s['tag']==target)
+        plans=plans[:end+1]
+        for step in plans:step['shot']=None
+        plans[-1]['shot']='selected-owner'
+        selected=plans[-1]
+        launch=dict(raw=selected['raw'],groups=selected['groups'],bob=1 if target=='BOB'else 0,requiresRestore=False)
+        plans.append(dict(selected,keys=['select','a'],kind='launch',shot=None,tag='simultaneous-select-confirm'))
     text=(R/'tools/audit/bub_menu_qualification_1102_v2.lua').read_text()
     old="  for _,cell in ipairs({{676,245},{677,246},{708,247},{709,248}})do assert(ppu(0x2000+cell[1])==cell[2],'Actual same-span NT copy/icon survives rebuild')end"
     assert old in text;text=text.replace(old,"  for _,cell in ipairs(Q.silhouette)do assert(ppu(0x2000+cell[1])==cell[2],'Battletoads silhouette survives all selections')end")
@@ -53,8 +65,9 @@ def main():
     text=text.replace("assert(n==33,'All33 positions actually visited')","assert(n==32,'All32 positions actually visited')")
     symbols=['OperMode','OperMode_Task','CrossoverMenuState','CrossoverMenuIndex','SelectedCharacter','FmGroups','GameEngineSubroutine','VRAM_Buffer1','VRAM_Buffer1_Offset']
     # The existing observer consumes L/Q supplied through its documented globals.
-    config=dict(mode='mr-gimmick-family-and-ready-indicators',steps=plans,maxFrames=len(plans)*40+300,launch=None,required_positions=32,silhouette=silhouette)
+    config=dict(mode='launch-'+args.launch if args.launch else 'mr-gimmick-family-and-ready-indicators',steps=plans,maxFrames=len(plans)*40+800,launch=launch,required_positions=32,silhouette=silhouette)
     prefix='local L='+lua({n:address(b,n)for n in symbols})+'\nlocal Q='+lua(config)+'\n'
-    prepare(args.output,args.rom,prefix+text,[Path(__file__),Path(A.__file__),R/'tools/audit/bub_menu_qualification_1102_v2.lua'],expected=sha(args.rom),timeout=240,scope='Controller-only all32 roster slots and complete Select cycles; exact emitted names, current ready markers, four native screenshots. No gameplay/fullstage claim.',allow_interactive=True)
+    scope='Controller-only cold selection and simultaneous Select+A launch for '+args.launch+'; actual source identity and active owner. No movement/fullstage claim.' if args.launch else 'Controller-only all32 roster slots and complete Select cycles; exact emitted names, current ready markers, four native screenshots. No gameplay/fullstage claim.'
+    prepare(args.output,args.rom,prefix+text,[Path(__file__),Path(A.__file__),R/'tools/audit/bub_menu_qualification_1102_v2.lua'],expected=sha(args.rom),timeout=240,scope=scope,allow_interactive=True)
 
 if __name__=='__main__':main()
