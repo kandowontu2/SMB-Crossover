@@ -40,3 +40,15 @@ code/data is 3,774 bytes; the selector plus roll entry costs 153–230 cycles.
 Receipt: `build/sonic-sms-physics-selection-1102-v19/receipt.json`.
 Tempo fields and sound-event requests are private fixture outputs, not a
 working NES audio driver. Full Main and native admission remain incomplete.
+
+V20 adds the original animation streams, frame reset on animation change,
+loop decoding and ordinary/walking/rolling frame advancement. All 25 valid
+streams and each frame through their loop marker pass 2,382 comparisons
+against original instructions; 231 invalid animation indices reject. The
+donor's empty animation 03 would loop forever and is excluded from valid
+gameplay fixtures. Changing animation resets the frame without resetting
+the speed subframe, as in the donor. Combined read/advance takes 100–189
+cycles; cumulative private code/data is 4,356 bytes.
+`build/sonic-sms-animation-player-1102-v20/receipt.json` records the scope.
+Main still must select the pose and call these routines at the original
+point relative to velocity clamping. CHR conversion, OAM and audio are open.
