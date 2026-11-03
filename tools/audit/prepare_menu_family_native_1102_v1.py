@@ -58,12 +58,12 @@ def main():
         plans[-1]['shot']='selected-owner'
         selected=plans[-1]
         launched=launch_states[target]
-        M.put(launched,VRAM_Buffer1_Offset=0,CrossoverMenuButtons=0,SavedJoypad1Bits=160,SavedJoypad2Bits=0)
+        M.put(launched,VRAM_Buffer1_Offset=0,CrossoverMenuButtons=0,SavedJoypad1Bits=128,SavedJoypad2Bits=0)
         M.invoke(launched,'CrossoverMenuInput')
         assert M.get(launched,'CrossoverMenuState')==0
         assert M.get(launched,'SelectedCharacter')==selected['raw']
         launch=dict(raw=selected['raw'],groups=M.get(launched,'FmGroups'),bob=1 if target=='BOB'else 0,requiresRestore=False)
-        plans.append(dict(selected,keys=['select','a'],kind='launch',shot=None,tag='simultaneous-select-confirm'))
+        plans.append(dict(selected,keys=['a'],kind='launch',shot=None,tag='confirm-selected-owner'))
     text=(R/'tools/audit/bub_menu_qualification_1102_v2.lua').read_text()
     old="  for _,cell in ipairs({{676,245},{677,246},{708,247},{709,248}})do assert(ppu(0x2000+cell[1])==cell[2],'Actual same-span NT copy/icon survives rebuild')end"
     assert old in text;text=text.replace(old,"  for _,cell in ipairs(Q.silhouette)do assert(ppu(0x2000+cell[1])==cell[2],'Battletoads silhouette survives all selections')end")
@@ -74,7 +74,7 @@ def main():
     # The existing observer consumes L/Q supplied through its documented globals.
     config=dict(mode='launch-'+args.launch if args.launch else 'mr-gimmick-family-and-ready-indicators',steps=plans,maxFrames=len(plans)*40+800,launch=launch,required_positions=32,silhouette=silhouette)
     prefix='local L='+lua({n:address(b,n)for n in symbols})+'\nlocal Q='+lua(config)+'\n'
-    scope='Controller-only cold selection and simultaneous Select+A launch for '+args.launch+'; actual source identity and active owner. No movement/fullstage claim.' if args.launch else 'Controller-only all32 roster slots and complete Select cycles; exact emitted names, current ready markers, four native screenshots. No gameplay/fullstage claim.'
+    scope='Controller-only cold selection and A launch for '+args.launch+'; actual source identity and active owner. No movement/fullstage claim.' if args.launch else 'Controller-only all32 roster slots and complete Select cycles; exact emitted names, current ready markers, four native screenshots. No gameplay/fullstage claim.'
     prepare(args.output,args.rom,prefix+text,[Path(__file__),Path(A.__file__),R/'tools/audit/bub_menu_qualification_1102_v2.lua'],expected=sha(args.rom),timeout=240,scope=scope,allow_interactive=True)
 
 if __name__=='__main__':main()
