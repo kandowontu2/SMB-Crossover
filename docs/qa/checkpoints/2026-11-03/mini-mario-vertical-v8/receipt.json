@@ -1,0 +1,38 @@
+{
+  "passed": true,
+  "installed": false,
+  "ROM_produced": false,
+  "checkpoint": "docs/qa/checkpoints/2026-11-03/mini-mario-vertical-v8",
+  "archive_bytes": 49546,
+  "archive_SHA256": "f3cad6b0782406f22b3e16cbb5e7fe2ed1e8236a543e2a4c68bd75ddebc720ba",
+  "scope": "Mini original-C versus assembled6502 vertical arithmetic315036cases, plus482241source-gravity512cases including35Y-before-X ballistic episodes.842Bcombined component, horizontal483Bprefix unchanged. SourceGBStudio4.2.0 immutable defaults/bootstrap/schema loading and original Mini sprite definitions preserved compactly. Native RAM/code/menu not allocated; no emulator captures or per-case files.",
+  "ballistic_peaks": {
+    "stationary": 37.5,
+    "walk_right": 40.625,
+    "run_right": 42.25,
+    "run_left": 42.25,
+    "accelerate_run": 37.5
+  },
+  "remaining": "Full caller/state/terrain/lifecycle/render/audio/menu and native1-1; actualGBsource-to-binary/instruction proof. Unscaled normal jumps do not clear48/64pxpipes in this collision-free model; requested innatewallgrab needs deliberate adaptation and native verification. No helper added or crossing certified.",
+  "bindings": {
+    "tools/audit/freeze_mini_mario_vertical_1103_v8.py": "f060cc52407fdbe93649f59ebf4d742b6966cd0720cdeb71964b6923e65b22c1",
+    "tools/audit/port_mini_mario_air_y_1103_v5.py": "98d895d1f277ab03bf5887fe96f4d77807e0d7f88b2654c497af15cc8862bfa7",
+    "tools/audit/prepare_mini_mario_core_defaults_1103_v6.py": "5af3c71ccb9bfd57ef8987e93b9b54575141a6e73c7a8a137d9da3d3dce11410",
+    "tools/audit/check_mini_mario_bound_gravity_1103_v7.py": "3cda2725cb515868aa2cae2ec44682fc2961754dd2718cd69816636098f94c11",
+    "build/mini-mario-motion-1103-v5/receipt.json": "bca91764e13e8c9f07ec1885784710b035f094aa94417f75b27ef26315c32b89",
+    "build/mini-mario-motion-1103-v5/original-air-y.c": "a0d828fb1391196b88f2ca188c7dad811ff58066d5f866ff79e9e30f07ab5684",
+    "build/mini-mario-motion-1103-v5/motion-xy.s": "2044ac0b73a1489ebe5f3ec84ee95a6d5aca83615061261ce46b50353f49ce4d",
+    "build/mini-mario-motion-1103-v5/motion-xy.cfg": "8cd546daa137eb03d9a38174980b90a901b0144425ffbca7dc0e509e506710b8",
+    "build/mini-mario-motion-1103-v5/motion-xy.bin": "aadbb7eb45b0c00e92f1c39a4e16d10b8a6f7f21207e05a127a47f50d898d598",
+    "build/mini-mario-motion-1103-v5/motion-xy.lbl": "607a2626e433dd2c787cdd7a7dd2d9813514f99a4319270367ec9677e64df387",
+    "build/mini-mario-defaults-1103-v6/receipt.json": "f2cf5b4b389fdd3a1e0b075b1c32b006a040b151ce52e97a77fc8561c6f09016",
+    "build/mini-mario-defaults-1103-v6/direct-inputs.zip": "eabd282fa1d275941264085bbd2b8384e53e012534ba54da4bff44ff9bf214c2",
+    "build/mini-mario-motion-1103-v7/receipt.json": "a7d5369b9f361dad70e66da2dd69cee761f2ce9e702e98de7ec530038a971554"
+  },
+  "source_files": [
+    "tools/audit/freeze_mini_mario_vertical_1103_v8.py",
+    "tools/audit/port_mini_mario_air_y_1103_v5.py",
+    "tools/audit/prepare_mini_mario_core_defaults_1103_v6.py",
+    "tools/audit/check_mini_mario_bound_gravity_1103_v7.py"
+  ]
+}

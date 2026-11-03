@@ -43,8 +43,37 @@ machine code or a full game update. The caller resets animation timing
 before dispatching the state; isolated primitive preservation tests do not
 replace that caller behavior.
 
-Mini Mario is not playable yet. Full state dispatch, vertical movement,
-world collision, lifecycle, graphics, audio and menu integration remain,
-along with an innate wall-grab if traversal requires it. No native RAM or
-code allocation, helper need, stage clear or nightly update is claimed.
+The subsequent vertical component adds 359 bytes, bringing the combined
+movement arithmetic to 842 bytes. Literal original jump/fall calculations
+pass 315,036 cases, including horizontal-speed jump boost, enemy bounce,
+fall-speed limits, drop-through and signed saturation. An initial fixture
+slice omitted the original delta integration line; its failure is retained
+and corrected without changing the 6502 implementation.
+
+The project's GB Studio 4.2.0 source establishes held-jump gravity as 512.
+The small reference packet includes its engine schema, plugin-schema
+inventory, schema loader and bootstrap initializer; neither the Mini
+project nor its plugins override that value. The unchanged component then
+passes 482,241 cases with gravity 512, including 35 composed ballistic
+episodes that execute vertical movement before horizontal acceleration.
+Full-hold peaks are 37.5 pixels standing and 42.25 pixels at full run.
+These are collision-free calculations, so they establish neither a native
+landing nor an assisted crossing. The 48/64-pixel pipes need an explicit
+traversal review; the requested innate wall-grab remains a possible
+adaptation. No helper is assigned yet.
+
+The vertical/default checkpoint is
+`docs/qa/checkpoints/2026-11-03/mini-mario-vertical-v8` (49,546-byte archive).
+It also preserves the original sprite definitions: the small body has a
+6×7-pixel collision box, the powered body 6×15, and both use eight source
+frames. The local Game Boy reference is
+`C:/Users/kando/Downloads/SuperMarioBrosMini.gb`, SHA-256
+`837d39a438f85c5b3ef32c4e41c6c4403147046a7e93bdeac039a09a4a202c81`.
+Its header checksum passes; source-to-binary provenance and instruction
+equivalence have not been established.
+
+Mini Mario is not playable yet. Full state dispatch, world collision,
+lifecycle, graphics, audio and menu integration remain, along with an
+innate wall-grab if traversal requires it. No native RAM or code allocation,
+helper need, stage clear or nightly update is claimed.
 Credit Mico27, with Michirin credited for upstream music/sound.
