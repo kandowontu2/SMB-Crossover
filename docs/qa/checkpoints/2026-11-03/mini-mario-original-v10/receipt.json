@@ -1,0 +1,26 @@
+{
+  "passed": true,
+  "parameter_binding_only": true,
+  "visual_boot_qualified": false,
+  "original_GB_ROM_SHA256": "837d39a438f85c5b3ef32c4e41c6c4403147046a7e93bdeac039a09a4a202c81",
+  "archive_SHA256": "dd580e399407d041ac4a5330205f672267ebc4062edecf3a297988e5be121e6e",
+  "archive_bytes": 6989,
+  "frames": 1200,
+  "parameter_address": 56350,
+  "screenshot_review": "The single original-GB screenshot was viewed and is black. It is retained as a visual limitation; no successful gameplay/visual boot, NES admission or graphics fidelity claim is made.",
+  "scope": "Controller-only originalGB reference, exact22B live parameter block atDC1E found uniquely at300/600/1000frames, including512heldgravity. No memory writes or state/PPU/frame dumps. This strengthens constant binding only; actualGBsource-to-binary and instruction equivalence remain open.",
+  "bindings": {
+    "tools/audit/freeze_mini_mario_original_1103_v10.py": "bbc2b1ef9fdc3e84b46fbb4c0f6a99ff2756f67de0f24188b3a1b62a118d21fe",
+    "tools/audit/check_mini_mario_original_boot_1103_v9.py": "cc2187e99d34cae203f5907cb0c193643e882cb62739909de799515e05561870",
+    "build/mini-mario-original-1103-v9/original.lua": "74f4ac7c9be1bbe97986738d3a2bacc7733625948db344558933e888d1b84011",
+    "build/mini-mario-original-1103-v9/receipt.json": "0a250f55ed3cc3073855d04f6ee820a7535b7873e7cc930c8b74c8f4adabdcc6",
+    "build/mini-mario-original-1103-v9/sessions-before.json": "a5338d955b09046ec0b16f3a9625b7955c763aae07dc722e474e6078745f932f",
+    "build/mini-mario-original-1103-v9/capture/parameter-observation.json": "15870837e7f9a91784377da055a801af3a514d95e7b849a627430e55744bd0e6",
+    "build/mini-mario-original-1103-v9/capture/original-gameboy.png": "b94d54f5eb9cb420a7a9ef13ec5940aee9719dc491db80f1fd4f65ec15a02aa0",
+    "build/mini-mario-original-1103-v9/capture/SuperMarioBrosMini-original.log": "fd6cf76c9b40d35543a0ec0651fcc2af53c13d3714374b44f34760374a803cac"
+  },
+  "source_files": [
+    "tools/audit/freeze_mini_mario_original_1103_v10.py",
+    "tools/audit/check_mini_mario_original_boot_1103_v9.py"
+  ]
+}

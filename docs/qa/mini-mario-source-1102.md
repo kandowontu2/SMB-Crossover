@@ -72,6 +72,14 @@ frames. The local Game Boy reference is
 Its header checksum passes; source-to-binary provenance and instruction
 equivalence have not been established.
 
+A bounded original-ROM observation subsequently found the exact 22-byte
+parameter block uniquely at Game Boy CPU address `$DC1E`, at frames 300,
+600 and 1000. This confirms the live constants, including held gravity
+512. The single screenshot is black and has been retained as a limitation;
+the observation does not certify successful visual boot or gameplay.
+Its compact packet is
+`docs/qa/checkpoints/2026-11-03/mini-mario-original-v10` (6,989 bytes).
+
 Mini Mario is not playable yet. Full state dispatch, world collision,
 lifecycle, graphics, audio and menu integration remain, along with an
 innate wall-grab if traversal requires it. No native RAM or code allocation,
