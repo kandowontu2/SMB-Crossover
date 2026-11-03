@@ -1,0 +1,369 @@
+{
+  "passed": true,
+  "source_and_native_checkpoint": true,
+  "ROM_sha256": "9cf99b438e6f5bc614dc4ccc433707a3796702b7f33a04318a428a1155397f15",
+  "ROM_copied": false,
+  "installed_by_producer": false,
+  "Bub_full1_1_passed": true,
+  "Bob_full1_1_passed": false,
+  "Bob_v42_native_pending": true,
+  "helpers_added": false,
+  "scope": "One direct-input v36+ supplement, sourceCPU+actualBubfullstage/v37negative/Bobv39rearmnegative. Pendingv42 capture deliberately excluded. Original18Blanding/nativebinary exact source remains durablev27; v29-v35 inputs remainv35. No nested archives/fullROMs or historical source-tree rehydration. Root owns actualDownloadsdelivery/release proof separately.",
+  "archive": "build/bub-menu-candidate-1102-v2/landing-fullstage-source-v44.zip",
+  "archive_SHA256": "269dedb9ffda1c200386e508854f74e10cf48e6a98c4f1bdc82ed59822354a26",
+  "archive_bytes": 249911,
+  "previous_source_archive": "build/bub-menu-candidate-1102-v2/landing-current-supplement-v35.zip",
+  "previous_source_archive_SHA256": "41ca85f81278f25fe33349193e196134456abd1617006caa11826625805fb857",
+  "terminal_runs": [
+    {
+      "path": "build/bub-menu-candidate-1102-v2/native-current-landing-bub-full11-reachable-pit/capture",
+      "ROM_sha256": "9cf99b438e6f5bc614dc4ccc433707a3796702b7f33a04318a428a1155397f15",
+      "passed": false,
+      "full_stage": false,
+      "reason": "Source route stationary500Main without a completed crossing",
+      "x": 2961,
+      "y": 54,
+      "maximum_x": 2963,
+      "completed_Main": 5273,
+      "physical_frames": 11920,
+      "checks": 61975,
+      "failures": 0,
+      "lives": [
+        2,
+        2
+      ],
+      "pops": 17,
+      "original_rides": 6
+    },
+    {
+      "path": "build/bub-menu-candidate-1102-v2/native-current-landing-bub-full11-castle-stairs/capture",
+      "ROM_sha256": "9cf99b438e6f5bc614dc4ccc433707a3796702b7f33a04318a428a1155397f15",
+      "passed": true,
+      "full_stage": true,
+      "reason": "actual-active1-2-all-four-pipes-three-pits",
+      "x": 40,
+      "y": 48,
+      "maximum_x": 3158,
+      "completed_Main": 5257,
+      "physical_frames": 13471,
+      "checks": 61844,
+      "failures": 0,
+      "lives": [
+        2,
+        2
+      ],
+      "pops": 17,
+      "original_rides": 6
+    },
+    {
+      "path": "build/bub-menu-candidate-1102-v2/native-current-landing-bob-full11-castle-stairs/capture",
+      "ROM_sha256": "9cf99b438e6f5bc614dc4ccc433707a3796702b7f33a04318a428a1155397f15",
+      "passed": false,
+      "full_stage": false,
+      "reason": "Bounded source shot rearm",
+      "x": 647,
+      "y": 176,
+      "maximum_x": 670,
+      "completed_Main": 1066,
+      "physical_frames": 2965,
+      "checks": 12473,
+      "failures": 0,
+      "lives": [
+        2,
+        2
+      ],
+      "pops": 2,
+      "original_rides": 2
+    }
+  ],
+  "files": {
+    "tools/audit/check_bub_reachable_pit_takeoff_1102_v36.py": {
+      "SHA256": "b927cbf724df04cbcdb6b950ae818062530c833e1c7631e66688d9c665af11d5",
+      "bytes": 6822
+    },
+    "tools/audit/prepare_bub_reachable_pit_native_1102_v37.py": {
+      "SHA256": "8cc4428cd048c10274c8496e1bbee9083b92f14aee81e95ca22c960dfcbaca46",
+      "bytes": 3409
+    },
+    "tools/audit/check_bub_castle_stairs_1102_v38.py": {
+      "SHA256": "2740f6a42d0e67b11944e123e2dca54030ff57e4fbfbfe7a88ce15d701d6c4e8",
+      "bytes": 7089
+    },
+    "tools/audit/prepare_bub_castle_stairs_native_1102_v39.py": {
+      "SHA256": "17c340655d28f71e9eef17cc20f5f861b4c37cd53a010e66382743ccec57fcbc",
+      "bytes": 5577
+    },
+    "tools/audit/check_bob_reachable_rearm_1102_v41.py": {
+      "SHA256": "f73f0c90abb0c560adff88a8cea901de0f340adbba0624bf6581c4f1b36cbc8d",
+      "bytes": 6904
+    },
+    "tools/audit/prepare_bob_reachable_rearm_native_1102_v42.py": {
+      "SHA256": "8264c08029004fb23cc5c920581551cf68cce476daaf102515d2d78862b890e6",
+      "bytes": 5947
+    },
+    "tools/audit/freeze_bub_fullstage_source_1102_v44.py": {
+      "SHA256": "ed7a45c5501e124ad0dbd210ebeddde5fa214c542f151f6c3494c563f00618bb",
+      "bytes": 5765
+    },
+    "tools/audit/deliver_bub_landing_full11_1102_v40.py": {
+      "SHA256": "2cffc3d0487b3e04a2c8cf329d5afdd2dfb65ee2051b590048a65045f0da7e61",
+      "bytes": 7172
+    },
+    "build/bub-menu-candidate-1102-v2/reachable-pit-takeoff-v36-CPU.json": {
+      "SHA256": "c50b2e99f4118fd84e3c7aadabd172b0fca570a4a4978e691b043fc725c22bb7",
+      "bytes": 6512
+    },
+    "build/bub-menu-candidate-1102-v2/castle-stairs-v38-CPU.json": {
+      "SHA256": "07013e1da40411b69a2bb3fd99d2fbb9b70659b7775ccfda437a9d8f675367db",
+      "bytes": 10298
+    },
+    "build/bub-menu-candidate-1102-v2/bob-reachable-rearm-v41-CPU.json": {
+      "SHA256": "fd6af66381bf42014989afd2acb72045f0155dc0beb2fdd7a8ce8478f53d112b",
+      "bytes": 7344
+    },
+    "build/bub-menu-candidate-1102-v2/combined-current-landing.json": {
+      "SHA256": "571d2e3119dcebd6318832f41d9c0a73fcfd0d92aa81efef9e9f181c9f7e829d",
+      "bytes": 10947
+    },
+    "build/bub-menu-candidate-1102-v2/landing-current-supplement-v35.json": {
+      "SHA256": "c543c71571a7e5db32e78c57c34ad570980f85b6a73532030372a9b0921b353c",
+      "bytes": 17856
+    },
+    "src/level_tiles.s": {
+      "SHA256": "ccfeacb8766a401c1fee7ce70125c8c3981e002855345c68a468e0748b0d1ece",
+      "bytes": 125370
+    },
+    "build/bub-menu-candidate-1102-v2/native-current-landing-bub-full11-reachable-pit/controller.lua": {
+      "SHA256": "8ffa4bf3057dad2348780cfe19f41a61e449308cd825e8fc7ce9831b1fd5e801",
+      "bytes": 58560
+    },
+    "build/bub-menu-candidate-1102-v2/native-current-landing-bub-full11-reachable-pit/ready.json": {
+      "SHA256": "3daed81d423065c1dd5d39f38f47d9386ca0874cbcdb6000e33b07d75fe433da",
+      "bytes": 4123
+    },
+    "build/bub-menu-candidate-1102-v2/native-current-landing-bub-full11-reachable-pit/run.py": {
+      "SHA256": "84d2a16b8f0b6aa7c22717f9eefbda494f21fcc0f923907384b74d63991cc49b",
+      "bytes": 1331
+    },
+    "build/bub-menu-candidate-1102-v2/native-current-landing-bob-full11-reachable-pit/controller.lua": {
+      "SHA256": "c6e72639ed6965de0a22b9717f687283b39f74c0c10b89170000c75286dead33",
+      "bytes": 58747
+    },
+    "build/bub-menu-candidate-1102-v2/native-current-landing-bob-full11-reachable-pit/ready.json": {
+      "SHA256": "7d5ef091d09865cbef1ff722d214d07ff4c790911cd01b3607e68161d9c61919",
+      "bytes": 4123
+    },
+    "build/bub-menu-candidate-1102-v2/native-current-landing-bob-full11-reachable-pit/run.py": {
+      "SHA256": "84d2a16b8f0b6aa7c22717f9eefbda494f21fcc0f923907384b74d63991cc49b",
+      "bytes": 1331
+    },
+    "build/bub-menu-candidate-1102-v2/native-current-landing-bub-full11-castle-stairs/controller.lua": {
+      "SHA256": "895e3875ab7a6fc767805b5b33912685c244bf7172e806e1ae70f6bed4ed8d12",
+      "bytes": 59445
+    },
+    "build/bub-menu-candidate-1102-v2/native-current-landing-bub-full11-castle-stairs/ready.json": {
+      "SHA256": "812a0acab6260731faab63285fc5090b7abec237e3a95f769f1cd3c0f05f39e7",
+      "bytes": 4195
+    },
+    "build/bub-menu-candidate-1102-v2/native-current-landing-bub-full11-castle-stairs/run.py": {
+      "SHA256": "84d2a16b8f0b6aa7c22717f9eefbda494f21fcc0f923907384b74d63991cc49b",
+      "bytes": 1331
+    },
+    "build/bub-menu-candidate-1102-v2/native-current-landing-bob-full11-castle-stairs/controller.lua": {
+      "SHA256": "478530f8bc0e6bc1e9e725ef778b919b91f38674a13a568a4e86fd42d215db89",
+      "bytes": 59632
+    },
+    "build/bub-menu-candidate-1102-v2/native-current-landing-bob-full11-castle-stairs/ready.json": {
+      "SHA256": "b48e7093b12224eb16803f3768d0139e0e3f273960fdcb11718330f8e4143a0f",
+      "bytes": 4195
+    },
+    "build/bub-menu-candidate-1102-v2/native-current-landing-bob-full11-castle-stairs/run.py": {
+      "SHA256": "84d2a16b8f0b6aa7c22717f9eefbda494f21fcc0f923907384b74d63991cc49b",
+      "bytes": 1331
+    },
+    "build/bub-menu-candidate-1102-v2/native-current-landing-bob-full11-source-wall/controller.lua": {
+      "SHA256": "c76d29d897bc6e492c4b0268f9dc14500db14f7d954c6f848201a64f69138e06",
+      "bytes": 61582
+    },
+    "build/bub-menu-candidate-1102-v2/native-current-landing-bob-full11-source-wall/ready.json": {
+      "SHA256": "50e76b47c43a526895f475227f9ae6597d3f68683e869feca8fe3318dc6fb1c1",
+      "bytes": 4243
+    },
+    "build/bub-menu-candidate-1102-v2/native-current-landing-bob-full11-source-wall/run.py": {
+      "SHA256": "84d2a16b8f0b6aa7c22717f9eefbda494f21fcc0f923907384b74d63991cc49b",
+      "bytes": 1331
+    },
+    "build/bub-menu-candidate-1102-v2/native-current-landing-bub-full11-reachable-pit/capture/binding.json": {
+      "SHA256": "56a12d38b07eea8ce80783fe3510a68342ed03cabe8c06912fc9a0764df79994",
+      "bytes": 196
+    },
+    "build/bub-menu-candidate-1102-v2/native-current-landing-bub-full11-reachable-pit/capture/bub-observer.json": {
+      "SHA256": "190d09a925fa1ed17aa0daf2b547cdd26de5be610724386a35b43849d3e97301",
+      "bytes": 14288
+    },
+    "build/bub-menu-candidate-1102-v2/native-current-landing-bub-full11-reachable-pit/capture/callback-error.json": {
+      "SHA256": "159425ebbf1e8dccc8997d2b0618ca23979b0b37b38f190db1b6918696f05700",
+      "bytes": 293
+    },
+    "build/bub-menu-candidate-1102-v2/native-current-landing-bub-full11-reachable-pit/capture/capture-budget.json": {
+      "SHA256": "8931c03a2ffa7c67b21ebb70446f6402d70ed4fec48bae350ee242682ed0354e",
+      "bytes": 1378
+    },
+    "build/bub-menu-candidate-1102-v2/native-current-landing-bub-full11-reachable-pit/capture/combined-current-landing-controller.log": {
+      "SHA256": "aa1cb3b587be572b44eef0a25f010366756c0d8d4c5d40d52720df2fb9ac04da",
+      "bytes": 4560
+    },
+    "build/bub-menu-candidate-1102-v2/native-current-landing-bub-full11-reachable-pit/capture/full11-cold-spawn.png": {
+      "SHA256": "658b6cc846ac3c0a159714ae818446998027b88555f99c7a62d5d5a2097b84d4",
+      "bytes": 2202
+    },
+    "build/bub-menu-candidate-1102-v2/native-current-landing-bub-full11-reachable-pit/capture/full11.json": {
+      "SHA256": "161ca5ec560e1f003d98ed35ff2021241fb2ea1510bb78fcbd2fa7e33ac186ac",
+      "bytes": 225643
+    },
+    "build/bub-menu-candidate-1102-v2/native-current-landing-bub-full11-reachable-pit/capture/observations.csv": {
+      "SHA256": "79f3731d369526c40c6019ae15279d5e2bb7b585cf0876d43ffcca1f451eecd1",
+      "bytes": 381
+    },
+    "build/bub-menu-candidate-1102-v2/native-current-landing-bub-full11-reachable-pit/capture/original-ride-third64px-pipe.png": {
+      "SHA256": "600adba08a8b45be6efce8921724961ed784730b1a11520081cddb5e6db98f06",
+      "bytes": 2410
+    },
+    "build/bub-menu-candidate-1102-v2/native-current-landing-bub-full11-reachable-pit/capture/route.csv": {
+      "SHA256": "f2332566225ef52ab7bf0abaea05c90c71e757ba32dc7e7796a69481d31ceb66",
+      "bytes": 28096
+    },
+    "build/bub-menu-candidate-1102-v2/native-current-landing-bub-full11-reachable-pit/capture/session-before.json": {
+      "SHA256": "1f6d638ded65e406425d5bc6c64abc4b78d17476efc7ca15edcf2059b439c1b4",
+      "bytes": 211
+    },
+    "build/bub-menu-candidate-1102-v2/native-current-landing-bub-full11-castle-stairs/capture/actual-active-1-2.png": {
+      "SHA256": "679ad328216aec77ef2fa9a82f573e02d4e46caa7412a816e6a4f88b02e19efc",
+      "bytes": 1689
+    },
+    "build/bub-menu-candidate-1102-v2/native-current-landing-bub-full11-castle-stairs/capture/binding.json": {
+      "SHA256": "afb32ac68b656a834be9180ec662915daae9bf0d39aa2a256c45fbd9713f585f",
+      "bytes": 196
+    },
+    "build/bub-menu-candidate-1102-v2/native-current-landing-bub-full11-castle-stairs/capture/bub-observer.json": {
+      "SHA256": "a7db58fc0b0f939843af27d3d0db26fa265d3812cda5b4664fa87102a77ad872",
+      "bytes": 14289
+    },
+    "build/bub-menu-candidate-1102-v2/native-current-landing-bub-full11-castle-stairs/capture/capture-budget.json": {
+      "SHA256": "0780bf1753080440672dced49cc7ee712bd9dc7acfb9f93a49b6894c9281aecd",
+      "bytes": 1379
+    },
+    "build/bub-menu-candidate-1102-v2/native-current-landing-bub-full11-castle-stairs/capture/combined-current-landing-controller.log": {
+      "SHA256": "ad18fd4e8ef245274ae98f94cc7267b7c663cddf0e7ded57b675b63aee50c32a",
+      "bytes": 4085
+    },
+    "build/bub-menu-candidate-1102-v2/native-current-landing-bub-full11-castle-stairs/capture/full11-cold-spawn.png": {
+      "SHA256": "658b6cc846ac3c0a159714ae818446998027b88555f99c7a62d5d5a2097b84d4",
+      "bytes": 2202
+    },
+    "build/bub-menu-candidate-1102-v2/native-current-landing-bub-full11-castle-stairs/capture/full11.json": {
+      "SHA256": "f9a74e0890e33d52f67813a25f7a7d032fdcf7d94e882d66da3be7b86d59a112",
+      "bytes": 234267
+    },
+    "build/bub-menu-candidate-1102-v2/native-current-landing-bub-full11-castle-stairs/capture/near-castle.png": {
+      "SHA256": "e63dd619ca9b7a8295c963a184d42a15b4cd29631bd40bdd1615b6106eda6916",
+      "bytes": 2875
+    },
+    "build/bub-menu-candidate-1102-v2/native-current-landing-bub-full11-castle-stairs/capture/observations.csv": {
+      "SHA256": "79f3731d369526c40c6019ae15279d5e2bb7b585cf0876d43ffcca1f451eecd1",
+      "bytes": 381
+    },
+    "build/bub-menu-candidate-1102-v2/native-current-landing-bub-full11-castle-stairs/capture/original-ride-third64px-pipe.png": {
+      "SHA256": "600adba08a8b45be6efce8921724961ed784730b1a11520081cddb5e6db98f06",
+      "bytes": 2410
+    },
+    "build/bub-menu-candidate-1102-v2/native-current-landing-bub-full11-castle-stairs/capture/result.json": {
+      "SHA256": "44958275e23c04af080bf78ef9c7c3d8a7325c5c476b683d7cdddcddee640a1a",
+      "bytes": 234
+    },
+    "build/bub-menu-candidate-1102-v2/native-current-landing-bub-full11-castle-stairs/capture/route.csv": {
+      "SHA256": "5ed2ec1c0f9ec150ba59f7c2ad8aac958e636bfd18ef72f747a2312e8785a947",
+      "bytes": 28120
+    },
+    "build/bub-menu-candidate-1102-v2/native-current-landing-bub-full11-castle-stairs/capture/session-before.json": {
+      "SHA256": "a5338d955b09046ec0b16f3a9625b7955c763aae07dc722e474e6078745f932f",
+      "bytes": 4
+    },
+    "build/bub-menu-candidate-1102-v2/native-current-landing-bob-full11-castle-stairs/capture/binding.json": {
+      "SHA256": "9cafd3c39a9f1c23db90466a32f1166bfe680c051f93df98be93fad22e721c00",
+      "bytes": 196
+    },
+    "build/bub-menu-candidate-1102-v2/native-current-landing-bob-full11-castle-stairs/capture/bub-observer.json": {
+      "SHA256": "617306a6c7b350daf5c9e65f2bcdca25e6de2cdf61e5e3780e41ddbe63545df2",
+      "bytes": 4947
+    },
+    "build/bub-menu-candidate-1102-v2/native-current-landing-bob-full11-castle-stairs/capture/callback-error.json": {
+      "SHA256": "eea2aa7962a95e5dd901ddb8daff7a95e8311c7992ec0a3056e474bb43417583",
+      "bytes": 257
+    },
+    "build/bub-menu-candidate-1102-v2/native-current-landing-bob-full11-castle-stairs/capture/capture-budget.json": {
+      "SHA256": "132dc258ddf371bcaaeb730cf8f0e269e6db923e390d0719ff8b31167ec8eec1",
+      "bytes": 1378
+    },
+    "build/bub-menu-candidate-1102-v2/native-current-landing-bob-full11-castle-stairs/capture/combined-current-landing-controller.log": {
+      "SHA256": "518ffb060fe7eb29c204ada1f74bebaa9e250c528439735fc77a40970655b228",
+      "bytes": 4424
+    },
+    "build/bub-menu-candidate-1102-v2/native-current-landing-bob-full11-castle-stairs/capture/full11-cold-spawn.png": {
+      "SHA256": "739bb0e929b6853269495fb5c695fb9b0fcfcddac10b37d33545b0ce2e280fa4",
+      "bytes": 2188
+    },
+    "build/bub-menu-candidate-1102-v2/native-current-landing-bob-full11-castle-stairs/capture/full11.json": {
+      "SHA256": "afb24a02eee645be043300d108d48502c883449d750c4e81166083cec7e90e3d",
+      "bytes": 144623
+    },
+    "build/bub-menu-candidate-1102-v2/native-current-landing-bob-full11-castle-stairs/capture/observations.csv": {
+      "SHA256": "adfe02a09173fe8e40544aa44445522e3251297fcc84c09dcb3b54f1a88a347b",
+      "bytes": 435
+    },
+    "build/bub-menu-candidate-1102-v2/native-current-landing-bob-full11-castle-stairs/capture/route.csv": {
+      "SHA256": "c907c2d83edb4c7f566e19c4bd3ab23af4c0671b56e37606f12b768f1e9fc2c8",
+      "bytes": 4890
+    },
+    "build/bub-menu-candidate-1102-v2/native-current-landing-bob-full11-castle-stairs/capture/session-before.json": {
+      "SHA256": "a5338d955b09046ec0b16f3a9625b7955c763aae07dc722e474e6078745f932f",
+      "bytes": 4
+    }
+  },
+  "exact_capture_files_safe_to_remove_only_after_root_archive_bytecomparison": [
+    "build/bub-menu-candidate-1102-v2/native-current-landing-bub-full11-reachable-pit/capture/binding.json",
+    "build/bub-menu-candidate-1102-v2/native-current-landing-bub-full11-reachable-pit/capture/bub-observer.json",
+    "build/bub-menu-candidate-1102-v2/native-current-landing-bub-full11-reachable-pit/capture/callback-error.json",
+    "build/bub-menu-candidate-1102-v2/native-current-landing-bub-full11-reachable-pit/capture/capture-budget.json",
+    "build/bub-menu-candidate-1102-v2/native-current-landing-bub-full11-reachable-pit/capture/combined-current-landing-controller.log",
+    "build/bub-menu-candidate-1102-v2/native-current-landing-bub-full11-reachable-pit/capture/full11-cold-spawn.png",
+    "build/bub-menu-candidate-1102-v2/native-current-landing-bub-full11-reachable-pit/capture/full11.json",
+    "build/bub-menu-candidate-1102-v2/native-current-landing-bub-full11-reachable-pit/capture/observations.csv",
+    "build/bub-menu-candidate-1102-v2/native-current-landing-bub-full11-reachable-pit/capture/original-ride-third64px-pipe.png",
+    "build/bub-menu-candidate-1102-v2/native-current-landing-bub-full11-reachable-pit/capture/route.csv",
+    "build/bub-menu-candidate-1102-v2/native-current-landing-bub-full11-reachable-pit/capture/session-before.json",
+    "build/bub-menu-candidate-1102-v2/native-current-landing-bub-full11-castle-stairs/capture/actual-active-1-2.png",
+    "build/bub-menu-candidate-1102-v2/native-current-landing-bub-full11-castle-stairs/capture/binding.json",
+    "build/bub-menu-candidate-1102-v2/native-current-landing-bub-full11-castle-stairs/capture/bub-observer.json",
+    "build/bub-menu-candidate-1102-v2/native-current-landing-bub-full11-castle-stairs/capture/capture-budget.json",
+    "build/bub-menu-candidate-1102-v2/native-current-landing-bub-full11-castle-stairs/capture/combined-current-landing-controller.log",
+    "build/bub-menu-candidate-1102-v2/native-current-landing-bub-full11-castle-stairs/capture/full11-cold-spawn.png",
+    "build/bub-menu-candidate-1102-v2/native-current-landing-bub-full11-castle-stairs/capture/full11.json",
+    "build/bub-menu-candidate-1102-v2/native-current-landing-bub-full11-castle-stairs/capture/near-castle.png",
+    "build/bub-menu-candidate-1102-v2/native-current-landing-bub-full11-castle-stairs/capture/observations.csv",
+    "build/bub-menu-candidate-1102-v2/native-current-landing-bub-full11-castle-stairs/capture/original-ride-third64px-pipe.png",
+    "build/bub-menu-candidate-1102-v2/native-current-landing-bub-full11-castle-stairs/capture/result.json",
+    "build/bub-menu-candidate-1102-v2/native-current-landing-bub-full11-castle-stairs/capture/route.csv",
+    "build/bub-menu-candidate-1102-v2/native-current-landing-bub-full11-castle-stairs/capture/session-before.json",
+    "build/bub-menu-candidate-1102-v2/native-current-landing-bob-full11-castle-stairs/capture/binding.json",
+    "build/bub-menu-candidate-1102-v2/native-current-landing-bob-full11-castle-stairs/capture/bub-observer.json",
+    "build/bub-menu-candidate-1102-v2/native-current-landing-bob-full11-castle-stairs/capture/callback-error.json",
+    "build/bub-menu-candidate-1102-v2/native-current-landing-bob-full11-castle-stairs/capture/capture-budget.json",
+    "build/bub-menu-candidate-1102-v2/native-current-landing-bob-full11-castle-stairs/capture/combined-current-landing-controller.log",
+    "build/bub-menu-candidate-1102-v2/native-current-landing-bob-full11-castle-stairs/capture/full11-cold-spawn.png",
+    "build/bub-menu-candidate-1102-v2/native-current-landing-bob-full11-castle-stairs/capture/full11.json",
+    "build/bub-menu-candidate-1102-v2/native-current-landing-bob-full11-castle-stairs/capture/observations.csv",
+    "build/bub-menu-candidate-1102-v2/native-current-landing-bob-full11-castle-stairs/capture/route.csv",
+    "build/bub-menu-candidate-1102-v2/native-current-landing-bob-full11-castle-stairs/capture/session-before.json"
+  ]
+}

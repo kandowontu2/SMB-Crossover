@@ -66,3 +66,18 @@ all colors this way needs three palette groups and as many as nine sprites
 on one scanline (17 total body sprites). Native enemy-palette coexistence,
 CHR mapping and overflow handling need resolution before use in the game.
 Receipt: `build/sonic-sms-sprite-layers-1102-v21/receipt.json`.
+
+V22 translates the original post-velocity pose choice and hard velocity/top
+limits. Actual donor instructions match in 5,632 pose cases and 66,560 cap
+cases, including every unsigned Y coordinate and all velocity pixel bytes.
+The original pose test continues only when the absolute fractional/pixel
+word is strictly greater than `0100`; airborne rolling and the `85` flag
+mask retain their precedence. The velocity caps change only the pixel
+bytes, preserving fractions and high bytes. The top clamp preserves the
+fractional Y coordinate. These two leaves add 115 bytes, bringing the
+private component to 4,471 bytes. Receipt:
+`build/sonic-sms-post-velocity-1102-v22/receipt.json`.
+
+This still does not compose the complete original Main or establish its
+call order in the host. Native world queries, lifecycle, rendering, audio
+and allocation remain open; no Sonic roster admission is claimed.

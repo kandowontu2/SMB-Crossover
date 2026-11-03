@@ -40,7 +40,8 @@
     "verified": "Exact full donor reproduction; horizontal velocity/sign clamp9928cases, vertical velocity/bounce6688cases, walk/roll animation clock10496cases, nonrolling jump latch/gravity17408cases and24button episodes. Roll admission8192cases, right and left input2228cases each, coasting4300cases, unified normal-body horizontal caller4096cases covering all256 active-low input bytes. Unified component487B; private CPU fixtures only. Rolling caller verified in 9764 original-Z80/compiled6502 cases, including 1060 stationary camera paths; combined791B,128-270cycles. build/sonic-sms-rolling-1102-v12/receipt.json. Rolling jump admission/shared gravity verified14848cases+24button episodes; component178B (69B added),39-103cycles. build/sonic-sms-rolling-jump-1102-v13/receipt.json. Unified normal/rolling X and Y selection/commit1093B verified5632cases,403-549cycles; build/sonic-sms-motion-1102-v14/receipt.json. Position integrator8292actualdonor/6502cases passes;1154B unifiedcomponent,64cycleXYintegration; build/sonic-sms-position-1102-v15/receipt.json.",
     "remaining": "Compose full Main/world terrain queries/render/audio/host lifecycle and obtain allocation; no playable Sonic admission or nightly claim.",
     "graphics_proposal": "V21 exactROM84frames/64512pixels roundtrip throughNES2bpp layers,783unique8x16pairs/25056B. Actualsourceatlasviewed;29of42pairs exactmirrors. Full7colorproposalneeds3palettegroups/max9spritesperscanline/17bodyOAM, so nativepalette/enemycoexistence/overflow/CHRmap unresolved; no rendereradmission. build/sonic-sms-sprite-layers-1102-v21/receipt.json",
-    "terrain_followup": "V16 resolved original contact cores PASS5120 actual-instruction cases,1559B. V17 lossless47flag/fourdirection shape lookup PASS10112cases,46unique32Bshapes,3529B cumulative. V18 composed X/Y shape+contact PASS4096cases/8192calls,90..343cycles per axis. V19 actual original four-mode physics selector and Down-roll ingress PASS16384cases,3774B cumulative/153..230cycles. V20 original25animationstreams/frame reset/loops/ordinary+speedclock PASS2382cases+231invalidrejects,4356B cumulative/100..189cycles. Caller still supplies original zone flag; full Main/world adapter/pose selection/CHR/OAM/audio/native admission incomplete. docs/qa/sonic-sms-contact-shapes-1102.md"
+    "terrain_followup": "V16 resolved original contact cores PASS5120 actual-instruction cases,1559B. V17 lossless47flag/fourdirection shape lookup PASS10112cases,46unique32Bshapes,3529B cumulative. V18 composed X/Y shape+contact PASS4096cases/8192calls,90..343cycles per axis. V19 actual original four-mode physics selector and Down-roll ingress PASS16384cases,3774B cumulative/153..230cycles. V20 original25animationstreams/frame reset/loops/ordinary+speedclock PASS2382cases+231invalidrejects,4356B cumulative/100..189cycles. Caller still supplies original zone flag; full Main/world adapter/pose selection/CHR/OAM/audio/native admission incomplete. docs/qa/sonic-sms-contact-shapes-1102.md",
+    "post_velocity_followup": "V22 actual original4BF5..4C28/5280 and4CCB..4D05 versus6502 PASS5632pose+66560cap cases. Original abs-word strictly>0100 pose condition, airborne rolling/85 mask, signed pixel-only velocity caps and all65536unsigned Y top clamps/fraction retention. Private component4471B/+115; fullMain/nativeworld/lifecycle/render/audio/admission incomplete. build/sonic-sms-post-velocity-1102-v22/receipt.json"
   },
   "arthur_natural_powerup_followup": {
     "ROM_sha256": "d8a87050beefefe96869ebd4d188beeb52733241cd2c0fa64392a55ec8ebca05",
@@ -111,19 +112,19 @@
   },
   "installed_nightly": {
     "installed": true,
-    "ROM_sha256": "16a9de64b18370a03885ff503141fc08edd25f3bd026d480854a1754efa1490b",
-    "destination": "C:/Users/kando/Downloads/SMB-Crossover-Latest-WIP-MMC5.nes",
+    "ROM_sha256": "9cf99b438e6f5bc614dc4ccc433707a3796702b7f33a04318a428a1155397f15",
+    "destination": "C:\\Users\\kando\\Downloads\\SMB-Crossover-Latest-WIP-MMC5.nes",
     "backup_created": false,
     "downloads_launch_verified": true,
-    "verification_scope": "Sunny private candidate and actual Downloads full non-shortcut Hard1-1 into active1-2 without life loss. Original late-render negatives retained; palette cache and typed prelude tests pass, unchanged native deadline/DMA/CHR/IRQ/stack guards pass. Other roster, allpowerups and bothmodes remain incomplete.",
-    "receipt": "build/sunny-delivery-1102-v9/published-receipt.json",
-    "checkpoint": "docs/qa/checkpoints/2026-11-02/sunny-palette-v9",
     "release_tag": "Current",
     "release_is_latest": true,
     "sole_asset": "SMB-Crossover-Latest-WIP-MMC5.ips",
-    "IPS_SHA256": "6ef620d62c4eff2aabc9bfd2dc553963fb37bf6bfdf74b56e71e235006e4b114",
+    "IPS_SHA256": "08ac42e7613f8d236c621713bee7f1c4b280e991b692cf5f3e84f936a73630ec",
     "IPS_roundtrip": true,
-    "patch_guards": "CLI before/after pass; no same-name patches. Latest API one asset digestmatches."
+    "verification_scope": "Bub candidate andactualDownloadsHardfull1-1 PASS13471physical/5257Main/lives2to2/61844checks0failures. BobcandidateHardfull1-1 PASS13513physical/5253Main/lives2to2/61696checks0failures,sameinstalled9cf. Both4pipes/3gaps,no newhelpers. DownloadsBobfullroute notrun; roster/allpowerup/audio/performance remainincomplete.",
+    "receipt": "build/bub-root-delivery-1102-v43/published-receipt.json",
+    "checkpoint": "docs/qa/checkpoints/2026-11-02/bub-landing-delivery-v43",
+    "patch_guards": "Before/after andpostDownloadsPASS,nosame-namepatches;LatestAPIsoleassetdigestmatches"
   },
   "previous_installed_nightly_bub_613b": {
     "installed": true,
@@ -247,7 +248,7 @@
     "excitebike": {
       "installed": true,
       "ROM_sha256": "cf1412eb78ed6531d2f7478c9790f96314a95f2f3fdd6c2b80bfbefd24fca3a8",
-      "verified": "Excitebike original timer divider, cooling, lane and throttle release restored. Controls, native 61px jump, graphics and real overheat recovery pass on this exact candidate. Actual Downloads repeats the earned overheat \u2192 recovery 5 \u2192 0 \u2192 resumed motion, lives 2 \u2192 2. Full 1-1 reaches active 1-2 in 6996 physical frames, all four pipes and three gaps, lives 2 \u2192 2, no helpers. Arthur weapon fix bytes are retained; its full-stage proof remains attached to parent d8a87050.",
+      "verified": "Excitebike original timer divider, cooling, lane and throttle release restored. Controls, native 61px jump, graphics and real overheat recovery pass on this exact candidate. Actual Downloads repeats the earned overheat → recovery 5 → 0 → resumed motion, lives 2 → 2. Full 1-1 reaches active 1-2 in 6996 physical frames, all four pipes and three gaps, lives 2 → 2, no helpers. Arthur weapon fix bytes are retained; its full-stage proof remains attached to parent d8a87050.",
       "full_stage": true,
       "helpers_added": false,
       "remaining": "Shortcut, every earned powerup and original audio remain incomplete."
@@ -2918,13 +2919,17 @@
   "bub_landing_followup_1102": {
     "private_candidate_SHA256": "be8095fd18cbb3f1d2eac96a20c6600c16acb7e86052c04e18f0fe75b22c8d55",
     "candidate": "build/bub-menu-candidate-1102-v2/combined-landing.nes",
-    "status": "CPU_LANDING_PASS_NATIVE_ROUTE_NEGATIVE",
+    "status": "DELIVERED_BUB_AND_BOB_FULL11_CANDIDATE_PASS_DOWNLOADS_BUB_PASS",
     "review": "Rootread18Bnative-support/originalD41Creset,10Bdeadtelemetry,8Bspare; verified10bindings and3exactpreimages toexpectedSHA. Privatecompositionauthorized, no newRAM/pages. Bub/Bob source5434Bunchanged.",
     "native": "v21 rearmbound;v22 realinjury atx872. v23 actualLua1sec watchdog retained. v24 controller/intercept fix passes4pipes/2pits/natural15pops/lives2, stallsbeforelaststair. v26 reachesX2369 healthy/lives2 but repeats43pxjumps withoutXadvance. v28 observer-only diagnostic terminal expectednegative after6repeatedjumps; session20735. Helper inspecting actualtilequeries, backwardsXwriter and takeoff state. Bobheld; nofull11pass, nightlyunchanged.",
     "source_checkpoint": "docs/qa/checkpoints/2026-11-02/bub-landing-v27; rootverifiedall75files/live+ZIP, SHA538bdcdc681ba01a7ecd8aacf6dce10f4906dd96247da59e818f256b8c19eb0d. BothflattenedASMs relinkbyteexact. Source/proofs/negatives only; solePNG CPUfacingraster; noROM/captureforest.",
-    "current_rebase": "Rootreviewedv32recipe/allbindings andemitted private build/bub-menu-candidate-1102-v2/combined-current-landing.nes SHA9cf99b438e6f5bc614dc4ccc433707a3796702b7f33a04318a428a1155397f15. Exact3Bubspans/370Bdelta preserveSunnyfivepatches; noinstall/fullstagepassyet.",
+    "current_rebase": "Current9cf installed/published; exact3Bubspans370B preserveSunnyfivepatches.",
     "later_native": "v31 all4firststairs pass butfinaledgefall; v34current9cf repeatsfall withdecisive48edgeobservations. ActualX2443native0/source0, next2445native2, so4pxprobe missedreachablegroundtakeoff; source2hypothesis disproven. v37current9cf finalpitactualsupported2443/2473jumps→2502/Y128PASS; all4pipes/3truepits and2laterpipes passed, thenfinalcastlestairX2961stalls/lives2/source0failures. Session23977terminalexit1. Helperqualifyingfinalcastle staircase with actualAreaParserCore beforefreshcontroller.",
-    "evidence_cleanup": "Root verified58v35ZIPmembers againstlivebytes andcopied docs/qa/checkpoints/2026-11-02/bub-landing-v35 (41ca85f81278f25fe33349193e196134456abd1617006caa11826625805fb857). Exact33terminalv28/v31/v34loosecapturefiles removedafterbytecompare; their oldcapturepaths are no longerlive. NewrecipesreadZIPentriesinmemory. NoROM/movie/recursivetreecopy."
+    "evidence_cleanup": "Root verified58v35ZIPmembers againstlivebytes andcopied docs/qa/checkpoints/2026-11-02/bub-landing-v35 (41ca85f81278f25fe33349193e196134456abd1617006caa11826625805fb857). Exact33terminalv28/v31/v34loosecapturefiles removedafterbytecompare; their oldcapturepaths are no longerlive. NewrecipesreadZIPentriesinmemory. NoROM/movie/recursivetreecopy.",
+    "full11": "Bubv39 candidate8206 andactualDownloads42616 PASS13471physical/5257Main/lives2to2active1-2,61844source/hardwarechecks0failures. Nohelpers. Bobv39negative56789 reachableleftwall647 prevents644rearm; v42originalsource-orderproof qualifiesfreshRight+Bdirectly fromconfirmedrealwall. Bobv42native21471running.",
+    "delivery_checkpoint": "docs/qa/checkpoints/2026-11-02/bub-landing-delivery-v43",
+    "Bob_full11": "v42 source-wall controller originalfreshRight+B fromactual647wall;13513physical/5253Main/lives2to2active1-2/61696checks0failures/17pops/6rides,nohelpers. Candidate9cf sameinstalledbytes; actualDownloadsfullroute testedasBub. checkpointdocs/qa/checkpoints/2026-11-02/bob-full11-v45",
+    "source_supplement": "Rootverified63v44members/livehashes andpreserved docs/qa/checkpoints/2026-11-02/bub-stage-source-v44 ZIP269dedb9ffda1c200386e508854f74e10cf48e6a98c4f1bdc82ed59822354a26; historicalBobpendingclaimretained, laterpassseparate. No loosecleanup performed."
   },
   "previous_installed_nightly_thomas_d0b": {
     "installed": true,
@@ -2942,13 +2947,15 @@
     "patch_guards": "Before/after pass; no same-name patches. Latest API single asset digest matches."
   },
   "root_queue_current_1102": {
-    "status": "RUNNING_BUB_V39_CURRENT_FULL11_CASTLE_STAIRS",
+    "status": "FREE_BUB_AND_BOB_CURRENT_FULL11_PASS",
     "last_sunny_downloads": 22367,
     "last_sunny_powerups": 1231,
     "last_sunny_downloads_upgrades": 83998,
-    "last_bub": 23977,
-    "live_session": 8206,
-    "next": "Poll actualcurrent9cf Bubv39 session8206, native-current-landing-bub-full11-castle-stairs. ActualAreaParserCore208columns/fullendstairCPUbothIDs qualify3supportedretreats→3024/Y48. MatchingBobv39READYheld. Currentnightly16a9 unchanged; private9cfnotinstalled. Princeactualdeath/NMIstack+Ex37coldcarry repairsand DKJrresource/freeze/retirementproposal progressing."
+    "last_bub": 8206,
+    "live_session": null,
+    "next": "Bub andBob exact9cf full1-1 pass, installedDownloads9cf/CurrentsoleIPS retained. ActualDownloads Bub fullreplayPASS; no actualDownloads Bob claim. Helpers progress originalbridgeperformance, Prince stable native death/stack+bank ingress, DKJr admission/nativepause closure. MiniMario addedto backlog. Goal active.",
+    "last_bob": 21471,
+    "last_bub_downloads": 42616
   },
   "prince_resources_current_1102": {
     "status": "PRIVATE_EXECUTION_AND_EXACT_NATIVE_GATE_GRANTED_NO_MENU_OR_INSTALL",
@@ -2960,5 +2967,27 @@
     "later_CPU": "v67 completePlayerCtrl960updates acrossflatRight/Up/wallUp reachesrealhead/side/960sourceepochs,HP5/lives2. v68 actualfullcoldimages408poses+280edges+1754IRQ/lagNMI pass,31artpagesexact. v69 actualcontact→source85/185→nativeKill epoch20 exposesnesteddeathstackoverwriteof175..17B. v70/71 proposedpacket-scratch13Bsave improvesforeground (190totalupdates/168nativedeathupdates/lives2to1) butv72 actualFarCallCommon015A/SP136 lagNMIstillclobbersSMC. Notnative-ready. Helpermeasuringdeferralafterresidentownerframe; no newlifetimegrant.",
     "foreign_cold_negative": "DKownerfound inheritedprivatePrincev51/v54/v65 PrTypedWorker successfulEx37 commonload losescarry throughCMP38/BNE; CoColdrejectsafter414133CPU. Installed16a9 unaffected. Bothhelperscoordinatingexact+2Bcarrypreservation andcompleteactualforeigncoldtests; selectorparitywasinsufficient.",
     "remaining": "Native full1-1, powerups and audio mapping remain open. No Prince ROM emitted or admission; v65 proposedmemorySHAda4a84baf1d98e6748b80c25ba5f62e14e739c3b10c10eb83c948c778e044d05 remainsprivate."
+  },
+  "previous_installed_nightly_sunny_16a9": {
+    "installed": true,
+    "ROM_sha256": "16a9de64b18370a03885ff503141fc08edd25f3bd026d480854a1754efa1490b",
+    "destination": "C:/Users/kando/Downloads/SMB-Crossover-Latest-WIP-MMC5.nes",
+    "backup_created": false,
+    "downloads_launch_verified": true,
+    "verification_scope": "Sunny private candidate and actual Downloads full non-shortcut Hard1-1 into active1-2 without life loss. Original late-render negatives retained; palette cache and typed prelude tests pass, unchanged native deadline/DMA/CHR/IRQ/stack guards pass. Other roster, allpowerups and bothmodes remain incomplete.",
+    "receipt": "build/sunny-delivery-1102-v9/published-receipt.json",
+    "checkpoint": "docs/qa/checkpoints/2026-11-02/sunny-palette-v9",
+    "release_tag": "Current",
+    "release_is_latest": true,
+    "sole_asset": "SMB-Crossover-Latest-WIP-MMC5.ips",
+    "IPS_SHA256": "6ef620d62c4eff2aabc9bfd2dc553963fb37bf6bfdf74b56e71e235006e4b114",
+    "IPS_roundtrip": true,
+    "patch_guards": "CLI before/after pass; no same-name patches. Latest API one asset digestmatches."
+  },
+  "mini_mario_current_1102": {
+    "status": "ADDED_TO_USER_GOAL_REFERENCE_FOUND_NOT_IMPLEMENTED",
+    "reference": "https://mico27.itch.io/super-mario-bros-mini",
+    "source": "https://github.com/Mico27/SuperMarioBrosMini",
+    "requirements": "Add asMarioalternate; use originalGameBoyStudio project asreference, investigate innatewall-grab if needed fortraversal. No newcharacteradmission/sourceport yet."
   }
 }
