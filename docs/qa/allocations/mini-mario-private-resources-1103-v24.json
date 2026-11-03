@@ -1,0 +1,103 @@
+{
+  "granted": true,
+  "status": "CONDITIONAL_PRIVATE_CARRIERS_AND_OVERLAY_ONLY",
+  "owner": "Mini Mario original source port",
+  "raw_identity_reserved": 41,
+  "reviewed_parent_SHA256": "80d3ae95894f5ddb430c3e753dd95f3fc2eca6a87d8e1afdb4b8ce8376ec795a",
+  "code_pages": [
+    962,
+    963,
+    964,
+    965,
+    966
+  ],
+  "immutable_page": 967,
+  "art_page": 968,
+  "physical_preimages": [
+    {
+      "page": 962,
+      "file_offset": 2033680,
+      "bytes": 1024,
+      "SHA256": "e9e67de1bd3bd86cba342cf93fcadd30c3f48edb385938ea2cf2a661183e2c9f"
+    },
+    {
+      "page": 963,
+      "file_offset": 2034704,
+      "bytes": 1024,
+      "SHA256": "1b0d4700a8589d3ead401887d3bc026da6294eb41da82c87cb5972d259111e86"
+    },
+    {
+      "page": 964,
+      "file_offset": 2035728,
+      "bytes": 1024,
+      "SHA256": "b51adaaf27bdad6b45b7bfdab0d65e135d91c4d53da6309375187748d49178bd"
+    },
+    {
+      "page": 965,
+      "file_offset": 2036752,
+      "bytes": 1024,
+      "SHA256": "e65b7fba18b377f56973793cd5f94cf9eaa6b207d8cbbb22b54c550bfafbfc77"
+    },
+    {
+      "page": 966,
+      "file_offset": 2037776,
+      "bytes": 1024,
+      "SHA256": "1ef37108dd5cb8457dbd54ab1d517bb1c6e3bc577b47b84faa94ade6eeeef69b"
+    },
+    {
+      "page": 967,
+      "file_offset": 2038800,
+      "bytes": 1024,
+      "SHA256": "2bdc6457b1a5e2db1f1128c7c522415d384bbcfb5882c58c52f747dcc5f0387e"
+    },
+    {
+      "page": 968,
+      "file_offset": 2039824,
+      "bytes": 1024,
+      "SHA256": "8e8f7c0de6f905697f18a21fe0899ade6d04b0f99bb40f6e61bc845bb34ce61c"
+    }
+  ],
+  "conditional_RAM": {
+    "code_bank3_half_open": [
+      40960,
+      49120
+    ],
+    "original_motion_world_and_query_bank2_half_open": [
+      49664,
+      49898
+    ],
+    "host_bank2_half_open": [
+      49920,
+      49984
+    ],
+    "metadata_bank2_half_open": [
+      53248,
+      54272
+    ],
+    "headers": [
+      49120,
+      57312
+    ],
+    "shared_clock_retained": [
+      57296,
+      57299
+    ]
+  },
+  "review": "Root inspected the finite962..968 source hole, current native/descriptor/CHR tables and inherited writer closure. No blank-byte assumption: all existing Prince44/Bub9/DK11 domains, historical FF893..900, Benjamin901..914, SMB3Plus969..1018 and Karnov1019..1023 remain occupied. Exact802 inherited writer instructions,10 source-relocated WWF writes,4 explicitly retired Arthur883 writes and15 private writer chunks are bound to actual80d3.",
+  "conditions": [
+    "Exclusive bank2/3 owner. Retire foreign owners and invalidate both headers before copying; never overwrite live other-owner state. Publish both complete payload-derived16B headers after copy/readback under the established forcedblank/disabledNMI/IRQ protocol.",
+    "At most5120 code bytes across962..966. Metadata967 must keep D25E cold copier separate from animation indices D000..D160, framesD160..D239 and native attributesD300..D400. Art968 retains the exact original1024-byte Mini atlas.",
+    "No shared PRG/selector/manager/bootstrap, public raw41/menu or nightly approval is inferred. Final source-fit/full-header/private-to-native ABI/current foreign/lifecycle/IRQ proofs and actual native checks remain required.",
+    "Native first1-1 build retains original ground/jump/fall/crouch/skid source motion. Wall cling/jump, if included, is an explicit user-authorized host traversal adaptation; verify real crossings. Do not invent platform visuals or claim source actors/swim/climb already ported.",
+    "Root alone emits candidate, runs Mesen, installs Downloads without backups, verifies actual Downloads context and updates the sole Current IPS."
+  ],
+  "shared_bytes_granted": 0,
+  "ROM_emission_authorized": false,
+  "menu_admission_authorized": false,
+  "installation_authorized": false,
+  "bindings": {
+    "tools\\audit\\grant_mini_private_resources_root_1103_v24.py": "7548d919b50fc27d720576ec20218bea2f456c3327f2e9d0149eb45e3b97c335",
+    "build\\mini-mario-owner-1103-v15\\carrier-audit-v16.json": "beaef6513ec8471a60d254daacbf30808b6090cf177a378647801c9be98dac01",
+    "docs\\qa\\allocations\\combined-owner-auth-1103-v116.json": "d6c121078bf6f4e56b6993543caff5d3b986dfc1f92048e91778fdc4d10418e4"
+  }
+}

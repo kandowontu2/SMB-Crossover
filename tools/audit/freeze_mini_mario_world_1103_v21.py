@@ -1,0 +1,20 @@
+"""Compact direct Mini source-state milestone; no ROM/DBG/O/exe archive."""
+from pathlib import Path
+from zipfile import ZipFile,ZIP_DEFLATED
+import hashlib,json,sys
+sys.path.insert(0,str(Path(__file__).resolve().parent))
+import prepare_mini_mario_world_1103_v11 as W
+R,O=W.R,W.O
+SOURCES=['tools/audit/prepare_mini_mario_world_1103_v11.py','tools/audit/prepare_mini_mario_step_1103_v16.py','tools/audit/check_mini_mario_anchor_1103_v17.py','tools/audit/check_mini_mario_step_1103_v18.py','tools/audit/check_mini_mario_old_anchor_1103_v19.py','tools/audit/check_mini_mario_episodes_1103_v20.py','tools/audit/freeze_mini_mario_world_1103_v21.py','tools/reference/mini_mario_world_1103_v16.inc']
+def main():
+ r=json.loads((O/'world-step-v16.json').read_text());a=json.loads((O/'world-step-CPU-v18.json').read_text());b=json.loads((O/'world-episodes-CPU-v20.json').read_text())
+ assert a['passed']and b['passed']and a['component_SHA256']==r['SHA256']==b['component_SHA256']
+ files=[R/p for p in SOURCES]
+ files +=[O/n for n in ['selected-inputs-v11.zip','world-inputs-v11.json','motion-proposed-v11.s','motion-proposed-v11.bin','anchor-inputs-v17.zip','anchor-inputs-v17.json','anchor-old-inputs-v19.zip','anchor-old-inputs-v19.json','world-step-v16.s','world-step-v16.cfg','world-step-v16.bin','world-step-v16.lbl','world-step-v16.json','original-world-v18.c','world-step-CPU-v18.json','world-episodes-CPU-v20.json']]
+ files +=[R/'build/mini-mario-native-tile-1103-v13'/n for n in ['native-tile.s','native-attributes.bin','receipt.json']]
+ archive=O/'world-source-v21.zip'
+ with ZipFile(archive,'w',ZIP_DEFLATED,compresslevel=9)as z:
+  for p in files:z.writestr(p.relative_to(R).as_posix(),p.read_bytes())
+ out=dict(passed=True,immutable_milestone=True,native_admitted=False,ROM_written=False,archive=archive.relative_to(R).as_posix(),archive_bytes=archive.stat().st_size,archive_SHA256=W.sha(archive.read_bytes()),component=dict(bytes=r['bytes'],SHA256=r['SHA256'],exports=r['exports'],RAM_mutable_proposed=['C200..C280','C2E0..C2E9'],RAM_immutable_proposed=['D000..D100 nativeMTileAttribute'],private_Hu_dispatcher_and_host_adapters_not_included=True),proof=dict(single_step_original_C_cases=a['original_C_cases'],whole_source_updates=b['source_C_whole_step_updates'],worldX_extension_cases=b['worldX_2048_translation_cases'],coyote_max=2,buffer_max=2,normal_peak_pixels=37.5,walk_peak_pixels=40.625,run_peak_pixels=42.25,host_ZP_writes=0,headers_or_buffer_writes=0),anchor=dict(source_bounds_units='signed BYTE integerpixels from ACTIVE Mini DynamicMapPlugin collision.h',compatible_compiler_commit='6009ffa7e11de0d1e856b34ebda3477141c1a9bb',compatible_compiler_tag='v4.1.3 (source-era old API, not a binary build claim)',small_bounds=[1,6,1,7],powered_bounds=[1,6,-7,7],native_canvas_left='sourceX16.4 /16',native_canvas_top='sourceY16.4 /16 -8',native_to_source='X=nativeCanvasLeft*16; Y=(nativeCanvasTop+8)*16',source_GB_binary_gameplay_or_exact_original_compiler_proven=False,modern_4_2_compiler_subpixel_bounds_and_zero_canvasorigin_not_mixable_with_old_Mini_overrides=True),imports_remaining=['native head transaction consumes copied C25C..C263 after safe return','native death/power/pickup/contact ingress','actual native owner/public vectors/Fresh/entrance/scene/retire','native platform support plane adapter for helpers; actor_attached rejects2','native animation/CHR/palette/OAM host adapters'],scope='Functional first ground/fall/crouch/skid/jump Step. Extended climb/swim, Yoshi, original scripts, moving actor lists, source audio and native gameplay not claimed. Source head collision/snaps preserved; host block effects deferred. WorldX source8bit tile extension explicitly adapted for SMB.',git_source_files=SOURCES,members={p.relative_to(R).as_posix():dict(bytes=p.stat().st_size,SHA256=W.sha(p.read_bytes()))for p in files})
+ (O/'world-source-v21.json').write_text(json.dumps(out,indent=2)+'\n');print(json.dumps({k:out[k]for k in ['passed','archive_bytes','archive_SHA256','component','proof','git_source_files']}))
+if __name__=='__main__':main()

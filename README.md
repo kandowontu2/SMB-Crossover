@@ -6,7 +6,7 @@ A native NES adaptation of [Super Mario Bros. Crossover](https://www.smbgames.be
 
 [Player's guide](<Player Guide/SMB-Crossover-Players-Guide-NU.pdf>) · [Full roster image](docs/images/SMB-Crossover-Full-Roster.png) · [Build from source](#build-from-source) · [Report a bug](https://github.com/kandowontu2/SMB-Crossover/issues)
 
-> **In development:** the November 3 expanded MMC5 nightly has **92 selectable identities** across a **32-slot, four-row menu**. Prince of Persia is displayed but remains locked; additional requested characters are still being integrated. Menu availability does not mean every character has completed stage and powerup testing. The prepared source build currently contains 37 identities; see the build table below.
+> **In development:** the November 3 expanded MMC5 nightly has **93 selectable identities** across a **32-slot, four-row menu**. Prince of Persia is displayed but remains locked; additional requested characters are still being integrated. Menu availability does not mean every character has completed stage and powerup testing. The prepared source build currently contains 37 identities; see the build table below.
 
 <p align="center">
   <img src="docs/images/character-select.png" width="512" alt="Actual NES character-select screen with four rows of heroes and highlighted Imajin">
@@ -27,11 +27,11 @@ The title opens a separate character-select screen. Use the D-pad to highlight a
 
 ## Current roster
 
-This table describes the **92-selectable development nightly**, including work in progress. Availability follows the recorded menu confirmation tests. Prince of Persia is the remaining displayed entry that cannot start gameplay.
+This table describes the **93-selectable development nightly**, including work in progress. Availability follows the recorded menu confirmation tests. Prince of Persia is the remaining displayed entry that cannot start gameplay.
 
 | Slot | Playable now | Coming soon |
 | --- | --- | --- |
-| Mario | Mario / Luigi / Toad / Peach / Super Maaa / Kamikaze Mario / Celeste Mario / Mario the Tank | — |
+| Mario | Mario / Luigi / Toad / Peach / Super Maaa / Kamikaze Mario / Celeste Mario / Mario the Tank / Mini Mario (WIP) | — |
 | Mega Man | Mega Man / Proto Man | — |
 | Metroid | Samus / Rogue Dawn | — |
 | Contra | Bill Rizer / Lance Bean | — |
@@ -107,7 +107,7 @@ Both Bowser versions are enabled in the October 31 WIP. They have source-derived
 
 | Target | Roster | Cartridge layout | Status |
 | --- | --- | --- | --- |
-| Expanded MMC5 nightly | 92 selectable / 93 displayed identities | 1 MiB PRG + 1 MiB CHR | Includes unfinished characters; frozen source and recipes are in the checkpoint archives. |
+| Expanded MMC5 nightly | 93 selectable / 94 displayed identities | 1 MiB PRG + 1 MiB CHR | Includes unfinished characters; frozen source and recipes are in the checkpoint archives. |
 | Prepared expanded MMC5 | 37 identities | 1 MiB PRG + 1 MiB CHR | Reproduced by the commands below. |
 | Standard MMC3 / MMC5 | 14 identities in 12 slots | 512 KiB PRG + 256 KiB CHR | Smaller original roster. |
 | Oversized MMC3 | Expanded roster | 2 MiB PRG + 256 KiB CHR RAM | Experimental; feature parity and physical cartridge compatibility remain unverified. |
@@ -184,7 +184,11 @@ The chosen starting level applies when confirming a character. Invincibility doe
 
 ## Development status
 
-The latest delivered nightly is `cf7f157a` (November 3), with **92 selectable identities**. Bub and Bob now hit blocks through the real native block routine and begin with the correct power status. Both pass actual first-mushroom collection and independent full non-shortcut 1-1 runs into active 1-2, without life loss or new helpers. All four checks also pass from the actual Downloads path; the sole Latest IPS reconstructs the tested ROM. Earlier Metal Storm, Excitebike and Arthur repairs remain included, with their original verification hashes recorded separately. Full roster stages, shortcuts, every earned powerup and steady performance remain unfinished. See the [latest verification](docs/qa/checkpoints/2026-11-03/bub-earned-delivery-v99/receipt.json).
+The latest delivered nightly is `8daf59cc` (November 3), with **93 selectable identities**. Highlight Mario and press Select until **MINI MARIO** to try the new alternate. Mini uses the original Super Mario Bros Mini art and source movement, with wall cling/jump adapted for SMB terrain. A jumps, B runs, and releasing then pressing A against a wall jumps again. Cold selection, idle, walking, turning, jumping, landing and sprite/collision checks pass from the actual Downloads path. The sole Latest IPS reconstructs that exact ROM.
+
+Mini's non-shortcut 1-1 test crosses all four pipes and three gaps without life loss or helper platforms, but the flagpole/next-stage handoff did not finish within the test bound. **Full 1-1 completion remains unverified.** Powerups, original audio, swimming, other abilities and performance still need review. Work is paused after this initial unlock. See the [Mini checkpoint and remaining work](docs/qa/checkpoints/2026-11-03/mini-nightly-v46/receipt.json).
+
+Earlier Bub/Bob, Metal Storm, Excitebike and Arthur repairs remain included, with verification scoped to their recorded ROM hashes. The preceding Bub/Bob build passes first-mushroom collection and independent full non-shortcut 1-1 runs from Downloads; see its [verification](docs/qa/checkpoints/2026-11-03/bub-earned-delivery-v99/receipt.json). Full roster stages, shortcuts, every earned powerup and steady performance remain unfinished.
 
 The earlier `58e50db6` checkpoint (November 1) added native elevator assistance for Karnov's tall pipes in 1-1 and repaired moving/jumping off platforms. Its two cold controller runs clear both pipes; its menu sweep and 160 platform-manager CPU comparisons pass. Those changes and Kirby's immediate suction, inhale friction and shell repairs remain included. See the [earlier verification](docs/qa/checkpoints/2026-11-01/karnov-platform-nightly-v1/README.md).
 

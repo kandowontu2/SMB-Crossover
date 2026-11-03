@@ -1,4 +1,101 @@
 {
+  "mini_mario_priority_1103": {
+    "status": "DELIVERED_INITIAL_PLAYABLE_PAUSE_REQUESTED",
+    "user_request": "Pause after unlocking Mini Mario in the nightly.",
+    "selection": "Highlight Mario; Select until MINI MARIO (variant8/raw41).",
+    "checkpoint": "docs/qa/checkpoints/2026-11-03/mini-nightly-v46",
+    "traversal": {
+      "full_stage_passed": false,
+      "physical_bound": 22000,
+      "all_four_pipes_and_three_pits_crossed": true,
+      "crossings": [
+        {
+          "jumps": 3,
+          "kind": "pipe",
+          "left": 448,
+          "right": 480,
+          "source": 368,
+          "wall_restarts": 0,
+          "x16": 7827,
+          "y16": 2043
+        },
+        {
+          "jumps": 6,
+          "kind": "pipe",
+          "left": 608,
+          "right": 640,
+          "source": 537,
+          "wall_restarts": 1,
+          "x16": 10387,
+          "y16": 1996
+        },
+        {
+          "jumps": 9,
+          "kind": "pipe",
+          "left": 736,
+          "right": 768,
+          "source": 711,
+          "wall_restarts": 2,
+          "x16": 12435,
+          "y16": 1531
+        },
+        {
+          "jumps": 12,
+          "kind": "pipe",
+          "left": 912,
+          "right": 944,
+          "source": 901,
+          "wall_restarts": 3,
+          "x16": 15251,
+          "y16": 1531
+        },
+        {
+          "jumps": 13,
+          "kind": "pit",
+          "left": 1104,
+          "right": 1136,
+          "source": 1047,
+          "wall_restarts": 3,
+          "x16": 18317,
+          "y16": 3071
+        },
+        {
+          "jumps": 14,
+          "kind": "pit",
+          "left": 1376,
+          "right": 1424,
+          "source": 1266,
+          "wall_restarts": 3,
+          "x16": 22916,
+          "y16": 3215
+        },
+        {
+          "jumps": 26,
+          "kind": "pit",
+          "left": 2448,
+          "right": 2480,
+          "source": 2130,
+          "wall_restarts": 3,
+          "x16": 39819,
+          "y16": 1567
+        }
+      ],
+      "wall_restarts": 3,
+      "lives": [
+        2,
+        2
+      ],
+      "last_source_x": 3156.8125,
+      "remaining": "Test reached flagpole but did not verify active1-2 before bound. Terminal native mode/selection was not captured: inspect end handoff on resume; do not infer its exact cause or claim full1-1 clear."
+    },
+    "remaining": [
+      "Mini flagpole/end handoff is first resume item.",
+      "Lives/entry portrait and native end-animation coordinate synchronization need review.",
+      "Original source actors/swim/climb/projectiles, earned powerups, original audio and performance audit remain incomplete.",
+      "Prince remains locked; DK Jr remains absent from the public menu. Prince180 source cannot be applied with its old ABA9 cookie after the five-owner layout moved it toABA4."
+    ],
+    "root_queue": "FREE; all automated emulator runs terminal; helper work stopped."
+  },
   "goku_current_discovery_1102": {
     "status": "PASS_HARD_FULL_1_1_CONTROLLER_ONLY",
     "session": 84023,
@@ -112,162 +209,14 @@
   },
   "installed_nightly": {
     "installed": true,
-    "ROM_sha256": "cf7f157aa39493149b24039c190f09244ce68bc47f0a87f06f01adb47a2c70dd",
-    "previous_ROM_sha256": "9cf99b438e6f5bc614dc4ccc433707a3796702b7f33a04318a428a1155397f15",
+    "ROM_sha256": "8daf59cc958e2a3a645882ea53c6bd75e9a7c641793054f8ce534358f369a7d7",
     "destination": "C:\\Users\\kando\\Downloads\\SMB-Crossover-Latest-WIP-MMC5.nes",
     "backup_created": false,
-    "before": {
-      "passed": true,
-      "ROM": "C:\\Users\\kando\\Downloads\\SMB-Crossover-Latest-WIP-MMC5.nes",
-      "ROM_sha256": "9cf99b438e6f5bc614dc4ccc433707a3796702b7f33a04318a428a1155397f15",
-      "matching_patch_files": []
-    },
-    "after": {
-      "passed": true,
-      "ROM": "C:\\Users\\kando\\Downloads\\SMB-Crossover-Latest-WIP-MMC5.nes",
-      "ROM_sha256": "cf7f157aa39493149b24039c190f09244ce68bc47f0a87f06f01adb47a2c70dd",
-      "matching_patch_files": []
-    },
     "downloads_launch_verified": true,
-    "candidate_rows": [
-      {
-        "identity": 0,
-        "task": "mushroom",
-        "frames": 1911,
-        "completed_Main": 570,
-        "checks": 6701,
-        "failures": 0,
-        "lives": [
-          2,
-          2
-        ],
-        "helpers_added": false,
-        "packet": "build/bub-initial-tier-native-1103-v88/bub-mushroom"
-      },
-      {
-        "identity": 0,
-        "task": "full11",
-        "frames": 13460,
-        "completed_Main": 5195,
-        "checks": 61053,
-        "failures": 0,
-        "lives": [
-          2,
-          2
-        ],
-        "helpers_added": false,
-        "packet": "build/bub-initial-tier-native-1103-v88/bub-full11"
-      },
-      {
-        "identity": 1,
-        "task": "mushroom",
-        "frames": 1948,
-        "completed_Main": 568,
-        "checks": 6666,
-        "failures": 0,
-        "lives": [
-          2,
-          2
-        ],
-        "helpers_added": false,
-        "packet": "build/bub-initial-tier-native-1103-v88/bob-mushroom"
-      },
-      {
-        "identity": 1,
-        "task": "full11",
-        "frames": 13513,
-        "completed_Main": 5197,
-        "checks": 61048,
-        "failures": 0,
-        "lives": [
-          2,
-          2
-        ],
-        "helpers_added": false,
-        "packet": "build/bub-initial-tier-native-1103-v88/bob-full11"
-      }
-    ],
-    "source_scope": "Deferred actual ceiling contact and own native initial tier; donor physics retained. No new helpers. Source shoes/quick-bubble upgrades are implemented, but the later earned flower controller is not yet passing.",
-    "remaining": "Flower route, original audio fidelity, idle/walk lag reduction, Prince/DK Jr and remaining roster integrations remain in progress.",
-    "downloads_rows": [
-      {
-        "identity": 0,
-        "task": "mushroom",
-        "frames": 1911,
-        "completed_Main": 570,
-        "checks": 6701,
-        "failures": 0,
-        "lives": [
-          2,
-          2
-        ],
-        "helpers_added": false,
-        "packet": "build/bub-earned-delivery-1103-v98/downloads-bub-mushroom"
-      },
-      {
-        "identity": 0,
-        "task": "full11",
-        "frames": 13460,
-        "completed_Main": 5195,
-        "checks": 61053,
-        "failures": 0,
-        "lives": [
-          2,
-          2
-        ],
-        "helpers_added": false,
-        "packet": "build/bub-earned-delivery-1103-v98/downloads-bub-full11"
-      },
-      {
-        "identity": 1,
-        "task": "mushroom",
-        "frames": 1948,
-        "completed_Main": 568,
-        "checks": 6666,
-        "failures": 0,
-        "lives": [
-          2,
-          2
-        ],
-        "helpers_added": false,
-        "packet": "build/bub-earned-delivery-1103-v98/downloads-bob-mushroom"
-      },
-      {
-        "identity": 1,
-        "task": "full11",
-        "frames": 13513,
-        "completed_Main": 5197,
-        "checks": 61048,
-        "failures": 0,
-        "lives": [
-          2,
-          2
-        ],
-        "helpers_added": false,
-        "packet": "build/bub-earned-delivery-1103-v98/downloads-bob-full11"
-      }
-    ],
-    "post_downloads_guard": {
-      "passed": true,
-      "ROM": "C:\\Users\\kando\\Downloads\\SMB-Crossover-Latest-WIP-MMC5.nes",
-      "ROM_sha256": "cf7f157aa39493149b24039c190f09244ce68bc47f0a87f06f01adb47a2c70dd",
-      "matching_patch_files": []
-    },
-    "IPS_SHA256": "7fae59278cda3952d5b12a89670e0a623bb114a5f4fd92c3d667f13d704dd5a1",
+    "IPS_SHA256": "f93313467865afda399775fcf0f4e5cdc9b58995a81dac538b1c363c0f65877e",
     "IPS_roundtrip": true,
-    "base_SHA256": "0b3d9e1f01ed1668205bab34d6c82b0e281456e137352e4f36a9b2cfa3b66dea",
-    "IPS_bytes": 2099518,
-    "release_tag": "Current",
-    "release_is_latest": true,
-    "sole_asset": "SMB-Crossover-Latest-WIP-MMC5.ips",
-    "release_asset_digest": "sha256:7fae59278cda3952d5b12a89670e0a623bb114a5f4fd92c3d667f13d704dd5a1",
-    "final_patch_guard": {
-      "passed": true,
-      "ROM": "C:\\Users\\kando\\Downloads\\SMB-Crossover-Latest-WIP-MMC5.nes",
-      "ROM_sha256": "cf7f157aa39493149b24039c190f09244ce68bc47f0a87f06f01adb47a2c70dd",
-      "matching_patch_files": []
-    },
-    "checkpoint": "docs/qa/checkpoints/2026-11-03/bub-earned-delivery-v99"
+    "checkpoint": "docs/qa/checkpoints/2026-11-03/mini-nightly-v46",
+    "verification_scope": "Actual Downloads cold Mario Select-to-Mini, Start, idle20, walking/reversal, 35.875px held jump/landing, exact source sprite/6x7box/CHR968/OAMrotation and one-part reservation. No backups, matching sidecar patches or new helpers."
   },
   "previous_installed_nightly_bub_613b": {
     "installed": true,
@@ -397,7 +346,7 @@
       "remaining": "Shortcut, every earned powerup and original audio remain incomplete."
     }
   },
-  "goal_status": "ACTIVE_INCOMPLETE",
+  "goal_status": "PAUSED_AT_USER_REQUEST_INCOMPLETE",
   "previous_goal_turn_classification": "progress",
   "parallel_roster_followup": {
     "installed_ROM_sha256": "27dee145eead745dfe94cc6e4734a88fdd03811c7f7c3c9d1ee55e54d3057318",
@@ -3417,5 +3366,164 @@
     "current_candidate_SHA256": "6c9e85a94d34a4623d21789d5293c61af2ad14d214f5780f57613a51ae6bb25a",
     "current_lifetime_grant": "docs/qa/allocations/prince-live-lifetime-1103-v113.json",
     "current_source_checkpoint": "docs/qa/checkpoints/2026-11-03/prince-live-source-v113"
+  },
+  "previous_installed_nightly_cf7": {
+    "installed": true,
+    "ROM_sha256": "cf7f157aa39493149b24039c190f09244ce68bc47f0a87f06f01adb47a2c70dd",
+    "previous_ROM_sha256": "9cf99b438e6f5bc614dc4ccc433707a3796702b7f33a04318a428a1155397f15",
+    "destination": "C:\\Users\\kando\\Downloads\\SMB-Crossover-Latest-WIP-MMC5.nes",
+    "backup_created": false,
+    "before": {
+      "passed": true,
+      "ROM": "C:\\Users\\kando\\Downloads\\SMB-Crossover-Latest-WIP-MMC5.nes",
+      "ROM_sha256": "9cf99b438e6f5bc614dc4ccc433707a3796702b7f33a04318a428a1155397f15",
+      "matching_patch_files": []
+    },
+    "after": {
+      "passed": true,
+      "ROM": "C:\\Users\\kando\\Downloads\\SMB-Crossover-Latest-WIP-MMC5.nes",
+      "ROM_sha256": "cf7f157aa39493149b24039c190f09244ce68bc47f0a87f06f01adb47a2c70dd",
+      "matching_patch_files": []
+    },
+    "downloads_launch_verified": true,
+    "candidate_rows": [
+      {
+        "identity": 0,
+        "task": "mushroom",
+        "frames": 1911,
+        "completed_Main": 570,
+        "checks": 6701,
+        "failures": 0,
+        "lives": [
+          2,
+          2
+        ],
+        "helpers_added": false,
+        "packet": "build/bub-initial-tier-native-1103-v88/bub-mushroom"
+      },
+      {
+        "identity": 0,
+        "task": "full11",
+        "frames": 13460,
+        "completed_Main": 5195,
+        "checks": 61053,
+        "failures": 0,
+        "lives": [
+          2,
+          2
+        ],
+        "helpers_added": false,
+        "packet": "build/bub-initial-tier-native-1103-v88/bub-full11"
+      },
+      {
+        "identity": 1,
+        "task": "mushroom",
+        "frames": 1948,
+        "completed_Main": 568,
+        "checks": 6666,
+        "failures": 0,
+        "lives": [
+          2,
+          2
+        ],
+        "helpers_added": false,
+        "packet": "build/bub-initial-tier-native-1103-v88/bob-mushroom"
+      },
+      {
+        "identity": 1,
+        "task": "full11",
+        "frames": 13513,
+        "completed_Main": 5197,
+        "checks": 61048,
+        "failures": 0,
+        "lives": [
+          2,
+          2
+        ],
+        "helpers_added": false,
+        "packet": "build/bub-initial-tier-native-1103-v88/bob-full11"
+      }
+    ],
+    "source_scope": "Deferred actual ceiling contact and own native initial tier; donor physics retained. No new helpers. Source shoes/quick-bubble upgrades are implemented, but the later earned flower controller is not yet passing.",
+    "remaining": "Flower route, original audio fidelity, idle/walk lag reduction, Prince/DK Jr and remaining roster integrations remain in progress.",
+    "downloads_rows": [
+      {
+        "identity": 0,
+        "task": "mushroom",
+        "frames": 1911,
+        "completed_Main": 570,
+        "checks": 6701,
+        "failures": 0,
+        "lives": [
+          2,
+          2
+        ],
+        "helpers_added": false,
+        "packet": "build/bub-earned-delivery-1103-v98/downloads-bub-mushroom"
+      },
+      {
+        "identity": 0,
+        "task": "full11",
+        "frames": 13460,
+        "completed_Main": 5195,
+        "checks": 61053,
+        "failures": 0,
+        "lives": [
+          2,
+          2
+        ],
+        "helpers_added": false,
+        "packet": "build/bub-earned-delivery-1103-v98/downloads-bub-full11"
+      },
+      {
+        "identity": 1,
+        "task": "mushroom",
+        "frames": 1948,
+        "completed_Main": 568,
+        "checks": 6666,
+        "failures": 0,
+        "lives": [
+          2,
+          2
+        ],
+        "helpers_added": false,
+        "packet": "build/bub-earned-delivery-1103-v98/downloads-bob-mushroom"
+      },
+      {
+        "identity": 1,
+        "task": "full11",
+        "frames": 13513,
+        "completed_Main": 5197,
+        "checks": 61048,
+        "failures": 0,
+        "lives": [
+          2,
+          2
+        ],
+        "helpers_added": false,
+        "packet": "build/bub-earned-delivery-1103-v98/downloads-bob-full11"
+      }
+    ],
+    "post_downloads_guard": {
+      "passed": true,
+      "ROM": "C:\\Users\\kando\\Downloads\\SMB-Crossover-Latest-WIP-MMC5.nes",
+      "ROM_sha256": "cf7f157aa39493149b24039c190f09244ce68bc47f0a87f06f01adb47a2c70dd",
+      "matching_patch_files": []
+    },
+    "IPS_SHA256": "7fae59278cda3952d5b12a89670e0a623bb114a5f4fd92c3d667f13d704dd5a1",
+    "IPS_roundtrip": true,
+    "base_SHA256": "0b3d9e1f01ed1668205bab34d6c82b0e281456e137352e4f36a9b2cfa3b66dea",
+    "IPS_bytes": 2099518,
+    "release_tag": "Current",
+    "release_is_latest": true,
+    "sole_asset": "SMB-Crossover-Latest-WIP-MMC5.ips",
+    "release_asset_digest": "sha256:7fae59278cda3952d5b12a89670e0a623bb114a5f4fd92c3d667f13d704dd5a1",
+    "final_patch_guard": {
+      "passed": true,
+      "ROM": "C:\\Users\\kando\\Downloads\\SMB-Crossover-Latest-WIP-MMC5.nes",
+      "ROM_sha256": "cf7f157aa39493149b24039c190f09244ce68bc47f0a87f06f01adb47a2c70dd",
+      "matching_patch_files": []
+    },
+    "checkpoint": "docs/qa/checkpoints/2026-11-03/bub-earned-delivery-v99"
   }
 }

@@ -1,0 +1,25 @@
+"""Compact source+CPU native-host milestone. No ROM/DBG/PNG/O/exe forest."""
+from pathlib import Path
+from zipfile import ZipFile,ZIP_DEFLATED
+import json,sys
+sys.path.insert(0,str(Path(__file__).resolve().parent))
+import prepare_mini_mario_host_1103_v22 as H
+W,R,O=H.W,H.R,H.O
+SOURCES=['tools/audit/prepare_mini_mario_host_1103_v22.py','tools/audit/check_mini_mario_host_1103_v24.py','tools/audit/check_mini_mario_wall_1103_v25.py','tools/audit/prepare_mini_mario_header_1103_v26.py','tools/audit/check_mini_mario_header_1103_v27.py','tools/audit/prepare_mini_mario_native_anchor_1103_v28.py','tools/audit/check_mini_mario_native_anchor_1103_v29.py','tools/audit/freeze_mini_mario_native_host_1103_v30.py','tools/reference/mini_mario_native_host_1103_v22.inc']
+def main():
+ q=json.loads((O/'mini-host-v28.json').read_text());cpu=json.loads((O/'mini-native-anchor-CPU-v29.json').read_text());world=json.loads((W.O/'world-source-v21.json').read_text());assert cpu['passed']and cpu['component_SHA256']==q['SHA256']==W.sha((O/'mini-host-v28.bin').read_bytes())
+ files=[R/n for n in SOURCES]+[W.O/'world-source-v21.zip',W.O/'world-source-v21.json']
+ files +=[O/n for n in ['mini-host-v22.s','mini-host-v22.cfg','mini-host-v22.bin','mini-host-v22.lbl','mini-host-v22.json','mini-host-CPU-v24.json','mini-wall-CPU-v25.json','mini-host-v26.s','mini-host-v26.cfg','mini-host-v26.bin','mini-host-v26.lbl','mini-host-v26.json','mini-header-CPU-v27.json','mini-host-v28.s','mini-host-v28.cfg','mini-host-v28.bin','mini-host-v28.lbl','mini-host-v28.json','native-anchor-rebound-suite-v29.py','mini-host-CPU-v29-rebound.json','mini-native-anchor-CPU-v29.json']]
+ for directory,names in [('mini-mario-native-tile-1103-v13',['native-tile.s','native-attributes.bin','receipt.json']),('mini-mario-native-render-1103-v15',['native-render.s','native-render.bin','receipt.json']),('mini-mario-animation-1103-v20',['animate.s','animate.bin','receipt.json']),('mini-mario-art-1103-v12',['engine-animation-index.bin','engine-animation-frames.bin','engine-art-v13.json','body.chr','layout.json'])]:files +=[R/'build'/directory/n for n in names]
+ negative=R/'build/mini-mario-native-packet-1103-v25/smoke/capture/result.json';assert not json.loads(negative.read_text())['passed'];files.append(negative)
+ members={p.relative_to(R).as_posix():dict(bytes=p.stat().st_size,SHA256=W.sha(p.read_bytes()))for p in files}
+ # Only the two exact fixed-ROM banks read by CPU29 are retained as selected
+ # binary inputs. This is 16KB, never a cartridge or whole reference tree.
+ parent=R/'build/mini-mario-candidate-root-1103-v27/mini-private.nes';raw=parent.read_bytes();assert W.sha(raw)==q['actual_negative']['ROM_SHA256'];direct={f'direct-native-inputs/39bb-fixed-PRG{bank}.bin':raw[16+bank*8192:16+(bank+1)*8192]for bank in[126,127]}
+ archive=O/'mini-native-host-v30.zip'
+ with ZipFile(archive,'w',ZIP_DEFLATED,compresslevel=9)as z:
+  for p in files:z.writestr(p.relative_to(R).as_posix(),p.read_bytes())
+  for n,data in direct.items():z.writestr(n,data);members[n]=dict(bytes=len(data),SHA256=W.sha(data))
+ out=dict(passed=True,source_and_CPU_milestone_only=True,native_admitted=False,ROM_written=False,archive=archive.relative_to(R).as_posix(),archive_bytes=archive.stat().st_size,archive_SHA256=W.sha(archive.read_bytes()),final_kernel=dict(path=(O/'mini-host-v28.bin').relative_to(R).as_posix(),bytes=q['bytes'],SHA256=q['SHA256'],code_half_open=[0xa000,0xa000+q['bytes']],five_pages_spare=5120-q['bytes'],labels=q['labels']),world_checkpoint=dict(path=(W.O/'world-source-v21.json').relative_to(R).as_posix(),archive_SHA256=world['archive_SHA256']),actual_native_scope='Root reports corrected native idle x40/Y176 on successor7f11; smoke29 overall stopped on PPU-source observer assertion, currently under diagnosis. No full controls/1-1/install claim by this source milestone.',native_coordinate_contract='Native small SMB anchor = sourceYpixel−24. Source canvas = sourceYpixel−8. Body nativeY+24+[top,bottom], sourcebounds small1,6,1,7/big1,6,−7,7. Original native feet32 samples actual sourcefoot; source owns ordinary solid head/side. Native coins/vines/flagpole packets retained.',deliberate_adaptation='Authorized native wallcling/freshA queues donorJUMP_INIT. No sourcevelocity/gravity/jumpconstants changed. Isolated nativebuffer CPU fixtures clear32/48/64/80px; actual assisted/nativewall crossing still rootmustverify. No actor helper placed.',git_source_files=SOURCES,world_git_source_files=world['git_source_files'],remaining=['Actual native source art/OAM/cadence/input/landing smoke','Native walljump/whole1-1 route; actual contact/injury/death/power and IRQ qualification','Root exact5owner/menu/carrier composition and Downloads/IPS delivery','Deferred extendedswim/climb/source scripts/audio; intermediateportrait cosmetic'],members=members)
+ (O/'mini-native-host-v30.json').write_text(json.dumps(out,indent=2)+'\n');print(json.dumps({k:out[k]for k in ['passed','archive_bytes','archive_SHA256','final_kernel','git_source_files','world_git_source_files']}))
+if __name__=='__main__':main()

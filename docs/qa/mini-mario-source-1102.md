@@ -1,5 +1,16 @@
 # Mini Mario source reference
 
+November 3 delivery: Mini Mario is unlocked as Mario's ninth Select choice
+in nightly `8daf59cc`. The original art and ground/jump/fall/crouch/skid
+source port are integrated, with an explicit wall-cling/jump adaptation.
+Actual Downloads selection, movement, jumping, landing, sprite rotation,
+one-part reservation, palette and collision checks pass. All four 1-1 pipes
+and three gaps are crossed without life loss or helpers; the flagpole/next
+stage handoff is still unverified. Source actors, swimming/climbing,
+projectiles, powerups, original audio and performance need further review.
+Work is paused at the user's request. The compact source/native checkpoint
+is [mini-nightly-v46](checkpoints/2026-11-03/mini-nightly-v46/receipt.json).
+
 The expanded goal adds Mini Mario from
 [Mico27's Super Mario Bros Mini](https://mico27.itch.io/super-mario-bros-mini)
 as a Mario alternate, with an innate wall-grab if traversal requires it.

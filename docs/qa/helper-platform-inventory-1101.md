@@ -194,3 +194,13 @@ at the X1376–1424 gap. No platform or physics change was required. This proves
 that route, not every powerup or Easy mode. Evidence:
 `build/goku-gap-1102-v4/native/capture/result.json` and
 `docs/qa/goku-current-full11-1102.md`.
+
+November 3: Mini Mario (Mario Select alternate8/raw41) on nightly `8daf59cc`
+uses no helper platforms. A controller-only non-shortcut 1-1 run crosses the
+four pipes at X448–480, X608–640, X736–768 and X912–944, and the gaps at
+X1104–1136, X1376–1424 and X2448–2480, with lives2to2. Three wall-cling/jump
+restarts use his explicit traversal adaptation. These coordinates describe
+the native obstacles, not new platform placements; there are no helper left
+edges, centers or initial heights to report for Mini. The run reaches the
+flagpole but does not verify active1-2 within its bound. Full-stage completion
+remains open in `docs/qa/checkpoints/2026-11-03/mini-nightly-v46/receipt.json`.
