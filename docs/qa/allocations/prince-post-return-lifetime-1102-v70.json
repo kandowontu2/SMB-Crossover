@@ -1,0 +1,87 @@
+{
+  "status": "APPROVED_CONDITIONAL_PRIVATE_SOURCE_COMPOSITION_ONLY",
+  "owner": "Prince of Persia raw38",
+  "proposal": "build/prince-actor-1101-v1/post-return-lifetime-proposal-v91.json",
+  "proposal_SHA256": "3c8e941e877e8510a5ac0b2dd815ad1a9b562c94a08a9f931f5218a244102757",
+  "checkpoint": "docs/qa/checkpoints/2026-11-02/prince-post-return-v95",
+  "reviewed_current_hook_preimages_SHA256": "9cf99b438e6f5bc614dc4ccc433707a3796702b7f33a04318a428a1155397f15",
+  "approved_exclusive_RAM2_lifetimes": {
+    "synchronous_gateway_packet": [
+      49664,
+      49677
+    ],
+    "live_audio_extension": [
+      51046,
+      51072
+    ],
+    "cold_prefix_PC_extension": [
+      50808,
+      50810
+    ],
+    "metadata_extension": [
+      57294,
+      57295
+    ]
+  },
+  "approved_exact_PRG124_hook_patches": [
+    {
+      "physical_PRG": 124,
+      "CPU_half_open": [
+        42848,
+        42862
+      ],
+      "file_offset": 1017712,
+      "old_hex": "eaeaeaeaeaeaeaeaeaeaeaeaeaea",
+      "new_hex": "8d6a01903608ad0260c9264c95a7",
+      "full_source_pad_half_open": [
+        42848,
+        42863
+      ],
+      "full_pad_preimage_hex": "eaeaeaeaeaeaeaeaeaeaeaeaeaeaea",
+      "full_pad_preimage_SHA256": "503c4f7d57f0a8b92a8732ec593666ca065e8a89ec4f52289084353ba78916c8",
+      "untouched_tail_bytes": 1
+    },
+    {
+      "physical_PRG": 124,
+      "CPU_half_open": [
+        42901,
+        42912
+      ],
+      "file_offset": 1017765,
+      "old_hex": "eaeaeaeaeaeaeaeaeaeaea",
+      "new_hex": "f005ad6a012860284cd697",
+      "full_source_pad_half_open": [
+        42901,
+        42916
+      ],
+      "full_pad_preimage_hex": "eaeaeaeaeaeaeaeaeaeaeaeaeaeaea",
+      "full_pad_preimage_SHA256": "503c4f7d57f0a8b92a8732ec593666ca065e8a89ec4f52289084353ba78916c8",
+      "untouched_tail_bytes": 4
+    },
+    {
+      "physical_PRG": 124,
+      "CPU_half_open": [
+        44405,
+        44408
+      ],
+      "file_offset": 1019269,
+      "old_hex": "8d6a01",
+      "new_hex": "2060a7",
+      "predecessor_JSR_FarCallCommon_hex": "205a01"
+    }
+  ],
+  "new_carrier_pages": 0,
+  "review": "Root read exact source-dead execution/prefix/palette extension, finite original indexed/immutable-script reader bounds and synchronous13byte packet lifetime; verified every proposal binding and all122 frozen members. Native post-return hook occupies source15EA tails after unconditional GmRise/GmPrivate gates, preserves displacedSTA and every foreignAXYP/SP case. Deepest actual IRQ, genuine FF lag and nestedIRQ receipts pass on their declared historical source-injected fixture, with precise native07DA async allowance. They do not establish a current-image shared cold/respawn.",
+  "conditions": [
+    "Apply only these four exclusive lifetimes and exact25+3 hook bytes; prior44carrier ownership/headers/DFD0clock remain unchanged.",
+    "C200..C20D packet is foreground synchronous only: no original/native Draw or gateway reentry until savedR0..7 and all5SMC bytes restore. Genuine Draw overwrites consumed sprite packet before renderer.",
+    "C65F..C67A prefix runs only forcedblank/SEI/disabledNMI/invalidheaders before constructor; copy+verify154B C766..C800. Preserve all genuinely live original state; publish headers last.",
+    "Use0179 transport operand only within existing five-byte SMC save/restore lifetime and consume tag before any nested rewrite.",
+    "Rebase current9cf or an explicitly tested successor, joint rare gate, final Bub cookie/body and Ex37 cold carry fix. Historical16a9/v65 fixture is not a current-image claim.",
+    "Full actual shared cold/auth/foreign retirement/death/respawn/IRQ/native mechanics and1-1 remain required; original audio mapping remains unfinished.",
+    "No ROM emission, menu admission or installation authorized by this private grant."
+  ],
+  "ROM_emission_authorized": false,
+  "menu_admission_authorized": false,
+  "installation_authorized": false
+}

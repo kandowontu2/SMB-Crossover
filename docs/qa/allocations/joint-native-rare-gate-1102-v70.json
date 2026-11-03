@@ -1,0 +1,52 @@
+{
+  "status": "APPROVED_PRIVATE_SOURCE_COMPOSITION_AND_NATIVE_TEST_ONLY",
+  "owners": [
+    "Prince of Persia raw38",
+    "Bub/Bob raw39"
+  ],
+  "reviewed_base_SHA256": "9cf99b438e6f5bc614dc4ccc433707a3796702b7f33a04318a428a1155397f15",
+  "proposal": "build/bub-upgrades-root-gate-1102-v54/proposal.json",
+  "proposal_SHA256": "620ef16683017339d277bd56d94c454b41b8841bc78a61c26685ee1b281aadd9",
+  "approved_exact_patches": [
+    {
+      "CPU_half_open": [
+        41662,
+        41666
+      ],
+      "physical_PRG": 124,
+      "file_offset": 1016526,
+      "old": "c925b08c",
+      "new": "4ccaa7ea"
+    },
+    {
+      "CPU_half_open": [
+        42954,
+        42965
+      ],
+      "physical_PRG": 124,
+      "file_offset": 1017818,
+      "old": "eaeaeaeaeaeaeaeaeaeaea",
+      "new": "c928b051c925f04d4cc2a2"
+    },
+    {
+      "CPU_half_open": [
+        43039,
+        43044
+      ],
+      "physical_PRG": 124,
+      "file_offset": 1017903,
+      "old": "eaeaeaeaea",
+      "new": "c9254c4ea2"
+    }
+  ],
+  "supersedes_for_joint_composition": "docs/qa/allocations/prince-native-rare-gate-1102-v64.json",
+  "review": "Root read actual NrPickupCollision/NrPickup unconditional source tails and current classifier instructions. All proposal bindings/preimages match;131072 actual ingress cases preserve complete internal target+AXYP/SP for130048 foreign cases and deliberately admit only38/39. Each rejected value repeats original CMP37 to retain internalNZ/C. Both source tails retain original Own/Ice entries; no new RAM/carriers/menu entries.",
+  "conditions": [
+    "Use exactly4+11+5 bytes; retain all other tail bytes/downstream PCs and current Sunny/menu bytes.",
+    "This supersedes the older38-only14byte veneer for a joint image; never apply both overlapping variants.",
+    "Owner lifecycle/header/readback/IRQ/native gameplay must pass on the exact composed image before installation.",
+    "No permission for a new character unlock, broad shared manager rewrite or installation is implied."
+  ],
+  "installation_authorized": false,
+  "menu_admission_authorized": false
+}
