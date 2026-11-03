@@ -1,7 +1,11 @@
 # Current menu corrections in progress
 
 Base: `d0b445a71d6c539804d7c559fafc2c328ebf97ab4e35e8f3273f94ff8a25d01d`.
-The installed Downloads nightly has not changed for this work yet.
+DELIVERED: Downloads nightly matches candidate22d099 below, no backup.
+Actual Downloads Bob launch passes; pre/post automatic-patch guards pass.
+Latest release Current has exactly one IPS, SHA256
+`185934ef14df893744e374bc7ead90db1471307a3d7c2cd0917741217a6bccf9`,
+verified against GitHub asset digest. Patch reconstructs exact installed ROM.
 
 Current root candidate: `build/menu-family-root-candidate-1102-v1/mr-gimmick-family.nes`,
 SHA256 `22d09909bf952ef007d1582589dc869073262784bf38b92d2c7b206ce3c45b19`.
@@ -9,8 +13,9 @@ All32-slot/all-alternate native browse passes5180frames/125observations,
 fourPNG screenshots, zero active-display PPUDATA writes and zero late enables.
 Bub/Rash screenshots viewed: right-facing Bub and populated Battletoads icon.
 Separate native Bub and Bob normal-A launches pass actual owner/Fresh checks.
-Mr. Gimmick native launch is running as root session76580; poll that handle.
-Downloads launch-context testing and latestIPS replacement still required.
+Mr. Gimmick native launch passes (session76580 terminal exit0).
+Actual Downloads test18811 terminal exit0. Published receipt:
+`build/menu-family-delivery-1102-v1/published-receipt.json`.
 Root producer snapshots helper v18 and changes its overbroad simultaneous-key
 test to ordinary Start/A: Select+Start on Excitebike chooses locked Prince,
 so that old expectation was invalid. No gameplay patch was made for that test.
@@ -36,7 +41,8 @@ other nametable references. Source pixels and viewed image are under
 
 The Sol6.1 xhigh Bub helper owns Mr. Gimmick family selection, facing, menu
 stream integration and candidate source proof. Root owns native testing and
-delivery. No new menu candidate has been qualified or delivered yet.
+delivery. Menu browse and allthree family launches are now qualified and
+delivered. Runtime facing review and broader fullstage qualification remain open.
 
 Other queue results retained: Goku full1-1 ended at the240second emulator
 timeout, without a completion receipt (10345 input polls); this is not a pass.
