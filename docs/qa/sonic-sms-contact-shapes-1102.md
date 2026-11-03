@@ -30,3 +30,13 @@ flags, including X-slide effects on the subsequent Y probe. Each axis costs
 90–343 cycles. This retains the same 3,529-byte component and still requires
 caller-supplied world flags. Receipt:
 `build/sonic-sms-shape-contacts-1102-v18/receipt.json`.
+
+V19 adds the original physics selector and Down-to-roll entry. Actual donor
+instructions select normal, underwater, speed-shoes or airborne special
+coefficients, with the original precedence, tempo restoration and phased
+shoes timer. The compiled selector and original roll admission pass 16,384
+cases covering every player flag and the mode/timer boundaries. Cumulative
+code/data is 3,774 bytes; the selector plus roll entry costs 153–230 cycles.
+Receipt: `build/sonic-sms-physics-selection-1102-v19/receipt.json`.
+Tempo fields and sound-event requests are private fixture outputs, not a
+working NES audio driver. Full Main and native admission remain incomplete.
