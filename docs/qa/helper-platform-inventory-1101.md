@@ -4,7 +4,7 @@ The functional roster pass is not complete. This inventory separates source
 placements from actual route verification; it is not the final all-character list.
 
 Inventory fixture SHA256: `128915e97e78891a585aa8f9fd904c166ca64dcd6dd1ee395fc68fd505c1e72c`.
-Current nightly SHA256: `d0b445a71d6c539804d7c559fafc2c328ebf97ab4e35e8f3273f94ff8a25d01d`.
+Current nightly SHA256: `22d09909bf952ef007d1582589dc869073262784bf38b92d2c7b206ce3c45b19`.
 Bub/Bob added no helper platforms. Earlier route proofs below retain their stated hashes.
 Thomas's two late placements were added on d0b445a7; other placements are unchanged. The original admission fixture belongs to its stated earlier hash.
 `tools/audit/inventory_named_helpers_1101_v2.py` verified identical installed and
@@ -15,7 +15,7 @@ admission tests, not native assisted-crossing or complete-route tests.
 | Characters / scope | Stage | Placement | Native behavior | Verification remaining |
 |---|---|---|---|---|
 | Mega Man, Proto Man; Samus, Rogue Dawn; Bill, Lance; Link, Zelda II Link; Simon, Grant, Sypha, Alucard; Pit, GB Pit; Rygar; Ryu; Scrooge, Darkwing Duck; Kirby, Meta Knight; Chip, Dale; Little Mac, Doc Louis, Mike Tyson; Mike Jones; Popo, Nana; Alex, Ryan | 1-1 | Center X=3104, **native left edge=3096**, initial Y=64, width=16 pixels, near end staircase/flagpole | Native horizontal actor `$28` | Both modes admit the same helper; current alternate-by-alternate assisted crossings pending |
-| Goku and Karnov | 1-1 | Centers X=704 and 888; left edges 688 and 872; initial Y=208 | Existing native vertical platform, actor `$25`; one owned lift at a time | Karnov full route passes on `f5c30cea`; Goku and both-mode checks remain |
+| Goku and Karnov | 1-1 | Centers X=704 and 888; left edges 688 and 872; initial Y=208 | Existing native vertical platform, actor `$25`; one owned lift at a time | Karnov full route passes on `f5c30cea`; Goku Hard full route passes on `22d09909`; both-mode checks remain |
 | Thomas | 1-1 | Left edges X=400,560,688,864,2560,2816; centers X=416,576,704,880,2576,2832; initial Y=192; width=32 | Existing native vertical platform, actor `$25` | All six assisted crossings and full non-shortcut1-1 into1-2 pass on d0b445a7, no life loss; actual Downloads first assisted crossing passes. Both modes/all powerups remain open. |
 
 Coordinates are world pixels. Initial/authored Y is not a fixed platform height:
@@ -167,3 +167,11 @@ November2: current nightly379590 adds playable Excitebike. No helper platforms w
 Arthur now clears full non-shortcut1-1 into active1-2 on d8a87050 in5950 physical frames, lives2to2, with no source injury or helpers. The source weapon-tail callback repair lets his real lances damage native enemies; his original side probes and jumps remain unchanged.
 
 Excitebike now clears full non-shortcut 1-1 into active 1-2 on cf1412eb in 6996 physical frames, lives 2 → 2, all four pipes and three gaps, with no added or inherited helpers. Third and fourth 64px pipe support contacts are recorded in the native receipt.
+
+Goku now clears full non-shortcut Hard 1-1 into active 1-2 on `22d09909`
+in 5,837 physical frames / 4,033 gameplay updates, lives 2 → 2. The controller
+uses the existing two vertical pipe lifts listed above, and takes off later
+at the X1376–1424 gap. No platform or physics change was required. This proves
+that route, not every powerup or Easy mode. Evidence:
+`build/goku-gap-1102-v4/native/capture/result.json` and
+`docs/qa/goku-current-full11-1102.md`.
