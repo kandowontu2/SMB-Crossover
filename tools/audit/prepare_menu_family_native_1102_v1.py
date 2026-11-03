@@ -19,7 +19,7 @@ def main():
     silhouette=[[(12+y)*32+25+x,screen.vram[0x2000+(12+y)*32+25+x]]for y in range(4)for x in range(3)]
     assert any(cell[1]!=36 for cell in silhouette),'Battletoads silhouette must be populated'
     m=M.fresh(b);M.put(m,CrossoverMenuIndex=0);M.invoke(m,'MenuResolveCharacter');M.invoke(m,'QueueSelection')
-    plans=[];seen=[]
+    plans=[];seen=[];launch_states={}
     def action(key=None):
         if key:
             bits={'right':1,'left':2,'down':4,'up':8,'start':16,'select':32,'b':64,'a':128}
@@ -31,6 +31,8 @@ def main():
         if name in ['RASH','MR GIMMICK','BUB','BOB'] and name not in seen:shot=name.lower().replace(' ','-')
         plans.append(dict(keys=[key]if key else[],slot=slot,variant=0,tag=name,state=2,kind='observe',wait=40,raw=raw,name=cells,shot=shot,groups=M.get(m,'FmGroups')))
         seen.append(name)
+        if name in ['MR GIMMICK','BUB','BOB'] and name not in launch_states:
+            launch_states[name]=M.fork(m)
         return name,raw
     snake=list(range(8))+list(range(15,7,-1))+list(range(16,24))+list(range(31,23,-1))
     previous=0
@@ -55,7 +57,12 @@ def main():
         for step in plans:step['shot']=None
         plans[-1]['shot']='selected-owner'
         selected=plans[-1]
-        launch=dict(raw=selected['raw'],groups=selected['groups'],bob=1 if target=='BOB'else 0,requiresRestore=False)
+        launched=launch_states[target]
+        M.put(launched,VRAM_Buffer1_Offset=0,CrossoverMenuButtons=0,SavedJoypad1Bits=160,SavedJoypad2Bits=0)
+        M.invoke(launched,'CrossoverMenuInput')
+        assert M.get(launched,'CrossoverMenuState')==0
+        assert M.get(launched,'SelectedCharacter')==selected['raw']
+        launch=dict(raw=selected['raw'],groups=M.get(launched,'FmGroups'),bob=1 if target=='BOB'else 0,requiresRestore=False)
         plans.append(dict(selected,keys=['select','a'],kind='launch',shot=None,tag='simultaneous-select-confirm'))
     text=(R/'tools/audit/bub_menu_qualification_1102_v2.lua').read_text()
     old="  for _,cell in ipairs({{676,245},{677,246},{708,247},{709,248}})do assert(ppu(0x2000+cell[1])==cell[2],'Actual same-span NT copy/icon survives rebuild')end"
