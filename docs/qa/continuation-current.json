@@ -39,6 +39,7 @@
     "reference": "Sonic the Hedgehog Master System, user Downloads ZIP",
     "verified": "Exact full donor reproduction; horizontal velocity/sign clamp9928cases, vertical velocity/bounce6688cases, walk/roll animation clock10496cases, nonrolling jump latch/gravity17408cases and24button episodes. Roll admission8192cases, right and left input2228cases each, coasting4300cases, unified normal-body horizontal caller4096cases covering all256 active-low input bytes. Unified component487B; private CPU fixtures only. Rolling caller verified in 9764 original-Z80/compiled6502 cases, including 1060 stationary camera paths; combined791B,128-270cycles. build/sonic-sms-rolling-1102-v12/receipt.json. Rolling jump admission/shared gravity verified14848cases+24button episodes; component178B (69B added),39-103cycles. build/sonic-sms-rolling-jump-1102-v13/receipt.json. Unified normal/rolling X and Y selection/commit1093B verified5632cases,403-549cycles; build/sonic-sms-motion-1102-v14/receipt.json. Position integrator8292actualdonor/6502cases passes;1154B unifiedcomponent,64cycleXYintegration; build/sonic-sms-position-1102-v15/receipt.json.",
     "remaining": "Compose full Main/world terrain queries/render/audio/host lifecycle and obtain allocation; no playable Sonic admission or nightly claim.",
+    "graphics_proposal": "V21 exactROM84frames/64512pixels roundtrip throughNES2bpp layers,783unique8x16pairs/25056B. Actualsourceatlasviewed;29of42pairs exactmirrors. Full7colorproposalneeds3palettegroups/max9spritesperscanline/17bodyOAM, so nativepalette/enemycoexistence/overflow/CHRmap unresolved; no rendereradmission. build/sonic-sms-sprite-layers-1102-v21/receipt.json",
     "terrain_followup": "V16 resolved original contact cores PASS5120 actual-instruction cases,1559B. V17 lossless47flag/fourdirection shape lookup PASS10112cases,46unique32Bshapes,3529B cumulative. V18 composed X/Y shape+contact PASS4096cases/8192calls,90..343cycles per axis. V19 actual original four-mode physics selector and Down-roll ingress PASS16384cases,3774B cumulative/153..230cycles. V20 original25animationstreams/frame reset/loops/ordinary+speedclock PASS2382cases+231invalidrejects,4356B cumulative/100..189cycles. Caller still supplies original zone flag; full Main/world adapter/pose selection/CHR/OAM/audio/native admission incomplete. docs/qa/sonic-sms-contact-shapes-1102.md"
   },
   "arthur_natural_powerup_followup": {
@@ -2921,7 +2922,9 @@
     "review": "Rootread18Bnative-support/originalD41Creset,10Bdeadtelemetry,8Bspare; verified10bindings and3exactpreimages toexpectedSHA. Privatecompositionauthorized, no newRAM/pages. Bub/Bob source5434Bunchanged.",
     "native": "v21 rearmbound;v22 realinjury atx872. v23 actualLua1sec watchdog retained. v24 controller/intercept fix passes4pipes/2pits/natural15pops/lives2, stallsbeforelaststair. v26 reachesX2369 healthy/lives2 but repeats43pxjumps withoutXadvance. v28 observer-only diagnostic terminal expectednegative after6repeatedjumps; session20735. Helper inspecting actualtilequeries, backwardsXwriter and takeoff state. Bobheld; nofull11pass, nightlyunchanged.",
     "source_checkpoint": "docs/qa/checkpoints/2026-11-02/bub-landing-v27; rootverifiedall75files/live+ZIP, SHA538bdcdc681ba01a7ecd8aacf6dce10f4906dd96247da59e818f256b8c19eb0d. BothflattenedASMs relinkbyteexact. Source/proofs/negatives only; solePNG CPUfacingraster; noROM/captureforest.",
-    "current_rebase": "ThreeexistingBubspans exactpreimages/current16a9 anddisjointSunnyfivepatches. Memory-onlySHA9cf99b438e6f5bc614dc4ccc433707a3796702b7f33a04318a428a1155397f15 verifiedroot; noROMwritten ornativequalification."
+    "current_rebase": "Rootreviewedv32recipe/allbindings andemitted private build/bub-menu-candidate-1102-v2/combined-current-landing.nes SHA9cf99b438e6f5bc614dc4ccc433707a3796702b7f33a04318a428a1155397f15. Exact3Bubspans/370Bdelta preserveSunnyfivepatches; noinstall/fullstagepassyet.",
+    "later_native": "v31 all4firststairs pass butfinaledgefall; v34current9cf repeatsfall withdecisive48edgeobservations. ActualX2443native0/source0, next2445native2, so4pxprobe missedreachablegroundtakeoff; source2hypothesis disproven. v37current9cf finalpitactualsupported2443/2473jumps→2502/Y128PASS; all4pipes/3truepits and2laterpipes passed, thenfinalcastlestairX2961stalls/lives2/source0failures. Session23977terminalexit1. Helperqualifyingfinalcastle staircase with actualAreaParserCore beforefreshcontroller.",
+    "evidence_cleanup": "Root verified58v35ZIPmembers againstlivebytes andcopied docs/qa/checkpoints/2026-11-02/bub-landing-v35 (41ca85f81278f25fe33349193e196134456abd1617006caa11826625805fb857). Exact33terminalv28/v31/v34loosecapturefiles removedafterbytecompare; their oldcapturepaths are no longerlive. NewrecipesreadZIPentriesinmemory. NoROM/movie/recursivetreecopy."
   },
   "previous_installed_nightly_thomas_d0b": {
     "installed": true,
@@ -2939,13 +2942,13 @@
     "patch_guards": "Before/after pass; no same-name patches. Latest API single asset digest matches."
   },
   "root_queue_current_1102": {
-    "status": "RUNNING_BUB_V31_FULL11_STEPBACK",
+    "status": "RUNNING_BUB_V39_CURRENT_FULL11_CASTLE_STAIRS",
     "last_sunny_downloads": 22367,
     "last_sunny_powerups": 1231,
     "last_sunny_downloads_upgrades": 83998,
-    "last_bub": 20735,
-    "live_session": 14791,
-    "next": "Poll liveBubv31 session14791; actual-supported6pxstepback route native-landing-bub-full11-stepback running, Bobmatchingpacket held. Rootcause originalD4BB clearsdirection afterearlystairclip; fullactualstair/camera/source CPU passes BOTHIDs×6/7pxstepback. Currentnightly16a9 unchanged. Princeactualingress and DKJrresourceproposal progressing."
+    "last_bub": 23977,
+    "live_session": 8206,
+    "next": "Poll actualcurrent9cf Bubv39 session8206, native-current-landing-bub-full11-castle-stairs. ActualAreaParserCore208columns/fullendstairCPUbothIDs qualify3supportedretreats→3024/Y48. MatchingBobv39READYheld. Currentnightly16a9 unchanged; private9cfnotinstalled. Princeactualdeath/NMIstack+Ex37coldcarry repairsand DKJrresource/freeze/retirementproposal progressing."
   },
   "prince_resources_current_1102": {
     "status": "PRIVATE_EXECUTION_AND_EXACT_NATIVE_GATE_GRANTED_NO_MENU_OR_INSTALL",
@@ -2954,6 +2957,8 @@
     "review": "Rootreadsource/finiteindirectclosure,verified26v62bindings+10v64bindings. C780..C800 audio-deadexecution, stagedprefixC65F..C678, rendererBD3E..BD4B, metadataDFA2..DFCE withinexistingexclusiveoverlay. ExactPRG124 A2BE4B +A7CA14B source-declaredpadding veneer; actualnativeclassifier131072cases,130560foreignAXYP/SP/routeexact.",
     "actual_ingress": "v66 CPU PASS completePowerUpObjHandler all4types: actualNr/HuMature/overlap/pickup; HP4to5, genuine originalsword/action91, nativeStar35/1up11.12actualPlayerEnemyCollision/source-defender cases,32badheaderrejects/768rawselectors. v61 negative retained. Head/side/fullplayer/lifecycle/render closure next; no emulator pass claimed.",
     "source_checkpoint": "Root verified/froze docs/qa/checkpoints/2026-11-02/prince-native-battle-v47 (81members/0fa522b6186b334c7c300f35f422c27134b6d8527c36bcee9756bcba6184bd2e) and prince-native-collision-v63 (85members/2c8e8852f7e728ba43c8719e6156385b9e58a927953961f401d0ff3205f3c4e4). Everymemberhash and explicitlivesource matches, noexpansion/ROM/PNGcopies.",
-    "remaining": "Native full1-1, powerups and audio mapping remain open. No Prince ROM emitted or admission; proposedmemorySHAda4a84baf1d98e6748b80c25ba5f62e14e739c3b10c10eb83c948c778e044d05."
+    "later_CPU": "v67 completePlayerCtrl960updates acrossflatRight/Up/wallUp reachesrealhead/side/960sourceepochs,HP5/lives2. v68 actualfullcoldimages408poses+280edges+1754IRQ/lagNMI pass,31artpagesexact. v69 actualcontact→source85/185→nativeKill epoch20 exposesnesteddeathstackoverwriteof175..17B. v70/71 proposedpacket-scratch13Bsave improvesforeground (190totalupdates/168nativedeathupdates/lives2to1) butv72 actualFarCallCommon015A/SP136 lagNMIstillclobbersSMC. Notnative-ready. Helpermeasuringdeferralafterresidentownerframe; no newlifetimegrant.",
+    "foreign_cold_negative": "DKownerfound inheritedprivatePrincev51/v54/v65 PrTypedWorker successfulEx37 commonload losescarry throughCMP38/BNE; CoColdrejectsafter414133CPU. Installed16a9 unaffected. Bothhelperscoordinatingexact+2Bcarrypreservation andcompleteactualforeigncoldtests; selectorparitywasinsufficient.",
+    "remaining": "Native full1-1, powerups and audio mapping remain open. No Prince ROM emitted or admission; v65 proposedmemorySHAda4a84baf1d98e6748b80c25ba5f62e14e739c3b10c10eb83c948c778e044d05 remainsprivate."
   }
 }

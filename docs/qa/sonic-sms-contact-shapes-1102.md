@@ -52,3 +52,17 @@ cycles; cumulative private code/data is 4,356 bytes.
 `build/sonic-sms-animation-player-1102-v20/receipt.json` records the scope.
 Main still must select the pose and call these routines at the original
 point relative to velocity clamping. CHR conversion, OAM and audio are open.
+
+V21 decodes all 42 original sprite frames in both facings and verifies each
+against the exact ROM bytes. Three disjoint NES 2bpp layers reconstruct all
+64,512 source pixels and seven visible color indices. Deduplicated data is
+25,056 bytes (783 8×16 pairs). The original-color atlas was inspected.
+Only 29 of the 42 facing pairs are exact mirrors; the original left/right
+art must be retained where they differ. Several effect images are only
+valid under the original Main's facing rules.
+
+This is a palette/resource proposal, not an admitted renderer. Preserving
+all colors this way needs three palette groups and as many as nine sprites
+on one scanline (17 total body sprites). Native enemy-palette coexistence,
+CHR mapping and overflow handling need resolution before use in the game.
+Receipt: `build/sonic-sms-sprite-layers-1102-v21/receipt.json`.
