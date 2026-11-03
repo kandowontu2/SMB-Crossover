@@ -37,7 +37,7 @@
     "status": "ORIGINAL_ROM_REPRODUCED_PRIVATE_PRIMITIVES_VERIFIED",
     "source_ROM_sha256": "6ad738965ece231427ee046b9905cfee470d5c01220afdd934da4673e4a2458b",
     "reference": "Sonic the Hedgehog Master System, user Downloads ZIP",
-    "verified": "Exact full donor reproduction; horizontal velocity/sign clamp9928cases, vertical velocity/bounce6688cases, walk/roll animation clock10496cases, nonrolling jump latch/gravity17408cases and24button episodes. Roll admission8192cases, right and left input2228cases each, coasting4300cases, unified normal-body horizontal caller4096cases covering all256 active-low input bytes. Unified component487B; private CPU fixtures only. Rolling caller verified in 9764 original-Z80/compiled6502 cases, including 1060 stationary camera paths; combined791B,128-270cycles. build/sonic-sms-rolling-1102-v12/receipt.json. Rolling jump admission/shared gravity verified14848cases+24button episodes; component178B (69B added),39-103cycles. build/sonic-sms-rolling-jump-1102-v13/receipt.json.",
+    "verified": "Exact full donor reproduction; horizontal velocity/sign clamp9928cases, vertical velocity/bounce6688cases, walk/roll animation clock10496cases, nonrolling jump latch/gravity17408cases and24button episodes. Roll admission8192cases, right and left input2228cases each, coasting4300cases, unified normal-body horizontal caller4096cases covering all256 active-low input bytes. Unified component487B; private CPU fixtures only. Rolling caller verified in 9764 original-Z80/compiled6502 cases, including 1060 stationary camera paths; combined791B,128-270cycles. build/sonic-sms-rolling-1102-v12/receipt.json. Rolling jump admission/shared gravity verified14848cases+24button episodes; component178B (69B added),39-103cycles. build/sonic-sms-rolling-jump-1102-v13/receipt.json. Unified normal/rolling X and Y selection/commit1093B verified5632cases,403-549cycles; build/sonic-sms-motion-1102-v14/receipt.json.",
     "remaining": "Compose full Main/terrain/position/render/audio/host lifecycle and obtain allocation; no playable Sonic admission or nightly claim."
   },
   "arthur_natural_powerup_followup": {
@@ -2891,5 +2891,24 @@
     "pushed_commit": "f9971fba",
     "native_playable": false,
     "remaining": "Source-funded shared manager120B plus service routing; symbolicSh53B reclaim not yet qualified."
+  },
+  "sunny_palette_followup_1102": {
+    "status": "PRIVATE_FIX_CPU_PASS_NATIVE_FULL11_RUNNING",
+    "session": 38924,
+    "base_SHA256": "22d09909bf952ef007d1582589dc869073262784bf38b92d2c7b206ce3c45b19",
+    "candidate_SHA256": "e05eb6ea3955e650385527351a70e1efba7f633f26839de99157eb8d1cdda30f",
+    "candidate": "build/sunny-palette-dedup-1102-v5/candidate.nes",
+    "CPU": "build/sunny-palette-qualification-1102-v6/CPU.json",
+    "native": "build/sunny-palette-qualification-1102-v6/native/capture",
+    "negative": "Repeated actual grow NMI enable line0dot105, elapsed2413CPU, frame968.42B command buffer contains duplicate P0 packet3F11 length3 [04,26,36].",
+    "change": "Only Sunny20B worker+5B entry. Preserve valid palette cache during engine9; current visual-form compare/retry and all other engines force invalidation retained.432 CPU cases plus36 duplicate suppression cases pass, including fullAXYP equality outside growth.",
+    "next": "Poll38924; no install yet. Root owns Mesen queue. First mushroom is now passed and route observed beyondwidegap."
+  },
+  "storage_current_1102": {
+    "build_bytes": 2693649830,
+    "build_files": 14448,
+    "workspace_bytes": 6191678999,
+    "workspace_files": 49099,
+    "limits": "Build5GB/20000files; workspace70GB; no video captures"
   }
 }
