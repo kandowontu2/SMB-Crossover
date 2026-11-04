@@ -20,12 +20,18 @@ def main():
     parser.add_argument('--controller', type=Path, default=BASE)
     parser.add_argument('--labels', type=Path, default=KERNEL)
     parser.add_argument('--plain', action='store_true', help='Run the exact regression replay without timing callbacks.')
+    parser.add_argument('--idle-updates', type=int, default=20)
     args = parser.parse_args()
     controller = args.controller.read_text()
     digest = sha(args.rom)
     baseline = sha(ROM)
     assert digest in controller or baseline in controller
     controller = controller.replace(baseline, digest)
+    assert 20 <= args.idle_updates <= 180
+    if args.idle_updates != 20:
+        anchor = "if n>=20 then transition('right')end"
+        assert controller.count(anchor) == 1
+        controller = controller.replace(anchor, f"if n>={args.idle_updates} then transition('right')end")
     labels = dict((name, int(pc, 16)) for pc, name in
                   re.findall(r'^al ([\dA-Fa-f]+) \.(\w+)$', args.labels.read_text(), re.M))
     refs = [args.controller, args.labels, Path(__file__)]

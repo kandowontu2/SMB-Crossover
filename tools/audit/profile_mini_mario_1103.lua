@@ -3,6 +3,11 @@
 local stack, hooks, stats, cadence = {}, {}, {}, {}
 local skippedAddress = 0x013a
 local priorSkipped, priorUpdates = nil, 0
+local priorMesenLag, mesenLagKey
+local polled = false
+local function controllerRead() polled = true end
+emu.addMemoryCallback(controllerRead, emu.callbackType.read, 0x4016)
+emu.addMemoryCallback(controllerRead, emu.callbackType.read, 0x4017)
 local interrupts, isrCycles = {}, 0
 local function interruptHook(pc, bank, returning)
  emu.addMemoryCallback(guard(function()
@@ -70,19 +75,34 @@ for name, hook in pairs(MiniProfileHooks) do
 end
 emu.addEventCallback(guard(function()
  local skipped = read(skippedAddress)
+ local state = emu.getState()
+ if not mesenLagKey then
+  for key, value in pairs(state) do
+   if type(key) == 'string' and type(value) == 'number' and key:lower():match('lagcounter$') then
+    mesenLagKey = key
+    break
+   end
+  end
+ end
+ local mesenLag = mesenLagKey and state[mesenLagKey]
  if active() and priorSkipped then
   local row = cadence[phase] or {physical=0,updates=0,lag_nmi=0,zero_update=0}
   local steps = updates-priorUpdates
   row.physical = row.physical+1
   row.updates = row.updates+steps
   row.lag_nmi = row.lag_nmi+((skipped-priorSkipped)&255)
+  if mesenLag and priorMesenLag then row.mesen_lag = (row.mesen_lag or 0)+mesenLag-priorMesenLag end
+  if not polled then row.no_controller_read = (row.no_controller_read or 0)+1 end
   if steps == 0 then row.zero_update = row.zero_update+1 end
   cadence[phase] = row
  end
  priorSkipped, priorUpdates = skipped, updates
+ priorMesenLag = mesenLag
+ polled = false
 end), emu.eventType.endFrame)
 profileFinish = function()
  local file = assert(io.open(OUTPUT..'timing.json', 'w'))
- file:write(json({ROM_sha256=C.ROM_sha256,cadence=cadence,routines=stats,open_calls=#stack})..'\n')
+ file:write(json({ROM_sha256=C.ROM_sha256,cadence=cadence,routines=stats,open_calls=#stack,
+                  mesen_lag_key=mesenLagKey})..'\n')
  file:close()
 end
