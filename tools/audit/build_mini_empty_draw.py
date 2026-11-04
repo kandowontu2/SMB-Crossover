@@ -27,7 +27,7 @@ def main():
              ('BG_WRAPPER', 20, 0xbdf4, 46, 0xea),
              ('BG_GUARD', 20, 0xbbce, 50, 0xff), ('BG_PROBES', 20, 0xbe34, 36, 0xea),
              ('BG_SIDES', 20, 0xbecc, 52, 0xff),
-             ('MINI_CONSTANT_GATE', 79, 0xaadc, 36, 0xff),
+             ('MINI_CONSTANT_GATE', 79, 0xaada, 38, 0xff),
              ('MINI_CONSTANT_FOREIGN', 79, 0xb53a, 18, 0xea),
              ('GFX_FIREBALL', 66, 0xb48a, 26, 0xff),
              ('MINI_FB_ATTACK', 89, 0xbcc0, 160, 0xea),
@@ -56,6 +56,15 @@ def main():
         raw[at:at+len(old)] = new
         patches.append(dict(bank=bank, pc=pc, before=old.hex(), after=new.hex()))
 
+    # CdQueueHud's two source-guaranteed taken JMPs are shortened to branches.
+    # The exact entry and external call sites stay fixed; its final two bytes
+    # become adjacent source padding for the state25/26 constant predicate.
+    hud_packet=R/'build/mini-constant-funding-1103-v1'
+    hud_old=(hud_packet/'chip-hud-reference.bin').read_bytes()
+    hud_new=(hud_packet/'chip-hud-fast.bin').read_bytes()
+    assert len(hud_old)==338 and len(hud_new)==336
+    assert hashlib.sha256(hud_new).hexdigest()=='2be548e74657bb6c5c00cf0f829b99573f141bc3224ee1b663bb339afa7608b5'
+    patch(79,0xa98a,hud_old,hud_new+b'\xff\xff')
     for name, bank, pc, size, fill in spans:
         data = (out/(name+'.bin')).read_bytes()
         assert len(data) <= size
@@ -67,7 +76,7 @@ def main():
     patch(86, 0xa7f4, b'\xff'*10, bytes.fromhex('e029d0034ce8a54c86a7'))
     # GmExtraNrPortrait's source-owned unlabeled .word$FFFF is immediately
     # before GmOnlyCommon B840. Both bytes are unreachable data after JMP.
-    patch(79, 0xb83b, bytes.fromhex('4c7ebfffff'), bytes.fromhex('c9294cdcaa'))
+    patch(79, 0xb83b, bytes.fromhex('4c7ebfffff'), bytes.fromhex('c9294cdaaa'))
     # The current compiled platform/body wrapper owns the BG tail in bank93.
     # Preserve its real bounding-box call, then route the no-argument native
     # BG operation through the Mini preflight.
@@ -124,6 +133,15 @@ def main():
     raw[attrs_at:attrs_at+256]=encoded_attrs
     cookie = 16+65*8192+0x1003
     raw[cookie+3:cookie+16] = hashlib.sha256(raw[start:end+2048]).digest()[:13]
+    # Retain the already-tested root direct-dispatch/performance composition.
+    # Its eight independently source-funded spans are disjoint from this
+    # two-shot change, and every literal preimage is still required here.
+    direct_path=R/'build/mini-final-candidate-1103/candidate.json'
+    direct=json.loads(direct_path.read_text())
+    assert direct['ROM_SHA256']=='f552fd7ba20d4bdee4455c1f577ef966197dd792a2b885e8ecaf2a32dd40a481'
+    assert len(direct['patches'])==8
+    for q in direct['patches']:
+        patch(q['bank'],q['pc'],bytes.fromhex(q['old_hex']),bytes.fromhex(q['new_hex']))
     rom = out/'mini-empty-draw.nes'
     rom.write_bytes(raw)
     for ext in ['.lbl', '.dbg']:
@@ -131,11 +149,14 @@ def main():
     (out/'candidate.json').write_text(json.dumps(dict(candidate_SHA256=sha(rom),
         parent_SHA256=PIN, patches=patches,kernel_bytes=len(code),kernel_labels=kernel_labels,
         native_fireball_actor_unchanged=True,
-        fireball=dict(pool=1,control=8,opaque_extent=[4,4],visible_origin=[6,4],
+        fireball=dict(pool=2,admission='first empty, fresh B only; both busy blocks new shot',control=8,opaque_extent=[4,4],visible_origin=[6,4],
                       spawn_offsets=[2,-6],metadata_graphic_offset=0x2e0,tile=0x6f,
                       bounds_convention='Existing native control8 uses edge offsets6,4,10,8; native collision comparisons include equal edges.'),
         encoded_attributes_SHA256=hashlib.sha256(encoded_attrs).hexdigest(),
-        cookie=raw[cookie:cookie+16].hex()), indent=2)+'\n')
+        cookie=raw[cookie:cookie+16].hex(),
+        root_direct_manifest_SHA256=sha(direct_path),
+        reachable_Roll_pad_protected='B53A JMP B54C; foreign helper beginsB53D',
+        chip_hud_factor='A98A338B ->336B; MiniConstants beginsAADA'), indent=2)+'\n')
     print(sha(rom))
 
 

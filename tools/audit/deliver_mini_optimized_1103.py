@@ -1,4 +1,5 @@
 """Deliver the tested Mini optimization using the existing guarded installer."""
+import argparse
 import json
 import sys
 from pathlib import Path
@@ -7,15 +8,27 @@ import deliver_mini_nightly_root_1103_v30 as delivery
 
 
 def main():
-    delivery.O = delivery.R/'build/mini-optimized-delivery-1103'
-    delivery.PREVIOUS = '4ff069b3474077a1f3f8924b530780dee7a81c2a32d759f8fbe2defcf91e3f4c'
+    parser = argparse.ArgumentParser(add_help=False)
+    parser.add_argument('--series', default='mini-final')
+    parser.add_argument('--delivery-output', type=Path,
+                        default=delivery.R/'build/mini-optimized-delivery-1103')
+    parser.add_argument('--previous', default='4ff069b3474077a1f3f8924b530780dee7a81c2a32d759f8fbe2defcf91e3f4c')
+    parser.add_argument('--projectiles', type=int, choices=[1, 2], default=1)
+    parser.add_argument('--fire-packet', type=Path)
+    parser.add_argument('--enemy-proof', type=Path,
+                        default=delivery.R/'build/mini-fireball-enemy-cpu-1103/result.json')
+    options, remaining = parser.parse_known_args()
+    sys.argv = [sys.argv[0], *remaining]
+    delivery.O = options.delivery_output.resolve()
+    assert delivery.O.is_relative_to(delivery.R/'build')
+    delivery.PREVIOUS = options.previous
     rom = Path(sys.argv[sys.argv.index('--rom')+1])
     pin = delivery.sha(rom)
-    for name, required in [('mini-final-full11-1103', 'full_stage'),
-                           ('mini-final-power-1103', 'earned_power')]:
+    for name, required in [(options.series+'-full11-1103', 'full_stage'),
+                           (options.series+'-power-1103', 'earned_power')]:
         result = delivery.proof(delivery.R/'build'/name, pin)
         assert result[required]
-    smoke = delivery.R/'build/mini-final-idle-1103'
+    smoke = delivery.R/'build'/(options.series+'-idle-1103')
     delivery.proof(smoke, pin)
     timing = json.loads((smoke/'capture/timing.json').read_text())
     assert timing['ROM_sha256'] == pin
@@ -24,13 +37,15 @@ def main():
         assert cadence['physical'] == cadence['updates']
         assert cadence['lag_nmi'] == cadence.get('no_controller_read', 0) == 0
     assert timing['cadence']['idle']['updates'] == 180
-    fire_packet = delivery.R/'build/mini-final-fireball-1103'
+    fire_packet = options.fire_packet or delivery.R/'build'/(options.series+'-fireball-1103')
     fire = json.loads((fire_packet/'capture/result.json').read_text())
     binding = json.loads((fire_packet/'capture/binding.json').read_text())
     assert fire['passed'] and fire['ROM_sha256'] == binding['ROM_sha256'] == pin
     assert binding['exit_code'] == 0
     assert binding['ready_sha256'] == delivery.sha(fire_packet/'ready.json')
-    enemy = json.loads((delivery.R/'build/mini-fireball-enemy-cpu-1103/result.json').read_text())
+    if options.projectiles == 2:
+        assert fire['max_active_fireballs'] == fire['max_visible_fireballs'] == 2
+    enemy = json.loads(options.enemy_proof.read_text())
     assert enemy['passed'] and enemy['ROM_SHA256'] == pin
     assert enemy['actual_full_GameCoreRoutine'] and enemy['native_fireball_Goomba_defeat']
     delivery.main()
@@ -54,7 +69,7 @@ def main():
         'The empty-area idle, walking, turning, jump and landing replay has '
         'zero measured skipped NMIs or missing controller polls. '
         'Busy sections of 1-1 can still lag. '
-        'Fire Mini Mario now fires one native bouncing projectile with a 4x4 '
+        f'Fire Mini Mario now supports {options.projectiles} native bouncing projectiles with 4x4 '
         'graphic. Full 1-1 and earned mushroom collection passed. '
         'Fireball tests use an explicitly powered fixture. '
         'Start a fresh game after reopening the ROM.\n', encoding='utf-8')

@@ -1,6 +1,6 @@
 """Freeze compact source-funded Mini fireball/performance composition evidence."""
 from pathlib import Path
-import hashlib,json,re
+import argparse,hashlib,json,re
 R=Path(__file__).resolve().parents[2]
 O=R/'build/mini-fireball-integrated-1103'
 P=R/'build/mini-idle-constants-1103/mini-idle-fast.nes'
@@ -8,9 +8,13 @@ FINAL=R/'build/mini-final-candidate-1103/mini-optimized.nes'
 sha=lambda p:hashlib.sha256(Path(p).read_bytes()).hexdigest()
 
 def main():
+ ap=argparse.ArgumentParser(description=__doc__)
+ ap.add_argument('--output',type=Path,default=R/'build/mini-two-fireballs-1103')
+ ap.add_argument('--rom',type=Path,default=R/'build/mini-two-fireballs-1103/mini-empty-draw.nes')
+ a=ap.parse_args();O=a.output;FINAL=a.rom
  parent=P.read_bytes();own=(O/'mini-empty-draw.nes').read_bytes();final=FINAL.read_bytes()
  assert sha(P)=='4ff069b3474077a1f3f8924b530780dee7a81c2a32d759f8fbe2defcf91e3f4c'
- assert sha(FINAL)=='f552fd7ba20d4bdee4455c1f577ef966197dd792a2b885e8ecaf2a32dd40a481'
+ assert sha(FINAL)=='244734bbc2690b4e97e654cc72f8f153bedbe3fcc799f714e9508784e4f33af4'
  pos=lambda bank,pc:16+bank*8192+(pc&8191)
  page=lambda p:1048592+p*1024
  def span(bank,pc,n):return parent[pos(bank,pc):pos(bank,pc)+n]
@@ -33,6 +37,10 @@ def main():
  nr=R/'build/karnov-host-resource-base-1101-v1/new_roster_dispatch.s'
  assert '.word $ffff\n::GmOnlyCommon:' in nr.read_text()
  assert span(79,0xb83b,5)==bytes.fromhex('4c7ebfffff')
+ assert final[pos(79,0xb53a):pos(79,0xb53a)+3]==bytes.fromhex('4c4cb5')
+ hud=R/'build/mini-constant-funding-1103-v1'
+ assert parent[pos(79,0xa98a):pos(79,0xa98a)+338]==(hud/'chip-hud-reference.bin').read_bytes()
+ assert final[pos(79,0xa98a):pos(79,0xa98a)+336]==(hud/'chip-hud-fast.bin').read_bytes()
  meta=parent[page(967):page(968)]
  assert meta[0x239:0x25e]==b'\xff'*37 and meta[0x2d0:0x300]==b'\xff'*48
  assert final[page(967)+0x25e:page(967)+0x2cf]==meta[0x25e:0x2cf]
@@ -41,14 +49,15 @@ def main():
  assert 'LINK_GFX_MEM:start = $c000, size = $1c00' in cfgtext
  assert 'FF_ART_MEM:start=$d000,size=$1000' in cfgtext
  assert all(span(bank,pc,n)==b'\xff'*n for bank,pc,n in [(20,0xbbce,50),(20,0xbecc,52),(66,0xbecf,49),(93,0xbff8,8)])
- proofs=[O/'fire-proof/result.json',O/'final-native-proof/result.json',R/'build/mini-fireball-enemy-cpu-1103/result.json']
+ proofs=[O/'pool-proof/result.json',O/'roll-proof/result.json',O/'enemy-proof/result.json',hud/'proof.json']
  for p in proofs:assert json.loads(p.read_text())['passed']
  funding=[
   dict(bank=66,range=['B48A','B4A4'],bytes=26,used=13,source=str(hot.relative_to(R)),authority='HotPlayerGraphics fixed226B B3C2..B4A4; genuine farcall/jmp endsB48A; source .res226 tail.'),
-  dict(bank=89,range=['BCC0','BD60'],bytes=160,used=160,source=str(turtle.relative_to(R)),authority='TnMacHeadProbe BCAE public18B farcall/jmp then explicit160B padding; original178B span retained.'),
-  dict(bank=89,range=['BD72','BE24'],bytes=178,used=119,source=str(turtle.relative_to(R)),authority='TnMacSideProbe BD60 public18B farcall/jmp then explicit178B padding; original196B span retained.'),
+  dict(bank=89,range=['BCC0','BD60'],bytes=160,used=158,source=str(turtle.relative_to(R)),authority='TnMacHeadProbe BCAE public18B farcall/jmp then explicit160B padding; original178B span retained.'),
+  dict(bank=89,range=['BD72','BE24'],bytes=178,used=171,source=str(turtle.relative_to(R)),authority='TnMacSideProbe BD60 public18B farcall/jmp then explicit178B padding; original196B span retained.'),
   dict(bank=79,range=['B83B','B840'],bytes=5,source=str(nr.relative_to(R)),authority='Existing3B JMP plus source unlabeled .wordFFFF immediately before GmOnlyCommon. CMP41 is moved into these5B; dispatch entryB840 unchanged.'),
-  dict(bank=79,range=['B53A','B54C'],bytes=18,used=13,source='src/roll_weapons.s:86',authority='Existing explicit .res18,$EA after tail farcall.'),
+  dict(bank=79,range=['B53A','B54C'],bytes=18,used=16,source='src/roll_weapons.s:86',authority='REACHABLE former NOP block after Roll actor loop. Mandatory first3B JMPB54C protects actual Roll fallthrough. Only B53D onward houses5B foreign route+8B handled return; total16/18. Actual whole Roll0/1/3-bullet CPU parity verified.'),
+  dict(bank=79,range=['A98A','AB00'],bytes=374,source='src/chip_hud_queue.s + tools/audit/compact_chip_hud_for_mini_1103_v1.py',authority='Two source-guaranteed JMPs become taken BNE/BEQ. CdQueueHud entryA98A staysfixed;338→336B endsAADA and funds adjacent MiniConstants38B throughAB00. Arthur71,888fixtures exact AXYP/SP/nativeRAM/allwrites prove factor.'),
   dict(carrier=967,range=['D239','D25E'],bytes=37,used=37,source='tools/audit/prepare_mini_owner_payload_1103_v19.py:metadata',authority='metadata initializer fillsFF; animation352B at0, frames217B at160 end239; coldcopier begins25E.'),
   dict(carrier=967,range=['D2D0','D300'],bytes=48,used=47,source='tools/audit/prepare_mini_owner_payload_1103_v19.py:metadata',authority='Source113B coldcopier25E..2CF; explicit metadata FF until native attrs300. Life15B at2D0; exact4x4 art32B at2E0.'),
   dict(bank=20,range=['BD28','BD74'],bytes=76,source='src/cheats.s:CheatsMenuInput',authority='94B original span;18B farcall/jmp then .res76EA.'),
@@ -60,8 +69,8 @@ def main():
   dict(bank=93,range=['AFF3','B000'],bytes=13,source='tools/audit/resume_current_quick_cold_v11b.py + retained full DBG/private.cfg',authority='HOST_BBOX_LOCAL AFA7 size59 endsB000; live79B endsAFF6, so tail3B JMP plus source memory10B fill reused. Original bbox call retained.'),
   dict(bank=93,range=['BFF8','C000'],bytes=8,source='tools/reference/ff_fx_world_marker_v1.s + retained full DBG/private.cfg',authority='FfMuxWorldDrawEnd C-viewDFF8; FF_ART_MEM endsE000 with fillFF. A-viewBFF8 tail8B is source padding.'),
  ]
- files=[Path(__file__),R/'tools/audit/build_mini_empty_draw.py',R/'tools/reference/mini_mario_empty_draw.s',R/'tools/reference/mini_mario_fireball_1103.s',R/'tools/audit/check_mini_fireball_integrated_1103.py',hot,cheats,turtle,nr,cfg,R/'src/roll_weapons.s',R/'src/proto_palette_ack.s',R/'tools/reference/ff_fx_world_marker_v1.s',R/'tools/audit/prepare_mini_owner_payload_1103_v19.py',R/'build/roster-combined-1101-v3/candidate.dbg',*proofs]
- receipt=dict(passed=True,source_funding_only=True,parent_ROM_SHA256=sha(P),fire_composed_ROM_SHA256=sha(O/'mini-empty-draw.nes'),root_final_ROM_SHA256=sha(FINAL),funding=funding,source_files_frozen=True,native_actor_bank0_and_Mini_atlas968_exact=True,new_resources='No new ROM/RAM/CHR pages. Existing source padding and original Mini metadata only.',tests=[str(p.relative_to(R))for p in proofs],bindings={str(p.relative_to(R)):sha(p)for p in files},scope='Root owns additional direct-dispatch/performance funding and all Mesen/install proofs. All addresses are half-open; old full DBG is used only where current preimages and live boundaries are independently verified.')
+ files=[Path(__file__),R/'tools/audit/build_mini_empty_draw.py',R/'tools/reference/mini_mario_empty_draw.s',R/'tools/reference/mini_mario_fireball_1103.s',R/'tools/audit/check_mini_fireball_integrated_1103.py',R/'tools/audit/compact_chip_hud_for_mini_1103_v1.py',hud/'chip-hud-reference.bin',hud/'chip-hud-fast.bin',hot,cheats,turtle,nr,cfg,R/'src/roll_weapons.s',R/'src/proto_palette_ack.s',R/'tools/reference/ff_fx_world_marker_v1.s',R/'tools/audit/prepare_mini_owner_payload_1103_v19.py',R/'build/roster-combined-1101-v3/candidate.dbg',*proofs]
+ receipt=dict(passed=True,source_funding_only=True,parent_ROM_SHA256=sha(P),fire_composed_ROM_SHA256=sha(O/'mini-empty-draw.nes'),root_final_ROM_SHA256=sha(FINAL),funding=funding,source_files_frozen=True,native_actor_bank0_and_Mini_atlas968_exact=True,two_shot_bytes=329,two_shot_budget=338,invalidated_prior_receipt=dict(path='build/mini-fireball-integrated-1103/source-funding.json',ROM_SHA256='f552fd7ba20d4bdee4455c1f577ef966197dd792a2b885e8ecaf2a32dd40a481',reason='Its B53A unreachable-tail claim was false. The source .res18 is real Roll fallthrough. This successor protects it with JMPB54C before using the remaining bytes.'),new_resources='No new ROM/RAM/CHR pages. Existing source padding, exact2B ChipHUD factor and original Mini metadata only.',tests=[str(p.relative_to(R))for p in proofs],bindings={str(p.relative_to(R)):sha(p)for p in files},scope='Root owns additional direct-dispatch/performance funding and all Mesen/install proofs. All addresses are half-open; old full DBG is used only where current preimages and live boundaries are independently verified.')
  (O/'source-funding.json').write_text(json.dumps(receipt,indent=2)+'\n');print(json.dumps(dict(passed=True,funding_spans=len(funding),root_final=receipt['root_final_ROM_SHA256'],bytes=(O/'source-funding.json').stat().st_size)))
 
 if __name__=='__main__':main()

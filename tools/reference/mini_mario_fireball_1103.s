@@ -3,8 +3,9 @@
 ; and TnMacSideProbe tail BD72..BE23 (178B), src/tmnt_mac_probes.inc.
 ; The integrated builder binds the weapon and universal native draw return.
 ; Native gravity/terrain/explosion/enemy outcomes are retained adaptations.
-; One live actor follows the original Mini OnAttack admission.
+; Two native actor slots are the user's normal-Mario pool adaptation.
 .setcpu "6502"
+.macpack longbranch
 .export MiniFireballTail,MiniFireballDraw,MiniFireballDrawReturn
 .export MiniFireballArt,MiniFireballArtEnd
 
@@ -53,32 +54,39 @@ MiniFireballTail:
  beq Powered
  lda #0
  sta Fireball_State
+ sta Fireball_State+1
  sta FireballMetasprite
+ sta FireballMetasprite+1
  jmp Done
 Powered:
  lda A_B_Buttons
  and #$40
- beq Update
+ jeq Update
  and PreviousA_B_Buttons
- bne Update
+ jne Update
+ ldx #0
  lda Fireball_State
- bne Update
+ beq Spawn
+ inx
+ lda Fireball_State+1
+ jne Update
+Spawn:
  lda Player_Y_HighPos
  cmp #1
- bne Update
+ jne Update
  lda #1
- sta Fireball_State
- sta Fireball_Y_HighPos
+ sta Fireball_State,x
+ sta Fireball_Y_HighPos,x
  lda #8                    ; existing native4x4 control (native edge convention).
- sta Fireball_BoundBoxCtrl
+ sta Fireball_BoundBoxCtrl,x
  lda #0
- sta FireballBouncingFlag
- sta SprObject_X_MoveForce+7
- sta SprObject_Y_MoveForce+7
- sta SprObject_YMoveForceFractional+7
+ sta FireballBouncingFlag,x
+ sta SprObject_X_MoveForce+7,x
+ sta SprObject_Y_MoveForce+7,x
+ sta SprObject_YMoveForceFractional+7,x
  ldy #0
- ldx PlayerFacingDir
- cpx #2
+ lda PlayerFacingDir
+ cmp #2
  beq Left
  lda #2                    ; visible X=base+6, original right spawn X+8.
  bne StoreX
@@ -88,16 +96,17 @@ Left:
 StoreX:
  clc
  adc Player_X_Position
- sta Fireball_X_Position
+ sta Fireball_X_Position,x
  tya
  adc Player_PageLoc
- sta Fireball_PageLoc
- lda XSpeeds-1,x
- sta Fireball_X_Speed
+ sta Fireball_PageLoc,x
+ ldy PlayerFacingDir
+ lda XSpeeds-1,y
+ sta Fireball_X_Speed,x
  lda Player_Y_Position
  clc
  adc #20                   ; visible Y=base+4=source MarioY.
- sta Fireball_Y_Position
+ sta Fireball_Y_Position,x
  lda SavedJoypadBits
  and #8
  beq DownShot
@@ -106,22 +115,18 @@ StoreX:
 DownShot:
  lda #1
 StoreYSpeed:
- sta Fireball_Y_Speed
+ sta Fireball_Y_Speed,x
  lda #$20
  sta Square1SoundQueue
+ jmp Update
+XSpeeds: .byte $20,$e0
+
+.segment "MINI_FB_HELPERS"
 Update:
- lda Fireball_State
- beq Done                  ; do not bank-switch for an idle empty pool.
  ldx #0
- jsr NativeCore
- lda Fireball_State
- cmp #1
- beq HideShot
- cmp #$80                  ; native collision still calls DrawFireball once.
- bne Done                  ; states81+ retain genuine native explosion art.
-HideShot:
- lda #0
- sta FireballMetasprite    ; live ball is drawn by MiniFireballDraw.
+ jsr UpdateSlot
+ inx
+ jsr UpdateSlot
 Done:
  pla
  tay
@@ -131,9 +136,20 @@ Done:
  plp
  sec
  rts
-XSpeeds: .byte $20,$e0
-
-.segment "MINI_FB_HELPERS"
+UpdateSlot:
+ lda Fireball_State,x
+ beq SlotDone              ; no bank switch for an idle empty slot.
+ jsr NativeCore
+ lda Fireball_State,x
+ cmp #1
+ beq HideShot
+ cmp #$80                  ; native collision still calls DrawFireball once.
+ bne SlotDone              ; states81+ retain genuine native explosion art.
+HideShot:
+ lda #0
+ sta FireballMetasprite,x  ; live ball is drawn by MiniFireballDraw.
+SlotDone:
+ rts
 NativeCore:
  lda #$a7
  sta FarcallTarget
@@ -164,33 +180,35 @@ MiniFireballDrawReturn:
 ; Called AFTER native Mini body draw, with the normal OAM ring valid.
 ; Only the live ball is appended; native impact/explosion metasprites remain.
 MiniFireballDraw:
- lda Fireball_State
+ ldy #0
+DrawSlot:
+ lda Fireball_State,y
  cmp #1
- bne DrawDone
- lda Fireball_X_Position
+ bne NextDraw
+ lda Fireball_X_Position,y
  sec
  sbc ScreenLeft_X_Pos
  sta $03
- lda Fireball_PageLoc
+ lda Fireball_PageLoc,y
  sbc ScreenLeft_PageLoc
- bne DrawDone
+ bne NextDraw
  lda $03
  cmp #246
- bcs DrawDone
- lda Fireball_Y_Position
+ bcs NextDraw
+ lda Fireball_Y_Position,y
  cmp #236
- bcs DrawDone
+ bcs NextDraw
  ldx CurrentOAMOffset
  cpx #252
- bcs DrawDone
- txa
- ldy GuestOamRotationActive
+ bcs NextDraw
+ lda GuestOamRotationActive
  beq PhysicalReady
+ txa
  clc
  adc RgOamRotation
  tax
 PhysicalReady:
- lda Fireball_Y_Position
+ lda Fireball_Y_Position,y
  clc
  adc #3                    ; OAM Y+1 then visible row0 =>base+4.
  sta Sprite_Data,x
@@ -206,7 +224,10 @@ PhysicalReady:
  clc
  adc #4
  sta CurrentOAMOffset
-DrawDone:
+NextDraw:
+ iny
+ cpy #2
+ bne DrawSlot
  rts
 
 .segment "MINI_FB_ART"

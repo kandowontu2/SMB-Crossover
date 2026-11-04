@@ -25,6 +25,7 @@ MiniConstants:
  lda $075b
  lsr
  ora $25
+ ora $26
  beq HandledConstant
 OtherConstant:
  jmp ConstantForeign
@@ -42,6 +43,9 @@ NonWeaponConstant:
 HandledConstant:
  jmp ConstantHandled
 .segment "MINI_CONSTANT_FOREIGN"
+ ; RlWeapons reaches this former NOP span after its actor loop. Preserve
+ ; that real fallthrough before using the remainder for constant returns.
+ jmp $b54c
 ConstantForeign:
  cmp #34
  jmp $bf7e
