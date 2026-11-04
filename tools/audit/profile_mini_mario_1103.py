@@ -21,6 +21,9 @@ def main():
     parser.add_argument('--labels', type=Path, default=KERNEL)
     parser.add_argument('--plain', action='store_true', help='Run the exact regression replay without timing callbacks.')
     parser.add_argument('--idle-updates', type=int, default=20)
+    parser.add_argument('--render-details', action='store_true')
+    parser.add_argument('--bg-labels', type=Path)
+    parser.add_argument('--sample-x', type=int)
     args = parser.parse_args()
     controller = args.controller.read_text()
     digest = sha(args.rom)
@@ -62,12 +65,29 @@ def main():
                  PlayerGfxHandler=[0xa2cd, 1], EnemiesAndLoopsCore=[0xa260, 0],
                  DrawAllMetasprites=[0xa000, 4], PlayerOAMReservation=[0xe0d2, 127],
                  CoCheckCode=[0xaee2, 65], CoCheckHeaders=[0xaf27, 65])
+    if args.render_details:
+        hooks.update(SamusFreezeDrawAll=[0xa2b1, 4], HpGraphicsBankCopy=[0x8369, 126],
+                     CrossoverGraphicsBank=[0xe7bd, 127], WorldFirebarAdmission=[0xa261, 4],
+                     KbOamPriority=[0xacf7, 72], RlSpecialDrawDispatch=[0xbbc5, 78],
+                     KbDrawDispatch=[0xbfcc, 4], DrawBrickDebris=[0xa286, 4],
+                     MegaManFullShotBank=[0x90d2, 126], HotPlayerGraphics=[0xb3c2, 66],
+                     GuestPlayerVisible=[0x912b, 126], HandlePipeEntry=[0x9d69, 126],
+                     X5BounceUiDispatch=[0xa297, 86])
+    if args.bg_labels:
+        debug_labels = dict((name, int(pc, 16)) for pc, name in
+                            re.findall(r'^al ([\dA-Fa-f]+) \.(\w+)$', args.bg_labels.read_text(), re.M))
+        for name in ['MiniBackground','BackgroundGuard','BackgroundHeight','ProbeFloor','ProbeSides']:
+            hooks[name] = [debug_labels[name], 20]
+        refs.append(args.bg_labels)
     observer = Path(__file__).with_suffix('.lua')
     old = 'local function result(ok,why)'
     assert controller.count(old) == 1
     controller = controller.replace(old, 'local profileFinish\n' + old +
                                     '\n if profileFinish then profileFinish() end')
     controller += '\nlocal MiniProfileHooks=' + lua(hooks) + '\n' + observer.read_text()
+    if args.sample_x is not None:
+        controller = controller.replace('local stack, hooks, stats, cadence = {}, {}, {}, {}',
+            f'local sampleX={args.sample_x}\nlocal stack, hooks, stats, cadence = {{}}, {{}}, {{}}, {{}}')
     prepare(args.output, args.rom, controller,
             [*refs, observer], expected=digest,
             timeout=180, scope='Stack and physical-bank matched Mini 1-1 timings, lag NMI count and update cadence.',

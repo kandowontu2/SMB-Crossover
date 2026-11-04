@@ -1,6 +1,20 @@
 -- This observer is appended to the controller so it can share its phase and
 -- physical bank/stack return checks. No additional input or emulated writes.
 local stack, hooks, stats, cadence = {}, {}, {}, {}
+local instructionSample, instructionCounts = nil, {}
+local lastInstruction
+local function sampleInstruction()
+ if not instructionSample then return end
+ local state = emu.getState()
+ local cycle = state['cpu.cycleCount']
+ if lastInstruction then
+  instructionCounts[lastInstruction.key] = (instructionCounts[lastInstruction.key] or 0)+cycle-lastInstruction.cycle
+ end
+ local pc=state['cpu.pc']
+ local phys=emu.convertAddress(pc)
+ local key=string.format('%s:%04x',phys and phys.memType==emu.memType.nesPrgRom and tostring(phys.address//8192) or 'RAM',pc)
+ lastInstruction={key=key,cycle=cycle}
+end
 local skippedAddress = 0x013a
 local priorSkipped, priorUpdates = nil, 0
 local priorMesenLag, mesenLagKey
@@ -39,6 +53,32 @@ local function closeProfile()
   row.elapsed = row.elapsed + elapsed
   row.foreground = row.foreground + cpu
   row.max = math.max(row.max, elapsed)
+  if call.name == 'GameLoop' then
+   row.slowest = row.slowest or {}
+   local sample = call.scene
+   sample.cycles = cpu
+   sample.gross = elapsed
+   row.slowest[#row.slowest+1] = sample
+   table.sort(row.slowest, function(a,b) return a.cycles>b.cycles end)
+   if #row.slowest>8 then table.remove(row.slowest) end
+   if instructionSample == call then
+    sampleInstruction()
+    instructionSample=nil
+    local sorted={}
+    for key,cycles in pairs(instructionCounts) do sorted[#sorted+1]={key=key,cycles=cycles} end
+    table.sort(sorted,function(a,b)return a.cycles>b.cycles end)
+    local file=assert(io.open(OUTPUT..'instruction-sample.json','w'))
+    file:write(json({scene=call.scene,opcodes=sorted,scope='One actual controller-reached GameLoop; elapsed cycles include interrupted work.'})..'\n')
+    file:close()
+    result(true,'Bounded one-update diagnostic completed')
+    csv:close()
+    done=true
+    emu.stop(0)
+   end
+  end
+  if call.name == 'BackgroundGuard' or call.name == 'ProbeFloor' or call.name == 'ProbeSides' then
+   row.last_return = {a=state['cpu.a'],p=state['cpu.ps'] or state['cpu.p'],y=state['cpu.y']}
+  end
   local caller = string.format('%04x', call.ret)
   row.callers[caller] = (row.callers[caller] or 0)+1
   if call.target then row.targets[call.target] = (row.targets[call.target] or 0)+1 end
@@ -61,12 +101,29 @@ for name, hook in pairs(MiniProfileHooks) do
   context.name, context.phase = name, phase
   context.cycle, context.frame = emu.getState()['cpu.cycleCount'], frame
   context.isrCycles = isrCycles
+  if name == 'GameLoop' then
+   context.scene={frame=frame,x=read(0x75)+256*read(0x5c),y=read(0xbd),
+                  state=read(0x1e),keys=read(0xdc),engine=read(0x0f),
+                  block0=read(0x27),block1=read(0x28),enemies={}}
+   for i=0,5 do context.scene.enemies[i+1]=read(0x10+i) end
+  end
   if name == 'CoCheckCode' then
    context.target = string.format('%04x', read(0x016c)+256*read(0x016d))
   end
   stats[phase] = stats[phase] or {}
   stats[phase][name] = stats[phase][name] or {calls=0,elapsed=0,foreground=0,max=0,same_frame_calls=0,same_frame_cycles=0,callers={},targets={}}
+  if name == 'MiniBackground' then
+   local guard = {}
+   for _,at in ipairs({0x0f,0x719,0x706,0xdc,0x701,0x46,0x8e,0x711,0x1e,0xa4,0xbd,0x7da1}) do
+    guard[string.format('%04x',at)] = read(at)
+   end
+   stats[phase][name].last_entry = guard
+  end
   stack[#stack+1] = context
+  if name=='GameLoop' and sampleX and not instructionSample and context.scene.x>=sampleX and context.scene.y<145 then
+   instructionSample=context
+   emu.addMemoryCallback(sampleInstruction,emu.callbackType.exec,0x0000,0xffff)
+  end
   if not hooks[context.ret] then
    hooks[context.ret] = true
    emu.addMemoryCallback(guard(closeProfile), emu.callbackType.exec, context.ret)
