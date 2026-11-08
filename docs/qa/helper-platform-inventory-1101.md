@@ -208,6 +208,18 @@ Evidence: `docs/qa/checkpoints/2026-11-03/mini-end-v50/receipt.json`.
 The November 3 mushroom repair `9d291cb7` repeats the complete Mini route into
 active 1-2, lives 2 to 2, with the same obstacle crossings and no helpers.
 The separate earned mushroom run also passes from Downloads. Prince remains
-private: first-pipe runs stop at the first Goomba, so no Prince helper placement
-or assisted crossing has been established. See `roster-resume-v62/receipt.json`
+private. The November 3 first-pipe runs stop at the first Goomba. See `roster-resume-v62/receipt.json`
 under the November 3 checkpoints for the positive and negative scope.
+
+November 8: Prince private `b6df037e` clears the first Goomba with all five HP
+using the original running jump. The climb animation starts at the first pipe,
+but the host alignment lands left of the pipe at X448. No Prince helper has
+been placed and no assisted crossing has been verified. The source alignment
+trace is in `build/prince-climb-trace-1108/capture/prince-diagnostic.json`.
+
+Goku's Hard replay on the installed `244734bb` nightly reaches active 1-2 in
+5,999 physical frames and 4,096 gameplay updates with lives 2 → 2. The controller
+waits for grounded takeoff at X2434 or later before the final gap. It uses the
+existing native `$25` lifts in 1-1 at initial Y208, centers X704 and X888,
+left edges X688 and X872. No placement or ROM byte changed. Evidence is in
+`build/goku-current-last-gap-1108/capture/result.json`.
