@@ -72,6 +72,30 @@ miss frames. The new replay's most expensive sampled update was at X782
 with 33,565 foreground and 38,472 elapsed cycles. The highest concentrations
 of missed reads were at X640–767, X768–895 and X1920–2047.
 
+## Parser and lift follow-up
+
+Build `a08d839b187fc6866a3fd3658200c2f26b8e3724b3b4de3b5e7d2a65702598d2`
+completed the same 1-1 route in 2,922 active video frames with 2,590 game
+updates and 832 frames without a controller read. It retained both lives,
+all three lift crossings, the earned mushroom, and both original fireballs.
+Empty-area movement and 180 idle updates advanced on every video frame.
+
+The shared parser now clears the brick-health and coin-hit columns in a
+single pass. The former blank 18-byte gap between the bank 2 level segment
+and the level-variant bridge holds the loop. The change saves 154 cycles per
+guest column. The 10,752 paired CPU cases preserved terminal registers,
+memory, and all three maps. The separate IRQ and lag-NMI sweep included
+temporary column pointers. It allowed the fixed IRQ's timing-only `BIT R0`
+read and checked for all other reads or writes to those pointers.
+
+The platform callbacks skip inactive Ryu work for other profiles. A live
+Mini lift costs 457 fewer cycles per tested update. The typed Zelda II
+route keeps its existing callback and the Ryu path retains its source
+behavior. IRQ and lag-NMI cuts also passed for the lift change.
+
+The busiest update on the new replay was near X1513 at 37,148 elapsed
+cycles. Busy-stage lag remains.
+
 ## Local receipts
 
 - `build/mini-frame-budget-delivery-1108/verified-delivery.json`
@@ -88,3 +112,8 @@ of missed reads were at X640–767, X768–895 and X1920–2047.
 - `build/mini-active-actor-1108-v1/funded-v3-CPU.json`
 - `build/mini-audio-transport-1108-v4/irq.json`
 - `build/mini-side-dispatch-irq-1108/proof.json`
+- `build/mini-parser-lift-delivery-1109/verified-delivery.json`
+- `build/mini-parser-lift-qa-1109/route/capture/timing.json`
+- `build/parser-dual-shadow-1109/proof.json`
+- `build/parser-dual-shadow-irq-1109/health-batch-async-v3.json`
+- `build/mini-active-actor-1108-v1/lift-bridge-v5-CPU.json`

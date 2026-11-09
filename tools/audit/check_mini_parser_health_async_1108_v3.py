@@ -1,4 +1,5 @@
 """Check whether actual lag NMI/IRQ can observe reordered parser writes."""
+import argparse
 from collections import Counter
 from itertools import product
 from pathlib import Path
@@ -11,9 +12,16 @@ FF = 255
 
 
 def main():
-    manifest_path=OUT/'health-batch-v2.json'
+    parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--manifest',type=Path,default=OUT/'health-batch-v2.json')
+    parser.add_argument('--base',type=Path,default=A.ROM)
+    parser.add_argument('--output',type=Path,default=OUT)
+    parser.add_argument('--column-scratch',action='store_true',
+                        help='Check temporary R0/R1 column pointer and include additional audio owners.')
+    args=parser.parse_args()
+    manifest_path=args.manifest
     manifest=json.loads(manifest_path.read_text())
-    raw=A.ROM.read_bytes();assert sha(raw)==manifest['base_SHA256']==A.PIN
+    raw=args.base.read_bytes();pin=sha(raw);assert pin==manifest['base_SHA256']
     new=bytearray(raw)
     for row in manifest['patches']:
         at=row['file_offset']; old=bytes.fromhex(row['old_hex']); replacement=bytes.fromhex(row['new_hex'])
@@ -24,14 +32,23 @@ def main():
     target_ranges=[(A.address(b,n),size,n) for n,size in [('Block_Buffer_1',208),('Block_Buffer_2',208),
                         ('MmBrickHealth',416),('MmCoinHits',416),('MmSolidTerrain',416),
                         ('GuestTerrainColumn',13),('MetatileBuffer',13),('M0',2),('R6',2)]]
+    if args.column_scratch:
+        target_ranges.append((A.address(b,'R0'),2,'R0/R1'))
+    r0=A.address(b,'R0')
+    bit_delay=0x8026
+    if args.column_scratch:
+        at=16+126*8192+(bit_delay&0x1fff)
+        assert raw[at:at+5]==bytes((0x24,r0,0xea,0xea,0xea))
     target_addresses={a for base,n,_ in target_ranges for a in range(base,base+n)}
     handler_depth={}; watched=[]; nested_best={}
 
     class Bus(Base):
         guarded=False
+        handler_pc=None
         def __getitem__(self,at):
             if self.guarded and isinstance(at,int):
-                assert at not in target_addresses, ('Interrupt read transient parser state',hex(at))
+                delay=(args.column_scratch and at==r0 and self.handler_pc==bit_delay and self.rawtags[0]==254)
+                assert at not in target_addresses or delay, ('Interrupt read transient parser state',hex(at),self.handler_pc)
             return super().__getitem__(at)
         def __setitem__(self,at,value):
             if self.guarded and isinstance(at,int):
@@ -71,6 +88,7 @@ def main():
                 key=(tag,z.pc,N.get(z.memory,'SelectedCharacter'))
                 if key not in nested_best or z.sp<nested_best[key].sp:nested_best[key]=clone(z)
             assert z.memory[z.pc]!=0, ('ISR BRK',kind,hex(z.pc),ret)
+            z.memory.handler_pc=z.pc
             z.step()
         else:raise AssertionError(('ISR bounded return',kind,ret,hex(z.pc)))
         z.memory.guarded=False
@@ -86,7 +104,9 @@ def main():
     N.Bus=Bus
     seeds=[]
     try:
-        for owner,mode,pattern,p in product([0,41],[0,1],['plain','match','mismatch'],[0x21,0x25]):
+        owners=[0,3,7,19,41] if args.column_scratch else [0,41]
+        entry_sp=196 if args.column_scratch else 219
+        for owner,mode,pattern,p in product(owners,[0,1],['plain','match','mismatch'],[0x21,0x25]):
             m=N.fresh(b)
             N.put(m,SelectedCharacter=owner,OperMode=1,DisableScreenFlag=mode,
                   Mirror_PPUMASK=30 if not mode else 0,NmiDisable=FF,
@@ -98,7 +118,7 @@ def main():
                 m[A.address(b,'MetatileBuffer')+row]=0x54
                 m[A.address(b,'GuestTerrainColumn')+row]=dict(plain=0,match=0x54,mismatch=0x52)[pattern]
             for addr,value in [(0x7d8,2),(0x7db,4)]:m[addr]=value if pattern!='plain' else 0
-            c=CPU(memory=m,pc=B.PC_TAIL);c.a,c.x,c.y,c.p,c.sp=83,7,91,p,219;c.stPushWord(0x5aff)
+            c=CPU(memory=m,pc=B.PC_TAIL);c.a,c.x,c.y,c.p,c.sp=83,7,91,p,entry_sp;c.stPushWord(0x5aff)
             seen=set()
             for _ in range(4000):
                 if c.pc==0x5b00:break
@@ -112,20 +132,21 @@ def main():
                     if owner==41 and (not watched or c.sp<watched[0].sp):watched[:]=[clone(c)]
                 c.step()
             else:raise AssertionError('foreground bound')
-            assert c.sp==219
+            assert c.sp==entry_sp
             seeds.append([owner,mode,pattern,p,len(seen)])
     finally:N.Bus=Base
     for ctx in nested_best.values():run_handler(ctx,'IRQ')
     assert lower>0x7a and watched
     assert cnt['lag_FF'] and len(nested_best)
-    result=dict(passed=True,CPU_only=True,ROM_written=False,base_SHA256=A.PIN,
+    result=dict(passed=True,CPU_only=True,ROM_written=False,base_SHA256=pin,
                 memory_image_SHA256=sha(new),foreground_scenarios=seeds,
                 cuts=dict(cnt),nested_lag_NMI_IRQ_contexts=len(nested_best),min_foreground_SP=foreground_low,min_handler_SP=lower,
                 protected_read_write_ranges=[dict(start=a,length=n,name=label) for a,n,label in target_ranges],
                 source='Native active GameLoop and ScreenRoutines calls run under NmiDisable FF. Actual lag path runs audio and optional HUD IRQ; native IRQ may use R0 as delay but has no parser or health reader.',
-                scope='Actual current IRQ and lag-NMI instructions at every distinct reached parser-tail PC for Mario and Mini with rendering on/off, different original terrain branches, I0/I1, plus deepest measured nested IRQ contexts. No arbitrary foreign asynchronous state claim.',
-                bindings={str(p):sha(p.read_bytes()) for p in [Path(__file__),manifest_path,R/'src/reset.s',R/'src/game.s',R/'src/screen_render.s',R/'src/level_tiles.s',A.ROM]})
-    (OUT/'health-batch-async-v3.json').write_text(json.dumps(result,indent=2)+'\n')
+                scope='Actual IRQ and lag-NMI instructions at every distinct reached parser-tail PC for the listed owners, rendering on/off, different terrain branches, I0/I1, and deepest reached nested IRQ contexts.',
+                bindings={str(p):sha(p.read_bytes()) for p in [Path(__file__),manifest_path,R/'src/reset.s',R/'src/game.s',R/'src/screen_render.s',R/'src/level_tiles.s',args.base]})
+    args.output.mkdir(exist_ok=True)
+    (args.output/'health-batch-async-v3.json').write_text(json.dumps(result,indent=2)+'\n')
     print(json.dumps({k:result[k] for k in ['passed','cuts','nested_lag_NMI_IRQ_contexts','min_foreground_SP','min_handler_SP']}),flush=True)
 
 
