@@ -4,19 +4,18 @@ The functional roster pass is not complete. This inventory separates source
 placements from actual route verification; it is not the final all-character list.
 
 Inventory fixture SHA256: `128915e97e78891a585aa8f9fd904c166ca64dcd6dd1ee395fc68fd505c1e72c`.
-Current nightly SHA256: `6bd5e4b1976e26ecccd9b7c0512944020d6eb7a6e2c8c35ab50c53d0441e7491`.
+Current nightly SHA256: `f2050c1964b53b4bd3dc2e5f24c2ed688d47ad79a8aef6bb2cfd55e28b3e7e42`.
 
-Camera-entry audit on this successor: Mini's three lifts spawn beyond the right
-edge and all assisted crossings pass. Thomas's six lifts still use player-distance
-admission; Goku/Karnov's second lift is still selected by player position while
-the first uses a single owned slot. Their camera-entry fixes are pending. The
-shared generic manager already uses a camera-relative margin. Do not interpret
-Mini's verified fix as verification of every helper manager.
-Private camera candidate `5444f3e3` now passes full native routes for Thomas,
-Goku and Karnov, with every authored helper constructed at relative X286–287
-before entering the screen and every assisted crossing verified. Its rebase
-onto the current performance build remains unpublished pending combined-ROM
-native tests. No placement coordinates changed.
+Camera-entry fixes are delivered. Full native routes on this exact ROM verify
+Mini's three lifts, Thomas's six lifts, and both Goku/Karnov lifts spawning at
+relative X286–287, followed by actual support and assisted crossings into 1-2.
+The actual Downloads launch repeats Mini's route and matches its audio and
+helper evidence. Goku/Karnov retain separate native slots for their two lifts.
+The shared generic manager, including WWF, already uses a camera margin.
+No placement coordinates changed. This is not new native coverage of every
+shared roster alternate or every later stage. The separate
+[scope audit](helper-camera-scope-1110.md) records the native-slot capacity
+constraint; no natural full-slot entry-window failure has been witnessed.
 Bub/Bob added no helper platforms. Earlier route proofs below retain their stated hashes.
 Thomas's two late placements were added on d0b445a7; other placements are unchanged. The original admission fixture belongs to its stated earlier hash.
 `tools/audit/inventory_named_helpers_1101_v2.py` verified identical installed and
@@ -27,8 +26,8 @@ admission tests, not native assisted-crossing or complete-route tests.
 | Characters / scope | Stage | Placement | Native behavior | Verification remaining |
 |---|---|---|---|---|
 | Mega Man, Proto Man; Samus, Rogue Dawn; Bill, Lance; Link, Zelda II Link; Simon, Grant, Sypha, Alucard; Pit, GB Pit; Rygar; Ryu; Scrooge, Darkwing Duck; Kirby, Meta Knight; Chip, Dale; Little Mac, Doc Louis, Mike Tyson; Mike Jones; Popo, Nana; Alex, Ryan | 1-1 | Center X=3104, **native left edge=3096**, initial Y=64, width=16 pixels, near end staircase/flagpole | Native horizontal actor `$28` | Both modes admit the same helper; current alternate-by-alternate assisted crossings pending |
-| Goku and Karnov | 1-1 | Centers X=704 and 888; left edges 688 and 872; initial Y=208 | Existing native vertical platform, actor `$25`; one owned lift at a time | Karnov full route passes on `f5c30cea`; Goku Hard full route passes on `22d09909`; both-mode checks remain |
-| Thomas | 1-1 | Left edges X=400,560,688,864,2560,2816; centers X=416,576,704,880,2576,2832; initial Y=192; width=32 | Existing native vertical platform, actor `$25` | All six assisted crossings and full non-shortcut1-1 into1-2 pass on d0b445a7, no life loss; actual Downloads first assisted crossing passes. Both modes/all powerups remain open. |
+| Goku and Karnov | 1-1 | Centers X=704 and 888; left edges 688 and 872; initial Y=208; width=32 | Existing native vertical platforms, actor `$25`, separate owned slots | Both full routes and both offscreen constructions/contact/crossings pass on `f2050c19`, no life lost; native both-mode coverage remains open |
+| Thomas | 1-1 | Left edges X=400,560,688,864,2560,2816; centers X=416,576,704,880,2576,2832; initial Y=192; width=32 | Existing native vertical platform, actor `$25` | All six offscreen constructions and assisted crossings, full non-shortcut1-1 into1-2 pass on `f2050c19`, no life loss. Both modes/all powerups remain open. |
 
 Coordinates are world pixels. Initial/authored Y is not a fixed platform height:
 the platform moves. Center coordinates and left-edge coordinates are explicitly
@@ -88,7 +87,7 @@ the later-edge controller. The next opening pit still fails: the x+8
 launch starts at world X1368, rises from Y176 to Y110, and falls at X1412.
 Waiting until x+4 loses ground support before a second jump can begin.
 Original directional attacks and helper placement remain under review.
-The current nightly (`f5c30cea`)
+The historical verified build (`f5c30cea`)
 adds one existing native horizontal actor `$28` for all six WWF identities in
 1-1 / area `$25`: **initial center X=1400, initial left edge X=1376,
 initial Y=208, width=48 pixels**. Hogan crossed the authored X1376–1424 pit
@@ -108,9 +107,9 @@ The actual Downloads launch repeats Hogan's full clear in 12,277 frames.
 Karnov's separate lifts still cross both tall pipes and the first gap,
 grounded at X1156 with no life loss; this is not a full Karnov clear.
 Evidence: `build/wwf-helper-stable-1102-v2/native-hogan3/capture/`.
-Native death
-recovery is verified for all six wrestlers. The route remains unfinished;
-see `docs/qa/checkpoints/2026-11-02/hogan-gaps-v5/receipt.json`.
+Native death recovery is verified for all six wrestlers. The earlier unfinished
+gap diagnostic in `docs/qa/checkpoints/2026-11-02/hogan-gaps-v5/receipt.json`
+is superseded by the complete routes described above.
 
 ## Later-stage shared placements
 
@@ -248,11 +247,11 @@ wall-jump restarts. Each girder is 32 pixels wide.
 | 1-1 | 688 | 704 | 192 | 736 |
 | 1-1 | 864 | 880 | 192 | 912 |
 
-The current `84d372ef` Downloads route repeats all three crossings and clears
+The earlier `84d372ef` Downloads route repeats all three crossings and clears
 1-1 with both lives. Evidence is in `build/mini-contact-render-delivery-1109/verified-delivery.json`.
 The first pipe at X448 and the three gaps use Mini's ordinary jump.
 
-November 10 camera-spawn nightly `56c4135e` retains those same placements.
+Earlier camera-spawn nightly `56c4135e` retains those same placements.
 The three native constructors run with left edges 287, 286 and 287 pixels
 from the camera's left edge, before entering the visible screen. Each gets
 its own native actor slot (5, 4 and 3); an earlier visible platform is no

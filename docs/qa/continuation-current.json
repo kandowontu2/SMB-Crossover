@@ -1,4 +1,20 @@
 {
+  "camera_render_composite_private_1110": {
+    "status": "DELIVERED_CAMERA_FIXES_AND_225_MISSED_READS_ZERO_LAG_UNFINISHED",
+    "ROM_SHA256": "f2050c1964b53b4bd3dc2e5f24c2ed688d47ad79a8aef6bb2cfd55e28b3e7e42",
+    "root": "build/helper-camera-render-composite-1110",
+    "parent_delivered": "6bd5e4b1976e26ecccd9b7c0512944020d6eb7a6e2c8c35ab50c53d0441e7491",
+    "components": "Camera helper fixes plus shared relative/offscreen, clipped Goomba drawing, and prepared platform box reuse. All final-minus CPU/IRQ proofs, exact cold Mini and strict whole-loop comparisons passed.",
+    "Mini": "PASS full 1-1 into active1-2, three offscreen helper board/departures, 225 missed reads /3488physical /3451updates. X694 foreground30158 versus30862 onparent. Busy-stage zero lag remains unfinished.",
+    "Goku": "PASS exact-f205 build/goku-pipe-retry-1110:5546physical/4138updates, both lives, active1-2, both helper contacts/crossings, relative286/287. Original negative packet retained: controller alternated A each physical frame and stalled at pipe608. Retry uses native DpPrevious release/readback and source jump action; noROMchange.",
+    "Thomas": "PASS exact-f205 v5:10196physical/5554Main, active1-2 and all six real offscreen helper contacts/crossings. Historical5444 v5 proof retained.",
+    "Karnov": "PASS exact-f205:8999gameframes, active1-2, no death, both helper contacts/crossings at relative287/286. Grounded combatguard is controller input only.",
+    "delivery": "build/helper-camera-render-delivery-1110/verified-delivery.json; exactDownloadsMini route/helper/audio/cadence equality, idle/power/fire passed, patch guards and IPS reconstruction passed, no backup. Current marked Latest with sole IPS asset digest verified.",
+    "IPS_SHA256": "068779416fd82e3f539a877e4ae6eb4e1ab15143efe6baba961a512ee667fb1f",
+    "body_successor": "Private03c0cfe6d4562f6b7970199ce2d6ffa6f2f0f905a8cb8425945add6fcb71585d in build/mini-box-transport-native-1110. Exactf205 plus245bank86bytes, fullCPU/IRQ/cold proof passed, saves454GameCore/457normalGameLoop. Mini native56982 running. Do not weaken epoch/header checks. Next body-specific native idle/power/fire then tools/audit/deliver_mini_box_transport_1110.py; no repeat of all4 for each body microchange.",
+    "delivery_recipe": "tools/audit/deliver_helper_camera_render_1110.py delivered using --goku-packet build/goku-pipe-retry-1110. Original negative packet retained.",
+    "storage": "Removed46 completed Mini raw CSV/logs only; aggregate timing/audio/instruction/results/screens/source retained. Current body/camera work excluded. Receipt docs/qa/cleanup-mini-terminal-logs-1110.json."
+  },
   "mini_platform_firebar_qualification_1110": {
     "status": "DELIVERED_306_MISSED_READS_ZERO_LAG_UNFINISHED",
     "ROM_SHA256": "6bd5e4b1976e26ecccd9b7c0512944020d6eb7a6e2c8c35ab50c53d0441e7491",
