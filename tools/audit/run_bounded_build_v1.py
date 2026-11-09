@@ -15,6 +15,7 @@ def main():
     ap=argparse.ArgumentParser(description=__doc__)
     ap.add_argument('--output',type=Path,required=True)
     ap.add_argument('--timeout',type=int,default=300)
+    ap.add_argument('--max-files',type=int,default=G.TASK_FILES,help='Lower this task file cap and reservation; cannot exceed the workspace task limit.')
     ap.add_argument('--resume',action='store_true',help='Resume only an unfinished owned output tree; retain preexisting files on violation.')
     ap.add_argument('command',nargs=argparse.REMAINDER)
     args=ap.parse_args();output=args.output.resolve();base=G.BUILD.resolve()
@@ -25,9 +26,11 @@ def main():
         assert not(output/'source-stage.json').exists()and not(output/'binding.json').exists(),'Qualified output is immutable; use a new task'
     before={p.resolve()for p in output.rglob('*')if p.is_file()}if existed else set()
     assert 1<=args.timeout<=600
+    assert 1<=args.max_files<=G.TASK_FILES,'Task file budget must be within the existing hard cap'
     command=args.command[1:]if args.command[:1]==['--']else args.command
     assert command
-    G.preflight(private_root=output,reserved_bytes=G.TASK_BYTES,reserved_files=G.TASK_FILES,fresh=True)
+    G.inventory(output,G.TASK_BYTES,args.max_files)
+    G.preflight(private_root=output,reserved_bytes=G.TASK_BYTES,reserved_files=args.max_files,fresh=True)
     options=dict(creationflags=subprocess.CREATE_NEW_PROCESS_GROUP|subprocess.CREATE_NO_WINDOW)if os.name=='nt'else dict(start_new_session=True)
     child=subprocess.Popen(command,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,text=True,**options)
     def relay():
@@ -36,13 +39,17 @@ def main():
     started=time.monotonic();next_global=started;violation=None
     try:
         while True:
-            G.inventory(output,G.TASK_BYTES,G.TASK_FILES)
+            G.inventory(output,G.TASK_BYTES,args.max_files)
             now=time.monotonic()
             if now>=next_global:
                 G.preflight(fresh=True);next_global=now+2
             if now-started>args.timeout:raise G.BuildStorageExceeded('Owned build exceeded its bounded runtime.')
             result=child.poll()
-            if result is not None:break
+            if result is not None:
+                # A fast child may finish its writes between inventory and poll.
+                G.inventory(output,G.TASK_BYTES,args.max_files)
+                G.preflight(fresh=True)
+                break
             time.sleep(.2)
     except BaseException as error:
         violation=error
