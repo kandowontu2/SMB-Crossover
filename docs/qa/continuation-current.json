@@ -1,4 +1,15 @@
 {
+  "mini_movement_popup_rng_delivered_1110": {
+    "status": "DELIVERED_7_MISSED_READS_ZERO_LAG_UNFINISHED",
+    "ROM_SHA256": "f5183f7ada374443222dc0b30a0777a8218aac154c04f84855d140245370daaa",
+    "IPS_SHA256": "e792f0379f534a3f207a2690b2c33ca49bb344faa31347c79c13e86bdfde0fe4",
+    "receipt": "build/mini-movement-popup-rng-delivery-1110/verified-delivery.json",
+    "cadence": {"missed_reads": 7, "physical": 3500, "updates": 3500, "zero_update": 7},
+    "verification": "Exact Downloads cleared 1-1 without shortcut, both lives and all three native helpers boarded. The idle, power, two-fireball and corrected injury suites passed on the exact candidate. Downloads replay matches candidate cadence, audio and lift data. IPS roundtrip and patch guards passed, sole Current IPS marked Latest and digest verified. No backup.",
+    "shared_performance": "Candidate active route GameLoop foreground 66,480,826 cycles versus 66,889,744 on f003 with the same 3500 updates. Five-owner CPU suite: Mini 123–147 cycles saved, four other sampled owners 78–123. All component final-minus interrupts passed. Movement-only 4b recorded seven misses too.",
+    "next": "Goal active. f003 missed-deadline trace in build/mini-seven-deadline-profile-v2-1110/capture/timing.json measured 54 and 86 cycle shortfalls, then seven of 440–716. Private 863e1e3c margin trial combines exact Mini bbox mapper, shared top-score loop and left-edge Goomba admission and measures native headroom. Goomba-only 6dd3 saved 340 in the targeted late update but matched the nine misses and cost several cycles on earlier updates. Do not ship it on a cycle estimate alone. Generic helper birth-window and injury timing qualification in progress. 3-2/3-3 native actor capacity still needs evidence.",
+    "allocations": "Physical86 A614..A645 movement prefix; fixed126 9521 branch operand; fixed126 83C7..83DF and 86A6..86B8 popup guard/continuation; fixed126 82F3..8310 RNG. Prior helper and injury allocations remain owned."
+  },
   "mini_powered_injury_delivered_1110": {
     "status": "DELIVERED_9_MISSED_READS_ZERO_LAG_UNFINISHED",
     "ROM_SHA256": "f003b378b0e5bd862403eae71f267d8c33a3b06e9270548ae20b1d9f6b2f9979",
