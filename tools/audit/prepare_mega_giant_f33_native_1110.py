@@ -85,7 +85,14 @@ def main():
     mode = cli.add_mutually_exclusive_group()
     mode.add_argument('--rom',type=Path)
     mode.add_argument('--compose-current',type=Path,metavar='SIDE_PROOF')
+    cli.add_argument('--expected-sha', help='Exact tested ROM digest for an explicit --rom launch.')
+    cli.add_argument('--symbols-from', type=Path, help='Existing symbol carrier; never copied beside the ROM.')
     args = cli.parse_args()
+    if (args.expected_sha or args.symbols_from) and args.rom is None:
+        cli.error('--expected-sha and --symbols-from require --rom')
+    if args.expected_sha and (len(args.expected_sha) != 64 or
+                             any(c not in '0123456789abcdef' for c in args.expected_sha)):
+        cli.error('--expected-sha must be a lowercase SHA-256 digest')
     out = args.output.resolve()
     assert out.is_relative_to(Q.R / 'build') and out != Q.R / 'build'
     if args.rom is None and args.compose_current is None:
@@ -97,8 +104,9 @@ def main():
     refs = {PROOF,ROUTE,SOURCE,Path(__file__),*map(Path,Q.read(PROOF)['bindings']),*map(Path,Q.read(ROUTE)['bindings'])}
     refs.discard(Q.C.HOST)
     refs.add(BASE)
-    rom, digest = args.rom, ROM_SHA
-    symbols = None
+    rom, digest = args.rom, args.expected_sha or ROM_SHA
+    symbols = ((args.symbols_from.with_suffix('.lbl'), args.symbols_from.with_suffix('.dbg'))
+               if args.symbols_from else None)
     if args.compose_current:
         side_proof = args.compose_current.resolve()
         rom, digest = compose_current(out, side_proof)
