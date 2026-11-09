@@ -1,6 +1,6 @@
 -- Controller-only smoke test. C contains exact ROM, labels and owned actor marker.
 local frame, updates, pad = 0, 0, {}
-local phases, samples, births = {}, {}, 0
+local samples, births = {}, 0
 local function rd(a) return emu.read(a,emu.memType.nesDebug) end
 local function r(n,i) return rd(assert(C.ram[n],n)+(i or 0)) end
 local function pos(lo,hi,i) return r(lo,i)+256*r(hi,i) end
@@ -94,7 +94,7 @@ emu.addMemoryCallback(function()
 end,emu.callbackType.exec,C.main)
 emu.addMemoryCallback(function()
  local at=emu.convertAddress(C.spawn)
- if at and at.memType==C.spawn_mem and at.address==C.spawn_physical and active() then births=births+1 end
+ if at and at.memType==assert(emu.memType[C.spawn_mem]) and at.address==C.spawn_physical and active() then births=births+1 end
 end,emu.callbackType.exec,C.spawn)
 emu.addEventCallback(function() emu.setInput(pad,0) end,emu.eventType.inputPolled)
 emu.addEventCallback(function()
