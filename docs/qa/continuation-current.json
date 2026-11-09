@@ -1,4 +1,61 @@
 {
+  "downloads_helper_3_2_and_getsu_presentation_1110": {
+    "nightly_SHA256": "f33c7b19d27309ab4e4771125a74360f978dba08bd807d25bc6307026e568734",
+    "latest_IPS_SHA256": "9e6ed2245ac2d4e337888c714388c4eadac2b3cd5a747d249aa2a19a9d684a18",
+    "shared_lag": "The released shared sparse renderer has measured Bill idle misses 3 to 1, Bill walk 29 to 28, and Samus walk 22 to 18. Mini retained 3494 updates in 3494 active frames. The Downloads ROM and Latest IPS remain the same verified build.",
+    "shared_helper": {
+      "actual_Downloads": {
+        "path": "build/current-helper-3-2-entry-1110/capture/result.json",
+        "sha256": "939eafe3ca4283d90412f6aad4b4c590b1e460df54338726df468e201f76aa3e"
+      },
+      "binding": {
+        "path": "build/current-helper-3-2-entry-1110/capture/binding.json",
+        "sha256": "4717945c5c3fe18daad464a923716f8db815c08fba1a3aa01fa3e012303e2776"
+      },
+      "scope": "Easy Scrooge 3-2 area $35, native $28, initial left X3272, center X3280, top Y64, width16. Constructed in slot2 with three of six occupied at camera-right X3242. First visible at moving left X3284, exactly camera-right. No loss through active 3-3, no platform ride. No new placements. A full native slot pool through the entire offscreen window can still delay generic construction; its natural incidence remains unverified."
+    },
+    "getsu_private": {
+      "ROM_SHA256": "e3412ac2bb5497975249b215aa0888f9c32a1d2f2dee55a8bdd2dd57f192ac78",
+      "render": {
+        "path": "build/getsu-host-render-1110-v3/proof.json",
+        "sha256": "0ae6230f7f6b4988b0c968a073eb0d75e835fcb62b45f652cd1fd9a8d0c4db82"
+      },
+      "native_HUD": {
+        "path": "build/getsu-native-hud-1110/proof.json",
+        "sha256": "b4b4bd192a3f5fdf97c2af7fc4a9a64ce4940759670207835ba2413188dc0992"
+      },
+      "composition": {
+        "path": "build/getsu-stage-presentation-1110/proof.json",
+        "sha256": "e78bef3dc5abf49ca53f6559608c2b98d5e9f581d30d39b117bf8b9e7c17138e"
+      },
+      "native_route": {
+        "path": "build/getsu-presentation-native-1110/native/capture/result.json",
+        "sha256": "e032cfbf053b13e540aa22c576f20eb4222583625d88e0fe1cdcbdb866ed7cbb"
+      },
+      "scope": "Normal controls, correct native GETSU name and sky in 1-1, black underground and same name in 1-2. Donor palette and real OAM verified. First sword Goomba kill, all four opening pipes and three gaps, native flag and full 1-2 handoff, both lives without a helper. Remains private while active lag and weapon progression are open."
+    },
+    "prince_private": {
+      "ROM_SHA256": "4699c73befdd331b7e49a8b992a4f15f52d14eed81ac2d76f3b69c63ba3c846e",
+      "donor_alignment": {
+        "path": "build/prince-post-pit-landing-writer-1110/donor/donor-align.json",
+        "sha256": "d420b2982893a122c75d562526ff6a27e3bff20c7d4e6708ff652de5dc8ade23"
+      },
+      "v7_negative": {
+        "path": "build/prince-post-pit-landing-writer-1110/native/capture/post-pit-goombas.json",
+        "sha256": "5109b80dfb6f6953f9a6bf893f4d9626ff02b09e39adb2bf1b3dac483ede8116"
+      },
+      "v8_group": {
+        "path": "build/prince-post-pit-landing-writer-1110/retreat/native/capture/post-pit-goombas.json",
+        "sha256": "871031bcbbc40bbb0b9a8b11ef7566af4b91e242e09faa31ed725e4cef727d18"
+      },
+      "v8_terminal": {
+        "path": "build/prince-post-pit-landing-writer-1110/retreat/native/capture/full11.json",
+        "sha256": "9e4ea44c9c3f466088d8cd14a3d1b2ec4bac1c573ddce2556be2d26f52ae7cb4"
+      },
+      "scope": "Original reverse and forward running jumps clear the second pit and two Goombas in Mesen, with earlier pipes and first pit preserved. Full route stops at X1678, HP0, frame7763. No helper. Donor readback verifies a separate extra 32px host-only backward alignment in one right-facing source contact fixture."
+    },
+    "storage": "Removed 48 byte-identical menu/title captures, 27 exact duplicate capture outputs, and one superseded 3-2 packet with equal observations and images. All retained evidence and scoped removals in cleanup-mini-lag-diagnostics-1110.json."
+  },
   "shared_sparse_delivery_and_getsu_native_1110": {
     "status": "SHARED_RENDER_SPEEDUP_DELIVERED_GETSU_NATIVE_TERRAIN_SWORD_AND_OAM_REPAIR_VERIFIED_ON_SEPARATE_CUTS",
     "public_ROM_SHA256": "f33c7b19d27309ab4e4771125a74360f978dba08bd807d25bc6307026e568734",

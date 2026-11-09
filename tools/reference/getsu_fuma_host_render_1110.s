@@ -1,11 +1,12 @@
 .setcpu "6502"
 .macpack longbranch
-.export GfDraw, GfBuildRecord, GfWalkAdvance, GfDrawEnd
+.export GfDraw, GfBuildRecord, GfWalkAdvance, GfSetColors, GfDrawEnd
 .import GfClock, GfAction, GfFacing, GfVXLo, GfVXHi, GfBodyPose, GfBodyFacing
 .import GfSwordActive, GfSwordPhase, GfSwordPose, GfSwordFacing
 .import ClimbPLocAdder, SmPosePtr
 .import Player_State, Player_X_Position, Player_PageLoc, Player_Y_Position, Player_Y_HighPos
 .import ScreenLeft_X_Pos, ScreenLeft_PageLoc, StarInvincibleTimer, GuestPowerupActive
+.import AreaType, BackgroundColorCtrl, VRAM_Buffer_AddrCtrl
 .import CurrentCHRBank, X5ChrMode, VRAM_Buffer1, VRAM_Buffer1_Offset
 .import MetaspriteRenderLoop, X5SetPhysicalChr, R0, R1, R2, R3, R4, R5, R6, R7
 
@@ -106,7 +107,12 @@ Rejected:
 ; in the air, advances a step on landing, and resets the body on crouch exit.
 .proc UpdatePose
     lda RenderValid
-    bne Ready
+    beq Initialize
+    lda GfClock
+    cmp RenderClock
+    bne NewTick
+    rts
+Initialize:
     inc RenderValid
     lda #12
     sta GfBodyPose
@@ -115,12 +121,6 @@ Rejected:
     lda GfFacing
     sta GfBodyFacing
     sta UpperFacing
-    jmp NewTick
-Ready:
-    lda GfClock
-    cmp RenderClock
-    bne NewTick
-    rts
 NewTick:
     lda GfClock
     sta RenderClock
@@ -235,11 +235,10 @@ InRange:
     sta GfBodyPose
     lda GfFacing
     sta GfBodyFacing
+    sta UpperFacing
     inc WalkIndex
     lda WalkUpper,y
     sta UpperPose
-    lda GfFacing
-    sta UpperFacing
     rts
 WalkBody:  .byte 4,5,6,5
 WalkUpper: .byte 1,2,3,2
@@ -252,7 +251,6 @@ WalkUpper: .byte 1,2,3,2
     pha
     lda #0
     sta WriteIndex
-    sta Record
     lda GfBodyFacing
     lsr
     lda #0
@@ -323,10 +321,10 @@ Attribute:
 SaveDX:
     sta Record+4,x
     dey
-    txa
-    clc
-    adc #4
-    tax
+    inx
+    inx
+    inx
+    inx
     dec Parts
     bne Loop
     stx WriteIndex
@@ -334,42 +332,43 @@ Done:
     rts
 .endproc
 
+; Native GetPlayerColors owns scene changes and powerup completion. A
+; pending request also gets retried in the next eligible draw if VRAM is busy.
+GfSetColors:
+    lda #0
+    sta PaletteQueued
 .proc QueuePalette
-    lda StarInvincibleTimer
-    ora GuestPowerupActive
-    bne Reset
     lda PaletteQueued
     bne Done
+    lda StarInvincibleTimer
+    ora GuestPowerupActive
+    ora VRAM_Buffer_AddrCtrl
+    bne Done
     ldx VRAM_Buffer1_Offset
-    cpx #78
+    cpx #77
     bcs Done
-    lda #$3f
-    sta VRAM_Buffer1,x
-    lda #$11
-    sta VRAM_Buffer1+1,x
-    lda #3
-    sta VRAM_Buffer1+2,x
     ldy #0
-Colors:
-    lda GfSpriteColors,y
-    sta VRAM_Buffer1+3,x
+Copy:
+    lda GfPalettePacket,y
+    sta VRAM_Buffer1,x
     inx
     iny
-    cpy #3
-    bne Colors
-    inx
-    inx
-    inx
+    cpy #7
+    bne Copy
+    ldy BackgroundColorCtrl
+    bne AreaColor
+    ldy AreaType
+AreaColor:
+    lda Backdrops,y
+    sta VRAM_Buffer1-4,x
     stx VRAM_Buffer1_Offset
     lda #0
     sta VRAM_Buffer1,x
     inc PaletteQueued
 Done:
     rts
-Reset:
-    lda #0
-    sta PaletteQueued
-    rts
+Backdrops:
+    .byte $22,$22,$0f,$0f,$0f,$22,$0f,$0f
 .endproc
 
 ; The extractor appends the pinned donor pose records here.

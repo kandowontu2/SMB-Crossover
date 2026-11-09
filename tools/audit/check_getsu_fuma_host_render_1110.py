@@ -37,10 +37,13 @@ def assemble(output, b):
         assert (location(b, name) - 16) // 8192 == bank and 0xa000 <= symbols[name] < 0xc000
     empty = location(b, 'ClimbPLocAdder') + 1
     assert (empty - 16) // 8192 == 126 and b['raw'][empty] == 0
+    background = location(b, 'X5QueueAreaBackdrop')
+    assert b['raw'][background + 50:background + 58] == bytes.fromhex('22220f0f0f220f0f')
     defines = ''.join(f'{name}=${symbols[name]:04x}\n' for name in sorted(imports))
     src = defines + re.sub(r'^\.import .+\n', '', src, flags=re.M)
     art = (ART / 'poses.inc').read_text().replace(', GfPortraitOam', '')
     art = re.sub(r'GfPortraitOam:\n.*?(?=GfSpriteColors:)', '', art, flags=re.S)
+    art = art.replace('GfSpriteColors:', 'GfPalettePacket:\n    .byte $3f,$10,4,0\nGfSpriteColors:')
     src += '\n' + art
     code, labels = Owner.assemble(output, src, (('DRAW', START, LIMIT - START, ('GETSU_HOST_RENDER',)),))
     assert labels['GfDraw'] == START and labels['GfPoseOffsets'] == labels['GfDrawEnd']
@@ -125,7 +128,8 @@ def render(seed, labels, donor, tile_map):
         N.put(m, Player_X_Position=world_x & 255, Player_PageLoc=world_x >> 8,
               ScreenLeft_X_Pos=0, ScreenLeft_PageLoc=1, Player_Y_Position=oy & 255, Player_Y_HighPos=oy >> 8,
               CurrentOAMOffset=cursor, GuestOamRotationActive=int(bool(rotation)), RgOamRotation=rotation,
-              VRAM_Buffer1_Offset=0, StarInvincibleTimer=0, GuestPowerupActive=0)
+              VRAM_Buffer1_Offset=0, VRAM_Buffer_AddrCtrl=0, AreaType=1, BackgroundColorCtrl=0,
+              StarInvincibleTimer=0, GuestPowerupActive=0)
         m[STATE['GfAction']], m[STATE['GfBodyPose']], m[STATE['GfBodyFacing']] = crouch, body, body_face
         m[0xc020], m[0xc028], m[0xc029] = 1, upper, upper_face
         m[0x200:0x300] = bytes([0xf8]) * 256
@@ -145,9 +149,9 @@ def render(seed, labels, donor, tile_map):
             continue
         assert result['P'] & 1 and N.get(m, 'CurrentOAMOffset') == cursor + 4 * len(rows)
         assert N.get(m, 'CurrentCHRBank') == 222 and N.get(m, 'X5ChrMode') == 0x83
-        assert N.get(m, 'VRAM_Buffer1_Offset') == 6
+        assert N.get(m, 'VRAM_Buffer1_Offset') == 7
         buf = address(m.bundle, 'VRAM_Buffer1')
-        assert bytes(m[buf:buf + 7]) == bytes.fromhex('3f110300200500')
+        assert bytes(m[buf:buf + 8]) == bytes.fromhex('3f10042200200500')
         for i, (y, tile, attr, x) in enumerate(rows):
             offset = (cursor + rotation + 4 * i) & 255
             at = 0x200 + offset
@@ -169,27 +173,47 @@ def palette_lifecycle(seed, labels):
     m = N.fork(seed)
     base = address(m.bundle, 'VRAM_Buffer1')
     draw = labels['GfDraw']
-    N.put(m, Player_X_Position=48, Player_Y_Position=176, Player_Y_HighPos=1, VRAM_Buffer1_Offset=78)
-    m[base + 78:base + 85] = bytes([0xb9]) * 7
-    assert Owner.invoke(m, draw, bank=3)['P'] & 1
-    assert m[0xc030] == 0 and bytes(m[base + 78:base + 85]) == bytes([0xb9]) * 7
+    colors = labels['GfSetColors']
+    N.put(m, Player_X_Position=48, Player_Y_Position=176, Player_Y_HighPos=1, VRAM_Buffer1_Offset=77)
+    m[base + 77:base + 84] = bytes([0xb9]) * 7
+    Owner.invoke(m, colors, bank=3)
+    assert m[0xc030] == 0 and bytes(m[base + 77:base + 84]) == bytes([0xb9]) * 7
     N.put(m, CurrentOAMOffset=16, VRAM_Buffer1_Offset=0, ReloadCHRBank=0, StarInvincibleTimer=5)
     assert Owner.invoke(m, draw, bank=3)['P'] & 1
-    assert N.get(m, 'VRAM_Buffer1_Offset') == N.get(m, 'ReloadCHRBank') == m[0xc030] == 0
+    assert N.get(m, 'VRAM_Buffer1_Offset') == m[0xc030] == 0
     N.put(m, CurrentOAMOffset=16, StarInvincibleTimer=0)
     assert Owner.invoke(m, draw, bank=3)['P'] & 1
-    assert bytes(m[base:base + 7]) == bytes.fromhex('3f110300200500')
-    assert N.get(m, 'VRAM_Buffer1_Offset') == 6 and m[0xc030] == 1
+    assert bytes(m[base:base + 8]) == bytes.fromhex('3f10042200200500')
+    assert N.get(m, 'VRAM_Buffer1_Offset') == 7 and m[0xc030] == 1
     N.put(m, CurrentOAMOffset=16, VRAM_Buffer1_Offset=0, GuestPowerupActive=1)
-    assert Owner.invoke(m, draw, bank=3)['P'] & 1 and m[0xc030] == 0
+    Owner.invoke(m, colors, bank=3)
+    assert m[0xc030] == 0
     assert N.get(m, 'VRAM_Buffer1_Offset') == 0
-    N.put(m, CurrentOAMOffset=16, GuestPowerupActive=0)
+    N.put(m, CurrentOAMOffset=16, GuestPowerupActive=0, VRAM_Buffer_AddrCtrl=6)
+    Owner.invoke(m, colors, bank=3)
+    assert m[0xc030] == N.get(m, 'VRAM_Buffer1_Offset') == 0
+    N.put(m, VRAM_Buffer_AddrCtrl=0)
     assert Owner.invoke(m, draw, bank=3)['P'] & 1 and m[0xc030] == 1
     N.put(m, CurrentOAMOffset=16, VRAM_Buffer1_Offset=0)
     warm = Owner.invoke(m, draw, bank=3)
     assert warm['P'] & 1 and N.get(m, 'VRAM_Buffer1_Offset') == 0
-    return dict(queue_full_retry=True, star_does_not_override=True, transformation_does_not_override=True,
-                warm_does_not_requeue=True, warm_CPU=warm['CPU'])
+    cases = 0
+    for area, color, offset in product(range(4), range(8), (0, 7, 76, 77)):
+        z = N.fork(seed)
+        N.put(z, AreaType=area, BackgroundColorCtrl=color, VRAM_Buffer_AddrCtrl=0, VRAM_Buffer1_Offset=offset)
+        before = bytes(z[base:base + 84])
+        Owner.invoke(z, colors, bank=3)
+        changed = bytes(z[base:base + 84])
+        if offset < 77:
+            backdrop = bytes.fromhex('22220f0f0f220f0f')[color or area]
+            assert changed == before[:offset] + bytes((0x3f, 0x10, 4, backdrop, 0, 0x20, 5, 0)) + before[offset+8:]
+            assert N.get(z, 'VRAM_Buffer1_Offset') == offset + 7 and z[0xc030] == 1
+        else:
+            assert before == changed and N.get(z, 'VRAM_Buffer1_Offset') == offset and z[0xc030] == 0
+        cases += 1
+    return dict(queue_full_retry=True, active_other_buffer_defers=True, star_does_not_override=True,
+                transformation_does_not_override=True, warm_does_not_requeue=True, warm_CPU=warm['CPU'],
+                native_area_and_palette_queue_cases=cases)
 
 
 def interrupt_controls(seed, labels):

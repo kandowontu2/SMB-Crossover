@@ -7,7 +7,8 @@ R = Path(__file__).resolve().parents[2]
 sha = lambda p: hashlib.sha256(Path(p).read_bytes()).hexdigest()
 
 
-def prepare(output, rom, controller, refs, *, expected, timeout, scope, allow_interactive=False):
+def prepare(output, rom, controller, refs, *, expected, timeout, scope, allow_interactive=False,
+            rom_symbols=None):
     output = output.resolve()
     rom = rom.resolve()
     assert output.is_relative_to(R / 'build')
@@ -35,7 +36,9 @@ for p,h in q['bindings'].items():assert hashlib.sha256(Path(p).read_bytes()).hex
 (O/'capture/binding.json').write_text(json.dumps(dict(ROM_sha256=q['ROM_sha256'],ready_sha256=hashlib.sha256((O/'ready.json').read_bytes()).hexdigest(),exit_code=result),indent=2)+'\\n')
 raise SystemExit(result)
 ''', encoding='utf-8', newline='\n')
-    paths = {Path(__file__), rom, rom.with_suffix('.lbl'), rom.with_suffix('.dbg'),
+    if rom_symbols is None:
+        rom_symbols = (rom.with_suffix('.lbl'), rom.with_suffix('.dbg'))
+    paths = {Path(__file__), rom, *rom_symbols,
              output / 'controller.lua', output / 'run.py',
              R / 'tools/run_mesen.py', R / 'tools/audit/mesen_session_guard_v1.py',
              R / 'tools/audit/capture_budget.py', R / 'tools/audit/build_storage_guard_v1.py',

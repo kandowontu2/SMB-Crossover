@@ -6,6 +6,8 @@ local firstAttack, swordHit, liveRender, flag, lastX, jumpUntil = nil, nil, nil,
 local launched = {}
 local visualAge, visualRows, lastDraw = 0, {}, nil
 local chrUpper, spriteBank0, ppuControl = 0, -1, 0
+local exterior, underground, nextStageStart, activeFrames, missedReads = nil, nil, nil, 0, 0
+local controllerRead = false
 local routePipes = {{448,176,404},{608,160,563},{736,144,679},{912,144,855}}
 local routePits = {{1104,1136},{1376,1424},{2448,2480}}
 
@@ -51,7 +53,8 @@ local function finish(ok,reason)
  local file=assert(io.open(OUTPUT..'result.json','w'))
  file:write(json({passed=ok,reason=reason,ROM_sha256=C.rom,controller_only=true,
    first_attack=firstAttack,sword_hit=swordHit,live_render=liveRender,flag=flag,
-   terminal=state(),max_x=lastX,caps=caps,pits=pits,screenshots=screenshots})..'\n')
+   terminal=state(),max_x=lastX,caps=caps,pits=pits,screenshots=screenshots,
+   exterior=exterior,underground=underground,active_frames=activeFrames,missed_reads=missedReads})..'\n')
  file:close()
  print('Getsu '..reason..' X='..playerX()..' draws='..draws)
  emu.stop(ok and 0 or 1)
@@ -74,6 +77,23 @@ hook(C.flag,emu.memType.nesPrgRom,126*8192+(C.flag&8191),function() if not flag 
 emu.addMemoryCallback(function(_,value) chrUpper=value&3 end,emu.callbackType.write,0x5130)
 emu.addMemoryCallback(function(_,value) spriteBank0=value+256*chrUpper end,emu.callbackType.write,0x5120)
 emu.addMemoryCallback(function(_,value) ppuControl=value end,emu.callbackType.write,0x2000)
+emu.addMemoryCallback(function() controllerRead=true end,emu.callbackType.read,0x4016)
+emu.addMemoryCallback(function() controllerRead=true end,emu.callbackType.read,0x4017)
+
+local function statusName()
+ local cells={}
+ for i=0,6 do
+  local tile=ppu(0x2043+i)
+  cells[#cells+1]=tile==36 and ' ' or (tile>=10 and tile<=35 and string.char(tile+55) or '?')
+ end
+ return table.concat(cells)
+end
+
+local function presentation(color)
+ if ppu(0x3f00)==color and statusName()=='GETSU  ' then
+  return {player=state(),name=statusName(),backdrop=ppu(0x3f00),sprite_bank0=spriteBank0}
+ end
+end
 
 local function renderEvidence()
  if draws==0 or ppuControl&0x20==0 or spriteBank0~=990
@@ -189,6 +209,7 @@ end
 emu.addEventCallback(function() emu.setInput(input,0) end,emu.eventType.inputPolled)
 emu.addEventCallback(function()
  frame=frame+1
+ local polled=controllerRead;controllerRead=false
  if not menuReady then
   local ok,message=coroutine.resume(menu)
   if not ok then finish(false,tostring(message)) end
@@ -207,6 +228,11 @@ emu.addEventCallback(function()
  end
  if r('NumberofLives')~=2 then return finish(false,'life lost') end
  if C.probe then return visualProbe() end
+ activeFrames=activeFrames+1
+ if not polled then missedReads=missedReads+1 end
+ if C.presentation and not exterior and r('WorldNumber')==0 and r('LevelNumber')==0 then
+  exterior=presentation(0x22)
+ end
  if not liveRender then renderEvidence() end
  local x,y=playerX(),r('Player_Y_Position')
  lastX=math.max(lastX,x)
@@ -221,11 +247,18 @@ emu.addEventCallback(function()
   if not pits[q[1]] and x+8>=q[1] and x+8<q[2] and y<=176 and r('Player_State')~=0 then pits[q[1]]=state() end
  end
  if C.smoke and x>=486 and y==176 and r('Player_State')==0 then
-  return finish(not not (liveRender and swordHit and caps[448]),'first pipe settled')
+  return finish(not not (liveRender and swordHit and caps[448] and (not C.presentation or exterior)),
+                'first pipe settled')
  end
  if r('WorldNumber')==0 and r('LevelNumber')==1 then
+  if C.presentation then
+   nextStageStart=nextStageStart or frame
+   underground=presentation(0x0f)
+   if not underground and frame-nextStageStart<90 then input={};return end
+  end
   return finish(not not (liveRender and swordHit and flag and caps[448] and caps[608] and caps[736] and caps[912]
-                 and pits[1104] and pits[1376] and pits[2448]),'active 1-2')
+                 and pits[1104] and pits[1376] and pits[2448] and (not C.presentation or (exterior and underground))),
+                'active 1-2')
  end
  choose()
 end,emu.eventType.endFrame)

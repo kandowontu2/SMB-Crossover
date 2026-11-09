@@ -33,6 +33,12 @@ No placement coordinates changed. This is not new native coverage of every
 shared roster alternate or every later stage. The separate
 [scope audit](helper-camera-scope-1110.md) records the native-slot capacity
 constraint; no natural full-slot entry-window failure has been witnessed.
+On the actual `f33c7b19` Downloads ROM, Easy Scrooge's 3-2 native `$28` lift
+was constructed 30 pixels beyond the right edge with three of six actor slots
+occupied. Its initial left edge was X3272, center X3280 and top Y64. The
+moving left edge first entered at X3284, exactly at camera-right. Scrooge
+reached active 3-3 with both lives on a route that passed below the lift.
+[Downloads replay](../../build/current-helper-3-2-entry-1110/capture/result.json)
 The private generic guard has an Easy Scrooge scroll-in witness for 3-3.
 The native horizontal lift began at left X2344, center X2352 and top Y64.
 It first appeared at the right edge of the camera. Scrooge rode the lift
