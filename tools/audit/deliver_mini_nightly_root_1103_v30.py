@@ -19,7 +19,8 @@ def proof(packet,pin):
 def main():
     a=argparse.ArgumentParser();a.add_argument('action',choices=['install','finalize'])
     a.add_argument('--rom',type=Path,required=True);a.add_argument('--packet',type=Path,required=True)
-    a.add_argument('--candidate',type=Path,required=True);args=a.parse_args()
+    a.add_argument('--candidate',type=Path,required=True)
+    a.add_argument('--symbols-from',type=Path);args=a.parse_args()
     rom=args.rom.resolve();packet=args.packet.resolve();pin=sha(rom)
     candidate=read(args.candidate);assert candidate['candidate_SHA256']==pin
     p=proof(packet,pin);O.mkdir(exist_ok=True)
@@ -29,9 +30,10 @@ def main():
         assert not any(D.with_suffix(ext).exists()for ext in['.lbl','.dbg','.dbg.gz'])
         D.write_bytes(rom.read_bytes());after=check(D);assert sha(D)==pin
         out=O/'downloads-smoke'
+        symbols=(args.symbols_from.with_suffix('.lbl'),args.symbols_from.with_suffix('.dbg')) if args.symbols_from else None
         prepare(out,rom,(packet/'controller.lua').read_text(),
             [Path(__file__),D,args.candidate,packet/'ready.json',packet/'capture/binding.json'],
-            expected=pin,timeout=180,allow_interactive=True,
+            expected=pin,timeout=180,allow_interactive=True,rom_symbols=symbols,
             scope='Exact passing Mini controller smoke from actual Downloads launch. Embedded labels, no Downloads debug or patch sidecars. No videos, RAM seeds, full-stage or full-powerup inference.')
         q=read(out/'ready.json');q['ROM']=str(D);(out/'ready.json').write_text(json.dumps(q,indent=2)+'\n')
         receipt=dict(installed=True,Downloads_launch_verified=False,ROM_SHA256=pin,

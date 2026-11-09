@@ -79,3 +79,35 @@ three lifts with 3,494 updates in 3,494 active frames and zero lag NMIs.
 The actual Downloads launch repeated Mini's timing, lift contacts and audio
 order. The sole Current IPS reconstructs the tested Downloads file exactly.
 [Delivery verification](../../build/shared-sparse-draw-delivery-1110/verified-delivery.json)
+
+## Shared side collision
+
+Native side collision used to enter Mario the Tank's bank four times per
+gameplay update in the Bill and Samus opening. The shared dispatcher can
+reject nonzero character IDs before changing banks. It preserves the saved
+argument and mapper packet fields used by subsequent terrain and audio code.
+The CPU proof covers 2,455 probe cases, 672 complete idle/walk updates and
+real IRQ and lag NMI cuts. It saves 248 cycles per tested Bill and Samus
+update. The Mario opening adds 12 cycles per update. Rogue Dawn's tested
+opening takes its existing early route and measures the same cycle count.
+[CPU proof](../../build/shared-side-tank-precheck-1110/proof.json)
+
+| Easy opening | `f33c7b19` missed reads | `ba3cba07` missed reads |
+|---|---:|---:|
+| Bill idle | 1 | 1 |
+| Bill walk | 28 | 19 |
+| Samus idle | 0 | 0 |
+| Samus walk | 18 | 14 |
+
+Both walking routes had the same 175 gameplay updates and 94 native contact
+calls. Bill's frames with no gameplay update fell from nine to five. The
+same Mini controller cleared nonshortcut 1-1 with both lives, boarded all
+three offscreen lifts, and recorded zero missed reads in 3,494 active frames.
+[Bill replay](../../build/shared-side-cadence-native-1110/candidate-bill/capture/result.json) ·
+[Samus replay](../../build/shared-side-cadence-native-1110/candidate-samus/capture/result.json) ·
+[Mini timing](../../build/shared-side-cadence-native-1110/mini/capture/timing.json)
+
+The actual Downloads ROM repeated Mini's route with identical audio and lift
+timing. The sole Latest IPS reconstructs those tested bytes.
+[Interrupt and audio shadow proof](../../build/shared-side-tank-precheck-1110/shadow.json) ·
+[Delivery receipt](../../build/shared-side-tank-delivery-1110/verified-delivery.json)

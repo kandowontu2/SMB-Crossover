@@ -1,4 +1,56 @@
 {
+  "current_shared_side_delivery_and_giant_native_1110": {
+    "nightly_SHA256": "ba3cba071547402fd81398d8b69659fa1b7d20cef9dfcda4df3fe8554ec592de",
+    "latest_IPS_SHA256": "b4752ee82fabfadafac69e8c0307cd4df464ec3782d5bae13d3b06484a03f956",
+    "shared_side_delivery": {
+      "proof": {
+        "path": "build/shared-side-tank-precheck-1110/proof.json",
+        "sha256": "548b741a188d7893bd12d13223b16578e61b2ec1d6b337e753f40795b225350e"
+      },
+      "interrupts": {
+        "path": "build/shared-side-tank-precheck-1110/shadow.json",
+        "sha256": "5d430950634e4f01230c658cd500bcb298cc62bfd174275503da9b922c4f6dd0"
+      },
+      "actual_Downloads": {
+        "path": "build/shared-side-tank-delivery-1110/verified-delivery.json",
+        "sha256": "ed2f418c232f4627cc47fc0dde4edcf434e20ab886e809bec7d229087a612754"
+      },
+      "scope": "Exact f33 to ba3, one PRG33 BEA2..BF00 span. 248 cycles saved each sampled Bill and Samus update. Mario opening adds 12 cycles and Rogue opening unchanged. Native Bill walk missed reads 28 to 19 and no-Main frames 9 to 5; Samus walk missed reads 18 to 14. Idle reads unchanged. Actual Downloads Mini 3494/3494 active, zero missed reads, same audio and three offscreen lifts and crossings, both lives through active1-2. Sole Current Latest IPS verified byte-exact, no backup or patch sidecars."
+    },
+    "mega_giant_private": {
+      "ROM_SHA256": "94650fbc11ede25b9d08e579bdc6b1d6da81fca8f29c6b0c25dadad2e685ede1",
+      "f33_CPU_composition": {
+        "path": "build/mega-giant-f33-1110/proof-v2.json",
+        "sha256": "83f00077fdc924cd9ed049c2b04a0abeb648d611e364d0777bcf668b9c3ecb0c"
+      },
+      "f33_CPU_full_route": {
+        "path": "build/mega-giant-f33-1110/route-30-66-28-settle-timed-3300.json",
+        "sha256": "2c25fdfe448d4c5c141a863cfdb2f8aff68bd78e0db7e5e60ff2a1d3eb9fbb5b"
+      },
+      "ba3_native_negative": {
+        "path": "build/mega-giant-current-native-1110/native-route/capture/result.json",
+        "sha256": "3d984a8568cab61aa82e5e1d2d5ef2a253737e51f9c5f7dd692534fcfaa1ebfd"
+      },
+      "ba3_native_full_route": {
+        "path": "build/mega-giant-current-native-1110/native-end/capture/result.json",
+        "sha256": "d044caedc95b52ade6d11aa509c03476e99466963a081b7528f1436fa03b5ff7"
+      },
+      "binding": {
+        "path": "build/mega-giant-current-native-1110/native-end/capture/binding.json",
+        "sha256": "1133ca12789ad52d3d9629721da6afb44c2f7faf45f8095511b1e812076ef9f5"
+      },
+      "scope": "Private variant9 on current public parent with disjoint PRG33 change. Select x9 from Mario, correct menu name, actual donor giant art through MMC5 CHR180/182 and PPU sprite DMA. Early X582 overhang jump and X2973 castle approach jump clear all four pipes and three pits with no helper, flag frame2602, active1-2 frame3949 with both lives. Active missed reads 1106. CHR ownership remains provisional. Combined Getsu needs bank66 menu name mux. Earlier CPU full route succeeds on f33 private d48a. Keep private pending heavy lag and release allocation checks."
+    },
+    "getsu_private_sword_admission": {
+      "proof": {
+        "path": "build/getsu-sword-idle-1110/proof.json",
+        "sha256": "09695288243d48b973eeff3ea69ad004c42e4e0dcb58beac5a19743b16b90b6f"
+      },
+      "scope": "Same owner kernel allocation and render/CHR data. Exact e341 to ba8e private candidate, idle 319 cycles saved, 167 walk/sword updates save 174 to 365 with same native first Goomba. 1131 FF, 1131 IRQ and two deepest nested. This alone cannot fund the measured idle deficit. Coexistence with new public side check needs bank33 re-fit."
+    },
+    "prince_next": "V8 same original clear past both Goombas. Native terminal is contact with later Koopa ID0 at X1684; Prince X1678, original running-jump pose39. Further donor parity and a funded two-side support-context repair are in progress.",
+    "storage": "Removed only 48 exact duplicate observation CSVs, 32 same-character exact duplicate controller logs and 32 exact duplicate selected screenshots from earlier runs, all with retained copies."
+  },
   "downloads_helper_3_2_and_getsu_presentation_1110": {
     "nightly_SHA256": "f33c7b19d27309ab4e4771125a74360f978dba08bd807d25bc6307026e568734",
     "latest_IPS_SHA256": "9e6ed2245ac2d4e337888c714388c4eadac2b3cd5a747d249aa2a19a9d684a18",

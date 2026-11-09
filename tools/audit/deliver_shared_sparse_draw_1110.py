@@ -19,12 +19,14 @@ REPO = 'kandowontu2/SMB-Crossover'
 ASSET = 'SMB-Crossover-Latest-WIP-MMC5.ips'
 
 
-def installer(action, out, rom):
+def installer(action, out, rom, root=ROOT, parent=PARENT, symbols=None, metadata=None):
     original = Nightly.O, Nightly.PREVIOUS, sys.argv
     try:
-        Nightly.O, Nightly.PREVIOUS = out, PARENT
+        Nightly.O, Nightly.PREVIOUS = out, parent
         sys.argv = [str(Path(Nightly.__file__)), action, '--rom', str(rom),
-                    '--packet', str(ROOT / 'mini'), '--candidate', str(ROOT / 'proof.json')]
+                    '--packet', str(root / 'mini'), '--candidate', str(metadata or root / 'proof.json')]
+        if symbols:
+            sys.argv.extend(('--symbols-from', str(symbols)))
         Nightly.main()
     finally:
         Nightly.O, Nightly.PREVIOUS, sys.argv = original

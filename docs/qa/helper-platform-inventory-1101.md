@@ -4,7 +4,11 @@ The functional roster pass is not complete. This inventory separates source
 placements from actual route verification; it is not the final all-character list.
 
 Inventory fixture SHA256: `128915e97e78891a585aa8f9fd904c166ca64dcd6dd1ee395fc68fd505c1e72c`.
-Current nightly SHA256: `f33c7b19d27309ab4e4771125a74360f978dba08bd807d25bc6307026e568734`.
+Current nightly SHA256: `ba3cba071547402fd81398d8b69659fa1b7d20cef9dfcda4df3fe8554ec592de`.
+
+The shared side-collision update repeats the actual Downloads Mini 1-1 route,
+including offscreen construction and boarding all three lifts, with the same
+coordinates and timing. [Delivery receipt](../../build/shared-side-tank-delivery-1110/verified-delivery.json)
 
 The shared draw successor repeats Mini's full Downloads 1-1 replay and all
 three offscreen constructions and assisted crossings. Their placements are
