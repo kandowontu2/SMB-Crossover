@@ -1,4 +1,22 @@
 {
+  "mini_step_scroll_weapon_delivered_1110": {
+    "status": "DELIVERED_77_MISSED_READS_ZERO_LAG_UNFINISHED",
+    "ROM_SHA256": "991b4cd1033890aaa7dc0fa773dc167496fd0937bc449c8a3a209709f2a6c318",
+    "IPS_SHA256": "aabb589dfbe16d32748a5feef802d52576e19b144ce08090dde905891ba411b1",
+    "candidate": "build/mini-step-scroll-weapon-native-1110/candidate.nes",
+    "receipt": "build/mini-step-scroll-weapon-delivery-1110/verified-delivery.json",
+    "cadence": {
+      "lag_nmi": 77,
+      "no_controller_read": 77,
+      "physical": 3461,
+      "updates": 3453,
+      "zero_update": 77
+    },
+    "verification": "Exact Downloads full 1-1 into active1-2; both lives; all three actual helper boards/departures. Empty idle/walk/jump zero misses; earned mushroom and two original GBC fireballs/impacts passed. Audio/lifts/cadence equal candidate. IPS roundtrip and patch guards passed. Sole Current IPS digest verified and release Latest; no backup.",
+    "scope": "Shared post-scroll/offscreen optimization; Mini arithmetic and inactive weapon gate. Zero lag in busy area remains unfinished. Helpers byte-identical to verified f205 camera fixes; Mini route repeated, foreign source/IRQ paths qualified.",
+    "next": "Root profiling991b frame1446, Mesen session86636. Arthur composing qualified Mini edges plus pending shared draw retarget/raw offscreen successors. Root owns single Mesen queue. No new roster diversion.",
+    "storage": "Receipt docs/qa/cleanup-duplicate-menu-images-1110.json removes187 exact duplicate terminal-success menu PNGs, retains one canonical exact hash each and all unique/gameplay/negative screenshots. Build last approx2.9GB/18785files. Do not claim removed paths live."
+  },
   "mini_box_transport_delivered_1110": {
     "status": "DELIVERED_136_MISSED_READS_ZERO_LAG_UNFINISHED",
     "ROM_SHA256": "03c0cfe6d4562f6b7970199ce2d6ffa6f2f0f905a8cb8425945add6fcb71585d",
@@ -6,7 +24,11 @@
     "candidate": "build/mini-box-transport-native-1110/candidate.nes",
     "delivery": "build/mini-box-transport-delivery-1110/verified-delivery.json",
     "verification": "Exact Downloads nonshortcut1-1 into active1-2, three offscreen helper board/departures, both lives. Candidate idle/walk/jump zero misses, earned mushroom and original two GBC fireballs/impacts passed. Downloads audio/lifts/cadence exactly match candidate. IPS reconstruction, automatic-patch guards, sole Current Latest digest verified; no backup.",
-    "cadence": {"missed_reads": 136, "physical": 3474, "updates": 3452},
+    "cadence": {
+      "missed_reads": 136,
+      "physical": 3474,
+      "updates": 3452
+    },
     "scope": "Mini body transport skips nested bank calls but retains original frame epoch, markers, full-cookie fallback and native body output. Exact fullCPU/IRQ proof; source 454GameCore/457normalGameLoop reduction. Idle/empty-space zero lag; busy area remains above budget.",
     "helpers": "Camera fixes retained byte-exact. Exact f205 parent full routes for Mini, Thomas, Goku and Karnov passed; 03c0 repeats Mini and source-qualifies foreign dispatch/lifecycle. All enabled helper managers audited camera-relative; native capacity-window failure remains unwitnessed, no speculative live-actor eviction.",
     "next": "Arthur composing next03c0 successor with qualified Mini ALU kernel (build/mini-step-alu-1110) and post-scroll/offscreen (build/native-post-scroll-offscreen-1110), waiting for CV3 inactive Mini fireball gate IRQ. Root owns native queue. Mini ALU needs newkernel/cookie bound in native suite. No other chars/new roster work before this lag priority.",
@@ -37,7 +59,11 @@
     "delivery_receipt": "build/mini-platform-firebar-delivery-1110/verified-delivery.json",
     "IPS_SHA256": "a01e33c8003d356b6b21ce2675e5bdcedd636a104262fc4b6d0012c3ee831184",
     "release": "Current marked Latest; sole SMB-Crossover-Latest-WIP-MMC5.ips asset digest verified",
-    "cadence": {"missed_reads": 306, "physical": 3506, "updates": 3453},
+    "cadence": {
+      "missed_reads": 306,
+      "physical": 3506,
+      "updates": 3453
+    },
     "scope": "Shared no-rider native platform direct motion and ordinary world-render admission; Mini collision coordinate projection reuse. No skipped gameplay or audio frames. Zero lag remains unfinished.",
     "profile": "build/mini-platform-actor-profile-1110/capture/instruction-sample.json: frame1452 X694 Y164 camera582, 30862 foreground cycles. Goombas X705/808/831, lifts X864/688/560. Aggregated opcode and actor inventory only.",
     "camera": "Separate private5444: Goku, Karnov and Thomas complete routes passed. Thomas v5 10247physical frames, all six helpers relative286/287 at construction, real board/crossing into active1-2. Gap Up was actually consumed at X1374, landing X1412. Camera rebase on6bd5 eef90e7a passes CPU/IRQ but native pending. Next combine camera with relative/offscreen, typed Goomba edge, and prepared platform-box reuse, then run all four exact routes. No new camera changes in public6bd5.",
@@ -138,7 +164,13 @@
     "current_IPS_SHA256": "6f14c365fe93007f9c6467553c5267d608dd01d0a9fc6f5e5d91caef1214093c",
     "cadence": "Same controller route702->597->511 missed polls,2764 active video frames,2590updates,480 zero-update frames. Candidate and actual Downloads full nonshortcut1-1 clear with both lives and3 lifts into1-2. Empty idle/movement zero misses, real mushroom and two GBC fireballs/impacts pass. Still substantial busy-stage lag; do not claim60fps/no lag.",
     "source": "Mini bound-box constant469 and visibility503 cycles saved every update. Shared same-size105B terrain scan skips zero ceiling and hoists checks,260 saved at sampled normal column (44-322 across directcases). Strict96 GameCore updates save972-1232 vsd7a91 with full RAM/AXYP/mappers exact. All three components rebound to exact6af068: box30IRQ/30FF/1033nested; visibility884IRQ/1768FF/1201nested; terrain170IRQ/426FF/1nested across42rawselectors. Ordinary foreign visibility+1, box upper+7; preserve those limits.",
-    "receipts": ["build/mini-combined-delivery-1110/verified-delivery.json", "build/mini-box-terrain-visible-1110/native/route/capture/timing.json", "build/mini-box-dispatch-1110/final-irq.json", "build/mini-terrain-scan-1110/final-irq.json", "build/mini-visibility-dispatch-1110/final-vectors.json"],
+    "receipts": [
+      "build/mini-combined-delivery-1110/verified-delivery.json",
+      "build/mini-box-terrain-visible-1110/native/route/capture/timing.json",
+      "build/mini-box-dispatch-1110/final-irq.json",
+      "build/mini-terrain-scan-1110/final-irq.json",
+      "build/mini-visibility-dispatch-1110/final-vectors.json"
+    ],
     "next": "Exact6af068 worst foreground X1511/frame1971:30801CPU/36306elapsed with2actors. X1839/frame2272:30695/33796; X1999/frame2418:30674/33775. Sample these using prepare_mini_split_profile_1110.py and the final route controller, keeping root Mesen queue. Inspect native head/side fallback and enemy visibility without changing physics/input cadence. Missed clusters X64076,X76873,X192062.",
     "profiling": "Corrected observer build/mini-box-peak-v2-1110 samples52e147 X782/frame1341:31812 sampled foreground vs31814 routineCPU (two boundarycycles);3893 interrupt cycles;35705 total vs35707 elapsed. Ordinary mapper synthetic RTI must NOT pop the ISR stack unless SP matches actual ISR entry. First observer rejected that condition; its failed run remains in mini-box-peak-1110. Actual foreground nearest-symbol fixed126 costs GetXOffscreen789,BlockBufferCollision703,MegaManResetBlockHealth550,BoundingBoxCore339,GetYOffscreen312. These precede final terrain/visibility fixes; do not overgeneralize to current peaks.",
     "storage": "Pruned164 reproducible historical .o files only with adjacent .s and .bin retained, plus19 completed rawlogs. Build about2.89GB/19000files; prune own completed rawlogs before future wrapper reservations. No video or image sequence created. User roster tracker remains unstaged."
@@ -149,7 +181,11 @@
     "current_IPS_SHA256": "9c2ae84888d2c7a47c316f35eec47fe4b0203b22f7b30836391c258b396bf91e",
     "cadence": "Same controller route702->597 missed polls,2804 active video frames,2588 updates. Exact candidate and actual Downloads clear full nonshortcut1-1 with both lives and3 native lifts. Idle/movement zero missed polls, earned mushroom and both GBC fireballs pass.",
     "source": "Raw41 bound-box gate saves469 per gameplay update in96 whole GameCore comparisons;1032 leaf cases pass. Exact candidate30 IRQ,30 lag NMI,1033 nested IRQ pass. Proto and Mario cycle-neutral; affected foreign upper route costs7 extra. Proto inherited FF-NMI OAM differences are explicitly paired against the parent and remain byte-identical, not hidden.",
-    "receipts": ["build/mini-box-delivery-1110/verified-delivery.json", "build/mini-box-native-1110/native/route/capture/timing.json", "build/mini-box-dispatch-1110/irq.json"],
+    "receipts": [
+      "build/mini-box-delivery-1110/verified-delivery.json",
+      "build/mini-box-native-1110/native/route/capture/timing.json",
+      "build/mini-box-dispatch-1110/irq.json"
+    ],
     "next": "Shared terrain105B scan proposal saves260 at sampled pipe column with exhaustive full-parser parity; IRQ pending. Visibility dispatch prototype still in qualification. Neither is in52e147. Keep full-roster goal active; zero lag unachieved."
   },
   "mini_adder_current_1110": {
@@ -161,7 +197,11 @@
     "cadence": "Candidate full 1-1 has2846 active physical frames,2591 updates,702 missed controller polls versus706. Actual Downloads replay passed full nonshortcut1-1 with both lives and all3 lifts into1-2. Empty idle/movement, earned mushroom and both GBC fireballs passed. Gain is small; busy zero lag remains unachieved.",
     "source": "Mini native collision-adder constant avoids the redundant bank dispatch. Reached Mini calls save479 CPU cycles; affected foreign upper-veneer calls cost11 extra. Exact current whole GameCore comparisons pass;169 IRQ,169 FF NMI,969 nested IRQ cuts pass. Tested metadata was restored byte-exact after the delivery guard correctly rejected a post-test metadata edit; no proof hashes were rewritten.",
     "profile": "Exact predecessor84d physical1319 atX750:31456 foreground cycles,35490 elapsed with4 actors. Sampled opcode totals (include IRQ/NMI, sum35488 rather than foreground31456): bank1268020,WRAM33785,RAM3586,bank03490,bank43105,bank22756. This particular frame does not reach the collision-adder fallback; next target is its repeated bounding-box transport. Trace build/mini-current-peak-1110/capture/instruction-sample.json. Final missed-poll clusters X64095,X76889,X192069.",
-    "receipts": ["build/mini-current-peak-1110/delivery/verified-delivery.json", "build/mini-current-peak-1110/adder/native/route/capture/timing.json", "build/mini-adder-current-1110/irq.json"],
+    "receipts": [
+      "build/mini-current-peak-1110/delivery/verified-delivery.json",
+      "build/mini-current-peak-1110/adder/native/route/capture/timing.json",
+      "build/mini-adder-current-1110/irq.json"
+    ],
     "storage": "Removed43 reproducible Bub object files only where adjacent source and linked binaries existed; retained source/binaries. Completed current raw CSV/logs pruned, aggregate proofs retained. Build near19000 files: clear reservation headroom before next bounded run. Full roster goal remains active."
   },
   "mini_contact_render_1109": {
@@ -169,17 +209,29 @@
     "installed_nightly": "84d372ef9b6cea58918454fbea0ab2f5433fe051bd17c99fd86cc8e94a6da3aa",
     "current_IPS_SHA256": "881a65044464a8dee4bab47df1c8549a18f9ba83236ae6bdd6ec2d956dea1cba",
     "cadence": "Exact candidate and Downloads route clear nonshortcut 1-1 with both lives and three native lifts into active 1-2. 2848 active video frames and 2591 updates, 706 missed controller reads versus 741 without the typed Goomba draw and 832 before this performance pass. Empty-area idle/movement has no missed polls. Genuine mushroom and both original GBC fireballs passed their own native tests.",
-    "source": "Mini head dispatch keeps the real source vector and saves747â€“755 cycles; side saves72 per reached call. Compound actual GameLoop proof passed148 IRQ,148 FF NMI,969 nested IRQ. Shared world render skips unused high actor checks and Mini Goombas reuse a proven descriptor. Shared+typed renderer saves502â€“542 CPU cycles with five Goombas, exact application and OAM. 8010 actual ISR cuts passed on the previous nightly with both render changes. Forced synthetic flash fallback can add97 cycles across two actors.",
+    "source": "Mini head dispatch keeps the real source vector and saves747\u00c3\u00a2\u00e2\u201a\u00ac\u00e2\u20ac\u0153755 cycles; side saves72 per reached call. Compound actual GameLoop proof passed148 IRQ,148 FF NMI,969 nested IRQ. Shared world render skips unused high actor checks and Mini Goombas reuse a proven descriptor. Shared+typed renderer saves502\u00c3\u00a2\u00e2\u201a\u00ac\u00e2\u20ac\u0153542 CPU cycles with five Goombas, exact application and OAM. 8010 actual ISR cuts passed on the previous nightly with both render changes. Forced synthetic flash fallback can add97 cycles across two actors.",
     "next": "The exact route still misses roughly one poll in four. Highest foreground X750/frame1319 is31456 cycles and35490 elapsed. X1513/frame2030 reaches36296 elapsed. Exact earlier X782 a08d successor trace build/mini-columns-transport-peak-1109/capture/instruction-sample.json shows four live actors and3001 exclusive bank2 cycles. Profile shared enemy visibility/box math, terrain/parser and native OAM hot paths. Optional owner collision-adder bypass saves479 CPU cycles per reached Mini call, costs11 for affected foreign upper veneer callers, and has CPU+interrupt qualification only. Exact proof is build/mini-native-side-single-map-1109/{adder-proof,adder-async-proof}.json. Preserve controller/PPU cadence and current power/lift behavior. Full-roster goal remains active.",
-    "receipts": ["build/mini-contact-render-delivery-1109/verified-delivery.json", "build/mini-contact-render-typed-1109/native/route/capture/timing.json", "build/mini-native-side-single-map-1109/async-proof.json", "build/mini-render-bookkeeping-1109-v1/typed-goomba-current-vectors.json"]
+    "receipts": [
+      "build/mini-contact-render-delivery-1109/verified-delivery.json",
+      "build/mini-contact-render-typed-1109/native/route/capture/timing.json",
+      "build/mini-native-side-single-map-1109/async-proof.json",
+      "build/mini-render-bookkeeping-1109-v1/typed-goomba-current-vectors.json"
+    ]
   },
   "mini_column_transport_1109": {
     "status": "DELIVERED_774_MISSED_READS_BUSY_ZERO_LAG_OPEN",
     "installed_nightly": "ee9b3f55e010f7673a046e6dbc20b220b13cd83dcc95f95c799e6f9def565f6b",
     "current_IPS_SHA256": "145bae7a0c6617b0b2a76e701c157ad6488b8d2e7fb1e4e97f3cca1df768592e",
     "cadence": "Same controller-only nonshortcut 1-1 into active 1-2 with both lives and three native lifts. 2885 active frames, 2590 updates, 774 missed controller reads versus 832. Actual Downloads repeated the full route and all three lifts. Empty-area idle and movement, real mushroom, and two GBC shots and impact art pass. Busy lag remains substantial.",
-    "source": "Skip the second palette accumulation for each pair of graphics columns. All graphics/attribute packets and final scratch remain exact in 5120 paired cases. Left saves34 cycles and right saves508â€“522; native run observed290 matching pairs. Actual combined renderer passed759 IRQ and759 lag-NMI cuts. Mini owner-only collision probes reuse native 16-pixel cells and faster coordinate transport. 232 compared game updates save86â€“436 cycles and 3403 ISR checks pass.",
-    "receipts": ["build/mini-columns-transport-delivery-1109/verified-delivery.json", "build/mini-columns-transport-native-1109/route/capture/timing.json", "build/mini-columns-transport-native-1109/route/capture/column-pairs.json", "build/mini-column-graphics-1109/proof.json", "build/mini-column-irq-1109/irq.json", "build/mini-kernel-transport-1109/v2/irq.json"],
+    "source": "Skip the second palette accumulation for each pair of graphics columns. All graphics/attribute packets and final scratch remain exact in 5120 paired cases. Left saves34 cycles and right saves508\u00c3\u00a2\u00e2\u201a\u00ac\u00e2\u20ac\u0153522; native run observed290 matching pairs. Actual combined renderer passed759 IRQ and759 lag-NMI cuts. Mini owner-only collision probes reuse native 16-pixel cells and faster coordinate transport. 232 compared game updates save86\u00c3\u00a2\u00e2\u201a\u00ac\u00e2\u20ac\u0153436 cycles and 3403 ISR checks pass.",
+    "receipts": [
+      "build/mini-columns-transport-delivery-1109/verified-delivery.json",
+      "build/mini-columns-transport-native-1109/route/capture/timing.json",
+      "build/mini-columns-transport-native-1109/route/capture/column-pairs.json",
+      "build/mini-column-graphics-1109/proof.json",
+      "build/mini-column-irq-1109/irq.json",
+      "build/mini-kernel-transport-1109/v2/irq.json"
+    ],
     "next": "Worst exact foreground GameLoop now X782/frame1360 with 32518 CPU cycles and 35619 elapsed. X1511/frame2038 takes32402 foreground and36665 elapsed. Check the overlapping native enemy, parser and contact load. Private one-map side and shared actor renderer prototypes are independent and must pass exact interrupt and native composition before adoption. No changes to platform placement. Full-roster goal remains active."
   },
   "mini_parser_lift_1109": {
@@ -187,7 +239,13 @@
     "previous_turn_classification": "Progress. Exact 37bb9c1a shipped with 846 missed controller reads, the decorative pipe fix and source-verified shared actor and audio savings. The next parser hotspot was sampled at world X782.",
     "installed_nightly": "a08d839b187fc6866a3fd3658200c2f26b8e3724b3b4de3b5e7d2a65702598d2",
     "current_IPS_SHA256": "f8a6c9e5786ab50a079d4df8b055b5339a398bf2ca29ad3f786fa13476d5452a",
-    "receipts": ["build/mini-parser-lift-delivery-1109/verified-delivery.json", "build/mini-parser-lift-qa-1109/route/capture/timing.json", "build/parser-dual-shadow-1109/proof.json", "build/parser-dual-shadow-irq-1109/health-batch-async-v3.json", "build/mini-active-actor-1108-v1/lift-bridge-v5-CPU.json"],
+    "receipts": [
+      "build/mini-parser-lift-delivery-1109/verified-delivery.json",
+      "build/mini-parser-lift-qa-1109/route/capture/timing.json",
+      "build/parser-dual-shadow-1109/proof.json",
+      "build/parser-dual-shadow-irq-1109/health-batch-async-v3.json",
+      "build/mini-active-actor-1108-v1/lift-bridge-v5-CPU.json"
+    ],
     "cadence": "Exact Downloads full nonshortcut 1-1 into active 1-2 with both lives and all three lifts. Candidate native route 2922 active video frames, 2590 gameplay updates, 832 missed reads versus 846. Empty-area idle/movement, earned mushroom and both native GBC fireballs still pass. Peak in this run X1513 with 32885 foreground and 37148 elapsed cycles.",
     "source": "Shared parser dual-shadow clears retain both maps, saving 154 cycles per guest column in 10752 paired CPU cases. Tested 4000 lag NMIs and 5293 IRQs, including 3293 nested. Existing bank 2 gap BFDD..BFEE supplies 18 bytes. Shared native lift skips the inactive Ryu work, saving 457 cycles with a live Mini lift. Positive Ryu, Zelda II bypass and actual IRQ/FF/nested qualification pass.",
     "next": "Source audit allows Mini raw41 to omit MmBrickHealth and MmSolidTerrain column writes when funded, but real head hits still require MmCoinHits. New selection and title Continue run full area initialization and clear maps. No gameplay mid-stage character switch was found. Exact X1513 trace build/mini-parser-lift-x1513-1109/capture/instruction-sample.json reaches native head handling and four remaining side queries after the Mini preflight rejects before its floor. Parser bank 2 spends 553 cycles here. Keep source and native hit/coin/spring effects while looking for an inert side-tail shortcut. The active full-roster goal remains incomplete."
@@ -204,10 +262,15 @@
     "previous_turn_classification": "Progress. Exact installed 37bb9c1a lowers the controller-miss count on the same 1-1 route from 1132 to 998 to 846, with all three lifts, both lives, and donor fireball art retained.",
     "installed_nightly": "37bb9c1a69b993edda540c75cbe256aeac75396d55d34d9daf3d4de86deebeeb",
     "current_IPS_SHA256": "73c6de5791b42ce8306482e96ff8302d5c9bd7f54673c0323ee5a1451c4b7a65",
-    "receipts": ["build/mini-busy-pipeline-delivery-1108/verified-delivery.json", "build/mini-busy-pipeline-final-qa-1108/route/capture/timing.json", "build/mini-busy-pipeline-final-qa-1108/route/capture/instruction-sample.json", "build/mini-busy-pipeline-final-qa-1108/fire/capture/result.json"],
+    "receipts": [
+      "build/mini-busy-pipeline-delivery-1108/verified-delivery.json",
+      "build/mini-busy-pipeline-final-qa-1108/route/capture/timing.json",
+      "build/mini-busy-pipeline-final-qa-1108/route/capture/instruction-sample.json",
+      "build/mini-busy-pipeline-final-qa-1108/fire/capture/result.json"
+    ],
     "cadence": "Exact installed controller-only nonshortcut 1-1 into active 1-2, lives 2 to 2, all three native lifts. Active 2931 video frames/2589 gameplay updates/846 missed polls. Empty area 180/180 plus move, turn, brake, jump, landing no skips; powered idle 60/60; both fireballs plus moving/impact frames and earned mushroom passed.",
     "source": "Physical bank33 side shortcut, decorative-pipe-aware bank20 floor, bank0 native actor motion and terrain, bank38 audio macro/LZ bank transport. Side and audio preserve shared hardware and native IRQ state. Mario the Tank's real cookie hit and side worker observed 708 times on parent and isolated side candidate. Ordinary non-Goomba actor dispatch adds eight cycles.",
-    "priority": "User reports remaining lag is unacceptable. Continue shared frame-budget reduction over exact 37bb9c1a. Same five-enemy CPU fixture ordinary Mario 25730 versus Mini 27451 GameCore cycles before interrupt work. Normal NMI mean 4561 in exact route. Localized X759 decorative pipe spike fell from 38782 to34754 elapsed after confirmed native foot pair 13/00. Worst now X782 frame1379 foreground33565/elapsed38472; missed reads cluster at world X640â€“895 and X1920â€“2047. Analyze the next shared hot path without changing simulation rates, input metrics, original GBC art or native lift placements.",
+    "priority": "User reports remaining lag is unacceptable. Continue shared frame-budget reduction over exact 37bb9c1a. Same five-enemy CPU fixture ordinary Mario 25730 versus Mini 27451 GameCore cycles before interrupt work. Normal NMI mean 4561 in exact route. Localized X759 decorative pipe spike fell from 38782 to34754 elapsed after confirmed native foot pair 13/00. Worst now X782 frame1379 foreground33565/elapsed38472; missed reads cluster at world X640\u00c3\u00a2\u00e2\u201a\u00ac\u00e2\u20ac\u0153895 and X1920\u00c3\u00a2\u00e2\u201a\u00ac\u00e2\u20ac\u01532047. Analyze the next shared hot path without changing simulation rates, input metrics, original GBC art or native lift placements.",
     "hotpath_sample": "build/mini-busy-pipeline-x782-1108/capture/instruction-sample.json confirms the optimized floor admits 00/00 and has no floor fallback at X782. Against X759 in the same ROM, bank2 costs 2302 additional cycles and fixed126 page9000 adds 1014, centered on the column parser. Start with the already-batched column's native shadow clears and its scheduling. Prove any Mini-specific omission across all reachable health/terrain readers, room changes, alternate selection and pipe entry. Do not treat the full bank attribution as a measured parser optimization.",
     "next_candidate": "Excitebike's exact 37bb9c1a native lift bridge proposal build/mini-active-actor-1108-v1/lift-bridge-v4.json saves 457 cycles with a live lift in CPU. Its isolated hash begins 3a71dbc0. Wait for IRQ and native qualification before adopting. Root owns Mesen and bounded cleanup."
   },
@@ -216,11 +279,15 @@
     "previous_turn_classification": "Progress. Mini's native lifts and original GBC fireball and impact art shipped and passed the installed route.",
     "installed_nightly": "e90d30c1c9636be6eb304a7b3b1506b862f8171dc2773d809482e25b0a5417df",
     "current_IPS_SHA256": "09b712e1e9d9b6b056c7f9ea718934ac17e574b6b64d1cbffd223942b5d1c0fc",
-    "native_receipts": ["build/mini-frame-budget-delivery-1108/verified-delivery.json", "build/mini-frame-budget-route-1108/capture/timing.json", "build/mini-frame-budget-fire-gate-1108/capture/result.json"],
+    "native_receipts": [
+      "build/mini-frame-budget-delivery-1108/verified-delivery.json",
+      "build/mini-frame-budget-route-1108/capture/timing.json",
+      "build/mini-frame-budget-fire-gate-1108/capture/result.json"
+    ],
     "tested": "Both copies cleared all three native lift crossings into 1-2, lives 2 to 2, without wall grab. Exact candidate earned mushroom and passed 180 idle updates in 180 video frames, empty movement, 60 powered idle updates, two native shots in DMA in three directions and both original impact tiles after a staged Goomba hit.",
     "cadence": "Same controller 1-1 active: 2597 updates, 3084 to 3022 video frames, 1132 to 998 frames without controller reads. Busy-stage lag remains.",
     "scope": "Raw Mini side probe deduplication; Mini-owned projectile and Goomba draw; already-used lift windows; shared exact-output mixer and decoder. The Goomba clone adds 15 cycles once per legacy full OAM clear and leaves its per-actor path intact.",
-    "next": "Profile the new build at the busy fallback near X758. Old physical bank33:BEA2â†’28:BFB0â†’33:BEE2â†’89:BC58â†’124:AAD9â†’124:AD9B makes four repeated dispatch chains into the exact Mini filter. Seek a funded native shortcut and compare caller flags, SMC, IRQ and non-Mini output. CurrentBankC normally remains 9 outside explicitly mapped Mini scopes, so do not jump into the C2 overlay blindly. Rebase roster work over the new current hash without touching these spans.",
+    "next": "Profile the new build at the busy fallback near X758. Old physical bank33:BEA2\u00c3\u00a2\u00e2\u20ac\u00a0\u00e2\u20ac\u212228:BFB0\u00c3\u00a2\u00e2\u20ac\u00a0\u00e2\u20ac\u212233:BEE2\u00c3\u00a2\u00e2\u20ac\u00a0\u00e2\u20ac\u212289:BC58\u00c3\u00a2\u00e2\u20ac\u00a0\u00e2\u20ac\u2122124:AAD9\u00c3\u00a2\u00e2\u20ac\u00a0\u00e2\u20ac\u2122124:AD9B makes four repeated dispatch chains into the exact Mini filter. Seek a funded native shortcut and compare caller flags, SMC, IRQ and non-Mini output. CurrentBankC normally remains 9 outside explicitly mapped Mini scopes, so do not jump into the C2 overlay blindly. Rebase roster work over the new current hash without touching these spans.",
     "root_queue": "All native and Downloads validations terminal. No existing user Mesen sessions changed."
   },
   "mini_performance_lifts_1108": {
@@ -232,10 +299,16 @@
     "performance_only": "Private 9855a47a clears controller-only 1-1 with lives2to2. Compared with the installed route, active physical frames 3182 to3130 and lag NMIs/controller misses1157to1069. Geometry changes remove duplicate scan copies and shorten pixel shifts. Native fireball, Y-offscreen and parser changes preserve actual CPU state across144 whole fixture updates. Fixture fireballs still show two independent active/drawn shots in both facings and Up.",
     "corrected_profile": "Physical-frame sample at installed X1518 is 37326 elapsed and30962 foreground after correctly matching nested IRQ/NMI by stack depth. Normal NMI in that bounded run averages4324 cycles and peaks10051. Source motion, enemy AI/contact, OAM draw, parser and audio all consume the budget. See build/mini-busy-x1518-isr-1108/capture/timing.json.",
     "private_lift_candidate": "ffdb314bcf94c8608c4fc75758a53953a9f1f0f30df5256d4feb6e9ac327ca93 at build/mini-native-lifts-v2-1108/candidate.nes. Existing native25 lifts leftX560/688/864, center576/704/880, initial topY192, width32. Original Mini wall grab removed. Controller-only boarding and departure from all three, no wall restarts, lives2to2, and active1-2 pass. Active2597 updates/3084 frames,1131 lag NMIs. Source floor check passes2592 linked edge cases. No zero-lag claim.",
-    "native_receipts": ["build/mini-current-delivery-1108/verified-delivery.json", "build/mini-fireball-gbc-route-1108/capture/result.json", "build/mini-fireball-gbc-impact-1108/capture/result.json", "build/mini-fireball-gbc-idle-1108/capture/timing.json", "build/mini-fireball-gbc-power-1108/capture/result.json"],
+    "native_receipts": [
+      "build/mini-current-delivery-1108/verified-delivery.json",
+      "build/mini-fireball-gbc-route-1108/capture/result.json",
+      "build/mini-fireball-gbc-impact-1108/capture/result.json",
+      "build/mini-fireball-gbc-idle-1108/capture/timing.json",
+      "build/mini-fireball-gbc-power-1108/capture/result.json"
+    ],
     "fireball_art": "Pinned donor moving tiles at file offsets10FF30/10FF50, with both mirror phases, and impact tiles10FF70/10FF90 now ship. Two original per-actor moving phases plus both mirrors reached actual DMA in both facings and Up. Both donor impact tiles reached DMA after a staged Goomba defeat. Native4x4 collision and two independent slots remain. Cold loader reconstructs all256 original encoded metatile attributes before cookie publication.",
     "delivered_cadence": "Exact actual Downloads controller-only 1-1 to1-2 lives2to2; three real lift crossings, no wall grab. Active2597 updates/3084 frames,1132 skipped NMIs. Empty180idle and walk/turn/brake/jump/landing have no skipped NMI or missed controller poll. Focused powered idle60/60; busy and two-shot action still skip.",
-    "next": "Mini zero-lag remains the immediate performance priority. Fund draw-side savings without penalizing other roster actors if possible. CPU-only funded Goomba route build/mini-goomba-draw-1108-v1/goomba-funded-v2.json saves90â€“97cycles per actor but adds12 per visible foreign actor and15 on a legacy full clear, so remains private. Preserve delivered Mini lifts and donor art when composing Prince, DK Jr and further roster work."
+    "next": "Mini zero-lag remains the immediate performance priority. Fund draw-side savings without penalizing other roster actors if possible. CPU-only funded Goomba route build/mini-goomba-draw-1108-v1/goomba-funded-v2.json saves90\u00c3\u00a2\u00e2\u201a\u00ac\u00e2\u20ac\u015397cycles per actor but adds12 per visible foreign actor and15 on a legacy full clear, so remains private. Preserve delivered Mini lifts and donor art when composing Prince, DK Jr and further roster work."
   },
   "roster_resume_1108": {
     "status": "WRAPPED_INCOMPLETE_GOKU_VERIFIED_PRINCE_AND_DK_JR_PRIVATE",
