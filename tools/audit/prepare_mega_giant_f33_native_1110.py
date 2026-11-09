@@ -64,6 +64,12 @@ def compose_current(out, side_proof):
         n = len(bytes.fromhex(row['old_hex']))
         assert original[at:at+n] == base[at:at+n]
     candidate = Q.install(original, side['patches'])
+    chr_start = 16 + 1024 * 1024
+    changed_pages = [page for page in range(1024)
+                     if candidate[chr_start + page * 1024:chr_start + (page + 1) * 1024]
+                     != current[chr_start + page * 1024:chr_start + (page + 1) * 1024]]
+    assert changed_pages == [*Q.G.ART, Q.G.ATLAS, Q.G.CODE]
+    assert candidate[:16] == current[:16]
     rom = out / 'candidate.nes'
     if rom.exists():
         assert rom.read_bytes() == candidate
