@@ -33,6 +33,13 @@ The private generic guard has an Easy Scrooge scroll-in witness for 3-3.
 The native horizontal lift began at left X2344, center X2352 and top Y64.
 It first appeared at the right edge of the camera. Scrooge rode the lift
 with 21 native carry calls, then cleared to 3-4 with both lives.
+The exact released `c8bd2e2c` cartridge independently passed the same Easy
+Scrooge controller route using the released generic manager. With five of six
+slots occupied, the native 16-pixel `$28` lift began at left X2344, center
+X2352 and top Y64, 32 pixels past camera-right X2312. Its moving left edge
+first entered at X2373, matching camera-right. Scrooge rode it for 21 native
+carry calls, six while moving, and reached active 3-4 with both lives.
+[Released-cartridge result](../../build/current-helper-3-3-1110/capture/result.json)
 Easy Kirby also verified scroll-in for the 6-3 native horizontal lift at
 initial left X2600, center X2608 and top Y64. Its moving left edge was one
 pixel inside the screen at first visibility. That route reached entry with

@@ -1,4 +1,105 @@
 {
+  "current_shared_cadence_helper_and_roster_1110": {
+    "status": "PUBLIC_SHARED_CADENCE_AND_SCROOGE_SCROLL_IN_MEASURED_PRIVATE_GETSU_CPU_11_PRINCE_TWO_PITS_NATIVE_PASS",
+    "public_ROM_SHA256": "c8bd2e2c75015b84fe7bc3c4dba5b24b87e517620ef914ff229b5d4249acbe48",
+    "public_IPS_SHA256": "d453aa2f7307af189fde4aa271450303cf4c405e7a16ae26773782a2e4020df4",
+    "shared_gameplay": {
+      "openings": {
+        "baseline-samus": {
+          "path": "build/shared-gameplay-cadence-1110/baseline-samus/capture/result.json",
+          "SHA256": "ca9e69ce46f0e969aefa2bd054d30f9ca55ca2c4258cf4373990aa8929e2d90b"
+        },
+        "current-samus": {
+          "path": "build/shared-gameplay-cadence-1110/current-samus/capture/result.json",
+          "SHA256": "4758c5d76ad36de84321cd62998567c0e25729e0eb872af95548b514e3b3ae4f"
+        },
+        "baseline-bill": {
+          "path": "build/shared-gameplay-cadence-1110/baseline-bill/capture/result.json",
+          "SHA256": "2442abb66abe85a38ec9dd566dffd910a60fc4c5985c2b63a13f584ed64598ef"
+        },
+        "current-bill": {
+          "path": "build/shared-gameplay-cadence-1110/current-bill/capture/result.json",
+          "SHA256": "36507be40c5b8ba662d4366a7a4f8819550e72ed69834d51285254eb20feaa3b"
+        }
+      },
+      "bill_missed_deadlines": {
+        "path": "build/shared-gameplay-nmi-1110/capture/deadlines.json",
+        "SHA256": "8dd0c32685f628ef6acdf87c94352cb33b045f3e56dd91c35535cf167b4d098f"
+      },
+      "scope": "Exact df03/c8 controller-only native tests. Every measured field matched between builds for Samus and Bill. Samus 22 walk missed reads, 6 walk frames with no Main entry; Bill 29 and 9 plus 3 missed reads idle with no enemies. Latest shared ordinary contact savings are independently CPU-qualified but did not shift these deadlines. Actual Bill deadline PC buckets are mostly PRG2/3/4 while walking, plus PRG63/4 idle. See docs/qa/shared-gameplay-cadence-1110.md. Mini actual Downloads 3494/3494 zero active misses remains the release baseline."
+    },
+    "helper": {
+      "scrooge_3_3": {
+        "path": "build/current-helper-3-3-1110/capture/result.json",
+        "SHA256": "dec61280131caa1b647bcf30b51074b2cfcf1a8559ad8687c92b3cd1a39e8215"
+      },
+      "scope": "Released bytes, Easy, native $28, initial left X2344 center X2352 top Y64 width16, constructed 32px beyond camera-right with five occupied slots. First visible at moving X2373 and camera-right X2373. 21 native carries including six moving, both lives through active 3-4. Previous Mini/Thomas/Goku/Karnov and private 6-3 results remain scoped to their hashes. Natural complete six-slot blockage and other later rooms remain open. No placement changed."
+    },
+    "getsu_fuma": {
+      "host_route": {
+        "path": "build/getsu-fuma-native-side-1110/proof.json",
+        "SHA256": "77c05f3c897b1daa4e09731c9fe350d45cb1900794b83c5133dc2135f803150b"
+      },
+      "atlas": {
+        "path": "build/getsu-atlas-ownership-1110/atlas-page.json",
+        "SHA256": "6ad77616be558f47e9dfad26063f394cb7edbcf3c897f3aa4889bdf334fc8656"
+      },
+      "preview": {
+        "path": "build/getsu-atlas-ownership-1110/preview.json",
+        "SHA256": "1f5f99f62024a406c8d6294c5b6e2ddce44587c1f908866f7189c39fbdcede31"
+      },
+      "preview_irq": {
+        "path": "build/getsu-atlas-ownership-1110/preview-audio-irq.json",
+        "SHA256": "577c7d58f29313b863998d4fbc486695f51b220a2d0835fb0871a759b0d86230"
+      },
+      "cold_owner": {
+        "path": "build/getsu-fuma-owner-1110/proof.json",
+        "SHA256": "5c231982bec47bbd35d6cfcdc87850acf7008ad3986f229cff973a0997020029"
+      },
+      "cold_irq": {
+        "path": "build/getsu-fuma-owner-1110/irq.json",
+        "SHA256": "20e3a410003338756dffa6c211dae9a81a7e9a29cf0edd95583a891747f46b83"
+      },
+      "shinobi": {
+        "path": "build/getsu-fuma-owner-1110/shinobi.json",
+        "SHA256": "6013b7be91b1089b1ae9da030dc47afed5d27988f87bdbbce418ebe607f88ff2"
+      },
+      "scope": "Private raw42 CPU host movement and sword on exact c8. Genuine first Goomba defeated on source sword phase2, crouch poses7\u201311/cue25. Per-character native side routing fixes raw42 flagpole contact; the actual native GameLoop route crosses all four opening pipes and three pits, triggers native flagpole tile25, enters active 1-2 after 3335 updates with both lives. There are no native Mesen route results or public menu entry. CHR990 art and separate 991/992 resident executable proofs are bound. Resident cold path has 3046 real lag NMIs, 870 IRQs and exact incumbent parity. Draw service and full scene/flagpole dispatch integration still needed."
+    },
+    "prince": {
+      "ROM_SHA256": "4699c73befdd331b7e49a8b992a4f15f52d14eed81ac2d76f3b69c63ba3c846e",
+      "first_pit": {
+        "path": "build/prince-first-pit-native-1110/native/capture/first-pit.json",
+        "SHA256": "fff6e8050d0a4a1949d51283c5c0a66a58afc146a3f39e1f16ffb7f2f41f28f3"
+      },
+      "second_pit": {
+        "path": "build/prince-second-pit-native-1110/capture/second-pit.json",
+        "SHA256": "0df6883c0661647c913d2f431ad456333da6d82fb16ab0f5039ecd8a778aa0e5"
+      },
+      "second_pit_cpu": {
+        "path": "build/prince-second-pit-1110/proof.json",
+        "SHA256": "ed0910b9daf9310c0c44e00c18d93dd0371d948b87fbc7ec313ae1133996d01e"
+      },
+      "full11_negative": {
+        "path": "build/prince-second-pit-native-1110/capture/full11.json",
+        "SHA256": "33015b872021f3e1518b3ed7bc518fd531150d7a07c051ca6fb003127ceb6d64"
+      },
+      "scope": "Private controller-only Mesen preserves both lives and HP4 through all four opening pipes, first pit far bank X1154 F5280, second pit far bank X1443 F6130. Reapproach uses already scrolled camera and original running jumps. Latest full route stops HP0 X1541 F6286 after the second pit. No helper added."
+    },
+    "mega_giant": {
+      "render": {
+        "path": "build/mega-giant-render-storage-1110/proof-v2.json",
+        "SHA256": "f2de3762bbbe8a88da0e0fa6340e299d9767e30cafbe976095bb8f7dbd2de548"
+      },
+      "selection_and_live_draw": {
+        "path": "build/mega-giant-selection-1110/proof-v2.json",
+        "SHA256": "d1f115837d3dc20f4fb8cbd4e06057f3c044792318018fdd06cf1cc8da9b27a4"
+      },
+      "scope": "Actual Select cycling and Start, native stage reaches 229 authenticated draw updates to X482 with both lives, provisional CHR. Native Game Over entry seeded for retirement check. Nine existing variants across 36 paired GameLoops preserve state; Mini/Luigi add zero cycles, other tested raw0 variants add 286 per draw. Ordered Rogue NMI parity and source cold failure pass. Native emulator and full 1-1 pending."
+    },
+    "storage": "Only byte-identical older empty Mesen process markers and one empty preflight partial were removed in this pass. Native queue remains root-owned. No ROM backups or new videos.",
+    "next": "Keep current verified release. Profile shared draw/setup before changing engine work; Bill idle misses already prove a no-enemy baseline. Qualify any no-shot path against CHR shadow updates and existing projectiles. Merge Getsu resident, art and native side probe with real menu ingress, then native verification. Continue private Prince beyond X1541. Giant provisional page allocation and shared fallback cost need review before admission."
+  },
   "getsu_art_and_prince_two_goombas_native_1110": {
     "status": "GETSU_DONOR_ART_RECONSTRUCTION_PASS_PRINCE_BOTH_GOOMBAS_NATIVE_PASS_FULL_ROUTE_OPEN",
     "getsu_art": "build/getsu-fuma-art-1110/proof.json",
