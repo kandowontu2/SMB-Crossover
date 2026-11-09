@@ -22,8 +22,8 @@ def digest(data):
     return hashlib.sha256(data).hexdigest()
 
 
-def compose(base, output, proof):
-    assert proof['passed'] and (proof.get('parent_SHA256') or proof['base_SHA256'])==PIN
+def compose(base, output, proof, *, parent=PIN):
+    assert proof['passed'] and (proof.get('parent_SHA256') or proof['base_SHA256'])==parent
     for path,pin in proof.get('bindings',{}).items():
         assert sha(R/Path(path))==pin,path
     isolated = bytearray(base)

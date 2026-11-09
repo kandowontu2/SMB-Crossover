@@ -3,8 +3,11 @@
 local stack, hooks, stats, cadence = {}, {}, {}, {}
 local sample = MiniSample or {}
 local instructionSample, instructionCounts = nil, {}
+local sampleHandle, sampled = nil, false
 local instructionCalls = {}
 local transports = {}
+local floorSamples = {}
+local floorProbePCs = {[0xbe34]=true,[0xbe37]=true,[0xbe3c]=true,[0xbe4b]=true,[0xbe56]=true}
 local minimumSampleSP = {sp=255}
 local lastInstruction
 local function sampleInstruction()
@@ -22,6 +25,10 @@ local function sampleInstruction()
  local key=string.format('%s:%04x',bank,pc)
  if state['cpu.sp']<minimumSampleSP.sp then minimumSampleSP={sp=state['cpu.sp'],pc=key} end
  instructionCalls[key]=(instructionCalls[key] or 0)+1
+ if bank=='20' and floorProbePCs[pc] and #floorSamples<20 then
+  floorSamples[#floorSamples+1]={pc=key,a=state['cpu.a'],y=state['cpu.y'],
+                                  left_or_combined=read(4),y_subtile=read(7),native_y=read(0xbd)}
+ end
  if pc==0x015a or (pc==0x015d and (not lastInstruction or lastInstruction.pc~=0x015a)) then
   local sp=state['cpu.sp']
   local ret=(read(0x100+((sp+1)&255))+256*read(0x100+((sp+2)&255))+1)&65535
@@ -89,10 +96,10 @@ local function closeProfile()
   row.max = math.max(row.max, elapsed)
   if call.name == 'GameLoop' then
    row.slowest = row.slowest or {}
-   local sample = call.scene
-   sample.cycles = cpu
-   sample.gross = elapsed
-   row.slowest[#row.slowest+1] = sample
+   local scene = call.scene
+   scene.cycles = cpu
+   scene.gross = elapsed
+   row.slowest[#row.slowest+1] = scene
    table.sort(row.slowest, function(a,b) return a.cycles>b.cycles end)
    if #row.slowest>8 then table.remove(row.slowest) end
    if instructionSample == call then
@@ -103,12 +110,17 @@ local function closeProfile()
     table.sort(sorted,function(a,b)return a.cycles>b.cycles end)
     local file=assert(io.open(OUTPUT..'instruction-sample.json','w'))
     file:write(json({scene=call.scene,opcodes=sorted,farcall_edges=transports,minimum_sample_SP=minimumSampleSP,
+                     floor_probes=floorSamples,
                      scope='One actual controller-reached GameLoop; elapsed cycles include interrupted work. Farcall labels record the stack return and native bank tag.'})..'\n')
     file:close()
-    result(true,'Bounded one-update diagnostic completed')
-    csv:close()
-    done=true
-    emu.stop(0)
+    sampled=true
+    emu.removeMemoryCallback(sampleHandle,emu.callbackType.exec,0x0000,0xffff)
+    if not sample.complete then
+     result(true,'Bounded one-update diagnostic completed')
+     csv:close()
+     done=true
+     emu.stop(0)
+    end
    end
   end
   if call.name == 'BackgroundGuard' or call.name == 'ProbeFloor' or call.name == 'ProbeSides' then
@@ -155,11 +167,11 @@ for name, hook in pairs(MiniProfileHooks) do
    stats[phase][name].last_entry = guard
   end
   stack[#stack+1] = context
-  if name=='GameLoop' and not instructionSample and
+  if name=='GameLoop' and not instructionSample and not sampled and
      ((sample.frame and frame==sample.frame) or
       (sample.x and context.scene.x>=sample.x and context.scene.y<145)) then
    instructionSample=context
-   emu.addMemoryCallback(sampleInstruction,emu.callbackType.exec,0x0000,0xffff)
+   sampleHandle=emu.addMemoryCallback(sampleInstruction,emu.callbackType.exec,0x0000,0xffff)
   end
   if not hooks[context.ret] then
    hooks[context.ret] = true
@@ -167,6 +179,7 @@ for name, hook in pairs(MiniProfileHooks) do
   end
  end), emu.callbackType.exec, pc)
 end
+local routeCadence = {}
 emu.addEventCallback(guard(function()
  local skipped = read(skippedAddress)
  local state = emu.getState()
@@ -189,6 +202,15 @@ emu.addEventCallback(guard(function()
   if not polled then row.no_controller_read = (row.no_controller_read or 0)+1 end
   if steps == 0 then row.zero_update = row.zero_update+1 end
   cadence[phase] = row
+  if phase=='fullstage' then
+   local x=read(0x75)+256*read(0x5c)
+   local bin=tostring((x//128)*128)
+   local zone=routeCadence[bin] or {physical=0,updates=0,missed=0}
+   zone.physical=zone.physical+1
+   zone.updates=zone.updates+steps
+   if not polled then zone.missed=zone.missed+1 end
+   routeCadence[bin]=zone
+  end
  end
  priorSkipped, priorUpdates = skipped, updates
  priorMesenLag = mesenLag
@@ -196,7 +218,7 @@ emu.addEventCallback(guard(function()
 end), emu.eventType.endFrame)
 profileFinish = function()
  local file = assert(io.open(OUTPUT..'timing.json', 'w'))
- file:write(json({ROM_sha256=C.ROM_sha256,cadence=cadence,routines=stats,open_calls=#stack,
+ file:write(json({ROM_sha256=C.ROM_sha256,cadence=cadence,route_by_world_x=routeCadence,routines=stats,open_calls=#stack,
                   mesen_lag_key=mesenLagKey,interrupts=isrCompleted,
                   unmatched_interrupt_returns=unmatchedReturns,open_interrupts=#interrupts})..'\n')
  file:close()

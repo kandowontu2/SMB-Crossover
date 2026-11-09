@@ -41,6 +41,37 @@ spent 36,700 foreground cycles there and made 96 mapper far calls. Four side
 queries passed through the SMB2 check, a same-bank call and two more guest
 dispatches before reaching Mini's native tile filter.
 
+## Follow-up build
+
+Build `37bb9c1a69b993edda540c75cbe256aeac75396d55d34d9daf3d4de86deebeeb`
+cleared 1-1 in 2,931 active video frames with 2,589 gameplay updates and
+846 frames without a controller read. It boarded and departed all three
+lifts and reached active 1-2 with both lives. Empty-area movement and 180
+idle updates advanced on every video frame. The earned mushroom and the
+two-shot graphics fixture also passed.
+
+The shorter side dispatch saves 318 cycles per Mini fallback query. The
+shared Mario the Tank path reached its loaded side handler 708 times on
+both sides of that change. The floor preflight also covers decorative pipe
+tops while preserving native Down entry on warp pipes. A live sample at
+world X759 read `$13` at the left foot and `$00` at the right. At that spot,
+the final candidate used 30,931 foreground cycles and 34,754 elapsed cycles.
+The intermediate side/audio build used 35,088 foreground and 38,782 elapsed
+cycles on the same terrain with the same actor count. Its original floor
+probe treated the decorative pipe as a fallback.
+
+The actor loop now enters the common Goomba motion and terrain paths with
+less dispatch work. Other ordinary actor dispatches pay eight additional
+cycles. Audio macros use their resident program bank and keep their ordered
+hardware writes. The individual side, floor, actor and audio changes passed
+linked interrupt tests. The floor test used native GameLoop stack depth.
+
+In a five-enemy CPU fixture, ordinary Mario used about 25,700 foreground
+GameCore cycles and Mini used 27,500 before interrupt work. Busy scenes still
+miss frames. The new replay's most expensive sampled update was at X782
+with 33,565 foreground and 38,472 elapsed cycles. The highest concentrations
+of missed reads were at X640–767, X768–895 and X1920–2047.
+
 ## Local receipts
 
 - `build/mini-frame-budget-delivery-1108/verified-delivery.json`
@@ -49,3 +80,11 @@ dispatches before reaching Mini's native tile filter.
 - `build/mini-frame-budget-power-1108/capture/result.json`
 - `build/mini-frame-budget-fire-gate-1108/capture/result.json`
 - `build/mini-frame-budget-1108/candidate.json`
+- `build/mini-busy-pipeline-delivery-1108/verified-delivery.json`
+- `build/mini-busy-pipeline-final-qa-1108/route/capture/timing.json`
+- `build/mini-busy-pipeline-final-qa-1108/route/capture/instruction-sample.json`
+- `build/mini-busy-pipeline-final-qa-1108/fire/capture/result.json`
+- `build/mini-floor-decor-async-1108/proof.json`
+- `build/mini-active-actor-1108-v1/funded-v3-CPU.json`
+- `build/mini-audio-transport-1108-v4/irq.json`
+- `build/mini-side-dispatch-irq-1108/proof.json`

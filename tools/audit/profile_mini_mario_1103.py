@@ -29,7 +29,9 @@ def main():
     sample.add_argument('--sample-x', type=int)
     sample.add_argument('--sample-frame', type=int,
                         help='Attribute every instruction of the first GameLoop at this replay frame.')
+    parser.add_argument('--sample-continue', action='store_true', help='Finish the replay after the instruction sample.')
     args = parser.parse_args()
+    assert not args.sample_continue or args.sample_x is not None or args.sample_frame is not None
     controller = args.controller.read_text()
     digest = sha(args.rom)
     baseline = sha(ROM)
@@ -108,7 +110,7 @@ def main():
                                     '\n if profileFinish then profileFinish() end')
     controller += '\nlocal MiniProfileHooks=' + lua(hooks) + '\n' + observer.read_text()
     controller = controller.replace('local stack, hooks, stats, cadence = {}, {}, {}, {}',
-        'local MiniSample=' + lua(dict(x=args.sample_x, frame=args.sample_frame)) +
+        'local MiniSample=' + lua(dict(x=args.sample_x, frame=args.sample_frame, complete=args.sample_continue)) +
         '\nlocal stack, hooks, stats, cadence = {}, {}, {}, {}')
     prepare(args.output, args.rom, controller,
             [*refs, observer], expected=digest,
