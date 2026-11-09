@@ -4,7 +4,7 @@ The functional roster pass is not complete. This inventory separates source
 placements from actual route verification; it is not the final all-character list.
 
 Inventory fixture SHA256: `128915e97e78891a585aa8f9fd904c166ca64dcd6dd1ee395fc68fd505c1e72c`.
-Current nightly SHA256: `df03fc35ebdc516a8df0b501bbe2008e52836aa8fcfad5c34e4df76783e9f331`.
+Current nightly SHA256: `c8bd2e2c75015b84fe7bc3c4dba5b24b87e517620ef914ff229b5d4249acbe48`.
 
 The current Mini successor admits its native lifts at camera-relative left
 X256–263, before they are visible, and also checks admission after scrolling
