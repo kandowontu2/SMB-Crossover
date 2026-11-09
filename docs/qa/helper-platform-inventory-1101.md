@@ -4,7 +4,7 @@ The functional roster pass is not complete. This inventory separates source
 placements from actual route verification; it is not the final all-character list.
 
 Inventory fixture SHA256: `128915e97e78891a585aa8f9fd904c166ca64dcd6dd1ee395fc68fd505c1e72c`.
-Current nightly SHA256: `3a3832825bc6a2628fef7b3ccc3e760262510b86a80d78bc74ec3005af3119df`.
+Current nightly SHA256: `dd805e86b5d22cd7b7b3222915b821a92bc882ef63a139e5e3b6def7186e8a13`.
 
 The current Mini successor admits its native lifts at camera-relative left
 X256–263, before they are visible, and also checks admission after scrolling
@@ -29,6 +29,11 @@ No placement coordinates changed. This is not new native coverage of every
 shared roster alternate or every later stage. The separate
 [scope audit](helper-camera-scope-1110.md) records the native-slot capacity
 constraint; no natural full-slot entry-window failure has been witnessed.
+The private generic guard has an Easy Scrooge scroll-in witness for 3-3.
+The native horizontal lift began at left X2344, center X2352 and top Y64.
+It first appeared at the right edge of the camera. Scrooge rode the lift
+with 21 native carry calls, then cleared to 3-4 with both lives.
+[Entry and capacity evidence](generic-helper-capacity-1110.md)
 Bub/Bob added no helper platforms. Earlier route proofs below retain their stated hashes.
 Thomas's two late placements were added on d0b445a7; other placements are unchanged. The original admission fixture belongs to its stated earlier hash.
 `tools/audit/inventory_named_helpers_1101_v2.py` verified identical installed and

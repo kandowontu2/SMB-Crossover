@@ -4,12 +4,8 @@
 .pushseg
 .segment "CROSSOVER_HELPERS"
 .proc HpPrepareNativePointers
-  ldx #6
   lda #0
-Clear:
-  sta HpNativeDrawHi,x
-  dex
-  bpl Clear
+  sta HpNativeDrawHi           ; Slot zero is the player descriptor.
   lda ObjectMetasprite
   cmp #METASPRITE_SAMUS_BODY
   bne Helpers
@@ -21,6 +17,8 @@ Helpers:
   ldy #0                       ; Valid16-pixel helper count, no scratch RAM.
   ldx #6
 Slot:
+  lda #0
+  sta HpNativeDrawHi,x         ; Clear each actor pointer as its slot is visited.
   lda Enemy_Flag-1,x
   cmp #1                       ; A live primary native actor, not its duplicate.
   bne Next

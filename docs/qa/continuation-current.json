@@ -1,4 +1,19 @@
 {
+  "mini_shared_contact_draw_1110": {
+    "status": "DELIVERED_4_ACTIVE_GAMEPLAY_MISSES_ZERO_LAG_UNFINISHED",
+    "ROM_SHA256": "dd805e86b5d22cd7b7b3222915b821a92bc882ef63a139e5e3b6def7186e8a13",
+    "IPS_SHA256": "3a7151c73b1d4e8f7770aa3313595b88aad28d8cf7e51a7f491a240d13ca6708",
+    "receipt": "build/mini-contact-draw-delivery-1110/verified-delivery.json",
+    "candidate": "build/mini-contact-draw-native-1110/candidate.nes",
+    "proof_SHA256": "268b284a85f7295bafbc6311db864e9006571f6435096d0b8b9a731cae82f94a",
+    "timing_SHA256": "e8611424fedd6381deac635fec63f989d7fb6480e703c8cce3a8543fa7d72425",
+    "cadence": {"missed_reads": 4, "physical": 3500, "updates": 3500, "zero_update": 4},
+    "verification": "Exact candidate and Downloads nonshortcut 1-1 into active 1-2, all three native lifts boarded and both lives. Native idle/walk/jump, earned mushroom, two concurrent source fireballs and actual damage/DMA pass. Ordered audio matches 3a. Downloads timing and lift evidence match the candidate. IPS roundtrip and automatic patch guards pass. No backup. Physical lag NMI count is 74 across the full route, versus 76 on 3a. Startup and transition lag are outside the active count.",
+    "performance": "GameLoop foreground 66,042,379 cycles versus 66,129,090 on 3a, 86,711 saved. The shared contact-only 9b6e build saved 5,529 foreground cycles and remained at five lag frames. The shared draw setup saves 25 cycles per call across 4,608 CPU cases. Its 4,815 interrupt checks observed no descriptor accesses during those cuts. Contact v2 saves 97 per non-Tank contact and 7 on raw zero. Contact v1 is rejected because raw25 lag audio copied the stale return operand to 727C. V2 explicitly publishes the operand and passes the exact handoff and vectors. Raw patch spans physical26 B07C..B0F0 and physical78 AF96..AFD6.",
+    "next": "Exact 3a frame1886 full sample in build/mini-3a-lift-threshold-profile-1110/capture/instruction-sample.json SHA4337a6887938e85d2b2e25b077a00f60d8961143ed4bd6f005c5694b7c96fdb8. Obtain DD exact four-cut profile before targeting an old cut. Shared tail proposal is a frozen memory-only component with 27-cycle savings per GameLoop and 75 CPU cases, 1001 real FF, 1081 IRQ, 80 normal NMI, 306 nested IRQ. Proof build/native-game-loop-tail-1110/proof.json SHAabcc9575beb262d91858fe071403b099a2624b34740ae870e8dd4774cc62176c. Check final-minus against DD before composing, then retest in Mesen. Source spans fixed126 8352..8355 and 8365..8369. No ROM yet. Zero active Mini lag and the full roster goal remain unfinished.",
+    "generic_helper": "Private dad68311 Easy Scrooge 3-3 v7 PASS. Native slot0 was free with five occupied; birth at camera L2057 R2312, world left X2344, center X2352, top Y64, width16. First visible camera R2373 matched the moving native left edge. 21 native carry calls, six moving, then departure and active 3-4 with both lives. Stage select only. Result build/generic-helper-3-3-native-1110-v7/capture/result.json SHA1be134b0bcd4e275c6d6dda22608051072f2bb57bb3f6bdc4c2ddc5ac5ac21b7. Prior Hogan assisted crossing and Scrooge 3-2 entry remain valid. Generic all-roster capacity is still open, including Darkwing arrow pressure. Keep the private guard out of the release pending broader natural capacity or a source-level solution.",
+    "storage": "52 superseded raw CSV/log files removed with successful aggregate records and screenshots retained. See docs/qa/cleanup-superseded-mini-contact-draw-1110.json. Reserve 64 files for the Mesen capture watchdog even when the outer task uses a tighter cap. Existing bounds unchanged. No new videos. Root sole Mesen queue."
+  },
   "mini_parser_audio_delivered_1110": {
     "status": "DELIVERED_5_ACTIVE_GAMEPLAY_MISSES_ZERO_LAG_UNFINISHED",
     "ROM_SHA256": "3a3832825bc6a2628fef7b3ccc3e760262510b86a80d78bc74ec3005af3119df",
