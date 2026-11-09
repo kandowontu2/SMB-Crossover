@@ -1,4 +1,23 @@
 {
+  "prince_roof_and_kirby_red_native_1110": {
+    "status": "PRINCE_THIRD_PIPE_AND_KIRBY_RED_COPY_VERIFIED_FULL_ROUTE_AND_RED_HIT_OPEN",
+    "published_baseline": "c8bd2e2c75015b84fe7bc3c4dba5b24b87e517620ef914ff229b5d4249acbe48",
+    "prince": {
+      "private_ROM_SHA256": "4699c73befdd331b7e49a8b992a4f15f52d14eed81ac2d76f3b69c63ba3c846e",
+      "third_pipe": "build/prince-roof-scroll-native-1110/native/capture/third-pipe.json",
+      "third_pipe_SHA256": "9ec9472d480b21c6fd421b09f90b7f52033936fe688e5d8f6c36c73141a1cd7b",
+      "full_route": "build/prince-roof-scroll-native-1110/native/capture/full11.json",
+      "full_route_SHA256": "7ecfd6263ec5e52e8fce77689003dc0c57308cf8e04b6424d295f01a255b27a2",
+      "scope": "Real Mesen input-only third-pipe crossing at frame 3385, with original climb, native pipe support and far-side landing, both lives. The actual pose40 right-edge FF/Y1 case committed X772 instead of X533. First far-side native enemy contact drops HP to 0 at frame 3397, so the full route failed. Private ROM remains unpublished."
+    },
+    "kirby": {
+      "ROM_SHA256": "df03fc35ebdc516a8df0b501bbe2008e52836aa8fcfad5c34e4df76783e9f331",
+      "raw_receipt": "build/kirby-red-shell-1110/capture/result.json",
+      "raw_receipt_SHA256": "ef00f513aff7a86f3aa9b8d36af7dd9064534d288ed93ab9f0b901242516434d",
+      "scope": "Real Easy 4-3 Start Level menu, two genuine Red Koopa births X448/X464, a fresh inhale followed by native erase and Down swallow into copy3 with HP6 and both lives. The follow-up shell hit was not observed before route timeout X441. Numeric keys in the sparse Lua birth table made this raw receipt invalid JSON. Preserve it as a failed test; a corrected input and observer packet is in progress."
+    },
+    "storage": "Pruned 45 more byte-identical superseded Mini PNGs, keeping the matching zero-active candidate or Downloads capture and the older results. See docs/qa/cleanup-mini-lag-diagnostics-1110.json."
+  },
   "mini_zero_active_delivered_1110": {
     "status": "DELIVERED_ZERO_ACTIVE_LAG_ON_EXACT_MINI_11_ROUTE_FULL_ROSTER_UNFINISHED",
     "ROM_SHA256": "c8bd2e2c75015b84fe7bc3c4dba5b24b87e517620ef914ff229b5d4249acbe48",
