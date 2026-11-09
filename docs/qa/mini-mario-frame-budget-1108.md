@@ -117,6 +117,29 @@ points are in the same cell. The owner-only update saved 86–436 cycles over
 232 CPU-tested game updates, with 3,403 interrupt checks. Busy gameplay still
 exceeds the frame budget near the crowded pipes and blocks.
 
+## Head hits, side probes and Goomba drawing
+
+The follow-up build `84d372ef` finished the controller route with both lives
+and all three native lifts. It missed 706 controller polls across 2,848 active
+video frames and ran 2,591 gameplay updates. The head and side dispatch saves
+747–755 cycles per head query and 72 per side query. The head route still
+runs Mini's source collision handler. The shared draw code bypasses unused
+firebar and lift checks for ordinary actors. Mini's Goomba renderer reuses
+the validated native sprite descriptor and retains native clipping and draw
+order. The two rendering changes saved 502–542 cycles with five Goombas in
+the paired CPU test. A synthetic forced flash case still costs 97 additional
+cycles across its two actors.
+
+The head and side paths passed actual foreground IRQ and lag-NMI tests.
+The Goomba and shared actor paths passed 8,010 vector checks on the previous
+nightly with both render changes applied. The final combined ROM passed the
+full route, empty-area movement and idle, mushroom pickup, and a focused
+two-fireball test. The exact Downloads copy also passed the full route.
+
+The largest foreground cost was at X750 with 31,456 CPU cycles and 35,490
+elapsed cycles. X1513 reached 36,296 elapsed cycles. The crowded pipe section
+still exceeds the NTSC frame budget.
+
 ## Local receipts
 
 - `build/mini-frame-budget-delivery-1108/verified-delivery.json`
@@ -144,3 +167,7 @@ exceeds the frame budget near the crowded pipes and blocks.
 - `build/mini-column-graphics-1109/proof.json`
 - `build/mini-column-irq-1109/irq.json`
 - `build/mini-kernel-transport-1109/v2/irq.json`
+- `build/mini-contact-render-delivery-1109/verified-delivery.json`
+- `build/mini-contact-render-typed-1109/native/route/capture/timing.json`
+- `build/mini-native-side-single-map-1109/async-proof.json`
+- `build/mini-render-bookkeeping-1109-v1/typed-goomba-current-vectors.json`
