@@ -1,6 +1,7 @@
 -- Controller-only smoke test. C contains exact ROM, labels and owned actor marker.
 local frame, updates, pad = 0, 0, {}
 local samples, births = {}, 0
+local birthEvents={}
 local function rd(a) return emu.read(a,emu.memType.nesDebug) end
 local function r(n,i) return rd(assert(C.ram[n],n)+(i or 0)) end
 local function pos(lo,hi,i) return r(lo,i)+256*r(hi,i) end
@@ -35,7 +36,7 @@ end
 local function finish(ok,reason)
  local f=assert(io.open(OUTPUT..'result.json','w'))
  f:write(json({passed=ok,reason=reason,ROM_sha256=C.rom,owner=C.owner,
-              controller_only=true,script_RAM_writes=false,samples=samples,terminal=snapshot()})..'\n');f:close()
+              controller_only=true,script_RAM_writes=false,samples=samples,birth_events=birthEvents,terminal=snapshot()})..'\n');f:close()
  local image=assert(io.open(OUTPUT..'terminal.png','wb'));image:write(emu.takeScreenshot());image:close()
  emu.stop(ok and 0 or 1)
 end
@@ -69,21 +70,29 @@ local task=coroutine.create(function()
  local before=record('before_combo')
  pad={up=true,select=true};wait(3)
  local first=one('first_combo');assert(first.births==1,'First combination must create once')
- assert(math.abs(first.actors[1].x+C.width/2-(before.x+C.player_center))<=2,'Helper not centered under player')
+ local born=birthEvents[1]
+ assert(#born.actors==1 and math.abs(born.actors[1].x+C.width/2-(born.x+C.player_center))<=1,'Helper not centered under player')
+ assert(born.actors[1].y==born.y+32,'Helper not created directly under feet')
  local low,high=first.actors[1].y,first.actors[1].y
- local carried=false
+ local carryFrames=0
  for _=1,60 do
   wait(1);local s=snapshot();assert(#s.actors==1 and s.births==1,'Held combination recreated helper')
   low=math.min(low,s.actors[1].y);high=math.max(high,s.actors[1].y)
-  if s.y~=first.y and s.state==0 then carried=true end
+  -- Imported actors may retain a native falling-state byte while their source
+  -- support is grounded. Observe sustained real passenger displacement instead.
+  if math.abs(s.y-first.y)>=4 and math.abs(s.actors[1].y-s.y-32)<=1 then carryFrames=carryFrames+1 end
  end
- assert(high-low>=4,'Platform did not move vertically');assert(carried,'Player was not carried')
+ assert(high-low>=4,'Platform did not move vertically');assert(carryFrames>=4,'Player was not carried')
  one('held_combo');pad={};wait(8)
+ -- Karnov leaves native lifts with his ordinary jump; Mini can walk off.
+ if C.owner==34 then pad={right=true,a=true};wait(8) end
  pad={right=true};wait(20);pad={};wait(8)
  local moved=record('moved');assert(math.abs(moved.x-before.x)>=8,'Player did not move before replacement')
  pad={up=true,select=true};wait(3)
  local second=one('replacement');assert(second.births==2,'Second combination must replace once')
- assert(math.abs(second.actors[1].x+C.width/2-(moved.x+C.player_center))<=2,'Replacement not below current player')
+ born=birthEvents[2]
+ assert(#born.actors==1 and math.abs(born.actors[1].x+C.width/2-(born.x+C.player_center))<=1,'Replacement not below current player')
+ assert(born.actors[1].y==born.y+32,'Replacement not created directly under feet')
  wait(20);assert(one('replacement_held').births==2,'Held replacement repeated')
  pad={};assert(snapshot().lives==initial.lives,'Life lost during helper smoke')
  finish(true,'Two distinct Up+Select presses; one moving native helper, actual carry, replacement, no single-button trigger')
@@ -94,7 +103,9 @@ emu.addMemoryCallback(function()
 end,emu.callbackType.exec,C.main)
 emu.addMemoryCallback(function()
  local at=emu.convertAddress(C.spawn)
- if at and at.memType==assert(emu.memType[C.spawn_mem]) and at.address==C.spawn_physical and active() then births=births+1 end
+ if at and at.memType==assert(emu.memType[C.spawn_mem]) and at.address==C.spawn_physical and active() then
+  births=births+1;birthEvents[#birthEvents+1]=snapshot()
+ end
 end,emu.callbackType.exec,C.spawn)
 emu.addEventCallback(function() emu.setInput(pad,0) end,emu.eventType.inputPolled)
 emu.addEventCallback(function()
