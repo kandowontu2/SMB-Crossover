@@ -1,6 +1,6 @@
 {
   "shared_sparse_delivery_and_getsu_native_1110": {
-    "status": "SHARED_RENDER_SPEEDUP_DELIVERED_GETSU_NATIVE_TERRAIN_AND_SWORD_PASS_OAM_REPAIR_CPU_ONLY",
+    "status": "SHARED_RENDER_SPEEDUP_DELIVERED_GETSU_NATIVE_TERRAIN_SWORD_AND_OAM_REPAIR_VERIFIED_ON_SEPARATE_CUTS",
     "public_ROM_SHA256": "f33c7b19d27309ab4e4771125a74360f978dba08bd807d25bc6307026e568734",
     "public_IPS_SHA256": "9e6ed2245ac2d4e337888c714388c4eadac2b3cd5a747d249aa2a19a9d684a18",
     "shared_delivery": {
@@ -36,7 +36,16 @@
         "path": "build/getsu-host-render-1110-v2/proof.json",
         "SHA256": "101bd9fc89346a7f22be92e7c9431f720473c54beb5baeba17c680d63247b786"
       },
-      "scope": "Genuine Mesen menu GETSU FUMA and active1-1, native first sword defeat F614, all four pipe caps and three pits, actual native flagpole F3833 and active1-2 F5308 with both lives. Full packet deliberately reports false because graphics validation failed. Visual diagnostic shows four-byte OAM misalignment on real hardware rotation values199/59, black universal backdrop $0F and generic MARIO HUD. Actual sprite palette bytes $00,$20,$05 do publish. Mapper port observer is updated for successor. v2 same 820B renderer sets SmPosePtr to immutable native $9E27 zero before later native reserve; 1320 OAM fixtures, 1120 donor gait, 8 IRQ/FF, same total2034B leaves14 for sword worker. Needs final native visual replay, backdrop/HUD, foreign FarA parity successor and f33 rebase before release."
+      "scope": "Genuine Mesen menu GETSU FUMA and active1-1, native first sword defeat F614, all four pipe caps and three pits, actual native flagpole F3833 and active1-2 F5308 with both lives. Full packet deliberately reports false because graphics validation failed. Visual diagnostic shows four-byte OAM misalignment on real hardware rotation values199/59, black universal backdrop $0F and generic MARIO HUD. Actual sprite palette bytes $00,$20,$05 do publish. Mapper port observer is updated for successor. v2 same 820B renderer sets SmPosePtr to immutable native $9E27 zero before later native reserve; 1320 OAM fixtures, 1120 donor gait, 8 IRQ/FF, same total2034B leaves14 for sword worker. Needs final native visual replay, backdrop/HUD, foreign FarA parity successor and f33 rebase before release. The separate v2 exact7b88 native idle/walk replay now confirms the fixed reservation: all eight cursor/rotation pairs are four-byte aligned, and all seven samples after CHR publication have the five visible body parts, tall OAM and hardware sprite bank990. Both screenshots show the correct body. Black universal backdrop and MARIO HUD remain reproduced. 138 existing post-enemy paths, 1024 firebar caller controls and 1152 real FF plus 1152 IRQ and two nested cuts passed on v2. Full route on this exact v2 still pending the next integration.",
+      "successor_ROM_SHA256": "7b88bb1a3539a504729e9a03af1eaf5ab2f5d6e9743ca3a31f6f9e7a8473d7a8",
+      "foreign_and_render_v2": {
+        "path": "build/getsu-loaded-stage-v2-1110/proof.json",
+        "SHA256": "c9732d1281c1aafc75ad46896376d9cdccdfd1ed63ca4efd97c5f30e1b1ad7a6"
+      },
+      "native_visual_v2": {
+        "path": "build/getsu-loaded-native-v2-1110/native/capture/visual.json",
+        "SHA256": "d825078a8d4af744a4c268407334f3a373bb6b462c23700c043a4a07a5465882"
+      }
     },
     "prince": {
       "private_ROM_SHA256": "4699c73befdd331b7e49a8b992a4f15f52d14eed81ac2d76f3b69c63ba3c846e",
@@ -51,7 +60,7 @@
       "scope": "V6 preserves native first/second pit passes. CPU climbs existing brick X1504 and crosses both Goombas at X1546 with HP4. Actual native group born four Main after braking, much earlier relative to Up. It hits at X1503/F6719/pose76 before hang, HP0. Genuine controller camera-lead refinement in progress; no helper added."
     },
     "storage": "Pruned only byte-identical empty Mesen process markers from retired and duplicate runs, including one rejected preflight marker. Single root-owned emulator queue, bounded CPU, no videos or ROM backup copies. See docs/qa/cleanup-mini-lag-diagnostics-1110.json.",
-    "next": "GetSu exact composed v2 native OAM follow-up and backdrop/HUD, then rebased f33 full native route with original weapons/powerups. Prince post-pit timing remains open. Shared lag reduction does not finish the roster or powers matrix. Current verified nightly is f33c7b19."
+    "next": "Getsu native HUD and background palette then combined f33 full native route and original weapon/powerup integration. Verified v2 sprite alignment on private 7b88. Prince post-pit timing remains open. Shared lag reduction does not finish the roster or powers matrix. Current verified nightly is f33c7b19."
   },
   "current_shared_cadence_helper_and_roster_1110": {
     "status": "PUBLIC_SHARED_CADENCE_AND_SCROOGE_SCROLL_IN_MEASURED_PRIVATE_GETSU_CPU_11_PRINCE_TWO_PITS_NATIVE_PASS",

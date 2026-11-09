@@ -12,6 +12,7 @@ from prepare_selected_native_packet_v1 import R, prepare, sha
 
 CONTROLLER = R / 'tools/playthroughs/getsu_fuma_host_1110.lua'
 RENDER = R / 'build/getsu-host-render-1110/proof.json'
+RENDER_V2 = R / 'build/getsu-host-render-1110-v2/proof.json'
 SYMBOLS = '''Player_X_Position Player_PageLoc Player_Y_Position Player_Y_HighPos Player_State
 ScreenLeft_X_Pos ScreenLeft_PageLoc GameEngineSubroutine NumberofLives SelectedCharacter WorldNumber
 LevelNumber OperMode OperMode_Task Enemy_X_Position Enemy_PageLoc Enemy_Y_Position Enemy_Flag Enemy_ID
@@ -22,7 +23,8 @@ PROBE_SYMBOLS = ('CurrentOAMOffset', 'RgOamRotation', 'CurrentBankC')
 
 def stage_packet(out, rom, source_proof, smoke=False, probe=False):
     proof = json.loads(source_proof.read_text())
-    rendering = json.loads(RENDER.read_text())
+    render_proof = RENDER_V2 if proof.get('renderer_installed') else RENDER
+    rendering = json.loads(render_proof.read_text())
     assert proof['passed'] and rendering['passed']
     digest = sha(rom)
     assert digest == proof['expected_memory_only_SHA256'] and proof['parent_SHA256'] == Render.Owner.PIN
@@ -44,7 +46,7 @@ def stage_packet(out, rom, source_proof, smoke=False, probe=False):
               f'tileAttribute={address(b,"MTileAttribute")},smoke={str(smoke).lower()},'
               f'probe={str(probe).lower()},ram={{{ram}}},atlas={{{atlas_bytes}}}}}\n')
     source = CONTROLLER.read_text(encoding='utf-8')
-    prepare(out, rom, config + source, {Path(__file__), CONTROLLER, source_proof, RENDER, atlas},
+    prepare(out, rom, config + source, {Path(__file__), CONTROLLER, source_proof, render_proof, atlas},
             expected=digest, timeout=180, allow_interactive=True,
             scope='Private Getsu normal inputs, actual selector, native OAM/CHR and sword, ' +
                   ('first pipe only.' if smoke else 'full 1-1 into active 1-2.'))
@@ -62,12 +64,16 @@ def main():
     if args.rom:
         stage_packet(out, args.rom.resolve(), proof, args.smoke, args.visual_probe)
         return
-    import check_getsu_loaded_stage_1110 as Runtime
+    receipt = json.loads(proof.read_text())
+    if receipt.get('renderer_installed'):
+        import check_getsu_loaded_stage_v2_1110 as Runtime
+    else:
+        import check_getsu_loaded_stage_1110 as Runtime
 
     assert out.is_relative_to(R / 'build') and not out.exists()
     out.mkdir()
     _, trial, *_ = Runtime.compose(out)
-    expected = json.loads(proof.read_text())['expected_memory_only_SHA256']
+    expected = receipt['expected_memory_only_SHA256']
     assert Runtime.SHA(trial['raw']) == expected
     rom = out / 'candidate.nes'
     rom.write_bytes(trial['raw'])
