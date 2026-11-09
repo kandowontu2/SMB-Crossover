@@ -4,12 +4,12 @@ The functional roster pass is not complete. This inventory separates source
 placements from actual route verification; it is not the final all-character list.
 
 Inventory fixture SHA256: `128915e97e78891a585aa8f9fd904c166ca64dcd6dd1ee395fc68fd505c1e72c`.
-Current nightly SHA256: `76bd6772112ec63d086865210f4e20f62f59156d182136f23bd627db0df3d811`.
+Current nightly SHA256: `a1c28fdf112ec63d086865210f4e20f62f59156d182136f23bd627db0df3d811`.
 
 Camera-entry fixes are delivered. Full native routes on parent `f2050c19` verify
 Mini's three lifts, Thomas's six lifts, and both Goku/Karnov lifts spawning at
 relative X286–287, followed by actual support and assisted crossings into 1-2.
-The `76bd6772` successor preserves the camera admission and placement bytes.
+The `a1c28fdf` successor preserves the camera admission and placement bytes.
 It shortens Mini's already-seen helper path and source-qualifies native actor
 bounds across all seven platform types; actual construction remains unchanged. Its actual Downloads launch
 repeats Mini's route and matches audio and helper evidence. Goku/Karnov retain
