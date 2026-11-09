@@ -4,7 +4,7 @@ The functional roster pass is not complete. This inventory separates source
 placements from actual route verification; it is not the final all-character list.
 
 Inventory fixture SHA256: `128915e97e78891a585aa8f9fd904c166ca64dcd6dd1ee395fc68fd505c1e72c`.
-Current nightly SHA256: `705906f45d3e09d5ebed30f2a9ac15295283a0ca41eb00879ce08fb2f020c7fe`.
+Current nightly SHA256: `6bd5e4b1976e26ecccd9b7c0512944020d6eb7a6e2c8c35ab50c53d0441e7491`.
 
 Camera-entry audit on this successor: Mini's three lifts spawn beyond the right
 edge and all assisted crossings pass. Thomas's six lifts still use player-distance
@@ -12,6 +12,11 @@ admission; Goku/Karnov's second lift is still selected by player position while
 the first uses a single owned slot. Their camera-entry fixes are pending. The
 shared generic manager already uses a camera-relative margin. Do not interpret
 Mini's verified fix as verification of every helper manager.
+Private camera candidate `5444f3e3` now passes full native routes for Thomas,
+Goku and Karnov, with every authored helper constructed at relative X286–287
+before entering the screen and every assisted crossing verified. Its rebase
+onto the current performance build remains unpublished pending combined-ROM
+native tests. No placement coordinates changed.
 Bub/Bob added no helper platforms. Earlier route proofs below retain their stated hashes.
 Thomas's two late placements were added on d0b445a7; other placements are unchanged. The original admission fixture belongs to its stated earlier hash.
 `tools/audit/inventory_named_helpers_1101_v2.py` verified identical installed and
