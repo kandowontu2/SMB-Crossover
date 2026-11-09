@@ -4,7 +4,16 @@ The functional roster pass is not complete. This inventory separates source
 placements from actual route verification; it is not the final all-character list.
 
 Inventory fixture SHA256: `128915e97e78891a585aa8f9fd904c166ca64dcd6dd1ee395fc68fd505c1e72c`.
-Current nightly SHA256: `ba3cba071547402fd81398d8b69659fa1b7d20cef9dfcda4df3fe8554ec592de`.
+Current nightly SHA256: `94650fbc11ede25b9d08e579bdc6b1d6da81fca8f29c6b0c25dadad2e685ede1`.
+
+The Giant nightly repeats Mini's actual Downloads 1-1 clear, boarding all three
+existing lifts with unchanged positions and timing. It adds no Giant helper.
+[Delivery receipt](../../build/mega-giant-delivery-1110/verified-delivery.json)
+
+Pending user-requested assistance: Mini Mario and Karnov, Up + Select to spawn
+or replace one small vertical platform directly below the player. This is a
+dynamic player-position placement, not a fixed stage coordinate; it is not yet
+implemented in the current nightly.
 
 The shared side-collision update repeats the actual Downloads Mini 1-1 route,
 including offscreen construction and boarding all three lifts, with the same
