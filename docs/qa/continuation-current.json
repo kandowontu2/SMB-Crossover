@@ -1,4 +1,19 @@
 {
+  "mini_shared_game_loop_tail_1110": {
+    "status": "DELIVERED_SHARED_FRAME_SAVINGS_4_ACTIVE_GAMEPLAY_MISSES_ZERO_LAG_UNFINISHED",
+    "ROM_SHA256": "29aa4f8df07425dfe6dcdaaa431421c78347adbca5979c332edce69c79367cf5",
+    "IPS_SHA256": "9568ae64198a4c85a6b1742e78e756c20f54f3415cb9956bc89bffbfcbf3d6b6",
+    "receipt": "build/mini-shared-game-loop-tail-delivery-1110/verified-delivery.json",
+    "candidate": "build/mini-shared-game-loop-tail-native-1110/candidate.nes",
+    "proof_SHA256": "e1fa5c21e0a6e9cf2e4b6222d3a85c1622b94fc86eb1aa677798de7a6704cf07",
+    "timing_SHA256": "a9b22f8e015f0fcb0381e4c892f0fc6ad59ce211c14a10ed468069485c88eda5",
+    "cadence": {"missed_reads": 4, "physical": 3500, "updates": 3500, "zero_update": 4},
+    "performance": "Shared tail saves exactly 27 CPU cycles per complete GameLoop. Active foreground 65,947,879 cycles versus 66,042,379 on DD, saving 94,500 with the same cadence. Fixed126 spans 8352..8355 and 8365..8369. Exact DD final-minus reproduces the frozen 75 foreground cases plus real IRQ, lag/normal NMI and nested IRQ results, including Rogue and SMB2.",
+    "verification": "Exact candidate and actual Downloads clear nonshortcut 1-1 into active 1-2 with both lives and all three native lifts. Idle/walk/jump, earned mushroom, concurrent GBC fireballs and corrected native damage/DMA pass. Route audio, lift and timing receipts match the candidate. Automatic patch guard and IPS roundtrip passed; no backup.",
+    "next": "Exact DD four-cut audit build/mini-dd-lag-context-1110/capture/timing.json SHA8fcd5e6fb5dc3d7020317edc749a754b65c4d26d45a018573e136773439c0c5b. Missed frames 1456/1460/1505/3103 at player X688/694/712/1909 by 186/286/101/126 cycles. X725 is recovered on DD. Separate DD1460 foreground result build/mini-dd-clear-and-nmi-profile-1110/capture/instruction-sample.json SHAcfd04383010022f4aed51bc402ad9f096c7ff8315a1878bf1d74d252cde06bdb proves 13 loop iterations and 343 cycles in bank2 BFDD..BFEE before provenance. The combined tool stopped correctly after its foreground sample, before the later requested NMI; run the dedicated NMI observer. The parser retry is in CPU qualification, including all retained shadow writes and real ISR guards. Zero active Mini lag and full roster remain unfinished.",
+    "helper_capacity": "6-3 record 20 left X2600 has Easy camera-left X2313–2344 and Hard X2320–2344. Four stock ID29 drops at X2256/2320/2384/2448. The first stock actor retires at camera-left X2329, before helper entry in both modes. This is a source-backed retry opportunity; no natural all-six occupied route or safe final implementation yet. Scrooge 3-3 v7 remains a private assisted crossing pass.",
+    "storage": "44 superseded raw logs/CSV and 100 byte-identical empty session markers removed. Native results, current canonical marker, bindings, budget receipts, timing and screenshots retained. See docs/qa/cleanup-mini-lag-diagnostics-1110.json. Root continues sole Mesen queue."
+  },
   "mini_shared_contact_draw_1110": {
     "status": "DELIVERED_4_ACTIVE_GAMEPLAY_MISSES_ZERO_LAG_UNFINISHED",
     "ROM_SHA256": "dd805e86b5d22cd7b7b3222915b821a92bc882ef63a139e5e3b6def7186e8a13",
